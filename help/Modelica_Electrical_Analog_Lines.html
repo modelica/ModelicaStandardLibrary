@@ -1,6 +1,9 @@
 <HTML>
 <HEAD><META name="HTML-Generator" content="Dymola"><TITLE>Modelica</TITLE></HEAD>
 <BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Lines<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><A NAME="Modelica.Electrical.Analog.Lines"></A><A HREF="Modelica_Electrical_Analog.html#Modelica.Electrical.Analog"
 >Modelica.Electrical.Analog</A>.Lines</H2>
 <A HREF="Modelica_Electrical_Analog_Lines.html#Modelica.Electrical.Analog.Lines.OLine"
@@ -25,11 +28,11 @@ and LC distributed line models.
 <dt>
 <b>Main Authors:</b>
 <dd>
-<a href="http://www.eas.iis.fhg.de/~clauss/">Christoph Clau&szlig;</a>
+<a href="http://people.eas.iis.fhg.de/Christoph.Clauss/">Christoph Clau&szlig;</a>
     &lt;<a href="mailto:clauss@eas.iis.fhg.de">clauss@eas.iis.fhg.de</a>&gt;<br>
-    <a href="http://www.eas.iis.fhg.de/~haase/">Joachim Haase;</a> 
+    <a href="http://people.eas.iis.fhg.de/Joachim.Haase/">Joachim Haase;</a> 
     &lt;<a href="mailto:haase@eas.iis.fhg.de">haase@eas.iis.fhg.de</a>&gt;<br>
-    <a href="http://www.eas.iis.fhg.de/~schneider/">Andr&eacute; Schneider</a> 
+    <a href="http://people.eas.iis.fhg.de/Andre.Schneider/">Andr&eacute; Schneider</a> 
     &lt;<a href="mailto:schneider@eas.iis.fhg.de">schneider@eas.iis.fhg.de</a>&gt;<br>
     Fraunhofer Institute for Integrated Circuits<br>
     Design Automation Department<br>
@@ -54,7 +57,28 @@ Modelica in file "Modelica/package.mo".</i><br>
 </dl>
 <pre>
 </PRE><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Electrical_Analog_Lines.html#Modelica.Electrical.Analog.Lines.OLine"
+>OLine</A>
+</TD><TD>Lossy Transmission Line</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Analog_Lines.html#Modelica.Electrical.Analog.Lines.ULine"
+>ULine</A>
+</TD><TD>Lossy RC Line</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Analog_Lines.html#Modelica.Electrical.Analog.Lines.TLine1"
+>TLine1</A>
+</TD><TD>Lossless transmission line with characteristic impedance Z0 and transmission delay TD</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Analog_Lines.html#Modelica.Electrical.Analog.Lines.TLine2"
+>TLine2</A>
+</TD><TD>Lossless transmission line with characteristic impedance Z0, frequency F and normalized length NL</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Analog_Lines.html#Modelica.Electrical.Analog.Lines.TLine3"
+>TLine3</A>
+</TD><TD>Lossless transmission line with characteristic impedance Z0 and frequency F</TD></TR>
+</TABLE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE OLine<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Electrical.Analog.Lines.OLineI.png" ALT="Modelica.Electrical.Analog.Lines.OLine" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Electrical.Analog.Lines.OLine"></A><A HREF="Modelica_Electrical_Analog_Lines.html#Modelica.Electrical.Analog.Lines"
 >Modelica.Electrical.Analog.Lines</A>.OLine</H2>
@@ -114,29 +138,34 @@ Lossy Transmission Line.
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Current"
 >SI.Current</A> i2;
   <font color="blue">parameter </font>Real r(
-    <font color="blue">final </font>min=Modelica.Constants.small, 
+    <font color="blue">final </font>min=Modelica.Constants.small,
     unit=&quot;Ohm/m&quot;) = 1 <font color="darkgreen">&quot;Resistance per meter&quot;</font>;
   <font color="blue">parameter </font>Real l(
-    <font color="blue">final </font>min=Modelica.Constants.small, 
+    <font color="blue">final </font>min=Modelica.Constants.small,
     unit=&quot;H/m&quot;) = 1 <font color="darkgreen">&quot;Inductance per meter&quot;</font>;
   <font color="blue">parameter </font>Real g(
-    <font color="blue">final </font>min=Modelica.Constants.small, 
+    <font color="blue">final </font>min=Modelica.Constants.small,
     unit=&quot;Siemens/m&quot;) = 1 <font color="darkgreen">&quot;Conductance per meter&quot;</font>;
   <font color="blue">parameter </font>Real c(
-    <font color="blue">final </font>min=Modelica.Constants.small, 
+    <font color="blue">final </font>min=Modelica.Constants.small,
     unit=&quot;F/m&quot;) = 1 <font color="darkgreen">&quot;Capacitance per meter&quot;</font>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
->SI.Length</A> length(<font color="blue">final </font>min=Modelica.Constants.small) = 1 <font color="darkgreen">&quot;Length of line&quot;</font>;
+>SI.Length</A> length(       <font color="blue">final </font>min=Modelica.Constants.small) = 1 <font color="darkgreen">
+    &quot;Length of line&quot;</font>;
   <font color="blue">parameter </font>Integer N(<font color="blue">final </font>min=1) = 1 <font color="darkgreen">&quot;Number of lumped segments&quot;</font>;
 <font color="blue">protected </font>
   <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Resistor"
->Basic.Resistor</A> R[N + 1](R=<font color="red">fill</font>(r*length/(N + 1), N + 1));
+>Basic.Resistor</A> R[
+                   N + 1](R=<font color="red">fill</font>(r*length/(N + 1), N + 1));
   <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Inductor"
->Basic.Inductor</A> L[N + 1](L=<font color="red">fill</font>(l*length/(N + 1), N + 1));
+>Basic.Inductor</A> L[
+                   N + 1](L=<font color="red">fill</font>(l*length/(N + 1), N + 1));
   <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Capacitor"
->Basic.Capacitor</A> C[N](C=<font color="red">fill</font>(c*length/(N), N));
+>Basic.Capacitor</A> C[
+                    N](C=<font color="red">fill</font>(c*length/(N), N));
   <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Conductor"
->Basic.Conductor</A> G[N](G=<font color="red">fill</font>(g*length/(N), N));
+>Basic.Conductor</A> G[
+                    N](G=<font color="red">fill</font>(g*length/(N), N));
 <font color="blue">equation </font>
   v13 = p1.v - p3.v;
   v23 = p2.v - p3.v;
@@ -156,6 +185,9 @@ Lossy Transmission Line.
 <font color="blue">end </font>OLine;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ULine<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Electrical.Analog.Lines.ULineI.png" ALT="Modelica.Electrical.Analog.Lines.ULine" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Electrical.Analog.Lines.ULine"></A><A HREF="Modelica_Electrical_Analog_Lines.html#Modelica.Electrical.Analog.Lines"
 >Modelica.Electrical.Analog.Lines</A>.ULine</H2>
@@ -210,19 +242,22 @@ lumped segments.
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Current"
 >SI.Current</A> i2;
   <font color="blue">parameter </font>Real r(
-    <font color="blue">final </font>min=Modelica.Constants.small, 
+    <font color="blue">final </font>min=Modelica.Constants.small,
     unit=&quot;Ohm/m&quot;) = 1 <font color="darkgreen">&quot;Resistance per meter&quot;</font>;
   <font color="blue">parameter </font>Real c(
-    <font color="blue">final </font>min=Modelica.Constants.small, 
+    <font color="blue">final </font>min=Modelica.Constants.small,
     unit=&quot;F/m&quot;) = 1 <font color="darkgreen">&quot;Capacitance per meter&quot;</font>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
->SI.Length</A> length(<font color="blue">final </font>min=Modelica.Constants.small) = 1 <font color="darkgreen">&quot;Length of line&quot;</font>;
+>SI.Length</A> length(       <font color="blue">final </font>min=Modelica.Constants.small) = 1 <font color="darkgreen">
+    &quot;Length of line&quot;</font>;
   <font color="blue">parameter </font>Integer N(<font color="blue">final </font>min=1) = 1 <font color="darkgreen">&quot;Number of lumped segments&quot;</font>;
 <font color="blue">protected </font>
   <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Resistor"
->Basic.Resistor</A> R[N + 1](R=<font color="red">fill</font>(r*length/(N + 1), N + 1));
+>Basic.Resistor</A> R[
+                   N + 1](R=<font color="red">fill</font>(r*length/(N + 1), N + 1));
   <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Capacitor"
->Basic.Capacitor</A> C[N](C=<font color="red">fill</font>(c*length/(N), N));
+>Basic.Capacitor</A> C[
+                    N](C=<font color="red">fill</font>(c*length/(N), N));
 <font color="blue">equation </font>
   v13 = p1.v - p3.v;
   v23 = p2.v - p3.v;
@@ -242,6 +277,9 @@ lumped segments.
 <font color="blue">end </font>ULine;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TLine1<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Electrical.Analog.Lines.TLine1I.png" ALT="Modelica.Electrical.Analog.Lines.TLine1" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Electrical.Analog.Lines.TLine1"></A><A HREF="Modelica_Electrical_Analog_Lines.html#Modelica.Electrical.Analog.Lines"
 >Modelica.Electrical.Analog.Lines</A>.TLine1</H2>
@@ -278,34 +316,38 @@ References:
 <H3>Modelica definition</H3>
 <PRE>
 <font color="blue">model</font> TLine1 <font color="darkgreen">
-  &quot;Lossless transmission line with characteristic impedance Z0 and transmission delay TD&quot;</font>
-   
-  <font color="darkgreen"></font>
-  <font color="blue">extends </font><A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.TwoPort"
+  &quot;Lossless transmission line with characteristic impedance Z0 and transmission delay TD&quot;</font> 
+  
+ <font color="blue">extends </font><A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.TwoPort"
 >Modelica.Electrical.Analog.Interfaces.TwoPort</A>;
-  <font color="darkgreen"></font>
-  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
->Modelica.SIunits.Resistance</A> Z0=1 <font color="darkgreen">&quot;Characteristic impedance&quot;</font>;
-  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
->Modelica.SIunits.Time</A> TD=1 <font color="darkgreen">&quot;Transmission delay&quot;</font>;
-  <font color="darkgreen"></font>
+  
+ <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Modelica.SIunits.Resistance</A> Z0 =     1 <font color="darkgreen">&quot;Characteristic impedance&quot;</font>;
+ <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
+>Modelica.SIunits.Time</A> TD =     1 <font color="darkgreen">&quot;Transmission delay&quot;</font>;
+  
 <font color="blue">protected </font>
-  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+ <A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
 >Modelica.SIunits.Voltage</A> er;
-  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+ <A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
 >Modelica.SIunits.Voltage</A> es;
 <font color="blue">equation </font>
-  <font color="darkgreen"></font>
-  <font color="red">assert</font>(Z0 &gt; 0, &quot;Z0 has to be positive&quot;);
-  <font color="red">assert</font>(TD &gt; 0, &quot;TD has to be positive&quot;);
-  i1 = (v1 - es)/Z0;
-  i2 = (v2 - er)/Z0;
-  es = 2*<font color="red">delay</font>(v2, TD) - <font color="red">delay</font>(er, TD);
-  er = 2*<font color="red">delay</font>(v1, TD) - <font color="red">delay</font>(es, TD);
-  <font color="darkgreen"></font>
+  
+  <font color="red">
+ assert</font>(Z0 &gt; 0, &quot;Z0 has to be positive&quot;);
+  <font color="red">
+ assert</font>(TD &gt; 0, &quot;TD has to be positive&quot;);
+ i1 = (v1 - es)/Z0;
+ i2 = (v2 - er)/Z0;
+ es = 2*<font color="red">delay</font>(v2, TD) -<font color="red"> delay</font>(er, TD);
+ er = 2*<font color="red">delay</font>(v1, TD) -<font color="red"> delay</font>(es, TD);
+  
 <font color="blue">end </font>TLine1;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TLine2<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Electrical.Analog.Lines.TLine2I.png" ALT="Modelica.Electrical.Analog.Lines.TLine2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Electrical.Analog.Lines.TLine2"></A><A HREF="Modelica_Electrical_Analog_Lines.html#Modelica.Electrical.Analog.Lines"
 >Modelica.Electrical.Analog.Lines</A>.TLine2</H2>
@@ -347,19 +389,18 @@ References:
 <H3>Modelica definition</H3>
 <PRE>
 <font color="blue">model</font> TLine2 <font color="darkgreen">
-  &quot;Lossless transmission line with characteristic impedance Z0, frequency F and normalized length NL&quot;</font>
-   
-  <font color="darkgreen"></font>
+  &quot;Lossless transmission line with characteristic impedance Z0, frequency F and normalized length NL&quot;</font> 
+  
   <font color="blue">extends </font><A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.TwoPort"
 >Modelica.Electrical.Analog.Interfaces.TwoPort</A>;
-  <font color="darkgreen"></font>
+  
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
->Modelica.SIunits.Resistance</A> Z0=1 <font color="darkgreen">&quot;Characteristic impedance&quot;</font>;
+>Modelica.SIunits.Resistance</A> Z0 =      1 <font color="darkgreen">&quot;Characteristic impedance&quot;</font>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Frequency"
->Modelica.SIunits.Frequency</A> F=1 <font color="darkgreen">&quot;Frequency&quot;</font>;
+>Modelica.SIunits.Frequency</A> F =      1 <font color="darkgreen">&quot;Frequency&quot;</font>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
->Modelica.SIunits.Length</A> NL=1 <font color="darkgreen">&quot;Normalized length&quot;</font>;
-  <font color="darkgreen"></font>
+>Modelica.SIunits.Length</A> NL =      1 <font color="darkgreen">&quot;Normalized length&quot;</font>;
+  
 <font color="blue">protected </font>
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
 >Modelica.SIunits.Voltage</A> er;
@@ -368,19 +409,22 @@ References:
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
 >Modelica.SIunits.Time</A> TD;
 <font color="blue">equation </font>
-  <font color="darkgreen"></font>
+  
   <font color="red">assert</font>(Z0 &gt; 0, &quot;Z0 has to be positive&quot;);
   <font color="red">assert</font>(NL &gt; 0, &quot;NL has to be positive&quot;);
   <font color="red">assert</font>(F &gt; 0, &quot;F  has to be positive&quot;);
   TD = NL/F;
   i1 = (v1 - es)/Z0;
   i2 = (v2 - er)/Z0;
-  es = 2*<font color="red">delay</font>(v2, TD) - <font color="red">delay</font>(er, TD);
-  er = 2*<font color="red">delay</font>(v1, TD) - <font color="red">delay</font>(es, TD);
-  <font color="darkgreen"></font>
+  es = 2*<font color="red">delay</font>(v2, TD) -<font color="red"> delay</font>(er, TD);
+  er = 2*<font color="red">delay</font>(v1, TD) -<font color="red"> delay</font>(es, TD);
+  
 <font color="blue">end </font>TLine2;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TLine3<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Electrical.Analog.Lines.TLine3I.png" ALT="Modelica.Electrical.Analog.Lines.TLine3" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Electrical.Analog.Lines.TLine3"></A><A HREF="Modelica_Electrical_Analog_Lines.html#Modelica.Electrical.Analog.Lines"
 >Modelica.Electrical.Analog.Lines</A>.TLine3</H2>
@@ -422,17 +466,16 @@ Lossless transmission line with characteristic impedance Z0 and frequency F
 <H3>Modelica definition</H3>
 <PRE>
 <font color="blue">model</font> TLine3 <font color="darkgreen">
-  &quot;Lossless transmission line with characteristic impedance Z0 and frequency F&quot;</font>
-   
-  <font color="darkgreen"></font>
+  &quot;Lossless transmission line with characteristic impedance Z0 and frequency F&quot;</font> 
+  
   <font color="blue">extends </font><A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.TwoPort"
 >Modelica.Electrical.Analog.Interfaces.TwoPort</A>;
-  <font color="darkgreen"></font>
+  
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
->Modelica.SIunits.Resistance</A> Z0=1 <font color="darkgreen">&quot;Natural impedance&quot;</font>;
+>Modelica.SIunits.Resistance</A> Z0 =      1 <font color="darkgreen">&quot;Natural impedance&quot;</font>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Frequency"
->Modelica.SIunits.Frequency</A> F=1 <font color="darkgreen">&quot;Frequency&quot;</font>;
-  <font color="darkgreen"></font>
+>Modelica.SIunits.Frequency</A> F =      1 <font color="darkgreen">&quot;Frequency&quot;</font>;
+  
 <font color="blue">protected </font>
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
 >Modelica.SIunits.Voltage</A> er;
@@ -441,19 +484,19 @@ Lossless transmission line with characteristic impedance Z0 and frequency F
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
 >Modelica.SIunits.Time</A> TD;
 <font color="blue">equation </font>
-  <font color="darkgreen"></font>
+  
   <font color="red">assert</font>(Z0 &gt; 0, &quot;Z0 has to be positive&quot;);
   <font color="red">assert</font>(F &gt; 0, &quot;F  has to be positive&quot;);
   TD = 1/F/4;
   i1 = (v1 - es)/Z0;
   i2 = (v2 - er)/Z0;
-  es = 2*<font color="red">delay</font>(v2, TD) - <font color="red">delay</font>(er, TD);
-  er = 2*<font color="red">delay</font>(v1, TD) - <font color="red">delay</font>(es, TD);
-  <font color="darkgreen"></font>
+  es = 2*<font color="red">delay</font>(v2, TD) -<font color="red"> delay</font>(er, TD);
+  er = 2*<font color="red">delay</font>(v1, TD) -<font color="red"> delay</font>(es, TD);
+  
 <font color="blue">end </font>TLine3;
 </PRE>
 <HR>
-<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Tue Dec 17 13:39:38 2002
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Jun 30 17:43:19 2004
 .
 </address></BODY>
 </HTML>

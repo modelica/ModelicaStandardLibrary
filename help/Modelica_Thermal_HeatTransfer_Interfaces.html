@@ -1,10 +1,11 @@
 <HTML>
 <HEAD><META name="HTML-Generator" content="Dymola"><TITLE>Modelica</TITLE></HEAD>
 <BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Interfaces<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><A NAME="Modelica.Thermal.HeatTransfer.Interfaces"></A><A HREF="Modelica_Thermal_HeatTransfer.html#Modelica.Thermal.HeatTransfer"
 >Modelica.Thermal.HeatTransfer</A>.Interfaces</H2>
-<A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.HeatPort"
-><IMG SRC="Modelica.Thermal.HeatTransfer.Interfaces.HeatPortI.png" ALT="Modelica.Thermal.HeatTransfer.Interfaces.HeatPort" WIDTH=80  HEIGHT=80 ></A>
 <A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a"
 ><IMG SRC="Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_aI.png" ALT="Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a" WIDTH=80  HEIGHT=80 ></A>
 <A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_b"
@@ -12,7 +13,25 @@
 <A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.Element1D"
 ><IMG SRC="Modelica.Thermal.HeatTransfer.Interfaces.Element1DI.png" ALT="Modelica.Thermal.HeatTransfer.Interfaces.Element1D" WIDTH=80  HEIGHT=80 ></A>
 <P><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.HeatPort"
+>HeatPort</A>
+</TD><TD>Thermal port for 1-dim. heat transfer</TD></TR>
+<TR><TD><A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a"
+>HeatPort_a</A>
+</TD><TD>Thermal port for 1-dim. heat transfer (filled rectangular icon)</TD></TR>
+<TR><TD><A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_b"
+>HeatPort_b</A>
+</TD><TD>Thermal port for 1-dim. heat transfer (unfilled rectangular icon)</TD></TR>
+<TR><TD><A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.Element1D"
+>Element1D</A>
+</TD><TD>Partial heat transfer element with two HeatPort connectors that does not store energy</TD></TR>
+</TABLE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE HeatPort_a<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_aI.png" ALT="Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a"></A><A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces"
 >Modelica.Thermal.HeatTransfer.Interfaces</A>.HeatPort_a</H2>
@@ -40,13 +59,16 @@ class.</p>
 <PRE>
 <font color="blue">connector</font> HeatPort_a <font color="darkgreen">
   &quot;Thermal port for 1-dim. heat transfer (filled rectangular icon)&quot;</font> 
-  <font color="darkgreen"></font>
+  
   <font color="blue">extends </font><A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.HeatPort"
 >HeatPort</A>;
-  <font color="darkgreen"></font>
+  
 <font color="blue">end </font>HeatPort_a;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Element1D<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Thermal.HeatTransfer.Interfaces.Element1DI.png" ALT="Modelica.Thermal.HeatTransfer.Interfaces.Element1D" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Thermal.HeatTransfer.Interfaces.Element1D"></A><A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces"
 >Modelica.Thermal.HeatTransfer.Interfaces</A>.Element1D</H2>
@@ -72,9 +94,8 @@ constitutive equations for many types of heat transfer components.
 <H3>Modelica definition</H3>
 <PRE>
 <font color="blue">partial </font><font color="blue">model</font> Element1D <font color="darkgreen">
-  &quot;Partial heat transfer element with two HeatPort connectors that does not store energy&quot;</font>
-   
-  <font color="darkgreen"></font>
+  &quot;Partial heat transfer element with two HeatPort connectors that does not store energy&quot;</font> 
+  
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.HeatFlowRate"
 >SI.HeatFlowRate</A> Q_dot <font color="darkgreen">&quot;Heat flow rate from port_a -&gt; port_b&quot;</font>;
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
@@ -91,6 +112,9 @@ constitutive equations for many types of heat transfer components.
 <font color="blue">end </font>Element1D;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE HeatPort_b<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_bI.png" ALT="Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_b" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_b"></A><A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces"
 >Modelica.Thermal.HeatTransfer.Interfaces</A>.HeatPort_b</H2>
@@ -117,17 +141,18 @@ class.</p>
 <H3>Modelica definition</H3>
 <PRE>
 <font color="blue">connector</font> HeatPort_b <font color="darkgreen">
-  &quot;Thermal port for 1-dim. heat transfer (unfilled rectangular icon)&quot;</font>
-   
-  <font color="darkgreen"></font>
+  &quot;Thermal port for 1-dim. heat transfer (unfilled rectangular icon)&quot;</font> 
+  
   <font color="blue">extends </font><A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.HeatPort"
 >HeatPort</A>;
-  <font color="darkgreen"></font>
+  
 <font color="blue">end </font>HeatPort_b;
 </PRE>
 <HR>
-<H2><IMG SRC="Modelica.Thermal.HeatTransfer.Interfaces.HeatPortI.png" ALT="Modelica.Thermal.HeatTransfer.Interfaces.HeatPort" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Thermal.HeatTransfer.Interfaces.HeatPort"></A><A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces"
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE HeatPort<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Thermal.HeatTransfer.Interfaces.HeatPort"></A><A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces"
 >Modelica.Thermal.HeatTransfer.Interfaces</A>.HeatPort</H2>
 <B>Thermal port for 1-dim. heat transfer</B><p>
 <H3>Modelica definition</H3>
@@ -141,7 +166,7 @@ class.</p>
 <font color="blue">end </font>HeatPort;
 </PRE>
 <HR>
-<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Dec 11 11:14:24 2002
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Jun 30 17:44:15 2004
 .
 </address></BODY>
 </HTML>

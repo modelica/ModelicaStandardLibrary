@@ -1,6 +1,9 @@
 <HTML>
 <HEAD><META name="HTML-Generator" content="Dymola"><TITLE>Modelica</TITLE></HEAD>
 <BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Interfaces<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><A NAME="Modelica.Electrical.Analog.Interfaces"></A><A HREF="Modelica_Electrical_Analog.html#Modelica.Electrical.Analog"
 >Modelica.Electrical.Analog</A>.Interfaces</H2>
 <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.Pin"
@@ -35,9 +38,9 @@ analog electrical components.
 <dt>
 <b>Main Authors:</b>
 <dd>
-<a href="http://www.eas.iis.fhg.de/~clauss/">Christoph Clau&szlig;</a>
+<a href="http://people.eas.iis.fhg.de/Christoph.Clauss/">Christoph Clau&szlig;</a>
     &lt;<a href="mailto:clauss@eas.iis.fhg.de">clauss@eas.iis.fhg.de</a>&gt;<br>
-    <a href="http://www.eas.iis.fhg.de/~schneider/">Andr&eacute; Schneider</a>
+    <a href="http://people.eas.iis.fhg.de/Andre.Schneider/">Andr&eacute; Schneider</a>
     &lt;<a href="mailto:schneider@eas.iis.fhg.de">schneider@eas.iis.fhg.de</a>&gt;<br>
     Fraunhofer Institute for Integrated Circuits<br>
     Design Automation Department<br>
@@ -62,7 +65,43 @@ Modelica in file "Modelica/package.mo".</i><br>
 </dl>
 <pre>
 </PRE><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.Pin"
+>Pin</A>
+</TD><TD>Pin of an electrical component</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.PositivePin"
+>PositivePin</A>
+</TD><TD>Positive pin of an electric component</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.NegativePin"
+>NegativePin</A>
+</TD><TD>Negative pin of an electric component</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.TwoPin"
+>TwoPin</A>
+</TD><TD>Component with one electrical port</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
+>OnePort</A>
+</TD><TD>Component with two electrical pins p and n and current i from p to n</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.TwoPort"
+>TwoPort</A>
+</TD><TD>Component with two electrical ports, including current</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.AbsoluteSensor"
+>AbsoluteSensor</A>
+</TD><TD>Base class to measure the absolute value of a pin variable</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.RelativeSensor"
+>RelativeSensor</A>
+</TD><TD>Base class to measure a relative variable between two pins</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.VoltageSource"
+>VoltageSource</A>
+</TD><TD>Interface for voltage sources</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.CurrentSource"
+>CurrentSource</A>
+</TD><TD>Interface for current sources</TD></TR>
+</TABLE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Pin<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Electrical.Analog.Interfaces.PinI.png" ALT="Modelica.Electrical.Analog.Interfaces.Pin" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Electrical.Analog.Interfaces.Pin"></A><A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces"
 >Modelica.Electrical.Analog.Interfaces</A>.Pin</H2>
@@ -78,6 +117,9 @@ Modelica in file "Modelica/package.mo".</i><br>
 <font color="blue">end </font>Pin;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE OnePort<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Electrical.Analog.Interfaces.OnePortI.png" ALT="Modelica.Electrical.Analog.Interfaces.OnePort" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Electrical.Analog.Interfaces.OnePort"></A><A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces"
 >Modelica.Electrical.Analog.Interfaces</A>.OnePort</H2>
@@ -97,8 +139,7 @@ This current is provided explicitly as current i.
 <H3>Modelica definition</H3>
 <PRE>
 <font color="blue">partial </font><font color="blue">model</font> OnePort <font color="darkgreen">
-  &quot;Component with two electrical pins p and n and current i from p to n&quot;</font>
-   
+  &quot;Component with two electrical pins p and n and current i from p to n&quot;</font> 
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
 >SI.Voltage</A> v <font color="darkgreen">&quot;Voltage drop between the two pins (= p.v - n.v)&quot;</font>;
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Current"
@@ -114,6 +155,9 @@ This current is provided explicitly as current i.
 <font color="blue">end </font>OnePort;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TwoPort<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Electrical.Analog.Interfaces.TwoPortI.png" ALT="Modelica.Electrical.Analog.Interfaces.TwoPort" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Electrical.Analog.Interfaces.TwoPort"></A><A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces"
 >Modelica.Electrical.Analog.Interfaces</A>.TwoPort</H2>
@@ -149,6 +193,9 @@ This current is provided explicitly as current i.
 <font color="blue">end </font>TwoPort;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PositivePin<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Electrical.Analog.Interfaces.PositivePinI.png" ALT="Modelica.Electrical.Analog.Interfaces.PositivePin" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Electrical.Analog.Interfaces.PositivePin"></A><A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces"
 >Modelica.Electrical.Analog.Interfaces</A>.PositivePin</H2>
@@ -172,6 +219,9 @@ component.</p><pre></PRE>
 <font color="blue">end </font>PositivePin;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE NegativePin<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Electrical.Analog.Interfaces.NegativePinI.png" ALT="Modelica.Electrical.Analog.Interfaces.NegativePin" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Electrical.Analog.Interfaces.NegativePin"></A><A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces"
 >Modelica.Electrical.Analog.Interfaces</A>.NegativePin</H2>
@@ -195,6 +245,9 @@ component.</p><pre></PRE>
 <font color="blue">end </font>NegativePin;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TwoPin<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Electrical.Analog.Interfaces.TwoPinI.png" ALT="Modelica.Electrical.Analog.Interfaces.TwoPin" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Electrical.Analog.Interfaces.TwoPin"></A><A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces"
 >Modelica.Electrical.Analog.Interfaces</A>.TwoPin</H2>
@@ -214,6 +267,9 @@ component.</p><pre></PRE>
 <font color="blue">end </font>TwoPin;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE AbsoluteSensor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Electrical.Analog.Interfaces.AbsoluteSensorI.png" ALT="Modelica.Electrical.Analog.Interfaces.AbsoluteSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Electrical.Analog.Interfaces.AbsoluteSensor"></A><A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces"
 >Modelica.Electrical.Analog.Interfaces</A>.AbsoluteSensor</H2>
@@ -225,14 +281,18 @@ component.</p><pre></PRE>
   &quot;Base class to measure the absolute value of a pin variable&quot;</font> 
   <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.RotationalSensor"
 >Modelica.Icons.RotationalSensor</A>;
-  <font color="darkgreen"></font>
+  
   <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.PositivePin"
 >PositivePin</A> p <font color="darkgreen">&quot;pin to be measured&quot;</font>;
   <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.OutPort"
->Modelica.Blocks.Interfaces.OutPort</A> outPort(<font color="blue">final </font>n=1);
+>Modelica.Blocks.Interfaces.OutPort</A> outPort(
+                                             <font color="blue">final </font>n=1);
 <font color="blue">end </font>AbsoluteSensor;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE RelativeSensor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Electrical.Analog.Interfaces.RelativeSensorI.png" ALT="Modelica.Electrical.Analog.Interfaces.RelativeSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Electrical.Analog.Interfaces.RelativeSensor"></A><A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces"
 >Modelica.Electrical.Analog.Interfaces</A>.RelativeSensor</H2>
@@ -244,18 +304,22 @@ component.</p><pre></PRE>
   &quot;Base class to measure a relative variable between two pins&quot;</font> 
   <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.RotationalSensor"
 >Modelica.Icons.RotationalSensor</A>;
-  <font color="darkgreen"></font>
+  
   <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.PositivePin"
 >PositivePin</A> p <font color="darkgreen">&quot;positive pin&quot;</font>;
   <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.NegativePin"
 >NegativePin</A> n <font color="darkgreen">&quot;negative pin&quot;</font>;
   <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.OutPort"
->Modelica.Blocks.Interfaces.OutPort</A> outPort(<font color="blue">final </font>n=1);
-  <font color="darkgreen"></font>
-  <font color="darkgreen"></font>
+>Modelica.Blocks.Interfaces.OutPort</A> outPort(
+                                             <font color="blue">final </font>n=1);
+  
+  
 <font color="blue">end </font>RelativeSensor;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE VoltageSource<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Electrical.Analog.Interfaces.VoltageSourceI.png" ALT="Modelica.Electrical.Analog.Interfaces.VoltageSource" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Electrical.Analog.Interfaces.VoltageSource"></A><A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces"
 >Modelica.Electrical.Analog.Interfaces</A>.VoltageSource</H2>
@@ -266,26 +330,30 @@ component.</p><pre></PRE>
 <TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
 <TR><TD>offset</TD><TD>0</TD><TD>Voltage offset [V]</TD></TR>
 <TR><TD>startTime</TD><TD>0</TD><TD>Time offset [s]</TD></TR>
-<TR><TD>signalSource</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+<TR><TD>signalSource</TD><TD>redeclare Modelica.Blocks.In...</TD><TD>&nbsp;</TD></TR>
 </TABLE>
 <H3>Modelica definition</H3>
 <PRE>
 <font color="blue">partial </font><font color="blue">model</font> VoltageSource <font color="darkgreen">&quot;Interface for voltage sources&quot;</font> 
   <font color="blue">extends </font><A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
 >OnePort</A>;
-  <font color="darkgreen"></font>
+  
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
->SI.Voltage</A> offset=0 <font color="darkgreen">&quot;Voltage offset&quot;</font>;
+>SI.Voltage</A> offset =      0 <font color="darkgreen">&quot;Voltage offset&quot;</font>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
->SI.Time</A> startTime=0 <font color="darkgreen">&quot;Time offset&quot;</font>;
+>SI.Time</A> startTime =      0 <font color="darkgreen">&quot;Time offset&quot;</font>;
   <font color="blue">replaceable </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SignalSource"
->Modelica.Blocks.Interfaces.SignalSource</A> signalSource(<font color="blue">final </font>offset={offset}
-      , <font color="blue">final </font>startTime={startTime});
+>Modelica.Blocks.Interfaces.SignalSource</A> signalSource(         <font color="blue">final </font>offset
+      =                                                                         {offset}, <font color="blue">final </font>
+      startTime={startTime});
 <font color="blue">equation </font>
   v = signalSource.outPort.signal[1];
 <font color="blue">end </font>VoltageSource;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE CurrentSource<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Electrical.Analog.Interfaces.CurrentSourceI.png" ALT="Modelica.Electrical.Analog.Interfaces.CurrentSource" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Electrical.Analog.Interfaces.CurrentSource"></A><A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces"
 >Modelica.Electrical.Analog.Interfaces</A>.CurrentSource</H2>
@@ -296,27 +364,28 @@ component.</p><pre></PRE>
 <TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
 <TR><TD>offset</TD><TD>0</TD><TD>Current offset [A]</TD></TR>
 <TR><TD>startTime</TD><TD>0</TD><TD>Time offset [s]</TD></TR>
-<TR><TD>signalSource</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+<TR><TD>signalSource</TD><TD>redeclare Modelica.Blocks.In...</TD><TD>&nbsp;</TD></TR>
 </TABLE>
 <H3>Modelica definition</H3>
 <PRE>
 <font color="blue">partial </font><font color="blue">model</font> CurrentSource <font color="darkgreen">&quot;Interface for current sources&quot;</font> 
   <font color="blue">extends </font><A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
 >OnePort</A>;
-  <font color="darkgreen"></font>
+  
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Current"
->SI.Current</A> offset=0 <font color="darkgreen">&quot;Current offset&quot;</font>;
+>SI.Current</A> offset =      0 <font color="darkgreen">&quot;Current offset&quot;</font>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
->SI.Time</A> startTime=0 <font color="darkgreen">&quot;Time offset&quot;</font>;
+>SI.Time</A> startTime =      0 <font color="darkgreen">&quot;Time offset&quot;</font>;
   <font color="blue">replaceable </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SignalSource"
->Modelica.Blocks.Interfaces.SignalSource</A> signalSource(<font color="blue">final </font>offset={offset}
-      , <font color="blue">final </font>startTime={startTime});
+>Modelica.Blocks.Interfaces.SignalSource</A> signalSource(         <font color="blue">final </font>offset
+      =                                                                         {offset}, <font color="blue">final </font>
+      startTime={startTime});
 <font color="blue">equation </font>
   i = signalSource.outPort.signal[1];
 <font color="blue">end </font>CurrentSource;
 </PRE>
 <HR>
-<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Dec 11 11:13:39 2002
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Jun 30 17:43:19 2004
 .
 </address></BODY>
 </HTML>

@@ -4,13 +4,13 @@ package Mechanics "Library for mechanical systems"
 extends Modelica.Icons.Library2;
 
 
-annotation (
+annotation(
   Window(
-    x=0.03, 
-    y=0.05, 
-    width=0.36, 
-    height=0.26, 
-    library=1, 
+    x=0.03,
+    y=0.05,
+    width=0.36,
+    height=0.26,
+    library=1,
     autolayout=1),
   Icon(
     Rectangle(extent=[-5, -40; 45, -70], style(
@@ -26,7 +26,7 @@ annotation (
         fillColor=0,
         fillPattern=1)),
     Line(points=[-10, -34; 72, -34; 72, -76; -10, -76], style(color=0))),
-    Documentation(info="<HTML>
+  Documentation(info="<HTML>
 <p>
 This package contains components to model <b>mechanical systems</b>.
 Currently, the following subpackages are available:</p>
@@ -55,6 +55,10 @@ model 3-dimensional mechanical systems.
 
 <p><b>Release Notes:</b></p>
 <ul>
+<li><i>Oct. 27, 2003</i>
+       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>
+       and <a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Christian Schweiger</a>:<br>
+       Bearing torque computation added to package <b>Rotational</b>.</li>
 <li><i>Oct. 21, 2002</i>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>
        and <a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Christian Schweiger</a>:<br>
@@ -75,7 +79,7 @@ model 3-dimensional mechanical systems.
 <br>
 
 
-<p><b>Copyright &copy; 1999-2002, Modelica Association and DLR.</b></p>
+<p><b>Copyright &copy; 1999-2003, Modelica Association and DLR.</b></p>
 
 <p><i>
 The Modelica package is <b>free</b> software; it can be redistributed and/or modified

@@ -4,31 +4,26 @@ package Examples "Examples for analog electrical packages"
 extends Modelica.Icons.Library2;
 
 
-annotation (  
+annotation (
   Window(
-    x=0.03, 
-    y=0.04, 
-    width=0.49, 
-    height=0.5, 
-    library=1, 
-    autolayout=1), 
+    x=0.03,
+    y=0.04,
+    width=0.49,
+    height=0.5,
+    library=1,
+    autolayout=1),
   Documentation(info="<html>
 <p>
-This package contains examples for the analog electrical packages.
-<ul>
-<li>Chuas circuit</li>
-<li>Cauer filter</li>
-<li>NAND gate</li>
-</ul>
+This package contains examples for the analog electrical package.
 </p>
 
 <dl>
 <dt>
 <b>Main Authors:</b>
 <dd>
-<a href=\"http://www.eas.iis.fhg.de/~clauss/\">Christoph Clau&szlig;</a>
+<a href=\"http://people.eas.iis.fhg.de/Christoph.Clauss/\">Christoph Clau&szlig;</a>
     &lt;<a href=\"mailto:clauss@eas.iis.fhg.de\">clauss@eas.iis.fhg.de</a>&gt;<br>
-    <a href=\"http://www.eas.iis.fhg.de/~schneider/\">Andr&eacute; Schneider</a>
+    <a href=\"http://people.eas.iis.fhg.de/Andre.Schneider/\">Andr&eacute; Schneider</a>
     &lt;<a href=\"mailto:schneider@eas.iis.fhg.de\">schneider@eas.iis.fhg.de</a>&gt;<br>
     Fraunhofer Institute for Integrated Circuits<br>
     Design Automation Department<br>

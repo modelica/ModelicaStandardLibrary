@@ -1,0 +1,708 @@
+<HTML>
+<HEAD><META name="HTML-Generator" content="Dymola"><TITLE>Modelica</TITLE></HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Basic<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Electrical.MultiPhase.Basic"></A><A HREF="Modelica_Electrical_MultiPhase.html#Modelica.Electrical.MultiPhase"
+>Modelica.Electrical.MultiPhase</A>.Basic</H2>
+<B>Basic components for electrical multiphase models</B>
+<P>
+<A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.Star"
+><IMG SRC="Modelica.Electrical.MultiPhase.Basic.StarI.png" ALT="Modelica.Electrical.MultiPhase.Basic.Star" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.Delta"
+><IMG SRC="Modelica.Electrical.MultiPhase.Basic.DeltaI.png" ALT="Modelica.Electrical.MultiPhase.Basic.Delta" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.PlugToPin_p"
+><IMG SRC="Modelica.Electrical.MultiPhase.Basic.PlugToPin_pI.png" ALT="Modelica.Electrical.MultiPhase.Basic.PlugToPin_p" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.PlugToPin_n"
+><IMG SRC="Modelica.Electrical.MultiPhase.Basic.PlugToPin_nI.png" ALT="Modelica.Electrical.MultiPhase.Basic.PlugToPin_n" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.Resistor"
+><IMG SRC="Modelica.Electrical.MultiPhase.Basic.ResistorI.png" ALT="Modelica.Electrical.MultiPhase.Basic.Resistor" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.Conductor"
+><IMG SRC="Modelica.Electrical.MultiPhase.Basic.ConductorI.png" ALT="Modelica.Electrical.MultiPhase.Basic.Conductor" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.Capacitor"
+><IMG SRC="Modelica.Electrical.MultiPhase.Basic.CapacitorI.png" ALT="Modelica.Electrical.MultiPhase.Basic.Capacitor" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.Inductor"
+><IMG SRC="Modelica.Electrical.MultiPhase.Basic.InductorI.png" ALT="Modelica.Electrical.MultiPhase.Basic.Inductor" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.SaturatingInductor"
+><IMG SRC="Modelica.Electrical.MultiPhase.Basic.SaturatingInductorI.png" ALT="Modelica.Electrical.MultiPhase.Basic.SaturatingInductor" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.Transformer"
+><IMG SRC="Modelica.Electrical.MultiPhase.Basic.TransformerI.png" ALT="Modelica.Electrical.MultiPhase.Basic.Transformer" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.VariableResistor"
+><IMG SRC="Modelica.Electrical.MultiPhase.Basic.VariableResistorI.png" ALT="Modelica.Electrical.MultiPhase.Basic.VariableResistor" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.VariableConductor"
+><IMG SRC="Modelica.Electrical.MultiPhase.Basic.VariableConductorI.png" ALT="Modelica.Electrical.MultiPhase.Basic.VariableConductor" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.VariableCapacitor"
+><IMG SRC="Modelica.Electrical.MultiPhase.Basic.VariableCapacitorI.png" ALT="Modelica.Electrical.MultiPhase.Basic.VariableCapacitor" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.VariableInductor"
+><IMG SRC="Modelica.Electrical.MultiPhase.Basic.VariableInductorI.png" ALT="Modelica.Electrical.MultiPhase.Basic.VariableInductor" WIDTH=80  HEIGHT=80 ></A>
+<P><P>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This package contains basic analog electrical multiphase components.
+</p>
+<dl>
+<p>
+  <dt><b>Main Authors:</b></dt>
+  <dd>
+  <a href="http://www.haumer.at/">Anton Haumer</a><br>
+  Technical Consulting & Electrical Engineering<br>
+  A-3423 St.Andrae-Woerdern<br>Austria<br>
+  email: <a href="mailto:a.haumer@haumer.at">a.haumer@haumer.at</a>
+  </dd>
+</p>
+<p>
+  <dt><b>Release Notes:</b></dt>
+  <dd>
+  <ul>
+  <li> v1.00 2004/06/25 Anton Haumer</li>
+  </ul>
+  </dd>
+<p>
+  <dt><b>Copyright:</b></dt>
+  <dd>Copyright &copy; 1998-2004, Modelica Association and Anton Haumer.<br>
+  <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
+  under the terms of the <b>Modelica license</b>, see the license conditions
+  and the accompanying <b>disclaimer</b> in the documentation of package
+  Modelica in file "Modelica/package.mo".</i></dd>
+</p>
+</dl>
+<pre></PRE><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.Star"
+>Star</A>
+</TD><TD>Star-connection</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.Delta"
+>Delta</A>
+</TD><TD>Delta (polygon) connection</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.PlugToPin_p"
+>PlugToPin_p</A>
+</TD><TD>Connect one (positive) Pin to a Plug Connector</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.PlugToPin_n"
+>PlugToPin_n</A>
+</TD><TD>Connect one (negative) Pin to a Plug connector</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.Resistor"
+>Resistor</A>
+</TD><TD>Ideal linear electrical resistors</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.Conductor"
+>Conductor</A>
+</TD><TD>Ideal linear electrical conductors</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.Capacitor"
+>Capacitor</A>
+</TD><TD>Ideal linear electrical capacitors</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.Inductor"
+>Inductor</A>
+</TD><TD>Ideal linear electrical inductors</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.SaturatingInductor"
+>SaturatingInductor</A>
+</TD><TD>Simple model of inductors with saturation</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.Transformer"
+>Transformer</A>
+</TD><TD>Multiphase Transformer</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.VariableResistor"
+>VariableResistor</A>
+</TD><TD>Ideal linear electrical resistors with variable resistance</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.VariableConductor"
+>VariableConductor</A>
+</TD><TD>Ideal linear electrical conductors with variable conductance</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.VariableCapacitor"
+>VariableCapacitor</A>
+</TD><TD>Ideal linear electrical capacitors with variable capacitance</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.VariableInductor"
+>VariableInductor</A>
+</TD><TD>Ideal linear electrical inductors with variable inductance</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Star<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.MultiPhase.Basic.StarI.png" ALT="Modelica.Electrical.MultiPhase.Basic.Star" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.MultiPhase.Basic.Star"></A><A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic"
+>Modelica.Electrical.MultiPhase.Basic</A>.Star</H2>
+<B>Star-connection</B><p>
+<IMG SRC="Modelica.Electrical.MultiPhase.Basic.StarD.png" ALT="Modelica.Electrical.MultiPhase.Basic.Star">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+Connects all pins of plug_p to pin_n, thus establishing a so-called star-connection.
+</p>
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>m</TD><TD>3</TD><TD>number of phases</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Star <font color="darkgreen">&quot;Star-connection&quot;</font> 
+  <font color="blue">parameter </font>Integer m(<font color="blue">final </font>min=1) = 3 <font color="darkgreen">&quot;number of phases&quot;</font>;
+  <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.PositivePlug"
+>Interfaces.PositivePlug</A> plug_p(
+                                 <font color="blue">final </font>m=m);
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.NegativePin"
+>Modelica.Electrical.Analog.Interfaces.NegativePin</A> pin_n;
+<font color="blue">equation </font>
+  <font color="blue">for </font>j<font color="blue"> in </font>1:m<font color="blue"> loop</font>
+    <font color="red">connect</font>(plug_p.pin[j],pin_n);
+  <font color="blue">end for</font>;
+<font color="blue">end </font>Star;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Delta<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.MultiPhase.Basic.DeltaI.png" ALT="Modelica.Electrical.MultiPhase.Basic.Delta" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.MultiPhase.Basic.Delta"></A><A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic"
+>Modelica.Electrical.MultiPhase.Basic</A>.Delta</H2>
+<B>Delta (polygon) connection</B><p>
+<IMG SRC="Modelica.Electrical.MultiPhase.Basic.DeltaD.png" ALT="Modelica.Electrical.MultiPhase.Basic.Delta">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+Connects in a cyclic way plug_n.pin[j] to plug_p.pin[j+1], 
+thus establishing a so-called delta (or polygon) connection 
+when used in parallel to another component.
+</p>
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>m</TD><TD>3</TD><TD>number of phases</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Delta <font color="darkgreen">&quot;Delta (polygon) connection&quot;</font> 
+  <font color="blue">parameter </font>Integer m(<font color="blue">final </font>min=2) = 3 <font color="darkgreen">&quot;number of phases&quot;</font>;
+  <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.PositivePlug"
+>Interfaces.PositivePlug</A> plug_p(
+                                 <font color="blue">final </font>m=m);
+  <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.NegativePlug"
+>Interfaces.NegativePlug</A> plug_n(
+                                 <font color="blue">final </font>m=m);
+<font color="blue">equation </font>
+  <font color="blue">for </font>j<font color="blue"> in </font>1:m<font color="blue"> loop</font>
+    <font color="blue">if </font>j&lt;m<font color="blue"> then</font>
+      <font color="red">connect</font>(plug_n.pin[j],plug_p.pin [j+1]);
+    <font color="blue">else</font>
+      <font color="red">connect</font>(plug_n.pin[j],plug_p.pin [1]);
+    <font color="blue">end if</font>;
+  <font color="blue">end for</font>;
+<font color="blue">end </font>Delta;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PlugToPin_p<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.MultiPhase.Basic.PlugToPin_pI.png" ALT="Modelica.Electrical.MultiPhase.Basic.PlugToPin_p" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.MultiPhase.Basic.PlugToPin_p"></A><A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic"
+>Modelica.Electrical.MultiPhase.Basic</A>.PlugToPin_p</H2>
+<B>Connect one (positive) Pin to a Plug Connector</B><p>
+<IMG SRC="Modelica.Electrical.MultiPhase.Basic.PlugToPin_pD.png" ALT="Modelica.Electrical.MultiPhase.Basic.PlugToPin_p">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+Connects pin <i>k</i> of plug_p to pin_p, leaving the other pins of plug_p unconnected.
+</p>
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>m</TD><TD>3</TD><TD>number of phases</TD></TR>
+<TR><TD>k</TD><TD>1</TD><TD>phase index</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> PlugToPin_p <font color="darkgreen">&quot;Connect one (positive) Pin to a Plug Connector&quot;</font> 
+  <font color="blue">parameter </font>Integer m(<font color="blue">final </font>min=1) = 3 <font color="darkgreen">&quot;number of phases&quot;</font>;
+  <font color="blue">parameter </font>Integer k(
+    <font color="blue">final </font>min=1,
+    <font color="blue">final </font>max=m) = 1 <font color="darkgreen">&quot;phase index&quot;</font>;
+  <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.PositivePlug"
+>Interfaces.PositivePlug</A> plug_p(
+                                 <font color="blue">final </font>m=m);
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.PositivePin"
+>Modelica.Electrical.Analog.Interfaces.PositivePin</A> pin_p;
+<font color="blue">equation </font>
+  pin_p.v = plug_p.pin[k].v;
+  <font color="blue">for </font>j<font color="blue"> in </font>1:m<font color="blue"> loop</font>
+    plug_p.pin[j].i = <font color="blue">if </font>j == k<font color="blue"> then </font>-pin_p.i<font color="blue"> else </font>0;
+  <font color="blue">end for</font>;
+<font color="blue">end </font>PlugToPin_p;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PlugToPin_n<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.MultiPhase.Basic.PlugToPin_nI.png" ALT="Modelica.Electrical.MultiPhase.Basic.PlugToPin_n" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.MultiPhase.Basic.PlugToPin_n"></A><A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic"
+>Modelica.Electrical.MultiPhase.Basic</A>.PlugToPin_n</H2>
+<B>Connect one (negative) Pin to a Plug connector</B><p>
+<IMG SRC="Modelica.Electrical.MultiPhase.Basic.PlugToPin_nD.png" ALT="Modelica.Electrical.MultiPhase.Basic.PlugToPin_n">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+Connects pin <i>k</i> of plug_n to pin_n, leaving the other pins of plug_n unconnected.
+</p>
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>m</TD><TD>3</TD><TD>number of phases</TD></TR>
+<TR><TD>k</TD><TD>1</TD><TD>phase index</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> PlugToPin_n <font color="darkgreen">&quot;Connect one (negative) Pin to a Plug connector&quot;</font> 
+  <font color="blue">parameter </font>Integer m(<font color="blue">final </font>min=1) = 3 <font color="darkgreen">&quot;number of phases&quot;</font>;
+  <font color="blue">parameter </font>Integer k(
+    <font color="blue">final </font>min=1,
+    <font color="blue">final </font>max=m) = 1 <font color="darkgreen">&quot;phase index&quot;</font>;
+  <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.NegativePlug"
+>Interfaces.NegativePlug</A> plug_n(
+                                 <font color="blue">final </font>m=m);
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.NegativePin"
+>Modelica.Electrical.Analog.Interfaces.NegativePin</A> pin_n;
+<font color="blue">equation </font>
+  pin_n.v = plug_n.pin[k].v;
+  <font color="blue">for </font>j<font color="blue"> in </font>1:m<font color="blue"> loop</font>
+    plug_n.pin[j].i = <font color="blue">if </font>j == k<font color="blue"> then </font>-pin_n.i<font color="blue"> else </font>0;
+  <font color="blue">end for</font>;
+<font color="blue">end </font>PlugToPin_n;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Resistor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.MultiPhase.Basic.ResistorI.png" ALT="Modelica.Electrical.MultiPhase.Basic.Resistor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.MultiPhase.Basic.Resistor"></A><A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic"
+>Modelica.Electrical.MultiPhase.Basic</A>.Resistor</H2>
+<B>Ideal linear electrical resistors</B><p>
+<IMG SRC="Modelica.Electrical.MultiPhase.Basic.ResistorD.png" ALT="Modelica.Electrical.MultiPhase.Basic.Resistor">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+Contains m resistors (Modelica.Electrical.Analog.Basic.Resistor)
+</p>
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>m</TD><TD>3</TD><TD>number of phases</TD></TR>
+<TR><TD>R[m]</TD><TD>fill(1, m)</TD><TD>Resistance [Ohm]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Resistor <font color="darkgreen">&quot;Ideal linear electrical resistors&quot;</font> 
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</A>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Modelica.SIunits.Resistance</A> R[       m]=<font color="red">fill</font>(1, m) <font color="darkgreen">&quot;Resistance&quot;</font>;
+  <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Resistor"
+>Modelica.Electrical.Analog.Basic.Resistor</A> resistor[
+                                                     m](<font color="blue">final </font>R=R);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(resistor.p, plug_p.pin);
+  <font color="red">connect</font>(resistor.n, plug_n.pin);
+<font color="blue">end </font>Resistor;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Conductor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.MultiPhase.Basic.ConductorI.png" ALT="Modelica.Electrical.MultiPhase.Basic.Conductor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.MultiPhase.Basic.Conductor"></A><A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic"
+>Modelica.Electrical.MultiPhase.Basic</A>.Conductor</H2>
+<B>Ideal linear electrical conductors</B><p>
+<IMG SRC="Modelica.Electrical.MultiPhase.Basic.ConductorD.png" ALT="Modelica.Electrical.MultiPhase.Basic.Conductor">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+Contains m conductors (Modelica.Electrical.Analog.Basic.Conductor)
+</p>
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>m</TD><TD>3</TD><TD>number of phases</TD></TR>
+<TR><TD>G[m]</TD><TD>fill(1, m)</TD><TD>Conductance [Ohm]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Conductor <font color="darkgreen">&quot;Ideal linear electrical conductors&quot;</font> 
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</A>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Modelica.SIunits.Resistance</A> G[       m]=<font color="red">fill</font>(1, m) <font color="darkgreen">&quot;Conductance&quot;</font>;
+  <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Conductor"
+>Modelica.Electrical.Analog.Basic.Conductor</A> conductor[
+                                                       m](<font color="blue">final </font>G=G);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(plug_p.pin, conductor.p);
+  <font color="red">connect</font>(plug_n.pin, conductor.n);
+<font color="blue">end </font>Conductor;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Capacitor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.MultiPhase.Basic.CapacitorI.png" ALT="Modelica.Electrical.MultiPhase.Basic.Capacitor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.MultiPhase.Basic.Capacitor"></A><A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic"
+>Modelica.Electrical.MultiPhase.Basic</A>.Capacitor</H2>
+<B>Ideal linear electrical capacitors</B><p>
+<IMG SRC="Modelica.Electrical.MultiPhase.Basic.CapacitorD.png" ALT="Modelica.Electrical.MultiPhase.Basic.Capacitor">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+Contains m capacitors (Modelica.Electrical.Analog.Basic.Capacitor)
+</p>
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>m</TD><TD>3</TD><TD>number of phases</TD></TR>
+<TR><TD>C[m]</TD><TD>fill(1, m)</TD><TD>Capacitance [F]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Capacitor <font color="darkgreen">&quot;Ideal linear electrical capacitors&quot;</font> 
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</A>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Capacitance"
+>Modelica.SIunits.Capacitance</A> C[       m]=<font color="red">fill</font>(1, m) <font color="darkgreen">&quot;Capacitance&quot;</font>;
+  <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Capacitor"
+>Modelica.Electrical.Analog.Basic.Capacitor</A> capacitor[
+                                                       m](<font color="blue">final </font>C=C);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(capacitor.p, plug_p.pin);
+  <font color="red">connect</font>(capacitor.n, plug_n.pin);
+<font color="blue">end </font>Capacitor;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Inductor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.MultiPhase.Basic.InductorI.png" ALT="Modelica.Electrical.MultiPhase.Basic.Inductor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.MultiPhase.Basic.Inductor"></A><A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic"
+>Modelica.Electrical.MultiPhase.Basic</A>.Inductor</H2>
+<B>Ideal linear electrical inductors</B><p>
+<IMG SRC="Modelica.Electrical.MultiPhase.Basic.InductorD.png" ALT="Modelica.Electrical.MultiPhase.Basic.Inductor">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+Contains m inductors (Modelica.Electrical.Analog.Basic.Inductor)
+</p>
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>m</TD><TD>3</TD><TD>number of phases</TD></TR>
+<TR><TD>L[m]</TD><TD>fill(1, m)</TD><TD>Inductance [H]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Inductor <font color="darkgreen">&quot;Ideal linear electrical inductors&quot;</font> 
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</A>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inductance"
+>Modelica.SIunits.Inductance</A> L[       m]=<font color="red">fill</font>(1, m) <font color="darkgreen">&quot;Inductance&quot;</font>;
+  <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Inductor"
+>Modelica.Electrical.Analog.Basic.Inductor</A> inductor[
+                                                     m](<font color="blue">final </font>L=L);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(inductor.p, plug_p.pin);
+  <font color="red">connect</font>(inductor.n, plug_n.pin);
+<font color="blue">end </font>Inductor;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SaturatingInductor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.MultiPhase.Basic.SaturatingInductorI.png" ALT="Modelica.Electrical.MultiPhase.Basic.SaturatingInductor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.MultiPhase.Basic.SaturatingInductor"></A><A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic"
+>Modelica.Electrical.MultiPhase.Basic</A>.SaturatingInductor</H2>
+<B>Simple model of inductors with saturation</B><p>
+<IMG SRC="Modelica.Electrical.MultiPhase.Basic.SaturatingInductorD.png" ALT="Modelica.Electrical.MultiPhase.Basic.SaturatingInductor">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+Contains m saturating inductors (Modelica.Electrical.Analog.Basic.SaturatingInductor)
+</p>
+<p>
+<b>Attention!!!</b><br>
+Each element of the array of saturatingInductors is only dependent on the current flowing through this element.
+</p>
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>m</TD><TD>3</TD><TD>number of phases</TD></TR>
+<TR><TD>Inom[m]</TD><TD>fill(1, m)</TD><TD>Nominal current [A]</TD></TR>
+<TR><TD>Lnom[m]</TD><TD>fill(1, m)</TD><TD>Nominal inductance at Nominal current [H]</TD></TR>
+<TR><TD>Lzer[m]</TD><TD>{2*Lnom[j] for j in 1:m}</TD><TD>Inductance near current=0 [H]</TD></TR>
+<TR><TD>Linf[m]</TD><TD>{Lnom[j]/2 for j in 1:m}</TD><TD>Inductance at large currents [H]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> SaturatingInductor <font color="darkgreen">&quot;Simple model of inductors with saturation&quot;</font> 
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</A>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Current"
+>Modelica.SIunits.Current</A> Inom[       m]=<font color="red">fill</font>(1,m) <font color="darkgreen">&quot;Nominal current&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inductance"
+>Modelica.SIunits.Inductance</A> Lnom[       m]=<font color="red">fill</font>(1,m) <font color="darkgreen">
+    &quot;Nominal inductance at Nominal current&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inductance"
+>Modelica.SIunits.Inductance</A> Lzer[       m]={2*Lnom[j] <font color="blue">for </font>j<font color="blue"> in </font>1:m} <font color="darkgreen">
+    &quot;Inductance near current=0&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inductance"
+>Modelica.SIunits.Inductance</A> Linf[       m]={Lnom[j]/2 <font color="blue">for </font>j<font color="blue"> in </font>1:m} <font color="darkgreen">
+    &quot;Inductance at large currents&quot;</font>;
+  <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.SaturatingInductor"
+>Modelica.Electrical.Analog.Basic.SaturatingInductor</A> saturatingInductor[
+                                                                         m](
+    <font color="blue">final </font>Inom=Inom,
+    <font color="blue">final </font>Lnom=Lnom,
+    <font color="blue">final </font>Lzer=Lzer,
+    <font color="blue">final </font>Linf=Linf);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(saturatingInductor.p, plug_p.pin);
+  <font color="red">connect</font>(saturatingInductor.n, plug_n.pin);
+<font color="blue">end </font>SaturatingInductor;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Transformer<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.MultiPhase.Basic.TransformerI.png" ALT="Modelica.Electrical.MultiPhase.Basic.Transformer" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.MultiPhase.Basic.Transformer"></A><A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic"
+>Modelica.Electrical.MultiPhase.Basic</A>.Transformer</H2>
+<B>Multiphase Transformer</B><p>
+<IMG SRC="Modelica.Electrical.MultiPhase.Basic.TransformerD.png" ALT="Modelica.Electrical.MultiPhase.Basic.Transformer">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+Contains m transformers (Modelica.Electrical.Analog.Basic.Transformer)
+</p>
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>m</TD><TD>3</TD><TD>number of phases</TD></TR>
+<TR><TD>L1[m]</TD><TD>fill(1, m)</TD><TD>Primary inductance [H]</TD></TR>
+<TR><TD>L2[m]</TD><TD>fill(1, m)</TD><TD>Secondary inductance [H]</TD></TR>
+<TR><TD>M[m]</TD><TD>fill(1, m)</TD><TD>Coupling inductance [H]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Transformer <font color="darkgreen">&quot;Multiphase Transformer&quot;</font> 
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.FourPlug"
+>Interfaces.FourPlug</A>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inductance"
+>Modelica.SIunits.Inductance</A> L1[       m]=<font color="red">fill</font>(1, m) <font color="darkgreen">&quot;Primary inductance&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inductance"
+>Modelica.SIunits.Inductance</A> L2[       m]=<font color="red">fill</font>(1, m) <font color="darkgreen">&quot;Secondary inductance&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inductance"
+>Modelica.SIunits.Inductance</A> M[       m]=<font color="red">fill</font>(1, m) <font color="darkgreen">&quot;Coupling inductance&quot;</font>;
+  <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Transformer"
+>Modelica.Electrical.Analog.Basic.Transformer</A> transformer[
+                                                           m](
+    <font color="blue">final </font>L1=L1,
+    <font color="blue">final </font>L2=L2,
+    <font color="blue">final </font>M=M);
+<font color="blue">equation </font>
+  
+  <font color="red">connect</font>(plug_p1.pin, transformer.p1);
+  <font color="red">connect</font>(plug_p2.pin, transformer.p2);
+  <font color="red">connect</font>(plug_n1.pin, transformer.n1);
+  <font color="red">connect</font>(plug_n2.pin, transformer.n2);
+<font color="blue">end </font>Transformer;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE VariableResistor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.MultiPhase.Basic.VariableResistorI.png" ALT="Modelica.Electrical.MultiPhase.Basic.VariableResistor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.MultiPhase.Basic.VariableResistor"></A><A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic"
+>Modelica.Electrical.MultiPhase.Basic</A>.VariableResistor</H2>
+<B>Ideal linear electrical resistors with variable resistance</B><p>
+<IMG SRC="Modelica.Electrical.MultiPhase.Basic.VariableResistorD.png" ALT="Modelica.Electrical.MultiPhase.Basic.VariableResistor">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+Contains m variable resistors (Modelica.Electrical.Analog.Basic.VariableResistor)
+</p>
+<P>
+<b>Attention!!!</b><br>
+  It is recomended that none of the R_Port signals should not cross the zero value. 
+  Otherwise depending on the surrounding circuit the probability of singularities is high.
+</P>
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>m</TD><TD>3</TD><TD>number of phases</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> VariableResistor <font color="darkgreen">
+  &quot;Ideal linear electrical resistors with variable resistance&quot;</font> 
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</A>;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
+>Modelica.Blocks.Interfaces.InPort</A> R_Port(
+                                           <font color="blue">final </font>n=m);
+  <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.VariableResistor"
+>Modelica.Electrical.Analog.Basic.VariableResistor</A> variableResistor[
+                                                                     m];
+<font color="blue">equation </font>
+  variableResistor.R_Port.signal[1]=R_Port.signal;
+  <font color="red">connect</font>(variableResistor.p, plug_p.pin);
+  <font color="red">connect</font>(variableResistor.n, plug_n.pin);
+<font color="blue">end </font>VariableResistor;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE VariableConductor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.MultiPhase.Basic.VariableConductorI.png" ALT="Modelica.Electrical.MultiPhase.Basic.VariableConductor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.MultiPhase.Basic.VariableConductor"></A><A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic"
+>Modelica.Electrical.MultiPhase.Basic</A>.VariableConductor</H2>
+<B>Ideal linear electrical conductors with variable conductance</B><p>
+<IMG SRC="Modelica.Electrical.MultiPhase.Basic.VariableConductorD.png" ALT="Modelica.Electrical.MultiPhase.Basic.VariableConductor">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+Contains m variable conductors (Modelica.Electrical.Analog.Basic.VariableConductor)
+</p>
+<P>
+<b>Attention!!!</b><br>
+  It is recomended that none of the G_Port signals should not cross the zero value. 
+  Otherwise depending on the surrounding circuit the probability of singularities is high.
+</P>
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>m</TD><TD>3</TD><TD>number of phases</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> VariableConductor <font color="darkgreen">
+  &quot;Ideal linear electrical conductors with variable conductance&quot;</font> 
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</A>;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
+>Modelica.Blocks.Interfaces.InPort</A> G_Port(
+                                           <font color="blue">final </font>n=m);
+  <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.VariableConductor"
+>Modelica.Electrical.Analog.Basic.VariableConductor</A> variableConductor[
+                                                                       m];
+<font color="blue">equation </font>
+  variableConductor.G_Port.signal[1]=G_Port.signal;
+  <font color="red">connect</font>(variableConductor.p, plug_p.pin);
+  <font color="red">connect</font>(variableConductor.n, plug_n.pin);
+<font color="blue">end </font>VariableConductor;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE VariableCapacitor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.MultiPhase.Basic.VariableCapacitorI.png" ALT="Modelica.Electrical.MultiPhase.Basic.VariableCapacitor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.MultiPhase.Basic.VariableCapacitor"></A><A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic"
+>Modelica.Electrical.MultiPhase.Basic</A>.VariableCapacitor</H2>
+<B>Ideal linear electrical capacitors with variable capacitance</B><p>
+<IMG SRC="Modelica.Electrical.MultiPhase.Basic.VariableCapacitorD.png" ALT="Modelica.Electrical.MultiPhase.Basic.VariableCapacitor">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+Contains m variable capacitors (Modelica.Electrical.Analog.Basic.VariableCapacitor)
+</p>
+<P>
+It is required that each C_Port.signal &ge; 0, otherwise an 
+assertion is raised. To avoid a variable index system,<br>
+C = Cmin, if 0 &le; C_Port.signal &lt; Cmin, where
+Cmin is a parameter with default value Modelica.Constants.eps.
+</P>
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>m</TD><TD>3</TD><TD>number of phases</TD></TR>
+<TR><TD>Cmin[m]</TD><TD>fill(Modelica.Constants.eps,...</TD><TD>[F]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> VariableCapacitor <font color="darkgreen">
+  &quot;Ideal linear electrical capacitors with variable capacitance&quot;</font> 
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</A>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Capacitance"
+>Modelica.SIunits.Capacitance</A> Cmin[       m]=<font color="red">fill</font>(Modelica.Constants.eps,m);
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
+>Modelica.Blocks.Interfaces.InPort</A> C_Port(
+                                           <font color="blue">final </font>n=m);
+  <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.VariableCapacitor"
+>Modelica.Electrical.Analog.Basic.VariableCapacitor</A> variableCapacitor[
+                                                                       m](<font color="blue">final </font>Cmin
+      =    Cmin);
+<font color="blue">equation </font>
+  variableCapacitor.C_Port.signal[1]=C_Port.signal;
+  <font color="red">connect</font>(variableCapacitor.p, plug_p.pin);
+  <font color="red">connect</font>(variableCapacitor.n, plug_n.pin);
+<font color="blue">end </font>VariableCapacitor;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE VariableInductor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.MultiPhase.Basic.VariableInductorI.png" ALT="Modelica.Electrical.MultiPhase.Basic.VariableInductor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.MultiPhase.Basic.VariableInductor"></A><A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic"
+>Modelica.Electrical.MultiPhase.Basic</A>.VariableInductor</H2>
+<B>Ideal linear electrical inductors with variable inductance</B><p>
+<IMG SRC="Modelica.Electrical.MultiPhase.Basic.VariableInductorD.png" ALT="Modelica.Electrical.MultiPhase.Basic.VariableInductor">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+Contains m variable inductors (Modelica.Electrical.Analog.Basic.VariableInductor)
+</p>
+<P>
+It is required that each L_Port.signal &ge; 0, otherwise an 
+assertion is raised. To avoid a variable index system,<br>
+L = Lmin, if 0 &le; L_Port.signal &lt; Lmin, where
+Lmin is a parameter with default value Modelica.Constants.eps.
+</P>
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>m</TD><TD>3</TD><TD>number of phases</TD></TR>
+<TR><TD>Lmin[m]</TD><TD>fill(Modelica.Constants.eps,...</TD><TD>[H]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> VariableInductor <font color="darkgreen">
+  &quot;Ideal linear electrical inductors with variable inductance&quot;</font> 
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</A>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inductance"
+>Modelica.SIunits.Inductance</A> Lmin[       m]=<font color="red">fill</font>(Modelica.Constants.eps,m);
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
+>Modelica.Blocks.Interfaces.InPort</A> L_Port(
+                                           <font color="blue">final </font>n=m);
+  <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.VariableInductor"
+>Modelica.Electrical.Analog.Basic.VariableInductor</A> variableInductor[
+                                                                     m](<font color="blue">final </font>Lmin
+      =    Lmin);
+<font color="blue">equation </font>
+  variableInductor.L_Port.signal[1]=L_Port.signal;
+  <font color="red">connect</font>(variableInductor.p, plug_p.pin);
+  <font color="red">connect</font>(variableInductor.n, plug_n.pin);
+<font color="blue">end </font>VariableInductor;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Jun 30 17:43:50 2004
+.
+</address></BODY>
+</HTML>

@@ -3,7 +3,7 @@ package SIunits "Type definitions based on SI units according to ISO 31-1992"
   
   package Conversions 
     "Conversion functions to/from non SI units and type definitions of non SI units"
-     
+    
     
     extends Modelica.Icons.Library2;
     
@@ -11,15 +11,15 @@ package SIunits "Type definitions based on SI units according to ISO 31-1992"
       
       extends Modelica.Icons.Library2;
       
-      type Temperature_degC = Real (final quantity="ThermodynamicTemperature", 
+      type Temperature_degC = Real (final quantity="ThermodynamicTemperature",
             final unit="degC");
-      type Temperature_degF = Real (final quantity="ThermodynamicTemperature", 
+      type Temperature_degF = Real (final quantity="ThermodynamicTemperature",
             final unit="degF");
-      type Temperature_degRk = Real (final quantity="ThermodynamicTemperature", 
+      type Temperature_degRk = Real (final quantity="ThermodynamicTemperature",
             final unit="degRk");
       type Angle_deg = Real (final quantity="Angle", final unit="deg");
-      type AngularVelocity_rpm = Real (final quantity="AngularVelocity", final 
-            unit="rev/min");
+      type AngularVelocity_rpm = Real (final quantity="AngularVelocity", final unit
+            =    "rev/min");
       type Velocity_kmh = Real (final quantity="Velocity", final unit="km/h");
       type Time_day = Real (final quantity="Time", final unit="d");
       type Time_hour = Real (final quantity="Time", final unit="h");
@@ -30,7 +30,7 @@ package SIunits "Type definitions based on SI units according to ISO 31-1992"
       type MassFlowRate_gps = Real (final quantity="MassFlowRate", final unit=
               "g/s");
       
-      annotation (Documentation(info="<HTML>
+      annotation( Documentation(info="<HTML>
 <p>
 This package provides predefined types, such as <b>Angle_deg</b> (angle in
 degree), <b>AngularVelocity_rpm</b> (angular velocity in revolutions per
@@ -53,8 +53,8 @@ still kept in Modelica.SIunits.</p>
 
 </HTML>
 "), Icon(Text(
-            extent=[-66, -13; 52, -67], 
-            string="[rev/min]", 
+            extent=[-66, -13; 52, -67],
+            string="[rev/min]",
             style(color=0))));
     end NonSIunits;
     
@@ -62,12 +62,12 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input Temperature Kelvin "Kelvin value";
       output NonSIunits.Temperature_degC Celsius "Celsius value";
-      annotation (Icon(Text(
-            extent=[-20, 100; -100, 20], 
-            style(color=0), 
+      annotation( Icon(Text(
+            extent=[-20, 100; -100, 20],
+            style(color=0),
             string="K"), Text(
-            extent=[100, -20; 20, -100], 
-            style(color=0), 
+            extent=[100, -20; 20, -100],
+            style(color=0),
             string="°C")));
     algorithm 
       Celsius := Kelvin + Modelica.Constants.T_zero;
@@ -77,12 +77,12 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input NonSIunits.Temperature_degC Celsius "Celsius value";
       output Temperature Kelvin "Kelvin value";
-      annotation (Icon(Text(
-            extent=[-20, 100; -100, 20], 
-            style(color=0), 
+      annotation( Icon(Text(
+            extent=[-20, 100; -100, 20],
+            style(color=0),
             string="°C"), Text(
-            extent=[100, -20; 20, -100], 
-            style(color=0), 
+            extent=[100, -20; 20, -100],
+            style(color=0),
             string="K")));
     algorithm 
       Kelvin := Celsius - Modelica.Constants.T_zero;
@@ -92,12 +92,12 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input Temperature Kelvin "Kelvin value";
       output NonSIunits.Temperature_degF Fahrenheit "Fahrenheit value";
-      annotation (Icon(Text(
-            extent=[-20, 100; -100, 20], 
-            style(color=0), 
+      annotation( Icon(Text(
+            extent=[-20, 100; -100, 20],
+            style(color=0),
             string="K"), Text(
-            extent=[100, -20; 20, -100], 
-            style(color=0), 
+            extent=[100, -20; 20, -100],
+            style(color=0),
             string="°F")));
     algorithm 
       Fahrenheit := (Kelvin + Modelica.Constants.T_zero)*(9/5) + 32;
@@ -107,12 +107,12 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input NonSIunits.Temperature_degF Fahrenheit "Fahrenheit value";
       output Temperature Kelvin "Kelvin value";
-      annotation (Icon(Text(
-            extent=[-20, 100; -100, 20], 
-            style(color=0), 
+      annotation( Icon(Text(
+            extent=[-20, 100; -100, 20],
+            style(color=0),
             string="°F"), Text(
-            extent=[100, -20; 20, -100], 
-            style(color=0), 
+            extent=[100, -20; 20, -100],
+            style(color=0),
             string="K")));
     algorithm 
       Kelvin := (Fahrenheit - 32)*(5/9) - Modelica.Constants.T_zero;
@@ -122,12 +122,12 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input Temperature Kelvin "Kelvin value";
       output NonSIunits.Temperature_degRk Rankine "Rankine value";
-      annotation (Icon(Text(
-            extent=[-20, 100; -100, 20], 
-            style(color=0), 
+      annotation( Icon(Text(
+            extent=[-20, 100; -100, 20],
+            style(color=0),
             string="K"), Text(
-            extent=[100, -20; 20, -100], 
-            style(color=0), 
+            extent=[100, -20; 20, -100],
+            style(color=0),
             string="°Rk")));
     algorithm 
       Rankine := (9/5)*Kelvin;
@@ -137,12 +137,12 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input NonSIunits.Temperature_degRk Rankine "Rankine value";
       output Temperature Kelvin "Kelvin value";
-      annotation (Icon(Text(
-            extent=[-20, 100; -100, 20], 
-            style(color=0), 
+      annotation( Icon(Text(
+            extent=[-20, 100; -100, 20],
+            style(color=0),
             string="°Rk"), Text(
-            extent=[100, -20; 20, -100], 
-            style(color=0), 
+            extent=[100, -20; 20, -100],
+            style(color=0),
             string="K")));
     algorithm 
       Kelvin := (5/9)*Rankine;
@@ -152,12 +152,12 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input Angle radian "radian value";
       output NonSIunits.Angle_deg degree "degree value";
-      annotation (Icon(Text(
-            extent=[-20, 100; -100, 20], 
-            style(color=0), 
+      annotation( Icon(Text(
+            extent=[-20, 100; -100, 20],
+            style(color=0),
             string="rad"), Text(
-            extent=[100, -20; 20, -100], 
-            style(color=0), 
+            extent=[100, -20; 20, -100],
+            style(color=0),
             string="deg")));
     algorithm 
       degree := (180.0/Modelica.Constants.pi)*radian;
@@ -167,12 +167,12 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input NonSIunits.Angle_deg degree "degree value";
       output Angle radian "radian value";
-      annotation (Icon(Text(
-            extent=[-20, 100; -100, 20], 
-            style(color=0), 
+      annotation( Icon(Text(
+            extent=[-20, 100; -100, 20],
+            style(color=0),
             string="deg"), Text(
-            extent=[100, -20; 20, -100], 
-            style(color=0), 
+            extent=[100, -20; 20, -100],
+            style(color=0),
             string="rad")));
     algorithm 
       radian := (Modelica.Constants.pi/180.0)*degree;
@@ -182,12 +182,12 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input AngularVelocity rs "radian per second value";
       output NonSIunits.AngularVelocity_rpm rpm "revolutions per minute value";
-      annotation (Icon(Text(
-            extent=[-20, 100; -100, 20], 
-            style(color=0), 
+      annotation( Icon(Text(
+            extent=[-20, 100; -100, 20],
+            style(color=0),
             string="rad/s"), Text(
-            extent=[100, -20; 20, -100], 
-            style(color=0), 
+            extent=[100, -20; 20, -100],
+            style(color=0),
             string="rev/min")));
     algorithm 
       rpm := (30/Modelica.Constants.pi)*rs;
@@ -198,12 +198,12 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input NonSIunits.AngularVelocity_rpm rpm "revolutions per minute value";
       output AngularVelocity rs "radian per second value";
-      annotation (Icon(Text(
-            extent=[-20, 100; -100, 20], 
-            style(color=0), 
+      annotation( Icon(Text(
+            extent=[-20, 100; -100, 20],
+            style(color=0),
             string="rev/min"), Text(
-            extent=[100, -20; 20, -100], 
-            style(color=0), 
+            extent=[100, -20; 20, -100],
+            style(color=0),
             string="rad/s")));
     algorithm 
       rs := (Modelica.Constants.pi/30)*rpm;
@@ -213,12 +213,12 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input Velocity ms "metre per second value";
       output NonSIunits.Velocity_kmh kmh "kilometre per hour value";
-      annotation (Icon(Text(
-            extent=[-20, 100; -100, 20], 
-            style(color=0), 
+      annotation( Icon(Text(
+            extent=[-20, 100; -100, 20],
+            style(color=0),
             string="m/s"), Text(
-            extent=[100, -20; 20, -100], 
-            style(color=0), 
+            extent=[100, -20; 20, -100],
+            style(color=0),
             string="km/h")));
     algorithm 
       kmh := 3.6*ms;
@@ -228,12 +228,12 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input NonSIunits.Velocity_kmh kmh "kilometre per hour value";
       output Velocity ms "metre per second value";
-      annotation (Icon(Text(
-            extent=[-20, 100; -100, 20], 
-            style(color=0), 
+      annotation( Icon(Text(
+            extent=[-20, 100; -100, 20],
+            style(color=0),
             string="km/h"), Text(
-            extent=[100, -20; 20, -100], 
-            style(color=0), 
+            extent=[100, -20; 20, -100],
+            style(color=0),
             string="m/s")));
     algorithm 
       ms := kmh/3.6;
@@ -243,12 +243,12 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input Time s "second value";
       output NonSIunits.Time_day day "day value";
-      annotation (Icon(Text(
-            extent=[-20, 100; -100, 20], 
-            style(color=0), 
+      annotation( Icon(Text(
+            extent=[-20, 100; -100, 20],
+            style(color=0),
             string="s"), Text(
-            extent=[100, -20; 20, -100], 
-            style(color=0), 
+            extent=[100, -20; 20, -100],
+            style(color=0),
             string="day")));
     algorithm 
       day := s/86400;
@@ -258,12 +258,12 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input NonSIunits.Time_day day "day value";
       output Time s "second value";
-      annotation (Icon(Text(
-            extent=[-20, 100; -100, 20], 
-            style(color=0), 
+      annotation( Icon(Text(
+            extent=[-20, 100; -100, 20],
+            style(color=0),
             string="day"), Text(
-            extent=[100, -20; 20, -100], 
-            style(color=0), 
+            extent=[100, -20; 20, -100],
+            style(color=0),
             string="s")));
     algorithm 
       s := 86400*day;
@@ -273,12 +273,12 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input Time s "second value";
       output NonSIunits.Time_hour hour "hour value";
-      annotation (Icon(Text(
-            extent=[-20, 100; -100, 20], 
-            style(color=0), 
+      annotation( Icon(Text(
+            extent=[-20, 100; -100, 20],
+            style(color=0),
             string="s"), Text(
-            extent=[100, -20; 20, -100], 
-            style(color=0), 
+            extent=[100, -20; 20, -100],
+            style(color=0),
             string="hour")));
     algorithm 
       hour := s/3600;
@@ -288,12 +288,12 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input NonSIunits.Time_hour hour "hour value";
       output Time s "second value";
-      annotation (Icon(Text(
-            extent=[-20, 100; -100, 20], 
-            style(color=0), 
+      annotation( Icon(Text(
+            extent=[-20, 100; -100, 20],
+            style(color=0),
             string="hour"), Text(
-            extent=[100, -20; 20, -100], 
-            style(color=0), 
+            extent=[100, -20; 20, -100],
+            style(color=0),
             string="s")));
     algorithm 
       s := 3600*hour;
@@ -303,12 +303,12 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input Time s "second value";
       output NonSIunits.Time_minute minute "minute value";
-      annotation (Icon(Text(
-            extent=[-20, 100; -100, 20], 
-            style(color=0), 
+      annotation( Icon(Text(
+            extent=[-20, 100; -100, 20],
+            style(color=0),
             string="s"), Text(
-            extent=[100, -20; 20, -100], 
-            style(color=0), 
+            extent=[100, -20; 20, -100],
+            style(color=0),
             string="minute")));
     algorithm 
       minute := s/60;
@@ -318,12 +318,12 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input NonSIunits.Time_minute minute "minute value";
       output Time s "second value";
-      annotation (Icon(Text(
-            extent=[-20, 100; -100, 20], 
-            style(color=0), 
+      annotation( Icon(Text(
+            extent=[-20, 100; -100, 20],
+            style(color=0),
             string="minute"), Text(
-            extent=[100, -20; 20, -100], 
-            style(color=0), 
+            extent=[100, -20; 20, -100],
+            style(color=0),
             string="s")));
     algorithm 
       s := 60*minute;
@@ -333,12 +333,12 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input Volume m3 "cubic metre value";
       output NonSIunits.Volume_litre litre "litre value";
-      annotation (Icon(Text(
-            extent=[-20, 100; -100, 20], 
-            style(color=0), 
+      annotation( Icon(Text(
+            extent=[-20, 100; -100, 20],
+            style(color=0),
             string="m3"), Text(
-            extent=[100, -20; 20, -100], 
-            style(color=0), 
+            extent=[100, -20; 20, -100],
+            style(color=0),
             string="litre")));
     algorithm 
       litre := 1000*m3;
@@ -348,12 +348,12 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input NonSIunits.Volume_litre litre "litre value";
       output Volume m3 "cubic metre value";
-      annotation (Icon(Text(
-            extent=[-20, 100; -100, 20], 
-            style(color=0), 
+      annotation( Icon(Text(
+            extent=[-20, 100; -100, 20],
+            style(color=0),
             string="litre"), Text(
-            extent=[100, -20; 20, -100], 
-            style(color=0), 
+            extent=[100, -20; 20, -100],
+            style(color=0),
             string="m3")));
     algorithm 
       m3 := litre/1000;
@@ -363,12 +363,12 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input Energy J "Joule value";
       output NonSIunits.Energy_kWh kWh "kWh value";
-      annotation (Icon(Text(
-            extent=[-20, 100; -100, 20], 
-            style(color=0), 
+      annotation( Icon(Text(
+            extent=[-20, 100; -100, 20],
+            style(color=0),
             string="J"), Text(
-            extent=[100, -20; 20, -100], 
-            style(color=0), 
+            extent=[100, -20; 20, -100],
+            style(color=0),
             string="kWh")));
     algorithm 
       kWh := J/3.6e6;
@@ -378,12 +378,12 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input NonSIunits.Energy_kWh kWh "kWh value";
       output Energy J "Joule value";
-      annotation (Icon(Text(
-            extent=[-20, 100; -100, 20], 
-            style(color=0), 
+      annotation( Icon(Text(
+            extent=[-20, 100; -100, 20],
+            style(color=0),
             string="kWh"), Text(
-            extent=[100, -20; 20, -100], 
-            style(color=0), 
+            extent=[100, -20; 20, -100],
+            style(color=0),
             string="J")));
     algorithm 
       J := 3.6e6*kWh;
@@ -393,12 +393,12 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input Pressure Pa "Pascal value";
       output NonSIunits.Pressure_bar bar "bar value";
-      annotation (Icon(Text(
-            extent=[-20, 100; -100, 20], 
-            style(color=0), 
+      annotation( Icon(Text(
+            extent=[-20, 100; -100, 20],
+            style(color=0),
             string="Pa"), Text(
-            extent=[100, -20; 20, -100], 
-            style(color=0), 
+            extent=[100, -20; 20, -100],
+            style(color=0),
             string="bar")));
     algorithm 
       bar := Pa/1e5;
@@ -408,12 +408,12 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input NonSIunits.Pressure_bar bar "bar value";
       output Pressure Pa "Pascal value";
-      annotation (Icon(Text(
-            extent=[-20, 100; -100, 20], 
-            style(color=0), 
+      annotation( Icon(Text(
+            extent=[-20, 100; -100, 20],
+            style(color=0),
             string="bar"), Text(
-            extent=[100, -20; 20, -100], 
-            style(color=0), 
+            extent=[100, -20; 20, -100],
+            style(color=0),
             string="Pa")));
     algorithm 
       Pa := 1e5*bar;
@@ -423,12 +423,12 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input MassFlowRate kgps "kg/s value";
       output NonSIunits.MassFlowRate_gps gps "g/s value";
-      annotation (Icon(Text(
-            extent=[-20, 100; -100, 20], 
-            style(color=0), 
+      annotation( Icon(Text(
+            extent=[-20, 100; -100, 20],
+            style(color=0),
             string="kg/s"), Text(
-            extent=[100, -20; 20, -100], 
-            style(color=0), 
+            extent=[100, -20; 20, -100],
+            style(color=0),
             string="g/s")));
     algorithm 
       gps := 1000*kgps;
@@ -438,38 +438,37 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input NonSIunits.MassFlowRate_gps gps "g/s value";
       output MassFlowRate kgps "kg/s value";
-      annotation (Icon(Text(
-            extent=[-20, 100; -100, 20], 
-            style(color=0), 
+      annotation( Icon(Text(
+            extent=[-20, 100; -100, 20],
+            style(color=0),
             string="g/s"), Text(
-            extent=[100, -20; 20, -100], 
-            style(color=0), 
+            extent=[100, -20; 20, -100],
+            style(color=0),
             string="kg/s")));
     algorithm 
       kgps := gps/1000;
     end from_gps;
     
     partial function ConversionIcon "Base icon for conversion functions" 
-      annotation (Icon(
-          Rectangle(extent=[-100, 100; 100, -100], style(color=42, fillColor=7)
-            ), 
-          Line(points=[-90, 0; 30, 0], style(color=42)), 
-          Polygon(points=[90, 0; 30, 20; 30, -20; 90, 0], style(color=42, 
-                fillColor=42)), 
+      annotation( Icon(
+          Rectangle(extent=[-100, 100; 100, -100], style(color=42, fillColor=7)),
+          Line(points=[-90, 0; 30, 0], style(color=42)),
+          Polygon(points=[90, 0; 30, 20; 30, -20; 90, 0], style(color=42,
+                fillColor=42)),
           Text(extent=[-115, 155; 115, 105], string="%name")));
     end ConversionIcon;
     
-    annotation (Icon(
+    annotation( Icon(
         Text(
-          extent=[-33, -7; -92, -67], 
-          string="°C", 
-          style(color=0, thickness=4)), 
+          extent=[-33, -7; -92, -67],
+          string="°C",
+          style(color=0, thickness=4)),
         Text(
-          extent=[82, -7; 22, -67], 
-          string="K", 
-          style(color=0)), 
-        Line(points=[-26, -36; 6, -36], style(color=0)), 
-        Polygon(points=[6, -28; 6, -45; 26, -37; 6, -28], style(pattern=0, 
+          extent=[82, -7; 22, -67],
+          string="K",
+          style(color=0)),
+        Line(points=[-26, -36; 6, -36], style(color=0)),
+        Polygon(points=[6, -28; 6, -45; 26, -37; 6, -28], style(pattern=0,
               fillColor=0))), Documentation(info="<HTML>
 <p>This package provides conversion functions from the non SI Units
 defined in package Modelica.SIunits.Conversions.NonSIunits to the
@@ -598,8 +597,8 @@ functions.</p>
   
   // Space and Time (chapter 1 of ISO 31-1992)
   type Angle = Real (
-      final quantity="Angle", 
-      final unit="rad", 
+      final quantity="Angle",
+      final unit="rad",
       displayUnit="deg");
   type SolidAngle = Real (final quantity="SolidAngle", final unit="sr");
   type Length = Real (final quantity="Length", final unit="m");
@@ -616,11 +615,11 @@ functions.</p>
   type Time = Real (final quantity="Time", final unit="s");
   type Duration = Time;
   type AngularVelocity = Real (
-      final quantity="AngularVelocity", 
-      final unit="rad/s", 
+      final quantity="AngularVelocity",
+      final unit="rad/s",
       displayUnit="rev/min");
-  type AngularAcceleration = Real (final quantity="AngularAcceleration", final 
-        unit="rad/s2");
+  type AngularAcceleration = Real (final quantity="AngularAcceleration", final unit
+        =    "rad/s2");
   type Velocity = Real (final quantity="Velocity", final unit="m/s");
   type Acceleration = Real (final quantity="Acceleration", final unit="m/s2");
   
@@ -633,50 +632,50 @@ functions.</p>
   type Wavelenght = Wavelength;
   // For compatibility reasons only
   type WaveNumber = Real (final quantity="WaveNumber", final unit="m-1");
-  type CircularWaveNumber = Real (final quantity="CircularWaveNumber", final 
-        unit="rad/m");
+  type CircularWaveNumber = Real (final quantity="CircularWaveNumber", final unit
+        =    "rad/m");
   type AmplitudeLevelDifference = Real (final quantity=
           "AmplitudeLevelDifference", final unit="dB");
-  type PowerLevelDifference = Real (final quantity="PowerLevelDifference", 
+  type PowerLevelDifference = Real (final quantity="PowerLevelDifference",
         final unit="dB");
-  type DampingCoefficient = Real (final quantity="DampingCoefficient", final 
-        unit="s-1");
-  type LogarithmicDecrement = Real (final quantity="LogarithmicDecrement", 
+  type DampingCoefficient = Real (final quantity="DampingCoefficient", final unit
+        =    "s-1");
+  type LogarithmicDecrement = Real (final quantity="LogarithmicDecrement",
         final unit="Np/S");
-  type AttenuationCoefficient = Real (final quantity="AttenuationCoefficient", 
+  type AttenuationCoefficient = Real (final quantity="AttenuationCoefficient",
         final unit="m-1");
   type PhaseCoefficient = Real (final quantity="PhaseCoefficient", final unit=
           "m-1");
-  type PropagationCoefficient = Real (final quantity="PropagationCoefficient", 
+  type PropagationCoefficient = Real (final quantity="PropagationCoefficient",
         final unit="m-1");
   // added to ISO-chapter
   type Damping = DampingCoefficient;
   
   // Mechanics (chapter 3 of ISO 31-1992)
   type Mass = Real (
-      quantity="Mass", 
-      final unit="kg", 
+      quantity="Mass",
+      final unit="kg",
       min=0);
   type Density = Real (
-      final quantity="Density", 
-      final unit="kg/m3", 
-      displayUnit="g/cm3", 
+      final quantity="Density",
+      final unit="kg/m3",
+      displayUnit="g/cm3",
       min=0);
   type RelativeDensity = Real (
-      final quantity="RelativeDensity", 
-      final unit="1", 
+      final quantity="RelativeDensity",
+      final unit="1",
       min=0);
   type SpecificVolume = Real (
-      final quantity="SpecificVolume", 
-      final unit="m3/kg", 
+      final quantity="SpecificVolume",
+      final unit="m3/kg",
       min=0);
   type LinearDensity = Real (
-      final quantity="LinearDensity", 
-      final unit="kg/m", 
+      final quantity="LinearDensity",
+      final unit="kg/m",
       min=0);
   type SurfaceDensity = Real (
-      final quantity="SurfaceDensity", 
-      final unit="kg/m2", 
+      final quantity="SurfaceDensity",
+      final unit="kg/m2",
       min=0);
   type Momentum = Real (final quantity="Momentum", final unit="kg.m/s");
   type Impulse = Real (final quantity="Impulse", final unit="N.s");
@@ -692,8 +691,8 @@ functions.</p>
   type Torque = Real (final quantity="Torque", final unit="N.m");
   type MomentOfForce = Torque;
   type Pressure = Real (
-      final quantity="Pressure", 
-      final unit="Pa", 
+      final quantity="Pressure",
+      final unit="Pa",
       displayUnit="bar");
   type AbsolutePressure = Pressure (min=0);
   type BulkModulus = AbsolutePressure;
@@ -707,27 +706,24 @@ functions.</p>
   type PoissonNumber = Real (final quantity="PoissonNumber", final unit="1");
   type ModulusOfElasticity = Stress;
   type ShearModulus = Stress;
-  type SecondMomentOfArea = Real (final quantity="SecondMomentOfArea", final 
-        unit="m4");
+  type SecondMomentOfArea = Real (final quantity="SecondMomentOfArea", final unit
+        =    "m4");
   type SecondPolarMomentOfArea = SecondMomentOfArea;
-  type SectionModulus = Real (final quantity="SectionModulus", final unit="m3")
-    ;
-  type CoefficientOfFriction = Real (final quantity="CoefficientOfFriction", 
+  type SectionModulus = Real (final quantity="SectionModulus", final unit="m3");
+  type CoefficientOfFriction = Real (final quantity="CoefficientOfFriction",
         final unit="1");
   type DynamicViscosity = Real (
-      final quantity="DynamicViscosity", 
-      final unit="Pa.s", 
+      final quantity="DynamicViscosity",
+      final unit="Pa.s",
       min=0);
   type KinematicViscosity = Real (
-      final quantity="KinematicViscosity", 
-      final unit="m2/s", 
+      final quantity="KinematicViscosity",
+      final unit="m2/s",
       min=0);
-  type SurfaceTension = Real (final quantity="SurfaceTension", final unit="N/m"
-      );
+  type SurfaceTension = Real (final quantity="SurfaceTension", final unit="N/m");
   type Work = Real (final quantity="Work", final unit="J");
   type Energy = Real (final quantity="Energy", final unit="J");
-  type EnergyDensity = Real (final quantity="EnergyDensity", final unit="J/m3")
-    ;
+  type EnergyDensity = Real (final quantity="EnergyDensity", final unit="J/m3");
   type PotentialEnergy = Energy;
   type KineticEnergy = Energy;
   type Power = Real (final quantity="Power", final unit="W");
@@ -735,26 +731,27 @@ functions.</p>
   type EnthalpyFlowRate = Real (final quantity="EnthalpyFlowRate", final unit=
           "W");
   type Efficiency = Real (
-      final quantity="Efficiency", 
-      final unit="1", 
+      final quantity="Efficiency",
+      final unit="1",
       min=0);
   type MassFlowRate = Real (quantity="MassFlowRate", final unit="kg/s");
   type VolumeFlowRate = Real (final quantity="VolumeFlowRate", final unit=
           "m3/s");
   // added to ISO-chapter 3
   type MomentumFlux = Real (final quantity="MomentumFlux", final unit="N");
-  type AngularMomentumFlux = Real (final quantity="AngularMomentumFlux", final 
-        unit="N.m");
+  type AngularMomentumFlux = Real (final quantity="AngularMomentumFlux", final unit
+        =    "N.m");
   
   // Heat (chapter 4 of ISO 31-1992)
   type ThermodynamicTemperature = Real (
-      final quantity="ThermodynamicTemperature", 
-      final unit="K", 
+      final quantity="ThermodynamicTemperature",
+      final unit="K",
+      min=  0,
       displayUnit="degC");
   type Temp_K = ThermodynamicTemperature;
   type Temperature = ThermodynamicTemperature;
-  type CelsiusTemperature = Real (final quantity="CelsiusTemperature", final 
-        unit="degC");
+  type CelsiusTemperature = Real (final quantity="CelsiusTemperature", final unit
+        =    "degC");
   type Temp_C = CelsiusTemperature;
   type LinearExpansionCoefficient = Real (final quantity=
           "LinearExpansionCoefficient", final unit="1/K");
@@ -762,8 +759,8 @@ functions.</p>
           "CubicExpansionCoefficient", final unit="1/K");
   type RelativePressureCoefficient = Real (final quantity=
           "RelativePressureCoefficient", final unit="1/K");
-  type PressureCoefficient = Real (final quantity="PressureCoefficient", final 
-        unit="Pa/K");
+  type PressureCoefficient = Real (final quantity="PressureCoefficient", final unit
+        =    "Pa/K");
   type Compressibility = Real (final quantity="Compressibility", final unit=
           "1/Pa");
   type IsothermalCompressibility = Compressibility;
@@ -771,10 +768,10 @@ functions.</p>
   type Heat = Real (final quantity="Energy", final unit="J");
   type HeatFlowRate = Real (final quantity="Power", final unit="W");
   type HeatFlux = Real (final quantity="HeatFlux", final unit="W/m^2");
-  type DensityOfHeatFlowRate = Real (final quantity="DensityOfHeatFlowRate", 
+  type DensityOfHeatFlowRate = Real (final quantity="DensityOfHeatFlowRate",
         final unit="W/m2");
-  type ThermalConductivity = Real (final quantity="ThermalConductivity", final 
-        unit="W/(m.K)");
+  type ThermalConductivity = Real (final quantity="ThermalConductivity", final unit
+        =    "W/(m.K)");
   type CoefficientOfHeatTransfer = Real (final quantity=
           "CoefficientOfHeatTransfer", final unit="W/(m2.K)");
   type SurfaceCoefficientOfHeatTransfer = CoefficientOfHeatTransfer;
@@ -782,20 +779,20 @@ functions.</p>
           "m2.K/W");
   type ThermalResistance = Real (final quantity="ThermalResistance", final unit
         ="K/W");
-  type ThermalConductance = Real (final quantity="ThermalConductance", final 
-        unit="W/K");
-  type ThermalDiffusivity = Real (final quantity="ThermalDiffusivity", final 
-        unit="m2/s");
+  type ThermalConductance = Real (final quantity="ThermalConductance", final unit
+        =    "W/K");
+  type ThermalDiffusivity = Real (final quantity="ThermalDiffusivity", final unit
+        =    "m2/s");
   type HeatCapacity = Real (final quantity="HeatCapacity", final unit="J/K");
-  type SpecificHeatCapacity = Real (final quantity="SpecificHeatCapacity", 
+  type SpecificHeatCapacity = Real (final quantity="SpecificHeatCapacity",
         final unit="J/(kg.K)");
   type SpecificHeatCapacityAtConstantPressure = SpecificHeatCapacity;
   type SpecificHeatCapacityAtConstantVolume = SpecificHeatCapacity;
   type SpecificHeatCapacityAtSaturation = SpecificHeatCapacity;
   type RatioOfSpecificHeatCapacities = Real (final quantity=
           "RatioOfSpecificHeatCapacities", final unit="1");
-  type IsentropicExponent = Real (final quantity="IsentropicExponent", final 
-        unit="1");
+  type IsentropicExponent = Real (final quantity="IsentropicExponent", final unit
+        =    "1");
   type Entropy = Real (final quantity="Entropy", final unit="J/K");
   type SpecificEntropy = Real (final quantity="SpecificEntropy", final unit=
           "J/(kg.K)");
@@ -811,8 +808,7 @@ functions.</p>
   type SpecificGibbsFreeEnergy = SpecificEnergy;
   type MassieuFunction = Real (final quantity="MassieuFunction", final unit=
           "J/K");
-  type PlanckFunction = Real (final quantity="PlanckFunction", final unit="J/K"
-      );
+  type PlanckFunction = Real (final quantity="PlanckFunction", final unit="J/K");
   // added to ISO-chapter 4
   type DerDensityByEnthalpy = Real (final unit="kg.s^2/m^5");
   type DerDensityByPressure = Real (final unit="s^2/m^2");
@@ -822,113 +818,112 @@ functions.</p>
   type DerEnergyByPressure = Real (final unit="J.m.s^2/kg");
   
   // Electricity and Magnetism (chapter 5 of ISO 31-1992)
-  type ElectricCurrent = Real (final quantity="ElectricCurrent", final unit="A"
-      );
+  type ElectricCurrent = Real (final quantity="ElectricCurrent", final unit="A");
   type Current = ElectricCurrent;
   type ElectricCharge = Real (final quantity="ElectricCharge", final unit="C");
   type Charge = ElectricCharge;
   type VolumeDensityOfCharge = Real (
-      final quantity="VolumeDensityOfCharge", 
-      final unit="C/m3", 
+      final quantity="VolumeDensityOfCharge",
+      final unit="C/m3",
       min=0);
   type SurfaceDensityOfCharge = Real (
-      final quantity="SurfaceDensityOfCharge", 
-      final unit="C/m2", 
+      final quantity="SurfaceDensityOfCharge",
+      final unit="C/m2",
       min=0);
-  type ElectricFieldStrength = Real (final quantity="ElectricFieldStrength", 
+  type ElectricFieldStrength = Real (final quantity="ElectricFieldStrength",
         final unit="V/m");
   type ElectricPotential = Real (final quantity="ElectricPotential", final unit
         ="V");
   type Voltage = ElectricPotential;
   type PotentialDifference = ElectricPotential;
   type ElectromotiveForce = ElectricPotential;
-  type ElectricFluxDensity = Real (final quantity="ElectricFluxDensity", final 
-        unit="C/m2");
+  type ElectricFluxDensity = Real (final quantity="ElectricFluxDensity", final unit
+        =    "C/m2");
   type ElectricFlux = Real (final quantity="ElectricFlux", final unit="C");
   type Capacitance = Real (
-      final quantity="Capacitance", 
-      final unit="F", 
+      final quantity="Capacitance",
+      final unit="F",
       min=0);
   type Permittivity = Real (
-      final quantity="Permittivity", 
-      final unit="F/m", 
+      final quantity="Permittivity",
+      final unit="F/m",
       min=0);
   type PermittivityOfVacuum = Permittivity;
-  type RelativePermittivity = Real (final quantity="RelativePermittivity", 
+  type RelativePermittivity = Real (final quantity="RelativePermittivity",
         final unit="1");
-  type ElectricSusceptibility = Real (final quantity="ElectricSusceptibility", 
+  type ElectricSusceptibility = Real (final quantity="ElectricSusceptibility",
         final unit="1");
-  type ElectricPolarization = Real (final quantity="ElectricPolarization", 
+  type ElectricPolarization = Real (final quantity="ElectricPolarization",
         final unit="C/m2");
   type Electrization = Real (final quantity="Electrization", final unit="V/m");
-  type ElectricDipoleMoment = Real (final quantity="ElectricDipoleMoment", 
+  type ElectricDipoleMoment = Real (final quantity="ElectricDipoleMoment",
         final unit="C.m");
   type CurrentDensity = Real (final quantity="CurrentDensity", final unit=
           "A/m2");
-  type LinearCurrentDensity = Real (final quantity="LinearCurrentDensity", 
+  type LinearCurrentDensity = Real (final quantity="LinearCurrentDensity",
         final unit="A/m");
-  type MagneticFieldStrength = Real (final quantity="MagneticFieldStrength", 
+  type MagneticFieldStrength = Real (final quantity="MagneticFieldStrength",
         final unit="A/m");
   type MagneticPotentialDifference = Real (final quantity=
           "MagneticPotentialDifference", final unit="A");
-  type MagnetomotiveForce = Real (final quantity="MagnetomotiveForce", final 
-        unit="A");
+  type MagnetomotiveForce = Real (final quantity="MagnetomotiveForce", final unit
+        =    "A");
   type CurrentLinkage = Real (final quantity="CurrentLinkage", final unit="A");
-  type MagneticFluxDensity = Real (final quantity="MagneticFluxDensity", final 
-        unit="T");
+  type MagneticFluxDensity = Real (final quantity="MagneticFluxDensity", final unit
+        =    "T");
   type MagneticFlux = Real (final quantity="MagneticFlux", final unit="Wb");
-  type MagneticVectorPotential = Real (final quantity="MagneticVectorPotential"
-        , final unit="Wb/m");
+  type MagneticVectorPotential = Real (final quantity="MagneticVectorPotential",
+          final unit="Wb/m");
   type Inductance = Real (
-      final quantity="Inductance", 
-      final unit="H", 
-      min=0);
-  type SelfInductance = Inductance;
+      final quantity="Inductance",
+      final unit="H");
+  type SelfInductance = Inductance (
+                                   min=0);
   type MutualInductance = Inductance;
-  type CouplingCoefficient = Real (final quantity="CouplingCoefficient", final 
-        unit="1");
-  type LeakageCoefficient = Real (final quantity="LeakageCoefficient", final 
-        unit="1");
+  type CouplingCoefficient = Real (final quantity="CouplingCoefficient", final unit
+        =    "1");
+  type LeakageCoefficient = Real (final quantity="LeakageCoefficient", final unit
+        =    "1");
   type Permeability = Real (final quantity="Permeability", final unit="H/m");
   type PermeabilityOfVacuum = Permeability;
-  type RelativePermeability = Real (final quantity="RelativePermeability", 
+  type RelativePermeability = Real (final quantity="RelativePermeability",
         final unit="1");
-  type MagneticSusceptibility = Real (final quantity="MagneticSusceptibility", 
+  type MagneticSusceptibility = Real (final quantity="MagneticSusceptibility",
         final unit="1");
-  type ElectromagneticMoment = Real (final quantity="ElectromagneticMoment", 
+  type ElectromagneticMoment = Real (final quantity="ElectromagneticMoment",
         final unit="A.m2");
-  type MagneticDipoleMoment = Real (final quantity="MagneticDipoleMoment", 
+  type MagneticDipoleMoment = Real (final quantity="MagneticDipoleMoment",
         final unit="Wb.m");
   type Magnetization = Real (final quantity="Magnetization", final unit="A/m");
-  type MagneticPolarization = Real (final quantity="MagneticPolarization", 
+  type MagneticPolarization = Real (final quantity="MagneticPolarization",
         final unit="T");
-  type ElectromagneticEnergyDensity = Real (final quantity="EnergyDensity", 
+  type ElectromagneticEnergyDensity = Real (final quantity="EnergyDensity",
         final unit="J/m3");
   type PoyntingVector = Real (final quantity="PoyntingVector", final unit=
           "W/m2");
   type Resistance = Real (
-      final quantity="Resistance", 
-      final unit="Ohm", 
+      final quantity="Resistance",
+      final unit="Ohm",
       min=0);
   type Resistivity = Real (final quantity="Resistivity", final unit="Ohm.m");
   type Conductivity = Real (final quantity="Conductivity", final unit="S/m");
   type Reluctance = Real (final quantity="Reluctance", final unit="H-1");
   type Permeance = Real (final quantity="Permeance", final unit="H");
   type PhaseDifference = Real (
-      final quantity="Angle", 
-      final unit="rad", 
+      final quantity="Angle",
+      final unit="rad",
       displayUnit="deg");
   type Impedance = Resistance;
   type ModulusOfImpedance = Resistance;
   type Reactance = Resistance;
   type QualityFactor = Real (final quantity="QualityFactor", final unit="1");
   type LossAngle = Real (
-      final quantity="Angle", 
-      final unit="rad", 
+      final quantity="Angle",
+      final unit="rad",
       displayUnit="deg");
   type Conductance = Real (
-      final quantity="Conductance", 
-      final unit="S", 
+      final quantity="Conductance",
+      final unit="S",
       min=0);
   type Admittance = Conductance;
   type ModulusOfAdmittance = Conductance;
@@ -960,8 +955,8 @@ functions.</p>
           "W/m2");
   type Irradiance = Real (final quantity="Irradiance", final unit="W/m2");
   type Emissivity = Real (final quantity="Emissivity", final unit="1");
-  type SpectralEmissivity = Real (final quantity="SpectralEmissivity", final 
-        unit="1");
+  type SpectralEmissivity = Real (final quantity="SpectralEmissivity", final unit
+        =    "1");
   type DirectionalSpectralEmissivity = Real (final quantity=
           "DirectionalSpectralEmissivity", final unit="1");
   type LuminousIntensity = Real (final quantity="LuminousIntensity", final unit
@@ -973,27 +968,26 @@ functions.</p>
   type LuminousExitance = Real (final quantity="LuminousExitance", final unit=
           "lm/m2");
   type Illuminance = Real (final quantity="Illuminance", final unit="lx");
-  type LightExposure = Real (final quantity="LightExposure", final unit="lx.s")
-    ;
+  type LightExposure = Real (final quantity="LightExposure", final unit="lx.s");
   type LuminousEfficacy = Real (final quantity="LuminousEfficacy", final unit=
           "lm/W");
   type SpectralLuminousEfficacy = Real (final quantity=
           "SpectralLuminousEfficacy", final unit="lm/W");
-  type LuminousEfficiency = Real (final quantity="LuminousEfficiency", final 
-        unit="1");
+  type LuminousEfficiency = Real (final quantity="LuminousEfficiency", final unit
+        =    "1");
   type SpectralLuminousEfficiency = Real (final quantity=
           "SpectralLuminousEfficiency", final unit="1");
   type CIESpectralTristimulusValues = Real (final quantity=
           "CIESpectralTristimulusValues", final unit="1");
-  type ChromaticityCoordinates = Real (final quantity="CromaticityCoordinates"
-        , final unit="1");
+  type ChromaticityCoordinates = Real (final quantity="CromaticityCoordinates",
+          final unit="1");
   type SpectralAbsorptionFactor = Real (final quantity=
           "SpectralAbsorptionFactor", final unit="1");
   type SpectralReflectionFactor = Real (final quantity=
           "SpectralReflectionFactor", final unit="1");
   type SpectralTransmissionFactor = Real (final quantity=
           "SpectralTransmissionFactor", final unit="1");
-  type SpectralRadianceFactor = Real (final quantity="SpectralRadianceFactor", 
+  type SpectralRadianceFactor = Real (final quantity="SpectralRadianceFactor",
         final unit="1");
   type LinearAttenuationCoefficient = Real (final quantity=
           "AttenuationCoefficient", final unit="m-1");
@@ -1001,22 +995,21 @@ functions.</p>
           "LinearAbsorptionCoefficient", final unit="m-1");
   type MolarAbsorptionCoefficient = Real (final quantity=
           "MolarAbsorptionCoefficient", final unit="m2/mol");
-  type RefractiveIndex = Real (final quantity="RefractiveIndex", final unit="1"
-      );
+  type RefractiveIndex = Real (final quantity="RefractiveIndex", final unit="1");
   
   // Acoustics (chapter 7 of ISO 31-1992)
   type StaticPressure = Real (
-      final quantity="Pressure", 
-      final unit="Pa", 
-      displayUnit="bar", 
+      final quantity="Pressure",
+      final unit="Pa",
+      displayUnit="bar",
       min=0);
   type SoundPressure = StaticPressure;
   type SoundParticleDisplacement = Real (final quantity="Length", final unit=
           "m");
   type SoundParticleVelocity = Real (final quantity="Velocity", final unit=
           "m/s");
-  type SoundParticleAcceleration = Real (final quantity="Acceleration", final 
-        unit="m/s2");
+  type SoundParticleAcceleration = Real (final quantity="Acceleration", final unit
+        =    "m/s2");
   type VelocityOfSound = Real (final quantity="Velocity", final unit="m/s");
   type SoundEnergyDensity = Real (final quantity="EnergyDensity", final unit=
           "J/m3");
@@ -1027,51 +1020,50 @@ functions.</p>
         ="Pa.s/m3");
   type SpecificAcousticImpedance = Real (final quantity=
           "SpecificAcousticImpedance", final unit="Pa.s/m");
-  type MechanicalImpedance = Real (final quantity="MechanicalImpedance", final 
-        unit="N.s/m");
-  type SoundPressureLevel = Real (final quantity="SoundPressureLevel", final 
-        unit="dB");
+  type MechanicalImpedance = Real (final quantity="MechanicalImpedance", final unit
+        =    "N.s/m");
+  type SoundPressureLevel = Real (final quantity="SoundPressureLevel", final unit
+        =    "dB");
   type SoundPowerLevel = Real (final quantity="SoundPowerLevel", final unit=
           "dB");
-  type DissipationCoefficient = Real (final quantity="DissipationCoefficient", 
+  type DissipationCoefficient = Real (final quantity="DissipationCoefficient",
         final unit="1");
-  type ReflectionCoefficient = Real (final quantity="ReflectionCoefficient", 
+  type ReflectionCoefficient = Real (final quantity="ReflectionCoefficient",
         final unit="1");
-  type TransmissionCoefficient = Real (final quantity="TransmissionCoefficient"
-        , final unit="1");
+  type TransmissionCoefficient = Real (final quantity="TransmissionCoefficient",
+          final unit="1");
   type AcousticAbsorptionCoefficient = Real (final quantity=
           "AcousticAbsorptionCoefficient", final unit="1");
-  type SoundReductionIndex = Real (final quantity="SoundReductionIndex", final 
-        unit="dB");
-  type EquivalentAbsorptionArea = Real (final quantity="Area", final unit="m2")
-    ;
+  type SoundReductionIndex = Real (final quantity="SoundReductionIndex", final unit
+        =    "dB");
+  type EquivalentAbsorptionArea = Real (final quantity="Area", final unit="m2");
   type ReverberationTime = Real (final quantity="Time", final unit="s");
   type LoundnessLevel = Real (final quantity="LoundnessLevel", final unit=
           "phon");
   type Loundness = Real (final quantity="Loundness", final unit="sone");
   
   // Physical chemistry and molecular physics (chapter 8 of ISO 31-1992)
-  type RelativeAtomicMass = Real (final quantity="RelativeAtomicMass", final 
-        unit="1");
-  type RelativeMolecularMass = Real (final quantity="RelativeMolecularMass", 
+  type RelativeAtomicMass = Real (final quantity="RelativeAtomicMass", final unit
+        =    "1");
+  type RelativeMolecularMass = Real (final quantity="RelativeMolecularMass",
         final unit="1");
   type NumberOfMolecules = Real (final quantity="NumberOfMolecules", final unit
         ="1");
   type AmountOfSubstance = Real (
-      final quantity="AmountOfSubstance", 
-      final unit="mol", 
+      final quantity="AmountOfSubstance",
+      final unit="mol",
       min=0);
   type MolarMass = Real (final quantity="MolarMass", final unit="kg/mol");
   type MolarVolume = Real (final quantity="MolarVolume", final unit="m3/mol");
-  type MolarInternalEnergy = Real (final quantity="MolarInternalEnergy", final 
-        unit="J/mol");
+  type MolarInternalEnergy = Real (final quantity="MolarInternalEnergy", final unit
+        =    "J/mol");
   type MolarHeatCapacity = Real (final quantity="MolarHeatCapacity", final unit
         ="J/(mol.K)");
   type MolarEntropy = Real (final quantity="MolarEntropy", final unit=
           "J/(mol.K)");
   type NumberDensityOfMolecules = Real (final quantity=
           "NumberDensityOfMolecules", final unit="m-3");
-  type MolecularConcentration = Real (final quantity="MolecularConcentration", 
+  type MolecularConcentration = Real (final quantity="MolecularConcentration",
         final unit="m-3");
   type MassConcentration = Real (final quantity="MassConcentration", final unit
         ="kg/m3");
@@ -1085,15 +1077,15 @@ functions.</p>
   type AbsoluteActivity = Real (final quantity="AbsoluteActivity", final unit=
           "1");
   type PartialPressure = Real (
-      final quantity="Pressure", 
-      final unit="Pa", 
-      displayUnit="bar", 
+      final quantity="Pressure",
+      final unit="Pa",
+      displayUnit="bar",
       min=0);
   type Fugacity = Real (final quantity="Fugacity", final unit="Pa");
   type StandardAbsoluteActivity = Real (final quantity=
           "StandardAbsoluteActivity", final unit="1");
-  type ActivityCoefficient = Real (final quantity="ActivityCoefficient", final 
-        unit="1");
+  type ActivityCoefficient = Real (final quantity="ActivityCoefficient", final unit
+        =    "1");
   type ActivityOfSolute = Real (final quantity="ActivityOfSolute", final unit=
           "1");
   type ActivityCoefficientOfSolute = Real (final quantity=
@@ -1107,11 +1099,11 @@ functions.</p>
   type StandardAbsoluteActivityOfSolvent = Real (final quantity=
           "StandardAbsoluteActivityOfSolvent", final unit="1");
   type OsmoticPressure = Real (
-      final quantity="Pressure", 
-      final unit="Pa", 
-      displayUnit="bar", 
+      final quantity="Pressure",
+      final unit="Pa",
+      displayUnit="bar",
       min=0);
-  type StoichiometricNumber = Real (final quantity="StoichiometricNumber", 
+  type StoichiometricNumber = Real (final quantity="StoichiometricNumber",
         final unit="1");
   type Affinity = Real (final quantity="Affinity", final unit="J/mol");
   type MassOfMolecule = Real (final quantity="Mass", final unit="kg");
@@ -1130,11 +1122,11 @@ functions.</p>
   type StatisticalWeight = Real (final quantity="StatisticalWeight", final unit
         ="1");
   type MeanFreePath = Length;
-  type DiffusionCoefficient = Real (final quantity="DiffusionCoefficient", 
+  type DiffusionCoefficient = Real (final quantity="DiffusionCoefficient",
         final unit="m2/s");
-  type ThermalDiffusionRatio = Real (final quantity="ThermalDiffusionRatio", 
+  type ThermalDiffusionRatio = Real (final quantity="ThermalDiffusionRatio",
         final unit="1");
-  type ThermalDiffusionFactor = Real (final quantity="ThermalDiffusionFactor", 
+  type ThermalDiffusionFactor = Real (final quantity="ThermalDiffusionFactor",
         final unit="1");
   type ThermalDiffusionCoefficient = Real (final quantity=
           "ThermalDiffusionCoefficient", final unit="m2/s");
@@ -1146,13 +1138,13 @@ functions.</p>
           "C/mol");
   type IonicStrength = Real (final quantity="IonicStrength", final unit=
           "mol/kg");
-  type DegreeOfDissociation = Real (final quantity="DegreeOfDissociation", 
+  type DegreeOfDissociation = Real (final quantity="DegreeOfDissociation",
         final unit="1");
   type ElectrolyticConductivity = Real (final quantity=
           "ElectrolyticConductivity", final unit="S/m");
   type MolarConductivity = Real (final quantity="MolarConductivity", final unit
         ="S.m2/mol");
-  type TransportNumberOfIonic = Real (final quantity="TransportNumberOfIonic", 
+  type TransportNumberOfIonic = Real (final quantity="TransportNumberOfIonic",
         final unit="1");
   
   // Atomic and Nuclear Physics (chapter 9 of ISO 31-1992)
@@ -1168,32 +1160,30 @@ functions.</p>
           "MagneticMomentOfParticle", final unit="A.m2");
   type BohrMagneton = MagneticMomentOfParticle;
   type NuclearMagneton = MagneticMomentOfParticle;
-  type GyromagneticCoefficient = Real (final quantity="GyromagneticCoefficient"
-        , final unit="A.m2/(J.s)");
+  type GyromagneticCoefficient = Real (final quantity="GyromagneticCoefficient",
+          final unit="A.m2/(J.s)");
   type GFactorOfAtom = Real (final quantity="GFactorOfAtom", final unit="1");
   type GFactorOfNucleus = Real (final quantity="GFactorOfNucleus", final unit=
           "1");
-  type LarmorAngularFrequency = Real (final quantity="AngularFrequency", final 
-        unit="s-1");
+  type LarmorAngularFrequency = Real (final quantity="AngularFrequency", final unit
+        =    "s-1");
   type NuclearPrecessionAngularFrequency = Real (final quantity=
           "AngularFrequency", final unit="s-1");
-  type CyclotronAngularFrequency = Real (final quantity="AngularFrequency", 
+  type CyclotronAngularFrequency = Real (final quantity="AngularFrequency",
         final unit="s-1");
-  type NuclearQuadrupoleMoment = Real (final quantity="NuclearQuadrupoleMoment"
-        , final unit="m2");
+  type NuclearQuadrupoleMoment = Real (final quantity="NuclearQuadrupoleMoment",
+          final unit="m2");
   type NuclearRadius = Real (final quantity="Length", final unit="m");
   type ElectronRadius = Real (final quantity="Length", final unit="m");
   type ComptonWavelength = Real (final quantity="Length", final unit="m");
   type MassExcess = Real (final quantity="Mass", final unit="kg");
   type MassDefect = Real (final quantity="Mass", final unit="kg");
-  type RelativeMassExcess = Real (final quantity="RelativeMassExcess", final 
-        unit="1");
-  type RelativeMassDefect = Real (final quantity="RelativeMassDefect", final 
-        unit="1");
-  type PackingFraction = Real (final quantity="PackingFraction", final unit="1"
-      );
-  type BindingFraction = Real (final quantity="BindingFraction", final unit="1"
-      );
+  type RelativeMassExcess = Real (final quantity="RelativeMassExcess", final unit
+        =    "1");
+  type RelativeMassDefect = Real (final quantity="RelativeMassDefect", final unit
+        =    "1");
+  type PackingFraction = Real (final quantity="PackingFraction", final unit="1");
+  type BindingFraction = Real (final quantity="BindingFraction", final unit="1");
   type MeanLife = Real (final quantity="Time", final unit="s");
   type LevelWidth = Real (final quantity="LevelWidth", final unit="J");
   type Activity = Real (final quantity="Activity", final unit="Bq");
@@ -1205,30 +1195,28 @@ functions.</p>
           "J");
   type MaximumBetaParticleEnergy = Real (final quantity="Energy", final unit=
           "J");
-  type BetaDisintegrationEnergy = Real (final quantity="Energy", final unit="J"
-      );
+  type BetaDisintegrationEnergy = Real (final quantity="Energy", final unit="J");
   
   // Nuclear Reactions and Ionizing Radiations (chapter 10 of ISO 31-1992)
   type ReactionEnergy = Real (final quantity="Energy", final unit="J");
   type ResonanceEnergy = Real (final quantity="Energy", final unit="J");
   type CrossSection = Real (final quantity="Area", final unit="m2");
   type TotalCrossSection = Real (final quantity="Area", final unit="m2");
-  type AngularCrossSection = Real (final quantity="AngularCrossSection", final 
-        unit="m2/sr");
-  type SpectralCrossSection = Real (final quantity="SpectralCrossSection", 
+  type AngularCrossSection = Real (final quantity="AngularCrossSection", final unit
+        =    "m2/sr");
+  type SpectralCrossSection = Real (final quantity="SpectralCrossSection",
         final unit="m2/J");
   type SpectralAngularCrossSection = Real (final quantity=
           "SpectralAngularCrossSection", final unit="m2/(sr.J)");
-  type MacroscopicCrossSection = Real (final quantity="MacroscopicCrossSection"
-        , final unit="m-1");
+  type MacroscopicCrossSection = Real (final quantity="MacroscopicCrossSection",
+          final unit="m-1");
   type TotalMacroscopicCrossSection = Real (final quantity=
           "TotalMacroscopicCrossSection", final unit="m-1");
   type ParticleFluence = Real (final quantity="ParticleFluence", final unit=
           "m-2");
-  type ParticleFluenceRate = Real (final quantity="ParticleFluenceRate", final 
-        unit="s-1.m2");
-  type EnergyFluence = Real (final quantity="EnergyFluence", final unit="J/m2")
-    ;
+  type ParticleFluenceRate = Real (final quantity="ParticleFluenceRate", final unit
+        =    "s-1.m2");
+  type EnergyFluence = Real (final quantity="EnergyFluence", final unit="J/m2");
   type EnergyFluenceRate = Real (final quantity="EnergyFluenceRate", final unit
         ="W/m2");
   type CurrentDensityOfParticles = Real (final quantity=
@@ -1244,29 +1232,27 @@ functions.</p>
           "TotalLinearStoppingPower", final unit="J/m");
   type TotalAtomicStoppingPower = Real (final quantity=
           "TotalAtomicStoppingPower", final unit="J.m2");
-  type TotalMassStoppingPower = Real (final quantity="TotalMassStoppingPower", 
+  type TotalMassStoppingPower = Real (final quantity="TotalMassStoppingPower",
         final unit="J.m2/kg");
   type MeanLinearRange = Real (final quantity="Length", final unit="m");
-  type MeanMassRange = Real (final quantity="MeanMassRange", final unit="kg/m2"
-      );
+  type MeanMassRange = Real (final quantity="MeanMassRange", final unit="kg/m2");
   type LinearIonization = Real (final quantity="LinearIonization", final unit=
           "m-1");
-  type TotalIonization = Real (final quantity="TotalIonization", final unit="1"
-      );
+  type TotalIonization = Real (final quantity="TotalIonization", final unit="1");
   type Mobility = Real (final quantity="Mobility", final unit="m2/V.s");
   type IonNumberDensity = Real (final quantity="IonNumberDensity", final unit=
           "m-3");
   type RecombinationCoefficient = Real (final quantity=
           "RecombinationCoefficient", final unit="m3/s");
-  type NeutronNumberDensity = Real (final quantity="NeutronNumberDensity", 
+  type NeutronNumberDensity = Real (final quantity="NeutronNumberDensity",
         final unit="m-3");
   type NeutronSpeed = Real (final quantity="Velocity", final unit="m/s");
-  type NeutronFluenceRate = Real (final quantity="NeutronFluenceRate", final 
-        unit="s-1.m-2");
+  type NeutronFluenceRate = Real (final quantity="NeutronFluenceRate", final unit
+        =    "s-1.m-2");
   type TotalNeutronSourceDensity = Real (final quantity=
           "TotalNeutronSourceDesity", final unit="s-1.m-3");
-  type SlowingDownDensity = Real (final quantity="SlowingDownDensity", final 
-        unit="s-1.m-3");
+  type SlowingDownDensity = Real (final quantity="SlowingDownDensity", final unit
+        =    "s-1.m-3");
   type ResonanceEscapeProbability = Real (final quantity=
           "ResonanceEscapeProbability", final unit="1");
   type Lethargy = Real (final quantity="Lethargy", final unit="1");
@@ -1276,7 +1262,7 @@ functions.</p>
   type SlowingDownLength = Real (final quantity="SLength", final unit="m");
   type DiffusionLength = Length;
   type MigrationLength = Length;
-  type NeutronYieldPerFission = Real (final quantity="NeutronYieldPerFission", 
+  type NeutronYieldPerFission = Real (final quantity="NeutronYieldPerFission",
         final unit="1");
   type NeutronYieldPerAbsorption = Real (final quantity=
           "NeutronYieldPerAbsorption", final unit="1");
@@ -1284,20 +1270,19 @@ functions.</p>
         ="1");
   type ThermalUtilizationFactor = Real (final quantity=
           "ThermalUtilizationFactor", final unit="1");
-  type NonLeakageProbability = Real (final quantity="NonLeakageProbability", 
+  type NonLeakageProbability = Real (final quantity="NonLeakageProbability",
         final unit="1");
   type Reactivity = Real (final quantity="Reactivity", final unit="1");
   type ReactorTimeConstant = Real (final quantity="Time", final unit="s");
   type EnergyImparted = Real (final quantity="Energy", final unit="J");
   type MeanEnergyImparted = Real (final quantity="Energy", final unit="J");
-  type SpecificEnergyImparted = Real (final quantity="SpecificEnergy", final 
-        unit="Gy");
+  type SpecificEnergyImparted = Real (final quantity="SpecificEnergy", final unit
+        =    "Gy");
   type AbsorbedDose = Real (final quantity="AbsorbedDose", final unit="Gy");
-  type DoseEquivalent = Real (final quantity="DoseEquivalent", final unit="Sv")
-    ;
+  type DoseEquivalent = Real (final quantity="DoseEquivalent", final unit="Sv");
   type AbsorbedDoseRate = Real (final quantity="AbsorbedDoseRate", final unit=
           "Gy/s");
-  type LinearEnergyTransfer = Real (final quantity="LinearEnergyTransfer", 
+  type LinearEnergyTransfer = Real (final quantity="LinearEnergyTransfer",
         final unit="J/m");
   type Kerma = Real (final quantity="Kerma", final unit="Gy");
   type KermaRate = Real (final quantity="KermaRate", final unit="Gy/s");
@@ -1340,7 +1325,7 @@ functions.</p>
   type PrandtlNumber = Real (final quantity="PrandtlNumber", final unit="1");
   type SchmidtNumber = Real (final quantity="SchmidtNumber", final unit="1");
   type LewisNumber = Real (final quantity="LewisNumber", final unit="1");
-  type MagneticReynoldsNumber = Real (final quantity="MagneticReynoldsNumber", 
+  type MagneticReynoldsNumber = Real (final quantity="MagneticReynoldsNumber",
         final unit="1");
   type AlfvenNumber = Real (final quantity="AlfvenNumber", final unit="1");
   type HartmannNumber = Real (final quantity="HartmannNumber", final unit="1");
@@ -1350,60 +1335,60 @@ functions.</p>
   type BraggAngle = Angle;
   type OrderOfReflexion = Real (final quantity="OrderOfReflexion", final unit=
           "1");
-  type ShortRangeOrderParameter = Real (final quantity="RangeOrderParameter", 
+  type ShortRangeOrderParameter = Real (final quantity="RangeOrderParameter",
         final unit="1");
-  type LongRangeOrderParameter = Real (final quantity="RangeOrderParameter", 
+  type LongRangeOrderParameter = Real (final quantity="RangeOrderParameter",
         final unit="1");
   type DebyeWallerFactor = Real (final quantity="DebyeWallerFactor", final unit
         ="1");
-  type CircularWavenumber = Real (final quantity="CircularWavenumber", final 
-        unit="m-1");
-  type FermiCircularWavenumber = Real (final quantity="FermiCircularWavenumber"
-        , final unit="m-1");
-  type DebyeCircularWavenumber = Real (final quantity="DebyeCircularWavenumber"
-        , final unit="m-1");
-  type DebyeCircularFrequency = Real (final quantity="AngularFrequency", final 
-        unit="s-1");
+  type CircularWavenumber = Real (final quantity="CircularWavenumber", final unit
+        =    "m-1");
+  type FermiCircularWavenumber = Real (final quantity="FermiCircularWavenumber",
+          final unit="m-1");
+  type DebyeCircularWavenumber = Real (final quantity="DebyeCircularWavenumber",
+          final unit="m-1");
+  type DebyeCircularFrequency = Real (final quantity="AngularFrequency", final unit
+        =    "s-1");
   type DebyeTemperature = ThermodynamicTemperature;
-  type SpectralConcentration = Real (final quantity="SpectralConcentration", 
+  type SpectralConcentration = Real (final quantity="SpectralConcentration",
         final unit="s/m3");
-  type GrueneisenParameter = Real (final quantity="GrueneisenParameter", final 
-        unit="1");
+  type GrueneisenParameter = Real (final quantity="GrueneisenParameter", final unit
+        =    "1");
   type MadelungConstant = Real (final quantity="MadelungConstant", final unit=
           "1");
   type DensityOfStates = Real (final quantity="DensityOfStates", final unit=
           "J-1/m-3");
-  type ResidualResistivity = Real (final quantity="ResidualResistivity", final 
-        unit="Ohm.m");
+  type ResidualResistivity = Real (final quantity="ResidualResistivity", final unit
+        =    "Ohm.m");
   type LorenzCoefficient = Real (final quantity="LorenzCoefficient", final unit
         ="V2/K2");
   type HallCoefficient = Real (final quantity="HallCoefficient", final unit=
           "m3/C");
   type ThermoelectromotiveForce = Real (final quantity=
           "ThermoelectromotiveForce", final unit="V");
-  type SeebeckCoefficient = Real (final quantity="SeebeckCoefficient", final 
-        unit="V/K");
-  type PeltierCoefficient = Real (final quantity="PeltierCoefficient", final 
-        unit="V");
-  type ThomsonCoefficient = Real (final quantity="ThomsonCoefficient", final 
-        unit="V/K");
-  type RichardsonConstant = Real (final quantity="RichardsonConstant", final 
-        unit="A/(m2.K2)");
+  type SeebeckCoefficient = Real (final quantity="SeebeckCoefficient", final unit
+        =    "V/K");
+  type PeltierCoefficient = Real (final quantity="PeltierCoefficient", final unit
+        =    "V");
+  type ThomsonCoefficient = Real (final quantity="ThomsonCoefficient", final unit
+        =    "V/K");
+  type RichardsonConstant = Real (final quantity="RichardsonConstant", final unit
+        =    "A/(m2.K2)");
   type FermiEnergy = Real (final quantity="Energy", final unit="eV");
   type GapEnergy = Real (final quantity="Energy", final unit="eV");
   type DonorIonizationEnergy = Real (final quantity="Energy", final unit="eV");
   type AcceptorIonizationEnergy = Real (final quantity="Energy", final unit=
           "eV");
   type FermiTemperature = ThermodynamicTemperature;
-  type ElectronNumberDensity = Real (final quantity="ElectronNumberDensity", 
+  type ElectronNumberDensity = Real (final quantity="ElectronNumberDensity",
         final unit="m-3");
   type HoleNumberDensity = Real (final quantity="HoleNumberDensity", final unit
         ="m-3");
-  type IntrinsicNumberDensity = Real (final quantity="IntrinsicNumberDensity", 
+  type IntrinsicNumberDensity = Real (final quantity="IntrinsicNumberDensity",
         final unit="m-3");
-  type DonorNumberDensity = Real (final quantity="DonorNumberDensity", final 
-        unit="m-3");
-  type AcceptorNumberDensity = Real (final quantity="AcceptorNumberDensity", 
+  type DonorNumberDensity = Real (final quantity="DonorNumberDensity", final unit
+        =    "m-3");
+  type AcceptorNumberDensity = Real (final quantity="AcceptorNumberDensity",
         final unit="m-3");
   type EffectiveMass = Mass;
   type MobilityRatio = Real (final quantity="MobilityRatio", final unit="1");
@@ -1414,12 +1399,11 @@ functions.</p>
   type NeelTemperature = ThermodynamicTemperature;
   type LondonPenetrationDepth = Length;
   type CoherenceLength = Length;
-  type LandauGinzburgParameter = Real (final quantity="LandauGinzburgParameter"
-        , final unit="1");
-  type FluxiodQuantum = Real (final quantity="FluxiodQuantum", final unit="Wb")
-    ;
+  type LandauGinzburgParameter = Real (final quantity="LandauGinzburgParameter",
+          final unit="1");
+  type FluxiodQuantum = Real (final quantity="FluxiodQuantum", final unit="Wb");
   
-  annotation (
+  annotation(
     Window(
       x=0.08,
       y=0.04,
@@ -1427,11 +1411,11 @@ functions.</p>
       height=0.84,
       library=1,
       autolayout=1),
-    Invisible=true, 
+    Invisible=true,
     Icon(Text(
-        extent=[-63, -13; 45, -67], 
-        string="[kg.m2]", 
-        style(color=0))), 
+        extent=[-63, -13; 45, -67],
+        string="[kg.m2]",
+        style(color=0))),
     Documentation(info="<html>
 
 <p>This package provides predefined types, such as <i>Mass</i>,
@@ -1571,27 +1555,26 @@ under the terms of the <b>Modelica license</b>, see the license conditions
 and the accompanying <b>disclaimer</b> in the documentation of package
 Modelica in file \"Modelica/package.mo\".</i></p>
 
-</HTML>"), 
+</HTML>"),
     Diagram(
-      Rectangle(extent=[169, 86; 349, 236], style(fillColor=30, fillPattern=1))
-        , 
+      Rectangle(extent=[169, 86; 349, 236], style(fillColor=30, fillPattern=1)),
       Polygon(points=[169, 236; 189, 256; 369, 256; 349, 236; 169, 236], style(
-            fillColor=30, fillPattern=1)), 
+            fillColor=30, fillPattern=1)),
       Polygon(points=[369, 256; 369, 106; 349, 86; 349, 236; 369, 256], style(
-            fillColor=30, fillPattern=1)), 
+            fillColor=30, fillPattern=1)),
       Text(
-        extent=[179, 226; 339, 196], 
-        string="Library", 
+        extent=[179, 226; 339, 196],
+        string="Library",
         style(
-          color=9, 
-          fillColor=0, 
-          fillPattern=1)), 
+          color=9,
+          fillColor=0,
+          fillPattern=1)),
       Text(
-        extent=[206, 173; 314, 119], 
-        string="[kg.m2]", 
-        style(color=0)), 
+        extent=[206, 173; 314, 119],
+        string="[kg.m2]",
+        style(color=0)),
       Text(
-        extent=[163, 320; 406, 264], 
-        string="Modelica.SIunits", 
+        extent=[163, 320; 406, 264],
+        string="Modelica.SIunits",
         style(color=1))));
 end SIunits;

@@ -1,18 +1,12 @@
-encapsulated model NandGate "CMOS NAND Gate (see Tietze/Schenk, page 157)"
+encapsulated model NandGate "CMOS NAND Gate (see Tietze/Schenk, page 157)" 
   import Modelica.Electrical.Analog.Basic;
   import Modelica.Electrical.Analog.Sources;
   import Modelica.Electrical.Analog.Examples.Utilities;
-
+  import Modelica.Icons;
+  extends Icons.Example;
+  
   annotation (
-    Icon(Rectangle(extent=[-90, 91; 90, -90], style(
-          color=10,
-          thickness=2,
-          gradient=0,
-          fillColor=8,
-          fillPattern=1)), Text(
-        extent=[-50, 20; 50, -20],
-        string="NandGate",
-        style(color=0))),
+    Icon,
     Documentation(info="<html>
 <p>
 The nand gate is a basic CMOS building block. It consists of four CMOS transistors.
@@ -32,9 +26,9 @@ Tietze, U.; Schenk, Ch.: Halbleiter-Schaltungstechnik. Springer-Verlag Berlin He
 <dt>
 <b>Main Authors:</b>
 <dd>
-<a href=\"http://www.eas.iis.fhg.de/~clauss/\">Christoph Clau&szlig;</a>
+<a href=\"http://people.eas.iis.fhg.de/Christoph.Clauss/\">Christoph Clau&szlig;</a>
     &lt;<a href=\"mailto:clauss@eas.iis.fhg.de\">clauss@eas.iis.fhg.de</a>&gt;<br>
-    <a href=\"http://www.eas.iis.fhg.de/~schneider/\">Andr&eacute; Schneider</a>
+    <a href=\"http://people.eas.iis.fhg.de/Andre.Schneider/\">Andr&eacute; Schneider</a>
     &lt;<a href=\"mailto:schneider@eas.iis.fhg.de\">schneider@eas.iis.fhg.de</a>&gt;<br>
     Fraunhofer Institute for Integrated Circuits<br>
     Design Automation Department<br>
@@ -58,8 +52,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
 <p>
 </dl>
 </HTML>
-"),
-    Window(
+"), Window(
       x=0.36,
       y=0.01,
       width=0.44,
@@ -84,7 +77,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
   Basic.Ground Gnd4 annotation (extent=[-75, -5; -65, 5]);
   Basic.Ground Gnd5 annotation (extent=[-75, -55; -65, -45]);
   Utilities.Nand Nand annotation (extent=[-40, -45; 40, 55]);
-equation
+equation 
   connect(VDD.n, Gnd1.p) annotation (points=[50, 60; 50, 53]);
   connect(VIN1.n, Gnd4.p) annotation (points=[-70, 10; -70, 5]);
   connect(VIN2.n, Gnd5.p) annotation (points=[-70, -40; -70, -45]);

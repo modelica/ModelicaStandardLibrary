@@ -1,6 +1,9 @@
 <HTML>
 <HEAD><META name="HTML-Generator" content="Dymola"><TITLE>Modelica</TITLE></HEAD>
 <BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Translational<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><A NAME="Modelica.Mechanics.Translational"></A><A HREF="Modelica_Mechanics.html#Modelica.Mechanics"
 >Modelica.Mechanics</A>.Translational</H2>
 <B>1-dimensional translational mechanical components</B>
@@ -179,7 +182,61 @@ Modelica in file "Modelica/package.mo".
 </i></p>
 <pre>
 </PRE><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Translational_Examples.html#Modelica.Mechanics.Translational.Examples"
+>Examples</A>
+</TD><TD>Demonstration examples of the components of this package</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces"
+>Interfaces</A>
+</TD><TD>Interfaces for 1D translational mechanical components</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Translational.html#Modelica.Mechanics.Translational.SlidingMass"
+>SlidingMass</A>
+</TD><TD>Sliding mass with inertia</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Translational.html#Modelica.Mechanics.Translational.Stop"
+>Stop</A>
+</TD><TD>Sliding mass with hard stop and Stribeck friction</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Translational.html#Modelica.Mechanics.Translational.Rod"
+>Rod</A>
+</TD><TD>Rod without inertia</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Translational.html#Modelica.Mechanics.Translational.Spring"
+>Spring</A>
+</TD><TD>Linear 1D translational spring</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Translational.html#Modelica.Mechanics.Translational.Damper"
+>Damper</A>
+</TD><TD>Linear 1D translational damper</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Translational.html#Modelica.Mechanics.Translational.SpringDamper"
+>SpringDamper</A>
+</TD><TD>Linear 1D translational spring and damper in parallel</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Translational.html#Modelica.Mechanics.Translational.ElastoGap"
+>ElastoGap</A>
+</TD><TD>1D translational spring damper combination with gap</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Translational.html#Modelica.Mechanics.Translational.Position"
+>Position</A>
+</TD><TD>Forced movement of a flange according to a reference position</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Translational.html#Modelica.Mechanics.Translational.Accelerate"
+>Accelerate</A>
+</TD><TD>Forced movement of a flange according to an acceleration signal</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Translational.html#Modelica.Mechanics.Translational.Move"
+>Move</A>
+</TD><TD>Forced movement of a flange according to a position, velocity and acceleration signal</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Translational.html#Modelica.Mechanics.Translational.Fixed"
+>Fixed</A>
+</TD><TD>Fixed flange</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Translational.html#Modelica.Mechanics.Translational.Force"
+>Force</A>
+</TD><TD>External force acting on a drive train element as input signal</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Translational.html#Modelica.Mechanics.Translational.RelativeStates"
+>RelativeStates</A>
+</TD><TD>Definition of relative state variables</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Translational_Sensors.html#Modelica.Mechanics.Translational.Sensors"
+>Sensors</A>
+</TD><TD>Sensor for 1D translational mechanical quantities</TD></TR>
+</TABLE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SlidingMass<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Mechanics.Translational.SlidingMassI.png" ALT="Modelica.Mechanics.Translational.SlidingMass" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Mechanics.Translational.SlidingMass"></A><A HREF="Modelica_Mechanics_Translational.html#Modelica.Mechanics.Translational"
 >Modelica.Mechanics.Translational</A>.SlidingMass</H2>
@@ -213,20 +270,23 @@ A negative force at flange flange_a moves the sliding mass to the negative direc
   <font color="blue">extends </font><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Rigid"
 >Interfaces.Rigid</A>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Mass"
->SI.Mass</A> m=1 <font color="darkgreen">&quot;mass of the sliding mass&quot;</font>;
+>SI.Mass</A> m =      1 <font color="darkgreen">&quot;mass of the sliding mass&quot;</font>;
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Velocity"
 >SI.Velocity</A> v <font color="darkgreen">&quot;absolute velocity of component&quot;</font>;
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Acceleration"
 >SI.Acceleration</A> a <font color="darkgreen">&quot;absolute acceleration of component&quot;</font>;
-  <font color="darkgreen"></font>
+  
 <font color="blue">equation </font>
-  <font color="darkgreen"></font>
-  v = <font color="red">der</font>(s);
-  a = <font color="red">der</font>(v);
+  
+  v =<font color="red"> der</font>(s);
+  a =<font color="red"> der</font>(v);
   m*a = flange_a.f + flange_b.f;
 <font color="blue">end </font>SlidingMass;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Stop<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Mechanics.Translational.StopI.png" ALT="Modelica.Mechanics.Translational.Stop" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Mechanics.Translational.Stop"></A><A HREF="Modelica_Mechanics_Translational.html#Modelica.Mechanics.Translational"
 >Modelica.Mechanics.Translational</A>.Stop</H2>
@@ -244,7 +304,7 @@ The frictional force f is given for positive velocity v by:</P>
 f = F_Coulomb + F_prop * v + F_Stribeck * exp (-fexp * v)</i> </ul><br>
 
 
-<IMG SRC=../Images/Stribeck.gif>
+<IMG SRC=../Images/Stribeck.png>
 <br><br>
 The distance between the left and the right connector is given by parameter L.
 The position of the center of gravity, coordinate s, is in the middle between
@@ -329,77 +389,81 @@ between the stops.</i> </li>
 <PRE>
 <font color="blue">model</font> Stop <font color="darkgreen">&quot;Sliding mass with hard stop and Stribeck friction&quot;</font> 
   <font color="blue">extends </font><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.FrictionBase"
->Modelica.Mechanics.Translational.Interfaces.FrictionBase</A>(s(stateSelect=
-          StateSelect.always));
+>Modelica.Mechanics.Translational.Interfaces.FrictionBase</A>(
+s(stateSelect = StateSelect.always));
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Velocity"
->Modelica.SIunits.Velocity</A> v(stateSelect=StateSelect.always) <font color="darkgreen">
+>Modelica.SIunits.Velocity</A> v(
+                              stateSelect = StateSelect.always) <font color="darkgreen">
     &quot;Absolute velocity of flange_a and flange_b&quot;</font>;
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Acceleration"
 >Modelica.SIunits.Acceleration</A> a <font color="darkgreen">
     &quot;Absolute acceleration of flange_a and flange_b&quot;</font>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Mass"
->Modelica.SIunits.Mass</A> m=1 <font color="darkgreen">&quot;mass&quot;</font>;
-  <font color="darkgreen"></font>
+>Modelica.SIunits.Mass</A> m =      1 <font color="darkgreen">&quot;mass&quot;</font>;
+  
   <font color="blue">parameter </font>Real F_prop(
-    <font color="blue">final </font>unit=&quot;N/ (m/s)&quot;, 
+    <font color="blue">final </font>unit=&quot;N/ (m/s)&quot;,
     <font color="blue">final </font>min=0) = 1 <font color="darkgreen">&quot;velocity dependent friction&quot;</font>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Force"
->Modelica.SIunits.Force</A> F_Coulomb=5 <font color="darkgreen">&quot;constant friction: Coulomb force&quot;</font>;
+>Modelica.SIunits.Force</A> F_Coulomb =      5 <font color="darkgreen">
+    &quot;constant friction: Coulomb force&quot;</font>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Force"
->Modelica.SIunits.Force</A> F_Stribeck=10 <font color="darkgreen">&quot;Stribeck effect&quot;</font>;
+>Modelica.SIunits.Force</A> F_Stribeck =      10 <font color="darkgreen">&quot;Stribeck effect&quot;</font>;
   <font color="blue">parameter </font>Real fexp(
-    <font color="blue">final </font>unit=&quot;1/ (m/s)&quot;, 
+    <font color="blue">final </font>unit=&quot;1/ (m/s)&quot;,
     <font color="blue">final </font>min=0) = 2 <font color="darkgreen">&quot;exponential decay&quot;</font>;
-  <font color="darkgreen"></font>
+  
 <font color="blue">equation </font>
-  <font color="darkgreen"></font>
+  
   <font color="darkgreen">// Constant auxiliary variables</font>
   f0 = (F_Coulomb + F_Stribeck);
   f0_max = f0*1.001;
   free = f0 &lt;= 0<font color="blue"> and </font>F_prop &lt;= 0<font color="blue"> and </font>s &gt; smin + L/2<font color="blue"> and </font>s &lt; smax - L/2;
-  <font color="darkgreen"></font>
+  
   <font color="darkgreen">// Velocity and acceleration of flanges</font>
-  v = <font color="red">der</font>(s);
-  a = <font color="red">der</font>(v);
+  v =<font color="red"> der</font>(s);
+  a =<font color="red"> der</font>(v);
   v_relfric = v;
   a_relfric = a;
-  <font color="darkgreen"></font>
+  
   <font color="darkgreen">// Equilibrium of forces</font>
   0 = flange_a.f + flange_b.f - f - m*<font color="red">der</font>(v);
-  <font color="darkgreen"></font>
+  
   <font color="darkgreen">// Friction force</font>
-  f = <font color="blue">if </font>locked<font color="blue"> then </font>sa<font color="blue"> else </font><font color="blue">if </font>free<font color="blue"> then </font>0<font color="blue"> else </font>(<font color="blue">if </font>startForward<font color="blue"> then </font>F_prop*v
-     + F_Coulomb + F_Stribeck<font color="blue"> else </font><font color="blue">if </font>startBackward<font color="blue"> then </font>F_prop*v - F_Coulomb
-     - F_Stribeck<font color="blue"> else </font><font color="blue">if </font><font color="red">pre</font>(mode) == Forward<font color="blue"> then </font>F_prop*v + F_Coulomb + 
-    F_Stribeck*<font color="red">exp</font>(-fexp*<font color="red">abs</font>(v))<font color="blue"> else </font>F_prop*v - F_Coulomb - F_Stribeck*<font color="red">exp</font>(-
-    fexp*<font color="red">abs</font>(v)));
-  <font color="darkgreen"></font>
-  <font color="darkgreen">
-    // Define events for hard stops and reinitiliaze the state variables velocity v and position s</font>
+  f = <font color="blue">if </font>locked<font color="blue"> then </font>sa<font color="blue"> else </font><font color="blue">if </font>free<font color="blue"> then </font>0<font color="blue"> else </font>
+          (<font color="blue">if </font>startForward<font color="blue"> then </font>F_prop*v + F_Coulomb +
+    F_Stribeck<font color="blue"> else </font><font color="blue">if </font>startBackward<font color="blue"> then </font>F_prop*v - F_Coulomb - F_Stribeck<font color="blue"> else </font>
+          <font color="blue">if </font><font color="red">pre</font>(mode) == Forward<font color="blue"> then </font>F_prop*v + F_Coulomb + F_Stribeck*<font color="red">exp</font>(-
+    fexp*<font color="red">abs</font>(v))<font color="blue"> else </font>F_prop*v - F_Coulomb - F_Stribeck*<font color="red">exp</font>(-fexp*<font color="red">abs</font>(v)));
+  
+  <font color="darkgreen">  // Define events for hard stops and reinitiliaze the state variables velocity v and position s</font>
 <font color="blue">algorithm </font>
   <font color="blue">when </font>(<font color="red">initial</font>())<font color="blue"> then</font>
-    <font color="red">assert</font>(s &gt; smin + L/2<font color="blue"> or </font>s &gt;= smin + L/2<font color="blue"> and </font>v &gt;= 0, 
+    <font color="red">assert</font>(s &gt; smin + L/2<font color="blue"> or </font>s &gt;= smin + L/2<font color="blue"> and </font>v &gt;= 0,
       &quot;Error in initialization of hard stop. (s - L/2) must be &gt;= smin &quot;);
-    <font color="red">assert</font>(s &lt; smax - L/2<font color="blue"> or </font>s &lt;= smax - L/2<font color="blue"> and </font>v &lt;= 0, 
+    <font color="red">assert</font>(s &lt; smax - L/2<font color="blue"> or </font>s &lt;= smax - L/2<font color="blue"> and </font>v &lt;= 0,
       &quot;Error in initialization of hard stop. (s + L/2) must be &lt;= smax &quot;);
   <font color="blue">end when</font>;
-  <font color="darkgreen"></font>
+  
   <font color="blue">when </font><font color="blue">not </font>(s &lt; smax - L/2)<font color="blue"> then</font>
     <font color="red">reinit</font>(s, smax - L/2);
-    <font color="blue">if </font>(<font color="blue">not </font><font color="red">initial</font>()<font color="blue"> or </font>v &gt; 0)<font color="blue"> then</font>
+    <font color="blue">if </font>(<font color="blue">not </font><font color="red">initial</font>()<font color="blue"> or </font>v&gt;0)<font color="blue"> then</font>
       <font color="red">reinit</font>(v, 0);
     <font color="blue">end if</font>;
   <font color="blue">end when</font>;
-  <font color="darkgreen"></font>
+  
   <font color="blue">when </font><font color="blue">not </font>(s &gt; smin + L/2)<font color="blue"> then</font>
     <font color="red">reinit</font>(s, smin + L/2);
-    <font color="blue">if </font>(<font color="blue">not </font><font color="red">initial</font>()<font color="blue"> or </font>v &lt; 0)<font color="blue"> then</font>
+    <font color="blue">if </font>(<font color="blue">not </font><font color="red">initial</font>()<font color="blue"> or </font>v&lt;0)<font color="blue"> then</font>
       <font color="red">reinit</font>(v, 0);
     <font color="blue">end if</font>;
   <font color="blue">end when</font>;
 <font color="blue">end </font>Stop;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Rod<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Mechanics.Translational.RodI.png" ALT="Modelica.Mechanics.Translational.Rod" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Mechanics.Translational.Rod"></A><A HREF="Modelica_Mechanics_Translational.html#Modelica.Mechanics.Translational"
 >Modelica.Mechanics.Translational</A>.Rod</H2>
@@ -427,12 +491,15 @@ Rod <i>without inertia</i> and two rigidly connected flanges.
 <font color="blue">model</font> Rod <font color="darkgreen">&quot;Rod without inertia&quot;</font> 
   <font color="blue">extends </font><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Rigid"
 >Interfaces.Rigid</A>;
-  <font color="darkgreen"></font>
+  
 <font color="blue">equation </font>
   0 = flange_a.f + flange_b.f;
 <font color="blue">end </font>Rod;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Spring<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Mechanics.Translational.SpringI.png" ALT="Modelica.Mechanics.Translational.Spring" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Mechanics.Translational.Spring"></A><A HREF="Modelica_Mechanics_Translational.html#Modelica.Mechanics.Translational"
 >Modelica.Mechanics.Translational</A>.Spring</H2>
@@ -443,7 +510,7 @@ Rod <i>without inertia</i> and two rigidly connected flanges.
 <p>
 A <i>linear 1D translational spring</i>. The component can be connected either
 between two sliding masses, or between
-a sliding mass and the housing (components FixedLeft, FixedRight), to describe
+a sliding mass and the housing (model Fixed), to describe
 a coupling of the slidin mass with the housing via a spring.
 </p>
 <p><b>Release Notes:</b></p>
@@ -464,16 +531,19 @@ a coupling of the slidin mass with the housing via a spring.
   <font color="blue">extends </font><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Compliant"
 >Interfaces.Compliant</A>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Distance"
->SI.Distance</A> s_rel0=0 <font color="darkgreen">&quot;unstretched spring length&quot;</font>;
+>SI.Distance</A> s_rel0 =      0 <font color="darkgreen">&quot;unstretched spring length&quot;</font>;
   <font color="blue">parameter </font>Real c(
-    <font color="blue">final </font>unit=&quot;N/m&quot;, 
+    <font color="blue">final </font>unit=&quot;N/m&quot;,
     <font color="blue">final </font>min=0) = 1 <font color="darkgreen">&quot;spring constant &quot;</font>;
-  <font color="darkgreen"></font>
+  
 <font color="blue">equation </font>
   f = c*(s_rel - s_rel0);
 <font color="blue">end </font>Spring;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Damper<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Mechanics.Translational.DamperI.png" ALT="Modelica.Mechanics.Translational.Damper" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Mechanics.Translational.Damper"></A><A HREF="Modelica_Mechanics_Translational.html#Modelica.Mechanics.Translational"
 >Modelica.Mechanics.Translational</A>.Damper</H2>
@@ -483,7 +553,7 @@ a coupling of the slidin mass with the housing via a spring.
 <PRE></pre>
 <p>
 <i>Linear, velocity dependent damper</i> element. It can be either connected
-between a sliding mass and the housing (FixedLeft, FixedRight elements), or
+between a sliding mass and the housing (model Fixed), or
 between two sliding masses.
 </p>
 <p><b>Release Notes:</b></p>
@@ -503,16 +573,19 @@ between two sliding masses.
   <font color="blue">extends </font><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Compliant"
 >Interfaces.Compliant</A>;
   <font color="blue">parameter </font>Real d(
-    <font color="blue">final </font>unit=&quot;N/ (m/s)&quot;, 
+    <font color="blue">final </font>unit=&quot;N/ (m/s)&quot;,
     <font color="blue">final </font>min=0) = 0 <font color="darkgreen">&quot;damping constant [N/ (m/s)]&quot;</font>;
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Velocity"
->SI.Velocity</A> v_rel <font color="darkgreen">&quot;relative velocity between flange L and R&quot;</font>;
+>SI.Velocity</A> v_rel <font color="darkgreen">&quot;relative velocity between flange_a and flange_b&quot;</font>;
 <font color="blue">equation </font>
-  v_rel = <font color="red">der</font>(s_rel);
+  v_rel =<font color="red"> der</font>(s_rel);
   f = d*v_rel;
 <font color="blue">end </font>Damper;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SpringDamper<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Mechanics.Translational.SpringDamperI.png" ALT="Modelica.Mechanics.Translational.SpringDamper" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Mechanics.Translational.SpringDamper"></A><A HREF="Modelica_Mechanics_Translational.html#Modelica.Mechanics.Translational"
 >Modelica.Mechanics.Translational</A>.SpringDamper</H2>
@@ -524,7 +597,7 @@ between two sliding masses.
 A <i>spring and damper element connected in parallel</i>.
 The component can be
 connected either between two sliding masses to describe the elasticity
-and damping, or between a sliding mass and the housing (FixedLeft, FixedRight elements),
+and damping, or between a sliding mass and the housing (model Fixed),
 to describe a coupling of the sliding mass with the housing via a spring/damper.
 <p><b>Release Notes:</b></p>
 <ul>
@@ -546,22 +619,25 @@ to describe a coupling of the sliding mass with the housing via a spring/damper.
   <font color="blue">extends </font><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Compliant"
 >Interfaces.Compliant</A>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
->SI.Position</A> s_rel0=0 <font color="darkgreen">&quot;unstretched spring length&quot;</font>;
+>SI.Position</A> s_rel0 =      0 <font color="darkgreen">&quot;unstretched spring length&quot;</font>;
   <font color="blue">parameter </font>Real c(
-    <font color="blue">final </font>unit=&quot;N/m&quot;, 
+    <font color="blue">final </font>unit=&quot;N/m&quot;,
     <font color="blue">final </font>min=0) = 1 <font color="darkgreen">&quot;spring constant&quot;</font>;
   <font color="blue">parameter </font>Real d(
-    <font color="blue">final </font>unit=&quot;N/(m/s)&quot;, 
+    <font color="blue">final </font>unit=&quot;N/(m/s)&quot;,
     <font color="blue">final </font>min=0) = 1 <font color="darkgreen">&quot;damping constant&quot;</font>;
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Velocity"
->SI.Velocity</A> v_rel <font color="darkgreen">&quot;relative velocity between flange L and R&quot;</font>;
-  <font color="darkgreen"></font>
+>SI.Velocity</A> v_rel <font color="darkgreen">&quot;relative velocity between flange_a and flange_b&quot;</font>;
+  
 <font color="blue">equation </font>
-  v_rel = <font color="red">der</font>(s_rel);
+  v_rel =<font color="red"> der</font>(s_rel);
   f = c*(s_rel - s_rel0) + d*v_rel;
 <font color="blue">end </font>SpringDamper;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ElastoGap<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Mechanics.Translational.ElastoGapI.png" ALT="Modelica.Mechanics.Translational.ElastoGap" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Mechanics.Translational.ElastoGap"></A><A HREF="Modelica_Mechanics_Translational.html#Modelica.Mechanics.Translational"
 >Modelica.Mechanics.Translational</A>.ElastoGap</H2>
@@ -572,8 +648,8 @@ to describe a coupling of the sliding mass with the housing via a spring/damper.
 <p>
 A <i>linear translational spring damper combination that can lift off</i>.
 The component can be connected
-between between
-a sliding mass and the housing (components FixedLeft, FixedRight), to describe
+between
+a sliding mass and the housing (model Fixed), to describe
 the contact of a sliding mass with the housing.
 </p>
 
@@ -592,30 +668,32 @@ the contact of a sliding mass with the housing.
 </TABLE>
 <H3>Modelica definition</H3>
 <PRE>
-<font color="blue">model</font> ElastoGap <font color="darkgreen">&quot;1D translational spring damper combination with gap&quot;</font>
-   
+<font color="blue">model</font> ElastoGap <font color="darkgreen">&quot;1D translational spring damper combination with gap&quot;</font> 
   <font color="blue">extends </font><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Compliant"
 >Interfaces.Compliant</A>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
->SI.Position</A> s_rel0=0 <font color="darkgreen">&quot;unstretched spring length&quot;</font>;
+>SI.Position</A> s_rel0 =      0 <font color="darkgreen">&quot;unstretched spring length&quot;</font>;
   <font color="blue">parameter </font>Real c(
-    <font color="blue">final </font>unit=&quot;N/m&quot;, 
+    <font color="blue">final </font>unit=&quot;N/m&quot;,
     <font color="blue">final </font>min=0) = 1 <font color="darkgreen">&quot;spring constant&quot;</font>;
   <font color="blue">parameter </font>Real d(
-    <font color="blue">final </font>unit=&quot;N/ (m/s)&quot;, 
+    <font color="blue">final </font>unit=&quot;N/ (m/s)&quot;,
     <font color="blue">final </font>min=0) = 1 <font color="darkgreen">&quot;damping constant&quot;</font>;
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Velocity"
->SI.Velocity</A> v_rel <font color="darkgreen">&quot;relative velocity between flange L and R&quot;</font>;
+>SI.Velocity</A> v_rel <font color="darkgreen">&quot;relative velocity between flange_a and flange_b&quot;</font>;
   Boolean Contact <font color="darkgreen">&quot;false, if s_rel &gt; l &quot;</font>;
-  <font color="darkgreen"></font>
+  
 <font color="blue">equation </font>
-  <font color="darkgreen"></font>
-  v_rel = <font color="red">der</font>(s_rel);
+  
+  v_rel =<font color="red"> der</font>(s_rel);
   Contact = s_rel &lt; s_rel0;
   f = <font color="blue">if </font>Contact<font color="blue"> then </font>(c*(s_rel - s_rel0) + d*v_rel)<font color="blue"> else </font>0;
 <font color="blue">end </font>ElastoGap;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Position<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Mechanics.Translational.PositionI.png" ALT="Modelica.Mechanics.Translational.Position" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Mechanics.Translational.Position"></A><A HREF="Modelica_Mechanics_Translational.html#Modelica.Mechanics.Translational"
 >Modelica.Mechanics.Translational</A>.Position</H2>
@@ -674,9 +752,9 @@ blocks of the block library Modelica.Blocks.Sources.
   <font color="blue">parameter </font>Boolean exact=false <font color="darkgreen">
     &quot;true/false exact treatment/filtering the input signal&quot;</font>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Frequency"
->SI.Frequency</A> f_crit=50 <font color="darkgreen">
+>SI.Frequency</A> f_crit =      50 <font color="darkgreen">
     &quot;if exact=false, critical frequency of filter to filter input signal&quot;</font>;
-  <font color="darkgreen"></font>
+  
   <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
 >SI.Position</A> s_ref <font color="darkgreen">&quot;reference position defined with the input signal&quot;</font>;
   <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
@@ -694,21 +772,22 @@ blocks of the block library Modelica.Blocks.Sources.
   <A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_b"
 >Interfaces.Flange_b</A> flange_b;
   <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
->Modelica.Blocks.Interfaces.InPort</A> inPort(<font color="blue">final </font>n=1) <font color="darkgreen">
+>Modelica.Blocks.Interfaces.InPort</A> inPort(
+                                           <font color="blue">final </font>n=1) <font color="darkgreen">
     &quot;Flange position as input signal&quot;</font>;
 <font color="blue">equation </font>
   s_ref = inPort.signal[1];
   s = flange_b.s;
-  v = <font color="red">der</font>(s);
-  a = <font color="red">der</font>(v);
-  <font color="darkgreen"></font>
+  v =<font color="red"> der</font>(s);
+  a =<font color="red"> der</font>(v);
+  
   <font color="blue">if </font>exact<font color="blue"> then</font>
     s = s_ref;
   <font color="blue">else</font>
     <font color="darkgreen">// Filter: a = s_ref/(1 + (af/w_crit)*S + (bf/w_crit^2)*S^2)</font>
     a = ((s_ref - s)*w_crit - af*v)*(w_crit/bf);
   <font color="blue">end if</font>;
-  <font color="darkgreen"></font>
+  
 <font color="blue">initial </font><font color="blue">equation </font>
   <font color="blue">if </font><font color="blue">not </font>exact<font color="blue"> then</font>
     s = s_ref;
@@ -716,6 +795,9 @@ blocks of the block library Modelica.Blocks.Sources.
 <font color="blue">end </font>Position;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Accelerate<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Mechanics.Translational.AccelerateI.png" ALT="Modelica.Mechanics.Translational.Accelerate" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Mechanics.Translational.Accelerate"></A><A HREF="Modelica_Mechanics_Translational.html#Modelica.Mechanics.Translational"
 >Modelica.Mechanics.Translational</A>.Accelerate</H2>
@@ -752,32 +834,38 @@ blocks of the block library Modelica.Blocks.Source.
 <font color="blue">model</font> Accelerate <font color="darkgreen">
   &quot;Forced movement of a flange according to an acceleration signal&quot;</font> 
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
->SI.Position</A> s_start=0 <font color="darkgreen">&quot;Start position&quot;</font>;
+>SI.Position</A> s_start =      0 <font color="darkgreen">&quot;Start position&quot;</font>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Velocity"
->SI.Velocity</A> v_start=0 <font color="darkgreen">&quot;Start velocity&quot;</font>;
-  <font color="darkgreen"></font>
+>SI.Velocity</A> v_start =      0 <font color="darkgreen">&quot;Start velocity&quot;</font>;
+  
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Acceleration"
 >SI.Acceleration</A> a <font color="darkgreen">&quot;absolute acceleration of flange_b&quot;</font>;
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Velocity"
->SI.Velocity</A> v(<font color="blue">final </font>start=v_start, <font color="blue">final </font>fixed=true) <font color="darkgreen">
+>SI.Velocity</A> v(
+                <font color="blue">final </font>start=v_start, <font color="blue">final </font>fixed=true) <font color="darkgreen">
     &quot;absolute velocity of flange_b&quot;</font>;
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
->SI.Position</A> s(<font color="blue">final </font>start=s_start, <font color="blue">final </font>fixed=true) <font color="darkgreen">
+>SI.Position</A> s(
+                <font color="blue">final </font>start=s_start, <font color="blue">final </font>fixed=true) <font color="darkgreen">
     &quot;absolute position of flange_b&quot;</font>;
-  <font color="darkgreen"></font>
+  
   <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
->Modelica.Blocks.Interfaces.InPort</A> inPort(<font color="blue">final </font>n=1) <font color="darkgreen">
+>Modelica.Blocks.Interfaces.InPort</A> inPort(
+                                           <font color="blue">final </font>n=1) <font color="darkgreen">
     &quot;Connector of input signal used as force&quot;</font>;
   <A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_b"
 >Interfaces.Flange_b</A> flange_b;
 <font color="blue">equation </font>
   s = flange_b.s;
-  v = <font color="red">der</font>(s);
-  a = <font color="red">der</font>(v);
+  v =<font color="red"> der</font>(s);
+  a =<font color="red"> der</font>(v);
   a = inPort.signal[1];
 <font color="blue">end </font>Accelerate;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Move<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Mechanics.Translational.MoveI.png" ALT="Modelica.Mechanics.Translational.Move" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Mechanics.Translational.Move"></A><A HREF="Modelica_Mechanics_Translational.html#Modelica.Mechanics.Translational"
 >Modelica.Mechanics.Translational</A>.Move</H2>
@@ -858,30 +946,30 @@ differentiating r).
 <H3>Modelica definition</H3>
 <PRE>
 <font color="blue">model</font> Move <font color="darkgreen">
-  &quot;Forced movement of a flange according to a position, velocity and acceleration signal&quot;</font>
-   
-  <font color="darkgreen"></font>
+  &quot;Forced movement of a flange according to a position, velocity and acceleration signal&quot;</font> 
+  
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
 >SI.Position</A> s <font color="darkgreen">&quot;absolute position of flange_b&quot;</font>;
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Velocity"
 >SI.Velocity</A> v <font color="darkgreen">&quot;absolute velocity of flange_b&quot;</font>;
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Acceleration"
 >SI.Acceleration</A> a <font color="darkgreen">&quot;absolute acceleration of flange_b&quot;</font>;
-  <font color="darkgreen"></font>
+  
 <font color="blue">protected </font>
   Real constraintResidue;
   Real constraintResidue_d;
   Real constraintResidue_dd;
 <font color="blue">public </font>
   <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
->Modelica.Blocks.Interfaces.InPort</A> inPort(<font color="blue">final </font>n=3);
+>Modelica.Blocks.Interfaces.InPort</A> inPort(
+                                           <font color="blue">final </font>n=3);
   <A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_b"
 >Interfaces.Flange_b</A> flange_b;
 <font color="blue">equation </font>
   s = flange_b.s;
-  v = <font color="red">der</font>(s);
-  a = <font color="red">der</font>(v);
-  <font color="darkgreen"></font>
+  v =<font color="red"> der</font>(s);
+  a =<font color="red"> der</font>(v);
+  
   constraintResidue = inPort.signal[1] - s;
   constraintResidue_d = inPort.signal[2] - v;
   constraintResidue_dd = inPort.signal[3] - a;
@@ -889,6 +977,9 @@ differentiating r).
 <font color="blue">end </font>Move;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Fixed<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Mechanics.Translational.FixedI.png" ALT="Modelica.Mechanics.Translational.Fixed" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Mechanics.Translational.Fixed"></A><A HREF="Modelica_Mechanics_Translational.html#Modelica.Mechanics.Translational"
 >Modelica.Mechanics.Translational</A>.Fixed</H2>
@@ -923,8 +1014,8 @@ at an position s0 in the <i>housing</i>. May be used:
 <PRE>
 <font color="blue">model</font> Fixed <font color="darkgreen">&quot;Fixed flange&quot;</font> 
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
->SI.Position</A> s0=0 <font color="darkgreen">&quot;fixed offset position of housing&quot;</font>;
-  <font color="darkgreen"></font>
+>SI.Position</A> s0 =      0 <font color="darkgreen">&quot;fixed offset position of housing&quot;</font>;
+  
   <A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_b"
 >Interfaces.Flange_b</A> flange_b;
 <font color="blue">equation </font>
@@ -932,6 +1023,9 @@ at an position s0 in the <i>housing</i>. May be used:
 <font color="blue">end </font>Fixed;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Force<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Mechanics.Translational.ForceI.png" ALT="Modelica.Mechanics.Translational.Force" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Mechanics.Translational.Force"></A><A HREF="Modelica_Mechanics_Translational.html#Modelica.Mechanics.Translational"
 >Modelica.Mechanics.Translational</A>.Force</H2>
@@ -960,14 +1054,15 @@ blocks of Modelica.Blocks.Source.
 <PRE>
 <font color="blue">model</font> Force <font color="darkgreen">
   &quot;External force acting on a drive train element as input signal&quot;</font> 
-  <font color="darkgreen"></font>
+  
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Force"
 >SI.Force</A> f <font color="darkgreen">&quot;driving force&quot;</font>;
-  <font color="darkgreen"></font>
+  
   <A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_b"
 >Interfaces.Flange_b</A> flange_b;
   <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
->Modelica.Blocks.Interfaces.InPort</A> inPort(<font color="blue">final </font>n=1) <font color="darkgreen">
+>Modelica.Blocks.Interfaces.InPort</A> inPort(
+                                           <font color="blue">final </font>n=1) <font color="darkgreen">
     &quot;Connector of input signal used as force&quot;</font>;
 <font color="blue">equation </font>
   f = inPort.signal[1];
@@ -975,6 +1070,9 @@ blocks of Modelica.Blocks.Source.
 <font color="blue">end </font>Force;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE RelativeStates<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Mechanics.Translational.RelativeStatesI.png" ALT="Modelica.Mechanics.Translational.RelativeStates" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Mechanics.Translational.RelativeStates"></A><A HREF="Modelica_Mechanics_Translational.html#Modelica.Mechanics.Translational"
 >Modelica.Mechanics.Translational</A>.RelativeStates</H2>
@@ -1001,7 +1099,7 @@ in the following way:
 An example is given in the next figure
 </p>
 
-<IMG SRC="../Images/relativeStates2.gif" ALT="relativeStates2">
+<IMG SRC="../Images/relativeStates2.png" ALT="relativeStates2">
 
 <p>
 Here, the relative position and the relative velocity between
@@ -1025,23 +1123,25 @@ velocity of model mass1 or of model mass2 as state variables.
   <font color="blue">extends </font><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.TwoFlanges"
 >Interfaces.TwoFlanges</A>;
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
->SI.Position</A> s_rel(stateSelect=StateSelect.prefer) <font color="darkgreen">
+>SI.Position</A> s_rel(
+                    stateSelect=StateSelect.prefer) <font color="darkgreen">
     &quot;relative position used as state variable&quot;</font>;
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Velocity"
->SI.Velocity</A> v_rel(stateSelect=StateSelect.prefer) <font color="darkgreen">
+>SI.Velocity</A> v_rel(
+                    stateSelect=StateSelect.prefer) <font color="darkgreen">
     &quot;relative velocity used as state variable&quot;</font>;
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Acceleration"
 >SI.Acceleration</A> a_rel <font color="darkgreen">&quot;relative angular acceleration&quot;</font>;
 <font color="blue">equation </font>
   s_rel = flange_b.s - flange_a.s;
-  v_rel = <font color="red">der</font>(s_rel);
-  a_rel = <font color="red">der</font>(v_rel);
+  v_rel =<font color="red"> der</font>(s_rel);
+  a_rel =<font color="red"> der</font>(v_rel);
   flange_a.f = 0;
   flange_b.f = 0;
 <font color="blue">end </font>RelativeStates;
 </PRE>
 <HR>
-<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Dec 11 11:13:28 2002
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Jun 30 17:43:05 2004
 .
 </address></BODY>
 </HTML>

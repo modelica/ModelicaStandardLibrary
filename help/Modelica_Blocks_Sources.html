@@ -1,6 +1,9 @@
 <HTML>
 <HEAD><META name="HTML-Generator" content="Dymola"><TITLE>Modelica</TITLE></HEAD>
 <BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Sources<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><A NAME="Modelica.Blocks.Sources"></A><A HREF="Modelica_Blocks.html#Modelica.Blocks"
 >Modelica.Blocks</A>.Sources</H2>
 <B>Signal source blocks generating Real, Integer and Boolean signals</B>
@@ -146,19 +149,19 @@ usually requires a trimming calculation.
        by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>
        and <a href="http://www.robotic.dlr.de/Christian.Schweiger/">Christian Schweiger</a>:<br>
        Integer sources added. Step, TimeTable and BooleanStep slightly changed
-       (see <a href="../Documentation/ChangeNotes.html">Change Notes</a>).</li>
+       (see <a href="../Documentation/ChangeNotes1.5.html">Change Notes</a>).</li>
 
 <li><i>November 8, 1999</i>
-       by <a href="http://www.eas.iis.fhg.de/~clauss/">Christoph Clau&szlig;</a>,
-       <a href="http://www.eas.iis.fhg.de/~schneider/">Andr&eacute; Schneider</a> and
+       by <a href="http://people.eas.iis.fhg.de/Christoph.Clauss/">Christoph Clau&szlig;</a>,
+       <a href="http://people.eas.iis.fhg.de/Andre.Schneider/">Andr&eacute; Schneider</a> and
        <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>:<br>
        New sources: Exponentials, TimeTable. Trapezoid slightly enhanced
        (nperiod=-1 is an infinite number of periods).</li>
 
 <li><i>October 31, 1999</i>
        by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>,
-       <a href="http://www.eas.iis.fhg.de/~clauss/">Christoph Clau&szlig;</a> and
-       <a href="http://www.eas.iis.fhg.de/~schneider/">Andr&eacute; Schneider</a>:
+       <a href="http://people.eas.iis.fhg.de/Christoph.Clauss/">Christoph Clau&szlig;</a> and
+       <a href="http://people.eas.iis.fhg.de/Andre.Schneider/">Andr&eacute; Schneider</a>:
        All sources vectorized. New sources: ExpSine, Trapezoid,
        BooleanConstant, BooleanStep, BooleanPulse, SampleTrigger.
        Improved documentation, especially detailed description of
@@ -182,7 +185,67 @@ Modelica in file "Modelica/package.mo".
 </i></p>
 <pre>
 </PRE><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Clock"
+>Clock</A>
+</TD><TD>Generate actual time signals </TD></TR>
+<TR><TD><A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Constant</A>
+</TD><TD>Generate constant signals of type Real</TD></TR>
+<TR><TD><A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Step"
+>Step</A>
+</TD><TD>Generate step signals of type Real</TD></TR>
+<TR><TD><A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Ramp</A>
+</TD><TD>Generate ramp signals</TD></TR>
+<TR><TD><A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Sine"
+>Sine</A>
+</TD><TD>Generate sine signals</TD></TR>
+<TR><TD><A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.ExpSine"
+>ExpSine</A>
+</TD><TD>Generate exponentially damped sine signals</TD></TR>
+<TR><TD><A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Exponentials"
+>Exponentials</A>
+</TD><TD>Generate a rising and falling exponential signal</TD></TR>
+<TR><TD><A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Pulse"
+>Pulse</A>
+</TD><TD>Generate pulse signals of type Real</TD></TR>
+<TR><TD><A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.SawTooth"
+>SawTooth</A>
+</TD><TD>Generate saw tooth signals</TD></TR>
+<TR><TD><A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Trapezoid"
+>Trapezoid</A>
+</TD><TD>Generate trapezoidal signals of type Real</TD></TR>
+<TR><TD><A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.KinematicPTP"
+>KinematicPTP</A>
+</TD><TD>Move as fast as possible along a distance within given kinematic constraints</TD></TR>
+<TR><TD><A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.TimeTable"
+>TimeTable</A>
+</TD><TD>Generate a (possibly discontinuous) signal by linear interpolation in a table</TD></TR>
+<TR><TD><A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.BooleanConstant"
+>BooleanConstant</A>
+</TD><TD>Generate constant signals of type Boolean</TD></TR>
+<TR><TD><A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.BooleanStep"
+>BooleanStep</A>
+</TD><TD>Generate step signals of type Boolean</TD></TR>
+<TR><TD><A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.BooleanPulse"
+>BooleanPulse</A>
+</TD><TD>Generate pulse signals of type Boolean</TD></TR>
+<TR><TD><A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.SampleTrigger"
+>SampleTrigger</A>
+</TD><TD>Generate sample trigger signals</TD></TR>
+<TR><TD><A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.IntegerConstant"
+>IntegerConstant</A>
+</TD><TD>Generate constant signals of type Integer</TD></TR>
+<TR><TD><A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.IntegerStep"
+>IntegerStep</A>
+</TD><TD>Generate step signals of type Integer</TD></TR>
+</TABLE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE IntegerStep<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Blocks.Sources.IntegerStepI.png" ALT="Modelica.Blocks.Sources.IntegerStep" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Blocks.Sources.IntegerStep"></A><A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources"
 >Modelica.Blocks.Sources</A>.IntegerStep</H2>
@@ -200,16 +263,16 @@ Modelica in file "Modelica/package.mo".
 <font color="blue">block</font> IntegerStep <font color="darkgreen">&quot;Generate step signals of type Integer&quot;</font> 
   <font color="blue">parameter </font>Integer height[:]={1} <font color="darkgreen">&quot;Heights of steps&quot;</font>;
   <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.IntegerSignalSource"
->Interfaces.IntegerSignalSource</A>(<font color="blue">final </font>nout=<font color="red">max</font>([<font color="red">size</font>(height, 1); <font color="red">size</font>(
-        offset, 1); <font color="red">size</font>(startTime, 1)]));
+>Interfaces.IntegerSignalSource</A>(<font color="blue">final </font>nout=<font color="red">max</font>([<font color="red">size</font>(height, 1);<font color="red">
+        size</font>(offset, 1);<font color="red"> size</font>(startTime, 1)]));
 <font color="blue">protected </font>
   <font color="blue">parameter </font>Integer p_height[nout]=(<font color="blue">if </font><font color="red">size</font>(height, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*
       height[1]<font color="blue"> else </font>height);
   <font color="blue">parameter </font>Integer p_offset[nout]=(<font color="blue">if </font><font color="red">size</font>(offset, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*
       offset[1]<font color="blue"> else </font>offset);
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
->SI.Time</A> p_startTime[nout]=(<font color="blue">if </font><font color="red">size</font>(startTime, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*
-      startTime[1]<font color="blue"> else </font>startTime);
+>SI.Time</A> p_startTime[       nout]=(<font color="blue">if </font><font color="red">size</font>(startTime, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(
+      nout)*startTime[1]<font color="blue"> else </font>startTime);
 <font color="blue">equation </font>
   <font color="blue">for </font>i<font color="blue"> in </font>1:nout<font color="blue"> loop</font>
     outPort.signal[i] = p_offset[i] + (<font color="blue">if </font>time &lt; p_startTime[i]<font color="blue"> then </font>0<font color="blue"> else </font>
@@ -218,6 +281,9 @@ Modelica in file "Modelica/package.mo".
 <font color="blue">end </font>IntegerStep;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE BooleanStep<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Blocks.Sources.BooleanStepI.png" ALT="Modelica.Blocks.Sources.BooleanStep" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Blocks.Sources.BooleanStep"></A><A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources"
 >Modelica.Blocks.Sources</A>.BooleanStep</H2>
@@ -227,15 +293,15 @@ Modelica in file "Modelica/package.mo".
 <TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
 <TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
 <TR><TD>startTime[:]</TD><TD>{0}</TD><TD>Time instants of steps [s]</TD></TR>
-<TR><TD>startValue[size(startTime, 1)]</TD><TD>fill(false, size(startTime, 1))</TD><TD>Output before startTime</TD></TR>
+<TR><TD>startValue[size(startTime, 1)]</TD><TD>fill(false, size(startTime, ...</TD><TD>Output before startTime</TD></TR>
 </TABLE>
 <H3>Modelica definition</H3>
 <PRE>
 <font color="blue">block</font> BooleanStep <font color="darkgreen">&quot;Generate step signals of type Boolean&quot;</font> 
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
->SI.Time</A> startTime[:]={0} <font color="darkgreen">&quot;Time instants of steps&quot;</font>;
-  <font color="blue">parameter </font>Boolean startValue[<font color="red">size</font>(startTime, 1)]=<font color="red">fill</font>(false, <font color="red">size</font>(startTime, 
-      1)) <font color="darkgreen">&quot;Output before startTime&quot;</font>;
+>SI.Time</A> startTime[       :]={0} <font color="darkgreen">&quot;Time instants of steps&quot;</font>;
+  <font color="blue">parameter </font>Boolean startValue[<font color="red">size</font>(startTime, 1)]=<font color="red">fill</font>(false,<font color="red"> size</font>(startTime,
+        1)) <font color="darkgreen">&quot;Output before startTime&quot;</font>;
   <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanSignalSource"
 >Interfaces.BooleanSignalSource</A>(<font color="blue">final </font>nout=<font color="red">size</font>(startTime, 1));
 <font color="blue">equation </font>
@@ -246,6 +312,9 @@ Modelica in file "Modelica/package.mo".
 <font color="blue">end </font>BooleanStep;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Sine<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Blocks.Sources.SineI.png" ALT="Modelica.Blocks.Sources.Sine" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Blocks.Sources.Sine"></A><A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources"
 >Modelica.Blocks.Sources</A>.Sine</H2>
@@ -265,37 +334,40 @@ Modelica in file "Modelica/package.mo".
 <font color="blue">block</font> Sine <font color="darkgreen">&quot;Generate sine signals&quot;</font> 
   <font color="blue">parameter </font>Real amplitude[:]={1} <font color="darkgreen">&quot;Amplitudes of sine waves&quot;</font>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Frequency"
->SI.Frequency</A> freqHz[:]={1} <font color="darkgreen">&quot;Frequencies of sine waves&quot;</font>;
+>SI.Frequency</A> freqHz[       :]={1} <font color="darkgreen">&quot;Frequencies of sine waves&quot;</font>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
->SI.Angle</A> phase[:]={0} <font color="darkgreen">&quot;Phases of sine waves&quot;</font>;
+>SI.Angle</A> phase[       :]={0} <font color="darkgreen">&quot;Phases of sine waves&quot;</font>;
   <font color="blue">parameter </font>Real offset[:]={0} <font color="darkgreen">&quot;Offsets of output signals&quot;</font>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
->SI.Time</A> startTime[:]={0} <font color="darkgreen">&quot;Output = offset for time &lt; startTime&quot;</font>;
+>SI.Time</A> startTime[       :]={0} <font color="darkgreen">&quot;Output = offset for time &lt; startTime&quot;</font>;
   <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.MO"
->Interfaces.MO</A>(<font color="blue">final </font>nout=<font color="red">max</font>([<font color="red">size</font>(amplitude, 1); <font color="red">size</font>(freqHz, 1); <font color="red">size</font>(
-        phase, 1); <font color="red">size</font>(offset, 1); <font color="red">size</font>(startTime, 1)]));
+>Interfaces.MO</A>(<font color="blue">final </font>nout=<font color="red">max</font>([<font color="red">size</font>(amplitude, 1);<font color="red"> size</font>(freqHz, 1);<font color="red">
+        size</font>(phase, 1);<font color="red"> size</font>(offset, 1);<font color="red"> size</font>(startTime, 1)]));
 <font color="blue">protected </font>
   <font color="blue">constant </font>Real pi=Modelica.Constants.pi;
-  <font color="blue">parameter </font>Real p_amplitude[nout]=(<font color="blue">if </font><font color="red">size</font>(amplitude, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*
-      amplitude[1]<font color="blue"> else </font>amplitude);
-  <font color="blue">parameter </font>Real p_freqHz[nout]=(<font color="blue">if </font><font color="red">size</font>(freqHz, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*freqHz
-      [1]<font color="blue"> else </font>freqHz);
-  <font color="blue">parameter </font>Real p_phase[nout]=(<font color="blue">if </font><font color="red">size</font>(phase, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*phase[1]<font color="blue">
-       else </font>phase);
-  <font color="blue">parameter </font>Real p_offset[nout]=(<font color="blue">if </font><font color="red">size</font>(offset, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*offset
-      [1]<font color="blue"> else </font>offset);
+  <font color="blue">parameter </font>Real p_amplitude[nout]=(<font color="blue">if </font><font color="red">size</font>(amplitude, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)
+       *amplitude[1]<font color="blue"> else </font>amplitude);
+  <font color="blue">parameter </font>Real p_freqHz[nout]=(<font color="blue">if </font><font color="red">size</font>(freqHz, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*
+      freqHz[1]<font color="blue"> else </font>freqHz);
+  <font color="blue">parameter </font>Real p_phase[nout]=(<font color="blue">if </font><font color="red">size</font>(phase, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*phase[
+      1]<font color="blue"> else </font>phase);
+  <font color="blue">parameter </font>Real p_offset[nout]=(<font color="blue">if </font><font color="red">size</font>(offset, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*
+      offset[1]<font color="blue"> else </font>offset);
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
->SI.Time</A> p_startTime[nout]=(<font color="blue">if </font><font color="red">size</font>(startTime, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*
-      startTime[1]<font color="blue"> else </font>startTime);
+>SI.Time</A> p_startTime[       nout]=(<font color="blue">if </font><font color="red">size</font>(startTime, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(
+      nout)*startTime[1]<font color="blue"> else </font>startTime);
 <font color="blue">equation </font>
   <font color="blue">for </font>i<font color="blue"> in </font>1:nout<font color="blue"> loop</font>
     outPort.signal[i] = p_offset[i] + (<font color="blue">if </font>time &lt; p_startTime[i]<font color="blue"> then </font>0<font color="blue"> else </font>
-      p_amplitude[i]*<font color="red">Modelica.Math.sin</font>(2*pi*p_freqHz[i]*(time - p_startTime[i])
-       + p_phase[i]));
+      p_amplitude[i]*<font color="red">Modelica.Math.sin</font>(2*pi*p_freqHz[i]*(time - p_startTime[i]) +
+      p_phase[i]));
   <font color="blue">end for</font>;
 <font color="blue">end </font>Sine;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Clock<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Blocks.Sources.ClockI.png" ALT="Modelica.Blocks.Sources.Clock" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Blocks.Sources.Clock"></A><A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources"
 >Modelica.Blocks.Sources</A>.Clock</H2>
@@ -312,16 +384,16 @@ Modelica in file "Modelica/package.mo".
 <font color="blue">block</font> Clock <font color="darkgreen">&quot;Generate actual time signals &quot;</font> 
   <font color="blue">parameter </font>Real offset[:]={0} <font color="darkgreen">&quot;Offsets of output signals&quot;</font>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
->SI.Time</A> startTime[:]={0} <font color="darkgreen">&quot;Output = offset for time &lt; startTime&quot;</font>;
+>SI.Time</A> startTime[       :]={0} <font color="darkgreen">&quot;Output = offset for time &lt; startTime&quot;</font>;
   <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.MO"
->Interfaces.MO</A>(<font color="blue">final </font>nout=<font color="red">max</font>([<font color="red">size</font>(offset, 1); <font color="red">size</font>(startTime, 1)]));
+>Interfaces.MO</A>(<font color="blue">final </font>nout=<font color="red">max</font>([<font color="red">size</font>(offset, 1);<font color="red"> size</font>(startTime, 1)]));
 <font color="blue">protected </font>
-  <font color="blue">parameter </font>Real p_offset[nout]=(<font color="blue">if </font><font color="red">size</font>(offset, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*offset
-      [1]<font color="blue"> else </font>offset);
+  <font color="blue">parameter </font>Real p_offset[nout]=(<font color="blue">if </font><font color="red">size</font>(offset, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*
+      offset[1]<font color="blue"> else </font>offset);
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
->SI.Time</A> p_startTime[nout]=(<font color="blue">if </font><font color="red">size</font>(startTime, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*
-      startTime[1]<font color="blue"> else </font>startTime);
-  <font color="darkgreen"></font>
+>SI.Time</A> p_startTime[       nout]=(<font color="blue">if </font><font color="red">size</font>(startTime, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(
+      nout)*startTime[1]<font color="blue"> else </font>startTime);
+  
 <font color="blue">equation </font>
   <font color="blue">for </font>i<font color="blue"> in </font>1:nout<font color="blue"> loop</font>
     outPort.signal[i] = p_offset[i] + (<font color="blue">if </font>time &lt; p_startTime[i]<font color="blue"> then </font>0<font color="blue"> else </font>
@@ -330,6 +402,9 @@ Modelica in file "Modelica/package.mo".
 <font color="blue">end </font>Clock;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Constant<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Blocks.Sources.ConstantI.png" ALT="Modelica.Blocks.Sources.Constant" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Blocks.Sources.Constant"></A><A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources"
 >Modelica.Blocks.Sources</A>.Constant</H2>
@@ -346,12 +421,15 @@ Modelica in file "Modelica/package.mo".
   <font color="blue">parameter </font>Real k[:]={1} <font color="darkgreen">&quot;Constant output values&quot;</font>;
   <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.MO"
 >Interfaces.MO</A>(<font color="blue">final </font>nout=<font color="red">size</font>(k, 1));
-  <font color="darkgreen"></font>
+  
 <font color="blue">equation </font>
   outPort.signal = k;
 <font color="blue">end </font>Constant;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Step<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Blocks.Sources.StepI.png" ALT="Modelica.Blocks.Sources.Step" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Blocks.Sources.Step"></A><A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources"
 >Modelica.Blocks.Sources</A>.Step</H2>
@@ -369,16 +447,16 @@ Modelica in file "Modelica/package.mo".
 <font color="blue">block</font> Step <font color="darkgreen">&quot;Generate step signals of type Real&quot;</font> 
   <font color="blue">parameter </font>Real height[:]={1} <font color="darkgreen">&quot;Heights of steps&quot;</font>;
   <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SignalSource"
->Interfaces.SignalSource</A>(<font color="blue">final </font>nout=<font color="red">max</font>([<font color="red">size</font>(height, 1); <font color="red">size</font>(offset, 1); <font color="red">
-        size</font>(startTime, 1)]));
+>Interfaces.SignalSource</A>(<font color="blue">final </font>nout=<font color="red">max</font>([<font color="red">size</font>(height, 1);<font color="red"> size</font>(
+        offset, 1);<font color="red"> size</font>(startTime, 1)]));
 <font color="blue">protected </font>
-  <font color="blue">parameter </font>Real p_height[nout]=(<font color="blue">if </font><font color="red">size</font>(height, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*height
-      [1]<font color="blue"> else </font>height);
-  <font color="blue">parameter </font>Real p_offset[nout]=(<font color="blue">if </font><font color="red">size</font>(offset, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*offset
-      [1]<font color="blue"> else </font>offset);
+  <font color="blue">parameter </font>Real p_height[nout]=(<font color="blue">if </font><font color="red">size</font>(height, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*
+      height[1]<font color="blue"> else </font>height);
+  <font color="blue">parameter </font>Real p_offset[nout]=(<font color="blue">if </font><font color="red">size</font>(offset, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*
+      offset[1]<font color="blue"> else </font>offset);
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
->SI.Time</A> p_startTime[nout]=(<font color="blue">if </font><font color="red">size</font>(startTime, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*
-      startTime[1]<font color="blue"> else </font>startTime);
+>SI.Time</A> p_startTime[       nout]=(<font color="blue">if </font><font color="red">size</font>(startTime, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(
+      nout)*startTime[1]<font color="blue"> else </font>startTime);
 <font color="blue">equation </font>
   <font color="blue">for </font>i<font color="blue"> in </font>1:nout<font color="blue"> loop</font>
     outPort.signal[i] = p_offset[i] + (<font color="blue">if </font>time &lt; p_startTime[i]<font color="blue"> then </font>0<font color="blue"> else </font>
@@ -387,6 +465,9 @@ Modelica in file "Modelica/package.mo".
 <font color="blue">end </font>Step;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Ramp<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Blocks.Sources.RampI.png" ALT="Modelica.Blocks.Sources.Ramp" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Blocks.Sources.Ramp"></A><A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources"
 >Modelica.Blocks.Sources</A>.Ramp</H2>
@@ -408,30 +489,33 @@ Modelica in file "Modelica/package.mo".
     &quot;Durations of ramps&quot;</font>;
   <font color="blue">parameter </font>Real offset[:]={0} <font color="darkgreen">&quot;Offsets of output signals&quot;</font>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
->SI.Time</A> startTime[:]={0} <font color="darkgreen">&quot;Output = offset for time &lt; startTime&quot;</font>;
+>SI.Time</A> startTime[       :]={0} <font color="darkgreen">&quot;Output = offset for time &lt; startTime&quot;</font>;
   <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.MO"
->Interfaces.MO</A>(<font color="blue">final </font>nout=<font color="red">max</font>([<font color="red">size</font>(height, 1); <font color="red">size</font>(duration, 1); <font color="red">size</font>(
-        offset, 1); <font color="red">size</font>(startTime, 1)]));
+>Interfaces.MO</A>(<font color="blue">final </font>nout=<font color="red">max</font>([<font color="red">size</font>(height, 1);<font color="red"> size</font>(duration, 1);<font color="red">
+        size</font>(offset, 1);<font color="red"> size</font>(startTime, 1)]));
 <font color="blue">protected </font>
-  <font color="blue">parameter </font>Real p_height[nout]=(<font color="blue">if </font><font color="red">size</font>(height, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*height
-      [1]<font color="blue"> else </font>height);
+  <font color="blue">parameter </font>Real p_height[nout]=(<font color="blue">if </font><font color="red">size</font>(height, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*
+      height[1]<font color="blue"> else </font>height);
   <font color="blue">parameter </font>Real p_duration[nout]=(<font color="blue">if </font><font color="red">size</font>(duration, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*
       duration[1]<font color="blue"> else </font>duration);
-  <font color="blue">parameter </font>Real p_offset[nout]=(<font color="blue">if </font><font color="red">size</font>(offset, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*offset
-      [1]<font color="blue"> else </font>offset);
+  <font color="blue">parameter </font>Real p_offset[nout]=(<font color="blue">if </font><font color="red">size</font>(offset, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*
+      offset[1]<font color="blue"> else </font>offset);
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
->SI.Time</A> p_startTime[nout]=(<font color="blue">if </font><font color="red">size</font>(startTime, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*
-      startTime[1]<font color="blue"> else </font>startTime);
-  <font color="darkgreen"></font>
+>SI.Time</A> p_startTime[       nout]=(<font color="blue">if </font><font color="red">size</font>(startTime, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(
+      nout)*startTime[1]<font color="blue"> else </font>startTime);
+  
 <font color="blue">equation </font>
   <font color="blue">for </font>i<font color="blue"> in </font>1:nout<font color="blue"> loop</font>
-    outPort.signal[i] = p_offset[i] + (<font color="blue">if </font>time &lt; p_startTime[i]<font color="blue"> then </font>0<font color="blue"> else </font><font color="blue">if </font>
-      time &lt; (p_startTime[i] + p_duration[i])<font color="blue"> then </font>(time - p_startTime[i])*
-      p_height[i]/p_duration[i]<font color="blue"> else </font>p_height[i]);
+    outPort.signal[i] = p_offset[i] + (<font color="blue">if </font>time &lt; p_startTime[i]<font color="blue"> then </font>0<font color="blue"> else </font>
+      <font color="blue">if </font>time &lt; (p_startTime[i] + p_duration[i])<font color="blue"> then </font>(time - p_startTime[i])
+      *p_height[i]/p_duration[i]<font color="blue"> else </font>p_height[i]);
   <font color="blue">end for</font>;
 <font color="blue">end </font>Ramp;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ExpSine<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Blocks.Sources.ExpSineI.png" ALT="Modelica.Blocks.Sources.ExpSine" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Blocks.Sources.ExpSine"></A><A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources"
 >Modelica.Blocks.Sources</A>.ExpSine</H2>
@@ -452,42 +536,44 @@ Modelica in file "Modelica/package.mo".
 <font color="blue">block</font> ExpSine <font color="darkgreen">&quot;Generate exponentially damped sine signals&quot;</font> 
   <font color="blue">parameter </font>Real amplitude[:]={1} <font color="darkgreen">&quot;Amplitudes of sine waves&quot;</font>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Frequency"
->SI.Frequency</A> freqHz[:]={2} <font color="darkgreen">&quot;Frequencies of sine waves&quot;</font>;
+>SI.Frequency</A> freqHz[       :]={2} <font color="darkgreen">&quot;Frequencies of sine waves&quot;</font>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
->SI.Angle</A> phase[:]={0} <font color="darkgreen">&quot;Phases of sine waves&quot;</font>;
+>SI.Angle</A> phase[       :]={0} <font color="darkgreen">&quot;Phases of sine waves&quot;</font>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Damping"
->SI.Damping</A> damping[:]={1} <font color="darkgreen">&quot;Damping coefficients of sine waves&quot;</font>;
+>SI.Damping</A> damping[       :]={1} <font color="darkgreen">&quot;Damping coefficients of sine waves&quot;</font>;
   <font color="blue">parameter </font>Real offset[:]={0} <font color="darkgreen">&quot;Offsets of output signals&quot;</font>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
->SI.Time</A> startTime[:]={0} <font color="darkgreen">&quot;Output = offset for time &lt; startTime&quot;</font>;
+>SI.Time</A> startTime[       :]={0} <font color="darkgreen">&quot;Output = offset for time &lt; startTime&quot;</font>;
   <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.MO"
->Interfaces.MO</A>(<font color="blue">final </font>nout=<font color="red">max</font>([<font color="red">size</font>(amplitude, 1); <font color="red">size</font>(freqHz, 1); <font color="red">size</font>(
-        phase, 1); <font color="red">size</font>(damping, 1); <font color="red">size</font>(offset, 1); <font color="red">size</font>(startTime, 1)]));
+>Interfaces.MO</A>(<font color="blue">final </font>nout=<font color="red">max</font>([<font color="red">size</font>(amplitude, 1);<font color="red"> size</font>(freqHz, 1);<font color="red">
+        size</font>(phase, 1);<font color="red"> size</font>(damping, 1);<font color="red"> size</font>(offset, 1);<font color="red"> size</font>(startTime, 1)]));
 <font color="blue">protected </font>
   <font color="blue">constant </font>Real pi=Modelica.Constants.pi;
-  <font color="blue">parameter </font>Real p_amplitude[nout]=(<font color="blue">if </font><font color="red">size</font>(amplitude, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*
-      amplitude[1]<font color="blue"> else </font>amplitude);
-  <font color="blue">parameter </font>Real p_freqHz[nout]=(<font color="blue">if </font><font color="red">size</font>(freqHz, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*freqHz
-      [1]<font color="blue"> else </font>freqHz);
-  <font color="blue">parameter </font>Real p_phase[nout]=(<font color="blue">if </font><font color="red">size</font>(phase, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*phase[1]<font color="blue">
-       else </font>phase);
+  <font color="blue">parameter </font>Real p_amplitude[nout]=(<font color="blue">if </font><font color="red">size</font>(amplitude, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)
+       *amplitude[1]<font color="blue"> else </font>amplitude);
+  <font color="blue">parameter </font>Real p_freqHz[nout]=(<font color="blue">if </font><font color="red">size</font>(freqHz, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*
+      freqHz[1]<font color="blue"> else </font>freqHz);
+  <font color="blue">parameter </font>Real p_phase[nout]=(<font color="blue">if </font><font color="red">size</font>(phase, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*phase[
+      1]<font color="blue"> else </font>phase);
   <font color="blue">parameter </font>Real p_damping[nout]=(<font color="blue">if </font><font color="red">size</font>(damping, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*
       damping[1]<font color="blue"> else </font>damping);
-  <font color="blue">parameter </font>Real p_offset[nout]=(<font color="blue">if </font><font color="red">size</font>(offset, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*offset
-      [1]<font color="blue"> else </font>offset);
+  <font color="blue">parameter </font>Real p_offset[nout]=(<font color="blue">if </font><font color="red">size</font>(offset, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*
+      offset[1]<font color="blue"> else </font>offset);
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
->SI.Time</A> p_startTime[nout]=(<font color="blue">if </font><font color="red">size</font>(startTime, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*
-      startTime[1]<font color="blue"> else </font>startTime);
+>SI.Time</A> p_startTime[       nout]=(<font color="blue">if </font><font color="red">size</font>(startTime, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(
+      nout)*startTime[1]<font color="blue"> else </font>startTime);
 <font color="blue">equation </font>
   <font color="blue">for </font>i<font color="blue"> in </font>1:nout<font color="blue"> loop</font>
     outPort.signal[i] = p_offset[i] + (<font color="blue">if </font>time &lt; p_startTime[i]<font color="blue"> then </font>0<font color="blue"> else </font>
-      p_amplitude[i]*<font color="red">Modelica.Math.exp</font>(-(time - p_startTime[i])*p_damping[i])*<font color="red">
-      Modelica.Math.sin</font>(2*pi*p_freqHz[i]*(time - p_startTime[i]) + p_phase[i]))
-      ;
+      p_amplitude[i]*<font color="red">Modelica.Math.exp</font>(-(time - p_startTime[i])*p_damping[i])*<font color="red">Modelica.Math.sin</font>(
+       2*pi*p_freqHz[i]*(time - p_startTime[i]) + p_phase[i]));
   <font color="blue">end for</font>;
 <font color="blue">end </font>ExpSine;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Exponentials<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Blocks.Sources.ExponentialsI.png" ALT="Modelica.Blocks.Sources.Exponentials" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Blocks.Sources.Exponentials"></A><A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources"
 >Modelica.Blocks.Sources</A>.Exponentials</H2>
@@ -505,56 +591,57 @@ Modelica in file "Modelica/package.mo".
 </TABLE>
 <H3>Modelica definition</H3>
 <PRE>
-<font color="blue">block</font> Exponentials <font color="darkgreen">&quot;Generate a rising and falling exponential signal&quot;</font>
-   
+<font color="blue">block</font> Exponentials <font color="darkgreen">&quot;Generate a rising and falling exponential signal&quot;</font> 
   <font color="blue">parameter </font>Real outMax[:]={1} <font color="darkgreen">&quot;Height of output for infinite riseTime&quot;</font>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
->SI.Time</A> riseTime[:](min=0) = {0.5} <font color="darkgreen">&quot;Rise time&quot;</font>;
+>SI.Time</A> riseTime[       :](min=0) = {0.5} <font color="darkgreen">&quot;Rise time&quot;</font>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
->SI.Time</A> riseTimeConst[:](min=Modelica.Constants.small) = {0.1} <font color="darkgreen">
+>SI.Time</A> riseTimeConst[       :](min=Modelica.Constants.small) = {0.1} <font color="darkgreen">
     &quot;Rise time constant&quot;</font>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
->SI.Time</A> fallTimeConst[:](min=Modelica.Constants.small) = riseTimeConst <font color="darkgreen">
+>SI.Time</A> fallTimeConst[       :](min=Modelica.Constants.small) = riseTimeConst <font color="darkgreen">
     &quot;Fall time constant&quot;</font>;
   <font color="blue">parameter </font>Real offset[:]={0} <font color="darkgreen">&quot;Offsets of output signals&quot;</font>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
->SI.Time</A> startTime[:]={0} <font color="darkgreen">&quot;Output = offset for time &lt; startTime&quot;</font>;
+>SI.Time</A> startTime[       :]={0} <font color="darkgreen">&quot;Output = offset for time &lt; startTime&quot;</font>;
   <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.MO"
->Interfaces.MO</A>(<font color="blue">final </font>nout=<font color="red">max</font>([<font color="red">size</font>(outMax, 1); <font color="red">size</font>(riseTime, 1); <font color="red">size</font>(
-        riseTimeConst, 1); <font color="red">size</font>(fallTimeConst, 1); <font color="red">size</font>(offset, 1); <font color="red">size</font>(
-        startTime, 1)]));
+>Interfaces.MO</A>(<font color="blue">final </font>nout=<font color="red">max</font>([<font color="red">size</font>(outMax, 1);<font color="red"> size</font>(riseTime, 1);<font color="red">
+        size</font>(riseTimeConst, 1);<font color="red"> size</font>(fallTimeConst, 1);<font color="red"> size</font>(offset, 1);<font color="red"> size</font>(
+         startTime, 1)]));
 <font color="blue">protected </font>
-  <font color="blue">parameter </font>Real p_outMax[nout]=(<font color="blue">if </font><font color="red">size</font>(outMax, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*outMax
-      [1]<font color="blue"> else </font>outMax);
+  <font color="blue">parameter </font>Real p_outMax[nout]=(<font color="blue">if </font><font color="red">size</font>(outMax, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*
+      outMax[1]<font color="blue"> else </font>outMax);
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
->SI.Time</A> p_riseTime[nout]=(<font color="blue">if </font><font color="red">size</font>(riseTime, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*
-      riseTime[1]<font color="blue"> else </font>riseTime);
+>SI.Time</A> p_riseTime[       nout]=(<font color="blue">if </font><font color="red">size</font>(riseTime, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(
+      nout)*riseTime[1]<font color="blue"> else </font>riseTime);
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
->SI.Time</A> p_riseTimeConst[nout]=(<font color="blue">if </font><font color="red">size</font>(riseTimeConst, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(
-      nout)*riseTimeConst[1]<font color="blue"> else </font>riseTimeConst);
+>SI.Time</A> p_riseTimeConst[       nout]=(<font color="blue">if </font><font color="red">size</font>(riseTimeConst, 1) == 1<font color="blue"> then </font><font color="red">
+            ones</font>(nout)*riseTimeConst[1]<font color="blue"> else </font>riseTimeConst);
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
->SI.Time</A> p_fallTimeConst[nout]=(<font color="blue">if </font><font color="red">size</font>(fallTimeConst, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(
-      nout)*fallTimeConst[1]<font color="blue"> else </font>fallTimeConst);
-  <font color="blue">parameter </font>Real p_offset[nout]=(<font color="blue">if </font><font color="red">size</font>(offset, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*offset
-      [1]<font color="blue"> else </font>offset);
+>SI.Time</A> p_fallTimeConst[       nout]=(<font color="blue">if </font><font color="red">size</font>(fallTimeConst, 1) == 1<font color="blue"> then </font><font color="red">
+            ones</font>(nout)*fallTimeConst[1]<font color="blue"> else </font>fallTimeConst);
+  <font color="blue">parameter </font>Real p_offset[nout]=(<font color="blue">if </font><font color="red">size</font>(offset, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*
+      offset[1]<font color="blue"> else </font>offset);
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
->SI.Time</A> p_startTime[nout]=(<font color="blue">if </font><font color="red">size</font>(startTime, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*
-      startTime[1]<font color="blue"> else </font>startTime);
+>SI.Time</A> p_startTime[       nout]=(<font color="blue">if </font><font color="red">size</font>(startTime, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(
+      nout)*startTime[1]<font color="blue"> else </font>startTime);
   Real y_riseTime[nout];
 <font color="blue">equation </font>
   <font color="blue">for </font>i<font color="blue"> in </font>1:nout<font color="blue"> loop</font>
-    y_riseTime[i] = p_outMax[i]*(1 - <font color="red">Modelica.Math.exp</font>(-p_riseTime[i]/
-      p_riseTimeConst[i]));
-    outPort.signal[i] = p_offset[i] + (<font color="blue">if </font>(time &lt; p_startTime[i])<font color="blue"> then </font>0<font color="blue"> else </font><font color="blue">
-      if </font>(time &lt; (p_startTime[i] + p_riseTime[i]))<font color="blue"> then </font>p_outMax[i]*(1 - <font color="red">
-      Modelica.Math.exp</font>(-(time - p_startTime[i])/p_riseTimeConst[i]))<font color="blue"> else </font>
-      y_riseTime[i]*<font color="red">Modelica.Math.exp</font>(-(time - p_startTime[i] - p_riseTime[i])/
-      p_fallTimeConst[i]));
+    y_riseTime[i] = p_outMax[i]*(1 -<font color="red"> Modelica.Math.exp</font>(-p_riseTime[i]/p_riseTimeConst[
+      i]));
+    outPort.signal[i] = p_offset[i] + (<font color="blue">if </font>(time &lt; p_startTime[i])<font color="blue"> then </font>0<font color="blue"> else </font>
+            <font color="blue">if </font>(time &lt; (p_startTime[i] + p_riseTime[i]))<font color="blue"> then </font>p_outMax[i]*(1
+       -<font color="red"> Modelica.Math.exp</font>(-(time - p_startTime[i])/p_riseTimeConst[i]))<font color="blue"> else </font>y_riseTime[i]
+      *<font color="red">Modelica.Math.exp</font>(-(time - p_startTime[i] - p_riseTime[i])/p_fallTimeConst[i]));
   <font color="blue">end for</font>;
-  <font color="darkgreen"></font>
+  
 <font color="blue">end </font>Exponentials;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Pulse<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Blocks.Sources.PulseI.png" ALT="Modelica.Blocks.Sources.Pulse" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Blocks.Sources.Pulse"></A><A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources"
 >Modelica.Blocks.Sources</A>.Pulse</H2>
@@ -574,44 +661,48 @@ Modelica in file "Modelica/package.mo".
 <font color="blue">block</font> Pulse <font color="darkgreen">&quot;Generate pulse signals of type Real&quot;</font> 
   <font color="blue">parameter </font>Real amplitude[:]={1} <font color="darkgreen">&quot;Amplitudes of pulses&quot;</font>;
   <font color="blue">parameter </font>Real width[:](
-    <font color="blue">final </font>min=Modelica.Constants.small, 
+    <font color="blue">final </font>min=Modelica.Constants.small,
     <font color="blue">final </font>max=100) = {50} <font color="darkgreen">&quot;Widths of pulses in % of periods&quot;</font>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
->SI.Time</A> period[:](<font color="blue">final </font>min=Modelica.Constants.small) = {1} <font color="darkgreen">
+>SI.Time</A> period[       :](<font color="blue">final </font>min=Modelica.Constants.small) = {1} <font color="darkgreen">
     &quot;Times for one period&quot;</font>;
   <font color="blue">parameter </font>Real offset[:]={0} <font color="darkgreen">&quot;Offsets of output signals&quot;</font>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
->SI.Time</A> startTime[:]={0} <font color="darkgreen">&quot;Output = offset for time &lt; startTime&quot;</font>;
+>SI.Time</A> startTime[       :]={0} <font color="darkgreen">&quot;Output = offset for time &lt; startTime&quot;</font>;
   <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.MO"
->Interfaces.MO</A>(<font color="blue">final </font>nout=<font color="red">max</font>([<font color="red">size</font>(amplitude, 1); <font color="red">size</font>(width, 1); <font color="red">size</font>(
-        period, 1); <font color="red">size</font>(offset, 1); <font color="red">size</font>(startTime, 1)]));
+>Interfaces.MO</A>(<font color="blue">final </font>nout=<font color="red">max</font>([<font color="red">size</font>(amplitude, 1);<font color="red"> size</font>(width, 1);<font color="red">
+        size</font>(period, 1);<font color="red"> size</font>(offset, 1);<font color="red"> size</font>(startTime, 1)]));
 <font color="blue">protected </font>
-  <font color="blue">parameter </font>Real p_amplitude[nout]=(<font color="blue">if </font><font color="red">size</font>(amplitude, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*
-      amplitude[1]<font color="blue"> else </font>amplitude);
+  <font color="blue">parameter </font>Real p_amplitude[nout]=(<font color="blue">if </font><font color="red">size</font>(amplitude, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)
+       *amplitude[1]<font color="blue"> else </font>amplitude);
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
->SI.Time</A> p_period[nout]=(<font color="blue">if </font><font color="red">size</font>(period, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*period[1]<font color="blue">
-       else </font>period);
+>SI.Time</A> p_period[       nout]=(<font color="blue">if </font><font color="red">size</font>(period, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*
+      period[1]<font color="blue"> else </font>period);
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
->SI.Time</A> p_width[nout]=<font color="red">diagonal</font>(p_period)*(<font color="blue">if </font><font color="red">size</font>(width, 1) == 1<font color="blue"> then </font><font color="red">ones</font>
-      (nout)*width[1]<font color="blue"> else </font>width)/100 <font color="darkgreen">&quot;Width of one pulse&quot;</font>;
-  <font color="blue">parameter </font>Real p_offset[nout]=(<font color="blue">if </font><font color="red">size</font>(offset, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*offset
-      [1]<font color="blue"> else </font>offset);
+>SI.Time</A> p_width[       nout]=<font color="red">diagonal</font>(p_period)*(<font color="blue">if </font><font color="red">size</font>(width, 1) == 1<font color="blue"> then </font><font color="red">
+            ones</font>(nout)*width[1]<font color="blue"> else </font>width)/100 <font color="darkgreen">&quot;Width of one pulse&quot;</font>;
+  <font color="blue">parameter </font>Real p_offset[nout]=(<font color="blue">if </font><font color="red">size</font>(offset, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*
+      offset[1]<font color="blue"> else </font>offset);
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
->SI.Time</A> p_startTime[nout]=(<font color="blue">if </font><font color="red">size</font>(startTime, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*
-      startTime[1]<font color="blue"> else </font>startTime);
+>SI.Time</A> p_startTime[       nout]=(<font color="blue">if </font><font color="red">size</font>(startTime, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(
+      nout)*startTime[1]<font color="blue"> else </font>startTime);
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
->SI.Time</A> T0[nout](<font color="blue">final </font>start=p_startTime) <font color="darkgreen">&quot;Start time of current period&quot;</font>;
+>SI.Time</A> T0[
+             nout](<font color="blue">final </font>start=p_startTime) <font color="darkgreen">&quot;Start time of current period&quot;</font>;
 <font color="blue">equation </font>
   <font color="blue">for </font>i<font color="blue"> in </font>1:nout<font color="blue"> loop</font>
     <font color="blue">when </font><font color="red">sample</font>(p_startTime[i], p_period[i])<font color="blue"> then</font>
       T0[i] = time;
     <font color="blue">end when</font>;
-    outPort.signal[i] = p_offset[i] + (<font color="blue">if </font>time &lt; p_startTime[i]<font color="blue"> or </font>time &gt;= T0[i
-      ] + p_width[i]<font color="blue"> then </font>0<font color="blue"> else </font>p_amplitude[i]);
+    outPort.signal[i] = p_offset[i] + (<font color="blue">if </font>time &lt; p_startTime[i]<font color="blue"> or </font>time &gt;= T0
+      [i] + p_width[i]<font color="blue"> then </font>0<font color="blue"> else </font>p_amplitude[i]);
   <font color="blue">end for</font>;
 <font color="blue">end </font>Pulse;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SawTooth<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Blocks.Sources.SawToothI.png" ALT="Modelica.Blocks.Sources.SawTooth" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Blocks.Sources.SawTooth"></A><A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources"
 >Modelica.Blocks.Sources</A>.SawTooth</H2>
@@ -630,27 +721,28 @@ Modelica in file "Modelica/package.mo".
 <font color="blue">block</font> SawTooth <font color="darkgreen">&quot;Generate saw tooth signals&quot;</font> 
   <font color="blue">parameter </font>Real amplitude[:]={1} <font color="darkgreen">&quot;Amplitudes of saw tooths&quot;</font>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
->SI.Time</A> period[:](<font color="blue">final </font>min=Modelica.Constants.small) = {1} <font color="darkgreen">
+>SI.Time</A> period[       :](<font color="blue">final </font>min=Modelica.Constants.small) = {1} <font color="darkgreen">
     &quot;Times for one period&quot;</font>;
   <font color="blue">parameter </font>Real offset[:]={0} <font color="darkgreen">&quot;Offsets of output signals&quot;</font>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
->SI.Time</A> startTime[:]={0} <font color="darkgreen">&quot;Output = offset for time &lt; startTime&quot;</font>;
+>SI.Time</A> startTime[       :]={0} <font color="darkgreen">&quot;Output = offset for time &lt; startTime&quot;</font>;
   <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.MO"
->Interfaces.MO</A>(<font color="blue">final </font>nout=<font color="red">max</font>([<font color="red">size</font>(amplitude, 1); <font color="red">size</font>(period, 1); <font color="red">size</font>(
-        offset, 1); <font color="red">size</font>(startTime, 1)]));
+>Interfaces.MO</A>(<font color="blue">final </font>nout=<font color="red">max</font>([<font color="red">size</font>(amplitude, 1);<font color="red"> size</font>(period, 1);<font color="red">
+        size</font>(offset, 1);<font color="red"> size</font>(startTime, 1)]));
 <font color="blue">protected </font>
-  <font color="blue">parameter </font>Real p_amplitude[nout]=(<font color="blue">if </font><font color="red">size</font>(amplitude, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*
-      amplitude[1]<font color="blue"> else </font>amplitude);
+  <font color="blue">parameter </font>Real p_amplitude[nout]=(<font color="blue">if </font><font color="red">size</font>(amplitude, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)
+       *amplitude[1]<font color="blue"> else </font>amplitude);
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
->SI.Time</A> p_period[nout]=(<font color="blue">if </font><font color="red">size</font>(period, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*period[1]<font color="blue">
-       else </font>period);
-  <font color="blue">parameter </font>Real p_offset[nout]=(<font color="blue">if </font><font color="red">size</font>(offset, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*offset
-      [1]<font color="blue"> else </font>offset);
+>SI.Time</A> p_period[       nout]=(<font color="blue">if </font><font color="red">size</font>(period, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*
+      period[1]<font color="blue"> else </font>period);
+  <font color="blue">parameter </font>Real p_offset[nout]=(<font color="blue">if </font><font color="red">size</font>(offset, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*
+      offset[1]<font color="blue"> else </font>offset);
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
->SI.Time</A> p_startTime[nout]=(<font color="blue">if </font><font color="red">size</font>(startTime, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*
-      startTime[1]<font color="blue"> else </font>startTime);
+>SI.Time</A> p_startTime[       nout]=(<font color="blue">if </font><font color="red">size</font>(startTime, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(
+      nout)*startTime[1]<font color="blue"> else </font>startTime);
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
->SI.Time</A> T0[nout](<font color="blue">final </font>start=p_startTime) <font color="darkgreen">&quot;Start time of current period&quot;</font>;
+>SI.Time</A> T0[
+             nout](<font color="blue">final </font>start=p_startTime) <font color="darkgreen">&quot;Start time of current period&quot;</font>;
 <font color="blue">equation </font>
   <font color="blue">for </font>i<font color="blue"> in </font>1:nout<font color="blue"> loop</font>
     <font color="blue">when </font><font color="red">sample</font>(p_startTime[i], p_period[i])<font color="blue"> then</font>
@@ -662,6 +754,9 @@ Modelica in file "Modelica/package.mo".
 <font color="blue">end </font>SawTooth;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Trapezoid<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Blocks.Sources.TrapezoidI.png" ALT="Modelica.Blocks.Sources.Trapezoid" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Blocks.Sources.Trapezoid"></A><A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources"
 >Modelica.Blocks.Sources</A>.Trapezoid</H2>
@@ -684,65 +779,74 @@ Modelica in file "Modelica/package.mo".
 <font color="blue">block</font> Trapezoid <font color="darkgreen">&quot;Generate trapezoidal signals of type Real&quot;</font> 
   <font color="blue">parameter </font>Real amplitude[:]={1} <font color="darkgreen">&quot;Amplitudes of trapezoids&quot;</font>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
->SI.Time</A> rising[:](<font color="blue">final </font>min=0) = {0} <font color="darkgreen">&quot;Rising durations of trapezoids&quot;</font>;
+>SI.Time</A> rising[       :](<font color="blue">final </font>min=0) = {0} <font color="darkgreen">
+    &quot;Rising durations of trapezoids&quot;</font>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
->SI.Time</A> width[:](<font color="blue">final </font>min=0) = {0.5} <font color="darkgreen">&quot;Width durations of trapezoids&quot;</font>;
+>SI.Time</A> width[       :](<font color="blue">final </font>min=0) = {0.5} <font color="darkgreen">
+    &quot;Width durations of trapezoids&quot;</font>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
->SI.Time</A> falling[:](<font color="blue">final </font>min=0) = {0} <font color="darkgreen">&quot;Falling durations of trapezoids&quot;</font>;
+>SI.Time</A> falling[       :](<font color="blue">final </font>min=0) = {0} <font color="darkgreen">
+    &quot;Falling durations of trapezoids&quot;</font>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
->SI.Time</A> period[:](<font color="blue">final </font>min=Modelica.Constants.small) = {1} <font color="darkgreen">
+>SI.Time</A> period[       :](<font color="blue">final </font>min=Modelica.Constants.small) = {1} <font color="darkgreen">
     &quot;Time for one period&quot;</font>;
   <font color="blue">parameter </font>Integer nperiod[:]={-1} <font color="darkgreen">
     &quot;Number of periods (&lt; 0 means infinite number of periods)&quot;</font>;
   <font color="blue">parameter </font>Real offset[:]={0} <font color="darkgreen">&quot;Offsets of output signals&quot;</font>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
->SI.Time</A> startTime[:]={0} <font color="darkgreen">&quot;Output = offset for time &lt; startTime&quot;</font>;
+>SI.Time</A> startTime[       :]={0} <font color="darkgreen">&quot;Output = offset for time &lt; startTime&quot;</font>;
   <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.MO"
->Interfaces.MO</A>(<font color="blue">final </font>nout=<font color="red">max</font>([<font color="red">size</font>(amplitude, 1); <font color="red">size</font>(rising, 1); <font color="red">size</font>(
-        width, 1); <font color="red">size</font>(falling, 1); <font color="red">size</font>(period, 1); <font color="red">size</font>(nperiod, 1); <font color="red">size</font>(
-        offset, 1); <font color="red">size</font>(startTime, 1)]));
+>Interfaces.MO</A>(<font color="blue">final </font>nout=<font color="red">max</font>([<font color="red">size</font>(amplitude, 1);<font color="red"> size</font>(rising, 1);<font color="red">
+        size</font>(width, 1);<font color="red"> size</font>(falling, 1);<font color="red"> size</font>(period, 1);<font color="red"> size</font>(nperiod, 1);<font color="red">
+        size</font>(offset, 1);<font color="red"> size</font>(startTime, 1)]));
 <font color="blue">protected </font>
-  <font color="blue">parameter </font>Real p_amplitude[nout]=(<font color="blue">if </font><font color="red">size</font>(amplitude, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*
-      amplitude[1]<font color="blue"> else </font>amplitude);
+  <font color="blue">parameter </font>Real p_amplitude[nout]=(<font color="blue">if </font><font color="red">size</font>(amplitude, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)
+       *amplitude[1]<font color="blue"> else </font>amplitude);
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
->SI.Time</A> T_rising[nout]=(<font color="blue">if </font><font color="red">size</font>(rising, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*rising[1]<font color="blue">
-       else </font>rising) <font color="darkgreen">&quot;End time of rising phase within one period&quot;</font>;
+>SI.Time</A> T_rising[       nout]=(<font color="blue">if </font><font color="red">size</font>(rising, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*
+      rising[1]<font color="blue"> else </font>rising) <font color="darkgreen">&quot;End time of rising phase within one period&quot;</font>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
->SI.Time</A> T_width[nout]=T_rising + (<font color="blue">if </font><font color="red">size</font>(width, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*
-      width[1]<font color="blue"> else </font>width) <font color="darkgreen">&quot;End time of width phase within one period&quot;</font>;
+>SI.Time</A> T_width[       nout]=T_rising + (<font color="blue">if </font><font color="red">size</font>(width, 1) == 1<font color="blue"> then </font><font color="red">
+      ones</font>(nout)*width[1]<font color="blue"> else </font>width) <font color="darkgreen">
+    &quot;End time of width phase within one period&quot;</font>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
->SI.Time</A> T_falling[nout]=T_width + (<font color="blue">if </font><font color="red">size</font>(falling, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout
-      )*falling[1]<font color="blue"> else </font>falling) <font color="darkgreen">&quot;End time of falling phase within one period&quot;</font>;
+>SI.Time</A> T_falling[       nout]=T_width + (<font color="blue">if </font><font color="red">size</font>(falling, 1) == 1<font color="blue"> then </font><font color="red">
+      ones</font>(nout)*falling[1]<font color="blue"> else </font>falling) <font color="darkgreen">
+    &quot;End time of falling phase within one period&quot;</font>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
->SI.Time</A> p_period[nout]=(<font color="blue">if </font><font color="red">size</font>(period, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*period[1]<font color="blue">
-       else </font>period) <font color="darkgreen">&quot;Duration of one period&quot;</font>;
-  <font color="blue">parameter </font>Real p_offset[nout]=(<font color="blue">if </font><font color="red">size</font>(offset, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*offset
-      [1]<font color="blue"> else </font>offset);
+>SI.Time</A> p_period[       nout]=(<font color="blue">if </font><font color="red">size</font>(period, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*
+      period[1]<font color="blue"> else </font>period) <font color="darkgreen">&quot;Duration of one period&quot;</font>;
+  <font color="blue">parameter </font>Real p_offset[nout]=(<font color="blue">if </font><font color="red">size</font>(offset, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*
+      offset[1]<font color="blue"> else </font>offset);
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
->SI.Time</A> p_startTime[nout]=(<font color="blue">if </font><font color="red">size</font>(startTime, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*
-      startTime[1]<font color="blue"> else </font>startTime);
+>SI.Time</A> p_startTime[       nout]=(<font color="blue">if </font><font color="red">size</font>(startTime, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(
+      nout)*startTime[1]<font color="blue"> else </font>startTime);
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
->SI.Time</A> T0[nout](<font color="blue">final </font>start=p_startTime) <font color="darkgreen">&quot;Start time of current period&quot;</font>;
-  Integer counter[nout](start=(<font color="blue">if </font><font color="red">size</font>(nperiod, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*nperiod
-        [1]<font color="blue"> else </font>nperiod)) <font color="darkgreen">&quot;Period counter&quot;</font>;
+>SI.Time</A> T0[
+             nout](<font color="blue">final </font>start=p_startTime) <font color="darkgreen">&quot;Start time of current period&quot;</font>;
+  Integer counter[nout](start=(<font color="blue">if </font><font color="red">size</font>(nperiod, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*
+        nperiod[1]<font color="blue"> else </font>nperiod)) <font color="darkgreen">&quot;Period counter&quot;</font>;
   Integer counter2[nout](start=(<font color="blue">if </font><font color="red">size</font>(nperiod, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*
         nperiod[1]<font color="blue"> else </font>nperiod));
 <font color="blue">equation </font>
   <font color="blue">for </font>i<font color="blue"> in </font>1:nout<font color="blue"> loop</font>
     <font color="blue">when </font><font color="red">pre</font>(counter2[i]) &lt;&gt; 0<font color="blue"> and </font><font color="red">sample</font>(p_startTime[i], p_period[i])<font color="blue"> then</font>
       T0[i] = time;
-      counter2[i] = <font color="red">pre</font>(counter[i]);
-      counter[i] = <font color="red">pre</font>(counter[i]) - (<font color="blue">if </font><font color="red">pre</font>(counter[i]) &gt; 0<font color="blue"> then </font>1<font color="blue"> else </font>0);
+      counter2[i] =<font color="red"> pre</font>(counter[i]);
+      counter[i] =<font color="red"> pre</font>(counter[i]) - (<font color="blue">if </font><font color="red">pre</font>(counter[i]) &gt; 0<font color="blue"> then </font>1<font color="blue"> else </font>0);
     <font color="blue">end when</font>;
-    outPort.signal[i] = p_offset[i] + (<font color="blue">if </font>(time &lt; p_startTime[i]<font color="blue"> or </font>counter2[i]
-       == 0<font color="blue"> or </font>time &gt;= T0[i] + T_falling[i])<font color="blue"> then </font>0<font color="blue"> else </font><font color="blue">if </font>(time &lt; T0[i] + 
-      T_rising[i])<font color="blue"> then </font>(time - T0[i])*p_amplitude[i]/T_rising[i]<font color="blue"> else </font><font color="blue">if </font>(time
-       &lt; T0[i] + T_width[i])<font color="blue"> then </font>p_amplitude[i]<font color="blue"> else </font>(T0[i] + T_falling[i] - 
-      time)*p_amplitude[i]/(T_falling[i] - T_width[i]));
+    outPort.signal[i] = p_offset[i] + (<font color="blue">if </font>(time &lt; p_startTime[i]<font color="blue"> or </font>counter2[
+      i] == 0<font color="blue"> or </font>time &gt;= T0[i] + T_falling[i])<font color="blue"> then </font>0<font color="blue"> else </font><font color="blue">if </font>(time &lt; T0[i]
+       + T_rising[i])<font color="blue"> then </font>(time - T0[i])*p_amplitude[i]/T_rising[i]<font color="blue"> else </font><font color="blue">if </font>
+      (time &lt; T0[i] + T_width[i])<font color="blue"> then </font>p_amplitude[i]<font color="blue"> else </font>(T0[i] + T_falling
+      [i] - time)*p_amplitude[i]/(T_falling[i] - T_width[i]));
   <font color="blue">end for</font>;
 <font color="blue">end </font>Trapezoid;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE KinematicPTP<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Blocks.Sources.KinematicPTPI.png" ALT="Modelica.Blocks.Sources.KinematicPTP" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Blocks.Sources.KinematicPTP"></A><A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources"
 >Modelica.Blocks.Sources</A>.KinematicPTP</H2>
@@ -806,26 +910,25 @@ a flange according to a given acceleration.
 <H3>Modelica definition</H3>
 <PRE>
 <font color="blue">block</font> KinematicPTP <font color="darkgreen">
-  &quot;Move as fast as possible along a distance within given kinematic constraints&quot;</font>
-   
-  <font color="darkgreen"></font>
+  &quot;Move as fast as possible along a distance within given kinematic constraints&quot;</font> 
+  
   <font color="blue">parameter </font>Real deltaq[:]={1} <font color="darkgreen">&quot;Distance to move&quot;</font>;
   <font color="blue">parameter </font>Real qd_max[:](<font color="blue">final </font>min=Modelica.Constants.small) = {1} <font color="darkgreen">
     &quot;Maximum velocities der(q)&quot;</font>;
   <font color="blue">parameter </font>Real qdd_max[:](<font color="blue">final </font>min=Modelica.Constants.small) = {1} <font color="darkgreen">
     &quot;Maximum accelerations der(qd)&quot;</font>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
->SI.Time</A> startTime=0 <font color="darkgreen">&quot;Time instant at which movement starts&quot;</font>;
-  <font color="darkgreen"></font>
+>SI.Time</A> startTime =      0 <font color="darkgreen">&quot;Time instant at which movement starts&quot;</font>;
+  
   <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.MO"
->Interfaces.MO</A>(<font color="blue">final </font>nout=<font color="red">max</font>([<font color="red">size</font>(deltaq, 1); <font color="red">size</font>(qd_max, 1); <font color="red">size</font>(
-        qdd_max, 1)]));
-  <font color="darkgreen"></font>
+>Interfaces.MO</A>(<font color="blue">final </font>nout=<font color="red">max</font>([<font color="red">size</font>(deltaq, 1);<font color="red"> size</font>(qd_max, 1);<font color="red">
+        size</font>(qdd_max, 1)]));
+  
 <font color="blue">protected </font>
-  <font color="blue">parameter </font>Real p_deltaq[nout]=(<font color="blue">if </font><font color="red">size</font>(deltaq, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*deltaq
-      [1]<font color="blue"> else </font>deltaq);
-  <font color="blue">parameter </font>Real p_qd_max[nout]=(<font color="blue">if </font><font color="red">size</font>(qd_max, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*qd_max
-      [1]<font color="blue"> else </font>qd_max);
+  <font color="blue">parameter </font>Real p_deltaq[nout]=(<font color="blue">if </font><font color="red">size</font>(deltaq, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*
+      deltaq[1]<font color="blue"> else </font>deltaq);
+  <font color="blue">parameter </font>Real p_qd_max[nout]=(<font color="blue">if </font><font color="red">size</font>(qd_max, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*
+      qd_max[1]<font color="blue"> else </font>qd_max);
   <font color="blue">parameter </font>Real p_qdd_max[nout]=(<font color="blue">if </font><font color="red">size</font>(qdd_max, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*
       qdd_max[1]<font color="blue"> else </font>qdd_max);
   Real sd_max;
@@ -849,24 +952,27 @@ a flange according to a given acceleration.
   <font color="blue">end for</font>;
   sd_max = 1/<font color="red">max</font>(<font color="red">abs</font>(aux1));
   sdd_max = 1/<font color="red">max</font>(<font color="red">abs</font>(aux2));
-  <font color="darkgreen"></font>
-  Ta1 = <font color="red">sqrt</font>(1/sdd_max);
+  
+  Ta1 =<font color="red"> sqrt</font>(1/sdd_max);
   Ta2 = sd_max/sdd_max;
   noWphase = Ta2 &gt;= Ta1;
   Tv = <font color="blue">if </font>noWphase<font color="blue"> then </font>Ta1<font color="blue"> else </font>1/sd_max;
   Te = <font color="blue">if </font>noWphase<font color="blue"> then </font>Ta1 + Ta1<font color="blue"> else </font>Tv + Ta2;
-  <font color="darkgreen"></font>
+  
   <font color="darkgreen">// path-acceleration</font>
-  sdd = <font color="blue">if </font>time &lt; startTime<font color="blue"> then </font>0<font color="blue"> else </font>((<font color="blue">if </font>noWphase<font color="blue"> then </font>(<font color="blue">if </font>time &lt; Ta1 + 
-    startTime<font color="blue"> then </font>sdd_max<font color="blue"> else </font>(<font color="blue">if </font>time &lt; Te + startTime<font color="blue"> then </font>-sdd_max<font color="blue"> else </font>0)
-    )<font color="blue"> else </font>(<font color="blue">if </font>time &lt; Ta2 + startTime<font color="blue"> then </font>sdd_max<font color="blue"> else </font>(<font color="blue">if </font>time &lt; Tv + 
+  sdd = <font color="blue">if </font>time &lt; startTime<font color="blue"> then </font>0<font color="blue"> else </font>((<font color="blue">if </font>noWphase<font color="blue"> then </font>(<font color="blue">if </font>time &lt; Ta1 +
+    startTime<font color="blue"> then </font>sdd_max<font color="blue"> else </font>(<font color="blue">if </font>time &lt; Te + startTime<font color="blue"> then </font>-sdd_max<font color="blue"> else </font>
+    0))<font color="blue"> else </font>(<font color="blue">if </font>time &lt; Ta2 + startTime<font color="blue"> then </font>sdd_max<font color="blue"> else </font>(<font color="blue">if </font>time &lt; Tv +
     startTime<font color="blue"> then </font>0<font color="blue"> else </font>(<font color="blue">if </font>time &lt; Te + startTime<font color="blue"> then </font>-sdd_max<font color="blue"> else </font>0)))));
-  <font color="darkgreen"></font>
+  
   <font color="darkgreen">// acceleration</font>
   outPort.signal = p_deltaq*sdd;
 <font color="blue">end </font>KinematicPTP;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TimeTable<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Blocks.Sources.TimeTableI.png" ALT="Modelica.Blocks.Sources.TimeTable" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Blocks.Sources.TimeTable"></A><A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources"
 >Modelica.Blocks.Sources</A>.TimeTable</H2>
@@ -950,14 +1056,13 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
 <H3>Modelica definition</H3>
 <PRE>
 <font color="blue">block</font> TimeTable <font color="darkgreen">
-  &quot;Generate a (possibly discontinuous) signal by linear interpolation in a table&quot;</font>
-   
-  <font color="darkgreen"></font>
+  &quot;Generate a (possibly discontinuous) signal by linear interpolation in a table&quot;</font> 
+  
   <font color="blue">parameter </font>Real table[:, 2]=[0, 0; 1, 1; 2, 4] <font color="darkgreen">
     &quot;Table matrix (time = first column)&quot;</font>;
   <font color="blue">parameter </font>Real offset[1]={0} <font color="darkgreen">&quot;Offset of output signal&quot;</font>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
->SI.Time</A> startTime[1]={0} <font color="darkgreen">&quot;Output = offset for time &lt; startTime&quot;</font>;
+>SI.Time</A> startTime[       1]={0} <font color="darkgreen">&quot;Output = offset for time &lt; startTime&quot;</font>;
   <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.MO"
 >Interfaces.MO</A>(<font color="blue">final </font>nout=1);
 <font color="blue">protected </font>
@@ -965,7 +1070,8 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
   Real b <font color="darkgreen">&quot;Interpolation coefficients b of actual interval (y=a*x+b)&quot;</font>;
   Integer last(start=1) <font color="darkgreen">&quot;Last used lower grid index&quot;</font>;
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
->SI.Time</A> nextEvent(start=0) <font color="darkgreen">&quot;Next event instant&quot;</font>;
+>SI.Time</A> nextEvent(
+                    start=0) <font color="darkgreen">&quot;Next event instant&quot;</font>;
   <font color="blue">function</font> getInterpolationCoefficients <font color="darkgreen">
     &quot;Determine interpolation coefficients and next time event&quot;</font> 
     <font color="blue">input </font>Real table[:, 2] <font color="darkgreen">&quot;Table for interpolation&quot;</font>;
@@ -990,7 +1096,7 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
     nextEvent := t - TimeEps*<font color="red">abs</font>(t);
     <font color="darkgreen">// in case there are no more time events</font>
     tp := t + TimeEps*<font color="red">abs</font>(t) - startTime;
-    <font color="darkgreen"></font>
+    
     <font color="blue">if </font>tp &lt; 0.0<font color="blue"> then</font>
       <font color="darkgreen">// First event not yet reached</font>
       nextEvent := startTime;
@@ -1001,18 +1107,18 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
       a := 0;
       b := offset + table[1, columns];
     <font color="blue">else</font>
-      <font color="darkgreen"></font>
-      <font color="darkgreen">// Find next time event instant. Note, that two consecutive time instants</font>
+      
+      <font color="darkgreen">  // Find next time event instant. Note, that two consecutive time instants</font>
       <font color="darkgreen">// in the table may be identical due to a discontinuous point.</font>
       <font color="blue">while </font>next &lt; nrow<font color="blue"> and </font>tp &gt;= table[next, 1]<font color="blue"> loop</font>
         next := next + 1;
       <font color="blue">end while</font>;
-      <font color="darkgreen"></font>
+      
       <font color="darkgreen">// Define next time event, if last table entry not reached</font>
       <font color="blue">if </font>next &lt; nrow<font color="blue"> then</font>
         nextEvent := startTime + table[next, 1];
       <font color="blue">end if</font>;
-      <font color="darkgreen"></font>
+      
       <font color="darkgreen">// Determine interpolation coefficients</font>
       next0 := next - 1;
       dt := table[next, 1] - table[next0, 1];
@@ -1029,15 +1135,18 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
     b := b - a*startTime;
   <font color="blue">end </font>getInterpolationCoefficients;
 <font color="blue">algorithm </font>
-  <font color="blue">when </font>{time &gt;= <font color="red">pre</font>(nextEvent),<font color="red">initial</font>()}<font color="blue"> then</font>
-    (a,b,nextEvent,last) := <font color="red">getInterpolationCoefficients</font>(table, <font color="red">scalar</font>(offset)
-      , <font color="red">scalar</font>(startTime), time, last, 100*Modelica.Constants.eps);
+  <font color="blue">when </font>{time &gt;=<font color="red"> pre</font>(nextEvent),<font color="red">initial</font>()}<font color="blue"> then</font>
+    (a,b,nextEvent,last) :=<font color="red"> getInterpolationCoefficients</font>(table,<font color="red"> scalar</font>(offset),<font color="red">
+         scalar</font>(startTime), time, last, 100*Modelica.Constants.eps);
   <font color="blue">end when</font>;
 <font color="blue">equation </font>
   outPort.signal[1] = a*time + b;
 <font color="blue">end </font>TimeTable;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE BooleanConstant<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Blocks.Sources.BooleanConstantI.png" ALT="Modelica.Blocks.Sources.BooleanConstant" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Blocks.Sources.BooleanConstant"></A><A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources"
 >Modelica.Blocks.Sources</A>.BooleanConstant</H2>
@@ -1054,12 +1163,15 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
   <font color="blue">parameter </font>Boolean k[:]={true} <font color="darkgreen">&quot;Constant output values&quot;</font>;
   <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanSignalSource"
 >Interfaces.BooleanSignalSource</A>(<font color="blue">final </font>nout=<font color="red">size</font>(k, 1));
-  <font color="darkgreen"></font>
+  
 <font color="blue">equation </font>
   outPort.signal = k;
 <font color="blue">end </font>BooleanConstant;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE BooleanPulse<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Blocks.Sources.BooleanPulseI.png" ALT="Modelica.Blocks.Sources.BooleanPulse" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Blocks.Sources.BooleanPulse"></A><A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources"
 >Modelica.Blocks.Sources</A>.BooleanPulse</H2>
@@ -1076,28 +1188,29 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
 <PRE>
 <font color="blue">block</font> BooleanPulse <font color="darkgreen">&quot;Generate pulse signals of type Boolean&quot;</font> 
   <font color="blue">parameter </font>Real width[:](
-    <font color="blue">final </font>min=Modelica.Constants.small, 
+    <font color="blue">final </font>min=Modelica.Constants.small,
     <font color="blue">final </font>max=100) = {50} <font color="darkgreen">&quot;Widths of pulses in % of period&quot;</font>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
->SI.Time</A> period[:](<font color="blue">final </font>min=Modelica.Constants.small) = {1} <font color="darkgreen">
+>SI.Time</A> period[       :](<font color="blue">final </font>min=Modelica.Constants.small) = {1} <font color="darkgreen">
     &quot;Times for one period&quot;</font>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
->SI.Time</A> startTime[:]={0} <font color="darkgreen">&quot;Iime instants of first pulse&quot;</font>;
+>SI.Time</A> startTime[       :]={0} <font color="darkgreen">&quot;Iime instants of first pulse&quot;</font>;
   <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanSignalSource"
->Interfaces.BooleanSignalSource</A>(<font color="blue">final </font>nout=<font color="red">max</font>([<font color="red">size</font>(width, 1); <font color="red">size</font>(period
-        , 1); <font color="red">size</font>(startTime, 1)]));
+>Interfaces.BooleanSignalSource</A>(<font color="blue">final </font>nout=<font color="red">max</font>([<font color="red">size</font>(width, 1);<font color="red"> size</font>(
+         period, 1);<font color="red"> size</font>(startTime, 1)]));
 <font color="blue">protected </font>
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
->SI.Time</A> p_period[nout]=(<font color="blue">if </font><font color="red">size</font>(period, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*period[1]<font color="blue">
-       else </font>period);
+>SI.Time</A> p_period[       nout]=(<font color="blue">if </font><font color="red">size</font>(period, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*
+      period[1]<font color="blue"> else </font>period);
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
->SI.Time</A> Twidth[nout]=<font color="red">diagonal</font>(p_period)*(<font color="blue">if </font><font color="red">size</font>(width, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(
-      nout)*width[1]<font color="blue"> else </font>width)/100 <font color="darkgreen">&quot;width of one pulse&quot;</font>;
+>SI.Time</A> Twidth[       nout]=<font color="red">diagonal</font>(p_period)*(<font color="blue">if </font><font color="red">size</font>(width, 1) == 1<font color="blue"> then </font><font color="red">
+            ones</font>(nout)*width[1]<font color="blue"> else </font>width)/100 <font color="darkgreen">&quot;width of one pulse&quot;</font>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
->SI.Time</A> p_startTime[nout]=(<font color="blue">if </font><font color="red">size</font>(startTime, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*
-      startTime[1]<font color="blue"> else </font>startTime);
+>SI.Time</A> p_startTime[       nout]=(<font color="blue">if </font><font color="red">size</font>(startTime, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(
+      nout)*startTime[1]<font color="blue"> else </font>startTime);
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
->SI.Time</A> T0[nout](<font color="blue">final </font>start=p_startTime) <font color="darkgreen">&quot;Start time of current period&quot;</font>;
+>SI.Time</A> T0[
+             nout](<font color="blue">final </font>start=p_startTime) <font color="darkgreen">&quot;Start time of current period&quot;</font>;
 <font color="blue">equation </font>
   <font color="blue">for </font>i<font color="blue"> in </font>1:nout<font color="blue"> loop</font>
     <font color="blue">when </font><font color="red">sample</font>(p_startTime[i], p_period[i])<font color="blue"> then</font>
@@ -1108,6 +1221,9 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
 <font color="blue">end </font>BooleanPulse;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SampleTrigger<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Blocks.Sources.SampleTriggerI.png" ALT="Modelica.Blocks.Sources.SampleTrigger" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Blocks.Sources.SampleTrigger"></A><A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources"
 >Modelica.Blocks.Sources</A>.SampleTrigger</H2>
@@ -1123,28 +1239,31 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
 <PRE>
 <font color="blue">block</font> SampleTrigger <font color="darkgreen">&quot;Generate sample trigger signals&quot;</font> 
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
->SI.Time</A> period[:](<font color="blue">final </font>min=Modelica.Constants.small) = {0.01} <font color="darkgreen">
+>SI.Time</A> period[       :](<font color="blue">final </font>min=Modelica.Constants.small) = {0.01} <font color="darkgreen">
     &quot;Sample periods&quot;</font>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
->SI.Time</A> startTime[:]={0} <font color="darkgreen">&quot;Time instants of first sample triggers&quot;</font>;
+>SI.Time</A> startTime[       :]={0} <font color="darkgreen">&quot;Time instants of first sample triggers&quot;</font>;
   <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanSignalSource"
->Interfaces.BooleanSignalSource</A>(<font color="blue">final </font>nout=<font color="red">max</font>([<font color="red">size</font>(period, 1); <font color="red">size</font>(
-        startTime, 1)]));
-  <font color="darkgreen"></font>
+>Interfaces.BooleanSignalSource</A>(<font color="blue">final </font>nout=<font color="red">max</font>([<font color="red">size</font>(period, 1);<font color="red">
+        size</font>(startTime, 1)]));
+  
 <font color="blue">protected </font>
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
->SI.Time</A> p_period[nout]=(<font color="blue">if </font><font color="red">size</font>(period, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*period[1]<font color="blue">
-       else </font>period);
+>SI.Time</A> p_period[       nout]=(<font color="blue">if </font><font color="red">size</font>(period, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*
+      period[1]<font color="blue"> else </font>period);
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
->SI.Time</A> p_startTime[nout]=(<font color="blue">if </font><font color="red">size</font>(startTime, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(nout)*
-      startTime[1]<font color="blue"> else </font>startTime);
+>SI.Time</A> p_startTime[       nout]=(<font color="blue">if </font><font color="red">size</font>(startTime, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(
+      nout)*startTime[1]<font color="blue"> else </font>startTime);
 <font color="blue">equation </font>
   <font color="blue">for </font>i<font color="blue"> in </font>1:nout<font color="blue"> loop</font>
-    outPort.signal[i] = <font color="red">sample</font>(p_startTime[i], p_period[i]);
+    outPort.signal[i] =<font color="red"> sample</font>(p_startTime[i], p_period[i]);
   <font color="blue">end for</font>;
 <font color="blue">end </font>SampleTrigger;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE IntegerConstant<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Blocks.Sources.IntegerConstantI.png" ALT="Modelica.Blocks.Sources.IntegerConstant" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Blocks.Sources.IntegerConstant"></A><A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources"
 >Modelica.Blocks.Sources</A>.IntegerConstant</H2>
@@ -1161,13 +1280,13 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
   <font color="blue">parameter </font>Integer k[:]={1} <font color="darkgreen">&quot;Constant output values&quot;</font>;
   <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.IntegerMO"
 >Interfaces.IntegerMO</A>(<font color="blue">final </font>nout=<font color="red">size</font>(k, 1));
-  <font color="darkgreen"></font>
+  
 <font color="blue">equation </font>
   outPort.signal = k;
 <font color="blue">end </font>IntegerConstant;
 </PRE>
 <HR>
-<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Dec 11 11:13:23 2002
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Jun 30 17:43:00 2004
 .
 </address></BODY>
 </HTML>

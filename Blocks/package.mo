@@ -6,14 +6,14 @@ import SI = Modelica.SIunits;
 extends Modelica.Icons.Library2;
 
 
-annotation (  
+annotation(
   Window(
-    x=0.03, 
-    y=0.05, 
-    width=0.21, 
-    height=0.48, 
-    library=1, 
-    autolayout=1), 
+    x=0.03,
+    y=0.05,
+    width=0.21,
+    height=0.48,
+    library=1,
+    autolayout=1),
   Icon(
     Rectangle(extent=[-32, -6; 16, -35], style(color=0)),
     Rectangle(extent=[-32, -56; 16, -85], style(color=0)),

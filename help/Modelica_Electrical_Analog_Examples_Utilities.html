@@ -1,6 +1,9 @@
 <HTML>
 <HEAD><META name="HTML-Generator" content="Dymola"><TITLE>Modelica</TITLE></HEAD>
 <BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Utilities<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><A NAME="Modelica.Electrical.Analog.Examples.Utilities"></A><A HREF="Modelica_Electrical_Analog_Examples.html#Modelica.Electrical.Analog.Examples"
 >Modelica.Electrical.Analog.Examples</A>.Utilities</H2>
 <B>Utilities for examples</B>
@@ -24,9 +27,9 @@ This package contains utilities ...
 <dt>
 <b>Main Authors:</b>
 <dd>
-<a href="http://www.eas.iis.fhg.de/~clauss/">Christoph Clau&szlig;</a>
+<a href="http://people.eas.iis.fhg.de/Christoph.Clauss/">Christoph Clau&szlig;</a>
     &lt;<a href="mailto:clauss@eas.iis.fhg.de">clauss@eas.iis.fhg.de</a>&gt;<br>
-    <a href="http://www.eas.iis.fhg.de/~schneider/">Andr&eacute; Schneider</a>
+    <a href="http://people.eas.iis.fhg.de/Andre.Schneider/">Andr&eacute; Schneider</a>
     &lt;<a href="mailto:schneider@eas.iis.fhg.de">schneider@eas.iis.fhg.de</a>&gt;<br>
     Fraunhofer Institute for Integrated Circuits<br>
     Design Automation Department<br>
@@ -51,7 +54,25 @@ Modelica in file "Modelica/package.mo".</i><br>
 </dl>
 <pre>
 </PRE><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Electrical_Analog_Examples_Utilities.html#Modelica.Electrical.Analog.Examples.Utilities.Nand"
+>Nand</A>
+</TD><TD>CMOS NAND Gate (see Tietze/Schenk, page 157)</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Analog_Examples_Utilities.html#Modelica.Electrical.Analog.Examples.Utilities.NonlinearResistor"
+>NonlinearResistor</A>
+</TD><TD>Chua's resistor</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Analog_Examples_Utilities.html#Modelica.Electrical.Analog.Examples.Utilities.RealSwitch"
+>RealSwitch</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Analog_Examples_Utilities.html#Modelica.Electrical.Analog.Examples.Utilities.Transistor"
+>Transistor</A>
+</TD><TD>&nbsp;</TD></TR>
+</TABLE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE RealSwitch<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Electrical.Analog.Examples.Utilities.RealSwitchI.png" ALT="Modelica.Electrical.Analog.Examples.Utilities.RealSwitch" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Electrical.Analog.Examples.Utilities.RealSwitch"></A><A HREF="Modelica_Electrical_Analog_Examples_Utilities.html#Modelica.Electrical.Analog.Examples.Utilities"
 >Modelica.Electrical.Analog.Examples.Utilities</A>.RealSwitch</H2>
@@ -60,9 +81,11 @@ Modelica in file "Modelica/package.mo".</i><br>
 <PRE>
 <font color="blue">model</font> RealSwitch 
   <A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.ControlledIdealCommutingSwitch"
->Ideal.ControlledIdealCommutingSwitch</A> S(level=2.5);
+>Ideal.ControlledIdealCommutingSwitch</A> S(
+                                         level=2.5);
   <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Resistor"
->Basic.Resistor</A> R(R=0.01);
+>Basic.Resistor</A> R(
+                   R=0.01);
   <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.Pin"
 >Interfaces.Pin</A> p;
   <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.Pin"
@@ -80,6 +103,9 @@ Modelica in file "Modelica/package.mo".</i><br>
 <font color="blue">end </font>RealSwitch;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE NonlinearResistor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Electrical.Analog.Examples.Utilities.NonlinearResistorI.png" ALT="Modelica.Electrical.Analog.Examples.Utilities.NonlinearResistor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Electrical.Analog.Examples.Utilities.NonlinearResistor"></A><A HREF="Modelica_Electrical_Analog_Examples_Utilities.html#Modelica.Electrical.Analog.Examples.Utilities"
 >Modelica.Electrical.Analog.Examples.Utilities</A>.NonlinearResistor</H2>
@@ -109,6 +135,9 @@ Modelica in file "Modelica/package.mo".</i><br>
 <font color="blue">end </font>NonlinearResistor;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Transistor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Electrical.Analog.Examples.Utilities.TransistorI.png" ALT="Modelica.Electrical.Analog.Examples.Utilities.Transistor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Electrical.Analog.Examples.Utilities.Transistor"></A><A HREF="Modelica_Electrical_Analog_Examples_Utilities.html#Modelica.Electrical.Analog.Examples.Utilities"
 >Modelica.Electrical.Analog.Examples.Utilities</A>.Transistor</H2>
@@ -117,28 +146,31 @@ Modelica in file "Modelica/package.mo".</i><br>
 <PRE>
 <font color="blue">model</font> Transistor 
   <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Resistor"
->Basic.Resistor</A> rtb(R=0.05);
+>Basic.Resistor</A> rtb(
+                     R=0.05);
   <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Resistor"
->Basic.Resistor</A> rtc(R=0.1);
+>Basic.Resistor</A> rtc(
+                     R=0.1);
   <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Capacitor"
->Basic.Capacitor</A> ct(C=1e-10);
+>Basic.Capacitor</A> ct(
+                     C=1e-10);
   <A HREF="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors.NPN"
 >Semiconductors.NPN</A> Tr(
-    Bf=50, 
-    Br=0.1, 
-    Is=1e-16, 
-    Vak=0.02, 
-    Tauf=0.12e-9, 
-    Taur=5e-9, 
-    Ccs=1e-12, 
-    Cje=0.4e-12, 
-    Cjc=0.5e-12, 
-    Phie=0.8, 
-    Me=0.4, 
-    Phic=0.8, 
-    Mc=0.333, 
-    Gbc=1e-15, 
-    Gbe=1e-15, 
+    Bf=50,
+    Br=0.1,
+    Is=1e-16,
+    Vak=0.02,
+    Tauf=0.12e-9,
+    Taur=5e-9,
+    Ccs=1e-12,
+    Cje=0.4e-12,
+    Cjc=0.5e-12,
+    Phie=0.8,
+    Me=0.4,
+    Phic=0.8,
+    Mc=0.333,
+    Gbc=1e-15,
+    Gbe=1e-15,
     Vt=0.02585);
   <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Ground"
 >Basic.Ground</A> Ground1;
@@ -159,6 +191,9 @@ Modelica in file "Modelica/package.mo".</i><br>
 <font color="blue">end </font>Transistor;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Nand<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Electrical.Analog.Examples.Utilities.NandI.png" ALT="Modelica.Electrical.Analog.Examples.Utilities.Nand" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Electrical.Analog.Examples.Utilities.Nand"></A><A HREF="Modelica_Electrical_Analog_Examples_Utilities.html#Modelica.Electrical.Analog.Examples.Utilities"
 >Modelica.Electrical.Analog.Examples.Utilities</A>.Nand</H2>
@@ -179,9 +214,9 @@ Tietze, U.; Schenk, Ch.: Halbleiter-Schaltungstechnik. Springer-Verlag Berlin He
 <dt>
 <b>Main Authors:</b>
 <dd>
-<a href="http://www.eas.iis.fhg.de/~clauss/">Christoph Clau&szlig;</a>
+<a href="http://people.eas.iis.fhg.de/Christoph.Clauss/">Christoph Clau&szlig;</a>
     &lt;<a href="mailto:clauss@eas.iis.fhg.de">clauss@eas.iis.fhg.de</a>&gt;<br>
-    <a href="http://www.eas.iis.fhg.de/~schneider/">Andr&eacute; Schneider</a>
+    <a href="http://people.eas.iis.fhg.de/Andre.Schneider/">Andr&eacute; Schneider</a>
     &lt;<a href="mailto:schneider@eas.iis.fhg.de">schneider@eas.iis.fhg.de</a>&gt;<br>
     Fraunhofer Institute for Integrated Circuits<br>
     Design Automation Department<br>
@@ -211,48 +246,50 @@ Modelica in file "Modelica/package.mo".</i><br>
 <font color="blue">model</font> Nand <font color="darkgreen">&quot;CMOS NAND Gate (see Tietze/Schenk, page 157)&quot;</font> 
   <A HREF="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors.PMOS"
 >Semiconductors.PMOS</A> TP1(
-    W=6.5e-6, 
-    L=3.1e-6, 
-    Beta=1.05e-5, 
-    Vt=-1, 
-    K2=0.41, 
-    K5=0.8385, 
-    dW=-2.5e-6, 
+    W=6.5e-6,
+    L=3.1e-6,
+    Beta=1.05e-5,
+    Vt=-1,
+    K2=0.41,
+    K5=0.8385,
+    dW=-2.5e-6,
     dL=-2.1e-6);
   <A HREF="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors.PMOS"
 >Semiconductors.PMOS</A> TP2(
-    W=6.5e-6, 
-    L=3.1e-6, 
-    Beta=1.05e-5, 
-    Vt=-1, 
-    K2=0.41, 
-    K5=0.8385, 
-    dW=-2.5e-6, 
+    W=6.5e-6,
+    L=3.1e-6,
+    Beta=1.05e-5,
+    Vt=-1,
+    K2=0.41,
+    K5=0.8385,
+    dW=-2.5e-6,
     dL=-2.1e-6);
   <A HREF="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors.NMOS"
 >Semiconductors.NMOS</A> TN1(
-    W=6.5e-6, 
-    L=3.1e-6, 
-    Beta=4.1e-5, 
-    Vt=0.8, 
-    K2=1.144, 
-    K5=0.7311, 
-    dW=-2.5e-6, 
+    W=6.5e-6,
+    L=3.1e-6,
+    Beta=4.1e-5,
+    Vt=0.8,
+    K2=1.144,
+    K5=0.7311,
+    dW=-2.5e-6,
     dL=-1.5e-6);
   <A HREF="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors.NMOS"
 >Semiconductors.NMOS</A> TN2(
-    W=6.5e-6, 
-    L=3.1e-6, 
-    Beta=4.1e-5, 
-    Vt=0.8, 
-    K2=1.144, 
-    K5=0.7311, 
-    dW=-2.5e-6, 
+    W=6.5e-6,
+    L=3.1e-6,
+    Beta=4.1e-5,
+    Vt=0.8,
+    K2=1.144,
+    K5=0.7311,
+    dW=-2.5e-6,
     dL=-1.5e-6);
   <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Capacitor"
->Basic.Capacitor</A> C4(C=0.4e-13);
+>Basic.Capacitor</A> C4(
+                     C=0.4e-13);
   <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Capacitor"
->Basic.Capacitor</A> C7(C=0.4e-13);
+>Basic.Capacitor</A> C7(
+                     C=0.4e-13);
   <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Ground"
 >Basic.Ground</A> Gnd;
   <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Ground"
@@ -296,7 +333,7 @@ Modelica in file "Modelica/package.mo".</i><br>
 <font color="blue">end </font>Nand;
 </PRE>
 <HR>
-<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Tue Dec 17 13:40:27 2002
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Jun 30 17:44:19 2004
 .
 </address></BODY>
 </HTML>

@@ -1,6 +1,9 @@
 <HTML>
 <HEAD><META name="HTML-Generator" content="Dymola"><TITLE>Modelica</TITLE></HEAD>
 <BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Examples<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><A NAME="Modelica.Mechanics.Rotational.Examples"></A><A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational"
 >Modelica.Mechanics.Rotational</A>.Examples</H2>
 <B>Demonstration examples of the components of this package</B>
@@ -15,6 +18,8 @@
 ><IMG SRC="Modelica.Mechanics.Rotational.Examples.LossyGearDemo1I.png" ALT="Modelica.Mechanics.Rotational.Examples.LossyGearDemo1" WIDTH=80  HEIGHT=80 ></A>
 <A HREF="Modelica_Mechanics_Rotational_Examples.html#Modelica.Mechanics.Rotational.Examples.LossyGearDemo2"
 ><IMG SRC="Modelica.Mechanics.Rotational.Examples.LossyGearDemo2I.png" ALT="Modelica.Mechanics.Rotational.Examples.LossyGearDemo2" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Mechanics_Rotational_Examples.html#Modelica.Mechanics.Rotational.Examples.ElasticBearing"
+><IMG SRC="Modelica.Mechanics.Rotational.Examples.ElasticBearingI.png" ALT="Modelica.Mechanics.Rotational.Examples.ElasticBearing" WIDTH=80  HEIGHT=80 ></A>
 <P><P>
 <H3>Information</H3>
 <PRE></pre>
@@ -32,6 +37,7 @@ The following demo models are present:
                     coupled clutches.
    <b>LossyGearDemo1</b>   Example to demonstrate that gear efficiency may lead to stuck motion
    <b>LossyGearDemo2</b>   Example to show combination of LossyGear and BearingFriction
+   <b>ElasticBearing</b>   Demonstration of bearing flange usage
 </pre>
 
 
@@ -50,6 +56,9 @@ The following demo models are present:
 <p><b>Release Notes:</b></p>
 
 <ul>
+<li><i>October 27, 2003</i>
+       by <a href="http://www.robotic.dlr.de/Christian.Schweiger/">Christian Schweiger</a>:<br>
+       New example <tt>ElasticBearing</tt>.</li>
 <li><i>October 21, 2002</i>
        by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>:<br>
        New examples concerning LossyGear added.</li>
@@ -64,7 +73,7 @@ The following demo models are present:
 
 <br>
 
-<p><b>Copyright &copy; 1999-2002, Modelica Association and DLR.</b></p>
+<p><b>Copyright &copy; 1999-2003, Modelica Association and DLR.</b></p>
 
 <p><i>
 The Modelica package is <b>free</b> software; it can be redistributed and/or modified
@@ -74,7 +83,31 @@ Modelica in file "Modelica/package.mo".
 </i></p>
 <pre>
 </PRE><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Rotational_Examples.html#Modelica.Mechanics.Rotational.Examples.First"
+>First</A>
+</TD><TD>First example: simple drive train</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Rotational_Examples.html#Modelica.Mechanics.Rotational.Examples.Friction"
+>Friction</A>
+</TD><TD>Drive train with clutch and brake</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Rotational_Examples.html#Modelica.Mechanics.Rotational.Examples.CoupledClutches"
+>CoupledClutches</A>
+</TD><TD>Drive train with 3 dynamically coupled clutches</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Rotational_Examples.html#Modelica.Mechanics.Rotational.Examples.LossyGearDemo1"
+>LossyGearDemo1</A>
+</TD><TD>Example to show that gear efficiency may lead to stuck motion</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Rotational_Examples.html#Modelica.Mechanics.Rotational.Examples.LossyGearDemo2"
+>LossyGearDemo2</A>
+</TD><TD>Example to show combination of LossyGear and BearingFriction</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Rotational_Examples.html#Modelica.Mechanics.Rotational.Examples.ElasticBearing"
+>ElasticBearing</A>
+</TD><TD>Example to show possible usage of bearing flange</TD></TR>
+</TABLE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE First<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Mechanics.Rotational.Examples.FirstI.png" ALT="Modelica.Mechanics.Rotational.Examples.First" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Mechanics.Rotational.Examples.First"></A><A HREF="Modelica_Mechanics_Rotational_Examples.html#Modelica.Mechanics.Rotational.Examples"
 >Modelica.Mechanics.Rotational.Examples</A>.First</H2>
@@ -123,45 +156,50 @@ in the housing on one side via component Fixed.</p>
 >Modelica.Mechanics.Rotational</A>;
   <font color="blue">import </font>SI = <A HREF="Modelica_SIunits.html#Modelica.SIunits"
 >Modelica.SIunits</A>;
-  <font color="darkgreen"></font>
+  
   <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
 >Icons.Example</A>;
-  <font color="darkgreen"></font>
+  
   <font color="blue">parameter </font>Real amplitude=10;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Frequency"
->SI.Frequency</A> freqHz=5;
+>SI.Frequency</A> freqHz =      5;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inertia"
->SI.Inertia</A> Jmotor=0.1;
+>SI.Inertia</A> Jmotor =      0.1;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inertia"
->SI.Inertia</A> Jload=2;
+>SI.Inertia</A> Jload =      2;
   <font color="blue">parameter </font>Real ratio=10;
   <font color="blue">parameter </font>Real damping=10;
-  <font color="darkgreen"></font>
-  <font color="darkgreen"></font>
+  
+  
   <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Fixed"
 >Rotational.Fixed</A> fixed;
   <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Torque"
 >Rotational.Torque</A> torque;
   <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Inertia"
->Rotational.Inertia</A> inertia1(J=Jmotor);
+>Rotational.Inertia</A> inertia1(
+                              J=Jmotor);
   <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.IdealGear"
->Rotational.IdealGear</A> idealGear(ratio=ratio);
+>Rotational.IdealGear</A> idealGear(
+                                 ratio=ratio);
   <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Inertia"
 >Rotational.Inertia</A> inertia2(
-    J=2, 
-    phi(start=0), 
+    J=2,
+    phi(start=0),
     w(start=0));
   <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Spring"
->Rotational.Spring</A> spring(c=1.e4);
+>Rotational.Spring</A> spring(
+                           c=1.e4);
   <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Inertia"
 >Rotational.Inertia</A> inertia3(
-    J=Jload, 
-    phi(start=0), 
+    J=Jload,
+    phi(start=0),
     w(start=0));
   <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Damper"
->Rotational.Damper</A> damper(d=damping);
+>Rotational.Damper</A> damper(
+                           d=damping);
   <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Sine"
->Sources.Sine</A> sine(amplitude={amplitude}, freqHz={freqHz});
+>Sources.Sine</A> sine(
+                    amplitude={amplitude}, freqHz={freqHz});
 <font color="blue">equation </font>
   <font color="red">connect</font>(sine.outPort, torque.inPort);
   <font color="red">connect</font>(torque.flange_b, inertia1.flange_a);
@@ -174,6 +212,9 @@ in the housing on one side via component Fixed.</p>
 <font color="blue">end </font>First;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Friction<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Mechanics.Rotational.Examples.FrictionI.png" ALT="Modelica.Mechanics.Rotational.Examples.Friction" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Mechanics.Rotational.Examples.Friction"></A><A HREF="Modelica_Mechanics_Rotational_Examples.html#Modelica.Mechanics.Rotational.Examples"
 >Modelica.Mechanics.Rotational.Examples</A>.Friction</H2>
@@ -227,13 +268,13 @@ values (defined already in the model):</p>
   <font color="blue">import </font>Modelica.Constants.pi;
   <font color="blue">import </font>SI = <A HREF="Modelica_SIunits.html#Modelica.SIunits"
 >Modelica.SIunits</A>;
-  <font color="darkgreen"></font>
+  
   <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
 >Icons.Example</A>;
-  <font color="darkgreen"></font>
+  
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
->SI.Time</A> startTime=0.5 <font color="darkgreen">&quot;Start time of step&quot;</font>;
-  <font color="darkgreen"></font>
+>SI.Time</A> startTime =      0.5 <font color="darkgreen">&quot;Start time of step&quot;</font>;
+  
   <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Torque"
 >SI.Torque</A> tMotor <font color="darkgreen">&quot;driving torque of inertia3&quot;</font>;
   <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Torque"
@@ -242,42 +283,48 @@ values (defined already in the model):</p>
 >SI.Torque</A> tBrake <font color="darkgreen">&quot;friction torque of brake&quot;</font>;
   <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Torque"
 >SI.Torque</A> tSpring <font color="darkgreen">&quot;spring torque&quot;</font>;
-  <font color="darkgreen"></font>
-  <font color="darkgreen"></font>
+  
+  
   <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Torque"
 >Rotational.Torque</A> torque;
   <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Inertia"
 >Rotational.Inertia</A> inertia3(
-    J=1, 
-    phi(start=0), 
+    J=1,
+    phi(start=0),
     w(start=100));
   <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Clutch"
->Rotational.Clutch</A> clutch(fn_max=160);
+>Rotational.Clutch</A> clutch(
+                           fn_max=160);
   <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Inertia"
 >Rotational.Inertia</A> inertia2(
-    J=0.05, 
-    phi(start=0), 
+    J=0.05,
+    phi(start=0),
     w(start=90));
   <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.SpringDamper"
->Rotational.SpringDamper</A> spring(c=160, d=1);
+>Rotational.SpringDamper</A> spring(
+                                 c=160, d=1);
   <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Inertia"
 >Rotational.Inertia</A> inertia1(
-    J=1, 
-    phi(start=0), 
+    J=1,
+    phi(start=0),
     w(start=90));
   <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Brake"
->Rotational.Brake</A> brake(fn_max=1600);
+>Rotational.Brake</A> brake(
+                         fn_max=1600);
   <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
->Sources.Constant</A> const(k={1});
+>Sources.Constant</A> const(
+                         k={1});
   <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Step"
->Sources.Step</A> step(startTime={startTime});
+>Sources.Step</A> step(
+                    startTime={startTime});
   <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Step"
 >Sources.Step</A> step2(
-    height={-1}, 
-    offset={1}, 
+    height={-1},
+    offset={1},
     startTime={startTime});
   <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Sine"
->Sources.Sine</A> sine(amplitude={200}, freqHz={50/pi});
+>Sources.Sine</A> sine(
+                    amplitude={200}, freqHz={50/pi});
   <A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Product"
 >Math.Product</A> product;
 <font color="blue">equation </font>
@@ -285,7 +332,7 @@ values (defined already in the model):</p>
   tClutch = clutch.tau;
   tBrake = brake.tau;
   tSpring = spring.tau;
-  <font color="darkgreen"></font>
+  
   <font color="red">connect</font>(sine.outPort, product.inPort1);
   <font color="red">connect</font>(step2.outPort, product.inPort2);
   <font color="red">connect</font>(product.outPort, torque.inPort);
@@ -300,6 +347,9 @@ values (defined already in the model):</p>
 <font color="blue">end </font>Friction;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE CoupledClutches<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Mechanics.Rotational.Examples.CoupledClutchesI.png" ALT="Modelica.Mechanics.Rotational.Examples.CoupledClutches" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Mechanics.Rotational.Examples.CoupledClutches"></A><A HREF="Modelica_Mechanics_Rotational_Examples.html#Modelica.Mechanics.Rotational.Examples"
 >Modelica.Mechanics.Rotational.Examples</A>.CoupledClutches</H2>
@@ -346,7 +396,7 @@ locked, forward sliding.</p>
 <PRE>
 <font color="blue">encapsulated </font><font color="blue">model</font> CoupledClutches <font color="darkgreen">
   &quot;Drive train with 3 dynamically coupled clutches&quot;</font> 
-  <font color="darkgreen"></font>
+  
   <font color="blue">import </font><A HREF="Modelica_Icons.html#Modelica.Icons"
 >Modelica.Icons</A>;
   <font color="blue">import </font><A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources"
@@ -355,48 +405,58 @@ locked, forward sliding.</p>
 >Modelica.Mechanics.Rotational</A>;
   <font color="blue">import </font>SI = <A HREF="Modelica_SIunits.html#Modelica.SIunits"
 >Modelica.SIunits</A>;
-  <font color="darkgreen"></font>
+  
   <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
 >Icons.Example</A>;
-  <font color="darkgreen"></font>
+  
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Frequency"
->SI.Frequency</A> freqHz=0.2 <font color="darkgreen">&quot;frequency of sine function to invoke clutch1&quot;</font>;
+>SI.Frequency</A> freqHz =      0.2 <font color="darkgreen">
+    &quot;frequency of sine function to invoke clutch1&quot;</font>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
->SI.Time</A> T2=0.4 <font color="darkgreen">&quot;time when clutch2 is invoked&quot;</font>;
+>SI.Time</A> T2 =      0.4 <font color="darkgreen">&quot;time when clutch2 is invoked&quot;</font>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
->SI.Time</A> T3=0.9 <font color="darkgreen">&quot;time when clutch3 is invoked&quot;</font>;
-  <font color="darkgreen"></font>
-  <font color="darkgreen"></font>
+>SI.Time</A> T3 =      0.9 <font color="darkgreen">&quot;time when clutch3 is invoked&quot;</font>;
+  
+  
   <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Inertia"
 >Rotational.Inertia</A> J1(
-    J=1, 
-    phi(start=0), 
+    J=1,
+    phi(start=0),
     w(start=10));
   <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Torque"
 >Rotational.Torque</A> torque;
   <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Clutch"
->Rotational.Clutch</A> clutch1(peak=1.1, fn_max=20);
+>Rotational.Clutch</A> clutch1(
+                            peak=1.1, fn_max=20);
   <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Sine"
->Sources.Sine</A> sin1(amplitude={10}, freqHz={5});
+>Sources.Sine</A> sin1(
+                    amplitude={10}, freqHz={5});
   <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Step"
->Sources.Step</A> step1(startTime={T2});
+>Sources.Step</A> step1(
+                     startTime={T2});
   <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Inertia"
->Rotational.Inertia</A> J2(J=1);
+>Rotational.Inertia</A> J2(
+                        J=1);
   <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Clutch"
->Rotational.Clutch</A> clutch2(peak=1.1, fn_max=20);
+>Rotational.Clutch</A> clutch2(
+                            peak=1.1, fn_max=20);
   <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Inertia"
->Rotational.Inertia</A> J3(J=1);
+>Rotational.Inertia</A> J3(
+                        J=1);
   <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Clutch"
->Rotational.Clutch</A> clutch3(peak=1.1, fn_max=20);
+>Rotational.Clutch</A> clutch3(
+                            peak=1.1, fn_max=20);
   <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Inertia"
->Rotational.Inertia</A> J4(J=1);
+>Rotational.Inertia</A> J4(
+                        J=1);
   <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Sine"
 >Sources.Sine</A> sin2(
-    amplitude={1}, 
-    freqHz={freqHz}, 
+    amplitude={1},
+    freqHz={freqHz},
     phase={1.57});
   <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Step"
->Sources.Step</A> step2(startTime={T3});
+>Sources.Step</A> step2(
+                     startTime={T3});
 <font color="blue">equation </font>
   <font color="red">connect</font>(sin1.outPort, torque.inPort);
   <font color="red">connect</font>(torque.flange_b, J1.flange_a);
@@ -412,6 +472,9 @@ locked, forward sliding.</p>
 <font color="blue">end </font>CoupledClutches;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE LossyGearDemo1<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Mechanics.Rotational.Examples.LossyGearDemo1I.png" ALT="Modelica.Mechanics.Rotational.Examples.LossyGearDemo1" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Mechanics.Rotational.Examples.LossyGearDemo1"></A><A HREF="Modelica_Mechanics_Rotational_Examples.html#Modelica.Mechanics.Rotational.Examples"
 >Modelica.Mechanics.Rotational.Examples</A>.LossyGearDemo1</H2>
@@ -448,7 +511,7 @@ gear.mode  :  1 = forward rolling
 <PRE>
 <font color="blue">encapsulated </font><font color="blue">model</font> LossyGearDemo1 <font color="darkgreen">
   &quot;Example to show that gear efficiency may lead to stuck motion&quot;</font> 
-  <font color="darkgreen"></font>
+  
   <font color="blue">import </font><A HREF="Modelica_Icons.html#Modelica.Icons"
 >Modelica.Icons</A>;
   <font color="blue">import </font><A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources"
@@ -457,27 +520,30 @@ gear.mode  :  1 = forward rolling
 >Modelica.Mechanics.Rotational</A>;
   <font color="blue">import </font>SI = <A HREF="Modelica_SIunits.html#Modelica.SIunits"
 >Modelica.SIunits</A>;
-  <font color="darkgreen"></font>
+  
   <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
 >Icons.Example</A>;
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Power"
 >SI.Power</A> PowerLoss <font color="darkgreen">&quot;power lost in the gear&quot;</font>;
   <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.LossyGear"
->Rotational.LossyGear</A> gear(i=2, lossTable=[0, 0.5, 0.5, 0, 0]);
+>Rotational.LossyGear</A> gear(
+                            i=2, lossTable=[0, 0.5, 0.5, 0, 0]);
   <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Inertia"
 >Rotational.Inertia</A> Inertia1;
   <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Inertia"
->Rotational.Inertia</A> Inertia2(J=1.5);
+>Rotational.Inertia</A> Inertia2(
+                              J=1.5);
   <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Torque"
 >Rotational.Torque</A> torque1;
   <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Torque"
 >Rotational.Torque</A> torque2;
   <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Sine"
->Sources.Sine</A> DriveSine(amplitude={10}, freqHz={1});
+>Sources.Sine</A> DriveSine(
+                         amplitude={10}, freqHz={1});
   <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
 >Sources.Ramp</A> load(
-    height={5}, 
-    duration={2}, 
+    height={5},
+    duration={2},
     offset={-10});
 <font color="blue">equation </font>
   <font color="red">connect</font>(Inertia1.flange_b, gear.flange_a);
@@ -486,12 +552,15 @@ gear.mode  :  1 = forward rolling
   <font color="red">connect</font>(torque2.flange_b, Inertia2.flange_b);
   <font color="red">connect</font>(DriveSine.outPort, torque1.inPort);
   <font color="red">connect</font>(load.outPort, torque2.inPort);
-  <font color="darkgreen"></font>
-  PowerLoss = gear.flange_a.tau*<font color="red">der</font>(gear.flange_a.phi) + gear.flange_b.tau*<font color="red">der</font>(
-    gear.flange_b.phi);
+  
+  PowerLoss = gear.flange_a.tau*<font color="red">der</font>(gear.flange_a.phi) + gear.flange_b.tau*<font color="red">
+    der</font>(gear.flange_b.phi);
 <font color="blue">end </font>LossyGearDemo1;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE LossyGearDemo2<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Mechanics.Rotational.Examples.LossyGearDemo2I.png" ALT="Modelica.Mechanics.Rotational.Examples.LossyGearDemo2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Mechanics.Rotational.Examples.LossyGearDemo2"></A><A HREF="Modelica_Mechanics_Rotational_Examples.html#Modelica.Mechanics.Rotational.Examples"
 >Modelica.Mechanics.Rotational.Examples</A>.LossyGearDemo2</H2>
@@ -545,34 +614,38 @@ as component LossyGear includes the functionality of component BearingFriction
 >Modelica.Mechanics.Rotational</A>;
   <font color="blue">import </font>SI = <A HREF="Modelica_SIunits.html#Modelica.SIunits"
 >Modelica.SIunits</A>;
-  <font color="darkgreen"></font>
+  
   <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
 >Icons.Example</A>;
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Power"
 >SI.Power</A> PowerLoss <font color="darkgreen">&quot;power lost in the gear&quot;</font>;
-  <font color="darkgreen"></font>
+  
   <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.LossyGear"
->Rotational.LossyGear</A> gear(i=2, lossTable=[0, 0.5, 0.5, 0, 0]);
+>Rotational.LossyGear</A> gear(
+                            i=2, lossTable=[0, 0.5, 0.5, 0, 0]);
   <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Inertia"
 >Rotational.Inertia</A> Inertia1;
   <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Inertia"
->Rotational.Inertia</A> Inertia2(J=1.5);
+>Rotational.Inertia</A> Inertia2(
+                              J=1.5);
   <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Torque"
 >Rotational.Torque</A> torque1;
   <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Torque"
 >Rotational.Torque</A> torque2;
   <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Sine"
->Sources.Sine</A> DriveSine(amplitude={10}, freqHz={1});
+>Sources.Sine</A> DriveSine(
+                         amplitude={10}, freqHz={1});
   <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
 >Sources.Ramp</A> load(
-    height={5}, 
-    duration={2}, 
+    height={5},
+    duration={2},
     offset={-10});
   <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.BearingFriction"
->Rotational.BearingFriction</A> bearingFriction(tau_pos=[0, 0.5; 1, 1]);
+>Rotational.BearingFriction</A> bearingFriction(
+                                             tau_pos=[0, 0.5; 1, 1]);
 <font color="blue">equation </font>
-  PowerLoss = gear.flange_a.tau*<font color="red">der</font>(gear.flange_a.phi) + gear.flange_b.tau*<font color="red">der</font>(
-    gear.flange_b.phi);
+  PowerLoss = gear.flange_a.tau*<font color="red">der</font>(gear.flange_a.phi) + gear.flange_b.tau*<font color="red">
+    der</font>(gear.flange_b.phi);
   <font color="red">connect</font>(load.outPort, torque2.inPort);
   <font color="red">connect</font>(torque2.flange_b, Inertia2.flange_b);
   <font color="red">connect</font>(Inertia2.flange_a, gear.flange_b);
@@ -583,7 +656,71 @@ as component LossyGear includes the functionality of component BearingFriction
 <font color="blue">end </font>LossyGearDemo2;
 </PRE>
 <HR>
-<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Dec 11 11:14:11 2002
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ElasticBearing<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.Rotational.Examples.ElasticBearingI.png" ALT="Modelica.Mechanics.Rotational.Examples.ElasticBearing" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.Rotational.Examples.ElasticBearing"></A><A HREF="Modelica_Mechanics_Rotational_Examples.html#Modelica.Mechanics.Rotational.Examples"
+>Modelica.Mechanics.Rotational.Examples</A>.ElasticBearing</H2>
+<B>Example to show possible usage of bearing flange</B><p>
+<IMG SRC="Modelica.Mechanics.Rotational.Examples.ElasticBearingD.png" ALT="Modelica.Mechanics.Rotational.Examples.ElasticBearing">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This model demonstrates the usage of the bearing flange.
+The gearbox is not connected rigidly to the ground, but by
+a spring-damper-system. This allows examination of the gearbox
+housing dynamics.</p>
+
+<p>
+Simulate for about 10 seconds and plot the angular velocities of the inertias <tt>housing.w</tt>,
+<tt>shaft.w</tt> and <tt>load.w</tt>.</p>
+
+<pre>
+</PRE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> ElasticBearing <font color="darkgreen">
+  &quot;Example to show possible usage of bearing flange&quot;</font> 
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Icons.Example</A>;
+  <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Inertia"
+>Modelica.Mechanics.Rotational.Inertia</A> shaft;
+  <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Inertia"
+>Modelica.Mechanics.Rotational.Inertia</A> load(
+                                             J=50);
+  <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Spring"
+>Modelica.Mechanics.Rotational.Spring</A> spring(
+                                              c=1e3);
+  <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Fixed"
+>Modelica.Mechanics.Rotational.Fixed</A> fixed;
+  <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.SpringDamper"
+>Modelica.Mechanics.Rotational.SpringDamper</A> springDamper(
+                                                          c=1e5, d=5);
+  <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Torque"
+>Modelica.Mechanics.Rotational.Torque</A> torque;
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> ramp(
+                                    height={100}, duration={5});
+  <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.IdealGear"
+>Modelica.Mechanics.Rotational.IdealGear</A> idealGear(
+                                                    ratio=3);
+  <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Inertia"
+>Inertia</A> housing(
+                  J=5);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(ramp.outPort, torque.inPort);
+  <font color="red">connect</font>(torque.flange_b, shaft.flange_a);
+  <font color="red">connect</font>(spring.flange_b, load.flange_a);
+  <font color="red">connect</font>(springDamper.flange_a, fixed.flange_b);
+  <font color="red">connect</font>(shaft.flange_b, idealGear.flange_a);
+  <font color="red">connect</font>(idealGear.flange_b, spring.flange_a);
+  <font color="red">connect</font>(idealGear.bearing, housing.flange_b);
+  <font color="red">connect</font>(housing.flange_a, springDamper.flange_b);
+<font color="blue">end </font>ElasticBearing;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Jun 30 17:44:02 2004
 .
 </address></BODY>
 </HTML>

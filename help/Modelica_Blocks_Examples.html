@@ -1,6 +1,9 @@
 <HTML>
 <HEAD><META name="HTML-Generator" content="Dymola"><TITLE>Modelica</TITLE></HEAD>
 <BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Examples<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><A NAME="Modelica.Blocks.Examples"></A><A HREF="Modelica_Blocks.html#Modelica.Blocks"
 >Modelica.Blocks</A>.Examples</H2>
 <B>Demonstration examples of the components of this package</B>
@@ -25,7 +28,16 @@ Modelica in file "Modelica/package.mo".
 </i></p>
 <pre>
 </PRE><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.BusUsage"
+>BusUsage</A>
+</TD><TD>Demonstration of signal bus usage</TD></TR>
+</TABLE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE BusUsage<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Blocks.Examples.BusUsageI.png" ALT="Modelica.Blocks.Examples.BusUsage" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Blocks.Examples.BusUsage"></A><A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples"
 >Modelica.Blocks.Examples</A>.BusUsage</H2>
@@ -140,10 +152,10 @@ blocks should be the same as the inputs of the 'send' signal blocks.
 >Modelica.Blocks.Interfaces.BusAdaptors</A>;
   <font color="blue">import </font><A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources"
 >Modelica.Blocks.Sources</A>;
-  <font color="darkgreen"></font>
+  
   <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
 >Icons.Example</A>;
-  <font color="darkgreen"></font>
+  
 <font color="blue">protected </font>
   <A HREF="Modelica_Blocks_Examples_Interfaces.html#Modelica.Blocks.Examples.BusUsage.Interfaces.Bus"
 >Interfaces.Bus</A> bus;
@@ -161,34 +173,36 @@ blocks should be the same as the inputs of the 'send' signal blocks.
   <A HREF="Modelica_Blocks_Interfaces_BusAdaptors.html#Modelica.Blocks.Interfaces.BusAdaptors.ReceiveInteger"
 >BusAdaptors.ReceiveInteger</A> getIntegerSignal;
   <A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.BusUsage.RestBus"
->RestBus</A> restBus(set_realSignal2=true);
+>RestBus</A> restBus(
+                  set_realSignal2=true);
   <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.IntegerStep"
 >Sources.IntegerStep</A> generateIntegerSignal(
-    height={1}, 
-    offset={2}, 
+    height={1},
+    offset={2},
     startTime={0.5});
   <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.BooleanStep"
->Sources.BooleanStep</A> generateBooleanSignal(startTime={0.5});
+>Sources.BooleanStep</A> generateBooleanSignal(
+                                            startTime={0.5});
   <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Sine"
 >Sources.Sine</A> generateRealSignal1;
-  <font color="darkgreen"></font>
+  
   <font color="blue">encapsulated </font><font color="blue">package</font> Interfaces <font color="darkgreen">
     &quot;Interfaces specialised for this example&quot;</font> 
-    <font color="darkgreen"></font>
+    
     <font color="blue">connector</font> MultiPort <font color="darkgreen">&quot;Combined port of real and boolean signal&quot;</font> 
       Real myRealSignal;
       Boolean myBooleanSignal;
-      <font color="darkgreen"></font>
+      
     <font color="blue">end </font>MultiPort;
-    <font color="darkgreen"></font>
+    
     <font color="blue">connector</font> Bus <font color="darkgreen">&quot;Signal bus&quot;</font> 
       <font color="blue">import </font>SI = <A HREF="Modelica_SIunits.html#Modelica.SIunits"
 >Modelica.SIunits</A>;
       <font color="blue">import </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces"
 >Modelica.Blocks.Interfaces</A>.*;
-      <font color="darkgreen"></font>
+      
       <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealPort"
->RealPort</A> realSignal1(<font color="blue">redeclare </font><font color="blue">type</font> SignalType = <A HREF="Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
+>RealPort</A> realSignal1( <font color="blue">redeclare </font><font color="blue">type</font> SignalType = <A HREF="Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
 >SI.AngularVelocity</A>) <font color="darkgreen">&quot;First Real signal (angular velocity)&quot;</font>;
       <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealPort"
 >RealPort</A> realSignal2 <font color="darkgreen">&quot;Second Real signal&quot;</font>;
@@ -198,38 +212,36 @@ blocks should be the same as the inputs of the 'send' signal blocks.
 >BooleanPort</A> booleanSignal <font color="darkgreen">&quot;Boolean signal&quot;</font>;
       <A HREF="Modelica_Blocks_Examples_Interfaces.html#Modelica.Blocks.Examples.BusUsage.Interfaces.MultiPort"
 >MultiPort</A> multiSignal <font color="darkgreen">&quot;Combined signal&quot;</font>;
-      <font color="darkgreen"></font>
+      
     <font color="blue">end </font>Bus;
   <font color="blue">end </font>Interfaces;
-  <font color="darkgreen"></font>
+  
   <font color="blue">encapsulated </font><font color="blue">model</font> Part <font color="darkgreen">&quot;Component with MultiPort connector&quot;</font> 
     <font color="blue">import </font><A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples"
 >Modelica.Blocks.Examples</A>;
-    <font color="darkgreen"></font>
+    
     <A HREF="Modelica_Blocks_Examples_Interfaces.html#Modelica.Blocks.Examples.BusUsage.Interfaces.MultiPort"
 >Examples.BusUsage.Interfaces.MultiPort</A> multiSignal;
-    <font color="darkgreen"></font>
+    
   <font color="blue">equation </font>
     multiSignal.myRealSignal = time;
     multiSignal.myBooleanSignal = time &gt; 0.5;
   <font color="blue">end </font>Part;
-  <font color="darkgreen"></font>
+  
   <font color="blue">encapsulated </font><font color="blue">model</font> RestBus <font color="darkgreen">
-    &quot;Set default values for bus variables that are not defined elsewhere&quot;</font>
-     
-    <font color="darkgreen"></font>
+    &quot;Set default values for bus variables that are not defined elsewhere&quot;</font> 
+    
     <font color="blue">import </font><A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples"
 >Modelica.Blocks.Examples</A>;
-    <font color="darkgreen"></font>
+    
     <font color="blue">parameter </font>Boolean set_realSignal1=false <font color="darkgreen">
       &quot;Set dummy value for desiredThrottle&quot;</font>;
     <font color="blue">parameter </font>Boolean set_realSignal2=false <font color="darkgreen">&quot;Set dummy value for brake&quot;</font>;
     <font color="blue">parameter </font>Boolean set_integerSignal=false <font color="darkgreen">
       &quot;Set dummy value for controlLeverPosition&quot;</font>;
-    <font color="blue">parameter </font>Boolean set_booleanSignal=false <font color="darkgreen">&quot;Set dummy value for desiredGear&quot;</font>
-      ;
+    <font color="blue">parameter </font>Boolean set_booleanSignal=false <font color="darkgreen">&quot;Set dummy value for desiredGear&quot;</font>;
     <font color="blue">parameter </font>Boolean set_multiSignal=false <font color="darkgreen">&quot;Set dummy value for ignition&quot;</font>;
-    <font color="darkgreen"></font>
+    
     <A HREF="Modelica_Blocks_Examples_Interfaces.html#Modelica.Blocks.Examples.BusUsage.Interfaces.Bus"
 >Examples.BusUsage.Interfaces.Bus</A> bus;
   <font color="blue">equation </font>
@@ -250,11 +262,11 @@ blocks should be the same as the inputs of the 'send' signal blocks.
       bus.multiSignal.myBooleanSignal = false;
     <font color="blue">end if</font>;
   <font color="blue">end </font>RestBus;
-  <font color="darkgreen"></font>
+  
   <A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.BusUsage.Part"
 >Part</A> part;
 <font color="blue">equation </font>
-  <font color="darkgreen"></font>
+  
   <font color="red">connect</font>(putRealSignal1.toBus, bus.realSignal1);
   <font color="red">connect</font>(putIntegerSignal.toBus, bus.integerSignal);
   <font color="red">connect</font>(generateRealSignal1.outPort, putRealSignal1.inPort);
@@ -269,6 +281,9 @@ blocks should be the same as the inputs of the 'send' signal blocks.
 <font color="blue">end </font>BusUsage;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE RestBus<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Blocks.Examples.BusUsage.RestBusI.png" ALT="Modelica.Blocks.Examples.BusUsage.RestBus" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Blocks.Examples.BusUsage.RestBus"></A><A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.BusUsage"
 >Modelica.Blocks.Examples.BusUsage</A>.RestBus</H2>
@@ -286,20 +301,18 @@ blocks should be the same as the inputs of the 'send' signal blocks.
 <H3>Modelica definition</H3>
 <PRE>
 <font color="blue">encapsulated </font><font color="blue">model</font> RestBus <font color="darkgreen">
-  &quot;Set default values for bus variables that are not defined elsewhere&quot;</font>
-   
-  <font color="darkgreen"></font>
+  &quot;Set default values for bus variables that are not defined elsewhere&quot;</font> 
+  
   <font color="blue">import </font><A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples"
 >Modelica.Blocks.Examples</A>;
-  <font color="darkgreen"></font>
-  <font color="blue">parameter </font>Boolean set_realSignal1=false <font color="darkgreen">&quot;Set dummy value for desiredThrottle&quot;</font>
-    ;
+  
+  <font color="blue">parameter </font>Boolean set_realSignal1=false <font color="darkgreen">&quot;Set dummy value for desiredThrottle&quot;</font>;
   <font color="blue">parameter </font>Boolean set_realSignal2=false <font color="darkgreen">&quot;Set dummy value for brake&quot;</font>;
   <font color="blue">parameter </font>Boolean set_integerSignal=false <font color="darkgreen">
     &quot;Set dummy value for controlLeverPosition&quot;</font>;
   <font color="blue">parameter </font>Boolean set_booleanSignal=false <font color="darkgreen">&quot;Set dummy value for desiredGear&quot;</font>;
   <font color="blue">parameter </font>Boolean set_multiSignal=false <font color="darkgreen">&quot;Set dummy value for ignition&quot;</font>;
-  <font color="darkgreen"></font>
+  
   <A HREF="Modelica_Blocks_Examples_Interfaces.html#Modelica.Blocks.Examples.BusUsage.Interfaces.Bus"
 >Examples.BusUsage.Interfaces.Bus</A> bus;
 <font color="blue">equation </font>
@@ -322,6 +335,9 @@ blocks should be the same as the inputs of the 'send' signal blocks.
 <font color="blue">end </font>RestBus;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Part<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Blocks.Examples.BusUsage.PartI.png" ALT="Modelica.Blocks.Examples.BusUsage.Part" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Blocks.Examples.BusUsage.Part"></A><A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.BusUsage"
 >Modelica.Blocks.Examples.BusUsage</A>.Part</H2>
@@ -332,17 +348,17 @@ blocks should be the same as the inputs of the 'send' signal blocks.
 <font color="blue">encapsulated </font><font color="blue">model</font> Part <font color="darkgreen">&quot;Component with MultiPort connector&quot;</font> 
   <font color="blue">import </font><A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples"
 >Modelica.Blocks.Examples</A>;
-  <font color="darkgreen"></font>
+  
   <A HREF="Modelica_Blocks_Examples_Interfaces.html#Modelica.Blocks.Examples.BusUsage.Interfaces.MultiPort"
 >Examples.BusUsage.Interfaces.MultiPort</A> multiSignal;
-  <font color="darkgreen"></font>
+  
 <font color="blue">equation </font>
   multiSignal.myRealSignal = time;
   multiSignal.myBooleanSignal = time &gt; 0.5;
 <font color="blue">end </font>Part;
 </PRE>
 <HR>
-<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Dec 11 11:13:15 2002
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Jun 30 17:42:54 2004
 .
 </address></BODY>
 </HTML>

@@ -1,6 +1,9 @@
 <HTML>
 <HEAD><META name="HTML-Generator" content="Dymola"><TITLE>Modelica</TITLE></HEAD>
 <BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Fahrenheit<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><A NAME="Modelica.Thermal.HeatTransfer.Fahrenheit"></A><A HREF="Modelica_Thermal_HeatTransfer.html#Modelica.Thermal.HeatTransfer"
 >Modelica.Thermal.HeatTransfer</A>.Fahrenheit</H2>
 <B>Components with Fahrenheit input and/or output</B>
@@ -39,7 +42,28 @@ Example:
 
 <pre>
 </PRE><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Thermal_HeatTransfer_Fahrenheit.html#Modelica.Thermal.HeatTransfer.Fahrenheit.ToKelvin"
+>ToKelvin</A>
+</TD><TD>Conversion block from °Fahrenheit to Kelvin</TD></TR>
+<TR><TD><A HREF="Modelica_Thermal_HeatTransfer_Fahrenheit.html#Modelica.Thermal.HeatTransfer.Fahrenheit.FromKelvin"
+>FromKelvin</A>
+</TD><TD>Conversion from Kelvin to °Fahrenheit</TD></TR>
+<TR><TD><A HREF="Modelica_Thermal_HeatTransfer_Fahrenheit.html#Modelica.Thermal.HeatTransfer.Fahrenheit.FixedTemperature"
+>FixedTemperature</A>
+</TD><TD>Fixed temperature boundary condition in °Fahrenheit</TD></TR>
+<TR><TD><A HREF="Modelica_Thermal_HeatTransfer_Fahrenheit.html#Modelica.Thermal.HeatTransfer.Fahrenheit.PrescribedTemperature"
+>PrescribedTemperature</A>
+</TD><TD>Variable temperature boundary condition in °Fahrenheit</TD></TR>
+<TR><TD><A HREF="Modelica_Thermal_HeatTransfer_Fahrenheit.html#Modelica.Thermal.HeatTransfer.Fahrenheit.TemperatureSensor"
+>TemperatureSensor</A>
+</TD><TD>Absolute temperature sensor in °Fahrenheit</TD></TR>
+</TABLE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ToKelvin<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Thermal.HeatTransfer.Fahrenheit.ToKelvinI.png" ALT="Modelica.Thermal.HeatTransfer.Fahrenheit.ToKelvin" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Thermal.HeatTransfer.Fahrenheit.ToKelvin"></A><A HREF="Modelica_Thermal_HeatTransfer_Fahrenheit.html#Modelica.Thermal.HeatTransfer.Fahrenheit"
 >Modelica.Thermal.HeatTransfer.Fahrenheit</A>.ToKelvin</H2>
@@ -63,14 +87,19 @@ and provides them as output signals.
 <font color="blue">model</font> ToKelvin <font color="darkgreen">&quot;Conversion block from °Fahrenheit to Kelvin&quot;</font> 
   <font color="blue">parameter </font>Integer n=1 <font color="darkgreen">&quot;Number of inputs (= number of outputs)&quot;</font>;
   <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
->Modelica.Blocks.Interfaces.InPort</A> Fahrenheit(<font color="blue">final </font>n=n);
+>Modelica.Blocks.Interfaces.InPort</A> Fahrenheit(
+                                               <font color="blue">final </font>n=n);
   <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.OutPort"
->Modelica.Blocks.Interfaces.OutPort</A> Kelvin(<font color="blue">final </font>n=n);
+>Modelica.Blocks.Interfaces.OutPort</A> Kelvin(
+                                            <font color="blue">final </font>n=n);
 <font color="blue">equation </font>
-  Kelvin.signal = <font color="red">from_degF</font>(Fahrenheit.signal);
+  Kelvin.signal =<font color="red"> from_degF</font>(Fahrenheit.signal);
 <font color="blue">end </font>ToKelvin;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE FromKelvin<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Thermal.HeatTransfer.Fahrenheit.FromKelvinI.png" ALT="Modelica.Thermal.HeatTransfer.Fahrenheit.FromKelvin" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Thermal.HeatTransfer.Fahrenheit.FromKelvin"></A><A HREF="Modelica_Thermal_HeatTransfer_Fahrenheit.html#Modelica.Thermal.HeatTransfer.Fahrenheit"
 >Modelica.Thermal.HeatTransfer.Fahrenheit</A>.FromKelvin</H2>
@@ -94,14 +123,19 @@ and provides them as output signals.
 <font color="blue">model</font> FromKelvin <font color="darkgreen">&quot;Conversion from Kelvin to °Fahrenheit&quot;</font> 
   <font color="blue">parameter </font>Integer n=1 <font color="darkgreen">&quot;Number of inputs (= number of outputs)&quot;</font>;
   <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
->Modelica.Blocks.Interfaces.InPort</A> Kelvin(<font color="blue">final </font>n=n);
+>Modelica.Blocks.Interfaces.InPort</A> Kelvin(
+                                           <font color="blue">final </font>n=n);
   <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.OutPort"
->Modelica.Blocks.Interfaces.OutPort</A> Fahrenheit(<font color="blue">final </font>n=n);
+>Modelica.Blocks.Interfaces.OutPort</A> Fahrenheit(
+                                                <font color="blue">final </font>n=n);
 <font color="blue">equation </font>
-  Fahrenheit.signal = <font color="red">to_degF</font>(Kelvin.signal);
+  Fahrenheit.signal =<font color="red"> to_degF</font>(Kelvin.signal);
 <font color="blue">end </font>FromKelvin;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE FixedTemperature<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Thermal.HeatTransfer.Fahrenheit.FixedTemperatureI.png" ALT="Modelica.Thermal.HeatTransfer.Fahrenheit.FixedTemperature" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Thermal.HeatTransfer.Fahrenheit.FixedTemperature"></A><A HREF="Modelica_Thermal_HeatTransfer_Fahrenheit.html#Modelica.Thermal.HeatTransfer.Fahrenheit"
 >Modelica.Thermal.HeatTransfer.Fahrenheit</A>.FixedTemperature</H2>
@@ -129,10 +163,13 @@ i.e., it defines a fixed temperature as a boundary condition.
   <A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_b"
 >Interfaces.HeatPort_b</A> port;
 <font color="blue">equation </font>
-  port.T = <font color="red">from_degF</font>(T);
+  port.T =<font color="red"> from_degF</font>(T);
 <font color="blue">end </font>FixedTemperature;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PrescribedTemperature<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Thermal.HeatTransfer.Fahrenheit.PrescribedTemperatureI.png" ALT="Modelica.Thermal.HeatTransfer.Fahrenheit.PrescribedTemperature" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Thermal.HeatTransfer.Fahrenheit.PrescribedTemperature"></A><A HREF="Modelica_Thermal_HeatTransfer_Fahrenheit.html#Modelica.Thermal.HeatTransfer.Fahrenheit"
 >Modelica.Thermal.HeatTransfer.Fahrenheit</A>.PrescribedTemperature</H2>
@@ -153,16 +190,20 @@ as required to keep the temperature at the specified value.
 <PRE>
 <font color="blue">model</font> PrescribedTemperature <font color="darkgreen">
   &quot;Variable temperature boundary condition in °Fahrenheit&quot;</font> 
-  <font color="darkgreen"></font>
+  
   <A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_b"
 >Interfaces.HeatPort_b</A> port;
   <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
->Modelica.Blocks.Interfaces.InPort</A> T(<font color="blue">final </font>n=1);
+>Modelica.Blocks.Interfaces.InPort</A> T(
+                                      <font color="blue">final </font>n=1);
 <font color="blue">equation </font>
-  port.T = <font color="red">from_degF</font>(T.signal[1]);
+  port.T =<font color="red"> from_degF</font>(T.signal[1]);
 <font color="blue">end </font>PrescribedTemperature;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TemperatureSensor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Thermal.HeatTransfer.Fahrenheit.TemperatureSensorI.png" ALT="Modelica.Thermal.HeatTransfer.Fahrenheit.TemperatureSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Thermal.HeatTransfer.Fahrenheit.TemperatureSensor"></A><A HREF="Modelica_Thermal_HeatTransfer_Fahrenheit.html#Modelica.Thermal.HeatTransfer.Fahrenheit"
 >Modelica.Thermal.HeatTransfer.Fahrenheit</A>.TemperatureSensor</H2>
@@ -184,19 +225,20 @@ sensor model.
 <H3>Modelica definition</H3>
 <PRE>
 <font color="blue">model</font> TemperatureSensor <font color="darkgreen">&quot;Absolute temperature sensor in °Fahrenheit&quot;</font> 
-  <font color="darkgreen"></font>
+  
   <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.OutPort"
->Modelica.Blocks.Interfaces.OutPort</A> T(<font color="blue">redeclare </font><font color="blue">type</font> SignalType = <A HREF="Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits.Temperature_degF"
+>Modelica.Blocks.Interfaces.OutPort</A> T(
+                                       <font color="blue">redeclare </font><font color="blue">type</font> SignalType = <A HREF="Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits.Temperature_degF"
 >NonSI.Temperature_degF</A>);
   <A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a"
 >Interfaces.HeatPort_a</A> port;
 <font color="blue">equation </font>
-  T.signal[1] = <font color="red">to_degF</font>(port.T);
+  T.signal[1] =<font color="red"> to_degF</font>(port.T);
   port.Q_dot = 0;
 <font color="blue">end </font>TemperatureSensor;
 </PRE>
 <HR>
-<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Dec 11 11:14:26 2002
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Jun 30 17:44:16 2004
 .
 </address></BODY>
 </HTML>

@@ -1,6 +1,9 @@
 <HTML>
 <HEAD><META name="HTML-Generator" content="Dymola"><TITLE>Modelica</TITLE></HEAD>
 <BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Examples<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><A NAME="Modelica.Thermal.HeatTransfer.Examples"></A><A HREF="Modelica_Thermal_HeatTransfer.html#Modelica.Thermal.HeatTransfer"
 >Modelica.Thermal.HeatTransfer</A>.Examples</H2>
 <B>Example models to demonstrate the usage of package Modelica.Thermal.HeatTransfer</B>
@@ -12,7 +15,22 @@
 <A HREF="Modelica_Thermal_HeatTransfer_Examples.html#Modelica.Thermal.HeatTransfer.Examples.ControlledTemperature"
 ><IMG SRC="Modelica.Thermal.HeatTransfer.Examples.ControlledTemperatureI.png" ALT="Modelica.Thermal.HeatTransfer.Examples.ControlledTemperature" WIDTH=80  HEIGHT=80 ></A>
 <P><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Thermal_HeatTransfer_Examples.html#Modelica.Thermal.HeatTransfer.Examples.TwoMasses"
+>TwoMasses</A>
+</TD><TD>Simple conduction demo</TD></TR>
+<TR><TD><A HREF="Modelica_Thermal_HeatTransfer_Examples.html#Modelica.Thermal.HeatTransfer.Examples.FrequencyInverter"
+>FrequencyInverter</A>
+</TD><TD>First order thermal model of a frequency inverter</TD></TR>
+<TR><TD><A HREF="Modelica_Thermal_HeatTransfer_Examples.html#Modelica.Thermal.HeatTransfer.Examples.ControlledTemperature"
+>ControlledTemperature</A>
+</TD><TD>Control temperature of a resistor</TD></TR>
+</TABLE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TwoMasses<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Thermal.HeatTransfer.Examples.TwoMassesI.png" ALT="Modelica.Thermal.HeatTransfer.Examples.TwoMasses" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Thermal.HeatTransfer.Examples.TwoMasses"></A><A HREF="Modelica_Thermal_HeatTransfer_Examples.html#Modelica.Thermal.HeatTransfer.Examples"
 >Modelica.Thermal.HeatTransfer.Examples</A>.TwoMasses</H2>
@@ -57,20 +75,23 @@ Tsensor1.T.signal, Tsensor2.T.signal, T_final_degC
 >Modelica.SIunits.Conversions</A>.*;
   <font color="blue">import </font>NonSI = <A HREF="Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits"
 >Modelica.SIunits.Conversions.NonSIunits</A>;
-  <font color="darkgreen"></font>
+  
   <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
 >Icons.Example</A>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
->SI.Temperature</A> T_final_K(fixed=false) <font color="darkgreen">&quot;Projected final temperature&quot;</font>;
+>SI.Temperature</A> T_final_K(       fixed=false) <font color="darkgreen">&quot;Projected final temperature&quot;</font>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits.Temperature_degC"
->NonSI.Temperature_degC</A> T_final_degC(fixed=false) <font color="darkgreen">
+>NonSI.Temperature_degC</A> T_final_degC(       fixed=false) <font color="darkgreen">
     &quot;Projected final temperature&quot;</font>;
   <A HREF="Modelica_Thermal_HeatTransfer.html#Modelica.Thermal.HeatTransfer.HeatCapacitor"
->HeatTransfer.HeatCapacitor</A> mass1(C=15, T(start=<font color="red">from_degC</font>(100)));
+>HeatTransfer.HeatCapacitor</A> mass1(
+                                   C=15, T(start=<font color="red">from_degC</font>(100)));
   <A HREF="Modelica_Thermal_HeatTransfer.html#Modelica.Thermal.HeatTransfer.HeatCapacitor"
->HeatTransfer.HeatCapacitor</A> mass2(C=15, T(start=<font color="red">from_degC</font>(0)));
+>HeatTransfer.HeatCapacitor</A> mass2(
+                                   C=15, T(start=<font color="red">from_degC</font>(0)));
   <A HREF="Modelica_Thermal_HeatTransfer.html#Modelica.Thermal.HeatTransfer.ThermalConductor"
->HeatTransfer.ThermalConductor</A> conduction(G=10);
+>HeatTransfer.ThermalConductor</A> conduction(
+                                           G=10);
   <A HREF="Modelica_Thermal_HeatTransfer_Celsius.html#Modelica.Thermal.HeatTransfer.Celsius.TemperatureSensor"
 >HeatTransfer.Celsius.TemperatureSensor</A> Tsensor1;
   <A HREF="Modelica_Thermal_HeatTransfer_Celsius.html#Modelica.Thermal.HeatTransfer.Celsius.TemperatureSensor"
@@ -81,12 +102,15 @@ Tsensor1.T.signal, Tsensor2.T.signal, T_final_degC
   <font color="red">connect</font>(mass1.port, Tsensor1.port);
   <font color="red">connect</font>(mass2.port, Tsensor2.port);
 <font color="blue">initial </font><font color="blue">equation </font>
-  T_final_K = (mass1.port.T*mass1.C + mass2.port.T*mass2.C)/(mass1.C + mass2.C)
-    ;
-  T_final_degC = <font color="red">to_degC</font>(T_final_K);
+  T_final_K = (mass1.port.T*mass1.C + mass2.port.T*mass2.C)/(mass1.C +
+    mass2.C);
+  T_final_degC =<font color="red"> to_degC</font>(T_final_K);
 <font color="blue">end </font>TwoMasses;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE FrequencyInverter<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Thermal.HeatTransfer.Examples.FrequencyInverterI.png" ALT="Modelica.Thermal.HeatTransfer.Examples.FrequencyInverter" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Thermal.HeatTransfer.Examples.FrequencyInverter"></A><A HREF="Modelica_Thermal_HeatTransfer_Examples.html#Modelica.Thermal.HeatTransfer.Examples"
 >Modelica.Thermal.HeatTransfer.Examples</A>.FrequencyInverter</H2>
@@ -129,28 +153,33 @@ temperature in the frequency inverter.
 >Modelica.SIunits</A>;
   <font color="blue">import </font><A HREF="Modelica_SIunits_Conversions.html#Modelica.SIunits.Conversions"
 >Modelica.SIunits.Conversions</A>.*;
-  <font color="darkgreen"></font>
+  
   <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
 >Icons.Example</A>;
-  <font color="darkgreen"></font>
+  
   <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.TimeTable"
->Sources.TimeTable</A> conductionTable(table=[0, 0.007; 1, 0.014; 2, 0.007; 3, 
-        0.014; 4, 0.007; 5, 0.014]);
+>Sources.TimeTable</A> conductionTable(
+                                    table=[0, 0.007; 1, 0.014; 2, 0.007; 3,
+          0.014; 4, 0.007; 5, 0.014]);
   <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.TimeTable"
->Sources.TimeTable</A> lossTable(table=[0, 10000; 1, 7000; 2, 10000; 3, 7000; 4
-        , 10000; 5, 7000]);
+>Sources.TimeTable</A> lossTable(
+                              table=[0, 10000; 1, 7000; 2, 10000; 3, 7000;
+        4, 10000; 5, 7000]);
   <A HREF="Modelica_Thermal_HeatTransfer.html#Modelica.Thermal.HeatTransfer.HeatCapacitor"
->HeatTransfer.HeatCapacitor</A> C(C=30000);
+>HeatTransfer.HeatCapacitor</A> C(
+                               C=30000);
   <A HREF="Modelica_Thermal_HeatTransfer_Celsius.html#Modelica.Thermal.HeatTransfer.Celsius.TemperatureSensor"
 >HeatTransfer.Celsius.TemperatureSensor</A> Tsensor;
   <A HREF="Modelica_Thermal_HeatTransfer.html#Modelica.Thermal.HeatTransfer.ThermalConductor"
->HeatTransfer.ThermalConductor</A> G(G=50);
+>HeatTransfer.ThermalConductor</A> G(
+                                  G=50);
   <A HREF="Modelica_Thermal_HeatTransfer.html#Modelica.Thermal.HeatTransfer.Convection"
 >HeatTransfer.Convection</A> convection;
   <A HREF="Modelica_Thermal_HeatTransfer.html#Modelica.Thermal.HeatTransfer.PrescribedHeatFlow"
 >HeatTransfer.PrescribedHeatFlow</A> Q_dot;
   <A HREF="Modelica_Thermal_HeatTransfer_Celsius.html#Modelica.Thermal.HeatTransfer.Celsius.FixedTemperature"
->HeatTransfer.Celsius.FixedTemperature</A> environment(T=20);
+>HeatTransfer.Celsius.FixedTemperature</A> environment(
+                                                    T=20);
 <font color="blue">equation </font>
   <font color="red">connect</font>(Q_dot.port, G.port_a);
   <font color="red">connect</font>(Q_dot.port, Tsensor.port);
@@ -162,6 +191,9 @@ temperature in the frequency inverter.
 <font color="blue">end </font>FrequencyInverter;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ControlledTemperature<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Thermal.HeatTransfer.Examples.ControlledTemperatureI.png" ALT="Modelica.Thermal.HeatTransfer.Examples.ControlledTemperature" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Thermal.HeatTransfer.Examples.ControlledTemperature"></A><A HREF="Modelica_Thermal_HeatTransfer_Examples.html#Modelica.Thermal.HeatTransfer.Examples"
 >Modelica.Thermal.HeatTransfer.Examples</A>.ControlledTemperature</H2>
@@ -209,55 +241,59 @@ An approppriate simulating time would be 10 seconds.
 >Modelica.SIunits.Conversions.NonSIunits</A>;
   <font color="blue">import </font><A HREF="Modelica_SIunits_Conversions.html#Modelica.SIunits.Conversions"
 >Modelica.SIunits.Conversions</A>.*;
-  <font color="darkgreen"></font>
+  
   <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
 >Icons.Example</A>;
-  <font color="darkgreen"></font>
+  
   <font color="blue">parameter </font><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits.Temperature_degC"
->NonSI.Temperature_degC</A> TAmb=20 <font color="darkgreen">&quot;Ambient Temperature&quot;</font>;
+>NonSI.Temperature_degC</A> TAmb =      20 <font color="darkgreen">&quot;Ambient Temperature&quot;</font>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits.Temperature_degC"
->NonSI.Temperature_degC</A> TDif=2 <font color="darkgreen">&quot;Error in Temperature&quot;</font>;
+>NonSI.Temperature_degC</A> TDif =      2 <font color="darkgreen">&quot;Error in Temperature&quot;</font>;
   <font color="blue">output </font><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits.Temperature_degC"
 >NonSI.Temperature_degC</A> TRes <font color="darkgreen">&quot;Resulting Temperature&quot;</font>;
   <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Ground"
 >Analog.Basic.Ground</A> Ground1;
   <A HREF="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources.ConstantVoltage"
->Analog.Sources.ConstantVoltage</A> ConstantVoltage1(V=10);
+>Analog.Sources.ConstantVoltage</A> ConstantVoltage1(
+                                                  V=10);
   <A HREF="Modelica_Thermal_HeatTransfer.html#Modelica.Thermal.HeatTransfer.HeatCapacitor"
->HeatTransfer.HeatCapacitor</A> HeatCapacitor1(C=1, T(start=<font color="red">from_degC</font>(TAmb)));
+>HeatTransfer.HeatCapacitor</A> HeatCapacitor1(
+                                            C=1, T(start=<font color="red">from_degC</font>(TAmb)));
   <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.HeatingResistor"
 >Analog.Basic.HeatingResistor</A> HeatingResistor1(
-    R_ref=10, 
-    T_ref=<font color="red">from_degC</font>(20), 
+    R_ref=10,
+    T_ref=<font color="red">from_degC</font>(20),
     alpha=1/(235 + 20));
   <A HREF="Modelica_Thermal_HeatTransfer_Celsius.html#Modelica.Thermal.HeatTransfer.Celsius.FixedTemperature"
->HeatTransfer.Celsius.FixedTemperature</A> FixedTemperature1(T=TAmb);
+>HeatTransfer.Celsius.FixedTemperature</A> FixedTemperature1(
+                                                          T=TAmb);
   <A HREF="Modelica_Thermal_HeatTransfer_Celsius.html#Modelica.Thermal.HeatTransfer.Celsius.TemperatureSensor"
 >HeatTransfer.Celsius.TemperatureSensor</A> TemperatureSensor1;
   <A HREF="Modelica_Thermal_HeatTransfer.html#Modelica.Thermal.HeatTransfer.ThermalConductor"
->HeatTransfer.ThermalConductor</A> ThermalConductor1(G=0.1);
+>HeatTransfer.ThermalConductor</A> ThermalConductor1(
+                                                  G=0.1);
   <A HREF="Modelica_Thermal_HeatTransfer_Examples.html#Modelica.Thermal.HeatTransfer.Examples.ControlledTemperature.SwitchController"
->SwitchController</A> SwitchController1(bandwidth=TDif);
+>SwitchController</A> SwitchController1(
+                                     bandwidth=TDif);
   <A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealSwitch"
 >Analog.Ideal.IdealSwitch</A> IdealSwitch1;
   <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
 >Sources.Ramp</A> Ramp1(
-    height={25}, 
-    duration={6}, 
-    offset={25}, 
+    height={25},
+    duration={6},
+    offset={25},
     startTime={2});
-  <font color="darkgreen"></font>
+  
   <font color="blue">encapsulated </font><font color="blue">block</font> SwitchController <font color="darkgreen">
-    &quot;On-off controller for use with Modelica.Electrical.Analog.Ideal.IdealSwitch&quot;</font>
-     
-    <font color="darkgreen"></font>
+    &quot;On-off controller for use with Modelica.Electrical.Analog.Ideal.IdealSwitch&quot;</font> 
+    
     <font color="blue">import </font><A HREF="Modelica_Blocks.html#Modelica.Blocks"
 >Modelica.Blocks</A>;
     <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.MI2BooleanMOs"
 >Blocks.Interfaces.MI2BooleanMOs</A>(<font color="blue">final </font>n=1);
-    <font color="darkgreen"></font>
+    
     <font color="blue">parameter </font>Real bandwidth=0.1 <font color="darkgreen">&quot;Bandwidth around reference signal&quot;</font>;
-    <font color="darkgreen"></font>
+    
   <font color="blue">protected </font>
     Real u=inPort2.signal[1] <font color="darkgreen">&quot;Input signal&quot;</font>;
     Real uRef=inPort1.signal[1] <font color="darkgreen">&quot;Reference input signal&quot;</font>;
@@ -266,7 +302,7 @@ An approppriate simulating time would be 10 seconds.
     y = (u &gt; uRef + bandwidth/2)<font color="blue"> or </font>(<font color="red">pre</font>(y)<font color="blue"> and </font><font color="blue">not </font>(u &lt; uRef - bandwidth/2));
   <font color="blue">end </font>SwitchController;
 <font color="blue">equation </font>
-  <font color="darkgreen"></font>
+  
   <font color="red">connect</font>(ConstantVoltage1.n, HeatingResistor1.n);
   <font color="red">connect</font>(ConstantVoltage1.n, Ground1.p);
   <font color="red">connect</font>(HeatingResistor1.heatPort, ThermalConductor1.port_a);
@@ -278,11 +314,14 @@ An approppriate simulating time would be 10 seconds.
   <font color="red">connect</font>(IdealSwitch1.n, HeatingResistor1.p);
   <font color="red">connect</font>(SwitchController1.inPort1, Ramp1.outPort);
   <font color="red">connect</font>(SwitchController1.outPort, IdealSwitch1.control);
-  <font color="darkgreen"></font>
-  TRes = <font color="red">to_degC</font>(HeatingResistor1.heatPort.T);
+  
+  TRes =<font color="red"> to_degC</font>(HeatingResistor1.heatPort.T);
 <font color="blue">end </font>ControlledTemperature;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SwitchController<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Thermal.HeatTransfer.Examples.ControlledTemperature.SwitchControllerI.png" ALT="Modelica.Thermal.HeatTransfer.Examples.ControlledTemperature.SwitchController" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Thermal.HeatTransfer.Examples.ControlledTemperature.SwitchController"></A><A HREF="Modelica_Thermal_HeatTransfer_Examples.html#Modelica.Thermal.HeatTransfer.Examples.ControlledTemperature"
 >Modelica.Thermal.HeatTransfer.Examples.ControlledTemperature</A>.SwitchController</H2>
@@ -311,16 +350,15 @@ Standard library.</p>
 <H3>Modelica definition</H3>
 <PRE>
 <font color="blue">encapsulated </font><font color="blue">block</font> SwitchController <font color="darkgreen">
-  &quot;On-off controller for use with Modelica.Electrical.Analog.Ideal.IdealSwitch&quot;</font>
-   
-  <font color="darkgreen"></font>
+  &quot;On-off controller for use with Modelica.Electrical.Analog.Ideal.IdealSwitch&quot;</font> 
+  
   <font color="blue">import </font><A HREF="Modelica_Blocks.html#Modelica.Blocks"
 >Modelica.Blocks</A>;
   <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.MI2BooleanMOs"
 >Blocks.Interfaces.MI2BooleanMOs</A>(<font color="blue">final </font>n=1);
-  <font color="darkgreen"></font>
+  
   <font color="blue">parameter </font>Real bandwidth=0.1 <font color="darkgreen">&quot;Bandwidth around reference signal&quot;</font>;
-  <font color="darkgreen"></font>
+  
 <font color="blue">protected </font>
   Real u=inPort2.signal[1] <font color="darkgreen">&quot;Input signal&quot;</font>;
   Real uRef=inPort1.signal[1] <font color="darkgreen">&quot;Reference input signal&quot;</font>;
@@ -330,7 +368,7 @@ Standard library.</p>
 <font color="blue">end </font>SwitchController;
 </PRE>
 <HR>
-<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Dec 11 11:14:24 2002
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Jun 30 17:44:15 2004
 .
 </address></BODY>
 </HTML>

@@ -1,14 +1,14 @@
-package Lines
-
+package Lines 
+  
   extends Modelica.Icons.Library;
-
+  
   annotation (
     Window(
-      x=0.03, 
-      y=0.04, 
-      width=0.50, 
-      height=0.24, 
-      library=1, 
+      x=0.03,
+      y=0.04,
+      width=0.50,
+      height=0.24,
+      library=1,
       autolayout=1),
     Documentation(info="<html>
 <p>
@@ -20,11 +20,11 @@ and LC distributed line models.
 <dt>
 <b>Main Authors:</b>
 <dd>
-<a href=\"http://www.eas.iis.fhg.de/~clauss/\">Christoph Clau&szlig;</a>
+<a href=\"http://people.eas.iis.fhg.de/Christoph.Clauss/\">Christoph Clau&szlig;</a>
     &lt;<a href=\"mailto:clauss@eas.iis.fhg.de\">clauss@eas.iis.fhg.de</a>&gt;<br>
-    <a href=\"http://www.eas.iis.fhg.de/~haase/\">Joachim Haase;</a> 
+    <a href=\"http://people.eas.iis.fhg.de/Joachim.Haase/\">Joachim Haase;</a> 
     &lt;<a href=\"mailto:haase@eas.iis.fhg.de\">haase@eas.iis.fhg.de</a>&gt;<br>
-    <a href=\"http://www.eas.iis.fhg.de/~schneider/\">Andr&eacute; Schneider</a> 
+    <a href=\"http://people.eas.iis.fhg.de/Andre.Schneider/\">Andr&eacute; Schneider</a> 
     &lt;<a href=\"mailto:schneider@eas.iis.fhg.de\">schneider@eas.iis.fhg.de</a>&gt;<br>
     Fraunhofer Institute for Integrated Circuits<br>
     Design Automation Department<br>
@@ -49,8 +49,8 @@ Modelica in file \"Modelica/package.mo\".</i><br>
 </dl>
 </HTML>
 "));
-
-  model OLine "Lossy Transmission Line"
+  
+  model OLine "Lossy Transmission Line" 
     //extends Interfaces.ThreePol;
     Interfaces.Pin p1 annotation (extent=[-110, -10; -90, 10]);
     Interfaces.Pin p2 annotation (extent=[90, -10; 110, 10]);
@@ -71,9 +71,10 @@ Modelica in file \"Modelica/package.mo\".</i><br>
     parameter Real c(
       final min=Modelica.Constants.small,
       unit="F/m") = 1 "Capacitance per meter";
-    parameter SI.Length length(final min=Modelica.Constants.small) = 1 "Length of line";
+    parameter SI.Length length(final min=Modelica.Constants.small) = 1 
+      "Length of line";
     parameter Integer N(final min=1) = 1 "Number of lumped segments";
-  protected
+  protected 
     Basic.Resistor R[N + 1](R=fill(r*length/(N + 1), N + 1));
     Basic.Inductor L[N + 1](L=fill(l*length/(N + 1), N + 1));
     Basic.Capacitor C[N](C=fill(c*length/(N), N));
@@ -102,8 +103,7 @@ Lossy Transmission Line.
 </DL>
 </P>
 </HTML>
-"),
-      Coordsys(
+"),   Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
         component=[20, 20]),
@@ -129,7 +129,7 @@ Lossy Transmission Line.
         y=0.07,
         width=0.6,
         height=0.6));
-  equation
+  equation 
     v13 = p1.v - p3.v;
     v23 = p2.v - p3.v;
     i1 = p1.i;
@@ -146,8 +146,8 @@ Lossy Transmission Line.
     connect(R[N + 1].n, L[N + 1].p);
     connect(L[N + 1].n, p2);
   end OLine;
-
-  model ULine "Lossy RC Line"
+  
+  model ULine "Lossy RC Line" 
     //extends Interfaces.ThreePol;
     Interfaces.Pin p1 annotation (extent=[-110, -10; -90, 10]);
     Interfaces.Pin p2 annotation (extent=[90, -10; 110, 10]);
@@ -162,9 +162,10 @@ Lossy Transmission Line.
     parameter Real c(
       final min=Modelica.Constants.small,
       unit="F/m") = 1 "Capacitance per meter";
-    parameter SI.Length length(final min=Modelica.Constants.small) = 1 "Length of line";
+    parameter SI.Length length(final min=Modelica.Constants.small) = 1 
+      "Length of line";
     parameter Integer N(final min=1) = 1 "Number of lumped segments";
-  protected
+  protected 
     Basic.Resistor R[N + 1](R=fill(r*length/(N + 1), N + 1));
     Basic.Capacitor C[N](C=fill(c*length/(N), N));
     annotation (
@@ -188,8 +189,7 @@ lumped segments.
 </DL>
 </P>
 </HTML>
-"),
-      Coordsys(
+"),   Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[2, 2],
         component=[20, 20]),
@@ -215,7 +215,7 @@ lumped segments.
         Line(points=[30, 30; -30, 30]),
         Line(points=[-30, 40; -30, 20]),
         Line(points=[30, 40; 30, 20])));
-  equation
+  equation 
     v13 = p1.v - p3.v;
     v23 = p2.v - p3.v;
     i1 = p1.i;
@@ -232,9 +232,10 @@ lumped segments.
     end for;
     connect(R[N + 1].n, p2);
   end ULine;
+  
    model TLine1 
-    "Lossless transmission line with characteristic impedance Z0 and transmission delay TD"
-     
+    "Lossless transmission line with characteristic impedance Z0 and transmission delay TD" 
+    
     extends Modelica.Electrical.Analog.Interfaces.TwoPort;
     
     parameter Modelica.SIunits.Resistance Z0=1 "Characteristic impedance";
@@ -264,39 +265,38 @@ References:
   Hoefer, E. E. E.; Nielinger, H.: SPICE : Analyseprogramm fuer elektronische
   Schaltungen. Springer-Verlag, Berlin, Heidelberg, New York, Tokyo, 1985.
 
-"), 
-      Coordsys(
-        extent=[-100, -100; 100, 100], 
-        grid=[1, 1], 
-        component=[20, 20]), 
+"),   Coordsys(
+        extent=[-100, -100; 100, 100],
+        grid=[1, 1],
+        component=[20, 20]),
       Icon(
-        Rectangle(extent=[-60, 60; 60, -60]), 
-        Line(points=[60, -50; 90, -50]), 
-        Line(points=[60, 50; 90, 50]), 
-        Line(points=[-60, 50; -90, 50]), 
-        Line(points=[-60, -50; -90, -50]), 
-        Line(points=[30, 30; -30, 30]), 
-        Line(points=[-30, 40; -30, 20]), 
-        Line(points=[30, 40; 30, 20]), 
-        Text(extent=[-100, 100; 100, 70], string="TLine1"), 
-        Text(extent=[-30, 10; 30, -20], string="TLine1")), 
+        Rectangle(extent=[-60, 60; 60, -60]),
+        Line(points=[60, -50; 90, -50]),
+        Line(points=[60, 50; 90, 50]),
+        Line(points=[-60, 50; -90, 50]),
+        Line(points=[-60, -50; -90, -50]),
+        Line(points=[30, 30; -30, 30]),
+        Line(points=[-30, 40; -30, 20]),
+        Line(points=[30, 40; 30, 20]),
+        Text(extent=[-100, 100; 100, 70], string="TLine1"),
+        Text(extent=[-30, 10; 30, -20], string="TLine1")),
       Diagram(
-        Rectangle(extent=[-60, 60; 60, -60]), 
-        Line(points=[60, -50; 90, -50]), 
-        Line(points=[60, 50; 90, 50]), 
-        Line(points=[-60, 50; -90, 50]), 
-        Line(points=[-60, -50; -90, -50]), 
-        Line(points=[30, 30; -30, 30]), 
-        Line(points=[-30, 40; -30, 20]), 
-        Line(points=[30, 40; 30, 20]), 
-        Text(extent=[-100, 100; 100, 70], string="TLine1"), 
-        Text(extent=[-30, 0; 31, -31], string="TLine1")), 
+        Rectangle(extent=[-60, 60; 60, -60]),
+        Line(points=[60, -50; 90, -50]),
+        Line(points=[60, 50; 90, 50]),
+        Line(points=[-60, 50; -90, 50]),
+        Line(points=[-60, -50; -90, -50]),
+        Line(points=[30, 30; -30, 30]),
+        Line(points=[-30, 40; -30, 20]),
+        Line(points=[30, 40; 30, 20]),
+        Text(extent=[-100, 100; 100, 70], string="TLine1"),
+        Text(extent=[-30, 0; 31, -31], string="TLine1")),
       Window(
-        x=0.45, 
-        y=0.01, 
-        width=0.51, 
+        x=0.45,
+        y=0.01,
+        width=0.51,
         height=0.83));
-  equation 
+   equation 
     
     assert(Z0 > 0, "Z0 has to be positive");
     assert(TD > 0, "TD has to be positive");
@@ -305,10 +305,11 @@ References:
     es = 2*delay(v2, TD) - delay(er, TD);
     er = 2*delay(v1, TD) - delay(es, TD);
     
-  end TLine1;
+   end TLine1;
+  
   model TLine2 
-    "Lossless transmission line with characteristic impedance Z0, frequency F and normalized length NL"
-     
+    "Lossless transmission line with characteristic impedance Z0, frequency F and normalized length NL" 
+    
     extends Modelica.Electrical.Analog.Interfaces.TwoPort;
     
     parameter Modelica.SIunits.Resistance Z0=1 "Characteristic impedance";
@@ -344,36 +345,35 @@ References:
   Schaltungen. Springer-Verlag, Berlin, Heidelberg, New York, Tokyo, 1985.
 
  
-"), 
-      Coordsys(
-        extent=[-100, -100; 100, 100], 
-        grid=[1, 1], 
-        component=[20, 20]), 
+"),   Coordsys(
+        extent=[-100, -100; 100, 100],
+        grid=[1, 1],
+        component=[20, 20]),
       Icon(
-        Rectangle(extent=[-60, 60; 60, -60]), 
-        Line(points=[60, -50; 90, -50]), 
-        Line(points=[60, 50; 90, 50]), 
-        Line(points=[-60, 50; -90, 50]), 
-        Line(points=[-60, -50; -90, -50]), 
-        Line(points=[30, 30; -30, 30]), 
-        Line(points=[-30, 40; -30, 20]), 
-        Line(points=[30, 40; 30, 20]), 
-        Text(extent=[-100, 100; 100, 70], string="TLine2"), 
-        Text(extent=[-30, 10; 30, -20], string="TLine2")), 
+        Rectangle(extent=[-60, 60; 60, -60]),
+        Line(points=[60, -50; 90, -50]),
+        Line(points=[60, 50; 90, 50]),
+        Line(points=[-60, 50; -90, 50]),
+        Line(points=[-60, -50; -90, -50]),
+        Line(points=[30, 30; -30, 30]),
+        Line(points=[-30, 40; -30, 20]),
+        Line(points=[30, 40; 30, 20]),
+        Text(extent=[-100, 100; 100, 70], string="TLine2"),
+        Text(extent=[-30, 10; 30, -20], string="TLine2")),
       Diagram(
-        Rectangle(extent=[-60, 60; 60, -60]), 
-        Line(points=[60, -50; 90, -50]), 
-        Line(points=[60, 50; 90, 50]), 
-        Line(points=[-60, 50; -90, 50]), 
-        Line(points=[-60, -50; -90, -50]), 
-        Line(points=[30, 30; -30, 30]), 
-        Line(points=[-30, 40; -30, 20]), 
-        Line(points=[30, 40; 30, 20]), 
-        Text(extent=[-100, 100; 100, 70], string="TLine2")), 
+        Rectangle(extent=[-60, 60; 60, -60]),
+        Line(points=[60, -50; 90, -50]),
+        Line(points=[60, 50; 90, 50]),
+        Line(points=[-60, 50; -90, 50]),
+        Line(points=[-60, -50; -90, -50]),
+        Line(points=[30, 30; -30, 30]),
+        Line(points=[-30, 40; -30, 20]),
+        Line(points=[30, 40; 30, 20]),
+        Text(extent=[-100, 100; 100, 70], string="TLine2")),
       Window(
-        x=0.01, 
-        y=0.03, 
-        width=0.78, 
+        x=0.01,
+        y=0.03,
+        width=0.78,
         height=0.89));
   equation 
     
@@ -387,9 +387,10 @@ References:
     er = 2*delay(v1, TD) - delay(es, TD);
     
   end TLine2;
+  
   model TLine3 
-    "Lossless transmission line with characteristic impedance Z0 and frequency F"
-     
+    "Lossless transmission line with characteristic impedance Z0 and frequency F" 
+    
     extends Modelica.Electrical.Analog.Interfaces.TwoPort;
     
     parameter Modelica.SIunits.Resistance Z0=1 "Natural impedance";
@@ -425,36 +426,35 @@ Lossless transmission line with characteristic impedance Z0 and frequency F
     Schaltungen. Springer-Verlag, Berlin, Heidelberg, New York, Tokyo, 1985.
 
 
-"), 
-      Coordsys(
-        extent=[-100, -100; 100, 100], 
-        grid=[1, 1], 
-        component=[20, 20]), 
+"),   Coordsys(
+        extent=[-100, -100; 100, 100],
+        grid=[1, 1],
+        component=[20, 20]),
       Icon(
-        Rectangle(extent=[-60, 60; 60, -60]), 
-        Line(points=[60, -50; 90, -50]), 
-        Line(points=[60, 50; 90, 50]), 
-        Line(points=[-60, 50; -90, 50]), 
-        Line(points=[-60, -50; -90, -50]), 
-        Line(points=[30, 30; -30, 30]), 
-        Line(points=[-30, 40; -30, 20]), 
-        Line(points=[30, 40; 30, 20]), 
-        Text(extent=[-100, 100; 100, 70], string="TLine3"), 
-        Text(extent=[-29, -1; 30, -31], string="TLine3")), 
+        Rectangle(extent=[-60, 60; 60, -60]),
+        Line(points=[60, -50; 90, -50]),
+        Line(points=[60, 50; 90, 50]),
+        Line(points=[-60, 50; -90, 50]),
+        Line(points=[-60, -50; -90, -50]),
+        Line(points=[30, 30; -30, 30]),
+        Line(points=[-30, 40; -30, 20]),
+        Line(points=[30, 40; 30, 20]),
+        Text(extent=[-100, 100; 100, 70], string="TLine3"),
+        Text(extent=[-29, -1; 30, -31], string="TLine3")),
       Diagram(
-        Rectangle(extent=[-60, 60; 60, -60]), 
-        Line(points=[60, -50; 90, -50]), 
-        Line(points=[60, 50; 90, 50]), 
-        Line(points=[-60, 50; -90, 50]), 
-        Line(points=[-60, -50; -90, -50]), 
-        Line(points=[30, 30; -30, 30]), 
-        Line(points=[-30, 40; -30, 20]), 
-        Line(points=[30, 40; 30, 20]), 
-        Text(extent=[-100, 100; 100, 70], string="TLine3")), 
+        Rectangle(extent=[-60, 60; 60, -60]),
+        Line(points=[60, -50; 90, -50]),
+        Line(points=[60, 50; 90, 50]),
+        Line(points=[-60, 50; -90, 50]),
+        Line(points=[-60, -50; -90, -50]),
+        Line(points=[30, 30; -30, 30]),
+        Line(points=[-30, 40; -30, 20]),
+        Line(points=[30, 40; 30, 20]),
+        Text(extent=[-100, 100; 100, 70], string="TLine3")),
       Window(
-        x=0, 
-        y=0, 
-        width=0.7, 
+        x=0,
+        y=0,
+        width=0.7,
         height=0.92));
   equation 
     

@@ -1,6 +1,9 @@
 <HTML>
 <HEAD><META name="HTML-Generator" content="Dymola"><TITLE>Modelica</TITLE></HEAD>
 <BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Interfaces<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><A NAME="Modelica.Blocks.Interfaces"></A><A HREF="Modelica_Blocks.html#Modelica.Blocks"
 >Modelica.Blocks</A>.Interfaces</H2>
 <B>Connectors and partial models for input/output blocks</B>
@@ -61,12 +64,6 @@
 ><IMG SRC="Modelica.Blocks.Interfaces.IntegerSignalSourceI.png" ALT="Modelica.Blocks.Interfaces.IntegerSignalSource" WIDTH=80  HEIGHT=80 ></A>
 <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.IntegerMIBooleanMOs"
 ><IMG SRC="Modelica.Blocks.Interfaces.IntegerMIBooleanMOsI.png" ALT="Modelica.Blocks.Interfaces.IntegerMIBooleanMOs" WIDTH=80  HEIGHT=80 ></A>
-<A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealPort"
-><IMG SRC="Modelica.Blocks.Interfaces.RealPortI.png" ALT="Modelica.Blocks.Interfaces.RealPort" WIDTH=80  HEIGHT=80 ></A>
-<A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanPort"
-><IMG SRC="Modelica.Blocks.Interfaces.BooleanPortI.png" ALT="Modelica.Blocks.Interfaces.BooleanPort" WIDTH=80  HEIGHT=80 ></A>
-<A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.IntegerPort"
-><IMG SRC="Modelica.Blocks.Interfaces.IntegerPortI.png" ALT="Modelica.Blocks.Interfaces.IntegerPort" WIDTH=80  HEIGHT=80 ></A>
 <A HREF="Modelica_Blocks_Interfaces_BusAdaptors.html#Modelica.Blocks.Interfaces.BusAdaptors"
 ><IMG SRC="Modelica.Blocks.Interfaces.BusAdaptorsI.png" ALT="Modelica.Blocks.Interfaces.BusAdaptors" WIDTH=80  HEIGHT=80 ></A>
 <P><P>
@@ -161,7 +158,7 @@ when the package Block is revised exploiting new Modelica features.</p>
 <li><i>Oct. 21, 2002</i>
        by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>
        and <a href="http://www.robotic.dlr.de/Christian.Schweiger/">Christian Schweiger</a>:<br>
-       Added several new interfaces. <a href="../Documentation/ChangeNotes.html">Detailed description</a> available.
+       Added several new interfaces. <a href="../Documentation/ChangeNotes1.5.html">Detailed description</a> available.
 <li><i>Oct. 24, 1999</i>
        by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>:<br>
        RealInputSignal renamed to InPort. RealOutputSignal renamed to
@@ -189,7 +186,109 @@ Modelica in file "Modelica/package.mo".
 </i></p>
 <pre>
 </PRE><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
+>InPort</A>
+</TD><TD>Connector with input signals of type Real</TD></TR>
+<TR><TD><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.OutPort"
+>OutPort</A>
+</TD><TD>Connector with output signals of type Real</TD></TR>
+<TR><TD><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInPort"
+>BooleanInPort</A>
+</TD><TD>Connector with input signals of type Boolean</TD></TR>
+<TR><TD><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanOutPort"
+>BooleanOutPort</A>
+</TD><TD>Connector with output signals of type Boolean</TD></TR>
+<TR><TD><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.IntegerInPort"
+>IntegerInPort</A>
+</TD><TD>Connector with input signals of type Integer</TD></TR>
+<TR><TD><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.IntegerOutPort"
+>IntegerOutPort</A>
+</TD><TD>Connector with output signals of type Integer</TD></TR>
+<TR><TD><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BlockIcon"
+>BlockIcon</A>
+</TD><TD>Basic graphical layout of continuous block</TD></TR>
+<TR><TD><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SO"
+>SO</A>
+</TD><TD>Single Output continuous control block</TD></TR>
+<TR><TD><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.MO"
+>MO</A>
+</TD><TD>Multiple Output continuous control block</TD></TR>
+<TR><TD><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SISO"
+>SISO</A>
+</TD><TD>Single Input Single Output continuous control block</TD></TR>
+<TR><TD><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SI2SO"
+>SI2SO</A>
+</TD><TD>2 Single Input / 1 Single Output continuous control block</TD></TR>
+<TR><TD><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SIMO"
+>SIMO</A>
+</TD><TD>Single Input Multiple Output continuous control block</TD></TR>
+<TR><TD><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.MISO"
+>MISO</A>
+</TD><TD>Multiple Input Single Output continuous control block</TD></TR>
+<TR><TD><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.MIMO"
+>MIMO</A>
+</TD><TD>Multiple Input Multiple Output continuous control block</TD></TR>
+<TR><TD><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.MIMOs"
+>MIMOs</A>
+</TD><TD>Multiple Input Multiple Output continuous control block with same number of inputs and outputs</TD></TR>
+<TR><TD><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.MI2MO"
+>MI2MO</A>
+</TD><TD>2 Multiple Input / Multiple Output continuous control block</TD></TR>
+<TR><TD><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SignalSource"
+>SignalSource</A>
+</TD><TD>Base class for continuous signal source</TD></TR>
+<TR><TD><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SVcontrol"
+>SVcontrol</A>
+</TD><TD>Single-Variable continuous controller</TD></TR>
+<TR><TD><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.MVcontrol"
+>MVcontrol</A>
+</TD><TD>Multi-Variable continuous controller</TD></TR>
+<TR><TD><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanBlockIcon"
+>BooleanBlockIcon</A>
+</TD><TD>Basic graphical layout of Boolean block</TD></TR>
+<TR><TD><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanSISO"
+>BooleanSISO</A>
+</TD><TD>Single Input Single Output control block with signals of type Boolean</TD></TR>
+<TR><TD><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanMIMOs"
+>BooleanMIMOs</A>
+</TD><TD>Multiple Input Multiple Output continuous control block with same number of inputs and outputs of boolean type</TD></TR>
+<TR><TD><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.MI2BooleanMOs"
+>MI2BooleanMOs</A>
+</TD><TD>2 Multiple Input / Boolean Multiple Output block with same signal lengths</TD></TR>
+<TR><TD><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanSignalSource"
+>BooleanSignalSource</A>
+</TD><TD>Base class for Boolean signal sources</TD></TR>
+<TR><TD><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.IntegerBlockIcon"
+>IntegerBlockIcon</A>
+</TD><TD>Basic graphical layout of Integer block</TD></TR>
+<TR><TD><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.IntegerMO"
+>IntegerMO</A>
+</TD><TD>Multiple Integer Output continuous control block</TD></TR>
+<TR><TD><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.IntegerSignalSource"
+>IntegerSignalSource</A>
+</TD><TD>Base class for continuous Integer signal source</TD></TR>
+<TR><TD><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.IntegerMIBooleanMOs"
+>IntegerMIBooleanMOs</A>
+</TD><TD>Multiple Integer Input Multiple Boolean Output continuous control block with same number of inputs and outputs</TD></TR>
+<TR><TD><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealPort"
+>RealPort</A>
+</TD><TD>Real port (both input/output possible)</TD></TR>
+<TR><TD><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanPort"
+>BooleanPort</A>
+</TD><TD>Boolean port (both input/output possible)</TD></TR>
+<TR><TD><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.IntegerPort"
+>IntegerPort</A>
+</TD><TD>Integer port (both input/output possible)</TD></TR>
+<TR><TD><A HREF="Modelica_Blocks_Interfaces_BusAdaptors.html#Modelica.Blocks.Interfaces.BusAdaptors"
+>BusAdaptors</A>
+</TD><TD>Components to send signals to the bus or receive signals from the bus</TD></TR>
+</TABLE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE MIMOs<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Blocks.Interfaces.MIMOsI.png" ALT="Modelica.Blocks.Interfaces.MIMOs" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Blocks.Interfaces.MIMOs"></A><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces"
 >Modelica.Blocks.Interfaces</A>.MIMOs</H2>
@@ -211,16 +310,17 @@ where the signal sizes of the input and output vector are identical.
 <H3>Modelica definition</H3>
 <PRE>
 <font color="blue">partial </font><font color="blue">block</font> MIMOs <font color="darkgreen">
-  &quot;Multiple Input Multiple Output continuous control block with same number of inputs and outputs&quot;</font>
-   
-  <font color="darkgreen"></font>
+  &quot;Multiple Input Multiple Output continuous control block with same number of inputs and outputs&quot;</font> 
+  
   <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BlockIcon"
 >BlockIcon</A>;
   <font color="blue">parameter </font>Integer n=1 <font color="darkgreen">&quot;Number of inputs (= number of outputs)&quot;</font>;
   <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
->InPort</A> inPort(<font color="blue">final </font>n=n) <font color="darkgreen">&quot;Connector of Real input signals&quot;</font>;
+>InPort</A> inPort(
+                <font color="blue">final </font>n=n) <font color="darkgreen">&quot;Connector of Real input signals&quot;</font>;
   <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.OutPort"
->OutPort</A> outPort(<font color="blue">final </font>n=n) <font color="darkgreen">&quot;Connector of Real output signals&quot;</font>;
+>OutPort</A> outPort(
+                  <font color="blue">final </font>n=n) <font color="darkgreen">&quot;Connector of Real output signals&quot;</font>;
   <font color="blue">output </font>Real y[n] <font color="darkgreen">&quot;Output signals&quot;</font>;
 <font color="blue">protected </font>
   Real u[:]=inPort.signal <font color="darkgreen">&quot;Input signals&quot;</font>;
@@ -229,6 +329,9 @@ where the signal sizes of the input and output vector are identical.
 <font color="blue">end </font>MIMOs;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SISO<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Blocks.Interfaces.SISOI.png" ALT="Modelica.Blocks.Interfaces.SISO" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Blocks.Interfaces.SISO"></A><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces"
 >Modelica.Blocks.Interfaces</A>.SISO</H2>
@@ -240,13 +343,15 @@ where the signal sizes of the input and output vector are identical.
   &quot;Single Input Single Output continuous control block&quot;</font> 
   <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BlockIcon"
 >BlockIcon</A>;
-  <font color="darkgreen"></font>
+  
   <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
->InPort</A> inPort(<font color="blue">final </font>n=1) <font color="darkgreen">&quot;Connector of Real input signal&quot;</font>;
+>InPort</A> inPort(
+                <font color="blue">final </font>n=1) <font color="darkgreen">&quot;Connector of Real input signal&quot;</font>;
   <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.OutPort"
->OutPort</A> outPort(<font color="blue">final </font>n=1) <font color="darkgreen">&quot;Connector of Real output signal&quot;</font>;
+>OutPort</A> outPort(
+                  <font color="blue">final </font>n=1) <font color="darkgreen">&quot;Connector of Real output signal&quot;</font>;
   <font color="blue">output </font>Real y;
-  <font color="darkgreen"></font>
+  
 <font color="blue">protected </font>
   Real u=inPort.signal[1];
 <font color="blue">equation </font>
@@ -254,6 +359,9 @@ where the signal sizes of the input and output vector are identical.
 <font color="blue">end </font>SISO;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SVcontrol<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Blocks.Interfaces.SVcontrolI.png" ALT="Modelica.Blocks.Interfaces.SVcontrol" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Blocks.Interfaces.SVcontrol"></A><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces"
 >Modelica.Blocks.Interfaces</A>.SVcontrol</H2>
@@ -264,17 +372,20 @@ where the signal sizes of the input and output vector are identical.
 <font color="blue">partial </font><font color="blue">block</font> SVcontrol <font color="darkgreen">&quot;Single-Variable continuous controller&quot;</font> 
   <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BlockIcon"
 >BlockIcon</A>;
-  <font color="darkgreen"></font>
+  
 <font color="blue">protected </font>
   Real u_s <font color="darkgreen">&quot;Scalar setpoint input signal&quot;</font>;
   Real u_m <font color="darkgreen">&quot;Scalar measurement input signal&quot;</font>;
 <font color="blue">public </font>
   <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
->InPort</A> inPort_s(<font color="blue">final </font>n=1) <font color="darkgreen">&quot;Connector of setpoint input signal&quot;</font>;
+>InPort</A> inPort_s(
+                  <font color="blue">final </font>n=1) <font color="darkgreen">&quot;Connector of setpoint input signal&quot;</font>;
   <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
->InPort</A> inPort_m(<font color="blue">final </font>n=1) <font color="darkgreen">&quot;Connector of measurement input signal&quot;</font>;
+>InPort</A> inPort_m(
+                  <font color="blue">final </font>n=1) <font color="darkgreen">&quot;Connector of measurement input signal&quot;</font>;
   <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.OutPort"
->OutPort</A> outPort(<font color="blue">final </font>n=1) <font color="darkgreen">&quot;Connector of actuator output signal&quot;</font>;
+>OutPort</A> outPort(
+                  <font color="blue">final </font>n=1) <font color="darkgreen">&quot;Connector of actuator output signal&quot;</font>;
   <font color="blue">output </font>Real y <font color="darkgreen">&quot;Scalar actuator output signal&quot;</font>;
 <font color="blue">equation </font>
   u_s = inPort_s.signal[1];
@@ -283,6 +394,9 @@ where the signal sizes of the input and output vector are identical.
 <font color="blue">end </font>SVcontrol;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE MIMO<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Blocks.Interfaces.MIMOI.png" ALT="Modelica.Blocks.Interfaces.MIMO" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Blocks.Interfaces.MIMO"></A><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces"
 >Modelica.Blocks.Interfaces</A>.MIMO</H2>
@@ -306,15 +420,17 @@ The signal sizes of the input and output vector may be different.
 <PRE>
 <font color="blue">partial </font><font color="blue">block</font> MIMO <font color="darkgreen">
   &quot;Multiple Input Multiple Output continuous control block&quot;</font> 
-  <font color="darkgreen"></font>
+  
   <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BlockIcon"
 >BlockIcon</A>;
   <font color="blue">parameter </font>Integer nin=1 <font color="darkgreen">&quot;Number of inputs&quot;</font>;
   <font color="blue">parameter </font>Integer nout=1 <font color="darkgreen">&quot;Number of outputs&quot;</font>;
   <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
->InPort</A> inPort(<font color="blue">final </font>n=nin) <font color="darkgreen">&quot;Connector of Real input signals&quot;</font>;
+>InPort</A> inPort(
+                <font color="blue">final </font>n=nin) <font color="darkgreen">&quot;Connector of Real input signals&quot;</font>;
   <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.OutPort"
->OutPort</A> outPort(<font color="blue">final </font>n=nout) <font color="darkgreen">&quot;Connector of Real output signals&quot;</font>;
+>OutPort</A> outPort(
+                  <font color="blue">final </font>n=nout) <font color="darkgreen">&quot;Connector of Real output signals&quot;</font>;
   <font color="blue">output </font>Real y[nout] <font color="darkgreen">&quot;Output signals&quot;</font>;
 <font color="blue">protected </font>
   Real u[:]=inPort.signal <font color="darkgreen">&quot;Input signals&quot;</font>;
@@ -323,14 +439,16 @@ The signal sizes of the input and output vector may be different.
 <font color="blue">end </font>MIMO;
 </PRE>
 <HR>
-<H2><IMG SRC="Modelica.Blocks.Interfaces.RealPortI.png" ALT="Modelica.Blocks.Interfaces.RealPort" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.Interfaces.RealPort"></A><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces"
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE RealPort<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Blocks.Interfaces.RealPort"></A><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces"
 >Modelica.Blocks.Interfaces</A>.RealPort</H2>
 <B>Real port (both input/output possible)</B><p>
 <H3>Parameters</H3><P>
 <TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
 <TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
-<TR><TD>replaceable type SignalType</TD><TD> Real</TD><TD>&nbsp;</TD></TR>
+<TR><TD>replaceable type SignalType</TD><TD>Real</TD><TD>&nbsp;</TD></TR>
 </TABLE>
 <H3>Modelica definition</H3>
 <PRE>
@@ -341,8 +459,10 @@ The signal sizes of the input and output vector may be different.
 <font color="blue">end </font>RealPort;
 </PRE>
 <HR>
-<H2><IMG SRC="Modelica.Blocks.Interfaces.IntegerPortI.png" ALT="Modelica.Blocks.Interfaces.IntegerPort" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.Interfaces.IntegerPort"></A><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces"
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE IntegerPort<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Blocks.Interfaces.IntegerPort"></A><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces"
 >Modelica.Blocks.Interfaces</A>.IntegerPort</H2>
 <B>Integer port (both input/output possible)</B><p>
 <H3>Modelica definition</H3>
@@ -350,8 +470,10 @@ The signal sizes of the input and output vector may be different.
 <font color="blue">connector</font> IntegerPort = Integer <font color="darkgreen">&quot;Integer port (both input/output possible)&quot;</font>;
 </PRE>
 <HR>
-<H2><IMG SRC="Modelica.Blocks.Interfaces.BooleanPortI.png" ALT="Modelica.Blocks.Interfaces.BooleanPort" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.Interfaces.BooleanPort"></A><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces"
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE BooleanPort<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Blocks.Interfaces.BooleanPort"></A><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces"
 >Modelica.Blocks.Interfaces</A>.BooleanPort</H2>
 <B>Boolean port (both input/output possible)</B><p>
 <H3>Modelica definition</H3>
@@ -359,6 +481,9 @@ The signal sizes of the input and output vector may be different.
 <font color="blue">connector</font> BooleanPort = Boolean <font color="darkgreen">&quot;Boolean port (both input/output possible)&quot;</font>;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE InPort<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Blocks.Interfaces.InPortI.png" ALT="Modelica.Blocks.Interfaces.InPort" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Blocks.Interfaces.InPort"></A><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces"
 >Modelica.Blocks.Interfaces</A>.InPort</H2>
@@ -368,7 +493,7 @@ The signal sizes of the input and output vector may be different.
 <TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
 <TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
 <TR><TD>n</TD><TD>1</TD><TD>Dimension of signal vector</TD></TR>
-<TR><TD>replaceable type SignalType</TD><TD> Real</TD><TD>type of signal</TD></TR>
+<TR><TD>replaceable type SignalType</TD><TD>Real</TD><TD>type of signal</TD></TR>
 </TABLE>
 <H3>Modelica definition</H3>
 <PRE>
@@ -376,11 +501,14 @@ The signal sizes of the input and output vector may be different.
   <font color="blue">parameter </font>Integer n=1 <font color="darkgreen">&quot;Dimension of signal vector&quot;</font>;
   <font color="blue">replaceable </font><font color="blue">type</font> SignalType = Real <font color="darkgreen">&quot;type of signal&quot;</font>;
   <font color="blue">input </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort.SignalType"
->SignalType</A> signal[n] <font color="darkgreen">&quot;Real input signals&quot;</font>;
-  <font color="darkgreen"></font>
+>SignalType</A> signal[   n] <font color="darkgreen">&quot;Real input signals&quot;</font>;
+  
 <font color="blue">end </font>InPort;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE OutPort<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Blocks.Interfaces.OutPortI.png" ALT="Modelica.Blocks.Interfaces.OutPort" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Blocks.Interfaces.OutPort"></A><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces"
 >Modelica.Blocks.Interfaces</A>.OutPort</H2>
@@ -390,7 +518,7 @@ The signal sizes of the input and output vector may be different.
 <TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
 <TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
 <TR><TD>n</TD><TD>1</TD><TD>Dimension of signal vector</TD></TR>
-<TR><TD>replaceable type SignalType</TD><TD> Real</TD><TD>type of signal</TD></TR>
+<TR><TD>replaceable type SignalType</TD><TD>Real</TD><TD>type of signal</TD></TR>
 </TABLE>
 <H3>Modelica definition</H3>
 <PRE>
@@ -398,11 +526,14 @@ The signal sizes of the input and output vector may be different.
   <font color="blue">parameter </font>Integer n=1 <font color="darkgreen">&quot;Dimension of signal vector&quot;</font>;
   <font color="blue">replaceable </font><font color="blue">type</font> SignalType = Real <font color="darkgreen">&quot;type of signal&quot;</font>;
   <font color="blue">output </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.OutPort.SignalType"
->SignalType</A> signal[n] <font color="darkgreen">&quot;Real output signals&quot;</font>;
-  <font color="darkgreen"></font>
+>SignalType</A> signal[    n] <font color="darkgreen">&quot;Real output signals&quot;</font>;
+  
 <font color="blue">end </font>OutPort;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE BooleanInPort<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Blocks.Interfaces.BooleanInPortI.png" ALT="Modelica.Blocks.Interfaces.BooleanInPort" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Blocks.Interfaces.BooleanInPort"></A><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces"
 >Modelica.Blocks.Interfaces</A>.BooleanInPort</H2>
@@ -419,10 +550,13 @@ The signal sizes of the input and output vector may be different.
   &quot;Connector with input signals of type Boolean&quot;</font> 
   <font color="blue">parameter </font>Integer n=1 <font color="darkgreen">&quot;Dimension of signal vector&quot;</font>;
   <font color="blue">input </font>Boolean signal[n] <font color="darkgreen">&quot;Boolean input signals&quot;</font>;
-  <font color="darkgreen"></font>
+  
 <font color="blue">end </font>BooleanInPort;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE BooleanOutPort<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Blocks.Interfaces.BooleanOutPortI.png" ALT="Modelica.Blocks.Interfaces.BooleanOutPort" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Blocks.Interfaces.BooleanOutPort"></A><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces"
 >Modelica.Blocks.Interfaces</A>.BooleanOutPort</H2>
@@ -439,10 +573,13 @@ The signal sizes of the input and output vector may be different.
   &quot;Connector with output signals of type Boolean&quot;</font> 
   <font color="blue">parameter </font>Integer n=1 <font color="darkgreen">&quot;Dimension of signal vector&quot;</font>;
   <font color="blue">output </font>Boolean signal[n] <font color="darkgreen">&quot;Boolean output signals&quot;</font>;
-  <font color="darkgreen"></font>
+  
 <font color="blue">end </font>BooleanOutPort;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE IntegerInPort<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Blocks.Interfaces.IntegerInPortI.png" ALT="Modelica.Blocks.Interfaces.IntegerInPort" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Blocks.Interfaces.IntegerInPort"></A><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces"
 >Modelica.Blocks.Interfaces</A>.IntegerInPort</H2>
@@ -459,10 +596,13 @@ The signal sizes of the input and output vector may be different.
   &quot;Connector with input signals of type Integer&quot;</font> 
   <font color="blue">parameter </font>Integer n=1 <font color="darkgreen">&quot;Dimension of signal vector&quot;</font>;
   <font color="blue">input </font>Integer signal[n] <font color="darkgreen">&quot;Integer input signals&quot;</font>;
-  <font color="darkgreen"></font>
+  
 <font color="blue">end </font>IntegerInPort;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE IntegerOutPort<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Blocks.Interfaces.IntegerOutPortI.png" ALT="Modelica.Blocks.Interfaces.IntegerOutPort" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Blocks.Interfaces.IntegerOutPort"></A><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces"
 >Modelica.Blocks.Interfaces</A>.IntegerOutPort</H2>
@@ -479,10 +619,13 @@ The signal sizes of the input and output vector may be different.
   &quot;Connector with output signals of type Integer&quot;</font> 
   <font color="blue">parameter </font>Integer n=1 <font color="darkgreen">&quot;Dimension of signal vector&quot;</font>;
   <font color="blue">output </font>Integer signal[n] <font color="darkgreen">&quot;Integer output signals&quot;</font>;
-  <font color="darkgreen"></font>
+  
 <font color="blue">end </font>IntegerOutPort;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE BlockIcon<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Blocks.Interfaces.BlockIconI.png" ALT="Modelica.Blocks.Interfaces.BlockIcon" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Blocks.Interfaces.BlockIcon"></A><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces"
 >Modelica.Blocks.Interfaces</A>.BlockIcon</H2>
@@ -493,6 +636,9 @@ The signal sizes of the input and output vector may be different.
 <font color="blue">end </font>BlockIcon;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SO<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Blocks.Interfaces.SOI.png" ALT="Modelica.Blocks.Interfaces.SO" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Blocks.Interfaces.SO"></A><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces"
 >Modelica.Blocks.Interfaces</A>.SO</H2>
@@ -503,15 +649,19 @@ The signal sizes of the input and output vector may be different.
 <font color="blue">partial </font><font color="blue">block</font> SO <font color="darkgreen">&quot;Single Output continuous control block&quot;</font> 
   <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BlockIcon"
 >BlockIcon</A>;
-  <font color="darkgreen"></font>
+  
   <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.OutPort"
->OutPort</A> outPort(<font color="blue">final </font>n=1) <font color="darkgreen">&quot;Connector of Real output signal&quot;</font>;
+>OutPort</A> outPort(
+                  <font color="blue">final </font>n=1) <font color="darkgreen">&quot;Connector of Real output signal&quot;</font>;
   <font color="blue">output </font>Real y;
 <font color="blue">equation </font>
   y = outPort.signal[1];
 <font color="blue">end </font>SO;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE MO<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Blocks.Interfaces.MOI.png" ALT="Modelica.Blocks.Interfaces.MO" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Blocks.Interfaces.MO"></A><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces"
 >Modelica.Blocks.Interfaces</A>.MO</H2>
@@ -530,16 +680,20 @@ The signal sizes of the input and output vector may be different.
 <font color="blue">partial </font><font color="blue">block</font> MO <font color="darkgreen">&quot;Multiple Output continuous control block&quot;</font> 
   <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BlockIcon"
 >BlockIcon</A>;
-  <font color="darkgreen"></font>
+  
   <font color="blue">parameter </font>Integer nout(min=1) = 1 <font color="darkgreen">&quot;Number of outputs&quot;</font>;
   <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.OutPort"
->OutPort</A> outPort(<font color="blue">final </font>n=nout) <font color="darkgreen">&quot;Connector of Real output signals&quot;</font>;
+>OutPort</A> outPort(
+                  <font color="blue">final </font>n=nout) <font color="darkgreen">&quot;Connector of Real output signals&quot;</font>;
   <font color="blue">output </font>Real y[nout];
 <font color="blue">equation </font>
   y = outPort.signal;
 <font color="blue">end </font>MO;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SI2SO<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Blocks.Interfaces.SI2SOI.png" ALT="Modelica.Blocks.Interfaces.SI2SO" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Blocks.Interfaces.SI2SO"></A><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces"
 >Modelica.Blocks.Interfaces</A>.SI2SO</H2>
@@ -556,15 +710,18 @@ output vector outPort.signal. All vectors have one element.</p><pre>
   &quot;2 Single Input / 1 Single Output continuous control block&quot;</font> 
   <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BlockIcon"
 >BlockIcon</A>;
-  <font color="darkgreen"></font>
+  
   <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
->InPort</A> inPort1(<font color="blue">final </font>n=1) <font color="darkgreen">&quot;Connector of Real input signal 1&quot;</font>;
+>InPort</A> inPort1(
+                 <font color="blue">final </font>n=1) <font color="darkgreen">&quot;Connector of Real input signal 1&quot;</font>;
   <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
->InPort</A> inPort2(<font color="blue">final </font>n=1) <font color="darkgreen">&quot;Connector of Real input signal 2&quot;</font>;
+>InPort</A> inPort2(
+                 <font color="blue">final </font>n=1) <font color="darkgreen">&quot;Connector of Real input signal 2&quot;</font>;
   <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.OutPort"
->OutPort</A> outPort(<font color="blue">final </font>n=1) <font color="darkgreen">&quot;Connector of Real output signal&quot;</font>;
+>OutPort</A> outPort(
+                  <font color="blue">final </font>n=1) <font color="darkgreen">&quot;Connector of Real output signal&quot;</font>;
   <font color="blue">output </font>Real y <font color="darkgreen">&quot;Output signal&quot;</font>;
-  <font color="darkgreen"></font>
+  
 <font color="blue">protected </font>
   Real u1=inPort1.signal[1] <font color="darkgreen">&quot;Input signal 1&quot;</font>;
   Real u2=inPort2.signal[1] <font color="darkgreen">&quot;Input signal 2&quot;</font>;
@@ -573,6 +730,9 @@ output vector outPort.signal. All vectors have one element.</p><pre>
 <font color="blue">end </font>SI2SO;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SIMO<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Blocks.Interfaces.SIMOI.png" ALT="Modelica.Blocks.Interfaces.SIMO" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Blocks.Interfaces.SIMO"></A><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces"
 >Modelica.Blocks.Interfaces</A>.SIMO</H2>
@@ -597,11 +757,13 @@ signals.</p>
 >BlockIcon</A>;
   <font color="blue">parameter </font>Integer nout=1 <font color="darkgreen">&quot;Number of outputs&quot;</font>;
   <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
->InPort</A> inPort(<font color="blue">final </font>n=1) <font color="darkgreen">&quot;Connector of Real input signal&quot;</font>;
+>InPort</A> inPort(
+                <font color="blue">final </font>n=1) <font color="darkgreen">&quot;Connector of Real input signal&quot;</font>;
   <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.OutPort"
->OutPort</A> outPort(<font color="blue">final </font>n=nout) <font color="darkgreen">&quot;Connector of Real output signals&quot;</font>;
+>OutPort</A> outPort(
+                  <font color="blue">final </font>n=nout) <font color="darkgreen">&quot;Connector of Real output signals&quot;</font>;
   <font color="blue">output </font>Real y[nout] <font color="darkgreen">&quot;Output signals&quot;</font>;
-  <font color="darkgreen"></font>
+  
 <font color="blue">protected </font>
   Real u=inPort.signal[1] <font color="darkgreen">&quot;Input signal&quot;</font>;
 <font color="blue">equation </font>
@@ -609,6 +771,9 @@ signals.</p>
 <font color="blue">end </font>SIMO;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE MISO<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Blocks.Interfaces.MISOI.png" ALT="Modelica.Blocks.Interfaces.MISO" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Blocks.Interfaces.MISO"></A><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces"
 >Modelica.Blocks.Interfaces</A>.MISO</H2>
@@ -635,11 +800,13 @@ one continuous output signal.
 >BlockIcon</A>;
   <font color="blue">parameter </font>Integer nin=1 <font color="darkgreen">&quot;Number of inputs&quot;</font>;
   <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
->InPort</A> inPort(<font color="blue">final </font>n=nin) <font color="darkgreen">&quot;Connector of Real input signals&quot;</font>;
+>InPort</A> inPort(
+                <font color="blue">final </font>n=nin) <font color="darkgreen">&quot;Connector of Real input signals&quot;</font>;
   <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.OutPort"
->OutPort</A> outPort(<font color="blue">final </font>n=1) <font color="darkgreen">&quot;Connector of Real output signal&quot;</font>;
+>OutPort</A> outPort(
+                  <font color="blue">final </font>n=1) <font color="darkgreen">&quot;Connector of Real output signal&quot;</font>;
   <font color="blue">output </font>Real y <font color="darkgreen">&quot;Output signal&quot;</font>;
-  <font color="darkgreen"></font>
+  
 <font color="blue">protected </font>
   Real u[:]=inPort.signal <font color="darkgreen">&quot;Input signals&quot;</font>;
 <font color="blue">equation </font>
@@ -647,6 +814,9 @@ one continuous output signal.
 <font color="blue">end </font>MISO;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE MI2MO<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Blocks.Interfaces.MI2MOI.png" ALT="Modelica.Blocks.Interfaces.MI2MO" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Blocks.Interfaces.MI2MO"></A><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces"
 >Modelica.Blocks.Interfaces</A>.MI2MO</H2>
@@ -668,15 +838,18 @@ output vector outPort.signal. All vectors have the same number of elements.
   &quot;2 Multiple Input / Multiple Output continuous control block&quot;</font> 
   <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BlockIcon"
 >BlockIcon</A>;
-  <font color="darkgreen"></font>
+  
   <font color="blue">parameter </font>Integer n=1 <font color="darkgreen">&quot;Dimension of input and output vectors.&quot;</font>;
-  <font color="darkgreen"></font>
+  
   <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
->InPort</A> inPort1(<font color="blue">final </font>n=n) <font color="darkgreen">&quot;Connector 1 of Real input signals&quot;</font>;
+>InPort</A> inPort1(
+                 <font color="blue">final </font>n=n) <font color="darkgreen">&quot;Connector 1 of Real input signals&quot;</font>;
   <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
->InPort</A> inPort2(<font color="blue">final </font>n=n) <font color="darkgreen">&quot;Connector 2 of Real input signals&quot;</font>;
+>InPort</A> inPort2(
+                 <font color="blue">final </font>n=n) <font color="darkgreen">&quot;Connector 2 of Real input signals&quot;</font>;
   <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.OutPort"
->OutPort</A> outPort(<font color="blue">final </font>n=n) <font color="darkgreen">&quot;Connector of Real output signals&quot;</font>;
+>OutPort</A> outPort(
+                  <font color="blue">final </font>n=n) <font color="darkgreen">&quot;Connector of Real output signals&quot;</font>;
   <font color="blue">output </font>Real y[n] <font color="darkgreen">&quot;Output signals&quot;</font>;
 <font color="blue">protected </font>
   Real u1[:]=inPort1.signal <font color="darkgreen">&quot;Input signals 1&quot;</font>;
@@ -686,6 +859,9 @@ output vector outPort.signal. All vectors have the same number of elements.
 <font color="blue">end </font>MI2MO;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SignalSource<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Blocks.Interfaces.SignalSourceI.png" ALT="Modelica.Blocks.Interfaces.SignalSource" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Blocks.Interfaces.SignalSource"></A><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces"
 >Modelica.Blocks.Interfaces</A>.SignalSource</H2>
@@ -705,10 +881,13 @@ output vector outPort.signal. All vectors have the same number of elements.
 >MO</A>;
   <font color="blue">parameter </font>Real offset[:]={0} <font color="darkgreen">&quot;offset of output signal&quot;</font>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
->SI.Time</A> startTime[:]={0} <font color="darkgreen">&quot;output = offset for time &lt; startTime&quot;</font>;
+>SI.Time</A> startTime[       :]={0} <font color="darkgreen">&quot;output = offset for time &lt; startTime&quot;</font>;
 <font color="blue">end </font>SignalSource;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE MVcontrol<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Blocks.Interfaces.MVcontrolI.png" ALT="Modelica.Blocks.Interfaces.MVcontrol" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Blocks.Interfaces.MVcontrol"></A><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces"
 >Modelica.Blocks.Interfaces</A>.MVcontrol</H2>
@@ -726,19 +905,25 @@ output vector outPort.signal. All vectors have the same number of elements.
 <font color="blue">partial </font><font color="blue">block</font> MVcontrol <font color="darkgreen">&quot;Multi-Variable continuous controller&quot;</font> 
   <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BlockIcon"
 >BlockIcon</A>;
-  <font color="darkgreen"></font>
+  
   <font color="blue">parameter </font>Integer nu_s=1 <font color="darkgreen">&quot;Number of setpoint inputs&quot;</font>;
   <font color="blue">parameter </font>Integer nu_m=1 <font color="darkgreen">&quot;Number of measurement inputs&quot;</font>;
   <font color="blue">parameter </font>Integer ny=1 <font color="darkgreen">&quot;Number of actuator outputs&quot;</font>;
   <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
->InPort</A> inPort_s(<font color="blue">final </font>n=nu_s) <font color="darkgreen">&quot;Connector of setpoint input signals&quot;</font>;
+>InPort</A> inPort_s(
+                  <font color="blue">final </font>n=nu_s) <font color="darkgreen">&quot;Connector of setpoint input signals&quot;</font>;
   <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
->InPort</A> inPort_m(<font color="blue">final </font>n=nu_m) <font color="darkgreen">&quot;Connector of measurement input signals&quot;</font>;
+>InPort</A> inPort_m(
+                  <font color="blue">final </font>n=nu_m) <font color="darkgreen">&quot;Connector of measurement input signals&quot;</font>;
   <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.OutPort"
->OutPort</A> outPort(<font color="blue">final </font>n=ny) <font color="darkgreen">&quot;Connector of actuator output signals&quot;</font>;
+>OutPort</A> outPort(
+                  <font color="blue">final </font>n=ny) <font color="darkgreen">&quot;Connector of actuator output signals&quot;</font>;
 <font color="blue">end </font>MVcontrol;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE BooleanBlockIcon<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Blocks.Interfaces.BooleanBlockIconI.png" ALT="Modelica.Blocks.Interfaces.BooleanBlockIcon" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Blocks.Interfaces.BooleanBlockIcon"></A><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces"
 >Modelica.Blocks.Interfaces</A>.BooleanBlockIcon</H2>
@@ -750,6 +935,9 @@ output vector outPort.signal. All vectors have the same number of elements.
 <font color="blue">end </font>BooleanBlockIcon;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE BooleanSISO<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Blocks.Interfaces.BooleanSISOI.png" ALT="Modelica.Blocks.Interfaces.BooleanSISO" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Blocks.Interfaces.BooleanSISO"></A><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces"
 >Modelica.Blocks.Interfaces</A>.BooleanSISO</H2>
@@ -758,18 +946,19 @@ output vector outPort.signal. All vectors have the same number of elements.
 <H3>Modelica definition</H3>
 <PRE>
 <font color="blue">partial </font><font color="blue">block</font> BooleanSISO <font color="darkgreen">
-  &quot;Single Input Single Output control block with signals of type Boolean&quot;</font>
-   
+  &quot;Single Input Single Output control block with signals of type Boolean&quot;</font> 
   <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanBlockIcon"
 >BooleanBlockIcon</A>;
-  <font color="darkgreen"></font>
+  
 <font color="blue">public </font>
   <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInPort"
->BooleanInPort</A> inPort(<font color="blue">final </font>n=1) <font color="darkgreen">&quot;Connector of Boolean input signal&quot;</font>;
+>BooleanInPort</A> inPort(
+                       <font color="blue">final </font>n=1) <font color="darkgreen">&quot;Connector of Boolean input signal&quot;</font>;
   <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanOutPort"
->BooleanOutPort</A> outPort(<font color="blue">final </font>n=1) <font color="darkgreen">&quot;Connector of Boolean output signal&quot;</font>;
+>BooleanOutPort</A> outPort(
+                         <font color="blue">final </font>n=1) <font color="darkgreen">&quot;Connector of Boolean output signal&quot;</font>;
   <font color="blue">output </font>Boolean y;
-  <font color="darkgreen"></font>
+  
 <font color="blue">protected </font>
   Boolean u=inPort.signal[1];
 <font color="blue">equation </font>
@@ -777,6 +966,9 @@ output vector outPort.signal. All vectors have the same number of elements.
 <font color="blue">end </font>BooleanSISO;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE BooleanMIMOs<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Blocks.Interfaces.BooleanMIMOsI.png" ALT="Modelica.Blocks.Interfaces.BooleanMIMOs" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Blocks.Interfaces.BooleanMIMOs"></A><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces"
 >Modelica.Blocks.Interfaces</A>.BooleanMIMOs</H2>
@@ -799,16 +991,17 @@ and of type boolean.
 <H3>Modelica definition</H3>
 <PRE>
 <font color="blue">partial </font><font color="blue">block</font> BooleanMIMOs <font color="darkgreen">
-  &quot;Multiple Input Multiple Output continuous control block with same number of inputs and outputs of boolean type&quot;</font>
-   
-  <font color="darkgreen"></font>
+  &quot;Multiple Input Multiple Output continuous control block with same number of inputs and outputs of boolean type&quot;</font> 
+  
   <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanBlockIcon"
 >BooleanBlockIcon</A>;
   <font color="blue">parameter </font>Integer n=1 <font color="darkgreen">&quot;Number of inputs (= number of outputs)&quot;</font>;
   <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInPort"
->BooleanInPort</A> inPort(<font color="blue">final </font>n=n) <font color="darkgreen">&quot;Connector of Boolean input signals&quot;</font>;
+>BooleanInPort</A> inPort(
+                       <font color="blue">final </font>n=n) <font color="darkgreen">&quot;Connector of Boolean input signals&quot;</font>;
   <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanOutPort"
->BooleanOutPort</A> outPort(<font color="blue">final </font>n=n) <font color="darkgreen">&quot;Connector of Boolean output signals&quot;</font>;
+>BooleanOutPort</A> outPort(
+                         <font color="blue">final </font>n=n) <font color="darkgreen">&quot;Connector of Boolean output signals&quot;</font>;
   <font color="blue">output </font>Boolean y[n] <font color="darkgreen">&quot;Output signals&quot;</font>;
 <font color="blue">protected </font>
   Boolean u[:]=inPort.signal <font color="darkgreen">&quot;Input signals&quot;</font>;
@@ -817,6 +1010,9 @@ and of type boolean.
 <font color="blue">end </font>BooleanMIMOs;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE MI2BooleanMOs<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Blocks.Interfaces.MI2BooleanMOsI.png" ALT="Modelica.Blocks.Interfaces.MI2BooleanMOs" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Blocks.Interfaces.MI2BooleanMOs"></A><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces"
 >Modelica.Blocks.Interfaces</A>.MI2BooleanMOs</H2>
@@ -836,21 +1032,26 @@ vector y. All vectors have the same number of elements.</p>
 <H3>Modelica definition</H3>
 <PRE>
 <font color="blue">partial </font><font color="blue">block</font> MI2BooleanMOs <font color="darkgreen">
-  &quot;2 Multiple Input / Boolean Multiple Output block with same signal lengths&quot;</font>
-   
-  <font color="darkgreen"></font>
+  &quot;2 Multiple Input / Boolean Multiple Output block with same signal lengths&quot;</font> 
+  
   <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanBlockIcon"
 >BooleanBlockIcon</A>;
   <font color="blue">parameter </font>Integer n=1 <font color="darkgreen">&quot;Dimension of input and output vectors.&quot;</font>;
   <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
->InPort</A> inPort1(<font color="blue">final </font>n=n) <font color="darkgreen">&quot;Connector 1 of Boolean input signals&quot;</font>;
+>InPort</A> inPort1(
+                 <font color="blue">final </font>n=n) <font color="darkgreen">&quot;Connector 1 of Boolean input signals&quot;</font>;
   <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
->InPort</A> inPort2(<font color="blue">final </font>n=n) <font color="darkgreen">&quot;Connector 2 of Boolean input signals&quot;</font>;
+>InPort</A> inPort2(
+                 <font color="blue">final </font>n=n) <font color="darkgreen">&quot;Connector 2 of Boolean input signals&quot;</font>;
   <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanOutPort"
->BooleanOutPort</A> outPort(<font color="blue">final </font>n=n) <font color="darkgreen">&quot;Connector of Boolean output signals&quot;</font>;
+>BooleanOutPort</A> outPort(
+                         <font color="blue">final </font>n=n) <font color="darkgreen">&quot;Connector of Boolean output signals&quot;</font>;
 <font color="blue">end </font>MI2BooleanMOs;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE BooleanSignalSource<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Blocks.Interfaces.BooleanSignalSourceI.png" ALT="Modelica.Blocks.Interfaces.BooleanSignalSource" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Blocks.Interfaces.BooleanSignalSource"></A><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces"
 >Modelica.Blocks.Interfaces</A>.BooleanSignalSource</H2>
@@ -869,10 +1070,14 @@ vector y. All vectors have the same number of elements.</p>
 >BooleanBlockIcon</A>;
   <font color="blue">parameter </font>Integer nout(min=1) = 1 <font color="darkgreen">&quot;Number of Boolean outputs&quot;</font>;
   <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanOutPort"
->BooleanOutPort</A> outPort(<font color="blue">final </font>n=nout) <font color="darkgreen">&quot;Connector of Boolean output signal&quot;</font>;
+>BooleanOutPort</A> outPort(
+                         <font color="blue">final </font>n=nout) <font color="darkgreen">&quot;Connector of Boolean output signal&quot;</font>;
 <font color="blue">end </font>BooleanSignalSource;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE IntegerBlockIcon<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Blocks.Interfaces.IntegerBlockIconI.png" ALT="Modelica.Blocks.Interfaces.IntegerBlockIcon" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Blocks.Interfaces.IntegerBlockIcon"></A><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces"
 >Modelica.Blocks.Interfaces</A>.IntegerBlockIcon</H2>
@@ -884,6 +1089,9 @@ vector y. All vectors have the same number of elements.</p>
 <font color="blue">end </font>IntegerBlockIcon;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE IntegerMO<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Blocks.Interfaces.IntegerMOI.png" ALT="Modelica.Blocks.Interfaces.IntegerMO" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Blocks.Interfaces.IntegerMO"></A><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces"
 >Modelica.Blocks.Interfaces</A>.IntegerMO</H2>
@@ -900,17 +1108,20 @@ vector y. All vectors have the same number of elements.</p>
   &quot;Multiple Integer Output continuous control block&quot;</font> 
   <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.IntegerBlockIcon"
 >IntegerBlockIcon</A>;
-  <font color="darkgreen"></font>
+  
   <font color="blue">parameter </font>Integer nout(min=1) = 1 <font color="darkgreen">&quot;Number of outputs&quot;</font>;
   <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.IntegerOutPort"
->IntegerOutPort</A> outPort(<font color="blue">final </font>n=nout) <font color="darkgreen">&quot;Connector of Integer output signals&quot;</font>
-    ;
+>IntegerOutPort</A> outPort(
+                         <font color="blue">final </font>n=nout) <font color="darkgreen">&quot;Connector of Integer output signals&quot;</font>;
   <font color="blue">output </font>Integer y[nout];
 <font color="blue">equation </font>
   y = outPort.signal;
 <font color="blue">end </font>IntegerMO;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE IntegerSignalSource<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Blocks.Interfaces.IntegerSignalSourceI.png" ALT="Modelica.Blocks.Interfaces.IntegerSignalSource" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Blocks.Interfaces.IntegerSignalSource"></A><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces"
 >Modelica.Blocks.Interfaces</A>.IntegerSignalSource</H2>
@@ -931,10 +1142,13 @@ vector y. All vectors have the same number of elements.</p>
 >IntegerMO</A>;
   <font color="blue">parameter </font>Integer offset[:]={0} <font color="darkgreen">&quot;offset of output signal&quot;</font>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
->SI.Time</A> startTime[:]={0} <font color="darkgreen">&quot;output = offset for time &lt; startTime&quot;</font>;
+>SI.Time</A> startTime[       :]={0} <font color="darkgreen">&quot;output = offset for time &lt; startTime&quot;</font>;
 <font color="blue">end </font>IntegerSignalSource;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE IntegerMIBooleanMOs<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Blocks.Interfaces.IntegerMIBooleanMOsI.png" ALT="Modelica.Blocks.Interfaces.IntegerMIBooleanMOs" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Blocks.Interfaces.IntegerMIBooleanMOs"></A><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces"
 >Modelica.Blocks.Interfaces</A>.IntegerMIBooleanMOs</H2>
@@ -956,16 +1170,17 @@ where the signal sizes of the input and output vector are identical.
 <H3>Modelica definition</H3>
 <PRE>
 <font color="blue">partial </font><font color="blue">block</font> IntegerMIBooleanMOs <font color="darkgreen">
-  &quot;Multiple Integer Input Multiple Boolean Output continuous control block with same number of inputs and outputs&quot;</font>
-   
-  <font color="darkgreen"></font>
+  &quot;Multiple Integer Input Multiple Boolean Output continuous control block with same number of inputs and outputs&quot;</font> 
+  
   <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanBlockIcon"
 >BooleanBlockIcon</A>;
   <font color="blue">parameter </font>Integer n=1 <font color="darkgreen">&quot;Number of inputs (= number of outputs)&quot;</font>;
   <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.IntegerInPort"
->IntegerInPort</A> inPort(<font color="blue">final </font>n=n) <font color="darkgreen">&quot;Connector of Integer input signals&quot;</font>;
+>IntegerInPort</A> inPort(
+                       <font color="blue">final </font>n=n) <font color="darkgreen">&quot;Connector of Integer input signals&quot;</font>;
   <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanOutPort"
->BooleanOutPort</A> outPort(<font color="blue">final </font>n=n) <font color="darkgreen">&quot;Connector of Boolean output signals&quot;</font>;
+>BooleanOutPort</A> outPort(
+                         <font color="blue">final </font>n=n) <font color="darkgreen">&quot;Connector of Boolean output signals&quot;</font>;
   <font color="blue">output </font>Boolean y[n] <font color="darkgreen">&quot;Boolean output signals&quot;</font>;
 <font color="blue">protected </font>
   Integer u[n]=inPort.signal <font color="darkgreen">&quot;Input signals&quot;</font>;
@@ -974,7 +1189,7 @@ where the signal sizes of the input and output vector are identical.
 <font color="blue">end </font>IntegerMIBooleanMOs;
 </PRE>
 <HR>
-<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Dec 11 11:13:17 2002
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Jun 30 17:42:56 2004
 .
 </address></BODY>
 </HTML>

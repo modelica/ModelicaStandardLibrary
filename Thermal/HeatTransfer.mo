@@ -4,29 +4,29 @@ package HeatTransfer "1-dimensional heat transfer with lumped elements"
   
   extends Modelica.Icons.Library2;
   
-  annotation (Icon(
-      Polygon(points=[-54, -6; -61, -7; -75, -15; -79, -24; -80, -34; -78, -42
-            ; -73, -49; -64, -51; -57, -51; -47, -50; -41, -43; -38, -35; -40, 
-            -27; -40, -20; -42, -13; -47, -7; -54, -5; -54, -6], style(color=10
-            , fillColor=8)), 
+  annotation( Icon(
+      Polygon(points=[-54, -6; -61, -7; -75, -15; -79, -24; -80, -34; -78, -42;
+              -73, -49; -64, -51; -57, -51; -47, -50; -41, -43; -38, -35; -40,
+            -27; -40, -20; -42, -13; -47, -7; -54, -5; -54, -6], style(color=10,
+              fillColor=8)),
       Polygon(points=[-75, -15; -79, -25; -80, -34; -78, -42; -72, -49; -64, -
-            51; -57, -51; -47, -50; -57, -47; -65, -45; -71, -40; -74, -33; -76
-            , -23; -75, -15; -75, -15], style(color=0, fillColor=9)), 
+            51; -57, -51; -47, -50; -57, -47; -65, -45; -71, -40; -74, -33; -76,
+              -23; -75, -15; -75, -15], style(color=0, fillColor=9)),
       Polygon(points=[39, -6; 32, -7; 18, -15; 14, -24; 13, -34; 15, -42; 20, -
-            49; 29, -51; 36, -51; 46, -50; 52, -43; 55, -35; 53, -27; 53, -20; 
-            51, -13; 46, -7; 39, -5; 39, -6], style(color=9, fillColor=8)), 
-      Polygon(points=[18, -15; 14, -25; 13, -34; 15, -42; 21, -49; 29, -51; 36
-            , -51; 46, -50; 36, -47; 28, -45; 22, -40; 19, -33; 17, -23; 18, -
-            15; 18, -15], style(color=0, fillColor=9)), 
+            49; 29, -51; 36, -51; 46, -50; 52, -43; 55, -35; 53, -27; 53, -20;
+            51, -13; 46, -7; 39, -5; 39, -6], style(color=9, fillColor=8)),
+      Polygon(points=[18, -15; 14, -25; 13, -34; 15, -42; 21, -49; 29, -51; 36,
+              -51; 46, -50; 36, -47; 28, -45; 22, -40; 19, -33; 17, -23; 18, -
+            15; 18, -15], style(color=0, fillColor=9)),
       Polygon(points=[-9, -23; -9, -10; 18, -17; -9, -23], style(
-          color=42, 
-          fillColor=42, 
-          fillPattern=1)), 
-      Line(points=[-41, -17; -9, -17], style(color=42, thickness=2)), 
-      Line(points=[-17, -40; 15, -40], style(color=42, thickness=2)), 
+          color=42,
+          fillColor=42,
+          fillPattern=1)),
+      Line(points=[-41, -17; -9, -17], style(color=42, thickness=2)),
+      Line(points=[-17, -40; 15, -40], style(color=42, thickness=2)),
       Polygon(points=[-17, -46; -17, -34; -40, -40; -17, -46], style(
-          color=42, 
-          fillColor=42, 
+          color=42,
+          fillColor=42,
           fillPattern=1))), Documentation(info="<HTML>
 <p>
 This package contains components to model <b>1-dimensional heat transfer</b>
@@ -153,7 +153,7 @@ Modelica in file \"Modelica/package.mo\".
 "));
   package Examples 
     "Example models to demonstrate the usage of package Modelica.Thermal.HeatTransfer"
-     
+    
     
     extends Modelica.Icons.Library;
     
@@ -170,12 +170,12 @@ Modelica in file \"Modelica/package.mo\".
       parameter NonSI.Temperature_degC T_final_degC(fixed=false) 
         "Projected final temperature";
       HeatTransfer.HeatCapacitor mass1(C=15, T(start=from_degC(100))) 
-        annotation (extent=[-100, 20; -40, 80]);
-      HeatTransfer.HeatCapacitor mass2(C=15, T(start=from_degC(0))) annotation 
-        (extent=[40, 20; 100, 80]);
-      HeatTransfer.ThermalConductor conduction(G=10) annotation (extent=[-30, -
+        annotation( extent=[-100, 20; -40, 80]);
+      HeatTransfer.HeatCapacitor mass2(C=15, T(start=from_degC(0))) annotation(
+         extent=[40, 20; 100, 80]);
+      HeatTransfer.ThermalConductor conduction(G=10) annotation( extent=[-30, -
             20; 30, 40]);
-      annotation (Documentation(info="<HTML>
+      annotation( Documentation(info="<HTML>
 <p>
 This example demonstrates the thermal response of two masses connected by
 a conducting element. The two masses have the same heat capacity but different
@@ -194,21 +194,21 @@ Tsensor1.T.signal, Tsensor2.T.signal, T_final_degC
 
 </HTML>
 "));
-      HeatTransfer.Celsius.TemperatureSensor Tsensor1 annotation (extent=[-60, 
+      HeatTransfer.Celsius.TemperatureSensor Tsensor1 annotation( extent=[-60,
             -80; -20, -40]);
-      HeatTransfer.Celsius.TemperatureSensor Tsensor2 annotation (extent=[60, -
+      HeatTransfer.Celsius.TemperatureSensor Tsensor2 annotation( extent=[60, -
             80; 20, -40]);
     equation 
-      connect(mass1.port, conduction.port_a) annotation (points=[-70, 20; -70, 
+      connect(mass1.port, conduction.port_a) annotation( points=[-70, 20; -70,
             10; -30, 10], style(color=42));
-      connect(conduction.port_b, mass2.port) annotation (points=[33, 10; 70, 10
-            ; 70, 20], style(color=42));
-      connect(mass1.port, Tsensor1.port) annotation (points=[-70, 20; -70, -60
-            ; -62, -60], style(color=42));
-      connect(mass2.port, Tsensor2.port) annotation (points=[70, 20; 70, -60; 
+      connect(conduction.port_b, mass2.port) annotation( points=[33, 10; 70, 10;
+              70, 20], style(color=42));
+      connect(mass1.port, Tsensor1.port) annotation( points=[-70, 20; -70, -60;
+              -62, -60], style(color=42));
+      connect(mass2.port, Tsensor2.port) annotation( points=[70, 20; 70, -60;
             60, -60], style(color=42));
     initial equation 
-      T_final_K = (mass1.port.T*mass1.C + mass2.port.T*mass2.C)/(mass1.C + 
+      T_final_K = (mass1.port.T*mass1.C + mass2.port.T*mass2.C)/(mass1.C +
         mass2.C);
       T_final_degC = to_degC(T_final_K);
     end TwoMasses;
@@ -223,7 +223,7 @@ Tsensor1.T.signal, Tsensor2.T.signal, T_final_degC
       
       extends Icons.Example;
       
-      annotation (Documentation(info="<HTML>
+      annotation( Documentation(info="<HTML>
 <p>
 This example contains a simple first order thermal model of
 a frequency inverter. The periodic power losses in the
@@ -245,36 +245,34 @@ temperature in the frequency inverter.
 </p>
 </HTML>
 "));
-      Sources.TimeTable conductionTable(table=[0, 0.007; 1, 0.014; 2, 0.007; 3
-            , 0.014; 4, 0.007; 5, 0.014]) annotation (extent=[20, 60; 40, 80]);
-      Sources.TimeTable lossTable(table=[0, 10000; 1, 7000; 2, 10000; 3, 7000; 
-            4, 10000; 5, 7000]) annotation (extent=[-100, -20; -80, 0]);
-      HeatTransfer.HeatCapacitor C(C=30000) annotation (extent=[10, 20; 30, 40]
-        );
-      HeatTransfer.Celsius.TemperatureSensor Tsensor annotation (extent=[-10, -
+      Sources.TimeTable conductionTable(table=[0, 0.007; 1, 0.014; 2, 0.007; 3,
+              0.014; 4, 0.007; 5, 0.014]) annotation( extent=[20, 60; 40, 80]);
+      Sources.TimeTable lossTable(table=[0, 10000; 1, 7000; 2, 10000; 3, 7000;
+            4, 10000; 5, 7000]) annotation( extent=[-100, -20; -80, 0]);
+      HeatTransfer.HeatCapacitor C(C=30000) annotation( extent=[10, 20; 30, 40]);
+      HeatTransfer.Celsius.TemperatureSensor Tsensor annotation( extent=[-10, -
             60; 10, -40]);
-      HeatTransfer.ThermalConductor G(G=50) annotation (extent=[-10, -20; 10, 0
-            ]);
-      HeatTransfer.Convection convection annotation (extent=[40, -20; 60, 0]);
-      HeatTransfer.PrescribedHeatFlow Q_dot annotation (extent=[-60, -20; -40, 
+      HeatTransfer.ThermalConductor G(G=50) annotation( extent=[-10, -20; 10, 0]);
+      HeatTransfer.Convection convection annotation( extent=[40, -20; 60, 0]);
+      HeatTransfer.PrescribedHeatFlow Q_dot annotation( extent=[-60, -20; -40,
             0]);
-      HeatTransfer.Celsius.FixedTemperature environment(T=20) annotation (
+      HeatTransfer.Celsius.FixedTemperature environment(T=20) annotation(
           extent=[80, -20; 100, 0], rotation=180);
     equation 
-      connect(Q_dot.port, G.port_a) annotation (points=[-40, -10; -11, -10], 
+      connect(Q_dot.port, G.port_a) annotation( points=[-40, -10; -11, -10],
           style(color=42));
-      connect(Q_dot.port, Tsensor.port) annotation (points=[-40, -10; -20, -10
-            ; -20, -50; -10, -50], style(color=42));
-      connect(G.port_b, convection.solid) annotation (points=[11, -10; 39, -10]
-          , style(color=42));
-      connect(C.port, G.port_b) annotation (points=[20, 20; 20, -10; 11, -10], 
+      connect(Q_dot.port, Tsensor.port) annotation( points=[-40, -10; -20, -10;
+              -20, -50; -10, -50], style(color=42));
+      connect(G.port_b, convection.solid) annotation( points=[11, -10; 39, -10],
+            style(color=42));
+      connect(C.port, G.port_b) annotation( points=[20, 20; 20, -10; 11, -10],
           style(color=42));
-      connect(environment.port, convection.fluid) annotation (points=[80, -10; 
+      connect(environment.port, convection.fluid) annotation( points=[80, -10;
             61, -10], style(color=42));
-      connect(lossTable.outPort, Q_dot.Q_dot) annotation (points=[-78, -10; -62
-            , -10], style(color=3));
-      connect(conductionTable.outPort, convection.G) annotation (points=[42, 70
-            ; 50, 70; 50, 2], style(color=3));
+      connect(lossTable.outPort, Q_dot.Q_dot) annotation( points=[-78, -10; -62,
+              -10], style(color=3));
+      connect(conductionTable.outPort, convection.G) annotation( points=[42, 70;
+              50, 70; 50, 2], style(color=3));
     end FrequencyInverter;
     
     encapsulated model ControlledTemperature 
@@ -292,7 +290,7 @@ temperature in the frequency inverter.
       parameter NonSI.Temperature_degC TAmb=20 "Ambient Temperature";
       parameter NonSI.Temperature_degC TDif=2 "Error in Temperature";
       output NonSI.Temperature_degC TRes "Resulting Temperature";
-      annotation (Documentation(info="<HTML>
+      annotation( Documentation(info="<HTML>
 <P>
 A constant voltage of 10 V is applied to a
 temperature dependent resistor of 10*(1+(T-20C)/(235+20C)) Ohms,
@@ -309,57 +307,53 @@ An approppriate simulating time would be 10 seconds.
 </P>
 </HTML>
 "));
-      Analog.Basic.Ground Ground1 annotation (extent=[-100, -100; -80, -80]);
-      Analog.Sources.ConstantVoltage ConstantVoltage1(V=10) annotation (extent=
+      Analog.Basic.Ground Ground1 annotation( extent=[-100, -100; -80, -80]);
+      Analog.Sources.ConstantVoltage ConstantVoltage1(V=10) annotation( extent=
             [-100, -60; -80, -40], rotation=-90);
       HeatTransfer.HeatCapacitor HeatCapacitor1(C=1, T(start=from_degC(TAmb))) 
-        annotation (extent=[0, -60; 20, -80]);
+        annotation( extent=[0, -60; 20, -80]);
       Analog.Basic.HeatingResistor HeatingResistor1(
-        R_ref=10, 
-        T_ref=from_degC(20), 
-        alpha=1/(235 + 20)) annotation (extent=[-20, -60; -40, -40], rotation=-
+        R_ref=10,
+        T_ref=from_degC(20),
+        alpha=1/(235 + 20)) annotation( extent=[-20, -60; -40, -40], rotation=-
             90);
       HeatTransfer.Celsius.FixedTemperature FixedTemperature1(T=TAmb) 
-        annotation (extent=[100, -60; 80, -40]);
-      HeatTransfer.Celsius.TemperatureSensor TemperatureSensor1 annotation (
+        annotation( extent=[100, -60; 80, -40]);
+      HeatTransfer.Celsius.TemperatureSensor TemperatureSensor1 annotation(
           extent=[0, -40; 20, -20], rotation=90);
-      HeatTransfer.ThermalConductor ThermalConductor1(G=0.1) annotation (extent
-          =[40, -60; 60, -40]);
-      SwitchController SwitchController1(bandwidth=TDif) annotation (extent=[-
+      HeatTransfer.ThermalConductor ThermalConductor1(G=0.1) annotation( extent=
+           [40, -60; 60, -40]);
+      SwitchController SwitchController1(bandwidth=TDif) annotation( extent=[-
             20, -20; -40, 0]);
-      Analog.Ideal.IdealSwitch IdealSwitch1 annotation (extent=[-70, -50; -50, 
+      Analog.Ideal.IdealSwitch IdealSwitch1 annotation( extent=[-70, -50; -50,
             -30]);
       Sources.Ramp Ramp1(
-        height={25}, 
-        duration={6}, 
-        offset={25}, 
-        startTime={2}) annotation (extent=[20, 0; 0, 20]);
+        height={25},
+        duration={6},
+        offset={25},
+        startTime={2}) annotation( extent=[20, 0; 0, 20]);
       
       encapsulated block SwitchController 
         "On-off controller for use with Modelica.Electrical.Analog.Ideal.IdealSwitch"
-         
+        
         
         import Modelica.Blocks;
         extends Blocks.Interfaces.MI2BooleanMOs(final n=1);
         
         parameter Real bandwidth=0.1 "Bandwidth around reference signal";
         
-        annotation (Icon(
-            Rectangle(extent=[-100, -100; 100, 100], style(color=5, fillColor=7
-                )), 
+        annotation( Icon(
+            Rectangle(extent=[-100, -100; 100, 100], style(color=5, fillColor=7)),
             Text(
-              extent=[-90, 80; -30, 60], 
-              string="Reference", 
-              style(thickness=2)), 
-            Text(extent=[-88, -60; -28, -80], string="Input        "), 
-            Line(points=[-80, 0; -70, 20; -52, 42; -28, 60; -8, 66; 16, 58; 32
-                  , 50; 48, 38; 66, 20; 78, 0], style(thickness=2)), 
-            Line(points=[-80, 30; -8, 50; 80, 20], style(color=41, thickness=2)
-              ), 
-            Line(points=[-80, 38; -8, 56; 80, 26], style(color=41, pattern=2))
-              , 
-            Line(points=[-80, 24; -8, 42; 80, 12], style(color=41, pattern=2))
-              , 
+              extent=[-90, 80; -30, 60],
+              string="Reference",
+              style(thickness=2)),
+            Text(extent=[-88, -60; -28, -80], string="Input        "),
+            Line(points=[-80, 0; -70, 20; -52, 42; -28, 60; -8, 66; 16, 58; 32,
+                    50; 48, 38; 66, 20; 78, 0], style(thickness=2)),
+            Line(points=[-80, 30; -8, 50; 80, 20], style(color=41, thickness=2)),
+            Line(points=[-80, 38; -8, 56; 80, 26], style(color=41, pattern=2)),
+            Line(points=[-80, 24; -8, 42; 80, 12], style(color=41, pattern=2)),
             Line(points=[-80, -20; -46, -20; -46, -60; 68, -60; 68, -20; 80, -
                   20], style(color=81, thickness=2))), Documentation(info="<html>
 <p>The block SwitchController sets the output signal to false when
@@ -380,32 +374,31 @@ Standard library.</p>
         Real uRef=inPort1.signal[1] "Reference input signal";
         Boolean y=outPort.signal[1] "Output signal";
       equation 
-        y = (u > uRef + bandwidth/2) or (pre(y) and not (u < uRef - bandwidth/2
-          ));
+        y = (u > uRef + bandwidth/2) or (pre(y) and not (u < uRef - bandwidth/2));
       end SwitchController;
     equation 
       
-      connect(ConstantVoltage1.n, HeatingResistor1.n) annotation (points=[-90, 
+      connect(ConstantVoltage1.n, HeatingResistor1.n) annotation( points=[-90,
             -60; -30, -60], style(color=3));
-      connect(ConstantVoltage1.n, Ground1.p) annotation (points=[-90, -60; -90
-            , -80], style(color=3));
-      connect(HeatingResistor1.heatPort, ThermalConductor1.port_a) annotation (
+      connect(ConstantVoltage1.n, Ground1.p) annotation( points=[-90, -60; -90,
+              -80], style(color=3));
+      connect(HeatingResistor1.heatPort, ThermalConductor1.port_a) annotation(
           points=[-20, -50; 38, -50], style(color=42));
-      connect(ThermalConductor1.port_b, FixedTemperature1.port) annotation (
+      connect(ThermalConductor1.port_b, FixedTemperature1.port) annotation(
           points=[61, -50; 80, -50], style(color=42));
-      connect(HeatingResistor1.heatPort, TemperatureSensor1.port) annotation (
+      connect(HeatingResistor1.heatPort, TemperatureSensor1.port) annotation(
           points=[-20, -50; 10, -50; 10, -40], style(color=42));
-      connect(HeatingResistor1.heatPort, HeatCapacitor1.port) annotation (
+      connect(HeatingResistor1.heatPort, HeatCapacitor1.port) annotation(
           points=[-20, -50; 10, -50; 10, -60], style(color=42));
-      connect(TemperatureSensor1.T, SwitchController1.inPort2) annotation (
+      connect(TemperatureSensor1.T, SwitchController1.inPort2) annotation(
           points=[10, -20; 10, -16; -16, -16], style(color=3));
-      connect(ConstantVoltage1.p, IdealSwitch1.p) annotation (points=[-90, -40
-            ; -70, -40], style(color=3));
-      connect(IdealSwitch1.n, HeatingResistor1.p) annotation (points=[-50, -40
-            ; -30, -40], style(color=3));
-      connect(SwitchController1.inPort1, Ramp1.outPort) annotation (points=[-16
-            , -4; -9, -4; -9, 10; -2, 10], style(color=3));
-      connect(SwitchController1.outPort, IdealSwitch1.control) annotation (
+      connect(ConstantVoltage1.p, IdealSwitch1.p) annotation( points=[-90, -40;
+              -70, -40], style(color=3));
+      connect(IdealSwitch1.n, HeatingResistor1.p) annotation( points=[-50, -40;
+              -30, -40], style(color=3));
+      connect(SwitchController1.inPort1, Ramp1.outPort) annotation( points=[-16,
+              -4; -9, -4; -9, 10; -2, 10], style(color=3));
+      connect(SwitchController1.outPort, IdealSwitch1.control) annotation(
           points=[-42, -10; -60, -10; -60, -34], style(color=5));
       
       TRes = to_degC(HeatingResistor1.heatPort.T);
@@ -428,7 +421,7 @@ Standard library.</p>
       
       extends HeatPort;
       
-      annotation (
+      annotation(
         Documentation(info="<HTML>
 <p>This connector is used for 1-dimensional heat flow between components.
 The variables in the connector are:</p>
@@ -445,16 +438,15 @@ class.</p>
 <p>Note, that the two connector classes <b>HeatPort_a</b> and
 <b>HeatPort_b</b> are identical with the only exception of the different
 <b>icon layout</b>.</p></HTML>
-"), 
-        Icon(Rectangle(extent=[-100, 100; 100, -100], style(color=42, fillColor
-                =42)), Text(
-            extent=[-98, 196; 102, 102], 
-            string="%name", 
-            style(color=42))), 
-        Diagram(Rectangle(extent=[-100, 100; 100, -100], style(color=42, 
+"),     Icon(Rectangle(extent=[-100, 100; 100, -100], style(color=42, fillColor=
+                 42)), Text(
+            extent=[-98, 196; 102, 102],
+            string="%name",
+            style(color=42))),
+        Diagram(Rectangle(extent=[-100, 100; 100, -100], style(color=42,
                 fillColor=42)), Text(
-            extent=[-98, 196; 102, 102], 
-            string="%name", 
+            extent=[-98, 196; 102, 102],
+            string="%name",
             style(color=42))));
     end HeatPort_a;
     
@@ -463,7 +455,7 @@ class.</p>
       
       extends HeatPort;
       
-      annotation (
+      annotation(
         Documentation(info="<HTML>
 <p>This connector is used for 1-dimensional heat flow between components.
 The variables in the connector are:</p>
@@ -480,29 +472,28 @@ class.</p>
 <p>Note, that the two connector classes <b>HeatPort_a</b> and
 <b>HeatPort_b</b> are identical with the only exception of the different
 <b>icon layout</b>.</p></HTML>
-"), 
-        Diagram(Rectangle(extent=[-100, 100; 100, -100], style(color=42, 
+"),     Diagram(Rectangle(extent=[-100, 100; 100, -100], style(color=42,
                 fillColor=7)), Text(
-            extent=[-98, 196; 102, 102], 
-            string="%name", 
-            style(color=42))), 
-        Icon(Rectangle(extent=[-100, 100; 100, -100], style(color=42, fillColor
-                =7)), Text(
-            extent=[-98, 196; 102, 102], 
-            string="%name", 
+            extent=[-98, 196; 102, 102],
+            string="%name",
+            style(color=42))),
+        Icon(Rectangle(extent=[-100, 100; 100, -100], style(color=42, fillColor=
+                 7)), Text(
+            extent=[-98, 196; 102, 102],
+            string="%name",
             style(color=42))));
     end HeatPort_b;
     
     partial model Element1D 
       "Partial heat transfer element with two HeatPort connectors that does not store energy"
-       
+      
       
       SI.HeatFlowRate Q_dot "Heat flow rate from port_a -> port_b";
       SI.Temperature dT "port_a.T - port_b.T";
     public 
-      HeatPort_a port_a annotation (extent=[-120, -10; -100, 10]);
-      HeatPort_b port_b annotation (extent=[100, -10; 120, 10]);
-      annotation (Documentation(info="<HTML>
+      HeatPort_a port_a annotation( extent=[-120, -10; -100, 10]);
+      HeatPort_b port_b annotation( extent=[100, -10; 120, 10]);
+      annotation( Documentation(info="<HTML>
 <p>
 This partial model contains the basic connectors and variables to
 allow heat transfer models to be created that <b>do not store energy</b>,
@@ -530,46 +521,46 @@ constitutive equations for many types of heat transfer components.
     parameter Boolean steadyStateStart=false 
       "true, if component shall start in steady state";
     SI.Temperature T(start=from_degC(25)) "Temperature of part";
-    annotation (
+    annotation(
       Icon(
-        Text(extent=[-129, 121; 131, 70], string="%name"), 
-        Polygon(points=[0, 65; -20, 61; -40, 55; -52, 41; -58, 33; -68, 23; -72
-              , 11; -76, -3; -78, -17; -76, -33; -76, -45; -76, -55; -70, -67; 
-              -64, -75; -48, -79; -30, -85; -18, -85; -2, -87; 8, -91; 22, -91
-              ; 32, -89; 42, -83; 54, -77; 56, -75; 66, -63; 68, -55; 70, -53; 
-              72, -37; 76, -23; 78, -15; 78, 1; 74, 13; 66, 23; 54, 31; 44, 39
-              ; 36, 55; 26, 63; 0, 65], style(color=9, fillColor=8)), 
-        Polygon(points=[-58, 33; -68, 23; -72, 11; -76, -3; -78, -17; -76, -33
-              ; -76, -45; -76, -55; -70, -67; -64, -75; -48, -79; -30, -85; -18
-              , -85; -2, -87; 8, -91; 22, -91; 32, -89; 42, -83; 54, -77; 42, -
-              79; 40, -79; 30, -81; 20, -83; 18, -83; 10, -83; 2, -79; -12, -75
-              ; -22, -75; -30, -73; -40, -67; -50, -57; -56, -45; -58, -37; -58
-              , -27; -60, -15; -60, -7; -60, 5; -58, 15; -56, 17; -52, 25; -48
-              , 33; -44, 43; -40, 55; -58, 33], style(color=0, fillColor=9)), 
+        Text(extent=[-129, 121; 131, 70], string="%name"),
+        Polygon(points=[0, 65; -20, 61; -40, 55; -52, 41; -58, 33; -68, 23; -72,
+                11; -76, -3; -78, -17; -76, -33; -76, -45; -76, -55; -70, -67;
+              -64, -75; -48, -79; -30, -85; -18, -85; -2, -87; 8, -91; 22, -91;
+                32, -89; 42, -83; 54, -77; 56, -75; 66, -63; 68, -55; 70, -53;
+              72, -37; 76, -23; 78, -15; 78, 1; 74, 13; 66, 23; 54, 31; 44, 39;
+                36, 55; 26, 63; 0, 65], style(color=9, fillColor=8)),
+        Polygon(points=[-58, 33; -68, 23; -72, 11; -76, -3; -78, -17; -76, -33;
+                -76, -45; -76, -55; -70, -67; -64, -75; -48, -79; -30, -85; -18,
+                -85; -2, -87; 8, -91; 22, -91; 32, -89; 42, -83; 54, -77; 42, -
+              79; 40, -79; 30, -81; 20, -83; 18, -83; 10, -83; 2, -79; -12, -75;
+                -22, -75; -30, -73; -40, -67; -50, -57; -56, -45; -58, -37; -58,
+                -27; -60, -15; -60, -7; -60, 5; -58, 15; -56, 17; -52, 25; -48,
+                33; -44, 43; -40, 55; -58, 33], style(color=0, fillColor=9)),
         Text(
-          extent=[-69, 5; 71, -26], 
-          string="%C", 
-          style(color=0))), 
+          extent=[-69, 5; 71, -26],
+          string="%C",
+          style(color=0))),
       Diagram(
-        Polygon(points=[0, 65; -20, 61; -40, 55; -52, 41; -58, 33; -68, 23; -72
-              , 11; -76, -3; -78, -17; -76, -33; -76, -45; -76, -55; -70, -67; 
-              -64, -75; -48, -79; -30, -85; -18, -85; -2, -87; 8, -91; 22, -91
-              ; 32, -89; 42, -83; 54, -77; 56, -75; 66, -63; 68, -55; 70, -53; 
-              72, -37; 76, -23; 78, -15; 78, 1; 74, 13; 66, 23; 54, 31; 44, 39
-              ; 36, 55; 26, 63; 0, 65], style(color=9, fillColor=8)), 
-        Polygon(points=[-58, 33; -68, 23; -72, 11; -76, -3; -78, -17; -76, -33
-              ; -76, -45; -76, -55; -70, -67; -64, -75; -48, -79; -30, -85; -18
-              , -85; -2, -87; 8, -91; 22, -91; 32, -89; 42, -83; 54, -77; 42, -
-              79; 40, -79; 30, -81; 20, -83; 18, -83; 10, -83; 2, -79; -12, -75
-              ; -22, -75; -30, -73; -40, -67; -50, -57; -56, -45; -58, -37; -58
-              , -27; -60, -15; -60, -7; -60, 5; -58, 15; -56, 17; -52, 25; -48
-              , 33; -44, 43; -40, 55; -58, 33], style(color=0, fillColor=9)), 
-        Line(points=[-1, -90; -1, -8], style(color=41)), 
-        Ellipse(extent=[-6, -3; 4, -13], style(color=41, fillColor=42)), 
+        Polygon(points=[0, 65; -20, 61; -40, 55; -52, 41; -58, 33; -68, 23; -72,
+                11; -76, -3; -78, -17; -76, -33; -76, -45; -76, -55; -70, -67;
+              -64, -75; -48, -79; -30, -85; -18, -85; -2, -87; 8, -91; 22, -91;
+                32, -89; 42, -83; 54, -77; 56, -75; 66, -63; 68, -55; 70, -53;
+              72, -37; 76, -23; 78, -15; 78, 1; 74, 13; 66, 23; 54, 31; 44, 39;
+                36, 55; 26, 63; 0, 65], style(color=9, fillColor=8)),
+        Polygon(points=[-58, 33; -68, 23; -72, 11; -76, -3; -78, -17; -76, -33;
+                -76, -45; -76, -55; -70, -67; -64, -75; -48, -79; -30, -85; -18,
+                -85; -2, -87; 8, -91; 22, -91; 32, -89; 42, -83; 54, -77; 42, -
+              79; 40, -79; 30, -81; 20, -83; 18, -83; 10, -83; 2, -79; -12, -75;
+                -22, -75; -30, -73; -40, -67; -50, -57; -56, -45; -58, -37; -58,
+                -27; -60, -15; -60, -7; -60, 5; -58, 15; -56, 17; -52, 25; -48,
+                33; -44, 43; -40, 55; -58, 33], style(color=0, fillColor=9)),
+        Line(points=[-1, -90; -1, -8], style(color=41)),
+        Ellipse(extent=[-6, -3; 4, -13], style(color=41, fillColor=42)),
         Text(
-          extent=[11, 11; 50, -27], 
-          string="T", 
-          style(color=0))), 
+          extent=[11, 11; 50, -27],
+          string="T",
+          style(color=0))),
       Documentation(info="<HTML>
 <p>
 This is a generic model for the heat capacity of a material.
@@ -628,7 +619,7 @@ compute C:
 
 </HTML>
 "));
-    Interfaces.HeatPort_a port annotation (extent=[-10, -110; 10, -90], 
+    Interfaces.HeatPort_a port annotation( extent=[-10, -110; 10, -90],
         rotation=90);
   equation 
     T = port.T;
@@ -646,33 +637,33 @@ compute C:
     parameter SI.ThermalConductance G 
       "Constant thermal conductance of material";
     
-    annotation (
+    annotation(
       Icon(
         Rectangle(extent=[-100, 70; 100, -70], style(
-            color=0, 
-            pattern=0, 
-            fillColor=8, 
-            fillPattern=8)), 
-        Line(points=[-100, 70; -100, -70], style(color=0, thickness=2)), 
-        Line(points=[100, 70; 100, -70], style(color=0, thickness=2)), 
-        Text(extent=[-139, 134; 141, 74], string="%name"), 
+            color=0,
+            pattern=0,
+            fillColor=8,
+            fillPattern=8)),
+        Line(points=[-100, 70; -100, -70], style(color=0, thickness=2)),
+        Line(points=[100, 70; 100, -70], style(color=0, thickness=2)),
+        Text(extent=[-139, 134; 141, 74], string="%name"),
         Text(
-          extent=[-115, -76; 113, -116], 
-          string="G=%G", 
-          style(color=0))), 
+          extent=[-115, -76; 113, -116],
+          string="G=%G",
+          style(color=0))),
       Diagram(
         Line(points=[-80, 0; 80, 0], style(
-            color=41, 
-            thickness=2, 
-            arrow=1)), 
+            color=41,
+            thickness=2,
+            arrow=1)),
         Text(
-          extent=[-26, -10; 27, -39], 
-          string="Q_dot", 
-          style(color=41)), 
+          extent=[-26, -10; 27, -39],
+          string="Q_dot",
+          style(color=41)),
         Text(
-          extent=[-80, 50; 80, 20], 
-          string="dT = port_a.T - port_b.T", 
-          style(color=0))), 
+          extent=[-80, 50; 80, 20],
+          string="dT = port_a.T - port_b.T",
+          style(color=0))),
       Documentation(info="<HTML>
 <p>
 This is a model for transport of heat without storing it.
@@ -738,37 +729,37 @@ e.g., with one of the following equations:
     SI.ThermalConductance Gc "Convective thermal conductance of element";
     SI.HeatFlowRate Q_dot "Heat flow rate from solid -> fluid";
     SI.Temperature dT "= solid.T - fluid.T";
-    annotation (
+    annotation(
       Icon(
-        Rectangle(extent=[-70, 80; 99, -80], style(color=7, fillColor=7)), 
+        Rectangle(extent=[-70, 80; 99, -80], style(color=7, fillColor=7)),
         Rectangle(extent=[-100, 80; -70, -80], style(
-            color=0, 
-            fillColor=8, 
-            fillPattern=8)), 
-        Text(extent=[-117, -88; 124, -128], string="%name"), 
-        Line(points=[-40, 80; -40, -80], style(color=69, fillColor=47)), 
-        Line(points=[0, 80; 0, -80], style(color=69, fillColor=47)), 
-        Line(points=[0, 80; 0, -80], style(color=69, fillColor=47)), 
-        Line(points=[34, 80; 34, -80], style(color=69, fillColor=47)), 
-        Line(points=[34, -80; 44, -60], style(color=69, fillColor=47)), 
-        Line(points=[34, -80; 24, -60], style(color=69, fillColor=47)), 
-        Line(points=[0, -80; 10, -60], style(color=69, fillColor=47)), 
-        Line(points=[0, -80; -10, -60], style(color=69, fillColor=47)), 
-        Line(points=[-40, -80; -30, -60], style(color=69, fillColor=47)), 
-        Line(points=[-40, -80; -50, -60], style(color=69, fillColor=47)), 
-        Line(points=[70, -80; 60, -60], style(color=69, fillColor=47)), 
-        Line(points=[70, -80; 80, -60], style(color=69, fillColor=47)), 
-        Line(points=[70, 80; 70, -80], style(color=69, fillColor=47)), 
-        Line(points=[100, 0; 100, 0], style(color=69, fillColor=47)), 
-        Line(points=[100, 80; 100, -80], style(color=69, fillColor=47)), 
-        Line(points=[100, -80; 90, -60], style(color=69, fillColor=47)), 
-        Line(points=[100, -80; 110, -60], style(color=69, fillColor=47)), 
-        Line(points=[80, 30; 100, 20], style(color=42, fillColor=45)), 
-        Line(points=[80, 10; 100, 20], style(color=42, fillColor=45)), 
-        Line(points=[-59, 20; 100, 20], style(color=42, fillColor=45)), 
-        Line(points=[-60, -20; 100, -20], style(color=42, fillColor=45)), 
-        Line(points=[80, -10; 100, -20], style(color=42, fillColor=45)), 
-        Line(points=[80, -30; 100, -20], style(color=42, fillColor=45))), 
+            color=0,
+            fillColor=8,
+            fillPattern=8)),
+        Text(extent=[-117, -88; 124, -128], string="%name"),
+        Line(points=[-40, 80; -40, -80], style(color=69, fillColor=47)),
+        Line(points=[0, 80; 0, -80], style(color=69, fillColor=47)),
+        Line(points=[0, 80; 0, -80], style(color=69, fillColor=47)),
+        Line(points=[34, 80; 34, -80], style(color=69, fillColor=47)),
+        Line(points=[34, -80; 44, -60], style(color=69, fillColor=47)),
+        Line(points=[34, -80; 24, -60], style(color=69, fillColor=47)),
+        Line(points=[0, -80; 10, -60], style(color=69, fillColor=47)),
+        Line(points=[0, -80; -10, -60], style(color=69, fillColor=47)),
+        Line(points=[-40, -80; -30, -60], style(color=69, fillColor=47)),
+        Line(points=[-40, -80; -50, -60], style(color=69, fillColor=47)),
+        Line(points=[70, -80; 60, -60], style(color=69, fillColor=47)),
+        Line(points=[70, -80; 80, -60], style(color=69, fillColor=47)),
+        Line(points=[70, 80; 70, -80], style(color=69, fillColor=47)),
+        Line(points=[100, 0; 100, 0], style(color=69, fillColor=47)),
+        Line(points=[100, 80; 100, -80], style(color=69, fillColor=47)),
+        Line(points=[100, -80; 90, -60], style(color=69, fillColor=47)),
+        Line(points=[100, -80; 110, -60], style(color=69, fillColor=47)),
+        Line(points=[80, 30; 100, 20], style(color=42, fillColor=45)),
+        Line(points=[80, 10; 100, 20], style(color=42, fillColor=45)),
+        Line(points=[-59, 20; 100, 20], style(color=42, fillColor=45)),
+        Line(points=[-60, -20; 100, -20], style(color=42, fillColor=45)),
+        Line(points=[80, -10; 100, -20], style(color=42, fillColor=45)),
+        Line(points=[80, -30; 100, -20], style(color=42, fillColor=45))),
       Documentation(info="<HTML>
 <p>
 This is a model of linear heat convection, e.g., the heat transfer
@@ -847,79 +838,78 @@ McGraw-Hill, 1997, p.270):
 </pre>
 
 </HTML>
-"), 
-      Diagram(
+"),   Diagram(
         Rectangle(extent=[-100, 80; -70, -80], style(
-            color=0, 
-            fillColor=8, 
-            fillPattern=8)), 
-        Line(points=[-40, 80; -40, -80], style(color=69, fillColor=47)), 
-        Line(points=[0, 80; 0, -80], style(color=69, fillColor=47)), 
-        Line(points=[0, 80; 0, -80], style(color=69, fillColor=47)), 
-        Line(points=[34, 80; 34, -80], style(color=69, fillColor=47)), 
-        Line(points=[34, -80; 44, -60], style(color=69, fillColor=47)), 
-        Line(points=[34, -80; 24, -60], style(color=69, fillColor=47)), 
-        Line(points=[0, -80; 10, -60], style(color=69, fillColor=47)), 
-        Line(points=[0, -80; -10, -60], style(color=69, fillColor=47)), 
-        Line(points=[-40, -80; -30, -60], style(color=69, fillColor=47)), 
-        Line(points=[-40, -80; -50, -60], style(color=69, fillColor=47)), 
-        Line(points=[70, -80; 60, -60], style(color=69, fillColor=47)), 
-        Line(points=[70, -80; 80, -60], style(color=69, fillColor=47)), 
-        Line(points=[70, 80; 70, -80], style(color=69, fillColor=47)), 
-        Line(points=[100, 0; 100, 0], style(color=69, fillColor=47)), 
-        Line(points=[100, 80; 100, -80], style(color=69, fillColor=47)), 
-        Line(points=[100, -80; 90, -60], style(color=69, fillColor=47)), 
-        Line(points=[100, -80; 110, -60], style(color=69, fillColor=47)), 
-        Line(points=[-40, 80; -40, -80], style(color=69, fillColor=47)), 
-        Line(points=[0, 80; 0, -80], style(color=69, fillColor=47)), 
-        Line(points=[0, 80; 0, -80], style(color=69, fillColor=47)), 
-        Line(points=[34, 80; 34, -80], style(color=69, fillColor=47)), 
-        Line(points=[34, -80; 44, -60], style(color=69, fillColor=47)), 
-        Line(points=[34, -80; 24, -60], style(color=69, fillColor=47)), 
-        Line(points=[0, -80; 10, -60], style(color=69, fillColor=47)), 
-        Line(points=[0, -80; -10, -60], style(color=69, fillColor=47)), 
-        Line(points=[-40, -80; -30, -60], style(color=69, fillColor=47)), 
-        Line(points=[-40, -80; -50, -60], style(color=69, fillColor=47)), 
-        Line(points=[70, -80; 60, -60], style(color=69, fillColor=47)), 
-        Line(points=[70, -80; 80, -60], style(color=69, fillColor=47)), 
-        Line(points=[70, 80; 70, -80], style(color=69, fillColor=47)), 
-        Line(points=[100, 0; 100, 0], style(color=69, fillColor=47)), 
-        Line(points=[100, 80; 100, -80], style(color=69, fillColor=47)), 
-        Line(points=[100, -80; 90, -60], style(color=69, fillColor=47)), 
-        Line(points=[100, -80; 110, -60], style(color=69, fillColor=47)), 
-        Line(points=[-40, 80; -40, -80], style(color=69, fillColor=47)), 
-        Line(points=[0, 80; 0, -80], style(color=69, fillColor=47)), 
-        Line(points=[0, 80; 0, -80], style(color=69, fillColor=47)), 
-        Line(points=[34, 80; 34, -80], style(color=69, fillColor=47)), 
-        Line(points=[34, -80; 44, -60], style(color=69, fillColor=47)), 
-        Line(points=[34, -80; 24, -60], style(color=69, fillColor=47)), 
-        Line(points=[0, -80; 10, -60], style(color=69, fillColor=47)), 
-        Line(points=[0, -80; -10, -60], style(color=69, fillColor=47)), 
-        Line(points=[-40, -80; -30, -60], style(color=69, fillColor=47)), 
-        Line(points=[-40, -80; -50, -60], style(color=69, fillColor=47)), 
-        Line(points=[70, -80; 60, -60], style(color=69, fillColor=47)), 
-        Line(points=[70, -80; 80, -60], style(color=69, fillColor=47)), 
-        Line(points=[70, 80; 70, -80], style(color=69, fillColor=47)), 
-        Line(points=[100, 0; 100, 0], style(color=69, fillColor=47)), 
-        Line(points=[100, 80; 100, -80], style(color=69, fillColor=47)), 
-        Line(points=[100, -80; 90, -60], style(color=69, fillColor=47)), 
-        Line(points=[100, -80; 110, -60], style(color=69, fillColor=47)), 
-        Line(points=[-59, 20; 100, 20], style(color=42, fillColor=45)), 
-        Line(points=[80, 30; 100, 20], style(color=42, fillColor=45)), 
-        Line(points=[80, 10; 100, 20], style(color=42, fillColor=45)), 
-        Line(points=[-60, -20; 100, -20], style(color=42, fillColor=45)), 
-        Line(points=[80, -10; 100, -20], style(color=42, fillColor=45)), 
-        Line(points=[80, -30; 100, -20], style(color=42, fillColor=45)), 
+            color=0,
+            fillColor=8,
+            fillPattern=8)),
+        Line(points=[-40, 80; -40, -80], style(color=69, fillColor=47)),
+        Line(points=[0, 80; 0, -80], style(color=69, fillColor=47)),
+        Line(points=[0, 80; 0, -80], style(color=69, fillColor=47)),
+        Line(points=[34, 80; 34, -80], style(color=69, fillColor=47)),
+        Line(points=[34, -80; 44, -60], style(color=69, fillColor=47)),
+        Line(points=[34, -80; 24, -60], style(color=69, fillColor=47)),
+        Line(points=[0, -80; 10, -60], style(color=69, fillColor=47)),
+        Line(points=[0, -80; -10, -60], style(color=69, fillColor=47)),
+        Line(points=[-40, -80; -30, -60], style(color=69, fillColor=47)),
+        Line(points=[-40, -80; -50, -60], style(color=69, fillColor=47)),
+        Line(points=[70, -80; 60, -60], style(color=69, fillColor=47)),
+        Line(points=[70, -80; 80, -60], style(color=69, fillColor=47)),
+        Line(points=[70, 80; 70, -80], style(color=69, fillColor=47)),
+        Line(points=[100, 0; 100, 0], style(color=69, fillColor=47)),
+        Line(points=[100, 80; 100, -80], style(color=69, fillColor=47)),
+        Line(points=[100, -80; 90, -60], style(color=69, fillColor=47)),
+        Line(points=[100, -80; 110, -60], style(color=69, fillColor=47)),
+        Line(points=[-40, 80; -40, -80], style(color=69, fillColor=47)),
+        Line(points=[0, 80; 0, -80], style(color=69, fillColor=47)),
+        Line(points=[0, 80; 0, -80], style(color=69, fillColor=47)),
+        Line(points=[34, 80; 34, -80], style(color=69, fillColor=47)),
+        Line(points=[34, -80; 44, -60], style(color=69, fillColor=47)),
+        Line(points=[34, -80; 24, -60], style(color=69, fillColor=47)),
+        Line(points=[0, -80; 10, -60], style(color=69, fillColor=47)),
+        Line(points=[0, -80; -10, -60], style(color=69, fillColor=47)),
+        Line(points=[-40, -80; -30, -60], style(color=69, fillColor=47)),
+        Line(points=[-40, -80; -50, -60], style(color=69, fillColor=47)),
+        Line(points=[70, -80; 60, -60], style(color=69, fillColor=47)),
+        Line(points=[70, -80; 80, -60], style(color=69, fillColor=47)),
+        Line(points=[70, 80; 70, -80], style(color=69, fillColor=47)),
+        Line(points=[100, 0; 100, 0], style(color=69, fillColor=47)),
+        Line(points=[100, 80; 100, -80], style(color=69, fillColor=47)),
+        Line(points=[100, -80; 90, -60], style(color=69, fillColor=47)),
+        Line(points=[100, -80; 110, -60], style(color=69, fillColor=47)),
+        Line(points=[-40, 80; -40, -80], style(color=69, fillColor=47)),
+        Line(points=[0, 80; 0, -80], style(color=69, fillColor=47)),
+        Line(points=[0, 80; 0, -80], style(color=69, fillColor=47)),
+        Line(points=[34, 80; 34, -80], style(color=69, fillColor=47)),
+        Line(points=[34, -80; 44, -60], style(color=69, fillColor=47)),
+        Line(points=[34, -80; 24, -60], style(color=69, fillColor=47)),
+        Line(points=[0, -80; 10, -60], style(color=69, fillColor=47)),
+        Line(points=[0, -80; -10, -60], style(color=69, fillColor=47)),
+        Line(points=[-40, -80; -30, -60], style(color=69, fillColor=47)),
+        Line(points=[-40, -80; -50, -60], style(color=69, fillColor=47)),
+        Line(points=[70, -80; 60, -60], style(color=69, fillColor=47)),
+        Line(points=[70, -80; 80, -60], style(color=69, fillColor=47)),
+        Line(points=[70, 80; 70, -80], style(color=69, fillColor=47)),
+        Line(points=[100, 0; 100, 0], style(color=69, fillColor=47)),
+        Line(points=[100, 80; 100, -80], style(color=69, fillColor=47)),
+        Line(points=[100, -80; 90, -60], style(color=69, fillColor=47)),
+        Line(points=[100, -80; 110, -60], style(color=69, fillColor=47)),
+        Line(points=[-59, 20; 100, 20], style(color=42, fillColor=45)),
+        Line(points=[80, 30; 100, 20], style(color=42, fillColor=45)),
+        Line(points=[80, 10; 100, 20], style(color=42, fillColor=45)),
+        Line(points=[-60, -20; 100, -20], style(color=42, fillColor=45)),
+        Line(points=[80, -10; 100, -20], style(color=42, fillColor=45)),
+        Line(points=[80, -30; 100, -20], style(color=42, fillColor=45)),
         Text(
-          extent=[-35, 42; -5, 20], 
-          string="Q_dot", 
+          extent=[-35, 42; -5, 20],
+          string="Q_dot",
           style(color=41))));
     Modelica.Blocks.Interfaces.InPort G(final n=1, redeclare type SignalType = 
           SI.ThermalConductance) 
       "Signal representing the convective thermal conductance in [W/K]" 
-      annotation (extent=[-20, 80; 20, 120], rotation=270);
-    Interfaces.HeatPort_a solid annotation (extent=[-120, -10; -100, 10]);
-    Interfaces.HeatPort_b fluid annotation (extent=[100, -10; 120, 10]);
+      annotation( extent=[-20, 80; 20, 120], rotation=270);
+    Interfaces.HeatPort_a solid annotation( extent=[-120, -10; -100, 10]);
+    Interfaces.HeatPort_b fluid annotation( extent=[100, -10; 120, 10]);
   equation 
     Gc = G.signal[1];
     dT = solid.T - fluid.T;
@@ -932,35 +922,35 @@ McGraw-Hill, 1997, p.270):
     extends Interfaces.Element1D;
     parameter Real Gr(unit="m2") 
       "Net radiation conductance between two surfaces (see docu)";
-    annotation (
+    annotation(
       Icon(
         Rectangle(extent=[60, 80; 100, -80], style(
-            color=0, 
-            fillColor=8, 
-            fillPattern=8)), 
+            color=0,
+            fillColor=8,
+            fillPattern=8)),
         Rectangle(extent=[-100, 80; -60, -80], style(
-            color=0, 
-            fillColor=8, 
-            fillPattern=8)), 
-        Line(points=[-40, 10; 40, 10], style(color=42, fillColor=45)), 
-        Line(points=[-40, 10; -30, 16], style(color=42, fillColor=45)), 
-        Line(points=[-40, 10; -30, 4], style(color=42, fillColor=45)), 
-        Line(points=[-40, -10; 40, -10], style(color=42, fillColor=45)), 
-        Line(points=[30, -16; 40, -10], style(color=42, fillColor=45)), 
-        Line(points=[30, -4; 40, -10], style(color=42, fillColor=45)), 
-        Line(points=[-40, -30; 40, -30], style(color=42, fillColor=45)), 
-        Line(points=[-40, -30; -30, -24], style(color=42, fillColor=45)), 
-        Line(points=[-40, -30; -30, -36], style(color=42, fillColor=45)), 
-        Line(points=[-40, 30; 40, 30], style(color=42, fillColor=45)), 
-        Line(points=[30, 24; 40, 30], style(color=42, fillColor=45)), 
-        Line(points=[30, 36; 40, 30], style(color=42, fillColor=45)), 
-        Text(extent=[-132, 144; 108, 84], string="%name"), 
+            color=0,
+            fillColor=8,
+            fillPattern=8)),
+        Line(points=[-40, 10; 40, 10], style(color=42, fillColor=45)),
+        Line(points=[-40, 10; -30, 16], style(color=42, fillColor=45)),
+        Line(points=[-40, 10; -30, 4], style(color=42, fillColor=45)),
+        Line(points=[-40, -10; 40, -10], style(color=42, fillColor=45)),
+        Line(points=[30, -16; 40, -10], style(color=42, fillColor=45)),
+        Line(points=[30, -4; 40, -10], style(color=42, fillColor=45)),
+        Line(points=[-40, -30; 40, -30], style(color=42, fillColor=45)),
+        Line(points=[-40, -30; -30, -24], style(color=42, fillColor=45)),
+        Line(points=[-40, -30; -30, -36], style(color=42, fillColor=45)),
+        Line(points=[-40, 30; 40, 30], style(color=42, fillColor=45)),
+        Line(points=[30, 24; 40, 30], style(color=42, fillColor=45)),
+        Line(points=[30, 36; 40, 30], style(color=42, fillColor=45)),
+        Text(extent=[-132, 144; 108, 84], string="%name"),
         Text(
-          extent=[-119, -86; 117, -125], 
-          string="G=%G", 
-          style(color=0)), 
-        Rectangle(extent=[-60, 80; -54, -80], style(color=42, fillColor=42)), 
-        Rectangle(extent=[55, 80; 60, -80], style(color=42, fillColor=42))), 
+          extent=[-119, -86; 117, -125],
+          string="G=%G",
+          style(color=0)),
+        Rectangle(extent=[-60, 80; -54, -80], style(color=42, fillColor=42)),
+        Rectangle(extent=[55, 80; 60, -80], style(color=42, fillColor=42))),
       Documentation(info="<HTML>
 <p>
 This is a model describing the thermal radiation, i.e., electromagnetic
@@ -1044,29 +1034,28 @@ place from the inner to the outer cylinder):
 </pre>
 
 </HTML>
-"), 
-      Diagram(
+"),   Diagram(
         Rectangle(extent=[-100, 80; -66, -80], style(
-            color=0, 
-            fillColor=8, 
-            fillPattern=8)), 
-        Line(points=[-66, 80; -66, -80], style(color=0, thickness=4)), 
-        Line(points=[60, 80; 60, -80], style(color=0, thickness=4)), 
+            color=0,
+            fillColor=8,
+            fillPattern=8)),
+        Line(points=[-66, 80; -66, -80], style(color=0, thickness=4)),
+        Line(points=[60, 80; 60, -80], style(color=0, thickness=4)),
         Rectangle(extent=[60, 80; 100, -80], style(
-            color=0, 
-            fillColor=8, 
-            fillPattern=8)), 
-        Line(points=[-40, 10; 40, 10], style(color=42, fillColor=45)), 
-        Line(points=[-40, 10; -30, 16], style(color=42, fillColor=45)), 
-        Line(points=[-40, 10; -30, 4], style(color=42, fillColor=45)), 
-        Line(points=[-40, -10; 40, -10], style(color=42, fillColor=45)), 
-        Line(points=[30, -16; 40, -10], style(color=42, fillColor=45)), 
-        Line(points=[30, -4; 40, -10], style(color=42, fillColor=45)), 
-        Line(points=[-40, -30; 40, -30], style(color=42, fillColor=45)), 
-        Line(points=[-40, -30; -30, -24], style(color=42, fillColor=45)), 
-        Line(points=[-40, -30; -30, -36], style(color=42, fillColor=45)), 
-        Line(points=[-40, 30; 40, 30], style(color=42, fillColor=45)), 
-        Line(points=[30, 24; 40, 30], style(color=42, fillColor=45)), 
+            color=0,
+            fillColor=8,
+            fillPattern=8)),
+        Line(points=[-40, 10; 40, 10], style(color=42, fillColor=45)),
+        Line(points=[-40, 10; -30, 16], style(color=42, fillColor=45)),
+        Line(points=[-40, 10; -30, 4], style(color=42, fillColor=45)),
+        Line(points=[-40, -10; 40, -10], style(color=42, fillColor=45)),
+        Line(points=[30, -16; 40, -10], style(color=42, fillColor=45)),
+        Line(points=[30, -4; 40, -10], style(color=42, fillColor=45)),
+        Line(points=[-40, -30; 40, -30], style(color=42, fillColor=45)),
+        Line(points=[-40, -30; -30, -24], style(color=42, fillColor=45)),
+        Line(points=[-40, -30; -30, -36], style(color=42, fillColor=45)),
+        Line(points=[-40, 30; 40, 30], style(color=42, fillColor=45)),
+        Line(points=[30, 24; 40, 30], style(color=42, fillColor=45)),
         Line(points=[30, 36; 40, 30], style(color=42, fillColor=45))));
   equation 
     Q_dot = Gr*Modelica.Constants.sigma*(port_a.T^4 - port_b.T^4);
@@ -1075,50 +1064,49 @@ place from the inner to the outer cylinder):
   model FixedTemperature "Fixed temperature boundary condition in Kelvin" 
     
     parameter SI.Temperature T "Fixed temperature at port";
-    annotation (
+    annotation(
       Icon(
-        Text(extent=[-121, 162; 119, 102], string="%name"), 
+        Text(extent=[-121, 162; 119, 102], string="%name"),
         Text(
-          extent=[-121, -105; 119, -151], 
-          string="T=%T", 
-          style(color=0)), 
+          extent=[-121, -105; 119, -151],
+          string="T=%T",
+          style(color=0)),
         Rectangle(extent=[-100, 100; 101, -100], style(
-            color=0, 
-            pattern=0, 
-            fillColor=76, 
-            fillPattern=8)), 
+            color=0,
+            pattern=0,
+            fillColor=76,
+            fillPattern=8)),
         Text(
-          extent=[0, 4; -100, -96], 
-          string="K", 
-          style(color=0)), 
-        Line(points=[-42, 0; 66, 0], style(color=42, thickness=2)), 
+          extent=[0, 4; -100, -96],
+          string="K",
+          style(color=0)),
+        Line(points=[-42, 0; 66, 0], style(color=42, thickness=2)),
         Polygon(points=[60, -20; 60, 20; 100, 0; 60, -20], style(
-            color=42, 
-            fillColor=42, 
-            fillPattern=1))), 
+            color=42,
+            fillColor=42,
+            fillPattern=1))),
       Documentation(info="<HTML>
 <p>
 This model defines a fixed temperature T at its port in Kelvin,
 i.e., it defines a fixed temperature as a boundary condition.
 </p>
 </HTML>
-"), 
-      Diagram(
+"),   Diagram(
         Rectangle(extent=[-100, 100; 100, -101], style(
-            color=0, 
-            pattern=0, 
-            fillColor=76, 
-            fillPattern=8)), 
-        Line(points=[-42, 0; 66, 0], style(color=42, thickness=2)), 
+            color=0,
+            pattern=0,
+            fillColor=76,
+            fillPattern=8)),
+        Line(points=[-42, 0; 66, 0], style(color=42, thickness=2)),
         Text(
-          extent=[0, 0; -100, -100], 
-          string="K", 
-          style(color=0)), 
+          extent=[0, 0; -100, -100],
+          string="K",
+          style(color=0)),
         Polygon(points=[62, -20; 62, 20; 100, 0; 62, -20], style(
-            color=42, 
-            fillColor=42, 
+            color=42,
+            fillColor=42,
             fillPattern=1))));
-    Interfaces.HeatPort_b port annotation (extent=[100, -10; 120, 10]);
+    Interfaces.HeatPort_b port annotation( extent=[100, -10; 120, 10]);
   equation 
     port.T = T;
   end FixedTemperature;
@@ -1126,23 +1114,23 @@ i.e., it defines a fixed temperature as a boundary condition.
   model PrescribedTemperature 
     "Variable temperature boundary condition in Kelvin" 
     
-    annotation (
+    annotation(
       Icon(
         Rectangle(extent=[-100, 100; 100, -100], style(
-            color=0, 
-            pattern=0, 
-            fillColor=76, 
-            fillPattern=8)), 
-        Line(points=[-102, 0; 64, 0], style(color=42, thickness=2)), 
+            color=0,
+            pattern=0,
+            fillColor=76,
+            fillPattern=8)),
+        Line(points=[-102, 0; 64, 0], style(color=42, thickness=2)),
         Text(
-          extent=[0, 0; -100, -100], 
-          string="K", 
-          style(color=0)), 
+          extent=[0, 0; -100, -100],
+          string="K",
+          style(color=0)),
         Polygon(points=[62, -20; 62, 20; 99, 0; 62, -20], style(
-            color=42, 
-            fillColor=42, 
-            fillPattern=1)), 
-        Text(extent=[-125, 162; 115, 102], string="%name")), 
+            color=42,
+            fillColor=42,
+            fillPattern=1)),
+        Text(extent=[-125, 162; 115, 102], string="%name")),
       Documentation(info="<HTML>
 <p>
 This model represents a variable temperature boundary condition.
@@ -1152,64 +1140,63 @@ an infinite reservoir able to absorb or generate as much energy
 as required to keep the temperature at the specified value.
 </p>
 </HTML>
-"), 
-      Diagram(
+"),   Diagram(
         Rectangle(extent=[-100, 100; 100, -100], style(
-            color=0, 
-            pattern=0, 
-            fillColor=76, 
-            fillPattern=8)), 
+            color=0,
+            pattern=0,
+            fillColor=76,
+            fillPattern=8)),
         Text(
-          extent=[0, 0; -100, -100], 
-          string="K", 
-          style(color=0)), 
-        Line(points=[-102, 0; 64, 0], style(color=42, thickness=2)), 
+          extent=[0, 0; -100, -100],
+          string="K",
+          style(color=0)),
+        Line(points=[-102, 0; 64, 0], style(color=42, thickness=2)),
         Polygon(points=[62, -20; 62, 20; 100, 0; 62, -20], style(
-            color=42, 
-            fillColor=42, 
+            color=42,
+            fillColor=42,
             fillPattern=1))));
-    Interfaces.HeatPort_b port annotation (extent=[100, -10; 120, 10]);
+    Interfaces.HeatPort_b port annotation( extent=[100, -10; 120, 10]);
     Modelica.Blocks.Interfaces.InPort T(final n=1, redeclare type SignalType = 
-          SI.Temperature) annotation (extent=[-140, -20; -100, 20]);
+          SI.Temperature) annotation( extent=[-140, -20; -100, 20]);
   equation 
     port.T = T.signal[1];
   end PrescribedTemperature;
   
   model FixedHeatFlow "Fixed heat flow boundary condition" 
     parameter SI.HeatFlowRate Q_dot "Fixed heat flow rate at port";
-    annotation (
+    annotation(
       Icon(
-        Text(extent=[-134, 120; 132, 60], string="%name"), 
+        Text(extent=[-134, 120; 132, 60], string="%name"),
         Text(
-          extent=[-137, -52; 133, -100], 
-          string="Q_dot=%Q_dot", 
-          style(color=0)), 
-        Line(points=[-100, -20; 48, -20], style(color=42, thickness=2)), 
-        Line(points=[-100, 20; 46, 20], style(color=42, thickness=2)), 
+          extent=[-137, -52; 133, -100],
+          string="Q_dot=%Q_dot",
+          style(color=0)),
+        Line(points=[-100, -20; 48, -20], style(color=42, thickness=2)),
+        Line(points=[-100, 20; 46, 20], style(color=42, thickness=2)),
         Polygon(points=[40, 0; 40, 40; 70, 20; 40, 0], style(
-            color=42, 
-            fillColor=42, 
-            fillPattern=1)), 
+            color=42,
+            fillColor=42,
+            fillPattern=1)),
         Polygon(points=[40, -40; 40, 0; 70, -20; 40, -40], style(
-            color=42, 
-            fillColor=42, 
-            fillPattern=1)), 
-        Rectangle(extent=[70, 40; 90, -40], style(color=42, fillColor=42))), 
+            color=42,
+            fillColor=42,
+            fillPattern=1)),
+        Rectangle(extent=[70, 40; 90, -40], style(color=42, fillColor=42))),
       Diagram(
         Text(
-          extent=[-100, 40; 0, -36], 
-          string="Q_dot=const.", 
-          style(color=0)), 
-        Line(points=[-48, -20; 60, -20], style(color=42, thickness=2)), 
-        Line(points=[-48, 20; 60, 20], style(color=42, thickness=2)), 
+          extent=[-100, 40; 0, -36],
+          string="Q_dot=const.",
+          style(color=0)),
+        Line(points=[-48, -20; 60, -20], style(color=42, thickness=2)),
+        Line(points=[-48, 20; 60, 20], style(color=42, thickness=2)),
         Polygon(points=[60, 0; 60, 40; 90, 20; 60, 0], style(
-            color=42, 
-            fillColor=42, 
-            fillPattern=1)), 
+            color=42,
+            fillColor=42,
+            fillPattern=1)),
         Polygon(points=[60, -40; 60, 0; 90, -20; 60, -40], style(
-            color=42, 
-            fillColor=42, 
-            fillPattern=1))), 
+            color=42,
+            fillColor=42,
+            fillPattern=1))),
       Documentation(info="<HTML>
 <p>
 This model allows a specified amount of heat flow rate to be \"injected\"
@@ -1220,28 +1207,28 @@ if parameter Q_dot is positive.
 </p>
 </HTML>
 "));
-    Interfaces.HeatPort_b port annotation (extent=[90, -10; 110, 10]);
+    Interfaces.HeatPort_b port annotation( extent=[90, -10; 110, 10]);
   equation 
     port.Q_dot = -Q_dot;
   end FixedHeatFlow;
   
   model PrescribedHeatFlow "Prescribed heat flow boundary condition" 
-    annotation (
+    annotation(
       Icon(
-        Line(points=[-60, -20; 40, -20], style(color=42, thickness=2)), 
-        Line(points=[-60, 20; 40, 20], style(color=42, thickness=2)), 
-        Line(points=[-80, 0; -60, -20], style(color=42, thickness=2)), 
-        Line(points=[-80, 0; -60, 20], style(color=42, thickness=2)), 
+        Line(points=[-60, -20; 40, -20], style(color=42, thickness=2)),
+        Line(points=[-60, 20; 40, 20], style(color=42, thickness=2)),
+        Line(points=[-80, 0; -60, -20], style(color=42, thickness=2)),
+        Line(points=[-80, 0; -60, 20], style(color=42, thickness=2)),
         Polygon(points=[40, 0; 40, 40; 70, 20; 40, 0], style(
-            color=42, 
-            fillColor=42, 
-            fillPattern=1)), 
+            color=42,
+            fillColor=42,
+            fillPattern=1)),
         Polygon(points=[40, -40; 40, 0; 70, -20; 40, -40], style(
-            color=42, 
-            fillColor=42, 
-            fillPattern=1)), 
-        Rectangle(extent=[70, 40; 90, -40], style(color=42, fillColor=42)), 
-        Text(extent=[-134, 120; 132, 60], string="%name")), 
+            color=42,
+            fillColor=42,
+            fillPattern=1)),
+        Rectangle(extent=[70, 40; 90, -40], style(color=42, fillColor=42)),
+        Text(extent=[-134, 120; 132, 60], string="%name")),
       Documentation(info="<HTML>
 <p>
 This model allows a specified amount of heat flow rate to be \"injected\"
@@ -1251,68 +1238,67 @@ component to which the component PrescribedHeatFlow is connected,
 if the input signal is positive.
 </p>
 </HTML>
-"), 
-      Diagram(
-        Line(points=[-60, -20; 68, -20], style(color=42, thickness=2)), 
-        Line(points=[-60, 20; 68, 20], style(color=42, thickness=2)), 
-        Line(points=[-80, 0; -60, -20], style(color=42, thickness=2)), 
-        Line(points=[-80, 0; -60, 20], style(color=42, thickness=2)), 
+"),   Diagram(
+        Line(points=[-60, -20; 68, -20], style(color=42, thickness=2)),
+        Line(points=[-60, 20; 68, 20], style(color=42, thickness=2)),
+        Line(points=[-80, 0; -60, -20], style(color=42, thickness=2)),
+        Line(points=[-80, 0; -60, 20], style(color=42, thickness=2)),
         Polygon(points=[60, 0; 60, 40; 90, 20; 60, 0], style(
-            color=42, 
-            fillColor=42, 
-            fillPattern=1)), 
+            color=42,
+            fillColor=42,
+            fillPattern=1)),
         Polygon(points=[60, -40; 60, 0; 90, -20; 60, -40], style(
-            color=42, 
-            fillColor=42, 
+            color=42,
+            fillColor=42,
             fillPattern=1))));
-    Modelica.Blocks.Interfaces.InPort Q_dot(final n=1) annotation (extent=[-80
-          , -20; -120, 20], rotation=180);
-    Interfaces.HeatPort_b port annotation (extent=[90, -10; 110, 10]);
+    Modelica.Blocks.Interfaces.InPort Q_dot(final n=1) annotation( extent=[-80,
+            -20; -120, 20], rotation=180);
+    Interfaces.HeatPort_b port annotation( extent=[90, -10; 110, 10]);
   equation 
     port.Q_dot = -Q_dot.signal[1];
   end PrescribedHeatFlow;
   
   model TemperatureSensor "Absolute temperature sensor in Kelvin" 
-    annotation (
+    annotation(
       Diagram(
         Ellipse(extent=[-20, -98; 20, -60], style(
-            color=0, 
-            thickness=2, 
-            fillColor=42)), 
-        Rectangle(extent=[-12, 40; 12, -68], style(color=42, fillColor=42)), 
-        Line(points=[12, 0; 90, 0]), 
-        Line(points=[-94, 0; -14, 0], style(color=42)), 
-        Polygon(points=[-12, 40; -12, 80; -10, 86; -6, 88; 0, 90; 6, 88; 10, 86
-              ; 12, 80; 12, 40; -12, 40], style(color=0, thickness=2)), 
-        Line(points=[-12, 40; -12, -64], style(color=0, thickness=2)), 
-        Line(points=[12, 40; 12, -64], style(color=0, thickness=2)), 
-        Line(points=[-40, -20; -12, -20], style(color=0)), 
-        Line(points=[-40, 20; -12, 20], style(color=0)), 
-        Line(points=[-40, 60; -12, 60], style(color=0)), 
+            color=0,
+            thickness=2,
+            fillColor=42)),
+        Rectangle(extent=[-12, 40; 12, -68], style(color=42, fillColor=42)),
+        Line(points=[12, 0; 90, 0]),
+        Line(points=[-94, 0; -14, 0], style(color=42)),
+        Polygon(points=[-12, 40; -12, 80; -10, 86; -6, 88; 0, 90; 6, 88; 10, 86;
+                12, 80; 12, 40; -12, 40], style(color=0, thickness=2)),
+        Line(points=[-12, 40; -12, -64], style(color=0, thickness=2)),
+        Line(points=[12, 40; 12, -64], style(color=0, thickness=2)),
+        Line(points=[-40, -20; -12, -20], style(color=0)),
+        Line(points=[-40, 20; -12, 20], style(color=0)),
+        Line(points=[-40, 60; -12, 60], style(color=0)),
         Text(
-          extent=[102, -28; 60, -78], 
-          string="K", 
-          style(color=0))), 
+          extent=[102, -28; 60, -78],
+          string="K",
+          style(color=0))),
       Icon(
         Ellipse(extent=[-20, -98; 20, -60], style(
-            color=0, 
-            thickness=2, 
-            fillColor=42)), 
-        Rectangle(extent=[-12, 40; 12, -68], style(color=42, fillColor=42)), 
-        Line(points=[12, 0; 90, 0]), 
-        Line(points=[-90, 0; -12, 0], style(color=42)), 
-        Polygon(points=[-12, 40; -12, 80; -10, 86; -6, 88; 0, 90; 6, 88; 10, 86
-              ; 12, 80; 12, 40; -12, 40], style(color=0, thickness=2)), 
-        Line(points=[-12, 40; -12, -64], style(color=0, thickness=2)), 
-        Line(points=[12, 40; 12, -64], style(color=0, thickness=2)), 
-        Line(points=[-40, -20; -12, -20], style(color=0)), 
-        Line(points=[-40, 20; -12, 20], style(color=0)), 
-        Line(points=[-40, 60; -12, 60], style(color=0)), 
+            color=0,
+            thickness=2,
+            fillColor=42)),
+        Rectangle(extent=[-12, 40; 12, -68], style(color=42, fillColor=42)),
+        Line(points=[12, 0; 90, 0]),
+        Line(points=[-90, 0; -12, 0], style(color=42)),
+        Polygon(points=[-12, 40; -12, 80; -10, 86; -6, 88; 0, 90; 6, 88; 10, 86;
+                12, 80; 12, 40; -12, 40], style(color=0, thickness=2)),
+        Line(points=[-12, 40; -12, -64], style(color=0, thickness=2)),
+        Line(points=[12, 40; 12, -64], style(color=0, thickness=2)),
+        Line(points=[-40, -20; -12, -20], style(color=0)),
+        Line(points=[-40, 20; -12, 20], style(color=0)),
+        Line(points=[-40, 60; -12, 60], style(color=0)),
         Text(
-          extent=[126, -20; 26, -120], 
-          string="K", 
-          style(color=0)), 
-        Text(extent=[-132, 144; 108, 84], string="%name")), 
+          extent=[126, -20; 26, -120],
+          string="K",
+          style(color=0)),
+        Text(extent=[-132, 144; 108, 84], string="%name")),
       Documentation(info="<HTML>
 <p>
 This is an ideal absolute temperature sensor which returns
@@ -1325,8 +1311,8 @@ sensor model.
 </HTML>
 "));
     Modelica.Blocks.Interfaces.OutPort T(redeclare type SignalType = 
-          SI.Temperature) annotation (extent=[90, -10; 110, 10]);
-    Interfaces.HeatPort_a port annotation (extent=[-110, -10; -90, 10]);
+          SI.Temperature) annotation( extent=[90, -10; 110, 10]);
+    Interfaces.HeatPort_a port annotation( extent=[-110, -10; -90, 10]);
   equation 
     T.signal[1] = port.T;
     port.Q_dot = 0;
@@ -1335,26 +1321,26 @@ sensor model.
   
   model RelTemperatureSensor "Relative Temperature sensor" 
     extends Modelica.Icons.TranslationalSensor;
-    annotation (
+    annotation(
       Icon(
-        Line(points=[-90, 0; -70, 0; -70, 0], style(color=42)), 
-        Line(points=[-90, 0; -70, 0; -70, 0], style(color=42)), 
-        Line(points=[70, 0; 90, 0; 90, 0], style(color=42)), 
-        Line(points=[0, -30; 0, -80]), 
-        Text(extent=[-140, 94; 144, 34], string="%name"), 
+        Line(points=[-90, 0; -70, 0; -70, 0], style(color=42)),
+        Line(points=[-90, 0; -70, 0; -70, 0], style(color=42)),
+        Line(points=[70, 0; 90, 0; 90, 0], style(color=42)),
+        Line(points=[0, -30; 0, -80]),
+        Text(extent=[-140, 94; 144, 34], string="%name"),
         Text(
-          extent=[92, -62; 34, -122], 
-          string="K", 
-          style(color=0))), 
+          extent=[92, -62; 34, -122],
+          string="K",
+          style(color=0))),
       Diagram(
-        Line(points=[-90, 0; -70, 0; -70, 0], style(color=42)), 
-        Line(points=[-98, 0; -70, 0; -70, 0], style(color=42)), 
-        Line(points=[70, 0; 90, 0; 90, 0], style(color=42)), 
-        Line(points=[0, -30; 0, -80]), 
+        Line(points=[-90, 0; -70, 0; -70, 0], style(color=42)),
+        Line(points=[-98, 0; -70, 0; -70, 0], style(color=42)),
+        Line(points=[70, 0; 90, 0; 90, 0], style(color=42)),
+        Line(points=[0, -30; 0, -80]),
         Text(
-          extent=[64, -74; 32, -102], 
-          string="K", 
-          style(color=0))), 
+          extent=[64, -74; 32, -102],
+          string="K",
+          style(color=0))),
       Documentation(info="<HTML>
 <p>
 The relative temperature \"port_a.T - port_b.T\" is determined between
@@ -1362,11 +1348,10 @@ the two ports of this component and is provided as output signal in Kelvin.
 </p>
 </HTML>
 "));
-    Interfaces.HeatPort_a port_a annotation (extent=[-110, -10; -90, 10]);
-    Interfaces.HeatPort_b port_b annotation (extent=[90, -10; 110, 10]);
+    Interfaces.HeatPort_a port_a annotation( extent=[-110, -10; -90, 10]);
+    Interfaces.HeatPort_b port_b annotation( extent=[90, -10; 110, 10]);
     Modelica.Blocks.Interfaces.OutPort T_rel(redeclare type SignalType = 
-          SI.Temperature) annotation (extent=[-10, -80; 10, -100], rotation=90)
-      ;
+          SI.Temperature) annotation( extent=[-10, -80; 10, -100], rotation=90);
   equation 
     T_rel.signal[1] = port_a.T - port_b.T;
     0 = port_a.Q_dot;
@@ -1377,22 +1362,22 @@ the two ports of this component and is provided as output signal in Kelvin.
     extends Modelica.Icons.RotationalSensor;
     output SI.HeatFlowRate Q_dot "Heat flow rate from port_a to port_b";
     Modelica.Blocks.Interfaces.OutPort heat(redeclare type SignalType = 
-          SI.HeatFlowRate) "Heat flow from port_a -> port_b" annotation (extent
-        =[-10, -110; 10, -90], rotation=270);
-    annotation (
+          SI.HeatFlowRate) "Heat flow from port_a -> port_b" annotation( extent=
+         [-10, -110; 10, -90], rotation=270);
+    annotation(
       Diagram(
-        Line(points=[-70, 0; -95, 0], style(color=42)), 
-        Line(points=[0, -70; 0, -90]), 
-        Line(points=[69, 0; 90, 0], style(color=42))), 
+        Line(points=[-70, 0; -95, 0], style(color=42)),
+        Line(points=[0, -70; 0, -90]),
+        Line(points=[69, 0; 90, 0], style(color=42))),
       Icon(
         Text(
-          extent=[33, -58; 88, -116], 
-          string="Q_dot", 
-          style(color=0)), 
-        Line(points=[-70, 0; -90, 0], style(color=42)), 
-        Line(points=[69, 0; 90, 0], style(color=42)), 
-        Line(points=[0, -70; 0, -90]), 
-        Text(extent=[-132, 144; 108, 84], string="%name")), 
+          extent=[33, -58; 88, -116],
+          string="Q_dot",
+          style(color=0)),
+        Line(points=[-70, 0; -90, 0], style(color=42)),
+        Line(points=[69, 0; 90, 0], style(color=42)),
+        Line(points=[0, -70; 0, -90]),
+        Text(extent=[-132, 144; 108, 84], string="%name")),
       Documentation(info="<HTML>
 <p>
 This model is capable of monitoring the heat flow rate flowing through
@@ -1405,8 +1390,8 @@ to port_b.
 </p>
 </HTML>
 "));
-    Interfaces.HeatPort_a port_a annotation (extent=[-110, -10; -90, 10]);
-    Interfaces.HeatPort_b port_b annotation (extent=[90, -10; 110, 10]);
+    Interfaces.HeatPort_a port_a annotation( extent=[-110, -10; -90, 10]);
+    Interfaces.HeatPort_b port_b annotation( extent=[90, -10; 110, 10]);
   equation 
     port_a.T = port_b.T;
     port_a.Q_dot + port_b.Q_dot = 0;
@@ -1420,38 +1405,38 @@ to port_b.
     
     model ToKelvin "Conversion block from °Celsius to Kelvin" 
       parameter Integer n=1 "Number of inputs (= number of outputs)";
-      annotation (
+      annotation(
         Diagram(
           Ellipse(extent=[-40, 40; 40, -40], style(
-              color=0, 
-              thickness=2, 
-              fillColor=7)), 
+              color=0,
+              thickness=2,
+              fillColor=7)),
           Text(
-            extent=[-40, -50; -99, -99], 
-            string="°C", 
-            style(color=0, thickness=4)), 
+            extent=[-40, -50; -99, -99],
+            string="°C",
+            style(color=0, thickness=4)),
           Text(
-            extent=[100, -47; 44, -100], 
-            string="K", 
-            style(color=0)), 
-          Line(points=[-100, 0; -40, 0]), 
-          Line(points=[41, 0; 100, 0])), 
+            extent=[100, -47; 44, -100],
+            string="K",
+            style(color=0)),
+          Line(points=[-100, 0; -40, 0]),
+          Line(points=[41, 0; 100, 0])),
         Icon(
           Ellipse(extent=[-40, 40; 40, -40], style(
-              color=0, 
-              thickness=2, 
-              fillColor=7)), 
+              color=0,
+              thickness=2,
+              fillColor=7)),
           Text(
-            extent=[112, -40; 32, -120], 
-            string="K", 
-            style(color=0)), 
+            extent=[112, -40; 32, -120],
+            string="K",
+            style(color=0)),
           Text(
-            extent=[-31, -39; -111, -119], 
-            string="°C", 
-            style(color=0, thickness=4)), 
-          Line(points=[-41, 0; -100, 0]), 
-          Line(points=[100, 0; 40, 0]), 
-          Text(extent=[-137, 99; 132, 49], string="%name")), 
+            extent=[-31, -39; -111, -119],
+            string="°C",
+            style(color=0, thickness=4)),
+          Line(points=[-41, 0; -100, 0]),
+          Line(points=[100, 0; 40, 0]),
+          Text(extent=[-137, 99; 132, 49], string="%name")),
         Documentation(info="<HTML>
 <p>
 This component converts all input signals from Celsius to Kelvin
@@ -1459,9 +1444,9 @@ and provides them as output signals.
 </p>
 </HTML>
 "));
-      Modelica.Blocks.Interfaces.InPort Celsius(final n=n) annotation (extent=[
+      Modelica.Blocks.Interfaces.InPort Celsius(final n=n) annotation( extent=[
             -140, -20; -100, 20]);
-      Modelica.Blocks.Interfaces.OutPort Kelvin(final n=n) annotation (extent=[
+      Modelica.Blocks.Interfaces.OutPort Kelvin(final n=n) annotation( extent=[
             100, -10; 120, 10]);
     equation 
       Kelvin.signal = from_degC(Celsius.signal);
@@ -1469,38 +1454,38 @@ and provides them as output signals.
     
     model FromKelvin "Conversion from Kelvin to °Celsius" 
       parameter Integer n=1 "Number of inputs (= number of outputs)";
-      annotation (
+      annotation(
         Icon(
-          Text(extent=[-137, 99; 132, 49], string="%name"), 
+          Text(extent=[-137, 99; 132, 49], string="%name"),
           Ellipse(extent=[-40, 40; 40, -40], style(
-              color=0, 
-              thickness=2, 
-              fillColor=7)), 
+              color=0,
+              thickness=2,
+              fillColor=7)),
           Text(
-            extent=[-34, -42; -114, -122], 
-            string="K", 
-            style(color=0, thickness=4)), 
+            extent=[-34, -42; -114, -122],
+            string="K",
+            style(color=0, thickness=4)),
           Text(
-            extent=[110, -39; 30, -119], 
-            string="°C", 
-            style(color=0)), 
-          Line(points=[-40, 0; -100, 0]), 
-          Line(points=[40, 0; 100, 0])), 
+            extent=[110, -39; 30, -119],
+            string="°C",
+            style(color=0)),
+          Line(points=[-40, 0; -100, 0]),
+          Line(points=[40, 0; 100, 0])),
         Diagram(
           Ellipse(extent=[-40, 40; 40, -40], style(
-              color=0, 
-              thickness=2, 
-              fillColor=7)), 
+              color=0,
+              thickness=2,
+              fillColor=7)),
           Text(
-            extent=[-42, -41; -101, -98], 
-            string="K", 
-            style(color=0, thickness=4)), 
+            extent=[-42, -41; -101, -98],
+            string="K",
+            style(color=0, thickness=4)),
           Text(
-            extent=[100, -40; 30, -100], 
-            string="°C", 
-            style(color=0)), 
-          Line(points=[-100, 0; -40, 0]), 
-          Line(points=[40, 0; 100, 0])), 
+            extent=[100, -40; 30, -100],
+            string="°C",
+            style(color=0)),
+          Line(points=[-100, 0; -40, 0]),
+          Line(points=[40, 0; 100, 0])),
         Documentation(info="<HTML>
 <p>
 This component converts all input signals from Kelvin to Celsius
@@ -1508,9 +1493,9 @@ and provides them as output signals.
 </p>
 </HTML>
 "));
-      Modelica.Blocks.Interfaces.InPort Kelvin(final n=n) annotation (extent=[-
+      Modelica.Blocks.Interfaces.InPort Kelvin(final n=n) annotation( extent=[-
             140, -20; -100, 20]);
-      Modelica.Blocks.Interfaces.OutPort Celsius(final n=n) annotation (extent=
+      Modelica.Blocks.Interfaces.OutPort Celsius(final n=n) annotation( extent=
             [100, -10; 120, 10]);
     equation 
       Celsius.signal = to_degC(Kelvin.signal);
@@ -1519,50 +1504,49 @@ and provides them as output signals.
     model FixedTemperature 
       "Fixed temperature boundary condition in degree Celsius" 
       parameter NonSI.Temperature_degC T "Fixed Temperature at the port";
-      annotation (
+      annotation(
         Icon(
-          Text(extent=[-118, 165; 122, 105], string="%name"), 
+          Text(extent=[-118, 165; 122, 105], string="%name"),
           Rectangle(extent=[-100, 100; 100, -100], style(
-              color=0, 
-              pattern=0, 
-              fillColor=76, 
-              fillPattern=8)), 
+              color=0,
+              pattern=0,
+              fillColor=76,
+              fillPattern=8)),
           Text(
-            extent=[0, 0; -100, -100], 
-            string="°C", 
-            style(color=0)), 
-          Line(points=[-91, 0; 66, 0], style(color=42, thickness=2)), 
+            extent=[0, 0; -100, -100],
+            string="°C",
+            style(color=0)),
+          Line(points=[-91, 0; 66, 0], style(color=42, thickness=2)),
           Polygon(points=[62, -20; 62, 20; 100, 0; 62, -20], style(
-              color=42, 
-              fillColor=42, 
-              fillPattern=1)), 
+              color=42,
+              fillColor=42,
+              fillPattern=1)),
           Text(
-            extent=[-145, -102; 135, -151], 
-            string="T=%T", 
-            style(color=0))), 
+            extent=[-145, -102; 135, -151],
+            string="T=%T",
+            style(color=0))),
         Documentation(info="<HTML>
 <p>
 This model defines a fixed temperature T at its port in [degC],
 i.e., it defines a fixed temperature as a boundary condition.
 </p>
 </HTML>
-"), 
-        Diagram(
+"),     Diagram(
           Rectangle(extent=[-100, 100; 101, -100], style(
-              color=0, 
-              pattern=0, 
-              fillColor=76, 
-              fillPattern=8)), 
-          Line(points=[-42, 0; 66, 0], style(color=42, thickness=2)), 
+              color=0,
+              pattern=0,
+              fillColor=76,
+              fillPattern=8)),
+          Line(points=[-42, 0; 66, 0], style(color=42, thickness=2)),
           Text(
-            extent=[0, 0; -100, -100], 
-            string="°C", 
-            style(color=0)), 
+            extent=[0, 0; -100, -100],
+            string="°C",
+            style(color=0)),
           Polygon(points=[62, -20; 62, 20; 100, 0; 62, -20], style(
-              color=42, 
-              fillColor=42, 
+              color=42,
+              fillColor=42,
               fillPattern=1))));
-      Interfaces.HeatPort_b port annotation (extent=[100, -10; 120, 10]);
+      Interfaces.HeatPort_b port annotation( extent=[100, -10; 120, 10]);
     equation 
       port.T = from_degC(T);
     end FixedTemperature;
@@ -1570,28 +1554,28 @@ i.e., it defines a fixed temperature as a boundary condition.
     model PrescribedTemperature 
       "Variable temperature boundary condition in °Celsius" 
       
-      annotation (
+      annotation(
         Icon(
           Rectangle(extent=[-100, 100; 100, -100], style(
-              color=0, 
-              pattern=0, 
-              fillColor=76, 
-              fillPattern=8)), 
-          Line(points=[-102, 0; 64, 0], style(color=42, thickness=2)), 
+              color=0,
+              pattern=0,
+              fillColor=76,
+              fillPattern=8)),
+          Line(points=[-102, 0; 64, 0], style(color=42, thickness=2)),
           Polygon(points=[62, -20; 62, 20; 92, 0; 62, -20], style(
-              color=42, 
-              fillColor=42, 
-              fillPattern=1)), 
+              color=42,
+              fillColor=42,
+              fillPattern=1)),
           Text(
-            extent=[0, 0; -100, -100], 
-            string="°C", 
-            style(color=0)), 
-          Text(extent=[-122, 163; 118, 103], string="%name"), 
-          Line(points=[-102, 0; 64, 0], style(color=42, thickness=2)), 
+            extent=[0, 0; -100, -100],
+            string="°C",
+            style(color=0)),
+          Text(extent=[-122, 163; 118, 103], string="%name"),
+          Line(points=[-102, 0; 64, 0], style(color=42, thickness=2)),
           Polygon(points=[62, -20; 62, 20; 100, 0; 62, -20], style(
-              color=42, 
-              fillColor=42, 
-              fillPattern=1))), 
+              color=42,
+              fillColor=42,
+              fillPattern=1))),
         Documentation(info="<HTML>
 <p>
 This model represents a variable temperature boundary condition
@@ -1601,30 +1585,29 @@ an infinite reservoir able to absorb or generate as much energy
 as required to keep the temperature at the specified value.
 </p>
 </HTML>
-"), 
-        Diagram(
+"),     Diagram(
           Rectangle(extent=[-100, 100; 100, -100], style(
-              color=0, 
-              pattern=0, 
-              fillColor=76, 
-              fillPattern=8)), 
-          Line(points=[-102, 0; 64, 0], style(color=42, thickness=2)), 
+              color=0,
+              pattern=0,
+              fillColor=76,
+              fillPattern=8)),
+          Line(points=[-102, 0; 64, 0], style(color=42, thickness=2)),
           Text(
-            extent=[0, 0; -100, -100], 
-            string="°C", 
-            style(color=0)), 
+            extent=[0, 0; -100, -100],
+            string="°C",
+            style(color=0)),
           Polygon(points=[62, -20; 62, 20; 100, 0; 62, -20], style(
-              color=42, 
-              fillColor=42, 
+              color=42,
+              fillColor=42,
               fillPattern=1))));
-      Interfaces.HeatPort_b port annotation (extent=[100, -10; 120, 10]);
-      Modelica.Blocks.Interfaces.InPort T(final n=1) annotation (extent=[-140, 
+      Interfaces.HeatPort_b port annotation( extent=[100, -10; 120, 10]);
+      Modelica.Blocks.Interfaces.InPort T(final n=1) annotation( extent=[-140,
             -20; -100, 20]);
     equation 
       port.T = from_degC(T.signal[1]);
     end PrescribedTemperature;
     
-    annotation (Documentation(info="<HTML>
+    annotation( Documentation(info="<HTML>
 <p>
 The components of this package are provided for the convenience of
 people working mostly with Celsius units, since all models
@@ -1648,46 +1631,46 @@ Example:
 "));
     model TemperatureSensor "Absolute temperature sensor in °Celsius" 
       
-      annotation (
+      annotation(
         Diagram(
           Ellipse(extent=[-20, -98; 20, -60], style(
-              color=0, 
-              thickness=2, 
-              fillColor=42)), 
-          Rectangle(extent=[-12, 40; 12, -68], style(color=42, fillColor=42)), 
-          Line(points=[12, 0; 90, 0]), 
-          Line(points=[-94, 0; -12, 0], style(color=42)), 
-          Polygon(points=[-12, 40; -12, 80; -10, 86; -6, 88; 0, 90; 6, 88; 10, 
-                86; 12, 80; 12, 40; -12, 40], style(color=0, thickness=2)), 
-          Line(points=[-12, 40; -12, -64], style(color=0, thickness=2)), 
-          Line(points=[12, 40; 12, -64], style(color=0, thickness=2)), 
-          Line(points=[-40, -20; -12, -20], style(color=0)), 
-          Line(points=[-40, 20; -12, 20], style(color=0)), 
-          Line(points=[-40, 60; -12, 60], style(color=0)), 
+              color=0,
+              thickness=2,
+              fillColor=42)),
+          Rectangle(extent=[-12, 40; 12, -68], style(color=42, fillColor=42)),
+          Line(points=[12, 0; 90, 0]),
+          Line(points=[-94, 0; -12, 0], style(color=42)),
+          Polygon(points=[-12, 40; -12, 80; -10, 86; -6, 88; 0, 90; 6, 88; 10,
+                86; 12, 80; 12, 40; -12, 40], style(color=0, thickness=2)),
+          Line(points=[-12, 40; -12, -64], style(color=0, thickness=2)),
+          Line(points=[12, 40; 12, -64], style(color=0, thickness=2)),
+          Line(points=[-40, -20; -12, -20], style(color=0)),
+          Line(points=[-40, 20; -12, 20], style(color=0)),
+          Line(points=[-40, 60; -12, 60], style(color=0)),
           Text(
-            extent=[102, -22; 60, -74], 
-            string="°C", 
-            style(color=0))), 
+            extent=[102, -22; 60, -74],
+            string="°C",
+            style(color=0))),
         Icon(
           Ellipse(extent=[-20, -98; 20, -60], style(
-              color=0, 
-              thickness=2, 
-              fillColor=42)), 
-          Rectangle(extent=[-12, 40; 12, -68], style(color=42, fillColor=42)), 
-          Line(points=[12, 0; 90, 0]), 
-          Line(points=[-90, 0; -12, 0], style(color=42)), 
-          Polygon(points=[-12, 40; -12, 80; -10, 86; -6, 88; 0, 90; 6, 88; 10, 
-                86; 12, 80; 12, 40; -12, 40], style(color=0, thickness=2)), 
-          Line(points=[-12, 40; -12, -64], style(color=0, thickness=2)), 
-          Line(points=[12, 40; 12, -64], style(color=0, thickness=2)), 
-          Line(points=[-40, -20; -12, -20], style(color=0)), 
-          Line(points=[-40, 20; -12, 20], style(color=0)), 
-          Line(points=[-40, 60; -12, 60], style(color=0)), 
+              color=0,
+              thickness=2,
+              fillColor=42)),
+          Rectangle(extent=[-12, 40; 12, -68], style(color=42, fillColor=42)),
+          Line(points=[12, 0; 90, 0]),
+          Line(points=[-90, 0; -12, 0], style(color=42)),
+          Polygon(points=[-12, 40; -12, 80; -10, 86; -6, 88; 0, 90; 6, 88; 10,
+                86; 12, 80; 12, 40; -12, 40], style(color=0, thickness=2)),
+          Line(points=[-12, 40; -12, -64], style(color=0, thickness=2)),
+          Line(points=[12, 40; 12, -64], style(color=0, thickness=2)),
+          Line(points=[-40, -20; -12, -20], style(color=0)),
+          Line(points=[-40, 20; -12, 20], style(color=0)),
+          Line(points=[-40, 60; -12, 60], style(color=0)),
           Text(
-            extent=[126, -20; 26, -120], 
-            string="°C", 
-            style(color=0)), 
-          Text(extent=[-132, 144; 108, 84], string="%name")), 
+            extent=[126, -20; 26, -120],
+            string="°C",
+            style(color=0)),
+          Text(extent=[-132, 144; 108, 84], string="%name")),
         Documentation(info="<HTML>
 
 <p>
@@ -1701,8 +1684,8 @@ sensor model.
 </HTML>
 "));
       Modelica.Blocks.Interfaces.OutPort T(redeclare type SignalType = 
-            NonSI.Temperature_degC) annotation (extent=[90, -10; 110, 10]);
-      Interfaces.HeatPort_a port annotation (extent=[-110, -10; -90, 10]);
+            NonSI.Temperature_degC) annotation( extent=[90, -10; 110, 10]);
+      Interfaces.HeatPort_a port annotation( extent=[-110, -10; -90, 10]);
     equation 
       T.signal[1] = to_degC(port.T);
       port.Q_dot = 0;
@@ -1715,38 +1698,38 @@ sensor model.
     
     model ToKelvin "Conversion block from °Fahrenheit to Kelvin" 
       parameter Integer n=1 "Number of inputs (= number of outputs)";
-      annotation (
+      annotation(
         Diagram(
           Ellipse(extent=[-40, 40; 40, -40], style(
-              color=0, 
-              thickness=2, 
-              fillColor=7)), 
+              color=0,
+              thickness=2,
+              fillColor=7)),
           Text(
-            extent=[-40, -50; -99, -99], 
-            string="°F", 
-            style(color=0, thickness=4)), 
+            extent=[-40, -50; -99, -99],
+            string="°F",
+            style(color=0, thickness=4)),
           Text(
-            extent=[100, -47; 44, -100], 
-            string="K", 
-            style(color=0)), 
-          Line(points=[-100, 0; -40, 0]), 
-          Line(points=[41, 0; 100, 0])), 
+            extent=[100, -47; 44, -100],
+            string="K",
+            style(color=0)),
+          Line(points=[-100, 0; -40, 0]),
+          Line(points=[41, 0; 100, 0])),
         Icon(
           Ellipse(extent=[-40, 40; 40, -40], style(
-              color=0, 
-              thickness=2, 
-              fillColor=7)), 
+              color=0,
+              thickness=2,
+              fillColor=7)),
           Text(
-            extent=[112, -40; 32, -120], 
-            string="K", 
-            style(color=0)), 
+            extent=[112, -40; 32, -120],
+            string="K",
+            style(color=0)),
           Text(
-            extent=[-31, -39; -111, -119], 
-            string="°F", 
-            style(color=0, thickness=4)), 
-          Line(points=[-41, 0; -100, 0]), 
-          Line(points=[100, 0; 40, 0]), 
-          Text(extent=[-137, 99; 132, 49], string="%name")), 
+            extent=[-31, -39; -111, -119],
+            string="°F",
+            style(color=0, thickness=4)),
+          Line(points=[-41, 0; -100, 0]),
+          Line(points=[100, 0; 40, 0]),
+          Text(extent=[-137, 99; 132, 49], string="%name")),
         Documentation(info="<HTML>
 <p>
 This component converts all input signals from degree Fahrenheit to Kelvin
@@ -1754,9 +1737,9 @@ and provides them as output signals.
 </p>
 </HTML>
 "));
-      Modelica.Blocks.Interfaces.InPort Fahrenheit(final n=n) annotation (
+      Modelica.Blocks.Interfaces.InPort Fahrenheit(final n=n) annotation(
           extent=[-140, -20; -100, 20]);
-      Modelica.Blocks.Interfaces.OutPort Kelvin(final n=n) annotation (extent=[
+      Modelica.Blocks.Interfaces.OutPort Kelvin(final n=n) annotation( extent=[
             100, -10; 120, 10]);
     equation 
       Kelvin.signal = from_degF(Fahrenheit.signal);
@@ -1764,38 +1747,38 @@ and provides them as output signals.
     
     model FromKelvin "Conversion from Kelvin to °Fahrenheit" 
       parameter Integer n=1 "Number of inputs (= number of outputs)";
-      annotation (
+      annotation(
         Icon(
-          Text(extent=[-137, 99; 132, 49], string="%name"), 
+          Text(extent=[-137, 99; 132, 49], string="%name"),
           Ellipse(extent=[-40, 40; 40, -40], style(
-              color=0, 
-              thickness=2, 
-              fillColor=7)), 
+              color=0,
+              thickness=2,
+              fillColor=7)),
           Text(
-            extent=[-34, -42; -114, -122], 
-            string="K", 
-            style(color=0, thickness=4)), 
+            extent=[-34, -42; -114, -122],
+            string="K",
+            style(color=0, thickness=4)),
           Text(
-            extent=[110, -39; 30, -119], 
-            string="°F", 
-            style(color=0)), 
-          Line(points=[-40, 0; -100, 0]), 
-          Line(points=[40, 0; 100, 0])), 
+            extent=[110, -39; 30, -119],
+            string="°F",
+            style(color=0)),
+          Line(points=[-40, 0; -100, 0]),
+          Line(points=[40, 0; 100, 0])),
         Diagram(
           Ellipse(extent=[-40, 40; 40, -40], style(
-              color=0, 
-              thickness=2, 
-              fillColor=7)), 
+              color=0,
+              thickness=2,
+              fillColor=7)),
           Text(
-            extent=[-42, -41; -101, -98], 
-            string="K", 
-            style(color=0, thickness=4)), 
+            extent=[-42, -41; -101, -98],
+            string="K",
+            style(color=0, thickness=4)),
           Text(
-            extent=[100, -40; 30, -100], 
-            string="°F", 
-            style(color=0)), 
-          Line(points=[-100, 0; -40, 0]), 
-          Line(points=[40, 0; 100, 0])), 
+            extent=[100, -40; 30, -100],
+            string="°F",
+            style(color=0)),
+          Line(points=[-100, 0; -40, 0]),
+          Line(points=[40, 0; 100, 0])),
         Documentation(info="<HTML>
 <p>
 This component converts all input signals from Kelvin to Fahrenheit
@@ -1803,9 +1786,9 @@ and provides them as output signals.
 </p>
 </HTML>
 "));
-      Modelica.Blocks.Interfaces.InPort Kelvin(final n=n) annotation (extent=[-
+      Modelica.Blocks.Interfaces.InPort Kelvin(final n=n) annotation( extent=[-
             140, -20; -100, 20]);
-      Modelica.Blocks.Interfaces.OutPort Fahrenheit(final n=n) annotation (
+      Modelica.Blocks.Interfaces.OutPort Fahrenheit(final n=n) annotation(
           extent=[100, -10; 120, 10]);
     equation 
       Fahrenheit.signal = to_degF(Kelvin.signal);
@@ -1814,50 +1797,49 @@ and provides them as output signals.
     model FixedTemperature 
       "Fixed temperature boundary condition in °Fahrenheit" 
       parameter NonSI.Temperature_degF T "Fixed Temperature at the port";
-      annotation (
+      annotation(
         Icon(
-          Text(extent=[-118, 165; 122, 105], string="%name"), 
+          Text(extent=[-118, 165; 122, 105], string="%name"),
           Rectangle(extent=[-100, 100; 100, -100], style(
-              color=0, 
-              pattern=0, 
-              fillColor=76, 
-              fillPattern=8)), 
+              color=0,
+              pattern=0,
+              fillColor=76,
+              fillPattern=8)),
           Text(
-            extent=[0, 0; -100, -100], 
-            string="°F", 
-            style(color=0)), 
-          Line(points=[-91, 0; 66, 0], style(color=42, thickness=2)), 
+            extent=[0, 0; -100, -100],
+            string="°F",
+            style(color=0)),
+          Line(points=[-91, 0; 66, 0], style(color=42, thickness=2)),
           Polygon(points=[62, -20; 62, 20; 100, 0; 62, -20], style(
-              color=42, 
-              fillColor=42, 
-              fillPattern=1)), 
+              color=42,
+              fillColor=42,
+              fillPattern=1)),
           Text(
-            extent=[-145, -102; 135, -151], 
-            string="T=%T", 
-            style(color=0))), 
+            extent=[-145, -102; 135, -151],
+            string="T=%T",
+            style(color=0))),
         Documentation(info="<HTML>
 <p>
 This model defines a fixed temperature T at its port in [degF],
 i.e., it defines a fixed temperature as a boundary condition.
 </p>
 </HTML>
-"), 
-        Diagram(
+"),     Diagram(
           Rectangle(extent=[-100, 100; 101, -100], style(
-              color=0, 
-              pattern=0, 
-              fillColor=76, 
-              fillPattern=8)), 
-          Line(points=[-42, 0; 66, 0], style(color=42, thickness=2)), 
+              color=0,
+              pattern=0,
+              fillColor=76,
+              fillPattern=8)),
+          Line(points=[-42, 0; 66, 0], style(color=42, thickness=2)),
           Text(
-            extent=[0, 0; -100, -100], 
-            string="°F", 
-            style(color=0)), 
+            extent=[0, 0; -100, -100],
+            string="°F",
+            style(color=0)),
           Polygon(points=[62, -20; 62, 20; 100, 0; 62, -20], style(
-              color=42, 
-              fillColor=42, 
+              color=42,
+              fillColor=42,
               fillPattern=1))));
-      Interfaces.HeatPort_b port annotation (extent=[100, -10; 120, 10]);
+      Interfaces.HeatPort_b port annotation( extent=[100, -10; 120, 10]);
     equation 
       port.T = from_degF(T);
     end FixedTemperature;
@@ -1865,28 +1847,28 @@ i.e., it defines a fixed temperature as a boundary condition.
     model PrescribedTemperature 
       "Variable temperature boundary condition in °Fahrenheit" 
       
-      annotation (
+      annotation(
         Icon(
           Rectangle(extent=[-100, 100; 100, -100], style(
-              color=0, 
-              pattern=0, 
-              fillColor=76, 
-              fillPattern=8)), 
-          Line(points=[-102, 0; 64, 0], style(color=42, thickness=2)), 
+              color=0,
+              pattern=0,
+              fillColor=76,
+              fillPattern=8)),
+          Line(points=[-102, 0; 64, 0], style(color=42, thickness=2)),
           Polygon(points=[62, -20; 62, 20; 92, 0; 62, -20], style(
-              color=42, 
-              fillColor=42, 
-              fillPattern=1)), 
+              color=42,
+              fillColor=42,
+              fillPattern=1)),
           Text(
-            extent=[0, 0; -100, -100], 
-            string="°F", 
-            style(color=0)), 
-          Text(extent=[-122, 163; 118, 103], string="%name"), 
-          Line(points=[-102, 0; 64, 0], style(color=42, thickness=2)), 
+            extent=[0, 0; -100, -100],
+            string="°F",
+            style(color=0)),
+          Text(extent=[-122, 163; 118, 103], string="%name"),
+          Line(points=[-102, 0; 64, 0], style(color=42, thickness=2)),
           Polygon(points=[62, -20; 62, 20; 100, 0; 62, -20], style(
-              color=42, 
-              fillColor=42, 
-              fillPattern=1))), 
+              color=42,
+              fillColor=42,
+              fillPattern=1))),
         Documentation(info="<HTML>
 <p>
 This model represents a variable temperature boundary condition
@@ -1896,30 +1878,29 @@ an infinite reservoir able to absorb or generate as much energy
 as required to keep the temperature at the specified value.
 </p>
 </HTML>
-"), 
-        Diagram(
+"),     Diagram(
           Rectangle(extent=[-100, 100; 100, -100], style(
-              color=0, 
-              pattern=0, 
-              fillColor=76, 
-              fillPattern=8)), 
-          Line(points=[-102, 0; 64, 0], style(color=42, thickness=2)), 
+              color=0,
+              pattern=0,
+              fillColor=76,
+              fillPattern=8)),
+          Line(points=[-102, 0; 64, 0], style(color=42, thickness=2)),
           Text(
-            extent=[0, 0; -100, -100], 
-            string="°F", 
-            style(color=0)), 
+            extent=[0, 0; -100, -100],
+            string="°F",
+            style(color=0)),
           Polygon(points=[62, -20; 62, 20; 100, 0; 62, -20], style(
-              color=42, 
-              fillColor=42, 
+              color=42,
+              fillColor=42,
               fillPattern=1))));
-      Interfaces.HeatPort_b port annotation (extent=[100, -10; 120, 10]);
-      Modelica.Blocks.Interfaces.InPort T(final n=1) annotation (extent=[-140, 
+      Interfaces.HeatPort_b port annotation( extent=[100, -10; 120, 10]);
+      Modelica.Blocks.Interfaces.InPort T(final n=1) annotation( extent=[-140,
             -20; -100, 20]);
     equation 
       port.T = from_degF(T.signal[1]);
     end PrescribedTemperature;
     
-    annotation (Documentation(info="<HTML>
+    annotation( Documentation(info="<HTML>
 <p>
 The components of this package are provided for the convenience of
 people working mostly with Fahrenheit units, since all models
@@ -1943,46 +1924,46 @@ Example:
 "));
     model TemperatureSensor "Absolute temperature sensor in °Fahrenheit" 
       
-      annotation (
+      annotation(
         Diagram(
           Ellipse(extent=[-20, -98; 20, -60], style(
-              color=0, 
-              thickness=2, 
-              fillColor=42)), 
-          Rectangle(extent=[-12, 40; 12, -68], style(color=42, fillColor=42)), 
-          Line(points=[12, 0; 90, 0]), 
-          Line(points=[-94, 0; -12, 0], style(color=42)), 
-          Polygon(points=[-12, 40; -12, 80; -10, 86; -6, 88; 0, 90; 6, 88; 10, 
-                86; 12, 80; 12, 40; -12, 40], style(color=0, thickness=2)), 
-          Line(points=[-12, 40; -12, -64], style(color=0, thickness=2)), 
-          Line(points=[12, 40; 12, -64], style(color=0, thickness=2)), 
-          Line(points=[-40, -20; -12, -20], style(color=0)), 
-          Line(points=[-40, 20; -12, 20], style(color=0)), 
-          Line(points=[-40, 60; -12, 60], style(color=0)), 
+              color=0,
+              thickness=2,
+              fillColor=42)),
+          Rectangle(extent=[-12, 40; 12, -68], style(color=42, fillColor=42)),
+          Line(points=[12, 0; 90, 0]),
+          Line(points=[-94, 0; -12, 0], style(color=42)),
+          Polygon(points=[-12, 40; -12, 80; -10, 86; -6, 88; 0, 90; 6, 88; 10,
+                86; 12, 80; 12, 40; -12, 40], style(color=0, thickness=2)),
+          Line(points=[-12, 40; -12, -64], style(color=0, thickness=2)),
+          Line(points=[12, 40; 12, -64], style(color=0, thickness=2)),
+          Line(points=[-40, -20; -12, -20], style(color=0)),
+          Line(points=[-40, 20; -12, 20], style(color=0)),
+          Line(points=[-40, 60; -12, 60], style(color=0)),
           Text(
-            extent=[102, -22; 60, -74], 
-            string="°F", 
-            style(color=0))), 
+            extent=[102, -22; 60, -74],
+            string="°F",
+            style(color=0))),
         Icon(
           Ellipse(extent=[-20, -98; 20, -60], style(
-              color=0, 
-              thickness=2, 
-              fillColor=42)), 
-          Rectangle(extent=[-12, 40; 12, -68], style(color=42, fillColor=42)), 
-          Line(points=[12, 0; 90, 0]), 
-          Line(points=[-90, 0; -12, 0], style(color=42)), 
-          Polygon(points=[-12, 40; -12, 80; -10, 86; -6, 88; 0, 90; 6, 88; 10, 
-                86; 12, 80; 12, 40; -12, 40], style(color=0, thickness=2)), 
-          Line(points=[-12, 40; -12, -64], style(color=0, thickness=2)), 
-          Line(points=[12, 40; 12, -64], style(color=0, thickness=2)), 
-          Line(points=[-40, -20; -12, -20], style(color=0)), 
-          Line(points=[-40, 20; -12, 20], style(color=0)), 
-          Line(points=[-40, 60; -12, 60], style(color=0)), 
+              color=0,
+              thickness=2,
+              fillColor=42)),
+          Rectangle(extent=[-12, 40; 12, -68], style(color=42, fillColor=42)),
+          Line(points=[12, 0; 90, 0]),
+          Line(points=[-90, 0; -12, 0], style(color=42)),
+          Polygon(points=[-12, 40; -12, 80; -10, 86; -6, 88; 0, 90; 6, 88; 10,
+                86; 12, 80; 12, 40; -12, 40], style(color=0, thickness=2)),
+          Line(points=[-12, 40; -12, -64], style(color=0, thickness=2)),
+          Line(points=[12, 40; 12, -64], style(color=0, thickness=2)),
+          Line(points=[-40, -20; -12, -20], style(color=0)),
+          Line(points=[-40, 20; -12, 20], style(color=0)),
+          Line(points=[-40, 60; -12, 60], style(color=0)),
           Text(
-            extent=[126, -20; 26, -120], 
-            string="°F", 
-            style(color=0)), 
-          Text(extent=[-132, 144; 108, 84], string="%name")), 
+            extent=[126, -20; 26, -120],
+            string="°F",
+            style(color=0)),
+          Text(extent=[-132, 144; 108, 84], string="%name")),
         Documentation(info="<HTML>
 
 <p>
@@ -1996,8 +1977,8 @@ sensor model.
 </HTML>
 "));
       Modelica.Blocks.Interfaces.OutPort T(redeclare type SignalType = 
-            NonSI.Temperature_degF) annotation (extent=[90, -10; 110, 10]);
-      Interfaces.HeatPort_a port annotation (extent=[-110, -10; -90, 10]);
+            NonSI.Temperature_degF) annotation( extent=[90, -10; 110, 10]);
+      Interfaces.HeatPort_a port annotation( extent=[-110, -10; -90, 10]);
     equation 
       T.signal[1] = to_degF(port.T);
       port.Q_dot = 0;
@@ -2010,38 +1991,38 @@ sensor model.
     
     model ToKelvin "Conversion block from °Rankine to Kelvin" 
       parameter Integer n=1 "Number of inputs (= number of outputs)";
-      annotation (
+      annotation(
         Diagram(
           Ellipse(extent=[-40, 40; 40, -40], style(
-              color=0, 
-              thickness=2, 
-              fillColor=7)), 
+              color=0,
+              thickness=2,
+              fillColor=7)),
           Text(
-            extent=[-40, -50; -99, -99], 
-            string="°Rk", 
-            style(color=0, thickness=4)), 
+            extent=[-40, -50; -99, -99],
+            string="°Rk",
+            style(color=0, thickness=4)),
           Text(
-            extent=[100, -47; 44, -100], 
-            string="K", 
-            style(color=0)), 
-          Line(points=[-100, 0; -40, 0]), 
-          Line(points=[41, 0; 100, 0])), 
+            extent=[100, -47; 44, -100],
+            string="K",
+            style(color=0)),
+          Line(points=[-100, 0; -40, 0]),
+          Line(points=[41, 0; 100, 0])),
         Icon(
           Ellipse(extent=[-40, 40; 40, -40], style(
-              color=0, 
-              thickness=2, 
-              fillColor=7)), 
+              color=0,
+              thickness=2,
+              fillColor=7)),
           Text(
-            extent=[112, -40; 32, -120], 
-            string="K", 
-            style(color=0)), 
+            extent=[112, -40; 32, -120],
+            string="K",
+            style(color=0)),
           Text(
-            extent=[-31, -39; -111, -119], 
-            string="°Rk", 
-            style(color=0, thickness=4)), 
-          Line(points=[-41, 0; -100, 0]), 
-          Line(points=[100, 0; 40, 0]), 
-          Text(extent=[-137, 99; 132, 49], string="%name")), 
+            extent=[-31, -39; -111, -119],
+            string="°Rk",
+            style(color=0, thickness=4)),
+          Line(points=[-41, 0; -100, 0]),
+          Line(points=[100, 0; 40, 0]),
+          Text(extent=[-137, 99; 132, 49], string="%name")),
         Documentation(info="<HTML>
 <p>
 This component converts all input signals from degree Rankine to Kelvin
@@ -2049,9 +2030,9 @@ and provides them as output signals.
 </p>
 </HTML>
 "));
-      Modelica.Blocks.Interfaces.InPort Rankine(final n=n) annotation (extent=[-
+      Modelica.Blocks.Interfaces.InPort Rankine(final n=n) annotation( extent=[-
             140, -20; -100, 20]);
-      Modelica.Blocks.Interfaces.OutPort Kelvin(final n=n) annotation (extent=[
+      Modelica.Blocks.Interfaces.OutPort Kelvin(final n=n) annotation( extent=[
             100, -10; 120, 10]);
     equation 
       Kelvin.signal = from_degRk(Rankine.signal);
@@ -2059,38 +2040,38 @@ and provides them as output signals.
     
     model FromKelvin "Conversion from Kelvin to °Rankine" 
       parameter Integer n=1 "Number of inputs (= number of outputs)";
-      annotation (
+      annotation(
         Icon(
-          Text(extent=[-137, 99; 132, 49], string="%name"), 
+          Text(extent=[-137, 99; 132, 49], string="%name"),
           Ellipse(extent=[-40, 40; 40, -40], style(
-              color=0, 
-              thickness=2, 
-              fillColor=7)), 
+              color=0,
+              thickness=2,
+              fillColor=7)),
           Text(
-            extent=[-34, -42; -114, -122], 
-            string="K", 
-            style(color=0, thickness=4)), 
+            extent=[-34, -42; -114, -122],
+            string="K",
+            style(color=0, thickness=4)),
           Text(
-            extent=[110, -39; 30, -119], 
-            string="°Rk", 
-            style(color=0)), 
-          Line(points=[-40, 0; -100, 0]), 
-          Line(points=[40, 0; 100, 0])), 
+            extent=[110, -39; 30, -119],
+            string="°Rk",
+            style(color=0)),
+          Line(points=[-40, 0; -100, 0]),
+          Line(points=[40, 0; 100, 0])),
         Diagram(
           Ellipse(extent=[-40, 40; 40, -40], style(
-              color=0, 
-              thickness=2, 
-              fillColor=7)), 
+              color=0,
+              thickness=2,
+              fillColor=7)),
           Text(
-            extent=[-42, -41; -101, -98], 
-            string="K", 
-            style(color=0, thickness=4)), 
+            extent=[-42, -41; -101, -98],
+            string="K",
+            style(color=0, thickness=4)),
           Text(
-            extent=[100, -40; 30, -100], 
-            string="°Rk", 
-            style(color=0)), 
-          Line(points=[-100, 0; -40, 0]), 
-          Line(points=[40, 0; 100, 0])), 
+            extent=[100, -40; 30, -100],
+            string="°Rk",
+            style(color=0)),
+          Line(points=[-100, 0; -40, 0]),
+          Line(points=[40, 0; 100, 0])),
         Documentation(info="<HTML>
 <p>
 This component converts all input signals from Kelvin to Rankine
@@ -2098,9 +2079,9 @@ and provides them as output signals.
 </p>
 </HTML>
 "));
-      Modelica.Blocks.Interfaces.InPort Kelvin(final n=n) annotation (extent=[-
+      Modelica.Blocks.Interfaces.InPort Kelvin(final n=n) annotation( extent=[-
             140, -20; -100, 20]);
-      Modelica.Blocks.Interfaces.OutPort Rankine(final n=n) annotation (extent=[
+      Modelica.Blocks.Interfaces.OutPort Rankine(final n=n) annotation( extent=[
             100, -10; 120, 10]);
     equation 
       Rankine.signal = to_degRk(Kelvin.signal);
@@ -2109,50 +2090,49 @@ and provides them as output signals.
     model FixedTemperature "Fixed temperature boundary condition in °Rankine" 
       
       parameter NonSI.Temperature_degRk T "Fixed Temperature at the port";
-      annotation (
+      annotation(
         Icon(
-          Text(extent=[-118, 165; 122, 105], string="%name"), 
+          Text(extent=[-118, 165; 122, 105], string="%name"),
           Rectangle(extent=[-100, 100; 100, -100], style(
-              color=0, 
-              pattern=0, 
-              fillColor=76, 
-              fillPattern=8)), 
+              color=0,
+              pattern=0,
+              fillColor=76,
+              fillPattern=8)),
           Text(
-            extent=[0, 0; -100, -100], 
-            string="°Rk", 
-            style(color=0)), 
-          Line(points=[-91, 0; 66, 0], style(color=42, thickness=2)), 
+            extent=[0, 0; -100, -100],
+            string="°Rk",
+            style(color=0)),
+          Line(points=[-91, 0; 66, 0], style(color=42, thickness=2)),
           Polygon(points=[62, -20; 62, 20; 100, 0; 62, -20], style(
-              color=42, 
-              fillColor=42, 
-              fillPattern=1)), 
+              color=42,
+              fillColor=42,
+              fillPattern=1)),
           Text(
-            extent=[-145, -102; 135, -151], 
-            string="T=%T", 
-            style(color=0))), 
+            extent=[-145, -102; 135, -151],
+            string="T=%T",
+            style(color=0))),
         Documentation(info="<HTML>
 <p>
 This model defines a fixed temperature T at its port in degree Rankine,
 [degRk], i.e., it defines a fixed temperature as a boundary condition.
 </p>
 </HTML>
-"), 
-        Diagram(
+"),     Diagram(
           Rectangle(extent=[-100, 100; 101, -100], style(
-              color=0, 
-              pattern=0, 
-              fillColor=76, 
-              fillPattern=8)), 
-          Line(points=[-42, 0; 66, 0], style(color=42, thickness=2)), 
+              color=0,
+              pattern=0,
+              fillColor=76,
+              fillPattern=8)),
+          Line(points=[-42, 0; 66, 0], style(color=42, thickness=2)),
           Text(
-            extent=[0, 0; -100, -100], 
-            string="°Rk", 
-            style(color=0)), 
+            extent=[0, 0; -100, -100],
+            string="°Rk",
+            style(color=0)),
           Polygon(points=[62, -20; 62, 20; 100, 0; 62, -20], style(
-              color=42, 
-              fillColor=42, 
+              color=42,
+              fillColor=42,
               fillPattern=1))));
-      Interfaces.HeatPort_b port annotation (extent=[100, -10; 120, 10]);
+      Interfaces.HeatPort_b port annotation( extent=[100, -10; 120, 10]);
     equation 
       port.T = from_degRk(T);
     end FixedTemperature;
@@ -2160,28 +2140,28 @@ This model defines a fixed temperature T at its port in degree Rankine,
     model PrescribedTemperature 
       "Variable temperature boundary condition in °Rankine" 
       
-      annotation (
+      annotation(
         Icon(
           Rectangle(extent=[-100, 100; 100, -100], style(
-              color=0, 
-              pattern=0, 
-              fillColor=76, 
-              fillPattern=8)), 
-          Line(points=[-102, 0; 64, 0], style(color=42, thickness=2)), 
+              color=0,
+              pattern=0,
+              fillColor=76,
+              fillPattern=8)),
+          Line(points=[-102, 0; 64, 0], style(color=42, thickness=2)),
           Polygon(points=[62, -20; 62, 20; 92, 0; 62, -20], style(
-              color=42, 
-              fillColor=42, 
-              fillPattern=1)), 
+              color=42,
+              fillColor=42,
+              fillPattern=1)),
           Text(
-            extent=[0, 0; -100, -100], 
-            string="°Rk", 
-            style(color=0)), 
-          Text(extent=[-122, 163; 118, 103], string="%name"), 
-          Line(points=[-102, 0; 64, 0], style(color=42, thickness=2)), 
+            extent=[0, 0; -100, -100],
+            string="°Rk",
+            style(color=0)),
+          Text(extent=[-122, 163; 118, 103], string="%name"),
+          Line(points=[-102, 0; 64, 0], style(color=42, thickness=2)),
           Polygon(points=[62, -20; 62, 20; 100, 0; 62, -20], style(
-              color=42, 
-              fillColor=42, 
-              fillPattern=1))), 
+              color=42,
+              fillColor=42,
+              fillPattern=1))),
         Documentation(info="<HTML>
 <p>
 This model represents a variable temperature boundary condition
@@ -2191,29 +2171,28 @@ an infinite reservoir able to absorb or generate as much energy
 as required to keep the temperature at the specified value.
 </p>
 </HTML>
-"), 
-        Diagram(
+"),     Diagram(
           Rectangle(extent=[-100, 100; 100, -100], style(
-              color=0, 
-              pattern=0, 
-              fillColor=76, 
-              fillPattern=8)), 
-          Line(points=[-102, 0; 64, 0], style(color=42, thickness=2)), 
+              color=0,
+              pattern=0,
+              fillColor=76,
+              fillPattern=8)),
+          Line(points=[-102, 0; 64, 0], style(color=42, thickness=2)),
           Text(
-            extent=[0, 0; -100, -100], 
-            string="°Rk", 
-            style(color=0)), 
+            extent=[0, 0; -100, -100],
+            string="°Rk",
+            style(color=0)),
           Polygon(points=[62, -20; 62, 20; 100, 0; 62, -20], style(
-              color=42, 
-              fillColor=42, 
+              color=42,
+              fillColor=42,
               fillPattern=1))));
-      Interfaces.HeatPort_b port annotation (extent=[100, -10; 120, 10]);
-      Modelica.Blocks.Interfaces.InPort T(final n=1) annotation (extent=[-140, 
+      Interfaces.HeatPort_b port annotation( extent=[100, -10; 120, 10]);
+      Modelica.Blocks.Interfaces.InPort T(final n=1) annotation( extent=[-140,
             -20; -100, 20]);
     equation 
       port.T = from_degRk(T.signal[1]);
     end PrescribedTemperature;
-    annotation (Documentation(info="<HTML>
+    annotation( Documentation(info="<HTML>
 <p>
 The components of this package are provided for the convenience of
 people working mostly with Rankine units, since all models
@@ -2237,46 +2216,46 @@ Example:
 "));
     model TemperatureSensor "Absolute temperature sensor in °Rankine" 
       
-      annotation (
+      annotation(
         Diagram(
           Ellipse(extent=[-20, -98; 20, -60], style(
-              color=0, 
-              thickness=2, 
-              fillColor=42)), 
-          Rectangle(extent=[-12, 40; 12, -68], style(color=42, fillColor=42)), 
-          Line(points=[12, 0; 90, 0]), 
-          Line(points=[-94, 0; -12, 0], style(color=42)), 
-          Polygon(points=[-12, 40; -12, 80; -10, 86; -6, 88; 0, 90; 6, 88; 10, 
-                86; 12, 80; 12, 40; -12, 40], style(color=0, thickness=2)), 
-          Line(points=[-12, 40; -12, -64], style(color=0, thickness=2)), 
-          Line(points=[12, 40; 12, -64], style(color=0, thickness=2)), 
-          Line(points=[-40, -20; -12, -20], style(color=0)), 
-          Line(points=[-40, 20; -12, 20], style(color=0)), 
-          Line(points=[-40, 60; -12, 60], style(color=0)), 
+              color=0,
+              thickness=2,
+              fillColor=42)),
+          Rectangle(extent=[-12, 40; 12, -68], style(color=42, fillColor=42)),
+          Line(points=[12, 0; 90, 0]),
+          Line(points=[-94, 0; -12, 0], style(color=42)),
+          Polygon(points=[-12, 40; -12, 80; -10, 86; -6, 88; 0, 90; 6, 88; 10,
+                86; 12, 80; 12, 40; -12, 40], style(color=0, thickness=2)),
+          Line(points=[-12, 40; -12, -64], style(color=0, thickness=2)),
+          Line(points=[12, 40; 12, -64], style(color=0, thickness=2)),
+          Line(points=[-40, -20; -12, -20], style(color=0)),
+          Line(points=[-40, 20; -12, 20], style(color=0)),
+          Line(points=[-40, 60; -12, 60], style(color=0)),
           Text(
-            extent=[102, -22; 60, -74], 
-            string="°Rk", 
-            style(color=0))), 
+            extent=[102, -22; 60, -74],
+            string="°Rk",
+            style(color=0))),
         Icon(
           Ellipse(extent=[-20, -98; 20, -60], style(
-              color=0, 
-              thickness=2, 
-              fillColor=42)), 
-          Rectangle(extent=[-12, 40; 12, -68], style(color=42, fillColor=42)), 
-          Line(points=[12, 0; 90, 0]), 
-          Line(points=[-90, 0; -12, 0], style(color=42)), 
-          Polygon(points=[-12, 40; -12, 80; -10, 86; -6, 88; 0, 90; 6, 88; 10, 
-                86; 12, 80; 12, 40; -12, 40], style(color=0, thickness=2)), 
-          Line(points=[-12, 40; -12, -64], style(color=0, thickness=2)), 
-          Line(points=[12, 40; 12, -64], style(color=0, thickness=2)), 
-          Line(points=[-40, -20; -12, -20], style(color=0)), 
-          Line(points=[-40, 20; -12, 20], style(color=0)), 
-          Line(points=[-40, 60; -12, 60], style(color=0)), 
+              color=0,
+              thickness=2,
+              fillColor=42)),
+          Rectangle(extent=[-12, 40; 12, -68], style(color=42, fillColor=42)),
+          Line(points=[12, 0; 90, 0]),
+          Line(points=[-90, 0; -12, 0], style(color=42)),
+          Polygon(points=[-12, 40; -12, 80; -10, 86; -6, 88; 0, 90; 6, 88; 10,
+                86; 12, 80; 12, 40; -12, 40], style(color=0, thickness=2)),
+          Line(points=[-12, 40; -12, -64], style(color=0, thickness=2)),
+          Line(points=[12, 40; 12, -64], style(color=0, thickness=2)),
+          Line(points=[-40, -20; -12, -20], style(color=0)),
+          Line(points=[-40, 20; -12, 20], style(color=0)),
+          Line(points=[-40, 60; -12, 60], style(color=0)),
           Text(
-            extent=[126, -20; 26, -120], 
-            string="°Rk", 
-            style(color=0)), 
-          Text(extent=[-132, 144; 108, 84], string="%name")), 
+            extent=[126, -20; 26, -120],
+            string="°Rk",
+            style(color=0)),
+          Text(extent=[-132, 144; 108, 84], string="%name")),
         Documentation(info="<HTML>
 
 <p>
@@ -2290,8 +2269,8 @@ sensor model.
 </HTML>
 "));
       Modelica.Blocks.Interfaces.OutPort T(redeclare type SignalType = 
-            NonSI.Temperature_degRk) annotation (extent=[90, -10; 110, 10]);
-      Interfaces.HeatPort_a port annotation (extent=[-110, -10; -90, 10]);
+            NonSI.Temperature_degRk) annotation( extent=[90, -10; 110, 10]);
+      Interfaces.HeatPort_a port annotation( extent=[-110, -10; -90, 10]);
     equation 
       T.signal[1] = to_degRk(port.T);
       port.Q_dot = 0;

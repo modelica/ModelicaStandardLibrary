@@ -1,6 +1,9 @@
 <HTML>
 <HEAD><META name="HTML-Generator" content="Dymola"><TITLE>Modelica</TITLE></HEAD>
 <BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE BusAdaptors<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><A NAME="Modelica.Blocks.Interfaces.BusAdaptors"></A><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces"
 >Modelica.Blocks.Interfaces</A>.BusAdaptors</H2>
 <B>Components to send signals to the bus or receive signals from the bus</B>
@@ -20,7 +23,34 @@
 <A HREF="Modelica_Blocks_Interfaces_BusAdaptors_Internal.html#Modelica.Blocks.Interfaces.BusAdaptors.Internal"
 ><IMG SRC="Modelica.Blocks.Interfaces.BusAdaptors.InternalI.png" ALT="Modelica.Blocks.Interfaces.BusAdaptors.Internal" WIDTH=80  HEIGHT=80 ></A>
 <P><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Blocks_Interfaces_BusAdaptors.html#Modelica.Blocks.Interfaces.BusAdaptors.SendReal"
+>SendReal</A>
+</TD><TD>Send Real signal to bus</TD></TR>
+<TR><TD><A HREF="Modelica_Blocks_Interfaces_BusAdaptors.html#Modelica.Blocks.Interfaces.BusAdaptors.SendBoolean"
+>SendBoolean</A>
+</TD><TD>Send Boolean signal to bus</TD></TR>
+<TR><TD><A HREF="Modelica_Blocks_Interfaces_BusAdaptors.html#Modelica.Blocks.Interfaces.BusAdaptors.SendInteger"
+>SendInteger</A>
+</TD><TD>Send Integer signal to bus</TD></TR>
+<TR><TD><A HREF="Modelica_Blocks_Interfaces_BusAdaptors.html#Modelica.Blocks.Interfaces.BusAdaptors.ReceiveReal"
+>ReceiveReal</A>
+</TD><TD>Receive Real signal from bus</TD></TR>
+<TR><TD><A HREF="Modelica_Blocks_Interfaces_BusAdaptors.html#Modelica.Blocks.Interfaces.BusAdaptors.ReceiveBoolean"
+>ReceiveBoolean</A>
+</TD><TD>Receive Boolean signal from bus</TD></TR>
+<TR><TD><A HREF="Modelica_Blocks_Interfaces_BusAdaptors.html#Modelica.Blocks.Interfaces.BusAdaptors.ReceiveInteger"
+>ReceiveInteger</A>
+</TD><TD>Receive Integer signal from bus</TD></TR>
+<TR><TD><A HREF="Modelica_Blocks_Interfaces_BusAdaptors_Internal.html#Modelica.Blocks.Interfaces.BusAdaptors.Internal"
+>Internal</A>
+</TD><TD>Internal connector definitions only to be used from models of package BusAdaptors</TD></TR>
+</TABLE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SendReal<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Blocks.Interfaces.BusAdaptors.SendRealI.png" ALT="Modelica.Blocks.Interfaces.BusAdaptors.SendReal" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Blocks.Interfaces.BusAdaptors.SendReal"></A><A HREF="Modelica_Blocks_Interfaces_BusAdaptors.html#Modelica.Blocks.Interfaces.BusAdaptors"
 >Modelica.Blocks.Interfaces.BusAdaptors</A>.SendReal</H2>
@@ -40,15 +70,19 @@ which is set equal to the signal of the InPort connector.
 <H3>Modelica definition</H3>
 <PRE>
 <font color="blue">block</font> SendReal <font color="darkgreen">&quot;Send Real signal to bus&quot;</font> 
-  <A HREF="Modelica_Blocks_Interfaces_BusAdaptors_Internal.html#Modelica.Blocks.Interfaces.BusAdaptors.Internal.InputReal"
->Internal.InputReal</A> toBus;
+  <A HREF="Modelica_Blocks_Interfaces_BusAdaptors_Internal.html#Modelica.Blocks.Interfaces.BusAdaptors.Internal.OutputReal"
+>Internal.OutputReal</A> toBus;
   <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
->InPort</A> inPort(<font color="blue">final </font>n=1);
+>InPort</A> inPort(
+                <font color="blue">final </font>n=1);
 <font color="blue">equation </font>
   toBus = inPort.signal[1];
 <font color="blue">end </font>SendReal;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SendBoolean<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Blocks.Interfaces.BusAdaptors.SendBooleanI.png" ALT="Modelica.Blocks.Interfaces.BusAdaptors.SendBoolean" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Blocks.Interfaces.BusAdaptors.SendBoolean"></A><A HREF="Modelica_Blocks_Interfaces_BusAdaptors.html#Modelica.Blocks.Interfaces.BusAdaptors"
 >Modelica.Blocks.Interfaces.BusAdaptors</A>.SendBoolean</H2>
@@ -68,15 +102,19 @@ which is set equal to the signal of the BooleanInPort connector.
 <H3>Modelica definition</H3>
 <PRE>
 <font color="blue">block</font> SendBoolean <font color="darkgreen">&quot;Send Boolean signal to bus&quot;</font> 
-  <A HREF="Modelica_Blocks_Interfaces_BusAdaptors_Internal.html#Modelica.Blocks.Interfaces.BusAdaptors.Internal.InputBoolean"
->Internal.InputBoolean</A> toBus;
+  <A HREF="Modelica_Blocks_Interfaces_BusAdaptors_Internal.html#Modelica.Blocks.Interfaces.BusAdaptors.Internal.OutputBoolean"
+>Internal.OutputBoolean</A> toBus;
   <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInPort"
->BooleanInPort</A> inPort(<font color="blue">final </font>n=1);
+>BooleanInPort</A> inPort(
+                       <font color="blue">final </font>n=1);
 <font color="blue">equation </font>
   toBus = inPort.signal[1];
 <font color="blue">end </font>SendBoolean;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SendInteger<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Blocks.Interfaces.BusAdaptors.SendIntegerI.png" ALT="Modelica.Blocks.Interfaces.BusAdaptors.SendInteger" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Blocks.Interfaces.BusAdaptors.SendInteger"></A><A HREF="Modelica_Blocks_Interfaces_BusAdaptors.html#Modelica.Blocks.Interfaces.BusAdaptors"
 >Modelica.Blocks.Interfaces.BusAdaptors</A>.SendInteger</H2>
@@ -96,15 +134,19 @@ which is set equal to the signal of the IntegerInPort connector.
 <H3>Modelica definition</H3>
 <PRE>
 <font color="blue">block</font> SendInteger <font color="darkgreen">&quot;Send Integer signal to bus&quot;</font> 
-  <A HREF="Modelica_Blocks_Interfaces_BusAdaptors_Internal.html#Modelica.Blocks.Interfaces.BusAdaptors.Internal.InputInteger"
->Internal.InputInteger</A> toBus;
+  <A HREF="Modelica_Blocks_Interfaces_BusAdaptors_Internal.html#Modelica.Blocks.Interfaces.BusAdaptors.Internal.OutputInteger"
+>Internal.OutputInteger</A> toBus;
   <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.IntegerInPort"
->IntegerInPort</A> inPort(<font color="blue">final </font>n=1);
+>IntegerInPort</A> inPort(
+                       <font color="blue">final </font>n=1);
 <font color="blue">equation </font>
   toBus = inPort.signal[1];
 <font color="blue">end </font>SendInteger;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ReceiveReal<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Blocks.Interfaces.BusAdaptors.ReceiveRealI.png" ALT="Modelica.Blocks.Interfaces.BusAdaptors.ReceiveReal" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Blocks.Interfaces.BusAdaptors.ReceiveReal"></A><A HREF="Modelica_Blocks_Interfaces_BusAdaptors.html#Modelica.Blocks.Interfaces.BusAdaptors"
 >Modelica.Blocks.Interfaces.BusAdaptors</A>.ReceiveReal</H2>
@@ -124,15 +166,19 @@ which is set equal to the signal of the OutPort connector.
 <H3>Modelica definition</H3>
 <PRE>
 <font color="blue">block</font> ReceiveReal <font color="darkgreen">&quot;Receive Real signal from bus&quot;</font> 
-  <A HREF="Modelica_Blocks_Interfaces_BusAdaptors_Internal.html#Modelica.Blocks.Interfaces.BusAdaptors.Internal.OutputReal"
->Internal.OutputReal</A> fromBus;
+  <A HREF="Modelica_Blocks_Interfaces_BusAdaptors_Internal.html#Modelica.Blocks.Interfaces.BusAdaptors.Internal.InputReal"
+>Internal.InputReal</A> fromBus;
   <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.OutPort"
->OutPort</A> outPort(<font color="blue">final </font>n=1);
+>OutPort</A> outPort(
+                  <font color="blue">final </font>n=1);
 <font color="blue">equation </font>
   fromBus = outPort.signal[1];
 <font color="blue">end </font>ReceiveReal;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ReceiveBoolean<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Blocks.Interfaces.BusAdaptors.ReceiveBooleanI.png" ALT="Modelica.Blocks.Interfaces.BusAdaptors.ReceiveBoolean" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Blocks.Interfaces.BusAdaptors.ReceiveBoolean"></A><A HREF="Modelica_Blocks_Interfaces_BusAdaptors.html#Modelica.Blocks.Interfaces.BusAdaptors"
 >Modelica.Blocks.Interfaces.BusAdaptors</A>.ReceiveBoolean</H2>
@@ -152,15 +198,19 @@ which is set equal to the signal of the BooleanOutPort connector.
 <H3>Modelica definition</H3>
 <PRE>
 <font color="blue">block</font> ReceiveBoolean <font color="darkgreen">&quot;Receive Boolean signal from bus&quot;</font> 
-  <A HREF="Modelica_Blocks_Interfaces_BusAdaptors_Internal.html#Modelica.Blocks.Interfaces.BusAdaptors.Internal.OutputBoolean"
->Internal.OutputBoolean</A> fromBus;
+  <A HREF="Modelica_Blocks_Interfaces_BusAdaptors_Internal.html#Modelica.Blocks.Interfaces.BusAdaptors.Internal.InputBoolean"
+>Internal.InputBoolean</A> fromBus;
   <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanOutPort"
->BooleanOutPort</A> outPort(<font color="blue">final </font>n=1);
+>BooleanOutPort</A> outPort(
+                         <font color="blue">final </font>n=1);
 <font color="blue">equation </font>
   fromBus = outPort.signal[1];
 <font color="blue">end </font>ReceiveBoolean;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ReceiveInteger<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Blocks.Interfaces.BusAdaptors.ReceiveIntegerI.png" ALT="Modelica.Blocks.Interfaces.BusAdaptors.ReceiveInteger" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Blocks.Interfaces.BusAdaptors.ReceiveInteger"></A><A HREF="Modelica_Blocks_Interfaces_BusAdaptors.html#Modelica.Blocks.Interfaces.BusAdaptors"
 >Modelica.Blocks.Interfaces.BusAdaptors</A>.ReceiveInteger</H2>
@@ -180,16 +230,17 @@ which is set equal to the signal of the IntegerOutPort connector.
 <H3>Modelica definition</H3>
 <PRE>
 <font color="blue">block</font> ReceiveInteger <font color="darkgreen">&quot;Receive Integer signal from bus&quot;</font> 
-  <A HREF="Modelica_Blocks_Interfaces_BusAdaptors_Internal.html#Modelica.Blocks.Interfaces.BusAdaptors.Internal.OutputInteger"
->Internal.OutputInteger</A> fromBus;
+  <A HREF="Modelica_Blocks_Interfaces_BusAdaptors_Internal.html#Modelica.Blocks.Interfaces.BusAdaptors.Internal.InputInteger"
+>Internal.InputInteger</A> fromBus;
   <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.IntegerOutPort"
->IntegerOutPort</A> outPort(<font color="blue">final </font>n=1);
+>IntegerOutPort</A> outPort(
+                         <font color="blue">final </font>n=1);
 <font color="blue">equation </font>
   fromBus = outPort.signal[1];
 <font color="blue">end </font>ReceiveInteger;
 </PRE>
 <HR>
-<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Dec 11 11:13:31 2002
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Jun 30 17:43:06 2004
 .
 </address></BODY>
 </HTML>

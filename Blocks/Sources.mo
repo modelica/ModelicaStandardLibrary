@@ -1,9 +1,9 @@
-package Sources
-  "Signal source blocks generating Real, Integer and Boolean signals"
-
+package Sources 
+  "Signal source blocks generating Real, Integer and Boolean signals" 
+  
   extends Modelica.Icons.Library;
-
-  annotation (Window(
+  
+  annotation( Window(
       x=0.06,
       y=0.1,
       width=0.43,
@@ -113,19 +113,19 @@ usually requires a trimming calculation.
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>
        and <a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Christian Schweiger</a>:<br>
        Integer sources added. Step, TimeTable and BooleanStep slightly changed
-       (see <a href=\"../Documentation/ChangeNotes.html\">Change Notes</a>).</li>
+       (see <a href=\"../Documentation/ChangeNotes1.5.html\">Change Notes</a>).</li>
 
 <li><i>November 8, 1999</i>
-       by <a href=\"http://www.eas.iis.fhg.de/~clauss/\">Christoph Clau&szlig;</a>,
-       <a href=\"http://www.eas.iis.fhg.de/~schneider/\">Andr&eacute; Schneider</a> and
+       by <a href=\"http://people.eas.iis.fhg.de/Christoph.Clauss/\">Christoph Clau&szlig;</a>,
+       <a href=\"http://people.eas.iis.fhg.de/Andre.Schneider/\">Andr&eacute; Schneider</a> and
        <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
        New sources: Exponentials, TimeTable. Trapezoid slightly enhanced
        (nperiod=-1 is an infinite number of periods).</li>
 
 <li><i>October 31, 1999</i>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>,
-       <a href=\"http://www.eas.iis.fhg.de/~clauss/\">Christoph Clau&szlig;</a> and
-       <a href=\"http://www.eas.iis.fhg.de/~schneider/\">Andr&eacute; Schneider</a>:
+       <a href=\"http://people.eas.iis.fhg.de/Christoph.Clauss/\">Christoph Clau&szlig;</a> and
+       <a href=\"http://people.eas.iis.fhg.de/Andre.Schneider/\">Andr&eacute; Schneider</a>:
        All sources vectorized. New sources: ExpSine, Trapezoid,
        BooleanConstant, BooleanStep, BooleanPulse, SampleTrigger.
        Improved documentation, especially detailed description of
@@ -149,18 +149,17 @@ Modelica in file \"Modelica/package.mo\".
 </i></p>
 </HTML>
 "));
-  block Clock "Generate actual time signals "
+  block Clock "Generate actual time signals " 
     parameter Real offset[:]={0} "Offsets of output signals";
     parameter SI.Time startTime[:]={0} "Output = offset for time < startTime";
-    extends Interfaces.MO(final nout=max([size(offset, 1); size(startTime, 1)])
-      );
-  protected
+    extends Interfaces.MO(final nout=max([size(offset, 1); size(startTime, 1)]));
+  protected 
     parameter Real p_offset[nout]=(if size(offset, 1) == 1 then ones(nout)*
         offset[1] else offset);
     parameter SI.Time p_startTime[nout]=(if size(startTime, 1) == 1 then ones(
         nout)*startTime[1] else startTime);
-
-    annotation (
+    
+    annotation(
       Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
@@ -241,18 +240,18 @@ Modelica in file \"Modelica/package.mo\".
           extent=[14, 13; 32, 1],
           string="1",
           style(color=9))));
-  equation
+  equation 
     for i in 1:nout loop
-      outPort.signal[i] = p_offset[i] + (if time < p_startTime[i] then 0 else
+      outPort.signal[i] = p_offset[i] + (if time < p_startTime[i] then 0 else 
         time - p_startTime[i]);
     end for;
   end Clock;
-
-  block Constant "Generate constant signals of type Real"
+  
+  block Constant "Generate constant signals of type Real" 
     parameter Real k[:]={1} "Constant output values";
     extends Interfaces.MO(final nout=size(k, 1));
-
-    annotation (
+    
+    annotation(
       Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[2, 2],
@@ -294,22 +293,22 @@ Modelica in file \"Modelica/package.mo\".
           extent=[-101, 8; -81, -12],
           string="k",
           style(color=9))));
-  equation
+  equation 
     outPort.signal = k;
   end Constant;
-
-  block Step "Generate step signals of type Real"
+  
+  block Step "Generate step signals of type Real" 
     parameter Real height[:]={1} "Heights of steps";
     extends Interfaces.SignalSource(final nout=max([size(height, 1); size(
           offset, 1); size(startTime, 1)]));
-  protected
+  protected 
     parameter Real p_height[nout]=(if size(height, 1) == 1 then ones(nout)*
         height[1] else height);
     parameter Real p_offset[nout]=(if size(offset, 1) == 1 then ones(nout)*
         offset[1] else offset);
     parameter SI.Time p_startTime[nout]=(if size(startTime, 1) == 1 then ones(
         nout)*startTime[1] else startTime);
-    annotation (Icon(
+    annotation( Icon(
         Line(points=[-80, 68; -80, -80], style(color=8)),
         Polygon(points=[-80, 90; -88, 68; -72, 68; -80, 90], style(color=8,
               fillColor=8)),
@@ -324,8 +323,8 @@ Modelica in file \"Modelica/package.mo\".
         Polygon(points=[-80, 90; -88, 68; -72, 68; -80, 90], style(color=8,
               fillColor=8)),
         Line(points=[-80, 68; -80, -80], style(color=8)),
-        Line(points=[-80, -18; 0, -18; 0, 50; 80, 50], style(color=0, thickness
-              =2)),
+        Line(points=[-80, -18; 0, -18; 0, 50; 80, 50], style(color=0, thickness=
+               2)),
         Line(points=[-90, -70; 82, -70], style(color=8)),
         Polygon(points=[90, -70; 68, -62; 68, -78; 90, -70], style(color=8,
               fillColor=8)),
@@ -378,21 +377,22 @@ Modelica in file \"Modelica/package.mo\".
           extent=[-72, 100; -31, 80],
           string="outPort",
           style(color=9))));
-  equation
+  equation 
     for i in 1:nout loop
-      outPort.signal[i] = p_offset[i] + (if time < p_startTime[i] then 0 else
+      outPort.signal[i] = p_offset[i] + (if time < p_startTime[i] then 0 else 
         p_height[i]);
     end for;
   end Step;
-
-  block Ramp "Generate ramp signals"
+  
+  block Ramp "Generate ramp signals" 
     parameter Real height[:]={1} "Heights of ramps";
-    parameter Real duration[:](min=Modelica.Constants.small) = {2} "Durations of ramps";
+    parameter Real duration[:](min=Modelica.Constants.small)=  {2} 
+      "Durations of ramps";
     parameter Real offset[:]={0} "Offsets of output signals";
     parameter SI.Time startTime[:]={0} "Output = offset for time < startTime";
     extends Interfaces.MO(final nout=max([size(height, 1); size(duration, 1);
           size(offset, 1); size(startTime, 1)]));
-  protected
+  protected 
     parameter Real p_height[nout]=(if size(height, 1) == 1 then ones(nout)*
         height[1] else height);
     parameter Real p_duration[nout]=(if size(duration, 1) == 1 then ones(nout)*
@@ -401,8 +401,8 @@ Modelica in file \"Modelica/package.mo\".
         offset[1] else offset);
     parameter SI.Time p_startTime[nout]=(if size(startTime, 1) == 1 then ones(
         nout)*startTime[1] else startTime);
-
-    annotation (
+    
+    annotation(
       Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
@@ -431,8 +431,7 @@ Modelica in file \"Modelica/package.mo\".
         Polygon(points=[-80, 90; -88, 68; -72, 68; -80, 90], style(color=8,
               fillColor=8)),
         Line(points=[-80, 68; -80, -80], style(color=8)),
-        Line(points=[-80, -20; -20, -20; 50, 50], style(color=0, thickness=2))
-          ,
+        Line(points=[-80, -20; -20, -20; 50, 50], style(color=0, thickness=2)),
         Line(points=[-90, -70; 82, -70], style(color=8)),
         Polygon(points=[90, -70; 68, -62; 68, -78; 90, -70], style(
             color=8,
@@ -504,15 +503,15 @@ Modelica in file \"Modelica/package.mo\".
           extent=[0, -17; 35, -37],
           string="duration",
           style(color=9))));
-  equation
+  equation 
     for i in 1:nout loop
-      outPort.signal[i] = p_offset[i] + (if time < p_startTime[i] then 0 else
+      outPort.signal[i] = p_offset[i] + (if time < p_startTime[i] then 0 else 
         if time < (p_startTime[i] + p_duration[i]) then (time - p_startTime[i])
         *p_height[i]/p_duration[i] else p_height[i]);
     end for;
   end Ramp;
-
-  block Sine "Generate sine signals"
+  
+  block Sine "Generate sine signals" 
     parameter Real amplitude[:]={1} "Amplitudes of sine waves";
     parameter SI.Frequency freqHz[:]={1} "Frequencies of sine waves";
     parameter SI.Angle phase[:]={0} "Phases of sine waves";
@@ -520,10 +519,10 @@ Modelica in file \"Modelica/package.mo\".
     parameter SI.Time startTime[:]={0} "Output = offset for time < startTime";
     extends Interfaces.MO(final nout=max([size(amplitude, 1); size(freqHz, 1);
           size(phase, 1); size(offset, 1); size(startTime, 1)]));
-  protected
+  protected 
     constant Real pi=Modelica.Constants.pi;
-    parameter Real p_amplitude[nout]=(if size(amplitude, 1) == 1 then ones(nout
-        )*amplitude[1] else amplitude);
+    parameter Real p_amplitude[nout]=(if size(amplitude, 1) == 1 then ones(nout)
+         *amplitude[1] else amplitude);
     parameter Real p_freqHz[nout]=(if size(freqHz, 1) == 1 then ones(nout)*
         freqHz[1] else freqHz);
     parameter Real p_phase[nout]=(if size(phase, 1) == 1 then ones(nout)*phase[
@@ -532,7 +531,7 @@ Modelica in file \"Modelica/package.mo\".
         offset[1] else offset);
     parameter SI.Time p_startTime[nout]=(if size(startTime, 1) == 1 then ones(
         nout)*startTime[1] else startTime);
-    annotation (
+    annotation(
       Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
@@ -549,10 +548,10 @@ Modelica in file \"Modelica/package.mo\".
         Line(points=[-90, 0; 68, 0], style(color=8)),
         Polygon(points=[90, 0; 68, 8; 68, -8; 90, 0], style(color=8, fillColor=
                 8)),
-        Line(points=[-80, 0; -68.7, 34.2; -61.5, 53.1; -55.1, 66.4; -49.4, 74.6
-              ; -43.8, 79.1; -38.2, 79.8; -32.6, 76.6; -26.9, 69.7; -21.3, 59.4
-              ; -14.9, 44.1; -6.83, 21.2; 10.1, -30.8; 17.3, -50.2; 23.7, -64.2
-              ; 29.3, -73.1; 35, -78.4; 40.6, -80; 46.2, -77.6; 51.9, -71.5;
+        Line(points=[-80, 0; -68.7, 34.2; -61.5, 53.1; -55.1, 66.4; -49.4, 74.6;
+                -43.8, 79.1; -38.2, 79.8; -32.6, 76.6; -26.9, 69.7; -21.3, 59.4;
+                -14.9, 44.1; -6.83, 21.2; 10.1, -30.8; 17.3, -50.2; 23.7, -64.2;
+                29.3, -73.1; 35, -78.4; 40.6, -80; 46.2, -77.6; 51.9, -71.5;
               57.5, -61.9; 63.9, -47.2; 72, -24.8; 80, 0], style(color=0)),
         Text(
           extent=[-147, -152; 153, -112],
@@ -565,12 +564,11 @@ Modelica in file \"Modelica/package.mo\".
         Line(points=[-99, -40; 85, -40], style(color=8)),
         Polygon(points=[101, -40; 85, -34; 85, -46; 101, -40], style(color=8,
               fillColor=8)),
-        Line(points=[-40, 0; -31.6, 34.2; -26.1, 53.1; -21.3, 66.4; -17.1, 74.6
-              ; -12.9, 79.1; -8.64, 79.8; -4.42, 76.6; -0.201, 69.7; 4.02, 59.4
-              ; 8.84, 44.1; 14.9, 21.2; 27.5, -30.8; 33, -50.2; 37.8, -64.2; 42
-              , -73.1; 46.2, -78.4; 50.5, -80; 54.7, -77.6; 58.9, -71.5; 63.1,
-              -61.9; 67.9, -47.2; 74, -24.8; 80, 0], style(color=0, thickness=2
-            )),
+        Line(points=[-40, 0; -31.6, 34.2; -26.1, 53.1; -21.3, 66.4; -17.1, 74.6;
+                -12.9, 79.1; -8.64, 79.8; -4.42, 76.6; -0.201, 69.7; 4.02, 59.4;
+                8.84, 44.1; 14.9, 21.2; 27.5, -30.8; 33, -50.2; 37.8, -64.2; 42,
+                -73.1; 46.2, -78.4; 50.5, -80; 54.7, -77.6; 58.9, -71.5; 63.1,
+              -61.9; 67.9, -47.2; 74, -24.8; 80, 0], style(color=0, thickness=2)),
         Line(points=[-41, -2; -80, -2], style(color=0, thickness=2)),
         Text(
           extent=[-128, 7; -82, -11],
@@ -608,15 +606,15 @@ Modelica in file \"Modelica/package.mo\".
             pattern=1,
             thickness=1,
             arrow=0))));
-  equation
+  equation 
     for i in 1:nout loop
-      outPort.signal[i] = p_offset[i] + (if time < p_startTime[i] then 0 else
+      outPort.signal[i] = p_offset[i] + (if time < p_startTime[i] then 0 else 
         p_amplitude[i]*Modelica.Math.sin(2*pi*p_freqHz[i]*(time - p_startTime[i]) +
         p_phase[i]));
     end for;
   end Sine;
-
-  block ExpSine "Generate exponentially damped sine signals"
+  
+  block ExpSine "Generate exponentially damped sine signals" 
     parameter Real amplitude[:]={1} "Amplitudes of sine waves";
     parameter SI.Frequency freqHz[:]={2} "Frequencies of sine waves";
     parameter SI.Angle phase[:]={0} "Phases of sine waves";
@@ -624,12 +622,11 @@ Modelica in file \"Modelica/package.mo\".
     parameter Real offset[:]={0} "Offsets of output signals";
     parameter SI.Time startTime[:]={0} "Output = offset for time < startTime";
     extends Interfaces.MO(final nout=max([size(amplitude, 1); size(freqHz, 1);
-          size(phase, 1); size(damping, 1); size(offset, 1); size(startTime, 1)
-          ]));
-  protected
+          size(phase, 1); size(damping, 1); size(offset, 1); size(startTime, 1)]));
+  protected 
     constant Real pi=Modelica.Constants.pi;
-    parameter Real p_amplitude[nout]=(if size(amplitude, 1) == 1 then ones(nout
-        )*amplitude[1] else amplitude);
+    parameter Real p_amplitude[nout]=(if size(amplitude, 1) == 1 then ones(nout)
+         *amplitude[1] else amplitude);
     parameter Real p_freqHz[nout]=(if size(freqHz, 1) == 1 then ones(nout)*
         freqHz[1] else freqHz);
     parameter Real p_phase[nout]=(if size(phase, 1) == 1 then ones(nout)*phase[
@@ -640,7 +637,7 @@ Modelica in file \"Modelica/package.mo\".
         offset[1] else offset);
     parameter SI.Time p_startTime[nout]=(if size(startTime, 1) == 1 then ones(
         nout)*startTime[1] else startTime);
-    annotation (
+    annotation(
       Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
@@ -677,8 +674,8 @@ Modelica in file \"Modelica/package.mo\".
               fillColor=8)),
         Line(points=[-50, 0; -46.1, 28.2; -43.5, 44; -40.9, 56.4; -38.2, 64.9;
               -35.6, 69.4; -33, 69.6; -30.4, 65.9; -27.8, 58.7; -24.5, 45.7; -
-              19.9, 22.5; -13.4, -12.2; -9.5, -29.5; -6.23, -40.1; -2.96, -46.5
-              ; 0.302, -48.4; 3.57, -45.9; 6.83, -39.6; 10.8, -28.1; 21.9, 12;
+              19.9, 22.5; -13.4, -12.2; -9.5, -29.5; -6.23, -40.1; -2.96, -46.5;
+                0.302, -48.4; 3.57, -45.9; 6.83, -39.6; 10.8, -28.1; 21.9, 12;
               25.8, 23.1; 29.7, 30.5; 33, 33.3; 36.9, 32.5; 40.8, 27.8; 46,
               16.9; 56.5, -9.2; 61.7, -18.6; 66.3, -22.7; 70.9, -22.6; 76.1, -
               18; 80, -12.1], style(color=0, thickness=2)),
@@ -731,41 +728,41 @@ Modelica in file \"Modelica/package.mo\".
         Line(points=[-50, 0; -50, -40], style(color=8, pattern=2)),
         Line(points=[-50, -54; -50, -72], style(color=8, pattern=2)),
         Line(points=[-15, -77; -1, -48], style(color=8, pattern=2))));
-  equation
+  equation 
     for i in 1:nout loop
-      outPort.signal[i] = p_offset[i] + (if time < p_startTime[i] then 0 else
-        p_amplitude[i]*Modelica.Math.exp(-(time - p_startTime[i])*p_damping[i])*Modelica.Math.sin
-        (2*pi*p_freqHz[i]*(time - p_startTime[i]) + p_phase[i]));
+      outPort.signal[i] = p_offset[i] + (if time < p_startTime[i] then 0 else 
+        p_amplitude[i]*Modelica.Math.exp(-(time - p_startTime[i])*p_damping[i])*Modelica.Math.sin(
+         2*pi*p_freqHz[i]*(time - p_startTime[i]) + p_phase[i]));
     end for;
   end ExpSine;
-
-  block Exponentials "Generate a rising and falling exponential signal"
+  
+  block Exponentials "Generate a rising and falling exponential signal" 
     parameter Real outMax[:]={1} "Height of output for infinite riseTime";
-    parameter SI.Time riseTime[:](min=0) = {0.5} "Rise time";
-    parameter SI.Time riseTimeConst[:](min=Modelica.Constants.small) = {0.1}
+    parameter SI.Time riseTime[:](min=0)=  {0.5} "Rise time";
+    parameter SI.Time riseTimeConst[:](min=Modelica.Constants.small)=  {0.1} 
       "Rise time constant";
-    parameter SI.Time fallTimeConst[:](min=Modelica.Constants.small) = riseTimeConst
+    parameter SI.Time fallTimeConst[:](min=Modelica.Constants.small)=  riseTimeConst 
       "Fall time constant";
     parameter Real offset[:]={0} "Offsets of output signals";
     parameter SI.Time startTime[:]={0} "Output = offset for time < startTime";
     extends Interfaces.MO(final nout=max([size(outMax, 1); size(riseTime, 1);
-          size(riseTimeConst, 1); size(fallTimeConst, 1); size(offset, 1); size
-          (startTime, 1)]));
-  protected
+          size(riseTimeConst, 1); size(fallTimeConst, 1); size(offset, 1); size(
+           startTime, 1)]));
+  protected 
     parameter Real p_outMax[nout]=(if size(outMax, 1) == 1 then ones(nout)*
         outMax[1] else outMax);
     parameter SI.Time p_riseTime[nout]=(if size(riseTime, 1) == 1 then ones(
         nout)*riseTime[1] else riseTime);
-    parameter SI.Time p_riseTimeConst[nout]=(if size(riseTimeConst, 1) == 1
-         then ones(nout)*riseTimeConst[1] else riseTimeConst);
-    parameter SI.Time p_fallTimeConst[nout]=(if size(fallTimeConst, 1) == 1
-         then ones(nout)*fallTimeConst[1] else fallTimeConst);
+    parameter SI.Time p_riseTimeConst[nout]=(if size(riseTimeConst, 1) == 1 then 
+              ones(nout)*riseTimeConst[1] else riseTimeConst);
+    parameter SI.Time p_fallTimeConst[nout]=(if size(fallTimeConst, 1) == 1 then 
+              ones(nout)*fallTimeConst[1] else fallTimeConst);
     parameter Real p_offset[nout]=(if size(offset, 1) == 1 then ones(nout)*
         offset[1] else offset);
     parameter SI.Time p_startTime[nout]=(if size(startTime, 1) == 1 then ones(
         nout)*startTime[1] else startTime);
     Real y_riseTime[nout];
-    annotation (
+    annotation(
       Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
@@ -779,13 +776,12 @@ Modelica in file \"Modelica/package.mo\".
         Line(points=[-90, -70; 68, -70], style(color=8)),
         Polygon(points=[90, -70; 68, -62; 68, -78; 90, -70], style(color=8,
               fillColor=8)),
-        Line(points=[-80, -70; -77.2, -55.3; -74.3, -42.1; -70.8, -27.6; -67.3
-              , -15; -63.7, -4.08; -59.5, 7.18; -55.3, 16.7; -50.3, 26; -44.6,
-              34.5; -38.3, 42.1; -31.2, 48.6; -22.7, 54.3; -12.1, 59.2; -10, 60
-              ; -7.88, 47.5; -5.05, 32.7; -2.22, 19.8; 0.606, 8.45; 4.14, -3.7
-              ; 7.68, -14; 11.9, -24.2; 16.2, -32.6; 21.1, -40.5; 26.8, -47.4;
-              33.1, -53.3; 40.9, -58.5; 50.8, -62.8; 60, -65.4], style(color=0)
-          ),
+        Line(points=[-80, -70; -77.2, -55.3; -74.3, -42.1; -70.8, -27.6; -67.3,
+                -15; -63.7, -4.08; -59.5, 7.18; -55.3, 16.7; -50.3, 26; -44.6,
+              34.5; -38.3, 42.1; -31.2, 48.6; -22.7, 54.3; -12.1, 59.2; -10, 60;
+                -7.88, 47.5; -5.05, 32.7; -2.22, 19.8; 0.606, 8.45; 4.14, -3.7;
+                7.68, -14; 11.9, -24.2; 16.2, -32.6; 21.1, -40.5; 26.8, -47.4;
+              33.1, -53.3; 40.9, -58.5; 50.8, -62.8; 60, -65.4], style(color=0)),
         Polygon(points=[-80, 90; -88, 68; -72, 68; -80, 90], style(color=8,
               fillColor=8)),
         Line(points=[-80, 68; -80, -80], style(color=8)),
@@ -800,9 +796,9 @@ Modelica in file \"Modelica/package.mo\".
         Line(points=[-40, -30; -37.2, -15.3; -34.3, -2.1; -30.8, 12.4; -27.3,
               25; -23.7, 35.92; -19.5, 47.18; -15.3, 56.7; -10.3, 66; -4.6,
               74.5; 1.7, 82.1; 8.8, 88.6; 17.3, 94.3; 27.9, 99.2; 30, 100;
-              32.12, 87.5; 34.95, 72.7; 37.78, 59.8; 40.606, 48.45; 44.14, 36.3
-              ; 47.68, 26; 51.9, 15.8; 56.2, 7.4; 61.1, -0.5; 66.8, -7.4; 73.1
-              , -13.3; 80.9, -18.5; 90.8, -22.8; 100, -25.4], style(color=0,
+              32.12, 87.5; 34.95, 72.7; 37.78, 59.8; 40.606, 48.45; 44.14, 36.3;
+                47.68, 26; 51.9, 15.8; 56.2, 7.4; 61.1, -0.5; 66.8, -7.4; 73.1,
+                -13.3; 80.9, -18.5; 90.8, -22.8; 100, -25.4], style(color=0,
               thickness=2)),
         Polygon(points=[-80, 90; -88, 68; -72, 68; -80, 90], style(color=8,
               fillColor=8)),
@@ -856,43 +852,42 @@ Modelica in file \"Modelica/package.mo\".
           string="time",
           style(color=9)),
         Line(points=[30, 100; 30, -34], style(color=8, pattern=2))));
-  equation
+  equation 
     for i in 1:nout loop
       y_riseTime[i] = p_outMax[i]*(1 - Modelica.Math.exp(-p_riseTime[i]/p_riseTimeConst[
         i]));
-      outPort.signal[i] = p_offset[i] + (if (time < p_startTime[i]) then 0
-         else if (time < (p_startTime[i] + p_riseTime[i])) then p_outMax[i]*(1
+      outPort.signal[i] = p_offset[i] + (if (time < p_startTime[i]) then 0 else 
+              if (time < (p_startTime[i] + p_riseTime[i])) then p_outMax[i]*(1
          - Modelica.Math.exp(-(time - p_startTime[i])/p_riseTimeConst[i])) else y_riseTime[i]
-        *Modelica.Math.exp(-(time - p_startTime[i] - p_riseTime[i])/p_fallTimeConst[i]))
-        ;
+        *Modelica.Math.exp(-(time - p_startTime[i] - p_riseTime[i])/p_fallTimeConst[i]));
     end for;
-
+    
   end Exponentials;
-
-  block Pulse "Generate pulse signals of type Real"
+  
+  block Pulse "Generate pulse signals of type Real" 
     parameter Real amplitude[:]={1} "Amplitudes of pulses";
     parameter Real width[:](
       final min=Modelica.Constants.small,
-      final max=100) = {50} "Widths of pulses in % of periods";
-    parameter SI.Time period[:](final min=Modelica.Constants.small) = {1}
+      final max=100)=  {50} "Widths of pulses in % of periods";
+    parameter SI.Time period[:](final min=Modelica.Constants.small)=  {1} 
       "Times for one period";
     parameter Real offset[:]={0} "Offsets of output signals";
     parameter SI.Time startTime[:]={0} "Output = offset for time < startTime";
     extends Interfaces.MO(final nout=max([size(amplitude, 1); size(width, 1);
           size(period, 1); size(offset, 1); size(startTime, 1)]));
-  protected
-    parameter Real p_amplitude[nout]=(if size(amplitude, 1) == 1 then ones(nout
-        )*amplitude[1] else amplitude);
+  protected 
+    parameter Real p_amplitude[nout]=(if size(amplitude, 1) == 1 then ones(nout)
+         *amplitude[1] else amplitude);
     parameter SI.Time p_period[nout]=(if size(period, 1) == 1 then ones(nout)*
         period[1] else period);
-    parameter SI.Time p_width[nout]=diagonal(p_period)*(if size(width, 1) == 1
-         then ones(nout)*width[1] else width)/100 "Width of one pulse";
+    parameter SI.Time p_width[nout]=diagonal(p_period)*(if size(width, 1) == 1 then 
+              ones(nout)*width[1] else width)/100 "Width of one pulse";
     parameter Real p_offset[nout]=(if size(offset, 1) == 1 then ones(nout)*
         offset[1] else offset);
     parameter SI.Time p_startTime[nout]=(if size(startTime, 1) == 1 then ones(
         nout)*startTime[1] else startTime);
     SI.Time T0[nout](final start=p_startTime) "Start time of current period";
-    annotation (
+    annotation(
       Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
@@ -957,8 +952,8 @@ Modelica in file \"Modelica/package.mo\".
           string="time",
           style(color=9)),
         Line(points=[-10, 0; -10, -70], style(color=8, pattern=2)),
-        Line(points=[-80, 0; -10, 0; -10, 50; 30, 50; 30, 0; 50, 0; 50, 50; 90
-              , 50], style(color=0, thickness=2)),
+        Line(points=[-80, 0; -10, 0; -10, 50; 30, 50; 30, 0; 50, 0; 50, 50; 90,
+                50], style(color=0, thickness=2)),
         Line(points=[-10, 88; -10, 49], style(color=8, pattern=2)),
         Line(points=[30, 74; 30, 50], style(color=9, pattern=2)),
         Line(points=[50, 88; 50, 50], style(color=8, pattern=2)),
@@ -1007,7 +1002,7 @@ Modelica in file \"Modelica/package.mo\".
             color=8,
             fillColor=8,
             fillPattern=1))));
-  equation
+  equation 
     for i in 1:nout loop
       when sample(p_startTime[i], p_period[i]) then
         T0[i] = time;
@@ -1016,18 +1011,18 @@ Modelica in file \"Modelica/package.mo\".
         [i] + p_width[i] then 0 else p_amplitude[i]);
     end for;
   end Pulse;
-
-  block SawTooth "Generate saw tooth signals"
+  
+  block SawTooth "Generate saw tooth signals" 
     parameter Real amplitude[:]={1} "Amplitudes of saw tooths";
-    parameter SI.Time period[:](final min=Modelica.Constants.small) = {1}
+    parameter SI.Time period[:](final min=Modelica.Constants.small)=  {1} 
       "Times for one period";
     parameter Real offset[:]={0} "Offsets of output signals";
     parameter SI.Time startTime[:]={0} "Output = offset for time < startTime";
     extends Interfaces.MO(final nout=max([size(amplitude, 1); size(period, 1);
           size(offset, 1); size(startTime, 1)]));
-  protected
-    parameter Real p_amplitude[nout]=(if size(amplitude, 1) == 1 then ones(nout
-        )*amplitude[1] else amplitude);
+  protected 
+    parameter Real p_amplitude[nout]=(if size(amplitude, 1) == 1 then ones(nout)
+         *amplitude[1] else amplitude);
     parameter SI.Time p_period[nout]=(if size(period, 1) == 1 then ones(nout)*
         period[1] else period);
     parameter Real p_offset[nout]=(if size(offset, 1) == 1 then ones(nout)*
@@ -1035,7 +1030,7 @@ Modelica in file \"Modelica/package.mo\".
     parameter SI.Time p_startTime[nout]=(if size(startTime, 1) == 1 then ones(
         nout)*startTime[1] else startTime);
     SI.Time T0[nout](final start=p_startTime) "Start time of current period";
-    annotation (
+    annotation(
       Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
@@ -1054,8 +1049,8 @@ Modelica in file \"Modelica/package.mo\".
             color=8,
             fillColor=8,
             fillPattern=1)),
-        Line(points=[-80, -70; -60, -70; 0, 40; 0, -70; 60, 41; 60, -70], style
-            (color=0)),
+        Line(points=[-80, -70; -60, -70; 0, 40; 0, -70; 60, 41; 60, -70], style(
+             color=0)),
         Text(
           extent=[-147, -152; 153, -112],
           string="period=%period",
@@ -1135,7 +1130,7 @@ Modelica in file \"Modelica/package.mo\".
             fillPattern=1)),
         Line(points=[-80, -20; -10, -20; 30, 60; 30, -20; 72, 60; 72, -20],
             style(color=0, thickness=2))));
-  equation
+  equation 
     for i in 1:nout loop
       when sample(p_startTime[i], p_period[i]) then
         T0[i] = time;
@@ -1144,34 +1139,34 @@ Modelica in file \"Modelica/package.mo\".
         p_amplitude[i]/p_period[i])*(time - T0[i]));
     end for;
   end SawTooth;
-
-  block Trapezoid "Generate trapezoidal signals of type Real"
+  
+  block Trapezoid "Generate trapezoidal signals of type Real" 
     parameter Real amplitude[:]={1} "Amplitudes of trapezoids";
-    parameter SI.Time rising[:](final min=0) = {0}
+    parameter SI.Time rising[:](final min=0)=  {0} 
       "Rising durations of trapezoids";
-    parameter SI.Time width[:](final min=0) = {0.5}
+    parameter SI.Time width[:](final min=0)=  {0.5} 
       "Width durations of trapezoids";
-    parameter SI.Time falling[:](final min=0) = {0}
+    parameter SI.Time falling[:](final min=0)=  {0} 
       "Falling durations of trapezoids";
-    parameter SI.Time period[:](final min=Modelica.Constants.small) = {1}
+    parameter SI.Time period[:](final min=Modelica.Constants.small)=  {1} 
       "Time for one period";
-    parameter Integer nperiod[:]={-1}
+    parameter Integer nperiod[:]={-1} 
       "Number of periods (< 0 means infinite number of periods)";
     parameter Real offset[:]={0} "Offsets of output signals";
     parameter SI.Time startTime[:]={0} "Output = offset for time < startTime";
     extends Interfaces.MO(final nout=max([size(amplitude, 1); size(rising, 1);
           size(width, 1); size(falling, 1); size(period, 1); size(nperiod, 1);
           size(offset, 1); size(startTime, 1)]));
-  protected
-    parameter Real p_amplitude[nout]=(if size(amplitude, 1) == 1 then ones(nout
-        )*amplitude[1] else amplitude);
+  protected 
+    parameter Real p_amplitude[nout]=(if size(amplitude, 1) == 1 then ones(nout)
+         *amplitude[1] else amplitude);
     parameter SI.Time T_rising[nout]=(if size(rising, 1) == 1 then ones(nout)*
         rising[1] else rising) "End time of rising phase within one period";
-    parameter SI.Time T_width[nout]=T_rising + (if size(width, 1) == 1 then
-        ones(nout)*width[1] else width)
+    parameter SI.Time T_width[nout]=T_rising + (if size(width, 1) == 1 then 
+        ones(nout)*width[1] else width) 
       "End time of width phase within one period";
-    parameter SI.Time T_falling[nout]=T_width + (if size(falling, 1) == 1 then
-        ones(nout)*falling[1] else falling)
+    parameter SI.Time T_falling[nout]=T_width + (if size(falling, 1) == 1 then 
+        ones(nout)*falling[1] else falling) 
       "End time of falling phase within one period";
     parameter SI.Time p_period[nout]=(if size(period, 1) == 1 then ones(nout)*
         period[1] else period) "Duration of one period";
@@ -1184,7 +1179,7 @@ Modelica in file \"Modelica/package.mo\".
           nperiod[1] else nperiod)) "Period counter";
     Integer counter2[nout](start=(if size(nperiod, 1) == 1 then ones(nout)*
           nperiod[1] else nperiod));
-    annotation (
+    annotation(
       Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
@@ -1288,8 +1283,8 @@ Modelica in file \"Modelica/package.mo\".
             color=8,
             fillColor=8,
             fillPattern=1)),
-        Line(points=[-80, -30; -30, -30; -10, 40; 20, 40; 40, -30; 60, -30; 80
-              , 40; 100, 40], style(color=0, thickness=2)),
+        Line(points=[-80, -30; -30, -30; -10, 40; 20, 40; 40, -30; 60, -30; 80,
+                40; 100, 40], style(color=0, thickness=2)),
         Polygon(points=[-39, 40; -41, 29; -37, 29; -39, 40], style(
             color=8,
             fillColor=8,
@@ -1324,7 +1319,7 @@ Modelica in file \"Modelica/package.mo\".
           extent=[16, 70; 45, 60],
           string="falling",
           style(color=9))));
-  equation
+  equation 
     for i in 1:nout loop
       when pre(counter2[i]) <> 0 and sample(p_startTime[i], p_period[i]) then
         T0[i] = time;
@@ -1333,27 +1328,27 @@ Modelica in file \"Modelica/package.mo\".
       end when;
       outPort.signal[i] = p_offset[i] + (if (time < p_startTime[i] or counter2[
         i] == 0 or time >= T0[i] + T_falling[i]) then 0 else if (time < T0[i]
-         + T_rising[i]) then (time - T0[i])*p_amplitude[i]/T_rising[i] else if
+         + T_rising[i]) then (time - T0[i])*p_amplitude[i]/T_rising[i] else if 
         (time < T0[i] + T_width[i]) then p_amplitude[i] else (T0[i] + T_falling
         [i] - time)*p_amplitude[i]/(T_falling[i] - T_width[i]));
     end for;
   end Trapezoid;
-
-  block KinematicPTP
+  
+  block KinematicPTP 
     "Move as fast as possible along a distance within given kinematic constraints"
-
-
+    
+    
     parameter Real deltaq[:]={1} "Distance to move";
-    parameter Real qd_max[:](final min=Modelica.Constants.small) = {1}
+    parameter Real qd_max[:](final min=Modelica.Constants.small)=  {1} 
       "Maximum velocities der(q)";
-    parameter Real qdd_max[:](final min=Modelica.Constants.small) = {1}
+    parameter Real qdd_max[:](final min=Modelica.Constants.small)=  {1} 
       "Maximum accelerations der(qd)";
     parameter SI.Time startTime=0 "Time instant at which movement starts";
-
+    
     extends Interfaces.MO(final nout=max([size(deltaq, 1); size(qd_max, 1);
           size(qdd_max, 1)]));
-
-  protected
+    
+  protected 
     parameter Real p_deltaq[nout]=(if size(deltaq, 1) == 1 then ones(nout)*
         deltaq[1] else deltaq);
     parameter Real p_qd_max[nout]=(if size(qd_max, 1) == 1 then ones(nout)*
@@ -1370,7 +1365,7 @@ Modelica in file \"Modelica/package.mo\".
     SI.Time Tv;
     SI.Time Te;
     Boolean noWphase;
-    annotation (
+    annotation(
       Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
@@ -1473,46 +1468,45 @@ a flange according to a given acceleration.
 
 </HTML>
 "));
-  equation
+  equation 
     for i in 1:nout loop
       aux1[i] = p_deltaq[i]/p_qd_max[i];
       aux2[i] = p_deltaq[i]/p_qdd_max[i];
     end for;
     sd_max = 1/max(abs(aux1));
     sdd_max = 1/max(abs(aux2));
-
+    
     Ta1 = sqrt(1/sdd_max);
     Ta2 = sd_max/sdd_max;
     noWphase = Ta2 >= Ta1;
     Tv = if noWphase then Ta1 else 1/sd_max;
     Te = if noWphase then Ta1 + Ta1 else Tv + Ta2;
-
+    
     // path-acceleration
     sdd = if time < startTime then 0 else ((if noWphase then (if time < Ta1 +
-      startTime then sdd_max else (if time < Te + startTime then -sdd_max else
+      startTime then sdd_max else (if time < Te + startTime then -sdd_max else 
       0)) else (if time < Ta2 + startTime then sdd_max else (if time < Tv +
-      startTime then 0 else (if time < Te + startTime then -sdd_max else 0)))))
-      ;
-
+      startTime then 0 else (if time < Te + startTime then -sdd_max else 0)))));
+    
     // acceleration
     outPort.signal = p_deltaq*sdd;
   end KinematicPTP;
-
-  block TimeTable
+  
+  block TimeTable 
     "Generate a (possibly discontinuous) signal by linear interpolation in a table"
-
-
-    parameter Real table[:, 2]=[0, 0; 1, 1; 2, 4]
+    
+    
+    parameter Real table[:, 2]=[0, 0; 1, 1; 2, 4] 
       "Table matrix (time = first column)";
     parameter Real offset[1]={0} "Offset of output signal";
     parameter SI.Time startTime[1]={0} "Output = offset for time < startTime";
     extends Interfaces.MO(final nout=1);
-  protected
+  protected 
     Real a "Interpolation coefficients a of actual interval (y=a*x+b)";
     Real b "Interpolation coefficients b of actual interval (y=a*x+b)";
     Integer last(start=1) "Last used lower grid index";
     SI.Time nextEvent(start=0) "Next event instant";
-    annotation (
+    annotation(
       Icon(
         Line(points=[-80, 68; -80, -80], style(color=8)),
         Polygon(points=[-80, 90; -88, 68; -72, 68; -80, 90], style(color=8,
@@ -1526,8 +1520,8 @@ a flange according to a given acceleration.
             color=7,
             fillColor=8,
             fillPattern=1)),
-        Line(points=[-48, -50; -48, 70; 52, 70; 52, -50; -48, -50; -48, -20; 52
-              , -20; 52, 10; -48, 10; -48, 40; 52, 40; 52, 70; 2, 70; 2, -51],
+        Line(points=[-48, -50; -48, 70; 52, 70; 52, -50; -48, -50; -48, -20; 52,
+                -20; 52, 10; -48, 10; -48, 40; 52, 40; 52, 70; 2, 70; 2, -51],
             style(color=0)),
         Text(
           extent=[-150, -150; 150, -110],
@@ -1656,32 +1650,32 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
 
 </HTML>
 "));
-    function getInterpolationCoefficients
-      "Determine interpolation coefficients and next time event"
+    function getInterpolationCoefficients 
+      "Determine interpolation coefficients and next time event" 
       input Real table[:, 2] "Table for interpolation";
       input Real offset "y-offset";
       input Real startTime "time-offset";
       input Real t "Actual time instant";
       input Integer last "Last used lower grid index";
-      input Real TimeEps
+      input Real TimeEps 
         "Relative epsilon to check for identical time instants";
       output Real a "Interpolation coefficients a (y=a*x + b)";
       output Real b "Interpolation coefficients b (y=a*x + b)";
       output Real nextEvent "Next event instant";
       output Integer next "New lower grid index";
-    protected
+    protected 
       Integer columns=2 "Column to be interpolated";
       Integer ncol=2 "Number of columns to be interpolated";
       Integer nrow=size(table, 1) "Number of table rows";
       Integer next0;
       Real tp;
       Real dt;
-    algorithm
+    algorithm 
       next := last;
       nextEvent := t - TimeEps*abs(t);
       // in case there are no more time events
       tp := t + TimeEps*abs(t) - startTime;
-
+      
       if tp < 0.0 then
         // First event not yet reached
         nextEvent := startTime;
@@ -1692,19 +1686,18 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
         a := 0;
         b := offset + table[1, columns];
       else
-
-
+        
           // Find next time event instant. Note, that two consecutive time instants
         // in the table may be identical due to a discontinuous point.
         while next < nrow and tp >= table[next, 1] loop
           next := next + 1;
         end while;
-
+        
         // Define next time event, if last table entry not reached
         if next < nrow then
           nextEvent := startTime + table[next, 1];
         end if;
-
+        
         // Determine interpolation coefficients
         next0 := next - 1;
         dt := table[next, 1] - table[next0, 1];
@@ -1720,20 +1713,20 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
       // Take into account startTime "a*(time - startTime) + b"
       b := b - a*startTime;
     end getInterpolationCoefficients;
-  algorithm
+  algorithm 
     when {time >= pre(nextEvent),initial()} then
-      (a,b,nextEvent,last) := getInterpolationCoefficients(table, scalar(offset
-        ), scalar(startTime), time, last, 100*Modelica.Constants.eps);
+      (a,b,nextEvent,last) := getInterpolationCoefficients(table, scalar(offset),
+           scalar(startTime), time, last, 100*Modelica.Constants.eps);
     end when;
-  equation
+  equation 
     outPort.signal[1] = a*time + b;
   end TimeTable;
-
-  block BooleanConstant "Generate constant signals of type Boolean"
+  
+  block BooleanConstant "Generate constant signals of type Boolean" 
     parameter Boolean k[:]={true} "Constant output values";
     extends Interfaces.BooleanSignalSource(final nout=size(k, 1));
-
-    annotation (
+    
+    annotation(
       Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[2, 2],
@@ -1775,25 +1768,25 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
           extent=[-104, -58; -78, -70],
           string="false",
           style(color=9))));
-  equation
+  equation 
     outPort.signal = k;
   end BooleanConstant;
-
-  block BooleanStep "Generate step signals of type Boolean"
+  
+  block BooleanStep "Generate step signals of type Boolean" 
     parameter SI.Time startTime[:]={0} "Time instants of steps";
-    parameter Boolean startValue[size(startTime, 1)]=fill(false, size(startTime
-        , 1)) "Output before startTime";
+    parameter Boolean startValue[size(startTime, 1)]=fill(false, size(startTime,
+          1)) "Output before startTime";
     extends Interfaces.BooleanSignalSource(final nout=size(startTime, 1));
-    annotation (Icon(Line(points=[-80, -70; 0, -70; 0, 50; 80, 50], style(color
-              =0)), Text(
+    annotation( Icon(Line(points=[-80, -70; 0, -70; 0, 50; 80, 50], style(color=
+               0)), Text(
           extent=[-150, -150; 150, -110],
           string="startTime=%startTime",
           style(color=0))), Diagram(
         Polygon(points=[-80, 90; -88, 68; -72, 68; -80, 90], style(color=8,
               fillColor=8)),
         Line(points=[-80, 68; -80, -80], style(color=8)),
-        Line(points=[-80, -70; 0, -70; 0, 50; 80, 50], style(color=0, thickness
-              =2)),
+        Line(points=[-80, -70; 0, -70; 0, 50; 80, 50], style(color=0, thickness=
+               2)),
         Line(points=[-90, -70; 82, -70], style(color=8)),
         Polygon(points=[90, -70; 68, -62; 68, -78; 90, -70], style(color=8,
               fillColor=8)),
@@ -1818,31 +1811,31 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
           extent=[-112, -62; -80, -76],
           string="startValue",
           style(color=9))));
-  equation
+  equation 
     for i in 1:nout loop
-      outPort.signal[i] = if time >= startTime[i] then not startValue[i] else
+      outPort.signal[i] = if time >= startTime[i] then not startValue[i] else 
         startValue[i];
     end for;
   end BooleanStep;
-
-  block BooleanPulse "Generate pulse signals of type Boolean"
+  
+  block BooleanPulse "Generate pulse signals of type Boolean" 
     parameter Real width[:](
       final min=Modelica.Constants.small,
-      final max=100) = {50} "Widths of pulses in % of period";
-    parameter SI.Time period[:](final min=Modelica.Constants.small) = {1}
+      final max=100)=  {50} "Widths of pulses in % of period";
+    parameter SI.Time period[:](final min=Modelica.Constants.small)=  {1} 
       "Times for one period";
     parameter SI.Time startTime[:]={0} "Iime instants of first pulse";
-    extends Interfaces.BooleanSignalSource(final nout=max([size(width, 1); size
-          (period, 1); size(startTime, 1)]));
-  protected
+    extends Interfaces.BooleanSignalSource(final nout=max([size(width, 1); size(
+           period, 1); size(startTime, 1)]));
+  protected 
     parameter SI.Time p_period[nout]=(if size(period, 1) == 1 then ones(nout)*
         period[1] else period);
-    parameter SI.Time Twidth[nout]=diagonal(p_period)*(if size(width, 1) == 1
-         then ones(nout)*width[1] else width)/100 "width of one pulse";
+    parameter SI.Time Twidth[nout]=diagonal(p_period)*(if size(width, 1) == 1 then 
+              ones(nout)*width[1] else width)/100 "width of one pulse";
     parameter SI.Time p_startTime[nout]=(if size(startTime, 1) == 1 then ones(
         nout)*startTime[1] else startTime);
     SI.Time T0[nout](final start=p_startTime) "Start time of current period";
-    annotation (
+    annotation(
       Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
@@ -1878,8 +1871,8 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
           extent=[70, -80; 94, -100],
           string="time",
           style(color=9)),
-        Line(points=[-78, -70; -40, -70; -40, 20; 20, 20; 20, -70; 50, -70; 50
-              , 20; 100, 20], style(color=0, thickness=2)),
+        Line(points=[-78, -70; -40, -70; -40, 20; 20, 20; 20, -70; 50, -70; 50,
+                20; 100, 20], style(color=0, thickness=2)),
         Line(points=[-40, 61; -40, 21], style(color=8, pattern=2)),
         Line(points=[20, 44; 20, 20], style(color=9, pattern=2)),
         Line(points=[50, 58; 50, 20], style(color=8, pattern=2)),
@@ -1918,7 +1911,7 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
           extent=[-101, -56; -80, -71],
           string="false",
           style(color=9))));
-  equation
+  equation 
     for i in 1:nout loop
       when sample(p_startTime[i], p_period[i]) then
         T0[i] = time;
@@ -1926,21 +1919,20 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
       outPort.signal[i] = time >= T0[i] and time < T0[i] + Twidth[i];
     end for;
   end BooleanPulse;
-
-  block SampleTrigger "Generate sample trigger signals"
-    parameter SI.Time period[:](final min=Modelica.Constants.small) = {0.01}
+  
+  block SampleTrigger "Generate sample trigger signals" 
+    parameter SI.Time period[:](final min=Modelica.Constants.small)=  {0.01} 
       "Sample periods";
-    parameter SI.Time startTime[:]={0} "Time instants of first sample triggers"
-      ;
+    parameter SI.Time startTime[:]={0} "Time instants of first sample triggers";
     extends Interfaces.BooleanSignalSource(final nout=max([size(period, 1);
           size(startTime, 1)]));
-
-  protected
+    
+  protected 
     parameter SI.Time p_period[nout]=(if size(period, 1) == 1 then ones(nout)*
         period[1] else period);
     parameter SI.Time p_startTime[nout]=(if size(startTime, 1) == 1 then ones(
         nout)*startTime[1] else startTime);
-    annotation (
+    annotation(
       Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
@@ -2008,17 +2000,17 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
         Line(points=[-30, -70; -30, 19], style(color=0, thickness=2)),
         Line(points=[30, -70; 30, 19], style(color=0, thickness=2)),
         Line(points=[60, -70; 60, 19], style(color=0, thickness=2))));
-  equation
+  equation 
     for i in 1:nout loop
       outPort.signal[i] = sample(p_startTime[i], p_period[i]);
     end for;
   end SampleTrigger;
-
-  block IntegerConstant "Generate constant signals of type Integer"
+  
+  block IntegerConstant "Generate constant signals of type Integer" 
     parameter Integer k[:]={1} "Constant output values";
     extends Interfaces.IntegerMO(final nout=size(k, 1));
-
-    annotation (Icon(
+    
+    annotation( Icon(
         Line(points=[-80, 68; -80, -80], style(color=8)),
         Polygon(points=[-80, 90; -88, 68; -72, 68; -80, 90], style(color=8,
               fillColor=8)),
@@ -2049,22 +2041,22 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
           extent=[-101, 8; -81, -12],
           string="k",
           style(color=9))));
-  equation
+  equation 
     outPort.signal = k;
   end IntegerConstant;
-
-  block IntegerStep "Generate step signals of type Integer"
+  
+  block IntegerStep "Generate step signals of type Integer" 
     parameter Integer height[:]={1} "Heights of steps";
     extends Interfaces.IntegerSignalSource(final nout=max([size(height, 1);
           size(offset, 1); size(startTime, 1)]));
-  protected
+  protected 
     parameter Integer p_height[nout]=(if size(height, 1) == 1 then ones(nout)*
         height[1] else height);
     parameter Integer p_offset[nout]=(if size(offset, 1) == 1 then ones(nout)*
         offset[1] else offset);
     parameter SI.Time p_startTime[nout]=(if size(startTime, 1) == 1 then ones(
         nout)*startTime[1] else startTime);
-    annotation (Icon(
+    annotation( Icon(
         Line(points=[-80, 68; -80, -80], style(color=8)),
         Polygon(points=[-80, 90; -88, 68; -72, 68; -80, 90], style(color=8,
               fillColor=8)),
@@ -2079,8 +2071,8 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
         Polygon(points=[-80, 90; -88, 68; -72, 68; -80, 90], style(color=8,
               fillColor=8)),
         Line(points=[-80, 68; -80, -80], style(color=8)),
-        Line(points=[-80, -18; 0, -18; 0, 50; 80, 50], style(color=0, thickness
-              =2)),
+        Line(points=[-80, -18; 0, -18; 0, 50; 80, 50], style(color=0, thickness=
+               2)),
         Line(points=[-90, -70; 82, -70], style(color=8)),
         Polygon(points=[90, -70; 68, -62; 68, -78; 90, -70], style(color=8,
               fillColor=8)),
@@ -2133,9 +2125,9 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
           extent=[-72, 100; -31, 80],
           string="outPort",
           style(color=9))));
-  equation
+  equation 
     for i in 1:nout loop
-      outPort.signal[i] = p_offset[i] + (if time < p_startTime[i] then 0 else
+      outPort.signal[i] = p_offset[i] + (if time < p_startTime[i] then 0 else 
         p_height[i]);
     end for;
   end IntegerStep;

@@ -1,6 +1,9 @@
 <HTML>
 <HEAD><META name="HTML-Generator" content="Dymola"><TITLE>Modelica</TITLE></HEAD>
 <BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Rotational<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><A NAME="Modelica.Mechanics.Rotational"></A><A HREF="Modelica_Mechanics.html#Modelica.Mechanics"
 >Modelica.Mechanics</A>.Rotational</H2>
 <B>1-dimensional rotational mechanical components</B>
@@ -43,6 +46,8 @@
 ><IMG SRC="Modelica.Mechanics.Rotational.Gear2I.png" ALT="Modelica.Mechanics.Rotational.Gear2" WIDTH=80  HEIGHT=80 ></A>
 <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Position"
 ><IMG SRC="Modelica.Mechanics.Rotational.PositionI.png" ALT="Modelica.Mechanics.Rotational.Position" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Speed"
+><IMG SRC="Modelica.Mechanics.Rotational.SpeedI.png" ALT="Modelica.Mechanics.Rotational.Speed" WIDTH=80  HEIGHT=80 ></A>
 <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Accelerate"
 ><IMG SRC="Modelica.Mechanics.Rotational.AccelerateI.png" ALT="Modelica.Mechanics.Rotational.Accelerate" WIDTH=80  HEIGHT=80 ></A>
 <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Move"
@@ -51,6 +56,8 @@
 ><IMG SRC="Modelica.Mechanics.Rotational.FixedI.png" ALT="Modelica.Mechanics.Rotational.Fixed" WIDTH=80  HEIGHT=80 ></A>
 <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Torque"
 ><IMG SRC="Modelica.Mechanics.Rotational.TorqueI.png" ALT="Modelica.Mechanics.Rotational.Torque" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Torque2"
+><IMG SRC="Modelica.Mechanics.Rotational.Torque2I.png" ALT="Modelica.Mechanics.Rotational.Torque2" WIDTH=80  HEIGHT=80 ></A>
 <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.RelativeStates"
 ><IMG SRC="Modelica.Mechanics.Rotational.RelativeStatesI.png" ALT="Modelica.Mechanics.Rotational.RelativeStates" WIDTH=80  HEIGHT=80 ></A>
 <A HREF="Modelica_Mechanics_Rotational_Sensors.html#Modelica.Mechanics.Rotational.Sensors"
@@ -58,17 +65,20 @@
 <P><P>
 <H3>Information</H3>
 <PRE></pre>
-<p>
-<b>Content</b><br><br>
-1. Overview of library Modelica.Mechanics.Rotational<br>
-2. Components of the library<br>
-3. Flange connectors<br>
-4. Sign conventions<br>
-5. User-defined components<br>
-6. Requirements for simulation tools
-</p><br>
 
-<p><b>1. Overview of library Modelica.Mechanics.Rotational</b></p>
+<h4>Content</h4>
+
+<ol>
+  <li>Overview of library Modelica.Mechanics.Rotational</li>
+  <li>Components of the library</li>
+  <li>Flange connectors</li>
+  <li>Sign conventions</li>
+  <li>User-defined components</li>
+  <li>Requirements for simulation tools</li>
+  <li>Support torque</li>
+</ol>
+
+<h4>1. Overview of library Modelica.Mechanics.Rotational</h4>
 
 <p>
 This package contains components to model <b>1-dimensional rotational
@@ -89,14 +99,14 @@ friction elements, e.g., as in automatic gearboxes, can be handeled
 <b>without</b> introducing stiffness which leads to fast simulations.
 The underlying theory is new and is based on the solution of mixed
 continuous/discrete systems of equations, i.e., equations where the
-<b>unknowns</b> are of type Real, <b>Integer</b> or <b>Boolean</b>.
+<b>unknowns</b> are of type <b>Real</b>, <b>Integer</b> or <b>Boolean</b>.
 Provided appropriate numerical algorithms for the solution of such types of
 systems are available in the simulation tool, the simulation of
 (dynamically) coupled friction elements of this library is
 <b>efficient</b> and <b>reliable</b>.
 </p>
 
-<IMG SRC="../Images/drive1.gif" ALT="drive1">
+<p><IMG SRC="../Images/drive1.png" ALT="drive1"></p>
 
 <p>
 A simple example of the usage of this library is given in the
@@ -122,66 +132,49 @@ For example, <tt>J1.flange_a.tau</tt> is the cut-torque in the connector
 
 <p>
 The components of this
-library can be <b>connected</b> together in an <b>arbitrary</b> way. E.g. it is
+library can be <b>connected</b> together in an <b>arbitrary</b> way. E.g., it is
 possible to connect two springs or two shafts with inertia directly
 together, see figure below.
 </p>
 
-<IMG SRC="../Images/driveConnections.gif" ALT="driveConnections">
+<p><IMG SRC="../Images/driveConnections.png" ALT="driveConnections"></p>
 
-<br><br>
-
-
-<p><b>2. Components of the library</b></p>
+<h4>2. Components of the library</h4>
 
 <p>
 This package contains the following model components:
 </p>
 
-<pre>
-   <b>Examples</b>         Sublibrary containing example models.
-   <b>Interfaces</b>       Sublibrary containing interface definitions.
-   <b>Inertia</b>          Rotational component with inertia.
-   <b>IdealGear</b>        Ideal gear transforming rotational in rotational motion.
-   <b>IdealPlanetary</b>   Ideal standard planetary gear.
-   <b>IdealGearR2T</b>     Ideal gear transforming rotational in translational motion.
-   <b>Spring</b>           Linear spring.
-   <b>Damper</b>           Linear damper.
-   <b>SpringDamper</b>     Linear spring and linear damper in parallel connection.
-   <b>ElastoBacklash</b>   Linear spring, linear damper and backlash in series
-                    connection (backlash is modeled with elasticity).
-   <b>BearingFriction</b>  Coulomb friction in the bearings.
-   <b>Clutch</b>           Frictional clutch where the clutch pressure force is an
-                    input signal (= Coulomb friction between two flanges).
-   <b>OneWayClutch</b>     Parallel connection of free wheel and clutch
-   <b>Brake</b>            Frictional brake where the brake pressure force is an
-                    input signal (= Coulomb friction between flange
-                    and housing).
-   <b>LossyGear</b>        Gear with mesh efficiency and bearing friction
-                    (stuck/rolling possible)
-   <b>GearEfficiency</b>   Efficiency of a gearbox.
-   <b>Gear</b>             Realistic model of a gearbox (taking into account
-                    efficiency, bearing friction, elasticity, damping, backlash)
-   <b>GearNew</b>          Realistic model of a gearbox (taking into account
-                    efficiency, bearing friction, elasticity, damping, backlash),
-                    based on new component LossyGear
-   <b>Position</b>         Forced movement of a flange with a reference angle
-                    given as input signal (positive angle for
-                    positive input signal).
-   <b>Accelerate</b>       Forced movement of a flange with an angular acceleration
-                    given as input signal (positive acceleration for
-                    positive input signal).
-   <b>Move</b>             Forced movement of a flange according to an angle, speed
-                    and angular acceleration given as input signals.
-   <b>Fixed</b>            Fixing flange in housing at a predefined angle.
-   <b>Torque</b>           External torque defined as input signal which accelerates
-                    the connected flange for positive input signal.
-   <b>RelativeStates</b>   Definition of relative state variables
-   <b>Sensors</b>          Sublibrary containing ideal sensors to measure
-                    flange variables.
-</pre>
+<table BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td><tt><b>Examples</b></tt></td><td>Sublibrary containing example models.</td></tr>
+<tr><td><tt><b>Interfaces</b></tt></td><td>Sublibrary containing interface definitions.</td></tr>
+<tr><td><tt><b>Inertia</b></tt></td><td>Rotational component with inertia.</td></tr>
+<tr><td><tt><b>IdealGear</b></tt></td><td>Ideal gear transforming rotational in rotational motion.</td></tr>
+<tr><td><tt><b>IdealPlanetary</b></tt></td><td>Ideal standard planetary gear.</td></tr>
+<tr><td><tt><b>IdealGearR2T</b></tt></td><td>Ideal gear transforming rotational in translational motion.</td></tr>
+<tr><td><tt><b>Spring</b></tt></td><td>Linear spring.</td></tr>
+<tr><td><tt><b>Damper</b></tt></td><td>Linear damper.</td></tr>
+<tr><td><tt><b>SpringDamper</b></tt></td><td>Linear spring and linear damper in parallel connection.</td></tr>
+<tr><td><tt><b>ElastoBacklash</b></tt></td><td>Linear spring, linear damper and backlash in series connection (backlash is modeled with elasticity).</td></tr>
+<tr><td><tt><b>BearingFriction</b></tt></td><td>Coulomb friction in the bearings.</td></tr>
+<tr><td><tt><b>Clutch</b></tt></td><td>Frictional clutch where the clutch pressure force is an input signal (= Coulomb friction between two flanges).</td></tr>
+<tr><td><tt><b>OneWayClutch</b></tt></td><td>Parallel connection of free wheel and clutch</td></tr>
+<tr><td><tt><b>Brake</b></tt></td><td>Frictional brake where the brake pressure force is an input signal (= Coulomb friction between flange and housing).</td></tr>
+<tr><td><tt><b>LossyGear</b></tt></td><td>Gear with mesh efficiency and bearing friction (stuck/rolling possible)</td></tr>
+<tr><td><tt><b>GearEfficiency</b></tt></td><td>Efficiency of a gearbox.</td></tr>
+<tr><td><tt><b>Gear</b></tt></td><td>Realistic model of a gearbox (taking into account efficiency, bearing friction, elasticity, damping, backlash)</td></tr>
+<tr><td><tt><b>GearNew</b></tt></td><td>Realistic model of a gearbox (taking into account efficiency, bearing friction, elasticity, damping, backlash), based on new component LossyGear</td></tr>
+<tr><td><tt><b>Position</b></tt></td><td>Forced movement of a flange with a reference angle given as input signal (positive angle for positive input signal).</td></tr>
+<tr><td><tt><b>Accelerate</b></tt></td><td>Forced movement of a flange with an angular acceleration given as input signal (positive acceleration for positive input signal).</td></tr>
+<tr><td><tt><b>Move</b></tt></td><td>Forced movement of a flange according to an angle, speed and angular acceleration given as input signals.</td></tr>
+<tr><td><tt><b>Fixed</b></tt></td><td>Fixing flange in housing at a predefined angle.</td></tr>
+<tr><td><tt><b>Torque</b></tt></td><td>External torque defined as input signal which accelerates the connected flange for positive input signal.</td></tr>
+<tr><td><tt><b>RelativeStates</b></tt></td><td>Definition of relative state variables</td></tr>
+<tr><td><tt><b>Sensors</b></tt></td><td>Sublibrary containing ideal sensors to measure flange variables.</td></tr>
+</table>
 
-<p><b>3. Flange connectors</b></p>
+<h4>3. Flange connectors</h4>
 
 <p>
 A flange is described by the connector class
@@ -204,12 +197,11 @@ determined by differentiation of the flange angle <tt>phi</tt>:
 </p>
 
 <pre>
-     w = der(phi);    a = der(w);
+     w = <b>der</b>(phi);    a = <b>der</b>(w);
 
 </pre>
 
-
-<p><b>4. Sign conventions</b></p>
+<h4>4. Sign conventions</h4>
 
 <p>
 The variables of a component of this library can be accessed in the
@@ -219,7 +211,7 @@ signs of variables shall be interpreted. The basic idea is explained
 at hand of the following figure:
 </p>
 
-<IMG SRC="../Images/drive2.gif" ALT="drive2">
+<p><IMG SRC="../Images/drive2.png" ALT="drive2"></p>
 
 <p>
 In the figure, three identical drive trains are shown. The only
@@ -241,7 +233,7 @@ inertias of the figure above are displayed with the positive
 vector direction displayed according to this rule:
 </p>
 
-<IMG SRC="../Images/drive3.gif" ALT="drive3">
+<p><IMG SRC="../Images/drive3.png" ALT="drive3"></p>
 
 <p>
 The cut-torques <tt>J2.flange_a.tau, J4.flange_a.tau, J6.flange_b.tau</tt>
@@ -253,7 +245,7 @@ direction of rotation if the values are positive. Some special
 cases are shown in the next figure:
 </p>
 
-<IMG SRC="../Images/drive4.gif" ALT="drive4">
+<p><IMG SRC="../Images/drive4.png" ALT="drive4"></p>
 
 <p>
 In the upper part of the figure, two variants of the connection of an
@@ -263,15 +255,14 @@ signal input into the torque component accelerates the inertias
 i.e., the angular accelerations <tt>inertia1.a, inertia2.a</tt>
 are positive and are directed along the "axis of rotation" arrow.
 In the lower part of the figure the connection of inertias with
-a planetary gear are shown. Note, that the three flanges of the
+a planetary gear is shown. Note, that the three flanges of the
 planetary gearbox are located along the axis of rotation and that
 the axis direction determines the positive rotation along these
 flanges. As a result, the positive rotation for <tt>inertia4, inertia6</tt>
 is as indicated with the additional grey arrows.
-</p><br>
+</p>
 
-
-<p><b>5. User-defined components</b></p>
+<h4>5. User-defined components</h4>
 
 <p>
 In this section some hints are given to define your own
@@ -282,16 +273,14 @@ component by inheritance from one of the following base classes,
 which are defined in sublibrary Interfaces:
 </p>
 
-<pre>
-  <b>Rigid</b>            Rigid connection of two rotational 1D flanges
-                   (used for elements with inertia).
-  <b>Compliant</b>        Compliant connection of two rotational 1D flanges
-                   (used for force laws such as a spring or a damper).
-  <b>TwoFlanges</b>       General connection of two rotational 1D flanges
-                   (used for gearboxes).
-  <b>AbsoluteSensor</b>   Measure absolute flange variables.
-  <b>RelativeSensor</b>   Measure relative flange variables.
-</pre>
+<table BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td><tt><b>Rigid</b></tt></td><td>Rigid connection of two rotational 1D flanges (used for elements with inertia).</td></tr>
+<tr><td><tt><b>Compliant</b></tt></td><td>Compliant connection of two rotational 1D flanges (used for force laws such as a spring or a damper).</td></tr>
+<tr><td><tt><b>TwoFlanges</b></tt></td><td>General connection of two rotational 1D flanges (used for gearboxes).</td></tr>
+<tr><td><tt><b>AbsoluteSensor</b></tt></td><td>Measure absolute flange variables.</td></tr>
+<tr><td><tt><b>RelativeSensor</b></tt></td><td>Measure relative flange variables.</td></tr>
+</table>
 
 <p>
 The difference between these base classes are the auxiliary
@@ -313,7 +302,7 @@ Examples for such a definition are given in the following figure
 for an inertia component and a planetary gearbox:
 </p>
 
-<IMG SRC="../Images/driveAxis.gif" ALT="driveAxis">
+<p><IMG SRC="../Images/driveAxis.png" ALT="driveAxis"></p>
 
 <p>
 As can be seen, all vectors are directed into the direction
@@ -330,7 +319,7 @@ coordinate system has an influence on the usage of the
 component. But this is not the case, as shown in the next figure:
 </p>
 
-<IMG SRC="../Images/inertias.gif" ALT="inertias">
+<p><IMG SRC="../Images/inertias.png" ALT="inertias"></p>
 
 <p>
 In the figure the <b>local</b> axes of rotation of the components
@@ -345,7 +334,7 @@ the left figure it seems to be that the angular velocity vector of
 <tt>J2</tt> goes from right to left, in reality it goes from
 left to right as shown in the right part of the figure, where the
 local coordinate systems are drawn such that they are aligned.
-Note, that the simple rule stated in section 4. (Sign conventions)
+Note, that the simple rule stated in section 4 (Sign conventions)
 also determines that
 the angular velocity of <tt>J2</tt> in the left part of the
 figure is directed from left to right.
@@ -361,10 +350,9 @@ easily determined by the rule of section 4. A more strict determination
 by aligning coordinate systems and then using the vector direction
 of the local coordinate systems, often requires a re-drawing of the
 diagram and is therefore less convenient to use.
-</p><br>
+</p>
 
-
-<p><b>6. Requirements for simulation tools</b></p>
+<h4>6. Requirements for simulation tools</h4>
 
 <p>
 This library is designed in a fully object oriented way in order that
@@ -394,11 +382,11 @@ elements are locked at the same time instant (i.e., there does not exist a
 unique solution) and some simulation systems may not be
 able to handle this situation, since this leads to a singularity during
 simulation. Currently, this type of problem can occur with the
-Coulomb friction elements <b>BearingFriction, Clutch, Brake</b> when
+Coulomb friction elements <b>BearingFriction, Clutch, Brake, LossyGear</b> when
 the elements become stuck:
 </p>
 
-<IMG SRC="../Images/driveConnections2.gif" ALT="driveConnections2">
+<p><IMG SRC="../Images/driveConnections2.png" ALT="driveConnections2"></p>
 
 <p>
 In the figure above two typical situations are shown: In the upper part of
@@ -407,7 +395,7 @@ Clutch components are shown. This does not hurt, because the BearingFriction
 element can lock the relative motion between the element and the housing,
 whereas the clutch element can lock the relative motion between the two
 connected flanges. Contrary, the drive train in the lower part of the figure
-may give rise to simulation problems, because the BearingFriction element
+may rise to simulation problems, because the BearingFriction element
 and the Brake element can lock the relative motion between a flange and
 the housing and these flanges are rigidly connected together, i.e.,
 essentially the same relative motion can be locked. These difficulties
@@ -420,34 +408,56 @@ the difference to the value of the previous time instant is as small
 as possible.
 </p>
 
+<h4>7. Support torques</h4>
+
+<p>The following figure shows examples of components equipped with
+a bearing flange (framed flange in the lower center), which can be used
+to fix components on the ground or on other rotating elements or to combine
+them with force elements. If the bearing flange is not connected, the
+components are assumed to be mounted on the ground. Otherwise, the bearing
+connector offers the possibility to consider, e.g., gearboxes mounted on
+the ground via spring-damper-systems (cf. example <tt>ElasticBearing</tt>). Independently, these components
+provide a variable <tt>tau_support</tt> stating the support torque exerted
+on the bearing.</p>
+
+<p><IMG SRC="../Images/bearing.png" ALT="bearing"></p>
+
+<p>In general, it is not necessary to connect the bearing flange
+with a fixation, i.e., the two implementations in the following figure give
+identical results.</p>
+
+<p><IMG SRC="../Images/bearing2.png" ALT="bearing2"></p>
 
 <dl>
-<dt><b>Main Author:</b>
+<dt><b>Main Author:</b></dt>
 <dd><a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a><br>
     Deutsches Zentrum f&uuml;r Luft und Raumfahrt e.V. (DLR)<br>
     Institut f&uuml;r Robotik und Mechatronik<br>
-    Postfach 1116<br>
+    Postfach 11 16<br>
     D-82230 Wessling<br>
     Germany<br>
-    email: <A HREF="mailto:Martin.Otter@dlr.de">Martin.Otter@dlr.de</A><br>
+    email: <A HREF="mailto:Martin.Otter@dlr.de">Martin.Otter@dlr.de</A><br></dd>
 </dl>
 
 <p><b>Release Notes:</b></p>
+
 <ul>
+<li><i>October 27, 2003</i>
+       by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>
+       and <a href="http://www.robotic.dlr.de/Christian.Schweiger/">Christian Schweiger</a>:<br>
+       Bearing flanges added for mounted components and support torque computation implemented.<br>
+       New component <tt>Torque2</tt> and new example <tt>ElasticBearing</tt>.
 <li><i>October 21, 2002</i>
        by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>
        and <a href="http://www.robotic.dlr.de/Christian.Schweiger/">Christian Schweiger</a>:<br>
-       New components <b>LossyGear</b> (with corresponding examples) and <b>GearNew</b>.<br>
+       New components <b>LossyGear</b> (with corresponding examples) and <b>Gear2</b>.<br>
        Interface <b>FrictionBase</b> adapted to new initialization.</li>
 <li><i>June 19, 2000</i>
        by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>:<br>
-       New elements:
-<pre>
-   IdealGearR2T    Ideal gear transforming rotational in translational motion.
-   Position        Forced movement of a flange with a reference angle
-                   given as input signal
-   RelativeStates  Definition of relative state variables
-</pre>
+       New elements:<br><!-- silly construction follows as Dymola not able to handle nested lists -->
+       <tt>IdealGearR2T&nbsp;&nbsp;&nbsp;</tt> Ideal gear transforming rotational in translational motion<br>
+       <tt>Position&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt> Forced movement of a flange with a reference angle given as input signal<br>
+       <tt>RelativeStates&nbsp;</tt> Definition of relative state variables<br>
        Icon of Rotational.Torque changed.
        Elements Acceleration, Torque, Fixed, Sensors ordered according
        to the Translational library.</li>
@@ -463,7 +473,7 @@ as possible.
        RelSpeedSensor. Initialization of friction elements improved.
        Flanges renamed to flange_a, flange_b. MoveAngle renamed to
        KinematicPTP, vectorized and moved to Blocks.Sources.<br>
-       Advice given from P. Beater, H. Elmqvist, S.E.-Mattsson, H. Olsson
+       Advice given from P. Beater, H. Elmqvist, S.E. Mattsson, H. Olsson
        is appreciated.</li>
 
 <li><i>July 18, 1999</i>
@@ -480,10 +490,8 @@ as possible.
        Realized a first version based on an existing Dymola library
        of Martin Otter and Hilding Elmqvist.</li>
 </ul>
-<br>
 
-
-<p><b>Copyright &copy; 1999-2002, 2000-2002, Modelica Association and DLR.</b></p>
+<p><b>Copyright &copy; 1999-2003, 2000-2003, Modelica Association and DLR.</b></p>
 
 <p><i>
 The Modelica package is <b>free</b> software; it can be redistributed and/or modified
@@ -494,7 +502,94 @@ Modelica in file "Modelica/package.mo".
 
 <pre>
 </PRE><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Rotational_Examples.html#Modelica.Mechanics.Rotational.Examples"
+>Examples</A>
+</TD><TD>Demonstration examples of the components of this package</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces"
+>Interfaces</A>
+</TD><TD>Connectors and partial models for 1D rotational mechanical components</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Inertia"
+>Inertia</A>
+</TD><TD>1D-rotational component with inertia</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.IdealGear"
+>IdealGear</A>
+</TD><TD>Ideal gear without inertia</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.IdealPlanetary"
+>IdealPlanetary</A>
+</TD><TD>Ideal planetary gear box</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.IdealGearR2T"
+>IdealGearR2T</A>
+</TD><TD>Gearbox transforming rotational into translational motion</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Spring"
+>Spring</A>
+</TD><TD>Linear 1D rotational spring</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Damper"
+>Damper</A>
+</TD><TD>Linear 1D rotational damper</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.SpringDamper"
+>SpringDamper</A>
+</TD><TD>Linear 1D rotational spring and damper in parallel</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.ElastoBacklash"
+>ElastoBacklash</A>
+</TD><TD>Backlash connected in series to linear spring and damper (backlash is modeled with elasticity)</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.BearingFriction"
+>BearingFriction</A>
+</TD><TD>Coulomb friction in bearings </TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Clutch"
+>Clutch</A>
+</TD><TD>Clutch based on Coulomb friction </TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.OneWayClutch"
+>OneWayClutch</A>
+</TD><TD>Series connection of freewheel and clutch</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Brake"
+>Brake</A>
+</TD><TD>Brake based on Coulomb friction </TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.LossyGear"
+>LossyGear</A>
+</TD><TD>Gear with mesh efficiency and bearing friction (stuck/rolling possible)</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.GearEfficiency"
+>GearEfficiency</A>
+</TD><TD>Obsolete component (use model LossyGear instead)</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Gear"
+>Gear</A>
+</TD><TD>Realistic model of a gearbox</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Gear2"
+>Gear2</A>
+</TD><TD>Realistic model of a gearbox (based on LossyGear)</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Position"
+>Position</A>
+</TD><TD>Forced movement of a flange according to a reference angle signal</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Speed"
+>Speed</A>
+</TD><TD>Forced movement of a flange according to a reference angular velocity signal</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Accelerate"
+>Accelerate</A>
+</TD><TD>Forced movement of a flange according to an acceleration signal</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Move"
+>Move</A>
+</TD><TD>Forced movement of a flange according to an angle, speed and angular acceleration signal</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Fixed"
+>Fixed</A>
+</TD><TD>Flange fixed in housing at a given angle</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Torque"
+>Torque</A>
+</TD><TD>Input signal acting as external torque on a flange</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Torque2"
+>Torque2</A>
+</TD><TD>Input signal acting as torque on two flanges</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.RelativeStates"
+>RelativeStates</A>
+</TD><TD>Definition of relative state variables</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Rotational_Sensors.html#Modelica.Mechanics.Rotational.Sensors"
+>Sensors</A>
+</TD><TD>Sensors to measure variables in 1D rotational mechanical components</TD></TR>
+</TABLE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Inertia<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Mechanics.Rotational.InertiaI.png" ALT="Modelica.Mechanics.Rotational.Inertia" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Mechanics.Rotational.Inertia"></A><A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational"
 >Modelica.Mechanics.Rotational</A>.Inertia</H2>
@@ -525,19 +620,22 @@ Rotational component with <b>inertia</b> and two rigidly connected flanges.
   <font color="blue">extends </font><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Rigid"
 >Interfaces.Rigid</A>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inertia"
->SI.Inertia</A> J=1 <font color="darkgreen">&quot;Moment of inertia&quot;</font>;
+>SI.Inertia</A> J =      1 <font color="darkgreen">&quot;Moment of inertia&quot;</font>;
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
 >SI.AngularVelocity</A> w <font color="darkgreen">&quot;Absolute angular velocity of component&quot;</font>;
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.AngularAcceleration"
 >SI.AngularAcceleration</A> a <font color="darkgreen">&quot;Absolute angular acceleration of component&quot;</font>;
-  <font color="darkgreen"></font>
+  
 <font color="blue">equation </font>
-  w = <font color="red">der</font>(phi);
-  a = <font color="red">der</font>(w);
+  w =<font color="red"> der</font>(phi);
+  a =<font color="red"> der</font>(w);
   J*a = flange_a.tau + flange_b.tau;
 <font color="blue">end </font>Inertia;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE IdealGear<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Mechanics.Rotational.IdealGearI.png" ALT="Modelica.Mechanics.Rotational.IdealGear" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Mechanics.Rotational.IdealGear"></A><A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational"
 >Modelica.Mechanics.Rotational</A>.IdealGear</H2>
@@ -571,16 +669,19 @@ connected to other elements in an appropriate way.
 <H3>Modelica definition</H3>
 <PRE>
 <font color="blue">model</font> IdealGear <font color="darkgreen">&quot;Ideal gear without inertia&quot;</font> 
-  <font color="blue">extends </font><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.TwoFlanges"
->Interfaces.TwoFlanges</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.TwoFlangesAndBearing"
+>Interfaces.TwoFlangesAndBearing</A>;
   <font color="blue">parameter </font>Real ratio=1 <font color="darkgreen">&quot;Transmission ratio (flange_a.phi/flange_b.phi)&quot;</font>;
-  <font color="darkgreen"></font>
+  
 <font color="blue">equation </font>
-  flange_a.phi = ratio*flange_b.phi;
+  phi_a = ratio*phi_b;
   0 = ratio*flange_a.tau + flange_b.tau;
 <font color="blue">end </font>IdealGear;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE IdealPlanetary<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Mechanics.Rotational.IdealPlanetaryI.png" ALT="Modelica.Mechanics.Rotational.IdealPlanetary" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Mechanics.Rotational.IdealPlanetary"></A><A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational"
 >Modelica.Mechanics.Rotational</A>.IdealPlanetary</H2>
@@ -652,11 +753,10 @@ in the flanges, are along the axis vector displayed in the icon.
 <font color="blue">model</font> IdealPlanetary <font color="darkgreen">&quot;Ideal planetary gear box&quot;</font> 
   <font color="blue">parameter </font>Real ratio=100/50 <font color="darkgreen">
     &quot;number of ring_teeth/sun_teeth (e.g. ratio=100/50)&quot;</font>;
-  <font color="darkgreen"></font>
+  
   <font color="darkgreen">// kinematic relationship</font>
   <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_a"
->Interfaces.Flange_a</A> sun <font color="darkgreen">&quot;sun flange (flange axis directed INTO cut plane)&quot;</font>
-    ;
+>Interfaces.Flange_a</A> sun <font color="darkgreen">&quot;sun flange (flange axis directed INTO cut plane)&quot;</font>;
   <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_a"
 >Interfaces.Flange_a</A> carrier <font color="darkgreen">
     &quot;carrier flange (flange axis directed INTO cut plane)&quot;</font>;
@@ -665,13 +765,16 @@ in the flanges, are along the axis vector displayed in the icon.
     &quot;ring flange (flange axis directed OUT OF cut plane)&quot;</font>;
 <font color="blue">equation </font>
   (1 + ratio)*carrier.phi = sun.phi + ratio*ring.phi;
-  <font color="darkgreen"></font>
+  
   <font color="darkgreen">// torque balance (no inertias)</font>
   ring.tau = ratio*sun.tau;
   carrier.tau = -(1 + ratio)*sun.tau;
 <font color="blue">end </font>IdealPlanetary;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE IdealGearR2T<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Mechanics.Rotational.IdealGearR2TI.png" ALT="Modelica.Mechanics.Rotational.IdealGearR2T" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Mechanics.Rotational.IdealGearR2T"></A><A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational"
 >Modelica.Mechanics.Rotational</A>.IdealGearR2T</H2>
@@ -703,19 +806,46 @@ connected with corresponding elements.
 <PRE>
 <font color="blue">model</font> IdealGearR2T <font color="darkgreen">
   &quot;Gearbox transforming rotational into translational motion&quot;</font> 
-  <font color="darkgreen"></font>
+  
   <font color="blue">parameter </font>Real ratio(<font color="blue">final </font>unit=&quot;rad/m&quot;) = 1 <font color="darkgreen">
     &quot;transmission ratio (flange_a.phi/flange_b.s)&quot;</font>;
+  
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Torque"
+>SI.Torque</A> tau_support;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Force"
+>SI.Force</A> f_support;
   <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_a"
 >Interfaces.Flange_a</A> flange_a;
   <A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_b"
 >Modelica.Mechanics.Translational.Interfaces.Flange_b</A> flange_b;
+  <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_a"
+>Interfaces.Flange_a</A> bearingR;
+  <A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_a"
+>Translational.Interfaces.Flange_a</A> bearingT;
 <font color="blue">equation </font>
-  flange_a.phi = ratio*flange_b.s;
+  (flange_a.phi - bearingR.phi) = ratio*(flange_b.s - bearingT.s);
   0 = ratio*flange_a.tau + flange_b.f;
+  
+  0 = flange_a.tau + tau_support;
+  0 = flange_b.f + f_support;
+  
+  <font color="blue">if </font><font color="red">cardinality</font>(bearingR) == 0<font color="blue"> then</font>
+    bearingR.phi = 0;
+  <font color="blue">else</font>
+    bearingR.tau = tau_support;
+  <font color="blue">end if</font>;
+  
+  <font color="blue">if </font><font color="red">cardinality</font>(bearingT) == 0<font color="blue"> then</font>
+    bearingT.s = 0;
+  <font color="blue">else</font>
+    bearingT.f = f_support;
+  <font color="blue">end if</font>;
 <font color="blue">end </font>IdealGearR2T;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Spring<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Mechanics.Rotational.SpringI.png" ALT="Modelica.Mechanics.Rotational.Spring" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Mechanics.Rotational.Spring"></A><A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational"
 >Modelica.Mechanics.Rotational</A>.Spring</H2>
@@ -753,13 +883,16 @@ a coupling of the element with the housing via a spring.
 >Interfaces.Compliant</A>;
   <font color="blue">parameter </font>Real c(<font color="blue">final </font>unit=&quot;N.m/rad&quot;, <font color="blue">final </font>min=0) <font color="darkgreen">&quot;Spring constant&quot;</font>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
->SI.Angle</A> phi_rel0=0 <font color="darkgreen">&quot;Unstretched spring angle&quot;</font>;
-  <font color="darkgreen"></font>
+>SI.Angle</A> phi_rel0 =      0 <font color="darkgreen">&quot;Unstretched spring angle&quot;</font>;
+  
 <font color="blue">equation </font>
   tau = c*(phi_rel - phi_rel0);
 <font color="blue">end </font>Spring;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Damper<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Mechanics.Rotational.DamperI.png" ALT="Modelica.Mechanics.Rotational.Damper" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Mechanics.Rotational.Damper"></A><A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational"
 >Modelica.Mechanics.Rotational</A>.Damper</H2>
@@ -794,17 +927,20 @@ between two inertia/gear elements.
   <font color="blue">extends </font><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Compliant"
 >Interfaces.Compliant</A>;
   <font color="blue">parameter </font>Real d(
-    <font color="blue">final </font>unit=&quot;N.m.s/rad&quot;, 
+    <font color="blue">final </font>unit=&quot;N.m.s/rad&quot;,
     <font color="blue">final </font>min=0) = 0 <font color="darkgreen">&quot;Damping constant&quot;</font>;
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
 >SI.AngularVelocity</A> w_rel <font color="darkgreen">
     &quot;Relative angular velocity between flange_b and flange_a&quot;</font>;
 <font color="blue">equation </font>
-  w_rel = <font color="red">der</font>(phi_rel);
+  w_rel =<font color="red"> der</font>(phi_rel);
   tau = d*w_rel;
 <font color="blue">end </font>Damper;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SpringDamper<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Mechanics.Rotational.SpringDamperI.png" ALT="Modelica.Mechanics.Rotational.SpringDamper" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Mechanics.Rotational.SpringDamper"></A><A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational"
 >Modelica.Mechanics.Rotational</A>.SpringDamper</H2>
@@ -845,20 +981,23 @@ to describe a coupling of the element with the housing via a spring/damper.
 >Interfaces.Compliant</A>;
   <font color="blue">parameter </font>Real c(<font color="blue">final </font>unit=&quot;N.m/rad&quot;, <font color="blue">final </font>min=0) <font color="darkgreen">&quot;Spring constant&quot;</font>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
->SI.Angle</A> phi_rel0=0 <font color="darkgreen">&quot;Unstretched spring angle&quot;</font>;
+>SI.Angle</A> phi_rel0 =      0 <font color="darkgreen">&quot;Unstretched spring angle&quot;</font>;
   <font color="blue">parameter </font>Real d(
-    <font color="blue">final </font>unit=&quot;N.m.s/rad&quot;, 
+    <font color="blue">final </font>unit=&quot;N.m.s/rad&quot;,
     <font color="blue">final </font>min=0) = 0 <font color="darkgreen">&quot;Damping constant&quot;</font>;
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
 >SI.AngularVelocity</A> w_rel <font color="darkgreen">
     &quot;Relative angular velocity between flange_b and flange_a&quot;</font>;
-  <font color="darkgreen"></font>
+  
 <font color="blue">equation </font>
-  w_rel = <font color="red">der</font>(phi_rel);
+  w_rel =<font color="red"> der</font>(phi_rel);
   tau = c*(phi_rel - phi_rel0) + d*w_rel;
 <font color="blue">end </font>SpringDamper;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ElastoBacklash<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Mechanics.Rotational.ElastoBacklashI.png" ALT="Modelica.Mechanics.Rotational.ElastoBacklash" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Mechanics.Rotational.ElastoBacklash"></A><A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational"
 >Modelica.Mechanics.Rotational</A>.ElastoBacklash</H2>
@@ -899,40 +1038,44 @@ can be used to model a gear box with backlash, elasticity and damping.
 <H3>Modelica definition</H3>
 <PRE>
 <font color="blue">model</font> ElastoBacklash <font color="darkgreen">
-  &quot;Backlash connected in series to linear spring and damper (backlash is modeled with elasticity)&quot;</font>
-   
-  <font color="darkgreen"></font>
+  &quot;Backlash connected in series to linear spring and damper (backlash is modeled with elasticity)&quot;</font> 
+  
   <font color="blue">extends </font><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Compliant"
 >Interfaces.Compliant</A>;
+  
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
->SI.Angle</A> b(<font color="blue">final </font>min=0) = 0 <font color="darkgreen">&quot;Total backlash&quot;</font>;
+>SI.Angle</A> b(       <font color="blue">final </font>min=0) = 0 <font color="darkgreen">&quot;Total backlash&quot;</font>;
   <font color="blue">parameter </font>Real c(
-    <font color="blue">final </font>unit=&quot;N.m/rad&quot;, 
+    <font color="blue">final </font>unit=&quot;N.m/rad&quot;,
     <font color="blue">final </font>min=Modelica.Constants.small) = 1.e5 <font color="darkgreen">
     &quot;Spring constant (c &gt; 0 required)&quot;</font>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
->SI.Angle</A> phi_rel0=0 <font color="darkgreen">&quot;Unstretched spring angle&quot;</font>;
+>SI.Angle</A> phi_rel0 =      0 <font color="darkgreen">&quot;Unstretched spring angle&quot;</font>;
   <font color="blue">parameter </font>Real d(
-    <font color="blue">final </font>unit=&quot;N.m.s/rad&quot;, 
+    <font color="blue">final </font>unit=&quot;N.m.s/rad&quot;,
     <font color="blue">final </font>min=0) = 0 <font color="darkgreen">&quot;Damping constant&quot;</font>;
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
 >SI.AngularVelocity</A> w_rel <font color="darkgreen">
     &quot;Relative angular velocity between flange_b and flange_a&quot;</font>;
 <font color="blue">protected </font>
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
->SI.Angle</A> b2=b/2;
+>SI.Angle</A> b2=
+              b/2;
   <font color="darkgreen">// A minimum backlash is defined in order to avoid an infinite</font>
   <font color="darkgreen">// number of state events if backlash b is set to zero.</font>
   <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
->SI.Angle</A> b_min=1.e-10 <font color="darkgreen">&quot;minimum backlash&quot;</font>;
+>SI.Angle</A> b_min =     1.e-10 <font color="darkgreen">&quot;minimum backlash&quot;</font>;
 <font color="blue">equation </font>
-  w_rel = <font color="red">der</font>(phi_rel);
-  tau = <font color="blue">if </font>b2 &gt; b_min<font color="blue"> then </font>(<font color="blue">if </font>phi_rel &gt; b2<font color="blue"> then </font>c*(phi_rel - phi_rel0 - b2) + 
-    d*w_rel<font color="blue"> else </font>(<font color="blue">if </font>phi_rel &lt; -b2<font color="blue"> then </font>c*(phi_rel - phi_rel0 + b2) + d*w_rel<font color="blue">
-     else </font>0))<font color="blue"> else </font>c*(phi_rel - phi_rel0) + d*w_rel;
+  w_rel =<font color="red"> der</font>(phi_rel);
+  tau = <font color="blue">if </font>b2 &gt; b_min<font color="blue"> then </font>(<font color="blue">if </font>phi_rel &gt; b2<font color="blue"> then </font>c*(phi_rel - phi_rel0 - b2)
+     + d*w_rel<font color="blue"> else </font>(<font color="blue">if </font>phi_rel &lt; -b2<font color="blue"> then </font>c*(phi_rel - phi_rel0 + b2) + d*
+    w_rel<font color="blue"> else </font>0))<font color="blue"> else </font>c*(phi_rel - phi_rel0) + d*w_rel;
 <font color="blue">end </font>ElastoBacklash;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE BearingFriction<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Mechanics.Rotational.BearingFrictionI.png" ALT="Modelica.Mechanics.Rotational.BearingFriction" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Mechanics.Rotational.BearingFriction"></A><A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational"
 >Modelica.Mechanics.Rotational</A>.BearingFriction</H2>
@@ -1055,47 +1198,55 @@ following references, especially (Armstrong and Canudas de Witt 1996):
 <H3>Modelica definition</H3>
 <PRE>
 <font color="blue">model</font> BearingFriction <font color="darkgreen">&quot;Coulomb friction in bearings &quot;</font> 
-  <font color="blue">extends </font><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Rigid"
->Interfaces.Rigid</A>;
-  <font color="darkgreen"></font>
+  <font color="blue">extends </font><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.TwoFlangesAndBearing"
+>Interfaces.TwoFlangesAndBearing</A>;
+  
   <font color="blue">parameter </font>Real tau_pos[:, :]=[0, 1] <font color="darkgreen">
     &quot;[w,tau] Positive sliding friction characteristic (w&gt;=0)&quot;</font>;
   <font color="blue">parameter </font>Real peak(<font color="blue">final </font>min=1) = 1 <font color="darkgreen">
     &quot;peak*tau_pos[1,2] = Maximum friction torque for w==0&quot;</font>;
-  <font color="darkgreen"></font>
+  
   <font color="blue">extends </font><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.FrictionBase"
 >Interfaces.FrictionBase</A>;
-  <font color="darkgreen"></font>
+  
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>SI.Angle</A> phi;
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
 >SI.AngularVelocity</A> w <font color="darkgreen">&quot;Absolute angular velocity of flange_a and flange_b&quot;</font>;
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.AngularAcceleration"
 >SI.AngularAcceleration</A> a <font color="darkgreen">
     &quot;Absolute angular acceleration of flange_a and flange_b&quot;</font>;
-  <font color="darkgreen"></font>
+  
 <font color="blue">equation </font>
   <font color="darkgreen">// Constant auxiliary variables</font>
-  tau0 = <font color="red">Modelica.Math.tempInterpol1</font>(0, tau_pos, 2);
+  tau0 =<font color="red"> Modelica.Math.tempInterpol1</font>(0, tau_pos, 2);
   tau0_max = peak*tau0;
   free = false;
-  <font color="darkgreen"></font>
+  
+  phi = phi_a;
+  phi = phi_b;
+  
   <font color="darkgreen">// Angular velocity and angular acceleration of flanges</font>
-  w = <font color="red">der</font>(phi);
-  a = <font color="red">der</font>(w);
+  w =<font color="red"> der</font>(phi);
+  a =<font color="red"> der</font>(w);
   w_relfric = w;
   a_relfric = a;
-  <font color="darkgreen"></font>
+  
   <font color="darkgreen">// Equilibrium of torques</font>
   0 = flange_a.tau + flange_b.tau - tau;
-  <font color="darkgreen"></font>
+  
   <font color="darkgreen">// Friction torque</font>
   tau = <font color="blue">if </font>locked<font color="blue"> then </font>sa<font color="blue"> else </font>(<font color="blue">if </font>startForward<font color="blue"> then </font><font color="red">
     Modelica.Math.tempInterpol1</font>(w, tau_pos, 2)<font color="blue"> else </font><font color="blue">if </font>startBackward<font color="blue"> then </font>-<font color="red">
-    Modelica.Math.tempInterpol1</font>(-w, tau_pos, 2)<font color="blue"> else </font><font color="blue">if </font><font color="red">pre</font>(mode) == Forward<font color="blue">
-     then </font><font color="red">Modelica.Math.tempInterpol1</font>(w, tau_pos, 2)<font color="blue"> else </font>-<font color="red">
+    Modelica.Math.tempInterpol1</font>(-w, tau_pos, 2)<font color="blue"> else </font><font color="blue">if </font><font color="red">pre</font>(mode) == Forward<font color="blue"> then </font><font color="red">
+          Modelica.Math.tempInterpol1</font>(w, tau_pos, 2)<font color="blue"> else </font>-<font color="red">
     Modelica.Math.tempInterpol1</font>(-w, tau_pos, 2));
 <font color="blue">end </font>BearingFriction;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Clutch<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Mechanics.Rotational.ClutchI.png" ALT="Modelica.Mechanics.Rotational.Clutch" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Mechanics.Rotational.Clutch"></A><A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational"
 >Modelica.Mechanics.Rotational</A>.Clutch</H2>
@@ -1229,7 +1380,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
 <font color="blue">model</font> Clutch <font color="darkgreen">&quot;Clutch based on Coulomb friction &quot;</font> 
   <font color="blue">extends </font><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Compliant"
 >Interfaces.Compliant</A>;
-  <font color="darkgreen"></font>
+  
   <font color="blue">parameter </font>Real mue_pos[:, :]=[0, 0.5] <font color="darkgreen">
     &quot;[w,mue] positive sliding friction coefficient (w_rel&gt;=0)&quot;</font>;
   <font color="blue">parameter </font>Real peak(<font color="blue">final </font>min=1) = 1 <font color="darkgreen">
@@ -1237,50 +1388,53 @@ following references, especially (Armstrong and Canudas de Witt 1996):
   <font color="blue">parameter </font>Real cgeo(<font color="blue">final </font>min=0) = 1 <font color="darkgreen">
     &quot;Geometry constant containing friction distribution assumption&quot;</font>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Force"
->SI.Force</A> fn_max(<font color="blue">final </font>min=0) = 1 <font color="darkgreen">&quot;Maximum normal force&quot;</font>;
-  <font color="darkgreen"></font>
+>SI.Force</A> fn_max(       <font color="blue">final </font>min=0) = 1 <font color="darkgreen">&quot;Maximum normal force&quot;</font>;
+  
   <font color="blue">extends </font><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.FrictionBase"
 >Interfaces.FrictionBase</A>;
-  <font color="darkgreen"></font>
+  
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
 >SI.AngularVelocity</A> w_rel <font color="darkgreen">
     &quot;Relative angular velocity (flange_b.w - flange_a.w)&quot;</font>;
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.AngularAcceleration"
 >SI.AngularAcceleration</A> a_rel <font color="darkgreen">
     &quot;Relative angular acceleration (flange_b.a - flange_a.a)&quot;</font>;
-  <font color="darkgreen"></font>
+  
   Real mue0 <font color="darkgreen">&quot;Friction coefficient for w=0 and forward sliding&quot;</font>;
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Force"
 >SI.Force</A> fn <font color="darkgreen">&quot;Normal force (fn=fn_max*inPort.signal)&quot;</font>;
   <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
->Modelica.Blocks.Interfaces.InPort</A> inPort(<font color="blue">final </font>n=1) <font color="darkgreen">
-    &quot;Normalized force signal (= normal_force/fn_max; clutch is engaged if &gt; 0)&quot;</font>
-    ;
+>Modelica.Blocks.Interfaces.InPort</A> inPort(
+                                           <font color="blue">final </font>n=1) <font color="darkgreen">
+    &quot;Normalized force signal (= normal_force/fn_max; clutch is engaged if &gt; 0)&quot;</font>;
 <font color="blue">equation </font>
   <font color="darkgreen">// Constant auxiliary variable</font>
-  mue0 = <font color="red">Modelica.Math.tempInterpol1</font>(0, mue_pos, 2);
-  <font color="darkgreen"></font>
+  mue0 =<font color="red"> Modelica.Math.tempInterpol1</font>(0, mue_pos, 2);
+  
   <font color="darkgreen">// Relative quantities</font>
-  w_rel = <font color="red">der</font>(phi_rel);
-  a_rel = <font color="red">der</font>(w_rel);
+  w_rel =<font color="red"> der</font>(phi_rel);
+  a_rel =<font color="red"> der</font>(w_rel);
   w_relfric = w_rel;
   a_relfric = a_rel;
-  <font color="darkgreen"></font>
+  
   <font color="darkgreen">// Normal force and friction torque for w_rel=0</font>
   fn = fn_max*inPort.signal[1];
   free = fn &lt;= 0;
   tau0 = mue0*cgeo*fn;
   tau0_max = peak*tau0;
-  <font color="darkgreen"></font>
+  
   <font color="darkgreen">// friction torque</font>
-  tau = <font color="blue">if </font>locked<font color="blue"> then </font>sa<font color="blue"> else </font><font color="blue">if </font>free<font color="blue"> then </font>0<font color="blue"> else </font>cgeo*fn*(<font color="blue">if </font>startForward<font color="blue">
-     then </font><font color="red">Modelica.Math.tempInterpol1</font>(w_rel, mue_pos, 2)<font color="blue"> else </font><font color="blue">if </font>startBackward<font color="blue">
-     then </font>-<font color="red">Modelica.Math.tempInterpol1</font>(-w_rel, mue_pos, 2)<font color="blue"> else </font><font color="blue">if </font><font color="red">pre</font>(mode)
-     == Forward<font color="blue"> then </font><font color="red">Modelica.Math.tempInterpol1</font>(w_rel, mue_pos, 2)<font color="blue"> else </font>-<font color="red">
-    Modelica.Math.tempInterpol1</font>(-w_rel, mue_pos, 2));
+  tau = <font color="blue">if </font>locked<font color="blue"> then </font>sa<font color="blue"> else </font><font color="blue">if </font>free<font color="blue"> then </font>0<font color="blue"> else </font>cgeo*fn*(<font color="blue">if </font>startForward<font color="blue"> then </font><font color="red">
+          Modelica.Math.tempInterpol1</font>(w_rel, mue_pos, 2)<font color="blue"> else </font><font color="blue">if </font>
+    startBackward<font color="blue"> then </font>-<font color="red">Modelica.Math.tempInterpol1</font>(-w_rel, mue_pos, 2)<font color="blue"> else </font>
+    <font color="blue">if </font><font color="red">pre</font>(mode) == Forward<font color="blue"> then </font><font color="red">Modelica.Math.tempInterpol1</font>(w_rel, mue_pos,
+    2)<font color="blue"> else </font>-<font color="red">Modelica.Math.tempInterpol1</font>(-w_rel, mue_pos, 2));
 <font color="blue">end </font>Clutch;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE OneWayClutch<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Mechanics.Rotational.OneWayClutchI.png" ALT="Modelica.Mechanics.Rotational.OneWayClutch" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Mechanics.Rotational.OneWayClutch"></A><A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational"
 >Modelica.Mechanics.Rotational</A>.OneWayClutch</H2>
@@ -1411,7 +1565,7 @@ are dynamically coupled. The method is described in:
 <font color="blue">model</font> OneWayClutch <font color="darkgreen">&quot;Series connection of freewheel and clutch&quot;</font> 
   <font color="blue">extends </font><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Compliant"
 >Interfaces.Compliant</A>;
-  <font color="darkgreen"></font>
+  
   <font color="blue">parameter </font>Real mue_pos[:, :]=[0, 0.5] <font color="darkgreen">
     &quot;[w,mue] positive sliding friction coefficient (w_rel&gt;=0)&quot;</font>;
   <font color="blue">parameter </font>Real peak(<font color="blue">final </font>min=1) = 1 <font color="darkgreen">
@@ -1419,11 +1573,11 @@ are dynamically coupled. The method is described in:
   <font color="blue">parameter </font>Real cgeo(<font color="blue">final </font>min=0) = 1 <font color="darkgreen">
     &quot;Geometry constant containing friction distribution assumption&quot;</font>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Force"
->SI.Force</A> fn_max(<font color="blue">final </font>min=0) = 1 <font color="darkgreen">&quot;Maximum normal force&quot;</font>;
+>SI.Force</A> fn_max(       <font color="blue">final </font>min=0) = 1 <font color="darkgreen">&quot;Maximum normal force&quot;</font>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
->SI.AngularVelocity</A> w_small(min=Modelica.Constants.eps) = 1 <font color="darkgreen">
+>SI.AngularVelocity</A> w_small(       min=Modelica.Constants.eps) = 1 <font color="darkgreen">
     &quot;Relative angular velocity near to zero (see model info text)&quot;</font>;
-  <font color="darkgreen"></font>
+  
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
 >SI.AngularVelocity</A> w_rel <font color="darkgreen">
     &quot;Relative angular velocity (flange_b.w - flange_a.w)&quot;</font>;
@@ -1433,12 +1587,12 @@ are dynamically coupled. The method is described in:
   Real u <font color="darkgreen">&quot;normalized force input signal (0..1)&quot;</font>;
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Force"
 >SI.Force</A> fn <font color="darkgreen">&quot;Normal force (fn=fn_max*inPort.signal)&quot;</font>;
-  <font color="darkgreen"></font>
+  
   Boolean startForward <font color="darkgreen">
     &quot;true, if w_rel=0 and start of forward sliding or w_rel &gt; w_small&quot;</font>;
   Boolean locked <font color="darkgreen">&quot;true, if w_rel=0 and not sliding&quot;</font>;
   Boolean stuck(<font color="blue">final </font>start=false) <font color="darkgreen">&quot;w_rel=0 (forward sliding or locked)&quot;</font>;
-  <font color="darkgreen"></font>
+  
 <font color="blue">protected </font>
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Torque"
 >SI.Torque</A> tau0 <font color="darkgreen">&quot;Friction torque for w=0 and sliding&quot;</font>;
@@ -1453,42 +1607,46 @@ are dynamically coupled. The method is described in:
   <font color="blue">parameter </font>Real peak2=<font color="red">max</font>([peak, 1 + eps0]);
 <font color="blue">public </font>
   <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
->Modelica.Blocks.Interfaces.InPort</A> inPort(<font color="blue">final </font>n=1);
+>Modelica.Blocks.Interfaces.InPort</A> inPort(
+                                           <font color="blue">final </font>n=1);
 <font color="blue">equation </font>
   <font color="darkgreen">// Constant auxiliary variable</font>
-  mue0 = <font color="red">Modelica.Math.tempInterpol1</font>(0, mue_pos, 2);
+  mue0 =<font color="red"> Modelica.Math.tempInterpol1</font>(0, mue_pos, 2);
   tau0_max_low = eps0*mue0*cgeo*fn_max;
-  <font color="darkgreen"></font>
+  
   <font color="darkgreen">// Relative quantities</font>
-  w_rel = <font color="red">der</font>(phi_rel);
-  a_rel = <font color="red">der</font>(w_rel);
-  <font color="darkgreen"></font>
+  w_rel =<font color="red"> der</font>(phi_rel);
+  a_rel =<font color="red"> der</font>(w_rel);
+  
   <font color="darkgreen">// Normal force and friction torque for w_rel=0</font>
   u = inPort.signal[1];
   free = u &lt;= 0;
   fn = <font color="blue">if </font>free<font color="blue"> then </font>0<font color="blue"> else </font>fn_max*u;
   tau0 = mue0*cgeo*fn;
   tau0_max = <font color="blue">if </font>free<font color="blue"> then </font>tau0_max_low<font color="blue"> else </font>peak2*tau0;
-  <font color="darkgreen"></font>
+  
   <font color="darkgreen">/* Friction characteristic
        (locked is introduced to help the Modelica translator determining
        the different structural configurations, if for each configuration
        special code shall be generated)
     */</font>
-  startForward = <font color="red">pre</font>(stuck)<font color="blue"> and </font>(sa &gt; tau0_max<font color="blue"> or </font><font color="red">pre</font>(startForward)<font color="blue"> and </font>sa &gt; 
+  startForward =<font color="red"> pre</font>(stuck)<font color="blue"> and </font>(sa &gt; tau0_max<font color="blue"> or </font><font color="red">pre</font>(startForward)<font color="blue"> and </font>sa &gt;
     tau0<font color="blue"> or </font>w_rel &gt; w_small)<font color="blue"> or </font><font color="red">initial</font>()<font color="blue"> and </font>(w_rel &gt; 0);
-  locked = <font color="red">pre</font>(stuck)<font color="blue"> and </font><font color="blue">not </font>startForward;
-  <font color="darkgreen"></font>
+  locked =<font color="red"> pre</font>(stuck)<font color="blue"> and </font><font color="blue">not </font>startForward;
+  
   <font color="darkgreen">// acceleration and friction torque</font>
   a_rel = <font color="blue">if </font>locked<font color="blue"> then </font>0<font color="blue"> else </font>sa - tau0;
   tau = <font color="blue">if </font>locked<font color="blue"> then </font>sa<font color="blue"> else </font>(<font color="blue">if </font>free<font color="blue"> then </font>0<font color="blue"> else </font>cgeo*fn*<font color="red">
     Modelica.Math.tempInterpol1</font>(w_rel, mue_pos, 2));
-  <font color="darkgreen"></font>
+  
   <font color="darkgreen">// Determine configuration</font>
   stuck = locked<font color="blue"> or </font>w_rel &lt;= 0;
 <font color="blue">end </font>OneWayClutch;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Brake<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Mechanics.Rotational.BrakeI.png" ALT="Modelica.Mechanics.Rotational.Brake" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Mechanics.Rotational.Brake"></A><A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational"
 >Modelica.Mechanics.Rotational</A>.Brake</H2>
@@ -1621,9 +1779,9 @@ following references, especially (Armstrong and Canudas de Witt 1996):
 <H3>Modelica definition</H3>
 <PRE>
 <font color="blue">model</font> Brake <font color="darkgreen">&quot;Brake based on Coulomb friction &quot;</font> 
-  <font color="blue">extends </font><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Rigid"
->Interfaces.Rigid</A>;
-  <font color="darkgreen"></font>
+  <font color="blue">extends </font><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.TwoFlangesAndBearing"
+>Interfaces.TwoFlangesAndBearing</A>;
+  
   <font color="blue">parameter </font>Real mue_pos[:, :]=[0, 0.5] <font color="darkgreen">
     &quot;[w,mue] positive sliding friction coefficient (w_rel&gt;=0)&quot;</font>;
   <font color="blue">parameter </font>Real peak(<font color="blue">final </font>min=1) = 1 <font color="darkgreen">
@@ -1631,50 +1789,59 @@ following references, especially (Armstrong and Canudas de Witt 1996):
   <font color="blue">parameter </font>Real cgeo(<font color="blue">final </font>min=0) = 1 <font color="darkgreen">
     &quot;Geometry constant containing friction distribution assumption&quot;</font>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Force"
->SI.Force</A> fn_max(<font color="blue">final </font>min=0) = 1 <font color="darkgreen">&quot;Maximum normal force&quot;</font>;
-  <font color="darkgreen"></font>
+>SI.Force</A> fn_max(       <font color="blue">final </font>min=0) = 1 <font color="darkgreen">&quot;Maximum normal force&quot;</font>;
+  
   <font color="blue">extends </font><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.FrictionBase"
 >Interfaces.FrictionBase</A>;
-  <font color="darkgreen"></font>
+  
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>SI.Angle</A> phi;
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
 >SI.AngularVelocity</A> w <font color="darkgreen">&quot;Absolute angular velocity of flange_a and flange_b&quot;</font>;
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.AngularAcceleration"
 >SI.AngularAcceleration</A> a <font color="darkgreen">
     &quot;Absolute angular acceleration of flange_a and flange_b&quot;</font>;
-  <font color="darkgreen"></font>
+  
   Real mue0 <font color="darkgreen">&quot;Friction coefficient for w=0 and forward sliding&quot;</font>;
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Force"
 >SI.Force</A> fn <font color="darkgreen">&quot;Normal force (=fn_max*inPort.signal)&quot;</font>;
-  <font color="darkgreen"></font>
+  
   <font color="darkgreen">// Constant auxiliary variable</font>
   <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
->Modelica.Blocks.Interfaces.InPort</A> inPort(<font color="blue">final </font>n=1) <font color="darkgreen">
+>Modelica.Blocks.Interfaces.InPort</A> inPort(
+                                           <font color="blue">final </font>n=1) <font color="darkgreen">
     &quot;Normalized force signal (= normal_force/fn_max; brake is active if &gt; 0)&quot;</font>;
 <font color="blue">equation </font>
-  mue0 = <font color="red">Modelica.Math.tempInterpol1</font>(0, mue_pos, 2);
-  <font color="darkgreen"></font>
-  <font color="darkgreen">// Angular velocity and angular acceleration of flanges flange_a and flange_b</font>
-  w = <font color="red">der</font>(phi);
-  a = <font color="red">der</font>(w);
+  mue0 =<font color="red"> Modelica.Math.tempInterpol1</font>(0, mue_pos, 2);
+  
+  phi = phi_a;
+  phi = phi_b;
+  
+  <font color="darkgreen">  // Angular velocity and angular acceleration of flanges flange_a and flange_b</font>
+  w =<font color="red"> der</font>(phi);
+  a =<font color="red"> der</font>(w);
   w_relfric = w;
   a_relfric = a;
-  <font color="darkgreen"></font>
+  
   <font color="darkgreen">// Torque equilibrium, normal force and friction torque for w_rel=0</font>
   0 = flange_a.tau + flange_b.tau - tau;
   fn = fn_max*inPort.signal[1];
   tau0 = mue0*cgeo*fn;
   tau0_max = peak*tau0;
   free = fn &lt;= 0;
-  <font color="darkgreen"></font>
+  
   <font color="darkgreen">// friction torque</font>
-  tau = <font color="blue">if </font>locked<font color="blue"> then </font>sa<font color="blue"> else </font><font color="blue">if </font>free<font color="blue"> then </font>0<font color="blue"> else </font>cgeo*fn*(<font color="blue">if </font>startForward<font color="blue">
-     then </font><font color="red">Modelica.Math.tempInterpol1</font>(w, mue_pos, 2)<font color="blue"> else </font><font color="blue">if </font>startBackward<font color="blue">
-     then </font>-<font color="red">Modelica.Math.tempInterpol1</font>(-w, mue_pos, 2)<font color="blue"> else </font><font color="blue">if </font><font color="red">pre</font>(mode) == 
+  tau = <font color="blue">if </font>locked<font color="blue"> then </font>sa<font color="blue"> else </font><font color="blue">if </font>free<font color="blue"> then </font>0<font color="blue"> else </font>cgeo*fn*(<font color="blue">if </font>startForward<font color="blue"> then </font><font color="red">
+          Modelica.Math.tempInterpol1</font>(w, mue_pos, 2)<font color="blue"> else </font><font color="blue">if </font>startBackward<font color="blue"> then </font>
+          -<font color="red">Modelica.Math.tempInterpol1</font>(-w, mue_pos, 2)<font color="blue"> else </font><font color="blue">if </font><font color="red">pre</font>(mode) ==
     Forward<font color="blue"> then </font><font color="red">Modelica.Math.tempInterpol1</font>(w, mue_pos, 2)<font color="blue"> else </font>-<font color="red">
     Modelica.Math.tempInterpol1</font>(-w, mue_pos, 2));
 <font color="blue">end </font>Brake;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE LossyGear<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Mechanics.Rotational.LossyGearI.png" ALT="Modelica.Mechanics.Rotational.LossyGear" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Mechanics.Rotational.LossyGear"></A><A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational"
 >Modelica.Mechanics.Rotational</A>.LossyGear</H2>
@@ -1819,33 +1986,32 @@ Deutsches Zentrum f&uuml;r Luft- und Raumfahrt e. V., March 18-19, 2002.</p>
 <H3>Modelica definition</H3>
 <PRE>
 <font color="blue">model</font> LossyGear <font color="darkgreen">
-  &quot;Gear with mesh efficiency and bearing friction (stuck/rolling possible)&quot;</font>
-   
-  <font color="darkgreen"></font>
-  <font color="blue">extends </font><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.TwoFlanges"
->Interfaces.TwoFlanges</A>;
-  <font color="darkgreen"></font>
+  &quot;Gear with mesh efficiency and bearing friction (stuck/rolling possible)&quot;</font> 
+  
+  <font color="blue">extends </font><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.TwoFlangesAndBearing"
+>Interfaces.TwoFlangesAndBearing</A>;
+  
   <font color="blue">parameter </font>Real i=1 <font color="darkgreen">&quot;Transmission ratio (flange_a.phi/flange_b.phi)&quot;</font>;
   <font color="blue">parameter </font>Real lossTable[:, 5]=[0, 1, 1, 0, 0] <font color="darkgreen">
     &quot;Array for mesh efficiencies and bearing friction depending on speed&quot;</font>;
-  <font color="darkgreen"></font>
+  
   Real sa <font color="darkgreen">&quot;path parameter for acceleration and torque loss&quot;</font>;
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
 >SI.AngularVelocity</A> w_a <font color="darkgreen">&quot;angular velocity of flange_a&quot;</font>;
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.AngularAcceleration"
 >SI.AngularAcceleration</A> a_a <font color="darkgreen">&quot;angular acceleration of flange_a&quot;</font>;
-  <font color="darkgreen"></font>
-  Real interpolation_result[1, <font color="red">size</font>(lossTable, 2) - 1];
+  
+  Real interpolation_result[1,<font color="red"> size</font>(lossTable, 2) - 1];
   Real eta_mf1;
   Real eta_mf2;
   Real tau_bf1;
   Real tau_bf2;
-  <font color="darkgreen"></font>
+  
   Real quadrant1;
   Real quadrant2;
   Real quadrant3;
   Real quadrant4;
-  <font color="darkgreen"></font>
+  
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Torque"
 >SI.Torque</A> tauLoss <font color="darkgreen">
     &quot;Torque loss due to friction in the gear teeth and in the bearings&quot;</font>;
@@ -1853,14 +2019,14 @@ Deutsches Zentrum f&uuml;r Luft- und Raumfahrt e. V., March 18-19, 2002.</p>
 >SI.Torque</A> tauLossMax <font color="darkgreen">&quot;Torque loss for positive speed&quot;</font>;
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Torque"
 >SI.Torque</A> tauLossMin <font color="darkgreen">&quot;Torque loss for negative speed&quot;</font>;
-  <font color="darkgreen"></font>
+  
   Boolean tau_aPos <font color="darkgreen">&quot;true, if torque of flange_a is not negative&quot;</font>;
   Boolean startForward <font color="darkgreen">&quot;true, if starting to roll forward&quot;</font>;
   Boolean startBackward <font color="darkgreen">&quot;true, if starting to roll backward&quot;</font>;
   Boolean locked <font color="darkgreen">&quot;true, if gear is locked&quot;</font>;
-  <font color="darkgreen"></font>
+  
   Boolean ideal <font color="darkgreen">&quot;true, if losses are neglected&quot;</font>;
-  <font color="darkgreen"></font>
+  
   <font color="blue">constant </font>Integer Unknown=3 <font color="darkgreen">&quot;Value of mode is not known&quot;</font>;
   <font color="blue">constant </font>Integer Free=2 <font color="darkgreen">&quot;Element is not active&quot;</font>;
   <font color="blue">constant </font>Integer Forward=1 <font color="darkgreen">&quot;w_a &gt; 0 (forward rolling)&quot;</font>;
@@ -1868,15 +2034,15 @@ Deutsches Zentrum f&uuml;r Luft- und Raumfahrt e. V., March 18-19, 2002.</p>
     &quot;w_a = 0 (forward rolling, locked or backward rolling)&quot;</font>;
   <font color="blue">constant </font>Integer Backward=-1 <font color="darkgreen">&quot;w_a &lt; 0 (backward rolling)&quot;</font>;
   Integer mode(
-    <font color="blue">final </font>min=Backward, 
-    <font color="blue">final </font>max=Unknown, 
-    start=Free, 
+    <font color="blue">final </font>min=Backward,
+    <font color="blue">final </font>max=Unknown,
+    start=Free,
     fixed=true);
-  <font color="darkgreen"></font>
-  <font color="darkgreen"></font>
+  
+  
 <font color="blue">protected </font>
   <font color="blue">function</font> equal <font color="darkgreen">&quot;Compare whether two Real matrices are identical&quot;</font> 
-    <font color="darkgreen"></font>
+    
     <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
 >Modelica.Icons.Function</A>;
     <font color="blue">input </font>Real A[:, :];
@@ -1886,7 +2052,7 @@ Deutsches Zentrum f&uuml;r Luft- und Raumfahrt e. V., March 18-19, 2002.</p>
     <font color="blue">output </font>Boolean result;
   <font color="blue">algorithm </font>
     result := false;
-    <font color="blue">if </font><font color="red">size</font>(A, 1) == <font color="red">size</font>(B, 1)<font color="blue"> and </font><font color="red">size</font>(A, 2) == <font color="red">size</font>(B, 2)<font color="blue"> then</font>
+    <font color="blue">if </font><font color="red">size</font>(A, 1) ==<font color="red"> size</font>(B, 1)<font color="blue"> and </font><font color="red">size</font>(A, 2) ==<font color="red"> size</font>(B, 2)<font color="blue"> then</font>
       result := true;
       <font color="blue">for </font>i<font color="blue"> in </font>1:<font color="red">size</font>(A, 1)<font color="blue"> loop</font>
         <font color="blue">for </font>j<font color="blue"> in </font>1:<font color="red">size</font>(A, 2)<font color="blue"> loop</font>
@@ -1898,55 +2064,55 @@ Deutsches Zentrum f&uuml;r Luft- und Raumfahrt e. V., March 18-19, 2002.</p>
     <font color="blue">end if</font>;
   <font color="blue">end </font>equal;
 <font color="blue">equation </font>
-  <font color="darkgreen"></font>
-  <font color="red">assert</font>(<font color="red">abs</font>(i) &gt; 0, &quot;Error in initialization of LossyGear: i may not be zero&quot;)
-    ;
-  <font color="darkgreen"></font>
-  ideal = <font color="red">equal</font>(lossTable, [0, 1, 1, 0, 0]);
-  <font color="darkgreen"></font>
+  
+  <font color="red">assert</font>(<font color="red">abs</font>(i) &gt; 0,
+    &quot;Error in initialization of LossyGear: i may not be zero&quot;);
+  
+  ideal =<font color="red"> equal</font>(lossTable, [0, 1, 1, 0, 0]);
+  
   interpolation_result = <font color="blue">if </font>ideal<font color="blue"> then </font>[1, 1, 0, 0]<font color="blue"> else </font><font color="red">
     Modelica.Math.tempInterpol2</font>(<font color="red">noEvent</font>(<font color="red">abs</font>(w_a)), lossTable, {2,3,4,5});
   eta_mf1 = interpolation_result[1, 1];
   eta_mf2 = interpolation_result[1, 2];
-  tau_bf1 = <font color="red">noEvent</font>(<font color="red">abs</font>(interpolation_result[1, 3]));
-  tau_bf2 = <font color="red">noEvent</font>(<font color="red">abs</font>(interpolation_result[1, 4]));
-  <font color="darkgreen"></font>
-  flange_a.phi = i*flange_b.phi;
-  <font color="darkgreen"></font>
+  tau_bf1 =<font color="red"> noEvent</font>(<font color="red">abs</font>(interpolation_result[1, 3]));
+  tau_bf2 =<font color="red"> noEvent</font>(<font color="red">abs</font>(interpolation_result[1, 4]));
+  
+  phi_a = i*phi_b;
+  
   <font color="darkgreen">// Torque balance (no inertias)</font>
   0 = flange_b.tau + i*(flange_a.tau - tauLoss);
-  <font color="darkgreen"></font>
+  
   <font color="darkgreen">// Speed for friction element</font>
-  w_a = <font color="red">der</font>(flange_a.phi);
-  a_a = <font color="red">der</font>(w_a);
-  <font color="darkgreen"></font>
+  w_a =<font color="red"> der</font>(phi_a);
+  a_a =<font color="red"> der</font>(w_a);
+  
   quadrant1 = (1 - eta_mf1)*flange_a.tau + tau_bf1;
   quadrant2 = (1 - 1/eta_mf2)*flange_a.tau + tau_bf2;
   quadrant4 = (1 - 1/eta_mf2)*flange_a.tau - tau_bf2;
   quadrant3 = (1 - eta_mf1)*flange_a.tau - tau_bf1;
-  <font color="darkgreen"></font>
+  
   <font color="darkgreen">// Torque Losses</font>
   tau_aPos = ideal<font color="blue"> or </font>(flange_a.tau &gt;= 0);
   tauLossMax = <font color="blue">if </font>tau_aPos<font color="blue"> then </font>quadrant1<font color="blue"> else </font>quadrant2;
   tauLossMin = <font color="blue">if </font>tau_aPos<font color="blue"> then </font>quadrant4<font color="blue"> else </font>quadrant3;
-  <font color="darkgreen"></font>
+  
   <font color="darkgreen">// Determine rolling/stuck mode when w_rel = 0</font>
-  startForward = <font color="red">pre</font>(mode) == Stuck<font color="blue"> and </font>sa &gt; tauLossMax<font color="blue"> or </font><font color="red">initial</font>()<font color="blue"> and </font>w_a &gt; 
-    0;
-  startBackward = <font color="red">pre</font>(mode) == Stuck<font color="blue"> and </font>sa &lt; tauLossMin<font color="blue"> or </font><font color="red">initial</font>()<font color="blue"> and </font>w_a
+  startForward =<font color="red"> pre</font>(mode) == Stuck<font color="blue"> and </font>sa &gt; tauLossMax<font color="blue"> or </font><font color="red">initial</font>()<font color="blue"> and </font>w_a
+     &gt; 0;
+  startBackward =<font color="red"> pre</font>(mode) == Stuck<font color="blue"> and </font>sa &lt; tauLossMin<font color="blue"> or </font><font color="red">initial</font>()<font color="blue"> and </font>w_a
      &lt; 0;
-  locked = <font color="blue">not </font>(ideal<font color="blue"> or </font><font color="red">pre</font>(mode) == Forward<font color="blue"> or </font>startForward<font color="blue"> or </font><font color="red">pre</font>(mode) == 
-    Backward<font color="blue"> or </font>startBackward);
-  <font color="darkgreen"></font>
+  locked =<font color="blue"> not </font>(ideal<font color="blue"> or </font><font color="red">pre</font>(mode) == Forward<font color="blue"> or </font>startForward<font color="blue"> or </font><font color="red">pre</font>(mode)
+     == Backward<font color="blue"> or </font>startBackward);
+  
   <font color="darkgreen">/* Parameterized curve description a_a = f1(sa), tauLoss = f2(sa)
        In comparison to Modelica.Mechanics.Rotational.FrictionBase it is possible
        to simplify the following expression as mode == Stuck is assured in case
        of startForward or startBackward */</font>
   tauLoss = <font color="blue">if </font>ideal<font color="blue"> then </font>0<font color="blue"> else </font>(<font color="blue">if </font>locked<font color="blue"> then </font>sa<font color="blue"> else </font>(<font color="blue">if </font>(startForward<font color="blue"> or </font><font color="red">
-    pre</font>(mode) == Forward)<font color="blue"> then </font>tauLossMax<font color="blue"> else </font>tauLossMin));
-  <font color="darkgreen"></font>
+        pre</font>(mode) == Forward)<font color="blue"> then </font>tauLossMax<font color="blue"> else </font>tauLossMin));
+  
   a_a = <font color="blue">if </font>locked<font color="blue"> then </font>0<font color="blue"> else </font>sa - tauLoss;
-  <font color="darkgreen"></font>
+  
   <font color="darkgreen">/* Finite state machine to fix configuration after the computation above
        The above equations are only dependent on pre(mode) and not on the actual
        value of mode. This prevents loops. So mode can be determined in one step. */</font>
@@ -1956,6 +2122,9 @@ Deutsches Zentrum f&uuml;r Luft- und Raumfahrt e. V., March 18-19, 2002.</p>
 <font color="blue">end </font>LossyGear;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE GearEfficiency<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Mechanics.Rotational.GearEfficiencyI.png" ALT="Modelica.Mechanics.Rotational.GearEfficiency" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Mechanics.Rotational.GearEfficiency"></A><A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational"
 >Modelica.Mechanics.Rotational</A>.GearEfficiency</H2>
@@ -2041,24 +2210,32 @@ from tables of the gear manufacturers.
 <PRE>
 <font color="blue">model</font> GearEfficiency <font color="darkgreen">
   &quot;Obsolete component (use model LossyGear instead)&quot;</font> 
-  <font color="blue">extends </font><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Rigid"
->Interfaces.Rigid</A>;
-  <font color="darkgreen"></font>
+  <font color="blue">extends </font><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.TwoFlangesAndBearing"
+>Interfaces.TwoFlangesAndBearing</A>;
+  
   <font color="blue">parameter </font>Real eta(
-    min=Modelica.Constants.small, 
+    min=Modelica.Constants.small,
     max=1) = 1 <font color="darkgreen">&quot;Efficiency&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>SI.Angle</A> phi;
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Power"
 >SI.Power</A> power_a <font color="darkgreen">&quot;Energy flowing into flange_a (= power)&quot;</font>;
   Boolean driving_a <font color="darkgreen">
     &quot;True, if energy is flowing INTO and not out of flange flange_a&quot;</font>;
-  <font color="darkgreen"></font>
+  
+  
 <font color="blue">equation </font>
+  phi = phi_a;
+  phi = phi_b;
   power_a = flange_a.tau*<font color="red">der</font>(phi);
   driving_a = power_a &gt;= 0;
   flange_b.tau = -(<font color="blue">if </font>driving_a<font color="blue"> then </font>eta*flange_a.tau<font color="blue"> else </font>flange_a.tau/eta);
 <font color="blue">end </font>GearEfficiency;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Gear<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Mechanics.Rotational.GearI.png" ALT="Modelica.Mechanics.Rotational.Gear" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Mechanics.Rotational.Gear"></A><A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational"
 >Modelica.Mechanics.Rotational</A>.Gear</H2>
@@ -2099,49 +2276,57 @@ to the left and/or the right flange.
 <H3>Modelica definition</H3>
 <PRE>
 <font color="blue">model</font> Gear <font color="darkgreen">&quot;Realistic model of a gearbox&quot;</font> 
-  <font color="blue">extends </font><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.TwoFlanges"
->Interfaces.TwoFlanges</A>;
-  <font color="darkgreen"></font>
+  <font color="blue">extends </font><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.TwoFlangesAndBearingH"
+>Interfaces.TwoFlangesAndBearingH</A>;
+  
   <font color="blue">parameter </font>Real ratio=1 <font color="darkgreen">&quot;transmission ratio (flange_a.phi/flange_b.phi)&quot;</font>;
   <font color="blue">parameter </font>Real eta(
-    min=Modelica.Constants.small, 
+    min=Modelica.Constants.small,
     max=1) = 1 <font color="darkgreen">&quot;Gear efficiency&quot;</font>;
   <font color="blue">parameter </font>Real friction_pos[:, :]=[0, 1] <font color="darkgreen">
     &quot;[w,tau] positive sliding friction characteristic (w&gt;=0)&quot;</font>;
   <font color="blue">parameter </font>Real peak(<font color="blue">final </font>min=1) = 1 <font color="darkgreen">
     &quot;peak*friction_pos[1,2] = maximum friction torque at zero velocity&quot;</font>;
   <font color="blue">parameter </font>Real c(
-    <font color="blue">final </font>unit=&quot;N.m/rad&quot;, 
+    <font color="blue">final </font>unit=&quot;N.m/rad&quot;,
     <font color="blue">final </font>min=Modelica.Constants.small) = 1.e5 <font color="darkgreen">
     &quot;Gear elasticity (spring constant)&quot;</font>;
   <font color="blue">parameter </font>Real d(
-    <font color="blue">final </font>unit=&quot;N.m.s/rad&quot;, 
+    <font color="blue">final </font>unit=&quot;N.m.s/rad&quot;,
     <font color="blue">final </font>min=0) = 0 <font color="darkgreen">&quot;(relative) gear damping&quot;</font>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
->SI.Angle</A> b(<font color="blue">final </font>min=0) = 0 <font color="darkgreen">&quot;Total backlash&quot;</font>;
-  <font color="darkgreen"></font>
+>SI.Angle</A> b(       <font color="blue">final </font>min=0) = 0 <font color="darkgreen">&quot;Total backlash&quot;</font>;
+  
   <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.IdealGear"
->IdealGear</A> gearRatio(<font color="blue">final </font>ratio=ratio);
+>IdealGear</A> gearRatio(
+                      <font color="blue">final </font>ratio=ratio);
   <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.GearEfficiency"
->GearEfficiency</A> gearEfficiency(<font color="blue">final </font>eta=eta);
-  <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.BearingFriction"
->BearingFriction</A> bearingFriction(<font color="blue">final </font>tau_pos=friction_pos, <font color="blue">final </font>peak=
-        peak);
+>GearEfficiency</A> gearEfficiency(
+                                <font color="blue">final </font>eta=eta);
   <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.ElastoBacklash"
 >ElastoBacklash</A> elastoBacklash(
-    <font color="blue">final </font>b=b, 
-    <font color="blue">final </font>c=c, 
-    <font color="blue">final </font>phi_rel0=0, 
+    <font color="blue">final </font>b=b,
+    <font color="blue">final </font>c=c,
+    <font color="blue">final </font>phi_rel0=0,
     <font color="blue">final </font>d=d);
+  <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.BearingFriction"
+>BearingFriction</A> bearingFriction(
+                                  <font color="blue">final </font>tau_pos=friction_pos, <font color="blue">final </font>peak=peak);
 <font color="blue">equation </font>
+  <font color="red">connect</font>(flange_a, gearRatio.flange_a);
   <font color="red">connect</font>(gearRatio.flange_b, gearEfficiency.flange_a);
   <font color="red">connect</font>(gearEfficiency.flange_b, bearingFriction.flange_a);
   <font color="red">connect</font>(bearingFriction.flange_b, elastoBacklash.flange_a);
   <font color="red">connect</font>(elastoBacklash.flange_b, flange_b);
-  <font color="red">connect</font>(gearRatio.flange_a, flange_a);
+  <font color="red">connect</font>(gearRatio.bearing, adapter.flange_b);
+  <font color="red">connect</font>(gearEfficiency.bearing, adapter.flange_b);
+  <font color="red">connect</font>(bearingFriction.bearing, adapter.flange_b);
 <font color="blue">end </font>Gear;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Gear2<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Mechanics.Rotational.Gear2I.png" ALT="Modelica.Mechanics.Rotational.Gear2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Mechanics.Rotational.Gear2"></A><A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational"
 >Modelica.Mechanics.Rotational</A>.Gear2</H2>
@@ -2193,39 +2378,43 @@ GearNew.</p>
 <H3>Modelica definition</H3>
 <PRE>
 <font color="blue">model</font> Gear2 <font color="darkgreen">&quot;Realistic model of a gearbox (based on LossyGear)&quot;</font> 
-  <font color="blue">extends </font><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.TwoFlanges"
->Interfaces.TwoFlanges</A>;
-  <font color="darkgreen"></font>
+  <font color="blue">extends </font><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.TwoFlangesAndBearingH"
+>Interfaces.TwoFlangesAndBearingH</A>;
+  
   <font color="blue">parameter </font>Real i=1 <font color="darkgreen">&quot;transmission ratio (flange_a.phi/flange_b.phi)&quot;</font>;
   <font color="blue">parameter </font>Real lossTable[:, 5]=[0, 1, 1, 0, 0] <font color="darkgreen">
-    &quot;Array for mesh efficiencies and bearing friction depending on speed (see docu of LossyGear)&quot;</font>
-    ;
-  <font color="darkgreen"></font>
+    &quot;Array for mesh efficiencies and bearing friction depending on speed (see docu of LossyGear)&quot;</font>;
+  
   <font color="blue">parameter </font>Real c(
-    <font color="blue">final </font>unit=&quot;N.m/rad&quot;, 
+    <font color="blue">final </font>unit=&quot;N.m/rad&quot;,
     <font color="blue">final </font>min=Modelica.Constants.small) = 1.e5 <font color="darkgreen">
     &quot;Gear elasticity (spring constant)&quot;</font>;
   <font color="blue">parameter </font>Real d(
-    <font color="blue">final </font>unit=&quot;N.m.s/rad&quot;, 
+    <font color="blue">final </font>unit=&quot;N.m.s/rad&quot;,
     <font color="blue">final </font>min=0) = 0 <font color="darkgreen">&quot;(relative) gear damping&quot;</font>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
->SI.Angle</A> b(<font color="blue">final </font>min=0) = 0 <font color="darkgreen">&quot;Total backlash&quot;</font>;
-  <font color="darkgreen"></font>
+>SI.Angle</A> b(       <font color="blue">final </font>min=0) = 0 <font color="darkgreen">&quot;Total backlash&quot;</font>;
+  
   <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.LossyGear"
->LossyGear</A> lossyGear(<font color="blue">final </font>i=i, <font color="blue">final </font>lossTable=lossTable);
+>LossyGear</A> lossyGear(
+                      <font color="blue">final </font>i=i, <font color="blue">final </font>lossTable=lossTable);
   <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.ElastoBacklash"
 >ElastoBacklash</A> elastoBacklash(
-    <font color="blue">final </font>b=b, 
-    <font color="blue">final </font>c=c, 
-    <font color="blue">final </font>phi_rel0=0, 
+    <font color="blue">final </font>b=b,
+    <font color="blue">final </font>c=c,
+    <font color="blue">final </font>phi_rel0=0,
     <font color="blue">final </font>d=d);
 <font color="blue">equation </font>
   <font color="red">connect</font>(flange_a, lossyGear.flange_a);
   <font color="red">connect</font>(lossyGear.flange_b, elastoBacklash.flange_a);
   <font color="red">connect</font>(elastoBacklash.flange_b, flange_b);
+  <font color="red">connect</font>(lossyGear.bearing, adapter.flange_b);
 <font color="blue">end </font>Gear2;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Position<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Mechanics.Rotational.PositionI.png" ALT="Modelica.Mechanics.Rotational.Position" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Mechanics.Rotational.Position"></A><A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational"
 >Modelica.Mechanics.Rotational</A>.Position</H2>
@@ -2280,13 +2469,12 @@ blocks of the block library Modelica.Blocks.Sources.
 <H3>Modelica definition</H3>
 <PRE>
 <font color="blue">model</font> Position <font color="darkgreen">
-  &quot;Forced movement of a flange according to a reference angle signal&quot;</font>
-   
-  <font color="darkgreen"></font>
+  &quot;Forced movement of a flange according to a reference angle signal&quot;</font> 
+  
   <font color="blue">parameter </font>Boolean exact=false <font color="darkgreen">
     &quot;true/false exact treatment/filtering the input signal&quot;</font>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Frequency"
->SI.Frequency</A> f_crit=50 <font color="darkgreen">
+>SI.Frequency</A> f_crit =      50 <font color="darkgreen">
     &quot;if exact=false, critical frequency of filter to filter input signal&quot;</font>;
   <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
 >SI.Angle</A> phi_ref <font color="darkgreen">&quot;reference angle defined with the input signal&quot;</font>;
@@ -2297,6 +2485,8 @@ blocks of the block library Modelica.Blocks.Sources.
   <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.AngularAcceleration"
 >SI.AngularAcceleration</A> a <font color="darkgreen">
     &quot;absolute angular acceleration of flange flange_b&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Torque"
+>SI.Torque</A> tau_support <font color="darkgreen">&quot;Support torque&quot;</font>;
 <font color="blue">protected </font>
   <font color="blue">parameter </font>Real w_crit=2*Modelica.Constants.pi*f_crit <font color="darkgreen">
     &quot;critical frequency in [1/s]&quot;</font>;
@@ -2306,21 +2496,32 @@ blocks of the block library Modelica.Blocks.Sources.
   <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_b"
 >Interfaces.Flange_b</A> flange_b;
   <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
->Modelica.Blocks.Interfaces.InPort</A> inPort(<font color="blue">final </font>n=1) <font color="darkgreen">
+>Modelica.Blocks.Interfaces.InPort</A> inPort(
+                                           <font color="blue">final </font>n=1) <font color="darkgreen">
     &quot;Flange angle as input signal&quot;</font>;
+  <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_a"
+>Interfaces.Flange_a</A> bearing;
 <font color="blue">equation </font>
+  0 = flange_b.tau + tau_support;
+  
+  <font color="blue">if </font><font color="red">cardinality</font>(bearing) == 0<font color="blue"> then</font>
+    bearing.phi = 0;
+  <font color="blue">else</font>
+    bearing.tau = tau_support;
+  <font color="blue">end if</font>;
+  
   phi_ref = inPort.signal[1];
   phi = flange_b.phi;
-  w = <font color="red">der</font>(phi);
-  a = <font color="red">der</font>(w);
-  <font color="darkgreen"></font>
+  w =<font color="red"> der</font>(phi);
+  a =<font color="red"> der</font>(w);
+  
   <font color="blue">if </font>exact<font color="blue"> then</font>
     phi = phi_ref;
   <font color="blue">else</font>
     <font color="darkgreen">// Filter: a = phi_ref/(1 + (af/w_crit)*s + (bf/w_crit^2)*s^2)</font>
     a = ((phi_ref - phi)*w_crit - af*w)*(w_crit/bf);
   <font color="blue">end if</font>;
-  <font color="darkgreen"></font>
+  
 <font color="blue">initial </font><font color="blue">equation </font>
   <font color="blue">if </font><font color="blue">not </font>exact<font color="blue"> then</font>
     phi = phi_ref;
@@ -2328,6 +2529,128 @@ blocks of the block library Modelica.Blocks.Sources.
 <font color="blue">end </font>Position;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Speed<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.Rotational.SpeedI.png" ALT="Modelica.Mechanics.Rotational.Speed" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.Rotational.Speed"></A><A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational"
+>Modelica.Mechanics.Rotational</A>.Speed</H2>
+<B>Forced movement of a flange according to a reference angular velocity signal</B><p>
+<IMG SRC="Modelica.Mechanics.Rotational.SpeedD.png" ALT="Modelica.Mechanics.Rotational.Speed">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+The input signal inPort.signal[1] defines the <b>reference
+angle</b> <b>phi_ref(t)</b> in [rad]. Flange <b>flange_b</b> is <b>forced</b>
+to move according to this reference motion. According to parameter
+<b>exact</b> (default = <b>false</b>), this is done in the following way:
+<ol>
+<li><b>exact=true</b><br>
+    The reference angle is treated <b>exactly</b>. This is only possible, if
+    the input signal is defined by an analytical function which can be
+    differentiated at least twice. If this prerequisite is fulfilled,
+    the Modelica translator will differentiate the input signal twice
+    in order to compute the reference acceleration of the flange.</li>
+<li><b>exact=false</b><br>
+    The reference angle is <b>filtered</b> and the second derivative
+    of the filtered curve is used to compute the reference acceleration
+    of the flange. This second derivative is <b>not</b> computed by
+    numerical differentiation but by an appropriate realization of the
+    filter. For filtering, a second order Bessel filter is used.
+    The critical frequency (also called cut-off frequency) of the
+    filter is defined via parameter <b>f_crit</b> in [Hz]. This value
+    should be selected in such a way that it is higher as the essential
+    low frequencies in the signal.</li>
+</ol>
+
+<p>
+The input signal can be provided from one of the signal generator
+blocks of the block library Modelica.Blocks.Sources.
+</p>
+
+<p><b>Release Notes:</b></p>
+<ul>
+<li><i>October 27, 2003</i>
+       by <a href="http://www.robotic.dlr.de/Christian.Schweiger/">Christian Schweiger</a>.<br>
+       Realized based on component <tt>Position</tt> (implemented by
+       <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>).</li>
+</ul>
+
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>exact</TD><TD>false</TD><TD>true/false exact treatment/filtering the input signal</TD></TR>
+<TR><TD>f_crit</TD><TD>50</TD><TD>if exact=false, critical frequency of filter to filter input signal [Hz]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Speed <font color="darkgreen">
+  &quot;Forced movement of a flange according to a reference angular velocity signal&quot;</font> 
+  
+  <font color="blue">parameter </font>Boolean exact=false <font color="darkgreen">
+    &quot;true/false exact treatment/filtering the input signal&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Frequency"
+>SI.Frequency</A> f_crit =      50 <font color="darkgreen">
+    &quot;if exact=false, critical frequency of filter to filter input signal&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>SI.Angle</A> w_ref <font color="darkgreen">&quot;reference angular velocity defined with the input signal&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>SI.Angle</A> phi_ref <font color="darkgreen">
+    &quot;reference angle defined by time integration of input signal&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>SI.Angle</A> phi <font color="darkgreen">&quot;absolute rotation angle of flange flange_b&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
+>SI.AngularVelocity</A> w <font color="darkgreen">&quot;absolute angular velocity of flange flange_b&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.AngularAcceleration"
+>SI.AngularAcceleration</A> a <font color="darkgreen">
+    &quot;absolute angular acceleration of flange flange_b&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Torque"
+>SI.Torque</A> tau_support <font color="darkgreen">&quot;Support torque&quot;</font>;
+<font color="blue">protected </font>
+  <font color="blue">parameter </font>Real w_crit=2*Constants.pi*f_crit <font color="darkgreen">&quot;critical frequency in [1/s]&quot;</font>;
+  <font color="blue">constant </font>Real af=1.3617 <font color="darkgreen">&quot;s coefficient of Bessel filter&quot;</font>;
+  <font color="blue">constant </font>Real bf=0.6180 <font color="darkgreen">&quot;s*s coefficient of Bessel filter&quot;</font>;
+<font color="blue">public </font>
+  <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_b"
+>Interfaces.Flange_b</A> flange_b;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
+>Blocks.Interfaces.InPort</A> inPort(
+                                  <font color="blue">final </font>n=1) <font color="darkgreen">&quot;Flange angle as input signal&quot;</font>;
+  <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_a"
+>Interfaces.Flange_a</A> bearing;
+<font color="blue">equation </font>
+  0 = flange_b.tau + tau_support;
+  
+  <font color="blue">if </font><font color="red">cardinality</font>(bearing) == 0<font color="blue"> then</font>
+    bearing.phi = 0;
+  <font color="blue">else</font>
+    bearing.tau = tau_support;
+  <font color="blue">end if</font>;
+  
+  <font color="red">der</font>(phi_ref) = w_ref;
+  w_ref = inPort.signal[1];
+  phi = flange_b.phi;
+  w =<font color="red"> der</font>(phi);
+  a =<font color="red"> der</font>(w);
+  
+  <font color="blue">if </font>exact<font color="blue"> then</font>
+    w = w_ref;
+  <font color="blue">else</font>
+    <font color="darkgreen">// Filter: a = phi_ref/(1 + (af/w_crit)*s + (bf/w_crit^2)*s^2)</font>
+    a = ((phi_ref - phi)*w_crit - af*w)*(w_crit/bf);
+  <font color="blue">end if</font>;
+<font color="blue">initial </font><font color="blue">equation </font>
+  <font color="blue">if </font><font color="blue">not </font>exact<font color="blue"> then</font>
+    w = w_ref;
+  <font color="blue">end if</font>;
+<font color="blue">end </font>Speed;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Accelerate<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Mechanics.Rotational.AccelerateI.png" ALT="Modelica.Mechanics.Rotational.Accelerate" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Mechanics.Rotational.Accelerate"></A><A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational"
 >Modelica.Mechanics.Rotational</A>.Accelerate</H2>
@@ -2371,34 +2694,53 @@ blocks of the block library Modelica.Blocks.Sources.
 <PRE>
 <font color="blue">model</font> Accelerate <font color="darkgreen">
   &quot;Forced movement of a flange according to an acceleration signal&quot;</font> 
-  <font color="darkgreen"></font>
+  
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
->SI.Angle</A> phi_start=0 <font color="darkgreen">&quot;Start angle&quot;</font>;
+>SI.Angle</A> phi_start =      0 <font color="darkgreen">&quot;Start angle&quot;</font>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
->SI.AngularVelocity</A> w_start=0 <font color="darkgreen">&quot;Start angular velocity&quot;</font>;
-  <font color="darkgreen"></font>
+>SI.AngularVelocity</A> w_start =      0 <font color="darkgreen">&quot;Start angular velocity&quot;</font>;
+  
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
->SI.Angle</A> phi(<font color="blue">final </font>start=phi_start, <font color="blue">final </font>fixed=true) <font color="darkgreen">
+>SI.Angle</A> phi(
+               <font color="blue">final </font>start=phi_start, <font color="blue">final </font>fixed=true) <font color="darkgreen">
     &quot;absolute rotation angle of flange flange_b&quot;</font>;
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
->SI.AngularVelocity</A> w(<font color="blue">final </font>start=w_start, <font color="blue">final </font>fixed=true) <font color="darkgreen">
+>SI.AngularVelocity</A> w(
+                       <font color="blue">final </font>start=w_start, <font color="blue">final </font>fixed=true) <font color="darkgreen">
     &quot;absolute angular velocity of flange flange_b&quot;</font>;
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.AngularAcceleration"
 >SI.AngularAcceleration</A> a <font color="darkgreen">
     &quot;absolute angular acceleration of flange flange_b&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Torque"
+>SI.Torque</A> tau_support <font color="darkgreen">&quot;Support torque&quot;</font>;
+  
   <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_b"
 >Interfaces.Flange_b</A> flange_b;
   <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
->Modelica.Blocks.Interfaces.InPort</A> inPort(<font color="blue">final </font>n=1) <font color="darkgreen">
+>Modelica.Blocks.Interfaces.InPort</A> inPort(
+                                           <font color="blue">final </font>n=1) <font color="darkgreen">
     &quot;Angular acceleration as input signal&quot;</font>;
+  <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_a"
+>Interfaces.Flange_a</A> bearing;
 <font color="blue">equation </font>
+  0 = flange_b.tau + tau_support;
+  
+  <font color="blue">if </font><font color="red">cardinality</font>(bearing) == 0<font color="blue"> then</font>
+    bearing.phi = 0;
+  <font color="blue">else</font>
+    bearing.tau = tau_support;
+  <font color="blue">end if</font>;
+  
   phi = flange_b.phi;
-  w = <font color="red">der</font>(phi);
-  a = <font color="red">der</font>(w);
+  w =<font color="red"> der</font>(phi);
+  a =<font color="red"> der</font>(w);
   a = inPort.signal[1];
 <font color="blue">end </font>Accelerate;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Move<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Mechanics.Rotational.MoveI.png" ALT="Modelica.Mechanics.Rotational.Move" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Mechanics.Rotational.Move"></A><A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational"
 >Modelica.Mechanics.Rotational</A>.Move</H2>
@@ -2479,9 +2821,8 @@ differentiating r).
 <H3>Modelica definition</H3>
 <PRE>
 <font color="blue">model</font> Move <font color="darkgreen">
-  &quot;Forced movement of a flange according to an angle, speed and angular acceleration signal&quot;</font>
-   
-  <font color="darkgreen"></font>
+  &quot;Forced movement of a flange according to an angle, speed and angular acceleration signal&quot;</font> 
+  
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
 >SI.Angle</A> phi <font color="darkgreen">&quot;absolute rotation angle of flange flange_b&quot;</font>;
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
@@ -2489,19 +2830,34 @@ differentiating r).
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.AngularAcceleration"
 >SI.AngularAcceleration</A> a <font color="darkgreen">
     &quot;absolute angular acceleration of flange flange_b&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Torque"
+>SI.Torque</A> tau_support <font color="darkgreen">&quot;Support torque&quot;</font>;
+  
   <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_b"
 >Interfaces.Flange_b</A> flange_b;
   <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
->Modelica.Blocks.Interfaces.InPort</A> inPort(<font color="blue">final </font>n=3);
+>Modelica.Blocks.Interfaces.InPort</A> inPort(
+                                           <font color="blue">final </font>n=3);
 <font color="blue">protected </font>
   Real constraintResidue;
   Real constraintResidue_d;
   Real constraintResidue_dd;
+<font color="blue">public </font>
+  <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_a"
+>Interfaces.Flange_a</A> bearing;
 <font color="blue">equation </font>
+  0 = flange_b.tau + tau_support;
+  
+  <font color="blue">if </font><font color="red">cardinality</font>(bearing) == 0<font color="blue"> then</font>
+    bearing.phi = 0;
+  <font color="blue">else</font>
+    bearing.tau = tau_support;
+  <font color="blue">end if</font>;
+  
   phi = flange_b.phi;
-  w = <font color="red">der</font>(phi);
-  a = <font color="red">der</font>(w);
-  <font color="darkgreen"></font>
+  w =<font color="red"> der</font>(phi);
+  a =<font color="red"> der</font>(w);
+  
   constraintResidue = inPort.signal[1] - phi;
   constraintResidue_d = inPort.signal[2] - w;
   constraintResidue_dd = inPort.signal[3] - a;
@@ -2509,6 +2865,9 @@ differentiating r).
 <font color="blue">end </font>Move;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Fixed<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Mechanics.Rotational.FixedI.png" ALT="Modelica.Mechanics.Rotational.Fixed" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Mechanics.Rotational.Fixed"></A><A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational"
 >Modelica.Mechanics.Rotational</A>.Fixed</H2>
@@ -2549,8 +2908,8 @@ at an angle phi0 in the <b>housing</b>. May be used:
 <PRE>
 <font color="blue">model</font> Fixed <font color="darkgreen">&quot;Flange fixed in housing at a given angle&quot;</font> 
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
->SI.Angle</A> phi0=0 <font color="darkgreen">&quot;Fixed offset angle of housing&quot;</font>;
-  <font color="darkgreen"></font>
+>SI.Angle</A> phi0 =      0 <font color="darkgreen">&quot;Fixed offset angle of housing&quot;</font>;
+  
   <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_b"
 >Interfaces.Flange_b</A> flange_b <font color="darkgreen">&quot;(right) flange fixed in housing&quot;</font>;
 <font color="blue">equation </font>
@@ -2558,6 +2917,9 @@ at an angle phi0 in the <b>housing</b>. May be used:
 <font color="blue">end </font>Fixed;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Torque<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Mechanics.Rotational.TorqueI.png" ALT="Modelica.Mechanics.Rotational.Torque" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Mechanics.Rotational.Torque"></A><A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational"
 >Modelica.Mechanics.Rotational</A>.Torque</H2>
@@ -2591,16 +2953,75 @@ blocks of Modelica.Blocks.Sources.
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Torque"
 >SI.Torque</A> tau <font color="darkgreen">&quot;Torque (a positive value accelerates the flange)&quot;</font>;
   <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
->Modelica.Blocks.Interfaces.InPort</A> inPort(<font color="blue">final </font>n=1) <font color="darkgreen">
+>Modelica.Blocks.Interfaces.InPort</A> inPort(
+                                           <font color="blue">final </font>n=1) <font color="darkgreen">
     &quot;Connector of input signal used as torque&quot;</font>;
   <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_b"
 >Interfaces.Flange_b</A> flange_b <font color="darkgreen">&quot;(Right) flange&quot;</font>;
+  <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_a"
+>Interfaces.Flange_a</A> bearing;
 <font color="blue">equation </font>
   tau = inPort.signal[1];
+  
   flange_b.tau = -tau;
+  
+  <font color="blue">if </font><font color="red">cardinality</font>(bearing) == 0<font color="blue"> then</font>
+    bearing.phi = 0;
+  <font color="blue">else</font>
+    bearing.tau = tau;
+  <font color="blue">end if</font>;
 <font color="blue">end </font>Torque;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Torque2<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.Rotational.Torque2I.png" ALT="Modelica.Mechanics.Rotational.Torque2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.Rotational.Torque2"></A><A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational"
+>Modelica.Mechanics.Rotational</A>.Torque2</H2>
+<B>Input signal acting as torque on two flanges</B><p>
+<IMG SRC="Modelica.Mechanics.Rotational.Torque2D.png" ALT="Modelica.Mechanics.Rotational.Torque2">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+The input signal <b>inPort.signal[1]</b> defines an external
+torque <b>tau</b> in [Nm] which acts at both flange connectors,
+i.e., the components connected to these flanges are driven by torque <b>tau</b>.</p>
+
+<p>The input signal can be provided from one of the signal generator
+blocks of Modelica.Blocks.Sources.</p>
+
+<p><b>Release Notes:</b></p>
+<ul>
+<li><i>October 27, 2003</i>
+       by <a href="http://www.robotic.dlr.de/Christian.Schweiger/">Christian Schweiger</a>:<br>
+       Realized.
+</li>
+</ul>
+<pre>
+</PRE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Torque2 <font color="darkgreen">&quot;Input signal acting as torque on two flanges&quot;</font> 
+  <font color="blue">extends </font><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.TwoFlanges"
+>Interfaces.TwoFlanges</A>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Torque"
+>SI.Torque</A> tau <font color="darkgreen">&quot;Torque (a positive value accelerates the flange)&quot;</font>;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
+>Blocks.Interfaces.InPort</A> inPort(
+                                  <font color="blue">final </font>n=1) <font color="darkgreen">
+    &quot;Connector of input signal used as torque&quot;</font>;
+<font color="blue">equation </font>
+  tau = inPort.signal[1];
+  
+  flange_a.tau = tau;
+  flange_b.tau = -tau;
+<font color="blue">end </font>Torque2;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE RelativeStates<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Mechanics.Rotational.RelativeStatesI.png" ALT="Modelica.Mechanics.Rotational.RelativeStates" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Mechanics.Rotational.RelativeStates"></A><A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational"
 >Modelica.Mechanics.Rotational</A>.RelativeStates</H2>
@@ -2627,7 +3048,7 @@ in the following way:
 An example is given in the next figure
 </p>
 
-<IMG SRC="../Images/relativeStates.gif" ALT="relativeStates">
+<IMG SRC="../Images/relativeStates.png" ALT="relativeStates">
 
 <p>
 Here, the relative angle and the relative angular velocity between
@@ -2651,23 +3072,25 @@ velocity of model inertia1 or of model inertia2 as state variables.
   <font color="blue">extends </font><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.TwoFlanges"
 >Interfaces.TwoFlanges</A>;
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
->SI.Angle</A> phi_rel(stateSelect=StateSelect.prefer) <font color="darkgreen">
+>SI.Angle</A> phi_rel(
+                   stateSelect=StateSelect.prefer) <font color="darkgreen">
     &quot;relative rotation angle used as state variable&quot;</font>;
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
->SI.AngularVelocity</A> w_rel(stateSelect=StateSelect.prefer) <font color="darkgreen">
+>SI.AngularVelocity</A> w_rel(
+                           stateSelect=StateSelect.prefer) <font color="darkgreen">
     &quot;relative angular velocity used as state variable&quot;</font>;
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.AngularAcceleration"
 >SI.AngularAcceleration</A> a_rel <font color="darkgreen">&quot;relative angular acceleration&quot;</font>;
 <font color="blue">equation </font>
   phi_rel = flange_b.phi - flange_a.phi;
-  w_rel = <font color="red">der</font>(phi_rel);
-  a_rel = <font color="red">der</font>(w_rel);
+  w_rel =<font color="red"> der</font>(phi_rel);
+  a_rel =<font color="red"> der</font>(w_rel);
   flange_a.tau = 0;
   flange_b.tau = 0;
 <font color="blue">end </font>RelativeStates;
 </PRE>
 <HR>
-<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Dec 11 11:13:27 2002
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Jun 30 17:43:04 2004
 .
 </address></BODY>
 </HTML>

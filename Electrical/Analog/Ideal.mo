@@ -3,10 +3,10 @@ package Ideal
   extends Modelica.Icons.Library;
   
   annotation (Window(
-       x=0.03, 
-       y=0.04, 
-       width=0.50, 
-       height=0.36, 
+       x=0.03,
+       y=0.04,
+       width=0.50,
+       height=0.36,
        library=1,
        autolayout=1),Documentation(info="<html>
 <p>
@@ -36,9 +36,9 @@ This package contains electrical components with idealized behaviour:
 <dt>
 <b>Main Authors:</b>
 <dd>
-<a href=\"http://www.eas.iis.fhg.de/~clauss/\">Christoph Clau&szlig;</a>
+<a href=\"http://people.eas.iis.fhg.de/Christoph.Clauss/\">Christoph Clau&szlig;</a>
     &lt;<a href=\"mailto:clauss@eas.iis.fhg.de\">clauss@eas.iis.fhg.de</a>&gt;<br>
-    <a href=\"http://www.eas.iis.fhg.de/~schneider/\">Andr&eacute; Schneider</a>
+    <a href=\"http://people.eas.iis.fhg.de/Andre.Schneider/\">Andr&eacute; Schneider</a>
     &lt;<a href=\"mailto:schneider@eas.iis.fhg.de\">schneider@eas.iis.fhg.de</a>&gt;<br>
     Fraunhofer Institute for Integrated Circuits<br>
     Design Automation Department<br>
@@ -64,121 +64,280 @@ Modelica in file \"Modelica/package.mo\".</i><br>
 </HTML>
 "));
   
-  model IdealThyristor "Ideal thyristor" 
-    extends Interfaces.OnePort;
-    parameter SI.Resistance Roff(final min=0) = 1.E-5 
+        model IdealThyristor "Ideal thyristor" 
+          extends Modelica.Electrical.Analog.Interfaces.OnePort;
+          parameter Modelica.SIunits.Resistance Roff(final min=0) = 1.E-5 
       "Closed thyristor resistance";
-    parameter SI.Conductance Gon(final min=0) = 1.E-5 
+          parameter Modelica.SIunits.Conductance Gon(final min=0) = 1.E-5 
       "Opened thyristor conductance";
+          parameter Modelica.SIunits.Voltage Vknee(final min=0) = 0 
+      "Forward threshold voltage";
+          Boolean off(start=true) "Switching state";
   protected 
-    Real s "Auxiliary variable";
-    Boolean off(start=true);
-    Boolean fire(start=true);
-    annotation (
-      Documentation(info="<html>
-<P>
-Ideal thyristor ... < description will be added >
+          Real s 
+      "Auxiliary variable: if on then current, if opened then voltage";
+          annotation (
+            Documentation(info="<html>
+This is an ideal thyristor model which is<br><br>
+<b>open </b>(off), if the voltage drop is less than 0 or the firePort is false<br>
+<b>closed</b> (on), if the voltage drop is greater or equal 0  and the firePort is true.<br>
 </P>
+<p>
+This is the behaviour if all parameters are exactly zero.<br><br>
+Note, there are circuits, where this ideal description
+with zero resistance and zero cinductance is not possible.
+In order to prevent singularities during switching, the opened
+thyristor has a small conductance <i>Gon</i> and the closed thyristor has a low
+resistance <i>Roff</i> which is default.
+</P>
+<P>
+The parameter <i>Vknee</i> which is the forward threshold voltage, allows to displace
+the knee point <br> 
+along  the <i>Gon</i>-characteristic until <i>v = Vknee</i>.
+</p>
+
 </HTML>
-"), 
-      Coordsys(
-        extent=[-100, -100; 100, 100], 
-        grid=[1, 1], 
-        component=[20, 20]), 
-      Icon(
-        Polygon(points=[20, 0; -40, 40; -40, -40; 20, 0], style(
-            color=3, 
-            gradient=0, 
-            fillColor=7)), 
-        Line(points=[-90, 0; 40, 0]), 
-        Line(points=[40, 0; 90, 0]), 
-        Line(points=[20, 40; 20, -40], style(color=3)), 
-        Line(points=[20, 20; 60, 60; 60, 90]), 
-        Line(points=[30, 50; 50, 30]), 
-        Text(extent=[-100, -70; 100, -100], string="%name")), 
-      Diagram(
-        Polygon(points=[20, 0; -40, 40; -40, -40; 20, 0], style(
-            color=3, 
-            gradient=0, 
-            fillColor=1, 
-            fillPattern=0)), 
-        Line(points=[-90, 0; 40, 0]), 
-        Line(points=[40, 0; 90, 0]), 
-        Line(points=[20, 40; 20, -40], style(color=3)), 
-        Line(points=[20, 20; 60, 60; 60, 90]), 
-        Line(points=[30, 50; 50, 30])), 
-      Window(
-        x=0.27, 
-        y=0.18, 
-        width=0.6, 
-        height=0.6));
+", revisions="<html>
+<ul>
+<li><i>Mai 7, 2004   </i>
+       by Christoph Clauss and Anton Haumer<br> Vknee added<br>
+       </li>
+<li><i>some years ago   </i>
+       by Christoph Clauss<br> realized<br>
+       </li>
+</ul>
+</html>"),  Coordsys(
+              extent=[-100, -100; 100, 100],
+              grid=[1, 1],
+              component=[20, 20]),
+            Icon(
+              Text(extent=[-100, -70; 100, -100], string="%name"),
+              Polygon(points=[30, 0; -30, 40; -30, -40; 30, 0], style(
+                  color=3,
+                  gradient=0,
+                  fillColor=7)),
+              Line(points=[-90, 0; 40, 0]),
+              Line(points=[40, 0; 90, 0]),
+              Line(points=[30, 40; 30, -40], style(color=3)),
+              Line(points=[30, 20; 70, 60; 70, 90]),
+              Line(points=[40, 50; 60, 30])),
+            Diagram(
+              Line(points=[-80, 0; 80, 0], style(color=10)),
+              Polygon(points=[70, 4; 80, 0; 70, -4; 70, 4], style(color=10,
+                    fillColor=10)),
+              Line(points=[0, 80; 0, -80], style(
+                  color=10,
+                  fillColor=10,
+                  fillPattern=1)),
+              Polygon(points=[-4, 70; 0, 80; 4, 70; -4, 70], style(
+                  color=10,
+                  fillColor=10,
+                  fillPattern=1)),
+              Text(
+                extent=[10, 80; 20, 70],
+                style(
+                  color=10,
+                  fillColor=10,
+                  fillPattern=1),
+                string="i"),
+              Text(
+                extent=[70, -10; 80, -20],
+                style(
+                  color=10,
+                  fillColor=10,
+                  fillPattern=1),
+                string="v"),
+              Line(points=[-80, -40; -20, -10; 20, 10; 40, 70], style(
+                  color=0,
+                  thickness=2,
+                  fillColor=10,
+                  fillPattern=1)),
+              Line(points=[20, 9; 20, 0], style(
+                  color=10,
+                  pattern=3,
+                  fillColor=10,
+                  fillPattern=1)),
+              Text(
+                extent=[20, 0; 40, -10],
+                style(
+                  color=10,
+                  pattern=3,
+                  fillColor=10,
+                  fillPattern=1),
+                string="Vknee"),
+              Text(
+                extent=[20, 70; 40, 60],
+                style(
+                  color=10,
+                  pattern=3,
+                  fillColor=10,
+                  fillPattern=1),
+                string="Roff"),
+              Text(
+                extent=[-20, 10; 0, 0],
+                style(
+                  color=10,
+                  pattern=3,
+                  fillColor=10,
+                  fillPattern=1),
+                string="Gon"),
+              Ellipse(extent=[18, 12; 22, 8], style(pattern=3, fillPattern=1)),
+              Line(points=[20, 10; 70, 40], style(
+                  color=0,
+                  thickness=2,
+                  fillPattern=1))),
+            Window(
+              x=0.27,
+              y=0.18,
+              width=0.6,
+              height=0.6));
+    
   public 
-    Modelica.Blocks.Interfaces.BooleanInPort firePort(final n=1) annotation (
-        extent=[50, 90; 70, 110], rotation=-90);
-  equation 
-    fire = firePort.signal[1];
-    off = s < 0 or pre(off) and not fire;
-    v = s*(if off then 1 else Roff);
-    i = s*(if off then Gon else 1);
-  end IdealThyristor;
+          Modelica.Blocks.Interfaces.BooleanInPort firePort(final n=1) 
+            annotation (extent=[60, 90; 80, 110], rotation=-90);
+        equation 
+          off = s < 0 or pre(off) and not firePort.signal[1];
+          v = s*(if off then 1 else Roff) + Vknee;
+          i = s*(if off then Gon else 1) + Gon*Vknee;
+        end IdealThyristor;
   
-  model IdealGTOThyristor "Ideal GTO thyristor" 
-    extends Interfaces.OnePort;
-    parameter SI.Resistance Roff(final min=0) = 1.E-5 
+        model IdealGTOThyristor "Ideal GTO thyristor" 
+          extends Modelica.Electrical.Analog.Interfaces.OnePort;
+          parameter Modelica.SIunits.Resistance Roff(final min=0) = 1.E-5 
       "Closed thyristor resistance";
-    parameter SI.Conductance Gon(final min=0) = 1.E-5 
+          parameter Modelica.SIunits.Conductance Gon(final min=0) = 1.E-5 
       "Opened thyristor conductance";
+          parameter Modelica.SIunits.Voltage Vknee(final min=0) = 0 
+      "Forward threshold voltage";
+          Boolean off(start=true) "Switching state";
   protected 
-    Real s "Auxiliary variable";
-    Boolean off(start=true) "Position of switch";
-    Boolean fire;
-    annotation (
-      Documentation(info="<html>
-<P>
-Ideal GTO thyristor ...
+          Real s 
+      "Auxiliary variable: if on then current, if opened then voltage";
+          annotation (
+            Documentation(info="<html>
+This is an ideal GTO thyristor model which is<br><br>
+<b>open </b>(off), if the voltage drop is less than 0 or the firePort is false<br>
+<b>closed</b> (on), if the voltage drop is greater or equal 0  and the firePort is true.<br>
 </P>
+<p>
+This is the behaviour if all parameters are exactly zero.<br><br>
+Note, there are circuits, where this ideal description
+with zero resistance and zero cinductance is not possible.
+In order to prevent singularities during switching, the opened
+thyristor has a small conductance <i>Gon</i> and the closed thyristor has a low
+resistance <i>Roff</i> which is default.
+</P>
+<P>
+The parameter <i>Vknee</i> which is the forward threshold voltage, allows to displace
+the knee point <br> 
+along  the <i>Gon</i>-characteristic until <i>v = Vknee</i>.
+</p>
+
 </HTML>
-"), 
-      Coordsys(
-        extent=[-100, -100; 100, 100], 
-        grid=[1, 1], 
-        component=[20, 20]), 
-      Icon(
-        Polygon(points=[20, 0; -40, 40; -40, -40; 20, 0], style(
-            color=3, 
-            gradient=0, 
-            fillColor=7)), 
-        Line(points=[-90, 0; 40, 0]), 
-        Line(points=[40, 0; 90, 0]), 
-        Line(points=[20, 40; 20, -40], style(color=3)), 
-        Line(points=[20, 20; 60, 60; 60, 90]), 
-        Line(points=[30, 50; 50, 30]), 
-        Text(extent=[-100, -70; 100, -100], string="%name")), 
-      Diagram(
-        Polygon(points=[20, 0; -40, 40; -40, -40; 20, 0], style(
-            color=3, 
-            gradient=0, 
-            fillColor=1, 
-            fillPattern=0)), 
-        Line(points=[-90, 0; 40, 0]), 
-        Line(points=[40, 0; 90, 0]), 
-        Line(points=[20, 40; 20, -40], style(color=3)), 
-        Line(points=[20, 20; 60, 60; 60, 90]), 
-        Line(points=[30, 50; 50, 30])), 
-      Window(
-        x=0.27, 
-        y=0.13, 
-        width=0.6, 
-        height=0.6));
+", revisions="<html>
+<ul>
+<li><i>Mai 7, 2004   </i>
+       by Christoph Clauss and Anton Haumer<br> Vknee added<br>
+       </li>
+<li><i>some years ago   </i>
+       by Christoph Clauss<br> realized<br>
+       </li>
+</ul>
+
+</html>"),  Coordsys(
+              extent=[-100, -100; 100, 100],
+              grid=[1, 1],
+              component=[20, 20]),
+            Icon(
+              Text(extent=[-100, -70; 100, -100], string="%name"),
+              Polygon(points=[30, 0; -30, 40; -30, -40; 30, 0], style(
+                  color=3,
+                  gradient=0,
+                  fillColor=7)),
+              Line(points=[-90, 0; 40, 0]),
+              Line(points=[40, 0; 90, 0]),
+              Line(points=[30, 40; 30, -40], style(color=3)),
+              Line(points=[30, 20; 70, 60; 70, 90]),
+              Line(points=[40, 50; 60, 30])),
+            Diagram(
+              Line(points=[-80, 0; 80, 0], style(color=10)),
+              Polygon(points=[70, 4; 80, 0; 70, -4; 70, 4], style(color=10,
+                    fillColor=10)),
+              Line(points=[0, 80; 0, -80], style(
+                  color=10,
+                  fillColor=10,
+                  fillPattern=1)),
+              Polygon(points=[-4, 70; 0, 80; 4, 70; -4, 70], style(
+                  color=10,
+                  fillColor=10,
+                  fillPattern=1)),
+              Text(
+                extent=[10, 80; 20, 70],
+                style(
+                  color=10,
+                  fillColor=10,
+                  fillPattern=1),
+                string="i"),
+              Text(
+                extent=[70, -10; 80, -20],
+                style(
+                  color=10,
+                  fillColor=10,
+                  fillPattern=1),
+                string="v"),
+              Line(points=[-80, -40; -20, -10; 20, 10; 40, 70], style(
+                  color=0,
+                  thickness=2,
+                  fillColor=10,
+                  fillPattern=1)),
+              Line(points=[20, 9; 20, 0], style(
+                  color=10,
+                  pattern=3,
+                  fillColor=10,
+                  fillPattern=1)),
+              Text(
+                extent=[20, 0; 40, -10],
+                style(
+                  color=10,
+                  pattern=3,
+                  fillColor=10,
+                  fillPattern=1),
+                string="Vknee"),
+              Text(
+                extent=[20, 70; 40, 60],
+                style(
+                  color=10,
+                  pattern=3,
+                  fillColor=10,
+                  fillPattern=1),
+                string="Roff"),
+              Text(
+                extent=[-20, 10; 0, 0],
+                style(
+                  color=10,
+                  pattern=3,
+                  fillColor=10,
+                  fillPattern=1),
+                string="Gon"),
+              Ellipse(extent=[18, 12; 22, 8], style(pattern=3, fillPattern=1)),
+              Line(points=[20, 10; 70, 40], style(
+                  color=0,
+                  thickness=2,
+                  fillPattern=1))),
+            Window(
+              x=0.27,
+              y=0.13,
+              width=0.6,
+              height=0.6));
+    
   public 
-    Modelica.Blocks.Interfaces.BooleanInPort firePort(final n=1) annotation (
-        extent=[50, 90; 70, 110], rotation=-90);
-  equation 
-    fire = firePort.signal[1];
-    off = s < 0 or not fire;
-    v = s*(if off then 1 else Roff);
-    i = s*(if off then Gon else 1);
-  end IdealGTOThyristor;
+          Modelica.Blocks.Interfaces.BooleanInPort firePort(final n=1) 
+            annotation (extent=[60, 90; 80, 110], rotation=-90);
+        equation 
+          off = s < 0 or not firePort.signal[1];
+          v = s*(if off then 1 else Roff) + Vknee;
+          i = s*(if off then Gon else 1) + Gon*Vknee;
+        end IdealGTOThyristor;
   
   model IdealSwitch "Ideal electrical switch" 
     extends Interfaces.OnePort;
@@ -191,8 +350,8 @@ Ideal GTO thyristor ...
     Boolean off;
   public 
     Modelica.Blocks.Interfaces.BooleanInPort control(final n=1, signal(start={
-            false})) "true/false opened/closed switch" annotation (extent=[-10
-          , 50; 10, 70], rotation=-90);
+            false})) "true/false opened/closed switch" annotation (extent=[-10,
+            50; 10, 70], rotation=-90);
     annotation (
       Documentation(info="<html>
 <P>
@@ -209,29 +368,28 @@ infinite). Note, there are circuits, where a description
 with zero/infinity resistances is not possible.
 </P>
 </HTML>
-"), 
-      Coordsys(
-        extent=[-100, -100; 100, 100], 
-        grid=[1, 1], 
-        component=[20, 20]), 
+"),   Coordsys(
+        extent=[-100, -100; 100, 100],
+        grid=[1, 1],
+        component=[20, 20]),
       Window(
-        x=0.28, 
-        y=0.13, 
-        width=0.56, 
-        height=0.63), 
+        x=0.28,
+        y=0.13,
+        width=0.56,
+        height=0.63),
       Icon(
-        Ellipse(extent=[-44, 4; -36, -4]), 
-        Line(points=[-90, 0; -44, 0]), 
-        Line(points=[-37, 2; 40, 50]), 
-        Line(points=[40, 0; 90, 0]), 
-        Text(extent=[-100, -70; 100, -100], string="%name"), 
-        Line(points=[0, 51; 0, 26])), 
+        Ellipse(extent=[-44, 4; -36, -4]),
+        Line(points=[-90, 0; -44, 0]),
+        Line(points=[-37, 2; 40, 50]),
+        Line(points=[40, 0; 90, 0]),
+        Text(extent=[-100, -70; 100, -100], string="%name"),
+        Line(points=[0, 51; 0, 26])),
       Diagram(
-        Ellipse(extent=[-44, 4; -36, -4]), 
-        Line(points=[-90, 0; -44, 0]), 
-        Line(points=[-37, 2; 40, 50]), 
-        Line(points=[40, 0; 90, 0]), 
-        Text(extent=[-100, -40; 100, -79], string="%name"), 
+        Ellipse(extent=[-44, 4; -36, -4]),
+        Line(points=[-90, 0; -44, 0]),
+        Line(points=[-37, 2; 40, 50]),
+        Line(points=[40, 0; 90, 0]),
+        Text(extent=[-100, -40; 100, -79], string="%name"),
         Line(points=[0, 51; 0, 26])));
   equation 
     off = control.signal[1];
@@ -240,8 +398,7 @@ with zero/infinity resistances is not possible.
   end IdealSwitch;
   
   model IdealCommutingSwitch "Ideal commuting switch" 
-    parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance"
-      ;
+    parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance";
     parameter SI.Conductance Goff(final min=0) = 1.E-5 
       "Opened switch conductance";
     annotation (
@@ -262,36 +419,35 @@ open switch could be also exactly zero. Note, there are circuits,
 where a description with zero Ron or zero Goff is not possible. 
 </P>
 </HTML>
-"), 
-      Coordsys(
-        extent=[-100, -100; 100, 100], 
-        grid=[1, 1], 
-        component=[20, 20]), 
+"),   Coordsys(
+        extent=[-100, -100; 100, 100],
+        grid=[1, 1],
+        component=[20, 20]),
       Icon(
-        Ellipse(extent=[-44, 4; -36, -4]), 
-        Text(extent=[-80, 0; -60, 22], string="p"), 
-        Text(extent=[60, 50; 80, 72], string="n1"), 
-        Text(extent=[60, 0; 80, 22], string="n2"), 
-        Line(points=[-90, 0; -44, 0]), 
-        Line(points=[-37, 2; 40, 50]), 
-        Line(points=[40, 50; 90, 50]), 
-        Line(points=[0, 90; 0, 25]), 
-        Line(points=[40, 0; 90, 0]), 
-        Text(extent=[-100, -70; 100, -100], string="%name")), 
+        Ellipse(extent=[-44, 4; -36, -4]),
+        Text(extent=[-80, 0; -60, 22], string="p"),
+        Text(extent=[60, 50; 80, 72], string="n1"),
+        Text(extent=[60, 0; 80, 22], string="n2"),
+        Line(points=[-90, 0; -44, 0]),
+        Line(points=[-37, 2; 40, 50]),
+        Line(points=[40, 50; 90, 50]),
+        Line(points=[0, 90; 0, 25]),
+        Line(points=[40, 0; 90, 0]),
+        Text(extent=[-100, -70; 100, -100], string="%name")),
       Diagram(
-        Ellipse(extent=[-44, 4; -36, -4]), 
-        Text(extent=[-80, 0; -60, 22], string="p"), 
-        Text(extent=[60, 50; 80, 72], string="n1"), 
-        Text(extent=[60, 0; 80, 22], string="n2"), 
-        Line(points=[-90, 0; -44, 0]), 
-        Line(points=[-37, 2; 40, 50]), 
-        Line(points=[40, 50; 90, 50]), 
-        Line(points=[0, 90; 0, 25]), 
-        Line(points=[40, 0; 90, 0])), 
+        Ellipse(extent=[-44, 4; -36, -4]),
+        Text(extent=[-80, 0; -60, 22], string="p"),
+        Text(extent=[60, 50; 80, 72], string="n1"),
+        Text(extent=[60, 0; 80, 22], string="n2"),
+        Line(points=[-90, 0; -44, 0]),
+        Line(points=[-37, 2; 40, 50]),
+        Line(points=[40, 50; 90, 50]),
+        Line(points=[0, 90; 0, 25]),
+        Line(points=[40, 0; 90, 0])),
       Window(
-        x=0.21, 
-        y=0.05, 
-        width=0.6, 
+        x=0.21,
+        y=0.05,
+        width=0.6,
         height=0.6));
   public 
     Interfaces.PositivePin p annotation (extent=[-110, -10; -90, 10]);
@@ -315,8 +471,7 @@ where a description with zero Ron or zero Goff is not possible.
   end IdealCommutingSwitch;
   
   model IdealIntermediateSwitch "Ideal intermediate switch" 
-    parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance"
-      ;
+    parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance";
     parameter SI.Conductance Goff(final min=0) = 1.E-5 
       "Opened switch conductance";
     annotation (
@@ -346,42 +501,41 @@ open switch could be also exactly zero. Note, there are circuits,
 where a description with zero Ron or zero Goff is not possible. 
 </P>
 </HTML>
-"), 
-      Coordsys(
-        extent=[-100, -100; 100, 100], 
-        grid=[1, 1], 
-        component=[20, 20]), 
+"),   Coordsys(
+        extent=[-100, -100; 100, 100],
+        grid=[1, 1],
+        component=[20, 20]),
       Icon(
-        Ellipse(extent=[-4, 30; 4, 22]), 
-        Text(extent=[-80, 50; -60, 72], string="p1"), 
-        Text(extent=[-80, 0; -60, 22], string="p2"), 
-        Text(extent=[60, 50; 80, 72], string="n1"), 
-        Text(extent=[60, 0; 80, 22], string="n2"), 
-        Line(points=[-90, 0; -44, 0]), 
-        Line(points=[-90, 50; -44, 50]), 
-        Line(points=[-44, 0; 40, 50]), 
-        Line(points=[-44, 50; 40, 0]), 
-        Line(points=[40, 50; 90, 50]), 
-        Line(points=[0, 90; 0, 25]), 
-        Line(points=[40, 0; 90, 0]), 
-        Text(extent=[-100, -70; 100, -100], string="%name")), 
+        Ellipse(extent=[-4, 30; 4, 22]),
+        Text(extent=[-80, 50; -60, 72], string="p1"),
+        Text(extent=[-80, 0; -60, 22], string="p2"),
+        Text(extent=[60, 50; 80, 72], string="n1"),
+        Text(extent=[60, 0; 80, 22], string="n2"),
+        Line(points=[-90, 0; -44, 0]),
+        Line(points=[-90, 50; -44, 50]),
+        Line(points=[-44, 0; 40, 50]),
+        Line(points=[-44, 50; 40, 0]),
+        Line(points=[40, 50; 90, 50]),
+        Line(points=[0, 90; 0, 25]),
+        Line(points=[40, 0; 90, 0]),
+        Text(extent=[-100, -70; 100, -100], string="%name")),
       Diagram(
-        Ellipse(extent=[-4, 30; 4, 22]), 
-        Text(extent=[-80, 50; -60, 72], string="p1"), 
-        Text(extent=[-80, 0; -60, 22], string="p2"), 
-        Text(extent=[60, 50; 80, 72], string="n1"), 
-        Text(extent=[60, 0; 80, 22], string="n2"), 
-        Line(points=[-90, 0; -44, 0]), 
-        Line(points=[-90, 50; -44, 50]), 
-        Line(points=[-44, 0; 40, 50]), 
-        Line(points=[-44, 50; 40, 0]), 
-        Line(points=[40, 50; 90, 50]), 
-        Line(points=[0, 90; 0, 25]), 
-        Line(points=[40, 0; 90, 0])), 
+        Ellipse(extent=[-4, 30; 4, 22]),
+        Text(extent=[-80, 50; -60, 72], string="p1"),
+        Text(extent=[-80, 0; -60, 22], string="p2"),
+        Text(extent=[60, 50; 80, 72], string="n1"),
+        Text(extent=[60, 0; 80, 22], string="n2"),
+        Line(points=[-90, 0; -44, 0]),
+        Line(points=[-90, 50; -44, 50]),
+        Line(points=[-44, 0; 40, 50]),
+        Line(points=[-44, 50; 40, 0]),
+        Line(points=[40, 50; 90, 50]),
+        Line(points=[0, 90; 0, 25]),
+        Line(points=[40, 0; 90, 0])),
       Window(
-        x=0.21, 
-        y=0.05, 
-        width=0.6, 
+        x=0.21,
+        y=0.05,
+        width=0.6,
         height=0.6));
   public 
     Interfaces.PositivePin p1 annotation (extent=[-110, 40; -90, 60]);
@@ -389,7 +543,7 @@ where a description with zero Ron or zero Goff is not possible.
     Interfaces.NegativePin n1 annotation (extent=[90, 40; 110, 60]);
     Interfaces.NegativePin n2 annotation (extent=[90, -10; 110, 10]);
     Modelica.Blocks.Interfaces.BooleanInPort control(final n=1) "true => p1--n2, p2--n1 connected,
-         otherwise p1--n1, p2--n2  connected" annotation (extent=[-10, 70; 10, 
+         otherwise p1--n1, p2--n2  connected" annotation (extent=[-10, 70; 10,
           90], rotation=-90);
   protected 
     Real s1;
@@ -426,28 +580,27 @@ parameter Voltage, the pins <i>p</i> and <i>n</i> are open (no current flowing, 
 possible). Otherwise, <i>p</i> and <i>n</i> are short cut.
 </P>
 </HTML>
-"), 
-      Coordsys(
-        extent=[-100, -100; 100, 100], 
-        grid=[1, 1], 
-        component=[20, 20]), 
+"),   Coordsys(
+        extent=[-100, -100; 100, 100],
+        grid=[1, 1],
+        component=[20, 20]),
       Window(
-        x=0.24, 
-        y=0.27, 
-        width=0.76, 
-        height=0.57), 
+        x=0.24,
+        y=0.27,
+        width=0.76,
+        height=0.57),
       Icon(
-        Ellipse(extent=[-44, 4; -36, -4]), 
-        Line(points=[-90, 0; -44, 0]), 
-        Line(points=[-37, 2; 40, 50]), 
-        Line(points=[40, 0; 90, 0]), 
-        Line(points=[0, 90; 0, 25]), 
-        Text(extent=[-100, -70; 100, -100], string="%name")), 
+        Ellipse(extent=[-44, 4; -36, -4]),
+        Line(points=[-90, 0; -44, 0]),
+        Line(points=[-37, 2; 40, 50]),
+        Line(points=[40, 0; 90, 0]),
+        Line(points=[0, 90; 0, 25]),
+        Text(extent=[-100, -70; 100, -100], string="%name")),
       Diagram(
-        Ellipse(extent=[-44, 4; -36, -4]), 
-        Line(points=[-90, 0; -44, 0]), 
-        Line(points=[-37, 2; 40, 50]), 
-        Line(points=[40, 0; 90, 0]), 
+        Ellipse(extent=[-44, 4; -36, -4]),
+        Line(points=[-90, 0; -44, 0]),
+        Line(points=[-37, 2; 40, 50]),
+        Line(points=[40, 0; 90, 0]),
         Line(points=[0, 90; 0, 25])));
   public 
     Interfaces.Pin p "Positive pin" annotation (extent=[-110, -10; -90, 10]);
@@ -464,8 +617,7 @@ possible). Otherwise, <i>p</i> and <i>n</i> are short cut.
   
   model ControlledIdealCommutingSwitch "Controlled ideal commuting switch" 
     parameter SI.Voltage level=0.5 "Switch level";
-    parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance"
-      ;
+    parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance";
     parameter SI.Conductance Goff(final min=0) = 1.E-5 
       "Opened switch conductance";
     annotation (
@@ -487,36 +639,35 @@ open switch could be also exactly zero. Note, there are circuits,
 where a description with zero Ron or zero Goff is not possible. 
 </P>
 </HTML>
-"), 
-      Coordsys(
-        extent=[-100, -100; 100, 100], 
-        grid=[1, 1], 
-        component=[20, 20]), 
+"),   Coordsys(
+        extent=[-100, -100; 100, 100],
+        grid=[1, 1],
+        component=[20, 20]),
       Icon(
-        Ellipse(extent=[-44, 4; -36, -4]), 
-        Text(extent=[-80, 0; -60, 22], string="p"), 
-        Text(extent=[60, 50; 80, 72], string="n1"), 
-        Text(extent=[60, 0; 80, 22], string="n2"), 
-        Line(points=[-90, 0; -44, 0]), 
-        Line(points=[-37, 2; 40, 50]), 
-        Line(points=[40, 50; 90, 50]), 
-        Line(points=[0, 90; 0, 25]), 
-        Line(points=[40, 0; 90, 0]), 
-        Text(extent=[-100, -70; 100, -100], string="%name")), 
+        Ellipse(extent=[-44, 4; -36, -4]),
+        Text(extent=[-80, 0; -60, 22], string="p"),
+        Text(extent=[60, 50; 80, 72], string="n1"),
+        Text(extent=[60, 0; 80, 22], string="n2"),
+        Line(points=[-90, 0; -44, 0]),
+        Line(points=[-37, 2; 40, 50]),
+        Line(points=[40, 50; 90, 50]),
+        Line(points=[0, 90; 0, 25]),
+        Line(points=[40, 0; 90, 0]),
+        Text(extent=[-100, -70; 100, -100], string="%name")),
       Diagram(
-        Ellipse(extent=[-44, 4; -36, -4]), 
-        Text(extent=[-80, 0; -60, 22], string="p"), 
-        Text(extent=[60, 50; 80, 72], string="n1"), 
-        Text(extent=[60, 0; 80, 22], string="n2"), 
-        Line(points=[-90, 0; -44, 0]), 
-        Line(points=[-37, 2; 40, 50]), 
-        Line(points=[40, 50; 90, 50]), 
-        Line(points=[0, 90; 0, 25]), 
-        Line(points=[40, 0; 90, 0])), 
+        Ellipse(extent=[-44, 4; -36, -4]),
+        Text(extent=[-80, 0; -60, 22], string="p"),
+        Text(extent=[60, 50; 80, 72], string="n1"),
+        Text(extent=[60, 0; 80, 22], string="n2"),
+        Line(points=[-90, 0; -44, 0]),
+        Line(points=[-37, 2; 40, 50]),
+        Line(points=[40, 50; 90, 50]),
+        Line(points=[0, 90; 0, 25]),
+        Line(points=[40, 0; 90, 0])),
       Window(
-        x=0.21, 
-        y=0.05, 
-        width=0.6, 
+        x=0.21,
+        y=0.05,
+        width=0.6,
         height=0.6));
   public 
     Interfaces.PositivePin p annotation (extent=[-110, -10; -90, 10]);
@@ -541,8 +692,7 @@ where a description with zero Ron or zero Goff is not possible.
   model ControlledIdealIntermediateSwitch 
     "Controlled ideal intermediate switch" 
     parameter SI.Voltage level=0.5 "Switch level";
-    parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance"
-      ;
+    parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance";
     parameter SI.Conductance Goff(final min=0) = 1.E-5 
       "Opened switch conductance";
     annotation (
@@ -573,42 +723,41 @@ open switch could be also exactly zero. Note, there are circuits,
 where a description with zero Ron or zero Goff is not possible. 
 </P>
 </HTML>
-"), 
-      Coordsys(
-        extent=[-100, -100; 100, 100], 
-        grid=[1, 1], 
-        component=[20, 20]), 
+"),   Coordsys(
+        extent=[-100, -100; 100, 100],
+        grid=[1, 1],
+        component=[20, 20]),
       Icon(
-        Ellipse(extent=[-4, 30; 4, 22]), 
-        Text(extent=[-80, 50; -60, 72], string="p1"), 
-        Text(extent=[-80, 0; -60, 22], string="p2"), 
-        Text(extent=[60, 50; 80, 72], string="n1"), 
-        Text(extent=[60, 0; 80, 22], string="n2"), 
-        Line(points=[-90, 0; -44, 0]), 
-        Line(points=[-90, 50; -44, 50]), 
-        Line(points=[-44, 0; 40, 50]), 
-        Line(points=[-44, 50; 40, 0]), 
-        Line(points=[40, 50; 90, 50]), 
-        Line(points=[0, 90; 0, 25]), 
-        Line(points=[40, 0; 90, 0]), 
-        Text(extent=[-100, -70; 100, -100], string="%name")), 
+        Ellipse(extent=[-4, 30; 4, 22]),
+        Text(extent=[-80, 50; -60, 72], string="p1"),
+        Text(extent=[-80, 0; -60, 22], string="p2"),
+        Text(extent=[60, 50; 80, 72], string="n1"),
+        Text(extent=[60, 0; 80, 22], string="n2"),
+        Line(points=[-90, 0; -44, 0]),
+        Line(points=[-90, 50; -44, 50]),
+        Line(points=[-44, 0; 40, 50]),
+        Line(points=[-44, 50; 40, 0]),
+        Line(points=[40, 50; 90, 50]),
+        Line(points=[0, 90; 0, 25]),
+        Line(points=[40, 0; 90, 0]),
+        Text(extent=[-100, -70; 100, -100], string="%name")),
       Diagram(
-        Ellipse(extent=[-4, 30; 4, 22]), 
-        Text(extent=[-80, 50; -60, 72], string="p1"), 
-        Text(extent=[-80, 0; -60, 22], string="p2"), 
-        Text(extent=[60, 50; 80, 72], string="n1"), 
-        Text(extent=[60, 0; 80, 22], string="n2"), 
-        Line(points=[-90, 0; -44, 0]), 
-        Line(points=[-90, 50; -44, 50]), 
-        Line(points=[-44, 0; 40, 50]), 
-        Line(points=[-44, 50; 40, 0]), 
-        Line(points=[40, 50; 90, 50]), 
-        Line(points=[0, 90; 0, 25]), 
-        Line(points=[40, 0; 90, 0])), 
+        Ellipse(extent=[-4, 30; 4, 22]),
+        Text(extent=[-80, 50; -60, 72], string="p1"),
+        Text(extent=[-80, 0; -60, 22], string="p2"),
+        Text(extent=[60, 50; 80, 72], string="n1"),
+        Text(extent=[60, 0; 80, 22], string="n2"),
+        Line(points=[-90, 0; -44, 0]),
+        Line(points=[-90, 50; -44, 50]),
+        Line(points=[-44, 0; 40, 50]),
+        Line(points=[-44, 50; 40, 0]),
+        Line(points=[40, 50; 90, 50]),
+        Line(points=[0, 90; 0, 25]),
+        Line(points=[40, 0; 90, 0])),
       Window(
-        x=0.21, 
-        y=0.05, 
-        width=0.6, 
+        x=0.21,
+        y=0.05,
+        width=0.6,
         height=0.6));
     
   public 
@@ -617,7 +766,7 @@ where a description with zero Ron or zero Goff is not possible.
     Interfaces.NegativePin n1 annotation (extent=[90, 40; 110, 60]);
     Interfaces.NegativePin n2 annotation (extent=[90, -10; 110, 10]);
     Interfaces.Pin control "Control pin: if control.v > level p1--n2, p2--n1 connected,
-         otherwise p1--n1, p2--n2  connected" annotation (extent=[-10, 90; 10, 
+         otherwise p1--n1, p2--n2  connected" annotation (extent=[-10, 90; 10,
           110], rotation=90);
   protected 
     Real s1;
@@ -651,70 +800,69 @@ The ideal OpAmp is a two-port. The left port is fixed to <i>v1=0</i> and <i>i1=0
 are possible (norator).
 </P>
 </HTML>
-"), 
-      Coordsys(
-        extent=[-100, -100; 100, 100], 
-        grid=[1, 1], 
-        component=[20, 20]), 
+"),   Coordsys(
+        extent=[-100, -100; 100, 100],
+        grid=[1, 1],
+        component=[20, 20]),
       Icon(
-        Text(extent=[-100, 80; 100, 100], string="%name"), 
-        Polygon(points=[60, 0; -60, 70; -60, -70; 60, 0], style(fillColor=7)), 
-        Line(points=[-90, 50; -60, 50]), 
-        Line(points=[-90, -50; -60, -50]), 
-        Line(points=[60, 0; 90, 0]), 
-        Line(points=[0, -35; 0, -91]), 
-        Line(points=[-48, 32; -28, 32]), 
-        Line(points=[-39, -20; -39, -41]), 
-        Line(points=[-50, -31; -28, -31])), 
+        Text(extent=[-100, 80; 100, 100], string="%name"),
+        Polygon(points=[60, 0; -60, 70; -60, -70; 60, 0], style(fillColor=7)),
+        Line(points=[-90, 50; -60, 50]),
+        Line(points=[-90, -50; -60, -50]),
+        Line(points=[60, 0; 90, 0]),
+        Line(points=[0, -35; 0, -91]),
+        Line(points=[-48, 32; -28, 32]),
+        Line(points=[-39, -20; -39, -41]),
+        Line(points=[-50, -31; -28, -31])),
       Diagram(
-        Polygon(points=[60, 0; -60, 70; -60, -70; 60, 0], style(fillColor=7)), 
-        Line(points=[-90, 50; -60, 50]), 
-        Line(points=[-90, -50; -60, -50]), 
-        Line(points=[60, 0; 90, 0]), 
-        Line(points=[0, -35; 0, -91]), 
-        Line(points=[-55, 50; -45, 50]), 
-        Line(points=[-50, -45; -50, -55]), 
-        Line(points=[-55, -50; -45, -50]), 
+        Polygon(points=[60, 0; -60, 70; -60, -70; 60, 0], style(fillColor=7)),
+        Line(points=[-90, 50; -60, 50]),
+        Line(points=[-90, -50; -60, -50]),
+        Line(points=[60, 0; 90, 0]),
+        Line(points=[0, -35; 0, -91]),
+        Line(points=[-55, 50; -45, 50]),
+        Line(points=[-50, -45; -50, -55]),
+        Line(points=[-55, -50; -45, -50]),
         Text(
-          extent=[-111, -39; -90, -19], 
-          string="p1.i=0", 
-          style(color=9, fillColor=9)), 
+          extent=[-111, -39; -90, -19],
+          string="p1.i=0",
+          style(color=9, fillColor=9)),
         Polygon(points=[120, 3; 110, 0; 120, -3; 120, 3], style(
-            color=9, 
-            gradient=2, 
-            fillColor=9, 
-            fillPattern=1)), 
+            color=9,
+            gradient=2,
+            fillColor=9,
+            fillPattern=1)),
         Line(points=[111, 0; 136, 0], style(
-            color=9, 
-            gradient=2, 
-            fillColor=9)), 
+            color=9,
+            gradient=2,
+            fillColor=9)),
         Text(
-          extent=[118, 2; 135, 17], 
-          string="i2", 
+          extent=[118, 2; 135, 17],
+          string="i2",
           style(
-            color=9, 
-            gradient=2, 
-            fillColor=9)), 
+            color=9,
+            gradient=2,
+            fillColor=9)),
         Text(
-          extent=[-111, 60; -90, 80], 
-          string="n1.i=0", 
-          style(color=9, fillColor=9)), 
-        Line(points=[18, -111; 18, -86], style(color=9, fillColor=9)), 
+          extent=[-111, 60; -90, 80],
+          string="n1.i=0",
+          style(color=9, fillColor=9)),
+        Line(points=[18, -111; 18, -86], style(color=9, fillColor=9)),
         Polygon(points=[21, -101; 18, -111; 15, -101; 21, -101], style(
-            color=9, 
-            fillColor=9, 
-            fillPattern=1)), 
+            color=9,
+            fillColor=9,
+            fillPattern=1)),
         Text(
-          extent=[22, -100; 39, -85], 
-          string="i2", 
+          extent=[22, -100; 39, -85],
+          string="i2",
           style(
-            color=9, 
-            gradient=2, 
-            fillColor=9))), 
+            color=9,
+            gradient=2,
+            fillColor=9))),
       Window(
-        x=0.28, 
-        y=0.19, 
-        width=0.71, 
+        x=0.28,
+        y=0.19,
+        width=0.71,
         height=0.59));
     Interfaces.PositivePin p1 "Positive pin of the left port" annotation (
         extent=[-110, -60; -90, -40]);
@@ -747,62 +895,61 @@ At the output pin both any voltage <i>v2</i> and any current <i>i2</i>
 are possible.
 </P>
 </HTML>
-"), 
-      Coordsys(
-        extent=[-100, -100; 100, 100], 
-        grid=[1, 1], 
-        component=[20, 20]), 
+"),   Coordsys(
+        extent=[-100, -100; 100, 100],
+        grid=[1, 1],
+        component=[20, 20]),
       Icon(
-        Text(extent=[-100, 80; 100, 100], string="%name"), 
-        Polygon(points=[60, 0; -60, 70; -60, -70; 60, 0], style(fillColor=7)), 
-        Line(points=[-90, 50; -60, 50]), 
-        Line(points=[-90, -50; -60, -50]), 
-        Line(points=[60, 0; 90, 0]), 
-        Line(points=[-48, 32; -28, 32]), 
-        Line(points=[-39, -20; -39, -41]), 
-        Line(points=[-50, -31; -28, -31])), 
+        Text(extent=[-100, 80; 100, 100], string="%name"),
+        Polygon(points=[60, 0; -60, 70; -60, -70; 60, 0], style(fillColor=7)),
+        Line(points=[-90, 50; -60, 50]),
+        Line(points=[-90, -50; -60, -50]),
+        Line(points=[60, 0; 90, 0]),
+        Line(points=[-48, 32; -28, 32]),
+        Line(points=[-39, -20; -39, -41]),
+        Line(points=[-50, -31; -28, -31])),
       Diagram(
-        Polygon(points=[60, 0; -60, 70; -60, -70; 60, 0], style(fillColor=7)), 
-        Line(points=[-90, 50; -60, 50]), 
-        Line(points=[-90, -50; -60, -50]), 
-        Line(points=[60, 0; 90, 0]), 
-        Line(points=[-55, 50; -45, 50]), 
-        Line(points=[-50, -45; -50, -55]), 
-        Line(points=[-55, -50; -45, -50]), 
+        Polygon(points=[60, 0; -60, 70; -60, -70; 60, 0], style(fillColor=7)),
+        Line(points=[-90, 50; -60, 50]),
+        Line(points=[-90, -50; -60, -50]),
+        Line(points=[60, 0; 90, 0]),
+        Line(points=[-55, 50; -45, 50]),
+        Line(points=[-50, -45; -50, -55]),
+        Line(points=[-55, -50; -45, -50]),
         Text(
-          extent=[-111, -39; -90, -19], 
-          string="p1.i=0", 
-          style(color=9, fillColor=9)), 
+          extent=[-111, -39; -90, -19],
+          string="p1.i=0",
+          style(color=9, fillColor=9)),
         Polygon(points=[120, 3; 110, 0; 120, -3; 120, 3], style(
-            color=9, 
-            gradient=2, 
-            fillColor=9, 
-            fillPattern=1)), 
+            color=9,
+            gradient=2,
+            fillColor=9,
+            fillPattern=1)),
         Line(points=[111, 0; 136, 0], style(
-            color=9, 
-            gradient=2, 
-            fillColor=9)), 
+            color=9,
+            gradient=2,
+            fillColor=9)),
         Text(
-          extent=[118, 2; 135, 17], 
-          string="i2", 
+          extent=[118, 2; 135, 17],
+          string="i2",
           style(
-            color=9, 
-            gradient=2, 
-            fillColor=9)), 
+            color=9,
+            gradient=2,
+            fillColor=9)),
         Text(
-          extent=[-111, 60; -90, 80], 
-          string="n1.i=0", 
-          style(color=9, fillColor=9))), 
+          extent=[-111, 60; -90, 80],
+          string="n1.i=0",
+          style(color=9, fillColor=9))),
       Window(
-        x=0.28, 
-        y=0.19, 
-        width=0.71, 
+        x=0.28,
+        y=0.19,
+        width=0.71,
         height=0.59));
     Interfaces.PositivePin in_p "Positive pin of the input port" annotation (
         extent=[-110, -60; -90, -40]);
     Interfaces.NegativePin in_n "Negative pin of the input port" annotation (
         extent=[-110, 40; -90, 60]);
-    Interfaces.PositivePin out "Output pin" annotation (extent=[90, -10; 110, 
+    Interfaces.PositivePin out "Output pin" annotation (extent=[90, -10; 110,
           10]);
   equation 
     in_p.v = in_n.v;
@@ -821,68 +968,67 @@ If the input voltage is vin < 0, the output voltage is out.v = VMin.
 If the input voltage is vin > 0, the output voltage is out.v = VMax.
 </P>
 </HTML>
-"), 
-      Coordsys(
-        extent=[-100, -100; 100, 100], 
-        grid=[1, 1], 
-        component=[20, 20]), 
+"),   Coordsys(
+        extent=[-100, -100; 100, 100],
+        grid=[1, 1],
+        component=[20, 20]),
       Icon(
-        Text(extent=[-110, 80; 100, 90], string="%name"), 
-        Polygon(points=[60, 0; -60, 70; -60, -70; 60, 0], style(fillColor=7)), 
-        Line(points=[-45, -10; -10, -10; -10, 10; 20, 10]), 
-        Line(points=[0, 35; 0, 80]), 
-        Line(points=[0, -35; 0, -80]), 
-        Line(points=[-90, 50; -60, 50]), 
-        Line(points=[-90, -50; -60, -50]), 
-        Line(points=[60, 0; 90, 0]), 
-        Line(points=[-48, 32; -28, 32]), 
-        Line(points=[-39, -20; -39, -41]), 
-        Line(points=[-50, -31; -28, -31])), 
+        Text(extent=[-110, 80; 100, 90], string="%name"),
+        Polygon(points=[60, 0; -60, 70; -60, -70; 60, 0], style(fillColor=7)),
+        Line(points=[-45, -10; -10, -10; -10, 10; 20, 10]),
+        Line(points=[0, 35; 0, 80]),
+        Line(points=[0, -35; 0, -80]),
+        Line(points=[-90, 50; -60, 50]),
+        Line(points=[-90, -50; -60, -50]),
+        Line(points=[60, 0; 90, 0]),
+        Line(points=[-48, 32; -28, 32]),
+        Line(points=[-39, -20; -39, -41]),
+        Line(points=[-50, -31; -28, -31])),
       Diagram(
-        Polygon(points=[60, 0; -60, 70; -60, -70; 60, 0], style(fillColor=7)), 
-        Line(points=[-45, -10; -10, -10; -10, 10; 20, 10]), 
-        Line(points=[0, 35; 0, 80]), 
-        Line(points=[0, -35; 0, -80]), 
-        Line(points=[-90, 50; -60, 50]), 
-        Line(points=[-90, -50; -60, -50]), 
-        Line(points=[60, 0; 90, 0]), 
-        Line(points=[-55, 50; -45, 50]), 
-        Line(points=[-50, -45; -50, -55]), 
-        Line(points=[-55, -50; -45, -50]), 
+        Polygon(points=[60, 0; -60, 70; -60, -70; 60, 0], style(fillColor=7)),
+        Line(points=[-45, -10; -10, -10; -10, 10; 20, 10]),
+        Line(points=[0, 35; 0, 80]),
+        Line(points=[0, -35; 0, -80]),
+        Line(points=[-90, 50; -60, 50]),
+        Line(points=[-90, -50; -60, -50]),
+        Line(points=[60, 0; 90, 0]),
+        Line(points=[-55, 50; -45, 50]),
+        Line(points=[-50, -45; -50, -55]),
+        Line(points=[-55, -50; -45, -50]),
         Text(
-          extent=[-111, -39; -90, -19], 
-          string="p1.i=0", 
-          style(color=9, fillColor=9)), 
+          extent=[-111, -39; -90, -19],
+          string="p1.i=0",
+          style(color=9, fillColor=9)),
         Polygon(points=[120, 3; 110, 0; 120, -3; 120, 3], style(
-            color=9, 
-            gradient=2, 
-            fillColor=9, 
-            fillPattern=1)), 
+            color=9,
+            gradient=2,
+            fillColor=9,
+            fillPattern=1)),
         Line(points=[111, 0; 136, 0], style(
-            color=9, 
-            gradient=2, 
-            fillColor=9)), 
+            color=9,
+            gradient=2,
+            fillColor=9)),
         Text(
-          extent=[118, 2; 135, 17], 
-          string="i2", 
+          extent=[118, 2; 135, 17],
+          string="i2",
           style(
-            color=9, 
-            gradient=2, 
-            fillColor=9)), 
+            color=9,
+            gradient=2,
+            fillColor=9)),
         Text(
-          extent=[-111, 60; -90, 80], 
-          string="n1.i=0", 
-          style(color=9, fillColor=9))), 
+          extent=[-111, 60; -90, 80],
+          string="n1.i=0",
+          style(color=9, fillColor=9))),
       Window(
-        x=0.28, 
-        y=0.19, 
-        width=0.71, 
+        x=0.28,
+        y=0.19,
+        width=0.71,
         height=0.59));
     Interfaces.PositivePin in_p "Positive pin of the input port" annotation (
         extent=[-110, -60; -90, -40]);
     Interfaces.NegativePin in_n "Negative pin of the input port" annotation (
         extent=[-110, 40; -90, 60]);
-    Interfaces.PositivePin out "Output pin" annotation (extent=[90, -10; 110, 
+    Interfaces.PositivePin out "Output pin" annotation (extent=[90, -10; 110,
           10]);
     Interfaces.PositivePin VMax "Positive output voltage limitation" 
       annotation (extent=[-10, 60; 10, 80]);
@@ -898,80 +1044,147 @@ If the input voltage is vin > 0, the output voltage is out.v = VMax.
     VMin.i = 0;
     vin = in_p.v - in_n.v;
     in_p.v - in_n.v = if (s < -1) then s + 1 else if (s > 1) then s - 1 else 0;
-    out.v = if (s < -1) then VMin.v else if (s > 1) then VMax.v else (VMax.v - 
+    out.v = if (s < -1) then VMin.v else if (s > 1) then VMax.v else (VMax.v -
       VMin.v)*s/2 + (VMax.v + VMin.v)/2;
   end IdealOpAmpLimited;
   
-  model IdealDiode "Ideal electrical diode" 
-    extends Interfaces.OnePort;
-    parameter SI.Resistance Roff(final min=0) = 1.E-5 "Closed diode resistance"
-      ;
-    parameter SI.Conductance Gon(final min=0) = 1.E-5 
-      "Opened diode conductance";
-    Boolean off(start=true) "Switching state of diode";
+        model IdealDiode "Ideal diode" 
+          extends Modelica.Electrical.Analog.Interfaces.OnePort;
+          parameter Modelica.SIunits.Resistance Roff(final min=0) = 1.E-5 
+      "Forward state-on differential resistance (closed diode resistance)";
+          parameter Modelica.SIunits.Conductance Gon(final min=0) = 1.E-5 
+      "Backward state-off conductance (opened diode conductance)";
+          parameter Modelica.SIunits.Voltage Vknee(final min=0) = 0 
+      "Forward threshold voltage";
+          Boolean off(start=true) "Switching state";
   protected 
-    Real s "Auxiliary variable";
-    annotation (
-      Documentation(info="<html>
+          Real s 
+      "Auxiliary variable: if on then current, if opened then voltage";
+          annotation (
+            Documentation(info="<html>
 <P>
-Ideal electrical diode. This is an ideal switch which is
-open, when it is reversed biased (voltage drop < 0) and
-which is closed, when it is conducting (current > 0).
+This is an ideal switch which is<br><br>
+<b>open </b>(off), if it is reversed biased (voltage drop less than 0)<br>
+<b>closed</b> (on), if it is conducting (current > 0).<br>
+</P>
+<p>
+This is the behaviour if all parameters are exactly zero.<br><br>
+Note, there are circuits, where this ideal description
+with zero resistance and zero cinductance is not possible.
 In order to prevent singularities during switching, the opened
-diode has a high resistance and the closed diode has a low
-resistance.
+diode has a small conductance <i>Gon</i> and the closed diode has a low
+resistance <i>Roff</i> which is default.
 </P>
 <P>
-If the actual circuit has an appropriate structure, the
-limiting case is also allowed, i.e., the resistance of the
-closed diode could be exactly zero and the conductance of the
-open diode could be also exactly zero (i.e. the resistance is
-infinity). Note, there are circuits, where a description
-with zero/infinity resistances is not possible.
-</P>
+The parameter <i>Vknee</i> which is the forward threshold voltage, allows to displace
+the knee point <br> 
+along  the <i>Gon</i>-characteristic until <i>v = Vknee</i>.
+</p>
+
 </HTML>
-"), 
-      Coordsys(
-        extent=[-100, -100; 100, 100], 
-        grid=[1, 1], 
-        component=[20, 20]), 
-      Icon(
-        Polygon(points=[30, 0; -30, 40; -30, -40; 30, 0], style(
-            color=3, 
-            gradient=0, 
-            fillColor=7)), 
-        Line(points=[-90, 0; 40, 0]), 
-        Line(points=[40, 0; 90, 0]), 
-        Line(points=[30, 40; 30, -40], style(color=3)), 
-        Text(extent=[-100, 100; 100, 70], string="%name")), 
-      Diagram(
-        Polygon(points=[30, 0; -30, 40; -30, -40; 30, 0], style(
-            color=3, 
-            gradient=0, 
-            fillColor=1, 
-            fillPattern=0)), 
-        Line(points=[-90, 0; 40, 0]), 
-        Line(points=[40, 0; 90, 0]), 
-        Line(points=[30, 40; 30, -40], style(color=3))), 
-      Window(
-        x=0.26, 
-        y=0.11, 
-        width=0.6, 
-        height=0.6));
-  equation 
-    off = s < 0;
-    v = s*(if off then 1 else Roff);
-    i = s*(if off then Gon else 1);
-  end IdealDiode;
+", revisions="<html>
+<ul>
+<li><i>Mai 7, 2004   </i>
+       by Christoph Clauss and Anton Haumer<br> Vknee added<br>
+       </li>
+<li><i>some years ago   </i>
+       by Christoph Clauss<br> realized<br>
+       </li>
+</ul>
+</html>"),  Coordsys(
+              extent=[-100, -100; 100, 100],
+              grid=[1, 1],
+              component=[20, 20]),
+            Icon(
+              Polygon(points=[30, 0; -30, 40; -30, -40; 30, 0], style(
+                  color=3,
+                  gradient=0,
+                  fillColor=7)),
+              Line(points=[-90, 0; 40, 0]),
+              Line(points=[40, 0; 90, 0]),
+              Line(points=[30, 40; 30, -40], style(color=3)),
+              Text(extent=[-100, 100; 100, 70], string="%name")),
+            Diagram(
+              Line(points=[-80, 0; 80, 0], style(color=10)),
+              Polygon(points=[70, 4; 80, 0; 70, -4; 70, 4], style(color=10,
+                    fillColor=10)),
+              Line(points=[0, 80; 0, -80], style(
+                  color=10,
+                  fillColor=10,
+                  fillPattern=1)),
+              Polygon(points=[-4, 70; 0, 80; 4, 70; -4, 70], style(
+                  color=10,
+                  fillColor=10,
+                  fillPattern=1)),
+              Text(
+                extent=[10, 80; 20, 70],
+                style(
+                  color=10,
+                  fillColor=10,
+                  fillPattern=1),
+                string="i"),
+              Text(
+                extent=[70, -10; 80, -20],
+                style(
+                  color=10,
+                  fillColor=10,
+                  fillPattern=1),
+                string="v"),
+              Line(points=[-80, -40; -20, -10; 20, 10; 40, 70], style(
+                  color=0,
+                  thickness=2,
+                  fillColor=10,
+                  fillPattern=1)),
+              Line(points=[20, 9; 20, 0], style(
+                  color=10,
+                  pattern=3,
+                  fillColor=10,
+                  fillPattern=1)),
+              Text(
+                extent=[20, 0; 40, -10],
+                style(
+                  color=10,
+                  pattern=3,
+                  fillColor=10,
+                  fillPattern=1),
+                string="Vknee"),
+              Text(
+                extent=[20, 70; 40, 60],
+                style(
+                  color=10,
+                  pattern=3,
+                  fillColor=10,
+                  fillPattern=1),
+                string="Roff"),
+              Text(
+                extent=[-20, 10; 0, 0],
+                style(
+                  color=10,
+                  pattern=3,
+                  fillColor=10,
+                  fillPattern=1),
+                string="Gon"),
+              Ellipse(extent=[18, 12; 22, 8], style(pattern=3, fillPattern=1))),
+            Window(
+              x=0.26,
+              y=0.11,
+              width=0.6,
+              height=0.6));
+    
+        equation 
+          off = s < 0;
+          v = s*(if off then 1 else Roff) + Vknee;
+          i = s*(if off then Gon else 1) + Gon*Vknee;
+        end IdealDiode;
   
   model IdealTransformer "Ideal electrical transformer" 
     extends Interfaces.TwoPort;
     parameter Real n=1 "Turns ratio";
     annotation (
       Coordsys(
-        extent=[-100, -100; 100, 100], 
-        grid=[2, 2], 
-        component=[20, 20]), 
+        extent=[-100, -100; 100, 100],
+        grid=[2, 2],
+        component=[20, 20]),
       Documentation(info="<html>
 <P>
 The ideal transformer is an ideal two-port resistive circuit element
@@ -985,44 +1198,43 @@ which is characterized by the following two equations:
 where <i>n</i> is a real number called the turns ratio.
 </P>
 </HTML>
-"), 
-      Coordsys(extent=[-100, -100; 100, 100], grid=[1, 1]), 
+"),   Coordsys(extent=[-100, -100; 100, 100], grid=[1, 1]),
       Icon(
-        Text(extent=[-100, 100; 100, 80], string="%name"), 
-        Ellipse(extent=[-45, -50; -20, -25]), 
-        Ellipse(extent=[-45, -25; -20, 0]), 
-        Ellipse(extent=[-45, 0; -20, 25]), 
-        Ellipse(extent=[-45, 25; -20, 50]), 
-        Rectangle(extent=[-72, -60; -33, 60], style(color=7, fillColor=7)), 
-        Line(points=[-90, 50; -32, 50]), 
-        Line(points=[-90, -50; -32, -50]), 
-        Ellipse(extent=[20, -50; 45, -25]), 
-        Ellipse(extent=[20, -25; 45, 0]), 
-        Ellipse(extent=[20, 0; 45, 25]), 
-        Ellipse(extent=[20, 25; 45, 50]), 
-        Rectangle(extent=[33, -60; 72, 60], style(color=7, fillColor=7)), 
-        Line(points=[32, 50; 90, 50]), 
-        Line(points=[32, -50; 90, -50]), 
-        Text(extent=[-100, -80; 100, -100], string="n=%n")), 
+        Text(extent=[-100, 100; 100, 80], string="%name"),
+        Ellipse(extent=[-45, -50; -20, -25]),
+        Ellipse(extent=[-45, -25; -20, 0]),
+        Ellipse(extent=[-45, 0; -20, 25]),
+        Ellipse(extent=[-45, 25; -20, 50]),
+        Rectangle(extent=[-72, -60; -33, 60], style(color=7, fillColor=7)),
+        Line(points=[-90, 50; -32, 50]),
+        Line(points=[-90, -50; -32, -50]),
+        Ellipse(extent=[20, -50; 45, -25]),
+        Ellipse(extent=[20, -25; 45, 0]),
+        Ellipse(extent=[20, 0; 45, 25]),
+        Ellipse(extent=[20, 25; 45, 50]),
+        Rectangle(extent=[33, -60; 72, 60], style(color=7, fillColor=7)),
+        Line(points=[32, 50; 90, 50]),
+        Line(points=[32, -50; 90, -50]),
+        Text(extent=[-100, -80; 100, -100], string="n=%n")),
       Diagram(
-        Ellipse(extent=[-45, -50; -20, -25]), 
-        Ellipse(extent=[-45, -25; -20, 0]), 
-        Ellipse(extent=[-45, 0; -20, 25]), 
-        Ellipse(extent=[-45, 25; -20, 50]), 
-        Rectangle(extent=[-72, -60; -33, 60], style(color=7, fillColor=7)), 
-        Line(points=[-90, 50; -32, 50]), 
-        Line(points=[-90, -50; -32, -50]), 
-        Ellipse(extent=[20, -50; 45, -25]), 
-        Ellipse(extent=[20, -25; 45, 0]), 
-        Ellipse(extent=[20, 0; 45, 25]), 
-        Ellipse(extent=[20, 25; 45, 50]), 
-        Rectangle(extent=[33, -60; 72, 60], style(color=7, fillColor=7)), 
-        Line(points=[32, 50; 90, 50]), 
-        Line(points=[32, -50; 90, -50])), 
+        Ellipse(extent=[-45, -50; -20, -25]),
+        Ellipse(extent=[-45, -25; -20, 0]),
+        Ellipse(extent=[-45, 0; -20, 25]),
+        Ellipse(extent=[-45, 25; -20, 50]),
+        Rectangle(extent=[-72, -60; -33, 60], style(color=7, fillColor=7)),
+        Line(points=[-90, 50; -32, 50]),
+        Line(points=[-90, -50; -32, -50]),
+        Ellipse(extent=[20, -50; 45, -25]),
+        Ellipse(extent=[20, -25; 45, 0]),
+        Ellipse(extent=[20, 0; 45, 25]),
+        Ellipse(extent=[20, 25; 45, 50]),
+        Rectangle(extent=[33, -60; 72, 60], style(color=7, fillColor=7)),
+        Line(points=[32, 50; 90, 50]),
+        Line(points=[32, -50; 90, -50])),
       Window(
-        x=0.29, 
-        y=0.07, 
-        width=0.6, 
+        x=0.29,
+        y=0.07,
+        width=0.6,
         height=0.6));
   equation 
     v1 = n*v2;
@@ -1044,42 +1256,41 @@ A gyrator is an ideal two-port element defined by the following equations:
 where the constant <i>G</i> is called the gyration conductance.
 </P>
 </HTML>
-"), 
-      Coordsys(extent=[-100, -100; 100, 100], grid=[1, 1]), 
+"),   Coordsys(extent=[-100, -100; 100, 100], grid=[1, 1]),
       Icon(
-        Ellipse(extent=[-70, -30; -10, 30]), 
+        Ellipse(extent=[-70, -30; -10, 30]),
         Rectangle(extent=[-80, -40; -41, 40], style(
-            color=7, 
-            pattern=1, 
-            thickness=1, 
-            arrow=0, 
-            fillColor=7)), 
-        Line(points=[-90, 50; -40, 50; -40, -50; -90, -50]), 
-        Text(extent=[-100, 100; 100, 70], string="%name"), 
-        Line(points=[-30, 60; 20, 60]), 
+            color=7,
+            pattern=1,
+            thickness=1,
+            arrow=0,
+            fillColor=7)),
+        Line(points=[-90, 50; -40, 50; -40, -50; -90, -50]),
+        Text(extent=[-100, 100; 100, 70], string="%name"),
+        Line(points=[-30, 60; 20, 60]),
         Polygon(points=[20, 63; 30, 60; 20, 57; 20, 63], style(
-            pattern=1, 
-            thickness=1, 
-            arrow=0, 
-            fillColor=3, 
-            fillPattern=1)), 
-        Ellipse(extent=[10, -30; 70, 30]), 
+            pattern=1,
+            thickness=1,
+            arrow=0,
+            fillColor=3,
+            fillPattern=1)),
+        Ellipse(extent=[10, -30; 70, 30]),
         Rectangle(extent=[80, -40; 40, 40], style(
-            color=7, 
-            pattern=1, 
-            thickness=1, 
-            arrow=0, 
-            fillColor=7)), 
-        Line(points=[90, 50; 40, 50; 40, -50; 90, -50])), 
+            color=7,
+            pattern=1,
+            thickness=1,
+            arrow=0,
+            fillColor=7)),
+        Line(points=[90, 50; 40, 50; 40, -50; 90, -50])),
       Diagram(
-        Ellipse(extent=[-70, -30; -10, 30]), 
-        Rectangle(extent=[-80, -40; -41, 40], style(color=7, fillColor=7)), 
-        Line(points=[-90, 50; -40, 50; -40, -50; -90, -50]), 
-        Line(points=[-30, 60; 20, 60]), 
-        Polygon(points=[20, 63; 30, 60; 20, 57; 20, 63], style(fillColor=3, 
-              fillPattern=1)), 
-        Ellipse(extent=[10, -30; 70, 30]), 
-        Rectangle(extent=[80, -40; 40, 40], style(color=7, fillColor=7)), 
+        Ellipse(extent=[-70, -30; -10, 30]),
+        Rectangle(extent=[-80, -40; -41, 40], style(color=7, fillColor=7)),
+        Line(points=[-90, 50; -40, 50; -40, -50; -90, -50]),
+        Line(points=[-30, 60; 20, 60]),
+        Polygon(points=[20, 63; 30, 60; 20, 57; 20, 63], style(fillColor=3,
+              fillPattern=1)),
+        Ellipse(extent=[10, -30; 70, 30]),
+        Rectangle(extent=[80, -40; 40, 40], style(color=7, fillColor=7)),
         Line(points=[90, 50; 40, 50; 40, -50; 90, -50])));
     parameter SI.Conductance G=1 "Gyration conductance";
   equation 
@@ -1095,24 +1306,23 @@ where the constant <i>G</i> is called the gyration conductance.
 The model Idle is a simple idle running branch.
 </P>
 </HTML>
-"), 
-      Coordsys(
-        extent=[-100, -100; 100, 100], 
-        grid=[1, 1], 
-        component=[20, 20]), 
+"),   Coordsys(
+        extent=[-100, -100; 100, 100],
+        grid=[1, 1],
+        component=[20, 20]),
       Icon(
-        Rectangle(extent=[-60, 60; 60, -60], style(fillColor=7)), 
-        Line(points=[-90, 0; -41, 0]), 
-        Line(points=[91, 0; 40, 0]), 
-        Text(extent=[-100, 100; 100, 70], string="%name")), 
+        Rectangle(extent=[-60, 60; 60, -60], style(fillColor=7)),
+        Line(points=[-90, 0; -41, 0]),
+        Line(points=[91, 0; 40, 0]),
+        Text(extent=[-100, 100; 100, 70], string="%name")),
       Diagram(
-        Rectangle(extent=[-60, 60; 60, -60]), 
-        Line(points=[-90, 0; -41, 0]), 
-        Line(points=[91, 0; 40, 0])), 
+        Rectangle(extent=[-60, 60; 60, -60]),
+        Line(points=[-90, 0; -41, 0]),
+        Line(points=[91, 0; 40, 0])),
       Window(
-        x=0.36, 
-        y=0.16, 
-        width=0.6, 
+        x=0.36,
+        y=0.16,
+        width=0.6,
         height=0.6));
   equation 
     
@@ -1128,23 +1338,22 @@ The model Idle is a simple idle running branch.
 The model Short is a simple short cut branch.
 </P>
 </HTML>
-"), 
-      Coordsys(
-        extent=[-100, -100; 100, 100], 
-        grid=[1, 1], 
-        component=[20, 20]), 
+"),   Coordsys(
+        extent=[-100, -100; 100, 100],
+        grid=[1, 1],
+        component=[20, 20]),
       Icon(
-        Rectangle(extent=[-60, 60; 60, -60], style(fillColor=7)), 
-        Line(points=[91, 0; -90, 0]), 
-        Text(extent=[-100, 100; 100, 70], string="%name")), 
+        Rectangle(extent=[-60, 60; 60, -60], style(fillColor=7)),
+        Line(points=[91, 0; -90, 0]),
+        Text(extent=[-100, 100; 100, 70], string="%name")),
       Diagram(
-        Rectangle(extent=[-60, 60; 60, -60]), 
-        Line(points=[91, 0; -90, 0]), 
-        Text(extent=[-100, 100; 100, 70], string="Short")), 
+        Rectangle(extent=[-60, 60; 60, -60]),
+        Line(points=[91, 0; -90, 0]),
+        Text(extent=[-100, 100; 100, 70], string="Short")),
       Window(
-        x=0.31, 
-        y=0.14, 
-        width=0.6, 
+        x=0.31,
+        y=0.14,
+        width=0.6,
         height=0.6));
   equation 
     v = 0;
@@ -1155,10 +1364,9 @@ The model Short is a simple short cut branch.
     parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance"
        annotation (extent=[-56.6667, 10; -10, 56.6667]);
     parameter SI.Conductance Goff(final min=0) = 1.E-5 
-      "Opened switch conductance" annotation (extent=[10, 10; 56.6667, 56.6667]
-      );
+      "Opened switch conductance" annotation (extent=[10, 10; 56.6667, 56.6667]);
     Modelica.Blocks.Interfaces.BooleanInPort control(final n=1) 
-      "true => switch open, false => p--n connected" annotation (extent=[-10, 
+      "true => switch open, false => p--n connected" annotation (extent=[-10,
           50; 10, 70], rotation=-90);
   protected 
     Real s "Auxiliary variable";
@@ -1183,31 +1391,30 @@ open switch could be also exactly zero. Note, there are circuits,
 where a description with zero Ron or zero Goff is not possible. 
 </P>
 </HTML>
-"), 
-      Coordsys(
-        extent=[-100, -100; 100, 100], 
-        grid=[1, 1], 
-        component=[20, 20]), 
+"),   Coordsys(
+        extent=[-100, -100; 100, 100],
+        grid=[1, 1],
+        component=[20, 20]),
       Window(
-        x=0.45, 
-        y=0.01, 
-        width=0.44, 
-        height=0.65), 
+        x=0.45,
+        y=0.01,
+        width=0.44,
+        height=0.65),
       Icon(
-        Ellipse(extent=[-44, 4; -36, -4]), 
-        Line(points=[-90, 0; -44, 0]), 
-        Line(points=[-37, 2; 40, 50]), 
-        Line(points=[40, 0; 90, 0]), 
-        Text(extent=[-100, -70; 100, -100], string="%name"), 
-        Line(points=[0, 51; 0, 26]), 
-        Line(points=[40, 20; 40, 0])), 
+        Ellipse(extent=[-44, 4; -36, -4]),
+        Line(points=[-90, 0; -44, 0]),
+        Line(points=[-37, 2; 40, 50]),
+        Line(points=[40, 0; 90, 0]),
+        Text(extent=[-100, -70; 100, -100], string="%name"),
+        Line(points=[0, 51; 0, 26]),
+        Line(points=[40, 20; 40, 0])),
       Diagram(
-        Ellipse(extent=[-44, 4; -36, -4]), 
-        Line(points=[-90, 0; -44, 0]), 
-        Line(points=[-37, 2; 40, 50]), 
-        Line(points=[40, 0; 90, 0]), 
-        Text(extent=[-100, -40; 100, -79], string="%name"), 
-        Line(points=[0, 51; 0, 26]), 
+        Ellipse(extent=[-44, 4; -36, -4]),
+        Line(points=[-90, 0; -44, 0]),
+        Line(points=[-37, 2; 40, 50]),
+        Line(points=[40, 0; 90, 0]),
+        Text(extent=[-100, -40; 100, -79], string="%name"),
+        Line(points=[0, 51; 0, 26]),
         Line(points=[40, 20; 40, 0])));
   equation 
     off = control.signal[1];
@@ -1220,10 +1427,9 @@ where a description with zero Ron or zero Goff is not possible.
     parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance"
        annotation (extent=[-56.6667, 10; -10, 56.6667]);
     parameter SI.Conductance Goff(final min=0) = 1.E-5 
-      "Opened switch conductance" annotation (extent=[10, 10; 56.6667, 56.6667]
-      );
+      "Opened switch conductance" annotation (extent=[10, 10; 56.6667, 56.6667]);
     Modelica.Blocks.Interfaces.BooleanInPort control(final n=1) 
-      "true => switch open, false => p--n connected" annotation (extent=[-10, 
+      "true => switch open, false => p--n connected" annotation (extent=[-10,
           50; 10, 70], rotation=-90);
   protected 
     Real s "Auxiliary variable";
@@ -1248,29 +1454,28 @@ open switch could be also exactly zero. Note, there are circuits,
 where a description with zero Ron or zero Goff is not possible. 
 </P>
 </HTML>
-"), 
-      Coordsys(
-        extent=[-100, -100; 100, 100], 
-        grid=[1, 1], 
-        component=[20, 20]), 
+"),   Coordsys(
+        extent=[-100, -100; 100, 100],
+        grid=[1, 1],
+        component=[20, 20]),
       Window(
-        x=0.24, 
-        y=0.01, 
-        width=0.65, 
-        height=0.77), 
+        x=0.24,
+        y=0.01,
+        width=0.65,
+        height=0.77),
       Icon(
-        Ellipse(extent=[-44, 4; -36, -4]), 
-        Line(points=[-90, 0; -44, 0]), 
-        Line(points=[-37, 2; 40, 50]), 
-        Line(points=[40, 0; 90, 0]), 
-        Text(extent=[-100, -70; 100, -100], string="%name"), 
-        Line(points=[0, 51; 0, 26])), 
+        Ellipse(extent=[-44, 4; -36, -4]),
+        Line(points=[-90, 0; -44, 0]),
+        Line(points=[-37, 2; 40, 50]),
+        Line(points=[40, 0; 90, 0]),
+        Text(extent=[-100, -70; 100, -100], string="%name"),
+        Line(points=[0, 51; 0, 26])),
       Diagram(
-        Ellipse(extent=[-44, 4; -36, -4]), 
-        Line(points=[-90, 0; -44, 0]), 
-        Line(points=[-37, 2; 40, 50]), 
-        Line(points=[40, 0; 90, 0]), 
-        Text(extent=[-100, -40; 100, -79], string="%name"), 
+        Ellipse(extent=[-44, 4; -36, -4]),
+        Line(points=[-90, 0; -44, 0]),
+        Line(points=[-37, 2; 40, 50]),
+        Line(points=[40, 0; 90, 0]),
+        Text(extent=[-100, -40; 100, -79], string="%name"),
         Line(points=[0, 51; 0, 26])));
   equation 
     on = control.signal[1];
@@ -1279,12 +1484,12 @@ where a description with zero Ron or zero Goff is not possible.
   end IdealCloser;
   
   model ControlledIdealOpener "Controlled ideal electrical opener" 
-    parameter SI.Voltage level=0.5 "Switch level" annotation (extent=[-56.6667
-          , 10; -10, 56.6667]);
+    parameter SI.Voltage level=0.5 "Switch level" annotation (extent=[-56.6667,
+            10; -10, 56.6667]);
     parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance"
        annotation (extent=[10, 10; 56.6667, 56.6667]);
     parameter SI.Conductance Goff(final min=0) = 1.E-5 
-      "Opened switch conductance" annotation (extent=[-56.6667, -56.6667; -10, 
+      "Opened switch conductance" annotation (extent=[-56.6667, -56.6667; -10,
           -10]);
   protected 
     Real s "Auxiliary variable";
@@ -1308,30 +1513,29 @@ open switch could be also exactly zero. Note, there are circuits,
 where a description with zero Ron or zero Goff is not possible. 
 </P>
 </HTML>
-"), 
-      Coordsys(
-        extent=[-100, -100; 100, 100], 
-        grid=[1, 1], 
-        component=[20, 20]), 
+"),   Coordsys(
+        extent=[-100, -100; 100, 100],
+        grid=[1, 1],
+        component=[20, 20]),
       Window(
-        x=0.45, 
-        y=0.01, 
-        width=0.44, 
-        height=0.65), 
+        x=0.45,
+        y=0.01,
+        width=0.44,
+        height=0.65),
       Icon(
-        Ellipse(extent=[-44, 4; -36, -4]), 
-        Line(points=[-90, 0; -44, 0]), 
-        Line(points=[-37, 2; 40, 50]), 
-        Line(points=[40, 0; 90, 0]), 
-        Line(points=[0, 90; 0, 25]), 
-        Text(extent=[-100, -70; 100, -100], string="%name"), 
-        Line(points=[40, 20; 40, 0])), 
+        Ellipse(extent=[-44, 4; -36, -4]),
+        Line(points=[-90, 0; -44, 0]),
+        Line(points=[-37, 2; 40, 50]),
+        Line(points=[40, 0; 90, 0]),
+        Line(points=[0, 90; 0, 25]),
+        Text(extent=[-100, -70; 100, -100], string="%name"),
+        Line(points=[40, 20; 40, 0])),
       Diagram(
-        Ellipse(extent=[-44, 4; -36, -4]), 
-        Line(points=[-90, 0; -44, 0]), 
-        Line(points=[-37, 2; 40, 50]), 
-        Line(points=[40, 0; 90, 0]), 
-        Line(points=[0, 90; 0, 25]), 
+        Ellipse(extent=[-44, 4; -36, -4]),
+        Line(points=[-90, 0; -44, 0]),
+        Line(points=[-37, 2; 40, 50]),
+        Line(points=[40, 0; 90, 0]),
+        Line(points=[0, 90; 0, 25]),
         Line(points=[40, 20; 40, 0])));
   public 
     Interfaces.PositivePin p annotation (extent=[-110, -10; -90, 10]);
@@ -1347,12 +1551,12 @@ where a description with zero Ron or zero Goff is not possible.
   end ControlledIdealOpener;
   
   model ControlledIdealCloser "Controlled ideal electrical closer" 
-    parameter SI.Voltage level=0.5 "Switch level" annotation (extent=[-56.6667
-          , 10; -10, 56.6667]);
+    parameter SI.Voltage level=0.5 "Switch level" annotation (extent=[-56.6667,
+            10; -10, 56.6667]);
     parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance"
        annotation (extent=[10, 10; 56.6667, 56.6667]);
     parameter SI.Conductance Goff(final min=0) = 1.E-5 
-      "Opened switch conductance" annotation (extent=[-56.6667, -56.6667; -10, 
+      "Opened switch conductance" annotation (extent=[-56.6667, -56.6667; -10,
           -10]);
   protected 
     Real s "Auxiliary variable";
@@ -1376,28 +1580,27 @@ open switch could be also exactly zero. Note, there are circuits,
 where a description with zero Ron or zero Goff is not possible. 
 </P>
 </HTML>
-"), 
-      Coordsys(
-        extent=[-100, -100; 100, 100], 
-        grid=[1, 1], 
-        component=[20, 20]), 
+"),   Coordsys(
+        extent=[-100, -100; 100, 100],
+        grid=[1, 1],
+        component=[20, 20]),
       Window(
-        x=0.45, 
-        y=0.01, 
-        width=0.44, 
-        height=0.65), 
+        x=0.45,
+        y=0.01,
+        width=0.44,
+        height=0.65),
       Icon(
-        Ellipse(extent=[-44, 4; -36, -4]), 
-        Line(points=[-90, 0; -44, 0]), 
-        Line(points=[-37, 2; 40, 50]), 
-        Line(points=[40, 0; 90, 0]), 
-        Line(points=[0, 90; 0, 25]), 
-        Text(extent=[-100, -70; 100, -100], string="%name")), 
+        Ellipse(extent=[-44, 4; -36, -4]),
+        Line(points=[-90, 0; -44, 0]),
+        Line(points=[-37, 2; 40, 50]),
+        Line(points=[40, 0; 90, 0]),
+        Line(points=[0, 90; 0, 25]),
+        Text(extent=[-100, -70; 100, -100], string="%name")),
       Diagram(
-        Ellipse(extent=[-44, 4; -36, -4]), 
-        Line(points=[-90, 0; -44, 0]), 
-        Line(points=[-37, 2; 40, 50]), 
-        Line(points=[40, 0; 90, 0]), 
+        Ellipse(extent=[-44, 4; -36, -4]),
+        Line(points=[-90, 0; -44, 0]),
+        Line(points=[-37, 2; 40, 50]),
+        Line(points=[40, 0; 90, 0]),
         Line(points=[0, 90; 0, 25])));
   public 
     Interfaces.PositivePin p annotation (extent=[-110, -10; -90, 10]);

@@ -1,4 +1,4 @@
-model Nand "CMOS NAND Gate (see Tietze/Schenk, page 157)"
+model Nand "CMOS NAND Gate (see Tietze/Schenk, page 157)" 
   annotation (
     Coordsys(
       extent=[-100, -100; 100, 100],
@@ -33,9 +33,9 @@ Tietze, U.; Schenk, Ch.: Halbleiter-Schaltungstechnik. Springer-Verlag Berlin He
 <dt>
 <b>Main Authors:</b>
 <dd>
-<a href=\"http://www.eas.iis.fhg.de/~clauss/\">Christoph Clau&szlig;</a>
+<a href=\"http://people.eas.iis.fhg.de/Christoph.Clauss/\">Christoph Clau&szlig;</a>
     &lt;<a href=\"mailto:clauss@eas.iis.fhg.de\">clauss@eas.iis.fhg.de</a>&gt;<br>
-    <a href=\"http://www.eas.iis.fhg.de/~schneider/\">Andr&eacute; Schneider</a>
+    <a href=\"http://people.eas.iis.fhg.de/Andre.Schneider/\">Andr&eacute; Schneider</a>
     &lt;<a href=\"mailto:schneider@eas.iis.fhg.de\">schneider@eas.iis.fhg.de</a>&gt;<br>
     Fraunhofer Institute for Integrated Circuits<br>
     Design Automation Department<br>
@@ -59,8 +59,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
 <p>
 </dl>
 </HTML>
-"),
-    Window(
+"), Window(
       x=0.28,
       y=0.08,
       width=0.6,
@@ -104,8 +103,8 @@ Modelica in file \"Modelica/package.mo\".</i><br>
     dL=-1.5e-6) annotation (extent=[10, -25; 30, -5]);
   Basic.Capacitor C4(C=0.4e-13) annotation (extent=[50, 20; 70, 40], rotation=-
         90);
-  Basic.Capacitor C7(C=0.4e-13) annotation (extent=[45, -60; 65, -40], rotation
-      =-90);
+  Basic.Capacitor C7(C=0.4e-13) annotation (extent=[45, -60; 65, -40], rotation=
+       -90);
   Basic.Ground Gnd annotation (extent=[40, -25; 50, -15]);
   Basic.Ground Gnd2 annotation (extent=[55, 0; 65, 10]);
   Basic.Ground Gnd3 annotation (extent=[50, -80; 60, -70]);
@@ -116,13 +115,11 @@ Modelica in file \"Modelica/package.mo\".</i><br>
   Interfaces.Pin x2 annotation (extent=[-110, -60; -90, -40]);
   Interfaces.Pin Vdd annotation (extent=[-10, 90; 10, 110]);
   Interfaces.Pin y annotation (extent=[90, -10; 110, 10]);
-equation
+equation 
   connect(TN1.S, TN2.D) annotation (points=[30, 20; 30, -10]);
-  connect(TN2.B, Gnd.p) annotation (points=[30, -15; 38, -15; 38, -15; 45, -15]
-    );
+  connect(TN2.B, Gnd.p) annotation (points=[30, -15; 38, -15; 38, -15; 45, -15]);
   connect(TN2.D, C7.p) annotation (points=[30, -10; 55, -10; 55, -40]);
-  connect(TN2.S, Gnd.p) annotation (points=[30, -20; 38, -20; 38, -15; 45, -15]
-    );
+  connect(TN2.S, Gnd.p) annotation (points=[30, -20; 38, -20; 38, -15; 45, -15]);
   connect(TP1.S, TN1.D) annotation (points=[30, 65; 30, 30]);
   connect(TP1.G, TN1.G) annotation (points=[10, 65; 10, 20]);
   connect(C4.n, Gnd2.p) annotation (points=[60, 20; 60, 10]);
@@ -132,8 +129,7 @@ equation
   connect(TP1.B, Gnd8.p) annotation (points=[30, 70; 45, 70]);
   connect(TP2.G, x1) annotation (points=[-40, 50; -100, 50]);
   connect(TP2.G, TN2.G) annotation (points=[-40, 50; -40, -20; 10, -20]);
-  connect(TN1.G, x2) annotation (points=[10, 20; -70, 20; -70, -50; -100, -50])
-    ;
+  connect(TN1.G, x2) annotation (points=[10, 20; -70, 20; -70, -50; -100, -50]);
   connect(TP2.S, TN1.D) annotation (points=[-20, 50; 30, 50; 30, 30]);
   connect(TN1.D, C4.p) annotation (points=[30, 30; 30, 50; 60, 50; 60, 40]);
   connect(Vdd, TP1.D) annotation (points=[0, 100; 0, 80; 30, 80; 30, 75]);

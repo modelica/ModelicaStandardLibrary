@@ -1,16 +1,15 @@
-package Icons "Icon definitions"
-
-  annotation (
+package Icons "Icon definitions" 
+  
+  annotation(
     Window(
-      x=0.08, 
-      y=0.08, 
-      width=0.28, 
-      height=0.51, 
-      library=1, 
-      autolayout=1), 
+      x=0.08,
+      y=0.08,
+      width=0.28,
+      height=0.51,
+      library=1,
+      autolayout=1),
     Icon(
-      Rectangle(extent=[-100, -100; 80, 50], style(fillColor=30, fillPattern=1)
-        ),
+      Rectangle(extent=[-100, -100; 80, 50], style(fillColor=30, fillPattern=1)),
       Polygon(points=[-100, 50; -80, 70; 100, 70; 80, 50; -100, 50], style(
             fillColor=30, fillPattern=1)),
       Polygon(points=[100, 70; 100, -80; 80, -100; 80, 50; 100, 70], style(
@@ -26,8 +25,7 @@ package Icons "Icon definitions"
           color=9,
           fillColor=0,
           fillPattern=1)),
-      Rectangle(extent=[-100, -100; 80, 50], style(fillColor=30, fillPattern=1)
-        ),
+      Rectangle(extent=[-100, -100; 80, 50], style(fillColor=30, fillPattern=1)),
       Polygon(points=[-100, 50; -80, 70; 100, 70; 80, 50; -100, 50], style(
             fillColor=30, fillPattern=1)),
       Polygon(points=[100, 70; 100, -80; 80, -100; 80, 50; 100, 70], style(
@@ -117,8 +115,8 @@ Modelica in file \"Modelica/package.mo\".
 </i></p>
 </HTML>
 "));
-  partial model Info "Icon for an information class"
-    annotation (
+  partial model Info "Icon for an information class" 
+    annotation(
       Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
@@ -138,9 +136,9 @@ Modelica in file \"Modelica/package.mo\".
               fillColor=3)),
         Text(extent=[-80, 70; 60, -70], string="Info")));
   end Info;
-
-  partial package Library "Icon for library"
-    annotation (Coordsys(
+  
+  partial package Library "Icon for library" 
+    annotation( Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
         component=[20, 20]), Icon(
@@ -159,10 +157,10 @@ Modelica in file \"Modelica/package.mo\".
           string="%name",
           style(color=1))));
   end Library;
-
-  partial package Library2
-    "Icon for library where additional icon elements shall be added"
-    annotation (Coordsys(
+  
+  partial package Library2 
+    "Icon for library where additional icon elements shall be added" 
+    annotation( Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
         component=[20, 20]), Icon(
@@ -184,9 +182,9 @@ Modelica in file \"Modelica/package.mo\".
             fillColor=0,
             fillPattern=1))));
   end Library2;
-
-  partial model Example "Icon for an example model"
-    annotation (Coordsys(
+  
+  partial model Example "Icon for an example model" 
+    annotation( Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
         component=[20, 20]), Icon(
@@ -204,9 +202,9 @@ Modelica in file \"Modelica/package.mo\".
           string="%name",
           style(color=1))));
   end Example;
-
-  partial function Function "Icon for a function"
-    annotation (Icon(
+  
+  partial function Function "Icon for a function" 
+    annotation( Icon(
         Text(extent=[-134, 104; 142, 44], string="%name"),
         Ellipse(extent=[-100, 40; 100, -100], style(color=45, fillColor=7)),
         Text(
@@ -214,9 +212,9 @@ Modelica in file \"Modelica/package.mo\".
           string="function",
           style(color=45))));
   end Function;
-
-  partial record Record "Icon for a record"
-    annotation (Icon(
+  
+  partial record Record "Icon for a record" 
+    annotation( Icon(
         Rectangle(extent=[-100, 50; 100, -100], style(fillColor=51, fillPattern
               =1)),
         Text(extent=[-127, 115; 127, 55], string="%name"),
@@ -224,9 +222,9 @@ Modelica in file \"Modelica/package.mo\".
         Line(points=[-100, 0; 100, 0], style(color=0)),
         Line(points=[0, 50; 0, -100], style(color=0))));
   end Record;
-
-  partial function Enumeration "Icon for an enumeration"
-    annotation (Icon(
+  
+  partial function Enumeration "Icon for an enumeration" 
+    annotation( Icon(
         Text(extent=[-134, 104; 142, 44], string="%name"),
         Ellipse(extent=[-100, 40; 100, -100], style(color=85, fillColor=7)),
         Text(
@@ -234,10 +232,10 @@ Modelica in file \"Modelica/package.mo\".
           string="enumeration",
           style(color=85, fillColor=88))));
   end Enumeration;
-
-  partial model TranslationalSensor
-    "Icon representing translational measurement device"
-    annotation (
+  
+  partial model TranslationalSensor 
+    "Icon representing translational measurement device" 
+    annotation(
       Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
@@ -271,10 +269,10 @@ Modelica in file \"Modelica/package.mo\".
         Line(points=[30, -40; 30, -60], style(color=0)),
         Line(points=[50, -40; 50, -60], style(color=0))));
   end TranslationalSensor;
-
-  partial model RotationalSensor
-    "Icon representing rotational measurement device"
-    annotation (
+  
+  partial model RotationalSensor 
+    "Icon representing rotational measurement device" 
+    annotation(
       Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
@@ -314,9 +312,9 @@ Modelica in file \"Modelica/package.mo\".
             fillColor=0,
             fillPattern=1))));
   end RotationalSensor;
-
-  partial model GearIcon "Icon for gearbox"
-    annotation (Coordsys(
+  
+  partial model GearIcon "Icon for gearbox" 
+    annotation( Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[2, 2],
         component=[20, 20]), Icon(
@@ -324,8 +322,8 @@ Modelica in file \"Modelica/package.mo\".
             gradient=2,
             fillColor=8,
             fillPattern=1)),
-        Polygon(points=[-60, 10; -60, 20; -40, 40; -40, -40; -60, -20; -60, 10]
-            , style(
+        Polygon(points=[-60, 10; -60, 20; -40, 40; -40, -40; -60, -20; -60, 10],
+              style(
             color=10,
             gradient=2,
             fillColor=10,
@@ -346,15 +344,15 @@ Modelica in file \"Modelica/package.mo\".
             gradient=2,
             fillColor=8,
             fillPattern=1)),
-        Polygon(points=[-60, -90; -50, -90; -20, -30; 20, -30; 48, -90; 60, -90
-              ; 60, -100; -60, -100; -60, -90], style(
+        Polygon(points=[-60, -90; -50, -90; -20, -30; 20, -30; 48, -90; 60, -90;
+                60, -100; -60, -100; -60, -90], style(
             color=0,
             fillColor=0,
             fillPattern=1))));
   end GearIcon;
-
-  partial model MotorIcon "Icon for electrical motor"
-    annotation (Coordsys(
+  
+  partial model MotorIcon "Icon for electrical motor" 
+    annotation( Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
         component=[20, 20]), Icon(

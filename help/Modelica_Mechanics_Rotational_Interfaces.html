@@ -1,6 +1,9 @@
 <HTML>
 <HEAD><META name="HTML-Generator" content="Dymola"><TITLE>Modelica</TITLE></HEAD>
 <BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Interfaces<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><A NAME="Modelica.Mechanics.Rotational.Interfaces"></A><A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational"
 >Modelica.Mechanics.Rotational</A>.Interfaces</H2>
 <B>Connectors and partial models for 1D rotational mechanical components</B>
@@ -15,8 +18,12 @@
 ><IMG SRC="Modelica.Mechanics.Rotational.Interfaces.CompliantI.png" ALT="Modelica.Mechanics.Rotational.Interfaces.Compliant" WIDTH=80  HEIGHT=80 ></A>
 <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.TwoFlanges"
 ><IMG SRC="Modelica.Mechanics.Rotational.Interfaces.TwoFlangesI.png" ALT="Modelica.Mechanics.Rotational.Interfaces.TwoFlanges" WIDTH=80  HEIGHT=80 ></A>
-<A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.FrictionBase"
-><IMG SRC="Modelica.Mechanics.Rotational.Interfaces.FrictionBaseI.png" ALT="Modelica.Mechanics.Rotational.Interfaces.FrictionBase" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Bearing"
+><IMG SRC="Modelica.Mechanics.Rotational.Interfaces.BearingI.png" ALT="Modelica.Mechanics.Rotational.Interfaces.Bearing" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.TwoFlangesAndBearing"
+><IMG SRC="Modelica.Mechanics.Rotational.Interfaces.TwoFlangesAndBearingI.png" ALT="Modelica.Mechanics.Rotational.Interfaces.TwoFlangesAndBearing" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.TwoFlangesAndBearingH"
+><IMG SRC="Modelica.Mechanics.Rotational.Interfaces.TwoFlangesAndBearingHI.png" ALT="Modelica.Mechanics.Rotational.Interfaces.TwoFlangesAndBearingH" WIDTH=80  HEIGHT=80 ></A>
 <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.AbsoluteSensor"
 ><IMG SRC="Modelica.Mechanics.Rotational.Interfaces.AbsoluteSensorI.png" ALT="Modelica.Mechanics.Rotational.Interfaces.AbsoluteSensor" WIDTH=80  HEIGHT=80 ></A>
 <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.RelativeSensor"
@@ -30,15 +37,19 @@ components. In particular
 </p>
 
 <pre>
-  <b>Flange_a</b>         Left flange of a component.
-  <b>Flange_b</b>         Right flange of a component.
-  <b>Rigid</b>            Rigid connection of two rotational 1D flanges
-                   (used for elements with inertia).
-  <b>Compliant</b>        Compliant connection of two rotational 1D flanges
-                   (used for force laws such as a spring or a damper).
-  <b>TwoFlanges</b>       Component with two rotational 1D flanges
-  <b>AbsoluteSensor</b>   Base class to measure absolute flange variables.
-  <b>Relative Sensor</b>  Base class to measure relative flange variables.
+  <b>Flange_a</b>                 Left flange of a component.
+  <b>Flange_b</b>                 Right flange of a component.
+  <b>Rigid</b>                    Rigid connection of two rotational 1D flanges
+                           (used for elements with inertia).
+  <b>Compliant</b>                Compliant connection of two rotational 1D flanges
+                           (used for force laws such as a spring or a damper).
+  <b>TwoFlanges</b>               Component with two rotational 1D flanges
+  <b>Bearing</b>                  Component with two rotational 1D flanges, one bearing flange
+                           and cardinality dependent equations
+  <b>TwoFlangesAndBearing</b>     Component inherited from Bearing for equation-based classes
+  <b>TwoFlangesAndBearingH</b>    Component inherited from Bearing for hierarchical components
+  <b>AbsoluteSensor</b>           Base class to measure absolute flange variables.
+  <b>RelativeSensor</b>           Base class to measure relative flange variables.
 </pre>
 
 <dl>
@@ -56,6 +67,10 @@ components. In particular
 <p><b>Release Notes:</b></p>
 
 <ul>
+<li><i>October 27, 2003</i>
+       by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a> and
+       <a href="http://www.robotic.dlr.de/Christian.Schweiger/">Christian Schweiger</a>:<br>
+       New components: Bearing, TwoFlangesAndBearing and TwoFlangesAndBearingH.</li>
 <li><i>October 21, 2002</i>
        by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>:<br>
        Component FrictionBase adapted to new initialization.</li>
@@ -69,7 +84,7 @@ components. In particular
 
 <br>
 
-<p><b>Copyright &copy; 1999-2002, Modelica Association and DLR.</b></p>
+<p><b>Copyright &copy; 1999-2003, Modelica Association and DLR.</b></p>
 
 <p><i>
 The Modelica package is <b>free</b> software; it can be redistributed and/or modified
@@ -79,7 +94,46 @@ Modelica in file "Modelica/package.mo".
 </i></p>
 <pre>
 </PRE><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_a"
+>Flange_a</A>
+</TD><TD>1D rotational flange (filled square icon)</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_b"
+>Flange_b</A>
+</TD><TD>1D rotational flange (non-filled square icon)</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Rigid"
+>Rigid</A>
+</TD><TD>Base class for the rigid connection of two rotational 1D flanges</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Compliant"
+>Compliant</A>
+</TD><TD>Base class for the compliant connection of two rotational 1D flanges</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.TwoFlanges"
+>TwoFlanges</A>
+</TD><TD>Base class for a component with two rotational 1D flanges</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Bearing"
+>Bearing</A>
+</TD><TD>Base class for interface classes with bearing connector</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.TwoFlangesAndBearing"
+>TwoFlangesAndBearing</A>
+</TD><TD>Base class for a equation-based component with two rotational 1D flanges and one rotational 1D bearing flange</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.TwoFlangesAndBearingH"
+>TwoFlangesAndBearingH</A>
+</TD><TD>Base class for a hierarchically composed component with two rotational 1D flanges and one rotational bearing flange</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.FrictionBase"
+>FrictionBase</A>
+</TD><TD>Base class of Coulomb friction elements</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.AbsoluteSensor"
+>AbsoluteSensor</A>
+</TD><TD>Base class to measure a single absolute flange variable</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.RelativeSensor"
+>RelativeSensor</A>
+</TD><TD>Base class to measure a single relative variable between two flanges</TD></TR>
+</TABLE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Rigid<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Mechanics.Rotational.Interfaces.RigidI.png" ALT="Modelica.Mechanics.Rotational.Interfaces.Rigid" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Mechanics.Rotational.Interfaces.Rigid"></A><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces"
 >Modelica.Mechanics.Rotational.Interfaces</A>.Rigid</H2>
@@ -107,11 +161,11 @@ with inertia.
 <PRE>
 <font color="blue">partial </font><font color="blue">model</font> Rigid <font color="darkgreen">
   &quot;Base class for the rigid connection of two rotational 1D flanges&quot;</font> 
-  <font color="darkgreen"></font>
+  
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
 >SI.Angle</A> phi <font color="darkgreen">
     &quot;Absolute rotation angle of component (= flange_a.phi = flange_b.phi)&quot;</font>;
-  <font color="darkgreen"></font>
+  
   <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_a"
 >Flange_a</A> flange_a <font color="darkgreen">
     &quot;(left) driving flange (flange axis directed INTO cut plane)&quot;</font>;
@@ -124,42 +178,58 @@ with inertia.
 <font color="blue">end </font>Rigid;
 </PRE>
 <HR>
-<H2><IMG SRC="Modelica.Mechanics.Rotational.Interfaces.TwoFlangesI.png" ALT="Modelica.Mechanics.Rotational.Interfaces.TwoFlanges" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Mechanics.Rotational.Interfaces.TwoFlanges"></A><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces"
->Modelica.Mechanics.Rotational.Interfaces</A>.TwoFlanges</H2>
-<B>Base class for a component with two rotational 1D flanges</B><p>
-<IMG SRC="Modelica.Mechanics.Rotational.Interfaces.TwoFlangesD.png" ALT="Modelica.Mechanics.Rotational.Interfaces.TwoFlanges">
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TwoFlangesAndBearing<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.Rotational.Interfaces.TwoFlangesAndBearingI.png" ALT="Modelica.Mechanics.Rotational.Interfaces.TwoFlangesAndBearing" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.Rotational.Interfaces.TwoFlangesAndBearing"></A><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces"
+>Modelica.Mechanics.Rotational.Interfaces</A>.TwoFlangesAndBearing</H2>
+<B>Base class for a equation-based component with two rotational 1D flanges and one rotational 1D bearing flange</B><p>
+<IMG SRC="Modelica.Mechanics.Rotational.Interfaces.TwoFlangesAndBearingD.png" ALT="Modelica.Mechanics.Rotational.Interfaces.TwoFlangesAndBearing">
 <H3>Information</H3>
 <PRE></pre>
 <p>
-This is a 1D rotational component with two flanges.
-It is used e.g. to built up parts of a drive train consisting
-of several base components. There are specialized versions of this
-base class for rigidly connected flanges (Interfaces.Rigid) and
-for a compliant connection of flanges (Interfaces.Compliant).
-</p>
-
+This is a 1D rotational component with two flanges and an additional bearing flange.
+It is used e.g. to build up equation-based parts of a drive train.</p>
 <p><b>Release Notes:</b></p>
 <ul>
-<li><i>July 18, 1999</i>
-       by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>:<br>
+<li><i>October 27, 2003</i>
+       by <a href="http://www.robotic.dlr.de/Christian.Schweiger/">Christian Schweiger</a>:<br>
        Realized.
 </li>
 </ul>
-
 <pre>
 </PRE>
 <H3>Modelica definition</H3>
 <PRE>
-<font color="blue">partial </font><font color="blue">model</font> TwoFlanges <font color="darkgreen">
-  &quot;Base class for a component with two rotational 1D flanges&quot;</font> 
-  <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_a"
->Flange_a</A> flange_a;
-  <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_b"
->Flange_b</A> flange_b;
-<font color="blue">end </font>TwoFlanges;
+<font color="blue">partial </font><font color="blue">model</font> TwoFlangesAndBearing <font color="darkgreen">
+  &quot;Base class for a equation-based component with two rotational 1D flanges and one rotational 1D bearing flange&quot;</font> 
+  
+  <font color="blue">extends </font><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Bearing"
+>Bearing</A>;
+  
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>SI.Angle</A> phi_a;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>SI.Angle</A> phi_b;
+  
+<font color="blue">equation </font>
+  <font color="blue">if </font><font color="red">cardinality</font>(bearing) == 0<font color="blue"> then</font>
+    bearing.phi = 0;
+  <font color="blue">else</font>
+    bearing.tau = tau_support;
+  <font color="blue">end if</font>;
+  
+  0 = flange_a.tau + flange_b.tau + tau_support;
+  
+  phi_a = flange_a.phi - bearing.phi;
+  phi_b = flange_b.phi - bearing.phi;
+<font color="blue">end </font>TwoFlangesAndBearing;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Flange_a<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Mechanics.Rotational.Interfaces.Flange_aI.png" ALT="Modelica.Mechanics.Rotational.Interfaces.Flange_a" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Mechanics.Rotational.Interfaces.Flange_a"></A><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces"
 >Modelica.Mechanics.Rotational.Interfaces</A>.Flange_a</H2>
@@ -217,6 +287,9 @@ differentiation of the flange angle phi:
 <font color="blue">end </font>Flange_a;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Flange_b<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Mechanics.Rotational.Interfaces.Flange_bI.png" ALT="Modelica.Mechanics.Rotational.Interfaces.Flange_b" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Mechanics.Rotational.Interfaces.Flange_b"></A><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces"
 >Modelica.Mechanics.Rotational.Interfaces</A>.Flange_b</H2>
@@ -277,6 +350,9 @@ differentiation of the flange angle phi:
 <font color="blue">end </font>Flange_b;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Compliant<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Mechanics.Rotational.Interfaces.CompliantI.png" ALT="Modelica.Mechanics.Rotational.Interfaces.Compliant" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Mechanics.Rotational.Interfaces.Compliant"></A><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces"
 >Modelica.Mechanics.Rotational.Interfaces</A>.Compliant</H2>
@@ -306,11 +382,11 @@ is used to built up force elements such as springs, dampers, friction.
 <H3>Modelica definition</H3>
 <PRE>
 <font color="blue">partial </font><font color="blue">model</font> Compliant <font color="darkgreen">
-  &quot;Base class for the compliant connection of two rotational 1D flanges&quot;</font>
-   
-  <font color="darkgreen"></font>
+  &quot;Base class for the compliant connection of two rotational 1D flanges&quot;</font> 
+  
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
->SI.Angle</A> phi_rel(start=0) <font color="darkgreen">
+>SI.Angle</A> phi_rel(
+                   start=0) <font color="darkgreen">
     &quot;Relative rotation angle (= flange_b.phi - flange_a.phi)&quot;</font>;
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Torque"
 >SI.Torque</A> tau <font color="darkgreen">&quot;Torque between flanges (= flange_b.tau)&quot;</font>;
@@ -327,8 +403,10 @@ is used to built up force elements such as springs, dampers, friction.
 <font color="blue">end </font>Compliant;
 </PRE>
 <HR>
-<H2><IMG SRC="Modelica.Mechanics.Rotational.Interfaces.FrictionBaseI.png" ALT="Modelica.Mechanics.Rotational.Interfaces.FrictionBase" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Mechanics.Rotational.Interfaces.FrictionBase"></A><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces"
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE FrictionBase<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Mechanics.Rotational.Interfaces.FrictionBase"></A><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces"
 >Modelica.Mechanics.Rotational.Interfaces</A>.FrictionBase</H2>
 <B>Base class of Coulomb friction elements</B><p>
 <H3>Parameters</H3><P>
@@ -340,11 +418,10 @@ is used to built up force elements such as springs, dampers, friction.
 <PRE>
 <font color="blue">partial </font><font color="blue">model</font> FrictionBase <font color="darkgreen">&quot;Base class of Coulomb friction elements&quot;</font> 
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
->SI.AngularVelocity</A> w_small=1 <font color="darkgreen">
+>SI.AngularVelocity</A> w_small =      1 <font color="darkgreen">
     &quot;Relative angular velocity near to zero (see model info text)&quot;</font>;
-  <font color="darkgreen"></font>
-  <font color="darkgreen">
-    // Equations to define the following variables have to be defined in subclasses</font>
+  
+  <font color="darkgreen">  // Equations to define the following variables have to be defined in subclasses</font>
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
 >SI.AngularVelocity</A> w_relfric <font color="darkgreen">
     &quot;Relative angular velocity between frictional surfaces&quot;</font>;
@@ -359,16 +436,16 @@ is used to built up force elements such as springs, dampers, friction.
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Torque"
 >SI.Torque</A> tau0_max <font color="darkgreen">&quot;Maximum friction torque for w=0 and locked&quot;</font>;
   Boolean free <font color="darkgreen">&quot;true, if frictional element is not active&quot;</font>;
-  <font color="darkgreen"></font>
+  
   <font color="darkgreen">// Equations to define the following variables are given in this class</font>
   Real sa <font color="darkgreen">&quot;Path parameter of friction characteristic tau = f(a_relfric)&quot;</font>;
-  <font color="darkgreen"></font>
+  
   Boolean startForward(start=false, fixed=true) <font color="darkgreen">
     &quot;true, if w_rel=0 and start of forward sliding or w_rel &gt; w_small&quot;</font>;
   Boolean startBackward(start=false, fixed=true) <font color="darkgreen">
     &quot;true, if w_rel=0 and start of backward sliding or w_rel &lt; -w_small&quot;</font>;
   Boolean locked <font color="darkgreen">&quot;true, if w_rel=0 and not sliding&quot;</font>;
-  <font color="darkgreen"></font>
+  
   <font color="blue">constant </font>Integer Unknown=3 <font color="darkgreen">&quot;Value of mode is not known&quot;</font>;
   <font color="blue">constant </font>Integer Free=2 <font color="darkgreen">&quot;Element is not active&quot;</font>;
   <font color="blue">constant </font>Integer Forward=1 <font color="darkgreen">&quot;w_rel &gt; 0 (forward sliding)&quot;</font>;
@@ -376,44 +453,181 @@ is used to built up force elements such as springs, dampers, friction.
     &quot;w_rel = 0 (forward sliding, locked or backward sliding)&quot;</font>;
   <font color="blue">constant </font>Integer Backward=-1 <font color="darkgreen">&quot;w_rel &lt; 0 (backward sliding)&quot;</font>;
   Integer mode(
-    <font color="blue">final </font>min=Backward, 
-    <font color="blue">final </font>max=Unknown, 
-    start=Unknown, 
+    <font color="blue">final </font>min=Backward,
+    <font color="blue">final </font>max=Unknown,
+    start=Unknown,
     fixed=true);
 <font color="blue">equation </font>
   <font color="darkgreen">/* Friction characteristic
       (locked is introduced to help the Modelica translator determining
       the different structural configurations, if for each configuration
       special code shall be generated) */</font>
-  <font color="darkgreen"></font>
-  startForward = <font color="red">pre</font>(mode) == Stuck<font color="blue"> and </font>(sa &gt; tau0_max<font color="blue"> or </font><font color="red">pre</font>(startForward)<font color="blue">
-     and </font>sa &gt; tau0)<font color="blue"> or </font><font color="red">pre</font>(mode) == Backward<font color="blue"> and </font>w_relfric &gt; w_small<font color="blue"> or </font><font color="red">initial</font>
-    ()<font color="blue"> and </font>(w_relfric &gt; 0);
-  startBackward = <font color="red">pre</font>(mode) == Stuck<font color="blue"> and </font>(sa &lt; -tau0_max<font color="blue"> or </font><font color="red">pre</font>(startBackward)<font color="blue">
-     and </font>sa &lt; -tau0)<font color="blue"> or </font><font color="red">pre</font>(mode) == Forward<font color="blue"> and </font>w_relfric &lt; -w_small<font color="blue"> or </font><font color="red">
-    initial</font>()<font color="blue"> and </font>(w_relfric &lt; 0);
-  locked = <font color="blue">not </font>free<font color="blue"> and </font><font color="blue">not </font>(<font color="red">pre</font>(mode) == Forward<font color="blue"> or </font>startForward<font color="blue"> or </font><font color="red">pre</font>(mode)
-     == Backward<font color="blue"> or </font>startBackward);
-  <font color="darkgreen"></font>
+  
+  startForward =<font color="red"> pre</font>(mode) == Stuck<font color="blue"> and </font>(sa &gt; tau0_max<font color="blue"> or </font><font color="red">pre</font>(startForward)<font color="blue">
+     and </font>sa &gt; tau0)<font color="blue"> or </font><font color="red">pre</font>(mode) == Backward<font color="blue"> and </font>w_relfric &gt; w_small<font color="blue"> or </font><font color="red">
+    initial</font>()<font color="blue"> and </font>(w_relfric &gt; 0);
+  startBackward =<font color="red"> pre</font>(mode) == Stuck<font color="blue"> and </font>(sa &lt; -tau0_max<font color="blue"> or </font><font color="red">pre</font>(
+    startBackward)<font color="blue"> and </font>sa &lt; -tau0)<font color="blue"> or </font><font color="red">pre</font>(mode) == Forward<font color="blue"> and </font>w_relfric &lt;
+    -w_small<font color="blue"> or </font><font color="red">initial</font>()<font color="blue"> and </font>(w_relfric &lt; 0);
+  locked =<font color="blue"> not </font>free<font color="blue"> and </font><font color="blue">not </font>(<font color="red">pre</font>(mode) == Forward<font color="blue"> or </font>startForward<font color="blue"> or </font><font color="red">pre</font>(
+    mode) == Backward<font color="blue"> or </font>startBackward);
+  
   a_relfric = <font color="blue">if </font>locked<font color="blue"> then </font>0<font color="blue"> else </font><font color="blue">if </font>free<font color="blue"> then </font>sa<font color="blue"> else </font><font color="blue">if </font>startForward<font color="blue"> then </font>
-    sa - tau0<font color="blue"> else </font><font color="blue">if </font>startBackward<font color="blue"> then </font>sa + tau0<font color="blue"> else </font><font color="blue">if </font><font color="red">pre</font>(mode) == Forward<font color="blue">
-     then </font>sa - tau0<font color="blue"> else </font>sa + tau0;
-  <font color="darkgreen"></font>
+          sa - tau0<font color="blue"> else </font><font color="blue">if </font>startBackward<font color="blue"> then </font>sa + tau0<font color="blue"> else </font><font color="blue">if </font><font color="red">pre</font>(mode)
+     == Forward<font color="blue"> then </font>sa - tau0<font color="blue"> else </font>sa + tau0;
+  
   <font color="darkgreen">/* Friction torque has to be defined in a subclass. Example for a clutch:
        tau = if locked then sa else if free then 0 else cgeo*fn*
             (if startForward then   Math.tempInterpol1( w_relfric, mue_pos, 2) else
              if startBackward then -Math.tempInterpol1(-w_relfric, mue_pos, 2) else
              if pre(mode) == Forward then  Math.tempInterpol1( w_relfric, mue_pos, 2)
                                      else -Math.tempInterpol1(-w_relfric, mue_pos, 2)); */</font>
-  <font color="darkgreen"></font>
+  
   <font color="darkgreen">// finite state machine to determine configuration</font>
-  mode = <font color="blue">if </font>free<font color="blue"> then </font>Free<font color="blue"> else </font>(<font color="blue">if </font>(<font color="red">pre</font>(mode) == Forward<font color="blue"> or </font><font color="red">pre</font>(mode) == Free<font color="blue">
-     or </font>startForward)<font color="blue"> and </font>w_relfric &gt; 0<font color="blue"> then </font>Forward<font color="blue"> else </font><font color="blue">if </font>(<font color="red">pre</font>(mode) == 
-    Backward<font color="blue"> or </font><font color="red">pre</font>(mode) == Free<font color="blue"> or </font>startBackward)<font color="blue"> and </font>w_relfric &lt; 0<font color="blue"> then </font>
-    Backward<font color="blue"> else </font>Stuck);
+  mode = <font color="blue">if </font>free<font color="blue"> then </font>Free<font color="blue"> else </font>(<font color="blue">if </font>(<font color="red">pre</font>(mode) == Forward<font color="blue"> or </font><font color="red">pre</font>(mode) ==
+    Free<font color="blue"> or </font>startForward)<font color="blue"> and </font>w_relfric &gt; 0<font color="blue"> then </font>Forward<font color="blue"> else </font><font color="blue">if </font>(<font color="red">pre</font>(mode)
+     == Backward<font color="blue"> or </font><font color="red">pre</font>(mode) == Free<font color="blue"> or </font>startBackward)<font color="blue"> and </font>w_relfric &lt; 0<font color="blue"> then </font>
+          Backward<font color="blue"> else </font>Stuck);
 <font color="blue">end </font>FrictionBase;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TwoFlangesAndBearingH<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.Rotational.Interfaces.TwoFlangesAndBearingHI.png" ALT="Modelica.Mechanics.Rotational.Interfaces.TwoFlangesAndBearingH" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.Rotational.Interfaces.TwoFlangesAndBearingH"></A><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces"
+>Modelica.Mechanics.Rotational.Interfaces</A>.TwoFlangesAndBearingH</H2>
+<B>Base class for a hierarchically composed component with two rotational 1D flanges and one rotational bearing flange</B><p>
+<IMG SRC="Modelica.Mechanics.Rotational.Interfaces.TwoFlangesAndBearingHD.png" ALT="Modelica.Mechanics.Rotational.Interfaces.TwoFlangesAndBearingH">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This is a 1D rotational component with two flanges and an additional bearing flange.
+It is used e.g. to build up parts of a drive train consisting
+of several base components.</p>
+<p><b>Release Notes:</b></p>
+<ul>
+<li><i>October 27, 2003</i>
+       by <a href="http://www.robotic.dlr.de/Christian.Schweiger/">Christian Schweiger</a>:<br>
+       Realized.
+</li>
+</ul>
+<pre>
+</PRE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">partial </font><font color="blue">model</font> TwoFlangesAndBearingH <font color="darkgreen">
+  &quot;Base class for a hierarchically composed component with two rotational 1D flanges and one rotational bearing flange&quot;</font> 
+  
+  <font color="blue">extends </font><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Bearing"
+>Bearing</A>;
+  
+  <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.TwoFlangesAndBearingH.Adapter"
+>Adapter</A> adapter(
+                  bearingConnected=<font color="red">cardinality</font>(bearing) &gt; 1);
+<font color="blue">protected </font>
+  <font color="blue">encapsulated </font><font color="blue">model</font> Adapter 
+    <font color="blue">import </font><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.TwoFlanges"
+>Modelica.Mechanics.Rotational.Interfaces.TwoFlanges</A>;
+    <font color="blue">extends </font><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.TwoFlanges"
+>TwoFlanges</A>;
+    <font color="blue">parameter </font>Boolean bearingConnected;
+    
+  <font color="blue">equation </font>
+    flange_a.phi = flange_b.phi;
+    
+    <font color="blue">if </font>bearingConnected<font color="blue"> then</font>
+      0 = flange_a.tau + flange_b.tau;
+    <font color="blue">else</font>
+      0 = flange_a.phi;
+    <font color="blue">end if</font>;
+  <font color="blue">end </font>Adapter;
+<font color="blue">equation </font>
+  tau_support = -adapter.flange_b.tau;
+  <font color="red">connect</font>(adapter.flange_a, bearing);
+<font color="blue">end </font>TwoFlangesAndBearingH;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TwoFlanges<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.Rotational.Interfaces.TwoFlangesI.png" ALT="Modelica.Mechanics.Rotational.Interfaces.TwoFlanges" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.Rotational.Interfaces.TwoFlanges"></A><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces"
+>Modelica.Mechanics.Rotational.Interfaces</A>.TwoFlanges</H2>
+<B>Base class for a component with two rotational 1D flanges</B><p>
+<IMG SRC="Modelica.Mechanics.Rotational.Interfaces.TwoFlangesD.png" ALT="Modelica.Mechanics.Rotational.Interfaces.TwoFlanges">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This is a 1D rotational component with two flanges.
+It is used e.g. to build up parts of a drive train consisting
+of several base components. There are specialized versions of this
+base class for rigidly connected flanges (Interfaces.Rigid) and
+for a compliant connection of flanges (Interfaces.Compliant).
+</p>
+
+<p><b>Release Notes:</b></p>
+<ul>
+<li><i>July 18, 1999</i>
+       by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>:<br>
+       Realized.
+</li>
+</ul>
+
+<pre>
+</PRE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">partial </font><font color="blue">model</font> TwoFlanges <font color="darkgreen">
+  &quot;Base class for a component with two rotational 1D flanges&quot;</font> 
+  <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_a"
+>Flange_a</A> flange_a;
+  <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_b"
+>Flange_b</A> flange_b;
+<font color="blue">end </font>TwoFlanges;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Bearing<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.Rotational.Interfaces.BearingI.png" ALT="Modelica.Mechanics.Rotational.Interfaces.Bearing" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.Rotational.Interfaces.Bearing"></A><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces"
+>Modelica.Mechanics.Rotational.Interfaces</A>.Bearing</H2>
+<B>Base class for interface classes with bearing connector</B><p>
+<IMG SRC="Modelica.Mechanics.Rotational.Interfaces.BearingD.png" ALT="Modelica.Mechanics.Rotational.Interfaces.Bearing">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This is a 1D rotational component with two flanges and an additional bearing flange.
+It is a superclass for the two components TwoFlangesAndBearing and TwoFlangesAndBearingH.</p>
+<p><b>Release Notes:</b></p>
+<ul>
+<li><i>October 27, 2003</i>
+       by <a href="http://www.robotic.dlr.de/Christian.Schweiger/">Christian Schweiger</a>:<br>
+       Realized.
+</li>
+</ul>
+<pre>
+</PRE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">partial </font><font color="blue">model</font> Bearing <font color="darkgreen">
+  &quot;Base class for interface classes with bearing connector&quot;</font> 
+  <font color="blue">extends </font><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.TwoFlanges"
+>TwoFlanges</A>;
+  
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Torque"
+>SI.Torque</A> tau_support;
+  
+  <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_a"
+>Flange_a</A> bearing;
+  
+<font color="blue">end </font>Bearing;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE AbsoluteSensor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Mechanics.Rotational.Interfaces.AbsoluteSensorI.png" ALT="Modelica.Mechanics.Rotational.Interfaces.AbsoluteSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Mechanics.Rotational.Interfaces.AbsoluteSensor"></A><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces"
 >Modelica.Mechanics.Rotational.Interfaces</A>.AbsoluteSensor</H2>
@@ -442,17 +656,21 @@ with the blocks of package Modelica.Blocks.
 <PRE>
 <font color="blue">partial </font><font color="blue">model</font> AbsoluteSensor <font color="darkgreen">
   &quot;Base class to measure a single absolute flange variable&quot;</font> 
-  <font color="darkgreen"></font>
+  
   <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.RotationalSensor"
 >Modelica.Icons.RotationalSensor</A>;
   <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_a"
 >Flange_a</A> flange_a <font color="darkgreen">
     &quot;(left) flange to be measured (flange axis directed INTO cut plane)&quot;</font>;
   <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.OutPort"
->Modelica.Blocks.Interfaces.OutPort</A> outPort(<font color="blue">final </font>n=1);
+>Modelica.Blocks.Interfaces.OutPort</A> outPort(
+                                             <font color="blue">final </font>n=1);
 <font color="blue">end </font>AbsoluteSensor;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE RelativeSensor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Mechanics.Rotational.Interfaces.RelativeSensorI.png" ALT="Modelica.Mechanics.Rotational.Interfaces.RelativeSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Mechanics.Rotational.Interfaces.RelativeSensor"></A><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces"
 >Modelica.Mechanics.Rotational.Interfaces</A>.RelativeSensor</H2>
@@ -481,12 +699,11 @@ with the blocks of package Modelica.Blocks.
 <H3>Modelica definition</H3>
 <PRE>
 <font color="blue">partial </font><font color="blue">model</font> RelativeSensor <font color="darkgreen">
-  &quot;Base class to measure a single relative variable between two flanges&quot;</font>
-   
-  <font color="darkgreen"></font>
+  &quot;Base class to measure a single relative variable between two flanges&quot;</font> 
+  
   <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.RotationalSensor"
 >Modelica.Icons.RotationalSensor</A>;
-  <font color="darkgreen"></font>
+  
   <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_a"
 >Flange_a</A> flange_a <font color="darkgreen">
     &quot;(left) driving flange (flange axis directed INTO cut plane)&quot;</font>;
@@ -494,11 +711,39 @@ with the blocks of package Modelica.Blocks.
 >Flange_b</A> flange_b <font color="darkgreen">
     &quot;(right) driven flange (flange axis directed OUT OF cut plane)&quot;</font>;
   <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.OutPort"
->Modelica.Blocks.Interfaces.OutPort</A> outPort(<font color="blue">final </font>n=1);
+>Modelica.Blocks.Interfaces.OutPort</A> outPort(
+                                             <font color="blue">final </font>n=1);
 <font color="blue">end </font>RelativeSensor;
 </PRE>
 <HR>
-<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Dec 11 11:14:11 2002
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Adapter<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.Rotational.Interfaces.TwoFlangesAndBearingH.AdapterI.png" ALT="Modelica.Mechanics.Rotational.Interfaces.TwoFlangesAndBearingH.Adapter" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.Rotational.Interfaces.TwoFlangesAndBearingH.Adapter"></A><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.TwoFlangesAndBearingH"
+>Modelica.Mechanics.Rotational.Interfaces.TwoFlangesAndBearingH</A>.Adapter</H2>
+<IMG SRC="Modelica.Mechanics.Rotational.Interfaces.TwoFlangesAndBearingH.AdapterD.png" ALT="Modelica.Mechanics.Rotational.Interfaces.TwoFlangesAndBearingH.Adapter">
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">encapsulated </font><font color="blue">model</font> Adapter 
+  <font color="blue">import </font><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.TwoFlanges"
+>Modelica.Mechanics.Rotational.Interfaces.TwoFlanges</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.TwoFlanges"
+>TwoFlanges</A>;
+  <font color="blue">parameter </font>Boolean bearingConnected;
+  
+<font color="blue">equation </font>
+  flange_a.phi = flange_b.phi;
+  
+  <font color="blue">if </font>bearingConnected<font color="blue"> then</font>
+    0 = flange_a.tau + flange_b.tau;
+  <font color="blue">else</font>
+    0 = flange_a.phi;
+  <font color="blue">end if</font>;
+<font color="blue">end </font>Adapter;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Jun 30 17:44:03 2004
 .
 </address></BODY>
 </HTML>

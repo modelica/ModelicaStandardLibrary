@@ -12,46 +12,18 @@ The library is currently structured in the following sublibraries:
 </p>
 <ul>
 <li>Analog</li>
+<li>MultiPhase</li>
 <li>Digital (not available yet)</li>
 </ul>
-<p>
-<dl>
-<dt>
-<b>Main Authors:</b>
-<dd>
-<a href=\"http://www.eas.iis.fhg.de/~clauss/\">Christoph Clau&szlig;</a>
-    &lt;<a href=\"mailto:clauss@eas.iis.fhg.de\">clauss@eas.iis.fhg.de</a>&gt;<br>
-    <a href=\"http://www.eas.iis.fhg.de/~schneider/\">Andr&eacute; Schneider</a>
-    &lt;<a href=\"mailto:schneider@eas.iis.fhg.de\">schneider@eas.iis.fhg.de</a>&gt;<br>
-    Fraunhofer Institute for Integrated Circuits<br>
-    Design Automation Department<br>
-    Zeunerstra&szlig;e 38<br>
-    D-01069 Dresden<br>
 
-<p>
-<dt>
-<b>Version:</b>
-<dd>
-$Id$<br>
-<p>
-<dt>
-<b>Copyright:</b>
-<dd>
-Copyright &copy; 1998-2002, Modelica Association and Fraunhofer-Gesellschaft.<br>
-<i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
-under the terms of the <b>Modelica license</b>, see the license conditions
-and the accompanying <b>disclaimer</b> in the documentation of package
-Modelica in file \"Modelica/package.mo\".</i><br>
-<p>
-</dl>
 </HTML>
 "),Window(
-    x=0.03, 
-    y=0.03, 
-    width=0.13, 
-    height=0.29, 
-    library=1, 
-    autolayout=1), 
+    x=0.03,
+    y=0.03,
+    width=0.13,
+    height=0.29,
+    library=1,
+    autolayout=1),
   Icon(
     Rectangle(extent=[-29, -13; 3, -27], style(color=0)),
     Line(points=[37, -58; 62, -58], style(color=0)),

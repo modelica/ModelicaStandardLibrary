@@ -1,13 +1,12 @@
-package Continuous
-  "Continuous control blocks with internal states"
-
+package Continuous "Continuous control blocks with internal states" 
+  
   extends Modelica.Icons.Library;
-  annotation (Window(
-      x=0.05, 
-      y=0.09, 
-      width=0.35, 
-      height=0.74, 
-      library=1, 
+  annotation( Window(
+      x=0.05,
+      y=0.09,
+      width=0.35,
+      height=0.74,
+      library=1,
       autolayout=1),
    Documentation(info="<html>
 <p>
@@ -46,12 +45,12 @@ Modelica in file \"Modelica/package.mo\".
 </i></p>
 </HTML>
 "));
-  block Integrator "Output the integral of the input signals"
+  block Integrator "Output the integral of the input signals" 
     parameter Real k[:]={1} "Integrator gains";
     parameter Real y0[:]=zeros(size(k, 1)) "Start values of integrators";
     extends Interfaces.MIMOs(final n=size(k, 1), y(start=y0));
-
-    annotation (
+    
+    annotation(
       Documentation(info="<html>
 <p>
 This blocks computes output <b>y</b>=outPort.signal element-wise as
@@ -75,8 +74,7 @@ the gain <i>k</i>:
        Realized.</li>
 </ul>
 </HTML>
-"),
-      Icon(
+"),   Icon(
         Line(points=[-80, 78; -80, -90], style(color=8)),
         Polygon(points=[-80, 90; -88, 68; -72, 68; -80, 90], style(
             color=8,
@@ -109,28 +107,28 @@ the gain <i>k</i>:
           string="s",
           style(color=0)),
         Line(points=[-46, 0; 46, 0], style(color=0))));
-  equation
+  equation 
     for i in 1:size(k, 1) loop
       der(y[i]) = k[i]*u[i];
     end for;
   end Integrator;
-
-  block LimIntegrator "Integrator with limited values of the outputs"
+  
+  block LimIntegrator "Integrator with limited values of the outputs" 
     parameter Real k[:]={1} "Integrator gains";
     parameter Real outMax[:]={1} "Upper limits of outputs";
     parameter Real outMin[:]=-outMax "Lower limits of outputs";
     parameter Real y0[:]=zeros(size(k, 1)) "Start values of integrators";
-
+    
     extends Interfaces.MIMOs(final n=max([size(k, 1); size(outMax, 1); size(
           outMin, 1)]), y(start=y0));
-
-  protected
+    
+  protected 
     parameter Real p_k[n]=(if size(k, 1) == 1 then ones(n)*k[1] else k);
-    parameter Real p_outMax[n]=(if size(outMax, 1) == 1 then ones(n)*outMax[1]
-         else outMax);
-    parameter Real p_outMin[n]=(if size(outMin, 1) == 1 then ones(n)*outMin[1]
-         else outMin);
-    annotation (
+    parameter Real p_outMax[n]=(if size(outMax, 1) == 1 then ones(n)*outMax[1] else 
+              outMax);
+    parameter Real p_outMin[n]=(if size(outMin, 1) == 1 then ones(n)*outMin[1] else 
+              outMin);
+    annotation(
       Documentation(info="<html>
 <p>
 This blocks computes <b>y</b>=outPort.signal element-wise as <i>integral</i>
@@ -154,8 +152,7 @@ the integral away from the bounds.
 
 <p><b>Copyright &copy; 1999-2002, Modelica Association and DLR.</b></p>
 </HTML>
-"),
-      Icon(
+"),   Icon(
         Line(points=[-80, 78; -80, -90], style(color=8)),
         Polygon(points=[-80, 90; -88, 68; -72, 68; -80, 90], style(color=8,
               fillColor=8)),
@@ -188,26 +185,26 @@ the integral away from the bounds.
           string="s",
           style(color=0)),
         Line(points=[4, 0; 46, 0], style(color=0))));
-  equation
+  equation 
     for i in 1:n loop
-      der(y[i]) = if y[i] < p_outMin[i] and u[i] < 0 or y[i] > p_outMax[i] and
+      der(y[i]) = if y[i] < p_outMin[i] and u[i] < 0 or y[i] > p_outMax[i] and 
         u[i] > 0 then 0 else p_k[i]*u[i];
     end for;
   end LimIntegrator;
-
-  block Derivative "Approximated derivative block"
+  
+  block Derivative "Approximated derivative block" 
     parameter Real k[:]={1} "Gains";
-    parameter SI.Time T[:](min=fill(Modelica.Constants.small, size(T, 1))) = {0.01}
+    parameter SI.Time T[:](min=fill(Modelica.Constants.small, size(T, 1)))=  {0.01} 
       "Time constants (T>0 required; T=0 is ideal derivative block)";
-
+    
     extends Interfaces.MIMOs(final n=max([size(k, 1); size(T, 1)]));
-
+    
     output Real x[n] "State of block";
-
-  protected
+    
+  protected 
     parameter Real p_k[n]=(if size(k, 1) == 1 then ones(n)*k[1] else k);
     parameter Real p_T[n]=(if size(T, 1) == 1 then ones(n)*T[1] else T);
-    annotation (
+    annotation(
       Documentation(info="<html>
 <p>
 This blocks defines the transfer function between the
@@ -246,8 +243,7 @@ b = {k,0}, a = {T, 1}.
 </ul>
 
 </HTML>
-"),
-      Icon(
+"),   Icon(
         Line(points=[-80, 78; -80, -90], style(color=8)),
         Polygon(points=[-80, 90; -88, 68; -72, 68; -80, 90], style(color=8,
               fillColor=8)),
@@ -255,8 +251,8 @@ b = {k,0}, a = {T, 1}.
         Polygon(points=[90, -80; 68, -72; 68, -88; 90, -80], style(color=8,
               fillColor=8)),
         Line(points=[-80, -80; -80, 60; -70, 17.95; -60, -11.46; -50, -32.05; -
-              40, -46.45; -30, -56.53; -20, -63.58; -10, -68.51; 0, -71.96; 10
-              , -74.37; 20, -76.06; 30, -77.25; 40, -78.07; 50, -78.65; 60, -
+              40, -46.45; -30, -56.53; -20, -63.58; -10, -68.51; 0, -71.96; 10,
+                -74.37; 20, -76.06; 30, -77.25; 40, -78.07; 50, -78.65; 60, -
               79.06]),
         Text(
           extent=[0, 0; 60, 60],
@@ -288,25 +284,25 @@ b = {k,0}, a = {T, 1}.
         y=0.03,
         width=0.5,
         height=0.61));
-  equation
+  equation 
     for i in 1:n loop
       der(x[i]) = if noEvent(abs(p_k[i]) >= Modelica.Constants.eps) then (u[i] - x[i])/
         p_T[i] else 0;
-      y[i] = if noEvent(abs(p_k[i]) >= Modelica.Constants.eps) then (p_k[i]/p_T[i])*(u[i
-        ] - x[i]) else 0;
+      y[i] = if noEvent(abs(p_k[i]) >= Modelica.Constants.eps) then (p_k[i]/p_T[i])*(u[i]
+          - x[i]) else 0;
     end for;
   end Derivative;
-
-  block FirstOrder "First order transfer function block (= 1 pole)"
+  
+  block FirstOrder "First order transfer function block (= 1 pole)" 
     parameter Real k[:]={1} "Gain";
     parameter SI.Time T[:]={1} "Time Constant";
-
+    
     extends Interfaces.MIMOs(final n=max([size(k, 1); size(T, 1)]));
-
-  protected
+    
+  protected 
     parameter Real p_k[n]=(if size(k, 1) == 1 then ones(n)*k[1] else k);
     parameter Real p_T[n]=(if size(T, 1) == 1 then ones(n)*T[1] else T);
-    annotation (
+    annotation(
       Documentation(info="<html>
 <p>
 This blocks defines the transfer function between the input u=inPort.signal
@@ -351,8 +347,7 @@ Example:
 </ul>
 
 </HTML>
-"),
-      Icon(
+"),   Icon(
         Line(points=[-80, 78; -80, -90], style(color=8)),
         Polygon(points=[-80, 90; -88, 68; -72, 68; -80, 88; -80, 90], style(
             color=8,
@@ -397,25 +392,24 @@ Example:
         y=0.04,
         width=0.52,
         height=0.55));
-  equation
+  equation 
     for i in 1:n loop
       der(y[i]) = (p_k[i]*u[i] - y[i])/p_T[i];
     end for;
   end FirstOrder;
-
-  block SecondOrder "Second order transfer function block (= 2 poles)"
+  
+  block SecondOrder "Second order transfer function block (= 2 poles)" 
     parameter Real k[:]={1} "Gain";
     parameter Real w[:]={1} "Angular frequency";
     parameter Real D[:]={1} "Damping";
-
-    extends Interfaces.MIMOs(final n=max([size(k, 1); size(w, 1); size(D, 1)]))
-      ;
+    
+    extends Interfaces.MIMOs(final n=max([size(k, 1); size(w, 1); size(D, 1)]));
     output Real yd[n] "Derivative of y";
-  protected
+  protected 
     parameter Real p_k[n]=(if size(k, 1) == 1 then ones(n)*k[1] else k);
     parameter Real p_w[n]=(if size(w, 1) == 1 then ones(n)*w[1] else w);
     parameter Real p_D[n]=(if size(D, 1) == 1 then ones(n)*D[1] else D);
-    annotation (
+    annotation(
       Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[2, 2],
@@ -471,8 +465,7 @@ Example:
 </ul>
 
 </HTML>
-"),
-      Icon(
+"),   Icon(
         Line(points=[-80, 78; -80, -90], style(color=8)),
         Polygon(points=[-80, 90; -88, 68; -72, 68; -80, 88; -80, 90], style(
             color=8,
@@ -483,10 +476,10 @@ Example:
             color=8,
             fillColor=8,
             fillPattern=1)),
-        Line(points=[-80, -80; -72, -68.53; -64, -39.5; -56, -2.522; -48, 32.75
-              ; -40, 58.8; -32, 71.51; -24, 70.49; -16, 58.45; -8, 40.06; 0,
-              20.55; 8, 4.459; 16, -5.271; 24, -7.629; 32, -3.428; 40, 5.21; 48
-              , 15.56; 56, 25.03; 64, 31.66; 72, 34.5; 80, 33.61]),
+        Line(points=[-80, -80; -72, -68.53; -64, -39.5; -56, -2.522; -48, 32.75;
+                -40, 58.8; -32, 71.51; -24, 70.49; -16, 58.45; -8, 40.06; 0,
+              20.55; 8, 4.459; 16, -5.271; 24, -7.629; 32, -3.428; 40, 5.21; 48,
+                15.56; 56, 25.03; 64, 31.66; 72, 34.5; 80, 33.61]),
         Text(
           extent=[0, -10; 60, -70],
           string="PT2",
@@ -538,24 +531,24 @@ Example:
           extent=[30, 2; 58, -42],
           string="+1",
           style(color=0))));
-  equation
+  equation 
     for i in 1:n loop
       der(y[i]) = yd[i];
       der(yd[i]) = p_w[i]*(p_w[i]*(p_k[i]*u[i] - y[i]) - 2*p_D[i]*yd[i]);
     end for;
   end SecondOrder;
-
-  block PI "Proportional-Integral controller"
+  
+  block PI "Proportional-Integral controller" 
     parameter Real k[:]={1} "Gain";
     parameter SI.Time T[:]={1} "Time Constant (T>0 required)";
-
+    
     extends Interfaces.MIMOs(final n=max([size(k, 1); size(T, 1)]));
     output Real x[n] "State of block";
-
-  protected
+    
+  protected 
     parameter Real p_k[n]=(if size(k, 1) == 1 then ones(n)*k[1] else k);
     parameter Real p_T[n]=(if size(T, 1) == 1 then ones(n)*T[1] else T);
-    annotation (
+    annotation(
       Documentation(info="<html>
 <p>
 This blocks defines the transfer function between the input u=inPort.signal and
@@ -604,8 +597,7 @@ Example:
 </ul>
 
 </HTML>
-"),
-      Icon(
+"),   Icon(
         Line(points=[-80, 78; -80, -90], style(color=8)),
         Polygon(points=[-80, 90; -88, 68; -72, 68; -80, 88; -80, 90], style(
             color=8,
@@ -642,24 +634,24 @@ Example:
         Line(points=[-24, 0; 54, 0], style(color=0)),
         Line(points=[-100, 0; -60, 0]),
         Line(points=[62, 0; 100, 0])));
-  equation
+  equation 
     for i in 1:n loop
       der(x[i]) = u[i]/p_T[i];
       y[i] = p_k[i]*(x[i] + u[i]);
     end for;
   end PI;
-
-  block PID "PID-controller in additive description form"
+  
+  block PID "PID-controller in additive description form" 
     extends Interfaces.SISO;
-
+    
     parameter Real k=1 "Gain";
-    parameter SI.Time Ti(min=Modelica.Constants.small) = 0.5
+    parameter SI.Time Ti(min=Modelica.Constants.small)=  0.5 
       "Time Constant of Integrator";
-    parameter SI.Time Td(min=0) = 0.1 "Time Constant of Derivative block";
-    parameter Real Nd(min=Modelica.Constants.small) = 10
+    parameter SI.Time Td(min=0)=  0.1 "Time Constant of Derivative block";
+    parameter Real Nd(min=Modelica.Constants.small)=  10 
       "The higher Nd, the more ideal the derivative block";
-
-    annotation (Icon(
+    
+    annotation( Icon(
         Line(points=[-80, 78; -80, -90], style(color=8)),
         Polygon(points=[-80, 90; -88, 68; -72, 68; -80, 90], style(color=8,
               fillColor=8)),
@@ -689,54 +681,53 @@ block LimPID.
 </ul>
 </HTML>
 "));
-    Math.Gain P "Proportional part of PID controller" annotation (extent=[-60,
+    Math.Gain P "Proportional part of PID controller" annotation( extent=[-60,
           60; -20, 100]);
-    Integrator I(k={1/Ti}) "Integral part of PID controller" annotation (extent
-        =[-60, -20; -20, 20]);
-    Derivative D(k={Td}, T={max([Td/Nd, 100*Modelica.Constants.eps])})
-      "Derivative part of PID controller" annotation (extent=[-60, -100; -20, -
+    Integrator I(k={1/Ti}) "Integral part of PID controller" annotation( extent=
+         [-60, -20; -20, 20]);
+    Derivative D(k={Td}, T={max([Td/Nd, 100*Modelica.Constants.eps])}) 
+      "Derivative part of PID controller" annotation( extent=[-60, -100; -20, -
           60]);
-    Math.Gain Gain(k={k}) "Gain of PID controller" annotation (extent=[60, -10
-          ; 80, 10]);
-    Math.Add3 Add annotation (extent=[20, -10; 40, 10]);
-  equation
-    connect(P.outPort, Add.inPort1) annotation (points=[-20, 80; 0, 80; 0, 8;
+    Math.Gain Gain(k={k}) "Gain of PID controller" annotation( extent=[60, -10;
+            80, 10]);
+    Math.Add3 Add annotation( extent=[20, -10; 40, 10]);
+  equation 
+    connect(P.outPort, Add.inPort1) annotation( points=[-20, 80; 0, 80; 0, 8;
           20, 8]);
-    connect(I.outPort, Add.inPort2) annotation (points=[-20, 0; 20, 0]);
-    connect(D.outPort, Add.inPort3) annotation (points=[-20, -80; 0, -80; 0, -8
-          ; 20, -8]);
-    connect(Add.outPort, Gain.inPort) annotation (points=[40, 0; 60, 0]);
-    connect(outPort, Gain.outPort) annotation (points=[100, 0; 80, 0]);
-    connect(inPort, I.inPort) annotation (points=[-100, 0; -60, 0]);
-    connect(inPort, P.inPort) annotation (points=[-100, 0; -80, 0; -80, 80; -60
-          , 80]);
-    connect(inPort, D.inPort) annotation (points=[-100, 0; -80, 0; -80, -80; -
+    connect(I.outPort, Add.inPort2) annotation( points=[-20, 0; 20, 0]);
+    connect(D.outPort, Add.inPort3) annotation( points=[-20, -80; 0, -80; 0, -8;
+            20, -8]);
+    connect(Add.outPort, Gain.inPort) annotation( points=[40, 0; 60, 0]);
+    connect(outPort, Gain.outPort) annotation( points=[100, 0; 80, 0]);
+    connect(inPort, I.inPort) annotation( points=[-100, 0; -60, 0]);
+    connect(inPort, P.inPort) annotation( points=[-100, 0; -80, 0; -80, 80; -60,
+            80]);
+    connect(inPort, D.inPort) annotation( points=[-100, 0; -80, 0; -80, -80; -
           60, -80]);
   end PID;
-
-  block LimPID
+  
+  block LimPID 
     "PID controller with limited output, anti-windup compensation and setpoint weighting"
-
-
+    
+    
     extends Interfaces.SVcontrol;
-
-    parameter Real k(min=0) = 1 "Gain of PID block";
-    parameter SI.Time Ti(min=Modelica.Constants.small) = 0.5
+    
+    parameter Real k(min=0)=  1 "Gain of PID block";
+    parameter SI.Time Ti(min=Modelica.Constants.small)=  0.5 
       "Time constant of Integrator block";
-    parameter SI.Time Td(min=0) = 0.1 "Time constant of Derivative block";
+    parameter SI.Time Td(min=0)=  0.1 "Time constant of Derivative block";
     parameter Real yMax=1 "Upper limit of output";
     parameter Real yMin=-yMax "Lower limit of output";
-    parameter Real wp(min=0) = 1
+    parameter Real wp(min=0)=  1 
       "Set-point weight for Proportional block (0..1)";
-    parameter Real wd(min=0) = 0 "Set-point weight for Derivative block (0..1)"
-      ;
-    parameter Real Ni(min=100*Modelica.Constants.eps) = 0.9
+    parameter Real wd(min=0)=  0 "Set-point weight for Derivative block (0..1)";
+    parameter Real Ni(min=100*Modelica.Constants.eps)=  0.9 
       "Ni*Ti is time constant of anti-windup compensation";
-    parameter Real Nd(min=100*Modelica.Constants.eps) = 10
+    parameter Real Nd(min=100*Modelica.Constants.eps)=  10 
       "The higher Nd, the more ideal the derivative block";
-    Nonlinear.Limiter limiter(uMax={yMax}, uMin={yMin}) annotation (extent=[70
-          , -10; 90, 10]);
-    annotation (
+    Nonlinear.Limiter limiter(uMax={yMax}, uMin={yMin}) annotation( extent=[70,
+            -10; 90, 10]);
+    annotation(
       Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[2, 2],
@@ -801,73 +792,69 @@ part of this controller, the following practical aspects are included:
 
 </HTML>
 "));
-    Math.Add addP(k1=wp, k2=-1) annotation (extent=[-80, 40; -60, 60]);
-    Math.Add addD(k1=wd, k2=-1) annotation (extent=[-80, -10; -60, 10]);
-    Math.Gain P annotation (extent=[-40, 40; -20, 60]);
-    Integrator I(k={1/Ti}) annotation (extent=[-40, -60; -20, -40]);
-    Derivative D(k={Td}, T={max([Td/Nd, 1.e-14])}) annotation (extent=[-40, -10
-          ; -20, 10]);
-    Math.Gain gainPID(k={k}) annotation (extent=[30, -10; 50, 10]);
-    Math.Add3 addPID annotation (extent=[0, -10; 20, 10]);
-    Math.Add3 addI(k2=-1) annotation (extent=[-80, -60; -60, -40]);
-    Math.Add addSat(k2=-1) annotation (extent=[70, -60; 90, -40], rotation=-90)
-      ;
-    Math.Gain gainTrack(k={1/(k*Ni)}) annotation (extent=[40, -80; 20, -60]);
-  equation
+    Math.Add addP(k1=wp, k2=-1) annotation( extent=[-80, 40; -60, 60]);
+    Math.Add addD(k1=wd, k2=-1) annotation( extent=[-80, -10; -60, 10]);
+    Math.Gain P annotation( extent=[-40, 40; -20, 60]);
+    Integrator I(k={1/Ti}) annotation( extent=[-40, -60; -20, -40]);
+    Derivative D(k={Td}, T={max([Td/Nd, 1.e-14])}) annotation( extent=[-40, -10;
+            -20, 10]);
+    Math.Gain gainPID(k={k}) annotation( extent=[30, -10; 50, 10]);
+    Math.Add3 addPID annotation( extent=[0, -10; 20, 10]);
+    Math.Add3 addI(k2=-1) annotation( extent=[-80, -60; -60, -40]);
+    Math.Add addSat(k2=-1) annotation( extent=[70, -60; 90, -40], rotation=-90);
+    Math.Gain gainTrack(k={1/(k*Ni)}) annotation( extent=[40, -80; 20, -60]);
+  equation 
     assert(yMax >= yMin, "PID: Limits must be consistent");
-    connect(inPort_s, addP.inPort1) annotation (points=[-102, 0; -96, 0; -96,
+    connect(inPort_s, addP.inPort1) annotation( points=[-102, 0; -96, 0; -96,
           56; -80, 56]);
-    connect(inPort_m, addP.inPort2) annotation (points=[0, -100; 0, -92; -92, -
+    connect(inPort_m, addP.inPort2) annotation( points=[0, -100; 0, -92; -92, -
           92; -92, 44; -80, 44], style(thickness=2));
-    connect(inPort_s, addD.inPort1) annotation (points=[-102, 0; -96, 0; -96, 6
-          ; -82, 6]);
-    connect(inPort_m, addD.inPort2) annotation (points=[0, -100; 0, -92; -92, -
+    connect(inPort_s, addD.inPort1) annotation( points=[-102, 0; -96, 0; -96, 6;
+            -82, 6]);
+    connect(inPort_m, addD.inPort2) annotation( points=[0, -100; 0, -92; -92, -
           92; -92, -6; -82, -6; -82, -6], style(thickness=2));
-    connect(inPort_s, addI.inPort1) annotation (points=[-100, 0; -96, 0; -96, -
+    connect(inPort_s, addI.inPort1) annotation( points=[-100, 0; -96, 0; -96, -
           42; -82, -42]);
-    connect(inPort_m, addI.inPort2) annotation (points=[0, -104; 0, -92; -92, -
+    connect(inPort_m, addI.inPort2) annotation( points=[0, -104; 0, -92; -92, -
           92; -92, -50; -80, -50], style(thickness=2));
-    connect(gainTrack.outPort, addI.inPort3) annotation (points=[20, -70; -88,
+    connect(gainTrack.outPort, addI.inPort3) annotation( points=[20, -70; -88,
           -70; -88, -58; -80, -58]);
-    connect(addP.outPort, P.inPort) annotation (points=[-60, 50; -40, 50; -40,
+    connect(addP.outPort, P.inPort) annotation( points=[-60, 50; -40, 50; -40,
           50]);
-    connect(addD.outPort, D.inPort) annotation (points=[-60, 0; -50, 0]);
-    connect(addI.outPort, I.inPort) annotation (points=[-58, -50; -40, -50]);
-    connect(P.outPort, addPID.inPort1) annotation (points=[-18, 50; -10, 50; -
+    connect(addD.outPort, D.inPort) annotation( points=[-60, 0; -50, 0]);
+    connect(addI.outPort, I.inPort) annotation( points=[-58, -50; -40, -50]);
+    connect(P.outPort, addPID.inPort1) annotation( points=[-18, 50; -10, 50; -
           10, 8; 0, 8]);
-    connect(D.outPort, addPID.inPort2) annotation (points=[-20, 0; -2, 0; -2, 0
-          ]);
-    connect(I.outPort, addPID.inPort3) annotation (points=[-18, -50; -10, -50;
+    connect(D.outPort, addPID.inPort2) annotation( points=[-20, 0; -2, 0; -2, 0]);
+    connect(I.outPort, addPID.inPort3) annotation( points=[-18, -50; -10, -50;
           -10, -8; -2, -8; -2, -8]);
-    connect(addPID.outPort, gainPID.inPort) annotation (points=[21, 0; 28, 0]);
-    connect(gainPID.outPort, addSat.inPort2) annotation (points=[50, 0; 60, 0;
+    connect(addPID.outPort, gainPID.inPort) annotation( points=[21, 0; 28, 0]);
+    connect(gainPID.outPort, addSat.inPort2) annotation( points=[50, 0; 60, 0;
           60, -30; 74, -30; 74, -40]);
-    connect(addSat.outPort, gainTrack.inPort) annotation (points=[80, -62; 80,
+    connect(addSat.outPort, gainTrack.inPort) annotation( points=[80, -62; 80,
           -70; 42, -70]);
-    connect(gainPID.outPort, limiter.inPort) annotation (points=[50, 0; 70, 0])
-      ;
-    connect(limiter.outPort, outPort) annotation (points=[90, 0; 100, 0]);
-    connect(limiter.outPort, addSat.inPort1) annotation (points=[90, 0; 94, 0;
+    connect(gainPID.outPort, limiter.inPort) annotation( points=[50, 0; 70, 0]);
+    connect(limiter.outPort, outPort) annotation( points=[90, 0; 100, 0]);
+    connect(limiter.outPort, addSat.inPort1) annotation( points=[90, 0; 94, 0;
           94, -20; 86, -20; 86, -40]);
   end LimPID;
-
-  block TransferFunction "Linear transfer function"
+  
+  block TransferFunction "Linear transfer function" 
     extends Interfaces.SISO;
-
+    
     parameter Real b[:]={1} "Numerator coefficients of transfer function.";
     parameter Real a[:]={1,1} "Denominator coefficients of transfer function.";
-    output Real x[size(a, 1) - 1]
+    output Real x[size(a, 1) - 1] 
       "State of transfer function from controller canonical form";
-
-  protected
-    parameter Integer na=size(a, 1) "Size of Denominator of transfer function."
-      ;
-    parameter Integer nb(max=na) = size(b, 1)
+    
+  protected 
+    parameter Integer na=size(a, 1) "Size of Denominator of transfer function.";
+    parameter Integer nb(max=na)=  size(b, 1) 
       "Size of Numerator of transfer function.";
     parameter Integer nx=size(a, 1) - 1;
     Real x1dot "Derivative of first state of TransferFcn";
     Real xn "Highest order state of TransferFcn";
-    annotation (
+    annotation(
       Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[2, 2],
@@ -923,8 +910,7 @@ results in the following transfer function:
 </ul>
 
 </HTML>
-"),
-      Icon(
+"),   Icon(
         Line(points=[-80, 0; 80, 0]),
         Text(extent=[-90, 10; 90, 90], string="b(s)"),
         Text(extent=[-90, -10; 90, -90], string="a(s)")),
@@ -941,23 +927,23 @@ results in the following transfer function:
         Rectangle(extent=[-60, 60; 60, -60]),
         Line(points=[-100, 0; -60, 0]),
         Line(points=[60, 0; 100, 0])));
-  equation
+  equation 
     [der(x); xn] = [x1dot; x];
     [u] = transpose([a])*[x1dot; x];
     [y] = transpose([zeros(na - nb, 1); b])*[x1dot; x];
   end TransferFunction;
-
-  block StateSpace "Linear state space system"
-    parameter Real A[:, size(A, 1)]=[1, 0; 0, 1]
+  
+  block StateSpace "Linear state space system" 
+    parameter Real A[:, size(A, 1)]=[1, 0; 0, 1] 
       "Matrix A of state space model";
     parameter Real B[size(A, 1), :]=[1; 1] "Matrix B of state space model";
     parameter Real C[:, size(A, 1)]=[1, 1] "Matrix C of state space model";
-    parameter Real D[size(C, 1), size(B, 2)]=zeros(size(C, 1), size(B, 2))
+    parameter Real D[size(C, 1), size(B, 2)]=zeros(size(C, 1), size(B, 2)) 
       "Matrix D of state space model";
-
+    
     extends Interfaces.MIMO(final nin=size(B, 2), final nout=size(C, 1));
     output Real x[size(A, 1)] "State vector";
-    annotation (
+    annotation(
       Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[2, 2],
@@ -1011,8 +997,7 @@ results in the following equations:
                              [x[2]]            [u[2]]
 </pre>
 </HTML>
-"),
-      Icon(
+"),   Icon(
         Text(extent=[-90, 10; -10, 90], string="A"),
         Text(extent=[10, 10; 90, 90], string="B"),
         Text(extent=[-90, -10; -10, -90], string="C"),
@@ -1031,15 +1016,15 @@ results in the following equations:
           style(color=0)),
         Line(points=[-100, 0; -60, 0]),
         Line(points=[60, 0; 100, 0])));
-  equation
+  equation 
     der(x) = A*x + B*u;
     y = C*x + D*u;
   end StateSpace;
-
-  block Der "Derivative of input (= analytic differentations)"
+  
+  block Der "Derivative of input (= analytic differentations)" 
     extends Interfaces.MIMOs;
-
-    annotation (Icon(Text(extent=[-80, 76; 80, -82], string="der()")),
+    
+    annotation( Icon(Text(extent=[-80, 76; 80, -82], string="der()")),
         Documentation(info="<HTML>
 <p>
 Defines that the output (= outPort.signal) is the <i>derivative</i>
@@ -1050,7 +1035,7 @@ by the Modelica translator, if these derivatives are not yet present in
 the model.
 </p>
 </HTML>"));
-  equation
+  equation 
     for i in 1:n loop
       y[i] = der(u[i]);
     end for;

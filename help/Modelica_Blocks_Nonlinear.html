@@ -1,6 +1,9 @@
 <HTML>
 <HEAD><META name="HTML-Generator" content="Dymola"><TITLE>Modelica</TITLE></HEAD>
 <BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Nonlinear<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><A NAME="Modelica.Blocks.Nonlinear"></A><A HREF="Modelica_Blocks.html#Modelica.Blocks"
 >Modelica.Blocks</A>.Nonlinear</H2>
 <B>Discontinuous or non-differentiable algebraic control blocks</B>
@@ -61,7 +64,22 @@ Modelica in file "Modelica/package.mo".
 </i></p>
 <pre>
 </PRE><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Blocks_Nonlinear.html#Modelica.Blocks.Nonlinear.Limiter"
+>Limiter</A>
+</TD><TD>Limit the range of a signal</TD></TR>
+<TR><TD><A HREF="Modelica_Blocks_Nonlinear.html#Modelica.Blocks.Nonlinear.VariableLimiter"
+>VariableLimiter</A>
+</TD><TD>Limit the range of a signal with variable limits</TD></TR>
+<TR><TD><A HREF="Modelica_Blocks_Nonlinear.html#Modelica.Blocks.Nonlinear.DeadZone"
+>DeadZone</A>
+</TD><TD>Provide a region of zero output</TD></TR>
+</TABLE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Limiter<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Blocks.Nonlinear.LimiterI.png" ALT="Modelica.Blocks.Nonlinear.Limiter" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Blocks.Nonlinear.Limiter"></A><A HREF="Modelica_Blocks_Nonlinear.html#Modelica.Blocks.Nonlinear"
 >Modelica.Blocks.Nonlinear</A>.Limiter</H2>
@@ -91,15 +109,18 @@ as output.
     &quot;Lower limits of input signals&quot;</font>;
   <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.MIMOs"
 >Interfaces.MIMOs</A>(<font color="blue">final </font>n=<font color="red">size</font>(uMax, 1));
-  <font color="darkgreen"></font>
+  
 <font color="blue">equation </font>
   <font color="blue">for </font>i<font color="blue"> in </font>1:n<font color="blue"> loop</font>
-    y[i] = <font color="blue">if </font>u[i] &gt; uMax[i]<font color="blue"> then </font>uMax[i]<font color="blue"> else </font><font color="blue">if </font>u[i] &lt; uMin[i]<font color="blue"> then </font>uMin[i]<font color="blue">
-       else </font>u[i];
+    y[i] = <font color="blue">if </font>u[i] &gt; uMax[i]<font color="blue"> then </font>uMax[i]<font color="blue"> else </font><font color="blue">if </font>u[i] &lt; uMin[i]<font color="blue"> then </font>uMin[i]<font color="blue"> else </font>
+            u[i];
   <font color="blue">end for</font>;
 <font color="blue">end </font>Limiter;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE VariableLimiter<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Blocks.Nonlinear.VariableLimiterI.png" ALT="Modelica.Blocks.Nonlinear.VariableLimiter" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Blocks.Nonlinear.VariableLimiter"></A><A HREF="Modelica_Blocks_Nonlinear.html#Modelica.Blocks.Nonlinear"
 >Modelica.Blocks.Nonlinear</A>.VariableLimiter</H2>
@@ -127,25 +148,30 @@ is passed as output.
   &quot;Limit the range of a signal with variable limits&quot;</font> 
   <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.MIMOs"
 >Interfaces.MIMOs</A>;
-  <font color="darkgreen"></font>
+  
   <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
->Interfaces.InPort</A> limit1(<font color="blue">final </font>n=n);
+>Interfaces.InPort</A> limit1(
+                           <font color="blue">final </font>n=n);
   <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
->Interfaces.InPort</A> limit2(<font color="blue">final </font>n=n);
+>Interfaces.InPort</A> limit2(
+                           <font color="blue">final </font>n=n);
 <font color="blue">protected </font>
   Real uMax[n];
   Real uMin[n];
-  <font color="darkgreen"></font>
+  
 <font color="blue">equation </font>
   <font color="blue">for </font>i<font color="blue"> in </font>1:n<font color="blue"> loop</font>
-    uMax[i] = <font color="red">max</font>(limit1.signal[i], limit2.signal[i]);
-    uMin[i] = <font color="red">min</font>(limit1.signal[i], limit2.signal[i]);
-    y[i] = <font color="blue">if </font>u[i] &gt; uMax[i]<font color="blue"> then </font>uMax[i]<font color="blue"> else </font><font color="blue">if </font>u[i] &lt; uMin[i]<font color="blue"> then </font>uMin[i]<font color="blue">
-       else </font>u[i];
+    uMax[i] =<font color="red"> max</font>(limit1.signal[i], limit2.signal[i]);
+    uMin[i] =<font color="red"> min</font>(limit1.signal[i], limit2.signal[i]);
+    y[i] = <font color="blue">if </font>u[i] &gt; uMax[i]<font color="blue"> then </font>uMax[i]<font color="blue"> else </font><font color="blue">if </font>u[i] &lt; uMin[i]<font color="blue"> then </font>uMin[i]<font color="blue"> else </font>
+            u[i];
   <font color="blue">end for</font>;
 <font color="blue">end </font>VariableLimiter;
 </PRE>
 <HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE DeadZone<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
 <H2><IMG SRC="Modelica.Blocks.Nonlinear.DeadZoneI.png" ALT="Modelica.Blocks.Nonlinear.DeadZone" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Blocks.Nonlinear.DeadZone"></A><A HREF="Modelica_Blocks_Nonlinear.html#Modelica.Blocks.Nonlinear"
 >Modelica.Blocks.Nonlinear</A>.DeadZone</H2>
@@ -178,16 +204,16 @@ function of the input with a slope of 1.
     &quot;Lower limits of dead zones&quot;</font>;
   <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.MIMOs"
 >Interfaces.MIMOs</A>(<font color="blue">final </font>n=<font color="red">size</font>(uMax, 1));
-  <font color="darkgreen"></font>
+  
 <font color="blue">equation </font>
   <font color="blue">for </font>i<font color="blue"> in </font>1:n<font color="blue"> loop</font>
-    y[i] = <font color="blue">if </font>u[i] &gt; uMax[i]<font color="blue"> then </font>u[i] - uMax[i]<font color="blue"> else </font><font color="blue">if </font>u[i] &lt; uMin[i]<font color="blue"> then </font>u[
-      i] - uMin[i]<font color="blue"> else </font>0;
+    y[i] = <font color="blue">if </font>u[i] &gt; uMax[i]<font color="blue"> then </font>u[i] - uMax[i]<font color="blue"> else </font><font color="blue">if </font>u[i] &lt; uMin[i]<font color="blue"> then </font>
+      u[i] - uMin[i]<font color="blue"> else </font>0;
   <font color="blue">end for</font>;
 <font color="blue">end </font>DeadZone;
 </PRE>
 <HR>
-<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Dec 11 11:13:20 2002
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Jun 30 17:42:58 2004
 .
 </address></BODY>
 </HTML>

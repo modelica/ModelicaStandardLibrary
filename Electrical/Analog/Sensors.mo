@@ -1,15 +1,15 @@
-package Sensors
-
+package Sensors 
+  
   extends Modelica.Icons.Library;
-
+  
   annotation (
     Window(
-      x=0.03, 
-      y=0.04, 
-      width=0.50, 
-      height=0.24, 
-      library=1, 
-      autolayout=1), 
+      x=0.03,
+      y=0.04,
+      width=0.50,
+      height=0.24,
+      library=1,
+      autolayout=1),
     Documentation(info="<html>
 <p>
 This package contains potential, voltage, and current sensors.
@@ -19,9 +19,9 @@ This package contains potential, voltage, and current sensors.
 <dt>
 <b>Main Authors:</b>
 <dd>
-<a href=\"http://www.eas.iis.fhg.de/~clauss/\">Christoph Clau&szlig;</a>
+<a href=\"http://people.eas.iis.fhg.de/Christoph.Clauss/\">Christoph Clau&szlig;</a>
     &lt;<a href=\"mailto:clauss@eas.iis.fhg.de\">clauss@eas.iis.fhg.de</a>&gt;<br>
-    <a href=\"http://www.eas.iis.fhg.de/~schneider/\">Andr&eacute; Schneider</a>
+    <a href=\"http://people.eas.iis.fhg.de/Andre.Schneider/\">Andr&eacute; Schneider</a>
     &lt;<a href=\"mailto:schneider@eas.iis.fhg.de\">schneider@eas.iis.fhg.de</a>&gt;<br>
     Fraunhofer Institute for Integrated Circuits<br>
     Design Automation Department<br>
@@ -46,8 +46,8 @@ Modelica in file \"Modelica/package.mo\".</i><br>
 </dl>
 </HTML>
 "));
-
-  model PotentialSensor "Sensor to measure the potential"
+  
+  model PotentialSensor "Sensor to measure the potential" 
     extends Interfaces.AbsoluteSensor;
     SI.ElectricPotential phi "Absolute voltage potential";
     annotation (
@@ -64,13 +64,13 @@ Modelica in file \"Modelica/package.mo\".</i><br>
         y=0.32,
         width=0.6,
         height=0.6));
-  equation
+  equation 
     p.i = 0;
     phi = p.v;
     phi = outPort.signal[1];
   end PotentialSensor;
-
-  model VoltageSensor "Sensor to measure the voltage between two pins"
+  
+  model VoltageSensor "Sensor to measure the voltage between two pins" 
     extends Interfaces.RelativeSensor;
     SI.Voltage v "Voltage between pin p and n (= p.v - n.v)";
     annotation (
@@ -87,14 +87,14 @@ Modelica in file \"Modelica/package.mo\".</i><br>
           extent=[-29, -11; 30, -70],
           string="V",
           style(color=0))));
-  equation
+  equation 
     p.i = 0;
     n.i = 0;
     v = p.v - n.v;
     v = outPort.signal[1];
   end VoltageSensor;
-
-  model CurrentSensor "Sensor to measure the current in a branch"
+  
+  model CurrentSensor "Sensor to measure the current in a branch" 
     extends Interfaces.RelativeSensor;
     SI.Current i "current in the branch from p to n";
     annotation (
@@ -111,11 +111,11 @@ Modelica in file \"Modelica/package.mo\".</i><br>
           extent=[-29, -11; 30, -70],
           string="A",
           style(color=0))));
-  equation
+  equation 
     p.v = n.v;
     p.i = i;
     n.i = -i;
     i = outPort.signal[1];
   end CurrentSensor;
-
+  
 end Sensors;
