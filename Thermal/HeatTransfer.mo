@@ -303,8 +303,8 @@ An approppriate simulating time would be 10 seconds.
            [40, -60; 60, -40]);
       SwitchController SwitchController1(bandwidth=TDif) annotation (extent=[-
             20, -20; -40, 0]);
-      Analog.Ideal.IdealSwitch IdealSwitch1 annotation (extent=[-70, -50; -50,
-            -30]);
+      Analog.Ideal.IdealOpeningSwitch IdealSwitch1 
+            annotation (extent=[-70, -50; -50, -30]);
       Sources.Ramp Ramp1(
         height=25,
         duration=6,
@@ -374,8 +374,8 @@ Standard library.</p>
             -9,10; -1,10],                 style(color=3));
       
       TRes = to_degC(HeatingResistor1.heatPort.T);
-      connect(SwitchController1.y, IdealSwitch1.off) annotation(points=[-41,-10;
-            -60,-10; -60,-34], style(color=5, rgbcolor={255,0,255}));
+      connect(SwitchController1.y, IdealSwitch1.control) 
+            annotation(points=[-41,-10; -60,-10; -60,-33], style(color=5, rgbcolor={255,0,255}));
     end ControlledTemperature;
     
   end Examples;
