@@ -2,10 +2,11 @@ package Air "Media models for air"
   
   package SimpleAir "Air: Simple dry air model (0..100 degC)" 
     
-    extends Interfaces.PartialMedium(
-       mediumName="SimpleAir",
+    extends Interfaces.PartialMedium
+      (mediumName="SimpleAir",
        final reducedX=true,
-       final singleState=false);
+       final singleState=false,
+       fluidConstants={IdealGases.Common.FluidData.N2});
     
     import SI = Modelica.SIunits;
     import Cv = Modelica.SIunits.Conversions;
@@ -66,16 +67,17 @@ in the allowed range (" + String(T_min) + " K <= T <= " + String(T_max)
   end SimpleAir;
   
   package DryAirNasa "Air: Detailed dry air model as ideal gas (200..6000 K)" 
-    extends IdealGases.SingleGases.Air;
+    extends IdealGases.SingleGases.Air(fluidConstants={IdealGases.Common.FluidData.N2});
   end DryAirNasa;
   
   package MoistAir "Air: Moist air model (fog but no ice, 0..150 degC)" 
-    extends Interfaces.PartialCondensingGases(
-       mediumName="Moist air",
+    extends Interfaces.PartialCondensingGases
+      (mediumName="Moist air",
        substanceNames={"water", "air"},
        final reducedX=true,
        final singleState=false,
-       reference_X={0.01,0.99});
+       reference_X={0.01,0.99},
+       fluidConstants = {IdealGases.Common.FluidData.H2O,IdealGases.Common.FluidData.N2});
     
     constant Integer Water=1 
       "Index of water (in substanceNames, massFractions X, etc.)";

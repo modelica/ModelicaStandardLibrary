@@ -1,40 +1,40 @@
 package Water "Medium models for water"
 extends Modelica.Icons.Library;
-  constant Interfaces.PartialMedium.FluidConstants waterConstants(
-      chemicalFormula =                                                           "H2O",
-          structureFormula="H2O",
-          casRegistryNumber="7732-18-5",
-          iupacName="oxidane",
-          molarMass=0.018015268,
-          criticalTemperature=647.096,
-          criticalPressure=22064.0e3,
-          criticalMolarVolume=1/(322.0*0.018015268),
-          normalBoilingPoint=373.124,
-          meltingPoint=273.15,
-          triplePointTemperature=273.16,
-          triplePointPressure=611.657,
-          acentricFactor = 0.0,
-          dipoleMoment = 0.0,
-          hasCriticalData=true);
-
+  constant Interfaces.PartialMedium.FluidConstants[1] waterConstants
+    (each chemicalFormula = "H2O",
+     each structureFormula="H2O",
+     each casRegistryNumber="7732-18-5",
+     each iupacName="oxidane",
+     each molarMass=0.018015268,
+     each criticalTemperature=647.096,
+     each criticalPressure=22064.0e3,
+     each criticalMolarVolume=1/(322.0*0.018015268),
+     each normalBoilingPoint=373.124,
+     each meltingPoint=273.15,
+     each triplePointTemperature=273.16,
+     each triplePointPressure=611.657,
+     each acentricFactor = 0.344,
+     each dipoleMoment = 1.8,
+     each hasCriticalData=true);
+  
 
 package ConstantPropertyLiquidWater 
   "Water: Simple liquid water medium (incompressible, constant data)" 
   
   import Cv = Modelica.SIunits.Conversions;
-  extends Interfaces.PartialSimpleMedium(
-      mediumName="SimpleLiquidWater",
-      cp_const=4184,
-      cv_const=4184,
-      d_const=995.586,
-      eta_const=1.e-3,
-      lambda_const=0.598,
-      a_const=1484,
-      T_min=Cv.from_degC(-1),
-      T_max=Cv.from_degC(130),
-      T0=273.15,
-      MM_const=0.018015268);
-  constant FluidConstants fluidConstants = waterConstants;
+  extends Interfaces.PartialSimpleMedium
+    (mediumName="SimpleLiquidWater",
+     cp_const=4184,
+     cv_const=4184,
+     d_const=995.586,
+     eta_const=1.e-3,
+     lambda_const=0.598,
+     a_const=1484,
+     T_min=Cv.from_degC(-1),
+     T_max=Cv.from_degC(130),
+     T0=273.15,
+     MM_const=0.018015268,
+     fluidConstants = waterConstants);
   
   annotation (Icon(Text(
         extent=[-90, 88; 90, 18],
@@ -197,8 +197,8 @@ form:
 <p>Many further properties can be computed. Using the well-known Bridgman's Tables, all first partial derivatives of the standard thermodynamic variables can be computed easily.</p>
 </HTML>
 "));
-  extends Interfaces.PartialTwoPhaseMedium(
-     mediumName="WaterIF97",
+  extends Interfaces.PartialTwoPhaseMedium
+    (mediumName="WaterIF97",
      substanceNames={"water"},
      final reducedX=true,
      singleState=false,
@@ -207,10 +207,9 @@ form:
      AbsolutePressure(start=50e5, nominal=10e5),
      Temperature(start=500, nominal=500),
      smoothModel=false,
-     onePhase=false);
-  
-  constant FluidConstants fluidConstants = waterConstants;
-  
+     onePhase=false,
+     fluidConstants = waterConstants);
+    
   redeclare record extends ThermodynamicState "thermodynamic state" 
     SpecificEnthalpy h "specific enthalpy";
     Density d "density";
@@ -235,19 +234,19 @@ form:
     SaturationProperties sat(Tsat(start=300.0), psat(start=1.0e5)) 
       "saturation temperature and pressure";
   equation 
-    MM = fluidConstants.molarMass;
+    MM = fluidConstants[1].molarMass;
     if smoothModel then
       if onePhase then
         phase = 1;
         if ph_explicit then
           assert(((h < bubbleEnthalpy(sat) or h > dewEnthalpy(sat)) or p >
-    fluidConstants.criticalPressure),
+    fluidConstants[1].criticalPressure),
    "With onePhase=true this model may only be called with one-phase states h < hl or h > hv!"
    + "(p = " + String(p) + ", h = " + String(h) + ")");
         else
    if dT_explicit then
      assert(not ((d < bubbleDensity(sat) and d > dewDensity(sat)) and T <
-   fluidConstants.criticalTemperature),
+   fluidConstants[1].criticalTemperature),
      "With onePhase=true this model may only be called with one-phase states d > dl or d < dv!"
      + "(d = " + String(d) + ", T = " + String(T) + ")");
    else
@@ -260,10 +259,10 @@ form:
     else
       if ph_explicit then
         phase = if ((h < bubbleEnthalpy(sat) or h > dewEnthalpy(sat)) or p >
-          fluidConstants.criticalPressure) then 1 else 2;
+          fluidConstants[1].criticalPressure) then 1 else 2;
       elseif dT_explicit then
         phase = if not ((d < bubbleDensity(sat) and d > dewDensity(sat)) and T
-           < fluidConstants.criticalTemperature) then 1 else 2;
+           < fluidConstants[1].criticalTemperature) then 1 else 2;
       else
         phase = 1;
         //this is for the one-phase only case pT
@@ -286,7 +285,7 @@ form:
       sat.Tsat = saturationTemperature(p);
     end if;
     u = h - p/d;
-    R = Modelica.Constants.R/fluidConstants.molarMass;
+    R = Modelica.Constants.R/fluidConstants[1].molarMass;
     h = state.h;
     p = state.p;
     T = state.T;
@@ -647,17 +646,18 @@ form:
 <p>Many further properties can be computed. Using the well-known Bridgman's Tables, all first partial derivatives of the standard thermodynamic variables can be computed easily.</p>
 </HTML>
 "));
-  extends Interfaces.PartialTwoPhaseMedium(
-    mediumName="WaterIF97",
-    substanceNames={"water"},
-    singleState=false,
-    final reducedX=true,
-    SpecificEnthalpy(start=1.0e5, nominal=5.0e5),
-    Density(start=150, nominal=500),
-    AbsolutePressure(start=50e5, nominal=10e5),
-    Temperature(start=500, nominal=500),
-    smoothModel=false,
-    onePhase=false);
+  extends Interfaces.PartialTwoPhaseMedium
+    (mediumName="WaterIF97",
+     substanceNames={"water"},
+     singleState=false,
+     final reducedX=true,
+     SpecificEnthalpy(start=1.0e5, nominal=5.0e5),
+     Density(start=150, nominal=500),
+     AbsolutePressure(start=50e5, nominal=10e5),
+     Temperature(start=500, nominal=500),
+     smoothModel=false,
+     onePhase=false,
+     fluidConstants = waterConstants);
   
   redeclare record extends ThermodynamicState "thermodynamic state" 
     SpecificEnthalpy h "specific enthalpy";
@@ -666,7 +666,6 @@ form:
     AbsolutePressure p "pressure";
   end ThermodynamicState;
   
-  constant FluidConstants fluidConstants = waterConstants;
   constant Integer Region "region of IF97, if known";
   constant Boolean ph_explicit 
     "true if explicit in pressure and specific enthalpy";
@@ -685,17 +684,17 @@ form:
     SaturationProperties sat(Tsat(start=300.0), psat(start=1.0e5)) 
       "saturation temperature and pressure";
   equation 
-    MM = fluidConstants.molarMass;
+    MM = fluidConstants[1].molarMass;
     if smoothModel then
       if onePhase then
         phase = 1;
         if ph_explicit then
           assert(((h < bubbleEnthalpy(sat) or h > dewEnthalpy(sat)) or p >
-            fluidConstants.criticalPressure),
+            fluidConstants[1].criticalPressure),
             "With onePhase=true this model may only be called with one-phase states h < hl or h > hv!");
         else
           assert(not ((d < bubbleDensity(sat) and d > dewDensity(sat)) and T <
-            fluidConstants.criticalTemperature),
+            fluidConstants[1].criticalTemperature),
             "With onePhase=true this model may only be called with one-phase states d > dl or d < dv!");
         end if;
       else
@@ -704,10 +703,10 @@ form:
     else
       if ph_explicit then
         phase = if ((h < bubbleEnthalpy(sat) or h > dewEnthalpy(sat)) or p >
-          fluidConstants.criticalPressure) then 1 else 2;
+          fluidConstants[1].criticalPressure) then 1 else 2;
       elseif dT_explicit then
         phase = if not ((d < bubbleDensity(sat) and d > dewDensity(sat)) and T
-           < fluidConstants.criticalTemperature) then 1 else 2;
+           < fluidConstants[1].criticalTemperature) then 1 else 2;
       else
         phase = 1;
         //this is for the one-phase only case pT
@@ -730,7 +729,7 @@ form:
       sat.Tsat = saturationTemperature(p);
     end if;
     u = h - p/d;
-    R = Modelica.Constants.R/fluidConstants.molarMass;
+    R = Modelica.Constants.R/fluidConstants[1].molarMass;
     h = state.h;
     p = state.p;
     T = state.T;

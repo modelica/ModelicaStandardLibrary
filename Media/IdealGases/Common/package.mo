@@ -163,8 +163,8 @@ and adapted to the Modelica.Media package.
   constant IdealGases.Common.DataRecord data 
     "Data record of ideal gas substance";
   
-  replaceable constant FluidConstants fluidConstants 
-    "constant data for the fluid";
+//   replaceable constant FluidConstants fluidConstants 
+//     "constant data for the fluid";
   
   redeclare model extends BaseProperties(
    T(stateSelect=if preferredMediumStates then StateSelect.prefer else StateSelect.default),
@@ -480,11 +480,11 @@ transform the formula to SI units:
   redeclare replaceable function extends dynamicViscosity "dynamic viscosity" 
   algorithm 
     eta := dynamicViscosityLowPressure(state.T,
-                       fluidConstants.criticalTemperature,
-                       fluidConstants.molarMass,
-                       fluidConstants.criticalMolarVolume,
-                       fluidConstants.acentricFactor,
-                       fluidConstants.dipoleMoment);
+                       fluidConstants[1].criticalTemperature,
+                       fluidConstants[1].molarMass,
+                       fluidConstants[1].criticalMolarVolume,
+                       fluidConstants[1].acentricFactor,
+                       fluidConstants[1].dipoleMoment);
   end dynamicViscosity;
   
   function ThermalConductivityEstimate 
@@ -588,8 +588,8 @@ It has been developed by Hubertus Tummescheit.
   constant SpecificEnthalpy h_offset=0.0 
     "User defined offset for reference enthalpy, if referenceChoice = UserDefined";
   
-  constant FluidConstants[nX] fluidConstants 
-    "additional data needed for transport properties";
+//   constant FluidConstants[nX] fluidConstants 
+//     "additional data needed for transport properties";
   constant MolarMass[nX_i] MMX=data[:].MM "molar masses of components";
   
   redeclare replaceable model extends BaseProperties(

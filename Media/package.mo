@@ -2895,14 +2895,14 @@ Modelica source.
     final constant Integer nC = size(extraPropertiesNames,1) 
       "Number of extra (outside of standard mass-balance) transported properties"
                                                                                   annotation(Evaluate=true);
+    constant FluidConstants[nS] fluidConstants "fluid constants";
     
     record FluidConstants 
       "critical, triple, molecular and other standard data of fluid" 
       extends Modelica.Icons.Record;
       String iupacName "complete IUPAC name";
       String casRegistryNumber "chemical abstracts sequencing number";
-      String chemicalFormula 
-        "Chemical formula, (brutto, nomenclature according to Hill";
+      String chemicalFormula "Chemical formula, (brutto, nomenclature according to Hill";
       String structureFormula "Chemical structure formula";
       MolarMass molarMass "molar mass";
       Temperature criticalTemperature "critical temperature";
