@@ -127,59 +127,60 @@ The Resistance <i>R</i> is allowed to be positive, zero, or negative.
     R*i = v;
   end Resistor;
   
-  model HeatingResistor "Temperature dependent electrical resistor" 
-    extends Interfaces.OnePort;
-    
-    parameter SI.Resistance R_ref "Resistance at temperature T_ref";
-    parameter SI.Temperature T_ref=300 "Reference temperature";
-    parameter Real alpha(unit="1/K") = 0 
-      "Temperature coefficient of resistance";
-    
-    SI.Resistance R "Resistance = R_ref*(1 + alpha*(heatPort.T - T_ref));";
-    
-    annotation (
-      Diagram(
-        Line(points=[-110, 20; -85, 20], style(color=9, fillColor=9)),
-        Polygon(points=[-95, 23; -85, 20; -95, 17; -95, 23], style(
-            color=9,
-            fillColor=9,
-            fillPattern=1)),
-        Line(points=[90, 20; 115, 20], style(color=9, fillColor=9)),
-        Line(points=[-125, 0; -115, 0], style(color=9)),
-        Line(points=[-120, -5; -120, 5], style(color=9)),
-        Text(
-          extent=[-110, 25; -90, 45],
-          string="i",
-          style(color=9)),
-        Polygon(points=[105, 23; 115, 20; 105, 17; 105, 23], style(
-            color=9,
-            fillColor=9,
-            fillPattern=1)),
-        Line(points=[115, 0; 125, 0], style(color=9)),
-        Text(
-          extent=[90, 45; 110, 25],
-          string="i",
-          style(color=9)),
-        Rectangle(extent=[-70, 30; 70, -30]),
-        Line(points=[-96,0; -70,0]),
-        Line(points=[70,0; 96,0]),
-        Line(points=[0, -30; 0, -90], style(color=42)),
-        Line(points=[-52, -50; 48, 50], style(color=73, fillColor=73)),
-        Polygon(points=[40, 52; 50, 42; 54, 56; 40, 52], style(color=73,
-              fillColor=73))),
-      Icon(
-        Text(extent=[-143, 60; 143, 98], string="%name"),
-        Line(points=[-90, 0; -70, 0]),
-        Line(points=[70, 0; 90, 0]),
-        Rectangle(extent=[-70, 30; 70, -30], style(
-            color=3,
-            fillColor=7,
-            fillPattern=1)),
-        Line(points=[0, -30; 0, -91], style(color=42)),
-        Line(points=[-52, -50; 48, 50], style(color=73, fillColor=73)),
-        Polygon(points=[40, 52; 50, 42; 54, 56; 40, 52], style(color=73,
-              fillColor=73))),
-      Documentation(info="<HTML>
+
+    model HeatingResistor "Temperature dependent electrical resistor" 
+      extends Modelica.Electrical.Analog.Interfaces.OnePort;
+      
+      parameter SI.Resistance R_ref=1 "Resistance at temperature T_ref";
+      parameter SI.Temperature T_ref=300 "Reference temperature";
+      parameter Real alpha(unit="1/K") = 0 
+        "Temperature coefficient of resistance";
+      
+      SI.Resistance R "Resistance = R_ref*(1 + alpha*(heatPort.T - T_ref));";
+      
+      annotation (
+        Diagram(
+          Line(points=[-110, 20; -85, 20], style(color=9, fillColor=9)),
+          Polygon(points=[-95, 23; -85, 20; -95, 17; -95, 23], style(
+              color=9,
+              fillColor=9,
+              fillPattern=1)),
+          Line(points=[90, 20; 115, 20], style(color=9, fillColor=9)),
+          Line(points=[-125, 0; -115, 0], style(color=9)),
+          Line(points=[-120, -5; -120, 5], style(color=9)),
+          Text(
+            extent=[-110, 25; -90, 45],
+            string="i",
+            style(color=9)),
+          Polygon(points=[105, 23; 115, 20; 105, 17; 105, 23], style(
+              color=9,
+              fillColor=9,
+              fillPattern=1)),
+          Line(points=[115, 0; 125, 0], style(color=9)),
+          Text(
+            extent=[90, 45; 110, 25],
+            string="i",
+            style(color=9)),
+          Rectangle(extent=[-70, 30; 70, -30]),
+          Line(points=[-96,0; -70,0]),
+          Line(points=[70,0; 96,0]),
+          Line(points=[0, -30; 0, -90], style(color=42)),
+          Line(points=[-52, -50; 48, 50], style(color=73, fillColor=73)),
+          Polygon(points=[40, 52; 50, 42; 54, 56; 40, 52], style(color=73,
+                fillColor=73))),
+        Icon(
+          Text(extent=[-143, 60; 143, 98], string="%name"),
+          Line(points=[-90, 0; -70, 0]),
+          Line(points=[70, 0; 90, 0]),
+          Rectangle(extent=[-70, 30; 70, -30], style(
+              color=3,
+              fillColor=7,
+              fillPattern=1)),
+          Line(points=[0, -30; 0, -91], style(color=42)),
+          Line(points=[-52, -50; 48, 50], style(color=73, fillColor=73)),
+          Polygon(points=[40, 52; 50, 42; 54, 56; 40, 52], style(color=73,
+                fillColor=73))),
+        Documentation(info="<HTML>
 <p>This is a model for an electrical resistor where the generated heat
 is dissipated to the environment via connector <b>heatPort</b> and where
 the resistance R is temperature dependent according to the following
@@ -198,22 +199,24 @@ due to a special rule in Modelica that flow variables of not connected
 connectors are set to zero.</p>
 </HTML>
 "));
-    Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort annotation (
-        extent=[-10, -90; 10, -110], rotation=-90);
-  equation 
-    v = R*i;
-    
-    if cardinality(heatPort) > 0 then
-      R = R_ref*(1 + alpha*(heatPort.T - T_ref));
-      heatPort.Q_flow = -v*i;
-    else
-      /* heatPort is not connected resulting in the
+      Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort annotation (
+          extent=[-10, -90; 10, -110], rotation=-90);
+    equation 
+      v = R*i;
+      
+      if cardinality(heatPort) > 0 then
+        R = R_ref*(1 + alpha*(heatPort.T - T_ref));
+        heatPort.Q_flow = -v*i;
+      else
+        /* heatPort is not connected resulting in the
          implicit equation 'heatPort.Q_flow = 0'
       */
-      R = R_ref;
-      heatPort.T = T_ref;
-    end if;
-  end HeatingResistor;
+        R = R_ref;
+        heatPort.T = T_ref;
+      end if;
+    end HeatingResistor;
+
+
   
   model Conductor "Ideal linear electrical conductor" 
     extends Interfaces.OnePort;
@@ -344,9 +347,9 @@ The Inductance <i>L</i> is allowed to be positive, zero, or negative.
       "Inductance near current=0";
     parameter Modelica.SIunits.Inductance Linf=Lnom/2 
       "Inductance at large currents";
-  protected 
     Modelica.SIunits.Inductance Lact(start=Lzer);
     Modelica.SIunits.MagneticFlux Psi;
+  protected
     parameter Modelica.SIunits.Current Ipar(start=Inom/10, fixed=false);
     annotation (Icon(
         Ellipse(extent=[-60, -15; -30, 15]),
