@@ -2787,39 +2787,35 @@ If time is less than <i>Tdel</i> the initial value <i>initout</i> holds.
             string="Delay")));
     end InertialDelay;
     
-    model InertialDelaySensitive 
-      "Provide the input as output if it holds its value for a specific amount of time" 
+    model InertialDelaySensitive
+      "Provide the input as output if it holds its value for a specific amount of time"
       import D = Modelica.Electrical.Digital;
       import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       extends D.Interfaces.SISO;
       parameter Modelica.SIunits.Time tLH=0 "rise inertial delay";
       parameter Modelica.SIunits.Time tHL=0 "fall inertial delay";
       parameter D.Interfaces.Logic y0=L.'U' "initial value of output";
-    protected 
-      D.Interfaces.Logic delayTable[:,:]=D.Tables.DelayTable 
+    protected
+      Integer delayTable[:,:]=D.Tables.DelayTable
         "specification of delay according to signal change";
       Modelica.SIunits.Time delayTime;
       D.Interfaces.Logic y_auxiliary(start=y0, fixed=true);
       D.Interfaces.Logic x_old(start=y0, fixed=true);
       Integer lh;
       discrete Modelica.SIunits.Time t_next;
-    algorithm 
-      when initial() then
-        lh := delayTable[y0, x];
-        t_next := if (lh > 0) then tLH else (if (lh < 0) then tHL else 0);
-      end when;
-      when (tLH > 0 or tHL > 0) and change(x) then
-        x_old := if pre(x) == 0 then y0 else pre(x);
+    algorithm
+      when {initial(),(tLH > 0 or tHL > 0) and change(x) and not initial()} then
+        x_old := if initial() or pre(x) == 0 then y0 else pre(x);
         lh := delayTable[x_old, x];
         delayTime := if (lh > 0) then tLH else (if (lh < 0) then tHL else 0);
         t_next := time + delayTime;
         if (lh == 0 or abs(delayTime) < Modelica.Constants.small) then
           y_auxiliary := x;
         end if;
-      elsewhen time >= t_next then
+     elsewhen time >= t_next then
         y_auxiliary := x;
-      end when;
-      y := if ((tLH > 0 or tHL > 0)) then y_auxiliary else x;
+     end when;
+     y := if ((tLH > 0 or tHL > 0)) then y_auxiliary else x;
       annotation (
         Documentation(info="<HTML>
 <P>
@@ -2832,6 +2828,9 @@ is used, if it is zero, the input is not delayed.
 </HTML>
 ",     revisions="<HTML>
 <ul>
+<li><i>January 13, 2005  </i> improved when-conditions and declaration of delayTable
+       by Dynasim<br>
+       </li>
 <li><i>September 15, 2004  </i> color changed, names changed
        by Christoph Clauss<br>
        </li>
