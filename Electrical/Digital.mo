@@ -20,7 +20,7 @@ the library and has the following content:
      .</li>
 <li><a href=\"Modelica://Modelica.Electrical.Digital.UsersGuide.ReleaseNotes\">Release Notes</a>
     summarizes the differences between different versions of this library.</li>
-<li><a href=\"Modelica://Modelica.StateGraph.UsersGuide.Literature\">Literature</a>
+<li><a href=\"Modelica://Modelica.Electrical.Digital.UsersGuide.Literature\">Literature</a>
     provides references that have been used to design and implement this 
     library.</li>
 <li><a href=\"Modelica://Modelica.Electrical.Digital.UsersGuide.Contact\">Contact</a> 
@@ -38,7 +38,7 @@ In this section, an overview of the most important features
 of this library is given.
 </p>
 
-<p>A first example will be given here (not yet done). </p>
+<p>(will be added as soon as possible). </p>
 
 </html>
 "));
@@ -72,7 +72,11 @@ An application example will be given here (not yet done).
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>Release notes</font></h3>
 
+<h3><font color=\"#008000\">Version 1.0.4, 2004-09-30</font></h3>
+<ul>
+<li> Documentation improved.</li>
 
+</ul>
 <h3><font color=\"#008000\">Version 1.0.3, 2004-09-21</font></h3>
 <ul>
 <li> Table names changed from \"map\" to \"Table\".</li>
@@ -88,12 +92,13 @@ An application example will be given here (not yet done).
 </ul>
 <h3><font color=\"#008000\">Version 1.0.2, 2004-09-13</font></h3>
 <ul>
-<li> Will be added.</li>
+<li> First prerelease for discussions at the 40th Modelica Design Meeting.</li>
 
 </ul>
 <h3><font color=\"#008000\">Version 1.0.1, 2004-06-01</font></h3>
 <ul>
-<li> Will be added.</li>
+<li> Packages Tables, Basic, and Gates implemented.</li>
+<li> Transport and inertial delay implemented and successfully tested.</li>
 </ul>
 <h3><font color=\"#008000\">Version 1.0.0, 2003-05-01</font></h3>
 <ul>
@@ -113,14 +118,37 @@ An application example will be given here (not yet done).
 The Electrical.Digital library is based on the following references:
 </p>
 <dl>
-<dt>Author:</dt>
-<dd> <b>Title</b>.
-     Reference
+<dt>Ashenden, P. J.:</dt>
+<dd> <b>The Designer's Guide to VHDL.</b> San Francisco: Morgan Kaufmann, 1995, 688 p. ISBN 1-55860-270-4.
+     <br>&nbsp;</dd>
+
+</dl>
+<dl>
+<dt>IEEE 1076-1993:</dt>
+<dd> <b>IEEE Standard VHDL Language Reference Manual (ANSI).</b> 288 p. ISBN 1-55937-376-8. IEEE Ref. SH16840-NYF.
+     <br>&nbsp;</dd>
+
+</dl>
+<dl>
+<dt>IEEE 1164-1993:</dt>
+<dd> <b>IEEE Standard Multivalue Logic System for VHDL Model Interoperability (Std_logic_1164).</b> 24 p. ISBN 1-55937-299-0. IEEE Ref. SH16097-NYF.
+     <br>&nbsp;</dd>
+
+</dl>
+<dl>
+<dt>Lipsett, R.; Schaefer, C.; Ussery, C.:</dt>
+<dd> <b>VHDL: Hardware Description and Design.</b> Boston: Kluwer, 1989, 299 p. ISBN 079239030X.
+     <br>&nbsp;</dd>
+
+</dl>
+<dl>
+<dt>Navabi, Z:</dt>
+<dd> <b>VHDL: Analysis and Modeling of Digital Systems.</b> New York: McGraw-Hill, 1993, 375 p. ISBN 0070464723.
      <br>&nbsp;</dd>
 
 </dl>
 </html>
-"));
+ "));
       
   end Literature;
     
@@ -173,20 +201,21 @@ end UsersGuide;
       autolayout=1),
     Documentation(info="<html>
 <p>
-This package contains packages for digital electrical components, most of them are
-similar to VHDL 1164 standard logic entities:
+This library contains packages for digital electrical components. Both, type system
+and models are based on the VHDL standard (IEEE Std 1076-1987 VHDL, IEEE Std 1076-1993 VHDL,
+IEEE Std 1164 Multivalue Logic System):
 <ul>
 <li>Interfaces: Definition of signals and interfaces</li>
 <li>Tables: All truth tables needed</li>
 <li>Delay: Transport and inertial delay</li>
 <li>Basic: Basic logic without delay</li>
 <li>Gates: Basic gates composed by basic components and inertial delay</li>
-<li>Tristate: (not yet realized)</li>
-<li>FlipFlops: (not yet realized) </li>
-<li>Latches: (not yet realized)</li>
-<li>TransferGates: (not yet realized)</li>
-<li>Multiplexers (not yet realized)</li>
-<li>Memory: Ram, Rom, (not yet realized)</li>
+<li>Tristate: (not yet available)</li>
+<li>FlipFlops: (not yet available) </li>
+<li>Latches: (not yet available)</li>
+<li>TransferGates: (not yet available)</li>
+<li>Multiplexers (not yet available)</li>
+<li>Memory: Ram, Rom, (not yet available)</li>
 <li>Sources: Time-dependend signal sources</li>
 <li>Converters</li>
 <li>Examples</li>
@@ -211,8 +240,8 @@ for both setting of input and interpreting the output values.
 </pre>
 <p>
 The library will be developed in two main steps. The first step contains the basic components and
-the gates. In the next step the more complicated devices will be added. This is the first step of
-the library.
+the gates. In the next step the more complicated devices will be added. Currently the first step of
+the library is implemented and released for public use.
 </p>
 <dl>
 <dt>
@@ -2558,24 +2587,15 @@ The values val... are given by parameters.</P>
   end Converters;
   
   package Examples 
-    model Multiplexer "Pulse Triggered Master Slave Flip-Flop" 
+    model Multiplexer "4 to 1 Bit Multiplexer Example" 
       import D = Modelica.Electrical.Digital;
       import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       annotation (
         Documentation(info="<HTML>
+<h3><font color=\"#008000\" size=5>4 to 1 Bit Multiplexer</font></h3>
 <P>
-Test of D-FlipFlop FlipFlops.Structure.DFFL.<br>
-Simulate until time=200s.<br>
-Show:  <br>
-the clock signal  DFF.CLK.signal[1] <br>
-the reset signal  DFF.rst.signal[1] <br>
-the input signal  DFF.D.signal[1] <br>
-the output signal  DFF.Q.signal[1] <br>
-<br>
-Only if reset is true, the output signal follows the input D, but clock edge triggered.
-If the reset becomes false the output Q immediately (not clock edge triggered) becomes
-false. Therefore, it is called an asynchronuous reset. Note that the D input needs a setup
-time before the LH clock edge, which is caused by the delays.
+The multiplexer converts a parallel 4 bit signal in a sequential
+1 bit stream. 
 </P>
 </HTML>
 "),     Coordsys(
@@ -2686,19 +2706,9 @@ time before the LH clock edge, which is caused by the delays.
       import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       annotation (
         Documentation(info="<HTML>
+<h3><font color=\"#008000\" size=5>FlipFlop</font></h3>
 <P>
-Test of D-FlipFlop FlipFlops.Structure.DFFL.<br>
-Simulate until time=200s.<br>
-Show:  <br>
-the clock signal  DFF.CLK.signal[1] <br>
-the reset signal  DFF.rst.signal[1] <br>
-the input signal  DFF.D.signal[1] <br>
-the output signal  DFF.Q.signal[1] <br>
-<br>
-Only if reset is true, the output signal follows the input D, but clock edge triggered.
-If the reset becomes false the output Q immediately (not clock edge triggered) becomes
-false. Therefore, it is called an asynchronuous reset. Note that the D input needs a setup
-time before the LH clock edge, which is caused by the delays.
+Pulse-triggered master-slave flip-flop.
 </P>
 </HTML>
 "),     Coordsys(
@@ -2757,7 +2767,7 @@ time before the LH clock edge, which is caused by the delays.
       annotation (
         Documentation(info="<HTML>
 <P>
-It is an adding circuit for binary numbers, which internally realizes the interconnection to 
+This example demonstrates an adding circuit for binary numbers, which internally realizes the interconnection to 
 And and to Xor in the final sum.
 <br>
 <br>
@@ -2767,30 +2777,30 @@ And and to Xor in the final sum.
 0 + 0 = 0
 <br>
 <br>
-tab<b>a</b> + tab<b>b</b> = <b>c</b>out
-<br>(The carry of this adding is <b>s</b>out.) 
+<b>a</b> + <b>b</b> = <b>s</b>
+<br>(The carry of this adding is <b>c</b>.) 
 <br>
 <br>and
 <br> 
 <br> 
-tab<b>a</b> * tab<b>b</b> = <b>c</b>out
+<b>a</b> * <b>b</b> = <b>s</b>
 <br>  (It is an interconnection to And.)
 <br>
 <br>
-tab<b>a</b> * tab<b>b</b> + tab<b>a</b> * tab<b>b</b> = tab<b>a</b> Xor tab<b>b</b> = <b>s</b>out
+<b>a</b> * <b>b</b> + <b>a</b> * <b>b</b> = <b>a</b> Xor <b>b</b> = <b>c</b>
 <br>(It is an interconnection to Xor.) 
 <br>
 <br>     
-<pre>tab<b>a</b>     tab<b>b</b>     <b>c</b>out      <b>s</b>out       <b>t</b></pre>
+<pre>  <b>a</b>     <b>b</b>     <b>c</b>      <b>s</b>     <b>t</b></pre>
        
- <pre>  1        0        1         0        1</pre>
- <pre>  0        1        1         0        2</pre>
- <pre>  1        1        0         1        3</pre>
- <pre>  0        0        0         0        4</pre>
+ <pre>  1     0     1      0     1</pre>
+ <pre>  0     1     1      0     2</pre>
+ <pre>  1     1     0      1     3</pre>
+ <pre>  0     0     0      0     4</pre>
    
 <br>  
 <br>
-<b>t</b> is the pick-up instant of the next bit(s) in the simulation.  <br>
+<b>t</b> is the pick-up instant of the next bit(s) in the simulation.  
 The simulation stop time should be 5 seconds. 
 </P>
 </HTML>
@@ -2850,7 +2860,7 @@ The simulation stop time should be 5 seconds.
              78, rgbcolor={127,0,127}));
     end HalfAdder;
     
-    model FullAdder "adding circuit for binary numbers with input carry bit" 
+    model FullAdder "Full 1 Bit Adder Example" 
       import D = Modelica.Electrical.Digital;
       import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       annotation (
@@ -2934,7 +2944,7 @@ The simulation stop time should be 10 seconds.
             -10,-21; 0,-21], style(color=78, rgbcolor={127,0,127}));
     end FullAdder;
     
-    model Adder4 "Adderchain consisting of four Fulladders" 
+    model Adder4 "4 Bit Adder Example" 
       import Modelica.Electrical.Digital;
       annotation (
         Documentation(info="<HTML>
@@ -2962,9 +2972,9 @@ Furthermore, all signals are initialized with U, the unitialized value.
 Please remember, that the nine logic values are coded by the numbers 1,...,9.
 The summands a and b can be found at the output signals of the taba and tabb sources.
 The result can be seen in the output signals of the Fulladders according to: 
-<pre> a                      tab<b>a4</b>.y        tab<b>a3</b>.y        tab<b>a2</b>.y        tab<b>a1</b>.y
-<pre> b                      tab<b>b4</b>.y        tab<b>b3</b>.y        tab<b>b2</b>.y        tab<b>b1</b>.y
-<pre> sum      <b>A4.Or1</b>.y      <b>A4.s1</b>          <b>A3.s1</b>          <b>A2.s1</b>          <b>A1.s1</b>
+<pre> a                       <b>a4</b>.y      <b>a3</b>.y      <b>a2</b>.y      <b>a1</b>.y
+<pre> b                       <b>b4</b>.y      <b>b3</b>.y      <b>b2</b>.y      <b>b1</b>.y
+<pre> sum   <b>Adder4</b>.c_out  <b>Adder4.s</b>  <b>Adder3.s</b>  <b>Adder2.s</b>  <b>Adder1.s</b>
 </pre>
 The simulation stop time has to be 5s.
         
@@ -3122,32 +3132,11 @@ The simulation stop time has to be 5s.
           fillPattern=1));
     end Adder4;
     
-    model Counter3 "adding circuit for binary numbers with input carry bit" 
+    model Counter3 "3 Bit Counter Example" 
       import D = Modelica.Electrical.Digital;
       annotation (
         Documentation(info="<HTML>
-<P>
-<br>It is an adding circuit for binary numbers with input carry bit, which consists of two Halfadders.
-<br>
-<br>
-tab<b>a</b>.y, tab<b>b</b>.y and tab<b>c</b>.y are the inputs of the Fulladder.
-<br>
-<b>c</b>out = <b>Or1</b>.y and <b>h</b>.s are the outputs of the Fulladder.
-<br>
-<br>
-<b>t</b> is the pick-up instant of the next bit(s) in the simulation.   
-<pre>   tab<b>a</b>.y   tab<b>b</b>.y   tab<b>c</b>.y   <b>c</b>out = <b>Or1</b>y      <b>h</b>.s       <b>t</b> </pre>
-       
-<pre>     1        0        0        0               1        1  
-<pre>     0        1        0        0               1        2
-<pre>     0        0        1        0               1        3
-<pre>     1        1        0        1               0        4
-<pre>     0        1        1        1               0        5
-<pre>     1        0        1        1               0        6
-<pre>     1        1        1        1               1        7
-<pre>     0        0        0        0               0        8     
-</P>
-The simulation stop time should be 10 seconds.  
+
 </HTML>
 "),     Coordsys(
           extent=[-100, -100; 100, 100],
@@ -3191,32 +3180,11 @@ The simulation stop time should be 10 seconds.
           fillPattern=1));
     end Counter3;
     
-    model Counter "adding circuit for binary numbers with input carry bit" 
+    model Counter "Generic N Bit Counter Example" 
       import D = Modelica.Electrical.Digital;
       annotation (
         Documentation(info="<HTML>
-<P>
-<br>It is an adding circuit for binary numbers with input carry bit, which consists of two Halfadders.
-<br>
-<br>
-tab<b>a</b>.y, tab<b>b</b>.y and tab<b>c</b>.y are the inputs of the Fulladder.
-<br>
-<b>c</b>out = <b>Or1</b>.y and <b>h</b>.s are the outputs of the Fulladder.
-<br>
-<br>
-<b>t</b> is the pick-up instant of the next bit(s) in the simulation.   
-<pre>   tab<b>a</b>.y   tab<b>b</b>.y   tab<b>c</b>.y   <b>c</b>out = <b>Or1</b>y      <b>h</b>.s       <b>t</b> </pre>
-       
-<pre>     1        0        0        0               1        1  
-<pre>     0        1        0        0               1        2
-<pre>     0        0        1        0               1        3
-<pre>     1        1        0        1               0        4
-<pre>     0        1        1        1               0        5
-<pre>     1        0        1        1               0        6
-<pre>     1        1        1        1               1        7
-<pre>     0        0        0        0               0        8     
-</P>
-The simulation stop time should be 10 seconds.  
+
 </HTML>
 "),     Coordsys(
           extent=[-100, -100; 100, 100],
@@ -3273,24 +3241,12 @@ The simulation stop time should be 10 seconds.
     end Counter;
     
   package Utilities 
-    model MUX4 "D FlipFlop" 
+    model MUX4 "4 to 1 Bit Multiplexer" 
         import D = Modelica.Electrical.Digital;
         import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       annotation (
         Documentation(info="<HTML>
-<P>
-RS flipflop, composed by Basic Nor and a transport delay.
-<br>
-</P>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>   </i>
-       by ...<br>
-       </li>
-<li><i>September 6, 2003</i>
-       by Christoph Clauss<br>
-       realized.</li>
-</ul>
+
 </HTML>
 "),     Diagram,
         Icon(Rectangle(extent=[-90,100; 90,-100], style(
@@ -3527,14 +3483,14 @@ RS flipflop, composed by Basic Nor and a transport delay.
             fillColor=51,
             rgbfillColor={255,255,170},
             fillPattern=1));
-        connect(a1, And4.x[1]) annotation (points=[-100,-70; -80,-70; -80,-90;
+        connect(a1, And4.x[1]) annotation (points=[-100,-70; -80,-70; -80,-90; 
               -30,-90; -30,-13.3333; -16,-13.3333], style(
             color=78,
             rgbcolor={127,0,127},
             fillColor=51,
             rgbfillColor={255,255,170},
             fillPattern=1));
-        connect(a1, And3.x[1]) annotation (points=[-100,-70; -80,-70; -80,-90;
+        connect(a1, And3.x[1]) annotation (points=[-100,-70; -80,-70; -80,-90; 
               -30,-90; -30,12.6667; -16,12.6667], style(
             color=78,
             rgbcolor={127,0,127},
@@ -3548,19 +3504,7 @@ RS flipflop, composed by Basic Nor and a transport delay.
         import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       annotation (
         Documentation(info="<HTML>
-<P>
-RS flipflop, composed by Basic Nor and a transport delay.
-<br>
-</P>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>   </i>
-       by ...<br>
-       </li>
-<li><i>September 6, 2003</i>
-       by Christoph Clauss<br>
-       realized.</li>
-</ul>
+
 </HTML>
 "),     Diagram,
         Icon(Rectangle(extent=[-90,100; 90,-100],   style(
@@ -3677,19 +3621,7 @@ RS flipflop, composed by Basic Nor and a transport delay.
         import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       annotation (
         Documentation(info="<HTML>
-<P>
-RS flipflop, composed by Basic Nor and a transport delay.
-<br>
-</P>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>   </i>
-       by ...<br>
-       </li>
-<li><i>September 6, 2003</i>
-       by Christoph Clauss<br>
-       realized.</li>
-</ul>
+
 </HTML>
 "),     Diagram,
         Icon(Rectangle(extent=[-90,100; 90,-100],   style(
@@ -3841,19 +3773,7 @@ RS flipflop, composed by Basic Nor and a transport delay.
         import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       annotation (
         Documentation(info="<HTML>
-<P>
-RS flipflop, composed by Basic Nor and a transport delay.
-<br>
-</P>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>   </i>
-       by ...<br>
-       </li>
-<li><i>September 6, 2003</i>
-       by Christoph Clauss<br>
-       realized.</li>
-</ul>
+
 </HTML>
 "),     Diagram,
         Icon(Rectangle(extent=[-90,100; 90,-100],   style(
@@ -3977,24 +3897,12 @@ RS flipflop, composed by Basic Nor and a transport delay.
             fillPattern=1));
     end DFF;
       
-    model JKFF "D FlipFlop" 
+    model JKFF "JK FlipFlop" 
         import D = Modelica.Electrical.Digital;
         import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       annotation (
         Documentation(info="<HTML>
-<P>
-RS flipflop, composed by Basic Nor and a transport delay.
-<br>
-</P>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>   </i>
-       by ...<br>
-       </li>
-<li><i>September 6, 2003</i>
-       by Christoph Clauss<br>
-       realized.</li>
-</ul>
+
 </HTML>
 "),     Diagram,
         Icon(Rectangle(extent=[-90,100; 90,-100], style(
@@ -4093,9 +4001,9 @@ RS flipflop, composed by Basic Nor and a transport delay.
                 78, rgbcolor={127,0,127}));
         connect(And1.y, RS2.s) annotation (points=[-50,14; -44,14], style(color=
                78, rgbcolor={127,0,127}));
-        connect(clk, And2.x[3]) annotation (points=[-100,0; -74,0; -74,-8.66667;
+        connect(clk, And2.x[3]) annotation (points=[-100,0; -74,0; -74,-8.66667; 
               -66,-8.66667], style(color=78, rgbcolor={127,0,127}));
-        connect(clk, And1.x[1]) annotation (points=[-100,0; -74,0; -74,8.66667;
+        connect(clk, And1.x[1]) annotation (points=[-100,0; -74,0; -74,8.66667; 
               -66,8.66667], style(color=78, rgbcolor={127,0,127}));
         connect(k, And2.x[2]) annotation (points=[-100,-70; -74,-70; -74,-14;
               -66,-14], style(color=78, rgbcolor={127,0,127}));
@@ -4118,7 +4026,7 @@ RS flipflop, composed by Basic Nor and a transport delay.
         connect(RS1.q, And2.x[1]) annotation (points=[70,10; 80,10; 80,-36; -70,
               -36; -70,-19.3333; -66,-19.3333], style(color=78, rgbcolor={127,0,
                 127}));
-        connect(RS1.qn, And1.x[3]) annotation (points=[70,-18; 86,-18; 86,36;
+        connect(RS1.qn, And1.x[3]) annotation (points=[70,-18; 86,-18; 86,36; 
               -70,36; -70,19.3333; -66,19.3333],     style(color=78, rgbcolor={
                 127,0,127}));
       connect(RS1.qn, q) annotation (points=[70,-18; 86,-18; 86,70; 100,70],
@@ -4420,41 +4328,11 @@ RS flipflop, composed by Basic Nor and a transport delay.
             style(color=78, rgbcolor={127,0,127}));
     end FullAdder;
       
-    model Adder "Adderchain consisting of four Fulladders" 
+    model Adder "Generic N Bit Adder" 
       import Modelica.Electrical.Digital;
       annotation (
         Documentation(info="<HTML>
-<P>
-Four Fulladders are combined to built a four bit adder unit. 
-<br>
-<br>
-In dependence on time five additions are carried out:
-<br> 
-<pre> at t = 0                            at t = 1        
-<pre> a       0 0 0 0                       a      1 1 1 0                      
-<pre> b    +  0 0 0 0                       b   +  1 0 1 1
-<pre> <b>s     0 0 0 0 0</b>                      <b>s     1 0 0 1 0</b>
-<pre>at t = 2                             at t = 3   
-<pre> a       0 1 1 0                       a      1 1 1 0 
-<pre> b    +  0 0 1 1                       b   +  1 0 1 0
-<pre> <b>s     1 0 1 0 0</b>                      <b>s     0 0 0 1 1</b>
-        
-at t = 4
-<pre> a      1 1 0 0
-<pre> b   +  1 1 1 0
-<pre> <b>s    0 0 1 0 1</b></pre>
-To show the influence of delay a large delay time of 0.1s is choosen.
-Furthermore, all signals are initialized with U, the unitialized value.
-Please remember, that the nine logic values are coded by the numbers 1,...,9.
-The summands a and b can be found at the output signals of the taba and tabb sources.
-The result can be seen in the output signals of the Fulladders according to: 
-<pre> a                      tab<b>a4</b>.y        tab<b>a3</b>.y        tab<b>a2</b>.y        tab<b>a1</b>.y
-<pre> b                      tab<b>b4</b>.y        tab<b>b3</b>.y        tab<b>b2</b>.y        tab<b>b1</b>.y
-<pre> sum      <b>A4.Or1</b>.y      <b>A4.s1</b>          <b>A3.s1</b>          <b>A2.s1</b>          <b>A1.s1</b>
-</pre>
-The simulation stop time has to be 5s.
-        
-</P>
+
 </HTML>
 "),     Coordsys(
           extent=[-100,-100; 100,100],
@@ -4570,19 +4448,7 @@ The simulation stop time has to be 5s.
       import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
        annotation (
          Documentation(info="<HTML>
-<P>
-RS flipflop, composed by Basic Nor and a transport delay.
-<br>
-</P>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>   </i>
-       by ...<br>
-       </li>
-<li><i>September 6, 2003</i>
-       by Christoph Clauss<br>
-       realized.</li>
-</ul>
+
 </HTML>
 "),      Diagram,
          Icon(Rectangle(extent=[-90,100; 90,-100], style(
@@ -4728,24 +4594,12 @@ RS flipflop, composed by Basic Nor and a transport delay.
               100,0], style(color=78, rgbcolor={127,0,127}));
     end Counter3;
       
-    model Counter "D FlipFlop" 
+    model Counter "Generic N Bit Counter" 
       import D = Modelica.Electrical.Digital;
       import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       annotation (
         Documentation(info="<HTML>
-<P>
-RS flipflop, composed by Basic Nor and a transport delay.
-<br>
-</P>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>   </i>
-       by ...<br>
-       </li>
-<li><i>September 6, 2003</i>
-       by Christoph Clauss<br>
-       realized.</li>
-</ul>
+
 </HTML>
 "),     Diagram(Rectangle(extent=[90,80; 110,-80], style(
                 color=78,
