@@ -1065,12 +1065,6 @@ convertElement({"Modelica.Electrical.Analog.Ideal.IdealThyristor",
                 "Modelica.Electrical.MultiPhase.Ideal.IdealGTOThyristor"},
                 "firePort", "fire");
 
-convertElement({"Modelica.Electrical.Analog.Ideal.IdealCommutingSwitch",
-                "Modelica.Electrical.Analog.Ideal.IdealIntermediateSwitch",
-                "Modelica.Electrical.MultiPhase.Ideal.IdealCommutingSwitch",
-                "Modelica.Electrical.MultiPhase.Ideal.IdealIntermediateSwitch"},
-                "control", "off");
-
 convertElement({"Modelica.Electrical.Analog.Sensors.PotentialSensor",
                 "Modelica.Electrical.MultiPhase.Sensors.PotentialSensor"},
                 "outPort", "phi");
