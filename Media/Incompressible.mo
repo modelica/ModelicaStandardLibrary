@@ -122,17 +122,14 @@ which is only exactly true for a fluid with constant density d=d0.
              " K) is not in the allowed range (" + String(T_min) +
              " K <= T <= " + String(T_max) + " K) required from medium model \""
              + mediumName + "\".");
+      assert(not(singleState and (not enthalpyOfT) and densityOfT),
+	     "the flags enthalpyOfT, densityOfT and singleState may mot be used in this combination");
       cp = Poly.evaluate(poly_Cp,if TinK then T else T_degC);
-      if enthalpyOfT then
-         h = h_T(T);
-      else
-         h = h_pT(p,T,densityOfT);
-      end if;
-      
+      h = if enthalpyOfT then h_T(T) else h = h_pT(p,T,densityOfT);
       if singleState then
-         u = h_T(T) - reference_p/d;
+	u = h_T(T) - reference_p/d;
       else
-         u = h - p/d;
+	u = h - p/d;
       end if;
       d = Poly.evaluate(poly_rho,if TinK then T else T_degC);
       state.T = T;
