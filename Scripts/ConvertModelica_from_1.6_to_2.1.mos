@@ -222,10 +222,19 @@ convertElement({"Modelica.Blocks.Interfaces.SVcontrol",
                 "inPort_m", "u_m");
 
 // inPort.signal -> u
-convertElement({"ModelicaAdditions.Tables.CombiTable1D"},
+convertElement({"Modelica.Blocks.Continuous.StateSpace",
+                "Modelica.Blocks.Math.MatrixGain",
+                "Modelica.Blocks.Math.Sum",
+                "ModelicaAdditions.Blocks.Discrete.StateSpace",
+                "ModelicaAdditions.Blocks.Multiplexer.ExtractSignal",
+                "ModelicaAdditions.Blocks.Multiplexer.Extractor",
+	              "ModelicaAdditions.Blocks.Multiplexer.DeMultiplex2",
+                "ModelicaAdditions.Blocks.Multiplexer.DeMultiplex3",
+                "ModelicaAdditions.Blocks.Multiplexer.DeMultiplex4",
+                "ModelicaAdditions.Blocks.Multiplexer.DeMultiplex5",
+                "ModelicaAdditions.Blocks.Multiplexer.DeMultiplex6",
+                "ModelicaAdditions.Tables.CombiTable1D"},
 		            "inPort.signal", "u");
-
-// inPort.signal -> {u}
 
 // inPort1.signal -> {u1}
 convertElement("Modelica.Blocks.Math.Feedback",
@@ -423,9 +432,19 @@ convertElement({"Modelica.Blocks.Math.TwoOutputs"},
                 "OutPort2", "y2");
 
 // outPort.signal -> y
-convertElement({"ModelicaAdditions.Tables.CombiTable1D",
+convertElement({"Modelica.Blocks.Continuous.StateSpace",
+                "Modelica.Blocks.Math.MatrixGain",
+                "Modelica.Blocks.Sources.KinematicPTP",
+                "ModelicaAdditions.Blocks.Multiplexer.ExtractSignal",
+                "ModelicaAdditions.Blocks.Multiplexer.Multiplex2",
+                "ModelicaAdditions.Blocks.Multiplexer.Multiplex3",
+                "ModelicaAdditions.Blocks.Multiplexer.Multiplex4",
+                "ModelicaAdditions.Blocks.Multiplexer.Multiplex5",
+                "ModelicaAdditions.Blocks.Multiplexer.Multiplex6",
+                "ModelicaAdditions.Blocks.Discrete.StateSpace",
                 "ModelicaAdditions.Tables.CombiTableTime",
                 "ModelicaAdditions.Tables.CombiTableTime2",
+                "ModelicaAdditions.Tables.CombiTable1D",
                 "ModelicaAdditions.Tables.CombiTable1Ds",
                 "MultiBody.Interfaces.PartialAbsoluteSensor",
                 "MultiBody.Interfaces.PartialRelativeSensor",
@@ -532,13 +551,12 @@ convertElement({"Modelica.Blocks.Continuous.StateSpace",
                 "ModelicaAdditions.Tables.CombiTableTime",
                 "ModelicaAdditions.Tables.CombiTableTime2",
                 "ModelicaAdditions.Tables.CombiTable1D",
-                "ModelicaAdditions.Tables.CombiTable1Ds"},
+                "ModelicaAdditions.Tables.CombiTable1Ds",
+                "MultiBody.Interfaces.PartialAbsoluteSensor",
+                "MultiBody.Interfaces.PartialRelativeSensor",
+                "MultiBody.Sensors.AbsoluteSensor",
+                "MultiBody.Sensors.RelativeSensor"},
                 "outPort", "y[1]");
-
-
-
-
-
 
 
 // -----------------------------------------------------------------------------------
@@ -1148,10 +1166,10 @@ convertClass  ("Modelica.Electrical.Analog.Ideal.IdealCloser",
                "Modelica.Electrical.Analog.Ideal.IdealClosingSwitch");
 
 convertElement({"Modelica.Electrical.Analog.Ideal.IdealSwitch",
-  "Modelica.Electrical.Analog.Ideal.IdealOpener", 
-  "Modelica.Electrical.Analog.Ideal.IdealCloser", 
+  "Modelica.Electrical.Analog.Ideal.IdealOpener",
+  "Modelica.Electrical.Analog.Ideal.IdealCloser",
   "Modelica.Electrical.Analog.Ideal.IdealCommutingSwitch",
-  "Modelica.Electrical.Analog.Ideal.IdealIntermediateSwitch"}, 
+  "Modelica.Electrical.Analog.Ideal.IdealIntermediateSwitch"},
    "control.signal[1]", "control");
 
 convertElement("Modelica.Electrical.MultiPhase.Ideal.IdealCommutingSwitch", "off" , "control");
@@ -1177,14 +1195,14 @@ convertClass  ("Modelica.Electrical.MultiPhase.Ideal.IdealCloser",
                "Modelica.Electrical.MultiPhase.Ideal.IdealClosingSwitch");
 
 convertElement({"Modelica.Electrical.MultiPhase.Ideal.IdealCommutingSwitch",
-  "Modelica.Electrical.MultiPhase.Ideal.IdealIntermediateSwitch", 
-  "Modelica.Electrical.MultiPhase.Ideal.IdealOpener", 
-  "Modelica.Electrical.MultiPhase.Ideal.IdealCloser"}, 
+  "Modelica.Electrical.MultiPhase.Ideal.IdealIntermediateSwitch",
+  "Modelica.Electrical.MultiPhase.Ideal.IdealOpener",
+  "Modelica.Electrical.MultiPhase.Ideal.IdealCloser"},
    "control.signal", "control");
 convertElement({"Modelica.Electrical.MultiPhase.Ideal.IdealCommutingSwitch",
-  "Modelica.Electrical.MultiPhase.Ideal.IdealIntermediateSwitch", 
-  "Modelica.Electrical.MultiPhase.Ideal.IdealOpener", 
-  "Modelica.Electrical.MultiPhase.Ideal.IdealCloser"}, 
+  "Modelica.Electrical.MultiPhase.Ideal.IdealIntermediateSwitch",
+  "Modelica.Electrical.MultiPhase.Ideal.IdealOpener",
+  "Modelica.Electrical.MultiPhase.Ideal.IdealCloser"},
    "control", "control[1]");
 
 //-----------------------------------------------------------------------------
@@ -1337,11 +1355,29 @@ convertElement({"Modelica.Mechanics.Rotational.Sensors.RelAccSensor"},
 // Convert Modelica.Mechanics.Translational
 //-----------------------------------------------------------------------------
 
-convertElement({"Modelica.Mechanics.Translational.Move"},
-                "inPort.signal[1]", "u");
+convertElement({"Modelica.Mechanics.Translational.Position"},
+                "inPort.signal[1]", "s_ref");
+
+convertElement({"Modelica.Mechanics.Translational.Position"},
+                "inPort", "s_ref");
+
+convertElement({"Modelica.Mechanics.Translational.Accelerate"},
+                "inPort.signal[1]", "a");
+
+convertElement({"Modelica.Mechanics.Translational.Accelerate"},
+                "inPort", "a");
 
 convertElement({"Modelica.Mechanics.Translational.Move"},
-                "inPort", "u");
+                "inPort.signal", "u");
+
+convertElement({"Modelica.Mechanics.Translational.Move"},
+                "inPort", "u[1]");
+
+convertElement({"Modelica.Mechanics.Translational.Force"},
+                "inPort.signal[1]", "f");
+
+convertElement({"Modelica.Mechanics.Translational.Force"},
+                "inPort", "f");
 
 convertElement({"Modelica.Mechanics.Translational.Interfaces.AbsoluteSensor",
                 "Modelica.Mechanics.Translational.Interfaces.RelativeSensor"},
@@ -1351,42 +1387,29 @@ convertElement({"Modelica.Mechanics.Translational.Interfaces.AbsoluteSensor",
                 "Modelica.Mechanics.Translational.Interfaces.RelativeSensor"},
                 "outPort", "y");
 
-convertElement({"Modelica.Mechanics.Translational.Position"},
-                "inPort.signal[1]", "s_ref");
-convertElement({"Modelica.Mechanics.Translational.Accelerate"},
-                "inPort.signal[1]", "a");
-convertElement({"Modelica.Mechanics.Translational.Force"},
-                "inPort.signal[1]", "f");
 convertElement({"Modelica.Mechanics.Translational.Sensors.ForceSensor"},
                 "outPort.signal[1]", "f");
-convertElement({"Modelica.Mechanics.Translational.Sensors.PositionSensor"},
-                "outPort.signal[1]", "s");
-convertElement({"Modelica.Mechanics.Translational.Sensors.SpeedSensor"},
-                "outPort.signal[1]", "v");
-convertElement({"Modelica.Mechanics.Translational.Sensors.AccSensor"},
-                "outPort.signal[1]", "a");
-
-convertElement({"Modelica.Mechanics.Translational.Position"},
-                "inPort", "s_ref");
-
-convertElement({"Modelica.Mechanics.Translational.Accelerate"},
-                "inPort", "a");
-
-convertElement({"Modelica.Mechanics.Translational.Force"},
-                "inPort", "f");
 
 convertElement({"Modelica.Mechanics.Translational.Sensors.ForceSensor"},
                 "outPort", "f");
 
 convertElement({"Modelica.Mechanics.Translational.Sensors.PositionSensor"},
+                "outPort.signal[1]", "s");
+
+convertElement({"Modelica.Mechanics.Translational.Sensors.PositionSensor"},
                 "outPort", "s");
+
+convertElement({"Modelica.Mechanics.Translational.Sensors.SpeedSensor"},
+                "outPort.signal[1]", "v");
 
 convertElement({"Modelica.Mechanics.Translational.Sensors.SpeedSensor"},
                 "outPort", "v");
 
 convertElement({"Modelica.Mechanics.Translational.Sensors.AccSensor"},
-                "outPort", "a");
+                "outPort.signal[1]", "a");
 
+convertElement({"Modelica.Mechanics.Translational.Sensors.AccSensor"},
+                "outPort", "a");
 
 
 //-----------------------------------------------------------------------------
