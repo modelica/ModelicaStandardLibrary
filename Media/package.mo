@@ -1164,7 +1164,7 @@ following structure:</p>
 <pre>
 <b>partial package</b> PartialMedium
   <b>import</b> SI = Modelica.SIunits;
-  <b>constant</b> String mediumName = "";
+  <b>constant</b> String mediumName = " ";
   <b>constant</b> String substanceNames[:] = {mediumName}; 
   <b>constant</b> String extraPropertiesNames[:] = fill(\"\",0); 
   <b>constant</b> Boolean singleState = <b>false</b>;
@@ -3157,7 +3157,6 @@ The details of the pipe friction model are described
                   final enthalpyOfT =                                                              true));
         end Glycol47;
         
-        
         model Essotherm650 
           "Test Modelica.Media.Incompressible.Examples.Essotherm65" 
           extends Modelica.Media.Examples.Tests.Components.PartialTestModel(
@@ -4102,23 +4101,22 @@ are described in
       end for;
     end moleToMassFractions;
     
-    function massToMoleFractions 
-      "Compute mole fractions from mass fractions X" 
+    function massToMoleFractions "Compute mole fractions from mass fractions X" 
       extends Modelica.Icons.Function;
       input SI.MassFraction X[:] "Mass fractions of mixture";
       input SI.MolarMass[:] MMX "molar masses of components";
       output SI.MoleFraction moleFractions[size(X, 1)] 
-	"Mole fractions of gas mixture";
+        "Mole fractions of gas mixture";
     protected 
       Real invMMX[size(X, 1)] "inverses of molar weights";
       SI.MolarMass Mmix "molar mass of mixture";
     algorithm 
       for i in 1:size(X, 1) loop
-	invMMX[i] := 1/MMX[i];
+        invMMX[i] := 1/MMX[i];
       end for;
       Mmix := 1/(X*invMMX);
       for i in 1:size(X, 1) loop
-	moleFractions[i] := Mmix*X[i]/MMX[i];
+        moleFractions[i] := Mmix*X[i]/MMX[i];
       end for;
     end massToMoleFractions;
     
@@ -4254,6 +4252,26 @@ are described in
       input FixedPhase phase =  1 "phase: default is one phase";
       output ThermodynamicState state "complete thermodynamic state info";
     end setState_ps;
+    
+    replaceable function setSat_T 
+      "set saturation property record from temperature" 
+      extends Modelica.Icons.Function;
+      input Temperature T "temperature";
+      output SaturationProperties sat "saturation property record";
+    algorithm 
+      sat.Tsat := T;
+      sat.psat := saturationPressure(T);
+    end setSat_T;
+    
+    replaceable function setSat_p 
+      "set saturation property record from pressure" 
+      extends Modelica.Icons.Function;
+      input AbsolutePressure p "pressure";
+      output SaturationProperties sat "saturation property record";
+    algorithm 
+      sat.psat := p;
+      sat.Tsat := saturationTemperature(p);
+    end setSat_p;
     
     replaceable partial function bubbleEnthalpy 
       "Returns bubble point specific enthalpy" 
