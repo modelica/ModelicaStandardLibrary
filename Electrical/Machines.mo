@@ -3723,16 +3723,18 @@ Converts a space phasor from rectangular coordinates to polar coordinates.
 </HTML>"));
       equation 
         y[1] = sqrt(u[1]^2 + u[2]^2);
-      //  y[2] = if y[1] <= small then 0 else Modelica.Math.atan2(u[2], u[1]);
-        if y[1] <= small then
-          y[2] = 0;
-        else
-          if u[2] >= 0 then
-            y[2] =  Modelica.Math.acos(u[1]/y[1]);
-          else
-            y[2] = -Modelica.Math.acos(u[1]/y[1]);
-          end if;
-        end if;
+        y[2] = if noEvent(y[1] <= small) then 0 else Modelica.Math.atan2(u[2], u[1]);
+      /*
+  if y[1] <= small then
+    y[2] = 0;
+  else
+    if u[2] >= 0 then
+      y[2] =  Modelica.Math.acos(u[1]/y[1]);
+    else
+      y[2] = -Modelica.Math.acos(u[1]/y[1]);
+    end if;
+  end if;
+*/
       end ToPolar;
       
       block FromPolar "Converts a space phasor from polar coordinates" 
