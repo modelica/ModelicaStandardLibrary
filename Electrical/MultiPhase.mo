@@ -1,5 +1,6 @@
 package MultiPhase "Library for electrical multiphase models" 
   extends Modelica.Icons.Library;
+  annotation (version="1.0", versionDate="2004-09-13");
   annotation (Documentation(info="<HTML>
 <p>
 This package contains packages for electrical multiphase components, based on Modelica.Electrical.Analog:
@@ -36,7 +37,7 @@ Further development:
   <dt><b>Release Notes:</b></dt>
   <dd>
   <ul>
-  <li> v1.00 2004/06/25 Anton Haumer</li>
+  <li> v1.00 2004/09/13 Anton Haumer</li>
   </ul>
   </dd>
 <p>
@@ -48,7 +49,7 @@ Further development:
   Modelica in file \"Modelica/package.mo\".</i></dd>
 </p>
 </dl>
-</HTML>"), uses(Modelica(version="2.1 Beta1")));
+</HTML>"));
   
   package Basic "Basic components for electrical multiphase models" 
     extends Modelica.Icons.Library;
@@ -91,11 +92,15 @@ This package contains basic analog electrical multiphase components.
       Modelica.Electrical.Analog.Interfaces.NegativePin pin_n 
         annotation (extent=[90, -10; 110, 10]);
       annotation (Icon(
-          Text(extent=[-100, 50; 100, 99], string="%name"),
+          Text(extent=[-150,60; 150,120],  string="%name"),
           Line(points=[80, 0; 0, 0], style(thickness=2, fillPattern=1)),
           Line(points=[0, 0; -39, 68], style(thickness=2, fillPattern=1)),
           Line(points=[0, 0; -38, -69], style(thickness=2, fillPattern=1)),
-          Text(extent=[-100, -100; 100, -40], string="m=%m")), Documentation(
+          Text(extent=[-100,-110; 100,-70],   string="m=%m", 
+            style(color=0, rgbcolor={0,0,0})), 
+          Line(points=[-90,0; -40,0], style(color=3, rgbcolor={0,0,255})), 
+          Line(points=[80,0; 90,0], style(color=3, rgbcolor={0,0,255}))),
+                                                               Documentation(
             info="<HTML>
 <p>
 Connects all pins of plug_p to pin_n, thus establishing a so-called star-connection.
@@ -114,10 +119,15 @@ Connects all pins of plug_p to pin_n, thus establishing a so-called star-connect
       Interfaces.NegativePlug plug_n(final m=m) 
         annotation (extent=[90, -10; 110, 10]);
       annotation (Icon(
-          Text(extent=[-100, 50; 100, 99], string="%name"),
+          Text(extent=[-150,60; 150,120],  string="%name",
+            style(color=3, rgbcolor={0,0,255})),
           Line(points=[-40, 68; -40, -70; 79, 0; -40, 68; -40, 67], style(
                 thickness=2, fillPattern=1)),
-          Text(extent=[-100, -100; 100, -40], string="m=%m")), Documentation(
+          Text(extent=[-100,-110; 100,-70],   string="m=%m",
+            style(color=0, rgbcolor={0,0,0})),
+          Line(points=[-90,0; -40,0], style(color=3, rgbcolor={0,0,255})),
+          Line(points=[80,0; 90,0], style(color=3, rgbcolor={0,0,255}))),
+                                                               Documentation(
             info="<HTML>
 <p>
 Connects in a cyclic way plug_n.pin[j] to plug_p.pin[j+1], 
@@ -135,7 +145,7 @@ when used in parallel to another component.
       end for;
     end Delta;
     
-    model PlugToPin_p "Connect one (positive) Pin to a Plug connector" 
+    model PlugToPin_p "Connect one (positive) Pin" 
       parameter Integer m(final min=1) = 3 "number of phases";
       parameter Integer k(
         final min=1,
@@ -147,8 +157,9 @@ when used in parallel to another component.
       annotation (
         Icon(
           Line(points=[-90, 0; 90, 0]),
-          Text(extent=[-80, 80; 80, 20], string="%name"),
-          Text(extent=[-80, -20; 80, -80], string="k = %k"),
+          Text(extent=[-150,100; 150,40],string="%name"),
+          Text(extent=[-100,-60; 100,-100],string="k = %k",
+            style(color=0, rgbcolor={0,0,0})),
           Polygon(points=[-100, 10; 90, 0; -100, -10; -100, 10], style(
               color=3,
               fillColor=3,
@@ -166,7 +177,7 @@ Connects pin <i>k</i> of plug_p to pin_p, leaving the other pins of plug_p uncon
       end for;
     end PlugToPin_p;
     
-    model PlugToPin_n "Connect one (negative) Pin to a Plug connector" 
+    model PlugToPin_n "Connect one (negative) Pin" 
       parameter Integer m(final min=1) = 3 "number of phases";
       parameter Integer k(
         final min=1,
@@ -177,8 +188,9 @@ Connects pin <i>k</i> of plug_p to pin_p, leaving the other pins of plug_p uncon
         annotation (extent=[92, -10; 112, 10]);
       annotation (Icon(
           Line(points=[-90, 0; 92, 0]),
-          Text(extent=[-80, 80; 80, 20], string="%name"),
-          Text(extent=[-80, -20; 80, -80], string="k = %k"),
+          Text(extent=[-150,100; 150,40],string="%name"),
+          Text(extent=[-100,-60; 100,-100],string="k = %k",
+            style(color=0, rgbcolor={0,0,0})),
           Polygon(points=[-100, 10; 92, 0; -100, -10; -100, 10], style(color=3))),
            Documentation(info="<HTML>
 <p>
@@ -205,8 +217,9 @@ Connects pin <i>k</i> of plug_n to pin_n, leaving the other pins of plug_n uncon
               fillPattern=1)),
           Line(points=[-90, 0; -70, 0]),
           Line(points=[70, 0; 90, 0]),
-          Text(extent=[-100, 40; 100, 100], string="%name"),
-          Text(extent=[-100, -100; 100, -40], string="m=%m")),
+          Text(extent=[-150, 40; 150, 100], string="%name"),
+          Text(extent=[-100,-100; 100,-60],   string="m=%m",
+            style(color=0, rgbcolor={0,0,0}))),
         Documentation(info="<HTML>
 <p>
 Contains m resistors (Modelica.Electrical.Analog.Basic.Resistor)
@@ -233,8 +246,9 @@ Contains m resistors (Modelica.Electrical.Analog.Basic.Resistor)
               fillPattern=1)),
           Line(points=[-90, 0; -70, 0]),
           Line(points=[70, 0; 90, 0]),
-          Text(extent=[-100, 40; 100, 100], string="%name"),
-          Text(extent=[-100, -100; 100, -40], string="m=%m")),
+          Text(extent=[-150, 40; 150, 100], string="%name"),
+          Text(extent=[-100,-100; 100,-60],   string="m=%m",
+            style(color=0, rgbcolor={0,0,0}))),
         Documentation(info="<HTML>
 <p>
 Contains m conductors (Modelica.Electrical.Analog.Basic.Conductor)
@@ -255,12 +269,13 @@ Contains m conductors (Modelica.Electrical.Analog.Basic.Conductor)
         annotation (extent=[-10, -10; 10, 10]);
       annotation (
         Icon(
-          Text(extent=[-100, 39; 100, 99], string="%name"),
+          Text(extent=[-150, 40; 150, 100], string="%name"),
           Line(points=[-14, 28; -14, -28], style(thickness=2)),
           Line(points=[14, 28; 14, -28], style(thickness=2)),
           Line(points=[-90, 0; -14, 0]),
           Line(points=[14, 0; 90, 0]),
-          Text(extent=[-100, -100; 100, -40], string="m=%m")),
+          Text(extent=[-100,-100; 100,-60],   string="m=%m",
+            style(color=0, rgbcolor={0,0,0}))),
         Documentation(info="<HTML>
 <p>
 Contains m capacitors (Modelica.Electrical.Analog.Basic.Capacitor)
@@ -288,8 +303,9 @@ Contains m capacitors (Modelica.Electrical.Analog.Basic.Capacitor)
           Rectangle(extent=[-60, -30; 60, 0], style(color=7, fillColor=7)),
           Line(points=[60, 0; 90, 0]),
           Line(points=[-90, 0; -60, 0]),
-          Text(extent=[-100, 40; 100, 100], string="%name"),
-          Text(extent=[-100, -100; 100, -40], string="m=%m")),
+          Text(extent=[-150, 40; 150, 100], string="%name"),
+          Text(extent=[-100,-100; 100,-60],   string="m=%m",
+            style(color=0, rgbcolor={0,0,0}))),
         Documentation(info="<HTML>
 <p>
 Contains m inductors (Modelica.Electrical.Analog.Basic.Inductor)
@@ -332,8 +348,9 @@ Contains m inductors (Modelica.Electrical.Analog.Basic.Inductor)
               gradient=3,
               fillColor=3,
               rgbfillColor={0,0,255})),
-          Text(extent=[-100,40; 100,100],   string="%name"),
-          Text(extent=[-100,-100; 100,-40],   string="m=%m")), Documentation(
+          Text(extent=[-150,40; 150,100],   string="%name"),
+          Text(extent=[-100,-100; 100,-60],   string="m=%m",
+            style(color=0, rgbcolor={0,0,0}))),                Documentation(
             info="<HTML>
 <p>
 Contains m saturating inductors (Modelica.Electrical.Analog.Basic.SaturatingInductor)
@@ -381,7 +398,9 @@ Each element of the array of saturatingInductors is only dependent on the curren
           Text(extent=[-100, 20; -58, -20], string="L1"),
           Text(extent=[60, 20; 100, -20], string="L2"),
           Text(extent=[-20, 20; 20, -20], string="M"),
-          Text(extent=[-80, 60; 80, 100], string="m=%m")),
+          Text(extent=[-80,-100; 80,-60], string="m=%m", 
+            style(color=0, rgbcolor={0,0,0})),
+          Text(extent=[-100,50; 100,110], string="%name")),
         Documentation(info="<HTML>
 <p>
 Contains m transformers (Modelica.Electrical.Analog.Basic.Transformer)
@@ -428,8 +447,9 @@ Contains m transformers (Modelica.Electrical.Analog.Basic.Transformer)
               fillPattern=1)),
           Line(points=[70,0; 90,0]),
           Line(points=[0,90; 0,30],   style(color=73)),
-          Text(extent=[-100,-100; 100,-40], string="%name"),
-          Text(extent=[-100,40; 100,100],     string="m=%m")), Documentation(info="<HTML>
+          Text(extent=[-150,-100; 150,-40], string="%name"),
+          Text(extent=[-100,40; 100,80],      string="m=%m",
+            style(color=0, rgbcolor={0,0,0}))),                Documentation(info="<HTML>
 <p>
 Contains m variable resistors (Modelica.Electrical.Analog.Basic.VariableResistor)
 </p>
@@ -465,8 +485,9 @@ Contains m variable resistors (Modelica.Electrical.Analog.Basic.VariableResistor
               fillPattern=1)),
           Line(points=[70,0; 90,0]),
           Line(points=[0,90; 0,30],   style(color=73)),
-          Text(extent=[-100,-100; 100,-40], string="%name"),
-          Text(extent=[-100,40; 100,100],     string="m=%m")), Documentation(info="<HTML>
+          Text(extent=[-150,-100; 150,-40], string="%name"),
+          Text(extent=[-100,40; 100,80],      string="m=%m",
+            style(color=0, rgbcolor={0,0,0}))),                Documentation(info="<HTML>
 <p>
 Contains m variable conductors (Modelica.Electrical.Analog.Basic.VariableConductor)
 </p>
@@ -497,8 +518,9 @@ Contains m variable conductors (Modelica.Electrical.Analog.Basic.VariableConduct
         annotation (extent=[-10,-10; 10,10]);
       annotation (Icon(
           Line(points=[0,90; 0,30],   style(color=73)),
-          Text(extent=[-100,-100; 100,-40], string="%name"),
-          Text(extent=[-100,40; 100,100],     string="m=%m"),
+          Text(extent=[-150,-100; 150,-40], string="%name"),
+          Text(extent=[-100,40; 100,80],      string="m=%m",
+            style(color=0, rgbcolor={0,0,0})),
           Line(points=[-90,0; -14,0]),
           Line(points=[14,0; 90,0]),
           Line(points=[-14,28; -14,-28],   style(thickness=2)),
@@ -534,8 +556,9 @@ Cmin is a parameter with default value Modelica.Constants.eps.
           =    Lmin) 
         annotation (extent=[-10,-10; 10,10]);
       annotation (Icon(
-          Text(extent=[-100,-100; 100,-40], string="%name"),
-          Text(extent=[-100,40; 100,100],     string="m=%m"),
+          Text(extent=[-150,-100; 150,-40], string="%name"),
+          Text(extent=[-100,40; 100,80],      string="m=%m",
+            style(color=0, rgbcolor={0,0,0})),
           Line(points=[-90,0; -60,0]),
           Line(points=[60,0; 90,0]),
           Line(points=[0,90; 0,8],   style(color=73)),
@@ -855,7 +878,7 @@ like thyristor, diode, switch, transformer.
           =    Roff, final Gon=Gon, final Vknee=Vknee) annotation (extent=[-10, -10; 10, 10]);
       annotation (
         Icon(
-          Text(extent=[-80, -60; 80, -100], string="%name"),
+          Text(extent=[-150,-40; 150,-100], string="%name"),
           Line(points=[-90, 0; 40, 0]),
           Polygon(points=[30, 0; -30, 40; -30, -40; 30, 0], style(
               color=3,
@@ -865,7 +888,8 @@ like thyristor, diode, switch, transformer.
           Line(points=[40, 0; 90, 0]),
           Line(points=[40, 50; 60, 30]),
           Line(points=[30, 20; 70, 60; 70, 90]),
-          Text(extent=[-100, 100; 60, 60], string="m=%m")),
+          Text(extent=[-100, 100; 60, 60], string="m=%m",
+            style(color=0, rgbcolor={0,0,0}))),
         Documentation(info="<HTML>
 <p>
 Contains m ideal thyristors (Modelica.Electrical.Analog.Ideal.IdealThyristor).
@@ -895,7 +919,7 @@ Contains m ideal thyristors (Modelica.Electrical.Analog.Ideal.IdealThyristor).
           final Roff=Roff, final Gon=Gon, final Vknee=Vknee) annotation (extent=[-10, -10; 10, 10]);
       annotation (
         Icon(
-          Text(extent=[-80, -60; 80, -100], string="%name"),
+          Text(extent=[-150,-40; 150,-100], string="%name"),
           Line(points=[-90, 0; 40, 0]),
           Polygon(points=[30, 0; -30, 40; -30, -40; 30, 0], style(
               color=3,
@@ -905,7 +929,8 @@ Contains m ideal thyristors (Modelica.Electrical.Analog.Ideal.IdealThyristor).
           Line(points=[40, 0; 90, 0]),
           Line(points=[40, 50; 60, 30]),
           Line(points=[30, 20; 70, 60; 70, 90]),
-          Text(extent=[-100, 100; 60, 60], string="m=%m")),
+          Text(extent=[-100, 100; 60, 60], string="m=%m",
+            style(color=0, rgbcolor={0,0,0}))),
         Documentation(info="<HTML>
 <p>
 Contains m ideal GTO thyristors (Modelica.Electrical.Analog.Ideal.IdealGTOThyristor).
@@ -927,7 +952,7 @@ Contains m ideal GTO thyristors (Modelica.Electrical.Analog.Ideal.IdealGTOThyris
         1.E-5, m) "Closed switch resistance";
       parameter Modelica.SIunits.Conductance Goff[m](final min=zeros(m)) = fill(
         1.E-5, m) "Opened switch conductance";
-      Modelica.Blocks.Interfaces.BooleanInput off[m] 
+      Modelica.Blocks.Interfaces.BooleanInput control[m] 
         "true => p--n2 connected, false => p--n1 connected" annotation (extent=[
             -20,60; 20,100], rotation=-90);
       Interfaces.PositivePlug plug_p(final m=m) 
@@ -941,21 +966,25 @@ Contains m ideal GTO thyristors (Modelica.Electrical.Analog.Ideal.IdealGTOThyris
         annotation (extent=[-10, -10; 10, 10]);
       annotation (
         Icon(
-          Text(extent=[-80, -60; 80, -100], string="%name"),
+          Text(extent=[-150,-40; 150,-100], string="%name"),
           Text(
             extent=[-100, 100; -20, 60],
+            string="m=",
             style(
-              color=3,
+              color=0,
+              rgbcolor={0,0,0},
               fillColor=3,
-              fillPattern=1),
-            string="m="),
+              rgbfillColor={0,0,255},
+              fillPattern=1)),
           Text(
             extent=[20, 100; 100, 60],
+            string="%m",
             style(
-              color=3,
+              color=0,
+              rgbcolor={0,0,0},
               fillColor=3,
-              fillPattern=1),
-            string="%m"),
+              rgbfillColor={0,0,255},
+              fillPattern=1)),
           Ellipse(extent=[-44, 4; -36, -4]),
           Line(points=[-90, 0; -44, 0]),
           Line(points=[-37, 2; 40, 50]),
@@ -984,7 +1013,7 @@ Contains m ideal commuting switches (Modelica.Electrical.Analog.Ideal.IdealCommu
           color=3,
           fillColor=7,
           fillPattern=1));
-      connect(off, idealCommutingSwitch.off) 
+      connect(control, idealCommutingSwitch.off) 
         annotation (points=[0,80; 0,8], style(color=5, rgbcolor={255,0,255}));
     end IdealCommutingSwitch;
     
@@ -994,7 +1023,7 @@ Contains m ideal commuting switches (Modelica.Electrical.Analog.Ideal.IdealCommu
         1.E-5, m) "Closed switch resistance";
       parameter Modelica.SIunits.Conductance Goff[m](final min=zeros(m)) = fill(
         1.E-5, m) "Opened switch conductance";
-      Modelica.Blocks.Interfaces.BooleanInput off[m] 
+      Modelica.Blocks.Interfaces.BooleanInput control[m] 
         "true => p1--n2, p2--n1 connected, otherwise p1--n1, p2--n2 connected" 
             annotation (extent=[-20,60; 20,100],rotation=-90);
       Interfaces.PositivePlug plug_p1(final m=m) 
@@ -1010,21 +1039,25 @@ Contains m ideal commuting switches (Modelica.Electrical.Analog.Ideal.IdealCommu
         annotation (extent=[-10, -10; 10, 10]);
       annotation (
         Icon(
-          Text(extent=[-80, -60; 80, -100], string="%name"),
+          Text(extent=[-150,-40; 150,-100], string="%name"),
           Text(
             extent=[-100, 100; -20, 60],
+            string="m=",
             style(
-              color=3,
+              color=0,
+              rgbcolor={0,0,0},
               fillColor=3,
-              fillPattern=1),
-            string="m="),
+              rgbfillColor={0,0,255},
+              fillPattern=1)),
           Text(
             extent=[20, 100; 100, 60],
+            string="%m",
             style(
-              color=3,
+              color=0,
+              rgbcolor={0,0,0},
               fillColor=3,
-              fillPattern=1),
-            string="%m"),
+              rgbfillColor={0,0,255},
+              fillPattern=1)),
           Ellipse(extent=[-4, 30; 4, 22]),
           Line(points=[-90, 0; -44, 0]),
           Line(points=[-90, 50; -44, 50]),
@@ -1060,7 +1093,7 @@ Contains m ideal intermediate switches (Modelica.Electrical.Analog.Ideal.IdealIn
           color=3,
           fillColor=7,
           fillPattern=1));
-      connect(off, idealIntermediateSwitch.off) 
+      connect(control, idealIntermediateSwitch.off) 
         annotation (points=[0,80; 0,8], style(color=5, rgbcolor={255,0,255}));
     end IdealIntermediateSwitch;
     
@@ -1076,7 +1109,7 @@ Contains m ideal intermediate switches (Modelica.Electrical.Analog.Ideal.IdealIn
            final Gon=Gon, final Vknee=Vknee) annotation (extent=[-10, -10; 10, 10]);
       annotation (
         Icon(
-          Text(extent=[-80, -60; 80, -100], string="%name"),
+          Text(extent=[-150,-40; 150,-100], string="%name"),
           Line(points=[-90, 0; 40, 0]),
           Polygon(points=[30, 0; -30, 40; -30, -40; 30, 0], style(
               color=3,
@@ -1084,7 +1117,8 @@ Contains m ideal intermediate switches (Modelica.Electrical.Analog.Ideal.IdealIn
               fillColor=7)),
           Line(points=[30, 40; 30, -40], style(color=3)),
           Line(points=[40, 0; 90, 0]),
-          Text(extent=[-100, 100; 60, 60], string="m=%m")),
+          Text(extent=[-80,100; 80,60],    string="m=%m",
+            style(color=0, rgbcolor={0,0,0}))),
         Documentation(info="<HTML>
 <p>
 Contains m ideal diodes (Modelica.Electrical.Analog.Ideal.IdealDiode).
@@ -1119,7 +1153,11 @@ Contains m ideal diodes (Modelica.Electrical.Analog.Ideal.IdealDiode).
           Rectangle(extent=[33, -60; 72, 60], style(color=7, fillColor=7)),
           Line(points=[32, 50; 90, 50]),
           Line(points=[32, -50; 90, -50]),
-          Text(extent=[-80, 100; 80, 60], string="m=%m")),
+          Text(extent=[-80, 100; 80, 60], string="m=%m", 
+            style(color=0, rgbcolor={0,0,0})),
+          Text(extent=[-100,-110; 100,-50], 
+            style(color=3, rgbcolor={0,0,255}), 
+            string="%name")),
         Documentation(info="<HTML>
 <p>
 Contains m ideal transformers (Modelica.Electrical.Analog.Ideal.IdealTransformer).
@@ -1143,8 +1181,9 @@ Contains m ideal transformers (Modelica.Electrical.Analog.Ideal.IdealTransformer
         annotation (extent=[-10, -10; 10, 10]);
       annotation (
         Icon(
-          Text(extent=[-100, 50; 100, 110], string="%name"),
-          Text(extent=[-100, -110; 100, -50], string="m=%m"),
+          Text(extent=[-150,50; 150,110],   string="%name"),
+          Text(extent=[-100,-100; 100,-60],   string="m=%m",
+            style(color=0, rgbcolor={0,0,0})),
           Rectangle(extent=[-60, 60; 60, -60], style(fillColor=7)),
           Line(points=[-90, 0; -41, 0]),
           Line(points=[91, 0; 40, 0])),
@@ -1172,8 +1211,9 @@ Contains m idles (Modelica.Electrical.Analog.Ideal.Idle)
         annotation (extent=[-10, -10; 10, 10]);
       annotation (
         Icon(
-          Text(extent=[-100, 50; 100, 110], string="%name"),
-          Text(extent=[-100, -110; 100, -50], string="m=%m"),
+          Text(extent=[-150, 50; 150, 110], string="%name"),
+          Text(extent=[-100,-100; 100,-60],   string="m=%m",
+            style(color=0, rgbcolor={0,0,0})),
           Rectangle(extent=[-60, 60; 60, -60], style(fillColor=7)),
           Line(points=[-90, 0; 90, 0])),
         Documentation(info="<HTML>
@@ -1207,7 +1247,7 @@ Contains m short cuts (Modelica.Electrical.Analog.Ideal.Short)
            final Goff=Goff) annotation (extent=[-10, -10; 10, 10]);
       annotation (
         Icon(
-          Text(extent=[-80, -60; 80, -100], string="%name"),
+          Text(extent=[-150,-40; 150,-100], string="%name"),
           Line(points=[-90, 0; -44, 0]),
           Ellipse(extent=[-44, 4; -36, -4]),
           Line(points=[-37, 2; 40, 50]),
@@ -1215,18 +1255,22 @@ Contains m short cuts (Modelica.Electrical.Analog.Ideal.Short)
           Line(points=[40, 0; 90, 0]),
           Text(
             extent=[-100, 100; -20, 60],
+            string="m=",
             style(
-              color=3,
+              color=0,
+              rgbcolor={0,0,0},
               fillColor=3,
-              fillPattern=1),
-            string="m="),
+              rgbfillColor={0,0,255},
+              fillPattern=1)),
           Text(
             extent=[20, 100; 100, 60],
+            string="%m",
             style(
-              color=3,
+              color=0,
+              rgbcolor={0,0,0},
               fillColor=3,
-              fillPattern=1),
-            string="%m"),
+              rgbfillColor={0,0,255},
+              fillPattern=1)),
           Line(points=[40, 20; 40, 0])),
         Documentation(info="<HTML>
 <p>
@@ -1256,7 +1300,7 @@ Contains m ideal opening switches (Modelica.Electrical.Analog.Ideal.IdealOpener)
            final Goff=Goff) annotation (extent=[-10, -10; 10, 10]);
       annotation (
         Icon(
-          Text(extent=[-80, -60; 80, -100], string="%name"),
+          Text(extent=[-150,-40; 150,-100], string="%name"),
           Line(points=[-90, 0; -44, 0]),
           Ellipse(extent=[-44, 4; -36, -4]),
           Line(points=[-37, 2; 40, 50]),
@@ -1264,18 +1308,22 @@ Contains m ideal opening switches (Modelica.Electrical.Analog.Ideal.IdealOpener)
           Line(points=[40, 0; 90, 0]),
           Text(
             extent=[-100, 100; -20, 60],
+            string="m=",
             style(
-              color=3,
+              color=0,
+              rgbcolor={0,0,0},
               fillColor=3,
-              fillPattern=1),
-            string="m="),
+              rgbfillColor={0,0,255},
+              fillPattern=1)),
           Text(
             extent=[20, 100; 100, 60],
+            string="%m",
             style(
-              color=3,
+              color=0,
+              rgbcolor={0,0,0},
               fillColor=3,
-              fillPattern=1),
-            string="%m")),
+              rgbfillColor={0,0,255},
+              fillPattern=1))),
         Documentation(info="<HTML>
 <p>
 Contains m ideal closing switches (Modelica.Electrical.Analog.Ideal.IdealCloser).
@@ -1329,14 +1377,23 @@ electrical multiphase components, based on Modelica.Electrical.Analog.
     
     connector Plug "Plug with m pins for an electric component" 
       parameter Integer m(final min=1) = 3 "number of phases";
-      Modelica.Electrical.Analog.Interfaces.Pin pin[m];
-      annotation (defaultComponentName="plug",Documentation(info=""),
-        Diagram);
+      Modelica.Electrical.Analog.Interfaces.Pin pin[m] 
+        annotation (extent=[-10, -10; 10, 10]);
+      annotation (Documentation(info="<HTML>
+<p>
+Connectors PositivePlug and NegativePlug are nearly identical. 
+The only difference is that the icons are different in order 
+to identify more easily the plugs of a component. 
+Usually, connector PositivePlug is used for the positive and 
+connector NegativePlug for the negative plug of an electrical component.<br>
+Connector Plug is a composite connector containing m Pins (Modelica.Electrical.Analog.Interfaces.Pin).
+</p>
+</HTML>"));
     end Plug;
     
     connector PositivePlug "Positive plug with m pins" 
       extends Plug;
-      annotation (defaultComponentName="plug_p",
+      annotation (
         Icon(Ellipse(extent=[-100, 100; 100, -100], style(color=3, fillColor=3))),
         Diagram(Ellipse(extent=[-40,40; 40,-40],       style(
               color=3,
@@ -1360,7 +1417,7 @@ Connector Plug is a composite connector containing m Pins (Modelica.Electrical.A
     
     connector NegativePlug "Negative plug with m pins" 
       extends Plug;
-      annotation (defaultComponentName="plug_n",
+      annotation (
         Icon(Ellipse(extent=[-100, 100; 100, -100], style(
               color=3,
               fillColor=7,
@@ -1507,13 +1564,15 @@ This package contains multiphase potential, voltage, and current sensors.
           Line(points=[70, 0; 100, 0]),
           Line(points=[-70, 0; -90, 0], style(color=0)),
           Text(
-            extent=[-60, -60; 60, -100],
+            extent=[-100,-70; 100,-110],
+            string="m=%m", 
             style(
-              color=3,
-              fillColor=3,
-              fillPattern=1),
-            string="m=%m"),
-          Text(extent=[-100, 60; 100, 100], string="%name")),
+              color=0, 
+              rgbcolor={0,0,0}, 
+              fillColor=3, 
+              rgbfillColor={0,0,255}, 
+              fillPattern=1)),
+          Text(extent=[-150,60; 150,120],   string="%name")),
         Documentation(info="<HTML>
 <p>
 Contains m potential sensors (Modelica.Electrical.Analog.Sensors.PotentialSensor), 
@@ -1545,17 +1604,28 @@ thus measuring the m potentials <i>phi[m]</i> of the m pins of plug_p.
             extent=[-29, -11; 30, -70],
             style(color=0),
             string="V"),
-          Text(extent=[-100,60; 100,100],   string="%name"),
+          Text(extent=[-100,60; 100,120],   string="%name"),
           Text(
-            extent=[-60,-60; 60,-100],
+            extent=[-100,-60; -20,-100], 
+            string="m=", 
             style(
-              color=3,
-              fillColor=3,
-              fillPattern=1),
-            string="m=%m"),
+              color=0, 
+              rgbcolor={0,0,0}, 
+              fillColor=3, 
+              rgbfillColor={0,0,255}, 
+              fillPattern=1)),
           Line(points=[-70,0; -90,0],   style(color=0)),
           Line(points=[70,0; 90,0],   style(color=0)),
-          Line(points=[0,-100; 0,-70])),
+          Line(points=[0,-100; 0,-70]),
+          Text(
+            extent=[20,-60; 100,-100], 
+            style(
+              color=0, 
+              rgbcolor={0,0,0}, 
+              fillColor=3, 
+              rgbfillColor={0,0,255}, 
+              fillPattern=1), 
+            string="%m")),
         Documentation(info="<HTML>
 <p>
 Contains m voltage sensors (Modelica.Electrical.Analog.Sensors.VoltageSensor), 
@@ -1589,17 +1659,28 @@ thus measuring the m potential differences <i>v[m]</i> between the m pins of plu
             extent=[-29, -11; 30, -70],
             style(color=0),
             string="A"),
-          Text(extent=[-100,60; 100,100],   string="%name"),
+          Text(extent=[-150,60; 150,120],   string="%name"),
           Text(
-            extent=[-60,-60; 60,-100],
+            extent=[-100,-60; -20,-100],
+            string="m=",
             style(
-              color=3,
+              color=0,
+              rgbcolor={0,0,0},
               fillColor=3,
-              fillPattern=1),
-            string="m=%m"),
+              rgbfillColor={0,0,255},
+              fillPattern=1)),
           Line(points=[-70,0; -90,0],   style(color=0)),
           Line(points=[70,0; 90,0],   style(color=0)),
-          Line(points=[0,-100; 0,-70])),
+          Line(points=[0,-100; 0,-70]),
+          Text(
+            extent=[20,-60; 100,-100],
+            style(
+              color=0,
+              rgbcolor={0,0,0},
+              fillColor=3,
+              rgbfillColor={0,0,255},
+              fillPattern=1),
+            string="%m")),
         Documentation(info="<HTML>
 <p>
 Contains m current sensors (Modelica.Electrical.Analog.Sensors.CurrentSensor), 
@@ -1674,14 +1755,25 @@ This package contains time-dependend and controlled multiphase voltage and curre
           Line(points=[50, 0; 90, 0]),
           Ellipse(extent=[-50, 50; 50, -50], style(color=3, fillColor=7)),
           Line(points=[-50, 0; 50, 0]),
-          Text(extent=[-100, -100; 100, -60], string="%name"),
+          Text(extent=[-150,-110; 150,-50],   string="%name"),
           Text(
-            extent=[-60, 20; 60, -20],
+            extent=[-100,100; -20,60],
             style(
-              color=3,
+              color=0,
+              rgbcolor={0,0,0},
               fillColor=3,
+              rgbfillColor={0,0,255},
               fillPattern=1),
-            string="m=%m")),
+            string="m="),
+          Text(
+            extent=[20,100; 100,60],
+            style(
+              color=0,
+              rgbcolor={0,0,0},
+              fillColor=3,
+              rgbfillColor={0,0,255},
+              fillPattern=1),
+            string="%m")),
         Documentation(info="<HTML>
 <p>
 Contains m signal controlled voltage sources (Modelica.Electrical.Analog.Sources.SignalVoltage)
@@ -1697,6 +1789,41 @@ Contains m signal controlled voltage sources (Modelica.Electrical.Analog.Sources
       connect(v, signalVoltage.v) 
         annotation (points=[0,70; 0,7], style(color=3, rgbcolor={0,0,255}));
     end SignalVoltage;
+    
+    model ConstantVoltage "Multiphase constant voltage source" 
+      extends Interfaces.TwoPlug;
+      parameter Modelica.SIunits.Voltage V[m]=fill(1, m) 
+        "Value of constant voltage";
+      Modelica.Electrical.Analog.Sources.ConstantVoltage constantVoltage[m](
+        final V=V) annotation (extent=[-10, -10; 10, 10]);
+      annotation (
+        Icon(
+          Line(points=[-90, 0; -50, 0]),
+          Line(points=[50, 0; 90, 0]),
+          Ellipse(extent=[-50, 50; 50, -50], style(color=3, fillColor=7)),
+          Line(points=[-50, 0; 50, 0]),
+          Text(extent=[-150,-110; 150,-50],   string="%name"),
+          Text(
+            extent=[-100,100; 100,60],
+            string="m=%m",
+            style(
+              color=0,
+              rgbcolor={0,0,0},
+              fillColor=3,
+              rgbfillColor={0,0,255},
+              fillPattern=1))),
+        Documentation(info="<HTML>
+<p>
+Contains m constant voltage sources (Modelica.Electrical.Analog.Sources.ConstantVoltage) 
+</p>
+</HTML>"),
+        Diagram);
+    equation 
+      connect(constantVoltage.p, plug_p.pin) 
+        annotation (points=[-10, 0; -100, 0], style(color=3));
+      connect(constantVoltage.n, plug_n.pin) 
+        annotation (points=[10, 0; 100, 0], style(color=3));
+    end ConstantVoltage;
     
     model SineVoltage "Multiphase sine voltage source" 
       extends Interfaces.TwoPlug;
@@ -1725,14 +1852,16 @@ Contains m signal controlled voltage sources (Modelica.Electrical.Analog.Sources
                  -13, 38.6; -5.98, 18.6; 8.79, -26.9; 15.1, -44; 20.8, -56.2;
                 25.7, -64; 30.6, -68.6; 35.5, -70; 40.5, -67.9; 45.4, -62.5;
                 50.3, -54.1; 55.9, -41.3; 63, -21.7; 70, 0], style(color=8)),
-          Text(extent=[-100, -100; 100, -60], string="%name"),
+          Text(extent=[-150,-110; 150,-50],   string="%name"),
           Text(
-            extent=[-60, 100; 60, 60],
+            extent=[-100,100; 100,60],
+            string="m=%m",
             style(
-              color=3,
+              color=0,
+              rgbcolor={0,0,0},
               fillColor=3,
-              fillPattern=1),
-            string="m=%m")),
+              rgbfillColor={0,0,255},
+              fillPattern=1))),
         Documentation(info="<HTML>
 <p>
 Contains m sine voltage sources (Modelica.Electrical.Analog.Sources.SineVoltage) 
@@ -1764,14 +1893,25 @@ with a default phase shift of -(j-1)/m * 2*pi for j in 1:m.
           Line(points=[50, 0; 90, 0]),
           Ellipse(extent=[-50, 50; 50, -50], style(color=3, fillColor=7)),
           Line(points=[0, 50; 0, -50]),
-          Text(extent=[-100, -100; 100, -60], string="%name"),
+          Text(extent=[-150,-110; 150,-50],   string="%name"),
           Text(
-            extent=[-60, 20; 60, -20],
+            extent=[-100,100; -20,60],
             style(
-              color=3,
+              color=0,
+              rgbcolor={0,0,0},
               fillColor=3,
+              rgbfillColor={0,0,255},
               fillPattern=1),
-            string="m=%m")),
+            string="m="),
+          Text(
+            extent=[20,100; 100,60],
+            style(
+              color=0,
+              rgbcolor={0,0,0},
+              fillColor=3,
+              rgbfillColor={0,0,255},
+              fillPattern=1),
+            string="%m")),
         Documentation(info="<HTML>
 <p>
 Contains m signal controlled current sources (Modelica.Electrical.Analog.Sources.SignalCurrent) 
@@ -1787,6 +1927,41 @@ Contains m signal controlled current sources (Modelica.Electrical.Analog.Sources
       connect(i, signalCurrent.i) 
         annotation (points=[0,70; 0,7], style(color=3, rgbcolor={0,0,255}));
     end SignalCurrent;
+    
+    model ConstantCurrent "Multiphase constant current source" 
+      extends Interfaces.TwoPlug;
+      parameter Modelica.SIunits.Current I[m]=fill(1, m) 
+        "Value of constant current";
+      Modelica.Electrical.Analog.Sources.ConstantCurrent constantCurrent[m](
+        final I=I) annotation (extent=[-10, -10; 10, 10]);
+      annotation (
+        Icon(
+          Line(points=[-90, 0; -50, 0]),
+          Line(points=[50, 0; 90, 0]),
+          Ellipse(extent=[-50, 50; 50, -50], style(color=3, fillColor=7)),
+          Line(points=[0, 50; 0, -50]),
+          Text(extent=[-150,-110; 150,-50],   string="%name"),
+          Text(
+            extent=[-100,100; 100,60],
+            string="m=%m",
+            style(
+              color=0,
+              rgbcolor={0,0,0},
+              fillColor=3,
+              rgbfillColor={0,0,255},
+              fillPattern=1))),
+        Documentation(info="<HTML>
+<p>
+Contains m constant current sources (Modelica.Electrical.Analog.Sources.ConstantCurrent) 
+</p>
+</HTML>"),
+        Diagram);
+    equation 
+      connect(constantCurrent.p, plug_p.pin) 
+        annotation (points=[-10, 0; -100, 0], style(color=3));
+      connect(constantCurrent.n, plug_n.pin) 
+        annotation (points=[10, 0; 100, 0], style(color=3));
+    end ConstantCurrent;
     
     model SineCurrent "Multiphase sine current source" 
       extends Interfaces.TwoPlug;
@@ -1815,14 +1990,16 @@ Contains m signal controlled current sources (Modelica.Electrical.Analog.Sources
                  -13, 38.6; -5.98, 18.6; 8.79, -26.9; 15.1, -44; 20.8, -56.2;
                 25.7, -64; 30.6, -68.6; 35.5, -70; 40.5, -67.9; 45.4, -62.5;
                 50.3, -54.1; 55.9, -41.3; 63, -21.7; 70, 0], style(color=8)),
-          Text(extent=[-100, -100; 100, -60], string="%name"),
+          Text(extent=[-150,-110; 150,-50],   string="%name"),
           Text(
-            extent=[-60, 100; 60, 60],
+            extent=[-100,100; 100,60],
+            string="m=%m",
             style(
-              color=3,
+              color=0,
+              rgbcolor={0,0,0},
               fillColor=3,
-              fillPattern=1),
-            string="m=%m")),
+              rgbfillColor={0,0,255},
+              fillPattern=1))),
         Documentation(info="<HTML>
 <p>
 Contains m sine current sources (Modelica.Electrical.Analog.Sources.SineCurrent) 
