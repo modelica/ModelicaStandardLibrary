@@ -1,7 +1,9 @@
 package Blocks "Library for basic input/output control blocks"
   import SI = Modelica.SIunits;
 
+
 extends Modelica.Icons.Library2;
+
 
 annotation(preferedView="info",
   Window(
@@ -102,6 +104,7 @@ and the accompanying <b>disclaimer</b>
        of Dieter Moormann and Hilding Elmqvist.</li>
 </ul>
 </html>"));
+
 
 package Examples "Demonstration examples of the components of this package" 
   
@@ -256,13 +259,13 @@ block.
     Interfaces.Bus bus annotation (extent=[-80, -20; 80, -14]);
   public 
     RestBus restBus(set_realSignal2=true) annotation (extent=[60, 20; 80, 40]);
-    Sources.IntegerStep generateIntegerSignal(
-      height=1,
-      offset=2,
-      startTime=0.5)   annotation (extent=[20,40; 40,60],   rotation=270);
-    Sources.BooleanStep generateBooleanSignal(startTime=0.5)   annotation (
-        extent=[-20,40; 0,60],   rotation=270);
-    Sources.Sine generateRealSignal1 annotation (extent=[-60,40; -40,60],
+    Sources.IntegerStep integerStep(
+      height=1, 
+      offset=2, 
+      startTime=0.5)   annotation (extent=[20,20; 40,40],   rotation=270);
+    Sources.BooleanStep booleanStep(startTime=0.5)             annotation (
+        extent=[-20,20; 0,40],   rotation=270);
+    Sources.Sine sine                annotation (extent=[-60,20; -40,40],
         rotation=270);
     
     encapsulated package Interfaces "Interfaces specialised for this example" 
@@ -386,7 +389,7 @@ block.
       end if;
     end RestBus;
     
-    Part part annotation (extent=[-100, -60; -80, -40]);
+    Part part annotation (extent=[-96,-60; -76,-40]);
     Modelica.Blocks.Math.Gain gain 
       annotation(extent=[-46,-80; -26,-60], rotation=-90);
   equation 
@@ -394,14 +397,16 @@ block.
     connect(restBus.bus, bus) annotation (points=[70,19; 70,-17; 0,-17],
                                                                     style(color=
            77));
-    connect(part.multiSignal, bus.multiSignal) annotation (points=[-79,-50; -70,
-          -50; -70,-18]);
-    connect(generateRealSignal1.y, bus.realSignal1) 
-      annotation(points=[-50,39; -50,-16], style(color=3, rgbcolor={0,0,255}));
-    connect(generateBooleanSignal.y, bus.booleanSignal) annotation(points=[-10,
-          39; -10,-18], style(color=5, rgbcolor={255,0,255}));
-    connect(generateIntegerSignal.y, bus.integerSignal) annotation(points=[30,
-          39; 32,39; 32,-16; 34,-16], style(color=45, rgbcolor={255,127,0}));
+    connect(part.multiSignal, bus.multiSignal) annotation (points=[-75,-50; -58,
+          -50; -58,-16; 0,-16; 0,-17]);
+    connect(sine.y, bus.realSignal1) 
+      annotation(points=[-50,19; -50,-17; 0,-17],
+                                           style(color=3, rgbcolor={0,0,255}));
+    connect(booleanStep.y, bus.booleanSignal)           annotation(points=[-10,
+          19; -10,-16; 0,-16; 0,-17],
+                        style(color=5, rgbcolor={255,0,255}));
+    connect(integerStep.y, bus.integerSignal)           annotation(points=[30,
+          19; 30,-17; 0,-17],         style(color=45, rgbcolor={255,127,0}));
     connect(gain.u, bus.realSignal1) annotation(points=[-36,-58; -36,-18],
         style(color=3, rgbcolor={0,0,255}));
   end BusUsage;

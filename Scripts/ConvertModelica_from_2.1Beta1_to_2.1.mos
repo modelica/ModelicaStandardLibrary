@@ -5,13 +5,26 @@ convertClear();
 
 convertClass  ("Modelica.Electrical.Analog.Ideal.IdealSwitch",
                "Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch");
+convertElement("Modelica.Electrical.Analog.Ideal.IdealSwitch", "off" , "control");
 convertElement("Modelica.Electrical.Analog.Ideal.IdealSwitch", "Roff", "Ron");
 convertElement("Modelica.Electrical.Analog.Ideal.IdealSwitch", "Gon" , "Goff");
 
 convertClass  ("Modelica.Electrical.Analog.Ideal.ControlledIdealSwitch",
                "Modelica.Electrical.Analog.Ideal.ControlledIdealOpeningSwitch");
+convertElement("Modelica.Electrical.Analog.Ideal.ControlledIdealSwitch", "off" , "control");
 convertElement("Modelica.Electrical.Analog.Ideal.ControlledIdealSwitch", "Roff", "Ron");
 convertElement("Modelica.Electrical.Analog.Ideal.ControlledIdealSwitch", "Gon" , "Goff");
+
+convertElement("Modelica.Electrical.Analog.Ideal.IdealCommutingSwitch", "off" , "control");
+convertElement("Modelica.Electrical.Analog.Ideal.IdealCommutingSwitch", "Roff", "Ron");
+convertElement("Modelica.Electrical.Analog.Ideal.IdealCommutingSwitch", "Gon" , "Goff");
+
+convertElement("Modelica.Electrical.Analog.Ideal.IdealIntermediateSwitch", "off" , "control");
+convertElement("Modelica.Electrical.Analog.Ideal.IdealIntermediateSwitch", "Roff", "Ron");
+convertElement("Modelica.Electrical.Analog.Ideal.IdealIntermediateSwitch", "Gon" , "Goff");
+
+convertElement("Modelica.Electrical.Analog.Ideal.IdealDiode", "Roff", "Ron");
+convertElement("Modelica.Electrical.Analog.Ideal.IdealDiode", "Gon" , "Goff");
 
 convertElement("Modelica.Electrical.Analog.Ideal.IdealThyristor", "Roff", "Ron");
 convertElement("Modelica.Electrical.Analog.Ideal.IdealThyristor", "Gon" , "Goff");
@@ -19,3 +32,19 @@ convertElement("Modelica.Electrical.Analog.Ideal.IdealThyristor", "Gon" , "Goff"
 convertElement("Modelica.Electrical.Analog.Ideal.IdealGTOThyristor", "Roff", "Ron");
 convertElement("Modelica.Electrical.Analog.Ideal.IdealGTOThyristor", "Gon" , "Goff");
 
+convertElement("Modelica.Electrical.MultiPhase.Ideal.IdealCommutingSwitch", "off" , "control");
+convertElement("Modelica.Electrical.MultiPhase.Ideal.IdealCommutingSwitch", "Roff", "Ron");
+convertElement("Modelica.Electrical.MultiPhase.Ideal.IdealCommutingSwitch", "Gon" , "Goff");
+
+convertElement("Modelica.Electrical.MultiPhase.Ideal.IdealIntermediateSwitch", "off" , "control");
+convertElement("Modelica.Electrical.MultiPhase.Ideal.IdealIntermediateSwitch", "Roff", "Ron");
+convertElement("Modelica.Electrical.MultiPhase.Ideal.IdealIntermediateSwitch", "Gon" , "Goff");
+
+convertElement("Modelica.Electrical.MultiPhase.Ideal.IdealDiode", "Roff", "Ron");
+convertElement("Modelica.Electrical.MultiPhase.Ideal.IdealDiode", "Gon" , "Goff");
+
+convertElement("Modelica.Electrical.MultiPhase.Ideal.IdealThyristor", "Roff", "Ron");
+convertElement("Modelica.Electrical.MultiPhase.Ideal.IdealThyristor", "Gon" , "Goff");
+
+convertElement("Modelica.Electrical.MultiPhase.Ideal.IdealGTOThyristor", "Roff", "Ron");
+convertElement("Modelica.Electrical.MultiPhase.Ideal.IdealGTOThyristor", "Gon" , "Goff");

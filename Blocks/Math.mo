@@ -352,15 +352,16 @@ Example:
 </HTML>
 "),       Icon(
             Ellipse(extent=[-20, 20; 20, -20], style(
-                pattern=1,
-                thickness=1,
-                fillColor=30,
-                fillPattern=1)),
-            Line(points=[-60, 0; -20, 0]),
-            Line(points=[20, 0; 80, 0]),
-            Line(points=[0, -20; 0, -60]),
+            color=74, 
+            rgbcolor={0,0,127}, 
+            fillColor=30, 
+            rgbfillColor={235,235,235}, 
+            fillPattern=1)),
+            Line(points=[-60, 0; -20, 0], style(color=74, rgbcolor={0,0,127})),
+            Line(points=[20, 0; 80, 0], style(color=74, rgbcolor={0,0,127})),
+            Line(points=[0, -20; 0, -60], style(color=74, rgbcolor={0,0,127})),
             Text(
-              extent=[-12, 10; 84, -84],
+              extent=[-14,0; 82,-94],
               string="-",
               style(color=0)),
             Text(extent=[-100, 110; 100, 60], string="%name")),
@@ -434,12 +435,19 @@ Example:
             Ellipse(extent=[-50, 50; 50, -50]),
             Line(points=[-100, -60; -40, -60; -30, -40]),
             Line(points=[-15, -25.99; 15, 25.99], style(color=0)),
-            Rectangle(extent=[-100, -100; 100, 100], style(color=3, fillColor=7)),
+            Rectangle(extent=[-100, -100; 100, 100], style(
+            color=74, 
+            rgbcolor={0,0,127}, 
+            fillColor=7, 
+            rgbfillColor={255,255,255})),
             Line(points=[50, 0; 100, 0]),
-            Line(points=[-100, 60; -74, 24; -44, 24]),
-            Line(points=[-100, -60; -74, -28; -42, -28]),
-            Ellipse(extent=[-50, 50; 50, -50]),
-            Line(points=[50, 0; 100, 0]),
+            Line(points=[-100, 60; -74, 24; -44, 24], style(color=74, rgbcolor=
+                {0,0,127})),
+            Line(points=[-100, -60; -74, -28; -42, -28], style(color=74, 
+              rgbcolor={0,0,127})),
+            Ellipse(extent=[-50, 50; 50, -50], style(color=74, rgbcolor={0,0,
+                127})),
+            Line(points=[50, 0; 100, 0], style(color=74, rgbcolor={0,0,127})),
             Text(
               extent=[-38, 34; 38, -34],
               string="+",
@@ -466,12 +474,19 @@ Example:
             Ellipse(extent=[-50, 50; 50, -50]),
             Line(points=[-100, -60; -40, -60; -30, -40]),
             Line(points=[-15, -25.99; 15, 25.99], style(color=0)),
-            Rectangle(extent=[-100, -100; 100, 100], style(color=3, fillColor=7)),
+            Rectangle(extent=[-100, -100; 100, 100], style(
+            color=74, 
+            rgbcolor={0,0,127}, 
+            fillColor=7, 
+            rgbfillColor={255,255,255})),
             Line(points=[50, 0; 100, 0]),
-            Line(points=[-100, 60; -74, 24; -44, 24]),
-            Line(points=[-100, -60; -74, -28; -42, -28]),
-            Ellipse(extent=[-50, 50; 50, -50]),
-            Line(points=[50, 0; 100, 0]),
+            Line(points=[-100, 60; -74, 24; -44, 24], style(color=74, rgbcolor=
+                {0,0,127})),
+            Line(points=[-100, -60; -74, -28; -42, -28], style(color=74, 
+              rgbcolor={0,0,127})),
+            Ellipse(extent=[-50, 50; 50, -50], style(color=74, rgbcolor={0,0,
+                127})),
+            Line(points=[50, 0; 100, 0], style(color=74, rgbcolor={0,0,127})),
             Text(
               extent=[-38, 34; 38, -34],
               string="+",
@@ -617,13 +632,16 @@ the two inputs <b>u1</b> and <b>u2</b>:
 </ul>
 </HTML>
 "),       Icon(
-            Line(points=[-100, 60; -40, 60; -30, 40]),
-            Line(points=[-100, -60; -40, -60; -30, -40]),
-            Line(points=[50, 0; 100, 0]),
+            Line(points=[-100, 60; -40, 60; -30, 40], style(color=74, rgbcolor=
+                {0,0,127})),
+            Line(points=[-100, -60; -40, -60; -30, -40], style(color=74, 
+              rgbcolor={0,0,127})),
+            Line(points=[50, 0; 100, 0], style(color=74, rgbcolor={0,0,127})),
             Line(points=[-30, 0; 30, 0], style(color=0)),
             Line(points=[-15, 25.99; 15, -25.99], style(color=0)),
             Line(points=[-15, -25.99; 15, 25.99], style(color=0)),
-            Ellipse(extent=[-50, 50; 50, -50])),
+            Ellipse(extent=[-50, 50; 50, -50], style(color=74, rgbcolor={0,0,
+                127}))),
           Diagram(
             Rectangle(extent=[-100, -100; 100, 100], style(color=3, fillColor=7)),
             Line(points=[-100, 60; -40, 60; -30, 40]),
@@ -669,14 +687,17 @@ the two inputs <b>u1</b> and <b>u2</b>:
 </ul>
 </HTML>
 "),       Icon(
-            Line(points=[50, 0; 100, 0]),
+            Line(points=[50, 0; 100, 0], style(color=74, rgbcolor={0,0,127})),
             Line(points=[-30, 0; 30, 0], style(color=0)),
             Ellipse(extent=[-5, 20; 5, 30], style(color=0, fillColor=0)),
             Ellipse(extent=[-5, -20; 5, -30], style(color=0, fillColor=0)),
-            Ellipse(extent=[-50, 50; 50, -50]),
+            Ellipse(extent=[-50, 50; 50, -50], style(color=74, rgbcolor={0,0,
+                127})),
             Text(extent=[-150, 150; 150, 110], string="%name"),
-            Line(points=[-100, 60; -66, 60; -40, 30]),
-            Line(points=[-100, -60; 0, -60; 0, -50])),
+            Line(points=[-100, 60; -66, 60; -40, 30], style(color=74, rgbcolor=
+                {0,0,127})),
+            Line(points=[-100, -60; 0, -60; 0, -50], style(color=74, rgbcolor={
+                0,0,127}))),
           Diagram(
             Rectangle(extent=[-100, -100; 100, 100], style(color=3, fillColor=7)),
             Line(points=[50, 0; 100, 0]),

@@ -219,7 +219,7 @@ Connects pin <i>k</i> of plug_n to pin_n, leaving the other pins of plug_n uncon
               fillPattern=1)),
           Line(points=[-90, 0; -70, 0]),
           Line(points=[70, 0; 90, 0]),
-          Text(extent=[-150, 40; 150, 100], string="%name"),
+          Text(extent=[-148,40; 152,100],   string="%name"),
           Text(extent=[-100,-100; 100,-60],   string="m=%m",
             style(color=0, rgbcolor={0,0,0}))),
         Documentation(info="<HTML>

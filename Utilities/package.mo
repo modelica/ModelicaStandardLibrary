@@ -211,7 +211,7 @@ Below the major design decisions of this library are summarized.
   
 end UsersGuide;
 
-
+protected
 package Internal "Internal package as interface to the operating system" 
  extends Modelica.Icons.Library;
   annotation (  preferedView="info",

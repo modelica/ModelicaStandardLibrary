@@ -70,7 +70,7 @@ at least one ground object.
         Line(points=[-40, 30; 40, 30]),
         Line(points=[-20, 10; 20, 10]),
         Line(points=[0, 90; 0, 50]),
-        Text(extent=[-100, -68; 100, -10], string="%name")),
+        Text(extent=[-144,-60; 138,0],     string="%name")),
       Diagram(
         Line(points=[-60, 50; 60, 50], style(thickness=2)),
         Line(points=[-40, 30; 40, 30], style(thickness=2)),
@@ -110,10 +110,10 @@ The Resistance <i>R</i> is allowed to be positive, zero, or negative.
         Line(points=[-90, 0; -70, 0]),
         Line(points=[70, 0; 90, 0]),
         Text(
-          extent=[-98, -58; 102, -120],
+          extent=[-144,-60; 144,-100],
           string="R=%R",
           style(color=0)),
-        Text(extent=[-100, 40; 100, 100], string="%name")),
+        Text(extent=[-144,40; 144,100],   string="%name")),
       Diagram(
         Rectangle(extent=[-70, 30; 70, -30]),
         Line(points=[-96,0; -70,0]),
@@ -168,7 +168,7 @@ The Resistance <i>R</i> is allowed to be positive, zero, or negative.
           Polygon(points=[40, 52; 50, 42; 54, 56; 40, 52], style(color=73,
                 fillColor=73))),
         Icon(
-          Text(extent=[-143, 60; 143, 98], string="%name"),
+          Text(extent=[-142,60; 143,118],  string="%name"),
           Line(points=[-90, 0; -70, 0]),
           Line(points=[70, 0; 90, 0]),
           Rectangle(extent=[-70, 30; 70, -30], style(
@@ -237,10 +237,10 @@ The Conductance <i>G</i> is allowed to be positive, zero, or negative.
         Line(points=[-90, 0; -70, 0]),
         Line(points=[70, 0; 90, 0]),
         Text(
-          extent=[-100, -60; 100, -122],
+          extent=[-138,-60; 140,-100],
           string="G=%G",
           style(color=0, pattern=0)),
-        Text(extent=[-100, 40; 100, 98], string="%name")),
+        Text(extent=[-140,40; 142,100],  string="%name")),
       Diagram(Line(points=[-96,0; -70,0]),   Line(points=[70,0; 96,0]),
         Rectangle(extent=[-70,30; 70,-30])),
       Window(
@@ -278,10 +278,10 @@ The Capacitance <i>C</i> is allowed to be positive, zero, or negative.
         Line(points=[-90, 0; -14, 0]),
         Line(points=[14, 0; 90, 0]),
         Text(
-          extent=[-100, -60; 100, -120],
+          extent=[-136,-60; 136,-100],
           string="C=%C",
           style(color=0)),
-        Text(extent=[-100, 40; 100, 100], string="%name")),
+        Text(extent=[-142,40; 140,100],   string="%name")),
       Diagram(
         Line(points=[-20, 40; -20, -40], style(thickness=2)),
         Line(points=[20, 40; 20, -40], style(thickness=2)),
@@ -315,10 +315,10 @@ The Inductance <i>L</i> is allowed to be positive, zero, or negative.
         Line(points=[60, 0; 90, 0]),
         Line(points=[-90, 0; -60, 0]),
         Text(
-          extent=[-100, -60; 100, -120],
+          extent=[-138,-60; 144,-102],
           string="L=%L",
           style(color=0)),
-        Text(extent=[-136,40; 148,100],   string="%name")),
+        Text(extent=[-146,38; 148,100],   string="%name")),
       Diagram(
         Ellipse(extent=[-60, -15; -30, 15]),
         Ellipse(extent=[-30, -15; 0, 15]),
@@ -963,7 +963,7 @@ value of Slope is taken into calculation.)
           extends Modelica.Electrical.Analog.Interfaces.OnePort;
           Modelica.Blocks.Interfaces.RealInput R(
             redeclare type SignalType = Modelica.SIunits.Resistance) 
-            annotation (extent=[-10, 90; 10, 110], rotation=-90);
+            annotation (extent=[-20,90; 20,130],   rotation=-90);
           annotation (
             Documentation(info="<HTML>
 <P>
@@ -994,7 +994,7 @@ The Resistance <i>R</i> is given as input signal.
               grid=[2, 2],
               component=[20, 20]),
             Icon(
-              Text(extent=[-100, -100; 100, -40], string="%name"),
+              Text(extent=[-148,-100; 144,-40],   string="%name"),
               Line(points=[-90, 0; -70, 0]),
               Rectangle(extent=[-70, 30; 70, -30], style(
                   color=3,
@@ -1019,7 +1019,7 @@ The Resistance <i>R</i> is given as input signal.
           extends Modelica.Electrical.Analog.Interfaces.OnePort;
           Modelica.Blocks.Interfaces.RealInput G(
              redeclare type SignalType = Modelica.SIunits.Conductance) 
-            annotation (extent=[-10, 90; 10, 110], rotation=-90);
+            annotation (extent=[-20,90; 20,130],   rotation=-90);
           annotation (
             Documentation(info="<HTML>
 <P>
@@ -1048,7 +1048,7 @@ The Conductance <i>G</i> is given as input signal.
               grid=[2, 2],
               component=[20, 20]),
             Icon(
-              Text(extent=[-100, -100; 100, -40], string="%name"),
+              Text(extent=[-144,-102; 142,-40],   string="%name"),
               Line(points=[-90, 0; -70, 0]),
               Rectangle(extent=[-70, 30; 70, -30], style(
                   color=3,
@@ -1073,7 +1073,7 @@ The Conductance <i>G</i> is given as input signal.
           extends Modelica.Electrical.Analog.Interfaces.OnePort;
           Modelica.Blocks.Interfaces.RealInput C(
             redeclare type SignalType = Modelica.SIunits.Capacitance) 
-            annotation (extent=[-10, 90; 10, 110], rotation=-90);
+            annotation (extent=[-20,90; 20,130],   rotation=-90);
           parameter Modelica.SIunits.Capacitance Cmin=Modelica.Constants.eps;
           Modelica.SIunits.ElectricCharge Q;
           annotation (
@@ -1104,7 +1104,7 @@ Cmin is a parameter with default value Modelica.Constants.eps.
        </li>
 </ul>
 </html>"),  Icon(
-              Text(extent=[-100, -100; 100, -40], string="%name"),
+              Text(extent=[-134,-100; 136,-40],   string="%name"),
               Line(points=[-90, 0; -14, 0]),
               Line(points=[14, 0; 90, 0]),
               Line(points=[0, 90; 0, 30], style(color=73)),
@@ -1130,7 +1130,7 @@ Cmin is a parameter with default value Modelica.Constants.eps.
           extends Modelica.Electrical.Analog.Interfaces.OnePort;
           Modelica.Blocks.Interfaces.RealInput L(
              redeclare type SignalType = Modelica.SIunits.Inductance) 
-            annotation (extent=[-10, 90; 10, 110], rotation=-90);
+            annotation (extent=[-20,88; 20,128],   rotation=-90);
           Modelica.SIunits.MagneticFlux Psi;
           parameter Modelica.SIunits.Inductance Lmin=Modelica.Constants.eps;
           annotation (
@@ -1161,7 +1161,7 @@ Lmin is a parameter with default value Modelica.Constants.eps.
        </li>
 </ul>
 </html>"),  Icon(
-              Text(extent=[-100, -100; 100, -40], string="%name"),
+              Text(extent=[-138,-100; 136,-40],   string="%name"),
               Line(points=[-90, 0; -60, 0]),
               Line(points=[60, 0; 90, 0]),
               Line(points=[0, 90; 0, 8], style(color=73)),

@@ -951,7 +951,7 @@ the error text.
     extends Modelica.Icons.Function;
     input String string "String that has an error at position index";
     input Integer index "Index of string at which scanning detected an error";
-    input String message="x " "String printed at end of error message";
+    input String message="" "String printed at end of error message";
     
     annotation (preferedView="info",Documentation(info="<html>
 <h3><font color=\"#008000\">Syntax</font></h3>
@@ -984,22 +984,23 @@ part of the string is printed.
     Integer lenString = length(string);
     String errString1;
     String errString2;
+    Integer index2 = if index < 1 then 1 else if index > lenString then lenString else index;
   algorithm 
   // if "string" is too long, skip part of the string when printing it
-     if index <= maxIndex then
-       errString1 := substring(string, 1, index-1);
+     if index2 <= maxIndex then
+       errString1 := substring(string, 1, index2-1);
      else
-       errString1 := "... " + substring(string, index-maxIndex, index-1);
+       errString1 := "... " + substring(string, index2-maxIndex, index2-1);
      end if;
     
      if lenString <= maxLenString then
-        errString2 := substring(string, index, lenString);
+        errString2 := substring(string, index2, lenString);
      else
-        errString2 := substring(string, index, maxLenString) + " ...";
+        errString2 := substring(string, index2, maxLenString) + " ...";
      end if;
     
   // Print error message
-     Streams.error("<html>Syntax error at column " + String(index) + " of<br>" +
+     Streams.error("<html>Syntax error at character " + String(index) + " of<br>" +
                    errString1 + "<font color=\"#FF0000\">" + errString2 + "<br>" +
                    message + "</font> </html>");
   end syntaxError;
