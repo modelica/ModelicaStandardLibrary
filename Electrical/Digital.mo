@@ -1,4 +1,163 @@
 package Digital 
+package UsersGuide "Users Guide" 
+    
+  annotation (DocumentationClass=true, Documentation(info="<html>
+<h3><font color=\"#008000\" size=5>Users Guide of package StateGraph</font></h3>
+<p>
+Library <b>Electrical.Digital</b> is a <b>free</b> Modelica package providing
+components to model <b>digital</b> electronic
+systems based on combinational and sequential logic in a convenient
+way. This package contains the <b>users guide</b> for 
+the library and has the following content:
+</p>
+<ol>
+<li><a href=\"Modelica://Modelica.Electrical.Digital.UsersGuide.OverView\">Overview of library</a>
+     gives an overview of the library.</li>
+<li> <a href=\"Modelica://Modelica.Electrical.Digital.UsersGuide.FirstExample\">A first example</a>
+     demonstrates at hand of a first example how to use this library.</li>
+<li> <a href=\"Modelica://Modelica.Electrical.Digital.UsersGuide.ApplicationExample\">An 
+     application example</a> demonstrates a generic n-bit adder.
+     .</li>
+<li><a href=\"Modelica://Modelica.Electrical.Digital.UsersGuide.ReleaseNotes\">Release Notes</a>
+    summarizes the differences between different versions of this library.</li>
+<li><a href=\"Modelica://Modelica.StateGraph.UsersGuide.Literature\">Literature</a>
+    provides references that have been used to design and implement this 
+    library.</li>
+<li><a href=\"Modelica://Modelica.Electrical.Digital.UsersGuide.Contact\">Contact</a> 
+    provides information about the authors of the library as well as
+    acknowledgments.</li>
+</ol>
+</html>"));
+    
+  class OverView "Overview of library" 
+      
+    annotation (Documentation(info="<html>
+<h3><font color=\"#008000\" size=5>Overview of Library Electrical.Digital</font></h3>
+<p>
+In this section, an overview of the most important features
+of this library is given.
+</p>
+
+<p>A first example will be given here (not yet done). </p>
+
+</html>
+"));
+  end OverView;
+    
+  class FirstExample "A first example" 
+      
+    annotation (Documentation(info="<html>
+<h3><font color=\"#008000\" size=5>A first example</font></h3>
+<p>
+A first example will be given here (not yet done).
+</p>
+</html>
+"));
+  end FirstExample;
+    
+  class ApplicationExample "An application example" 
+      
+    annotation (Documentation(info="<html>
+<h3><font color=\"#008000\" size=5>An application example</font></h3>
+<p>
+An application example will be given here (not yet done). 
+
+</p>
+</html>
+"));
+  end ApplicationExample;
+    
+  class ReleaseNotes "Release notes" 
+      
+    annotation (Documentation(info="<html>
+<h3><font color=\"#008000\" size=5>Release notes</font></h3>
+
+
+<h3><font color=\"#008000\">Version 1.0.3, 2004-09-21</font></h3>
+<ul>
+<li> Table names changed from \"map\" to \"Table\".</li>
+<li> Icons for converters modified.</li>
+<li> LogicValueType renamed to Logic. For the Electrical.Digital library
+     the type Logic has a fundamental meaning. Logic is similar to
+     Real, Integer or Boolean in other packages. Names for converters
+     are now more consistent (LogicToBoolean, RealToLogic etc.).</li>
+<li> Icons for gates and sources improved.</li>
+<li> New examples added.</li>
+<li> Internal names for signals and ports unified.</li>
+<li> Simple Clock source added in addition to Pulse source (for convenience reasons).</li>
+</ul>
+<h3><font color=\"#008000\">Version 1.0.2, 2004-09-13</font></h3>
+<ul>
+<li> Will be added.</li>
+
+</ul>
+<h3><font color=\"#008000\">Version 1.0.1, 2004-06-01</font></h3>
+<ul>
+<li> Will be added.</li>
+</ul>
+<h3><font color=\"#008000\">Version 1.0.0, 2003-05-01</font></h3>
+<ul>
+<li> A first version has been implemented for case studies.</li>
+</ul>
+</html>
+"));
+  equation 
+      
+  end ReleaseNotes;
+    
+  class Literature "Literature" 
+      
+    annotation (Documentation(info="<html>
+<h3><font color=\"#008000\" size=5>Literature</font></h3>
+<p>
+The Electrical.Digital library is based on the following references:
+</p>
+<dl>
+<dt>Author:</dt>
+<dd> <b>Title</b>.
+     Reference
+     <br>&nbsp;</dd>
+
+</dl>
+</html>
+"));
+      
+  end Literature;
+    
+  class Contact "Contact" 
+      
+    annotation (Documentation(info="<html>
+<h3><font color=\"#008000\" size=5>Contact</font></h3>
+<dl>
+<dt><b>Main Authors:</b>
+<dd><a href=\"http://people.eas.iis.fraunhofer.de/Christoph.Clauss/\">Christoph Clau&szlig;</a>
+    &lt;<A HREF=\"mailto:Christoph.Clauss@eas.iis.fraunhofer.de\">Christoph.Clauss@eas.iis.fraunhofer.de</A>&gt;<br> 
+    <a href=\"http://people.eas.iis.fraunhofer.de/Andre.Schneider/\">Andr&eacute; Schneider</a>
+    &lt;<A HREF=\"mailto:Andre.Schneider@eas.iis.fraunhofer.de\">Andre.Schneider@eas.iis.fraunhofer.de</A>&gt;<br>
+    Fraunhofer Institute for Integrated Circuits (IIS)<br>
+    Design Automation Department (EAS)<br> 
+    Zeunerstra&szlig;e 38<br>
+    D-01069 Dresden<br>
+    Germany<br>
+</dl>
+<br>
+<br>
+<dl>
+<dt><b>Acknowledgements:</b></dt>
+<dd>
+    We thank our colleague <a href=\"http://people.eas.iis.fraunhofer.de/Ulrich.Donath/\">Ulrich Donath</a>
+    &lt;<a href=\"mailto:Ulrich.Donath@eas.iis.fraunhofer.de\">Ulrich.Donath@eas.iis.fraunhofer.de</a>&gt;
+    for his support and fruitful discussions regarding all questions on VHDL and the IEEE 1164 standard
+    logic libraries. Furthermore, we thank our students Teresa Schlegel and Enrico Weber for implementing
+    and carefully testing many models and examples.<br>
+</dd>
+</dl>
+</html>
+"));
+      
+  end Contact;
+    
+end UsersGuide;
   
   annotation (
     Coordsys(
@@ -59,22 +218,23 @@ the library.
 <dt>
 <b>Main Authors:</b>
 <dd>
-    <a href=\"http://www.eas.iis.fhg.de/~clauss/\">Christoph Clau&szlig;</a>
-    &lt;<a href=\"mailto:clauss@eas.iis.fhg.de\">clauss@eas.iis.fhg.de</a>&gt;<br>
-    <a href=\"http://www.eas.iis.fhg.de/~schneider/\">Andr&eacute; Schneider</a>
-    &lt;<a href=\"mailto:schneider@eas.iis.fhg.de\">schneider@eas.iis.fhg.de</a>&gt; <br>
-    <a href=\"http://www.eas.iis.fhg.de/~donath/\">Ulrich; Donath</a>
-    &lt;<a href=\"mailto:donath@eas.iis.fhg.de\">donath@eas.iis.fhg.de</a>&gt; technical adviser<br>
-    Teresa Schlegel, programmer<br>
-    Fraunhofer Institute for Integrated Circuits<br>
-    Design Automation Department<br>
+    <a href=\"http://people.eas.iis.fraunhofer.de/Christoph.Clauss/\">Christoph Clau&szlig;</a>
+    &lt;<a href=\"mailto:Christoph.Clauss@eas.iis.fraunhofer.de\">Christoph.Clauss@eas.iis.fraunhofer.de</a>&gt;<br>
+    <a href=\"http://people.eas.iis.fhg.de/Andre.Schneider/\">Andr&eacute; Schneider</a>
+    &lt;<a href=\"mailto:Andre.Schneider@eas.iis.fraunhofer.de\">Andre.Schneider@eas.iis.fraunhofer.de</a>&gt; <br>
+
+    Fraunhofer Institute for Integrated Circuits (IIS)<br>
+    Design Automation Department (EAS)<br>
     Zeunerstra&szlig;e 38<br>
     D-01069 Dresden<br>
+    Germany<br>
+<br>
 <p>
 <dt>
 <b>Version:</b>
 <dd>
 $Id$<br>
+<br>
 <p>
 <dt>
 <b>Copyright:</b>
@@ -88,11 +248,67 @@ Modelica in file \"Modelica/package.mo\".</i><br>
 </dl>
 </HTML>
 "), Diagram,
-    uses(Modelica(version="2.1 Beta1")));
+    uses(Modelica(version="2.1 Beta1")),
+    Icon(
+      Polygon(points=[-100,-100; -100,50; 80,50; 80,-100; -100,-100],style(
+            fillColor=30, fillPattern=1)),
+      Polygon(points=[-100,50; -80,70; 100,70; 80,50; -100,50],      style(
+            fillColor=30, fillPattern=1)),
+      Polygon(points=[100,70; 100,-80; 80,-100; 80,50; 100,70],      style(
+            fillColor=30, fillPattern=1)),
+      Text(
+        extent=[-120,122; 120,73],
+        string="%name",
+        style(color=1)),
+      Rectangle(extent=[-52,4; -32,-36], style(
+          color=0,
+          rgbcolor={0,0,0},
+          fillColor=7,
+          rgbfillColor={255,255,255})),
+      Rectangle(extent=[8,-46; 28,-86], style(
+          color=0,
+          rgbcolor={0,0,0},
+          fillColor=7,
+          rgbfillColor={255,255,255})),
+      Rectangle(extent=[8,4; 28,-36], style(
+          color=0,
+          rgbcolor={0,0,0},
+          fillColor=7,
+          rgbfillColor={255,255,255})),
+      Line(points=[-72,-6; -52,-6], style(color=0, rgbcolor={0,0,0})),
+      Line(points=[-72,-28; -52,-28], style(color=0, rgbcolor={0,0,0})),
+      Ellipse(extent=[-32,-14; -28,-18], style(color=0, rgbcolor={0,0,0})),
+      Ellipse(extent=[28,-14; 32,-18], style(color=0, rgbcolor={0,0,0})),
+      Line(points=[-28,-16; 8,-16], style(color=0, rgbcolor={0,0,0})),
+      Line(points=[-28,-16; -12,-16; -12,-56; 8,-56], style(color=0, rgbcolor={
+              0,0,0})),
+      Line(points=[8,-76; -72,-76], style(color=0, rgbcolor={0,0,0})),
+      Line(points=[32,-16; 48,-16], style(color=0, rgbcolor={0,0,0})),
+      Line(points=[28,-66; 48,-66], style(color=0, rgbcolor={0,0,0})),
+      Text(
+        extent=[-32,-8; -52,0],
+        string="&",
+        style(color=0, rgbcolor={0,0,0})),
+      Text(
+        extent=[28,-10; 8,-2],
+        string="1",
+        style(color=0, rgbcolor={0,0,0})),
+      Text(
+        extent=[28,-58; 8,-50],
+        string="=",
+        style(color=0, rgbcolor={0,0,0})),
+      Text(
+        extent=[-90,40; 70,10],
+        string="Library",
+        style(
+          color=9,
+          fillColor=0,
+          fillPattern=1))));
   
   package Interfaces 
     
-    type LogicValueType = Integer;
+    type Logic = Integer 
+      "Signal type in package Digital according to the IEEE 1164 STD_ULOGIC type";
     
     record LogicValue "Logic values and their coding" 
       constant Integer min=1;
@@ -108,8 +324,8 @@ Modelica in file \"Modelica/package.mo\".</i><br>
       constant Integer '-'=9 "Don't care";
     end LogicValue;
     
-    connector DigitalSignal = LogicValueType 
-      "Digital port (both input/output possible)";
+    connector DigitalSignal = Logic "Digital port (both input/output possible)"
+      annotation (Icon, Diagram);
     
     connector DigitalInput = input DigitalSignal 
       "input DigitalSignal as connector" 
@@ -120,14 +336,14 @@ Modelica in file \"Modelica/package.mo\".</i><br>
             fillColor=78,
             rgbfillColor={127,0,127}))),
         Diagram(                      Text(
-          extent=[-140,162; 100,102],
+          extent=[-150,-100; 150,-160],
           string="%name",
           style(
             color=78,
             rgbcolor={127,0,127},
             fillColor=78,
             rgbfillColor={127,0,127})),
-             Rectangle(extent=[0,-100; 100,100],
+             Rectangle(extent=[-100,-100; 100,100],
                                                style(
             color=78,
             rgbcolor={127,0,127},
@@ -142,46 +358,38 @@ Modelica in file \"Modelica/package.mo\".</i><br>
           fillColor=7,
           rgbfillColor={255,255,255}))),
                                        Diagram(
-              Polygon(points=[-100,50; 0,0; -100,-50; -100,50], style(
+              Polygon(points=[-100,100; 100,0; -100,-100; -100,100],
+                                                                style(
           color=78,
           rgbcolor={127,0,127},
           fillColor=7,
           rgbfillColor={255,255,255})), Text(
-          extent=[-100,108; 140,48],
+          extent=[-150,-100; 150,-160],
           string="%name",
         style(color=78, rgbcolor={127,0,127}))));
     
     partial block SISO "Single input, single output" 
-      import D = Modelica.Electrical.Digital.Interfaces;
-      D.DigitalInput x 
-                   annotation (extent=[-110,-10; -90,10]);
-      D.DigitalOutput y 
+      import D = Modelica.Electrical.Digital;
+      D.Interfaces.DigitalInput x 
+                   annotation (extent=[-70,-10; -50,10]);
+      D.Interfaces.DigitalOutput y 
                     annotation (extent=[90,-10; 110,10]);
-      annotation (Diagram(
-          Rectangle(extent=[-50,100; 50,-100], style(
-              color=0,
-              rgbcolor={0,0,0},
-              thickness=2)),
-          Line(points=[-90,0; -50,0], style(color=78, rgbcolor={127,0,127})),
-          Line(points=[50,0; 90,0], style(color=78, rgbcolor={127,0,127}))),  Icon(
+      annotation (Diagram,                                                    Icon(
           Rectangle(extent=[-50,100; 50,-100], style(
               color=0,
               rgbcolor={0,0,0},
               thickness=2,
               fillColor=7,
               rgbfillColor={255,255,255})),
-          Line(points=[-90,0; -50,0], style(color=78, rgbcolor={127,0,127})),
           Line(points=[50,0; 92,0], style(color=78, rgbcolor={127,0,127}))));
-    algorithm 
-      
     end SISO;
     
     partial block MISO "Multiple input - single output" 
-      import D = Modelica.Electrical.Digital.Interfaces;
+      import D = Modelica.Electrical.Digital;
       
-      parameter Integer ninputs(final min=2) = 2 "Number of inputs";
-      D.DigitalInput x[ninputs] annotation (extent=[-70,-80; -50,80]);
-      D.DigitalOutput y 
+      parameter Integer n(final min=2) = 2 "Number of inputs";
+      D.Interfaces.DigitalInput x[n] annotation (extent=[-70,-80; -50,80]);
+      D.Interfaces.DigitalOutput y 
                     annotation (extent=[90,-10; 110,10]);
     algorithm 
       annotation (Icon(
@@ -192,69 +400,32 @@ Modelica in file \"Modelica/package.mo\".</i><br>
               fillColor=7,
               rgbfillColor={255,255,255})),
           Line(points=[50,0; 90,0], style(color=78, rgbcolor={127,0,127}))),
-          Diagram(
-          Rectangle(extent=[-50,100; 50,-100], style(color=0, thickness=2)),
-          Line(points=[50,0; 90,0], style(color=78, rgbcolor={127,0,127}))));
+          Diagram);
     end MISO;
     
-    partial block SISO_wide "Single input, single output, wide version" 
-      import D = Modelica.Electrical.Digital.Interfaces;
-      D.DigitalInput x 
-                   annotation (extent=[-110,-10; -90,10]);
-      D.DigitalOutput y 
-                    annotation (extent=[90,-10; 110,10]);
-    algorithm 
-      
-      annotation (Icon(
-          Rectangle(extent=[-50,100; 50,-100], style(
-              color=0,
-              rgbcolor={0,0,0},
-              thickness=2,
-              fillColor=7,
-              rgbfillColor={255,255,255})),
-          Ellipse(extent=[50,10; 70,-10],   style(color=0, thickness=2)),
-          Line(points=[-90,0; -50,0], style(color=78, rgbcolor={127,0,127})),
-          Line(points=[70,0; 90,0], style(color=78, rgbcolor={127,0,127}))),
-          Diagram(
-          Ellipse(extent=[50,10; 70,-10],   style(color=0, thickness=2)),
-          Rectangle(extent=[-50,100; 50,-100], style(color=0, thickness=2)),
-          Line(points=[-90,0; -50,0], style(color=78, rgbcolor={127,0,127})),
-          Line(points=[70,0; 90,0], style(color=78, rgbcolor={127,0,127}))));
-    end SISO_wide;
-    
-    partial block MISO_wide "Multiple input, sigle output, wide version" 
-      import D = Modelica.Electrical.Digital.Interfaces;
-      parameter Integer ninputs(final min=2) = 2 "Number of inputs";
-      D.DigitalInput x[ninputs] annotation (extent=[-70,-80; -50,80]);
-      D.DigitalOutput y 
-                    annotation (extent=[90,-10; 110,10]);
-    algorithm 
-      annotation (
-        Icon(
-          Rectangle(extent=[-50,100; 50,-100], style(
-              color=0,
-              rgbcolor={0,0,0},
-              thickness=2,
-              fillColor=7,
-              rgbfillColor={255,255,255})),
-          Ellipse(extent=[50,10; 70,-10],   style(color=0, thickness=2)),
-          Line(points=[70,0; 92,0], style(color=78, rgbcolor={127,0,127}))),
-        Diagram(
-          Ellipse(extent=[50,10; 70,-10],   style(color=0, thickness=2)),
-          Rectangle(extent=[-50,100; 50,-100], style(color=0, thickness=2)),
-          Line(points=[-90,0; -50,0], style(color=78, rgbcolor={127,0,127})),
-          Line(points=[70,0; 90,0], style(color=78, rgbcolor={127,0,127}))),
-        DymolaStoredErrors);
-    end MISO_wide;
-    
+    annotation (Icon(
+        Rectangle(extent=[-100,-100; 80,50],   style(fillColor=30, fillPattern=
+                1)),
+        Polygon(points=[-100,50; -80,70; 100,70; 80,50; -100,50],      style(
+              fillColor=30, fillPattern=1)),
+        Polygon(points=[100,70; 100,-80; 80,-100; 80,50; 100,70],      style(
+              fillColor=30, fillPattern=1)),
+        Text(
+          extent=[-85,35; 65,-85],
+          string="Library",
+          style(color=3)),
+        Text(
+          extent=[-120,122; 120,73],
+          string="%name",
+          style(color=1))));
   end Interfaces;
   
   package Tables 
     
-    import D = Modelica.Electrical.Digital.Interfaces;
+    import D = Modelica.Electrical.Digital;
     import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
     
-    constant D.LogicValueType andmap[L.max, L.max]=[
+    constant D.Interfaces.Logic AndTable[L.max, L.max]=[
         L.'U', L.'U', L.'0', L.'U', L.'U', L.'U', L.'0', L.'U', L.'U';
         L.'U', L.'X', L.'0', L.'X', L.'X', L.'X', L.'0', L.'X', L.'X';
         L.'0', L.'0', L.'0', L.'0', L.'0', L.'0', L.'0', L.'0', L.'0';
@@ -265,7 +436,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
         L.'U', L.'X', L.'0', L.'1', L.'X', L.'X', L.'0', L.'1', L.'X';
         L.'U', L.'X', L.'0', L.'X', L.'X', L.'X', L.'0', L.'X', L.'X'];
     
-    constant D.LogicValueType ormap[L.max, L.max]=[
+    constant D.Interfaces.Logic OrTable[L.max, L.max]=[
         L.'U', L.'U', L.'U', L.'1', L.'U', L.'U', L.'U', L.'1', L.'U';
         L.'U', L.'X', L.'X', L.'1', L.'X', L.'X', L.'X', L.'1', L.'X';
         L.'U', L.'X', L.'0', L.'1', L.'X', L.'X', L.'0', L.'1', L.'X';
@@ -276,10 +447,10 @@ Modelica in file \"Modelica/package.mo\".</i><br>
         L.'1', L.'1', L.'1', L.'1', L.'1', L.'1', L.'1', L.'1', L.'1';
         L.'U', L.'X', L.'X', L.'1', L.'X', L.'X', L.'X', L.'1', L.'X'];
     
-    constant D.LogicValueType notmap[L.max]={
+    constant D.Interfaces.Logic NotTable[L.max]={
         L.'U',L.'X',L.'1',L.'0',L.'X',L.'X',L.'1',L.'0',L.'X'};
     
-    constant D.LogicValueType xormap[L.max, L.max]=[
+    constant D.Interfaces.Logic XorTable[L.max, L.max]=[
         L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U';
         L.'U', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X';
         L.'U', L.'X', L.'0', L.'1', L.'X', L.'X', L.'0', L.'1', L.'X';
@@ -290,16 +461,16 @@ Modelica in file \"Modelica/package.mo\".</i><br>
         L.'U', L.'X', L.'1', L.'0', L.'X', L.'X', L.'1', L.'0', L.'X';
         L.'U', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X'];
     
-    constant D.LogicValueType tox01map[L.max]={
+    constant D.Interfaces.Logic X01Table[L.max]={
         L.'X',L.'X',L.'0',L.'1',L.'X',L.'X',L.'0',L.'1',L.'X'};
     
-    constant D.LogicValueType tox01zmap[L.max]={
+    constant D.Interfaces.Logic X01ZTable[L.max]={
         L.'X',L.'X',L.'0',L.'1',L.'Z',L.'X',L.'0',L.'1',L.'Z'};
     
-    constant D.LogicValueType toux01map[L.max]={
+    constant D.Interfaces.Logic UX01Table[L.max]={
         L.'U',L.'X',L.'0',L.'1',L.'X',L.'X',L.'0',L.'1',L.'X'};
     
-    constant Integer delaymap[9, 9]=[
+    constant Integer DelayTable[9, 9]=[
         0, 0, -1, 1, 0, 0, -1, 1, 0;
         0, 0, -1, 1, 0, 0, -1, 1, 0;
         1, 1, 0, 1, 1, 1, 0, 1, 1;
@@ -309,6 +480,21 @@ Modelica in file \"Modelica/package.mo\".</i><br>
         1, 1, 0, 1, 1, 1, 0, 1, 1;
         -1, -1, -1, 0, -1, -1, -1, 0, -1;
         0, 0, -1, 1, 0, 0, -1, 1, 0];
+    annotation (Icon(
+        Rectangle(extent=[-100,-100; 80,50],   style(fillColor=30, fillPattern=
+                1)),
+        Polygon(points=[-100,50; -80,70; 100,70; 80,50; -100,50],      style(
+              fillColor=30, fillPattern=1)),
+        Polygon(points=[100,70; 100,-80; 80,-100; 80,50; 100,70],      style(
+              fillColor=30, fillPattern=1)),
+        Text(
+          extent=[-85,35; 65,-85],
+          string="Library",
+          style(color=3)),
+        Text(
+          extent=[-120,122; 120,73],
+          string="%name",
+          style(color=1))));
   end Tables;
   
   package Delay "Delay blocks" 
@@ -317,25 +503,23 @@ Modelica in file \"Modelica/package.mo\".</i><br>
       import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       parameter Modelica.SIunits.Time tLH=0 "rise inertial delay";
       parameter Modelica.SIunits.Time tHL=0 "fall inertial delay";
-      parameter Digital.Interfaces.LogicValueType inity=L.'U' 
-        "initial value of output";
+      parameter Digital.Interfaces.Logic y0=L.'U' "initial value of output";
     algorithm 
     end DelayParams;
     
     model TransportDelay "Transport delay with initial parameter" 
-      import D = Modelica.Electrical.Digital.Interfaces;
-      extends D.SISO;
-      parameter Modelica.SIunits.Time Tdel=0 "delay time";
-      parameter D.LogicValueType initout=D.LogicValue.'U' 
-        "initial value of output";
-      D.LogicValueType x_delayed;
+      import D = Modelica.Electrical.Digital;
+      import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
+      extends D.Interfaces.SISO;
+      parameter Modelica.SIunits.Time delayTime=0 "delay time";
+      parameter D.Interfaces.Logic y0=L.'U' "initial value of output";
+    protected 
+      D.Interfaces.Logic x_delayed;
     algorithm 
-      x_delayed := integer(delay(x, Tdel));
-      y := if Tdel > 0 then 
-                          if time >= Tdel then x_delayed else 
-                               initout else 
-                            x;
-      
+      x_delayed := integer(delay(x, delayTime));
+      y := if delayTime > 0 then 
+              if time >= delayTime then x_delayed else y0 else 
+                x;
       annotation (Documentation(info="<HTML>
 <P>
 Provide the input as output exactly delayed by <i>Tdel</i>.
@@ -350,7 +534,7 @@ If time less than <i>Tdel</i> the initial value <i>initout</i> holds.
        </li>
 <li><i>August 11, 2003</i>
        by Christoph Clauss<br>
-       realized.</li>
+       initially modelled.</li>
 </ul>
 </HTML>"),
     Icon( Text(
@@ -360,46 +544,53 @@ If time less than <i>Tdel</i> the initial value <i>initout</i> holds.
           Rectangle(extent=[-50,100; 50,-100], style(
               color=0,
               rgbcolor={0,0,0},
-              fillColor=79,
-              rgbfillColor={170,85,255})),
+              thickness=2,
+              fillColor=84,
+              rgbfillColor={213,170,255})),
+          Polygon(points=[-6,60; -16,40; 4,40; -6,60], style(color=0, rgbcolor=
+                  {0,0,0})),
+          Line(points=[0,60; 20,60], style(
+              color=0,
+              rgbcolor={0,0,0},
+              fillPattern=1)),
+          Line(points=[10,60; 10,40], style(
+              color=0,
+              rgbcolor={0,0,0},
+              fillPattern=1)),
           Text(
-            extent=[-50,0; 50,60],
+            extent=[-50,-40; 50,-20],
             style(
               color=0,
               thickness=2,
               fillPattern=1),
             string="Transport"),
           Text(
-            extent=[-40,-80; 40,-20],
+            extent=[-50,-60; 50,-40],
             style(
               color=0,
               thickness=2,
               fillPattern=1),
-            string="delay")));
-    equation 
-      
+            string="Delay")));
     end TransportDelay;
     
     block InertialDelay "Inertial delay with initial parameter" 
-      
-      import D = Modelica.Electrical.Digital.Interfaces;
-      parameter Modelica.SIunits.Time Tdel "minimum time to hold value";
-      parameter D.LogicValueType inity "initial value of output";
-      extends D.SISO;
+      import D = Modelica.Electrical.Digital;
+      import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
+      extends D.Interfaces.SISO;
+      parameter Modelica.SIunits.Time delayTime=0 "Minimum time to hold value";
+      parameter D.Interfaces.Logic y0=L.'U' "Initial value of output y";
     protected 
-      D.LogicValueType y_auxiliary(start=inity, fixed=true);
-      D.LogicValueType x_old(start=inity, fixed=true);
-      discrete Modelica.SIunits.Time Tnext(start=Tdel, fixed=true);
+      D.Interfaces.Logic y_auxiliary(start=y0, fixed=true);
+      D.Interfaces.Logic x_old(start=y0, fixed=true);
+      discrete Modelica.SIunits.Time t_next(start=delayTime, fixed=true);
     algorithm 
-      
-      when Tdel > 0 and change(x) then
+      when delayTime > 0 and change(x) then
         x_old := x;
-        Tnext := time + Tdel;
-      elsewhen time >= Tnext then
+        t_next := time + delayTime;
+      elsewhen time >= t_next then
         y_auxiliary := x;
       end when;
-      y := if Tdel > 0 then y_auxiliary else x;
-      
+      y := if delayTime > 0 then y_auxiliary else x;
       annotation (
         Documentation(info="<HTML>
 <P>
@@ -417,7 +608,7 @@ If time is less than <i>Tdel</i> the initial value <i>initout</i> holds.
        reviced</li>
 <li><i>March 19, 2003</i>
        by Martin Otter<br>
-       realized.</li>
+       initially modelled.</li>
 </ul>
 </HTML>"),
         Diagram,
@@ -429,63 +620,68 @@ If time is less than <i>Tdel</i> the initial value <i>initout</i> holds.
           Rectangle(extent=[-50,100; 50,-100], style(
               color=0,
               rgbcolor={0,0,0},
-              fillColor=79,
-              rgbfillColor={170,85,255})),
+              thickness=2,
+              fillColor=84,
+              rgbfillColor={213,170,255})),
+          Polygon(points=[-6,60; -16,40; 4,40; -6,60], style(color=0, rgbcolor=
+                  {0,0,0})),
+          Line(points=[10,60; 10,40], style(
+              color=0,
+              rgbcolor={0,0,0},
+              fillPattern=1)),
+          Line(points=[0,60; 20,60], style(
+              color=0,
+              rgbcolor={0,0,0},
+              fillPattern=1)),
           Text(
-            extent=[-50,20; 50,80],
+            extent=[-50,-40; 50,-20],
             style(
               color=0,
               thickness=2,
               fillPattern=1),
             string="Inertial"),
           Text(
-            extent=[-40,-80; 40,-20],
+            extent=[-50,-60; 50,-40],
             style(
               color=0,
               thickness=2,
               fillPattern=1),
-            string="delay")));
-    equation 
-      
+            string="Delay")));
     end InertialDelay;
     
     model InertialDelaySensitive 
       "Provide the input as output if it holds its value for a specific amount of time" 
-      
-      import D = Modelica.Electrical.Digital.Interfaces;
+      import D = Modelica.Electrical.Digital;
+      import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
+      extends D.Interfaces.SISO;
       parameter Modelica.SIunits.Time tLH=0 "rise inertial delay";
       parameter Modelica.SIunits.Time tHL=0 "fall inertial delay";
-      parameter D.LogicValueType inity=D.LogicValue.'U' 
-        "initial value of output";
-      extends D.SISO;
+      parameter D.Interfaces.Logic y0=L.'U' "initial value of output";
     protected 
-      D.LogicValueType delaymap[:, :]=Digital.Tables.delaymap 
+      D.Interfaces.Logic delayTable[:,:]=D.Tables.DelayTable 
         "specification of delay according to signal change";
-      Modelica.SIunits.Time Tdel;
-      // actual dealay time
-      D.LogicValueType y_auxiliary(start=inity, fixed=true);
-      D.LogicValueType x_old(start=inity, fixed=true);
+      Modelica.SIunits.Time delayTime;
+      D.Interfaces.Logic y_auxiliary(start=y0, fixed=true);
+      D.Interfaces.Logic x_old(start=y0, fixed=true);
       Integer lh;
-      discrete Modelica.SIunits.Time Tnext;
+      discrete Modelica.SIunits.Time t_next;
     algorithm 
       when initial() then
-        lh := delaymap[inity, x];
-        Tnext := if (lh > 0) then tLH else (if (lh < 0) then tHL else 0);
+        lh := delayTable[y0, x];
+        t_next := if (lh > 0) then tLH else (if (lh < 0) then tHL else 0);
       end when;
       when (tLH > 0 or tHL > 0) and change(x) then
-        x_old := if pre(x) == 0 then inity else pre(x);
-        lh := delaymap[x_old, x];
-        Tdel := if (lh > 0) then tLH else (if (lh < 0) then tHL else 0);
-        Tnext := time + Tdel;
-        if (lh == 0 or abs(Tdel) < Modelica.Constants.SMALL) then
+        x_old := if pre(x) == 0 then y0 else pre(x);
+        lh := delayTable[x_old, x];
+        delayTime := if (lh > 0) then tLH else (if (lh < 0) then tHL else 0);
+        t_next := time + delayTime;
+        if (lh == 0 or abs(delayTime) < Modelica.Constants.SMALL) then
           y_auxiliary := x;
         end if;
-        
-      elsewhen time >= Tnext then
+      elsewhen time >= t_next then
         y_auxiliary := x;
       end when;
       y := if ((tLH > 0 or tHL > 0)) then y_auxiliary else x;
-      
       annotation (
         Documentation(info="<HTML>
 <P>
@@ -495,10 +691,8 @@ The delay <i>Tdel</i> depends on the values of the signal change. To calculate <
 Digital.Tables is used. If the corresponding value is 1, then <i>tLH</i> is used, if it is -1, then <i>tHL</i>
 is used, if it is zero, the input is not delayed.
 </P>
-
 </HTML>
-", revisions="<HTML>
-
+",     revisions="<HTML>
 <ul>
 <li><i>September 15, 2004  </i> color changed, names changed
        by Christoph Clauss<br>
@@ -511,7 +705,7 @@ is used, if it is zero, the input is not delayed.
        </li>
 <li><i>October 12, 2003   </i>
        by Christoph Clauss<br>
-       realized</li>
+       initially modelled</li>
 </HTML>"),
         Diagram,
         Icon(
@@ -522,45 +716,69 @@ is used, if it is zero, the input is not delayed.
           Rectangle(extent=[-50,100; 50,-100], style(
               color=0,
               rgbcolor={0,0,0},
-              fillColor=79,
-              rgbfillColor={170,85,255})),
+              thickness=2,
+              fillColor=84,
+              rgbfillColor={213,170,255},
+              fillPattern=1)),
           Text(
-            extent=[-48,40; 50,100],
+            extent=[-50,-40; 50,-20],
             style(
               color=0,
               thickness=2,
               fillPattern=1),
             string="Inertial"),
           Text(
-            extent=[-40,-20; 40,40],
+            extent=[-50,-60; 50,-40],
             style(
               color=0,
               thickness=2,
               fillPattern=1),
-            string="delay"),
+            string="Delay"),
           Text(
-            extent=[-50,-100; 50,-40],
+            extent=[-50,-80; 50,-60],
             style(
               color=0,
               thickness=2,
               fillPattern=1),
-            string="sensitive")));
-    equation 
-      
+            string="sensitive"),
+          Polygon(points=[-6,60; -16,40; 4,40; -6,60], style(color=0, rgbcolor=
+                  {0,0,0})),
+          Line(points=[10,60; 10,40], style(
+              color=0,
+              rgbcolor={0,0,0},
+              fillPattern=1)),
+          Line(points=[0,60; 20,60], style(
+              color=0,
+              rgbcolor={0,0,0},
+              fillPattern=1))));
     end InertialDelaySensitive;
+    annotation (Icon(
+        Rectangle(extent=[-100,-100; 80,50],   style(fillColor=30, fillPattern=
+                1)),
+        Polygon(points=[-100,50; -80,70; 100,70; 80,50; -100,50],      style(
+              fillColor=30, fillPattern=1)),
+        Polygon(points=[100,70; 100,-80; 80,-100; 80,50; 100,70],      style(
+              fillColor=30, fillPattern=1)),
+        Text(
+          extent=[-85,35; 65,-85],
+          string="Library",
+          style(color=3)),
+        Text(
+          extent=[-120,122; 120,73],
+          string="%name",
+          style(color=1))));
   end Delay;
   
   package Basic "Basic logic without delay" 
     
     model Not "Not Logic" 
-      import D = Modelica.Electrical.Digital.Interfaces;
-      extends D.SISO_wide;
+      import D = Modelica.Electrical.Digital;
+      import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
+      extends D.Interfaces.SISO;
     protected 
-      D.LogicValueType auxiliary(start=D.LogicValue.'0');
+      D.Interfaces.Logic auxiliary(start=L.'0');
     equation 
-      
-      auxiliary = Modelica.Electrical.Digital.Tables.notmap[x];
-      
+      auxiliary = D.Tables.NotTable[x];
       y = pre(auxiliary);
       annotation (
         Documentation(info="<HTML>
@@ -575,12 +793,12 @@ Not with 1 input value, without delay.
        </li>
 <li><i>August 14, 2003</i>
        by Teresa Schlegel<br>
-       realized.</li>
+       initially modelled.</li>
 </ul>
 </HTML>"),
         Icon(
           Text(
-            extent=[-40,40; 40,80],
+            extent=[-50,40; 50,80],
             style(
               color=0,
               thickness=2,
@@ -589,24 +807,28 @@ Not with 1 input value, without delay.
           Text(
             extent=[152,-160; -148,-100],
             string="%name",
-            style(color=3, rgbcolor={0,0,255}))),
+            style(color=3, rgbcolor={0,0,255})),
+          Ellipse(extent=[50,6; 62,-6], style(
+              color=0,
+              rgbcolor={0,0,0},
+              thickness=2,
+              fillColor=7,
+              rgbfillColor={255,255,255}))),
         Diagram);
-      
     end Not;
     
-    model And "And Logic with multiple input and one output" 
-      import D = Modelica.Electrical.Digital.Interfaces;
-      import DM = Modelica.Electrical.Digital.Tables;
-      extends D.MISO;
+    model And "And logic with multiple input and one output" 
+      import D = Modelica.Electrical.Digital;
+      import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
+      extends D.Interfaces.MISO;
     protected 
-      D.LogicValueType auxiliary[ninputs](each start=D.LogicValue.'U');
+      D.Interfaces.Logic auxiliary[n](each start=L.'U');
     equation 
       auxiliary[1] = x[1];
-      for i in 1:ninputs - 1 loop
-        auxiliary[i + 1] = DM.andmap[auxiliary[i], x[i + 1]];
+      for i in 1:n - 1 loop
+        auxiliary[i + 1] = D.Tables.AndTable[auxiliary[i], x[i + 1]];
       end for;
-      y = pre(auxiliary[ninputs]);
-      
+      y = pre(auxiliary[n]);
       annotation (
         Documentation(info="<HTML>
 <P>
@@ -621,13 +843,13 @@ And with n input values, without delay.
        by Christoph Clauss<br>
        </li>
 <li><i>October 22, 2003</i>
-       by Liane Jacobi<br>
-       realized.</li>
+       by  Teresa Schlegel<br>
+       initially modelled.</li>
 </ul>
 </HTML>"),
         Icon(
           Text(
-            extent=[-40,40; 40,80],
+            extent=[-50,40; 50,80],
             style(
               color=0,
               thickness=2,
@@ -638,22 +860,20 @@ And with n input values, without delay.
             string="%name",
             style(color=3, rgbcolor={0,0,255}))),
         Diagram);
-      
     end And;
     
-    model Nand "Nand Logic with multiple input and one output" 
-      import D = Modelica.Electrical.Digital.Interfaces;
-      import DM = Modelica.Electrical.Digital.Tables;
-      extends D.MISO_wide;
+    model Nand "Nand logic with multiple input and one output" 
+      import D = Modelica.Electrical.Digital;
+      import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
+      extends D.Interfaces.MISO;
     protected 
-      D.LogicValueType auxiliary[ninputs](each start=D.LogicValue.'U');
+      D.Interfaces.Logic auxiliary[n](each start=L.'U');
     equation 
       auxiliary[1] = x[1];
-      for i in 1:ninputs - 1 loop
-        auxiliary[i + 1] = DM.andmap[auxiliary[i], x[i + 1]];
+      for i in 1:n - 1 loop
+        auxiliary[i + 1] = D.Tables.AndTable[auxiliary[i], x[i + 1]];
       end for;
-      y = pre(DM.notmap[auxiliary[ninputs]]);
-      
+      y = pre(D.Tables.NotTable[auxiliary[n]]);
       annotation (
         Documentation(info="<HTML>
 <P>
@@ -668,13 +888,13 @@ Nand with n input values, without delay.
        by Christoph Clauss<br>
        </li>
 <li><i>October 22, 2003</i>
-       by Liane Jacobi<br>
-       realized.</li>
+       by  Teresa Schlegel<br>
+       initially modelled.</li>
 </ul>
 </HTML>"),
         Icon(
           Text(
-            extent=[-40,40; 40,80],
+            extent=[-50,40; 50,80],
             style(
               color=0,
               thickness=2,
@@ -683,24 +903,28 @@ Nand with n input values, without delay.
           Text(
             extent=[152,-160; -148,-100],
             string="%name",
-            style(color=3, rgbcolor={0,0,255}))),
+            style(color=3, rgbcolor={0,0,255})),
+          Ellipse(extent=[50,6; 62,-6], style(
+              color=0,
+              rgbcolor={0,0,0},
+              thickness=2,
+              fillColor=7,
+              rgbfillColor={255,255,255}))),
         Diagram);
-      
     end Nand;
     
-    model Or "Or Logic with multiple input and one output" 
-      import D = Modelica.Electrical.Digital.Interfaces;
-      import DM = Modelica.Electrical.Digital.Tables;
-      extends D.MISO;
+    model Or "Or logic with multiple input and one output" 
+      import D = Modelica.Electrical.Digital;
+      import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
+      extends D.Interfaces.MISO;
     protected 
-      D.LogicValueType auxiliary[ninputs](each start=D.LogicValue.'U');
+      D.Interfaces.Logic auxiliary[n](each start=L.'U');
     equation 
       auxiliary[1] = x[1];
-      for i in 1:ninputs - 1 loop
-        auxiliary[i + 1] = DM.ormap[auxiliary[i], x[i + 1]];
+      for i in 1:n - 1 loop
+        auxiliary[i + 1] = D.Tables.OrTable[auxiliary[i], x[i + 1]];
       end for;
-      y = pre(auxiliary[ninputs]);
-      
+      y = pre(auxiliary[n]);
       annotation (
         Documentation(info="<HTML>
 <P>
@@ -715,13 +939,13 @@ Or with n input values, without delay.
        by Christoph Clauss<br>
        </li>
 <li><i>October 22, 2003</i>
-       by Liane Jacobi<br>
-       realized.</li>
+       by  Teresa Schlegel<br>
+       initially modelled.</li>
 </ul>
 </HTML>"),
         Icon(
           Text(
-            extent=[-40,40; 40,80],
+            extent=[-50,40; 50,80],
             style(
               color=0,
               thickness=2,
@@ -732,22 +956,20 @@ Or with n input values, without delay.
             string="%name",
             style(color=3, rgbcolor={0,0,255}))),
         Diagram);
-      
     end Or;
     
-    model Nor "Nor Logic with multiple input and one output" 
-      import D = Modelica.Electrical.Digital.Interfaces;
-      import DM = Modelica.Electrical.Digital.Tables;
-      extends D.MISO_wide;
+    model Nor "Nor logic with multiple input and one output" 
+      import D = Modelica.Electrical.Digital;
+      import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
+      extends D.Interfaces.MISO;
     protected 
-      D.LogicValueType auxiliary[ninputs](each start=D.LogicValue.'U');
+      D.Interfaces.Logic auxiliary[n](each start=L.'U');
     equation 
       auxiliary[1] = x[1];
-      for i in 1:ninputs - 1 loop
-        auxiliary[i + 1] = DM.ormap[auxiliary[i], x[i + 1]];
+      for i in 1:n - 1 loop
+        auxiliary[i + 1] = D.Tables.OrTable[auxiliary[i], x[i + 1]];
       end for;
-      y = pre(DM.notmap[auxiliary[ninputs]]);
-      
+      y = pre(D.Tables.NotTable[auxiliary[n]]);
       annotation (
         Documentation(info="<HTML>
 <P>
@@ -763,12 +985,12 @@ Nor with n input values, without delay.
        </li>
 <li><i>October 22, 2003</i>
        by Liane Jacobi<br>
-       realized.</li>
+       initially modelled.</li>
 </ul>
 </HTML>"),
         Icon(
           Text(
-            extent=[-40,40; 40,80],
+            extent=[-50,40; 50,80],
             style(
               color=0,
               thickness=2,
@@ -777,24 +999,28 @@ Nor with n input values, without delay.
           Text(
             extent=[152,-160; -148,-100],
             string="%name",
-            style(color=3, rgbcolor={0,0,255}))),
+            style(color=3, rgbcolor={0,0,255})),
+          Ellipse(extent=[50,6; 62,-6], style(
+              color=0,
+              rgbcolor={0,0,0},
+              thickness=2,
+              fillColor=7,
+              rgbfillColor={255,255,255}))),
         Diagram);
-      
     end Nor;
     
-    model Xor "Xor Logic with multiple input and one output" 
-      import D = Modelica.Electrical.Digital.Interfaces;
-      import DM = Modelica.Electrical.Digital.Tables;
-      extends D.MISO;
+    model Xor "Xor logic with multiple input and one output" 
+      import D = Modelica.Electrical.Digital;
+      import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
+      extends D.Interfaces.MISO;
     protected 
-      D.LogicValueType auxiliary[ninputs](each start=D.LogicValue.'U');
+      D.Interfaces.Logic auxiliary[n](each start=L.'U');
     equation 
       auxiliary[1] = x[1];
-      for i in 1:ninputs - 1 loop
-        auxiliary[i + 1] = DM.xormap[auxiliary[i], x[i + 1]];
+      for i in 1:n - 1 loop
+        auxiliary[i + 1] = D.Tables.XorTable[auxiliary[i], x[i + 1]];
       end for;
-      y = pre(auxiliary[ninputs]);
-      
+      y = pre(auxiliary[n]);
       annotation (
         Documentation(info="<HTML>
 <P>
@@ -810,12 +1036,12 @@ Xor with n input values, without delay.
        </li>
 <li><i>October 22, 2003</i>
        by Liane Jacobi<br>
-       realized.</li>
+       initially modelled.</li>
 </ul>
 </HTML>"),
         Icon(
           Text(
-            extent=[-40,40; 40,80],
+            extent=[-50,40; 50,80],
             style(
               color=0,
               thickness=2,
@@ -826,22 +1052,20 @@ Xor with n input values, without delay.
             string="%name",
             style(color=3, rgbcolor={0,0,255}))),
         Diagram);
-      
     end Xor;
     
-    model Xnor "Xnor Logic with multiple input and one output" 
-      import D = Modelica.Electrical.Digital.Interfaces;
-      import DM = Modelica.Electrical.Digital.Tables;
-      extends D.MISO_wide;
+    model Xnor "Xnor logic with multiple input and one output" 
+      import D = Modelica.Electrical.Digital;
+      import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
+      extends D.Interfaces.MISO;
     protected 
-      D.LogicValueType auxiliary[ninputs](each start=D.LogicValue.'U');
+      D.Interfaces.Logic auxiliary[n](each start=L.'U');
     equation 
       auxiliary[1] = x[1];
-      for i in 1:ninputs - 1 loop
-        auxiliary[i + 1] = DM.xormap[auxiliary[i], x[i + 1]];
+      for i in 1:n - 1 loop
+        auxiliary[i + 1] = D.Tables.XorTable[auxiliary[i], x[i + 1]];
       end for;
-      y = pre(DM.notmap[auxiliary[ninputs]]);
-      
+      y = pre(D.Tables.NotTable[auxiliary[n]]);
       annotation (
         Documentation(info="<HTML>
 <P>
@@ -857,12 +1081,12 @@ XNor with n input values, without delay.
        </li>
 <li><i>October 22, 2003</i>
        by Liane Jacobi<br>
-       realized.</li>
+       initially modelled.</li>
 </ul>
 </HTML>"),
         Icon(
           Text(
-            extent=[-40,40; 40,80],
+            extent=[-50,40; 50,80],
             style(
               color=0,
               thickness=2,
@@ -873,21 +1097,33 @@ XNor with n input values, without delay.
             string="%name",
             style(color=3, rgbcolor={0,0,255}))),
         Diagram);
-      
     end Xnor;
+    annotation (Icon(
+        Rectangle(extent=[-100,-100; 80,50],   style(fillColor=30, fillPattern=
+                1)),
+        Polygon(points=[-100,50; -80,70; 100,70; 80,50; -100,50],      style(
+              fillColor=30, fillPattern=1)),
+        Polygon(points=[100,70; 100,-80; 80,-100; 80,50; 100,70],      style(
+              fillColor=30, fillPattern=1)),
+        Text(
+          extent=[-85,35; 65,-85],
+          string="Library",
+          style(color=3)),
+        Text(
+          extent=[-120,122; 120,73],
+          string="%name",
+          style(color=1))));
   end Basic;
   
   package Gates "Logic gates including delay" 
     
     model InvGate 
-      import D = Modelica.Electrical.Digital.Interfaces;
-      extends Digital.Delay.DelayParams;
-      extends D.SISO;
-      Digital.Basic.Not Not1 annotation (extent=[-40, -20; 0, 20]);
-      Delay.InertialDelaySensitive InertialDelaySensitive1(tLH=tLH, tHL=tHL) 
-        annotation (extent=[0, -20; 40, 20]);
-    equation 
-      
+      import D = Modelica.Electrical.Digital;
+      extends D.Delay.DelayParams;
+      extends D.Interfaces.SISO;
+      D.Basic.Not G1         annotation (extent=[-60,-20; -20,20]);
+      D.Delay.InertialDelaySensitive G2(tLH=tLH, tHL=tHL) 
+        annotation (extent=[20,-20; 60,20]);
       annotation (
         Documentation(info="<HTML>
 <P>
@@ -902,7 +1138,7 @@ InvGate with 1 input value, composed by Not and sensitive intertial delay.
        </li>
 <li><i>August 14, 2003</i>
        by Teresa Schlegel<br>
-       realized.</li>
+       initially modelled.</li>
 </ul>
 </HTML>"),
         Diagram,
@@ -918,7 +1154,7 @@ InvGate with 1 input value, composed by Not and sensitive intertial delay.
               fillColor=84,
               rgbfillColor={213,170,255})),
           Text(
-            extent=[-40,80; 40,40],
+            extent=[-50,80; 50,40],
             style(
               color=0,
               thickness=2,
@@ -926,28 +1162,34 @@ InvGate with 1 input value, composed by Not and sensitive intertial delay.
               fillPattern=1),
             string="1"),
           Text(
-            extent=[-20,-60; 20,-100],
+            extent=[-18,-60; 20,-100],
             string="Gate",
-            style(color=0))));
-      connect(InertialDelaySensitive1.y, y) annotation (points=[40,0; 100,0],
+            style(color=0)),
+          Ellipse(extent=[50,6; 62,-6], style(
+              color=0,
+              rgbcolor={0,0,0},
+              thickness=2,
+              fillColor=7,
+              rgbfillColor={255,255,255}))));
+    equation 
+      connect(G2.y, y)                      annotation (points=[60,0; 100,0],
           style(color=78, rgbcolor={127,0,127}));
-      
-      connect(Not1.x, x) annotation (points=[-40,0; -100,0], style(color=78,
+      connect(G1.x, x)   annotation (points=[-52,0; -60,0],  style(color=78,
             rgbcolor={127,0,127}));
-      connect(Not1.y, InertialDelaySensitive1.x) 
-        annotation (points=[0,0; 0,0],  style(color=78, rgbcolor={127,0,127}));
+      connect(G1.y, G2.x) 
+        annotation (points=[-20,0; 28,0],
+                                        style(color=78, rgbcolor={127,0,127}));
     end InvGate;
     
     model AndGate "AndGate with multiple input" 
-      import D = Modelica.Electrical.Digital.Interfaces;
-      extends D.MISO;
-      extends Digital.Delay.DelayParams;
-      Basic.And And(ninputs=ninputs) 
-                                  annotation (extent=[-40, -20; 0, 20]);
-      Delay.InertialDelaySensitive InertialDelaySensitive1(
+      import D = Modelica.Electrical.Digital;
+      extends D.Interfaces.MISO;
+      extends D.Delay.DelayParams;
+      D.Basic.And G1(n=n)         annotation (extent=[-40, -20; 0, 20]);
+      D.Delay.InertialDelaySensitive G2(
         tLH=tLH,
         tHL=tHL,
-        inity=inity)     annotation (extent=[0, -20; 40, 20]);
+        y0=y0)     annotation (extent=[20,-20; 60,20]);
       annotation (
         Documentation(info="<HTML>
 <P>
@@ -962,8 +1204,8 @@ AndGate with n input values, composed by And and sensitive intertial delay.
        by Christoph Clauss<br>
        </li>
 <li><i>October 22, 2003</i>
-       by Liane Jacobi<br>
-       realized.</li>
+       by Teresa Schlegel<br>
+       initially modelled.</li>
 </ul>
 </HTML>"),
         Icon(
@@ -978,7 +1220,7 @@ AndGate with n input values, composed by And and sensitive intertial delay.
               fillColor=84,
               rgbfillColor={213,170,255})),
           Text(
-            extent=[-40,80; 40,40],
+            extent=[-50,80; 50,40],
             style(color=0, thickness=2),
             string="&"),
           Text(
@@ -987,20 +1229,18 @@ AndGate with n input values, composed by And and sensitive intertial delay.
             string="Gate")),
         Diagram);
     equation 
-      
-      connect(x, And.x) 
-        annotation (points=[-100,0; -40,0],  style(color=2));
-      connect(y, InertialDelaySensitive1.y) 
-        annotation (points=[100,0; 30,0],  style(color=2));
-      connect(And.y, InertialDelaySensitive1.x) 
-        annotation (points=[0,0; 10,0],     style(color=2));
+      connect(x, G1.x) 
+        annotation (points=[-60,0; -32,0], style(color=78, rgbcolor={127,0,127}));
+      connect(y, G2.y) 
+        annotation (points=[100,0; 60,0], style(color=78, rgbcolor={127,0,127}));
+      connect(G1.y, G2.x) 
+        annotation (points=[0,0; 28,0], style(color=78, rgbcolor={127,0,127}));
     end AndGate;
     
     model NandGate "NandGate with multiple input" 
-      import D = Modelica.Electrical.Digital.Interfaces;
-      
-      extends Digital.Delay.DelayParams;
-      extends D.MISO_wide;
+      import D = Modelica.Electrical.Digital;
+      extends D.Delay.DelayParams;
+      extends D.Interfaces.MISO;
       annotation (extent=[0, -20; 40, 20], Diagram,
         Icon(
           Text(
@@ -1023,7 +1263,13 @@ AndGate with n input values, composed by And and sensitive intertial delay.
           Text(
             extent=[-20,-60; 20,-100],
             style(color=0, thickness=2),
-            string="Gate")),
+            string="Gate"),
+          Ellipse(extent=[50,6; 62,-6], style(
+              color=0,
+              rgbcolor={0,0,0},
+              thickness=2,
+              fillColor=7,
+              rgbfillColor={255,255,255}))),
         Documentation(revisions="<HTML>
 
 <ul>
@@ -1031,8 +1277,8 @@ AndGate with n input values, composed by And and sensitive intertial delay.
        by Christoph Clauss<br>
        </li>
 <li><i>October 22, 2003</i>
-       by Liane Jacobi<br>
-       realized.</li>
+       by Teresa Schlegel<br>
+       initially modelled.</li>
 </ul>
 </HTML>", info="<HTML>
 <P>
@@ -1067,34 +1313,29 @@ NandGate with n input values, composed by Nand and sensitive intertial delay.
           Ellipse(extent=[60, -10; 40, 10], style(color=0, thickness=2))),
         Diagram,
         DymolaStoredErrors);
-      
-      Basic.Nand Nand(ninputs=ninputs) 
-                                    annotation (extent=[-42, -20; 4, 20]);
-      Delay.InertialDelaySensitive InertialDelaySensitive1(
+      D.Basic.Nand G1(n=n)          annotation (extent=[-40,-20; 0,20]);
+      D.Delay.InertialDelaySensitive G2(
         tLH=tLH,
         tHL=tHL,
-        inity=inity)     annotation (extent=[8, -20; 52, 20]);
+        y0=y0)     annotation (extent=[20,-20; 60,20]);
     equation 
-      
-      connect(x, Nand.x) 
-        annotation (points=[-100,0; -42,0],    style(color=2));
-      connect(Nand.y, InertialDelaySensitive1.x) 
-        annotation (points=[4,0; 19,0],      style(color=2));
-      connect(InertialDelaySensitive1.y, y) 
-        annotation (points=[41,0; 100,0],  style(color=2));
+      connect(x, G1.x) 
+        annotation (points=[-60,0; -32,0], style(color=78, rgbcolor={127,0,127}));
+      connect(G1.y, G2.x) 
+        annotation (points=[0,0; 28,0], style(color=78, rgbcolor={127,0,127}));
+      connect(G2.y, y) 
+        annotation (points=[60,0; 100,0], style(color=78, rgbcolor={127,0,127}));
     end NandGate;
     
     model OrGate "OrGate with multiple input" 
-      import D = Modelica.Electrical.Digital.Interfaces;
-      
-      extends Digital.Delay.DelayParams;
-      extends D.MISO;
-      Basic.Or Or(ninputs=ninputs) 
-                                annotation (extent=[-40, -20; 0, 20]);
-      Delay.InertialDelaySensitive InertialDelaySensitive1(
+      import D = Modelica.Electrical.Digital;
+      extends D.Delay.DelayParams;
+      extends D.Interfaces.MISO;
+      D.Basic.Or G1(n=n)        annotation (extent=[-40, -20; 0, 20]);
+      D.Delay.InertialDelaySensitive G2(
         tLH=tLH,
         tHL=tHL,
-        inity=inity)     annotation (extent=[0, -20; 40, 20]);
+        y0=y0)     annotation (extent=[20,-20; 60,20]);
       annotation (
         Documentation(info="<HTML>
 <P>
@@ -1109,8 +1350,8 @@ OrGate with n input values, composed by Or and sensitive intertial delay.
        by Christoph Clauss<br>
        </li>
 <li><i>October 22, 2003</i>
-       by Liane Jacobi<br>
-       realized.</li>
+       by Teresa Schlegel<br>
+       initially modelled.</li>
 </ul>
 </HTML>"),
         Icon(
@@ -1125,7 +1366,7 @@ OrGate with n input values, composed by Or and sensitive intertial delay.
               fillColor=84,
               rgbfillColor={213,170,255})),
           Text(
-            extent=[-40,80; 40,40],
+            extent=[-50,80; 50,40],
             style(color=0, thickness=2),
             string=">=1"),
           Text(
@@ -1134,25 +1375,23 @@ OrGate with n input values, composed by Or and sensitive intertial delay.
             string="Gate")),
         Diagram);
     equation 
-      
-      connect(Or.y, InertialDelaySensitive1.x) 
-        annotation (points=[0,0; 10,0],     style(color=2));
-      connect(x, Or.x) 
-        annotation (points=[-100,0; -40,0],  style(color=2));
-      connect(y, InertialDelaySensitive1.y) 
-        annotation (points=[100,0; 30,0],  style(color=2));
+      connect(G1.y, G2.x) 
+        annotation (points=[0,0; 28,0], style(color=78, rgbcolor={127,0,127}));
+      connect(x,G1. x) 
+        annotation (points=[-60,0; -32,0], style(color=78, rgbcolor={127,0,127}));
+      connect(y, G2.y) 
+        annotation (points=[100,0; 60,0], style(color=78, rgbcolor={127,0,127}));
     end OrGate;
     
     model NorGate "NorGate with multiple input" 
-      import D = Modelica.Electrical.Digital.Interfaces;
-      extends Digital.Delay.DelayParams;
-      extends D.MISO_wide;
-      Basic.Nor Nor(ninputs=ninputs) 
-                                  annotation (extent=[-40, -20; 0, 20]);
-      Delay.InertialDelaySensitive InertialDelaySensitive1(
+      import D = Modelica.Electrical.Digital;
+      extends D.Delay.DelayParams;
+      extends D.Interfaces.MISO;
+      D.Basic.Nor G1(n=n)         annotation (extent=[-40, -20; 0, 20]);
+      D.Delay.InertialDelaySensitive G2(
         tLH=tLH,
         tHL=tHL,
-        inity=inity)     annotation (extent=[0, -20; 40, 20]);
+        y0=y0)     annotation (extent=[20,-20; 60,20]);
       annotation (
         Documentation(info="<HTML>
 <P>
@@ -1168,7 +1407,7 @@ NorGate with n input values, composed by Nor and sensitive intertial delay.
        </li>
 <li><i>October 22, 2003</i>
        by Liane Jacobi<br>
-       realized.</li>
+       initially modelled.</li>
 </ul>
 </HTML>"),
         Icon(
@@ -1183,34 +1422,38 @@ NorGate with n input values, composed by Nor and sensitive intertial delay.
               fillColor=84,
               rgbfillColor={213,170,255})),
           Text(
-            extent=[-40,80; 40,40],
+            extent=[-50,80; 50,40],
             style(color=0, thickness=2),
             string=">=1"),
           Text(
             extent=[-20,-60; 20,-100],
             style(color=0, thickness=2),
-            string="Gate")),
+            string="Gate"),
+          Ellipse(extent=[50,6; 62,-6], style(
+              color=0,
+              rgbcolor={0,0,0},
+              thickness=2,
+              fillColor=7,
+              rgbfillColor={255,255,255}))),
         Diagram);
     equation 
-      
-      connect(Nor.y, InertialDelaySensitive1.x) 
-        annotation (points=[0,0; 10,0],    style(color=2));
-      connect(x, Nor.x) 
-        annotation (points=[-100,0; -40,0],  style(color=2));
-      connect(y, InertialDelaySensitive1.y) 
-        annotation (points=[100,0; 30,0],  style(color=2));
+      connect(G1.y, G2.x) 
+        annotation (points=[0,0; 28,0], style(color=78, rgbcolor={127,0,127}));
+      connect(x, G1.x) 
+        annotation (points=[-60,0; -32,0], style(color=78, rgbcolor={127,0,127}));
+      connect(y, G2.y) 
+        annotation (points=[100,0; 60,0], style(color=78, rgbcolor={127,0,127}));
     end NorGate;
     
     model XorGate "XorGate with multiple input" 
-      import D = Modelica.Electrical.Digital.Interfaces;
-      extends Digital.Delay.DelayParams;
-      extends D.MISO;
-      Basic.Xor Xor(ninputs=ninputs) 
-                                  annotation (extent=[-40, -20; 0, 20]);
-      Delay.InertialDelaySensitive InertialDelaySensitive1(
+      import D = Modelica.Electrical.Digital;
+      extends D.Delay.DelayParams;
+      extends D.Interfaces.MISO;
+      D.Basic.Xor G1(n=n)         annotation (extent=[-40, -20; 0, 20]);
+      D.Delay.InertialDelaySensitive G2(
         tLH=tLH,
         tHL=tHL,
-        inity=inity)     annotation (extent=[0, -20; 40, 20]);
+        y0=y0)     annotation (extent=[20,-20; 60,20]);
       annotation (
         Documentation(info="<HTML>
 <P>
@@ -1226,7 +1469,7 @@ XorGate with n input values, composed by Xor and sensitive intertial delay.
        </li>
 <li><i>October 22, 2003</i>
        by Liane Jacobi<br>
-       realized.</li>
+       initially modelled.</li>
 </ul>
 </HTML>"),
         Icon(
@@ -1241,7 +1484,7 @@ XorGate with n input values, composed by Xor and sensitive intertial delay.
               fillColor=84,
               rgbfillColor={213,170,255})),
           Text(
-            extent=[-40,80; 40,40],
+            extent=[-50,80; 50,40],
             style(color=0, thickness=2),
             string="=1"),
           Text(
@@ -1250,25 +1493,23 @@ XorGate with n input values, composed by Xor and sensitive intertial delay.
             string="Gate")),
         Diagram);
     equation 
-      
-      connect(x, Xor.x) 
-        annotation (points=[-100,0; -40,0],  style(color=2));
-      connect(Xor.y, InertialDelaySensitive1.x) 
-        annotation (points=[0,0; 10,0],     style(color=2));
-      connect(InertialDelaySensitive1.y, y) 
-        annotation (points=[30,0; 100,0],  style(color=2));
+      connect(x, G1.x) 
+        annotation (points=[-60,0; -32,0], style(color=78, rgbcolor={127,0,127}));
+      connect(G1.y, G2.x) 
+        annotation (points=[0,0; 28,0], style(color=78, rgbcolor={127,0,127}));
+      connect(G2.y, y) 
+        annotation (points=[60,0; 100,0], style(color=78, rgbcolor={127,0,127}));
     end XorGate;
     
-    model XNorGate "XnorGate with multiple input" 
-      import D = Modelica.Electrical.Digital.Interfaces;
-      extends Digital.Delay.DelayParams;
-      extends D.MISO_wide;
-      Basic.Xnor Xnor(ninputs=ninputs) 
-                                    annotation (extent=[-38, -20; 0, 20]);
-      Delay.InertialDelaySensitive InertialDelaySensitive1(
+    model XnorGate "XnorGate with multiple input" 
+      import D = Modelica.Electrical.Digital;
+      extends D.Delay.DelayParams;
+      extends D.Interfaces.MISO;
+      D.Basic.Xnor G1(n=n)          annotation (extent=[-40,-20; 0,20]);
+      D.Delay.InertialDelaySensitive G2(
         tLH=tLH,
         tHL=tHL,
-        inity=inity)     annotation (extent=[0, -20; 40, 20]);
+        y0=y0)     annotation (extent=[20,-20; 60,20]);
       annotation (
         Documentation(info="<HTML>
 <P>
@@ -1284,7 +1525,7 @@ XNorGate with n input values, composed by XNor and sensitive intertial delay.
        </li>
 <li><i>October 22, 2003</i>
        by Liane Jacobi<br>
-       realized.</li>
+       initially modelled.</li>
 </ul>
 </HTML>"),
         Icon(
@@ -1309,28 +1550,95 @@ XNorGate with n input values, composed by XNor and sensitive intertial delay.
         Diagram,
         DymolaStoredErrors);
     equation 
-      
-      connect(x, Xnor.x) 
-        annotation (points=[-100,0; -38,0],    style(color=2));
-      connect(InertialDelaySensitive1.y, y) 
-        annotation (points=[30,0; 100,0],  style(color=2));
-      connect(Xnor.y, InertialDelaySensitive1.x) 
-        annotation (points=[0,0; 10,0],      style(color=2));
-    end XNorGate;
+      connect(x, G1.x) 
+        annotation (points=[-60,0; -32,0], style(color=78, rgbcolor={127,0,127}));
+      connect(G2.y, y) 
+        annotation (points=[60,0; 100,0], style(color=78, rgbcolor={127,0,127}));
+      connect(G1.y, G2.x) 
+        annotation (points=[0,0; 28,0], style(color=78, rgbcolor={127,0,127}));
+    end XnorGate;
     
+    model BufGate 
+      import D = Modelica.Electrical.Digital;
+      extends D.Delay.DelayParams;
+      extends D.Interfaces.SISO;
+      D.Delay.InertialDelaySensitive G1(tLH=tLH, tHL=tHL) 
+        annotation (extent=[-30,-20; 10,20]);
+      annotation (
+        Documentation(info="<HTML>
+<P>
+InvGate with 1 input value, composed by Not and sensitive intertial delay.
+</P>
+
+</HTML>
+", revisions="<HTML>
+<ul>
+<li><i>   </i>
+       by ...<br>
+       </li>
+<li><i>September 21, 2004</i>
+       by Andre Schneider<br>
+       initially modelled.</li>
+</ul>
+</HTML>"),
+        Diagram,
+        Icon(
+          Text(
+            extent=[152,-160; -148,-100],
+            string="%name",
+            style(color=3, rgbcolor={0,0,255})),
+          Rectangle(extent=[-50,100; 50,-100], style(
+              color=0,
+              rgbcolor={0,0,0},
+              thickness=2,
+              fillColor=84,
+              rgbfillColor={213,170,255})),
+          Text(
+            extent=[-18,-60; 20,-100],
+            string="Gate",
+            style(color=0)),
+          Text(
+            extent=[-50,80; 50,40],
+            style(
+              color=0,
+              thickness=2,
+              fillColor=47,
+              fillPattern=1),
+            string="1")));
+    equation 
+      connect(G1.y, y)                      annotation (points=[10,0; 100,0],
+          style(color=78, rgbcolor={127,0,127}));
+      connect(G1.x, x) annotation (points=[-22,0; -60,0], style(color=78,
+            rgbcolor={127,0,127}));
+    end BufGate;
+    annotation (Icon(
+        Rectangle(extent=[-100,-100; 80,50],   style(fillColor=30, fillPattern=
+                1)),
+        Polygon(points=[-100,50; -80,70; 100,70; 80,50; -100,50],      style(
+              fillColor=30, fillPattern=1)),
+        Polygon(points=[100,70; 100,-80; 80,-100; 80,50; 100,70],      style(
+              fillColor=30, fillPattern=1)),
+        Text(
+          extent=[-85,35; 65,-85],
+          string="Library",
+          style(color=3)),
+        Text(
+          extent=[-120,122; 120,73],
+          string="%name",
+          style(color=1))));
   end Gates;
   
   package Sources 
     
     block Set "Digital Set Source" 
-      import D = Modelica.Electrical.Digital.Interfaces;
+      import D = Modelica.Electrical.Digital;
       import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
-      parameter D.LogicValueType setvalue=L.'U' "Logic value to be set";
-      D.DigitalOutput y 
+      parameter D.Interfaces.Logic x=L.'1' "Logic value to be set";
+      D.Interfaces.DigitalOutput y 
                     annotation (extent=[90,-10; 110,10]);
     algorithm 
-      assert(setvalue > 0 and setvalue < 10, "Parameter is no logic value");
-      y := setvalue;
+      assert(x >= L.min and x <= L.max, "Parameter is no logic value");
+      y := x;
       annotation (Documentation(info="<HTML>
 <P>
 Sets a nine valued digital signal, which is specified by the <i>setval</i> parameter.
@@ -1365,19 +1673,21 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
        </li>
 <li><i>August 20, 2003</i>
        by Teresa Schlegel<br>
-       realized.</li>
+       initially modelled.</li>
 </ul>
 </HTML>"),
     Icon( Rectangle(extent=[-50,100; 50,-100], style(
               color=0,
+              rgbcolor={0,0,0},
               thickness=2,
-              fillColor=55)),
+              fillColor=52,
+              rgbfillColor={213,255,170})),
           Text(
-            extent=[-40, 20; 40, 80],
-            string="set",
+            extent=[-50,40; 50,80],
+            string="SET",
             style(
-              color=78,
-              rgbcolor={127,0,127},
+              color=0,
+              rgbcolor={0,0,0},
               thickness=2,
               fillPattern=1)),
           Text(
@@ -1385,21 +1695,19 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
             string="%name",
             style(color=3, rgbcolor={0,0,255})),
           Line(points=[50,0; 90,0], style(color=78, rgbcolor={127,0,127}))));
-    equation 
-      
     end Set;
     
     block Step "Digital Step Source" 
-      import D = Modelica.Electrical.Digital.Interfaces;
+      import D = Modelica.Electrical.Digital;
       import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
-      parameter D.LogicValueType before=L.'0' "Logic value before step";
-      parameter D.LogicValueType after=L.'1' "Logic value after step";
+      parameter D.Interfaces.Logic before=L.'0' "Logic value before step";
+      parameter D.Interfaces.Logic after=L.'1' "Logic value after step";
       parameter Real stepTime=1 "step time";
-      D.DigitalOutput y 
+      D.Interfaces.DigitalOutput y 
                     annotation (extent=[90,-10; 110,10]);
     algorithm 
-      assert(before > 0 and before < 10, "Parameter is no logic value");
-      assert(after > 0 and after < 10, "Parameter is no logic value");
+      assert(before >= L.min and before <= L.max, "Parameter is no logic value");
+      assert(after >= L.min and after <= L.max, "Parameter is no logic value");
       when initial() then
         y := before;
       end when;
@@ -1444,22 +1752,23 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
        </li>
 <li><i>August 20, 2003</i>
        by Teresa Schlegel<br>
-       realized.</li>
+       initially modelled.</li>
 </ul>
 </HTML>"),
         Icon(
           Rectangle(extent=[-50,100; 50,-100], style(
               color=0,
+              rgbcolor={0,0,0},
               thickness=2,
-              fillColor=55)),
+              fillColor=52,
+              rgbfillColor={213,255,170})),
           Text(
             extent=[152,-160; -148,-100],
             string="%name",
             style(color=3, rgbcolor={0,0,255})),
-          Line(points=[-20,-20; -2,-20; -2,20; 18,20], style(
-              color=78,
-              rgbcolor={127,0,127},
-              thickness=2,
+          Line(points=[-30,40; 0,40; 0,80; 30,80], style(
+              color=0,
+              rgbcolor={0,0,0},
               fillColor=84,
               rgbfillColor={213,170,255},
               fillPattern=1)),
@@ -1470,34 +1779,33 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
     end Step;
     
     block Table "Digital Tabular Source" 
-      import D = Modelica.Electrical.Digital.Interfaces;
+      import D = Modelica.Electrical.Digital;
       import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
-      parameter D.LogicValueType setvalue[:]={1};
-      parameter Real settime[size(setvalue, 1)]={1};
-      parameter D.LogicValueType inity=L.'U';
-      final parameter Integer n=size(setvalue, 1);
-      D.DigitalOutput y 
+      parameter D.Interfaces.Logic x[:]={1};
+      parameter Real t[size(x, 1)]={1};
+      parameter D.Interfaces.Logic y0=L.'U';
+      final parameter Integer n=size(x, 1);
+      D.Interfaces.DigitalOutput y 
                     annotation (extent=[90,-10; 110,10]);
     algorithm 
       if initial() then
-        assert(inity > 0 and inity < 10, "Parameter inity is no logic value");
-        assert(size(setvalue, 1) == size(settime, 1), "Table: size mismatch");
-        assert(n > 0, "Table:size < 1");
+        assert(y0 >= L.min and y0 <= L.max, "Parameter y0 is not of type Logic");
+        assert(n > 0, "Invalid size of table (n < 1)");
         for i in 1:n loop
-          assert(setvalue[i] > 0 and setvalue[i] < 10, "Table: not a logic value");
+          assert(x[i] >= L.min and x[i] <= L.max, "Table element is not of type Logic");
         end for;
       end if;
-      y := inity;
+      y := y0;
       for i in 1:n loop
-        if time >= settime[i] then
-          y := setvalue[i];
+        if time >= t[i] then
+          y := x[i];
         end if;
       end for;
       annotation (
         Documentation(info="<HTML>
 <P>
-The table source output signal steps to the values of the  <i>setval</i> table at the corresponding
-timepoints in the <i>settime</i> table. <br>The initial value is specified by <i>initout</i>.
+The table source output signal <i>y</i> steps to the values of the  <i>x</i> table at the corresponding
+timepoints in the <i>t</i> table. <br>The initial value is specified by <i>y0</i>.
 </P>
 <P>
 To specify the logic value parameters, the integer code has to be used.
@@ -1520,113 +1828,79 @@ If the logic values are imported by <br><b> import L = Modelica.Electrical.Digit
 they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
 </P>
 </HTML>
-", revisions="<HTML>
-
+",     revisions="<HTML>
 <ul>
 <li><i>   </i>
        by ...<br>
        </li>
 <li><i>August 20, 2003</i>
        by Teresa Schlegel<br>
-       realized.</li>
+       initially modelled.</li>
 </ul>
 </HTML>"),
         Icon(
           Rectangle(extent=[-50,100; 50,-100], style(
               color=0,
+              rgbcolor={0,0,0},
               thickness=2,
-              fillColor=55)),
+              fillColor=52,
+              rgbfillColor={213,255,170})),
           Text(
             extent=[152,-160; -148,-100],
             string="%name",
             style(color=3, rgbcolor={0,0,255})),
-          Line(points=[-20,80; -20,-80; 20,-80; 20,80; -20,80], style(
-              color=78,
-              rgbcolor={127,0,127},
-              thickness=2,
-              fillColor=84,
-              rgbfillColor={213,170,255},
+          Line(points=[50,0; 90,0], style(color=78, rgbcolor={127,0,127})),
+          Rectangle(extent=[-30,80; 32,70], style(
+              color=0,
+              rgbcolor={0,0,0},
+              fillColor=30,
+              rgbfillColor={215,215,215},
               fillPattern=1)),
-          Line(points=[0,80; 0,-80], style(
-              color=78,
-              rgbcolor={127,0,127},
-              thickness=2,
-              fillColor=84,
-              rgbfillColor={213,170,255},
+          Rectangle(extent=[-30,70; 32,40], style(
+              color=0,
+              rgbcolor={0,0,0},
+              fillColor=7,
+              rgbfillColor={255,255,255},
               fillPattern=1)),
-          Line(points=[-20,60; 20,60], style(
-              color=78,
-              rgbcolor={127,0,127},
-              thickness=2,
-              fillColor=84,
-              rgbfillColor={213,170,255},
+          Line(points=[0,80; 0,40], style(
+              color=0,
+              rgbcolor={0,0,0},
+              fillColor=53,
+              rgbfillColor={128,255,0},
               fillPattern=1)),
-          Line(points=[-20,40; 20,40], style(
-              color=78,
-              rgbcolor={127,0,127},
-              thickness=2,
-              fillColor=84,
-              rgbfillColor={213,170,255},
+          Line(points=[-30,60; 32,60], style(
+              color=0,
+              rgbcolor={0,0,0},
+              fillColor=53,
+              rgbfillColor={128,255,0},
               fillPattern=1)),
-          Line(points=[-20,20; 20,20], style(
-              color=78,
-              rgbcolor={127,0,127},
-              thickness=2,
-              fillColor=84,
-              rgbfillColor={213,170,255},
-              fillPattern=1)),
-          Line(points=[-20,0; 20,0], style(
-              color=78,
-              rgbcolor={127,0,127},
-              thickness=2,
-              fillColor=84,
-              rgbfillColor={213,170,255},
-              fillPattern=1)),
-          Line(points=[-20,-20; 20,-20], style(
-              color=78,
-              rgbcolor={127,0,127},
-              thickness=2,
-              fillColor=84,
-              rgbfillColor={213,170,255},
-              fillPattern=1)),
-          Line(points=[-20,-40; 20,-40], style(
-              color=78,
-              rgbcolor={127,0,127},
-              thickness=2,
-              fillColor=84,
-              rgbfillColor={213,170,255},
-              fillPattern=1)),
-          Line(points=[-20,-60; 20,-60; 20,-58], style(
-              color=78,
-              rgbcolor={127,0,127},
-              thickness=2,
-              fillColor=84,
-              rgbfillColor={213,170,255},
-              fillPattern=1)),
-          Line(points=[50,0; 90,0], style(color=78, rgbcolor={127,0,127}))),
+          Line(points=[-30,50; 32,50], style(
+              color=0,
+              rgbcolor={0,0,0},
+              fillColor=53,
+              rgbfillColor={128,255,0},
+              fillPattern=1))),
         Diagram);
-    equation 
-      
     end Table;
     
     model Pulse "Digital Pulse Source" 
-      import D = Modelica.Electrical.Digital.Interfaces;
+      import D = Modelica.Electrical.Digital;
       import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       parameter Real width(
         final min=Modelica.Constants.SMALL,
         final max=100) = 50 "Widths of pulses in % of periods";
       parameter Modelica.SIunits.Time period(final min=Modelica.Constants.SMALL)=
-           1 "Times for one period";
+           1 "Time for one period";
       parameter Modelica.SIunits.Time startTime=0 
         "Output = offset for time < startTime";
-      parameter D.LogicValueType pulse=L.'0';
-      parameter D.LogicValueType quiet=L.'1';
+      parameter D.Interfaces.Logic pulse=L.'0';
+      parameter D.Interfaces.Logic quiet=L.'1';
       Modelica.SIunits.Time T0(final start=startTime) 
         "Start time of current period";
       parameter Integer nperiod=-1 
         "Number of periods (< 0 means infinite number of periods)";
       Integer np(start=0);
-      D.DigitalOutput y 
+      D.Interfaces.DigitalOutput y 
                     annotation (extent=[90,-10; 110,10]);
     algorithm 
       if nperiod == 0 then
@@ -1680,47 +1954,115 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
        </li>
 <li><i>September 2, 2003</i>
        by Christoph Clauss<br>
-       realized.</li>
+       initially modelled.</li>
 </ul>
 </HTML>"),
     Icon( Rectangle(extent=[-50,100; 50,-100], style(
               color=0,
+              rgbcolor={0,0,0},
               thickness=2,
-              fillColor=55)),
+              fillColor=52,
+              rgbfillColor={213,255,170})),
           Text(
             extent=[152,-160; -148,-100],
             string="%name",
             style(color=3, rgbcolor={0,0,255})),
-          Line(points=[-26,-10; -18,-10; -18,10; -8,10], style(
-              color=78,
-              rgbcolor={127,0,127},
-              thickness=2,
-              fillColor=84,
-              rgbfillColor={213,170,255},
-              fillPattern=1)),
-          Line(points=[-8,10; -8,-10; 2,-10; 2,10; 12,10; 12,-10; 16,-10; 18,
-                -10], style(
-              color=78,
-              rgbcolor={127,0,127},
-              thickness=2,
-              fillColor=84,
-              rgbfillColor={213,170,255},
-              fillPattern=1)),
-          Line(points=[50,0; 90,0], style(color=78, rgbcolor={127,0,127}))));
+          Line(points=[50,0; 90,0], style(color=78, rgbcolor={127,0,127})),
+          Line(points=[-36,40; -30,40; -30,40; -18,40; -18,40; -14,40; -14,80;
+                14,80; 14,40; 14,40; 14,40; 28,40; 30,40; 36,40],
+                                                          style(
+              color=0,
+              rgbcolor={0,0,0},
+              fillPattern=1))));
     end Pulse;
+    
+    model Clock "Digital Clock Source" 
+      import D = Modelica.Electrical.Digital;
+      import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
+      parameter Modelica.SIunits.Time startTime=0 
+        "Output = offset for time < startTime";
+      parameter Modelica.SIunits.Time period(
+        final min=Modelica.Constants.SMALL)=1 "Time for one period";
+      parameter Real width(
+        final min=Modelica.Constants.SMALL,
+        final max=100) = 50 "Width of pulses in % of period";
+      D.Interfaces.DigitalOutput y 
+                    annotation (extent=[90,-10; 110,10]);
+    protected 
+      Modelica.SIunits.Time t_i(final start=startTime) 
+        "Start time of current period";
+      Modelica.SIunits.Time t_width=period*width/100;
+    algorithm 
+      when sample(startTime, period) then
+        t_i := time;
+      end when;
+      y := if time < startTime or time >= t_i + t_width then L.'0' else L.'1';
+      annotation (Documentation(info="<HTML>
+<P>
+The clock source forms pulses between the  <i>'0'</i> value (forcing 0) and the <i>'1'</i> value (forcing 1). 
+The pulse length <i>width</i> is specified in percent of the period length <i>period</i>.
+The number of periods is unlimited. The first pulse starts at startTime.
+</P>
+<P> The clock source is a special but often used variant of the pulse source. 
+</P>
+</HTML>
+",     revisions="<HTML>
+<ul>
+<li><i>   </i>
+       by ...<br>
+       </li>
+<li><i>September 18, 2004</i>
+       by Andre Schneider<br>
+       initially modelled.</li>
+</ul>
+</HTML>"),
+    Icon( Rectangle(extent=[-50,100; 50,-100], style(
+              color=0,
+              rgbcolor={0,0,0},
+              thickness=2,
+              fillColor=52,
+              rgbfillColor={213,255,170})),
+          Text(
+            extent=[152,-160; -148,-100],
+            string="%name",
+            style(color=3, rgbcolor={0,0,255})),
+          Line(points=[50,0; 90,0], style(color=78, rgbcolor={127,0,127})),
+          Line(points=[-36,40; -30,40; -30,80; -18,80; -18,40; -6,40; -6,80; 6,80;
+                6,40; 18,40; 18,80; 30,80; 30,40; 36,40], style(
+              color=0,
+              rgbcolor={0,0,0},
+              fillPattern=1))),
+        DymolaStoredErrors);
+    end Clock;
+    annotation (Icon(
+        Rectangle(extent=[-100,-100; 80,50],   style(fillColor=30, fillPattern=
+                1)),
+        Polygon(points=[-100,50; -80,70; 100,70; 80,50; -100,50],      style(
+              fillColor=30, fillPattern=1)),
+        Polygon(points=[100,70; 100,-80; 80,-100; 80,50; 100,70],      style(
+              fillColor=30, fillPattern=1)),
+        Text(
+          extent=[-85,35; 65,-85],
+          string="Library",
+          style(color=3)),
+        Text(
+          extent=[-120,122; 120,73],
+          string="%name",
+          style(color=1))));
   end Sources;
   
   package Converters 
     block LogicToXO1 "Conversion to XO1" 
-      import D = Modelica.Electrical.Digital.Interfaces;
-      D.DigitalInput x[n] 
+      import D = Modelica.Electrical.Digital;
+      import T = Modelica.Electrical.Digital.Tables;
+      D.Interfaces.DigitalInput x[n] 
                         annotation (extent=[-60, -10; -40, 10]);
-      D.DigitalOutput y[n] 
+      D.Interfaces.DigitalOutput y[n] 
                          annotation (extent=[40, -10; 60, 10]);
       parameter Integer n(final min=1) = 1 "signal width";
     algorithm 
       for i in 1:n loop
-        y[i] := Modelica.Electrical.Digital.Tables.tox01map[x[i]];
+        y[i] := T.X01Table[x[i]];
       end for;
       annotation (
         Documentation(info="<HTML>
@@ -1745,46 +2087,56 @@ any delay according to IEEE 1164 To_X01 function.
 If the signal width is greater than 1 this conversion is done for each signal.
 </P>
 </HTML>
-", revisions="<HTML>
-
+",     revisions="<HTML>
 <ul>
 <li><i>September 15, 2004   </i>
        by Christoph Clauss name converted from cvt_to_x01 into LogicToX01<br>
        </li>
 <li><i>November 5, 2003</i>
        by Christoph Clauss<br>
-       realized.</li>
+       initially modelled.</li>
 </ul>
 </HTML>
 "),     Icon(
-          Rectangle(extent=[-40, 40; 40, -40], style(color=0, thickness=2)),
-          Text(
-            extent=[20, 40; -20, 0],
-            style(color=0, thickness=2),
-            string="To"),
-          Text(
-            extent=[-40, 0; 40, -40],
-            style(color=0, thickness=2),
-            string="x01"),
           Text(
             extent=[152,-100; -148,-40],
             string="%name",
-            style(color=3, rgbcolor={0,0,255}))),
+            style(color=3, rgbcolor={0,0,255})),
+          Polygon(points=[-40,-40; -40,40; 40,40; -40,-40], style(
+              color=78,
+              rgbcolor={127,0,127},
+              fillColor=78,
+              rgbfillColor={127,0,127},
+              fillPattern=1)),
+          Polygon(points=[-40,-40; 40,-40; 40,40; -40,-40], style(
+              color=78,
+              rgbcolor={127,0,127},
+              thickness=2,
+              fillColor=7,
+              rgbfillColor={255,255,255},
+              fillPattern=1)),
+          Text(
+            extent=[0,-20; 40,-40],
+            style(color=0, thickness=2),
+            string="X01"),
+          Rectangle(extent=[-40,40; 40,-40], style(
+              color=0,
+              rgbcolor={0,0,0},
+              thickness=2))),
         Diagram);
-    equation 
-      
     end LogicToXO1;
     
     block LogicToXO1Z "Conversion to XO1Z" 
-      import D = Modelica.Electrical.Digital.Interfaces;
-      D.DigitalInput x[n] 
+      import D = Modelica.Electrical.Digital;
+      import T = Modelica.Electrical.Digital.Tables;
+      D.Interfaces.DigitalInput x[n] 
                         annotation (extent=[-60, -10; -40, 10]);
-      D.DigitalOutput y[n] 
+      D.Interfaces.DigitalOutput y[n] 
                          annotation (extent=[40, -10; 60, 10]);
       parameter Integer n(final min=1) = 1 "signal width";
     algorithm 
       for i in 1:n loop
-        y[i] := Modelica.Electrical.Digital.Tables.tox01zmap[x[i]];
+        y[i] := T.X01ZTable[x[i]];
       end for;
       annotation (
         Documentation(info="<HTML>
@@ -1808,48 +2160,57 @@ any delay according to IEEE 1164 To_X01Z function.
 <P>
 If the signal width is greater than 1 this conversion is done for each signal.
 </P>
-
 </HTML>
-", revisions="<HTML>
-
+",     revisions="<HTML>
 <ul>
 <li><i>September 15, 2004   </i>
        by Christoph Clauss name converted from cvt_to_x01z into LogicToX01Z<br>
        </li>
 <li><i>November 5, 2003</i>
        by Christoph Clauss<br>
-       realized.</li>
+       initially modelled.</li>
 </ul>
 </HTML>"),
         Icon(
           Text(
-            extent=[40, 40; -40, 0],
-            style(color=0, thickness=2),
-            string="To"),
-          Text(
-            extent=[-40, 0; 40, -40],
-            style(color=0, thickness=2),
-            string="x01z"),
-          Rectangle(extent=[-40, 40; 40, -40], style(color=0, thickness=2)),
-          Text(
             extent=[152,-100; -148,-40],
             string="%name",
-            style(color=3, rgbcolor={0,0,255}))),
+            style(color=3, rgbcolor={0,0,255})),
+          Polygon(points=[-40,-40; -40,40; 40,40; -40,-40], style(
+              color=78,
+              rgbcolor={127,0,127},
+              fillColor=78,
+              rgbfillColor={127,0,127},
+              fillPattern=1)),
+          Polygon(points=[-40,-40; 40,-40; 40,40; -40,-40], style(
+              color=78,
+              rgbcolor={127,0,127},
+              thickness=2,
+              fillColor=7,
+              rgbfillColor={255,255,255},
+              fillPattern=1)),
+          Text(
+            extent=[0,-20; 40,-40],
+            style(color=0, thickness=2),
+            string="X01Z"),
+          Rectangle(extent=[-40,40; 40,-40], style(
+              color=0,
+              rgbcolor={0,0,0},
+              thickness=2))),
         Diagram);
-    equation 
-      
     end LogicToXO1Z;
     
     block LogicToUX01 "Conversion to UXO1" 
-      import D = Modelica.Electrical.Digital.Interfaces;
-      D.DigitalInput x[n] 
+      import D = Modelica.Electrical.Digital;
+      import T = Modelica.Electrical.Digital.Tables;
+      D.Interfaces.DigitalInput x[n] 
                         annotation (extent=[-60, -10; -40, 10]);
-      D.DigitalOutput y[n] 
+      D.Interfaces.DigitalOutput y[n] 
                          annotation (extent=[40, -10; 60, 10]);
       parameter Integer n(final min=1) = 1 "signal width";
     algorithm 
       for i in 1:n loop
-        y[i] := Modelica.Electrical.Digital.Tables.toux01map[x[i]];
+        y[i] := T.UX01Table[x[i]];
       end for;
       annotation (
         Documentation(info="<HTML>
@@ -1874,39 +2235,48 @@ any delay according to IEEE 1164 To_UX01 function.
 If the signal width is greater than 1 this conversion is done for each signal.
 </P>
 </HTML>
-", revisions="<HTML>
-
+",     revisions="<HTML>
 <ul>
 <li><i>September 15, 2004   </i>
        by Christoph Clauss name converted from cvt_to_ux01 into LogicToUX01<br>
        </li>
 <li><i>November 5, 2003</i>
        by Christoph Clauss<br>
-       realized.</li>
+       initially modelled.</li>
 </ul>
 </HTML>"),
         Icon(
           Text(
-            extent=[-40, 0; 40, -40],
-            style(color=0, thickness=2),
-            string="ux01"),
-          Rectangle(extent=[-40, 40; 40, -40], style(color=0, thickness=2)),
-          Text(
-            extent=[40, 40; -40, 0],
-            style(color=0, thickness=2),
-            string="To"),
-          Text(
             extent=[152,-100; -148,-40],
             string="%name",
-            style(color=3, rgbcolor={0,0,255}))),
+            style(color=3, rgbcolor={0,0,255})),
+          Polygon(points=[-40,-40; -40,40; 40,40; -40,-40], style(
+              color=78,
+              rgbcolor={127,0,127},
+              fillColor=78,
+              rgbfillColor={127,0,127},
+              fillPattern=1)),
+          Polygon(points=[-40,-40; 40,-40; 40,40; -40,-40], style(
+              color=78,
+              rgbcolor={127,0,127},
+              thickness=2,
+              fillColor=7,
+              rgbfillColor={255,255,255},
+              fillPattern=1)),
+          Text(
+            extent=[0,-20; 40,-40],
+            style(color=0, thickness=2),
+            string="UX01"),
+          Rectangle(extent=[-40,40; 40,-40], style(
+              color=0,
+              rgbcolor={0,0,0},
+              thickness=2))),
         Diagram);
-    equation 
-      
     end LogicToUX01;
     
-    block BooleanToDigital "Boolean to Digital converter" 
+    block BooleanToLogic "Boolean to Logic converter" 
       import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
-      Modelica.Blocks.Interfaces.BooleanInput u[n] 
+      Modelica.Blocks.Interfaces.BooleanInput x[n] 
         annotation (extent=[-60, -10; -40, 10]);
       annotation (
         Documentation(info="<HTML>
@@ -1921,16 +2291,15 @@ Conversion of a Boolean input into a digital output without any delay according 
 <P>
 If the signal width is greater than 1 this conversion is done for each signal.
 </P>
-
 </HTML>
-", revisions="<HTML>
+",     revisions="<HTML>
 <ul>
 <li><i>September 15, 2004   </i>
        by Christoph Clauss colors changed<br>
        </li>
 <li><i>November 4, 2003</i>
        by Christoph Clauss<br>
-       realized.</li>
+       initially modelled.</li>
 </ul>
 </HTML>"),
         extent=[-60, -10; -40, 10],
@@ -1948,24 +2317,28 @@ If the signal width is greater than 1 this conversion is done for each signal.
           Text(
             extent=[152,-100; -148,-40],
             string="%name",
-            style(color=3, rgbcolor={0,0,255}))),
+            style(color=3, rgbcolor={0,0,255})),
+          Rectangle(extent=[-40,40; 40,-40], style(
+              color=0,
+              rgbcolor={0,0,0},
+              thickness=2))),
         Diagram);
       
-      Digital.Interfaces.DigitalOutput DigitalOutput[n] 
+      Digital.Interfaces.DigitalOutput y[n] 
         annotation (extent=[40, -10; 60, 10]);
       annotation (extent=[40, -10; 60, 10]);
       annotation (Diagram);
       parameter Integer n(final min=1) = 1 "signal width";
     algorithm 
       for i in 1:n loop
-        DigitalOutput[i] := if u[i] then L.'1' else 
+        y[i] := if x[i] then L.'1' else 
           L.'0';
       end for;
-    end BooleanToDigital;
+    end BooleanToLogic;
     
-    block DigitalToBoolean "Digital to Boolean Converter" 
+    block LogicToBoolean "Logic to Boolean converter" 
       import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
-      Digital.Interfaces.DigitalInput DigitalInput[n] 
+      Digital.Interfaces.DigitalInput x[n] 
         annotation (extent=[-60, -10; -40, 10]);
       Modelica.Blocks.Interfaces.BooleanOutput y[n] 
         annotation (extent=[40, -10; 60, 10]);
@@ -1988,41 +2361,46 @@ Conversion of a digital input into a Boolean output without any delay according 
 <P>
 If the signal width is greater than 1 this conversion is done for each signal.
 </P>
-
 </HTML>
-", revisions="<HTML>
+",     revisions="<HTML>
 <ul>
 <li><i>September 15, 2004   </i>
        by Christoph Clauss colors changed<br>
        </li>
 <li><i>November 4, 2003</i>
        by Christoph Clauss<br>
-       realized.</li>
+       initially modelled.</li>
 </ul>
 </HTML>"),
-    Icon(Polygon(points=[-40,40; 40,40; -40,-40; -40,40],      style(
+    Icon(Polygon(points=[-40,40; 40,40; -40,-40; -40,40], style(
               color=78,
               rgbcolor={127,0,127},
-              thickness=2,
               fillColor=78,
               rgbfillColor={127,0,127})),
-                               Polygon(points=[-40,-40; 40,40; 40,-40; 34,-34;
-                40,-40; -40,-40],   style(color=5, fillColor=5)),
           Text(
             extent=[152,-100; -148,-40],
             string="%name",
-            style(color=3, rgbcolor={0,0,255}))));
+            style(color=3, rgbcolor={0,0,255})),
+          Polygon(points=[-40,-40; 40,-40; 40,40; -40,-40], style(
+              color=5,
+              rgbcolor={255,0,255},
+              fillColor=5,
+              rgbfillColor={255,0,255})),
+          Rectangle(extent=[-40,40; 40,-40], style(
+              color=0,
+              rgbcolor={0,0,0},
+              thickness=2))));
       parameter Integer n(final min=1) = 1 "signal width";
     algorithm 
       for i in 1:n loop
-        y[i] := if DigitalInput[i] == 4 or 
-          DigitalInput[i] == 8 then true else false;
+        y[i] := if x[i] == 4 or 
+          x[i] == 8 then true else false;
       end for;
-    end DigitalToBoolean;
+    end LogicToBoolean;
     
-    block RealToDigital "Real to Digital converter" 
+    block RealToLogic "Real to Logic converter" 
       import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
-      Modelica.Blocks.Interfaces.RealInput u[n] 
+      Modelica.Blocks.Interfaces.RealInput x[n] 
         annotation (extent=[-60, -10; -40, 10]);
       annotation (
         Documentation(info="<HTML>
@@ -2038,16 +2416,15 @@ Conversion of a real input into a digital output without any delay according to:
 <P>
 If the signal width is greater than 1 this conversion is done for each signal.
 </P>
-
 </HTML>
-", revisions="<HTML>
+",     revisions="<HTML>
 <ul>
 <li><i>September 15, 2004   </i>
        by Christoph Clauss colors changed<br>
        </li>
 <li><i>November 5, 2003</i>
        by Christoph Clauss<br>
-       realized.</li>
+       initially modelled.</li>
 </ul>
 </HTML>"),
         extent=[-60, -10; -40, 10],
@@ -2062,31 +2439,35 @@ If the signal width is greater than 1 this conversion is done for each signal.
           Text(
             extent=[148,-100; -152,-40],
             string="%name",
-            style(color=3, rgbcolor={0,0,255}))));
+            style(color=3, rgbcolor={0,0,255})),
+          Rectangle(extent=[-40,40; 40,-40], style(
+              color=0,
+              rgbcolor={0,0,0},
+              thickness=2))),
+        Diagram);
       
-      Digital.Interfaces.DigitalOutput DigitalOutput[n] 
+      Digital.Interfaces.DigitalOutput y[n] 
         annotation (extent=[40, -10; 60, 10]);
       annotation (extent=[40, -10; 60, 10]);
       annotation (Diagram);
       parameter Integer n(final min=1) = 1 "signal width";
       parameter Real upper_limit=1 "upper limit";
       parameter Real lower_limit=0 "lower limit";
-      parameter Digital.Interfaces.LogicValueType upper_value=L.'1' 
+      parameter Digital.Interfaces.Logic upper_value=L.'1' 
         "output if input > upper_limit";
-      parameter Digital.Interfaces.LogicValueType lower_value=L.'0' 
+      parameter Digital.Interfaces.Logic lower_value=L.'0' 
         "output if input < lower_limit";
-      parameter Digital.Interfaces.LogicValueType middle_value=L.'X' 
-        "output else";
+      parameter Digital.Interfaces.Logic middle_value=L.'X' "output else";
     algorithm 
       for i in 1:n loop
-        DigitalOutput[i] := if u[i] > upper_limit then upper_value else 
-          if u[i] < lower_limit then lower_value else middle_value;
+        y[i] := if x[i] > upper_limit then upper_value else 
+          if x[i] < lower_limit then lower_value else middle_value;
       end for;
-    end RealToDigital;
+    end RealToLogic;
     
-    block DigitalToReal "Digital to Real Converter" 
+    block LogicToReal "Logic to Real converter" 
       import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
-      Digital.Interfaces.DigitalInput DigitalInput[n] 
+      Digital.Interfaces.DigitalInput x[n] 
         annotation (extent=[-60, -10; -40, 10]);
       Modelica.Blocks.Interfaces.RealOutput y[n] 
         annotation (extent=[40, -10; 60, 10]);
@@ -2110,16 +2491,15 @@ Conversion of a digital input into a Real output without any delay according to:
 The values val... are given by parameters.</P>
 <P>If the signal width is greater than 1 this conversion is done for each signal.
 </P>
-
 </HTML>
-", revisions="<HTML>
+",     revisions="<HTML>
 <ul>
 <li><i>September 15, 2004   </i>
        by Christoph Clauss colors changed<br>
        </li>
 <li><i>November 5, 2003</i>
        by Christoph Clauss<br>
-       realized.</li>
+       initially modelled.</li>
 </ul>
 </HTML>"),
     Icon(Polygon(points=[-40,40; 40,40; -40,-40; -40,40],      style(
@@ -2132,7 +2512,12 @@ The values val... are given by parameters.</P>
           Text(
             extent=[152,-100; -148,-40],
             string="%name",
-            style(color=3, rgbcolor={0,0,255}))));
+            style(color=3, rgbcolor={0,0,255})),
+          Rectangle(extent=[-40,40; 40,-40], style(
+              color=0,
+              rgbcolor={0,0,0},
+              thickness=2))),
+        Diagram);
       parameter Integer n(final min=1) = 1 "signal width";
       parameter Real value_U=0.5 "value for digital U (uninitialized)";
       parameter Real value_X=0.5 "value for digital X (Forcing Unknown)";
@@ -2145,22 +2530,230 @@ The values val... are given by parameters.</P>
       parameter Real value_m=0.5 "value for digital m (Don´t care)";
     algorithm 
       for i in 1:n loop
-       y[i]:= if DigitalInput[i] == L.'U' then value_U else 
-                if DigitalInput[i] == L.'X' then value_X else if 
-          DigitalInput[i] == L.'0' then value_0 else if DigitalInput[i] == L.'1' then 
-               value_1 else if DigitalInput[i] == L.
-          'Z' then value_Z else if DigitalInput[i] == L.'W' then value_W else 
-                if DigitalInput[i] == L.'L' then value_L else if 
-          DigitalInput[i] == L.'H' then value_H else value_m;
+       y[i]:= if x[i] == L.'U' then value_U else 
+                if x[i] == L.'X' then value_X else if 
+          x[i] == L.'0' then value_0 else if x[i] == L.'1' then 
+               value_1 else if x[i] == L.
+          'Z' then value_Z else if x[i] == L.'W' then value_W else 
+                if x[i] == L.'L' then value_L else if 
+          x[i] == L.'H' then value_H else value_m;
       end for;
-    end DigitalToReal;
+    end LogicToReal;
     
+    annotation (Icon(
+        Rectangle(extent=[-100,-100; 80,50],   style(fillColor=30, fillPattern=
+                1)),
+        Polygon(points=[-100,50; -80,70; 100,70; 80,50; -100,50],      style(
+              fillColor=30, fillPattern=1)),
+        Polygon(points=[100,70; 100,-80; 80,-100; 80,50; 100,70],      style(
+              fillColor=30, fillPattern=1)),
+        Text(
+          extent=[-85,35; 65,-85],
+          string="Library",
+          style(color=3)),
+        Text(
+          extent=[-120,122; 120,73],
+          string="%name",
+          style(color=1))));
   end Converters;
   
   package Examples 
+    model Multiplexer "Pulse Triggered Master Slave Flip-Flop" 
+      import D = Modelica.Electrical.Digital;
+      import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
+      annotation (
+        Documentation(info="<HTML>
+<P>
+Test of D-FlipFlop FlipFlops.Structure.DFFL.<br>
+Simulate until time=200s.<br>
+Show:  <br>
+the clock signal  DFF.CLK.signal[1] <br>
+the reset signal  DFF.rst.signal[1] <br>
+the input signal  DFF.D.signal[1] <br>
+the output signal  DFF.Q.signal[1] <br>
+<br>
+Only if reset is true, the output signal follows the input D, but clock edge triggered.
+If the reset becomes false the output Q immediately (not clock edge triggered) becomes
+false. Therefore, it is called an asynchronuous reset. Note that the D input needs a setup
+time before the LH clock edge, which is caused by the delays.
+</P>
+</HTML>
+"),     Coordsys(
+          extent=[-100, -100; 100, 100],
+          grid=[2, 2],
+          component=[20, 20]),
+        Icon(Rectangle(extent=[-100,100; 100,-100], style(
+              color=0,
+              rgbcolor={0,0,0},
+              thickness=2,
+              fillColor=51,
+              rgbfillColor={255,255,170}))),
+        Diagram,
+        Window(
+          x=0.2,
+          y=0.06,
+          width=0.62,
+          height=0.69),
+        experiment(StopTime=250),
+        experimentSetupOutput);
+      D.Sources.Clock CLK(period=20)  annotation (extent=[-80,-56; -60,-36]);
+      D.Sources.Table D0(
+        y0=3,
+        x={4,3,4,3},
+        t={50,100,145,200}) annotation (extent=[-80,58; -60,78]);
+      D.Sources.Table D1(
+        y0=3,
+        x={4,3,4,3},
+        t={22,140,150,180}) annotation (extent=[-80,32; -60,52]);
+      D.Examples.Utilities.MUX4 MUX annotation (extent=[-10,0; 70,80]);
+      D.Sources.Table D2(
+        y0=3,
+        x={4,3,4,3},
+        t={22,140,150,180}) annotation (extent=[-80,6; -60,26]);
+      D.Sources.Table D3(
+        y0=3,
+        x={4,3,4,3},
+        t={22,140,150,180}) annotation (extent=[-80,-20; -60,0]);
+      D.Examples.Utilities.JKFF FF annotation (extent=[-20,-62; 0,-42]);
+      D.Sources.Set Enable annotation (extent=[-80,-82; -60,-62]);
+    equation 
+      connect(CLK.y, FF.clk) annotation (points=[-60,-46; -36,-46; -36,-52; -20,
+            -52], style(
+          color=78,
+          rgbcolor={127,0,127},
+          fillColor=51,
+          rgbfillColor={255,255,170},
+          fillPattern=1));
+      connect(Enable.y, FF.k) annotation (points=[-60,-72; -30,-72; -30,-59;
+            -20,-59], style(
+          color=78,
+          rgbcolor={127,0,127},
+          fillColor=51,
+          rgbfillColor={255,255,170},
+          fillPattern=1));
+      connect(Enable.y, FF.j) annotation (points=[-60,-72; -30,-72; -30,-45;
+            -20,-45], style(
+          color=78,
+          rgbcolor={127,0,127},
+          fillColor=51,
+          rgbfillColor={255,255,170},
+          fillPattern=1));
+      connect(CLK.y, MUX.a0) annotation (points=[-60,-46; -36,-46; -36,22.4;
+            -10,22.4], style(
+          color=78,
+          rgbcolor={127,0,127},
+          fillColor=51,
+          rgbfillColor={255,255,170},
+          fillPattern=1));
+      connect(D0.y, MUX.d0) annotation (points=[-60,68; -10,68], style(
+          color=78,
+          rgbcolor={127,0,127},
+          fillColor=51,
+          rgbfillColor={255,255,170},
+          fillPattern=1));
+      connect(D1.y, MUX.d1) annotation (points=[-60,42; -54,42; -54,57.6; -10,
+            57.6], style(
+          color=78,
+          rgbcolor={127,0,127},
+          fillColor=51,
+          rgbfillColor={255,255,170},
+          fillPattern=1));
+      connect(D2.y, MUX.d2) annotation (points=[-60,16; -50,16; -50,47.2; -10,
+            47.2], style(
+          color=78,
+          rgbcolor={127,0,127},
+          fillColor=51,
+          rgbfillColor={255,255,170},
+          fillPattern=1));
+      connect(D3.y, MUX.d3) annotation (points=[-60,-10; -46,-10; -46,36.8; -10,
+            36.8], style(
+          color=78,
+          rgbcolor={127,0,127},
+          fillColor=51,
+          rgbfillColor={255,255,170},
+          fillPattern=1));
+      connect(FF.q, MUX.a1) annotation (points=[0,-45; 2,-45; 2,-22; -20,-22;
+            -20,12; -10,12], style(
+          color=78,
+          rgbcolor={127,0,127},
+          fillColor=51,
+          rgbfillColor={255,255,170},
+          fillPattern=1));
+    end Multiplexer;
     
-    model Halfadder "adding circuit for binary numbers without input carry bit" 
-      
+    model FlipFlop "Pulse Triggered Master Slave Flip-Flop" 
+      import D = Modelica.Electrical.Digital;
+      import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
+      annotation (
+        Documentation(info="<HTML>
+<P>
+Test of D-FlipFlop FlipFlops.Structure.DFFL.<br>
+Simulate until time=200s.<br>
+Show:  <br>
+the clock signal  DFF.CLK.signal[1] <br>
+the reset signal  DFF.rst.signal[1] <br>
+the input signal  DFF.D.signal[1] <br>
+the output signal  DFF.Q.signal[1] <br>
+<br>
+Only if reset is true, the output signal follows the input D, but clock edge triggered.
+If the reset becomes false the output Q immediately (not clock edge triggered) becomes
+false. Therefore, it is called an asynchronuous reset. Note that the D input needs a setup
+time before the LH clock edge, which is caused by the delays.
+</P>
+</HTML>
+"),     Coordsys(
+          extent=[-100, -100; 100, 100],
+          grid=[2, 2],
+          component=[20, 20]),
+        Icon(Rectangle(extent=[-100,100; 100,-100], style(
+              color=0,
+              rgbcolor={0,0,0},
+              thickness=2,
+              fillColor=51,
+              rgbfillColor={255,255,170}))),
+        Diagram,
+        Window(
+          x=0.2,
+          y=0.06,
+          width=0.62,
+          height=0.69),
+        experiment(StopTime=250),
+        experimentSetupOutput,
+        Commands(file="FlipFlopPlot.mos" "plot"));
+      D.Examples.Utilities.JKFF FF 
+                     annotation (extent=[-10,-40; 70,40]);
+      D.Sources.Clock CLK(period=10)  annotation (extent=[-80,-10; -60,10]);
+      D.Sources.Table J(
+        y0=3,
+        x={4,3,4,3},
+        t={50,100,145,200}) annotation (extent=[-80,18; -60,38]);
+      D.Sources.Table K(
+        y0=3,
+        x={4,3,4,3},
+        t={22,140,150,180}) annotation (extent=[-80,-38; -60,-18]);
+    equation 
+      connect(J.y, FF.j)     annotation (points=[-60,28; -10,28], style(
+          color=78,
+          rgbcolor={127,0,127},
+          fillColor=7,
+          rgbfillColor={255,255,255},
+          fillPattern=1));
+      connect(CLK.y, FF.clk)    annotation (points=[-60,0; -10,0], style(
+          color=78,
+          rgbcolor={127,0,127},
+          fillColor=7,
+          rgbfillColor={255,255,255},
+          fillPattern=1));
+      connect(K.y, FF.k)      annotation (points=[-60,-28; -10,-28], style(
+          color=78,
+          rgbcolor={127,0,127},
+          fillColor=51,
+          rgbfillColor={255,255,170},
+          fillPattern=1));
+    end FlipFlop;
+    
+    model HalfAdder "adding circuit for binary numbers without input carry bit" 
+      import Modelica.Electrical.Digital;
       annotation (
         Documentation(info="<HTML>
 <P>
@@ -2205,7 +2798,16 @@ The simulation stop time should be 5 seconds.
           extent=[-100, -100; 100, 100],
           grid=[2, 2],
           component=[20, 20]),
-        Icon,
+        Icon(Rectangle(extent=[-88,100; 90,-100],   style(
+              color=0,
+              rgbcolor={0,0,0},
+              thickness=2,
+              fillColor=51,
+              rgbfillColor={255,255,170})), Line(points=[40,54; 40,60; -40,60;
+                10,0; -40,-60; 40,-60; 40,-52], style(
+              color=0,
+              rgbcolor={0,0,0},
+              fillPattern=1))),
         Diagram,
         Window(
           x=0.2,
@@ -2214,42 +2816,43 @@ The simulation stop time should be 5 seconds.
           height=0.69),
         experiment(StopTime=5),
         experimentSetupOutput);
-    /* 
-  Digital.Examples.Utilities.halfadder h(Tdel=0.3) 
-                        annotation (extent=[-76, -84; 118, 104]);
-*/
-      Sources.Table taba(
-        settime={1,2,3,4},
-        setvalue={4,3,4,3},
-        inity=3)   annotation (extent=[-80,20; -40,60]);
-      Sources.Table tabb(
-        setvalue={4,3},
-        settime={2,4},
-        inity=3)   annotation (extent=[-80,-60; -40,-20]);
-      Utilities.halfadder h(Tdel=0.3) 
-                            annotation (extent=[20,-30; 60,30]);
+      Sources.Table a(
+        t={1,2,3,4},
+        x={4,3,4,3},
+        x0=3)   annotation (extent=[-80,18; -60,38]);
+      Sources.Table b(
+        x={4,3},
+        t={2,4},
+        x0=3)   annotation (extent=[-80,-38; -60,-18]);
+      Digital.Examples.Utilities.HalfAdder Adder(Tdel=0.3) 
+                            annotation (extent=[-40,-40; 40,40]);
+      Digital.Converters.LogicToReal s 
+                               annotation (extent=[60,18; 80,38]);
+      Digital.Converters.LogicToReal c 
+                               annotation (extent=[60,-38; 80,-18]);
     equation 
-      
-      connect(tabb.y, h.b) annotation (points=[-40,-40; -20,-40; -20,-8.4; 30,
-            -8.4], style(
+      connect(b.y,Adder. b) annotation (points=[-60,-28; -40,-28],
+                  style(
           color=78,
           rgbcolor={127,0,127},
-          thickness=2,
           fillColor=78,
           rgbfillColor={127,0,127},
           fillPattern=1));
-      connect(taba.y, h.a) annotation (points=[-40,40; -20,40; -20,9; 30,9],
-          style(
+      connect(a.y,Adder. a) annotation (points=[-60,28; -40,28],                style(
           color=78,
           rgbcolor={127,0,127},
-          thickness=2,
           fillColor=78,
           rgbfillColor={127,0,127},
           fillPattern=1));
-    end Halfadder;
+      connect(Adder.s, s.x[1]) annotation (points=[40,28; 65,28], style(color=
+              78, rgbcolor={127,0,127}));
+      connect(Adder.c, c.x[1]) annotation (points=[40,-28; 65,-28], style(color=
+             78, rgbcolor={127,0,127}));
+    end HalfAdder;
     
-    model Fulladder "adding circuit for binary numbers with input carry bit" 
-      
+    model FullAdder "adding circuit for binary numbers with input carry bit" 
+      import D = Modelica.Electrical.Digital;
+      import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       annotation (
         Documentation(info="<HTML>
 <P>
@@ -2279,7 +2882,16 @@ The simulation stop time should be 10 seconds.
           extent=[-100, -100; 100, 100],
           grid=[2, 2],
           component=[20, 20]),
-        Icon,
+        Icon(Rectangle(extent=[-100,100; 100,-100], style(
+              color=0,
+              rgbcolor={0,0,0},
+              thickness=2,
+              fillColor=51,
+              rgbfillColor={255,255,170})), Line(points=[40,54; 40,60; -40,60; 10,0;
+                -40,-60; 40,-60; 40,-52], style(
+              color=0,
+              rgbcolor={0,0,0},
+              fillPattern=1))),
         Diagram,
         Window(
           x=0.2,
@@ -2291,75 +2903,39 @@ The simulation stop time should be 10 seconds.
           states=false,
           derivatives=false,
           inputs=false));
-      Utilities.halfadder h(Tdel=0.1) annotation (extent=[20,20; 98,100]);
-      Utilities.halfadder h1(Tdel=0.1) annotation (extent=[-80,-90; 0,-8]);
-      Sources.Table tabb(
-        setvalue={3,4,3,4,3,4,3},
-        settime={1,2,3,4,6,7,8},
-        inity=3)   annotation (extent=[-100, -80; -80, -60]);
-      Sources.Table taba(
-        setvalue={4,3,4,3,4,3},
-        settime={1,2,4,5,6,8},
-        inity=3)   annotation (extent=[-100, -40; -80, -20]);
-      Sources.Table tabc(
-        setvalue={3,4,3,4,3},
-        settime={1,3,4,5,8},
-        inity=3)   annotation (extent=[-100, 60; -80, 80]);
-      Basic.Or Or1 annotation (extent=[20,-80; 98,-20]);
+      Digital.Examples.Utilities.FullAdder Adder1            annotation (extent=[0,
+            -30; 60,30]);
+      Digital.Converters.LogicToReal s 
+                               annotation (extent=[70,12; 90,32]);
+      Digital.Converters.LogicToReal c_out 
+                                   annotation (extent=[70,-32; 90,-12]);
+      Digital.Examples.Utilities.Counter3 Counter 
+        annotation (extent=[-60,-18; -20,22]);
+      Digital.Sources.Set Enable(x=L.'1') annotation (extent=[-90,6; -70,26]);
+      Digital.Sources.Clock CLK annotation (extent=[-90,-22; -70,-2]);
     equation 
-      
-      connect(taba.y, h1.a) annotation (points=[-80,-30; -74,-30; -74,-36.7;
-            -60,-36.7], style(
-          color=78,
-          rgbcolor={127,0,127},
-          thickness=2,
-          fillColor=7,
-          rgbfillColor={255,255,255},
-          fillPattern=1));
-      connect(tabb.y, h1.b) annotation (points=[-80,-70; -76,-70; -76,-60.48;
-            -60,-60.48], style(
-          color=78,
-          rgbcolor={127,0,127},
-          thickness=2,
-          fillColor=7,
-          rgbfillColor={255,255,255},
-          fillPattern=1));
-      connect(h1.s, h.b) annotation (points=[-20,-39.16; -12,-39.16; -12,-40; 0,
-            -40; 0,48.8; 39.5,48.8], style(
-          color=78,
-          rgbcolor={127,0,127},
-          thickness=2,
-          fillColor=7,
-          rgbfillColor={255,255,255},
-          fillPattern=1));
-      connect(tabc.y, h.a) annotation (points=[-80,70; -22.75,70; -22.75,72;
-            39.5,72], style(
-          color=78,
-          rgbcolor={127,0,127},
-          thickness=2,
-          fillColor=7,
-          rgbfillColor={255,255,255},
-          fillPattern=1));
-      connect(h.c, Or1.x[2]) annotation (points=[78.5,52; 86,52; 86,0; 20,0; 20,
-            -48.5],             style(
-          color=78,
-          rgbcolor={127,0,127},
-          thickness=2,
-          fillColor=7,
-          rgbfillColor={255,255,255},
-          fillPattern=1));
-      connect(h1.c, Or1.x[1]) annotation (points=[-20,-57.2; 10,-57.2; 10,-51.5;
-            20,-51.5],   style(
-          color=78,
-          rgbcolor={127,0,127},
-          thickness=2,
-          fillColor=7,
-          rgbfillColor={255,255,255},
-          fillPattern=1));
-    end Fulladder;
+      connect(Adder1.s, s.x[1]) 
+                               annotation (points=[60.3,21; 68,21; 68,22; 75,22],
+                                                                    style(color=
+             78, rgbcolor={127,0,127}));
+      connect(Adder1.c_out, c_out.x[1]) 
+                                       annotation (points=[60,-21; 68,-21; 68,
+            -22; 75,-22],
+          style(color=78, rgbcolor={127,0,127}));
+      connect(CLK.y, Counter.count) annotation (points=[-70,-12; -60,-12],
+          style(color=78, rgbcolor={127,0,127}));
+      connect(Enable.y, Counter.enable) annotation (points=[-70,16; -60,16],
+          style(color=78, rgbcolor={127,0,127}));
+      connect(Counter.q2, Adder1.a) annotation (points=[-20,16; -10,16; -10,21;
+            0,21], style(color=78, rgbcolor={127,0,127}));
+      connect(Counter.q1, Adder1.b) annotation (points=[-20,2; -10,2; -10,9; 0,
+            9], style(color=78, rgbcolor={127,0,127}));
+      connect(Counter.q0, Adder1.c_in) annotation (points=[-20,-12; -10,-12;
+            -10,-21; 0,-21], style(color=78, rgbcolor={127,0,127}));
+    end FullAdder;
     
-    model Adderchain "Adderchain consisting of four Fulladders" 
-      
+    model Adder4 "Adderchain consisting of four Fulladders" 
+      import Modelica.Electrical.Digital;
       annotation (
         Documentation(info="<HTML>
 <P>
@@ -2395,10 +2971,15 @@ The simulation stop time has to be 5s.
 </P>
 </HTML>
 "),     Coordsys(
-          extent=[-100, -100; 100, 100],
+          extent=[-200,-200; 200,200],
           grid=[2, 2],
           component=[20, 20]),
-        Icon,
+        Icon(Rectangle(extent=[-200,200; 200,-200], style(
+              color=0,
+              rgbcolor={0,0,0},
+              thickness=2,
+              fillColor=51,
+              rgbfillColor={255,255,170}))),
         Diagram,
         Window(
           x=0.2,
@@ -2411,320 +2992,1285 @@ The simulation stop time has to be 5s.
           derivatives=false,
           inputs=false));
       
-      Utilities.fulladder A1 annotation (extent=[40, 0; 60, 20]);
-      Utilities.fulladder A3 annotation (extent=[-40, 0; -20, 20]);
-      Utilities.fulladder A2 annotation (extent=[0, 0; 20, 20]);
-      Utilities.fulladder A4 annotation (extent=[-80, 0; -60, 20]);
-      Sources.Table b4(
-        inity=3,
-        setvalue={4,3},
-        settime={1,3}) annotation (extent=[-86, 38; -66, 58]);
-      Sources.Table b1(
-        setvalue={4,3,4},
-        inity=3,
-        settime={1,2,3}) annotation (extent=[32,38; 52,58]);
-      Sources.Table b2(
-        inity=3,
-        setvalue={4},
-        settime={4}) annotation (extent=[-6, 38; 14, 58]);
-      Sources.Table b3(
-        inity=3,
-        setvalue={4},
-        settime={1}) annotation (extent=[-46, 38; -26, 58]);
-      Sources.Table a1(
-        inity=3,
-        setvalue={4,3,4},
-        settime={1,2,3}) annotation (extent=[52,38; 72,58]);
-      Sources.Table a2(
-        inity=3,
-        setvalue={4},
-        settime={1}) annotation (extent=[8, 38; 28, 58]);
-      Sources.Table a3(
-        inity=3,
-        setvalue={4,3},
-        settime={1,4}) annotation (extent=[-32, 38; -12, 58]);
-      Sources.Table a4(
-        inity=3,
-        setvalue={3},
-        settime={1}) annotation (extent=[-72, 38; -52, 58]);
-      Sources.Set Set1(setvalue=3) 
-        annotation (extent=[72, 0; 92, 20], rotation=180);
+      Digital.Sources.Table b4(
+        y0=3,
+        x={4,3},
+        t={1,3}) annotation (extent=[70,-20; 110,20]);
+      Digital.Sources.Table b1(
+        x={4,3,4},
+        y0=3,
+        t={1,2,3}) annotation (extent=[-170,-20; -130,20]);
+      Digital.Sources.Table b2(
+        y0=3,
+        x={4},
+        t={4}) annotation (extent=[-90,-20; -50,20]);
+      Digital.Sources.Table b3(
+        y0=3,
+        x={4},
+        t={1}) annotation (extent=[-10,-20; 30,20]);
+      Digital.Sources.Table a1(
+        y0=3,
+        x={4,3,4},
+        t={1,2,3}) annotation (extent=[-170,40; -130,80]);
+      Digital.Sources.Table a2(
+        y0=3,
+        x={4},
+        t={1}) annotation (extent=[-90,40; -50,80]);
+      Digital.Sources.Table a3(
+        y0=3,
+        x={4,3},
+        t={1,4}) annotation (extent=[-8,40; 30,80]);
+      Digital.Sources.Table a4(
+        y0=3,
+        x={3},
+        t={1}) annotation (extent=[70,40; 110,80]);
+      Sources.Set Set(x=3) 
+        annotation (extent=[-130,-54; -170,-94],
+                                            rotation=180);
+      Digital.Examples.Utilities.FullAdder Adder1 
+                                   annotation (extent=[-100,-80; -60,-40]);
+      Digital.Examples.Utilities.FullAdder Adder2 
+                                  annotation (extent=[-20,-80; 20,-40]);
+      Digital.Examples.Utilities.FullAdder Adder3 
+                                  annotation (extent=[60,-80; 100,-40]);
+      Digital.Examples.Utilities.FullAdder Adder4 
+                                  annotation (extent=[140,-80; 180,-40]);
     equation 
-      
-      connect(A4.a1, A3.out1) annotation (points=[-59.6,10; -40.6,10],
-                                                                     style(
+      connect(b1.y, Adder1.b)  annotation (points=[-130,0; -120,0; -120,-54;
+            -100,-54], style(
           color=78,
           rgbcolor={127,0,127},
-          thickness=2,
           fillColor=7,
           rgbfillColor={255,255,255},
           fillPattern=1));
-      connect(A3.a1, A2.out1) annotation (points=[-19.6,10; -0.6,10],
-                                                                    style(
+      connect(a1.y, Adder1.a)  annotation (points=[-130,60; -110,60; -110,-46;
+            -100,-46], style(
           color=78,
           rgbcolor={127,0,127},
-          thickness=2,
           fillColor=7,
           rgbfillColor={255,255,255},
           fillPattern=1));
-      connect(A2.a1, A1.out1) annotation (points=[20.4,10; 39.4,10],
-                                                                   style(
-          color=78,
-          rgbcolor={127,0,127},
-          thickness=2,
-          fillColor=7,
-          rgbfillColor={255,255,255},
-          fillPattern=1));
-      connect(A1.a1, Set1.y) annotation (points=[60.4,10; 66.2,10; 66.2,10; 72,
-            10],                                                style(
-          color=78,
-          rgbcolor={127,0,127},
-          thickness=2,
-          fillColor=7,
-          rgbfillColor={255,255,255},
-          fillPattern=1));
-      connect(a1.y, A1.a2) annotation (points=[72,48; 72,26; 56,26; 56,20.4],
-                 style(
-          color=78,
-          rgbcolor={127,0,127},
-          thickness=2,
-          fillColor=7,
-          rgbfillColor={255,255,255},
-          fillPattern=1));
-      connect(b1.y, A1.b1) annotation (points=[52,48; 52,26; 44,26; 44,20.4],
-                   style(
-          color=78,
-          rgbcolor={127,0,127},
-          thickness=2,
-          fillColor=7,
-          rgbfillColor={255,255,255},
-          fillPattern=1));
-      connect(a2.y, A2.a2) annotation (points=[28,48; 24,48; 24,26; 16,26; 16,
-            20.4],
-                 style(
-          color=78,
-          rgbcolor={127,0,127},
-          thickness=2,
-          fillColor=7,
-          rgbfillColor={255,255,255},
-          fillPattern=1));
-      connect(b2.y, A2.b1) annotation (points=[14,48; 10,48; 10,26; 4,26; 4,
-            20.4],
+      connect(Set.y, Adder1.c_in)  annotation (points=[-130,-74; -100,-74],
           style(
           color=78,
           rgbcolor={127,0,127},
-          thickness=2,
           fillColor=7,
           rgbfillColor={255,255,255},
           fillPattern=1));
-      connect(a3.y, A3.a2) annotation (points=[-12,48; -16,48; -16,26; -24,26;
-            -24,20.4],
-                     style(
+      connect(Adder1.c_out, Adder2.c_in)  annotation (points=[-60,-74; -20,-74],
+          style(
           color=78,
           rgbcolor={127,0,127},
-          thickness=2,
           fillColor=7,
           rgbfillColor={255,255,255},
           fillPattern=1));
-      connect(b3.y, A3.b1) annotation (points=[-26,48; -30,48; -30,26; -36,26;
-            -36,20.4], style(
+      connect(Adder2.c_out, Adder3.c_in) annotation (points=[20,-74; 60,-74],
+          style(
           color=78,
           rgbcolor={127,0,127},
-          thickness=2,
           fillColor=7,
           rgbfillColor={255,255,255},
           fillPattern=1));
-      connect(a4.y, A4.a2) annotation (points=[-52,48; -56,48; -56,26; -64,26;
-            -64,20.4],
-                     style(
+      connect(Adder3.c_out, Adder4.c_in) annotation (points=[100,-74; 140,-74],
+          style(
           color=78,
           rgbcolor={127,0,127},
-          thickness=2,
           fillColor=7,
           rgbfillColor={255,255,255},
           fillPattern=1));
-      connect(b4.y, A4.b1) annotation (points=[-66,48; -70,48; -70,26; -76,26;
-            -76,20.4], style(
+      connect(b2.y, Adder2.b) annotation (points=[-50,0; -40,0; -40,-54; -20,
+            -54], style(
           color=78,
           rgbcolor={127,0,127},
-          thickness=2,
           fillColor=7,
           rgbfillColor={255,255,255},
           fillPattern=1));
-    end Adderchain;
+      connect(a2.y, Adder2.a) annotation (points=[-50,60; -30,60; -30,-46; -20,
+            -46], style(
+          color=78,
+          rgbcolor={127,0,127},
+          fillColor=7,
+          rgbfillColor={255,255,255},
+          fillPattern=1));
+      connect(b3.y, Adder3.b) annotation (points=[30,0; 40,0; 40,-54; 60,-54],
+          style(
+          color=78,
+          rgbcolor={127,0,127},
+          fillColor=7,
+          rgbfillColor={255,255,255},
+          fillPattern=1));
+      connect(a3.y, Adder3.a) annotation (points=[30,60; 50,60; 50,-46; 60,-46],
+          style(
+          color=78,
+          rgbcolor={127,0,127},
+          fillColor=7,
+          rgbfillColor={255,255,255},
+          fillPattern=1));
+      connect(b4.y, Adder4.b) annotation (points=[110,0; 120,0; 120,-54; 140,
+            -54], style(
+          color=78,
+          rgbcolor={127,0,127},
+          fillColor=7,
+          rgbfillColor={255,255,255},
+          fillPattern=1));
+      connect(a4.y, Adder4.a) annotation (points=[110,60; 130,60; 130,-46; 140,
+            -46], style(
+          color=78,
+          rgbcolor={127,0,127},
+          fillColor=7,
+          rgbfillColor={255,255,255},
+          fillPattern=1));
+    end Adder4;
     
-    model D_FlipFlop "test of DFFL" 
-      
+    model Counter3 "adding circuit for binary numbers with input carry bit" 
+      import D = Modelica.Electrical.Digital;
       annotation (
         Documentation(info="<HTML>
 <P>
-Test of D-FlipFlop FlipFlops.Structure.DFFL.<br>
-Simulate until time=200s.<br>
-Show:  <br>
-the clock signal  DFF.CLK.signal[1] <br>
-the reset signal  DFF.rst.signal[1] <br>
-the input signal  DFF.D.signal[1] <br>
-the output signal  DFF.Q.signal[1] <br>
+<br>It is an adding circuit for binary numbers with input carry bit, which consists of two Halfadders.
 <br>
-Only if reset is true, the output signal follows the input D, but clock edge triggered.
-If the reset becomes false the output Q immediately (not clock edge triggered) becomes
-false. Therefore, it is called an asynchronuous reset. Note that the D input needs a setup
-time before the LH clock edge, which is caused by the delays.
+<br>
+tab<b>a</b>.y, tab<b>b</b>.y and tab<b>c</b>.y are the inputs of the Fulladder.
+<br>
+<b>c</b>out = <b>Or1</b>.y and <b>h</b>.s are the outputs of the Fulladder.
+<br>
+<br>
+<b>t</b> is the pick-up instant of the next bit(s) in the simulation.   
+<pre>   tab<b>a</b>.y   tab<b>b</b>.y   tab<b>c</b>.y   <b>c</b>out = <b>Or1</b>y      <b>h</b>.s       <b>t</b> </pre>
+       
+<pre>     1        0        0        0               1        1  
+<pre>     0        1        0        0               1        2
+<pre>     0        0        1        0               1        3
+<pre>     1        1        0        1               0        4
+<pre>     0        1        1        1               0        5
+<pre>     1        0        1        1               0        6
+<pre>     1        1        1        1               1        7
+<pre>     0        0        0        0               0        8     
 </P>
+The simulation stop time should be 10 seconds.  
 </HTML>
 "),     Coordsys(
           extent=[-100, -100; 100, 100],
           grid=[2, 2],
           component=[20, 20]),
-        Icon,
+        Icon(Rectangle(extent=[-100,100; 100,-100], style(
+              color=0,
+              rgbcolor={0,0,0},
+              thickness=2,
+              fillColor=51,
+              rgbfillColor={255,255,170}))),
         Diagram,
         Window(
           x=0.2,
           y=0.06,
           width=0.62,
-          height=0.69));
-      
-      Utilities.DFFL DFF(
-        tLHstage1=2,
-        tHLstage1=2,
-        tLHstage2=1,
-        tHLstage2=1,
-        tLHstage3=2,
-        tHLstage3=2) annotation (extent=[-40, -40; 40, 40]);
-      Sources.Pulse Pulse(period=20)  annotation (extent=[-92, -26; -72, -6]);
-      Sources.Table Tab1(
-        inity=3,
-        setvalue={4,3,4,3},
-        settime={50,100,145,200}) annotation (extent=[-92, 6; -72, 26]);
-      Sources.Table Tab2(
-        inity=3,
-        setvalue={4,3,4,3},
-        settime={22,140,150,180}) annotation (extent=[-50, -80; -30, -60]);
+          height=0.69),
+        experiment(StopTime=10),
+        experimentSetupOutput(
+          states=false,
+          derivatives=false,
+          inputs=false));
+      D.Sources.Step Enable       annotation (extent=[-90,8; -50,48]);
+      D.Sources.Clock Clock       annotation (extent=[-90,-48; -50,-8]);
+      D.Examples.Utilities.Counter3 Counter 
+        annotation (extent=[-30,-40; 50,40]);
     equation 
-      
-      connect(Tab1.y, DFF.D) annotation (points=[-72,16; -40,16], style(
+      connect(Enable.y, Counter.enable) annotation (points=[-50,28; -30,28],
+          style(
           color=78,
           rgbcolor={127,0,127},
-          thickness=2,
-          fillColor=7,
-          rgbfillColor={255,255,255},
+          fillColor=51,
+          rgbfillColor={255,255,170},
           fillPattern=1));
-      connect(Pulse.y, DFF.CLK) annotation (points=[-72,-16; -40,-16], style(
+      connect(Clock.y, Counter.count) annotation (points=[-50,-28; -30,-28],
+          style(
           color=78,
           rgbcolor={127,0,127},
-          thickness=2,
-          fillColor=7,
-          rgbfillColor={255,255,255},
+          fillColor=51,
+          rgbfillColor={255,255,170},
           fillPattern=1));
-      connect(Tab2.y, DFF.rst) annotation (points=[-30,-70; 0,-70; 0,-40], style(
+    end Counter3;
+    
+    model Counter "adding circuit for binary numbers with input carry bit" 
+      import D = Modelica.Electrical.Digital;
+      annotation (
+        Documentation(info="<HTML>
+<P>
+<br>It is an adding circuit for binary numbers with input carry bit, which consists of two Halfadders.
+<br>
+<br>
+tab<b>a</b>.y, tab<b>b</b>.y and tab<b>c</b>.y are the inputs of the Fulladder.
+<br>
+<b>c</b>out = <b>Or1</b>.y and <b>h</b>.s are the outputs of the Fulladder.
+<br>
+<br>
+<b>t</b> is the pick-up instant of the next bit(s) in the simulation.   
+<pre>   tab<b>a</b>.y   tab<b>b</b>.y   tab<b>c</b>.y   <b>c</b>out = <b>Or1</b>y      <b>h</b>.s       <b>t</b> </pre>
+       
+<pre>     1        0        0        0               1        1  
+<pre>     0        1        0        0               1        2
+<pre>     0        0        1        0               1        3
+<pre>     1        1        0        1               0        4
+<pre>     0        1        1        1               0        5
+<pre>     1        0        1        1               0        6
+<pre>     1        1        1        1               1        7
+<pre>     0        0        0        0               0        8     
+</P>
+The simulation stop time should be 10 seconds.  
+</HTML>
+"),     Coordsys(
+          extent=[-100, -100; 100, 100],
+          grid=[2, 2],
+          component=[20, 20]),
+        Icon(Rectangle(extent=[-100,100; 100,-100], style(
+              color=0,
+              rgbcolor={0,0,0},
+              thickness=2,
+              fillColor=51,
+              rgbfillColor={255,255,170}))),
+        Diagram,
+        Window(
+          x=0.2,
+          y=0.06,
+          width=0.62,
+          height=0.69),
+        experiment(StopTime=100),
+        experimentSetupOutput(
+          states=false,
+          derivatives=false,
+          inputs=false));
+      D.Sources.Step Enable       annotation (extent=[-90,8; -50,48]);
+      D.Sources.Clock Clock       annotation (extent=[-90,-48; -50,-8]);
+      D.Examples.Utilities.Counter Counter(n=4) 
+        annotation (extent=[-30,-40; 50,40]);
+      D.Converters.LogicToReal Q0 annotation (extent=[66,-40; 86,-20]);
+      D.Converters.LogicToReal Q1 annotation (extent=[66,-20; 86,0]);
+      D.Converters.LogicToReal Q2 annotation (extent=[66,0; 86,20]);
+      D.Converters.LogicToReal Q3 annotation (extent=[66,20; 86,40]);
+    equation 
+      connect(Enable.y, Counter.enable) annotation (points=[-50,28; -30,28],
+          style(
           color=78,
           rgbcolor={127,0,127},
-          thickness=2,
-          fillColor=7,
-          rgbfillColor={255,255,255},
+          fillColor=51,
+          rgbfillColor={255,255,170},
           fillPattern=1));
-    end D_FlipFlop;
+      connect(Clock.y, Counter.count) annotation (points=[-50,-28; -30,-28],
+          style(
+          color=78,
+          rgbcolor={127,0,127},
+          fillColor=51,
+          rgbfillColor={255,255,170},
+          fillPattern=1));
+      connect(Q0.x[1], Counter.q[1]) annotation (points=[71,-30; 58,-30; 58,-24;
+            50,-24], style(color=78, rgbcolor={127,0,127}));
+      connect(Q1.x[1], Counter.q[2]) annotation (points=[71,-10; 60,-10; 60,-8;
+            50,-8], style(color=78, rgbcolor={127,0,127}));
+      connect(Q2.x[1], Counter.q[3]) annotation (points=[71,10; 60,10; 60,8; 50,
+            8], style(color=78, rgbcolor={127,0,127}));
+      connect(Q3.x[1], Counter.q[4]) annotation (points=[71,30; 60,30; 60,24;
+            50,24], style(color=78, rgbcolor={127,0,127}));
+    end Counter;
     
   package Utilities 
-              model halfadder 
-                Digital.Interfaces.DigitalInput b 
-                  annotation (
-                      extent=[-60, -38; -40, -18], rotation=0);
-                Digital.Interfaces.DigitalOutput s 
-                                     annotation (extent=[40,14; 60,34]);
-                annotation (
-                    Diagram, Icon(
-                    Rectangle(
-                      extent=[-40, 60; 40, -60], style(
+    model MUX4 "D FlipFlop" 
+        import D = Modelica.Electrical.Digital;
+        import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
+      annotation (
+        Documentation(info="<HTML>
+<P>
+RS flipflop, composed by Basic Nor and a transport delay.
+<br>
+</P>
+<p><b>Release Notes:</b></p>
+<ul>
+<li><i>   </i>
+       by ...<br>
+       </li>
+<li><i>September 6, 2003</i>
+       by Christoph Clauss<br>
+       realized.</li>
+</ul>
+</HTML>
+"),     Diagram,
+        Icon(Rectangle(extent=[-90,100; 90,-100], style(
                 color=0,
                 rgbcolor={0,0,0},
                 thickness=2,
-                fillColor=7,
-                rgbfillColor={255,255,255})),
+                fillColor=51,
+                rgbfillColor={255,255,170})),
+            Line(points=[-60,100; -60,-100], style(
+                color=0,
+                rgbcolor={0,0,0},
+                thickness=2,
+                fillPattern=1)),
+            Line(points=[60,100; 60,-100], style(
+                color=0,
+                rgbcolor={0,0,0},
+                thickness=2,
+                fillPattern=1)),
+          Text(
+            extent=[-86,80; -64,60],
+            style(
+              color=0,
+              rgbcolor={0,0,0},
+              thickness=2,
+              fillColor=7,
+              rgbfillColor={255,255,255},
+              fillPattern=1),
+              string="D0"),
+          Text(
+            extent=[64,12; 86,-8],
+            style(
+              color=0,
+              rgbcolor={0,0,0},
+              thickness=2,
+              fillColor=7,
+              rgbfillColor={255,255,255},
+              fillPattern=1),
+              string="D"),
+          Text(
+            extent=[-150,-100; 150,-160],
+            string="%name",
+            style(
+              color=3,
+              rgbcolor={0,0,255},
+              fillColor=51,
+              rgbfillColor={255,255,170},
+              fillPattern=1)),
+          Text(
+    extent=[-60,100; 60,40],
+              style(
+                color=0,
+                rgbcolor={0,0,0},
+                gradient=2),
+              string="MUX"),
+          Text(
+            extent=[-86,-60; -64,-80],
+            style(
+              color=0,
+              rgbcolor={0,0,0},
+              thickness=2,
+              fillColor=7,
+              rgbfillColor={255,255,255},
+              fillPattern=1),
+              string="A1"),
+          Text(
+            extent=[-86,54; -64,34],
+            style(
+              color=0,
+              rgbcolor={0,0,0},
+              thickness=2,
+              fillColor=7,
+              rgbfillColor={255,255,255},
+              fillPattern=1),
+              string="D1"),
+          Text(
+            extent=[-86,28; -64,8],
+            style(
+              color=0,
+              rgbcolor={0,0,0},
+              thickness=2,
+              fillColor=7,
+              rgbfillColor={255,255,255},
+              fillPattern=1),
+              string="D2"),
+          Text(
+            extent=[-86,2; -64,-18],
+            style(
+              color=0,
+              rgbcolor={0,0,0},
+              thickness=2,
+              fillColor=7,
+              rgbfillColor={255,255,255},
+              fillPattern=1),
+              string="D3"),
+          Text(
+            extent=[-86,-36; -64,-56],
+            style(
+              color=0,
+              rgbcolor={0,0,0},
+              thickness=2,
+              fillColor=7,
+              rgbfillColor={255,255,255},
+              fillPattern=1),
+              string="A0")));
+        
+      parameter Modelica.SIunits.Time delayTime=0.001;
+      parameter D.Interfaces.Logic q0=L.'0';
+        D.Interfaces.DigitalInput d0 annotation (extent=[-110,60; -90,80]);
+        D.Interfaces.DigitalInput d1 annotation (extent=[-110,34; -90,54]);
+        D.Interfaces.DigitalInput d2 annotation (extent=[-110,8; -90,28]);
+        D.Interfaces.DigitalInput d3 annotation (extent=[-110,-18; -90,2]);
+        D.Interfaces.DigitalInput a0 annotation (extent=[-110,-54; -90,-34]);
+        D.Interfaces.DigitalInput a1 annotation (extent=[-110,-80; -90,-60]);
+        D.Interfaces.DigitalOutput d annotation (extent=[90,-10; 110,10]);
+        D.Basic.Or Or1(n=4) annotation (extent=[50,20; 70,40]);
+        D.Basic.And And1(n=3) annotation (extent=[-20,60; 0,80]);
+        D.Basic.And And2(n=3) annotation (extent=[-20,34; 0,54]);
+        D.Basic.And And3(n=3) annotation (extent=[-20,8; 0,28]);
+        D.Basic.And And4(n=3) annotation (extent=[-20,-18; 0,2]);
+        D.Basic.Not Not1 annotation (extent=[-76,-54; -56,-34]);
+        D.Basic.Not Not2 annotation (extent=[-76,-80; -56,-60]);
+    equation 
+        connect(a0, Not1.x) annotation (points=[-100,-44; -72,-44], style(
+            color=78,
+            rgbcolor={127,0,127},
+            fillColor=51,
+            rgbfillColor={255,255,170},
+            fillPattern=1));
+        connect(a1, Not2.x) annotation (points=[-100,-70; -72,-70], style(
+            color=78,
+            rgbcolor={127,0,127},
+            fillColor=51,
+            rgbfillColor={255,255,170},
+            fillPattern=1));
+        connect(d0, And1.x[2]) annotation (points=[-100,70; -58,70; -58,70; -16,
+              70], style(
+            color=78,
+            rgbcolor={127,0,127},
+            fillColor=51,
+            rgbfillColor={255,255,170},
+            fillPattern=1));
+        connect(d1, And2.x[2]) annotation (points=[-100,44; -16,44], style(
+            color=78,
+            rgbcolor={127,0,127},
+            fillColor=51,
+            rgbfillColor={255,255,170},
+            fillPattern=1));
+        connect(d2, And3.x[2]) annotation (points=[-100,18; -16,18], style(
+            color=78,
+            rgbcolor={127,0,127},
+            fillColor=51,
+            rgbfillColor={255,255,170},
+            fillPattern=1));
+        connect(d3, And4.x[2]) annotation (points=[-100,-8; -58,-8; -58,-8; -16,
+              -8], style(
+            color=78,
+            rgbcolor={127,0,127},
+            fillColor=51,
+            rgbfillColor={255,255,170},
+            fillPattern=1));
+        connect(And4.y, Or1.x[1]) annotation (points=[0,-8; 40,-8; 40,24; 54,24],
+            style(
+            color=78,
+            rgbcolor={127,0,127},
+            fillColor=51,
+            rgbfillColor={255,255,170},
+            fillPattern=1));
+        connect(And3.y, Or1.x[2]) annotation (points=[0,18; 20,18; 20,28; 54,28],
+            style(
+            color=78,
+            rgbcolor={127,0,127},
+            fillColor=51,
+            rgbfillColor={255,255,170},
+            fillPattern=1));
+        connect(And2.y, Or1.x[3]) annotation (points=[0,44; 20,44; 20,32; 54,32],
+            style(
+            color=78,
+            rgbcolor={127,0,127},
+            fillColor=51,
+            rgbfillColor={255,255,170},
+            fillPattern=1));
+        connect(And1.y, Or1.x[4]) annotation (points=[0,70; 40,70; 40,36; 54,36],
+            style(
+            color=78,
+            rgbcolor={127,0,127},
+            fillColor=51,
+            rgbfillColor={255,255,170},
+            fillPattern=1));
+        connect(Or1.y, d) annotation (points=[70,30; 80,30; 80,0; 100,0], style(
+            color=78,
+            rgbcolor={127,0,127},
+            fillColor=51,
+            rgbfillColor={255,255,170},
+            fillPattern=1));
+        connect(Not1.y, And1.x[3]) annotation (points=[-56,-44; -50,-44; -50,
+              75.3333; -16,75.3333], style(
+            color=78,
+            rgbcolor={127,0,127},
+            fillColor=51,
+            rgbfillColor={255,255,170},
+            fillPattern=1));
+        connect(Not1.y, And3.x[3]) annotation (points=[-56,-44; -50,-44; -50,
+              23.3333; -16,23.3333], style(
+            color=78,
+            rgbcolor={127,0,127},
+            fillColor=51,
+            rgbfillColor={255,255,170},
+            fillPattern=1));
+        connect(Not2.y, And1.x[1]) annotation (points=[-56,-70; -40,-70; -40,
+              64.6667; -16,64.6667], style(
+            color=78,
+            rgbcolor={127,0,127},
+            fillColor=51,
+            rgbfillColor={255,255,170},
+            fillPattern=1));
+        connect(Not2.y, And2.x[1]) annotation (points=[-56,-70; -40,-70; -40,
+              38.6667; -16,38.6667], style(
+            color=78,
+            rgbcolor={127,0,127},
+            fillColor=51,
+            rgbfillColor={255,255,170},
+            fillPattern=1));
+        connect(a0, And4.x[3]) annotation (points=[-100,-44; -80,-44; -80,
+              -2.66667; -16,-2.66667], style(
+            color=78,
+            rgbcolor={127,0,127},
+            fillColor=51,
+            rgbfillColor={255,255,170},
+            fillPattern=1));
+        connect(a0, And2.x[3]) annotation (points=[-100,-44; -80,-44; -80,
+              49.3333; -16,49.3333], style(
+            color=78,
+            rgbcolor={127,0,127},
+            fillColor=51,
+            rgbfillColor={255,255,170},
+            fillPattern=1));
+        connect(a1, And4.x[1]) annotation (points=[-100,-70; -80,-70; -80,-90;
+              -30,-90; -30,-13.3333; -16,-13.3333], style(
+            color=78,
+            rgbcolor={127,0,127},
+            fillColor=51,
+            rgbfillColor={255,255,170},
+            fillPattern=1));
+        connect(a1, And3.x[1]) annotation (points=[-100,-70; -80,-70; -80,-90;
+              -30,-90; -30,12.6667; -16,12.6667], style(
+            color=78,
+            rgbcolor={127,0,127},
+            fillColor=51,
+            rgbfillColor={255,255,170},
+            fillPattern=1));
+    end MUX4;
+      
+    model RS "Unclocked RS FlipFlop" 
+        import D = Modelica.Electrical.Digital;
+        import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
+      annotation (
+        Documentation(info="<HTML>
+<P>
+RS flipflop, composed by Basic Nor and a transport delay.
+<br>
+</P>
+<p><b>Release Notes:</b></p>
+<ul>
+<li><i>   </i>
+       by ...<br>
+       </li>
+<li><i>September 6, 2003</i>
+       by Christoph Clauss<br>
+       realized.</li>
+</ul>
+</HTML>
+"),     Diagram,
+        Icon(Rectangle(extent=[-90,100; 90,-100],   style(
+                color=0,
+                rgbcolor={0,0,0},
+                thickness=2,
+                fillColor=51,
+                rgbfillColor={255,255,170})),
+          Text(
+    extent=[-100,100; 100,40],
+              style(
+                color=0,
+                rgbcolor={0,0,0},
+                gradient=2),
+              string="RS"),
+            Line(points=[-60,100; -60,-100], style(
+                color=0,
+                rgbcolor={0,0,0},
+                thickness=2,
+                fillPattern=1)),
+            Line(points=[60,100; 60,-100], style(
+                color=0,
+                rgbcolor={0,0,0},
+                thickness=2,
+                fillPattern=1)),
+          Text(
+            extent=[-86,-60; -64,-80],
+            style(
+              color=0,
+              rgbcolor={0,0,0},
+              thickness=2,
+              fillColor=7,
+              rgbfillColor={255,255,255},
+              fillPattern=1),
+              string="R"),
+          Text(
+            extent=[-86,80; -64,60],
+            style(
+              color=0,
+              rgbcolor={0,0,0},
+              thickness=2,
+              fillColor=7,
+              rgbfillColor={255,255,255},
+              fillPattern=1),
+              string="S"),
+          Text(
+            extent=[64,80; 86,60],
+            style(
+              color=0,
+              rgbcolor={0,0,0},
+              thickness=2,
+              fillColor=7,
+              rgbfillColor={255,255,255},
+              fillPattern=1),
+              string="Q"),
+          Text(
+            extent=[64,-60; 86,-80],
+            style(
+              color=0,
+              rgbcolor={0,0,0},
+              thickness=2,
+              fillColor=7,
+              rgbfillColor={255,255,255},
+              fillPattern=1),
+              string="QN"),
+          Text(
+            extent=[-150,-100; 150,-160],
+            string="%name",
+              style(
+                color=3,
+                rgbcolor={0,0,255},
+                fillColor=51,
+                rgbfillColor={255,255,170},
+                fillPattern=1))));
+      parameter Modelica.SIunits.Time delayTime=0 "delay time";
+      parameter D.Interfaces.Logic q0=L.'U' "initial value of output";
+      D.Basic.Nor Nor1   annotation (extent=[-40,42; 0,82]);
+      D.Basic.Nor Nor2   annotation (extent=[-40,-82; 0,-42]);
+      D.Interfaces.DigitalInput s   annotation (extent=[-110,60; -90,80]);
+      D.Interfaces.DigitalInput r    annotation (extent=[-110,-80; -90,-60]);
+      D.Interfaces.DigitalOutput q   annotation (extent=[90,60; 110,80]);
+      D.Interfaces.DigitalOutput qn   annotation (extent=[90,-80; 110,-60]);
+      D.Delay.TransportDelay TD1(delayTime=delayTime,y0=q0) 
+          annotation (extent=[-60,-64; -40,-44]);
+    equation 
+      connect(s, Nor1.x[2])   annotation (points=[-100,70; -32,70], style(color=
+               78, rgbcolor={127,0,127}));
+      connect(r, Nor2.x[1])    annotation (points=[-100,-70; -32,-70],
+                        style(color=78, rgbcolor={127,0,127}));
+      connect(Nor2.y, Nor1.x[1])   annotation (points=[0,-62; 20,-62; 20,-20;
+              -70,20; -70,54; -32,54], style(color=78, rgbcolor={127,0,127}));
+      connect(Nor1.y,qn)    annotation (points=[0,62; 50,62; 50,-70; 100,-70],
+            style(
+            color=78,
+            rgbcolor={127,0,127},
+            fillColor=51,
+            rgbfillColor={255,255,170},
+            fillPattern=1));
+      connect(Nor2.y,q)    annotation (points=[0,-62; 70,-62; 70,70; 100,70],
+            style(
+            color=78,
+            rgbcolor={127,0,127},
+            fillColor=51,
+            rgbfillColor={255,255,170},
+            fillPattern=1));
+      connect(TD1.y, Nor2.x[2]) annotation (points=[-40,-54; -32,-54], style(
+              color=78, rgbcolor={127,0,127}));
+      connect(TD1.x, Nor1.y) annotation (points=[-56,-54; -70,-54; -70,-20; 20,
+              20; 20,62; 0,62], style(color=78, rgbcolor={127,0,127}));
+    end RS;
+      
+    model RSFF "Unclocked RS FlipFlop" 
+        import D = Modelica.Electrical.Digital;
+        import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
+      annotation (
+        Documentation(info="<HTML>
+<P>
+RS flipflop, composed by Basic Nor and a transport delay.
+<br>
+</P>
+<p><b>Release Notes:</b></p>
+<ul>
+<li><i>   </i>
+       by ...<br>
+       </li>
+<li><i>September 6, 2003</i>
+       by Christoph Clauss<br>
+       realized.</li>
+</ul>
+</HTML>
+"),     Diagram,
+        Icon(Rectangle(extent=[-90,100; 90,-100],   style(
+              color=0,
+              rgbcolor={0,0,0},
+              thickness=2,
+              fillColor=51,
+              rgbfillColor={255,255,170})),
+          Text(
+    extent=[-100,100; 100,40],
+              style(
+                color=0,
+                rgbcolor={0,0,0},
+                gradient=2),
+              string="RS"),
+            Line(points=[-60,100; -60,-100], style(
+                color=0,
+                rgbcolor={0,0,0},
+                thickness=2,
+                fillPattern=1)),
+            Line(points=[60,100; 60,-100], style(
+                color=0,
+                rgbcolor={0,0,0},
+                thickness=2,
+                fillPattern=1)),
+          Text(
+            extent=[-86,-60; -64,-80],
+            style(
+              color=0,
+              rgbcolor={0,0,0},
+              thickness=2,
+              fillColor=7,
+              rgbfillColor={255,255,255},
+              fillPattern=1),
+              string="R"),
+          Text(
+            extent=[-86,80; -64,60],
+            style(
+              color=0,
+              rgbcolor={0,0,0},
+              thickness=2,
+              fillColor=7,
+              rgbfillColor={255,255,255},
+              fillPattern=1),
+              string="S"),
+          Text(
+            extent=[64,80; 86,60],
+            style(
+              color=0,
+              rgbcolor={0,0,0},
+              thickness=2,
+              fillColor=7,
+              rgbfillColor={255,255,255},
+              fillPattern=1),
+              string="Q"),
+          Text(
+            extent=[64,-60; 86,-80],
+            style(
+              color=0,
+              rgbcolor={0,0,0},
+              thickness=2,
+              fillColor=7,
+              rgbfillColor={255,255,255},
+              fillPattern=1),
+              string="QN"),
+          Line(points=[-90,20; -60,0; -90,-20],   style(color=0, rgbcolor={0,0,0})),
+          Text(
+            extent=[-150,-100; 150,-160],
+            string="%name",
+            style(
+              color=3,
+              rgbcolor={0,0,255},
+              fillColor=51,
+              rgbfillColor={255,255,170},
+              fillPattern=1))));
+        
+      parameter Modelica.SIunits.Time delayTime=0.01;
+      parameter D.Interfaces.Logic q0=L.'U';
+      D.Interfaces.DigitalInput s   annotation (extent=[-110,60; -90,80]);
+      D.Interfaces.DigitalInput r     annotation (extent=[-110,-80; -90,-60]);
+      D.Interfaces.DigitalOutput q annotation (extent=[90,60; 110,80]);
+      D.Interfaces.DigitalOutput qn "not Q" 
+        annotation (extent=[90,-80; 110,-60]);
+      D.Interfaces.DigitalInput clk       annotation (extent=[-110,-10; -90,10]);
+      D.Examples.Utilities.RS RS1(delayTime=delayTime,q0=q0) 
+                                        annotation (extent=[-10,-40; 70,40]);
+      D.Basic.And And1       annotation (extent=[-70,8; -30,48]);
+      D.Basic.And And2       annotation (extent=[-70,-48; -30,-8]);
+    equation 
+      connect(And2.y, RS1.r) 
+                            annotation (points=[-30,-28; -10,-28], style(
+          color=78,
+          rgbcolor={127,0,127},
+          fillColor=51,
+          rgbfillColor={255,255,170},
+          fillPattern=1));
+      connect(And1.y, RS1.s) 
+                            annotation (points=[-30,28; -10,28], style(
+          color=78,
+          rgbcolor={127,0,127},
+          fillColor=51,
+          rgbfillColor={255,255,170},
+          fillPattern=1));
+      connect(s, And1.x[2]) annotation (points=[-100,70; -70,70; -70,36; -62,36],
+          style(
+          color=78,
+          rgbcolor={127,0,127},
+          fillColor=51,
+          rgbfillColor={255,255,170},
+          fillPattern=1));
+      connect(clk, And1.x[1]) annotation (points=[-100,0; -70,0; -70,20; -62,20],
+          style(
+          color=78,
+          rgbcolor={127,0,127},
+          fillColor=51,
+          rgbfillColor={255,255,170},
+          fillPattern=1));
+      connect(clk, And2.x[2]) annotation (points=[-100,0; -70,0; -70,-20; -62,-20],
+          style(
+          color=78,
+          rgbcolor={127,0,127},
+          fillColor=51,
+          rgbfillColor={255,255,170},
+          fillPattern=1));
+      connect(r, And2.x[1]) annotation (points=[-100,-70; -70,-70; -70,-36; -62,-36],
+          style(
+          color=78,
+          rgbcolor={127,0,127},
+          fillColor=51,
+          rgbfillColor={255,255,170},
+          fillPattern=1));
+      connect(RS1.q,q) annotation (points=[70,28; 80,28; 80,70; 100,70], style(
+          color=78,
+          rgbcolor={127,0,127},
+          fillColor=51,
+          rgbfillColor={255,255,170},
+          fillPattern=1));
+      connect(RS1.qn,qn) annotation (points=[70,-28; 80,-28; 80,-70; 100,-70],
+          style(
+          color=78,
+          rgbcolor={127,0,127},
+          fillColor=51,
+          rgbfillColor={255,255,170},
+          fillPattern=1));
+    end RSFF;
+      
+    model DFF "D FlipFlop" 
+        import D = Modelica.Electrical.Digital;
+        import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
+      annotation (
+        Documentation(info="<HTML>
+<P>
+RS flipflop, composed by Basic Nor and a transport delay.
+<br>
+</P>
+<p><b>Release Notes:</b></p>
+<ul>
+<li><i>   </i>
+       by ...<br>
+       </li>
+<li><i>September 6, 2003</i>
+       by Christoph Clauss<br>
+       realized.</li>
+</ul>
+</HTML>
+"),     Diagram,
+        Icon(Rectangle(extent=[-90,100; 90,-100],   style(
+              color=0,
+              rgbcolor={0,0,0},
+              thickness=2,
+              fillColor=51,
+              rgbfillColor={255,255,170})),
+            Line(points=[-60,100; -60,-100], style(
+                color=0,
+                rgbcolor={0,0,0},
+                thickness=2,
+                fillPattern=1)),
+            Line(points=[60,100; 60,-100], style(
+                color=0,
+                rgbcolor={0,0,0},
+                thickness=2,
+                fillPattern=1)),
+          Text(
+            extent=[-86,80; -64,60],
+            style(
+              color=0,
+              rgbcolor={0,0,0},
+              thickness=2,
+              fillColor=7,
+              rgbfillColor={255,255,255},
+              fillPattern=1),
+              string="D"),
+          Text(
+            extent=[64,80; 86,60],
+            style(
+              color=0,
+              rgbcolor={0,0,0},
+              thickness=2,
+              fillColor=7,
+              rgbfillColor={255,255,255},
+              fillPattern=1),
+              string="Q"),
+          Text(
+            extent=[64,-60; 86,-80],
+            style(
+              color=0,
+              rgbcolor={0,0,0},
+              thickness=2,
+              fillColor=7,
+              rgbfillColor={255,255,255},
+              fillPattern=1),
+              string="QN"),
+          Line(points=[-90,20; -60,0; -90,-20],   style(color=0, rgbcolor={0,0,0})),
+          Text(
+            extent=[-150,-100; 150,-160],
+            string="%name",
+            style(
+              color=3,
+              rgbcolor={0,0,255},
+              fillColor=51,
+              rgbfillColor={255,255,170},
+              fillPattern=1)),
+          Text(
+    extent=[-100,100; 100,40],
+              style(
+                color=0,
+                rgbcolor={0,0,0},
+                gradient=2),
+              string="D")));
+        
+      parameter Modelica.SIunits.Time Tdel=0.01;
+      parameter Digital.Interfaces.Logic QInit=L.'U';
+      Digital.Interfaces.DigitalInput d 
+                                    annotation (extent=[-110,60; -90,80]);
+      Digital.Interfaces.DigitalOutput q 
+                                   annotation (extent=[90,60; 110,80]);
+      Digital.Interfaces.DigitalOutput qn "not Q" 
+        annotation (extent=[90,-80; 110,-60]);
+      Digital.Interfaces.DigitalInput clk annotation (extent=[-110,-10; -90,10]);
+      D.Examples.Utilities.RSFF RSFF1   annotation (extent=[-10,-40; 70,40]);
+      Digital.Basic.Not Not1 
+                            annotation (extent=[-70,-48; -30,-8]);
+    equation 
+      connect(RSFF1.q,q) 
+                       annotation (points=[70,28; 80,28; 80,70; 100,70], style(
+          color=78,
+          rgbcolor={127,0,127},
+          fillColor=51,
+          rgbfillColor={255,255,170},
+          fillPattern=1));
+      connect(RSFF1.qn,qn) 
+                         annotation (points=[70,-28; 80,-28; 80,-70; 100,-70],
+          style(
+          color=78,
+          rgbcolor={127,0,127},
+          fillColor=51,
+          rgbfillColor={255,255,170},
+          fillPattern=1));
+      connect(Not1.y, RSFF1.r) 
+                             annotation (points=[-30,-28; -10,-28], style(
+            color=78,
+            rgbcolor={127,0,127},
+            fillColor=51,
+            rgbfillColor={255,255,170},
+            fillPattern=1));
+      connect(clk, RSFF1.clk)  annotation (points=[-100,0; -10,0], style(
+            color=78,
+            rgbcolor={127,0,127},
+            fillColor=51,
+            rgbfillColor={255,255,170},
+            fillPattern=1));
+      connect(d, Not1.x)  annotation (points=[-100,70; -80,70; -80,-28; -62,-28],
+            style(
+            color=78,
+            rgbcolor={127,0,127},
+            fillColor=51,
+            rgbfillColor={255,255,170},
+            fillPattern=1));
+      connect(d, RSFF1.s)  annotation (points=[-100,70; -80,70; -80,28; -10,28],
+            style(
+            color=78,
+            rgbcolor={127,0,127},
+            fillColor=51,
+            rgbfillColor={255,255,170},
+            fillPattern=1));
+    end DFF;
+      
+    model JKFF "D FlipFlop" 
+        import D = Modelica.Electrical.Digital;
+        import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
+      annotation (
+        Documentation(info="<HTML>
+<P>
+RS flipflop, composed by Basic Nor and a transport delay.
+<br>
+</P>
+<p><b>Release Notes:</b></p>
+<ul>
+<li><i>   </i>
+       by ...<br>
+       </li>
+<li><i>September 6, 2003</i>
+       by Christoph Clauss<br>
+       realized.</li>
+</ul>
+</HTML>
+"),     Diagram,
+        Icon(Rectangle(extent=[-90,100; 90,-100], style(
+                color=0,
+                rgbcolor={0,0,0},
+                thickness=2,
+                fillColor=51,
+                rgbfillColor={255,255,170})),
+            Line(points=[-60,100; -60,-100], style(
+                color=0,
+                rgbcolor={0,0,0},
+                thickness=2,
+                fillPattern=1)),
+            Line(points=[60,100; 60,-100], style(
+                color=0,
+                rgbcolor={0,0,0},
+                thickness=2,
+                fillPattern=1)),
+          Text(
+            extent=[-86,80; -64,60],
+            style(
+              color=0,
+              rgbcolor={0,0,0},
+              thickness=2,
+              fillColor=7,
+              rgbfillColor={255,255,255},
+              fillPattern=1),
+              string="J"),
+          Text(
+            extent=[64,80; 86,60],
+            style(
+              color=0,
+              rgbcolor={0,0,0},
+              thickness=2,
+              fillColor=7,
+              rgbfillColor={255,255,255},
+              fillPattern=1),
+              string="Q"),
+          Text(
+            extent=[64,-60; 86,-80],
+            style(
+              color=0,
+              rgbcolor={0,0,0},
+              thickness=2,
+              fillColor=7,
+              rgbfillColor={255,255,255},
+              fillPattern=1),
+              string="QN"),
+          Line(points=[-90,20; -60,0; -90,-20],   style(color=0, rgbcolor={0,0,0})),
+          Text(
+            extent=[-150,-100; 150,-160],
+            string="%name",
+            style(
+              color=3,
+              rgbcolor={0,0,255},
+              fillColor=51,
+              rgbfillColor={255,255,170},
+              fillPattern=1)),
+          Text(
+    extent=[-100,100; 100,40],
+              style(
+                color=0,
+                rgbcolor={0,0,0},
+                gradient=2),
+              string="JK"),
+          Text(
+            extent=[-86,-60; -64,-80],
+            style(
+              color=0,
+              rgbcolor={0,0,0},
+              thickness=2,
+              fillColor=7,
+              rgbfillColor={255,255,255},
+              fillPattern=1),
+              string="K")));
+        
+      parameter Modelica.SIunits.Time delayTime=0.001;
+      parameter D.Interfaces.Logic q0=L.'0';
+      D.Interfaces.DigitalInput j   annotation (extent=[-110,60; -90,80]);
+      D.Interfaces.DigitalOutput q annotation (extent=[90,60; 110,80]);
+      D.Interfaces.DigitalOutput qn "not Q" 
+        annotation (extent=[90,-80; 110,-60]);
+      D.Interfaces.DigitalInput clk       annotation (extent=[-110,-10; -90,10]);
+      D.Interfaces.DigitalInput k   annotation (extent=[-110,-80; -90,-60]);
+        D.Examples.Utilities.RS RS1(delayTime=delayTime,q0=q0) 
+                                     annotation (extent=[30,-24; 70,16]);
+        D.Examples.Utilities.RS RS2(delayTime=delayTime,q0=q0) 
+                                     annotation (extent=[-44,-20; -4,20]);
+        D.Basic.And And1(n=3) annotation (extent=[-70,4; -50,24]);
+        D.Basic.And And2(n=3) annotation (extent=[-70,-24; -50,-4]);
+        D.Basic.And And3 annotation (extent=[4,0; 24,20]);
+        D.Basic.And And4 annotation (extent=[4,-28; 24,-8]);
+        D.Basic.Not Not1 annotation (extent=[-34,-66; -14,-46]);
+    equation 
+        connect(And2.y, RS2.r) annotation (points=[-50,-14; -44,-14], style(color=
+                78, rgbcolor={127,0,127}));
+        connect(And1.y, RS2.s) annotation (points=[-50,14; -44,14], style(color=
+               78, rgbcolor={127,0,127}));
+        connect(clk, And2.x[3]) annotation (points=[-100,0; -74,0; -74,-8.66667;
+              -66,-8.66667], style(color=78, rgbcolor={127,0,127}));
+        connect(clk, And1.x[1]) annotation (points=[-100,0; -74,0; -74,8.66667;
+              -66,8.66667], style(color=78, rgbcolor={127,0,127}));
+        connect(k, And2.x[2]) annotation (points=[-100,-70; -74,-70; -74,-14;
+              -66,-14], style(color=78, rgbcolor={127,0,127}));
+        connect(And4.y, RS1.r) annotation (points=[24,-18; 30,-18], style(color=
+               78, rgbcolor={127,0,127}));
+        connect(And3.y, RS1.s) annotation (points=[24,10; 30,10], style(color=
+                78, rgbcolor={127,0,127}));
+        connect(RS2.qn, And4.x[2]) annotation (points=[-4,-14; 8,-14],
+            style(color=78, rgbcolor={127,0,127}));
+        connect(RS2.q, And3.x[2]) annotation (points=[-4,14; 8,14], style(color=
+               78, rgbcolor={127,0,127}));
+        connect(clk, Not1.x) annotation (points=[-100,0; -80,0; -80,-56; -30,
+              -56], style(color=78, rgbcolor={127,0,127}));
+        connect(Not1.y, And3.x[1]) annotation (points=[-14,-56; 2,-56; 2,6; 8,6],
+            style(color=78, rgbcolor={127,0,127}));
+        connect(Not1.y, And4.x[1]) annotation (points=[-14,-56; 2,-56; 2,-22; 8,
+              -22], style(color=78, rgbcolor={127,0,127}));
+        connect(j, And1.x[2]) annotation (points=[-100,70; -74,70; -74,14; -66,
+              14], style(color=78, rgbcolor={127,0,127}));
+        connect(RS1.q, And2.x[1]) annotation (points=[70,10; 80,10; 80,-36; -70,
+              -36; -70,-19.3333; -66,-19.3333], style(color=78, rgbcolor={127,0,
+                127}));
+        connect(RS1.qn, And1.x[3]) annotation (points=[70,-18; 86,-18; 86,36;
+              -70,36; -70,19.3333; -66,19.3333],     style(color=78, rgbcolor={
+                127,0,127}));
+      connect(RS1.qn, q) annotation (points=[70,-18; 86,-18; 86,70; 100,70],
+            style(color=78, rgbcolor={127,0,127}));
+      connect(RS1.q, qn) annotation (points=[70,10; 80,10; 80,-70; 100,-70],
+            style(color=78, rgbcolor={127,0,127}));
+    end JKFF;
+      
+              model HalfAdder 
+                parameter Real delayTime=0;
+                Digital.Interfaces.DigitalInput b 
+                  annotation (
+                      extent=[-110,-80; -90,-60],  rotation=0);
+                Digital.Interfaces.DigitalOutput s 
+                                     annotation (extent=[90,60; 110,80]);
+                annotation (
+                    Diagram, Icon(
+                    Rectangle(
+                      extent=[-90,100; 90,-100],   style(
+                color=0,
+                rgbcolor={0,0,0},
+                thickness=2,
+                fillColor=51,
+                rgbfillColor={255,255,170})),
                     Text(
-              extent=[-40, 60; 40, 20],
-              style(color=0, gradient=2),
-              string="halfadder"),
-                    Text(
-              extent=[-20, -20; 20, -60],
-              style(color=0, gradient=2),
-              string="+"),
-                    Text(
-              extent=[-46, 34; -20, 18],
+              extent=[-90,80; -60,60],
               style(color=0),
               string="a"),
                     Text(
-              extent=[-44, -22; -20, -38],
+              extent=[-90,-60; -60,-80],
               style(color=0),
               string="b"),
                     Text(
-              extent=[22, 30; 48, 14],
+              extent=[60,80; 90,60],
               style(color=0),
               string="s"),
                     Text(
-              extent=[24, -10; 44, -26],
+              extent=[60,-60; 90,-80],
               style(color=0),
               string="c"),
                     Text(
-                      extent=[-148,-60; 152,-120],
+                      extent=[-150,-100; 150,-160],
                       style(color=3, rgbcolor={0,0,255}),
-                      string="%name")));
+                      string="%name"),
+                    Text(
+              extent=[-100,100; 100,0],
+              style(color=0, gradient=2),
+              string="+"), 
+            Line(points=[-60,100; -60,-100], style(
+                color=0,
+                rgbcolor={0,0,0},
+                thickness=2,
+                fillPattern=1)), 
+            Line(points=[60,100; 60,-100], style(
+                color=0,
+                rgbcolor={0,0,0},
+                thickness=2,
+                fillPattern=1))));
                 Digital.Interfaces.DigitalInput a 
                   annotation (
-                      extent=[-60, 20; -40, 40], rotation=0);
+                      extent=[-110,60; -90,80],  rotation=0);
                 Digital.Interfaces.DigitalOutput c 
-                                     annotation (extent=[40, -30; 60, -10]);
-                Gates.AndGate AndGate1(tLH=Tdel, tHL=Tdel) 
+                                     annotation (extent=[90,-80; 110,-60]);
+                Gates.AndGate AND(tLH=delayTime, tHL=delayTime) 
                   annotation (
-                      extent=[-14,-34; 12,-6]);
-                Gates.XorGate XorGate1(tLH=Tdel, tHL=Tdel) 
+                      extent=[-20,-82; 20,-42]);
+                Gates.XorGate XOR(tLH=delayTime, tHL=delayTime) 
                   annotation (
-                      extent=[-14,8; 12,40]);
-                  parameter Real Tdel=0;
+                      extent=[-20,42; 20,82]);
+        
               equation 
-        connect(AndGate1.y, c) annotation (points=[12,-20; 50,-20], style(
-            color=78, 
-            rgbcolor={127,0,127}, 
-            fillColor=79, 
-            rgbfillColor={170,85,255}, 
-            fillPattern=1));
-        connect(XorGate1.y, s) annotation (points=[12,24; 50,24], style(
-            color=78, 
-            rgbcolor={127,0,127}, 
-            fillColor=79, 
-            rgbfillColor={170,85,255}, 
-            fillPattern=1));
-        connect(b, AndGate1.x[1]) annotation (points=[-50,-28; -30,-28; -30,
-              -20.7; -14,-20.7], style(
-            color=78, 
-            rgbcolor={127,0,127}, 
-            fillColor=79, 
-            rgbfillColor={170,85,255}, 
-            fillPattern=1));
-        connect(b, XorGate1.x[1]) annotation (points=[-50,-28; -30,-28; -30,
-              23.2; -14,23.2], style(
-            color=78, 
-            rgbcolor={127,0,127}, 
-            fillColor=79, 
-            rgbfillColor={170,85,255}, 
-            fillPattern=1));
-        connect(a, XorGate1.x[2]) annotation (points=[-50,30; -34,30; -34,24.8;
-              -14,24.8], style(
-            color=78, 
-            rgbcolor={127,0,127}, 
-            fillColor=79, 
-            rgbfillColor={170,85,255}, 
-            fillPattern=1));
-        connect(a, AndGate1.x[2]) annotation (points=[-50,30; -34,30; -34,-19.3;
-              -14,-19.3], style(
-            color=78, 
-            rgbcolor={127,0,127}, 
-            fillColor=79, 
-            rgbfillColor={170,85,255}, 
-            fillPattern=1));
-              end halfadder;
+                connect(AND.y, c) 
+                               annotation (points=[20,-62; 60,-62; 60,-70; 100,
+              -70],                                                 style(
+                    color=
+                  78,
+                    rgbcolor=
+                     {127,0,127},
+                    fillColor=
+                      79,
+                    rgbfillColor=
+                         {170,85,255},
+                    fillPattern=
+                        1));
+                connect(XOR.y, s) 
+                               annotation (points=[20,62; 60,62; 60,70; 100,70],
+                                                                  style(
+                    color=
+                  78,
+                    rgbcolor=
+                     {127,0,127},
+                    fillColor=
+                      79,
+                    rgbfillColor=
+                         {170,85,255},
+                    fillPattern=
+                        1));
+                connect(b, AND.x[1]) 
+                                  annotation (points=[-100,-70; -12,-70],
+                                 style(
+                    color=
+                  78,
+                    rgbcolor=
+                     {127,0,127},
+                    fillColor=
+                      79,
+                    rgbfillColor=
+                         {170,85,255},
+                    fillPattern=
+                        1));
+                connect(b, XOR.x[1]) 
+                                  annotation (points=[-100,-70; -30,-70; -30,54;
+              -12,54],         style(
+                    color=
+                  78,
+                    rgbcolor=
+                     {127,0,127},
+                    fillColor=
+                      79,
+                    rgbfillColor=
+                         {170,85,255},
+                    fillPattern=
+                        1));
+                connect(a, XOR.x[2]) 
+                                  annotation (points=[-100,70; -12,70],
+                         style(
+                    color=
+                  78,
+                    rgbcolor=
+                     {127,0,127},
+                    fillColor=
+                      79,
+                    rgbfillColor=
+                         {170,85,255},
+                    fillPattern=
+                        1));
+                connect(a, AND.x[2]) 
+                                  annotation (points=[-100,70; -40,70; -40,-54;
+              -12,-54],   style(
+                    color=
+                  78,
+                    rgbcolor=
+                     {127,0,127},
+                    fillColor=
+                      79,
+                    rgbfillColor=
+                         {170,85,255},
+                    fillPattern=
+                        1));
+              end HalfAdder;
       
-    model fulladder "adding circuit for binary numbers with input carry bit" 
+    model FullAdder "adding circuit for binary numbers with input carry bit" 
         
       annotation (
         Documentation(info="<HTML>
@@ -2744,18 +4290,83 @@ time before the LH clock edge, which is caused by the delays.
           extent=[-100, -100; 100, 100],
           grid=[2, 2],
           component=[20, 20]),
-        Icon(Rectangle(extent=[-92, 92; 90, -88], style(color=45, fillColor=6)),
-             Text(
-            extent=[-66, 50; 68, -48],
-            style(
-              color=45,
-              fillColor=6,
-              fillPattern=1),
-            string="Full Adder"),
+        Icon(Rectangle(extent=[-90,100; 90,-100],   style(
+                color=0,
+                rgbcolor={0,0,0},
+                thickness=2,
+                fillColor=51,
+                rgbfillColor={255,255,170})),
           Text(
             extent=[-150,-96; 150,-151],
             style(color=3, rgbcolor={0,0,255}),
-            string="%name")),
+            string="%name"),
+          Text(
+            extent=[-86,80; -64,60],
+            style(
+              color=0,
+              rgbcolor={0,0,0},
+              thickness=2,
+              fillColor=7,
+              rgbfillColor={255,255,255},
+              fillPattern=1),
+            string="a"),
+          Text(
+            extent=[-86,40; -64,20],
+            style(
+              color=0,
+              rgbcolor={0,0,0},
+              thickness=2,
+              fillColor=7,
+              rgbfillColor={255,255,255},
+              fillPattern=1),
+            string="b"),
+          Text(
+            extent=[-86,-60; -64,-80],
+            style(
+              color=0,
+              rgbcolor={0,0,0},
+              thickness=2,
+              fillColor=7,
+              rgbfillColor={255,255,255},
+              fillPattern=1),
+            string="c_in"),
+          Text(
+            extent=[60,-60; 90,-80],
+            style(
+              color=0,
+              rgbcolor={0,0,0},
+              thickness=2,
+              fillColor=7,
+              rgbfillColor={255,255,255},
+              fillPattern=1),
+            string="c_out"),
+          Text(
+            extent=[64,80; 86,60],
+            style(
+              color=0,
+              rgbcolor={0,0,0},
+              thickness=2,
+              fillColor=7,
+              rgbfillColor={255,255,255},
+              fillPattern=1),
+            string="s"),
+          Text(
+    extent=[-100,100; 100,0],
+    string="+",
+              style(
+                color=0,
+                rgbcolor={0,0,0},
+                gradient=2)),
+            Line(points=[-60,100; -60,-100], style(
+                color=0,
+                rgbcolor={0,0,0},
+                thickness=2,
+                fillPattern=1)),
+            Line(points=[60,100; 60,-100], style(
+                color=0,
+                rgbcolor={0,0,0},
+                thickness=2,
+                fillPattern=1))),
         Diagram,
         Window(
           x=0.2,
@@ -2763,83 +4374,363 @@ time before the LH clock edge, which is caused by the delays.
           width=0.62,
           height=0.69));
         
-      Utilities.halfadder h(Tdel=0.1) annotation (extent=[-2,6; 74,80]);
-      Utilities.halfadder h1(Tdel=0.1) annotation (extent=[-74,-68; -12,2]);
-      Digital.Interfaces.DigitalInput a1 
-        annotation (extent=[94,-10; 114,10],   rotation=180);
-      Digital.Interfaces.DigitalInput a2 
-        annotation (extent=[50,94; 70,114],   rotation=270);
-      Digital.Interfaces.DigitalInput b1 
-        annotation (extent=[-70,94; -50,114],   rotation=270);
-      Digital.Interfaces.DigitalOutput s1 
-        annotation (extent=[-12,-116; 10,-96],   rotation=270);
-      Digital.Interfaces.DigitalOutput out1 
-        annotation (extent=[-116,-10; -96,10],   rotation=180);
-      Basic.Or Or1 annotation (extent=[20,-60; 58,-20]);
+      HalfAdder Adder2(delayTime=0.001) 
+                                      annotation (extent=[10,36; 50,76]);
+      HalfAdder Adder1(delayTime=0.001) 
+                                       annotation (extent=[-60,36; -20,76]);
+      Digital.Interfaces.DigitalInput a 
+        annotation (extent=[-110,60; -90,80],  rotation=180);
+      Digital.Interfaces.DigitalInput b 
+        annotation (extent=[-110,20; -90,40], rotation=180);
+      Digital.Interfaces.DigitalInput c_in 
+        annotation (extent=[-110,-80; -90,-60], rotation=180);
+      Digital.Interfaces.DigitalOutput s 
+        annotation (extent=[112,60; 90,80],      rotation=180);
+      Digital.Interfaces.DigitalOutput c_out 
+        annotation (extent=[110,-80; 90,-60],    rotation=180);
+      Basic.Or OR  annotation (extent=[10,-90; 50,-50]);
     equation 
         
-        connect(h1.s, h.b) annotation (points=[-27.5,-24.6; 0,-24.6; 0,32.64;
-              17,32.64], style(
+      connect(c_out, OR.y)   annotation (points=[100,-70; 50,-70],
+                       style(
             color=78,
             rgbcolor={127,0,127},
             fillColor=7,
             rgbfillColor={255,255,255},
             fillPattern=1));
-        connect(h.a, a1) annotation (points=[17,54.1; 0,54.1; 0,74; 88,74; 88,0;
-              104,0], style(
+      connect(Adder2.c, OR.x[2]) 
+                               annotation (points=[50,42; 70,42; 70,-40; 10,-40;
+              10,-62; 18,-62],style(
             color=78,
             rgbcolor={127,0,127},
             fillColor=7,
             rgbfillColor={255,255,255},
             fillPattern=1));
-        connect(h1.a, a2) annotation (points=[-58.5,-22.5; -70,-22.5; -70,80;
-              60,80; 60,104], style(
-            color=78,
-            rgbcolor={127,0,127},
-            fillColor=7,
-            rgbfillColor={255,255,255},
-            fillPattern=1));
-        connect(b1, h1.b) annotation (points=[-60,104; -60,90; -82,90; -82,
-              -42.8; -58.5,-42.8], style(
-            color=78,
-            rgbcolor={127,0,127},
-            fillColor=7,
-            rgbfillColor={255,255,255},
-            fillPattern=1));
-        connect(s1, h.s) annotation (points=[-1,-106; -1,-94; 80,-94; 80,51.88;
-              55,51.88], style(
-            color=78,
-            rgbcolor={127,0,127},
-            fillColor=7,
-            rgbfillColor={255,255,255},
-            fillPattern=1));
-        connect(out1, Or1.y) annotation (points=[-106,0; -88,0; -88,-84; 58,-84;
-              58,-40], style(
-            color=78,
-            rgbcolor={127,0,127},
-            fillColor=7,
-            rgbfillColor={255,255,255},
-            fillPattern=1));
-        connect(h1.c, Or1.x[1]) annotation (points=[-27.5,-40; 4,-40; 4,-41; 20,
-              -41], style(
-            color=78,
-            rgbcolor={127,0,127},
-            fillColor=7,
-            rgbfillColor={255,255,255},
-            fillPattern=1));
-        connect(h.c, Or1.x[2]) annotation (points=[55,35.6; 70,35.6; 70,8; 4,8;
-              4,-39; 20,-39], style(
-            color=78,
-            rgbcolor={127,0,127},
-            fillColor=7,
-            rgbfillColor={255,255,255},
-            fillPattern=1));
-    end fulladder;
+      connect(Adder2.s, s) 
+        annotation (points=[50,70; 101,70], style(color=78, rgbcolor={127,0,127}));
+        connect(Adder1.a, a) annotation (points=[-60,70; -100,70], style(color=78,
+              rgbcolor={127,0,127}));
+        connect(b, Adder1.b) annotation (points=[-100,30; -70,30; -70,42; -60,42],
+            style(color=78, rgbcolor={127,0,127}));
+        connect(Adder1.s, Adder2.a) annotation (points=[-20,70; 10,70], style(
+              color=78, rgbcolor={127,0,127}));
+        connect(Adder1.c, OR.x[1]) annotation (points=[-20,42; -10,42; -10,-78;
+              18,-78], style(color=78, rgbcolor={127,0,127}));
+        connect(c_in, Adder2.b) annotation (points=[-100,-70; 0,-70; 0,42; 10,42],
+            style(color=78, rgbcolor={127,0,127}));
+    end FullAdder;
       
-    model RSFF "R-S-Flip-Flop" 
+    model Adder "Adderchain consisting of four Fulladders" 
+      import Modelica.Electrical.Digital;
+      annotation (
+        Documentation(info="<HTML>
+<P>
+Four Fulladders are combined to built a four bit adder unit. 
+<br>
+<br>
+In dependence on time five additions are carried out:
+<br> 
+<pre> at t = 0                            at t = 1        
+<pre> a       0 0 0 0                       a      1 1 1 0                      
+<pre> b    +  0 0 0 0                       b   +  1 0 1 1
+<pre> <b>s     0 0 0 0 0</b>                      <b>s     1 0 0 1 0</b>
+<pre>at t = 2                             at t = 3   
+<pre> a       0 1 1 0                       a      1 1 1 0 
+<pre> b    +  0 0 1 1                       b   +  1 0 1 0
+<pre> <b>s     1 0 1 0 0</b>                      <b>s     0 0 0 1 1</b>
+        
+at t = 4
+<pre> a      1 1 0 0
+<pre> b   +  1 1 1 0
+<pre> <b>s    0 0 1 0 1</b></pre>
+To show the influence of delay a large delay time of 0.1s is choosen.
+Furthermore, all signals are initialized with U, the unitialized value.
+Please remember, that the nine logic values are coded by the numbers 1,...,9.
+The summands a and b can be found at the output signals of the taba and tabb sources.
+The result can be seen in the output signals of the Fulladders according to: 
+<pre> a                      tab<b>a4</b>.y        tab<b>a3</b>.y        tab<b>a2</b>.y        tab<b>a1</b>.y
+<pre> b                      tab<b>b4</b>.y        tab<b>b3</b>.y        tab<b>b2</b>.y        tab<b>b1</b>.y
+<pre> sum      <b>A4.Or1</b>.y      <b>A4.s1</b>          <b>A3.s1</b>          <b>A2.s1</b>          <b>A1.s1</b>
+</pre>
+The simulation stop time has to be 5s.
+        
+</P>
+</HTML>
+"),     Coordsys(
+          extent=[-100,-100; 100,100],
+          grid=[2, 2],
+          component=[20, 20]),
+        Icon(Rectangle(extent=[-90,100; 90,-100], style(
+              color=0,
+              rgbcolor={0,0,0},
+              thickness=2,
+              fillColor=51,
+              rgbfillColor={255,255,170})),
+          Text(
+            extent=[68,80; 88,60],
+            style(
+              color=0,
+              rgbcolor={0,0,0},
+              thickness=2,
+              fillColor=7,
+              rgbfillColor={255,255,255},
+              fillPattern=1),
+            string="S"),
+          Text(
+            extent=[-150,-100; 150,-160],
+            string="%name",
+            style(
+              color=3,
+              rgbcolor={0,0,255},
+              fillColor=51,
+              rgbfillColor={255,255,170},
+              fillPattern=1)),
+          Text(
+    extent=[-40,60; 40,20],
+              style(
+                color=0,
+                rgbcolor={0,0,0},
+                gradient=2),
+            string="Adder"),
+          Text(
+            extent=[48,-60; 88,-80],
+            style(
+              color=0,
+              rgbcolor={0,0,0},
+              thickness=2,
+              fillColor=7,
+              rgbfillColor={255,255,255},
+              fillPattern=1),
+            string="Cout"),
+          Text(
+            extent=[-90,-60; -50,-80],
+            style(
+              color=0,
+              rgbcolor={0,0,0},
+              thickness=2,
+              fillColor=7,
+              rgbfillColor={255,255,255},
+              fillPattern=1),
+            string="Cin"),
+          Text(
+            extent=[-88,80; -68,60],
+            style(
+              color=0,
+              rgbcolor={0,0,0},
+              thickness=2,
+              fillColor=7,
+              rgbfillColor={255,255,255},
+              fillPattern=1),
+            string="A"),
+          Text(
+            extent=[-88,40; -68,20],
+            style(
+              color=0,
+              rgbcolor={0,0,0},
+              thickness=2,
+              fillColor=7,
+              rgbfillColor={255,255,255},
+              fillPattern=1),
+            string="B")),
+        Diagram,
+        Window(
+          x=0.2,
+          y=0.06,
+          width=0.62,
+          height=0.69),
+        experiment(StopTime=5),
+        experimentSetupOutput(
+          states=false,
+          derivatives=false,
+          inputs=false),
+        DymolaStoredErrors);
+      parameter Integer n=2;
+      Digital.Examples.Utilities.FullAdder Adder[n] 
+                                   annotation (extent=[-20,-20; 20,20]);
+      Digital.Interfaces.DigitalInput a[n] annotation (extent=[-110,60; -90,80]);
+      Digital.Interfaces.DigitalInput b[n] annotation (extent=[-110,20; -90,40]);
+      Digital.Interfaces.DigitalInput c_in annotation (extent=[-110,-80; -90,-60]);
+      Digital.Interfaces.DigitalOutput s[n] annotation (extent=[90,60; 110,80]);
+      Digital.Interfaces.DigitalOutput c_out annotation (extent=[90,-80; 110,-60]);
+    equation 
+      connect(c_in,Adder[1].c_in);
+      for i in 1:n loop
+        connect(a[i],Adder[i].a);
+        connect(b[i],Adder[i].b);
+        connect(Adder[i].a,s[i]);
+        if i>1 then
+          connect(Adder[i-1].c_out,Adder[i].c_in);
+        end if;
+      end for;
+      connect(Adder[n].c_out,c_out);
+    end Adder;
+      
+    model Counter3 "3 Bit Counter" 
+      import D = Modelica.Electrical.Digital;
       import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
-      Digital.Basic.Nor Nor_S annotation (extent=[-20, 20; 20, 60]);
-      Digital.Basic.Nor Nor_R annotation (extent=[-20, -60; 20, -20]);
+       annotation (
+         Documentation(info="<HTML>
+<P>
+RS flipflop, composed by Basic Nor and a transport delay.
+<br>
+</P>
+<p><b>Release Notes:</b></p>
+<ul>
+<li><i>   </i>
+       by ...<br>
+       </li>
+<li><i>September 6, 2003</i>
+       by Christoph Clauss<br>
+       realized.</li>
+</ul>
+</HTML>
+"),      Diagram,
+         Icon(Rectangle(extent=[-90,100; 90,-100], style(
+                 color=0,
+                 rgbcolor={0,0,0},
+                 thickness=2,
+                 fillColor=51,
+                 rgbfillColor={255,255,170})),
+           Text(
+             extent=[-80,80; -40,60],
+             style(
+               color=0,
+               rgbcolor={0,0,0},
+               thickness=2,
+               fillColor=7,
+               rgbfillColor={255,255,255},
+               fillPattern=1),
+               string="ENABLE"),
+           Text(
+             extent=[64,80; 86,60],
+             style(
+               color=0,
+               rgbcolor={0,0,0},
+               thickness=2,
+               fillColor=7,
+               rgbfillColor={255,255,255},
+               fillPattern=1),
+              string="Q2"),
+           Text(
+             extent=[64,-60; 86,-80],
+             style(
+               color=0,
+               rgbcolor={0,0,0},
+               thickness=2,
+               fillColor=7,
+               rgbfillColor={255,255,255},
+               fillPattern=1),
+              string="Q0"),
+           Text(
+             extent=[-150,-100; 150,-160],
+             string="%name",
+             style(
+               color=3,
+               rgbcolor={0,0,255},
+               fillColor=51,
+               rgbfillColor={255,255,170},
+               fillPattern=1)),
+           Text(
+     extent=[-60,40; 60,0],
+               style(
+                 color=0,
+                 rgbcolor={0,0,0},
+                 gradient=2),
+              string="Counter3"),
+           Text(
+             extent=[-80,-60; -40,-80],
+             style(
+               color=0,
+               rgbcolor={0,0,0},
+               thickness=2,
+               fillColor=7,
+               rgbfillColor={255,255,255},
+               fillPattern=1),
+               string="COUNT"),
+           Text(
+             extent=[62,8; 84,-12],
+             style(
+               color=0,
+               rgbcolor={0,0,0},
+               thickness=2,
+               fillColor=7,
+               rgbfillColor={255,255,255},
+               fillPattern=1),
+              string="Q1")));
+      D.Interfaces.DigitalInput enable 
+                                     annotation (extent=[-110,60; -90,80]);
+      D.Interfaces.DigitalOutput q2 annotation (extent=[90,60; 110,80]);
+      D.Interfaces.DigitalInput count 
+                                     annotation (extent=[-110,-80; -90,-60]);
+      D.Examples.Utilities.JKFF FF1 
+           annotation (extent=[-74,-20; -34,20]);
+      D.Examples.Utilities.JKFF FF2 
+           annotation (extent=[-20,-20; 20,20]);
+      D.Examples.Utilities.JKFF FF3 
+           annotation (extent=[34,-20; 74,20]);
+      D.Interfaces.DigitalOutput q1 annotation (extent=[90,-10; 110,10]);
+      D.Interfaces.DigitalOutput q0 annotation (extent=[90,-80; 110,-60]);
+    equation 
+      connect(enable, FF1.j)       annotation (points=[-100,70; -80,70; -80,14;
+               -74,14],  style(
+             color=78,
+             rgbcolor={127,0,127},
+             fillPattern=1));
+      connect(enable, FF1.k)      annotation (points=[-100,70; -80,70; -80,-14;
+               -74,-14],style(
+             color=78,
+             rgbcolor={127,0,127},
+             fillPattern=1));
+      connect(count, FF1.clk)      annotation (points=[-100,-70; -86,-70; -86,0;
+               -74,0], style(
+             color=78,
+             rgbcolor={127,0,127},
+             fillPattern=1));
+      connect(FF1.q, FF2.clk)        annotation (points=[-34,14; -30,14; -30,0;
+               -20,0], style(
+             color=78,
+             rgbcolor={127,0,127},
+             fillPattern=1));
+      connect(FF2.q, FF3.clk)        annotation (points=[20,14; 24,14; 24,0; 34,
+               0], style(
+             color=78,
+             rgbcolor={127,0,127},
+             fillPattern=1));
+      connect(FF2.j, enable)       annotation (points=[-20,14; -26,14; -26,70;
+               -100,70], style(
+             color=78,
+             rgbcolor={127,0,127},
+             fillPattern=1));
+      connect(FF2.k, FF2.j)         annotation (points=[-20,-14; -26,-14; -26,14;
+               -20,14],  style(
+             color=78,
+             rgbcolor={127,0,127},
+             fillPattern=1));
+      connect(FF3.k, FF3.j)         annotation (points=[34,-14; 28,-14; 28,14;
+               34,14],
+                     style(
+             color=78,
+             rgbcolor={127,0,127},
+             fillPattern=1));
+      connect(FF3.j, enable)       annotation (points=[34,14; 28,14; 28,70; -100,
+               70],      style(
+             color=78,
+             rgbcolor={127,0,127},
+             fillPattern=1));
+      connect(FF3.q, q2)     annotation (points=[74,14; 80,14; 80,70; 100,70],
+             style(
+             color=78,
+             rgbcolor={127,0,127},
+             fillPattern=1));
+      connect(FF1.q, q0) annotation (points=[-34,14; -30,14; -30,-70; 100,-70],
+            style(color=78, rgbcolor={127,0,127}));
+      connect(FF2.q, q1) annotation (points=[20,14; 24,14; 24,-50; 86,-50; 86,0;
+              100,0], style(color=78, rgbcolor={127,0,127}));
+    end Counter3;
+      
+    model Counter "D FlipFlop" 
+      import D = Modelica.Electrical.Digital;
+      import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       annotation (
         Documentation(info="<HTML>
 <P>
@@ -2856,396 +4747,108 @@ RS flipflop, composed by Basic Nor and a transport delay.
        realized.</li>
 </ul>
 </HTML>
-"),     Diagram(
-          Text(
-            extent=[-62, 62; -40, 48],
-            style(
-              color=0,
-              fillColor=67,
-              fillPattern=1),
-            string="set"),
-          Text(
-            extent=[-62, -20; -34, -36],
-            style(
-              color=0,
-              fillColor=67,
-              fillPattern=1),
-            string="reset"),
-          Text(
-            extent=[40, 60; 62, 46],
-            style(
-              color=0,
-              fillColor=67,
-              fillPattern=1),
-            string="q"),
-          Text(
-            extent=[40, -40; 62, -54],
-            style(
-              color=0,
-              fillColor=67,
-              fillPattern=1),
-            string="qn")),
+"),     Diagram(Rectangle(extent=[90,80; 110,-80], style(
+                color=78,
+                rgbcolor={127,0,127},
+                fillColor=78,
+                rgbfillColor={127,0,127},
+                fillPattern=1))),
         Icon(
-          Rectangle(extent=[-60, 80; 60, -80], style(color=0, thickness=2)),
-          Line(points=[-60, 0; 60, 0; 60, 2], style(color=0, thickness=2)),
-          Text(
-            extent=[-60, 80; 60, 0],
-            style(color=0),
-            string="S"),
-          Text(
-            extent=[-60, 0; 60, -80],
-            style(color=0),
-            string="R")));
-        
-      Digital.Interfaces.DigitalInput set 
-                                    annotation (extent=[-80, 30; -60, 50]);
-      Digital.Interfaces.DigitalInput reset 
-                                      annotation (extent=[-80, -50; -60, -30]);
-      Digital.Interfaces.DigitalOutput q 
-                                   annotation (extent=[60, 30; 80, 50]);
-      Digital.Interfaces.DigitalOutput qn "not q" 
-        annotation (extent=[60, -50; 80, -30]);
-      parameter Modelica.SIunits.Time Tdel=0.01;
-      parameter Digital.Interfaces.LogicValueType QInit=L.'U';
-      Digital.Delay.TransportDelay TDelay(Tdel=Tdel, initout=QInit) 
-        annotation (extent=[10, -2; 30, 18], rotation=270);
-    equation 
-        connect(reset, Nor_R.x[1]) annotation (points=[-70,-40; -40,-40; -40,
-              -41; -20,-41], style(
-            color=78,
-            rgbcolor={127,0,127},
-            fillColor=7,
-            rgbfillColor={255,255,255},
-            fillPattern=1));
-        connect(TDelay.y, Nor_R.x[2]) annotation (points=[20,-2; 20,-8; -20,-8;
-              -20,-39], style(
-            color=78,
-            rgbcolor={127,0,127},
-            fillColor=7,
-            rgbfillColor={255,255,255},
-            fillPattern=1));
-        connect(q, Nor_R.y) annotation (points=[70,40; 44,40; 44,-40; 20,-40],
-            style(
-            color=78,
-            rgbcolor={127,0,127},
-            fillColor=7,
-            rgbfillColor={255,255,255},
-            fillPattern=1));
-        connect(Nor_S.y, qn) annotation (points=[20,40; 38,40; 38,0; 56,0; 56,
-              -40; 70,-40], style(
-            color=78,
-            rgbcolor={127,0,127},
-            fillColor=7,
-            rgbfillColor={255,255,255},
-            fillPattern=1));
-        connect(Nor_S.y, TDelay.x) annotation (points=[20,40; 20,29; 20,18; 20,
-              18], style(
-            color=78,
-            rgbcolor={127,0,127},
-            fillColor=7,
-            rgbfillColor={255,255,255},
-            fillPattern=1));
-        connect(set, Nor_S.x[2]) annotation (points=[-70,40; -40,40; -40,41;
-              -20,41], style(
-            color=78,
-            rgbcolor={127,0,127},
-            fillColor=7,
-            rgbfillColor={255,255,255},
-            fillPattern=1));
-        connect(Nor_R.y, Nor_S.x[1]) annotation (points=[20,-40; 20,-14; -36,
-              -14; -36,39; -20,39], style(
-            color=78,
-            rgbcolor={127,0,127},
-            fillColor=79,
-            rgbfillColor={170,85,255},
-            fillPattern=1));
-    end RSFF;
-      
-    model DFFL "D flipflop low active" 
-        
-      annotation (
-        Documentation(info="<HTML>
-<P>
-<br>
-Only if reset is true, the output signal follows the input D, but clock edge triggered.
-If the reset becomes false the output Q immediately (not clock edge triggered) becomes
-false. Therefore, it is called an asynchronuous reset. Note that the D input needs a setup
-time before the LH clock edge, which is caused by the delays.
-</P>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>   </i>
-       by ...<br>
-       </li>
-<li><i>November 6, 2003</i>
-       by Christoph Clauss<br>
-       realized.</li>
-</ul>
-</HTML>
-"),     Coordsys(
-          extent=[-100, -100; 100, 100],
-          grid=[2, 2],
-          component=[20, 20]),
-        Icon(
-          Rectangle(extent=[-60, 70; 60, -70], style(
-              color=0,
-              thickness=2,
-              fillColor=67)),
-          Ellipse(extent=[60, 10; 80, -10], style(
-              color=0,
-              thickness=2,
-              fillColor=67,
-              fillPattern=1)),
-          Line(points=[-60, -30; -50, -40; -60, -50], style(
-              color=0,
-              thickness=2,
-              fillColor=67,
-              fillPattern=1)),
-          Ellipse(extent=[-10, -70; 10, -90], style(
-              color=0,
-              thickness=2,
-              fillColor=67,
-              fillPattern=1)),
-          Line(points=[-90, 40; -60, 40], style(
+            Rectangle(extent=[90,80; 110,-80], style(
                 color=78,
                 rgbcolor={127,0,127},
-                thickness=2,
-                fillColor=67,
-                rgbfillColor={127,255,255},
+                fillColor=78,
+                rgbfillColor={127,0,127},
                 fillPattern=1)),
-          Line(points=[-90, -40; -60, -40], style(
-                color=78,
-                rgbcolor={127,0,127},
-                thickness=2,
-                fillColor=67,
-                rgbfillColor={127,255,255},
-                fillPattern=1)),
-          Line(points=[60,40; 88,40],   style(
-                color=78,
-                rgbcolor={127,0,127},
-                thickness=2,
-                fillColor=67,
-                rgbfillColor={127,255,255},
-                fillPattern=1)),
-          Text(
-            extent=[-56, 56; -34, 22],
-            string="D",
-            style(
-              color=0,
-              thickness=2,
-              fillColor=67,
-              fillPattern=1)),
-          Text(
-            extent=[36, 54; 58, 20],
-            style(
-              color=0,
-              thickness=2,
-              fillColor=67,
-              fillPattern=1),
-            string="Q"),
-          Text(
-            extent=[22, 20; 60, -22],
-            style(
-              color=0,
-              thickness=2,
-              fillColor=67,
-              fillPattern=1),
-            string="QB"),
-          Text(
-            extent=[-50, -20; -10, -62],
-            style(
-              color=0,
-              thickness=2,
-              fillColor=67,
-              fillPattern=1),
-            string="CLK"),
-          Text(
-            extent=[-18, -48; 18, -72],
-            style(
-              color=0,
-              thickness=2,
-              fillColor=67,
-              fillPattern=1),
-            string="rst"),
-            Line(points=[80,0; 90,0; 90,-2], style(
+             Rectangle(extent=[-90,100; 90,-100], style(
                 color=0,
                 rgbcolor={0,0,0},
-                fillColor=79,
-                rgbfillColor={170,85,255},
-                fillPattern=1))),
-        Diagram(
-          Text(extent=[18, 26; 38, 14], string="rst"),
-          Text(extent=[-62, 48; -42, 36], string="cf"),
-          Text(extent=[-62, 10; -42, -2], string="cbf"),
-          Text(extent=[-2, 44; 18, 32], string="dl"),
-          Text(extent=[0, 6; 20, -6], string="dbl"),
-          Text(extent=[-102, -42; -82, -54], string="clk"),
-          Text(extent=[-106, 34; -86, 22], string="d"),
-          Text(extent=[-26, -86; -6, -98], string="rst"),
-          Text(extent=[86,-6; 106,-18],   string="q"),
-          Text(extent=[82,60; 102,48],  string="qb")),
-        Window(
-          x=0.2,
-          y=0.06,
-          width=0.62,
-          height=0.69));
-        
-      Gates.NandGate NG1(tLH=tLHstage1, tHL=tHLstage1) 
-        annotation (extent=[-80, 40; -60, 60]);
-      Gates.NandGate NG2(tLH=tLHstage3, tHL=tHLstage3) 
-        annotation (extent=[40, -80; 60, -60]);
-      Gates.NandGate NG3(tLH=tLHstage1, tHL=tHLstage1, ninputs=3) 
-        annotation (extent=[-80, -20; -60, 0]);
-      Gates.NandGate NG4(tLH=tLHstage2, tHL=tHLstage2, ninputs=3) 
-        annotation (extent=[-20, 40; 0, 60]);
-      Gates.NandGate NG5(tLH=tLHstage2, tHL=tHLstage2, ninputs=3) 
-        annotation (extent=[-20, -20; 0, 0]);
-      Gates.NandGate NG6(tLH=tLHstage3, tHL=tHLstage3, ninputs=3) 
-        annotation (extent=[40, -20; 60, 0]);
-      Digital.Interfaces.DigitalOutput QB 
-                                    annotation (extent=[90,-12; 110,8]);
-      Digital.Interfaces.DigitalOutput Q 
-                                   annotation (extent=[90,30; 110,50]);
-      Digital.Interfaces.DigitalInput CLK "clock input" 
-        annotation (extent=[-110,-50; -90,-30]);
-      Digital.Interfaces.DigitalInput D "set input" 
-        annotation (extent=[-110,30; -90,50]);
-      Digital.Interfaces.DigitalInput rst "reset input" 
-        annotation (extent=[-10,-110; 10,-90],   rotation=90);
-      parameter Modelica.SIunits.Time tLHstage1=2 "LH delay at NG1 and NG3";
-      parameter Modelica.SIunits.Time tHLstage1=2 "HL delay at NG1 and NG3";
-      parameter Modelica.SIunits.Time tLHstage2=1 "LH delay at NG4 and NG5";
-      parameter Modelica.SIunits.Time tHLstage2=1 "HL delay at NG4 and NG5";
-      parameter Modelica.SIunits.Time tLHstage3=2 "LH delay at NG2 and NG6";
-      parameter Modelica.SIunits.Time tHLstage3=2 "HL delay at NG2 and NG6";
+                thickness=2,
+                fillColor=51,
+                rgbfillColor={255,255,170})),
+          Text(
+            extent=[-80,80; -40,60],
+            style(
+              color=0,
+              rgbcolor={0,0,0},
+              thickness=2,
+              fillColor=7,
+              rgbfillColor={255,255,255},
+              fillPattern=1),
+              string="ENABLE"),
+          Text(
+            extent=[66,8; 88,-12],
+            style(
+              color=0,
+              rgbcolor={0,0,0},
+              thickness=2,
+              fillColor=7,
+              rgbfillColor={255,255,255},
+              fillPattern=1),
+              string="Q"),
+          Text(
+            extent=[-150,-100; 150,-160],
+            string="%name",
+            style(
+              color=3,
+              rgbcolor={0,0,255},
+              fillColor=51,
+              rgbfillColor={255,255,170},
+              fillPattern=1)),
+          Text(
+    extent=[-40,40; 40,0],
+              style(
+                color=0,
+                rgbcolor={0,0,0},
+                gradient=2),
+              string="Counter"),
+          Text(
+            extent=[-80,-60; -40,-80],
+            style(
+              color=0,
+              rgbcolor={0,0,0},
+              thickness=2,
+              fillColor=7,
+              rgbfillColor={255,255,255},
+              fillPattern=1),
+              string="COUNT")));
+      parameter Integer n=3;
+      parameter Modelica.SIunits.Time delayTime=0.001;
+      parameter D.Interfaces.Logic q0=L.'0';
+      D.Interfaces.DigitalInput enable 
+                                    annotation (extent=[-110,60; -90,80]);
+      D.Interfaces.DigitalInput count 
+                                    annotation (extent=[-110,-80; -90,-60]);
+      D.Examples.Utilities.JKFF FF[n](each delayTime=delayTime,each q0=q0);
+      D.Interfaces.DigitalOutput q[n] annotation (extent=[90,-80; 110,80]);
     equation 
-        
-        connect(NG4.y, NG1.x[2]) annotation (points=[0,50; 14,50; 14,80; -80,80;
-              -80,50.5], style(
-            color=78,
-            rgbcolor={127,0,127},
-            fillColor=79,
-            rgbfillColor={170,85,255},
-            fillPattern=1));
-        connect(NG4.y, NG5.x[3]) annotation (points=[0,50; 14,50; 14,20; -20,20;
-              -20,-9.33333], style(
-            color=78,
-            rgbcolor={127,0,127},
-            fillColor=79,
-            rgbfillColor={170,85,255},
-            fillPattern=1));
-        connect(CLK, NG3.x[2]) annotation (points=[-100,-40; -86,-40; -86,-10;
-              -80,-10], style(
-            color=78,
-            rgbcolor={127,0,127},
-            fillColor=79,
-            rgbfillColor={170,85,255},
-            fillPattern=1));
-        connect(CLK, NG5.x[1]) annotation (points=[-100,-40; -20,-40; -20,
-              -10.6667], style(
-            color=78,
-            rgbcolor={127,0,127},
-            fillColor=79,
-            rgbfillColor={170,85,255},
-            fillPattern=1));
-        connect(NG3.y, NG5.x[2]) annotation (points=[-60,-10; -20,-10], style(
-            color=78,
-            rgbcolor={127,0,127},
-            fillColor=79,
-            rgbfillColor={170,85,255},
-            fillPattern=1));
-        connect(NG3.y, NG1.x[1]) annotation (points=[-60,-10; -56,-10; -56,28;
-              -80,28; -80,49.5], style(
-            color=78,
-            rgbcolor={127,0,127},
-            fillColor=79,
-            rgbfillColor={170,85,255},
-            fillPattern=1));
-        connect(NG1.y, NG3.x[3]) annotation (points=[-60,50; -50,50; -50,16;
-              -80,16; -80,-9.33333], style(
-            color=78,
-            rgbcolor={127,0,127},
-            fillColor=79,
-            rgbfillColor={170,85,255},
-            fillPattern=1));
-        connect(rst, NG3.x[1]) annotation (points=[0,-100; 0,-76; -80,-76; -80,
-              -10.6667], style(
-            color=78,
-            rgbcolor={127,0,127},
-            fillColor=79,
-            rgbfillColor={170,85,255},
-            fillPattern=1));
-        connect(NG3.y, NG2.x[1]) annotation (points=[-60,-10; -56,-10; -56,
-              -70.5; 40,-70.5], style(
-            color=78,
-            rgbcolor={127,0,127},
-            fillColor=79,
-            rgbfillColor={170,85,255},
-            fillPattern=1));
-        connect(NG5.y, NG6.x[2]) annotation (points=[0,-10; 40,-10], style(
-            color=78,
-            rgbcolor={127,0,127},
-            fillColor=79,
-            rgbfillColor={170,85,255},
-            fillPattern=1));
-        connect(NG5.y, NG4.x[1]) annotation (points=[0,-10; 0,14; -26,14; -26,
-              49.3333; -20,49.3333], style(
-            color=78,
-            rgbcolor={127,0,127},
-            fillColor=79,
-            rgbfillColor={170,85,255},
-            fillPattern=1));
-        connect(D, NG4.x[3]) annotation (points=[-100,40; -88,40; -88,88; -20,
-              88; -20,50.6667], style(
-            color=78,
-            rgbcolor={127,0,127},
-            fillColor=79,
-            rgbfillColor={170,85,255},
-            fillPattern=1));
-        connect(rst, NG4.x[2]) annotation (points=[0,-100; 0,-76; -38,-76; -38,
-              50; -20,50], style(
-            color=78,
-            rgbcolor={127,0,127},
-            fillColor=79,
-            rgbfillColor={170,85,255},
-            fillPattern=1));
-        connect(rst, NG6.x[3]) annotation (points=[0,-100; 0,-76; 24,-76; 24,
-              -9.33333; 40,-9.33333], style(
-            color=78,
-            rgbcolor={127,0,127},
-            fillColor=79,
-            rgbfillColor={170,85,255},
-            fillPattern=1));
-        connect(NG2.y, NG6.x[1]) annotation (points=[60,-70; 64,-70; 64,-38; 40,
-              -38; 40,-10.6667], style(
-            color=78,
-            rgbcolor={127,0,127},
-            fillColor=79,
-            rgbfillColor={170,85,255},
-            fillPattern=1));
-        connect(NG6.y, NG2.x[2]) annotation (points=[60,-10; 64,-10; 64,-32; 48,
-              -32; 48,-56; 40,-56; 40,-69.5], style(
-            color=78,
-            rgbcolor={127,0,127},
-            fillColor=79,
-            rgbfillColor={170,85,255},
-            fillPattern=1));
-        connect(NG2.y, Q) annotation (points=[60,-70; 78,-70; 78,40; 100,40],
-            style(
-            color=78,
-            rgbcolor={127,0,127},
-            fillColor=79,
-            rgbfillColor={170,85,255},
-            fillPattern=1));
-        connect(NG6.y, QB) annotation (points=[60,-10; 70,-10; 70,-2; 100,-2],
-            style(
-            color=78,
-            rgbcolor={127,0,127},
-            fillColor=79,
-            rgbfillColor={170,85,255},
-            fillPattern=1));
-    end DFFL;
+      connect(enable,FF[1].j);
+      connect(enable,FF[1].k);
+      connect(count,FF[1].clk);
+      connect(FF[1].q,q[1]);
+      for i in 2:n loop
+        connect(enable,FF[i].j);
+        connect(enable,FF[i].k);
+        connect(FF[i-1].q,FF[i].clk);
+        connect(FF[i].q,q[i]);
+      end for;
+    end Counter;
   end Utilities;
-    
+    annotation (Icon(
+        Rectangle(extent=[-100,-100; 80,50],   style(fillColor=30, fillPattern=
+                1)),
+        Polygon(points=[-100,50; -80,70; 100,70; 80,50; -100,50],      style(
+              fillColor=30, fillPattern=1)),
+        Polygon(points=[100,70; 100,-80; 80,-100; 80,50; 100,70],      style(
+              fillColor=30, fillPattern=1)),
+        Text(
+          extent=[-85,35; 65,-85],
+          string="Library",
+          style(color=3)),
+        Text(
+          extent=[-120,122; 120,73],
+          string="%name",
+          style(color=1))));
   end Examples;
+  
 end Digital;
