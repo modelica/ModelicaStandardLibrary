@@ -1,7 +1,7 @@
 package Machines "Library for electric machines" 
   extends Modelica.Icons.Library;
   annotation (
-  version="1.3.2", versionDate="2004-11-10",
+  version="1.4", versionDate="2004-11-11",
   Settings(NewStateSelection=true, Evaluate=true),
   Documentation(info="<HTML>
 <p>
@@ -81,6 +81,9 @@ You may have a look at a short summary of space phasor theory at <a href=\"http:
        small changes in Examples.Utilities.VfController</li>
   <li> v1.3.2 2004/11/10 Anton Haumer<br>
        ReluctanceRotor moved to SynchronousMachines</li>
+  <li> v1.4   2004/11/11 Anton Haumer<br>
+       removed mechanical flange support<br>
+       to ease the implementation of a 3D-frame in a future release</li>
   </ul>
 </HTML>"));
   
@@ -181,7 +184,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
         annotation (extent=[0,0; -20,20]);
       Modelica.Mechanics.Rotational.Inertia LoadInertia(J=J_Load) 
         annotation (extent=[40,-50; 60,-30]);
-      Modelica.Mechanics.Rotational.QuadraticSpeedDependentTorque QuadraticLoadTorque1(
+      Mechanics.Rotational.QuadraticSpeedDependentTorque QuadraticLoadTorque1(
                     w_nominal=Modelica.SIunits.Conversions.from_rpm(rpmLoad),
           tau_nominal=-T_Load) 
         annotation (extent=[90,-50; 70,-30]);
@@ -274,7 +277,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
         annotation (extent=[-80, 0; -60, 20]);
       Modelica.Mechanics.Rotational.Inertia LoadInertia(J=J_Load) 
         annotation (extent=[40,-50; 60,-30]);
-      Modelica.Mechanics.Rotational.QuadraticSpeedDependentTorque QuadraticLoadTorque1(
+      Mechanics.Rotational.QuadraticSpeedDependentTorque QuadraticLoadTorque1(
                     w_nominal=Modelica.SIunits.Conversions.from_rpm(rpmLoad),
           tau_nominal=-T_Load) 
         annotation (extent=[90,-50; 70,-30]);
@@ -386,7 +389,7 @@ Default machine parameters of model <i>AIM_SlipRing</i> are used.
         annotation (extent=[-80,-50; -60,-30]);
       Modelica.Mechanics.Rotational.Inertia LoadInertia(J=J_Load) 
         annotation (extent=[40,-50; 60,-30]);
-      Modelica.Mechanics.Rotational.QuadraticSpeedDependentTorque QuadraticLoadTorque1(
+      Mechanics.Rotational.QuadraticSpeedDependentTorque QuadraticLoadTorque1(
                     w_nominal=Modelica.SIunits.Conversions.from_rpm(rpmLoad),
           tau_nominal=-T_Load) 
         annotation (extent=[90,-50; 70,-30]);
@@ -500,7 +503,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
         annotation (extent=[-50,-40; -70,-20]);
       Modelica.Mechanics.Rotational.Inertia LoadInertia(J=J_Load) 
         annotation (extent=[40,-50; 60,-30]);
-      Modelica.Mechanics.Rotational.TorqueStep TorqueStep1(startTime=tStep, stepTorque=-T_Load) 
+      Mechanics.Rotational.TorqueStep TorqueStep1(startTime=tStep, stepTorque=-T_Load) 
                     annotation (extent=[90,-50; 70,-30]);
     equation 
       connect(SignalVoltage1.plug_n, Star1.plug_p) 
@@ -585,7 +588,7 @@ Default machine parameters of model <i>SM_ReluctanceRotorDamperCage</i> are used
         annotation (extent=[-50,-40; -70,-20]);
       Modelica.Mechanics.Rotational.Inertia LoadInertia(J=J_Load) 
         annotation (extent=[40,-50; 60,-30]);
-      Modelica.Mechanics.Rotational.TorqueStep TorqueStep1(startTime=tStep, stepTorque=-T_Load) 
+      Mechanics.Rotational.TorqueStep TorqueStep1(startTime=tStep, stepTorque=-T_Load) 
                     annotation (extent=[90,-50; 70,-30]);
     equation 
       connect(SignalVoltage1.plug_n, Star1.plug_p) 
@@ -685,7 +688,7 @@ Default machine parameters of model <i>SM_PermanentMagnetDamperCage</i> are used
         annotation (extent=[-50,-40; -70,-20]);
       Modelica.Mechanics.Rotational.Inertia LoadInertia(J=J_Load) 
         annotation (extent=[40,-50; 60,-30]);
-      Modelica.Mechanics.Rotational.TorqueStep TorqueStep1(startTime=tStep, stepTorque=-
+      Mechanics.Rotational.TorqueStep TorqueStep1(startTime=tStep, stepTorque=-
             T_Load) annotation (extent=[90,-50; 70,-30]);
     equation 
       connect(SignalVoltage1.plug_n, Star1.plug_p) 
@@ -756,7 +759,7 @@ Default machine parameters of model <i>DC_PermanentMagnet</i> are used.
         annotation (extent=[-80,30; -60,50],  rotation=-90);
       Modelica.Mechanics.Rotational.Inertia LoadInertia(J=J_Load) 
         annotation (extent=[40,-50; 60,-30]);
-      Modelica.Mechanics.Rotational.TorqueStep TorqueStep1(startTime=tStep, stepTorque=-
+      Mechanics.Rotational.TorqueStep TorqueStep1(startTime=tStep, stepTorque=-
             T_Load) annotation (extent=[90,-50; 70,-30]);
     equation 
       connect(DCPM1.flange_a, LoadInertia.flange_a) annotation (points=[0,-40;
@@ -819,7 +822,7 @@ Default machine parameters of model <i>DC_ElectricalExcited</i> are used.
         annotation (extent=[-80,-80; -60,-60],rotation=0);
       Modelica.Mechanics.Rotational.Inertia LoadInertia(J=J_Load) 
         annotation (extent=[40,-50; 60,-30]);
-      Modelica.Mechanics.Rotational.TorqueStep TorqueStep1(startTime=tStep, stepTorque=-
+      Mechanics.Rotational.TorqueStep TorqueStep1(startTime=tStep, stepTorque=-
             T_Load) annotation (extent=[90,-50; 70,-30]);
     equation 
       connect(DCEE1.flange_a, LoadInertia.flange_a) annotation (points=[0,-40;
@@ -884,7 +887,7 @@ Default machine parameters of model <i>DC_SeriesExcited</i> are used.
         annotation (extent=[-80,30; -60,50],  rotation=-90);
       Modelica.Mechanics.Rotational.Inertia LoadInertia(J=J_Load) 
         annotation (extent=[40,-50; 60,-30]);
-      Modelica.Mechanics.Rotational.QuadraticSpeedDependentTorque QuadraticLoadTorque1(
+      Mechanics.Rotational.QuadraticSpeedDependentTorque QuadraticLoadTorque1(
         w_nominal=Modelica.SIunits.Conversions.from_rpm(rpmLoad),
         tau_nominal=-T_Load) 
         annotation (extent=[90,-50; 70,-30]);
@@ -1061,13 +1064,6 @@ This package contains components for modeling electrical machines, specially thr
 </ul>
 The induction machine models use package SpacePhasors.
 </p>
-<p>
-Besides the mechanical connector <i>flange_a</i> (i.e. the shaft) the machines have a second mechanical connector <i>support</i>.<br>
-If nothing is connected to <i>support</i>, it is assumed that the stator is fixed.<br>
-Otherwise reaction torque (i.e. airGap torque, minus acceleration torque for stator's moment of inertia) can be measured at <i>support</i>.<br>
-One may also fix the the shaft and let rotate the stator; parameter J_Stator is only of importance when the stator is rotating.<br>
-<b>Take care:</b> Even if You connect only a sensor (e.g. Modelica.Mechanics.Rotational.Sensors.RelAngleSensor or Machines.Sensors.RotorAngle) to the <i>support</i>, You have to fix the <i>support</i>!
-</p>
 <dl>
 <p>
   <dt><b>Main Authors:</b></dt>
@@ -1104,6 +1100,9 @@ One may also fix the the shaft and let rotate the stator; parameter J_Stator is 
        fixed a bug with support (formerly bearing)</li>
   <li> v1.3.2 2004/11/10 Anton Haumer<br>
        ReluctanceRotor moved to SynchronousMachines</li>
+  <li> v1.4   2004/11/11 Anton Haumer<br>
+       removed mechanical flange support<br>
+       to ease the implementation of a 3D-frame in a future release</li>
   </ul>
 <HTML>"));
     
@@ -1150,12 +1149,15 @@ These models use package SpacePhasors.
        fixed a bug with support (formerly bearing)</li>
   <li> v1.3.2 2004/11/10 Anton Haumer<br>
        ReluctanceRotor moved to SynchronousMachines</li>
+  <li> v1.4   2004/11/11 Anton Haumer<br>
+       removed mechanical flange support<br>
+       to ease the implementation of a 3D-frame in a future release</li>
   </ul>
 </HTML>"));
       
       model AIM_SquirrelCage 
         "Asynchronous induction machine with squirrel cage rotor" 
-        extends Machines.Interfaces.PartialBasicInductionMachine(J_Rotor=0.29, J_Stator=0.29);
+        extends Machines.Interfaces.PartialBasicInductionMachine(J_Rotor=0.29);
         constant Modelica.SIunits.Frequency fNominal=50 "nominal frequency";
         parameter Modelica.SIunits.Resistance Rs=0.03 
           "|Impedances|warm stator resistance per phase";
@@ -1324,13 +1326,13 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
         connect(airGapS.flange_a, inertiaRotor.flange_a) annotation (points=[10,
               6.12303e-016; 28,6.12303e-016; 28,-1.22461e-015; 60,-1.22461e-015],
             style(color=0, rgbcolor={0,0,0}));
-        connect(airGapS.support, adapter.flange_b) annotation (points=[-10,
+        connect(airGapS.support, internalSupport) annotation (points=[-10,
               -6.12303e-016; -90,-6.12303e-016; -90,-100; 20,-100], style(color=
                0, rgbcolor={0,0,0}));
       end AIM_SquirrelCage;
       
       model AIM_SlipRing "Asynchronous induction machine with slipring rotor" 
-        extends Interfaces.PartialBasicInductionMachine(J_Rotor=0.29, J_Stator=0.29);
+        extends Interfaces.PartialBasicInductionMachine(J_Rotor=0.29);
         constant Modelica.SIunits.Frequency fNominal=50 "nominal frequency";
         parameter Modelica.SIunits.Resistance Rs=0.03 
           "|Impedances|warm stator resistance per phase";
@@ -1547,7 +1549,7 @@ TurnsRatio * <u>V</u><sub>R</sub> = <u>V</u><sub>s</sub> - (R<sub>s</sub> + j X<
         connect(airGapS.flange_a, inertiaRotor.flange_a) annotation (points=[10,
               6.12303e-016; 25,6.12303e-016; 25,-1.22461e-015; 60,-1.22461e-015],
             style(color=0, rgbcolor={0,0,0}));
-        connect(airGapS.support, adapter.flange_b) annotation (points=[-10,
+        connect(airGapS.support, internalSupport) annotation (points=[-10,
               -6.12303e-016; -90,-6.12303e-016; -90,-100; 20,-100], style(color=
                0, rgbcolor={0,0,0}));
       end AIM_SlipRing;
@@ -1597,12 +1599,15 @@ These models use package SpacePhasors.
        fixed a bug with support (formerly bearing)</li>
   <li> v1.3.2 2004/11/10 Anton Haumer<br>
        ReluctanceRotor moved to SynchronousMachines</li>
+  <li> v1.4   2004/11/11 Anton Haumer<br>
+       removed mechanical flange support<br>
+       to ease the implementation of a 3D-frame in a future release</li>
   </ul>
 </HTML>"));
       
       model SM_PermanentMagnetDamperCage 
         "Permanent magnet synchronous induction machine with damper cage" 
-        extends Interfaces.PartialBasicInductionMachine(J_Rotor=0.29, J_Stator=0.29);
+        extends Interfaces.PartialBasicInductionMachine(J_Rotor=0.29);
         parameter Modelica.SIunits.Frequency fNominal=50 
           "|Excitation|nominal frequency";
         parameter Modelica.SIunits.Voltage V0=112.3 
@@ -1807,14 +1812,14 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
         connect(airGapR.flange_a, inertiaRotor.flange_a) annotation (points=[10,
               6.12303e-016; 25,6.12303e-016; 25,-1.22461e-015; 60,-1.22461e-015],
             style(color=0, rgbcolor={0,0,0}));
-        connect(airGapR.support, adapter.flange_b) annotation (points=[-10,
-              -6.12303e-016; -50,0; -90,0; -90,-100; 20,-100], style(color=0,
-              rgbcolor={0,0,0}));
+        connect(airGapR.support, internalSupport) annotation (points=[-10,
+              -6.12303e-016; -90,-6.12303e-016; -90,-100; 20,-100], style(color=
+               0, rgbcolor={0,0,0}));
       end SM_PermanentMagnetDamperCage;
       
       model SM_ReluctanceRotorDamperCage 
         "Synchronous induction machine with reluctance rotor and damper cage" 
-        extends Interfaces.PartialBasicInductionMachine(J_Rotor=0.29, J_Stator=0.29);
+        extends Interfaces.PartialBasicInductionMachine(J_Rotor=0.29);
         constant Modelica.SIunits.Frequency fNominal=50 "nominal frequency";
         parameter Modelica.SIunits.Resistance Rs=0.03 
           "|Impedances|warm stator resistance per phase";
@@ -1999,9 +2004,9 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
         connect(airGapR.flange_a, inertiaRotor.flange_a) annotation (points=[10,
               6.12303e-016; 25,6.12303e-016; 25,-1.22461e-015; 60,-1.22461e-015],
             style(color=0, rgbcolor={0,0,0}));
-        connect(airGapR.support, adapter.flange_b) annotation (points=[-10,
-              -6.12303e-016; -90,-6.12303e-016; -90,-100; 20,-100], style(color=
-               0, rgbcolor={0,0,0}));
+        connect(airGapR.support, internalSupport) annotation (points=[-10,
+              -6.12303e-016; -50,-6.12303e-016; -50,0; -90,0; -90,-100; 20,-100],
+            style(color=0, rgbcolor={0,0,0}));
       end SM_ReluctanceRotorDamperCage;
     end SynchronousInductionMachines;
     
@@ -2046,11 +2051,14 @@ This package contains models of DC machines:
        issued to Modelica Standard Library 2.1</li>
   <li> v1.2  2004/10/27 Anton Haumer<br>
        fixed a bug with support (formerly bearing)</li>
+  <li> v1.4   2004/11/11 Anton Haumer<br>
+       removed mechanical flange support<br>
+       to ease the implementation of a 3D-frame in a future release</li>
   </ul>
 </HTML>"));
       
       model DC_PermanentMagnet "Permanent magnet DC machine" 
-        extends Interfaces.PartialBasicDCMachine(J_Rotor=0.15, J_Stator=0.15);
+        extends Interfaces.PartialBasicDCMachine(J_Rotor=0.15);
         parameter Modelica.SIunits.Voltage VaNominal=100 
           "|Nominal values|nominal armature voltage";
         parameter Modelica.SIunits.Current IaNominal=100 
@@ -2169,14 +2177,14 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
         connect(airGapDC.flange_a, inertiaRotor.flange_a) annotation (points=[10,
               6.12303e-016; 24,6.12303e-016; 24,-1.22461e-015; 60,-1.22461e-015],
             style(color=0, rgbcolor={0,0,0}));
-        connect(airGapDC.support, adapter.flange_b) annotation (points=[-10,
+        connect(airGapDC.support, internalSupport) annotation (points=[-10,
               -6.12303e-016; -90,-6.12303e-016; -90,-100; 20,-100], style(color=
                0, rgbcolor={0,0,0}));
       end DC_PermanentMagnet;
       
       model DC_ElectricalExcited 
         "Electrical shunt/separate excited linear DC machine" 
-        extends Machines.Interfaces.PartialBasicDCMachine(J_Rotor=0.15, J_Stator=0.15);
+        extends Machines.Interfaces.PartialBasicDCMachine(J_Rotor=0.15);
         parameter Modelica.SIunits.Voltage VaNominal=100 
           "|Nominal values|nominal armature voltage";
         parameter Modelica.SIunits.Current IaNominal=100 
@@ -2326,13 +2334,13 @@ Armature current does not cover excitation current of a shunt excitation; in thi
         connect(airGapDC.flange_a, inertiaRotor.flange_a) annotation (points=[10,
               6.12303e-016; 26,6.12303e-016; 26,-1.22461e-015; 60,-1.22461e-015],
             style(color=0, rgbcolor={0,0,0}));
-        connect(airGapDC.support, adapter.flange_b) annotation (points=[-10,
+        connect(airGapDC.support, internalSupport) annotation (points=[-10,
               -6.12303e-016; -90,-6.12303e-016; -90,-100; 20,-100], style(color=
                0, rgbcolor={0,0,0}));
       end DC_ElectricalExcited;
       
       model DC_SeriesExcited "Series excited linear DC machine" 
-        extends Machines.Interfaces.PartialBasicDCMachine(J_Rotor=0.15, J_Stator=0.15);
+        extends Machines.Interfaces.PartialBasicDCMachine(J_Rotor=0.15);
         parameter Modelica.SIunits.Voltage VaNominal=100 
           "|Nominal values|nominal armature voltage";
         parameter Modelica.SIunits.Current IaNominal=100 
@@ -2468,7 +2476,7 @@ ve = voltage drop of series excitation
         connect(airGapDC.flange_a, inertiaRotor.flange_a) annotation (points=[10,
               6.12303e-016; 25,6.12303e-016; 25,-1.22461e-015; 60,-1.22461e-015],
             style(color=0, rgbcolor={0,0,0}));
-        connect(airGapDC.support, adapter.flange_b) annotation (points=[-10,
+        connect(airGapDC.support, internalSupport) annotation (points=[-10,
               -6.12303e-016; -90,-6.12303e-016; -90,-100; 20,-100], style(color=
                0, rgbcolor={0,0,0}));
       end DC_SeriesExcited;
@@ -2937,6 +2945,9 @@ This package contains sensors that are usefull when modelling machines.
   <li> v1.03 2004/09/24 Anton Haumer</li>
   <li> v1.1  2004/10/01 Anton Haumer<br>
        changed RotorAngle</li>
+  <li> v1.4   2004/11/11 Anton Haumer<br>
+       removed mechanical flange support, also in sensor RotorAngle<br>
+       to ease the implementation of a 3D-frame in a future release</li>
   </ul>
 </HTML>"));
     
@@ -3211,11 +3222,6 @@ Calculates (mechanical) power from torque times angular speed.
         annotation (extent=[-60,-20; -40,0],    rotation=0);
       Modelica.Mechanics.Rotational.Interfaces.Flange_a flange 
         annotation (extent=[-10,90; 10,110]);
-      Modelica.Mechanics.Rotational.Interfaces.Flange_a support 
-        "support at which the reaction torque is acting" 
-           annotation (extent=[90,90; 110,110]);
-      Interfaces.PartialBasicMachine.Adapter adapter(bearingConnected=cardinality(support)>1) 
-        annotation (extent=[60,110; 80,90], rotation=180);
       Modelica.Mechanics.Rotational.Sensors.RelAngleSensor relativeAngleSensor 
         annotation (extent=[40,70; 20,90]);
       Modelica.Blocks.Sources.Constant constant_(final k=Modelica.Constants.pi/2) 
@@ -3228,10 +3234,11 @@ Calculates (mechanical) power from torque times angular speed.
         annotation (extent=[20,-20; 40,0],    rotation=0);
       Modelica.Blocks.Routing.DeMultiplex2 deMultiplex2(final n1=1,
            final n2=1) annotation (extent=[60,-20; 80,0]);
+      Modelica.Mechanics.Rotational.Fixed fixedHousing(final phi0=0) 
+        annotation (extent=[50,70; 70,90]);
       annotation (
         Diagram,
         Icon(
-          Rectangle(extent=[80,120; 120,80],     style(color=8, fillColor=8)),
           Ellipse(extent=[-60, 80; 60, 40], style(
               color=2,
               rgbcolor={0,255,0},
@@ -3289,23 +3296,12 @@ Calculates (mechanical) power from torque times angular speed.
 Calculates rotor lagging angle by measuring the stator phase voltages, transforming them to the correspondig space phasor in stator-fixed coordinate system, <br>
 rotating the space phasor to the rotor-fixed coordinate system and calculating the angle of this space phasor.
 </p>
+<p>
+The sensor's housing is implicitely fixed.<br>
+Since the machine's stator also implicitely fixed, the angle at the flange 
+is equal to the angle of the machine's rotor against the stator.
+</p>
 </HTML>"));
-    protected 
-      encapsulated model Adapter 
-        "from Modelica.Mechanics.Rotational.Interfaces.TwoFlangesAndBearingH" 
-        import Modelica.Mechanics.Rotational.Interfaces.TwoFlanges;
-        extends TwoFlanges;
-        parameter Boolean bearingConnected;
-        annotation (Icon(Rectangle(extent=[-90, 10; 90, -10], style(color=8,
-                  fillColor=8)), Text(extent=[0, 60; 0, 20], string="%name")));
-      equation 
-        flange_a.phi = flange_b.phi;
-        if bearingConnected then
-          0 = flange_a.tau + flange_b.tau;
-        else
-          0 = flange_a.phi;
-        end if;
-      end Adapter;
     equation 
       connect(constant_.y, add.u2) annotation (points=[-29,40; -16,40; -16,32],
           style(color=3, rgbcolor={0,0,255}));
@@ -3329,15 +3325,13 @@ rotating the space phasor to the rotor-fixed coordinate system and calculating t
                                              style(color=3, rgbcolor={0,0,255}));
       connect(deMultiplex2.y2[1], rotorAngle) annotation (points=[81,-16; 90,-16;
             90,0; 110,0], style(color=3, rgbcolor={0,0,255}));
-      connect(adapter.flange_a, support) 
-        annotation (points=[80,100; 100,100], style(color=0, rgbcolor={0,0,0}));
       connect(relativeAngleSensor.phi_rel, add.u1) annotation (points=[30,69;
             30,40; -4,40; -4,32],
                            style(color=3, rgbcolor={0,0,255}));
-      connect(relativeAngleSensor.flange_a, adapter.flange_b) annotation (
-          points=[40,80; 60,80; 60,100], style(color=0, rgbcolor={0,0,0}));
       connect(relativeAngleSensor.flange_b, flange) annotation (points=[20,80;
             0,80; 0,100], style(color=0, rgbcolor={0,0,0}));
+      connect(relativeAngleSensor.flange_a, fixedHousing.flange_b) 
+        annotation (points=[40,80; 60,80], style(color=0, rgbcolor={0,0,0}));
     end RotorAngle;
   end Sensors;
   
@@ -3919,6 +3913,9 @@ This package contains the space phasor connector and partial models for machine 
        added PartialDCMachine</li>
   <li> v1.2  2004/10/27 Anton Haumer<br>
        fixed a bug with support (formerly bearing)</li>
+  <li> v1.4   2004/11/11 Anton Haumer<br>
+       removed mechanical flange support<br>
+       to ease the implementation of a 3D-frame in a future release</li>
   </ul>
 </HTML>"));
     
@@ -3963,10 +3960,125 @@ Connector for Space Phasors:
 </HTML>"));
     end SpacePhasor;
     
+  /*  
+  partial model PartialBasicMachineWithSupport 
+    parameter Modelica.SIunits.Inertia J_Rotor "rotor's moment of inertia";
+    parameter Modelica.SIunits.Inertia J_Stator "stator's moment of inertia";
+    output Modelica.SIunits.Angle phi_mechanical = flange_a.phi-support.phi 
+      "mechanical angle of rotor against stator";
+    output Modelica.SIunits.AngularVelocity w_mechanical = der(phi_mechanical) 
+      "mechanical angular velocity of rotor against stator";
+    output Modelica.SIunits.Conversions.NonSIunits.AngularVelocity_rpm 
+      rpm_mechanical = Modelica.SIunits.Conversions.to_rpm(w_mechanical) 
+      "mechanical speed of rotor against stator [rpm]";
+    output Modelica.SIunits.Torque tau_electrical = inertiaRotor.flange_a.tau 
+      "electromagnetic torque";
+    output Modelica.SIunits.Torque tau_shaft = -flange_a.tau "shaft torque";
+    Modelica.Mechanics.Rotational.Interfaces.Flange_a flange_a 
+      annotation (extent=[90,-10; 110,10]);
+    Modelica.Mechanics.Rotational.Inertia inertiaRotor(final J=J_Rotor) 
+      annotation (extent=[80,10; 60,-10],   rotation=-180);
+  protected 
+    Modelica.Mechanics.Rotational.Interfaces.Flange_b internalSupport 
+      annotation (extent=[19,-101; 21,-99]);
+  public 
+    Modelica.Mechanics.Rotational.Interfaces.Flange_a support 
+      "support at which the reaction torque is acting" 
+         annotation (extent=[90,-110; 110,-90]);
+    Modelica.Mechanics.Rotational.Inertia inertiaStator(final J=J_Stator) 
+      annotation (extent=[80,-90; 60,-110], rotation=-180);
+    Adapter adapter(bearingConnected=cardinality(support)>1) 
+      annotation (extent=[30,-90; 50,-110],   rotation=180);
+    annotation (
+      Icon(
+        Rectangle(extent=[-40,60; 80,-60],    style(
+            color=3,
+            rgbcolor={0,0,255},
+            gradient=2,
+            fillColor=69,
+            rgbfillColor={0,128,255})),
+        Rectangle(extent=[-40,60; -60,-60],    style(
+            color=10,
+            gradient=2,
+            fillColor=10)),
+        Rectangle(extent=[80,10; 100,-10], style(
+            color=10,
+            rgbcolor={95,95,95},
+            gradient=2,
+            fillColor=10,
+            rgbfillColor={95,95,95})),
+        Rectangle(extent=[-40,70; 40,50], style(
+            color=10,
+            rgbcolor={95,95,95},
+            fillColor=10,
+            rgbfillColor={95,95,95})),
+    Polygon(points=[-50,-90; -40,-90; -10,-20; 40,-20; 70,-90; 80,-90; 80,-100;
+              -50,-100; -50,-90],               style(
+        color=0,
+        gradient=0,
+        fillColor=0,
+        fillPattern=1)),
+        Text(
+          extent=[-150,-120; 150,-180],
+          style(
+            color=3,
+            rgbcolor={0,0,255},
+            fillColor=10,
+            rgbfillColor={95,95,95},
+            fillPattern=1),
+          string="%name"),
+        Rectangle(extent=[80,-80; 120,-120],   style(color=8, fillColor=8))),
+      Documentation(info="<HTML>
+<p>
+Base partial model DC machines:
+<ul>
+<li>main parts of the icon</li>
+<li>mechanical flange</li>
+<li>mechanical support</li>
+</ul>
+<p>
+Besides the mechanical connector <i>flange_a</i> (i.e. the shaft) the machines have a second mechanical connector <i>support</i>.<br>
+If nothing is connected to <i>support</i>, it is assumed that the stator is fixed.<br>
+Otherwise reaction torque (i.e. airGap torque, minus acceleration torque for stator's moment of inertia) can be measured at <i>support</i>.<br>
+One may also fix the the shaft and let rotate the stator; parameter J_Stator is only of importance when the stator is rotating.<br>
+<b>Take care:</b> Even if You connect only a sensor (e.g. Modelica.Mechanics.Rotational.Sensors.RelAngleSensor or Machines.Sensors.RotorAngle) to the <i>support</i>, You have to fix the <i>support</i>!
+</p>
+</p>
+</HTML>"),
+      Diagram);
+  protected 
+    encapsulated model Adapter 
+      "from Modelica.Mechanics.Rotational.Interfaces.TwoFlangesAndBearingH" 
+      import Modelica.Mechanics.Rotational.Interfaces.TwoFlanges;
+      extends TwoFlanges;
+      parameter Boolean bearingConnected;
+      annotation (Icon(Rectangle(extent=[-90, 10; 90, -10], style(color=8,
+                fillColor=8)), Text(extent=[0, 60; 0, 20], string="%name")));
+    equation 
+      flange_a.phi = flange_b.phi;
+      if bearingConnected then
+        0 = flange_a.tau + flange_b.tau;
+      else
+        0 = flange_a.phi;
+      end if;
+    end Adapter;
+  equation 
+    connect(inertiaRotor.flange_b, flange_a) annotation (points=[80,
+          1.22461e-015; 92,1.22461e-015; 92,0; 100,0],
+                                         style(color=0, rgbcolor={0,0,0}));
+    connect(inertiaStator.flange_b, support) 
+      annotation (points=[80,-100; 100,-100], style(color=0, rgbcolor={0,0,0}));
+    connect(adapter.flange_a, inertiaStator.flange_a) annotation (points=[50,-100;
+          60,-100],
+                 style(color=0, rgbcolor={0,0,0}));
+    connect(adapter.flange_b, internalSupport) 
+      annotation (points=[30,-100; 20,-100], style(color=0, rgbcolor={0,0,0}));
+  end PartialBasicMachineWithSupport;
+*/
+    
     partial model PartialBasicMachine 
       parameter Modelica.SIunits.Inertia J_Rotor "rotor's moment of inertia";
-      parameter Modelica.SIunits.Inertia J_Stator "stator's moment of inertia";
-      output Modelica.SIunits.Angle phi_mechanical = flange_a.phi-support.phi 
+      output Modelica.SIunits.Angle phi_mechanical = flange_a.phi 
         "mechanical angle of rotor against stator";
       output Modelica.SIunits.AngularVelocity w_mechanical = der(phi_mechanical) 
         "mechanical angular velocity of rotor against stator";
@@ -3980,13 +4092,11 @@ Connector for Space Phasors:
         annotation (extent=[90,-10; 110,10]);
       Modelica.Mechanics.Rotational.Inertia inertiaRotor(final J=J_Rotor) 
         annotation (extent=[80,10; 60,-10],   rotation=-180);
-      Modelica.Mechanics.Rotational.Interfaces.Flange_a support 
-        "support at which the reaction torque is acting" 
-           annotation (extent=[90,-110; 110,-90]);
-      Modelica.Mechanics.Rotational.Inertia inertiaStator(final J=J_Stator) 
-        annotation (extent=[80,-90; 60,-110], rotation=-180);
-      Adapter adapter(bearingConnected=cardinality(support)>1) 
-        annotation (extent=[20,-90; 40,-110],   rotation=180);
+      Modelica.Mechanics.Rotational.Fixed fixedHousing(final phi0=0) 
+        annotation (extent=[30,-110; 50,-90]);
+    protected 
+      Modelica.Mechanics.Rotational.Interfaces.Flange_b internalSupport 
+        annotation (extent=[19,-101; 21,-99]);
       annotation (
         Icon(
           Rectangle(extent=[-40,60; 80,-60],    style(
@@ -4024,42 +4134,27 @@ Connector for Space Phasors:
               fillColor=10,
               rgbfillColor={95,95,95},
               fillPattern=1),
-            string="%name"),
-          Rectangle(extent=[80,-80; 120,-120],   style(color=8, fillColor=8))),
+            string="%name")),
         Documentation(info="<HTML>
 <p>
 Base partial model DC machines:
 <ul>
 <li>main parts of the icon</li>
 <li>mechanical flange</li>
+<li>mechanical support</li>
 </ul>
+</p>
+<p>
+The machine's stator is implicitely fixed. 
 </p>
 </HTML>"),
         Diagram);
-    protected 
-      encapsulated model Adapter 
-        "from Modelica.Mechanics.Rotational.Interfaces.TwoFlangesAndBearingH" 
-        import Modelica.Mechanics.Rotational.Interfaces.TwoFlanges;
-        extends TwoFlanges;
-        parameter Boolean bearingConnected;
-        annotation (Icon(Rectangle(extent=[-90, 10; 90, -10], style(color=8,
-                  fillColor=8)), Text(extent=[0, 60; 0, 20], string="%name")));
-      equation 
-        flange_a.phi = flange_b.phi;
-        if bearingConnected then
-          0 = flange_a.tau + flange_b.tau;
-        else
-          0 = flange_a.phi;
-        end if;
-      end Adapter;
     equation 
       connect(inertiaRotor.flange_b, flange_a) annotation (points=[80,
             1.22461e-015; 92,1.22461e-015; 92,0; 100,0],
                                            style(color=0, rgbcolor={0,0,0}));
-      connect(inertiaStator.flange_b, support) 
-        annotation (points=[80,-100; 100,-100], style(color=0, rgbcolor={0,0,0}));
-      connect(adapter.flange_a, inertiaStator.flange_a) annotation (points=[40,-100; 60,
-            -100], style(color=0, rgbcolor={0,0,0}));
+      connect(internalSupport, fixedHousing.flange_b) 
+        annotation (points=[20,-100; 40,-100], style(color=0, rgbcolor={0,0,0}));
     end PartialBasicMachine;
     
     partial model PartialBasicInductionMachine 
@@ -4077,7 +4172,7 @@ Partial model for induction machine models, containing:
 <ul>
 <li>main parts of the icon</li>
 <li>stator plugs</li>
-<li>mechanical flange</li>
+<li>mechanical connectors</li>
 </ul>
 </p>
 </HTML>"),
@@ -4095,7 +4190,7 @@ Partial model for DC machine models, containing:
 <ul>
 <li>main parts of the icon</li>
 <li>armature pins</li>
-<li>mechanical flange</li>
+<li>mechanical connectors</li>
 </ul>
 </p>
 </HTML>"),
