@@ -100,7 +100,7 @@ in the allowed range (" + String(T_min) + " K <= T <= " + String(T_max)
     redeclare replaceable model extends BaseProperties(
       T(stateSelect=if preferredMediumStates then StateSelect.prefer else StateSelect.default),
       p(stateSelect=if preferredMediumStates then StateSelect.prefer else StateSelect.default),
-      X_i(stateSelect=if preferredMediumStates then StateSelect.prefer else StateSelect.default)) 
+      Xi(stateSelect=if preferredMediumStates then StateSelect.prefer else StateSelect.default)) 
       
       /* p, T, X = X[Water] are used as preferred states, since only then all
      other quantities can be computed in a recursive sequence. 
@@ -127,20 +127,20 @@ in the allowed range (" + String(T_min) + " K <= T <= " + String(T_max)
 Temperature T is not in the allowed range
 273.15 K <= (T =" + String(T) + " K) <= 423.15 K
 required from medium model \""       + mediumName + "\".");
-      MM = 1/(X_i[Water]/MMX[Water]+(1.0-X_i[Water])/MMX[Air]);
+      MM = 1/(Xi[Water]/MMX[Water]+(1.0-Xi[Water])/MMX[Air]);
       
       p_steam_sat = saturationPressure(T);
       x_sat    = k_mair*p_steam_sat/(p - p_steam_sat);
-      X_liquid = max(X_i[Water] - x_sat/(1+x_sat), 0.0);
-      X_steam  = X_i[Water]-X_liquid;
-      X_air    = 1-X_i[Water];
+      X_liquid = max(Xi[Water] - x_sat/(1+x_sat), 0.0);
+      X_steam  = Xi[Water]-X_liquid;
+      X_air    = 1-Xi[Water];
       
       // h_component = {SingleGasNasa.h_Tlow(data=steam, T=T, refChoice=3, h_off=46479.819+2501014.5),
       //                SingleGasNasa.h_Tlow(data=dryair, T=T, refChoice=3, h_off=25104.684)};
       //offset adjusts enthalpy to zero at 0°C plus enthalpy of evaporation in case of steam  
       // h = h_component *{X_steam, X_air} + enthalpyOfLiquid(T)*X_liquid;  
       
-      h = h_pTX(p,T,X_i);
+      h = h_pTX(p,T,Xi);
       R = dryair.R*X_air + steam.R*X_steam;
       u = h - R*T;
       d = p/(R*T);
@@ -153,8 +153,8 @@ required from medium model \""       + mediumName + "\".");
       state.X = X;
       
       // this x_steam is water load / dry air!!!!!!!!!!!
-      x_water = X_i[Water]/max(X_air,100*Constants.eps);
-      phi = p/p_steam_sat*X_i[Water]/(X_i[Water] + k_mair*X_air);
+      x_water = Xi[Water]/max(X_air,100*Constants.eps);
+      phi = p/p_steam_sat*Xi[Water]/(Xi[Water] + k_mair*X_air);
     end BaseProperties;
     
     redeclare function extends gasConstant 
@@ -232,8 +232,8 @@ required from medium model \""       + mediumName + "\".");
       extends Modelica.Icons.Function;
       input SI.Pressure p "Pressure";
       input SI.Temperature T "Temperature";
-      input SI.MassFraction X_i[nX_i] "Independent mass fractions of most air";
-      output SI.SpecificEnthalpy h "Specific enthalpy at p, T, X_i";
+      input SI.MassFraction Xi[nXi] "Independent mass fractions of most air";
+      output SI.SpecificEnthalpy h "Specific enthalpy at p, T, Xi";
     protected 
       SI.AbsolutePressure p_steam_sat "Partial saturation pressure of steam";
       SI.MassFraction x_sat "steam water mass fraction of saturation boundary";
@@ -243,9 +243,9 @@ required from medium model \""       + mediumName + "\".");
     algorithm 
       p_steam_sat :=saturationPressure(T);
       x_sat    :=k_mair*p_steam_sat/(p - p_steam_sat);
-      X_liquid :=max(X_i[Water] - x_sat/(1 + x_sat), 0.0);
-      X_steam  :=X_i[Water] - X_liquid;
-      X_air    :=1 - X_i[Water];
+      X_liquid :=max(Xi[Water] - x_sat/(1 + x_sat), 0.0);
+      X_steam  :=Xi[Water] - X_liquid;
+      X_air    :=1 - Xi[Water];
       h        := {SingleGasNasa.h_Tlow(data=steam,  T=T, refChoice=3, h_off=46479.819+2501014.5),
                    SingleGasNasa.h_Tlow(data=dryair, T=T, refChoice=3, h_off=25104.684)}*
                   {X_steam, X_air} + enthalpyOfLiquid(T)*X_liquid;

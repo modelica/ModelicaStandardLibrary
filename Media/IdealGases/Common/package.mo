@@ -612,12 +612,12 @@ It has been developed by Hubertus Tummescheit.
   
 //   constant FluidConstants[nX] fluidConstants 
 //     "additional data needed for transport properties";
-  constant MolarMass[nX_i] MMX=data[:].MM "molar masses of components";
+  constant MolarMass[nXi] MMX=data[:].MM "molar masses of components";
   
   redeclare replaceable model extends BaseProperties(
     T(stateSelect=if preferredMediumStates then StateSelect.prefer else StateSelect.default),
     p(stateSelect=if preferredMediumStates then StateSelect.prefer else StateSelect.default),
-    X_i(each stateSelect=if preferredMediumStates then StateSelect.prefer else StateSelect.default)) 
+    Xi(each stateSelect=if preferredMediumStates then StateSelect.prefer else StateSelect.default)) 
     import Modelica.Media.IdealGases.Common.SingleGasNasa;
     annotation (structurallyIncomplete);
       //    SpecificEnthalpy h_component[nX];
@@ -628,14 +628,14 @@ Temperature T (= 200 K) is not in the allowed range
 required from medium model \"" + mediumName + "\".");
     
     MM = molarMass(state);
-    h = h_TX(T, X_i);
-    R = data.R*X_i;
+    h = h_TX(T, Xi);
+    R = data.R*Xi;
     u = h - R*T;
     d = p/(R*T);
     // connect state with BaseProperties
     state.T = T;
     state.p = p;
-    state.X = X_i;
+    state.X = Xi;
   end BaseProperties;
   
 /*  
@@ -688,7 +688,7 @@ required from medium model \"" + mediumName + "\".");
     import Modelica.Media.Interfaces.PartialMedium.Choices;
      extends Modelica.Icons.Function;
      input SI.Temperature T "Temperature";
-     input MassFraction X_i[nX_i] "Independent Mass fractions of gas mixture";
+     input MassFraction Xi[nXi] "Independent Mass fractions of gas mixture";
      input Boolean exclEnthForm=excludeEnthalpyOfFormation 
       "If true, enthalpy of formation Hf is not included in specific enthalpy h";
      input Choices.ReferenceEnthalpy.Temp refChoice=referenceChoice 
@@ -697,7 +697,7 @@ required from medium model \"" + mediumName + "\".");
       "User defined offset for reference enthalpy, if referenceChoice = UserDefined";
      output SI.SpecificEnthalpy h "Specific enthalpy at temperature T";
   algorithm 
-      h :=X_i*{SingleGasNasa.h_T(data[i], T, exclEnthForm, refChoice, h_off) for i in 1:nX_i};
+      h :=Xi*{SingleGasNasa.h_T(data[i], T, exclEnthForm, refChoice, h_off) for i in 1:nXi};
   end h_TX;
   
   redeclare function extends gasConstant 

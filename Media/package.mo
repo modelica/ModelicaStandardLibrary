@@ -182,9 +182,9 @@ partial package Modelica.Media.Interfaces.PartialMedium. Every package defines:
 <li> <b>Functions</b> to compute additional properties (such as saturation 
      properties, viscosity, thermal conductivity, etc.).
 </ul>
-Every instance of BaseProperties for any medium model provides <b>3+nX_i 
-equations</b> for the following <b>5+nX_i variables</b> that are declared in 
-the medium model (nX_i is the number of independent mass fractions, see
+Every instance of BaseProperties for any medium model provides <b>3+nXi 
+equations</b> for the following <b>5+nXi variables</b> that are declared in 
+the medium model (nXi is the number of independent mass fractions, see
 explanation below):
 </p>
 <table border=1 cellspacing=0 cellpadding=2>
@@ -206,21 +206,21 @@ explanation below):
   <tr><td>h</td>
       <td>J/kg</td>
       <td>specific enthalpy (h = u + p/d)</td></tr>
-  <tr><td>X_i[nX_i]</td>
+  <tr><td>Xi[nXi]</td>
       <td>kg/kg</td>
       <td>independent mass fractions m_i/m</td></tr>
   <tr><td>X[nX]</td>
       <td>kg/kg</td>
       <td>All mass fractions m_i/m. X is defined in BaseProperties by:<br>
-          X = <b>if</b> reducedX <b>then</b> vector([X_i; 1-<b>sum</b>(X_i)]) 
-          <b>else</b> X_i </td></tr>
+          X = <b>if</b> reducedX <b>then</b> vector([Xi; 1-<b>sum</b>(Xi)]) 
+          <b>else</b> Xi </td></tr>
 </table>
 <p>
 <b>Two</b> variables out of p, d, h, or u, as well as the
-<b>mass fractions</b> X_i are the <b>independent</b> variables and the
+<b>mass fractions</b> Xi are the <b>independent</b> variables and the
 medium model basically provides equations to compute
 the remaining variables, including the full mass fraction vector X
-(more details to X_i and X are given below).
+(more details to Xi and X are given below).
 </p>
 
 <p>
@@ -267,16 +267,16 @@ in the medium model:
   <b>equation</b>
     medium.p = port_a.p;
     medium.h = port_a.h;
-    medium.X_i = port_a.X_i;
+    medium.Xi = port_a.Xi;
      ...
   <b>end</b> Pump;
 </pre>
 <p>
 If a component model shall treat both single and multiple
 substance fluids, equations for the mass fractions have to be
-present (above: medium.X_i = port_a.X_i) in the model. According
+present (above: medium.Xi = port_a.Xi) in the model. According
 to the Modelica semantics, the equations of the mass fractions
-are ignored, if the dimension of X_i is zero, i.e., for a single-component
+are ignored, if the dimension of Xi is zero, i.e., for a single-component
 medium. Note, by specific techniques sketched in section
 \"Medium definition\", the independent variables in the medium model
 need not to be the same as the variables in the connector and still
@@ -285,30 +285,30 @@ get the same efficiency, as if the same variables would be used.
 
 <p>
 If a fluid consists of a single
-substance, <b>nX_i = 0</b> and the vector of mass fractions X_i is not
+substance, <b>nXi = 0</b> and the vector of mass fractions Xi is not
 present. If a fluid consists of nS substances,
 the medium model may either define the number of independent
-mass fractions <b>nX_i</b> to be <b>nS</b> or to be <b>nS-1</b>. 
-In both cases, balance equations for nX_i substances have to be
+mass fractions <b>nXi</b> to be <b>nS</b> or to be <b>nS-1</b>. 
+In both cases, balance equations for nXi substances have to be
 given in the corresponding component (see discussion below).
-Note, that if nX_i = nS, the constraint \"sum(X_i)=1\" between the mass 
+Note, that if nXi = nS, the constraint \"sum(Xi)=1\" between the mass 
 fractions is <b>not</b> present in the model; in that case, it is necessary to 
-provide consistent start values for X_i such that sum(X_i) = 1.
+provide consistent start values for Xi such that sum(Xi) = 1.
 </p>
 
 <p>
-The reason for this definition of X_i is that a fluid component library
-can be implemented by using only the independent mass fractions X_i and
-then via the medium it is defined how X_i is interpreted:
+The reason for this definition of Xi is that a fluid component library
+can be implemented by using only the independent mass fractions Xi and
+then via the medium it is defined how Xi is interpreted:
 </p>
 
 <ul>
-<li> If X_i = nS-1, then the true independent mass fractions are used
+<li> If Xi = nS-1, then the true independent mass fractions are used
      in the fluid component and the last component of X is computed via
-     X[nX] = 1 - sum(X_i). This is useful for, e.g., MoistAir, where the
+     X[nX] = 1 - sum(Xi). This is useful for, e.g., MoistAir, where the
      number of states should be as small as possible without introducing
      numerical problems.</li>
-<li> If X_i = nS, then the constraint equation sum(X) = 1 is neglected
+<li> If Xi = nS, then the constraint equation sum(X) = 1 is neglected
      during simulation. By making sure that the initial conditions of X
      fulfill this constraint, it can usally be guaranteed that small
      errors in sum(X) = 1 remain small although this constraint equation is
@@ -321,11 +321,11 @@ then via the medium it is defined how X_i is interpreted:
 
 <p>
 The full vector of mass fractions <b>X[nX]</b> is computed in
-PartialMedium.BaseProperties based on X_i and the information whether
-X_i = nS or nS-1. For single-substance media, nX = 0, so there's also no X vector. For 
+PartialMedium.BaseProperties based on Xi and the information whether
+Xi = nS or nS-1. For single-substance media, nX = 0, so there's also no X vector. For 
 multiple-substance media, nX = nS, and X always contains the full vector of 
 mass fractions. In order to reduce confusion for the user of a fluid component
-library, \"X_i\" has the annotation \"Hide=true\", meaning, that this variable 
+library, \"Xi\" has the annotation \"Hide=true\", meaning, that this variable 
 is not shown in the plot window. Only X is shown in the plot window and this
 vector contains always all mass fractions.
 </p>
@@ -359,14 +359,14 @@ Modelica.Media.Examples.Tests.Components.PortVolume</a>):
 
     SI.Energy U               \"Internal energy of junction volume\";
     SI.Mass   M               \"Mass of junction volume\";
-    SI.Mass   MX[Medium.nX_i] \"Independent substance masses of junction volume\";
+    SI.Mass   MX[Medium.nXi] \"Independent substance masses of junction volume\";
   <b>equation</b>
     medium.p   = port.p;
     medium.h   = port.h;
-    medium.X_i = port.X_i;
+    medium.Xi = port.Xi;
 
     M  = V*medium.d;                  // mass of JunctionVolume
-    MX = M*medium.X_i;                // mass fractions in JunctionVolume
+    MX = M*medium.Xi;                // mass fractions in JunctionVolume
     U  = M*medium.u;                  // internal energy in JunctionVolume
 
     <b>der</b>(M)  = port.m_flow;    // mass balance
@@ -480,20 +480,20 @@ Modelica.Media.Examples.Tests.Components.ShortPipe</a>):
     // define media models of the ports
     medium_a.p   = port_a.p;
     medium_a.h   = port_a.h;
-    medium_a.X_i = port_a.X_i;
+    medium_a.Xi = port_a.Xi;
 
     medium_b.p   = port_b.p;
     medium_b.h   = port_b.h;
-    medium_b.X_i = port_b.X_i;
+    medium_b.Xi = port_b.Xi;
 
     // Handle reverse and zero flow (semiLinear is a built-in Modelica operator)
     port_a.H_flow   = <b>semiLinear</b>(port_a.m_flow, port_a.h, port_b.h);
-    port_a.mXi_flow = <b>semiLinear</b>(port_a.m_flow, port_a.X_i, port_b.X_i);
+    port_a.mXi_flow = <b>semiLinear</b>(port_a.m_flow, port_a.Xi, port_b.Xi);
 
     // Energy, mass and substance mass balance
     port_a.H_flow + port_b.H_flow = 0;
     port_a.m_flow + port_b.m_flow = 0;
-    port_a.mXi_flow + port_b.mXi_flow = zeros(Medium.nX_i);
+    port_a.mXi_flow + port_b.mXi_flow = zeros(Medium.nXi);
 
     // Provide equation: port_a.m_flow = f(dp)
   <b>end</b> ShortPipe;
@@ -706,9 +706,9 @@ then constants \"Medium.mediumName\", \"Medium.nX\", etc. are defined:
   <tr><td>Boolean</td><td>singleState</td>
       <td>= <b>true</b>, if u and d are not a function of pressure, and thus only
           a function of a single thermal variable (temperature or enthalpy) and
-          of X_i for a multiple substance medium. Usually, this flag is
+          of Xi for a multiple substance medium. Usually, this flag is
           <b>true</b> for incompressible media. It is used in a model to determine
-          whether 1+nX_i (singleState=<b>true</b>) or 2+nX_i (singleState=<b>false</b>)
+          whether 1+nXi (singleState=<b>true</b>) or 2+nXi (singleState=<b>false</b>)
           initial conditions have to be provided for a volume element that
           contains mass and energy balance.</td></tr>
   <tr><td>AbsolutePressure</td><td>reference_p</td>
@@ -722,15 +722,15 @@ then constants \"Medium.mediumName\", \"Medium.nX\", etc. are defined:
   <tr><td>Integer</td><td>nX</td>
       <td>Size of the full mass fraction vector X. If there is a single 
           substance, then nX = 0, else nX=nS.</td></tr>
-  <tr><td>Integer</td><td>nX_i</td>
+  <tr><td>Integer</td><td>nXi</td>
       <td>Number of independent mass fractions. If there is a single substance,
-          then nX_i = 0. </td></tr>
+          then nXi = 0. </td></tr>
   <tr><td>Boolean</td><td>reducedX</td>
       <td>= <b>true</b>, if the medium has a single substance, or if the medium model 
           has multiple substances and contains the equation sum(X) = 1. 
-          In both cases, nX_i = nS - 1.<br>
+          In both cases, nXi = nS - 1.<br>
           = <b>false</b>, if the medium has multiple substances and does not contain the
-          equation sum(X)=1, i.e., nX_i = nX = nS.
+          equation sum(X)=1, i.e., nXi = nX = nS.
        </td></tr>
   <tr><td>FluidConstants</td><td>fluidConstants[nS]</td>
       <td>Critical, triple, molecular and other
@@ -1045,9 +1045,9 @@ state derivatives to zero.
 Explicit start values can be defined with the \"start\" and
 \"fixed\" attributes. The number of independent variables nx
 need to be known which can be deduced from the medium
-constants (nx = nX_i + <b>if</b> singleState <b>then</b> 1 <b>else</b> 2).
+constants (nx = nXi + <b>if</b> singleState <b>then</b> 1 <b>else</b> 2).
 Then, start values or initial equations can be defined
-for nx variables (= p, T, d, u, h, X_i) from Medium.BaseProperties,
+for nx variables (= p, T, d, u, h, Xi) from Medium.BaseProperties,
 e.g., in the form:
 <pre>
      <b>replaceable</b> package Medium = Medium.Interfaces.PartialMedium;
@@ -1083,7 +1083,7 @@ exist:
      types have meaningful start values, such as in \"Medium.AbsolutePressure\"
      </li>
 <li> Supply start values on all variables of the BaseProperties model,
-     i.e., on p, T, d, u, h, X_i.</li>
+     i.e., on p, T, d, u, h, Xi.</li>
 <li> Determine the iteration variables of the non-linear systems of
      equations and provide start values for these variables.
      In the Modelica simulation environment Dymola, the iteration
@@ -1141,7 +1141,7 @@ that contains the following definitions:
 Definition of <b>constants</b>, such as the medium name.</li>
 <li>
 A <b>model</b> in the package that contains the 3 basic
-thermodynamic equations that relate the 5+nX_i primary medium variables.</li>
+thermodynamic equations that relate the 5+nXi primary medium variables.</li>
 <li><b>Optional functions</b> to compute medium properties that are
 only needed in certain circumstances, such as dynamic viscosity. These optional
 functions need not be provided by every medium model.</li>
@@ -1173,7 +1173,7 @@ following structure:</p>
   <b>constant</b> MassFraction reference_X[nX]=fill(1/nX,nX); 
   <b>final constant</b> Integer nS   = size(substanceNames,1); 
   <b>final constant</b> Integer nX   = <b>if</b> nS==1 <b>then</b> 0 <b>else</b> nS; 
-  <b>final constant</b> Integer nX_i = <b>if</b> reducedX <b>then</b> nS-1 <b>else</b> nS; 
+  <b>final constant</b> Integer nXi = <b>if</b> reducedX <b>then</b> nS-1 <b>else</b> nS; 
   <b>final constant</b> Integer nC   = size(extraPropertiesNames,1);
   <b>constant</b> FluidConstants[nS] fluidConstants;
 
@@ -1184,7 +1184,7 @@ following structure:</p>
     SpecificEnthalpy h;
     SpecificInternalEnergy u;
     MassFraction[nX] X;
-    MassFraction[nX_i] X_i;
+    MassFraction[nXi] Xi;
     SpecificHeatCapacity R;
     MolarMass MM;
   <b>end</b> BasePropertiesRecord;
@@ -1198,10 +1198,10 @@ following structure:</p>
     SI.Conversions.NonSIunits.Pressure_bar p_bar = 
        Modelica.SIunits.Conversions.to_bar(p) 
   <b>equation</b> 
-    X_i = X[1:nX_i];
+    Xi = X[1:nXi];
     <b>if</b> nX > 1 <b>then</b>
        <b>if</b> reducedX <b>then</b>
-          X[nX] = 1 - sum(X_i);
+          X[nX] = 1 - sum(Xi);
        <b>end if</b>;
     <b>end if</b>;
     // equations such as 
@@ -1254,8 +1254,8 @@ translated or the <b>final</b> prefix is set.
 The reason to use constants instead of parameters in the model BaseProperties 
 is that some of these constants are used in a context where parameters
 are not allowed. For example, in connector definitions the  
-number of independent mass fractions nX_i is used as dimension
-of a vector X_i. When defining the 
+number of independent mass fractions nXi is used as dimension
+of a vector Xi. When defining the 
 connector, only <i>constants</i> in packages can be accessed, but not 
 <i>parameters</i> in a model, because a connector cannot contain an instance 
 of BaseProperties.
@@ -1400,7 +1400,7 @@ setting the following package constants:
 It is also possible to change the default min, max, nominal, and start
 attributes of Medium-defined types (see TemplateMedium).</p>
 <p>
-All other package constants, such as nX, nX_i, nS, are automatically set
+All other package constants, such as nX, nXi, nS, are automatically set
 by the declarations of the base package Interfaces.PartialMedium. </p>
 <p>
 The second step is to provide an implementation to the BaseProperties model,
@@ -1451,15 +1451,15 @@ When writing the model of a multiple-substance medium, a fundamental issue
 concerns how to consider the mass fractions of the fluid. If there are nS 
 substances, there are also nS mass fractions; however, one of them is redundant,
 as sum(X) = 1. Therefore there are basically two options, concerning the number 
-of independent mass fractions nX_i:
+of independent mass fractions nXi:
 <ul>
-<li> <i>Reduced-state models</i>: reducedX = <b>true</b> and nX_i = nS - 1. In this
-case, the number of independent mass fractions nX_i is the minimum possible. 
+<li> <i>Reduced-state models</i>: reducedX = <b>true</b> and nXi = nS - 1. In this
+case, the number of independent mass fractions nXi is the minimum possible. 
 The full state vector X is provided by equations declared in the base class
-Interfaces.PartialMedium.BaseProperties: the first nX_i elements are equal to
-X_i, and the last one is 1 - sum(X_i).
-<li> <i>Full-state models</i>: reducedX = <b>false</b> and nX_i = nS. In this case,
-X_i = X, i.e., all the elements of the composition vector are considered as
+Interfaces.PartialMedium.BaseProperties: the first nXi elements are equal to
+Xi, and the last one is 1 - sum(Xi).
+<li> <i>Full-state models</i>: reducedX = <b>false</b> and nXi = nS. In this case,
+Xi = X, i.e., all the elements of the composition vector are considered as
 independent variables, and the constraint sum(X) = 1 is never written explicitly.
 Although this kind of model is heavier, as it provides one extra state variable,
 it can be less prone to numerical and/or symbolic problems, which can be 
@@ -1468,12 +1468,12 @@ caused by that constraint.
 <p> The medium implementor can declare the value reducedX as <b>final</b>. In
 this way only one implementation must be given. For instance, 
 Modelica.Media.IdealGases models declare <b>final</b> reducedX = <b>false</b>, so that the
-implementation can always assume nX_i = nX. The same is true for Air.MoistAir,
-which declares <b>final</b> reducedX = <b>true</b>, and always assumes nX_i = nX - 1 = 1.</p>
+implementation can always assume nXi = nX. The same is true for Air.MoistAir,
+which declares <b>final</b> reducedX = <b>true</b>, and always assumes nXi = nX - 1 = 1.</p>
 <p>It is also possible to leave reducedX modifiable. In this case, the 
 BaseProperties model and all additional functions should check for the actual
 value of reducedX, and provide the corresponding implementation.</p>
-<p>Fluid connectors should always use composition vectors of size X_i, such as
+<p>Fluid connectors should always use composition vectors of size Xi, such as
 in the Modelica_Fluid library: </p>
 <p><pre>
 <b>connector</b> FluidPort 
@@ -1484,8 +1484,8 @@ in the Modelica_Fluid library: </p>
   Medium.SpecificEnthalpy      h;
   <b>flow</b> Medium.EnthalpyFlowRate H_flow; 
 
-  Medium.MassFraction          X_i    [Medium.nX_i]; 
-  <b>flow</b> Medium.MassFlowRate     mX_flow[Medium.nX_i]; 
+  Medium.MassFraction          Xi    [Medium.nXi]; 
+  <b>flow</b> Medium.MassFlowRate     mX_flow[Medium.nXi]; 
 <b>end</b> FluidPort;
 </pre></p>
 <p>
@@ -1589,8 +1589,8 @@ is used in all components:
   Medium.SpecificEnthalpy      h;
   <b>flow</b> Medium.EnthalpyFlowRate H_flow; 
 
-  Medium.MassFraction          X_i    [Medium.nX_i]; 
-  <b>flow</b> Medium.MassFlowRate     mX_flow[Medium.nX_i]; 
+  Medium.MassFraction          Xi    [Medium.nXi]; 
+  <b>flow</b> Medium.MassFlowRate     mX_flow[Medium.nXi]; 
 <b>end</b> FluidPort;
 </pre>
 
@@ -1850,7 +1850,7 @@ equations for a balance volume.
 <p>
 A medium consisting of multiple substance
 has to define two of \"p,T,d,u,h\" as well
-as the mass fractions X_i with 
+as the mass fractions Xi with 
 stateSelect=StateSelect.prefer (if BaseProperties.preferredMediumStates = <b>true</b>)
 and has to provide
 the other three variables as functions of these 
@@ -1861,25 +1861,25 @@ for a tool.
 <b>Example for a multiple substance medium:</p>
 </p>
 <p>
-p, T and X_i are defined as preferred states and 
+p, T and Xi are defined as preferred states and 
 the equations are written in the form:
 </p>
 <pre>
-   d = fp(p,T,X_i);
-   u = fu(p,T,X_i);
-   h = fh(p,T,X_i);
+   d = fp(p,T,Xi);
+   u = fu(p,T,Xi);
+   h = fh(p,T,Xi);
 </p>
 <p>
 Since the balance equations are written in the form:
 </p>
 <pre>
               M = V*medium.d;
-            MXi = M*medium.X_i;
+            MXi = M*medium.Xi;
 </pre>
 <p>
 The variables M and MXi appearing differentiated in the
-balance equations are provided as functions of d and X_i
-and since d is given as a function of p, T and X_i, it 
+balance equations are provided as functions of d and Xi
+and since d is given as a function of p, T and Xi, it 
 is possible to compute M and MXi directly from the desired
 states. This means that static state selection is possible.
 </p>
@@ -2518,9 +2518,9 @@ Modelica.Media.Examples.Tests.MediaTestModels.
         flow Medium.EnthalpyFlowRate H_flow 
           "Enthalpy flow rate into the component (if m_flow > 0, H_flow = m_flow*h)";
         
-        Medium.MassFraction X_i[Medium.nX_i] 
+        Medium.MassFraction Xi[Medium.nXi] 
           "Independent mixture mass fractions m_i/m in the connection point";
-        flow Medium.MassFlowRate mXi_flow[Medium.nX_i] 
+        flow Medium.MassFlowRate mXi_flow[Medium.nXi] 
           "Mass flow rates of the independent substances from the connection point into the component (if m_flow > 0, mX_flow = m_flow*X)";
         
         Medium.ExtraProperty C[Medium.nC] 
@@ -2583,11 +2583,11 @@ Modelica.Media.Examples.Tests.MediaTestModels.
           annotation (Dialog(group="Only for multi-substance flow", enable=Medium.nX > 0));
         
         FluidPort_a port(redeclare package Medium = Medium) annotation (extent=[-10, -10; 10, 10], rotation=0);
-        Medium.BaseProperties medium(p=port.p, h=port.h, X_i=port.X_i,
+        Medium.BaseProperties medium(p=port.p, h=port.h, Xi=port.Xi,
                                      preferredMediumStates=true);
         SI.Energy U "Internal energy of port volume";
         SI.Mass m "Mass of junction volume";
-        SI.Mass mX_i[Medium.nX_i] 
+        SI.Mass mXi[Medium.nXi] 
           "Independent substance masses of junction volume";
         
         annotation (
@@ -2633,16 +2633,16 @@ transport.
            medium.h = h_start;
         end if;
         
-        medium.X_i = X_start[1:Medium.nX_i];
+        medium.Xi = X_start[1:Medium.nXi];
       equation 
         // Total quantities
            m    = V*medium.d;
-           mX_i = m*medium.X_i;
+           mXi = m*medium.Xi;
            U    = m*medium.u;
         
         // Mass and energy balance
            der(m)    = port.m_flow;
-           der(mX_i) = port.mXi_flow;
+           der(mXi) = port.mXi_flow;
            der(U)    = port.H_flow;
       end PortVolume;
       
@@ -2672,7 +2672,7 @@ transport.
           "Medium model" 
            annotation (choicesAllMatching=true);
         
-        Medium.BaseProperties medium(p=port.p, X_i=X_ambient[1:Medium.nX_i]) 
+        Medium.BaseProperties medium(p=port.p, Xi=X_ambient[1:Medium.nXi]) 
           "Medium in the source";
         FluidPort_b port(redeclare package Medium = Medium) 
           annotation (extent=[100, -10; 120, 10], rotation=0);
@@ -2717,7 +2717,7 @@ transport.
          end if;
         
          port.m_flow   = -m_flow;
-         port.mXi_flow = semiLinear(port.m_flow, port.X_i, medium.X_i);
+         port.mXi_flow = semiLinear(port.m_flow, port.Xi, medium.Xi);
          port.H_flow   = semiLinear(port.m_flow, port.h, medium.h);
       end FixedMassFlowRate;
       
@@ -2795,11 +2795,11 @@ with exception of ambient pressure, do not have an effect.
           medium.h = h_ambient;
         end if;
         
-        medium.X_i = X_ambient[1:Medium.nX_i];
+        medium.Xi = X_ambient[1:Medium.nXi];
         
         port.p = medium.p;
         port.H_flow   = semiLinear(port.m_flow, port.h, medium.h);
-        port.mXi_flow = semiLinear(port.m_flow, port.X_i, medium.X_i);
+        port.mXi_flow = semiLinear(port.m_flow, port.Xi, medium.Xi);
       end FixedAmbient;
       
       model ShortPipe "Simple pressure loss in pipe" 
@@ -2816,9 +2816,9 @@ with exception of ambient pressure, do not have an effect.
           annotation (extent=[-120, -10; -100, 10]);
         FluidPort_b port_b(redeclare package Medium = Medium) 
           annotation (extent=[120, -10; 100, 10]);
-        // Medium.BaseProperties medium_a(p=port_a.p, h=port_a.h, X_i=port_a.X_i) 
+        // Medium.BaseProperties medium_a(p=port_a.p, h=port_a.h, Xi=port_a.Xi) 
         //   "Medium properties in port_a";
-        // Medium.BaseProperties medium_b(p=port_b.p, h=port_b.h, X_i=port_b.X_i) 
+        // Medium.BaseProperties medium_b(p=port_b.p, h=port_b.h, Xi=port_b.Xi) 
         //   "Medium properties in port_b";
         Medium.MassFlowRate m_flow 
           "Mass flow rate from port_a to port_b (m_flow > 0 is design flow direction)";
@@ -2852,12 +2852,12 @@ The details of the pipe friction model are described
       equation 
         /* Handle reverse and zero flow */
         port_a.H_flow   = semiLinear(port_a.m_flow, port_a.h,   port_b.h);
-        port_a.mXi_flow = semiLinear(port_a.m_flow, port_a.X_i, port_b.X_i);
+        port_a.mXi_flow = semiLinear(port_a.m_flow, port_a.Xi, port_b.Xi);
         
         /* Energy, mass and substance mass balance */
         port_a.H_flow + port_b.H_flow = 0;
         port_a.m_flow + port_b.m_flow = 0;
-        port_a.mXi_flow + port_b.mXi_flow = zeros(Medium.nX_i);
+        port_a.mXi_flow + port_b.mXi_flow = zeros(Medium.nXi);
         
         // Design direction of mass flow rate
         m_flow = port_a.m_flow;
@@ -2894,10 +2894,10 @@ The details of the pipe friction model are described
         
         redeclare model extends BaseProperties(
           T(stateSelect=if preferredMediumStates then StateSelect.default else StateSelect.default),
-          X_i(each stateSelect=if preferredMediumStates then StateSelect.prefer else StateSelect.default)) 
+          Xi(each stateSelect=if preferredMediumStates then StateSelect.prefer else StateSelect.default)) 
         equation 
           d = f_density(T,X);
-          h = f_enthalpy(T,X_i);
+          h = f_enthalpy(T,Xi);
           u = h;
           R=1;
           state.p=p;
@@ -2971,7 +2971,7 @@ The details of the pipe friction model are described
         
         function f_enthalpy 
           input Modelica.SIunits.Temperature T;
-          input Modelica.SIunits.MassFraction X_i[nX_i];
+          input Modelica.SIunits.MassFraction Xi[nXi];
           output Modelica.SIunits.SpecificEnthalpy h;
         protected 
           SI.SpecificEnthalpy h_component[nX];
@@ -2980,21 +2980,21 @@ The details of the pipe friction model are described
           for i in 1:nX loop
             h_component[i] :=(cp0[i]*(T - T0) + h0[i]);
           end for;
-          h:= sum(h_component[1:nX-1]*X_i)+ h_component[nX]*(1-sum(X_i));
+          h:= sum(h_component[1:nX-1]*Xi)+ h_component[nX]*(1-sum(Xi));
         end f_enthalpy;
         
         function f_enthalpy_der 
           input Modelica.SIunits.Temperature T;
-          input Modelica.SIunits.MassFraction X_i[nX_i];
+          input Modelica.SIunits.MassFraction Xi[nXi];
           input Real T_der;
-          input Real X_i_der[nX_i];
+          input Real Xi_der[nXi];
           output Modelica.SIunits.SpecificEnthalpy h_der;
           annotation(derivative=f_enthalpy_der);
         algorithm 
-          h_der := sum((cp0[i]*(T-T0)+h0[i])*X_i_der[i] for i in 1:nX-1)+
-                   sum(cp0[i]*X_i[i]*T_der for i in 1:nX-1)+
-                       (cp0[nX]*(T-T0)+h0[nX])*(1-sum(X_i_der)) +
-                        cp0[nX]*(1-sum(X_i))*T_der;
+          h_der := sum((cp0[i]*(T-T0)+h0[i])*Xi_der[i] for i in 1:nX-1)+
+                   sum(cp0[i]*Xi[i]*T_der for i in 1:nX-1)+
+                       (cp0[nX]*(T-T0)+h0[nX])*(1-sum(Xi_der)) +
+                        cp0[nX]*(1-sum(Xi))*T_der;
         end f_enthalpy_der;
         
       end DummyFunctionMedium;
@@ -3238,7 +3238,7 @@ kind of media.
      The statement below extends from PartialMedium and sets some
      package constants. Provide values for these constants
      that are appropriate for your medium model. Note that other 
-     constants (such as nX, nX_i) are automatically defined by
+     constants (such as nX, nXi) are automatically defined by
      definitions given in the base class Interfaces.PartialMedium"
   */
     extends Modelica.Media.Interfaces.PartialMedium(
@@ -3268,7 +3268,7 @@ kind of media.
     /* Provide an implementation of model BaseProperties,
      that is defined in PartialMedium. Select two independent
      variables from p, T, d, u, h. The other independent
-     variables are the mass fractions "X_i", if there is more
+     variables are the mass fractions "Xi", if there is more
      than one substance. Provide 3 equations to obtain the remaining
      variables as functions of the independent variables. 
      It is also necessary to provide two additional equations to set 
@@ -3276,7 +3276,7 @@ kind of media.
      Finally, the thermodynamic state vector, defined in the base class
      Interfaces.PartialMedium.BaseProperties, should be set, according to
      its definition (see ThermodynamicState below).
-     The computation of vector X[nX] from X_i[nX_i] is already included in 
+     The computation of vector X[nX] from Xi[nXi] is already included in 
      the base class Interfaces.PartialMedium.BaseProperties, so it should not
      be repeated here.
      The code fragment below is for a single-substance medium with
@@ -3383,7 +3383,7 @@ Modelica source.
     final constant Integer nS = size(substanceNames,1) "Number of substances" annotation(Evaluate=true);
     final constant Integer nX = if nS==1 then 0 else nS 
       "Number of mass fractions (= 0, if only one substance)"                                                   annotation(Evaluate=true);
-    final constant Integer nX_i = if reducedX then nS-1 else nS 
+    final constant Integer nXi = if reducedX then nS-1 else nS 
       "Number of structurally independent mass fractions (see docu for details)"
                                                                                  annotation(Evaluate=true);
     final constant Integer nC = size(extraPropertiesNames,1) 
@@ -3447,7 +3447,7 @@ Modelica source.
       Temperature T "Temperature of medium";
       MassFraction[nX] X(start=reference_X) 
         "Mass fractions (= (component mass)/total mass  m_i/m)";
-      MassFraction[nX_i] X_i(start=reference_X[1:nX_i]) 
+      MassFraction[nXi] Xi(start=reference_X[1:nXi]) 
         "Structurally independent mass fractions"                                     annotation (Hide=true);
       SpecificEnthalpy h "Specific enthalpy of medium";
       SpecificInternalEnergy u "Specific internal energy of medium";
@@ -3537,10 +3537,10 @@ T_ambient.
 </html>"), Icon(Rectangle(extent=[-100, 100; 100, -100], style(fillColor=7)),
             Text(extent=[-152, 164; 152, 102], string="%name")));
     equation 
-      X_i = X[1:nX_i];
+      Xi = X[1:nXi];
       if nX > 1 then
          if reducedX then
-            X[nX] = 1 - sum(X_i);
+            X[nX] = 1 - sum(Xi);
          end if;
          for i in 1:nX loop
            assert(X[i] >= -1.e-5 and X[i] <= 1 + 1.e-5, "Mass fraction X[" +

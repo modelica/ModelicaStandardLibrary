@@ -201,6 +201,28 @@ Preferred instance names for connectors:
     
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>Release notes</font></h3>
+
+
+<h3><font color=\"#008000\">Version 2.2 (March 3, 2005)</font></h3>
+
+<p>
+Version 2.2 is backward compatible to version 2.1.
+</p>
+
+The following <b>new libraries</b> have been added:
+</p>
+<table border=\"1\" cellspacing=0 cellpadding=2>
+  <tr><td><a href=\"Modelica://Modelica.Media\">Modelica.Media</a></td>
+      <td>Property models of liquids and gases designed to work well in 
+          dynamic simulations:<br>
+      
+dedicated for
+          dynamic simulations.</td><tr>
+  <tr><td><a href=\"Modelica://Modelica.Thermal.FluidHeatFlow\">Thermal.FluidHeatFlow</a></td>
+      <td> </td><tr>
+</table>
+
+
 <h3><font color=\"#008000\">Version 2.1 (November 11, 2004)</font></h3>
 <p> This is a major change with respect to previous versions of the
     Modelica Standard Library, because <b>many new libraries</b> and components
