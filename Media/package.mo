@@ -287,9 +287,9 @@ get the same efficiency, as if the same variables would be used.
 If a fluid consists of a single
 substance, <b>nXi = 0</b> and the vector of mass fractions Xi is not
 present. If a fluid consists of nS substances,
-the medium model may either define the number of independent
-mass fractions <b>nXi</b> to be <b>nS</b> or to be <b>nS-1</b>. 
-In both cases, balance equations for nXi substances have to be
+the medium model may define the number of independent
+mass fractions <b>nXi</b> to be <b>nS</b>, <b>nS-1</b>, or zero. 
+In all cases, balance equations for nXi substances have to be
 given in the corresponding component (see discussion below).
 Note, that if nXi = nS, the constraint \"sum(Xi)=1\" between the mass 
 fractions is <b>not</b> present in the model; in that case, it is necessary to 
@@ -303,31 +303,29 @@ then via the medium it is defined how Xi is interpreted:
 </p>
 
 <ul>
-<li> If Xi = nS-1, then the true independent mass fractions are used
-     in the fluid component and the last component of X is computed via
-     X[nX] = 1 - sum(Xi). This is useful for, e.g., MoistAir, where the
-     number of states should be as small as possible without introducing
-     numerical problems.</li>
 <li> If Xi = nS, then the constraint equation sum(X) = 1 is neglected
      during simulation. By making sure that the initial conditions of X
-     fulfill this constraint, it can usally be guaranteed that small
+     fulfill this constraint, it can usually be guaranteed that small
      errors in sum(X) = 1 remain small although this constraint equation is
      not explicitly used during the simulation. This approach is usually useful
      if components of the mixture can become very small. If such a small
      quantity is computed via the equation 1 - sum(X[1:nX-1]), there might
      be large numerical errors and it is better to compute it via
      the corresponding balance equation.</li>
+<li> If Xi = nS-1, then the true independent mass fractions are used
+     in the fluid component and the last component of X is computed via
+     X[nX] = 1 - sum(Xi). This is useful for, e.g., MoistAir, where the
+     number of states should be as small as possible without introducing
+     numerical problems.</li>
+<li> If Xi = 0, then the reference value of composition reference_X is 
+     assumed. This case is useful to avoid composition states in all
+     the cases when the composition will always be constant, e.g. with
+     circuits having fixed composition sources.
 </ul>
 
 <p>
 The full vector of mass fractions <b>X[nX]</b> is computed in
-PartialMedium.BaseProperties based on Xi and the information whether
-Xi = nS or nS-1. For single-substance media, nX = 0, so there's also no X vector. For 
-multiple-substance media, nX = nS, and X always contains the full vector of 
-mass fractions. In order to reduce confusion for the user of a fluid component
-library, \"Xi\" has the annotation \"Hide=true\", meaning, that this variable 
-is not shown in the plot window. Only X is shown in the plot window and this
-vector contains always all mass fractions.
+PartialMedium.BaseProperties based on Xi, reference_X, and the information whether Xi = nS or nS-1. For single-substance media, nX = 0, so there's also no X vector. For multiple-substance media, nX = nS, and X always contains the full vector of mass fractions. In order to reduce confusion for the user of a fluid component library, \"Xi\" has the annotation \"Hide=true\", meaning, that this variable is not shown in the plot window. Only X is shown in the plot window and this vector always contains all mass fractions.
 </p>
 </HTML>"));
     end BasicUsage;
@@ -728,10 +726,15 @@ then constants \"Medium.mediumName\", \"Medium.nX\", etc. are defined:
   <tr><td>Boolean</td><td>reducedX</td>
       <td>= <b>true</b>, if the medium has a single substance, or if the medium model 
           has multiple substances and contains the equation sum(X) = 1. 
-          In both cases, nXi = nS - 1.<br>
+          In both cases, nXi = nS - 1 (unless fixedX = true).<br>
           = <b>false</b>, if the medium has multiple substances and does not contain the
-          equation sum(X)=1, i.e., nXi = nX = nS.
+          equation sum(X)=1, i.e., nXi = nX = nS (unless fixedX = true).
        </td></tr>
+  <tr><td>Boolean</td><td>fixedX</td>
+      <td>= <b>false</b>: the composition of the medium can vary, and is
+          determined by nXi independent mass fractions (see reducedX above).<br>
+          = <b>true</b>: the composition of the medium is always reference_X,
+          and nXi = 0.</td></tr>
   <tr><td>FluidConstants</td><td>fluidConstants[nS]</td>
       <td>Critical, triple, molecular and other
           standard data that are provided for
@@ -1164,16 +1167,18 @@ following structure:</p>
 <pre>
 <b>partial package</b> PartialMedium
   <b>import</b> SI = Modelica.SIunits;
-  <b>constant</b> String mediumName = " ";
+  <b>constant</b> String mediumName = \"\";
   <b>constant</b> String substanceNames[:] = {mediumName}; 
   <b>constant</b> String extraPropertiesNames[:] = fill(\"\",0); 
   <b>constant</b> Boolean singleState = <b>false</b>;
   <b>constant</b> Boolean reducedX = <b>true</b>;
+  <b>constant</b> Boolean fixedX = <b>false</b>;
   <b>constant</b> AbsolutePressure reference_p = 101325; 
   <b>constant</b> MassFraction reference_X[nX]=fill(1/nX,nX); 
   <b>final constant</b> Integer nS   = size(substanceNames,1); 
   <b>final constant</b> Integer nX   = <b>if</b> nS==1 <b>then</b> 0 <b>else</b> nS; 
-  <b>final constant</b> Integer nXi = <b>if</b> reducedX <b>then</b> nS-1 <b>else</b> nS; 
+  <b>final constant</b> Integer nXi = <b>if</b> fixedX <b>then</b> 0 
+     <b>else if</b> reducedX <b>then</b> nS-1 <b>else</b> nS; 
   <b>final constant</b> Integer nC   = size(extraPropertiesNames,1);
   <b>constant</b> FluidConstants[nS] fluidConstants;
 
@@ -1200,7 +1205,9 @@ following structure:</p>
   <b>equation</b> 
     Xi = X[1:nXi];
     <b>if</b> nX > 1 <b>then</b>
-       <b>if</b> reducedX <b>then</b>
+       <b>if</b> fixedX <b>then</b>
+          X = reference_X;
+       <b>elseif</b> reducedX <b>then</b>
           X[nX] = 1 - sum(Xi);
        <b>end if</b>;
     <b>end if</b>;
@@ -1464,6 +1471,7 @@ independent variables, and the constraint sum(X) = 1 is never written explicitly
 Although this kind of model is heavier, as it provides one extra state variable,
 it can be less prone to numerical and/or symbolic problems, which can be 
 caused by that constraint.
+<li> <i>Fixed-composition models</i>: fixedX = <b>true</b> and nXi = 0. In this case X = reference_X, i.e. all the elements of the composition vector are fixed.
 </ul>
 <p> The medium implementor can declare the value reducedX as <b>final</b>. In
 this way only one implementation must be given. For instance, 
@@ -1473,6 +1481,9 @@ which declares <b>final</b> reducedX = <b>true</b>, and always assumes nXi = nX 
 <p>It is also possible to leave reducedX modifiable. In this case, the 
 BaseProperties model and all additional functions should check for the actual
 value of reducedX, and provide the corresponding implementation.</p>
+
+<p>If fixedX is left modifiable, then the implementation should also handle the 
+case fixedX = true properly.</p>
 <p>Fluid connectors should always use composition vectors of size Xi, such as
 in the Modelica_Fluid library: </p>
 <p><pre>
