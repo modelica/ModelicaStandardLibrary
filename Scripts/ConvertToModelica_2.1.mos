@@ -1067,6 +1067,14 @@ convertElement({"ModelicaAdditions.PetriNets.Transition"},
                 "outTransition", "outPort");
 
 
+// ----------------------------------------------------------------------------
+// Conversion of Matrices to Modelica.Matrices
+//-----------------------------------------------------------------------------
+
+convertClass("Matrices",
+             "Modelica.Matrices");
+
+
 // ------------------- ModelicaAdditions.MultiBody ----------------------------
 // Conversion of ModelicaAdditions.MultiBody to Modelica.Mechanics.MultiBody
 //-----------------------------------------------------------------------------
