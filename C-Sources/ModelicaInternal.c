@@ -70,13 +70,13 @@ static void ModelicaNotExistError(const char* name) {
               ModelicaNonExistError("ModelicaInternal_removeFile"); }
   static void ModelicaInternal_copyFile(const char* oldFile, const char* newFile) {
               ModelicaNonExistError("ModelicaInternal_copyFile"); }
-  static void ModelicaInternal_readDirectory(const char* directory, int nFiles, char* files[nFiles]) {
+  static void ModelicaInternal_readDirectory(const char* directory, int nFiles, const char* files[]) {
               ModelicaNonExistError("ModelicaInternal_readDirectory"); }
   static int  ModelicaInternal_getNumberOfFiles(const char* directory) {
               ModelicaNonExistError("ModelicaInternal_getNumberOfFiles"); }
   static const char* ModelicaInternal_fullPathName(const char* name) {
               ModelicaNonExistError("ModelicaInternal_fullPathName"); }
-  static const char* ModelicaInternal_temporaryFileName(const char* name) {
+  static const char* ModelicaInternal_temporaryFileName() {
               ModelicaNonExistError("ModelicaInternal_temporaryFileName"); }
   static void ModelicaInternal_print(const char* string, const char* fileName) {
               ModelicaNonExistError("ModelicaInternal_print"); }
@@ -84,15 +84,15 @@ static void ModelicaNotExistError(const char* name) {
               ModelicaNonExistError("ModelicaInternal_countLines"); }
   static void ModelicaInternal_readFile(const char* fileName, const char* string[], size_t nLines) {
               ModelicaNonExistError("ModelicaInternal_readFile"); }
-  static const char* ModelicaInternal_readLine(const char* fileName, const int lineNumber, int* endOfFile) {
+  static const char* ModelicaInternal_readLine(const char* fileName, int lineNumber, int* endOfFile) {
               ModelicaNonExistError("ModelicaInternal_readLine"); }
   static void ModelicaInternal_chdir(const char* directoryName) {
               ModelicaNonExistError("ModelicaInternal_chdir"); }
   static const char* ModelicaInternal_getcwd(int dummy) {
               ModelicaNonExistError("ModelicaInternal_getcwd"); }
-  static const char* ModelicaInternal_getenv(const char* name, const int convertToSlash, int* exist) {
+  static const char* ModelicaInternal_getenv(const char* name, int convertToSlash, int* exist) {
               ModelicaNonExistError("ModelicaInternal_getenv"); }
-  static void ModelicaInternal_setenv(const char* name, const char* value, const int convertFromSlash) {
+  static void ModelicaInternal_setenv(const char* name, const char* value, int convertFromSlash) {
               ModelicaNonExistError("ModelicaInternal_setenv"); }
 #else
 
@@ -307,7 +307,7 @@ static void ModelicaInternal_copyFile(const char* oldFile, const char* newFile) 
 
 
 static void ModelicaInternal_readDirectory(const char* directory, int nFiles, 
-                                           char** files) {
+                                           const char** files) {
   /* Get all file and directory names in a directory in any order
      (must be very careful, to call closedir if an error occurs)
   */
@@ -613,7 +613,7 @@ static void ModelicaInternal_readFile(const char* fileName, const char* string[]
 }
 
 
-static const char* ModelicaInternal_readLine(const char* fileName, const int lineNumber, int* endOfFile) {
+static const char* ModelicaInternal_readLine(const char* fileName, int lineNumber, int* endOfFile) {
   /* Read line lineNumber from file fileName */
      FILE* fp = ModelicaStreams_openFileForReading(fileName);
      char*  line;
@@ -717,7 +717,7 @@ static const char* ModelicaInternal_getcwd(int dummy)
 }
 
 
-static const char* ModelicaInternal_getenv(const char* name, const int convertToSlash, int* exist)
+static const char* ModelicaInternal_getenv(const char* name, int convertToSlash, int* exist)
 {
     /* Get content of environment variable */
     char* value = getenv(name);
@@ -737,7 +737,7 @@ static const char* ModelicaInternal_getenv(const char* name, const int convertTo
 }
 
 
-static void ModelicaInternal_setenv(const char* name, const char* value, const int convertFromSlash)
+static void ModelicaInternal_setenv(const char* name, const char* value, int convertFromSlash)
 {
 #if defined(_WIN32) || defined(_POSIX_)  
     int valueStart;
