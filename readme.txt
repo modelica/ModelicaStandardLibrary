@@ -9,5 +9,3 @@ VehicleDynamics		The library, should be checked out in
 
 VehicleTest		Can be checked out anywhere convenient,
 			e.g. dev.
-
-Note: we eventually add personal login identites for each CVS user.
