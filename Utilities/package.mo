@@ -257,14 +257,12 @@ especially if the operating system supports Unicode characters.
     extends Modelica.Icons.Function;
     input String oldName "Current name";
     input String newName "New name";
-    output Boolean ok;
   external "C" ModelicaInternal_rename(oldName, newName);
   end rename;
   
   function removeFile "Remove existing file (C function 'remove')" 
     extends Modelica.Icons.Function;
     input String fileName "File to be removed";
-    output Boolean ok;
   external "C" ModelicaInternal_removeFile(fileName);
   end removeFile;
   

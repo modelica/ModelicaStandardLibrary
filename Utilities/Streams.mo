@@ -75,7 +75,6 @@ Example:
     input String string="" "String to be printed";
     input String fileName="" 
       "File where to print (empty string is the terminal)";
-    output Boolean ok;
   external "C" ModelicaInternal_print(string, fileName);
     annotation (  preferedView="info",
   Documentation(info="<HTML>
@@ -184,7 +183,6 @@ separated by LF or CR-LF.
   function error "Print error message and cancel all actions" 
     extends Modelica.Icons.Function;
     input String string "String to be printed to error message window";
-    output Boolean ok;
     external "C" ModelicaError(string);
     annotation (  preferedView="info",
   Documentation(info="<html>
@@ -214,7 +212,6 @@ by \"\\n\" in the string.
   function close "Close file" 
     extends Modelica.Icons.Function;
     input String fileName "Name of the file that shall be closed";
-    output Boolean ok;
     external "C" ModelicaStreams_closeFile(fileName);
     annotation (preferedView="info",Documentation(info="<html>
 <h3><font color=\"#008000\">Syntax</font></h3>

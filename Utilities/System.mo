@@ -30,7 +30,6 @@ end getWorkDirectory;
 function setWorkDirectory "Set work directory" 
   extends Modelica.Icons.Function;
   input String directory "New work directory";
-  output Boolean ok;
 // POSIX function "chdir"
 external "C" ModelicaInternal_chdir(directory);
 end setWorkDirectory;
@@ -53,7 +52,6 @@ function setEnvironmentVariable "Set content of local environment variable"
   input String content "Value of the environment variable";
   input Boolean convertFromSlash =  false 
       "True, if '/' in content shall be changed to the native directory separator";
-  output Boolean ok;
 external "C" ModelicaInternal_setenv(name, content, convertFromSlash);
 end setEnvironmentVariable;
   
@@ -68,7 +66,6 @@ function exit "Terminate execution of Modelica environment"
   extends Modelica.Icons.Function;
   input Integer status=0 
       "Result to be returned by environment (0 means success)";
-  output Boolean ok;
   external "C" ModelicaInternal_exit(status);
 end exit;
 end System;
