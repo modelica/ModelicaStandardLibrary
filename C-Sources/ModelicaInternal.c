@@ -265,26 +265,34 @@ static void ModelicaInternal_copyFile(const char* oldFile, const char* newFile) 
      type = (ModelicaFileType) ModelicaInternal_stat(oldFile);
      if ( type == FileType_NoFile ) {
         ModelicaFormatError("\"%s\" cannot be copied\nbecause it does not exist", oldFile);
+        return;
      } else if ( type == FileType_Directory ) {
         ModelicaFormatError("\"%s\" cannot be copied\nbecause it is a directory", oldFile);
+        return;
      } else if ( type == FileType_SpecialFile ) {
         ModelicaFormatError("\"%s\" cannot be copied\n"
                       "because it is not a regular file", oldFile);
+        return;
      }
      type = (ModelicaFileType) ModelicaInternal_stat(newFile);
-     if ( type != FileType_NoFile )
+     if ( type != FileType_NoFile ) {
         ModelicaFormatError("\"%s\" cannot be copied\nbecause the target "
                       "\"%s\" exists", oldFile, newFile);
+        return;
+     }
 
   /* Copy file */
      fpOld = fopen(oldFile, modeOld);
-     if ( fpOld == NULL )
+     if ( fpOld == NULL ) {
         ModelicaFormatError("\"%s\" cannot be copied:\n%s", oldFile, strerror(errno));
+        return;
+     }
      fpNew = fopen(newFile, modeNew);
      if ( fpNew == NULL ) {
         fclose(fpOld);
         ModelicaFormatError("\"%s\" cannot be copied to \"%s\":\n%s",
                       oldFile, newFile, strerror(errno));
+        return;
      }
      while ( (c = getc(fpOld)) != EOF ) putc(c, fpNew);
      fclose(fpOld);
