@@ -646,7 +646,7 @@ convertElement({"Modelica.Mechanics.Rotational.Torque",
 convertModifiers({"ModelicaAdditions.Tables.CombiTableTime",
                   "ModelicaAdditions.Tables.CombiTable1D",
                   "ModelicaAdditions.Tables.CombiTable1Ds"},
-                  {"icol"},{"columns=%icol%"});
+                  {"icol"},{"columns=integer(%icol%)"});
 
 //-----------------------------------------------------------------------------
 // Convert elements from old to new block connectors
