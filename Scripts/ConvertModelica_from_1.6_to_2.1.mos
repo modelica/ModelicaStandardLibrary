@@ -1189,20 +1189,10 @@ convertClass("MultiBody",
 // Convert Modelica.Mechanics.Rotational
 //-----------------------------------------------------------------------------
 
-convertElement({"Modelica.Mechanics.Rotational.Move"},
-                "inPort", "u");
-
-convertElement({"Modelica.Mechanics.Rotational.Interfaces.AbsoluteSensor",
-                "Modelica.Mechanics.Rotational.Interfaces.RelativeSensor"},
-                "outPort", "y");
-
-convertElement({"Modelica.Mechanics.Rotational.Torque",
-                "Modelica.Mechanics.Rotational.Torque2"},
-                "inPort.signal[1]", "tau");
-
-convertElement({"Modelica.Mechanics.Rotational.Torque",
-                "Modelica.Mechanics.Rotational.Torque2"},
-                "inPort.signal[1]", "tau");
+convertElement({"Modelica.Mechanics.Rotational.Clutch",
+                "Modelica.Mechanics.Rotational.OneWayClutch",
+                "Modelica.Mechanics.Rotational.Brake"},
+                "inPort.signal[1]", "f_normalized");
 
 convertElement({"Modelica.Mechanics.Rotational.Clutch",
                 "Modelica.Mechanics.Rotational.OneWayClutch",
@@ -1210,35 +1200,80 @@ convertElement({"Modelica.Mechanics.Rotational.Clutch",
                 "inPort", "f_normalized");
 
 convertElement({"Modelica.Mechanics.Rotational.Position"},
+                "inPort.signal[1]", "phi_ref");
+
+convertElement({"Modelica.Mechanics.Rotational.Position"},
                 "inPort", "phi_ref");
+
+convertElement({"Modelica.Mechanics.Rotational.Speed"},
+                "inPort.signal[1]", "w_ref");
 
 convertElement({"Modelica.Mechanics.Rotational.Speed"},
                 "inPort", "w_ref");
 
 convertElement({"Modelica.Mechanics.Rotational.Accelerate"},
+                "inPort.signal[1]", "a");
+
+convertElement({"Modelica.Mechanics.Rotational.Accelerate"},
                 "inPort", "a");
+
+convertElement({"Modelica.Mechanics.Rotational.Move"},
+                "inPort", "u[1]");
+
+convertElement({"Modelica.Mechanics.Rotational.Torque",
+                "Modelica.Mechanics.Rotational.Torque2"},
+                "inPort.signal[1]", "tau");
 
 convertElement({"Modelica.Mechanics.Rotational.Torque",
                 "Modelica.Mechanics.Rotational.Torque2"},
                 "inPort", "tau");
 
+convertElement({"Modelica.Mechanics.Rotational.Interfaces.AbsoluteSensor",
+                "Modelica.Mechanics.Rotational.Interfaces.RelativeSensor"},
+                "outPort.signal[1]", "y");
+
+convertElement({"Modelica.Mechanics.Rotational.Interfaces.AbsoluteSensor",
+                "Modelica.Mechanics.Rotational.Interfaces.RelativeSensor"},
+                "outPort", "y");
+
+convertElement({"Modelica.Mechanics.Rotational.Sensors.TorqueSensor"},
+                "outPort.signal[1]", "tau");
+
 convertElement({"Modelica.Mechanics.Rotational.Sensors.TorqueSensor"},
                 "outPort", "tau");
+
+convertElement({"Modelica.Mechanics.Rotational.Sensors.AngleSensor"},
+                "outPort.signal[1]", "phi");
 
 convertElement({"Modelica.Mechanics.Rotational.Sensors.AngleSensor"},
                 "outPort", "phi");
 
 convertElement({"Modelica.Mechanics.Rotational.Sensors.SpeedSensor"},
+                "outPort.signal[1]", "w");
+
+convertElement({"Modelica.Mechanics.Rotational.Sensors.SpeedSensor"},
                 "outPort", "w");
+
+convertElement({"Modelica.Mechanics.Rotational.Sensors.AccSensor"},
+                "outPort.signal[1]", "a");
 
 convertElement({"Modelica.Mechanics.Rotational.Sensors.AccSensor"},
                 "outPort", "a");
 
 convertElement({"Modelica.Mechanics.Rotational.Sensors.RelAngleSensor"},
+                "outPort.signal[1]", "phi_rel");
+
+convertElement({"Modelica.Mechanics.Rotational.Sensors.RelAngleSensor"},
                 "outPort", "phi_rel");
 
 convertElement({"Modelica.Mechanics.Rotational.Sensors.RelSpeedSensor"},
+                "outPort.signal[1]", "w_rel");
+
+convertElement({"Modelica.Mechanics.Rotational.Sensors.RelSpeedSensor"},
                 "outPort", "w_rel");
+
+convertElement({"Modelica.Mechanics.Rotational.Sensors.RelAccSensor"},
+                "outPort.signal[1]", "a_rel");
 
 convertElement({"Modelica.Mechanics.Rotational.Sensors.RelAccSensor"},
                 "outPort", "a_rel");
