@@ -316,8 +316,7 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
     input IdealGases.Common.DataRecord data "Ideal gas data";
     input SI.Temperature T "Temperature";
     output SI.SpecificHeatCapacity cp "Specific heat capacity at temperature T";
-    //    annotation (Inline=false,
-    //      derivative(noDerivative=data) = cp_Tlow_der);
+    annotation (Inline=false, derivative(zeroDerivative=data) = cp_Tlow_der);
   algorithm 
     cp := data.R*(1/(T*T)*(data.alow[1] + T*(
       data.alow[2] + T*(1.*data.alow[3] + T*(data.alow[4] + T*(data.alow[5] + T
@@ -330,8 +329,7 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
     input IdealGases.Common.DataRecord data "Ideal gas data";
     input SI.Temperature T "Temperature";
     input SI.Temperature dT "Temperature derivative";
-    output SI.SpecificHeatCapacity cp_der 
-      "Derivative of specific heat capacity";
+    output Real cp_der  "Derivative of specific heat capacity";
   algorithm 
     cp_der := dT*data.R/(T*T*T)*(-2*data.alow[1] + T*(
       -data.alow[2] + T*T*(data.alow[4] + T*(2.*data.alow[5] + T
@@ -351,7 +349,12 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
     input SI.SpecificEnthalpy h_off=h_offset 
       "User defined offset for reference enthalpy, if referenceChoice = UserDefined";
     output SI.SpecificEnthalpy h "Specific enthalpy at temperature T";
-    annotation (InlineNoEvent=false, Inline = false);
+    annotation (InlineNoEvent=false, Inline=false);
+//     annotation (InlineNoEvent=false, Inline=false,
+// 		derivative(zeroDerivative=data,
+// 			   zeroDerivative=exclEnthForm,
+// 			   zeroDerivative=refChoice,
+// 			   zeroDerivative=h_off) = h_T_der);
   algorithm 
     h := smooth(0,(if T < data.Tlimit then data.R*((-data.alow[1] + T*(data.
       blow[1] + data.alow[2]*Math.log(T) + T*(1.*data.alow[3] + T*(0.5*data.
@@ -365,6 +368,23 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
             0.0));
   end h_T;
   
+  function h_T_der "derivative function for h_T" 
+    import Modelica.Media.Interfaces.PartialMedium.Choices;
+    extends Modelica.Icons.Function;
+    input IdealGases.Common.DataRecord data "Ideal gas data";
+    input SI.Temperature T "Temperature";
+    input Boolean exclEnthForm=excludeEnthalpyOfFormation 
+      "If true, enthalpy of formation Hf is not included in specific enthalpy h";
+    input Choices.ReferenceEnthalpy.Temp refChoice=referenceChoice 
+      "Choice of reference enthalpy";
+    input SI.SpecificEnthalpy h_off=h_offset 
+      "User defined offset for reference enthalpy, if referenceChoice = UserDefined";
+    input Real dT "Temperature derivative";
+    output Real h_der "Specific enthalpy at temperature T";
+  algorithm 
+    h_der := dT*cp_T(data,T);
+  end h_T_der;
+
   function h_Tlow "Compute specific enthalpy, low T region; reference is decided by the 
     refChoice input, or by the referenceChoice package constant by default" 
     import Modelica.Media.Interfaces.PartialMedium.Choices;
@@ -378,11 +398,11 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
     input SI.SpecificEnthalpy h_off=h_offset 
       "User defined offset for reference enthalpy, if referenceChoice = UserDefined";
     output SI.SpecificEnthalpy h "Specific enthalpy at temperature T";
-    //    annotation (Inline=false,
-    //      derivative(noDerivative=data,
-    //                 noDerivative=excludeEnthalpyOfFormation,
-    //                 noDerivative=referenceChoice,
-    //                 noDerivative=h_offset) = h_Tlow_der);
+        annotation (InlineNoEvent=false, Inline=false,
+		    derivative(zeroDerivative=data,
+			       zeroDerivative=exclEnthForm,
+			       zeroDerivative=refChoice,
+			       zeroDerivative=h_off) = h_Tlow_der);
   algorithm 
     h := data.R*((-data.alow[1] + T*(data.
       blow[1] + data.alow[2]*Math.log(T) + T*(1.*data.alow[3] + T*(0.5*data.
@@ -393,7 +413,7 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
       refChoice == Choices.ReferenceEnthalpy.UserDefined then h_off else 
             0.0);
   end h_Tlow;
-  
+
   function h_Tlow_der "Compute specific enthalpy, low T region; reference is decided by the 
     refChoice input, or by the referenceChoice package constant by default" 
     import Modelica.Media.Interfaces.PartialMedium.Choices;
@@ -406,8 +426,8 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
       "Choice of reference enthalpy";
     input SI.SpecificEnthalpy h_off=h_offset 
       "User defined offset for reference enthalpy, if referenceChoice = UserDefined";
-    input SI.Temperature dT "Temperature derivative";
-    output SI.SpecificEnthalpy h_der "Specific enthalpy at temperature T";
+    input Real dT "Temperature derivative";
+    output Real h_der "Specific enthalpy at temperature T";
   algorithm 
     h_der := dT*cp_Tlow(data,T);
   end h_Tlow_der;
@@ -696,9 +716,35 @@ required from medium model \"" + mediumName + "\".");
      input SI.SpecificEnthalpy h_off=h_offset 
       "User defined offset for reference enthalpy, if referenceChoice = UserDefined";
      output SI.SpecificEnthalpy h "Specific enthalpy at temperature T";
+//    annotation(smoothOrder=1);
+    //     annotation (InlineNoEvent=false, Inline = false,
+// 		derivative(zeroDerivative=exclEnthForm,
+// 			   zeroDerivative=refChoice,
+// 			   zeroDerivative=h_off) = h_TX_der);
   algorithm 
       h :=Xi*{SingleGasNasa.h_T(data[i], T, exclEnthForm, refChoice, h_off) for i in 1:nXi};
   end h_TX;
+  
+  function h_TX_der "Return specific enthalpy derivative" 
+    import Modelica.Media.Interfaces.PartialMedium.Choices;
+     extends Modelica.Icons.Function;
+     input SI.Temperature T "Temperature";
+     input MassFraction Xi[nXi] "Independent Mass fractions of gas mixture";
+     input Boolean exclEnthForm=excludeEnthalpyOfFormation 
+      "If true, enthalpy of formation Hf is not included in specific enthalpy h";
+     input Choices.ReferenceEnthalpy.Temp refChoice=referenceChoice 
+      "Choice of reference enthalpy";
+     input SI.SpecificEnthalpy h_off=h_offset 
+      "User defined offset for reference enthalpy, if referenceChoice = UserDefined";
+    input Real dT "Temperature derivative";
+    input Real dXi[nXi] "independent mass fraction derivative";
+    output Real h_der "Specific enthalpy at temperature T";
+    annotation (InlineNoEvent=false, Inline = false);
+  algorithm 
+    assert(reducedX == false, "reducedX = true is not supported");
+    h_der := dT*sum((SingleGasNasa.cp_T(data[i], T)*Xi[i]) for i in 1:nX)+
+             sum((SingleGasNasa.h_T(data[i], T)*dXi[i]) for i in 1:nX);
+  end h_TX_der;
   
   redeclare function extends gasConstant 
   algorithm 
