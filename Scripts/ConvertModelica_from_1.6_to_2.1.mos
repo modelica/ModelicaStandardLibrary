@@ -1056,6 +1056,24 @@ convertModifiers("Modelica.Blocks.Sources.IntegerStep",
                  {"startTime=scalar(%startTime%)"});
 
 //-----------------------------------------------------------------------------
+// Convert Modelica.Constants
+//-----------------------------------------------------------------------------
+
+convertClass("Modelica.Constants.E", "Modelica.Constants.e");
+convertClass("Modelica.Constants.PI", "Modelica.Constants.pi");
+convertClass("Modelica.Constants.EPS", "Modelica.Constants.eps");
+convertClass("Modelica.Constants.SMALL", "Modelica.Constants.small");
+convertClass("Modelica.Constants.INF", "Modelica.Constants.inf");
+convertClass("Modelica.Constants.INTEGER_INF", "Modelica.Constants.Integer_inf");
+convertClass("Modelica.Constants.C", "Modelica.Constants.c");
+convertClass("Modelica.Constants.H", "Modelica.Constants.h");
+convertClass("Modelica.Constants.K", "Modelica.Constants.k");
+convertClass("Modelica.Constants.R0", "Modelica.Constants.R");
+convertClass("Modelica.Constants.SIGMA", "Modelica.Constants.sigma");
+convertClass("Modelica.Constants.G_EARTH", "Modelica.Constants.g_n");
+convertClass("Modelica.Constants.T_ZERO", "Modelica.Constants.T_zero");
+
+//-----------------------------------------------------------------------------
 // Convert Modelica.Electrical.Analog and .MultiPhase
 //-----------------------------------------------------------------------------
 
