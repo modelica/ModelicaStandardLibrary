@@ -12,6 +12,8 @@ package MixtureGases "Medium models consisting of mixtures of ideal gases"
       reference_X={0.768,0.232});
   end CombustionAir;
   
+  
+  
   package AirSteam "air and steam mixture (no condensation!, pseudo-mixture)" 
     extends Common.MixtureGasNasa(
        mediumName="MoistAir",
@@ -76,4 +78,8 @@ package MixtureGases "Medium models consisting of mixtures of ideal gases"
        reference_X={0.92,0.048,0.005,0.002,0.015,0.01});
   end SimpleNaturalGas;
   
+  package SimpleNaturalGasFixedComposition 
+    "Same as SimpleNaturalGas but with fixed composition" 
+  extends SimpleNaturalGas(fixedX=true);
+  end SimpleNaturalGasFixedComposition;
 end MixtureGases;
