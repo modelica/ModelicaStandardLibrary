@@ -53,6 +53,7 @@ function setEnvironmentVariable "Set content of local environment variable"
   input String content "Value of the environment variable";
   input Boolean convertFromSlash =  false 
       "True, if '/' in content shall be changed to the native directory separator";
+  output Boolean ok;
 external "C" ModelicaInternal_setenv(name, content, convertFromSlash);
 end setEnvironmentVariable;
   
