@@ -3745,8 +3745,6 @@ partial function baseIcon1
         style(color=9)),
       Polygon(points=[-80, 100; -86, 84; -74, 84; -80, 100], style(color=8,
             fillColor=8))));
-algorithm 
-  
 end baseIcon1;
 
 partial function baseIcon2 
@@ -3764,9 +3762,7 @@ partial function baseIcon2
         string="y",
         style(color=9)),
       Polygon(points=[0, 100; -6, 84; 6, 84; 0, 100], style(color=8, fillColor=
-              8))));
-algorithm 
-  
+              8))));  
 end baseIcon2;
 
 function tempInterpol1 
