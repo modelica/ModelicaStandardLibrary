@@ -9,10 +9,6 @@
  * Significantly revised and rewinddir, seekdir and telldir added by Colin
  * Peters <colin@fu.is.saga-u.ac.jp>
  *
- * $Revision$
- * $Author$
- * $Date$
- *
  * Martin Otter, 2001/01/06:
  *   - Call to "GetFileAttributes" and "#include <windows.h>"
  *     replaced by call to "_stat" because this is part of libc.a

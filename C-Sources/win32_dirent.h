@@ -15,10 +15,6 @@
  *  DISCLAIMED. This includeds but is not limited to warranties of
  *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  *
- * $Revision$
- * $Author$
- * $Date$
- *
  * Martin Otter, 2001/01/06:
  *    Removed:   #ifndef __STRICT_ANSI__
  *               #include <_mingw.h>
