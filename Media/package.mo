@@ -12,7 +12,8 @@ annotation (
   Documentation(info="<HTML>
 <p>
 This library contains <a href=\"Modelica:Modelica.Media.Interfaces\">interface</a> 
-definitions for media and the following <b>property</b> models:
+definitions for media and the following <b>property</b> models for
+single and multiple substance fluids with one and multiple phases:
 </p>
 <ul>
 <li> <a href=\"Modelica:Modelica.Media.IdealGases\">Ideal gases:</a><br>
@@ -20,7 +21,7 @@ definitions for media and the following <b>property</b> models:
      NASA Glenn coefficients, plus ideal gas mixture models based 
      on the same data.</li>
 <li> <a href=\"Modelica:Modelica.Media.Water\">Water models:</a><br>
-     ConstantPropertyLiquidWater, WaterIF97* (high precision
+     ConstantPropertyLiquidWater, WaterIF97 (high precision
      water model according to the IAPWS/IF97 standard)</li>
 <li> <a href=\"Modelica:Modelica.Media.Air\">Air models:</a><br>
      SimpleAir, DryAirNasa, and MoistAir</li>
@@ -32,8 +33,7 @@ definitions for media and the following <b>property</b> models:
 <p>
 The following parts are useful, when newly starting with this library:
 <ul>
-<li> <a href=\"Modelica:Modelica.Media.UsersGuide\">Modelica.Media.UsersGuide</a> 
-     User's guide.</li>
+<li> <a href=\"Modelica:Modelica.Media.UsersGuide\">Modelica.Media.UsersGuide</a>.</li>
 <li> <a href=\"Modelica:Modelica.Media.UsersGuide.MediumUsage\">Modelica.Media.UsersGuide.MediumUsage</a> 
      describes how to use a medium model in a component model.</li>
 <li> <a href=\"Modelica:Modelica.Media.UsersGuide.MediumDefinition\">
@@ -44,13 +44,17 @@ The following parts are useful, when newly starting with this library:
 <li> <a href=\"Modelica:Modelica.Media.Examples\">Modelica.Media.Examples</a>
      contains examples that demonstrate the usage of this library.</li>
 </ul>
-<p><b>Copyright &copy; 2002-2005, Modelica Association.</b></p>
-<p><i>
-This Modelica package is <b>free</b> software; it can be redistributed and/or modified
+
+<p>
+Copyright &copy; 1998-2005, Modelica Association.
+</p>
+<p>
+<i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
 under the terms of the <b>Modelica license</b>, see the license conditions
-and the accompanying <b>disclaimer</b> in the documentation of package
-Modelica in file \"Modelica/package.mo\".
-</i></p>
+and the accompanying <b>disclaimer</b> 
+<a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a>.</i>
+</p><br>
+
 </HTML>"),
   conversion(from(version="0.795", script=
           "../ConvertFromModelica.Media_0.795.mos")));
@@ -76,7 +80,10 @@ A large part of the library provides specific medium models
 that can be directly utilized. This library can be used in
 all types of Modelica fluid libraries that may have different connectors
 and design philosophies. It is particularily utilized
-in the Modelica_Fluid library. The Modelica.Media library has the following
+in the Modelica_Fluid library (the Modelica_Fluid library is currently
+under development to provide 1D thermo-fluid flow components for
+single and multiple substance flow with one and multiple phases). 
+The Modelica.Media library has the following
 main features:
 </p>
 <ul>
@@ -90,7 +97,9 @@ main features:
      incompressible and compressible media models.
      A Modelica tool will have enough information to
      generate as efficient code as a traditional
-     (coupled) definition.</li>
+     (coupled) definition. This feature is described in more
+     detail in section 
+     <a href=\"Modelica:Modelica.Media.UsersGuide.MediumDefinition.StaticStateSelection\">Static State Selection</a>.</li>
 <li> Optional variables, such as dynamic viscosity, are only computed if
      needed in the corresponding component.</li>
 <li> The independent variables of a medium model do not
@@ -150,6 +159,14 @@ Content:
 <li> <a href=\"Modelica:Modelica.Media.UsersGuide.MediumUsage.Constants\">
      Constants provided by medium model</a></li>
 </ol>
+
+<p>
+A good demonstration how to use the media from Modelica.Media is
+given in package Modelica.Media.Examples.Tests. Under Tests.Components
+the most basic components of a Fluid library are defined. Under
+Tests.MediaTestModels these basic components are used to test
+all media models with some very simple piping networks.
+</p>
 </HTML>"));
     
     class BasicUsage "Basic usage" 
@@ -169,7 +186,8 @@ partial package Modelica.Media.Interfaces.PartialMedium. Every package defines:
 </ul>
 Every instance of BaseProperties for any medium model provides <b>3+nX_i 
 equations</b> for the following <b>5+nX_i variables</b> that are declared in 
-the medium model (nX_i is the number of independent mass fractions):
+the medium model (nX_i is the number of independent mass fractions, see
+explanation below):
 </p>
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><td><b>Variable</b></td>
@@ -207,7 +225,7 @@ the medium model may either define the number of independent
 mass fractions <b>nX_i</b> to be <b>nS</b> or to be <b>nS-1</b>. 
 In both cases, balance equations for nX_i substances have to be
 given in the corresponding component (see discussion below).
-Note that if nX_i = nS, the constraint \"sum(X_i)=1\" between the mass 
+Note, that if nX_i = nS, the constraint \"sum(X_i)=1\" between the mass 
 fractions is <b>not</b> present in the model; in that case, it is necessary to 
 provide consistent start values for X_i such that sum(X_i) = 1.
 </p>
@@ -287,26 +305,35 @@ get the same efficiency, as if the same variables would be used.
 Fluid libraries usually have balance volume components with one fluid connector
 port that fulfill the mass and energy balance and on a different grid components that
 fulfill the momentum balance. A balance volume component, called junction
-volume below, should be primarily implemented in the following way:
+volume below, should be primarily implemented in the following way
+(see also the implementation in 
+<a href=\"Modelica:Modelica.Media.Examples.Tests.Components.PortVolume\">
+Modelica.Media.Examples.Tests.Components.PortVolume</a>):
 </p>
 <pre>
   <b>model</b> JunctionVolume
     <b>import</b> SI=Modelica.SIunits;
+    <b>import</b> Modelica.Media.Examples.Tests.Components.FluidPort_a;
+
     <b>parameter</b> SI.Volume V = 1e-6 \"Fixed size of junction volume\";
     <b>replaceable package</b> Medium = Modelica.Media.Interfaces.PartialMedium
                            \"Medium model\" <b>annotation</b> (choicesAllMatching = <b>true</b>);
-    Modelica.Media.FluidPort port(<b>redeclare package</b> Medium = Medium);
-    Medium.BaseProperties medium);
-    SI.Energy U             \"Internal energy of junction volume\";
-    Real      M             \"Mass of junction volume\";
-    Real      MX[Medium.nX_i] \"Independent substance masses of junction volume\";
+
+    FluidPort_a port(<b>redeclare package</b> Medium = Medium);
+    Medium.BaseProperties medium(preferredMediumStates = <b>true</b>);
+
+    SI.Energy U               \"Internal energy of junction volume\";
+    SI.Mass   M               \"Mass of junction volume\";
+    SI.Mass   MX[Medium.nX_i] \"Independent substance masses of junction volume\";
   <b>equation</b>
-    medium.p = port.p;
-    medium.h = port.h;
+    medium.p   = port.p;
+    medium.h   = port.h;
     medium.X_i = port.X_i;
-    M  = V*medium.d;         // mass of JunctionVolume
-    MX = M*medium.X_i;         // mass fractions in JunctionVolume
-    U  = M*medium.u;         // internal energy in JunctionVolume
+
+    M  = V*medium.d;                  // mass of JunctionVolume
+    MX = M*medium.X_i;                // mass fractions in JunctionVolume
+    U  = M*medium.u;                  // internal energy in JunctionVolume
+
     <b>der</b>(M)  = port.m_flow;    // mass balance
     <b>der</b>(MX) = port.mX_flow;   // substance mass balance
     <b>der</b>(U)  = port.H_flow;    // energy balance
@@ -315,49 +342,68 @@ volume below, should be primarily implemented in the following way:
 <p>
 Assume the Modelica.Media.Air.SimpleAir medium model is used with
 the JunctionVolume model above. This medium model uses pressure p
-and temperature T as independent variables. Basically, this means that
+and temperature T as independent variables. If the flag
+\"preferredMediumStates\" is set to <b>true</b> in the declaration
+of \"medium\", then the independent variables of this medium model
+get the attribute \"stateSelect = StateSelect.prefer\", i.e., the
+Modelica translator should use these variables as states, if this
+is possible. Basically, this means that
 constraints between the
-potential states p,T and the potential states U,m are present.
+potential states p,T and the potential states U,M are present.
 A Modelica tool will therefore <b>automatically</b>
 differentiate medium equations and will use the following
-equations for code generation:
+equations for code generation (note the equations related to X are
+removed, because SimpleAir consists of a single substance only):
 </p>
 <pre>
     M  = V*medium.d;
-    MX_i = M*medium.X_i;
     U  = M*medium.u;
+
     // balance equations
     <b>der</b>(M)  = port.m_flow;
-    <b>der</b>(mX_i) = port.mX_flow;
     <b>der</b>(U)  = port.H_flow;
+
     // abbreviations introduced to get simpler terms
     p = medium.p;
     T = medium.T;
     d = medium.d;
     u = medium.u;
     h = medium.h;
+
     // medium equations
     d = fd(p,T);
     h = fh(p,T);
     u = h - p/d;
-    // equations derived <b>automatically</b> by Modelica tool due to index reduction
+
+    // equations derived <b>automatically</b> by a Modelica tool due to index reduction
     <b>der</b>(U) = <b>der</b>(M)*u + M*<b>der</b>(u);
     <b>der</b>(M) = V*<b>der</b>(d);
     <b>der</b>(u) = <b>der</b>(h) - <b>der</b>(p)/d - p/<b>der</b>(d);
-    <b>der</b>(d) = <b>pder</b>(fd,p)*<b>der</b>(p) + <b>pder</b>(fd,T)*<b>der</b>(T);
-    <b>der</b>(h) = <b>pder</b>(fh,p)*<b>der</b>(p) + <b>pder</b>(fd,T)*<b>der</b>(T);
+    <b>der</b>(d) = <b>der</b>(fd,p)*<b>der</b>(p) + <b>der</b>(fd,T)*<b>der</b>(T);
+    <b>der</b>(h) = <b>der</b>(fh,p)*<b>der</b>(p) + <b>der</b>(fd,T)*<b>der</b>(T);
 </pre>
 <p>
-Note, that \"pder(y,x)\" is a non-existent operator that characterizes
-in the example above the partial derivative of y with respect to x.
+Note, that \"der(y,x)\" is an operator that characterizes
+in the example above the partial derivative of y with respect to x
+(this operator will be included in one of the next Modelica language
+releases).
 All media models in this library are written in such a way that
 at least the partial derivatives of the medium variables with
 respect to the independent variables are provided, either because
 the equations are directly given (= symbolic differentiation is possible)
 or because the derivative of the corresponding function (such as fd above)
 is provided. A Modelica tool will transform the equations above
-in differential equations with p, T and X as states, i.e., will
-generate equations to compute der(p), der(T), der(X).
+in differential equations with p and T as states, i.e., will
+generate equations to compute <b>der</b>(p) and <b>der</b>(T) as function of p and T.
+</p>
+
+<p>
+Note, when preferredMediumStates = <b>false</b>, no differentiation
+will take place and the Modelica translator will use the variables
+appearing differentiated as states, i.e., M and U. This has the
+disadvantage that for many media non-linear systems of equations are
+present to compute the intrinsic properties p, d, T, u, h from
+M and U.
 </p>
 </HTML>"));
     end BalanceVolume;
@@ -374,38 +420,93 @@ cases this means that an equation is present relating the pressure
 drop between the two ports and the mass flow rate from one to the
 other port. Since no mass or energy is stored, no differential
 equations for thermodynamic variables are present. A component model of this type
-has therefore usually the following structure:
+has therefore usually the following structure
+(see also the implementation in 
+<a href=\"Modelica:Modelica.Media.Examples.Tests.Components.ShortPipe\">
+Modelica.Media.Examples.Tests.Components.ShortPipe</a>):
 </p>
 <pre>
   <b>model</b> ShortPipe
     <b>import</b> SI=Modelica.SIunits;
+    <b>import</b> Modelica.Media.Examples.Tests.Components;
+
     // parameters defining the pressure drop equation
+
     <b>replaceable package</b> Medium = Modelica.Media.Interfaces.PartialMedium
                            \"Medium model\" <b>annotation</b> (choicesAllMatching = <b>true</b>);
-    // It is assumed that the fluid port class has the name \"FluidPort\"
-    Modelica_Fluid.FluidPort port_a  (<b>redeclare package</b> Medium = Medium);
-    Modelica_Fluid.FluidPort port_b  (<b>redeclare package</b> Medium = Medium);
+
+    Component.FluidPort_a port_a (<b>redeclare package</b> Medium = Medium);
+    Component.FluidPort_b port_b (<b>redeclare package</b> Medium = Medium);
+
     SI.Pressure dp = port_a.p - port_b.p \"Pressure drop\";
     Medium.BaseProperties medium_a \"Medium properties in port_a\";
     Medium.BasePropreties medium_b \"Medium properties in port_b\";
   <b>equation</b>
     // define media models of the ports
-    medium_a.p = port_a.p;
-    medium_a.h = port_a.h;
+    medium_a.p   = port_a.p;
+    medium_a.h   = port_a.h;
     medium_a.X_i = port_a.X_i;
-    medium_b.p = port_b.p;
-    medium_b.h = port_b.h;
+
+    medium_b.p   = port_b.p;
+    medium_b.h   = port_b.h;
     medium_b.X_i = port_b.X_i;
-    // Handle reverse and zero flow (semiLinear is a built-in operator)
-    port_a.H_flow  = semiLinear(port_a.m_flow, port_a.h, port_b.h);
-    port_a.mX_flow = semiLinear(port_a.m_flow, port_a.X_i, port_b.X_i);
+
+    // Handle reverse and zero flow (semiLinear is a built-in Modelica operator)
+    port_a.H_flow   = <b>semiLinear</b>(port_a.m_flow, port_a.h, port_b.h);
+    port_a.mXi_flow = <b>semiLinear</b>(port_a.m_flow, port_a.X_i, port_b.X_i);
+
     // Energy, mass and substance mass balance
     port_a.H_flow + port_b.H_flow = 0;
     port_a.m_flow + port_b.m_flow = 0;
-    port_a.mX_flow + port_b.mX_flow = zeros(Medium.nX);
-    // Provide equation 0 = f(dp, port_a.m_flow)
+    port_a.mXi_flow + port_b.mXi_flow = zeros(Medium.nX_i);
+
+    // Provide equation: port_a.m_flow = f(dp)
   <b>end</b> ShortPipe;
 </pre>
+
+<p>
+The <b>semiLinear</b>(..) operator is basically defined as:
+</p>
+<pre>
+    semiLinear(m_flow, ha, hb) = if m_flow &ge; 0 then m_flow*ha else m_flow*hb;
+</pre>
+
+<p>
+that is, it computes the enthalpy flow rate either from the port_a or
+from the port_b properties, depending on flow direction. The exact
+details of this operator are given in
+<a href=\"Modelica:ModelicaReference.Operators.SemiLinear\">
+ModelicaReference.Operators.SemiLinear</a>. Especially, rules
+are defined in the Modelica specification that m_flow = 0 can be treated 
+in a \"meaningful way\". Especially, if n fluid components (such as pipes)
+are connected together and the fluid connector from above is used, 
+a linear system of equations appear between 
+medium1.h, medium2.h, medium3.h, ..., port1.h, port2.h, port3.h, ...,
+port1.H_flow, port2.H_flow, port3.H_flow, .... The rules for the
+semiLinear(..) operator allow the following solution of this
+linear system of equations:
+</p>
+
+<ul>
+<li> n = 2 (two components are connected):<br>
+     The linear system of equations can be analytically solved
+     with the result
+     <pre>
+     medium1.h = medium2.h = port1.h = port2.h
+     0 = port1.H_flow + port2.H_flow
+     </pre>
+     Therefore, no problems with zero mass flow rate are present.</li>
+
+<li> n &gt; 2 (more than two components are connected together):<br>
+     The linear system of equations is solved numerically during simulation. 
+     For m_flow = 0, the linear system becomes singular and has an 
+     infinite number of solutions. The simulator could use the solution t
+     that is closest to the solution in the previous time step 
+     (\"least squares solution\"). Physically, the solution is determined 
+     by diffusion which is usually neglected. If diffusion is included,
+     the linear system is regular.</li>
+</ul>
+     
 </HTML>"));
     end ShortPipe;
     
@@ -435,76 +536,58 @@ form:
    Medium.BaseProperties medium;
 </pre>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td><b>Variable</b></td>
-      <td><b>Function call</b></td>
+  <tr><td><b>Function call</b></td>
       <td><b>Unit</b></td>
       <td><b>Description</b></td></tr>
-  <tr><td>eta</td>
-      <td>= Medium.dynamicViscosity(medium.state)</b></td>
+  <tr><td>Medium.dynamicViscosity(medium.state)</b></td>
       <td>Pa.s</td>
       <td>dynamic viscosity</td></tr>
-  <tr><td>lambda</td>
-      <td>= Medium.thermalConductivity(medium.state)</td>
+  <tr><td>Medium.thermalConductivity(medium.state)</td>
       <td>W/(m.K)</td>
       <td>thermal conductivity</td></tr>
-  <tr><td>Pr</td>
-      <td>= Medium.prandtlNumber(medium.state)</td>
+  <tr><td>Medium.prandtlNumber(medium.state)</td>
       <td>1</td>
       <td>Prandtl number</td></tr>
-  <tr><td>s</td>
-      <td>= Medium.specificEntropy(medium.state)</td>
+  <tr><td>Medium.specificEntropy(medium.state)</td>
       <td>J/(kg.K)</td>
       <td>specific entropy</td></tr>
-  <tr><td>cp</td>
-      <td>= Medium.heatCapacity_cp(medium.state)</td>
+  <tr><td>Medium.heatCapacity_cp(medium.state)</td>
       <td>J/(kg.K)</td>
       <td>specific heat capacity at constant pressure</td></tr>
-  <tr><td>cv</td>
-      <td>= Medium.heatCapacity_cv(medium.state)</td>
+  <tr><td>Medium.heatCapacity_cv(medium.state)</td>
       <td>J/(kg.K)</td>
       <td>specific heat capacity at constant density</td></tr>
-  <tr><td>kappa</td>
-      <td>= Medium.isentropicExponent(medium.state)</td>
+  <tr><td>Medium.isentropicExponent(medium.state)</td>
       <td>1</td>
       <td>isentropic exponent</td></tr>
-  <tr><td>h_iso</td>
-      <td>= Medium.isentropicEnthatlpy(pressure, medium.state)</td>
+  <tr><td>Medium.isentropicEnthatlpy(pressure, medium.state)</td>
       <td>J/kg</td>
       <td>isentropic enthalpy</td></tr>
-  <tr><td>a</td>
-      <td>= Medium.velocityOfSound(medium.state)</td>
+  <tr><td>Medium.velocityOfSound(medium.state)</td>
       <td>m/s</td>
       <td>velocity of sound</td></tr>
-  <tr><td>beta</td>
-      <td>= Medium.isobaricExpansionCoefficient(medium.state)</td>
+  <tr><td>Medium.isobaricExpansionCoefficient(medium.state)</td>
       <td>1/K</td>
       <td>isobaric expansion coefficient</td></tr>
-  <tr><td>kappa</td>
-      <td>= Medium.isothermalCompressibility(medium.state)</td>
+  <tr><td>Medium.isothermalCompressibility(medium.state)</td>
       <td>1/Pa</td>
       <td>isothermal compressibility</td></tr>
-  <tr><td>drho/dp|h</td>
-      <td>= Medium.density_derp_h(medium.state)</td>
+  <tr><td>Medium.density_derp_h(medium.state)</td>
       <td>kg/(m3.Pa)</td>
       <td>derivative of density by pressure at constant enthalpy</td></tr>
-  <tr><td>drho/dh|p</td>
-      <td>= Medium.density_derh_p(medium.state)</td>
+  <tr><td>Medium.density_derh_p(medium.state)</td>
       <td>kg2/(m3.J)</td>
       <td>derivative of density by enthalpy at constant pressure</td></tr>
-  <tr><td>drho/dp|T</td>
-      <td>= Medium.density_derp_T(medium.state)</td>
+  <tr><td>Medium.density_derp_T(medium.state)</td>
       <td>kg/(m3.Pa)</td>
       <td>derivative of density by pressure at constant temperature</td></tr>
-  <tr><td>drho/dT|p</td>
-      <td>= Medium.density_derT_p(medium.state)</td>
+  <tr><td>Medium.density_derT_p(medium.state)</td>
       <td>kg/(m3.K)</td>
       <td>derivative of density by temperature at constant pressure</td></tr>
-  <tr><td>drho/dX</td>
-      <td>= Medium.density_derX(medium.state)</td>
+  <tr><td>Medium.density_derX(medium.state)</td>
       <td>kg/m3</td>
       <td>derivative of density by mass fraction</td></tr>
-  <tr><td>MM</td>
-      <td>= Medium.molarMass(medium.state)</td>
+  <tr><td>Medium.molarMass(medium.state)</td>
       <td>kg/mol</td>
       <td>molar mass</td></tr>
 </table>
@@ -525,9 +608,30 @@ model of a short pipe has to be changed to:
                Medium.dynamicViscosity(medium_a.state)
           <b>else</b>
                Medium.dynamicViscosity(medium_b.state);
-    // use eta in the pressure drop equation: 0 = f(dp, port_a.m_flow, eta)
+    // use eta in the pressure drop equation: port_a.m_flow = f(dp, eta)
   <b>end</b> ShortPipe;
 </pre>
+
+<p>
+Note, \"Medium.DynamicViscosity\" is type defined as
+</p>
+
+<pre>
+  import SI = Modelica.SIunits;
+  type DynamicViscosity = SI.DynamicViscosity (
+                                     min=0,
+                                     max=1.e8,
+                                     nominal=1.e-3,
+                                     start=1.e-3);
+</pre>
+
+<p>
+Every medium model may modify the attributes, to provide
+min, max, nominal, and start values
+</p>
+
+</pre>
+
 </HTML>"));
     end OptionalProperties;
     
@@ -1891,7 +1995,6 @@ input to arbitrary property functions.<br>
 </html>
 "));
   
-  
   package Tests 
     "Library to test that all media models simulate and fulfill the expected structural properties" 
     
@@ -1899,7 +2002,6 @@ input to arbitrary property functions.<br>
     
     package Components 
       "Functions, connectors and models needed for the media model tests" 
-      
       
        extends Modelica.Icons.Library;
       
@@ -2628,7 +2730,7 @@ package Interfaces "Interfaces for media models"
   
   annotation (Documentation(info="<HTML>
 <p>
-This package provides basic media models for different
+This package provides basic interfaces definitions of media models for different
 kind of media.
 </p>
 </HTML>"));
