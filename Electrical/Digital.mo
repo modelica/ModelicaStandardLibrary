@@ -1,14 +1,14 @@
-package Digital 
-  "Library for digital electrical components based on the VHDL standard (2-,3-,4-,9-valued logic)" 
-package UsersGuide "Users Guide" 
-    
+package Digital
+  "Library for digital electrical components based on the VHDL standard (2-,3-,4-,9-valued logic)"
+package UsersGuide "Users Guide"
+
   annotation (DocumentationClass=true, Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>Users Guide of package Electrical.Digital</font></h3>
 <p>
 Library <b>Electrical.Digital</b> is a <b>free</b> Modelica package providing
 components to model <b>digital</b> electronic
 systems based on combinational and sequential logic in a convenient
-way. This package contains the <b>users guide</b> for 
+way. This package contains the <b>users guide</b> for
 the library and has the following content:
 </p>
 <ol>
@@ -16,22 +16,22 @@ the library and has the following content:
      gives an overview of the library.</li>
 <li> <a href=\"Modelica://Modelica.Electrical.Digital.UsersGuide.FirstExample\">A first example</a>
      demonstrates at hand of a first example how to use this library.</li>
-<li> <a href=\"Modelica://Modelica.Electrical.Digital.UsersGuide.ApplicationExample\">An 
+<li> <a href=\"Modelica://Modelica.Electrical.Digital.UsersGuide.ApplicationExample\">An
      application example</a> demonstrates a generic n-bit adder.
      .</li>
 <li><a href=\"Modelica://Modelica.Electrical.Digital.UsersGuide.ReleaseNotes\">Release Notes</a>
     summarizes the differences between different versions of this library.</li>
 <li><a href=\"Modelica://Modelica.Electrical.Digital.UsersGuide.Literature\">Literature</a>
-    provides references that have been used to design and implement this 
+    provides references that have been used to design and implement this
     library.</li>
-<li><a href=\"Modelica://Modelica.Electrical.Digital.UsersGuide.Contact\">Contact</a> 
+<li><a href=\"Modelica://Modelica.Electrical.Digital.UsersGuide.Contact\">Contact</a>
     provides information about the authors of the library as well as
     acknowledgments.</li>
 </ol>
 </html>"));
-    
-  class OverView "Overview of library" 
-      
+
+  class OverView "Overview of library"
+
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>Overview of Library Electrical.Digital</font></h3>
 <p>
@@ -42,9 +42,9 @@ of this library is given.
 </html>
 "));
   end OverView;
-    
-  class FirstExample "A first example" 
-      
+
+  class FirstExample "A first example"
+
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>A first example</font></h3>
 <p>
@@ -53,20 +53,20 @@ A first example will be given here (not yet done).
 </html>
 "));
   end FirstExample;
-    
-  class ApplicationExample "An application example" 
-      
+
+  class ApplicationExample "An application example"
+
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>An application example</font></h3>
 <p>
-An application example will be given here (not yet done). 
+An application example will be given here (not yet done).
 </p>
 </html>
 "));
   end ApplicationExample;
-    
-  class ReleaseNotes "Release notes" 
-      
+
+  class ReleaseNotes "Release notes"
+
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>Release notes</font></h3>
 <h3><font color=\"#008000\">Version 1.0.6, 2004-10-18</font></h3>
@@ -112,12 +112,12 @@ An application example will be given here (not yet done).
 </ul>
 </html>
 "));
-  equation 
-      
+  equation
+
   end ReleaseNotes;
-    
-  class Literature "Literature" 
-      
+
+  class Literature "Literature"
+
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>Literature</font></h3>
 <p>
@@ -150,21 +150,21 @@ The Electrical.Digital library is based on the following references:
 </dl>
 </html>
  "));
-      
+
   end Literature;
-    
-  class Contact "Contact" 
-      
+
+  class Contact "Contact"
+
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>Contact</font></h3>
 <dl>
 <dt><b>Main Authors:</b>
 <dd><a href=\"http://people.eas.iis.fraunhofer.de/Christoph.Clauss/\">Christoph Clau&szlig;</a>
-    &lt;<A HREF=\"mailto:Christoph.Clauss@eas.iis.fraunhofer.de\">Christoph.Clauss@eas.iis.fraunhofer.de</A>&gt;<br> 
+    &lt;<A HREF=\"mailto:Christoph.Clauss@eas.iis.fraunhofer.de\">Christoph.Clauss@eas.iis.fraunhofer.de</A>&gt;<br>
     <a href=\"http://people.eas.iis.fraunhofer.de/Andre.Schneider/\">Andr&eacute; Schneider</a>
     &lt;<A HREF=\"mailto:Andre.Schneider@eas.iis.fraunhofer.de\">Andre.Schneider@eas.iis.fraunhofer.de</A>&gt;<br>
     Fraunhofer Institute for Integrated Circuits (IIS)<br>
-    Design Automation Department (EAS)<br> 
+    Design Automation Department (EAS)<br>
     Zeunerstra&szlig;e 38<br>
     D-01069 Dresden<br>
     Germany<br>
@@ -183,11 +183,11 @@ The Electrical.Digital library is based on the following references:
 </dl>
 </html>
 "));
-      
+
   end Contact;
-    
+
 end UsersGuide;
-  
+
   annotation (
     Coordsys(
       extent=[-100, -100; 100, 100],
@@ -332,9 +332,9 @@ Modelica in file \"Modelica/package.mo\".</i><br>
           color=9,
           fillColor=0,
           fillPattern=1))));
-  
-  package Examples 
-    model Multiplexer "4 to 1 Bit Multiplexer Example" 
+
+  package Examples
+    model Multiplexer "4 to 1 Bit Multiplexer Example"
       import D = Modelica.Electrical.Digital;
       import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       annotation (
@@ -342,7 +342,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
 <h3><font color=\"#008000\" size=5>4 to 1 Bit Multiplexer</font></h3>
 <P>
 The multiplexer converts a parallel 4 bit signal in a sequential
-1 bit stream. 
+1 bit stream.
 </P>
 </HTML>
 "),     Coordsys(
@@ -383,7 +383,7 @@ The multiplexer converts a parallel 4 bit signal in a sequential
         t={22,140,150,180}) annotation (extent=[-80,-20; -60,0]);
       D.Examples.Utilities.JKFF FF annotation (extent=[-20,-62; 0,-42]);
       D.Sources.Set Enable annotation (extent=[-80,-82; -60,-62]);
-    equation 
+    equation
       connect(CLK.y, FF.clk) annotation (points=[-60,-46; -36,-46; -36,-52; -20,
             -52], style(
           color=78,
@@ -447,8 +447,8 @@ The multiplexer converts a parallel 4 bit signal in a sequential
           rgbfillColor={255,255,170},
           fillPattern=1));
     end Multiplexer;
-    
-    model FlipFlop "Pulse Triggered Master Slave Flip-Flop" 
+
+    model FlipFlop "Pulse Triggered Master Slave Flip-Flop"
       import D = Modelica.Electrical.Digital;
       import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       annotation (
@@ -476,7 +476,7 @@ Pulse-triggered master-slave flip-flop.
           height=0.69),
         experiment(StopTime=250),
         experimentSetupOutput);
-      D.Examples.Utilities.JKFF FF 
+      D.Examples.Utilities.JKFF FF
                      annotation (extent=[-10,-40; 70,40]);
       D.Sources.Clock CLK(period=10)  annotation (extent=[-80,-10; -60,10]);
       D.Sources.Table J(
@@ -487,7 +487,7 @@ Pulse-triggered master-slave flip-flop.
         y0=3,
         x={4,3,4,3},
         t={22,140,150,180}) annotation (extent=[-80,-38; -60,-18]);
-    equation 
+    equation
       connect(J.y, FF.j)     annotation (points=[-60,28; -10,28], style(
           color=78,
           rgbcolor={127,0,127},
@@ -507,13 +507,13 @@ Pulse-triggered master-slave flip-flop.
           rgbfillColor={255,255,170},
           fillPattern=1));
     end FlipFlop;
-    
-    model HalfAdder "adding circuit for binary numbers without input carry bit" 
+
+    model HalfAdder "adding circuit for binary numbers without input carry bit"
       import Modelica.Electrical.Digital;
       annotation (
         Documentation(info="<HTML>
 <P>
-This example demonstrates an adding circuit for binary numbers, which internally realizes the interconnection to 
+This example demonstrates an adding circuit for binary numbers, which internally realizes the interconnection to
 And and to Xor in the final sum.
 <br>
 <br>
@@ -524,30 +524,30 @@ And and to Xor in the final sum.
 <br>
 <br>
 <b>a</b> + <b>b</b> = <b>s</b>
-<br>(The carry of this adding is <b>c</b>.) 
+<br>(The carry of this adding is <b>c</b>.)
 <br>
 <br>and
-<br> 
-<br> 
+<br>
+<br>
 <b>a</b> * <b>b</b> = <b>s</b>
 <br>  (It is an interconnection to And.)
 <br>
 <br>
 <b>a</b> * <b>b</b> + <b>a</b> * <b>b</b> = <b>a</b> Xor <b>b</b> = <b>c</b>
-<br>(It is an interconnection to Xor.) 
+<br>(It is an interconnection to Xor.)
 <br>
-<br>     
+<br>
 <pre>  <b>a</b>     <b>b</b>     <b>c</b>      <b>s</b>     <b>t</b></pre>
-       
+
  <pre>  1     0     1      0     1</pre>
  <pre>  0     1     1      0     2</pre>
  <pre>  1     1     0      1     3</pre>
  <pre>  0     0     0      0     4</pre>
-   
-<br>  
+
 <br>
-<b>t</b> is the pick-up instant of the next bit(s) in the simulation.  
-The simulation stop time should be 5 seconds. 
+<br>
+<b>t</b> is the pick-up instant of the next bit(s) in the simulation.
+The simulation stop time should be 5 seconds.
 </P>
 </HTML>
 "),     Coordsys(
@@ -580,13 +580,13 @@ The simulation stop time should be 5 seconds.
         x={4,3},
         t={2,4},
         y0=3)   annotation (extent=[-80,-38; -60,-18]);
-      Digital.Examples.Utilities.HalfAdder Adder(delayTime=0.3) 
+      Digital.Examples.Utilities.HalfAdder Adder(delayTime=0.3)
                             annotation (extent=[-40,-40; 40,40]);
-      Digital.Converters.LogicToReal s 
+      Digital.Converters.LogicToReal s
                                annotation (extent=[60,18; 80,38]);
-      Digital.Converters.LogicToReal c 
+      Digital.Converters.LogicToReal c
                                annotation (extent=[60,-38; 80,-18]);
-    equation 
+    equation
       connect(b.y,Adder. b) annotation (points=[-60,-28; -40,-28],
                   style(
           color=78,
@@ -605,8 +605,8 @@ The simulation stop time should be 5 seconds.
       connect(Adder.c, c.x[1]) annotation (points=[40,-28; 65,-28], style(color=
              78, rgbcolor={127,0,127}));
     end HalfAdder;
-    
-    model FullAdder "Full 1 Bit Adder Example" 
+
+    model FullAdder "Full 1 Bit Adder Example"
       import D = Modelica.Electrical.Digital;
       import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       annotation (
@@ -620,21 +620,21 @@ The simulation stop time should be 5 seconds.
 <b>c</b>out = <b>Or1</b>.y and <b>h</b>.s are the outputs of the Fulladder.
 <br>
 <br>
-<b>t</b> is the pick-up instant of the next bit(s) in the simulation.   
+<b>t</b> is the pick-up instant of the next bit(s) in the simulation.
 <pre>   <b>a</b>.y      <b>b</b>.y      <b>c</b>.y     <b>c</b>out        <b>h</b>.s        <b>t</b> </pre>
-       
+
 <pre>
-     1        0        0        0          1        1  
+     1        0        0        0          1        1
      0        1        0        0          1        2
      0        0        1        0          1        3
      1        1        0        1          0        4
      0        1        1        1          0        5
      1        0        1        1          0        6
      1        1        1        1          1        7
-     0        0        0        0          0        8     
+     0        0        0        0          0        8
 </pre>
 </P>
-The simulation stop time should be 10 seconds.  
+The simulation stop time should be 10 seconds.
 </HTML>
 "),     Coordsys(
           extent=[-100, -100; 100, 100],
@@ -663,20 +663,20 @@ The simulation stop time should be 10 seconds.
           inputs=false));
       Digital.Examples.Utilities.FullAdder Adder1            annotation (extent=[0,
             -30; 60,30]);
-      Digital.Converters.LogicToReal s 
+      Digital.Converters.LogicToReal s
                                annotation (extent=[70,12; 90,32]);
-      Digital.Converters.LogicToReal c_out 
+      Digital.Converters.LogicToReal c_out
                                    annotation (extent=[70,-32; 90,-12]);
-      Digital.Examples.Utilities.Counter3 Counter 
+      Digital.Examples.Utilities.Counter3 Counter
         annotation (extent=[-60,-18; -20,22]);
       Digital.Sources.Set Enable(x=L.'1') annotation (extent=[-90,6; -70,26]);
       Digital.Sources.Clock CLK annotation (extent=[-90,-22; -70,-2]);
-    equation 
-      connect(Adder1.s, s.x[1]) 
+    equation
+      connect(Adder1.s, s.x[1])
                                annotation (points=[60.3,21; 68,21; 68,22; 75,22],
                                                                     style(color=
              78, rgbcolor={127,0,127}));
-      connect(Adder1.c_out, c_out.x[1]) 
+      connect(Adder1.c_out, c_out.x[1])
                                        annotation (points=[60,-21; 68,-21; 68,
             -22; 75,-22],
           style(color=78, rgbcolor={127,0,127}));
@@ -691,27 +691,27 @@ The simulation stop time should be 10 seconds.
       connect(Counter.q0, Adder1.c_in) annotation (points=[-20,-12; -10,-12;
             -10,-21; 0,-21], style(color=78, rgbcolor={127,0,127}));
     end FullAdder;
-    
-    model Adder4 "4 Bit Adder Example" 
+
+    model Adder4 "4 Bit Adder Example"
       import Modelica.Electrical.Digital;
       annotation (
         Documentation(info="<HTML>
 <P>
-Four Fulladders are combined to built a four bit adder unit. 
+Four Fulladders are combined to built a four bit adder unit.
 <br>
 <br>
 In dependence on time five additions are carried out:
-<br> 
-<pre> 
-at t = 0                            at t = 1        
- a       0 0 0 0                       a      1 1 1 0                      
+<br>
+<pre>
+at t = 0                            at t = 1
+ a       0 0 0 0                       a      1 1 1 0
  b    +  0 0 0 0                       b   +  1 0 1 1
  <b>s     0 0 0 0 0</b>                      <b>s     1 0 0 1 0</b>
-at t = 2                             at t = 3   
- a       0 1 1 0                       a      1 1 1 0 
+at t = 2                             at t = 3
+ a       0 1 1 0                       a      1 1 1 0
  b    +  0 0 1 1                       b   +  1 0 1 0
  <b>s     1 0 1 0 0</b>                      <b>s     0 0 0 1 1</b>
-        
+
 at t = 4
  a      1 1 0 0
  b   +  1 1 1 0
@@ -721,14 +721,14 @@ To show the influence of delay a large delay time of 0.1s is choosen.
 Furthermore, all signals are initialized with U, the unitialized value.
 Please remember, that the nine logic values are coded by the numbers 1,...,9.
 The summands a and b can be found at the output signals of the taba and tabb sources.
-The result can be seen in the output signals of the Fulladders according to: 
-<pre> 
+The result can be seen in the output signals of the Fulladders according to:
+<pre>
       a                       <b>a4</b>.y      <b>a3</b>.y      <b>a2</b>.y      <b>a1</b>.y
       b                       <b>b4</b>.y      <b>b3</b>.y      <b>b2</b>.y      <b>b1</b>.y
       sum   <b>Adder4</b>.c_out  <b>Adder4.s</b>  <b>Adder3.s</b>  <b>Adder2.s</b>  <b>Adder1.s</b>
 </pre>
 The simulation stop time has to be 5s.
-        
+
 </P>
 </HTML>
 "),     Coordsys(
@@ -752,7 +752,7 @@ The simulation stop time has to be 5s.
           states=false,
           derivatives=false,
           inputs=false));
-      
+
       Digital.Sources.Table b4(
         y0=3,
         x={4,3},
@@ -785,18 +785,18 @@ The simulation stop time has to be 5s.
         y0=3,
         x={3},
         t={1}) annotation (extent=[70,40; 110,80]);
-      Sources.Set Set(x=3) 
+      Sources.Set Set(x=3)
         annotation (extent=[-130,-54; -170,-94],
                                             rotation=180);
-      Digital.Examples.Utilities.FullAdder Adder1 
+      Digital.Examples.Utilities.FullAdder Adder1
                                    annotation (extent=[-100,-80; -60,-40]);
-      Digital.Examples.Utilities.FullAdder Adder2 
+      Digital.Examples.Utilities.FullAdder Adder2
                                   annotation (extent=[-20,-80; 20,-40]);
-      Digital.Examples.Utilities.FullAdder Adder3 
+      Digital.Examples.Utilities.FullAdder Adder3
                                   annotation (extent=[60,-80; 100,-40]);
-      Digital.Examples.Utilities.FullAdder Adder4 
+      Digital.Examples.Utilities.FullAdder Adder4
                                   annotation (extent=[140,-80; 180,-40]);
-    equation 
+    equation
       connect(b1.y, Adder1.b)  annotation (points=[-130,0; -120,0; -120,-54;
             -100,-54], style(
           color=78,
@@ -882,8 +882,8 @@ The simulation stop time has to be 5s.
           rgbfillColor={255,255,255},
           fillPattern=1));
     end Adder4;
-    
-    model Counter3 "3 Bit Counter Example" 
+
+    model Counter3 "3 Bit Counter Example"
       import D = Modelica.Electrical.Digital;
       annotation (
         Documentation(info="<HTML>
@@ -911,9 +911,9 @@ The simulation stop time has to be 5s.
           inputs=false));
       D.Sources.Step Enable       annotation (extent=[-90,8; -50,48]);
       D.Sources.Clock Clock       annotation (extent=[-90,-48; -50,-8]);
-      D.Examples.Utilities.Counter3 Counter 
+      D.Examples.Utilities.Counter3 Counter
         annotation (extent=[-30,-40; 50,40]);
-    equation 
+    equation
       connect(Enable.y, Counter.enable) annotation (points=[-50,28; -30,28],
           style(
           color=78,
@@ -929,8 +929,8 @@ The simulation stop time has to be 5s.
           rgbfillColor={255,255,170},
           fillPattern=1));
     end Counter3;
-    
-    model Counter "Generic N Bit Counter Example" 
+
+    model Counter "Generic N Bit Counter Example"
       import D = Modelica.Electrical.Digital;
       annotation (
         Documentation(info="<HTML>
@@ -958,13 +958,13 @@ The simulation stop time has to be 5s.
           inputs=false));
       D.Sources.Step Enable       annotation (extent=[-90,8; -50,48]);
       D.Sources.Clock Clock       annotation (extent=[-90,-48; -50,-8]);
-      D.Examples.Utilities.Counter Counter(n=4) 
+      D.Examples.Utilities.Counter Counter(n=4)
         annotation (extent=[-30,-40; 50,40]);
       D.Converters.LogicToReal Q0 annotation (extent=[66,-40; 86,-20]);
       D.Converters.LogicToReal Q1 annotation (extent=[66,-20; 86,0]);
       D.Converters.LogicToReal Q2 annotation (extent=[66,0; 86,20]);
       D.Converters.LogicToReal Q3 annotation (extent=[66,20; 86,40]);
-    equation 
+    equation
       connect(Enable.y, Counter.enable) annotation (points=[-50,28; -30,28],
           style(
           color=78,
@@ -988,9 +988,9 @@ The simulation stop time has to be 5s.
       connect(Q3.x[1], Counter.q[4]) annotation (points=[71,30; 60,30; 60,24;
             50,24], style(color=78, rgbcolor={127,0,127}));
     end Counter;
-    
-  package Utilities 
-    model MUX4 "4 to 1 Bit Multiplexer" 
+
+  package Utilities
+    model MUX4 "4 to 1 Bit Multiplexer"
         import D = Modelica.Electrical.Digital;
         import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       annotation (
@@ -1099,7 +1099,7 @@ The simulation stop time has to be 5s.
               rgbfillColor={255,255,255},
               fillPattern=1),
               string="A0")));
-        
+
       parameter Modelica.SIunits.Time delayTime=0.001;
       parameter D.Interfaces.Logic q0=L.'0';
         D.Interfaces.DigitalInput d0 annotation (extent=[-110,60; -90,80]);
@@ -1116,7 +1116,7 @@ The simulation stop time has to be 5s.
         D.Basic.And And4(n=3) annotation (extent=[-20,-18; 0,2]);
         D.Basic.Not Not1 annotation (extent=[-76,-54; -56,-34]);
         D.Basic.Not Not2 annotation (extent=[-76,-80; -56,-60]);
-    equation 
+    equation
         connect(a0, Not1.x) annotation (points=[-100,-44; -72,-44], style(
             color=78,
             rgbcolor={127,0,127},
@@ -1246,8 +1246,8 @@ The simulation stop time has to be 5s.
             rgbfillColor={255,255,170},
             fillPattern=1));
     end MUX4;
-      
-    model RS "Unclocked RS FlipFlop" 
+
+    model RS "Unclocked RS FlipFlop"
         import D = Modelica.Electrical.Digital;
         import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       annotation (
@@ -1334,9 +1334,9 @@ The simulation stop time has to be 5s.
       D.Interfaces.DigitalInput r    annotation (extent=[-110,-80; -90,-60]);
       D.Interfaces.DigitalOutput q   annotation (extent=[90,60; 110,80]);
       D.Interfaces.DigitalOutput qn   annotation (extent=[90,-80; 110,-60]);
-      D.Delay.TransportDelay TD1(delayTime=delayTime,y0=q0) 
+      D.Delay.TransportDelay TD1(delayTime=delayTime,y0=q0)
           annotation (extent=[-60,-64; -40,-44]);
-    equation 
+    equation
       connect(s, Nor1.x[2])   annotation (points=[-100,70; -32,70], style(color=
                78, rgbcolor={127,0,127}));
       connect(r, Nor2.x[1])    annotation (points=[-100,-70; -32,-70],
@@ -1362,8 +1362,8 @@ The simulation stop time has to be 5s.
       connect(TD1.x, Nor1.y) annotation (points=[-56,-54; -70,-54; -70,-20; 20,
               20; 20,62; 0,62], style(color=78, rgbcolor={127,0,127}));
     end RS;
-      
-    model RSFF "Unclocked RS FlipFlop" 
+
+    model RSFF "Unclocked RS FlipFlop"
         import D = Modelica.Electrical.Digital;
         import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       annotation (
@@ -1443,28 +1443,28 @@ The simulation stop time has to be 5s.
               fillColor=51,
               rgbfillColor={255,255,170},
               fillPattern=1))));
-        
+
       parameter Modelica.SIunits.Time delayTime=0.01;
       parameter D.Interfaces.Logic q0=L.'U';
       D.Interfaces.DigitalInput s   annotation (extent=[-110,60; -90,80]);
       D.Interfaces.DigitalInput r     annotation (extent=[-110,-80; -90,-60]);
       D.Interfaces.DigitalOutput q annotation (extent=[90,60; 110,80]);
-      D.Interfaces.DigitalOutput qn "not Q" 
+      D.Interfaces.DigitalOutput qn "not Q"
         annotation (extent=[90,-80; 110,-60]);
       D.Interfaces.DigitalInput clk       annotation (extent=[-110,-10; -90,10]);
-      D.Examples.Utilities.RS RS1(delayTime=delayTime,q0=q0) 
+      D.Examples.Utilities.RS RS1(delayTime=delayTime,q0=q0)
                                         annotation (extent=[-10,-40; 70,40]);
       D.Basic.And And1       annotation (extent=[-70,8; -30,48]);
       D.Basic.And And2       annotation (extent=[-70,-48; -30,-8]);
-    equation 
-      connect(And2.y, RS1.r) 
+    equation
+      connect(And2.y, RS1.r)
                             annotation (points=[-30,-28; -10,-28], style(
           color=78,
           rgbcolor={127,0,127},
           fillColor=51,
           rgbfillColor={255,255,170},
           fillPattern=1));
-      connect(And1.y, RS1.s) 
+      connect(And1.y, RS1.s)
                             annotation (points=[-30,28; -10,28], style(
           color=78,
           rgbcolor={127,0,127},
@@ -1513,8 +1513,8 @@ The simulation stop time has to be 5s.
           rgbfillColor={255,255,170},
           fillPattern=1));
     end RSFF;
-      
-    model DFF "D FlipFlop" 
+
+    model DFF "D FlipFlop"
         import D = Modelica.Electrical.Digital;
         import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       annotation (
@@ -1584,28 +1584,28 @@ The simulation stop time has to be 5s.
                 rgbcolor={0,0,0},
                 gradient=2),
               string="D")));
-        
+
       parameter Modelica.SIunits.Time Tdel=0.01;
       parameter Digital.Interfaces.Logic QInit=L.'U';
-      Digital.Interfaces.DigitalInput d 
+      Digital.Interfaces.DigitalInput d
                                     annotation (extent=[-110,60; -90,80]);
-      Digital.Interfaces.DigitalOutput q 
+      Digital.Interfaces.DigitalOutput q
                                    annotation (extent=[90,60; 110,80]);
-      Digital.Interfaces.DigitalOutput qn "not Q" 
+      Digital.Interfaces.DigitalOutput qn "not Q"
         annotation (extent=[90,-80; 110,-60]);
       Digital.Interfaces.DigitalInput clk annotation (extent=[-110,-10; -90,10]);
       D.Examples.Utilities.RSFF RSFF1   annotation (extent=[-10,-40; 70,40]);
-      Digital.Basic.Not Not1 
+      Digital.Basic.Not Not1
                             annotation (extent=[-70,-48; -30,-8]);
-    equation 
-      connect(RSFF1.q,q) 
+    equation
+      connect(RSFF1.q,q)
                        annotation (points=[70,28; 80,28; 80,70; 100,70], style(
           color=78,
           rgbcolor={127,0,127},
           fillColor=51,
           rgbfillColor={255,255,170},
           fillPattern=1));
-      connect(RSFF1.qn,qn) 
+      connect(RSFF1.qn,qn)
                          annotation (points=[70,-28; 80,-28; 80,-70; 100,-70],
           style(
           color=78,
@@ -1613,7 +1613,7 @@ The simulation stop time has to be 5s.
           fillColor=51,
           rgbfillColor={255,255,170},
           fillPattern=1));
-      connect(Not1.y, RSFF1.r) 
+      connect(Not1.y, RSFF1.r)
                              annotation (points=[-30,-28; -10,-28], style(
             color=78,
             rgbcolor={127,0,127},
@@ -1641,8 +1641,8 @@ The simulation stop time has to be 5s.
             rgbfillColor={255,255,170},
             fillPattern=1));
     end DFF;
-      
-    model JKFF "JK FlipFlop" 
+
+    model JKFF "JK FlipFlop"
         import D = Modelica.Electrical.Digital;
         import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       annotation (
@@ -1722,25 +1722,25 @@ The simulation stop time has to be 5s.
               rgbfillColor={255,255,255},
               fillPattern=1),
               string="K")));
-        
+
       parameter Modelica.SIunits.Time delayTime=0.001;
       parameter D.Interfaces.Logic q0=L.'0';
       D.Interfaces.DigitalInput j   annotation (extent=[-110,60; -90,80]);
       D.Interfaces.DigitalOutput q annotation (extent=[90,60; 110,80]);
-      D.Interfaces.DigitalOutput qn "not Q" 
+      D.Interfaces.DigitalOutput qn "not Q"
         annotation (extent=[90,-80; 110,-60]);
       D.Interfaces.DigitalInput clk       annotation (extent=[-110,-10; -90,10]);
       D.Interfaces.DigitalInput k   annotation (extent=[-110,-80; -90,-60]);
-        D.Examples.Utilities.RS RS1(delayTime=delayTime,q0=q0) 
+        D.Examples.Utilities.RS RS1(delayTime=delayTime,q0=q0)
                                      annotation (extent=[30,-24; 70,16]);
-        D.Examples.Utilities.RS RS2(delayTime=delayTime,q0=q0) 
+        D.Examples.Utilities.RS RS2(delayTime=delayTime,q0=q0)
                                      annotation (extent=[-44,-20; -4,20]);
         D.Basic.And And1(n=3) annotation (extent=[-70,4; -50,24]);
         D.Basic.And And2(n=3) annotation (extent=[-70,-24; -50,-4]);
         D.Basic.And And3 annotation (extent=[4,0; 24,20]);
         D.Basic.And And4 annotation (extent=[4,-28; 24,-8]);
         D.Basic.Not Not1 annotation (extent=[-34,-66; -14,-46]);
-    equation 
+    equation
         connect(And2.y, RS2.r) annotation (points=[-50,-14; -44,-14], style(color=
                 78, rgbcolor={127,0,127}));
         connect(And1.y, RS2.s) annotation (points=[-50,14; -44,14], style(color=
@@ -1778,13 +1778,13 @@ The simulation stop time has to be 5s.
       connect(RS1.q, qn) annotation (points=[70,10; 80,10; 80,-70; 100,-70],
             style(color=78, rgbcolor={127,0,127}));
     end JKFF;
-      
-              model HalfAdder 
+
+              model HalfAdder
                 parameter Real delayTime=0;
-                Digital.Interfaces.DigitalInput b 
+                Digital.Interfaces.DigitalInput b
                   annotation (
                       extent=[-110,-80; -90,-60],  rotation=0);
-                Digital.Interfaces.DigitalOutput s 
+                Digital.Interfaces.DigitalOutput s
                                      annotation (extent=[90,60; 110,80]);
                 annotation (
                     Diagram, Icon(
@@ -1818,31 +1818,31 @@ The simulation stop time has to be 5s.
                     Text(
               extent=[-100,100; 100,0],
               style(color=0, gradient=2),
-              string="+"), 
+              string="+"),
             Line(points=[-60,100; -60,-100], style(
                 color=0,
                 rgbcolor={0,0,0},
                 thickness=2,
-                fillPattern=1)), 
+                fillPattern=1)),
             Line(points=[60,100; 60,-100], style(
                 color=0,
                 rgbcolor={0,0,0},
                 thickness=2,
                 fillPattern=1))));
-                Digital.Interfaces.DigitalInput a 
+                Digital.Interfaces.DigitalInput a
                   annotation (
                       extent=[-110,60; -90,80],  rotation=0);
-                Digital.Interfaces.DigitalOutput c 
+                Digital.Interfaces.DigitalOutput c
                                      annotation (extent=[90,-80; 110,-60]);
-                Gates.AndGate AND(tLH=delayTime, tHL=delayTime) 
+                Gates.AndGate AND(tLH=delayTime, tHL=delayTime)
                   annotation (
                       extent=[-20,-82; 20,-42]);
-                Gates.XorGate XOR(tLH=delayTime, tHL=delayTime) 
+                Gates.XorGate XOR(tLH=delayTime, tHL=delayTime)
                   annotation (
                       extent=[-20,42; 20,82]);
-        
-              equation 
-                connect(AND.y, c) 
+
+              equation
+                connect(AND.y, c)
                                annotation (points=[20,-62; 60,-62; 60,-70; 100,
               -70],                                                 style(
                     color=
@@ -1855,7 +1855,7 @@ The simulation stop time has to be 5s.
                          {170,85,255},
                     fillPattern=
                         1));
-                connect(XOR.y, s) 
+                connect(XOR.y, s)
                                annotation (points=[20,62; 60,62; 60,70; 100,70],
                                                                   style(
                     color=
@@ -1868,7 +1868,7 @@ The simulation stop time has to be 5s.
                          {170,85,255},
                     fillPattern=
                         1));
-                connect(b, AND.x[1]) 
+                connect(b, AND.x[1])
                                   annotation (points=[-100,-70; -12,-70],
                                  style(
                     color=
@@ -1881,7 +1881,7 @@ The simulation stop time has to be 5s.
                          {170,85,255},
                     fillPattern=
                         1));
-                connect(b, XOR.x[1]) 
+                connect(b, XOR.x[1])
                                   annotation (points=[-100,-70; -30,-70; -30,54;
               -12,54],         style(
                     color=
@@ -1894,7 +1894,7 @@ The simulation stop time has to be 5s.
                          {170,85,255},
                     fillPattern=
                         1));
-                connect(a, XOR.x[2]) 
+                connect(a, XOR.x[2])
                                   annotation (points=[-100,70; -12,70],
                          style(
                     color=
@@ -1907,7 +1907,7 @@ The simulation stop time has to be 5s.
                          {170,85,255},
                     fillPattern=
                         1));
-                connect(a, AND.x[2]) 
+                connect(a, AND.x[2])
                                   annotation (points=[-100,70; -40,70; -40,-54;
               -12,-54],   style(
                     color=
@@ -1921,22 +1921,22 @@ The simulation stop time has to be 5s.
                     fillPattern=
                         1));
               end HalfAdder;
-      
-    model FullAdder "adding circuit for binary numbers with input carry bit" 
-        
+
+    model FullAdder "adding circuit for binary numbers with input carry bit"
+
       annotation (
         Documentation(info="<HTML>
 <P>
- <pre>   
+ <pre>
   <b>a     b     c in     c out     s</b>
-       
+
          1     1     1     0
          0     0     0     0
          1     0     0     1
          0     1     0     1
- </pre>  
-       
-       
+ </pre>
+
+
 </P>
 </HTML>
 "),     Coordsys(
@@ -2026,24 +2026,24 @@ The simulation stop time has to be 5s.
           y=0.06,
           width=0.62,
           height=0.69));
-        
-      HalfAdder Adder2(delayTime=0.001) 
+
+      HalfAdder Adder2(delayTime=0.001)
                                       annotation (extent=[10,36; 50,76]);
-      HalfAdder Adder1(delayTime=0.001) 
+      HalfAdder Adder1(delayTime=0.001)
                                        annotation (extent=[-60,36; -20,76]);
-      Digital.Interfaces.DigitalInput a 
+      Digital.Interfaces.DigitalInput a
         annotation (extent=[-110,60; -90,80],  rotation=180);
-      Digital.Interfaces.DigitalInput b 
+      Digital.Interfaces.DigitalInput b
         annotation (extent=[-110,20; -90,40], rotation=180);
-      Digital.Interfaces.DigitalInput c_in 
+      Digital.Interfaces.DigitalInput c_in
         annotation (extent=[-110,-80; -90,-60], rotation=180);
-      Digital.Interfaces.DigitalOutput s 
+      Digital.Interfaces.DigitalOutput s
         annotation (extent=[112,60; 90,80],      rotation=180);
-      Digital.Interfaces.DigitalOutput c_out 
+      Digital.Interfaces.DigitalOutput c_out
         annotation (extent=[110,-80; 90,-60],    rotation=180);
       Basic.Or OR  annotation (extent=[10,-90; 50,-50]);
-    equation 
-        
+    equation
+
       connect(c_out, OR.y)   annotation (points=[100,-70; 50,-70],
                        style(
             color=78,
@@ -2051,7 +2051,7 @@ The simulation stop time has to be 5s.
             fillColor=7,
             rgbfillColor={255,255,255},
             fillPattern=1));
-      connect(Adder2.c, OR.x[2]) 
+      connect(Adder2.c, OR.x[2])
                                annotation (points=[50,42; 70,42; 70,-40; 10,-40;
               10,-62; 18,-62],style(
             color=78,
@@ -2059,7 +2059,7 @@ The simulation stop time has to be 5s.
             fillColor=7,
             rgbfillColor={255,255,255},
             fillPattern=1));
-      connect(Adder2.s, s) 
+      connect(Adder2.s, s)
         annotation (points=[50,70; 101,70], style(color=78, rgbcolor={127,0,127}));
         connect(Adder1.a, a) annotation (points=[-60,70; -100,70], style(color=78,
               rgbcolor={127,0,127}));
@@ -2072,8 +2072,8 @@ The simulation stop time has to be 5s.
         connect(c_in, Adder2.b) annotation (points=[-100,-70; 0,-70; 0,42; 10,42],
             style(color=78, rgbcolor={127,0,127}));
     end FullAdder;
-      
-    model Adder "Generic N Bit Adder" 
+
+    model Adder "Generic N Bit Adder"
         import Modelica.Electrical.Digital;
       annotation (
         Documentation(info="<HTML>
@@ -2167,14 +2167,14 @@ The simulation stop time has to be 5s.
           inputs=false),
         DymolaStoredErrors);
       parameter Integer n=2;
-      Digital.Examples.Utilities.FullAdder Adder[n] 
+      Digital.Examples.Utilities.FullAdder Adder[n]
                                    annotation (extent=[-20,-20; 20,20]);
       Digital.Interfaces.DigitalInput a[n] annotation (extent=[-110,60; -90,80]);
       Digital.Interfaces.DigitalInput b[n] annotation (extent=[-110,20; -90,40]);
       Digital.Interfaces.DigitalInput c_in annotation (extent=[-110,-80; -90,-60]);
       Digital.Interfaces.DigitalOutput s[n] annotation (extent=[90,60; 110,80]);
       Digital.Interfaces.DigitalOutput c_out annotation (extent=[90,-80; 110,-60]);
-    equation 
+    equation
       connect(c_in,Adder[1].c_in);
       for i in 1:n loop
         connect(a[i],Adder[i].a);
@@ -2186,8 +2186,8 @@ The simulation stop time has to be 5s.
       end for;
       connect(Adder[n].c_out,c_out);
     end Adder;
-      
-    model Counter3 "3 Bit Counter" 
+
+    model Counter3 "3 Bit Counter"
         import D = Modelica.Electrical.Digital;
         import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
        annotation (
@@ -2266,20 +2266,20 @@ The simulation stop time has to be 5s.
                rgbfillColor={255,255,255},
                fillPattern=1),
               string="Q1")));
-      D.Interfaces.DigitalInput enable 
+      D.Interfaces.DigitalInput enable
                                      annotation (extent=[-110,60; -90,80]);
       D.Interfaces.DigitalOutput q2 annotation (extent=[90,60; 110,80]);
-      D.Interfaces.DigitalInput count 
+      D.Interfaces.DigitalInput count
                                      annotation (extent=[-110,-80; -90,-60]);
-      D.Examples.Utilities.JKFF FF1 
+      D.Examples.Utilities.JKFF FF1
            annotation (extent=[-74,-20; -34,20]);
-      D.Examples.Utilities.JKFF FF2 
+      D.Examples.Utilities.JKFF FF2
            annotation (extent=[-20,-20; 20,20]);
-      D.Examples.Utilities.JKFF FF3 
+      D.Examples.Utilities.JKFF FF3
            annotation (extent=[34,-20; 74,20]);
       D.Interfaces.DigitalOutput q1 annotation (extent=[90,-10; 110,10]);
       D.Interfaces.DigitalOutput q0 annotation (extent=[90,-80; 110,-60]);
-    equation 
+    equation
       connect(enable, FF1.j)       annotation (points=[-100,70; -80,70; -80,14;
                -74,14],  style(
              color=78,
@@ -2336,8 +2336,8 @@ The simulation stop time has to be 5s.
       connect(FF2.q, q1) annotation (points=[20,14; 24,14; 24,-50; 86,-50; 86,0;
               100,0], style(color=78, rgbcolor={127,0,127}));
     end Counter3;
-      
-    model Counter "Generic N Bit Counter" 
+
+    model Counter "Generic N Bit Counter"
         import D = Modelica.Electrical.Digital;
         import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       annotation (
@@ -2411,13 +2411,13 @@ The simulation stop time has to be 5s.
       parameter Integer n=3;
       parameter Modelica.SIunits.Time delayTime=0.001;
       parameter D.Interfaces.Logic q0=L.'0';
-      D.Interfaces.DigitalInput enable 
+      D.Interfaces.DigitalInput enable
                                     annotation (extent=[-110,60; -90,80]);
-      D.Interfaces.DigitalInput count 
+      D.Interfaces.DigitalInput count
                                     annotation (extent=[-110,-80; -90,-60]);
       D.Examples.Utilities.JKFF FF[n](each delayTime=delayTime,each q0=q0);
       D.Interfaces.DigitalOutput q[n] annotation (extent=[90,-80; 110,80]);
-    equation 
+    equation
       connect(enable,FF[1].j);
       connect(enable,FF[1].k);
       connect(count,FF[1].clk);
@@ -2447,13 +2447,13 @@ The simulation stop time has to be 5s.
           string="%name",
           style(color=1))));
   end Examples;
-  
-  package Interfaces 
-    
-    type Logic = Integer 
+
+  package Interfaces
+
+    type Logic = Integer
       "Signal type in package Digital according to the IEEE 1164 STD_ULOGIC type";
-    
-    record LogicValue "Logic values and their coding" 
+
+    record LogicValue "Logic values and their coding"
       constant Integer min=1;
       constant Integer max=9;
       constant Integer 'U'=1 "Uninitialized";
@@ -2466,12 +2466,12 @@ The simulation stop time has to be 5s.
       constant Integer 'H'=8 "Weak    1";
       constant Integer '-'=9 "Don't care";
     end LogicValue;
-    
+
     connector DigitalSignal = Logic "Digital port (both input/output possible)"
       annotation (Icon, Diagram);
-    
-    connector DigitalInput = input DigitalSignal 
-      "input DigitalSignal as connector" 
+
+    connector DigitalInput = input DigitalSignal
+      "input DigitalSignal as connector"
       annotation (defaultComponentName="x",
         Icon(Rectangle(extent=[-100,-100; 100,100], style(
             color=78,
@@ -2492,9 +2492,9 @@ The simulation stop time has to be 5s.
             rgbcolor={127,0,127},
             fillColor=78,
             rgbfillColor={127,0,127}))));
-    
-    connector DigitalOutput = output DigitalSignal 
-      "output DigitalSignal as connector" 
+
+    connector DigitalOutput = output DigitalSignal
+      "output DigitalSignal as connector"
       annotation (defaultComponentName="y", Icon(Polygon(points=[-100,100; 100,0; -100,-100; -100,100], style(
           color=78,
           rgbcolor={127,0,127},
@@ -2510,12 +2510,12 @@ The simulation stop time has to be 5s.
           extent=[-150,-100; 150,-160],
           string="%name",
         style(color=78, rgbcolor={127,0,127}))));
-    
-    partial block SISO "Single input, single output" 
+
+    partial block SISO "Single input, single output"
       import D = Modelica.Electrical.Digital;
-      D.Interfaces.DigitalInput x 
+      D.Interfaces.DigitalInput x
                    annotation (extent=[-70,-10; -50,10]);
-      D.Interfaces.DigitalOutput y 
+      D.Interfaces.DigitalOutput y
                     annotation (extent=[90,-10; 110,10]);
       annotation (Diagram,                                                    Icon(
           Rectangle(extent=[-50,100; 50,-100], style(
@@ -2526,15 +2526,15 @@ The simulation stop time has to be 5s.
               rgbfillColor={255,255,255})),
           Line(points=[50,0; 92,0], style(color=78, rgbcolor={127,0,127}))));
     end SISO;
-    
-    partial block MISO "Multiple input - single output" 
+
+    partial block MISO "Multiple input - single output"
       import D = Modelica.Electrical.Digital;
-      
+
       parameter Integer n(final min=2) = 2 "Number of inputs";
       D.Interfaces.DigitalInput x[n] annotation (extent=[-70,-80; -50,80]);
-      D.Interfaces.DigitalOutput y 
+      D.Interfaces.DigitalOutput y
                     annotation (extent=[90,-10; 110,10]);
-    algorithm 
+    algorithm
       annotation (Icon(
           Rectangle(extent=[-50,100; 50,-100], style(
               color=0,
@@ -2545,7 +2545,7 @@ The simulation stop time has to be 5s.
           Line(points=[50,0; 90,0], style(color=78, rgbcolor={127,0,127}))),
           Diagram);
     end MISO;
-    
+
     annotation (Icon(
         Rectangle(extent=[-100,-100; 80,50],   style(fillColor=30,
               fillPattern=
@@ -2563,12 +2563,12 @@ The simulation stop time has to be 5s.
           string="%name",
           style(color=1))));
   end Interfaces;
-  
-  package Tables 
-    
+
+  package Tables
+
     import D = Modelica.Electrical.Digital;
     import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
-    
+
     constant D.Interfaces.Logic AndTable[L.max, L.max]=[
         L.'U', L.'U', L.'0', L.'U', L.'U', L.'U', L.'0', L.'U', L.'U';
         L.'U', L.'X', L.'0', L.'X', L.'X', L.'X', L.'0', L.'X', L.'X';
@@ -2579,7 +2579,7 @@ The simulation stop time has to be 5s.
         L.'0', L.'0', L.'0', L.'0', L.'0', L.'0', L.'0', L.'0', L.'0';
         L.'U', L.'X', L.'0', L.'1', L.'X', L.'X', L.'0', L.'1', L.'X';
         L.'U', L.'X', L.'0', L.'X', L.'X', L.'X', L.'0', L.'X', L.'X'];
-    
+
     constant D.Interfaces.Logic OrTable[L.max, L.max]=[
         L.'U', L.'U', L.'U', L.'1', L.'U', L.'U', L.'U', L.'1', L.'U';
         L.'U', L.'X', L.'X', L.'1', L.'X', L.'X', L.'X', L.'1', L.'X';
@@ -2590,10 +2590,10 @@ The simulation stop time has to be 5s.
         L.'U', L.'X', L.'0', L.'1', L.'X', L.'X', L.'0', L.'1', L.'X';
         L.'1', L.'1', L.'1', L.'1', L.'1', L.'1', L.'1', L.'1', L.'1';
         L.'U', L.'X', L.'X', L.'1', L.'X', L.'X', L.'X', L.'1', L.'X'];
-    
+
     constant D.Interfaces.Logic NotTable[L.max]={
         L.'U',L.'X',L.'1',L.'0',L.'X',L.'X',L.'1',L.'0',L.'X'};
-    
+
     constant D.Interfaces.Logic XorTable[L.max, L.max]=[
         L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U';
         L.'U', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X';
@@ -2604,16 +2604,16 @@ The simulation stop time has to be 5s.
         L.'U', L.'X', L.'0', L.'1', L.'X', L.'X', L.'0', L.'1', L.'X';
         L.'U', L.'X', L.'1', L.'0', L.'X', L.'X', L.'1', L.'0', L.'X';
         L.'U', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X'];
-    
+
     constant D.Interfaces.Logic X01Table[L.max]={
         L.'X',L.'X',L.'0',L.'1',L.'X',L.'X',L.'0',L.'1',L.'X'};
-    
+
     constant D.Interfaces.Logic X01ZTable[L.max]={
         L.'X',L.'X',L.'0',L.'1',L.'Z',L.'X',L.'0',L.'1',L.'Z'};
-    
+
     constant D.Interfaces.Logic UX01Table[L.max]={
         L.'U',L.'X',L.'0',L.'1',L.'X',L.'X',L.'0',L.'1',L.'X'};
-    
+
     constant Integer DelayTable[9, 9]=[
         0, 0, -1, 1, 0, 0, -1, 1, 0;
         0, 0, -1, 1, 0, 0, -1, 1, 0;
@@ -2641,29 +2641,29 @@ The simulation stop time has to be 5s.
           string="%name",
           style(color=1))));
   end Tables;
-  
-  package Delay "Delay blocks" 
-    
-    partial block DelayParams "Definition of delay parameters" 
+
+  package Delay "Delay blocks"
+
+    partial block DelayParams "Definition of delay parameters"
       import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       parameter Modelica.SIunits.Time tLH=0 "rise inertial delay";
       parameter Modelica.SIunits.Time tHL=0 "fall inertial delay";
       parameter Digital.Interfaces.Logic y0=L.'U' "initial value of output";
-    algorithm 
+    algorithm
     end DelayParams;
-    
-    model TransportDelay "Transport delay with initial parameter" 
+
+    model TransportDelay "Transport delay with initial parameter"
       import D = Modelica.Electrical.Digital;
       import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       extends D.Interfaces.SISO;
       parameter Modelica.SIunits.Time delayTime=0 "delay time";
       parameter D.Interfaces.Logic y0=L.'U' "initial value of output";
-    protected 
+    protected
       D.Interfaces.Logic x_delayed;
-    algorithm 
+    algorithm
       x_delayed := integer(delay(x, delayTime));
-      y := if delayTime > 0 then 
-              if time >= delayTime then x_delayed else y0 else 
+      y := if delayTime > 0 then
+              if time >= delayTime then x_delayed else y0 else
                 x;
       annotation (Documentation(info="<HTML>
 <P>
@@ -2716,18 +2716,18 @@ If time less than <i>Tdel</i> the initial value <i>initout</i> holds.
               fillPattern=1),
             string="Delay")));
     end TransportDelay;
-    
-    block InertialDelay "Inertial delay with initial parameter" 
+
+    block InertialDelay "Inertial delay with initial parameter"
       import D = Modelica.Electrical.Digital;
       import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       extends D.Interfaces.SISO;
       parameter Modelica.SIunits.Time delayTime=0 "Minimum time to hold value";
       parameter D.Interfaces.Logic y0=L.'U' "Initial value of output y";
-    protected 
+    protected
       D.Interfaces.Logic y_auxiliary(start=y0, fixed=true);
       D.Interfaces.Logic x_old(start=y0, fixed=true);
       discrete Modelica.SIunits.Time t_next(start=delayTime, fixed=true);
-    algorithm 
+    algorithm
       when delayTime > 0 and change(x) then
         x_old := x;
         t_next := time + delayTime;
@@ -2792,24 +2792,24 @@ If time is less than <i>Tdel</i> the initial value <i>initout</i> holds.
               fillPattern=1),
             string="Delay")));
     end InertialDelay;
-    
-    model InertialDelaySensitive 
-      "Provide the input as output if it holds its value for a specific amount of time" 
+
+    model InertialDelaySensitive
+      "Provide the input as output if it holds its value for a specific amount of time"
       import D = Modelica.Electrical.Digital;
       import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       extends D.Interfaces.SISO;
       parameter Modelica.SIunits.Time tLH=0 "rise inertial delay";
       parameter Modelica.SIunits.Time tHL=0 "fall inertial delay";
       parameter D.Interfaces.Logic y0=L.'U' "initial value of output";
-    protected 
-      D.Interfaces.Logic delayTable[:,:]=D.Tables.DelayTable 
+    protected
+      D.Interfaces.Logic delayTable[:,:]=D.Tables.DelayTable
         "specification of delay according to signal change";
       Modelica.SIunits.Time delayTime;
       D.Interfaces.Logic y_auxiliary(start=y0, fixed=true);
       D.Interfaces.Logic x_old(start=y0, fixed=true);
       Integer lh;
       discrete Modelica.SIunits.Time t_next;
-    algorithm 
+    algorithm
       when initial() then
         lh := delayTable[y0, x];
         t_next := if (lh > 0) then tLH else (if (lh < 0) then tHL else 0);
@@ -2819,7 +2819,7 @@ If time is less than <i>Tdel</i> the initial value <i>initout</i> holds.
         lh := delayTable[x_old, x];
         delayTime := if (lh > 0) then tLH else (if (lh < 0) then tHL else 0);
         t_next := time + delayTime;
-        if (lh == 0 or abs(delayTime) < Modelica.Constants.SMALL) then
+        if (lh == 0 or abs(delayTime) < Modelica.Constants.small) then
           y_auxiliary := x;
         end if;
       elsewhen time >= t_next then
@@ -2844,7 +2844,7 @@ is used, if it is zero, the input is not delayed.
 <li><i>May 12, 2004  </i> test <i>if Tdel=0</i> replaced
        by Christoph Clauss<br>
        </li>
-<li><i>February 5, 2004 </i> handling of <i>tHL=0</i> or <i>tLH=0</i> revised   
+<li><i>February 5, 2004 </i> handling of <i>tHL=0</i> or <i>tLH=0</i> revised
        by Christoph Clauss<br>
        </li>
 <li><i>October 12, 2003   </i>
@@ -2913,16 +2913,16 @@ is used, if it is zero, the input is not delayed.
           string="%name",
           style(color=1))));
   end Delay;
-  
-  package Basic "Basic logic without delay" 
-    
-    model Not "Not Logic" 
+
+  package Basic "Basic logic without delay"
+
+    model Not "Not Logic"
       import D = Modelica.Electrical.Digital;
       import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       extends D.Interfaces.SISO;
-    protected 
+    protected
       D.Interfaces.Logic auxiliary(start=L.'0');
-    equation 
+    equation
       auxiliary = D.Tables.NotTable[x];
       y = pre(auxiliary);
       annotation (
@@ -2961,14 +2961,14 @@ Not with 1 input value, without delay.
               rgbfillColor={255,255,255}))),
         Diagram);
     end Not;
-    
-    model And "And logic with multiple input and one output" 
+
+    model And "And logic with multiple input and one output"
       import D = Modelica.Electrical.Digital;
       import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       extends D.Interfaces.MISO;
-    protected 
+    protected
       D.Interfaces.Logic auxiliary[n](each start=L.'U');
-    equation 
+    equation
       auxiliary[1] = x[1];
       for i in 1:n - 1 loop
         auxiliary[i + 1] = D.Tables.AndTable[auxiliary[i], x[i + 1]];
@@ -3004,14 +3004,14 @@ And with n input values, without delay.
             style(color=3, rgbcolor={0,0,255}))),
         Diagram);
     end And;
-    
-    model Nand "Nand logic with multiple input and one output" 
+
+    model Nand "Nand logic with multiple input and one output"
       import D = Modelica.Electrical.Digital;
       import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       extends D.Interfaces.MISO;
-    protected 
+    protected
       D.Interfaces.Logic auxiliary[n](each start=L.'U');
-    equation 
+    equation
       auxiliary[1] = x[1];
       for i in 1:n - 1 loop
         auxiliary[i + 1] = D.Tables.AndTable[auxiliary[i], x[i + 1]];
@@ -3053,14 +3053,14 @@ Nand with n input values, without delay.
               rgbfillColor={255,255,255}))),
         Diagram);
     end Nand;
-    
-    model Or "Or logic with multiple input and one output" 
+
+    model Or "Or logic with multiple input and one output"
       import D = Modelica.Electrical.Digital;
       import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       extends D.Interfaces.MISO;
-    protected 
+    protected
       D.Interfaces.Logic auxiliary[n](each start=L.'U');
-    equation 
+    equation
       auxiliary[1] = x[1];
       for i in 1:n - 1 loop
         auxiliary[i + 1] = D.Tables.OrTable[auxiliary[i], x[i + 1]];
@@ -3096,14 +3096,14 @@ Or with n input values, without delay.
             style(color=3, rgbcolor={0,0,255}))),
         Diagram);
     end Or;
-    
-    model Nor "Nor logic with multiple input and one output" 
+
+    model Nor "Nor logic with multiple input and one output"
       import D = Modelica.Electrical.Digital;
       import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       extends D.Interfaces.MISO;
-    protected 
+    protected
       D.Interfaces.Logic auxiliary[n](each start=L.'U');
-    equation 
+    equation
       auxiliary[1] = x[1];
       for i in 1:n - 1 loop
         auxiliary[i + 1] = D.Tables.OrTable[auxiliary[i], x[i + 1]];
@@ -3145,14 +3145,14 @@ Nor with n input values, without delay.
               rgbfillColor={255,255,255}))),
         Diagram);
     end Nor;
-    
-    model Xor "Xor logic with multiple input and one output" 
+
+    model Xor "Xor logic with multiple input and one output"
       import D = Modelica.Electrical.Digital;
       import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       extends D.Interfaces.MISO;
-    protected 
+    protected
       D.Interfaces.Logic auxiliary[n](each start=L.'U');
-    equation 
+    equation
       auxiliary[1] = x[1];
       for i in 1:n - 1 loop
         auxiliary[i + 1] = D.Tables.XorTable[auxiliary[i], x[i + 1]];
@@ -3188,14 +3188,14 @@ Xor with n input values, without delay.
             style(color=3, rgbcolor={0,0,255}))),
         Diagram);
     end Xor;
-    
-    model Xnor "Xnor logic with multiple input and one output" 
+
+    model Xnor "Xnor logic with multiple input and one output"
       import D = Modelica.Electrical.Digital;
       import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       extends D.Interfaces.MISO;
-    protected 
+    protected
       D.Interfaces.Logic auxiliary[n](each start=L.'U');
-    equation 
+    equation
       auxiliary[1] = x[1];
       for i in 1:n - 1 loop
         auxiliary[i + 1] = D.Tables.XorTable[auxiliary[i], x[i + 1]];
@@ -3248,15 +3248,15 @@ XNor with n input values, without delay.
           string="%name",
           style(color=1))));
   end Basic;
-  
-  package Gates "Logic gates including delay" 
-    
-    model InvGate 
+
+  package Gates "Logic gates including delay"
+
+    model InvGate
       import D = Modelica.Electrical.Digital;
       extends D.Delay.DelayParams;
       extends D.Interfaces.SISO;
       D.Basic.Not G1         annotation (extent=[-60,-20; -20,20]);
-      D.Delay.InertialDelaySensitive G2(tLH=tLH, tHL=tHL) 
+      D.Delay.InertialDelaySensitive G2(tLH=tLH, tHL=tHL)
         annotation (extent=[20,-20; 60,20]);
       annotation (
         Documentation(info="<HTML>
@@ -3304,17 +3304,17 @@ InvGate with 1 input value, composed by Not and sensitive intertial delay.
               thickness=2,
               fillColor=7,
               rgbfillColor={255,255,255}))));
-    equation 
+    equation
       connect(G2.y, y)                      annotation (points=[60,0; 100,0],
           style(color=78, rgbcolor={127,0,127}));
       connect(G1.x, x)   annotation (points=[-52,0; -60,0],  style(color=78,
             rgbcolor={127,0,127}));
-      connect(G1.y, G2.x) 
+      connect(G1.y, G2.x)
         annotation (points=[-20,0; 28,0],
                                         style(color=78, rgbcolor={127,0,127}));
     end InvGate;
-    
-    model AndGate "AndGate with multiple input" 
+
+    model AndGate "AndGate with multiple input"
       import D = Modelica.Electrical.Digital;
       extends D.Interfaces.MISO;
       extends D.Delay.DelayParams;
@@ -3359,16 +3359,16 @@ AndGate with n input values, composed by And and sensitive intertial delay.
             style(color=0, thickness=2),
             string="Gate")),
         Diagram);
-    equation 
-      connect(x, G1.x) 
+    equation
+      connect(x, G1.x)
         annotation (points=[-60,0; -32,0], style(color=78, rgbcolor={127,0,127}));
-      connect(y, G2.y) 
+      connect(y, G2.y)
         annotation (points=[100,0; 60,0], style(color=78, rgbcolor={127,0,127}));
-      connect(G1.y, G2.x) 
+      connect(G1.y, G2.x)
         annotation (points=[0,0; 28,0], style(color=78, rgbcolor={127,0,127}));
     end AndGate;
-    
-    model NandGate "NandGate with multiple input" 
+
+    model NandGate "NandGate with multiple input"
       import D = Modelica.Electrical.Digital;
       extends D.Delay.DelayParams;
       extends D.Interfaces.MISO;
@@ -3447,16 +3447,16 @@ NandGate with n input values, composed by Nand and sensitive intertial delay.
         tLH=tLH,
         tHL=tHL,
         y0=y0)     annotation (extent=[20,-20; 60,20]);
-    equation 
-      connect(x, G1.x) 
+    equation
+      connect(x, G1.x)
         annotation (points=[-60,0; -32,0], style(color=78, rgbcolor={127,0,127}));
-      connect(G1.y, G2.x) 
+      connect(G1.y, G2.x)
         annotation (points=[0,0; 28,0], style(color=78, rgbcolor={127,0,127}));
-      connect(G2.y, y) 
+      connect(G2.y, y)
         annotation (points=[60,0; 100,0], style(color=78, rgbcolor={127,0,127}));
     end NandGate;
-    
-    model OrGate "OrGate with multiple input" 
+
+    model OrGate "OrGate with multiple input"
       import D = Modelica.Electrical.Digital;
       extends D.Delay.DelayParams;
       extends D.Interfaces.MISO;
@@ -3501,16 +3501,16 @@ OrGate with n input values, composed by Or and sensitive intertial delay.
             style(color=0, thickness=2),
             string="Gate")),
         Diagram);
-    equation 
-      connect(G1.y, G2.x) 
+    equation
+      connect(G1.y, G2.x)
         annotation (points=[0,0; 28,0], style(color=78, rgbcolor={127,0,127}));
-      connect(x,G1. x) 
+      connect(x,G1. x)
         annotation (points=[-60,0; -32,0], style(color=78, rgbcolor={127,0,127}));
-      connect(y, G2.y) 
+      connect(y, G2.y)
         annotation (points=[100,0; 60,0], style(color=78, rgbcolor={127,0,127}));
     end OrGate;
-    
-    model NorGate "NorGate with multiple input" 
+
+    model NorGate "NorGate with multiple input"
       import D = Modelica.Electrical.Digital;
       extends D.Delay.DelayParams;
       extends D.Interfaces.MISO;
@@ -3561,16 +3561,16 @@ NorGate with n input values, composed by Nor and sensitive intertial delay.
               fillColor=7,
               rgbfillColor={255,255,255}))),
         Diagram);
-    equation 
-      connect(G1.y, G2.x) 
+    equation
+      connect(G1.y, G2.x)
         annotation (points=[0,0; 28,0], style(color=78, rgbcolor={127,0,127}));
-      connect(x, G1.x) 
+      connect(x, G1.x)
         annotation (points=[-60,0; -32,0], style(color=78, rgbcolor={127,0,127}));
-      connect(y, G2.y) 
+      connect(y, G2.y)
         annotation (points=[100,0; 60,0], style(color=78, rgbcolor={127,0,127}));
     end NorGate;
-    
-    model XorGate "XorGate with multiple input" 
+
+    model XorGate "XorGate with multiple input"
       import D = Modelica.Electrical.Digital;
       extends D.Delay.DelayParams;
       extends D.Interfaces.MISO;
@@ -3615,16 +3615,16 @@ XorGate with n input values, composed by Xor and sensitive intertial delay.
             style(color=0, thickness=2),
             string="Gate")),
         Diagram);
-    equation 
-      connect(x, G1.x) 
+    equation
+      connect(x, G1.x)
         annotation (points=[-60,0; -32,0], style(color=78, rgbcolor={127,0,127}));
-      connect(G1.y, G2.x) 
+      connect(G1.y, G2.x)
         annotation (points=[0,0; 28,0], style(color=78, rgbcolor={127,0,127}));
-      connect(G2.y, y) 
+      connect(G2.y, y)
         annotation (points=[60,0; 100,0], style(color=78, rgbcolor={127,0,127}));
     end XorGate;
-    
-    model XnorGate "XnorGate with multiple input" 
+
+    model XnorGate "XnorGate with multiple input"
       import D = Modelica.Electrical.Digital;
       extends D.Delay.DelayParams;
       extends D.Interfaces.MISO;
@@ -3670,20 +3670,20 @@ XNorGate with n input values, composed by XNor and sensitive intertial delay.
             string="Gate")),
         Diagram,
         DymolaStoredErrors);
-    equation 
-      connect(x, G1.x) 
+    equation
+      connect(x, G1.x)
         annotation (points=[-60,0; -32,0], style(color=78, rgbcolor={127,0,127}));
-      connect(G2.y, y) 
+      connect(G2.y, y)
         annotation (points=[60,0; 100,0], style(color=78, rgbcolor={127,0,127}));
-      connect(G1.y, G2.x) 
+      connect(G1.y, G2.x)
         annotation (points=[0,0; 28,0], style(color=78, rgbcolor={127,0,127}));
     end XnorGate;
-    
-    model BufGate 
+
+    model BufGate
       import D = Modelica.Electrical.Digital;
       extends D.Delay.DelayParams;
       extends D.Interfaces.SISO;
-      D.Delay.InertialDelaySensitive G1(tLH=tLH, tHL=tHL) 
+      D.Delay.InertialDelaySensitive G1(tLH=tLH, tHL=tHL)
         annotation (extent=[-30,-20; 10,20]);
       annotation (
         Documentation(info="<HTML>
@@ -3725,7 +3725,7 @@ InvGate with 1 input value, composed by Not and sensitive intertial delay.
               fillColor=47,
               fillPattern=1),
             string="1")));
-    equation 
+    equation
       connect(G1.y, y)                      annotation (points=[10,0; 100,0],
           style(color=78, rgbcolor={127,0,127}));
       connect(G1.x, x) annotation (points=[-22,0; -60,0], style(color=78,
@@ -3748,16 +3748,16 @@ InvGate with 1 input value, composed by Not and sensitive intertial delay.
           string="%name",
           style(color=1))));
   end Gates;
-  
-  package Sources 
-    
-    block Set "Digital Set Source" 
+
+  package Sources
+
+    block Set "Digital Set Source"
       import D = Modelica.Electrical.Digital;
       import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       parameter D.Interfaces.Logic x=L.'1' "Logic value to be set";
-      D.Interfaces.DigitalOutput y 
+      D.Interfaces.DigitalOutput y
                     annotation (extent=[90,-10; 110,10]);
-    algorithm 
+    algorithm
       assert(x >= L.min and x <= L.max, "Parameter is no logic value");
       y := x;
       annotation (Documentation(info="<HTML>
@@ -3815,16 +3815,16 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
             style(color=3, rgbcolor={0,0,255})),
           Line(points=[50,0; 90,0], style(color=78, rgbcolor={127,0,127}))));
     end Set;
-    
-    block Step "Digital Step Source" 
+
+    block Step "Digital Step Source"
       import D = Modelica.Electrical.Digital;
       import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       parameter D.Interfaces.Logic before=L.'0' "Logic value before step";
       parameter D.Interfaces.Logic after=L.'1' "Logic value after step";
       parameter Real stepTime=1 "step time";
-      D.Interfaces.DigitalOutput y 
+      D.Interfaces.DigitalOutput y
                     annotation (extent=[90,-10; 110,10]);
-    algorithm 
+    algorithm
       assert(before >= L.min and before <= L.max, "Parameter is no logic value");
       assert(after >= L.min and after <= L.max, "Parameter is no logic value");
       when initial() then
@@ -3891,20 +3891,20 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
               fillPattern=1)),
           Line(points=[50,0; 90,0], style(color=78, rgbcolor={127,0,127}))),
         Diagram);
-    equation 
-      
+    equation
+
     end Step;
-    
-    block Table "Digital Tabular Source" 
+
+    block Table "Digital Tabular Source"
       import D = Modelica.Electrical.Digital;
       import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       parameter D.Interfaces.Logic x[:]={1};
       parameter Real t[size(x, 1)]={1};
       parameter D.Interfaces.Logic y0=L.'U';
       final parameter Integer n=size(x, 1);
-      D.Interfaces.DigitalOutput y 
+      D.Interfaces.DigitalOutput y
                     annotation (extent=[90,-10; 110,10]);
-    algorithm 
+    algorithm
       if initial() then
         assert(y0 >= L.min and y0 <= L.max, "Parameter y0 is not of type Logic");
         assert(n > 0, "Invalid size of table (n < 1)");
@@ -3999,27 +3999,27 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
               fillPattern=1))),
         Diagram);
     end Table;
-    
-    model Pulse "Digital Pulse Source" 
+
+    model Pulse "Digital Pulse Source"
       import D = Modelica.Electrical.Digital;
       import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       parameter Real width(
-        final min=Modelica.Constants.SMALL,
+        final min=Modelica.Constants.small,
         final max=100) = 50 "Widths of pulses in % of periods";
-      parameter Modelica.SIunits.Time period(final min=Modelica.Constants.SMALL)=
+      parameter Modelica.SIunits.Time period(final min=Modelica.Constants.small)=
            1 "Time for one period";
-      parameter Modelica.SIunits.Time startTime=0 
+      parameter Modelica.SIunits.Time startTime=0
         "Output = offset for time < startTime";
       parameter D.Interfaces.Logic pulse=L.'0';
       parameter D.Interfaces.Logic quiet=L.'1';
-      Modelica.SIunits.Time T0(final start=startTime) 
+      Modelica.SIunits.Time T0(final start=startTime)
         "Start time of current period";
-      parameter Integer nperiod=-1 
+      parameter Integer nperiod=-1
         "Number of periods (< 0 means infinite number of periods)";
       Integer np(start=0);
-      D.Interfaces.DigitalOutput y 
+      D.Interfaces.DigitalOutput y
                     annotation (extent=[90,-10; 110,10]);
-    algorithm 
+    algorithm
       if nperiod == 0 then
         y := quiet;
       elseif (nperiod >= np) or (nperiod < 0) then
@@ -4036,7 +4036,7 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
       end if;
       annotation (Documentation(info="<HTML>
 <P>
-The pulse source forms pulses between the  <i>quiet</i> value and the <i>pulse</i> value. 
+The pulse source forms pulses between the  <i>quiet</i> value and the <i>pulse</i> value.
 The pulse length <i>width</i> is specified in percent of the period length <i>period</i>.
 The number of periods is specified by <i>nperiod</i>. If <i>nperiod</i> is less than zero,
 the number of periods is unlimited.
@@ -4090,35 +4090,35 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
               rgbcolor={0,0,0},
               fillPattern=1))));
     end Pulse;
-    
-    model Clock "Digital Clock Source" 
+
+    model Clock "Digital Clock Source"
       import D = Modelica.Electrical.Digital;
       import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
-      parameter Modelica.SIunits.Time startTime=0 
+      parameter Modelica.SIunits.Time startTime=0
         "Output = offset for time < startTime";
       parameter Modelica.SIunits.Time period(
-        final min=Modelica.Constants.SMALL)=1 "Time for one period";
+        final min=Modelica.Constants.small)=1 "Time for one period";
       parameter Real width(
-        final min=Modelica.Constants.SMALL,
+        final min=Modelica.Constants.small,
         final max=100) = 50 "Width of pulses in % of period";
-      D.Interfaces.DigitalOutput y 
+      D.Interfaces.DigitalOutput y
                     annotation (extent=[90,-10; 110,10]);
-    protected 
-      Modelica.SIunits.Time t_i(final start=startTime) 
+    protected
+      Modelica.SIunits.Time t_i(final start=startTime)
         "Start time of current period";
       Modelica.SIunits.Time t_width=period*width/100;
-    algorithm 
+    algorithm
       when sample(startTime, period) then
         t_i := time;
       end when;
       y := if time < startTime or time >= t_i + t_width then L.'0' else L.'1';
       annotation (Documentation(info="<HTML>
 <P>
-The clock source forms pulses between the  <i>'0'</i> value (forcing 0) and the <i>'1'</i> value (forcing 1). 
+The clock source forms pulses between the  <i>'0'</i> value (forcing 0) and the <i>'1'</i> value (forcing 1).
 The pulse length <i>width</i> is specified in percent of the period length <i>period</i>.
 The number of periods is unlimited. The first pulse starts at startTime.
 </P>
-<P> The clock source is a special but often used variant of the pulse source. 
+<P> The clock source is a special but often used variant of the pulse source.
 </P>
 </HTML>
 ",     revisions="<HTML>
@@ -4166,24 +4166,24 @@ The number of periods is unlimited. The first pulse starts at startTime.
           string="%name",
           style(color=1))));
   end Sources;
-  
-  package Converters 
-    block LogicToXO1 "Conversion to XO1" 
+
+  package Converters
+    block LogicToXO1 "Conversion to XO1"
       import D = Modelica.Electrical.Digital;
       import T = Modelica.Electrical.Digital.Tables;
-      D.Interfaces.DigitalInput x[n] 
+      D.Interfaces.DigitalInput x[n]
                         annotation (extent=[-60, -10; -40, 10]);
-      D.Interfaces.DigitalOutput y[n] 
+      D.Interfaces.DigitalOutput y[n]
                          annotation (extent=[40, -10; 60, 10]);
       parameter Integer n(final min=1) = 1 "signal width";
-    algorithm 
+    algorithm
       for i in 1:n loop
         y[i] := T.X01Table[x[i]];
       end for;
       annotation (
         Documentation(info="<HTML>
 <P>
-Conversion of a nine valued digital input into a X01 digital output without 
+Conversion of a nine valued digital input into a X01 digital output without
 any delay according to IEEE 1164 To_X01 function.
 </P>
 <p><b>Conversion Table:</b></p>
@@ -4241,23 +4241,23 @@ If the signal width is greater than 1 this conversion is done for each signal.
               thickness=2))),
         Diagram);
     end LogicToXO1;
-    
-    block LogicToXO1Z "Conversion to XO1Z" 
+
+    block LogicToXO1Z "Conversion to XO1Z"
       import D = Modelica.Electrical.Digital;
       import T = Modelica.Electrical.Digital.Tables;
-      D.Interfaces.DigitalInput x[n] 
+      D.Interfaces.DigitalInput x[n]
                         annotation (extent=[-60, -10; -40, 10]);
-      D.Interfaces.DigitalOutput y[n] 
+      D.Interfaces.DigitalOutput y[n]
                          annotation (extent=[40, -10; 60, 10]);
       parameter Integer n(final min=1) = 1 "signal width";
-    algorithm 
+    algorithm
       for i in 1:n loop
         y[i] := T.X01ZTable[x[i]];
       end for;
       annotation (
         Documentation(info="<HTML>
 <P>
-Conversion of a nine valued digital input into a X01Z digital output without 
+Conversion of a nine valued digital input into a X01Z digital output without
 any delay according to IEEE 1164 To_X01Z function.
 </P>
 <p><b>Conversion Table:</b></p>
@@ -4315,23 +4315,23 @@ If the signal width is greater than 1 this conversion is done for each signal.
               thickness=2))),
         Diagram);
     end LogicToXO1Z;
-    
-    block LogicToUX01 "Conversion to UXO1" 
+
+    block LogicToUX01 "Conversion to UXO1"
       import D = Modelica.Electrical.Digital;
       import T = Modelica.Electrical.Digital.Tables;
-      D.Interfaces.DigitalInput x[n] 
+      D.Interfaces.DigitalInput x[n]
                         annotation (extent=[-60, -10; -40, 10]);
-      D.Interfaces.DigitalOutput y[n] 
+      D.Interfaces.DigitalOutput y[n]
                          annotation (extent=[40, -10; 60, 10]);
       parameter Integer n(final min=1) = 1 "signal width";
-    algorithm 
+    algorithm
       for i in 1:n loop
         y[i] := T.UX01Table[x[i]];
       end for;
       annotation (
         Documentation(info="<HTML>
 <P>
-Conversion of a nine valued digital input into a UX01 digital output without 
+Conversion of a nine valued digital input into a UX01 digital output without
 any delay according to IEEE 1164 To_UX01 function.
 </P>
 <p><b>Conversion Table:</b></p>
@@ -4389,10 +4389,10 @@ If the signal width is greater than 1 this conversion is done for each signal.
               thickness=2))),
         Diagram);
     end LogicToUX01;
-    
-    block BooleanToLogic "Boolean to Logic converter" 
+
+    block BooleanToLogic "Boolean to Logic converter"
       import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
-      Modelica.Blocks.Interfaces.BooleanInput x[n] 
+      Modelica.Blocks.Interfaces.BooleanInput x[n]
         annotation (extent=[-60, -10; -40, 10]);
       annotation (
         Documentation(info="<HTML>
@@ -4439,24 +4439,24 @@ If the signal width is greater than 1 this conversion is done for each signal.
               rgbcolor={0,0,0},
               thickness=2))),
         Diagram);
-      
-      Digital.Interfaces.DigitalOutput y[n] 
+
+      Digital.Interfaces.DigitalOutput y[n]
         annotation (extent=[40, -10; 60, 10]);
       annotation (extent=[40, -10; 60, 10]);
       annotation (Diagram);
       parameter Integer n(final min=1) = 1 "signal width";
-    algorithm 
+    algorithm
       for i in 1:n loop
-        y[i] := if x[i] then L.'1' else 
+        y[i] := if x[i] then L.'1' else
           L.'0';
       end for;
     end BooleanToLogic;
-    
-    block LogicToBoolean "Logic to Boolean converter" 
+
+    block LogicToBoolean "Logic to Boolean converter"
       import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
-      Digital.Interfaces.DigitalInput x[n] 
+      Digital.Interfaces.DigitalInput x[n]
         annotation (extent=[-60, -10; -40, 10]);
-      Modelica.Blocks.Interfaces.BooleanOutput y[n] 
+      Modelica.Blocks.Interfaces.BooleanOutput y[n]
         annotation (extent=[40, -10; 60, 10]);
       annotation (Documentation(info="<HTML>
 <P>
@@ -4464,15 +4464,15 @@ Conversion of a digital input into a Boolean output without any delay according 
 </P>
 <pre>
                           input                 output
-                          'U'  (coded by 1)     false     
-                          'X'  (coded by 2)     false      
-                          '0'  (coded by 3)     false     
-                          '1'  (coded by 4)     true      
-                          'Z'  (coded by 5)     false     
-                          'W'  (coded by 6)     false      
-                          'L'  (coded by 7)     false 
-                          'H'  (coded by 8)     true      
-                          '-'  (coded by 9)     false       
+                          'U'  (coded by 1)     false
+                          'X'  (coded by 2)     false
+                          '0'  (coded by 3)     false
+                          '1'  (coded by 4)     true
+                          'Z'  (coded by 5)     false
+                          'W'  (coded by 6)     false
+                          'L'  (coded by 7)     false
+                          'H'  (coded by 8)     true
+                          '-'  (coded by 9)     false
 </pre>
 <P>
 If the signal width is greater than 1 this conversion is done for each signal.
@@ -4507,16 +4507,16 @@ If the signal width is greater than 1 this conversion is done for each signal.
               rgbcolor={0,0,0},
               thickness=2))));
       parameter Integer n(final min=1) = 1 "signal width";
-    algorithm 
+    algorithm
       for i in 1:n loop
-        y[i] := if x[i] == 4 or 
+        y[i] := if x[i] == 4 or
           x[i] == 8 then true else false;
       end for;
     end LogicToBoolean;
-    
-    block RealToLogic "Real to Logic converter" 
+
+    block RealToLogic "Real to Logic converter"
       import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
-      Modelica.Blocks.Interfaces.RealInput x[n] 
+      Modelica.Blocks.Interfaces.RealInput x[n]
         annotation (extent=[-60, -10; -40, 10]);
       annotation (
         Documentation(info="<HTML>
@@ -4524,7 +4524,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
 Conversion of a real input into a digital output without any delay according to:
 </P>
 <pre>
-                                 condition            output 
+                                 condition            output
       first check:               input greater upp    lupp
       second check:              input larger low     llow
                                  else                 lmid
@@ -4561,31 +4561,31 @@ If the signal width is greater than 1 this conversion is done for each signal.
               rgbcolor={0,0,0},
               thickness=2))),
         Diagram);
-      
-      Digital.Interfaces.DigitalOutput y[n] 
+
+      Digital.Interfaces.DigitalOutput y[n]
         annotation (extent=[40, -10; 60, 10]);
       annotation (extent=[40, -10; 60, 10]);
       annotation (Diagram);
       parameter Integer n(final min=1) = 1 "signal width";
       parameter Real upper_limit=1 "upper limit";
       parameter Real lower_limit=0 "lower limit";
-      parameter Digital.Interfaces.Logic upper_value=L.'1' 
+      parameter Digital.Interfaces.Logic upper_value=L.'1'
         "output if input > upper_limit";
-      parameter Digital.Interfaces.Logic lower_value=L.'0' 
+      parameter Digital.Interfaces.Logic lower_value=L.'0'
         "output if input < lower_limit";
       parameter Digital.Interfaces.Logic middle_value=L.'X' "output else";
-    algorithm 
+    algorithm
       for i in 1:n loop
-        y[i] := if x[i] > upper_limit then upper_value else 
+        y[i] := if x[i] > upper_limit then upper_value else
           if x[i] < lower_limit then lower_value else middle_value;
       end for;
     end RealToLogic;
-    
-    block LogicToReal "Logic to Real converter" 
+
+    block LogicToReal "Logic to Real converter"
       import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
-      Digital.Interfaces.DigitalInput x[n] 
+      Digital.Interfaces.DigitalInput x[n]
         annotation (extent=[-60, -10; -40, 10]);
-      Modelica.Blocks.Interfaces.RealOutput y[n] 
+      Modelica.Blocks.Interfaces.RealOutput y[n]
         annotation (extent=[40, -10; 60, 10]);
       annotation (Documentation(info="<HTML>
 <P>
@@ -4593,15 +4593,15 @@ Conversion of a digital input into a Real output without any delay according to:
 </P>
 <pre>
                           input                 output
-                          'U'  (coded by 1)     val_U     
-                          'X'  (coded by 2)     val_X      
-                          '0'  (coded by 3)     val_0     
-                          '1'  (coded by 4)     val_1      
-                          'Z'  (coded by 5)     val_Z     
-                          'W'  (coded by 6)     val_W      
-                          'L'  (coded by 7)     val_L 
-                          'H'  (coded by 8)     val_H      
-                          '-'  (coded by 9)     val_m       
+                          'U'  (coded by 1)     val_U
+                          'X'  (coded by 2)     val_X
+                          '0'  (coded by 3)     val_0
+                          '1'  (coded by 4)     val_1
+                          'Z'  (coded by 5)     val_Z
+                          'W'  (coded by 6)     val_W
+                          'L'  (coded by 7)     val_L
+                          'H'  (coded by 8)     val_H
+                          '-'  (coded by 9)     val_m
 </pre>
 <P>
 The values val... are given by parameters.</P>
@@ -4644,18 +4644,18 @@ The values val... are given by parameters.</P>
       parameter Real value_L=0 "value for digital L (Weak    0)";
       parameter Real value_H=1 "value for digital H (Weak    1)";
       parameter Real value_m=0.5 "value for digital m (Don´t care)";
-    algorithm 
+    algorithm
       for i in 1:n loop
-       y[i]:= if x[i] == L.'U' then value_U else 
-                if x[i] == L.'X' then value_X else if 
-          x[i] == L.'0' then value_0 else if x[i] == L.'1' then 
+       y[i]:= if x[i] == L.'U' then value_U else
+                if x[i] == L.'X' then value_X else if
+          x[i] == L.'0' then value_0 else if x[i] == L.'1' then
                value_1 else if x[i] == L.
-          'Z' then value_Z else if x[i] == L.'W' then value_W else 
-                if x[i] == L.'L' then value_L else if 
+          'Z' then value_Z else if x[i] == L.'W' then value_W else
+                if x[i] == L.'L' then value_L else if
           x[i] == L.'H' then value_H else value_m;
       end for;
     end LogicToReal;
-    
+
     annotation (Icon(
         Rectangle(extent=[-100,-100; 80,50],   style(fillColor=30,
               fillPattern=
@@ -4673,5 +4673,5 @@ The values val... are given by parameters.</P>
           string="%name",
           style(color=1))));
   end Converters;
-  
+
 end Digital;
