@@ -1,0 +1,21 @@
+
+clear
+
+convertClear();
+
+convertClass  ("Modelica.Electrical.Analog.Ideal.IdealSwitch",
+               "Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch");
+convertElement("Modelica.Electrical.Analog.Ideal.IdealSwitch", "Roff", "Ron");
+convertElement("Modelica.Electrical.Analog.Ideal.IdealSwitch", "Gon" , "Goff");
+
+convertClass  ("Modelica.Electrical.Analog.Ideal.ControlledIdealSwitch",
+               "Modelica.Electrical.Analog.Ideal.ControlledIdealOpeningSwitch");
+convertElement("Modelica.Electrical.Analog.Ideal.ControlledIdealSwitch", "Roff", "Ron");
+convertElement("Modelica.Electrical.Analog.Ideal.ControlledIdealSwitch", "Gon" , "Goff");
+
+convertElement("Modelica.Electrical.Analog.Ideal.IdealThyristor", "Roff", "Ron");
+convertElement("Modelica.Electrical.Analog.Ideal.IdealThyristor", "Gon" , "Goff");
+
+convertElement("Modelica.Electrical.Analog.Ideal.IdealGTOThyristor", "Roff", "Ron");
+convertElement("Modelica.Electrical.Analog.Ideal.IdealGTOThyristor", "Gon" , "Goff");
+
