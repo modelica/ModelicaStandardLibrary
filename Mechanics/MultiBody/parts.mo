@@ -1568,35 +1568,45 @@ November 3-4, 2003, pp. 149-158</p>
     
     parameter Boolean animation=true 
       "= true, if animation shall be enabled (show rotor as cylinder)";
-    parameter Modelica.SIunits.Inertia J=1 
+
+    parameter Boolean enable3D=true "Enable 3D effects of 1D powertrains"
+      annotation (Dialog(tab="PowerTrain"));
+
+    parameter SI.Inertia J=1 
       "Moment of inertia of rotor around its axis of rotation";
     parameter Modelica.Mechanics.MultiBody.Types.Axis n={1,0,0} 
       "Axis of rotation resolved in frame_a";
     parameter Types.Init.Temp initType=Types.Init.Free 
-      "|Initialization| Type of initialization (defines usage of start values below)";
+      "Type of initialization (defines usage of start values below)"
+      annotation (Dialog(group="Initialization"));
     parameter Cv.NonSIunits.Angle_deg phi_start=0 
-      "|Initialization| Initial value of rotor rotation angle phi (fixed or guess value)"
-      annotation (Evaluate=false);
+      "Initial value of rotor rotation angle phi (fixed or guess value)"
+      annotation (Evaluate=false, Dialog(group="Initialization"));
     parameter Modelica.Mechanics.MultiBody.Types.AngularVelocity_degs w_start=0 
-      "|Initialization| Initial value of relative angular velocity w = der(phi)"
-      annotation (Evaluate=false);
+      "Initial value of relative angular velocity w = der(phi)"
+      annotation (Evaluate=false, Dialog(group="Initialization"));
     parameter Modelica.Mechanics.MultiBody.Types.AngularAcceleration_degs2 
-      a_start =                                                                    0 
-      "|Initialization| Initial value of relative angular acceleration a = der(w)"
-      annotation (Evaluate=false);
+      a_start=0 "Initial value of relative angular acceleration a = der(w)"
+      annotation (Evaluate=false, Dialog(group="Initialization"));
     parameter SI.Position r_center[3]=zeros(3) 
-      "|Animation|if animation = true| Position vector from origin of frame_a to center of cylinder";
+      "Position vector from origin of frame_a to center of cylinder"
+      annotation (Dialog(tab="Animation", group="if animation = true"));
     parameter SI.Distance cylinderLength=2*world.defaultJointLength 
-      "|Animation|if animation = true| Length of cylinder representing the rotor";
+      "Length of cylinder representing the rotor"
+      annotation (Dialog(tab="Animation", group="if animation = true"));
     parameter SI.Distance cylinderDiameter=2*world.defaultJointWidth 
-      "|Animation|if animation = true| Diameter of cylinder representing the rotor";
+      "Diameter of cylinder representing the rotor"
+      annotation (Dialog(tab="Animation", group="if animation = true"));
     parameter Modelica.Mechanics.MultiBody.Types.Color cylinderColor=Types.Defaults.RodColor 
-      "|Animation|if animation = true| Color of cylinder representing the rotor";
+      "Color of cylinder representing the rotor"
+      annotation (Dialog(tab="Animation", group="if animation = true"));
     parameter Boolean enforceStates=false 
-      "|Advanced|| = true, if rotor angle (phi) and rotor speed (w) shall be used as states";
+      "= true, if rotor angle (phi) and rotor speed (w) shall be used as states"
+      annotation (Dialog(tab="Advanced"));
     parameter Boolean exact=true 
-      "|Advanced|| = true, if exact calculations; false if influence of bearing on rotor acceleration is neglected to avoid an algebraic loop";
-    Modelica.SIunits.AngularVelocity w_a[3] 
+      "= true, if exact calculations; false if influence of bearing on rotor acceleration is neglected to avoid an algebraic loop"
+      annotation (Dialog(tab="Advanced"));
+    SI.AngularVelocity w_a[3] 
       "Angular velocity of frame_a, resolved in frame_a";
     SI.Angle phi(start=Cv.from_deg(phi_start), stateSelect=if enforceStates then 
                 StateSelect.always else StateSelect.default) 
@@ -1613,7 +1623,11 @@ November 3-4, 2003, pp. 149-158</p>
     Modelica.Mechanics.Rotational.Interfaces.Flange_b flange_b 
       "(right) driven flange (flange axis directed OUT OF cut plane)" 
       annotation (extent=[90, -10; 110, 10]);
-    Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a 
+    Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a(
+        r_0=r_0,
+        R=R,
+        f=zeros(3),
+        t=nJ*a + cross(w_a, nJ*w)) if effectiveEnable3D
       annotation (extent=[-15, -120; 15, -100], rotation=90);
     annotation (
       Documentation(info="<html>
@@ -1720,10 +1734,16 @@ November 3-4, 2003, pp. 149-158</p>
       each widthDirection={0,1,0},
       each extra=1,
       each r_shape=r_center - e*(cylinderLength/2),
-      each r=frame_a.r_0,
-      each R=Frames.absoluteRotation(frame_a.R, Frames.planarRotation(e, phi, 0)));
-    
-  initial equation 
+      each r=r_0,
+      each R=Frames.absoluteRotation(R, Frames.planarRotation(e, phi, 0)));
+
+    SI.Position r_0[3]
+      "Position vector from world frame to the connector frame origin, resolved in world frame";
+    Frames.Orientation R
+      "Orientation object to rotate the world frame into the connector frame";
+
+    parameter Boolean effectiveEnable3D=world.enable3D and enable3D;
+  initial equation
     if initType == Types.Init.PositionVelocity then
       phi = Cv.from_deg(phi_start);
       w = w_start*Modelica.Constants.D2R;
@@ -1742,23 +1762,27 @@ November 3-4, 2003, pp. 149-158</p>
       w = w_start*Modelica.Constants.D2R;
       a = a_start*Modelica.Constants.D2R;
     end if;
-  equation 
-    assert(cardinality(frame_a) > 0,
-      "Connector frame_a of Parts.Rotor1D object is not connected");
-    
+  equation
+    /*assert(not effectiveEnable3D or cardinality(frame_a) > 0,
+    "Connector frame_a of Parts.Rotor1D object is not connected");*/
+
     phi = flange_a.phi;
     phi = flange_b.phi;
     w = der(phi);
     a = der(w);
     
-    w_a = Modelica.Mechanics.MultiBody.Frames.angularVelocity2(frame_a.R);
+    w_a = Modelica.Mechanics.MultiBody.Frames.angularVelocity2(R);
     if exact then
       J*a = flange_a.tau + flange_b.tau - nJ*der(w_a);
     else
       J*a = flange_a.tau + flange_b.tau;
     end if;
-    frame_a.f = zeros(3);
-    frame_a.t = nJ*a + cross(w_a, nJ*w);
+
+    if not effectiveEnable3D then
+      r_0 = zeros(3);
+      R.T = identity(3);
+      R.w = zeros(3);
+    end if;
   end Rotor1D;
   
   model BevelGear1D 
