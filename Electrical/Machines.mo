@@ -2,7 +2,7 @@ package Machines "Library for electric machines"
   extends Modelica.Icons.Library;
   import Modelica.Electrical.MultiPhase;
   annotation (uses(Modelica(version="2.1 Beta1")),
-  version="0.30beta", versionDate="2004-09-13",
+  version="1.0", versionDate="2004-09-16",
   Settings(NewStateSelection=true, Evaluate=true),
   Documentation(info="<HTML>
 <p>
@@ -449,7 +449,7 @@ Default machine parameters of model <i>AsynchronousInductionMachineSlipRing</i> 
         annotation (points=[-6.12303e-016,80; -6.12303e-016,90; -50,90],
                                                         style(color=3));
       connect(SineVoltage1.plug_p, IdealCloser1.plug_p) 
-        annotation (points=[6.12303e-016,60; 0,58; 1.22461e-015,56; 
+        annotation (points=[6.12303e-016,60; 0,58; 1.22461e-015,56;
             6.12303e-016,56; 6.12303e-016,50], style(color=3));
       connect(Star3.pin_n, Ground3.p) 
         annotation (points=[-70,-70; -80,-70],   style(color=3));
@@ -1192,7 +1192,8 @@ Connector for Space Phasors:
               fillColor=10,
               rgbfillColor={95,95,95},
               fillPattern=1),
-            string="%name")),
+            string="%name"),
+          Rectangle(extent=[80,-80; 120,-120],   style(color=8, fillColor=8))),
         Documentation(info="<HTML>
 <p>
 Partial model for machine models, containing:
@@ -1203,6 +1204,15 @@ Partial model for machine models, containing:
 </ul>
 </p>
 </HTML>"));
+      Modelica.Mechanics.Rotational.Interfaces.Flange_a bearing 
+        "Bearing at which the reaction torque (i.e., -flange.tau) is acting" 
+           annotation (extent=[90,-110; 110,-90]);
+    equation 
+      if cardinality(bearing) == 0 then
+        bearing.phi = 0;
+      else
+        bearing.tau = -flange_a.tau;
+      end if;
     end PartialInductionMachine;
   end Interfaces;
   
@@ -1939,7 +1949,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
               color=0,
               rgbcolor={0,0,0},
               fillColor=1,
-              rgbfillColor={255,0,0})), 
+              rgbfillColor={255,0,0})),
           Ellipse(extent=[-134,34; -66,-34], style(color=3, rgbcolor={0,0,255}))),
         Documentation(info="<HTML>
 <p>
@@ -2051,7 +2061,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
                             style(color=0, rgbcolor={0,0,0}));
       connect(resistorS.plug_p, plug_sp) annotation (points=[60,60; 60,100],
           style(color=3, rgbcolor={0,0,255}));
-      connect(inertia.flange_b, flange_a) annotation (points=[60,1.22461e-015; 
+      connect(inertia.flange_b, flange_a) annotation (points=[60,1.22461e-015;
             76,1.22461e-015; 76,0; 100,0], style(color=0, rgbcolor={0,0,0}));
       connect(spacePhasorS.plug_n, plug_sn) annotation (points=[-10,40; -12,40;
             -12,60; -60,60; -60,100], style(color=3, rgbcolor={0,0,255}));
