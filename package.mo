@@ -16,6 +16,7 @@ annotation(preferedView="info",
          ModelicaAdditions(version="1.5"), 
          MultiBody(version="1.0.1"), 
          MultiBody(version="1.0"), 
+         Matrices(version="0.8"), 
          script="Scripts/ConvertModelica_from_1.6_to_2.1.mos"),
     from(version="2.1 Beta1", script="Scripts/ConvertModelica_from_2.1Beta1_to_2.1.mos")
   ),

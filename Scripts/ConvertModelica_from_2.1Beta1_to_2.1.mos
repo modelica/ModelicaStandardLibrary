@@ -48,3 +48,11 @@ convertElement("Modelica.Electrical.MultiPhase.Ideal.IdealThyristor", "Gon" , "G
 
 convertElement("Modelica.Electrical.MultiPhase.Ideal.IdealGTOThyristor", "Roff", "Ron");
 convertElement("Modelica.Electrical.MultiPhase.Ideal.IdealGTOThyristor", "Gon" , "Goff");
+
+
+//-----------------------------------------------------------------------------
+// Convert Matrices to Modelica.Math.Matrices
+//-----------------------------------------------------------------------------
+
+convertClass("Matrices",
+             "Modelica.Math.Matrices");

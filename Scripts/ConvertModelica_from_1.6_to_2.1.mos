@@ -1138,6 +1138,12 @@ convertElement("Modelica.Electrical.MultiPhase.Ideal.IdealGTOThyristor", "Roff",
 convertElement("Modelica.Electrical.MultiPhase.Ideal.IdealGTOThyristor", "Gon" , "Goff");
 
 
+//-----------------------------------------------------------------------------
+// Convert Matrices to Modelica.Math.Matrices
+//-----------------------------------------------------------------------------
+
+convertClass("Matrices",
+             "Modelica.Math.Matrices");
 
 
 //-----------------------------------------------------------------------------
