@@ -211,8 +211,6 @@ Modelica in file \"Modelica/package.mo\".
           extent=[-100,100; 100,-100],
           style(color=45),
           string="f")));
-  algorithm 
-    
   end Function;
   
   partial record Record "Icon for a record" 
@@ -234,8 +232,6 @@ Modelica in file \"Modelica/package.mo\".
           extent=[-100,100; 100,-100],
           style(color=85, fillColor=88),
           string="e")));
-  algorithm 
-    
   end Enumeration;
   
   type TypeReal "Icon for a Real type" 
