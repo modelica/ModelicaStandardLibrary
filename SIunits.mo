@@ -451,9 +451,7 @@ still kept in Modelica.SIunits.</p>
           Line(points=[-90, 0; 30, 0], style(color=42)),
           Polygon(points=[90, 0; 30, 20; 30, -20; 90, 0], style(color=42,
                 fillColor=42)),
-          Text(extent=[-115, 155; 115, 105], string="%name")));
-    algorithm 
-      
+          Text(extent=[-115, 155; 115, 105], string="%name"))); 
     end ConversionIcon;
     
     annotation(preferedView="info", Icon(
