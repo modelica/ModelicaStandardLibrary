@@ -120,14 +120,15 @@ Modelica in file \"Modelica/package.mo\".</i><br>
             fillColor=78,
             rgbfillColor={127,0,127}))),
         Diagram(                      Text(
-          extent=[-140,120; 100,60],
+          extent=[-140,162; 100,102],
           string="%name",
           style(
             color=78,
             rgbcolor={127,0,127},
             fillColor=78,
             rgbfillColor={127,0,127})),
-             Rectangle(extent=[0,-50; 100,50], style(
+             Rectangle(extent=[0,-100; 100,100],
+                                               style(
             color=78,
             rgbcolor={127,0,127},
             fillColor=78,
@@ -151,7 +152,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
         style(color=78, rgbcolor={127,0,127}))));
     
     partial block SISO "Single input, single output" 
-      import D = Digital.Interfaces;
+      import D = Modelica.Electrical.Digital.Interfaces;
       D.DigitalInput x 
                    annotation (extent=[-110,-10; -90,10]);
       D.DigitalOutput y 
@@ -163,7 +164,12 @@ Modelica in file \"Modelica/package.mo\".</i><br>
               thickness=2)),
           Line(points=[-90,0; -50,0], style(color=78, rgbcolor={127,0,127})),
           Line(points=[50,0; 90,0], style(color=78, rgbcolor={127,0,127}))),  Icon(
-          Rectangle(extent=[-50,100; 50,-100], style(color=0, thickness=2)),
+          Rectangle(extent=[-50,100; 50,-100], style(
+              color=0, 
+              rgbcolor={0,0,0}, 
+              thickness=2, 
+              fillColor=7, 
+              rgbfillColor={255,255,255})),
           Line(points=[-90,0; -50,0], style(color=78, rgbcolor={127,0,127})),
           Line(points=[50,0; 92,0], style(color=78, rgbcolor={127,0,127}))));
     algorithm 
@@ -171,25 +177,28 @@ Modelica in file \"Modelica/package.mo\".</i><br>
     end SISO;
     
     partial block MISO "Multiple input - single output" 
-      import D = Digital.Interfaces;
+      import D = Modelica.Electrical.Digital.Interfaces;
       
       parameter Integer ninputs(final min=2) = 2 "Number of inputs";
-      D.DigitalInput x[ninputs] annotation (extent=[-110,-10; -90,10]);
+      D.DigitalInput x[ninputs] annotation (extent=[-70,-80; -50,80]);
       D.DigitalOutput y 
                     annotation (extent=[90,-10; 110,10]);
     algorithm 
       annotation (Icon(
-          Rectangle(extent=[-50,100; 50,-100], style(color=0, thickness=2)),
-          Line(points=[-90,0; -50,0], style(color=78, rgbcolor={127,0,127})),
+          Rectangle(extent=[-50,100; 50,-100], style(
+              color=0, 
+              rgbcolor={0,0,0}, 
+              thickness=2, 
+              fillColor=7, 
+              rgbfillColor={255,255,255})),
           Line(points=[50,0; 90,0], style(color=78, rgbcolor={127,0,127}))),
           Diagram(
           Rectangle(extent=[-50,100; 50,-100], style(color=0, thickness=2)),
-          Line(points=[-90,0; -50,0], style(color=78, rgbcolor={127,0,127})),
           Line(points=[50,0; 90,0], style(color=78, rgbcolor={127,0,127}))));
     end MISO;
     
     partial block SISO_wide "Single input, single output, wide version" 
-      import D = Digital.Interfaces;
+      import D = Modelica.Electrical.Digital.Interfaces;
       D.DigitalInput x 
                    annotation (extent=[-110,-10; -90,10]);
       D.DigitalOutput y 
@@ -197,7 +206,12 @@ Modelica in file \"Modelica/package.mo\".</i><br>
     algorithm 
       
       annotation (Icon(
-          Rectangle(extent=[-50,100; 50,-100], style(color=0, thickness=2)),
+          Rectangle(extent=[-50,100; 50,-100], style(
+              color=0, 
+              rgbcolor={0,0,0}, 
+              thickness=2, 
+              fillColor=7, 
+              rgbfillColor={255,255,255})),
           Ellipse(extent=[50,10; 70,-10],   style(color=0, thickness=2)),
           Line(points=[-90,0; -50,0], style(color=78, rgbcolor={127,0,127})),
           Line(points=[70,0; 90,0], style(color=78, rgbcolor={127,0,127}))),
@@ -209,17 +223,21 @@ Modelica in file \"Modelica/package.mo\".</i><br>
     end SISO_wide;
     
     partial block MISO_wide "Multiple input, sigle output, wide version" 
-      import D = Digital.Interfaces;
+      import D = Modelica.Electrical.Digital.Interfaces;
       parameter Integer ninputs(final min=2) = 2 "Number of inputs";
-      D.DigitalInput x[ninputs] annotation (extent=[-110,-10; -90,10]);
+      D.DigitalInput x[ninputs] annotation (extent=[-70,-80; -50,80]);
       D.DigitalOutput y 
                     annotation (extent=[90,-10; 110,10]);
     algorithm 
       annotation (
         Icon(
-          Rectangle(extent=[-50,100; 50,-100], style(color=0, thickness=2)),
+          Rectangle(extent=[-50,100; 50,-100], style(
+              color=0, 
+              rgbcolor={0,0,0}, 
+              thickness=2, 
+              fillColor=7, 
+              rgbfillColor={255,255,255})),
           Ellipse(extent=[50,10; 70,-10],   style(color=0, thickness=2)),
-          Line(points=[-90,0; -50,0], style(color=78, rgbcolor={127,0,127})),
           Line(points=[70,0; 92,0], style(color=78, rgbcolor={127,0,127}))),
         Diagram(
           Ellipse(extent=[50,10; 70,-10],   style(color=0, thickness=2)),
@@ -233,8 +251,8 @@ Modelica in file \"Modelica/package.mo\".</i><br>
   
   package Tables 
     
-    import D = Digital.Interfaces;
-    import L = Digital.Interfaces.LogicValue;
+    import D = Modelica.Electrical.Digital.Interfaces;
+    import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
     
     constant D.LogicValueType andmap[L.max, L.max]=[
         L.'U', L.'U', L.'0', L.'U', L.'U', L.'U', L.'0', L.'U', L.'U';
@@ -296,7 +314,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
   package Delay "Delay blocks" 
     
     partial block DelayParams "Definition of delay parameters" 
-      import L = Digital.Interfaces.LogicValue;
+      import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       parameter Modelica.SIunits.Time tLH=0 "rise inertial delay";
       parameter Modelica.SIunits.Time tHL=0 "fall inertial delay";
       parameter Digital.Interfaces.LogicValueType inity=L.'U' 
@@ -305,7 +323,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
     end DelayParams;
     
     model TransportDelay "Transport delay with initial parameter" 
-      import D = Digital.Interfaces;
+      import D = Modelica.Electrical.Digital.Interfaces;
       extends D.SISO;
       parameter Modelica.SIunits.Time Tdel=0 "delay time";
       parameter D.LogicValueType initout=D.LogicValue.'U' 
@@ -364,7 +382,7 @@ If time less than <i>Tdel</i> the initial value <i>initout</i> holds.
     
     block InertialDelay "Inertial delay with initial parameter" 
       
-      import D = Digital.Interfaces;
+      import D = Modelica.Electrical.Digital.Interfaces;
       parameter Modelica.SIunits.Time Tdel "minimum time to hold value";
       parameter D.LogicValueType inity "initial value of output";
       extends D.SISO;
@@ -434,7 +452,7 @@ If time is less than <i>Tdel</i> the initial value <i>initout</i> holds.
     model InertialDelaySensitive 
       "Provide the input as output if it holds its value for a specific amount of time" 
       
-      import D = Digital.Interfaces;
+      import D = Modelica.Electrical.Digital.Interfaces;
       parameter Modelica.SIunits.Time tLH=0 "rise inertial delay";
       parameter Modelica.SIunits.Time tHL=0 "fall inertial delay";
       parameter D.LogicValueType inity=D.LogicValue.'U' 
@@ -535,13 +553,13 @@ is used, if it is zero, the input is not delayed.
   package Basic "Basic logic without delay" 
     
     model Not "Not Logic" 
-      import D = Digital.Interfaces;
+      import D = Modelica.Electrical.Digital.Interfaces;
       extends D.SISO_wide;
     protected 
       D.LogicValueType auxiliary(start=D.LogicValue.'0');
     equation 
       
-      auxiliary = Digital.Tables.notmap[x];
+      auxiliary = Modelica.Electrical.Digital.Tables.notmap[x];
       
       y = pre(auxiliary);
       annotation (
@@ -577,8 +595,8 @@ Not with 1 input value, without delay.
     end Not;
     
     model And "And Logic with multiple input and one output" 
-      import D = Digital.Interfaces;
-      import DM = Digital.Tables;
+      import D = Modelica.Electrical.Digital.Interfaces;
+      import DM = Modelica.Electrical.Digital.Tables;
       extends D.MISO;
     protected 
       D.LogicValueType auxiliary[ninputs](each start=D.LogicValue.'U');
@@ -624,8 +642,8 @@ And with n input values, without delay.
     end And;
     
     model Nand "Nand Logic with multiple input and one output" 
-      import D = Digital.Interfaces;
-      import DM = Digital.Tables;
+      import D = Modelica.Electrical.Digital.Interfaces;
+      import DM = Modelica.Electrical.Digital.Tables;
       extends D.MISO_wide;
     protected 
       D.LogicValueType auxiliary[ninputs](each start=D.LogicValue.'U');
@@ -671,8 +689,8 @@ Nand with n input values, without delay.
     end Nand;
     
     model Or "Or Logic with multiple input and one output" 
-      import D = Digital.Interfaces;
-      import DM = Digital.Tables;
+      import D = Modelica.Electrical.Digital.Interfaces;
+      import DM = Modelica.Electrical.Digital.Tables;
       extends D.MISO;
     protected 
       D.LogicValueType auxiliary[ninputs](each start=D.LogicValue.'U');
@@ -718,8 +736,8 @@ Or with n input values, without delay.
     end Or;
     
     model Nor "Nor Logic with multiple input and one output" 
-      import D = Digital.Interfaces;
-      import DM = Digital.Tables;
+      import D = Modelica.Electrical.Digital.Interfaces;
+      import DM = Modelica.Electrical.Digital.Tables;
       extends D.MISO_wide;
     protected 
       D.LogicValueType auxiliary[ninputs](each start=D.LogicValue.'U');
@@ -765,8 +783,8 @@ Nor with n input values, without delay.
     end Nor;
     
     model Xor "Xor Logic with multiple input and one output" 
-      import D = Digital.Interfaces;
-      import DM = Digital.Tables;
+      import D = Modelica.Electrical.Digital.Interfaces;
+      import DM = Modelica.Electrical.Digital.Tables;
       extends D.MISO;
     protected 
       D.LogicValueType auxiliary[ninputs](each start=D.LogicValue.'U');
@@ -812,8 +830,8 @@ Xor with n input values, without delay.
     end Xor;
     
     model Xnor "Xnor Logic with multiple input and one output" 
-      import D = Digital.Interfaces;
-      import DM = Digital.Tables;
+      import D = Modelica.Electrical.Digital.Interfaces;
+      import DM = Modelica.Electrical.Digital.Tables;
       extends D.MISO_wide;
     protected 
       D.LogicValueType auxiliary[ninputs](each start=D.LogicValue.'U');
@@ -862,7 +880,7 @@ XNor with n input values, without delay.
   package Gates "Logic gates including delay" 
     
     model InvGate 
-      import D = Digital.Interfaces;
+      import D = Modelica.Electrical.Digital.Interfaces;
       extends Digital.Delay.DelayParams;
       extends D.SISO;
       Digital.Basic.Not Not1 annotation (extent=[-40, -20; 0, 20]);
@@ -921,7 +939,7 @@ InvGate with 1 input value, composed by Not and sensitive intertial delay.
     end InvGate;
     
     model AndGate "AndGate with multiple input" 
-      import D = Digital.Interfaces;
+      import D = Modelica.Electrical.Digital.Interfaces;
       extends D.MISO;
       extends Digital.Delay.DelayParams;
       Basic.And And(ninputs=ninputs) 
@@ -979,7 +997,7 @@ AndGate with n input values, composed by And and sensitive intertial delay.
     end AndGate;
     
     model NandGate "NandGate with multiple input" 
-      import D = Digital.Interfaces;
+      import D = Modelica.Electrical.Digital.Interfaces;
       
       extends Digital.Delay.DelayParams;
       extends D.MISO_wide;
@@ -1067,7 +1085,7 @@ NandGate with n input values, composed by Nand and sensitive intertial delay.
     end NandGate;
     
     model OrGate "OrGate with multiple input" 
-      import D = Digital.Interfaces;
+      import D = Modelica.Electrical.Digital.Interfaces;
       
       extends Digital.Delay.DelayParams;
       extends D.MISO;
@@ -1126,7 +1144,7 @@ OrGate with n input values, composed by Or and sensitive intertial delay.
     end OrGate;
     
     model NorGate "NorGate with multiple input" 
-      import D = Digital.Interfaces;
+      import D = Modelica.Electrical.Digital.Interfaces;
       extends Digital.Delay.DelayParams;
       extends D.MISO_wide;
       Basic.Nor Nor(ninputs=ninputs) 
@@ -1184,7 +1202,7 @@ NorGate with n input values, composed by Nor and sensitive intertial delay.
     end NorGate;
     
     model XorGate "XorGate with multiple input" 
-      import D = Digital.Interfaces;
+      import D = Modelica.Electrical.Digital.Interfaces;
       extends Digital.Delay.DelayParams;
       extends D.MISO;
       Basic.Xor Xor(ninputs=ninputs) 
@@ -1242,7 +1260,7 @@ XorGate with n input values, composed by Xor and sensitive intertial delay.
     end XorGate;
     
     model XNorGate "XnorGate with multiple input" 
-      import D = Digital.Interfaces;
+      import D = Modelica.Electrical.Digital.Interfaces;
       extends Digital.Delay.DelayParams;
       extends D.MISO_wide;
       Basic.Xnor Xnor(ninputs=ninputs) 
@@ -1305,8 +1323,8 @@ XNorGate with n input values, composed by XNor and sensitive intertial delay.
   package Sources 
     
     block Set "Digital Set Source" 
-      import D = Digital.Interfaces;
-      import L = Digital.Interfaces.LogicValue;
+      import D = Modelica.Electrical.Digital.Interfaces;
+      import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       parameter D.LogicValueType setvalue=L.'U' "Logic value to be set";
       D.DigitalOutput y 
                     annotation (extent=[90,-10; 110,10]);
@@ -1334,7 +1352,7 @@ To specify <i>setval</i>, the integer code has to be used.
               '-'                 9              Don't care
 </pre>
 <P>
-If the logic values are imported by <br><b> import L = Digital.Interfaces.LogicValue; </b> <br>
+If the logic values are imported by <br><b> import L = Modelica.Electrical.Digital.Interfaces.LogicValue; </b> <br>
 they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
 </P>
 
@@ -1372,8 +1390,8 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
     end Set;
     
     block Step "Digital Step Source" 
-      import D = Digital.Interfaces;
-      import L = Digital.Interfaces.LogicValue;
+      import D = Modelica.Electrical.Digital.Interfaces;
+      import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       parameter D.LogicValueType before=L.'0' "Logic value before step";
       parameter D.LogicValueType after=L.'1' "Logic value after step";
       parameter Real stepTime=1 "step time";
@@ -1413,7 +1431,7 @@ To specify the logic value parameters, the integer code has to be used.
               '-'                 9              Don't care
 </pre>
 <P>
-If the logic values are imported by <br><b> import L = Digital.Interfaces.LogicValue; </b> <br>
+If the logic values are imported by <br><b> import L = Modelica.Electrical.Digital.Interfaces.LogicValue; </b> <br>
 they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
 </P>
 
@@ -1452,8 +1470,8 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
     end Step;
     
     block Table "Digital Tabular Source" 
-      import D = Digital.Interfaces;
-      import L = Digital.Interfaces.LogicValue;
+      import D = Modelica.Electrical.Digital.Interfaces;
+      import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       parameter D.LogicValueType setvalue[:]={1};
       parameter Real settime[size(setvalue, 1)]={1};
       parameter D.LogicValueType inity=L.'U';
@@ -1498,7 +1516,7 @@ To specify the logic value parameters, the integer code has to be used.
               '-'                 9              Don't care
 </pre>
 <P>
-If the logic values are imported by <br><b> import L = Digital.Interfaces.LogicValue; </b> <br>
+If the logic values are imported by <br><b> import L = Modelica.Electrical.Digital.Interfaces.LogicValue; </b> <br>
 they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
 </P>
 </HTML>
@@ -1592,8 +1610,8 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
     end Table;
     
     model Pulse "Digital Pulse Source" 
-      import D = Digital.Interfaces;
-      import L = Digital.Interfaces.LogicValue;
+      import D = Modelica.Electrical.Digital.Interfaces;
+      import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       parameter Real width(
         final min=Modelica.Constants.SMALL,
         final max=100) = 50 "Widths of pulses in % of periods";
@@ -1649,7 +1667,7 @@ To specify the logic value parameters, the integer code has to be used.
               '-'                 9              Don't care
 </pre>
 <P>
-If the logic values are imported by <br><b> import L = Digital.Interfaces.LogicValue; </b> <br>
+If the logic values are imported by <br><b> import L = Modelica.Electrical.Digital.Interfaces.LogicValue; </b> <br>
 they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
 </P>
 
@@ -1694,7 +1712,7 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
   
   package Converters 
     block LogicToXO1 "Conversion to XO1" 
-      import D = Digital.Interfaces;
+      import D = Modelica.Electrical.Digital.Interfaces;
       D.DigitalInput x[n] 
                         annotation (extent=[-60, -10; -40, 10]);
       D.DigitalOutput y[n] 
@@ -1702,7 +1720,7 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
       parameter Integer n(final min=1) = 1 "signal width";
     algorithm 
       for i in 1:n loop
-        y[i] := Digital.Tables.tox01map[x[i]];
+        y[i] := Modelica.Electrical.Digital.Tables.tox01map[x[i]];
       end for;
       annotation (
         Documentation(info="<HTML>
@@ -1758,7 +1776,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
     end LogicToXO1;
     
     block LogicToXO1Z "Conversion to XO1Z" 
-      import D = Digital.Interfaces;
+      import D = Modelica.Electrical.Digital.Interfaces;
       D.DigitalInput x[n] 
                         annotation (extent=[-60, -10; -40, 10]);
       D.DigitalOutput y[n] 
@@ -1766,7 +1784,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
       parameter Integer n(final min=1) = 1 "signal width";
     algorithm 
       for i in 1:n loop
-        y[i] := Digital.Tables.tox01zmap[x[i]];
+        y[i] := Modelica.Electrical.Digital.Tables.tox01zmap[x[i]];
       end for;
       annotation (
         Documentation(info="<HTML>
@@ -1823,7 +1841,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
     end LogicToXO1Z;
     
     block LogicToUX01 "Conversion to UXO1" 
-      import D = Digital.Interfaces;
+      import D = Modelica.Electrical.Digital.Interfaces;
       D.DigitalInput x[n] 
                         annotation (extent=[-60, -10; -40, 10]);
       D.DigitalOutput y[n] 
@@ -1831,7 +1849,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
       parameter Integer n(final min=1) = 1 "signal width";
     algorithm 
       for i in 1:n loop
-        y[i] := Digital.Tables.toux01map[x[i]];
+        y[i] := Modelica.Electrical.Digital.Tables.toux01map[x[i]];
       end for;
       annotation (
         Documentation(info="<HTML>
@@ -1887,8 +1905,8 @@ If the signal width is greater than 1 this conversion is done for each signal.
     end LogicToUX01;
     
     block BooleanToDigital "Boolean to Digital converter" 
-      import L = Digital.Interfaces.LogicValue;
-      Modelica.Blocks.Interfaces.BooleanInput BooleanInPort( n=n) 
+      import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
+      Modelica.Blocks.Interfaces.BooleanInput u[n] 
         annotation (extent=[-60, -10; -40, 10]);
       annotation (
         Documentation(info="<HTML>
@@ -1940,16 +1958,16 @@ If the signal width is greater than 1 this conversion is done for each signal.
       parameter Integer n(final min=1) = 1 "signal width";
     algorithm 
       for i in 1:n loop
-        DigitalOutput[i] := if BooleanInPort.signal[i] then L.'1' else 
+        DigitalOutput[i] := if u[i] then L.'1' else 
           L.'0';
       end for;
     end BooleanToDigital;
     
     block DigitalToBoolean "Digital to Boolean Converter" 
-      import L = Digital.Interfaces.LogicValue;
+      import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       Digital.Interfaces.DigitalInput DigitalInput[n] 
         annotation (extent=[-60, -10; -40, 10]);
-      Modelica.Blocks.Interfaces.BooleanOutput BooleanOutPort( n=n) 
+      Modelica.Blocks.Interfaces.BooleanOutput y[n] 
         annotation (extent=[40, -10; 60, 10]);
       annotation (Documentation(info="<HTML>
 <P>
@@ -1997,15 +2015,14 @@ If the signal width is greater than 1 this conversion is done for each signal.
       parameter Integer n(final min=1) = 1 "signal width";
     algorithm 
       for i in 1:n loop
-        BooleanOutPort.signal[i] := if DigitalInput[i] == 4 or 
+        y[i] := if DigitalInput[i] == 4 or 
           DigitalInput[i] == 8 then true else false;
       end for;
     end DigitalToBoolean;
     
     block RealToDigital "Real to Digital converter" 
-      import L = Digital.Interfaces.LogicValue;
-      Modelica.Blocks.Interfaces.RealInput RealInPort(
-                                                   n=n) 
+      import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
+      Modelica.Blocks.Interfaces.RealInput u[n] 
         annotation (extent=[-60, -10; -40, 10]);
       annotation (
         Documentation(info="<HTML>
@@ -2062,17 +2079,16 @@ If the signal width is greater than 1 this conversion is done for each signal.
         "output else";
     algorithm 
       for i in 1:n loop
-        DigitalOutput[i] := if RealInPort           > upper_limit then upper_value else 
-          if RealInPort           < lower_limit then lower_value else middle_value;
+        DigitalOutput[i] := if u[i] > upper_limit then upper_value else 
+          if u[i] < lower_limit then lower_value else middle_value;
       end for;
     end RealToDigital;
     
     block DigitalToReal "Digital to Real Converter" 
-      import L = Digital.Interfaces.LogicValue;
+      import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       Digital.Interfaces.DigitalInput DigitalInput[n] 
         annotation (extent=[-60, -10; -40, 10]);
-      Modelica.Blocks.Interfaces.RealOutput Output(
-                                                n=n) 
+      Modelica.Blocks.Interfaces.RealOutput y[n] 
         annotation (extent=[40, -10; 60, 10]);
       annotation (Documentation(info="<HTML>
 <P>
@@ -2129,7 +2145,7 @@ The values val... are given by parameters.</P>
       parameter Real value_m=0.5 "value for digital m (Don´t care)";
     algorithm 
       for i in 1:n loop
-        Output           := if DigitalInput[i] == L.'U' then value_U else 
+       y[i]:= if DigitalInput[i] == L.'U' then value_U else 
                 if DigitalInput[i] == L.'X' then value_X else if 
           DigitalInput[i] == L.'0' then value_0 else if DigitalInput[i] == L.'1' then 
                value_1 else if DigitalInput[i] == L.
@@ -2292,7 +2308,7 @@ The simulation stop time should be 10 seconds.
       Basic.Or Or1 annotation (extent=[20,-80; 98,-20]);
     equation 
       
-      connect(taba.y, h1.a) annotation (points=[-80,-30; -74,-30; -74,-36.7; 
+      connect(taba.y, h1.a) annotation (points=[-80,-30; -74,-30; -74,-36.7;
             -60,-36.7], style(
           color=78,
           rgbcolor={127,0,127},
@@ -2300,7 +2316,7 @@ The simulation stop time should be 10 seconds.
           fillColor=7,
           rgbfillColor={255,255,255},
           fillPattern=1));
-      connect(tabb.y, h1.b) annotation (points=[-80,-70; -76,-70; -76,-60.48; 
+      connect(tabb.y, h1.b) annotation (points=[-80,-70; -76,-70; -76,-60.48;
             -60,-60.48], style(
           color=78,
           rgbcolor={127,0,127},
@@ -2316,7 +2332,7 @@ The simulation stop time should be 10 seconds.
           fillColor=7,
           rgbfillColor={255,255,255},
           fillPattern=1));
-      connect(tabc.y, h.a) annotation (points=[-80,70; -22.75,70; -22.75,72; 
+      connect(tabc.y, h.a) annotation (points=[-80,70; -22.75,70; -22.75,72;
             39.5,72], style(
           color=78,
           rgbcolor={127,0,127},
@@ -2325,14 +2341,14 @@ The simulation stop time should be 10 seconds.
           rgbfillColor={255,255,255},
           fillPattern=1));
       connect(h.c, Or1.x[2]) annotation (points=[78.5,52; 86,52; 86,0; 20,0; 20,
-            -48.5; 20,-48.5],   style(
+            -48.5],             style(
           color=78,
           rgbcolor={127,0,127},
           thickness=2,
           fillColor=7,
           rgbfillColor={255,255,255},
           fillPattern=1));
-      connect(h1.c, Or1.x[1]) annotation (points=[-20,-57.2; 10,-57.2; 10,-51.5; 
+      connect(h1.c, Or1.x[1]) annotation (points=[-20,-57.2; 10,-57.2; 10,-51.5;
             20,-51.5],   style(
           color=78,
           rgbcolor={127,0,127},
@@ -2821,7 +2837,7 @@ time before the LH clock edge, which is caused by the delays.
     end fulladder;
       
     model RSFF "R-S-Flip-Flop" 
-      import L = Digital.Interfaces.LogicValue;
+      import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       Digital.Basic.Nor Nor_S annotation (extent=[-20, 20; 20, 60]);
       Digital.Basic.Nor Nor_R annotation (extent=[-20, -60; 20, -20]);
       annotation (
