@@ -877,13 +877,13 @@ The following additional medium <b>constants</b> are provided:
       <td>smoothModel</b></td>
       <td>If this flag is false (default value), then events are triggered
           whenever the saturation boundary is crossed; otherwise, no events
-	  are generated.</td></tr>
+      are generated.</td></tr>
   <tr><td>Boolean</td>
       <td>onePhase</b></td>
       <td>If this flag is true, then the medium model assumes it will be never
           called in the two-phase region. This can be useful to speed up
-	  the computations in a two-phase medium, when the user is sure it will
-	  always work in the one-phase region. Default value: false.</td></tr>
+      the computations in a two-phase medium, when the user is sure it will
+      always work in the one-phase region. Default value: false.</td></tr>
 </table>
 </p>
 <p>
@@ -980,13 +980,13 @@ to call the additional functions already defined for one-phase media.
   <tr><td>Medium.setBubbleState(sat, phase)</b></td>
       <td>Obtain the thermodynamic state vector 
           corresponding to the bubble point. If phase==1 (default), the state is
-	  on the one-phase side; if phase==2, the state is on the two-phase 
-	  side </td></tr>
+      on the one-phase side; if phase==2, the state is on the two-phase 
+      side </td></tr>
   <tr><td>Medium.setDewState(sat, phase)</b></td>
       <td>Obtain the thermodynamic state vector 
           corresponding to the dew point. If phase==1 (default), the state is
-	  on the one-phase side; if phase==2, the state is on the two-phase 
-	  side </td></tr>
+      on the one-phase side; if phase==2, the state is on the two-phase 
+      side </td></tr>
   </table>
 </p>
 <p>
@@ -3144,6 +3144,12 @@ The details of the pipe friction model are described
                 Modelica.Media.IdealGases.MixtureGases.SimpleNaturalGas);
         end SimpleNaturalGas;
         
+        model SimpleNaturalGasFixedComposition 
+          "Test mixture gas Modelica.Media.IdealGases.MixtureGases.SimpleNaturalGas" 
+          extends Modelica.Media.Examples.Tests.Components.PartialTestModel(
+             redeclare package Medium = 
+                Modelica.Media.IdealGases.MixtureGases.SimpleNaturalGasFixedComposition);
+        end SimpleNaturalGasFixedComposition;
       end IdealGases;
       
       package Incompressible 
@@ -3375,6 +3381,8 @@ Modelica source.
       "= true, if u and d are not a function of pressure";
     constant Boolean reducedX = true 
       "= true if medium contains the equation sum(X) = 1.0; set reducedX=true if only one substance (see docu for details)";
+    constant Boolean fixedX = false 
+      "= true if medium contains the equation X = reference_X";
     constant AbsolutePressure reference_p = 101325 
       "Reference pressure of Medium: default 1 atmosphere";
     constant MassFraction reference_X[nX]=fill(1/nX,nX) 
@@ -3382,7 +3390,7 @@ Modelica source.
     final constant Integer nS = size(substanceNames,1) "Number of substances" annotation(Evaluate=true);
     final constant Integer nX = if nS==1 then 0 else nS 
       "Number of mass fractions (= 0, if only one substance)"                                                   annotation(Evaluate=true);
-    final constant Integer nXi = if reducedX then nS-1 else nS 
+    final constant Integer nXi = if fixedX then 0 else if reducedX then nS-1 else nS 
       "Number of structurally independent mass fractions (see docu for details)"
                                                                                  annotation(Evaluate=true);
     final constant Integer nC = size(extraPropertiesNames,1) 
@@ -3538,7 +3546,9 @@ T_ambient.
     equation 
       Xi = X[1:nXi];
       if nX > 1 then
-         if reducedX then
+         if fixedX then
+            X = reference_X;
+         elseif reducedX then
             X[nX] = 1 - sum(Xi);
          end if;
          for i in 1:nX loop
