@@ -3,7 +3,7 @@ package Digital
 package UsersGuide "Users Guide" 
     
   annotation (DocumentationClass=true, Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>Users Guide of package StateGraph</font></h3>
+<h3><font color=\"#008000\" size=5>Users Guide of package Electrical.Digital</font></h3>
 <p>
 Library <b>Electrical.Digital</b> is a <b>free</b> Modelica package providing
 components to model <b>digital</b> electronic
