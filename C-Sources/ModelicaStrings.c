@@ -28,7 +28,6 @@
 #include "ModelicaUtilities.h"
 
 /* Utilities ------------------------------------------------------- */
-   int ModelicaStrings_countIgnoreCase(const char* string, const char* searchString);
    int ModelicaStrings_isEqualIgnoreCase(const char* string1, const char* string2);
    const char* ModelicaStrings_replaceIgnoreCase(const char* string, const char* searchString,
                                                  const char* replaceString,
@@ -103,35 +102,18 @@ const char* ModelicaStrings_character(const char* string1, int index) {
 };
 
 
-int ModelicaStrings_count(const char* string, const char* searchString, int caseSensitive) {
+int ModelicaStrings_count(const char* string, const char* searchString, int caseSensitive, int startIndex) {
+
   /* Count the number of occurrences of "searchString" in "string" */
-     char* found;
-     int   offset;
-     int   count = 0;
+     int index;
+     int lenSearch, lenSearch2;
+     int count = 0;
 
-     if ( caseSensitive == 0 ) return ModelicaStrings_countIgnoreCase(string, searchString);
-
-     offset = strlen(searchString);
-     while ( found = strstr(string, searchString) ) {
+     lenSearch = strlen(searchString);
+     while ( index = ModelicaStrings_find(string, searchString, caseSensitive, startIndex) ) {
         count++;
-        string = found + offset;
-     }
-     return count;
-};
-
-
-int ModelicaStrings_countIgnoreCase(const char* string, const char* searchString) {
-  /* Count the number of occurrences of "searchString" in "string" ignoring case */
-     char* found;
-     int   count = 0;
-     char* s1;
-     char* s2;
-     int   len1;
-     int   len2;
-     copyToBufferWithLowerCase(string, searchString, &s1, &len1, &s2, &len2);
-     while ( found = strstr(s1, s2) ) {
-        count++;
-        s1 = found + len2;
+        string = string + index + lenSearch;
+        startIndex = 1;
      }
      return count;
 };
@@ -147,10 +129,15 @@ int ModelicaStrings_find(const char* string, const char* searchString,
      char* s2;
      int   equal;
 
+  // Handle empty string
+     if ( *string == '\0' ) return 0;
+
   // Find startIndex position
-     while ( --startIndex ) {
-       if ( *first == '\0' ) return 0;
-       first++;
+     if ( startIndex > 1 ) {
+       while ( --startIndex ) { 
+         if ( *first == '\0' ) return 0;
+         first++;
+       }
      }
 
   // Compare searchString with string
@@ -162,8 +149,10 @@ int ModelicaStrings_find(const char* string, const char* searchString,
           while ( *s1 && *s2 ) {
             if ( tolower(*s1) != tolower(*s2) ) break;
             equal = 1;
+            s1++;
+            s2++;
           }
-          if ( equal == 1) break;
+          if ( equal == 1) return (first - string + 1);
           first++;
         }
      } else {
@@ -174,12 +163,13 @@ int ModelicaStrings_find(const char* string, const char* searchString,
           while ( *s1 && *s2 ) {
             if ( *s1 != *s2 ) break;
             equal = 1;
+            s1++;
+            s2++;
           }
-          if ( equal == 1) break;
+          if ( equal == 1) return (first - string + 1);
           first++;
         }
      } 
-     if ( equal == 1 ) return (first - string + 1); 
      return 0;
 };
 
@@ -242,7 +232,7 @@ const char* ModelicaStrings_replace(const char* string, const char* searchString
      int lenString      = strlen(string);
      int lenSearch      = strlen(searchString);
      int lenWith        = strlen(replaceString);
-     int count          = ModelicaStrings_count(string, searchString, caseSensitive);
+     int count          = ModelicaStrings_count(string, searchString, caseSensitive, startIndex);
      int lenResult      = lenString + count*(lenWith - lenSearch);
      char* res          = ModelicaAllocateString(lenResult);
      const char* result = (const char*) res;
@@ -286,7 +276,7 @@ const char* ModelicaStrings_replaceIgnoreCase(const char* string, const char* se
      const char *result;
 
      copyToBufferWithLowerCase(string, searchString, &s1, &len1, &s2, &len2);
-     count     = ModelicaStrings_count(s1, s2, 1);
+     count     = ModelicaStrings_count(s1, s2, 1, startIndex);
      lenResult = len1 + count*(lenWith - len2);
      res       = ModelicaAllocateString(lenResult);
      result    = (const char*) res;

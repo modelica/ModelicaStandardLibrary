@@ -8,8 +8,8 @@
 */
 
 extern const char* ModelicaStrings_character(const char* string1, int index);
-extern int ModelicaStrings_count(const char* string, const char* searchString, int caseSensitive);
-extern int ModelicaStrings_find(const char* string, const char* searchString, int caseSensitive, int startIndex);
+extern int ModelicaStrings_count(const char* string, const char* searchString, int caseSensitive, int startIndex);
+extern int ModelicaStrings_find (const char* string, const char* searchString, int caseSensitive, int startIndex);
 extern int ModelicaStrings_isEmpty(const char* string1);
 extern int ModelicaStrings_isEqual(const char* string1, const char* string2, int caseSensitive);
 extern const char* ModelicaStrings_repeat(int n, const char* string1);
