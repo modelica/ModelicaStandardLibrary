@@ -43,15 +43,19 @@ The Modelica package consists currently of the following subpackages
 <pre>
    <b>Blocks</b>      Input/output blocks.
    <b>Constants</b>   Mathematical and physical constants (pi, eps, h, ...)
-   <b>Electrical</b>  Electric and electronic components.
+   <b>Electrical</b>  Electric and electronic components
+               (Analog, Digital, Machines, MultiPhase)
    <b>Icons</b>       Icon definitions of general interest
-   <b>Math</b>        Mathematical functions (such as sin, cos)
+   <b>Math</b>        Mathematical functions 
+                      (such as sin, cos, solve, eigenValues)
    <b>Mechanics</b>   Mechanical components 
                (1D-rotational, 1D-translational, 3D multi-body)
    <b>SIunits</b>     SI-unit type definitions (such as Voltage, Torque)
    <b>StateGraph</b>  Hierarchical state machines (similiar power as StateCharts)
    <b>Thermal</b>     Thermal components
                (1-D heat transfer with lumped elements)
+   <b>Utilities</b>   Utility functions especially for scripting 
+               (Files, Streams, Strings, System)
 </pre>
 <p>
 Copyright &copy; 1998-2004, Modelica Association.
