@@ -5,12 +5,12 @@ model EngineV6
   
   extends Modelica.Icons.Example;
   parameter Boolean animation=true "= true, if animation shall be enabled";
-  MultiBody.Joints.ActuatedRevolute bearing(
+  Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute bearing(
     n={1,0,0},
     cylinderLength=0.02,
     cylinderDiameter=0.06,
     animation=animation) annotation (extent=[-90, 20; -70, 0], rotation=0);
-  inner MultiBody.World world(animateWorld=false, animateGravity=false) 
+  inner Modelica.Mechanics.MultiBody.World world(animateWorld=false, animateGravity=false) 
     annotation (extent=[-120, 20; -100, 40]);
   Modelica.Mechanics.Rotational.Inertia inertia(phi(
       stateSelect=StateSelect.always,

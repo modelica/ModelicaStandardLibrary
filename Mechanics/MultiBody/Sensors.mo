@@ -26,7 +26,7 @@ package Sensors "Sensors to measure variables"
       "= true, to measure the absolute angular velocity of frame_a in [rad/s]";
     parameter Boolean get_z_abs=false 
       "= true, to measure the absolute angular acceleration to frame_a in [rad/s^2]";
-    parameter MultiBody.Types.RotationSequence sequence(
+    parameter Modelica.Mechanics.MultiBody.Types.RotationSequence sequence(
       min={1,1,1},
       max={3,3,3}) = {1,2,3} 
       "|if get_angles = true| Angles are returned to rotate world frame around axes sequence[1], sequence[2] and finally sequence[3] into frame_a"
@@ -35,7 +35,7 @@ package Sensors "Sensors to measure variables"
       "|if get_angles = true| Select angles[1] such that abs(angles[1] - guessAngle1) is a minimum";
     parameter SI.Diameter arrowDiameter=world.defaultArrowDiameter 
       "|Animation|if animation = true| Diameter of arrow from world frame to frame_a";
-    parameter MultiBody.Types.Color arrowColor=MultiBody.Types.Defaults.
+    parameter Modelica.Mechanics.MultiBody.Types.Color arrowColor=Modelica.Mechanics.MultiBody.Types.Defaults.
         SensorColor 
       "|Animation|if animation = true| Color of arrow from world frame to frame_a";
     annotation (
@@ -151,7 +151,7 @@ Exact definition of the returned quantities:
             table below.</li>
 <li>angles is a vector of 3 angles such that
     frame_a.R = Frames.axesRotations(sequence, angles).</li>
-<li>w_abs is vector MultiBody.Frames.angularVelocity1(frame_a.R, <b>der</b>(frame_a.R)),
+<li>w_abs is vector Modelica.Mechanics.MultiBody.Frames.angularVelocity1(frame_a.R, <b>der</b>(frame_a.R)),
             resolved according to table below.</li>
 <li>z_abs is vector <b>der</b>(w_abs) (= derivative of absolute angular 
             velocity of frame_a with respect to the world frame,
@@ -207,7 +207,7 @@ Exact definition of the returned quantities:
     parameter Integer i5=if get_angles then i4 + 3 else i4;
     parameter Integer i6=if get_w_abs then i5 + 3 else i5;
     parameter Integer ndim=if world.enableAnimation and animation then 1 else 0;
-    MultiBody.Visualizers.Advanced.Arrow arrow[ndim](
+    Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow arrow[ndim](
       each r_head=frame_a.r_0,
       each diameter=arrowDiameter,
       each color=arrowColor);
@@ -244,7 +244,7 @@ Exact definition of the returned quantities:
       end if;
       
       if get_w_abs or get_z_abs then
-        w_abs_0 = MultiBody.Frames.angularVelocity1(frame_a.R);
+        w_abs_0 = Modelica.Mechanics.MultiBody.Frames.angularVelocity1(frame_a.R);
         w_abs = Frames.resolve2(frame_resolve.R, w_abs_0);
       else
         w_abs_0 = zeros(3);
@@ -263,7 +263,7 @@ Exact definition of the returned quantities:
       
       if get_r_abs then
         if resolveInFrame_a then
-          r_abs = MultiBody.Frames.resolve2(frame_a.R, frame_a.r_0);
+          r_abs = Modelica.Mechanics.MultiBody.Frames.resolve2(frame_a.R, frame_a.r_0);
         else
           r_abs = frame_a.r_0;
         end if;
@@ -274,7 +274,7 @@ Exact definition of the returned quantities:
       if get_v_abs or get_a_abs then
         v_abs_0 = der(frame_a.r_0);
         if resolveInFrame_a then
-          v_abs = MultiBody.Frames.resolve2(frame_a.R, v_abs_0);
+          v_abs = Modelica.Mechanics.MultiBody.Frames.resolve2(frame_a.R, v_abs_0);
         else
           v_abs = v_abs_0;
         end if;
@@ -285,7 +285,7 @@ Exact definition of the returned quantities:
       
       if get_a_abs then
         if resolveInFrame_a then
-          a_abs = MultiBody.Frames.resolve2(frame_a.R, der(v_abs_0));
+          a_abs = Modelica.Mechanics.MultiBody.Frames.resolve2(frame_a.R, der(v_abs_0));
         else
           a_abs = der(v_abs_0);
         end if;
@@ -296,9 +296,9 @@ Exact definition of the returned quantities:
       w_abs_0 = zeros(3);
       if get_w_abs or get_z_abs then
         if resolveInFrame_a then
-          w_abs = MultiBody.Frames.angularVelocity2(frame_a.R);
+          w_abs = Modelica.Mechanics.MultiBody.Frames.angularVelocity2(frame_a.R);
         else
-          w_abs = MultiBody.Frames.angularVelocity1(frame_a.R);
+          w_abs = Modelica.Mechanics.MultiBody.Frames.angularVelocity1(frame_a.R);
         end if;
       else
         w_abs = zeros(3);
@@ -355,7 +355,7 @@ Exact definition of the returned quantities:
     import SI = Modelica.SIunits;
     import Modelica.Mechanics.MultiBody.Frames;
     
-    extends MultiBody.Interfaces.PartialRelativeSensor(n_out=3*((if 
+    extends Modelica.Mechanics.MultiBody.Interfaces.PartialRelativeSensor(n_out=3*((if 
             get_r_rel then 1 else 0) + (if get_v_rel then 1 else 0) + (if 
             get_a_rel then 1 else 0) + (if get_angles then 1 else 0) + (if 
             get_w_rel then 1 else 0) + (if get_z_rel then 1 else 0)));
@@ -379,7 +379,7 @@ Exact definition of the returned quantities:
       "= true, to measure the relative angular velocity of frame_b with respect to frame_a in [rad/s]";
     parameter Boolean get_z_rel=false 
       "= true, to measure the relative angular acceleration of frame_b with respect to frame_a in [rad/s^2]";
-    parameter MultiBody.Types.RotationSequence sequence(
+    parameter Modelica.Mechanics.MultiBody.Types.RotationSequence sequence(
       min={1,1,1},
       max={3,3,3}) = {1,2,3} 
       "|if get_angles = true| Angles are returned to rotate frame_a around axes sequence[1], sequence[2] and finally sequence[3] into frame_b"
@@ -388,7 +388,7 @@ Exact definition of the returned quantities:
       "|if get_angles = true| Select angles[1] such that abs(angles[1] - guessAngle1) is a minimum";
     parameter SI.Diameter arrowDiameter=world.defaultArrowDiameter 
       "|Animation|if animation = true| Diameter of relative arrow from frame_a to frame_b";
-    parameter MultiBody.Types.Color arrowColor=MultiBody.Types.Defaults.
+    parameter Modelica.Mechanics.MultiBody.Types.Color arrowColor=Modelica.Mechanics.MultiBody.Types.Defaults.
         SensorColor 
       "|Animation|if animation = true| Color of relative arrow from frame_a to frame_b";
     
@@ -423,7 +423,7 @@ Exact definition of the returned quantities:
     parameter Integer i5=if get_angles then i4 + 3 else i4;
     parameter Integer i6=if get_w_rel then i5 + 3 else i5;
     parameter Integer ndim=if world.enableAnimation and animation then 1 else 0;
-    MultiBody.Visualizers.Advanced.Arrow arrow[ndim](
+    Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow arrow[ndim](
       each r=frame_a.r_0,
       each r_head=frame_b.r_0 - frame_a.r_0,
       each diameter=arrowDiameter,
@@ -593,9 +593,9 @@ and resolved in the following frame
 </HTML>"));
   equation 
     if get_angles or get_w_rel or get_z_rel then
-      R_rel = MultiBody.Frames.relativeRotation(frame_a.R, frame_b.R);
+      R_rel = Modelica.Mechanics.MultiBody.Frames.relativeRotation(frame_a.R, frame_b.R);
     else
-      R_rel = MultiBody.Frames.nullRotation();
+      R_rel = Modelica.Mechanics.MultiBody.Frames.nullRotation();
     end if;
     
     if get_angles then
@@ -647,9 +647,9 @@ and resolved in the following frame
       
       if get_w_rel or get_z_rel then
         if resolveInFrame_a then
-          w_rel_ab = MultiBody.Frames.angularVelocity1(R_rel);
+          w_rel_ab = Modelica.Mechanics.MultiBody.Frames.angularVelocity1(R_rel);
         else
-          w_rel_ab = MultiBody.Frames.angularVelocity2(R_rel);
+          w_rel_ab = Modelica.Mechanics.MultiBody.Frames.angularVelocity2(R_rel);
         end if;
         w_rel = Frames.resolve2(R_resolve, w_rel_ab);
       else
@@ -760,15 +760,15 @@ and resolved in the following frame
     parameter Boolean resolveInFrame_a=true;
     parameter SI.Diameter arrowDiameter=world.defaultArrowDiameter 
       "|Animation|if animation = true| Diameter of relative arrow from frame_a to frame_b";
-    parameter MultiBody.Types.Color arrowColor=MultiBody.Types.Defaults.
+    parameter Modelica.Mechanics.MultiBody.Types.Color arrowColor=Modelica.Mechanics.MultiBody.Types.Defaults.
         SensorColor 
       "|Animation|if animation = true| Color of relative arrow from frame_a to frame_b";
     parameter SI.Position s_small=1.E-10 
       "|Advanced|| Prevent zero-division if distance between frame_a and frame_b is zero";
   protected 
-    outer MultiBody.World world;
+    outer Modelica.Mechanics.MultiBody.World world;
     parameter Integer ndim=if world.enableAnimation and animation then 1 else 0;
-    MultiBody.Visualizers.Advanced.Arrow arrow[ndim](
+    Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow arrow[ndim](
       each r=frame_a.r_0,
       each r_head=frame_b.r_0 - frame_a.r_0,
       each diameter=arrowDiameter,
@@ -856,7 +856,7 @@ a division by zero may occur.
     
     import SI = Modelica.SIunits;
     
-    extends MultiBody.Interfaces.PartialCutForceSensor;
+    extends Modelica.Mechanics.MultiBody.Interfaces.PartialCutForceSensor;
     Modelica.Blocks.Interfaces.RealOutput force[3](redeclare each type 
         SignalType = SI.Force) 
       "Cut force resolved in frame_a/frame_b or in frame_resolved, if connected"
@@ -872,7 +872,7 @@ a division by zero may occur.
       "|if animation = true| Force arrow scaling (length = force/N_to_m)";
     parameter SI.Diameter forceDiameter=world.defaultArrowDiameter 
       "|if animation = true| Diameter of force arrow";
-    parameter MultiBody.Types.Color forceColor=MultiBody.Types.Defaults.
+    parameter Modelica.Mechanics.MultiBody.Types.Color forceColor=Modelica.Mechanics.MultiBody.Types.Defaults.
         ForceColor "|if animation = true| Color of force arrow";
     
     annotation (
@@ -908,7 +908,7 @@ with negative sign at frame_a.
 </p>
 </HTML>"));
   protected 
-    outer MultiBody.World world;
+    outer Modelica.Mechanics.MultiBody.World world;
     parameter Integer ndim=if world.enableAnimation and animation then 1 else 0;
     SI.Position f_in_m[3]=frame_a.f*(if positiveSign then +1 else -1)/N_to_m 
       "Force mapped from N to m for animation";
@@ -935,7 +935,7 @@ with negative sign at frame_a.
     
     import SI = Modelica.SIunits;
     
-    extends MultiBody.Interfaces.PartialCutForceSensor;
+    extends Modelica.Mechanics.MultiBody.Interfaces.PartialCutForceSensor;
     Modelica.Blocks.Interfaces.RealOutput torque[3](redeclare each type 
         SignalType = SI.Torque) 
       "Cut torque resolved in frame_a/frame_b or in frame_resolved, if connected"
@@ -951,7 +951,7 @@ with negative sign at frame_a.
       "|if animation = true| Torque arrow scaling (length = torque/Nm_to_m)";
     parameter SI.Diameter torqueDiameter=world.defaultArrowDiameter 
       "|if animation = true| Diameter of torque arrow";
-    parameter MultiBody.Types.Color torqueColor=MultiBody.Types.Defaults.
+    parameter Modelica.Mechanics.MultiBody.Types.Color torqueColor=Modelica.Mechanics.MultiBody.Types.Defaults.
         TorqueColor "|if animation = true| Color of torque arrow";
     annotation (
       preferedView="info",
@@ -986,7 +986,7 @@ with negative sign at frame_a.
 </p>
 </HTML>"));
   protected 
-    outer MultiBody.World world;
+    outer Modelica.Mechanics.MultiBody.World world;
     parameter Integer ndim=if world.enableAnimation and animation then 1 else 0;
     SI.Position t_in_m[3]=frame_a.t*(if positiveSign then +1 else -1)/Nm_to_m 
       "Torque mapped from Nm to m for animation";
@@ -1013,7 +1013,7 @@ with negative sign at frame_a.
     
     import SI = Modelica.SIunits;
     
-    extends MultiBody.Interfaces.PartialCutForceSensor;
+    extends Modelica.Mechanics.MultiBody.Interfaces.PartialCutForceSensor;
     Modelica.Blocks.Interfaces.RealOutput load[6] 
       "Cut force and cut torque resolved in frame_a/frame_b or in frame_resolved, if connected"
          annotation (extent=[-90, -100; -70, -120], rotation=90);
@@ -1032,9 +1032,9 @@ with negative sign at frame_a.
       "|if animation = true| Diameter of force arrow";
     parameter SI.Diameter torqueDiameter=forceDiameter 
       "|if animation = true| Diameter of torque arrow";
-    parameter MultiBody.Types.Color forceColor=MultiBody.Types.Defaults.
+    parameter Modelica.Mechanics.MultiBody.Types.Color forceColor=Modelica.Mechanics.MultiBody.Types.Defaults.
         ForceColor "|if animation = true| Color of force arrow";
-    parameter MultiBody.Types.Color torqueColor=MultiBody.Types.Defaults.
+    parameter Modelica.Mechanics.MultiBody.Types.Color torqueColor=Modelica.Mechanics.MultiBody.Types.Defaults.
         TorqueColor "|if animation = true| Color of torque arrow";
     SI.Force force[3] 
       "Cut force resolved in frame_a/frame_b or in frame_resolved, if connected";
@@ -1079,7 +1079,7 @@ with negative sign at frame_a.
 </p>
 </HTML>"));
   protected 
-    outer MultiBody.World world;
+    outer Modelica.Mechanics.MultiBody.World world;
     parameter Integer ndim=if world.enableAnimation and animation then 1 else 0;
     parameter Integer csign=if positiveSign then +1 else -1;
     SI.Position f_in_m[3]=frame_a.f*csign/N_to_m 

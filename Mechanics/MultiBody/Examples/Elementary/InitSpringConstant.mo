@@ -2,19 +2,19 @@ model InitSpringConstant
   "Determine spring constant such that system is in steady state at given position" 
   
   extends Modelica.Icons.Example;
-  inner MultiBody.World world(gravityType=MultiBody.Types.GravityTypes.
+  inner Modelica.Mechanics.MultiBody.World world(gravityType=Modelica.Mechanics.MultiBody.Types.GravityTypes.
         UniformGravity) annotation (extent=[-80, 0; -60, 20]);
-  MultiBody.Joints.ActuatedRevolute rev(n={0,0,1}, initType=MultiBody.Types.
+  Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute rev(n={0,0,1}, initType=Modelica.Mechanics.MultiBody.Types.
         Init.PositionVelocityAcceleration) annotation (extent=[-40, 0; -20, 20]);
   Modelica.Mechanics.Rotational.Damper damper(d=0.1) 
     annotation (extent=[-40, 40; -20, 60]);
-  MultiBody.Parts.BodyShape body(
+  Modelica.Mechanics.MultiBody.Parts.BodyShape body(
     r={1,0,0},
     r_CM={0.5,0,0},
     m=1) annotation (extent=[0, 0; 20, 20]);
-  MultiBody.Parts.Fixed fixed(r={1,0.2,0}, width=0.02) 
+  Modelica.Mechanics.MultiBody.Parts.Fixed fixed(r={1,0.2,0}, width=0.02) 
     annotation (extent=[40, 60; 60, 80], rotation=-90);
-  MultiBody.Forces.Spring spring(s_unstretched=0.1, c(fixed=false) = 100) 
+  Modelica.Mechanics.MultiBody.Forces.Spring spring(s_unstretched=0.1, c(fixed=false) = 100) 
     annotation (extent=[40, 20; 60, 40], rotation=-90);
   
   annotation (Documentation(info="<html>

@@ -1,8 +1,6 @@
-encapsulated model Fourbar2 
+model Fourbar2 
   "One kinematic loop with four bars (with UniversalSpherical joint; 1 non-linear equation)" 
   
-  import Modelica;
-  import Modelica.Mechanics.MultiBody;
   import SI = Modelica.SIunits;
   extends Modelica.Icons.Example;
   
@@ -54,29 +52,29 @@ for rodLength:
 </html>"),
     Diagram);
   
-  inner MultiBody.World world annotation (extent=[-80, -80; -60, -60]);
-  MultiBody.Joints.ActuatedRevolute j1(
+  inner Modelica.Mechanics.MultiBody.World world annotation (extent=[-80, -80; -60, -60]);
+  Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute j1(
     n={1,0,0},
-    initType=MultiBody.Types.Init.PositionVelocity,
+    initType=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity,
     enforceStates=true,
     w_start=300) annotation (extent=[-54, -40; -34, -20]);
-  MultiBody.Joints.Prismatic j2(
+  Modelica.Mechanics.MultiBody.Joints.Prismatic j2(
     n={1,0,0},
     s_offset=-0.2,
     boxWidth=0.05,
-    initType=MultiBody.Types.Init.Position) 
+    initType=Modelica.Mechanics.MultiBody.Types.Init.Position) 
     annotation (extent=[12, -80; 32, -60]);
-  MultiBody.Parts.BodyCylinder b1(r={0,0.5,0.1}, diameter=0.05) 
+  Modelica.Mechanics.MultiBody.Parts.BodyCylinder b1(r={0,0.5,0.1}, diameter=0.05) 
     annotation (extent=[-40, -10; -20, 10], rotation=90);
-  MultiBody.Parts.BodyCylinder b2(r={0,0.2,0}, diameter=0.05) 
+  Modelica.Mechanics.MultiBody.Parts.BodyCylinder b2(r={0,0.2,0}, diameter=0.05) 
     annotation (extent=[40, -60; 60, -40], rotation=90);
-  MultiBody.Joints.UniversalSpherical universalSpherical(
+  Modelica.Mechanics.MultiBody.Joints.UniversalSpherical universalSpherical(
     n1_a={0,1,0},
     computeRodLength=true,
     rRod_ia={-1,0.3,0.1}) annotation (extent=[0, 18; -20, 38]);
-  MultiBody.Parts.FixedTranslation b3(r={1.2,0,0}, animation=false) 
+  Modelica.Mechanics.MultiBody.Parts.FixedTranslation b3(r={1.2,0,0}, animation=false) 
     annotation (extent=[-32, -80; -12, -60]);
-  MultiBody.Visualizers.FixedFrame fixedFrame(color_x={0,0,255}) 
+  Modelica.Mechanics.MultiBody.Visualizers.FixedFrame fixedFrame(color_x={0,0,255}) 
     annotation (extent=[-20, 60; 0, 80], rotation=90);
 equation 
   j1_phi = j1.phi;

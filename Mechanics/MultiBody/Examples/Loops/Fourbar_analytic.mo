@@ -1,8 +1,6 @@
-encapsulated model Fourbar_analytic 
+model Fourbar_analytic 
   "One kinematic loop with four bars (with JointSSP joint; analytic solution of non-linear algebraic loop)" 
   
-  import Modelica;
-  import Modelica.Mechanics.MultiBody;
   import SI = Modelica.SIunits;
   extends Modelica.Icons.Example;
   
@@ -35,18 +33,18 @@ MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling</a>.
 </html>"),
     Diagram);
   
-  inner MultiBody.World world(animateGravity=false) 
+  inner Modelica.Mechanics.MultiBody.World world(animateGravity=false) 
     annotation (extent=[-80, -60; -60, -40]);
-  MultiBody.Joints.ActuatedRevolute j1(
+  Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute j1(
     n={1,0,0},
-    initType=MultiBody.Types.Init.PositionVelocity,
+    initType=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity,
     enforceStates=true,
     w_start=300) annotation (extent=[-54, -40; -34, -20]);
-  MultiBody.Parts.BodyCylinder b1(r={0,0.5,0.1}, diameter=0.05) 
+  Modelica.Mechanics.MultiBody.Parts.BodyCylinder b1(r={0,0.5,0.1}, diameter=0.05) 
     annotation (extent=[-40, -18; -20, 2], rotation=90);
-  MultiBody.Parts.FixedTranslation b3(r={1.2,0,0}, animation=false) 
+  Modelica.Mechanics.MultiBody.Parts.FixedTranslation b3(r={1.2,0,0}, animation=false) 
     annotation (extent=[-32, -60; -12, -40]);
-  MultiBody.Joints.Assemblies.JointSSP jointSSP(
+  Modelica.Mechanics.MultiBody.Joints.Assemblies.JointSSP jointSSP(
     rod1Length=sqrt({-1,0.3,0.1}*{-1,0.3,0.1}),
     n_b={1,0,0},
     s_offset=-0.2,
@@ -54,7 +52,7 @@ MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling</a>.
     rod1Color={0,128,255},
     rod2Color={0,128,255},
     checkTotalPower=true) annotation (extent=[-20, 0; 0, 20]);
-  MultiBody.Parts.BodyCylinder b2(
+  Modelica.Mechanics.MultiBody.Parts.BodyCylinder b2(
     r={0,0.2,0},
     diameter=0.05,
     animation=false) annotation (extent=[20, -20; 40, 0], rotation=90);

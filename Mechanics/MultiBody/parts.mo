@@ -107,7 +107,7 @@ definition of the colors used in the MultiBody library
     parameter Boolean animation=true "= true, if animation shall be enabled";
     parameter SI.Position r[3]={0,0,0} 
       "Position vector from world frame to frame_b, resolved in world frame";
-    parameter MultiBody.Types.ShapeType shapeType="cylinder" 
+    parameter Modelica.Mechanics.MultiBody.Types.ShapeType shapeType="cylinder" 
       "|Animation|if animation = true| Type of shape";
     parameter SI.Position r_shape[3]={0,0,0} 
       "|Animation|if animation = true| Vector from world frame to shape origin, resolved in world frame";
@@ -123,7 +123,7 @@ definition of the colors used in the MultiBody library
       "|Animation|if animation = true| Height of shape";
     parameter Real extra=0.0 
       "|Animation|if animation = true| Additional parameter for cone, pipe etc. (see docu of Visualizers.Advanced.Shape)";
-    parameter MultiBody.Types.Color color=MultiBody.Types.Defaults.RodColor 
+    parameter Modelica.Mechanics.MultiBody.Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.RodColor 
       "|Animation|if animation = true| Color of shape";
     
     annotation (
@@ -175,7 +175,7 @@ animation = <b>false</b>.
         Line(points=[0, 0; 100, 0], style(color=0))));
     
   protected 
-    outer MultiBody.World world;
+    outer Modelica.Mechanics.MultiBody.World world;
     parameter Integer ndim=if world.enableAnimation and animation then 1 else 0;
     Visualizers.Advanced.Shape shape[ndim](
       each shapeType=shapeType,
@@ -204,14 +204,14 @@ animation = <b>false</b>.
     parameter Boolean animation=true "= true, if animation shall be enabled";
     parameter SI.Position r[3]={0,0,0} 
       "Vector from frame_a to frame_b resolved in frame_a";
-    parameter MultiBody.Types.ShapeType shapeType="cylinder" 
+    parameter Modelica.Mechanics.MultiBody.Types.ShapeType shapeType="cylinder" 
       "|Animation|if animation = true| Type of shape";
     parameter SI.Position r_shape[3]={0,0,0} 
       "|Animation|if animation = true| Vector from frame_a to shape origin, resolved in frame_a";
-    parameter MultiBody.Types.Axis lengthDirection=r - r_shape 
+    parameter Modelica.Mechanics.MultiBody.Types.Axis lengthDirection=r - r_shape 
       "|Animation|if animation = true| Vector in length direction of shape, resolved in frame_a"
       annotation (Evaluate=true);
-    parameter MultiBody.Types.Axis widthDirection={0,1,0} 
+    parameter Modelica.Mechanics.MultiBody.Types.Axis widthDirection={0,1,0} 
       "|Animation|if animation = true| Vector in width direction of shape, resolved in frame_a"
       annotation (Evaluate=true);
     parameter SI.Length length=Frames.length(r - r_shape) 
@@ -222,7 +222,7 @@ animation = <b>false</b>.
       "|Animation|if animation = true| Height of shape.";
     parameter Real extra=0.0 
       "|Animation|if animation = true| Additional parameter depending on shapeType (see docu of Visualizers.Advanced.Shape).";
-    parameter MultiBody.Types.Color color=MultiBody.Types.Defaults.RodColor 
+    parameter Modelica.Mechanics.MultiBody.Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.RodColor 
       "|Animation|if animation = true| Color of shape";
     
     annotation (
@@ -298,7 +298,7 @@ the animation may be switched off via parameter animation = <b>false</b>.
 <IMG SRC=\"../Images/MultiBody/FixedTranslation.png\" ALT=\"Parts.FixedTranslation\">
 </HTML>"));
   protected 
-    outer MultiBody.World world;
+    outer Modelica.Mechanics.MultiBody.World world;
     parameter Integer ndim=if world.enableAnimation and animation then 1 else 0;
     Visualizers.Advanced.Shape shape[ndim](
       each shapeType=shapeType,
@@ -331,44 +331,44 @@ the animation may be switched off via parameter animation = <b>false</b>.
     import Modelica.Mechanics.MultiBody.Frames;
     import SI = Modelica.SIunits;
     import Cv = Modelica.SIunits.Conversions;
-    MultiBody.Interfaces.Frame_a frame_a 
+    Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a 
       annotation (extent=[-120, -15; -100, 15]);
-    MultiBody.Interfaces.Frame_b frame_b annotation (extent=[100, -15; 120, 15]);
+    Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_b annotation (extent=[100, -15; 120, 15]);
     
     parameter Boolean animation=true "= true, if animation shall be enabled";
     parameter SI.Position r[3]={0,0,0} 
       "Vector from frame_a to frame_b resolved in frame_a";
-    parameter MultiBody.Types.RotationTypes.Temp rotationType=MultiBody.Types.
+    parameter Modelica.Mechanics.MultiBody.Types.RotationTypes.Temp rotationType=Modelica.Mechanics.MultiBody.Types.
         RotationTypes.RotationAxis "Type of rotation description" 
       annotation (Evaluate=true);
-    parameter MultiBody.Types.Axis n={1,0,0} 
+    parameter Modelica.Mechanics.MultiBody.Types.Axis n={1,0,0} 
       "|if rotationType = RotationAxis| Axis of rotation in frame_a (= same as in frame_b)"
       annotation (Evaluate=true);
     parameter Cv.NonSIunits.Angle_deg angle=0 
       "|if rotationType = RotationAxis| Angle to rotate frame_a around axis n into frame_b";
     
-    parameter MultiBody.Types.Axis n_x={1,0,0} 
+    parameter Modelica.Mechanics.MultiBody.Types.Axis n_x={1,0,0} 
       "|if rotationType = TwoAxesVectors| Vector along x-axis of frame_b resolved in frame_a"
       annotation (Evaluate=true);
-    parameter MultiBody.Types.Axis n_y={0,1,0} 
+    parameter Modelica.Mechanics.MultiBody.Types.Axis n_y={0,1,0} 
       "|if rotationType = TwoAxesVectors| Vector along y-axis of frame_b resolved in frame_a"
       annotation (Evaluate=true);
     
-    parameter MultiBody.Types.RotationSequence sequence(
+    parameter Modelica.Mechanics.MultiBody.Types.RotationSequence sequence(
       min={1,1,1},
       max={3,3,3}) = {1,2,3} 
       "|if rotationType = PlanarRotationSequence| Sequence of rotations" 
       annotation (Evaluate=true);
     parameter Cv.NonSIunits.Angle_deg angles[3]={0,0,0} 
       "|if rotationType = PlanarRotationSequence| Rotation angles around the axes defined in 'sequence'";
-    parameter MultiBody.Types.ShapeType shapeType="cylinder" 
+    parameter Modelica.Mechanics.MultiBody.Types.ShapeType shapeType="cylinder" 
       "|Animation|if animation = true| Type of shape";
     parameter SI.Position r_shape[3]={0,0,0} 
       "|Animation|if animation = true| Vector from frame_a to shape origin, resolved in frame_a";
-    parameter MultiBody.Types.Axis lengthDirection=r - r_shape 
+    parameter Modelica.Mechanics.MultiBody.Types.Axis lengthDirection=r - r_shape 
       "|Animation|if animation = true| Vector in length direction of shape, resolved in frame_a"
       annotation (Evaluate=true);
-    parameter MultiBody.Types.Axis widthDirection={0,1,0} 
+    parameter Modelica.Mechanics.MultiBody.Types.Axis widthDirection={0,1,0} 
       "|Animation|if animation = true| Vector in width direction of shape, resolved in frame_a"
       annotation (Evaluate=true);
     parameter SI.Length length=Frames.length(r - r_shape) 
@@ -379,7 +379,7 @@ the animation may be switched off via parameter animation = <b>false</b>.
       "|Animation|if animation = true| Height of shape.";
     parameter Real extra=0.0 
       "|Animation|if animation = true| Additional parameter depending on shapeType (see docu of Visualizers.Advanced.Shape).";
-    parameter MultiBody.Types.Color color=MultiBody.Types.Defaults.RodColor 
+    parameter Modelica.Mechanics.MultiBody.Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.RodColor 
       "|Animation|if animation = true| Color of shape";
     final parameter Frames.Orientation R_rel=if rotationType == 1 then 
         Frames.planarRotation(Frames.normalize(n), Cv.from_deg(angle), 0) else 
@@ -387,7 +387,7 @@ the animation may be switched off via parameter animation = <b>false</b>.
         Frames.axesRotations(sequence, Cv.from_deg(angles), zeros(3)) 
       "Fixed rotation object from frame_a to frame_b";
   protected 
-    outer MultiBody.World world;
+    outer Modelica.Mechanics.MultiBody.World world;
     
     /*
   parameter Frames.Orientation R_rel_inv=
@@ -397,7 +397,7 @@ the animation may be switched off via parameter animation = <b>false</b>.
         zeros(3)) "Inverse of R_rel (rotate from frame_b to frame_a)";
     
     parameter Integer ndim=if world.enableAnimation and animation then 1 else 0;
-    MultiBody.Visualizers.Advanced.Shape shape[ndim](
+    Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape shape[ndim](
       each shapeType=shapeType,
       each color=color,
       each r_shape=r_shape,
@@ -563,7 +563,7 @@ the animation may be switched off via parameter animation = <b>false</b>.
     parameter SI.Position r_0_start[3]={0,0,0} 
       "|Initialization|| Initial values of frame_a.r_0 (vector from origin of world frame to origin of frame_a resolved in world frame)"
       annotation (Evaluate=false);
-    parameter MultiBody.Types.RotationSequence sequence_start={1,2,3} 
+    parameter Modelica.Mechanics.MultiBody.Types.RotationSequence sequence_start={1,2,3} 
       "|Initialization|| Sequence of rotations to rotate world frame into frame_a at initial time"
       annotation (Evaluate=true);
     parameter Cv.NonSIunits.Angle_deg angles_start[3]={0,0,0} 
@@ -572,13 +572,13 @@ the animation may be switched off via parameter animation = <b>false</b>.
     parameter SI.Velocity v_0_start[3]={0,0,0} 
       " Initial values of velocity v_0 = der(frame_a.r_0)" 
       annotation (Evaluate=false, Dialog(tab="Initialization"));
-    parameter MultiBody.Types.AngularVelocity_degs w_0_start[3]={0,0,0} 
+    parameter Modelica.Mechanics.MultiBody.Types.AngularVelocity_degs w_0_start[3]={0,0,0} 
       "|Initialization|| Initial values of angular velocity of frame_a resolved in world frame"
       annotation (Evaluate=false);
     parameter SI.Acceleration a_0_start[3]={0,0,0} 
       "|Initialization|| Initial values of acceleration a_0 = der(v_0)" 
       annotation (Evaluate=false);
-    parameter MultiBody.Types.AngularAcceleration_degs2 z_0_start[3]={0,0,0} 
+    parameter Modelica.Mechanics.MultiBody.Types.AngularAcceleration_degs2 z_0_start[3]={0,0,0} 
       "|Initialization|| Initial values of angular acceleration z_0 = der(w_0)"
       annotation (Evaluate=false);
     parameter SI.Diameter sphereDiameter=world.defaultBodyDiameter 
@@ -586,7 +586,7 @@ the animation may be switched off via parameter animation = <b>false</b>.
         tab="Animation",
         group="if animation = true",
         enable=animation));
-    parameter Types.Color sphereColor=MultiBody.Types.Defaults.BodyColor 
+    parameter Types.Color sphereColor=Modelica.Mechanics.MultiBody.Types.Defaults.BodyColor 
       "Color of sphere" annotation (Dialog(
         tab="Animation",
         group="if animation = true",
@@ -614,13 +614,13 @@ the animation may be switched off via parameter animation = <b>false</b>.
             useQuaternions));
     final parameter SI.Inertia I[3, 3]=[I_11, I_21, I_31; I_21, I_22, I_32;
         I_31, I_32, I_33] "inertia tensor";
-    final parameter Frames.Orientation R_start=MultiBody.Frames.axesRotations(
+    final parameter Frames.Orientation R_start=Modelica.Mechanics.MultiBody.Frames.axesRotations(
         sequence_start, Cv.from_deg(angles_start), zeros(3)) 
       "Orientation object from world frame to frame_a at initial time";
-    final parameter SI.AngularVelocity w_a_start[3]=MultiBody.Frames.resolve2(
+    final parameter SI.AngularVelocity w_a_start[3]=Modelica.Mechanics.MultiBody.Frames.resolve2(
         R_start, w_0_start*Modelica.Constants.D2R);
     final parameter SI.AngularAcceleration z_a_start[3]=
-        MultiBody.Frames.resolve2(R_start, z_0_start*Modelica.Constants.D2R);
+        Modelica.Mechanics.MultiBody.Frames.resolve2(R_start, z_0_start*Modelica.Constants.D2R);
     
     SI.Velocity v_0[3](start=v_0_start, stateSelect=if enforceStates then 
           StateSelect.always else StateSelect.default) 
@@ -640,7 +640,7 @@ the animation may be switched off via parameter animation = <b>false</b>.
       defaultModifiers="gravityType=0",
       missingInnerMessage="No \"world\" component is defined. A default world component
 without a gravity field will be used. If this is not desired,
-drag MultiBody.World into the top level of your model.",
+drag Modelica.Mechanics.MultiBody.World into the top level of your model.",
       Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
@@ -748,10 +748,10 @@ to the setting of parameters \"useQuaternions\" and
 </HTML>"));
     
   protected 
-    outer MultiBody.World world;
+    outer Modelica.Mechanics.MultiBody.World world;
     
     // Declarations for quaternions (dummies, if quaternions are not used)
-    parameter Frames.Quaternions.Orientation Q_start=MultiBody.Frames.to_Q(
+    parameter Frames.Quaternions.Orientation Q_start=Modelica.Mechanics.MultiBody.Frames.to_Q(
         R_start) 
       "Quaternion orientation object from world frame to frame_a at initial time";
     Frames.Quaternions.Orientation Q(start=Q_start, stateSelect=if 
@@ -782,8 +782,8 @@ to the setting of parameters \"useQuaternions\" and
     Visualizers.Advanced.Shape cylinder[ndim1](
       each shapeType="cylinder",
       each color=cylinderColor,
-      each length=if MultiBody.Frames.length(r_CM) > sphereDiameter/2 then 
-          MultiBody.Frames.length(r_CM) - (if cylinderDiameter > 1.1*
+      each length=if Modelica.Mechanics.MultiBody.Frames.length(r_CM) > sphereDiameter/2 then 
+          Modelica.Mechanics.MultiBody.Frames.length(r_CM) - (if cylinderDiameter > 1.1*
           sphereDiameter then sphereDiameter/2 else 0) else 0,
       each width=cylinderDiameter,
       each height=cylinderDiameter,
@@ -932,7 +932,7 @@ to the setting of parameters \"useQuaternions\" and
     parameter SI.Position r_0_start[3]={0,0,0} 
       "|Initialization|| Initial values of frame_a.r_0 (vector from origin of world frame to origin of frame_a resolved in world frame)"
       annotation (Evaluate=false);
-    parameter MultiBody.Types.RotationSequence sequence_start={1,2,3} 
+    parameter Modelica.Mechanics.MultiBody.Types.RotationSequence sequence_start={1,2,3} 
       "|Initialization|| Sequence of rotations to rotate world frame into frame_a at initial time"
       annotation (Evaluate=true);
     parameter NonSI.Angle_deg angles_start[3]={0,0,0} 
@@ -941,23 +941,23 @@ to the setting of parameters \"useQuaternions\" and
     parameter SI.Velocity v_0_start[3]={0,0,0} 
       "|Initialization|| Initial values of velocity v_0 = der(frame_a.r_0)" 
       annotation (Evaluate=false);
-    parameter MultiBody.Types.AngularVelocity_degs w_0_start[3]={0,0,0} 
+    parameter Modelica.Mechanics.MultiBody.Types.AngularVelocity_degs w_0_start[3]={0,0,0} 
       "|Initialization|| Initial values of angular velocity of frame_a resolved in world frame"
       annotation (Evaluate=false);
     parameter SI.Acceleration a_0_start[3]={0,0,0} 
       "|Initialization|| Initial values of acceleration a_0 = der(v_0)" 
       annotation (Evaluate=false);
-    parameter MultiBody.Types.AngularAcceleration_degs2 z_0_start[3]={0,0,0} 
+    parameter Modelica.Mechanics.MultiBody.Types.AngularAcceleration_degs2 z_0_start[3]={0,0,0} 
       "|Initialization|| Initial values of angular acceleration z_0 = der(w_0)"
       annotation (Evaluate=false);
-    parameter MultiBody.Types.ShapeType shapeType="cylinder" 
+    parameter Modelica.Mechanics.MultiBody.Types.ShapeType shapeType="cylinder" 
       "|Animation|if animation = true| Type of shape";
     parameter SI.Position r_shape[3]={0,0,0} 
       "|Animation|if animation = true| Vector from frame_a to shape origin, resolved in frame_a";
-    parameter MultiBody.Types.Axis lengthDirection=r - r_shape 
+    parameter Modelica.Mechanics.MultiBody.Types.Axis lengthDirection=r - r_shape 
       "|Animation|if animation = true| Vector in length direction of shape, resolved in frame_a"
       annotation (Evaluate=true);
-    parameter MultiBody.Types.Axis widthDirection={0,1,0} 
+    parameter Modelica.Mechanics.MultiBody.Types.Axis widthDirection={0,1,0} 
       "|Animation|if animation = true| Vector in width direction of shape, resolved in frame_a"
       annotation (Evaluate=true);
     parameter SI.Length length=Frames.length(r - r_shape) 
@@ -968,11 +968,11 @@ to the setting of parameters \"useQuaternions\" and
       "|Animation|if animation = true| Height of shape.";
     parameter Real extra=0.0 
       "|Animation|if animation = true| Additional parameter depending on shapeType (see docu of Visualizers.Advanced.Shape).";
-    parameter MultiBody.Types.Color color=MultiBody.Types.Defaults.BodyColor 
+    parameter Modelica.Mechanics.MultiBody.Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.BodyColor 
       "|Animation|if animation = true| Color of shape";
     parameter SI.Diameter sphereDiameter=2*width 
       "|Animation|if animation = true and animateSphere = true| Diameter of sphere";
-    parameter MultiBody.Types.Color sphereColor=color 
+    parameter Modelica.Mechanics.MultiBody.Types.Color sphereColor=color 
       "|Animation|if animation = true and animateSphere = true| Color of sphere of mass";
     parameter Boolean enforceStates=false 
       " = true, if absolute variables of body object shall be used as states" 
@@ -1005,7 +1005,7 @@ is always parallel to <b>frame_a</b>.
 </p>
 <p>
 By default, this component is visualized by any <b>shape</b> that can be
-defined with MultiBody.Visualizers.FixedShape. This shape is placed
+defined with Modelica.Mechanics.MultiBody.Visualizers.FixedShape. This shape is placed
 between frame_a and frame_b (default: length(shape) = Frames.length(r)).
 Additionally a <b>sphere</b> may be visualized that has
 its center at the center of mass.
@@ -1094,7 +1094,7 @@ states and of the \"Advanced\" menu parameters, see model
       sequence_angleStates=sequence_angleStates) 
       annotation (extent=[-27.3333, -70.3333; 13, -30]);
   protected 
-    outer MultiBody.World world;
+    outer Modelica.Mechanics.MultiBody.World world;
     parameter Integer ndim1=if world.enableAnimation and animation then 1 else 
         0;
     parameter Integer ndim2=if world.enableAnimation and animation and 
@@ -1148,10 +1148,10 @@ states and of the \"Advanced\" menu parameters, see model
       "Vector from frame_a to frame_b resolved in frame_a";
     parameter SI.Position r_shape[3]={0,0,0} 
       "Vector from frame_a to box origin, resolved in frame_a";
-    parameter MultiBody.Types.Axis lengthDirection=r - r_shape 
+    parameter Modelica.Mechanics.MultiBody.Types.Axis lengthDirection=r - r_shape 
       "Vector in length direction of box, resolved in frame_a" 
       annotation (Evaluate=true);
-    parameter MultiBody.Types.Axis widthDirection={0,1,0} 
+    parameter Modelica.Mechanics.MultiBody.Types.Axis widthDirection={0,1,0} 
       "Vector in width direction of box, resolved in frame_a" 
       annotation (Evaluate=true);
     parameter SI.Length length=Frames.length(r - r_shape) "Length of box";
@@ -1167,7 +1167,7 @@ states and of the \"Advanced\" menu parameters, see model
       unit="g/cm3",
       min=0) = 7.7 
       "Density of box (e.g., steel: 7.7 .. 7.9, wood : 0.4 .. 0.8)";
-    parameter MultiBody.Types.Color color=MultiBody.Types.Defaults.BodyColor 
+    parameter Modelica.Mechanics.MultiBody.Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.BodyColor 
       "Color of box";
     
     parameter Types.Init.Temp initType=Types.Init.Free 
@@ -1175,7 +1175,7 @@ states and of the \"Advanced\" menu parameters, see model
     parameter SI.Position r_0_start[3]={0,0,0} 
       "|Initialization|| Initial values of frame_a.r_0 (vector from origin of world frame to origin of frame_a resolved in world frame)"
       annotation (Evaluate=false);
-    parameter MultiBody.Types.RotationSequence sequence_start={1,2,3} 
+    parameter Modelica.Mechanics.MultiBody.Types.RotationSequence sequence_start={1,2,3} 
       "|Initialization|| Sequence of rotations to rotate world frame into frame_a at initial time"
       annotation (Evaluate=true);
     parameter NonSI.Angle_deg angles_start[3]={0,0,0} 
@@ -1184,13 +1184,13 @@ states and of the \"Advanced\" menu parameters, see model
     parameter SI.Velocity v_0_start[3]={0,0,0} 
       "|Initialization|| Initial values of velocity v_0 = der(frame_a.r_0)" 
       annotation (Evaluate=false);
-    parameter MultiBody.Types.AngularVelocity_degs w_0_start[3]={0,0,0} 
+    parameter Modelica.Mechanics.MultiBody.Types.AngularVelocity_degs w_0_start[3]={0,0,0} 
       "|Initialization|| Initial values of angular velocity of frame_a resolved in world frame"
       annotation (Evaluate=false);
     parameter SI.Acceleration a_0_start[3]={0,0,0} 
       "|Initialization|| Initial values of acceleration a_0 = der(v_0)" 
       annotation (Evaluate=false);
-    parameter MultiBody.Types.AngularAcceleration_degs2 z_0_start[3]={0,0,0} 
+    parameter Modelica.Mechanics.MultiBody.Types.AngularAcceleration_degs2 z_0_start[3]={0,0,0} 
       "|Initialization|| Initial values of angular acceleration z_0 = der(w_0)"
       annotation (Evaluate=false);
     parameter Boolean enforceStates=false 
@@ -1305,7 +1305,7 @@ states and of the \"Advanced\" menu parameters, see model
       Diagram);
     
   protected 
-    outer MultiBody.World world;
+    outer Modelica.Mechanics.MultiBody.World world;
   equation 
     
     assert(innerWidth <= width,
@@ -1333,7 +1333,7 @@ states and of the \"Advanced\" menu parameters, see model
       "Vector from frame_a to frame_b, resolved in frame_a";
     parameter SI.Position r_shape[3]={0,0,0} 
       "Vector from frame_a to cylinder origin, resolved in frame_a";
-    parameter MultiBody.Types.Axis lengthDirection=r - r_shape 
+    parameter Modelica.Mechanics.MultiBody.Types.Axis lengthDirection=r - r_shape 
       "Vector in length direction of cylinder, resolved in frame_a" 
       annotation (Evaluate=true);
     parameter SI.Length length=Frames.length(r - r_shape) "Length of cylinder";
@@ -1345,7 +1345,7 @@ states and of the \"Advanced\" menu parameters, see model
       quantity="Density",
       unit="g/cm3") = 7.7 
       "Density of cylinder (e.g., steel: 7.7 .. 7.9, wood : 0.4 .. 0.8)";
-    parameter MultiBody.Types.Color color=MultiBody.Types.Defaults.BodyColor 
+    parameter Modelica.Mechanics.MultiBody.Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.BodyColor 
       "Color of cylinder";
     
     parameter Types.Init.Temp initType=Types.Init.Free 
@@ -1353,7 +1353,7 @@ states and of the \"Advanced\" menu parameters, see model
     parameter SI.Position r_0_start[3]={0,0,0} 
       "|Initialization|| Initial values of frame_a.r_0 (vector from origin of world frame to origin of frame_a resolved in world frame)"
       annotation (Evaluate=false);
-    parameter MultiBody.Types.RotationSequence sequence_start={1,2,3} 
+    parameter Modelica.Mechanics.MultiBody.Types.RotationSequence sequence_start={1,2,3} 
       "|Initialization|| Sequence of rotations to rotate world frame into frame_a at initial time"
       annotation (Evaluate=true);
     parameter NonSI.Angle_deg angles_start[3]={0,0,0} 
@@ -1362,13 +1362,13 @@ states and of the \"Advanced\" menu parameters, see model
     parameter SI.Velocity v_0_start[3]={0,0,0} 
       "|Initialization|| Initial values of velocity v_0 = der(frame_a.r_0)" 
       annotation (Evaluate=false);
-    parameter MultiBody.Types.AngularVelocity_degs w_0_start[3]={0,0,0} 
+    parameter Modelica.Mechanics.MultiBody.Types.AngularVelocity_degs w_0_start[3]={0,0,0} 
       "|Initialization|| Initial values of angular velocity of frame_a resolved in world frame"
       annotation (Evaluate=false);
     parameter SI.Acceleration a_0_start[3]={0,0,0} 
       "|Initialization|| Initial values of acceleration a_0 = der(v_0)" 
       annotation (Evaluate=false);
-    parameter MultiBody.Types.AngularAcceleration_degs2 z_0_start[3]={0,0,0} 
+    parameter Modelica.Mechanics.MultiBody.Types.AngularAcceleration_degs2 z_0_start[3]={0,0,0} 
       "|Initialization|| Initial values of angular acceleration z_0 = der(w_0)"
       annotation (Evaluate=false);
     
@@ -1480,7 +1480,7 @@ states and of the \"Advanced\" menu parameters, see model
       Diagram);
     
   protected 
-    outer MultiBody.World world;
+    outer Modelica.Mechanics.MultiBody.World world;
   equation 
     
     assert(innerDiameter < diameter,
@@ -1495,15 +1495,14 @@ states and of the \"Advanced\" menu parameters, see model
   
   model Mounting1D "Propagate 1D support torque to 3D system" 
     parameter Modelica.SIunits.Angle phi0=0 "Fixed offset angle of housing";
-    parameter MultiBody.Types.Axis n={1,0,0} 
+    parameter Modelica.Mechanics.MultiBody.Types.Axis n={1,0,0} 
       "Axis of rotation = axis of support torque (resolved in frame_a)";
     parameter Boolean enable3D=true "Enable 3D effects of 1D powertrains"
       annotation (Dialog(tab="PowerTrain"));
 
     Modelica.Mechanics.Rotational.Interfaces.Flange_b flange_b 
       "(right) flange fixed in housing" annotation (extent=[110, 10; 90, -10]);
-    MultiBody.Interfaces.Frame_a frame_a(f=zeros(3), t=-n*flange_b.tau) if effectiveEnable3D
-      "Frame in which housing is fixed" 
+    Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a(f=zeros(3), t=-n*flange_b.tau) if effectiveEnable3D "Frame in which housing is fixed" 
       annotation (extent=[-15, -120; 15, -100], rotation=90);
     annotation (
       Icon(
@@ -1562,17 +1561,17 @@ November 3-4, 2003, pp. 149-158</p>
       "= true, if animation shall be enabled (show rotor as cylinder)";
     parameter Modelica.SIunits.Inertia J=1 
       "Moment of inertia of rotor around its axis of rotation";
-    parameter MultiBody.Types.Axis n={1,0,0} 
+    parameter Modelica.Mechanics.MultiBody.Types.Axis n={1,0,0} 
       "Axis of rotation resolved in frame_a";
     parameter Types.Init.Temp initType=Types.Init.Free 
       "|Initialization| Type of initialization (defines usage of start values below)";
     parameter Cv.NonSIunits.Angle_deg phi_start=0 
       "|Initialization| Initial value of rotor rotation angle phi (fixed or guess value)"
       annotation (Evaluate=false);
-    parameter MultiBody.Types.AngularVelocity_degs w_start=0 
+    parameter Modelica.Mechanics.MultiBody.Types.AngularVelocity_degs w_start=0 
       "|Initialization| Initial value of relative angular velocity w = der(phi)"
       annotation (Evaluate=false);
-    parameter MultiBody.Types.AngularAcceleration_degs2 a_start=0 
+    parameter Modelica.Mechanics.MultiBody.Types.AngularAcceleration_degs2 a_start=0 
       "|Initialization| Initial value of relative angular acceleration a = der(w)"
       annotation (Evaluate=false);
     parameter SI.Position r_center[3]=zeros(3) 
@@ -1581,7 +1580,7 @@ November 3-4, 2003, pp. 149-158</p>
       "|Animation|if animation = true| Length of cylinder representing the rotor";
     parameter SI.Distance cylinderDiameter=2*world.defaultJointWidth 
       "|Animation|if animation = true| Diameter of cylinder representing the rotor";
-    parameter MultiBody.Types.Color cylinderColor=Types.Defaults.RodColor 
+    parameter Modelica.Mechanics.MultiBody.Types.Color cylinderColor=Types.Defaults.RodColor 
       "|Animation|if animation = true| Color of cylinder representing the rotor";
     parameter Boolean enforceStates=false 
       "|Advanced|| = true, if rotor angle (phi) and rotor speed (w) shall be used as states";
@@ -1604,7 +1603,7 @@ November 3-4, 2003, pp. 149-158</p>
     Modelica.Mechanics.Rotational.Interfaces.Flange_b flange_b 
       "(right) driven flange (flange axis directed OUT OF cut plane)" 
       annotation (extent=[90, -10; 110, 10]);
-    MultiBody.Interfaces.Frame_a frame_a 
+    Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a 
       annotation (extent=[-15, -120; 15, -100], rotation=90);
     annotation (
       Documentation(info="<html>
@@ -1696,7 +1695,7 @@ November 3-4, 2003, pp. 149-158</p>
         Line(points=[0, -70; 0, -100], style(color=0))));
     
   protected 
-    outer MultiBody.World world;
+    outer Modelica.Mechanics.MultiBody.World world;
     parameter Real e[3]=Frames.normalize(n) 
       "Unit vector in direction of rotor axis, resolved in frame_a";
     parameter SI.Inertia nJ[3]=J*e;
@@ -1742,7 +1741,7 @@ November 3-4, 2003, pp. 149-158</p>
     w = der(phi);
     a = der(w);
     
-    w_a = MultiBody.Frames.angularVelocity2(frame_a.R);
+    w_a = Modelica.Mechanics.MultiBody.Frames.angularVelocity2(frame_a.R);
     if exact then
       J*a = flange_a.tau + flange_b.tau - nJ*der(w_a);
     else
@@ -1757,12 +1756,12 @@ November 3-4, 2003, pp. 149-158</p>
     extends Modelica.Mechanics.Rotational.Interfaces.TwoFlanges;
     
     parameter Real ratio=1 "Gear speed ratio";
-    parameter MultiBody.Types.Axis n_a={1,0,0} 
+    parameter Modelica.Mechanics.MultiBody.Types.Axis n_a={1,0,0} 
       "Axis of rotation of flange_a, resolved in frame_a";
-    parameter MultiBody.Types.Axis n_b={1,0,0} 
+    parameter Modelica.Mechanics.MultiBody.Types.Axis n_b={1,0,0} 
       "Axis of rotation of flange_b, resolved in frame_a";
     
-    MultiBody.Interfaces.Frame_a frame_a "Bearing frame" 
+    Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a "Bearing frame" 
       annotation (extent=[-15, -120; 15, -100], rotation=90);
     
     annotation (Icon(
@@ -1822,9 +1821,9 @@ Modelica Conference</i>. Link&ouml;ping : The Modelica Association and Link&ouml
 November 3-4, 2003, pp. 149-158</p>
 </html>"));
   protected 
-    parameter Real e_a[3]=MultiBody.Frames.normalize(n_a) 
+    parameter Real e_a[3]=Modelica.Mechanics.MultiBody.Frames.normalize(n_a) 
       "Unit vector in direction of flange_a rotation axis";
-    parameter Real e_b[3]=MultiBody.Frames.normalize(n_b) 
+    parameter Real e_b[3]=Modelica.Mechanics.MultiBody.Frames.normalize(n_b) 
       "Unit vector in direction of flange_b rotation axis";
   equation 
     flange_a.phi = ratio*flange_b.phi;

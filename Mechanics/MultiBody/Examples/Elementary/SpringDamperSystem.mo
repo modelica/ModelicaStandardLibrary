@@ -36,11 +36,11 @@ This example demonstrates:
 ALT=\"model Examples.Elementary.SpringDamperSystem\">
 </p>
 </html>"));
-  inner MultiBody.World world annotation (extent=[-80, 20; -60, 40]);
-  MultiBody.Parts.Body body1(
+  inner Modelica.Mechanics.MultiBody.World world annotation (extent=[-80, 20; -60, 40]);
+  Modelica.Mechanics.MultiBody.Parts.Body body1(
     m=1,
     animation=animation,
-    initType=MultiBody.Types.Init.PositionVelocity,
+    initType=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity,
     r_0_start={0.3,-0.2,0},
     r_CM={0,-0.2,0},
     w_0_start={0,0,2},
@@ -49,34 +49,34 @@ ALT=\"model Examples.Elementary.SpringDamperSystem\">
     I_11=0.1,
     I_22=0.1,
     I_33=0.1) annotation (extent=[-10, -60; -30, -40], rotation=-90);
-  MultiBody.Parts.FixedTranslation bar1(animation=animation, r={0.3,0,0}) 
+  Modelica.Mechanics.MultiBody.Parts.FixedTranslation bar1(animation=animation, r={0.3,0,0}) 
     annotation (extent=[-46, 20; -26, 40]);
-  MultiBody.Parts.FixedTranslation bar2(animation=animation, r={0.6,0,0}) 
+  Modelica.Mechanics.MultiBody.Parts.FixedTranslation bar2(animation=animation, r={0.6,0,0}) 
     annotation (extent=[0, 20; 20, 40]);
-  MultiBody.Parts.Body body2(
+  Modelica.Mechanics.MultiBody.Parts.Body body2(
     m=1,
     animation=animation,
     cylinderDiameter=0.05,
     sphereDiameter=0.15) annotation (extent=[60, -60; 40, -40], rotation=-90);
-  MultiBody.Joints.ActuatedPrismatic p2(
-    initType=MultiBody.Types.Init.PositionVelocity,
+  Modelica.Mechanics.MultiBody.Joints.ActuatedPrismatic p2(
+    initType=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity,
     n={0,-1,0},
     s_offset=0.1,
     animation=animation,
     enforceStates=true,
     boxWidth=0.05) annotation (extent=[40, -20; 60, 0], rotation=-90);
-  MultiBody.Forces.Spring spring2(
+  Modelica.Mechanics.MultiBody.Forces.Spring spring2(
     c=30,
     s_unstretched=0.1,
     coilWidth=0.01,
     width=0.1) annotation (extent=[80, -20; 100, 0], rotation=-90);
-  MultiBody.Forces.Spring spring1(
+  Modelica.Mechanics.MultiBody.Forces.Spring spring1(
     s_unstretched=0.1,
     coilWidth=0.01,
     c=30,
     numberOfWindings=10,
     width=0.1) annotation (extent=[-16, -20; 4, 0], rotation=-90);
-  MultiBody.Forces.Damper damper1(d=2) 
+  Modelica.Mechanics.MultiBody.Forces.Damper damper1(d=2) 
     annotation (extent=[-40, -20; -20, 0], rotation=-90);
 equation 
   connect(world.frame_b, bar1.frame_a) 

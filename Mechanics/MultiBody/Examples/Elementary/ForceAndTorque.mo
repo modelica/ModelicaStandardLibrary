@@ -33,11 +33,11 @@ forceAndTorque component):
     annotation (extent=[-8, -30; 12, -10]);
   Forces.ForceAndTorque forceAndTorque(Nm_to_m=120, N_to_m=1200) 
     annotation (extent=[60, 50; 40, 30]);
-  Joints.Revolute revolute2(n={0,1,0}, initType=MultiBody.Types.Init.
+  Joints.Revolute revolute2(n={0,1,0}, initType=Modelica.Mechanics.MultiBody.Types.Init.
         PositionVelocity) annotation (extent=[-30, 10; -10, 30], rotation=90);
   Modelica.Blocks.Sources.Constant Constant[6](k={0,1000,0,-100,100,0}) 
     annotation (extent=[80, 0; 60, -20], rotation=-90);
-  Joints.Revolute revolute1(initType=MultiBody.Types.Init.PositionVelocity) 
+  Joints.Revolute revolute1(initType=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity) 
     annotation (extent=[-60, -10; -40, 10]);
   Parts.Fixed fixed2(width=0.03, r={1.5,0.25,0}) 
     annotation (extent=[100, 30; 80, 50]);

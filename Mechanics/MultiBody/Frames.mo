@@ -206,7 +206,7 @@ The used variables have the following declaration:
 This object describes the <b>rotation</b> from a <b>frame 1</b> into a <b>frame 2</b>.
 An instance of this type should never be directly accessed but 
 only with the access functions provided
-in package MultiBody.Frames. As a consequence, it is not necessary to know
+in package Modelica.Mechanics.MultiBody.Frames. As a consequence, it is not necessary to know
 the internal representation of this object as described in the next paragraphs.
 </p>
 <p>

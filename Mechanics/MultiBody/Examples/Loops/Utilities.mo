@@ -18,12 +18,12 @@ package Utilities "Utility models for Examples.Loops"
     parameter SI.Length cylinderLength=cylinderTopPosition - (pistonLength +
         rodLength - crankPinOffset) "Maximum length of cylinder volume";
     
-    MultiBody.Parts.BodyCylinder Piston(
+    Modelica.Mechanics.MultiBody.Parts.BodyCylinder Piston(
       diameter=0.1,
       r={0,pistonLength,0},
       color={180,180,180},
       animation=animation) annotation (extent=[45, 80; -16, 59], rotation=270);
-    MultiBody.Parts.BodyBox Rod(
+    Modelica.Mechanics.MultiBody.Parts.BodyBox Rod(
       widthDirection={1,0,0},
       height=0.06,
       color={0,0,200},
@@ -31,78 +31,78 @@ package Utilities "Utility models for Examples.Loops"
       r_shape={0,-0.02,0},
       r={0,rodLength,0},
       animation=animation) annotation (extent=[4, -2; 24, 18], rotation=90);
-    MultiBody.Joints.Revolute B2(
+    Modelica.Mechanics.MultiBody.Joints.Revolute B2(
       n={1,0,0},
       phi_start=0,
       cylinderLength=0.02,
       animation=animation,
       cylinderDiameter=0.055) annotation (extent=[4, 25; 24, 45], rotation=0);
-    MultiBody.Parts.BodyBox Crank4(
+    Modelica.Mechanics.MultiBody.Parts.BodyBox Crank4(
       height=0.05,
       widthDirection={1,0,0},
       width=0.02,
       r={0,-crankPinOffset,0},
       animation=animation) 
       annotation (extent=[30.5, -64; 50.5, -84], rotation=90);
-    MultiBody.Parts.BodyCylinder Crank3(
+    Modelica.Mechanics.MultiBody.Parts.BodyCylinder Crank3(
       r_shape={-0.01,0,0},
       length=0.12,
       diameter=0.03,
       r={crankPinLength,0,0},
       color={180,180,180},
       animation=animation) annotation (extent=[4.5, -60; 24.5, -40], rotation=0);
-    MultiBody.Parts.BodyCylinder Crank1(
+    Modelica.Mechanics.MultiBody.Parts.BodyCylinder Crank1(
       diameter=0.05,
       r_shape={-0.01,0,0},
       length=0.12,
       r={crankLength - crankPinLength,0,0},
       color={180,180,180},
       animation=animation) annotation (extent=[-50, -100; -30, -80], rotation=0);
-    MultiBody.Parts.BodyBox Crank2(
+    Modelica.Mechanics.MultiBody.Parts.BodyBox Crank2(
       height=0.05,
       widthDirection={1,0,0},
       width=0.02,
       r={0,crankPinOffset,0},
       animation=animation) annotation (extent=[-20, -86; 0, -66], rotation=90);
-    MultiBody.Joints.Revolute B1(
+    Modelica.Mechanics.MultiBody.Joints.Revolute B1(
       n={1,0,0},
       planarCutJoint=true,
       cylinderLength=0.02,
       animation=animation,
       cylinderDiameter=0.055) annotation (extent=[4, -27; 24, -7], rotation=0);
-    MultiBody.Parts.FixedTranslation Mid(r={crankPinLength/2,0,0}, animation=
+    Modelica.Mechanics.MultiBody.Parts.FixedTranslation Mid(r={crankPinLength/2,0,0}, animation=
           false) annotation (extent=[-6, -46; 14, -26]);
-    MultiBody.Joints.ActuatedPrismatic Cylinder(
+    Modelica.Mechanics.MultiBody.Joints.ActuatedPrismatic Cylinder(
       s_start=-0.3,
       n={0,-1,0},
       boxWidth=0.02) annotation (extent=[4, 89; 24, 109], rotation=-90);
-    MultiBody.Interfaces.Frame_a crank_a 
+    Modelica.Mechanics.MultiBody.Interfaces.Frame_a crank_a 
       annotation (extent=[-120, -105; -100, -75]);
-    MultiBody.Interfaces.Frame_b crank_b 
+    Modelica.Mechanics.MultiBody.Interfaces.Frame_b crank_b 
       annotation (extent=[100, -105; 120, -75]);
-    MultiBody.Interfaces.Frame_a cylinder_a 
+    Modelica.Mechanics.MultiBody.Interfaces.Frame_a cylinder_a 
       annotation (extent=[-120, 115; -100, 145]);
-    MultiBody.Interfaces.Frame_b cylinder_b 
+    Modelica.Mechanics.MultiBody.Interfaces.Frame_b cylinder_b 
       annotation (extent=[100, 115; 120, 145]);
-    MultiBody.Parts.FixedTranslation Mounting(r={crankLength,0,0}, animation=
+    Modelica.Mechanics.MultiBody.Parts.FixedTranslation Mounting(r={crankLength,0,0}, animation=
           false) annotation (extent=[0, 120; 20, 140]);
-    MultiBody.Parts.FixedRotation CylinderInclination(
+    Modelica.Mechanics.MultiBody.Parts.FixedRotation CylinderInclination(
       r={crankLength - crankPinLength/2,0,0},
       n_y={0,cos(cylinderInclination),sin(cylinderInclination)},
       animation=false,
-      rotationType=MultiBody.Types.RotationTypes.TwoAxesVectors) 
+      rotationType=Modelica.Mechanics.MultiBody.Types.RotationTypes.TwoAxesVectors) 
       annotation (extent=[-60, 30; -40, 50]);
-    MultiBody.Parts.FixedRotation CrankAngle1(
+    Modelica.Mechanics.MultiBody.Parts.FixedRotation CrankAngle1(
       n_y={0,cos(crankAngleOffset),sin(crankAngleOffset)},
       animation=false,
-      rotationType=MultiBody.Types.RotationTypes.TwoAxesVectors) 
+      rotationType=Modelica.Mechanics.MultiBody.Types.RotationTypes.TwoAxesVectors) 
       annotation (extent=[-90, -100; -70, -80]);
-    MultiBody.Parts.FixedRotation CrankAngle2(
+    Modelica.Mechanics.MultiBody.Parts.FixedRotation CrankAngle2(
       n_y={0,cos(-crankAngleOffset),sin(-crankAngleOffset)},
       animation=false,
-      rotationType=MultiBody.Types.RotationTypes.TwoAxesVectors) 
+      rotationType=Modelica.Mechanics.MultiBody.Types.RotationTypes.TwoAxesVectors) 
       annotation (extent=[60, -100; 80, -80]);
-    MultiBody.Parts.FixedTranslation CylinderTop(r={0,cylinderTopPosition,0},
+    Modelica.Mechanics.MultiBody.Parts.FixedTranslation CylinderTop(r={0,cylinderTopPosition,0},
         animation=false) annotation (extent=[-40, 61; -20, 81], rotation=90);
     GasForce gasForce(L=cylinderLength, d=0.1) 
       annotation (extent=[40, 97; 60, 117], rotation=90);
@@ -279,28 +279,28 @@ package Utilities "Utility models for Examples.Loops"
         pistonLength + rodLength - crankPinOffset) 
       "Maximum length of cylinder volume";
     
-    MultiBody.Parts.FixedTranslation Mid(animation=false, r={crankLength -
+    Modelica.Mechanics.MultiBody.Parts.FixedTranslation Mid(animation=false, r={crankLength -
           crankPinLength/2,crankPinOffset,0}) 
       annotation (extent=[-44, -30; -24, -10]);
-    MultiBody.Interfaces.Frame_a crank_a 
+    Modelica.Mechanics.MultiBody.Interfaces.Frame_a crank_a 
       annotation (extent=[-120, -115; -100, -85]);
-    MultiBody.Interfaces.Frame_b crank_b 
+    Modelica.Mechanics.MultiBody.Interfaces.Frame_b crank_b 
       annotation (extent=[100, -115; 120, -85]);
-    MultiBody.Interfaces.Frame_a cylinder_a 
+    Modelica.Mechanics.MultiBody.Interfaces.Frame_a cylinder_a 
       annotation (extent=[-120, 84; -100, 114]);
-    MultiBody.Interfaces.Frame_b cylinder_b 
+    Modelica.Mechanics.MultiBody.Interfaces.Frame_b cylinder_b 
       annotation (extent=[100, 84; 120, 114]);
-    MultiBody.Parts.FixedTranslation Mounting(r={crankLength,0,0}, animation=
+    Modelica.Mechanics.MultiBody.Parts.FixedTranslation Mounting(r={crankLength,0,0}, animation=
           false) annotation (extent=[-3, 90; 17, 110]);
-    MultiBody.Parts.FixedRotation CylinderInclination(
+    Modelica.Mechanics.MultiBody.Parts.FixedRotation CylinderInclination(
       r={crankLength - crankPinLength/2,0,0},
       animation=false,
-      rotationType=MultiBody.Types.RotationTypes.RotationAxis,
+      rotationType=Modelica.Mechanics.MultiBody.Types.RotationTypes.RotationAxis,
       n={1,0,0},
       angle=cylinderInclination) annotation (extent=[-44, 30; -24, 50]);
-    MultiBody.Parts.FixedRotation CrankAngle(
+    Modelica.Mechanics.MultiBody.Parts.FixedRotation CrankAngle(
       animation=false,
-      rotationType=MultiBody.Types.RotationTypes.RotationAxis,
+      rotationType=Modelica.Mechanics.MultiBody.Types.RotationTypes.RotationAxis,
       n={1,0,0},
       angle=crankAngleOffset) annotation (extent=[-84, -80; -64, -60]);
     Joints.Assemblies.JointRRP jointRRP(
@@ -311,7 +311,7 @@ package Utilities "Utility models for Examples.Loops"
       rRod2_ib=-{0,pistonLength,0},
       s_offset=-cylinderTopPosition) 
       annotation (extent=[20, -8; -20, 32], rotation=90);
-    MultiBody.Parts.BodyShape Rod(
+    Modelica.Mechanics.MultiBody.Parts.BodyShape Rod(
       animation=animation,
       r={0,rodLength,0},
       r_CM={0,rodLength/2,0},
@@ -329,7 +329,7 @@ package Utilities "Utility models for Examples.Loops"
       I_11=rodInertia_11,
       I_22=rodInertia_22,
       I_33=rodInertia_33) annotation (extent=[39, -1; 59, 19], rotation=90);
-    MultiBody.Parts.BodyShape Piston(
+    Modelica.Mechanics.MultiBody.Parts.BodyShape Piston(
       animation=animation,
       r={0,pistonLength,0},
       r_CM={0,pistonLength/2,0},
@@ -369,7 +369,7 @@ package Utilities "Utility models for Examples.Loops"
         Text(extent=[-156, 178; 158, 116], string="%name"),
         Line(points=[-100, -99; 100, -100], style(color=0, thickness=2))));
     
-    MultiBody.Parts.FixedTranslation Crank(animation=false, r={crankLength,0,0}) 
+    Modelica.Mechanics.MultiBody.Parts.FixedTranslation Crank(animation=false, r={crankLength,0,0}) 
       annotation (extent=[-10, -110; 10, -90]);
   equation 
     
@@ -429,9 +429,9 @@ package Utilities "Utility models for Examples.Loops"
       "Cylinder type";
     /*
 annotation (choices(choice(redeclare model Cylinder = 
-            MultiBody.Examples.Loops.Utilities.Cylinder_analytic_CAD 
+            Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Cylinder_analytic_CAD 
           "Analytic loop handling + CAD animation"), choice(redeclare model 
-          Cylinder = MultiBody.Examples.Loops.Utilities.Cylinder_analytic 
+          Cylinder = Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Cylinder_analytic 
           "Analytic loop handling + standard animation")));
 */
     

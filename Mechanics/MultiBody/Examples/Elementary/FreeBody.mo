@@ -37,16 +37,16 @@ This example demonstrates:
 ALT=\"model Examples.Elementary.FreeBody\">
 </p>
 </html>"));
-  inner MultiBody.World world annotation (extent=[-60, 20; -40, 40]);
-  MultiBody.Parts.FixedTranslation bar2(r={0.8,0,0}, animation=false) 
+  inner Modelica.Mechanics.MultiBody.World world annotation (extent=[-60, 20; -40, 40]);
+  Modelica.Mechanics.MultiBody.Parts.FixedTranslation bar2(r={0.8,0,0}, animation=false) 
     annotation (extent=[0, 20; 20, 40]);
-  MultiBody.Forces.Spring spring1(
+  Modelica.Mechanics.MultiBody.Forces.Spring spring1(
     width=0.1,
     coilWidth=0.005,
     numberOfWindings=5,
     c=20,
     s_unstretched=0) annotation (extent=[-34, -4; -14, 16], rotation=-90);
-  MultiBody.Parts.BodyShape body(
+  Modelica.Mechanics.MultiBody.Parts.BodyShape body(
     m=1,
     I_11=1,
     I_22=1,
@@ -56,9 +56,9 @@ ALT=\"model Examples.Elementary.FreeBody\">
     r_0_start={0.2,-0.5,0.1},
     angles_start={10,10,10},
     width=0.05,
-    initType=MultiBody.Types.Init.PositionVelocity) 
+    initType=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity) 
     annotation (extent=[0, -40; 20, -20]);
-  MultiBody.Forces.Spring spring2(
+  Modelica.Mechanics.MultiBody.Forces.Spring spring2(
     c=20,
     s_unstretched=0,
     width=0.1,

@@ -53,7 +53,7 @@ respectively.
   
   model FixedShape "Fixed animation shape of a part" 
     import SI = Modelica.SIunits;
-    extends MultiBody.Interfaces.PartialVisualizer;
+    extends Modelica.Mechanics.MultiBody.Interfaces.PartialVisualizer;
     
     annotation (
       preferedView="info",
@@ -157,20 +157,20 @@ definition of the colors used in the MultiBody library
       Diagram);
     
     parameter Boolean animation=true "= true, if animation shall be enabled";
-    parameter MultiBody.Types.ShapeType shapeType="box" 
+    parameter Modelica.Mechanics.MultiBody.Types.ShapeType shapeType="box" 
       "|if animation = true| Type of shape";
     parameter SI.Position r_shape[3]={0,0,0} 
       "|if animation = true| Vector from frame_a to shape origin, resolved in frame_a.";
-    parameter MultiBody.Types.Axis lengthDirection={1,0,0} 
+    parameter Modelica.Mechanics.MultiBody.Types.Axis lengthDirection={1,0,0} 
       "|if animation = true| Vector in length direction of shape, resolved in frame_a"
       annotation (Evaluate=true);
-    parameter MultiBody.Types.Axis widthDirection={0,1,0} 
+    parameter Modelica.Mechanics.MultiBody.Types.Axis widthDirection={0,1,0} 
       "|if animation = true| Vector in width direction of shape, resolved in frame_a"
       annotation (Evaluate=true);
     parameter SI.Distance length=1 "|if animation = true| Length of shape";
     parameter SI.Distance width=0.1 "|if animation = true| Width of shape";
     parameter SI.Distance height=0.1 "|if animation = true| Height of shape";
-    parameter MultiBody.Types.Color color={0,128,255} 
+    parameter Modelica.Mechanics.MultiBody.Types.Color color={0,128,255} 
       "|if animation = true| Color of shape.";
     parameter Real extra=0.0 
       "|if animation = true| Additional parameter for cylinder, cone, pipe, gearwheel and spring (see docu)";
@@ -205,14 +205,14 @@ definition of the colors used in the MultiBody library
     parameter Boolean animation=true "= true, if animation shall be enabled";
     parameter SI.Position r[3]={1,0,0} 
       "Vector from frame_a to frame_b resolved in frame_a";
-    parameter MultiBody.Types.ShapeType shapeType="box" 
+    parameter Modelica.Mechanics.MultiBody.Types.ShapeType shapeType="box" 
       "|if animation = true| Type of shape";
     parameter SI.Position r_shape[3]={0,0,0} 
       "|if animation = true| Vector from frame_a to shape origin, resolved in frame_a";
-    parameter MultiBody.Types.Axis lengthDirection=r - r_shape 
+    parameter Modelica.Mechanics.MultiBody.Types.Axis lengthDirection=r - r_shape 
       "|if animation = true| Vector in length direction of shape, resolved in frame_a"
       annotation (Evaluate=true);
-    parameter MultiBody.Types.Axis widthDirection={0,1,0} 
+    parameter Modelica.Mechanics.MultiBody.Types.Axis widthDirection={0,1,0} 
       "|if animation = true| Vector in width direction of shape, resolved in frame_a"
       annotation (Evaluate=true);
     parameter SI.Length length=Frames.length(r - r_shape) 
@@ -221,7 +221,7 @@ definition of the colors used in the MultiBody library
     parameter SI.Distance height=width "|if animation = true| Height of shape.";
     parameter Real extra=0.0 
       "|if animation = true| Additional parameter for cylinder, cone, pipe, gearwheel and spring (see docu)";
-    parameter MultiBody.Types.Color color={0,128,255} 
+    parameter Modelica.Mechanics.MultiBody.Types.Color color={0,128,255} 
       "|if animation = true| Color of shape";
     annotation (
       preferedView="info",
@@ -345,7 +345,7 @@ vector <b>r</b>.
 </HTML>
 "));
   protected 
-    outer MultiBody.World world;
+    outer Modelica.Mechanics.MultiBody.World world;
     parameter Integer ndim=if world.enableAnimation and animation then 1 else 0;
     Visualizers.Advanced.Shape shape[ndim](
       each shapeType=shapeType,
@@ -375,7 +375,7 @@ MultiBody.Visualizers.FixedShape2 object is connected");
   model FixedFrame "Visualizing a coordinate system including axes labels" 
     
     import SI = Modelica.SIunits;
-    extends MultiBody.Interfaces.PartialVisualizer;
+    extends Modelica.Mechanics.MultiBody.Interfaces.PartialVisualizer;
     parameter Boolean animation=true "= true, if animation shall be enabled";
     parameter Boolean showLabels=true 
       "|if animation = true| = true, if labels shall be shown";
@@ -383,11 +383,11 @@ MultiBody.Visualizers.FixedShape2 object is connected");
       "|if animation = true| Length of axes arrows";
     parameter SI.Distance diameter=length/world.defaultFrameDiameterFraction 
       "|if animation = true| Diameter of axes arrows";
-    parameter MultiBody.Types.Color color_x=MultiBody.Types.Defaults.FrameColor 
+    parameter Modelica.Mechanics.MultiBody.Types.Color color_x=Modelica.Mechanics.MultiBody.Types.Defaults.FrameColor 
       "|if animation = true| Color of x-arrow";
-    parameter MultiBody.Types.Color color_y=color_x 
+    parameter Modelica.Mechanics.MultiBody.Types.Color color_y=color_x 
       "|if animation = true| Color of y-arrow";
-    parameter MultiBody.Types.Color color_z=color_x 
+    parameter Modelica.Mechanics.MultiBody.Types.Color color_z=color_x 
       "|if animation = true| Color of z-arrow";
     
   protected 
@@ -567,17 +567,17 @@ can be set by parameters.
   model FixedArrow "Visualizing an arrow with constant size in frame_a" 
     
     import SI = Modelica.SIunits;
-    extends MultiBody.Interfaces.PartialVisualizer;
+    extends Modelica.Mechanics.MultiBody.Interfaces.PartialVisualizer;
     parameter Boolean animation=true "= true, if animation shall be enabled";
     parameter SI.Position r_tail[3]={0,0,0} 
       "|if animation = true| Vector from frame_a to arrow tail, resolved in frame_a";
-    parameter MultiBody.Types.Axis n={1,0,0} 
+    parameter Modelica.Mechanics.MultiBody.Types.Axis n={1,0,0} 
       "|if animation = true| Vector in arrow direction, resolved in frame_a";
     parameter SI.Length length=0.1 
       "|if animation = true| Length of complete arrow";
     parameter SI.Diameter diameter=world.defaultArrowDiameter 
       "|if animation = true| Diameter of arrow line";
-    parameter MultiBody.Types.Color color={0,0,255} 
+    parameter Modelica.Mechanics.MultiBody.Types.Color color={0,0,255} 
       "|if animation = true| Color of arrow";
   protected 
     parameter Integer ndim=if world.enableAnimation and animation then 1 else 0;
@@ -645,13 +645,13 @@ If the length of the arrow shall be dynamic, use model
     "Visualizing an arrow with dynamic size in frame_a based on input signal" 
     
     import SI = Modelica.SIunits;
-    extends MultiBody.Interfaces.PartialVisualizer;
+    extends Modelica.Mechanics.MultiBody.Interfaces.PartialVisualizer;
     parameter Boolean animation=true "= true, if animation shall be enabled";
     parameter SI.Position r_tail[3]={0,0,0} 
       "|if animation = true| Vector from frame_a to arrow tail, resolved in frame_a";
     parameter SI.Diameter diameter=world.defaultArrowDiameter 
       "|if animation = true| Diameter of arrow line";
-    parameter MultiBody.Types.Color color={0,0,255} 
+    parameter Modelica.Mechanics.MultiBody.Types.Color color={0,0,255} 
       "|if animation = true| Color of arrow";
     Modelica.Blocks.Interfaces.RealInput r_head[3](redeclare each type 
         SignalType = SI.Position) 
@@ -734,7 +734,7 @@ since they all have frame connectors).
       
       import SI = Modelica.SIunits;
       
-      input Frames.Orientation R=MultiBody.Frames.nullRotation() 
+      input Frames.Orientation R=Modelica.Mechanics.MultiBody.Frames.nullRotation() 
         "Orientation object to rotate the world frame into the arrow frame.";
       input SI.Position r[3]={0,0,0} 
         "Position vector from origin of world frame to origin of arrow frame, resolved in world frame";
@@ -744,12 +744,12 @@ since they all have frame connectors).
         "Position vector from arrow tail to the head of the arrow, resolved in arrow frame";
       input SI.Diameter diameter=world.defaultArrowDiameter 
         "Diameter of arrow line";
-      input MultiBody.Types.Color color=MultiBody.Types.Defaults.ArrowColor 
+      input Modelica.Mechanics.MultiBody.Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.ArrowColor 
         "Color of arrow";
       input Real specularCoefficient(min=0) = 0.7 
         "Material property describing the reflecting of ambient light (= 0 means, that light is completely absorbed)";
     protected 
-      outer MultiBody.World world;
+      outer Modelica.Mechanics.MultiBody.World world;
       SI.Length length=Frames.length(r_head) "Length of arrow";
       Visualizers.Advanced.Shape arrowLine(
         length=noEvent(max(0, length - diameter*Types.Defaults.
@@ -856,7 +856,7 @@ library (will be replaced by a color editor).
       "Visualizing a double arrow with variable size; all data have to be set as modifiers (see info layer)" 
       
       import SI = Modelica.SIunits;
-      input Frames.Orientation R=MultiBody.Frames.nullRotation() 
+      input Frames.Orientation R=Modelica.Mechanics.MultiBody.Frames.nullRotation() 
         "Orientation object to rotate the world frame into the arrow frame.";
       input SI.Position r[3]={0,0,0} 
         "Position vector from origin of world frame to origin of arrow frame, resolved in world frame";
@@ -866,12 +866,12 @@ library (will be replaced by a color editor).
         "Position vector from double arrow tail to the head of the double arrow, resolved in arrow frame";
       input SI.Diameter diameter=world.defaultArrowDiameter 
         "Diameter of arrow line";
-      input MultiBody.Types.Color color=MultiBody.Types.Defaults.ArrowColor 
+      input Modelica.Mechanics.MultiBody.Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.ArrowColor 
         "Color of double arrow";
       input Real specularCoefficient(min=0) = 0.7 
         "Material property describing the reflecting of ambient light (= 0 means, that light is completely absorbed)";
     protected 
-      outer MultiBody.World world;
+      outer Modelica.Mechanics.MultiBody.World world;
       SI.Length length=Frames.length(r_head) "Length of arrow";
       SI.Length headLength=noEvent(max(0, min(length, diameter*MultiBody.Types.
           Defaults.ArrowHeadLengthFraction)));
@@ -994,7 +994,7 @@ library (will be replaced by a color editor).
       import SI = Modelica.SIunits;
       parameter String shapeType="box" 
         "Type of shape (box, sphere, cylinder, pipecylinder, cone, pipe, beam, gearwheel, spring)";
-      input Frames.Orientation R=MultiBody.Frames.nullRotation() 
+      input Frames.Orientation R=Modelica.Mechanics.MultiBody.Frames.nullRotation() 
         "Orientation object to rotate the world frame into the object frame.";
       input SI.Position r[3]={0,0,0} 
         "Position vector from origin of world frame to origin of object frame, resolved in world frame";
@@ -1227,7 +1227,7 @@ library (will be replaced by a color editor).
       
       import SI = Modelica.SIunits;
       import Modelica.Mechanics.MultiBody;
-      extends MultiBody.Interfaces.PartialVisualizer;
+      extends Modelica.Mechanics.MultiBody.Interfaces.PartialVisualizer;
       
       parameter Boolean animation=true "= true, if animation shall be enabled";
       parameter Real scale(min=0) = 1 
@@ -1244,7 +1244,7 @@ library (will be replaced by a color editor).
       parameter Real n_y[3]={0,1,0} 
         "|if animation = true| Vector in direction of y-axis of 'lines' frame, resolved in frame_a.";
       
-      parameter MultiBody.Types.Color color={0,128,255} 
+      parameter Modelica.Mechanics.MultiBody.Types.Color color={0,128,255} 
         "|if animation = true| Color of cylinders";
       annotation(structurallyIncomplete,
         preferedView="info",
@@ -1309,7 +1309,7 @@ and are defined by parameters.
       import SI = Modelica.SIunits;
       import Modelica.Mechanics.MultiBody;
       import T = Modelica.Mechanics.MultiBody.Frames.TransformationMatrices;
-      input MultiBody.Frames.Orientation R=MultiBody.Frames.nullRotation() 
+      input Modelica.Mechanics.MultiBody.Frames.Orientation R=Modelica.Mechanics.MultiBody.Frames.nullRotation() 
         "Orientation object to rotate the world frame into the object frame.";
       input SI.Position r[3]={0,0,0} 
         "Position vector from origin of world frame to origin of object frame, resolved in world frame";
@@ -1323,7 +1323,7 @@ and are defined by parameters.
         "List of start and end points of cylinders resolved in an x-y frame defined by n_x, n_y, e.g., {[0,0;1,1], [0,1;1,0], [2,0; 3,1]}";
       input SI.Length diameter(min=0) = 0.05 
         "Diameter of the cylinders defined by lines";
-      input MultiBody.Types.Color color={0,128,255} "Color of cylinders";
+      input Modelica.Mechanics.MultiBody.Types.Color color={0,128,255} "Color of cylinders";
       input Real specularCoefficient(min=0) = 0 
         "Material property describing the reflecting of ambient light (= 0 means, that light is completely absorbed)";
     protected 
@@ -1331,7 +1331,7 @@ and are defined by parameters.
       T.Orientation R_rel=T.from_nxy(n_x, n_y);
       T.Orientation R_lines=T.absoluteRotation(R.T, R_rel);
       Real r_abs[3]=r + T.resolve1(R.T, r_lines);
-      MultiBody.Visualizers.Advanced.Shape cylinders[n](
+      Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape cylinders[n](
         each shapeType="cylinder",
         lengthDirection={T.resolve1(R_rel, vector([lines[i, 2, :] - lines[i, 1,
              :]; 0])) for i in 1:n},

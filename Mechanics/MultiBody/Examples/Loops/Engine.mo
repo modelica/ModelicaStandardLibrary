@@ -1,9 +1,6 @@
-encapsulated model Engine "Model of one cylinder engine" 
-  import Modelica.Icons;
-  import Modelica.Mechanics.Rotational;
-  import Modelica.Mechanics.MultiBody;
+model Engine "Model of one cylinder engine" 
   import SI = Modelica.SIunits;
-  extends Icons.Example;
+  extends Modelica.Icons.Example;
   annotation (
     experiment(StopTime=5),
     Diagram,
@@ -38,58 +35,58 @@ An animation of this example is shown in the figure below.
 <IMG SRC=\"../Images/MultiBody/Examples/Loops/Engine.png\" ALT=\"model Examples.Loops.Engine\">
 </p>
 </html>"));
-  MultiBody.Parts.BodyCylinder Piston(diameter=0.1, r={0,-0.1,0}) 
+  Modelica.Mechanics.MultiBody.Parts.BodyCylinder Piston(diameter=0.1, r={0,-0.1,0}) 
     annotation (extent=[121, 56; 60, 77], rotation=270);
-  MultiBody.Parts.BodyBox Rod(
+  Modelica.Mechanics.MultiBody.Parts.BodyBox Rod(
     widthDirection={1,0,0},
     width=0.02,
     height=0.06,
     r={0,-0.2,0},
     color={0,0,200}) annotation (extent=[80, 15; 100, -5], rotation=90);
-  MultiBody.Joints.Revolute B2(
+  Modelica.Mechanics.MultiBody.Joints.Revolute B2(
     n={1,0,0},
     cylinderLength=0.02,
     cylinderDiameter=0.05) annotation (extent=[80, 22; 100, 42], rotation=0);
-  MultiBody.Joints.ActuatedRevolute Bearing(
+  Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute Bearing(
     n={1,0,0},
     cylinderLength=0.02,
     cylinderDiameter=0.05) annotation (extent=[-10, -80; 10, -100], rotation=0);
-  inner MultiBody.World world annotation (extent=[-50, -100; -30, -80]);
-  Rotational.Inertia Inertia(phi(
+  inner Modelica.Mechanics.MultiBody.World world annotation (extent=[-50, -100; -30, -80]);
+  Modelica.Mechanics.Rotational.Inertia Inertia(phi(
       fixed=true,
       start=0,
       stateSelect=StateSelect.always), w(
       fixed=true,
       start=10,
       stateSelect=StateSelect.always)) annotation (extent=[-28, -120; -8, -100]);
-  MultiBody.Parts.BodyBox Crank4(
+  Modelica.Mechanics.MultiBody.Parts.BodyBox Crank4(
     height=0.05,
     widthDirection={1,0,0},
     width=0.02,
     r={0,-0.1,0}) annotation (extent=[105.5, -65; 125.5, -85], rotation=90);
-  MultiBody.Parts.BodyCylinder Crank3(r={0.1,0,0}, diameter=0.03) annotation (
+  Modelica.Mechanics.MultiBody.Parts.BodyCylinder Crank3(r={0.1,0,0}, diameter=0.03) annotation (
     extent=[81.5, -71; 101.5, -51],
     rotation=0,
     style(color=0, thickness=2));
-  MultiBody.Parts.BodyCylinder Crank1(diameter=0.05, r={0.1,0,0}) 
+  Modelica.Mechanics.MultiBody.Parts.BodyCylinder Crank1(diameter=0.05, r={0.1,0,0}) 
     annotation (extent=[24, -100; 44, -80], rotation=0);
-  MultiBody.Parts.BodyBox Crank2(
+  Modelica.Mechanics.MultiBody.Parts.BodyBox Crank2(
     r={0,0.1,0},
     height=0.05,
     widthDirection={1,0,0},
     width=0.02) annotation (extent=[60, -86; 80, -66], rotation=90);
-  MultiBody.Joints.Revolute B1(
+  Modelica.Mechanics.MultiBody.Joints.Revolute B1(
     n={1,0,0},
     cylinderLength=0.02,
     cylinderDiameter=0.05,
     planarCutJoint=true) annotation (extent=[80, -30; 100, -10], rotation=0);
-  MultiBody.Parts.FixedTranslation Mid(r={0.05,0,0}) 
+  Modelica.Mechanics.MultiBody.Parts.FixedTranslation Mid(r={0.05,0,0}) 
     annotation (extent=[70, -53; 90, -33]);
-  MultiBody.Joints.Prismatic Cylinder(
+  Modelica.Mechanics.MultiBody.Joints.Prismatic Cylinder(
     n={0,1,0},
     s_start=-0.25,
     boxWidth=0.02) annotation (extent=[80, 86; 100, 106], rotation=-90);
-  MultiBody.Parts.FixedTranslation cylPosition(r={0.15,0.55,0}, animation=false) 
+  Modelica.Mechanics.MultiBody.Parts.FixedTranslation cylPosition(r={0.15,0.55,0}, animation=false) 
     annotation (extent=[-0.5, 100; 19.5, 120]);
 equation 
   connect(world.frame_b, Bearing.frame_a) 

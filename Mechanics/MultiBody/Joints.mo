@@ -373,10 +373,10 @@ vector \"n\" defining the translation axis
     "Cylindrical joint (2 degrees-of-freedom, 4 potential states)" 
     import SI = Modelica.SIunits;
     import NonSI = Modelica.SIunits.Conversions.NonSIunits;
-    extends MultiBody.Interfaces.PartialTwoFrames;
+    extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
     parameter Boolean animation=true 
       "= true, if animation shall be enabled (show cylinder)";
-    parameter MultiBody.Types.Axis n={1,0,0} 
+    parameter Modelica.Mechanics.MultiBody.Types.Axis n={1,0,0} 
       "Cylinder axis resolved in frame_a (= same as in frame_b)" 
       annotation (Evaluate=true);
     parameter Types.Init.Temp initType=Types.Init.Free 
@@ -387,7 +387,7 @@ vector \"n\" defining the translation axis
     parameter SI.Position s_start=0 
       "|Initialization| Initial value of relative distance (fixed or guess value)"
       annotation (Evaluate=false);
-    parameter MultiBody.Types.AngularVelocity_degs w_start=0 
+    parameter Modelica.Mechanics.MultiBody.Types.AngularVelocity_degs w_start=0 
       "|Initialization| Initial value of relative angular velocity w = der(phi)"
       annotation (Evaluate=false);
     parameter SI.Velocity v_start=0 
@@ -396,12 +396,12 @@ vector \"n\" defining the translation axis
     parameter SI.Acceleration a_start=0 
       "|Initialization| Initial value of relative acceleration a = der(v)" 
       annotation (Evaluate=false);
-    parameter MultiBody.Types.AngularAcceleration_degs2 wd_start=0 
+    parameter Modelica.Mechanics.MultiBody.Types.AngularAcceleration_degs2 wd_start=0 
       "|Initialization| Initial value of relative angular acceleration wd = der(w)"
       annotation (Evaluate=false);
     parameter SI.Distance cylinderDiameter=world.defaultJointWidth 
       "|Animation|if animation = true| Diameter of cylinder";
-    parameter MultiBody.Types.Color cylinderColor=Types.Defaults.JointColor 
+    parameter Modelica.Mechanics.MultiBody.Types.Color cylinderColor=Types.Defaults.JointColor 
       "|Animation|if animation = true| Color of cylinder";
     parameter Boolean enforceStates=false 
       "|Advanced|| = true, if generalized variables shall be used as states";
@@ -507,11 +507,11 @@ vector \"n\" defining the cylinder axis
   model Universal "Universal joint (2 degrees-of-freedom, 4 potential states)" 
     import SI = Modelica.SIunits;
     import NonSI = Modelica.SIunits.Conversions.NonSIunits;
-    extends MultiBody.Interfaces.PartialTwoFrames;
+    extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
     parameter Boolean animation=true "= true, if animation shall be enabled";
-    parameter MultiBody.Types.Axis n_a={1,0,0} 
+    parameter Modelica.Mechanics.MultiBody.Types.Axis n_a={1,0,0} 
       "Axis of revolute joint 1 resolved in frame_a" annotation (Evaluate=true);
-    parameter MultiBody.Types.Axis n_b={0,1,0} 
+    parameter Modelica.Mechanics.MultiBody.Types.Axis n_b={0,1,0} 
       "Axis of revolute joint 2 resolved in frame_b" annotation (Evaluate=true);
     
     parameter Types.Init.Temp initType=Types.Init.Free 
@@ -520,24 +520,24 @@ vector \"n\" defining the cylinder axis
       "|Initialization| Initial value of rotation angle at frame_a (fixed or guess value)";
     parameter NonSI.Angle_deg phi_start_b=0 
       "|Initialization| Initial value of rotation angle at frame_b (fixed or guess value)";
-    parameter MultiBody.Types.AngularVelocity_degs w_start_a=0 
+    parameter Modelica.Mechanics.MultiBody.Types.AngularVelocity_degs w_start_a=0 
       "|Initialization| Initial value of derivative of rotation angle at frame_a";
-    parameter MultiBody.Types.AngularVelocity_degs w_start_b=0 
+    parameter Modelica.Mechanics.MultiBody.Types.AngularVelocity_degs w_start_b=0 
       "|Initialization| Initial value of derivative of rotation angle at frame_b";
-    parameter MultiBody.Types.AngularAcceleration_degs2 a_start_a=0 
+    parameter Modelica.Mechanics.MultiBody.Types.AngularAcceleration_degs2 a_start_a=0 
       "|Initialization| Initial value of second derivative of rotation angle at frame_a";
-    parameter MultiBody.Types.AngularAcceleration_degs2 a_start_b=0 
+    parameter Modelica.Mechanics.MultiBody.Types.AngularAcceleration_degs2 a_start_b=0 
       "|Initialization| Initial value of second derivative of rotation angle at frame_b";
     
     parameter SI.Distance cylinderLength=world.defaultJointLength 
       "|Animation|if animation = true| Length of cylinders representing the joint axes";
     parameter SI.Distance cylinderDiameter=world.defaultJointWidth 
       "|Animation|if animation = true| Diameter of cylinders representing the joint axes";
-    parameter MultiBody.Types.Color cylinderColor=Types.Defaults.JointColor 
+    parameter Modelica.Mechanics.MultiBody.Types.Color cylinderColor=Types.Defaults.JointColor 
       "|Animation|if animation = true| Color of cylinders representing the joint axes";
     parameter Boolean enforceStates=false 
       "|Advanced|| = true, if generalized variables shall be used as states";
-    MultiBody.Joints.Revolute revolute_a(
+    Modelica.Mechanics.MultiBody.Joints.Revolute revolute_a(
       n=n_a,
       enforceStates=enforceStates,
       initType=initType,
@@ -548,7 +548,7 @@ vector \"n\" defining the cylinder axis
       cylinderLength=cylinderLength,
       cylinderColor=cylinderColor,
       animation=animation) annotation (extent=[-60, -25; -10, 25]);
-    MultiBody.Joints.Revolute revolute_b(
+    Modelica.Mechanics.MultiBody.Joints.Revolute revolute_b(
       n=n_b,
       enforceStates=enforceStates,
       initType=initType,
@@ -659,12 +659,12 @@ phi_start_b = 45<sup>o</sup>).
   
   model Planar "Planar joint (3 degrees-of-freedom, 6 potential states)" 
     import NonSI = Modelica.SIunits.Conversions.NonSIunits;
-    extends MultiBody.Interfaces.PartialTwoFrames;
+    extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
     parameter Boolean animation=true "= true, if animation shall be enabled";
-    parameter MultiBody.Types.Axis n={0,0,1} 
+    parameter Modelica.Mechanics.MultiBody.Types.Axis n={0,0,1} 
       "Axis orthogonal to unconstrained plane, resolved in frame_a (= same as in frame_b)"
       annotation (Evaluate=true);
-    parameter MultiBody.Types.Axis n_x={1,0,0} 
+    parameter Modelica.Mechanics.MultiBody.Types.Axis n_x={1,0,0} 
       "Vector in direction of x-axis of plane, resolved in frame_a (n_x shall be orthogonal to n)"
       annotation (Evaluate=true);
     
@@ -680,25 +680,25 @@ phi_start_b = 45<sup>o</sup>).
       "|Initialization| Initial value of derivative of x-distance";
     parameter SI.Velocity v_start_y=0 
       "|Initialization| Initial value of derivative of y-distance";
-    parameter MultiBody.Types.AngularVelocity_degs w_start=0 
+    parameter Modelica.Mechanics.MultiBody.Types.AngularVelocity_degs w_start=0 
       "|Initialization| Initial value of derivative of rotation angle";
     parameter SI.Acceleration a_start_x=0 
       "|Initialization| Initial value of second derivative of x-distance";
     parameter SI.Acceleration a_start_y=0 
       "|Initialization| Initial value of second derivative of y-distance";
-    parameter MultiBody.Types.AngularAcceleration_degs2 wd_start=0 
+    parameter Modelica.Mechanics.MultiBody.Types.AngularAcceleration_degs2 wd_start=0 
       "|Initialization| Initial value of second derivative of rotation angle";
     parameter SI.Distance cylinderLength=world.defaultJointLength 
       "|Animation|if animation = true| Length of revolute cylinder";
     parameter SI.Distance cylinderDiameter=world.defaultJointWidth 
       "|Animation|if animation = true| Diameter of revolute cylinder";
-    parameter MultiBody.Types.Color cylinderColor=Types.Defaults.JointColor 
+    parameter Modelica.Mechanics.MultiBody.Types.Color cylinderColor=Types.Defaults.JointColor 
       "|Animation|if animation = true| Color of revolute cylinder";
     parameter Real boxWidth=0.3*cylinderDiameter 
       "|Animation|if animation = true| Width of prismatic joint boxes";
     parameter Real boxHeight=boxWidth 
       "|Animation|if animation = true| Height of prismatic joint boxes";
-    parameter MultiBody.Types.Color boxColor=Types.Defaults.JointColor 
+    parameter Modelica.Mechanics.MultiBody.Types.Color boxColor=Types.Defaults.JointColor 
       "|Animation|if animation = true| Color of prismatic joint boxes";
     parameter Boolean enforceStates=false 
       "|Advanced|| = true, if generalized variables (s,phi,v,w) shall be used as states";
@@ -853,25 +853,25 @@ s_start_y = 0.5, phi_start = 45<sup>o</sup>).
     import SI = Modelica.SIunits;
     import Cv = Modelica.SIunits.Conversions;
     
-    extends MultiBody.Interfaces.PartialTwoFrames;
+    extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
     parameter Boolean animation=true 
       "= true, if animation shall be enabled (show sphere)";
     parameter SI.Distance sphereDiameter=world.defaultJointLength 
       "|if animation = true| Diameter of sphere representing the spherical joint";
-    parameter MultiBody.Types.Color sphereColor=Types.Defaults.JointColor 
+    parameter Modelica.Mechanics.MultiBody.Types.Color sphereColor=Types.Defaults.JointColor 
       "|if animation = true| Color of sphere representing the spherical joint";
     parameter Types.Init.Temp initType=Types.Init.Free 
       "|Initialization|| Type of initialization (defines usage of start values below)";
-    parameter MultiBody.Types.RotationSequence sequence_start={1,2,3} 
+    parameter Modelica.Mechanics.MultiBody.Types.RotationSequence sequence_start={1,2,3} 
       "|Initialization|| Sequence of rotations to rotate frame_a into frame_b at initial time"
       annotation (Evaluate=true);
     parameter Cv.NonSIunits.Angle_deg angles_start[3]={0,0,0} 
       "|Initialization|| Initial values of angles to rotate frame_a around 'sequence_start' axes into frame_b"
       annotation (Evaluate=false);
-    parameter MultiBody.Types.AngularVelocity_degs w_rel_a_start[3]={0,0,0} 
+    parameter Modelica.Mechanics.MultiBody.Types.AngularVelocity_degs w_rel_a_start[3]={0,0,0} 
       "|Initialization|| Initial values of angular velocity of frame_b with respect to frame_a, resolved in frame_a"
       annotation (Evaluate=false);
-    parameter MultiBody.Types.AngularAcceleration_degs2 z_rel_a_start[3]={0,0,0} 
+    parameter Modelica.Mechanics.MultiBody.Types.AngularAcceleration_degs2 z_rel_a_start[3]={0,0,0} 
       "|Initialization|| Initial values of angular acceleration z_rel = der(w_rel)"
       annotation (Evaluate=false);
     
@@ -887,13 +887,13 @@ s_start_y = 0.5, phi_start = 45<sup>o</sup>).
              and not useQuaternions));
     
     final parameter Frames.Orientation R_rel_start=
-        MultiBody.Frames.axesRotations(sequence_start, Cv.from_deg(angles_start),
+        Modelica.Mechanics.MultiBody.Frames.axesRotations(sequence_start, Cv.from_deg(angles_start),
          zeros(3)) "Orientation object from frame_a to frame_b at initial time";
     final parameter SI.AngularVelocity w_rel_start_rad[3]=
-        MultiBody.Frames.resolve2(R_rel_start, w_rel_a_start*Modelica.Constants.
+        Modelica.Mechanics.MultiBody.Frames.resolve2(R_rel_start, w_rel_a_start*Modelica.Constants.
          D2R);
     final parameter SI.AngularAcceleration z_rel_start_rad[3]=
-        MultiBody.Frames.resolve2(R_rel_start, z_rel_a_start*Modelica.Constants.
+        Modelica.Mechanics.MultiBody.Frames.resolve2(R_rel_start, z_rel_a_start*Modelica.Constants.
          D2R);
     annotation (
       preferedView="info",
@@ -1025,7 +1025,7 @@ frame_b of the joint.
       each R=frame_a.R);
     
     // Declarations for quaternions (dummies, if quaternions are not used)
-    parameter Frames.Quaternions.Orientation Q_start=MultiBody.Frames.to_Q(
+    parameter Frames.Quaternions.Orientation Q_start=Modelica.Mechanics.MultiBody.Frames.to_Q(
         R_rel_start) 
       "Quaternion orientation object from frame_a to frame_b at initial time";
     Frames.Quaternions.Orientation Q(start=Q_start, stateSelect=if 
@@ -1175,7 +1175,7 @@ frame_b of the joint.
     
     parameter SI.Position r_rel_a_start[3]={0,0,0} 
       "|Initialization| Initial values of r_rel_a (vector from origin of frame_a to origin of frame_b resolved in frame_a)";
-    parameter MultiBody.Types.RotationSequence sequence_start={1,2,3} 
+    parameter Modelica.Mechanics.MultiBody.Types.RotationSequence sequence_start={1,2,3} 
       "|Initialization| Sequence of rotations to rotate frame_a into frame_b at initial time"
       annotation (Evaluate=true);
     parameter Cv.NonSIunits.Angle_deg angles_start[3]={0,0,0} 
@@ -1183,16 +1183,16 @@ frame_b of the joint.
       annotation (Evaluate=false);
     parameter SI.Velocity v_rel_a_start[3]={0,0,0} 
       "|Initialization| Initial values of velocity v_rel_a = der(r_rel_a)";
-    parameter MultiBody.Types.AngularVelocity_degs w_rel_a_start[3]={0,0,0} 
+    parameter Modelica.Mechanics.MultiBody.Types.AngularVelocity_degs w_rel_a_start[3]={0,0,0} 
       "|Initialization| Initial values of angular velocity of frame_b with respect to frame_a resolved in frame_a";
     parameter SI.Acceleration a_rel_a_start[3]={0,0,0} 
       "|Initialization| Initial values of acceleration a_rel_a = der(v_rel_a)";
-    parameter MultiBody.Types.AngularAcceleration_degs2 z_rel_a_start[3]={0,0,0} 
+    parameter Modelica.Mechanics.MultiBody.Types.AngularAcceleration_degs2 z_rel_a_start[3]={0,0,0} 
       "|Initialization| Initial values of angular acceleration z_rel_a = der(w_rel_a)";
     
     parameter SI.Length arrowDiameter=world.defaultArrowDiameter 
       "|Animation|if animation = true| Diameter of arrow from frame_a to frame_b";
-    parameter MultiBody.Types.Color arrowColor=Types.Defaults.SensorColor 
+    parameter Modelica.Mechanics.MultiBody.Types.Color arrowColor=Types.Defaults.SensorColor 
       "|Animation|if animation = true| Color of arrow";
     parameter Boolean enforceStates=true 
       " = true, if relative variables between frame_a and frame_b shall be used as states"
@@ -1206,7 +1206,7 @@ frame_b of the joint.
             useQuaternions));
     
     final parameter Frames.Orientation R_rel_start=
-        MultiBody.Frames.axesRotations(sequence_start, Cv.from_deg(angles_start),
+        Modelica.Mechanics.MultiBody.Frames.axesRotations(sequence_start, Cv.from_deg(angles_start),
          zeros(3)) "Orientation object from frame_a to frame_b at initial time";
     
     SI.Position r_rel_a[3](start=r_rel_a_start, stateSelect=if enforceStates then 
@@ -1343,7 +1343,7 @@ frame_b of the joint.
         Rectangle(extent=[-70, -5; -90, 5], style(color=0, fillColor=8))));
     
   protected 
-    outer MultiBody.World world;
+    outer Modelica.Mechanics.MultiBody.World world;
     
     parameter Integer ndim=if world.enableAnimation and animation then 1 else 0;
     Visualizers.Advanced.Arrow arrow[ndim](
@@ -1354,14 +1354,14 @@ frame_b of the joint.
       each R=frame_a.R);
     
     // Initial values
-    parameter SI.AngularVelocity w_rel_b_start_rad[3]=MultiBody.Frames.resolve2(
+    parameter SI.AngularVelocity w_rel_b_start_rad[3]=Modelica.Mechanics.MultiBody.Frames.resolve2(
          R_rel_start, w_rel_a_start*Modelica.Constants.D2R);
     parameter SI.AngularAcceleration z_rel_b_start_rad[3]=
-        MultiBody.Frames.resolve2(R_rel_start, z_rel_a_start*Modelica.Constants.
+        Modelica.Mechanics.MultiBody.Frames.resolve2(R_rel_start, z_rel_a_start*Modelica.Constants.
          D2R);
     
     // Declarations for quaternions (dummies, if quaternions are not used)
-    parameter Frames.Quaternions.Orientation Q_start=MultiBody.Frames.to_Q(
+    parameter Frames.Quaternions.Orientation Q_start=Modelica.Mechanics.MultiBody.Frames.to_Q(
         R_rel_start) 
       "Quaternion orientation object from frame_a to frame_b at initial time";
     Frames.Quaternions.Orientation Q(start=Q_start, stateSelect=if 
@@ -1526,17 +1526,17 @@ frame_b of the joint.
     parameter SI.Mass m=0 "Mass of rod (= point mass located in middle of rod)";
     parameter Real sphereDiameter=world.defaultJointLength 
       "|Animation|if animation = true| Diameter of spheres respresenting the spherical joints";
-    parameter MultiBody.Types.Color sphereColor=MultiBody.Types.Defaults.
+    parameter Modelica.Mechanics.MultiBody.Types.Color sphereColor=Modelica.Mechanics.MultiBody.Types.Defaults.
         JointColor 
       "|Animation|if animation = true| Color of spheres respresenting the spherical joints";
     parameter Real rodDiameter=sphereDiameter/MultiBody.Types.Defaults.
         JointRodDiameterFraction 
       "|Animation|if animation = true| Diameter of rod connecting the two spherical joint";
-    parameter MultiBody.Types.Color rodColor=MultiBody.Types.Defaults.RodColor 
+    parameter Modelica.Mechanics.MultiBody.Types.Color rodColor=Modelica.Mechanics.MultiBody.Types.Defaults.RodColor 
       "|Animation|if animation = true| Color of rod connecting the two spherical joints";
     parameter Real massDiameter=sphereDiameter 
       "|Animation|if animation = true and showMass = true and m > 0| Diameter of sphere representing the mass point";
-    parameter MultiBody.Types.Color massColor=MultiBody.Types.Defaults.
+    parameter Modelica.Mechanics.MultiBody.Types.Color massColor=Modelica.Mechanics.MultiBody.Types.Defaults.
         BodyColor 
       "|Animation|if animation = true and showMass = true and m > 0| Color of sphere representing the mass point";
     
@@ -1840,7 +1840,7 @@ that has this property.
       " = true, if universal joint shall be visualized with two cylinders, otherwise with a sphere (provided animation=true)";
     parameter Boolean computeRodLength=false 
       "= true, if distance between frame_a and frame_b shall be computed during initialization (see info)";
-    parameter MultiBody.Types.Axis n1_a={0,0,1} 
+    parameter Modelica.Mechanics.MultiBody.Types.Axis n1_a={0,0,1} 
       "Axis 1 of universal joint resolved in frame_a (axis 2 is orthogonal to axis 1 and to rod)"
       annotation (Evaluate=true);
     parameter SI.Position rRod_ia[3]={1,0,0} 
@@ -1848,10 +1848,10 @@ that has this property.
       annotation (Evaluate=true);
     parameter SI.Diameter sphereDiameter=world.defaultJointLength 
       "|Animation|if animation = true| Diameter of spheres representing the universal and the spherical joint";
-    parameter MultiBody.Types.Color sphereColor=MultiBody.Types.Defaults.
+    parameter Modelica.Mechanics.MultiBody.Types.Color sphereColor=Modelica.Mechanics.MultiBody.Types.Defaults.
         JointColor 
       "|Animation|if animation = true| Color of spheres representing the universal and the spherical joint";
-    parameter MultiBody.Types.ShapeType rodShapeType="cylinder" 
+    parameter Modelica.Mechanics.MultiBody.Types.ShapeType rodShapeType="cylinder" 
       "|Animation|if animation = true| Shape type of rod connecting the universal and the spherical joint";
     parameter SI.Distance rodWidth=sphereDiameter/MultiBody.Types.Defaults.
         JointRodDiameterFraction 
@@ -1860,13 +1860,13 @@ that has this property.
       "|Animation|if animation = true| Height of rod shape in direction that is orthogonal to rod and to axis 2.";
     parameter Real rodExtra=0.0 
       "|Animation|if animation = true| Additional parameter depending on rodShapeType (see docu of Visualizers.FixedShape).";
-    parameter MultiBody.Types.Color rodColor=MultiBody.Types.Defaults.RodColor 
+    parameter Modelica.Mechanics.MultiBody.Types.Color rodColor=Modelica.Mechanics.MultiBody.Types.Defaults.RodColor 
       "|Animation|if animation = true| Color of rod shape connecting the universal and the spherical joints";
     parameter SI.Distance cylinderLength=world.defaultJointLength 
       "|Animation|if animation = true and showUniversalAxes| Length of cylinders representing the two universal joint axes";
     parameter SI.Distance cylinderDiameter=world.defaultJointWidth 
       "|Animation|if animation = true and showUniversalAxes| Diameter of cylinders representing the two universal joint axes";
-    parameter MultiBody.Types.Color cylinderColor=Types.Defaults.JointColor 
+    parameter Modelica.Mechanics.MultiBody.Types.Color cylinderColor=Types.Defaults.JointColor 
       "|Animation|if animation = true and showUniversalAxes| Color of cylinders representing the two universal joint axes";
     parameter Boolean kinematicConstraint=true 
       "|Advanced|| = false, if no constraint shall be defined, due to analytically solving a kinematic loop";
@@ -1984,8 +1984,8 @@ For example, if a box shall be connected at frame_ia directing from
 the origin of frame_a to the middle of the rod, this might be defined as:
 </p>
 <pre>
-    MultiBody.Joints.UniversalSpherical jointUS(rRod_ia={1.2, 1, 0.2});
-    MultiBody.Visualizers.FixedShape    shape(shapeType       = \"box\",
+    Modelica.Mechanics.MultiBody.Joints.UniversalSpherical jointUS(rRod_ia={1.2, 1, 0.2});
+    Modelica.Mechanics.MultiBody.Visualizers.FixedShape    shape(shapeType       = \"box\",
                                               lengthDirection = jointUS.eRod_ia,
                                               widthDirection  = jointUS.e2_ia,
                                               length          = jointUS.rodLength/2,
@@ -2259,7 +2259,7 @@ the origin of frame_a to the middle of the rod, this might be defined as:
     length2_n2_a = n2_a*n2_a;
     
     assert(length2_n2_a > 1.e-10, "
-A MultiBody.Joints.UniversalSpherical joint (consisting of
+A Modelica.Mechanics.MultiBody.Joints.UniversalSpherical joint (consisting of
 a universal joint and a spherical joint connected together
 by a rigid rod) is in the singular configuration of the
 universal joint. This means that axis 1 of the universal
@@ -2267,7 +2267,7 @@ joint defined via parameter \"n1_a\" is parallel to vector
 \"rRod_ia\" that is directed from the origin of frame_a to the
 origin of frame_b.
    You may try to use another \"n1_a\" vector. If this fails,
-use instead MultiBody.Joints.SphericalSpherical, if this is
+use instead Modelica.Mechanics.MultiBody.Joints.SphericalSpherical, if this is
 possible, because this joint aggregation does not have a
 singular configuration.
 ");
@@ -2375,9 +2375,9 @@ singular configuration.
   model GearConstraint "Ideal 3D gearbox (arbitrary shaft directions)" 
     parameter Real ratio=2 "Gear speed ratio";
     
-    parameter MultiBody.Types.Axis n_a={1,0,0} 
+    parameter Modelica.Mechanics.MultiBody.Types.Axis n_a={1,0,0} 
       "Axis of rotation of shaft a (same coordinates in frame_a, frame_b, bearing)";
-    parameter MultiBody.Types.Axis n_b={1,0,0} 
+    parameter Modelica.Mechanics.MultiBody.Types.Axis n_b={1,0,0} 
       "Axis of rotation of shaft b (same coordinates in frame_a, frame_b, bearing)";
     
     parameter Modelica.SIunits.Position r_a[3]={0,0,0} 
@@ -2385,8 +2385,8 @@ singular configuration.
     parameter Modelica.SIunits.Position r_b[3]={0,0,0} 
       "Vector from frame bearing to frame_b resolved in bearing";
     
-    MultiBody.Interfaces.Frame_b frame_b annotation (extent=[100, -15; 120, 15]);
-    MultiBody.Interfaces.Frame_a bearing 
+    Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_b annotation (extent=[100, -15; 120, 15]);
+    Modelica.Mechanics.MultiBody.Interfaces.Frame_a bearing 
       annotation (extent=[-15, -120; 15, -100], rotation=90);
     annotation (
       Icon(
@@ -2441,17 +2441,17 @@ Modelica Conference</i>. Link&ouml;ping : The Modelica Association and Link&ouml
 November 3-4, 2003, pp. 149-158</p>
 </html>"),
       Diagram);
-    MultiBody.Joints.ActuatedRevolute actuatedRevolute_a(n=n_a, animation=false) 
+    Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute actuatedRevolute_a(n=n_a, animation=false) 
       annotation (extent=[-40, -10; -60, 10], rotation=0);
-    MultiBody.Joints.ActuatedRevolute actuatedRevolute_b(n=n_b, animation=false) 
+    Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute actuatedRevolute_b(n=n_b, animation=false) 
       annotation (extent=[40, -10; 60, 10]);
-    MultiBody.Interfaces.Frame_a frame_a 
+    Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a 
       annotation (extent=[-120, -15; -100, 15], rotation=0);
     Modelica.Mechanics.Rotational.IdealGear idealGear(ratio=ratio) 
       annotation (extent=[-10, 30; 10, 50]);
-    MultiBody.Parts.FixedTranslation FixedTranslation1(animation=false, r=r_b) 
+    Modelica.Mechanics.MultiBody.Parts.FixedTranslation FixedTranslation1(animation=false, r=r_b) 
       annotation (extent=[10, -10; 30, 10]);
-    MultiBody.Parts.FixedTranslation FixedTranslation2(animation=false, r=r_a) 
+    Modelica.Mechanics.MultiBody.Parts.FixedTranslation FixedTranslation2(animation=false, r=r_a) 
       annotation (extent=[-30, -10; -10, 10], rotation=180);
   equation 
     connect(actuatedRevolute_a.axis, idealGear.flange_a) 
@@ -2560,7 +2560,7 @@ coordinates. Still, it is possible to use the components in a
 tree structure. In this case states are selected from bodies that are
 connected to the frame_a or frame_b side of the component.
 In most cases this gives a less efficient solution, as if elementary
-joints of package MultiBody.Joints would be used directly.
+joints of package Modelica.Mechanics.MultiBody.Joints would be used directly.
 </p>
 <p>
 The analytic handling of kinematic loops by using joint aggregations
@@ -2594,14 +2594,14 @@ pair of joints\" from Woernle and Hiller is described in:
       
       import SI = Modelica.SIunits;
       extends Interfaces.PartialTwoFrames;
-      MultiBody.Interfaces.Frame_a frame_ia 
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_ia 
         annotation (extent=[-95, 110; -65, 90], rotation=-90);
-      MultiBody.Interfaces.Frame_b frame_ib 
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_ib 
         annotation (extent=[65, 120; 95, 100], rotation=-90);
       parameter Boolean animation=true "= true, if animation shall be enabled";
       parameter Boolean showUniversalAxes=true 
         " = true, if universal joint shall be visualized with two cylinders, otherwise with a sphere (provided animation=true)";
-      parameter MultiBody.Types.Axis n1_a={0,0,1} 
+      parameter Modelica.Mechanics.MultiBody.Types.Axis n1_a={0,0,1} 
         "Axis 1 of universal joint resolved in frame_a (axis 2 is orthogonal to axis 1 and to line from universal to spherical joint)";
       parameter SI.Position nAxis_ia[3]={1,0,0} 
         "Axis vector along line from origin of frame_a to origin of frame_b, resolved in frame_ia"
@@ -2610,18 +2610,18 @@ pair of joints\" from Woernle and Hiller is described in:
         "Relative distance offset (distance between frame_a and frame_b = s(t) + s_offset)";
       parameter SI.Diameter sphereDiameter=world.defaultJointLength 
         "|Animation|if animation = true| Diameter of spheres representing the spherical joints";
-      parameter MultiBody.Types.Color sphereColor=Types.Defaults.JointColor 
+      parameter Modelica.Mechanics.MultiBody.Types.Color sphereColor=Types.Defaults.JointColor 
         "|Animation|if animation = true| Color of spheres representing the spherical joints";
       parameter SI.Diameter axisDiameter=sphereDiameter/Types.Defaults.
           JointRodDiameterFraction 
         "|Animation|if animation = true| Diameter of cylinder on the connecting line from frame_a to frame_b";
-      parameter MultiBody.Types.Color axisColor=Types.Defaults.SensorColor 
+      parameter Modelica.Mechanics.MultiBody.Types.Color axisColor=Types.Defaults.SensorColor 
         "|Animation|if animation = true| Color of cylinder on the connecting line from frame_a to frame_b";
       parameter SI.Distance cylinderLength=world.defaultJointLength 
         "|Animation|if animation = true and showUniversalAxes| Length of cylinders representing the two universal joint axes";
       parameter SI.Distance cylinderDiameter=world.defaultJointWidth 
         "|Animation|if animation = true and showUniversalAxes| Diameter of cylinders representing the two universal joint axes";
-      parameter MultiBody.Types.Color cylinderColor=Types.Defaults.JointColor 
+      parameter Modelica.Mechanics.MultiBody.Types.Color cylinderColor=Types.Defaults.JointColor 
         "|Animation|if animation = true and showUniversalAxes| Color of cylinders representing the two universal joint axes";
       
       parameter Boolean checkTotalPower=false 
@@ -3051,7 +3051,7 @@ initialization, the initial conditions are probably wrong.");
       n2_a = cross(n1_a, eAxis_a);
       length2_n2_a = n2_a*n2_a;
       assert(noEvent(length2_n2_a > 1.e-10), "
-A MultiBody.Joints.Assemblies.JointUPS joint (consisting of
+A Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUPS joint (consisting of
 a universal, prismatic and spherical joint) is in the singular
 configuration of the universal joint. This means that axis 1 of
 the universal joint defined via parameter \"n1_a\" is parallel to vector
@@ -3170,12 +3170,12 @@ origin of frame_b. You may try to use another \"n1_a\" vector.
       import SI = Modelica.SIunits;
       import Cv = Modelica.SIunits.Conversions;
       
-      extends MultiBody.Interfaces.PartialTwoFrames;
-      MultiBody.Interfaces.Frame_a frame_ia 
+      extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_ia 
         annotation (extent=[-64, 120; -94, 100], rotation=-270);
-      MultiBody.Interfaces.Frame_b frame_ib 
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_ib 
         annotation (extent=[65, 120; 95, 100], rotation=-90);
-      MultiBody.Interfaces.Frame_b frame_im 
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_im 
         annotation (extent=[-15, 120; 15, 100], rotation=-90);
       Modelica.Mechanics.Rotational.Interfaces.Flange_a axis 
         annotation (extent=[120, 90; 100, 70]);
@@ -3185,10 +3185,10 @@ origin of frame_b. You may try to use another \"n1_a\" vector.
       parameter Boolean animation=true "= true, if animation shall be enabled";
       parameter Boolean showUniversalAxes=true 
         " = true, if universal joint shall be visualized with two cylinders, otherwise with a sphere (provided animation=true)";
-      parameter MultiBody.Types.Axis n1_a={0,0,1} 
+      parameter Modelica.Mechanics.MultiBody.Types.Axis n1_a={0,0,1} 
         "Axis 1 of universal joint fixed and resolved in frame_a (axis 2 is orthogonal to axis 1 and to rod 1)"
         annotation (Evaluate=true);
-      parameter MultiBody.Types.Axis n_b={0,0,1} 
+      parameter Modelica.Mechanics.MultiBody.Types.Axis n_b={0,0,1} 
         "Axis of revolute joint fixed and resolved in frame_b" 
         annotation (Evaluate=true);
       parameter SI.Position rRod1_ia[3]={1,0,0} 
@@ -3202,32 +3202,32 @@ origin of frame_b. You may try to use another \"n1_a\" vector.
         "Select the configuration such that at initial time |phi(t0) - from_deg(phi_guess)| is minimal";
       parameter SI.Diameter sphereDiameter=world.defaultJointLength 
         "|Animation|if animation = true| Diameter of the spheres representing the universal and the spherical joint";
-      parameter MultiBody.Types.Color sphereColor=MultiBody.Types.Defaults.
+      parameter Modelica.Mechanics.MultiBody.Types.Color sphereColor=Modelica.Mechanics.MultiBody.Types.Defaults.
           JointColor 
         "|Animation|if animation = true| Color of the spheres representing the universal and the spherical joint";
       parameter SI.Diameter rod1Diameter=sphereDiameter/Types.Defaults.
           JointRodDiameterFraction 
         "|Animation|if animation = true| Diameter of rod 1 connecting the universal and the spherical joint";
-      parameter MultiBody.Types.Color rod1Color=MultiBody.Types.Defaults.
+      parameter Modelica.Mechanics.MultiBody.Types.Color rod1Color=Modelica.Mechanics.MultiBody.Types.Defaults.
           RodColor 
         "|Animation|if animation = true| Color of rod 1 connecting the universal and the spherical joint";
       
       parameter SI.Diameter rod2Diameter=rod1Diameter 
         "|Animation|if animation = true| Diameter of rod 2 connecting the revolute and the spherical joint";
-      parameter MultiBody.Types.Color rod2Color=rod1Color 
+      parameter Modelica.Mechanics.MultiBody.Types.Color rod2Color=rod1Color 
         "|Animation|if animation = true| Color of rod 2 connecting the revolute and the spherical joint";
       parameter SI.Diameter revoluteDiameter=world.defaultJointWidth 
         "|Animation|if animation = true| Diameter of cylinder representing the revolute joint";
       parameter SI.Distance revoluteLength=world.defaultJointLength 
         "|Animation|if animation = true| Length of cylinder representing the revolute joint";
-      parameter MultiBody.Types.Color revoluteColor=MultiBody.Types.Defaults.
+      parameter Modelica.Mechanics.MultiBody.Types.Color revoluteColor=Modelica.Mechanics.MultiBody.Types.Defaults.
           JointColor 
         "|Animation|if animation = true| Color of cylinder representing the revolute joint";
       parameter SI.Distance cylinderLength=world.defaultJointLength 
         "|Animation|if animation = true and showUniversalAxes| Length of cylinders representing the two universal joint axes";
       parameter SI.Distance cylinderDiameter=world.defaultJointWidth 
         "|Animation|if animation = true and showUniversalAxes| Diameter of cylinders representing the two universal joint axes";
-      parameter MultiBody.Types.Color cylinderColor=Types.Defaults.JointColor 
+      parameter Modelica.Mechanics.MultiBody.Types.Color cylinderColor=Types.Defaults.JointColor 
         "|Animation|if animation = true and showUniversalAxes| Color of cylinders representing the two universal joint axes";
       
       parameter Boolean checkTotalPower=false 
@@ -3359,8 +3359,8 @@ For example, if a box shall be connected at frame_ia directing from
 the origin of frame_a to the middle of rod 1, this might be defined as:
 </p>
 <pre>
-    MultiBody.Joints.Assemblies.JointUSP jointUSR(rRod1_ia={1.2, 1, 0.2});
-    MultiBody.Visualizers.FixedShape     shape(shapeType       = \"box\",
+    Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUSP jointUSR(rRod1_ia={1.2, 1, 0.2});
+    Modelica.Mechanics.MultiBody.Visualizers.FixedShape     shape(shapeType       = \"box\",
                                                lengthDirection = jointUSR.eRod1_ia,
                                                widthDirection  = jointUSR.e2_ia,
                                                length          = jointUSR.rod1Length/2,
@@ -3462,7 +3462,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
           Line(points=[100, 40; 93, 40; 93, 30], style(color=10, thickness=2))),
         Diagram);
       
-      MultiBody.Joints.Internal.RevoluteWithLengthConstraint revolute(
+      Modelica.Mechanics.MultiBody.Joints.Internal.RevoluteWithLengthConstraint revolute(
         animation=animation,
         lengthConstraint=rod1Length,
         n=n_b,
@@ -3472,7 +3472,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
         cylinderLength=revoluteLength,
         cylinderColor=revoluteColor,
         axisTorqueBalance=false) annotation (extent=[75, -20; 35, 20]);
-      MultiBody.Joints.UniversalSpherical rod1(
+      Modelica.Mechanics.MultiBody.Joints.UniversalSpherical rod1(
         animation=animation,
         showUniversalAxes=showUniversalAxes,
         rRod_ia=rRod1_ia,
@@ -3486,13 +3486,13 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
         cylinderDiameter=cylinderDiameter,
         cylinderColor=cylinderColor,
         kinematicConstraint=false) annotation (extent=[-92, -20; -52, 20]);
-      MultiBody.Parts.FixedTranslation rod2(
+      Modelica.Mechanics.MultiBody.Parts.FixedTranslation rod2(
         animation=animation,
         width=rod2Diameter,
         height=rod2Diameter,
         color=rod2Color,
         r=rRod2_ib) annotation (extent=[15, -20; -25, 20]);
-      MultiBody.Sensors.RelativeSensor relativeSensor(animation=false) 
+      Modelica.Mechanics.MultiBody.Sensors.RelativeSensor relativeSensor(animation=false) 
         annotation (extent=[60, -70; 40, -90]);
       Modelica.Blocks.Sources.Constant position_b[3](k=rRod2_ib) 
         annotation (extent=[-20, -50; 0, -30]);
@@ -3612,12 +3612,12 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
       
       import SI = Modelica.SIunits;
       
-      extends MultiBody.Interfaces.PartialTwoFrames;
-      MultiBody.Interfaces.Frame_a frame_ia 
+      extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_ia 
         annotation (extent=[-64, 120; -94, 100], rotation=-270);
-      MultiBody.Interfaces.Frame_b frame_ib 
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_ib 
         annotation (extent=[65, 120; 95, 100], rotation=-90);
-      MultiBody.Interfaces.Frame_b frame_im 
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_im 
         annotation (extent=[-15, 120; 15, 100], rotation=-90);
       Modelica.Mechanics.Translational.Interfaces.Flange_a axis 
         annotation (extent=[100, 70; 120, 90]);
@@ -3627,10 +3627,10 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
       parameter Boolean animation=true "= true, if animation shall be enabled";
       parameter Boolean showUniversalAxes=true 
         " = true, if universal joint shall be visualized with two cylinders, otherwise with a sphere (provided animation=true)";
-      parameter MultiBody.Types.Axis n1_a={0,0,1} 
+      parameter Modelica.Mechanics.MultiBody.Types.Axis n1_a={0,0,1} 
         "Axis 1 of universal joint fixed and resolved in frame_a (axis 2 is orthogonal to axis 1 and to rod 1)"
         annotation (Evaluate=true);
-      parameter MultiBody.Types.Axis n_b={-1,0,0} 
+      parameter Modelica.Mechanics.MultiBody.Types.Axis n_b={-1,0,0} 
         "Axis of prismatic joint fixed and resolved in frame_b" 
         annotation (Evaluate=true);
       parameter SI.Position rRod1_ia[3]={1,0,0} 
@@ -3644,31 +3644,31 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
         "Select the configuration such that at initial time |s(t0)-s_guess| is minimal";
       parameter SI.Diameter sphereDiameter=world.defaultJointLength 
         "|Animation|if animation = true| Diameter of the spheres representing the universal and the spherical joint";
-      parameter MultiBody.Types.Color sphereColor=Types.Defaults.JointColor 
+      parameter Modelica.Mechanics.MultiBody.Types.Color sphereColor=Types.Defaults.JointColor 
         "|Animation|if animation = true| Color of the spheres representing the universal and the spherical joint";
       parameter SI.Diameter rod1Diameter=sphereDiameter/Types.Defaults.
           JointRodDiameterFraction 
         "|Animation|if animation = true| Diameter of rod 1 connecting the universal and the spherical joint";
-      parameter MultiBody.Types.Color rod1Color=Types.Defaults.RodColor 
+      parameter Modelica.Mechanics.MultiBody.Types.Color rod1Color=Types.Defaults.RodColor 
         "|Animation|if animation = true| Color of rod 1 connecting the universal and the spherical joint";
       parameter SI.Diameter rod2Diameter=rod1Diameter 
         "|Animation|if animation = true| Diameter of rod 2 connecting the prismatic and the spherical joint";
-      parameter MultiBody.Types.Color rod2Color=rod1Color 
+      parameter Modelica.Mechanics.MultiBody.Types.Color rod2Color=rod1Color 
         "|Animation|if animation = true| Color of rod 2 connecting the prismatic and the spherical joint";
-      parameter MultiBody.Types.Axis boxWidthDirection={0,1,0} 
+      parameter Modelica.Mechanics.MultiBody.Types.Axis boxWidthDirection={0,1,0} 
         "|Animation|if animation = true| Vector in width direction of prismatic joint, resolved in frame_b"
         annotation (Evaluate=true);
       parameter SI.Distance boxWidth=world.defaultJointWidth 
         "|Animation|if animation = true| Width of prismatic joint box";
       parameter SI.Distance boxHeight=boxWidth 
         "|Animation|if animation = true| Height of prismatic joint box";
-      parameter MultiBody.Types.Color boxColor=sphereColor 
+      parameter Modelica.Mechanics.MultiBody.Types.Color boxColor=sphereColor 
         "|Animation|if animation = true| Color of prismatic joint box";
       parameter SI.Distance cylinderLength=world.defaultJointLength 
         "|Animation|if animation = true and showUniversalAxes| Length of cylinders representing the two universal joint axes";
       parameter SI.Distance cylinderDiameter=world.defaultJointWidth 
         "|Animation|if animation = true and showUniversalAxes| Diameter of cylinders representing the two universal joint axes";
-      parameter MultiBody.Types.Color cylinderColor=Types.Defaults.JointColor 
+      parameter Modelica.Mechanics.MultiBody.Types.Color cylinderColor=Types.Defaults.JointColor 
         "|Animation|if animation = true and showUniversalAxes| Color of cylinders representing the two universal joint axes";
       
       parameter Boolean checkTotalPower=false 
@@ -3805,8 +3805,8 @@ For example, if a box shall be connected at frame_ia directing from
 the origin of frame_a to the middle of rod 1, this might be defined as:
 </p>
 <pre>
-    MultiBody.Joints.Assemblies.JointUSP jointUSP(rRod1_ia={1.2, 1, 0.2});
-    MultiBody.Visualizers.FixedShape     shape(shapeType       = \"box\",
+    Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUSP jointUSP(rRod1_ia={1.2, 1, 0.2});
+    Modelica.Mechanics.MultiBody.Visualizers.FixedShape     shape(shapeType       = \"box\",
                                                lengthDirection = jointUSP.eRod1_ia,
                                                widthDirection  = jointUSP.e2_ia,
                                                length          = jointUSP.rod1Length/2,
@@ -3913,7 +3913,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
             style(color=10)),
           Line(points=[3, 30; -43, 30], style(color=10, arrow=1))));
       
-      MultiBody.Joints.Internal.PrismaticWithLengthConstraint prismatic(
+      Modelica.Mechanics.MultiBody.Joints.Internal.PrismaticWithLengthConstraint prismatic(
         animation=animation,
         length=rod1.rodLength,
         n=n_b,
@@ -3924,7 +3924,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
         boxHeight=boxHeight,
         boxColor=boxColor,
         axisForceBalance=false) annotation (extent=[76, -20; 36, 20]);
-      MultiBody.Joints.UniversalSpherical rod1(
+      Modelica.Mechanics.MultiBody.Joints.UniversalSpherical rod1(
         animation=animation,
         showUniversalAxes=showUniversalAxes,
         rRod_ia=rRod1_ia,
@@ -3938,13 +3938,13 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
         cylinderDiameter=cylinderDiameter,
         cylinderColor=cylinderColor,
         kinematicConstraint=false) annotation (extent=[-92, -20; -52, 20]);
-      MultiBody.Parts.FixedTranslation rod2(
+      Modelica.Mechanics.MultiBody.Parts.FixedTranslation rod2(
         animation=animation,
         r=rRod2_ib,
         width=rod2Diameter,
         height=rod2Diameter,
         color=rod2Color) annotation (extent=[0, 20; -40, -20]);
-      MultiBody.Sensors.RelativeSensor relativeSensor(animation=false) 
+      Modelica.Mechanics.MultiBody.Sensors.RelativeSensor relativeSensor(animation=false) 
         annotation (extent=[50, -70; 30, -90]);
       Modelica.Blocks.Sources.Constant position_b[3](k=rRod2_ib) 
         annotation (extent=[-20, -60; 0, -40], rotation=0);
@@ -4064,10 +4064,10 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
       import SI = Modelica.SIunits;
       import Cv = Modelica.SIunits.Conversions;
       
-      extends MultiBody.Interfaces.PartialTwoFrames;
-      MultiBody.Interfaces.Frame_b frame_ib 
+      extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_ib 
         annotation (extent=[45, 120; 75, 100], rotation=-90);
-      MultiBody.Interfaces.Frame_b frame_im 
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_im 
         annotation (extent=[-15, 120; 15, 100], rotation=-90);
       Modelica.Mechanics.Rotational.Interfaces.Flange_a axis 
         annotation (extent=[120, 90; 100, 70]);
@@ -4081,7 +4081,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
         "Distance between the origins of the two spherical joints ";
       parameter SI.Mass rod1Mass=0 
         "Mass of rod 1 (= point mass located in middle of rod connecting the two spherical joints)";
-      parameter MultiBody.Types.Axis n_b={0,0,1} 
+      parameter Modelica.Mechanics.MultiBody.Types.Axis n_b={0,0,1} 
         "Axis of revolute joint fixed and resolved in frame_b";
       parameter SI.Position rRod2_ib[3]={1,0,0} 
         "Vector from origin of frame_ib to spherical joint in the middle, resolved in frame_ib";
@@ -4091,25 +4091,25 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
         "Select the configuration such that at initial time |phi(t0) - from_deg(phi_guess)| is minimal";
       parameter SI.Diameter sphereDiameter=world.defaultJointLength 
         "|Animation|if animation = true| Diameter of the spheres representing the two spherical joints";
-      parameter MultiBody.Types.Color sphereColor=MultiBody.Types.Defaults.
+      parameter Modelica.Mechanics.MultiBody.Types.Color sphereColor=Modelica.Mechanics.MultiBody.Types.Defaults.
           JointColor 
         "|Animation|if animation = true| Color of the spheres representing the two spherical joints";
       parameter SI.Diameter rod1Diameter=sphereDiameter/Types.Defaults.
           JointRodDiameterFraction 
         "|Animation|if animation = true| Diameter of rod 1 connecting the two spherical joints";
-      parameter MultiBody.Types.Color rod1Color=MultiBody.Types.Defaults.
+      parameter Modelica.Mechanics.MultiBody.Types.Color rod1Color=Modelica.Mechanics.MultiBody.Types.Defaults.
           RodColor 
         "|Animation|if animation = true| Color of rod 1 connecting the two spherical joint";
       
       parameter SI.Diameter rod2Diameter=rod1Diameter 
         "|Animation|if animation = true| Diameter of rod 2 connecting the revolute joint and spherical joint 2";
-      parameter MultiBody.Types.Color rod2Color=rod1Color 
+      parameter Modelica.Mechanics.MultiBody.Types.Color rod2Color=rod1Color 
         "|Animation|if animation = true| Color of rod 2 connecting the revolute joint and spherical joint 2";
       parameter SI.Diameter revoluteDiameter=world.defaultJointWidth 
         "|Animation|if animation = true| Diameter of cylinder representing the revolute joint";
       parameter SI.Distance revoluteLength=world.defaultJointLength 
         "|Animation|if animation = true| Length of cylinder representing the revolute joint";
-      parameter MultiBody.Types.Color revoluteColor=MultiBody.Types.Defaults.
+      parameter Modelica.Mechanics.MultiBody.Types.Color revoluteColor=Modelica.Mechanics.MultiBody.Types.Defaults.
           JointColor 
         "|Animation|if animation = true| Color of cylinder representing the revolute joint";
       parameter Boolean checkTotalPower=false 
@@ -4233,7 +4233,7 @@ component).
             string="im")),
         Diagram);
       
-      MultiBody.Joints.Internal.RevoluteWithLengthConstraint revolute(
+      Modelica.Mechanics.MultiBody.Joints.Internal.RevoluteWithLengthConstraint revolute(
         animation=animation,
         lengthConstraint=rod1Length,
         n=n_b,
@@ -4243,7 +4243,7 @@ component).
         cylinderLength=revoluteLength,
         cylinderColor=revoluteColor,
         axisTorqueBalance=false) annotation (extent=[75, -20; 35, 20]);
-      MultiBody.Joints.SphericalSpherical rod1(
+      Modelica.Mechanics.MultiBody.Joints.SphericalSpherical rod1(
         animation=animation,
         showMass=showMass,
         m=rod1Mass,
@@ -4253,13 +4253,13 @@ component).
         rodColor=rod1Color,
         kinematicConstraint=false,
         sphereColor=sphereColor) annotation (extent=[-89, -20; -49, 20]);
-      MultiBody.Parts.FixedTranslation rod2(
+      Modelica.Mechanics.MultiBody.Parts.FixedTranslation rod2(
         animation=animation,
         width=rod2Diameter,
         height=rod2Diameter,
         color=rod2Color,
         r=rRod2_ib) annotation (extent=[15, -20; -25, 20]);
-      MultiBody.Sensors.RelativeSensor relativeSensor(animation=false) 
+      Modelica.Mechanics.MultiBody.Sensors.RelativeSensor relativeSensor(animation=false) 
         annotation (extent=[60, -70; 40, -90]);
       Modelica.Blocks.Sources.Constant position_b[3](k=rRod2_ib) 
         annotation (extent=[-20, -50; 0, -30]);
@@ -4377,10 +4377,10 @@ component).
       import SI = Modelica.SIunits;
       import Cv = Modelica.SIunits.Conversions;
       
-      extends MultiBody.Interfaces.PartialTwoFrames;
-      MultiBody.Interfaces.Frame_b frame_ib 
+      extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_ib 
         annotation (extent=[65, 120; 95, 100], rotation=-90);
-      MultiBody.Interfaces.Frame_b frame_im 
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_im 
         annotation (extent=[-15, 120; 15, 100], rotation=-90);
       Modelica.Mechanics.Translational.Interfaces.Flange_a axis 
         annotation (extent=[120, 90; 100, 70]);
@@ -4394,7 +4394,7 @@ component).
         "Distance between the origins of the two spherical joints ";
       parameter SI.Mass rod1Mass=0 
         "Mass of rod 1 (= point mass located in middle of rod connecting the two spherical joints)";
-      parameter MultiBody.Types.Axis n_b={0,0,1} 
+      parameter Modelica.Mechanics.MultiBody.Types.Axis n_b={0,0,1} 
         "Axis of prismatic joint fixed and resolved in frame_b";
       parameter SI.Position rRod2_ib[3]={1,0,0} 
         "Vector from origin of frame_ib to spherical joint in the middle, resolved in frame_ib";
@@ -4405,29 +4405,29 @@ component).
       
       parameter SI.Diameter sphereDiameter=world.defaultJointLength 
         "|Animation|if animation = true| Diameter of the spheres representing the two spherical joints";
-      parameter MultiBody.Types.Color sphereColor=MultiBody.Types.Defaults.
+      parameter Modelica.Mechanics.MultiBody.Types.Color sphereColor=Modelica.Mechanics.MultiBody.Types.Defaults.
           JointColor 
         "|Animation|if animation = true| Color of the spheres representing the two spherical joints";
       parameter SI.Diameter rod1Diameter=sphereDiameter/Types.Defaults.
           JointRodDiameterFraction 
         "|Animation|if animation = true| Diameter of rod 1 connecting the two spherical joints";
-      parameter MultiBody.Types.Color rod1Color=MultiBody.Types.Defaults.
+      parameter Modelica.Mechanics.MultiBody.Types.Color rod1Color=Modelica.Mechanics.MultiBody.Types.Defaults.
           RodColor 
         "|Animation|if animation = true| Color of rod 1 connecting the two spherical joint";
       
       parameter SI.Diameter rod2Diameter=rod1Diameter 
         "|Animation|if animation = true| Diameter of rod 2 connecting the revolute joint and spherical joint 2";
-      parameter MultiBody.Types.Color rod2Color=rod1Color 
+      parameter Modelica.Mechanics.MultiBody.Types.Color rod2Color=rod1Color 
         "|Animation|if animation = true| Color of rod 2 connecting the revolute joint and spherical joint 2";
       
-      parameter MultiBody.Types.Axis boxWidthDirection={0,1,0} 
+      parameter Modelica.Mechanics.MultiBody.Types.Axis boxWidthDirection={0,1,0} 
         "|Animation|if animation = true| Vector in width direction of prismatic joint box, resolved in frame_b"
         annotation (Evaluate=true);
       parameter SI.Distance boxWidth=world.defaultJointWidth 
         "|Animation|if animation = true| Width of prismatic joint box";
       parameter SI.Distance boxHeight=boxWidth 
         "|Animation|if animation = true| Height of prismatic joint box";
-      parameter MultiBody.Types.Color boxColor=Types.Defaults.JointColor 
+      parameter Modelica.Mechanics.MultiBody.Types.Color boxColor=Types.Defaults.JointColor 
         "|Animation|if animation = true| Color of prismatic joint box";
       parameter Boolean checkTotalPower=false 
         "|Advanced|| = true, if total power flowing into this component shall be determined (must be zero)";
@@ -4545,7 +4545,7 @@ component).
           Line(points=[99, 40; 90, 40; 90, 30], style(color=58))),
         Diagram);
       
-      MultiBody.Joints.Internal.PrismaticWithLengthConstraint prismatic(
+      Modelica.Mechanics.MultiBody.Joints.Internal.PrismaticWithLengthConstraint prismatic(
         animation=animation,
         length=rod1Length,
         n=n_b,
@@ -4556,7 +4556,7 @@ component).
         boxWidth=boxWidth,
         boxHeight=boxHeight,
         boxColor=boxColor) annotation (extent=[75, -20; 35, 20]);
-      MultiBody.Joints.SphericalSpherical rod1(
+      Modelica.Mechanics.MultiBody.Joints.SphericalSpherical rod1(
         animation=animation,
         showMass=showMass,
         m=rod1Mass,
@@ -4566,13 +4566,13 @@ component).
         rodColor=rod1Color,
         kinematicConstraint=false,
         sphereColor=sphereColor) annotation (extent=[-89, -20; -49, 20]);
-      MultiBody.Parts.FixedTranslation rod2(
+      Modelica.Mechanics.MultiBody.Parts.FixedTranslation rod2(
         animation=animation,
         width=rod2Diameter,
         height=rod2Diameter,
         color=rod2Color,
         r=rRod2_ib) annotation (extent=[15, -20; -25, 20]);
-      MultiBody.Sensors.RelativeSensor relativeSensor(animation=false) 
+      Modelica.Mechanics.MultiBody.Sensors.RelativeSensor relativeSensor(animation=false) 
         annotation (extent=[60, -70; 40, -90]);
       Modelica.Blocks.Sources.Constant position_b[3](k=rRod2_ib) 
         annotation (extent=[-20, -50; 0, -30]);
@@ -4683,13 +4683,13 @@ component).
       import SI = Modelica.SIunits;
       import Cv = Modelica.SIunits.Conversions;
       
-      extends MultiBody.Interfaces.PartialTwoFrames;
+      extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
       
-      MultiBody.Interfaces.Frame_a frame_ia 
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_ia 
         annotation (extent=[-95, 100; -65, 120], rotation=-90);
-      MultiBody.Interfaces.Frame_b frame_im 
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_im 
         annotation (extent=[-16, 120; 14, 100], rotation=-90);
-      MultiBody.Interfaces.Frame_b frame_ib 
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_ib 
         annotation (extent=[65, 120; 95, 100], rotation=-90);
       Modelica.Mechanics.Rotational.Interfaces.Flange_a axis 
         annotation (extent=[120, 90; 100, 70]);
@@ -4697,7 +4697,7 @@ component).
         annotation (extent=[100, 50; 120, 30]);
       
       parameter Boolean animation=true "= true, if animation shall be enabled";
-      parameter MultiBody.Types.Axis n_a={0,0,1} 
+      parameter Modelica.Mechanics.MultiBody.Types.Axis n_a={0,0,1} 
         "Axes of revolute joints resolved in frame_a (all axes are parallel to each other)"
         annotation (Evaluate=true);
       final parameter Real n_b[3](fixed=false) = {0,0,1} 
@@ -4716,12 +4716,12 @@ component).
         "|Animation|if animation = true| Length of cylinders representing the revolute joints";
       parameter SI.Distance cylinderDiameter=world.defaultJointWidth 
         "|Animation|if animation = true| Diameter of cylinders representing the revolute joints";
-      parameter MultiBody.Types.Color cylinderColor=MultiBody.Types.Defaults.
+      parameter Modelica.Mechanics.MultiBody.Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.
           JointColor 
         "|Animation|if animation = true| Color of cylinders representing the revolute joints";
       parameter SI.Diameter rodDiameter=1.1*cylinderDiameter 
         "|Animation|if animation = true| Diameter of the two rods connecting the revolute joints";
-      parameter MultiBody.Types.Color rodColor=MultiBody.Types.Defaults.
+      parameter Modelica.Mechanics.MultiBody.Types.Color rodColor=Modelica.Mechanics.MultiBody.Types.Defaults.
           RodColor 
         "|Animation|if animation = true| Color of the two rods connecting the revolute joint";
       parameter Boolean checkTotalPower=false 
@@ -4938,13 +4938,13 @@ are connected by rigid rods.
       import SI = Modelica.SIunits;
       import Cv = Modelica.SIunits.Conversions;
       
-      extends MultiBody.Interfaces.PartialTwoFrames;
+      extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
       
-      MultiBody.Interfaces.Frame_a frame_ia 
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_ia 
         annotation (extent=[-95, 100; -65, 120], rotation=-90);
-      MultiBody.Interfaces.Frame_b frame_im 
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_im 
         annotation (extent=[-16, 120; 14, 100], rotation=-90);
-      MultiBody.Interfaces.Frame_b frame_ib 
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_ib 
         annotation (extent=[65, 120; 95, 100], rotation=-90);
       Modelica.Mechanics.Translational.Interfaces.Flange_a axis 
         annotation (extent=[120, 90; 100, 70]);
@@ -4952,10 +4952,10 @@ are connected by rigid rods.
         annotation (extent=[100, 50; 120, 30]);
       
       parameter Boolean animation=true "= true, if animation shall be enabled";
-      parameter MultiBody.Types.Axis n_a={0,0,1} 
+      parameter Modelica.Mechanics.MultiBody.Types.Axis n_a={0,0,1} 
         "Axes of the two revolute joints resolved in frame_a (both axes are parallel to each other)"
         annotation (Evaluate=true);
-      parameter MultiBody.Types.Axis n_b={-1,0,0} 
+      parameter Modelica.Mechanics.MultiBody.Types.Axis n_b={-1,0,0} 
         "Axis of prismatic joint fixed and resolved in frame_b (must be orthogonal to revolute joint axes)"
         annotation (Evaluate=true);
       parameter SI.Position rRod1_ia[3]={1,0,0} 
@@ -4971,21 +4971,21 @@ are connected by rigid rods.
         "|Animation|if animation = true| Length of cylinders representing the revolute joints";
       parameter SI.Distance cylinderDiameter=world.defaultJointWidth 
         "|Animation|if animation = true| Diameter of cylinders representing the revolute joints";
-      parameter MultiBody.Types.Color cylinderColor=MultiBody.Types.Defaults.
+      parameter Modelica.Mechanics.MultiBody.Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.
           JointColor 
         "|Animation|if animation = true| Color of cylinders representing the revolute joints";
-      parameter MultiBody.Types.Axis boxWidthDirection={0,1,0} 
+      parameter Modelica.Mechanics.MultiBody.Types.Axis boxWidthDirection={0,1,0} 
         "|Animation|if animation = true| Vector in width direction of prismatic joint, resolved in frame_b"
         annotation (Evaluate=true);
       parameter SI.Distance boxWidth=world.defaultJointWidth 
         "|Animation|if animation = true| Width of prismatic joint box";
       parameter SI.Distance boxHeight=boxWidth 
         "|Animation|if animation = true| Height of prismatic joint box";
-      parameter MultiBody.Types.Color boxColor=cylinderColor 
+      parameter Modelica.Mechanics.MultiBody.Types.Color boxColor=cylinderColor 
         "|Animation|if animation = true| Color of prismatic joint box";
       parameter SI.Diameter rodDiameter=1.1*cylinderDiameter 
         "|Animation|if animation = true| Diameter of the two rods connecting the joints";
-      parameter MultiBody.Types.Color rodColor=MultiBody.Types.Defaults.
+      parameter Modelica.Mechanics.MultiBody.Types.Color rodColor=Modelica.Mechanics.MultiBody.Types.Defaults.
           RodColor 
         "|Animation|if animation = true| Color of the two rods connecting the joints";
       parameter Boolean checkTotalPower=false 
@@ -5214,7 +5214,7 @@ and 1 prismatic joint are connected by rigid rods.
       
       parameter Boolean animation=true 
         "= true, if animation shall be enabled (show axis as cylinder)";
-      parameter MultiBody.Types.Axis n={0,0,1} 
+      parameter Modelica.Mechanics.MultiBody.Types.Axis n={0,0,1} 
         "Axis of rotation resolved in frame_a (= same as in frame_b)" 
         annotation (Evaluate=true);
       parameter Cv.NonSIunits.Angle_deg phi_offset=0 
@@ -5225,17 +5225,17 @@ and 1 prismatic joint are connected by rigid rods.
       parameter Cv.NonSIunits.Angle_deg phi_start=0 
         "|Initialization| Initial value of rotation angle phi (fixed or guess value)"
         annotation (Evaluate=false);
-      parameter MultiBody.Types.AngularVelocity_degs w_start=0 
+      parameter Modelica.Mechanics.MultiBody.Types.AngularVelocity_degs w_start=0 
         "|Initialization| Initial value of relative angular velocity w = der(phi)"
         annotation (Evaluate=false);
-      parameter MultiBody.Types.AngularAcceleration_degs2 a_start=0 
+      parameter Modelica.Mechanics.MultiBody.Types.AngularAcceleration_degs2 a_start=0 
         "|Initialization| Initial value of relative angular acceleration a = der(w)"
         annotation (Evaluate=false);
       parameter SI.Distance cylinderLength=world.defaultJointLength 
         "|Animation|if animation = true| Length of cylinder representing the joint axis";
       parameter SI.Distance cylinderDiameter=world.defaultJointWidth 
         "|Animation|if animation = true| Diameter of cylinder representing the joint axis";
-      parameter MultiBody.Types.Color cylinderColor=Types.Defaults.JointColor 
+      parameter Modelica.Mechanics.MultiBody.Types.Color cylinderColor=Types.Defaults.JointColor 
         "|Animation|if animation = true| Color of cylinder representing the joint axis";
       
       parameter Boolean enforceStates=false 
@@ -5341,7 +5341,7 @@ this force is an unknown quantity).
 </HTML>
 "));
     protected 
-      outer MultiBody.World world;
+      outer Modelica.Mechanics.MultiBody.World world;
       parameter Real e[3]=Frames.normalize(n) 
         "Unit vector in direction of rotation axis, resolved in frame_a (= same as in frame_b)";
       parameter Real nnx_a[3]=if abs(e[1]) > 0.1 then {0,1,0} else (if abs(e[2])
@@ -5485,9 +5485,9 @@ in the revolute joints of the planar loop.
       "Prismatic joint (1 translational degree-of-freedom, 2 potential states)" 
       
       import SI = Modelica.SIunits;
-      extends MultiBody.Interfaces.PartialElementaryJoint;
+      extends Modelica.Mechanics.MultiBody.Interfaces.PartialElementaryJoint;
       parameter Boolean animation=true "= true, if animation shall be enabled";
-      parameter MultiBody.Types.Axis n={1,0,0} 
+      parameter Modelica.Mechanics.MultiBody.Types.Axis n={1,0,0} 
         "Axis of translation resolved in frame_a (= same as in frame_b)" 
         annotation (Evaluate=true);
       parameter SI.Position s_offset=0 
@@ -5504,14 +5504,14 @@ in the revolute joints of the planar loop.
       parameter SI.Acceleration a_start=0 
         "|Initialization| Initial value of relative acceleration a = der(v)" 
         annotation (Evaluate=false);
-      parameter MultiBody.Types.Axis boxWidthDirection={0,1,0} 
+      parameter Modelica.Mechanics.MultiBody.Types.Axis boxWidthDirection={0,1,0} 
         "|Animation|if animation = true| Vector in width direction of box, resolved in frame_a"
         annotation (Evaluate=true);
       parameter SI.Distance boxWidth=world.defaultJointWidth 
         "|Animation|if animation = true| Width of prismatic joint box";
       parameter SI.Distance boxHeight=boxWidth 
         "|Animation|if animation = true| Height of prismatic joint box";
-      parameter MultiBody.Types.Color boxColor=Types.Defaults.JointColor 
+      parameter Modelica.Mechanics.MultiBody.Types.Color boxColor=Types.Defaults.JointColor 
         "|Animation|if animation = true| Color of prismatic joint box";
       parameter Boolean enforceStates=false 
         "|Advanced|| = true, if generalized variables (s,v) shall be used as states";
@@ -5675,7 +5675,7 @@ it might be slightly more efficient, when using the \"enforceStates\" setting.
       
       import SI = Modelica.SIunits;
       import Cv = Modelica.SIunits.Conversions;
-      extends MultiBody.Interfaces.PartialTwoFrames;
+      extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
       Modelica.Blocks.Interfaces.RealInput position_a[3](redeclare each type 
           SignalType = SI.Position) 
         "Position vector from frame_a to frame_a side of length constraint, resolved in frame_a of revolute joint"
@@ -5688,7 +5688,7 @@ it might be slightly more efficient, when using the \"enforceStates\" setting.
       parameter Boolean animation=true "= true, if animation shall be enabled";
       parameter SI.Position lengthConstraint=1 
         "Fixed length of length constraint";
-      parameter MultiBody.Types.Axis n={0,0,1} 
+      parameter Modelica.Mechanics.MultiBody.Types.Axis n={0,0,1} 
         "Axis of rotation resolved in frame_a (= same as in frame_b)" 
         annotation (Evaluate=true);
       parameter Cv.NonSIunits.Angle_deg phi_offset=0 
@@ -5699,14 +5699,14 @@ it might be slightly more efficient, when using the \"enforceStates\" setting.
         "|Animation|if animation = true| Length of cylinder representing the joint axis";
       parameter SI.Distance cylinderDiameter=world.defaultJointWidth 
         "|Animation|if animation = true| Diameter of cylinder representing the joint axis";
-      parameter MultiBody.Types.Color cylinderColor=Types.Defaults.JointColor 
+      parameter Modelica.Mechanics.MultiBody.Types.Color cylinderColor=Types.Defaults.JointColor 
         "|Animation|if animation = true| Color of cylinder representing the joint axis";
       
       parameter Boolean axisTorqueBalance=true 
         "|Advanced|| = true, if torque balance of flange axis with the frame_b connector (axis.tau = -e*frame_b.t) shall be defined. Otherwise this equation has to be provided outside of this joint";
       final parameter Boolean positiveBranch(fixed=false) 
         "Based on phi_guess, selection of one of the two solutions of the non-linear constraint equation";
-      final parameter Real e[3]=MultiBody.Frames.normalize(n) 
+      final parameter Real e[3]=Modelica.Mechanics.MultiBody.Frames.normalize(n) 
         "Unit vector in direction of rotation axis, resolved in frame_a";
       
       SI.Angle phi "Rotation angle of revolute joint";
@@ -5810,7 +5810,7 @@ length constraint is fulfilled.
 </p>
 <p>
 <b>Usually, this joint should not be used by a user of the MultiBody
-library. It is only provided to built-up the MultiBody.Joints.Assemblies.JointXYZ
+library. It is only provided to built-up the Modelica.Mechanics.MultiBody.Joints.Assemblies.JointXYZ
 joints.</b>
 </p>
 </HTML>
@@ -5988,7 +5988,7 @@ joints.</b>
       assert(k1a > 1.e-10, "
 Singular position of loop (either no or two analytic solutions;
 the mechanism has lost one-degree-of freedom in this position).
-Try first to use another MultiBody.Joints.Assemblies.JointXXX component.
+Try first to use another Modelica.Mechanics.MultiBody.Joints.Assemblies.JointXXX component.
 In most cases it is best that the joints outside of the JointXXX
 component are revolute and NOT prismatic joints. If this also
 lead to singular positions, it could be that this kinematic loop
@@ -6012,7 +6012,7 @@ position a degree of freedom is lost.
       
       import SI = Modelica.SIunits;
       import Cv = Modelica.SIunits.Conversions;
-      extends MultiBody.Interfaces.PartialTwoFrames;
+      extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
       Modelica.Mechanics.Translational.Interfaces.Flange_a axis 
         annotation (extent=[70, 80; 90, 60]);
       Modelica.Mechanics.Translational.Interfaces.Flange_b bearing 
@@ -6028,27 +6028,27 @@ position a degree of freedom is lost.
       
       parameter Boolean animation=true "= true, if animation shall be enabled";
       parameter SI.Position length=1 "Fixed length of length constraint";
-      parameter MultiBody.Types.Axis n={1,0,0} 
+      parameter Modelica.Mechanics.MultiBody.Types.Axis n={1,0,0} 
         "Axis of translation resolved in frame_a (= same as in frame_b)" 
         annotation (Evaluate=true);
       parameter SI.Position s_offset=0 
         "Relative distance offset (distance between frame_a and frame_b = s(t) + s_offset)";
       parameter SI.Position s_guess=0 
         "Select the configuration such that at initial time |s(t0)-s_guess| is minimal";
-      parameter MultiBody.Types.Axis boxWidthDirection={0,1,0} 
+      parameter Modelica.Mechanics.MultiBody.Types.Axis boxWidthDirection={0,1,0} 
         "|Animation|if animation = true| Vector in width direction of box, resolved in frame_a"
         annotation (Evaluate=true);
       parameter SI.Distance boxWidth=world.defaultJointWidth 
         "|Animation|if animation = true| Width of prismatic joint box";
       parameter SI.Distance boxHeight=boxWidth 
         "|Animation|if animation = true| Height of prismatic joint box";
-      parameter MultiBody.Types.Color boxColor=Types.Defaults.JointColor 
+      parameter Modelica.Mechanics.MultiBody.Types.Color boxColor=Types.Defaults.JointColor 
         "|Animation|if animation = true| Color of prismatic joint box";
       parameter Boolean axisForceBalance=true 
         "|Advanced|| = true, if force balance of flange axis with the frame_b connector (axis.f = -e*frame_b.f) shall be defined. Otherwise this equation has to be provided outside of this joint";
       final parameter Boolean positiveBranch(fixed=false) 
         "Selection of one of the two solutions of the non-linear constraint equation";
-      final parameter Real e[3]=MultiBody.Frames.normalize(n) 
+      final parameter Real e[3]=Modelica.Mechanics.MultiBody.Frames.normalize(n) 
         "Unit vector in direction of translation axis, resolved in frame_a";
       SI.Position s 
         "Relative distance between frame_a and frame_b along axis n = s + s_offset)";
@@ -6162,7 +6162,7 @@ length constraint is fulfilled.
 </p>
 <p>
 <b>Usually, this joint should not be used by a user of the MultiBody
-library. It is only provided to built-up the MultiBody.Joints.Assemblies.JointXYZ
+library. It is only provided to built-up the Modelica.Mechanics.MultiBody.Joints.Assemblies.JointXYZ
 joints.</b>
 </p>
 </HTML>
@@ -6288,7 +6288,7 @@ joints.</b>
       assert(noEvent(k1a > 1.e-10), "
 Singular position of loop (either no or two analytic solutions;
 the mechanism has lost one-degree-of freedom in this position).
-Try first to use another MultiBody.Joints.Assemblies.JointXXX component.
+Try first to use another Modelica.Mechanics.MultiBody.Joints.Assemblies.JointXXX component.
 If this also lead to singular positions, it could be that this
 kinematic loop cannot be solved analytically with a fixed state
 selection. In this case you have to build up the loop with

@@ -22,7 +22,7 @@ encapsulated model ThreeSprings
     Documentation(info="<html>
 <p>
 This example demonstrates that <b>3-dimensional line force</b> elements 
-(here: MultiBody.Forces.Spring elements) can be connected together
+(here: Modelica.Mechanics.MultiBody.Forces.Spring elements) can be connected together
 in <b>series</b> without having a body with mass at the
 connection point (as usually required by multi-body programs).
 This is advantageous since stiff systems can be avoided, say, due to 
@@ -33,9 +33,9 @@ a stiff spring and a small mass at the connection point.
 ALT=\"model Examples.Elementary.ThreeSprings\">
 </p>
 </html>"));
-  inner MultiBody.World world(animateWorld=animation) 
+  inner Modelica.Mechanics.MultiBody.World world(animateWorld=animation) 
     annotation (extent=[-60, 20; -40, 40]);
-  MultiBody.Parts.Body body1(
+  Modelica.Mechanics.MultiBody.Parts.Body body1(
     animation=animation,
     r_CM={0,-0.2,0},
     r_0_start={0.5,-0.3,0},
@@ -43,27 +43,27 @@ ALT=\"model Examples.Elementary.ThreeSprings\">
     I_11=0.1,
     I_22=0.1,
     I_33=0.1,
-    initType=MultiBody.Types.Init.PositionVelocity,
+    initType=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity,
     sphereDiameter=0.2) annotation (extent=[40, -80; 20, -60], rotation=-90);
-  MultiBody.Parts.FixedTranslation bar1(animation=animation, r={0.3,0,0}) 
+  Modelica.Mechanics.MultiBody.Parts.FixedTranslation bar1(animation=animation, r={0.3,0,0}) 
     annotation (extent=[-20, 20; 0, 40]);
-  MultiBody.Forces.Spring spring1(
+  Modelica.Mechanics.MultiBody.Forces.Spring spring1(
     s_unstretched=0.1,
     width=0.1,
     coilWidth=0.005,
     numberOfWindings=5,
     c=20,
     animation=animation) annotation (extent=[20, 0; 40, 20], rotation=-90);
-  MultiBody.Parts.FixedTranslation bar2(animation=animation, r={0,0,0.3}) 
+  Modelica.Mechanics.MultiBody.Parts.FixedTranslation bar2(animation=animation, r={0,0,0.3}) 
     annotation (extent=[-40, 0; -20, -20], rotation=90);
-  MultiBody.Forces.Spring spring2(
+  Modelica.Mechanics.MultiBody.Forces.Spring spring2(
     s_unstretched=0.1,
     width=0.1,
     coilWidth=0.005,
     numberOfWindings=5,
     c=40,
     animation=animation) annotation (extent=[20, -48; 40, -28], rotation=-90);
-  MultiBody.Forces.Spring spring3(
+  Modelica.Mechanics.MultiBody.Forces.Spring spring3(
     s_unstretched=0.1,
     width=0.1,
     coilWidth=0.005,

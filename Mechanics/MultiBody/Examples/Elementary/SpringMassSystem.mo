@@ -36,7 +36,7 @@ can be utilized:
     Translational library can be easily used here and that this implementation
     is usually more efficient as when using 3-dimensional springs.</li>
 <li>In the right system the same model is defined. The difference is
-    that a 3-dimensional spring from the MultiBody.Forces library is used.
+    that a 3-dimensional spring from the Modelica.Mechanics.MultiBody.Forces library is used.
     This has the advantage to get a nice animation of the force component.</li>
 </ul>
 <p align=\"center\">
@@ -44,9 +44,9 @@ can be utilized:
 ALT=\"model Examples.Elementary.SpringMassSystem\">
 </p>
 </html>"));
-  inner MultiBody.World world annotation (extent=[-80, 20; -60, 40]);
-  MultiBody.Joints.ActuatedPrismatic p1(
-    initType=MultiBody.Types.Init.PositionVelocity,
+  inner Modelica.Mechanics.MultiBody.World world annotation (extent=[-80, 20; -60, 40]);
+  Modelica.Mechanics.MultiBody.Joints.ActuatedPrismatic p1(
+    initType=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity,
     n={0,-1,0},
     s_offset=0.1,
     animation=animation,
@@ -54,26 +54,26 @@ ALT=\"model Examples.Elementary.SpringMassSystem\">
     boxWidth=0.05) annotation (extent=[-30, -20; -10, 0], rotation=-90);
   Modelica.Mechanics.Translational.Spring spring1(c=30) 
     annotation (extent=[0, -20; 20, 0], rotation=-90);
-  MultiBody.Parts.Body body1(
+  Modelica.Mechanics.MultiBody.Parts.Body body1(
     m=1,
     sphereDiameter=0.2,
     animation=animation) annotation (extent=[-10, -60; -30, -40], rotation=-90);
-  MultiBody.Parts.FixedTranslation bar1(animation=animation, r={0.3,0,0}) 
+  Modelica.Mechanics.MultiBody.Parts.FixedTranslation bar1(animation=animation, r={0.3,0,0}) 
     annotation (extent=[-46, 20; -26, 40]);
-  MultiBody.Parts.FixedTranslation bar2(animation=animation, r={0.3,0,0}) 
+  Modelica.Mechanics.MultiBody.Parts.FixedTranslation bar2(animation=animation, r={0.3,0,0}) 
     annotation (extent=[0, 20; 20, 40]);
-  MultiBody.Parts.Body body2(
+  Modelica.Mechanics.MultiBody.Parts.Body body2(
     m=1,
     sphereDiameter=0.2,
     animation=animation) annotation (extent=[60, -60; 40, -40], rotation=-90);
-  MultiBody.Joints.ActuatedPrismatic p2(
-    initType=MultiBody.Types.Init.PositionVelocity,
+  Modelica.Mechanics.MultiBody.Joints.ActuatedPrismatic p2(
+    initType=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity,
     n={0,-1,0},
     s_offset=0.1,
     animation=animation,
     enforceStates=true,
     boxWidth=0.05) annotation (extent=[40, -20; 60, 0], rotation=-90);
-  MultiBody.Forces.Spring spring2(
+  Modelica.Mechanics.MultiBody.Forces.Spring spring2(
     c=30,
     s_unstretched=0.1,
     width=0.1) annotation (extent=[80, -20; 100, 0], rotation=-90);

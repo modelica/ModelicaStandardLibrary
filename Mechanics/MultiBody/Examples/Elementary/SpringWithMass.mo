@@ -13,15 +13,15 @@ light blue, sphere.
 ALT=\"model Examples.Elementary.SpringWithMass\">
 </p>
 </html>"));
-  inner MultiBody.World world(animateGravity=false) 
+  inner Modelica.Mechanics.MultiBody.World world(animateGravity=false) 
     annotation (extent=[-40, 40; -20, 60]);
-  MultiBody.Forces.Spring spring(
+  Modelica.Mechanics.MultiBody.Forces.Spring spring(
     s_unstretched=0.2,
     m=0.5,
     c=40,
     width=0.1,
     massDiameter=0.07) annotation (extent=[0, 20; 20, 40], rotation=-90);
-  MultiBody.Parts.Body body(initType=MultiBody.Types.Init.PositionVelocity,
+  Modelica.Mechanics.MultiBody.Parts.Body body(initType=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity,
       r_0_start={0,-0.3,0}) annotation (extent=[0, -20; 20, 0], rotation=-90);
 equation 
   connect(world.frame_b, spring.frame_a) 

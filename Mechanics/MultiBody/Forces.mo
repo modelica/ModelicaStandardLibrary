@@ -117,7 +117,7 @@ between two frame connectors, e.g., between two parts.
       "|if animation = true| Force arrow scaling (length = force/N_to_m)";
     parameter SI.Diameter diameter=world.defaultArrowDiameter 
       "|if animation = true| Diameter of force arrow";
-    parameter MultiBody.Types.Color color=MultiBody.Types.Defaults.ForceColor 
+    parameter Modelica.Mechanics.MultiBody.Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.ForceColor 
       "|if animation = true| Color of arrow";
     annotation (
       preferedView="info",
@@ -201,7 +201,7 @@ is resolved in the world frame).
             fillPattern=1))));
     
   protected 
-    outer MultiBody.World world;
+    outer Modelica.Mechanics.MultiBody.World world;
     parameter Integer ndim=if world.enableAnimation and animation then 1 else 0;
     SI.Position f_in_m[3]=frame_b.f/N_to_m 
       "Force mapped from N to m for animation";
@@ -230,7 +230,7 @@ is resolved in the world frame).
       "|if animation = true| Torque arrow scaling (length = torque/Nm_to_m)";
     parameter SI.Diameter diameter=world.defaultArrowDiameter 
       "|if animation = true| Diameter of torque arrow";
-    parameter MultiBody.Types.Color color=MultiBody.Types.Defaults.TorqueColor 
+    parameter Modelica.Mechanics.MultiBody.Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.TorqueColor 
       "|if animation = true| Color of arrow";
     
     annotation (
@@ -298,7 +298,7 @@ This leads to the following animation
             fillPattern=1))));
     
   protected 
-    outer MultiBody.World world;
+    outer Modelica.Mechanics.MultiBody.World world;
     parameter Integer ndim=if world.enableAnimation and animation then 1 else 0;
     SI.Position t_in_m[3]=frame_b.t/Nm_to_m 
       "Torque mapped from Nm to m for animation";
@@ -331,9 +331,9 @@ This leads to the following animation
       "|if animation = true| Diameter of force arrow";
     parameter SI.Diameter torqueDiameter=forceDiameter 
       "|if animation = true| Diameter of torque arrow";
-    parameter MultiBody.Types.Color forceColor=MultiBody.Types.Defaults.
+    parameter Modelica.Mechanics.MultiBody.Types.Color forceColor=Modelica.Mechanics.MultiBody.Types.Defaults.
         ForceColor "|if animation = true| Color of force arrow";
-    parameter MultiBody.Types.Color torqueColor=MultiBody.Types.Defaults.
+    parameter Modelica.Mechanics.MultiBody.Types.Color torqueColor=Modelica.Mechanics.MultiBody.Types.Defaults.
         TorqueColor "|if animation = true| Color of torque arrow";
     annotation (
       preferedView="info",
@@ -440,7 +440,7 @@ is resolved in the world frame).
             fillPattern=1))));
     
   protected 
-    outer MultiBody.World world;
+    outer Modelica.Mechanics.MultiBody.World world;
     parameter Integer ndim=if world.enableAnimation and animation then 1 else 0;
     SI.Position f_in_m[3]=frame_b.f/N_to_m 
       "Force mapped from N to m for animation";
@@ -482,7 +482,7 @@ is resolved in the world frame).
       "|if animation = true| Force arrow scaling (length = force/N_to_m)";
     parameter SI.Diameter diameter=world.defaultArrowDiameter 
       "|if animation = true| Diameter of force arrow";
-    parameter MultiBody.Types.Color color=MultiBody.Types.Defaults.ForceColor 
+    parameter Modelica.Mechanics.MultiBody.Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.ForceColor 
       "|if animation = true| Color of arrow";
     annotation (
       preferedView="info",
@@ -576,7 +576,7 @@ is resolved in the world frame).
             fillPattern=1))));
     
   protected 
-    outer MultiBody.World world;
+    outer Modelica.Mechanics.MultiBody.World world;
     parameter Integer ndim=if world.enableAnimation and animation then 1 else 0;
     SI.Position f_in_m[3]=frame_b.f/N_to_m 
       "Force mapped from N to m for animation";
@@ -618,7 +618,7 @@ is resolved in the world frame).
       "|if animation = true| Torque arrow scaling (length = torque/Nm_to_m)";
     parameter SI.Diameter diameter=world.defaultArrowDiameter 
       "|if animation = true| Diameter of torque arrow";
-    parameter MultiBody.Types.Color color=MultiBody.Types.Defaults.TorqueColor 
+    parameter Modelica.Mechanics.MultiBody.Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.TorqueColor 
       "|if animation = true| Color of arrow";
     annotation (
       preferedView="info",
@@ -714,7 +714,7 @@ is resolved in the world frame).
             fillPattern=1))));
     
   protected 
-    outer MultiBody.World world;
+    outer Modelica.Mechanics.MultiBody.World world;
     parameter Integer ndim=if world.enableAnimation and animation then 1 else 0;
     SI.Position t_in_m[3]=frame_b.t/Nm_to_m 
       "Torque mapped from Nm to m for animation";
@@ -759,9 +759,9 @@ is resolved in the world frame).
       "|if animation = true| Diameter of force arrow";
     parameter SI.Diameter torqueDiameter=forceDiameter 
       "|if animation = true| Diameter of torque arrow";
-    parameter MultiBody.Types.Color forceColor=MultiBody.Types.Defaults.
+    parameter Modelica.Mechanics.MultiBody.Types.Color forceColor=Modelica.Mechanics.MultiBody.Types.Defaults.
         ForceColor "|if animation = true| Color of force arrow";
-    parameter MultiBody.Types.Color torqueColor=MultiBody.Types.Defaults.
+    parameter Modelica.Mechanics.MultiBody.Types.Color torqueColor=Modelica.Mechanics.MultiBody.Types.Defaults.
         TorqueColor "|if animation = true| Color of torque arrow";
     annotation (
       preferedView="info",
@@ -878,7 +878,7 @@ is resolved in the world frame).
             fillPattern=1))));
     
   protected 
-    outer MultiBody.World world;
+    outer Modelica.Mechanics.MultiBody.World world;
     parameter Integer ndim=if world.enableAnimation and animation then 1 else 0;
     SI.Position f_in_m[3]=frame_b.f/N_to_m 
       "Force mapped from N to m for animation";
@@ -935,9 +935,9 @@ is resolved in the world frame).
       "|if animation = true| Diameter of force arrow";
     parameter SI.Diameter connectionLineDiameter=forceDiameter 
       "|if animation = true| Diameter of line connecting frame_a and frame_b";
-    parameter MultiBody.Types.Color forceColor=MultiBody.Types.Defaults.
+    parameter Modelica.Mechanics.MultiBody.Types.Color forceColor=Modelica.Mechanics.MultiBody.Types.Defaults.
         ForceColor "|if animation = true| Color of force arrow";
-    parameter MultiBody.Types.Color connectionLineColor=MultiBody.Types.
+    parameter Modelica.Mechanics.MultiBody.Types.Color connectionLineColor=Modelica.Mechanics.MultiBody.Types.
         Defaults.SensorColor 
       "|if animation = true| Color of line connecting frame_a and frame_b";
     SI.Position r_0[3] 
@@ -1037,7 +1037,7 @@ is resolved in the world frame).
             fillPattern=1))));
     
   protected 
-    outer MultiBody.World world;
+    outer Modelica.Mechanics.MultiBody.World world;
     parameter Integer ndim=if world.enableAnimation and animation then 1 else 0;
     SI.Position f_in_m[3]=frame_b.f/N_to_m 
       "Force mapped from N to m for animation";
@@ -1098,9 +1098,9 @@ is resolved in the world frame).
       "|if animation = true| Diameter of torque arrow";
     parameter SI.Diameter connectionLineDiameter=torqueDiameter 
       "|if animation = true| Diameter of line connecting frame_a and frame_b";
-    parameter MultiBody.Types.Color torqueColor=MultiBody.Types.Defaults.
+    parameter Modelica.Mechanics.MultiBody.Types.Color torqueColor=Modelica.Mechanics.MultiBody.Types.Defaults.
         TorqueColor "|if animation = true| Color of torque arrow";
-    parameter MultiBody.Types.Color connectionLineColor=MultiBody.Types.
+    parameter Modelica.Mechanics.MultiBody.Types.Color connectionLineColor=Modelica.Mechanics.MultiBody.Types.
         Defaults.SensorColor 
       "|if animation = true| Color of line connecting frame_a and frame_b";
     SI.Position r_0[3] 
@@ -1207,7 +1207,7 @@ is resolved in the world frame).
             fillPattern=1))));
     
   protected 
-    outer MultiBody.World world;
+    outer Modelica.Mechanics.MultiBody.World world;
     parameter Integer ndim=if world.enableAnimation and animation then 1 else 0;
     SI.Position t_in_m[3]=frame_b.t/Nm_to_m 
       "Torque mapped from Nm to m for animation";
@@ -1271,11 +1271,11 @@ is resolved in the world frame).
       "|if animation = true| Diameter of torque arrow";
     parameter SI.Diameter connectionLineDiameter=forceDiameter 
       "|if animation = true| Diameter of line connecting frame_a and frame_b";
-    parameter MultiBody.Types.Color forceColor=MultiBody.Types.Defaults.
+    parameter Modelica.Mechanics.MultiBody.Types.Color forceColor=Modelica.Mechanics.MultiBody.Types.Defaults.
         ForceColor "|if animation = true| Color of force arrow";
-    parameter MultiBody.Types.Color torqueColor=MultiBody.Types.Defaults.
+    parameter Modelica.Mechanics.MultiBody.Types.Color torqueColor=Modelica.Mechanics.MultiBody.Types.Defaults.
         TorqueColor "|if animation = true| Color of torque arrow";
-    parameter MultiBody.Types.Color connectionLineColor=MultiBody.Types.
+    parameter Modelica.Mechanics.MultiBody.Types.Color connectionLineColor=Modelica.Mechanics.MultiBody.Types.
         Defaults.SensorColor 
       "|if animation = true| Color of line connecting frame_a and frame_b";
     SI.Position r_0[3] 
@@ -1394,7 +1394,7 @@ is resolved in the world frame).
             fillPattern=1))));
     
   protected 
-    outer MultiBody.World world;
+    outer Modelica.Mechanics.MultiBody.World world;
     parameter Integer ndim=if world.enableAnimation and animation then 1 else 0;
     SI.Position f_in_m[3]=frame_b.f/N_to_m 
       "Force mapped from N to m for animation";
@@ -1466,7 +1466,7 @@ is resolved in the world frame).
       min=0,
       max=1) = 0.5 
       "Location of point mass with respect to frame_a as a fraction of the distance from frame_a to frame_b";
-    parameter MultiBody.Types.ShapeType lineShapeType="cylinder" 
+    parameter Modelica.Mechanics.MultiBody.Types.ShapeType lineShapeType="cylinder" 
       "|Animation|if animateLine = true| Type of shape visualizing the line from frame_a to frame_b";
     parameter SI.Length lineShapeWidth=world.defaultArrowDiameter 
       "|Animation|if animateLine = true| Width of shape";
@@ -1474,13 +1474,13 @@ is resolved in the world frame).
       "|Animation|if animateLine = true| Height of shape";
     parameter Real lineShapeExtra=0.0 
       "|Animation|if animateLine = true| Extra parameter for shape, see docu of Visualizers.FixedShape";
-    parameter MultiBody.Types.Color lineShapeColor=MultiBody.Types.Defaults.
+    parameter Modelica.Mechanics.MultiBody.Types.Color lineShapeColor=Modelica.Mechanics.MultiBody.Types.Defaults.
         SensorColor "|Animation|if animateLine = true| Color of line shape";
     
     parameter Real massDiameter=world.defaultBodyDiameter 
       "|Animation|if animateMass = true| Diameter of point mass sphere";
     
-    parameter MultiBody.Types.Color massColor=MultiBody.Types.Defaults.
+    parameter Modelica.Mechanics.MultiBody.Types.Color massColor=Modelica.Mechanics.MultiBody.Types.Defaults.
         BodyColor "|Animation|if animateMass = true| Color of point mass";
     parameter SI.Position s_small=1.E-10 
       "|Advanced|| Prevent zero-division if distance between frame_a and frame_b is zero";
@@ -1775,17 +1775,17 @@ for this situation:
       "|Animation|Cylinder at frame_a| Diameter of cylinder at frame_a";
     parameter SI.Length cylinderLength_a=2*L_a 
       "|Animation|Cylinder at frame_a| Length of cylinder at frame_a";
-    parameter MultiBody.Types.Color color_a={155,155,155} 
+    parameter Modelica.Mechanics.MultiBody.Types.Color color_a={155,155,155} 
       "|Animation|Cylinder at frame_a| Color of cylinder at frame_a";
     parameter Real diameterFraction=0.8 
       "|Animation|Cylinder at frame_b| Diameter of cylinder at frame_b with respect to diameter of cylinder at frame_a";
     parameter SI.Length cylinderLength_b=2*L_b 
       "|Animation|Cylinder at frame_b| Length of cylinder at frame_b";
-    parameter MultiBody.Types.Color color_b={100,100,100} 
+    parameter Modelica.Mechanics.MultiBody.Types.Color color_b={100,100,100} 
       "|Animation|Cylinder at frame_b| Color of cylinder at frame_b";
     parameter Real massDiameterFaction=1.7 
       "|Animation|if animateMasses = true| Diameter of point mass spheres with respect to cylinderDiameter_a";
-    parameter MultiBody.Types.Color massColor=MultiBody.Types.Defaults.
+    parameter Modelica.Mechanics.MultiBody.Types.Color massColor=Modelica.Mechanics.MultiBody.Types.Defaults.
         BodyColor "|Animation|if animateMasses = true| Color of point masses";
     parameter SI.Position s_small=1.E-10 
       "|Advanced|| Prevent zero-division if distance between frame_a and frame_b is zero";
@@ -2165,11 +2165,11 @@ for this situation:
       "|Animation|if animation = true| Width of spring coil";
     parameter Integer numberOfWindings=5 
       "|Animation|if animation = true| Number of spring windings";
-    parameter MultiBody.Types.Color color=MultiBody.Types.Defaults.SpringColor 
+    parameter Modelica.Mechanics.MultiBody.Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.SpringColor 
       "|Animation|if animation = true| Color of spring";
     parameter Real massDiameter=max(0, (width - 2*coilWidth)*0.9) 
       "|Animation|if animation = true and showMass = true| Diameter of mass point sphere";
-    parameter MultiBody.Types.Color massColor=MultiBody.Types.Defaults.
+    parameter Modelica.Mechanics.MultiBody.Types.Color massColor=Modelica.Mechanics.MultiBody.Types.Defaults.
         BodyColor 
       "|Animation|if animation = true and showMass = true| Color of mass point";
     
@@ -2256,9 +2256,9 @@ ALT=\"model Examples.Elementary.SpringWithMass\">
       "|Animation|if animation = true| Diameter of cylinder at frame_a side";
     parameter Real diameter_b=0.6*diameter_a 
       "|Animation|if animation = true| Diameter of cylinder at frame_b side";
-    parameter MultiBody.Types.Color color_a={100,100,100} 
+    parameter Modelica.Mechanics.MultiBody.Types.Color color_a={100,100,100} 
       "|Animation|if animation = true| Color at frame_a";
-    parameter MultiBody.Types.Color color_b={155,155,155} 
+    parameter Modelica.Mechanics.MultiBody.Types.Color color_b={155,155,155} 
       "|Animation|if animation = true| Color at frame_b";
     extends Interfaces.PartialLineForce;
     annotation (
@@ -2366,7 +2366,7 @@ where a mass is hanging on a damper.
       "|Animation|if animation = true| Width of spring coil";
     parameter Integer numberOfWindings=5 
       "|Animation|if animation = true| Number of spring windings";
-    parameter MultiBody.Types.Color color=MultiBody.Types.Defaults.SpringColor 
+    parameter Modelica.Mechanics.MultiBody.Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.SpringColor 
       "|Animation|if animation = true| Color of spring";
     extends Interfaces.PartialLineForce;
     annotation (

@@ -25,13 +25,13 @@ assembled system.
 ALT=\"model Examples.Elementary.Pendulum\">
 </p>
 </html>"));
-  inner MultiBody.World world(gravityType=MultiBody.Types.GravityTypes.
+  inner Modelica.Mechanics.MultiBody.World world(gravityType=Modelica.Mechanics.MultiBody.Types.GravityTypes.
         UniformGravity) annotation (extent=[-60, 0; -40, 20]);
-  MultiBody.Joints.ActuatedRevolute rev(n={0,0,1}, initType=MultiBody.Types.
+  Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute rev(n={0,0,1}, initType=Modelica.Mechanics.MultiBody.Types.
         Init.PositionVelocity) annotation (extent=[-20, 0; 0, 20]);
   Modelica.Mechanics.Rotational.Damper damper(d=0.1) 
     annotation (extent=[-20, 40; 0, 60]);
-  MultiBody.Parts.Body body(m=1.0, r_CM={0.5,0,0}) 
+  Modelica.Mechanics.MultiBody.Parts.Body body(m=1.0, r_CM={0.5,0,0}) 
     annotation (extent=[20, 0; 40, 20]);
 equation 
   connect(world.frame_b, rev.frame_a) 

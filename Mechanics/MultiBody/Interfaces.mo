@@ -121,7 +121,7 @@ PlanarCutJoint=true in the Advanced menu.");
     Interfaces.Frame_a frame_a annotation (extent=[-120, -15; -100, 15]);
     Interfaces.Frame_b frame_b annotation (extent=[100, -15; 120, 15]);
   protected 
-    outer MultiBody.World world;
+    outer Modelica.Mechanics.MultiBody.World world;
   equation 
     assert(cardinality(frame_a) > 0,
       "Connector frame_a of component is not connected");
@@ -153,7 +153,7 @@ needed and if the two frame connectors should be connected for a correct model.
     Interfaces.Frame_a frame_a annotation (extent=[-120, -15; -100, 15]);
     Interfaces.Frame_b frame_b annotation (extent=[100, -15; 120, 15]);
   protected 
-    outer MultiBody.World world;
+    outer Modelica.Mechanics.MultiBody.World world;
   equation 
     defineBranch(frame_a.R, frame_b.R);
     assert(cardinality(frame_a) > 0,
@@ -190,7 +190,7 @@ object and an assert to check that both frame connectors are connected.
     SI.Position r_rel_b[3] 
       "Position vector from origin of frame_a to origin of frame_b, resolved in frame_b";
   protected 
-    outer MultiBody.World world;
+    outer Modelica.Mechanics.MultiBody.World world;
   equation 
     assert(cardinality(frame_a) > 0,
       "Connector frame_a of force object is not connected");
@@ -231,7 +231,7 @@ the definition should be:
 </p>
 <pre>
    <b>model</b> Constant_x_Force
-      extends MultiBody.Interfaces.PartialForce;
+      extends Modelica.Mechanics.MultiBody.Interfaces.PartialForce;
    <b>equation</b>
       frame_b.f = {-100, 0, 0};
       frame_b.t = zeros(3);
@@ -266,7 +266,7 @@ to which this force element is connected.
     Real r_rel_a[3] 
       "Position vector from origin of frame_a to origin of frame_b, resolved in frame_a";
   protected 
-    outer MultiBody.World world;
+    outer Modelica.Mechanics.MultiBody.World world;
   equation 
     definePotentialRoot(frame_a.R, 100);
     definePotentialRoot(frame_b.R, 100);
@@ -314,7 +314,7 @@ has to be defined. Example:
    <b>model</b> Spring
       <b>parameter</b> Real c \"spring constant\",
       <b>parameter</b> Real s_unstretched \"unstretched spring length\";
-      <b>extends</b> MultiBody.Interfaces.PartialLineForce;
+      <b>extends</b> Modelica.Mechanics.MultiBody.Interfaces.PartialLineForce;
    <b>equation</b>
       f = c*(s-s_unstretched);
    <b>end</b> Spring;
@@ -336,7 +336,7 @@ has to be defined. Example:
     Modelica.Blocks.Interfaces.RealOutput y[n_out] "Measured data as signals" 
       annotation (extent=[100, -10; 120, 10]);
   protected 
-    outer MultiBody.World world;
+    outer Modelica.Mechanics.MultiBody.World world;
     annotation (
       Coordsys(
         extent=[-100, -100; 100, 100],
@@ -377,7 +377,7 @@ with the blocks of package Modelica.Blocks.
     Modelica.Blocks.Interfaces.RealOutput y[n_out] 
       annotation (extent=[-10, -100; 10, -120], rotation=90);
   protected 
-    outer MultiBody.World world;
+    outer Modelica.Mechanics.MultiBody.World world;
     annotation (
       Coordsys(
         extent=[-100, -100; 100, 100],
@@ -479,7 +479,7 @@ with the blocks of package Modelica.Blocks.
         Line(points=[80,0; 80,-100],   style(color=6, thickness=2))));
     
   protected 
-    outer MultiBody.World world;
+    outer Modelica.Mechanics.MultiBody.World world;
   equation 
     defineBranch(frame_a.R, frame_b.R);
     assert(cardinality(frame_a) > 0,
@@ -510,10 +510,10 @@ with the blocks of package Modelica.Blocks.
   partial model PartialVisualizer 
     "Base model of visualizers (has a frame_a on the left side + outer world + assert to guarantee that the component is connected)" 
     
-    MultiBody.Interfaces.Frame_a frame_a 
+    Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a 
       annotation (extent=[-120, -15; -100, 15]);
   protected 
-    outer MultiBody.World world;
+    outer Modelica.Mechanics.MultiBody.World world;
   equation 
     assert(cardinality(frame_a) > 0,
       "Connector frame_a of visualizer object is not connected");

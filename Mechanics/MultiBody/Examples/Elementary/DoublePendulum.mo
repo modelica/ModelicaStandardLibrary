@@ -28,16 +28,16 @@ object to <b>false</b> to switch off animation of all components.
 ALT=\"model Examples.Elementary.DoublePendulum\">
 </p>
 </HTML>"));
-  inner MultiBody.World world annotation (extent=[-88, 0; -68, 20]);
-  MultiBody.Joints.ActuatedRevolute revolute1(initType=MultiBody.Types.Init.
+  inner Modelica.Mechanics.MultiBody.World world annotation (extent=[-88, 0; -68, 20]);
+  Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute revolute1(initType=Modelica.Mechanics.MultiBody.Types.Init.
         PositionVelocity) annotation (extent=[-48, 0; -28, 20]);
   Modelica.Mechanics.Rotational.Damper damper(d=0.1) 
     annotation (extent=[-48, 40; -28, 60]);
-  MultiBody.Parts.BodyBox boxBody1(r={0.5,0,0}, width=0.06) 
+  Modelica.Mechanics.MultiBody.Parts.BodyBox boxBody1(r={0.5,0,0}, width=0.06) 
     annotation (extent=[-10, 0; 10, 20]);
-  MultiBody.Joints.Revolute revolute2(initType=MultiBody.Types.Init.
+  Modelica.Mechanics.MultiBody.Joints.Revolute revolute2(initType=Modelica.Mechanics.MultiBody.Types.Init.
         PositionVelocity) annotation (extent=[32, 0; 52, 20]);
-  MultiBody.Parts.BodyBox boxBody2(r={0.5,0,0}, width=0.06) 
+  Modelica.Mechanics.MultiBody.Parts.BodyBox boxBody2(r={0.5,0,0}, width=0.06) 
     annotation (extent=[74, 0; 94, 20]);
 equation 
   

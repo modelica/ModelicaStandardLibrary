@@ -1,8 +1,6 @@
-encapsulated model Fourbar1 
+model Fourbar1 
   "One kinematic loop with four bars (with only revolute joints; 5 non-linear equations)" 
   
-  import Modelica;
-  import Modelica.Mechanics.MultiBody;
   import SI = Modelica.SIunits;
   extends Modelica.Icons.Example;
   
@@ -29,29 +27,29 @@ of revolute joint j1 is set to 300 deg/s in order to drive this loop.
 </html>
 "), Diagram);
   
-  inner MultiBody.World world annotation (extent=[-100, -80; -80, -60]);
-  MultiBody.Joints.Revolute j1(
+  inner Modelica.Mechanics.MultiBody.World world annotation (extent=[-100, -80; -80, -60]);
+  Modelica.Mechanics.MultiBody.Joints.Revolute j1(
     n={1,0,0},
-    initType=MultiBody.Types.Init.PositionVelocity,
+    initType=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity,
     enforceStates=true,
     w_start=300) annotation (extent=[-54, -40; -34, -20]);
-  MultiBody.Joints.Prismatic j2(
+  Modelica.Mechanics.MultiBody.Joints.Prismatic j2(
     n={1,0,0},
     s_start=-0.2,
     boxWidth=0.05) annotation (extent=[10, -80; 30, -60]);
-  MultiBody.Parts.BodyCylinder b1(r={0,0.5,0.1}, diameter=0.05) 
+  Modelica.Mechanics.MultiBody.Parts.BodyCylinder b1(r={0,0.5,0.1}, diameter=0.05) 
     annotation (extent=[-40, -8; -20, 12], rotation=90);
-  MultiBody.Parts.BodyCylinder b2(r={0,0.2,0}, diameter=0.05) 
+  Modelica.Mechanics.MultiBody.Parts.BodyCylinder b2(r={0,0.2,0}, diameter=0.05) 
     annotation (extent=[40, -60; 60, -40], rotation=90);
-  MultiBody.Parts.BodyCylinder b3(r={-1,0.3,0.1}, diameter=0.05) 
+  Modelica.Mechanics.MultiBody.Parts.BodyCylinder b3(r={-1,0.3,0.1}, diameter=0.05) 
     annotation (extent=[38, 20; 18, 40]);
-  MultiBody.Joints.Revolute rev(n={0,1,0}) 
+  Modelica.Mechanics.MultiBody.Joints.Revolute rev(n={0,1,0}) 
     annotation (extent=[40, -32; 60, -12], rotation=90);
-  MultiBody.Joints.Revolute rev1 annotation (extent=[60, 0; 80, 20]);
-  MultiBody.Joints.Revolute j3(n={1,0,0}) annotation (extent=[-60, 40; -40, 60]);
-  MultiBody.Joints.Revolute j4(n={0,1,0}) annotation (extent=[-32, 60; -12, 80]);
-  MultiBody.Joints.Revolute j5(n={0,0,1}) annotation (extent=[0, 70; 20, 90]);
-  MultiBody.Parts.FixedTranslation b0(animation=false, r={1.2,0,0}) 
+  Modelica.Mechanics.MultiBody.Joints.Revolute rev1 annotation (extent=[60, 0; 80, 20]);
+  Modelica.Mechanics.MultiBody.Joints.Revolute j3(n={1,0,0}) annotation (extent=[-60, 40; -40, 60]);
+  Modelica.Mechanics.MultiBody.Joints.Revolute j4(n={0,1,0}) annotation (extent=[-32, 60; -12, 80]);
+  Modelica.Mechanics.MultiBody.Joints.Revolute j5(n={0,0,1}) annotation (extent=[0, 70; 20, 90]);
+  Modelica.Mechanics.MultiBody.Parts.FixedTranslation b0(animation=false, r={1.2,0,0}) 
     annotation (extent=[-40, -80; -20, -60]);
 equation 
   connect(j2.frame_b, b2.frame_a) annotation (points=[31, -70; 50, -70; 50, -61],

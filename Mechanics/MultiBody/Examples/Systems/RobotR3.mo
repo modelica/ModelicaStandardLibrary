@@ -170,7 +170,7 @@ to plot variables.
     Components.MechanicalStructure mechanics(
       mLoad=mLoad,
       rLoad=rLoad,
-      g=g) annotation (extent=[35, -35; 95, 25]);
+      g=g) annotation (extent=[34.5,-35; 94.5,25]);
     RobotR3.Components.PathPlanning path(
       naxis=6,
       angleBegDeg={startAngle1,startAngle2,startAngle3,startAngle4,startAngle5,
@@ -252,8 +252,8 @@ to plot variables.
     RobotR3.Components.Bus bus(naxis=6) 
       annotation (extent=[-42.5, -75; -40, 45.5], rotation=90);
   equation 
-    connect(axis2.flange, mechanics.axis2) annotation (points=[-4, -45; 25, -45;
-           25, -21.5; 33.5, -21.5], style(color=0));
+    connect(axis2.flange, mechanics.axis2) annotation (points=[-4,-45; 25,-45; 
+          25,-21.5; 33,-21.5],      style(color=0));
     connect(path.bus, bus) annotation (points=[-59, -15; -41.25, -15; -41.25, -14.75],
          style(color=77));
     connect(axis2.bus, bus.axis[2]) 
@@ -268,16 +268,16 @@ to plot variables.
       annotation (points=[-26, 15; -40, 15], style(color=77));
     connect(axis6.bus, bus.axis[6]) 
       annotation (points=[-26, 35; -40, 35], style(color=77));
-    connect(axis1.flange, mechanics.axis1) annotation (points=[-4, -65; 30, -65;
-           30, -30.5; 33.5, -30.5], style(color=0));
-    connect(axis3.flange, mechanics.axis3) annotation (points=[-4, -25; 15, -25;
-           15, -12.5; 33.5, -12.5], style(color=0));
-    connect(axis4.flange, mechanics.axis4) annotation (points=[-4, -5; 15, -5;
-          15, -3.5; 33.5, -3.5], style(color=0));
+    connect(axis1.flange, mechanics.axis1) annotation (points=[-4,-65; 30,-65; 
+          30,-30.5; 33,-30.5],      style(color=0));
+    connect(axis3.flange, mechanics.axis3) annotation (points=[-4,-25; 15,-25; 
+          15,-12.5; 33,-12.5],      style(color=0));
+    connect(axis4.flange, mechanics.axis4) annotation (points=[-4,-5; 15,-5; 15,
+          -3.5; 33,-3.5],        style(color=0));
     connect(axis5.flange, mechanics.axis5) 
-      annotation (points=[-4, 15; 10, 15; 10, 5.5; 33.5, 5.5], style(color=0));
-    connect(axis6.flange, mechanics.axis6) annotation (points=[-4, 35; 20, 35;
-          20, 14.5; 33.5, 14.5], style(color=0));
+      annotation (points=[-4,15; 10,15; 10,5.5; 33,5.5],       style(color=0));
+    connect(axis6.flange, mechanics.axis6) annotation (points=[-4,35; 20,35; 20,
+          14.5; 33,14.5],        style(color=0));
   end fullRobot;
   extends Modelica.Icons.Library;
   import SI = Modelica.SIunits;
@@ -1130,24 +1130,32 @@ This model contains the mechanical components of the r3 robot
         annotation (extent=[-220, 60; -200, 80]);
       Modelica.Mechanics.Rotational.Interfaces.Flange_a axis6 
         annotation (extent=[-220, 120; -200, 140]);
-      inner MultiBody.World world(
+      inner Modelica.Mechanics.MultiBody.World world(
         g=(g)*MultiBody.Frames.length(({0,-1,0})),
         n={0,-1,0},
         animateWorld=false,
-        animateGravity=false) annotation (extent=[-100, -200; -80, -180]);
-      MultiBody.Joints.ActuatedRevolute r1(n={0,1,0}) 
+        animateGravity=false, 
+        enableAnimation=animation) 
+                              annotation (extent=[-100, -200; -80, -180]);
+      Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute r1(n={0,1,0}, 
+          animation=animation) 
         annotation (extent=[-80, -170; -60, -150], rotation=90);
-      MultiBody.Joints.ActuatedRevolute r2(n={1,0,0}) 
+      Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute r2(n={1,0,0}, 
+          animation=animation) 
         annotation (extent=[-50, -110; -30, -90]);
-      MultiBody.Joints.ActuatedRevolute r3(n={1,0,0}) 
+      Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute r3(n={1,0,0}, 
+          animation=animation) 
         annotation (extent=[-60, -46; -40, -26], rotation=180);
-      MultiBody.Joints.ActuatedRevolute r4(n={0,1,0}) 
+      Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute r4(n={0,1,0}, 
+          animation=animation) 
         annotation (extent=[-80, 0; -60, 20], rotation=90);
-      MultiBody.Joints.ActuatedRevolute r5(n={1,0,0}) 
+      Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute r5(n={1,0,0}, 
+          animation=animation) 
         annotation (extent=[-60, 70; -40, 90]);
-      MultiBody.Joints.ActuatedRevolute r6(n={0,1,0}) 
+      Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute r6(n={0,1,0}, 
+          animation=animation) 
         annotation (extent=[-70, 120; -50, 140], rotation=90);
-      MultiBody.Parts.BodyShape b0(
+      Modelica.Mechanics.MultiBody.Parts.BodyShape b0(
         r={0,0.351,0},
         shapeType="0",
         r_shape={0,0,0},
@@ -1160,7 +1168,7 @@ This model contains the mechanical components of the r3 robot
         animation=animation,
         animateSphere=false) 
         annotation (extent=[-40, -180; -20, -160], rotation=90);
-      MultiBody.Parts.BodyShape b1(
+      Modelica.Mechanics.MultiBody.Parts.BodyShape b1(
         r={0,0.324,0.3},
         I_22=1.16,
         shapeType="1",
@@ -1172,7 +1180,7 @@ This model contains the mechanical components of the r3 robot
         animation=animation,
         animateSphere=false,
         color={255,0,0}) annotation (extent=[-80, -128; -60, -108], rotation=90);
-      MultiBody.Parts.BodyShape b2(
+      Modelica.Mechanics.MultiBody.Parts.BodyShape b2(
         r={0,0.65,0},
         r_CM={0.172,0.205,0},
         m=56.5,
@@ -1190,7 +1198,7 @@ This model contains the mechanical components of the r3 robot
         animation=animation,
         animateSphere=false,
         color={255,178,0}) annotation (extent=[-26, -80; -6, -60], rotation=90);
-      MultiBody.Parts.BodyShape b3(
+      Modelica.Mechanics.MultiBody.Parts.BodyShape b3(
         r={0,0.414,-0.155},
         r_CM={0.064,-0.034,0},
         m=26.4,
@@ -1208,7 +1216,7 @@ This model contains the mechanical components of the r3 robot
         animation=animation,
         animateSphere=false,
         color={255,0,0}) annotation (extent=[-76, -32; -96, -12], rotation=90);
-      MultiBody.Parts.BodyShape b4(
+      Modelica.Mechanics.MultiBody.Parts.BodyShape b4(
         r={0,0.186,0},
         r_CM={0,0,0},
         m=28.7,
@@ -1225,7 +1233,7 @@ This model contains the mechanical components of the r3 robot
         animation=animation,
         animateSphere=false,
         color={255,178,0}) annotation (extent=[-80, 40; -60, 60], rotation=90);
-      MultiBody.Parts.BodyShape b5(
+      Modelica.Mechanics.MultiBody.Parts.BodyShape b5(
         r={0,0.125,0},
         r_CM={0,0,0},
         m=5.2,
@@ -1242,7 +1250,7 @@ This model contains the mechanical components of the r3 robot
         animation=animation,
         animateSphere=false,
         color={0,0,255}) annotation (extent=[-30, 88; -10, 108], rotation=90);
-      MultiBody.Parts.BodyShape b6(
+      Modelica.Mechanics.MultiBody.Parts.BodyShape b6(
         r={0,0,0},
         r_CM={0.05,0.05,0.05},
         m=0.5,
@@ -1253,7 +1261,7 @@ This model contains the mechanical components of the r3 robot
         animation=animation,
         animateSphere=false,
         color={0,0,255}) annotation (extent=[-70, 150; -50, 170], rotation=90);
-      MultiBody.Parts.BodyShape load(
+      Modelica.Mechanics.MultiBody.Parts.BodyShape load(
         r_CM=rLoad,
         m=mLoad,
         r_shape={0,0,0},
@@ -1262,8 +1270,9 @@ This model contains the mechanical components of the r3 robot
         height=0.05,
         color={255,0,0},
         lengthDirection=rLoad,
-        length=MultiBody.Frames.length(rLoad)) 
-        annotation (extent=[-70, 178; -50, 198], rotation=90);
+        length=Modelica.Mechanics.MultiBody.Frames.length(rLoad), 
+        animation=animation) 
+        annotation (extent=[-70,178; -50,198],   rotation=90);
     equation 
       connect(r6.frame_b, b6.frame_a) 
         annotation (points=[-60, 141; -60, 149], style(thickness=2));
@@ -1273,7 +1282,7 @@ This model contains the mechanical components of the r3 robot
       tau = {r1.axis.tau,r2.axis.tau,r3.axis.tau,r4.axis.tau,r5.axis.tau,r6.
         axis.tau};
       connect(load.frame_a, b6.frame_b) 
-        annotation (points=[-60, 177; -60, 171]);
+        annotation (points=[-60,177; -60,171]);
       connect(world.frame_b, b0.frame_a) annotation (points=[-79, -190; -30, -190;
              -30, -181], style(color=0, thickness=2));
       connect(b0.frame_b, r1.frame_a) annotation (points=[-30, -159; -30, -146;

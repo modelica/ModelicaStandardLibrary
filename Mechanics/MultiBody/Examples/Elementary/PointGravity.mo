@@ -1,11 +1,11 @@
 model PointGravity "Two point masses in a point gravity field" 
   import SI = Modelica.SIunits;
   extends Modelica.Icons.Example;
-  inner MultiBody.World world(
+  inner Modelica.Mechanics.MultiBody.World world(
     gravityType=2,
     mue=1,
     gravitySphereDiameter=0.1) annotation (extent=[-20, -20; 0, 0]);
-  MultiBody.Parts.Body body1(
+  Modelica.Mechanics.MultiBody.Parts.Body body1(
     m=1,
     v_0_start={1,0,0},
     r_0_start={0,0.6,0},
@@ -13,9 +13,9 @@ model PointGravity "Two point masses in a point gravity field"
     I_11=0.1,
     I_22=0.1,
     I_33=0.1,
-    initType=MultiBody.Types.Init.PositionVelocity) 
+    initType=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity) 
     annotation (extent=[-20, 20; 0, 40]);
-  MultiBody.Parts.Body body2(
+  Modelica.Mechanics.MultiBody.Parts.Body body2(
     m=1,
     r_0_start={0.6,0.6,0},
     v_0_start={0.6,0,0},
@@ -23,7 +23,7 @@ model PointGravity "Two point masses in a point gravity field"
     I_11=0.1,
     I_22=0.1,
     I_33=0.1,
-    initType=MultiBody.Types.Init.PositionVelocity) 
+    initType=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity) 
     annotation (extent=[20, 20; 40, 40]);
 equation 
   

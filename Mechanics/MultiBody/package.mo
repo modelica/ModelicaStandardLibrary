@@ -199,7 +199,7 @@ The main features of the library are:
     for a large class of mechanisms, such as a 4 bar mechanism,
     a slider-crank mechanism or a MacPherson suspension. This is performed
     by constructing such loops with assembly joints JointXXX,
-    available in the MultiBody.Joints package. Assembly joints consist
+    available in the Modelica.Mechanics.MultiBody.Joints package. Assembly joints consist
     of 3 joints that have together 6 degrees of freedom, i.e., no
     constraints.They do not have potential states. When the motion
     of the two frame connectors are provided, a non-linear system of
@@ -275,7 +275,7 @@ and connect them according to the figure:
 </p>
 <p>
 Every model that uses model components from the MultiBody library
-must have an instance of the MultiBody.World model on highest level.
+must have an instance of the Modelica.Mechanics.MultiBody.World model on highest level.
 The reason is that in the world object the gravity field is defined
 (uniform gravity or point gravity), as well as the default sizes of
 animation shapes and this information is reported to all used
@@ -871,9 +871,9 @@ MultiBody.Frames package. In this case, the conversion has to be
 performed manually. The changes in 1.0 with regards to 0.99 are:
 </p>
 <p>
-The definition of the MultiBody.Frames.Orientation object has changed.
+The definition of the Modelica.Mechanics.MultiBody.Frames.Orientation object has changed.
 In 0.99 this was just an alias type for a transformation matrix
-(now MultiBody.Frames.TransformationMatrices.Orientation).
+(now Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation).
 In 1.0 the orientation object is a record holding the
 transformation matrix from frame 1 to frame 2 and the angular 
 velocity of the transformation matrix resolved in frame 2.
@@ -921,13 +921,13 @@ to the new definition of Modelica.Blocks.Interfaces.
 This version fixes only some minor bugs:
 </p>
 <ul>
-<li> Bug in MultiBody.Sensors.<b>RelativeSensor</b> fixed:<br>
+<li> Bug in Modelica.Mechanics.MultiBody.Sensors.<b>RelativeSensor</b> fixed:<br>
      When frame resolve was connected and get_v_rel=true or
      get_a_rel=true, an error was in the code</li>.
 <li> Bug in MultiBodys.Sensors.<b>Power</b> fixed:<br>
      A \"defineBranch(...)\" statement was missing. In certain cases, 
      it was then not possible to generate code</li>.
-<li> Wrong icon of MultiBody and of MultiBody.Interfaces package
+<li> Wrong icon of MultiBody and of Modelica.Mechanics.MultiBody.Interfaces package
      corrected.</li>
 </ul>
 <h3><font color=\"#008000\">Version 1.0, 2004-03-03</font></h3>
@@ -936,9 +936,9 @@ This version is <b>not</b> backward compatible to version 0.99.
 Models generated with previous MultiBody versions are automatically 
 converted to the new release.The incompatible changes are due
 to improving the efficiency of the library. This required
-to change function interfaces in MultiBody.Frames: angularVelocity1,
+to change function interfaces in Modelica.Mechanics.MultiBody.Frames: angularVelocity1,
 angularVelocity2, planarRotation, axisRotation, axesRotations, from_T,
-from_T_inv, from_Q. Furthermore, MultiBody.Frames.Orientation has changed.
+from_T_inv, from_Q. Furthermore, Modelica.Mechanics.MultiBody.Frames.Orientation has changed.
 As a consequence, all code that accesses objects of this type
 directly is no longer valid. Otherwise, the following changes have been made:
 </p>
@@ -952,17 +952,17 @@ directly is no longer valid. Otherwise, the following changes have been made:
      and improved. Included 3-dimensional images for nearly every
      component description where it makes sense. Improved the
      documentation of the packages.</li>
-<li> New package MultiBody.Frames.<b>TransformationMatrices</b>:<br>
-     This is a copy of the previous MultiBody.Frames.XX functions.
-     The new MultiBody.Frames.XX functions have a different orientation
+<li> New package Modelica.Mechanics.MultiBody.Frames.<b>TransformationMatrices</b>:<br>
+     This is a copy of the previous Modelica.Mechanics.MultiBody.Frames.XX functions.
+     The new Modelica.Mechanics.MultiBody.Frames.XX functions have a different orientation
      object that can no longer be directly used, since the angular
      velocity calculation is implicitly included in the functions
      to improve efficiency significantly</li>
-<li> New function MultiBody.Frames.<b>resolveRelative</b>:<br>
+<li> New function Modelica.Mechanics.MultiBody.Frames.<b>resolveRelative</b>:<br>
      Transform vector from frame 1 to frame 2 using absolute 
      orientation objects of frame 1 and of frame 2.</li>
-<li> Improved handling of orientation in MultiBody.Joints.<b>Spherical</b>,
-     MultiBody.Joints.<b>FreeMotion</b>, MultiBody.Parts.<b>Body</b>:<br>
+<li> Improved handling of orientation in Modelica.Mechanics.MultiBody.Joints.<b>Spherical</b>,
+     Modelica.Mechanics.MultiBody.Joints.<b>FreeMotion</b>, Modelica.Mechanics.MultiBody.Parts.<b>Body</b>:<br>
      If states are used from these components, the orientation is either 
      described by quaternions or by 3 angles along desired sequence
      axes. If 3 angles are used, the code is such that symbolic
@@ -985,7 +985,7 @@ directly is no longer valid. Otherwise, the following changes have been made:
      of ambient light. The default is 0.7. Coordinate systems
      have a specular coefficient of 0 (= light is not reflected).
      </li>
-<li> Improved MultiBody.Frames.<b>Frame_resolve</b>:<br>
+<li> Improved Modelica.Mechanics.MultiBody.Frames.<b>Frame_resolve</b>:<br>
      The frame outline is with a full line. When drawing a
      connection line from Frame_resolve to another frame,
      this connection line is dotted.</li>
@@ -1044,7 +1044,7 @@ The following changes have been made:
      line is usually by default using the line style of the connector.
      As a result, the connection line will be a thin, dotted line.
      Frame_resolve is now used in all components where the orientation
-     of another frame is needed (e.g., in MultiBody.Forces.Force to
+     of another frame is needed (e.g., in Modelica.Mechanics.MultiBody.Forces.Force to
      define in which frame the force is provided).</li>
 <li> New function \"MultiBody.Frames.<b>AngularVelocity1</b>\"<br>
      to compute the angular velocity of frame 2 with respect to frame 1
@@ -1056,7 +1056,7 @@ The following changes have been made:
      to convert models from the \"old\" ModelicaAdditions.MultiBody
      library to the \"new\" MultiBody\" library. For details, see
      <a href=\"Modelica://Modelica.Mechanics.MultiBody.UsersGuide.Upgrade\">
-      MultiBody.UsersGuide.Upgrade</a>.</li>
+      Modelica.Mechanics.MultiBody.UsersGuide.Upgrade</a>.</li>
 </ul>
 <h3><font color=\"#008000\">Version 0.98, 2003-10-27</font></h3>
 <p>
@@ -1106,7 +1106,7 @@ release.
      \"startValuesFixed\" parameter. The new parameter \"initType\"
      can have the following values:
 <pre>
- initType = MultiBody.Types.Init
+ initType = Modelica.Mechanics.MultiBody.Types.Init
   .Free                        : no initialization
                                  (= same as previous startValuesFixed = <b>false</b>)
   .PositionVelocity            : initialize generalized position and velocity variables
@@ -1220,7 +1220,7 @@ dynamical effects is described in:
 <li> The Examples.Loops.EngineV6 demo of a six cylinder V6 engine with
      6 planar loops and 1 degree of freedom is from Hilding Elmqvist and
      Sven Erik Mattsson.</li>
-<li> MultiBody.Forces.LineForceWithMass is based on model
+<li> Modelica.Mechanics.MultiBody.Forces.LineForceWithMass is based on model
      \"RelativeDistance\" from the Modelica VehicleDynamics library of
      Johan Andreasson from Royal Institute of Technology, Stockholm, Sweden.</li>
 <li> The 1D components (Parts.Rotor1D, Parts.BevelGear1D, Mounting1D) and
@@ -1251,7 +1251,7 @@ model World
     missingInnerMessage="No \"world\" component is defined. A default world
 component with the default gravity field will be used
 (g=9.81 in negative y-axis). If this is not desired,
-drag MultiBody.World into the top level of your model.",
+drag Modelica.Mechanics.MultiBody.World into the top level of your model.",
     Coordsys(
       extent=[-100, -100; 100, 100],
       grid=[2, 2],
@@ -1324,7 +1324,7 @@ to be present in every model on the top level. The basic declaration
 needs to be:
 </p>
 <pre>
-    <b>inner</b> MultiBody.World world
+    <b>inner</b> Modelica.Mechanics.MultiBody.World world
 </pre>
 <p>
 Note, it must be an <b>inner</b> declaration with instance name <b>world</b>
@@ -1357,16 +1357,16 @@ of these axes can be set via parameters.
     "= true, if world coordinate system shall be visualized";
   parameter Boolean animateGravity=true 
     "= true, if gravity field shall be visualized (acceleration vector or field center)";
-  parameter MultiBody.Types.AxisLabel label1="x" 
+  parameter Modelica.Mechanics.MultiBody.Types.AxisLabel label1="x" 
     "Label of horizontal axis in icon";
-  parameter MultiBody.Types.AxisLabel label2="y" 
+  parameter Modelica.Mechanics.MultiBody.Types.AxisLabel label2="y" 
     "Label of vertical axis in icon";
-  parameter MultiBody.Types.GravityTypes.Temp gravityType=MultiBody.Types.
+  parameter Modelica.Mechanics.MultiBody.Types.GravityTypes.Temp gravityType=Modelica.Mechanics.MultiBody.Types.
       GravityTypes.UniformGravity "Type of gravity field" 
     annotation (Evaluate=true);
   parameter SI.Acceleration g=9.81 
     "|gravityType = UniformGravity| Constant gravity acceleration";
-  parameter MultiBody.Types.Axis n={0,-1,0} 
+  parameter Modelica.Mechanics.MultiBody.Types.Axis n={0,-1,0} 
     "|gravityType = UniformGravity| Direction of gravity resolved in world frame (gravity = g*n/length(n))"
     annotation (Evaluate=true);
   parameter Real mue(
@@ -1380,11 +1380,11 @@ of these axes can be set via parameters.
     "|Animation|if animateWorld = true| Diameter of world axes arrows";
   parameter Boolean axisShowLabels=true 
     "|Animation|if animateWorld = true| = true, if labels shall be shown";
-  parameter MultiBody.Types.Color axisColor_x=MultiBody.Types.Defaults.
+  parameter Modelica.Mechanics.MultiBody.Types.Color axisColor_x=Modelica.Mechanics.MultiBody.Types.Defaults.
       FrameColor "|Animation|if animateWorld = true| Color of x-arrow";
-  parameter MultiBody.Types.Color axisColor_y=axisColor_x 
+  parameter Modelica.Mechanics.MultiBody.Types.Color axisColor_y=axisColor_x 
     "|Animation|if animateWorld = true| Color of y-arrow";
-  parameter MultiBody.Types.Color axisColor_z=axisColor_x 
+  parameter Modelica.Mechanics.MultiBody.Types.Color axisColor_z=axisColor_x 
     "|Animation|if animateWorld = true| Color of z-arrow";
   
   parameter SI.Position gravityArrowTail[3]={0,0,0} 
@@ -1394,11 +1394,11 @@ of these axes can be set via parameters.
   parameter SI.Diameter gravityArrowDiameter=gravityArrowLength/
       defaultWidthFraction 
     "|Animation|if animateGravity = true and gravityType = UniformGravity| Diameter of gravity arrow";
-  parameter MultiBody.Types.Color gravityArrowColor={0,230,0} 
+  parameter Modelica.Mechanics.MultiBody.Types.Color gravityArrowColor={0,230,0} 
     "|Animation|if animateGravity = true and gravityType = UniformGravity| Color of gravity arrow";
   parameter SI.Diameter gravitySphereDiameter=12742000 
     "|Animation|if animateGravity = true and gravityType = PointGravity| Diameter of sphere representing gravity center (default = mean diameter of earth)";
-  parameter MultiBody.Types.Color gravitySphereColor={0,230,0} 
+  parameter Modelica.Mechanics.MultiBody.Types.Color gravitySphereColor={0,230,0} 
     "|Animation|if animateGravity = true and gravityType = PointGravity| Color of gravity sphere";
   
   parameter SI.Length nominalLength=1 
@@ -1421,15 +1421,13 @@ of these axes can be set via parameters.
     "|Defaults|| Default for arrow diameter (e.g., of forces, torques, sensors)";
   parameter Real defaultFrameDiameterFraction=40 
     "|Defaults|| Default for arrow diameter of a coordinate system as a fraction of axis length";
-  
-  parameter Boolean enable3D=false "Enable 3D effects of 1D powertrains"
-    annotation (Dialog(tab="Advanced", group="PowerTrain"));
+  parameter Boolean enable3D=false "Enable 3D effects of 1D powertrains" annotation (Dialog(tab="Advanced"));
 
-  MultiBody.Interfaces.Frame_b frame_b annotation (extent=[100, -15; 120, 15]);
+  Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_b annotation (extent=[100, -15; 120, 15]);
   
-  /* The World object can only use the MultiBody.Visualizers.Advanced.Shape model, but no
-     other models in package MultiBody.Visualizers, since the other models access
-     data of the "outer MultiBody.World world" object, i.e., there are
+  /* The World object can only use the Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape model, but no
+     other models in package Modelica.Mechanics.MultiBody.Visualizers, since the other models access
+     data of the "outer Modelica.Mechanics.MultiBody.World world" object, i.e., there are
      mutually dependent classes. For this reason, the higher level visualization
      objects cannot be used.
   */
@@ -1452,7 +1450,7 @@ protected
   parameter SI.Length labelStart=1.05*axisLength;
   
   // x-axis
-  MultiBody.Visualizers.Advanced.Shape x_arrowLine[ndim](
+  Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape x_arrowLine[ndim](
     each shapeType="cylinder",
     each length=lineLength,
     each width=lineWidth,
@@ -1461,7 +1459,7 @@ protected
     each widthDirection={0,1,0},
     each color=axisColor_x,
     each specularCoefficient=0);
-  MultiBody.Visualizers.Advanced.Shape x_arrowHead[ndim](
+  Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape x_arrowHead[ndim](
     each shapeType="cone",
     each length=headLength,
     each width=headWidth,
@@ -1471,7 +1469,7 @@ protected
     each color=axisColor_x,
     each r={lineLength,0,0},
     each specularCoefficient=0);
-  MultiBody.Visualizers.Internal.Lines x_label[ndim2](
+  Modelica.Mechanics.MultiBody.Visualizers.Internal.Lines x_label[ndim2](
     each lines=scaledLabel*{[0, 0; 1, 1],[0, 1; 1, 0]},
     each diameter=axisDiameter,
     each color=axisColor_x,
@@ -1481,7 +1479,7 @@ protected
     each specularCoefficient=0);
   
   // y-axis
-  MultiBody.Visualizers.Advanced.Shape y_arrowLine[ndim](
+  Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape y_arrowLine[ndim](
     each shapeType="cylinder",
     each length=lineLength,
     each width=lineWidth,
@@ -1490,7 +1488,7 @@ protected
     each widthDirection={1,0,0},
     each color=axisColor_y,
     each specularCoefficient=0);
-  MultiBody.Visualizers.Advanced.Shape y_arrowHead[ndim](
+  Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape y_arrowHead[ndim](
     each shapeType="cone",
     each length=headLength,
     each width=headWidth,
@@ -1500,7 +1498,7 @@ protected
     each color=axisColor_y,
     each r={0,lineLength,0},
     each specularCoefficient=0);
-  MultiBody.Visualizers.Internal.Lines y_label[ndim2](
+  Modelica.Mechanics.MultiBody.Visualizers.Internal.Lines y_label[ndim2](
     each lines=scaledLabel*{[0, 0; 1, 1.5],[0, 1.5; 0.5, 0.75]},
     each diameter=axisDiameter,
     each color=axisColor_y,
@@ -1510,7 +1508,7 @@ protected
     each specularCoefficient=0);
   
   // z-axis
-  MultiBody.Visualizers.Advanced.Shape z_arrowLine[ndim](
+  Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape z_arrowLine[ndim](
     each shapeType="cylinder",
     each length=lineLength,
     each width=lineWidth,
@@ -1519,7 +1517,7 @@ protected
     each widthDirection={0,1,0},
     each color=axisColor_z,
     each specularCoefficient=0);
-  MultiBody.Visualizers.Advanced.Shape z_arrowHead[ndim](
+  Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape z_arrowHead[ndim](
     each shapeType="cone",
     each length=headLength,
     each width=headWidth,
@@ -1529,7 +1527,7 @@ protected
     each color=axisColor_z,
     each r={0,0,lineLength},
     each specularCoefficient=0);
-  MultiBody.Visualizers.Internal.Lines z_label[ndim2](
+  Modelica.Mechanics.MultiBody.Visualizers.Internal.Lines z_label[ndim2](
     each lines=scaledLabel*{[0, 0; 1, 0],[0, 1; 1, 1],[0, 1; 1, 0]},
     each diameter=axisDiameter,
     each color=axisColor_z,
@@ -1547,7 +1545,7 @@ protected
       ArrowHeadWidthFraction;
   parameter SI.Length gravityLineLength=max(0, gravityArrowLength -
       gravityHeadLength);
-  MultiBody.Visualizers.Advanced.Shape gravityArrowLine[ndim_uniformGravity](
+  Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape gravityArrowLine[ndim_uniformGravity](
     each shapeType="cylinder",
     each length=gravityLineLength,
     each width=gravityArrowDiameter,
@@ -1557,7 +1555,7 @@ protected
     each color=gravityArrowColor,
     each r_shape=gravityArrowTail,
     each specularCoefficient=0);
-  MultiBody.Visualizers.Advanced.Shape gravityArrowHead[ndim_uniformGravity](
+  Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape gravityArrowHead[ndim_uniformGravity](
     each shapeType="cone",
     each length=gravityHeadLength,
     each width=gravityHeadWidth,
@@ -1571,7 +1569,7 @@ protected
   // Point gravity visualization
   parameter Integer ndim_pointGravity=if enableAnimation and animateGravity
        and gravityType == 2 then 1 else 0;
-  MultiBody.Visualizers.Advanced.Shape gravitySphere[ndim_pointGravity](
+  Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape gravitySphere[ndim_pointGravity](
     each shapeType="sphere",
     each r_shape={-gravitySphereDiameter/2,0,0},
     each lengthDirection={1,0,0},
