@@ -1570,8 +1570,6 @@ November 3-4, 2003, pp. 149-158</p>
     
     parameter Boolean animation=true 
       "= true, if animation shall be enabled (show rotor as cylinder)";
-    parameter Boolean driveTrainMechanics3D=true 
-      "Enable 3D mechanical effects and frame_a connector (provided world.driveTrainMechanics3D=true";
     
     parameter Modelica.Mechanics.MultiBody.Types.Axis n={1,0,0} 
       "Axis of rotation resolved in frame_a";
