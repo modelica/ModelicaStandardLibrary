@@ -64,7 +64,6 @@ provided:
    <b>BooleanChange</b>    Set output to true when Boolean input changes
    <b>IntegerChange</b>    Set output to true when Integer input changes
 </pre>
-
 </HTML>
 ", revisions="<html>
 <ul>

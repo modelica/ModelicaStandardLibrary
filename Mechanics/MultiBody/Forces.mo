@@ -7,7 +7,6 @@ package Forces "Components that exert forces and/or torques between frames"
 This package contains components that exert forces and torques
 between two frame connectors, e.g., between two parts.
 </p>
-
 <h4>Content</h4>
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><th><b><i>Model</i></b></th><th><b><i>Description</i></b></th></tr>
@@ -101,9 +100,7 @@ between two frame connectors, e.g., between two parts.
   <tr><td><b><a href=\"Modelica://Modelica.Mechanics.MultiBody.Forces.SpringDamperSeries\">SpringDamperSeries</a></b></td>
       <td> Linear spring and damper in series connection </td>
   </tr>
-
 </table>
-
 </HTML>"));
   
   model WorldForce 
@@ -1582,14 +1579,16 @@ is resolved in the world frame).
         Line(points=[-60, 0; 60, 0], style(color=0, pattern=3)),
         Ellipse(extent=[-8, 8; 8, -8], style(color=0, fillColor=0)),
         Line(points=[-60, 0; -31, 0], style(fillColor=0, fillPattern=1)),
-        Polygon(points=[-19, 0; -31, 3; -31, -3; -19, 0], style(fillPattern=7)),
+        Polygon(points=[-19, 0; -31, 3; -31, -3; -19, 0], style(
+              fillPattern =                                                 7)),
         Line(points=[-60, 16; 0, 16], style(fillColor=0, fillPattern=1)),
         Line(points=[0, 0; 0, 20], style(fillColor=0, fillPattern=1)),
         Text(
           extent=[-43, -8; -7, -33],
           style(gradient=0, fillPattern=0),
           string="e_rel_0"),
-        Polygon(points=[0, 16; -12, 19; -12, 13; 0, 16], style(fillPattern=7)),
+        Polygon(points=[0, 16; -12, 19; -12, 13; 0, 16], style(
+              fillPattern =                                                7)),
         Text(
           extent=[-50, 35; 51, 26],
           style(gradient=0, fillPattern=0),
@@ -1888,7 +1887,8 @@ for this situation:
         Line(points=[-60, 0; 60, 0], style(color=0, pattern=3)),
         Ellipse(extent=[20, 8; 36, -8], style(color=0, fillColor=0)),
         Line(points=[-18, -18; 11, -18], style(fillColor=0, fillPattern=1)),
-        Polygon(points=[23, -18; 11, -15; 11, -21; 23, -18], style(fillPattern=
+        Polygon(points=[23, -18; 11, -15; 11, -21; 23, -18], style(
+              fillPattern=
                 7)),
         Line(points=[-60, 16; -37, 16], style(fillColor=0, fillPattern=1)),
         Line(points=[-25, 0; -25, 20], style(fillColor=0, fillPattern=1)),
@@ -1896,7 +1896,8 @@ for this situation:
           extent=[-16, -19; 20, -44],
           style(gradient=0, fillPattern=0),
           string="e_rel_0"),
-        Polygon(points=[-25, 16; -37, 19; -37, 13; -25, 16], style(fillPattern=
+        Polygon(points=[-25, 16; -37, 19; -37, 13; -25, 16], style(
+              fillPattern=
                 7)),
         Text(
           extent=[-39, 31; -22, 21],
@@ -1905,7 +1906,8 @@ for this situation:
         Ellipse(extent=[-33, 7; -17, -9], style(color=0, fillColor=0)),
         Line(points=[29, 3; 29, 22], style(fillColor=0, fillPattern=1)),
         Line(points=[29, 16; 60, 16], style(fillColor=0, fillPattern=1)),
-        Polygon(points=[29, 16; 41, 19; 41, 13; 29, 16], style(fillPattern=7)),
+        Polygon(points=[29, 16; 41, 19; 41, 13; 29, 16], style(
+              fillPattern =                                                7)),
         Text(
           extent=[15, 36; 32, 26],
           style(gradient=0, fillPattern=0),
@@ -2231,18 +2233,15 @@ point mass located on the line between frame_a and frame_b
 (default: middle of the line). If the spring mass is zero, the
 additional equations to handle the mass are removed.
 </p>
-
 <p>
 In the following figure a typical animation of the
 spring is shown. The blue sphere in the middle of the
 spring characterizes the the location of the point mass.
 </p>
-
 <p align=\"center\">
 <IMG SRC=\"../Images/MultiBody/Examples/Elementary/SpringWithMass.png\" 
 ALT=\"model Examples.Elementary.SpringWithMass\">
 </p>
-
 </HTML>"));
   end Spring;
   
@@ -2288,16 +2287,13 @@ where \"d\" is a parameter, \"s\" is the
 distance between the origin of frame_a and the origin of frame_b
 and der(s) is the time derivative of \"s\".
 </p>
-
 <p>
 In the following figure a typical animation is shown
 where a mass is hanging on a damper.
 </p>
-
 <p align=\"center\">
 <IMG SRC=\"../Images/MultiBody/Forces/Damper.png\">
 </p>
-
 </HTML>"),
       Icon(
         Line(points=[-101, 0; -60, 0], style(color=0)),

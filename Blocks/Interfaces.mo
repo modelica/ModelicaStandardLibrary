@@ -53,7 +53,6 @@ to model <b>continuous</b> control blocks:
   <b>SVcontrol</b>     Single-Variable continuous controller
   <b>MVcontrol</b>     Multi-Variable continuous controller
 </pre>
-
 <p>
 The following <b>partial</b> block classes are provided
 to model <b>discrete</b> control blocks:
@@ -67,7 +66,6 @@ to model <b>discrete</b> control blocks:
   <b>SVdiscrete</b>        Discrete Single-Variable controller
   <b>MVdiscrete</b>        Discrete Multi-Variable controllerk
 </pre>
-
 <p>
 The following <b>partial</b> block classes are provided
 to model <b>Boolean</b> control blocks:
@@ -496,6 +494,8 @@ output vector y. All vectors have the same number of elements.
       annotation (Icon(Rectangle(extent=[-100, -100; 100, 100], style(color=3,
                 fillColor=52)), Text(extent=[-150, 150; 150, 110], string=
                 "%name")));
+    equation 
+    
     end DiscreteBlockIcon;
   
     partial block DiscreteBlock "Base class of discrete control blocks" 
@@ -1059,7 +1059,6 @@ package Adaptors
           extent=[-100, 30; 100, -30],
           string="send",
           style(color=73, fillColor=42))), Documentation(info="<HTML>
-
 </HTML>
 "));
   equation 

@@ -133,7 +133,6 @@ end list;
   version="0.8",
   versionDate="2004-08-24",
   preferedView="info",
-uses(Modelica(version="2.1 Beta1")),
 Documentation(info="<HTML>
 <p>
 This package contains functions to work with files and directories.

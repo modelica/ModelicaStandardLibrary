@@ -1,9 +1,7 @@
 package Analog "Library for analog electrical models"
-import SI = Modelica.SIunits;
-
+  import SI = Modelica.SIunits;
 
 extends Modelica.Icons.Library2;
-
 
 annotation(preferedView="info", Window(
     x=0.05,

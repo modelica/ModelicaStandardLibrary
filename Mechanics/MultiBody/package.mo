@@ -50,11 +50,9 @@ and the accompanying <b>disclaimer</b> in the documentation of package
 Modelica in file \"Modelica/package.mo\".
 </i></p>
 </HTML>"));
-import SI = Modelica.SIunits;
-
+  import SI = Modelica.SIunits;
 
 extends Modelica.Icons.Library;
-
 
 package UsersGuide "User's Guide" 
   annotation (DocumentationClass=true, Documentation(info="<HTML>
@@ -65,7 +63,6 @@ Library <b>MultiBody</b> is a <b>free</b> Modelica package providing
 <b>mechanical systems</b>, such as robots, mechanisms, vehicles.
 This package contains the user's guide for the MultiBody library.
 </p>
-
 <ol>
 <li>
 <a href=\"Modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial\">Tutorial</a>
@@ -91,7 +88,6 @@ gives an introduction into the most important aspects of the library.
   acknowledgments.
 </li>
 </ol>
-
 </HTML>"));
   
   package Tutorial "Tutorial" 
@@ -101,7 +97,6 @@ gives an introduction into the most important aspects of the library.
 This tutorial provides an introduction into the
 MultiBody library.
 </p>
-
 <ol>
 <li>
 <a href=\"Modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.OverView\">Overview of
@@ -117,7 +112,6 @@ MultiBody library</a> summarizes the most important aspects.
   solving non-linear equations.
 </li>
 </ol>
-
 </HTML>"));
     
     class OverView "Overview of MultiBody library" 
@@ -760,7 +754,6 @@ how a kinematic loop structure can be modeled such that the
 occuring non-linear algebraic equation systems are solved
 analytically. There are the following sub-chapters:
 </p>
-
 <ol>
 <li>
 <a href=\"Modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.Introduction\">Introduction</a>
@@ -779,7 +772,6 @@ analytically. There are the following sub-chapters:
   class Upgrade "Upgrade from Former Versions" 
     annotation (Documentation(info="<HTML>
 <h3><font color=\"#008000\" size=5>Upgrade from Former Versions</font></h3>
-
 <p>
 If different versions of the MultiBody library are not
 compatible to each other, corresponding conversion scripts are
@@ -791,11 +783,9 @@ Problems are not to be expected. Still one should first make
 a copy of such a model as backup before the conversion 
 is performed.
 </p>
-
 <p>
 <b><font color=\"#008000\">Upgrade from ModelicaAdditions.MultiBody</font></b>
 </p>
-
 <p>
 There is now also a conversion script from the \"old\"
 <b>ModelicaAdditions.MultiBody</b> library to the
@@ -807,20 +797,17 @@ be adapted manually. Still, this script is useful, since
 many class names, parameters and modifiers are
 automatically converted. 
 </p>
-
 <p>
 Components from the following sublibraries
 are automatically converted
 to the Modelica.Mechanics.MultiBody library:
 </p>
-
 <ul>
 <li> ModelicaAdditions.MultiBody.Parts</li>
 <li> ModelicaAdditions.MultiBody.Joints</li>
 <li> ModelicaAdditions.MultiBody.Forces</li>
 <li> Part of ModelicaAdditions.MultiBody.Interfaces</li>
 </ul>
-
 <p>
 Models using the ModelicaAdditions.MultiBody library
 that are programmed with <b>equations</b> are only partly converted:
@@ -833,7 +820,6 @@ table might be helpful showing how the <b>variables</b> of the
 related to each other (resolve2 and angularVelocity2 are
 functions from library Modelica.Mechanics.MultiBody.Frames):
 </p>
-
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><b>ModelicaAdditions.MultiBody.<br>
            Interfaces.Frame_a</b></th>
@@ -842,44 +828,35 @@ functions from library Modelica.Mechanics.MultiBody.Frames):
   <td>frame_a.<b>r0</b></td>
   <td>= frame_a.r_0 (is converted)</td>
 </tr>
-
 <tr>
   <td>frame_a.<b>S</b></td>
   <td>= transpose(frame_a.R)</td>
 </tr>
-
 <tr>
   <td>frame_a.<b>v</b></td>
   <td>= resolve2(frame_a.R, <b>der</b>(frame_a.r_0))</td>
 </tr>
-
 <tr>
   <td>frame_a.<b>w</b></td>
   <td>= angularVelocity2(frame_a.R)</td>
 </tr>
-
 <tr>
   <td>frame_a.<b>a</b></td>
   <td>= resolve2(frame_a.R, <b>der</b>(v_0)); v_0 = der(r_0)</td>
 </tr>
-
 <tr>
   <td>frame_a.<b>z</b></td>
   <td>= <b>der</b>(w);  w = angulaVelocity2(frame_a.R)</td>
 </tr>
-
 <tr>
   <td>frame_a.<b>f</b></td>
   <td>= frame_a.f (no conversion needed)</td>
 </tr>
-
 <tr>
   <td>frame_a.<b>t</b></td>
   <td>= frame_a.t (no conversion needed)</td>
 </tr>
-
 </table>
-
 </HTML>
 "));
   equation 
@@ -890,7 +867,6 @@ functions from library Modelica.Mechanics.MultiBody.Frames):
     
     annotation (Documentation(info="<HTML>
 <h3><font color=\"#008000\" size=5>Release notes</font></h3>
-
 <h3><font color=\"#008000\">Version 1.1, 2004-07-07</font></h3>
 <p>
 Included the MultiBody library as Modelica.Mechanics.MultiBody 
@@ -898,7 +874,6 @@ in version 2.0 Beta 1 of the Modelica package,
 and adapted all signal connectors
 to the new definition of Modelica.Blocks.Interfaces.
 </p>
-
 <h3><font color=\"#008000\">Version 1.0.1, 2004-07-07</font></h3>
 <p>
 This version fixes only some minor bugs:
@@ -1126,14 +1101,11 @@ This was the first version delivered with Dymola.
   class Literature "Literature" 
     
     annotation (Documentation(info="<html>
-
 <h3><font color=\"#008000\" size=5>Literature</font></h3>
-
 <ul>
 <li>
 Technical details of this library are described in the
 20 page paper:
-
 <dl>
 <dt>Otter M., Elmqvist H., and Mattsson S.E.:</dt>
 <dd> <b>The New Modelica MultiBody Library</b>.
@@ -1144,12 +1116,10 @@ Technical details of this library are described in the
      </dd>
 </dl>
 </li>
-
 <li>
 The method how to describe drive trains with 1-dimensional mechanics
 and to mount them on 3-dimensional components without neglecting
 dynamical effects is described in:
-
 <dl>
 <dt>Schweiger C., and Otter M.:</dt>
 <dd> <b>Modelling 3D Mechanical Effects of 1D Powertrains</b>.
@@ -1160,7 +1130,6 @@ dynamical effects is described in:
      </dd>
 </dl>
 </li>
-
 <li> The method to solve a certain class of kinematic loops
      analytically is based on:
 <dl>
@@ -1177,7 +1146,6 @@ dynamical effects is described in:
     Proceedings 7th World Congress Th. Mach. Mech., Sevilla 1987. </dd>
 </dl>
 </li>
-
 </ul>
 </html>
 "));
@@ -1186,9 +1154,7 @@ dynamical effects is described in:
   class Contact "Contact" 
     
     annotation (Documentation(info="<html>
-
 <h3><font color=\"#008000\" size=5>Contact</font></h3>
-
 <dl>
 <dt><b>Main Author:</b>
 <dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a><br>
@@ -1224,18 +1190,16 @@ dynamical effects is described in:
      contract number IST 1999-11979.
      </li>
 </ul>
-
 </html>
 "));
   end Contact;
   
 end UsersGuide;
 
-
 model World 
   "World coordinate system + gravity field + default animation definition" 
   
-  import SI = Modelica.SIunits;
+    import SI = Modelica.SIunits;
   
   annotation (
     preferedView="info",

@@ -30,7 +30,6 @@ In particular the following blocks are provided:
    <b>PadeDelay</b>       Pade approximation of delay block with fixed DelayTime 
    <b>VariableDelay</b>        Delay block with variable DelayTime 
 </pre>
-
 </HTML>
 ", revisions="<html>
 <ul>
@@ -265,12 +264,10 @@ function of the input with a slope of 1.
 <p>
 The Input signal is delayed by a given time instant, or more precisely:
 </p>
-
 <pre>
    y = u(time - delayTime) for time &gt; time.start + delayTime
      = u(time.start)       for time &le; time.start + delayTime
 </pre>
-
 </html>
 "),   Icon(
         Text(
@@ -362,29 +359,24 @@ The Input signal is delayed by a given time instant, or more precisely:
 <p>
 The Input signal is delayed by a given time instant, or more precisely:
 </p>
-
 <pre>
    y = u(time - delayTime) for time &gt; time.start + delayTime
      = u(time.start)       for time &le; time.start + delayTime
 </pre>
-
 <p>
 The delay is approximated by a Pade approximation, i.e., by
 a transfer function
 </p>
-
 <pre>
            b[1]*s^m + b[2]*s^[m-1] + ... + b[m+1]
    y(s) = --------------------------------------------- * u(s)
            a[1]*s^n + a[2]*s^[n-1] + ... + a[n+1]
 </pre>
-
 <p>
 where the coefficients b[:] and a[:] are calculated such that the
 coefficients of the Taylor expansion of the delay exp(-T*s) around s=0
 are identical upto order n+m.
 </p>
-
 <p>
 The main advantage of this approach is that the delay is
 approximated by a linear differential equation system, which
@@ -392,13 +384,11 @@ is continuous and continuously differentiable. For example, it
 is uncritical to linearize a system containing a Pade-approximated
 delay.
 </p>
-
 <p>
 The standard text book version uses order \"m=n\", which is
 also the default setting of this block. The setting
 \"m=n-1\" may yield a better approximation in certain cases.
 <p>
-
 <p>
 Literature:<br>
 Otto Foellinger: Regelungstechnik, 8. Auflage,
@@ -520,20 +510,16 @@ chapter 11.9, page 412-414, Huethig Verlag Heidelberg, 1994
 <p>
 The Input signal is delayed by a given time instant, or more precisely:
 </p>
-
 <pre>
    y = u(time - delayTime) for time &gt; time.start + delayTime
      = u(time.start)       for time &le; time.start + delayTime
 </pre>
-
 <p>
 where delayTime is an additional input signal which must follow
 the following relationship:
 </p>
-
 <pre>  0 &le; delayTime &le; delayMax
 </pre>
-
 </html>
 "),   Icon(
         Text(

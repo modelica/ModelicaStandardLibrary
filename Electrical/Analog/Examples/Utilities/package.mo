@@ -1,8 +1,5 @@
 package Utilities "Utilities for examples"
-
-
 extends Modelica.Icons.Library2;
-
 
 annotation (Window(
     x=0.09,
@@ -15,7 +12,6 @@ annotation (Window(
 <p>
 This package contains utilities ...
 </p>
-
 <dl>
 <dt>
 <b>Main Authors:</b>
@@ -28,7 +24,6 @@ This package contains utilities ...
     Design Automation Department<br>
     Zeunerstra&szlig;e 38<br>
     D-01069 Dresden<br>
-
 <p>
 <dt>
 <b>Version:</b>

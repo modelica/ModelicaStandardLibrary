@@ -20,7 +20,6 @@ in Grafcet/Sequential Function Charts. Therefore, the StateGraph
 library has a similar modeling power as StateCharts but avoids
 some deficiences of StateCharts.
 </p>
-
 <p>
 For an introduction, have especially a look at:
 </p>
@@ -30,7 +29,6 @@ For an introduction, have especially a look at:
 <li> <a href=\"Modelica:Modelica.StateGraph.Examples\">StateGraph.Examples</a>
      contains examples that demonstrate the usage of this library.</li>
 </ul>
-
 <p>
 A typical model generated with this library is shown
 in the next figure where on the left hand side a two-tank 
@@ -41,7 +39,6 @@ top-level part of the tank controller as a StateGraph is shown:
 <img src=\"../Images/StateGraph/Examples/ControlledTanks1_small.png\"> 
 <img src=\"../Images/StateGraph/Examples/ControlledTanks2_small.png\">
 </p>
-
 <p>
 The unique feature of the StateGraph library with respect to JGraphCharts,
 Grafcet, Sequential Function Charts, and StateCharts, is Modelica's
@@ -56,7 +53,6 @@ global variables are no longer needed (whereas in JGraphCharts,
 Grafcet, Sequential Function Charts and StateCharts global variables
 are nearly always needed).
 </p>
-
 <p>
 The StateGraph library is currently available in a beta release.
 The available components will most likely not be changed for the
@@ -67,15 +63,12 @@ It is planned to include the StateGraph library in the
 Modelica standard library.
 It is most useful to combine this libray with the Modelica libraries
 </p>
-
 <ul>
 <li><b>Modelica.Blocks.Logical</b> that provides  
     components available in PLCs (programmable logic controllers). </li>
 <li><b>UserInteraction</b> that provides components to 
     interactively communicate with models in a running simulation.</li>
 </ul>
-
-
 <p><b>Copyright &copy; 2004, Modelica Association and DLR.</b></p>
 <p><i>
 This Modelica package is <b>free</b> software; it can be redistributed and/or modified
@@ -169,7 +162,6 @@ in Grafcet/Sequential Function Charts. Therefore, the StateGraph
 library has a similar modeling power as StateCharts but avoids
 some deficiences of StateCharts.
 </p>
-
 <p>
 The basic elements of StateGraphs are <b>steps</b> and <b>transitions</b>:
 </p>
@@ -220,7 +212,6 @@ active. After another second <b>transition2</b> fires and
 <b>initialStep</b> becomes again active. After a further
 second <b>step1</b> becomes again active, and so on.
 </p>
-
 <p>
 In JGrafcharts, Grafcet and Sequential Function Charts, the
 network of steps and transitions is drawn from top to bottom.
@@ -258,7 +249,6 @@ Modelica block with a Boolean output signal can be
 connected to the condition input of such a transition block
 as well.
 </p>
-
 <p>
 Conditions of a transition can either be computed by
 a network of logical blocks from the Logical library as
@@ -266,11 +256,9 @@ in the figure above, or via the \"SetBoolean\" component
 any type of logical expression can be defined in textual
 form, as shown in the next figure:
 </p>
-
 <p align=\"center\">
 <img src=\"../Images/StateGraph/UsersGuide/StepAndTransition4.png\">
 </p>
-
 <p>
 With the block \"<b>SetBoolean</b>\", a time varying expression
 can be provided as modification to the output signal <b>y</b>
@@ -278,7 +266,6 @@ can be provided as modification to the output signal <b>y</b>
 The output signal can be in turn connected to the condition 
 input of a TransitionWithSignal block. 
 </p>
-
 <p>
 The \"<b>SetBoolean</b>\" block can also be used to
 compute a Boolean signal depending on the active step.
@@ -352,11 +339,9 @@ To emphasize this important difference between these methodologies,
 consider the case that a state machine has the following
 hierarchy:
 </p>
-
 <pre>
    stateMachine.superstate1.superstate2.step1
 </pre>
-
 <p>
 Within \"step1\" a StateChart would, e.g., access variable
 \"stateMachine.openValve\", say as \"entry action: openValve = true\".
@@ -365,23 +350,18 @@ to use the hierarchical state \"superstate1\" as component in another
 context, because \"step1\" references a particular name outside of this
 component. 
 </p>
-
 <p>
 In a StateGraph, there would be typically a \"SetBoolean\" component
 in the \"stateMachine\" component stating:
 </p>
-
 <pre>
     openValve = superstate1.superstate2.step1.active;
 </pre>
-
 <p>
 As a result, the \"superstate1\" component can be used in 
 another context, because it does not depend on the environment
 where it is used.
 </p>
-
-
 <h4><font color=\"#008000\">Execution Model</font></h4>
 <p>
 The execution model of a StateGraph follows from its
@@ -425,7 +405,6 @@ The figure above is a screen-shot from the animation of the
 StateGraph: Whenever a step is active or a transition can fire,
 the corresponding component is marked in <b>green</b> color.
 </p>
-
 <p>
 The three branches within \"step2\" to \"step5\" are 
 executed alternatively, depending which transition condition
@@ -438,28 +417,22 @@ vector of connectors. Every branch has to be connected to
 exactly one entry of the connector vector. The entry with
 the lowest number has the highest priority.
 </p>
-
 <p>
 Parallel, Alternative and Step components have vectors of
 connectors. The dimensions of these vectors are set in the
 corresponding parameter menu. E.g. in a \"Parallel\" component:
 </p>
-
 <p align=\"center\">
 <img src=\"../Images/StateGraph/UsersGuide/Parallel2.png\">
 </p>
-
 <p>
 Currently in Dymola the following menu pops up, when a branch
 is connected to a vector of components in order to define
 the vector index to which the component shall be connected:
 </p>
-
 <p align=\"center\">
 <img src=\"../Images/StateGraph/UsersGuide/Parallel3.png\">
 </p>
-
-
 <h4><font color=\"#008000\">CompositeSteps, Suspend and Resume Port</font></h4>
 <p>
 A StateGraph can be hierarchically structured by using a <b>CompositeStep</b>.
@@ -628,7 +601,6 @@ step \"emptyTanks\" is active. Otherwise, valve2 is closed.
      Changed all the references to the block connectors and the Logical library
      correspondingly.</li>
 </ul>
-
 <h3><font color=\"#008000\">Version 0.86, 2004-06-20</font></h3>
 <ul>
 <li> New components \"Alternative\" and \"Parallel\" for alternative and
@@ -2735,7 +2707,6 @@ included by a Modelica translator due to an appropriate annotation.
 Practically, this means that it need not be present in a
 StateGraph model.
 </p>
-
 <p>
 The StateGraphRoot object is needed, since all Step objects have
 an \"outer\" reference to communicate with the \"nearest\" CompositeStep

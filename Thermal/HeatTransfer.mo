@@ -166,13 +166,11 @@ They will each asymptotically approach the calculated temperature <b>T_final_K</
 (<b>T_final_degC</b>) that results from dividing the total initial energy in the system by the sum
 of the heat capacities of each element.
 </p>
-
 <p>
 Simulate for 5 s and plot the variables<br>
 mass1.T, mass2.T, T_final_K or <br>
 Tsensor1.T.signal, Tsensor2.T.signal, T_final_degC
 </p>
-
 </HTML>
 "));
       HeatTransfer.Celsius.TemperatureSensor Tsensor1 annotation (extent=[-60,
@@ -472,12 +470,10 @@ This model defines and includes equations for the temperature
 drop across the element, <b>dT</b>, and the heat flow rate
 through the element from port_a to port_b, <b>Q_flow</b>.
 </p>
-
 <p>
 By extending this model, it is possible to write simple
 constitutive equations for many types of heat transfer components.
 </p>
-
 </HTML>
 "), Icon,
         Diagram);
@@ -2143,7 +2139,6 @@ The components of this package are provided for the convenience of
 people working mostly with Rankine units, since all models
 in package HeatTransfer are based on Kelvin units.
 </p>
-
 <p>
 Note, that in package SIunits.Conversions, functions are provided
 to convert between the units Kelvin, degree Celsius, degree Fahrenheit
@@ -2151,12 +2146,10 @@ and degree Rankine. These functions allow, e.g., a direct conversion
 of units at all places where Kelvin is required as parameter.
 Example:
 </p>
-
 <pre>
     <b>import</b> SIunits.Conversions.*;
     Modelica.Thermal.HeatTransfer.HeatCapacitor C(T0 = from_degRk(500));
 </pre>
-
 </HTML>
 "));
     model TemperatureSensor "Absolute temperature sensor in °Rankine" 

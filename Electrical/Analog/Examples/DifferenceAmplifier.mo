@@ -17,7 +17,6 @@ It is a simple NPN transistor amplifier circuit. The voltage difference between 
 <p>
 The simulation end time should be set to 1e- 8. Please plot the input voltage V1.v, and the output voltages R2.n.v, and R4.n.v.
 <p>
-
 <dl>
 <dt>
 <b>Reference:</b>
@@ -35,7 +34,6 @@ Tietze, U.; Schenk, Ch.: Halbleiter-Schaltungstechnik. Springer-Verlag Berlin He
     Design Automation Department<br>
     Zeunerstra&szlig;e 38<br>
     D-01069 Dresden<br>
-
 <p>
 <dt>
 <b>Version:</b>

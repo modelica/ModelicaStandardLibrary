@@ -136,10 +136,9 @@ optionally ignoring case.
   extends Modelica.Icons.Library;
   
   annotation (
-  version="0.9.1",
-  versionDate="2004-08-21",
+  version="1.0",
+  versionDate="2004-10-01",
   preferedView="info",
-  uses(Modelica(version="2.1 Beta1")),
     Documentation(info="<HTML>
 <h3><font color=\"#008000\">Library content</font></h3>
 <p>

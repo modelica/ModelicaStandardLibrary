@@ -5,10 +5,6 @@ package Continuous "Continuous control blocks with internal states"
   extends Modelica.Icons.Library;
   
   annotation(preferedView="info",
-    Coordsys(
-      extent=[0, 0; 349, 525],
-      grid=[1, 1],
-      component=[20, 20]),
     Window(
       x=0.05,
       y=0.09,
@@ -1058,17 +1054,13 @@ the model.
 and the output y as an n-th order low pass filter with <i>Butterworth</i>
 characteristics and cut-off frequency f. It is implemented as
 a series of second order filters and a first order filter.</p>
-
 <p>If transients at the simulation start shall be avoided the
 states x1 and xr need to be initialized with the start value
 of the input signal and the states x2 need to be initialized
 with zeros.</p>
-
-
 <pre>
      y = PT21*PT22*...*PT2(n/2)*PT1 u
 </pre>
-
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>October 17, 2002</i>

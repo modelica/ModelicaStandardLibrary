@@ -27,7 +27,6 @@ The simulation end time should be 2e5. Please plot the output voltage Op5.p2.v.
     Design Automation Department<br>
     Zeunerstra&szlig;e 38<br>
     D-01069 Dresden<br>
-
 <p>
 <dt>
 <b>Version:</b>

@@ -31,11 +31,9 @@ axis of rotation, as well as the cut-torques perpendicular to the axis
 of rotation at this joint to zero and makes the problem mathematically
 well-formed.
 </p>
-
 <p>
 An animation of this example is shown in the figure below.
 </p>
-
 <p align=\"center\">
 <IMG SRC=\"../Images/MultiBody/Examples/Loops/Engine.png\" ALT=\"model Examples.Loops.Engine\">
 </p>

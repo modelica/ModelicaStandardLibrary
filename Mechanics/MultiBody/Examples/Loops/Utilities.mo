@@ -195,8 +195,10 @@ package Utilities "Utility models for Examples.Loops"
             gradient=0,
             fillColor=8,
             fillPattern=1)),
-        Rectangle(extent=[-40, 50; -20, -50], style(fillColor=3, fillPattern=1)),
-        Rectangle(extent=[-90, 10; -40, -10], style(fillColor=3, fillPattern=1)),
+        Rectangle(extent=[-40, 50; -20, -50], style(fillColor=3,
+              fillPattern =                                                  1)),
+        Rectangle(extent=[-90, 10; -40, -10], style(fillColor=3,
+              fillPattern =                                                  1)),
         Polygon(points=[60, 2; 54, 2; 0, 2; 0, 10; -20, 0; 0, -10; 0, -4; 60, -4;
                60, 2], style(
             color=1,
@@ -208,8 +210,10 @@ package Utilities "Utility models for Examples.Loops"
             gradient=0,
             fillColor=8,
             fillPattern=1)),
-        Rectangle(extent=[-40, 50; -20, -50], style(fillColor=3, fillPattern=1)),
-        Rectangle(extent=[-90, 10; -40, -10], style(fillColor=3, fillPattern=1)),
+        Rectangle(extent=[-40, 50; -20, -50], style(fillColor=3,
+              fillPattern =                                                  1)),
+        Rectangle(extent=[-90, 10; -40, -10], style(fillColor=3,
+              fillPattern =                                                  1)),
         Polygon(points=[60, 2; 54, 2; 0, 2; 0, 10; -20, 0; 0, -10; 0, -4; 60, -4;
                60, 2], style(
             color=1,

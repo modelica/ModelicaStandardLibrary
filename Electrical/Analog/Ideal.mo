@@ -182,7 +182,8 @@ along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
                     fillColor=10,
                     fillPattern=1),
                   string="Goff"),
-                Ellipse(extent=[18, 12; 22, 8], style(pattern=3, fillPattern=1)),
+                Ellipse(extent=[18, 12; 22, 8], style(pattern=3,
+              fillPattern =                                                  1)),
                 Line(points=[20, 10; 70, 40], style(
                     color=0,
                     thickness=2,
@@ -319,7 +320,8 @@ along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
                     fillColor=10,
                     fillPattern=1),
                   string="Goff"),
-                Ellipse(extent=[18, 12; 22, 8], style(pattern=3, fillPattern=1)),
+                Ellipse(extent=[18, 12; 22, 8], style(pattern=3,
+              fillPattern =                                                  1)),
                 Line(points=[20, 10; 70, 40], style(
                     color=0,
                     thickness=2,
@@ -1029,7 +1031,8 @@ along  the <i>Gon</i>-characteristic until <i>v = Vknee</i>.
                   fillColor=10,
                   fillPattern=1),
                 string="Gon"),
-              Ellipse(extent=[18, 12; 22, 8], style(pattern=3, fillPattern=1))),
+              Ellipse(extent=[18, 12; 22, 8], style(pattern=3,
+              fillPattern =                                                1))),
             Window(
               x=0.26,
               y=0.11,

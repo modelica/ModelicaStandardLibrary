@@ -22,7 +22,6 @@ The simulation end time should be set to 5e4. To get the chaotic behaviour pleas
 <dd>
 Kennedy, M.P.: Three Steps to Chaos - Part I: Evolution. IEEE Transactions on CAS I 40 (1993)10, 640-656
 <p>
-
 <dt>
 <b>Main Authors:</b>
 <dd>
@@ -34,7 +33,6 @@ Kennedy, M.P.: Three Steps to Chaos - Part I: Evolution. IEEE Transactions on CA
     Design Automation Department<br>
     Zeunerstra&szlig;e 38<br>
     D-01069 Dresden<br>
-
 <p>
 <dt>
 <b>Version:</b>

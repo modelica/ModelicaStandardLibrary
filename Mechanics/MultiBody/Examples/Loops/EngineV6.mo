@@ -59,7 +59,6 @@ modeling of one cylinder, see example
 <a href=\"Modelica://Modelica.Mechanics.MultiBody.Examples.Loops.Engine\">Engine</a>.
 An animation of the engine is shown in the figure below.
 </p>
-
 <p align=\"center\">
 <IMG SRC=\"../Images/MultiBody/Examples/Loops/EngineV6.png\" ALT=\"model Examples.Loops.EngineV6\">
 </p>

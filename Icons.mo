@@ -138,7 +138,8 @@ Modelica in file \"Modelica/package.mo\".
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
         component=[20, 20]), Icon(
-        Rectangle(extent=[-100, -100; 80, 50], style(fillColor=30, fillPattern=
+        Rectangle(extent=[-100, -100; 80, 50], style(fillColor=30,
+              fillPattern=
                 1)),
         Polygon(points=[-100, 50; -80, 70; 100, 70; 80, 50; -100, 50], style(
               fillColor=30, fillPattern=1)),
@@ -160,7 +161,8 @@ Modelica in file \"Modelica/package.mo\".
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
         component=[20, 20]), Icon(
-        Rectangle(extent=[-100, -100; 80, 50], style(fillColor=30, fillPattern=
+        Rectangle(extent=[-100, -100; 80, 50], style(fillColor=30,
+              fillPattern=
                 1)),
         Polygon(points=[-100, 50; -80, 70; 100, 70; 80, 50; -100, 50], style(
               fillColor=30, fillPattern=1)),
@@ -209,12 +211,15 @@ Modelica in file \"Modelica/package.mo\".
           extent=[-100,100; 100,-100],
           style(color=45),
           string="f")));
+  algorithm 
+    
   end Function;
   
   partial record Record "Icon for a record" 
     annotation (Icon(
-        Rectangle(extent=[-100, 50; 100, -100], style(fillColor=51, fillPattern
-              =1)),
+        Rectangle(extent=[-100, 50; 100, -100], style(fillColor=51,
+              fillPattern=
+               1)),
         Text(extent=[-127, 115; 127, 55], string="%name"),
         Line(points=[-100, -50; 100, -50], style(color=0)),
         Line(points=[-100, 0; 100, 0], style(color=0)),
@@ -229,6 +234,8 @@ Modelica in file \"Modelica/package.mo\".
           extent=[-100,100; 100,-100],
           style(color=85, fillColor=88),
           string="e")));
+  algorithm 
+    
   end Enumeration;
   
   type TypeReal "Icon for a Real type" 

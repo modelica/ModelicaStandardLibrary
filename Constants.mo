@@ -62,7 +62,6 @@ This package provides often needed constants from mathematics, machine
 dependent constants and constants from nature. The latter constants
 (name, value, description) are from the following source:
 </p>
-
 <dl>
 <dt>Peter J. Mohr and Barry N. Taylor (1999):
 <dd><b>CODATA Recommended Values of the Fundamental Physical Constants: 1998</b>.
@@ -72,7 +71,6 @@ dependent constants and constants from nature. The latter constants
                  http://physics.nist.gov/cuu/Constants/</a>
 </dl>
 <br>
-
 <dl>
 <dt><b>Main Author:</b>
 <dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a><br>
@@ -83,7 +81,6 @@ dependent constants and constants from nature. The latter constants
     email: <A HREF=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</A><br>
 </dl>
 <br>
-
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>Dec. 9, 1999</i>
@@ -99,10 +96,7 @@ dependent constants and constants from nature. The latter constants
        Realized.</li>
 </ul>
 <br>
-
-
 <p><b>Copyright &copy; 1999-2002, Modelica Association and DLR.</b></p>
-
 <p><i>
 The Modelica package is free software; it can be redistributed and/or modified
 under the terms of the <b>Modelica license</b>, see the license conditions

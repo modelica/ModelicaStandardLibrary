@@ -12,7 +12,6 @@ kinematic loops analytically (this means that non-linear systems
 of equations occuring in these joint aggregations are analytically
 solved, i.e., robustly and efficiently).
 </p>
-
 <h4>Content</h4>
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><th><b><i>Model</i></b></th><th><b><i>Description</i></b></th></tr>
@@ -76,7 +75,6 @@ solved, i.e., robustly and efficiently).
       </td>
   </tr>
 </table>
-
 </HTML>"));
   
   model Prismatic 
@@ -105,7 +103,6 @@ are set on these variables). The states are usually selected automatically.
 In certain situations, especially when closed kinematic loops are present,
 it might be slightly more efficient, when using the \"enforceStates\" setting.
 </p>
-
 <p>
 In the following figure the animation of a prismatic
 joint is shown. The light blue coordinate system is
@@ -114,7 +111,6 @@ frame_b of the joint. The black arrow is parameter
 vector \"n\" defining the translation axis
 (here: n = {1,1,0}).
 </p>
-
 <p align=\"center\">
 <IMG SRC=\"../Images/MultiBody/Joints/Prismatic.png\">
 </p>
@@ -179,7 +175,6 @@ are set on these variables). The states are usually selected automatically.
 In certain situations, especially when closed kinematic loops are present,
 it might be slightly more efficient, when using the \"enforceStates\" setting.
 </p>
-
 <p>
 In the following figure the animation of an actuated
 prismatic
@@ -189,7 +184,6 @@ frame_b of the joint. The black arrow is parameter
 vector \"n\" defining the translation axis
 (here: n = {1,1,0}).
 </p>
-
 <p align=\"center\">
 <IMG SRC=\"../Images/MultiBody/Joints/Prismatic.png\">
 </p>
@@ -238,7 +232,6 @@ variables (e.g., the force in the direction of the axis of rotation is
 treated as known with value equal to zero; for standard revolute joints,
 this force is an unknown quantity).
 </p>
-
 <p>
 In the following figure the animation of a revolute
 joint is shown. The light blue coordinate system is
@@ -247,7 +240,6 @@ frame_b of the joint. The black arrow is parameter
 vector \"n\" defining the translation axis
 (here: n = {0,0,1}, phi_start = 45<sup>o</sup>).
 </p>
-
 <p align=\"center\">
 <IMG SRC=\"../Images/MultiBody/Joints/Revolute.png\">
 </p>
@@ -360,7 +352,6 @@ variables (e.g., the force in the direction of the axis of rotation is
 treated as known with value equal to zero; for standard revolute joints,
 this force is an unknown quantity).
 </p>
-
 <p>
 In the following figure the animation of an actuated revolute
 joint is shown. The light blue coordinate system is
@@ -369,7 +360,6 @@ frame_b of the joint. The black arrow is parameter
 vector \"n\" defining the translation axis
 (here: n = {0,0,1}, phi_start = 45<sup>o</sup>).
 </p>
-
 <p align=\"center\">
 <IMG SRC=\"../Images/MultiBody/Joints/Revolute.png\">
 </p>
@@ -464,7 +454,6 @@ are set on these variables). The states are usually selected automatically.
 In certain situations, especially when closed kinematic loops are present,
 it might be slightly more efficient, when using the \"enforceStates\" setting.
 </p>
-
 <p>
 In the following figure the animation of a cylindrical
 joint is shown. The light blue coordinate system is
@@ -473,7 +462,6 @@ frame_b of the joint. The black arrow is parameter
 vector \"n\" defining the cylinder axis
 (here: n = {0,0,1}).
 </p>
-
 <p align=\"center\">
 <IMG SRC=\"../Images/MultiBody/Joints/Cylindrical.png\">
 </p>
@@ -606,7 +594,6 @@ are set on these variables). The states are usually selected automatically.
 In certain situations, especially when closed kinematic loops are present,
 it might be slightly more efficient, when using the \"enforceStates\" setting.
 </p>
-
 <p>
 In the following figure the animation of a universal
 joint is shown. The light blue coordinate system is
@@ -615,11 +602,9 @@ frame_b of the joint
 (here: n_a = {0,0,1}, n_b = {0,1,0}, phi_start_a = 90<sup>o</sup>,
 phi_start_b = 45<sup>o</sup>).
 </p>
-
 <p align=\"center\">
 <IMG SRC=\"../Images/MultiBody/Joints/Universal.png\">
 </p>
-
 </HTML>"),
       Icon(
         Rectangle(extent=[-100, 15; -65, -15], style(
@@ -787,11 +772,9 @@ vectors \"n\" and \"n_x\"
 (here: n = {0,1,0}, n_x = {0,0,1}, s_start_x = 0.5, 
 s_start_y = 0.5, phi_start = 45<sup>o</sup>).
 </p>
-
 <p align=\"center\">
 <IMG SRC=\"../Images/MultiBody/Joints/Planar.png\">
 </p>
-
 </HTML>
 "),   Icon(
         Rectangle(extent=[-30, -60; -10, 60], style(
@@ -1259,7 +1242,6 @@ a <b>body fixed frame</b>.
 Therefore, if these potential state variables are suited,
 a FreeMotion joint is not needed.
 </p>
-
 The states of the FreeMotion object are:
 </p>
 <ul>
@@ -1316,7 +1298,6 @@ then FreeMotion variables are forced to be used as states according
 to the setting of parameters \"useQuaternions\" and 
 \"sequence_angleStates\".
 </p>
-
 <p>
 In the following figure the animation of a FreeMotion
 joint is shown. The light blue coordinate system is
@@ -1324,12 +1305,9 @@ frame_a and the dark blue coordinate system is
 frame_b of the joint. 
 (here: r_rel_a_start = {0.5, 0, 0.5}, angles_start = {45, 45, 45}<sup>o</sup>).
 </p>
-
 <p align=\"center\">
 <IMG SRC=\"../Images/MultiBody/Joints/FreeMotion.png\">
 </p>
-
-
 </HTML>
 "),   Icon(
         Line(points=[-86, 31; -74, 61; -49, 83; -17, 92; 19, 88; 40, 69; 59, 48],
@@ -2139,10 +2117,12 @@ the origin of frame_a to the middle of the rod, this might be defined as:
           extent=[-34, 78; 8, 62],
           style(gradient=0, fillPattern=0),
           string="e2"),
-        Polygon(points=[-25, 64; -33, 56; -27, 53; -25, 64], style(fillPattern=
+        Polygon(points=[-25, 64; -33, 56; -27, 53; -25, 64], style(
+              fillPattern=
                 7)),
         Line(points=[-60, 41; -60, 65], style(fillColor=0, fillPattern=1)),
-        Polygon(points=[-60, 75; -64, 63; -56, 63; -60, 75], style(fillPattern=
+        Polygon(points=[-60, 75; -64, 63; -56, 63; -60, 75], style(
+              fillPattern=
                 7)),
         Text(
           extent=[-93, 82; -64, 62],
@@ -2449,11 +2429,9 @@ singular configuration.
         Line(points=[0, 60; 0, -70; 0, -100], style(color=0)),
         Line(points=[-10, 100; 10, 100], style(color=0))),
       Documentation(info="<html>
-
 <p>This ideal massless joint provides a gear constraint between
 frames <tt>frame_a</tt> and <tt>frame_b</tt>. The axes of rotation
 of <tt>frame_a</tt> and <tt>frame_b</tt> may be arbitrary.</p>
-
 <p><b>Reference</b><br>
 <span style=\"font-variant:small-caps\">Schweiger</span>, Christian ;
 <span style=\"font-variant:small-caps\">Otter</span>, Martin:
@@ -2461,7 +2439,6 @@ of <tt>frame_a</tt> and <tt>frame_b</tt> may be arbitrary.</p>
 3D Mechanical Effects of 1D Powertrains</a>. In: <i>Proceedings of the 3rd International
 Modelica Conference</i>. Link&ouml;ping : The Modelica Association and Link&ouml;ping University,
 November 3-4, 2003, pp. 149-158</p>
-
 </html>"),
       Diagram);
     MultiBody.Joints.ActuatedRevolute actuatedRevolute_a(n=n_a, animation=false) 

@@ -83,13 +83,11 @@ and <b>BodyShape</b> are visualized according to parameter
 <b>shapeType</b>, that may have the following values (e.g., shapeType = \"box\"): <br>&nbsp;<br>
 </p>
 <IMG SRC=\"../Images/MultiBody/FixedShape.png\" ALT=\"model Visualizers.FixedShape\">
-
 <p>
 All the details of the visualization shape parameters are
 given in 
 <a href=\"Modelica://Modelica.Mechanics.MultiBody.Visualizers.FixedShape\">Visualizers.FixedShape</a>
 </p>
-
 <p>
 Colors in all animation parts are defined via parameter <b>color</b>.
 This is an Integer vector with 3 elements, {r, g, b}, and specifies the 
@@ -1515,15 +1513,12 @@ states and of the \"Advanced\" menu parameters, see model
         Line(points=[0, -60; 0, 0], style(color=0)),
         Line(points=[0, 0; 90, 0], style(color=0))),
       Documentation(info="<html>
-
 <p>This component is used to acquire support torques from a 1D-rotational
 mechanical system (e.g., components from Modelica.Mechanics.Rotational) 
 and to propagate them to a carrier body.</p>
-
 <p>The 1D support torque at <tt>flange_b</tt> is transformed into 3D space under
 consideration of the rotation axis, parameter <tt>n</tt>, which has to be given in the
 local coordinate system of <tt>frame_a</tt>.</p>
-
 <p>All components of a 1D-rotational mechanical system that are connected to <b>a</b> common
 <b>Mounting1D</b> element need to have the same axis of rotation
 along parameter vector <tt>n</tt>. This means that, e.g., bevel
@@ -1531,7 +1526,6 @@ gears where the axis of rotation of <tt>flange_a</tt> and
 <tt>flange_b</tt> are different cannot be described properly by
 connecting to the <b>Mounting1D</b> component. In this case, a combination of several
 <b>Mounting1D</b> components or the component <b>BevelGear1D</b> should be used.</p>
-
 <p><b>Reference</b><br>
 <span style=\"font-variant:small-caps\">Schweiger</span>, Christian ;
 <span style=\"font-variant:small-caps\">Otter</span>, Martin:
@@ -1539,7 +1533,6 @@ connecting to the <b>Mounting1D</b> component. In this case, a combination of se
 3D Mechanical Effects of 1D Powertrains</a>. In: <i>Proceedings of the 3rd International
 Modelica Conference</i>. Link&ouml;ping : The Modelica Association and Link&ouml;ping University,
 November 3-4, 2003, pp. 149-158</p>
-
 </HTML>
 "),   Diagram(
         Polygon(points=[8, 46; -12, 51; -12, 41; 8, 46], style(color=10,
@@ -1618,10 +1611,7 @@ to the vector of the rotor's. The axis of rotation of the rotor is defined by
 the parameter <tt>n</tt>, which has to be given in the local coordinate system
 of <tt>frame_a</tt>. The default animation of this component is
 shown in the figure below. </p>
-
       <IMG SRC=\"../Images/MultiBody/Parts/Rotor1D.png\" ALT=\"model Parts.Rotor1D\">
-
-
 <p>This component is a replacement for 
 <a href=\"Modelica://Modelica.Mechanics.Rotational.Inertia\">Modelica.Mechanics.Rotational.Inertia</a>
 for the case, that a 1D-rotational mechanical system should be attached with a 3D
@@ -1808,7 +1798,8 @@ November 3-4, 2003, pp. 149-158</p>
         Line(points=[60, 20; 80, 20], style(color=0)),
         Line(points=[60, -20; 80, -20], style(color=0)),
         Line(points=[-70, -20; -70, -70; 70, -70; 70, -20], style(color=0)),
-        Line(points=[0, 60; 0, -70; 0, -100], style(color=0))), Documentation(
+        Line(points=[0, 60; 0, -70; 0, -100], style(color=0))),
+        Documentation(
           info="<html>
 <p>This component is used to model a 1D gearbox
 with non-parallel axes (defined by parameters <tt>n_a</tt>, <tt>n_b</tt>).

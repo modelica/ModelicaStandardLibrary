@@ -1,4 +1,5 @@
-package Machines "Library for electric machines" 
+package Machines 
+  "Library for electric machines (asynchronous, synchronous, DC machines)" 
   extends Modelica.Icons.Library;
   import Modelica.Electrical.MultiPhase;
   annotation (  preferedView="info",
@@ -1649,7 +1650,7 @@ Base partial model DC machines:
       else
         bearing.tau = -flange_a.tau;
       end if;
-      connect(inertia.flange_b, flange_a) annotation (points=[60,1.22461e-015; 
+      connect(inertia.flange_b, flange_a) annotation (points=[60,1.22461e-015;
             79,1.22461e-015; 79,0; 100,0], style(color=0, rgbcolor={0,0,0}));
     end PartialMachine;
     

@@ -231,7 +231,8 @@ The Conductance <i>G</i> is allowed to be positive, zero, or negative.
         grid=[2, 2],
         component=[20, 20]),
       Icon(
-        Rectangle(extent=[-70, 30; 70, -30], style(fillColor=7, fillPattern=1)),
+        Rectangle(extent=[-70, 30; 70, -30], style(fillColor=7,
+              fillPattern =                                                 1)),
         Rectangle(extent=[-70, 30; 70, -30]),
         Line(points=[-90, 0; -70, 0]),
         Line(points=[70, 0; 90, 0]),

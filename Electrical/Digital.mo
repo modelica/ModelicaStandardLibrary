@@ -1,4 +1,5 @@
 package Digital 
+  "Library for digital electrical components based on the VHDL standard (2-,3-,4-,9-valued logic)" 
 package UsersGuide "Users Guide" 
     
   annotation (DocumentationClass=true, Documentation(info="<html>
@@ -37,9 +38,7 @@ the library and has the following content:
 In this section, an overview of the most important features
 of this library is given.
 </p>
-
 <p>(will be added as soon as possible). </p>
-
 </html>
 "));
   end OverView;
@@ -61,7 +60,6 @@ A first example will be given here (not yet done).
 <h3><font color=\"#008000\" size=5>An application example</font></h3>
 <p>
 An application example will be given here (not yet done). 
-
 </p>
 </html>
 "));
@@ -71,11 +69,9 @@ An application example will be given here (not yet done).
       
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>Release notes</font></h3>
-
 <h3><font color=\"#008000\">Version 1.0.4, 2004-09-30</font></h3>
 <ul>
 <li> Documentation improved.</li>
-
 </ul>
 <h3><font color=\"#008000\">Version 1.0.3, 2004-09-21</font></h3>
 <ul>
@@ -93,7 +89,6 @@ An application example will be given here (not yet done).
 <h3><font color=\"#008000\">Version 1.0.2, 2004-09-13</font></h3>
 <ul>
 <li> First prerelease for discussions at the 40th Modelica Design Meeting.</li>
-
 </ul>
 <h3><font color=\"#008000\">Version 1.0.1, 2004-06-01</font></h3>
 <ul>
@@ -121,31 +116,26 @@ The Electrical.Digital library is based on the following references:
 <dt>Ashenden, P. J.:</dt>
 <dd> <b>The Designer's Guide to VHDL.</b> San Francisco: Morgan Kaufmann, 1995, 688 p. ISBN 1-55860-270-4.
      <br>&nbsp;</dd>
-
 </dl>
 <dl>
 <dt>IEEE 1076-1993:</dt>
 <dd> <b>IEEE Standard VHDL Language Reference Manual (ANSI).</b> 288 p. ISBN 1-55937-376-8. IEEE Ref. SH16840-NYF.
      <br>&nbsp;</dd>
-
 </dl>
 <dl>
 <dt>IEEE 1164-1993:</dt>
 <dd> <b>IEEE Standard Multivalue Logic System for VHDL Model Interoperability (Std_logic_1164).</b> 24 p. ISBN 1-55937-299-0. IEEE Ref. SH16097-NYF.
      <br>&nbsp;</dd>
-
 </dl>
 <dl>
 <dt>Lipsett, R.; Schaefer, C.; Ussery, C.:</dt>
 <dd> <b>VHDL: Hardware Description and Design.</b> Boston: Kluwer, 1989, 299 p. ISBN 079239030X.
      <br>&nbsp;</dd>
-
 </dl>
 <dl>
 <dt>Navabi, Z:</dt>
 <dd> <b>VHDL: Analysis and Modeling of Digital Systems.</b> New York: McGraw-Hill, 1993, 375 p. ISBN 0070464723.
      <br>&nbsp;</dd>
-
 </dl>
 </html>
  "));
@@ -251,7 +241,6 @@ the library is implemented and released for public use.
     &lt;<a href=\"mailto:Christoph.Clauss@eas.iis.fraunhofer.de\">Christoph.Clauss@eas.iis.fraunhofer.de</a>&gt;<br>
     <a href=\"http://people.eas.iis.fhg.de/Andre.Schneider/\">Andr&eacute; Schneider</a>
     &lt;<a href=\"mailto:Andre.Schneider@eas.iis.fraunhofer.de\">Andre.Schneider@eas.iis.fraunhofer.de</a>&gt; <br>
-
     Fraunhofer Institute for Integrated Circuits (IIS)<br>
     Design Automation Department (EAS)<br>
     Zeunerstra&szlig;e 38<br>
@@ -277,7 +266,6 @@ Modelica in file \"Modelica/package.mo\".</i><br>
 </dl>
 </HTML>
 "), Diagram,
-    uses(Modelica(version="2.1 Beta1")),
     Icon(
       Polygon(points=[-100,-100; -100,50; 80,50; 80,-100; -100,-100],style(
             fillColor=30, fillPattern=1)),
@@ -433,7 +421,8 @@ Modelica in file \"Modelica/package.mo\".</i><br>
     end MISO;
     
     annotation (Icon(
-        Rectangle(extent=[-100,-100; 80,50],   style(fillColor=30, fillPattern=
+        Rectangle(extent=[-100,-100; 80,50],   style(fillColor=30,
+              fillPattern=
                 1)),
         Polygon(points=[-100,50; -80,70; 100,70; 80,50; -100,50],      style(
               fillColor=30, fillPattern=1)),
@@ -510,7 +499,8 @@ Modelica in file \"Modelica/package.mo\".</i><br>
         -1, -1, -1, 0, -1, -1, -1, 0, -1;
         0, 0, -1, 1, 0, 0, -1, 1, 0];
     annotation (Icon(
-        Rectangle(extent=[-100,-100; 80,50],   style(fillColor=30, fillPattern=
+        Rectangle(extent=[-100,-100; 80,50],   style(fillColor=30,
+              fillPattern=
                 1)),
         Polygon(points=[-100,50; -80,70; 100,70; 80,50; -100,50],      style(
               fillColor=30, fillPattern=1)),
@@ -554,7 +544,6 @@ Modelica in file \"Modelica/package.mo\".</i><br>
 Provide the input as output exactly delayed by <i>Tdel</i>.
 If time less than <i>Tdel</i> the initial value <i>initout</i> holds.
 </P>
-
 </HTML>
 ", revisions="<HTML>
 <ul>
@@ -782,7 +771,8 @@ is used, if it is zero, the input is not delayed.
               fillPattern=1))));
     end InertialDelaySensitive;
     annotation (Icon(
-        Rectangle(extent=[-100,-100; 80,50],   style(fillColor=30, fillPattern=
+        Rectangle(extent=[-100,-100; 80,50],   style(fillColor=30,
+              fillPattern=
                 1)),
         Polygon(points=[-100,50; -80,70; 100,70; 80,50; -100,50],      style(
               fillColor=30, fillPattern=1)),
@@ -863,10 +853,8 @@ Not with 1 input value, without delay.
 <P>
 And with n input values, without delay.
 </P>
-
 </HTML>
 ", revisions="<HTML>
-
 <ul>
 <li><i>September 15, 2004</i> vector approach used for all fixed numbers of inputs
        by Christoph Clauss<br>
@@ -908,10 +896,8 @@ And with n input values, without delay.
 <P>
 Nand with n input values, without delay.
 </P>
-
 </HTML>
 ", revisions="<HTML>
-
 <ul>
 <li><i>September 15, 2004</i> vector approach used for all fixed numbers of inputs
        by Christoph Clauss<br>
@@ -959,10 +945,8 @@ Nand with n input values, without delay.
 <P>
 Or with n input values, without delay.
 </P>
-
 </HTML>
 ", revisions="<HTML>
-
 <ul>
 <li><i>September 15, 2004</i> vector approach used for all fixed numbers of inputs
        by Christoph Clauss<br>
@@ -1004,10 +988,8 @@ Or with n input values, without delay.
 <P>
 Nor with n input values, without delay.
 </P>
-
 </HTML>
 ", revisions="<HTML>
-
 <ul>
 <li><i>September 15, 2004</i> vector approach used for all fixed numbers of inputs
        by Christoph Clauss<br>
@@ -1055,10 +1037,8 @@ Nor with n input values, without delay.
 <P>
 Xor with n input values, without delay.
 </P>
-
 </HTML>
 ", revisions="<HTML>
-
 <ul>
 <li><i>September 15, 2004</i> vector approach used for all fixed numbers of inputs
        by Christoph Clauss<br>
@@ -1100,10 +1080,8 @@ Xor with n input values, without delay.
 <P>
 XNor with n input values, without delay.
 </P>
-
 </HTML>
 ", revisions="<HTML>
-
 <ul>
 <li><i>September 15, 2004</i> vector approach used for all fixed numbers of inputs
        by Christoph Clauss<br>
@@ -1128,7 +1106,8 @@ XNor with n input values, without delay.
         Diagram);
     end Xnor;
     annotation (Icon(
-        Rectangle(extent=[-100,-100; 80,50],   style(fillColor=30, fillPattern=
+        Rectangle(extent=[-100,-100; 80,50],   style(fillColor=30,
+              fillPattern=
                 1)),
         Polygon(points=[-100,50; -80,70; 100,70; 80,50; -100,50],      style(
               fillColor=30, fillPattern=1)),
@@ -1158,7 +1137,6 @@ XNor with n input values, without delay.
 <P>
 InvGate with 1 input value, composed by Not and sensitive intertial delay.
 </P>
-
 </HTML>
 ", revisions="<HTML>
 <ul>
@@ -1224,10 +1202,8 @@ InvGate with 1 input value, composed by Not and sensitive intertial delay.
 <P>
 AndGate with n input values, composed by And and sensitive intertial delay.
 </P>
-
 </HTML>
 ", revisions="<HTML>
-
 <ul>
 <li><i>September 15, 2004</i> vector approach used for all fixed numbers of inputs
        by Christoph Clauss<br>
@@ -1300,7 +1276,6 @@ AndGate with n input values, composed by And and sensitive intertial delay.
               fillColor=7,
               rgbfillColor={255,255,255}))),
         Documentation(revisions="<HTML>
-
 <ul>
 <li><i>September 15, 2004</i> vector approach used for all fixed numbers of inputs
        by Christoph Clauss<br>
@@ -1313,7 +1288,6 @@ AndGate with n input values, composed by And and sensitive intertial delay.
 <P>
 NandGate with n input values, composed by Nand and sensitive intertial delay.
 </P>
-
 </HTML>"));
       annotation (
         Documentation(info="<HTML>
@@ -1370,10 +1344,8 @@ NandGate with n input values, composed by Nand and sensitive intertial delay.
 <P>
 OrGate with n input values, composed by Or and sensitive intertial delay.
 </P>
-
 </HTML>
 ", revisions="<HTML>
-
 <ul>
 <li><i>September 15, 2004</i> vector approach used for all fixed numbers of inputs
        by Christoph Clauss<br>
@@ -1426,10 +1398,8 @@ OrGate with n input values, composed by Or and sensitive intertial delay.
 <P>
 NorGate with n input values, composed by Nor and sensitive intertial delay.
 </P>
-
 </HTML>
 ", revisions="<HTML>
-
 <ul>
 <li><i>September 15, 2004</i> vector approach used for all fixed numbers of inputs
        by Christoph Clauss<br>
@@ -1488,10 +1458,8 @@ NorGate with n input values, composed by Nor and sensitive intertial delay.
 <P>
 XorGate with n input values, composed by Xor and sensitive intertial delay.
 </P>
-
 </HTML>
 ", revisions="<HTML>
-
 <ul>
 <li><i>September 15, 2004</i> vector approach used for all fixed numbers of inputs
        by Christoph Clauss<br>
@@ -1544,10 +1512,8 @@ XorGate with n input values, composed by Xor and sensitive intertial delay.
 <P>
 XNorGate with n input values, composed by XNor and sensitive intertial delay.
 </P>
-
 </HTML>
 ", revisions="<HTML>
-
 <ul>
 <li><i>September 15, 2004</i> vector approach used for all fixed numbers of inputs
        by Christoph Clauss<br>
@@ -1598,7 +1564,6 @@ XNorGate with n input values, composed by XNor and sensitive intertial delay.
 <P>
 InvGate with 1 input value, composed by Not and sensitive intertial delay.
 </P>
-
 </HTML>
 ", revisions="<HTML>
 <ul>
@@ -1641,7 +1606,8 @@ InvGate with 1 input value, composed by Not and sensitive intertial delay.
             rgbcolor={127,0,127}));
     end BufGate;
     annotation (Icon(
-        Rectangle(extent=[-100,-100; 80,50],   style(fillColor=30, fillPattern=
+        Rectangle(extent=[-100,-100; 80,50],   style(fillColor=30,
+              fillPattern=
                 1)),
         Polygon(points=[-100,50; -80,70; 100,70; 80,50; -100,50],      style(
               fillColor=30, fillPattern=1)),
@@ -1692,10 +1658,8 @@ To specify <i>setval</i>, the integer code has to be used.
 If the logic values are imported by <br><b> import L = Modelica.Electrical.Digital.Interfaces.LogicValue; </b> <br>
 they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
 </P>
-
 </HTML>
 ", revisions="<HTML>
-
 <ul>
 <li><i>   </i>
        by ...<br>
@@ -1771,10 +1735,8 @@ To specify the logic value parameters, the integer code has to be used.
 If the logic values are imported by <br><b> import L = Modelica.Electrical.Digital.Interfaces.LogicValue; </b> <br>
 they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
 </P>
-
 </HTML>
 ", revisions="<HTML>
-
 <ul>
 <li><i>   </i>
        by ...<br>
@@ -1973,10 +1935,8 @@ To specify the logic value parameters, the integer code has to be used.
 If the logic values are imported by <br><b> import L = Modelica.Electrical.Digital.Interfaces.LogicValue; </b> <br>
 they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
 </P>
-
 </HTML>
 ", revisions="<HTML>
-
 <ul>
 <li><i>   </i>
        by ...<br>
@@ -2064,7 +2024,8 @@ The number of periods is unlimited. The first pulse starts at startTime.
         DymolaStoredErrors);
     end Clock;
     annotation (Icon(
-        Rectangle(extent=[-100,-100; 80,50],   style(fillColor=30, fillPattern=
+        Rectangle(extent=[-100,-100; 80,50],   style(fillColor=30,
+              fillPattern=
                 1)),
         Polygon(points=[-100,50; -80,70; 100,70; 80,50; -100,50],      style(
               fillColor=30, fillPattern=1)),
@@ -2570,7 +2531,8 @@ The values val... are given by parameters.</P>
     end LogicToReal;
     
     annotation (Icon(
-        Rectangle(extent=[-100,-100; 80,50],   style(fillColor=30, fillPattern=
+        Rectangle(extent=[-100,-100; 80,50],   style(fillColor=30,
+              fillPattern=
                 1)),
         Polygon(points=[-100,50; -80,70; 100,70; 80,50; -100,50],      style(
               fillColor=30, fillPattern=1)),
@@ -3136,7 +3098,6 @@ The simulation stop time has to be 5s.
       import D = Modelica.Electrical.Digital;
       annotation (
         Documentation(info="<HTML>
-
 </HTML>
 "),     Coordsys(
           extent=[-100, -100; 100, 100],
@@ -3184,7 +3145,6 @@ The simulation stop time has to be 5s.
       import D = Modelica.Electrical.Digital;
       annotation (
         Documentation(info="<HTML>
-
 </HTML>
 "),     Coordsys(
           extent=[-100, -100; 100, 100],
@@ -3246,7 +3206,6 @@ The simulation stop time has to be 5s.
         import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       annotation (
         Documentation(info="<HTML>
-
 </HTML>
 "),     Diagram,
         Icon(Rectangle(extent=[-90,100; 90,-100], style(
@@ -3504,7 +3463,6 @@ The simulation stop time has to be 5s.
         import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       annotation (
         Documentation(info="<HTML>
-
 </HTML>
 "),     Diagram,
         Icon(Rectangle(extent=[-90,100; 90,-100],   style(
@@ -3621,7 +3579,6 @@ The simulation stop time has to be 5s.
         import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       annotation (
         Documentation(info="<HTML>
-
 </HTML>
 "),     Diagram,
         Icon(Rectangle(extent=[-90,100; 90,-100],   style(
@@ -3773,7 +3730,6 @@ The simulation stop time has to be 5s.
         import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       annotation (
         Documentation(info="<HTML>
-
 </HTML>
 "),     Diagram,
         Icon(Rectangle(extent=[-90,100; 90,-100],   style(
@@ -3902,7 +3858,6 @@ The simulation stop time has to be 5s.
         import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       annotation (
         Documentation(info="<HTML>
-
 </HTML>
 "),     Diagram,
         Icon(Rectangle(extent=[-90,100; 90,-100], style(
@@ -4329,10 +4284,9 @@ The simulation stop time has to be 5s.
     end FullAdder;
       
     model Adder "Generic N Bit Adder" 
-      import Modelica.Electrical.Digital;
+        import Modelica.Electrical.Digital;
       annotation (
         Documentation(info="<HTML>
-
 </HTML>
 "),     Coordsys(
           extent=[-100,-100; 100,100],
@@ -4444,11 +4398,10 @@ The simulation stop time has to be 5s.
     end Adder;
       
     model Counter3 "3 Bit Counter" 
-      import D = Modelica.Electrical.Digital;
-      import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
+        import D = Modelica.Electrical.Digital;
+        import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
        annotation (
          Documentation(info="<HTML>
-
 </HTML>
 "),      Diagram,
          Icon(Rectangle(extent=[-90,100; 90,-100], style(
@@ -4595,11 +4548,10 @@ The simulation stop time has to be 5s.
     end Counter3;
       
     model Counter "Generic N Bit Counter" 
-      import D = Modelica.Electrical.Digital;
-      import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
+        import D = Modelica.Electrical.Digital;
+        import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       annotation (
         Documentation(info="<HTML>
-
 </HTML>
 "),     Diagram(Rectangle(extent=[90,80; 110,-80], style(
                 color=78,
@@ -4689,7 +4641,8 @@ The simulation stop time has to be 5s.
     end Counter;
   end Utilities;
     annotation (Icon(
-        Rectangle(extent=[-100,-100; 80,50],   style(fillColor=30, fillPattern=
+        Rectangle(extent=[-100,-100; 80,50],   style(fillColor=30,
+              fillPattern=
                 1)),
         Polygon(points=[-100,50; -80,70; 100,70; 80,50; -100,50],      style(
               fillColor=30, fillPattern=1)),

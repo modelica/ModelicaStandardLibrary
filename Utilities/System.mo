@@ -1,10 +1,7 @@
 package System "Interaction with environment" 
   extends Modelica.Icons.Library;
     annotation (
-  version="0.8",
-  versionDate="2004-08-24",
   preferedView="info",
-  uses(Modelica(version="2.1 Beta1")),
 Documentation(info="
 <HTML>
 <p>
@@ -21,8 +18,7 @@ This package contains functions to interact with the environment.
         width=0.42,
         height=0.86,
         library=1,
-        autolayout=1),
-    uses(Modelica(version="2.1 Beta1")));
+        autolayout=1));
   
 function getWorkDirectory "Get full path name of work directory" 
   extends Modelica.Icons.Function;

@@ -1,7 +1,6 @@
 package Examples "Examples for analog electrical packages"
 extends Modelica.Icons.Library2;
 
-
 annotation(preferedView="info",
   Window(
     x=0.03,

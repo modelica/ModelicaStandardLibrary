@@ -1,13 +1,11 @@
 package Systems "Examples of complete system models including 3-dimensional mechanics"
 extends Modelica.Icons.Library;
 
-
 annotation (preferedView="info", Documentation(info="<html>
 <p>
 This package contains complete <b>system models</b> where components
 from different domains are used, including 3-dimensional mechanics.
 </p>
-
 <h4>Content</h4>
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><th><b><i>Model</i></b></th><th><b><i>Description</i></b></th></tr>

@@ -801,13 +801,15 @@ produced by the motor).
               arrow=0,
               fillColor=30,
               fillPattern=1)),
-          Rectangle(extent=[-30, 54; 30, 24], style(fillColor=7, fillPattern=1)),
+          Rectangle(extent=[-30, 54; 30, 24], style(fillColor=7,
+                fillPattern =                                                1)),
           Polygon(points=[-30, 40; -60, 50; -60, 30; -30, 40], style(
               color=3,
               fillColor=3,
               fillPattern=1)),
           Line(points=[-31, -41; -78, -41; -78, 39; -30, 39]),
-          Rectangle(extent=[-30, -26; 30, -56], style(fillColor=7, fillPattern=
+          Rectangle(extent=[-30, -26; 30, -56], style(fillColor=7,
+                fillPattern=
                   1)),
           Polygon(points=[60, -32; 30, -42; 60, -52; 60, -32], style(fillColor=
                   3, fillPattern=1)),
@@ -1590,10 +1592,7 @@ use this library directly.
   end Components;
   
   annotation (
-    version="0.9",
-    versionDate="2004-01-12",
     preferedView="info",
-    uses(MultiBody(version="0.98")),
     Documentation(info="<HTML>
 <p>
 This package contains models of the robot r3 of the company Manutec.

@@ -35,8 +35,6 @@ This package contains the following components:
    <b>TriggeredMax</b>      Compute maximum, absolute value of continuous signal
                      at trigger instants
 </pre>
-
-
 </HTML>
 ", revisions="<html>
 <ul>

@@ -143,7 +143,8 @@ Several matrices may be defined one after another.
             fillColor=6,
             fillPattern=1))),
       Diagram(
-        Rectangle(extent=[-60, 60; 60, -60], style(fillColor=30, fillPattern=1)),
+        Rectangle(extent=[-60, 60; 60, -60], style(fillColor=30,
+              fillPattern =                                                  1)),
         Line(points=[-100, 0; -58, 0]),
         Line(points=[60, 0; 100, 0]),
         Text(extent=[-100, 100; 100, 64], string=
@@ -326,7 +327,8 @@ Several matrices may be defined one after another.
             fillColor=6,
             fillPattern=1))),
       Diagram(
-        Rectangle(extent=[-60, 60; 60, -60], style(fillColor=30, fillPattern=1)),
+        Rectangle(extent=[-60, 60; 60, -60], style(fillColor=30,
+              fillPattern =                                                  1)),
         Line(points=[-100, 0; -58, 0]),
         Line(points=[60, 0; 100, 0]),
         Text(extent=[-100, 100; 100, 64], string=
@@ -519,7 +521,8 @@ Several matrices may be defined one after another.
         Line(points=[-60, 40; -30, 20], style(color=0)),
         Line(points=[-30, 40; -60, 20], style(color=0))),
       Diagram(
-        Rectangle(extent=[-60, 60; 60, -60], style(fillColor=30, fillPattern=1)),
+        Rectangle(extent=[-60, 60; 60, -60], style(fillColor=30,
+              fillPattern =                                                  1)),
         Line(points=[60, 0; 100, 0]),
         Text(extent=[-100, 100; 100, 64], string=
               "2 dimensional linear table interpolation"),

@@ -1,7 +1,6 @@
 package Mechanics "Library for mechanical systems"
 extends Modelica.Icons.Library2;
 
-
 annotation(preferedView="info",
   Window(
     x=0.03,
@@ -33,7 +32,6 @@ Currently, the following subpackages are available:</p>
    <b>Rotational</b>     1-dimensional rotational mechanical components.
    <b>Translational</b>  1-dimensional translational mechanical components.
 </pre>
-
 </HTML>
 ", revisions="<html>
 <ul>

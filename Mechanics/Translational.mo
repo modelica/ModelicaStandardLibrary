@@ -1,149 +1,4 @@
 package Translational "1-dimensional translational mechanical components" 
-  
-  import SI = Modelica.SIunits;
-  
-  extends Modelica.Icons.Library2;
-  
-  annotation(preferedView="info",
-    Window(
-      x=0.05,
-      y=0.09,
-      width=0.39,
-      height=0.47,
-      library=1,
-      autolayout=1),
-    Icon(
-      Line(points=[-84, -73; 66, -73], style(color=0)),
-      Rectangle(extent=[-81, -22; -8, -65], style(
-          color=0,
-          gradient=3,
-          fillColor=8,
-          fillPattern=1)),
-      Line(points=[-8, -43; -1, -43; 6, -64; 17, -23; 29, -65; 40, -23; 50, -44;
-              61, -44], style(color=0)),
-      Line(points=[-59, -73; -84, -93], style(color=0)),
-      Line(points=[-11, -73; -36, -93], style(color=0)),
-      Line(points=[-34, -73; -59, -93], style(color=0)),
-      Line(points=[14, -73; -11, -93], style(color=0)),
-      Line(points=[39, -73; 14, -93], style(color=0)),
-      Line(points=[63, -73; 38, -93], style(color=0))), Documentation(info="<html>
-<p>
-This package contains components to model <i>1-dimensional translational
-mechanical</i> systems.
-</p>
-<p>
-The <i>filled</i> and <i>non-filled green squares</i> at the left and
-right side of a component represent <i>mechanical flanges</i>.
-Drawing a line between such squares means that the corresponding
-flanges are <i>rigidly attached</i> to each other. The components of this
-library can be usually connected together in an arbitrary way. E.g. it is
-possible to connect two springs or two sliding masses with inertia directly
-together.
-<p> The only <i>connection restriction</i> is that the Coulomb friction
-elements (Stop) should be only connected
-together provided a compliant element, such as a spring, is in between.
-The reason is that otherwise the frictional force is not uniquely
-defined if the elements are stuck at the same time instant (i.e., there
-does not exist a unique solution) and some simulation systems may not be
-able to handle this situation, since this leads to a singularity during
-simulation. It can only be resolved in a \"clean way\" by combining the
-two connected friction elements into
-one component and resolving the ambiguity of the frictional force in the
-stuck mode.
-</p>
-<p> Another restriction arises if the hard stops in model Stop are used, i. e.
-the movement of the mass is limited by a stop at smax or smin.
-<font color=\"#ff0000\"> <b>This requires the states Stop.s and Stop.v</b> </font>. If these states are eliminated during the index reduction
-the model will not work. To avoid this any inertias should be connected via springs
-to the Stop element, other sliding masses, dampers or hydraulic chambers must be avoided. </p>
-<p>
-In the <i>icon</i> of every component an <i>arrow</i> is displayed in grey
-color. This arrow characterizes the coordinate system in which the vectors
-of the component are resolved. It is directed into the positive
-translational direction (in the mathematical sense).
-In the flanges of a component, a coordinate system is rigidly attached
-to the flange. It is called <i>flange frame</i> and is directed in parallel
-to the component coordinate system. As a result, e.g., the positive
-cut-force of a \"left\" flange (flange_a) is directed into the flange, whereas
-the positive cut-force of a \"right\" flange (flange_b) is directed out of the
-flange. A flange is described by a Modelica connector containing
-the following variables:
-</p>
-<pre>
-   SIunits.Position s  \"absolute position of flange\";
-   <i>flow</i> Force f        \"cut-force in the flange\";
-</pre>
-<p>
-This package contains the following model components:
-</p>
-<pre>
-   <i>Interfaces</i>       Sublibrary containing interface definitions.
-   <i>Examples</i>         Examples of library usage.
-   <i>SlidingMass</i>      Translational component with inertia.
-   <i>Stop</i>             Sliding mass with Coulomb friction and hard stops.
-   <i>Rod</i>              Massless rod.
-   <i>Spring</i>           Linear spring.
-   <i>Damper</i>           Linear damper.
-   <i>SpringDamper</i>     Linear spring and linear damper in parallel connection.
-   <i>ElastoGap</i>        Linear spring and linear damper that can lift off.
-   <i>Position</i>         Drive a flange with a reference position given as input signal.
-   <i>Accelerate</i>       Drive a flange with an acceleration given as input signal.
-   <i>Move</i>             Drive a flange with a reference position, velocity and
-                    acceleration given as input signal.
-   <i>Fixed</i>            Fixed flange at a predefined position.
-   <i>Force</i>            External force defined as input signal.
-   <i>ForceSensor</i>      Ideal sensor to measure the force in a flange.
-   <i>PositionSensor</i>   Ideal sensor to measure absolute position of a flange.
-   <i>SpeedSensor</i>      Ideal sensor to measure absolute velocity of a flange.
-   <i>AccSensor</i>        Ideal sensor to measure absolute acceleration of a flange.
-</pre>
-<p>
-This library is designed in a fully object oriented way in order that
-components can be connected together in every meaningful combination
-(e.g. direct connection of two springs or two shafts with inertia).
-As a consequence, most models lead to a system of
-differential-algebraic equations of <i>index 3</i> (= constraint
-equations have to be differentiated twice in order to arrive at
-a state space representation) and the Modelica translator or
-the simulator has to cope with this system representation.
-According to our present knowledge, this requires that the
-Modelica translator is able to symbolically differentiate equations
-(otherwise it is e.g. not possible to provide consistent initial
-conditions; even if consistent initial conditions are present, most
-numerical DAE integrators can cope at most with index 2 DAEs).
-</p>
-<b>Main Author:</b><i><ul> Peter Beater</i> <br>
-    Universit&auml;t Paderborn, Abteilung Soest<br>
-    Fachbereich Maschinenbau/Automatisierungstechnik<br>
-    L&uuml;becker Ring 2 <br>
-    D 59494 Soest <br>
-    Germany <br>
-email: <A HREF=\"mailto:Beater@mailso.uni-paderborn.de\">Beater@mailso.uni-paderborn.de</A><br>
-</ul>
-<br>
-
-<p><b>Copyright &copy; 2000-2002, Modelica Association and Universit&auml;t Paderborn, FB 12.</b></p>
-<p><i>
-The Modelica package is free software; it can be redistributed and/or modified
-under the terms of the Modelica license , see the license conditions
-and the accompanying disclaimer in the documentation of package
-Modelica in file \"Modelica/package.mo\".
-</i></p>
-</HTML>
-", revisions="<html>
-<ul>
-<li><i>Version 1.0 (January 5, 2000)</i>
-       by Peter Beater <br>
-       Realized a first version based on Modelica library Mechanics.Rotational
-       by Martin Otter and an existing Dymola library onedof.lib by Peter Beater.
-       <br>
-<li><i>Version 1.01 (July 18, 2001)</i>
-       by Peter Beater <br>
-       Assert statement added to \"Stop\", small bug fixes in examples.
-       <br><br>
-</li>
-</ul>
-</html>"));
   package Examples "Demonstration examples of the components of this package" 
     
     extends Modelica.Icons.Library;
@@ -815,6 +670,369 @@ Spool position s as a function of working force f.
                 style(color=58));
     end PreLoad;
   end Examples;
+
+  package Sensors "Sensor for 1D translational mechanical quantities" 
+    
+    extends Modelica.Icons.Library2;
+    
+    annotation (
+      Window(
+        x=0.08,
+        y=0.16,
+        width=0.23,
+        height=0.39,
+        library=1,
+        autolayout=1),
+      Icon(
+        Rectangle(extent=[-76, -81; 64, -1], style(color=0, fillColor=7)),
+        Polygon(points=[-6, -61; -16, -37; 4, -37; -6, -61], style(
+            color=0,
+            fillColor=0,
+            fillPattern=1)),
+        Line(points=[-6, -21; -6, -37], style(color=0)),
+        Line(points=[-76, -21; -6, -21], style(color=0)),
+        Line(points=[-56, -61; -56, -81], style(color=0)),
+        Line(points=[-36, -61; -36, -81], style(color=0)),
+        Line(points=[-16, -61; -16, -81], style(color=0)),
+        Line(points=[4, -61; 4, -81], style(color=0)),
+        Line(points=[24, -61; 24, -81], style(color=0)),
+        Line(points=[44, -61; 44, -81], style(color=0))));
+    model ForceSensor "Ideal sensor to measure the force between two flanges" 
+      extends Modelica.Icons.TranslationalSensor;
+      
+      Interfaces.Flange_a flange_a 
+        "(left) driving flange (flange axis directed INTO cut plane, e. g. from left to right)"
+         annotation (extent=[-110, -10; -90, 10]);
+      Interfaces.Flange_b flange_b 
+        "(right) driven flange (flange axis directed OUT OF cut plane)" 
+        annotation (extent=[90, -10; 110, 10]);
+      Modelica.Blocks.Interfaces.RealOutput f(
+           redeclare type SignalType = SI.Force) 
+        "force in flange_a and flange_b (f = flange_a.f = -flange_b.f)" 
+         annotation (extent=[-10, -100; 10, -120], rotation=90);
+      annotation (
+        Documentation(info="<html>
+<p>
+Measures the <i>cut-force between two flanges</i> in an ideal way
+and provides the result as output signal (to be further processed
+with blocks of the Modelica.Blocks library).
+</p>
+<p><b>Release Notes:</b></p>
+<ul>
+<li><i>First Version from August 26, 1999 by P. Beater</i> </li>
+</ul>
+</HTML>
+"),     Icon(Text(
+            extent=[40, -70; 120, -120],
+            string="f",
+            style(color=0)),
+          Line(points=[-70,0; -90,0],   style(color=0)),
+          Line(points=[70,0; 90,0],   style(color=0)),
+          Line(points=[0,-100; 0,-60])),
+        Coordsys(
+          extent=[-100, -100; 100, 100],
+          grid=[1, 1],
+          component=[20, 20]),
+        Window(
+          x=0.27,
+          y=0.08,
+          width=0.6,
+          height=0.6),
+        Diagram(
+          Line(points=[-70,0; -96,0],   style(color=0)),
+          Line(points=[70,0; 96,0],   style(color=0)),
+          Line(points=[0,-100; 0,-60])));
+    equation 
+      flange_a.s = flange_b.s;
+      flange_a.f = f;
+      flange_b.f = -f;
+    end ForceSensor;
+    
+    model PositionSensor "Ideal sensor to measure the absolute position" 
+      extends Modelica.Icons.TranslationalSensor;
+      
+      Interfaces.Flange_a flange_a 
+        "flange to be measured (flange axis directed INTO cut plane, e. g. from left to right)"
+         annotation (extent=[-110, -10; -90, 10]);
+      Modelica.Blocks.Interfaces.RealOutput s( redeclare type SignalType = 
+            SI.Position) "Absolute position of flange as output signal" 
+           annotation (extent=[100, -10; 120, 10]);
+      
+      annotation (
+        Coordsys(
+          extent=[-100, -100; 100, 100],
+          grid=[1, 1],
+          component=[20, 20]),
+        Window(
+          x=0.04,
+          y=0.05,
+          width=0.6,
+          height=0.6),
+        Documentation(info="<html>
+<p>
+Measures the <i>absolute position s</i> of a flange in an ideal way and provides the result as
+output signals (to be further processed with blocks of the
+Modelica.Blocks library).
+</p>
+<p><b>Release Notes:</b></p>
+<ul>
+<li><i>First Version from August 26, 1999 by P. Beater</i> </li>
+</ul>
+</HTML>
+"),     Icon(
+          Line(points=[-70, 0; -90, 0], style(color=0)),
+          Line(points=[70.4, 0; 100, 0]),
+          Text(
+            extent=[80, -28; 114, -62],
+            string="s",
+            style(color=0)),
+          Text(extent=[0, 100; 0, 40], string="%name")),
+        Diagram(Line(points=[100, 0; 70, 0]), Line(points=[-70,0; -96,0],
+              style(color=53))));
+    equation 
+      s = flange_a.s;
+      0 = flange_a.f;
+    end PositionSensor;
+    
+    model SpeedSensor "Ideal sensor to measure the absolute velocity" 
+      extends Modelica.Icons.TranslationalSensor;
+      
+      Interfaces.Flange_a flange_a 
+        "flange to be measured (flange axis directed INTO cut plane, e. g. from left to right)"
+         annotation (extent=[-110, -10; -90, 10]);
+      SI.Position s "Absolute position of flange";
+      Modelica.Blocks.Interfaces.RealOutput v( redeclare type SignalType = 
+            SI.Velocity) "Absolute velocity of flange as output signal" 
+           annotation (extent=[100, -10; 120, 10]);
+      annotation (
+        Coordsys(
+          extent=[-100, -100; 100, 100],
+          grid=[1, 1],
+          component=[20, 20]),
+        Window(
+          x=0.04,
+          y=0.05,
+          width=0.6,
+          height=0.6),
+        Documentation(info="<html>
+<p>
+Measures the <i>absolute velocity v</i> of a flange in an ideal way and provides the result as
+output signals (to be further processed with blocks of the
+Modelica.Blocks library).
+</p>
+<p><b>Release Notes:</b></p>
+<ul>
+<li><i>First Version from August 26, 1999 by P. Beater</i> </li>
+</ul>
+</HTML>
+"),     Icon(
+          Line(points=[-70, 0; -90, 0], style(color=0)),
+          Line(points=[70.4, 0; 100, 0]),
+          Text(
+            extent=[80, -28; 111, -61],
+            string="v",
+            style(color=0)),
+          Text(extent=[0, 100; 0, 40], string="%name")),
+        Diagram(Line(points=[-70,0; -96,0],   style(color=53)), Line(points=[
+                100, 0; 70, 0], style(color=0))));
+    equation 
+      s = flange_a.s;
+      v = der(s);
+      0 = flange_a.f;
+    end SpeedSensor;
+    
+    model AccSensor "Ideal sensor to measure the absolute acceleration" 
+      extends Modelica.Icons.TranslationalSensor;
+      
+      Interfaces.Flange_a flange_a 
+        "flange to be measured (flange axis directed INTO cut plane, e. g. from left to right)"
+         annotation (extent=[-110, -10; -90, 10]);
+      SI.Velocity v "Absolute velocity of flange";
+      Modelica.Blocks.Interfaces.RealOutput a( redeclare type SignalType = 
+            SI.Acceleration) "Absolute acceleration of flange as output signal"
+           annotation (extent=[100, -10; 120, 10]);
+      annotation (
+        Coordsys(
+          extent=[-100, -100; 100, 100],
+          grid=[1, 1],
+          component=[20, 20]),
+        Window(
+          x=0.14,
+          y=0.08,
+          width=0.6,
+          height=0.6),
+        Documentation(info="<html>
+<p>
+Measures the <i>absolute acceleration a</i>
+of a flange in an ideal way and provides the result as
+output signals (to be further processed with blocks of the
+Modelica.Blocks library).
+</p>
+<p><b>Release Notes:</b></p>
+<ul>
+<li><i>First Version from August 26, 1999 by P. Beater</i> </li>
+</ul>
+</HTML>
+"),     Icon(
+          Line(points=[-70, 0; -90, 0], style(color=0)),
+          Line(points=[70.4, 0; 100, 0]),
+          Text(
+            extent=[80, -28; 115, -60],
+            string="a",
+            style(color=0)),
+          Text(extent=[0, 100; 0, 40], string="%name")),
+        Diagram(Line(points=[-70,0; -97,0],   style(color=53)), Line(points=[
+                100, 0; 70, 0])));
+    equation 
+      v = der(flange_a.s);
+      a = der(v);
+      0 = flange_a.f;
+    end AccSensor;
+  end Sensors;
+  
+  import SI = Modelica.SIunits;
+  
+  extends Modelica.Icons.Library2;
+  
+  annotation(preferedView="info",
+    Window(
+      x=0.05,
+      y=0.09,
+      width=0.39,
+      height=0.47,
+      library=1,
+      autolayout=1),
+    Icon(
+      Line(points=[-84, -73; 66, -73], style(color=0)),
+      Rectangle(extent=[-81, -22; -8, -65], style(
+          color=0,
+          gradient=3,
+          fillColor=8,
+          fillPattern=1)),
+      Line(points=[-8, -43; -1, -43; 6, -64; 17, -23; 29, -65; 40, -23; 50, -44;
+              61, -44], style(color=0)),
+      Line(points=[-59, -73; -84, -93], style(color=0)),
+      Line(points=[-11, -73; -36, -93], style(color=0)),
+      Line(points=[-34, -73; -59, -93], style(color=0)),
+      Line(points=[14, -73; -11, -93], style(color=0)),
+      Line(points=[39, -73; 14, -93], style(color=0)),
+      Line(points=[63, -73; 38, -93], style(color=0))), Documentation(info="<html>
+<p>
+This package contains components to model <i>1-dimensional translational
+mechanical</i> systems.
+</p>
+<p>
+The <i>filled</i> and <i>non-filled green squares</i> at the left and
+right side of a component represent <i>mechanical flanges</i>.
+Drawing a line between such squares means that the corresponding
+flanges are <i>rigidly attached</i> to each other. The components of this
+library can be usually connected together in an arbitrary way. E.g. it is
+possible to connect two springs or two sliding masses with inertia directly
+together.
+<p> The only <i>connection restriction</i> is that the Coulomb friction
+elements (Stop) should be only connected
+together provided a compliant element, such as a spring, is in between.
+The reason is that otherwise the frictional force is not uniquely
+defined if the elements are stuck at the same time instant (i.e., there
+does not exist a unique solution) and some simulation systems may not be
+able to handle this situation, since this leads to a singularity during
+simulation. It can only be resolved in a \"clean way\" by combining the
+two connected friction elements into
+one component and resolving the ambiguity of the frictional force in the
+stuck mode.
+</p>
+<p> Another restriction arises if the hard stops in model Stop are used, i. e.
+the movement of the mass is limited by a stop at smax or smin.
+<font color=\"#ff0000\"> <b>This requires the states Stop.s and Stop.v</b> </font>. If these states are eliminated during the index reduction
+the model will not work. To avoid this any inertias should be connected via springs
+to the Stop element, other sliding masses, dampers or hydraulic chambers must be avoided. </p>
+<p>
+In the <i>icon</i> of every component an <i>arrow</i> is displayed in grey
+color. This arrow characterizes the coordinate system in which the vectors
+of the component are resolved. It is directed into the positive
+translational direction (in the mathematical sense).
+In the flanges of a component, a coordinate system is rigidly attached
+to the flange. It is called <i>flange frame</i> and is directed in parallel
+to the component coordinate system. As a result, e.g., the positive
+cut-force of a \"left\" flange (flange_a) is directed into the flange, whereas
+the positive cut-force of a \"right\" flange (flange_b) is directed out of the
+flange. A flange is described by a Modelica connector containing
+the following variables:
+</p>
+<pre>
+   SIunits.Position s  \"absolute position of flange\";
+   <i>flow</i> Force f        \"cut-force in the flange\";
+</pre>
+<p>
+This package contains the following model components:
+</p>
+<pre>
+   <i>Interfaces</i>       Sublibrary containing interface definitions.
+   <i>Examples</i>         Examples of library usage.
+   <i>SlidingMass</i>      Translational component with inertia.
+   <i>Stop</i>             Sliding mass with Coulomb friction and hard stops.
+   <i>Rod</i>              Massless rod.
+   <i>Spring</i>           Linear spring.
+   <i>Damper</i>           Linear damper.
+   <i>SpringDamper</i>     Linear spring and linear damper in parallel connection.
+   <i>ElastoGap</i>        Linear spring and linear damper that can lift off.
+   <i>Position</i>         Drive a flange with a reference position given as input signal.
+   <i>Accelerate</i>       Drive a flange with an acceleration given as input signal.
+   <i>Move</i>             Drive a flange with a reference position, velocity and
+                    acceleration given as input signal.
+   <i>Fixed</i>            Fixed flange at a predefined position.
+   <i>Force</i>            External force defined as input signal.
+   <i>ForceSensor</i>      Ideal sensor to measure the force in a flange.
+   <i>PositionSensor</i>   Ideal sensor to measure absolute position of a flange.
+   <i>SpeedSensor</i>      Ideal sensor to measure absolute velocity of a flange.
+   <i>AccSensor</i>        Ideal sensor to measure absolute acceleration of a flange.
+</pre>
+<p>
+This library is designed in a fully object oriented way in order that
+components can be connected together in every meaningful combination
+(e.g. direct connection of two springs or two shafts with inertia).
+As a consequence, most models lead to a system of
+differential-algebraic equations of <i>index 3</i> (= constraint
+equations have to be differentiated twice in order to arrive at
+a state space representation) and the Modelica translator or
+the simulator has to cope with this system representation.
+According to our present knowledge, this requires that the
+Modelica translator is able to symbolically differentiate equations
+(otherwise it is e.g. not possible to provide consistent initial
+conditions; even if consistent initial conditions are present, most
+numerical DAE integrators can cope at most with index 2 DAEs).
+</p>
+<b>Main Author:</b><i><ul> Peter Beater</i> <br>
+    Universit&auml;t Paderborn, Abteilung Soest<br>
+    Fachbereich Maschinenbau/Automatisierungstechnik<br>
+    L&uuml;becker Ring 2 <br>
+    D 59494 Soest <br>
+    Germany <br>
+email: <A HREF=\"mailto:Beater@mailso.uni-paderborn.de\">Beater@mailso.uni-paderborn.de</A><br>
+</ul>
+<br>
+<p><b>Copyright &copy; 2000-2002, Modelica Association and Universit&auml;t Paderborn, FB 12.</b></p>
+<p><i>
+The Modelica package is free software; it can be redistributed and/or modified
+under the terms of the Modelica license , see the license conditions
+and the accompanying disclaimer in the documentation of package
+Modelica in file \"Modelica/package.mo\".
+</i></p>
+</HTML>
+", revisions="<html>
+<ul>
+<li><i>Version 1.0 (January 5, 2000)</i>
+       by Peter Beater <br>
+       Realized a first version based on Modelica library Mechanics.Rotational
+       by Martin Otter and an existing Dymola library onedof.lib by Peter Beater.
+       <br>
+<li><i>Version 1.01 (July 18, 2001)</i>
+       by Peter Beater <br>
+       Assert statement added to \"Stop\", small bug fixes in examples.
+       <br><br>
+</li>
+</ul>
+</html>"));
   
   package Interfaces "Interfaces for 1D translational mechanical components" 
     
@@ -848,13 +1066,20 @@ The following variables are transported through this connector:
   f: Cut-force in direction of the flange axis in [N].
 </pre>
 </HTML>
-"),     Icon(Rectangle(extent=[-100, -100; 100, 100], style(color=58, fillColor=
-                 58))),
-        Diagram(Rectangle(extent=[-40, -40; 40, 40], style(color=58,
-                fillColor=58)), Text(
+"),     Icon(Rectangle(extent=[-100, -100; 100, 100], style(
+              color=58,
+              rgbcolor={0,127,0},
+              fillColor=58,
+              rgbfillColor={0,127,0}))),
+        Diagram(Rectangle(extent=[-40, -40; 40, 40], style(
+              color=58,
+              rgbcolor={0,127,0},
+              fillColor=58,
+              rgbfillColor={0,127,0})),
+                                Text(
             extent=[-160,110; 40,50],
             string="%name",
-            style(color=58))),
+            style(color=58, rgbcolor={0,127,0}))),
         Terminal(Rectangle(extent=[-100, -100; 100, 100], style(color=58,
                 fillColor=58))));
       
@@ -894,13 +1119,20 @@ The following variables are transported through this connector:
   f: Cut-force in direction of the flange axis in [N].
 </pre>
 </HTML>
-"),     Icon(Rectangle(extent=[-100, -100; 100, 100], style(color=58, fillColor=
-                 7))),
-        Diagram(Rectangle(extent=[-40, -40; 40, 40], style(color=58,
-                fillColor=7)), Text(
+"),     Icon(Rectangle(extent=[-100, -100; 100, 100], style(
+              color=58,
+              rgbcolor={0,127,0},
+              fillColor=7,
+              rgbfillColor={255,255,255}))),
+        Diagram(Rectangle(extent=[-40, -40; 40, 40], style(
+              color=58,
+              rgbcolor={0,127,0},
+              fillColor=7,
+              rgbfillColor={255,255,255})),
+                               Text(
             extent=[-40,110; 160,50],
             string="%name",
-            style(color=58))),
+            style(color=58, rgbcolor={0,127,0}))),
         Terminal(Rectangle(extent=[-100, -100; 100, 100], style(color=58))));
     end Flange_b;
     
@@ -922,7 +1154,6 @@ This is a 1D translational component with two <i>rigidly</i> connected flanges.
 The distance between the left and the right flange is always constant, i. e. L.
 The forces at the right and left flange can be different.
 It is used e.g. to built up sliding masses.
-
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>First Version from August 26, 1999 by P. Beater  (based on Rotational.Rigid)</i> </li>
@@ -998,7 +1229,6 @@ This is a 1D translational component with two flanges.
 It is used e.g. to built up parts of a drive train consisting
 of several base components.
 </p>
-
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>First Version from August 26, 1999 by P. Beater (based on Rotational.TwoFlanges)</i> </li>
@@ -1243,8 +1473,8 @@ A negative force at flange flange_a moves the sliding mass to the negative direc
 </ul>
 </HTML>
 "),   Icon(
-        Line(points=[-100, 0; -55, 0], style(color=58)),
-        Line(points=[55, 0; 100, 0], style(color=58)),
+        Line(points=[-100, 0; -55, 0], style(color=58, rgbcolor={0,127,0})),
+        Line(points=[55, 0; 100, 0], style(color=58, rgbcolor={0,127,0})),
         Rectangle(extent=[-55, -30; 56, 30], style(
             color=0,
             gradient=3,
@@ -1255,8 +1485,8 @@ A negative force at flange flange_a moves the sliding mass to the negative direc
         Line(points=[-60, -90; 20, -90], style(color=0, fillColor=10)),
         Text(extent=[0, 100; 0, 40], string="%name")),
       Diagram(
-        Line(points=[-100, 0; -55, 0], style(color=58)),
-        Line(points=[55, 0; 100, 0], style(color=58)),
+        Line(points=[-100, 0; -55, 0], style(color=58, rgbcolor={0,127,0})),
+        Line(points=[55, 0; 100, 0], style(color=58, rgbcolor={0,127,0})),
         Rectangle(extent=[-55, -30; 55, 30], style(
             color=0,
             gradient=3,
@@ -1400,7 +1630,7 @@ between the stops.</i> </li>
             gradient=3,
             fillColor=7,
             fillPattern=1)),
-        Line(points=[-90, 0; -30, 0], style(color=58)),
+        Line(points=[-90, 0; -30, 0], style(color=58, rgbcolor={0,127,0})),
         Rectangle(extent=[-70, -45; 74, -60], style(
             color=0,
             fillColor=8,
@@ -1415,7 +1645,7 @@ between the stops.</i> </li>
             arrow=1,
             fillColor=0,
             fillPattern=1)),
-        Line(points=[29, 0; 90, 0], style(color=58)),
+        Line(points=[35,0; 90,0], style(color=58, rgbcolor={0,127,0})),
         Text(extent=[0, 100; 0, 40], string="%name")),
       Diagram(
         Polygon(points=[50, -90; 20, -80; 20, -100; 50, -90], style(color=10,
@@ -1426,8 +1656,8 @@ between the stops.</i> </li>
             gradient=3,
             fillColor=7,
             fillPattern=1)),
-        Line(points=[-90, 0; -30, 0], style(color=58)),
-        Line(points=[35, 0; 90, 0], style(color=58)),
+        Line(points=[-90, 0; -30, 0], style(color=58, rgbcolor={0,127,0})),
+        Line(points=[35, 0; 90, 0], style(color=58, rgbcolor={0,127,0})),
         Rectangle(extent=[-68, -14; 76, -29], style(
             color=0,
             fillColor=8,
@@ -1565,8 +1795,8 @@ Rod <i>without inertia</i> and two rigidly connected flanges.
 </ul>
 </HTML>
 "),   Icon(
-        Line(points=[-100, 0; -55, 0], style(color=58)),
-        Line(points=[55, 0; 100, 0], style(color=58)),
+        Line(points=[-100, 0; -55, 0], style(color=58, rgbcolor={0,127,0})),
+        Line(points=[53,0; 99,0], style(color=58, rgbcolor={0,127,0})),
         Polygon(points=[50, -90; 20, -80; 20, -100; 50, -90], style(color=10,
               fillColor=10)),
         Line(points=[-60, -90; 20, -90], style(color=0, fillColor=10)),
@@ -1576,8 +1806,8 @@ Rod <i>without inertia</i> and two rigidly connected flanges.
             fillPattern=1)),
         Text(extent=[0, 100; 0, 40], string="%name")),
       Diagram(
-        Line(points=[-100, 0; -55, 0], style(color=58)),
-        Line(points=[55, 0; 100, 0], style(color=58)),
+        Line(points=[-100, 0; -55, 0], style(color=58, rgbcolor={0,127,0})),
+        Line(points=[55, 0; 100, 0], style(color=58, rgbcolor={0,127,0})),
         Polygon(points=[50, -90; 20, -80; 20, -100; 50, -90], style(color=10,
               fillColor=10)),
         Line(points=[-60, -90; 20, -90], style(color=0, fillColor=10)),
@@ -1821,7 +2051,7 @@ the contact of a sliding mass with the housing.
 </ul>
 </HTML>
 "),   Diagram(
-        Line(points=[-100, 0; -50, 0], style(color=58)),
+        Line(points=[-100, 0; -50, 0], style(color=58, rgbcolor={0,127,0})),
         Line(points=[-48, 34; -48, -46], style(color=0, thickness=4)),
         Line(points=[8, 40; 8, 2], style(color=0)),
         Line(points=[-2, 0; 38, 0; 38, 44; -2, 44], style(color=0)),
@@ -1829,7 +2059,7 @@ the contact of a sliding mass with the housing.
         Line(points=[-12, -38; -12, 20], style(color=0, thickness=4)),
         Line(points=[-12, 22; 8, 22], style(color=0)),
         Line(points=[-12, -38; -2, -38], style(color=0)),
-        Line(points=[72, 0; 90, 0], style(color=58)),
+        Line(points=[72, 0; 90, 0], style(color=58, rgbcolor={0,127,0})),
         Line(points=[72, 22; 72, -42], style(color=0)),
         Line(points=[-2, -38; 10, -28; 22, -48; 38, -28; 50, -48; 64, -28; 72,
               -40], style(color=0)),
@@ -1853,7 +2083,7 @@ the contact of a sliding mass with the housing.
             fillColor=0,
             fillPattern=1))),
       Icon(
-        Line(points=[-100, 0; -50, 0], style(color=58)),
+        Line(points=[-98,0; -48,0], style(color=58, rgbcolor={0,127,0})),
         Line(points=[-48, 34; -48, -46], style(color=0, thickness=4)),
         Line(points=[8, 40; 8, 2], style(color=0)),
         Line(points=[-2, 0; 38, 0; 38, 44; -2, 44], style(color=0)),
@@ -1861,7 +2091,7 @@ the contact of a sliding mass with the housing.
         Line(points=[-12, -38; -12, 20], style(color=0, thickness=4)),
         Line(points=[-12, 22; 8, 22], style(color=0)),
         Line(points=[-12, -38; -2, -38], style(color=0)),
-        Line(points=[74, 0; 100, 0], style(color=58)),
+        Line(points=[72,0; 98,0], style(color=58, rgbcolor={0,127,0})),
         Line(points=[72, 22; 72, -42], style(color=0)),
         Line(points=[-2, -38; 10, -28; 22, -48; 38, -28; 50, -48; 64, -28; 72,
               -40], style(color=0)),
@@ -1950,7 +2180,7 @@ blocks of the block library Modelica.Blocks.Sources.
           extent=[-40,-40; -126,-78],
           style(color=0),
           string="s_ref"),
-        Line(points=[-95, 0; 90, 0], style(color=58)),
+        Line(points=[-95, 0; 90, 0], style(color=58, rgbcolor={0,127,0})),
         Text(extent=[0, 86; 0, 26], string="%name")),
       Diagram(Polygon(points=[46, -90; 26, -85; 26, -95; 46, -90], style(color=
                 10, fillColor=10)), Line(points=[-44, -90; 27, -90], style(
@@ -2017,7 +2247,7 @@ blocks of the block library Modelica.Blocks.Source.
 </ul>
 </HTML>
 "),   Icon(
-        Line(points=[-95, 0; 90, 0], style(color=58)),
+        Line(points=[-95, 0; 90, 0], style(color=58, rgbcolor={0,127,0})),
         Text(
           extent=[-75,-18; -124,-58],
           string="a",
@@ -2123,7 +2353,7 @@ differentiating r).
           extent=[-140, -62; 20, -100],
           string="phi,w,a",
           style(color=0)),
-        Line(points=[-95, 0; 90, 0], style(color=58)),
+        Line(points=[-95, 0; 90, 0], style(color=58, rgbcolor={0,127,0})),
         Text(extent=[0, 80; 0, 20], string="%name")),
       Window(
         x=0.27,
@@ -2168,7 +2398,7 @@ differentiating r).
         Line(points=[40, -40; 0, -80], style(color=0)),
         Line(points=[0, -40; -40, -80], style(color=0)),
         Line(points=[-40, -40; -80, -80], style(color=0)),
-        Line(points=[0, -40; 0, -10], style(color=0)),
+        Line(points=[0,-40; 0,-4],    style(color=0)),
         Polygon(points=[50, -90; 20, -80; 20, -100; 50, -90], style(color=10,
               fillColor=10)),
         Line(points=[-60, -90; 20, -90], style(color=0, fillColor=10))),
@@ -2189,7 +2419,7 @@ at an position s0 in the <i>housing</i>. May be used:
 </ul>
 </HTML>
 "));
-    Interfaces.Flange_b flange_b annotation (extent=[-10, -10; 10, 10],
+    Interfaces.Flange_b flange_b annotation (extent=[-10,10; 10,-10],
         rotation=180);
   equation 
     flange_b.s = s0;
@@ -2229,7 +2459,11 @@ blocks of Modelica.Blocks.Source.
 </HTML>
 "),   Icon(
         Polygon(points=[-100, 10; 20, 10; 20, 41; 90, 0; 20, -41; 20, -10; -100,
-                -10; -100, 10], style(color=10, fillColor=58)),
+                -10; -100, 10], style(
+            color=58,
+            rgbcolor={0,127,0},
+            fillColor=58,
+            rgbfillColor={0,127,0})),
         Text(
           extent=[-100, -40; -47, -88],
           string="f",
@@ -2240,7 +2474,11 @@ blocks of Modelica.Blocks.Source.
               fillColor=10)),
         Line(points=[-60, -90; 20, -90], style(color=0, fillColor=10)),
         Polygon(points=[-100, 10; 20, 10; 20, 41; 90, 0; 20, -41; 20, -10; -100,
-                -10; -100, 10], style(color=10, fillColor=58))));
+                -10; -100, 10], style(
+            color=58,
+            rgbcolor={0,127,0},
+            fillColor=58,
+            rgbfillColor={0,127,0}))));
   equation 
     flange_b.f = -f;
   end Force;
@@ -2337,222 +2575,4 @@ velocity of model mass1 or of model mass2 as state variables.
     flange_b.f = 0;
   end RelativeStates;
   
-  package Sensors "Sensor for 1D translational mechanical quantities" 
-    
-    extends Modelica.Icons.Library2;
-    
-    annotation (
-      Window(
-        x=0.08,
-        y=0.16,
-        width=0.23,
-        height=0.39,
-        library=1,
-        autolayout=1),
-      Icon(
-        Rectangle(extent=[-76, -81; 64, -1], style(color=0, fillColor=7)),
-        Polygon(points=[-6, -61; -16, -37; 4, -37; -6, -61], style(
-            color=0,
-            fillColor=0,
-            fillPattern=1)),
-        Line(points=[-6, -21; -6, -37], style(color=0)),
-        Line(points=[-76, -21; -6, -21], style(color=0)),
-        Line(points=[-56, -61; -56, -81], style(color=0)),
-        Line(points=[-36, -61; -36, -81], style(color=0)),
-        Line(points=[-16, -61; -16, -81], style(color=0)),
-        Line(points=[4, -61; 4, -81], style(color=0)),
-        Line(points=[24, -61; 24, -81], style(color=0)),
-        Line(points=[44, -61; 44, -81], style(color=0))));
-    model ForceSensor "Ideal sensor to measure the force between two flanges" 
-      extends Modelica.Icons.TranslationalSensor;
-      
-      Interfaces.Flange_a flange_a 
-        "(left) driving flange (flange axis directed INTO cut plane, e. g. from left to right)"
-         annotation (extent=[-110, -10; -90, 10]);
-      Interfaces.Flange_b flange_b 
-        "(right) driven flange (flange axis directed OUT OF cut plane)" 
-        annotation (extent=[90, -10; 110, 10]);
-      Modelica.Blocks.Interfaces.RealOutput f(
-           redeclare type SignalType = SI.Force) 
-        "force in flange_a and flange_b (f = flange_a.f = -flange_b.f)" 
-         annotation (extent=[-10, -100; 10, -120], rotation=90);
-      annotation (
-        Documentation(info="<html>
-<p>
-Measures the <i>cut-force between two flanges</i> in an ideal way
-and provides the result as output signal (to be further processed
-with blocks of the Modelica.Blocks library).
-</p>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>First Version from August 26, 1999 by P. Beater</i> </li>
-</ul>
-</HTML>
-"),     Icon(Text(
-            extent=[40, -70; 120, -120],
-            string="f",
-            style(color=0)),
-          Line(points=[-70,0; -90,0],   style(color=0)),
-          Line(points=[70,0; 90,0],   style(color=0)),
-          Line(points=[0,-100; 0,-60])),
-        Coordsys(
-          extent=[-100, -100; 100, 100],
-          grid=[1, 1],
-          component=[20, 20]),
-        Window(
-          x=0.27,
-          y=0.08,
-          width=0.6,
-          height=0.6),
-        Diagram(
-          Line(points=[-70,0; -96,0],   style(color=0)),
-          Line(points=[70,0; 96,0],   style(color=0)),
-          Line(points=[0,-100; 0,-60])));
-    equation 
-      flange_a.s = flange_b.s;
-      flange_a.f = f;
-      flange_b.f = -f;
-    end ForceSensor;
-    
-    model PositionSensor "Ideal sensor to measure the absolute position" 
-      extends Modelica.Icons.TranslationalSensor;
-      
-      Interfaces.Flange_a flange_a 
-        "flange to be measured (flange axis directed INTO cut plane, e. g. from left to right)"
-         annotation (extent=[-110, -10; -90, 10]);
-      Modelica.Blocks.Interfaces.RealOutput s( redeclare type SignalType = 
-            SI.Position) "Absolute position of flange as output signal" 
-           annotation (extent=[100, -10; 120, 10]);
-      
-      annotation (
-        Coordsys(
-          extent=[-100, -100; 100, 100],
-          grid=[1, 1],
-          component=[20, 20]),
-        Window(
-          x=0.04,
-          y=0.05,
-          width=0.6,
-          height=0.6),
-        Documentation(info="<html>
-<p>
-Measures the <i>absolute position s</i> of a flange in an ideal way and provides the result as
-output signals (to be further processed with blocks of the
-Modelica.Blocks library).
-</p>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>First Version from August 26, 1999 by P. Beater</i> </li>
-</ul>
-</HTML>
-"),     Icon(
-          Line(points=[-70, 0; -90, 0], style(color=0)),
-          Line(points=[70.4, 0; 100, 0]),
-          Text(
-            extent=[80, -28; 114, -62],
-            string="s",
-            style(color=0)),
-          Text(extent=[0, 100; 0, 40], string="%name")),
-        Diagram(Line(points=[100, 0; 70, 0]), Line(points=[-70,0; -96,0],
-              style(color=53))));
-    equation 
-      s = flange_a.s;
-      0 = flange_a.f;
-    end PositionSensor;
-    
-    model SpeedSensor "Ideal sensor to measure the absolute velocity" 
-      extends Modelica.Icons.TranslationalSensor;
-      
-      Interfaces.Flange_a flange_a 
-        "flange to be measured (flange axis directed INTO cut plane, e. g. from left to right)"
-         annotation (extent=[-110, -10; -90, 10]);
-      SI.Position s "Absolute position of flange";
-      Modelica.Blocks.Interfaces.RealOutput v( redeclare type SignalType = 
-            SI.Velocity) "Absolute velocity of flange as output signal" 
-           annotation (extent=[100, -10; 120, 10]);
-      annotation (
-        Coordsys(
-          extent=[-100, -100; 100, 100],
-          grid=[1, 1],
-          component=[20, 20]),
-        Window(
-          x=0.04,
-          y=0.05,
-          width=0.6,
-          height=0.6),
-        Documentation(info="<html>
-<p>
-Measures the <i>absolute velocity v</i> of a flange in an ideal way and provides the result as
-output signals (to be further processed with blocks of the
-Modelica.Blocks library).
-</p>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>First Version from August 26, 1999 by P. Beater</i> </li>
-</ul>
-</HTML>
-"),     Icon(
-          Line(points=[-70, 0; -90, 0], style(color=0)),
-          Line(points=[70.4, 0; 100, 0]),
-          Text(
-            extent=[80, -28; 111, -61],
-            string="v",
-            style(color=0)),
-          Text(extent=[0, 100; 0, 40], string="%name")),
-        Diagram(Line(points=[-70,0; -96,0],   style(color=53)), Line(points=[
-                100, 0; 70, 0], style(color=0))));
-    equation 
-      s = flange_a.s;
-      v = der(s);
-      0 = flange_a.f;
-    end SpeedSensor;
-    
-    model AccSensor "Ideal sensor to measure the absolute acceleration" 
-      extends Modelica.Icons.TranslationalSensor;
-      
-      Interfaces.Flange_a flange_a 
-        "flange to be measured (flange axis directed INTO cut plane, e. g. from left to right)"
-         annotation (extent=[-110, -10; -90, 10]);
-      SI.Velocity v "Absolute velocity of flange";
-      Modelica.Blocks.Interfaces.RealOutput a( redeclare type SignalType = 
-            SI.Acceleration) "Absolute acceleration of flange as output signal"
-           annotation (extent=[100, -10; 120, 10]);
-      annotation (
-        Coordsys(
-          extent=[-100, -100; 100, 100],
-          grid=[1, 1],
-          component=[20, 20]),
-        Window(
-          x=0.14,
-          y=0.08,
-          width=0.6,
-          height=0.6),
-        Documentation(info="<html>
-<p>
-Measures the <i>absolute acceleration a</i>
-of a flange in an ideal way and provides the result as
-output signals (to be further processed with blocks of the
-Modelica.Blocks library).
-</p>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>First Version from August 26, 1999 by P. Beater</i> </li>
-</ul>
-</HTML>
-"),     Icon(
-          Line(points=[-70, 0; -90, 0], style(color=0)),
-          Line(points=[70.4, 0; 100, 0]),
-          Text(
-            extent=[80, -28; 115, -60],
-            string="a",
-            style(color=0)),
-          Text(extent=[0, 100; 0, 40], string="%name")),
-        Diagram(Line(points=[-70,0; -97,0],   style(color=53)), Line(points=[
-                100, 0; 70, 0])));
-    equation 
-      v = der(flange_a.s);
-      a = der(v);
-      0 = flange_a.f;
-    end AccSensor;
-  end Sensors;
 end Translational;

@@ -100,12 +100,13 @@ This package contains basic analog electrical multiphase components.
             style(color=0, rgbcolor={0,0,0})),
           Line(points=[-90,0; -40,0], style(color=3, rgbcolor={0,0,255})),
           Line(points=[80,0; 90,0], style(color=3, rgbcolor={0,0,255}))),
-                                                               Documentation(
+          Documentation(
             info="<HTML>
 <p>
 Connects all pins of plug_p to pin_n, thus establishing a so-called star-connection.
 </p>
 </HTML>"));
+      
     equation 
       for j in 1:m loop
         connect(plug_p.pin[j],pin_n);
@@ -127,7 +128,7 @@ Connects all pins of plug_p to pin_n, thus establishing a so-called star-connect
             style(color=0, rgbcolor={0,0,0})),
           Line(points=[-90,0; -40,0], style(color=3, rgbcolor={0,0,255})),
           Line(points=[80,0; 90,0], style(color=3, rgbcolor={0,0,255}))),
-                                                               Documentation(
+          Documentation(
             info="<HTML>
 <p>
 Connects in a cyclic way plug_n.pin[j] to plug_p.pin[j+1], 
@@ -135,6 +136,7 @@ thus establishing a so-called delta (or polygon) connection
 when used in parallel to another component.
 </p>
 </HTML>"));
+      
     equation 
       for j in 1:m loop
         if j<m then
@@ -350,7 +352,8 @@ Contains m inductors (Modelica.Electrical.Analog.Basic.Inductor)
               rgbfillColor={0,0,255})),
           Text(extent=[-150,40; 150,100],   string="%name"),
           Text(extent=[-100,-100; 100,-60],   string="m=%m",
-            style(color=0, rgbcolor={0,0,0}))),                Documentation(
+            style(color=0, rgbcolor={0,0,0}))),
+          Documentation(
             info="<HTML>
 <p>
 Contains m saturating inductors (Modelica.Electrical.Analog.Basic.SaturatingInductor)
@@ -449,7 +452,8 @@ Contains m transformers (Modelica.Electrical.Analog.Basic.Transformer)
           Line(points=[0,90; 0,30],   style(color=73)),
           Text(extent=[-150,-100; 150,-40], string="%name"),
           Text(extent=[-100,40; 100,80],      string="m=%m",
-            style(color=0, rgbcolor={0,0,0}))),                Documentation(info="<HTML>
+            style(color=0, rgbcolor={0,0,0}))),
+          Documentation(                                                     info="<HTML>
 <p>
 Contains m variable resistors (Modelica.Electrical.Analog.Basic.VariableResistor)
 </p>
@@ -487,7 +491,8 @@ Contains m variable resistors (Modelica.Electrical.Analog.Basic.VariableResistor
           Line(points=[0,90; 0,30],   style(color=73)),
           Text(extent=[-150,-100; 150,-40], string="%name"),
           Text(extent=[-100,40; 100,80],      string="m=%m",
-            style(color=0, rgbcolor={0,0,0}))),                Documentation(info="<HTML>
+            style(color=0, rgbcolor={0,0,0}))),
+          Documentation(                                                     info="<HTML>
 <p>
 Contains m variable conductors (Modelica.Electrical.Analog.Basic.VariableConductor)
 </p>
@@ -524,7 +529,8 @@ Contains m variable conductors (Modelica.Electrical.Analog.Basic.VariableConduct
           Line(points=[-90,0; -14,0]),
           Line(points=[14,0; 90,0]),
           Line(points=[-14,28; -14,-28],   style(thickness=2)),
-          Line(points=[14,28; 14,-28],   style(thickness=2))), Documentation(info="<HTML>
+          Line(points=[14,28; 14,-28],   style(thickness=2))),
+          Documentation(                                                     info="<HTML>
 <p>
 Contains m variable capacitors (Modelica.Electrical.Analog.Basic.VariableCapacitor)
 </p>
@@ -567,7 +573,7 @@ Cmin is a parameter with default value Modelica.Constants.eps.
           Ellipse(extent=[0,-15; 30,15]),
           Ellipse(extent=[30,-15; 60,15]),
           Rectangle(extent=[-60,-30; 60,0],   style(color=7, fillColor=7))),
-                                                               Documentation(info="<HTML>
+          Documentation(                                                     info="<HTML>
 <p>
 Contains m variable inductors (Modelica.Electrical.Analog.Basic.VariableInductor)
 </p>
@@ -579,6 +585,7 @@ Lmin is a parameter with default value Modelica.Constants.eps.
 </P>
 </HTML>"),
         Diagram);
+      
     equation 
       connect(variableInductor.p, plug_p.pin) 
         annotation (points=[-10,0; -100,0], style(color=3, rgbcolor={0,0,255}));

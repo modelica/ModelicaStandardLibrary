@@ -1,9 +1,7 @@
 package Math "Mathematical functions"
-import SI = Modelica.SIunits;
-
+  import SI = Modelica.SIunits;
 
 extends Modelica.Icons.Library2;
-
 
 annotation(preferedView="info",
     Window(
@@ -76,7 +74,6 @@ Modelica in file \"Modelica/package.mo\".
 </i></p>
 </HTML>
 "));
-
 
 package Matrices "Functions on matrices" 
   
@@ -1063,22 +1060,7 @@ which based on the balanc function from EISPACK.
     input Real A[:, size(A, 1)];
     input Real T=1;
     output Real phi[size(A, 1), size(A, 1)] "= exp(A*T)";
-  protected 
-    parameter Integer nmax=21;
-    /*max number of iterations*/
-    parameter Integer na=size(A, 1);
-    Integer j=1;
-    Integer k=0;
-    Boolean break=false;
-    Real Anorm;
-    Real Tscaled=1;
-    Real Atransf[na, na];
-    Real D[na, na];
-    /*D: dummy variable for psi*/
-    Real M[na, na];
-    /*M: dummy matrix*/
-    Real Diag[na];
-    /*diagonal transformation matrix for balancing*/
+    
     annotation (
       Coordsys(
         extent=[-100, -100; 100, 100],
@@ -1149,6 +1131,32 @@ implementation variant used in this function.
 </ul>
 </HTML>
 "));
+  protected 
+    parameter Integer nmax=21;
+    /*max number of iterations*/
+    parameter Integer na=size(A, 1);
+    Integer j=1;
+    Integer k=0;
+    Boolean break=false;
+    Real Anorm;
+    Real Tscaled=1;
+    Real Atransf[na, na];
+    Real D[na, na];
+    /*D: dummy variable for psi*/
+    Real M[na, na];
+    /*M: dummy matrix*/
+    Real Diag[na];
+    /*diagonal transformation matrix for balancing*/
+    
+  encapsulated function columnNorm "Returns the column norm of a matrix" 
+    input Real A[:, :] "Input matrix";
+    output Real result=0.0 "1-norm of matrix A";
+  algorithm 
+     for i in 1:size(A, 2) loop
+        result := max(result, sum(abs(A[:, i])));
+     end for;
+  end columnNorm;
+    
   algorithm 
     // balancing of A
     (Diag,Atransf) := balance(A);
@@ -1156,7 +1164,7 @@ implementation variant used in this function.
     // scaling of T until norm(A)*/(2^k) < 1
     Tscaled := T;
     /*Anorm: column-norm of matrix A*/
-    Anorm := norm(Atransf, 1);
+    Anorm := columnNorm(Atransf);
     Anorm := Anorm*T;
     while Anorm >= 0.5 loop
       Anorm := Anorm/2;
@@ -1170,7 +1178,7 @@ implementation variant used in this function.
     while j < nmax and not break loop
       M := Atransf*M*Tscaled/j;
       //stop if the new element of the series is small
-      if norm((D + M) - D, 1) == 0 then
+      if columnNorm((D + M) - D) == 0 then
         break := true;
       else
         D := M + D;
@@ -3133,7 +3141,6 @@ INFO    (output) INTEGER
   
 end Matrices;
 
-
 function sin "sine" 
   extends baseIcon1;
   input SI.Angle u;
@@ -3178,7 +3185,6 @@ function sin "sine"
         style(color=9))));
 external "C" y = sin(u);
 end sin;
-
 
 function cos "cosine" 
   extends baseIcon1;
@@ -3225,7 +3231,6 @@ function cos "cosine"
 external "C" y = cos(u);
 end cos;
 
-
 function tan "tangent (u shall not be -pi/2, pi/2, 3*pi/2, ...)" 
   extends baseIcon2;
   input SI.Angle u;
@@ -3269,7 +3274,6 @@ function tan "tangent (u shall not be -pi/2, pi/2, 3*pi/2, ...)"
 external "C" y = tan(u);
 end tan;
 
-
 function asin "inverse sine (-1 <= u <= 1)" 
   extends baseIcon2;
   input Real u;
@@ -3312,7 +3316,6 @@ function asin "inverse sine (-1 <= u <= 1)"
 external "C" y = asin(u);
 end asin;
 
-
 function acos "inverse cosine (-1 <= u <= 1)" 
   extends baseIcon2;
   input Real u;
@@ -3354,7 +3357,6 @@ function acos "inverse cosine (-1 <= u <= 1)"
         style(color=9))));
 external "C" y = acos(u);
 end acos;
-
 
 function atan "inverse tangent" 
   extends baseIcon2;
@@ -3399,7 +3401,6 @@ function atan "inverse tangent"
         style(color=9))));
 external "C" y = atan(u);
 end atan;
-
 
 function atan2 "four quadrant inverse tangent" 
   extends baseIcon2;
@@ -3460,7 +3461,6 @@ u1 is not zero.
 external "C" y = atan2(u1, u2);
 end atan2;
 
-
 function sinh "hyperbolic sine" 
   extends baseIcon2;
   input Real u;
@@ -3504,7 +3504,6 @@ function sinh "hyperbolic sine"
         style(color=9))));
 external "C" y = sinh(u);
 end sinh;
-
 
 function cosh "hyperbolic cosine" 
   extends baseIcon2;
@@ -3554,7 +3553,6 @@ function cosh "hyperbolic cosine"
 external "C" y = cosh(u);
 end cosh;
 
-
 function tanh "hyperbolic tangent" 
   extends baseIcon2;
   input Real u;
@@ -3599,7 +3597,6 @@ function tanh "hyperbolic tangent"
 external "C" y = tanh(u);
 end tanh;
 
-
 function exp "exponential, base e" 
   extends baseIcon2;
   input Real u;
@@ -3642,7 +3639,6 @@ function exp "exponential, base e"
         style(color=9))));
 external "C" y = exp(u);
 end exp;
-
 
 function log "natural (base e) logarithm (u shall be > 0)" 
   extends baseIcon1;
@@ -3688,7 +3684,6 @@ function log "natural (base e) logarithm (u shall be > 0)"
 external "C" y = log(u);
 end log;
 
-
 function log10 "base 10 logarithm (u shall be > 0)" 
   extends baseIcon1;
   input Real u;
@@ -3733,7 +3728,6 @@ function log10 "base 10 logarithm (u shall be > 0)"
 external "C" y = log10(u);
 end log10;
 
-
 partial function baseIcon1 
   "Basic icon for mathematical function with y-axis on left side" 
   annotation (Icon(
@@ -3751,8 +3745,9 @@ partial function baseIcon1
         style(color=9)),
       Polygon(points=[-80, 100; -86, 84; -74, 84; -80, 100], style(color=8,
             fillColor=8))));
+algorithm 
+  
 end baseIcon1;
-
 
 partial function baseIcon2 
   "Basic icon for mathematical function with y-axis in middle" 
@@ -3770,8 +3765,9 @@ partial function baseIcon2
         style(color=9)),
       Polygon(points=[0, 100; -6, 84; 6, 84; 0, 100], style(color=8, fillColor=
               8))));
+algorithm 
+  
 end baseIcon2;
-
 
 function tempInterpol1 
   "temporary routine for linear interpolation (will be removed)" 
@@ -3825,7 +3821,6 @@ algorithm
     
   end if;
 end tempInterpol1;
-
 
 function tempInterpol2 
   "temporary routine for vectorized linear interpolation (will be removed)" 
