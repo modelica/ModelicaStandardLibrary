@@ -1497,10 +1497,13 @@ states and of the \"Advanced\" menu parameters, see model
     parameter Modelica.SIunits.Angle phi0=0 "Fixed offset angle of housing";
     parameter MultiBody.Types.Axis n={1,0,0} 
       "Axis of rotation = axis of support torque (resolved in frame_a)";
-    
+    parameter Boolean enable3D=true "Enable 3D effects of 1D powertrains"
+      annotation (Dialog(tab="PowerTrain"));
+
     Modelica.Mechanics.Rotational.Interfaces.Flange_b flange_b 
       "(right) flange fixed in housing" annotation (extent=[110, 10; 90, -10]);
-    MultiBody.Interfaces.Frame_a frame_a "Frame in which housing is fixed" 
+    MultiBody.Interfaces.Frame_a frame_a(f=zeros(3), t=-n*flange_b.tau) if effectiveEnable3D
+      "Frame in which housing is fixed" 
       annotation (extent=[-15, -120; 15, -100], rotation=90);
     annotation (
       Icon(
@@ -1542,10 +1545,11 @@ November 3-4, 2003, pp. 149-158</p>
           extent=[12, 53; 80, 40],
           string="rotation axis",
           style(color=10))));
+  protected
+    outer World world;
+    parameter Boolean effectiveEnable3D=world.enable3D and enable3D;
   equation 
     flange_b.phi = phi0;
-    frame_a.f = zeros(3);
-    frame_a.t = -n*flange_b.tau;
   end Mounting1D;
   
   model Rotor1D 
