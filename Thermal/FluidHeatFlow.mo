@@ -1,7 +1,8 @@
 package FluidHeatFlow 
+  "Simple components for 1-dim., incompressible thermo-fluid flow to model coolant flows, e.g., of electrical machines" 
   extends Modelica.Icons.Library;
-  annotation (uses(Modelica(version="2.1")),
-  version="0.70 Beta", versionDate="2005-02-01", Documentation(info="<HTML>
+  annotation (version="1.0", versionDate="2005-02-01", preferedView="info",
+      Documentation(                                                                      info="<HTML>
 <p>
 This package contains very simple-to-use components to model coolant flows as needed to simulate cooling e.g. of electric machines:
 <ul>
@@ -65,18 +66,21 @@ Outlet temperature is defined by variable T of the corresponding component.
   </p>
   </dd>
 </p>
-<p>
-  <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2004, Modelica Association, Anton Haumer and arsenal research.<br>
-  <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
-  under the terms of the <b>Modelica license</b>, see the license conditions
-  and the accompanying <b>disclaimer</b> in the documentation of package
-  Modelica in file \"Modelica/package.mo\".</i></dd>
-</p>
 </dl>
+
+<p>
+Copyright &copy; 1998-2005, Modelica Association, Anton Haumer and arsenal research.
+</p>
+<p>
+<i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
+under the terms of the <b>Modelica license</b>, see the license conditions
+and the accompanying <b>disclaimer</b> 
+<a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a>.</i>
+</p><br>
+
 </HTML>", revisions="<HTML>
   <ul>
-  <li> v0.70 2005/02/01 Anton Haumer<br>
+  <li> v1.0 2005/02/01 Anton Haumer<br>
        first stable official release</li>
   </ul>
 </HTML>
@@ -385,7 +389,7 @@ Cooler component built up from two pipes (with different media), coupled with a 
           rgbfillColor={255,0,0},
           fillPattern=1));
       connect(outerPipe.heatPort, outerConvection.fluid) 
-                                                     annotation (points=[0,50; 
+                                                     annotation (points=[0,50;
             0,41; 6.73533e-016,41],       style(color=42, rgbcolor={191,0,0}));
       connect(outerGc, outerConvection.Gc) 
                                  annotation (points=[0,100; 0,80; -20,80; -20,30;
@@ -396,7 +400,7 @@ Cooler component built up from two pipes (with different media), coupled with a 
             6.73533e-016,-41; 6.73533e-016,-45.5; 0,-45.5; 0,-50], style(color=42,
             rgbcolor={191,0,0}));
       connect(innerConvection.solid, outerConvection.solid) annotation (points=[
-            -6.73533e-016,-19; -6.73533e-016,-9.5; -6.73533e-016,-9.5; 
+            -6.73533e-016,-19; -6.73533e-016,-9.5; -6.73533e-016,-9.5;
             -6.73533e-016,0; -6.73533e-016,19; -6.73533e-016,19],style(color=42,
             rgbcolor={191,0,0}));
     end CoolerComponent;

@@ -55,13 +55,16 @@ The library is structured in the following sublibraries:
 </dl>
 <br>
 <br>
-<p><b>Copyright &copy; 1999-2004, Modelica Association and DLR.</b></p>
-<p><i>
-The Modelica package Modelica.Blocks is <b>free</b> software; it can be redistributed and/or modified
+
+<p>
+Copyright &copy; 1998-2005, Modelica Association and DLR.
+</p>
+<p>
+<i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
 under the terms of the <b>Modelica license</b>, see the license conditions
-and the accompanying <b>disclaimer</b>
-<a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a>.
-</i></p>
+and the accompanying <b>disclaimer</b> 
+<a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a>.</i>
+</p><br>
 </HTML>
 ", revisions="<html>
 <ul>
@@ -106,13 +109,13 @@ and the accompanying <b>disclaimer</b>
 </html>"));
 
 
-package Examples "Demonstration examples of the components of this package"
-
+package Examples "Demonstration examples of the components of this package" 
+  
   extends Icons.Library;
-
-     model ShowLogicalSources
+  
+     model ShowLogicalSources 
        extends Modelica.Icons.Example;
-       Sources.BooleanTable table(table={2,4,6,8})
+       Sources.BooleanTable table(table={2,4,6,8}) 
                                        annotation(extent=[-60,-100; -40,-80]);
        Sources.BooleanConstant const    annotation(extent=[-60,60; -40,80]);
        Sources.BooleanStep step(startTime=4) annotation(extent=[-60,20; -40,40]);
@@ -123,53 +126,53 @@ package Examples "Demonstration examples of the components of this package"
       Sources.SampleTrigger sample(
                           period=0.5) annotation(extent=[-60,-60; -40,-40]);
       Sources.BooleanExpression booleanExpression(
-                                                y=pulse.y and step.y)
+                                                y=pulse.y and step.y) 
       annotation(extent=[20,20; 80,40]);
      end ShowLogicalSources;
-
-    model LogicalNetwork1
-
+  
+    model LogicalNetwork1 
+    
     extends Modelica.Icons.Example;
     Sources.BooleanTable table2(table={1,3,5,7}) annotation(extent=[-80,-20; -60,0]);
     Sources.BooleanTable table1(table={2,4,6,8}) annotation(extent=[-80,20; -60,40]);
     Logical.Not Not1 annotation(extent=[-40,-20; -20,0]);
-
+    
     annotation(Diagram,
         experiment(StopTime=10),
         experimentSetupOutput);
     Logical.And And1 annotation(extent=[0,-20; 20,0]);
     Logical.Or Or1 annotation(extent=[40,20; 60,40]);
     Logical.Pre Pre1 annotation(extent=[-40,-60; -20,-40]);
-    equation
-
+    equation 
+    
     connect(table2.y, Not1.u) annotation(points=[-59,-10; -42,-10], style(
           color=5, rgbcolor={255,0,255}));
-
+    
     connect(And1.y, Or1.u2) annotation(points=[21,-10; 28,-10; 28,22; 38,22],
         style(color=5, rgbcolor={255,0,255}));
-
+    
     connect(table1.y, Or1.u1) annotation(points=[-59,30; 38,30], style(color=
             5, rgbcolor={255,0,255}));
-
+    
     connect(Not1.y, And1.u1) annotation(points=[-19,-10; -2,-10], style(color=
            5, rgbcolor={255,0,255}));
-
+    
     connect(Pre1.y, And1.u2) annotation(points=[-19,-50; -10,-50; -10,-18; -2,
           -18], style(color=5, rgbcolor={255,0,255}));
-
+    
     connect(Or1.y, Pre1.u) annotation(points=[61,30; 68,30; 68,-70; -60,-70;
           -60,-50; -42,-50], style(color=5, rgbcolor={255,0,255}));
-
+    
     end LogicalNetwork1;
-
-  encapsulated model BusUsage "Demonstration of signal bus usage"
+  
+  encapsulated model BusUsage "Demonstration of signal bus usage" 
       import Modelica.Icons;
       import Modelica.Blocks.Interfaces.Adaptors;
       import Modelica.Blocks.Sources;
       import Modelica;
-
+    
     extends Icons.Example;
-
+    
     annotation (preferedView="info",Documentation(info="<HTML>
 <p><b>Signal bus concept</b></p>
 <p>
@@ -255,9 +258,9 @@ should be the same as the one from the \"generateRealSignal1\"
 block.
 </p>
 </HTML>"), Diagram);
-  protected
+  protected 
     Interfaces.Bus bus annotation (Hide=false, extent=[-80, -20; 80, -14]);
-  public
+  public 
     RestBus restBus(set_realSignal2=true) annotation (extent=[60, 20; 80, 40]);
     Sources.IntegerStep integerStep(
       height=1,
@@ -267,29 +270,29 @@ block.
         extent=[-20,20; 0,40],   rotation=270);
     Sources.Sine sine                annotation (extent=[-60,20; -40,40],
         rotation=270);
-
-    encapsulated package Interfaces "Interfaces specialised for this example"
-
-      connector MultiPort "Combined port of real and boolean signal"
+    
+    encapsulated package Interfaces "Interfaces specialised for this example" 
+      
+      connector MultiPort "Combined port of real and boolean signal" 
         Real myRealSignal;
         Boolean myBooleanSignal;
-
+        
         annotation (Icon(Rectangle(extent=[-100, 100; 100, -100], style(
                   fillColor=76, fillPattern=1))), Diagram(Rectangle(extent=[-
                   100, 100; 100, -100], style(fillColor=76, fillPattern=1))));
       end MultiPort;
-
-      connector Bus "Signal bus"
+      
+      connector Bus "Signal bus" 
           import SI = Modelica.SIunits;
           import Modelica.Blocks.Interfaces.*;
-
-        RealSignal realSignal1(redeclare type SignalType = SI.AngularVelocity)
+        
+        RealSignal realSignal1(redeclare type SignalType = SI.AngularVelocity) 
           "First Real signal (angular velocity)";
         RealSignal realSignal2 "Second Real signal";
         IntegerSignal integerSignal "Integer signal";
         BooleanSignal booleanSignal "Boolean signal";
         MultiPort multiSignal "Combined signal";
-
+        
         annotation (
           Icon(Rectangle(extent=[-100, 100; 100, -100], style(
                 color=77,
@@ -311,37 +314,37 @@ block.
 "));
       end Bus;
     end Interfaces;
-
-    encapsulated model Part "Component with MultiPort connector"
+    
+    encapsulated model Part "Component with MultiPort connector" 
         import Modelica.Blocks.Examples;
-
+      
       Examples.BusUsage.Interfaces.MultiPort multiSignal annotation (extent=[
             100, -10; 120, 10]);
-
+      
       annotation (Icon(Rectangle(extent=[-100, 60; 100, -60], style(fillColor=
                   76, fillPattern=1)), Text(
             extent=[-106, 124; 114, 68],
             style(fillColor=76, fillPattern=1),
             string="%name")));
-    equation
+    equation 
       multiSignal.myRealSignal = time;
       multiSignal.myBooleanSignal = time > 0.5;
     end Part;
-
-    encapsulated model RestBus
-      "Set default values for bus variables that are not defined elsewhere"
-
+    
+    encapsulated model RestBus 
+      "Set default values for bus variables that are not defined elsewhere" 
+      
         import Modelica.Blocks.Examples;
-
-      parameter Boolean set_realSignal1=false
+      
+      parameter Boolean set_realSignal1=false 
         "Set dummy value for desiredThrottle";
       parameter Boolean set_realSignal2=false "Set dummy value for brake";
-      parameter Boolean set_integerSignal=false
+      parameter Boolean set_integerSignal=false 
         "Set dummy value for controlLeverPosition";
-      parameter Boolean set_booleanSignal=false
+      parameter Boolean set_booleanSignal=false 
         "Set dummy value for desiredGear";
       parameter Boolean set_multiSignal=false "Set dummy value for ignition";
-
+      
       annotation (Icon(
           Rectangle(extent=[-100, 100; 100, -100], style(fillColor=7,
                 fillPattern=1)),
@@ -370,7 +373,7 @@ block.
           Rectangle(extent=[40, -4; 92, -46], style(color=0))));
       Examples.BusUsage.Interfaces.Bus bus annotation (extent=[-10, -120; 10, -
             100], rotation=90);
-    equation
+    equation 
       if set_realSignal1 then
         bus.realSignal1 = 0;
       end if;
@@ -388,18 +391,18 @@ block.
         bus.multiSignal.myBooleanSignal = false;
       end if;
     end RestBus;
-
+    
     Part part annotation (extent=[-96,-60; -76,-40]);
-    Modelica.Blocks.Math.Gain gain
+    Modelica.Blocks.Math.Gain gain 
       annotation(extent=[-46,-80; -26,-60], rotation=-90);
-  equation
-
+  equation 
+    
     connect(restBus.bus, bus) annotation (points=[70,19; 70,-17; 0,-17],
                                                                     style(color=
            77));
     connect(part.multiSignal, bus.multiSignal) annotation (points=[-75,-50; -58,
           -50; -58,-16; 0,-16; 0,-17]);
-    connect(sine.y, bus.realSignal1)
+    connect(sine.y, bus.realSignal1) 
       annotation(points=[-50,19; -50,-17; 0,-17],
                                            style(color=3, rgbcolor={0,0,255}));
     connect(booleanStep.y, bus.booleanSignal)           annotation(points=[-10,
@@ -410,7 +413,7 @@ block.
     connect(gain.u, bus.realSignal1) annotation(points=[-36,-58; -36,-18],
         style(color=3, rgbcolor={0,0,255}));
   end BusUsage;
-
+  
   annotation (Documentation(info="<html>
 <p>
 This package contains example models to demonstrate the
@@ -418,6 +421,6 @@ usage of package blocks.
 </p>
 </HTML>
 "));
-
+  
 end Examples;
 end Blocks;

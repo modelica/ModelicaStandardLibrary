@@ -1,6 +1,7 @@
 package Electrical "Library for electrical models"
 extends Modelica.Icons.Library2;
 
+
 annotation(preferedView="info",
   Documentation(info="<html>
 <p>

@@ -507,7 +507,7 @@ Simulate for about 10 seconds and plot the angular velocities of the inertias <t
         annotation (points=[20, 0; 20, -20], style(color=0));
     end ElasticBearing;
   end Examples;
-
+  
   package Sensors 
     "Sensors to measure variables in 1D rotational mechanical components" 
     
@@ -1285,13 +1285,17 @@ identical results.</p>
     Germany<br>
     email: <A HREF=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</A><br></dd>
 </dl>
-<p><b>Copyright &copy; 1999-2003, 2000-2003, Modelica Association and DLR.</b></p>
-<p><i>
-The Modelica package is <b>free</b> software; it can be redistributed and/or modified
+
+
+<p>
+Copyright &copy; 1998-2005, Modelica Association and DLR.
+</p>
+<p>
+<i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
 under the terms of the <b>Modelica license</b>, see the license conditions
-and the accompanying <b>disclaimer</b> in the documentation of package
-Modelica in file \"Modelica/package.mo\".
-</i></p>
+and the accompanying <b>disclaimer</b> 
+<a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a>.</i>
+</p><br>
 </HTML>
 ", revisions="<html>
 <ul>

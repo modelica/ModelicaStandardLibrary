@@ -670,7 +670,7 @@ Spool position s as a function of working force f.
                 style(color=58));
     end PreLoad;
   end Examples;
-
+  
   package Sensors "Sensor for 1D translational mechanical quantities" 
     
     extends Modelica.Icons.Library2;
@@ -1002,22 +1002,29 @@ Modelica translator is able to symbolically differentiate equations
 conditions; even if consistent initial conditions are present, most
 numerical DAE integrators can cope at most with index 2 DAEs).
 </p>
-<b>Main Author:</b><i><ul> Peter Beater</i> <br>
+
+<dl>
+<dt><b>Main Author:</b></dt>
+<dd>Peter Beater <br>
     Universit&auml;t Paderborn, Abteilung Soest<br>
     Fachbereich Maschinenbau/Automatisierungstechnik<br>
     L&uuml;becker Ring 2 <br>
     D 59494 Soest <br>
     Germany <br>
-email: <A HREF=\"mailto:Beater@mailso.uni-paderborn.de\">Beater@mailso.uni-paderborn.de</A><br>
-</ul>
-<br>
-<p><b>Copyright &copy; 2000-2002, Modelica Association and Universit&auml;t Paderborn, FB 12.</b></p>
-<p><i>
-The Modelica package is free software; it can be redistributed and/or modified
-under the terms of the Modelica license , see the license conditions
-and the accompanying disclaimer in the documentation of package
-Modelica in file \"Modelica/package.mo\".
-</i></p>
+    email: <A HREF=\"mailto:Beater@mailso.uni-paderborn.de\">Beater@mailso.uni-paderborn.de</A><br>
+</dd>
+</dl>
+
+<p>
+Copyright &copy; 1998-2005, Modelica Association and Universit&auml;t Paderborn, FB 12.
+</p>
+<p>
+<i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
+under the terms of the <b>Modelica license</b>, see the license conditions
+and the accompanying <b>disclaimer</b> 
+<a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a>.</i>
+</p><br>
+
 </HTML>
 ", revisions="<html>
 <ul>

@@ -1,6 +1,7 @@
 package Elementary "Elementary examples to demonstrate various features of the MultiBody library"
 extends Modelica.Icons.Library;
 
+
 annotation (preferedView="info", Documentation(info="<HTML>
 <p>
 This package contains elementary example models to demonstrate 

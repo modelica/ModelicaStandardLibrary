@@ -36,7 +36,7 @@ in various disciplines.
 For an introduction, have especially a look at:
 </p>
 <ul>
-<li> <a href=\"Modelica://Modelica.UsersGuide\">Modelica.UsersGuide</a>
+<li> <a href=\"Modelica://Modelica.UsersGuide\">Users Guide</a>
      discusses the most important aspects of this library.</li>
 <li><a href=\"Modelica://Modelica.UsersGuide.ReleaseNotes\">Release Notes</a>
     summarizes the changes of new versions of this package.</li>
@@ -46,25 +46,71 @@ For an introduction, have especially a look at:
 <p>
 The Modelica package consists currently of the following subpackages
 </p>
-<pre>
-   <b>Blocks</b>      Input/output blocks.
-   <b>Constants</b>   Mathematical and physical constants (pi, eps, h, ...)
-   <b>Electrical</b>  Electric and electronic components
-               (Analog, Digital, Machines, MultiPhase)
-   <b>Icons</b>       Icon definitions of general interest
-   <b>Math</b>        Mathematical functions 
-               (such as sin, cos, solve, eigenValues)
-   <b>Mechanics</b>   Mechanical components 
-               (1D-rotational, 1D-translational, 3D multi-body)
-   <b>SIunits</b>     SI-unit type definitions (such as Voltage, Torque)
-   <b>StateGraph</b>  Hierarchical state machines (similiar power as StateCharts)
-   <b>Thermal</b>     Thermal components
-               (1-D heat transfer with lumped elements)
-   <b>Utilities</b>   Utility functions especially for scripting 
-               (Files, Streams, Strings, System)
-</pre>
+
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td><a href=\"Modelica://Modelica.Blocks\">Blocks</a></td>
+      <td>Continuous, discrete and logical input/output blocks</td>
+  </tr>
+
+  <tr><td><a href=\"Modelica://Modelica.Constants\">Constants</a></td>
+      <td>Mathematical and physical constants (pi, eps, h, ...)</td>
+  </tr>
+
+  <tr><td><a href=\"Modelica://Modelica.Electrical\">Electrical</a></td>
+      <td> Electric and electronic components<br>
+           (<a href=\"Modelica://Modelica.Electrical.Analog\">Analog</a>,
+            <a href=\"Modelica://Modelica.Electrical.Digital\">Digital</a>,
+            <a href=\"Modelica://Modelica.Electrical.Machines\">Machines</a>,
+            <a href=\"Modelica://Modelica.Electrical.MultiPhase\">MultiPhase</a>)</td>
+  </tr>
+
+  <tr><td><a href=\"Modelica://Modelica.Icons\">Icons</a></td>
+      <td>Icon definitions</td>
+  </tr>
+
+  <tr><td><a href=\"Modelica://Modelica.Math\">Math</a></td>
+      <td>Mathematical functions for scalars and 
+          <a href=\"Modelica://Modelica.Math.Matrices\">Matrices</a><br>
+         (such as sin, cos, solve, eigenValues, singular values)</td>
+  </tr>
+
+  <tr><td><a href=\"Modelica://Modelica.Mechanics\">Mechanics</a></td>
+      <td>Mechanical components<br>
+          (<a href=\"Modelica://Modelica.Mechanics.Rotational\">1D-rotational</a>,
+           <a href=\"Modelica://Modelica.Mechanics.Translational\">1D-translational</a>,
+           <a href=\"Modelica://Modelica.Mechanics.MultiBody\">3D multi-body</a>)</td>
+  </tr>
+
+  <tr><td><a href=\"Modelica://Modelica.Media\">Media</a></td>
+      <td>Media models for liquids and gases<br>
+          (about 1250 media, including high precision water model)</td>
+  </tr>
+
+  <tr><td><a href=\"Modelica://Modelica.SIunits\">SIunits</a></td>
+      <td>SI-unit type definitions (such as Voltage, Torque)</td>
+  </tr>
+
+  <tr><td><a href=\"Modelica://Modelica.StateGraph\">StateGraph</a></td>
+      <td>Hierarchical state machines (similiar power as Statecharts)</td>
+  </tr>
+
+  <tr><td><a href=\"Modelica://Modelica.Thermal\">Thermal</a></td>
+      <td>Thermal components<br>
+          <a href=\"Modelica://Modelica.Thermal.HeatTransfer\">1-D lumped heat transfer</a>,
+          <a href=\"Modelica://Modelica.Thermal.FluidHeatFlow\">1-D incompressible thermo-fluid flow</a>)</td>
+  </tr>
+
+  <tr><td><a href=\"Modelica://Modelica.Utilities\">Utilities</a></td>
+      <td>Utility functions especially for scripting<br> 
+          <a href=\"Modelica://Modelica.Utilities.Files\">Files</a>,
+          <a href=\"Modelica://Modelica.Utilities.Streams\">Streams</a>,
+          <a href=\"Modelica://Modelica.Utilities.Strings\">Strings</a>,
+          <a href=\"Modelica://Modelica.Utilities.System\">System</a>)</td>
+  </tr>
+</table>
+
 <p>
-Copyright &copy; 1998-2004, Modelica Association.
+Copyright &copy; 1998-2005, Modelica Association.
 </p>
 <p>
 <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified

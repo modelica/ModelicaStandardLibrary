@@ -39,14 +39,16 @@ The following main sublibraries are available:
      E.g., get or set the working directory or environment 
      variables and to send a command to the default shell.</li>
 </ul>
-<p><b>Copyright &copy; 2004, Modelica Association, DLR and Dynasim.</b></p>
+
 <p>
-<i>This package and its subpackages is <b>free</b> software; it can be redistributed 
-and/or modified
+Copyright &copy; 1998-2005, Modelica Association, DLR and Dynasim.
+</p>
+<p>
+<i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
 under the terms of the <b>Modelica license</b>, see the license conditions
 and the accompanying <b>disclaimer</b> 
 <a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a>.</i>
-</p>
+</p><br>
 </html>
 "));
 
@@ -211,7 +213,7 @@ Below the major design decisions of this library are summarized.
   
 end UsersGuide;
 
-protected
+
 package Internal "Internal package as interface to the operating system" 
  extends Modelica.Icons.Library;
   annotation (  preferedView="info",

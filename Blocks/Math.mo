@@ -1,8 +1,8 @@
-package Math "Mathematical functions as input/output blocks"
+package Math "Mathematical functions as input/output blocks" 
   import Modelica.SIunits;
   import Modelica.Blocks.Interfaces;
       extends Modelica.Icons.Library;
-
+  
       annotation(preferedView="info",
         Coordsys(
           extent=[0, 0; 446, 493],
@@ -78,8 +78,8 @@ provided:
 </li>
 </ul>
 </html"));
-      block TwoInputs
-    "Change causality of input signals (e.g. for inverse models)"
+      block TwoInputs 
+    "Change causality of input signals (e.g. for inverse models)" 
         extends Blocks.Interfaces.BlockIcon;
         annotation(structurallyIncomplete,
           Coordsys(
@@ -105,18 +105,18 @@ defined as outputs (e.g. useful for inverse model generation).
 </ul>
 </HTML>
 "));
-        Blocks.Interfaces.RealInput u1
+        Blocks.Interfaces.RealInput u1 
           annotation (extent=[-139.742, -19.0044; -100, 20], layer="icon");
         Blocks.Interfaces.RealInput u2 annotation (
           extent=[100, -20; 140, 20],
           rotation=180,
           layer="icon");
-      equation
+      equation 
         u1 = u2;
       end TwoInputs;
-
-      block TwoOutputs
-    "Change causality of output signals (e.g. for inverse models)"
+  
+      block TwoOutputs 
+    "Change causality of output signals (e.g. for inverse models)" 
         extends Blocks.Interfaces.BlockIcon;
         annotation(structurallyIncomplete,
           Coordsys(
@@ -144,21 +144,19 @@ This block is used to enable calculation of values preliminary defined as inputs
 "));
         output Blocks.Interfaces.RealOutput y2 annotation (extent=[-120.366, -10.9029;
                -100.365, 9.09712], rotation=180);
-        output Blocks.Interfaces.RealOutput y1
+        output Blocks.Interfaces.RealOutput y1 
           annotation (extent=[100, -10; 120, 10]);
-      equation
+      equation 
         y1 = y2;
       end TwoOutputs;
-
-      block Gain
-    "Output the product of a gain value with the input signal"
-
-        parameter Real k=1
-      "Gain value multiplied with input signal";
-  public
-        Interfaces.RealInput u "Input signal connector"
+  
+      block Gain "Output the product of a gain value with the input signal" 
+    
+        parameter Real k=1 "Gain value multiplied with input signal";
+  public 
+        Interfaces.RealInput u "Input signal connector" 
           annotation (extent=[-140, -20; -100, 20]);
-        Interfaces.RealOutput y "Output signal connector"
+        Interfaces.RealOutput y "Output signal connector" 
           annotation (extent=[100, -10; 120, 10]);
         annotation (
           Coordsys(
@@ -209,14 +207,14 @@ input <i>u</i>:
                       fillColor=7,
                       rgbfillColor={255,255,255})),
                   Text(extent=[-76, 38; 0, -34], string="k")));
-      equation
+      equation 
         y = k*u;
       end Gain;
-
-      block MatrixGain
-    "Output the product of a gain matrix with the input signal vector"
-
-        parameter Real K[:, :]=[1, 0; 0, 1]
+  
+      block MatrixGain 
+    "Output the product of a gain matrix with the input signal vector" 
+    
+        parameter Real K[:, :]=[1, 0; 0, 1] 
       "Gain matrix which is multiplied with the input";
         extends Interfaces.MIMO(final nin=size(K, 2), final nout=size(K, 1));
         annotation (
@@ -266,11 +264,11 @@ Example:
             y=0.09,
             width=0.6,
             height=0.6));
-      equation
+      equation 
         y = K*u;
       end MatrixGain;
-
-      block Sum "Output the sum of the elements of the input vector"
+  
+      block Sum "Output the sum of the elements of the input vector" 
         extends Interfaces.MISO;
         parameter Real k[nin]=ones(nin) "Optional: sum coefficients";
         annotation (
@@ -315,13 +313,13 @@ Example:
           Diagram(Rectangle(extent=[-100, -100; 100, 100], style(color=3,
                   fillColor=7)), Line(points=[26, 42; -34, 42; 6, 2; -34, -38;
                   26, -38], style(color=0, thickness=1))));
-      equation
+      equation 
         y = k*u;
       end Sum;
-
-      block Feedback "Output difference between commanded and feedback input"
+  
+      block Feedback "Output difference between commanded and feedback input" 
         input Interfaces.RealInput u1 annotation (extent=[-100, -20; -60, 20]);
-        input Interfaces.RealInput u2
+        input Interfaces.RealInput u2 
           annotation (extent=[-20, -100; 20, -60], rotation=90);
         output Interfaces.RealOutput y annotation (extent=[80, -10; 100, 10]);
         annotation (
@@ -388,11 +386,11 @@ Example:
               extent=[-12, 10; 84, -84],
               string="-",
               style(color=0))));
-      equation
+      equation 
         y = u1 - u2;
       end Feedback;
-
-      block Add "Output the sum of the two inputs"
+  
+      block Add "Output the sum of the two inputs" 
         extends Interfaces.SI2SO;
         parameter Real k1=+1 "Gain of upper input";
         parameter Real k2=+1 "Gain of lower input";
@@ -509,24 +507,24 @@ Example:
               extent=[-100, -52; 5, -92],
               string="k2",
               style(color=0))));
-
-      equation
+    
+      equation 
         y = k1*u1 + k2*u2;
       end Add;
-
-      block Add3 "Output the sum of the three inputs"
+  
+      block Add3 "Output the sum of the three inputs" 
         extends Interfaces.BlockIcon;
-
+    
         parameter Real k1=+1 "Gain of upper input";
         parameter Real k2=+1 "Gain of middle input";
         parameter Real k3=+1 "Gain of lower input";
-        input Interfaces.RealInput u1 "Connector 1 of Real input signals"
+        input Interfaces.RealInput u1 "Connector 1 of Real input signals" 
           annotation (extent=[-140, 60; -100, 100]);
-        input Interfaces.RealInput u2 "Connector 2 of Real input signals"
+        input Interfaces.RealInput u2 "Connector 2 of Real input signals" 
           annotation (extent=[-140, -20; -100, 20]);
-        input Interfaces.RealInput u3 "Connector 3 of Real input signals"
+        input Interfaces.RealInput u3 "Connector 3 of Real input signals" 
           annotation (extent=[-140, -100; -100, -60]);
-        output Interfaces.RealOutput y "Connector of Real output signals"
+        output Interfaces.RealOutput y "Connector of Real output signals" 
           annotation (extent=[100, -10; 120, 10]);
         annotation (
           Coordsys(
@@ -615,12 +613,12 @@ Example:
               extent=[2, 36; 100, -44],
               string="+",
               style(color=0))));
-
-      equation
+    
+      equation 
         y = k1*u1 + k2*u2 + k3*u3;
       end Add3;
-
-      block Product "Output product of the two inputs"
+  
+      block Product "Output product of the two inputs" 
         extends Interfaces.SI2SO;
         annotation (
           Documentation(info="
@@ -670,12 +668,12 @@ the two inputs <b>u1</b> and <b>u2</b>:
             y=0.01,
             width=0.47,
             height=0.62));
-
-      equation
+    
+      equation 
         y = u1*u2;
       end Product;
-
-      block Division "Output first input divided by second input"
+  
+      block Division "Output first input divided by second input" 
         extends Interfaces.SI2SO;
         annotation (
           Documentation(info="
@@ -726,12 +724,12 @@ the two inputs <b>u1</b> and <b>u2</b>:
             y=0.09,
             width=0.6,
             height=0.6));
-
-      equation
+    
+      equation 
         y = u1/u2;
       end Division;
-
-      block Abs "Output the absolute value of the input"
+  
+      block Abs "Output the absolute value of the input" 
         extends Interfaces.SISO;
         annotation (
           Icon(
@@ -794,11 +792,11 @@ as <i>absolute value</i> of the input <b>u</b>:
             y=0.06,
             width=0.6,
             height=0.6));
-      equation
+      equation 
         y = abs(u);
       end Abs;
-
-      block Sign "Output the sign of the input"
+  
+      block Sign "Output the sign of the input" 
         extends Interfaces.SISO;
         annotation (
           Icon(
@@ -870,11 +868,11 @@ as <b>sign</b> of the input <b>u</b>:
             y=0.11,
             width=0.6,
             height=0.6));
-      equation
+      equation 
         y = sign(u);
       end Sign;
-
-      block Sqrt "Output the square root of the input (input >= 0 required)"
+  
+      block Sqrt "Output the square root of the input (input >= 0 required)" 
         extends Interfaces.SISO;
         annotation (
           Icon(
@@ -939,12 +937,12 @@ Otherwise an error occurs.
             y=0.15,
             width=0.6,
             height=0.6));
-
-      equation
+    
+      equation 
         y = sqrt(u);
       end Sqrt;
-
-      block Sin "Output the sine of the input"
+  
+      block Sin "Output the sine of the input" 
         extends Interfaces.SISO;
         annotation (
           Icon(
@@ -1016,11 +1014,11 @@ as <b>sine</b> of the input <b>u</b>:
             y=0.23,
             width=0.6,
             height=0.6));
-      equation
+      equation 
         y = Modelica.Math.sin(u);
       end Sin;
-
-      block Cos "Output the cosine of the input"
+  
+      block Cos "Output the cosine of the input" 
         extends Interfaces.SISO;
         annotation (
           Icon(
@@ -1090,12 +1088,12 @@ as <b>cos</b> of the input <b>u</b>:
             y=0.18,
             width=0.6,
             height=0.6));
-
-      equation
+    
+      equation 
         y = Modelica.Math.cos(u);
       end Cos;
-
-      block Tan "Output the tangent of the input"
+  
+      block Tan "Output the tangent of the input" 
         extends Interfaces.SISO;
         annotation (
           Icon(
@@ -1165,11 +1163,11 @@ as <b>tan</b> of the input <b>u</b>:
             y=0.18,
             width=0.6,
             height=0.6));
-      equation
+      equation 
         y = Modelica.Math.tan(u);
       end Tan;
-
-      block Asin "Output the arc sine of the input"
+  
+      block Asin "Output the arc sine of the input" 
         extends Interfaces.SISO;
         annotation (
           Icon(
@@ -1241,12 +1239,12 @@ Otherwise an error occurs.
             y=0.13,
             width=0.6,
             height=0.6));
-
-      equation
+    
+      equation 
         y = Modelica.Math.asin(u);
       end Asin;
-
-      block Acos "Output the arc cosine of the input"
+  
+      block Acos "Output the arc cosine of the input" 
         extends Interfaces.SISO;
         annotation (
           Icon(
@@ -1319,11 +1317,11 @@ Otherwise an error occurs.
             y=0.18,
             width=0.6,
             height=0.6));
-      equation
+      equation 
         y = Modelica.Math.acos(u);
       end Acos;
-
-      block Atan "Output the arc tangent of the input"
+  
+      block Atan "Output the arc tangent of the input" 
         extends Interfaces.SISO;
         annotation (
           Icon(
@@ -1392,11 +1390,11 @@ This blocks computes the output <b>y</b> (element-wise) as the
             y=0.12,
             width=0.6,
             height=0.6));
-      equation
+      equation 
         y = Modelica.Math.atan(u);
       end Atan;
-
-      block Atan2 "Output atan(u1/u2) of the inputs u1 and u2"
+  
+      block Atan2 "Output atan(u1/u2) of the inputs u1 and u2" 
         extends Interfaces.SI2SO;
         annotation (
           Icon(
@@ -1482,11 +1480,11 @@ block <b>Atan</b> gives a solution in the range
             y=0.21,
             width=0.6,
             height=0.6));
-      equation
+      equation 
         y = Modelica.Math.atan2(u1, u2);
       end Atan2;
-
-      block Sinh "Output the hyperbolic sine of the input"
+  
+      block Sinh "Output the hyperbolic sine of the input" 
         extends Interfaces.SISO;
         annotation (
           Icon(
@@ -1555,12 +1553,12 @@ This blocks computes the output <b>y</b> (element-wise) as the
             y=0.13,
             width=0.6,
             height=0.6));
-
-      equation
+    
+      equation 
         y = Modelica.Math.sinh(u);
       end Sinh;
-
-      block Cosh "Output the hyperbolic cosine of the input"
+  
+      block Cosh "Output the hyperbolic cosine of the input" 
         extends Interfaces.SISO;
         annotation (
           Icon(
@@ -1632,11 +1630,11 @@ This blocks computes the output <b>y</b> (element-wise) as the
             y=0.07,
             width=0.6,
             height=0.6));
-      equation
+      equation 
         y = Modelica.Math.cosh(u);
       end Cosh;
-
-      block Tanh "Output the hyperbolic tangent of the input"
+  
+      block Tanh "Output the hyperbolic tangent of the input" 
         extends Interfaces.SISO;
         annotation (
           Icon(
@@ -1705,11 +1703,11 @@ This blocks computes the output <b>y</b> (element-wise) as the
             y=0.14,
             width=0.6,
             height=0.6));
-      equation
+      equation 
         y = Modelica.Math.tanh(u);
       end Tanh;
-
-      block Exp "Output the exponential (base e) of the input"
+  
+      block Exp "Output the exponential (base e) of the input" 
         extends Interfaces.SISO;
         annotation (
           Icon(
@@ -1776,13 +1774,13 @@ This blocks computes the output <b>y</b> (element-wise) as the
             y=0.09,
             width=0.6,
             height=0.6));
-      equation
+      equation 
         y = Modelica.Math.exp(u);
       end Exp;
-
-      block Log
-    "Output the natural (base e) logarithm of the input (input > 0 required)"
-
+  
+      block Log 
+    "Output the natural (base e) logarithm of the input (input > 0 required)" 
+    
         extends Interfaces.SISO;
         annotation (
           Icon(
@@ -1855,13 +1853,13 @@ zero or negative.
             y=0.23,
             width=0.6,
             height=0.6));
-      equation
+      equation 
         y = Modelica.Math.log(u);
       end Log;
-
-      block Log10
-    "Output the base 10 logarithm of the input (input > 0 required)"
-
+  
+      block Log10 
+    "Output the base 10 logarithm of the input (input > 0 required)" 
+    
         extends Interfaces.SISO;
         annotation (
           Icon(
@@ -1934,11 +1932,11 @@ zero or negative.
             y=0.11,
             width=0.6,
             height=0.6));
-      equation
+      equation 
         y = Modelica.Math.log10(u);
       end Log10;
-
-  block RealToInteger "Convert Real to Integer signal"
+  
+  block RealToInteger "Convert Real to Integer signal" 
     extends Interfaces.IntegerBlockIcon;
     annotation (Icon(
         Text(extent=[-100, 60; 0, -60], string="R"),
@@ -1957,16 +1955,16 @@ as <i>nearest integer value</i> of the input <b>u</b>:
 </pre>
 </html>
 "));
-  public
+  public 
     Interfaces.RealInput u annotation (extent=[-140, -20; -100, 20]);
     Interfaces.IntegerOutput y annotation (extent=[100, -10;
           120, 10]);
-  equation
-     y = if (u > 0) then integer(floor(u + 0.5)) else
+  equation 
+     y = if (u > 0) then integer(floor(u + 0.5)) else 
                          integer(ceil( u - 0.5));
   end RealToInteger;
-
-  block IntegerToReal "Convert integer to real signals"
+  
+  block IntegerToReal "Convert integer to real signals" 
     extends Interfaces.BlockIcon;
     annotation (Icon(
         Text(
@@ -1988,18 +1986,18 @@ as <i>Real equivalent</i> of the Integer input <b>u</b>:
     Interfaces.RealOutput y   annotation (extent=[100, -10; 120, 10]);
     Interfaces.IntegerInput u annotation (extent=[-140, -20; -
           100, 20]);
-  equation
+  equation 
     y = u;
   end IntegerToReal;
-
-  block BooleanToReal "Convert Boolean to Real signal"
+  
+  block BooleanToReal "Convert Boolean to Real signal" 
     extends Interfaces.partialBooleanSI;
     parameter Real realTrue=1.0 "Output signal for true Boolean input";
     parameter Real realFalse=0.0 "Output signal for false Boolean input";
-
-    Blocks.Interfaces.RealOutput y
+    
+    Blocks.Interfaces.RealOutput y 
       annotation (extent=[100, -10; 120, 10]);
-
+    
     annotation (
       Coordsys(
         extent=[-100, -100; 100, 100],
@@ -2020,19 +2018,19 @@ as <i>Real equivalent</i> of the Integer input <b>u</b>:
               -66; -12,-46],   style(fillColor=73)),
         Text(extent=[8,-4; 92,-94],    string="R")),
       Diagram);
-
-  equation
+    
+  equation 
     y = if u then realTrue else realFalse;
   end BooleanToReal;
-
-  block BooleanToInteger "Convert Boolean to Integer signal"
+  
+  block BooleanToInteger "Convert Boolean to Integer signal" 
     extends Interfaces.partialBooleanSI;
     parameter Integer integerTrue=1 "Output signal for true Boolean input";
     parameter Integer integerFalse=0 "Output signal for false Boolean input";
-
-    Blocks.Interfaces.IntegerOutput y
+    
+    Blocks.Interfaces.IntegerOutput y 
       annotation (extent=[100, -10; 120, 10]);
-
+    
     annotation (
       Coordsys(
         extent=[-100, -100; 100, 100],
@@ -2059,18 +2057,18 @@ as <i>Real equivalent</i> of the Integer input <b>u</b>:
             string="I",
             style(color=47, rgbcolor={255,170,85}))),
       Diagram);
-
-  equation
+    
+  equation 
     y = if u then integerTrue else integerFalse;
   end BooleanToInteger;
-
-  block RealToBoolean "Convert Real to Boolean signal"
+  
+  block RealToBoolean "Convert Real to Boolean signal" 
     extends Interfaces.partialBooleanSO;
-    parameter Real threshold=0.5
+    parameter Real threshold=0.5 
       "Output signal y is true, if input u >= threshold";
-
+    
     Blocks.Interfaces.RealInput u annotation(extent=[-140,-20; -100,20]);
-
+    
     annotation (
       Coordsys(
         extent=[-100, -100; 100, 100],
@@ -2095,18 +2093,18 @@ as <i>Real equivalent</i> of the Integer input <b>u</b>:
           string="B",
           style(color=81))),
       Diagram);
-
-  equation
+    
+  equation 
     y = u >= threshold;
   end RealToBoolean;
-
-  block IntegerToBoolean "Convert Integer to Boolean signal"
+  
+  block IntegerToBoolean "Convert Integer to Boolean signal" 
     extends Interfaces.partialBooleanSO;
-    parameter Integer threshold=1
+    parameter Integer threshold=1 
       "Output signal y is true, if input u >= threshold";
-
+    
     Blocks.Interfaces.IntegerInput u annotation(extent=[-140,-20; -100,20]);
-
+    
     annotation (
       Coordsys(
         extent=[-100, -100; 100, 100],
@@ -2131,12 +2129,12 @@ as <i>Real equivalent</i> of the Integer input <b>u</b>:
           string="B",
           style(color=81))),
       Diagram);
-
-  equation
+    
+  equation 
     y = u >= threshold;
   end IntegerToBoolean;
-
-  block Max "Pass through the largest signal"
+  
+  block Max "Pass through the largest signal" 
     extends Interfaces.SI2SO;
     annotation (Icon(Text(
           extent=[-90, 36; 90, -36],
@@ -2150,11 +2148,11 @@ of the two inputs <b>u1</b> and <b>u2</b>:
 </pre>
 </html>
 "));
-  equation
+  equation 
     y = max(u1, u2);
   end Max;
-
-  block Min "Pass through the smallest signal"
+  
+  block Min "Pass through the smallest signal" 
     extends Interfaces.SI2SO;
     annotation (Icon(Text(
           extent=[-90, 36; 90, -36],
@@ -2168,11 +2166,11 @@ the two inputs <b>u1</b> and <b>u2</b>:
 </pre>
 </html>
 "));
-  equation
+  equation 
      y = min(u1, u2);
   end Min;
-
-  block Edge "Indicates rising edge of boolean signal"
+  
+  block Edge "Indicates rising edge of boolean signal" 
     extends Interfaces.BooleanSISO;
     annotation (Icon(Text(
           extent=[-90, 36; 90, -36],
@@ -2186,11 +2184,11 @@ when the Boolean input <b>u</b> shows a <i>rising edge</i>:
 </pre>
 </html>
 "));
-  equation
+  equation 
     y = edge(u);
   end Edge;
-
-  block BooleanChange "Indicates boolean signal changing"
+  
+  block BooleanChange "Indicates boolean signal changing" 
     extends Interfaces.BooleanSISO;
     annotation (Icon(Text(
           extent=[-90, 36; 90, -36],
@@ -2205,11 +2203,11 @@ i.e., when the signal changes:
 </pre>
 </html>
 "));
-  equation
+  equation 
     y = change(u);
   end BooleanChange;
-
-  block IntegerChange "Indicates integer signal changing"
+  
+  block IntegerChange "Indicates integer signal changing" 
     extends Interfaces.IntegerSIBooleanSO;
     annotation (Icon(Text(
           extent=[-90, 36; 90, -36],
@@ -2223,8 +2221,8 @@ Integer input <b>u</b> changes:
 </pre>
 </html>
 "));
-  equation
+  equation 
     y = change(u);
   end IntegerChange;
-
+  
 end Math;

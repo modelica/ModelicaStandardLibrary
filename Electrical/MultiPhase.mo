@@ -1,6 +1,57 @@
 package MultiPhase "Library for electrical multiphase models" 
   extends Modelica.Icons.Library;
-  annotation (version="1.0", versionDate="2004-10-01");
+  annotation (version="1.0", versionDate="2004-10-01", 
+    Documentation(info="<HTML>
+<p>
+This package contains packages for electrical multiphase components, based on Modelica.Electrical.Analog:
+<ul>
+<li>Basic: basic components (resistor, capacitor, inductor, ...)</li>
+<li>Ideal: ideal elements (switches, diode, transformer, ...)</li>
+<li>Sensors: sensors to measure potentials, voltages, and currents</li>
+<li>Sources: time-dependend and controlled voltage and current sources</li>
+</ul>
+This package is intended to be used the same way as Modelica.Electrical.Analog 
+but to make design of multiphase models easier.<br>
+The package is based on the plug: a composite connector containing m pins.<br>
+It is possible to connect plugs to plugs or single pins of a plug to single pins.<br>
+Potentials may be accessed as <tt>plug.pin[].v</tt>, currents may be accessed as <tt>plug.pin[].i</tt>.
+</p>
+<p>
+Further development:
+<ul>
+<li>temperature-dependent resistor</li>
+<li>lines (m-phase models)</li>
+</ul>
+</p>
+<dl>
+<p>
+  <dt><b>Main Author:</b></dt>
+  <dd>
+  <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
+  Technical Consulting & Electrical Engineering<br>
+  A-3423 St.Andrae-Woerdern<br>Austria<br>
+  email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
+  </dd>
+</p>
+</dl>
+
+
+<p>
+Copyright &copy; 1998-2005, Modelica Association and Anton Haumer.
+</p>
+<p>
+<i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
+under the terms of the <b>Modelica license</b>, see the license conditions
+and the accompanying <b>disclaimer</b> 
+<a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a>.</i>
+</p><br>
+
+</HTML>", revisions="<html>
+  <ul>
+  <li> v1.0 2004/10/01 Anton Haumer</li>
+  </ul>
+
+</html>"));
   annotation (Documentation(info="<HTML>
 <p>
 This package contains packages for electrical multiphase components, based on Modelica.Electrical.Analog:
@@ -1020,7 +1071,7 @@ Contains m ideal commuting switches (Modelica.Electrical.Analog.Ideal.IdealCommu
           color=3,
           fillColor=7,
           fillPattern=1));
-      connect(control, idealCommutingSwitch.control)
+      connect(control, idealCommutingSwitch.control) 
         annotation (points=[0,80; 0,8], style(color=5, rgbcolor={255,0,255}));
     end IdealCommutingSwitch;
     
@@ -1100,7 +1151,7 @@ Contains m ideal intermediate switches (Modelica.Electrical.Analog.Ideal.IdealIn
           color=3,
           fillColor=7,
           fillPattern=1));
-      connect(control, idealIntermediateSwitch.control)
+      connect(control, idealIntermediateSwitch.control) 
         annotation (points=[0,80; 0,8], style(color=5, rgbcolor={255,0,255}));
     end IdealIntermediateSwitch;
     

@@ -1,7 +1,9 @@
 package Math "Mathematical functions"
   import SI = Modelica.SIunits;
 
+
 extends Modelica.Icons.Library2;
+
 
 annotation(preferedView="info",
     Window(
@@ -50,8 +52,18 @@ with a full name (e.g. y = Modelica.Math.asin(0.5)).
     Germany<br>
     email: <A HREF=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</A><br>
 </dl>
-<br>
-<p><b>Release Notes:</b></p>
+
+<p>
+Copyright &copy; 1998-2005, Modelica Association and DLR.
+</p>
+<p>
+<i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
+under the terms of the <b>Modelica license</b>, see the license conditions
+and the accompanying <b>disclaimer</b> 
+<a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a>.</i>
+</p><br>
+</HTML>
+", revisions="<html>
 <ul>
 <li><i>October 21, 2002</i>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>
@@ -64,16 +76,9 @@ with a full name (e.g. y = Modelica.Math.asin(0.5)).
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
        Realized.</li>
 </ul>
-<br>
-<p><b>Copyright &copy; 1999-2002, Modelica Association and DLR.</b></p>
-<p><i>
-The Modelica package is <b>free</b> software; it can be redistributed and/or modified
-under the terms of the <b>Modelica license</b>, see the license conditions
-and the accompanying <b>disclaimer</b> in the documentation of package
-Modelica in file \"Modelica/package.mo\".
-</i></p>
-</HTML>
-"));
+
+</html>"));
+
 
 package Matrices "Functions on matrices" 
   
@@ -157,6 +162,17 @@ This library provides functions operating on matrices:
       <td> compute the exponential of a matrix and two integrals</td>
   </tr>
 </table>
+
+
+<p>
+Copyright &copy; 1998-2005, Modelica Association.
+</p>
+<p>
+<i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
+under the terms of the <b>Modelica license</b>, see the license conditions
+and the accompanying <b>disclaimer</b> 
+<a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a>.</i>
+</p><br>
 </HTML>
 "));
   
@@ -874,9 +890,8 @@ matrices <tt>U</tt> and <tt>V</tt>.
     assert(info == 0, "The numerical algorithm to compute the
 singular value decomposition did not converge");
   end singularValues;
-
-  function det 
-    "Determinant of a matrix (computed by LU decomposition)" 
+  
+  function det "Determinant of a matrix (computed by LU decomposition)" 
     
     extends Modelica.Icons.Function;
     input Real A[:, size(A, 1)];
@@ -3139,6 +3154,7 @@ INFO    (output) INTEGER
   
 end Matrices;
 
+
 function sin "sine" 
   extends baseIcon1;
   input SI.Angle u;
@@ -3183,6 +3199,7 @@ function sin "sine"
         style(color=9))));
 external "C" y = sin(u);
 end sin;
+
 
 function cos "cosine" 
   extends baseIcon1;
@@ -3229,6 +3246,7 @@ function cos "cosine"
 external "C" y = cos(u);
 end cos;
 
+
 function tan "tangent (u shall not be -pi/2, pi/2, 3*pi/2, ...)" 
   extends baseIcon2;
   input SI.Angle u;
@@ -3272,6 +3290,7 @@ function tan "tangent (u shall not be -pi/2, pi/2, 3*pi/2, ...)"
 external "C" y = tan(u);
 end tan;
 
+
 function asin "inverse sine (-1 <= u <= 1)" 
   extends baseIcon2;
   input Real u;
@@ -3314,6 +3333,7 @@ function asin "inverse sine (-1 <= u <= 1)"
 external "C" y = asin(u);
 end asin;
 
+
 function acos "inverse cosine (-1 <= u <= 1)" 
   extends baseIcon2;
   input Real u;
@@ -3355,6 +3375,7 @@ function acos "inverse cosine (-1 <= u <= 1)"
         style(color=9))));
 external "C" y = acos(u);
 end acos;
+
 
 function atan "inverse tangent" 
   extends baseIcon2;
@@ -3399,6 +3420,7 @@ function atan "inverse tangent"
         style(color=9))));
 external "C" y = atan(u);
 end atan;
+
 
 function atan2 "four quadrant inverse tangent" 
   extends baseIcon2;
@@ -3459,6 +3481,7 @@ u1 is not zero.
 external "C" y = atan2(u1, u2);
 end atan2;
 
+
 function sinh "hyperbolic sine" 
   extends baseIcon2;
   input Real u;
@@ -3502,6 +3525,7 @@ function sinh "hyperbolic sine"
         style(color=9))));
 external "C" y = sinh(u);
 end sinh;
+
 
 function cosh "hyperbolic cosine" 
   extends baseIcon2;
@@ -3551,6 +3575,7 @@ function cosh "hyperbolic cosine"
 external "C" y = cosh(u);
 end cosh;
 
+
 function tanh "hyperbolic tangent" 
   extends baseIcon2;
   input Real u;
@@ -3595,6 +3620,7 @@ function tanh "hyperbolic tangent"
 external "C" y = tanh(u);
 end tanh;
 
+
 function exp "exponential, base e" 
   extends baseIcon2;
   input Real u;
@@ -3637,6 +3663,7 @@ function exp "exponential, base e"
         style(color=9))));
 external "C" y = exp(u);
 end exp;
+
 
 function log "natural (base e) logarithm (u shall be > 0)" 
   extends baseIcon1;
@@ -3682,6 +3709,7 @@ function log "natural (base e) logarithm (u shall be > 0)"
 external "C" y = log(u);
 end log;
 
+
 function log10 "base 10 logarithm (u shall be > 0)" 
   extends baseIcon1;
   input Real u;
@@ -3726,6 +3754,7 @@ function log10 "base 10 logarithm (u shall be > 0)"
 external "C" y = log10(u);
 end log10;
 
+
 partial function baseIcon1 
   "Basic icon for mathematical function with y-axis on left side" 
   annotation (Icon(
@@ -3745,6 +3774,7 @@ partial function baseIcon1
             fillColor=8))));
 end baseIcon1;
 
+
 partial function baseIcon2 
   "Basic icon for mathematical function with y-axis in middle" 
   annotation (Icon(
@@ -3760,8 +3790,9 @@ partial function baseIcon2
         string="y",
         style(color=9)),
       Polygon(points=[0, 100; -6, 84; 6, 84; 0, 100], style(color=8, fillColor=
-              8))));  
+              8))));
 end baseIcon2;
+
 
 function tempInterpol1 
   "temporary routine for linear interpolation (will be removed)" 
@@ -3815,6 +3846,7 @@ algorithm
     
   end if;
 end tempInterpol1;
+
 
 function tempInterpol2 
   "temporary routine for vectorized linear interpolation (will be removed)" 

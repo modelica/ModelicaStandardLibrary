@@ -69,13 +69,17 @@ It is most useful to combine this libray with the Modelica libraries
 <li><b>UserInteraction</b> that provides components to 
     interactively communicate with models in a running simulation.</li>
 </ul>
-<p><b>Copyright &copy; 2004, Modelica Association and DLR.</b></p>
-<p><i>
-This Modelica package is <b>free</b> software; it can be redistributed and/or modified
+
+<p>
+Copyright &copy; 1998-2005, Modelica Association and DLR
+</p>
+<p>
+<i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
 under the terms of the <b>Modelica license</b>, see the license conditions
-and the accompanying <b>disclaimer</b> in the documentation of package
-Modelica in file \"Modelica/package.mo\".
-</i></p>
+and the accompanying <b>disclaimer</b> 
+<a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a>.</i>
+</p><br>
+
 </HTML>
 "),
   Window(

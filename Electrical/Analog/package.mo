@@ -1,7 +1,9 @@
 package Analog "Library for analog electrical models"
   import SI = Modelica.SIunits;
 
+
 extends Modelica.Icons.Library2;
+
 
 annotation(preferedView="info", Window(
     x=0.05,
@@ -24,7 +26,7 @@ This package contains packages for analog electrical components:
 </p>
 <dl>
 <dt>
-<b>Main Authors:</b>
+<b>Main Authors:</b></dt>
 <dd>
 <a href=\"http://people.eas.iis.fhg.de/Christoph.Clauss/\">Christoph Clau&szlig;</a>
     &lt;<a href=\"mailto:clauss@eas.iis.fhg.de\">clauss@eas.iis.fhg.de</a>&gt;<br>
@@ -33,18 +35,19 @@ This package contains packages for analog electrical components:
     Fraunhofer Institute for Integrated Circuits<br>
     Design Automation Department<br>
     Zeunerstra&szlig;e 38<br>
-    D-01069 Dresden<br>
+    D-01069 Dresden</dd>
+</dl>
+
+
 <p>
-<dt>
-<b>Copyright:</b>
-<dd>
-Copyright &copy; 1998-2002, Modelica Association and Fraunhofer-Gesellschaft.<br>
+Copyright &copy; 1998-2005, Modelica Association and Fraunhofer-Gesellschaft.
+</p>
+<p>
 <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
 under the terms of the <b>Modelica license</b>, see the license conditions
-and the accompanying <b>disclaimer</b> in the documentation of package
-Modelica in file \"Modelica/package.mo\".</i><br>
-<p>
-</dl>
+and the accompanying <b>disclaimer</b> 
+<a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a>.</i>
+</p><br>
 </HTML>
 "));
 end Analog;

@@ -42,13 +42,16 @@ ModelicaAdditions.MultiBody library. In
 <a href=\"Modelica://Modelica.Mechanics.MultiBody.UsersGuide.Upgrade\">MultiBody.UsersGuide.Upgrade</a>
 it is described how to upgrade.
 </p>
-<p><b>Copyright &copy; 2003, Modelica Association and DLR.</b></p>
-<p><i>
-This Modelica package is <b>free</b> software; it can be redistributed and/or modified
+
+<p>
+Copyright &copy; 1998-2005, Modelica Association and DLR.
+</p>
+<p>
+<i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
 under the terms of the <b>Modelica license</b>, see the license conditions
-and the accompanying <b>disclaimer</b> in the documentation of package
-Modelica in file \"Modelica/package.mo\".
-</i></p>
+and the accompanying <b>disclaimer</b> 
+<a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a>.</i>
+</p><br>
 </HTML>"));
   import SI = Modelica.SIunits;
 
@@ -56,9 +59,9 @@ Modelica in file \"Modelica/package.mo\".
 extends Modelica.Icons.Library;
 
 
-package UsersGuide "User's Guide" 
+package UsersGuide "Users Guide" 
   annotation (DocumentationClass=true, Documentation(info="<HTML>
-<h3><font color=\"#008000\" size=5>User's Guide of package MultiBody</font></h3>
+<h3><font color=\"#008000\" size=5>Users Guide of package MultiBody</font></h3>
 <p>
 Library <b>MultiBody</b> is a <b>free</b> Modelica package providing
 3-dimensional mechanical components to model in a convenient way
@@ -859,7 +862,6 @@ functions from library Modelica.Mechanics.MultiBody.Frames):
   <td>= frame_a.t (no conversion needed)</td>
 </tr>
 </table>
-
 <p>
 <b><font color=\"#008000\">Upgrade from MultiBody 0.99 (and earlier) to 1.0 (and later)</font></b>
 <p>
@@ -868,7 +870,6 @@ cases, where own components are implemented using functions of the
 MultiBody.Frames package. In this case, the conversion has to be
 performed manually. The changes in 1.0 with regards to 0.99 are:
 </p>
-
 <p>
 The definition of the MultiBody.Frames.Orientation object has changed.
 In 0.99 this was just an alias type for a transformation matrix
@@ -882,13 +883,11 @@ differentiation of the transformation matrix. This is usually
 much more efficient. As a consequence, the following
 calls in 0.99 should be changed:
 </p>
-
 <pre>
    Frames.angularVelocity1(T,der(T)) -> Frames.angularVelocity1(T)
    Frames.angularVelocity2(T,der(T)) -> Frames.angularVelocity2(T)
    Frames.from_T(T)                  -> Frames.from_T2(T,der(T))
 </pre>
-
 </HTML>
 "));
   equation 
@@ -900,12 +899,9 @@ calls in 0.99 should be changed:
     annotation (Documentation(info="<HTML>
 <h3><font color=\"#008000\" size=5>Release notes</font></h3>
 <h3><font color=\"#008000\">Version 1.1.1, 2004-11-03</font></h3>
-
 <p>
 This version has some minor improvements:
 </p>
-
-
 <ul>
 <li> New function \"MultiBody.Frames.from_T2\" to compute an orientation
      object from a transformation matrix and its derivative.</li>
@@ -913,7 +909,6 @@ This version has some minor improvements:
      of the Users Guide to show how a conversion from 0.99 to 1.0 that
      may fail in rare cases should be fixed manually.</li>
 </ul>
-
 <h3><font color=\"#008000\">Version 1.1, 2004-07-07</font></h3>
 <p>
 Included the MultiBody library as Modelica.Mechanics.MultiBody 

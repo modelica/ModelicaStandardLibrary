@@ -1,26 +1,27 @@
-package Tables "One and two-dimensional interpolation in tables"
+package Tables "One and two-dimensional interpolation in tables" 
   extends Icons.Library;
-  model CombiTable1D
-    "Table look-up in one dimension (matrix/file) with n inputs and n outputs "
-
-    parameter Boolean tableOnFile=false "true, if table is defined on file or in function usertab"
+  model CombiTable1D 
+    "Table look-up in one dimension (matrix/file) with n inputs and n outputs " 
+    
+    parameter Boolean tableOnFile=false 
+      "true, if table is defined on file or in function usertab" 
       annotation(Dialog(group="table data definition"));
-    parameter Real table[:, :]=fill(0.0,0,2)
-      "table matrix (grid = first column)"
+    parameter Real table[:, :]=fill(0.0,0,2) 
+      "table matrix (grid = first column)" 
          annotation(Dialog(group="table data definition", enable = not tableOnFile));
-    parameter String tableName="NoName"
-      "table name on file or in function usertab (see docu)"
+    parameter String tableName="NoName" 
+      "table name on file or in function usertab (see docu)" 
          annotation(Dialog(group="table data definition", enable = tableOnFile));
-    parameter String fileName="NoName" "file where matrix is stored"
+    parameter String fileName="NoName" "file where matrix is stored" 
          annotation(Dialog(group="table data definition", enable = tableOnFile));
-    parameter Integer columns[:]=2:size(table, 2)
-      "columns of table to be interpolated"
+    parameter Integer columns[:]=2:size(table, 2) 
+      "columns of table to be interpolated" 
     annotation(Dialog(group="table data interpretation"));
-    parameter Blocks.Types.Smoothness.Temp smoothness=Blocks.Types.Smoothness.LinearSegments
-      "smoothness of table interpolation"
+    parameter Blocks.Types.Smoothness.Temp smoothness=Blocks.Types.Smoothness.LinearSegments 
+      "smoothness of table interpolation" 
     annotation(Dialog(group="table data interpretation"));
     extends Modelica.Blocks.Interfaces.MIMOs(final n=size(columns, 1));
-  protected
+  protected 
     final parameter Real tableID=dymTableInit(1.0, smoothness, tableName, fileName, table, 0.0);
     annotation (
       Documentation(info="<html>
@@ -174,41 +175,42 @@ Several matrices may be defined one after another.
         Text(extent=[-24,54; 0,42], string="y[1]"),
         Text(extent=[-2, -40; 30, -54], string="columns"),
         Text(extent=[2,54; 26,42], string="y[2]")));
-  equation
+  equation 
     if tableOnFile then
       assert(tableName<>"NoName", "tableOnFile = true and no table name given");
     end if;
     if not tableOnFile then
       assert(size(table,1) > 0 and size(table,2) > 0, "tableOnFile = false and parameter table is an empty matrix");
     end if;
-
+    
     for i in 1:n loop
-      y[i] = if not tableOnFile and size(table,1)==1 then
+      y[i] = if not tableOnFile and size(table,1)==1 then 
                table[1, columns[i]] else dymTableIpo1(tableID, columns[i], u[i]);
     end for;
   end CombiTable1D;
-
-  model CombiTable1Ds
-    "Table look-up in one dimension (matrix/file) with one input and n outputs"
-
-    parameter Boolean tableOnFile=false "true, if table is defined on file or in function usertab"
+  
+  model CombiTable1Ds 
+    "Table look-up in one dimension (matrix/file) with one input and n outputs" 
+    
+    parameter Boolean tableOnFile=false 
+      "true, if table is defined on file or in function usertab" 
       annotation(Dialog(group="table data definition"));
-    parameter Real table[:, :]=fill(0.0,0,2)
-      "table matrix (grid = first column)"
+    parameter Real table[:, :]=fill(0.0,0,2) 
+      "table matrix (grid = first column)" 
          annotation(Dialog(group="table data definition", enable = not tableOnFile));
-    parameter String tableName="NoName"
-      "table name on file or in function usertab (see docu)"
+    parameter String tableName="NoName" 
+      "table name on file or in function usertab (see docu)" 
          annotation(Dialog(group="table data definition", enable = tableOnFile));
-    parameter String fileName="NoName" "file where matrix is stored"
+    parameter String fileName="NoName" "file where matrix is stored" 
          annotation(Dialog(group="table data definition", enable = tableOnFile));
-    parameter Integer columns[:]=2:size(table, 2)
-      "columns of table to be interpolated"
+    parameter Integer columns[:]=2:size(table, 2) 
+      "columns of table to be interpolated" 
     annotation(Dialog(group="table data interpretation"));
-    parameter Blocks.Types.Smoothness.Temp smoothness=Blocks.Types.Smoothness.LinearSegments
-      "smoothness of table interpolation"
+    parameter Blocks.Types.Smoothness.Temp smoothness=Blocks.Types.Smoothness.LinearSegments 
+      "smoothness of table interpolation" 
     annotation(Dialog(group="table data interpretation"));
     extends Modelica.Blocks.Interfaces.SIMO(final nout=size(columns, 1));
-  protected
+  protected 
     final parameter Real tableID=dymTableInit(1.0, smoothness, tableName, fileName, table, 0.0);
     annotation (
       Documentation(info="<html>
@@ -362,36 +364,37 @@ Several matrices may be defined one after another.
         Text(extent=[-22,54; 2,42], string="y[1]"),
         Text(extent=[4,54; 28,42], string="y[2]"),
         Text(extent=[0,-40; 32,-54], string="columns")));
-  equation
+  equation 
     if tableOnFile then
       assert(tableName<>"NoName", "tableOnFile = true and no table name given");
     end if;
     if not tableOnFile then
       assert(size(table,1) > 0 and size(table,2) > 0, "tableOnFile = false and parameter table is an empty matrix");
     end if;
-
+    
     for i in 1:nout loop
-      y[i] = if not tableOnFile and size(table,1)==1 then
+      y[i] = if not tableOnFile and size(table,1)==1 then 
                table[1, columns[i]] else dymTableIpo1(tableID, columns[i], u);
     end for;
   end CombiTable1Ds;
-
-  model CombiTable2D "Table look-up in two dimensions (matrix/file) "
-
+  
+  model CombiTable2D "Table look-up in two dimensions (matrix/file) " 
+    
     extends Modelica.Blocks.Interfaces.SI2SO;
-
-    parameter Boolean tableOnFile=false "true, if table is defined on file or in function usertab"
+    
+    parameter Boolean tableOnFile=false 
+      "true, if table is defined on file or in function usertab" 
       annotation(Dialog(group="table data definition"));
-    parameter Real table[:, :]=fill(0.0,0,2)
-      "table matrix (grid u1 = first column, grid u2 = first row)"
+    parameter Real table[:, :]=fill(0.0,0,2) 
+      "table matrix (grid u1 = first column, grid u2 = first row)" 
          annotation(Dialog(group="table data definition", enable = not tableOnFile));
-    parameter String tableName="NoName"
-      "table name on file or in function usertab (see docu)"
+    parameter String tableName="NoName" 
+      "table name on file or in function usertab (see docu)" 
          annotation(Dialog(group="table data definition", enable = tableOnFile));
-    parameter String fileName="NoName" "file where matrix is stored"
+    parameter String fileName="NoName" "file where matrix is stored" 
          annotation(Dialog(group="table data definition", enable = tableOnFile));
-    parameter Blocks.Types.Smoothness.Temp smoothness=Blocks.Types.Smoothness.LinearSegments
-      "smoothness of table interpolation"
+    parameter Blocks.Types.Smoothness.Temp smoothness=Blocks.Types.Smoothness.LinearSegments 
+      "smoothness of table interpolation" 
     annotation(Dialog(group="table data interpretation"));
     annotation (
       Documentation(info="<html>
@@ -568,16 +571,16 @@ Several matrices may be defined one after another.
         Text(extent=[-54, -40; -30, -56], string="u1"),
         Text(extent=[28, 58; 52, 44], string="u2"),
         Text(extent=[-2,12; 32,-22], string="y")));
-  protected
+  protected 
     final parameter Real tableID=dymTableInit(2.0, smoothness, tableName, fileName, table, 0.0);
-  equation
+  equation 
     if tableOnFile then
       assert(tableName<>"NoName", "tableOnFile = true and no table name given");
     end if;
     if not tableOnFile then
       assert(size(table,1) > 0 and size(table,2) > 0, "tableOnFile = false and parameter table is an empty matrix");
     end if;
-
+    
     y = dymTableIpo2(tableID, u1, u2);
   end CombiTable2D;
 end Tables;

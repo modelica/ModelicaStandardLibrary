@@ -451,7 +451,7 @@ still kept in Modelica.SIunits.</p>
           Line(points=[-90, 0; 30, 0], style(color=42)),
           Polygon(points=[90, 0; 30, 20; 30, -20; 90, 0], style(color=42,
                 fillColor=42)),
-          Text(extent=[-115, 155; 115, 105], string="%name"))); 
+          Text(extent=[-115, 155; 115, 105], string="%name")));
     end ConversionIcon;
     
     annotation(preferedView="info", Icon(
@@ -1455,8 +1455,18 @@ Guide to Metrication\"
     D-82230 Wessling<br>
     email: <A HREF=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</A><br>
 </dl>
-<br>
-<p><b>Release Notes:</b></p>
+
+<p>
+Copyright &copy; 1998-2005, Modelica Association and DLR
+</p>
+<p>
+<i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
+under the terms of the <b>Modelica license</b>, see the license conditions
+and the accompanying <b>disclaimer</b> 
+<a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a>.</i>
+</p><br>
+
+</HTML>", revisions="<html>
 <ul>
 <li><i>October 21, 2002</i>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>
@@ -1503,13 +1513,7 @@ Guide to Metrication\"
        and <a href=\"http://www.control.lth.se/~hubertus/\">Hubertus Tummescheit</a>:<br>
        Some chapters realized.</li>
 </ul>
-<br>
-<p><b>Copyright &copy; 1999-2002, Modelica Association and DLR.</b></p>
-<p><i>The Modelica package is free software; it can be redistributed and/or modified
-under the terms of the <b>Modelica license</b>, see the license conditions
-and the accompanying <b>disclaimer</b> in the documentation of package
-Modelica in file \"Modelica/package.mo\".</i></p>
-</HTML>"),
+</html>"),
     Diagram(
       Rectangle(extent=[169, 86; 349, 236], style(fillColor=30, fillPattern=1)),
       Polygon(points=[169, 236; 189, 256; 369, 256; 349, 236; 169, 236], style(

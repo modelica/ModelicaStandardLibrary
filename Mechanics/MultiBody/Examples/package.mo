@@ -1,6 +1,7 @@
 package Examples "Examples for the 3D mechanical systems library"
 extends Modelica.Icons.Library;
 
+
 annotation (preferedView="info", Documentation(info="<html>
 <p>
 This package contains example models to demonstrate the usage of the

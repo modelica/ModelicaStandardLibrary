@@ -1,9 +1,9 @@
-package Continuous "Continuous control blocks with internal states"
-
+package Continuous "Continuous control blocks with internal states" 
+  
   import Modelica.Blocks.Interfaces;
   import Modelica.SIunits;
   extends Modelica.Icons.Library;
-
+  
   annotation(preferedView="info",
     Window(
       x=0.05,
@@ -20,11 +20,11 @@ described by differential equations.
 </p>
 </HTML>
 "));
-  block Integrator "Output the integral of the input signals"
+  block Integrator "Output the integral of the input signals" 
     parameter Real k=1 "Integrator gains";
     parameter Real y_start=0 "Start values of integrators";
     extends Interfaces.SISO(y(start=y_start, fixed=true));
-
+    
     annotation (
       Coordsys(
         extent=[-100, -100; 100, 100],
@@ -90,17 +90,17 @@ the gain <i>k</i>:
           string="s",
           style(color=0)),
         Line(points=[-46, 0; 46, 0], style(color=0))));
-  equation
+  equation 
     der(y) = k*u;
   end Integrator;
-
-  block LimIntegrator "Integrator with limited values of the outputs"
-
+  
+  block LimIntegrator "Integrator with limited values of the outputs" 
+    
     parameter Real k=1 "Integrator gains";
     parameter Real outMax=1 "Upper limits of outputs";
     parameter Real outMin=-outMax "Lower limits of outputs";
     parameter Real y_start=0 "Start values of integrators";
-
+    
     extends Interfaces.SISO(y(start=y_start, fixed=true));
     annotation (
       Coordsys(
@@ -167,20 +167,20 @@ the integral away from the bounds.
           string="s",
           style(color=0)),
         Line(points=[4, 0; 46, 0], style(color=0))));
-  equation
+  equation 
     der(y) = if y < outMin and u < 0 or y > outMax and u > 0 then 0 else k*
       u;
   end LimIntegrator;
-
-  block Derivative "Approximated derivative block"
+  
+  block Derivative "Approximated derivative block" 
     parameter Real k=1 "Gains";
-    parameter SIunits.Time T(min=Modelica.Constants.small) = 0.01
+    parameter SIunits.Time T(min=Modelica.Constants.small) = 0.01 
       "Time constants (T>0 required; T=0 is ideal derivative block)";
-
+    
     extends Interfaces.SISO;
-
+    
     output Real x "State of block";
-
+    
     annotation (
       Documentation(info="
 <HTML>
@@ -257,20 +257,20 @@ b = {k,0}, a = {T, 1}.
         y=0.03,
         width=0.5,
         height=0.61));
-  equation
-    der(x) = if noEvent(abs(k) >= Modelica.Constants.eps) then (u - x)/T else
+  equation 
+    der(x) = if noEvent(abs(k) >= Modelica.Constants.eps) then (u - x)/T else 
             0;
-    y = if noEvent(abs(k) >= Modelica.Constants.eps) then (k/T)*(u - x) else
+    y = if noEvent(abs(k) >= Modelica.Constants.eps) then (k/T)*(u - x) else 
             0;
   end Derivative;
-
-  block FirstOrder "First order transfer function block (= 1 pole)"
-
+  
+  block FirstOrder "First order transfer function block (= 1 pole)" 
+    
     parameter Real k=1 "Gain";
     parameter SIunits.Time T=1 "Time Constant";
-
+    
     extends Interfaces.SISO;
-
+    
     annotation (
       Documentation(info="
 <HTML>
@@ -353,15 +353,15 @@ Example:
         y=0.04,
         width=0.52,
         height=0.55));
-  equation
+  equation 
     der(y) = (k*u - y)/T;
   end FirstOrder;
-
-  block SecondOrder "Second order transfer function block (= 2 poles)"
+  
+  block SecondOrder "Second order transfer function block (= 2 poles)" 
     parameter Real k=1 "Gain";
     parameter Real w=1 "Angular frequency";
     parameter Real D=1 "Damping";
-
+    
     extends Interfaces.SISO;
     output Real yd "Derivative of y";
     annotation (
@@ -479,19 +479,19 @@ Example:
           extent=[30, 2; 58, -42],
           string="+1",
           style(color=0))));
-
-  equation
+    
+  equation 
     der(y) = yd;
     der(yd) = w*(w*(k*u - y) - 2*D*yd);
   end SecondOrder;
-
-  block PI "Proportional-Integral controller"
+  
+  block PI "Proportional-Integral controller" 
     parameter Real k=1 "Gain";
     parameter SIunits.Time T=1 "Time Constant (T>0 required)";
-
+    
     extends Interfaces.SISO;
     output Real x "State of block";
-
+    
     annotation (
       Coordsys(
         extent=[-100, -100; 100, 100],
@@ -580,21 +580,21 @@ Example:
         Line(points=[-24, 0; 54, 0], style(color=0)),
         Line(points=[-100, 0; -60, 0]),
         Line(points=[62, 0; 100, 0])));
-  equation
+  equation 
     der(x) = u/T;
     y = k*(x + u);
   end PI;
-
-  block PID "PID-controller in additive description form"
+  
+  block PID "PID-controller in additive description form" 
     extends Interfaces.SISO;
-
+    
     parameter Real k=1 "Gain";
-    parameter SIunits.Time Ti(min=Modelica.Constants.small) = 0.5
+    parameter SIunits.Time Ti(min=Modelica.Constants.small) = 0.5 
       "Time Constant of Integrator";
     parameter SIunits.Time Td(min=0) = 0.1 "Time Constant of Derivative block";
-    parameter Real Nd(min=Modelica.Constants.small) = 10
+    parameter Real Nd(min=Modelica.Constants.small) = 10 
       "The higher Nd, the more ideal the derivative block";
-
+    
     annotation (
       Coordsys(
         extent=[-100, -100; 100, 100],
@@ -635,48 +635,48 @@ block LimPID.
 </ul>
 </HTML>
 "));
-    Blocks.Math.Gain P "Proportional part of PID controller"
+    Blocks.Math.Gain P "Proportional part of PID controller" 
       annotation (extent=[-60, 60; -20, 100]);
-    Blocks.Continuous.Integrator I(k=1/Ti) "Integral part of PID controller"
+    Blocks.Continuous.Integrator I(k=1/Ti) "Integral part of PID controller" 
       annotation (extent=[-60, -20; -20, 20]);
     Blocks.Continuous.Derivative D(k=Td, T=max([Td/Nd, 100*Modelica.
-          Constants.eps])) "Derivative part of PID controller"
+          Constants.eps])) "Derivative part of PID controller" 
       annotation (extent=[-60, -100; -20, -60]);
-    Blocks.Math.Gain Gain(k=k) "Gain of PID controller"
+    Blocks.Math.Gain Gain(k=k) "Gain of PID controller" 
       annotation (extent=[60, -10; 80, 10]);
     Blocks.Math.Add3 Add annotation (extent=[20, -10; 40, 10]);
-  equation
+  equation 
     connect(P.y, Add.u1) annotation (points=[-20, 80; 0, 80; 0, 8; 20, 8]);
     connect(I.y, Add.u2) annotation (points=[-20, 0; 20, 0]);
-    connect(D.y, Add.u3)
+    connect(D.y, Add.u3) 
       annotation (points=[-20, -80; 0, -80; 0, -8; 20, -8]);
     connect(Add.y, Gain.u) annotation (points=[40, 0; 60, 0]);
     connect(y, Gain.y) annotation (points=[100, 0; 80, 0]);
     connect(u, I.u) annotation (points=[-100, 0; -60, 0]);
     connect(u, P.u) annotation (points=[-100, 0; -80, 0; -80, 80; -60, 80]);
-    connect(u, D.u)
+    connect(u, D.u) 
       annotation (points=[-100, 0; -80, 0; -80, -80; -60, -80]);
   end PID;
-
-  block LimPID
-    "PID controller with limited output, anti-windup compensation and setpoint weighting"
-
+  
+  block LimPID 
+    "PID controller with limited output, anti-windup compensation and setpoint weighting" 
+    
     extends Interfaces.SVcontrol;
-
+    
     parameter Real k(min=0) = 1 "Gain of PID block";
-    parameter SIunits.Time Ti(min=Modelica.Constants.small) = 0.5
+    parameter SIunits.Time Ti(min=Modelica.Constants.small) = 0.5 
       "Time constant of Integrator block";
     parameter SIunits.Time Td(min=0) = 0.1 "Time constant of Derivative block";
     parameter Real yMax=1 "Upper limit of output";
     parameter Real yMin=-yMax "Lower limit of output";
-    parameter Real wp(min=0) = 1
+    parameter Real wp(min=0) = 1 
       "Set-point weight for Proportional block (0..1)";
     parameter Real wd(min=0) = 0 "Set-point weight for Derivative block (0..1)";
-    parameter Real Ni(min=100*Modelica.Constants.eps) = 0.9
+    parameter Real Ni(min=100*Modelica.Constants.eps) = 0.9 
       "Ni*Ti is time constant of anti-windup compensation";
-    parameter Real Nd(min=100*Modelica.Constants.eps) = 10
+    parameter Real Nd(min=100*Modelica.Constants.eps) = 10 
       "The higher Nd, the more ideal the derivative block";
-    Blocks.Nonlinear.Limiter limiter(uMax=yMax, uMin=yMin)
+    Blocks.Nonlinear.Limiter limiter(uMax=yMax, uMin=yMin) 
       annotation (extent=[70, -10; 90, 10]);
     annotation (
       Coordsys(
@@ -736,68 +736,68 @@ part of this controller, the following practical aspects are included:
 </ul>
 </HTML>
 "));
-    Blocks.Math.Add addP(k1=wp, k2=-1)
+    Blocks.Math.Add addP(k1=wp, k2=-1) 
       annotation (extent=[-80, 40; -60, 60]);
-    Blocks.Math.Add addD(k1=wd, k2=-1)
+    Blocks.Math.Add addD(k1=wd, k2=-1) 
       annotation (extent=[-80, -10; -60, 10]);
     Blocks.Math.Gain P annotation (extent=[-40, 40; -20, 60]);
-    Blocks.Continuous.Integrator I(k=1/Ti)
+    Blocks.Continuous.Integrator I(k=1/Ti) 
       annotation (extent=[-40, -60; -20, -40]);
-    Blocks.Continuous.Derivative D(k=Td, T=max([Td/Nd, 1.e-14]))
+    Blocks.Continuous.Derivative D(k=Td, T=max([Td/Nd, 1.e-14])) 
       annotation (extent=[-40, -10; -20, 10]);
     Blocks.Math.Gain gainPID(k=k) annotation (extent=[30, -10; 50, 10]);
     Blocks.Math.Add3 addPID annotation (extent=[0, -10; 20, 10]);
     Blocks.Math.Add3 addI(k2=-1) annotation (extent=[-80, -60; -60, -40]);
-    Blocks.Math.Add addSat(k2=-1)
+    Blocks.Math.Add addSat(k2=-1) 
       annotation (extent=[70, -60; 90, -40], rotation=-90);
-    Blocks.Math.Gain gainTrack(k=1/(k*Ni))
+    Blocks.Math.Gain gainTrack(k=1/(k*Ni)) 
       annotation (extent=[40, -80; 20, -60]);
-  equation
+  equation 
     assert(yMax >= yMin, "PID: Limits must be consistent");
-    connect(u_s, addP.u1)
+    connect(u_s, addP.u1) 
       annotation (points=[-102, 0; -96, 0; -96, 56; -80, 56]);
     connect(u_m, addP.u2) annotation (points=[0, -100; 0, -92; -92, -92; -92,
            44; -80, 44], style(thickness=2));
-    connect(u_s, addD.u1)
+    connect(u_s, addD.u1) 
       annotation (points=[-102, 0; -96, 0; -96, 6; -82, 6]);
     connect(u_m, addD.u2) annotation (points=[0, -100; 0, -92; -92, -92; -92,
            -6; -82, -6; -82, -6], style(thickness=2));
-    connect(u_s, addI.u1)
+    connect(u_s, addI.u1) 
       annotation (points=[-100, 0; -96, 0; -96, -42; -82, -42]);
     connect(u_m, addI.u2) annotation (points=[0, -104; 0, -92; -92, -92; -92,
            -50; -80, -50], style(thickness=2));
-    connect(gainTrack.y, addI.u3)
+    connect(gainTrack.y, addI.u3) 
       annotation (points=[20, -70; -88, -70; -88, -58; -80, -58]);
     connect(addP.y, P.u) annotation (points=[-60, 50; -40, 50; -40, 50]);
     connect(addD.y, D.u) annotation (points=[-60, 0; -42, 0]);
     connect(addI.y, I.u) annotation (points=[-58, -50; -40, -50]);
-    connect(P.y, addPID.u1)
+    connect(P.y, addPID.u1) 
       annotation (points=[-18, 50; -10, 50; -10, 8; 0, 8]);
     connect(D.y, addPID.u2) annotation (points=[-20, 0; -2, 0; -2, 0]);
-    connect(I.y, addPID.u3)
+    connect(I.y, addPID.u3) 
       annotation (points=[-18, -50; -10, -50; -10, -8; -2, -8; -2, -8]);
     connect(addPID.y, gainPID.u) annotation (points=[21, 0; 28, 0]);
-    connect(gainPID.y, addSat.u2)
+    connect(gainPID.y, addSat.u2) 
       annotation (points=[50, 0; 60, 0; 60, -30; 74, -30; 74, -40]);
-    connect(addSat.y, gainTrack.u)
+    connect(addSat.y, gainTrack.u) 
       annotation (points=[80, -62; 80, -70; 42, -70]);
     connect(gainPID.y, limiter.u) annotation (points=[50, 0; 70, 0]);
     connect(limiter.y, y) annotation (points=[90, 0; 100, 0]);
-    connect(limiter.y, addSat.u1)
+    connect(limiter.y, addSat.u1) 
       annotation (points=[90, 0; 94, 0; 94, -20; 86, -20; 86, -40]);
   end LimPID;
-
-  block TransferFunction "Linear transfer function"
+  
+  block TransferFunction "Linear transfer function" 
     extends Interfaces.SISO;
-
+    
     parameter Real b[:]={1} "Numerator coefficients of transfer function.";
     parameter Real a[:]={1,1} "Denominator coefficients of transfer function.";
-    output Real x[size(a, 1) - 1]
+    output Real x[size(a, 1) - 1] 
       "State of transfer function from controller canonical form";
-
-  protected
+    
+  protected 
     parameter Integer na=size(a, 1) "Size of Denominator of transfer function.";
-    parameter Integer nb(max=na) = size(b, 1)
+    parameter Integer nb(max=na) = size(b, 1) 
       "Size of Numerator of transfer function.";
     parameter Integer nx=size(a, 1) - 1;
     Real x1dot "Derivative of first state of TransferFcn";
@@ -868,20 +868,20 @@ results in the following transfer function:
         Rectangle(extent=[-60, 60; 60, -60]),
         Line(points=[-100, 0; -60, 0]),
         Line(points=[60, 0; 100, 0])));
-  equation
+  equation 
     [der(x); xn] = [x1dot; x];
     [u] = transpose([a])*[x1dot; x];
     [y] = transpose([zeros(na - nb, 1); b])*[x1dot; x];
   end TransferFunction;
-
-  block StateSpace "Linear state space system"
-    parameter Real A[:, size(A, 1)]=[1, 0; 0, 1]
+  
+  block StateSpace "Linear state space system" 
+    parameter Real A[:, size(A, 1)]=[1, 0; 0, 1] 
       "Matrix A of state space model";
     parameter Real B[size(A, 1), :]=[1; 1] "Matrix B of state space model";
     parameter Real C[:, size(A, 1)]=[1, 1] "Matrix C of state space model";
-    parameter Real D[size(C, 1), size(B, 2)]=zeros(size(C, 1), size(B, 2))
+    parameter Real D[size(C, 1), size(B, 2)]=zeros(size(C, 1), size(B, 2)) 
       "Matrix D of state space model";
-
+    
     extends Interfaces.MIMO(final nin=size(B, 2), final nout=size(C, 1));
     output Real x[size(A, 1)] "State vector";
     annotation (
@@ -952,14 +952,14 @@ results in the following equations:
           style(color=0)),
         Line(points=[-100, 0; -60, 0]),
         Line(points=[60, 0; 100, 0])));
-  equation
+  equation 
     der(x) = A*x + B*u;
     y = C*x + D*u;
   end StateSpace;
-
-  block Der "Derivative of input (= analytic differentations)"
+  
+  block Der "Derivative of input (= analytic differentations)" 
       extends Interfaces.SISO;
-
+    
       annotation (
    Icon(Text(extent=[-80, 76; 80, -82], string="der()")),
           Documentation(info="<HTML>
@@ -972,24 +972,24 @@ by the Modelica translator, if this derivative is not yet present in
 the model.
 </p>
 </HTML>"));
-  equation
+  equation 
     y = der(u);
   end Der;
-
-  block LowpassButterworth
-    "Output the input signal filtered with a low pass Butterworth filter of any order"
-
+  
+  block LowpassButterworth 
+    "Output the input signal filtered with a low pass Butterworth filter of any order" 
+    
     import Modelica.Math.*;
-
+    
     extends Modelica.Blocks.Interfaces.SISO;
-
+    
     parameter Integer n(min=1) = 2 "Order of filter";
     parameter SI.Frequency f=1 "Cut-off frequency";
-
+    
     output Real x1[m] "states 1 of second order filters (der(x1) = x2)";
     output Real x2[m] "states 2 of second order filters";
     output Real xr "state of real pole for uneven order otherwise dummy";
-  protected
+  protected 
     Real z[m + 1];
     Real polereal[m];
     Real poleimag[m];
@@ -1000,10 +1000,10 @@ the model.
     Real k1;
     Real T;
     constant Real pi=Modelica.Constants.pi;
-
+    
     parameter Integer m=integer(n/2);
     parameter Real w=2*pi*f;
-
+    
     annotation (
       Icon(
         Line(points=[-80, 78; -80, -90], style(color=8)),
@@ -1070,11 +1070,11 @@ with zeros.</p>
 </ul>
 </HTML>
 "));
-  equation
+  equation 
     k2 = ones(m);
     k1 = 1;
     z[1] = u;
-
+    
     // calculate filter parameters
     for i in 1:m loop
       // poles of prototype lowpass
@@ -1086,14 +1086,14 @@ with zeros.</p>
     end for;
     realpol = 1*w;
     T = 1/realpol;
-
+    
     // calculate second order filters
     for i in 1:m loop
       der(x1[i]) = x2[i];
       der(x2[i]) = k2[i]*w0[i]^2*z[i] - 2*D[i]*w0[i]*x2[i] - w0[i]^2*x1[i];
       z[i + 1] = x1[i];
     end for;
-
+    
     // calculate first order filter if necessary
     if 2*m == n then
       // even order
@@ -1105,15 +1105,15 @@ with zeros.</p>
       y = xr;
     end if;
   end LowpassButterworth;
-
-  block CriticalDamping
-    "Output the input signal filtered with an n-th order filter with critical damping"
-
+  
+  block CriticalDamping 
+    "Output the input signal filtered with an n-th order filter with critical damping" 
+    
     extends Modelica.Blocks.Interfaces.SISO;
-
+    
     parameter Integer n=2 "Order of filter";
     parameter Modelica.SIunits.Frequency f=1 "Cut-off frequency";
-
+    
     output Real x[n] "Filter states";
     annotation (
       Icon(
@@ -1187,14 +1187,14 @@ the input.</p>
 </ul>
 </HTML>
 "));
-  protected
+  protected 
     parameter Real w=2*Modelica.Constants.pi*f;
-  equation
+  equation 
     der(x[1]) = (u - x[1])*w;
     for i in 2:n loop
       der(x[i]) = (x[i - 1] - x[i])*w;
     end for;
     y = x[n];
   end CriticalDamping;
-
+  
 end Continuous;

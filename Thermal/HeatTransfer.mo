@@ -107,14 +107,7 @@ For technical details in the design of this library, see the following reference
 Introduction to Physical Modeling with Modelica</a>.
 Kluwer Academic Publishers Boston.
 </p>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>July 15, 2002</i>
-       by Michael Tiller, <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>
-       and <a href=\"http://www.robotic.dlr.de/Nikolaus.Schuermann/\">Nikolaus Sch&uuml;rmann</a>:<br>
-       Implemented.
-</li>
-</ul>
+
 <p>
 <b>Acknowledgements:</b><br>
 Several helpful remarks from the following persons are acknowledged:
@@ -132,7 +125,15 @@ and the accompanying disclaimer in the documentation of package
 Modelica in file \"Modelica/package.mo\".
 </i></p>
 </HTML>
-"));
+", revisions="<html>
+<ul>
+<li><i>July 15, 2002</i>
+       by Michael Tiller, <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>
+       and <a href=\"http://www.robotic.dlr.de/Nikolaus.Schuermann/\">Nikolaus Sch&uuml;rmann</a>:<br>
+       Implemented.
+</li>
+</ul>
+</html>"));
   package Examples 
     "Example models to demonstrate the usage of package Modelica.Thermal.HeatTransfer" 
     
