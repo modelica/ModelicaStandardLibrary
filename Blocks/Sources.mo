@@ -2217,6 +2217,8 @@ Several matrices may be defined one after another.
             string="time",
             style(color=0))),
         Documentation(info=""));
+
+    protected
       function getFirstIndex "Get first index of table and check table"
         input Real table[:] "Vector of time instants";
         input Modelica.SIunits.Time simulationStartTime "Simulation start time";
@@ -2224,7 +2226,7 @@ Several matrices may be defined one after another.
         output Integer index "First index to be used";
         output Modelica.SIunits.Time nextTime "Time instant of first event";
         output Boolean y "Value of y at simulationStartTime";
-    protected
+      protected
         Modelica.SIunits.Time t_last;
         Integer j;
         Integer n=size(table,1) "Number of table points";
@@ -2247,12 +2249,13 @@ Several matrices may be defined one after another.
         // Check whether time values are strict monotonically increasing
           t_last :=table[1];
           for i in 2:n loop
-             assert( table[i] > t_last, "Time values of table not strict monotonically increasing:
-  table[" + String(i-1) + "] = " + String(table[i-1]) + "
-  table[" + String(i)   + "] = " + String(table[i]));
+             assert(table[i] > t_last,
+               "Time values of table not strict monotonically increasing: table[" +
+               String(i-1) + "] = " + String(table[i-1]) + "table[" + String(i)   +
+               "] = " + String(table[i]));
           end for;
 
-        // Determine first index in table
+          // Determine first index in table
           j := 1;
           y := startValue;
           while j < n and table[j] <= simulationStartTime loop
@@ -2274,7 +2277,6 @@ Several matrices may be defined one after another.
         end if;
       end getFirstIndex;
 
-  protected
       parameter Integer n = size(table,1) "Number of table points";
       Modelica.SIunits.Time nextTime;
       Integer index "Index of actual table entry";
