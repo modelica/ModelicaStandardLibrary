@@ -18,8 +18,9 @@ package IF97_Utilities
       (in directory Modelica\\help\\IF97documentation):
       <ul>
       <li><a href=\"IF97documentation/IF97.pdf\">IF97.pdf</a> The standards document for the main part of the IF97.</li>
+      <li><a href=\"IF97documentation/Back3.pdf\">Back3.pdf</a> The backwards equations for region 3.</li>
       <li><a href=\"IF97documentation/crits.pdf\">crits.pdf</a> The critical point data.</li>
-      <li><a href=\"IF97documentation/meltsub.pdf\">meltsub.pdf</a> The melting- and sublimation line formulation (not implemented)</li>
+      <li><a href=\"IF97documentation/meltsub.pdf\">meltsub.pdf</a> The melting- and sublimation line formulation (in IF97_Utilities.BaseIF97.IceBoundaries)</li>
       <li><a href=\"IF97documentation/surf.pdf\">surf.pdf</a> The surface tension standard definition</li>
       <li><a href=\"IF97documentation/thcond.pdf\">thcond.pdf</a> The thermal conductivity standard definition</li>
       <li><a href=\"IF97documentation/visc.pdf\">visc.pdf</a> The viscosity standard definition</li>
@@ -30,7 +31,10 @@ package IF97_Utilities
       <p>
       <ul>
       <li>Package <b>BaseIF97</b> contains the implementation of the IAPWS-IF97 as described in
-      <a href=\"IF97documentation/IF97.pdf\">IF97.pdf</a>. The low-level functions in BaseIF97 are not needed for standard simulation usage,
+      <a href=\"IF97documentation/IF97.pdf\">IF97.pdf</a>. The explicit backwards equations for region 3 from
+      <a href=\"IF97documentation/Back3.pdf\">Back3.pdf</a> are implemented as initial values for an inverse iteration of the exact
+      function in IF97 for the input pairs (p,h) and (p,s).
+      The low-level functions in BaseIF97 are not needed for standard simulation usage,
       but can be useful for experts and some special purposes.</li>
       <li>Function <b>water_ph</b> returns all properties needed for a dynamic control volume model and properties of general
       interest using pressure p and specific entropy enthalpy h as dynamic states in the record ThermoProperties_ph. </li>
@@ -77,14 +81,14 @@ package IF97_Utilities
       for the ThermoFluid Library with help from Jonas Eborn and Falko Jens Wagner
       </li>
       <li>Code reorganization, enhanced documentation, additional functions:   <i>December, 2002</i>
-      by <a href=\"http://www.control.lth.se/~hubertus/\">Hubertus Tummescheit</a> and moved to Modelica
+      by <a href=\"mailto:Hubertus.Tummescheit@modelon.se\">Hubertus Tummescheit</a> and moved to Modelica
       properties library.</li>
       </ul>
       <address>Author: Hubertus Tummescheit, <br>
-      Lund University<br>
-      Department of Automatic Control<br>
-      Box 118, 22100 Lund, Sweden<br>
-      email: hubertus@control.lth.se
+      Modelon AB<br>
+      Ideon Science Park<br>
+      SE-22370 Lund, Sweden<br>
+      email: hubertus@modelon.se
       </address>
       </HTML>", revisions="<h1>Intermediate release notes during development<\\h1>
 <p>Currenly the Events/noEvents switch is only implmented for p-h states. Only after testing that implmentation, it will be extended to dT.</p>"));
@@ -102,16 +106,16 @@ package IF97_Utilities
         by <a href=\"http://www.control.lth.se/~hubertus/\">Hubertus Tummescheit</a>
         for the ThermoFluid Library with help from Jonas Eborn and Falko Jens Wagner
         </li>
-        <li>Code reorganization, enhanced documentation, additional functions:   <i>December, 2002</i>
-        by <a href=\"http://www.control.lth.se/~hubertus/\">Hubertus Tummescheit</a> and moved to Modelica
-        properties library.</li>
+      <li>Code reorganization, enhanced documentation, additional functions:   <i>December, 2002</i>
+      by <a href=\"mailto:Hubertus.Tummescheit@modelon.se\">Hubertus Tummescheit</a> and moved to Modelica
+      properties library.</li>
         </ul>
-        <address>Author: Hubertus Tummescheit, <br>
-        Lund University<br>
-        Department of Automatic Control<br>
-        Box 118, 22100 Lund, Sweden<br>
-        email: hubertus@control.lth.se
-        </address>
+      <address>Author: Hubertus Tummescheit, <br>
+      Modelon AB<br>
+      Ideon Science Park<br>
+      SE-22370 Lund, Sweden<br>
+      email: hubertus@modelon.se
+      </address>
         <P>In September 1997, the International Association for the Properties
         of Water and Steam (<A HREF=\"http://www.iapws.org\">IAPWS</A>) adopted a
         new formulation for the thermodynamic properties of water and steam for

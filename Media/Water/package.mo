@@ -6,16 +6,16 @@ annotation (preferedView="info",Documentation(info="<html>
     Simple liquid water medium (incompressible, constant data).</li>
 <li><b>IdealSteam</b><br>
     Steam water medium as ideal gas from Media.IdealGases.SingleGases.H2O</li>
-<li><b>WaterIF97xxx</b><br>
+<li><b>WaterIF97 derived models</b><br>
     High precision water model according to the IAPWS/IF97 standard
     (liquid, steam, two phase region). Models with different independent
     variables are provided as well as models valid only
     for particular regions. The <b>WaterIF97_ph</b> model is valid
     in all regions and is the recommended one to use.</li>
 </ul>
-<h3>Overview of WaterIF97xxx water models</h3>
+<h3>Overview of WaterIF97 derived water models</h3>
 <p>
-The WaterIF97xxx models calculate medium properties 
+The WaterIF97 models calculate medium properties 
 for water in the <b>liquid</b>, <b>gas</b> and <b>two phase</b> regions 
 according to the IAPWS/IF97 standard, i.e., the accepted industrial standard
 and best compromise between accuracy and computation time.
@@ -67,14 +67,131 @@ The following quantities are always computed in Medium.Baseproperties:
 <p>
 In some cases additional medium properties are needed.
 A component that needs these optional properties has to call
-one of the functions listed in 
+one of the following functions:
+</p>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td><b>Function call</b></td>
+      <td><b>Unit</b></td>
+      <td><b>Description</b></td></tr>
+  <tr><td>Medium.dynamicViscosity(medium.state)</b></td>
+      <td>Pa.s</td>
+      <td>dynamic viscosity</td></tr>
+  <tr><td>Medium.thermalConductivity(medium.state)</td>
+      <td>W/(m.K)</td>
+      <td>thermal conductivity</td></tr>
+  <tr><td>Medium.prandtlNumber(medium.state)</td>
+      <td>1</td>
+      <td>Prandtl number</td></tr>
+  <tr><td>Medium.specificEntropy(medium.state)</td>
+      <td>J/(kg.K)</td>
+      <td>specific entropy</td></tr>
+  <tr><td>Medium.heatCapacity_cp(medium.state)</td>
+      <td>J/(kg.K)</td>
+      <td>specific heat capacity at constant pressure</td></tr>
+  <tr><td>Medium.heatCapacity_cv(medium.state)</td>
+      <td>J/(kg.K)</td>
+      <td>specific heat capacity at constant density</td></tr>
+  <tr><td>Medium.isentropicExponent(medium.state)</td>
+      <td>1</td>
+      <td>isentropic exponent</td></tr>
+  <tr><td>Medium.isentropicEnthatlpy(pressure, medium.state)</td>
+      <td>J/kg</td>
+      <td>isentropic enthalpy</td></tr>
+  <tr><td>Medium.velocityOfSound(medium.state)</td>
+      <td>m/s</td>
+      <td>velocity of sound</td></tr>
+  <tr><td>Medium.isobaricExpansionCoefficient(medium.state)</td>
+      <td>1/K</td>
+      <td>isobaric expansion coefficient</td></tr>
+  <tr><td>Medium.isothermalCompressibility(medium.state)</td>
+      <td>1/Pa</td>
+      <td>isothermal compressibility</td></tr>
+  <tr><td>Medium.density_derp_h(medium.state)</td>
+      <td>kg/(m3.Pa)</td>
+      <td>derivative of density by pressure at constant enthalpy</td></tr>
+  <tr><td>Medium.density_derh_p(medium.state)</td>
+      <td>kg2/(m3.J)</td>
+      <td>derivative of density by enthalpy at constant pressure</td></tr>
+  <tr><td>Medium.density_derp_T(medium.state)</td>
+      <td>kg/(m3.Pa)</td>
+      <td>derivative of density by pressure at constant temperature</td></tr>
+  <tr><td>Medium.density_derT_p(medium.state)</td>
+      <td>kg/(m3.K)</td>
+      <td>derivative of density by temperature at constant pressure</td></tr>
+  <tr><td>Medium.density_derX(medium.state)</td>
+      <td>kg/m3</td>
+      <td>derivative of density by mass fraction</td></tr>
+  <tr><td>Medium.molarMass(medium.state)</td>
+      <td>kg/mol</td>
+      <td>molar mass</td></tr>
+</table>
+<p>More details are given in
 <a href=\"Modelica:Modelica.Media.UsersGuide.MediumUsage.OptionalProperties\">
-Modelica.Media.UsersGuide.MediumUsage.OptionalProperties</a> and in
+Modelica.Media.UsersGuide.MediumUsage.OptionalProperties</a>.
+
+Many additional optional functions are defined to compute properties of 
+saturated media, either liquid (bubble point) or vapour (dew point). 
+The argument to such functions is a SaturationProperties record, which can be
+set starting from either the saturation pressure or the saturation temperature.
+With reference to a model defining a pressure p, a temperature T, and a 
+SaturationProperties record sat, the following functions are provided:
+</p>
+<p>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td><b>Function call</b></td>
+      <td><b>Unit</b></td>
+      <td><b>Description</b></td></tr>
+  <tr><td>Medium.saturationPressure(T)</b></td>
+      <td>Pa</td>
+      <td>Saturation pressure at temperature T</td></tr>
+  <tr><td>Medium.saturationTemperature(p)</b></td>
+      <td>K</td>
+      <td>Saturation temperature at pressure p</td></tr>
+  <tr><td>Medium.saturationTemperature_derp(p)</b></td>
+      <td>K/Pa</td>
+      <td>Derivative of saturation temperature with respect to pressure</td></tr>
+  <tr><td>Medium.bubbleEnthalpy(sat)</b></td>
+      <td>J/kg</td>
+      <td>Specific enthalpy at bubble point</td></tr>
+  <tr><td>Medium.dewEnthalpy(sat)</b></td>
+      <td>J/kg</td>
+      <td>Specific enthalpy at dew point</td></tr>
+  <tr><td>Medium.bubbleEntropy(sat)</b></td>
+      <td>J/(kg.K)</td>
+      <td>Specific entropy at bubble point</td></tr>
+  <tr><td>Medium.dewEntropy(sat)</b></td>
+      <td>J/(kg.K)</td>
+      <td>Specific entropy at dew point</td></tr>
+  <tr><td>Medium.bubbleDensity(sat)</b></td>
+      <td>kg/m3</td>
+      <td>Density at bubble point</td></tr>
+  <tr><td>Medium.dewDensity(sat)</b></td>
+      <td>kg/m3</td>
+      <td>Density at dew point</td></tr>
+  <tr><td>Medium.dBubbleDensity_dPressure(sat)</b></td>
+      <td>kg/(m3.Pa)</td>
+      <td>Derivative of density at bubble point with respect to pressure</td></tr>
+  <tr><td>Medium.dDewDensity_dPressure(sat)</b></td>
+      <td>kg/(m3.Pa)</td>
+      <td>Derivative of density at dew point with respect to pressure</td></tr>
+  <tr><td>Medium.dBubbleEnthalpy_dPressure(sat)</b></td>
+      <td>J/(kg.Pa)</td>
+      <td>Derivative of specific enthalpy at bubble point with respect to pressure</td></tr>
+  <tr><td>Medium.dDewEnthalpy_dPressure(sat)</b></td>
+      <td>J/(kg.Pa)</td>
+      <td>Derivative of specific enthalpy at dew point with respect to pressure</td></tr>
+  <tr><td>Medium.surfaceTension(sat)</b></td>
+      <td>N/m</td>
+      <td>Surface tension between liquid and vapour phase</td></tr>
+</table>
+
+<p>Details on usage and some examples are given in:
 <a href=\"Modelica:Modelica.Media.UsersGuide.MediumUsage.TwoPhase\">
 Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
 </p>
-</p>
-<p>Many further properties can be computed. Using the well-known Bridgman's Tables, all first partial derivatives of the standard thermodynamic variables can be computed easily.
+
+<p>Many further properties can be computed. Using the well-known Bridgman's Tables,
+all first partial derivatives of the standard thermodynamic variables can be computed easily.
 </p>
 <p>
 The documentation of the IAPWS/IF97 steam properties can be freely 
@@ -82,6 +199,7 @@ distributed with computer implementations and are included here
 (in directory Modelica\\help\\IF97documentation):
 <ul>
 <li><a href=\"IF97documentation/IF97.pdf\">IF97.pdf</a> The standards document for the main part of the IF97.</li>
+<li><a href=\"IF97documentation/Back3.pdf\">Back3.pdf</a> The backwards equations for region 3.</li>
 <li><a href=\"IF97documentation/crits.pdf\">crits.pdf</a> The critical point data.</li>
 <li><a href=\"IF97documentation/meltsub.pdf\">meltsub.pdf</a> The melting- and sublimation line formulation (not implemented)</li>
 <li><a href=\"IF97documentation/surf.pdf\">surf.pdf</a> The surface tension standard definition</li>
