@@ -2,8 +2,8 @@ package Air "Media models for air"
   
   package SimpleAir "Air: Simple dry air model (0..100 degC)" 
     
-    extends Interfaces.PartialMedium
-      (mediumName="SimpleAir",
+    extends Interfaces.PartialMedium(
+       mediumName="SimpleAir",
        final reducedX=true,
        final singleState=false,
        fluidConstants={IdealGases.Common.FluidData.N2});
@@ -71,8 +71,8 @@ in the allowed range (" + String(T_min) + " K <= T <= " + String(T_max)
   end DryAirNasa;
   
   package MoistAir "Air: Moist air model (fog but no ice, 0..150 degC)" 
-    extends Interfaces.PartialCondensingGases
-      (mediumName="Moist air",
+    extends Interfaces.PartialCondensingGases(
+       mediumName="Moist air",
        substanceNames={"water", "air"},
        final reducedX=true,
        final singleState=false,

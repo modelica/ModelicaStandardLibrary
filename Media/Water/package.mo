@@ -1,7 +1,7 @@
 package Water "Medium models for water"
 extends Modelica.Icons.Library;
-  constant Interfaces.PartialMedium.FluidConstants[1] waterConstants
-    (each chemicalFormula = "H2O",
+  constant Interfaces.PartialMedium.FluidConstants[1] waterConstants(
+     each chemicalFormula = "H2O",
      each structureFormula="H2O",
      each casRegistryNumber="7732-18-5",
      each iupacName="oxidane",
@@ -16,14 +16,14 @@ extends Modelica.Icons.Library;
      each acentricFactor = 0.344,
      each dipoleMoment = 1.8,
      each hasCriticalData=true);
-  
+
 
 package ConstantPropertyLiquidWater 
   "Water: Simple liquid water medium (incompressible, constant data)" 
   
   import Cv = Modelica.SIunits.Conversions;
-  extends Interfaces.PartialSimpleMedium
-    (mediumName="SimpleLiquidWater",
+  extends Interfaces.PartialSimpleMedium(
+     mediumName="SimpleLiquidWater",
      cp_const=4184,
      cv_const=4184,
      d_const=995.586,
@@ -197,8 +197,8 @@ form:
 <p>Many further properties can be computed. Using the well-known Bridgman's Tables, all first partial derivatives of the standard thermodynamic variables can be computed easily.</p>
 </HTML>
 "));
-  extends Interfaces.PartialTwoPhaseMedium
-    (mediumName="WaterIF97",
+  extends Interfaces.PartialTwoPhaseMedium(
+     mediumName="WaterIF97",
      substanceNames={"water"},
      final reducedX=true,
      singleState=false,
@@ -209,7 +209,7 @@ form:
      smoothModel=false,
      onePhase=false,
      fluidConstants = waterConstants);
-    
+  
   redeclare record extends ThermodynamicState "thermodynamic state" 
     SpecificEnthalpy h "specific enthalpy";
     Density d "density";
@@ -646,8 +646,8 @@ form:
 <p>Many further properties can be computed. Using the well-known Bridgman's Tables, all first partial derivatives of the standard thermodynamic variables can be computed easily.</p>
 </HTML>
 "));
-  extends Interfaces.PartialTwoPhaseMedium
-    (mediumName="WaterIF97",
+  extends Interfaces.PartialTwoPhaseMedium(
+     mediumName="WaterIF97",
      substanceNames={"water"},
      singleState=false,
      final reducedX=true,
