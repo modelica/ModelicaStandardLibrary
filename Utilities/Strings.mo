@@ -982,26 +982,25 @@ part of the string is printed.
     Integer maxIndex = 40;
     Integer maxLenString = 60;
     Integer lenString = length(string);
-    String errString1;
-    String errString2;
+    String errString;
     Integer index2 = if index < 1 then 1 else if index > lenString then lenString else index;
   algorithm 
   // if "string" is too long, skip part of the string when printing it
      if index2 <= maxIndex then
-       errString1 := substring(string, 1, index2-1);
+       errString := string;
      else
-       errString1 := "... " + substring(string, index2-maxIndex, index2-1);
+       errString := "... " + substring(string, index2-maxIndex, lenString);
+       index2 := maxIndex + 5; // To mark right position
      end if;
     
-     if lenString <= maxLenString then
-        errString2 := substring(string, index2, lenString);
-     else
-        errString2 := substring(string, index2, maxLenString) + " ...";
+     if length(errString) > maxLenString then
+        errString := substring(errString, 1, maxLenString) + " ...";
      end if;
     
   // Print error message
      Streams.error("Syntax error at character " + String(index) + " of\n" +
-                   errString1 + errString2 + "\n" +
+                   errString + "\n" +
+                   repeat(index2-1, " ") + "*" + "\n" +
                    message);
   end syntaxError;
   
