@@ -1422,6 +1422,9 @@ of these axes can be set via parameters.
   parameter Real defaultFrameDiameterFraction=40 
     "|Defaults|| Default for arrow diameter of a coordinate system as a fraction of axis length";
   
+  parameter Boolean enable3D=false "Enable 3D effects of 1D powertrains"
+    annotation (Dialog(tab="Advanced", group="PowerTrain"));
+
   MultiBody.Interfaces.Frame_b frame_b annotation (extent=[100, -15; 120, 15]);
   
   /* The World object can only use the MultiBody.Visualizers.Advanced.Shape model, but no
