@@ -1020,7 +1020,7 @@ Contains m ideal commuting switches (Modelica.Electrical.Analog.Ideal.IdealCommu
           color=3,
           fillColor=7,
           fillPattern=1));
-      connect(control, idealCommutingSwitch.off) 
+      connect(control, idealCommutingSwitch.control)
         annotation (points=[0,80; 0,8], style(color=5, rgbcolor={255,0,255}));
     end IdealCommutingSwitch;
     
@@ -1100,7 +1100,7 @@ Contains m ideal intermediate switches (Modelica.Electrical.Analog.Ideal.IdealIn
           color=3,
           fillColor=7,
           fillPattern=1));
-      connect(control, idealIntermediateSwitch.off) 
+      connect(control, idealIntermediateSwitch.control)
         annotation (points=[0,80; 0,8], style(color=5, rgbcolor={255,0,255}));
     end IdealIntermediateSwitch;
     
@@ -1112,8 +1112,8 @@ Contains m ideal intermediate switches (Modelica.Electrical.Analog.Ideal.IdealIn
         1.E-5, m) "Opened diode conductance";
       parameter Modelica.SIunits.Voltage Vknee[m](final min=zeros(m)) = zeros(m) 
         "Treshold voltage";
-      Modelica.Electrical.Analog.Ideal.IdealDiode idealDiode[m](final Roff=Ron,
-           final Gon=Goff, final Vknee=Vknee) annotation (extent=[-10, -10; 10, 10]);
+      Modelica.Electrical.Analog.Ideal.IdealDiode idealDiode[m](final Ron=Ron,
+           final Goff=Goff, final Vknee=Vknee) annotation (extent=[-10, -10; 10, 10]);
       annotation (
         Icon(
           Text(extent=[-150,-40; 150,-100], string="%name"),
@@ -1281,7 +1281,7 @@ Contains m short cuts (Modelica.Electrical.Analog.Ideal.Short)
           Line(points=[40, 20; 40, 0])),
         Documentation(info="<HTML>
 <p>
-Contains m ideal opening switches (Modelica.Electrical.Analog.Ideal.IdealOpener).
+Contains m ideal opening switches (Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch).
 </p>
 </HTML>"),
         Diagram);
@@ -1333,7 +1333,7 @@ Contains m ideal opening switches (Modelica.Electrical.Analog.Ideal.IdealOpener)
               fillPattern=1))),
         Documentation(info="<HTML>
 <p>
-Contains m ideal closing switches (Modelica.Electrical.Analog.Ideal.IdealCloser).
+Contains m ideal closing switches (Modelica.Electrical.Analog.Ideal.IdealClosingSwitch).
 </p><
 /HTML>"),
         Diagram);

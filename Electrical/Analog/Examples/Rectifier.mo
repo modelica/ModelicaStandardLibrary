@@ -4,8 +4,8 @@ model Rectifier "B6 diode bridge"
   parameter Modelica.SIunits.Voltage VAC=400 "RMS line-to-line";
   parameter Modelica.SIunits.Frequency f=50 "line frequency";
   parameter Modelica.SIunits.Inductance LAC=60E-6 "line inductor";
-  parameter Modelica.SIunits.Resistance Roff=1E-3 "diode forward resistance";
-  parameter Modelica.SIunits.Conductance Gon=1E-3 "diode backward conductance";
+  parameter Modelica.SIunits.Resistance Ron=1E-3 "diode forward resistance";
+  parameter Modelica.SIunits.Conductance Goff=1E-3 "diode backward conductance";
   parameter Modelica.SIunits.Voltage Vknee=2 "diode threshold voltage";
   parameter Modelica.SIunits.Capacitance CDC=15E-3 "DC capacitance";
   parameter Modelica.SIunits.Current IDC=500 "load current";
@@ -89,35 +89,35 @@ You may watch Losses (of the whole diode bridge) trying different diode paramete
   Modelica.Electrical.Analog.Basic.Inductor Inductor3(L=LAC) 
   annotation (extent=[-60, -30; -40, -10]);
   Ideal.IdealDiode IdealDiode1(
-    Roff=Roff,
-    Gon=Gon,
+    Ron=Ron,
+    Goff=Goff,
     Vknee=Vknee) 
-               annotation (extent=[-30, 30; -10, 50], rotation=90);
+    annotation (extent=[-30, 30; -10, 50], rotation=90);
   Ideal.IdealDiode IdealDiode2(
-    Roff=Roff,
-    Gon=Gon,
+    Ron=Ron,
+    Goff=Goff,
     Vknee=Vknee) 
-               annotation (extent=[-10, 30; 10, 50], rotation=90);
+    annotation (extent=[-10, 30; 10, 50], rotation=90);
   Ideal.IdealDiode IdealDiode3(
-    Roff=Roff,
-    Gon=Gon,
+    Ron=Ron,
+    Goff=Goff,
     Vknee=Vknee) 
-               annotation (extent=[10, 30; 30, 50], rotation=90);
+    annotation (extent=[10, 30; 30, 50], rotation=90);
   Ideal.IdealDiode IdealDiode4(
-    Roff=Roff,
-    Gon=Gon,
+    Ron=Ron,
+    Goff=Goff,
     Vknee=Vknee) 
-               annotation (extent=[-30, -50; -10, -30], rotation=90);
+    annotation (extent=[-30, -50; -10, -30], rotation=90);
   Ideal.IdealDiode IdealDiode5(
-    Roff=Roff,
-    Gon=Gon,
+    Ron=Ron,
+    Goff=Goff,
     Vknee=Vknee) 
-               annotation (extent=[-10, -50; 10, -30], rotation=90);
+    annotation (extent=[-10, -50; 10, -30], rotation=90);
   Ideal.IdealDiode IdealDiode6(
-    Roff=Roff,
-    Gon=Gon,
+    Ron=Ron,
+    Goff=Goff,
     Vknee=Vknee) 
-               annotation (extent=[10, -50; 30, -30], rotation=90);
+    annotation (extent=[10, -50; 30, -30], rotation=90);
   Modelica.Electrical.Analog.Basic.Capacitor Capacitor1(C=2*CDC) 
   annotation (extent=[30, 30; 50, 50], rotation=-90);
   Modelica.Electrical.Analog.Basic.Capacitor Capacitor2(C=2*CDC) 
@@ -141,72 +141,53 @@ equation
     IdealDiode3.v*IdealDiode3.i + IdealDiode4.v*IdealDiode4.i +
     IdealDiode5.v*IdealDiode5.i + IdealDiode6.v*IdealDiode6.i;
   connect(SineVoltage1.n, SineVoltage2.n) 
-                                        annotation (points=[-90, 20;
-      -90, 0], style(color=3, rgbcolor={0,0,255}));
+    annotation (points=[-90, 20; -90, 0], style(color=3, rgbcolor={0,0,255}));
   connect(SineVoltage2.n, SineVoltage3.n) 
-                                        annotation (points=[-90, 0; -90,
-       -20], style(color=3, rgbcolor={0,0,255}));
+    annotation (points=[-90, 0; -90,-20], style(color=3, rgbcolor={0,0,255}));
   connect(SineVoltage1.p, Inductor1.p) 
-                                     annotation (points=[-70, 20; -60,
-       20], style(color=3, rgbcolor={0,0,255}));
+    annotation (points=[-70, 20; -60,20], style(color=3, rgbcolor={0,0,255}));
   connect(SineVoltage2.p, Inductor2.p) 
-                                     annotation (points=[-70, 0; -60,
-       0], style(color=3, rgbcolor={0,0,255}));
+    annotation (points=[-70, 0; -60,0], style(color=3, rgbcolor={0,0,255}));
   connect(SineVoltage3.p, Inductor3.p) 
-                                     annotation (points=[-70, -20; -60,
-       -20], style(color=3, rgbcolor={0,0,255}));
+    annotation (points=[-70, -20; -60,-20], style(color=3, rgbcolor={0,0,255}));
   connect(IdealDiode1.p, IdealDiode4.n) 
-                                      annotation (points=[-20, 30; -20,
-       -30], style(color=3, rgbcolor={0,0,255}));
+    annotation (points=[-20, 30; -20,-30], style(color=3, rgbcolor={0,0,255}));
   connect(IdealDiode2.p, IdealDiode5.n) 
-                                      annotation (points=[-6.12303e-016,30; 0,
-        16; 1.76911e-022,0; 6.12303e-016,0; 6.12303e-016,-30],
-     style(color=3, rgbcolor={0,0,255}));
+    annotation (points=[-6.12303e-016,30; -6.12303e-016,16; 0,0; 0,-30; 
+        6.12303e-016,-30],                           style(color=3, rgbcolor={0,0,255}));
   connect(IdealDiode3.p, IdealDiode6.n) 
-                                      annotation (points=[20, 30; 20,
-       -30], style(color=3, rgbcolor={0,0,255}));
+    annotation (points=[20, 30; 20,-30], style(color=3, rgbcolor={0,0,255}));
   connect(IdealDiode1.n, IdealDiode2.n) 
-                                      annotation (points=[-20,50; 6.12303e-016,
-        50],             style(color=3, rgbcolor={0,0,255}));
+    annotation (points=[-20,50; 6.12303e-016,50],
+                                       style(color=3, rgbcolor={0,0,255}));
   connect(IdealDiode2.n, IdealDiode3.n) 
-                                      annotation (points=[6.12303e-016,50; 20,
-        50],                     style(color=3, rgbcolor={0,0,255}));
+    annotation (points=[6.12303e-016,50; 20,50], style(color=3, rgbcolor={0,0,255}));
   connect(IdealDiode4.p, IdealDiode5.p) 
-                                      annotation (points=[-20,-50;
-        -6.12303e-016,-50],
-             style(color=3, rgbcolor={0,0,255}));
+    annotation (points=[-20,-50; -6.12303e-016,-50],
+                                         style(color=3, rgbcolor={0,0,255}));
   connect(IdealDiode5.p, IdealDiode6.p) 
-                                      annotation (points=[-6.12303e-016,-50; 20,
-        -50],         style(color=3, rgbcolor={0,0,255}));
+    annotation (points=[-6.12303e-016,-50; 20,-50],
+                                        style(color=3, rgbcolor={0,0,255}));
   connect(Capacitor2.n, IdealDiode6.p) 
-                                     annotation (points=[40, -50; 20,
-       -50], style(color=3, rgbcolor={0,0,255}));
+    annotation (points=[40, -50; 20,-50], style(color=3, rgbcolor={0,0,255}));
   connect(IdealDiode3.n, Capacitor1.p) 
-                                     annotation (points=[20, 50; 40,
-      50], style(color=3, rgbcolor={0,0,255}));
+    annotation (points=[20, 50; 40,50], style(color=3, rgbcolor={0,0,255}));
   connect(Capacitor1.n, Capacitor2.p) 
-                                    annotation (points=[40, 30; 40, -30],
-     style(color=3, rgbcolor={0,0,255}));
+    annotation (points=[40, 30; 40, -30],style(color=3, rgbcolor={0,0,255}));
   connect(Capacitor2.p, Ground1.p) 
-                                 annotation (points=[40, -30; 40, 0;
-      50, 0; 50, -60], style(color=3, rgbcolor={0,0,255}));
+    annotation (points=[40, -30; 40, 0;50, 0; 50, -60], style(color=3, rgbcolor={0,0,255}));
   connect(Capacitor1.p, SignalCurrent1.p) 
-                                        annotation (points=[40, 50;
-      60, 50; 60, 10], style(color=3, rgbcolor={0,0,255}));
+    annotation (points=[40, 50;60, 50; 60, 10], style(color=3, rgbcolor={0,0,255}));
   connect(SignalCurrent1.n, Capacitor2.n) 
-                                        annotation (points=[60, -10;
-      60, -50; 40, -50], style(color=3, rgbcolor={0,0,255}));
-  connect(Constant1.y, SignalCurrent1.i)          annotation (points=[79,0; 79,
-        4.30211e-016; 67,4.30211e-016],
-                                      style(color=3, rgbcolor={0,0,
-        255}));
+    annotation (points=[60, -10;60, -50; 40, -50], style(color=3, rgbcolor={0,0,255}));
+  connect(Constant1.y, SignalCurrent1.i) 
+    annotation (points=[79,0; 79,4.28612e-016; 67,4.28612e-016],
+                                          style(color=3, rgbcolor={0,0,255}));
   connect(Inductor1.n, IdealDiode1.p) 
-                                    annotation (points=[-40, 20; -20,
-       20; -20, 30], style(color=3, rgbcolor={0,0,255}));
+    annotation (points=[-40, 20; -20,20; -20, 30], style(color=3, rgbcolor={0,0,255}));
   connect(Inductor2.n, IdealDiode2.p) 
-                                    annotation (points=[-40,0; -6.12303e-016,0;
-        -6.12303e-016,30],    style(color=3, rgbcolor={0,0,255}));
+    annotation (points=[-40,0; -6.12303e-016,0; -6.12303e-016,30],
+                                           style(color=3, rgbcolor={0,0,255}));
   connect(Inductor3.n, IdealDiode3.p) 
-                                    annotation (points=[-40, -20; 20,
-       -20; 20, 30], style(color=3, rgbcolor={0,0,255}));
+    annotation (points=[-40, -20; 20,-20; 20, 30], style(color=3, rgbcolor={0,0,255}));
 end Rectifier;

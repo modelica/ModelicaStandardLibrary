@@ -350,7 +350,7 @@ along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
 <P>
 The commuting switch has a positive pin p and two negative pins n1 and n2. 
 The switching behaviour is controlled
-by the inpug signal off. If the off is true, the pin p is connected 
+by the inpug signal control. If control is true, the pin p is connected 
 with the negative pin n2. Otherwise, the pin p is connected to the negative pin n1.
 </P>
 <P>
@@ -381,7 +381,7 @@ where a description with zero Ron or zero Goff is not possible.
       Diagram(
         Ellipse(extent=[-44, 4; -36, -4]),
         Line(points=[-96,0; -44,0]),
-        Line(points=[-37, 2; 40, 50]),
+        Line(points=[-37,2; 40,50]),
         Line(points=[40,50; 96,50]),
         Line(points=[0,60; 0,25]),
         Line(points=[40,0; 96,0])),
@@ -394,7 +394,7 @@ where a description with zero Ron or zero Goff is not possible.
     Interfaces.PositivePin p annotation (extent=[-110, -10; -90, 10]);
     Interfaces.NegativePin n2 annotation (extent=[90, -10; 110, 10]);
     Interfaces.NegativePin n1 annotation (extent=[90, 40; 110, 60]);
-    Modelica.Blocks.Interfaces.BooleanInput off 
+    Modelica.Blocks.Interfaces.BooleanInput control 
       "true => p--n2 connected, false => p--n1 connected" annotation (extent=[
           -20,60; 20,100], rotation=-90);
   protected 
@@ -403,10 +403,10 @@ where a description with zero Ron or zero Goff is not possible.
   equation 
     0 = p.i + n2.i + n1.i;
     
-    p.v - n1.v = s1*(if (off) then 1 else Ron);
-    n1.i = -s1*(if (off) then Goff else 1);
-    p.v - n2.v = s2*(if (off) then Ron else 1);
-    n2.i = -s2*(if (off) then 1 else Goff);
+    p.v - n1.v = s1*(if (control) then 1 else Ron);
+    n1.i = -s1*(if (control) then Goff else 1);
+    p.v - n2.v = s2*(if (control) then Ron else 1);
+    n2.i = -s2*(if (control) then 1 else Goff);
   end IdealCommutingSwitch;
   
   model IdealIntermediateSwitch "Ideal intermediate switch" 
@@ -417,7 +417,7 @@ where a description with zero Ron or zero Goff is not possible.
       Documentation(info="<HTML>
 <P>
 The intermediate switch has four switching contact pins p1, p2, n1, and n2. 
-The switching behaviour is controlled by the input signal off. If off
+The switching behaviour is controlled by the input signal control. If control
 is true, the pin p1 is connected to pin n2, and the pin p2 is 
 connected to the pin n2. Otherwise, the pin p1 is connected to n1, and
 p2 is connected to n2.
@@ -455,11 +455,11 @@ where a description with zero Ron or zero Goff is not possible.
         Line(points=[40, 0; 90, 0]),
         Text(extent=[-100, -70; 100, -100], string="%name")),
       Diagram(
-        Ellipse(extent=[-4, 30; 4, 22]),
-        Line(points=[-96,0; -44,0]),
-        Line(points=[-96,50; -44,50]),
-        Line(points=[-44, 0; 40, 50]),
-        Line(points=[-44, 50; 40, 0]),
+        Ellipse(extent=[-4,29; 4,21]),
+        Line(points=[-96,0; -40,0]),
+        Line(points=[-96,50; -40,50]),
+        Line(points=[-40,0; 40,50]),
+        Line(points=[-40,50; 40,0]),
         Line(points=[40,50; 96,50]),
         Line(points=[0,60; 0,25]),
         Line(points=[40,0; 96,0])),
@@ -473,24 +473,24 @@ where a description with zero Ron or zero Goff is not possible.
     Interfaces.PositivePin p2 annotation (extent=[-110, -10; -90, 10]);
     Interfaces.NegativePin n1 annotation (extent=[90, 40; 110, 60]);
     Interfaces.NegativePin n2 annotation (extent=[90, -10; 110, 10]);
-    Modelica.Blocks.Interfaces.BooleanInput off "true => p1--n2, p2--n1 connected,
-         otherwise p1--n1, p2--n2  connected" annotation (extent=[-20,60; 20,
-          100],rotation=-90);
+    Modelica.Blocks.Interfaces.BooleanInput control 
+      "true => p1--n2, p2--n1 connected, otherwise p1--n1, p2--n2  connected" 
+      annotation (extent=[-20,60; 20,100],rotation=-90);
   protected 
     Real s1;
     Real s2;
     Real s3;
     Real s4 "Auxiliary variables";
   equation 
-    p1.v - n1.v = s1*(if (off) then 1 else Ron);
-    p2.v - n2.v = s2*(if (off) then 1 else Ron);
-    p1.v - n2.v = s3*(if (off) then Ron else 1);
-    p2.v - n1.v = s4*(if (off) then Ron else 1);
+    p1.v - n1.v = s1*(if (control) then 1 else Ron);
+    p2.v - n2.v = s2*(if (control) then 1 else Ron);
+    p1.v - n2.v = s3*(if (control) then Ron else 1);
+    p2.v - n1.v = s4*(if (control) then Ron else 1);
     
-    p1.i = if (off) then s1*Goff + s3 else s1 + s3*Goff;
-    p2.i = if (off) then s2*Goff + s4 else s2 + s4*Goff;
-    n1.i = if (off) then -s1*Goff - s4 else -s1 - s4*Goff;
-    n2.i = if (off) then -s2*Goff - s3 else -s2 - s3*Goff;
+    p1.i = if (control) then s1*Goff + s3 else s1 + s3*Goff;
+    p2.i = if (control) then s2*Goff + s4 else s2 + s4*Goff;
+    n1.i = if (control) then -s1*Goff - s4 else -s1 - s4*Goff;
+    n2.i = if (control) then -s2*Goff - s3 else -s2 - s3*Goff;
   end IdealIntermediateSwitch;
   
   model ControlledIdealCommutingSwitch "Controlled ideal commuting switch" 
@@ -613,7 +613,7 @@ where a description with zero Ron or zero Goff is not possible.
         Line(points=[40, 0; 90, 0]),
         Text(extent=[-100, -70; 100, -100], string="%name")),
       Diagram(
-        Ellipse(extent=[-4, 30; 4, 22]),
+        Ellipse(extent=[-4,29; 4,21]),
         Line(points=[-96,0; -40,0]),
         Line(points=[-96,50; -40,50]),
         Line(points=[-40,0; 40,50]),
@@ -918,9 +918,9 @@ If the input voltage is vin > 0, the output voltage is out.v = VMax.
   
         model IdealDiode "Ideal diode" 
           extends Modelica.Electrical.Analog.Interfaces.OnePort;
-          parameter Modelica.SIunits.Resistance Roff(final min=0) = 1.E-5 
+          parameter Modelica.SIunits.Resistance Ron(final min=0) = 1.E-5 
       "Forward state-on differential resistance (closed diode resistance)";
-          parameter Modelica.SIunits.Conductance Gon(final min=0) = 1.E-5 
+          parameter Modelica.SIunits.Conductance Goff(final min=0) = 1.E-5 
       "Backward state-off conductance (opened diode conductance)";
           parameter Modelica.SIunits.Voltage Vknee(final min=0) = 0 
       "Forward threshold voltage";
@@ -1022,7 +1022,7 @@ along  the <i>Gon</i>-characteristic until <i>v = Vknee</i>.
                   pattern=3,
                   fillColor=10,
                   fillPattern=1),
-                string="Roff"),
+          string="Ron"),
               Text(
                 extent=[-20, 10; 0, 0],
                 style(
@@ -1030,7 +1030,7 @@ along  the <i>Gon</i>-characteristic until <i>v = Vknee</i>.
                   pattern=3,
                   fillColor=10,
                   fillPattern=1),
-                string="Gon"),
+          string="Goff"),
               Ellipse(extent=[18, 12; 22, 8], style(pattern=3,
               fillPattern =                                                1))),
             Window(
@@ -1041,8 +1041,8 @@ along  the <i>Gon</i>-characteristic until <i>v = Vknee</i>.
     
         equation 
           off = s < 0;
-          v = s*(if off then 1 else Roff) + Vknee;
-          i = s*(if off then Gon else 1) + Gon*Vknee;
+          v = s*(if off then 1 else Ron) + Vknee;
+          i = s*(if off then Goff else 1) + Goff*Vknee;
         end IdealDiode;
   
   model IdealTransformer "Ideal electrical transformer" 
