@@ -17,19 +17,19 @@ package Incompressible
       //    SI.Density d "density";
     end BaseProps_Tpoly;
     
-//     record BaseProps_Tpoly_old "fluid state record" 
-//       extends Modelica.Media.Interfaces.PartialMedium.ThermodynamicState;
-//       //      SI.SpecificHeatCapacity cp "specific heat capacity";
-//       SI.Temperature T "temperature";
-//       SI.Pressure p "pressure";
-//       //    SI.Density d "density";
-//       parameter Real[:] poly_rho "polynomial coefficients";
-//       parameter Real[:] poly_Cp "polynomial coefficients";
-//       parameter Real[:] poly_eta "polynomial coefficients";
-//       parameter Real[:] poly_pVap "polynomial coefficients";
-//       parameter Real[:] poly_lam "polynomial coefficients";
-//       parameter Real[:] invTK "inverse T [1/K]";
-//     end BaseProps_Tpoly_old;
+    //     record BaseProps_Tpoly_old "fluid state record" 
+    //       extends Modelica.Media.Interfaces.PartialMedium.ThermodynamicState;
+    //       //      SI.SpecificHeatCapacity cp "specific heat capacity";
+    //       SI.Temperature T "temperature";
+    //       SI.Pressure p "pressure";
+    //       //    SI.Density d "density";
+    //       parameter Real[:] poly_rho "polynomial coefficients";
+    //       parameter Real[:] poly_Cp "polynomial coefficients";
+    //       parameter Real[:] poly_eta "polynomial coefficients";
+    //       parameter Real[:] poly_pVap "polynomial coefficients";
+    //       parameter Real[:] poly_lam "polynomial coefficients";
+    //       parameter Real[:] invTK "inverse T [1/K]";
+    //     end BaseProps_Tpoly_old;
   end Common;
   
   package TableBased "Incompressible medium properties based on tables" 
@@ -128,9 +128,9 @@ which is only exactly true for a fluid with constant density d=d0.
       cp = Poly.evaluate(poly_Cp,if TinK then T else T_degC);
       h = if enthalpyOfT then h_T(T) else  h_pT(p,T,densityOfT);
       if singleState then
-	u = h_T(T) - reference_p/d;
+        u = h_T(T) - reference_p/d;
       else
-	u = h - p/d;
+        u = h - p/d;
       end if;
       d = Poly.evaluate(poly_rho,if TinK then T else T_degC);
       state.T = T;
@@ -421,7 +421,34 @@ returned as a vector p[n+1] that has the following definition:
         dy := secondDerivativeValue(p,u)*du;
       end derivativeValue_der;
     end Polynomials_Temp;
-    
+  annotation (
+    preferedView="info",
+    Documentation(info="<HTML>
+<h3><font color=\"#008000\" size=5>Table based media</font></h3>
+<p>
+This is the base package for medium models of incompressible fluids based on
+tables. The minimal data to provide for a useful medium description is tables
+of density and heat capacity as functions of temperature.
+</p>
+<h4>Using the package TableBased</h4>
+<p>
+To implement a new medium model, create a package that <b>extends</b> TableBased
+and provides one or more of the constant tables:
+<pre>
+tableDensity        = [T, d];
+tableHeatCapacity   = [T, Cp];
+tableConductivity   = [T, lam];
+tableViscosity      = [T, eta];
+tableVaporPressure  = [T, pVap];
+</pre>
+The table data is used to fit constant polynomials of order <b>npol</b>, the
+temperature data points do not need to be same for different properties. Properties
+like enthalpy, inner energy and entropy are calculated consistently from integrals
+and derivatives of d(T) and Cp(T). The minimal
+data for a useful medium model is thus density and heat capacity. Transport
+properties and vapor pressure are optional, if the data tables are empty the corresponding
+function calls can not be used.
+</HTML>"));
   end TableBased;
   
   package Examples 
@@ -445,8 +472,6 @@ returned as a vector p[n+1] that has the following definition:
          20, 0.00626; 40, 0.00299; 60, 0.00162; 80, 0.00110; 100, 0.00081],
       tableVaporPressure=
         [0, 500; 20, 1.9e3; 40, 5.3e3; 60, 16e3; 80, 37e3; 100, 80e3]);
-      //        [-30, 0.160; -20, 0.0743; -10, 0.0317;
-      //  Low temperature points excluded to avoid bad fit with neta=3
   end Glycol47;
     
   package Essotherm650 "Essotherm thermal oil" 
@@ -468,8 +493,6 @@ returned as a vector p[n+1] that has the following definition:
       tableVaporPressure=
         [160, 3; 180, 10; 200, 40; 220, 100; 240, 300; 260, 600;
          280, 1600; 300, 3e3; 320, 5.5e3]);
-      //        [0, 14370; 20, 1917; 40, 424; 60, 134; 80, 54.5;
-      //  Low temperature points excluded to avoid bad fit with neta=3
   end Essotherm650;
     
   model TestGlycol "Test Glycol47 Medium model" 
@@ -485,7 +508,78 @@ returned as a vector p[n+1] that has the following definition:
     p = 1e5;
     T = Medium.T_min + time;
   end TestGlycol;
-    
+
+  annotation (
+    Documentation(info="<HTML>
+<h3><font color=\"#008000\" size=5>Examples of incompressible media</font></h3>
+<p>
+This package provides a few examples of how to construct medium models for
+incompressible fluids. The package contains:
+</p>
+<ul>
+<li><b>Glycol47</b>, a model of 47% glycol water mixture, based on tables of
+density and heat capacity as functions of temperature.</li>
+<li><b>Essotherm650</b>, a medium model for thermal oil, also based on tables.</li>
+
+</HTML>"));
   end Examples;
   
+  annotation (
+    preferedView="info",
+    Documentation(info="<HTML>
+<h3><font color=\"#008000\" size=5>Incompressible media package</font></h3>
+<p>
+This package provides a structure and examples of how to create simple
+medium models of incompressible fluids, meaning fluids with very little
+pressure influence on density. The medium properties is typically described
+in terms of tables, functions or polynomial coefficients.
+</p>
+<h4>Definitions</h4>
+<p>
+The common meaning of <em>incompressible</em> is that properties like density
+and enthalpy are independent of pressure. Thus properties are conveniently
+described as functions of temperature, e.g. as polynomials density(T) and cp(T).
+However, enthalpy can not be independent of pressure since h = u - p/d. For liquids
+it is anyway
+common to neglect this dependence since for constant density the neglected term
+is (p - p0)/d, which in comparison with cp is very small for most liquids. For
+water, the equivalent change of temperature to increasing pressure 1 bar is
+0.025 Kelvin.
+</p>
+<p>
+Two boolean flags are used to choose how enthalpy and inner energy is calculated:
+<ul>
+<li><b>enthalpyOfT</b>=true, means assuming that enthalpy is only a function
+of temperature, neglecting the pressure dependent term.</li>
+<li><b>singleState</b>=true, means also neglect the pressure influence on inner
+energy, which makes all medium properties pure functions of temperature.</li>
+</ul>
+The default setting for both these flags is true, which enables the simulation tool
+to choose temperature as the only medium state and avoids non-linear equation
+systems, see the section about
+<a href=\"Modelica:Modelica.Media.UsersGuide.MediumUDefinition.StaticStateSelection\">Static
+state selection</a> in the Modelica.Media users guide.
+
+</p>
+<h4>Contents</h4>
+<p>
+Currently, the package contains the following parts:
+</p>
+<ol>
+<li> <a href=\"Modelica:Modelica.Media.Incompressible.TableBased\">
+      Table based medium models</a></li>
+<li> <a href=\"Modelica:Modelica.Media.Incompressible.Examples\">
+      Example medium models</a></li>
+</ol>
+
+<p>
+A few examples are given in the Examples package. The model
+<a href=\"Modelica:Modelica.Media.TableBased.Examples.TestGlycol\">
+Examples.TestGlycol</a> shows how the medium models can be used. For more
+realistic examples of how to implement volume models with medium properties
+look in the <a href=\"Modelica:Modelica.Media.UsersGuide.MediumUsage\">Medium
+usage section</a> of the Users guide.
+</p>
+
+</HTML>"));
 end Incompressible;
