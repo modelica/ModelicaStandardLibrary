@@ -2558,8 +2558,8 @@ Modelica.Media.Examples.Tests.MediaTestModels.
         "Fixed volume associated with a port by the finite volume method" 
         import SI = Modelica.SIunits;
         
-        replaceable package Medium = Modelica.Media.Air.SimpleAir extends 
-          Modelica.Media.Interfaces.PartialMedium "Medium model" 
+        replaceable package Medium = Modelica.Media.Interfaces.PartialMedium 
+          "Medium model" 
            annotation (choicesAllMatching=true);
         
         parameter SI.Volume V=1e-6 "Fixed size of junction volume";
@@ -2668,8 +2668,8 @@ transport.
         parameter Medium.MassFraction X_ambient[Medium.nX] 
           "Ambient mass fractions m_i/m of reservoir";
         
-        replaceable package Medium = Modelica.Media.Air.SimpleAir extends 
-          Modelica.Media.Interfaces.PartialMedium "Medium model" 
+        replaceable package Medium = Modelica.Media.Interfaces.PartialMedium 
+          "Medium model" 
            annotation (choicesAllMatching=true);
         
         Medium.BaseProperties medium(p=port.p, X_i=X_ambient[1:Medium.nX_i]) 
@@ -2723,8 +2723,8 @@ transport.
       
       model FixedAmbient 
         "Ambient pressure, temperature and mass fraction source" 
-        replaceable package Medium = Modelica.Media.Air.SimpleAir extends 
-          Modelica.Media.Interfaces.PartialMedium "Medium model" 
+        replaceable package Medium = Modelica.Media.Interfaces.PartialMedium 
+          "Medium model" 
            annotation (choicesAllMatching=true);
         
         parameter Boolean use_p_ambient=true "select p_ambient or d_ambient" 
@@ -2803,8 +2803,8 @@ with exception of ambient pressure, do not have an effect.
       end FixedAmbient;
       
       model ShortPipe "Simple pressure loss in pipe" 
-         replaceable package Medium = Modelica.Media.Air.SimpleAir extends 
-          Modelica.Media.Interfaces.PartialMedium "Medium model" 
+         replaceable package Medium = Modelica.Media.Interfaces.PartialMedium 
+          "Medium model" 
            annotation (choicesAllMatching=true);
         
         parameter Medium.AbsolutePressure dp_nominal(min=1.e-10) 
@@ -3004,7 +3004,7 @@ The details of the pipe friction model are described
         extends Modelica.Icons.Example;
         
         replaceable package Medium = Modelica.Media.Interfaces.PartialMedium 
-          "Medium model";
+          "Medium model" annotation (choicesAllMatching=true);
         parameter SI.AbsolutePressure p_start = 1.0e5 
           "Initial value of pressure";
         parameter SI.Temperature T_start = 300 "Initial value of temperature";
@@ -3050,7 +3050,7 @@ The details of the pipe friction model are described
         extends Modelica.Icons.Example;
         
         replaceable package Medium = Modelica.Media.Interfaces.PartialMedium 
-          "Medium model";
+          "Medium model" annotation (choicesAllMatching=true);
         parameter SI.AbsolutePressure p_start = 1.0e5 
           "Initial value of pressure";
         parameter SI.Temperature T_start = 300 "Initial value of temperature";
