@@ -1,6 +1,6 @@
 package MultiPhase "Library for electrical multiphase models" 
   extends Modelica.Icons.Library;
-  annotation (version="1.0", versionDate="2004-09-13");
+  annotation (version="1.0", versionDate="2004-10-01");
   annotation (Documentation(info="<HTML>
 <p>
 This package contains packages for electrical multiphase components, based on Modelica.Electrical.Analog:
@@ -37,7 +37,7 @@ Further development:
   <dt><b>Release Notes:</b></dt>
   <dd>
   <ul>
-  <li> v1.00 2004/09/13 Anton Haumer</li>
+  <li> v1.0 2004/10/01 Anton Haumer</li>
   </ul>
   </dd>
 <p>
@@ -71,7 +71,7 @@ This package contains basic analog electrical multiphase components.
   <dt><b>Release Notes:</b></dt>
   <dd>
   <ul>
-  <li> v1.00 2004/06/25 Anton Haumer</li>
+  <li> v1.0 2004/10/01 Anton Haumer</li>
   </ul>
   </dd>
 <p>
@@ -616,7 +616,7 @@ This package contains test examples of analog electrical multiphase circuits.
   <dt><b>Release Notes:</b></dt>
   <dd>
   <ul>
-  <li> v1.00 2004/06/25 Anton Haumer</li>
+  <li> v1.0 2004/10/01 Anton Haumer</li>
   </ul>
   </dd>
 <p>
@@ -857,7 +857,7 @@ like thyristor, diode, switch, transformer.
   <dt><b>Release Notes:</b></dt>
   <dd>
   <ul>
-  <li> v1.00 2004/06/25 Anton Haumer</li>
+  <li> v1.0 2004/10/01 Anton Haumer</li>
   </ul>
   </dd>
 <p>
@@ -873,16 +873,16 @@ like thyristor, diode, switch, transformer.
     
     model IdealThyristor "Multiphase ideal thyristor" 
       extends Interfaces.TwoPlug;
-      parameter Modelica.SIunits.Resistance Roff[m](final min=zeros(m)) = fill(
+      parameter Modelica.SIunits.Resistance Ron[m](final min=zeros(m)) = fill(
         1.E-5, m) "Closed thyristor resistance";
-      parameter Modelica.SIunits.Conductance Gon[m](final min=zeros(m)) = fill(
+      parameter Modelica.SIunits.Conductance Goff[m](final min=zeros(m)) = fill(
         1.E-5, m) "Opened thyristor conductance";
       parameter Modelica.SIunits.Voltage Vknee[m](final min=zeros(m)) = zeros(m) 
         "Treshold voltage";
       Modelica.Blocks.Interfaces.BooleanInput fire[m] 
         annotation (extent=[50,90; 90,130],   rotation=-90);
-      Modelica.Electrical.Analog.Ideal.IdealThyristor idealThyristor[m](final Roff
-          =    Roff, final Gon=Gon, final Vknee=Vknee) annotation (extent=[-10, -10; 10, 10]);
+      Modelica.Electrical.Analog.Ideal.IdealThyristor idealThyristor[m](final Ron=
+               Ron, final Goff=Goff, final Vknee=Vknee) annotation (extent=[-10, -10; 10, 10]);
       annotation (
         Icon(
           Text(extent=[-150,-40; 150,-100], string="%name"),
@@ -914,16 +914,16 @@ Contains m ideal thyristors (Modelica.Electrical.Analog.Ideal.IdealThyristor).
     
     model IdealGTOThyristor "Multiphase ideal GTO thyristor" 
       extends Interfaces.TwoPlug;
-      parameter Modelica.SIunits.Resistance Roff[m](final min=zeros(m)) = fill(
+      parameter Modelica.SIunits.Resistance Ron[m](final min=zeros(m)) = fill(
         1.E-5, m) "Closed thyristor resistance";
-      parameter Modelica.SIunits.Conductance Gon[m](final min=zeros(m)) = fill(
+      parameter Modelica.SIunits.Conductance Goff[m](final min=zeros(m)) = fill(
         1.E-5, m) "Opened thyristor conductance";
       parameter Modelica.SIunits.Voltage Vknee[m](final min=zeros(m)) = zeros(m) 
         "Treshold voltage";
       Modelica.Blocks.Interfaces.BooleanInput fire[m] 
         annotation (extent=[50,90; 90,130],   rotation=-90);
       Modelica.Electrical.Analog.Ideal.IdealGTOThyristor idealGTOThyristor[m](
-          final Roff=Roff, final Gon=Gon, final Vknee=Vknee) annotation (extent=[-10, -10; 10, 10]);
+          final Ron=Ron, final Goff=Goff, final Vknee=Vknee) annotation (extent=[-10, -10; 10, 10]);
       annotation (
         Icon(
           Text(extent=[-150,-40; 150,-100], string="%name"),
@@ -1106,14 +1106,14 @@ Contains m ideal intermediate switches (Modelica.Electrical.Analog.Ideal.IdealIn
     
     model IdealDiode "Multiphase ideal diode" 
       extends Interfaces.TwoPlug;
-      parameter Modelica.SIunits.Resistance Roff[m](final min=zeros(m)) = fill(
+      parameter Modelica.SIunits.Resistance Ron[m](final min=zeros(m)) = fill(
         1.E-5, m) "Closed diode resistance";
-      parameter Modelica.SIunits.Conductance Gon[m](final min=zeros(m)) = fill(
+      parameter Modelica.SIunits.Conductance Goff[m](final min=zeros(m)) = fill(
         1.E-5, m) "Opened diode conductance";
       parameter Modelica.SIunits.Voltage Vknee[m](final min=zeros(m)) = zeros(m) 
         "Treshold voltage";
-      Modelica.Electrical.Analog.Ideal.IdealDiode idealDiode[m](final Roff=Roff,
-           final Gon=Gon, final Vknee=Vknee) annotation (extent=[-10, -10; 10, 10]);
+      Modelica.Electrical.Analog.Ideal.IdealDiode idealDiode[m](final Roff=Ron,
+           final Gon=Goff, final Vknee=Vknee) annotation (extent=[-10, -10; 10, 10]);
       annotation (
         Icon(
           Text(extent=[-150,-40; 150,-100], string="%name"),
@@ -1368,7 +1368,7 @@ electrical multiphase components, based on Modelica.Electrical.Analog.
   <dt><b>Release Notes:</b></dt>
   <dd>
   <ul>
-  <li> v1.00 2004/06/25 Anton Haumer</li>
+  <li> v1.0 2004/10/01 Anton Haumer</li>
   </ul>
   </dd>
 <p>
@@ -1542,7 +1542,7 @@ This package contains multiphase potential, voltage, and current sensors.
   <dt><b>Release Notes:</b></dt>
   <dd>
   <ul>
-  <li> v1.00 2004/06/25 Anton Haumer</li>
+  <li> v1.0 2004/10/01 Anton Haumer</li>
   </ul>
   </dd>
 <p>
@@ -1731,7 +1731,7 @@ This package contains time-dependend and controlled multiphase voltage and curre
   <dt><b>Release Notes:</b></dt>
   <dd>
   <ul>
-  <li> v1.00 2004/06/25 Anton Haumer</li>
+  <li> v1.0 2004/10/01 Anton Haumer</li>
   </ul>
   </dd>
 <p>

@@ -1,20 +1,17 @@
-package Machines 
-  "Library for electric machines (asynchronous, synchronous, DC machines)" 
+package Machines "Library for electric machines" 
   extends Modelica.Icons.Library;
-  import Modelica.Electrical.MultiPhase;
-  annotation (  preferedView="info",
-  version="1.03", versionDate="2004-09-24",
+  annotation (
+  version="1.1", versionDate="2004-10-01",
   Settings(NewStateSelection=true, Evaluate=true),
   Documentation(info="<HTML>
 <p>
 This package contains components to model electrical machines:
 <ul>
 <li>Examples: test examples</li>
-<li>Auxiliary: auxiliary components for testing examples</li>
+<li>BasicMachines: basic machine models</li>
 <li>Sensors: sensors, usefull when modelling machines</li>
-<li>Interfaces: Space phasor connector and partial machine models</li>
-<li>Basic: machine models</li>
 <li>SpacePhasors: an independent library for using space phasors</li>
+<li>Interfaces: Space phasor connector and partial machine models</li>
 </ul>
 </p>
 <p>
@@ -54,7 +51,8 @@ You may have a look at a short summary of space phasor theory at <a href=\"http:
   <dt><b>Release Notes:</b></dt>
   <dd>
   <ul>
-  <li> v1.00 2004/09/16 Anton Haumer</li>
+  <li> v1.00 2004/09/16 Anton Haumer<br>
+       first stable release</li>
   <li> v1.01 2004/09/18 Anton Haumer<br>
        moved common equations from machine models to PartialMachine<br>
        improved MoveToRotational</li>
@@ -65,6 +63,9 @@ You may have a look at a short summary of space phasor theory at <a href=\"http:
        added package Sensors<br>
        added DC machine with series excitation<br>
        debugged and improved MoveToRotational</li>
+  <li> v1.1  2004/10/01 Anton Haumer<br>
+       changed naming and structure<br>
+       issued to Modelica Standard Library 2.1</li>
   </ul>
   </dd>
 </p>
@@ -83,7 +84,8 @@ You may have a look at a short summary of space phasor theory at <a href=\"http:
     extends Modelica.Icons.Library;
     annotation (Documentation(info="<HTML>
 <p>
-This package contains test examples of electric machines.
+This package contains test examples of electric machines,<br>
+and a package utilities with components used for the examples.
 </p>
 <dl>
 <p>
@@ -107,6 +109,9 @@ This package contains test examples of electric machines.
   <li> v1.03 2004/09/24 Anton Haumer<br>
        usage of Sensors.CurrentRMSsensor<br>
        added example for DC machine with series excitation</li>
+  <li> v1.1  2004/10/01 Anton Haumer<br>
+       changed naming and structure<br>
+       issued to Modelica Standard Library 2.1</li>
   </ul>
   </dd>
 </p>
@@ -149,36 +154,36 @@ Simulate for 1.5 seconds and plot (versus time):
 <li>AIMC1.rpm_mechanical: motor's speed</li>
 <li>AIMC1.tau_electrical: motor's torque</li>
 </ul>
-Default machine parameters of model <i>AsynchronousInductionMachineSquirrelCage</i> are used.
+Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
 </p>
 </HTML>"));
-      MultiPhase.Sources.SineVoltage SineVoltage1(
+      Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage 
+        AIMC1 
+        annotation (extent=[-20,-50; 0,-30],     rotation=0);
+      Machines.Sensors.CurrentRMSsensor CurrentRMSsensor1 
+        annotation (extent=[10,-20; -10,0], rotation=-90);
+      Modelica.Electrical.MultiPhase.Sources.SineVoltage SineVoltage1(
         final m=m,
         freqHz=fill(fNominal, m),
         V=fill(sqrt(2/3)*VNominal, m)) 
         annotation (extent=[10,70; -10,50],    rotation=-90);
-      MultiPhase.Basic.Star Star1(final m=m) 
+      Modelica.Electrical.MultiPhase.Basic.Star Star1(final m=m) 
         annotation (extent=[-50, 80; -70, 100]);
       Modelica.Electrical.Analog.Basic.Ground Ground1 
         annotation (extent=[-100, 80; -80, 100], rotation=-90);
       Modelica.Blocks.Sources.BooleanStep BooleanStep1[m](each startTime=tStart1) 
         annotation (extent=[-80,30; -60,50]);
-      MultiPhase.Ideal.IdealClosingSwitch IdealCloser1(final m=m) 
+      Modelica.Electrical.MultiPhase.Ideal.IdealClosingSwitch IdealCloser1(final m=m) 
         annotation (extent=[10,20; -10,40],    rotation=-90);
-      MultiPhase.Basic.Delta Delta1(final m=m) 
+      Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m) 
         annotation (extent=[0,0; -20,20]);
-      Machines.Basic.AsynchronousInductionMachines.AsynchronousInductionMachineSquirrelCage
-        AIMC1 
-        annotation (extent=[-20,-50; 0,-30],     rotation=0);
       Modelica.Mechanics.Rotational.Inertia LoadInertia(J=J_Load) 
         annotation (extent=[40,-50; 60,-30]);
       Modelica.Mechanics.Rotational.QuadraticSpeedDependentTorque 
         QuadraticLoadTorque1(
                     w_nominal=Modelica.SIunits.Conversions.from_rpm(rpmLoad),
           tau_nominal=-T_Load) 
-        annotation (extent=[70,-50; 90,-30]);
-      Sensors.CurrentRMSsensor CurrentRMSsensor1 
-        annotation (extent=[10,-20; -10,0], rotation=-90);
+        annotation (extent=[90,-50; 70,-30]);
     equation 
       connect(Star1.pin_n, Ground1.p) 
         annotation (points=[-70, 90; -80, 90], style(color=3));
@@ -186,7 +191,7 @@ Default machine parameters of model <i>AsynchronousInductionMachineSquirrelCage<
         annotation (points=[-6.12303e-016,70; -6.12303e-016,90; -50,90],
                                                         style(color=3));
       connect(SineVoltage1.plug_p, IdealCloser1.plug_p) 
-        annotation (points=[6.12303e-016,50; 0,48; 1.22461e-015,46;
+        annotation (points=[6.12303e-016,50; 0,48; 1.22461e-015,46; 
             6.12303e-016,46; 6.12303e-016,40], style(color=3));
       connect(IdealCloser1.plug_n, Delta1.plug_p) annotation (points=[
             -6.12303e-016,20; -6.12303e-016,16; 0,16; 0,10],
@@ -206,7 +211,7 @@ Default machine parameters of model <i>AsynchronousInductionMachineSquirrelCage<
       connect(BooleanStep1.y, IdealCloser1.control) annotation (points=[-59,40;
             -20,40; -20,30; -7,30],
                      style(color=5, rgbcolor={255,0,255}));
-      connect(Delta1.plug_p, CurrentRMSsensor1.plug_p) annotation (points=[0,10;
+      connect(Delta1.plug_p, CurrentRMSsensor1.plug_p) annotation (points=[0,10; 
             0,0; 6.12303e-016,0], style(color=3, rgbcolor={0,0,255}));
       connect(CurrentRMSsensor1.plug_n, AIMC1.plug_sp) annotation (points=[
             -6.12303e-016,-20; 0,-20; 0,-30; -4,-30], style(color=3, rgbcolor={
@@ -241,26 +246,29 @@ Simulate for 2.5 seconds and plot (versus time):
 <li>AIMC1.rpm_mechanical: motor's speed</li>
 <li>AIMC1.tau_electrical: motor's torque</li>
 </ul>
-Default machine parameters of model <i>AsynchronousInductionMachineSquirrelCage</i> are used.
+Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
 </p>
 </HTML>"));
-      MultiPhase.Sources.SineVoltage SineVoltage1(
+      Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage 
+        AIMC1 
+        annotation (extent=[-20,-50; 0,-30],     rotation=0);
+      Machines.Sensors.CurrentRMSsensor CurrentRMSsensor1 
+        annotation (extent=[10,-20; -10,0], rotation=-90);
+      Modelica.Electrical.MultiPhase.Sources.SineVoltage SineVoltage1(
         final m=m,
         freqHz=fill(fNominal, m),
         V=fill(sqrt(2/3)*VNominal, m)) 
         annotation (extent=[10,70; -10,50],    rotation=-90);
-      MultiPhase.Basic.Star Star1(final m=m) 
+      Modelica.Electrical.MultiPhase.Basic.Star Star1(final m=m) 
         annotation (extent=[-50, 80; -70, 100]);
       Modelica.Electrical.Analog.Basic.Ground Ground1 
         annotation (extent=[-100, 80; -80, 100], rotation=-90);
       Modelica.Blocks.Sources.BooleanStep BooleanStep1[m](each startTime=tStart1) 
         annotation (extent=[-80, 30; -60, 50]);
-      MultiPhase.Ideal.IdealClosingSwitch IdealCloser1(final m=m) 
+      Modelica.Electrical.MultiPhase.Ideal.IdealClosingSwitch IdealCloser1(final m=m) 
         annotation (extent=[10,20; -10,40],    rotation=-90);
-      Machines.Basic.AsynchronousInductionMachines.AsynchronousInductionMachineSquirrelCage
-        AIMC1 
-        annotation (extent=[-20,-50; 0,-30],     rotation=0);
-      Auxiliary.SwitchYD SwitchYD1 annotation (extent=[-20,0; 0,20]);
+      Machines.Examples.Utilities.SwitchYD SwitchYD1 
+                                            annotation (extent=[-20,0; 0,20]);
       Modelica.Blocks.Sources.BooleanStep BooleanStep2[m](each startTime=tStart2) 
         annotation (extent=[-80, 0; -60, 20]);
       Modelica.Mechanics.Rotational.Inertia LoadInertia(J=J_Load) 
@@ -269,9 +277,7 @@ Default machine parameters of model <i>AsynchronousInductionMachineSquirrelCage<
         QuadraticLoadTorque1(
                     w_nominal=Modelica.SIunits.Conversions.from_rpm(rpmLoad),
           tau_nominal=-T_Load) 
-        annotation (extent=[70,-50; 90,-30]);
-      Sensors.CurrentRMSsensor CurrentRMSsensor1 
-        annotation (extent=[10,-20; -10,0], rotation=-90);
+        annotation (extent=[90,-50; 70,-30]);
     equation 
       connect(Star1.pin_n, Ground1.p) 
         annotation (points=[-70, 90; -80, 90], style(color=3));
@@ -279,7 +285,7 @@ Default machine parameters of model <i>AsynchronousInductionMachineSquirrelCage<
         annotation (points=[-6.12303e-016,70; -6.12303e-016,90; -50,90],
                                                         style(color=3));
       connect(SineVoltage1.plug_p, IdealCloser1.plug_p) 
-        annotation (points=[6.12303e-016,50; 0,48; 1.22461e-015,46;
+        annotation (points=[6.12303e-016,50; 0,48; 1.22461e-015,46; 
             6.12303e-016,46; 6.12303e-016,40], style(color=3));
       connect(IdealCloser1.plug_n, SwitchYD1.plug_P) annotation (points=[
             -6.12303e-016,20; 0,20],
@@ -343,36 +349,38 @@ Simulate for 1.5 seconds and plot (versus time):
 <li>AIMS1.rpm_mechanical: motor's speed</li>
 <li>AIMS1.tau_electrical: motor's torque</li>
 </ul>
-Default machine parameters of model <i>AsynchronousInductionMachineSlipRing</i> are used.
+Default machine parameters of model <i>AIM_SlipRing</i> are used.
 </p>
 </HTML>"));
-      MultiPhase.Sources.SineVoltage SineVoltage1(
+      Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing AIMS1 
+        annotation (extent=[-20,-50; 0,-30],     rotation=0);
+      Machines.Sensors.CurrentRMSsensor CurrentRMSsensor1 
+        annotation (extent=[10,-20; -10,0], rotation=-90);
+      Modelica.Electrical.MultiPhase.Sources.SineVoltage SineVoltage1(
         final m=m,
         freqHz=fill(fNominal, m),
         V=fill(sqrt(2/3)*VNominal, m)) 
         annotation (extent=[10,70; -10,50],    rotation=-90);
-      MultiPhase.Basic.Star Star1(final m=m) 
+      Modelica.Electrical.MultiPhase.Basic.Star Star1(final m=m) 
         annotation (extent=[-50, 80; -70, 100]);
       Modelica.Electrical.Analog.Basic.Ground Ground1 
         annotation (extent=[-100, 80; -80, 100], rotation=-90);
       Modelica.Blocks.Sources.BooleanStep BooleanStep1[m](each startTime=tStart1) 
         annotation (extent=[-80,30; -60,50]);
-      MultiPhase.Ideal.IdealClosingSwitch IdealCloser1(final m=m) 
+      Modelica.Electrical.MultiPhase.Ideal.IdealClosingSwitch IdealCloser1(final m=m) 
         annotation (extent=[10,20; -10,40],    rotation=-90);
-      MultiPhase.Basic.Delta Delta1(final m=m) 
+      Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m) 
         annotation (extent=[0,0; -20,20]);
-      Machines.Basic.AsynchronousInductionMachines.AsynchronousInductionMachineSlipRing
-        AIMS1 
-        annotation (extent=[-20,-50; 0,-30],     rotation=0);
-      MultiPhase.Basic.Star Star3(final m=m) 
+      Modelica.Electrical.MultiPhase.Basic.Star Star3(final m=m) 
         annotation (extent=[-50,-100; -70,-80]);
       Modelica.Electrical.Analog.Basic.Ground Ground3 
         annotation (extent=[-100,-100; -80,-80],  rotation=-90);
-      MultiPhase.Ideal.IdealCommutingSwitch IdealCommutingSwitch1(m=m) 
+      Modelica.Electrical.MultiPhase.Ideal.IdealCommutingSwitch 
+        IdealCommutingSwitch1(                                                        m=m) 
         annotation (extent=[-30,-50; -50,-30],   rotation=-90);
-      MultiPhase.Basic.Resistor Resistor1(m=m, R=fill(Rstart, m)) 
+      Modelica.Electrical.MultiPhase.Basic.Resistor Resistor1(m=m, R=fill(Rstart, m)) 
         annotation (extent=[-50,-80; -70,-60]);
-      MultiPhase.Basic.Star Star4(final m=m) 
+      Modelica.Electrical.MultiPhase.Basic.Star Star4(final m=m) 
         annotation (extent=[-80,-80; -100,-60]);
       Modelica.Blocks.Sources.BooleanStep BooleanStep2[m](each startTime=tStart2) 
         annotation (extent=[-80,-50; -60,-30]);
@@ -382,9 +390,7 @@ Default machine parameters of model <i>AsynchronousInductionMachineSlipRing</i> 
         QuadraticLoadTorque1(
                     w_nominal=Modelica.SIunits.Conversions.from_rpm(rpmLoad),
           tau_nominal=-T_Load) 
-        annotation (extent=[70,-50; 90,-30]);
-      Sensors.CurrentRMSsensor CurrentRMSsensor1 
-        annotation (extent=[10,-20; -10,0], rotation=-90);
+        annotation (extent=[90,-50; 70,-30]);
     equation 
       connect(Star1.pin_n, Ground1.p) 
         annotation (points=[-70, 90; -80, 90], style(color=3));
@@ -392,7 +398,7 @@ Default machine parameters of model <i>AsynchronousInductionMachineSlipRing</i> 
         annotation (points=[-6.12303e-016,70; -6.12303e-016,90; -50,90],
                                                         style(color=3));
       connect(SineVoltage1.plug_p, IdealCloser1.plug_p) 
-        annotation (points=[6.12303e-016,50; 0,48; 1.22461e-015,46;
+        annotation (points=[6.12303e-016,50; 0,48; 1.22461e-015,46; 
             6.12303e-016,46; 6.12303e-016,40], style(color=3));
       connect(Star3.pin_n, Ground3.p) 
         annotation (points=[-70,-90; -80,-90],   style(color=3));
@@ -433,14 +439,13 @@ Default machine parameters of model <i>AsynchronousInductionMachineSlipRing</i> 
       connect(BooleanStep1.y, IdealCloser1.control) annotation (points=[-59,40;
             -20,40; -20,30; -7,30],
                     style(color=5, rgbcolor={255,0,255}));
-      connect(BooleanStep2.y, IdealCommutingSwitch1.control) 
-                                                         annotation (points=[
-            -59,-40; -48,-40], style(color=5, rgbcolor={255,0,255}));
-      connect(Delta1.plug_p, CurrentRMSsensor1.plug_p) annotation (points=[0,10;
+      connect(Delta1.plug_p, CurrentRMSsensor1.plug_p) annotation (points=[0,10; 
             0,0; 6.12303e-016,0], style(color=3, rgbcolor={0,0,255}));
       connect(CurrentRMSsensor1.plug_n, AIMS1.plug_sp) annotation (points=[
             -6.12303e-016,-20; 0,-20; 0,-30; -4,-30], style(color=3, rgbcolor={
               0,0,255}));
+      connect(BooleanStep2.y, IdealCommutingSwitch1.control) annotation (points
+          =[-59,-40; -48,-40], style(color=5, rgbcolor={255,0,255}));
     end AIMS_start;
     
     model AIMC_Inverter 
@@ -472,33 +477,33 @@ Simulate for 1.5 seconds and plot (versus time):
 <li>AIMC1.rpm_mechanical: motor's speed</li>
 <li>AIMC1.tau_electrical: motor's torque</li>
 </ul>
-Default machine parameters of model <i>AsynchronousInductionMachineSquirrelCage</i> are used.
+Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
 </p>
 </HTML>"));
+      Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage 
+        AIMC1 
+        annotation (extent=[-20,-50; 0,-30],     rotation=0);
+      Machines.Sensors.CurrentRMSsensor CurrentRMSsensor1 
+        annotation (extent=[10,-20; -10,0], rotation=-90);
       Modelica.Blocks.Sources.Ramp Ramp1(height=f, duration=tRamp) 
         annotation (extent=[-80,50; -60,70]);
-      Auxiliary.VfController VfController1(
+      Machines.Examples.Utilities.VfController VfController1(
         final m=m,
         VNominal=VNominal,
         fNominal=fNominal) annotation (extent=[-40,50; -20,70]);
-      MultiPhase.Sources.SignalVoltage SignalVoltage1(final m=m) 
+      Modelica.Electrical.MultiPhase.Sources.SignalVoltage SignalVoltage1(final m=m) 
         annotation (extent=[10,70; -10,50],    rotation=-90);
-      MultiPhase.Basic.Star Star1(final m=m) 
+      Modelica.Electrical.MultiPhase.Basic.Star Star1(final m=m) 
         annotation (extent=[-50, 80; -70, 100]);
       Modelica.Electrical.Analog.Basic.Ground Ground1 
         annotation (extent=[-100, 80; -80, 100], rotation=-90);
-      Machines.Basic.AsynchronousInductionMachines.AsynchronousInductionMachineSquirrelCage
-        AIMC1 
-        annotation (extent=[-20,-50; 0,-30],     rotation=0);
-      MultiPhase.Basic.Star Star2(final m=m) 
+      Modelica.Electrical.MultiPhase.Basic.Star Star2(final m=m) 
         annotation (extent=[-50,-40; -70,-20]);
       Modelica.Mechanics.Rotational.Inertia LoadInertia(J=J_Load) 
         annotation (extent=[40,-50; 60,-30]);
       Modelica.Mechanics.Rotational.TorqueStep TorqueStep1(startTime=tStep, stepTorque
-          =                                                                            -
-            T_Load) annotation (extent=[70,-50; 90,-30]);
-      Sensors.CurrentRMSsensor CurrentRMSsensor1 
-        annotation (extent=[10,-20; -10,0], rotation=-90);
+          =                                                                            -T_Load) 
+                    annotation (extent=[90,-50; 70,-30]);
     equation 
       connect(SignalVoltage1.plug_n, Star1.plug_p) 
         annotation (points=[-6.12303e-016,70; -6.12303e-016,90; -50,90],
@@ -554,41 +559,37 @@ Simulate for 1.5 seconds and plot (versus time):
 <li>CurrentRMSsensor1.I: stator current RMS</li>
 <li>AIMR1.rpm_mechanical: motor's speed</li>
 <li>AIMR1.tau_electrical: motor's torque</li>
-<li>RotorAngle.y: rotor angle</li>
+<li>RotorAngle.rotorAngle: rotor angle</li>
 </ul>
-Default machine parameters of model <i>AsynchronousInductionMachineReluctanceRotor</i> are used.
+Default machine parameters of model <i>AIM_ReluctanceRotor</i> are used.
 </p>
 </HTML>"));
+      Machines.BasicMachines.AsynchronousInductionMachines.AIM_ReluctanceRotor 
+        AIMR1 
+        annotation (extent=[-20,-50; 0,-30]);
+      Machines.Sensors.CurrentRMSsensor CurrentRMSsensor1 
+        annotation (extent=[10,20; -10,40], rotation=-90);
+      Machines.Sensors.RotorAngle RotorAngle1(p=p) 
+        annotation (extent=[0,-20; -20,0], rotation=90);
       Modelica.Blocks.Sources.Ramp Ramp1(height=f, duration=tRamp) 
         annotation (extent=[-80,50; -60,70]);
-      Auxiliary.VfController VfController1(
+      Machines.Examples.Utilities.VfController VfController1(
         final m=m,
         VNominal=VNominal,
         fNominal=fNominal) annotation (extent=[-40,50; -20,70]);
-      MultiPhase.Sources.SignalVoltage SignalVoltage1(final m=m) 
+      Modelica.Electrical.MultiPhase.Sources.SignalVoltage SignalVoltage1(final m=m) 
         annotation (extent=[10,70; -10,50],    rotation=-90);
-      MultiPhase.Basic.Star Star1(final m=m) 
+      Modelica.Electrical.MultiPhase.Basic.Star Star1(final m=m) 
         annotation (extent=[-50, 80; -70, 100]);
       Modelica.Electrical.Analog.Basic.Ground Ground1 
         annotation (extent=[-100, 80; -80, 100], rotation=-90);
-      Machines.Basic.AsynchronousInductionMachines.AsynchronousInductionMachineReluctanceRotor
-        AIMR1 
-        annotation (extent=[-20,-50; 0,-30]);
-      MultiPhase.Basic.Star Star2(final m=m) 
+      Modelica.Electrical.MultiPhase.Basic.Star Star2(final m=m) 
         annotation (extent=[-50,-40; -70,-20]);
-      Sensors.RotorAngle RotorAngle1(p=p) 
-        annotation (extent=[10,20; 30,40]);
-      MultiPhase.Sensors.VoltageSensor VoltageSensor1 
-        annotation (extent=[0,20; -20,0]);
-      Modelica.Mechanics.Rotational.Sensors.AngleSensor AngleSensor1 
-        annotation (extent=[30,-40; 10,-20],  rotation=90);
       Modelica.Mechanics.Rotational.Inertia LoadInertia(J=J_Load) 
         annotation (extent=[40,-50; 60,-30]);
       Modelica.Mechanics.Rotational.TorqueStep TorqueStep1(startTime=tStep, stepTorque
-          =                                                                            -
-            T_Load) annotation (extent=[70,-50; 90,-30]);
-      Sensors.CurrentRMSsensor CurrentRMSsensor1 
-        annotation (extent=[10,-20; -10,0], rotation=-90);
+          =                                                                            -T_Load) 
+                    annotation (extent=[90,-50; 70,-30]);
     equation 
       connect(SignalVoltage1.plug_n, Star1.plug_p) 
         annotation (points=[-6.12303e-016,70; -6.12303e-016,90; -50,90],
@@ -602,43 +603,27 @@ Default machine parameters of model <i>AsynchronousInductionMachineReluctanceRot
           fillColor=7,
           rgbfillColor={255,255,255},
           fillPattern=1));
-      connect(AIMR1.plug_sn, VoltageSensor1.plug_n) annotation (points=[-16,-30;
-            -20,-30; -20,10],
-                      style(
-          color=3,
-          rgbcolor={0,0,255},
-          fillColor=7,
-          rgbfillColor={255,255,255},
-          fillPattern=1));
-      connect(AIMR1.flange_a, AngleSensor1.flange_a) annotation (points=[0,-40;
-            20,-40],                 style(
-          color=0,
-          rgbcolor={0,0,0},
-          fillColor=7,
-          rgbfillColor={255,255,255},
-          fillPattern=1));
       connect(AIMR1.flange_a, LoadInertia.flange_a) annotation (points=[0,-40;
             40,-40], style(color=0, rgbcolor={0,0,0}));
       connect(Ramp1.y, VfController1.u) 
         annotation (points=[-59,60; -42,60], style(color=3, rgbcolor={0,0,255}));
       connect(VfController1.y, SignalVoltage1.v) 
         annotation (points=[-19,60; -7,60],  style(color=3, rgbcolor={0,0,255}));
-      connect(VoltageSensor1.v, RotorAngle1.u) annotation (points=[-10,21; -10,
-            30; 8,30],
-                     style(color=3, rgbcolor={0,0,255}));
-      connect(AngleSensor1.phi, RotorAngle1.angle) annotation (points=[20,-19;
-            20,20],                                           style(color=3,
-            rgbcolor={0,0,255}));
       connect(LoadInertia.flange_b, TorqueStep1.flange) 
         annotation (points=[60,-40; 70,-40], style(color=0, rgbcolor={0,0,0}));
-      connect(SignalVoltage1.plug_p, VoltageSensor1.plug_p) annotation (points=[
-            6.12303e-016,50; 6.12303e-016,31; 0,31; 0,10], style(color=3,
-            rgbcolor={0,0,255}));
-      connect(VoltageSensor1.plug_p, CurrentRMSsensor1.plug_p) annotation (
-          points=[0,10; 0,0; 6.12303e-016,0], style(color=3, rgbcolor={0,0,255}));
       connect(CurrentRMSsensor1.plug_n, AIMR1.plug_sp) annotation (points=[
-            -6.12303e-016,-20; 0,-20; 0,-30; -4,-30], style(color=3, rgbcolor={
+            -6.12303e-016,20; 10,20; 10,-30; -4,-30], style(color=3, rgbcolor={
               0,0,255}));
+      connect(CurrentRMSsensor1.plug_p, SignalVoltage1.plug_p) annotation (
+          points=[6.12303e-016,40; 6.12303e-016,42.5; 6.12303e-016,42.5; 
+            6.12303e-016,45; 6.12303e-016,50; 6.12303e-016,50], style(color=3,
+            rgbcolor={0,0,255}));
+      connect(AIMR1.plug_sn, RotorAngle1.plug_n) annotation (points=[-16,-30;
+            -16,-20], style(color=3, rgbcolor={0,0,255}));
+      connect(AIMR1.plug_sp, RotorAngle1.plug_p) annotation (points=[-4,-30; -4,
+            -25; -4,-20; -4,-20], style(color=3, rgbcolor={0,0,255}));
+      connect(AIMR1.flange_a, RotorAngle1.flange) 
+        annotation (points=[0,-40; 0,-10], style(color=0, rgbcolor={0,0,0}));
     end AIMR_Inverter;
     
     model PMSMD_Inverter "Test example 6: PMSMD with inverter" 
@@ -669,93 +654,70 @@ Simulate for 1.5 seconds and plot (versus time):
 <li>CurrentRMSsensor1.I: stator current RMS</li>
 <li>PMSMD1.rpm_mechanical: motor's speed</li>
 <li>PMSMD1.tau_electrical: motor's torque</li>
-<li>RotorAngle.y: rotor angle</li>
+<li>RotorAngle.rotorAngle: rotor angle</li>
 </ul>
-Default machine parameters of model <i>PermanentMagnetSynchronousMachineDamperCage</i> are used.
+Default machine parameters of model <i>SM_PermanentMagnetDamperCage</i> are used.
 </p>
 <p>
 <b>In practice it is nearly impossible to drive a PMSMD without current controller.</b>
 </p>
 </HTML>"));
+      Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnetDamperCage
+        SMPMD1 
+        annotation (extent=[-20,-50; 0,-30],     rotation=0);
+      Machines.Sensors.CurrentRMSsensor CurrentRMSsensor1 
+        annotation (extent=[10,20; -10,40], rotation=-90);
+      Machines.Sensors.RotorAngle RotorAngle1(p=p) 
+        annotation (extent=[-20,0; 0,-20], rotation=-90);
       Modelica.Blocks.Sources.Ramp Ramp1(height=f, duration=tRamp) 
         annotation (extent=[-80,50; -60,70]);
-      Auxiliary.VfController VfController1(
+      Machines.Examples.Utilities.VfController VfController1(
         final m=m,
         VNominal=VNominal,
         fNominal=fNominal,
         BasePhase=+Modelica.Constants.pi/2) 
         annotation (extent=[-40,50; -20,70]);
-      MultiPhase.Sources.SignalVoltage SignalVoltage1(final m=m) 
+      Modelica.Electrical.MultiPhase.Sources.SignalVoltage SignalVoltage1(final m=m) 
         annotation (extent=[10,70; -10,50],    rotation=-90);
-      MultiPhase.Basic.Star Star1(final m=m) 
+      Modelica.Electrical.MultiPhase.Basic.Star Star1(final m=m) 
         annotation (extent=[-50, 80; -70, 100]);
       Modelica.Electrical.Analog.Basic.Ground Ground1 
         annotation (extent=[-100, 80; -80, 100], rotation=-90);
-      Machines.Basic.SynchronousInductionMachines.PermanentMagnetSynchronousMachineDamperCage
-        PMSMD1 
-        annotation (extent=[-20,-50; 0,-30],     rotation=0);
-      MultiPhase.Basic.Star Star2(final m=m) 
+      Modelica.Electrical.MultiPhase.Basic.Star Star2(final m=m) 
         annotation (extent=[-50,-40; -70,-20]);
-      Sensors.RotorAngle RotorAngle1(p=p) 
-        annotation (extent=[10,20; 30,40]);
-      MultiPhase.Sensors.VoltageSensor VoltageSensor1 
-        annotation (extent=[0,20; -20,0]);
-      Modelica.Mechanics.Rotational.Sensors.AngleSensor AngleSensor1 
-        annotation (extent=[30,-40; 10,-20],  rotation=90);
       Modelica.Mechanics.Rotational.Inertia LoadInertia(J=J_Load) 
         annotation (extent=[40,-50; 60,-30]);
       Modelica.Mechanics.Rotational.TorqueStep TorqueStep1(startTime=tStep, stepTorque
           =                                                                            -
-            T_Load) annotation (extent=[70,-50; 90,-30]);
-      Sensors.CurrentRMSsensor CurrentRMSsensor1 
-        annotation (extent=[10,-20; -10,0], rotation=-90);
+            T_Load) annotation (extent=[90,-50; 70,-30]);
     equation 
       connect(SignalVoltage1.plug_n, Star1.plug_p) 
         annotation (points=[-6.12303e-016,70; -6.12303e-016,90; -50,90],
                                                         style(color=3));
       connect(Star1.pin_n, Ground1.p) 
         annotation (points=[-70, 90; -80, 90], style(color=3));
-      connect(PMSMD1.plug_sn, Star2.plug_p) annotation (points=[-16,-30; -50,
-            -30],
-           style(color=3, rgbcolor={0,0,255}));
-      connect(VoltageSensor1.plug_n, PMSMD1.plug_sn) annotation (points=[-20,10;
-            -20,-30; -16,-30],
-                        style(
-          color=3,
-          rgbcolor={0,0,255},
-          fillColor=7,
-          rgbfillColor={255,255,255},
-          fillPattern=1));
-      connect(PMSMD1.flange_a, AngleSensor1.flange_a) annotation (points=[0,-40;
-            20,-40],                 style(
-          color=0,
-          rgbcolor={0,0,0},
-          fillColor=7,
-          rgbfillColor={255,255,255},
-          fillPattern=1));
-      connect(PMSMD1.flange_a, LoadInertia.flange_a) annotation (points=[0,-40;
-            40,-40], style(color=0, rgbcolor={0,0,0}));
       connect(Ramp1.y, VfController1.u) 
         annotation (points=[-59,60; -42,60], style(color=3, rgbcolor={0,0,255}));
       connect(VfController1.y, SignalVoltage1.v) 
         annotation (points=[-19,60; -7,60],  style(color=3, rgbcolor={0,0,255}));
-      connect(VoltageSensor1.v, RotorAngle1.u) annotation (points=[-10,21; -10,
-            30; 8,30],
-                     style(color=3, rgbcolor={0,0,255}));
-      connect(AngleSensor1.phi, RotorAngle1.angle) annotation (points=[20,-19;
-            20,20],                                           style(color=3,
-            rgbcolor={0,0,255}));
       connect(LoadInertia.flange_b, TorqueStep1.flange) 
         annotation (points=[60,-40; 70,-40], style(color=0, rgbcolor={0,0,0}));
-      connect(SignalVoltage1.plug_p, VoltageSensor1.plug_p) annotation (points=[
-            6.12303e-016,50; 6.12303e-016,30; 0,30; 0,10], style(color=3,
+      connect(SignalVoltage1.plug_p, CurrentRMSsensor1.plug_p) annotation (points=[
+            6.12303e-016,50; 0,50; 0,40; 6.12303e-016,40], style(color=3,
             rgbcolor={0,0,255}));
-      connect(VoltageSensor1.plug_p, CurrentRMSsensor1.plug_p) annotation (
-          points=[0,10; 0,5; 0,0; 6.12303e-016,0], style(color=3, rgbcolor={0,0,
-              255}));
-      connect(PMSMD1.plug_sp, CurrentRMSsensor1.plug_n) annotation (points=[-4,
-            -30; -6.12303e-016,-30; -6.12303e-016,-20], style(color=3, rgbcolor=
-             {0,0,255}));
+      connect(RotorAngle1.plug_n, SMPMD1.plug_sn) annotation (points=[-16,-20;
+            -16,-30], style(color=3, rgbcolor={0,0,255}));
+      connect(RotorAngle1.plug_p, SMPMD1.plug_sp) annotation (points=[-4,-20; 
+            -4,-25; -4,-25; -4,-30], style(color=3, rgbcolor={0,0,255}));
+      connect(RotorAngle1.flange, SMPMD1.flange_a) 
+        annotation (points=[0,-10; 0,-40], style(color=0, rgbcolor={0,0,0}));
+      connect(CurrentRMSsensor1.plug_n, SMPMD1.plug_sp) annotation (points=[
+            -6.12303e-016,20; 10,20; 10,-30; -4,-30], style(color=3, rgbcolor={
+              0,0,255}));
+      connect(Star2.plug_p, SMPMD1.plug_sn) annotation (points=[-50,-30; -16,
+            -30], style(color=3, rgbcolor={0,0,255}));
+      connect(SMPMD1.flange_a, LoadInertia.flange_a) 
+        annotation (points=[0,-40; 40,-40], style(color=0, rgbcolor={0,0,0}));
     end PMSMD_Inverter;
     
     model DCPM_start "Test example 8: DCPM starting with voltage ramp" 
@@ -782,23 +744,23 @@ Simulate for 2 seconds and plot (versus time):
 <li>DCPM1.rpm_mechanical: motor's speed</li>
 <li>DCPM1.tau_electrical: motor's torque</li>
 </ul>
-Default machine parameters of model <i>DCMachinePermanentMagnet</i> are used.
+Default machine parameters of model <i>DC_PermanentMagnet</i> are used.
 </p>
 </HTML>"));
+      Machines.BasicMachines.DCMachines.DC_PermanentMagnet DCPM1 
+        annotation (extent=[-20,-50; 0,-30]);
       Modelica.Blocks.Sources.Ramp Ramp1(duration=tRamp, height=Va,
         startTime=tStart) 
         annotation (extent=[-80,60; -60,80]);
-      Modelica.Mechanics.Rotational.Inertia LoadInertia(J=J_Load) 
-        annotation (extent=[40,-50; 60,-30]);
-      Machines.Basic.DCMachines.DCMachinePermanentMagnet DCPM1 
-        annotation (extent=[-20,-50; 0,-30]);
       Modelica.Electrical.Analog.Sources.SignalVoltage SignalVoltage1 
         annotation (extent=[0,30; -20,50],   rotation=0);
       Modelica.Electrical.Analog.Basic.Ground Ground1 
         annotation (extent=[-80,30; -60,50],  rotation=-90);
+      Modelica.Mechanics.Rotational.Inertia LoadInertia(J=J_Load) 
+        annotation (extent=[40,-50; 60,-30]);
       Modelica.Mechanics.Rotational.TorqueStep TorqueStep1(startTime=tStep, stepTorque
           =                                                                            -
-            T_Load) annotation (extent=[70,-50; 90,-30]);
+            T_Load) annotation (extent=[90,-50; 70,-30]);
     equation 
       connect(DCPM1.flange_a, LoadInertia.flange_a) annotation (points=[0,-40;
             40,-40], style(color=0, rgbcolor={0,0,0}));
@@ -841,27 +803,27 @@ Simulate for 2 seconds and plot (versus time):
 <li>DCEE1.tau_electrical: motor's torque</li>
 <li>DCEE1.ie: excitation current</li>
 </ul>
-Default machine parameters of model <i>DCMachineElectricalExcited</i> are used.
+Default machine parameters of model <i>DC_ElectricalExcited</i> are used.
 </p>
 </HTML>"));
+      Machines.BasicMachines.DCMachines.DC_ElectricalExcited DCEE1 
+        annotation (extent=[-20,-50; 0,-30]);
       Modelica.Blocks.Sources.Ramp Ramp1(duration=tRamp, height=Va,
         startTime=tStart) 
         annotation (extent=[-80,60; -60,80]);
-      Modelica.Mechanics.Rotational.Inertia LoadInertia(J=J_Load) 
-        annotation (extent=[40,-50; 60,-30]);
-      Machines.Basic.DCMachines.DCMachineElectricalExcited DCEE1 
-        annotation (extent=[-20,-50; 0,-30]);
       Modelica.Electrical.Analog.Sources.SignalVoltage SignalVoltage1 
         annotation (extent=[0,30; -20,50],   rotation=0);
       Modelica.Electrical.Analog.Basic.Ground Grounda 
         annotation (extent=[-80,30; -60,50],  rotation=-90);
-      Modelica.Electrical.Analog.Basic.Ground Grounde 
-        annotation (extent=[-80,-80; -60,-60],rotation=0);
       Modelica.Electrical.Analog.Sources.ConstantVoltage ConstantVoltage1(V=Ve) 
         annotation (extent=[-80,-50; -60,-30], rotation=270);
+      Modelica.Electrical.Analog.Basic.Ground Grounde 
+        annotation (extent=[-80,-80; -60,-60],rotation=0);
+      Modelica.Mechanics.Rotational.Inertia LoadInertia(J=J_Load) 
+        annotation (extent=[40,-50; 60,-30]);
       Modelica.Mechanics.Rotational.TorqueStep TorqueStep1(startTime=tStep, stepTorque
           =                                                                            -
-            T_Load) annotation (extent=[70,-50; 90,-30]);
+            T_Load) annotation (extent=[90,-50; 70,-30]);
     equation 
       connect(DCEE1.flange_a, LoadInertia.flange_a) annotation (points=[0,-40;
             40,-40], style(color=0, rgbcolor={0,0,0}));
@@ -910,25 +872,25 @@ Simulate for 2 seconds and plot (versus time):
 <li>DCSE1.rpm_mechanical: motor's speed</li>
 <li>DCSE1.tau_electrical: motor's torque</li>
 </ul>
-Default machine parameters of model <i>DCMachineSeriesExcited</i> are used.
+Default machine parameters of model <i>DC_SeriesExcited</i> are used.
 </p>
 </HTML>"));
+      Machines.BasicMachines.DCMachines.DC_SeriesExcited DCSE1 
+        annotation (extent=[-20,-50; 0,-30]);
       Modelica.Blocks.Sources.Ramp Ramp1(duration=tRamp, height=Va,
         startTime=tStart) 
         annotation (extent=[-80,60; -60,80]);
-      Modelica.Mechanics.Rotational.Inertia LoadInertia(J=J_Load) 
-        annotation (extent=[40,-50; 60,-30]);
-      Machines.Basic.DCMachines.DCMachineSeriesExcited DCSE1 
-        annotation (extent=[-20,-50; 0,-30]);
       Modelica.Electrical.Analog.Sources.SignalVoltage SignalVoltage1 
         annotation (extent=[0,30; -20,50],   rotation=0);
       Modelica.Electrical.Analog.Basic.Ground Grounda 
         annotation (extent=[-80,30; -60,50],  rotation=-90);
+      Modelica.Mechanics.Rotational.Inertia LoadInertia(J=J_Load) 
+        annotation (extent=[40,-50; 60,-30]);
       Modelica.Mechanics.Rotational.QuadraticSpeedDependentTorque 
         QuadraticLoadTorque1(
-                    w_nominal=Modelica.SIunits.Conversions.from_rpm(rpmLoad),
-          tau_nominal=-T_Load) 
-        annotation (extent=[70,-50; 90,-30]);
+        w_nominal=Modelica.SIunits.Conversions.from_rpm(rpmLoad),
+        tau_nominal=-T_Load) 
+        annotation (extent=[90,-50; 70,-30]);
     equation 
       connect(DCSE1.flange_a, LoadInertia.flange_a) annotation (points=[0,-40;
             40,-40], style(color=0, rgbcolor={0,0,0}));
@@ -945,13 +907,12 @@ Default machine parameters of model <i>DCMachineSeriesExcited</i> are used.
       connect(DCSE1.pin_en, SignalVoltage1.n) annotation (points=[-20,-46; -30,
             -46; -30,-20; -20,-20; -20,40], style(color=3, rgbcolor={0,0,255}));
     end DCSE_start;
-  end Examples;
-  
-  package Auxiliary "Library with auxiliary models for testing" 
-    extends Modelica.Icons.Library;
-    annotation (Documentation(info="<HTML>
+    
+    package Utilities "Library with auxiliary models for testing" 
+      extends Modelica.Icons.Library;
+      annotation (Documentation(info="<HTML>
 <p>
-This package contains components auxiliary components for testing examples.
+This package contains components utility components for testing examples.
 </p>
 <dl>
 <p>
@@ -968,6 +929,9 @@ This package contains components auxiliary components for testing examples.
   <dd>
   <ul>
   <li> v1.00 2004/09/16 Anton Haumer</li>
+  <li> v1.1  2004/10/01 Anton Haumer<br>
+       changed naming and structure<br>
+       issued to Modelica Standard Library 2.1</li>
   </ul>
   </dd>
 </p>
@@ -981,41 +945,41 @@ This package contains components auxiliary components for testing examples.
 </p>
 </dl>
 </HTML>"));
-    
-    block VfController "Voltage-Frequency-Controller" 
-      import Modelica.Math;
-      import SI = Modelica.SIunits;
-      extends Modelica.Blocks.Interfaces.SIMO(final nout=m,
-        u(redeclare type SignalType = Modelica.SIunits.Frequency),
-        y(redeclare type SignalType = Modelica.SIunits.Voltage));
-      constant Real pi=Modelica.Constants.pi;
-      parameter Integer m=3 "number of phases";
-      parameter Modelica.SIunits.Voltage VNominal 
-        "nominal RMS voltage per phase";
-      parameter Modelica.SIunits.Frequency fNominal "nominal frequency";
-      parameter Modelica.SIunits.Angle BasePhase=0 
-        "common phase shift for all phases";
-      output Real x[m](each start=0, each fixed=true) "Integrator states";
-      annotation (
-        Diagram,
-        Icon(
-          Line(points=[-100, -100; 0, 60; 80, 60], style(color=3)),
-          Line(points=[-70, 0; -60.2, 29.9; -53.8, 46.5; -48.2, 58.1; -43.3,
-                65.2; -38.3, 69.2; -33.4, 69.8; -28.5, 67; -23.6, 61; -18.6, 52;
-                 -13, 38.6; -5.98, 18.6; 8.79, -26.9; 15.1, -44; 20.8, -56.2;
-                25.7, -64; 30.6, -68.6; 35.5, -70; 40.5, -67.9; 45.4, -62.5;
-                50.3, -54.1; 55.9, -41.3; 63, -21.7; 70, 0], style(color=8)),
-          Line(points=[-40, 0; -30.2, 29.9; -23.8, 46.5; -18.2, 58.1; -13.3,
-                65.2; -8.3, 69.2; -3.4, 69.8; 1.5, 67; 6.4, 61; 11.4, 52; 17,
-                38.6; 24.02, 18.6; 38.79, -26.9; 45.1, -44; 50.8, -56.2; 55.7,
-                -64; 60.6, -68.6; 65.5, -70; 70.5, -67.9; 75.4, -62.5; 80.3, -54.1;
-                 85.9, -41.3; 93, -21.7; 100, 0], style(color=8)),
-          Line(points=[-100, 0; -90.2, 29.9; -83.8, 46.5; -78.2, 58.1; -73.3,
-                65.2; -68.3, 69.2; -63.4, 69.8; -58.5, 67; -53.6, 61; -48.6, 52;
-                 -43, 38.6; -35.98, 18.6; -21.21, -26.9; -14.9, -44; -9.2, -56.2;
-                 -4.3, -64; 0.6, -68.6; 5.5, -70; 10.5, -67.9; 15.4, -62.5;
-                20.3, -54.1; 25.9, -41.3; 33, -21.7; 40, 0], style(color=8))),
-        Documentation(info="<HTML>
+      
+      block VfController "Voltage-Frequency-Controller" 
+        import Modelica.Math;
+        import SI = Modelica.SIunits;
+        extends Modelica.Blocks.Interfaces.SIMO(final nout=m,
+          u(redeclare type SignalType = Modelica.SIunits.Frequency),
+          y(redeclare type SignalType = Modelica.SIunits.Voltage));
+        constant Real pi=Modelica.Constants.pi;
+        parameter Integer m=3 "number of phases";
+        parameter Modelica.SIunits.Voltage VNominal 
+          "nominal RMS voltage per phase";
+        parameter Modelica.SIunits.Frequency fNominal "nominal frequency";
+        parameter Modelica.SIunits.Angle BasePhase=0 
+          "common phase shift for all phases";
+        output Real x[m](each start=0, each fixed=true) "Integrator states";
+        annotation (
+          Diagram,
+          Icon(
+            Line(points=[-100, -100; 0, 60; 80, 60], style(color=3)),
+            Line(points=[-70, 0; -60.2, 29.9; -53.8, 46.5; -48.2, 58.1; -43.3,
+                  65.2; -38.3, 69.2; -33.4, 69.8; -28.5, 67; -23.6, 61; -18.6, 52;
+                   -13, 38.6; -5.98, 18.6; 8.79, -26.9; 15.1, -44; 20.8, -56.2;
+                  25.7, -64; 30.6, -68.6; 35.5, -70; 40.5, -67.9; 45.4, -62.5;
+                  50.3, -54.1; 55.9, -41.3; 63, -21.7; 70, 0], style(color=8)),
+            Line(points=[-40, 0; -30.2, 29.9; -23.8, 46.5; -18.2, 58.1; -13.3,
+                  65.2; -8.3, 69.2; -3.4, 69.8; 1.5, 67; 6.4, 61; 11.4, 52; 17,
+                  38.6; 24.02, 18.6; 38.79, -26.9; 45.1, -44; 50.8, -56.2; 55.7,
+                  -64; 60.6, -68.6; 65.5, -70; 70.5, -67.9; 75.4, -62.5; 80.3, -54.1;
+                   85.9, -41.3; 93, -21.7; 100, 0], style(color=8)),
+            Line(points=[-100, 0; -90.2, 29.9; -83.8, 46.5; -78.2, 58.1; -73.3,
+                  65.2; -68.3, 69.2; -63.4, 69.8; -58.5, 67; -53.6, 61; -48.6, 52;
+                   -43, 38.6; -35.98, 18.6; -21.21, -26.9; -14.9, -44; -9.2, -56.2;
+                   -4.3, -64; 0.6, -68.6; 5.5, -70; 10.5, -67.9; 15.4, -62.5;
+                  20.3, -54.1; 25.9, -41.3; 33, -21.7; 40, 0], style(color=8))),
+          Documentation(info="<HTML>
 <p>
 Simple Voltage-Frequency-Controller.<br>
 Amplitude of voltage is linear dependent (VNominal/fNominal) on Frequency (inPort), but limited by VNominal (nominal RMS voltage per phase).<br>
@@ -1024,683 +988,76 @@ The sine-waves are intended to feed a m-phase SignalVoltage.<br>
 Phase shifts between sine-waves may be choosen by the user; default values are <i>(k-1)/m*pi for k in 1:m</i>.
 </p>
 </HTML>"));
-    protected 
-      SI.Voltage v;
-      SI.Voltage amplitude[m];
-      SI.Frequency frequency[m];
-      SI.Angle phase[m];
-    equation 
-      v = sqrt(2)*min(abs(u)*VNominal/fNominal, VNominal);
-      amplitude = fill(v, m);
-      frequency = fill(u, m);
-      phase= fill(BasePhase, m) - {(k - 1)*2/m*pi for k in 1:m};
-      der(x) = 2*pi*frequency;
-      y = {amplitude[k]*Math.sin(x[k] + phase[k]) for k in 1:m};
-    end VfController;
-    
-    model SwitchYD "Y-D-switch" 
-      constant Integer m=3 "number of phases";
-      MultiPhase.Interfaces.PositivePlug plug_P(final m=m) 
-        annotation (extent=[90, 90; 110, 110]);
-      MultiPhase.Interfaces.PositivePlug pug_PS(final m=m) 
-        annotation (extent=[90, -110; 110, -90]);
-      MultiPhase.Interfaces.NegativePlug plug_NS(final m=m) 
-        annotation (extent=[-110, -110; -90, -90]);
-      annotation (Diagram, Icon(Line(points=[-80, 52; -40, 0; -2, 52; -40, 0; -40,
-                 -52], style(
-              color=3,
-              rgbcolor={0,0,255},
-              thickness=2,
-              fillColor=7,
-              rgbfillColor={255,255,255},
-              fillPattern=1)), Line(points=[0, 40; 0, -40; 80, 0; 0, 40], style(
-              color=3,
-              rgbcolor={0,0,255},
-              thickness=2,
-              fillColor=7,
-              rgbfillColor={255,255,255},
-              fillPattern=1))),
-        Documentation(info="<HTML>
+      protected 
+        SI.Voltage v;
+        SI.Voltage amplitude[m];
+        SI.Frequency frequency[m];
+        SI.Angle phase[m];
+      equation 
+        v = sqrt(2)*min(abs(u)*VNominal/fNominal, VNominal);
+        amplitude = fill(v, m);
+        frequency = fill(u, m);
+        phase= fill(BasePhase, m) - {(k - 1)*2/m*pi for k in 1:m};
+        der(x) = 2*pi*frequency;
+        y = {amplitude[k]*Math.sin(x[k] + phase[k]) for k in 1:m};
+      end VfController;
+      
+      model SwitchYD "Y-D-switch" 
+        constant Integer m=3 "number of phases";
+        Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_P(final m=m) 
+          annotation (extent=[90, 90; 110, 110]);
+        Modelica.Electrical.MultiPhase.Interfaces.PositivePlug pug_PS(final m=m) 
+          annotation (extent=[90, -110; 110, -90]);
+        Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_NS(final m=m) 
+          annotation (extent=[-110, -110; -90, -90]);
+        annotation (Diagram, Icon(Line(points=[-80, 52; -40, 0; -2, 52; -40, 0; -40,
+                   -52], style(
+                color=3,
+                rgbcolor={0,0,255},
+                thickness=2,
+                fillColor=7,
+                rgbfillColor={255,255,255},
+                fillPattern=1)), Line(points=[0, 40; 0, -40; 80, 0; 0, 40], style(
+                color=3,
+                rgbcolor={0,0,255},
+                thickness=2,
+                fillColor=7,
+                rgbfillColor={255,255,255},
+                fillPattern=1))),
+          Documentation(info="<HTML>
 <p>
 Simple Star-Delta-switch.<br>
 If <i>control</i> is false, plug_PS and plug_NS are star connected and plug_PS connected to plug_P.<br>
 If <i>control</i> is true, plug_PS and plug_NS are delta connected and they are connected to plug_P.
 </p>
 </HTML>"));
-      MultiPhase.Basic.Star star(final m=m) 
-        annotation (extent=[60, -50; 80, -30]);
-      MultiPhase.Basic.Delta delta(final m=m) 
-        annotation (extent=[80, -80; 60, -60]);
-      MultiPhase.Ideal.IdealCommutingSwitch idealCommutingSwitch(final m=m) 
-        annotation (extent=[-10, -70; 10, -50]);
-      Modelica.Blocks.Interfaces.BooleanInput control[m] 
-        annotation (extent=[-120,-10; -100,10],  rotation=0);
-    equation 
-      connect(delta.plug_p, plug_P) annotation (points=[80, -70; 100, -70; 100,
-             100], style(color=3, rgbcolor={0,0,255}));
-      connect(delta.plug_p, pug_PS) annotation (points=[80, -70; 100, -70; 100,
-             -100], style(color=3, rgbcolor={0,0,255}));
-      connect(idealCommutingSwitch.plug_n2, delta.plug_n) annotation (points=[
-            10, -60; 10, -70; 60, -70], style(color=3, rgbcolor={0,0,255}));
-      connect(idealCommutingSwitch.plug_n1, star.plug_p) annotation (points=[10,
-             -55; 10, -40; 60, -40], style(color=3, rgbcolor={0,0,255}));
-      connect(idealCommutingSwitch.plug_p, plug_NS) annotation (points=[-10, -60;
-             -100, -60; -100, -100], style(color=3, rgbcolor={0,0,255}));
-      connect(control, idealCommutingSwitch.control) 
-                                                 annotation (points=[-110,0; 0,
-            0; 0,-52],          style(
-          color=5,
-          rgbcolor={255,0,255},
-          fillColor=7,
-          rgbfillColor={255,255,255},
-          fillPattern=1));
-    end SwitchYD;
-  end Auxiliary;
+        Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) 
+          annotation (extent=[60, -50; 80, -30]);
+        Modelica.Electrical.MultiPhase.Basic.Delta delta(final m=m) 
+          annotation (extent=[80, -80; 60, -60]);
+        Modelica.Electrical.MultiPhase.Ideal.IdealCommutingSwitch 
+          idealCommutingSwitch(                                                        final m=m) 
+          annotation (extent=[-10, -70; 10, -50]);
+        Modelica.Blocks.Interfaces.BooleanInput control[m] 
+          annotation (extent=[-120,-10; -100,10],  rotation=0);
+      equation 
+        connect(delta.plug_p, plug_P) annotation (points=[80, -70; 100, -70; 100,
+               100], style(color=3, rgbcolor={0,0,255}));
+        connect(delta.plug_p, pug_PS) annotation (points=[80, -70; 100, -70; 100,
+               -100], style(color=3, rgbcolor={0,0,255}));
+        connect(idealCommutingSwitch.plug_n2, delta.plug_n) annotation (points=[
+              10, -60; 10, -70; 60, -70], style(color=3, rgbcolor={0,0,255}));
+        connect(idealCommutingSwitch.plug_n1, star.plug_p) annotation (points=[10,
+               -55; 10, -40; 60, -40], style(color=3, rgbcolor={0,0,255}));
+        connect(idealCommutingSwitch.plug_p, plug_NS) annotation (points=[-10, -60;
+               -100, -60; -100, -100], style(color=3, rgbcolor={0,0,255}));
+        connect(control, idealCommutingSwitch.control) annotation (points=[-110,0; 
+              0,0; 0,-52], style(color=5, rgbcolor={255,0,255}));
+      end SwitchYD;
+    end Utilities;
+  end Examples;
   
-  package Sensors 
-    annotation (Documentation(info="<HTML>
-<p>
-This package contains sensors that are usefull when modelling machines.
-</p>
-<dl>
-<p>
-  <dt><b>Main Authors:</b></dt>
-  <dd>
-  <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
-  Technical Consulting & Electrical Engineering<br>
-  A-3423 St.Andrae-Woerdern<br>Austria<br>
-  email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
-  </dd>
-</p>
-<p>
-  <dt><b>Release Notes:</b></dt>
-  <dd>
-  <ul>
-  <li> v1.03 2004/09/24 Anton Haumer</li>
-  </ul>
-  </dd>
-</p>
-<p>
-  <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2004, Modelica Association and Anton Haumer.<br>
-  <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
-  under the terms of the <b>Modelica license</b>, see the license conditions
-  and the accompanying <b>disclaimer</b> in the documentation of package
-  Modelica in file \"Modelica/package.mo\".</i></dd>
-</p>
-</dl>
-</HTML>"));
-    
-    model VoltageRMSsensor 
-      constant Integer m(final min=1) = 3 "number of phases";
-      MultiPhase.Interfaces.PositivePlug plug_p(final m=m) 
-        annotation (extent=[-110,-10; -90,10]);
-      MultiPhase.Interfaces.NegativePlug plug_n(final m=m) 
-        annotation (extent=[90,-10; 110,10]);
-      MultiPhase.Sensors.VoltageSensor VoltageSensor1(final m=m) 
-        annotation (extent=[-10,40; 10,60]);
-      Modelica.Blocks.Interfaces.RealOutput V(redeclare type SignalType = 
-            Modelica.SIunits.Voltage) 
-        annotation (extent=[-10,-120; 10,-100], rotation=-90);
-      Modelica.Blocks.Math.Gain Gain1(final k=1/sqrt(2)) 
-        annotation (extent=[-10,-80; 10,-60], rotation=-90);
-      Machines.SpacePhasors.Blocks.ToSpacePhasor ToSpacePhasor1 
-        annotation (extent=[-10,0; 10,20], rotation=-90);
-      Machines.SpacePhasors.Blocks.ToPolar ToPolar1 
-        annotation (extent=[-10,-40; 10,-20], rotation=-90);
-      annotation (Diagram, Icon(
-          Ellipse(extent=[-70,70; 70,-70],   style(color=0, fillColor=7)),
-          Line(points=[0,70; 0,40],   style(color=0)),
-          Line(points=[22.9,32.8; 40.2,57.3],   style(color=0)),
-          Line(points=[-22.9,32.8; -40.2,57.3],   style(color=0)),
-          Line(points=[37.6,13.7; 65.8,23.9],   style(color=0)),
-          Line(points=[-37.6,13.7; -65.8,23.9],   style(color=0)),
-          Line(points=[0,0; 9.02,28.6],   style(color=0)),
-          Polygon(points=[-0.48,31.6; 18,26; 18,57.2; -0.48,31.6],     style(
-              color=0,
-              fillColor=0,
-              fillPattern=1)),
-          Ellipse(extent=[-5,5; 5,-5],   style(
-              color=0,
-              gradient=0,
-              fillColor=0,
-              fillPattern=1)),
-          Line(points=[-90,0; -70,0], style(color=3, rgbcolor={0,0,255})),
-          Line(points=[70,0; 90,0], style(color=3, rgbcolor={0,0,255})),
-          Line(points=[0,-70; 0,-100], style(color=3, rgbcolor={0,0,255})),
-          Text(
-            extent=[-40,-20; 40,-60],
-            style(color=3, rgbcolor={0,0,255}),
-            string="V RMS")),
-        Documentation(info="<HTML>
-<p>
-Measured 3-phase instantaneous voltages are transformed to the corresponding space phasor; <br>
-output is length of the space phasor divided by sqrt(2), thus giving in stationary state RMS voltage.
-</p>
-</HTML>"));
-    equation 
-      connect(plug_p, VoltageSensor1.plug_p) 
-        annotation (points=[-100,0; -100,50; -10,50],
-                                            style(color=3, rgbcolor={0,0,255}));
-      connect(VoltageSensor1.plug_n, plug_n) 
-        annotation (points=[10,50; 100,50; 100,0],
-                                          style(color=3, rgbcolor={0,0,255}));
-      connect(VoltageSensor1.v, ToSpacePhasor1.u) annotation (points=[0,39; 0,
-            22; -7.34764e-016,22],
-                               style(color=3, rgbcolor={0,0,255}));
-      connect(ToSpacePhasor1.y, ToPolar1.u) annotation (points=[6.73533e-016,-1;
-            6.73533e-016,-8.5; -7.34764e-016,-8.5; -7.34764e-016,-18], style(color=
-              3, rgbcolor={0,0,255}));
-      connect(ToPolar1.y[1], Gain1.u) annotation (points=[-0.5,-41; -0.5,-49.5;
-            -7.34764e-016,-49.5; -7.34764e-016,-58], style(color=3, rgbcolor={0,0,
-              255}));
-      connect(Gain1.y, V) annotation (points=[6.73533e-016,-81; 6.73533e-016,
-            -91.5; 0,-91.5; 0,-110],
-                              style(color=3, rgbcolor={0,0,255}));
-    end VoltageRMSsensor;
-    
-    model CurrentRMSsensor 
-      constant Integer m(final min=1) = 3 "number of phases";
-      MultiPhase.Interfaces.PositivePlug plug_p(final m=m) 
-        annotation (extent=[-110,-10; -90,10]);
-      MultiPhase.Interfaces.NegativePlug plug_n(final m=m) 
-        annotation (extent=[90,-10; 110,10]);
-      MultiPhase.Sensors.CurrentSensor CurrentSensor1(final m=m) 
-        annotation (extent=[-10,40; 10,60]);
-      Modelica.Blocks.Interfaces.RealOutput I(redeclare type SignalType = 
-            Modelica.SIunits.Current) 
-        annotation (extent=[-10,-120; 10,-100], rotation=-90);
-      Modelica.Blocks.Math.Gain Gain1(final k=1/sqrt(2)) 
-        annotation (extent=[-10,-80; 10,-60], rotation=-90);
-      Machines.SpacePhasors.Blocks.ToSpacePhasor ToSpacePhasor1 
-        annotation (extent=[-10,0; 10,20], rotation=-90);
-      Machines.SpacePhasors.Blocks.ToPolar ToPolar1 
-        annotation (extent=[-10,-40; 10,-20], rotation=-90);
-      annotation (Diagram, Icon(
-          Ellipse(extent=[-70,70; 70,-70],   style(color=0, fillColor=7)),
-          Line(points=[0,70; 0,40],   style(color=0)),
-          Line(points=[22.9,32.8; 40.2,57.3],   style(color=0)),
-          Line(points=[-22.9,32.8; -40.2,57.3],   style(color=0)),
-          Line(points=[37.6,13.7; 65.8,23.9],   style(color=0)),
-          Line(points=[-37.6,13.7; -65.8,23.9],   style(color=0)),
-          Line(points=[0,0; 9.02,28.6],   style(color=0)),
-          Polygon(points=[-0.48,31.6; 18,26; 18,57.2; -0.48,31.6],     style(
-              color=0,
-              fillColor=0,
-              fillPattern=1)),
-          Ellipse(extent=[-5,5; 5,-5],   style(
-              color=0,
-              gradient=0,
-              fillColor=0,
-              fillPattern=1)),
-          Line(points=[-90,0; -70,0], style(color=3, rgbcolor={0,0,255})),
-          Line(points=[70,0; 90,0], style(color=3, rgbcolor={0,0,255})),
-          Line(points=[0,-70; 0,-100], style(color=3, rgbcolor={0,0,255})),
-          Text(
-            extent=[-40,-20; 40,-60],
-            style(color=3, rgbcolor={0,0,255}),
-            string="A RMS")),
-        Documentation(info="<HTML>
-<p>
-Measured 3-phase instantaneous currents are transformed to the corresponding space phasor; <br>
-output is length of the space phasor divided by sqrt(2), thus giving in stationary state RMS current.
-</p>
-</HTML>"));
-    equation 
-      connect(plug_p, CurrentSensor1.plug_p) 
-        annotation (points=[-100,0; -100,50; -10,50],
-                                            style(color=3, rgbcolor={0,0,255}));
-      connect(CurrentSensor1.plug_n, plug_n) 
-        annotation (points=[10,50; 100,50; 100,0],
-                                          style(color=3, rgbcolor={0,0,255}));
-      connect(CurrentSensor1.i, ToSpacePhasor1.u) annotation (points=[0,39; 0,
-            22; -7.34764e-016,22],
-                               style(color=3, rgbcolor={0,0,255}));
-      connect(ToSpacePhasor1.y, ToPolar1.u) annotation (points=[6.73533e-016,-1;
-            6.73533e-016,-8.5; -7.34764e-016,-8.5; -7.34764e-016,-18], style(color=
-              3, rgbcolor={0,0,255}));
-      connect(ToPolar1.y[1], Gain1.u) annotation (points=[-0.5,-41; -0.5,-49.5;
-            -7.34764e-016,-49.5; -7.34764e-016,-58], style(color=3, rgbcolor={0,0,
-              255}));
-      connect(Gain1.y,I)  annotation (points=[6.73533e-016,-81; 6.73533e-016,
-            -91.5; 0,-91.5; 0,-110],
-                              style(color=3, rgbcolor={0,0,255}));
-    end CurrentRMSsensor;
-    
-    model ElectricalPowerSensor 
-      constant Integer m(final min=1) = 3 "number of phases";
-      MultiPhase.Interfaces.PositivePlug plug_p(final m=m) 
-        annotation (extent=[-110,-10; -90,10]);
-      MultiPhase.Interfaces.NegativePlug plug_ni(final m=m) 
-        annotation (extent=[90,-10; 110,10]);
-      Modelica.Blocks.Interfaces.RealOutput P(redeclare type SignalType = 
-            Modelica.SIunits.Power) 
-        annotation (extent=[-60,120; -40,100],  rotation=-90);
-      MultiPhase.Interfaces.NegativePlug plug_nv(final m=m) 
-        annotation (extent=[-10,-110; 10,-90]);
-      Modelica.Blocks.Interfaces.RealOutput Q(redeclare type SignalType = 
-            Modelica.SIunits.Power) 
-        annotation (extent=[40,120; 60,100], rotation=-90);
-      annotation (Icon(
-          Ellipse(extent=[-70,70; 70,-70],   style(color=0, fillColor=7)),
-          Line(points=[0,70; 0,40],   style(color=0)),
-          Line(points=[22.9,32.8; 40.2,57.3],   style(color=0)),
-          Line(points=[-22.9,32.8; -40.2,57.3],   style(color=0)),
-          Line(points=[37.6,13.7; 65.8,23.9],   style(color=0)),
-          Line(points=[-37.6,13.7; -65.8,23.9],   style(color=0)),
-          Line(points=[0,0; 9.02,28.6],   style(color=0)),
-          Polygon(points=[-0.48,31.6; 18,26; 18,57.2; -0.48,31.6],     style(
-              color=0,
-              fillColor=0,
-              fillPattern=1)),
-          Ellipse(extent=[-5,5; 5,-5],   style(
-              color=0,
-              gradient=0,
-              fillColor=0,
-              fillPattern=1)),
-          Line(points=[-90,0; -70,0], style(color=3, rgbcolor={0,0,255})),
-          Line(points=[70,0; 90,0], style(color=3, rgbcolor={0,0,255})),
-          Text(
-            extent=[-40,-20; 40,-60],
-            style(color=3, rgbcolor={0,0,255}),
-            string="P Q"),
-          Line(points=[0,-70; 0,-90],  style(color=3, rgbcolor={0,0,255})),
-          Line(points=[-10,70; -10,80; -50,80; -50,100], style(color=3, rgbcolor={0,
-                  0,255})),
-          Line(points=[10,70; 10,80; 50,80; 50,100], style(color=3, rgbcolor={0,0,
-                  255}))),
-          Diagram,
-        Documentation(info="<HTML>
-<p>
-3-phase instantaneous voltages (plug_p - plug_nv) and currents (plug_p - plug_ni) are transformed to the corresponding space phasors, <br>
-which are used to calculate power quantities:<br>
-P = instantaneous power, thus giving in stationary state active power.<br>
-Q = giving in stationary state reactive power.<br>
-</p>
-</HTML>"));
-    protected 
-      Modelica.SIunits.Voltage v_[2];
-      Modelica.SIunits.Current i_[2];
-    equation 
-      plug_p.pin.v = plug_ni.pin.v;
-      plug_p.pin.i + plug_ni.pin.i = zeros(m);
-      plug_nv.pin.i = zeros(m);
-      v_ = Machines.SpacePhasors.Functions.ToSpacePhasor(plug_p.pin.v - plug_nv.pin.v);
-      i_ = Machines.SpacePhasors.Functions.ToSpacePhasor(plug_p.pin.i);
-      2/3*P = +v_[1]*i_[1]+v_[2]*i_[2];
-      2/3*Q = -v_[1]*i_[2]+v_[2]*i_[1];
-    end ElectricalPowerSensor;
-    
-    model MechanicalPowerSensor 
-      extends Modelica.Mechanics.Rotational.Interfaces.TwoFlanges;
-      Modelica.Blocks.Interfaces.RealOutput P(redeclare type SignalType = 
-            Modelica.SIunits.Power) 
-        annotation (extent=[-10,-100; 10,-120],   rotation=90);
-      annotation (Icon(
-          Ellipse(extent=[-70,70; 70,-70],   style(color=0, fillColor=7)),
-          Line(points=[0,70; 0,40],   style(color=0)),
-          Line(points=[22.9,32.8; 40.2,57.3],   style(color=0)),
-          Line(points=[-22.9,32.8; -40.2,57.3],   style(color=0)),
-          Line(points=[37.6,13.7; 65.8,23.9],   style(color=0)),
-          Line(points=[-37.6,13.7; -65.8,23.9],   style(color=0)),
-          Line(points=[0,0; 9.02,28.6],   style(color=0)),
-          Polygon(points=[-0.48,31.6; 18,26; 18,57.2; -0.48,31.6],     style(
-              color=0,
-              fillColor=0,
-              fillPattern=1)),
-          Ellipse(extent=[-5,5; 5,-5],   style(
-              color=0,
-              gradient=0,
-              fillColor=0,
-              fillPattern=1)),
-          Line(points=[-70,0; -90,0],   style(color=0)),
-          Line(points=[70,0; 90,0],   style(color=0)),
-          Line(points=[0,-100; 0,-70]),
-          Text(
-            extent=[-40,-20; 40,-60],
-            style(color=3, rgbcolor={0,0,255}),
-            string="Pmech")), Diagram,
-        Documentation(info="<HTML>
-<p>
-Calculates (mechanical) power from torque times angular speed.
-</p>
-</HTML>"));
-      Modelica.Mechanics.Rotational.Sensors.TorqueSensor TorqueSensor1 
-        annotation (extent=[20,-10; 40,10]);
-      Modelica.Mechanics.Rotational.Sensors.SpeedSensor SpeedSensor1 
-        annotation (extent=[-40,-20; -20,0], rotation=-90);
-      Modelica.Blocks.Math.Product Product1 
-        annotation (extent=[-10,-80; 10,-60], rotation=-90);
-    equation 
-      connect(flange_a, TorqueSensor1.flange_a) 
-        annotation (points=[-100,0; 20,0], style(color=0, rgbcolor={0,0,0}));
-      connect(TorqueSensor1.flange_b, flange_b) 
-        annotation (points=[40,0; 100,0], style(color=0, rgbcolor={0,0,0}));
-      connect(SpeedSensor1.flange_a, flange_a) 
-        annotation (points=[-30,0; -100,0], style(color=0, rgbcolor={0,0,0}));
-      connect(SpeedSensor1.w, Product1.u2) annotation (points=[-30,-21; -30,-40;
-            -6,-40; -6,-58], style(color=3, rgbcolor={0,0,255}));
-      connect(TorqueSensor1.tau, Product1.u1) annotation (points=[22,-11; 22,
-            -40; 6,-40; 6,-58], style(color=3, rgbcolor={0,0,255}));
-      connect(Product1.y, P) annotation (points=[6.73533e-016,-81; 6.73533e-016,
-            -90.5; 0,-90.5; 0,-110], style(color=3, rgbcolor={0,0,255}));
-    end MechanicalPowerSensor;
-    
-    block RotorAngle "Rotor lagging angle" 
-      extends Modelica.Blocks.Interfaces.MISO(final nin=m,
-        u(redeclare type SignalType = Modelica.SIunits.Voltage),
-        y(redeclare type SignalType = Modelica.SIunits.Angle));
-      constant Integer m=3 "number of phases";
-      parameter Real p "number of pole pairs";
-      annotation (
-        Diagram,
-        Icon(
-          Ellipse(extent=[-60, 80; 60, 40], style(
-              color=2,
-              rgbcolor={0,255,0},
-              fillColor=7,
-              rgbfillColor={255,255,255})),
-          Ellipse(extent=[-60, -40; 60, -80], style(
-              color=2,
-              rgbcolor={0,255,0},
-              fillColor=7,
-              rgbfillColor={255,255,255})),
-          Rectangle(extent=[-60, 60; 60, 40], style(
-              color=2,
-              rgbcolor={0,255,0},
-              fillColor=7,
-              rgbfillColor={255,255,255},
-              fillPattern=1)),
-          Rectangle(extent=[-60, -40; 60, -60], style(
-              color=2,
-              rgbcolor={0,255,0},
-              fillColor=7,
-              rgbfillColor={255,255,255},
-              fillPattern=1)),
-          Rectangle(extent=[-40, 40; 40, -40], style(
-              color=2,
-              rgbcolor={0,255,0},
-              fillColor=7,
-              rgbfillColor={255,255,255},
-              fillPattern=1)),
-          Line(points=[0, 0; -80, 80], style(
-              color=3,
-              rgbcolor={0,0,255},
-              fillColor=7,
-              rgbfillColor={255,255,255},
-              fillPattern=1)),
-          Polygon(points=[-80, 80; -68, 76; -76, 68; -80, 80], style(
-              color=3,
-              rgbcolor={0,0,255},
-              fillColor=7,
-              rgbfillColor={255,255,255},
-              fillPattern=1)),
-          Line(points=[0, 0; 0, 80], style(
-              color=2,
-              rgbcolor={0,255,0},
-              fillColor=7,
-              rgbfillColor={255,255,255},
-              fillPattern=1)),
-          Polygon(points=[0, 84; 4, 72; -4, 72; 0, 84], style(
-              color=2,
-              rgbcolor={0,255,0},
-              fillColor=7,
-              rgbfillColor={255,255,255},
-              fillPattern=1))),
-        Documentation(info="<HTML>
-<p>
-Calculates rotor lagging angle by transforming the signals of stator phase voltages to the correspondig space phasor in stator-fixed coordinate system, <br>
-rotating the space phasor to the rotor-fixed coordinate system and calculating the angle of this space phasor.<br>
-Input signals: stator phase voltages and mechanical rotor angle.
-</p>
-</HTML>"));
-      Modelica.Blocks.Interfaces.RealInput angle(
-         redeclare type SignalType = Modelica.SIunits.Angle) 
-        annotation (extent=[-10, -110; 10, -90], rotation=-270);
-      Modelica.Blocks.Math.Gain gain(final k=p) 
-        annotation (extent=[-10,-60; 10,-80],   rotation=-90);
-      Modelica.Blocks.Sources.Constant constant_(final k=Modelica.Constants.pi/2) 
-        annotation (extent=[-40, -70; -20, -50]);
-      Modelica.Blocks.Math.Add add(
-        final k1=1,
-        final k2=1) annotation (extent=[-10, -30; 10, -50], rotation=-90);
-      SpacePhasors.Blocks.ToSpacePhasor ToSpacePhasorVS 
-        annotation (extent=[-40,-10; -20,10],   rotation=0);
-      SpacePhasors.Blocks.Rotator rotatorVS2R 
-        annotation (extent=[-10, 10; 10, -10], rotation=0);
-      SpacePhasors.Blocks.ToPolar ToPolarVSR 
-        annotation (extent=[20,-10; 40,10],   rotation=0);
-      Modelica.Blocks.Routing.DeMultiplex2 deMultiplex2(final n1=1,
-           final n2=1) annotation (extent=[60,-10; 80,10]);
-    equation 
-      connect(u, ToSpacePhasorVS.u) 
-        annotation (points=[-120,0; -42,0], style(color=3, rgbcolor={0,0,255}));
-      connect(angle, gain.u) annotation (points=[0,-100; 0,-82; -7.34764e-016,
-            -82],
-          style(color=3, rgbcolor={0,0,255}));
-      connect(constant_.y, add.u2) annotation (points=[-19,-60; -6,-60; -6,-52],
-          style(color=3, rgbcolor={0,0,255}));
-      connect(gain.y, add.u1) annotation (points=[6.73533e-016,-59; 6,-59; 6,
-            -52],
-          style(color=3, rgbcolor={0,0,255}));
-      connect(add.y, rotatorVS2R.angle) annotation (points=[6.73533e-016,-29;
-            6.73533e-016,-20.5; 0,-20.5; 0,-10], style(color=3, rgbcolor={0,0,255}));
-      connect(ToSpacePhasorVS.y, rotatorVS2R.u) annotation (points=[-19,0; -32,0;
-            -32,4; -28,4; -28,0; -12,0], style(color=3, rgbcolor={0,0,255}));
-      connect(rotatorVS2R.y, ToPolarVSR.u) 
-        annotation (points=[11,0; 18,0], style(color=3, rgbcolor={0,0,255}));
-      connect(ToPolarVSR.y, deMultiplex2.u) 
-        annotation (points=[41,0; 58,0], style(color=3, rgbcolor={0,0,255}));
-      connect(deMultiplex2.y2[1], y) annotation (points=[81,-6; 88,-6; 88,0;
-            110,0],
-          style(color=3, rgbcolor={0,0,255}));
-    end RotorAngle;
-  end Sensors;
-  
-  package Interfaces "SpacePhasor connector and PartialMachines" 
-    extends Modelica.Icons.Library;
-    annotation (Documentation(info="<HTML>
-<p>
-This package contains the space phasor connector and partial models for machine models.
-</p>
-<dl>
-<p>
-  <dt><b>Main Authors:</b></dt>
-  <dd>
-  <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
-  Technical Consulting & Electrical Engineering<br>
-  A-3423 St.Andrae-Woerdern<br>Austria<br>
-  email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
-  </dd>
-</p>
-<p>
-  <dt><b>Release Notes:</b></dt>
-  <dd>
-  <ul>
-  <li> v1.00 2004/09/16 Anton Haumer</li>
-  <li> v1.01 2004/09/18 Anton Haumer<br>
-       moved common equations from machine models to PartialMachine</li>
-  <li> v1.02 2004/09/19 Anton Haumer<br>
-       added PartialDCMachine</li>
-  </ul>
-  </dd>
-</p>
-<p>
-  <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2004, Modelica Association and Anton Haumer.<br>
-  <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
-  under the terms of the <b>Modelica license</b>, see the license conditions
-  and the accompanying <b>disclaimer</b> in the documentation of package
-  Modelica in file \"Modelica/package.mo\".</i></dd>
-</p>
-</dl>
-</HTML>"));
-    
-    connector SpacePhasor 
-      Modelica.SIunits.Voltage v_[2];
-      flow Modelica.SIunits.Current i_[2];
-      annotation (Diagram(Polygon(points=[0,100; -100,0; 0,-100; 100,0; 0,100],
-              style(
-              color=3,
-              rgbcolor={0,0,255},
-              fillColor=3,
-              rgbfillColor={0,0,255})), Text(
-            extent=[-150,-90; 150,-150],
-            style(
-              color=3,
-              rgbcolor={0,0,255},
-              fillColor=3,
-              rgbfillColor={0,0,255},
-              fillPattern=1),
-            string="%name")),            Icon(Polygon(points=[0,100; -100,0; 0,-100;
-                100,0; 0,100], style(
-              color=3,
-              rgbcolor={0,0,255},
-              fillColor=3,
-              rgbfillColor={0,0,255})), Text(
-            extent=[-150,-90; 150,-150],
-            style(
-              color=3,
-              rgbcolor={0,0,255},
-              fillColor=3,
-              rgbfillColor={0,0,255},
-              fillPattern=1),
-            string="%name")),
-        Documentation(info="<HTML>
-<p>
-Connector for Space Phasors:
-<ul>
-<li>Voltage v_[2] ... Real and Imaginary part of voltage space phasor</li>
-<li>Current i_[2] ... Real and Imaginary part of current space phasor</li>
-</ul>
-</p>
-</HTML>"));
-    end SpacePhasor;
-    
-    partial model PartialMachine 
-      constant Real pi=Modelica.Constants.pi;
-      output Modelica.SIunits.Angle phi_mechanical = flange_a.phi 
-        "mechanical angle of rotor";
-      output Modelica.SIunits.AngularVelocity w_mechanical = der(flange_a.phi) 
-        "mechanical angular velocity";
-      output Modelica.SIunits.Conversions.NonSIunits.AngularVelocity_rpm 
-        rpm_mechanical = Modelica.SIunits.Conversions.to_rpm(w_mechanical) 
-        "mechanical speed [rpm]";
-      output Modelica.SIunits.Torque tau_electrical = inertia.flange_a.tau 
-        "electromagnetic torque";
-      Modelica.Mechanics.Rotational.Interfaces.Flange_a flange_a 
-        annotation (extent=[90,-10; 110,10]);
-      annotation (
-        Icon(
-          Rectangle(extent=[-40,60; 80,-60],    style(
-              color=3,
-              rgbcolor={0,0,255},
-              gradient=2,
-              fillColor=69,
-              rgbfillColor={0,128,255})),
-          Rectangle(extent=[-40,60; -60,-60],    style(
-              color=10,
-              gradient=2,
-              fillColor=10)),
-          Rectangle(extent=[80,10; 100,-10], style(
-              color=10,
-              rgbcolor={95,95,95},
-              gradient=2,
-              fillColor=10,
-              rgbfillColor={95,95,95})),
-          Rectangle(extent=[-40,70; 40,50], style(
-              color=10,
-              rgbcolor={95,95,95},
-              fillColor=10,
-              rgbfillColor={95,95,95})),
-      Polygon(points=[-50,-90; -40,-90; -10,-20; 40,-20; 70,-90; 80,-90; 80,-100;
-                -50,-100; -50,-90],               style(
-          color=0,
-          gradient=0,
-          fillColor=0,
-          fillPattern=1)),
-          Text(
-            extent=[-150,-120; 150,-180],
-            style(
-              color=3,
-              rgbcolor={0,0,255},
-              fillColor=10,
-              rgbfillColor={95,95,95},
-              fillPattern=1),
-            string="%name"),
-          Rectangle(extent=[80,-80; 120,-120],   style(color=8, fillColor=8))),
-        Documentation(info="<HTML>
-<p>
-Base partial model DC machines:
-<ul>
-<li>main parts of the icon</li>
-<li>mechanical flange</li>
-</ul>
-</p>
-</HTML>"),
-        Diagram);
-      Modelica.Mechanics.Rotational.Interfaces.Flange_a bearing 
-        "Bearing at which the reaction torque (i.e., -flange.tau) is acting" 
-           annotation (extent=[90,-110; 110,-90]);
-      Modelica.Mechanics.Rotational.Inertia inertia 
-        annotation (extent=[60,10; 40,-10],   rotation=-180);
-    equation 
-      if cardinality(bearing) == 0 then
-        bearing.phi = 0;
-      else
-        bearing.tau = -flange_a.tau;
-      end if;
-      connect(inertia.flange_b, flange_a) annotation (points=[60,1.22461e-015;
-            79,1.22461e-015; 79,0; 100,0], style(color=0, rgbcolor={0,0,0}));
-    end PartialMachine;
-    
-    partial model PartialInductionMachine 
-      extends PartialMachine;
-      constant Integer m=3 "number of phases";
-      MultiPhase.Interfaces.PositivePlug plug_sp(final m=m) 
-        annotation (extent=[50,90; 70,110]);
-      MultiPhase.Interfaces.NegativePlug plug_sn(final m=m) 
-        annotation (extent=[-70,90; -50,110]);
-      annotation (Documentation(info="<HTML>
-<p>
-Partial model for induction machine models, containing:
-<ul>
-<li>main parts of the icon</li>
-<li>stator plugs</li>
-<li>mechanical flange</li>
-</ul>
-</p>
-</HTML>"),
-        Diagram,
-        Icon(Line(points=[-50,100; -20,100; -20,70], style(color=3, rgbcolor={0,
-                  0,255})), Line(points=[50,100; 20,100; 20,70], style(color=3,
-                rgbcolor={0,0,255}))));
-    end PartialInductionMachine;
-    
-    partial model PartialDCMachine 
-      extends PartialMachine;
-      annotation (Documentation(info="<HTML>
-<p>
-Partial model for DC machine models, containing:
-<ul>
-<li>main parts of the icon</li>
-<li>armature pins</li>
-<li>mechanical flange</li>
-</ul>
-</p>
-</HTML>"),
-        Diagram,
-        Icon(Line(points=[-50,100; -20,100; -20,70], style(color=3, rgbcolor={0,
-                  0,255})), Line(points=[50,100; 20,100; 20,70], style(color=3,
-                rgbcolor={0,0,255}))));
-      Modelica.Electrical.Analog.Interfaces.PositivePin pin_ap 
-        annotation (extent=[50,110; 70,90]);
-      Modelica.Electrical.Analog.Interfaces.NegativePin pin_an 
-        annotation (extent=[-70,110; -50,90]);
-    end PartialDCMachine;
-  end Interfaces;
-  
-  package Basic "Basic machine models" 
+  package BasicMachines "Basic machine models" 
     extends Modelica.Icons.Library;
     annotation (Documentation(info="<HTML>
 <p>
@@ -1708,7 +1065,7 @@ This package contains components for modeling electrical machines, specially thr
 <ul>
 <li>package AsynchronousInductionMachines: models of three phase asynchronous induction machines</li>
 <li>package SynchronousInductionMachines: models of three phase synchronous induction machines</li>
-<li>package DCMachines: models of DC machines with diferent excitation</li>
+<li>package DCMachines: models of DC machines with different excitation</li>
 <li>package Components: components for modeling machines</li>
 </ul>
 The induction machine models use package SpacePhasors.
@@ -1735,6 +1092,9 @@ The induction machine models use package SpacePhasors.
        added DCMachine models</li>
   <li> v1.03 2004/09/24 Anton Haumer<br>
        added DC machine with series excitation</li>
+  <li> v1.1  2004/10/01 Anton Haumer<br>
+       changed naming and structure<br>
+       issued to Modelica Standard Library 2.1</li>
   </ul>
   </dd>
 </p>
@@ -1756,9 +1116,9 @@ The induction machine models use package SpacePhasors.
 <p>
 This package contains models of asynchronous induction machines, based on space phasor theory:
 <ul>
-<li>AsynchronousInductionMachineSquirrelCage: asynchronous induction machine with squirrel cage</li>
-<li>AsynchronousInductionMachineSlipRing: asynchronous induction machine with wound rotor</li>
-<li>AsynchronousInductionMachineReluctanceRotor: induction machine with reluctance rotor<br>
+<li>AIM_SquirrelCage: asynchronous induction machine with squirrel cage</li>
+<li>AIM_SlipRing: asynchronous induction machine with wound rotor</li>
+<li>AIM_ReluctanceRotor: induction machine with reluctance rotor<br>
 i.e. a squirrel cage rotor with magnetic poles due to different airgap width</li>
 </ul>
 These models use package SpacePhasors.
@@ -1780,6 +1140,9 @@ These models use package SpacePhasors.
   <li> v1.02 2004/09/19 Anton Haumer</li>
   <li> v1.03 2004/09/24 Anton Haumer<br>
        consistent naming of inductors and resistors in machine models</li>
+  <li> v1.1  2004/10/01 Anton Haumer<br>
+       changed naming and structure<br>
+       issued to Modelica Standard Library 2.1</li>
   </ul>
   </dd>
 </p>
@@ -1794,10 +1157,9 @@ These models use package SpacePhasors.
 </dl>
 </HTML>"));
       
-      model AsynchronousInductionMachineSquirrelCage 
+      model AIM_SquirrelCage 
         "Asynchronous induction machine with squirrel cage rotor" 
-        extends Interfaces.PartialInductionMachine(inertia(final J=J));
-        parameter Real p=2 "number of pole pairs";
+        extends Machines.Interfaces.PartialBasicInductionMachine(J=0.29);
         constant Modelica.SIunits.Frequency fNominal=50 "nominal frequency";
         parameter Modelica.SIunits.Resistance Rs=0.03 
           "|Impedances|warm stator resistance per phase";
@@ -1809,7 +1171,6 @@ These models use package SpacePhasors.
             fNominal) "|Impedances|rotor stray inductance";
         parameter Modelica.SIunits.Resistance Rr=0.04 
           "|Impedances|warm rotor resistance";
-        parameter Modelica.SIunits.Inertia J=0.29 "moment of inertia";
         output Modelica.SIunits.Current is[m] = plug_sp.pin.i 
           "stator instantaneous currents";
         output Modelica.SIunits.Current i_0_s( stateSelect=StateSelect.prefer) = spacePhasorS.zero.i 
@@ -1822,15 +1183,16 @@ These models use package SpacePhasors.
           "rotor space phasor current / stator fixed frame";
         output Modelica.SIunits.Current idq_rr[2](each stateSelect=StateSelect.prefer) = airGapS.i_rr 
           "rotor space phasor current / rotor fixed frame";
-        MultiPhase.Basic.Resistor rs(final m=m, final R=fill(Rs, m)) 
+        Modelica.Electrical.MultiPhase.Basic.Resistor rs(final m=m, final R=fill(Rs, m)) 
           annotation (extent=[60,50; 40,70]);
-        MultiPhase.Basic.Inductor lssigma(final m=m, final L=fill(Lssigma, m)) 
+        Modelica.Electrical.MultiPhase.Basic.Inductor lssigma(final m=m, final L=fill(Lssigma, m)) 
           annotation (extent=[30,50; 10,70]);
-        SpacePhasors.Components.SpacePhasor spacePhasorS 
+        Machines.SpacePhasors.Components.SpacePhasor spacePhasorS 
           annotation (extent=[10, 40; -10, 20], rotation=90);
-        Components.AirGapS airGapS(final p=p, final Lm=Lm) 
+        Machines.BasicMachines.Components.AirGapS airGapS(final p=p, final Lm=Lm) 
           annotation (extent=[-10,-10; 10,10],   rotation=-90);
-        Components.SquirrelCage squirrelCageR(final Lrsigma=Lrsigma, final Rr=Rr) 
+        Machines.BasicMachines.Components.SquirrelCage squirrelCageR(final 
+            Lrsigma =                                                              Lrsigma, final Rr=Rr) 
           annotation (extent=[-10, -40; 10, -20], rotation=-90);
         annotation (defaultComponentName="AIMC",
           Documentation(info="<HTML>
@@ -1962,12 +1324,10 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
         connect(airGapS.flange_a, inertia.flange_a) annotation (points=[10,
               6.12303e-016; 26,6.12303e-016; 26,-1.22461e-015; 40,-1.22461e-015],
             style(color=0, rgbcolor={0,0,0}));
-      end AsynchronousInductionMachineSquirrelCage;
+      end AIM_SquirrelCage;
       
-      model AsynchronousInductionMachineSlipRing 
-        "Asynchronous induction machine with slipring rotor" 
-        extends Interfaces.PartialInductionMachine(inertia(final J=J));
-        parameter Real p=2 "number of pole pairs";
+      model AIM_SlipRing "Asynchronous induction machine with slipring rotor" 
+        extends Interfaces.PartialBasicInductionMachine(J=0.29);
         constant Modelica.SIunits.Frequency fNominal=50 "nominal frequency";
         parameter Modelica.SIunits.Resistance Rs=0.03 
           "|Impedances|warm stator resistance per phase";
@@ -1979,7 +1339,6 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             fNominal) "|Impedances|rotor stray inductance per phase";
         parameter Modelica.SIunits.Resistance Rr=0.04 
           "|Impedances|warm rotor resistance per phase";
-        parameter Modelica.SIunits.Inertia J=0.29 "moment of inertia";
         parameter Real TurnsRatio=1 "w1*xi1 / w2*xi2";
         output Modelica.SIunits.Current is[m] = plug_sp.pin.i 
           "stator instantaneous currents";
@@ -1997,23 +1356,23 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           "rotor zero-sequence current";
         output Modelica.SIunits.Current ir[m] = plug_rp.pin.i 
           "rotor instantaneous currents";
-        MultiPhase.Basic.Resistor rs(final m=m, final R=fill(Rs, m)) 
+        Modelica.Electrical.MultiPhase.Basic.Resistor rs(final m=m, final R=fill(Rs, m)) 
           annotation (extent=[60,50; 40,70]);
-        MultiPhase.Basic.Inductor lssigma(final m=m, final L=fill(Lssigma, m)) 
+        Modelica.Electrical.MultiPhase.Basic.Inductor lssigma(final m=m, final L=fill(Lssigma, m)) 
           annotation (extent=[30,50; 10,70]);
-        SpacePhasors.Components.SpacePhasor spacePhasorS 
+        Machines.SpacePhasors.Components.SpacePhasor spacePhasorS 
           annotation (extent=[10,40; -10,20],   rotation=90);
-        Components.AirGapS airGapS(final p=p, final Lm=Lm) 
+        Machines.BasicMachines.Components.AirGapS airGapS(final p=p, final Lm=Lm) 
           annotation (extent=[-10,-10; 10,10],   rotation=-90);
-        SpacePhasors.Components.SpacePhasor spacePhasorR 
+        Machines.SpacePhasors.Components.SpacePhasor spacePhasorR 
           annotation (extent=[10, -40; -10, -20], rotation=90);
-        MultiPhase.Basic.Inductor lrsigma(final m=m, final L=fill(Lrsigma, m)) 
+        Modelica.Electrical.MultiPhase.Basic.Inductor lrsigma(final m=m, final L=fill(Lrsigma, m)) 
           annotation (extent=[30,-90; 10,-70]);
-        MultiPhase.Basic.Resistor rr(final m=m, final R=fill(Rr, m)) 
+        Modelica.Electrical.MultiPhase.Basic.Resistor rr(final m=m, final R=fill(Rr, m)) 
           annotation (extent=[60,-90; 40,-70]);
-        MultiPhase.Interfaces.PositivePlug plug_rp(final m=m) 
+        Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_rp(final m=m) 
           annotation (extent=[-110,70; -90,50]);
-        MultiPhase.Interfaces.NegativePlug plug_rn(final m=m) 
+        Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_rn(final m=m) 
           annotation (extent=[-110,-50; -90,-70]);
         annotation (defaultComponentName="AIMS",
           Documentation(info="<HTML>
@@ -2116,10 +1475,11 @@ TurnsRatio * <u>V</u><sub>R</sub> = <u>U</u><sub>s</sub> - (R<sub>s</sub> + j X<
           Icon(Line(points=[-100,50; -100,20; -60,20], style(color=3, rgbcolor={0,
                     0,255})), Line(points=[-100,-50; -100,-20; -60,-20], style(
                   color=3, rgbcolor={0,0,255}))));
-        MultiPhase.Ideal.IdealTransformer IdealTransformer1(final m=m, final n=
+        Modelica.Electrical.MultiPhase.Ideal.IdealTransformer IdealTransformer1
+          (                                                                     final m=m, final n=
               fill(1/TurnsRatio, m)) 
           annotation (extent=[10,-70; -10,-50], rotation=90);
-        MultiPhase.Basic.Star Star1(final m=m) 
+        Modelica.Electrical.MultiPhase.Basic.Star Star1(final m=m) 
           annotation (extent=[-20,-60; -40,-40]);
         Modelica.Electrical.Analog.Basic.Ground Ground1 
           annotation (extent=[-60,-70; -40,-50], rotation=0);
@@ -2180,12 +1540,11 @@ TurnsRatio * <u>V</u><sub>R</sub> = <u>U</u><sub>s</sub> - (R<sub>s</sub> + j X<
         connect(airGapS.flange_a, inertia.flange_a) annotation (points=[10,
               6.12303e-016; 25,6.12303e-016; 25,-1.22461e-015; 40,-1.22461e-015],
             style(color=0, rgbcolor={0,0,0}));
-      end AsynchronousInductionMachineSlipRing;
+      end AIM_SlipRing;
       
-      model AsynchronousInductionMachineReluctanceRotor 
+      model AIM_ReluctanceRotor 
         "Asynchronous induction machine with reluctance rotor" 
-        extends Interfaces.PartialInductionMachine(inertia(final J=J));
-        parameter Real p=2 "number of pole pairs";
+        extends Interfaces.PartialBasicInductionMachine(J=0.29);
         constant Modelica.SIunits.Frequency fNominal=50 "nominal frequency";
         parameter Modelica.SIunits.Resistance Rs=0.03 
           "|Impedances|warm stator resistance per phase";
@@ -2199,7 +1558,6 @@ TurnsRatio * <u>V</u><sub>R</sub> = <u>U</u><sub>s</sub> - (R<sub>s</sub> + j X<
           "|Impedances|rotor stray inductance";
         parameter Modelica.SIunits.Resistance Rr=0.04 
           "|Impedances|warm rotor resistance";
-        parameter Modelica.SIunits.Inertia J=0.29 "moment of inertia";
         output Modelica.SIunits.Current is[m] = plug_sp.pin.i 
           "stator instantaneous currents";
         output Modelica.SIunits.Current i_0_s( stateSelect=StateSelect.prefer) = spacePhasorS.zero.i 
@@ -2212,17 +1570,18 @@ TurnsRatio * <u>V</u><sub>R</sub> = <u>U</u><sub>s</sub> - (R<sub>s</sub> + j X<
           "rotor space phasor current / stator fixed frame";
         output Modelica.SIunits.Current idq_rr[2](each stateSelect=StateSelect.prefer) = airGapR.i_rr 
           "rotor space phasor current / rotor fixed frame";
-        MultiPhase.Basic.Resistor rs(final m=m, final R=fill(Rs, m)) 
+        Modelica.Electrical.MultiPhase.Basic.Resistor rs(final m=m, final R=fill(Rs, m)) 
           annotation (extent=[60,50; 40,70]);
-        MultiPhase.Basic.Inductor lssigma(final m=m, final L=fill(Lssigma, m)) 
+        Modelica.Electrical.MultiPhase.Basic.Inductor lssigma(final m=m, final L=fill(Lssigma, m)) 
           annotation (extent=[30,50; 10,70]);
-        SpacePhasors.Components.SpacePhasor spacePhasorS 
+        Machines.SpacePhasors.Components.SpacePhasor spacePhasorS 
           annotation (extent=[10,40; -10,20],   rotation=90);
-        Components.AirGapR airGapR(
+        Machines.BasicMachines.Components.AirGapR airGapR(
           final p=p,
           final Lmd=Lmd,
           final Lmq=Lmq) annotation (extent=[-10,-10; 10,10],   rotation=-90);
-        Components.SquirrelCage squirrelCageR(final Lrsigma=Lrsigma, final Rr=Rr) 
+        Machines.BasicMachines.Components.SquirrelCage squirrelCageR(final 
+            Lrsigma =                                                              Lrsigma, final Rr=Rr) 
           annotation (extent=[-10, -40; 10, -20], rotation=-90);
         annotation (defaultComponentName="AIMR",
           Diagram,
@@ -2365,7 +1724,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
         connect(airGapR.flange_a, inertia.flange_a) annotation (points=[10,
               6.12303e-016; 25,6.12303e-016; 25,-1.22461e-015; 40,-1.22461e-015],
             style(color=0, rgbcolor={0,0,0}));
-      end AsynchronousInductionMachineReluctanceRotor;
+      end AIM_ReluctanceRotor;
     end AsynchronousInductionMachines;
     
     package SynchronousInductionMachines 
@@ -2375,7 +1734,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 <p>
 This package contains models of synchronous induction machines, based on space phasor theory:
 <ul>
-<li>PermanentMagnetSynchronousInductionMachineDamperCage: synchronous induction machine with permanent magnet excitation and damper cage</li>
+<li>SM_PermanentMagnetDamperCage: synchronous induction machine with permanent magnet excitation, with damper cage</li>
 </ul>
 These models use package SpacePhasors.
 </p>
@@ -2396,6 +1755,9 @@ These models use package SpacePhasors.
   <li> v1.02 2004/09/19 Anton Haumer</li>
   <li> v1.03 2004/09/24 Anton Haumer<br>
        consistent naming of inductors and resistors in machine models</li>
+  <li> v1.1  2004/10/01 Anton Haumer<br>
+       changed naming and structure<br>
+       issued to Modelica Standard Library 2.1</li>
   </ul>
   </dd>
 </p>
@@ -2410,10 +1772,9 @@ These models use package SpacePhasors.
 </dl>
 </HTML>"));
       
-      model PermanentMagnetSynchronousMachineDamperCage 
-        "Permanent magnet synchronous induction machine with damper" 
-        extends Interfaces.PartialInductionMachine(inertia(final J=J));
-        parameter Real p=2 "number of pole pairs";
+      model SM_PermanentMagnetDamperCage 
+        "Permanent magnet synchronous induction machine with damper cage" 
+        extends Interfaces.PartialBasicInductionMachine(J=0.29);
         parameter Modelica.SIunits.Frequency fNominal=50 
           "|Excitation|nominal frequency";
         parameter Modelica.SIunits.Voltage V0=112.3 
@@ -2430,7 +1791,6 @@ These models use package SpacePhasors.
           "|Impedances|damper stray inductance";
         parameter Modelica.SIunits.Resistance Rr=0.04 
           "|Impedances|warm damper resistance";
-        parameter Modelica.SIunits.Inertia J=0.29 "moment of inertia";
         output Modelica.SIunits.Current is[m] = plug_sp.pin.i 
           "stator instantaneous currents";
         output Modelica.SIunits.Current i_0_s( stateSelect=StateSelect.prefer) = spacePhasorS.zero.i 
@@ -2445,36 +1805,34 @@ These models use package SpacePhasors.
         parameter Modelica.SIunits.Current Ie=sqrt(2)*V0/(Lmd*2*pi*fNominal) 
           "equivalent excitation current";
       public 
-        MultiPhase.Basic.Resistor rs(final m=m, final R=fill(Rs, m)) 
+        Modelica.Electrical.MultiPhase.Basic.Resistor rs(final m=m, final R=fill(Rs, m)) 
           annotation (extent=[60,50; 40,70]);
-        MultiPhase.Basic.Inductor lssigma(final m=m, final L=fill(Lssigma, m)) 
+        Modelica.Electrical.MultiPhase.Basic.Inductor lssigma(final m=m, final L=fill(Lssigma, m)) 
           annotation (extent=[30,50; 10,70]);
-        SpacePhasors.Components.SpacePhasor spacePhasorS 
+        Machines.SpacePhasors.Components.SpacePhasor spacePhasorS 
           annotation (extent=[10, 40; -10, 20], rotation=90);
-        Components.AirGapR airGapR(
+        Machines.BasicMachines.Components.AirGapR airGapR(
           final p=p,
           final Lmd=Lmd,
           final Lmq=Lmq) annotation (extent=[-10,-10; 10,10],   rotation=-90);
-        Components.SquirrelCage squirrelCageD(final Lrsigma=Lrsigma, final Rr=Rr) 
-          annotation (extent=[-10, -40; 10, -20], rotation=-90);
-        Components.PermanentMagnet permanentMagnet(Ie=Ie) 
+        Machines.BasicMachines.Components.PermanentMagnet permanentMagnet(Ie=Ie) 
           annotation (extent=[-10, -70; 10, -50], rotation=-90);
-        annotation (defaultComponentName="EESMD",
+        annotation (defaultComponentName="SMPM",
           Diagram,
           Icon(
-            Ellipse(extent=[-134,34; -66,-34], style(color=3, rgbcolor={0,0,255})),
             Rectangle(extent=[-130,10; -100,-10],
-                                                style(
+                style(
                 color=0,
                 rgbcolor={0,0,0},
                 fillColor=2,
                 rgbfillColor={0,255,0})),
             Rectangle(extent=[-100,10; -70,-10],
-                                               style(
+                style(
                 color=0,
                 rgbcolor={0,0,0},
                 fillColor=1,
-                rgbfillColor={255,0,0}))),
+                rgbfillColor={255,0,0})),
+             Ellipse(extent=[-134,34; -66,-34], style(color=3, rgbcolor={0,0,255}))),
           Documentation(info="<HTML>
 <p>
 <b>Model of a three phase permanent magnet synchronous induction machine with damper cage.</b><br>
@@ -2578,6 +1936,9 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 </table>
 </p>
 </HTML>"));
+        Machines.BasicMachines.Components.SquirrelCage squirrelCageD(final 
+            Lrsigma =                                                              Lrsigma, final Rr=Rr) 
+          annotation (extent=[-10,-40; 10,-20],   rotation=-90);
       equation 
         connect(rs.plug_n, lssigma.plug_p) 
           annotation (points=[40,60; 30,60],   style(color=3));
@@ -2585,8 +1946,8 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           annotation (points=[10,60; 10,40],           style(color=3));
         connect(rs.plug_p, plug_sp)        annotation (points=[60,60; 60,100],
             style(color=3, rgbcolor={0,0,255}));
-        connect(spacePhasorS.plug_n, plug_sn) annotation (points=[-10,40; -12,40;
-              -12,60; -60,60; -60,100], style(color=3, rgbcolor={0,0,255}));
+        connect(spacePhasorS.plug_n, plug_sn) annotation (points=[-10,40; -10,
+              60; -60,60; -60,100],     style(color=3, rgbcolor={0,0,255}));
         connect(spacePhasorS.ground, spacePhasorS.zero) annotation (points=[-10,
               20; -10,14; -6.12303e-016,14; -6.12303e-016,20],
                                                            style(
@@ -2602,13 +1963,6 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             fillColor=3,
             rgbfillColor={0,0,255},
             fillPattern=1));
-        connect(airGapR.spacePhasor_r, squirrelCageD.spacePhasor_r) annotation (
-            points=[10,-10; 10,-20], style(
-            color=3,
-            rgbcolor={0,0,255},
-            fillColor=3,
-            rgbfillColor={0,0,255},
-            fillPattern=1));
         connect(airGapR.spacePhasor_r, permanentMagnet.spacePhasor_r) annotation (
            points=[10,-10; 10,-50], style(
             color=3,
@@ -2619,8 +1973,9 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
         connect(airGapR.flange_a, inertia.flange_a) annotation (points=[10,
               6.12303e-016; 24,6.12303e-016; 24,-1.22461e-015; 40,-1.22461e-015],
             style(color=0, rgbcolor={0,0,0}));
-      end PermanentMagnetSynchronousMachineDamperCage;
-      
+        connect(airGapR.spacePhasor_r, squirrelCageD.spacePhasor_r) 
+          annotation (points=[10,-10; 10,-20], style(color=3, rgbcolor={0,0,255}));
+      end SM_PermanentMagnetDamperCage;
     end SynchronousInductionMachines;
     
     package DCMachines "Models of DC machines" 
@@ -2629,8 +1984,9 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 <p>
 This package contains models of DC machines:
 <ul>
-<li>DCMachinePermanentMagnet: DC machine with permanent magnet excitation</li>
-<li>DCMachineElectricalExcited: DC machine with electrical shunt or separate excitation</li>
+<li>DC_PermanentMagnet: DC machine with permanent magnet excitation</li>
+<li>DC_ElectricalExcited: DC machine with electrical shunt or separate excitation</li>
+<li>DC_SeriesExcited: DC machine with series excitation</li>
 </ul>
 </p>
 <dl>
@@ -2650,6 +2006,9 @@ This package contains models of DC machines:
   <li> v1.02 2004/09/19 Anton Haumer</li>
   <li> v1.03 2004/09/24 Anton Haumer<br>
        added DC machine with series excitation</li>
+  <li> v1.1  2004/10/01 Anton Haumer<br>
+       changed naming and structure<br>
+       issued to Modelica Standard Library 2.1</li>
   </ul>
   </dd>
 </p>
@@ -2665,8 +2024,8 @@ This package contains models of DC machines:
 </HTML>
 "));
       
-      model DCMachinePermanentMagnet "Permanent magnet DC machine" 
-        extends Interfaces.PartialDCMachine(inertia(final J=J));
+      model DC_PermanentMagnet "Permanent magnet DC machine" 
+        extends Interfaces.PartialBasicDCMachine(J=0.15);
         parameter Modelica.SIunits.Voltage VaNominal=100 
           "|Nominal values|nominal armature voltage";
         parameter Modelica.SIunits.Current IaNominal=100 
@@ -2677,7 +2036,6 @@ This package contains models of DC machines:
           "|Impedances|warm armature resistance";
         parameter Modelica.SIunits.Inductance La=0.0015 
           "|Impedances|armature inductance";
-        parameter Modelica.SIunits.Inertia J=0.15 "moment of inertia";
         output Modelica.SIunits.Voltage va = pin_ap.v-pin_an.v 
           "armature voltage";
         output Modelica.SIunits.Current ia = pin_ap.i "armature current";
@@ -2694,7 +2052,8 @@ This package contains models of DC machines:
           annotation (extent=[60,50; 40,70]);
         Modelica.Electrical.Analog.Basic.Inductor la(final L=La) 
           annotation (extent=[30,50; 10,70]);
-        Components.AirGapDC airGapDC(final Le=Le, final TurnsRatio=TurnsRatio) 
+        Machines.BasicMachines.Components.AirGapDC airGapDC(final Le=Le, final 
+            TurnsRatio =                                                                  TurnsRatio) 
           annotation (extent=[-10,-10; 10,10], rotation=-90);
         Modelica.Electrical.Analog.Basic.Ground eGround 
           annotation (extent=[-20,-70; 0,-50]);
@@ -2782,11 +2141,11 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
               6.12303e-016; 26,6.12303e-016; 26,-1.22461e-015; 40,-1.22461e-015],
                                                                     style(color=0,
               rgbcolor={0,0,0}));
-      end DCMachinePermanentMagnet;
+      end DC_PermanentMagnet;
       
-      model DCMachineElectricalExcited 
+      model DC_ElectricalExcited 
         "Electrical shunt/separate excited linear DC machine" 
-        extends Machines.Interfaces.PartialDCMachine(inertia(final J=J));
+        extends Machines.Interfaces.PartialBasicDCMachine(J=0.15);
         parameter Modelica.SIunits.Voltage VaNominal=100 
           "|Nominal values|nominal armature voltage";
         parameter Modelica.SIunits.Current IaNominal=100 
@@ -2803,7 +2162,6 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
           "|Excitation|warm field excitation resistance";
         parameter Modelica.SIunits.Inductance Le=1 
           "|Excitation|field excitation inductance";
-        parameter Modelica.SIunits.Inertia J=0.15 "moment of inertia";
         output Modelica.SIunits.Voltage va = pin_ap.v-pin_an.v 
           "Armature voltage";
         output Modelica.SIunits.Current ia = pin_ap.i "Armature current";
@@ -2906,7 +2264,8 @@ Armature current does not cover excitation current of a shunt excitation; in thi
           annotation (extent=[60,50; 40,70]);
         Modelica.Electrical.Analog.Basic.Inductor la(final L=La) 
           annotation (extent=[30,50; 10,70]);
-        Components.AirGapDC airGapDC(final Le=Le,final TurnsRatio=TurnsRatio) 
+        Machines.BasicMachines.Components.AirGapDC airGapDC(final Le=Le,final 
+            TurnsRatio =                                                                 TurnsRatio) 
           annotation (extent=[-10,-10; 10,10], rotation=-90);
         Modelica.Electrical.Analog.Basic.Resistor re(final R=Re) 
           annotation (extent=[-40,-30; -60,-50], rotation=180);
@@ -2932,10 +2291,10 @@ Armature current does not cover excitation current of a shunt excitation; in thi
         connect(airGapDC.flange_a, inertia.flange_a) annotation (points=[10,
               6.12303e-016; 26,6.12303e-016; 26,-1.22461e-015; 40,-1.22461e-015],
             style(color=0, rgbcolor={0,0,0}));
-      end DCMachineElectricalExcited;
+      end DC_ElectricalExcited;
       
-      model DCMachineSeriesExcited "Series excited linear DC machine" 
-        extends Machines.Interfaces.PartialDCMachine(inertia(final J=J));
+      model DC_SeriesExcited "Series excited linear DC machine" 
+        extends Machines.Interfaces.PartialBasicDCMachine(J=0.15);
         parameter Modelica.SIunits.Voltage VaNominal=100 
           "|Nominal values|nominal armature voltage";
         parameter Modelica.SIunits.Current IaNominal=100 
@@ -2950,7 +2309,6 @@ Armature current does not cover excitation current of a shunt excitation; in thi
           "|Excitation|warm field excitation resistance";
         parameter Modelica.SIunits.Inductance Le=0.0005 
           "|Excitation|field excitation inductance";
-        parameter Modelica.SIunits.Inertia J=0.15 "moment of inertia";
         output Modelica.SIunits.Voltage va = pin_ap.v-pin_an.v 
           "Armature voltage";
         output Modelica.SIunits.Current ia = pin_ap.i "Armature current";
@@ -3045,7 +2403,8 @@ ve = voltage drop of series excitation
           annotation (extent=[60,50; 40,70]);
         Modelica.Electrical.Analog.Basic.Inductor la(final L=La) 
           annotation (extent=[30,50; 10,70]);
-        Components.AirGapDC airGapDC(final Le=Le,final TurnsRatio=TurnsRatio) 
+        Machines.BasicMachines.Components.AirGapDC airGapDC(final Le=Le,final 
+            TurnsRatio =                                                                 TurnsRatio) 
           annotation (extent=[-10,-10; 10,10], rotation=-90);
         Modelica.Electrical.Analog.Basic.Resistor re(final R=Re) 
           annotation (extent=[-40,-30; -60,-50], rotation=180);
@@ -3071,7 +2430,7 @@ ve = voltage drop of series excitation
         connect(airGapDC.flange_a, inertia.flange_a) annotation (points=[10,
               6.12303e-016; 26,6.12303e-016; 26,-1.22461e-015; 40,-1.22461e-015],
             style(color=0, rgbcolor={0,0,0}));
-      end DCMachineSeriesExcited;
+      end DC_SeriesExcited;
     end DCMachines;
     
     package Components "Machine components like AirGaps" 
@@ -3177,9 +2536,9 @@ These models use package SpacePhasors.
 Model of the airgap in stator-fixed coordinate system, using only equations.
 </p>
 </HTML>"));
-        Interfaces.SpacePhasor spacePhasor_s 
+        Machines.Interfaces.SpacePhasor spacePhasor_s 
           annotation (extent=[-110,90; -90,110]);
-        Interfaces.SpacePhasor spacePhasor_r 
+        Machines.Interfaces.SpacePhasor spacePhasor_r 
           annotation (extent=[90,90; 110,110]);
       equation 
         // mechanical angle of the rotor of an equivalent 2-pole machine
@@ -3267,9 +2626,9 @@ Model of the airgap in stator-fixed coordinate system, using only equations.
 Model of the airgap in stator-fixed coordinate system, using only equations.
 </p>
 </HTML>"));
-        Interfaces.SpacePhasor spacePhasor_s 
+        Machines.Interfaces.SpacePhasor spacePhasor_s 
           annotation (extent=[-110,90; -90,110]);
-        Interfaces.SpacePhasor spacePhasor_r 
+        Machines.Interfaces.SpacePhasor spacePhasor_r 
           annotation (extent=[90,90; 110,110]);
       equation 
         // mechanical angle of the rotor of an equivalent 2-pole machine
@@ -3334,7 +2693,7 @@ Model of the airgap in stator-fixed coordinate system, using only equations.
 Model of a squirrel cage / damper cage in two axis.
 </p>
 </HTML>"));
-        Interfaces.SpacePhasor spacePhasor_r 
+        Machines.Interfaces.SpacePhasor spacePhasor_r 
                                            annotation (extent=[-110,90; -90,110]);
       equation 
         spacePhasor_r.v_ = Rr * spacePhasor_r.i_ + Lrsigma * der(spacePhasor_r.i_);
@@ -3400,7 +2759,7 @@ Model of a squirrel cage / damper cage in two axis.
 Model of a permanent magnet excitation, characterized by an equivalent excitation current.
 </p>
 </HTML>"));
-        Interfaces.SpacePhasor spacePhasor_r 
+        Machines.Interfaces.SpacePhasor spacePhasor_r 
           annotation (extent=[-110,90; -90,110]);
       equation 
         spacePhasor_r.i_ = {-Ie,0};
@@ -3497,7 +2856,424 @@ Induced armature voltage is calculated from flux times angular velocity.
         flange_a.tau = -tau_electrical;
       end AirGapDC;
     end Components;
-  end Basic;
+  end BasicMachines;
+  
+  package Sensors 
+    annotation (Documentation(info="<HTML>
+<p>
+This package contains sensors that are usefull when modelling machines.
+</p>
+<dl>
+<p>
+  <dt><b>Main Authors:</b></dt>
+  <dd>
+  <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
+  Technical Consulting & Electrical Engineering<br>
+  A-3423 St.Andrae-Woerdern<br>Austria<br>
+  email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
+  </dd>
+</p>
+<p>
+  <dt><b>Release Notes:</b></dt>
+  <dd>
+  <ul>
+  <li> v1.03 2004/09/24 Anton Haumer</li>
+  <li> v1.1  2004/10/01 Anton Haumer<br>
+       changed RotorAngle</li>
+  </ul>
+  </dd>
+</p>
+<p>
+  <dt><b>Copyright:</b></dt>
+  <dd>Copyright &copy; 1998-2004, Modelica Association and Anton Haumer.<br>
+  <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
+  under the terms of the <b>Modelica license</b>, see the license conditions
+  and the accompanying <b>disclaimer</b> in the documentation of package
+  Modelica in file \"Modelica/package.mo\".</i></dd>
+</p>
+</dl>
+</HTML>"));
+    
+    model VoltageRMSsensor 
+      constant Integer m(final min=1) = 3 "number of phases";
+      Modelica.Blocks.Interfaces.RealOutput V(redeclare type SignalType = 
+            Modelica.SIunits.Voltage) 
+        annotation (extent=[-10,-120; 10,-100], rotation=-90);
+      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_p(final m=m) 
+        annotation (extent=[-110,-10; -90,10]);
+      Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_n(final m=m) 
+        annotation (extent=[90,-10; 110,10]);
+      Modelica.Electrical.MultiPhase.Sensors.VoltageSensor VoltageSensor1(final m=m) 
+        annotation (extent=[-10,40; 10,60]);
+      Modelica.Blocks.Math.Gain Gain1(final k=1/sqrt(2)) 
+        annotation (extent=[-10,-80; 10,-60], rotation=-90);
+      Machines.SpacePhasors.Blocks.ToSpacePhasor ToSpacePhasor1 
+        annotation (extent=[-10,0; 10,20], rotation=-90);
+      Machines.SpacePhasors.Blocks.ToPolar ToPolar1 
+        annotation (extent=[-10,-40; 10,-20], rotation=-90);
+      annotation (Diagram, Icon(
+          Ellipse(extent=[-70,70; 70,-70],   style(color=0, fillColor=7)),
+          Line(points=[0,70; 0,40],   style(color=0)),
+          Line(points=[22.9,32.8; 40.2,57.3],   style(color=0)),
+          Line(points=[-22.9,32.8; -40.2,57.3],   style(color=0)),
+          Line(points=[37.6,13.7; 65.8,23.9],   style(color=0)),
+          Line(points=[-37.6,13.7; -65.8,23.9],   style(color=0)),
+          Line(points=[0,0; 9.02,28.6],   style(color=0)),
+          Polygon(points=[-0.48,31.6; 18,26; 18,57.2; -0.48,31.6],     style(
+              color=0,
+              fillColor=0,
+              fillPattern=1)),
+          Ellipse(extent=[-5,5; 5,-5],   style(
+              color=0,
+              gradient=0,
+              fillColor=0,
+              fillPattern=1)),
+          Line(points=[-90,0; -70,0], style(color=3, rgbcolor={0,0,255})),
+          Line(points=[70,0; 90,0], style(color=3, rgbcolor={0,0,255})),
+          Line(points=[0,-70; 0,-100], style(color=3, rgbcolor={0,0,255})),
+          Text(
+            extent=[-40,-20; 40,-60],
+            style(color=3, rgbcolor={0,0,255}),
+            string="V RMS")),
+        Documentation(info="<HTML>
+<p>
+Measured 3-phase instantaneous voltages are transformed to the corresponding space phasor; <br>
+output is length of the space phasor divided by sqrt(2), thus giving in stationary state RMS voltage.
+</p>
+</HTML>"));
+    equation 
+      connect(plug_p, VoltageSensor1.plug_p) 
+        annotation (points=[-100,0; -100,50; -10,50],
+                                            style(color=3, rgbcolor={0,0,255}));
+      connect(VoltageSensor1.plug_n, plug_n) 
+        annotation (points=[10,50; 100,50; 100,0],
+                                          style(color=3, rgbcolor={0,0,255}));
+      connect(VoltageSensor1.v, ToSpacePhasor1.u) annotation (points=[0,39; 0,
+            22; -7.34764e-016,22],
+                               style(color=3, rgbcolor={0,0,255}));
+      connect(ToSpacePhasor1.y, ToPolar1.u) annotation (points=[6.73533e-016,-1;
+            6.73533e-016,-8.5; -7.34764e-016,-8.5; -7.34764e-016,-18], style(color=
+              3, rgbcolor={0,0,255}));
+      connect(ToPolar1.y[1], Gain1.u) annotation (points=[-0.5,-41; -0.5,-49.5;
+            -7.34764e-016,-49.5; -7.34764e-016,-58], style(color=3, rgbcolor={0,0,
+              255}));
+      connect(Gain1.y, V) annotation (points=[6.73533e-016,-81; 6.73533e-016,
+            -91.5; 0,-91.5; 0,-110],
+                              style(color=3, rgbcolor={0,0,255}));
+    end VoltageRMSsensor;
+    
+    model CurrentRMSsensor 
+      constant Integer m(final min=1) = 3 "number of phases";
+      Modelica.Blocks.Interfaces.RealOutput I(redeclare type SignalType = 
+            Modelica.SIunits.Current) 
+        annotation (extent=[-10,-120; 10,-100], rotation=-90);
+      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_p(final m=m) 
+        annotation (extent=[-110,-10; -90,10]);
+      Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_n(final m=m) 
+        annotation (extent=[90,-10; 110,10]);
+      Modelica.Electrical.MultiPhase.Sensors.CurrentSensor CurrentSensor1(final m=m) 
+        annotation (extent=[-10,40; 10,60]);
+      Modelica.Blocks.Math.Gain Gain1(final k=1/sqrt(2)) 
+        annotation (extent=[-10,-80; 10,-60], rotation=-90);
+      Machines.SpacePhasors.Blocks.ToSpacePhasor ToSpacePhasor1 
+        annotation (extent=[-10,0; 10,20], rotation=-90);
+      Machines.SpacePhasors.Blocks.ToPolar ToPolar1 
+        annotation (extent=[-10,-40; 10,-20], rotation=-90);
+      annotation (Diagram, Icon(
+          Ellipse(extent=[-70,70; 70,-70],   style(color=0, fillColor=7)),
+          Line(points=[0,70; 0,40],   style(color=0)),
+          Line(points=[22.9,32.8; 40.2,57.3],   style(color=0)),
+          Line(points=[-22.9,32.8; -40.2,57.3],   style(color=0)),
+          Line(points=[37.6,13.7; 65.8,23.9],   style(color=0)),
+          Line(points=[-37.6,13.7; -65.8,23.9],   style(color=0)),
+          Line(points=[0,0; 9.02,28.6],   style(color=0)),
+          Polygon(points=[-0.48,31.6; 18,26; 18,57.2; -0.48,31.6],     style(
+              color=0,
+              fillColor=0,
+              fillPattern=1)),
+          Ellipse(extent=[-5,5; 5,-5],   style(
+              color=0,
+              gradient=0,
+              fillColor=0,
+              fillPattern=1)),
+          Line(points=[-90,0; -70,0], style(color=3, rgbcolor={0,0,255})),
+          Line(points=[70,0; 90,0], style(color=3, rgbcolor={0,0,255})),
+          Line(points=[0,-70; 0,-100], style(color=3, rgbcolor={0,0,255})),
+          Text(
+            extent=[-40,-20; 40,-60],
+            style(color=3, rgbcolor={0,0,255}),
+            string="A RMS")),
+        Documentation(info="<HTML>
+<p>
+Measured 3-phase instantaneous currents are transformed to the corresponding space phasor; <br>
+output is length of the space phasor divided by sqrt(2), thus giving in stationary state RMS current.
+</p>
+</HTML>"));
+    equation 
+      connect(plug_p, CurrentSensor1.plug_p) 
+        annotation (points=[-100,0; -100,50; -10,50],
+                                            style(color=3, rgbcolor={0,0,255}));
+      connect(CurrentSensor1.plug_n, plug_n) 
+        annotation (points=[10,50; 100,50; 100,0],
+                                          style(color=3, rgbcolor={0,0,255}));
+      connect(CurrentSensor1.i, ToSpacePhasor1.u) annotation (points=[0,39; 0,
+            22; -7.34764e-016,22],
+                               style(color=3, rgbcolor={0,0,255}));
+      connect(ToSpacePhasor1.y, ToPolar1.u) annotation (points=[6.73533e-016,-1;
+            6.73533e-016,-8.5; -7.34764e-016,-8.5; -7.34764e-016,-18], style(color=
+              3, rgbcolor={0,0,255}));
+      connect(ToPolar1.y[1], Gain1.u) annotation (points=[-0.5,-41; -0.5,-49.5;
+            -7.34764e-016,-49.5; -7.34764e-016,-58], style(color=3, rgbcolor={0,0,
+              255}));
+      connect(Gain1.y,I)  annotation (points=[6.73533e-016,-81; 6.73533e-016,
+            -91.5; 0,-91.5; 0,-110],
+                              style(color=3, rgbcolor={0,0,255}));
+    end CurrentRMSsensor;
+    
+    model ElectricalPowerSensor 
+      constant Integer m(final min=1) = 3 "number of phases";
+      Modelica.Blocks.Interfaces.RealOutput P(redeclare type SignalType = 
+            Modelica.SIunits.Power) 
+        annotation (extent=[-60,120; -40,100],  rotation=-90);
+      Modelica.Blocks.Interfaces.RealOutput Q(redeclare type SignalType = 
+            Modelica.SIunits.Power) 
+        annotation (extent=[40,120; 60,100], rotation=-90);
+      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_p(final m=m) 
+        annotation (extent=[-110,-10; -90,10]);
+      Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_ni(final m=m) 
+        annotation (extent=[90,-10; 110,10]);
+      Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_nv(final m=m) 
+        annotation (extent=[-10,-110; 10,-90]);
+      annotation (Icon(
+          Ellipse(extent=[-70,70; 70,-70],   style(color=0, fillColor=7)),
+          Line(points=[0,70; 0,40],   style(color=0)),
+          Line(points=[22.9,32.8; 40.2,57.3],   style(color=0)),
+          Line(points=[-22.9,32.8; -40.2,57.3],   style(color=0)),
+          Line(points=[37.6,13.7; 65.8,23.9],   style(color=0)),
+          Line(points=[-37.6,13.7; -65.8,23.9],   style(color=0)),
+          Line(points=[0,0; 9.02,28.6],   style(color=0)),
+          Polygon(points=[-0.48,31.6; 18,26; 18,57.2; -0.48,31.6],     style(
+              color=0,
+              fillColor=0,
+              fillPattern=1)),
+          Ellipse(extent=[-5,5; 5,-5],   style(
+              color=0,
+              gradient=0,
+              fillColor=0,
+              fillPattern=1)),
+          Line(points=[-90,0; -70,0], style(color=3, rgbcolor={0,0,255})),
+          Line(points=[70,0; 90,0], style(color=3, rgbcolor={0,0,255})),
+          Text(
+            extent=[-40,-20; 40,-60],
+            style(color=3, rgbcolor={0,0,255}),
+            string="P Q"),
+          Line(points=[0,-70; 0,-90],  style(color=3, rgbcolor={0,0,255})),
+          Line(points=[-10,70; -10,80; -50,80; -50,100], style(color=3, rgbcolor={0,
+                  0,255})),
+          Line(points=[10,70; 10,80; 50,80; 50,100], style(color=3, rgbcolor={0,0,
+                  255}))),
+          Diagram,
+        Documentation(info="<HTML>
+<p>
+3-phase instantaneous voltages (plug_p - plug_nv) and currents (plug_p - plug_ni) are transformed to the corresponding space phasors, <br>
+which are used to calculate power quantities:<br>
+P = instantaneous power, thus giving in stationary state active power.<br>
+Q = giving in stationary state reactive power.<br>
+</p>
+</HTML>"));
+    protected 
+      Modelica.SIunits.Voltage v_[2];
+      Modelica.SIunits.Current i_[2];
+    equation 
+      plug_p.pin.v = plug_ni.pin.v;
+      plug_p.pin.i + plug_ni.pin.i = zeros(m);
+      plug_nv.pin.i = zeros(m);
+      v_ = Machines.SpacePhasors.Functions.ToSpacePhasor(plug_p.pin.v - plug_nv.pin.v);
+      i_ = Machines.SpacePhasors.Functions.ToSpacePhasor(plug_p.pin.i);
+      2/3*P = +v_[1]*i_[1]+v_[2]*i_[2];
+      2/3*Q = -v_[1]*i_[2]+v_[2]*i_[1];
+    end ElectricalPowerSensor;
+    
+    model MechanicalPowerSensor 
+      extends Modelica.Mechanics.Rotational.Interfaces.TwoFlanges;
+      Modelica.Blocks.Interfaces.RealOutput P(redeclare type SignalType = 
+            Modelica.SIunits.Power) 
+        annotation (extent=[-10,-100; 10,-120],   rotation=90);
+      annotation (Icon(
+          Ellipse(extent=[-70,70; 70,-70],   style(color=0, fillColor=7)),
+          Line(points=[0,70; 0,40],   style(color=0)),
+          Line(points=[22.9,32.8; 40.2,57.3],   style(color=0)),
+          Line(points=[-22.9,32.8; -40.2,57.3],   style(color=0)),
+          Line(points=[37.6,13.7; 65.8,23.9],   style(color=0)),
+          Line(points=[-37.6,13.7; -65.8,23.9],   style(color=0)),
+          Line(points=[0,0; 9.02,28.6],   style(color=0)),
+          Polygon(points=[-0.48,31.6; 18,26; 18,57.2; -0.48,31.6],     style(
+              color=0,
+              fillColor=0,
+              fillPattern=1)),
+          Ellipse(extent=[-5,5; 5,-5],   style(
+              color=0,
+              gradient=0,
+              fillColor=0,
+              fillPattern=1)),
+          Line(points=[-70,0; -90,0],   style(color=0)),
+          Line(points=[70,0; 90,0],   style(color=0)),
+          Line(points=[0,-100; 0,-70]),
+          Text(
+            extent=[-40,-20; 40,-60],
+            style(color=3, rgbcolor={0,0,255}),
+            string="Pmech")), Diagram,
+        Documentation(info="<HTML>
+<p>
+Calculates (mechanical) power from torque times angular speed.
+</p>
+</HTML>"));
+      Modelica.Mechanics.Rotational.Sensors.TorqueSensor TorqueSensor1 
+        annotation (extent=[20,-10; 40,10]);
+      Modelica.Mechanics.Rotational.Sensors.SpeedSensor SpeedSensor1 
+        annotation (extent=[-40,-20; -20,0], rotation=-90);
+      Modelica.Blocks.Math.Product Product1 
+        annotation (extent=[-10,-80; 10,-60], rotation=-90);
+    equation 
+      connect(flange_a, TorqueSensor1.flange_a) 
+        annotation (points=[-100,0; 20,0], style(color=0, rgbcolor={0,0,0}));
+      connect(TorqueSensor1.flange_b, flange_b) 
+        annotation (points=[40,0; 100,0], style(color=0, rgbcolor={0,0,0}));
+      connect(SpeedSensor1.flange_a, flange_a) 
+        annotation (points=[-30,0; -100,0], style(color=0, rgbcolor={0,0,0}));
+      connect(SpeedSensor1.w, Product1.u2) annotation (points=[-30,-21; -30,-40;
+            -6,-40; -6,-58], style(color=3, rgbcolor={0,0,255}));
+      connect(TorqueSensor1.tau, Product1.u1) annotation (points=[22,-11; 22,
+            -40; 6,-40; 6,-58], style(color=3, rgbcolor={0,0,255}));
+      connect(Product1.y, P) annotation (points=[6.73533e-016,-81; 6.73533e-016,
+            -90.5; 0,-90.5; 0,-110], style(color=3, rgbcolor={0,0,255}));
+    end MechanicalPowerSensor;
+    
+    model RotorAngle "Rotor lagging angle" 
+      constant Integer m=3 "number of phases";
+      parameter Real p "number of pole pairs";
+      annotation (
+        Diagram,
+        Icon(
+          Ellipse(extent=[-60, 80; 60, 40], style(
+              color=2,
+              rgbcolor={0,255,0},
+              fillColor=7,
+              rgbfillColor={255,255,255})),
+          Ellipse(extent=[-60, -40; 60, -80], style(
+              color=2,
+              rgbcolor={0,255,0},
+              fillColor=7,
+              rgbfillColor={255,255,255})),
+          Rectangle(extent=[-60, 60; 60, 40], style(
+              color=2,
+              rgbcolor={0,255,0},
+              fillColor=7,
+              rgbfillColor={255,255,255},
+              fillPattern=1)),
+          Rectangle(extent=[-60, -40; 60, -60], style(
+              color=2,
+              rgbcolor={0,255,0},
+              fillColor=7,
+              rgbfillColor={255,255,255},
+              fillPattern=1)),
+          Rectangle(extent=[-40, 40; 40, -40], style(
+              color=2,
+              rgbcolor={0,255,0},
+              fillColor=7,
+              rgbfillColor={255,255,255},
+              fillPattern=1)),
+          Line(points=[0, 0; -80, 80], style(
+              color=3,
+              rgbcolor={0,0,255},
+              fillColor=7,
+              rgbfillColor={255,255,255},
+              fillPattern=1)),
+          Polygon(points=[-80, 80; -68, 76; -76, 68; -80, 80], style(
+              color=3,
+              rgbcolor={0,0,255},
+              fillColor=7,
+              rgbfillColor={255,255,255},
+              fillPattern=1)),
+          Line(points=[0, 0; 0, 80], style(
+              color=2,
+              rgbcolor={0,255,0},
+              fillColor=7,
+              rgbfillColor={255,255,255},
+              fillPattern=1)),
+          Polygon(points=[0, 84; 4, 72; -4, 72; 0, 84], style(
+              color=2,
+              rgbcolor={0,255,0},
+              fillColor=7,
+              rgbfillColor={255,255,255},
+              fillPattern=1))),
+        Documentation(info="<HTML>
+<p>
+Calculates rotor lagging angle by measuring the stator phase voltages, transforming them to the correspondig space phasor in stator-fixed coordinate system, <br>
+rotating the space phasor to the rotor-fixed coordinate system and calculating the angle of this space phasor.
+</p>
+</HTML>"));
+      Modelica.Blocks.Interfaces.RealOutput rotorAngle(redeclare type 
+          SignalType = 
+            Modelica.SIunits.Angle) annotation (extent=[100,-10; 120,10]);
+      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_p(final m=m) 
+        annotation (extent=[-110,50; -90,70]);
+      Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_n(final m=m) 
+        annotation (extent=[-110,-70; -90,-50]);
+      Modelica.Electrical.MultiPhase.Sensors.VoltageSensor VoltageSensor1(final m=m) 
+        annotation (extent=[-90,0; -70,-20],rotation=90);
+      Machines.SpacePhasors.Blocks.ToSpacePhasor ToSpacePhasorVS 
+        annotation (extent=[-60,-20; -40,0],    rotation=0);
+      Modelica.Mechanics.Rotational.Interfaces.Flange_a flange 
+        annotation (extent=[-10,90; 10,110]);
+      Modelica.Mechanics.Rotational.Sensors.AngleSensor angleSensor 
+        annotation (extent=[-10,90; 10,70],   rotation=90);
+      Modelica.Blocks.Math.Gain gain(final k=p) 
+        annotation (extent=[-10,40; 10,60],     rotation=-90);
+      Modelica.Blocks.Sources.Constant constant_(final k=Modelica.Constants.pi/2) 
+        annotation (extent=[-50,30; -30,50]);
+      Modelica.Blocks.Math.Add add(
+        final k1=1,
+        final k2=1) annotation (extent=[-20,10; 0,30],      rotation=-90);
+      Machines.SpacePhasors.Blocks.Rotator rotatorVS2R 
+        annotation (extent=[-20,-20; 0,0],     rotation=0);
+      Machines.SpacePhasors.Blocks.ToPolar ToPolarVSR 
+        annotation (extent=[20,-20; 40,0],    rotation=0);
+      Modelica.Blocks.Routing.DeMultiplex2 deMultiplex2(final n1=1,
+           final n2=1) annotation (extent=[60,-20; 80,0]);
+    equation 
+      connect(constant_.y, add.u2) annotation (points=[-29,40; -16,40; -16,32],
+          style(color=3, rgbcolor={0,0,255}));
+      connect(add.y, rotatorVS2R.angle) annotation (points=[-10,9; -10,0],
+                                                 style(color=3, rgbcolor={0,0,255}));
+      connect(ToSpacePhasorVS.y, rotatorVS2R.u) annotation (points=[-39,-10;
+            -22,-10],                    style(color=3, rgbcolor={0,0,255}));
+      connect(rotatorVS2R.y, ToPolarVSR.u) 
+        annotation (points=[1,-10; 18,-10],
+                                         style(color=3, rgbcolor={0,0,255}));
+      connect(ToPolarVSR.y, deMultiplex2.u) 
+        annotation (points=[41,-10; 58,-10],
+                                         style(color=3, rgbcolor={0,0,255}));
+      connect(plug_p, VoltageSensor1.plug_p) annotation (points=[-100,60; -80,
+            60; -80,0],
+                     style(color=3, rgbcolor={0,0,255}));
+      connect(plug_n, VoltageSensor1.plug_n) annotation (points=[-100,-60; -80,
+            -60; -80,-20],style(color=3, rgbcolor={0,0,255}));
+      connect(angleSensor.flange_a, flange) annotation (points=[-6.12303e-016,
+            90; 0,90; 0,100],
+                            style(color=0, rgbcolor={0,0,0}));
+      connect(VoltageSensor1.v, ToSpacePhasorVS.u) 
+        annotation (points=[-69,-10; -62,-10],
+                                             style(color=3, rgbcolor={0,0,255}));
+      connect(angleSensor.phi, gain.u) annotation (points=[6.73533e-016,69;
+            6.73533e-016,66.5; -7.34764e-016,66.5; -7.34764e-016,62], style(
+            color=3, rgbcolor={0,0,255}));
+      connect(gain.y, add.u1) annotation (points=[6.73533e-016,39; 6.73533e-016,
+            36; -4,36; -4,32], style(color=3, rgbcolor={0,0,255}));
+      connect(deMultiplex2.y2[1], rotorAngle) annotation (points=[81,-16; 90,-16;
+            90,0; 110,0], style(color=3, rgbcolor={0,0,255}));
+    end RotorAngle;
+  end Sensors;
   
   package SpacePhasors "Library with space phasor-models" 
     extends Modelica.Icons.Library;
@@ -3586,9 +3362,9 @@ Zero-sequence voltage and current are present at pin zero. An additional zero-se
         parameter Real TransformationMatrix[m, 2]=
           {{cos(-(k - 1)/m*2*pi),-sin(-(k - 1)/m*2*pi)} for k in 1:m};
       public 
-        MultiPhase.Interfaces.PositivePlug plug_p(final m=m) 
+        Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_p(final m=m) 
           annotation (extent=[-110, 90; -90, 110]);
-        MultiPhase.Interfaces.NegativePlug plug_n(final m=m) 
+        Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_n(final m=m) 
           annotation (extent=[-110, -110; -90, -90]);
         Modelica.Electrical.Analog.Interfaces.PositivePin zero 
           annotation (extent=[90,-10; 110,10]);
@@ -4002,4 +3778,209 @@ Converts a space phasor from polar coordinates to rectangular coordinates.
       end FromPolar;
     end Functions;
   end SpacePhasors;
+  
+  package Interfaces "SpacePhasor connector and PartialMachines" 
+    extends Modelica.Icons.Library;
+    annotation (Documentation(info="<HTML>
+<p>
+This package contains the space phasor connector and partial models for machine models.
+</p>
+<dl>
+<p>
+  <dt><b>Main Authors:</b></dt>
+  <dd>
+  <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
+  Technical Consulting & Electrical Engineering<br>
+  A-3423 St.Andrae-Woerdern<br>Austria<br>
+  email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
+  </dd>
+</p>
+<p>
+  <dt><b>Release Notes:</b></dt>
+  <dd>
+  <ul>
+  <li> v1.00 2004/09/16 Anton Haumer</li>
+  <li> v1.01 2004/09/18 Anton Haumer<br>
+       moved common equations from machine models to PartialMachine</li>
+  <li> v1.02 2004/09/19 Anton Haumer<br>
+       added PartialDCMachine</li>
+  </ul>
+  </dd>
+</p>
+<p>
+  <dt><b>Copyright:</b></dt>
+  <dd>Copyright &copy; 1998-2004, Modelica Association and Anton Haumer.<br>
+  <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
+  under the terms of the <b>Modelica license</b>, see the license conditions
+  and the accompanying <b>disclaimer</b> in the documentation of package
+  Modelica in file \"Modelica/package.mo\".</i></dd>
+</p>
+</dl>
+</HTML>"));
+    
+    connector SpacePhasor 
+      Modelica.SIunits.Voltage v_[2];
+      flow Modelica.SIunits.Current i_[2];
+      annotation (Diagram(Polygon(points=[0,100; -100,0; 0,-100; 100,0; 0,100],
+              style(
+              color=3,
+              rgbcolor={0,0,255},
+              fillColor=3,
+              rgbfillColor={0,0,255})), Text(
+            extent=[-150,-90; 150,-150],
+            style(
+              color=3,
+              rgbcolor={0,0,255},
+              fillColor=3,
+              rgbfillColor={0,0,255},
+              fillPattern=1),
+            string="%name")),            Icon(Polygon(points=[0,100; -100,0; 0,-100;
+                100,0; 0,100], style(
+              color=3,
+              rgbcolor={0,0,255},
+              fillColor=3,
+              rgbfillColor={0,0,255})), Text(
+            extent=[-150,-90; 150,-150],
+            style(
+              color=3,
+              rgbcolor={0,0,255},
+              fillColor=3,
+              rgbfillColor={0,0,255},
+              fillPattern=1),
+            string="%name")),
+        Documentation(info="<HTML>
+<p>
+Connector for Space Phasors:
+<ul>
+<li>Voltage v_[2] ... Real and Imaginary part of voltage space phasor</li>
+<li>Current i_[2] ... Real and Imaginary part of current space phasor</li>
+</ul>
+</p>
+</HTML>"));
+    end SpacePhasor;
+    
+    partial model PartialBasicMachine 
+      parameter Modelica.SIunits.Inertia J "moment of inertia";
+      output Modelica.SIunits.Angle phi_mechanical = flange_a.phi 
+        "mechanical angle of rotor";
+      output Modelica.SIunits.AngularVelocity w_mechanical = der(flange_a.phi) 
+        "mechanical angular velocity";
+      output Modelica.SIunits.Conversions.NonSIunits.AngularVelocity_rpm 
+        rpm_mechanical = Modelica.SIunits.Conversions.to_rpm(w_mechanical) 
+        "mechanical speed [rpm]";
+      output Modelica.SIunits.Torque tau_electrical = inertia.flange_a.tau 
+        "electromagnetic torque";
+      Modelica.Mechanics.Rotational.Interfaces.Flange_a flange_a 
+        annotation (extent=[90,-10; 110,10]);
+      annotation (
+        Icon(
+          Rectangle(extent=[-40,60; 80,-60],    style(
+              color=3,
+              rgbcolor={0,0,255},
+              gradient=2,
+              fillColor=69,
+              rgbfillColor={0,128,255})),
+          Rectangle(extent=[-40,60; -60,-60],    style(
+              color=10,
+              gradient=2,
+              fillColor=10)),
+          Rectangle(extent=[80,10; 100,-10], style(
+              color=10,
+              rgbcolor={95,95,95},
+              gradient=2,
+              fillColor=10,
+              rgbfillColor={95,95,95})),
+          Rectangle(extent=[-40,70; 40,50], style(
+              color=10,
+              rgbcolor={95,95,95},
+              fillColor=10,
+              rgbfillColor={95,95,95})),
+      Polygon(points=[-50,-90; -40,-90; -10,-20; 40,-20; 70,-90; 80,-90; 80,-100;
+                -50,-100; -50,-90],               style(
+          color=0,
+          gradient=0,
+          fillColor=0,
+          fillPattern=1)),
+          Text(
+            extent=[-150,-120; 150,-180],
+            style(
+              color=3,
+              rgbcolor={0,0,255},
+              fillColor=10,
+              rgbfillColor={95,95,95},
+              fillPattern=1),
+            string="%name"),
+          Rectangle(extent=[80,-80; 120,-120],   style(color=8, fillColor=8))),
+        Documentation(info="<HTML>
+<p>
+Base partial model DC machines:
+<ul>
+<li>main parts of the icon</li>
+<li>mechanical flange</li>
+</ul>
+</p>
+</HTML>"),
+        Diagram);
+      Modelica.Mechanics.Rotational.Interfaces.Flange_a bearing 
+        "Bearing at which the reaction torque (i.e., -flange.tau) is acting" 
+           annotation (extent=[90,-110; 110,-90]);
+      Modelica.Mechanics.Rotational.Inertia inertia(final J=J) 
+        annotation (extent=[60,10; 40,-10],   rotation=-180);
+    equation 
+      if cardinality(bearing) == 0 then
+        bearing.phi = 0;
+      else
+        bearing.tau = -flange_a.tau;
+      end if;
+      connect(inertia.flange_b, flange_a) annotation (points=[60,1.22461e-015;
+            79,1.22461e-015; 79,0; 100,0], style(color=0, rgbcolor={0,0,0}));
+    end PartialBasicMachine;
+    
+    partial model PartialBasicInductionMachine 
+      extends PartialBasicMachine;
+      constant Real pi=Modelica.Constants.pi;
+      constant Integer m=3 "number of phases";
+      parameter Real p=2 "number of pole pairs";
+      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_sp(final m=m) 
+        annotation (extent=[50,90; 70,110]);
+      Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_sn(final m=m) 
+        annotation (extent=[-70,90; -50,110]);
+      annotation (Documentation(info="<HTML>
+<p>
+Partial model for induction machine models, containing:
+<ul>
+<li>main parts of the icon</li>
+<li>stator plugs</li>
+<li>mechanical flange</li>
+</ul>
+</p>
+</HTML>"),
+        Diagram,
+        Icon(Line(points=[-50,100; -20,100; -20,70], style(color=3, rgbcolor={0,
+                  0,255})), Line(points=[50,100; 20,100; 20,70], style(color=3,
+                rgbcolor={0,0,255}))));
+    end PartialBasicInductionMachine;
+    
+    partial model PartialBasicDCMachine 
+      extends PartialBasicMachine;
+      annotation (Documentation(info="<HTML>
+<p>
+Partial model for DC machine models, containing:
+<ul>
+<li>main parts of the icon</li>
+<li>armature pins</li>
+<li>mechanical flange</li>
+</ul>
+</p>
+</HTML>"),
+        Diagram,
+        Icon(Line(points=[-50,100; -20,100; -20,70], style(color=3, rgbcolor={0,
+                  0,255})), Line(points=[50,100; 20,100; 20,70], style(color=3,
+                rgbcolor={0,0,255}))));
+      Modelica.Electrical.Analog.Interfaces.PositivePin pin_ap 
+        annotation (extent=[50,110; 70,90]);
+      Modelica.Electrical.Analog.Interfaces.NegativePin pin_an 
+        annotation (extent=[-70,110; -50,90]);
+    end PartialBasicDCMachine;
+  end Interfaces;
 end Machines;
