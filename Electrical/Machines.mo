@@ -77,178 +77,8 @@ You may have a look at a short summary of space phasor theory at <a href=\"http:
 </dl>
 </HTML>"));
   
-package MoveToRotational 
-  annotation (Documentation(info="<HTML>
-<p>
-Components that are usefull to model mechanical load of electrical machines.<br>
-Will be moved to Modelica.Mechanical.Rotational.
-</p>
-</HTML>"));
-    
-  partial model PartialSpeedDependentTorque 
-      "Partial model of a torque acting at the flange (accelerates the flange)" 
-    Modelica.SIunits.AngularVelocity w = der(flange.phi) 
-        "Angular velocity at flange";
-    Modelica.SIunits.Torque tau = flange.tau 
-        "accelerating torque acting at flange";
-    Modelica.Mechanics.Rotational.Interfaces.Flange_a flange 
-        "Flange on which torque is acting" 
-      annotation (extent=[-110,-10; -90,10]);
-    Modelica.Mechanics.Rotational.Interfaces.Flange_a bearing 
-        "Bearing at which the reaction torque (i.e., -flange.tau) is acting" 
-         annotation (extent=[-10,-130; 10,-110]);
-    annotation (
-      Diagram,
-      Icon(
-        Rectangle(extent=[-96,96; 96,-96], style(
-            color=7,
-            rgbcolor={255,255,255},
-            fillColor=7,
-            rgbfillColor={255,255,255})),
-        Line(points=[-30,-70; 30,-70],   style(color=0)),
-        Line(points=[-30,-90; -10,-70],   style(color=0)),
-        Line(points=[-10,-90; 10,-70],   style(color=0)),
-        Rectangle(extent=[-20,-100; 20,-140],  style(color=8, fillColor=8)),
-        Line(points=[10,-90; 30,-70],   style(color=0)),
-        Line(points=[0,-70; 0,-110],  style(color=0)),
-        Line(points=[-70,40; -60,56; -44,74; -16,88; 18,92; 48,86; 74,70; 90,48;
-              100,20], style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=0,
-            rgbfillColor={0,0,0})),
-        Polygon(points=[-100,0; -54,32; -86,54; -100,0], style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=0,
-            rgbfillColor={0,0,0})),
-        Text(
-          extent=[-162,162; 162,98],
-          style(color=3, rgbcolor={0,0,255}),
-          string="%name")),
-      Documentation(info="<HTML>
-<p>
-Partial model of torque dependent on speed that accelerates the flange.
-</p>
-</HTML>"));
-  equation 
-    if cardinality(bearing) == 0 then
-      bearing.phi = 0;
-    else
-      bearing.tau = -flange.tau;
-    end if;
-  end PartialSpeedDependentTorque;
-    
-  model LinearSpeedDependentTorque "Linear dependency of torque versus speed" 
-    extends PartialSpeedDependentTorque;
-    parameter Modelica.SIunits.Torque tau_nominal "nominal torque";
-    parameter Boolean TorqueDirection=true 
-        "same direction of torque in both directions of rotation";
-    parameter Modelica.SIunits.AngularVelocity w_nominal(min=Modelica.Constants.eps) 
-        "nominal speed";
-    annotation (
-      Diagram,
-      Icon(Line(points=[-100, -100; 100, 100], style(color=3))),
-      Documentation(info="<HTML>
-<p>
-Model of torque, linearly dependent on angular velocity of flange.<br>
-Parameter TorqueDirection chooses whether direction of torque is the same in both directions of rotation or not.
-</p>
-</HTML>"));
-  equation 
-    if TorqueDirection then
-      tau = -tau_nominal*abs(w/w_nominal);
-    else
-      tau = -tau_nominal*(w/w_nominal);
-    end if;
-  end LinearSpeedDependentTorque;
-    
-  model QuadraticSpeedDependentTorque 
-      "Quadratic dependency of torque versus speed" 
-    extends PartialSpeedDependentTorque;
-    parameter Modelica.SIunits.Torque tau_nominal "nominal torque";
-    parameter Boolean TorqueDirection=true 
-        "same direction of torque in both directions of rotation";
-    parameter Modelica.SIunits.AngularVelocity w_nominal(min=Modelica.Constants.eps) 
-        "nominal speed";
-    annotation (
-      Diagram,
-      Icon(Line(points=[-100, -100; -80, -98; -60, -92; -40, -82; -20, -68; 0,
-               -50; 20, -28; 40, -2; 60, 28; 80, 62; 100, 100], style(color=3))),
-      Documentation(info="<HTML>
-<p>
-Model of torque, quadratic dependent on angular velocity of flange.<br>
-Parameter TorqueDirection chooses whether direction of torque is the same in both directions of rotation or not.
-</p>
-</HTML>"));
-  equation 
-    if TorqueDirection then
-      tau = -tau_nominal*(w/w_nominal)^2;
-    else
-      tau = -tau_nominal*smooth(1,if w >= 0 then (w/w_nominal)^2 else -(w/w_nominal)^2);
-    end if;
-  end QuadraticSpeedDependentTorque;
-    
-  model ConstantTorque "Constant torque, not dependent on speed" 
-    extends PartialSpeedDependentTorque;
-    parameter Modelica.SIunits.Torque tau_constant "constant torque";
-    annotation (
-      Diagram,
-      Icon(Line(points=[-98,0; 100,0], style(color=3))),
-      Documentation(info="<HTML>
-<p>
-Model of constant torque, not dependent on angular velocity of flange.<br>
-Positive torque acts accelerating.
-</p>
-</HTML>"));
-  equation 
-    tau = -tau_constant;
-  end ConstantTorque;
-    
-  model ConstantSpeed "Constant speed, not dependent on torque" 
-    extends PartialSpeedDependentTorque;
-    parameter Modelica.SIunits.AngularVelocity w_fixed "fixed speed";
-    annotation (
-      Diagram,
-      Icon(Line(points=[0,-100; 0,100], style(color=3))),
-      Documentation(info="<HTML>
-<p>
-Model of <b>fixed</b> angular verlocity of flange, not dependent on torque.
-</p>
-</HTML>"));
-  equation 
-    w = w_fixed;
-  end ConstantSpeed;
-    
-  model TorqueStep "Constant torque, not dependent on speed" 
-    extends PartialSpeedDependentTorque;
-    parameter Modelica.SIunits.Torque offsetTorque=0 "offset of torque";
-    parameter Modelica.SIunits.Time startTime=0 
-        "output = offset for time < startTime";
-    parameter Modelica.SIunits.Torque stepTorque=1 "height of torque step";
-      
-    annotation (
-      Diagram,
-      Icon(
-        Line(points=[-80,-60; 0,-60; 0,60; 80,60], style(color=3, rgbcolor={0,0,
-                  255})), Text(
-            extent=[0,-40; 100,-60],
-            style(color=3, rgbcolor={0,0,255}),
-            string="time")),
-      Documentation(info="<HTML>
-<p>
-Model of a torque step at time .<br>
-Positive torque acts accelerating.
-</p>
-</HTML>"));
-  equation 
-    tau = -offsetTorque - (if time < startTime then 0 else stepTorque);
-  end TorqueStep;
-end MoveToRotational;
-  
   package Examples "Test examples" 
     extends Modelica.Icons.Library;
-    import Machines.MoveToRotational.*;
     annotation (Documentation(info="<HTML>
 <p>
 This package contains test examples of electric machines.
@@ -340,7 +170,8 @@ Default machine parameters of model <i>AsynchronousInductionMachineSquirrelCage<
         annotation (extent=[-20,-50; 0,-30],     rotation=0);
       Modelica.Mechanics.Rotational.Inertia LoadInertia(J=J_Load) 
         annotation (extent=[40,-50; 60,-30]);
-      QuadraticSpeedDependentTorque QuadraticLoadTorque1(
+      Modelica.Mechanics.Rotational.QuadraticSpeedDependentTorque 
+        QuadraticLoadTorque1(
                     w_nominal=Modelica.SIunits.Conversions.from_rpm(rpmLoad),
           tau_nominal=-T_Load) 
         annotation (extent=[70,-50; 90,-30]);
@@ -353,7 +184,7 @@ Default machine parameters of model <i>AsynchronousInductionMachineSquirrelCage<
         annotation (points=[-6.12303e-016,70; -6.12303e-016,90; -50,90],
                                                         style(color=3));
       connect(SineVoltage1.plug_p, IdealCloser1.plug_p) 
-        annotation (points=[6.12303e-016,50; 0,48; 1.22461e-015,46;
+        annotation (points=[6.12303e-016,50; 0,48; 1.22461e-015,46; 
             6.12303e-016,46; 6.12303e-016,40], style(color=3));
       connect(IdealCloser1.plug_n, Delta1.plug_p) annotation (points=[
             -6.12303e-016,20; -6.12303e-016,16; 0,16; 0,10],
@@ -373,7 +204,7 @@ Default machine parameters of model <i>AsynchronousInductionMachineSquirrelCage<
       connect(BooleanStep1.y, IdealCloser1.control) annotation (points=[-59,40;
             -20,40; -20,30; -7,30],
                      style(color=5, rgbcolor={255,0,255}));
-      connect(Delta1.plug_p, CurrentRMSsensor1.plug_p) annotation (points=[0,10;
+      connect(Delta1.plug_p, CurrentRMSsensor1.plug_p) annotation (points=[0,10; 
             0,0; 6.12303e-016,0], style(color=3, rgbcolor={0,0,255}));
       connect(CurrentRMSsensor1.plug_n, AIMC1.plug_sp) annotation (points=[
             -6.12303e-016,-20; 0,-20; 0,-30; -4,-30], style(color=3, rgbcolor={
@@ -432,7 +263,8 @@ Default machine parameters of model <i>AsynchronousInductionMachineSquirrelCage<
         annotation (extent=[-80, 0; -60, 20]);
       Modelica.Mechanics.Rotational.Inertia LoadInertia(J=J_Load) 
         annotation (extent=[40,-50; 60,-30]);
-      QuadraticSpeedDependentTorque QuadraticLoadTorque1(
+      Modelica.Mechanics.Rotational.QuadraticSpeedDependentTorque 
+        QuadraticLoadTorque1(
                     w_nominal=Modelica.SIunits.Conversions.from_rpm(rpmLoad),
           tau_nominal=-T_Load) 
         annotation (extent=[70,-50; 90,-30]);
@@ -445,7 +277,7 @@ Default machine parameters of model <i>AsynchronousInductionMachineSquirrelCage<
         annotation (points=[-6.12303e-016,70; -6.12303e-016,90; -50,90],
                                                         style(color=3));
       connect(SineVoltage1.plug_p, IdealCloser1.plug_p) 
-        annotation (points=[6.12303e-016,50; 0,48; 1.22461e-015,46;
+        annotation (points=[6.12303e-016,50; 0,48; 1.22461e-015,46; 
             6.12303e-016,46; 6.12303e-016,40], style(color=3));
       connect(IdealCloser1.plug_n, SwitchYD1.plug_P) annotation (points=[
             -6.12303e-016,20; 0,20],
@@ -544,7 +376,8 @@ Default machine parameters of model <i>AsynchronousInductionMachineSlipRing</i> 
         annotation (extent=[-80,-50; -60,-30]);
       Modelica.Mechanics.Rotational.Inertia LoadInertia(J=J_Load) 
         annotation (extent=[40,-50; 60,-30]);
-      QuadraticSpeedDependentTorque QuadraticLoadTorque1(
+      Modelica.Mechanics.Rotational.QuadraticSpeedDependentTorque 
+        QuadraticLoadTorque1(
                     w_nominal=Modelica.SIunits.Conversions.from_rpm(rpmLoad),
           tau_nominal=-T_Load) 
         annotation (extent=[70,-50; 90,-30]);
@@ -557,7 +390,7 @@ Default machine parameters of model <i>AsynchronousInductionMachineSlipRing</i> 
         annotation (points=[-6.12303e-016,70; -6.12303e-016,90; -50,90],
                                                         style(color=3));
       connect(SineVoltage1.plug_p, IdealCloser1.plug_p) 
-        annotation (points=[6.12303e-016,50; 0,48; 1.22461e-015,46;
+        annotation (points=[6.12303e-016,50; 0,48; 1.22461e-015,46; 
             6.12303e-016,46; 6.12303e-016,40], style(color=3));
       connect(Star3.pin_n, Ground3.p) 
         annotation (points=[-70,-90; -80,-90],   style(color=3));
@@ -598,9 +431,10 @@ Default machine parameters of model <i>AsynchronousInductionMachineSlipRing</i> 
       connect(BooleanStep1.y, IdealCloser1.control) annotation (points=[-59,40;
             -20,40; -20,30; -7,30],
                     style(color=5, rgbcolor={255,0,255}));
-      connect(BooleanStep2.y, IdealCommutingSwitch1.off) annotation (points=[
+      connect(BooleanStep2.y, IdealCommutingSwitch1.control) 
+                                                         annotation (points=[
             -59,-40; -48,-40], style(color=5, rgbcolor={255,0,255}));
-      connect(Delta1.plug_p, CurrentRMSsensor1.plug_p) annotation (points=[0,10;
+      connect(Delta1.plug_p, CurrentRMSsensor1.plug_p) annotation (points=[0,10; 
             0,0; 6.12303e-016,0], style(color=3, rgbcolor={0,0,255}));
       connect(CurrentRMSsensor1.plug_n, AIMS1.plug_sp) annotation (points=[
             -6.12303e-016,-20; 0,-20; 0,-30; -4,-30], style(color=3, rgbcolor={
@@ -658,7 +492,8 @@ Default machine parameters of model <i>AsynchronousInductionMachineSquirrelCage<
         annotation (extent=[-50,-40; -70,-20]);
       Modelica.Mechanics.Rotational.Inertia LoadInertia(J=J_Load) 
         annotation (extent=[40,-50; 60,-30]);
-      MoveToRotational.TorqueStep TorqueStep1(startTime=tStep, stepTorque=-
+      Modelica.Mechanics.Rotational.TorqueStep TorqueStep1(startTime=tStep, stepTorque
+          =                                                                            -
             T_Load) annotation (extent=[70,-50; 90,-30]);
       Sensors.CurrentRMSsensor CurrentRMSsensor1 
         annotation (extent=[10,-20; -10,0], rotation=-90);
@@ -747,7 +582,8 @@ Default machine parameters of model <i>AsynchronousInductionMachineReluctanceRot
         annotation (extent=[30,-40; 10,-20],  rotation=90);
       Modelica.Mechanics.Rotational.Inertia LoadInertia(J=J_Load) 
         annotation (extent=[40,-50; 60,-30]);
-      MoveToRotational.TorqueStep TorqueStep1(startTime=tStep, stepTorque=-
+      Modelica.Mechanics.Rotational.TorqueStep TorqueStep1(startTime=tStep, stepTorque
+          =                                                                            -
             T_Load) annotation (extent=[70,-50; 90,-30]);
       Sensors.CurrentRMSsensor CurrentRMSsensor1 
         annotation (extent=[10,-20; -10,0], rotation=-90);
@@ -866,7 +702,8 @@ Default machine parameters of model <i>PermanentMagnetSynchronousMachineDamperCa
         annotation (extent=[30,-40; 10,-20],  rotation=90);
       Modelica.Mechanics.Rotational.Inertia LoadInertia(J=J_Load) 
         annotation (extent=[40,-50; 60,-30]);
-      MoveToRotational.TorqueStep TorqueStep1(startTime=tStep, stepTorque=-
+      Modelica.Mechanics.Rotational.TorqueStep TorqueStep1(startTime=tStep, stepTorque
+          =                                                                            -
             T_Load) annotation (extent=[70,-50; 90,-30]);
       Sensors.CurrentRMSsensor CurrentRMSsensor1 
         annotation (extent=[10,-20; -10,0], rotation=-90);
@@ -957,7 +794,8 @@ Default machine parameters of model <i>DCMachinePermanentMagnet</i> are used.
         annotation (extent=[0,30; -20,50],   rotation=0);
       Modelica.Electrical.Analog.Basic.Ground Ground1 
         annotation (extent=[-80,30; -60,50],  rotation=-90);
-      MoveToRotational.TorqueStep TorqueStep1(startTime=tStep, stepTorque=-
+      Modelica.Mechanics.Rotational.TorqueStep TorqueStep1(startTime=tStep, stepTorque
+          =                                                                            -
             T_Load) annotation (extent=[70,-50; 90,-30]);
     equation 
       connect(DCPM1.flange_a, LoadInertia.flange_a) annotation (points=[0,-40;
@@ -1019,7 +857,8 @@ Default machine parameters of model <i>DCMachineElectricalExcited</i> are used.
         annotation (extent=[-80,-80; -60,-60],rotation=0);
       Modelica.Electrical.Analog.Sources.ConstantVoltage ConstantVoltage1(V=Ve) 
         annotation (extent=[-80,-50; -60,-30], rotation=270);
-      MoveToRotational.TorqueStep TorqueStep1(startTime=tStep, stepTorque=-
+      Modelica.Mechanics.Rotational.TorqueStep TorqueStep1(startTime=tStep, stepTorque
+          =                                                                            -
             T_Load) annotation (extent=[70,-50; 90,-30]);
     equation 
       connect(DCEE1.flange_a, LoadInertia.flange_a) annotation (points=[0,-40;
@@ -1083,7 +922,8 @@ Default machine parameters of model <i>DCMachineSeriesExcited</i> are used.
         annotation (extent=[0,30; -20,50],   rotation=0);
       Modelica.Electrical.Analog.Basic.Ground Grounda 
         annotation (extent=[-80,30; -60,50],  rotation=-90);
-      MoveToRotational.QuadraticSpeedDependentTorque QuadraticLoadTorque1(
+      Modelica.Mechanics.Rotational.QuadraticSpeedDependentTorque 
+        QuadraticLoadTorque1(
                     w_nominal=Modelica.SIunits.Conversions.from_rpm(rpmLoad),
           tau_nominal=-T_Load) 
         annotation (extent=[70,-50; 90,-30]);
@@ -1244,7 +1084,8 @@ If <i>control</i> is true, plug_PS and plug_NS are delta connected and they are 
              -55; 10, -40; 60, -40], style(color=3, rgbcolor={0,0,255}));
       connect(idealCommutingSwitch.plug_p, plug_NS) annotation (points=[-10, -60;
              -100, -60; -100, -100], style(color=3, rgbcolor={0,0,255}));
-      connect(control, idealCommutingSwitch.off) annotation (points=[-110,0; 0,
+      connect(control, idealCommutingSwitch.control) 
+                                                 annotation (points=[-110,0; 0,
             0; 0,-52],          style(
           color=5,
           rgbcolor={255,0,255},

@@ -339,7 +339,6 @@ along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
             i = s*(if off then Goff else 1) + Goff*Vknee;
           end IdealGTOThyristor;
   
-  
   model IdealCommutingSwitch "Ideal commuting switch" 
     parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance";
     parameter SI.Conductance Goff(final min=0) = 1.E-5 
@@ -491,7 +490,6 @@ where a description with zero Ron or zero Goff is not possible.
     n1.i = if (off) then -s1*Goff - s4 else -s1 - s4*Goff;
     n2.i = if (off) then -s2*Goff - s3 else -s2 - s3*Goff;
   end IdealIntermediateSwitch;
-  
   
   model ControlledIdealCommutingSwitch "Controlled ideal commuting switch" 
     parameter SI.Voltage level=0.5 "Switch level";

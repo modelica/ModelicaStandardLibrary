@@ -96,9 +96,9 @@ This package contains basic analog electrical multiphase components.
           Line(points=[80, 0; 0, 0], style(thickness=2, fillPattern=1)),
           Line(points=[0, 0; -39, 68], style(thickness=2, fillPattern=1)),
           Line(points=[0, 0; -38, -69], style(thickness=2, fillPattern=1)),
-          Text(extent=[-100,-110; 100,-70],   string="m=%m", 
-            style(color=0, rgbcolor={0,0,0})), 
-          Line(points=[-90,0; -40,0], style(color=3, rgbcolor={0,0,255})), 
+          Text(extent=[-100,-110; 100,-70],   string="m=%m",
+            style(color=0, rgbcolor={0,0,0})),
+          Line(points=[-90,0; -40,0], style(color=3, rgbcolor={0,0,255})),
           Line(points=[80,0; 90,0], style(color=3, rgbcolor={0,0,255}))),
                                                                Documentation(
             info="<HTML>
@@ -398,7 +398,7 @@ Each element of the array of saturatingInductors is only dependent on the curren
           Text(extent=[-100, 20; -58, -20], string="L1"),
           Text(extent=[60, 20; 100, -20], string="L2"),
           Text(extent=[-20, 20; 20, -20], string="M"),
-          Text(extent=[-80,-100; 80,-60], string="m=%m", 
+          Text(extent=[-80,-100; 80,-60], string="m=%m",
             style(color=0, rgbcolor={0,0,0})),
           Text(extent=[-100,50; 100,110], string="%name")),
         Documentation(info="<HTML>
@@ -1153,10 +1153,10 @@ Contains m ideal diodes (Modelica.Electrical.Analog.Ideal.IdealDiode).
           Rectangle(extent=[33, -60; 72, 60], style(color=7, fillColor=7)),
           Line(points=[32, 50; 90, 50]),
           Line(points=[32, -50; 90, -50]),
-          Text(extent=[-80, 100; 80, 60], string="m=%m", 
+          Text(extent=[-80, 100; 80, 60], string="m=%m",
             style(color=0, rgbcolor={0,0,0})),
-          Text(extent=[-100,-110; 100,-50], 
-            style(color=3, rgbcolor={0,0,255}), 
+          Text(extent=[-100,-110; 100,-50],
+            style(color=3, rgbcolor={0,0,255}),
             string="%name")),
         Documentation(info="<HTML>
 <p>
@@ -1565,12 +1565,12 @@ This package contains multiphase potential, voltage, and current sensors.
           Line(points=[-70, 0; -90, 0], style(color=0)),
           Text(
             extent=[-100,-70; 100,-110],
-            string="m=%m", 
+            string="m=%m",
             style(
-              color=0, 
-              rgbcolor={0,0,0}, 
-              fillColor=3, 
-              rgbfillColor={0,0,255}, 
+              color=0,
+              rgbcolor={0,0,0},
+              fillColor=3,
+              rgbfillColor={0,0,255},
               fillPattern=1)),
           Text(extent=[-150,60; 150,120],   string="%name")),
         Documentation(info="<HTML>
@@ -1606,25 +1606,25 @@ thus measuring the m potentials <i>phi[m]</i> of the m pins of plug_p.
             string="V"),
           Text(extent=[-100,60; 100,120],   string="%name"),
           Text(
-            extent=[-100,-60; -20,-100], 
-            string="m=", 
+            extent=[-100,-60; -20,-100],
+            string="m=",
             style(
-              color=0, 
-              rgbcolor={0,0,0}, 
-              fillColor=3, 
-              rgbfillColor={0,0,255}, 
+              color=0,
+              rgbcolor={0,0,0},
+              fillColor=3,
+              rgbfillColor={0,0,255},
               fillPattern=1)),
           Line(points=[-70,0; -90,0],   style(color=0)),
           Line(points=[70,0; 90,0],   style(color=0)),
           Line(points=[0,-100; 0,-70]),
           Text(
-            extent=[20,-60; 100,-100], 
+            extent=[20,-60; 100,-100],
             style(
-              color=0, 
-              rgbcolor={0,0,0}, 
-              fillColor=3, 
-              rgbfillColor={0,0,255}, 
-              fillPattern=1), 
+              color=0,
+              rgbcolor={0,0,0},
+              fillColor=3,
+              rgbfillColor={0,0,255},
+              fillPattern=1),
             string="%m")),
         Documentation(info="<HTML>
 <p>

@@ -1513,6 +1513,60 @@ with the blocks of package Modelica.Blocks.
           Line(points=[70, 0; 90, 0], style(color=0)),
           Line(points=[0, -100; 0, -70])));
     end RelativeSensor;
+
+    partial model PartialSpeedDependentTorque 
+      "Partial model of a torque acting at the flange (accelerates the flange)" 
+      Modelica.SIunits.AngularVelocity w = der(flange.phi) 
+        "Angular velocity at flange";
+      Modelica.SIunits.Torque tau = flange.tau 
+        "accelerating torque acting at flange";
+      Modelica.Mechanics.Rotational.Interfaces.Flange_a flange 
+        "Flange on which torque is acting" 
+        annotation (extent=[-110,-10; -90,10]);
+      Modelica.Mechanics.Rotational.Interfaces.Flange_a bearing 
+        "Bearing at which the reaction torque (i.e., -flange.tau) is acting" 
+           annotation (extent=[-10,-130; 10,-110]);
+      annotation (
+        Diagram,
+        Icon(
+          Rectangle(extent=[-96,96; 96,-96], style(
+              color=7,
+              rgbcolor={255,255,255},
+              fillColor=7,
+              rgbfillColor={255,255,255})),
+          Line(points=[-30,-70; 30,-70],   style(color=0)),
+          Line(points=[-30,-90; -10,-70],   style(color=0)),
+          Line(points=[-10,-90; 10,-70],   style(color=0)),
+          Rectangle(extent=[-20,-100; 20,-140],  style(color=8, fillColor=8)),
+          Line(points=[10,-90; 30,-70],   style(color=0)),
+          Line(points=[0,-70; 0,-110],  style(color=0)),
+          Line(points=[-70,40; -60,56; -44,74; -16,88; 18,92; 48,86; 74,70; 90,48;
+                100,20], style(
+              color=0,
+              rgbcolor={0,0,0},
+              fillColor=0,
+              rgbfillColor={0,0,0})),
+          Polygon(points=[-100,0; -54,32; -86,54; -100,0], style(
+              color=0,
+              rgbcolor={0,0,0},
+              fillColor=0,
+              rgbfillColor={0,0,0})),
+          Text(
+            extent=[-162,162; 162,98],
+            style(color=3, rgbcolor={0,0,255}),
+            string="%name")),
+        Documentation(info="<HTML>
+<p>
+Partial model of torque dependent on speed that accelerates the flange.
+</p>
+</HTML>"));
+    equation 
+      if cardinality(bearing) == 0 then
+        bearing.phi = 0;
+      else
+        bearing.tau = -flange.tau;
+      end if;
+    end PartialSpeedDependentTorque;
   end Interfaces;
   
   model Inertia "1D-rotational component with inertia" 
@@ -4235,8 +4289,6 @@ blocks of the block library Modelica.Blocks.Sources.
     SI.Torque tau_support "Support torque";
   protected 
     parameter Real w_crit=2*Constants.pi*f_crit "critical frequency in [1/s]";
-    constant Real af=1.3617 "s coefficient of Bessel filter";
-    constant Real bf=0.6180 "s*s coefficient of Bessel filter";
   public 
     Interfaces.Flange_b flange_b annotation (extent=[90, -10; 110, 10]);
     Blocks.Interfaces.RealInput w_ref(redeclare type SignalType = 
@@ -4352,8 +4404,8 @@ blocks of the block library Modelica.Blocks.Sources.
     if exact then
       w = w_ref;
     else
-      // Filter: a = phi_ref/(1 + (af/w_crit)*s + (bf/w_crit^2)*s^2)
-      a = ((phi_ref - phi)*w_crit - af*w)*(w_crit/bf);
+      // Filter: a = w_ref/(1 + (1/w_crit)*s)
+      a = (w_ref - w)*w_crit;
     end if;
   initial equation 
     if not exact then
@@ -4853,6 +4905,122 @@ blocks of Modelica.Blocks.Sources.</p>
     flange_b.tau = -tau;
   end Torque2;
   
+  
+  model LinearSpeedDependentTorque 
+    "Linear dependency of torque versus speed (acts as load torque)" 
+    extends 
+      Modelica.Mechanics.Rotational.Interfaces.PartialSpeedDependentTorque;
+    parameter Modelica.SIunits.Torque tau_nominal "nominal torque";
+    parameter Boolean TorqueDirection=true 
+      "same direction of torque in both directions of rotation";
+    parameter Modelica.SIunits.AngularVelocity w_nominal(min=Modelica.Constants.eps) 
+      "nominal speed";
+    annotation (
+      Diagram,
+      Icon(Line(points=[-100, -100; 100, 100], style(color=3))),
+      Documentation(info="<HTML>
+<p>
+Model of torque, linearly dependent on angular velocity of flange.<br>
+Parameter TorqueDirection chooses whether direction of torque is the same in both directions of rotation or not.
+</p>
+</HTML>"));
+  equation 
+    if TorqueDirection then
+      tau = -tau_nominal*abs(w/w_nominal);
+    else
+      tau = -tau_nominal*(w/w_nominal);
+    end if;
+  end LinearSpeedDependentTorque;
+
+  model QuadraticSpeedDependentTorque 
+    "Quadratic dependency of torque versus speed (acts as load torque)" 
+    extends 
+      Modelica.Mechanics.Rotational.Interfaces.PartialSpeedDependentTorque;
+    parameter Modelica.SIunits.Torque tau_nominal "nominal torque";
+    parameter Boolean TorqueDirection=true 
+      "same direction of torque in both directions of rotation";
+    parameter Modelica.SIunits.AngularVelocity w_nominal(min=Modelica.Constants.eps) 
+      "nominal speed";
+    annotation (
+      Diagram,
+      Icon(Line(points=[-100, -100; -80, -98; -60, -92; -40, -82; -20, -68; 0,
+               -50; 20, -28; 40, -2; 60, 28; 80, 62; 100, 100], style(color=3))),
+      Documentation(info="<HTML>
+<p>
+Model of torque, quadratic dependent on angular velocity of flange.<br>
+Parameter TorqueDirection chooses whether direction of torque is the same in both directions of rotation or not.
+</p>
+</HTML>"));
+  equation 
+    if TorqueDirection then
+      tau = -tau_nominal*(w/w_nominal)^2;
+    else
+      tau = -tau_nominal*smooth(1,if w >= 0 then (w/w_nominal)^2 else -(w/w_nominal)^2);
+    end if;
+  end QuadraticSpeedDependentTorque;
+
+  model ConstantTorque 
+    "Constant torque, not dependent on speed (acts as load torque)" 
+    extends 
+      Modelica.Mechanics.Rotational.Interfaces.PartialSpeedDependentTorque;
+    parameter Modelica.SIunits.Torque tau_constant "constant torque";
+    annotation (
+      Diagram,
+      Icon(Line(points=[-98,0; 100,0], style(color=3))),
+      Documentation(info="<HTML>
+<p>
+Model of constant torque, not dependent on angular velocity of flange.<br>
+Positive torque acts accelerating.
+</p>
+</HTML>"));
+  equation 
+    tau = -tau_constant;
+  end ConstantTorque;
+
+  model ConstantSpeed 
+    "Constant speed, not dependent on torque (acts as load torque)" 
+    extends 
+      Modelica.Mechanics.Rotational.Interfaces.PartialSpeedDependentTorque;
+    parameter Modelica.SIunits.AngularVelocity w_fixed "fixed speed";
+    annotation (
+      Diagram,
+      Icon(Line(points=[0,-100; 0,100], style(color=3))),
+      Documentation(info="<HTML>
+<p>
+Model of <b>fixed</b> angular verlocity of flange, not dependent on torque.
+</p>
+</HTML>"));
+  equation 
+    w = w_fixed;
+  end ConstantSpeed;
+
+  model TorqueStep 
+    "Constant torque, not dependent on speed (acts as load torque)" 
+    extends 
+      Modelica.Mechanics.Rotational.Interfaces.PartialSpeedDependentTorque;
+    parameter Modelica.SIunits.Torque offsetTorque=0 "offset of torque";
+    parameter Modelica.SIunits.Time startTime=0 
+      "output = offset for time < startTime";
+    parameter Modelica.SIunits.Torque stepTorque=1 "height of torque step";
+    
+    annotation (
+      Diagram,
+      Icon(
+        Line(points=[-80,-60; 0,-60; 0,60; 80,60], style(color=3, rgbcolor={0,0,
+                  255})), Text(
+            extent=[0,-40; 100,-60],
+            style(color=3, rgbcolor={0,0,255}),
+            string="time")),
+      Documentation(info="<HTML>
+<p>
+Model of a torque step at time .<br>
+Positive torque acts accelerating.
+</p>
+</HTML>"));
+  equation 
+    tau = -offsetTorque - (if time < startTime then 0 else stepTorque);
+  end TorqueStep;
+
   model RelativeStates "Definition of relative state variables" 
     extends Interfaces.TwoFlanges;
     SI.Angle phi_rel(stateSelect=StateSelect.prefer) 
@@ -4944,7 +5112,7 @@ velocity of model inertia1 or of model inertia2 as state variables.
     flange_a.tau = 0;
     flange_b.tau = 0;
   end RelativeStates;
-  
+
   package Sensors 
     "Sensors to measure variables in 1D rotational mechanical components" 
     

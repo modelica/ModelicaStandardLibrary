@@ -47,7 +47,7 @@ The Modelica package consists currently of the following subpackages
                (Analog, Digital, Machines, MultiPhase)
    <b>Icons</b>       Icon definitions of general interest
    <b>Math</b>        Mathematical functions 
-                      (such as sin, cos, solve, eigenValues)
+               (such as sin, cos, solve, eigenValues)
    <b>Mechanics</b>   Mechanical components 
                (1D-rotational, 1D-translational, 3D multi-body)
    <b>SIunits</b>     SI-unit type definitions (such as Voltage, Torque)

@@ -127,17 +127,16 @@ The Resistance <i>R</i> is allowed to be positive, zero, or negative.
     R*i = v;
   end Resistor;
   
-
     model HeatingResistor "Temperature dependent electrical resistor" 
       extends Modelica.Electrical.Analog.Interfaces.OnePort;
-      
+    
       parameter SI.Resistance R_ref=1 "Resistance at temperature T_ref";
       parameter SI.Temperature T_ref=300 "Reference temperature";
       parameter Real alpha(unit="1/K") = 0 
-        "Temperature coefficient of resistance";
-      
+      "Temperature coefficient of resistance";
+    
       SI.Resistance R "Resistance = R_ref*(1 + alpha*(heatPort.T - T_ref));";
-      
+    
       annotation (
         Diagram(
           Line(points=[-110, 20; -85, 20], style(color=9, fillColor=9)),
@@ -203,7 +202,7 @@ connectors are set to zero.</p>
           extent=[-10, -90; 10, -110], rotation=-90);
     equation 
       v = R*i;
-      
+    
       if cardinality(heatPort) > 0 then
         R = R_ref*(1 + alpha*(heatPort.T - T_ref));
         heatPort.Q_flow = -v*i;
@@ -215,8 +214,6 @@ connectors are set to zero.</p>
         heatPort.T = T_ref;
       end if;
     end HeatingResistor;
-
-
   
   model Conductor "Ideal linear electrical conductor" 
     extends Interfaces.OnePort;
@@ -349,7 +346,7 @@ The Inductance <i>L</i> is allowed to be positive, zero, or negative.
       "Inductance at large currents";
     Modelica.SIunits.Inductance Lact(start=Lzer);
     Modelica.SIunits.MagneticFlux Psi;
-  protected
+  protected 
     parameter Modelica.SIunits.Current Ipar(start=Inom/10, fixed=false);
     annotation (Icon(
         Ellipse(extent=[-60, -15; -30, 15]),

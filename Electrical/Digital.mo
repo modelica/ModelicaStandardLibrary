@@ -3483,14 +3483,14 @@ The simulation stop time has to be 5s.
             fillColor=51,
             rgbfillColor={255,255,170},
             fillPattern=1));
-        connect(a1, And4.x[1]) annotation (points=[-100,-70; -80,-70; -80,-90; 
+        connect(a1, And4.x[1]) annotation (points=[-100,-70; -80,-70; -80,-90;
               -30,-90; -30,-13.3333; -16,-13.3333], style(
             color=78,
             rgbcolor={127,0,127},
             fillColor=51,
             rgbfillColor={255,255,170},
             fillPattern=1));
-        connect(a1, And3.x[1]) annotation (points=[-100,-70; -80,-70; -80,-90; 
+        connect(a1, And3.x[1]) annotation (points=[-100,-70; -80,-70; -80,-90;
               -30,-90; -30,12.6667; -16,12.6667], style(
             color=78,
             rgbcolor={127,0,127},
@@ -4001,9 +4001,9 @@ The simulation stop time has to be 5s.
                 78, rgbcolor={127,0,127}));
         connect(And1.y, RS2.s) annotation (points=[-50,14; -44,14], style(color=
                78, rgbcolor={127,0,127}));
-        connect(clk, And2.x[3]) annotation (points=[-100,0; -74,0; -74,-8.66667; 
+        connect(clk, And2.x[3]) annotation (points=[-100,0; -74,0; -74,-8.66667;
               -66,-8.66667], style(color=78, rgbcolor={127,0,127}));
-        connect(clk, And1.x[1]) annotation (points=[-100,0; -74,0; -74,8.66667; 
+        connect(clk, And1.x[1]) annotation (points=[-100,0; -74,0; -74,8.66667;
               -66,8.66667], style(color=78, rgbcolor={127,0,127}));
         connect(k, And2.x[2]) annotation (points=[-100,-70; -74,-70; -74,-14;
               -66,-14], style(color=78, rgbcolor={127,0,127}));
@@ -4026,7 +4026,7 @@ The simulation stop time has to be 5s.
         connect(RS1.q, And2.x[1]) annotation (points=[70,10; 80,10; 80,-36; -70,
               -36; -70,-19.3333; -66,-19.3333], style(color=78, rgbcolor={127,0,
                 127}));
-        connect(RS1.qn, And1.x[3]) annotation (points=[70,-18; 86,-18; 86,36; 
+        connect(RS1.qn, And1.x[3]) annotation (points=[70,-18; 86,-18; 86,36;
               -70,36; -70,19.3333; -66,19.3333],     style(color=78, rgbcolor={
                 127,0,127}));
       connect(RS1.qn, q) annotation (points=[70,-18; 86,-18; 86,70; 100,70],
