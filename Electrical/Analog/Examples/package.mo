@@ -27,11 +27,6 @@ This package contains examples for the analog electrical package.
     D-01069 Dresden<br>
 <p>
 <dt>
-<b>Version:</b>
-<dd>
-$Id$<br>
-<p>
-<dt>
 <b>Copyright:</b>
 <dd>
 Copyright &copy; 1998-2002, Modelica Association and Fraunhofer-Gesellschaft.<br>

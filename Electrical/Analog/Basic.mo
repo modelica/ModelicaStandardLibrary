@@ -44,12 +44,6 @@ This package contains basic analog electrical components:
     Zeunerstra&szlig;e 38<br>
     D-01069 Dresden<br>
 <p>
-<dt>
-<b>Version:</b>
-<dd>
-$Id$<br>
-<p>
-<dt>
 </dl>
 </html>"));
   model Ground "Ground node" 

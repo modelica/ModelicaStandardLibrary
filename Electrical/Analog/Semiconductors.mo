@@ -39,11 +39,6 @@ This package contains semiconductor devices:
     D-01069 Dresden<br>
 <p>
 <dt>
-<b>Version:</b>
-<dd>
-$Id$<br>
-<p>
-<dt>
 </dl>
 </html>"));
   
