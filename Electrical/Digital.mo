@@ -69,6 +69,12 @@ An application example will be given here (not yet done).
       
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>Release notes</font></h3>
+<h3><font color=\"#008000\">Version 1.0.5, 2004-10-01</font></h3>
+<ul>
+<li> Wrong identifiers x0 and Tdel in HalfAdder example fixed.</li>
+<li> Experiment command in FlipFlop example deleted.</li>
+<li> Known issue: Pulse source causes a warning in Dymola. It is recommended to use Clock source.</li>
+</ul>
 <h3><font color=\"#008000\">Version 1.0.4, 2004-09-30</font></h3>
 <ul>
 <li> Documentation improved.</li>
@@ -2690,8 +2696,7 @@ Pulse-triggered master-slave flip-flop.
           width=0.62,
           height=0.69),
         experiment(StopTime=250),
-        experimentSetupOutput,
-        Commands(file="FlipFlopPlot.mos" "plot"));
+        experimentSetupOutput);
       D.Examples.Utilities.JKFF FF 
                      annotation (extent=[-10,-40; 70,40]);
       D.Sources.Clock CLK(period=10)  annotation (extent=[-80,-10; -60,10]);
@@ -2791,12 +2796,12 @@ The simulation stop time should be 5 seconds.
       Sources.Table a(
         t={1,2,3,4},
         x={4,3,4,3},
-        x0=3)   annotation (extent=[-80,18; -60,38]);
+        y0=3)   annotation (extent=[-80,18; -60,38]);
       Sources.Table b(
         x={4,3},
         t={2,4},
-        x0=3)   annotation (extent=[-80,-38; -60,-18]);
-      Digital.Examples.Utilities.HalfAdder Adder(Tdel=0.3) 
+        y0=3)   annotation (extent=[-80,-38; -60,-18]);
+      Digital.Examples.Utilities.HalfAdder Adder(delayTime=0.3) 
                             annotation (extent=[-40,-40; 40,40]);
       Digital.Converters.LogicToReal s 
                                annotation (extent=[60,18; 80,38]);
