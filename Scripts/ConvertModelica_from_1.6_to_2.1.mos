@@ -1060,31 +1060,58 @@ convertClass("Modelica.Constants.T_ZERO", "Modelica.Constants.T_zero");
 // Convert Modelica.Electrical.Analog and .MultiPhase
 //-----------------------------------------------------------------------------
 
-convertElement({"Modelica.Electrical.Analog.Ideal.IdealThyristor",
-                "Modelica.Electrical.Analog.Ideal.IdealGTOThyristor",
-                "Modelica.Electrical.MultiPhase.Ideal.IdealThyristor",
-                "Modelica.Electrical.MultiPhase.Ideal.IdealGTOThyristor"},
-                "firePort", "fire");
 
-convertElement({"Modelica.Electrical.Analog.Sensors.PotentialSensor",
-                "Modelica.Electrical.MultiPhase.Sensors.PotentialSensor"},
-                "outPort", "phi");
+convertElement("Modelica.Electrical.Analog.Ideal.IdealThyristor",
+               {"firePort","firePort.signal[1]"}, {"fire","fire"});
+convertElement("Modelica.Electrical.Analog.Ideal.IdealGTOThyristor",
+               {"firePort","firePort.signal[1]"},{"fire","fire"});
+convertElement("Modelica.Electrical.MultiPhase.Ideal.IdealThyristor",
+               {"firePort","firePort.signal"},   {"fire[1]","fire"});
+convertElement("Modelica.Electrical.MultiPhase.Ideal.IdealGTOThyristor",
+               {"firePort","firePort.signal"},   {"fire[1]","fire"});
 
-convertElement({"Modelica.Electrical.Analog.Sensors.VoltageSensor",
-                "Modelica.Electrical.MultiPhase.Sensors.VoltageSensor"},
-                "outPort", "v");
+convertElement("Modelica.Electrical.Analog.Sensors.PotentialSensor",
+               {"outPort","outPort.signal[1]"}, {"phi","phi"});
+convertElement("Modelica.Electrical.MultiPhase.Sensors.PotentialSensor",
+               {"outPort","outPort.signal"},    {"phi[1]","phi"});
 
-convertElement({"Modelica.Electrical.Analog.Sensors.CurrentSensor",
-                "Modelica.Electrical.MultiPhase.Sensors.CurrentSensor"},
-                "outPort", "i");
+convertElement("Modelica.Electrical.Analog.Sensors.VoltageSensor",
+               {"outPort","outPort.signal[1]"}, {"v","v"});
+convertElement("Modelica.Electrical.MultiPhase.Sensors.VoltageSensor",
+               {"outPort","outPort.signal"},    {"v[1]","v"});
 
-convertElement({"Modelica.Electrical.Analog.Sources.SignalVoltage",
-                "Modelica.Electrical.MultiPhase.Sources.SignalVoltage"},
-                "inPort", "v");
+convertElement("Modelica.Electrical.Analog.Sensors.CurrentSensor",
+               {"outPort","outPort.signal[1]"}, {"i","i"});
+convertElement("Modelica.Electrical.MultiPhase.Sensors.CurrentSensor",
+               {"outPort","outPort.signal"},    {"i[1]","i"});
 
-convertElement({"Modelica.Electrical.Analog.Sources.SignalCurrent",
-                "Modelica.Electrical.MultiPhase.Sources.SignalCurrent"},
-                "inPort", "i");
+convertElement("Modelica.Electrical.Analog.Sources.SignalVoltage",
+               {"inPort","inPort.signal[1]"},   {"v","v"});
+convertElement("Modelica.Electrical.MultiPhase.Sources.SignalVoltage",
+               {"inPort","inPort.signal"},      {"v[1]","v"});
+
+convertElement("Modelica.Electrical.Analog.Sources.SignalCurrent",
+               {"inPort","inPort.signal[1]"},   {"i","i"});
+convertElement("Modelica.Electrical.MultiPhase.Sources.SignalCurrent",
+               {"inPort","inPort.signal"},   {"i[1]","i"});
+
+convertElement("Modelica.Electrical.Analog.Basic.VariableCapacitor",
+	{"C_Port","C_Port.signal[1]"},       {"C","C"});
+convertElement("Modelica.Electrical.Analog.Basic.VariableConductor",
+	{"G_Port","G_Port.signal[1]"},       {"G","G"});
+convertElement("Modelica.Electrical.Analog.Basic.VariableResistor",
+	{"R_Port","R_Port.signal[1]"},       {"R","R"});
+convertElement("Modelica.Electrical.Analog.Basic.VariableInductor",
+	{"L_Port","L_Port.signal[1]"},       {"L","L"});
+
+convertElement("Modelica.Electrical.MultiPhase.Basic.VariableCapacitor",
+	{"C_Port","C_Port.signal"},          {"C[1]","C"});
+convertElement("Modelica.Electrical.MultiPhase.Basic.VariableConductor",
+	{"G_Port","G_Port.signal"},          {"G[1]","G"});
+convertElement("Modelica.Electrical.MultiPhase.Basic.VariableResistor",
+	{"R_Port","R_Port.signal"},          {"R[1]","R"});
+convertElement("Modelica.Electrical.MultiPhase.Basic.VariableInductor",
+	{"L_Port","L_Port.signal"},          {"L[1]","L"});
 
 convertClass  ("Modelica.Electrical.Analog.Ideal.IdealSwitch",
                "Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch");
@@ -1115,6 +1142,18 @@ convertElement("Modelica.Electrical.Analog.Ideal.IdealThyristor", "Gon" , "Goff"
 convertElement("Modelica.Electrical.Analog.Ideal.IdealGTOThyristor", "Roff", "Ron");
 convertElement("Modelica.Electrical.Analog.Ideal.IdealGTOThyristor", "Gon" , "Goff");
 
+convertClass  ("Modelica.Electrical.Analog.Ideal.IdealOpener",
+               "Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch");
+convertClass  ("Modelica.Electrical.Analog.Ideal.IdealCloser",
+               "Modelica.Electrical.Analog.Ideal.IdealClosingSwitch");
+
+convertElement({"Modelica.Electrical.Analog.Ideal.IdealSwitch",
+  "Modelica.Electrical.Analog.Ideal.IdealOpener", 
+  "Modelica.Electrical.Analog.Ideal.IdealCloser", 
+  "Modelica.Electrical.Analog.Ideal.IdealCommutingSwitch",
+  "Modelica.Electrical.Analog.Ideal.IdealIntermediateSwitch"}, 
+   "control.signal[1]", "control");
+
 convertElement("Modelica.Electrical.MultiPhase.Ideal.IdealCommutingSwitch", "off" , "control");
 convertElement("Modelica.Electrical.MultiPhase.Ideal.IdealCommutingSwitch", "Roff", "Ron");
 convertElement("Modelica.Electrical.MultiPhase.Ideal.IdealCommutingSwitch", "Gon" , "Goff");
@@ -1132,6 +1171,21 @@ convertElement("Modelica.Electrical.MultiPhase.Ideal.IdealThyristor", "Gon" , "G
 convertElement("Modelica.Electrical.MultiPhase.Ideal.IdealGTOThyristor", "Roff", "Ron");
 convertElement("Modelica.Electrical.MultiPhase.Ideal.IdealGTOThyristor", "Gon" , "Goff");
 
+convertClass  ("Modelica.Electrical.MultiPhase.Ideal.IdealOpener",
+               "Modelica.Electrical.MultiPhase.Ideal.IdealOpeningSwitch");
+convertClass  ("Modelica.Electrical.MultiPhase.Ideal.IdealCloser",
+               "Modelica.Electrical.MultiPhase.Ideal.IdealClosingSwitch");
+
+convertElement({"Modelica.Electrical.MultiPhase.Ideal.IdealCommutingSwitch",
+  "Modelica.Electrical.MultiPhase.Ideal.IdealIntermediateSwitch", 
+  "Modelica.Electrical.MultiPhase.Ideal.IdealOpener", 
+  "Modelica.Electrical.MultiPhase.Ideal.IdealCloser"}, 
+   "control.signal", "control");
+convertElement({"Modelica.Electrical.MultiPhase.Ideal.IdealCommutingSwitch",
+  "Modelica.Electrical.MultiPhase.Ideal.IdealIntermediateSwitch", 
+  "Modelica.Electrical.MultiPhase.Ideal.IdealOpener", 
+  "Modelica.Electrical.MultiPhase.Ideal.IdealCloser"}, 
+   "control", "control[1]");
 
 //-----------------------------------------------------------------------------
 // Convert Matrices to Modelica.Math.Matrices
@@ -1217,8 +1271,8 @@ convertElement({"Modelica.Mechanics.Rotational.Accelerate"},
 convertElement({"Modelica.Mechanics.Rotational.Accelerate"},
                 "inPort", "a");
 
-convertElement({"Modelica.Mechanics.Rotational.Move"},
-                "inPort", "u[1]");
+convertElement("Modelica.Mechanics.Rotational.Move",
+                {"inPort","inPort.signal"},{"u[1]","u"});
 
 convertElement({"Modelica.Mechanics.Rotational.Torque",
                 "Modelica.Mechanics.Rotational.Torque2"},
