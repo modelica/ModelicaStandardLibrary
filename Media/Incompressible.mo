@@ -66,30 +66,33 @@ package Incompressible
     constant Boolean hasHeatCapacity = not (size(tableHeatCapacity,1)==0);
     constant Boolean hasViscosity = not (size(tableViscosity,1)==0);
     constant Boolean hasVaporPressure = not (size(tableVaporPressure,1)==0);
-    
-    final constant Real invTK[neta] = {1/(if TinK then tableViscosity[i,1] else Cv.from_degC(tableViscosity[i,1])) for i in 1:neta} annotation(
-        keepConstant =                                                                                                    true);
+    final constant Real invTK[neta] = invertTemp(tableViscosity[:,1],TinK);
+	 annotation(keepConstant = true);
     final constant Real poly_rho[:] = if hasDensity then 
                                          Poly.fitting(tableDensity[:,1],tableDensity[:,2],npol) else 
-                                           zeros(npol+1) annotation(
-        keepConstant =                                                           true);
+                                           zeros(npol+1) annotation(keepConstant = true);
     final constant Real poly_Cp[:] = if hasHeatCapacity then 
                                          Poly.fitting(tableHeatCapacity[:,1],tableHeatCapacity[:,2],npol) else 
-                                           zeros(npol+1) annotation(
-        keepConstant =                                                           true);
+                                           zeros(npol+1) annotation(keepConstant = true);
     final constant Real poly_eta[:] = if hasViscosity then 
                                          Poly.fitting(invTK, Math.log(tableViscosity[:,2]),npol) else 
-                                           zeros(npol+1) annotation(
-        keepConstant =                                                           true);
+                                           zeros(npol+1) annotation(keepConstant = true);
     final constant Real poly_pVap[:] = if hasVaporPressure then 
                                          Poly.fitting(tableVaporPressure[:,1],tableVaporPressure[:,2],npol) else 
-                                            zeros(npol+1) annotation(
-        keepConstant =                                                            true);
+                                            zeros(npol+1) annotation(keepConstant =true);
     final constant Real poly_lam[:] = if size(tableConductivity,1)>0 then 
                                          Poly.fitting(tableConductivity[:,1],tableConductivity[:,2],npol) else 
-                                           zeros(npol+1) annotation(
-        keepConstant =                                                           true);
-    
+                                           zeros(npol+1) annotation(keepConstant = true);
+    function invertTemp "function to invert temperatures"
+      input Real[:] table "table temperature data";
+      input Boolean Tink "flag for Celsius or Kelvin";
+      output Real invTable[size(table,1)] "inverted temperatures";
+    algorithm
+      for i in 1:size(table,1) loop
+	invTable[i] :=  if TinK then 1/table[i] else 1/Cv.to_degC(table[i]);
+      end for;
+    end invertTemp;   
+	 
     redeclare model extends BaseProperties(
       R=Modelica.Constants.R,
       p_bar=Cv.to_bar(p),
@@ -122,10 +125,8 @@ which is only exactly true for a fluid with constant density d=d0.
              " K) is not in the allowed range (" + String(T_min) +
              " K <= T <= " + String(T_max) + " K) required from medium model \""
              + mediumName + "\".");
-      assert(not(singleState and (not enthalpyOfT) and densityOfT),
-	     "the flags enthalpyOfT, densityOfT and singleState may mot be used in this combination");
       cp = Poly.evaluate(poly_Cp,if TinK then T else T_degC);
-      h = if enthalpyOfT then h_T(T) else h_pT(p,T,densityOfT);
+      h = if enthalpyOfT then h_T(T) else  h_pT(p,T,densityOfT);
       if singleState then
 	u = h_T(T) - reference_p/d;
       else
