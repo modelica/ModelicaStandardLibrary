@@ -211,30 +211,20 @@ explanation below):
   <tr><td>X_i[nX_i]</td>
       <td>kg/kg</td>
       <td>independent mass fractions m_i/m</td></tr>
+  <tr><td>X[nX]</td>
+      <td>kg/kg</td>
+      <td>All mass fractions m_i/m. X is defined in BaseProperties by:<br>
+          X = <b>if</b> reducedX <b>then</b> vector([X_i; 1-<b>sum</b>(X_i)]) 
+          <b>else</b> X_i </td></tr>
 </table>
 <p>
 <b>Two</b> variables out of p, d, h, or u, as well as the
 <b>mass fractions</b> X_i are the <b>independent</b> variables and the
 medium model basically provides equations to compute
-the remaining variables. 
-<p>
-If a fluid consists of a single
-substance, <b>nX_i = 0</b> and the vector of mass fractions X_i is not
-present. If a fluid consists of nS substances,
-the medium model may either define the number of independent
-mass fractions <b>nX_i</b> to be <b>nS</b> or to be <b>nS-1</b>. 
-In both cases, balance equations for nX_i substances have to be
-given in the corresponding component (see discussion below).
-Note, that if nX_i = nS, the constraint \"sum(X_i)=1\" between the mass 
-fractions is <b>not</b> present in the model; in that case, it is necessary to 
-provide consistent start values for X_i such that sum(X_i) = 1.
+the remaining variables, including the full mass fraction vector X
+(more details to X_i and X are given below).
 </p>
-<p>
-The full vector of mass fractions <b>X[nX]</b> is also provided by the medium 
-model. For single-substance media, nX = 0, so there's also no X vector. For 
-multiple-substance media, nX = nS, and X always contains the full vector of 
-mass fractions.
-</p>
+
 <p>
 In a component, the most basic usage of a medium model is as follows
 </p>
@@ -293,6 +283,53 @@ medium. Note, by specific techniques sketched in section
 \"Medium definition\", the independent variables in the medium model
 need not to be the same as the variables in the connector and still
 get the same efficiency, as if the same variables would be used.
+</p>
+
+<p>
+If a fluid consists of a single
+substance, <b>nX_i = 0</b> and the vector of mass fractions X_i is not
+present. If a fluid consists of nS substances,
+the medium model may either define the number of independent
+mass fractions <b>nX_i</b> to be <b>nS</b> or to be <b>nS-1</b>. 
+In both cases, balance equations for nX_i substances have to be
+given in the corresponding component (see discussion below).
+Note, that if nX_i = nS, the constraint \"sum(X_i)=1\" between the mass 
+fractions is <b>not</b> present in the model; in that case, it is necessary to 
+provide consistent start values for X_i such that sum(X_i) = 1.
+</p>
+
+<p>
+The reason for this definition of X_i is that a fluid component library
+can be implemented by using only the independent mass fractions X_i and
+then via the medium it is defined how X_i is interpreted:
+</p>
+
+<ul>
+<li> If X_i = nS-1, then the true independent mass fractions are used
+     in the fluid component and the last component of X is computed via
+     X[nX] = 1 - sum(X_i). This is useful for, e.g., MoistAir, where the
+     number of states should be as small as possible without introducing
+     numerical problems.</li>
+<li> If X_i = nS, then the constraint equation sum(X) = 1 is neglected
+     during simulation. By making sure that the initial conditions of X
+     fulfill this constraint, it can usally be guaranteed that small
+     errors in sum(X) = 1 remain small although this constraint equation is
+     not explicitly used during the simulation. This approach is usually useful
+     if components of the mixture can become very small. If such a small
+     quantity is computed via the equation 1 - sum(X[1:nX-1]), there might
+     be large numerical errors and it is better to compute it via
+     the corresponding balance equation.</li>
+</ul>
+
+<p>
+The full vector of mass fractions <b>X[nX]</b> is computed in
+PartialMedium.BaseProperties based on X_i and the information whether
+X_i = nS or nS-1. For single-substance media, nX = 0, so there's also no X vector. For 
+multiple-substance media, nX = nS, and X always contains the full vector of 
+mass fractions. In order to reduce confusion for the user of a fluid component
+library, \"X_i\" has the annotation \"Hide=true\", meaning, that this variable 
+is not shown in the plot window. Only X is shown in the plot window and this
+vector contains always all mass fractions.
 </p>
 </HTML>"));
     end BasicUsage;
@@ -613,12 +650,13 @@ model of a short pipe has to be changed to:
 </pre>
 
 <p>
-Note, \"Medium.DynamicViscosity\" is type defined as
+Note, \"Medium.DynamicViscosity\" is a type defined in Modelica.Interfaces.PartialMedium
+as
 </p>
 
 <pre>
-  import SI = Modelica.SIunits;
-  type DynamicViscosity = SI.DynamicViscosity (
+  <b>import</b> SI = Modelica.SIunits;
+  <b>type</b> DynamicViscosity = SI.DynamicViscosity (
                                      min=0,
                                      max=1.e8,
                                      nominal=1.e-3,
@@ -626,8 +664,12 @@ Note, \"Medium.DynamicViscosity\" is type defined as
 </pre>
 
 <p>
-Every medium model may modify the attributes, to provide
-min, max, nominal, and start values
+Every medium model may modify the attributes, to provide, e.g., 
+min, max, nominal, and start values adapted to the medium.
+Also, other types, such as AbsolutePressure, Density, MassFlowRate,
+etc. are defined in PartialMedium. Whenever possible, these medium
+specific types should be used in a model in order that medium information,
+e.g., about nominal or start values, are automatically utilized.
 </p>
 
 </pre>
@@ -635,13 +677,76 @@ min, max, nominal, and start values
 </HTML>"));
     end OptionalProperties;
     
+    class Constants "Constants" 
+      annotation (Documentation(info="<HTML>
+<h3><font color=\"#008000\">Constants provided by medium model</font></h3>
+<p>
+Every medium model provides the following <b>constants</b>. For example,
+if a medium is declared as:
+</p>
+<pre>
+   <b>replaceable package</b> Medium = Modelica.Media.Interfaces.PartialMedium;
+</pre>
+<p>
+then constants \"Medium.mediumName\", \"Medium.nX\", etc. are defined:
+</p>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td><b>Type</b></td>
+      <td><b>Name</b></td>
+      <td><b>Description</b></td></tr>
+  <tr><td>String</td><td>mediumName</td>
+      <td>Unique name of the medium (is usually used to check whether
+          the media in different components connected together
+          are the same, by providing Medium.mediumName as quantity
+          attribute of the mass flow rate in the connector)</td></tr>
+  <tr><td>String</td><td>substanceNames[nS]</td>
+      <td>Names of the substances that make up the medium.
+          If only one substance is present, substanceNames = {mediumName}.</td></tr>
+  <tr><td>String</td><td>extraPropertiesNames[nC]</td>
+      <td>Names of the extra transported substances, outside of mass and
+          energy balances.</td></tr>
+  <tr><td>Boolean</td><td>singleState</td>
+      <td>= <b>true</b>, if u and d are not a function of pressure, and thus only
+          a function of a single thermal variable (temperature or enthalpy) and
+          of X_i for a multiple substance medium. Usually, this flag is
+          <b>true</b> for incompressible media. It is used in a model to determine
+          whether 1+nX_i (singleState=<b>true</b>) or 2+nX_i (singleState=<b>false</b>)
+          initial conditions have to be provided for a volume element that
+          contains mass and energy balance.</td></tr>
+  <tr><td>AbsolutePressure</td><td>reference_p</td>
+      <td>Reference pressure for the medium (may be used as meaningful 
+          default start value)</td></tr>
+  <tr><td>MassFraction</td><td>reference_X[nX]</td>
+      <td>Reference composition for the medium (may be used as meaningful
+          default start value).</td></tr>
+  <tr><td>Integer</td><td>nS</td>
+      <td>number of substances contained in the medium.</td></tr>
+  <tr><td>Integer</td><td>nX</td>
+      <td>Size of the full mass fraction vector X. If there is a single 
+          substance, then nX = 0, else nX=nS.</td></tr>
+  <tr><td>Integer</td><td>nX_i</td>
+      <td>Number of independent mass fractions. If there is a single substance,
+          then nX_i = 0. </td></tr>
+  <tr><td>Boolean</td><td>reducedX</td>
+      <td>= <b>true</b>, if the medium has a single substance, or if the medium model 
+          has multiple substances and contains the equation sum(X) = 1. 
+          In both cases, nX_i = nS - 1.<br>
+          = <b>false</b>, if the medium has multiple substances and does not contain the
+          equation sum(X)=1, i.e., nX_i = nX = nS.
+       </td></tr>
+</table>
+</HTML>
+"));
+    end Constants;
+
     class TwoPhase "Two-phase media" 
       annotation (Documentation(info="<HTML>
 <h3><font color=\"#008000\">Two-phase Media</font></h3>
 <p>
 Models for media which can exist in one-phase or two-phase conditions inherit
-from Modelica.Media.Interfaces.PartialTwoPhaseMedium. The basic usage of these
-media models is the same described in the previous sections. However, additional
+from Modelica.Media.Interfaces.PartialTwoPhaseMedium (which inherits
+from PartialMedium). The basic usage of these
+media models is the same as described in the previous sections. However, additional
 functionalities are provided, which apply only to potentially two-phase media.
 </p>
 <p>
@@ -838,53 +943,6 @@ An ambient component should therefore be essentially implemented as:
 </HTML>"));
     end BoundaryConditions;
     
-    class Constants "Constants" 
-      annotation (Documentation(info="<HTML>
-<h3><font color=\"#008000\">Constants provided by medium model</font></h3>
-<p>
-Every medium model provides the following <b>constants</b>. For example,
-if a medium is declared as:
-</p>
-<pre>
-   <b>replaceable package</b> Medium = Modelica.Media.Interfaces.PartialMedium;
-</pre>
-<p>
-then constants \"Medium.mediumName\", \"Medium.nX\", etc. are defined:
-</p>
-<table border=1 cellspacing=0 cellpadding=2>
-  <tr><td><b>Type</b></td>
-      <td><b>Name</b></td>
-      <td><b>Description</b></td></tr>
-  <tr><td>String</td><td>mediumName</td>
-      <td>Unique name of the medium (is usually used to check whether
-          two media in a model are the same)</td></tr>
-  <tr><td>String</td><td>substanceNames[nS]</td>
-      <td>Names of the substances that make up the medium.</td></tr>
-  <tr><td>String</td><td>extraPropertiesNames[nC]</td>
-      <td>Names of the extra transported substances, outside of standard mass 
-          balance.</td></tr>
-  <tr><td>Boolean</td><td>singleState</td>
-      <td>= true, if u and d are not a function of pressure, and thus only
-          a function of a single thermal variable (temperature or enthalpy).</td></tr>
-  <tr><td>AbsolutePressure</td><td>reference_p</td>
-      <td>Reference pressure for the medium.</td></tr>
-  <tr><td>MassFraction</td><td>reference_X[nX]</td>
-      <td>Reference composition for the medium.</td></tr>
-  <tr><td>Integer</td><td>nS</td>
-      <td>number of substances contained in the medium.</td></tr>
-  <tr><td>Integer</td><td>nX</td>
-      <td>Size of the full mass fraction vector X. If there is a single 
-          substance, then nX = 0, else nX=nS.</td></tr>
-  <tr><td>Integer</td><td>nX_i</td>
-      <td>Number of independent mass fractions. If there is a single substance,
-          then nX_i = 0.</td></tr>
-  <tr><td>Boolean</td><td>reducedX</td>
-      <td>= true if the medium has a single substance, or if the medium model 
-          contains the equation sum(X) = 1. In both cases, nX_i = nS - 1.
-</table>
-</HTML>
-"));
-    end Constants;
     
   end MediumUsage;
   
@@ -2902,7 +2960,8 @@ Modelica source.
       extends Modelica.Icons.Record;
       String iupacName "complete IUPAC name";
       String casRegistryNumber "chemical abstracts sequencing number";
-      String chemicalFormula "Chemical formula, (brutto, nomenclature according to Hill";
+      String chemicalFormula 
+        "Chemical formula, (brutto, nomenclature according to Hill";
       String structureFormula "Chemical structure formula";
       MolarMass molarMass "molar mass";
       Temperature criticalTemperature "critical temperature";
@@ -3805,6 +3864,11 @@ in the following way:
   partial package PartialTwoPhaseMedium 
     extends PartialPureSubstance;
     
+    constant Boolean smoothModel 
+      "true if the (derived) model should not generate state events";
+    constant Boolean onePhase 
+      "true if the (derived) model should never be called with two-phase inputs";
+    
     record FluidLimits "validity limits for fluid model" 
       extends Modelica.Icons.Record;
       Temperature TMIN "minimum temperature";
@@ -3825,12 +3889,6 @@ in the following way:
           enthalpy and entropy are used as safeguards in inverse iterations.</p>
           </body></html>"));
     end FluidLimits;
-    
-    //    constant FluidLimits limits "instance of data record";
-    constant Boolean smoothModel 
-      "true if the (derived) model should not generate state events";
-    constant Boolean onePhase 
-      "true if the (derived) model should never be called with two-phase inputs";
     
     redeclare replaceable record extends ThermodynamicState 
       Integer phase(min=0, max=2) 
