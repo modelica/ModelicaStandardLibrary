@@ -52,7 +52,9 @@ Modelica in file \"Modelica/package.mo\".
 </HTML>"));
   import SI = Modelica.SIunits;
 
+
 extends Modelica.Icons.Library;
+
 
 package UsersGuide "User's Guide" 
   annotation (DocumentationClass=true, Documentation(info="<HTML>
@@ -857,6 +859,36 @@ functions from library Modelica.Mechanics.MultiBody.Frames):
   <td>= frame_a.t (no conversion needed)</td>
 </tr>
 </table>
+
+<p>
+<b><font color=\"#008000\">Upgrade from MultiBody 0.99 (and earlier) to 1.0 (and later)</font></b>
+<p>
+The conversion from MultiBody 0.99 to 1.0 does not work in some rare
+cases, where own components are implemented using functions of the
+MultiBody.Frames package. In this case, the conversion has to be
+performed manually. The changes in 1.0 with regards to 0.99 are:
+</p>
+
+<p>
+The definition of the MultiBody.Frames.Orientation object has changed.
+In 0.99 this was just an alias type for a transformation matrix
+(now MultiBody.Frames.TransformationMatrices.Orientation).
+In 1.0 the orientation object is a record holding the
+transformation matrix from frame 1 to frame 2 and the angular 
+velocity of the transformation matrix resolved in frame 2.
+The reason is that this allows to compute the angular velocity
+in many cases by standard recursive formulas and not by
+differentiation of the transformation matrix. This is usually
+much more efficient. As a consequence, the following
+calls in 0.99 should be changed:
+</p>
+
+<pre>
+   Frames.angularVelocity1(T,der(T)) -> Frames.angularVelocity1(T)
+   Frames.angularVelocity2(T,der(T)) -> Frames.angularVelocity2(T)
+   Frames.from_T(T)                  -> Frames.from_T2(T,der(T))
+</pre>
+
 </HTML>
 "));
   equation 
@@ -867,6 +899,21 @@ functions from library Modelica.Mechanics.MultiBody.Frames):
     
     annotation (Documentation(info="<HTML>
 <h3><font color=\"#008000\" size=5>Release notes</font></h3>
+<h3><font color=\"#008000\">Version 1.1.1, 2004-11-03</font></h3>
+
+<p>
+This version has some minor improvements:
+</p>
+
+
+<ul>
+<li> New function \"MultiBody.Frames.from_T2\" to compute an orientation
+     object from a transformation matrix and its derivative.</li>
+<li> Added a paragraph in the \"Upgrade from Former Versions\" section
+     of the Users Guide to show how a conversion from 0.99 to 1.0 that
+     may fail in rare cases should be fixed manually.</li>
+</ul>
+
 <h3><font color=\"#008000\">Version 1.1, 2004-07-07</font></h3>
 <p>
 Included the MultiBody library as Modelica.Mechanics.MultiBody 
@@ -1195,6 +1242,7 @@ dynamical effects is described in:
   end Contact;
   
 end UsersGuide;
+
 
 model World 
   "World coordinate system + gravity field + default animation definition" 

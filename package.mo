@@ -1,6 +1,7 @@
 package Modelica "Modelica Standard Library"
 extends Icons.Library;
 
+
 annotation(preferedView="info",
   Window(
     x=0.02,
@@ -12,14 +13,13 @@ annotation(preferedView="info",
   version="2.1",
   versionDate="2004-10-01",
   conversion(
-    from(version="1.6", 
-         ModelicaAdditions(version="1.5"), 
-         MultiBody(version="1.0.1"), 
-         MultiBody(version="1.0"), 
-         Matrices(version="0.8"), 
+    from(version="1.6",
+         ModelicaAdditions(version="1.5"),
+         MultiBody(version="1.0.1"),
+         MultiBody(version="1.0"),
+         Matrices(version="0.8"),
          script="Scripts/ConvertModelica_from_1.6_to_2.1.mos"),
-    from(version="2.1 Beta1", script="Scripts/ConvertModelica_from_2.1Beta1_to_2.1.mos")
-  ),
+    from(version="2.1 Beta1", script="Scripts/ConvertModelica_from_2.1Beta1_to_2.1.mos")),
   Settings(NewStateSelection=true),
   Documentation(info="<HTML>
 <p>
@@ -74,6 +74,7 @@ and the accompanying <b>disclaimer</b>
 </p><br>
 </HTML>
 "));
+
 
 package UsersGuide "Users Guide" 
   
@@ -154,7 +155,7 @@ Preferred instance names for connectors:
     
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>Release notes</font></h3>
-<h3><font color=\"#008000\">Version 2.1 (October 1, 2004)</font></h3>
+<h3><font color=\"#008000\">Version 2.1 (November 3, 2004)</font></h3>
 <p> This is a major change with respect to previous versions of the
     Modelica Standard Library, because <b>many new libraries</b> and components
     are included and because the input/output blocks (Modelica.Blocks)
@@ -291,6 +292,9 @@ The following <b>new components</b> have been added to <b>existing</b> libraries
       <td>Set output signal to a time varying Boolean expression</td></tr>
   <tr><td>BooleanTable</td>
       <td>Generate a Boolean output signal based on a vector of time instants</td></tr>
+  <tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.</b></td></tr>
+  <tr><td>Frames.from_T2</td>
+      <td>Return orientation object R from transformation matrix T and its derivative der(T)</td></tr>
   <tr><td colspan=\"2\"><b>Modelica.Mechanics.Rotational.</b></td></tr>
   <tr><td>LinearSpeedDependentTorque</td>
       <td>Linear dependency of torque versus speed (acts as load torque)</td></tr>
