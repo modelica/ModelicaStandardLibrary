@@ -24,7 +24,9 @@
 */
 
 #include <ctype.h>
+#if !defined(NO_FILE_SYSTEM)
 #include <stdio.h>
+#endif
 #include <string.h>
 #include "ModelicaUtilities.h"
 
@@ -237,11 +239,13 @@ static void ModelicaStrings_scanInteger(const char* string, int startIndex, int 
              
              strncpy(buf, string+token_start-1, sign + number_length);
              buf[sign + number_length] = '\0';
+#if !defined(NO_FILE_SYSTEM)
              if (sscanf(buf, "%d", &x) == 1) {              
                 *integerNumber = x;
                 *nextIndex = token_start + sign + number_length;
                 return;
              }
+#endif
           } else {
             ++number_length;
           }
@@ -321,11 +325,13 @@ static void ModelicaStrings_scanReal(const char* string, int startIndex, int uns
         
         strncpy(buf, string+token_start-1, total_length);
         buf[total_length] = '\0';
+#if !defined(NO_FILE_SYSTEM)
         if (sscanf(buf, "%lg", &x) == 1) {
             *number = x;
             *nextIndex = token_start + total_length;
             return;
         }
+#endif
     }
     
     /* Token missing or cannot be converted to result type. */
