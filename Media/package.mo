@@ -1894,7 +1894,7 @@ states. This means that static state selection is possible.
 <h3><font color=\"#008000\">Test of medium</font></h3>
 <p>
 After implementation of a new medium model, it should
-be testet. A basic test is already provided with model
+be tested. A basic test is already provided with model
 Modelica.Media.Examples.Tests.Components.PartialTestModel
 which might be used in the following way:
 </p>
@@ -1914,9 +1914,9 @@ If the medium model is written according to the
 suggestions given in the previous sections (and the Modelica
 translator has appropriate algorithms implemented),
 there should be only static state selection everywhere
-and no non-linear system of equations,provided h is an independent
+and no non-linear system of equations, provided h is an independent
 medium variable or is only a function of T. If h is a function
-of, say h=h(p,T), one non-linear system of equations occursthat
+of, say h=h(p,T), one non-linear system of equations occurs that
 cannot be avoided.
 </p>
 
