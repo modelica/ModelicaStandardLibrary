@@ -1555,7 +1555,7 @@ November 3-4, 2003, pp. 149-158</p>
           style(color=10))));
   protected 
     outer World world;
-    parameter Boolean effectiveEnable3D=world.enable3D and enable3D;
+    parameter Boolean effectiveEnable3D=world.driveTrainMechanics3D and enable3D;
   equation 
     flange_b.phi = phi0;
   end Mounting1D;
@@ -1565,17 +1565,16 @@ November 3-4, 2003, pp. 149-158</p>
     
     import SI = Modelica.SIunits;
     import Cv = Modelica.SIunits.Conversions;
-    
-    parameter Boolean animation=true 
-      "= true, if animation shall be enabled (show rotor as cylinder)";
-
-    parameter Boolean enable3D=true "Enable 3D effects of 1D powertrains"
-      annotation (Dialog(tab="PowerTrain"));
 
     parameter SI.Inertia J=1 
       "Moment of inertia of rotor around its axis of rotation";
+    
+    parameter Boolean animation=true 
+      "= true, if animation shall be enabled (show rotor as cylinder)";
+    parameter Boolean enable3D=true "Enable 3D effects and frame_a connector";
+
     parameter Modelica.Mechanics.MultiBody.Types.Axis n={1,0,0} 
-      "Axis of rotation resolved in frame_a";
+      "Axis of rotation resolved in frame_a" annotation(Dialog(enable=enable3D));
     parameter Types.Init.Temp initType=Types.Init.Free 
       "Type of initialization (defines usage of start values below)"
       annotation (Dialog(group="Initialization"));
@@ -1742,7 +1741,7 @@ November 3-4, 2003, pp. 149-158</p>
     Frames.Orientation R
       "Orientation object to rotate the world frame into the connector frame";
 
-    parameter Boolean effectiveEnable3D=world.enable3D and enable3D;
+    parameter Boolean effectiveEnable3D=world.driveTrainMechanics3D and enable3D;
   initial equation
     if initType == Types.Init.PositionVelocity then
       phi = Cv.from_deg(phi_start);
@@ -1790,12 +1789,14 @@ November 3-4, 2003, pp. 149-158</p>
     extends Modelica.Mechanics.Rotational.Interfaces.TwoFlanges;
     
     parameter Real ratio=1 "Gear speed ratio";
+    parameter Boolean enable3D=true "Enable 3D effects and frame_a connector";
     parameter Modelica.Mechanics.MultiBody.Types.Axis n_a={1,0,0} 
-      "Axis of rotation of flange_a, resolved in frame_a";
+      "Axis of rotation of flange_a, resolved in frame_a" annotation(Dialog(enable=enable3D));
     parameter Modelica.Mechanics.MultiBody.Types.Axis n_b={1,0,0} 
-      "Axis of rotation of flange_b, resolved in frame_a";
+      "Axis of rotation of flange_b, resolved in frame_a" annotation(Dialog(enable=enable3D));
     
-    Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a "Bearing frame" 
+    Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a(f = zeros(3), t = -flange_a.tau*e_a - flange_b.tau*e_b) if effectiveEnable3D
+      "Bearing frame" 
       annotation (extent=[-15, -120; 15, -100], rotation=90);
     
     annotation (Icon(
@@ -1855,6 +1856,8 @@ Modelica Conference</i>. Link&ouml;ping : The Modelica Association and Link&ouml
 November 3-4, 2003, pp. 149-158</p>
 </html>"));
   protected 
+    outer World world;
+    parameter Boolean effectiveEnable3D=world.driveTrainMechanics3D and enable3D;
     parameter Real e_a[3]=Modelica.Mechanics.MultiBody.Frames.normalize(n_a) 
       "Unit vector in direction of flange_a rotation axis";
     parameter Real e_b[3]=Modelica.Mechanics.MultiBody.Frames.normalize(n_b) 
@@ -1862,8 +1865,5 @@ November 3-4, 2003, pp. 149-158</p>
   equation 
     flange_a.phi = ratio*flange_b.phi;
     0 = ratio*flange_a.tau + flange_b.tau;
-    
-    frame_a.f = zeros(3);
-    frame_a.t = -flange_a.tau*e_a - flange_b.tau*e_b;
   end BevelGear1D;
 end Parts;

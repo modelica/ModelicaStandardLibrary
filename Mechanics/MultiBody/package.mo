@@ -1421,7 +1421,7 @@ of these axes can be set via parameters.
     "|Defaults|| Default for arrow diameter (e.g., of forces, torques, sensors)";
   parameter Real defaultFrameDiameterFraction=40 
     "|Defaults|| Default for arrow diameter of a coordinate system as a fraction of axis length";
-  parameter Boolean enable3D=false "Enable 3D effects of 1D powertrains" annotation (Dialog(tab="Advanced"));
+  parameter Boolean driveTrainMechanics3D=false "Enable 3D mechanical effects of 1D drivetrains";
 
   Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_b annotation (extent=[100, -15; 120, 15]);
   
