@@ -100,7 +100,11 @@ static void ModelicaNotExistError(const char* name) {
 #  include <stdlib.h>
 #  include <errno.h>
 
-#  if defined(_WIN32)
+#  if defined(__WATCOMC__)
+#     include <direct.h>
+#     include <sys/types.h>
+#     include <sys/stat.h>
+#  elif defined(_WIN32)
 #     include <direct.h>
 #     include <sys/types.h>
 #     include <sys/stat.h>
@@ -176,7 +180,9 @@ static void ModelicaInternal_mkdir(const char* directoryName)
 
 static void ModelicaInternal_rmdir(const char* directoryName)
 {
-#if defined(_WIN32)
+#if defined(__WATCOMC__)
+    int result = rmdir(directoryName);
+#elif defined(_WIN32)
     int result = _rmdir(directoryName);
 #elif defined(_POSIX_)
     int result = rmdir(directoryName);
@@ -666,7 +672,9 @@ static const char* ModelicaInternal_readLine(const char* fileName, const int lin
 static void ModelicaInternal_chdir(const char* directoryName)
 {
 /* Change current working directory. */
-#if defined(_WIN32)
+#if defined(__WATCOMC__)
+    int result = chdir(directoryName);
+#elif defined(_WIN32)
     int result = _chdir(directoryName);
 #elif defined(_POSIX_)
     int result = chdir(directoryName);
