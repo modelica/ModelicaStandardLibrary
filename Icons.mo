@@ -231,7 +231,7 @@ Modelica in file \"Modelica/package.mo\".
           string="e")));
   end Enumeration;
   
-  partial type TypeReal "Icon for a Real type" 
+  type TypeReal "Icon for a Real type" 
       extends Real;
       annotation(Icon(Rectangle(extent=[-100,100; 100,-100], style(
             color=0,
@@ -247,7 +247,7 @@ Modelica in file \"Modelica/package.mo\".
           string="R")));
   end TypeReal;
   
-  partial type TypeInteger "Icon for an Integer type" 
+  type TypeInteger "Icon for an Integer type" 
       extends Integer;
       annotation(Icon(Rectangle(extent=[-100,100; 100,-100], style(
             color=0,
@@ -263,7 +263,7 @@ Modelica in file \"Modelica/package.mo\".
           string="I")));
   end TypeInteger;
   
-  partial type TypeBoolean "Icon for a Boolean type" 
+  type TypeBoolean "Icon for a Boolean type" 
       extends Boolean;
       annotation(Icon(Rectangle(extent=[-100,100; 100,-100], style(
             color=0,
@@ -279,7 +279,7 @@ Modelica in file \"Modelica/package.mo\".
           string="B")));
   end TypeBoolean;
   
-  partial type TypeString "Icon for a String type" 
+  type TypeString "Icon for a String type" 
       extends String;
       annotation(Icon(Rectangle(extent=[-100,100; 100,-100], style(
             color=0,
