@@ -757,7 +757,7 @@ leading white space.
     if nextIndex == startIndex then
        nextIndex :=Advanced.skipWhiteSpace(string, startIndex);
        syntaxError(string, nextIndex,
-         "Expected a Boolean number, i.e., \"false\" or \"true\" " + message);
+         "Expected a Boolean constant, i.e., \"false\" or \"true\" " + message);
     end if;
   end scanBoolean;
   
