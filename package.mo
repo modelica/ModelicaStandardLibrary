@@ -155,7 +155,7 @@ Preferred instance names for connectors:
     
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>Release notes</font></h3>
-<h3><font color=\"#008000\">Version 2.1 (November 3, 2004)</font></h3>
+<h3><font color=\"#008000\">Version 2.1 (November 11, 2004)</font></h3>
 <p> This is a major change with respect to previous versions of the
     Modelica Standard Library, because <b>many new libraries</b> and components
     are included and because the input/output blocks (Modelica.Blocks)
