@@ -1,20 +1,20 @@
 package Analog "Library for analog electrical models"
+
+
+import SI = Modelica.SIunits;
+
+
 extends Modelica.Icons.Library2;
 
-annotation (
-  Coordsys(
-    extent=[0, 0; 156, 401], 
-    grid=[1, 1], 
-    component=[20, 20]), 
-  Window(
-    x=0.06, 
-    y=0.07, 
+
+annotation (Window(
+    x=0.05, 
+    y=0.06, 
     width=0.16, 
     height=0.58, 
     library=1, 
     autolayout=1), 
-  Documentation(info="
-<HTML>
+  Documentation(info="<html>
 <p>
 This package contains packages for analog electrical components:
 <ul>
@@ -31,9 +31,9 @@ This package contains packages for analog electrical components:
 <dt>
 <b>Main Authors:</b>
 <dd>
-<a href=\"http://www.eas.iis.fhg.de/~clauss/\">Christoph Clau&szlig;</a> 
+<a href=\"http://www.eas.iis.fhg.de/~clauss/\">Christoph Clau&szlig;</a>
     &lt;<a href=\"mailto:clauss@eas.iis.fhg.de\">clauss@eas.iis.fhg.de</a>&gt;<br>
-    <a href=\"http://www.eas.iis.fhg.de/~schneider/\">Andr&eacute; Schneider</a> 
+    <a href=\"http://www.eas.iis.fhg.de/~schneider/\">Andr&eacute; Schneider</a>
     &lt;<a href=\"mailto:schneider@eas.iis.fhg.de\">schneider@eas.iis.fhg.de</a>&gt;<br>
     Fraunhofer Institute for Integrated Circuits<br>
     Design Automation Department<br>
@@ -49,10 +49,10 @@ $Id$<br>
 <dt>
 <b>Copyright:</b>
 <dd>
-Copyright (C) 1998-1999, Modelica Design Group and Fraunhofer-Gesellschaft.<br>
+Copyright &copy; 1998-2002, Modelica Association and Fraunhofer-Gesellschaft.<br>
 <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
 under the terms of the <b>Modelica license</b>, see the license conditions
-and the accompanying <b>disclaimer</b> in the documentation of package 
+and the accompanying <b>disclaimer</b> in the documentation of package
 Modelica in file \"Modelica/package.mo\".</i><br>
 <p>
 </dl>

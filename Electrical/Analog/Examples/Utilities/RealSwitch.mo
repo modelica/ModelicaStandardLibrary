@@ -1,30 +1,16 @@
-// Example: Modelica.Electrical.Analog.Examples.Utilities.RealSwitch
-
-// Version: $Id$
-
-
 model RealSwitch 
-  Modelica.Electrical.Analog.Ideal.ControlledIdealCommutingSwitch S(level=2.5)
-     annotation (extent=[11.3333, 18; 58, 64.6667]);
-  Modelica.Electrical.Analog.Basic.Resistor R(R=0.01) annotation (extent=[-66
-        , 16; -19.3333, 62.6667]);
-  Modelica.Electrical.Analog.Interfaces.Pin p annotation (extent=[-110, 30; 
-        -90, 50]);
-  Modelica.Electrical.Analog.Interfaces.Pin n1 annotation (extent=[90, 50; 110
-        , 70]);
-  Modelica.Electrical.Analog.Interfaces.Pin n2 annotation (extent=[90, 4; 110
-        , 24]);
-  Modelica.Electrical.Analog.Interfaces.Pin control annotation (extent=[24, 90
-        ; 44, 110]);
+  Ideal.ControlledIdealCommutingSwitch S(level=2.5) annotation (extent=[11.3333
+        , 18; 58, 64.6667]);
+  Basic.Resistor R(R=0.01) annotation (extent=[-66, 16; -19.3333, 62.6667]);
+  Interfaces.Pin p annotation (extent=[-110, 30; -90, 50]);
+  Interfaces.Pin n1 annotation (extent=[90, 50; 110, 70]);
+  Interfaces.Pin n2 annotation (extent=[90, 4; 110, 24]);
+  Interfaces.Pin control annotation (extent=[24, 90; 44, 110]);
 equation 
   connect(p, R.p) annotation (points=[-100, 40; -66, 39.3333]);
-equation 
   connect(R.n, S.p) annotation (points=[-19.3333, 39.3333; 11.3333, 41.3333]);
-equation 
   connect(n1, S.n1) annotation (points=[100, 60; 58, 53]);
-equation 
   connect(n2, S.n2) annotation (points=[100, 14; 58, 41.3333]);
-equation 
   connect(control, S.control) annotation (points=[34, 100; 34.6667, 64.6667]);
   annotation (Coordsys(
       extent=[-100, -100; 100, 100], 

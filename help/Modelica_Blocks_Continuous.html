@@ -1,0 +1,901 @@
+<HTML>
+<HEAD><META name="HTML-Generator" content="Dymola"><TITLE>Modelica</TITLE></HEAD>
+<BODY><P>
+<H2><A NAME="Modelica.Blocks.Continuous"></A><A HREF="Modelica_Blocks.html#Modelica.Blocks"
+>Modelica.Blocks</A>.Continuous</H2>
+<B>Continuous control blocks with internal states</B>
+<P>
+<A HREF="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous.Integrator"
+><IMG SRC="Modelica.Blocks.Continuous.IntegratorI.png" ALT="Modelica.Blocks.Continuous.Integrator" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous.LimIntegrator"
+><IMG SRC="Modelica.Blocks.Continuous.LimIntegratorI.png" ALT="Modelica.Blocks.Continuous.LimIntegrator" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous.Derivative"
+><IMG SRC="Modelica.Blocks.Continuous.DerivativeI.png" ALT="Modelica.Blocks.Continuous.Derivative" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous.FirstOrder"
+><IMG SRC="Modelica.Blocks.Continuous.FirstOrderI.png" ALT="Modelica.Blocks.Continuous.FirstOrder" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous.SecondOrder"
+><IMG SRC="Modelica.Blocks.Continuous.SecondOrderI.png" ALT="Modelica.Blocks.Continuous.SecondOrder" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous.PI"
+><IMG SRC="Modelica.Blocks.Continuous.PII.png" ALT="Modelica.Blocks.Continuous.PI" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous.PID"
+><IMG SRC="Modelica.Blocks.Continuous.PIDI.png" ALT="Modelica.Blocks.Continuous.PID" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous.LimPID"
+><IMG SRC="Modelica.Blocks.Continuous.LimPIDI.png" ALT="Modelica.Blocks.Continuous.LimPID" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous.TransferFunction"
+><IMG SRC="Modelica.Blocks.Continuous.TransferFunctionI.png" ALT="Modelica.Blocks.Continuous.TransferFunction" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous.StateSpace"
+><IMG SRC="Modelica.Blocks.Continuous.StateSpaceI.png" ALT="Modelica.Blocks.Continuous.StateSpace" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous.Der"
+><IMG SRC="Modelica.Blocks.Continuous.DerI.png" ALT="Modelica.Blocks.Continuous.Der" WIDTH=80  HEIGHT=80 ></A>
+<P><P>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This package contains basic <b>continuous</b> input/output blocks.
+</p>
+
+<dl>
+<dt><b>Main Author:</b>
+<dd><a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a><br>
+    Deutsches Zentrum fuer Luft und Raumfahrt e.V. (DLR)<br>
+    Oberpfaffenhofen<br>
+    Postfach 1116<br>
+    D-82230 Wessling<br>
+    email: <A HREF="mailto:Martin.Otter@dlr.de">Martin.Otter@dlr.de</A><br>
+</dl>
+<br>
+
+<p><b>Release Notes:</b></p>
+<ul>
+<li><i>June 30, 1999</i>
+       by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>:<br>
+       Realized a first version, based on an existing Dymola library
+       of Dieter Moormann and Hilding Elmqvist.
+</li>
+</ul>
+<br>
+
+
+<p><b>Copyright &copy; 1999-2002, Modelica Association and DLR.</b></p>
+
+<p><i>
+The Modelica package is <b>free</b> software; it can be redistributed and/or modified
+under the terms of the <b>Modelica license</b>, see the license conditions
+and the accompanying <b>disclaimer</b> in the documentation of package
+Modelica in file "Modelica/package.mo".
+</i></p>
+<pre>
+</PRE><P>
+<HR>
+<H2><IMG SRC="Modelica.Blocks.Continuous.IntegratorI.png" ALT="Modelica.Blocks.Continuous.Integrator" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Continuous.Integrator"></A><A HREF="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous"
+>Modelica.Blocks.Continuous</A>.Integrator</H2>
+<B>Output the integral of the input signals</B><p>
+<IMG SRC="Modelica.Blocks.Continuous.IntegratorD.png" ALT="Modelica.Blocks.Continuous.Integrator">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This blocks computes output <b>y</b>=outPort.signal element-wise as
+<i>integral</i> of the input <b>u</b>=inPort.signal multiplied with
+the gain <i>k</i>:
+</p>
+
+<pre>
+             k[i]
+     y[i] = ------ u[i]
+              s
+</pre>
+
+<p><b>Release Notes:</b></p>
+<ul>
+<li><i>Nov. 4, 1999</i>
+       by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>:<br>
+       Vectorized.</li>
+<li><i>June 30, 1999</i>
+       by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>:<br>
+       Realized.</li>
+</ul>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>k[:]</TD><TD>{1}</TD><TD>Integrator gains</TD></TR>
+<TR><TD>y0[:]</TD><TD>zeros(size(k, 1))</TD><TD>Start values of integrators</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">block</font> Integrator <font color="darkgreen">&quot;Output the integral of the input signals&quot;</font> 
+  <font color="blue">parameter </font>Real k[:]={1} <font color="darkgreen">&quot;Integrator gains&quot;</font>;
+  <font color="blue">parameter </font>Real y0[:]=<font color="red">zeros</font>(<font color="red">size</font>(k, 1)) <font color="darkgreen">&quot;Start values of integrators&quot;</font>;
+  <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.MIMOs"
+>Interfaces.MIMOs</A>(<font color="blue">final </font>n=<font color="red">size</font>(k, 1), y(start=y0));
+  <font color="darkgreen"></font>
+<font color="blue">equation </font>
+  <font color="blue">for </font>i<font color="blue"> in </font>1:<font color="red">size</font>(k, 1)<font color="blue"> loop</font>
+    <font color="red">der</font>(y[i]) = k[i]*u[i];
+  <font color="blue">end for</font>;
+<font color="blue">end </font>Integrator;
+</PRE>
+<HR>
+<H2><IMG SRC="Modelica.Blocks.Continuous.LimIntegratorI.png" ALT="Modelica.Blocks.Continuous.LimIntegrator" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Continuous.LimIntegrator"></A><A HREF="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous"
+>Modelica.Blocks.Continuous</A>.LimIntegrator</H2>
+<B>Integrator with limited values of the outputs</B><p>
+<IMG SRC="Modelica.Blocks.Continuous.LimIntegratorD.png" ALT="Modelica.Blocks.Continuous.LimIntegrator">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This blocks computes <b>y</b>=outPort.signal element-wise as <i>integral</i>
+of the input <b>u</b>=inPort.signal multiplied with the gain <i>k</i>. If the
+integral reaches a given upper or lower <i>limit</i> and the
+input will drive the integral outside of this bound, the
+integration is halted and only restarted if the input drives
+the integral away from the bounds.
+</p>
+
+<p><b>Release Notes:</b></p>
+<ul>
+<li><i>Nov. 4, 1999</i>
+       by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>:<br>
+       Vectorized.</li>
+<li><i>June 30, 1999</i>
+       by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>:<br>
+       Realized.
+</li>
+</ul>
+
+<p><b>Copyright &copy; 1999-2002, Modelica Association and DLR.</b></p>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>k[:]</TD><TD>{1}</TD><TD>Integrator gains</TD></TR>
+<TR><TD>outMax[:]</TD><TD>{1}</TD><TD>Upper limits of outputs</TD></TR>
+<TR><TD>outMin[:]</TD><TD>-outMax</TD><TD>Lower limits of outputs</TD></TR>
+<TR><TD>y0[:]</TD><TD>zeros(size(k, 1))</TD><TD>Start values of integrators</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">block</font> LimIntegrator <font color="darkgreen">&quot;Integrator with limited values of the outputs&quot;</font> 
+  <font color="blue">parameter </font>Real k[:]={1} <font color="darkgreen">&quot;Integrator gains&quot;</font>;
+  <font color="blue">parameter </font>Real outMax[:]={1} <font color="darkgreen">&quot;Upper limits of outputs&quot;</font>;
+  <font color="blue">parameter </font>Real outMin[:]=-outMax <font color="darkgreen">&quot;Lower limits of outputs&quot;</font>;
+  <font color="blue">parameter </font>Real y0[:]=<font color="red">zeros</font>(<font color="red">size</font>(k, 1)) <font color="darkgreen">&quot;Start values of integrators&quot;</font>;
+  <font color="darkgreen"></font>
+  <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.MIMOs"
+>Interfaces.MIMOs</A>(<font color="blue">final </font>n=<font color="red">max</font>([<font color="red">size</font>(k, 1); <font color="red">size</font>(outMax, 1); <font color="red">size</font>(outMin, 1)
+        ]), y(start=y0));
+  <font color="darkgreen"></font>
+<font color="blue">protected </font>
+  <font color="blue">parameter </font>Real p_k[n]=(<font color="blue">if </font><font color="red">size</font>(k, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(n)*k[1]<font color="blue"> else </font>k);
+  <font color="blue">parameter </font>Real p_outMax[n]=(<font color="blue">if </font><font color="red">size</font>(outMax, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(n)*outMax[1]<font color="blue">
+       else </font>outMax);
+  <font color="blue">parameter </font>Real p_outMin[n]=(<font color="blue">if </font><font color="red">size</font>(outMin, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(n)*outMin[1]<font color="blue">
+       else </font>outMin);
+<font color="blue">equation </font>
+  <font color="blue">for </font>i<font color="blue"> in </font>1:n<font color="blue"> loop</font>
+    <font color="red">der</font>(y[i]) = <font color="blue">if </font>y[i] &lt; p_outMin[i]<font color="blue"> and </font>u[i] &lt; 0<font color="blue"> or </font>y[i] &gt; p_outMax[i]<font color="blue"> and </font>u[
+      i] &gt; 0<font color="blue"> then </font>0<font color="blue"> else </font>p_k[i]*u[i];
+  <font color="blue">end for</font>;
+<font color="blue">end </font>LimIntegrator;
+</PRE>
+<HR>
+<H2><IMG SRC="Modelica.Blocks.Continuous.DerivativeI.png" ALT="Modelica.Blocks.Continuous.Derivative" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Continuous.Derivative"></A><A HREF="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous"
+>Modelica.Blocks.Continuous</A>.Derivative</H2>
+<B>Approximated derivative block</B><p>
+<IMG SRC="Modelica.Blocks.Continuous.DerivativeD.png" ALT="Modelica.Blocks.Continuous.Derivative">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This blocks defines the transfer function between the
+input u=inPort.signal and the output y=outPort.signal
+element-wise as <i>approximated derivative</i>:
+</p>
+
+<pre>
+             k[i] * s
+     y[i] = ------------ * u[i]
+            T[i] * s + 1
+</pre>
+
+<p>
+If you would like to be able to change easily between different
+transfer functions (FirstOrder, SecondOrder, ... ) by changing
+parameters, use the general block <b>TransferFunction</b> instead
+and model a derivative block with parameters<br>
+b = {k,0}, a = {T, 1}.
+</p>
+
+<p><b>Release Notes:</b></p>
+<ul>
+<li><i>Nov. 15, 1999</i>
+       by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>:<br>
+       Special handling, if k is zero. Introduced, in order that
+       the D-part of the PID controllers can be set to zero without
+       introducing numerical problems.</li>
+
+<li><i>Nov. 4, 1999</i>
+       by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>:<br>
+       Vectorized.</li>
+<li><i>June 30, 1999</i>
+       by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>:<br>
+       Realized.</li>
+</ul>
+
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>k[:]</TD><TD>{1}</TD><TD>Gains</TD></TR>
+<TR><TD>T[:]</TD><TD>{0.01}</TD><TD>Time constants (T&gt;0 required; T=0 is ideal derivative block) [s]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">block</font> Derivative <font color="darkgreen">&quot;Approximated derivative block&quot;</font> 
+  <font color="blue">parameter </font>Real k[:]={1} <font color="darkgreen">&quot;Gains&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
+>SI.Time</A> T[:](min=<font color="red">fill</font>(Modelica.Constants.small, <font color="red">size</font>(T, 1))) = {0.01} <font color="darkgreen">
+    &quot;Time constants (T&gt;0 required; T=0 is ideal derivative block)&quot;</font>;
+  <font color="darkgreen"></font>
+  <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.MIMOs"
+>Interfaces.MIMOs</A>(<font color="blue">final </font>n=<font color="red">max</font>([<font color="red">size</font>(k, 1); <font color="red">size</font>(T, 1)]));
+  <font color="darkgreen"></font>
+  <font color="blue">output </font>Real x[n] <font color="darkgreen">&quot;State of block&quot;</font>;
+  <font color="darkgreen"></font>
+<font color="blue">protected </font>
+  <font color="blue">parameter </font>Real p_k[n]=(<font color="blue">if </font><font color="red">size</font>(k, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(n)*k[1]<font color="blue"> else </font>k);
+  <font color="blue">parameter </font>Real p_T[n]=(<font color="blue">if </font><font color="red">size</font>(T, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(n)*T[1]<font color="blue"> else </font>T);
+<font color="blue">equation </font>
+  <font color="blue">for </font>i<font color="blue"> in </font>1:n<font color="blue"> loop</font>
+    <font color="red">der</font>(x[i]) = <font color="blue">if </font><font color="red">noEvent</font>(<font color="red">abs</font>(p_k[i]) &gt;= Modelica.Constants.eps)<font color="blue"> then </font>(u[i] - 
+      x[i])/p_T[i]<font color="blue"> else </font>0;
+    y[i] = <font color="blue">if </font><font color="red">noEvent</font>(<font color="red">abs</font>(p_k[i]) &gt;= Modelica.Constants.eps)<font color="blue"> then </font>(p_k[i]/p_T[i
+      ])*(u[i] - x[i])<font color="blue"> else </font>0;
+  <font color="blue">end for</font>;
+<font color="blue">end </font>Derivative;
+</PRE>
+<HR>
+<H2><IMG SRC="Modelica.Blocks.Continuous.FirstOrderI.png" ALT="Modelica.Blocks.Continuous.FirstOrder" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Continuous.FirstOrder"></A><A HREF="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous"
+>Modelica.Blocks.Continuous</A>.FirstOrder</H2>
+<B>First order transfer function block (= 1 pole)</B><p>
+<IMG SRC="Modelica.Blocks.Continuous.FirstOrderD.png" ALT="Modelica.Blocks.Continuous.FirstOrder">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This blocks defines the transfer function between the input u=inPort.signal
+and the output y=outPort.signal element-wise as <i>first order</i> system:
+</p>
+
+<pre>
+               k[i]
+     y[i] = ------------ * u[i]
+            T[i] * s + 1
+</pre>
+
+<p>
+If you would like to be able to change easily between different
+transfer functions (FirstOrder, SecondOrder, ... ) by changing
+parameters, use the general block <b>TransferFunction</b> instead
+and model a first order SISO system with parameters<br>
+b = {k}, a = {T, 1}.
+</p>
+
+<pre>
+Example:
+
+   parameter: k = {0.3}, T = {0.4}
+
+   results in:
+
+             0.3
+      y = ----------- * u
+          0.4 s + 1.0
+</pre>
+
+<p><b>Release Notes:</b></p>
+<ul>
+<li><i>Nov. 4, 1999</i>
+       by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>:<br>
+       Vectorized.</li>
+
+<li><i>June 30, 1999</i>
+       by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>:<br>
+       Realized.</li>
+</ul>
+
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>k[:]</TD><TD>{1}</TD><TD>Gain</TD></TR>
+<TR><TD>T[:]</TD><TD>{1}</TD><TD>Time Constant [s]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">block</font> FirstOrder <font color="darkgreen">&quot;First order transfer function block (= 1 pole)&quot;</font> 
+  <font color="blue">parameter </font>Real k[:]={1} <font color="darkgreen">&quot;Gain&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
+>SI.Time</A> T[:]={1} <font color="darkgreen">&quot;Time Constant&quot;</font>;
+  <font color="darkgreen"></font>
+  <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.MIMOs"
+>Interfaces.MIMOs</A>(<font color="blue">final </font>n=<font color="red">max</font>([<font color="red">size</font>(k, 1); <font color="red">size</font>(T, 1)]));
+  <font color="darkgreen"></font>
+<font color="blue">protected </font>
+  <font color="blue">parameter </font>Real p_k[n]=(<font color="blue">if </font><font color="red">size</font>(k, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(n)*k[1]<font color="blue"> else </font>k);
+  <font color="blue">parameter </font>Real p_T[n]=(<font color="blue">if </font><font color="red">size</font>(T, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(n)*T[1]<font color="blue"> else </font>T);
+<font color="blue">equation </font>
+  <font color="blue">for </font>i<font color="blue"> in </font>1:n<font color="blue"> loop</font>
+    <font color="red">der</font>(y[i]) = (p_k[i]*u[i] - y[i])/p_T[i];
+  <font color="blue">end for</font>;
+<font color="blue">end </font>FirstOrder;
+</PRE>
+<HR>
+<H2><IMG SRC="Modelica.Blocks.Continuous.SecondOrderI.png" ALT="Modelica.Blocks.Continuous.SecondOrder" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Continuous.SecondOrder"></A><A HREF="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous"
+>Modelica.Blocks.Continuous</A>.SecondOrder</H2>
+<B>Second order transfer function block (= 2 poles)</B><p>
+<IMG SRC="Modelica.Blocks.Continuous.SecondOrderD.png" ALT="Modelica.Blocks.Continuous.SecondOrder">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This blocks defines the transfer function between the input u=inPort.signal and
+the output y=outPort.signal element-wise as <i>second order</i> system:
+</p>
+
+<pre>
+                             k[i]
+     y[i] = ---------------------------------------- * u[i]
+            ( s / w[i] )^2 + 2*D[i]*( s / w[i] ) + 1
+
+</pre>
+
+<p>
+If you would like to be able to change easily between different
+transfer functions (FirstOrder, SecondOrder, ... ) by changing
+parameters, use the general model class <b>TransferFunction</b>
+instead and model a second order SISO system with parameters<br>
+b = {k}, a = {1/w^2, 2*D/w, 1}.
+</p>
+
+<pre>
+Example:
+
+   parameter: k =  {0.3},  w = {0.5},  D = {0.4}
+
+   results in:
+
+                  0.3
+      y = ------------------- * u
+          4.0 s^2 + 1.6 s + 1
+</pre>
+
+<p><b>Release Notes:</b></p>
+<ul>
+<li><i>Nov. 4, 1999</i>
+       by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>:<br>
+       Vectorized and state space representation changed, such
+       that the output and its derivative are used as state.</li>
+
+<li><i>June 30, 1999</i>
+       by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>:<br>
+       Realized.</li>
+</ul>
+
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>k[:]</TD><TD>{1}</TD><TD>Gain</TD></TR>
+<TR><TD>w[:]</TD><TD>{1}</TD><TD>Angular frequency</TD></TR>
+<TR><TD>D[:]</TD><TD>{1}</TD><TD>Damping</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">block</font> SecondOrder <font color="darkgreen">&quot;Second order transfer function block (= 2 poles)&quot;</font> 
+  <font color="blue">parameter </font>Real k[:]={1} <font color="darkgreen">&quot;Gain&quot;</font>;
+  <font color="blue">parameter </font>Real w[:]={1} <font color="darkgreen">&quot;Angular frequency&quot;</font>;
+  <font color="blue">parameter </font>Real D[:]={1} <font color="darkgreen">&quot;Damping&quot;</font>;
+  <font color="darkgreen"></font>
+  <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.MIMOs"
+>Interfaces.MIMOs</A>(<font color="blue">final </font>n=<font color="red">max</font>([<font color="red">size</font>(k, 1); <font color="red">size</font>(w, 1); <font color="red">size</font>(D, 1)]));
+  <font color="blue">output </font>Real yd[n] <font color="darkgreen">&quot;Derivative of y&quot;</font>;
+<font color="blue">protected </font>
+  <font color="blue">parameter </font>Real p_k[n]=(<font color="blue">if </font><font color="red">size</font>(k, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(n)*k[1]<font color="blue"> else </font>k);
+  <font color="blue">parameter </font>Real p_w[n]=(<font color="blue">if </font><font color="red">size</font>(w, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(n)*w[1]<font color="blue"> else </font>w);
+  <font color="blue">parameter </font>Real p_D[n]=(<font color="blue">if </font><font color="red">size</font>(D, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(n)*D[1]<font color="blue"> else </font>D);
+<font color="blue">equation </font>
+  <font color="blue">for </font>i<font color="blue"> in </font>1:n<font color="blue"> loop</font>
+    <font color="red">der</font>(y[i]) = yd[i];
+    <font color="red">der</font>(yd[i]) = p_w[i]*(p_w[i]*(p_k[i]*u[i] - y[i]) - 2*p_D[i]*yd[i]);
+  <font color="blue">end for</font>;
+<font color="blue">end </font>SecondOrder;
+</PRE>
+<HR>
+<H2><IMG SRC="Modelica.Blocks.Continuous.PII.png" ALT="Modelica.Blocks.Continuous.PI" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Continuous.PI"></A><A HREF="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous"
+>Modelica.Blocks.Continuous</A>.PI</H2>
+<B>Proportional-Integral controller</B><p>
+<IMG SRC="Modelica.Blocks.Continuous.PID.png" ALT="Modelica.Blocks.Continuous.PI">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This blocks defines the transfer function between the input u=inPort.signal and
+the output y=outPort.signal element-wise as <i>PI</i> system:
+</p>
+
+<pre>
+                        1
+   y[i] = k[i] * (1 + ------ ) * u[i]
+                      T[i]*s
+
+                 T[i]*s + 1
+        = k[i] * ----------- * u[i]
+                    T[i]*s
+</pre>
+
+<p>
+If you would like to be able to change easily between different
+transfer functions (FirstOrder, SecondOrder, ... ) by changing
+parameters, use the general model class <b>TransferFunction</b>
+instead and model a PI SISO system with parameters<br>
+b = {k*T, k}, a = {T, 0}.
+</p>
+
+<pre>
+Example:
+
+   parameter: k = {0.3},  T = {0.4}
+
+   results in:
+
+               0.4 s + 1
+      y = 0.3 ----------- * u
+                 0.4 s
+</pre>
+
+<p><b>Release Notes:</b></p>
+<ul>
+<li><i>Nov. 4, 1999</i>
+       by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>:<br>
+       Vectorized.</li>
+
+<li><i>June 30, 1999</i>
+       by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>:<br>
+       Realized.</li>
+</ul>
+
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>k[:]</TD><TD>{1}</TD><TD>Gain</TD></TR>
+<TR><TD>T[:]</TD><TD>{1}</TD><TD>Time Constant (T&gt;0 required) [s]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">block</font> PI <font color="darkgreen">&quot;Proportional-Integral controller&quot;</font> 
+  <font color="blue">parameter </font>Real k[:]={1} <font color="darkgreen">&quot;Gain&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
+>SI.Time</A> T[:]={1} <font color="darkgreen">&quot;Time Constant (T&gt;0 required)&quot;</font>;
+  <font color="darkgreen"></font>
+  <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.MIMOs"
+>Interfaces.MIMOs</A>(<font color="blue">final </font>n=<font color="red">max</font>([<font color="red">size</font>(k, 1); <font color="red">size</font>(T, 1)]));
+  <font color="blue">output </font>Real x[n] <font color="darkgreen">&quot;State of block&quot;</font>;
+  <font color="darkgreen"></font>
+<font color="blue">protected </font>
+  <font color="blue">parameter </font>Real p_k[n]=(<font color="blue">if </font><font color="red">size</font>(k, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(n)*k[1]<font color="blue"> else </font>k);
+  <font color="blue">parameter </font>Real p_T[n]=(<font color="blue">if </font><font color="red">size</font>(T, 1) == 1<font color="blue"> then </font><font color="red">ones</font>(n)*T[1]<font color="blue"> else </font>T);
+<font color="blue">equation </font>
+  <font color="blue">for </font>i<font color="blue"> in </font>1:n<font color="blue"> loop</font>
+    <font color="red">der</font>(x[i]) = u[i]/p_T[i];
+    y[i] = p_k[i]*(x[i] + u[i]);
+  <font color="blue">end for</font>;
+<font color="blue">end </font>PI;
+</PRE>
+<HR>
+<H2><IMG SRC="Modelica.Blocks.Continuous.PIDI.png" ALT="Modelica.Blocks.Continuous.PID" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Continuous.PID"></A><A HREF="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous"
+>Modelica.Blocks.Continuous</A>.PID</H2>
+<B>PID-controller in additive description form</B><p>
+<IMG SRC="Modelica.Blocks.Continuous.PIDD.png" ALT="Modelica.Blocks.Continuous.PID">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This is the text-book version of a PID-controller.
+For a more practically useful PID-controller, use
+block LimPID.
+</p>
+
+<p><b>Release Notes:</b></p>
+<ul>
+<li><i>Aug. 7, 1999</i>
+       by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>:<br>
+       Realized.</li>
+</ul>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>k</TD><TD>1</TD><TD>Gain</TD></TR>
+<TR><TD>Ti</TD><TD>0.5</TD><TD>Time Constant of Integrator [s]</TD></TR>
+<TR><TD>Td</TD><TD>0.1</TD><TD>Time Constant of Derivative block [s]</TD></TR>
+<TR><TD>Nd</TD><TD>10</TD><TD>The higher Nd, the more ideal the derivative block</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">block</font> PID <font color="darkgreen">&quot;PID-controller in additive description form&quot;</font> 
+  <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SISO"
+>Interfaces.SISO</A>;
+  <font color="darkgreen"></font>
+  <font color="blue">parameter </font>Real k=1 <font color="darkgreen">&quot;Gain&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
+>SI.Time</A> Ti(min=Modelica.Constants.small) = 0.5 <font color="darkgreen">
+    &quot;Time Constant of Integrator&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
+>SI.Time</A> Td(min=0) = 0.1 <font color="darkgreen">&quot;Time Constant of Derivative block&quot;</font>;
+  <font color="blue">parameter </font>Real Nd(min=Modelica.Constants.small) = 10 <font color="darkgreen">
+    &quot;The higher Nd, the more ideal the derivative block&quot;</font>;
+  <font color="darkgreen"></font>
+  <A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Gain"
+>Math.Gain</A> P <font color="darkgreen">&quot;Proportional part of PID controller&quot;</font>;
+  <A HREF="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous.Integrator"
+>Integrator</A> I(k={1/Ti}) <font color="darkgreen">&quot;Integral part of PID controller&quot;</font>;
+  <A HREF="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous.Derivative"
+>Derivative</A> D(k={Td}, T={<font color="red">max</font>([Td/Nd, 100*Modelica.Constants.eps])}) <font color="darkgreen">
+    &quot;Derivative part of PID controller&quot;</font>;
+  <A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Gain"
+>Math.Gain</A> Gain(k={k}) <font color="darkgreen">&quot;Gain of PID controller&quot;</font>;
+  <A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Add3"
+>Math.Add3</A> Add;
+<font color="blue">equation </font>
+  <font color="red">connect</font>(P.outPort, Add.inPort1);
+  <font color="red">connect</font>(I.outPort, Add.inPort2);
+  <font color="red">connect</font>(D.outPort, Add.inPort3);
+  <font color="red">connect</font>(Add.outPort, Gain.inPort);
+  <font color="red">connect</font>(outPort, Gain.outPort);
+  <font color="red">connect</font>(inPort, I.inPort);
+  <font color="red">connect</font>(inPort, P.inPort);
+  <font color="red">connect</font>(inPort, D.inPort);
+<font color="blue">end </font>PID;
+</PRE>
+<HR>
+<H2><IMG SRC="Modelica.Blocks.Continuous.LimPIDI.png" ALT="Modelica.Blocks.Continuous.LimPID" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Continuous.LimPID"></A><A HREF="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous"
+>Modelica.Blocks.Continuous</A>.LimPID</H2>
+<B>PID controller with limited output, anti-windup compensation and setpoint weighting</B><p>
+<IMG SRC="Modelica.Blocks.Continuous.LimPIDD.png" ALT="Modelica.Blocks.Continuous.LimPID">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This is a PID controller incorporating several practical aspects.
+It is designed according to chapter 3 of the book
+</p>
+
+<pre>
+   K. Astroem, T. Haegglund: PID Controllers: Theory, Design, and Tuning.
+                             2nd edition, 1995.
+</pre>
+
+<p>
+Besides the additive <b>proportional, integral</b> and <b>derivative</b>
+part of this controller, the following practical aspects are included:
+</p>
+
+<ul>
+<li> The output of this controller is limited. If the controller is
+     in its limits, anti-windup compensation is activated to drive
+     the integrator state to zero. </li>
+
+<li> The high-frequency gain of the derivative part is limited
+     to avoid excessive amplification of measurement noise.</li>
+
+<li> Setpoint weighting is present, which allows to weight
+     the setpoint in the proportional and the derivative part
+     independantly from the measurement. The controller will respond
+     to load disturbances and measurement noise independantly of this setting
+     (parameters wp, wd). However, setpoint changes will depend on this
+     setting. For example, it is useful to set the setpoint weight wd
+     for the derivative part to zero, if steps may occur in the
+     setpoint signal.</li>
+</ul>
+
+<p><b>Release Notes:</b></p>
+<ul>
+<li><i>Aug. 7, 1999</i>
+       by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>:<br>
+       Realized.</li>
+</ul>
+
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>k</TD><TD>1</TD><TD>Gain of PID block</TD></TR>
+<TR><TD>Ti</TD><TD>0.5</TD><TD>Time constant of Integrator block [s]</TD></TR>
+<TR><TD>Td</TD><TD>0.1</TD><TD>Time constant of Derivative block [s]</TD></TR>
+<TR><TD>yMax</TD><TD>1</TD><TD>Upper limit of output</TD></TR>
+<TR><TD>yMin</TD><TD>-yMax</TD><TD>Lower limit of output</TD></TR>
+<TR><TD>wp</TD><TD>1</TD><TD>Set-point weight for Proportional block (0..1)</TD></TR>
+<TR><TD>wd</TD><TD>0</TD><TD>Set-point weight for Derivative block (0..1)</TD></TR>
+<TR><TD>Ni</TD><TD>0.9</TD><TD>Ni*Ti is time constant of anti-windup compensation</TD></TR>
+<TR><TD>Nd</TD><TD>10</TD><TD>The higher Nd, the more ideal the derivative block</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">block</font> LimPID <font color="darkgreen">
+  &quot;PID controller with limited output, anti-windup compensation and setpoint weighting&quot;</font>
+   
+  <font color="darkgreen"></font>
+  <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SVcontrol"
+>Interfaces.SVcontrol</A>;
+  <font color="darkgreen"></font>
+  <font color="blue">parameter </font>Real k(min=0) = 1 <font color="darkgreen">&quot;Gain of PID block&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
+>SI.Time</A> Ti(min=Modelica.Constants.small) = 0.5 <font color="darkgreen">
+    &quot;Time constant of Integrator block&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
+>SI.Time</A> Td(min=0) = 0.1 <font color="darkgreen">&quot;Time constant of Derivative block&quot;</font>;
+  <font color="blue">parameter </font>Real yMax=1 <font color="darkgreen">&quot;Upper limit of output&quot;</font>;
+  <font color="blue">parameter </font>Real yMin=-yMax <font color="darkgreen">&quot;Lower limit of output&quot;</font>;
+  <font color="blue">parameter </font>Real wp(min=0) = 1 <font color="darkgreen">&quot;Set-point weight for Proportional block (0..1)&quot;</font>
+    ;
+  <font color="blue">parameter </font>Real wd(min=0) = 0 <font color="darkgreen">&quot;Set-point weight for Derivative block (0..1)&quot;</font>;
+  <font color="blue">parameter </font>Real Ni(min=100*Modelica.Constants.eps) = 0.9 <font color="darkgreen">
+    &quot;Ni*Ti is time constant of anti-windup compensation&quot;</font>;
+  <font color="blue">parameter </font>Real Nd(min=100*Modelica.Constants.eps) = 10 <font color="darkgreen">
+    &quot;The higher Nd, the more ideal the derivative block&quot;</font>;
+  <A HREF="Modelica_Blocks_Nonlinear.html#Modelica.Blocks.Nonlinear.Limiter"
+>Nonlinear.Limiter</A> limiter(uMax={yMax}, uMin={yMin});
+  <A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Add"
+>Math.Add</A> addP(k1=wp, k2=-1);
+  <A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Add"
+>Math.Add</A> addD(k1=wd, k2=-1);
+  <A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Gain"
+>Math.Gain</A> P;
+  <A HREF="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous.Integrator"
+>Integrator</A> I(k={1/Ti});
+  <A HREF="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous.Derivative"
+>Derivative</A> D(k={Td}, T={<font color="red">max</font>([Td/Nd, 1.e-14])});
+  <A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Gain"
+>Math.Gain</A> gainPID(k={k});
+  <A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Add3"
+>Math.Add3</A> addPID;
+  <A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Add3"
+>Math.Add3</A> addI(k2=-1);
+  <A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Add"
+>Math.Add</A> addSat(k2=-1);
+  <A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Gain"
+>Math.Gain</A> gainTrack(k={1/(k*Ni)});
+<font color="blue">equation </font>
+  <font color="red">assert</font>(yMax &gt;= yMin, &quot;PID: Limits must be consistent&quot;);
+  <font color="red">connect</font>(inPort_s, addP.inPort1);
+  <font color="red">connect</font>(inPort_m, addP.inPort2);
+  <font color="red">connect</font>(inPort_s, addD.inPort1);
+  <font color="red">connect</font>(inPort_m, addD.inPort2);
+  <font color="red">connect</font>(inPort_s, addI.inPort1);
+  <font color="red">connect</font>(inPort_m, addI.inPort2);
+  <font color="red">connect</font>(gainTrack.outPort, addI.inPort3);
+  <font color="red">connect</font>(addP.outPort, P.inPort);
+  <font color="red">connect</font>(addD.outPort, D.inPort);
+  <font color="red">connect</font>(addI.outPort, I.inPort);
+  <font color="red">connect</font>(P.outPort, addPID.inPort1);
+  <font color="red">connect</font>(D.outPort, addPID.inPort2);
+  <font color="red">connect</font>(I.outPort, addPID.inPort3);
+  <font color="red">connect</font>(addPID.outPort, gainPID.inPort);
+  <font color="red">connect</font>(gainPID.outPort, addSat.inPort2);
+  <font color="red">connect</font>(addSat.outPort, gainTrack.inPort);
+  <font color="red">connect</font>(gainPID.outPort, limiter.inPort);
+  <font color="red">connect</font>(limiter.outPort, outPort);
+  <font color="red">connect</font>(limiter.outPort, addSat.inPort1);
+<font color="blue">end </font>LimPID;
+</PRE>
+<HR>
+<H2><IMG SRC="Modelica.Blocks.Continuous.TransferFunctionI.png" ALT="Modelica.Blocks.Continuous.TransferFunction" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Continuous.TransferFunction"></A><A HREF="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous"
+>Modelica.Blocks.Continuous</A>.TransferFunction</H2>
+<B>Linear transfer function</B><p>
+<IMG SRC="Modelica.Blocks.Continuous.TransferFunctionD.png" ALT="Modelica.Blocks.Continuous.TransferFunction">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This block defines the transfer function between the input
+u=inPort.signal[1] and the output y=outPort.signal[1]
+as (nb = dimension of b, na = dimension of a):
+</p>
+
+<pre>
+           b[1]*s^[nb-1] + b[2]*s^[nb-2] + ... + b[nb]
+   y(s) = --------------------------------------------- * u(s)
+           a[1]*s^[na-1] + a[2]*s^[na-2] + ... + a[na]
+</pre>
+
+<p>
+State variables <b>x</b> are defined according to <b>controller canonical</b>
+form. Initial values of the states can be set as start values of <b>x</b>.
+<p>
+
+<p>
+Example:
+</p>
+
+<pre>
+     TransferFunction g(b = {2,4}, a = {1,3});
+</pre>
+
+<p>
+results in the following transfer function:
+</p>
+
+<pre>
+        2*s + 4
+   y = --------- * u
+         s + 3
+</pre>
+
+<p><b>Release Notes:</b></p>
+<ul>
+<li><i>August 7, 1999</i>
+       by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>:<br>
+       Realized based on a realization of the corresponding
+       Dymola library of Hilding Elmqvist.
+</li>
+</ul>
+
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>b[:]</TD><TD>{1}</TD><TD>Numerator coefficients of transfer function.</TD></TR>
+<TR><TD>a[:]</TD><TD>{1,1}</TD><TD>Denominator coefficients of transfer function.</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">block</font> TransferFunction <font color="darkgreen">&quot;Linear transfer function&quot;</font> 
+  <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SISO"
+>Interfaces.SISO</A>;
+  <font color="darkgreen"></font>
+  <font color="blue">parameter </font>Real b[:]={1} <font color="darkgreen">&quot;Numerator coefficients of transfer function.&quot;</font>;
+  <font color="blue">parameter </font>Real a[:]={1,1} <font color="darkgreen">&quot;Denominator coefficients of transfer function.&quot;</font>;
+  <font color="blue">output </font>Real x[<font color="red">size</font>(a, 1) - 1] <font color="darkgreen">
+    &quot;State of transfer function from controller canonical form&quot;</font>;
+  <font color="darkgreen"></font>
+<font color="blue">protected </font>
+  <font color="blue">parameter </font>Integer na=<font color="red">size</font>(a, 1) <font color="darkgreen">&quot;Size of Denominator of transfer function.&quot;</font>;
+  <font color="blue">parameter </font>Integer nb(max=na) = <font color="red">size</font>(b, 1) <font color="darkgreen">
+    &quot;Size of Numerator of transfer function.&quot;</font>;
+  <font color="blue">parameter </font>Integer nx=<font color="red">size</font>(a, 1) - 1;
+  Real x1dot <font color="darkgreen">&quot;Derivative of first state of TransferFcn&quot;</font>;
+  Real xn <font color="darkgreen">&quot;Highest order state of TransferFcn&quot;</font>;
+<font color="blue">equation </font>
+  [<font color="red">der</font>(x); xn] = [x1dot; x];
+  [u] = <font color="red">transpose</font>([a])*[x1dot; x];
+  [y] = <font color="red">transpose</font>([<font color="red">zeros</font>(na - nb, 1); b])*[x1dot; x];
+<font color="blue">end </font>TransferFunction;
+</PRE>
+<HR>
+<H2><IMG SRC="Modelica.Blocks.Continuous.StateSpaceI.png" ALT="Modelica.Blocks.Continuous.StateSpace" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Continuous.StateSpace"></A><A HREF="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous"
+>Modelica.Blocks.Continuous</A>.StateSpace</H2>
+<B>Linear state space system</B><p>
+<IMG SRC="Modelica.Blocks.Continuous.StateSpaceD.png" ALT="Modelica.Blocks.Continuous.StateSpace">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+The State Space block defines the relation
+between the input u=inPort.signal and the output
+y=outPort.signal in state space form:
+</p>
+
+<pre>
+
+    der(x) = A * x + B * u
+        y  = C * x + D * u
+
+</pre>
+
+<p>
+The input is a vector of length nu, the output is a vector
+of length ny and nx is the number of states. Accordingly
+</p>
+<pre>
+        A has the dimension: A(nx,nx),
+        B has the dimension: B(nx,nu),
+        C has the dimension: C(ny,nx),
+        D has the dimension: D(ny,nu)
+</pre>
+
+<p>
+Example:
+</p>
+<pre>
+     parameter: A = [0.12, 2;3, 1.5]
+     parameter: B = [2, 7;3, 1]
+     parameter: C = [0.1, 2]
+     parameter: D = zeros(ny,nu)
+results in the following equations:
+
+  [der(x[1])]   [0.12  2.00] [x[1]]   [2.0  7.0] [u[1]]
+  [         ] = [          ]*[    ] + [        ]*[    ]
+  [der(x[2])]   [3.00  1.50] [x[2]]   [0.1  2.0] [u[2]]
+
+                             [x[1]]            [u[1]]
+       y[1]   = [0.1  2.0] * [    ] + [0  0] * [    ]
+                             [x[2]]            [u[2]]
+</pre>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>A[:, size(A, 1)]</TD><TD>[1, 0; 0, 1]</TD><TD>Matrix A of state space model</TD></TR>
+<TR><TD>B[size(A, 1), :]</TD><TD>[1; 1]</TD><TD>Matrix B of state space model</TD></TR>
+<TR><TD>C[:, size(A, 1)]</TD><TD>[1, 1]</TD><TD>Matrix C of state space model</TD></TR>
+<TR><TD>D[size(C, 1), size(B, 2)]</TD><TD>zeros(size(C, 1), size(B, 2))</TD><TD>Matrix D of state space model</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">block</font> StateSpace <font color="darkgreen">&quot;Linear state space system&quot;</font> 
+  <font color="blue">parameter </font>Real A[:, <font color="red">size</font>(A, 1)]=[1, 0; 0, 1] <font color="darkgreen">&quot;Matrix A of state space model&quot;</font>;
+  <font color="blue">parameter </font>Real B[<font color="red">size</font>(A, 1), :]=[1; 1] <font color="darkgreen">&quot;Matrix B of state space model&quot;</font>;
+  <font color="blue">parameter </font>Real C[:, <font color="red">size</font>(A, 1)]=[1, 1] <font color="darkgreen">&quot;Matrix C of state space model&quot;</font>;
+  <font color="blue">parameter </font>Real D[<font color="red">size</font>(C, 1), <font color="red">size</font>(B, 2)]=<font color="red">zeros</font>(<font color="red">size</font>(C, 1), <font color="red">size</font>(B, 2)) <font color="darkgreen">
+    &quot;Matrix D of state space model&quot;</font>;
+  <font color="darkgreen"></font>
+  <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.MIMO"
+>Interfaces.MIMO</A>(<font color="blue">final </font>nin=<font color="red">size</font>(B, 2), <font color="blue">final </font>nout=<font color="red">size</font>(C, 1));
+  <font color="blue">output </font>Real x[<font color="red">size</font>(A, 1)] <font color="darkgreen">&quot;State vector&quot;</font>;
+<font color="blue">equation </font>
+  <font color="red">der</font>(x) = A*x + B*u;
+  y = C*x + D*u;
+<font color="blue">end </font>StateSpace;
+</PRE>
+<HR>
+<H2><IMG SRC="Modelica.Blocks.Continuous.DerI.png" ALT="Modelica.Blocks.Continuous.Der" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Continuous.Der"></A><A HREF="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous"
+>Modelica.Blocks.Continuous</A>.Der</H2>
+<B>Derivative of input (= analytic differentations)</B><p>
+<IMG SRC="Modelica.Blocks.Continuous.DerD.png" ALT="Modelica.Blocks.Continuous.Der">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+Defines that the output (= outPort.signal) is the <i>derivative</i>
+of the input (=inPort.signal). Note, that Modelica.Blocks.Continuous.Derivative
+computes the derivative in an approximate sense, where this block computes
+the derivative exactly. This requires that the input signals are differentiated
+by the Modelica translator, if these derivatives are not yet present in
+the model.
+</p>
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>n</TD><TD>1</TD><TD>Number of inputs (= number of outputs)</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">block</font> Der <font color="darkgreen">&quot;Derivative of input (= analytic differentations)&quot;</font> 
+  <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.MIMOs"
+>Interfaces.MIMOs</A>;
+  <font color="darkgreen"></font>
+<font color="blue">equation </font>
+  <font color="blue">for </font>i<font color="blue"> in </font>1:n<font color="blue"> loop</font>
+    y[i] = <font color="red">der</font>(u[i]);
+  <font color="blue">end for</font>;
+<font color="blue">end </font>Der;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Dec 11 11:13:13 2002
+.
+</address></BODY>
+</HTML>

@@ -1,0 +1,113 @@
+<HTML>
+<HEAD><META name="HTML-Generator" content="Dymola"><TITLE>Modelica</TITLE></HEAD>
+<BODY><P>
+<H2><A NAME="Modelica.Electrical.Analog.Sensors"></A><A HREF="Modelica_Electrical_Analog.html#Modelica.Electrical.Analog"
+>Modelica.Electrical.Analog</A>.Sensors</H2>
+<A HREF="Modelica_Electrical_Analog_Sensors.html#Modelica.Electrical.Analog.Sensors.PotentialSensor"
+><IMG SRC="Modelica.Electrical.Analog.Sensors.PotentialSensorI.png" ALT="Modelica.Electrical.Analog.Sensors.PotentialSensor" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Electrical_Analog_Sensors.html#Modelica.Electrical.Analog.Sensors.VoltageSensor"
+><IMG SRC="Modelica.Electrical.Analog.Sensors.VoltageSensorI.png" ALT="Modelica.Electrical.Analog.Sensors.VoltageSensor" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Electrical_Analog_Sensors.html#Modelica.Electrical.Analog.Sensors.CurrentSensor"
+><IMG SRC="Modelica.Electrical.Analog.Sensors.CurrentSensorI.png" ALT="Modelica.Electrical.Analog.Sensors.CurrentSensor" WIDTH=80  HEIGHT=80 ></A>
+<P><P>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This package contains potential, voltage, and current sensors.
+</p>
+
+<dl>
+<dt>
+<b>Main Authors:</b>
+<dd>
+<a href="http://www.eas.iis.fhg.de/~clauss/">Christoph Clau&szlig;</a>
+    &lt;<a href="mailto:clauss@eas.iis.fhg.de">clauss@eas.iis.fhg.de</a>&gt;<br>
+    <a href="http://www.eas.iis.fhg.de/~schneider/">Andr&eacute; Schneider</a>
+    &lt;<a href="mailto:schneider@eas.iis.fhg.de">schneider@eas.iis.fhg.de</a>&gt;<br>
+    Fraunhofer Institute for Integrated Circuits<br>
+    Design Automation Department<br>
+    Zeunerstra&szlig;e 38<br>
+    D-01069 Dresden<br>
+
+<p>
+<dt>
+<b>Version:</b>
+<dd>
+$Id$<br>
+<p>
+<dt>
+<b>Copyright:</b>
+<dd>
+Copyright &copy; 1998-2002, Modelica Association and Fraunhofer-Gesellschaft.<br>
+<i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
+under the terms of the <b>Modelica license</b>, see the license conditions
+and the accompanying <b>disclaimer</b> in the documentation of package
+Modelica in file "Modelica/package.mo".</i><br>
+<p>
+</dl>
+<pre>
+</PRE><P>
+<HR>
+<H2><IMG SRC="Modelica.Electrical.Analog.Sensors.PotentialSensorI.png" ALT="Modelica.Electrical.Analog.Sensors.PotentialSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Sensors.PotentialSensor"></A><A HREF="Modelica_Electrical_Analog_Sensors.html#Modelica.Electrical.Analog.Sensors"
+>Modelica.Electrical.Analog.Sensors</A>.PotentialSensor</H2>
+<B>Sensor to measure the potential</B><p>
+<IMG SRC="Modelica.Electrical.Analog.Sensors.PotentialSensorD.png" ALT="Modelica.Electrical.Analog.Sensors.PotentialSensor">
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> PotentialSensor <font color="darkgreen">&quot;Sensor to measure the potential&quot;</font> 
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.AbsoluteSensor"
+>Interfaces.AbsoluteSensor</A>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.ElectricPotential"
+>SI.ElectricPotential</A> phi <font color="darkgreen">&quot;Absolute voltage potential&quot;</font>;
+<font color="blue">equation </font>
+  p.i = 0;
+  phi = p.v;
+  phi = outPort.signal[1];
+<font color="blue">end </font>PotentialSensor;
+</PRE>
+<HR>
+<H2><IMG SRC="Modelica.Electrical.Analog.Sensors.VoltageSensorI.png" ALT="Modelica.Electrical.Analog.Sensors.VoltageSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Sensors.VoltageSensor"></A><A HREF="Modelica_Electrical_Analog_Sensors.html#Modelica.Electrical.Analog.Sensors"
+>Modelica.Electrical.Analog.Sensors</A>.VoltageSensor</H2>
+<B>Sensor to measure the voltage between two pins</B><p>
+<IMG SRC="Modelica.Electrical.Analog.Sensors.VoltageSensorD.png" ALT="Modelica.Electrical.Analog.Sensors.VoltageSensor">
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> VoltageSensor <font color="darkgreen">&quot;Sensor to measure the voltage between two pins&quot;</font> 
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.RelativeSensor"
+>Interfaces.RelativeSensor</A>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>SI.Voltage</A> v <font color="darkgreen">&quot;Voltage between pin p and n (= p.v - n.v)&quot;</font>;
+<font color="blue">equation </font>
+  p.i = 0;
+  n.i = 0;
+  v = p.v - n.v;
+  v = outPort.signal[1];
+<font color="blue">end </font>VoltageSensor;
+</PRE>
+<HR>
+<H2><IMG SRC="Modelica.Electrical.Analog.Sensors.CurrentSensorI.png" ALT="Modelica.Electrical.Analog.Sensors.CurrentSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Sensors.CurrentSensor"></A><A HREF="Modelica_Electrical_Analog_Sensors.html#Modelica.Electrical.Analog.Sensors"
+>Modelica.Electrical.Analog.Sensors</A>.CurrentSensor</H2>
+<B>Sensor to measure the current in a branch</B><p>
+<IMG SRC="Modelica.Electrical.Analog.Sensors.CurrentSensorD.png" ALT="Modelica.Electrical.Analog.Sensors.CurrentSensor">
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> CurrentSensor <font color="darkgreen">&quot;Sensor to measure the current in a branch&quot;</font> 
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.RelativeSensor"
+>Interfaces.RelativeSensor</A>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Current"
+>SI.Current</A> i <font color="darkgreen">&quot;current in the branch from p to n&quot;</font>;
+<font color="blue">equation </font>
+  p.v = n.v;
+  p.i = i;
+  n.i = -i;
+  i = outPort.signal[1];
+<font color="blue">end </font>CurrentSensor;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Dec 11 11:13:41 2002
+.
+</address></BODY>
+</HTML>

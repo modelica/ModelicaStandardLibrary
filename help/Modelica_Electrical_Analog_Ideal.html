@@ -1,0 +1,1104 @@
+<HTML>
+<HEAD><META name="HTML-Generator" content="Dymola"><TITLE>Modelica</TITLE></HEAD>
+<BODY><P>
+<H2><A NAME="Modelica.Electrical.Analog.Ideal"></A><A HREF="Modelica_Electrical_Analog.html#Modelica.Electrical.Analog"
+>Modelica.Electrical.Analog</A>.Ideal</H2>
+<A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealThyristor"
+><IMG SRC="Modelica.Electrical.Analog.Ideal.IdealThyristorI.png" ALT="Modelica.Electrical.Analog.Ideal.IdealThyristor" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealGTOThyristor"
+><IMG SRC="Modelica.Electrical.Analog.Ideal.IdealGTOThyristorI.png" ALT="Modelica.Electrical.Analog.Ideal.IdealGTOThyristor" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealSwitch"
+><IMG SRC="Modelica.Electrical.Analog.Ideal.IdealSwitchI.png" ALT="Modelica.Electrical.Analog.Ideal.IdealSwitch" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealCommutingSwitch"
+><IMG SRC="Modelica.Electrical.Analog.Ideal.IdealCommutingSwitchI.png" ALT="Modelica.Electrical.Analog.Ideal.IdealCommutingSwitch" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealIntermediateSwitch"
+><IMG SRC="Modelica.Electrical.Analog.Ideal.IdealIntermediateSwitchI.png" ALT="Modelica.Electrical.Analog.Ideal.IdealIntermediateSwitch" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.ControlledIdealSwitch"
+><IMG SRC="Modelica.Electrical.Analog.Ideal.ControlledIdealSwitchI.png" ALT="Modelica.Electrical.Analog.Ideal.ControlledIdealSwitch" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.ControlledIdealCommutingSwitch"
+><IMG SRC="Modelica.Electrical.Analog.Ideal.ControlledIdealCommutingSwitchI.png" ALT="Modelica.Electrical.Analog.Ideal.ControlledIdealCommutingSwitch" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.ControlledIdealIntermediateSwitch"
+><IMG SRC="Modelica.Electrical.Analog.Ideal.ControlledIdealIntermediateSwitchI.png" ALT="Modelica.Electrical.Analog.Ideal.ControlledIdealIntermediateSwitch" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealOpAmp"
+><IMG SRC="Modelica.Electrical.Analog.Ideal.IdealOpAmpI.png" ALT="Modelica.Electrical.Analog.Ideal.IdealOpAmp" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealOpAmp3Pin"
+><IMG SRC="Modelica.Electrical.Analog.Ideal.IdealOpAmp3PinI.png" ALT="Modelica.Electrical.Analog.Ideal.IdealOpAmp3Pin" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealOpAmpLimited"
+><IMG SRC="Modelica.Electrical.Analog.Ideal.IdealOpAmpLimitedI.png" ALT="Modelica.Electrical.Analog.Ideal.IdealOpAmpLimited" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealDiode"
+><IMG SRC="Modelica.Electrical.Analog.Ideal.IdealDiodeI.png" ALT="Modelica.Electrical.Analog.Ideal.IdealDiode" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealTransformer"
+><IMG SRC="Modelica.Electrical.Analog.Ideal.IdealTransformerI.png" ALT="Modelica.Electrical.Analog.Ideal.IdealTransformer" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealGyrator"
+><IMG SRC="Modelica.Electrical.Analog.Ideal.IdealGyratorI.png" ALT="Modelica.Electrical.Analog.Ideal.IdealGyrator" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.Idle"
+><IMG SRC="Modelica.Electrical.Analog.Ideal.IdleI.png" ALT="Modelica.Electrical.Analog.Ideal.Idle" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.Short"
+><IMG SRC="Modelica.Electrical.Analog.Ideal.ShortI.png" ALT="Modelica.Electrical.Analog.Ideal.Short" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealOpener"
+><IMG SRC="Modelica.Electrical.Analog.Ideal.IdealOpenerI.png" ALT="Modelica.Electrical.Analog.Ideal.IdealOpener" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealCloser"
+><IMG SRC="Modelica.Electrical.Analog.Ideal.IdealCloserI.png" ALT="Modelica.Electrical.Analog.Ideal.IdealCloser" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.ControlledIdealOpener"
+><IMG SRC="Modelica.Electrical.Analog.Ideal.ControlledIdealOpenerI.png" ALT="Modelica.Electrical.Analog.Ideal.ControlledIdealOpener" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.ControlledIdealCloser"
+><IMG SRC="Modelica.Electrical.Analog.Ideal.ControlledIdealCloserI.png" ALT="Modelica.Electrical.Analog.Ideal.ControlledIdealCloser" WIDTH=80  HEIGHT=80 ></A>
+<P><P>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This package contains electrical components with idealized behaviour:
+</p>
+<ul>
+<li>thyristor</li>
+<li>GTO thyristor</li>
+<li>switches (basic, commuting, intermediate, controlled, 
+    controlled commuting, controlled intermediate)</li>
+<li>operational amplifier</li>
+<li>operational amplifier (3 Pins)</li>
+<li>operational amplifier with limits</li>
+<li>diode</li>
+<li>transformer</li>
+<li>gyrator</li>
+<li>idle branch</li>
+<li>short cut</li>
+<li>opener</li>
+<li>closer</li>
+<li>controlled opener</li>
+<li>controlled closer</li>
+</ul>
+</p>
+
+<dl>
+<dt>
+<b>Main Authors:</b>
+<dd>
+<a href="http://www.eas.iis.fhg.de/~clauss/">Christoph Clau&szlig;</a>
+    &lt;<a href="mailto:clauss@eas.iis.fhg.de">clauss@eas.iis.fhg.de</a>&gt;<br>
+    <a href="http://www.eas.iis.fhg.de/~schneider/">Andr&eacute; Schneider</a>
+    &lt;<a href="mailto:schneider@eas.iis.fhg.de">schneider@eas.iis.fhg.de</a>&gt;<br>
+    Fraunhofer Institute for Integrated Circuits<br>
+    Design Automation Department<br>
+    Zeunerstra&szlig;e 38<br>
+    D-01069 Dresden<br>
+
+<p>
+<dt>
+<b>Version:</b>
+<dd>
+$Id$<br>
+<p>
+<dt>
+<b>Copyright:</b>
+<dd>
+Copyright &copy; 1998-2002, Modelica Association and Fraunhofer-Gesellschaft.<br>
+<i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
+under the terms of the <b>Modelica license</b>, see the license conditions
+and the accompanying <b>disclaimer</b> in the documentation of package
+Modelica in file "Modelica/package.mo".</i><br>
+<p>
+</dl>
+<pre>
+</PRE><P>
+<HR>
+<H2><IMG SRC="Modelica.Electrical.Analog.Ideal.IdealThyristorI.png" ALT="Modelica.Electrical.Analog.Ideal.IdealThyristor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Ideal.IdealThyristor"></A><A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
+>Modelica.Electrical.Analog.Ideal</A>.IdealThyristor</H2>
+<B>Ideal thyristor</B><p>
+<IMG SRC="Modelica.Electrical.Analog.Ideal.IdealThyristorD.png" ALT="Modelica.Electrical.Analog.Ideal.IdealThyristor">
+<H3>Information</H3>
+<PRE></pre>
+<P>
+Ideal thyristor ... < description will be added >
+</P>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Roff</TD><TD>1.E-5</TD><TD>Closed thyristor resistance [Ohm]</TD></TR>
+<TR><TD>Gon</TD><TD>1.E-5</TD><TD>Opened thyristor conductance [S]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> IdealThyristor <font color="darkgreen">&quot;Ideal thyristor&quot;</font> 
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
+>Interfaces.OnePort</A>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>SI.Resistance</A> Roff(<font color="blue">final </font>min=0) = 1.E-5 <font color="darkgreen">&quot;Closed thyristor resistance&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Conductance"
+>SI.Conductance</A> Gon(<font color="blue">final </font>min=0) = 1.E-5 <font color="darkgreen">&quot;Opened thyristor conductance&quot;</font>;
+<font color="blue">protected </font>
+  Real s <font color="darkgreen">&quot;Auxiliary variable&quot;</font>;
+  Boolean off(start=true);
+  Boolean fire(start=true);
+<font color="blue">public </font>
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInPort"
+>Modelica.Blocks.Interfaces.BooleanInPort</A> firePort(<font color="blue">final </font>n=1);
+<font color="blue">equation </font>
+  fire = firePort.signal[1];
+  off = s &lt; 0<font color="blue"> or </font><font color="red">pre</font>(off)<font color="blue"> and </font><font color="blue">not </font>fire;
+  v = s*(<font color="blue">if </font>off<font color="blue"> then </font>1<font color="blue"> else </font>Roff);
+  i = s*(<font color="blue">if </font>off<font color="blue"> then </font>Gon<font color="blue"> else </font>1);
+<font color="blue">end </font>IdealThyristor;
+</PRE>
+<HR>
+<H2><IMG SRC="Modelica.Electrical.Analog.Ideal.IdealGTOThyristorI.png" ALT="Modelica.Electrical.Analog.Ideal.IdealGTOThyristor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Ideal.IdealGTOThyristor"></A><A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
+>Modelica.Electrical.Analog.Ideal</A>.IdealGTOThyristor</H2>
+<B>Ideal GTO thyristor</B><p>
+<IMG SRC="Modelica.Electrical.Analog.Ideal.IdealGTOThyristorD.png" ALT="Modelica.Electrical.Analog.Ideal.IdealGTOThyristor">
+<H3>Information</H3>
+<PRE></pre>
+<P>
+Ideal GTO thyristor ...
+</P>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Roff</TD><TD>1.E-5</TD><TD>Closed thyristor resistance [Ohm]</TD></TR>
+<TR><TD>Gon</TD><TD>1.E-5</TD><TD>Opened thyristor conductance [S]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> IdealGTOThyristor <font color="darkgreen">&quot;Ideal GTO thyristor&quot;</font> 
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
+>Interfaces.OnePort</A>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>SI.Resistance</A> Roff(<font color="blue">final </font>min=0) = 1.E-5 <font color="darkgreen">&quot;Closed thyristor resistance&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Conductance"
+>SI.Conductance</A> Gon(<font color="blue">final </font>min=0) = 1.E-5 <font color="darkgreen">&quot;Opened thyristor conductance&quot;</font>;
+<font color="blue">protected </font>
+  Real s <font color="darkgreen">&quot;Auxiliary variable&quot;</font>;
+  Boolean off(start=true) <font color="darkgreen">&quot;Position of switch&quot;</font>;
+  Boolean fire;
+<font color="blue">public </font>
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInPort"
+>Modelica.Blocks.Interfaces.BooleanInPort</A> firePort(<font color="blue">final </font>n=1);
+<font color="blue">equation </font>
+  fire = firePort.signal[1];
+  off = s &lt; 0<font color="blue"> or </font><font color="blue">not </font>fire;
+  v = s*(<font color="blue">if </font>off<font color="blue"> then </font>1<font color="blue"> else </font>Roff);
+  i = s*(<font color="blue">if </font>off<font color="blue"> then </font>Gon<font color="blue"> else </font>1);
+<font color="blue">end </font>IdealGTOThyristor;
+</PRE>
+<HR>
+<H2><IMG SRC="Modelica.Electrical.Analog.Ideal.IdealSwitchI.png" ALT="Modelica.Electrical.Analog.Ideal.IdealSwitch" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Ideal.IdealSwitch"></A><A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
+>Modelica.Electrical.Analog.Ideal</A>.IdealSwitch</H2>
+<B>Ideal electrical switch</B><p>
+<IMG SRC="Modelica.Electrical.Analog.Ideal.IdealSwitchD.png" ALT="Modelica.Electrical.Analog.Ideal.IdealSwitch">
+<H3>Information</H3>
+<PRE></pre>
+<P>
+Ideal electrical switch. In order to prevent singularities
+during switching, the opened switch has a high resistance
+and the closed switch has a low resistance.
+</P>
+<P>
+If the actual circuit has an appropriate structure, the
+limiting case is also allowed, i.e., the resistance of the
+closed switch could be exactly zero and the conductance of the
+open switch could be also exactly zero (i.e. the resistance is
+infinite). Note, there are circuits, where a description
+with zero/infinity resistances is not possible.
+</P>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Roff</TD><TD>1.E-5</TD><TD>Closed switch resistance [Ohm]</TD></TR>
+<TR><TD>Gon</TD><TD>1.E-5</TD><TD>Opened switch conductance [S]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> IdealSwitch <font color="darkgreen">&quot;Ideal electrical switch&quot;</font> 
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
+>Interfaces.OnePort</A>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>SI.Resistance</A> Roff(<font color="blue">final </font>min=0) = 1.E-5 <font color="darkgreen">&quot;Closed switch resistance&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Conductance"
+>SI.Conductance</A> Gon(<font color="blue">final </font>min=0) = 1.E-5 <font color="darkgreen">&quot;Opened switch conductance&quot;</font>;
+<font color="blue">protected </font>
+  Real s <font color="darkgreen">&quot;Auxiliary variable&quot;</font>;
+  Boolean off;
+<font color="blue">public </font>
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInPort"
+>Modelica.Blocks.Interfaces.BooleanInPort</A> control(<font color="blue">final </font>n=1, signal(start={
+          false})) <font color="darkgreen">&quot;true/false opened/closed switch&quot;</font>;
+<font color="blue">equation </font>
+  off = control.signal[1];
+  v = s*(<font color="blue">if </font>off<font color="blue"> then </font>1<font color="blue"> else </font>Roff);
+  i = s*(<font color="blue">if </font>off<font color="blue"> then </font>Gon<font color="blue"> else </font>1);
+<font color="blue">end </font>IdealSwitch;
+</PRE>
+<HR>
+<H2><IMG SRC="Modelica.Electrical.Analog.Ideal.IdealCommutingSwitchI.png" ALT="Modelica.Electrical.Analog.Ideal.IdealCommutingSwitch" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Ideal.IdealCommutingSwitch"></A><A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
+>Modelica.Electrical.Analog.Ideal</A>.IdealCommutingSwitch</H2>
+<B>Ideal commuting switch</B><p>
+<IMG SRC="Modelica.Electrical.Analog.Ideal.IdealCommutingSwitchD.png" ALT="Modelica.Electrical.Analog.Ideal.IdealCommutingSwitch">
+<H3>Information</H3>
+<PRE></pre>
+<P>
+The commuting switch has a positive pin p and two negative pins n1 and n2. 
+The switching behaviour is controlled
+by the control signal. If the control signal is true, the pin p is connected 
+with the negative pin n2. Otherwise, the pin p is connected to the negative pin n1.
+</P>
+<P>
+In order to prevent singularities during switching, the opened 
+switch has a (very low) conductance Goff
+and the closed switch has a (very low) resistance Ron. 
+The limiting case is also allowed, i.e., the resistance Ron of the
+closed switch could be exactly zero and the conductance Goff of the
+open switch could be also exactly zero. Note, there are circuits, 
+where a description with zero Ron or zero Goff is not possible. 
+</P>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Ron</TD><TD>1.E-5</TD><TD>Closed switch resistance [Ohm]</TD></TR>
+<TR><TD>Goff</TD><TD>1.E-5</TD><TD>Opened switch conductance [S]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> IdealCommutingSwitch <font color="darkgreen">&quot;Ideal commuting switch&quot;</font> 
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>SI.Resistance</A> Ron(<font color="blue">final </font>min=0) = 1.E-5 <font color="darkgreen">&quot;Closed switch resistance&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Conductance"
+>SI.Conductance</A> Goff(<font color="blue">final </font>min=0) = 1.E-5 <font color="darkgreen">&quot;Opened switch conductance&quot;</font>;
+<font color="blue">public </font>
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.PositivePin"
+>Interfaces.PositivePin</A> p;
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.NegativePin"
+>Interfaces.NegativePin</A> n2;
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.NegativePin"
+>Interfaces.NegativePin</A> n1;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInPort"
+>Modelica.Blocks.Interfaces.BooleanInPort</A> control(<font color="blue">final </font>n=1) <font color="darkgreen">
+    &quot;true =&gt; p--n2 connected, false =&gt; p--n1 connected&quot;</font>;
+<font color="blue">protected </font>
+  Real s1;
+  Real s2 <font color="darkgreen">&quot;Auxiliary variables&quot;</font>;
+  Boolean off;
+<font color="blue">equation </font>
+  off = control.signal[1];
+  0 = p.i + n2.i + n1.i;
+  <font color="darkgreen"></font>
+  p.v - n1.v = s1*(<font color="blue">if </font>(off)<font color="blue"> then </font>1<font color="blue"> else </font>Ron);
+  n1.i = -s1*(<font color="blue">if </font>(off)<font color="blue"> then </font>Goff<font color="blue"> else </font>1);
+  p.v - n2.v = s2*(<font color="blue">if </font>(off)<font color="blue"> then </font>Ron<font color="blue"> else </font>1);
+  n2.i = -s2*(<font color="blue">if </font>(off)<font color="blue"> then </font>1<font color="blue"> else </font>Goff);
+<font color="blue">end </font>IdealCommutingSwitch;
+</PRE>
+<HR>
+<H2><IMG SRC="Modelica.Electrical.Analog.Ideal.IdealIntermediateSwitchI.png" ALT="Modelica.Electrical.Analog.Ideal.IdealIntermediateSwitch" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Ideal.IdealIntermediateSwitch"></A><A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
+>Modelica.Electrical.Analog.Ideal</A>.IdealIntermediateSwitch</H2>
+<B>Ideal intermediate switch</B><p>
+<IMG SRC="Modelica.Electrical.Analog.Ideal.IdealIntermediateSwitchD.png" ALT="Modelica.Electrical.Analog.Ideal.IdealIntermediateSwitch">
+<H3>Information</H3>
+<PRE></pre>
+<P>
+The intermediate switch has four switching contact pins p1, p2, n1, and n2. 
+The switching behaviour is controlled by the control signal. If the control 
+signal is true, the pin p1 is connected to pin n2, and the pin p2 is 
+connected to the pin n2. Otherwise, the pin p1 is connected to n1, and
+p2 is connected to n2.
+</P>
+
+<IMG SRC="../Images/IdealIntermediateSwitch1.png" ALT="IdealIntermediateSwitch1">
+
+<P>
+In order to prevent singularities during switching, the opened 
+switch has a (very low) conductance Goff
+and the closed switch has a (very low) resistance Ron. 
+</P>
+
+<IMG SRC="../Images/IdealIntermediateSwitch2.png" ALT="IdealIntermediateSwitch2">
+
+<P>
+The limiting case is also allowed, i.e., the resistance Ron of the
+closed switch could be exactly zero and the conductance Goff of the
+open switch could be also exactly zero. Note, there are circuits, 
+where a description with zero Ron or zero Goff is not possible. 
+</P>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Ron</TD><TD>1.E-5</TD><TD>Closed switch resistance [Ohm]</TD></TR>
+<TR><TD>Goff</TD><TD>1.E-5</TD><TD>Opened switch conductance [S]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> IdealIntermediateSwitch <font color="darkgreen">&quot;Ideal intermediate switch&quot;</font> 
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>SI.Resistance</A> Ron(<font color="blue">final </font>min=0) = 1.E-5 <font color="darkgreen">&quot;Closed switch resistance&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Conductance"
+>SI.Conductance</A> Goff(<font color="blue">final </font>min=0) = 1.E-5 <font color="darkgreen">&quot;Opened switch conductance&quot;</font>;
+<font color="blue">public </font>
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.PositivePin"
+>Interfaces.PositivePin</A> p1;
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.PositivePin"
+>Interfaces.PositivePin</A> p2;
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.NegativePin"
+>Interfaces.NegativePin</A> n1;
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.NegativePin"
+>Interfaces.NegativePin</A> n2;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInPort"
+>Modelica.Blocks.Interfaces.BooleanInPort</A> control(<font color="blue">final </font>n=1) <font color="darkgreen">&quot;true =&gt; p1--n2, p2--n1 connected,
+         otherwise p1--n1, p2--n2  connected&quot;</font>;
+<font color="blue">protected </font>
+  Real s1;
+  Real s2;
+  Real s3;
+  Real s4 <font color="darkgreen">&quot;Auxiliary variables&quot;</font>;
+  Boolean off;
+<font color="blue">equation </font>
+  off = control.signal[1];
+  p1.v - n1.v = s1*(<font color="blue">if </font>(off)<font color="blue"> then </font>1<font color="blue"> else </font>Ron);
+  p2.v - n2.v = s2*(<font color="blue">if </font>(off)<font color="blue"> then </font>1<font color="blue"> else </font>Ron);
+  p1.v - n2.v = s3*(<font color="blue">if </font>(off)<font color="blue"> then </font>Ron<font color="blue"> else </font>1);
+  p2.v - n1.v = s4*(<font color="blue">if </font>(off)<font color="blue"> then </font>Ron<font color="blue"> else </font>1);
+  <font color="darkgreen"></font>
+  p1.i = <font color="blue">if </font>(off)<font color="blue"> then </font>s1*Goff + s3<font color="blue"> else </font>s1 + s3*Goff;
+  p2.i = <font color="blue">if </font>(off)<font color="blue"> then </font>s2*Goff + s4<font color="blue"> else </font>s2 + s4*Goff;
+  n1.i = <font color="blue">if </font>(off)<font color="blue"> then </font>-s1*Goff - s4<font color="blue"> else </font>-s1 - s4*Goff;
+  n2.i = <font color="blue">if </font>(off)<font color="blue"> then </font>-s2*Goff - s3<font color="blue"> else </font>-s2 - s3*Goff;
+<font color="blue">end </font>IdealIntermediateSwitch;
+</PRE>
+<HR>
+<H2><IMG SRC="Modelica.Electrical.Analog.Ideal.ControlledIdealSwitchI.png" ALT="Modelica.Electrical.Analog.Ideal.ControlledIdealSwitch" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Ideal.ControlledIdealSwitch"></A><A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
+>Modelica.Electrical.Analog.Ideal</A>.ControlledIdealSwitch</H2>
+<B>Controlled ideal switch</B><p>
+<IMG SRC="Modelica.Electrical.Analog.Ideal.ControlledIdealSwitchD.png" ALT="Modelica.Electrical.Analog.Ideal.ControlledIdealSwitch">
+<H3>Information</H3>
+<PRE></pre>
+<P>
+The ideal switch is a three-pole. If the third pin voltage exceeds the given
+parameter Voltage, the pins <i>p</i> and <i>n</i> are open (no current flowing, any voltage
+possible). Otherwise, <i>p</i> and <i>n</i> are short cut.
+</P>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>level</TD><TD>0.5</TD><TD>Switch level [V]</TD></TR>
+<TR><TD>Roff</TD><TD>1.E-5</TD><TD>Closed switch resistance [Ohm]</TD></TR>
+<TR><TD>Gon</TD><TD>1.E-5</TD><TD>Opened switch conductance [S]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> ControlledIdealSwitch <font color="darkgreen">&quot;Controlled ideal switch&quot;</font> 
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>SI.Voltage</A> level=0.5 <font color="darkgreen">&quot;Switch level&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>SI.Resistance</A> Roff(<font color="blue">final </font>min=0) = 1.E-5 <font color="darkgreen">&quot;Closed switch resistance&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Conductance"
+>SI.Conductance</A> Gon(<font color="blue">final </font>min=0) = 1.E-5 <font color="darkgreen">&quot;Opened switch conductance&quot;</font>;
+<font color="blue">protected </font>
+  Real s <font color="darkgreen">&quot;Auxiliary variable&quot;</font>;
+<font color="blue">public </font>
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.Pin"
+>Interfaces.Pin</A> p <font color="darkgreen">&quot;Positive pin&quot;</font>;
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.Pin"
+>Interfaces.Pin</A> n <font color="darkgreen">&quot;Negative pin&quot;</font>;
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.Pin"
+>Interfaces.Pin</A> control <font color="darkgreen">
+    &quot;Control pin: control.v &gt; level open, otherwise closed&quot;</font>;
+<font color="blue">equation </font>
+  control.i = 0;
+  0 = p.i + n.i;
+  p.v - n.v = s*(<font color="blue">if </font>(control.v &lt; level)<font color="blue"> then </font>Roff<font color="blue"> else </font>1);
+  n.i = s*(<font color="blue">if </font>(control.v &lt; level)<font color="blue"> then </font>1<font color="blue"> else </font>Gon);
+<font color="blue">end </font>ControlledIdealSwitch;
+</PRE>
+<HR>
+<H2><IMG SRC="Modelica.Electrical.Analog.Ideal.ControlledIdealCommutingSwitchI.png" ALT="Modelica.Electrical.Analog.Ideal.ControlledIdealCommutingSwitch" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Ideal.ControlledIdealCommutingSwitch"></A><A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
+>Modelica.Electrical.Analog.Ideal</A>.ControlledIdealCommutingSwitch</H2>
+<B>Controlled ideal commuting switch</B><p>
+<IMG SRC="Modelica.Electrical.Analog.Ideal.ControlledIdealCommutingSwitchD.png" ALT="Modelica.Electrical.Analog.Ideal.ControlledIdealCommutingSwitch">
+<H3>Information</H3>
+<PRE></pre>
+<P>
+The commuting switch has a positive pin p and two negative pins n1 and n2. 
+The switching behaviour is controlled
+by the control pin. If its voltage exceeds the value of the parameter level,
+the pin p is connected with the negative pin n2. Otherwise, the pin p is 
+connected the negative pin n1.
+</P>
+<P>
+In order to prevent singularities during switching, the opened 
+switch has a (very low) conductance Goff
+and the closed switch has a (very low) resistance Ron. 
+The limiting case is also allowed, i.e., the resistance Ron of the
+closed switch could be exactly zero and the conductance Goff of the
+open switch could be also exactly zero. Note, there are circuits, 
+where a description with zero Ron or zero Goff is not possible. 
+</P>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>level</TD><TD>0.5</TD><TD>Switch level [V]</TD></TR>
+<TR><TD>Ron</TD><TD>1.E-5</TD><TD>Closed switch resistance [Ohm]</TD></TR>
+<TR><TD>Goff</TD><TD>1.E-5</TD><TD>Opened switch conductance [S]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> ControlledIdealCommutingSwitch <font color="darkgreen">
+  &quot;Controlled ideal commuting switch&quot;</font> 
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>SI.Voltage</A> level=0.5 <font color="darkgreen">&quot;Switch level&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>SI.Resistance</A> Ron(<font color="blue">final </font>min=0) = 1.E-5 <font color="darkgreen">&quot;Closed switch resistance&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Conductance"
+>SI.Conductance</A> Goff(<font color="blue">final </font>min=0) = 1.E-5 <font color="darkgreen">&quot;Opened switch conductance&quot;</font>;
+<font color="blue">public </font>
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.PositivePin"
+>Interfaces.PositivePin</A> p;
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.NegativePin"
+>Interfaces.NegativePin</A> n2;
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.NegativePin"
+>Interfaces.NegativePin</A> n1;
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.Pin"
+>Interfaces.Pin</A> control <font color="darkgreen">
+    &quot;Control pin: if control.v &gt; level p--n2 connected, otherwise p--n1 connected&quot;</font>
+    ;
+<font color="blue">protected </font>
+  Real s1;
+  Real s2 <font color="darkgreen">&quot;Auxiliary variables&quot;</font>;
+<font color="blue">equation </font>
+  control.i = 0;
+  0 = p.i + n2.i + n1.i;
+  <font color="darkgreen"></font>
+  p.v - n1.v = s1*(<font color="blue">if </font>(control.v &gt; level)<font color="blue"> then </font>1<font color="blue"> else </font>Ron);
+  n1.i = -s1*(<font color="blue">if </font>(control.v &gt; level)<font color="blue"> then </font>Goff<font color="blue"> else </font>1);
+  p.v - n2.v = s2*(<font color="blue">if </font>(control.v &gt; level)<font color="blue"> then </font>Ron<font color="blue"> else </font>1);
+  n2.i = -s2*(<font color="blue">if </font>(control.v &gt; level)<font color="blue"> then </font>1<font color="blue"> else </font>Goff);
+<font color="blue">end </font>ControlledIdealCommutingSwitch;
+</PRE>
+<HR>
+<H2><IMG SRC="Modelica.Electrical.Analog.Ideal.ControlledIdealIntermediateSwitchI.png" ALT="Modelica.Electrical.Analog.Ideal.ControlledIdealIntermediateSwitch" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Ideal.ControlledIdealIntermediateSwitch"></A><A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
+>Modelica.Electrical.Analog.Ideal</A>.ControlledIdealIntermediateSwitch</H2>
+<B>Controlled ideal intermediate switch</B><p>
+<IMG SRC="Modelica.Electrical.Analog.Ideal.ControlledIdealIntermediateSwitchD.png" ALT="Modelica.Electrical.Analog.Ideal.ControlledIdealIntermediateSwitch">
+<H3>Information</H3>
+<PRE></pre>
+<P>
+The intermediate switch has four switching contact pins p1, p2, n1, and n2. 
+The switching behaviour is controlled
+by the control pin. If its voltage exceeds the value of the 
+parameter level, the pin p1 is connected to pin n2, and the pin p2 is 
+connected to the pin n2. Otherwise, the pin p1 is connected to n1, and
+p2 is connected to n2.
+</P>
+
+<IMG SRC="../Images/ControlledIdealIntermediateSwitch1.png" ALT="ControlledIdealIntermediateSwitch1">
+
+<P>
+In order to prevent singularities during switching, the opened 
+switch has a (very low) conductance Goff
+and the closed switch has a (very low) resistance Ron. 
+</P>
+
+<IMG SRC="../Images/ControlledIdealIntermediateSwitch2.png" ALT="ControlledIdealIntermediateSwitch2">
+
+<P>
+The limiting case is also allowed, i.e., the resistance Ron of the
+closed switch could be exactly zero and the conductance Goff of the
+open switch could be also exactly zero. Note, there are circuits, 
+where a description with zero Ron or zero Goff is not possible. 
+</P>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>level</TD><TD>0.5</TD><TD>Switch level [V]</TD></TR>
+<TR><TD>Ron</TD><TD>1.E-5</TD><TD>Closed switch resistance [Ohm]</TD></TR>
+<TR><TD>Goff</TD><TD>1.E-5</TD><TD>Opened switch conductance [S]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> ControlledIdealIntermediateSwitch <font color="darkgreen">
+  &quot;Controlled ideal intermediate switch&quot;</font> 
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>SI.Voltage</A> level=0.5 <font color="darkgreen">&quot;Switch level&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>SI.Resistance</A> Ron(<font color="blue">final </font>min=0) = 1.E-5 <font color="darkgreen">&quot;Closed switch resistance&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Conductance"
+>SI.Conductance</A> Goff(<font color="blue">final </font>min=0) = 1.E-5 <font color="darkgreen">&quot;Opened switch conductance&quot;</font>;
+  <font color="darkgreen"></font>
+<font color="blue">public </font>
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.PositivePin"
+>Interfaces.PositivePin</A> p1;
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.PositivePin"
+>Interfaces.PositivePin</A> p2;
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.NegativePin"
+>Interfaces.NegativePin</A> n1;
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.NegativePin"
+>Interfaces.NegativePin</A> n2;
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.Pin"
+>Interfaces.Pin</A> control <font color="darkgreen">&quot;Control pin: if control.v &gt; level p1--n2, p2--n1 connected,
+         otherwise p1--n1, p2--n2  connected&quot;</font>;
+<font color="blue">protected </font>
+  Real s1;
+  Real s2;
+  Real s3;
+  Real s4 <font color="darkgreen">&quot;Auxiliary variables&quot;</font>;
+<font color="blue">equation </font>
+  control.i = 0;
+  <font color="darkgreen"></font>
+  p1.v - n1.v = s1*(<font color="blue">if </font>(control.v &gt; level)<font color="blue"> then </font>1<font color="blue"> else </font>Ron);
+  p2.v - n2.v = s2*(<font color="blue">if </font>(control.v &gt; level)<font color="blue"> then </font>1<font color="blue"> else </font>Ron);
+  p1.v - n2.v = s3*(<font color="blue">if </font>(control.v &gt; level)<font color="blue"> then </font>Ron<font color="blue"> else </font>1);
+  p2.v - n1.v = s4*(<font color="blue">if </font>(control.v &gt; level)<font color="blue"> then </font>Ron<font color="blue"> else </font>1);
+  <font color="darkgreen"></font>
+  p1.i = <font color="blue">if </font>(control.v &gt; level)<font color="blue"> then </font>s1*Goff + s3<font color="blue"> else </font>s1 + s3*Goff;
+  p2.i = <font color="blue">if </font>(control.v &gt; level)<font color="blue"> then </font>s2*Goff + s4<font color="blue"> else </font>s2 + s4*Goff;
+  n1.i = <font color="blue">if </font>(control.v &gt; level)<font color="blue"> then </font>-s1*Goff - s4<font color="blue"> else </font>-s1 - s4*Goff;
+  n2.i = <font color="blue">if </font>(control.v &gt; level)<font color="blue"> then </font>-s2*Goff - s3<font color="blue"> else </font>-s2 - s3*Goff;
+<font color="blue">end </font>ControlledIdealIntermediateSwitch;
+</PRE>
+<HR>
+<H2><IMG SRC="Modelica.Electrical.Analog.Ideal.IdealOpAmpI.png" ALT="Modelica.Electrical.Analog.Ideal.IdealOpAmp" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Ideal.IdealOpAmp"></A><A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
+>Modelica.Electrical.Analog.Ideal</A>.IdealOpAmp</H2>
+<B>Ideal operational amplifier (norator-nullator pair)</B><p>
+<IMG SRC="Modelica.Electrical.Analog.Ideal.IdealOpAmpD.png" ALT="Modelica.Electrical.Analog.Ideal.IdealOpAmp">
+<H3>Information</H3>
+<PRE></pre>
+<P>
+The ideal OpAmp is a two-port. The left port is fixed to <i>v1=0</i> and <i>i1=0</i>
+(nullator). At the right port both any voltage <i>v2</i> and any current <i>i2</i>
+are possible (norator).
+</P>
+<pre>
+</PRE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> IdealOpAmp <font color="darkgreen">
+  &quot;Ideal operational amplifier (norator-nullator pair)&quot;</font> 
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>SI.Voltage</A> v1 <font color="darkgreen">&quot;Voltage drop over the left port&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>SI.Voltage</A> v2 <font color="darkgreen">&quot;Voltage drop over the right port&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Current"
+>SI.Current</A> i1 <font color="darkgreen">&quot;Current flowing from pos. to neg. pin of the left port&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Current"
+>SI.Current</A> i2 <font color="darkgreen">&quot;Current flowing from pos. to neg. pin of the right port&quot;</font>;
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.PositivePin"
+>Interfaces.PositivePin</A> p1 <font color="darkgreen">&quot;Positive pin of the left port&quot;</font>;
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.NegativePin"
+>Interfaces.NegativePin</A> n1 <font color="darkgreen">&quot;Negative pin of the left port&quot;</font>;
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.PositivePin"
+>Interfaces.PositivePin</A> p2 <font color="darkgreen">&quot;Positive pin of the right port&quot;</font>;
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.NegativePin"
+>Interfaces.NegativePin</A> n2 <font color="darkgreen">&quot;Negative pin of the right port&quot;</font>;
+<font color="blue">equation </font>
+  v1 = p1.v - n1.v;
+  v2 = p2.v - n2.v;
+  0 = p1.i + n1.i;
+  0 = p2.i + n2.i;
+  i1 = p1.i;
+  i2 = p2.i;
+  v1 = 0;
+  i1 = 0;
+<font color="blue">end </font>IdealOpAmp;
+</PRE>
+<HR>
+<H2><IMG SRC="Modelica.Electrical.Analog.Ideal.IdealOpAmp3PinI.png" ALT="Modelica.Electrical.Analog.Ideal.IdealOpAmp3Pin" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Ideal.IdealOpAmp3Pin"></A><A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
+>Modelica.Electrical.Analog.Ideal</A>.IdealOpAmp3Pin</H2>
+<B>Ideal operational amplifier (norator-nullator pair), but 3 pins</B><p>
+<IMG SRC="Modelica.Electrical.Analog.Ideal.IdealOpAmp3PinD.png" ALT="Modelica.Electrical.Analog.Ideal.IdealOpAmp3Pin">
+<H3>Information</H3>
+<PRE></pre>
+<P>
+The ideal OpAmp with three pins is of exactly the same behaviour as the ideal
+OpAmp with four pins. Only the negative output pin is left out.
+Both the input voltage and current are fixed to zero (nullator).
+At the output pin both any voltage <i>v2</i> and any current <i>i2</i>
+are possible.
+</P>
+<pre>
+</PRE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> IdealOpAmp3Pin <font color="darkgreen">
+  &quot;Ideal operational amplifier (norator-nullator pair), but 3 pins&quot;</font> 
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.PositivePin"
+>Interfaces.PositivePin</A> in_p <font color="darkgreen">&quot;Positive pin of the input port&quot;</font>;
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.NegativePin"
+>Interfaces.NegativePin</A> in_n <font color="darkgreen">&quot;Negative pin of the input port&quot;</font>;
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.PositivePin"
+>Interfaces.PositivePin</A> out <font color="darkgreen">&quot;Output pin&quot;</font>;
+<font color="blue">equation </font>
+  in_p.v = in_n.v;
+  in_p.i = 0;
+  in_n.i = 0;
+<font color="blue">end </font>IdealOpAmp3Pin;
+</PRE>
+<HR>
+<H2><IMG SRC="Modelica.Electrical.Analog.Ideal.IdealOpAmpLimitedI.png" ALT="Modelica.Electrical.Analog.Ideal.IdealOpAmpLimited" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Ideal.IdealOpAmpLimited"></A><A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
+>Modelica.Electrical.Analog.Ideal</A>.IdealOpAmpLimited</H2>
+<B>Ideal operational amplifier with limitation</B><p>
+<IMG SRC="Modelica.Electrical.Analog.Ideal.IdealOpAmpLimitedD.png" ALT="Modelica.Electrical.Analog.Ideal.IdealOpAmpLimited">
+<H3>Information</H3>
+<PRE></pre>
+<P>
+The ideal OpAmp with limitation behaves like an ideal OpAmp without limitation,
+if the output voltage is within the limits (VMin < out.v < VMax). In this case
+the input voltage vin=in_p.v - in_n.v is zero.
+If the input voltage is vin < 0, the output voltage is out.v = VMin.
+If the input voltage is vin > 0, the output voltage is out.v = VMax.
+</P>
+<pre>
+</PRE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> IdealOpAmpLimited <font color="darkgreen">&quot;Ideal operational amplifier with limitation&quot;</font>
+   
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.PositivePin"
+>Interfaces.PositivePin</A> in_p <font color="darkgreen">&quot;Positive pin of the input port&quot;</font>;
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.NegativePin"
+>Interfaces.NegativePin</A> in_n <font color="darkgreen">&quot;Negative pin of the input port&quot;</font>;
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.PositivePin"
+>Interfaces.PositivePin</A> out <font color="darkgreen">&quot;Output pin&quot;</font>;
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.PositivePin"
+>Interfaces.PositivePin</A> VMax <font color="darkgreen">&quot;Positive output voltage limitation&quot;</font>;
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.NegativePin"
+>Interfaces.NegativePin</A> VMin <font color="darkgreen">&quot;Negative output voltage limitation&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>SI.Voltage</A> vin <font color="darkgreen">&quot;input voltage&quot;</font>;
+<font color="blue">protected </font>
+  Real s <font color="darkgreen">&quot;Auxiliary variable&quot;</font>;
+<font color="blue">equation </font>
+  in_p.i = 0;
+  in_n.i = 0;
+  VMax.i = 0;
+  VMin.i = 0;
+  vin = in_p.v - in_n.v;
+  in_p.v - in_n.v = <font color="blue">if </font>(s &lt; -1)<font color="blue"> then </font>s + 1<font color="blue"> else </font><font color="blue">if </font>(s &gt; 1)<font color="blue"> then </font>s - 1<font color="blue"> else </font>0;
+  out.v = <font color="blue">if </font>(s &lt; -1)<font color="blue"> then </font>VMin.v<font color="blue"> else </font><font color="blue">if </font>(s &gt; 1)<font color="blue"> then </font>VMax.v<font color="blue"> else </font>(VMax.v - 
+    VMin.v)*s/2 + (VMax.v + VMin.v)/2;
+<font color="blue">end </font>IdealOpAmpLimited;
+</PRE>
+<HR>
+<H2><IMG SRC="Modelica.Electrical.Analog.Ideal.IdealDiodeI.png" ALT="Modelica.Electrical.Analog.Ideal.IdealDiode" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Ideal.IdealDiode"></A><A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
+>Modelica.Electrical.Analog.Ideal</A>.IdealDiode</H2>
+<B>Ideal electrical diode</B><p>
+<IMG SRC="Modelica.Electrical.Analog.Ideal.IdealDiodeD.png" ALT="Modelica.Electrical.Analog.Ideal.IdealDiode">
+<H3>Information</H3>
+<PRE></pre>
+<P>
+Ideal electrical diode. This is an ideal switch which is
+open, when it is reversed biased (voltage drop < 0) and
+which is closed, when it is conducting (current > 0).
+In order to prevent singularities during switching, the opened
+diode has a high resistance and the closed diode has a low
+resistance.
+</P>
+<P>
+If the actual circuit has an appropriate structure, the
+limiting case is also allowed, i.e., the resistance of the
+closed diode could be exactly zero and the conductance of the
+open diode could be also exactly zero (i.e. the resistance is
+infinity). Note, there are circuits, where a description
+with zero/infinity resistances is not possible.
+</P>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Roff</TD><TD>1.E-5</TD><TD>Closed diode resistance [Ohm]</TD></TR>
+<TR><TD>Gon</TD><TD>1.E-5</TD><TD>Opened diode conductance [S]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> IdealDiode <font color="darkgreen">&quot;Ideal electrical diode&quot;</font> 
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
+>Interfaces.OnePort</A>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>SI.Resistance</A> Roff(<font color="blue">final </font>min=0) = 1.E-5 <font color="darkgreen">&quot;Closed diode resistance&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Conductance"
+>SI.Conductance</A> Gon(<font color="blue">final </font>min=0) = 1.E-5 <font color="darkgreen">&quot;Opened diode conductance&quot;</font>;
+  Boolean off(start=true) <font color="darkgreen">&quot;Switching state of diode&quot;</font>;
+<font color="blue">protected </font>
+  Real s <font color="darkgreen">&quot;Auxiliary variable&quot;</font>;
+<font color="blue">equation </font>
+  off = s &lt; 0;
+  v = s*(<font color="blue">if </font>off<font color="blue"> then </font>1<font color="blue"> else </font>Roff);
+  i = s*(<font color="blue">if </font>off<font color="blue"> then </font>Gon<font color="blue"> else </font>1);
+<font color="blue">end </font>IdealDiode;
+</PRE>
+<HR>
+<H2><IMG SRC="Modelica.Electrical.Analog.Ideal.IdealTransformerI.png" ALT="Modelica.Electrical.Analog.Ideal.IdealTransformer" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Ideal.IdealTransformer"></A><A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
+>Modelica.Electrical.Analog.Ideal</A>.IdealTransformer</H2>
+<B>Ideal electrical transformer</B><p>
+<IMG SRC="Modelica.Electrical.Analog.Ideal.IdealTransformerD.png" ALT="Modelica.Electrical.Analog.Ideal.IdealTransformer">
+<H3>Information</H3>
+<PRE></pre>
+<P>
+The ideal transformer is an ideal two-port resistive circuit element
+which is characterized by the following two equations:
+</P>
+<PRE>
+    v1 =  n * v2
+    i2 = -n * i1
+</PRE>
+<P>
+where <i>n</i> is a real number called the turns ratio.
+</P>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>n</TD><TD>1</TD><TD>Turns ratio</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> IdealTransformer <font color="darkgreen">&quot;Ideal electrical transformer&quot;</font> 
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.TwoPort"
+>Interfaces.TwoPort</A>;
+  <font color="blue">parameter </font>Real n=1 <font color="darkgreen">&quot;Turns ratio&quot;</font>;
+<font color="blue">equation </font>
+  v1 = n*v2;
+  i2 = -n*i1;
+<font color="blue">end </font>IdealTransformer;
+</PRE>
+<HR>
+<H2><IMG SRC="Modelica.Electrical.Analog.Ideal.IdealGyratorI.png" ALT="Modelica.Electrical.Analog.Ideal.IdealGyrator" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Ideal.IdealGyrator"></A><A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
+>Modelica.Electrical.Analog.Ideal</A>.IdealGyrator</H2>
+<B>Ideal gyrator</B><p>
+<IMG SRC="Modelica.Electrical.Analog.Ideal.IdealGyratorD.png" ALT="Modelica.Electrical.Analog.Ideal.IdealGyrator">
+<H3>Information</H3>
+<PRE></pre>
+<P>
+A gyrator is an ideal two-port element defined by the following equations:
+</P>
+<PRE>
+    i1 =  G * v2
+    i2 = -G * v1
+</PRE>
+<P>
+where the constant <i>G</i> is called the gyration conductance.
+</P>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>G</TD><TD>1</TD><TD>Gyration conductance [S]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> IdealGyrator <font color="darkgreen">&quot;Ideal gyrator&quot;</font> 
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.TwoPort"
+>Interfaces.TwoPort</A>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Conductance"
+>SI.Conductance</A> G=1 <font color="darkgreen">&quot;Gyration conductance&quot;</font>;
+<font color="blue">equation </font>
+  i1 = G*v2;
+  i2 = -G*v1;
+<font color="blue">end </font>IdealGyrator;
+</PRE>
+<HR>
+<H2><IMG SRC="Modelica.Electrical.Analog.Ideal.IdleI.png" ALT="Modelica.Electrical.Analog.Ideal.Idle" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Ideal.Idle"></A><A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
+>Modelica.Electrical.Analog.Ideal</A>.Idle</H2>
+<B>Idle branch</B><p>
+<IMG SRC="Modelica.Electrical.Analog.Ideal.IdleD.png" ALT="Modelica.Electrical.Analog.Ideal.Idle">
+<H3>Information</H3>
+<PRE></pre>
+<P>
+The model Idle is a simple idle running branch.
+</P>
+<pre>
+</PRE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Idle <font color="darkgreen">&quot;Idle branch&quot;</font> 
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
+>Interfaces.OnePort</A>;
+<font color="blue">equation </font>
+  <font color="darkgreen"></font>
+  i = 0;
+  <font color="darkgreen"></font>
+<font color="blue">end </font>Idle;
+</PRE>
+<HR>
+<H2><IMG SRC="Modelica.Electrical.Analog.Ideal.ShortI.png" ALT="Modelica.Electrical.Analog.Ideal.Short" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Ideal.Short"></A><A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
+>Modelica.Electrical.Analog.Ideal</A>.Short</H2>
+<B>Short cut branch</B><p>
+<IMG SRC="Modelica.Electrical.Analog.Ideal.ShortD.png" ALT="Modelica.Electrical.Analog.Ideal.Short">
+<H3>Information</H3>
+<PRE></pre>
+<P>
+The model Short is a simple short cut branch.
+</P>
+<pre>
+</PRE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Short <font color="darkgreen">&quot;Short cut branch&quot;</font> 
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
+>Interfaces.OnePort</A>;
+<font color="blue">equation </font>
+  v = 0;
+<font color="blue">end </font>Short;
+</PRE>
+<HR>
+<H2><IMG SRC="Modelica.Electrical.Analog.Ideal.IdealOpenerI.png" ALT="Modelica.Electrical.Analog.Ideal.IdealOpener" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Ideal.IdealOpener"></A><A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
+>Modelica.Electrical.Analog.Ideal</A>.IdealOpener</H2>
+<B>Ideal electrical opener</B><p>
+<IMG SRC="Modelica.Electrical.Analog.Ideal.IdealOpenerD.png" ALT="Modelica.Electrical.Analog.Ideal.IdealOpener">
+<H3>Information</H3>
+<PRE></pre>
+<P> 
+The ideal opener has a positive pin p and a negative pin n. 
+The switching behaviour is controlled by the control signal. 
+If the control signal is true, pin p is not connected 
+with negative pin n. Otherwise, pin p is connected 
+with negative pin n.
+</P>
+<P>
+In order to prevent singularities during switching, the opened 
+switch has a (very low) conductance Goff
+and the closed switch has a (very low) resistance Ron. 
+The limiting case is also allowed, i.e., the resistance Ron of the
+closed switch could be exactly zero and the conductance Goff of the
+open switch could be also exactly zero. Note, there are circuits, 
+where a description with zero Ron or zero Goff is not possible. 
+</P>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Ron</TD><TD>1.E-5</TD><TD>Closed switch resistance [Ohm]</TD></TR>
+<TR><TD>Goff</TD><TD>1.E-5</TD><TD>Opened switch conductance [S]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> IdealOpener <font color="darkgreen">&quot;Ideal electrical opener&quot;</font> 
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
+>Interfaces.OnePort</A>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>SI.Resistance</A> Ron(<font color="blue">final </font>min=0) = 1.E-5 <font color="darkgreen">&quot;Closed switch resistance&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Conductance"
+>SI.Conductance</A> Goff(<font color="blue">final </font>min=0) = 1.E-5 <font color="darkgreen">&quot;Opened switch conductance&quot;</font>;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInPort"
+>Modelica.Blocks.Interfaces.BooleanInPort</A> control(<font color="blue">final </font>n=1) <font color="darkgreen">
+    &quot;true =&gt; switch open, false =&gt; p--n connected&quot;</font>;
+<font color="blue">protected </font>
+  Real s <font color="darkgreen">&quot;Auxiliary variable&quot;</font>;
+  Boolean off;
+  <font color="darkgreen"></font>
+<font color="blue">equation </font>
+  off = control.signal[1];
+  v = s*(<font color="blue">if </font>off<font color="blue"> then </font>1<font color="blue"> else </font>Ron);
+  i = s*(<font color="blue">if </font>off<font color="blue"> then </font>Goff<font color="blue"> else </font>1);
+<font color="blue">end </font>IdealOpener;
+</PRE>
+<HR>
+<H2><IMG SRC="Modelica.Electrical.Analog.Ideal.IdealCloserI.png" ALT="Modelica.Electrical.Analog.Ideal.IdealCloser" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Ideal.IdealCloser"></A><A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
+>Modelica.Electrical.Analog.Ideal</A>.IdealCloser</H2>
+<B>Ideal electrical closer</B><p>
+<IMG SRC="Modelica.Electrical.Analog.Ideal.IdealCloserD.png" ALT="Modelica.Electrical.Analog.Ideal.IdealCloser">
+<H3>Information</H3>
+<PRE></pre>
+<P> 
+The ideal opener has a positive pin p and a negative pin n. 
+The switching behaviour is controlled by the control signal. 
+If the control signal is true, pin p is not connected 
+with negative pin n. Otherwise, pin p is connected 
+with negative pin n.
+</P>
+<P>
+In order to prevent singularities during switching, the opened 
+switch has a (very low) conductance Goff
+and the closed switch has a (very low) resistance Ron. 
+The limiting case is also allowed, i.e., the resistance Ron of the
+closed switch could be exactly zero and the conductance Goff of the
+open switch could be also exactly zero. Note, there are circuits, 
+where a description with zero Ron or zero Goff is not possible. 
+</P>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Ron</TD><TD>1.E-5</TD><TD>Closed switch resistance [Ohm]</TD></TR>
+<TR><TD>Goff</TD><TD>1.E-5</TD><TD>Opened switch conductance [S]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> IdealCloser <font color="darkgreen">&quot;Ideal electrical closer&quot;</font> 
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
+>Interfaces.OnePort</A>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>SI.Resistance</A> Ron(<font color="blue">final </font>min=0) = 1.E-5 <font color="darkgreen">&quot;Closed switch resistance&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Conductance"
+>SI.Conductance</A> Goff(<font color="blue">final </font>min=0) = 1.E-5 <font color="darkgreen">&quot;Opened switch conductance&quot;</font>;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInPort"
+>Modelica.Blocks.Interfaces.BooleanInPort</A> control(<font color="blue">final </font>n=1) <font color="darkgreen">
+    &quot;true =&gt; switch open, false =&gt; p--n connected&quot;</font>;
+<font color="blue">protected </font>
+  Real s <font color="darkgreen">&quot;Auxiliary variable&quot;</font>;
+  Boolean on;
+  <font color="darkgreen"></font>
+<font color="blue">equation </font>
+  on = control.signal[1];
+  v = s*(<font color="blue">if </font><font color="blue">not </font>on<font color="blue"> then </font>1<font color="blue"> else </font>Ron);
+  i = s*(<font color="blue">if </font><font color="blue">not </font>on<font color="blue"> then </font>Goff<font color="blue"> else </font>1);
+<font color="blue">end </font>IdealCloser;
+</PRE>
+<HR>
+<H2><IMG SRC="Modelica.Electrical.Analog.Ideal.ControlledIdealOpenerI.png" ALT="Modelica.Electrical.Analog.Ideal.ControlledIdealOpener" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Ideal.ControlledIdealOpener"></A><A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
+>Modelica.Electrical.Analog.Ideal</A>.ControlledIdealOpener</H2>
+<B>Controlled ideal electrical opener</B><p>
+<IMG SRC="Modelica.Electrical.Analog.Ideal.ControlledIdealOpenerD.png" ALT="Modelica.Electrical.Analog.Ideal.ControlledIdealOpener">
+<H3>Information</H3>
+<PRE>
+</pre>
+<P>
+The ideal switch has a positive pin p and a negative pin n. 
+The switching behaviour is controlled by the control pin. 
+If its voltage exceeds the voltage of the parameter level,
+pin p is not connected with negative pin n. 
+Otherwise, pin p is connected with negative pin n.
+</P>
+<P>
+In order to prevent singularities during switching, the opened 
+switch has a (very low) conductance Goff
+and the closed switch has a (very low) resistance Ron. 
+The limiting case is also allowed, i.e., the resistance Ron of the
+closed switch could be exactly zero and the conductance Goff of the
+open switch could be also exactly zero. Note, there are circuits, 
+where a description with zero Ron or zero Goff is not possible. 
+</P>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>level</TD><TD>0.5</TD><TD>Switch level [V]</TD></TR>
+<TR><TD>Ron</TD><TD>1.E-5</TD><TD>Closed switch resistance [Ohm]</TD></TR>
+<TR><TD>Goff</TD><TD>1.E-5</TD><TD>Opened switch conductance [S]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> ControlledIdealOpener <font color="darkgreen">&quot;Controlled ideal electrical opener&quot;</font> 
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>SI.Voltage</A> level=0.5 <font color="darkgreen">&quot;Switch level&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>SI.Resistance</A> Ron(<font color="blue">final </font>min=0) = 1.E-5 <font color="darkgreen">&quot;Closed switch resistance&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Conductance"
+>SI.Conductance</A> Goff(<font color="blue">final </font>min=0) = 1.E-5 <font color="darkgreen">&quot;Opened switch conductance&quot;</font>;
+<font color="blue">protected </font>
+  Real s <font color="darkgreen">&quot;Auxiliary variable&quot;</font>;
+<font color="blue">public </font>
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.PositivePin"
+>Interfaces.PositivePin</A> p;
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.NegativePin"
+>Interfaces.NegativePin</A> n;
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.Pin"
+>Interfaces.Pin</A> control <font color="darkgreen">
+    &quot;Control pin: control.v &gt; level switch open, otherwise p--n connected&quot;</font>;
+<font color="blue">equation </font>
+  control.i = 0;
+  0 = p.i + n.i;
+  p.v - n.v = s*(<font color="blue">if </font>(control.v &gt; level)<font color="blue"> then </font>1<font color="blue"> else </font>Ron);
+  p.i = s*(<font color="blue">if </font>(control.v &gt; level)<font color="blue"> then </font>Goff<font color="blue"> else </font>1);
+<font color="blue">end </font>ControlledIdealOpener;
+</PRE>
+<HR>
+<H2><IMG SRC="Modelica.Electrical.Analog.Ideal.ControlledIdealCloserI.png" ALT="Modelica.Electrical.Analog.Ideal.ControlledIdealCloser" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Ideal.ControlledIdealCloser"></A><A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
+>Modelica.Electrical.Analog.Ideal</A>.ControlledIdealCloser</H2>
+<B>Controlled ideal electrical closer</B><p>
+<IMG SRC="Modelica.Electrical.Analog.Ideal.ControlledIdealCloserD.png" ALT="Modelica.Electrical.Analog.Ideal.ControlledIdealCloser">
+<H3>Information</H3>
+<PRE>
+</pre>
+<P>
+The ideal switch has a positive pin p and a negative pin n. 
+The switching behaviour is controlled by the control pin. 
+If its voltage exceeds the voltage of the parameter level,
+pin p is not connected with negative pin n. 
+Otherwise, pin p is connected with negative pin n.
+</P>
+<P>
+In order to prevent singularities during switching, the opened 
+switch has a (very low) conductance Goff
+and the closed switch has a (very low) resistance Ron. 
+The limiting case is also allowed, i.e., the resistance Ron of the
+closed switch could be exactly zero and the conductance Goff of the
+open switch could be also exactly zero. Note, there are circuits, 
+where a description with zero Ron or zero Goff is not possible. 
+</P>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>level</TD><TD>0.5</TD><TD>Switch level [V]</TD></TR>
+<TR><TD>Ron</TD><TD>1.E-5</TD><TD>Closed switch resistance [Ohm]</TD></TR>
+<TR><TD>Goff</TD><TD>1.E-5</TD><TD>Opened switch conductance [S]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> ControlledIdealCloser <font color="darkgreen">&quot;Controlled ideal electrical closer&quot;</font> 
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>SI.Voltage</A> level=0.5 <font color="darkgreen">&quot;Switch level&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>SI.Resistance</A> Ron(<font color="blue">final </font>min=0) = 1.E-5 <font color="darkgreen">&quot;Closed switch resistance&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Conductance"
+>SI.Conductance</A> Goff(<font color="blue">final </font>min=0) = 1.E-5 <font color="darkgreen">&quot;Opened switch conductance&quot;</font>;
+<font color="blue">protected </font>
+  Real s <font color="darkgreen">&quot;Auxiliary variable&quot;</font>;
+<font color="blue">public </font>
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.PositivePin"
+>Interfaces.PositivePin</A> p;
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.NegativePin"
+>Interfaces.NegativePin</A> n;
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.Pin"
+>Interfaces.Pin</A> control <font color="darkgreen">
+    &quot;Control pin: control.v &gt; level switch open, otherwise p--n connected&quot;</font>;
+<font color="blue">equation </font>
+  control.i = 0;
+  0 = p.i + n.i;
+  p.v - n.v = s*(<font color="blue">if </font>(control.v &gt; level)<font color="blue"> then </font>Ron<font color="blue"> else </font>1);
+  p.i = s*(<font color="blue">if </font>(control.v &gt; level)<font color="blue"> then </font>1<font color="blue"> else </font>Goff);
+<font color="blue">end </font>ControlledIdealCloser;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Tue Dec 17 13:39:36 2002
+.
+</address></BODY>
+</HTML>

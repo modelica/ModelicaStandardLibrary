@@ -1,0 +1,646 @@
+<HTML>
+<HEAD><META name="HTML-Generator" content="Dymola"><TITLE>Modelica</TITLE></HEAD>
+<BODY><P>
+<H2><A NAME="Modelica.Electrical.Analog.Basic"></A><A HREF="Modelica_Electrical_Analog.html#Modelica.Electrical.Analog"
+>Modelica.Electrical.Analog</A>.Basic</H2>
+<A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Ground"
+><IMG SRC="Modelica.Electrical.Analog.Basic.GroundI.png" ALT="Modelica.Electrical.Analog.Basic.Ground" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Resistor"
+><IMG SRC="Modelica.Electrical.Analog.Basic.ResistorI.png" ALT="Modelica.Electrical.Analog.Basic.Resistor" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.HeatingResistor"
+><IMG SRC="Modelica.Electrical.Analog.Basic.HeatingResistorI.png" ALT="Modelica.Electrical.Analog.Basic.HeatingResistor" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Conductor"
+><IMG SRC="Modelica.Electrical.Analog.Basic.ConductorI.png" ALT="Modelica.Electrical.Analog.Basic.Conductor" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Capacitor"
+><IMG SRC="Modelica.Electrical.Analog.Basic.CapacitorI.png" ALT="Modelica.Electrical.Analog.Basic.Capacitor" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Inductor"
+><IMG SRC="Modelica.Electrical.Analog.Basic.InductorI.png" ALT="Modelica.Electrical.Analog.Basic.Inductor" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Transformer"
+><IMG SRC="Modelica.Electrical.Analog.Basic.TransformerI.png" ALT="Modelica.Electrical.Analog.Basic.Transformer" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Gyrator"
+><IMG SRC="Modelica.Electrical.Analog.Basic.GyratorI.png" ALT="Modelica.Electrical.Analog.Basic.Gyrator" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.EMF"
+><IMG SRC="Modelica.Electrical.Analog.Basic.EMFI.png" ALT="Modelica.Electrical.Analog.Basic.EMF" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.VCV"
+><IMG SRC="Modelica.Electrical.Analog.Basic.VCVI.png" ALT="Modelica.Electrical.Analog.Basic.VCV" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.VCC"
+><IMG SRC="Modelica.Electrical.Analog.Basic.VCCI.png" ALT="Modelica.Electrical.Analog.Basic.VCC" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.CCV"
+><IMG SRC="Modelica.Electrical.Analog.Basic.CCVI.png" ALT="Modelica.Electrical.Analog.Basic.CCV" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.CCC"
+><IMG SRC="Modelica.Electrical.Analog.Basic.CCCI.png" ALT="Modelica.Electrical.Analog.Basic.CCC" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.OpAmp"
+><IMG SRC="Modelica.Electrical.Analog.Basic.OpAmpI.png" ALT="Modelica.Electrical.Analog.Basic.OpAmp" WIDTH=80  HEIGHT=80 ></A>
+<P><P>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This package contains basic analog electrical components:
+<ul>
+<li>Ground</li>
+<li>Resistor</li>
+<li>HeatingResistor</li>
+<li>Conductor</li>
+<li>Capacitor</li>
+<li>Inductor</li>
+<li>Transformer</li>
+<li>Gyrator</li>
+<li>EMF (Electroc-Motoric-Force)</li>
+<li>Linear controlled sources (VCV, VCC, CCV, CCC)</li>
+<li>OpAmp</li>
+</ul>
+</p>
+
+<dl>
+<dt>
+<b>Main Authors:</b>
+<dd>
+<a href="http://www.eas.iis.fhg.de/~clauss/">Christoph Clau&szlig;</a>
+    &lt;<a href="mailto:clauss@eas.iis.fhg.de">clauss@eas.iis.fhg.de</a>&gt;<br>
+    <a href="http://www.eas.iis.fhg.de/~schneider/">Andr&eacute; Schneider</a>
+    &lt;<a href="mailto:schneider@eas.iis.fhg.de">schneider@eas.iis.fhg.de</a>&gt;<br>
+    Fraunhofer Institute for Integrated Circuits<br>
+    Design Automation Department<br>
+    Zeunerstra&szlig;e 38<br>
+    D-01069 Dresden<br>
+
+<p>
+<dt>
+<b>Version:</b>
+<dd>
+$Id$<br>
+<p>
+<dt>
+<b>Copyright:</b>
+<dd>
+Copyright &copy; 1998-2002, Modelica Association and Fraunhofer-Gesellschaft.<br>
+<i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
+under the terms of the <b>Modelica license</b>, see the license conditions
+and the accompanying <b>disclaimer</b> in the documentation of package
+Modelica in file "Modelica/package.mo".</i><br>
+<p>
+</dl>
+<pre>
+</PRE><P>
+<HR>
+<H2><IMG SRC="Modelica.Electrical.Analog.Basic.GroundI.png" ALT="Modelica.Electrical.Analog.Basic.Ground" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Basic.Ground"></A><A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic"
+>Modelica.Electrical.Analog.Basic</A>.Ground</H2>
+<B>Ground node</B><p>
+<IMG SRC="Modelica.Electrical.Analog.Basic.GroundD.png" ALT="Modelica.Electrical.Analog.Basic.Ground">
+<H3>Information</H3>
+<PRE></pre>
+<P>
+Ground of an electrical circuit. The potential at the
+ground node is zero. Every electrical circuit has to contain
+at least one ground object.
+</P>
+<pre>
+</PRE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Ground <font color="darkgreen">&quot;Ground node&quot;</font> 
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.Pin"
+>Interfaces.Pin</A> p;
+<font color="blue">equation </font>
+  p.v = 0;
+<font color="blue">end </font>Ground;
+</PRE>
+<HR>
+<H2><IMG SRC="Modelica.Electrical.Analog.Basic.ResistorI.png" ALT="Modelica.Electrical.Analog.Basic.Resistor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Basic.Resistor"></A><A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic"
+>Modelica.Electrical.Analog.Basic</A>.Resistor</H2>
+<B>Ideal linear electrical resistor</B><p>
+<IMG SRC="Modelica.Electrical.Analog.Basic.ResistorD.png" ALT="Modelica.Electrical.Analog.Basic.Resistor">
+<H3>Information</H3>
+<PRE></pre>
+<P>
+The linear resistor connects the branch voltage <i>v</i> with the
+branch current <i>i</i> by <i>i*R = v</i>.
+The Resistance <i>R</i> is allowed to be positive, zero, or negative.
+</P>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>R</TD><TD>1</TD><TD>Resistance [Ohm]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Resistor <font color="darkgreen">&quot;Ideal linear electrical resistor&quot;</font> 
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
+>Interfaces.OnePort</A>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>SI.Resistance</A> R=1 <font color="darkgreen">&quot;Resistance&quot;</font>;
+<font color="blue">equation </font>
+  R*i = v;
+<font color="blue">end </font>Resistor;
+</PRE>
+<HR>
+<H2><IMG SRC="Modelica.Electrical.Analog.Basic.HeatingResistorI.png" ALT="Modelica.Electrical.Analog.Basic.HeatingResistor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Basic.HeatingResistor"></A><A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic"
+>Modelica.Electrical.Analog.Basic</A>.HeatingResistor</H2>
+<B>Temperature dependent electrical resistor</B><p>
+<IMG SRC="Modelica.Electrical.Analog.Basic.HeatingResistorD.png" ALT="Modelica.Electrical.Analog.Basic.HeatingResistor">
+<H3>Information</H3>
+<PRE></pre>
+<p>This is a model for an electrical resistor where the generated heat
+is dissipated to the environment via connector <b>heatPort</b> and where
+the resistance R is temperature dependent according to the following
+equation:</p>
+
+<pre>    R = R_ref*(1 + alpha*(heatPort.T - T_ref))
+</pre>
+
+<p><b>alpha</b> is the <b>temperature coefficient of resistance</b>, which
+is often abbreviated as <b>TCR</b>. In resistor catalogues, it is usually
+defined as <b>X [ppm/K]</b> (parts per million, similarly to per centage)
+meaning <b>X*1.e-6 [1/K]</b>. Resistors are available for 1 .. 7000 ppm/K,
+i.e., alpha = 1e-6 .. 7e-3 1/K;</p>
+
+<p>When connector <b>heatPort</b> is <b>not</b> connected, the temperature
+dependent behaviour is switched off by setting heatPort.T = T_ref.
+Additionally, the equation <tt>heatPort.Q_dot = 0</tt> is implicitly present
+due to a special rule in Modelica that flow variables of not connected
+connectors are set to zero.</p>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>R_ref</TD><TD>&nbsp;</TD><TD>Resistance at temperature T_ref [Ohm]</TD></TR>
+<TR><TD>T_ref</TD><TD>300</TD><TD>Reference temperature [K]</TD></TR>
+<TR><TD>alpha</TD><TD>0</TD><TD>Temperature coefficient of resistance [1/K]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> HeatingResistor <font color="darkgreen">&quot;Temperature dependent electrical resistor&quot;</font> 
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
+>Interfaces.OnePort</A>;
+  <font color="darkgreen"></font>
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>SI.Resistance</A> R_ref <font color="darkgreen">&quot;Resistance at temperature T_ref&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> T_ref=300 <font color="darkgreen">&quot;Reference temperature&quot;</font>;
+  <font color="blue">parameter </font>Real alpha(unit=&quot;1/K&quot;) = 0 <font color="darkgreen">&quot;Temperature coefficient of resistance&quot;</font>;
+  <font color="darkgreen"></font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>SI.Resistance</A> R <font color="darkgreen">&quot;Resistance = R_ref*(1 + alpha*(heatPort.T - T_ref));&quot;</font>;
+  <font color="darkgreen"></font>
+  <A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a"
+>Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a</A> heatPort;
+<font color="blue">equation </font>
+  v = R*i;
+  <font color="darkgreen"></font>
+  <font color="blue">if </font><font color="red">cardinality</font>(heatPort) &gt; 0<font color="blue"> then</font>
+    R = R_ref*(1 + alpha*(heatPort.T - T_ref));
+    heatPort.Q_dot = -v*i;
+  <font color="blue">else</font>
+    <font color="darkgreen">/* heatPort is not connected resulting in the
+         implicit equation 'heatPort.Q_dot = 0'
+      */</font>
+    R = R_ref;
+    heatPort.T = T_ref;
+  <font color="blue">end if</font>;
+<font color="blue">end </font>HeatingResistor;
+</PRE>
+<HR>
+<H2><IMG SRC="Modelica.Electrical.Analog.Basic.ConductorI.png" ALT="Modelica.Electrical.Analog.Basic.Conductor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Basic.Conductor"></A><A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic"
+>Modelica.Electrical.Analog.Basic</A>.Conductor</H2>
+<B>Ideal linear electrical conductor</B><p>
+<IMG SRC="Modelica.Electrical.Analog.Basic.ConductorD.png" ALT="Modelica.Electrical.Analog.Basic.Conductor">
+<H3>Information</H3>
+<PRE></pre>
+<P>
+The linear conductor connects the branch voltage <i>v</i> with the
+branch current <i>i</i> by <i>i = v*G</i>.
+The Conductance <i>G</i> is allowed to be positive, zero, or negative.
+</P>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>G</TD><TD>1</TD><TD>Conductance [S]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Conductor <font color="darkgreen">&quot;Ideal linear electrical conductor&quot;</font> 
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
+>Interfaces.OnePort</A>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Conductance"
+>SI.Conductance</A> G=1 <font color="darkgreen">&quot;Conductance&quot;</font>;
+<font color="blue">equation </font>
+  i = G*v;
+<font color="blue">end </font>Conductor;
+</PRE>
+<HR>
+<H2><IMG SRC="Modelica.Electrical.Analog.Basic.CapacitorI.png" ALT="Modelica.Electrical.Analog.Basic.Capacitor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Basic.Capacitor"></A><A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic"
+>Modelica.Electrical.Analog.Basic</A>.Capacitor</H2>
+<B>Ideal linear electrical capacitor</B><p>
+<IMG SRC="Modelica.Electrical.Analog.Basic.CapacitorD.png" ALT="Modelica.Electrical.Analog.Basic.Capacitor">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+The linear capacitor connects the branch voltage <i>v</i> with the
+branch current <i>i</i> by <i>i = C * dv/dt</i>.
+The Capacitance <i>C</i> is allowed to be positive, zero, or negative.
+</p>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>C</TD><TD>1</TD><TD>Capacitance [F]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Capacitor <font color="darkgreen">&quot;Ideal linear electrical capacitor&quot;</font> 
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
+>Interfaces.OnePort</A>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Capacitance"
+>SI.Capacitance</A> C=1 <font color="darkgreen">&quot;Capacitance&quot;</font>;
+<font color="blue">equation </font>
+  i = C*<font color="red">der</font>(v);
+<font color="blue">end </font>Capacitor;
+</PRE>
+<HR>
+<H2><IMG SRC="Modelica.Electrical.Analog.Basic.InductorI.png" ALT="Modelica.Electrical.Analog.Basic.Inductor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Basic.Inductor"></A><A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic"
+>Modelica.Electrical.Analog.Basic</A>.Inductor</H2>
+<B>Ideal linear electrical inductor</B><p>
+<IMG SRC="Modelica.Electrical.Analog.Basic.InductorD.png" ALT="Modelica.Electrical.Analog.Basic.Inductor">
+<H3>Information</H3>
+<PRE></pre>
+<P>
+The linear inductor connects the branch voltage <i>v</i> with the
+branch current <i>i</i> by  <i>v = L * di/dt</i>.
+The Inductance <i>L</i> is allowed to be positive, zero, or negative.
+</p>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>L</TD><TD>1</TD><TD>Inductance [H]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Inductor <font color="darkgreen">&quot;Ideal linear electrical inductor&quot;</font> 
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
+>Interfaces.OnePort</A>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inductance"
+>SI.Inductance</A> L=1 <font color="darkgreen">&quot;Inductance&quot;</font>;
+<font color="blue">equation </font>
+  L*<font color="red">der</font>(i) = v;
+<font color="blue">end </font>Inductor;
+</PRE>
+<HR>
+<H2><IMG SRC="Modelica.Electrical.Analog.Basic.TransformerI.png" ALT="Modelica.Electrical.Analog.Basic.Transformer" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Basic.Transformer"></A><A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic"
+>Modelica.Electrical.Analog.Basic</A>.Transformer</H2>
+<B>Transformer with two ports</B><p>
+<IMG SRC="Modelica.Electrical.Analog.Basic.TransformerD.png" ALT="Modelica.Electrical.Analog.Basic.Transformer">
+<H3>Information</H3>
+<PRE></pre>
+<p>The transformer is a two port. The left port voltage <i>v1</i>, left port current <i>i1</i>,
+right port voltage <i>v2</i> and right port current <i>i2</i> are connected by the following
+relation:</p>
+<pre>         | v1 |         | L1   M  |  | i1' |
+         |    |    =    |         |  |     |
+         | v2 |         | M    L2 |  | i2' |</pre>
+<p><i>L1</i>, <i>L2</i>, and <i>M</i> are the primary, secondary, and coupling inductances respectively.</p>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>L1</TD><TD>1</TD><TD>Primary inductance [H]</TD></TR>
+<TR><TD>L2</TD><TD>1</TD><TD>Secondary inductance [H]</TD></TR>
+<TR><TD>M</TD><TD>1</TD><TD>Coupling inductance [H]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Transformer <font color="darkgreen">&quot;Transformer with two ports&quot;</font> 
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.TwoPort"
+>Interfaces.TwoPort</A>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inductance"
+>SI.Inductance</A> L1=1 <font color="darkgreen">&quot;Primary inductance&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inductance"
+>SI.Inductance</A> L2=1 <font color="darkgreen">&quot;Secondary inductance&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inductance"
+>SI.Inductance</A> M=1 <font color="darkgreen">&quot;Coupling inductance&quot;</font>;
+<font color="blue">equation </font>
+  v1 = L1*<font color="red">der</font>(i1) + M*<font color="red">der</font>(i2);
+  v2 = M*<font color="red">der</font>(i1) + L2*<font color="red">der</font>(i2);
+<font color="blue">end </font>Transformer;
+</PRE>
+<HR>
+<H2><IMG SRC="Modelica.Electrical.Analog.Basic.GyratorI.png" ALT="Modelica.Electrical.Analog.Basic.Gyrator" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Basic.Gyrator"></A><A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic"
+>Modelica.Electrical.Analog.Basic</A>.Gyrator</H2>
+<B>Gyrator</B><p>
+<IMG SRC="Modelica.Electrical.Analog.Basic.GyratorD.png" ALT="Modelica.Electrical.Analog.Basic.Gyrator">
+<H3>Information</H3>
+<PRE></pre>
+<P>
+A gyrator is a two-port element defined by the following equations:
+</P>
+<PRE>
+    i1 =  G2 * v2
+    i2 = -G1 * v1
+</PRE>
+<P>
+where the constants <i>G1</i>, <i>G2</i> are called the gyration conductance.
+</P>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>G1</TD><TD>1</TD><TD>Gyration conductance [S]</TD></TR>
+<TR><TD>G2</TD><TD>1</TD><TD>Gyration conductance [S]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Gyrator <font color="darkgreen">&quot;Gyrator&quot;</font> 
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.TwoPort"
+>Interfaces.TwoPort</A>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Conductance"
+>SI.Conductance</A> G1=1 <font color="darkgreen">&quot;Gyration conductance&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Conductance"
+>SI.Conductance</A> G2=1 <font color="darkgreen">&quot;Gyration conductance&quot;</font>;
+<font color="blue">equation </font>
+  i1 = G2*v2;
+  i2 = -G1*v1;
+<font color="blue">end </font>Gyrator;
+</PRE>
+<HR>
+<H2><IMG SRC="Modelica.Electrical.Analog.Basic.EMFI.png" ALT="Modelica.Electrical.Analog.Basic.EMF" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Basic.EMF"></A><A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic"
+>Modelica.Electrical.Analog.Basic</A>.EMF</H2>
+<B>Electromotoric force (electric/mechanic transformer)</B><p>
+<IMG SRC="Modelica.Electrical.Analog.Basic.EMFD.png" ALT="Modelica.Electrical.Analog.Basic.EMF">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+EMF transforms electrical energy into rotational mechanical energy.
+It is used as basic building block of an electrical motor. The mechanical
+connector flange_b can be connected to elements of the
+Modelica.Mechanics.Rotational library. flange_b.tau is the cut-torque,
+flange_b.phi is the angle at the rotational connection.
+</p>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>k</TD><TD>1</TD><TD>Transformation coefficient [N.m/A]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> EMF <font color="darkgreen">&quot;Electromotoric force (electric/mechanic transformer)&quot;</font> 
+  <font color="blue">parameter </font>Real k(<font color="blue">final </font>unit=&quot;N.m/A&quot;) = 1 <font color="darkgreen">&quot;Transformation coefficient&quot;</font>;
+  <font color="darkgreen"></font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>SI.Voltage</A> v <font color="darkgreen">&quot;Voltage drop between the two pins&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Current"
+>SI.Current</A> i <font color="darkgreen">&quot;Current flowing from positive to negative pin&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
+>SI.AngularVelocity</A> w <font color="darkgreen">&quot;Angular velocity of flange_b&quot;</font>;
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.PositivePin"
+>Interfaces.PositivePin</A> p;
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.NegativePin"
+>Interfaces.NegativePin</A> n;
+  <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_b"
+>Modelica.Mechanics.Rotational.Interfaces.Flange_b</A> flange_b;
+<font color="blue">equation </font>
+  v = p.v - n.v;
+  0 = p.i + n.i;
+  i = p.i;
+  <font color="darkgreen"></font>
+  w = <font color="red">der</font>(flange_b.phi);
+  k*w = v;
+  flange_b.tau = -k*i;
+<font color="blue">end </font>EMF;
+</PRE>
+<HR>
+<H2><IMG SRC="Modelica.Electrical.Analog.Basic.VCVI.png" ALT="Modelica.Electrical.Analog.Basic.VCV" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Basic.VCV"></A><A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic"
+>Modelica.Electrical.Analog.Basic</A>.VCV</H2>
+<B>Linear voltage-controlled voltage source</B><p>
+<IMG SRC="Modelica.Electrical.Analog.Basic.VCVD.png" ALT="Modelica.Electrical.Analog.Basic.VCV">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+The linear voltage-controlled voltage source is a TwoPort.
+The right port voltage v2 is controlled by the left port voltage v1
+via
+</p>
+
+<pre>
+    v2 = v1 * gain.
+</pre>
+
+<p>
+The left port current is zero. Any voltage gain can be chosen.
+</p>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>gain</TD><TD>1</TD><TD>Voltage gain</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> VCV <font color="darkgreen">&quot;Linear voltage-controlled voltage source&quot;</font> 
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.TwoPort"
+>Interfaces.TwoPort</A>;
+  <font color="blue">parameter </font>Real gain=1 <font color="darkgreen">&quot;Voltage gain&quot;</font>;
+<font color="blue">equation </font>
+  v2 = v1*gain;
+  i1 = 0;
+<font color="blue">end </font>VCV;
+</PRE>
+<HR>
+<H2><IMG SRC="Modelica.Electrical.Analog.Basic.VCCI.png" ALT="Modelica.Electrical.Analog.Basic.VCC" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Basic.VCC"></A><A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic"
+>Modelica.Electrical.Analog.Basic</A>.VCC</H2>
+<B>Linear voltage-controlled current source</B><p>
+<IMG SRC="Modelica.Electrical.Analog.Basic.VCCD.png" ALT="Modelica.Electrical.Analog.Basic.VCC">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+The linear voltage-controlled current source is a TwoPort.
+The right port current i2 is controlled by the left port voltage v1
+via
+</p>
+<pre>
+    i2 = v1 * transConductance.
+</pre>
+<p>
+The left port current is zero. Any transConductance can be chosen.
+</p>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>transConductance</TD><TD>1</TD><TD>Transconductance [S]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> VCC <font color="darkgreen">&quot;Linear voltage-controlled current source&quot;</font> 
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.TwoPort"
+>Interfaces.TwoPort</A>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Conductance"
+>SI.Conductance</A> transConductance=1 <font color="darkgreen">&quot;Transconductance&quot;</font>;
+<font color="blue">equation </font>
+  i2 = v1*transConductance;
+  i1 = 0;
+<font color="blue">end </font>VCC;
+</PRE>
+<HR>
+<H2><IMG SRC="Modelica.Electrical.Analog.Basic.CCVI.png" ALT="Modelica.Electrical.Analog.Basic.CCV" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Basic.CCV"></A><A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic"
+>Modelica.Electrical.Analog.Basic</A>.CCV</H2>
+<B>Linear current-controlled voltage source</B><p>
+<IMG SRC="Modelica.Electrical.Analog.Basic.CCVD.png" ALT="Modelica.Electrical.Analog.Basic.CCV">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+The linear current-controlled voltage source is a TwoPort.
+The right port voltage v2 is controlled by the left port current i1
+via
+</p>
+<pre>
+    v2 = i1 * transResistance.
+</pre>
+<p>
+The left port voltage is zero. Any transResistance can be chosen.
+</p>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>transResistance</TD><TD>1</TD><TD>Transresistance [Ohm]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> CCV <font color="darkgreen">&quot;Linear current-controlled voltage source&quot;</font> 
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.TwoPort"
+>Interfaces.TwoPort</A>;
+  <font color="darkgreen"></font>
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>SI.Resistance</A> transResistance=1 <font color="darkgreen">&quot;Transresistance&quot;</font>;
+<font color="blue">equation </font>
+  v2 = i1*transResistance;
+  v1 = 0;
+<font color="blue">end </font>CCV;
+</PRE>
+<HR>
+<H2><IMG SRC="Modelica.Electrical.Analog.Basic.CCCI.png" ALT="Modelica.Electrical.Analog.Basic.CCC" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Basic.CCC"></A><A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic"
+>Modelica.Electrical.Analog.Basic</A>.CCC</H2>
+<B>Linear current-controlled current source</B><p>
+<IMG SRC="Modelica.Electrical.Analog.Basic.CCCD.png" ALT="Modelica.Electrical.Analog.Basic.CCC">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+The linear current-controlled current source is a TwoPort.
+The right port current i2 is controlled by the left port current i1
+via
+</p>
+
+<pre>
+    i2 = i1 * gain.
+</pre>
+
+<p>
+The left port voltage is zero. Any current gain can be chosen.
+</p>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>gain</TD><TD>1</TD><TD>Current gain</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> CCC <font color="darkgreen">&quot;Linear current-controlled current source&quot;</font> 
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.TwoPort"
+>Interfaces.TwoPort</A>;
+  <font color="blue">parameter </font>Real gain=1 <font color="darkgreen">&quot;Current gain&quot;</font>;
+<font color="blue">equation </font>
+  i2 = i1*gain;
+  v1 = 0;
+<font color="blue">end </font>CCC;
+</PRE>
+<HR>
+<H2><IMG SRC="Modelica.Electrical.Analog.Basic.OpAmpI.png" ALT="Modelica.Electrical.Analog.Basic.OpAmp" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Basic.OpAmp"></A><A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic"
+>Modelica.Electrical.Analog.Basic</A>.OpAmp</H2>
+<B>Simple nonideal model of an OpAmp with limitation</B><p>
+<IMG SRC="Modelica.Electrical.Analog.Basic.OpAmpD.png" ALT="Modelica.Electrical.Analog.Basic.OpAmp">
+<H3>Information</H3>
+<PRE></pre>
+<P>
+The OpAmp is a simle nonideal model with a smooth out.v = f(vin) characteristic,
+where "vin = in_p.v - in_n.v".
+The characteristic is limited by VMax.v and VMin.v. Its slope at vin=0
+is the parameter Slope, which must be positive. (Therefore, the absolute 
+value of Slope is taken into calculation.)
+</P>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Slope</TD><TD>1</TD><TD>Slope of the out.v/vin characteristic at vin=0</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> OpAmp <font color="darkgreen">&quot;Simple nonideal model of an OpAmp with limitation&quot;</font> 
+  <font color="blue">parameter </font>Real Slope=1 <font color="darkgreen">&quot;Slope of the out.v/vin characteristic at vin=0&quot;</font>;
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.PositivePin"
+>Modelica.Electrical.Analog.Interfaces.PositivePin</A> in_p <font color="darkgreen">
+    &quot;Positive pin of the input port&quot;</font>;
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.NegativePin"
+>Modelica.Electrical.Analog.Interfaces.NegativePin</A> in_n <font color="darkgreen">
+    &quot;Negative pin of the input port&quot;</font>;
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.PositivePin"
+>Modelica.Electrical.Analog.Interfaces.PositivePin</A> out <font color="darkgreen">&quot;Output pin&quot;</font>;
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.PositivePin"
+>Modelica.Electrical.Analog.Interfaces.PositivePin</A> VMax <font color="darkgreen">
+    &quot;Positive output voltage limitation&quot;</font>;
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.NegativePin"
+>Modelica.Electrical.Analog.Interfaces.NegativePin</A> VMin <font color="darkgreen">
+    &quot;Negative output voltage limitation&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>SI.Voltage</A> vin <font color="darkgreen">&quot;input voltagae&quot;</font>;
+<font color="blue">protected </font>
+  Real f <font color="darkgreen">&quot;auxiliary variable&quot;</font>;
+  Real absSlope;
+<font color="blue">equation </font>
+  in_p.i = 0;
+  in_n.i = 0;
+  VMax.i = 0;
+  VMin.i = 0;
+  vin = in_p.v - in_n.v;
+  f = 2/(VMax.v - VMin.v);
+  absSlope = <font color="blue">if </font>(Slope &lt; 0)<font color="blue"> then </font>-Slope<font color="blue"> else </font>Slope;
+  out.v = (VMax.v + VMin.v)/2 + absSlope*vin/(1 + absSlope*<font color="red">noEvent</font>(<font color="blue">if </font>(f*vin &lt; 
+    0)<font color="blue"> then </font>-f*vin<font color="blue"> else </font>f*vin));
+<font color="blue">end </font>OpAmp;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Tue Dec 17 13:39:27 2002
+.
+</address></BODY>
+</HTML>

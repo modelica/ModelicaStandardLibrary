@@ -1,5 +1,5 @@
 model NonlinearResistor "Chua's resistor" 
-  extends Modelica.Electrical.Analog.Interfaces.OnePort;
+  extends Interfaces.OnePort;
   annotation (
     Coordsys(
       extent=[-100, -100; 100, 100], 
@@ -25,11 +25,10 @@ model NonlinearResistor "Chua's resistor"
       Polygon(points=[50, 60; 38, 52; 44, 46; 50, 60], style(fillColor=3, 
             fillPattern=1)), 
       Text(extent=[-100, 100; 100, 70], string="%name")));
-  parameter Modelica.SIunits.Conductance Ga;
-  parameter Modelica.SIunits.Conductance Gb;
-  parameter Modelica.SIunits.Voltage Ve;
+  parameter SI.Conductance Ga;
+  parameter SI.Conductance Gb;
+  parameter SI.Voltage Ve;
 equation 
   i = if (v < -Ve) then Gb*(v + Ve) - Ga*Ve else if (v > Ve) then Gb*(v - Ve)
      + Ga*Ve else Ga*v;
 end NonlinearResistor;
-

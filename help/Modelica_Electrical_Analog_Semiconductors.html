@@ -1,0 +1,625 @@
+<HTML>
+<HEAD><META name="HTML-Generator" content="Dymola"><TITLE>Modelica</TITLE></HEAD>
+<BODY><P>
+<H2><A NAME="Modelica.Electrical.Analog.Semiconductors"></A><A HREF="Modelica_Electrical_Analog.html#Modelica.Electrical.Analog"
+>Modelica.Electrical.Analog</A>.Semiconductors</H2>
+<A HREF="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors.Diode"
+><IMG SRC="Modelica.Electrical.Analog.Semiconductors.DiodeI.png" ALT="Modelica.Electrical.Analog.Semiconductors.Diode" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors.PMOS"
+><IMG SRC="Modelica.Electrical.Analog.Semiconductors.PMOSI.png" ALT="Modelica.Electrical.Analog.Semiconductors.PMOS" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors.NMOS"
+><IMG SRC="Modelica.Electrical.Analog.Semiconductors.NMOSI.png" ALT="Modelica.Electrical.Analog.Semiconductors.NMOS" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors.NPN"
+><IMG SRC="Modelica.Electrical.Analog.Semiconductors.NPNI.png" ALT="Modelica.Electrical.Analog.Semiconductors.NPN" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors.PNP"
+><IMG SRC="Modelica.Electrical.Analog.Semiconductors.PNPI.png" ALT="Modelica.Electrical.Analog.Semiconductors.PNP" WIDTH=80  HEIGHT=80 ></A>
+<P><P>
+<H3>Information</H3>
+<PRE>
+</pre>
+<p>
+This package contains semiconductor devices:
+<ul>
+<li>diode</li>
+<li>MOS transistors</li>
+<li>bipolar transistors</li>
+</ul>
+</p>
+
+<dl>
+<dt>
+<b>Main Authors:</b>
+<dd>
+<a href="http://www.eas.iis.fhg.de/~clauss/">Christoph Clau&szlig;</a> 
+    &lt;<a href="mailto:clauss@eas.iis.fhg.de">clauss@eas.iis.fhg.de</a>&gt;<br>
+    <a href="http://www.eas.iis.fhg.de/~schneider/">Andr&eacute; Schneider</a> 
+    &lt;<a href="mailto:schneider@eas.iis.fhg.de">schneider@eas.iis.fhg.de</a>&gt;<br>
+    Fraunhofer Institute for Integrated Circuits<br>
+    Design Automation Department<br>
+    Zeunerstra&szlig;e 38<br>
+    D-01069 Dresden<br>
+
+<p>
+<dt>
+<b>Version:</b>
+<dd>
+$Id$<br>
+<p>
+<dt>
+<b>Copyright:</b>
+<dd>
+Copyright (C) 1998-1999, Modelica Association and Fraunhofer-Gesellschaft.<br>
+<i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
+under the terms of the <b>Modelica license</b>, see the license conditions
+and the accompanying <b>disclaimer</b> in the documentation of package 
+Modelica in file "Modelica/package.mo".</i><br>
+<p>
+</dl>
+<pre>
+</PRE><P>
+<HR>
+<H2><IMG SRC="Modelica.Electrical.Analog.Semiconductors.DiodeI.png" ALT="Modelica.Electrical.Analog.Semiconductors.Diode" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Semiconductors.Diode"></A><A HREF="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors"
+>Modelica.Electrical.Analog.Semiconductors</A>.Diode</H2>
+<B>Simple diode</B><p>
+<IMG SRC="Modelica.Electrical.Analog.Semiconductors.DiodeD.png" ALT="Modelica.Electrical.Analog.Semiconductors.Diode">
+<H3>Information</H3>
+<PRE>
+</pre>
+<P>
+The simple diode is a one port. It consists of the diode itself and an parallel ohmic
+resistance <i>R</i>. The diode formula is:
+</P>
+<PRE> 
+                v/vt
+  i  =  ids ( e      - 1).
+</PRE>
+<P>
+If the exponent <i>v/vt</i> reaches the limit <i>maxex</i>, the diode characterisic is linearly
+continued to avoid overflow.
+</P>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Ids</TD><TD>1.e-6</TD><TD>Saturation current [A]</TD></TR>
+<TR><TD>Vt</TD><TD>0.04</TD><TD>Voltage equivalent of temperature (kT/qn) [V]</TD></TR>
+<TR><TD>Maxexp</TD><TD>15</TD><TD>Max. exponent for linear continuation</TD></TR>
+<TR><TD>R</TD><TD>1.e8</TD><TD>Parallel ohmic resistance [Ohm]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Diode <font color="darkgreen">&quot;Simple diode&quot;</font> 
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
+>Modelica.Electrical.Analog.Interfaces.OnePort</A>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Current"
+>SIunits.Current</A> Ids=1.e-6 <font color="darkgreen">&quot;Saturation current&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>SIunits.Voltage</A> Vt=0.04 <font color="darkgreen">&quot;Voltage equivalent of temperature (kT/qn)&quot;</font>;
+  <font color="blue">parameter </font>Real Maxexp(<font color="blue">final </font>min=Modelica.Constants.SMALL) = 15 <font color="darkgreen">
+    &quot;Max. exponent for linear continuation&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>SIunits.Resistance</A> R=1.e8 <font color="darkgreen">&quot;Parallel ohmic resistance&quot;</font>;
+<font color="blue">equation </font>
+  i = <font color="blue">if </font>(v/Vt &gt; Maxexp)<font color="blue"> then </font>Ids*(<font color="red">exp</font>(Maxexp)*(1 + v/Vt - Maxexp) - 1) + v/R<font color="blue">
+     else </font>Ids*(<font color="red">exp</font>(v/Vt) - 1) + v/R;
+<font color="blue">end </font>Diode;
+</PRE>
+<HR>
+<H2><IMG SRC="Modelica.Electrical.Analog.Semiconductors.PMOSI.png" ALT="Modelica.Electrical.Analog.Semiconductors.PMOS" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Semiconductors.PMOS"></A><A HREF="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors"
+>Modelica.Electrical.Analog.Semiconductors</A>.PMOS</H2>
+<B>Simple MOS Transistor</B><p>
+<IMG SRC="Modelica.Electrical.Analog.Semiconductors.PMOSD.png" ALT="Modelica.Electrical.Analog.Semiconductors.PMOS">
+<H3>Information</H3>
+<PRE>
+</pre>
+<P>
+The PMOS model is a simple model of a p-channel metal-oxide semiconductor
+FET. It differs slightly from the device used in the SPICE simulator.
+For more details please care for H. Spiro.
+</P>
+<P>
+The model does not consider capacitances. A high drain-source resistance RDS
+is included to avoid numerical difficulties.
+</P>
+<DL>
+<DT><b>References:</b>
+<DD>Spiro, H.: Simulation integrierter Schaltungen. R. Oldenbourg Verlag 
+  Muenchen Wien 1990.   
+</DL>
+<P>
+Some typical parameter sets are:
+</P>
+<PRE>
+  W       L      Beta        Vt       K2       K5       DW         DL    
+  m       m      A/V^2       V        -        -        m          m    
+
+  50.e-6  8.e-6  .0085e-3   -.15     .41      .839    -3.8e-6    -4.0e-6           
+  20.e-6  6.e-6  .0105e-3  -1.0      .41      .839    -2.5e-6    -2.1e-6 
+  30.e-6  5.e-6  .0059e-3   -.3      .98     1.01      0         -3.9e-6   
+  30.e-6  5.e-6  .0152e-3   -.69     .104    1.1       -.8e-6     -.4e-6         
+  30.e-6  5.e-6  .0163e-3   -.69     .104    1.1       -.8e-6     -.4e-6         
+  30.e-6  5.e-6  .0182e-3   -.69     .086    1.06      -.1e-6     -.6e-6         
+  20.e-6  6.e-6  .0074e-3  -1.       .4       .59      0          0           
+</PRE>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>W</TD><TD>20.0e-6</TD><TD>Width [m]</TD></TR>
+<TR><TD>L</TD><TD>6.0e-6</TD><TD>Length [m]</TD></TR>
+<TR><TD>Beta</TD><TD>0.0105e-3</TD><TD>Transconductance parameter [A/(V*V)]</TD></TR>
+<TR><TD>Vt</TD><TD>-1.0</TD><TD>Zero bias threshold voltage [V]</TD></TR>
+<TR><TD>K2</TD><TD>0.41</TD><TD>Bulk threshold parameter</TD></TR>
+<TR><TD>K5</TD><TD>0.839</TD><TD>Reduction of pinch-off region</TD></TR>
+<TR><TD>dW</TD><TD>-2.5e-6</TD><TD>Narrowing of channel [m]</TD></TR>
+<TR><TD>dL</TD><TD>-2.1e-6</TD><TD>Shortening of channel [m]</TD></TR>
+<TR><TD>RDS</TD><TD>1.e+7</TD><TD>Drain-Source-Resistance [Ohm]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> PMOS <font color="darkgreen">&quot;Simple MOS Transistor&quot;</font> 
+  <font color="darkgreen">// 6.12.2001 parameter RDS added, Clauss    </font>
+  <font color="darkgreen"></font>
+  <font color="darkgreen"></font>
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.Pin"
+>Interfaces.Pin</A> D <font color="darkgreen">&quot;Drain&quot;</font>;
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.Pin"
+>Interfaces.Pin</A> G <font color="darkgreen">&quot;Gate&quot;</font>;
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.Pin"
+>Interfaces.Pin</A> S <font color="darkgreen">&quot;Source&quot;</font>;
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.Pin"
+>Interfaces.Pin</A> B <font color="darkgreen">&quot;Bulk&quot;</font>;
+  <font color="darkgreen"></font>
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SIunits.Length</A> W=20.0e-6 <font color="darkgreen">&quot;Width&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SIunits.Length</A> L=6.0e-6 <font color="darkgreen">&quot;Length&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Transconductance"
+>SIunits.Transconductance</A> Beta=0.0105e-3 <font color="darkgreen">&quot;Transconductance parameter&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>SIunits.Voltage</A> Vt=-1.0 <font color="darkgreen">&quot;Zero bias threshold voltage&quot;</font>;
+  <font color="blue">parameter </font>Real K2=0.41 <font color="darkgreen">&quot;Bulk threshold parameter&quot;</font>;
+  <font color="blue">parameter </font>Real K5=0.839 <font color="darkgreen">&quot;Reduction of pinch-off region&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SIunits.Length</A> dW=-2.5e-6 <font color="darkgreen">&quot;Narrowing of channel&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SIunits.Length</A> dL=-2.1e-6 <font color="darkgreen">&quot;Shortening of channel&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>SIunits.Resistance</A> RDS=1.e+7 <font color="darkgreen">&quot;Drain-Source-Resistance&quot;</font>;
+<font color="blue">protected </font>
+  Real v;
+  Real uds;
+  Real ubs;
+  Real ugst;
+  Real ud;
+  Real us;
+  Real id;
+  Real gds;
+<font color="blue">equation </font>
+  <font color="darkgreen">//assert (L + dL &gt; 0, &quot;Effective length must be positive&quot;);</font>
+  <font color="darkgreen">//assert (W + dW &gt; 0, &quot;Effective width  must be positive&quot;);</font>
+  gds = <font color="blue">if </font>(RDS &lt; 1.e-20<font color="blue"> and </font>RDS &gt; -1.e-20)<font color="blue"> then </font>1.e20<font color="blue"> else </font>1/RDS;
+  v = Beta*(W + dW)/(L + dL);
+  ud = <font color="blue">if </font>(D.v &gt; S.v)<font color="blue"> then </font>S.v<font color="blue"> else </font>D.v;
+  us = <font color="blue">if </font>(D.v &gt; S.v)<font color="blue"> then </font>D.v<font color="blue"> else </font>S.v;
+  uds = ud - us;
+  ubs = <font color="blue">if </font>(B.v &lt; us)<font color="blue"> then </font>0<font color="blue"> else </font>B.v - us;
+  ugst = (G.v - us - Vt + K2*ubs)*K5;
+  id = <font color="blue">if </font>(ugst &gt;= 0)<font color="blue"> then </font>v*uds*gds<font color="blue"> else </font><font color="blue">if </font>(ugst &lt; uds)<font color="blue"> then </font>-v*uds*(ugst - 
+    uds/2 - gds)<font color="blue"> else </font>-v*(ugst*ugst/2 - uds*gds);
+  G.i = 0;
+  D.i = <font color="blue">if </font>(D.v &gt; S.v)<font color="blue"> then </font>-id<font color="blue"> else </font>id;
+  S.i = <font color="blue">if </font>(D.v &gt; S.v)<font color="blue"> then </font>id<font color="blue"> else </font>-id;
+  B.i = 0;
+<font color="blue">end </font>PMOS;
+</PRE>
+<HR>
+<H2><IMG SRC="Modelica.Electrical.Analog.Semiconductors.NMOSI.png" ALT="Modelica.Electrical.Analog.Semiconductors.NMOS" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Semiconductors.NMOS"></A><A HREF="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors"
+>Modelica.Electrical.Analog.Semiconductors</A>.NMOS</H2>
+<B>Simple MOS Transistor</B><p>
+<IMG SRC="Modelica.Electrical.Analog.Semiconductors.NMOSD.png" ALT="Modelica.Electrical.Analog.Semiconductors.NMOS">
+<H3>Information</H3>
+<PRE>
+</pre>
+<P>
+The NMos model is a simple model of a n-channel metal-oxide semiconductor
+FET. It differs slightly from the device used in the SPICE simulator.
+For more details please care for H. Spiro.
+</P>
+<P>
+The model does not consider capacitances. A high drain-source resistance RDS
+is included to avoid numerical difficulties.
+</P>
+<P>
+<PRE>
+  W       L      Beta        Vt       K2      K5       DW         DL    
+  m       m      A/V^2       V        -       -        m          m    
+
+  12.e-6  4.e-6  .062e-3   -4.5      .24     .61     -1.2e-6     -.9e-6      depletion
+  60.e-6  3.e-6  .048e-3     .1      .08     .68     -1.2e-6     -.9e-6      enhancement
+  12.e-6  4.e-6  .0625e-3   -.8      .21     .78     -1.2e-6     -.9e-6      zero
+  50.e-6  8.e-6  .0299e-3    .24    1.144    .7311   -5.4e-6    -4.e-6          
+  20.e-6  6.e-6  .041e-3     .8     1.144    .7311   -2.5e-6    -1.5e-6         
+  30.e-6  9.e-6  .025e-3   -4.       .861    .878    -3.4e-6    -1.74e-6        
+  30.e-6  5.e-6  .031e-3     .6     1.5      .72      0         -3.9e-6         
+  50.e-6  6.e-6  .0414e-3  -3.8      .34     .8      -1.6e-6    -2.e-6       depletion
+  50.e-6  5.e-6  .03e-3      .37     .23     .86     -1.6e-6    -2.e-6       enhancement
+  50.e-6  6.e-6  .038e-3    -.9      .23     .707    -1.6e-6    -2.e-6       zero
+  20.e-6  4.e-6  .06776e-3   .5409   .065    .71      -.8e-6     -.2e-6      
+  20.e-6  4.e-6  .06505e-3   .6209   .065    .71      -.8e-6     -.2e-6         
+  20.e-6  4.e-6  .05365e-3   .6909   .03     .8       -.3e-6     -.2e-6        
+  20.e-6  4.e-6  .05365e-3   .4909   .03     .8       -.3e-6     -.2e-6        
+  12.e-6  4.e-6  .023e-3   -4.5      .29     .6       0          0           depletion
+  60.e-6  3.e-6  .022e-3     .1      .11     .65      0          0           enhancement
+  12.e-6  4.e-6  .038e-3    -.8      .33     .6       0          0           zero
+  20.e-6  6.e-6  .022e-3     .8     1        .66      0          0            
+</PRE>
+<P>
+<DL>
+<DT><b>References:</b>
+<DD>Spiro, H.: Simulation integrierter Schaltungen. R. Oldenbourg Verlag 
+Muenchen Wien 1990.  
+</DL>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>W</TD><TD>20.e-6</TD><TD>Width [m]</TD></TR>
+<TR><TD>L</TD><TD>6.e-6</TD><TD>Length [m]</TD></TR>
+<TR><TD>Beta</TD><TD>0.041e-3</TD><TD>Transconductance parameter [A/(V*V)]</TD></TR>
+<TR><TD>Vt</TD><TD>0.8</TD><TD>Zero bias threshold voltage [V]</TD></TR>
+<TR><TD>K2</TD><TD>1.144</TD><TD>Bulk threshold parameter</TD></TR>
+<TR><TD>K5</TD><TD>0.7311</TD><TD>Reduction of pinch-off region</TD></TR>
+<TR><TD>dW</TD><TD>-2.5e-6</TD><TD>narrowing of channel [m]</TD></TR>
+<TR><TD>dL</TD><TD>-1.5e-6</TD><TD>shortening of channel [m]</TD></TR>
+<TR><TD>RDS</TD><TD>1.e+7</TD><TD>Drain-Source-Resistance [Ohm]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> NMOS <font color="darkgreen">&quot;Simple MOS Transistor&quot;</font> 
+  <font color="darkgreen">// 6.12.2001 parameter RDS added, Clauss    </font>
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.Pin"
+>Interfaces.Pin</A> D <font color="darkgreen">&quot;Drain&quot;</font>;
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.Pin"
+>Interfaces.Pin</A> G <font color="darkgreen">&quot;Gate&quot;</font>;
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.Pin"
+>Interfaces.Pin</A> S <font color="darkgreen">&quot;Source&quot;</font>;
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.Pin"
+>Interfaces.Pin</A> B <font color="darkgreen">&quot;Bulk&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SIunits.Length</A> W=20.e-6 <font color="darkgreen">&quot;Width&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SIunits.Length</A> L=6.e-6 <font color="darkgreen">&quot;Length&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Transconductance"
+>SIunits.Transconductance</A> Beta=0.041e-3 <font color="darkgreen">&quot;Transconductance parameter&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>SIunits.Voltage</A> Vt=0.8 <font color="darkgreen">&quot;Zero bias threshold voltage&quot;</font>;
+  <font color="blue">parameter </font>Real K2=1.144 <font color="darkgreen">&quot;Bulk threshold parameter&quot;</font>;
+  <font color="blue">parameter </font>Real K5=0.7311 <font color="darkgreen">&quot;Reduction of pinch-off region&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SIunits.Length</A> dW=-2.5e-6 <font color="darkgreen">&quot;narrowing of channel&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SIunits.Length</A> dL=-1.5e-6 <font color="darkgreen">&quot;shortening of channel&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>SIunits.Resistance</A> RDS=1.e+7 <font color="darkgreen">&quot;Drain-Source-Resistance&quot;</font>;
+<font color="blue">protected </font>
+  Real v;
+  Real uds;
+  Real ubs;
+  Real ugst;
+  Real ud;
+  Real us;
+  Real id;
+  Real gds;
+<font color="blue">equation </font>
+  <font color="darkgreen">//assert (L + dL &gt; 0, &quot;Effective length must be positive&quot;);</font>
+  <font color="darkgreen">//assert (W + dW &gt; 0, &quot;Effective width  must be positive&quot;);</font>
+  gds = <font color="blue">if </font>(RDS &lt; 1.e-20<font color="blue"> and </font>RDS &gt; -1.e-20)<font color="blue"> then </font>1.e20<font color="blue"> else </font>1/RDS;
+  v = Beta*(W + dW)/(L + dL);
+  ud = <font color="blue">if </font>(D.v &lt; S.v)<font color="blue"> then </font>S.v<font color="blue"> else </font>D.v;
+  us = <font color="blue">if </font>(D.v &lt; S.v)<font color="blue"> then </font>D.v<font color="blue"> else </font>S.v;
+  uds = ud - us;
+  ubs = <font color="blue">if </font>(B.v &gt; us)<font color="blue"> then </font>0<font color="blue"> else </font>B.v - us;
+  ugst = (G.v - us - Vt + K2*ubs)*K5;
+  id = <font color="blue">if </font>(ugst &lt;= 0)<font color="blue"> then </font>v*uds*gds<font color="blue"> else </font><font color="blue">if </font>(ugst &gt; uds)<font color="blue"> then </font>v*uds*(ugst - 
+    uds/2 + gds)<font color="blue"> else </font>v*(ugst*ugst/2 + uds*gds);
+  G.i = 0;
+  D.i = <font color="blue">if </font>(D.v &lt; S.v)<font color="blue"> then </font>-id<font color="blue"> else </font>id;
+  S.i = <font color="blue">if </font>(D.v &lt; S.v)<font color="blue"> then </font>id<font color="blue"> else </font>-id;
+  B.i = 0;
+<font color="blue">end </font>NMOS;
+</PRE>
+<HR>
+<H2><IMG SRC="Modelica.Electrical.Analog.Semiconductors.NPNI.png" ALT="Modelica.Electrical.Analog.Semiconductors.NPN" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Semiconductors.NPN"></A><A HREF="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors"
+>Modelica.Electrical.Analog.Semiconductors</A>.NPN</H2>
+<B>Simple BJT according to Ebers-Moll</B><p>
+<IMG SRC="Modelica.Electrical.Analog.Semiconductors.NPND.png" ALT="Modelica.Electrical.Analog.Semiconductors.NPN">
+<H3>Information</H3>
+<PRE>
+</pre>
+<P>
+This model is a simple model of a bipolar npn junction transistor according
+to Ebers-Moll.
+</P>
+<P>
+A typical parameter set is:
+</P>
+<PRE>
+  Bf  Br  Is     Vak  Tauf    Taur  Ccs   Cje     Cjc     Phie  Me   PHic   Mc     Gbc    Gbe    Vt   
+  -   -   A      V    s       s     F     F       F       V     -    V      -      mS     mS     V
+
+  50  0.1 1e-16  0.02 0.12e-9 5e-9  1e-12 0.4e-12 0.5e-12 0.8   0.4  0.8    0.333  1e-15  1e-15  0.02585
+</PRE>
+<P>
+<DL>
+<DT><b>References:</b>
+<DD>Vlach, J.; Singal, K.: Computer methods for circuit analysis and design.
+Van Nostrand Reinhold, New York 1983
+on page 317 ff.
+</DL>
+<P>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Bf</TD><TD>50</TD><TD>Forward beta</TD></TR>
+<TR><TD>Br</TD><TD>0.1</TD><TD>Reverse beta</TD></TR>
+<TR><TD>Is</TD><TD>1.e-16</TD><TD>Transport saturation current [A]</TD></TR>
+<TR><TD>Vak</TD><TD>0.02</TD><TD>Early voltage (inverse), 1/Volt [1/V]</TD></TR>
+<TR><TD>Tauf</TD><TD>0.12e-9</TD><TD>Ideal forward transit time [s]</TD></TR>
+<TR><TD>Taur</TD><TD>5e-9</TD><TD>Ideal reverse transit time [s]</TD></TR>
+<TR><TD>Ccs</TD><TD>1e-12</TD><TD>Collector-substrat(ground) cap. [F]</TD></TR>
+<TR><TD>Cje</TD><TD>0.4e-12</TD><TD>Base-emitter zero bias depletion cap. [F]</TD></TR>
+<TR><TD>Cjc</TD><TD>0.5e-12</TD><TD>Base-coll. zero bias depletion cap. [F]</TD></TR>
+<TR><TD>Phie</TD><TD>0.8</TD><TD>Base-emitter diffusion voltage [V]</TD></TR>
+<TR><TD>Me</TD><TD>0.4</TD><TD>Base-emitter gradation exponent</TD></TR>
+<TR><TD>Phic</TD><TD>0.8</TD><TD>Base-collector diffusion voltage [V]</TD></TR>
+<TR><TD>Mc</TD><TD>0.333</TD><TD>Base-collector gradation exponent</TD></TR>
+<TR><TD>Gbc</TD><TD>1e-15</TD><TD>Base-collector conductance [S]</TD></TR>
+<TR><TD>Gbe</TD><TD>1e-15</TD><TD>Base-emitter conductance [S]</TD></TR>
+<TR><TD>Vt</TD><TD>0.02585</TD><TD>Voltage equivalent of temperature [V]</TD></TR>
+<TR><TD>EMin</TD><TD>-100</TD><TD>if x &lt; EMin, the exp(x) function is linearized</TD></TR>
+<TR><TD>EMax</TD><TD>40</TD><TD>if x &gt; EMax, the exp(x) function is linearized</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> NPN <font color="darkgreen">&quot;Simple BJT according to Ebers-Moll&quot;</font> 
+  <font color="blue">parameter </font>Real Bf=50 <font color="darkgreen">&quot;Forward beta&quot;</font>;
+  <font color="blue">parameter </font>Real Br=0.1 <font color="darkgreen">&quot;Reverse beta&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Current"
+>SIunits.Current</A> Is=1.e-16 <font color="darkgreen">&quot;Transport saturation current&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.InversePotential"
+>SIunits.InversePotential</A> Vak=0.02 <font color="darkgreen">&quot;Early voltage (inverse), 1/Volt&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
+>SIunits.Time</A> Tauf=0.12e-9 <font color="darkgreen">&quot;Ideal forward transit time&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
+>SIunits.Time</A> Taur=5e-9 <font color="darkgreen">&quot;Ideal reverse transit time&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Capacitance"
+>SIunits.Capacitance</A> Ccs=1e-12 <font color="darkgreen">&quot;Collector-substrat(ground) cap.&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Capacitance"
+>SIunits.Capacitance</A> Cje=0.4e-12 <font color="darkgreen">&quot;Base-emitter zero bias depletion cap.&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Capacitance"
+>SIunits.Capacitance</A> Cjc=0.5e-12 <font color="darkgreen">&quot;Base-coll. zero bias depletion cap.&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>SIunits.Voltage</A> Phie=0.8 <font color="darkgreen">&quot;Base-emitter diffusion voltage&quot;</font>;
+  <font color="blue">parameter </font>Real Me=0.4 <font color="darkgreen">&quot;Base-emitter gradation exponent&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>SIunits.Voltage</A> Phic=0.8 <font color="darkgreen">&quot;Base-collector diffusion voltage&quot;</font>;
+  <font color="blue">parameter </font>Real Mc=0.333 <font color="darkgreen">&quot;Base-collector gradation exponent&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Conductance"
+>SIunits.Conductance</A> Gbc=1e-15 <font color="darkgreen">&quot;Base-collector conductance&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Conductance"
+>SIunits.Conductance</A> Gbe=1e-15 <font color="darkgreen">&quot;Base-emitter conductance&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>SIunits.Voltage</A> Vt=0.02585 <font color="darkgreen">&quot;Voltage equivalent of temperature&quot;</font>;
+  <font color="blue">parameter </font>Real EMin=-100 <font color="darkgreen">&quot;if x &lt; EMin, the exp(x) function is linearized&quot;</font>;
+  <font color="blue">parameter </font>Real EMax=40 <font color="darkgreen">&quot;if x &gt; EMax, the exp(x) function is linearized&quot;</font>;
+<font color="blue">protected </font>
+  Real vbc;
+  Real vbe;
+  Real qbk;
+  Real ibc;
+  Real ibe;
+  Real cbc;
+  Real cbe;
+  Real ExMin;
+  Real ExMax;
+  Real Capcje;
+  Real Capcjc;
+  <font color="blue">function</font> pow <font color="darkgreen">&quot;Just a helper function for x^y&quot;</font> 
+    <font color="blue">input </font>Real x;
+    <font color="blue">input </font>Real y;
+    <font color="blue">output </font>Real z;
+  <font color="blue">algorithm </font>
+    z := x^y;
+  <font color="blue">end </font>pow;
+<font color="blue">public </font>
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.Pin"
+>Modelica.Electrical.Analog.Interfaces.Pin</A> C <font color="darkgreen">&quot;Collector&quot;</font>;
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.Pin"
+>Modelica.Electrical.Analog.Interfaces.Pin</A> B <font color="darkgreen">&quot;Base&quot;</font>;
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.Pin"
+>Modelica.Electrical.Analog.Interfaces.Pin</A> E <font color="darkgreen">&quot;Emitter&quot;</font>;
+<font color="blue">equation </font>
+  ExMin = <font color="red">exp</font>(EMin);
+  ExMax = <font color="red">exp</font>(EMax);
+  vbc = B.v - C.v;
+  vbe = B.v - E.v;
+  qbk = 1 - vbc*Vak;
+  <font color="darkgreen"></font>
+  ibc = <font color="blue">if </font>(vbc/Vt &lt; EMin)<font color="blue"> then </font>Is*(ExMin*(vbc/Vt - EMin + 1) - 1) + vbc*Gbc<font color="blue">
+     else </font><font color="blue">if </font>(vbc/Vt &gt; EMax)<font color="blue"> then </font>Is*(ExMax*(vbc/Vt - EMax + 1) - 1) + vbc*Gbc<font color="blue">
+     else </font>Is*(<font color="red">exp</font>(vbc/Vt) - 1) + vbc*Gbc;
+  ibe = <font color="blue">if </font>(vbe/Vt &lt; EMin)<font color="blue"> then </font>Is*(ExMin*(vbe/Vt - EMin + 1) - 1) + vbe*Gbe<font color="blue">
+     else </font><font color="blue">if </font>(vbe/Vt &gt; EMax)<font color="blue"> then </font>Is*(ExMax*(vbe/Vt - EMax + 1) - 1) + vbe*Gbe<font color="blue">
+     else </font>Is*(<font color="red">exp</font>(vbe/Vt) - 1) + vbe*Gbe;
+  Capcjc = <font color="blue">if </font>(vbc/Phic &gt; 0)<font color="blue"> then </font>Cjc*(1 + Mc*vbc/Phic)<font color="blue"> else </font>Cjc*<font color="red">pow</font>(1 - vbc/
+    Phic, -Mc);
+  Capcje = <font color="blue">if </font>(vbe/Phie &gt; 0)<font color="blue"> then </font>Cje*(1 + Me*vbe/Phie)<font color="blue"> else </font>Cje*<font color="red">pow</font>(1 - vbe/
+    Phie, -Me);
+  cbc = <font color="blue">if </font>(vbc/Vt &lt; EMin)<font color="blue"> then </font>Taur*Is/Vt*ExMin*(vbc/Vt - EMin + 1) + Capcjc<font color="blue">
+     else </font><font color="blue">if </font>(vbc/Vt &gt; EMax)<font color="blue"> then </font>Taur*Is/Vt*ExMax*(vbc/Vt - EMax + 1) + Capcjc<font color="blue">
+     else </font>Taur*Is/Vt*<font color="red">exp</font>(vbc/Vt) + Capcjc;
+  cbe = <font color="blue">if </font>(vbe/Vt &lt; EMin)<font color="blue"> then </font>Tauf*Is/Vt*ExMin*(vbe/Vt - EMin + 1) + Capcje<font color="blue">
+     else </font><font color="blue">if </font>(vbe/Vt &gt; EMax)<font color="blue"> then </font>Tauf*Is/Vt*ExMax*(vbe/Vt - EMax + 1) + Capcje<font color="blue">
+     else </font>Tauf*Is/Vt*<font color="red">exp</font>(vbe/Vt) + Capcje;
+  C.i = (ibe - ibc)*qbk - ibc/Br - cbc*<font color="red">der</font>(vbc) + Ccs*<font color="red">der</font>(C.v);
+  B.i = ibe/Bf + ibc/Br + cbc*<font color="red">der</font>(vbc) + cbe*<font color="red">der</font>(vbe);
+  E.i = -B.i - C.i + Ccs*<font color="red">der</font>(C.v);
+<font color="blue">end </font>NPN;
+</PRE>
+<HR>
+<H2><IMG SRC="Modelica.Electrical.Analog.Semiconductors.PNPI.png" ALT="Modelica.Electrical.Analog.Semiconductors.PNP" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Semiconductors.PNP"></A><A HREF="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors"
+>Modelica.Electrical.Analog.Semiconductors</A>.PNP</H2>
+<B>Simple BJT according to Ebers-Moll</B><p>
+<IMG SRC="Modelica.Electrical.Analog.Semiconductors.PNPD.png" ALT="Modelica.Electrical.Analog.Semiconductors.PNP">
+<H3>Information</H3>
+<PRE>
+</pre>
+<P>
+This model is a simple model of a bipolar pnp junction transistor according
+to Ebers-Moll.
+<P>
+A typical parameter set is:
+</P>
+<PRE>
+  Bf  Br  Is     Vak  Tauf    Taur  Ccs   Cje     Cjc     Phie  Me   PHic   Mc     Gbc    Gbe    Vt   
+  -   -   A      V    s       s     F     F       F       V     -    V      -      mS     mS     V
+
+  50  0.1 1e-16  0.02 0.12e-9 5e-9  1e-12 0.4e-12 0.5e-12 0.8   0.4  0.8    0.333  1e-15  1e-15  0.02585
+</PRE>
+<P>
+<DL>
+<DT><b>References:</b>
+<DD>Vlach, J.; Singal, K.: Computer methods for circuit analysis and design.
+Van Nostrand Reinhold, New York 1983
+on page 317 ff.
+</DL>
+<P>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Bf</TD><TD>50</TD><TD>Forward beta</TD></TR>
+<TR><TD>Br</TD><TD>0.1</TD><TD>Reverse beta</TD></TR>
+<TR><TD>Is</TD><TD>1.e-16</TD><TD>Transport saturation current [A]</TD></TR>
+<TR><TD>Vak</TD><TD>0.02</TD><TD>Early voltage (inverse), 1/Volt [1/V]</TD></TR>
+<TR><TD>Tauf</TD><TD>0.12e-9</TD><TD>Ideal forward transit time [s]</TD></TR>
+<TR><TD>Taur</TD><TD>5e-9</TD><TD>Ideal reverse transit time [s]</TD></TR>
+<TR><TD>Ccs</TD><TD>1e-12</TD><TD>Collector-substrat(ground) cap. [F]</TD></TR>
+<TR><TD>Cje</TD><TD>0.4e-12</TD><TD>Base-emitter zero bias depletion cap. [F]</TD></TR>
+<TR><TD>Cjc</TD><TD>0.5e-12</TD><TD>Base-coll. zero bias depletion cap. [F]</TD></TR>
+<TR><TD>Phie</TD><TD>0.8</TD><TD>Base-emitter diffusion voltage [V]</TD></TR>
+<TR><TD>Me</TD><TD>0.4</TD><TD>Base-emitter gradation exponent</TD></TR>
+<TR><TD>Phic</TD><TD>0.8</TD><TD>Base-collector diffusion voltage [V]</TD></TR>
+<TR><TD>Mc</TD><TD>0.333</TD><TD>Base-collector gradation exponent</TD></TR>
+<TR><TD>Gbc</TD><TD>1e-15</TD><TD>Base-collector conductance [S]</TD></TR>
+<TR><TD>Gbe</TD><TD>1e-15</TD><TD>Base-emitter conductance [S]</TD></TR>
+<TR><TD>Vt</TD><TD>0.02585</TD><TD>Voltage equivalent of temperature [V]</TD></TR>
+<TR><TD>EMin</TD><TD>-100</TD><TD>if x &lt; EMin, the exp(x) function is linearized</TD></TR>
+<TR><TD>EMax</TD><TD>40</TD><TD>if x &gt; EMax, the exp(x) function is linearized</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> PNP <font color="darkgreen">&quot;Simple BJT according to Ebers-Moll&quot;</font> 
+  <font color="blue">parameter </font>Real Bf=50 <font color="darkgreen">&quot;Forward beta&quot;</font>;
+  <font color="blue">parameter </font>Real Br=0.1 <font color="darkgreen">&quot;Reverse beta&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Current"
+>SIunits.Current</A> Is=1.e-16 <font color="darkgreen">&quot;Transport saturation current&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.InversePotential"
+>SIunits.InversePotential</A> Vak=0.02 <font color="darkgreen">&quot;Early voltage (inverse), 1/Volt&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
+>SIunits.Time</A> Tauf=0.12e-9 <font color="darkgreen">&quot;Ideal forward transit time&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
+>SIunits.Time</A> Taur=5e-9 <font color="darkgreen">&quot;Ideal reverse transit time&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Capacitance"
+>SIunits.Capacitance</A> Ccs=1e-12 <font color="darkgreen">&quot;Collector-substrat(ground) cap.&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Capacitance"
+>SIunits.Capacitance</A> Cje=0.4e-12 <font color="darkgreen">&quot;Base-emitter zero bias depletion cap.&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Capacitance"
+>SIunits.Capacitance</A> Cjc=0.5e-12 <font color="darkgreen">&quot;Base-coll. zero bias depletion cap.&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>SIunits.Voltage</A> Phie=0.8 <font color="darkgreen">&quot;Base-emitter diffusion voltage&quot;</font>;
+  <font color="blue">parameter </font>Real Me=0.4 <font color="darkgreen">&quot;Base-emitter gradation exponent&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>SIunits.Voltage</A> Phic=0.8 <font color="darkgreen">&quot;Base-collector diffusion voltage&quot;</font>;
+  <font color="blue">parameter </font>Real Mc=0.333 <font color="darkgreen">&quot;Base-collector gradation exponent&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Conductance"
+>SIunits.Conductance</A> Gbc=1e-15 <font color="darkgreen">&quot;Base-collector conductance&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Conductance"
+>SIunits.Conductance</A> Gbe=1e-15 <font color="darkgreen">&quot;Base-emitter conductance&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>SIunits.Voltage</A> Vt=0.02585 <font color="darkgreen">&quot;Voltage equivalent of temperature&quot;</font>;
+  <font color="blue">parameter </font>Real EMin=-100 <font color="darkgreen">&quot;if x &lt; EMin, the exp(x) function is linearized&quot;</font>;
+  <font color="blue">parameter </font>Real EMax=40 <font color="darkgreen">&quot;if x &gt; EMax, the exp(x) function is linearized&quot;</font>;
+<font color="blue">protected </font>
+  Real vbc;
+  Real vbe;
+  Real qbk;
+  Real ibc;
+  Real ibe;
+  Real cbc;
+  Real cbe;
+  Real ExMin;
+  Real ExMax;
+  Real Capcje;
+  Real Capcjc;
+  <font color="blue">function</font> pow <font color="darkgreen">&quot;Just a helper function for x^y&quot;</font> 
+    <font color="blue">input </font>Real x;
+    <font color="blue">input </font>Real y;
+    <font color="blue">output </font>Real z;
+  <font color="blue">algorithm </font>
+    z := x^y;
+  <font color="blue">end </font>pow;
+<font color="blue">public </font>
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.Pin"
+>Modelica.Electrical.Analog.Interfaces.Pin</A> C <font color="darkgreen">&quot;Collector&quot;</font>;
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.Pin"
+>Modelica.Electrical.Analog.Interfaces.Pin</A> B <font color="darkgreen">&quot;Base&quot;</font>;
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.Pin"
+>Modelica.Electrical.Analog.Interfaces.Pin</A> E <font color="darkgreen">&quot;Emitter&quot;</font>;
+<font color="blue">equation </font>
+  ExMin = <font color="red">exp</font>(EMin);
+  ExMax = <font color="red">exp</font>(EMax);
+  vbc = C.v - B.v;
+  vbe = E.v - B.v;
+  qbk = 1 - vbc*Vak;
+  <font color="darkgreen"></font>
+  ibc = <font color="blue">if </font>(vbc/Vt &lt; EMin)<font color="blue"> then </font>Is*(ExMin*(vbc/Vt - EMin + 1) - 1) + vbc*Gbc<font color="blue">
+     else </font><font color="blue">if </font>(vbc/Vt &gt; EMax)<font color="blue"> then </font>Is*(ExMax*(vbc/Vt - EMax + 1) - 1) + vbc*Gbc<font color="blue">
+     else </font>Is*(<font color="red">exp</font>(vbc/Vt) - 1) + vbc*Gbc;
+  <font color="darkgreen"></font>
+  ibe = <font color="blue">if </font>(vbe/Vt &lt; EMin)<font color="blue"> then </font>Is*(ExMin*(vbe/Vt - EMin + 1) - 1) + vbe*Gbe<font color="blue">
+     else </font><font color="blue">if </font>(vbe/Vt &gt; EMax)<font color="blue"> then </font>Is*(ExMax*(vbe/Vt - EMax + 1) - 1) + vbe*Gbe<font color="blue">
+     else </font>Is*(<font color="red">exp</font>(vbe/Vt) - 1) + vbe*Gbe;
+  <font color="darkgreen"></font>
+  Capcjc = <font color="blue">if </font>(vbc/Phic &gt; 0)<font color="blue"> then </font>Cjc*(1 + Mc*vbc/Phic)<font color="blue"> else </font>Cjc*<font color="red">pow</font>(1 - vbc/
+    Phic, -Mc);
+  Capcje = <font color="blue">if </font>(vbe/Phie &gt; 0)<font color="blue"> then </font>Cje*(1 + Me*vbe/Phie)<font color="blue"> else </font>Cje*<font color="red">pow</font>(1 - vbe/
+    Phie, -Me);
+  cbc = <font color="blue">if </font>(vbc/Vt &lt; EMin)<font color="blue"> then </font>Taur*Is/Vt*ExMin*(vbc/Vt - EMin + 1) + Capcjc<font color="blue">
+     else </font><font color="blue">if </font>(vbc/Vt &gt; EMax)<font color="blue"> then </font>Taur*Is/Vt*ExMax*(vbc/Vt - EMax + 1) + Capcjc<font color="blue">
+     else </font>Taur*Is/Vt*<font color="red">exp</font>(vbc/Vt) + Capcjc;
+  cbe = <font color="blue">if </font>(vbe/Vt &lt; EMin)<font color="blue"> then </font>Tauf*Is/Vt*ExMin*(vbe/Vt - EMin + 1) + Capcje<font color="blue">
+     else </font><font color="blue">if </font>(vbe/Vt &gt; EMax)<font color="blue"> then </font>Tauf*Is/Vt*ExMax*(vbe/Vt - EMax + 1) + Capcje<font color="blue">
+     else </font>Tauf*Is/Vt*<font color="red">exp</font>(vbe/Vt) + Capcje;
+  C.i = -((ibe - ibc)*qbk - ibc/Br - cbc*<font color="red">der</font>(vbc) - Ccs*<font color="red">der</font>(C.v));
+  B.i = -(ibe/Bf + ibc/Br + cbe*<font color="red">der</font>(vbe) + cbc*<font color="red">der</font>(vbc));
+  E.i = -B.i - C.i + Ccs*<font color="red">der</font>(C.v);
+<font color="blue">end </font>PNP;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Tue Dec 17 13:39:38 2002
+.
+</address></BODY>
+</HTML>

@@ -1,0 +1,193 @@
+<HTML>
+<HEAD><META name="HTML-Generator" content="Dymola"><TITLE>Modelica</TITLE></HEAD>
+<BODY><P>
+<H2><A NAME="Modelica.Blocks.Nonlinear"></A><A HREF="Modelica_Blocks.html#Modelica.Blocks"
+>Modelica.Blocks</A>.Nonlinear</H2>
+<B>Discontinuous or non-differentiable algebraic control blocks</B>
+<P>
+<A HREF="Modelica_Blocks_Nonlinear.html#Modelica.Blocks.Nonlinear.Limiter"
+><IMG SRC="Modelica.Blocks.Nonlinear.LimiterI.png" ALT="Modelica.Blocks.Nonlinear.Limiter" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Blocks_Nonlinear.html#Modelica.Blocks.Nonlinear.VariableLimiter"
+><IMG SRC="Modelica.Blocks.Nonlinear.VariableLimiterI.png" ALT="Modelica.Blocks.Nonlinear.VariableLimiter" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Blocks_Nonlinear.html#Modelica.Blocks.Nonlinear.DeadZone"
+><IMG SRC="Modelica.Blocks.Nonlinear.DeadZoneI.png" ALT="Modelica.Blocks.Nonlinear.DeadZone" WIDTH=80  HEIGHT=80 ></A>
+<P><P>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This package contains <b>discontinuous</b> and
+<b>non-differentiable, algebraic</b> input/output blocks.
+In particular the following blocks are provided:
+</p>
+
+<pre>
+   <b>Limiter</b>           Limit the range of a signal to fixed limits.
+   <b>VariableLimiter</b>   Limit the range of a signal to variable limits.
+   <b>DeadZone</b>          Provide a region of zero output.
+</pre>
+
+<dl>
+<dt><b>Main Author:</b>
+<dd><a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a><br>
+    Deutsches Zentrum fuer Luft und Raumfahrt e.V. (DLR)<br>
+    Oberpfaffenhofen<br>
+    Postfach 1116<br>
+    D-82230 Wessling<br>
+    email: <A HREF="mailto:Martin.Otter@dlr.de">Martin.Otter@dlr.de</A><br>
+</dl>
+<br>
+
+<p><b>Release Notes:</b></p>
+<ul>
+<li><i>October 21, 2002</i>
+       by <a href="http://www.robotic.dlr.de/Christian.Schweiger/">Christian Schweiger</a>:<br>
+       New block VariableLimiter added.
+<li><i>August 22, 1999</i>
+       by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>:<br>
+       Realized, based on an existing Dymola library
+       of Dieter Moormann and Hilding Elmqvist.
+</li>
+</ul>
+<br>
+
+
+<p><b>Copyright &copy; 1999-2002, Modelica Association and DLR.</b></p>
+
+<p><i>
+The Modelica package is <b>free</b> software; it can be redistributed and/or modified
+under the terms of the <b>Modelica license</b>, see the license conditions
+and the accompanying <b>disclaimer</b> in the documentation of package
+Modelica in file "Modelica/package.mo".
+</i></p>
+<pre>
+</PRE><P>
+<HR>
+<H2><IMG SRC="Modelica.Blocks.Nonlinear.LimiterI.png" ALT="Modelica.Blocks.Nonlinear.Limiter" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Nonlinear.Limiter"></A><A HREF="Modelica_Blocks_Nonlinear.html#Modelica.Blocks.Nonlinear"
+>Modelica.Blocks.Nonlinear</A>.Limiter</H2>
+<B>Limit the range of a signal</B><p>
+<IMG SRC="Modelica.Blocks.Nonlinear.LimiterD.png" ALT="Modelica.Blocks.Nonlinear.Limiter">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+The Limiter block passes its input signal as output signal
+as long as the input is within the specified upper and lower
+limits. If this is not the case, the corresponding limit is passed
+as output.
+</p>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>uMax[:]</TD><TD>{1}</TD><TD>Upper limits of input signals</TD></TR>
+<TR><TD>uMin[size(uMax, 1)]</TD><TD>-uMax</TD><TD>Lower limits of input signals</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">block</font> Limiter <font color="darkgreen">&quot;Limit the range of a signal&quot;</font> 
+  <font color="blue">parameter </font>Real uMax[:]={1} <font color="darkgreen">&quot;Upper limits of input signals&quot;</font>;
+  <font color="blue">parameter </font>Real uMin[<font color="red">size</font>(uMax, 1)](max=uMax) = -uMax <font color="darkgreen">
+    &quot;Lower limits of input signals&quot;</font>;
+  <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.MIMOs"
+>Interfaces.MIMOs</A>(<font color="blue">final </font>n=<font color="red">size</font>(uMax, 1));
+  <font color="darkgreen"></font>
+<font color="blue">equation </font>
+  <font color="blue">for </font>i<font color="blue"> in </font>1:n<font color="blue"> loop</font>
+    y[i] = <font color="blue">if </font>u[i] &gt; uMax[i]<font color="blue"> then </font>uMax[i]<font color="blue"> else </font><font color="blue">if </font>u[i] &lt; uMin[i]<font color="blue"> then </font>uMin[i]<font color="blue">
+       else </font>u[i];
+  <font color="blue">end for</font>;
+<font color="blue">end </font>Limiter;
+</PRE>
+<HR>
+<H2><IMG SRC="Modelica.Blocks.Nonlinear.VariableLimiterI.png" ALT="Modelica.Blocks.Nonlinear.VariableLimiter" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Nonlinear.VariableLimiter"></A><A HREF="Modelica_Blocks_Nonlinear.html#Modelica.Blocks.Nonlinear"
+>Modelica.Blocks.Nonlinear</A>.VariableLimiter</H2>
+<B>Limit the range of a signal with variable limits</B><p>
+<IMG SRC="Modelica.Blocks.Nonlinear.VariableLimiterD.png" ALT="Modelica.Blocks.Nonlinear.VariableLimiter">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+The Limiter block passes its input signal as output signal
+as long as the input is within the upper and lower
+limits specified by the two additional inputs limit1 and
+limit2. If this is not the case, the corresponding limit
+is passed as output.
+</p>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>n</TD><TD>1</TD><TD>Number of inputs (= number of outputs)</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">block</font> VariableLimiter <font color="darkgreen">
+  &quot;Limit the range of a signal with variable limits&quot;</font> 
+  <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.MIMOs"
+>Interfaces.MIMOs</A>;
+  <font color="darkgreen"></font>
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
+>Interfaces.InPort</A> limit1(<font color="blue">final </font>n=n);
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
+>Interfaces.InPort</A> limit2(<font color="blue">final </font>n=n);
+<font color="blue">protected </font>
+  Real uMax[n];
+  Real uMin[n];
+  <font color="darkgreen"></font>
+<font color="blue">equation </font>
+  <font color="blue">for </font>i<font color="blue"> in </font>1:n<font color="blue"> loop</font>
+    uMax[i] = <font color="red">max</font>(limit1.signal[i], limit2.signal[i]);
+    uMin[i] = <font color="red">min</font>(limit1.signal[i], limit2.signal[i]);
+    y[i] = <font color="blue">if </font>u[i] &gt; uMax[i]<font color="blue"> then </font>uMax[i]<font color="blue"> else </font><font color="blue">if </font>u[i] &lt; uMin[i]<font color="blue"> then </font>uMin[i]<font color="blue">
+       else </font>u[i];
+  <font color="blue">end for</font>;
+<font color="blue">end </font>VariableLimiter;
+</PRE>
+<HR>
+<H2><IMG SRC="Modelica.Blocks.Nonlinear.DeadZoneI.png" ALT="Modelica.Blocks.Nonlinear.DeadZone" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Nonlinear.DeadZone"></A><A HREF="Modelica_Blocks_Nonlinear.html#Modelica.Blocks.Nonlinear"
+>Modelica.Blocks.Nonlinear</A>.DeadZone</H2>
+<B>Provide a region of zero output</B><p>
+<IMG SRC="Modelica.Blocks.Nonlinear.DeadZoneD.png" ALT="Modelica.Blocks.Nonlinear.DeadZone">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+The DeadZone block defines a region of zero output.
+</p>
+
+<p>
+If the input is within uMin ... uMax, the output
+is zero. Outside of this zone, the output is a linear
+function of the input with a slope of 1.
+</p>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>uMax[:]</TD><TD>{1}</TD><TD>Upper limits of dead zones</TD></TR>
+<TR><TD>uMin[size(uMax, 1)]</TD><TD>-uMax</TD><TD>Lower limits of dead zones</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">block</font> DeadZone <font color="darkgreen">&quot;Provide a region of zero output&quot;</font> 
+  <font color="blue">parameter </font>Real uMax[:]={1} <font color="darkgreen">&quot;Upper limits of dead zones&quot;</font>;
+  <font color="blue">parameter </font>Real uMin[<font color="red">size</font>(uMax, 1)](max=uMax) = -uMax <font color="darkgreen">
+    &quot;Lower limits of dead zones&quot;</font>;
+  <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.MIMOs"
+>Interfaces.MIMOs</A>(<font color="blue">final </font>n=<font color="red">size</font>(uMax, 1));
+  <font color="darkgreen"></font>
+<font color="blue">equation </font>
+  <font color="blue">for </font>i<font color="blue"> in </font>1:n<font color="blue"> loop</font>
+    y[i] = <font color="blue">if </font>u[i] &gt; uMax[i]<font color="blue"> then </font>u[i] - uMax[i]<font color="blue"> else </font><font color="blue">if </font>u[i] &lt; uMin[i]<font color="blue"> then </font>u[
+      i] - uMin[i]<font color="blue"> else </font>0;
+  <font color="blue">end for</font>;
+<font color="blue">end </font>DeadZone;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Dec 11 11:13:20 2002
+.
+</address></BODY>
+</HTML>
