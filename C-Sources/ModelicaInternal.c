@@ -182,7 +182,7 @@ static void ModelicaInternal_rmdir(const char* directoryName)
 {
 #if defined(__WATCOMC__)
     int result = rmdir(directoryName);
-#elif defined(_WIN32)
+#elif defined(_WIN32) && !defined(SimStruct)
     int result = _rmdir(directoryName);
 #elif defined(_POSIX_)
     int result = rmdir(directoryName);
@@ -625,14 +625,14 @@ static const char* ModelicaInternal_readLine(const char* fileName, int lineNumbe
   /* Read upto line lineNumber-1 */
      iLines = 0;
      c = 1;
-     while ( iLines != lineNumber-1 && c != EOF ) {
+     while ( iLines != (size_t) lineNumber-1 && c != EOF ) {
         c = fgetc(fp);
         while ( c != '\n' && c != EOF ) {
            c = fgetc(fp);
         }
         iLines++;
      }
-     if ( iLines != lineNumber-1 ) goto END_OF_FILE;
+     if ( iLines != (size_t) lineNumber-1 ) goto END_OF_FILE;
 
   /* Determine length of line lineNumber */
      offset  = ftell(fp);
@@ -674,7 +674,7 @@ static void ModelicaInternal_chdir(const char* directoryName)
 /* Change current working directory. */
 #if defined(__WATCOMC__)
     int result = chdir(directoryName);
-#elif defined(_WIN32)
+#elif defined(_WIN32) && !defined(SimStruct)
     int result = _chdir(directoryName);
 #elif defined(_POSIX_)
     int result = chdir(directoryName);
