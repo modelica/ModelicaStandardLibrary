@@ -1724,7 +1724,7 @@ for this situation:
     if m > 0 then
       r_CM_0 = frame_a.r_0 + r_rel_0*lengthFraction;
       v_CM_0 = der(r_CM_0);
-      ag_CM_0 = m*(der(v_CM_0) - world.gravityAcceleration(r_CM_0));
+      ag_CM_0 = der(v_CM_0) - world.gravityAcceleration(r_CM_0);
       frame_a.f = Frames.resolve2(frame_a.R, (m*(1 - lengthFraction))*ag_CM_0
          - e_rel_0*fa);
       frame_b.f = Frames.resolve2(frame_b.R, (m*lengthFraction)*ag_CM_0 -

@@ -154,40 +154,20 @@ Preferred instance names for connectors:
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>Release notes</font></h3>
 
-<h3><font color=\"#008000\">Version 2.1 Beta1 (July 7, 2004)</font></h3>
+<h3><font color=\"#008000\">Version 2.1 Beta2 (October 1, 2004)</font></h3>
 
 <p> This is a major change with respect to previous versions of the
-    Modelica Standard Library. The changes are not backward compatible.
-    A script to automatically convert models to this new version is
-    provided. There are cases, where this script does not convert
-    correctly. In this case models have to be manually converted.
-    In any case you should make a back-up copy of your model
-    before automatic conversion is performed. 
-    Note, conversion should work successfully for all models that
-    are using components of the Modelica standard and ModelicaAdditions 
-    library with the following exceptions:
+    Modelica Standard Library, because <b>many new libraries</b> and components
+    are included and because the input/output blocks (Modelica.Blocks)
+    have been considerably simplified:
 </p>
 
 <ul>
-<li> Whenever an inPort or outPort connector has more than 1 signal,
-     it is most likely that the conversion will fail. If a signal
-     connector has only 1 signal (dimension n=1), the conversion should
-     always be successful.</li>
-<li> Conversion from ModelicaAdditions.MultiBody to Modelica.Mechanics.MultiBody
-     is not completely defined.</li>
-</ul>
-
-<p>
-    It is planned to improve the automatic conversion for the release version.   
-    The major changes of Modelica 2.1 Beta1 with respect to Modelica 1.6 are:
-</p>
-
-<ul>
-<li> Simplified the definition of the <b>signal connectors</b> in
-     Modelica.Blocks.Interfaces. For example, an output signal
-     \"FirstOrder.outPort.signal[1]\" is now named
-     \"FirstOrder.y\". This simplifies the understanding and usage 
-      especially for beginners.</li>
+<li> An input/output connector is defined <b>without</b> a hierarchy (this is possible
+     due to new features of the Modelica language). For example, the input
+     signal of a block \"FirstOrder\" was previously accessed as \"FirstOrder.inPort.signal[1]\".
+     Now it is accessed as \"FirstOrder.u\". This simplifies the understanding and usage 
+     especially for beginners.</li>
 <li> De-vectorized the <b>Modelica.Blocks</b> library. All blocks in the
      Modelica.Blocks library are now scalar blocks. As a result,
      the parameters of the Blocks are scalars and no vectors any
@@ -195,38 +175,91 @@ Preferred instance names for connectors:
      a value of \"{1}\" previously, has now a value of \"1\". This simplifies
      the understanding and usage especially for beginners.<br>
      If a vector of blocks is needed, this can be easily
-     accomplished by adding a dimension to the instance.</li>
-<li> All components of the <b>ModelicaAdditions</b> library are included
-     in the Modelica Standard Library in an improved way:
-     <ul>
-     <li> ModelicaAdditions.Blocks is included in Modelica.Blocks.
-          The logical blocks have a nicer icon layout now.</li>
-     <li> ModelicaAdditions.Tables is included in Modelica.Blocks.Sources
-          and Modelica.Blocks.Tables.</li>
-     <li> ModelicaAdditions.MultiBody is obsolet and is replaced by the
-          much more powerful library Modelica.Mechanics.MultiBody
-          (this is version 1.0.1 of the MultiBody library where the
-          signal connectors have been changed to the new signal connectors).
-          </li>
-     <li> ModelicaAdditions.HeatFlow1D is obsolet since a long time. It was
-          replaced by the improved library Modelica.Thermal.HeatTransfer.</li>
-     <li> ModelicaAdditions.PetriNets is obsolet and is replaced by the
-          much more powerful library Modelica.StateGraph.</li> 
-     </li>
-     </ul>
-<li> Added a new library <b>Modelica.StateGraph</b> to model <b>discrete event</b> 
-     and <b>reactive</b> systems in a convenient way. It is based on the 
-     JGraphChart method and takes advantage of Modelica features for
-     the \"action\" language. JGraphChart is a further development of 
-     Grafcet to include elements of StateCharts that are not present
-     in Grafcet/Sequential Function Charts. Therefore, the StateGraph
-     library has a similar modeling power as StateCharts but avoids
-     some deficiences of action languages usually used together
-     with StateCharts.</li>
+     accomplished by adding a dimension to the instance. For example
+     \"Constant const[3](k={1,2,3}\" defines three Constant blocks. 
+     An additional advantage of the new approach is that
+     the implementation of Modelica.Blocks is much simpler and is easier to
+     understand.
+</li>
 </ul>
+     
+<p>
+The discussed changes of Modelica.Blocks are not backward compatible.
+A script to <b>automatically</b> convert models to this new version is
+provided. There might be rare cases, where this script does not convert. 
+In this case models have to be manually converted.
+In any case you should make a back-up copy of your model
+before automatic conversion is performed. 
+</p>
 
 <p>
-Additionally, the following 16 new components have been added:
+The following <b>new libraries</b> have been added:
+</p>
+
+<table border=\"1\" cellspacing=0 cellpadding=2>
+  <tr><td><a href=\"Modelica://Modelica.Electrical.Digital\">Modelica.Electrical.Digital</a></td>
+      <td>Digital electrical components based on 2-,3-,4-, and 9-valued logic<br>
+          according to the VHDL standard</td><tr>
+  <tr><td><a href=\"Modelica://Modelica.Electrical.Machines\">Modelica.Electrical.Machines</a></td>
+      <td>Asynchronous, synchronous and DC motor and generator models</td><tr>
+  <tr><td><a href=\"Modelica://Modelica.Math.Matrices\">Modelica.Math.Matrices</a></td>
+      <td>Functions operatinng on matrices such as solve() (A*x=b), leastSquares(),<br>
+          norm(), LU(), QR(),  eigenValues(), singularValues(), exp(), ...</td><tr>
+  <tr><td><a href=\"Modelica://Modelica.StateGraph\">Modelica.StateGraph</a></td>
+      <td> Modeling of <b>discrete event</b> and <b>reactive</b> systems in a convenient way using<br>
+           <b>hierarchical state machines</b> and <b>Modelica</b> as <b>action language</b>. <br>
+           It is based on JGraphChart and Grafcet and  has a similar modeling power as <br>
+           StateCharts. It avoids deficiences of usually used action languages. <br>
+           This library makes the ModelicaAdditions.PetriNets library obsolet.</td></tr>
+  <tr><td><a href=\"Modelica://Modelica.Utilities.Files\">Modelica.Utilities.Files</a></td>
+      <td>Functions to operate on files and directories (copy, move, remove files etc.)</td></tr>
+  <tr><td><a href=\"Modelica://Modelica.Utilities.Streams\">Modelica.Utilities.Streams</a></td>
+      <td>Read from files and write to files (print, readLine, readFile, error, ...)</td></tr>
+  <tr><td><a href=\"Modelica://Modelica.Utilities.Strings\">Modelica.Utilities.Strings</a></td>
+      <td>Operations on strings (substring, find, replace, sort, scanToken, ...)</td></tr>
+  <tr><td><a href=\"Modelica://Modelica.Utilities.System\">Modelica.Utilities.System</a></td>
+      <td>Get/set current directory, get/set environment variable, execute shell command, etc.</td></tr>
+</table>
+
+<p>
+The following existing libraries outside of the Modelica standard library
+have been improved and added as <b>new libraries</b>
+(models using the previous libraries are automatically converted
+to the new sublibraries inside package Modelica):
+</p>
+
+<table border=\"1\" cellspacing=0 cellpadding=2>
+  <tr><td><a href=\"Modelica://Modelica.Blocks.Discrete\">Modelica.Blocks.Discrete</a></td>
+      <td> Discrete input/output blocks with fixed sample period<br>
+           (from ModelicaAdditions.Blocks.Discrete)</td></tr>
+  <tr><td><a href=\"Modelica://Modelica.Blocks.Logical\">Modelica.Blocks.Logical</a></td>
+      <td> Logical components with Boolean input and output signals<br>
+           (from ModelicaAdditions.Blocks.Logical)</td></tr>
+  <tr><td><a href=\"Modelica://Modelica.Blocks.Nonlinear\">Modelica.Blocks.Nonlinear</a></td>
+      <td> Discontinuous or non-differentiable algebraic control blocks such as variable limiter,<br>
+           fixed, variable and Pade delay etc. (from ModelicaAdditions.Blocks.Nonlinear)</td></tr>
+  <tr><td><a href=\"Modelica://Modelica.Blocks.Routing\">Modelica.Blocks.Routing</a></td>
+      <td> Blocks to combine and extract signals, such as multiplexer<br>
+           (from ModelicaAdditions.Blocks.Multiplexer)</td></tr>
+  <tr><td><a href=\"Modelica://Modelica.Blocks.Tables\">Modelica.Blocks.Tables</a></td>
+      <td> One and two-dimensional interpolation in tables. CombiTimeTable is available<br>
+           in Modelica.Blocks.Sources (from ModelicaAdditions.Tables)</td></tr>
+  <tr><td><a href=\"Modelica://Modelica.Mechanics.MultiBody\">Modelica.Mechanics.MultiBody</a></td>
+      <td> Components to model the movement of 3-dimensional mechanical systems. Contains <br>
+           body, joint, force and sensor components, analytic handling of kinematic loops,<br>
+           force elements with mass, series/parallel connection of 3D force elements etc.<br>
+           (from MultiBody 1.0 where the new signal connectors are used;<br>
+           makes the ModelicaAdditions.MultiBody library obsolet)</td></tr>
+</table>
+
+<p>
+As a result, the ModelicaAdditions library is obsolet, because all components
+are either included in the Modelica library or are replaced by much more
+powerful libraries (MultiBody, StateGraph).
+</p>
+
+<p>
+The following <b>new components</b> have been added to <b>existing</b> libraries.
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2>
@@ -269,8 +302,37 @@ Additionally, the following 16 new components have been added:
       <td>Set output signal to a time varying Boolean expression</td></tr>
   <tr><td>BooleanTable</td>
       <td>Generate a Boolean output signal based on a vector of time instants</td></tr>
+
+
+  <tr><td colspan=\"2\"><b>Modelica.Mechanics.Rotational.</b></td></tr>
+  <tr><td>LinearSpeedDependentTorque</td>
+      <td>Linear dependency of torque versus speed (acts as load torque)</td></tr>
+  <tr><td>QuadraticSpeedDependentTorque</td>
+      <td>Quadratic dependency of torque versus speed (acts as load torque)</td></tr>
+  <tr><td>ConstantTorque</td>
+      <td>Constant torque, not dependent on speed (acts as load torque)</td></tr>
+  <tr><td>ConstantSpeed</td>
+      <td>Constant speed, not dependent on torque (acts as load torque)</td></tr>
+  <tr><td>TorqueStep</td>
+      <td>Constant torque, not dependent on speed (acts as load torque)</td></tr>
 </table>
 
+
+<p>
+The following <b>bugs</b> have been <b>corrected</b>:
+</p>
+
+<table border=\"1\" cellspacing=0 cellpadding=2>
+  <tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.Forces.</b></td></tr>
+  <tr><td>LineForceWithMass<br>
+          Spring</td>
+      <td>If mass of the line force or spring component is not zero, the<br>
+          mass was (implicitly) treated as \"mass*mass\" instead of as \"mass\"</td></tr>
+  <tr><td colspan=\"2\"><b>Modelica.Mechanics.Rotational.</b></td></tr>
+  <tr><td>Speed</td>
+      <td>If parameter exact=<b>false</b>, the filter was wrong<br>
+          (position was filtered and not the speed input signal)</td></tr>
+</table> 
 
 
 <h3><font color=\"#008000\">Version 1.6 (June 21, 2004)</font></h3>

@@ -124,8 +124,8 @@ network built with package Logical is shown in the next figure:
     extends Blocks.Interfaces.partialBooleanSISO;
     
     annotation (Icon(Text(extent=[-90,40; 90,-40],
-          string="edge",
-          style(color=0))), Diagram);
+          style(color=0), 
+          string="change")),Diagram);
   initial equation 
     pre(u) = pre_u_start;
   equation 

@@ -1,7 +1,8 @@
 package Machines "Library for electric machines" 
   extends Modelica.Icons.Library;
   import Modelica.Electrical.MultiPhase;
-  annotation (version="1.03", versionDate="2004-09-24",
+  annotation (  preferedView="info",
+  version="1.03", versionDate="2004-09-24",
   Settings(NewStateSelection=true, Evaluate=true),
   Documentation(info="<HTML>
 <p>
@@ -184,7 +185,7 @@ Default machine parameters of model <i>AsynchronousInductionMachineSquirrelCage<
         annotation (points=[-6.12303e-016,70; -6.12303e-016,90; -50,90],
                                                         style(color=3));
       connect(SineVoltage1.plug_p, IdealCloser1.plug_p) 
-        annotation (points=[6.12303e-016,50; 0,48; 1.22461e-015,46; 
+        annotation (points=[6.12303e-016,50; 0,48; 1.22461e-015,46;
             6.12303e-016,46; 6.12303e-016,40], style(color=3));
       connect(IdealCloser1.plug_n, Delta1.plug_p) annotation (points=[
             -6.12303e-016,20; -6.12303e-016,16; 0,16; 0,10],
@@ -204,7 +205,7 @@ Default machine parameters of model <i>AsynchronousInductionMachineSquirrelCage<
       connect(BooleanStep1.y, IdealCloser1.control) annotation (points=[-59,40;
             -20,40; -20,30; -7,30],
                      style(color=5, rgbcolor={255,0,255}));
-      connect(Delta1.plug_p, CurrentRMSsensor1.plug_p) annotation (points=[0,10; 
+      connect(Delta1.plug_p, CurrentRMSsensor1.plug_p) annotation (points=[0,10;
             0,0; 6.12303e-016,0], style(color=3, rgbcolor={0,0,255}));
       connect(CurrentRMSsensor1.plug_n, AIMC1.plug_sp) annotation (points=[
             -6.12303e-016,-20; 0,-20; 0,-30; -4,-30], style(color=3, rgbcolor={
@@ -277,7 +278,7 @@ Default machine parameters of model <i>AsynchronousInductionMachineSquirrelCage<
         annotation (points=[-6.12303e-016,70; -6.12303e-016,90; -50,90],
                                                         style(color=3));
       connect(SineVoltage1.plug_p, IdealCloser1.plug_p) 
-        annotation (points=[6.12303e-016,50; 0,48; 1.22461e-015,46; 
+        annotation (points=[6.12303e-016,50; 0,48; 1.22461e-015,46;
             6.12303e-016,46; 6.12303e-016,40], style(color=3));
       connect(IdealCloser1.plug_n, SwitchYD1.plug_P) annotation (points=[
             -6.12303e-016,20; 0,20],
@@ -390,7 +391,7 @@ Default machine parameters of model <i>AsynchronousInductionMachineSlipRing</i> 
         annotation (points=[-6.12303e-016,70; -6.12303e-016,90; -50,90],
                                                         style(color=3));
       connect(SineVoltage1.plug_p, IdealCloser1.plug_p) 
-        annotation (points=[6.12303e-016,50; 0,48; 1.22461e-015,46; 
+        annotation (points=[6.12303e-016,50; 0,48; 1.22461e-015,46;
             6.12303e-016,46; 6.12303e-016,40], style(color=3));
       connect(Star3.pin_n, Ground3.p) 
         annotation (points=[-70,-90; -80,-90],   style(color=3));
@@ -434,7 +435,7 @@ Default machine parameters of model <i>AsynchronousInductionMachineSlipRing</i> 
       connect(BooleanStep2.y, IdealCommutingSwitch1.control) 
                                                          annotation (points=[
             -59,-40; -48,-40], style(color=5, rgbcolor={255,0,255}));
-      connect(Delta1.plug_p, CurrentRMSsensor1.plug_p) annotation (points=[0,10; 
+      connect(Delta1.plug_p, CurrentRMSsensor1.plug_p) annotation (points=[0,10;
             0,0; 6.12303e-016,0], style(color=3, rgbcolor={0,0,255}));
       connect(CurrentRMSsensor1.plug_n, AIMS1.plug_sp) annotation (points=[
             -6.12303e-016,-20; 0,-20; 0,-30; -4,-30], style(color=3, rgbcolor={
@@ -1648,7 +1649,7 @@ Base partial model DC machines:
       else
         bearing.tau = -flange_a.tau;
       end if;
-      connect(inertia.flange_b, flange_a) annotation (points=[60,1.22461e-015;
+      connect(inertia.flange_b, flange_a) annotation (points=[60,1.22461e-015; 
             79,1.22461e-015; 79,0; 100,0], style(color=0, rgbcolor={0,0,0}));
     end PartialMachine;
     

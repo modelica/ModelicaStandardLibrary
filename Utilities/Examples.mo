@@ -47,7 +47,7 @@ result = <b>calculator</b>(expression);
 <p>
 This function demonstrates how a simple expression calculator
 can be implemented in form of a recursive decent parser
-using basically the Strings.scanToken(..) and Strings.requiredDelimiter(..)
+using basically the Strings.scanToken(..) and Strings.scanDelimiter(..)
 function. 
 </p>
 <p>
