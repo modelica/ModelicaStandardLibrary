@@ -148,6 +148,7 @@ which is only exactly true for a fluid with constant density d=d0.
     
     redeclare function extends heatCapacity_cv 
       "Specific heat capacity at constant volume (or pressure) of medium" 
+     annotation(smoothOrder=2);
     algorithm 
       assert(hasHeatCapacity,"Specific Heat Capacity, Cv, is not defined for medium "
                                              + mediumName + ".");
@@ -156,6 +157,7 @@ which is only exactly true for a fluid with constant density d=d0.
     
     redeclare function extends heatCapacity_cp 
       "Specific heat capacity at constant volume (or pressure) of medium" 
+     annotation(smoothOrder=2);
     algorithm 
       assert(hasHeatCapacity,"Specific Heat Capacity, Cv, is not defined for medium "
                                              + mediumName + ".");
@@ -163,6 +165,7 @@ which is only exactly true for a fluid with constant density d=d0.
     end heatCapacity_cp;
     
     redeclare function extends dynamicViscosity 
+     annotation(smoothOrder=2);
     algorithm 
       assert(size(tableViscosity,1)>0,"DynamicViscosity, eta, is not defined for medium "
                                              + mediumName + ".");
@@ -170,6 +173,7 @@ which is only exactly true for a fluid with constant density d=d0.
     end dynamicViscosity;
     
     redeclare function extends thermalConductivity 
+     annotation(smoothOrder=2);
     algorithm 
       assert(size(tableConductivity,1)>0,"ThermalConductivity, lambda, is not defined for medium "
                                              + mediumName + ".");
@@ -179,6 +183,7 @@ which is only exactly true for a fluid with constant density d=d0.
     redeclare function extends specificEntropy 
     protected 
       Integer npol=size(poly_Cp,1)-1;
+     annotation(smoothOrder=2);
     algorithm 
       assert(hasHeatCapacity,"Specific Entropy, s(T), is not defined for medium "
                                              + mediumName + ".");
@@ -194,10 +199,21 @@ which is only exactly true for a fluid with constant density d=d0.
       extends Modelica.Icons.Function;
       input SI.Temperature T "Temperature";
       output SI.SpecificEnthalpy h "Specific enthalpy at p, T";
+     annotation(derivative=h_T_der);
     algorithm 
       h :=h0 + Poly.integralValue(poly_Cp, if TinK then T else to_degC(T), if TinK then 
       T0 else to_degC(T0));
     end h_T;
+    
+    function h_T_der "Compute specific enthalpy from temperature" 
+      import Modelica.SIunits.Conversions.to_degC;
+      extends Modelica.Icons.Function;
+      input SI.Temperature T "Temperature";
+      input Real dT "temperature derivative";
+      output Real dh "derivative of Specific enthalpy at T";
+    algorithm 
+      dh :=Poly.evaluate(poly_Cp, if TinK then T else to_degC(T))*dT;
+    end h_T_der;
     
     function h_pT "Compute specific enthalpy from pressure and temperature" 
       import Modelica.SIunits.Conversions.to_degC;
@@ -207,7 +223,7 @@ which is only exactly true for a fluid with constant density d=d0.
       input Boolean densityOfT = false 
         "include or neglect density derivative dependence of enthalpy" annotation(Evaluate);
       output SI.SpecificEnthalpy h "Specific enthalpy at p, T";
-      annotation(Inline = false);
+     annotation(smoothOrder=2);
     algorithm 
       h :=h0 + Poly.integralValue(poly_Cp, if TinK then T else to_degC(T), if TinK then 
       T0 else to_degC(T0)) + (p - reference_p)/Poly.evaluate(poly_rho, if TinK then 
@@ -255,7 +271,7 @@ Modelica in file \"Modelica/package.mo\".
           "Polynomial coefficients (p[1] is coefficient of highest power)";
         input Real u "Abszissa value";
         output Real y "Value of polynomial at u";
-        annotation(derivative(noDerivative=p)=evaluate_der);
+        annotation(derivative(zeroDerivative=p)=evaluate_der);
       algorithm 
         y := p[1];
         for j in 2:size(p, 1) loop
@@ -283,7 +299,7 @@ Modelica in file \"Modelica/package.mo\".
           "Polynomial coefficients (p[1] is coefficient of highest power)";
         input Real u "Abszissa value";
         output Real y "Value of derivative of polynomial at u";
-        annotation(derivative(noDerivative=p)=derivativeValue_der);
+        annotation(derivative(zeroDerivative=p)=derivativeValue_der);
       protected 
         Integer n=size(p, 1);
       algorithm 
@@ -330,7 +346,7 @@ Modelica in file \"Modelica/package.mo\".
         input Real u_low=0 "Low integrand value, default 0";
         output Real integral=0.0 
           "Integral of polynomial p from u_low to u_high";
-        annotation(derivative(noDerivative=p)=integralValue_der);
+        annotation(derivative(zeroDerivative=p)=integralValue_der);
       protected 
         Integer n=size(p, 1) "degree of integrated polynomial";
         Real y_low=0 "value at lower integrand";
@@ -494,7 +510,35 @@ function calls can not be used.
         [160, 3; 180, 10; 200, 40; 220, 100; 240, 300; 260, 600;
          280, 1600; 300, 3e3; 320, 5.5e3]);
   end Essotherm650;
-    
+/*
+  package AirOneBar "air properties at 1 bar"
+    extends TableBased
+      (mediumName="Air at 1 bar pressure",
+       T_min = Cv.from_degC(-200), T_max = Cv.from_degC(100),
+       TinK = false, T0=273.15,
+       tableConductivity=transpose(cat(1,{{(-200), (-180.0), (-160.0), (-140.0), (-120.0), (-100.0), (-80.0), (-60.0), 
+					    (-40.0), (-20.0), 0, 20.0, 40.0, 60.0, 80.0, 100}},
+				       1e-3*{{6.886,8.775,10.64,12.47,14.26,16.02,17.74,19.41,21.04,22.63,
+					  24.18,25.69,27.16,28.60,30.01,31.39}})),
+       tableHeatCapacity=transpose(cat(1,{{(-200), (-180.0), (-160.0), (-140.0), (-120.0), (-100.0), (-80.0), (-60.0), 
+					(-40.0), (-20.0), 0, 20.0, 40.0, 60.0, 80.0, 100}},
+				    1e-6*{{4.997,6.623,7.994,9.294,10.55,11.77,12.94,14.07,15.16,16.22,
+					   17.24,18.24,19.20,20.14,21.05,21.94}})));
+   end AirOneBar;
+   */
+  //{(-4.96717436974791E-011), 5.06626785714286E-008, 1.72937731092437E-005} visc
+  //{(-4.8737307422969E-008), 7.67803133753502E-005, 0.0241814385504202} lambda
+  model TestAir
+    extends Modelica.Icons.Example;
+    package Medium = AirOneBar;
+    Medium.DynamicViscosity eta=Medium.heatCapacity_cp(state);
+    Medium.ThermalConductivity lambda=Medium.thermalConductivity(state);
+    Medium.ThermodynamicState state(T(start = 200.0)); 
+  equation
+    state.p = 1.0e5;
+    der(state.T) = 300.0;
+  end TestAir;
+  
   model TestGlycol "Test Glycol47 Medium model" 
     extends Modelica.Icons.Example;
     package Medium = Glycol47;
