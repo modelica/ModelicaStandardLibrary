@@ -2,7 +2,7 @@ package FluidHeatFlow
   "Simple components for 1-dimensional incompressible thermo-fluid flow to model coolant flows" 
   extends Modelica.Icons.Library;
   annotation (
-    version="1.1", versionDate="2005-02-15",
+    version="1.11", versionDate="2005-02-18",
     preferedView="info",Documentation(info="<HTML>
 <p>
 This package contains very simple-to-use components to model coolant flows as needed to simulate cooling e.g. of electric machines:
@@ -79,10 +79,12 @@ and the accompanying <b>disclaimer</b>
 </p>
 </HTML>", revisions="<HTML>
   <ul>
-  <li> v1.0 2005/02/01 Anton Haumer<br>
+  <li> v1.00 2005/02/01 Anton Haumer<br>
        first stable official release</li>
-  <li> v1.1 2005/02/15 Anton Haumer<br>
+  <li> v1.10 2005/02/15 Anton Haumer<br>
        reorganisation of the package</li>
+  <li> v1.11 2005/02/18 Anton Haumer<br>
+       corrected usage of cv and cp</li>
   </ul>
 </HTML>
 "));
@@ -129,7 +131,7 @@ and the accompanying <b>disclaimer</b>
 </p>
 </HTML>", revisions="<HTML>
   <ul>
-  <li> v1.0 2005/02/01 Anton Haumer<br>
+  <li> v1.00 2005/02/01 Anton Haumer<br>
        first stable official release</li>
   </ul>
 </HTML>
@@ -620,7 +622,7 @@ and the accompanying <b>disclaimer</b>
 </p>
 </HTML>", revisions="<HTML>
   <ul>
-  <li> v1.0 2005/02/01 Anton Haumer<br>
+  <li> v1.00 2005/02/01 Anton Haumer<br>
        first stable official release</li>
   </ul>
 </HTML>
@@ -634,7 +636,7 @@ Thermodynamic equations are defined by Partials.TwoPortMass(Q_flow = 0).
 </p>
 <p>
 <b>Note:</b> Setting parameter m (mass of medium within pipe) to zero
-leads to neglection of temperature transient cp*m*der(T).
+leads to neglection of temperature transient cv*m*der(T).
 </p>
 </HTML>"),
       Icon(Rectangle(extent=[-90, 20; 90, -20], style(
@@ -664,7 +666,7 @@ using factor kT.
 </p>
 <p>
 <b>Note:</b> Setting parameter m (mass of medium within pipe) to zero
-leads to neglection of temperature transient cp*m*der(T).
+leads to neglection of temperature transient cv*m*der(T).
 </p>
 <p>
 <b>Note:</b> Injecting heat into a pipe with zero massflow causes 
@@ -749,9 +751,9 @@ and the accompanying <b>disclaimer</b>
 </p>
 </HTML>", revisions="<HTML>
   <ul>
-  <li> v1.0 2005/02/01 Anton Haumer<br>
+  <li> v1.00 2005/02/01 Anton Haumer<br>
        first stable official release</li>
-  <li> v1.1 2005/02/15 Anton Haumer<br>
+  <li> v1.10 2005/02/15 Anton Haumer<br>
        moved Partials into Interfaces</li>
   <li> 
   </ul>
@@ -887,10 +889,12 @@ and the accompanying <b>disclaimer</b>
 </p>
 </HTML>",     revisions="<HTML>
   <ul>
-  <li> v1.0 2005/02/01 Anton Haumer<br>
+  <li> v1.00 2005/02/01 Anton Haumer<br>
        first stable official release</li>
-  <li> v1.1 2005/02/15 Anton Haumer<br>
+  <li> v1.10 2005/02/15 Anton Haumer<br>
        moved Partials into Interfaces</li>
+  <li> v1.11 2005/02/18 Anton Haumer<br>
+       corrected usage of cv and cp</li>
   </ul>
 </HTML>
 "));
@@ -978,7 +982,7 @@ See also sketch at diagram layer.
 Partial model with two flowPorts.<br>
 Possible heat exchange with the ambient is defined by Q_flow; setting this = 0 means no energy exchange.<br>
 Setting parameter m (mass of medium within pipe) to zero
-leads to neglection of temperature transient cp*m*der(T).<br>
+leads to neglection of temperature transient cv*m*der(T).<br>
 Mixing rule is applied.
 </p>
 </HTML>"));
@@ -1009,7 +1013,7 @@ Mixing rule is applied.
         flowPort_a.m_flow + flowPort_b.m_flow = 0;
         // energy balance
         if m>Modelica.Constants.small then
-          flowPort_a.H_flow + flowPort_b.H_flow + Q_flow = m*medium.cp*der(T);
+          flowPort_a.H_flow + flowPort_b.H_flow + Q_flow = m*medium.cv*der(T);
         else
           flowPort_a.H_flow + flowPort_b.H_flow + Q_flow = 0;
         end if;
@@ -1189,8 +1193,10 @@ and the accompanying <b>disclaimer</b>
 </p>
 </HTML>", revisions="<HTML>
   <ul>
-  <li> v1.0 2005/02/01 Anton Haumer<br>
+  <li> v1.00 2005/02/01 Anton Haumer<br>
        first stable official release</li>
+  <li> v1.11 2005/02/18 Anton Haumer<br>
+       corrected usage of cv and cp</li>
   </ul>
 </HTML>
 "));
@@ -1200,6 +1206,8 @@ and the accompanying <b>disclaimer</b>
       parameter Modelica.SIunits.Density rho = 1 "density";
       parameter Modelica.SIunits.SpecificHeatCapacity cp = 1 
         "specific heat capacity at constant pressure";
+      parameter Modelica.SIunits.SpecificHeatCapacity cv = 1 
+        "specific heat capacity at constant volume";
       parameter Modelica.SIunits.ThermalConductivity lamda = 1 
         "thermal conductivity";
       parameter Modelica.SIunits.KinematicViscosity nue = 1 
@@ -1210,6 +1218,7 @@ and the accompanying <b>disclaimer</b>
     extends Medium(
       rho=1.149,
       cp=1007,
+      cv= 720,
       lamda=0.0264,
       nue=16.3E-6);
     end Air_30degC;
@@ -1218,6 +1227,7 @@ and the accompanying <b>disclaimer</b>
     extends Medium(
       rho=1.015,
       cp=1010,
+      cv= 723,
       lamda=0.0293,
       nue=20.3E-6);
     end Air_70degC;
@@ -1226,6 +1236,7 @@ and the accompanying <b>disclaimer</b>
     extends Medium(
       rho=995.6,
       cp=4177,
+      cv=4177,
       lamda=0.615,
       nue=0.8E-6);
     end Water;
@@ -1283,7 +1294,7 @@ and the accompanying <b>disclaimer</b>
 </p>
 </HTML>", revisions="<HTML>
   <ul>
-  <li> v1.0 2005/02/01 Anton Haumer<br>
+  <li> v1.00 2005/02/01 Anton Haumer<br>
        first stable official release</li>
   </ul>
 </HTML>
@@ -1457,7 +1468,7 @@ and the accompanying <b>disclaimer</b>
 </p>
 </HTML>", revisions="<HTML>
   <ul>
-  <li> v1.0 2005/02/01 Anton Haumer<br>
+  <li> v1.00 2005/02/01 Anton Haumer<br>
        first stable official release</li>
   </ul>
 </HTML>
@@ -1572,7 +1583,7 @@ Coolant's mass flow, temperature and energy flow are not affected.<br>
 Fan resp. pump with constant volume flow rate. Pressure increase is the response of the whole system. 
 Coolant's temperature and energy flow are not affected.<br>
 Setting parameter m (mass of medium within fan/pump) to zero
-leads to neglection of temperature transient cp*m*der(T).<br>
+leads to neglection of temperature transient cv*m*der(T).<br>
 Thermodynamic equations are defined by Partials.TwoPort.
 </p>
 </HTML>"), Icon(
@@ -1608,7 +1619,7 @@ Thermodynamic equations are defined by Partials.TwoPort.
 Fan resp. pump with prescribed volume flow rate. Pressure increase is the response of the whole system. 
 Coolant's temperature and energy flow are not affected.<br>
 Setting parameter m (mass of medium within fan/pump) to zero
-leads to neglection of temperature transient cp*m*der(T).<br>
+leads to neglection of temperature transient cv*m*der(T).<br>
 Thermodynamic equations are defined by Partials.TwoPort.
 </p>
 </HTML>"),
@@ -1647,7 +1658,7 @@ Thermodynamic equations are defined by Partials.TwoPort.
 Fan resp. pump with constant pressure increase. Mass resp. volume flow is the response of the whole system. 
 Coolant's temperature and energy flow are not affected.<br>
 Setting parameter m (mass of medium within fan/pump) to zero
-leads to neglection of temperature transient cp*m*der(T).<br>
+leads to neglection of temperature transient cv*m*der(T).<br>
 Thermodynamic equations are defined by Partials.TwoPort
 </p>
 </HTML>"),
@@ -1683,7 +1694,7 @@ Thermodynamic equations are defined by Partials.TwoPort
 Fan resp. pump with prescribed pressure increase. Mass resp. volume flow is the response of the whole system. 
 Coolant's temperature and energy flow are not affected.<br>
 Setting parameter m (mass of medium within fan/pump) to zero
-leads to neglection of temperature transient cp*m*der(T).<br>
+leads to neglection of temperature transient cv*m*der(T).<br>
 Thermodynamic equations are defined by Partials.TwoPort
 </p>
 </HTML>"),     Diagram,
