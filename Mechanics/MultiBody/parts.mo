@@ -338,7 +338,8 @@ the animation may be switched off via parameter animation = <b>false</b>.
     parameter Boolean animation=true "= true, if animation shall be enabled";
     parameter SI.Position r[3]={0,0,0} 
       "Vector from frame_a to frame_b resolved in frame_a";
-    parameter Modelica.Mechanics.MultiBody.Types.RotationTypes.Temp rotationType=Modelica.Mechanics.MultiBody.Types.
+    parameter Modelica.Mechanics.MultiBody.Types.RotationTypes.Temp 
+      rotationType =                                                             Modelica.Mechanics.MultiBody.Types.
         RotationTypes.RotationAxis "Type of rotation description" 
       annotation (Evaluate=true);
     parameter Modelica.Mechanics.MultiBody.Types.Axis n={1,0,0} 
@@ -563,7 +564,8 @@ the animation may be switched off via parameter animation = <b>false</b>.
     parameter SI.Position r_0_start[3]={0,0,0} 
       "|Initialization|| Initial values of frame_a.r_0 (vector from origin of world frame to origin of frame_a resolved in world frame)"
       annotation (Evaluate=false);
-    parameter Modelica.Mechanics.MultiBody.Types.RotationSequence sequence_start={1,2,3} 
+    parameter Modelica.Mechanics.MultiBody.Types.RotationSequence 
+      sequence_start =                                                           {1,2,3} 
       "|Initialization|| Sequence of rotations to rotate world frame into frame_a at initial time"
       annotation (Evaluate=true);
     parameter Cv.NonSIunits.Angle_deg angles_start[3]={0,0,0} 
@@ -578,7 +580,8 @@ the animation may be switched off via parameter animation = <b>false</b>.
     parameter SI.Acceleration a_0_start[3]={0,0,0} 
       "|Initialization|| Initial values of acceleration a_0 = der(v_0)" 
       annotation (Evaluate=false);
-    parameter Modelica.Mechanics.MultiBody.Types.AngularAcceleration_degs2 z_0_start[3]={0,0,0} 
+    parameter Modelica.Mechanics.MultiBody.Types.AngularAcceleration_degs2 
+      z_0_start[                                                                     3]={0,0,0} 
       "|Initialization|| Initial values of angular acceleration z_0 = der(w_0)"
       annotation (Evaluate=false);
     parameter SI.Diameter sphereDiameter=world.defaultBodyDiameter 
@@ -932,7 +935,8 @@ to the setting of parameters \"useQuaternions\" and
     parameter SI.Position r_0_start[3]={0,0,0} 
       "|Initialization|| Initial values of frame_a.r_0 (vector from origin of world frame to origin of frame_a resolved in world frame)"
       annotation (Evaluate=false);
-    parameter Modelica.Mechanics.MultiBody.Types.RotationSequence sequence_start={1,2,3} 
+    parameter Modelica.Mechanics.MultiBody.Types.RotationSequence 
+      sequence_start =                                                           {1,2,3} 
       "|Initialization|| Sequence of rotations to rotate world frame into frame_a at initial time"
       annotation (Evaluate=true);
     parameter NonSI.Angle_deg angles_start[3]={0,0,0} 
@@ -947,7 +951,8 @@ to the setting of parameters \"useQuaternions\" and
     parameter SI.Acceleration a_0_start[3]={0,0,0} 
       "|Initialization|| Initial values of acceleration a_0 = der(v_0)" 
       annotation (Evaluate=false);
-    parameter Modelica.Mechanics.MultiBody.Types.AngularAcceleration_degs2 z_0_start[3]={0,0,0} 
+    parameter Modelica.Mechanics.MultiBody.Types.AngularAcceleration_degs2 
+      z_0_start[                                                                     3]={0,0,0} 
       "|Initialization|| Initial values of angular acceleration z_0 = der(w_0)"
       annotation (Evaluate=false);
     parameter Modelica.Mechanics.MultiBody.Types.ShapeType shapeType="cylinder" 
@@ -1175,7 +1180,8 @@ states and of the \"Advanced\" menu parameters, see model
     parameter SI.Position r_0_start[3]={0,0,0} 
       "|Initialization|| Initial values of frame_a.r_0 (vector from origin of world frame to origin of frame_a resolved in world frame)"
       annotation (Evaluate=false);
-    parameter Modelica.Mechanics.MultiBody.Types.RotationSequence sequence_start={1,2,3} 
+    parameter Modelica.Mechanics.MultiBody.Types.RotationSequence 
+      sequence_start =                                                           {1,2,3} 
       "|Initialization|| Sequence of rotations to rotate world frame into frame_a at initial time"
       annotation (Evaluate=true);
     parameter NonSI.Angle_deg angles_start[3]={0,0,0} 
@@ -1190,7 +1196,8 @@ states and of the \"Advanced\" menu parameters, see model
     parameter SI.Acceleration a_0_start[3]={0,0,0} 
       "|Initialization|| Initial values of acceleration a_0 = der(v_0)" 
       annotation (Evaluate=false);
-    parameter Modelica.Mechanics.MultiBody.Types.AngularAcceleration_degs2 z_0_start[3]={0,0,0} 
+    parameter Modelica.Mechanics.MultiBody.Types.AngularAcceleration_degs2 
+      z_0_start[                                                                     3]={0,0,0} 
       "|Initialization|| Initial values of angular acceleration z_0 = der(w_0)"
       annotation (Evaluate=false);
     parameter Boolean enforceStates=false 
@@ -1353,7 +1360,8 @@ states and of the \"Advanced\" menu parameters, see model
     parameter SI.Position r_0_start[3]={0,0,0} 
       "|Initialization|| Initial values of frame_a.r_0 (vector from origin of world frame to origin of frame_a resolved in world frame)"
       annotation (Evaluate=false);
-    parameter Modelica.Mechanics.MultiBody.Types.RotationSequence sequence_start={1,2,3} 
+    parameter Modelica.Mechanics.MultiBody.Types.RotationSequence 
+      sequence_start =                                                           {1,2,3} 
       "|Initialization|| Sequence of rotations to rotate world frame into frame_a at initial time"
       annotation (Evaluate=true);
     parameter NonSI.Angle_deg angles_start[3]={0,0,0} 
@@ -1368,7 +1376,8 @@ states and of the \"Advanced\" menu parameters, see model
     parameter SI.Acceleration a_0_start[3]={0,0,0} 
       "|Initialization|| Initial values of acceleration a_0 = der(v_0)" 
       annotation (Evaluate=false);
-    parameter Modelica.Mechanics.MultiBody.Types.AngularAcceleration_degs2 z_0_start[3]={0,0,0} 
+    parameter Modelica.Mechanics.MultiBody.Types.AngularAcceleration_degs2 
+      z_0_start[                                                                     3]={0,0,0} 
       "|Initialization|| Initial values of angular acceleration z_0 = der(w_0)"
       annotation (Evaluate=false);
     
@@ -1495,14 +1504,14 @@ states and of the \"Advanced\" menu parameters, see model
   
   model Mounting1D "Propagate 1D support torque to 3D system" 
     parameter Modelica.SIunits.Angle phi0=0 "Fixed offset angle of housing";
+    parameter Boolean enable3D=true "Enable 3D effects and frame_a connector";
     parameter Modelica.Mechanics.MultiBody.Types.Axis n={1,0,0} 
-      "Axis of rotation = axis of support torque (resolved in frame_a)";
-    parameter Boolean enable3D=true "Enable 3D effects of 1D powertrains"
-      annotation (Dialog(tab="PowerTrain"));
-
+      "Axis of rotation = axis of support torque (resolved in frame_a)" annotation(Dialog(enable=enable3D));
+    
     Modelica.Mechanics.Rotational.Interfaces.Flange_b flange_b 
       "(right) flange fixed in housing" annotation (extent=[110, 10; 90, -10]);
-    Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a(f=zeros(3), t=-n*flange_b.tau) if effectiveEnable3D "Frame in which housing is fixed" 
+    Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a(f=zeros(3), t=-n*flange_b.tau) if effectiveEnable3D 
+      "Frame in which housing is fixed" 
       annotation (extent=[-15, -120; 15, -100], rotation=90);
     annotation (
       Icon(
@@ -1544,7 +1553,7 @@ November 3-4, 2003, pp. 149-158</p>
           extent=[12, 53; 80, 40],
           string="rotation axis",
           style(color=10))));
-  protected
+  protected 
     outer World world;
     parameter Boolean effectiveEnable3D=world.enable3D and enable3D;
   equation 
@@ -1571,7 +1580,8 @@ November 3-4, 2003, pp. 149-158</p>
     parameter Modelica.Mechanics.MultiBody.Types.AngularVelocity_degs w_start=0 
       "|Initialization| Initial value of relative angular velocity w = der(phi)"
       annotation (Evaluate=false);
-    parameter Modelica.Mechanics.MultiBody.Types.AngularAcceleration_degs2 a_start=0 
+    parameter Modelica.Mechanics.MultiBody.Types.AngularAcceleration_degs2 
+      a_start =                                                                    0 
       "|Initialization| Initial value of relative angular acceleration a = der(w)"
       annotation (Evaluate=false);
     parameter SI.Position r_center[3]=zeros(3) 
