@@ -4703,7 +4703,7 @@ blocks of the block library Modelica.Blocks.Sources.
     if exact then
       phi = phi_ref;
     else
-      // Filter: a = phi_ref/(1 + (af/w_crit)*s + (bf/w_crit^2)*s^2)
+      // Filter: a = phi_ref*s^2/(1 + (af/w_crit)*s + (bf/w_crit^2)*s^2)
       a = ((phi_ref - phi)*w_crit - af*w)*(w_crit/bf);
     end if;
     

@@ -2193,7 +2193,7 @@ blocks of the block library Modelica.Blocks.Sources.
     if exact then
       s = s_ref;
     else
-      // Filter: a = s_ref/(1 + (af/w_crit)*S + (bf/w_crit^2)*S^2)
+      // Filter: a = s_ref*S^2/(1 + (af/w_crit)*S + (bf/w_crit^2)*S^2)
       a = ((s_ref - s)*w_crit - af*v)*(w_crit/bf);
     end if;
     
