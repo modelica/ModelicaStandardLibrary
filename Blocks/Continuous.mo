@@ -973,9 +973,7 @@ the model.
 </p>
 </HTML>"));
   equation 
-    // temporarily to pass check
-    y = u;
-    //      y = der(u);
+    y = der(u);
   end Der;
   
   block LowpassButterworth 
