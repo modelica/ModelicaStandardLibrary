@@ -73,6 +73,18 @@ in the allowed range (" + String(T_min) + " K <= T <= " + String(T_max)
   
   package DryAirNasa "Air: Detailed dry air model as ideal gas (200..6000 K)" 
     extends IdealGases.SingleGases.Air(fluidConstants={IdealGases.Common.FluidData.N2});
+
+    
+  redeclare function extends dynamicViscosity "simple polynomial for dry air (moisture influence small), valid from 73.15 K to 373.15 K"
+    algorithm 
+    eta := Polynomials_Temp.evaluate({(-4.96717436974791E-011), 5.06626785714286E-008, 1.72937731092437E-005}, Cv.to_degC(state.T));
+  end dynamicViscosity;
+    
+    redeclare function extends thermalConductivity "simple polynomial for dry air (moisture influence small), valid from 73.15 K to 373.15 K" 
+    algorithm 
+      lambda := Polynomials_Temp.evaluate({(-4.8737307422969E-008), 7.67803133753502E-005, 0.0241814385504202},Cv.to_degC(state.T));
+    end thermalConductivity;
+    
   end DryAirNasa;
   
   package MoistAir "Air: Moist air model (fog but no ice, 0..150 degC)" 
@@ -88,8 +100,8 @@ in the allowed range (" + String(T_min) + " K <= T <= " + String(T_max)
       "Index of water (in substanceNames, massFractions X, etc.)";
     constant Integer Air=2 
       "Index of air (in substanceNames, massFractions X, etc.)";
-    constant SI.Pressure psat_low=saturationPressureWithoutLimits(224.15);
-    constant SI.Pressure psat_high=saturationPressureWithoutLimits(422.16);
+//     constant SI.Pressure psat_low=saturationPressureWithoutLimits(200.0);
+//     constant SI.Pressure psat_high=saturationPressureWithoutLimits(422.16);
     constant Real k_mair =  steam.MM/dryair.MM "ratio of molar weights";
     
     constant IdealGases.Common.DataRecord dryair = IdealGases.Common.SingleGasesData.Air;
@@ -128,9 +140,9 @@ in the allowed range (" + String(T_min) + " K <= T <= " + String(T_max)
       // SpecificEnthalpy h_component[2];
       AbsolutePressure p_steam_sat "Partial saturation pressure of steam";
     equation 
-      assert(T >= 223.15 and T <= 423.15, "
+      assert(T >= 200.0 and T <= 423.15, "
 Temperature T is not in the allowed range
-223.15 K <= (T =" + String(T) + " K) <= 423.15 K
+200.0 K <= (T =" + String(T) + " K) <= 423.15 K
 required from medium model \""       + mediumName + "\".");
       MM = 1/(Xi[Water]/MMX[Water]+(1.0-Xi[Water])/MMX[Air]);
       
@@ -167,41 +179,62 @@ required from medium model \""       + mediumName + "\".");
       R := dryair.R*(1-state.X[Water]) + steam.R*state.X[Water];
     end gasConstant;
     
-    function saturationPressureWithoutLimits 
-      "saturation curve valid for 273.15 <= T <= 373.16. Outside of these limits a (wrong) result is returned" 
+    function saturationPressureLiquid
+      "saturation curve valid for 273.16 <= T <= 373.16. Outside of these limits a (less accurate) result is returned" 
       extends Modelica.Icons.Function;
       input SI.Temperature Tsat "saturation temperature";
       output SI.AbsolutePressure psat "saturation pressure";
-      annotation(derivative=saturationPressureWithoutLimits_der);
+      annotation(Inline=false,smoothOrder=5);
     algorithm 
       psat := 611.657*Math.exp(17.2799 - 4102.99/(Tsat - 35.719));
-    end saturationPressureWithoutLimits;
+    end saturationPressureLiquid;
     
-    redeclare function extends saturationPressure 
-      "saturation curve valid for 273.15 <= T <= 373.16 (and slightly outside with less accuracy)" 
-      annotation (InlineNoEvent=false,derivative=saturationPressure_der);
+    function sublimationPressureIce
+      "saturation curve valid for 223.16 <= T <= 273.16. Outside of these limits a (less accurate) result is returned" 
+      extends Modelica.Icons.Function;
+      input SI.Temperature Tsat "sublimation temperature";
+      output SI.AbsolutePressure psat "sublimation pressure";
+      annotation(Inline=false,smoothOrder=5);
     algorithm 
-      psat := max(psat_low,min(psat_high,saturationPressureWithoutLimits(Tsat)));
+      psat := 611.657*Math.exp(22.5159*(1.0 - 273.16/Tsat));
+    end sublimationPressureIce;
+
+    redeclare function extends saturationPressure 
+      "saturation curve valid for 223.16 <= T <= 373.16 (and slightly outside with less accuracy)" 
+      annotation(Inline=false,smoothOrder=5);
+    algorithm 
+      psat := Utilities.spliceFunction(saturationPressureLiquid(Tsat),sublimationPressureIce(Tsat),Tsat-273.16,1.0);
     end saturationPressure;
 
-    function saturationPressureWithoutLimits_der "derivative of saturation pressure"
-      input SI.Temperature Tsat "saturation temperature";
-      input Real dT_sat "derivative of saturation temperature";
-      output Real dpsat "saturation pressure derivative";
-    algorithm
-      dpsat := 2509622.55443*dT_sat*Math.exp(17.2799-4102.99/(Tsat-35.719))/
-	(Tsat-35.719)^2;
-    end saturationPressureWithoutLimits_der;
+//     function saturationPressureWithoutLimits_der "derivative of saturation pressure"
+//       input SI.Temperature Tsat "saturation temperature";
+//       input Real dT_sat "derivative of saturation temperature";
+//       output Real dpsat "saturation pressure derivative";
+//     algorithm
+//       dpsat := 2509622.55443*dT_sat*Math.exp(17.2799-4102.99/(Tsat-35.719))/
+// 	(Tsat-35.719)^2;
+//     end saturationPressureWithoutLimits_der;
     
-    function saturationPressure_der "derivative of saturation pressure"
-      input SI.Temperature Tsat "saturation temperature";
-      input Real dT_sat "derivative of saturation temperature";
-      output Real dpsat "saturation pressure derivative";
-    algorithm
-      dpsat := if T > 224.15 and T < 422.15 then
-	2509622.55443*dT_sat*Math.exp(17.2799-4102.99/(Tsat-35.719))/
-	(Tsat-35.719)^2 else 0.0;
-    end saturationPressure_der;
+//     function saturationPressure_der "derivative of saturation pressure"
+//       input SI.Temperature Tsat "saturation temperature";
+//       input Real dT_sat "derivative of saturation temperature";
+//       output Real dpsat "saturation pressure derivative";
+//     algorithm
+//       dpsat := if T > 224.15 and T < 422.15 then
+// 	2509622.55443*dT_sat*Math.exp(17.2799-4102.99/(Tsat-35.719))/
+// 	(Tsat-35.719)^2 else 0.0;
+//     end saturationPressure_der;
+    
+//     model testpsat
+//       Real T1(start = 220.0);
+//       Real p1,p2,p3, p4;
+//     equation
+//       der(T1) = 100.0;
+//       p1 = sublimationPressureIce(T1);
+//       p2 = saturationPressureLiquid(T1);
+//       p3 = if T1 < 273.16 then sublimationPressureIce(T1) else saturationPressureLiquid(T1);
+//       p4 = saturationPressure(T1);
+//     end testpsat;
     
    redeclare function extends enthalpyOfVaporization 
       "enthalpy of vaporization of water" 
@@ -223,36 +256,56 @@ required from medium model \""       + mediumName + "\".");
     end HeatCapacityOfWater;
     
    redeclare function extends enthalpyOfLiquid 
+     annotation(Inline=false,smoothOrder=5);
    algorithm 
      h := (T - 273.15)*1e3*(4.2166 - 0.5*(T - 273.15)*(0.0033166 + 0.333333*(T - 273.15)*(0.00010295
         - 0.25*(T - 273.15)*(1.3819e-6 + 0.2*(T - 273.15)*7.3221e-9))));
    end enthalpyOfLiquid;
-
-   
     
    redeclare function extends enthalpyOfGas 
+     annotation(Inline=false,smoothOrder=5);
    algorithm 
      h := SingleGasNasa.h_Tlow(data=steam, T=T, refChoice=3, h_off=46479.819+2501014.5)*X[Water]
           + SingleGasNasa.h_Tlow(data=dryair, T=T, refChoice=3, h_off=25104.684)*(1.0-X[Water]);
    end enthalpyOfGas;
     
    redeclare function extends enthalpyOfCondensingGas 
+     annotation(Inline=false,smoothOrder=5);
    algorithm 
      h := SingleGasNasa.h_Tlow(data=steam, T=T, refChoice=3, h_off=46479.819+2501014.5);
    end enthalpyOfCondensingGas;
     
   redeclare function extends heatCapacity_cp 
       "Return specific heat capacity at constant pressure" 
+     annotation(Inline=false,smoothOrder=5);
   algorithm 
     cp:= SingleGasNasa.cp_Tlow(dryair, state.T)*(1-state.X[Water]) + SingleGasNasa.cp_Tlow(steam, state.T)*state.X[Water];
   end heatCapacity_cp;
     
   redeclare function extends heatCapacity_cv 
       "Return specific heat capacity at constant volume" 
+     annotation(Inline=false,smoothOrder=5);
   algorithm 
-    cv:= SingleGasNasa.cp_Tlow(dryair, state.T)*(1-state.X[Water]) + SingleGasNasa.cp_Tlow(steam, state.T)*state.X[Water]
+    cv:= SingleGasNasa.cp_Tlow(dryair, state.T)*(1-state.X[Water]) +
+      SingleGasNasa.cp_Tlow(steam, state.T)*state.X[Water]
       - gasConstant(state);
   end heatCapacity_cv;
+    
+  redeclare function extends dynamicViscosity
+      "simple polynomial for dry air (moisture influence small), valid from 73.15 K to 373.15 K"
+      import Modelica.Media.Incompressible.TableBased.Polynomials_Temp;
+    algorithm 
+    eta := Polynomials_Temp.evaluate({(-4.96717436974791E-011), 5.06626785714286E-008, 1.72937731092437E-005},
+				     Cv.to_degC(state.T));
+  end dynamicViscosity;
+    
+  redeclare function extends thermalConductivity
+      "simple polynomial for dry air (moisture influence small), valid from 73.15 K to 373.15 K" 
+      import Modelica.Media.Incompressible.TableBased.Polynomials_Temp;
+    algorithm 
+    lambda := Polynomials_Temp.evaluate({(-4.8737307422969E-008), 7.67803133753502E-005, 0.0241814385504202},
+					Cv.to_degC(state.T));
+    end thermalConductivity;
     
     function h_pTX 
       "Compute specific enthalpy from pressure, temperature and mass fraction" 
@@ -261,7 +314,7 @@ required from medium model \""       + mediumName + "\".");
       input SI.Temperature T "Temperature";
       input SI.MassFraction Xi[nXi] "Independent mass fractions of moist air";
       output SI.SpecificEnthalpy h "Specific enthalpy at p, T, Xi";
-//      annotation(derivative=h_pTX_der);
+     annotation(Inline=false,smoothOrder=1);
     protected 
       SI.AbsolutePressure p_steam_sat "Partial saturation pressure of steam";
       SI.MassFraction x_sat "steam water mass fraction of saturation boundary";
@@ -279,6 +332,67 @@ required from medium model \""       + mediumName + "\".");
                   {X_steam, X_air} + enthalpyOfLiquid(T)*X_liquid;
     end h_pTX;
 
+    package Utilities "utility functions"
+  function spliceFunction 
+    input Real pos;
+    input Real neg;
+    input Real x;
+    input Real deltax=1;
+    output Real out;
+    annotation (derivative=spliceFunction_der);
+  protected 
+    Real scaledX;
+    Real scaledX1;
+    Real y;
+  algorithm 
+    scaledX1 := x/deltax;
+    scaledX := scaledX1*Modelica.Math.asin(1);
+    if scaledX1 <= -0.999999999 then
+      y := 0;
+    elseif scaledX1 >= 0.999999999 then
+      y := 1;
+    else
+      y := (Modelica.Math.tanh(Modelica.Math.tan(scaledX)) + 1)/2;
+    end if;
+    out := pos*y + (1 - y)*neg;
+  end spliceFunction;
+  
+  function spliceFunction_der 
+    input Real pos;
+    input Real neg;
+    input Real x;
+    input Real deltax=1;
+    input Real dpos;
+    input Real dneg;
+    input Real dx;
+    input Real ddeltax=0;
+    output Real out;
+  protected 
+    Real scaledX;
+    Real scaledX1;
+    Real dscaledX1;
+    Real y;
+  algorithm 
+    scaledX1 := x/deltax;
+    scaledX := scaledX1*Modelica.Math.asin(1);
+    dscaledX1 := (dx - scaledX1*ddeltax)/deltax;
+    if scaledX1 <= -0.99999999999 then
+      y := 0;
+    elseif scaledX1 >= 0.9999999999 then
+      y := 1;
+    else
+      y := (Modelica.Math.tanh(Modelica.Math.tan(scaledX)) + 1)/2;
+    end if;
+    out := dpos*y + (1 - y)*dneg;
+    if (abs(scaledX1) < 1) then
+      out := out + (pos - neg)*dscaledX1*Modelica.Math.asin(1)/2/(
+        Modelica.Math.cosh(Modelica.Math.tan(scaledX))*Modelica.Math.cos(
+        scaledX))^2;      
+    end if;
+  end spliceFunction_der;
+        
+    end Utilities;
+    
 /* Flattened Modelica model:
 
 function Modelica.Media.Air.MoistAir.h_pTX:der

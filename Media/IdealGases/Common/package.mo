@@ -349,7 +349,7 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
     input SI.SpecificEnthalpy h_off=h_offset 
       "User defined offset for reference enthalpy, if referenceChoice = UserDefined";
     output SI.SpecificEnthalpy h "Specific enthalpy at temperature T";
-    annotation (InlineNoEvent=false, Inline=false);
+    annotation (Inline=false,smoothOrder=1);
 //     annotation (InlineNoEvent=false, Inline=false,
 // 		derivative(zeroDerivative=data,
 // 			   zeroDerivative=exclEnthForm,
@@ -398,11 +398,11 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
     input SI.SpecificEnthalpy h_off=h_offset 
       "User defined offset for reference enthalpy, if referenceChoice = UserDefined";
     output SI.SpecificEnthalpy h "Specific enthalpy at temperature T";
-        annotation (InlineNoEvent=false, Inline=false,
-		    derivative(zeroDerivative=data,
-			       zeroDerivative=exclEnthForm,
-			       zeroDerivative=refChoice,
-			       zeroDerivative=h_off) = h_Tlow_der);
+    annotation(Inline=false,InlineNoEvent=false,smoothOrder=1);
+//     annotation (Inline=false,InlineNoEvent=false, derivative(zeroDerivative=data,
+// 			       zeroDerivative=exclEnthForm,
+// 			       zeroDerivative=refChoice,
+// 			       zeroDerivative=h_off) = h_Tlow_der);
   algorithm 
     h := data.R*((-data.alow[1] + T*(data.
       blow[1] + data.alow[2]*Math.log(T) + T*(1.*data.alow[3] + T*(0.5*data.
@@ -716,8 +716,8 @@ required from medium model \"" + mediumName + "\".");
      input SI.SpecificEnthalpy h_off=h_offset 
       "User defined offset for reference enthalpy, if referenceChoice = UserDefined";
      output SI.SpecificEnthalpy h "Specific enthalpy at temperature T";
-//    annotation(smoothOrder=1);
-    //     annotation (InlineNoEvent=false, Inline = false,
+    annotation(Inline=false,smoothOrder=1);
+//     annotation (Inline = false,
 // 		derivative(zeroDerivative=exclEnthForm,
 // 			   zeroDerivative=refChoice,
 // 			   zeroDerivative=h_off) = h_TX_der);
