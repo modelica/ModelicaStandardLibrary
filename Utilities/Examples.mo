@@ -163,18 +163,18 @@ The following operations are supported (pi=3.14.. is a predefined constant):
            result := Math.tan(result);
          elseif functionName == "sqrt" then
            if result < 0.0 then
-              syntaxError(string, startIndex, "Argument of call \"sqrt(" + String(result) + ")\" is negative.<br>" +
-                          "Imaginary numbers are not supported by the calculator.<br>" + message);
+              syntaxError(string, startIndex, "Argument of call \"sqrt(" + String(result) + ")\" is negative.\n" +
+                          "Imaginary numbers are not supported by the calculator.\n" + message);
            end if;
            result := sqrt(result);
          else
-           syntaxError(string, startIndex, "Function \"" + functionName + "\" is unknown (not supported)<br>" +
+           syntaxError(string, startIndex, "Function \"" + functionName + "\" is unknown (not supported)\n" +
                                            message);
          end if;
       end if;
         
     else
-      syntaxError(string, startIndex, "Invalid primary of expression.<br>" + message);
+      syntaxError(string, startIndex, "Invalid primary of expression.\n" + message);
     end if;
   end primary;
     

@@ -636,17 +636,17 @@ is not allowed to start with a \"+\" or \"-\" sign.
     annotation (preferedView="info",Documentation(info="<html>
 <h3><font color=\"#008000\">Syntax</font></h3>
 <blockquote><pre>
-             number = Strings.<b>scanRealToken</b>(string);
-(number, nextIndex) = Strings.<b>scanRealToken</b>(string, startIndex=1, 
+             number = Strings.<b>scanReal</b>(string);
+(number, nextIndex) = Strings.<b>scanReal</b>(string, startIndex=1, 
                                             unsigned=false, message=\"\");
 </pre></blockquote>
 <h3><font color=\"#008000\">Description</font></h3>
 <p>
-The first form, \"scanRealToken(string)\", scans \"string\" for a 
+The first form, \"scanReal(string)\", scans \"string\" for a 
 Real number with leading white space and returns the value. 
 </p>
 <p> 
-The second form, \"scanRealToken(string,startIndex,unsigned)\",
+The second form, \"scanReal(string,startIndex,unsigned)\",
 scans the string starting at index
 \"startIndex\", checks whether the next token is a Real literal
 and returns its value as a Real number, as well as the
@@ -686,13 +686,13 @@ is not present in \"string\",  an assert is triggered.
     annotation (preferedView="info",Documentation(info="<html>
 <h3><font color=\"#008000\">Syntax</font></h3>
 <blockquote><pre>
-             number = Strings.<b>scanIntegerToken</b>(string);
-(number, nextIndex) = Strings.<b>scanIntegerToken</b>(string, startIndex=1, 
+             number = Strings.<b>scanInteger</b>(string);
+(number, nextIndex) = Strings.<b>scanInteger</b>(string, startIndex=1, 
                                                unsigned=false, message=\"\");
 </pre></blockquote>
 <h3><font color=\"#008000\">Description</font></h3>
 <p>
-Function <b>scanIntegerToken</b> scans the string starting at index
+Function <b>scanInteger</b> scans the string starting at index
 \"startIndex\", checks whether the next token is an Integer literal
 and returns its value as an Integer number, as well as the
 index directly after the Integer number. An assert is triggered,
@@ -725,12 +725,12 @@ leading white space.
     annotation (preferedView="info",Documentation(info="<html>
 <h3><font color=\"#008000\">Syntax</font></h3>
 <blockquote><pre>
-             number = Strings.<b>scanBooleanToken</b>(string);
-(number, nextIndex) = Strings.<b>scanBooleanToken</b>(string, startIndex=1, message=\"\");
+             number = Strings.<b>scanBoolean</b>(string);
+(number, nextIndex) = Strings.<b>scanBoolean</b>(string, startIndex=1, message=\"\");
 </pre></blockquote>
 <h3><font color=\"#008000\">Description</font></h3>
 <p>
-Function <b>scanBooleanToken</b> scans the string starting at index
+Function <b>scanBoolean</b> scans the string starting at index
 \"startIndex\", checks whether the next token is a Boolean literal
 (i.e., is either the string \"false\" or \"true\", if converted to lower case letters) 
 and returns its value as a Boolean number, as well as the
@@ -774,12 +774,12 @@ leading white space.
     annotation (preferedView="info",Documentation(info="<html>
 <h3><font color=\"#008000\">Syntax</font></h3>
 <blockquote><pre>
-             string2 = Strings.<b>scanStringToken</b>(string);
-(string2, nextIndex) = Strings.<b>scanStringToken</b>(string, startIndex=1, message=\"\");
+             string2 = Strings.<b>scanString</b>(string);
+(string2, nextIndex) = Strings.<b>scanString</b>(string, startIndex=1, message=\"\");
 </pre></blockquote>
 <h3><font color=\"#008000\">Description</font></h3>
 <p>
-Function <b>scanStringToken</b> scans the string starting at index
+Function <b>scanString</b> scans the string starting at index
 \"startIndex\", checks whether the next token is a String literal
 and returns its value as a String, as well as the
 index directly after the String. An assert is triggered,
@@ -808,12 +808,12 @@ leading white space.
     annotation (preferedView="info",Documentation(info="<html>
 <h3><font color=\"#008000\">Syntax</font></h3>
 <blockquote><pre>
-             identifier = Strings.<b>scanIdentifierToken</b>(string);
-(identifier, nextIndex) = Strings.<b>scanIdentifierToken</b>(string, startIndex=1, message=\"\");
+             identifier = Strings.<b>scanIdentifier</b>(string);
+(identifier, nextIndex) = Strings.<b>scanIdentifier</b>(string, startIndex=1, message=\"\");
 </pre></blockquote>
 <h3><font color=\"#008000\">Description</font></h3>
 <p>
-Function <b>scanIdentifierToken</b> scans the string starting at index
+Function <b>scanIdentifier</b> scans the string starting at index
 \"startIndex\", checks whether the next token is an Identifier
 and returns its value as a string, as well as the
 index directly after the Identifier. An assert is triggered,
@@ -843,13 +843,13 @@ leading white space.
     annotation (preferedView="info",Documentation(info="<html>
 <h3><font color=\"#008000\">Syntax</font></h3>
 <blockquote><pre>
-             delimiter = Strings.<b>scanDelimiterToken</b>(string);
-(delimiter, nextIndex) = Strings.<b>scanDelimiterToken</b>(string, startIndex=1,
+             delimiter = Strings.<b>scanDelimiter</b>(string);
+(delimiter, nextIndex) = Strings.<b>scanDelimiter</b>(string, startIndex=1,
                                  requiredDelimiters={\",\"}, message=\"\");
 </pre></blockquote>
 <h3><font color=\"#008000\">Description</font></h3>
 <p>
-Function <b>scanDelimiterToken</b> scans the string starting at index
+Function <b>scanDelimiter</b> scans the string starting at index
 \"startIndex\", checks whether the next token is a delimiter string
 and returns its value as a string, as well as the
 index directly after the delimiter. An assert is triggered,
@@ -908,10 +908,10 @@ is the index of the first non white space character.
         nextIndex := nextIndex + lenDelimiter;
     else
        if size(requiredDelimiters,1) == 1 then
-          syntaxError(string, nextIndex, "Expected delimiter \"" + requiredDelimiters[1] + "\"<br>" + message);
+          syntaxError(string, nextIndex, "Expected delimiter \"" + requiredDelimiters[1] + "\"\n" + message);
        else
           syntaxError(string, nextIndex, "Expected a delimiter out of " +
-                      concatenate(requiredDelimiters) + "<br>" + message);
+                      concatenate(requiredDelimiters) + "\n" + message);
        end if;
     end if;
   end scanDelimiter;
@@ -1000,9 +1000,9 @@ part of the string is printed.
      end if;
     
   // Print error message
-     Streams.error("<html>Syntax error at character " + String(index) + " of<br>" +
-                   errString1 + "<font color=\"#FF0000\">" + errString2 + "<br>" +
-                   message + "</font> </html>");
+     Streams.error("Syntax error at character " + String(index) + " of\n" +
+                   errString1 + errString2 + "\n" +
+                   message);
   end syntaxError;
   
   package Advanced "Advanced scanning functions" 
