@@ -24,7 +24,7 @@ user interface when the type is used as parameter in a declaration.
       
       extends Integer;
       annotation (choices(
-        choice=Modelica.Blocks.Types.Extrapolation.Constant 
+        choice=Modelica.Blocks.Types.Extrapolation.HoldLastPoint 
             "hold last point (constant extrapolation)",
         choice=Modelica.Blocks.Types.Extrapolation.LastTwoPoints 
             "last two points (linear extrapolation)",
