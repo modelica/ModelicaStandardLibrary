@@ -1676,8 +1676,8 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
   model CombiTimeTable
     "Table look-up with respect to time and linear/perodic extrapolation methods (data from matrix/file)"
 
-    parameter Boolean tableOnFile = false "true, if table is defined on file"
-    annotation(Dialog(group="table data definition"));
+    parameter Boolean tableOnFile=false "true, if table is defined on file or in function usertab"
+      annotation(Dialog(group="table data definition"), Evaluate=true);
     parameter Real table[:, :]=fill(0.0,0,2)
       "table matrix (time = first column)"
          annotation(Dialog(group="table data definition", enable = not tableOnFile));
@@ -1965,12 +1965,9 @@ Several matrices may be defined one after another.
           string="y[2]")));
   equation
     if tableOnFile then
-      assert(tableName<>"NoName" and fileName<>"NoName",
-        "tableOnFile=true and no file and table name given");
-    end if;
-    if not tableOnFile then
-      assert(size(table,1) > 0 and size(table,2) > 0,
-        "tableOnFile = false and parameter table is an empty matrix.");
+      assert(tableName<>"NoName", "tableOnFile = true and no table name given");
+    else
+      assert(size(table,1) > 0 and size(table,2) > 0, "tableOnFile = false and parameter table is an empty matrix");
     end if;
     for i in 1:nout loop
       y[i] = p_offset[i] + tableTimeIpo(tableID, columns[i], time);
