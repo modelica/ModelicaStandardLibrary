@@ -9,9 +9,13 @@ This library contains electrical components to build up analog and digital circu
 The library is currently structured in the following sublibraries:
 </p>
 <ul>
-<li>Analog</li>
-<li>MultiPhase</li>
-<li>Digital (not available yet)</li>
+<li>Package <b>Analog</b> for basic analog electrical components.</li>
+<li>Package <b>Digital</b> for 2-, 3-, 4-, and 9-value logic of digital circuits.</li>
+<li>Package <b>MultiPhase</b> for electrical
+    components with 2, 3 or more phases.</li>
+<li>Package <b>Machines</b> to model electrical motors and generators,
+    especially three phase induction machines such as an
+    asynchronous motor.</li>
 </ul>
 <p>
 </HTML>

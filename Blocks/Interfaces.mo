@@ -136,18 +136,18 @@ connector RealInput = input RealSignal "'input Real' as connector"
     grid=[1,1],
     component=[20,20]),
   Icon(Polygon(points=[-100,100; 100,0; -100,-100; -100,100], style(
-          color=62, 
-          rgbcolor={0,127,127}, 
-          fillColor=74, 
-          rgbfillColor={0,0,127}))),
-  Diagram(Polygon(points=[0,50; 100,0; 0,-50; 0,50], style(
           color=74, 
           rgbcolor={0,0,127}, 
           fillColor=74, 
+          rgbfillColor={0,0,127}))),
+  Diagram(Polygon(points=[0,50; 100,0; 0,-50; 0,50], style(
+          color=74,
+          rgbcolor={0,0,127},
+          fillColor=74,
           rgbfillColor={0,0,127})),
                                   Text(
       extent=[-140,120; 100,60],
-      string="%name", 
+      string="%name",
         style(color=74, rgbcolor={0,0,127}))));
   
 connector RealOutput = output RealSignal "'output Real' as connector" 
@@ -156,18 +156,18 @@ connector RealOutput = output RealSignal "'output Real' as connector"
     grid=[1,1],
     component=[20,20]),
   Icon(Polygon(points=[-100, 100; 100, 0; -100, -100; -100, 100], style(
-          color=74, 
-          rgbcolor={0,0,127}, 
-          fillColor=7, 
+          color=74,
+          rgbcolor={0,0,127},
+          fillColor=7,
           rgbfillColor={255,255,255}))),
   Diagram(Polygon(points=[-100,50; 0,0; -100,-50; -100,50], style(
-          color=74, 
-          rgbcolor={0,0,127}, 
-          fillColor=7, 
+          color=74,
+          rgbcolor={0,0,127},
+          fillColor=7,
           rgbfillColor={255,255,255})),
                                   Text(
       extent=[-100,120; 140,60],
-      string="%name", 
+      string="%name",
         style(color=74, rgbcolor={0,0,127}))));
   
 connector BooleanInput = input BooleanSignal "'input Boolean' as connector" 
@@ -231,9 +231,9 @@ connector IntegerOutput = output IntegerSignal "'output Integer' as connector"
           width=0.6,
           height=0.6),
         Icon(Rectangle(extent=[-100, -100; 100, 100], style(
-            color=74, 
-            rgbcolor={0,0,127}, 
-            fillColor=7, 
+            color=74,
+            rgbcolor={0,0,127},
+            fillColor=7,
             rgbfillColor={255,255,255})),
                                Text(extent=[-150, 150; 150, 110], string=
                 "%name")));

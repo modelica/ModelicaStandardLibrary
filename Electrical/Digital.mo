@@ -165,10 +165,10 @@ Modelica in file \"Modelica/package.mo\".</i><br>
           Line(points=[-90,0; -50,0], style(color=78, rgbcolor={127,0,127})),
           Line(points=[50,0; 90,0], style(color=78, rgbcolor={127,0,127}))),  Icon(
           Rectangle(extent=[-50,100; 50,-100], style(
-              color=0, 
-              rgbcolor={0,0,0}, 
-              thickness=2, 
-              fillColor=7, 
+              color=0,
+              rgbcolor={0,0,0},
+              thickness=2,
+              fillColor=7,
               rgbfillColor={255,255,255})),
           Line(points=[-90,0; -50,0], style(color=78, rgbcolor={127,0,127})),
           Line(points=[50,0; 92,0], style(color=78, rgbcolor={127,0,127}))));
@@ -186,10 +186,10 @@ Modelica in file \"Modelica/package.mo\".</i><br>
     algorithm 
       annotation (Icon(
           Rectangle(extent=[-50,100; 50,-100], style(
-              color=0, 
-              rgbcolor={0,0,0}, 
-              thickness=2, 
-              fillColor=7, 
+              color=0,
+              rgbcolor={0,0,0},
+              thickness=2,
+              fillColor=7,
               rgbfillColor={255,255,255})),
           Line(points=[50,0; 90,0], style(color=78, rgbcolor={127,0,127}))),
           Diagram(
@@ -207,10 +207,10 @@ Modelica in file \"Modelica/package.mo\".</i><br>
       
       annotation (Icon(
           Rectangle(extent=[-50,100; 50,-100], style(
-              color=0, 
-              rgbcolor={0,0,0}, 
-              thickness=2, 
-              fillColor=7, 
+              color=0,
+              rgbcolor={0,0,0},
+              thickness=2,
+              fillColor=7,
               rgbfillColor={255,255,255})),
           Ellipse(extent=[50,10; 70,-10],   style(color=0, thickness=2)),
           Line(points=[-90,0; -50,0], style(color=78, rgbcolor={127,0,127})),
@@ -232,10 +232,10 @@ Modelica in file \"Modelica/package.mo\".</i><br>
       annotation (
         Icon(
           Rectangle(extent=[-50,100; 50,-100], style(
-              color=0, 
-              rgbcolor={0,0,0}, 
-              thickness=2, 
-              fillColor=7, 
+              color=0,
+              rgbcolor={0,0,0},
+              thickness=2,
+              fillColor=7,
               rgbfillColor={255,255,255})),
           Ellipse(extent=[50,10; 70,-10],   style(color=0, thickness=2)),
           Line(points=[70,0; 92,0], style(color=78, rgbcolor={127,0,127}))),

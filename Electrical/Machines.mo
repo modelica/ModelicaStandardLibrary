@@ -449,7 +449,7 @@ Default machine parameters of model <i>AsynchronousInductionMachineSlipRing</i> 
         annotation (points=[-6.12303e-016,80; -6.12303e-016,90; -50,90],
                                                         style(color=3));
       connect(SineVoltage1.plug_p, IdealCloser1.plug_p) 
-        annotation (points=[6.12303e-016,60; 0,58; 1.22461e-015,56;
+        annotation (points=[6.12303e-016,60; 0,58; 1.22461e-015,56; 
             6.12303e-016,56; 6.12303e-016,50], style(color=3));
       connect(Star3.pin_n, Ground3.p) 
         annotation (points=[-70,-70; -80,-70],   style(color=3));
@@ -1134,7 +1134,7 @@ Connector for Space Phasors:
 </HTML>"));
     end SpacePhasor;
     
-    partial model PartialMachine 
+    partial model PartialInductionMachine 
       constant Real pi=Modelica.Constants.pi;
       constant Integer m=3 "number of phases";
       Modelica.Mechanics.Rotational.Interfaces.Flange_a flange_a 
@@ -1203,7 +1203,7 @@ Partial model for machine models, containing:
 </ul>
 </p>
 </HTML>"));
-    end PartialMachine;
+    end PartialInductionMachine;
   end Interfaces;
   
   package Basic "Basic machine models" 
@@ -1251,7 +1251,7 @@ These models use package SpacePhasors.
     
     model AsynchronousInductionMachineSquirrelCage 
       "Asynchronous induction machine with squirrel cage rotor" 
-      extends Interfaces.PartialMachine;
+      extends Interfaces.PartialInductionMachine;
       parameter Real p=2 "number of pole pairs";
       constant Modelica.SIunits.Frequency fNominal=50 "nominal frequency";
       parameter Modelica.SIunits.Resistance Rs=0.03 
@@ -1409,7 +1409,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           fillColor=10,
           rgbfillColor={95,95,95},
           fillPattern=1));
-      connect(inertia.flange_b, flange_a) annotation (points=[60,1.22461e-015; 
+      connect(inertia.flange_b, flange_a) annotation (points=[60,1.22461e-015;
             75,1.22461e-015; 75,0; 100,0], style(
           color=0,
           rgbcolor={0,0,0},
@@ -1441,7 +1441,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
     
     model AsynchronousInductionMachineSlipRing 
       "Asynchronous induction machine with slipring rotor" 
-      extends Interfaces.PartialMachine;
+      extends Interfaces.PartialInductionMachine;
       parameter Real p=2 "number of pole pairs";
       constant Modelica.SIunits.Frequency fNominal=50 "nominal frequency";
       parameter Modelica.SIunits.Resistance Rs=0.03 
@@ -1668,7 +1668,7 @@ Resistance and stray inductance of stator and rotor are modeled directly in stat
     
     model AsynchronousInductionMachineReluctanceRotor 
       "Asynchronous induction machine with reluctance rotor" 
-      extends Interfaces.PartialMachine;
+      extends Interfaces.PartialInductionMachine;
       parameter Real p=2 "number of pole pairs";
       constant Modelica.SIunits.Frequency fNominal=50 "nominal frequency";
       parameter Modelica.SIunits.Resistance Rs=0.03 
@@ -1868,7 +1868,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
     
     model PermanentMagnetSynchronousMachineDamperCage 
       "Permanent magnet synchronous induction machine with damper" 
-      extends Interfaces.PartialMachine;
+      extends Interfaces.PartialInductionMachine;
       parameter Real p=2 "number of pole pairs";
       parameter Modelica.SIunits.Frequency fNominal=50 
         "|Excitation|nominal frequency";
@@ -1904,8 +1904,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
         "stator zero-sequence current";
       output Modelica.SIunits.Current idq_ss[2] = airGapR.i_ss 
         "stator space phasor current / stator fixed frame";
-      output Modelica.SIunits.Current idq_sr[2](each stateSelect=StateSelect.prefer,
-        start=zeros(2), fixed=true) = airGapR.i_sr 
+      output Modelica.SIunits.Current idq_sr[2](each stateSelect=StateSelect.prefer) = airGapR.i_sr 
         "stator space phasor current / rotor fixed frame";
       output Modelica.SIunits.Current idq_dr[2](each stateSelect=StateSelect.prefer) = squirrelCageD.spacePhasor_r.i_ 
         "damper space phasor current / rotor fixed frame";
@@ -1940,7 +1939,8 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
               color=0,
               rgbcolor={0,0,0},
               fillColor=1,
-              rgbfillColor={255,0,0}))),
+              rgbfillColor={255,0,0})), 
+          Ellipse(extent=[-134,34; -66,-34], style(color=3, rgbcolor={0,0,255}))),
         Documentation(info="<HTML>
 <p>
 <b>Model of a three phase permanent synchronous induction machine with damper cage.</b><br>
@@ -2916,3 +2916,4 @@ Converts a space phasor from polar coordinates to rectangular coordinates.
     end Functions;
   end SpacePhasors;
 end Machines;
+
