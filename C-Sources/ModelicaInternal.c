@@ -59,41 +59,41 @@ static void ModelicaNotExistError(const char* name) {
 
 #if NO_FILE_SYSTEM
   static void ModelicaInternal_mkdir(const char* directoryName) {
-              ModelicaNonExistError("ModelicaInternal_mkdir"); }
+              ModelicaNotExistError("ModelicaInternal_mkdir"); }
   static void ModelicaInternal_rmdir(const char* directoryName) {
-              ModelicaNonExistError("ModelicaInternal_rmdir"); }
+              ModelicaNotExistError("ModelicaInternal_rmdir"); }
   static int  ModelicaInternal_stat(const char* name) {
-              ModelicaNonExistError("ModelicaInternal_stat"); }
+              ModelicaNotExistError("ModelicaInternal_stat"); return 0; }
   static void ModelicaInternal_rename(const char* oldName, const char* newName)  {
-              ModelicaNonExistError("ModelicaInternal_rename"); }
+              ModelicaNotExistError("ModelicaInternal_rename"); }
   static void ModelicaInternal_removeFile(const char* file) {
-              ModelicaNonExistError("ModelicaInternal_removeFile"); }
+              ModelicaNotExistError("ModelicaInternal_removeFile"); }
   static void ModelicaInternal_copyFile(const char* oldFile, const char* newFile) {
-              ModelicaNonExistError("ModelicaInternal_copyFile"); }
+              ModelicaNotExistError("ModelicaInternal_copyFile"); }
   static void ModelicaInternal_readDirectory(const char* directory, int nFiles, const char* files[]) {
-              ModelicaNonExistError("ModelicaInternal_readDirectory"); }
+              ModelicaNotExistError("ModelicaInternal_readDirectory"); }
   static int  ModelicaInternal_getNumberOfFiles(const char* directory) {
-              ModelicaNonExistError("ModelicaInternal_getNumberOfFiles"); }
+              ModelicaNotExistError("ModelicaInternal_getNumberOfFiles"); return 0; }
   static const char* ModelicaInternal_fullPathName(const char* name) {
-              ModelicaNonExistError("ModelicaInternal_fullPathName"); }
+              ModelicaNotExistError("ModelicaInternal_fullPathName"); return 0; }
   static const char* ModelicaInternal_temporaryFileName() {
-              ModelicaNonExistError("ModelicaInternal_temporaryFileName"); }
+              ModelicaNotExistError("ModelicaInternal_temporaryFileName"); return 0; }
   static void ModelicaInternal_print(const char* string, const char* fileName) {
-              ModelicaNonExistError("ModelicaInternal_print"); }
+              ModelicaNotExistError("ModelicaInternal_print"); }
   static int  ModelicaInternal_countLines(const char* fileName) {
-              ModelicaNonExistError("ModelicaInternal_countLines"); }
+              ModelicaNotExistError("ModelicaInternal_countLines"); return 0; }
   static void ModelicaInternal_readFile(const char* fileName, const char* string[], size_t nLines) {
-              ModelicaNonExistError("ModelicaInternal_readFile"); }
+              ModelicaNotExistError("ModelicaInternal_readFile"); }
   static const char* ModelicaInternal_readLine(const char* fileName, int lineNumber, int* endOfFile) {
-              ModelicaNonExistError("ModelicaInternal_readLine"); }
+              ModelicaNotExistError("ModelicaInternal_readLine"); return 0; }
   static void ModelicaInternal_chdir(const char* directoryName) {
-              ModelicaNonExistError("ModelicaInternal_chdir"); }
+              ModelicaNotExistError("ModelicaInternal_chdir"); }
   static const char* ModelicaInternal_getcwd(int dummy) {
-              ModelicaNonExistError("ModelicaInternal_getcwd"); }
+              ModelicaNotExistError("ModelicaInternal_getcwd"); return 0; }
   static const char* ModelicaInternal_getenv(const char* name, int convertToSlash, int* exist) {
-              ModelicaNonExistError("ModelicaInternal_getenv"); }
+              ModelicaNotExistError("ModelicaInternal_getenv"); return 0; }
   static void ModelicaInternal_setenv(const char* name, const char* value, int convertFromSlash) {
-              ModelicaNonExistError("ModelicaInternal_setenv"); }
+              ModelicaNotExistError("ModelicaInternal_setenv"); }
 #else
 
 #  include <stdio.h>
