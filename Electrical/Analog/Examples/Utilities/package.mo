@@ -1,0 +1,55 @@
+package Utilities "Utilities for examples"
+extends Modelica.Icons.Library2;
+
+
+annotation (
+  Coordsys(
+    extent=[0, 0; 400, 500], 
+    grid=[1, 1], 
+    component=[20, 20]), 
+  Window(
+    x=0.03, 
+    y=0.04, 
+    width=0.50, 
+    height=0.60, 
+    library=1, 
+    autolayout=1), 
+  Documentation(info="
+<HTML>
+<p>
+This package contains utilities ...
+</p>
+
+<dl>
+<dt>
+<b>Main Authors:</b>
+<dd>
+<a href=\"http://www.eas.iis.fhg.de/~clauss/\">Christoph Clau&szlig;</a> 
+    &lt;<a href=\"mailto:clauss@eas.iis.fhg.de\">clauss@eas.iis.fhg.de</a>&gt;<br>
+    <a href=\"http://www.eas.iis.fhg.de/~schneider/\">Andr&eacute; Schneider</a> 
+    &lt;<a href=\"mailto:schneider@eas.iis.fhg.de\">schneider@eas.iis.fhg.de</a>&gt;<br>
+    Fraunhofer Institute for Integrated Circuits<br>
+    Design Automation Department<br>
+    Zeunerstra&szlig;e 38<br>
+    D-01069 Dresden<br>
+
+<p>
+<dt>
+<b>Version:</b>
+<dd>
+$Id$<br>
+<p>
+<dt>
+<b>Copyright:</b>
+<dd>
+Copyright (C) 1998-1999, Modelica Design Group and Fraunhofer-Gesellschaft.<br>
+<i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
+under the terms of the <b>Modelica license</b>, see the license conditions
+and the accompanying <b>disclaimer</b> in the documentation of package 
+Modelica in file \"Modelica/package.mo\".</i><br>
+<p>
+</dl>
+</HTML>
+"));
+
+end Utilities;
