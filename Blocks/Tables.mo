@@ -175,8 +175,14 @@ Several matrices may be defined one after another.
         Text(extent=[-2, -40; 30, -54], string="columns"),
         Text(extent=[2,54; 26,42], string="y[2]")));
   equation 
-    assert(tableOnFile or not tableOnFile and size(table,1) > 0 and size(table,2) > 0,
-           "tableOnFile = false and parameter table is an empty matrix.");
+    if tableOnFile then
+      assert(tableName<>"NoName" and fileName<>"NoName",
+        "tableOnFile=true and no file and table name given");
+    end if;
+    if not tableOnFile then
+      assert(size(table,1) > 0 and size(table,2) > 0,
+        "tableOnFile = false and parameter table is an empty matrix.");
+    end if; 
     
     for i in 1:n loop
       y[i] = if not tableOnFile and size(table,1)==1 then 
@@ -563,6 +569,14 @@ Several matrices may be defined one after another.
   protected 
     final parameter Real tableID=dymTableInit(2.0, smoothness, tableName, fileName, table, 0.0);
   equation 
+    if tableOnFile then
+      assert(tableName<>"NoName" and fileName<>"NoName",
+        "tableOnFile=true and no file and table name given");
+    end if;
+    if not tableOnFile then
+      assert(size(table,1) > 0 and size(table,2) > 0,
+        "tableOnFile = false and parameter table is an empty matrix.");
+    end if; 
     y = dymTableIpo2(tableID, u1, u2);
   end CombiTable2D;
 end Tables;

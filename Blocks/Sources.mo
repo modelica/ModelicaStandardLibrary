@@ -1964,8 +1964,14 @@ Several matrices may be defined one after another.
           style(color=0),
           string="y[2]")));
   equation 
-    assert(tableOnFile or not tableOnFile and size(table,1) > 0 and size(table,2) > 0,
-           "tableOnFile = false and parameter table is an empty matrix.");
+    if tableOnFile then
+      assert(tableName<>"NoName" and fileName<>"NoName",
+        "tableOnFile=true and no file and table name given");
+    end if;
+    if not tableOnFile then
+      assert(size(table,1) > 0 and size(table,2) > 0,
+        "tableOnFile = false and parameter table is an empty matrix.");
+    end if; 
     for i in 1:nout loop
       y[i] = p_offset[i] + tableTimeIpo(tableID, columns[i], time);
     end for;

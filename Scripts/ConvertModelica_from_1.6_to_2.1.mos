@@ -1464,6 +1464,26 @@ convertClass("ModelicaAdditions.Tables.CombiTable1Ds",
 convertClass("ModelicaAdditions.Tables.CombiTable2D",
              "Modelica.Blocks.Tables.CombiTable2D");
 
+// Preserve default table:
+convertModifiers({"ModelicaAdditions.Tables.CombiTableTime",
+    "ModelicaAdditions.Tables.CombiTableTime2",
+    "ModelicaAdditions.Tables.CombiTable1D",
+   "ModelicaAdditions.Tables.CombiTable1Ds"},
+  {"table=[0,0;1,1]",""},{"table=%table%"});
+
+convertModifiers({"ModelicaAdditions.Tables.CombiTable2D"},
+  {"table=[0,0,1;0,0,1;1,1,1]",""},{"table=%table%"});
+
+// New version requires a setting of tableOnFile.
+convertModifiers({"ModelicaAdditions.Tables.CombiTableTime",
+    "ModelicaAdditions.Tables.CombiTableTime2",
+    "ModelicaAdditions.Tables.CombiTable1D",
+   "ModelicaAdditions.Tables.CombiTable1Ds",
+   "ModelicaAdditions.Tables.CombiTable2D"},
+   {"tableName=\"NoName\""},
+   {"tableName=%tableName%","tableOnFile=%tableName%<>\"NoName\""});
+
+
 convertElement({"ModelicaAdditions.Blocks.Logical.OnOffController"},
                 "inPort1", "reference");
 
