@@ -1,6 +1,7 @@
 package Utilities "Utility functions especially for scripting (Files, Streams, Strings, System)"
   extends Modelica.Icons.Library;
 
+
     annotation (
   version="1.0",
   versionDate="2004-10-01",
@@ -48,6 +49,7 @@ and the accompanying <b>disclaimer</b>
 </p>
 </html>
 "));
+
 
 package UsersGuide "Users Guide" 
   annotation (DocumentationClass=true, Documentation(info="<HTML>
@@ -209,6 +211,7 @@ Below the major design decisions of this library are summarized.
   
 end UsersGuide;
 
+
 package Internal "Internal package as interface to the operating system" 
  extends Modelica.Icons.Library;
   annotation (  preferedView="info",
@@ -254,6 +257,7 @@ especially if the operating system supports Unicode characters.
     extends Modelica.Icons.Function;
     input String oldName "Current name";
     input String newName "New name";
+    output Boolean ok;
   external "C" ModelicaInternal_rename(oldName, newName);
   end rename;
   
