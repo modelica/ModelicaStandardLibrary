@@ -1,7 +1,6 @@
 package Common "Common packages and data for the ideal gas models"
 extends Modelica.Icons.Library;
 
-
 record DataRecord 
   "Coefficient data record for properties of ideal gases based on NASA source" 
   extends Modelica.Icons.Record;
@@ -41,7 +40,6 @@ gases also differentiable at Tlimit.
 </p>
 </HTML>"));
 end DataRecord;
-
 
 partial package SingleGasNasa 
   "Medium model of an ideal gas based on NASA source" 
@@ -329,7 +327,7 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
     input IdealGases.Common.DataRecord data "Ideal gas data";
     input SI.Temperature T "Temperature";
     input SI.Temperature dT "Temperature derivative";
-    output Real cp_der  "Derivative of specific heat capacity";
+    output Real cp_der "Derivative of specific heat capacity";
   algorithm 
     cp_der := dT*data.R/(T*T*T)*(-2*data.alow[1] + T*(
       -data.alow[2] + T*T*(data.alow[4] + T*(2.*data.alow[5] + T
@@ -350,11 +348,11 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
       "User defined offset for reference enthalpy, if referenceChoice = UserDefined";
     output SI.SpecificEnthalpy h "Specific enthalpy at temperature T";
     annotation (Inline=false,smoothOrder=1);
-//     annotation (InlineNoEvent=false, Inline=false,
-// 		derivative(zeroDerivative=data,
-// 			   zeroDerivative=exclEnthForm,
-// 			   zeroDerivative=refChoice,
-// 			   zeroDerivative=h_off) = h_T_der);
+      //     annotation (InlineNoEvent=false, Inline=false,
+      //                 derivative(zeroDerivative=data,
+      //                            zeroDerivative=exclEnthForm,
+      //                            zeroDerivative=refChoice,
+      //                            zeroDerivative=h_off) = h_T_der);
   algorithm 
     h := smooth(0,(if T < data.Tlimit then data.R*((-data.alow[1] + T*(data.
       blow[1] + data.alow[2]*Math.log(T) + T*(1.*data.alow[3] + T*(0.5*data.
@@ -384,7 +382,7 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
   algorithm 
     h_der := dT*cp_T(data,T);
   end h_T_der;
-
+  
   function h_Tlow "Compute specific enthalpy, low T region; reference is decided by the 
     refChoice input, or by the referenceChoice package constant by default" 
     import Modelica.Media.Interfaces.PartialMedium.Choices;
@@ -399,10 +397,10 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
       "User defined offset for reference enthalpy, if referenceChoice = UserDefined";
     output SI.SpecificEnthalpy h "Specific enthalpy at temperature T";
     annotation(Inline=false,InlineNoEvent=false,smoothOrder=1);
-//     annotation (Inline=false,InlineNoEvent=false, derivative(zeroDerivative=data,
-// 			       zeroDerivative=exclEnthForm,
-// 			       zeroDerivative=refChoice,
-// 			       zeroDerivative=h_off) = h_Tlow_der);
+      //     annotation (Inline=false,InlineNoEvent=false, derivative(zeroDerivative=data,
+      //                                zeroDerivative=exclEnthForm,
+      //                                zeroDerivative=refChoice,
+      //                                zeroDerivative=h_off) = h_Tlow_der);
   algorithm 
     h := data.R*((-data.alow[1] + T*(data.
       blow[1] + data.alow[2]*Math.log(T) + T*(1.*data.alow[3] + T*(0.5*data.
@@ -413,7 +411,7 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
       refChoice == Choices.ReferenceEnthalpy.UserDefined then h_off else 
             0.0);
   end h_Tlow;
-
+  
   function h_Tlow_der "Compute specific enthalpy, low T region; reference is decided by the 
     refChoice input, or by the referenceChoice package constant by default" 
     import Modelica.Media.Interfaces.PartialMedium.Choices;
@@ -575,7 +573,6 @@ transform the formula to SI units:
   end molarMass;
 end SingleGasNasa;
 
-
 partial package MixtureGasNasa 
   "Medium model of a mixture of ideal gases based on NASA source" 
   
@@ -632,7 +629,7 @@ It has been developed by Hubertus Tummescheit.
   
 //   constant FluidConstants[nX] fluidConstants 
 //     "additional data needed for transport properties";
-  constant MolarMass[nXi] MMX=data[:].MM "molar masses of components";
+  constant MolarMass[nX] MMX=data[:].MM "molar masses of components";
   
   redeclare replaceable model extends BaseProperties(
     T(stateSelect=if preferredMediumStates then StateSelect.prefer else StateSelect.default),
@@ -649,13 +646,13 @@ required from medium model \"" + mediumName + "\".");
     
     MM = molarMass(state);
     h = h_TX(T, Xi);
-    R = data.R*Xi;
+    R = data.R*X;
     u = h - R*T;
     d = p/(R*T);
     // connect state with BaseProperties
     state.T = T;
     state.p = p;
-    state.X = Xi;
+    state.X = if fixedX then reference_X else Xi;
   end BaseProperties;
   
 /*  
@@ -717,12 +714,13 @@ required from medium model \"" + mediumName + "\".");
       "User defined offset for reference enthalpy, if referenceChoice = UserDefined";
      output SI.SpecificEnthalpy h "Specific enthalpy at temperature T";
     annotation(Inline=false,smoothOrder=1);
-//     annotation (Inline = false,
-// 		derivative(zeroDerivative=exclEnthForm,
-// 			   zeroDerivative=refChoice,
-// 			   zeroDerivative=h_off) = h_TX_der);
+      //     annotation (Inline = false,
+      //                 derivative(zeroDerivative=exclEnthForm,
+      //                            zeroDerivative=refChoice,
+      //                            zeroDerivative=h_off) = h_TX_der);
   algorithm 
-      h :=Xi*{SingleGasNasa.h_T(data[i], T, exclEnthForm, refChoice, h_off) for i in 1:nXi};
+      h :=(if fixedX then reference_X else Xi)*
+         {SingleGasNasa.h_T(data[i], T, exclEnthForm, refChoice, h_off) for i in 1:nX};
   end h_TX;
   
   function h_TX_der "Return specific enthalpy derivative" 
@@ -742,8 +740,10 @@ required from medium model \"" + mediumName + "\".");
     annotation (InlineNoEvent=false, Inline = false);
   algorithm 
     assert(reducedX == false, "reducedX = true is not supported");
-    h_der := dT*sum((SingleGasNasa.cp_T(data[i], T)*Xi[i]) for i in 1:nX)+
-             sum((SingleGasNasa.h_T(data[i], T)*dXi[i]) for i in 1:nX);
+    h_der := if fixedX then 
+      dT*sum((SingleGasNasa.cp_T(data[i], T)*reference_X[i]) for i in 1:nX) else 
+      dT*sum((SingleGasNasa.cp_T(data[i], T)*Xi[i]) for i in 1:nX)+
+      sum((SingleGasNasa.h_T(data[i], T)*dXi[i]) for i in 1:nX);
   end h_TX_der;
   
   redeclare function extends gasConstant 
