@@ -1,8 +1,7 @@
 package Machines "Library for electric machines" 
   extends Modelica.Icons.Library;
   import Modelica.Electrical.MultiPhase;
-  annotation (uses(Modelica(version="2.1 Beta1")),
-  version="1.03", versionDate="2004-09-24",
+  annotation (version="1.03", versionDate="2004-09-24",
   Settings(NewStateSelection=true, Evaluate=true),
   Documentation(info="<HTML>
 <p>
