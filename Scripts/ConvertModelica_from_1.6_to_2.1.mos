@@ -1,5 +1,5 @@
 // Convert from Modelica 1.6 and earlier versions to Modelica 2.1
-// This script requires Dymola version 5.3++++ or higher
+// This script requires Dymola version 5.3a or higher
 //
 // Revisions:
 //   Oct.  1: Further improvements by
@@ -1755,67 +1755,20 @@ convertElement({"ModelicaAdditions.Tables.CombiTableTime",
                 "ModelicaAdditions.Tables.CombiTable2D"},
                 "smoothNess", "smoothness");
 
-// ModelicaAdditions.PetriNets
-convertClass("ModelicaAdditions.PetriNets.Place01",
-             "Modelica.StateGraph.Step");
+// ModelicaAdditions.PetriNets Cannot yet be automatically converted.
+convertClass("ModelicaAdditions.PetriNets","ObsoletePetriNets.PetriNets");
+convertClass("ModelicaAdditions.PetriNets.Transition","ObsoletePetriNets.PetriNets.Transition");
+convertClass("ModelicaAdditions.PetriNets.Parallel","ObsoletePetriNets.PetriNets.Parallel");
+convertClass("ModelicaAdditions.PetriNets.Synchronize","ObsoletePetriNets.PetriNets.Synchronize");
+convertElement({"ModelicaAdditions.PetriNets.Transition",
+"ModelicaAdditions.PetriNets.Parallel",
+"ModelicaAdditions.PetriNets.Synchronize"},
+"conditionPort","condition");
 
-convertClass("ModelicaAdditions.PetriNets.Place10",
-             "Modelica.StateGraph.Step");
-
-convertClass("ModelicaAdditions.PetriNets.Place11",
-             "Modelica.StateGraph.Step");
-
-convertClass("ModelicaAdditions.PetriNets.Place21",
-             "Modelica.StateGraph.Step");
-
-convertClass("ModelicaAdditions.PetriNets.Place12",
-             "Modelica.StateGraph.Step");
-
-convertClass("ModelicaAdditions.PetriNets.Place22",
-             "Modelica.StateGraph.Step");
-
-convertClass("ModelicaAdditions.PetriNets.Transition",
-             "Modelica.StateGraph.TransitionWithSignal");
-
-convertElement({"ModelicaAdditions.PetriNets.Transition"},
-                "conditionPort", "condition");
-
-convertModifiers("ModelicaAdditions.PetriNets.Transition",
-                 {"condLabel=\" \""},
-                 fill("",0));
-
-convertElement({"ModelicaAdditions.PetriNets.Place01",
-                "ModelicaAdditions.PetriNets.Place10",
-                "ModelicaAdditions.PetriNets.Place11",
-                "ModelicaAdditions.PetriNets.Place21",
-                "ModelicaAdditions.PetriNets.Place12",
-                "ModelicaAdditions.PetriNets.Place22"},
-                "state", "active");
-
-convertElement({"ModelicaAdditions.PetriNets.Place01",
-                "ModelicaAdditions.PetriNets.Place11",
-                "ModelicaAdditions.PetriNets.Place21"},
-                "outTransition", "outPort[1]");
-
-convertElement({"ModelicaAdditions.PetriNets.Place12",
-                "ModelicaAdditions.PetriNets.Place22"},
-                "outTransition1", "outPort[1]");
-
-convertElement({"ModelicaAdditions.PetriNets.Place12",
-                "ModelicaAdditions.PetriNets.Place22"},
-                "outTransition2", "outPort[2]");
-
-convertElement({"ModelicaAdditions.PetriNets.Place10",
-                "ModelicaAdditions.PetriNets.Place11",
-                "ModelicaAdditions.PetriNets.Place12"},
-                "inTransition", "inPort[1]");
-
-convertElement({"ModelicaAdditions.PetriNets.Transition"},
-                "inTransition", "inPort");
-
-convertElement({"ModelicaAdditions.PetriNets.Transition"},
-                "outTransition", "outPort");
-
+convertElement({"ModelicaAdditions.PetriNets.Transition",
+"ModelicaAdditions.PetriNets.Parallel",
+"ModelicaAdditions.PetriNets.Synchronize"},
+"conditionPort.signal[1]","condition");
 
 // ------------------- ModelicaAdditions.MultiBody ----------------------------
 // Conversion of ModelicaAdditions.MultiBody to Modelica.Mechanics.MultiBody
