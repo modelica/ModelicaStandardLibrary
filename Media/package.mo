@@ -4102,24 +4102,17 @@ are described in
       end for;
     end moleToMassFractions;
     
-  function massToMoleFractions "Compute mole fractions from mass fractions X" 
-    extends Modelica.Icons.Function;
-    //    input BasePropertiesRecord medium;
-    input SI.MassFraction X[:] "Mass fractions of mixture";
-    input SI.MolarMass[:] MMX "molar masses of components";
-    output SI.MoleFraction moleFractions[size(X, 1)] 
-        "Mole fractions of gas mixture";
+    function massToMoleFractions 
+      "Compute mole fractions from mass fractions X" 
+      extends Modelica.Icons.Function;
+      input SI.MassFraction X[:] "Mass fractions of mixture";
+      input SI.MolarMass[:] MMX "molar masses of components";
+      output SI.MoleFraction moleFractions[size(X, 1)] "Mole fractions of gas mixture";
     protected 
-    SI.MolarMass Mmix =  0.0 "molar mass of mixture";
-    //    Real invMM  "inverse mole fraction";
-  algorithm 
-    for i in 1:size(X, 1) loop
-      Mmix := Mmix + 1/(X[i]/MMX[i]);
-    end for;
-    for i in 1:size(X, 1) loop
-      moleFractions[i] := 1/Mmix*(X[i]/MMX[i]);
-    end for;
-  end massToMoleFractions;
+      SI.MolarMass Mmix = 1/sum(X[i]/MMX[i] for i in 1:size(X, 1)) "molar mass of mixture";
+    algorithm 
+      moleFractions := Mmix*{(X[i]/MMX[i]) for i in 1:size(X, 1)};
+    end massToMoleFractions;
     
   end PartialMixtureMedium;
   
