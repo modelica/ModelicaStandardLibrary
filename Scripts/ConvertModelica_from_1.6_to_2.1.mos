@@ -1483,10 +1483,10 @@ convertClass("ModelicaAdditions.Blocks.Logical.Interfaces.BooleanSI2SO",
              "Modelica.Blocks.Interfaces.partialBooleanSI2SO");
 
 convertClass("ModelicaAdditions.Blocks.Logical.Interfaces.Comparison",
-             "Modelica.Blocks.Interfaces.partialBooleanThresholdComparision");
+             "Modelica.Blocks.Interfaces.partialBooleanThresholdComparison");
 
 convertClass("ModelicaAdditions.Blocks.Logical.Interfaces.Comparision",
-             "Modelica.Blocks.Interfaces.partialBooleanThresholdComparision");
+             "Modelica.Blocks.Interfaces.partialBooleanThresholdComparison");
 
 convertClass("ModelicaAdditions.Blocks.Logical.Interfaces.BooleanMIMOs",
              "Modelica.Blocks.Interfaces.BooleanMIMOs");
