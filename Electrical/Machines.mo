@@ -1,7 +1,7 @@
 package Machines "Library for electric machines" 
   extends Modelica.Icons.Library;
   annotation (
-  version="1.3", versionDate="2004-11-05",
+  version="1.31", versionDate="2004-11-06",
   Settings(NewStateSelection=true, Evaluate=true),
   Documentation(info="<HTML>
 <p>
@@ -78,6 +78,8 @@ You may have a look at a short summary of space phasor theory at <a href=\"http:
        fixed a bug with support (formerly bearing)</li>
   <li> v1.3  2004/11/05 Anton Haumer<br>
        several improvements in SpacePhasors.Blocks</li>
+  <li> v1.31 2004/11/06 Anton Haumer<br>
+       small changes in Examples.Utilities.VfController</li>
   </ul>
 </HTML>"));
   
@@ -113,6 +115,8 @@ and a package utilities with components used for the examples.
   <li> v1.1  2004/10/01 Anton Haumer<br>
        changed naming and structure<br>
        issued to Modelica Standard Library 2.1</li>
+  <li> v1.31 2004/11/06 Anton Haumer<br>
+       small changes in Utilities.VfController</li>
   </ul>
   </dd>
 </p>
@@ -930,6 +934,8 @@ This package contains components utility components for testing examples.
   <li> v1.1  2004/10/01 Anton Haumer<br>
        changed naming and structure<br>
        issued to Modelica Standard Library 2.1</li>
+  <li> v1.31 2004/11/06 Anton Haumer<br>
+       small changes in VfController</li>
   </ul>
   </dd>
 </p>
@@ -945,8 +951,6 @@ This package contains components utility components for testing examples.
 </HTML>"));
       
       block VfController "Voltage-Frequency-Controller" 
-        import Modelica.Math;
-        import SI = Modelica.SIunits;
         extends Modelica.Blocks.Interfaces.SIMO(final nout=m,
           u(redeclare type SignalType = Modelica.SIunits.Frequency),
           y(redeclare type SignalType = Modelica.SIunits.Voltage));
@@ -955,9 +959,10 @@ This package contains components utility components for testing examples.
         parameter Modelica.SIunits.Voltage VNominal 
           "nominal RMS voltage per phase";
         parameter Modelica.SIunits.Frequency fNominal "nominal frequency";
-        parameter Modelica.SIunits.Angle BasePhase=0 
-          "common phase shift for all phases";
-        output Real x[m](each start=0, each fixed=true) "Integrator states";
+        parameter Modelica.SIunits.Angle BasePhase=0 "common phase shift";
+        output Modelica.SIunits.Angle x(start=0, fixed=true) 
+          "Integrator states";
+        output Modelica.SIunits.Voltage amplitude;
         annotation (
           Diagram,
           Icon(
@@ -986,18 +991,11 @@ The sine-waves are intended to feed a m-phase SignalVoltage.<br>
 Phase shifts between sine-waves may be choosen by the user; default values are <i>(k-1)/m*pi for k in 1:m</i>.
 </p>
 </HTML>"));
-      protected 
-        SI.Voltage v;
-        SI.Voltage amplitude[m];
-        SI.Frequency frequency[m];
-        SI.Angle phase[m];
       equation 
-        v = sqrt(2)*min(abs(u)*VNominal/fNominal, VNominal);
-        amplitude = fill(v, m);
-        frequency = fill(u, m);
-        phase= fill(BasePhase, m) - {(k - 1)*2/m*pi for k in 1:m};
-        der(x) = 2*pi*frequency;
-        y = {amplitude[k]*Math.sin(x[k] + phase[k]) for k in 1:m};
+      //amplitude = sqrt(2)*VNominal*min(abs(u)/fNominal, 1);
+        amplitude = sqrt(2)*VNominal*(if abs(u)<fNominal then abs(u)/fNominal else 1);
+        der(x) = 2*pi*u;
+        y = {amplitude*sin(x + BasePhase - (k - 1)*2/m*pi) for k in 1:m};
       end VfController;
       
       model SwitchYD "Y-D-switch" 
@@ -3355,7 +3353,7 @@ rotating the space phasor to the rotor-fixed coordinate system and calculating t
             90,0; 110,0], style(color=3, rgbcolor={0,0,255}));
       connect(adapter.flange_a, support) 
         annotation (points=[80,100; 100,100], style(color=0, rgbcolor={0,0,0}));
-      connect(relativeAngleSensor.phi_rel, add.u1) annotation (points=[30,69; 
+      connect(relativeAngleSensor.phi_rel, add.u1) annotation (points=[30,69;
             30,40; -4,40; -4,32],
                            style(color=3, rgbcolor={0,0,255}));
       connect(relativeAngleSensor.flange_a, adapter.flange_b) annotation (
