@@ -9,10 +9,11 @@ annotation(preferedView="info",
     height=0.57,
     library=1,
     autolayout=1),
-  version="2.0",
+  version="2.1",
   versionDate="2004-10-01",
   conversion(
-    from(version="1.6", script="Scripts/ConvertToModelica_2.0.mos")),
+    from(version="1.6"      , script="Scripts/ConvertModelica_from_1.6_to_2.1.mos")),
+    from(version="2.1 Beta1", script="Scripts/ConvertModelica_from_2.1Beta1_to_2.1.mos")),
   Settings(NewStateSelection=true),
   Documentation(info="<HTML>
 <p>
