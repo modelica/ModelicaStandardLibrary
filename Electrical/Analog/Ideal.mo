@@ -2,7 +2,7 @@ package Ideal
   
   extends Modelica.Icons.Library;
   
-  annotation (Window(
+  annotation(preferedView="info", Window(
        x=0.03,
        y=0.04,
        width=0.50,
@@ -31,7 +31,6 @@ This package contains electrical components with idealized behaviour:
 <li>controlled closer</li>
 </ul>
 </p>
-
 <dl>
 <dt>
 <b>Main Authors:</b>
@@ -44,7 +43,6 @@ This package contains electrical components with idealized behaviour:
     Design Automation Department<br>
     Zeunerstra&szlig;e 38<br>
     D-01069 Dresden<br>
-
 <p>
 <dt>
 <b>Version:</b>
@@ -79,8 +77,8 @@ Modelica in file \"Modelica/package.mo\".</i><br>
           annotation (
             Documentation(info="<html>
 This is an ideal thyristor model which is<br><br>
-<b>open </b>(off), if the voltage drop is less than 0 or the firePort is false<br>
-<b>closed</b> (on), if the voltage drop is greater or equal 0  and the firePort is true.<br>
+<b>open </b>(off), if the voltage drop is less than 0 or fire is false<br>
+<b>closed</b> (on), if the voltage drop is greater or equal 0  and fire is true.<br>
 </P>
 <p>
 This is the behaviour if all parameters are exactly zero.<br><br>
@@ -95,9 +93,9 @@ The parameter <i>Vknee</i> which is the forward threshold voltage, allows to dis
 the knee point <br> 
 along  the <i>Gon</i>-characteristic until <i>v = Vknee</i>.
 </p>
-
 </HTML>
-", revisions="<html>
+",         revisions=
+             "<html>
 <ul>
 <li><i>Mai 7, 2004   </i>
        by Christoph Clauss and Anton Haumer<br> Vknee added<br>
@@ -113,14 +111,17 @@ along  the <i>Gon</i>-characteristic until <i>v = Vknee</i>.
             Icon(
               Text(extent=[-100, -70; 100, -100], string="%name"),
               Polygon(points=[30, 0; -30, 40; -30, -40; 30, 0], style(
-                  color=3,
-                  gradient=0,
-                  fillColor=7)),
-              Line(points=[-90, 0; 40, 0]),
-              Line(points=[40, 0; 90, 0]),
-              Line(points=[30, 40; 30, -40], style(color=3)),
-              Line(points=[30, 20; 70, 60; 70, 90]),
-              Line(points=[40, 50; 60, 30])),
+            color=3,
+            rgbcolor={0,0,255},
+            gradient=0,
+            fillColor=7,
+            rgbfillColor={255,255,255})),
+              Line(points=[-90, 0; 40, 0], style(color=3, rgbcolor={0,0,255})),
+              Line(points=[40, 0; 90, 0], style(color=3, rgbcolor={0,0,255})),
+              Line(points=[30, 40; 30, -40], style(color=3, rgbcolor={0,0,255})),
+              Line(points=[30, 20; 70, 60; 70, 90], style(color=3, rgbcolor={0,
+                0,255})),
+              Line(points=[40, 50; 60, 30], style(color=3, rgbcolor={0,0,255}))),
             Diagram(
               Line(points=[-80, 0; 80, 0], style(color=10)),
               Polygon(points=[70, 4; 80, 0; 70, -4; 70, 4], style(color=10,
@@ -193,10 +194,10 @@ along  the <i>Gon</i>-characteristic until <i>v = Vknee</i>.
               height=0.6));
     
   public 
-          Modelica.Blocks.Interfaces.BooleanInPort firePort(final n=1) 
-            annotation (extent=[60, 90; 80, 110], rotation=-90);
+          Modelica.Blocks.Interfaces.BooleanInput fire 
+            annotation (extent=[50,90; 90,130],   rotation=-90);
         equation 
-          off = s < 0 or pre(off) and not firePort.signal[1];
+          off = s < 0 or pre(off) and not fire;
           v = s*(if off then 1 else Roff) + Vknee;
           i = s*(if off then Gon else 1) + Gon*Vknee;
         end IdealThyristor;
@@ -216,8 +217,8 @@ along  the <i>Gon</i>-characteristic until <i>v = Vknee</i>.
           annotation (
             Documentation(info="<html>
 This is an ideal GTO thyristor model which is<br><br>
-<b>open </b>(off), if the voltage drop is less than 0 or the firePort is false<br>
-<b>closed</b> (on), if the voltage drop is greater or equal 0  and the firePort is true.<br>
+<b>open </b>(off), if the voltage drop is less than 0 or fire is false<br>
+<b>closed</b> (on), if the voltage drop is greater or equal 0  and fire is true.<br>
 </P>
 <p>
 This is the behaviour if all parameters are exactly zero.<br><br>
@@ -232,9 +233,9 @@ The parameter <i>Vknee</i> which is the forward threshold voltage, allows to dis
 the knee point <br> 
 along  the <i>Gon</i>-characteristic until <i>v = Vknee</i>.
 </p>
-
 </HTML>
-", revisions="<html>
+",         revisions=
+             "<html>
 <ul>
 <li><i>Mai 7, 2004   </i>
        by Christoph Clauss and Anton Haumer<br> Vknee added<br>
@@ -243,7 +244,6 @@ along  the <i>Gon</i>-characteristic until <i>v = Vknee</i>.
        by Christoph Clauss<br> realized<br>
        </li>
 </ul>
-
 </html>"),  Coordsys(
               extent=[-100, -100; 100, 100],
               grid=[1, 1],
@@ -331,10 +331,10 @@ along  the <i>Gon</i>-characteristic until <i>v = Vknee</i>.
               height=0.6));
     
   public 
-          Modelica.Blocks.Interfaces.BooleanInPort firePort(final n=1) 
-            annotation (extent=[60, 90; 80, 110], rotation=-90);
+          Modelica.Blocks.Interfaces.BooleanInput fire 
+            annotation (extent=[50,90; 90,130],   rotation=-90);
         equation 
-          off = s < 0 or not firePort.signal[1];
+          off = s < 0 or not fire;
           v = s*(if off then 1 else Roff) + Vknee;
           i = s*(if off then Gon else 1) + Gon*Vknee;
         end IdealGTOThyristor;
@@ -347,11 +347,10 @@ along  the <i>Gon</i>-characteristic until <i>v = Vknee</i>.
       "Opened switch conductance";
   protected 
     Real s "Auxiliary variable";
-    Boolean off;
   public 
-    Modelica.Blocks.Interfaces.BooleanInPort control(final n=1, signal(start={
-            false})) "true/false opened/closed switch" annotation (extent=[-10,
-            50; 10, 70], rotation=-90);
+    Modelica.Blocks.Interfaces.BooleanInput off(start=false) 
+      "true/false opened/closed switch"                                                            annotation (extent=[
+          -20,50; 20,90],rotation=-90);
     annotation (
       Documentation(info="<html>
 <P>
@@ -386,13 +385,12 @@ with zero/infinity resistances is not possible.
         Line(points=[0, 51; 0, 26])),
       Diagram(
         Ellipse(extent=[-44, 4; -36, -4]),
-        Line(points=[-90, 0; -44, 0]),
+        Line(points=[-96,0; -44,0]),
         Line(points=[-37, 2; 40, 50]),
-        Line(points=[40, 0; 90, 0]),
+        Line(points=[41,0; 96,0]),
         Text(extent=[-100, -40; 100, -79], string="%name"),
         Line(points=[0, 51; 0, 26])));
   equation 
-    off = control.signal[1];
     v = s*(if off then 1 else Roff);
     i = s*(if off then Gon else 1);
   end IdealSwitch;
@@ -406,7 +404,7 @@ with zero/infinity resistances is not possible.
 <P>
 The commuting switch has a positive pin p and two negative pins n1 and n2. 
 The switching behaviour is controlled
-by the control signal. If the control signal is true, the pin p is connected 
+by the inpug signal off. If the off is true, the pin p is connected 
 with the negative pin n2. Otherwise, the pin p is connected to the negative pin n1.
 </P>
 <P>
@@ -436,14 +434,11 @@ where a description with zero Ron or zero Goff is not possible.
         Text(extent=[-100, -70; 100, -100], string="%name")),
       Diagram(
         Ellipse(extent=[-44, 4; -36, -4]),
-        Text(extent=[-80, 0; -60, 22], string="p"),
-        Text(extent=[60, 50; 80, 72], string="n1"),
-        Text(extent=[60, 0; 80, 22], string="n2"),
-        Line(points=[-90, 0; -44, 0]),
+        Line(points=[-96,0; -44,0]),
         Line(points=[-37, 2; 40, 50]),
-        Line(points=[40, 50; 90, 50]),
-        Line(points=[0, 90; 0, 25]),
-        Line(points=[40, 0; 90, 0])),
+        Line(points=[40,50; 96,50]),
+        Line(points=[0,60; 0,25]),
+        Line(points=[40,0; 96,0])),
       Window(
         x=0.21,
         y=0.05,
@@ -453,15 +448,13 @@ where a description with zero Ron or zero Goff is not possible.
     Interfaces.PositivePin p annotation (extent=[-110, -10; -90, 10]);
     Interfaces.NegativePin n2 annotation (extent=[90, -10; 110, 10]);
     Interfaces.NegativePin n1 annotation (extent=[90, 40; 110, 60]);
-    Modelica.Blocks.Interfaces.BooleanInPort control(final n=1) 
-      "true => p--n2 connected, false => p--n1 connected" annotation (extent=[-
-          10, 70; 10, 90], rotation=-90);
+    Modelica.Blocks.Interfaces.BooleanInput off 
+      "true => p--n2 connected, false => p--n1 connected" annotation (extent=[
+          -20,60; 20,100], rotation=-90);
   protected 
     Real s1;
     Real s2 "Auxiliary variables";
-    Boolean off;
   equation 
-    off = control.signal[1];
     0 = p.i + n2.i + n1.i;
     
     p.v - n1.v = s1*(if (off) then 1 else Ron);
@@ -478,22 +471,18 @@ where a description with zero Ron or zero Goff is not possible.
       Documentation(info="<HTML>
 <P>
 The intermediate switch has four switching contact pins p1, p2, n1, and n2. 
-The switching behaviour is controlled by the control signal. If the control 
-signal is true, the pin p1 is connected to pin n2, and the pin p2 is 
+The switching behaviour is controlled by the input signal off. If off
+is true, the pin p1 is connected to pin n2, and the pin p2 is 
 connected to the pin n2. Otherwise, the pin p1 is connected to n1, and
 p2 is connected to n2.
 </P>
-
 <IMG SRC=\"../Images/IdealIntermediateSwitch1.png\" ALT=\"IdealIntermediateSwitch1\">
-
 <P>
 In order to prevent singularities during switching, the opened 
 switch has a (very low) conductance Goff
 and the closed switch has a (very low) resistance Ron. 
 </P>
-
 <IMG SRC=\"../Images/IdealIntermediateSwitch2.png\" ALT=\"IdealIntermediateSwitch2\">
-
 <P>
 The limiting case is also allowed, i.e., the resistance Ron of the
 closed switch could be exactly zero and the conductance Goff of the
@@ -521,17 +510,13 @@ where a description with zero Ron or zero Goff is not possible.
         Text(extent=[-100, -70; 100, -100], string="%name")),
       Diagram(
         Ellipse(extent=[-4, 30; 4, 22]),
-        Text(extent=[-80, 50; -60, 72], string="p1"),
-        Text(extent=[-80, 0; -60, 22], string="p2"),
-        Text(extent=[60, 50; 80, 72], string="n1"),
-        Text(extent=[60, 0; 80, 22], string="n2"),
-        Line(points=[-90, 0; -44, 0]),
-        Line(points=[-90, 50; -44, 50]),
+        Line(points=[-96,0; -44,0]),
+        Line(points=[-96,50; -44,50]),
         Line(points=[-44, 0; 40, 50]),
         Line(points=[-44, 50; 40, 0]),
-        Line(points=[40, 50; 90, 50]),
-        Line(points=[0, 90; 0, 25]),
-        Line(points=[40, 0; 90, 0])),
+        Line(points=[40,50; 96,50]),
+        Line(points=[0,60; 0,25]),
+        Line(points=[40,0; 96,0])),
       Window(
         x=0.21,
         y=0.05,
@@ -542,17 +527,15 @@ where a description with zero Ron or zero Goff is not possible.
     Interfaces.PositivePin p2 annotation (extent=[-110, -10; -90, 10]);
     Interfaces.NegativePin n1 annotation (extent=[90, 40; 110, 60]);
     Interfaces.NegativePin n2 annotation (extent=[90, -10; 110, 10]);
-    Modelica.Blocks.Interfaces.BooleanInPort control(final n=1) "true => p1--n2, p2--n1 connected,
-         otherwise p1--n1, p2--n2  connected" annotation (extent=[-10, 70; 10,
-          90], rotation=-90);
+    Modelica.Blocks.Interfaces.BooleanInput off "true => p1--n2, p2--n1 connected,
+         otherwise p1--n1, p2--n2  connected" annotation (extent=[-20,60; 20,
+          100],rotation=-90);
   protected 
     Real s1;
     Real s2;
     Real s3;
     Real s4 "Auxiliary variables";
-    Boolean off;
   equation 
-    off = control.signal[1];
     p1.v - n1.v = s1*(if (off) then 1 else Ron);
     p2.v - n2.v = s2*(if (off) then 1 else Ron);
     p1.v - n2.v = s3*(if (off) then Ron else 1);
@@ -598,13 +581,13 @@ possible). Otherwise, <i>p</i> and <i>n</i> are short cut.
         Text(extent=[-100, -70; 100, -100], string="%name")),
       Diagram(
         Ellipse(extent=[-44, 4; -36, -4]),
-        Line(points=[-90, 0; -44, 0]),
+        Line(points=[-96,0; -44,0]),
         Line(points=[-37, 2; 40, 50]),
-        Line(points=[40, 0; 90, 0]),
-        Line(points=[0, 90; 0, 25])));
+        Line(points=[40,0; 97,0]),
+        Line(points=[0,96; 0,25])));
   public 
-    Interfaces.Pin p "Positive pin" annotation (extent=[-110, -10; -90, 10]);
-    Interfaces.Pin n "Negative pin" annotation (extent=[90, -10; 110, 10]);
+    Interfaces.PositivePin p "Positive pin" annotation (extent=[-110, -10; -90, 10]);
+    Interfaces.NegativePin n "Negative pin" annotation (extent=[90, -10; 110, 10]);
     Interfaces.Pin control 
       "Control pin: control.v > level open, otherwise closed" annotation (
         extent=[-10, 90; 10, 110], rotation=90);
@@ -656,14 +639,11 @@ where a description with zero Ron or zero Goff is not possible.
         Text(extent=[-100, -70; 100, -100], string="%name")),
       Diagram(
         Ellipse(extent=[-44, 4; -36, -4]),
-        Text(extent=[-80, 0; -60, 22], string="p"),
-        Text(extent=[60, 50; 80, 72], string="n1"),
-        Text(extent=[60, 0; 80, 22], string="n2"),
-        Line(points=[-90, 0; -44, 0]),
+        Line(points=[-96,0; -44,0]),
         Line(points=[-37, 2; 40, 50]),
-        Line(points=[40, 50; 90, 50]),
-        Line(points=[0, 90; 0, 25]),
-        Line(points=[40, 0; 90, 0])),
+        Line(points=[40,50; 96,50]),
+        Line(points=[0,96; 0,25]),
+        Line(points=[40,0; 96,0])),
       Window(
         x=0.21,
         y=0.05,
@@ -705,17 +685,13 @@ parameter level, the pin p1 is connected to pin n2, and the pin p2 is
 connected to the pin n2. Otherwise, the pin p1 is connected to n1, and
 p2 is connected to n2.
 </P>
-
 <IMG SRC=\"../Images/ControlledIdealIntermediateSwitch1.png\" ALT=\"ControlledIdealIntermediateSwitch1\">
-
 <P>
 In order to prevent singularities during switching, the opened 
 switch has a (very low) conductance Goff
 and the closed switch has a (very low) resistance Ron. 
 </P>
-
 <IMG SRC=\"../Images/ControlledIdealIntermediateSwitch2.png\" ALT=\"ControlledIdealIntermediateSwitch2\">
-
 <P>
 The limiting case is also allowed, i.e., the resistance Ron of the
 closed switch could be exactly zero and the conductance Goff of the
@@ -733,27 +709,23 @@ where a description with zero Ron or zero Goff is not possible.
         Text(extent=[-80, 0; -60, 22], string="p2"),
         Text(extent=[60, 50; 80, 72], string="n1"),
         Text(extent=[60, 0; 80, 22], string="n2"),
-        Line(points=[-90, 0; -44, 0]),
-        Line(points=[-90, 50; -44, 50]),
-        Line(points=[-44, 0; 40, 50]),
-        Line(points=[-44, 50; 40, 0]),
+        Line(points=[-90,0; -40,0]),
+        Line(points=[-90,50; -39,50]),
+        Line(points=[-40,0; 40,50]),
+        Line(points=[-40,50; 40,0]),
         Line(points=[40, 50; 90, 50]),
         Line(points=[0, 90; 0, 25]),
         Line(points=[40, 0; 90, 0]),
         Text(extent=[-100, -70; 100, -100], string="%name")),
       Diagram(
         Ellipse(extent=[-4, 30; 4, 22]),
-        Text(extent=[-80, 50; -60, 72], string="p1"),
-        Text(extent=[-80, 0; -60, 22], string="p2"),
-        Text(extent=[60, 50; 80, 72], string="n1"),
-        Text(extent=[60, 0; 80, 22], string="n2"),
-        Line(points=[-90, 0; -44, 0]),
-        Line(points=[-90, 50; -44, 50]),
-        Line(points=[-44, 0; 40, 50]),
-        Line(points=[-44, 50; 40, 0]),
-        Line(points=[40, 50; 90, 50]),
-        Line(points=[0, 90; 0, 25]),
-        Line(points=[40, 0; 90, 0])),
+        Line(points=[-96,0; -40,0]),
+        Line(points=[-96,50; -40,50]),
+        Line(points=[-40,0; 40,50]),
+        Line(points=[-40,50; 40,0]),
+        Line(points=[40,50; 96,50]),
+        Line(points=[0,96; 0,25]),
+        Line(points=[40,0; 96,0])),
       Window(
         x=0.21,
         y=0.05,
@@ -816,10 +788,10 @@ are possible (norator).
         Line(points=[-50, -31; -28, -31])),
       Diagram(
         Polygon(points=[60, 0; -60, 70; -60, -70; 60, 0], style(fillColor=7)),
-        Line(points=[-90, 50; -60, 50]),
-        Line(points=[-90, -50; -60, -50]),
-        Line(points=[60, 0; 90, 0]),
-        Line(points=[0, -35; 0, -91]),
+        Line(points=[-96,50; -60,50]),
+        Line(points=[-96,-50; -60,-50]),
+        Line(points=[60,0; 96,0]),
+        Line(points=[0,-35; 0,-96]),
         Line(points=[-55, 50; -45, 50]),
         Line(points=[-50, -45; -50, -55]),
         Line(points=[-55, -50; -45, -50]),
@@ -885,6 +857,7 @@ are possible (norator).
   
   model IdealOpAmp3Pin 
     "Ideal operational amplifier (norator-nullator pair), but 3 pins" 
+    
     annotation (
       Documentation(info="<html>
 <P>
@@ -910,9 +883,9 @@ are possible.
         Line(points=[-50, -31; -28, -31])),
       Diagram(
         Polygon(points=[60, 0; -60, 70; -60, -70; 60, 0], style(fillColor=7)),
-        Line(points=[-90, 50; -60, 50]),
-        Line(points=[-90, -50; -60, -50]),
-        Line(points=[60, 0; 90, 0]),
+        Line(points=[-96,50; -60,50]),
+        Line(points=[-96,-50; -60,-50]),
+        Line(points=[60,0; 97,0]),
         Line(points=[-55, 50; -45, 50]),
         Line(points=[-50, -45; -50, -55]),
         Line(points=[-55, -50; -45, -50]),
@@ -989,9 +962,9 @@ If the input voltage is vin > 0, the output voltage is out.v = VMax.
         Line(points=[-45, -10; -10, -10; -10, 10; 20, 10]),
         Line(points=[0, 35; 0, 80]),
         Line(points=[0, -35; 0, -80]),
-        Line(points=[-90, 50; -60, 50]),
-        Line(points=[-90, -50; -60, -50]),
-        Line(points=[60, 0; 90, 0]),
+        Line(points=[-96,50; -60,50]),
+        Line(points=[-96,-50; -60,-50]),
+        Line(points=[60,0; 96,0]),
         Line(points=[-55, 50; -45, 50]),
         Line(points=[-50, -45; -50, -55]),
         Line(points=[-55, -50; -45, -50]),
@@ -1080,7 +1053,6 @@ The parameter <i>Vknee</i> which is the forward threshold voltage, allows to dis
 the knee point <br> 
 along  the <i>Gon</i>-characteristic until <i>v = Vknee</i>.
 </p>
-
 </HTML>
 ", revisions="<html>
 <ul>
@@ -1222,15 +1194,15 @@ where <i>n</i> is a real number called the turns ratio.
         Ellipse(extent=[-45, 0; -20, 25]),
         Ellipse(extent=[-45, 25; -20, 50]),
         Rectangle(extent=[-72, -60; -33, 60], style(color=7, fillColor=7)),
-        Line(points=[-90, 50; -32, 50]),
-        Line(points=[-90, -50; -32, -50]),
+        Line(points=[-96,50; -32,50]),
+        Line(points=[-96,-50; -32,-50]),
         Ellipse(extent=[20, -50; 45, -25]),
         Ellipse(extent=[20, -25; 45, 0]),
         Ellipse(extent=[20, 0; 45, 25]),
         Ellipse(extent=[20, 25; 45, 50]),
         Rectangle(extent=[33, -60; 72, 60], style(color=7, fillColor=7)),
-        Line(points=[32, 50; 90, 50]),
-        Line(points=[32, -50; 90, -50])),
+        Line(points=[32,50; 96,50]),
+        Line(points=[32,-50; 96,-50])),
       Window(
         x=0.29,
         y=0.07,
@@ -1285,13 +1257,13 @@ where the constant <i>G</i> is called the gyration conductance.
       Diagram(
         Ellipse(extent=[-70, -30; -10, 30]),
         Rectangle(extent=[-80, -40; -41, 40], style(color=7, fillColor=7)),
-        Line(points=[-90, 50; -40, 50; -40, -50; -90, -50]),
+        Line(points=[-96,50; -40,50; -40,-50; -96,-50]),
         Line(points=[-30, 60; 20, 60]),
         Polygon(points=[20, 63; 30, 60; 20, 57; 20, 63], style(fillColor=3,
               fillPattern=1)),
         Ellipse(extent=[10, -30; 70, 30]),
         Rectangle(extent=[80, -40; 40, 40], style(color=7, fillColor=7)),
-        Line(points=[90, 50; 40, 50; 40, -50; 90, -50])));
+        Line(points=[96,50; 40,50; 40,-50; 96,-50])));
     parameter SI.Conductance G=1 "Gyration conductance";
   equation 
     i1 = G*v2;
@@ -1317,8 +1289,8 @@ The model Idle is a simple idle running branch.
         Text(extent=[-100, 100; 100, 70], string="%name")),
       Diagram(
         Rectangle(extent=[-60, 60; 60, -60]),
-        Line(points=[-90, 0; -41, 0]),
-        Line(points=[91, 0; 40, 0])),
+        Line(points=[-96,0; -41,0]),
+        Line(points=[96,0; 40,0])),
       Window(
         x=0.36,
         y=0.16,
@@ -1348,7 +1320,7 @@ The model Short is a simple short cut branch.
         Text(extent=[-100, 100; 100, 70], string="%name")),
       Diagram(
         Rectangle(extent=[-60, 60; 60, -60]),
-        Line(points=[91, 0; -90, 0]),
+        Line(points=[96,0; -96,0]),
         Text(extent=[-100, 100; 100, 70], string="Short")),
       Window(
         x=0.31,
@@ -1359,25 +1331,24 @@ The model Short is a simple short cut branch.
     v = 0;
   end Short;
   
-  model IdealOpener "Ideal electrical opener" 
+  model IdealOpeningSwitch "Ideal electrical opener" 
     extends Interfaces.OnePort;
     parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance"
        annotation (extent=[-56.6667, 10; -10, 56.6667]);
     parameter SI.Conductance Goff(final min=0) = 1.E-5 
       "Opened switch conductance" annotation (extent=[10, 10; 56.6667, 56.6667]);
-    Modelica.Blocks.Interfaces.BooleanInPort control(final n=1) 
-      "true => switch open, false => p--n connected" annotation (extent=[-10,
-          50; 10, 70], rotation=-90);
+    Modelica.Blocks.Interfaces.BooleanInput control 
+      "true => switch open, false => p--n connected" annotation (extent=[-20,50;
+          20,90],      rotation=-90);
   protected 
     Real s "Auxiliary variable";
-    Boolean off;
     
     annotation (
       Documentation(info="<HTML>
 <P> 
-The ideal opener has a positive pin p and a negative pin n. 
-The switching behaviour is controlled by the control signal. 
-If the control signal is true, pin p is not connected 
+The ideal opening switch has a positive pin p and a negative pin n. 
+The switching behaviour is controlled by the input signal off. 
+If off is true, pin p is not connected 
 with negative pin n. Otherwise, pin p is connected 
 with negative pin n.
 </P>
@@ -1410,38 +1381,36 @@ where a description with zero Ron or zero Goff is not possible.
         Line(points=[40, 20; 40, 0])),
       Diagram(
         Ellipse(extent=[-44, 4; -36, -4]),
-        Line(points=[-90, 0; -44, 0]),
+        Line(points=[-96,0; -44,0]),
         Line(points=[-37, 2; 40, 50]),
-        Line(points=[40, 0; 90, 0]),
+        Line(points=[40,0; 96,0]),
         Text(extent=[-100, -40; 100, -79], string="%name"),
         Line(points=[0, 51; 0, 26]),
         Line(points=[40, 20; 40, 0])));
   equation 
-    off = control.signal[1];
-    v = s*(if off then 1 else Ron);
-    i = s*(if off then Goff else 1);
-  end IdealOpener;
+    v = s*(if control then 1 else Ron);
+    i = s*(if control then Goff else 1);
+  end IdealOpeningSwitch;
   
-  model IdealCloser "Ideal electrical closer" 
+  model IdealClosingSwitch "Ideal electrical closer" 
     extends Interfaces.OnePort;
     parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance"
        annotation (extent=[-56.6667, 10; -10, 56.6667]);
     parameter SI.Conductance Goff(final min=0) = 1.E-5 
       "Opened switch conductance" annotation (extent=[10, 10; 56.6667, 56.6667]);
-    Modelica.Blocks.Interfaces.BooleanInPort control(final n=1) 
-      "true => switch open, false => p--n connected" annotation (extent=[-10,
-          50; 10, 70], rotation=-90);
+    Modelica.Blocks.Interfaces.BooleanInput control 
+      "true => p--n connected, false => switch open" annotation (extent=[-20,50;
+          20,90],      rotation=-90);
   protected 
     Real s "Auxiliary variable";
-    Boolean on;
     
     annotation (
       Documentation(info="<HTML>
 <P> 
-The ideal opener has a positive pin p and a negative pin n. 
-The switching behaviour is controlled by the control signal. 
-If the control signal is true, pin p is not connected 
-with negative pin n. Otherwise, pin p is connected 
+The ideal opening switch has a positive pin p and a negative pin n. 
+The switching behaviour is controlled by input signal on. 
+If on is true, pin p is connected 
+with negative pin n. Otherwise, pin p is not connected 
 with negative pin n.
 </P>
 <P>
@@ -1472,18 +1441,17 @@ where a description with zero Ron or zero Goff is not possible.
         Line(points=[0, 51; 0, 26])),
       Diagram(
         Ellipse(extent=[-44, 4; -36, -4]),
-        Line(points=[-90, 0; -44, 0]),
+        Line(points=[-96,0; -44,0]),
         Line(points=[-37, 2; 40, 50]),
-        Line(points=[40, 0; 90, 0]),
+        Line(points=[40,0; 96,0]),
         Text(extent=[-100, -40; 100, -79], string="%name"),
         Line(points=[0, 51; 0, 26])));
   equation 
-    on = control.signal[1];
-    v = s*(if not on then 1 else Ron);
-    i = s*(if not on then Goff else 1);
-  end IdealCloser;
+    v = s*(if control then Ron else 1);
+    i = s*(if control then 1 else Goff);
+  end IdealClosingSwitch;
   
-  model ControlledIdealOpener "Controlled ideal electrical opener" 
+  model ControlledIdealOpeningSwitch "Controlled ideal electrical opener" 
     parameter SI.Voltage level=0.5 "Switch level" annotation (extent=[-56.6667,
             10; -10, 56.6667]);
     parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance"
@@ -1532,10 +1500,10 @@ where a description with zero Ron or zero Goff is not possible.
         Line(points=[40, 20; 40, 0])),
       Diagram(
         Ellipse(extent=[-44, 4; -36, -4]),
-        Line(points=[-90, 0; -44, 0]),
+        Line(points=[-96,0; -44,0]),
         Line(points=[-37, 2; 40, 50]),
-        Line(points=[40, 0; 90, 0]),
-        Line(points=[0, 90; 0, 25]),
+        Line(points=[40,0; 96,0]),
+        Line(points=[0,96; 0,25]),
         Line(points=[40, 20; 40, 0])));
   public 
     Interfaces.PositivePin p annotation (extent=[-110, -10; -90, 10]);
@@ -1548,9 +1516,9 @@ where a description with zero Ron or zero Goff is not possible.
     0 = p.i + n.i;
     p.v - n.v = s*(if (control.v > level) then 1 else Ron);
     p.i = s*(if (control.v > level) then Goff else 1);
-  end ControlledIdealOpener;
+  end ControlledIdealOpeningSwitch;
   
-  model ControlledIdealCloser "Controlled ideal electrical closer" 
+  model ControlledIdealClosingSwitch "Controlled ideal electrical closer" 
     parameter SI.Voltage level=0.5 "Switch level" annotation (extent=[-56.6667,
             10; -10, 56.6667]);
     parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance"
@@ -1598,10 +1566,10 @@ where a description with zero Ron or zero Goff is not possible.
         Text(extent=[-100, -70; 100, -100], string="%name")),
       Diagram(
         Ellipse(extent=[-44, 4; -36, -4]),
-        Line(points=[-90, 0; -44, 0]),
+        Line(points=[-96,0; -44,0]),
         Line(points=[-37, 2; 40, 50]),
-        Line(points=[40, 0; 90, 0]),
-        Line(points=[0, 90; 0, 25])));
+        Line(points=[40,0; 96,0]),
+        Line(points=[0,96; 0,25])));
   public 
     Interfaces.PositivePin p annotation (extent=[-110, -10; -90, 10]);
     Interfaces.NegativePin n annotation (extent=[90, -10; 110, 10]);
@@ -1613,6 +1581,6 @@ where a description with zero Ron or zero Goff is not possible.
     0 = p.i + n.i;
     p.v - n.v = s*(if (control.v > level) then Ron else 1);
     p.i = s*(if (control.v > level) then 1 else Goff);
-  end ControlledIdealCloser;
+  end ControlledIdealClosingSwitch;
   
 end Ideal;

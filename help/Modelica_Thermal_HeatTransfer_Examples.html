@@ -125,14 +125,12 @@ frequency inverter are described by two tables.
 "conductionTable" describes the convection conduction G
 and "lossTable" the generated power loss P_loss dependent
 on the time.</p>
-
 <p>
 The power dissipation to the environment is approximated by
 heat flow through a thermal conductance, partially storage
 of the heat in a heat capacitor and finally by forced
 convection to the environment, defined in the two tables.
 </p>
-
 <p>
 Simulate for 5 s and plot the heat flow rate and the
 temperature in the frequency inverter.
@@ -176,18 +174,18 @@ temperature in the frequency inverter.
   <A HREF="Modelica_Thermal_HeatTransfer.html#Modelica.Thermal.HeatTransfer.Convection"
 >HeatTransfer.Convection</A> convection;
   <A HREF="Modelica_Thermal_HeatTransfer.html#Modelica.Thermal.HeatTransfer.PrescribedHeatFlow"
->HeatTransfer.PrescribedHeatFlow</A> Q_dot;
+>HeatTransfer.PrescribedHeatFlow</A> Q_flow;
   <A HREF="Modelica_Thermal_HeatTransfer_Celsius.html#Modelica.Thermal.HeatTransfer.Celsius.FixedTemperature"
 >HeatTransfer.Celsius.FixedTemperature</A> environment(
                                                     T=20);
 <font color="blue">equation </font>
-  <font color="red">connect</font>(Q_dot.port, G.port_a);
-  <font color="red">connect</font>(Q_dot.port, Tsensor.port);
+  <font color="red">connect</font>(Q_flow.port, G.port_a);
+  <font color="red">connect</font>(Q_flow.port, Tsensor.port);
   <font color="red">connect</font>(G.port_b, convection.solid);
   <font color="red">connect</font>(C.port, G.port_b);
   <font color="red">connect</font>(environment.port, convection.fluid);
-  <font color="red">connect</font>(lossTable.outPort, Q_dot.Q_dot);
-  <font color="red">connect</font>(conductionTable.outPort, convection.G);
+  <font color="red">connect</font>(lossTable.y, Q_flow.Q_flow);
+  <font color="red">connect</font>(conductionTable.y, convection.Gc);
 <font color="blue">end </font>FrequencyInverter;
 </PRE>
 <HR>
@@ -279,25 +277,24 @@ An approppriate simulating time would be 10 seconds.
 >Analog.Ideal.IdealSwitch</A> IdealSwitch1;
   <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
 >Sources.Ramp</A> Ramp1(
-    height={25},
-    duration={6},
-    offset={25},
-    startTime={2});
+    height=25,
+    duration=6,
+    offset=25,
+    startTime=2);
   
   <font color="blue">encapsulated </font><font color="blue">block</font> SwitchController <font color="darkgreen">
     &quot;On-off controller for use with Modelica.Electrical.Analog.Ideal.IdealSwitch&quot;</font> 
     
     <font color="blue">import </font><A HREF="Modelica_Blocks.html#Modelica.Blocks"
 >Modelica.Blocks</A>;
-    <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.MI2BooleanMOs"
->Blocks.Interfaces.MI2BooleanMOs</A>(<font color="blue">final </font>n=1);
+    <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SI2BooleanSO"
+>Blocks.Interfaces.SI2BooleanSO</A>;
     
     <font color="blue">parameter </font>Real bandwidth=0.1 <font color="darkgreen">&quot;Bandwidth around reference signal&quot;</font>;
     
   <font color="blue">protected </font>
-    Real u=inPort2.signal[1] <font color="darkgreen">&quot;Input signal&quot;</font>;
-    Real uRef=inPort1.signal[1] <font color="darkgreen">&quot;Reference input signal&quot;</font>;
-    Boolean y=outPort.signal[1] <font color="darkgreen">&quot;Output signal&quot;</font>;
+    Real u=u2 <font color="darkgreen">&quot;Input signal&quot;</font>;
+    Real uRef=u1 <font color="darkgreen">&quot;Reference input signal&quot;</font>;
   <font color="blue">equation </font>
     y = (u &gt; uRef + bandwidth/2)<font color="blue"> or </font>(<font color="red">pre</font>(y)<font color="blue"> and </font><font color="blue">not </font>(u &lt; uRef - bandwidth/2));
   <font color="blue">end </font>SwitchController;
@@ -309,13 +306,13 @@ An approppriate simulating time would be 10 seconds.
   <font color="red">connect</font>(ThermalConductor1.port_b, FixedTemperature1.port);
   <font color="red">connect</font>(HeatingResistor1.heatPort, TemperatureSensor1.port);
   <font color="red">connect</font>(HeatingResistor1.heatPort, HeatCapacitor1.port);
-  <font color="red">connect</font>(TemperatureSensor1.T, SwitchController1.inPort2);
+  <font color="red">connect</font>(TemperatureSensor1.T, SwitchController1.u2);
   <font color="red">connect</font>(ConstantVoltage1.p, IdealSwitch1.p);
   <font color="red">connect</font>(IdealSwitch1.n, HeatingResistor1.p);
-  <font color="red">connect</font>(SwitchController1.inPort1, Ramp1.outPort);
-  <font color="red">connect</font>(SwitchController1.outPort, IdealSwitch1.control);
+  <font color="red">connect</font>(SwitchController1.u1, Ramp1.y);
   
   TRes =<font color="red"> to_degC</font>(HeatingResistor1.heatPort.T);
+  <font color="red">connect</font>(SwitchController1.y, IdealSwitch1.off);
 <font color="blue">end </font>ControlledTemperature;
 </PRE>
 <HR>
@@ -333,10 +330,8 @@ An approppriate simulating time would be 10 seconds.
 the input signal falls below the reference signal minus half of
 the bandwidth and sets the output signal to true when the input
 signal exceeds the reference signal plus half of the bandwidth.</p>
-
 <p>The reference signal is represented by inPort1 and the input
 signal by inPort2.</p>
-
 <p>Note: This component <b>will be removed</b> when package
 ModelicaAdditions.Blocks.Logical is incorporated into the Modelica
 Standard library.</p>
@@ -354,21 +349,20 @@ Standard library.</p>
   
   <font color="blue">import </font><A HREF="Modelica_Blocks.html#Modelica.Blocks"
 >Modelica.Blocks</A>;
-  <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.MI2BooleanMOs"
->Blocks.Interfaces.MI2BooleanMOs</A>(<font color="blue">final </font>n=1);
+  <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SI2BooleanSO"
+>Blocks.Interfaces.SI2BooleanSO</A>;
   
   <font color="blue">parameter </font>Real bandwidth=0.1 <font color="darkgreen">&quot;Bandwidth around reference signal&quot;</font>;
   
 <font color="blue">protected </font>
-  Real u=inPort2.signal[1] <font color="darkgreen">&quot;Input signal&quot;</font>;
-  Real uRef=inPort1.signal[1] <font color="darkgreen">&quot;Reference input signal&quot;</font>;
-  Boolean y=outPort.signal[1] <font color="darkgreen">&quot;Output signal&quot;</font>;
+  Real u=u2 <font color="darkgreen">&quot;Input signal&quot;</font>;
+  Real uRef=u1 <font color="darkgreen">&quot;Reference input signal&quot;</font>;
 <font color="blue">equation </font>
   y = (u &gt; uRef + bandwidth/2)<font color="blue"> or </font>(<font color="red">pre</font>(y)<font color="blue"> and </font><font color="blue">not </font>(u &lt; uRef - bandwidth/2));
 <font color="blue">end </font>SwitchController;
 </PRE>
 <HR>
-<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Jun 30 17:44:15 2004
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Jun 30 17:50:46 2004
 .
 </address></BODY>
 </HTML>

@@ -29,7 +29,6 @@ Modelica.Mechanics.Rotational package. Open the models and
 simulate them according to the provided description in the models.
 The following demo models are present:
 </p>
-
 <pre>
    <b>First</b>            First example using simple, basic elements
    <b>Friction</b>         Example to demonstrate usage of a clutch and a brake
@@ -39,8 +38,6 @@ The following demo models are present:
    <b>LossyGearDemo2</b>   Example to show combination of LossyGear and BearingFriction
    <b>ElasticBearing</b>   Demonstration of bearing flange usage
 </pre>
-
-
 <dl>
 <dt><b>Main Author:</b>
 <dd><a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a><br>
@@ -52,9 +49,7 @@ The following demo models are present:
     email: <A HREF="mailto:Martin.Otter@dlr.de">Martin.Otter@dlr.de</A><br>
 </dl>
 <br>
-
 <p><b>Release Notes:</b></p>
-
 <ul>
 <li><i>October 27, 2003</i>
        by <a href="http://www.robotic.dlr.de/Christian.Schweiger/">Christian Schweiger</a>:<br>
@@ -70,11 +65,8 @@ The following demo models are present:
        Realized a first version based on an existing Dymola library
        of Martin Otter and Hilding Elmqvist.</li>
 </ul>
-
 <br>
-
 <p><b>Copyright &copy; 1999-2003, Modelica Association and DLR.</b></p>
-
 <p><i>
 The Modelica package is <b>free</b> software; it can be redistributed and/or modified
 under the terms of the <b>Modelica license</b>, see the license conditions
@@ -120,16 +112,12 @@ a sine-wave motor torque. Via a gearbox the rotational energy is
 transmitted to a load inertia. Elasticity in the gearbox is modeled
 by a spring element. A linear damper is used to model the
 damping in the gearbox bearing.</p>
-
 <p>Note, that a force component (like the damper of this example)
 which is acting between a shaft and the housing has to be fixed
 in the housing on one side via component Fixed.</p>
-
 <p>Simulate for 1 second and plot the following variables:<br>
    angular velocities of inertias inertia2 and 3: inertia2.w, inertia3.w</p>
-
 <p><b>Release Notes:</b></p>
-
 <ul><li><i>June 30, 1999</i>
     by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>:<br>
     Realized.</li>
@@ -199,9 +187,9 @@ in the housing on one side via component Fixed.</p>
                            d=damping);
   <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Sine"
 >Sources.Sine</A> sine(
-                    amplitude={amplitude}, freqHz={freqHz});
+                    amplitude=amplitude, freqHz=freqHz);
 <font color="blue">equation </font>
-  <font color="red">connect</font>(sine.outPort, torque.inPort);
+  <font color="red">connect</font>(sine.y, torque.tau);
   <font color="red">connect</font>(torque.flange_b, inertia1.flange_a);
   <font color="red">connect</font>(inertia1.flange_b, idealGear.flange_a);
   <font color="red">connect</font>(idealGear.flange_b, inertia2.flange_a);
@@ -225,25 +213,19 @@ in the housing on one side via component Fixed.</p>
 <p>This drive train contains a frictional <b>clutch</b> and a <b>brake</b>.
 Simulate the system for 1 second using the following initial
 values (defined already in the model):</p>
-
 <pre>   inertia1.w =  90 (or brake.w)
    inertia2.w =  90
    inertia3.w = 100
 </pre>
-
 <p>Plot the output signals</p>
-
 <pre>   tMotor      Torque of motor
    tClutch     Torque in clutch
    tBrake      Torque in brake
    tSpring     Torque in spring
 </pre>
-
 <p>as well as the absolute angular velocities of the three inertia components
 (inertia1.w, inertia2.w, inertia3.w).</p>
-
 <p><b>Release Notes:</b></p>
-
 <ul><li><i>June 30, 1999</i>
     by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>:<br>
     Realized.</li>
@@ -313,18 +295,18 @@ values (defined already in the model):</p>
                          fn_max=1600);
   <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
 >Sources.Constant</A> const(
-                         k={1});
+                         k=1);
   <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Step"
 >Sources.Step</A> step(
-                    startTime={startTime});
+                    startTime=startTime);
   <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Step"
 >Sources.Step</A> step2(
-    height={-1},
-    offset={1},
-    startTime={startTime});
+    height=-1,
+    offset=1,
+    startTime=startTime);
   <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Sine"
 >Sources.Sine</A> sine(
-                    amplitude={200}, freqHz={50/pi});
+                    amplitude=200, freqHz=50/pi);
   <A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Product"
 >Math.Product</A> product;
 <font color="blue">equation </font>
@@ -333,17 +315,17 @@ values (defined already in the model):</p>
   tBrake = brake.tau;
   tSpring = spring.tau;
   
-  <font color="red">connect</font>(sine.outPort, product.inPort1);
-  <font color="red">connect</font>(step2.outPort, product.inPort2);
-  <font color="red">connect</font>(product.outPort, torque.inPort);
+  <font color="red">connect</font>(sine.y, product.u1);
+  <font color="red">connect</font>(step2.y, product.u2);
+  <font color="red">connect</font>(product.y, torque.tau);
   <font color="red">connect</font>(torque.flange_b, inertia3.flange_a);
   <font color="red">connect</font>(inertia3.flange_b, clutch.flange_a);
   <font color="red">connect</font>(clutch.flange_b, inertia2.flange_a);
-  <font color="red">connect</font>(const.outPort, clutch.inPort);
+  <font color="red">connect</font>(const.y, clutch.f_normalized);
   <font color="red">connect</font>(inertia2.flange_b, spring.flange_a);
   <font color="red">connect</font>(spring.flange_b, brake.flange_a);
   <font color="red">connect</font>(brake.flange_b, inertia1.flange_a);
-  <font color="red">connect</font>(step.outPort, brake.inPort);
+  <font color="red">connect</font>(step.y, brake.f_normalized);
 <font color="blue">end </font>Friction;
 </PRE>
 <HR>
@@ -367,20 +349,16 @@ sliding, backward sliding or locked mode when the
 relative angular velocity is zero). By invoking the
 clutches at different time instances, the switching
 of the configurations can be studied.</p>
-
 <p>Simulate the system for 1.2 seconds with the
 following initial values:<br>
 J1.w = 10.</p>
-
 <p>Plot the following variables:<br>
 angular velocities of inertias (J1.w, J2.w, J3.w,
 J4.w), frictional torques of clutches (clutchX.tau),
 frictional mode of clutches (clutchX.mode) where
 mode = -1/0/+1 means backward sliding,
 locked, forward sliding.</p>
-
 <p><b>Release Notes:</b></p>
-
 <ul><li><i>June 30, 1999</i>
         by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>:<br>
         Realized.</li>
@@ -430,10 +408,10 @@ locked, forward sliding.</p>
                             peak=1.1, fn_max=20);
   <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Sine"
 >Sources.Sine</A> sin1(
-                    amplitude={10}, freqHz={5});
+                    amplitude=10, freqHz=5);
   <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Step"
 >Sources.Step</A> step1(
-                     startTime={T2});
+                     startTime=T2);
   <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Inertia"
 >Rotational.Inertia</A> J2(
                         J=1);
@@ -451,14 +429,14 @@ locked, forward sliding.</p>
                         J=1);
   <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Sine"
 >Sources.Sine</A> sin2(
-    amplitude={1},
-    freqHz={freqHz},
-    phase={1.57});
+    amplitude=1,
+    freqHz=freqHz,
+    phase=1.57);
   <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Step"
 >Sources.Step</A> step2(
-                     startTime={T3});
+                     startTime=T3);
 <font color="blue">equation </font>
-  <font color="red">connect</font>(sin1.outPort, torque.inPort);
+  <font color="red">connect</font>(sin1.y, torque.tau);
   <font color="red">connect</font>(torque.flange_b, J1.flange_a);
   <font color="red">connect</font>(J1.flange_b, clutch1.flange_a);
   <font color="red">connect</font>(clutch1.flange_b, J2.flange_a);
@@ -466,9 +444,9 @@ locked, forward sliding.</p>
   <font color="red">connect</font>(clutch2.flange_b, J3.flange_a);
   <font color="red">connect</font>(J3.flange_b, clutch3.flange_a);
   <font color="red">connect</font>(clutch3.flange_b, J4.flange_a);
-  <font color="red">connect</font>(step2.outPort, clutch3.inPort);
-  <font color="red">connect</font>(step1.outPort, clutch2.inPort);
-  <font color="red">connect</font>(sin2.outPort, clutch1.inPort);
+  <font color="red">connect</font>(step2.y, clutch3.f_normalized);
+  <font color="red">connect</font>(step1.y, clutch2.f_normalized);
+  <font color="red">connect</font>(sin2.y, clutch1.f_normalized);
 <font color="blue">end </font>CoupledClutches;
 </PRE>
 <HR>
@@ -492,11 +470,9 @@ to a torque dependent friction loss. Simulate for about 0.5 seconds.
 The friction in the gear will take all modes
 (forward and backward rolling, as well as stuck).
 </p>
-
 <p>
 You may plot:
 </p>
-
 <pre>
 Inertia1.w,
 Inertia2.w : angular velocities of inertias
@@ -539,19 +515,19 @@ gear.mode  :  1 = forward rolling
 >Rotational.Torque</A> torque2;
   <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Sine"
 >Sources.Sine</A> DriveSine(
-                         amplitude={10}, freqHz={1});
+                         amplitude=10, freqHz=1);
   <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
 >Sources.Ramp</A> load(
-    height={5},
-    duration={2},
-    offset={-10});
+    height=5,
+    duration=2,
+    offset=-10);
 <font color="blue">equation </font>
   <font color="red">connect</font>(Inertia1.flange_b, gear.flange_a);
   <font color="red">connect</font>(gear.flange_b, Inertia2.flange_a);
   <font color="red">connect</font>(torque1.flange_b, Inertia1.flange_a);
   <font color="red">connect</font>(torque2.flange_b, Inertia2.flange_b);
-  <font color="red">connect</font>(DriveSine.outPort, torque1.inPort);
-  <font color="red">connect</font>(load.outPort, torque2.inPort);
+  <font color="red">connect</font>(DriveSine.y, torque1.tau);
+  <font color="red">connect</font>(load.y, torque2.tau);
   
   PowerLoss = gear.flange_a.tau*<font color="red">der</font>(gear.flange_a.phi) + gear.flange_b.tau*<font color="red">
     der</font>(gear.flange_b.phi);
@@ -574,16 +550,13 @@ If both friction models are stuck, there is no unique solution.
 Still a reliable Modelica simulator, such as Dymola, should
 be able to handle this situation.
 </p>
-
 <p>
 Simulate for about 0.5 seconds. The friction elements are
 in all modes (forward and backward rolling, as well as stuck).
 </p>
-
 <p>
 You may plot:
 </p>
-
 <pre>
 Inertia1.w,
 Inertia2.w          : angular velocities of inertias
@@ -595,11 +568,9 @@ gear.mode           :  1 = forward rolling
                        0 = stuck (w=0)
                       -1 = backward rolling
 </pre>
-
 <p>Note: This combination of LossyGear and BearingFriction is not recommended to use,
 as component LossyGear includes the functionality of component BearingFriction
 (only <i>peak</i> not supported).</p>
-
 <pre>
 </PRE>
 <H3>Modelica definition</H3>
@@ -634,25 +605,25 @@ as component LossyGear includes the functionality of component BearingFriction
 >Rotational.Torque</A> torque2;
   <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Sine"
 >Sources.Sine</A> DriveSine(
-                         amplitude={10}, freqHz={1});
+                         amplitude=10, freqHz=1);
   <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
 >Sources.Ramp</A> load(
-    height={5},
-    duration={2},
-    offset={-10});
+    height=5,
+    duration=2,
+    offset=-10);
   <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.BearingFriction"
 >Rotational.BearingFriction</A> bearingFriction(
                                              tau_pos=[0, 0.5; 1, 1]);
 <font color="blue">equation </font>
   PowerLoss = gear.flange_a.tau*<font color="red">der</font>(gear.flange_a.phi) + gear.flange_b.tau*<font color="red">
     der</font>(gear.flange_b.phi);
-  <font color="red">connect</font>(load.outPort, torque2.inPort);
+  <font color="red">connect</font>(load.y, torque2.tau);
   <font color="red">connect</font>(torque2.flange_b, Inertia2.flange_b);
   <font color="red">connect</font>(Inertia2.flange_a, gear.flange_b);
   <font color="red">connect</font>(gear.flange_a, Inertia1.flange_b);
   <font color="red">connect</font>(Inertia1.flange_a, bearingFriction.flange_b);
   <font color="red">connect</font>(bearingFriction.flange_a, torque1.flange_b);
-  <font color="red">connect</font>(DriveSine.outPort, torque1.inPort);
+  <font color="red">connect</font>(DriveSine.y, torque1.tau);
 <font color="blue">end </font>LossyGearDemo2;
 </PRE>
 <HR>
@@ -671,11 +642,9 @@ This model demonstrates the usage of the bearing flange.
 The gearbox is not connected rigidly to the ground, but by
 a spring-damper-system. This allows examination of the gearbox
 housing dynamics.</p>
-
 <p>
 Simulate for about 10 seconds and plot the angular velocities of the inertias <tt>housing.w</tt>,
 <tt>shaft.w</tt> and <tt>load.w</tt>.</p>
-
 <pre>
 </PRE>
 <H3>Modelica definition</H3>
@@ -700,8 +669,7 @@ Simulate for about 10 seconds and plot the angular velocities of the inertias <t
   <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Torque"
 >Modelica.Mechanics.Rotational.Torque</A> torque;
   <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
->Modelica.Blocks.Sources.Ramp</A> ramp(
-                                    height={100}, duration={5});
+>Modelica.Blocks.Sources.Ramp</A> ramp(           duration=5, height=100);
   <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.IdealGear"
 >Modelica.Mechanics.Rotational.IdealGear</A> idealGear(
                                                     ratio=3);
@@ -709,7 +677,7 @@ Simulate for about 10 seconds and plot the angular velocities of the inertias <t
 >Inertia</A> housing(
                   J=5);
 <font color="blue">equation </font>
-  <font color="red">connect</font>(ramp.outPort, torque.inPort);
+  <font color="red">connect</font>(ramp.y, torque.tau);
   <font color="red">connect</font>(torque.flange_b, shaft.flange_a);
   <font color="red">connect</font>(spring.flange_b, load.flange_a);
   <font color="red">connect</font>(springDamper.flange_a, fixed.flange_b);
@@ -720,7 +688,7 @@ Simulate for about 10 seconds and plot the angular velocities of the inertias <t
 <font color="blue">end </font>ElasticBearing;
 </PRE>
 <HR>
-<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Jun 30 17:44:02 2004
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Jun 30 17:50:30 2004
 .
 </address></BODY>
 </HTML>

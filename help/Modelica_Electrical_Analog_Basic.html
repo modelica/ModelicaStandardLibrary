@@ -66,7 +66,6 @@ This package contains basic analog electrical components:
     VariableCapacitor, VariableInductor</li>
 </ul>
 </p>
-
 <pre>
 </PRE><P>
 <TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
@@ -205,19 +204,16 @@ The Resistance <i>R</i> is allowed to be positive, zero, or negative.
 is dissipated to the environment via connector <b>heatPort</b> and where
 the resistance R is temperature dependent according to the following
 equation:</p>
-
 <pre>    R = R_ref*(1 + alpha*(heatPort.T - T_ref))
 </pre>
-
 <p><b>alpha</b> is the <b>temperature coefficient of resistance</b>, which
 is often abbreviated as <b>TCR</b>. In resistor catalogues, it is usually
 defined as <b>X [ppm/K]</b> (parts per million, similarly to per centage)
 meaning <b>X*1.e-6 [1/K]</b>. Resistors are available for 1 .. 7000 ppm/K,
 i.e., alpha = 1e-6 .. 7e-3 1/K;</p>
-
 <p>When connector <b>heatPort</b> is <b>not</b> connected, the temperature
 dependent behaviour is switched off by setting heatPort.T = T_ref.
-Additionally, the equation <tt>heatPort.Q_dot = 0</tt> is implicitly present
+Additionally, the equation <tt>heatPort.Q_flow = 0</tt> is implicitly present
 due to a special rule in Modelica that flow variables of not connected
 connectors are set to zero.</p>
 <pre>
@@ -251,10 +247,10 @@ connectors are set to zero.</p>
   
   <font color="blue">if </font><font color="red">cardinality</font>(heatPort) &gt; 0<font color="blue"> then</font>
     R = R_ref*(1 + alpha*(heatPort.T - T_ref));
-    heatPort.Q_dot = -v*i;
+    heatPort.Q_flow = -v*i;
   <font color="blue">else</font>
     <font color="darkgreen">/* heatPort is not connected resulting in the
-         implicit equation 'heatPort.Q_dot = 0'
+         implicit equation 'heatPort.Q_flow = 0'
       */</font>
     R = R_ref;
     heatPort.T = T_ref;
@@ -586,11 +582,9 @@ The linear voltage-controlled voltage source is a TwoPort.
 The right port voltage v2 is controlled by the left port voltage v1
 via
 </p>
-
 <pre>
     v2 = v1 * gain.
 </pre>
-
 <p>
 The left port current is zero. Any voltage gain can be chosen.
 </p>
@@ -711,11 +705,9 @@ The linear current-controlled current source is a TwoPort.
 The right port current i2 is controlled by the left port current i1
 via
 </p>
-
 <pre>
     i2 = i1 * gain.
 </pre>
-
 <p>
 The left port voltage is zero. Any current gain can be chosen.
 </p>
@@ -814,13 +806,12 @@ branch current <i>i</i> by <br><br>
       <b> <i>i*R = v</i></b>
 </P>
 <P>
-The Resistance <i>R</i> is defined by the R_Port signal.
+The Resistance <i>R</i> is given as input signal.
 <P>
 <b>Attention!!!</b><br>
-  It is recomended that the R_Port signal should not cross the zero value. Otherwise 
+  It is recommended that the R signal should not cross the zero value. Otherwise 
   depending on the surrounding circuit the probability of singularities is high. <br>
 </P>
-
 <pre>
 </PRE>
 <H3>Modelica definition</H3>
@@ -829,14 +820,11 @@ The Resistance <i>R</i> is defined by the R_Port signal.
   &quot;Ideal linear electrical resistor with variable resistance&quot;</font> 
   <font color="blue">extends </font><A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
 >Modelica.Electrical.Analog.Interfaces.OnePort</A>;
-  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
->Modelica.Blocks.Interfaces.InPort</A> R_Port(
-                                           <font color="blue">final </font>n=1);
-<font color="blue">protected </font>
-  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
->Modelica.SIunits.Resistance</A> R;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> R(
+    <font color="blue">redeclare </font><font color="blue">type</font> SignalType = <A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Modelica.SIunits.Resistance</A>);
 <font color="blue">equation </font>
-  R = R_Port.signal[1];
   v = R*i;
 <font color="blue">end </font>VariableResistor;
 </PRE>
@@ -857,15 +845,13 @@ branch current <i>i</i> by <br><br>
       <b> <i>i = G*v</i></b>
 </P>
 <P>
-The Conductance <i>G</i> is defined by the G_Port signal.
-
+The Conductance <i>G</i> is given as input signal.
 </P>
 <P>
 <b>Attention!!!</b><br>
-  It is recomended that the G_Port signal should not cross the zero value. Otherwise 
+  It is recommended that the G signal should not cross the zero value. Otherwise 
   depending on the surrounding circuit the probability of singularities is high. <br>
 </P>
-
 <pre>
 </PRE>
 <H3>Modelica definition</H3>
@@ -874,14 +860,11 @@ The Conductance <i>G</i> is defined by the G_Port signal.
   &quot;Ideal linear electrical conductor with variable conductance&quot;</font> 
   <font color="blue">extends </font><A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
 >Modelica.Electrical.Analog.Interfaces.OnePort</A>;
-  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
->Modelica.Blocks.Interfaces.InPort</A> G_Port(
-                                           <font color="blue">final </font>n=1);
-<font color="blue">protected </font>
-  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Conductance"
->Modelica.SIunits.Conductance</A> G <font color="darkgreen">&quot;Conductance&quot;</font>;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> G(
+     <font color="blue">redeclare </font><font color="blue">type</font> SignalType = <A HREF="Modelica_SIunits.html#Modelica.SIunits.Conductance"
+>Modelica.SIunits.Conductance</A>);
 <font color="blue">equation </font>
-  G = G_Port.signal[1];
   i = G*v;
 <font color="blue">end </font>VariableConductor;
 </PRE>
@@ -902,15 +885,14 @@ branch current <i>i</i> by <br><br>
       <b> <i>i = dQ/dt</i></b>  with <b><i>Q = C * v</i> </b>.
 </P>
 <P>
-The capacitance <i>C</i> is defined by the C_Port signal.
+The capacitance <i>C</i> is given as input signal.
 </P>
 <P>
-It is required that C_Port.signal &ge; 0, otherwise an 
+It is required that C &ge; 0, otherwise an 
 assertion is raised. To avoid a variable index system,<br>
-C = Cmin, if 0 &le; C_Port.signal &lt; Cmin, where
+C = Cmin, if 0 &le; C &lt; Cmin, where
 Cmin is a parameter with default value Modelica.Constants.eps.
 </P>
-
 <pre>
 </PRE>
 <H3>Parameters</H3><P>
@@ -924,22 +906,19 @@ Cmin is a parameter with default value Modelica.Constants.eps.
   &quot;Ideal linear electrical capacitor with variable capacitance&quot;</font> 
   <font color="blue">extends </font><A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
 >Modelica.Electrical.Analog.Interfaces.OnePort</A>;
-  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
->Modelica.Blocks.Interfaces.InPort</A> C_Port(
-                                           <font color="blue">final </font>n=1);
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> C(
+    <font color="blue">redeclare </font><font color="blue">type</font> SignalType = <A HREF="Modelica_SIunits.html#Modelica.SIunits.Capacitance"
+>Modelica.SIunits.Capacitance</A>);
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Capacitance"
 >Modelica.SIunits.Capacitance</A> Cmin =      Modelica.Constants.eps;
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.ElectricCharge"
 >Modelica.SIunits.ElectricCharge</A> Q;
-<font color="blue">protected </font>
-  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Capacitance"
->Modelica.SIunits.Capacitance</A> C;
 <font color="blue">equation </font>
-  <font color="red">assert</font>(C_Port.signal[1]&gt;=0,&quot;Capacitance C_Port.signal[1] (= &quot; +<font color="red">
-                             String</font>(C_Port.signal[1]) + &quot;) has to be &gt;= 0!&quot;);
+  <font color="red">assert</font>(C&gt;=0,&quot;Capacitance C (= &quot; +<font color="red">
+         String</font>(C) + &quot;) has to be &gt;= 0!&quot;);
   <font color="darkgreen">// protect solver from index change</font>
-  C =<font color="red"> noEvent</font>(<font color="red">max</font>(C_Port.signal[1],Cmin));
-  Q = C*v;
+  Q =<font color="red"> noEvent</font>(<font color="red">max</font>(C,Cmin))*v;
   i =<font color="red"> der</font>(Q);
 <font color="blue">end </font>VariableCapacitor;
 </PRE>
@@ -960,15 +939,14 @@ branch current <i>i</i> by <br><br>
       <b> <i>v = d Psi/dt </i></b>   with  <b><i>Psi = L * i </i></b>.
 </P>
 <P>
-The inductance <i>L</i> is defined by the L_Port signal.
+The inductance <i>L</i> is as input signal.
 </P>
 <P>
-It is required that L_Port.signal &ge; 0, otherwise an 
+It is required that L &ge; 0, otherwise an 
 assertion is raised. To avoid a variable index system,<br>
-L = Lmin, if 0 &le; L_Port.signal &lt; Lmin, where
+L = Lmin, if 0 &le; L &lt; Lmin, where
 Lmin is a parameter with default value Modelica.Constants.eps.
 </P>
-
 <pre>
 </PRE>
 <H3>Parameters</H3><P>
@@ -983,27 +961,24 @@ Lmin is a parameter with default value Modelica.Constants.eps.
   
   <font color="blue">extends </font><A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
 >Modelica.Electrical.Analog.Interfaces.OnePort</A>;
-  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
->Modelica.Blocks.Interfaces.InPort</A> L_Port(
-                                           <font color="blue">final </font>n=1);
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> L(
+     <font color="blue">redeclare </font><font color="blue">type</font> SignalType = <A HREF="Modelica_SIunits.html#Modelica.SIunits.Inductance"
+>Modelica.SIunits.Inductance</A>);
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.MagneticFlux"
 >Modelica.SIunits.MagneticFlux</A> Psi;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inductance"
 >Modelica.SIunits.Inductance</A> Lmin =      Modelica.Constants.eps;
-<font color="blue">protected </font>
-  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Inductance"
->Modelica.SIunits.Inductance</A> L;
 <font color="blue">equation </font>
-  <font color="red">assert</font>(L_Port.signal[1]&gt;=0,&quot;Inductance L_Port.signal[1] (= &quot; +<font color="red">
-                             String</font>(L_Port.signal[1]) + &quot;) has to be &gt;= 0!&quot;);
+  <font color="red">assert</font>(L&gt;=0,&quot;Inductance L_ (= &quot; +<font color="red">
+         String</font>(L) + &quot;) has to be &gt;= 0!&quot;);
   <font color="darkgreen">// protect solver from index change</font>
-  L =<font color="red"> noEvent</font>(<font color="red">max</font>(L_Port.signal[1],Lmin));
-  Psi = L*i;
+  Psi =<font color="red"> noEvent</font>(<font color="red">max</font>(L,Lmin))*i;
   v =<font color="red"> der</font>(Psi);
 <font color="blue">end </font>VariableInductor;
 </PRE>
 <HR>
-<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Jun 30 17:43:07 2004
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Jun 30 17:49:17 2004
 .
 </address></BODY>
 </HTML>

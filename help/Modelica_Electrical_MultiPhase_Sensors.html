@@ -83,18 +83,24 @@ thus measuring the m potentials <i>phi[m]</i> of the m pins of plug_p.
 <H3>Modelica definition</H3>
 <PRE>
 <font color="blue">model</font> PotentialSensor <font color="darkgreen">&quot;Multiphase potential sensor&quot;</font> 
-  <font color="blue">extends </font><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.AbsoluteSensor"
->Interfaces.AbsoluteSensor</A>;
-  <A HREF="Modelica_SIunits.html#Modelica.SIunits.ElectricPotential"
->Modelica.SIunits.ElectricPotential</A> phi[
-                                         m] <font color="darkgreen">&quot;Absolute voltage potentials&quot;</font>;
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.RotationalSensor"
+>Modelica.Icons.RotationalSensor</A>;
+  <font color="blue">parameter </font>Integer m(<font color="blue">final </font>min=1) = 3 <font color="darkgreen">&quot;number of phases&quot;</font>;
+  <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.PositivePlug"
+>Interfaces.PositivePlug</A> plug_p(
+                                 m);
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> phi[
+                                            m](
+      <font color="blue">redeclare </font><font color="blue">type</font> SignalType = <A HREF="Modelica_SIunits.html#Modelica.SIunits.ElectricPotential"
+>Modelica.SIunits.ElectricPotential</A>) <font color="darkgreen">
+    &quot;Absolute voltage potential as output signal&quot;</font>;
   <A HREF="Modelica_Electrical_Analog_Sensors.html#Modelica.Electrical.Analog.Sensors.PotentialSensor"
 >Modelica.Electrical.Analog.Sensors.PotentialSensor</A> potentialSensor[
                                                                      m];
 <font color="blue">equation </font>
-  phi = potentialSensor.outPort.signal[1];
-  outPort.signal = phi;
   <font color="red">connect</font>(potentialSensor.p, plug_p.pin);
+  <font color="red">connect</font>(potentialSensor.phi, phi);
 <font color="blue">end </font>PotentialSensor;
 </PRE>
 <HR>
@@ -121,19 +127,28 @@ thus measuring the m potential differences <i>v[m]</i> between the m pins of plu
 <H3>Modelica definition</H3>
 <PRE>
 <font color="blue">model</font> VoltageSensor <font color="darkgreen">&quot;Multiphase voltage sensor&quot;</font> 
-  <font color="blue">extends </font><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.RelativeSensor"
->Interfaces.RelativeSensor</A>;
-  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
->Modelica.SIunits.Voltage</A> v[
-                             m] <font color="darkgreen">&quot;Voltages between plug_p and plug_n&quot;</font>;
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.RotationalSensor"
+>Modelica.Icons.RotationalSensor</A>;
+  <font color="blue">parameter </font>Integer m(<font color="blue">final </font>min=1) = 3 <font color="darkgreen">&quot;number of phases&quot;</font>;
+  <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.PositivePlug"
+>Interfaces.PositivePlug</A> plug_p(
+                                 <font color="blue">final </font>m=m);
+  <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.NegativePlug"
+>Interfaces.NegativePlug</A> plug_n(
+                                 <font color="blue">final </font>m=m);
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> v[
+                                          m](
+      <font color="blue">redeclare </font><font color="blue">type</font> SignalType = <A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A>) <font color="darkgreen">
+    &quot;Voltage between pin p and n (= p.v - n.v) as output signal&quot;</font>;
   <A HREF="Modelica_Electrical_Analog_Sensors.html#Modelica.Electrical.Analog.Sensors.VoltageSensor"
 >Modelica.Electrical.Analog.Sensors.VoltageSensor</A> voltageSensor[
                                                                  m];
 <font color="blue">equation </font>
-  v = voltageSensor.outPort.signal[1];
-  outPort.signal = v;
   <font color="red">connect</font>(voltageSensor.n, plug_n.pin);
   <font color="red">connect</font>(voltageSensor.p, plug_p.pin);
+  <font color="red">connect</font>(voltageSensor.v, v);
 <font color="blue">end </font>VoltageSensor;
 </PRE>
 <HR>
@@ -160,23 +175,32 @@ thus measuring the m currents <i>i[m]</i> flowing from the m pins of plug_p to t
 <H3>Modelica definition</H3>
 <PRE>
 <font color="blue">model</font> CurrentSensor <font color="darkgreen">&quot;Multiphase current sensor&quot;</font> 
-  <font color="blue">extends </font><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.RelativeSensor"
->Interfaces.RelativeSensor</A>;
-  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Current"
->Modelica.SIunits.Current</A> i[
-                             m] <font color="darkgreen">&quot;Currents flowing from plug_p to plug_n&quot;</font>;
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.RotationalSensor"
+>Modelica.Icons.RotationalSensor</A>;
+  <font color="blue">parameter </font>Integer m(<font color="blue">final </font>min=1) = 3 <font color="darkgreen">&quot;number of phases&quot;</font>;
+  <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.PositivePlug"
+>Interfaces.PositivePlug</A> plug_p(
+                                 <font color="blue">final </font>m=m);
+  <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.NegativePlug"
+>Interfaces.NegativePlug</A> plug_n(
+                                 <font color="blue">final </font>m=m);
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> i[
+                                          m](
+      <font color="blue">redeclare </font><font color="blue">type</font> SignalType = <A HREF="Modelica_SIunits.html#Modelica.SIunits.Current"
+>Modelica.SIunits.Current</A>) <font color="darkgreen">
+    &quot;current in the branch from p to n as output signal&quot;</font>;
   <A HREF="Modelica_Electrical_Analog_Sensors.html#Modelica.Electrical.Analog.Sensors.CurrentSensor"
 >Modelica.Electrical.Analog.Sensors.CurrentSensor</A> currentSensor[
                                                                  m];
 <font color="blue">equation </font>
-  i = currentSensor.outPort.signal[1];
-  outPort.signal = i;
   <font color="red">connect</font>(plug_p.pin, currentSensor.p);
   <font color="red">connect</font>(currentSensor.n, plug_n.pin);
+  <font color="red">connect</font>(currentSensor.i, i);
 <font color="blue">end </font>CurrentSensor;
 </PRE>
 <HR>
-<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Jun 30 17:43:58 2004
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Jun 30 17:50:11 2004
 .
 </address></BODY>
 </HTML>

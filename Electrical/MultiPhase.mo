@@ -48,7 +48,7 @@ Further development:
   Modelica in file \"Modelica/package.mo\".</i></dd>
 </p>
 </dl>
-</HTML>"), uses(Modelica(version="1.6")));
+</HTML>"), uses(Modelica(version="2.1 Beta1")));
   
   package Basic "Basic components for electrical multiphase models" 
     extends Modelica.Icons.Library;
@@ -135,7 +135,7 @@ when used in parallel to another component.
       end for;
     end Delta;
     
-    model PlugToPin_p "Connect one (positive) Pin to a Plug Connector" 
+    model PlugToPin_p "Connect one (positive) Pin to a Plug connector" 
       parameter Integer m(final min=1) = 3 "number of phases";
       parameter Integer k(
         final min=1,
@@ -415,7 +415,8 @@ Contains m transformers (Modelica.Electrical.Analog.Basic.Transformer)
     model VariableResistor 
       "Ideal linear electrical resistors with variable resistance" 
       extends Interfaces.TwoPlug;
-      Modelica.Blocks.Interfaces.InPort R_Port(final n=m) 
+      Modelica.Blocks.Interfaces.RealInput R[m](
+        redeclare type SignalType = Modelica.SIunits.Resistance) 
         annotation (extent=[-10,90; 10,110],   rotation=-90);
       Modelica.Electrical.Analog.Basic.VariableResistor variableResistor[m] 
         annotation (extent=[-10,-10; 10,10]);
@@ -440,18 +441,20 @@ Contains m variable resistors (Modelica.Electrical.Analog.Basic.VariableResistor
 </HTML>"),
         Diagram);
     equation 
-      variableResistor.R_Port.signal[1]=R_Port.signal;
       connect(variableResistor.p, plug_p.pin) annotation (points=[-10,0; -100,0],
           style(color=3, rgbcolor={0,0,255}));
       connect(variableResistor.n, plug_n.pin) 
         annotation (points=[10,0; 100,0], style(color=3, rgbcolor={0,0,255}));
+      connect(R, variableResistor.R) 
+        annotation (points=[0,100; 0,10], style(color=3, rgbcolor={0,0,255}));
     end VariableResistor;
     
     model VariableConductor 
       "Ideal linear electrical conductors with variable conductance" 
       extends Interfaces.TwoPlug;
-      Modelica.Blocks.Interfaces.InPort G_Port(final n=m) 
-        annotation (extent=[-10,90; 10,110],   rotation=-90);
+      Modelica.Blocks.Interfaces.RealInput G[m](
+         redeclare type SignalType = Modelica.SIunits.Conductance) 
+        annotation (extent=[-10, 90; 10, 110], rotation=-90);
       Modelica.Electrical.Analog.Basic.VariableConductor variableConductor[m] 
         annotation (extent=[-10,-10; 10,10]);
       annotation (Icon(
@@ -475,21 +478,22 @@ Contains m variable conductors (Modelica.Electrical.Analog.Basic.VariableConduct
 </HTML>"),
         Diagram);
     equation 
-      variableConductor.G_Port.signal[1]=G_Port.signal;
       connect(variableConductor.p, plug_p.pin) 
         annotation (points=[-10,0; -100,0], style(color=3, rgbcolor={0,0,255}));
       connect(variableConductor.n, plug_n.pin) 
         annotation (points=[10,0; 100,0], style(color=3, rgbcolor={0,0,255}));
+      connect(G, variableConductor.G) 
+        annotation (points=[0,100; 0,10], style(color=3, rgbcolor={0,0,255}));
     end VariableConductor;
     
     model VariableCapacitor 
       "Ideal linear electrical capacitors with variable capacitance" 
       extends Interfaces.TwoPlug;
       parameter Modelica.SIunits.Capacitance Cmin[m]=fill(Modelica.Constants.eps,m);
-      Modelica.Blocks.Interfaces.InPort C_Port(final n=m) 
-        annotation (extent=[-10,90; 10,110],   rotation=-90);
-      Modelica.Electrical.Analog.Basic.VariableCapacitor variableCapacitor[m](final Cmin
-          =    Cmin) 
+      Modelica.Blocks.Interfaces.RealInput C[m](
+        redeclare type SignalType = Modelica.SIunits.Capacitance) 
+        annotation (extent=[-10, 90; 10, 110], rotation=-90);
+      Modelica.Electrical.Analog.Basic.VariableCapacitor variableCapacitor[m](final Cmin = Cmin) 
         annotation (extent=[-10,-10; 10,10]);
       annotation (Icon(
           Line(points=[0,90; 0,30],   style(color=73)),
@@ -511,19 +515,21 @@ Cmin is a parameter with default value Modelica.Constants.eps.
 </HTML>"),
         Diagram);
     equation 
-      variableCapacitor.C_Port.signal[1]=C_Port.signal;
       connect(variableCapacitor.p, plug_p.pin) 
         annotation (points=[-10,0; -100,0], style(color=3, rgbcolor={0,0,255}));
       connect(variableCapacitor.n, plug_n.pin) 
         annotation (points=[10,0; 100,0], style(color=3, rgbcolor={0,0,255}));
+      connect(C, variableCapacitor.C) 
+        annotation (points=[0,100; 0,10], style(color=3, rgbcolor={0,0,255}));
     end VariableCapacitor;
     
     model VariableInductor 
       "Ideal linear electrical inductors with variable inductance" 
       extends Interfaces.TwoPlug;
       parameter Modelica.SIunits.Inductance Lmin[m]=fill(Modelica.Constants.eps,m);
-      Modelica.Blocks.Interfaces.InPort L_Port(final n=m) 
-        annotation (extent=[-10,90; 10,110],   rotation=-90);
+      Modelica.Blocks.Interfaces.RealInput L[m](
+         redeclare type SignalType = Modelica.SIunits.Inductance) 
+        annotation (extent=[-10, 90; 10, 110], rotation=-90);
       Modelica.Electrical.Analog.Basic.VariableInductor variableInductor[m](final Lmin
           =    Lmin) 
         annotation (extent=[-10,-10; 10,10]);
@@ -551,11 +557,12 @@ Lmin is a parameter with default value Modelica.Constants.eps.
 </HTML>"),
         Diagram);
     equation 
-      variableInductor.L_Port.signal[1]=L_Port.signal;
       connect(variableInductor.p, plug_p.pin) 
         annotation (points=[-10,0; -100,0], style(color=3, rgbcolor={0,0,255}));
       connect(variableInductor.n, plug_n.pin) 
         annotation (points=[10,0; 100,0], style(color=3, rgbcolor={0,0,255}));
+      connect(L, variableInductor.L) 
+        annotation (points=[0,100; 0,10], style(color=3, rgbcolor={0,0,255}));
     end VariableInductor;
   end Basic;
   
@@ -842,8 +849,8 @@ like thyristor, diode, switch, transformer.
         1.E-5, m) "Opened thyristor conductance";
       parameter Modelica.SIunits.Voltage Vknee[m](final min=zeros(m)) = zeros(m) 
         "Treshold voltage";
-      Modelica.Blocks.Interfaces.BooleanInPort firePort(final n=m) 
-        annotation (extent=[60, 90; 80, 110], rotation=-90);
+      Modelica.Blocks.Interfaces.BooleanInput fire[m] 
+        annotation (extent=[50,90; 90,130],   rotation=-90);
       Modelica.Electrical.Analog.Ideal.IdealThyristor idealThyristor[m](final Roff
           =    Roff, final Gon=Gon, final Vknee=Vknee) annotation (extent=[-10, -10; 10, 10]);
       annotation (
@@ -866,11 +873,12 @@ Contains m ideal thyristors (Modelica.Electrical.Analog.Ideal.IdealThyristor).
 </HTML>"),
         Diagram);
     equation 
-      idealThyristor.firePort.signal[1] = firePort.signal;
       connect(plug_p.pin, idealThyristor.p) 
         annotation (points=[-100, 0; -10, 0], style(color=3));
       connect(idealThyristor.n, plug_n.pin) 
         annotation (points=[10, 0; 100, 0], style(color=3));
+      connect(fire, idealThyristor.fire) annotation (points=[70,110; 70,80; 7,80;
+            7,11], style(color=5, rgbcolor={255,0,255}));
     end IdealThyristor;
     
     model IdealGTOThyristor "Multiphase ideal GTO thyristor" 
@@ -881,8 +889,8 @@ Contains m ideal thyristors (Modelica.Electrical.Analog.Ideal.IdealThyristor).
         1.E-5, m) "Opened thyristor conductance";
       parameter Modelica.SIunits.Voltage Vknee[m](final min=zeros(m)) = zeros(m) 
         "Treshold voltage";
-      Modelica.Blocks.Interfaces.BooleanInPort firePort(final n=m) 
-        annotation (extent=[60, 90; 80, 110], rotation=-90);
+      Modelica.Blocks.Interfaces.BooleanInput fire[m] 
+        annotation (extent=[50,90; 90,130],   rotation=-90);
       Modelica.Electrical.Analog.Ideal.IdealGTOThyristor idealGTOThyristor[m](
           final Roff=Roff, final Gon=Gon, final Vknee=Vknee) annotation (extent=[-10, -10; 10, 10]);
       annotation (
@@ -905,11 +913,12 @@ Contains m ideal GTO thyristors (Modelica.Electrical.Analog.Ideal.IdealGTOThyris
 </HTML>"),
         Diagram);
     equation 
-      idealGTOThyristor.firePort.signal[1] = firePort.signal;
       connect(idealGTOThyristor.p, plug_p.pin) 
         annotation (points=[-10, 0; -100, 0], style(color=3));
       connect(idealGTOThyristor.n, plug_n.pin) 
         annotation (points=[10, 0; 100, 0], style(color=3));
+      connect(fire, idealGTOThyristor.fire) annotation (points=[70,110; 70,80; 7,
+            80; 7,11], style(color=5, rgbcolor={255,0,255}));
     end IdealGTOThyristor;
     
     model IdealCommutingSwitch "Multiphase ideal commuting switch" 
@@ -918,8 +927,9 @@ Contains m ideal GTO thyristors (Modelica.Electrical.Analog.Ideal.IdealGTOThyris
         1.E-5, m) "Closed switch resistance";
       parameter Modelica.SIunits.Conductance Goff[m](final min=zeros(m)) = fill(
         1.E-5, m) "Opened switch conductance";
-      Modelica.Blocks.Interfaces.BooleanInPort control(final n=m) 
-        annotation (extent=[-10, 88; 10, 108], rotation=-90);
+      Modelica.Blocks.Interfaces.BooleanInput off[m] 
+        "true => p--n2 connected, false => p--n1 connected" annotation (extent=[
+            -20,60; 20,100], rotation=-90);
       Interfaces.PositivePlug plug_p(final m=m) 
         annotation (extent=[-110, -10; -90, 10]);
       Interfaces.NegativePlug plug_n2(final m=m) 
@@ -959,7 +969,6 @@ Contains m ideal commuting switches (Modelica.Electrical.Analog.Ideal.IdealCommu
 </HTML>"),
         Diagram);
     equation 
-      idealCommutingSwitch.control.signal[1] = control.signal;
       connect(plug_p.pin, idealCommutingSwitch.p) annotation (points=[-100, 0;
             -10, 0], style(
           color=3,
@@ -975,6 +984,8 @@ Contains m ideal commuting switches (Modelica.Electrical.Analog.Ideal.IdealCommu
           color=3,
           fillColor=7,
           fillPattern=1));
+      connect(off, idealCommutingSwitch.off) 
+        annotation (points=[0,80; 0,8], style(color=5, rgbcolor={255,0,255}));
     end IdealCommutingSwitch;
     
     model IdealIntermediateSwitch "Multiphase ideal intermediate switch" 
@@ -983,8 +994,9 @@ Contains m ideal commuting switches (Modelica.Electrical.Analog.Ideal.IdealCommu
         1.E-5, m) "Closed switch resistance";
       parameter Modelica.SIunits.Conductance Goff[m](final min=zeros(m)) = fill(
         1.E-5, m) "Opened switch conductance";
-      Modelica.Blocks.Interfaces.BooleanInPort control(final n=m) 
-        annotation (extent=[-10, 88; 10, 108], rotation=-90);
+      Modelica.Blocks.Interfaces.BooleanInput off[m] 
+        "true => p1--n2, p2--n1 connected, otherwise p1--n1, p2--n2 connected" 
+            annotation (extent=[-20,60; 20,100],rotation=-90);
       Interfaces.PositivePlug plug_p1(final m=m) 
         annotation (extent=[-110, 40; -90, 60]);
       Interfaces.PositivePlug plug_p2(final m=m) 
@@ -1028,7 +1040,6 @@ Contains m ideal intermediate switches (Modelica.Electrical.Analog.Ideal.IdealIn
 </HTML>"),
         Diagram);
     equation 
-      idealIntermediateSwitch.control.signal[1] = control.signal;
       connect(plug_p2.pin, idealIntermediateSwitch.p2) annotation (points=[-100,
              0; -10, 0], style(
           color=3,
@@ -1049,6 +1060,8 @@ Contains m ideal intermediate switches (Modelica.Electrical.Analog.Ideal.IdealIn
           color=3,
           fillColor=7,
           fillPattern=1));
+      connect(off, idealIntermediateSwitch.off) 
+        annotation (points=[0,80; 0,8], style(color=5, rgbcolor={255,0,255}));
     end IdealIntermediateSwitch;
     
     model IdealDiode "Multiphase ideal diode" 
@@ -1181,15 +1194,16 @@ Contains m short cuts (Modelica.Electrical.Analog.Ideal.Short)
           fillPattern=1));
     end Short;
     
-    model IdealOpener "Multiphase ideal opener" 
+    model IdealOpeningSwitch "Multiphase ideal opener" 
       extends Interfaces.TwoPlug;
       parameter Modelica.SIunits.Resistance Ron[m](final min=zeros(m)) = fill(
         1.E-5, m) "Closed switch resistance";
       parameter Modelica.SIunits.Conductance Goff[m](final min=zeros(m)) = fill(
         1.E-5, m) "Opened switch conductance";
-      Modelica.Blocks.Interfaces.BooleanInPort control(final n=m) 
-        annotation (extent=[-10, 88; 10, 108], rotation=-90);
-      Modelica.Electrical.Analog.Ideal.IdealOpener idealOpener[m](final Ron=Ron,
+      Modelica.Blocks.Interfaces.BooleanInput control[m] 
+        "true => switch open, false => p--n connected" annotation (extent=[-20,50;
+            20,90],      rotation=-90);
+      Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch idealOpeningSwitch[m](final Ron=Ron,
            final Goff=Goff) annotation (extent=[-10, -10; 10, 10]);
       annotation (
         Icon(
@@ -1221,22 +1235,24 @@ Contains m ideal opening switches (Modelica.Electrical.Analog.Ideal.IdealOpener)
 </HTML>"),
         Diagram);
     equation 
-      idealOpener.control.signal[1] = control.signal;
-      connect(plug_p.pin, idealOpener.p) 
+      connect(plug_p.pin, idealOpeningSwitch.p) 
         annotation (points=[-100, 0; -10, 0], style(color=3));
-      connect(idealOpener.n, plug_n.pin) 
+      connect(idealOpeningSwitch.n, plug_n.pin) 
         annotation (points=[10, 0; 100, 0], style(color=3));
-    end IdealOpener;
+      connect(control, idealOpeningSwitch.control) 
+        annotation (points=[0,70; 0,7], style(color=5, rgbcolor={255,0,255}));
+    end IdealOpeningSwitch;
     
-    model IdealCloser "Multiphase ideal closer" 
+    model IdealClosingSwitch "Multiphase ideal closer" 
       extends Interfaces.TwoPlug;
       parameter Modelica.SIunits.Resistance Ron[m](final min=zeros(m)) = fill(
         1.E-5, m) "Closed switch resistance";
       parameter Modelica.SIunits.Conductance Goff[m](final min=zeros(m)) = fill(
         1.E-5, m) "Opened switch conductance";
-      Modelica.Blocks.Interfaces.BooleanInPort control(final n=m) 
-        annotation (extent=[-10, 88; 10, 108], rotation=-90);
-      Modelica.Electrical.Analog.Ideal.IdealCloser idealCloser[m](final Ron=Ron,
+      Modelica.Blocks.Interfaces.BooleanInput control[m] 
+        "true => p--n connected, false => switch open" annotation (extent=[-20,50;
+            20,90],      rotation=-90);
+      Modelica.Electrical.Analog.Ideal.IdealClosingSwitch idealClosingSwitch[m](final Ron=Ron,
            final Goff=Goff) annotation (extent=[-10, -10; 10, 10]);
       annotation (
         Icon(
@@ -1267,12 +1283,13 @@ Contains m ideal closing switches (Modelica.Electrical.Analog.Ideal.IdealCloser)
 /HTML>"),
         Diagram);
     equation 
-      idealCloser.control.signal[1] = control.signal;
-      connect(plug_p.pin, idealCloser.p) 
+      connect(plug_p.pin, idealClosingSwitch.p) 
         annotation (points=[-100, 0; -10, 0], style(color=3));
-      connect(idealCloser.n, plug_n.pin) 
+      connect(idealClosingSwitch.n, plug_n.pin) 
         annotation (points=[10, 0; 100, 0], style(color=3));
-    end IdealCloser;
+      connect(control, idealClosingSwitch.control) 
+        annotation (points=[0,70; 0,7], style(color=5, rgbcolor={255,0,255}));
+    end IdealClosingSwitch;
   end Ideal;
   
   package Interfaces "Interfaces for electrical multiphase models" 
@@ -1312,25 +1329,16 @@ electrical multiphase components, based on Modelica.Electrical.Analog.
     
     connector Plug "Plug with m pins for an electric component" 
       parameter Integer m(final min=1) = 3 "number of phases";
-      Modelica.Electrical.Analog.Interfaces.Pin pin[m] 
-        annotation (extent=[-10, -10; 10, 10]);
-      annotation (Documentation(info="<HTML>
-<p>
-Connectors PositivePlug and NegativePlug are nearly identical. 
-The only difference is that the icons are different in order 
-to identify more easily the plugs of a component. 
-Usually, connector PositivePlug is used for the positive and 
-connector NegativePlug for the negative plug of an electrical component.<br>
-Connector Plug is a composite connector containing m Pins (Modelica.Electrical.Analog.Interfaces.Pin).
-</p>
-</HTML>"));
+      Modelica.Electrical.Analog.Interfaces.Pin pin[m];
+      annotation (defaultComponentName="plug",Documentation(info=""),
+        Diagram);
     end Plug;
     
     connector PositivePlug "Positive plug with m pins" 
       extends Plug;
-      annotation (
+      annotation (defaultComponentName="plug_p",
         Icon(Ellipse(extent=[-100, 100; 100, -100], style(color=3, fillColor=3))),
-        Diagram(Ellipse(extent=[-100, 100; 100, -100], style(
+        Diagram(Ellipse(extent=[-40,40; 40,-40],       style(
               color=3,
               fillColor=3,
               fillPattern=1)), Text(
@@ -1352,12 +1360,12 @@ Connector Plug is a composite connector containing m Pins (Modelica.Electrical.A
     
     connector NegativePlug "Negative plug with m pins" 
       extends Plug;
-      annotation (
+      annotation (defaultComponentName="plug_n",
         Icon(Ellipse(extent=[-100, 100; 100, -100], style(
               color=3,
               fillColor=7,
               fillPattern=1))),
-        Diagram(Ellipse(extent=[-100, 100; 100, -100], style(
+        Diagram(Ellipse(extent=[-40,40; 40,-40],       style(
               color=3,
               fillColor=7,
               fillPattern=1)), Text(
@@ -1396,6 +1404,7 @@ The currents flowing into plug_p are provided explicitly as currents i[m].
     
     partial model OnePort 
       "Component with two electrical plugs and currents from plug_p to plug_n" 
+      
       extends TwoPlug;
       annotation (Documentation(info="<HTML>
 <p>
@@ -1447,59 +1456,6 @@ and that the currents flowing into plug_p2 are identical to the currents flowing
       plug_p1.pin.i + plug_n1.pin.i = zeros(m);
       plug_p2.pin.i + plug_n2.pin.i = zeros(m);
     end TwoPort;
-    
-    partial model AbsoluteSensor "Base partial model for measuring potentials" 
-      extends Modelica.Icons.RotationalSensor;
-      parameter Integer m(final min=1) = 3 "number of phases";
-      PositivePlug plug_p(m) annotation (extent=[-110, -10; -90, 10]);
-      Modelica.Blocks.Interfaces.OutPort outPort(final n=m) 
-        annotation (extent=[100, -10; 120, 10]);
-      annotation (
-        Icon(
-          Line(points=[70, 0; 100, 0]),
-          Line(points=[-70, 0; -90, 0], style(color=0)),
-          Text(
-            extent=[-60, -60; 60, -100],
-            style(
-              color=3,
-              fillColor=3,
-              fillPattern=1),
-            string="m=%m"),
-          Text(extent=[-100, 60; 100, 100], string="%name")),
-        Documentation(info="<HTML>
-<p>
-Superclass for models measuring potentials.
-</p>
-</HTML>"),
-        Diagram);
-    end AbsoluteSensor;
-    
-    partial model RelativeSensor 
-      "Base partial model for measuring relative variables between two plugs" 
-      extends Modelica.Icons.RotationalSensor;
-      parameter Integer m(final min=1) = 3 "number of phases";
-      Modelica.Blocks.Interfaces.OutPort outPort(final n=m) 
-        annotation (extent=[-10, -110; 10, -90], rotation=-90);
-      PositivePlug plug_p(final m=m) annotation (extent=[-110, -10; -90, 10]);
-      NegativePlug plug_n(final m=m) annotation (extent=[90, -10; 110, 10]);
-      annotation (Icon(
-          Line(points=[0, -90; 0, -70]),
-          Line(points=[70, 0; 90, 0], style(color=0)),
-          Line(points=[-70, 0; -90, 0], style(color=0)),
-          Text(
-            extent=[-60, -60; 60, -100],
-            style(
-              color=3,
-              fillColor=3,
-              fillPattern=1),
-            string="m=%m"),
-          Text(extent=[-100, 60; 100, 100], string="%name")), Documentation(
-            info="<HTML>
-<p>
-Superclass for models measuring relative variables between plugs.
-</p>
-</HTML>"));
-    end RelativeSensor;
   end Interfaces;
   
   package Sensors "Multiphase potential, voltage and current Sensors" 
@@ -1537,33 +1493,69 @@ This package contains multiphase potential, voltage, and current sensors.
 </HTML>"));
     
     model PotentialSensor "Multiphase potential sensor" 
-      extends Interfaces.AbsoluteSensor;
-      Modelica.SIunits.ElectricPotential phi[m] "Absolute voltage potentials";
+      extends Modelica.Icons.RotationalSensor;
+      parameter Integer m(final min=1) = 3 "number of phases";
+      Interfaces.PositivePlug plug_p(m) annotation (extent=[-110, -10; -90, 10]);
+      Modelica.Blocks.Interfaces.RealOutput phi[m](
+          redeclare type SignalType = Modelica.SIunits.ElectricPotential) 
+        "Absolute voltage potential as output signal" 
+          annotation (extent=[100, -10; 120, 10]);
       Modelica.Electrical.Analog.Sensors.PotentialSensor potentialSensor[m] 
         annotation (extent=[-10, -10; 10, 10]);
-      annotation (Documentation(info="<HTML>
+      annotation (
+        Icon(
+          Line(points=[70, 0; 100, 0]),
+          Line(points=[-70, 0; -90, 0], style(color=0)),
+          Text(
+            extent=[-60, -60; 60, -100],
+            style(
+              color=3,
+              fillColor=3,
+              fillPattern=1),
+            string="m=%m"),
+          Text(extent=[-100, 60; 100, 100], string="%name")),
+        Documentation(info="<HTML>
 <p>
 Contains m potential sensors (Modelica.Electrical.Analog.Sensors.PotentialSensor), 
 thus measuring the m potentials <i>phi[m]</i> of the m pins of plug_p.
 </p>
-</HTML>"), Diagram);
+</HTML>"),
+        Diagram);
     equation 
-      phi = potentialSensor.outPort.signal[1];
-      outPort.signal = phi;
       connect(potentialSensor.p, plug_p.pin) 
         annotation (points=[-10, 0; -100, 0], style(color=3));
+      connect(potentialSensor.phi, phi) 
+        annotation (points=[11,0; 110,0], style(color=3, rgbcolor={0,0,255}));
     end PotentialSensor;
     
     model VoltageSensor "Multiphase voltage sensor" 
-      extends Interfaces.RelativeSensor;
-      Modelica.SIunits.Voltage v[m] "Voltages between plug_p and plug_n";
+      extends Modelica.Icons.RotationalSensor;
+      parameter Integer m(final min=1) = 3 "number of phases";
+      Interfaces.PositivePlug plug_p(final m=m) annotation (extent=[-110, -10; -90, 10]);
+      Interfaces.NegativePlug plug_n(final m=m) annotation (extent=[90, -10; 110, 10]);
+      Modelica.Blocks.Interfaces.RealOutput v[m](
+          redeclare type SignalType = Modelica.SIunits.Voltage) 
+        "Voltage between pin p and n (= p.v - n.v) as output signal" 
+         annotation (extent=[-10,-100; 10,-120],
+          rotation=90);
       Modelica.Electrical.Analog.Sensors.VoltageSensor voltageSensor[m] 
         annotation (extent=[-10, -10; 10, 10]);
       annotation (
         Icon(Text(
             extent=[-29, -11; 30, -70],
             style(color=0),
-            string="V")),
+            string="V"),
+          Text(extent=[-100,60; 100,100],   string="%name"),
+          Text(
+            extent=[-60,-60; 60,-100],
+            style(
+              color=3,
+              fillColor=3,
+              fillPattern=1),
+            string="m=%m"),
+          Line(points=[-70,0; -90,0],   style(color=0)),
+          Line(points=[70,0; 90,0],   style(color=0)),
+          Line(points=[0,-100; 0,-70])),
         Documentation(info="<HTML>
 <p>
 Contains m voltage sensors (Modelica.Electrical.Analog.Sensors.VoltageSensor), 
@@ -1572,24 +1564,42 @@ thus measuring the m potential differences <i>v[m]</i> between the m pins of plu
 </HTML>"),
         Diagram);
     equation 
-      v = voltageSensor.outPort.signal[1];
-      outPort.signal = v;
       connect(voltageSensor.n, plug_n.pin) 
         annotation (points=[10, 0; 100, 0], style(color=3));
       connect(voltageSensor.p, plug_p.pin) 
         annotation (points=[-10, 0; -100, 0], style(color=3));
+      connect(voltageSensor.v, v) 
+        annotation (points=[0,-10; 0,-110], style(color=3, rgbcolor={0,0,255}));
     end VoltageSensor;
     
     model CurrentSensor "Multiphase current sensor" 
-      extends Interfaces.RelativeSensor;
-      Modelica.SIunits.Current i[m] "Currents flowing from plug_p to plug_n";
+      extends Modelica.Icons.RotationalSensor;
+      parameter Integer m(final min=1) = 3 "number of phases";
+      Interfaces.PositivePlug plug_p(final m=m) annotation (extent=[-110, -10; -90, 10]);
+      Interfaces.NegativePlug plug_n(final m=m) annotation (extent=[90, -10; 110, 10]);
+      Modelica.Blocks.Interfaces.RealOutput i[m](
+          redeclare type SignalType = Modelica.SIunits.Current) 
+        "current in the branch from p to n as output signal" 
+         annotation (extent=[-10,-100; 10,-120],
+          rotation=90);
       Modelica.Electrical.Analog.Sensors.CurrentSensor currentSensor[m] 
         annotation (extent=[-10, -10; 10, 10]);
       annotation (
         Icon(Text(
-            extent=[-31, -11; 28, -70],
-            string="A",
-            style(color=0))),
+            extent=[-29, -11; 30, -70],
+            style(color=0),
+            string="A"),
+          Text(extent=[-100,60; 100,100],   string="%name"),
+          Text(
+            extent=[-60,-60; 60,-100],
+            style(
+              color=3,
+              fillColor=3,
+              fillPattern=1),
+            string="m=%m"),
+          Line(points=[-70,0; -90,0],   style(color=0)),
+          Line(points=[70,0; 90,0],   style(color=0)),
+          Line(points=[0,-100; 0,-70])),
         Documentation(info="<HTML>
 <p>
 Contains m current sensors (Modelica.Electrical.Analog.Sensors.CurrentSensor), 
@@ -1598,12 +1608,12 @@ thus measuring the m currents <i>i[m]</i> flowing from the m pins of plug_p to t
 </HTML>"),
         Diagram);
     equation 
-      i = currentSensor.outPort.signal[1];
-      outPort.signal = i;
       connect(plug_p.pin, currentSensor.p) 
         annotation (points=[-100, 0; -10, 0], style(color=3));
       connect(currentSensor.n, plug_n.pin) 
         annotation (points=[10, 0; 100, 0], style(color=3));
+      connect(currentSensor.i, i) 
+        annotation (points=[0,-10; 0,-110], style(color=3, rgbcolor={0,0,255}));
     end CurrentSensor;
   end Sensors;
   
@@ -1648,9 +1658,14 @@ This package contains time-dependend and controlled multiphase voltage and curre
 </HTML>"));
     
     model SignalVoltage "Multiphase signal voltage source" 
-      extends Interfaces.TwoPlug;
-      Modelica.Blocks.Interfaces.InPort inPort(final n=m) 
-        annotation (extent=[-20, 50; 20, 90], rotation=-90);
+      parameter Integer m(min=1) = 3 "number of phases";
+      Modelica.SIunits.Current i[m] "Currents flowing into positive plugs";
+      Interfaces.PositivePlug plug_p(final m=m) annotation (extent=[-110, -10; -90, 10]);
+      Interfaces.NegativePlug plug_n(final m=m) annotation (extent=[90, -10; 110, 10]);
+      Modelica.Blocks.Interfaces.RealInput v[m](
+          redeclare type SignalType = Modelica.SIunits.Voltage) 
+        "Voltage between pin p and n (= p.v - n.v) as input signal" 
+         annotation (extent=[-20, 50; 20, 90], rotation=-90);
       Modelica.Electrical.Analog.Sources.SignalVoltage signalVoltage[m] 
         annotation (extent=[-10, -10; 10, 10]);
       annotation (
@@ -1674,11 +1689,13 @@ Contains m signal controlled voltage sources (Modelica.Electrical.Analog.Sources
 </HTML>"),
         Diagram);
     equation 
-      signalVoltage.inPort.signal[1] = inPort.signal;
+      i = plug_p.pin.i;
       connect(signalVoltage.p, plug_p.pin) 
         annotation (points=[-10, 0; -100, 0], style(color=3));
       connect(signalVoltage.n, plug_n.pin) 
         annotation (points=[10, 0; 100, 0], style(color=3));
+      connect(v, signalVoltage.v) 
+        annotation (points=[0,70; 0,7], style(color=3, rgbcolor={0,0,255}));
     end SignalVoltage;
     
     model SineVoltage "Multiphase sine voltage source" 
@@ -1731,9 +1748,14 @@ with a default phase shift of -(j-1)/m * 2*pi for j in 1:m.
     end SineVoltage;
     
     model SignalCurrent "Multiphase sine current source" 
-      extends Interfaces.TwoPlug;
-      Modelica.Blocks.Interfaces.InPort inPort(final n=m) 
-        annotation (extent=[-20, 50; 20, 90], rotation=-90);
+      parameter Integer m(min=1) = 3 "number of phases";
+      Modelica.SIunits.Voltage v[m] "Voltage drops between the two plugs";
+      Interfaces.PositivePlug plug_p(final m=m) annotation (extent=[-110, -10; -90, 10]);
+      Interfaces.NegativePlug plug_n(final m=m) annotation (extent=[90, -10; 110, 10]);
+      Modelica.Blocks.Interfaces.RealInput i[m](
+          redeclare type SignalType = Modelica.SIunits.Current) 
+        "Current flowing from pin p to pin n as input signal" 
+         annotation (extent=[-20, 50; 20, 90], rotation=-90);
       Modelica.Electrical.Analog.Sources.SignalCurrent signalCurrent[m] 
         annotation (extent=[-10, -10; 10, 10]);
       annotation (
@@ -1757,11 +1779,13 @@ Contains m signal controlled current sources (Modelica.Electrical.Analog.Sources
 </HTML>"),
         Diagram);
     equation 
-      signalCurrent.inPort.signal[1] = inPort.signal;
+      v = plug_p.pin.v - plug_n.pin.v;
       connect(signalCurrent.p, plug_p.pin) 
         annotation (points=[-10, 0; -100, 0], style(color=3));
       connect(signalCurrent.n, plug_n.pin) 
         annotation (points=[10, 0; 100, 0], style(color=3));
+      connect(i, signalCurrent.i) 
+        annotation (points=[0,70; 0,7], style(color=3, rgbcolor={0,0,255}));
     end SignalCurrent;
     
     model SineCurrent "Multiphase sine current source" 

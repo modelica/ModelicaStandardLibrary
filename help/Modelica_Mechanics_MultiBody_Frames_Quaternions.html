@@ -1,0 +1,918 @@
+<HTML>
+<HEAD><META name="HTML-Generator" content="Dymola"><TITLE>Modelica</TITLE></HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Quaternions<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Mechanics.MultiBody.Frames.Quaternions"></A><A HREF="Modelica_Mechanics_MultiBody_Frames.html#Modelica.Mechanics.MultiBody.Frames"
+>Modelica.Mechanics.MultiBody.Frames</A>.Quaternions</H2>
+<B>Functions to transform rotational frame quantities based on quaternions (also called Euler parameters)</B>
+<P>
+<A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions.orientationConstraint"
+><IMG SRC="Modelica.Mechanics.MultiBody.Frames.Quaternions.orientationConstraintI.png" ALT="Modelica.Mechanics.MultiBody.Frames.Quaternions.orientationConstraint" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions.angularVelocity1"
+><IMG SRC="Modelica.Mechanics.MultiBody.Frames.Quaternions.angularVelocity1I.png" ALT="Modelica.Mechanics.MultiBody.Frames.Quaternions.angularVelocity1" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions.angularVelocity2"
+><IMG SRC="Modelica.Mechanics.MultiBody.Frames.Quaternions.angularVelocity2I.png" ALT="Modelica.Mechanics.MultiBody.Frames.Quaternions.angularVelocity2" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions.resolve1"
+><IMG SRC="Modelica.Mechanics.MultiBody.Frames.Quaternions.resolve1I.png" ALT="Modelica.Mechanics.MultiBody.Frames.Quaternions.resolve1" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions.resolve2"
+><IMG SRC="Modelica.Mechanics.MultiBody.Frames.Quaternions.resolve2I.png" ALT="Modelica.Mechanics.MultiBody.Frames.Quaternions.resolve2" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions.multipleResolve1"
+><IMG SRC="Modelica.Mechanics.MultiBody.Frames.Quaternions.multipleResolve1I.png" ALT="Modelica.Mechanics.MultiBody.Frames.Quaternions.multipleResolve1" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions.multipleResolve2"
+><IMG SRC="Modelica.Mechanics.MultiBody.Frames.Quaternions.multipleResolve2I.png" ALT="Modelica.Mechanics.MultiBody.Frames.Quaternions.multipleResolve2" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions.nullRotation"
+><IMG SRC="Modelica.Mechanics.MultiBody.Frames.Quaternions.nullRotationI.png" ALT="Modelica.Mechanics.MultiBody.Frames.Quaternions.nullRotation" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions.inverseRotation"
+><IMG SRC="Modelica.Mechanics.MultiBody.Frames.Quaternions.inverseRotationI.png" ALT="Modelica.Mechanics.MultiBody.Frames.Quaternions.inverseRotation" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions.relativeRotation"
+><IMG SRC="Modelica.Mechanics.MultiBody.Frames.Quaternions.relativeRotationI.png" ALT="Modelica.Mechanics.MultiBody.Frames.Quaternions.relativeRotation" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions.absoluteRotation"
+><IMG SRC="Modelica.Mechanics.MultiBody.Frames.Quaternions.absoluteRotationI.png" ALT="Modelica.Mechanics.MultiBody.Frames.Quaternions.absoluteRotation" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions.planarRotation"
+><IMG SRC="Modelica.Mechanics.MultiBody.Frames.Quaternions.planarRotationI.png" ALT="Modelica.Mechanics.MultiBody.Frames.Quaternions.planarRotation" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions.smallRotation"
+><IMG SRC="Modelica.Mechanics.MultiBody.Frames.Quaternions.smallRotationI.png" ALT="Modelica.Mechanics.MultiBody.Frames.Quaternions.smallRotation" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions.from_T"
+><IMG SRC="Modelica.Mechanics.MultiBody.Frames.Quaternions.from_TI.png" ALT="Modelica.Mechanics.MultiBody.Frames.Quaternions.from_T" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions.from_T_inv"
+><IMG SRC="Modelica.Mechanics.MultiBody.Frames.Quaternions.from_T_invI.png" ALT="Modelica.Mechanics.MultiBody.Frames.Quaternions.from_T_inv" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions.to_T"
+><IMG SRC="Modelica.Mechanics.MultiBody.Frames.Quaternions.to_TI.png" ALT="Modelica.Mechanics.MultiBody.Frames.Quaternions.to_T" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions.to_T_inv"
+><IMG SRC="Modelica.Mechanics.MultiBody.Frames.Quaternions.to_T_invI.png" ALT="Modelica.Mechanics.MultiBody.Frames.Quaternions.to_T_inv" WIDTH=80  HEIGHT=80 ></A>
+<P><P>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+Package <b>Frames.Quaternions</b> contains type definitions and
+functions to transform rotational frame quantities with quaternions.
+Functions of this package are currently only utilized in 
+MultiBody.Parts.Body components, when quaternions shall be used
+as parts of the body states.
+Some functions are also used in a new Modelica package for 
+B-Spline interpolation that is able to interpolate paths consisting of
+position vectors and orientation objects. 
+</p>
+<h4>Content</h4>
+<p>In the table below an example is given for every function definition.
+The used variables have the following declaration:
+</p>
+<pre>
+   Quaternions.Orientation Q, Q1, Q2, Q_rel, Q_inv;
+   Real[3,3]   T, T_inv;
+   Real[3]     v1, v2, w1, w2, n_x, n_y, n_z, res_ori, phi;
+   Real[6]     res_equal;
+   Real        L, angle;
+</pre>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><th><b><i>Function/type</i></b></th><th><b><i>Description</i></b></th></tr>
+  <tr><td><b>Orientation Q;</b></td>
+      <td>New type defining a quaternion object that describes<br>
+          the rotation of frame 1 into frame 2.
+      </td>
+  </tr>
+  <tr><td><b>der_Orientation</b> der_Q;</td>
+      <td>New type defining the first time derivative
+         of Frames.Quaternions.Orientation.
+      </td>
+  </tr>
+  <tr><td>res_ori = <b>orientationConstraint</b>(Q);</td>
+      <td>Return the constraints between the variables of a quaternion object<br>
+      (shall be zero).</td>
+  </tr>
+  <tr><td>w1 = <b>angularVelocity1</b>(Q, der_Q);</td>
+      <td>Return angular velocity resolved in frame 1 from
+          quaternion object Q<br> and its derivative der_Q.
+     </td>
+  </tr>
+  <tr><td>w2 = <b>angularVelocity2</b>(Q, der_Q);</td>
+      <td>Return angular velocity resolved in frame 2 from
+          quaternion object Q<br> and its derivative der_Q.
+     </td>
+  </tr>
+  <tr><td>v1 = <b>resolve1</b>(Q,v2);</td>
+      <td>Transform vector v2 from frame 2 to frame 1.
+      </td>
+  </tr>
+  <tr><td>v2 = <b>resolve2</b>(Q,v1);</td>
+      <td>Transform vector v1 from frame 1 to frame 2.
+     </td>
+  </tr>
+  <tr><td>[v1,w1] = <b>multipleResolve1</b>(Q, [v2,w2]);</td>
+      <td>Transform several vectors from frame 2 to frame 1.
+      </td>
+  </tr>
+  <tr><td>[v2,w2] = <b>multipleResolve2</b>(Q, [v1,w1]);</td>
+      <td>Transform several vectors from frame 1 to frame 2.
+      </td>
+  </tr>
+  <tr><td>Q = <b>nullRotation</b>()</td>
+      <td>Return quaternion object R that does not rotate a frame.
+  </tr>
+  <tr><td>Q_inv = <b>inverseRotation</b>(Q);</td>
+      <td>Return inverse quaternion object.
+      </td>
+  </tr>
+  <tr><td>Q_rel = <b>relativeRotation</b>(Q1,Q2);</td>
+      <td>Return relative quaternion object from two absolute
+          quaternion objects.
+      </td>
+  </tr>
+  <tr><td>Q2 = <b>absoluteRotation</b>(Q1,Q_rel);</td>
+      <td>Return absolute quaternion object from another
+          absolute<br> and a relative quaternion object.
+      </td>
+  </tr>
+  <tr><td>Q = <b>planarRotation</b>(e, angle);</td>
+      <td>Return quaternion object of a planar rotation.
+      </td>
+  </tr>
+  <tr><td>phi = <b>smallRotation</b>(Q);</td>
+      <td>Return rotation angles phi valid for a small rotation.
+      </td>
+  </tr>
+  <tr><td>Q = <b>from_T</b>(T);</td>
+      <td>Return quaternion object Q from transformation matrix T.
+      </td>
+  </tr>
+  <tr><td>Q = <b>from_T_inv</b>(T_inv);</td>
+      <td>Return quaternion object Q from inverse transformation matrix T_inv.
+      </td>
+  </tr>
+  <tr><td>T = <b>to_T</b>(Q);</td>
+      <td>Return transformation matrix T from quaternion object Q.
+  </tr>
+  <tr><td>T_inv = <b>to_T_inv</b>(Q);</td>
+      <td>Return inverse transformation matrix T_inv from quaternion object Q.
+      </td>
+  </tr>
+</table>
+<pre></PRE><P>
+<H3>Types and constants</H3>
+<A NAME="Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation"></A>  <font color="blue">type</font> Orientation <font color="darkgreen">
+  &quot;Orientation type defining rotation from a frame 1 into a frame 2 with quaternions {p1,p2,p3,p0}&quot;</font> 
+  
+    <font color="blue">extends </font><A HREF="Modelica_Mechanics_MultiBody_Frames_Internal.html#Modelica.Mechanics.MultiBody.Frames.Internal.QuaternionBase"
+>Internal.QuaternionBase</A>;
+  
+    <font color="blue">encapsulated </font><font color="blue">function</font> equalityConstraint <font color="darkgreen">
+    &quot;Return the constraint residues to express that two frames have the same quaternion orientation&quot;</font> 
+    
+      <font color="blue">import </font><A HREF="Modelica.html#Modelica"
+>Modelica</A>;
+      <font color="blue">import </font><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions"
+>Modelica.Mechanics.MultiBody.Frames.Quaternions</A>;
+      <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+      <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation"
+>Quaternions.Orientation</A> Q1 <font color="darkgreen">
+      &quot;Quaternions orientation object to rotate frame 0 into frame 1&quot;</font>;
+      <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation"
+>Quaternions.Orientation</A> Q2 <font color="darkgreen">
+      &quot;Quaternions orientation object to rotate frame 0 into frame 2&quot;</font>;
+      <font color="blue">output </font>Real residue[3] <font color="darkgreen">
+      &quot;The half of the rotation angles around x-, y-, and z-axis of frame 1 to rotate frame 1 into frame 2 for a small rotation (shall be zero)&quot;</font>;
+    <font color="blue">algorithm </font>
+      residue := [Q1[4], Q1[3], -Q1[2], -Q1[1]; -Q1[3], Q1[4], Q1[1], -Q1[2];
+         Q1[2], -Q1[1], Q1[4], -Q1[3]]*Q2;
+    <font color="blue">end </font>equalityConstraint;
+  
+  <font color="blue">end </font>Orientation;<p>
+<A NAME="Modelica.Mechanics.MultiBody.Frames.Quaternions.der_Orientation"></A>  <font color="blue">type</font> der_Orientation = Real[4] (<font color="blue">each </font>unit=&quot;1/s&quot;) <font color="darkgreen">
+  &quot;First time derivative of Quaternions.Orientation&quot;</font>;<p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions.orientationConstraint"
+>orientationConstraint</A>
+</TD><TD>Return residues of orientation constraints (shall be zero)</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions.angularVelocity1"
+>angularVelocity1</A>
+</TD><TD>Compute angular velocity resolved in frame 1 from quaternion orientation object and its derivative</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions.angularVelocity2"
+>angularVelocity2</A>
+</TD><TD>Compute angular velocity resolved in frame 2 from quaternions orientation object and its derivative</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions.resolve1"
+>resolve1</A>
+</TD><TD>Transform vector from frame 2 to frame 1</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions.resolve2"
+>resolve2</A>
+</TD><TD>Transform vector from frame 1 to frame 2</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions.multipleResolve1"
+>multipleResolve1</A>
+</TD><TD>Transform several vectors from frame 2 to frame 1</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions.multipleResolve2"
+>multipleResolve2</A>
+</TD><TD>Transform several vectors from frame 1 to frame 2</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions.nullRotation"
+>nullRotation</A>
+</TD><TD>Return quaternions orientation object that does not rotate a frame</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions.inverseRotation"
+>inverseRotation</A>
+</TD><TD>Return inverse quaternions orientation object</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions.relativeRotation"
+>relativeRotation</A>
+</TD><TD>Return relative quaternions orientation object</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions.absoluteRotation"
+>absoluteRotation</A>
+</TD><TD>Return absolute quaternions orientation object from another absolute and a relative quaternions orientation object</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions.planarRotation"
+>planarRotation</A>
+</TD><TD>Return quaternions orientation object of a planar rotation</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions.smallRotation"
+>smallRotation</A>
+</TD><TD>Return rotation angles valid for a small rotation</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions.from_T"
+>from_T</A>
+</TD><TD>Return quaternions orientation object Q from transformation matrix T</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions.from_T_inv"
+>from_T_inv</A>
+</TD><TD>Return quaternions orientation object Q from inverse transformation matrix T_inv</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions.to_T"
+>to_T</A>
+</TD><TD>Return transformation matrix T from quaternion orientation object Q</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions.to_T_inv"
+>to_T_inv</A>
+</TD><TD>Return inverse transformation matrix T_inv from quaternion orientation object Q</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE orientationConstraint<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Frames.Quaternions.orientationConstraintI.png" ALT="Modelica.Mechanics.MultiBody.Frames.Quaternions.orientationConstraint" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Frames.Quaternions.orientationConstraint"></A><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions"
+>Modelica.Mechanics.MultiBody.Frames.Quaternions</A>.orientationConstraint</H2>
+<B>Return residues of orientation constraints (shall be zero)</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Q</TD><TD>&nbsp;</TD><TD>Quaternions orientation object to rotate frame 1 into frame 2</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>residue[1]</TD><TD>&nbsp;</TD><TD>Residue constraint (shall be zero)</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> orientationConstraint <font color="darkgreen">
+  &quot;Return residues of orientation constraints (shall be zero)&quot;</font> 
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation"
+>Quaternions.Orientation</A> Q <font color="darkgreen">
+    &quot;Quaternions orientation object to rotate frame 1 into frame 2&quot;</font>;
+  <font color="blue">output </font>Real residue[1] <font color="darkgreen">&quot;Residue constraint (shall be zero)&quot;</font>;
+<font color="blue">algorithm </font>
+  residue := {Q*Q - 1};
+<font color="blue">end </font>orientationConstraint;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE angularVelocity1<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Frames.Quaternions.angularVelocity1I.png" ALT="Modelica.Mechanics.MultiBody.Frames.Quaternions.angularVelocity1" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Frames.Quaternions.angularVelocity1"></A><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions"
+>Modelica.Mechanics.MultiBody.Frames.Quaternions</A>.angularVelocity1</H2>
+<B>Compute angular velocity resolved in frame 1 from quaternion orientation object and its derivative</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Q</TD><TD>&nbsp;</TD><TD>Quaternions orientation object to rotate frame 1 into frame 2</TD></TR>
+<TR><TD>der_Q</TD><TD>&nbsp;</TD><TD>Derivative of Q [1/s]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>w[3]</TD><TD>&nbsp;</TD><TD>Angular velocity resolved in frame 1 [rad/s]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> angularVelocity1 <font color="darkgreen">
+  &quot;Compute angular velocity resolved in frame 1 from quaternion orientation object and its derivative&quot;</font> 
+  
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation"
+>Quaternions.Orientation</A> Q <font color="darkgreen">
+    &quot;Quaternions orientation object to rotate frame 1 into frame 2&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions.der_Orientation"
+>der_Orientation</A> der_Q <font color="darkgreen">&quot;Derivative of Q&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
+>Modelica.SIunits.AngularVelocity</A> w[    3] <font color="darkgreen">
+    &quot;Angular velocity resolved in frame 1&quot;</font>;
+<font color="blue">algorithm </font>
+  w := 2*([Q[4], -Q[3], Q[2], -Q[1]; Q[3], Q[4], -Q[1], -Q[2]; -Q[2], Q[1],
+     Q[4], -Q[3]]*der_Q);
+<font color="blue">end </font>angularVelocity1;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE angularVelocity2<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Frames.Quaternions.angularVelocity2I.png" ALT="Modelica.Mechanics.MultiBody.Frames.Quaternions.angularVelocity2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Frames.Quaternions.angularVelocity2"></A><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions"
+>Modelica.Mechanics.MultiBody.Frames.Quaternions</A>.angularVelocity2</H2>
+<B>Compute angular velocity resolved in frame 2 from quaternions orientation object and its derivative</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Q</TD><TD>&nbsp;</TD><TD>Quaternions orientation object to rotate frame 1 into frame 2</TD></TR>
+<TR><TD>der_Q</TD><TD>&nbsp;</TD><TD>Derivative of Q [1/s]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>w[3]</TD><TD>&nbsp;</TD><TD>Angular velocity of frame 2 with respect to frame 1 resolved in frame 2 [rad/s]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> angularVelocity2 <font color="darkgreen">
+  &quot;Compute angular velocity resolved in frame 2 from quaternions orientation object and its derivative&quot;</font> 
+  
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation"
+>Quaternions.Orientation</A> Q <font color="darkgreen">
+    &quot;Quaternions orientation object to rotate frame 1 into frame 2&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions.der_Orientation"
+>der_Orientation</A> der_Q <font color="darkgreen">&quot;Derivative of Q&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
+>Modelica.SIunits.AngularVelocity</A> w[    3] <font color="darkgreen">
+    &quot;Angular velocity of frame 2 with respect to frame 1 resolved in frame 2&quot;</font>;
+<font color="blue">algorithm </font>
+  w := 2*([Q[4], Q[3], -Q[2], -Q[1]; -Q[3], Q[4], Q[1], -Q[2]; Q[2], -Q[1],
+     Q[4], -Q[3]]*der_Q);
+<font color="blue">end </font>angularVelocity2;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE resolve1<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Frames.Quaternions.resolve1I.png" ALT="Modelica.Mechanics.MultiBody.Frames.Quaternions.resolve1" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Frames.Quaternions.resolve1"></A><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions"
+>Modelica.Mechanics.MultiBody.Frames.Quaternions</A>.resolve1</H2>
+<B>Transform vector from frame 2 to frame 1</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Q</TD><TD>&nbsp;</TD><TD>Quaternions orientation object to rotate frame 1 into frame 2</TD></TR>
+<TR><TD>v2[3]</TD><TD>&nbsp;</TD><TD>Vector in frame 2</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>v1[3]</TD><TD>&nbsp;</TD><TD>Vector in frame 1</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> resolve1 <font color="darkgreen">&quot;Transform vector from frame 2 to frame 1&quot;</font> 
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation"
+>Quaternions.Orientation</A> Q <font color="darkgreen">
+    &quot;Quaternions orientation object to rotate frame 1 into frame 2&quot;</font>;
+  <font color="blue">input </font>Real v2[3] <font color="darkgreen">&quot;Vector in frame 2&quot;</font>;
+  <font color="blue">output </font>Real v1[3] <font color="darkgreen">&quot;Vector in frame 1&quot;</font>;
+<font color="blue">algorithm </font>
+  v1 := 2*((Q[4]*Q[4] - 0.5)*v2 + (Q[1:3]*v2)*Q[1:3] + Q[4]*<font color="red">cross</font>(Q[1:3],
+    v2));
+<font color="blue">end </font>resolve1;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE resolve2<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Frames.Quaternions.resolve2I.png" ALT="Modelica.Mechanics.MultiBody.Frames.Quaternions.resolve2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Frames.Quaternions.resolve2"></A><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions"
+>Modelica.Mechanics.MultiBody.Frames.Quaternions</A>.resolve2</H2>
+<B>Transform vector from frame 1 to frame 2</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Q</TD><TD>&nbsp;</TD><TD>Quaternions orientation object to rotate frame 1 into frame 2</TD></TR>
+<TR><TD>v1[3]</TD><TD>&nbsp;</TD><TD>Vector in frame 1</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>v2[3]</TD><TD>&nbsp;</TD><TD>Vector in frame 2</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> resolve2 <font color="darkgreen">&quot;Transform vector from frame 1 to frame 2&quot;</font> 
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation"
+>Quaternions.Orientation</A> Q <font color="darkgreen">
+    &quot;Quaternions orientation object to rotate frame 1 into frame 2&quot;</font>;
+  <font color="blue">input </font>Real v1[3] <font color="darkgreen">&quot;Vector in frame 1&quot;</font>;
+  <font color="blue">output </font>Real v2[3] <font color="darkgreen">&quot;Vector in frame 2&quot;</font>;
+<font color="blue">algorithm </font>
+  v2 := 2*((Q[4]*Q[4] - 0.5)*v1 + (Q[1:3]*v1)*Q[1:3] - Q[4]*<font color="red">cross</font>(Q[1:3],
+    v1));
+<font color="blue">end </font>resolve2;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE multipleResolve1<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Frames.Quaternions.multipleResolve1I.png" ALT="Modelica.Mechanics.MultiBody.Frames.Quaternions.multipleResolve1" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Frames.Quaternions.multipleResolve1"></A><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions"
+>Modelica.Mechanics.MultiBody.Frames.Quaternions</A>.multipleResolve1</H2>
+<B>Transform several vectors from frame 2 to frame 1</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Q</TD><TD>&nbsp;</TD><TD>Quaternions orientation object to rotate frame 1 into frame 2</TD></TR>
+<TR><TD>v2[3, :]</TD><TD>&nbsp;</TD><TD>Vectors in frame 2</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>v1[3, size(v2, 2)]</TD><TD>&nbsp;</TD><TD>Vectors in frame 1</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> multipleResolve1 <font color="darkgreen">
+  &quot;Transform several vectors from frame 2 to frame 1&quot;</font> 
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation"
+>Quaternions.Orientation</A> Q <font color="darkgreen">
+    &quot;Quaternions orientation object to rotate frame 1 into frame 2&quot;</font>;
+  <font color="blue">input </font>Real v2[3, :] <font color="darkgreen">&quot;Vectors in frame 2&quot;</font>;
+  <font color="blue">output </font>Real v1[3,<font color="red"> size</font>(v2, 2)] <font color="darkgreen">&quot;Vectors in frame 1&quot;</font>;
+<font color="blue">algorithm </font>
+  v1 := ((2*Q[4]*Q[4] - 1)*<font color="red">identity</font>(3) + 2*([Q[1:3]]*<font color="red">transpose</font>([Q[1:3]]) +
+    Q[4]*<font color="red">skew</font>(Q[1:3])))*v2;
+<font color="blue">end </font>multipleResolve1;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE multipleResolve2<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Frames.Quaternions.multipleResolve2I.png" ALT="Modelica.Mechanics.MultiBody.Frames.Quaternions.multipleResolve2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Frames.Quaternions.multipleResolve2"></A><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions"
+>Modelica.Mechanics.MultiBody.Frames.Quaternions</A>.multipleResolve2</H2>
+<B>Transform several vectors from frame 1 to frame 2</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Q</TD><TD>&nbsp;</TD><TD>Quaternions orientation object to rotate frame 1 into frame 2</TD></TR>
+<TR><TD>v1[3, :]</TD><TD>&nbsp;</TD><TD>Vectors in frame 1</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>v2[3, size(v1, 2)]</TD><TD>&nbsp;</TD><TD>Vectors in frame 2</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> multipleResolve2 <font color="darkgreen">
+  &quot;Transform several vectors from frame 1 to frame 2&quot;</font> 
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation"
+>Quaternions.Orientation</A> Q <font color="darkgreen">
+    &quot;Quaternions orientation object to rotate frame 1 into frame 2&quot;</font>;
+  <font color="blue">input </font>Real v1[3, :] <font color="darkgreen">&quot;Vectors in frame 1&quot;</font>;
+  <font color="blue">output </font>Real v2[3,<font color="red"> size</font>(v1, 2)] <font color="darkgreen">&quot;Vectors in frame 2&quot;</font>;
+<font color="blue">algorithm </font>
+  v2 := ((2*Q[4]*Q[4] - 1)*<font color="red">identity</font>(3) + 2*([Q[1:3]]*<font color="red">transpose</font>([Q[1:3]]) -
+    Q[4]*<font color="red">skew</font>(Q[1:3])))*v1;
+<font color="blue">end </font>multipleResolve2;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE nullRotation<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Frames.Quaternions.nullRotationI.png" ALT="Modelica.Mechanics.MultiBody.Frames.Quaternions.nullRotation" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Frames.Quaternions.nullRotation"></A><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions"
+>Modelica.Mechanics.MultiBody.Frames.Quaternions</A>.nullRotation</H2>
+<B>Return quaternions orientation object that does not rotate a frame</B><p>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Q</TD><TD>&nbsp;</TD><TD>Quaternions orientation object to rotate frame 1 into frame 2</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> nullRotation <font color="darkgreen">
+  &quot;Return quaternions orientation object that does not rotate a frame&quot;</font> 
+  
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">output </font><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation"
+>Quaternions.Orientation</A> Q <font color="darkgreen">
+    &quot;Quaternions orientation object to rotate frame 1 into frame 2&quot;</font>;
+<font color="blue">algorithm </font>
+  Q := {0,0,0,1};
+<font color="blue">end </font>nullRotation;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE inverseRotation<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Frames.Quaternions.inverseRotationI.png" ALT="Modelica.Mechanics.MultiBody.Frames.Quaternions.inverseRotation" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Frames.Quaternions.inverseRotation"></A><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions"
+>Modelica.Mechanics.MultiBody.Frames.Quaternions</A>.inverseRotation</H2>
+<B>Return inverse quaternions orientation object</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Q</TD><TD>&nbsp;</TD><TD>Quaternions orientation object to rotate frame 1 into frame 2</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Q_inv</TD><TD>&nbsp;</TD><TD>Quaternions orientation object to rotate frame 2 into frame 1</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> inverseRotation <font color="darkgreen">
+  &quot;Return inverse quaternions orientation object&quot;</font> 
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation"
+>Quaternions.Orientation</A> Q <font color="darkgreen">
+    &quot;Quaternions orientation object to rotate frame 1 into frame 2&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation"
+>Quaternions.Orientation</A> Q_inv <font color="darkgreen">
+    &quot;Quaternions orientation object to rotate frame 2 into frame 1&quot;</font>;
+<font color="blue">algorithm </font>
+  Q_inv := {-Q[1],-Q[2],-Q[3],Q[4]};
+<font color="blue">end </font>inverseRotation;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE relativeRotation<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Frames.Quaternions.relativeRotationI.png" ALT="Modelica.Mechanics.MultiBody.Frames.Quaternions.relativeRotation" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Frames.Quaternions.relativeRotation"></A><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions"
+>Modelica.Mechanics.MultiBody.Frames.Quaternions</A>.relativeRotation</H2>
+<B>Return relative quaternions orientation object</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Q1</TD><TD>&nbsp;</TD><TD>Quaternions orientation object to rotate frame 0 into frame 1</TD></TR>
+<TR><TD>Q2</TD><TD>&nbsp;</TD><TD>Quaternions orientation object to rotate frame 0 into frame 2</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Q_rel</TD><TD>&nbsp;</TD><TD>Quaternions orientation object to rotate frame 1 into frame 2</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> relativeRotation <font color="darkgreen">
+  &quot;Return relative quaternions orientation object&quot;</font> 
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation"
+>Quaternions.Orientation</A> Q1 <font color="darkgreen">
+    &quot;Quaternions orientation object to rotate frame 0 into frame 1&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation"
+>Quaternions.Orientation</A> Q2 <font color="darkgreen">
+    &quot;Quaternions orientation object to rotate frame 0 into frame 2&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation"
+>Quaternions.Orientation</A> Q_rel <font color="darkgreen">
+    &quot;Quaternions orientation object to rotate frame 1 into frame 2&quot;</font>;
+<font color="blue">algorithm </font>
+  Q_rel := [Q1[4], Q1[3], -Q1[2], -Q1[1]; -Q1[3], Q1[4], Q1[1], -Q1[2]; Q1[
+    2], -Q1[1], Q1[4], -Q1[3]; Q1[1], Q1[2], Q1[3], Q1[4]]*Q2;
+<font color="blue">end </font>relativeRotation;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE absoluteRotation<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Frames.Quaternions.absoluteRotationI.png" ALT="Modelica.Mechanics.MultiBody.Frames.Quaternions.absoluteRotation" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Frames.Quaternions.absoluteRotation"></A><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions"
+>Modelica.Mechanics.MultiBody.Frames.Quaternions</A>.absoluteRotation</H2>
+<B>Return absolute quaternions orientation object from another absolute and a relative quaternions orientation object</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Q1</TD><TD>&nbsp;</TD><TD>Quaternions orientation object to rotate frame 0 into frame 1</TD></TR>
+<TR><TD>Q_rel</TD><TD>&nbsp;</TD><TD>Quaternions orientation object to rotate frame 1 into frame 2</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Q2</TD><TD>&nbsp;</TD><TD>Quaternions orientation object to rotate frame 0 into frame 2</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> absoluteRotation <font color="darkgreen">
+  &quot;Return absolute quaternions orientation object from another absolute and a relative quaternions orientation object&quot;</font> 
+  
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation"
+>Quaternions.Orientation</A> Q1 <font color="darkgreen">
+    &quot;Quaternions orientation object to rotate frame 0 into frame 1&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation"
+>Quaternions.Orientation</A> Q_rel <font color="darkgreen">
+    &quot;Quaternions orientation object to rotate frame 1 into frame 2&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation"
+>Quaternions.Orientation</A> Q2 <font color="darkgreen">
+    &quot;Quaternions orientation object to rotate frame 0 into frame 2&quot;</font>;
+<font color="blue">algorithm </font>
+  Q2 := [Q_rel[4], Q_rel[3], -Q_rel[2], Q_rel[1]; -Q_rel[3], Q_rel[4],
+    Q_rel[1], Q_rel[2]; Q_rel[2], -Q_rel[1], Q_rel[4], Q_rel[3]; -Q_rel[1],
+     -Q_rel[2], -Q_rel[3], Q_rel[4]]*Q1;
+<font color="blue">end </font>absoluteRotation;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE planarRotation<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Frames.Quaternions.planarRotationI.png" ALT="Modelica.Mechanics.MultiBody.Frames.Quaternions.planarRotation" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Frames.Quaternions.planarRotation"></A><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions"
+>Modelica.Mechanics.MultiBody.Frames.Quaternions</A>.planarRotation</H2>
+<B>Return quaternions orientation object of a planar rotation</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>e[3]</TD><TD>&nbsp;</TD><TD>Normalized axis of rotation (must have length=1)</TD></TR>
+<TR><TD>angle</TD><TD>&nbsp;</TD><TD>Rotation angle to rotate frame 1 into frame 2 along axis e [rad]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Q</TD><TD>&nbsp;</TD><TD>Quaternions orientation object to rotate frame 1 into frame 2 along axis e</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> planarRotation <font color="darkgreen">
+  &quot;Return quaternions orientation object of a planar rotation&quot;</font> 
+  <font color="blue">import </font><A HREF="Modelica_Math.html#Modelica.Math"
+>Modelica.Math</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font>Real e[3] <font color="darkgreen">&quot;Normalized axis of rotation (must have length=1)&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Modelica.SIunits.Angle</A> angle <font color="darkgreen">
+    &quot;Rotation angle to rotate frame 1 into frame 2 along axis e&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation"
+>Quaternions.Orientation</A> Q <font color="darkgreen">
+    &quot;Quaternions orientation object to rotate frame 1 into frame 2 along axis e&quot;</font>;
+<font color="blue">algorithm </font>
+  Q :=<font color="red"> vector</font>([e*<font color="red">Math.sin</font>(angle/2);<font color="red"> Math.cos</font>(angle/2)]);
+<font color="blue">end </font>planarRotation;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE smallRotation<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Frames.Quaternions.smallRotationI.png" ALT="Modelica.Mechanics.MultiBody.Frames.Quaternions.smallRotation" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Frames.Quaternions.smallRotation"></A><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions"
+>Modelica.Mechanics.MultiBody.Frames.Quaternions</A>.smallRotation</H2>
+<B>Return rotation angles valid for a small rotation</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Q</TD><TD>&nbsp;</TD><TD>Quaternions orientation object to rotate frame 1 into frame 2</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>phi[3]</TD><TD>&nbsp;</TD><TD>The rotation angles around x-, y-, and z-axis of frame 1 to rotate frame 1 into frame 2 for a small relative rotation [rad]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> smallRotation <font color="darkgreen">
+  &quot;Return rotation angles valid for a small rotation&quot;</font> 
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation"
+>Quaternions.Orientation</A> Q <font color="darkgreen">
+    &quot;Quaternions orientation object to rotate frame 1 into frame 2&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Modelica.SIunits.Angle</A> phi[    3] <font color="darkgreen">
+    &quot;The rotation angles around x-, y-, and z-axis of frame 1 to rotate frame 1 into frame 2 for a small relative rotation&quot;</font>;
+<font color="blue">algorithm </font>
+  phi := 2*{Q[1],Q[2],Q[3]};
+<font color="blue">end </font>smallRotation;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE from_T<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Frames.Quaternions.from_TI.png" ALT="Modelica.Mechanics.MultiBody.Frames.Quaternions.from_T" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Frames.Quaternions.from_T"></A><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions"
+>Modelica.Mechanics.MultiBody.Frames.Quaternions</A>.from_T</H2>
+<B>Return quaternions orientation object Q from transformation matrix T</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>T[3, 3]</TD><TD>&nbsp;</TD><TD>Transformation matrix to transform vector from frame 1 to frame 2 (v2=T*v1)</TD></TR>
+<TR><TD>Q_guess</TD><TD>nullRotation()</TD><TD>Guess value for Q (there are 2 solutions; the one close to Q_guess is used</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Q</TD><TD>&nbsp;</TD><TD>Quaternions orientation object to rotate frame 1 into frame 2 (Q and -Q have same transformation matrix)</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> from_T <font color="darkgreen">
+  &quot;Return quaternions orientation object Q from transformation matrix T&quot;</font> 
+  
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font>Real T[3, 3] <font color="darkgreen">
+    &quot;Transformation matrix to transform vector from frame 1 to frame 2 (v2=T*v1)&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation"
+>Quaternions.Orientation</A> Q_guess =<font color="red">  nullRotation</font>() <font color="darkgreen">
+    &quot;Guess value for Q (there are 2 solutions; the one close to Q_guess is used&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation"
+>Quaternions.Orientation</A> Q <font color="darkgreen">
+    &quot;Quaternions orientation object to rotate frame 1 into frame 2 (Q and -Q have same transformation matrix)&quot;</font>;
+<font color="blue">protected </font>
+  Real paux;
+  Real paux4;
+  Real c1;
+  Real c2;
+  Real c3;
+  Real c4;
+  <font color="blue">constant </font>Real p4limit=0.1;
+  <font color="blue">constant </font>Real c4limit=4*p4limit*p4limit;
+<font color="blue">algorithm </font>
+  <font color="darkgreen">/*
+   Note, for quaternions, Q and -Q have the same transformation matrix.
+   Calculation of quaternions from transformation matrix T:
+   It is guaranteed that c1&gt;=0, c2&gt;=0, c3&gt;=0, c4&gt;=0 and
+   that not all of them can be zero at the same time
+   (e.g. if 3 of them are zero, the 4th variable is 1).
+   Since the sqrt(..) has to be performed on one of these variables,
+   it is applied on a variable which is far enough from zero.
+   This guarantees that the sqrt(..) is never taken near zero
+   and therefore the derivative of sqrt(..) can never be infinity.
+   There is an ambiguity for quaternions, since Q and -Q
+   lead to the same transformation matrix. The ambiguity
+   is resolved here by selecting the Q that is closer to
+   the input argument Q_guess.
+*/</font>
+  c1 := 1 + T[1, 1] - T[2, 2] - T[3, 3];
+  c2 := 1 + T[2, 2] - T[1, 1] - T[3, 3];
+  c3 := 1 + T[3, 3] - T[1, 1] - T[2, 2];
+  c4 := 1 + T[1, 1] + T[2, 2] + T[3, 3];
+  
+  <font color="blue">if </font>c4 &gt; c4limit<font color="blue"> or </font>(c4 &gt; c1<font color="blue"> and </font>c4 &gt; c2<font color="blue"> and </font>c4 &gt; c3)<font color="blue"> then</font>
+    paux :=<font color="red"> sqrt</font>(c4)/2;
+    paux4 := 4*paux;
+    Q := {(T[2, 3] - T[3, 2])/paux4,(T[3, 1] - T[1, 3])/paux4,(T[1, 2] - T[
+      2, 1])/paux4,paux};
+    
+  <font color="blue">elseif </font>c1 &gt; c2<font color="blue"> and </font>c1 &gt; c3<font color="blue"> and </font>c1 &gt; c4<font color="blue"> then</font>
+    paux :=<font color="red"> sqrt</font>(c1)/2;
+    paux4 := 4*paux;
+    Q := {paux,(T[1, 2] + T[2, 1])/paux4,(T[1, 3] + T[3, 1])/paux4,(T[2, 3]
+       - T[3, 2])/paux4};
+    
+  <font color="blue">elseif </font>c2 &gt; c1<font color="blue"> and </font>c2 &gt; c3<font color="blue"> and </font>c2 &gt; c4<font color="blue"> then</font>
+    paux :=<font color="red"> sqrt</font>(c2)/2;
+    paux4 := 4*paux;
+    Q := {(T[1, 2] + T[2, 1])/paux4,paux,(T[2, 3] + T[3, 2])/paux4,(T[3, 1]
+       - T[1, 3])/paux4};
+    
+  <font color="blue">else</font>
+    paux :=<font color="red"> sqrt</font>(c3)/2;
+    paux4 := 4*paux;
+    Q := {(T[1, 3] + T[3, 1])/paux4,(T[2, 3] + T[3, 2])/paux4,paux,(T[1, 2]
+       - T[2, 1])/paux4};
+  <font color="blue">end if</font>;
+  
+  <font color="blue">if </font>Q*Q_guess &lt; 0<font color="blue"> then</font>
+    Q := -Q;
+  <font color="blue">end if</font>;
+<font color="blue">end </font>from_T;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE from_T_inv<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Frames.Quaternions.from_T_invI.png" ALT="Modelica.Mechanics.MultiBody.Frames.Quaternions.from_T_inv" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Frames.Quaternions.from_T_inv"></A><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions"
+>Modelica.Mechanics.MultiBody.Frames.Quaternions</A>.from_T_inv</H2>
+<B>Return quaternions orientation object Q from inverse transformation matrix T_inv</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>T_inv[3, 3]</TD><TD>&nbsp;</TD><TD>Inverse transformation matrix to transform vector from frame 2 to frame 1 (v1=T_inv*v2)</TD></TR>
+<TR><TD>Q_guess</TD><TD>nullRotation()</TD><TD>Guess value for output Q (there are 2 solutions; the one closer to Q_guess is used</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Q</TD><TD>&nbsp;</TD><TD>Quaternions orientation object to rotate frame 1 into frame 2 (Q and -Q have same transformation matrix)</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> from_T_inv <font color="darkgreen">
+  &quot;Return quaternions orientation object Q from inverse transformation matrix T_inv&quot;</font> 
+  
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font>Real T_inv[3, 3] <font color="darkgreen">
+    &quot;Inverse transformation matrix to transform vector from frame 2 to frame 1 (v1=T_inv*v2)&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation"
+>Quaternions.Orientation</A> Q_guess =<font color="red">  nullRotation</font>() <font color="darkgreen">
+    &quot;Guess value for output Q (there are 2 solutions; the one closer to Q_guess is used&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation"
+>Quaternions.Orientation</A> Q <font color="darkgreen">
+    &quot;Quaternions orientation object to rotate frame 1 into frame 2 (Q and -Q have same transformation matrix)&quot;</font>;
+<font color="blue">algorithm </font>
+  Q :=<font color="red"> from_T</font>(<font color="red">transpose</font>(T_inv), Q_guess);
+<font color="blue">end </font>from_T_inv;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE to_T<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Frames.Quaternions.to_TI.png" ALT="Modelica.Mechanics.MultiBody.Frames.Quaternions.to_T" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Frames.Quaternions.to_T"></A><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions"
+>Modelica.Mechanics.MultiBody.Frames.Quaternions</A>.to_T</H2>
+<B>Return transformation matrix T from quaternion orientation object Q</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Q</TD><TD>&nbsp;</TD><TD>Quaternions orientation object to rotate frame 1 into frame 2</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>T[3, 3]</TD><TD>&nbsp;</TD><TD>Transformation matrix to transform vector from frame 1 to frame 2 (v2=T*v1)</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> to_T <font color="darkgreen">
+  &quot;Return transformation matrix T from quaternion orientation object Q&quot;</font> 
+  
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation"
+>Quaternions.Orientation</A> Q <font color="darkgreen">
+    &quot;Quaternions orientation object to rotate frame 1 into frame 2&quot;</font>;
+  <font color="blue">output </font>Real T[3, 3] <font color="darkgreen">
+    &quot;Transformation matrix to transform vector from frame 1 to frame 2 (v2=T*v1)&quot;</font>;
+<font color="blue">algorithm </font>
+  <font color="darkgreen">/*
+  T := (2*Q[4]*Q[4] - 1)*identity(3) + 2*([Q[1:3]]*transpose([Q[1:3]]) - Q[4]*
+    skew(Q[1:3]));
+*/</font>
+  T := [2*(Q[1]*Q[1] + Q[4]*Q[4]) - 1, 2*(Q[1]*Q[2] + Q[3]*Q[4]), 2*(Q[1]*Q[
+    3] - Q[2]*Q[4]); 2*(Q[2]*Q[1] - Q[3]*Q[4]), 2*(Q[2]*Q[2] + Q[4]*Q[4])
+     - 1, 2*(Q[2]*Q[3] + Q[1]*Q[4]); 2*(Q[3]*Q[1] + Q[2]*Q[4]), 2*(Q[3]*Q[2]
+     - Q[1]*Q[4]), 2*(Q[3]*Q[3] + Q[4]*Q[4]) - 1];
+<font color="blue">end </font>to_T;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE to_T_inv<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Frames.Quaternions.to_T_invI.png" ALT="Modelica.Mechanics.MultiBody.Frames.Quaternions.to_T_inv" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Frames.Quaternions.to_T_inv"></A><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions"
+>Modelica.Mechanics.MultiBody.Frames.Quaternions</A>.to_T_inv</H2>
+<B>Return inverse transformation matrix T_inv from quaternion orientation object Q</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Q</TD><TD>&nbsp;</TD><TD>Quaternions orientation object to rotate frame 1 into frame 2</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>T_inv[3, 3]</TD><TD>&nbsp;</TD><TD>Transformation matrix to transform vector from frame 2 to frame 1 (v1=T*v2)</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> to_T_inv <font color="darkgreen">
+  &quot;Return inverse transformation matrix T_inv from quaternion orientation object Q&quot;</font> 
+  
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation"
+>Quaternions.Orientation</A> Q <font color="darkgreen">
+    &quot;Quaternions orientation object to rotate frame 1 into frame 2&quot;</font>;
+  <font color="blue">output </font>Real T_inv[3, 3] <font color="darkgreen">
+    &quot;Transformation matrix to transform vector from frame 2 to frame 1 (v1=T*v2)&quot;</font>;
+<font color="blue">algorithm </font>
+  <font color="darkgreen">/*
+  T_inv := (2*Q[4]*Q[4] - 1)*identity(3) + 2*([Q[1:3]]*transpose([Q[1:3]]) + Q[
+    4]*skew(Q[1:3]));
+*/</font>
+  T_inv := [2*(Q[1]*Q[1] + Q[4]*Q[4]) - 1, 2*(Q[2]*Q[1] - Q[3]*Q[4]), 2*(Q[
+    3]*Q[1] + Q[2]*Q[4]); 2*(Q[1]*Q[2] + Q[3]*Q[4]), 2*(Q[2]*Q[2] + Q[4]*Q[
+    4]) - 1, 2*(Q[3]*Q[2] - Q[1]*Q[4]); 2*(Q[1]*Q[3] - Q[2]*Q[4]), 2*(Q[2]*
+    Q[3] + Q[1]*Q[4]), 2*(Q[3]*Q[3] + Q[4]*Q[4]) - 1];
+<font color="blue">end </font>to_T_inv;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Jun 30 17:51:05 2004
+.
+</address></BODY>
+</HTML>

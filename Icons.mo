@@ -1,6 +1,6 @@
 package Icons "Icon definitions" 
   
-  annotation(
+  annotation(preferedView="info",
     Window(
       x=0.08,
       y=0.08,
@@ -63,8 +63,6 @@ components which may be used in different libraries.
 The icons can be utilized by inheriting them in the desired class
 using \"extends\".
 </p>
-
-
 <dl>
 <dt><b>Main Author:</b>
 <dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a><br>
@@ -75,7 +73,6 @@ using \"extends\".
     email: <A HREF=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</A><br>
 </dl>
 <br>
-
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>October 21, 2002</i>
@@ -103,10 +100,7 @@ using \"extends\".
        Realized a first version.</li>
 </ul>
 <br>
-
-
 <p><b>Copyright &copy; 1999-2002, Modelica Association and DLR.</b></p>
-
 <p><i>
 The Modelica package is <b>free</b> software; it can be redistributed and/or modified
 under the terms of the <b>Modelica license</b>, see the license conditions
@@ -116,7 +110,7 @@ Modelica in file \"Modelica/package.mo\".
 </HTML>
 "));
   partial model Info "Icon for an information class" 
-    annotation(
+    annotation (
       Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
@@ -135,10 +129,12 @@ Modelica in file \"Modelica/package.mo\".
         Polygon(points=[80, -90; 90, -80; 90, 90; 80, 80; 80, -90], style(
               fillColor=3)),
         Text(extent=[-80, 70; 60, -70], string="Info")));
+  equation 
+    
   end Info;
   
   partial package Library "Icon for library" 
-    annotation( Coordsys(
+    annotation (Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
         component=[20, 20]), Icon(
@@ -160,7 +156,7 @@ Modelica in file \"Modelica/package.mo\".
   
   partial package Library2 
     "Icon for library where additional icon elements shall be added" 
-    annotation( Coordsys(
+    annotation (Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
         component=[20, 20]), Icon(
@@ -184,7 +180,7 @@ Modelica in file \"Modelica/package.mo\".
   end Library2;
   
   partial model Example "Icon for an example model" 
-    annotation( Coordsys(
+    annotation (Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
         component=[20, 20]), Icon(
@@ -201,10 +197,12 @@ Modelica in file \"Modelica/package.mo\".
           extent=[-120, 132; 120, 73],
           string="%name",
           style(color=1))));
+  equation 
+    
   end Example;
   
   partial function Function "Icon for a function" 
-    annotation( Icon(
+    annotation (Icon(
         Text(extent=[-134, 104; 142, 44], string="%name"),
         Ellipse(extent=[-100, 40; 100, -100], style(color=45, fillColor=7)),
         Text(
@@ -214,7 +212,7 @@ Modelica in file \"Modelica/package.mo\".
   end Function;
   
   partial record Record "Icon for a record" 
-    annotation( Icon(
+    annotation (Icon(
         Rectangle(extent=[-100, 50; 100, -100], style(fillColor=51, fillPattern
               =1)),
         Text(extent=[-127, 115; 127, 55], string="%name"),
@@ -224,18 +222,20 @@ Modelica in file \"Modelica/package.mo\".
   end Record;
   
   partial function Enumeration "Icon for an enumeration" 
-    annotation( Icon(
+    annotation (Icon(
         Text(extent=[-134, 104; 142, 44], string="%name"),
         Ellipse(extent=[-100, 40; 100, -100], style(color=85, fillColor=7)),
         Text(
           extent=[-84, -4; 84, -52],
           string="enumeration",
           style(color=85, fillColor=88))));
+  algorithm 
+    
   end Enumeration;
   
   partial model TranslationalSensor 
     "Icon representing translational measurement device" 
-    annotation(
+    annotation (
       Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
@@ -268,11 +268,13 @@ Modelica in file \"Modelica/package.mo\".
         Line(points=[10, -40; 10, -60], style(color=0)),
         Line(points=[30, -40; 30, -60], style(color=0)),
         Line(points=[50, -40; 50, -60], style(color=0))));
+  equation 
+    
   end TranslationalSensor;
   
   partial model RotationalSensor 
     "Icon representing rotational measurement device" 
-    annotation(
+    annotation (
       Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
@@ -311,10 +313,12 @@ Modelica in file \"Modelica/package.mo\".
             gradient=0,
             fillColor=0,
             fillPattern=1))));
+  equation 
+    
   end RotationalSensor;
   
   partial model GearIcon "Icon for gearbox" 
-    annotation( Coordsys(
+    annotation (Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[2, 2],
         component=[20, 20]), Icon(
@@ -349,10 +353,12 @@ Modelica in file \"Modelica/package.mo\".
             color=0,
             fillColor=0,
             fillPattern=1))));
+  equation 
+    
   end GearIcon;
   
   partial model MotorIcon "Icon for electrical motor" 
-    annotation( Coordsys(
+    annotation (Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
         component=[20, 20]), Icon(
@@ -371,5 +377,7 @@ Modelica in file \"Modelica/package.mo\".
             gradient=2,
             fillColor=8,
             fillPattern=1))));
+  equation 
+    
   end MotorIcon;
 end Icons;

@@ -86,14 +86,16 @@ and provides them as output signals.
 <PRE>
 <font color="blue">model</font> ToKelvin <font color="darkgreen">&quot;Conversion block from °Rankine to Kelvin&quot;</font> 
   <font color="blue">parameter </font>Integer n=1 <font color="darkgreen">&quot;Number of inputs (= number of outputs)&quot;</font>;
-  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
->Modelica.Blocks.Interfaces.InPort</A> Rankine(
-                                            <font color="blue">final </font>n=n);
-  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.OutPort"
->Modelica.Blocks.Interfaces.OutPort</A> Kelvin(
-                                            <font color="blue">final </font>n=n);
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> Rankine(
+     <font color="blue">redeclare </font><font color="blue">type</font> SignalType = <A HREF="Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits.Temperature_degRk"
+>Modelica.SIunits.Conversions.NonSIunits.Temperature_degRk</A>);
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> Kelvin(
+     <font color="blue">redeclare </font><font color="blue">type</font> SignalType = <A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Modelica.SIunits.Temperature</A>);
 <font color="blue">equation </font>
-  Kelvin.signal =<font color="red"> from_degRk</font>(Rankine.signal);
+  Kelvin =<font color="red"> from_degRk</font>(Rankine);
 <font color="blue">end </font>ToKelvin;
 </PRE>
 <HR>
@@ -122,14 +124,16 @@ and provides them as output signals.
 <PRE>
 <font color="blue">model</font> FromKelvin <font color="darkgreen">&quot;Conversion from Kelvin to °Rankine&quot;</font> 
   <font color="blue">parameter </font>Integer n=1 <font color="darkgreen">&quot;Number of inputs (= number of outputs)&quot;</font>;
-  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
->Modelica.Blocks.Interfaces.InPort</A> Kelvin(
-                                           <font color="blue">final </font>n=n);
-  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.OutPort"
->Modelica.Blocks.Interfaces.OutPort</A> Rankine(
-                                             <font color="blue">final </font>n=n);
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> Kelvin(
+     <font color="blue">redeclare </font><font color="blue">type</font> SignalType = <A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Modelica.SIunits.Temperature</A>);
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> Rankine(
+     <font color="blue">redeclare </font><font color="blue">type</font> SignalType = <A HREF="Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits.Temperature_degRk"
+>Modelica.SIunits.Conversions.NonSIunits.Temperature_degRk</A>);
 <font color="blue">equation </font>
-  Rankine.signal =<font color="red"> to_degRk</font>(Kelvin.signal);
+  Rankine =<font color="red"> to_degRk</font>(Kelvin);
 <font color="blue">end </font>FromKelvin;
 </PRE>
 <HR>
@@ -194,11 +198,12 @@ as required to keep the temperature at the specified value.
   
   <A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_b"
 >Interfaces.HeatPort_b</A> port;
-  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
->Modelica.Blocks.Interfaces.InPort</A> T(
-                                      <font color="blue">final </font>n=1);
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> T(
+     <font color="blue">redeclare </font><font color="blue">type</font> SignalType = <A HREF="Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits.Temperature_degRk"
+>Modelica.SIunits.Conversions.NonSIunits.Temperature_degRk</A>);
 <font color="blue">equation </font>
-  port.T =<font color="red"> from_degRk</font>(T.signal[1]);
+  port.T =<font color="red"> from_degRk</font>(T);
 <font color="blue">end </font>PrescribedTemperature;
 </PRE>
 <HR>
@@ -212,7 +217,6 @@ as required to keep the temperature at the specified value.
 <IMG SRC="Modelica.Thermal.HeatTransfer.Rankine.TemperatureSensorD.png" ALT="Modelica.Thermal.HeatTransfer.Rankine.TemperatureSensor">
 <H3>Information</H3>
 <PRE></pre>
-
 <p>
 This is an ideal absolute temperature sensor which returns
 the temperature of the connected port in Rankine as an output
@@ -227,19 +231,19 @@ sensor model.
 <PRE>
 <font color="blue">model</font> TemperatureSensor <font color="darkgreen">&quot;Absolute temperature sensor in °Rankine&quot;</font> 
   
-  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.OutPort"
->Modelica.Blocks.Interfaces.OutPort</A> T(
-                                       <font color="blue">redeclare </font><font color="blue">type</font> SignalType = <A HREF="Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits.Temperature_degRk"
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> T(
+                                          <font color="blue">redeclare </font><font color="blue">type</font> SignalType = <A HREF="Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits.Temperature_degRk"
 >NonSI.Temperature_degRk</A>);
   <A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a"
 >Interfaces.HeatPort_a</A> port;
 <font color="blue">equation </font>
-  T.signal[1] =<font color="red"> to_degRk</font>(port.T);
-  port.Q_dot = 0;
+  T =<font color="red"> to_degRk</font>(port.T);
+  port.Q_flow = 0;
 <font color="blue">end </font>TemperatureSensor;
 </PRE>
 <HR>
-<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Jun 30 17:44:16 2004
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Jun 30 17:50:47 2004
 .
 </address></BODY>
 </HTML>

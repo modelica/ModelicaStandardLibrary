@@ -1,0 +1,827 @@
+<HTML>
+<HEAD><META name="HTML-Generator" content="Dymola"><TITLE>Modelica</TITLE></HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Visualizers<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Mechanics.MultiBody.Visualizers"></A><A HREF="Modelica_Mechanics_MultiBody.html#Modelica.Mechanics.MultiBody"
+>Modelica.Mechanics.MultiBody</A>.Visualizers</H2>
+<B>3-dimensional visual objects</B>
+<P>
+<A HREF="Modelica_Mechanics_MultiBody_Visualizers.html#Modelica.Mechanics.MultiBody.Visualizers.FixedShape"
+><IMG SRC="Modelica.Mechanics.MultiBody.Visualizers.FixedShapeI.png" ALT="Modelica.Mechanics.MultiBody.Visualizers.FixedShape" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Mechanics_MultiBody_Visualizers.html#Modelica.Mechanics.MultiBody.Visualizers.FixedShape2"
+><IMG SRC="Modelica.Mechanics.MultiBody.Visualizers.FixedShape2I.png" ALT="Modelica.Mechanics.MultiBody.Visualizers.FixedShape2" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Mechanics_MultiBody_Visualizers.html#Modelica.Mechanics.MultiBody.Visualizers.FixedFrame"
+><IMG SRC="Modelica.Mechanics.MultiBody.Visualizers.FixedFrameI.png" ALT="Modelica.Mechanics.MultiBody.Visualizers.FixedFrame" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Mechanics_MultiBody_Visualizers.html#Modelica.Mechanics.MultiBody.Visualizers.FixedArrow"
+><IMG SRC="Modelica.Mechanics.MultiBody.Visualizers.FixedArrowI.png" ALT="Modelica.Mechanics.MultiBody.Visualizers.FixedArrow" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Mechanics_MultiBody_Visualizers.html#Modelica.Mechanics.MultiBody.Visualizers.SignalArrow"
+><IMG SRC="Modelica.Mechanics.MultiBody.Visualizers.SignalArrowI.png" ALT="Modelica.Mechanics.MultiBody.Visualizers.SignalArrow" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Mechanics_MultiBody_Visualizers_Advanced.html#Modelica.Mechanics.MultiBody.Visualizers.Advanced"
+><IMG SRC="Modelica.Mechanics.MultiBody.Visualizers.AdvancedI.png" ALT="Modelica.Mechanics.MultiBody.Visualizers.Advanced" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Mechanics_MultiBody_Visualizers_Internal.html#Modelica.Mechanics.MultiBody.Visualizers.Internal"
+><IMG SRC="Modelica.Mechanics.MultiBody.Visualizers.InternalI.png" ALT="Modelica.Mechanics.MultiBody.Visualizers.Internal" WIDTH=80  HEIGHT=80 ></A>
+<P><P>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+Package <b>Visualizers</b> contains components to visualize
+3-dimensional shapes. These components are the basis for the
+animation features of the MultiBody library.
+<p>
+<h4>Content</h4>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td><b><A HREF="Modelica_Mechanics_MultiBody_Visualizers.html#Modelica.Mechanics.MultiBody.Visualizers.FixedShape"
+>FixedShape</a><br>
+             <A HREF="Modelica_Mechanics_MultiBody_Visualizers.html#Modelica.Mechanics.MultiBody.Visualizers.FixedShape2"
+>FixedShape2</a></b></td>
+      <td>Animation shape of a part with fixed sizes. FixedShape2 has additionally
+          a frame_b for easier connection to further visual objects.
+          The following shape types are supported:<br>&nbsp;<br>
+      <IMG SRC="../Images/MultiBody/FixedShape.png" ALT="model Visualizers.FixedShape">
+      </td>
+  </tr>
+  <tr><td><b><A HREF="Modelica_Mechanics_MultiBody_Visualizers.html#Modelica.Mechanics.MultiBody.Visualizers.FixedFrame"
+>FixedFrame</a></b></td>
+      <td>Visualizing a coordinate system including axes labels with fixed sizes:<br>
+      <IMG SRC="../Images/MultiBody/FixedFrame2.png"
+       ALT="model Visualizers.FixedFrame">
+      </td>
+  </tr>
+  <tr><td><b><A HREF="Modelica_Mechanics_MultiBody_Visualizers.html#Modelica.Mechanics.MultiBody.Visualizers.FixedArrow"
+>FixedArrow</a>,<br>
+<A HREF="Modelica_Mechanics_MultiBody_Visualizers.html#Modelica.Mechanics.MultiBody.Visualizers.SignalArrow"
+>SignalArrow</a></b></td>
+      <td>Visualizing an arrow. Model "FixedArrow" provides
+      a fixed sized arrow, model "SignalArrow" provides
+      an arrow with dynamically varying length that is defined
+      by an input signal vector:<br>
+      <IMG SRC="../Images/MultiBody/Visualizers/Arrow.png" ">
+      </td>
+  </tr>
+<tr><td><b><A HREF="Modelica_Mechanics_MultiBody_Visualizers_Advanced.html#Modelica.Mechanics.MultiBody.Visualizers.Advanced"
+>Advanced</a></b></td>
+      <td> <b>Package</b> that contains components to visualize
+          3-dimensional shapes where all parts of the shape
+          can vary dynamically. Basic knowledge of Modelica is 
+          needed in order to utilize the components of this package. 
+      </td>
+  </tr>
+</table>
+<p>
+The colors of the visualization components are declared with
+the predefined type <b>MultiBody.Types.Color</b>. 
+This is a vector with 3 elements,
+{r, g, b}, and specifies the color of the shape.
+{r,g,b} are the "red", "green" and "blue" color parts.
+Note, r g, b are given as Integer[3] in the ranges 0 .. 255,
+respectively. 
+</p>
+<pre></PRE><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Visualizers.html#Modelica.Mechanics.MultiBody.Visualizers.FixedShape"
+>FixedShape</A>
+</TD><TD>Fixed animation shape of a part</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Visualizers.html#Modelica.Mechanics.MultiBody.Visualizers.FixedShape2"
+>FixedShape2</A>
+</TD><TD>Fixed animation shape of a part and fixed translation of frame_b with respect to frame_a</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Visualizers.html#Modelica.Mechanics.MultiBody.Visualizers.FixedFrame"
+>FixedFrame</A>
+</TD><TD>Visualizing a coordinate system including axes labels</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Visualizers.html#Modelica.Mechanics.MultiBody.Visualizers.FixedArrow"
+>FixedArrow</A>
+</TD><TD>Visualizing an arrow with constant size in frame_a</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Visualizers.html#Modelica.Mechanics.MultiBody.Visualizers.SignalArrow"
+>SignalArrow</A>
+</TD><TD>Visualizing an arrow with dynamic size in frame_a based on input signal</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Visualizers_Advanced.html#Modelica.Mechanics.MultiBody.Visualizers.Advanced"
+>Advanced</A>
+</TD><TD>Visualizers that require basic knowledge about Modelica in order to use them</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Visualizers_Internal.html#Modelica.Mechanics.MultiBody.Visualizers.Internal"
+>Internal</A>
+</TD><TD>Visualizers that will be replaced by improved versions in the future (don't use them)</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE FixedShape<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Visualizers.FixedShapeI.png" ALT="Modelica.Mechanics.MultiBody.Visualizers.FixedShape" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Visualizers.FixedShape"></A><A HREF="Modelica_Mechanics_MultiBody_Visualizers.html#Modelica.Mechanics.MultiBody.Visualizers"
+>Modelica.Mechanics.MultiBody.Visualizers</A>.FixedShape</H2>
+<B>Fixed animation shape of a part</B><p>
+<IMG SRC="Modelica.Mechanics.MultiBody.Visualizers.FixedShapeD.png" ALT="Modelica.Mechanics.MultiBody.Visualizers.FixedShape">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+Model <b>FixedShape</b> defines a visual shape that is
+shown at the location of its frame_a.
+The following shapes are currently supported via
+parameter <b>shapeType</b> (e.g., shapeType="box"):<br>&nbsp;
+</p>
+<IMG SRC="../Images/MultiBody/Shape.png" ALT="model Visualizers.FixedShape">
+<p>&nbsp;<br>
+The dark blue arrows in the figure above are directed along
+parameter <b>lengthDirection</b>. The light blue arrows are directed
+along parameter <b>widthDirection</b>. The <b>coordinate systems</b> 
+in the figure represent frame_a of the FixedShape component.
+</p>
+<p>
+Additionally external shapes are specified as DXF-files
+(only 3DFace is supported). External shapes must be named "1", "2"
+etc.. The corresponding definitions should be in files "1.dxf",
+"2.dxf" etc.Since the DXF-files contain color and dimensions for
+the individual faces, the corresponding information in the model
+is currently ignored. The DXF-files must be found in the current directory.
+</p>
+<p>
+The sizes of any of the above components are specified by the
+<b>length</b>, <b>width</b> and <b>height</b> parameters.
+Via parameter <b>extra</b> additional data can be defined:
+</p>
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th><b>shapeType</b></th><th>Meaning of parameter <b>extra</b></th></tr>
+<tr>
+  <td>"cylinder"</td>
+  <td>if extra &gt; 0, a black line is included in the
+      cylinder to show the rotation of it.</td>
+</tr>
+<tr>
+  <td>"cone"</td>
+  <td>extra = diameter-left-side / diameter-right-side, i.e.,<br>
+      extra = 1: cylinder<br>
+      extra = 0: "real" cone.</td>
+</tr>
+<tr>
+  <td>"pipe"</td>
+  <td>extra = outer-diameter / inner-diameter, i.e, <br>
+      extra = 1: cylinder that is completely hollow<br>
+      extra = 0: cylinder without a hole.</td>
+</tr>
+<tr>
+  <td>"gearwheel"</td>
+  <td>extra is the number of teeth of the gear.</td>
+</tr>
+<tr>
+  <td>"spring"</td>
+  <td>extra is the number of windings of the spring.
+      Additionally, "height" is <b>not</b> the "height" but
+      2*coil-width.</td>
+</tr>
+</table>
+<p>
+Parameter <b>color</b> is a vector with 3 elements,
+{r, g, b}, and specifies the color of the shape.
+{r,g,b} are the "red", "green" and "blue" color parts.
+Note, r g, b are given as Integer[3] in the ranges 0 .. 255,
+respectively. The predefined type
+<b>MultiBody.Types.Color</b> contains a temporary menu
+definition of the colors used in the MultiBody library
+(this will be replaced by a color editor).
+</p>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>animation</TD><TD>true</TD><TD>= true, if animation shall be enabled</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=3>if animation = true</TD></TR>
+<TR><TD>shapeType</TD><TD>&quot;box&quot;</TD><TD> Type of shape</TD></TR>
+<TR><TD>r_shape[3]</TD><TD>{0,0,0}</TD><TD> Vector from frame_a to shape origin, resolved in frame_a. [m]</TD></TR>
+<TR><TD>lengthDirection</TD><TD>{1,0,0}</TD><TD> Vector in length direction of shape, resolved in frame_a</TD></TR>
+<TR><TD>widthDirection</TD><TD>{0,1,0}</TD><TD> Vector in width direction of shape, resolved in frame_a</TD></TR>
+<TR><TD>length</TD><TD>1</TD><TD> Length of shape [m]</TD></TR>
+<TR><TD>width</TD><TD>0.1</TD><TD> Width of shape [m]</TD></TR>
+<TR><TD>height</TD><TD>0.1</TD><TD> Height of shape [m]</TD></TR>
+<TR><TD>color</TD><TD>{0,128,255}</TD><TD> Color of shape.</TD></TR>
+<TR><TD>extra</TD><TD>0.0</TD><TD> Additional parameter for cylinder, cone, pipe, gearwheel and spring (see docu)</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> FixedShape <font color="darkgreen">&quot;Fixed animation shape of a part&quot;</font> 
+  <font color="blue">import </font>SI = <A HREF="Modelica_SIunits.html#Modelica.SIunits"
+>Modelica.SIunits</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.PartialVisualizer"
+>MultiBody.Interfaces.PartialVisualizer</A>;
+  
+  
+  <font color="blue">parameter </font>Boolean animation=true <font color="darkgreen">&quot;= true, if animation shall be enabled&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#Modelica.Mechanics.MultiBody.Types.ShapeType"
+>MultiBody.Types.ShapeType</A> shapeType =      &quot;box&quot; <font color="darkgreen">
+    &quot;|if animation = true| Type of shape&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> r_shape[       3]={0,0,0} <font color="darkgreen">
+    &quot;|if animation = true| Vector from frame_a to shape origin, resolved in frame_a.&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#Modelica.Mechanics.MultiBody.Types.Axis"
+>MultiBody.Types.Axis</A> lengthDirection =      {1,0,0} <font color="darkgreen">
+    &quot;|if animation = true| Vector in length direction of shape, resolved in frame_a&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#Modelica.Mechanics.MultiBody.Types.Axis"
+>MultiBody.Types.Axis</A> widthDirection =      {0,1,0} <font color="darkgreen">
+    &quot;|if animation = true| Vector in width direction of shape, resolved in frame_a&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Distance"
+>SI.Distance</A> length =      1 <font color="darkgreen">&quot;|if animation = true| Length of shape&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Distance"
+>SI.Distance</A> width =      0.1 <font color="darkgreen">&quot;|if animation = true| Width of shape&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Distance"
+>SI.Distance</A> height =      0.1 <font color="darkgreen">&quot;|if animation = true| Height of shape&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#Modelica.Mechanics.MultiBody.Types.Color"
+>MultiBody.Types.Color</A> color =      {0,128,255} <font color="darkgreen">
+    &quot;|if animation = true| Color of shape.&quot;</font>;
+  <font color="blue">parameter </font>Real extra=0.0 <font color="darkgreen">
+    &quot;|if animation = true| Additional parameter for cylinder, cone, pipe, gearwheel and spring (see docu)&quot;</font>;
+  
+<font color="blue">protected </font>
+  <font color="blue">parameter </font>Integer ndim=<font color="blue">if </font>world.enableAnimation<font color="blue"> and </font>animation<font color="blue"> then </font>1<font color="blue"> else </font>0;
+  <A HREF="Modelica_Mechanics_MultiBody_Visualizers_Advanced.html#Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape"
+>Visualizers.Advanced.Shape</A> vis[
+                                 ndim](
+    <font color="blue">each </font>r_shape=r_shape,
+    <font color="blue">each </font>length=length,
+    <font color="blue">each </font>width=width,
+    <font color="blue">each </font>height=height,
+    <font color="blue">each </font>lengthDirection=lengthDirection,
+    <font color="blue">each </font>widthDirection=widthDirection,
+    <font color="blue">each </font>shapeType=shapeType,
+    <font color="blue">each </font>color=color,
+    <font color="blue">each </font>extra=extra,
+    <font color="blue">each </font>r=frame_a.r_0,
+    <font color="blue">each </font>R=frame_a.R);
+<font color="blue">equation </font>
+  <font color="darkgreen">// No forces and torques</font>
+  frame_a.f =<font color="red"> zeros</font>(3);
+  frame_a.t =<font color="red"> zeros</font>(3);
+<font color="blue">end </font>FixedShape;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE FixedShape2<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Visualizers.FixedShape2I.png" ALT="Modelica.Mechanics.MultiBody.Visualizers.FixedShape2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Visualizers.FixedShape2"></A><A HREF="Modelica_Mechanics_MultiBody_Visualizers.html#Modelica.Mechanics.MultiBody.Visualizers"
+>Modelica.Mechanics.MultiBody.Visualizers</A>.FixedShape2</H2>
+<B>Fixed animation shape of a part and fixed translation of frame_b with respect to frame_a</B><p>
+<IMG SRC="Modelica.Mechanics.MultiBody.Visualizers.FixedShape2D.png" ALT="Modelica.Mechanics.MultiBody.Visualizers.FixedShape2">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+Model <b>FixedShape2</b> defines a visual shape that is
+shown at the location of its frame_a. This model is identical
+to <b>FixedShape</b> with the only difference that an 
+additional frame_b is present which is parallel to frame_a.
+This makes it more convenient to connect several visual 
+shapes together when building up more complex visual
+objects. The following shapes are currently supported via
+parameter <b>shapeType</b> (e.g., shapeType="box"):<br>&nbsp;
+</p>
+<IMG SRC="../Images/MultiBody/Shape.png" ALT="model Visualizers.FixedShape2">
+<p>&nbsp;<br>
+The dark blue arrows in the figure above are directed along
+parameter <b>lengthDirection</b>. The light blue arrows are directed
+along parameter <b>widthDirection</b>. The <b>coordinate systems</b> 
+in the figure represent frame_a of the FixedShape component.
+</p>
+<p>
+Additionally external shapes are specified as DXF-files
+(only 3DFace is supported). External shapes must be named "1", "2"
+etc.. The corresponding definitions should be in files "1.dxf",
+"2.dxf" etc.Since the DXF-files contain color and dimensions for
+the individual faces, the corresponding information in the model
+is currently ignored. The DXF-files must be found in the current directory.
+</p>
+<p>
+The sizes of any of the above components are specified by the
+<b>length</b>, <b>width</b> and <b>height</b> parameters.
+Via parameter <b>extra</b> additional data can be defined:
+</p>
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th><b>shapeType</b></th><th>Meaning of parameter <b>extra</b></th></tr>
+<tr>
+  <td>"cylinder"</td>
+  <td>if extra &gt; 0, a black line is included in the
+      cylinder to show the rotation of it.</td>
+</tr>
+<tr>
+  <td>"cone"</td>
+  <td>extra = diameter-left-side / diameter-right-side, i.e.,<br>
+      extra = 1: cylinder<br>
+      extra = 0: "real" cone.</td>
+</tr>
+<tr>
+  <td>"pipe"</td>
+  <td>extra = outer-diameter / inner-diameter, i.e, <br>
+      extra = 1: cylinder that is completely hollow<br>
+      extra = 0: cylinder without a hole.</td>
+</tr>
+<tr>
+  <td>"gearwheel"</td>
+  <td>extra is the number of teeth of the gear.</td>
+</tr>
+<tr>
+  <td>"spring"</td>
+  <td>extra is the number of windings of the spring.
+      Additionally, "height" is <b>not</b> the "height" but
+      2*coil-width.</td>
+</tr>
+</table>
+<p>
+Parameter <b>color</b> is a vector with 3 elements,
+{r, g, b}, and specifies the color of the shape.
+{r,g,b} are the "red", "green" and "blue" color parts.
+Note, r g, b are given as Integer[3] in the ranges 0 .. 255,
+respectively. The predefined type
+<b>MultiBody.Types.Color</b> contains a temporary menu
+definition of the colors used in the MultiBody library
+(this will be replaced by a color editor).
+</p>
+<p>
+In the following figure the relationships between 
+frame_a and frame_b are shown. The origin of frame_b
+with respect to frame_a is specified via parameter 
+vector <b>r</b>.
+</p>
+<IMG SRC="../Images/MultiBody/FixedTranslation.png" ALT="Parts.FixedTranslation">
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>animation</TD><TD>true</TD><TD>= true, if animation shall be enabled</TD></TR>
+<TR><TD>r[3]</TD><TD>{1,0,0}</TD><TD>Vector from frame_a to frame_b resolved in frame_a [m]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=3>if animation = true</TD></TR>
+<TR><TD>shapeType</TD><TD>&quot;box&quot;</TD><TD> Type of shape</TD></TR>
+<TR><TD>r_shape[3]</TD><TD>{0,0,0}</TD><TD> Vector from frame_a to shape origin, resolved in frame_a [m]</TD></TR>
+<TR><TD>lengthDirection</TD><TD>r - r_shape</TD><TD> Vector in length direction of shape, resolved in frame_a</TD></TR>
+<TR><TD>widthDirection</TD><TD>{0,1,0}</TD><TD> Vector in width direction of shape, resolved in frame_a</TD></TR>
+<TR><TD>length</TD><TD>Frames.length(r - r_shape)</TD><TD> Length of shape [m]</TD></TR>
+<TR><TD>width</TD><TD>0.1</TD><TD> Width of shape [m]</TD></TR>
+<TR><TD>height</TD><TD>width</TD><TD> Height of shape. [m]</TD></TR>
+<TR><TD>extra</TD><TD>0.0</TD><TD> Additional parameter for cylinder, cone, pipe, gearwheel and spring (see docu)</TD></TR>
+<TR><TD>color</TD><TD>{0,128,255}</TD><TD> Color of shape</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> FixedShape2 <font color="darkgreen">
+  &quot;Fixed animation shape of a part and fixed translation of frame_b with respect to frame_a&quot;</font> 
+  
+  <font color="blue">import </font>SI = <A HREF="Modelica_SIunits.html#Modelica.SIunits"
+>Modelica.SIunits</A>;
+  <A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.Frame_a"
+>Interfaces.Frame_a</A> frame_a;
+  <A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.Frame_b"
+>Interfaces.Frame_b</A> frame_b;
+  
+  <font color="blue">parameter </font>Boolean animation=true <font color="darkgreen">&quot;= true, if animation shall be enabled&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> r[       3]={1,0,0} <font color="darkgreen">
+    &quot;Vector from frame_a to frame_b resolved in frame_a&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#Modelica.Mechanics.MultiBody.Types.ShapeType"
+>MultiBody.Types.ShapeType</A> shapeType =      &quot;box&quot; <font color="darkgreen">
+    &quot;|if animation = true| Type of shape&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> r_shape[       3]={0,0,0} <font color="darkgreen">
+    &quot;|if animation = true| Vector from frame_a to shape origin, resolved in frame_a&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#Modelica.Mechanics.MultiBody.Types.Axis"
+>MultiBody.Types.Axis</A> lengthDirection =      r - r_shape <font color="darkgreen">
+    &quot;|if animation = true| Vector in length direction of shape, resolved in frame_a&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#Modelica.Mechanics.MultiBody.Types.Axis"
+>MultiBody.Types.Axis</A> widthDirection =      {0,1,0} <font color="darkgreen">
+    &quot;|if animation = true| Vector in width direction of shape, resolved in frame_a&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> length =<font color="red">      Frames.length</font>(r - r_shape) <font color="darkgreen">
+    &quot;|if animation = true| Length of shape&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Distance"
+>SI.Distance</A> width =      0.1 <font color="darkgreen">&quot;|if animation = true| Width of shape&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Distance"
+>SI.Distance</A> height =      width <font color="darkgreen">&quot;|if animation = true| Height of shape.&quot;</font>;
+  <font color="blue">parameter </font>Real extra=0.0 <font color="darkgreen">
+    &quot;|if animation = true| Additional parameter for cylinder, cone, pipe, gearwheel and spring (see docu)&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#Modelica.Mechanics.MultiBody.Types.Color"
+>MultiBody.Types.Color</A> color =      {0,128,255} <font color="darkgreen">
+    &quot;|if animation = true| Color of shape&quot;</font>;
+<font color="blue">protected </font>
+  <font color="blue">outer </font><A HREF="Modelica_Mechanics_MultiBody.html#Modelica.Mechanics.MultiBody.World"
+>MultiBody.World</A> world;
+  <font color="blue">parameter </font>Integer ndim=<font color="blue">if </font>world.enableAnimation<font color="blue"> and </font>animation<font color="blue"> then </font>1<font color="blue"> else </font>0;
+  <A HREF="Modelica_Mechanics_MultiBody_Visualizers_Advanced.html#Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape"
+>Visualizers.Advanced.Shape</A> shape[
+                                   ndim](
+    <font color="blue">each </font>shapeType=shapeType,
+    <font color="blue">each </font>color=color,
+    <font color="blue">each </font>r_shape=r_shape,
+    <font color="blue">each </font>lengthDirection=lengthDirection,
+    <font color="blue">each </font>widthDirection=widthDirection,
+    <font color="blue">each </font>length=length,
+    <font color="blue">each </font>width=width,
+    <font color="blue">each </font>height=height,
+    <font color="blue">each </font>extra=extra,
+    <font color="blue">each </font>r=frame_a.r_0,
+    <font color="blue">each </font>R=frame_a.R);
+<font color="blue">equation </font>
+  <font color="red">defineBranch</font>(frame_a.R, frame_b.R);
+  <font color="red">assert</font>(<font color="red">cardinality</font>(frame_a) &gt; 0<font color="blue"> or </font><font color="red">cardinality</font>(frame_b) &gt; 0, &quot;Neither connector frame_a nor frame_b of 
+MultiBody.Visualizers.FixedShape2 object is connected&quot;);
+  
+  frame_b.r_0 = frame_a.r_0 +<font color="red"> Frames.resolve1</font>(frame_a.R, r);
+  frame_b.R = frame_a.R;
+  
+  <font color="darkgreen">/* Force and torque balance */</font>
+  <font color="red">zeros</font>(3) = frame_a.f + frame_b.f;
+  <font color="red">zeros</font>(3) = frame_a.t + frame_b.t +<font color="red"> cross</font>(r, frame_b.f);
+<font color="blue">end </font>FixedShape2;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE FixedFrame<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Visualizers.FixedFrameI.png" ALT="Modelica.Mechanics.MultiBody.Visualizers.FixedFrame" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Visualizers.FixedFrame"></A><A HREF="Modelica_Mechanics_MultiBody_Visualizers.html#Modelica.Mechanics.MultiBody.Visualizers"
+>Modelica.Mechanics.MultiBody.Visualizers</A>.FixedFrame</H2>
+<B>Visualizing a coordinate system including axes labels</B><p>
+<IMG SRC="Modelica.Mechanics.MultiBody.Visualizers.FixedFrameD.png" ALT="Modelica.Mechanics.MultiBody.Visualizers.FixedFrame">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+Model <b>FixedFrame</b> visualizes the three axes of
+its coordinate system <b>frame_a</b> together with appropriate axes
+labels. A typical example is shown in the following figure:
+<br>&nbsp;
+</p>
+<IMG SRC="../Images/MultiBody/FixedFrame.png" ALT="model Visualizers.FixedFrame">
+<p>
+The sizes of the axes and the labels as well as their colors
+can be set by parameters.
+</p>
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>animation</TD><TD>true</TD><TD>= true, if animation shall be enabled</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=3>if animation = true</TD></TR>
+<TR><TD>showLabels</TD><TD>true</TD><TD> = true, if labels shall be shown</TD></TR>
+<TR><TD>length</TD><TD>0.5</TD><TD> Length of axes arrows [m]</TD></TR>
+<TR><TD>diameter</TD><TD>length/world.defaultFrameDia...</TD><TD> Diameter of axes arrows [m]</TD></TR>
+<TR><TD>color_x</TD><TD>MultiBody.Types.Defaults.Fra...</TD><TD> Color of x-arrow</TD></TR>
+<TR><TD>color_y</TD><TD>color_x</TD><TD> Color of y-arrow</TD></TR>
+<TR><TD>color_z</TD><TD>color_x</TD><TD> Color of z-arrow</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> FixedFrame <font color="darkgreen">
+  &quot;Visualizing a coordinate system including axes labels&quot;</font> 
+  
+  <font color="blue">import </font>SI = <A HREF="Modelica_SIunits.html#Modelica.SIunits"
+>Modelica.SIunits</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.PartialVisualizer"
+>MultiBody.Interfaces.PartialVisualizer</A>;
+  <font color="blue">parameter </font>Boolean animation=true <font color="darkgreen">&quot;= true, if animation shall be enabled&quot;</font>;
+  <font color="blue">parameter </font>Boolean showLabels=true <font color="darkgreen">
+    &quot;|if animation = true| = true, if labels shall be shown&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Distance"
+>SI.Distance</A> length =      0.5 <font color="darkgreen">
+    &quot;|if animation = true| Length of axes arrows&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Distance"
+>SI.Distance</A> diameter =      length/world.defaultFrameDiameterFraction <font color="darkgreen">
+    &quot;|if animation = true| Diameter of axes arrows&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#Modelica.Mechanics.MultiBody.Types.Color"
+>MultiBody.Types.Color</A> color_x =      MultiBody.Types.Defaults.FrameColor <font color="darkgreen">
+    &quot;|if animation = true| Color of x-arrow&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#Modelica.Mechanics.MultiBody.Types.Color"
+>MultiBody.Types.Color</A> color_y =      color_x <font color="darkgreen">
+    &quot;|if animation = true| Color of y-arrow&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#Modelica.Mechanics.MultiBody.Types.Color"
+>MultiBody.Types.Color</A> color_z =      color_x <font color="darkgreen">
+    &quot;|if animation = true| Color of z-arrow&quot;</font>;
+  
+<font color="blue">protected </font>
+  <font color="blue">parameter </font>Integer ndim=<font color="blue">if </font>world.enableAnimation<font color="blue"> and </font>animation<font color="blue"> then </font>1<font color="blue"> else </font>0;
+  <font color="blue">parameter </font>Integer ndim2=<font color="blue">if </font>world.enableAnimation<font color="blue"> and </font>animation<font color="blue"> and </font>
+      showLabels<font color="blue"> then </font>1<font color="blue"> else </font>0;
+  
+  <font color="darkgreen">// Parameters to define axes</font>
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> headLength =<font color="red">      min</font>(length, diameter*Types.Defaults.
+      FrameHeadLengthFraction);
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> headWidth =      diameter*Types.Defaults.
+      FrameHeadWidthFraction;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> lineLength =<font color="red">      max</font>(0, length - headLength);
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> lineWidth =      diameter;
+  
+  <font color="darkgreen">// Parameters to define axes labels</font>
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> scaledLabel =      Types.Defaults.FrameLabelHeightFraction*
+      diameter;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> labelStart =      1.05*length;
+  
+  <font color="darkgreen">// x-axis</font>
+  <A HREF="Modelica_Mechanics_MultiBody_Visualizers_Advanced.html#Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape"
+>Visualizers.Advanced.Shape</A> x_arrowLine[
+                                         ndim](
+    <font color="blue">each </font>shapeType=&quot;cylinder&quot;,
+    <font color="blue">each </font>length=lineLength,
+    <font color="blue">each </font>width=lineWidth,
+    <font color="blue">each </font>height=lineWidth,
+    <font color="blue">each </font>lengthDirection={1,0,0},
+    <font color="blue">each </font>widthDirection={0,1,0},
+    <font color="blue">each </font>color=color_x,
+    <font color="blue">each </font>r=frame_a.r_0,
+    <font color="blue">each </font>R=frame_a.R,
+    <font color="blue">each </font>specularCoefficient=0);
+  <A HREF="Modelica_Mechanics_MultiBody_Visualizers_Advanced.html#Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape"
+>Visualizers.Advanced.Shape</A> x_arrowHead[
+                                         ndim](
+    <font color="blue">each </font>shapeType=&quot;cone&quot;,
+    <font color="blue">each </font>length=headLength,
+    <font color="blue">each </font>width=headWidth,
+    <font color="blue">each </font>height=headWidth,
+    <font color="blue">each </font>lengthDirection={1,0,0},
+    <font color="blue">each </font>widthDirection={0,1,0},
+    <font color="blue">each </font>color=color_x,
+    <font color="blue">each </font>r=frame_a.r_0 +<font color="red"> Frames.resolve1</font>(frame_a.R, {lineLength,0,0}),
+    <font color="blue">each </font>R=frame_a.R,
+    <font color="blue">each </font>specularCoefficient=0);
+  <A HREF="Modelica_Mechanics_MultiBody_Visualizers_Internal.html#Modelica.Mechanics.MultiBody.Visualizers.Internal.Lines"
+>Visualizers.Internal.Lines</A> x_label[
+                                     ndim2](
+    <font color="blue">each </font>lines=scaledLabel*{[0, 0; 1, 1],[0, 1; 1, 0]},
+    <font color="blue">each </font>diameter=diameter,
+    <font color="blue">each </font>color=color_x,
+    <font color="blue">each </font>r_lines={labelStart,0,0},
+    <font color="blue">each </font>n_x={1,0,0},
+    <font color="blue">each </font>n_y={0,1,0},
+    <font color="blue">each </font>r=frame_a.r_0,
+    <font color="blue">each </font>R=frame_a.R,
+    <font color="blue">each </font>specularCoefficient=0);
+  
+  <font color="darkgreen">// y-axis</font>
+  <A HREF="Modelica_Mechanics_MultiBody_Visualizers_Advanced.html#Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape"
+>Visualizers.Advanced.Shape</A> y_arrowLine[
+                                         ndim](
+    <font color="blue">each </font>shapeType=&quot;cylinder&quot;,
+    <font color="blue">each </font>length=lineLength,
+    <font color="blue">each </font>width=lineWidth,
+    <font color="blue">each </font>height=lineWidth,
+    <font color="blue">each </font>lengthDirection={0,1,0},
+    <font color="blue">each </font>widthDirection={1,0,0},
+    <font color="blue">each </font>color=color_y,
+    <font color="blue">each </font>r=frame_a.r_0,
+    <font color="blue">each </font>R=frame_a.R,
+    <font color="blue">each </font>specularCoefficient=0);
+  <A HREF="Modelica_Mechanics_MultiBody_Visualizers_Advanced.html#Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape"
+>Visualizers.Advanced.Shape</A> y_arrowHead[
+                                         ndim](
+    <font color="blue">each </font>shapeType=&quot;cone&quot;,
+    <font color="blue">each </font>length=headLength,
+    <font color="blue">each </font>width=headWidth,
+    <font color="blue">each </font>height=headWidth,
+    <font color="blue">each </font>lengthDirection={0,1,0},
+    <font color="blue">each </font>widthDirection={1,0,0},
+    <font color="blue">each </font>color=color_y,
+    <font color="blue">each </font>r=frame_a.r_0 +<font color="red"> Frames.resolve1</font>(frame_a.R, {0,lineLength,0}),
+    <font color="blue">each </font>R=frame_a.R,
+    <font color="blue">each </font>specularCoefficient=0);
+  <A HREF="Modelica_Mechanics_MultiBody_Visualizers_Internal.html#Modelica.Mechanics.MultiBody.Visualizers.Internal.Lines"
+>Visualizers.Internal.Lines</A> y_label[
+                                     ndim2](
+    <font color="blue">each </font>lines=scaledLabel*{[0, 0; 1, 1.5],[0, 1.5; 0.5, 0.75]},
+    <font color="blue">each </font>diameter=diameter,
+    <font color="blue">each </font>color=color_y,
+    <font color="blue">each </font>r_lines={0,labelStart,0},
+    <font color="blue">each </font>n_x={0,1,0},
+    <font color="blue">each </font>n_y={-1,0,0},
+    <font color="blue">each </font>r=frame_a.r_0,
+    <font color="blue">each </font>R=frame_a.R,
+    <font color="blue">each </font>specularCoefficient=0);
+  
+  <font color="darkgreen">// z-axis</font>
+  <A HREF="Modelica_Mechanics_MultiBody_Visualizers_Advanced.html#Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape"
+>Visualizers.Advanced.Shape</A> z_arrowLine[
+                                         ndim](
+    <font color="blue">each </font>shapeType=&quot;cylinder&quot;,
+    <font color="blue">each </font>length=lineLength,
+    <font color="blue">each </font>width=lineWidth,
+    <font color="blue">each </font>height=lineWidth,
+    <font color="blue">each </font>lengthDirection={0,0,1},
+    <font color="blue">each </font>widthDirection={0,1,0},
+    <font color="blue">each </font>color=color_z,
+    <font color="blue">each </font>r=frame_a.r_0,
+    <font color="blue">each </font>R=frame_a.R,
+    <font color="blue">each </font>specularCoefficient=0);
+  <A HREF="Modelica_Mechanics_MultiBody_Visualizers_Advanced.html#Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape"
+>Visualizers.Advanced.Shape</A> z_arrowHead[
+                                         ndim](
+    <font color="blue">each </font>shapeType=&quot;cone&quot;,
+    <font color="blue">each </font>length=headLength,
+    <font color="blue">each </font>width=headWidth,
+    <font color="blue">each </font>height=headWidth,
+    <font color="blue">each </font>lengthDirection={0,0,1},
+    <font color="blue">each </font>widthDirection={0,1,0},
+    <font color="blue">each </font>color=color_z,
+    <font color="blue">each </font>r=frame_a.r_0 +<font color="red"> Frames.resolve1</font>(frame_a.R, {0,0,lineLength}),
+    <font color="blue">each </font>R=frame_a.R,
+    <font color="blue">each </font>specularCoefficient=0);
+  <A HREF="Modelica_Mechanics_MultiBody_Visualizers_Internal.html#Modelica.Mechanics.MultiBody.Visualizers.Internal.Lines"
+>Visualizers.Internal.Lines</A> z_label[
+                                     ndim2](
+    <font color="blue">each </font>lines=scaledLabel*{[0, 0; 1, 0],[0, 1; 1, 1],[0, 1; 1, 0]},
+    <font color="blue">each </font>diameter=diameter,
+    <font color="blue">each </font>color=color_z,
+    <font color="blue">each </font>r_lines={0,0,labelStart},
+    <font color="blue">each </font>n_x={0,0,1},
+    <font color="blue">each </font>n_y={0,1,0},
+    <font color="blue">each </font>r=frame_a.r_0,
+    <font color="blue">each </font>R=frame_a.R,
+    <font color="blue">each </font>specularCoefficient=0);
+<font color="blue">equation </font>
+  
+  frame_a.f =<font color="red"> zeros</font>(3);
+  frame_a.t =<font color="red"> zeros</font>(3);
+  
+<font color="blue">end </font>FixedFrame;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE FixedArrow<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Visualizers.FixedArrowI.png" ALT="Modelica.Mechanics.MultiBody.Visualizers.FixedArrow" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Visualizers.FixedArrow"></A><A HREF="Modelica_Mechanics_MultiBody_Visualizers.html#Modelica.Mechanics.MultiBody.Visualizers"
+>Modelica.Mechanics.MultiBody.Visualizers</A>.FixedArrow</H2>
+<B>Visualizing an arrow with constant size in frame_a</B><p>
+<IMG SRC="Modelica.Mechanics.MultiBody.Visualizers.FixedArrowD.png" ALT="Modelica.Mechanics.MultiBody.Visualizers.FixedArrow">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+Model <b>FixedArrow</b> defines an arrow that is
+shown at the location of its frame_a.
+<br>&nbsp;
+</p>
+<IMG SRC="../Images/MultiBody/Visualizers/Arrow.png" ALT="model Visualizers.FixedArrow">
+<p>
+The direction of the arrow specified with parameter vector
+<b>n</b> is with respect to frame_a, i.e., the local frame to which the
+arrow component is attached. The length of the arrow, its diameter
+and color are defined as parameters.
+If the length of the arrow shall be dynamic, use model
+<b>SignalArrow</b> instead.
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>animation</TD><TD>true</TD><TD>= true, if animation shall be enabled</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=3>if animation = true</TD></TR>
+<TR><TD>r_tail[3]</TD><TD>{0,0,0}</TD><TD> Vector from frame_a to arrow tail, resolved in frame_a [m]</TD></TR>
+<TR><TD>n</TD><TD>{1,0,0}</TD><TD> Vector in arrow direction, resolved in frame_a</TD></TR>
+<TR><TD>length</TD><TD>0.1</TD><TD> Length of complete arrow [m]</TD></TR>
+<TR><TD>diameter</TD><TD>world.defaultArrowDiameter</TD><TD> Diameter of arrow line [m]</TD></TR>
+<TR><TD>color</TD><TD>{0,0,255}</TD><TD> Color of arrow</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> FixedArrow <font color="darkgreen">&quot;Visualizing an arrow with constant size in frame_a&quot;</font> 
+  
+  <font color="blue">import </font>SI = <A HREF="Modelica_SIunits.html#Modelica.SIunits"
+>Modelica.SIunits</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.PartialVisualizer"
+>MultiBody.Interfaces.PartialVisualizer</A>;
+  <font color="blue">parameter </font>Boolean animation=true <font color="darkgreen">&quot;= true, if animation shall be enabled&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> r_tail[       3]={0,0,0} <font color="darkgreen">
+    &quot;|if animation = true| Vector from frame_a to arrow tail, resolved in frame_a&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#Modelica.Mechanics.MultiBody.Types.Axis"
+>MultiBody.Types.Axis</A> n =      {1,0,0} <font color="darkgreen">
+    &quot;|if animation = true| Vector in arrow direction, resolved in frame_a&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> length =      0.1 <font color="darkgreen">
+    &quot;|if animation = true| Length of complete arrow&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>SI.Diameter</A> diameter =      world.defaultArrowDiameter <font color="darkgreen">
+    &quot;|if animation = true| Diameter of arrow line&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#Modelica.Mechanics.MultiBody.Types.Color"
+>MultiBody.Types.Color</A> color =      {0,0,255} <font color="darkgreen">
+    &quot;|if animation = true| Color of arrow&quot;</font>;
+<font color="blue">protected </font>
+  <font color="blue">parameter </font>Integer ndim=<font color="blue">if </font>world.enableAnimation<font color="blue"> and </font>animation<font color="blue"> then </font>1<font color="blue"> else </font>0;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> headLength =<font color="red">      min</font>(length, diameter*Types.Defaults.
+      ArrowHeadLengthFraction);
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> headWidth =      diameter*Types.Defaults.
+      ArrowHeadWidthFraction;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> lineLength =<font color="red">      max</font>(0, length - headLength);
+  <A HREF="Modelica_Mechanics_MultiBody_Visualizers_Advanced.html#Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape"
+>Visualizers.Advanced.Shape</A> arrowLine[
+                                       ndim](
+    <font color="blue">each </font>shapeType=&quot;cylinder&quot;,
+    <font color="blue">each </font>length=lineLength,
+    <font color="blue">each </font>width=diameter,
+    <font color="blue">each </font>height=diameter,
+    <font color="blue">each </font>lengthDirection=n,
+    <font color="blue">each </font>widthDirection={0,1,0},
+    <font color="blue">each </font>color=color,
+    <font color="blue">each </font>r_shape=r_tail,
+    <font color="blue">each </font>r=frame_a.r_0,
+    <font color="blue">each </font>R=frame_a.R);
+  <A HREF="Modelica_Mechanics_MultiBody_Visualizers_Advanced.html#Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape"
+>Visualizers.Advanced.Shape</A> arrowHead[
+                                       ndim](
+    <font color="blue">each </font>shapeType=&quot;cone&quot;,
+    <font color="blue">each </font>length=headLength,
+    <font color="blue">each </font>width=headWidth,
+    <font color="blue">each </font>height=headWidth,
+    <font color="blue">each </font>lengthDirection=n,
+    <font color="blue">each </font>widthDirection={0,1,0},
+    <font color="blue">each </font>color=color,
+    <font color="blue">each </font>r_shape=r_tail +<font color="red"> Frames.normalize</font>(n)*lineLength,
+    <font color="blue">each </font>r=frame_a.r_0,
+    <font color="blue">each </font>R=frame_a.R);
+<font color="blue">equation </font>
+  frame_a.f =<font color="red"> zeros</font>(3);
+  frame_a.t =<font color="red"> zeros</font>(3);
+  
+<font color="blue">end </font>FixedArrow;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SignalArrow<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Visualizers.SignalArrowI.png" ALT="Modelica.Mechanics.MultiBody.Visualizers.SignalArrow" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Visualizers.SignalArrow"></A><A HREF="Modelica_Mechanics_MultiBody_Visualizers.html#Modelica.Mechanics.MultiBody.Visualizers"
+>Modelica.Mechanics.MultiBody.Visualizers</A>.SignalArrow</H2>
+<B>Visualizing an arrow with dynamic size in frame_a based on input signal</B><p>
+<IMG SRC="Modelica.Mechanics.MultiBody.Visualizers.SignalArrowD.png" ALT="Modelica.Mechanics.MultiBody.Visualizers.SignalArrow">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+Model <b>SignalArrow</b> defines an arrow that is dynamically visualized
+at the location where its frame_a is attached. The
+position vector from the tail to the head of the arrow,
+resolved in frame_a, is defined via the signal vector of
+the InPort connector <b>r_head</b> (r_head.signal[1:3]):<br>&nbsp;
+</p>
+<IMG SRC="../Images/MultiBody/Visualizers/Arrow.png" ALT="model Visualizers.SignalArrow">
+<p>
+The tail of the arrow is defined with parameter <b>r_tail</b> 
+with respect to frame_a (vector from the origin of frame_a to the arrow tail).
+</p>
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>animation</TD><TD>true</TD><TD>= true, if animation shall be enabled</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=3>if animation = true</TD></TR>
+<TR><TD>r_tail[3]</TD><TD>{0,0,0}</TD><TD> Vector from frame_a to arrow tail, resolved in frame_a [m]</TD></TR>
+<TR><TD>diameter</TD><TD>world.defaultArrowDiameter</TD><TD> Diameter of arrow line [m]</TD></TR>
+<TR><TD>color</TD><TD>{0,0,255}</TD><TD> Color of arrow</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> SignalArrow <font color="darkgreen">
+  &quot;Visualizing an arrow with dynamic size in frame_a based on input signal&quot;</font> 
+  
+  <font color="blue">import </font>SI = <A HREF="Modelica_SIunits.html#Modelica.SIunits"
+>Modelica.SIunits</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.PartialVisualizer"
+>MultiBody.Interfaces.PartialVisualizer</A>;
+  <font color="blue">parameter </font>Boolean animation=true <font color="darkgreen">&quot;= true, if animation shall be enabled&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> r_tail[       3]={0,0,0} <font color="darkgreen">
+    &quot;|if animation = true| Vector from frame_a to arrow tail, resolved in frame_a&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>SI.Diameter</A> diameter =      world.defaultArrowDiameter <font color="darkgreen">
+    &quot;|if animation = true| Diameter of arrow line&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#Modelica.Mechanics.MultiBody.Types.Color"
+>MultiBody.Types.Color</A> color =      {0,0,255} <font color="darkgreen">
+    &quot;|if animation = true| Color of arrow&quot;</font>;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> r_head[
+                                              3](<font color="blue">redeclare </font><font color="blue">each </font><font color="blue">type</font> SignalType
+      = <A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A>) <font color="darkgreen">
+    &quot;Position vector from origin of frame_a to head of arrow, resolved in frame_a&quot;</font>;
+<font color="blue">protected </font>
+  <font color="blue">parameter </font>Integer ndim=<font color="blue">if </font>world.enableAnimation<font color="blue"> and </font>animation<font color="blue"> then </font>1<font color="blue"> else </font>0;
+  <A HREF="Modelica_Mechanics_MultiBody_Visualizers_Advanced.html#Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow"
+>Visualizers.Advanced.Arrow</A> arrow[
+                                   ndim](
+    <font color="blue">each </font>R=frame_a.R,
+    <font color="blue">each </font>r=frame_a.r_0,
+    <font color="blue">each </font>r_tail=r_tail,
+    <font color="blue">each </font>r_head=r_head,
+    <font color="blue">each </font>diameter=diameter,
+    <font color="blue">each </font>color=color);
+<font color="blue">equation </font>
+  frame_a.f =<font color="red"> zeros</font>(3);
+  frame_a.t =<font color="red"> zeros</font>(3);
+  
+<font color="blue">end </font>SignalArrow;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Jun 30 17:50:27 2004
+.
+</address></BODY>
+</HTML>

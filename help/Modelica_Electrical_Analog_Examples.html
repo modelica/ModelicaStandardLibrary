@@ -40,7 +40,6 @@
 <p>
 This package contains examples for the analog electrical package.
 </p>
-
 <dl>
 <dt>
 <b>Main Authors:</b>
@@ -53,7 +52,6 @@ This package contains examples for the analog electrical package.
     Design Automation Department<br>
     Zeunerstra&szlig;e 38<br>
     D-01069 Dresden<br>
-
 <p>
 <dt>
 <b>Version:</b>
@@ -144,7 +142,6 @@ The simulation end time should be 2e5. Please plot the output voltage Op5.p2.v.
     Design Automation Department<br>
     Zeunerstra&szlig;e 38<br>
     D-01069 Dresden<br>
-
 <p>
 <dt>
 <b>Version:</b>
@@ -573,6 +570,7 @@ IdealThyristor1.v and IdealGTOThyristor1.v <br>
 <H3>Modelica definition</H3>
 <PRE>
 <font color="blue">model</font> CharacteristicThyristors <font color="darkgreen">&quot;Characteristic of ideal thyristors&quot;</font> 
+  
   <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
 >Modelica.Icons.Example</A>;
   
@@ -591,8 +589,8 @@ IdealThyristor1.v and IdealGTOThyristor1.v <br>
   
   <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.BooleanStep"
 >Modelica.Blocks.Sources.BooleanStep</A> BooleanStep1(
-                                                   startValue={false},
-      startTime={1.25});
+                                                   startValue=false,
+      startTime=1.25);
   <A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealGTOThyristor"
 >Modelica.Electrical.Analog.Ideal.IdealGTOThyristor</A> IdealGTOThyristor1(
                        Vknee=0);
@@ -604,12 +602,12 @@ IdealThyristor1.v and IdealGTOThyristor1.v <br>
   <font color="red">connect</font>(IdealThyristor1.n, R3.p);
   <font color="red">connect</font>(Ground1.p, SineVoltage1.n);
   <font color="red">connect</font>(SineVoltage1.p, IdealThyristor1.p);
-  <font color="red">connect</font>(BooleanStep1.outPort, IdealThyristor1.firePort);
+  <font color="red">connect</font>(BooleanStep1.y, IdealThyristor1.fire);
   <font color="red">connect</font>(IdealGTOThyristor1.n, R1.p);
   <font color="red">connect</font>(R3.n, R1.n);
   <font color="red">connect</font>(R1.n, Ground1.p);
   <font color="red">connect</font>(IdealGTOThyristor1.p, IdealThyristor1.p);
-  <font color="red">connect</font>(IdealGTOThyristor1.firePort, IdealThyristor1.firePort);
+  <font color="red">connect</font>(IdealGTOThyristor1.fire, IdealThyristor1.fire);
 <font color="blue">end </font>CharacteristicThyristors;
 </PRE>
 <HR>
@@ -634,7 +632,6 @@ The simulation end time should be set to 5e4. To get the chaotic behaviour pleas
 <dd>
 Kennedy, M.P.: Three Steps to Chaos - Part I: Evolution. IEEE Transactions on CAS I 40 (1993)10, 640-656
 <p>
-
 <dt>
 <b>Main Authors:</b>
 <dd>
@@ -646,7 +643,6 @@ Kennedy, M.P.: Three Steps to Chaos - Part I: Evolution. IEEE Transactions on CA
     Design Automation Department<br>
     Zeunerstra&szlig;e 38<br>
     D-01069 Dresden<br>
-
 <p>
 <dt>
 <b>Version:</b>
@@ -726,7 +722,6 @@ It is a simple NPN transistor amplifier circuit. The voltage difference between 
 <p>
 The simulation end time should be set to 1e- 8. Please plot the input voltage V1.v, and the output voltages R2.n.v, and R4.n.v.
 <p>
-
 <dl>
 <dt>
 <b>Reference:</b>
@@ -744,7 +739,6 @@ Tietze, U.; Schenk, Ch.: Halbleiter-Schaltungstechnik. Springer-Verlag Berlin He
     Design Automation Department<br>
     Zeunerstra&szlig;e 38<br>
     D-01069 Dresden<br>
-
 <p>
 <dt>
 <b>Version:</b>
@@ -884,7 +878,7 @@ Simulate until T=5 s.
 Plot in separate windows:<br> <br>
 Sin.p.v  and  Capacitor1.p.v <br>
 HeatCapacitor1.port.T and H_PMOS.heatPort.T and H_NMOS.heatPort.T<br>
-H_PMOS.heatPort.Q_dot and H_NMOS.heatPort.Q_dot<br>
+H_PMOS.heatPort.Q_flow and H_NMOS.heatPort.Q_flow<br>
 </P>
 <p><b>Release Notes:</b></p>
 <ul>
@@ -973,7 +967,7 @@ Simulate until T=200 s.
 Plot in separate windows:<br> <br>
 V1.v and V2.v and C2.v <br>
 HeatCapacitor1.port.T and T1.heatPort.T and T2.heatPort.T<br>
-T1.heatPort.Q_dot and T2.heatPort.Q_dot<br>
+T1.heatPort.Q_flow and T2.heatPort.Q_flow<br>
 </P>
 <p><b>Release Notes:</b></p>
 <ul>
@@ -1137,7 +1131,7 @@ Simulate until T=5 s.
 Plot in separate windows:<br> <br>
 SineVoltage1.v  and  Capacitor1.p.v <br>
 HeatCapacitor1.port.T and HeatingDiode1.heatPort.T<br>
-HeatingDiode1.heatPort.Q_dot<br>
+HeatingDiode1.heatPort.Q_flow<br>
 </P>
 <p><b>Release Notes:</b></p>
 <ul>
@@ -1207,7 +1201,6 @@ d Nand.x2.v, and the output voltage Nand.y.v.
 <dd>
 Tietze, U.; Schenk, Ch.: Halbleiter-Schaltungstechnik. Springer-Verlag Berlin Heidelberg NewYork 1980, p. 157
 <p>
-
 <dt>
 <b>Main Authors:</b>
 <dd>
@@ -1219,7 +1212,6 @@ Tietze, U.; Schenk, Ch.: Halbleiter-Schaltungstechnik. Springer-Verlag Berlin He
     Design Automation Department<br>
     Zeunerstra&szlig;e 38<br>
     D-01069 Dresden<br>
-
 <p>
 <dt>
 <b>Version:</b>
@@ -1432,7 +1424,7 @@ You may watch Losses (of the whole diode bridge) trying different diode paramete
 >Modelica.Electrical.Analog.Sources.SignalCurrent</A> SignalCurrent1;
   <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
 >Modelica.Blocks.Sources.Constant</A> Constant1(
-                                             k={IDC});
+                                             k=IDC);
 <font color="blue">initial </font><font color="blue">equation </font>
   Capacitor1.v = VAC*<font color="red">sqrt</font>(2)/2;
   Capacitor2.v = VAC*<font color="red">sqrt</font>(2)/2;
@@ -1463,7 +1455,7 @@ You may watch Losses (of the whole diode bridge) trying different diode paramete
   <font color="red">connect</font>(Capacitor2.p, Ground1.p);
   <font color="red">connect</font>(Capacitor1.p, SignalCurrent1.p);
   <font color="red">connect</font>(SignalCurrent1.n, Capacitor2.n);
-  <font color="red">connect</font>(Constant1.outPort, SignalCurrent1.inPort);
+  <font color="red">connect</font>(Constant1.y, SignalCurrent1.i);
   <font color="red">connect</font>(Inductor1.n, IdealDiode1.p);
   <font color="red">connect</font>(Inductor2.n, IdealDiode2.p);
   <font color="red">connect</font>(Inductor3.n, IdealDiode3.p);
@@ -1553,7 +1545,6 @@ sould be compared with R2.
 Simulate until T=1 s.
 </P>
 <P>
-
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>Mai 6, 2004   </i>
@@ -1590,7 +1581,7 @@ Simulate until T=1 s.
 >Modelica.Electrical.Analog.Sources.SineVoltage</A> SineVoltage1;
   <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
 >Modelica.Blocks.Sources.Ramp</A> Ramp1(
-                                     height={5}, offset={2});
+                                     height=5, offset=2);
 <font color="blue">equation </font>
   <font color="red">connect</font>(R1.n, R2.p);
   <font color="red">connect</font>(R2.n, R3.p);
@@ -1601,11 +1592,11 @@ Simulate until T=1 s.
   <font color="red">connect</font>(SineVoltage1.p, Ground1.p);
   <font color="red">connect</font>(SineVoltage1.n, R1.p);
   <font color="red">connect</font>(SineVoltage1.n, R4.p);
-  <font color="red">connect</font>(Ramp1.outPort, VariableResistor.R_Port);
+  <font color="red">connect</font>(Ramp1.y, VariableResistor.R);
 <font color="blue">end </font>ShowVariableResistor;
 </PRE>
 <HR>
-<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Jun 30 17:43:15 2004
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Jun 30 17:49:25 2004
 .
 </address></BODY>
 </HTML>

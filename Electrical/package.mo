@@ -1,10 +1,8 @@
 package Electrical "Library for electrical models"
-
-
 extends Modelica.Icons.Library2;
 
 
-annotation (
+annotation(preferedView="info",
   Documentation(info="<html>
 <p>
 This library contains electrical components to build up analog and digital circuits.
@@ -15,7 +13,7 @@ The library is currently structured in the following sublibraries:
 <li>MultiPhase</li>
 <li>Digital (not available yet)</li>
 </ul>
-
+<p>
 </HTML>
 "),Window(
     x=0.03,

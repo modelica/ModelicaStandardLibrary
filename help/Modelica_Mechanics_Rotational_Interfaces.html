@@ -35,7 +35,6 @@
 This package contains connectors and partial models for 1D rotational mechanical
 components. In particular
 </p>
-
 <pre>
   <b>Flange_a</b>                 Left flange of a component.
   <b>Flange_b</b>                 Right flange of a component.
@@ -51,7 +50,6 @@ components. In particular
   <b>AbsoluteSensor</b>           Base class to measure absolute flange variables.
   <b>RelativeSensor</b>           Base class to measure relative flange variables.
 </pre>
-
 <dl>
 <dt><b>Main Author:</b>
 <dd><a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a><br>
@@ -63,9 +61,7 @@ components. In particular
     email: <A HREF="mailto:Martin.Otter@dlr.de">Martin.Otter@dlr.de</A><br>
 </dl>
 <br>
-
 <p><b>Release Notes:</b></p>
-
 <ul>
 <li><i>October 27, 2003</i>
        by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a> and
@@ -81,11 +77,8 @@ components. In particular
        by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>:<br>
        Realized.</li>
 </ul>
-
 <br>
-
 <p><b>Copyright &copy; 1999-2003, Modelica Association and DLR.</b></p>
-
 <p><i>
 The Modelica package is <b>free</b> software; it can be redistributed and/or modified
 under the terms of the <b>Modelica license</b>, see the license conditions
@@ -146,7 +139,6 @@ This is a 1D rotational component with two rigidly connected flanges,
 i.e., flange_a.phi = flange_b.phi. It is used e.g. to built up components
 with inertia.
 </p>
-
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>June 29, 1999</i>
@@ -154,7 +146,6 @@ with inertia.
        Realized.
 </li>
 </ul>
-
 <pre>
 </PRE>
 <H3>Modelica definition</H3>
@@ -241,12 +232,10 @@ It is used e.g. to build up equation-based parts of a drive train.</p>
 This is a connector for 1D rotational mechanical systems and models
 a mechanical flange. The following variables are defined in this connector:
 </p>
-
 <pre>
    <b>phi</b>: Absolute rotation angle of the flange in [rad].
    <b>tau</b>: Cut-torque in the flange in [Nm].
 </pre>
-
 <p>
 There is a second connector for flanges: Flange_b. The connectors
 Flange_a and Flange_b are completely identical. There is only a difference
@@ -255,17 +244,14 @@ For a discussion on the actual direction of the cut-torque tau and
 of the rotation angle, see the information text of package Rotational
 (section 4. Sign conventions).
 </p>
-
 <p>
 If needed, the absolute angular velocity w and the
 absolute angular acceleration a of the flange can be determined by
 differentiation of the flange angle phi:
 </p>
-
 <pre>
      w = der(phi);    a = der(w)
 </pre>
-
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>Nov. 2, 1999</i>
@@ -301,12 +287,10 @@ differentiation of the flange angle phi:
 This is a connector for 1D rotational mechanical systems and models
 a mechanical flange. The following variables are defined in this connector:
 </p>
-
 <pre>
    <b>phi</b>: Absolute rotation angle of the flange in [rad].
    <b>tau</b>: Cut-torque in the flange in [Nm].
 </pre>
-
 <p>
 There is a second connector for flanges: Flange_a. The connectors
 Flange_a and Flange_b are completely identical. There is only a difference
@@ -315,18 +299,14 @@ For a discussion on the actual direction of the cut-torque tau and
 of the rotation angle, see the information text of package Rotational
 (section 4. Sign conventions).
 </p>
-
 <p>
 If needed, the absolute angular velocity w and the
 absolute angular acceleration a of the flange can be determined by
 differentiation of the flange angle phi:
 </p>
-
 <pre>
      w = der(phi);    a = der(w)
 </pre>
-
-
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>Nov. 2, 1999</i>
@@ -337,7 +317,6 @@ differentiation of the flange angle phi:
        Realized.
 </li>
 </ul>
-
 <pre>
 </PRE>
 <H3>Modelica definition</H3>
@@ -368,7 +347,6 @@ of the two flanges sum-up to zero, i.e., they have the same absolute value
 but opposite sign: flange_a.tau + flange_b.tau = 0. This base class
 is used to built up force elements such as springs, dampers, friction.
 </p>
-
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>June 29, 1999</i>
@@ -376,7 +354,6 @@ is used to built up force elements such as springs, dampers, friction.
        Realized.
 </li>
 </ul>
-
 <pre>
 </PRE>
 <H3>Modelica definition</H3>
@@ -565,7 +542,6 @@ of several base components. There are specialized versions of this
 base class for rigidly connected flanges (Interfaces.Rigid) and
 for a compliant connection of flanges (Interfaces.Compliant).
 </p>
-
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>July 18, 1999</i>
@@ -573,7 +549,6 @@ for a compliant connection of flanges (Interfaces.Compliant).
        Realized.
 </li>
 </ul>
-
 <pre>
 </PRE>
 <H3>Modelica definition</H3>
@@ -637,11 +612,10 @@ It is a superclass for the two components TwoFlangesAndBearing and TwoFlangesAnd
 <PRE></pre>
 <p>
 This is the base class of a 1D rotational component with one flange and one
-output signal in order to measure an absolute kinematic quantity in the flange
+output signal y in order to measure an absolute kinematic quantity in the flange
 and to provide the measured signal as output signal for further processing
 with the blocks of package Modelica.Blocks.
 </p>
-
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>July 18, 1999</i>
@@ -649,7 +623,6 @@ with the blocks of package Modelica.Blocks.
        Realized.
 </li>
 </ul>
-
 <pre>
 </PRE>
 <H3>Modelica definition</H3>
@@ -662,9 +635,8 @@ with the blocks of package Modelica.Blocks.
   <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_a"
 >Flange_a</A> flange_a <font color="darkgreen">
     &quot;(left) flange to be measured (flange axis directed INTO cut plane)&quot;</font>;
-  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.OutPort"
->Modelica.Blocks.Interfaces.OutPort</A> outPort(
-                                             <font color="blue">final </font>n=1);
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> y;
 <font color="blue">end </font>AbsoluteSensor;
 </PRE>
 <HR>
@@ -680,12 +652,11 @@ with the blocks of package Modelica.Blocks.
 <PRE></pre>
 <p>
 This is a base class for 1D rotational components with two rigidly connected
-flanges and one output signal in order to measure relative kinematic quantities
+flanges and one output signal y in order to measure relative kinematic quantities
 between the two flanges or the cut-torque in the flange and
 to provide the measured signal as output signal for further processing
 with the blocks of package Modelica.Blocks.
 </p>
-
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>July 18, 1999</i>
@@ -693,7 +664,6 @@ with the blocks of package Modelica.Blocks.
        Realized.
 </li>
 </ul>
-
 <pre>
 </PRE>
 <H3>Modelica definition</H3>
@@ -710,9 +680,8 @@ with the blocks of package Modelica.Blocks.
   <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_b"
 >Flange_b</A> flange_b <font color="darkgreen">
     &quot;(right) driven flange (flange axis directed OUT OF cut plane)&quot;</font>;
-  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.OutPort"
->Modelica.Blocks.Interfaces.OutPort</A> outPort(
-                                             <font color="blue">final </font>n=1);
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> y;
 <font color="blue">end </font>RelativeSensor;
 </PRE>
 <HR>
@@ -743,7 +712,7 @@ with the blocks of package Modelica.Blocks.
 <font color="blue">end </font>Adapter;
 </PRE>
 <HR>
-<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Jun 30 17:44:03 2004
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Jun 30 17:50:31 2004
 .
 </address></BODY>
 </HTML>

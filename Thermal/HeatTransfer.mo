@@ -4,7 +4,7 @@ package HeatTransfer "1-dimensional heat transfer with lumped elements"
   
   extends Modelica.Icons.Library2;
   
-  annotation( Icon(
+  annotation(preferedView="info", Icon(
       Polygon(points=[-54, -6; -61, -7; -75, -15; -79, -24; -80, -34; -78, -42;
               -73, -49; -64, -51; -57, -51; -47, -50; -41, -43; -38, -35; -40,
             -27; -40, -20; -42, -13; -47, -7; -54, -5; -54, -6], style(color=10,
@@ -37,7 +37,6 @@ the heat capacity of a part, can be determined by measurements
 calculating the lumped element parameters from some basic analytic
 formulas is usually not possible).
 </p>
-
 <p>
 Example models how to use this library are given in subpackage <b>Examples</b>.
 For a first simple example, see Examples.TwoMasses where two masses
@@ -47,22 +46,18 @@ A more realistic example is provided in <b>Examples.Drive</b> where the
 heating of an electrical motor is modelled, see the following screen shot
 of this example:
 </p>
-
 <img src=\"../Images/driveWithHeatTransfer.png\" ALT=\"driveWithHeatTransfer\">
-
 <p>
 The <b>filled</b> and <b>non-filled red squares</b> at the left and
 right side of a component represent <b>thermal ports</b> (connector HeatPort).
 Drawing a line between such squares means that they are thermally connected.
 The variables of a HeatPort connector are the temperature <b>T</b> at the port
-and the heat flow rate <b>Q_dot</b> flowing into the component (if Q_dot is positive,
+and the heat flow rate <b>Q_flow</b> flowing into the component (if Q_flow is positive,
 the heat flows into the element, otherwise it flows out of the element):
 </p>
-
 <pre>   Modelica.SIunits.Temperature  T  \"absolute temperature at port in Kelvin\";
-   Modelica.SIunits.HeatFlowRate Q_dot  \"flow rate at the port in Watt\";
+   Modelica.SIunits.HeatFlowRate Q_flow  \"flow rate at the port in Watt\";
 </pre>
-
 <p>
 Note, that all temperatures of this package, including initial conditions,
 are given in Kelvin. For convenience, in subpackages <b>HeatTransfer.Celsius</b>,
@@ -72,56 +67,46 @@ respectively. Additionally, in package <b>SIunits.Conversions</b> conversion
 functions between the units Kelvin and Celsius, Fahrenheit, Rankine are
 provided. These functions may be used in the following way:
 </p>
-
 <pre>  <b>import</b> SI=Modelica.SIunits;
   <b>import</b> Modelica.SIunits.Conversions.*;
      ...
   <b>parameter</b> SI.Temperature T = from_degC(25);  // convert 25 degree Celsius to Kelvin
 </pre>
-
 <p>
 This package contains the following model components:
 </p>
-
 <pre>   <b>Examples</b>               (subpackage) Examples of library usage.
    <b>Interfaces</b>             (subpackage) Interface definitions.
-
    <b>HeatCapacitor</b>          Lumped thermal element storing heat.
    <b>ThermalConductor</b>       Lumped thermal element transporting heat without
                           storing it.
    <b>Convection</b>             Lumped thermal element for heat convection.
    <b>BodyRadiation</b>          Lumped thermal element for radiation heat transfer
                           between two bodies
-
    <b>FixedTemperature</b>       Fixed temperature boundary condition.
    <b>PrescribedTemperature</b>  Variable temperature boundary condition
    <b>FixedHeatFlow</b>          Fixed heat flow boundary condition.
    <b>PrescribedHeatFlow</b>     Variable heat flow boundary condition.
-
    <b>TemperatureSensor</b>      Absolute temperature sensor.
    <b>RelTemperatureSensor</b>   Relative temperature sensor.
    <b>HeatFlowSensor</b>         Sensor to determine the heat flow rate
                           between two ports.
-
    <b>Celsius</b>                (subpackage) Elements with Celsius interface.
    <b>Fahrenheit</b>             (subpackage) Elements with Fahrenheit interface.
    <b>Rankine</b>                (subpackage) Elements with Rankine interface.
 </pre>
-
 <p>
 There are several other components available, such as AxialConduction (discretized PDE in
 axial direction), which have been temporarily removed from this library. The reason is that
 these components reference material properties, such as thermal conductivity, and currently
 the Modelica design group is discussing a general scheme to describe material properties.
 </p>
-
 <p>
 For technical details in the design of this library, see the following reference:<br>
 <b>Michael Tiller (2001)</b>: <a href=\"http://www.amazon.de\">
 Introduction to Physical Modeling with Modelica</a>.
 Kluwer Academic Publishers Boston.
 </p>
-
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>July 15, 2002</i>
@@ -130,7 +115,6 @@ Kluwer Academic Publishers Boston.
        Implemented.
 </li>
 </ul>
-
 <p>
 <b>Acknowledgements:</b><br>
 Several helpful remarks from the following persons are acknowledged:
@@ -140,9 +124,7 @@ Ludwig Marvan, VA TECH ELIN EBG Elektronik GmbH, Wien, Austria;
 Hans Olsson, Dynasim AB, Sweden;
 Hubertus Tummescheit, Lund Institute of Technology, Lund, Sweden.
 </p>
-
 <p><b>Copyright &copy; 2001-2002, Modelica Association, Michael Tiller and DLR.</b></p>
-
 <p><i>
 The Modelica package is free software; it can be redistributed and/or modified
 under the terms of the Modelica license, see the license conditions
@@ -170,12 +152,12 @@ Modelica in file \"Modelica/package.mo\".
       parameter NonSI.Temperature_degC T_final_degC(fixed=false) 
         "Projected final temperature";
       HeatTransfer.HeatCapacitor mass1(C=15, T(start=from_degC(100))) 
-        annotation( extent=[-100, 20; -40, 80]);
-      HeatTransfer.HeatCapacitor mass2(C=15, T(start=from_degC(0))) annotation(
+        annotation (extent=[-100, 20; -40, 80]);
+      HeatTransfer.HeatCapacitor mass2(C=15, T(start=from_degC(0))) annotation (
          extent=[40, 20; 100, 80]);
-      HeatTransfer.ThermalConductor conduction(G=10) annotation( extent=[-30, -
+      HeatTransfer.ThermalConductor conduction(G=10) annotation (extent=[-30, -
             20; 30, 40]);
-      annotation( Documentation(info="<HTML>
+      annotation (Documentation(info="<HTML>
 <p>
 This example demonstrates the thermal response of two masses connected by
 a conducting element. The two masses have the same heat capacity but different
@@ -194,18 +176,18 @@ Tsensor1.T.signal, Tsensor2.T.signal, T_final_degC
 
 </HTML>
 "));
-      HeatTransfer.Celsius.TemperatureSensor Tsensor1 annotation( extent=[-60,
+      HeatTransfer.Celsius.TemperatureSensor Tsensor1 annotation (extent=[-60,
             -80; -20, -40]);
-      HeatTransfer.Celsius.TemperatureSensor Tsensor2 annotation( extent=[60, -
+      HeatTransfer.Celsius.TemperatureSensor Tsensor2 annotation (extent=[60, -
             80; 20, -40]);
     equation 
-      connect(mass1.port, conduction.port_a) annotation( points=[-70, 20; -70,
-            10; -30, 10], style(color=42));
-      connect(conduction.port_b, mass2.port) annotation( points=[33, 10; 70, 10;
+      connect(mass1.port, conduction.port_a) annotation (points=[-70,20; -70,10;
+            -33,10],      style(color=42));
+      connect(conduction.port_b, mass2.port) annotation (points=[33, 10; 70, 10;
               70, 20], style(color=42));
-      connect(mass1.port, Tsensor1.port) annotation( points=[-70, 20; -70, -60;
-              -62, -60], style(color=42));
-      connect(mass2.port, Tsensor2.port) annotation( points=[70, 20; 70, -60;
+      connect(mass1.port, Tsensor1.port) annotation (points=[-70,20; -70,-60;
+            -60,-60],    style(color=42));
+      connect(mass2.port, Tsensor2.port) annotation (points=[70, 20; 70, -60;
             60, -60], style(color=42));
     initial equation 
       T_final_K = (mass1.port.T*mass1.C + mass2.port.T*mass2.C)/(mass1.C +
@@ -223,7 +205,7 @@ Tsensor1.T.signal, Tsensor2.T.signal, T_final_degC
       
       extends Icons.Example;
       
-      annotation( Documentation(info="<HTML>
+      annotation (Documentation(info="<HTML>
 <p>
 This example contains a simple first order thermal model of
 a frequency inverter. The periodic power losses in the
@@ -231,14 +213,12 @@ frequency inverter are described by two tables.
 \"conductionTable\" describes the convection conduction G
 and \"lossTable\" the generated power loss P_loss dependent
 on the time.</p>
-
 <p>
 The power dissipation to the environment is approximated by
 heat flow through a thermal conductance, partially storage
 of the heat in a heat capacitor and finally by forced
 convection to the environment, defined in the two tables.
 </p>
-
 <p>
 Simulate for 5 s and plot the heat flow rate and the
 temperature in the frequency inverter.
@@ -246,33 +226,34 @@ temperature in the frequency inverter.
 </HTML>
 "));
       Sources.TimeTable conductionTable(table=[0, 0.007; 1, 0.014; 2, 0.007; 3,
-              0.014; 4, 0.007; 5, 0.014]) annotation( extent=[20, 60; 40, 80]);
+              0.014; 4, 0.007; 5, 0.014]) annotation (extent=[20, 60; 40, 80]);
       Sources.TimeTable lossTable(table=[0, 10000; 1, 7000; 2, 10000; 3, 7000;
-            4, 10000; 5, 7000]) annotation( extent=[-100, -20; -80, 0]);
-      HeatTransfer.HeatCapacitor C(C=30000) annotation( extent=[10, 20; 30, 40]);
-      HeatTransfer.Celsius.TemperatureSensor Tsensor annotation( extent=[-10, -
+            4, 10000; 5, 7000]) annotation (extent=[-100, -20; -80, 0]);
+      HeatTransfer.HeatCapacitor C(C=30000) annotation (extent=[10, 20; 30, 40]);
+      HeatTransfer.Celsius.TemperatureSensor Tsensor annotation (extent=[-10, -
             60; 10, -40]);
-      HeatTransfer.ThermalConductor G(G=50) annotation( extent=[-10, -20; 10, 0]);
-      HeatTransfer.Convection convection annotation( extent=[40, -20; 60, 0]);
-      HeatTransfer.PrescribedHeatFlow Q_dot annotation( extent=[-60, -20; -40,
+      HeatTransfer.ThermalConductor G(G=50) annotation (extent=[-10, -20; 10, 0]);
+      HeatTransfer.Convection convection annotation (extent=[40, -20; 60, 0]);
+      HeatTransfer.PrescribedHeatFlow Q_flow annotation (extent=[-60, -20; -40,
             0]);
-      HeatTransfer.Celsius.FixedTemperature environment(T=20) annotation(
+      HeatTransfer.Celsius.FixedTemperature environment(T=20) annotation (
           extent=[80, -20; 100, 0], rotation=180);
     equation 
-      connect(Q_dot.port, G.port_a) annotation( points=[-40, -10; -11, -10],
+      connect(Q_flow.port, G.port_a) annotation (points=[-40, -10; -11, -10],
           style(color=42));
-      connect(Q_dot.port, Tsensor.port) annotation( points=[-40, -10; -20, -10;
+      connect(Q_flow.port, Tsensor.port) annotation (points=[-40, -10; -20, -10;
               -20, -50; -10, -50], style(color=42));
-      connect(G.port_b, convection.solid) annotation( points=[11, -10; 39, -10],
+      connect(G.port_b, convection.solid) annotation (points=[11, -10; 39, -10],
             style(color=42));
-      connect(C.port, G.port_b) annotation( points=[20, 20; 20, -10; 11, -10],
+      connect(C.port, G.port_b) annotation (points=[20, 20; 20, -10; 11, -10],
           style(color=42));
-      connect(environment.port, convection.fluid) annotation( points=[80, -10;
-            61, -10], style(color=42));
-      connect(lossTable.outPort, Q_dot.Q_dot) annotation( points=[-78, -10; -62,
-              -10], style(color=3));
-      connect(conductionTable.outPort, convection.G) annotation( points=[42, 70;
-              50, 70; 50, 2], style(color=3));
+      connect(environment.port, convection.fluid) annotation (points=[79,-10;
+            70,-10; 70,-10; 61,-10],
+                      style(color=42));
+      connect(lossTable.y, Q_flow.Q_flow) annotation (points=[-79,-10; -60,-10],
+                    style(color=3));
+      connect(conductionTable.y, convection.Gc) annotation (points=[41,70; 50,
+            70; 50,0],        style(color=3));
     end FrequencyInverter;
     
     encapsulated model ControlledTemperature 
@@ -290,7 +271,7 @@ temperature in the frequency inverter.
       parameter NonSI.Temperature_degC TAmb=20 "Ambient Temperature";
       parameter NonSI.Temperature_degC TDif=2 "Error in Temperature";
       output NonSI.Temperature_degC TRes "Resulting Temperature";
-      annotation( Documentation(info="<HTML>
+      annotation (Documentation(info="<HTML>
 <P>
 A constant voltage of 10 V is applied to a
 temperature dependent resistor of 10*(1+(T-20C)/(235+20C)) Ohms,
@@ -306,43 +287,43 @@ and rises between t = 2 and 8 seconds linear to 50 degree C.
 An approppriate simulating time would be 10 seconds.
 </P>
 </HTML>
-"));
-      Analog.Basic.Ground Ground1 annotation( extent=[-100, -100; -80, -80]);
-      Analog.Sources.ConstantVoltage ConstantVoltage1(V=10) annotation( extent=
+"), Diagram);
+      Analog.Basic.Ground Ground1 annotation (extent=[-100, -100; -80, -80]);
+      Analog.Sources.ConstantVoltage ConstantVoltage1(V=10) annotation (extent=
             [-100, -60; -80, -40], rotation=-90);
       HeatTransfer.HeatCapacitor HeatCapacitor1(C=1, T(start=from_degC(TAmb))) 
-        annotation( extent=[0, -60; 20, -80]);
+        annotation (extent=[0, -60; 20, -80]);
       Analog.Basic.HeatingResistor HeatingResistor1(
         R_ref=10,
         T_ref=from_degC(20),
-        alpha=1/(235 + 20)) annotation( extent=[-20, -60; -40, -40], rotation=-
+        alpha=1/(235 + 20)) annotation (extent=[-20, -60; -40, -40], rotation=-
             90);
       HeatTransfer.Celsius.FixedTemperature FixedTemperature1(T=TAmb) 
-        annotation( extent=[100, -60; 80, -40]);
-      HeatTransfer.Celsius.TemperatureSensor TemperatureSensor1 annotation(
+        annotation (extent=[100, -60; 80, -40]);
+      HeatTransfer.Celsius.TemperatureSensor TemperatureSensor1 annotation (
           extent=[0, -40; 20, -20], rotation=90);
-      HeatTransfer.ThermalConductor ThermalConductor1(G=0.1) annotation( extent=
+      HeatTransfer.ThermalConductor ThermalConductor1(G=0.1) annotation (extent=
            [40, -60; 60, -40]);
-      SwitchController SwitchController1(bandwidth=TDif) annotation( extent=[-
+      SwitchController SwitchController1(bandwidth=TDif) annotation (extent=[-
             20, -20; -40, 0]);
-      Analog.Ideal.IdealSwitch IdealSwitch1 annotation( extent=[-70, -50; -50,
+      Analog.Ideal.IdealSwitch IdealSwitch1 annotation (extent=[-70, -50; -50,
             -30]);
       Sources.Ramp Ramp1(
-        height={25},
-        duration={6},
-        offset={25},
-        startTime={2}) annotation( extent=[20, 0; 0, 20]);
+        height=25,
+        duration=6,
+        offset=25,
+        startTime=2) annotation (extent=[20, 0; 0, 20]);
       
       encapsulated block SwitchController 
         "On-off controller for use with Modelica.Electrical.Analog.Ideal.IdealSwitch"
         
         
         import Modelica.Blocks;
-        extends Blocks.Interfaces.MI2BooleanMOs(final n=1);
+        extends Blocks.Interfaces.SI2BooleanSO;
         
         parameter Real bandwidth=0.1 "Bandwidth around reference signal";
         
-        annotation( Icon(
+        annotation (Icon(
             Rectangle(extent=[-100, -100; 100, 100], style(color=5, fillColor=7)),
             Text(
               extent=[-90, 80; -30, 60],
@@ -360,48 +341,45 @@ An approppriate simulating time would be 10 seconds.
 the input signal falls below the reference signal minus half of
 the bandwidth and sets the output signal to true when the input
 signal exceeds the reference signal plus half of the bandwidth.</p>
-
 <p>The reference signal is represented by inPort1 and the input
 signal by inPort2.</p>
-
 <p>Note: This component <b>will be removed</b> when package
 ModelicaAdditions.Blocks.Logical is incorporated into the Modelica
 Standard library.</p>
 </html>
 "));
       protected 
-        Real u=inPort2.signal[1] "Input signal";
-        Real uRef=inPort1.signal[1] "Reference input signal";
-        Boolean y=outPort.signal[1] "Output signal";
+        Real u=u2 "Input signal";
+        Real uRef=u1 "Reference input signal";
       equation 
         y = (u > uRef + bandwidth/2) or (pre(y) and not (u < uRef - bandwidth/2));
       end SwitchController;
     equation 
       
-      connect(ConstantVoltage1.n, HeatingResistor1.n) annotation( points=[-90,
+      connect(ConstantVoltage1.n, HeatingResistor1.n) annotation (points=[-90,
             -60; -30, -60], style(color=3));
-      connect(ConstantVoltage1.n, Ground1.p) annotation( points=[-90, -60; -90,
+      connect(ConstantVoltage1.n, Ground1.p) annotation (points=[-90, -60; -90,
               -80], style(color=3));
-      connect(HeatingResistor1.heatPort, ThermalConductor1.port_a) annotation(
-          points=[-20, -50; 38, -50], style(color=42));
-      connect(ThermalConductor1.port_b, FixedTemperature1.port) annotation(
-          points=[61, -50; 80, -50], style(color=42));
-      connect(HeatingResistor1.heatPort, TemperatureSensor1.port) annotation(
+      connect(HeatingResistor1.heatPort, ThermalConductor1.port_a) annotation (
+          points=[-20,-50; 39,-50],   style(color=42));
+      connect(ThermalConductor1.port_b, FixedTemperature1.port) annotation (
+          points=[61,-50; 79,-50],   style(color=42));
+      connect(HeatingResistor1.heatPort, TemperatureSensor1.port) annotation (
           points=[-20, -50; 10, -50; 10, -40], style(color=42));
-      connect(HeatingResistor1.heatPort, HeatCapacitor1.port) annotation(
+      connect(HeatingResistor1.heatPort, HeatCapacitor1.port) annotation (
           points=[-20, -50; 10, -50; 10, -60], style(color=42));
-      connect(TemperatureSensor1.T, SwitchController1.inPort2) annotation(
-          points=[10, -20; 10, -16; -16, -16], style(color=3));
-      connect(ConstantVoltage1.p, IdealSwitch1.p) annotation( points=[-90, -40;
+      connect(TemperatureSensor1.T, SwitchController1.u2) annotation (
+          points=[10,-20; 10,-16; -18,-16],    style(color=3));
+      connect(ConstantVoltage1.p, IdealSwitch1.p) annotation (points=[-90, -40;
               -70, -40], style(color=3));
-      connect(IdealSwitch1.n, HeatingResistor1.p) annotation( points=[-50, -40;
+      connect(IdealSwitch1.n, HeatingResistor1.p) annotation (points=[-50, -40;
               -30, -40], style(color=3));
-      connect(SwitchController1.inPort1, Ramp1.outPort) annotation( points=[-16,
-              -4; -9, -4; -9, 10; -2, 10], style(color=3));
-      connect(SwitchController1.outPort, IdealSwitch1.control) annotation(
-          points=[-42, -10; -60, -10; -60, -34], style(color=5));
+      connect(SwitchController1.u1, Ramp1.y) annotation (points=[-18,-4; -9,-4;
+            -9,10; -1,10],                 style(color=3));
       
       TRes = to_degC(HeatingResistor1.heatPort.T);
+      connect(SwitchController1.y, IdealSwitch1.off) annotation(points=[-41,-10;
+            -60,-10; -60,-34], style(color=5, rgbcolor={255,0,255}));
     end ControlledTemperature;
     
   end Examples;
@@ -412,7 +390,7 @@ Standard library.</p>
     
     partial connector HeatPort "Thermal port for 1-dim. heat transfer" 
       SI.Temperature T "Port temperature";
-      flow SI.HeatFlowRate Q_dot 
+      flow SI.HeatFlowRate Q_flow 
         "Heat flow rate (positive if flowing from outside into the component)";
     end HeatPort;
     
@@ -421,20 +399,18 @@ Standard library.</p>
       
       extends HeatPort;
       
-      annotation(
+      annotation(defaultComponentName=  "port_a",
         Documentation(info="<HTML>
 <p>This connector is used for 1-dimensional heat flow between components.
 The variables in the connector are:</p>
-
-<pre>   T       Temperature in [Kelvin].
-   Q_dot   Heat flow rate in [Watt].
+<pre>   
+   T       Temperature in [Kelvin].
+   Q_flow  Heat flow rate in [Watt].
 </pre>
-
 <p>According to the Modelica sign convention, a <b>positive</b> heat flow
-rate <b>Q_dot</b> is considered to flow <b>into</b> a component. This
+rate <b>Q_flow</b> is considered to flow <b>into</b> a component. This
 convention has to be used whenever this connector is used in a model
 class.</p>
-
 <p>Note, that the two connector classes <b>HeatPort_a</b> and
 <b>HeatPort_b</b> are identical with the only exception of the different
 <b>icon layout</b>.</p></HTML>
@@ -443,9 +419,9 @@ class.</p>
             extent=[-98, 196; 102, 102],
             string="%name",
             style(color=42))),
-        Diagram(Rectangle(extent=[-100, 100; 100, -100], style(color=42,
+        Diagram(Rectangle(extent=[0,50; 100,-50],    style(color=42,
                 fillColor=42)), Text(
-            extent=[-98, 196; 102, 102],
+            extent=[-120,120; 100,60],
             string="%name",
             style(color=42))));
     end HeatPort_a;
@@ -455,26 +431,24 @@ class.</p>
       
       extends HeatPort;
       
-      annotation(
+      annotation(defaultComponentName=  "port_b",
         Documentation(info="<HTML>
 <p>This connector is used for 1-dimensional heat flow between components.
 The variables in the connector are:</p>
-
-<pre>   T       Temperature in [Kelvin].
-   Q_dot   Heat flow rate in [Watt].
+<pre>
+   T       Temperature in [Kelvin].
+   Q_flow  Heat flow rate in [Watt].
 </pre>
-
 <p>According to the Modelica sign convention, a <b>positive</b> heat flow
-rate <b>Q_dot</b> is considered to flow <b>into</b> a component. This
+rate <b>Q_flow</b> is considered to flow <b>into</b> a component. This
 convention has to be used whenever this connector is used in a model
 class.</p>
-
 <p>Note, that the two connector classes <b>HeatPort_a</b> and
 <b>HeatPort_b</b> are identical with the only exception of the different
 <b>icon layout</b>.</p></HTML>
-"),     Diagram(Rectangle(extent=[-100, 100; 100, -100], style(color=42,
+"),     Diagram(Rectangle(extent=[-100,50; 0,-50],    style(color=42,
                 fillColor=7)), Text(
-            extent=[-98, 196; 102, 102],
+            extent=[-100,120; 120,60],
             string="%name",
             style(color=42))),
         Icon(Rectangle(extent=[-100, 100; 100, -100], style(color=42, fillColor=
@@ -488,18 +462,18 @@ class.</p>
       "Partial heat transfer element with two HeatPort connectors that does not store energy"
       
       
-      SI.HeatFlowRate Q_dot "Heat flow rate from port_a -> port_b";
+      SI.HeatFlowRate Q_flow "Heat flow rate from port_a -> port_b";
       SI.Temperature dT "port_a.T - port_b.T";
     public 
-      HeatPort_a port_a annotation( extent=[-120, -10; -100, 10]);
-      HeatPort_b port_b annotation( extent=[100, -10; 120, 10]);
-      annotation( Documentation(info="<HTML>
+      HeatPort_a port_a annotation (extent=[-120,-10; -100,10]);
+      HeatPort_b port_b annotation (extent=[100, -10; 120, 10]);
+      annotation (Documentation(info="<HTML>
 <p>
 This partial model contains the basic connectors and variables to
 allow heat transfer models to be created that <b>do not store energy</b>,
 This model defines and includes equations for the temperature
 drop across the element, <b>dT</b>, and the heat flow rate
-through the element from port_a to port_b, <b>Q_dot</b>.
+through the element from port_a to port_b, <b>Q_flow</b>.
 </p>
 
 <p>
@@ -508,11 +482,12 @@ constitutive equations for many types of heat transfer components.
 </p>
 
 </HTML>
-"), Icon);
+"), Icon,
+        Diagram);
     equation 
       dT = port_a.T - port_b.T;
-      port_a.Q_dot = Q_dot;
-      port_b.Q_dot = -Q_dot;
+      port_a.Q_flow = Q_flow;
+      port_b.Q_flow = -Q_flow;
     end Element1D;
   end Interfaces;
   
@@ -521,7 +496,7 @@ constitutive equations for many types of heat transfer components.
     parameter Boolean steadyStateStart=false 
       "true, if component shall start in steady state";
     SI.Temperature T(start=from_degC(25)) "Temperature of part";
-    annotation(
+    annotation (
       Icon(
         Text(extent=[-129, 121; 131, 70], string="%name"),
         Polygon(points=[0, 65; -20, 61; -40, 55; -52, 41; -58, 33; -68, 23; -72,
@@ -569,7 +544,6 @@ uniform temperature for the entire volume.
 Furthermore, it is assumed that the heat capacity
 is constant (indepedent of temperature).
 </p>
-
 <p>
 The temperature T [Kelvin] of this component is a <b>state</b>.
 A default of T = 25 degree Celsius (= SIunits.Conversions.from_degC(25))
@@ -585,7 +559,6 @@ where one would like to start simulation in a suitable operating
 point without being forced to integrate for a long time to arrive
 at this point.
 </p>
-
 <p>
 Note, that parameter <b>steadyStateStart</b> is not available in
 the parameter menue of the simulation window, because its value
@@ -593,7 +566,6 @@ is utilized during translation to generate quite different
 equations depending on its setting. Therefore, the value of this
 parameter can only be changed before translating the model.
 </p>
-
 <p>
 This component may be used for complicated geometries where
 the heat capacity C is determined my measurements. If the component
@@ -602,12 +574,9 @@ component may be measured or calculated and multiplied with the
 <b>specific heat capacity cp</b> of the component material to
 compute C:
 </p>
-
 <pre>
    C = cp*m.
-
    Typical values for cp at 20 degC in J/(kg.K):
-
       aluminium   896
       concrete    840
       copper      383
@@ -616,14 +585,13 @@ compute C:
       steel       420 ... 500 (V2A)
       wood       2500
 </pre>
-
 </HTML>
 "));
-    Interfaces.HeatPort_a port annotation( extent=[-10, -110; 10, -90],
+    Interfaces.HeatPort_a port annotation (extent=[-10, -110; 10, -90],
         rotation=90);
   equation 
     T = port.T;
-    C*der(T) = port.Q_dot;
+    C*der(T) = port.Q_flow;
     
   initial equation 
     if steadyStateStart then
@@ -637,7 +605,7 @@ compute C:
     parameter SI.ThermalConductance G 
       "Constant thermal conductance of material";
     
-    annotation(
+    annotation (
       Icon(
         Rectangle(extent=[-100, 70; 100, -70], style(
             color=0,
@@ -658,7 +626,7 @@ compute C:
             arrow=1)),
         Text(
           extent=[-26, -10; 27, -39],
-          string="Q_dot",
+          string="Q_flow",
           style(color=41)),
         Text(
           extent=[-80, 50; 80, 20],
@@ -674,27 +642,23 @@ over the range of operations. If the component consists mainly of
 one type of material and a regular geometry, it may be calculated,
 e.g., with one of the following equations:
 </p>
-
 <ul>
 <li><p>
     Conductance for a <b>box</b> geometry under the assumption
     that heat flows along the box length:</p>
     <pre>
     G = k*A/L
-
     k: Thermal conductivity (material constant)
     A: Area of box
     L: Length of box
     </pre>
     </li>
-
 <li><p>
     Conductance for a <b>cylindrical</b> geometry under the assumption
     that heat flows from the inside to the outside radius
     of the cylinder:</p>
     <pre>
     G = 2*pi*k*L/log(r_out/r_in)
-
     pi   : Modelica.Constants.pi
     k    : Thermal conductivity (material constant)
     L    : Length of cylinder
@@ -703,13 +667,10 @@ e.g., with one of the following equations:
     r_in : Inner radius of cylinder
     </pre>
     </li>
-
 </li>
 </ul>
-
 <pre>
     Typical values for k at 20 degC in W/(m.K):
-
       aluminium   220
       concrete      1
       copper      384
@@ -718,18 +679,16 @@ e.g., with one of the following equations:
       steel        45 .. 15 (V2A)
       wood         0.1 ... 0.2
 </pre>
-
 </HTML>
 "));
   equation 
-    Q_dot = G*dT;
+    Q_flow = G*dT;
   end ThermalConductor;
   
   model Convection "Lumped thermal element for heat convection" 
-    SI.ThermalConductance Gc "Convective thermal conductance of element";
-    SI.HeatFlowRate Q_dot "Heat flow rate from solid -> fluid";
+    SI.HeatFlowRate Q_flow "Heat flow rate from solid -> fluid";
     SI.Temperature dT "= solid.T - fluid.T";
-    annotation(
+    annotation (
       Icon(
         Rectangle(extent=[-70, 80; 99, -80], style(color=7, fillColor=7)),
         Rectangle(extent=[-100, 80; -70, -80], style(
@@ -768,59 +727,46 @@ solid geometries and fluid flow over the solid by determining the
 convective thermal conductance Gc by measurements. The basic constitutive
 equation for convection is
 </p>
-
 <pre>
-   Q_dot = Gc*(solid.T - fluid.T);
-
-   Q_dot: Heat flow rate from connector 'solid' (e.g. a plate)
+   Q_flow = Gc*(solid.T - fluid.T);
+   Q_flow: Heat flow rate from connector 'solid' (e.g. a plate)
       to connector 'fluid' (e.g. the surrounding air)
 </pre>
-
 <p>
 Gc = G.signal[1] is an input signal to the component, since Gc is
 nearly never constant in practice. For example, Gc may be a function
 of the speed of a cooling fan. For simple situations,
 Gc may be <i>calculated</i> according to
 </p>
-
 <pre>
    Gc = A*h
-
    A: Convection area (e.g. perimeter*length of a box)
    h: Heat transfer coefficient
 </pre>
-
 <p>
 where the heat transfer coefficient h is calculated
 from properties of the fluid flowing over the solid. Examples:
 </p>
-
 <p>
 <b>Machines cooled by air</b> (empirical, very rough approximation according
 to R. Fischer: Elektrische Maschinen, 10th edition, Hanser-Verlag 1999,
 p. 378):
 </p>
-
 <pre>
     h = 7.8*v^0.78 [W/(m2.K)] (forced convection)
       = 12         [W/(m2.K)] (free convection)
-
     where
       v: Air velocity in [m/s]
 </pre>
-
-
 <p><b>Laminar</b> flow with constant velocity of a fluid along a
 <b>flat plate</b> where the heat flow rate from the plate
-to the fluid (= solid.Q_dot) is kept constant
+to the fluid (= solid.Q_flow) is kept constant
 (according to J.P.Holman: Heat Transfer, 8th edition,
 McGraw-Hill, 1997, p.270):
 </p>
-
 <pre>
    h  = Nu*k/x;
    Nu = 0.453*Re^(1/2)*Pr^(1/3);
-
    where
       h  : Heat transfer coefficient
       Nu : = h*x/k       (Nusselt number)
@@ -832,11 +778,9 @@ McGraw-Hill, 1997, p.270):
       mue: dynamic viscosity of fluid (material constant)
       cp : specific heat capacity of fluid (material constant)
       k  : thermal conductivity of fluid (material constant)
-
    and the equation for h holds, provided
       Re < 5e5 and 0.6 < Pr < 50
 </pre>
-
 </HTML>
 "),   Diagram(
         Rectangle(extent=[-100, 80; -70, -80], style(
@@ -902,27 +846,26 @@ McGraw-Hill, 1997, p.270):
         Line(points=[80, -30; 100, -20], style(color=42, fillColor=45)),
         Text(
           extent=[-35, 42; -5, 20],
-          string="Q_dot",
+          string="Q_flow",
           style(color=41))));
-    Modelica.Blocks.Interfaces.InPort G(final n=1, redeclare type SignalType = 
+    Modelica.Blocks.Interfaces.RealInput Gc(redeclare type SignalType = 
           SI.ThermalConductance) 
       "Signal representing the convective thermal conductance in [W/K]" 
-      annotation( extent=[-20, 80; 20, 120], rotation=270);
-    Interfaces.HeatPort_a solid annotation( extent=[-120, -10; -100, 10]);
-    Interfaces.HeatPort_b fluid annotation( extent=[100, -10; 120, 10]);
+      annotation (extent=[-20, 80; 20, 120], rotation=270);
+    Interfaces.HeatPort_a solid annotation (extent=[-120, -10; -100, 10]);
+    Interfaces.HeatPort_b fluid annotation (extent=[100, -10; 120, 10]);
   equation 
-    Gc = G.signal[1];
     dT = solid.T - fluid.T;
-    solid.Q_dot = Q_dot;
-    fluid.Q_dot = -Q_dot;
-    Q_dot = Gc*dT;
+    solid.Q_flow = Q_flow;
+    fluid.Q_flow = -Q_flow;
+    Q_flow = Gc*dT;
   end Convection;
   
   model BodyRadiation "Lumped thermal element for radiation heat transfer" 
     extends Interfaces.Element1D;
     parameter Real Gr(unit="m2") 
       "Net radiation conductance between two surfaces (see docu)";
-    annotation(
+    annotation (
       Icon(
         Rectangle(extent=[60, 80; 100, -80], style(
             color=0,
@@ -957,27 +900,22 @@ This is a model describing the thermal radiation, i.e., electromagnetic
 radiation emitted between two bodies as a result of their temperatures.
 The following constitutive equation is used:
 </p>
-
 <pre>
-    Q_dot = Gr*sigma*(port_a.T^4 - port_b.T^4);
+    Q_flow = Gr*sigma*(port_a.T^4 - port_b.T^4);
 </pre>
-
 <p>
 where Gr is the radiation conductance and sigma is the Stefan-Boltzmann
 constant (= Modelica.Constants.sigma). Gr may be determined by
 measurements and is assumed to be constant over the range of operations.
 </p>
-
 <p>
 For simple cases, Gr may be analytically computed. The analytical
 equations use epsilon, the emission value of a body which is in the
 range 0..1. Epsilon=1, if the body absorbs all radiation (= black body).
 Epsilon=0, if the body reflects all radiation and does not absorb any.
 </p>
-
 <pre>
    Typical values for epsilon:
-
    aluminium, polished    0.04
    copper, polished       0.04
    gold, polished         0.02
@@ -986,44 +924,31 @@ Epsilon=0, if the body reflects all radiation and does not absorb any.
    silver, polished       0.02
    wood                   0.85..0.9
 </pre>
-
 <p><b>Analytical Equations for Gr</b></p>
-
 <p>
 <b>Small convex object in large enclosure</b>
 (e.g., a hot machine in a room):
 </p>
-
 <pre>
     Gr = e*A
-
     where
        e: Emission value of object (0..1)
        A: Surface area of object where radiation
           heat transfer takes place
 </pre>
-
-
 <p><b>Two parallel plates</b>:</p>
-
 <pre>
     Gr = A/(1/e1 + 1/e2 - 1)
-
     where
        e1: Emission value of plate1 (0..1)
        e2: Emission value of plate2 (0..1)
        A : Area of plate1 (= area of plate2)
 </pre>
-
-
-
 <p><b>Two long cylinders in each other</b>, where radiation takes
 place from the inner to the outer cylinder):
 </p>
-
 <pre>
     Gr = 2*pi*r1*L/(1/e1 + (1/e2 - 1)*(r1/r2))
-
     where
        pi: = Modelica.Constants.pi
        r1: Radius of inner cylinder
@@ -1032,7 +957,6 @@ place from the inner to the outer cylinder):
        e1: Emission value of inner cylinder (0..1)
        e2: Emission value of outer cylinder (0..1)
 </pre>
-
 </HTML>
 "),   Diagram(
         Rectangle(extent=[-100, 80; -66, -80], style(
@@ -1058,13 +982,13 @@ place from the inner to the outer cylinder):
         Line(points=[30, 24; 40, 30], style(color=42, fillColor=45)),
         Line(points=[30, 36; 40, 30], style(color=42, fillColor=45))));
   equation 
-    Q_dot = Gr*Modelica.Constants.sigma*(port_a.T^4 - port_b.T^4);
+    Q_flow = Gr*Modelica.Constants.sigma*(port_a.T^4 - port_b.T^4);
   end BodyRadiation;
   
   model FixedTemperature "Fixed temperature boundary condition in Kelvin" 
     
     parameter SI.Temperature T "Fixed temperature at port";
-    annotation(
+    annotation (
       Icon(
         Text(extent=[-121, 162; 119, 102], string="%name"),
         Text(
@@ -1106,7 +1030,7 @@ i.e., it defines a fixed temperature as a boundary condition.
             color=42,
             fillColor=42,
             fillPattern=1))));
-    Interfaces.HeatPort_b port annotation( extent=[100, -10; 120, 10]);
+    Interfaces.HeatPort_b port annotation (extent=[100, -10; 120, 10]);
   equation 
     port.T = T;
   end FixedTemperature;
@@ -1114,7 +1038,7 @@ i.e., it defines a fixed temperature as a boundary condition.
   model PrescribedTemperature 
     "Variable temperature boundary condition in Kelvin" 
     
-    annotation(
+    annotation (
       Icon(
         Rectangle(extent=[-100, 100; 100, -100], style(
             color=0,
@@ -1134,7 +1058,7 @@ i.e., it defines a fixed temperature as a boundary condition.
       Documentation(info="<HTML>
 <p>
 This model represents a variable temperature boundary condition.
-The temperature in [K] is given as input signal
+The temperature in [K] is given as input signal <b>T</b>
 to the model. The effect is that an instance of this model acts as
 an infinite reservoir able to absorb or generate as much energy
 as required to keep the temperature at the specified value.
@@ -1155,21 +1079,21 @@ as required to keep the temperature at the specified value.
             color=42,
             fillColor=42,
             fillPattern=1))));
-    Interfaces.HeatPort_b port annotation( extent=[100, -10; 120, 10]);
-    Modelica.Blocks.Interfaces.InPort T(final n=1, redeclare type SignalType = 
-          SI.Temperature) annotation( extent=[-140, -20; -100, 20]);
+    Interfaces.HeatPort_b port annotation (extent=[100, -10; 120, 10]);
+    Modelica.Blocks.Interfaces.RealInput T(redeclare type SignalType = 
+          SI.Temperature) annotation (extent=[-140, -20; -100, 20]);
   equation 
-    port.T = T.signal[1];
+    port.T = T;
   end PrescribedTemperature;
   
   model FixedHeatFlow "Fixed heat flow boundary condition" 
-    parameter SI.HeatFlowRate Q_dot "Fixed heat flow rate at port";
-    annotation(
+    parameter SI.HeatFlowRate Q_flow "Fixed heat flow rate at port";
+    annotation (
       Icon(
         Text(extent=[-134, 120; 132, 60], string="%name"),
         Text(
           extent=[-137, -52; 133, -100],
-          string="Q_dot=%Q_dot",
+          string="Q_flow=%Q_flow",
           style(color=0)),
         Line(points=[-100, -20; 48, -20], style(color=42, thickness=2)),
         Line(points=[-100, 20; 46, 20], style(color=42, thickness=2)),
@@ -1185,7 +1109,7 @@ as required to keep the temperature at the specified value.
       Diagram(
         Text(
           extent=[-100, 40; 0, -36],
-          string="Q_dot=const.",
+          string="Q_flow=const.",
           style(color=0)),
         Line(points=[-48, -20; 60, -20], style(color=42, thickness=2)),
         Line(points=[-48, 20; 60, 20], style(color=42, thickness=2)),
@@ -1201,19 +1125,19 @@ as required to keep the temperature at the specified value.
 <p>
 This model allows a specified amount of heat flow rate to be \"injected\"
 into a thermal system at a given port.  The constant amount of heat
-flow rate Q_dot is given as a parameter. The heat flows into the
+flow rate Q_flow is given as a parameter. The heat flows into the
 component to which the component FixedHeatFlow is connected,
-if parameter Q_dot is positive.
+if parameter Q_flow is positive.
 </p>
 </HTML>
 "));
-    Interfaces.HeatPort_b port annotation( extent=[90, -10; 110, 10]);
+    Interfaces.HeatPort_b port annotation (extent=[90, -10; 110, 10]);
   equation 
-    port.Q_dot = -Q_dot;
+    port.Q_flow = -Q_flow;
   end FixedHeatFlow;
   
   model PrescribedHeatFlow "Prescribed heat flow boundary condition" 
-    annotation(
+    annotation (
       Icon(
         Line(points=[-60, -20; 40, -20], style(color=42, thickness=2)),
         Line(points=[-60, 20; 40, 20], style(color=42, thickness=2)),
@@ -1233,7 +1157,7 @@ if parameter Q_dot is positive.
 <p>
 This model allows a specified amount of heat flow rate to be \"injected\"
 into a thermal system at a given port.  The amount of heat
-is given by the input signal into the model. The heat flows into the
+is given by the input signal Q_flow into the model. The heat flows into the
 component to which the component PrescribedHeatFlow is connected,
 if the input signal is positive.
 </p>
@@ -1251,15 +1175,16 @@ if the input signal is positive.
             color=42,
             fillColor=42,
             fillPattern=1))));
-    Modelica.Blocks.Interfaces.InPort Q_dot(final n=1) annotation( extent=[-80,
-            -20; -120, 20], rotation=180);
-    Interfaces.HeatPort_b port annotation( extent=[90, -10; 110, 10]);
+    Modelica.Blocks.Interfaces.RealInput Q_flow(
+           redeclare type SignalType = SI.HeatFlowRate) 
+          annotation (extent=[-80, -20; -120, 20], rotation=180);
+    Interfaces.HeatPort_b port annotation (extent=[90, -10; 110, 10]);
   equation 
-    port.Q_dot = -Q_dot.signal[1];
+    port.Q_flow = -Q_flow;
   end PrescribedHeatFlow;
   
   model TemperatureSensor "Absolute temperature sensor in Kelvin" 
-    annotation(
+    annotation (
       Diagram(
         Ellipse(extent=[-20, -98; 20, -60], style(
             color=0,
@@ -1310,18 +1235,17 @@ sensor model.
 </p>
 </HTML>
 "));
-    Modelica.Blocks.Interfaces.OutPort T(redeclare type SignalType = 
-          SI.Temperature) annotation( extent=[90, -10; 110, 10]);
-    Interfaces.HeatPort_a port annotation( extent=[-110, -10; -90, 10]);
+    Modelica.Blocks.Interfaces.RealOutput T(redeclare type SignalType = 
+          SI.Temperature) annotation (extent=[90, -10; 110, 10]);
+    Interfaces.HeatPort_a port annotation (extent=[-110, -10; -90, 10]);
   equation 
-    T.signal[1] = port.T;
-    port.Q_dot = 0;
-    
+    T = port.T;
+    port.Q_flow = 0;
   end TemperatureSensor;
   
   model RelTemperatureSensor "Relative Temperature sensor" 
     extends Modelica.Icons.TranslationalSensor;
-    annotation(
+    annotation (
       Icon(
         Line(points=[-90, 0; -70, 0; -70, 0], style(color=42)),
         Line(points=[-90, 0; -70, 0; -70, 0], style(color=42)),
@@ -1348,23 +1272,22 @@ the two ports of this component and is provided as output signal in Kelvin.
 </p>
 </HTML>
 "));
-    Interfaces.HeatPort_a port_a annotation( extent=[-110, -10; -90, 10]);
-    Interfaces.HeatPort_b port_b annotation( extent=[90, -10; 110, 10]);
-    Modelica.Blocks.Interfaces.OutPort T_rel(redeclare type SignalType = 
-          SI.Temperature) annotation( extent=[-10, -80; 10, -100], rotation=90);
+    Interfaces.HeatPort_a port_a annotation (extent=[-110, -10; -90, 10]);
+    Interfaces.HeatPort_b port_b annotation (extent=[90, -10; 110, 10]);
+    Modelica.Blocks.Interfaces.RealOutput T_rel(redeclare type SignalType = 
+          SI.Temperature) annotation (extent=[-10, -80; 10, -100], rotation=90);
   equation 
-    T_rel.signal[1] = port_a.T - port_b.T;
-    0 = port_a.Q_dot;
-    0 = port_b.Q_dot;
+    T_rel = port_a.T - port_b.T;
+    0 = port_a.Q_flow;
+    0 = port_b.Q_flow;
   end RelTemperatureSensor;
   
   model HeatFlowSensor "Heat flow rate sensor" 
     extends Modelica.Icons.RotationalSensor;
-    output SI.HeatFlowRate Q_dot "Heat flow rate from port_a to port_b";
-    Modelica.Blocks.Interfaces.OutPort heat(redeclare type SignalType = 
-          SI.HeatFlowRate) "Heat flow from port_a -> port_b" annotation( extent=
+    Modelica.Blocks.Interfaces.RealOutput Q_flow(redeclare type SignalType = 
+          SI.HeatFlowRate) "Heat flow from port_a to port_b" annotation (extent=
          [-10, -110; 10, -90], rotation=270);
-    annotation(
+    annotation (
       Diagram(
         Line(points=[-70, 0; -95, 0], style(color=42)),
         Line(points=[0, -70; 0, -90]),
@@ -1372,7 +1295,7 @@ the two ports of this component and is provided as output signal in Kelvin.
       Icon(
         Text(
           extent=[33, -58; 88, -116],
-          string="Q_dot",
+          string="Q_flow",
           style(color=0)),
         Line(points=[-70, 0; -90, 0], style(color=42)),
         Line(points=[69, 0; 90, 0], style(color=42)),
@@ -1390,13 +1313,12 @@ to port_b.
 </p>
 </HTML>
 "));
-    Interfaces.HeatPort_a port_a annotation( extent=[-110, -10; -90, 10]);
-    Interfaces.HeatPort_b port_b annotation( extent=[90, -10; 110, 10]);
+    Interfaces.HeatPort_a port_a annotation (extent=[-110, -10; -90, 10]);
+    Interfaces.HeatPort_b port_b annotation (extent=[90, -10; 110, 10]);
   equation 
     port_a.T = port_b.T;
-    port_a.Q_dot + port_b.Q_dot = 0;
-    Q_dot = port_a.Q_dot;
-    heat.signal[1] = Q_dot;
+    port_a.Q_flow + port_b.Q_flow = 0;
+    Q_flow = port_a.Q_flow;
   end HeatFlowSensor;
   
   package Celsius "Components with Celsius input and/or output" 
@@ -1404,8 +1326,7 @@ to port_b.
     extends Modelica.Icons.Library;
     
     model ToKelvin "Conversion block from °Celsius to Kelvin" 
-      parameter Integer n=1 "Number of inputs (= number of outputs)";
-      annotation(
+      annotation (
         Diagram(
           Ellipse(extent=[-40, 40; 40, -40], style(
               color=0,
@@ -1439,22 +1360,26 @@ to port_b.
           Text(extent=[-137, 99; 132, 49], string="%name")),
         Documentation(info="<HTML>
 <p>
-This component converts all input signals from Celsius to Kelvin
-and provides them as output signals.
+This component converts an input signal from Celsius to Kelvin
+and provide is as output signal.
 </p>
 </HTML>
 "));
-      Modelica.Blocks.Interfaces.InPort Celsius(final n=n) annotation( extent=[
+      Modelica.Blocks.Interfaces.RealInput Celsius(
+         redeclare type SignalType = 
+            Modelica.SIunits.Conversions.NonSIunits.Temperature_degC) 
+         annotation (extent=[
             -140, -20; -100, 20]);
-      Modelica.Blocks.Interfaces.OutPort Kelvin(final n=n) annotation( extent=[
+      Modelica.Blocks.Interfaces.RealOutput Kelvin(
+         redeclare type SignalType = Modelica.SIunits.Temperature) 
+        annotation (extent=[
             100, -10; 120, 10]);
     equation 
-      Kelvin.signal = from_degC(Celsius.signal);
+      Kelvin = from_degC(Celsius);
     end ToKelvin;
     
     model FromKelvin "Conversion from Kelvin to °Celsius" 
-      parameter Integer n=1 "Number of inputs (= number of outputs)";
-      annotation(
+      annotation (
         Icon(
           Text(extent=[-137, 99; 132, 49], string="%name"),
           Ellipse(extent=[-40, 40; 40, -40], style(
@@ -1488,23 +1413,28 @@ and provides them as output signals.
           Line(points=[40, 0; 100, 0])),
         Documentation(info="<HTML>
 <p>
-This component converts all input signals from Kelvin to Celsius
-and provides them as output signals.
+This component converts an input signal from Kelvin to Celsius
+and provides is as output signal.
 </p>
 </HTML>
 "));
-      Modelica.Blocks.Interfaces.InPort Kelvin(final n=n) annotation( extent=[-
+      Modelica.Blocks.Interfaces.RealInput Kelvin(
+         redeclare type SignalType = Modelica.SIunits.Temperature) 
+        annotation (extent=[-
             140, -20; -100, 20]);
-      Modelica.Blocks.Interfaces.OutPort Celsius(final n=n) annotation( extent=
+      Modelica.Blocks.Interfaces.RealOutput Celsius(
+         redeclare type SignalType = 
+            Modelica.SIunits.Conversions.NonSIunits.Temperature_degC) 
+        annotation (extent=
             [100, -10; 120, 10]);
     equation 
-      Celsius.signal = to_degC(Kelvin.signal);
+      Celsius = to_degC(Kelvin);
     end FromKelvin;
     
     model FixedTemperature 
       "Fixed temperature boundary condition in degree Celsius" 
       parameter NonSI.Temperature_degC T "Fixed Temperature at the port";
-      annotation(
+      annotation (
         Icon(
           Text(extent=[-118, 165; 122, 105], string="%name"),
           Rectangle(extent=[-100, 100; 100, -100], style(
@@ -1546,7 +1476,7 @@ i.e., it defines a fixed temperature as a boundary condition.
               color=42,
               fillColor=42,
               fillPattern=1))));
-      Interfaces.HeatPort_b port annotation( extent=[100, -10; 120, 10]);
+      Interfaces.HeatPort_b port annotation (extent=[100, -10; 120, 10]);
     equation 
       port.T = from_degC(T);
     end FixedTemperature;
@@ -1554,7 +1484,7 @@ i.e., it defines a fixed temperature as a boundary condition.
     model PrescribedTemperature 
       "Variable temperature boundary condition in °Celsius" 
       
-      annotation(
+      annotation (
         Icon(
           Rectangle(extent=[-100, 100; 100, -100], style(
               color=0,
@@ -1600,20 +1530,22 @@ as required to keep the temperature at the specified value.
               color=42,
               fillColor=42,
               fillPattern=1))));
-      Interfaces.HeatPort_b port annotation( extent=[100, -10; 120, 10]);
-      Modelica.Blocks.Interfaces.InPort T(final n=1) annotation( extent=[-140,
+      Interfaces.HeatPort_b port annotation (extent=[100, -10; 120, 10]);
+      Modelica.Blocks.Interfaces.RealInput T(
+         redeclare type SignalType = 
+            Modelica.SIunits.Conversions.NonSIunits.Temperature_degC) 
+                                                                   annotation (extent=[-140,
             -20; -100, 20]);
     equation 
-      port.T = from_degC(T.signal[1]);
+      port.T = from_degC(T);
     end PrescribedTemperature;
     
-    annotation( Documentation(info="<HTML>
+    annotation (Documentation(info="<HTML>
 <p>
 The components of this package are provided for the convenience of
 people working mostly with Celsius units, since all models
 in package HeatTransfer are based on Kelvin units.
 </p>
-
 <p>
 Note, that in package SIunits.Conversions, functions are provided
 to convert between the units Kelvin, degree Celsius, degree Fahrenheit,
@@ -1621,17 +1553,15 @@ and degree Rankine. These functions allow, e.g., a direct conversion
 of units at all places where Kelvin is required as parameter.
 Example:
 </p>
-
 <pre>
     <b>import</b> SIunits.Conversions.*;
     Modelica.Thermal.HeatTransfer.HeatCapacitor C(T0 = from_degC(20));
 </pre>
-
 </HTML>
 "));
     model TemperatureSensor "Absolute temperature sensor in °Celsius" 
       
-      annotation(
+      annotation (
         Diagram(
           Ellipse(extent=[-20, -98; 20, -60], style(
               color=0,
@@ -1672,7 +1602,6 @@ Example:
             style(color=0)),
           Text(extent=[-132, 144; 108, 84], string="%name")),
         Documentation(info="<HTML>
-
 <p>
 This is an ideal absolute temperature sensor which returns
 the temperature of the connected port in Celsius as an output
@@ -1683,12 +1612,12 @@ sensor model.
 </p>
 </HTML>
 "));
-      Modelica.Blocks.Interfaces.OutPort T(redeclare type SignalType = 
-            NonSI.Temperature_degC) annotation( extent=[90, -10; 110, 10]);
-      Interfaces.HeatPort_a port annotation( extent=[-110, -10; -90, 10]);
+      Modelica.Blocks.Interfaces.RealOutput T(redeclare type SignalType = 
+            NonSI.Temperature_degC) annotation (extent=[90, -10; 110, 10]);
+      Interfaces.HeatPort_a port annotation (extent=[-110, -10; -90, 10]);
     equation 
-      T.signal[1] = to_degC(port.T);
-      port.Q_dot = 0;
+      T = to_degC(port.T);
+      port.Q_flow = 0;
     end TemperatureSensor;
   end Celsius;
   
@@ -1697,8 +1626,7 @@ sensor model.
     extends Modelica.Icons.Library;
     
     model ToKelvin "Conversion block from °Fahrenheit to Kelvin" 
-      parameter Integer n=1 "Number of inputs (= number of outputs)";
-      annotation(
+      annotation (
         Diagram(
           Ellipse(extent=[-40, 40; 40, -40], style(
               color=0,
@@ -1732,22 +1660,25 @@ sensor model.
           Text(extent=[-137, 99; 132, 49], string="%name")),
         Documentation(info="<HTML>
 <p>
-This component converts all input signals from degree Fahrenheit to Kelvin
-and provides them as output signals.
+This component converts a input signal from degree Fahrenheit to Kelvin
+and provides is as output signal.
 </p>
 </HTML>
 "));
-      Modelica.Blocks.Interfaces.InPort Fahrenheit(final n=n) annotation(
+      Modelica.Blocks.Interfaces.RealInput Fahrenheit(
+         redeclare type SignalType = 
+            Modelica.SIunits.Conversions.NonSIunits.Temperature_degF) annotation (
           extent=[-140, -20; -100, 20]);
-      Modelica.Blocks.Interfaces.OutPort Kelvin(final n=n) annotation( extent=[
-            100, -10; 120, 10]);
+      Modelica.Blocks.Interfaces.RealOutput Kelvin(
+         redeclare type SignalType = Modelica.SIunits.Temperature) 
+          annotation (extent=[100, -10; 120, 10]);
     equation 
-      Kelvin.signal = from_degF(Fahrenheit.signal);
+      Kelvin = from_degF(Fahrenheit);
     end ToKelvin;
     
     model FromKelvin "Conversion from Kelvin to °Fahrenheit" 
       parameter Integer n=1 "Number of inputs (= number of outputs)";
-      annotation(
+      annotation (
         Icon(
           Text(extent=[-137, 99; 132, 49], string="%name"),
           Ellipse(extent=[-40, 40; 40, -40], style(
@@ -1786,18 +1717,23 @@ and provides them as output signals.
 </p>
 </HTML>
 "));
-      Modelica.Blocks.Interfaces.InPort Kelvin(final n=n) annotation( extent=[-
+      Modelica.Blocks.Interfaces.RealInput Kelvin(
+         redeclare type SignalType = Modelica.SIunits.Temperature) 
+        annotation (extent=[-
             140, -20; -100, 20]);
-      Modelica.Blocks.Interfaces.OutPort Fahrenheit(final n=n) annotation(
+      Modelica.Blocks.Interfaces.RealOutput Fahrenheit(
+         redeclare type SignalType = 
+            Modelica.SIunits.Conversions.NonSIunits.Temperature_degF) 
+     annotation (
           extent=[100, -10; 120, 10]);
     equation 
-      Fahrenheit.signal = to_degF(Kelvin.signal);
+      Fahrenheit = to_degF(Kelvin);
     end FromKelvin;
     
     model FixedTemperature 
       "Fixed temperature boundary condition in °Fahrenheit" 
       parameter NonSI.Temperature_degF T "Fixed Temperature at the port";
-      annotation(
+      annotation (
         Icon(
           Text(extent=[-118, 165; 122, 105], string="%name"),
           Rectangle(extent=[-100, 100; 100, -100], style(
@@ -1839,7 +1775,7 @@ i.e., it defines a fixed temperature as a boundary condition.
               color=42,
               fillColor=42,
               fillPattern=1))));
-      Interfaces.HeatPort_b port annotation( extent=[100, -10; 120, 10]);
+      Interfaces.HeatPort_b port annotation (extent=[100, -10; 120, 10]);
     equation 
       port.T = from_degF(T);
     end FixedTemperature;
@@ -1847,7 +1783,7 @@ i.e., it defines a fixed temperature as a boundary condition.
     model PrescribedTemperature 
       "Variable temperature boundary condition in °Fahrenheit" 
       
-      annotation(
+      annotation (
         Icon(
           Rectangle(extent=[-100, 100; 100, -100], style(
               color=0,
@@ -1893,20 +1829,22 @@ as required to keep the temperature at the specified value.
               color=42,
               fillColor=42,
               fillPattern=1))));
-      Interfaces.HeatPort_b port annotation( extent=[100, -10; 120, 10]);
-      Modelica.Blocks.Interfaces.InPort T(final n=1) annotation( extent=[-140,
+      Interfaces.HeatPort_b port annotation (extent=[100, -10; 120, 10]);
+      Modelica.Blocks.Interfaces.RealInput T(
+         redeclare type SignalType = 
+            Modelica.SIunits.Conversions.NonSIunits.Temperature_degF) 
+        annotation (extent=[-140,
             -20; -100, 20]);
     equation 
-      port.T = from_degF(T.signal[1]);
+      port.T = from_degF(T);
     end PrescribedTemperature;
     
-    annotation( Documentation(info="<HTML>
+    annotation (Documentation(info="<HTML>
 <p>
 The components of this package are provided for the convenience of
 people working mostly with Fahrenheit units, since all models
 in package HeatTransfer are based on Kelvin units.
 </p>
-
 <p>
 Note, that in package SIunits.Conversions, functions are provided
 to convert between the units Kelvin, degree Celsius, degree Fahrenheit
@@ -1914,17 +1852,15 @@ and degree Rankine. These functions allow, e.g., a direct conversion
 of units at all places where Kelvin is required as parameter.
 Example:
 </p>
-
 <pre>
     <b>import</b> SIunits.Conversions.*;
     Modelica.Thermal.HeatTransfer.HeatCapacitor C(T0 = from_degF(70));
 </pre>
-
 </HTML>
 "));
     model TemperatureSensor "Absolute temperature sensor in °Fahrenheit" 
       
-      annotation(
+      annotation (
         Diagram(
           Ellipse(extent=[-20, -98; 20, -60], style(
               color=0,
@@ -1965,7 +1901,6 @@ Example:
             style(color=0)),
           Text(extent=[-132, 144; 108, 84], string="%name")),
         Documentation(info="<HTML>
-
 <p>
 This is an ideal absolute temperature sensor which returns
 the temperature of the connected port in Fahrenheit as an output
@@ -1976,12 +1911,12 @@ sensor model.
 </p>
 </HTML>
 "));
-      Modelica.Blocks.Interfaces.OutPort T(redeclare type SignalType = 
-            NonSI.Temperature_degF) annotation( extent=[90, -10; 110, 10]);
-      Interfaces.HeatPort_a port annotation( extent=[-110, -10; -90, 10]);
+      Modelica.Blocks.Interfaces.RealOutput T(redeclare type SignalType = 
+            NonSI.Temperature_degF) annotation (extent=[90, -10; 110, 10]);
+      Interfaces.HeatPort_a port annotation (extent=[-110, -10; -90, 10]);
     equation 
-      T.signal[1] = to_degF(port.T);
-      port.Q_dot = 0;
+      T = to_degF(port.T);
+      port.Q_flow = 0;
     end TemperatureSensor;
   end Fahrenheit;
   
@@ -1991,7 +1926,7 @@ sensor model.
     
     model ToKelvin "Conversion block from °Rankine to Kelvin" 
       parameter Integer n=1 "Number of inputs (= number of outputs)";
-      annotation(
+      annotation (
         Diagram(
           Ellipse(extent=[-40, 40; 40, -40], style(
               color=0,
@@ -2030,17 +1965,22 @@ and provides them as output signals.
 </p>
 </HTML>
 "));
-      Modelica.Blocks.Interfaces.InPort Rankine(final n=n) annotation( extent=[-
+      Modelica.Blocks.Interfaces.RealInput Rankine(
+         redeclare type SignalType = 
+            Modelica.SIunits.Conversions.NonSIunits.Temperature_degRk) 
+       annotation (extent=[-
             140, -20; -100, 20]);
-      Modelica.Blocks.Interfaces.OutPort Kelvin(final n=n) annotation( extent=[
+      Modelica.Blocks.Interfaces.RealOutput Kelvin(
+         redeclare type SignalType = Modelica.SIunits.Temperature) 
+        annotation (extent=[
             100, -10; 120, 10]);
     equation 
-      Kelvin.signal = from_degRk(Rankine.signal);
+      Kelvin = from_degRk(Rankine);
     end ToKelvin;
     
     model FromKelvin "Conversion from Kelvin to °Rankine" 
       parameter Integer n=1 "Number of inputs (= number of outputs)";
-      annotation(
+      annotation (
         Icon(
           Text(extent=[-137, 99; 132, 49], string="%name"),
           Ellipse(extent=[-40, 40; 40, -40], style(
@@ -2079,18 +2019,23 @@ and provides them as output signals.
 </p>
 </HTML>
 "));
-      Modelica.Blocks.Interfaces.InPort Kelvin(final n=n) annotation( extent=[-
+      Modelica.Blocks.Interfaces.RealInput Kelvin(
+         redeclare type SignalType = Modelica.SIunits.Temperature) 
+        annotation (extent=[-
             140, -20; -100, 20]);
-      Modelica.Blocks.Interfaces.OutPort Rankine(final n=n) annotation( extent=[
+      Modelica.Blocks.Interfaces.RealOutput Rankine(
+         redeclare type SignalType = 
+            Modelica.SIunits.Conversions.NonSIunits.Temperature_degRk) 
+         annotation (extent=[
             100, -10; 120, 10]);
     equation 
-      Rankine.signal = to_degRk(Kelvin.signal);
+      Rankine = to_degRk(Kelvin);
     end FromKelvin;
     
     model FixedTemperature "Fixed temperature boundary condition in °Rankine" 
       
       parameter NonSI.Temperature_degRk T "Fixed Temperature at the port";
-      annotation(
+      annotation (
         Icon(
           Text(extent=[-118, 165; 122, 105], string="%name"),
           Rectangle(extent=[-100, 100; 100, -100], style(
@@ -2132,7 +2077,7 @@ This model defines a fixed temperature T at its port in degree Rankine,
               color=42,
               fillColor=42,
               fillPattern=1))));
-      Interfaces.HeatPort_b port annotation( extent=[100, -10; 120, 10]);
+      Interfaces.HeatPort_b port annotation (extent=[100, -10; 120, 10]);
     equation 
       port.T = from_degRk(T);
     end FixedTemperature;
@@ -2140,7 +2085,7 @@ This model defines a fixed temperature T at its port in degree Rankine,
     model PrescribedTemperature 
       "Variable temperature boundary condition in °Rankine" 
       
-      annotation(
+      annotation (
         Icon(
           Rectangle(extent=[-100, 100; 100, -100], style(
               color=0,
@@ -2186,13 +2131,16 @@ as required to keep the temperature at the specified value.
               color=42,
               fillColor=42,
               fillPattern=1))));
-      Interfaces.HeatPort_b port annotation( extent=[100, -10; 120, 10]);
-      Modelica.Blocks.Interfaces.InPort T(final n=1) annotation( extent=[-140,
+      Interfaces.HeatPort_b port annotation (extent=[100, -10; 120, 10]);
+      Modelica.Blocks.Interfaces.RealInput T(
+         redeclare type SignalType = 
+            Modelica.SIunits.Conversions.NonSIunits.Temperature_degRk) 
+         annotation (extent=[-140,
             -20; -100, 20]);
     equation 
-      port.T = from_degRk(T.signal[1]);
+      port.T = from_degRk(T);
     end PrescribedTemperature;
-    annotation( Documentation(info="<HTML>
+    annotation (Documentation(info="<HTML>
 <p>
 The components of this package are provided for the convenience of
 people working mostly with Rankine units, since all models
@@ -2216,7 +2164,7 @@ Example:
 "));
     model TemperatureSensor "Absolute temperature sensor in °Rankine" 
       
-      annotation(
+      annotation (
         Diagram(
           Ellipse(extent=[-20, -98; 20, -60], style(
               color=0,
@@ -2257,7 +2205,6 @@ Example:
             style(color=0)),
           Text(extent=[-132, 144; 108, 84], string="%name")),
         Documentation(info="<HTML>
-
 <p>
 This is an ideal absolute temperature sensor which returns
 the temperature of the connected port in Rankine as an output
@@ -2268,12 +2215,12 @@ sensor model.
 </p>
 </HTML>
 "));
-      Modelica.Blocks.Interfaces.OutPort T(redeclare type SignalType = 
-            NonSI.Temperature_degRk) annotation( extent=[90, -10; 110, 10]);
-      Interfaces.HeatPort_a port annotation( extent=[-110, -10; -90, 10]);
+      Modelica.Blocks.Interfaces.RealOutput T(redeclare type SignalType = 
+            NonSI.Temperature_degRk) annotation (extent=[90, -10; 110, 10]);
+      Interfaces.HeatPort_a port annotation (extent=[-110, -10; -90, 10]);
     equation 
-      T.signal[1] = to_degRk(port.T);
-      port.Q_dot = 0;
+      T = to_degRk(port.T);
+      port.Q_flow = 0;
     end TemperatureSensor;
   end Rankine;
 end HeatTransfer;

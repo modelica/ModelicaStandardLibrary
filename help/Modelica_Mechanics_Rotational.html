@@ -65,9 +65,7 @@
 <P><P>
 <H3>Information</H3>
 <PRE></pre>
-
 <h4>Content</h4>
-
 <ol>
   <li>Overview of library Modelica.Mechanics.Rotational</li>
   <li>Components of the library</li>
@@ -77,9 +75,7 @@
   <li>Requirements for simulation tools</li>
   <li>Support torque</li>
 </ol>
-
 <h4>1. Overview of library Modelica.Mechanics.Rotational</h4>
-
 <p>
 This package contains components to model <b>1-dimensional rotational
 mechanical</b> systems, including different types of gearboxes,
@@ -90,7 +86,6 @@ angular acceleration and the cut-torque of a flange. In sublibrary
 the elements. Just open the corresponding example model and simulate
 the model according to the provided description.
 </p>
-
 <p>
 A unique feature of this library is the <b>component-oriented</b>
 modeling of <b>Coulomb friction</b> elements, such as friction in bearings,
@@ -105,9 +100,7 @@ systems are available in the simulation tool, the simulation of
 (dynamically) coupled friction elements of this library is
 <b>efficient</b> and <b>reliable</b>.
 </p>
-
 <p><IMG SRC="../Images/drive1.png" ALT="drive1"></p>
-
 <p>
 A simple example of the usage of this library is given in the
 figure above. This drive consists of a shaft with inertia J1=0.2 which
@@ -129,22 +122,17 @@ to distinguish them for easier access of the connector variables.
 For example, <tt>J1.flange_a.tau</tt> is the cut-torque in the connector
 <tt>flange_a</tt> of component <tt>J1</tt>.
 </p>
-
 <p>
 The components of this
 library can be <b>connected</b> together in an <b>arbitrary</b> way. E.g., it is
 possible to connect two springs or two shafts with inertia directly
 together, see figure below.
 </p>
-
 <p><IMG SRC="../Images/driveConnections.png" ALT="driveConnections"></p>
-
 <h4>2. Components of the library</h4>
-
 <p>
 This package contains the following model components:
 </p>
-
 <table BORDER=1 CELLSPACING=0 CELLPADDING=2>
 <tr><th>Name</th><th>Description</th></tr>
 <tr><td><tt><b>Examples</b></tt></td><td>Sublibrary containing example models.</td></tr>
@@ -173,9 +161,7 @@ This package contains the following model components:
 <tr><td><tt><b>RelativeStates</b></tt></td><td>Definition of relative state variables</td></tr>
 <tr><td><tt><b>Sensors</b></tt></td><td>Sublibrary containing ideal sensors to measure flange variables.</td></tr>
 </table>
-
 <h4>3. Flange connectors</h4>
-
 <p>
 A flange is described by the connector class
 Interfaces.<b>Flange_a</b>
@@ -184,25 +170,19 @@ classes are completely identical. There is only a difference in the icons,
 in order to easier identify a flange variable in a diagram.
 Both connector classes contain the following variables:
 </p>
-
 <pre>
    SIunits.Angle       phi  "absolute rotation angle of flange";
    <b>flow</b> SIunits.Torque tau  "cut-torque in the flange";
 </pre>
-
 <p>
 If needed, the angular velocity <tt>w</tt> and the
 angular acceleration <tt>a</tt> of a flange connector can be
 determined by differentiation of the flange angle <tt>phi</tt>:
 </p>
-
 <pre>
      w = <b>der</b>(phi);    a = <b>der</b>(w);
-
 </pre>
-
 <h4>4. Sign conventions</h4>
-
 <p>
 The variables of a component of this library can be accessed in the
 usual way. However, since most of these variables are basically elements
@@ -210,9 +190,7 @@ of <b>vectors</b>, i.e., have a direction, the question arises how the
 signs of variables shall be interpreted. The basic idea is explained
 at hand of the following figure:
 </p>
-
 <p><IMG SRC="../Images/drive2.png" ALT="drive2"></p>
-
 <p>
 In the figure, three identical drive trains are shown. The only
 difference is that the gear of the middle drive train and the
@@ -232,9 +210,7 @@ of the axis of rotation. In the following figure, the right-most
 inertias of the figure above are displayed with the positive
 vector direction displayed according to this rule:
 </p>
-
 <p><IMG SRC="../Images/drive3.png" ALT="drive3"></p>
-
 <p>
 The cut-torques <tt>J2.flange_a.tau, J4.flange_a.tau, J6.flange_b.tau</tt>
 of the right inertias are all identical and are directed into the
@@ -244,9 +220,7 @@ are all identical and are also directed into the
 direction of rotation if the values are positive. Some special
 cases are shown in the next figure:
 </p>
-
 <p><IMG SRC="../Images/drive4.png" ALT="drive4"></p>
-
 <p>
 In the upper part of the figure, two variants of the connection of an
 external torque and an inertia are shown. In both cases, a positive
@@ -261,9 +235,7 @@ the axis direction determines the positive rotation along these
 flanges. As a result, the positive rotation for <tt>inertia4, inertia6</tt>
 is as indicated with the additional grey arrows.
 </p>
-
 <h4>5. User-defined components</h4>
-
 <p>
 In this section some hints are given to define your own
 1-dimensional rotational components which are compatible with the
@@ -272,7 +244,6 @@ It is convenient to define a new
 component by inheritance from one of the following base classes,
 which are defined in sublibrary Interfaces:
 </p>
-
 <table BORDER=1 CELLSPACING=0 CELLPADDING=2>
 <tr><th>Name</th><th>Description</th></tr>
 <tr><td><tt><b>Rigid</b></tt></td><td>Rigid connection of two rotational 1D flanges (used for elements with inertia).</td></tr>
@@ -281,7 +252,6 @@ which are defined in sublibrary Interfaces:
 <tr><td><tt><b>AbsoluteSensor</b></tt></td><td>Measure absolute flange variables.</td></tr>
 <tr><td><tt><b>RelativeSensor</b></tt></td><td>Measure relative flange variables.</td></tr>
 </table>
-
 <p>
 The difference between these base classes are the auxiliary
 variables defined in the model and the relations between
@@ -291,7 +261,6 @@ flange_b are rigidly connected, i.e., flange_a.phi = flange_b.phi,
 whereas in model <b>Compliant</b> the cut-torques are the
 same, i.e., flange_a.tau + flange_b.tau = 0.
 </p>
-
 <p>
 The equations of a mechanical component are vector equations, i.e.,
 they need to be expressed in a common coordinate system.
@@ -301,9 +270,7 @@ velocities have to be expressed according to this definition.
 Examples for such a definition are given in the following figure
 for an inertia component and a planetary gearbox:
 </p>
-
 <p><IMG SRC="../Images/driveAxis.png" ALT="driveAxis"></p>
-
 <p>
 As can be seen, all vectors are directed into the direction
 of the rotation axis. The angles in the flanges are defined
@@ -312,15 +279,12 @@ flange of the sun wheel of the planetary gearbox is positive,
 if rotated in mathematical positive direction (= counter clock
 wise) along the axis of rotation.
 </p>
-
 <p>
 On first view, one may assume that the selected local
 coordinate system has an influence on the usage of the
 component. But this is not the case, as shown in the next figure:
 </p>
-
 <p><IMG SRC="../Images/inertias.png" ALT="inertias"></p>
-
 <p>
 In the figure the <b>local</b> axes of rotation of the components
 are shown. The connection of two inertias in the left and in the
@@ -339,7 +303,6 @@ also determines that
 the angular velocity of <tt>J2</tt> in the left part of the
 figure is directed from left to right.
 </p>
-
 <p>
 To summarize, the local coordinate system selected for a component
 is just necessary, in order that the equations of this component
@@ -351,9 +314,7 @@ by aligning coordinate systems and then using the vector direction
 of the local coordinate systems, often requires a re-drawing of the
 diagram and is therefore less convenient to use.
 </p>
-
 <h4>6. Requirements for simulation tools</h4>
-
 <p>
 This library is designed in a fully object oriented way in order that
 components can be connected together in every meaningful combination
@@ -369,8 +330,6 @@ Modelica translator is able to symbolically differentiate equations
 conditions; even if consistent initial conditions are present, most
 numerical DAE integrators can cope at most with index 2 DAEs).
 </p>
-
-
 </p>
 The elements of this library can be connected together in an
 arbitrary way. However, difficulties may occur, if the elements which can <b>lock</b> the
@@ -385,9 +344,7 @@ simulation. Currently, this type of problem can occur with the
 Coulomb friction elements <b>BearingFriction, Clutch, Brake, LossyGear</b> when
 the elements become stuck:
 </p>
-
 <p><IMG SRC="../Images/driveConnections2.png" ALT="driveConnections2"></p>
-
 <p>
 In the figure above two typical situations are shown: In the upper part of
 the figure, the series connection of rigidly attached BearingFriction and
@@ -407,9 +364,7 @@ by picking one solution of the infinitely many, e.g., the one where
 the difference to the value of the previous time instant is as small
 as possible.
 </p>
-
 <h4>7. Support torques</h4>
-
 <p>The following figure shows examples of components equipped with
 a bearing flange (framed flange in the lower center), which can be used
 to fix components on the ground or on other rotating elements or to combine
@@ -419,15 +374,11 @@ connector offers the possibility to consider, e.g., gearboxes mounted on
 the ground via spring-damper-systems (cf. example <tt>ElasticBearing</tt>). Independently, these components
 provide a variable <tt>tau_support</tt> stating the support torque exerted
 on the bearing.</p>
-
 <p><IMG SRC="../Images/bearing.png" ALT="bearing"></p>
-
 <p>In general, it is not necessary to connect the bearing flange
 with a fixation, i.e., the two implementations in the following figure give
 identical results.</p>
-
 <p><IMG SRC="../Images/bearing2.png" ALT="bearing2"></p>
-
 <dl>
 <dt><b>Main Author:</b></dt>
 <dd><a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a><br>
@@ -439,67 +390,13 @@ identical results.</p>
     email: <A HREF="mailto:Martin.Otter@dlr.de">Martin.Otter@dlr.de</A><br></dd>
 </dl>
 
-<p><b>Release Notes:</b></p>
-
-<ul>
-<li><i>October 27, 2003</i>
-       by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>
-       and <a href="http://www.robotic.dlr.de/Christian.Schweiger/">Christian Schweiger</a>:<br>
-       Bearing flanges added for mounted components and support torque computation implemented.<br>
-       New component <tt>Torque2</tt> and new example <tt>ElasticBearing</tt>.
-<li><i>October 21, 2002</i>
-       by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>
-       and <a href="http://www.robotic.dlr.de/Christian.Schweiger/">Christian Schweiger</a>:<br>
-       New components <b>LossyGear</b> (with corresponding examples) and <b>Gear2</b>.<br>
-       Interface <b>FrictionBase</b> adapted to new initialization.</li>
-<li><i>June 19, 2000</i>
-       by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>:<br>
-       New elements:<br><!-- silly construction follows as Dymola not able to handle nested lists -->
-       <tt>IdealGearR2T&nbsp;&nbsp;&nbsp;</tt> Ideal gear transforming rotational in translational motion<br>
-       <tt>Position&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt> Forced movement of a flange with a reference angle given as input signal<br>
-       <tt>RelativeStates&nbsp;</tt> Definition of relative state variables<br>
-       Icon of Rotational.Torque changed.
-       Elements Acceleration, Torque, Fixed, Sensors ordered according
-       to the Translational library.</li>
-<li><i>Nov. 4, 1999</i>
-       by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>:<br>
-       Improved documentation and improved graphical layout of the diagram level.
-       Changes according to the Twente meeting introduced. Especially:
-       Alias names, instead of extends. Model Shaft renamed to Inertia.
-       Torque1D renamed to Torque.
-       AccMotion renamed to Accelerate. LockedL, LockedR replaced by Fixed.
-       SpeedSensor splitted into AngleSensor and
-       SpeedSensor. RelSpeedSensor splitted into RelAngleSensor and
-       RelSpeedSensor. Initialization of friction elements improved.
-       Flanges renamed to flange_a, flange_b. MoveAngle renamed to
-       KinematicPTP, vectorized and moved to Blocks.Sources.<br>
-       Advice given from P. Beater, H. Elmqvist, S.E. Mattsson, H. Olsson
-       is appreciated.</li>
-
-<li><i>July 18, 1999</i>
-       by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>:<br>
-       Documentation and icons improved. Appropriate initial conditions
-       introduced as start values in the demo models. Bearing model
-       replaced by FixedRight and FixedLeft models; sensor elements replaced by
-       TorqueSensor, SpeedSensor, AccSensor; new sensor elements
-       RelSpeedSensor, RelAccSensor to measure relative kinematic quantitites.
-       New elements GearEfficiency and Gear.</li>
-
-<li><i>June 30, 1999</i>
-       by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>:<br>
-       Realized a first version based on an existing Dymola library
-       of Martin Otter and Hilding Elmqvist.</li>
-</ul>
-
 <p><b>Copyright &copy; 1999-2003, 2000-2003, Modelica Association and DLR.</b></p>
-
 <p><i>
 The Modelica package is <b>free</b> software; it can be redistributed and/or modified
 under the terms of the <b>Modelica license</b>, see the license conditions
 and the accompanying <b>disclaimer</b> in the documentation of package
 Modelica in file "Modelica/package.mo".
 </i></p>
-
 <pre>
 </PRE><P>
 <TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
@@ -606,7 +503,6 @@ Rotational component with <b>inertia</b> and two rigidly connected flanges.
        by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>:<br>
        Realized.</li>
 </ul>
-
 <pre>
 </PRE>
 <H3>Parameters</H3><P>
@@ -617,15 +513,14 @@ Rotational component with <b>inertia</b> and two rigidly connected flanges.
 <H3>Modelica definition</H3>
 <PRE>
 <font color="blue">model</font> Inertia <font color="darkgreen">&quot;1D-rotational component with inertia&quot;</font> 
-  <font color="blue">extends </font><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Rigid"
->Interfaces.Rigid</A>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inertia"
 >SI.Inertia</A> J =      1 <font color="darkgreen">&quot;Moment of inertia&quot;</font>;
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
 >SI.AngularVelocity</A> w <font color="darkgreen">&quot;Absolute angular velocity of component&quot;</font>;
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.AngularAcceleration"
 >SI.AngularAcceleration</A> a <font color="darkgreen">&quot;Absolute angular acceleration of component&quot;</font>;
-  
+  <font color="blue">extends </font><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Rigid"
+>Interfaces.Rigid</A>;
 <font color="blue">equation </font>
   w =<font color="red"> der</font>(phi);
   a =<font color="red"> der</font>(w);
@@ -650,7 +545,6 @@ The gear is <b>ideal</b>, i.e., it does not have inertia, elasticity, damping
 or backlash. If these effects have to be considered, the gear has to be
 connected to other elements in an appropriate way.
 </p>
-
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>June 30, 1999</i>
@@ -658,7 +552,6 @@ connected to other elements in an appropriate way.
        Realized.
 </li>
 </ul>
-
 <pre>
 </PRE>
 <H3>Parameters</H3><P>
@@ -702,7 +595,6 @@ the sun, ring and carrier inertias can be easily added by attaching
 inertias (= model Inertia) to the corresponding connectors.
 The inertias of the planet wheels are always neglected.
 </p>
-
 <p>
 The icon of the planetary gear signals that the sun and carrier
 flanges are on the left side and the ring flange is on the right side
@@ -710,7 +602,6 @@ of the gear box. However, this component is generic and is valid
 independantly how the flanges are actually placed (e.g. sun wheel
 may be placed on the right side instead on the left side in reality).
 </p>
-
 <p>
 The ideal planetary gearbox is uniquely defined by the ratio
 of the number of ring teeth zr with respect to the number of
@@ -718,21 +609,17 @@ sun teeth zs. For example, if there are 100 ring teeth and
 50 sun teeth then ratio = zr/zs = 2. The number of planet teeth
 zp has to fulfill the following relationship:
 </p>
-
 <pre>
    <b>zp := (zr - zs) / 2</b>
 </pre>
-
 <p>
 Therefore, in the above example zp = 25 is required.
 </p>
-
 <p>
 According to the overall convention, the positive direction of all
 vectors, especially the absolute angular velocities and cut-torques
 in the flanges, are along the axis vector displayed in the icon.
 </p>
-
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>July 5, 1999</i>
@@ -740,7 +627,6 @@ in the flanges, are along the axis vector displayed in the icon.
        Realized.
 </li>
 </ul>
-
 <pre>
 </PRE>
 <H3>Parameters</H3><P>
@@ -787,7 +673,6 @@ This is an ideal mass- and inertialess gearbox which transforms a
 or backlash has to be considered, this ideal gearbox has to be
 connected with corresponding elements.
 </p>
-
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>May 16, 2000</i>
@@ -859,7 +744,6 @@ between two inertias/gears to describe the shaft elasticity, or between
 a inertia/gear and the housing (component Fixed), to describe
 a coupling of the element with the housing via a spring.
 </p>
-
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>June 30, 1999</i>
@@ -867,7 +751,6 @@ a coupling of the element with the housing via a spring.
        Realized.
 </li>
 </ul>
-
 <pre>
 </PRE>
 <H3>Parameters</H3><P>
@@ -905,7 +788,6 @@ a coupling of the element with the housing via a spring.
 between an inertia or gear and the housing (component Fixed), or
 between two inertia/gear elements.
 </p>
-
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>June 30, 1999</i>
@@ -913,7 +795,6 @@ between two inertia/gear elements.
        Realized.
 </li>
 </ul>
-
 <pre>
 </PRE>
 <H3>Parameters</H3><P>
@@ -955,7 +836,6 @@ connected either between two inertias/gears to describe the shaft elasticity
 and damping, or between an inertia/gear and the housing (component Fixed),
 to describe a coupling of the element with the housing via a spring/damper.
 </p>
-
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>June 30, 1999</i>
@@ -963,7 +843,6 @@ to describe a coupling of the element with the housing via a spring/damper.
        Realized.
 </li>
 </ul>
-
 <pre>
 </PRE>
 <H3>Parameters</H3><P>
@@ -1010,13 +889,10 @@ This element consists of a <b>backlash</b> element <b>connected in series</b>
 to a <b>spring</b> and <b>damper</b> element which are <b>connected in parallel</b>.
 The spring constant shall be non-zero, otherwise the component cannot be used.
 </p>
-
 <p>
 In combination with components IdealGear, the ElastoBacklash model
 can be used to model a gear box with backlash, elasticity and damping.
 </p>
-
-
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>June 30, 1999</i>
@@ -1024,7 +900,6 @@ can be used to model a gear box with backlash, elasticity and damping.
        Realized.
 </li>
 </ul>
-
 <pre>
 </PRE>
 <H3>Parameters</H3><P>
@@ -1090,7 +965,6 @@ The positive sliding friction torque "tau" has to be defined
 by table "tau_pos" as function of the absolute angular velocity "w".
 E.g.
 <p>
-
 <pre>
        w | tau
       ---+-----
@@ -1099,15 +973,12 @@ E.g.
        2 |   5
        3 |   8
 </pre>
-
 <p>
 gives the following table:
 </p>
-
 <pre>
    tau_pos = [0, 0; 1, 2; 2, 5; 3, 8];
 </pre>
-
 <p>
 Currently, only linear interpolation in the table is supported.
 Outside of the table, extrapolation through the last
@@ -1115,7 +986,6 @@ two table entries is used. It is assumed that the negative
 sliding friction force has the same characteristic with negative
 values. Friction is modelled in the following way:
 </p>
-
 <p>
 When the absolute angular velocity "w" is not zero, the friction torque
 is a function of w and of a constant normal force. This dependency
@@ -1123,7 +993,6 @@ is defined via table tau_pos and can be determined by measurements,
 e.g. by driving the gear with constant velocity and measuring the
 needed motor torque (= friction torque).
 </p>
-
 <p>
 When the absolute angular velocity becomes zero, the elements
 connected by the friction element become stuck, i.e., the absolute
@@ -1133,24 +1002,20 @@ the absolute acceleration shall be zero.  The elements begin
 to slide when the friction torque exceeds a threshold value,
 called the maximum static friction torque, computed via:
 </p>
-
 <pre>
    maximum_static_friction = <b>peak</b> * sliding_friction(w=0)  (<b>peak</b> >= 1)
 </pre>
-
 <p>
 This procedure is implemented in a "clean" way by state events and
 leads to continuous/discrete systems of equations if friction elements
 are dynamically coupled which have to be solved by appropriate
 numerical methods. The method is described in:
 </p>
-
 <dl>
 <dt>Otter M., Elmqvist H., and Mattsson S.E. (1999):
 <dd><b>Hybrid Modeling in Modelica based on the Synchronous
     Data Flow Principle</b>. CACSD'99, Aug. 22.-26, Hawaii.
 </dl>
-
 <p>
 More precise friction models take into account the elasticity of the
 material when the two elements are "stuck", as well as other effects,
@@ -1161,23 +1026,19 @@ simulation) and that more material constants have to be supplied which
 requires more sophisticated identification. For more details, see the
 following references, especially (Armstrong and Canudas de Witt 1996):
 </p>
-
 <dl>
 <dt>Armstrong B. (1991):
 <dd><b>Control of Machines with Friction</b>. Kluwer Academic
     Press, Boston MA.<br><br>
-
 <dt>Armstrong B., and Canudas de Wit C. (1996):
 <dd><b>Friction Modeling and Compensation.</b>
     The Control Handbook, edited by W.S.Levine, CRC Press,
     pp. 1369-1382.<br><br>
-
 <dt>Canudas de Wit C., Olsson H., Astroem K.J., and Lischinsky P. (1995):
 <dd><b>A new model for control of systems with friction.</b>
     IEEE Transactions on Automatic Control, Vol. 40, No. 3, pp. 419-425.<br><br>
 </dl>
 <br>
-
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>June 30, 1999</i>
@@ -1185,7 +1046,6 @@ following references, especially (Armstrong and Canudas de Witt 1996):
        Realized.
 </li>
 </ul>
-
 <pre>
 </PRE>
 <H3>Parameters</H3><P>
@@ -1258,11 +1118,11 @@ following references, especially (Armstrong and Canudas de Witt 1996):
 This component models a <b>clutch</b>, i.e., a component with
 two flanges where friction is present between the two flanges
 and these flanges are pressed together via a normal force.
-The normal force fn has to be provided as input signal u in a normalized form,
-fn = fn_max*u, where fn_max has to be provided as parameter. Friction in the
+The normal force fn has to be provided as input signal f_normalized in a normalized form
+(0 &le; f_normalized &le; 1),
+fn = fn_max*f_normalized, where fn_max has to be provided as parameter. Friction in the
 clutch is modelled in the following way:
 </p>
-
 <p>
 When the relative angular velocity is not zero, the friction torque is a
 function of the velocity dependent friction coefficient  mue(w_rel) , of
@@ -1270,39 +1130,31 @@ the normal force "fn", and of a geometry constant "cgeo" which takes into
 account the geometry of the device and the assumptions on the friction
 distributions:
 </p>
-
 <pre>
         frictional_torque = <b>cgeo</b> * <b>mue</b>(w_rel) * <b>fn</b>
 </pre>
-
 <p>
    Typical values of coefficients of friction:
 </p>
-
 <pre>
       dry operation   :  <b>mue</b> = 0.2 .. 0.4
       operating in oil:  <b>mue</b> = 0.05 .. 0.1
 </pre>
-
 <p>
    When plates are pressed together, where  <b>ri</b>  is the inner radius,
    <b>ro</b> is the outer radius and <b>N</b> is the number of friction interfaces,
    the geometry constant is calculated in the following way under the
    assumption of a uniform rate of wear at the interfaces:
 </p>
-
 <pre>
          <b>cgeo</b> = <b>N</b>*(<b>r0</b> + <b>ri</b>)/2
-
 </pre>
-
 <p>
     The positive part of the friction characteristic <b>mue</b>(w_rel),
     w_rel >= 0, is defined via table mue_pos (first column = w_rel,
     second column = mue). Currently, only linear interpolation in
     the table is supported.
 </p>
-
 <p>
    When the relative angular velocity becomes zero, the elements
    connected by the friction element become stuck, i.e., the relative
@@ -1312,23 +1164,19 @@ distributions:
    to slide when the friction torque exceeds a threshold value,
    called the  maximum static friction torque, computed via:
 </p>
-
 <pre>
        frictional_torque = <b>peak</b> * <b>cgeo</b> * <b>mue</b>(w_rel=0) * <b>fn</b>   (<b>peak</b> >= 1)
 </pre>
-
 <p>
 This procedure is implemented in a "clean" way by state events and
 leads to continuous/discrete systems of equations if friction elements
 are dynamically coupled. The method is described in:
 </p>
-
 <dl>
 <dt>Otter M., Elmqvist H., and Mattsson S.E. (1999):
 <dd><b>Hybrid Modeling in Modelica based on the Synchronous
     Data Flow Principle</b>. CACSD'99, Aug. 22.-26, Hawaii.
 </dl>
-
 <p>
 More precise friction models take into account the elasticity of the
 material when the two elements are "stuck", as well as other effects,
@@ -1339,23 +1187,19 @@ simulation) and that more material constants have to be supplied which
 requires more sophisticated identification. For more details, see the
 following references, especially (Armstrong and Canudas de Witt 1996):
 </p>
-
 <dl>
 <dt>Armstrong B. (1991):
 <dd><b>Control of Machines with Friction</b>. Kluwer Academic
     Press, Boston MA.<br><br>
-
 <dt>Armstrong B., and Canudas de Wit C. (1996):
 <dd><b>Friction Modeling and Compensation.</b>
     The Control Handbook, edited by W.S.Levine, CRC Press,
     pp. 1369-1382.<br><br>
-
 <dt>Canudas de Wit C., Olsson H., Astroem K.J., and Lischinsky P. (1995):
 <dd><b>A new model for control of systems with friction.</b>
     IEEE Transactions on Automatic Control, Vol. 40, No. 3, pp. 419-425.<br><br>
 </dl>
 <br>
-
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>June 29, 1999</i>
@@ -1363,7 +1207,6 @@ following references, especially (Armstrong and Canudas de Witt 1996):
        realized first version.
 </li>
 </ul>
-
 <pre>
 </PRE>
 <H3>Parameters</H3><P>
@@ -1403,10 +1246,9 @@ following references, especially (Armstrong and Canudas de Witt 1996):
   Real mue0 <font color="darkgreen">&quot;Friction coefficient for w=0 and forward sliding&quot;</font>;
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Force"
 >SI.Force</A> fn <font color="darkgreen">&quot;Normal force (fn=fn_max*inPort.signal)&quot;</font>;
-  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
->Modelica.Blocks.Interfaces.InPort</A> inPort(
-                                           <font color="blue">final </font>n=1) <font color="darkgreen">
-    &quot;Normalized force signal (= normal_force/fn_max; clutch is engaged if &gt; 0)&quot;</font>;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> f_normalized <font color="darkgreen">
+    &quot;Normalized force signal 0..1 (normal force = fn_max*f_normalized; clutch is engaged if &gt; 0)&quot;</font>;
 <font color="blue">equation </font>
   <font color="darkgreen">// Constant auxiliary variable</font>
   mue0 =<font color="red"> Modelica.Math.tempInterpol1</font>(0, mue_pos, 2);
@@ -1418,7 +1260,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
   a_relfric = a_rel;
   
   <font color="darkgreen">// Normal force and friction torque for w_rel=0</font>
-  fn = fn_max*inPort.signal[1];
+  fn = fn_max*f_normalized;
   free = fn &lt;= 0;
   tau0 = mue0*cgeo*fn;
   tau0_max = peak*tau0;
@@ -1447,11 +1289,9 @@ This component models a <b>one-way clutch</b>, i.e., a component with
 two flanges where friction is present between the two flanges
 and these flanges are pressed together via a normal force. These
 flanges maybe sliding with respect to each other
-
 Parallel connection of ClutchCombi and of FreeWheel.
                      The element is introduced to resolve the ambiguity
                      of the constraint torques of the elements.
-
 <p>
 A one-way-clutch is an element where a clutch is connected in parallel
 to a free wheel. This special element is provided, because such
@@ -1460,19 +1300,17 @@ a parallel connection introduces an ambiguity into the model
 elements are stuck) and this element resolves it by introducing
 <b>one</b> constraint torque and not two.
 </p>
-
 <p>
 Note, initial values have to be chosen for the model, such that the
 relative speed of the one-way-clutch >= 0. Otherwise, the configuration
 is physically not possible and an error occurs.
 </p>
-
 <p>
-The normal force fn has to be provided as input signal u in a normalized form,
-fn = fn_max*u, where fn_max has to be provided as parameter. Friction in the
+The normal force fn has to be provided as input signal f_normalized in a normalized form
+(0 &le; f_normalized &le; 1),
+fn = fn_max*f_normalized, where fn_max has to be provided as parameter. Friction in the
 clutch is modelled in the following way:
 </p>
-
 <p>
 When the relative angular velocity is positive, the friction torque is a
 function of the velocity dependent friction coefficient  mue(w_rel) , of
@@ -1480,39 +1318,31 @@ the normal force "fn", and of a geometry constant "cgeo" which takes into
 account the geometry of the device and the assumptions on the friction
 distributions:
 </p>
-
 <pre>
         frictional_torque = <b>cgeo</b> * <b>mue</b>(w_rel) * <b>fn</b>
 </pre>
-
 <p>
    Typical values of coefficients of friction:
 </p>
-
 <pre>
       dry operation   :  <b>mue</b> = 0.2 .. 0.4
       operating in oil:  <b>mue</b> = 0.05 .. 0.1
 </pre>
-
 <p>
    When plates are pressed together, where  <b>ri</b>  is the inner radius,
    <b>ro</b> is the outer radius and <b>N</b> is the number of friction interfaces,
    the geometry constant is calculated in the following way under the
    assumption of a uniform rate of wear at the interfaces:
 </p>
-
 <pre>
          <b>cgeo</b> = <b>N</b>*(<b>r0</b> + <b>ri</b>)/2
-
 </pre>
-
 <p>
     The positive part of the friction characteristic <b>mue</b>(w_rel),
     w_rel >= 0, is defined via table mue_pos (first column = w_rel,
     second column = mue). Currently, only linear interpolation in
     the table is supported.
 </p>
-
 <p>
    When the relative angular velocity becomes zero, the elements
    connected by the friction element become stuck, i.e., the relative
@@ -1522,24 +1352,19 @@ distributions:
    to slide when the friction torque exceeds a threshold value,
    called the  maximum static friction torque, computed via:
 </p>
-
 <pre>
        frictional_torque = <b>peak</b> * <b>cgeo</b> * <b>mue</b>(w_rel=0) * <b>fn</b>   (<b>peak</b> >= 1)
 </pre>
-
 <p>
 This procedure is implemented in a "clean" way by state events and
 leads to continuous/discrete systems of equations if friction elements
 are dynamically coupled. The method is described in:
 </p>
-
 <dl>
 <dt>Otter M., Elmqvist H., and Mattsson S.E. (1999):
 <dd><b>Hybrid Modeling in Modelica based on the Synchronous
     Data Flow Principle</b>. CACSD'99, Aug. 22.-26, Hawaii.
 </dl>
-
-
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>Version 0.9 (Nov. 26, 1999)</i>
@@ -1547,7 +1372,6 @@ are dynamically coupled. The method is described in:
        Realized.
 </li>
 </ul>
-
 <p><b>Copyright &copy; 1999-2002, DLR.</b></p>
 <pre>
 </PRE>
@@ -1587,7 +1411,6 @@ are dynamically coupled. The method is described in:
   Real u <font color="darkgreen">&quot;normalized force input signal (0..1)&quot;</font>;
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Force"
 >SI.Force</A> fn <font color="darkgreen">&quot;Normal force (fn=fn_max*inPort.signal)&quot;</font>;
-  
   Boolean startForward <font color="darkgreen">
     &quot;true, if w_rel=0 and start of forward sliding or w_rel &gt; w_small&quot;</font>;
   Boolean locked <font color="darkgreen">&quot;true, if w_rel=0 and not sliding&quot;</font>;
@@ -1606,9 +1429,9 @@ are dynamically coupled. The method is described in:
 >SI.Torque</A> tau0_max_low <font color="darkgreen">&quot;lowest value for tau0_max&quot;</font>;
   <font color="blue">parameter </font>Real peak2=<font color="red">max</font>([peak, 1 + eps0]);
 <font color="blue">public </font>
-  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
->Modelica.Blocks.Interfaces.InPort</A> inPort(
-                                           <font color="blue">final </font>n=1);
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> f_normalized <font color="darkgreen">
+    &quot;Normalized force signal 0..1 (normal force = fn_max*f_normalized; clutch is engaged if &gt; 0)&quot;</font>;
 <font color="blue">equation </font>
   <font color="darkgreen">// Constant auxiliary variable</font>
   mue0 =<font color="red"> Modelica.Math.tempInterpol1</font>(0, mue_pos, 2);
@@ -1619,7 +1442,7 @@ are dynamically coupled. The method is described in:
   a_rel =<font color="red"> der</font>(w_rel);
   
   <font color="darkgreen">// Normal force and friction torque for w_rel=0</font>
-  u = inPort.signal[1];
+  u = f_normalized;
   free = u &lt;= 0;
   fn = <font color="blue">if </font>free<font color="blue"> then </font>0<font color="blue"> else </font>fn_max*u;
   tau0 = mue0*cgeo*fn;
@@ -1658,11 +1481,11 @@ are dynamically coupled. The method is described in:
 This component models a <b>brake</b>, i.e., a component where a frictional
 torque is acting between the housing and a flange and a controlled normal
 force presses the flange to the housing in order to increase friction.
-The normal force fn has to be provided as input signal u in a normalized
-form, fn = fn_max*u, where fn_max has to be provided as parameter.
+The normal force fn has to be provided as input signal f_normalized in a normalized form
+(0 &le; f_normalized &le; 1),
+fn = fn_max*f_normalized, where fn_max has to be provided as parameter.
 Friction in the brake is modelled in the following way:
 </p>
-
 <p>
 When the absolute angular velocity "w" is not zero, the friction torque
 is a function of the velocity dependent friction coefficient  mue(w) , of
@@ -1670,39 +1493,31 @@ the normal force "fn", and of a geometry constant "cgeo" which takes into
 account the geometry of the device and the assumptions on the friction
 distributions:
 </p>
-
 <pre>
         frictional_torque = <b>cgeo</b> * <b>mue</b>(w) * <b>fn</b>
 </pre>
-
 <p>
    Typical values of coefficients of friction:
 </p>
-
 <pre>
       dry operation   :  <b>mue</b> = 0.2 .. 0.4
       operating in oil:  <b>mue</b> = 0.05 .. 0.1
 </pre>
-
 <p>
    When plates are pressed together, where  <b>ri</b>  is the inner radius,
    <b>ro</b> is the outer radius and <b>N</b> is the number of friction interfaces,
    the geometry constant is calculated in the following way under the
    assumption of a uniform rate of wear at the interfaces:
 </p>
-
 <pre>
          <b>cgeo</b> = <b>N</b>*(<b>r0</b> + <b>ri</b>)/2
-
 </pre>
-
 <p>
     The positive part of the friction characteristic <b>mue</b>(w),
     w >= 0, is defined via table mue_pos (first column = w,
     second column = mue). Currently, only linear interpolation in
     the table is supported.
 </p>
-
 <p>
    When the absolute angular velocity becomes zero, the elements
    connected by the friction element become stuck, i.e., the absolute
@@ -1712,23 +1527,19 @@ distributions:
    to slide when the friction torque exceeds a threshold value,
    called the  maximum static friction torque, computed via:
 </p>
-
 <pre>
        frictional_torque = <b>peak</b> * <b>cgeo</b> * <b>mue</b>(w=0) * <b>fn</b>   (<b>peak</b> >= 1)
 </pre>
-
 <p>
 This procedure is implemented in a "clean" way by state events and
 leads to continuous/discrete systems of equations if friction elements
 are dynamically coupled. The method is described in:
 </p>
-
 <dl>
 <dt>Otter M., Elmqvist H., and Mattsson S.E. (1999):
 <dd><b>Hybrid Modeling in Modelica based on the Synchronous
     Data Flow Principle</b>. CACSD'99, Aug. 22.-26, Hawaii.
 </dl>
-
 <p>
 More precise friction models take into account the elasticity of the
 material when the two elements are "stuck", as well as other effects,
@@ -1739,24 +1550,19 @@ simulation) and that more material constants have to be supplied which
 requires more sophisticated identification. For more details, see the
 following references, especially (Armstrong and Canudas de Witt 1996):
 </p>
-
 <dl>
 <dt>Armstrong B. (1991):
 <dd><b>Control of Machines with Friction</b>. Kluwer Academic
     Press, Boston MA.<br><br>
-
 <dt>Armstrong B., and Canudas de Wit C. (1996):
 <dd><b>Friction Modeling and Compensation.</b>
     The Control Handbook, edited by W.S.Levine, CRC Press,
     pp. 1369-1382.<br><br>
-
 <dt>Canudas de Wit C., Olsson H., Astroem K.J., and Lischinsky P. (1995):
 <dd><b>A new model for control of systems with friction.</b>
     IEEE Transactions on Automatic Control, Vol. 40, No. 3, pp. 419-425.<br><br>
 </dl>
 <br>
-
-
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>June 29, 1999</i>
@@ -1764,7 +1570,6 @@ following references, especially (Armstrong and Canudas de Witt 1996):
        realized first version.
 </li>
 </ul>
-
 <pre>
 </PRE>
 <H3>Parameters</H3><P>
@@ -1807,10 +1612,9 @@ following references, especially (Armstrong and Canudas de Witt 1996):
 >SI.Force</A> fn <font color="darkgreen">&quot;Normal force (=fn_max*inPort.signal)&quot;</font>;
   
   <font color="darkgreen">// Constant auxiliary variable</font>
-  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
->Modelica.Blocks.Interfaces.InPort</A> inPort(
-                                           <font color="blue">final </font>n=1) <font color="darkgreen">
-    &quot;Normalized force signal (= normal_force/fn_max; brake is active if &gt; 0)&quot;</font>;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> f_normalized <font color="darkgreen">
+    &quot;Normalized force signal 0..1 (normal force = fn_max*f_normalized; brake is active if &gt; 0)&quot;</font>;
 <font color="blue">equation </font>
   mue0 =<font color="red"> Modelica.Math.tempInterpol1</font>(0, mue_pos, 2);
   
@@ -1825,7 +1629,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
   
   <font color="darkgreen">// Torque equilibrium, normal force and friction torque for w_rel=0</font>
   0 = flange_a.tau + flange_b.tau - tau;
-  fn = fn_max*inPort.signal[1];
+  fn = fn_max*f_normalized;
   tau0 = mue0*cgeo*fn;
   tau0_max = peak*tau0;
   free = fn &lt;= 0;
@@ -1856,15 +1660,12 @@ that may occur at zero speed. The gear boxes that can
 be handeled are fixed in the ground, have one input and one
 output shaft, and are essentially described by the equations:
 </p>
-
 <pre>     flange_a.phi  = i*flange_b.phi
    (-flange_b.tau) = i*(eta_mf*flange_a.tau - tau_bf)
 </pre>
-
 <p>
 where
 </p>
-
 <ul>
 <li><b>i</b> is the constant <b>gear ratio</b>,</li>
 <li><b>eta_mf</b> = eta_mf(w) is the <b>mesh efficiency</b> due to the
@@ -1872,13 +1673,11 @@ where
 <li><b>tau_bf</b> = tau_bf(w) is the <b>bearing friction torque</b>, and</li>
 <li><b>w_a</b> = der(flange_a.phi) is the speed of flange_a</li>
 </ul>
-
 <p>The loss terms "eta_mf" and "tau_bf" are functions of the
 <i>absolute value</i> of the input shaft speed w_a and of the energy
 flow direction. They are defined by parameter <b>lossTable[:,5]
 </b> where the columns of this table have the following
 meaning:</p>
-
 <p><table BORDER=1 CELLSPACING=0 CELLPADDING=2>
   <tbody>
     <tr>
@@ -1904,9 +1703,7 @@ meaning:</p>
     </tr>
   </tbody>
 </table></p>
-
 <p>with</p>
-
 <p><table BORDER=1 CELLSPACING=0 CELLPADDING=2>
   <tbody>
     <tr>
@@ -1931,12 +1728,10 @@ meaning:</p>
     </tr>
   </tbody>
 </table></p>
-
 <p>
 With these variables, the mesh efficiency and the bearing friction
 are formally defined as:
 </p>
-
 <pre>  <b>if</b> flange_a.tau*w_a > 0 <b>or</b> flange_a.tau==0 <b>and</b> w_a > 0 <b>then</b>
      eta_mf := eta_mf1
      tau_bf := tau_bf1
@@ -1947,7 +1742,6 @@ are formally defined as:
      eta_mf and tau_bf are computed such that <b>der</b>(w_a) = 0
   <b>end if</b>;
 </pre>
-
 <p>Note, that the losses are modeled in a physically meaningful way taking
 into account that at zero speed the movement may be locked due
 to the friction in the gear teeth and/or in the bearings.
@@ -1958,14 +1752,11 @@ Modelica.Mechanics.Rotational.GearEfficiency will fail because,
 e.g., chattering occurs when using the
 Modelica.Mechanics.Rotational.GearEfficiency model.
 </p>
-
 <p>
 <b>Acknowledgement:</b> The essential idea to model efficiency
 in this way is from Christoph Pelchen, ZF Friedrichshafen.
 </p>
-
 <p><b>For detailed information:</b></p>
-
 <p>Pelchen C.,
 <a href="http://www.robotic.dlr.de/Christian.Schweiger/">Schweiger C.</a>,
 and <a href="http://www.robotic.dlr.de/Martin.Otter/">Otter M.</a>:
@@ -1974,7 +1765,6 @@ and Simulating the Efficiency of Gearboxes and of Planetary Gearboxes</A>,&quot;
 <I>Proceedings of the 2nd International Modelica Conference, Oberpfaffenhofen, Germany,</I>
 pp. 257-266, The Modelica Association and Institute of Robotics and Mechatronics,
 Deutsches Zentrum f&uuml;r Luft- und Raumfahrt e. V., March 18-19, 2002.</p>
-
 <pre>
 </PRE>
 <H3>Parameters</H3><P>
@@ -2138,7 +1928,6 @@ kept for <b>backward compatibility</b> purposes. Use model
 Modelica.Mechanics.Rotational.LossyGear instead which implements
 gear efficiency in a much more reliable way.
 </p>
-
 <p>
 This component consists of two rigidly connected flanges flange_a and flange_b without
 inertia where an <b>efficency</b> coefficient <b>eta</b> reduces the driven
@@ -2147,7 +1936,6 @@ of the energy flow, i.e., energy is always lost. This can be seen as a
 simple model of the Coulomb friction acting between the teeth of a
 gearbox.
 </p>
-
 <p>
 Note, that most gearbox manufacturers provide tables of the
 efficiency of a gearbox as function of the angular velocity
@@ -2163,34 +1951,27 @@ simulation purposes the two effects need to be separated.
 Assume for example that only constant bearing friction, i.e.,
 bearingTorque=const., is present, i.e.,
 </p>
-
 <pre>
    (1)  loadTorque = motorTorque - sign(w)*bearingTorque
 </pre>
-
 <p>
 Gearbox manufacturers use the loss-formula
 </p>
-
 <pre>
    (2)  loadTorque = eta*motorTorque
 </pre>
-
 <p>
 Comparing (1) and (2) gives a formulat for the efficiency eta:
 </p>
-
 <pre>
    eta = (1 - sign(w)*bearingTorque/motorTorque)
 </pre>
-
 <p>
 When the motorTorque becomes smaller as the bearingTorque,
 (2) is useless, because the efficiency is zero. To summarize,
 be careful to determine the gear <b>efficiency</b> of this element
 from tables of the gear manufacturers.
 </p>
-
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>July 18, 1999</i>
@@ -2198,7 +1979,6 @@ from tables of the gear manufacturers.
        Realized.
 </li>
 </ul>
-
 <pre>
 </PRE>
 <H3>Parameters</H3><P>
@@ -2251,7 +2031,6 @@ The inertia of the gear wheels is not modeled. If necessary, inertia
 has to be taken into account by connecting components of model Inertia
 to the left and/or the right flange.
 </p>
-
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>July 18, 1999</i>
@@ -2259,7 +2038,6 @@ to the left and/or the right flange.
        Realized.
 </li>
 </ul>
-
 <pre>
 </PRE>
 <H3>Parameters</H3><P>
@@ -2336,7 +2114,6 @@ to the left and/or the right flange.
 <PRE></pre>
 <p>This component models the essential effects of a gearbox, in
 particular</p>
-
 <ul>
   <li>in component <b>lossyGear</b></li>
     <ul>
@@ -2350,12 +2127,10 @@ particular</p>
       <li><b>backlash</b></li>
     </ul>
 </ul>
-
 <p>The inertia of the gear wheels is not modeled. If necessary,
 inertia has to be taken into account by connecting components of
 model Inertia to the left and/or the right flange of component
 GearNew.</p>
-
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>September 12, 2002</i>
@@ -2363,7 +2138,6 @@ GearNew.</p>
        Realized based on Rotational.Gear by inventing Rotational.LossyGear.
 </li>
 </ul>
-
 <pre>
 </PRE>
 <H3>Parameters</H3><P>
@@ -2423,8 +2197,8 @@ GearNew.</p>
 <H3>Information</H3>
 <PRE></pre>
 <p>
-The input signal inPort.signal[1] defines the <b>reference
-angle</b> <b>phi_ref(t)</b> in [rad]. Flange <b>flange_b</b> is <b>forced</b>
+The input signal <b>phi_ref</b> defines the <b>reference
+angle</b> in [rad]. Flange <b>flange_b</b> is <b>forced</b>
 to move according to this reference motion. According to parameter
 <b>exact</b> (default = <b>false</b>), this is done in the following way:
 <ol>
@@ -2445,19 +2219,16 @@ to move according to this reference motion. According to parameter
     should be selected in such a way that it is higher as the essential
     low frequencies in the signal.</li>
 </ol>
-
 <p>
 The input signal can be provided from one of the signal generator
 blocks of the block library Modelica.Blocks.Sources.
 </p>
-
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>June 19, 2000</i>
        by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>.<br>
        Realized.</li>
 </ul>
-
 <pre>
 </PRE>
 <H3>Parameters</H3><P>
@@ -2476,8 +2247,10 @@ blocks of the block library Modelica.Blocks.Sources.
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Frequency"
 >SI.Frequency</A> f_crit =      50 <font color="darkgreen">
     &quot;if exact=false, critical frequency of filter to filter input signal&quot;</font>;
-  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
->SI.Angle</A> phi_ref <font color="darkgreen">&quot;reference angle defined with the input signal&quot;</font>;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> phi_ref(
+                                                <font color="blue">redeclare </font><font color="blue">type</font> SignalType = <A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>SI.Angle</A>) <font color="darkgreen">&quot;reference angle of flange_b as input signal&quot;</font>;
   <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
 >SI.Angle</A> phi <font color="darkgreen">&quot;absolute rotation angle of flange flange_b&quot;</font>;
   <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
@@ -2495,10 +2268,6 @@ blocks of the block library Modelica.Blocks.Sources.
 <font color="blue">public </font>
   <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_b"
 >Interfaces.Flange_b</A> flange_b;
-  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
->Modelica.Blocks.Interfaces.InPort</A> inPort(
-                                           <font color="blue">final </font>n=1) <font color="darkgreen">
-    &quot;Flange angle as input signal&quot;</font>;
   <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_a"
 >Interfaces.Flange_a</A> bearing;
 <font color="blue">equation </font>
@@ -2510,7 +2279,6 @@ blocks of the block library Modelica.Blocks.Sources.
     bearing.tau = tau_support;
   <font color="blue">end if</font>;
   
-  phi_ref = inPort.signal[1];
   phi = flange_b.phi;
   w =<font color="red"> der</font>(phi);
   a =<font color="red"> der</font>(w);
@@ -2540,8 +2308,8 @@ blocks of the block library Modelica.Blocks.Sources.
 <H3>Information</H3>
 <PRE></pre>
 <p>
-The input signal inPort.signal[1] defines the <b>reference
-angle</b> <b>phi_ref(t)</b> in [rad]. Flange <b>flange_b</b> is <b>forced</b>
+The input signal <b>w_ref</b> defines the <b>reference
+angle</b> in [rad]. Flange <b>flange_b</b> is <b>forced</b>
 to move according to this reference motion. According to parameter
 <b>exact</b> (default = <b>false</b>), this is done in the following way:
 <ol>
@@ -2562,12 +2330,10 @@ to move according to this reference motion. According to parameter
     should be selected in such a way that it is higher as the essential
     low frequencies in the signal.</li>
 </ol>
-
 <p>
 The input signal can be provided from one of the signal generator
 blocks of the block library Modelica.Blocks.Sources.
 </p>
-
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>October 27, 2003</i>
@@ -2575,7 +2341,6 @@ blocks of the block library Modelica.Blocks.Sources.
        Realized based on component <tt>Position</tt> (implemented by
        <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>).</li>
 </ul>
-
 <pre>
 </PRE>
 <H3>Parameters</H3><P>
@@ -2595,8 +2360,6 @@ blocks of the block library Modelica.Blocks.Sources.
 >SI.Frequency</A> f_crit =      50 <font color="darkgreen">
     &quot;if exact=false, critical frequency of filter to filter input signal&quot;</font>;
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
->SI.Angle</A> w_ref <font color="darkgreen">&quot;reference angular velocity defined with the input signal&quot;</font>;
-  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
 >SI.Angle</A> phi_ref <font color="darkgreen">
     &quot;reference angle defined by time integration of input signal&quot;</font>;
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
@@ -2615,9 +2378,11 @@ blocks of the block library Modelica.Blocks.Sources.
 <font color="blue">public </font>
   <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_b"
 >Interfaces.Flange_b</A> flange_b;
-  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
->Blocks.Interfaces.InPort</A> inPort(
-                                  <font color="blue">final </font>n=1) <font color="darkgreen">&quot;Flange angle as input signal&quot;</font>;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Blocks.Interfaces.RealInput</A> w_ref(
+                                    <font color="blue">redeclare </font><font color="blue">type</font> SignalType = <A HREF="Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
+>SI.AngularVelocity</A>) <font color="darkgreen">
+    &quot;Reference angular velocity of flange_b as input signal&quot;</font>;
   <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_a"
 >Interfaces.Flange_a</A> bearing;
 <font color="blue">equation </font>
@@ -2630,7 +2395,6 @@ blocks of the block library Modelica.Blocks.Sources.
   <font color="blue">end if</font>;
   
   <font color="red">der</font>(phi_ref) = w_ref;
-  w_ref = inPort.signal[1];
   phi = flange_b.phi;
   w =<font color="red"> der</font>(phi);
   a =<font color="red"> der</font>(w);
@@ -2659,29 +2423,25 @@ blocks of the block library Modelica.Blocks.Sources.
 <H3>Information</H3>
 <PRE></pre>
 <p>
-The input signal inPort.signal[1] defines an <b>angular acceleration</b>
-<b>a</b> in [rad/s2]. Flange <b>flange_b</b> is <b>forced</b> to move with
+The input signal <b>a</b> defines an <b>angular acceleration</b>
+in [rad/s2]. Flange <b>flange_b</b> is <b>forced</b> to move with
 this acceleration. The angular velocity <b>w</b> and the rotation angle
 <b>phi</b> of the flange are automatically determined by integration of
 the acceleration.
 </p>
-
 <p>
 The input signal can be provided from one of the signal generator
 blocks of the block library Modelica.Blocks.Sources.
 </p>
-
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>July 18, 1999</i>
        by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>:<br>
        renamed (previous name: Move).</li>
-
 <li><i>June 29, 1999</i>
        by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>:<br>
        realized.</li>
 </ul>
-
 <pre>
 </PRE>
 <H3>Parameters</H3><P>
@@ -2708,18 +2468,16 @@ blocks of the block library Modelica.Blocks.Sources.
 >SI.AngularVelocity</A> w(
                        <font color="blue">final </font>start=w_start, <font color="blue">final </font>fixed=true) <font color="darkgreen">
     &quot;absolute angular velocity of flange flange_b&quot;</font>;
-  <A HREF="Modelica_SIunits.html#Modelica.SIunits.AngularAcceleration"
->SI.AngularAcceleration</A> a <font color="darkgreen">
-    &quot;absolute angular acceleration of flange flange_b&quot;</font>;
   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Torque"
 >SI.Torque</A> tau_support <font color="darkgreen">&quot;Support torque&quot;</font>;
   
   <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_b"
 >Interfaces.Flange_b</A> flange_b;
-  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
->Modelica.Blocks.Interfaces.InPort</A> inPort(
-                                           <font color="blue">final </font>n=1) <font color="darkgreen">
-    &quot;Angular acceleration as input signal&quot;</font>;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Blocks.Interfaces.RealInput</A> a(
+        <font color="blue">redeclare </font><font color="blue">type</font> SignalType = <A HREF="Modelica_SIunits.html#Modelica.SIunits.AngularAcceleration"
+>SI.AngularAcceleration</A>) <font color="darkgreen">
+    &quot;absolute angular acceleration of flange_b as input signal&quot;</font>;
   <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_a"
 >Interfaces.Flange_a</A> bearing;
 <font color="blue">equation </font>
@@ -2734,7 +2492,6 @@ blocks of the block library Modelica.Blocks.Sources.
   phi = flange_b.phi;
   w =<font color="red"> der</font>(phi);
   a =<font color="red"> der</font>(w);
-  a = inPort.signal[1];
 <font color="blue">end </font>Accelerate;
 </PRE>
 <HR>
@@ -2752,28 +2509,24 @@ blocks of the block library Modelica.Blocks.Sources.
 Flange <b>flange_b</b> is <b>forced</b> to move with a predefined motion
 according to the input signals:
 </p>
-
 <pre>
-    inPort.signal[1]: angle of flange
-    inPort.signal[2]: angular velocity of flange
-    inPort.signal[3]: angular acceleration of flange
+    u[1]: angle of flange
+    u[2]: angular velocity of flange
+    u[3]: angular acceleration of flange
 </pre>
-
 <p>
 The user has to guarantee that the input signals are consistent to each other,
-i.e., that inPort.signal[2] is the derivative of inPort.signal[1] and that
-inPort.signal[3] is the derivative of inPort.signal[2]. There are, however,
+i.e., that u[2] is the derivative of u[1] and that
+u[3] is the derivative of u[2]. There are, however,
 also applications where by purpose these conditions do not hold. For example,
 if only the position dependent terms of a mechanical system shall be
 calculated, one may provide angle = angle(t) and set the angular velocity
 and the angular acceleration to zero.
 </p>
-
 <p>
 The input signals can be provided from one of the signal generator
 blocks of the block library Modelica.Blocks.Sources.
 </p>
-
 <p>
 Note, this model utilizes the non-standard function <b>constrain(..)</b>
 and assumes that this function is supported by the Modelica translator:
@@ -2790,11 +2543,9 @@ and assumes that this function is supported by the Modelica translator:
 where r, rd and rdd are variables which need to be computed
 somewhere else. A simple implementation of constrain() is:
 </p>
-
 <pre>
    r = 0;
 </pre>
-
 <p>
 However, this implementation requires that r(t) is given as analytical,
 smooth function in order that it can be differentiated and it does
@@ -2808,14 +2559,12 @@ rd and rdd whenever the Pantelides algorithm requires to compute
 the derivatives of r (and takes rd and rdd instead of actually
 differentiating r).
 </p>
-
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>June 25, 2001</i>
        by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>:<br>
        realized.</li>
 </ul>
-
 <pre>
 </PRE>
 <H3>Modelica definition</H3>
@@ -2835,9 +2584,10 @@ differentiating r).
   
   <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_b"
 >Interfaces.Flange_b</A> flange_b;
-  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
->Modelica.Blocks.Interfaces.InPort</A> inPort(
-                                           <font color="blue">final </font>n=3);
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> u[
+                                         3] <font color="darkgreen">
+    &quot;angle, angular velocity and angular acceleration of flange_b as input signals&quot;</font>;
 <font color="blue">protected </font>
   Real constraintResidue;
   Real constraintResidue_d;
@@ -2858,9 +2608,9 @@ differentiating r).
   w =<font color="red"> der</font>(phi);
   a =<font color="red"> der</font>(w);
   
-  constraintResidue = inPort.signal[1] - phi;
-  constraintResidue_d = inPort.signal[2] - w;
-  constraintResidue_dd = inPort.signal[3] - a;
+  constraintResidue = u[1] - phi;
+  constraintResidue_d = u[2] - w;
+  constraintResidue_dd = u[3] - a;
   <font color="red">constrain</font>(constraintResidue, constraintResidue_d, constraintResidue_dd);
 <font color="blue">end </font>Move;
 </PRE>
@@ -2879,16 +2629,12 @@ differentiating r).
 The <b>flange</b> of a 1D rotational mechanical system is <b>fixed</b>
 at an angle phi0 in the <b>housing</b>. May be used:
 </p>
-
 <ul>
 <li> to connect a compliant element, such as a spring or a damper,
      between an inertia or gearbox component and the housing.
-
 <li> to fix a rigid element, such as an inertia, with a specific
      angle to the housing.
 </ul>
-
-
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>July 18, 1999</i>
@@ -2896,7 +2642,6 @@ at an angle phi0 in the <b>housing</b>. May be used:
        Realized.
 </li>
 </ul>
-
 <pre>
 </PRE>
 <H3>Parameters</H3><P>
@@ -2928,15 +2673,14 @@ at an angle phi0 in the <b>housing</b>. May be used:
 <H3>Information</H3>
 <PRE></pre>
 <p>
-The input signal <b>inPort.signal[1]</b> defines an external
-torque <b>tau</b> in [Nm] which acts (with negative sign) at
+The input signal <b>tau</b> defines an external
+torque in [Nm] which acts (with negative sign) at
 a flange connector, i.e., the component connected to this
 flange is driven by torque <b>tau</b>.</p>
 <p>
 The input signal can be provided from one of the signal generator
 blocks of Modelica.Blocks.Sources.
 </p>
-
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>June 30, 1999</i>
@@ -2944,25 +2688,21 @@ blocks of Modelica.Blocks.Sources.
        Realized.
 </li>
 </ul>
-
 <pre>
 </PRE>
 <H3>Modelica definition</H3>
 <PRE>
 <font color="blue">model</font> Torque <font color="darkgreen">&quot;Input signal acting as external torque on a flange&quot;</font> 
-  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Torque"
->SI.Torque</A> tau <font color="darkgreen">&quot;Torque (a positive value accelerates the flange)&quot;</font>;
-  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
->Modelica.Blocks.Interfaces.InPort</A> inPort(
-                                           <font color="blue">final </font>n=1) <font color="darkgreen">
-    &quot;Connector of input signal used as torque&quot;</font>;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> tau(
+                                            <font color="blue">redeclare </font><font color="blue">type</font> SignalType = <A HREF="Modelica_SIunits.html#Modelica.SIunits.Torque"
+>SI.Torque</A>) <font color="darkgreen">
+    &quot;Torque driving the flange (a positive value accelerates the flange)&quot;</font>;
   <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_b"
 >Interfaces.Flange_b</A> flange_b <font color="darkgreen">&quot;(Right) flange&quot;</font>;
   <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_a"
 >Interfaces.Flange_a</A> bearing;
 <font color="blue">equation </font>
-  tau = inPort.signal[1];
-  
   flange_b.tau = -tau;
   
   <font color="blue">if </font><font color="red">cardinality</font>(bearing) == 0<font color="blue"> then</font>
@@ -2984,13 +2724,11 @@ blocks of Modelica.Blocks.Sources.
 <H3>Information</H3>
 <PRE></pre>
 <p>
-The input signal <b>inPort.signal[1]</b> defines an external
-torque <b>tau</b> in [Nm] which acts at both flange connectors,
+The input signal <b>tau</b> defines an external
+torque in [Nm] which acts at both flange connectors,
 i.e., the components connected to these flanges are driven by torque <b>tau</b>.</p>
-
 <p>The input signal can be provided from one of the signal generator
 blocks of Modelica.Blocks.Sources.</p>
-
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>October 27, 2003</i>
@@ -3005,15 +2743,14 @@ blocks of Modelica.Blocks.Sources.</p>
 <font color="blue">model</font> Torque2 <font color="darkgreen">&quot;Input signal acting as torque on two flanges&quot;</font> 
   <font color="blue">extends </font><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.TwoFlanges"
 >Interfaces.TwoFlanges</A>;
-  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Torque"
->SI.Torque</A> tau <font color="darkgreen">&quot;Torque (a positive value accelerates the flange)&quot;</font>;
-  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
->Blocks.Interfaces.InPort</A> inPort(
-                                  <font color="blue">final </font>n=1) <font color="darkgreen">
-    &quot;Connector of input signal used as torque&quot;</font>;
-<font color="blue">equation </font>
-  tau = inPort.signal[1];
   
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> tau(
+                                            <font color="blue">redeclare </font><font color="blue">type</font> SignalType = <A HREF="Modelica_SIunits.html#Modelica.SIunits.Torque"
+>SI.Torque</A>) <font color="darkgreen">
+    &quot;Torque driving the two flanges (a positive value accelerates the flange)&quot;</font>;
+  
+<font color="blue">equation </font>
   flange_a.tau = tau;
   flange_b.tau = -tau;
 <font color="blue">end </font>Torque2;
@@ -3037,26 +2774,21 @@ because it may be easier to supply initial values.
 In such cases, model <b>RelativeStates</b> allows the definition of state variables
 in the following way:
 </p>
-
 <ul>
 <li> Connect an instance of this model between two flange connectors.</li>
 <li> The <b>relative rotation angle</b> and the <b>relative angular velocity</b>
      between the two connectors are used as <b>state variables</b>.
 </ul>
-
 <p>
 An example is given in the next figure
 </p>
-
 <IMG SRC="../Images/relativeStates.png" ALT="relativeStates">
-
 <p>
 Here, the relative angle and the relative angular velocity between
 the two inertias are used as state variables. Additionally, the
 simulator selects either the absolute angle and absolute angular
 velocity of model inertia1 or of model inertia2 as state variables.
 </p>
-
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>June 19, 2000</i>
@@ -3090,7 +2822,7 @@ velocity of model inertia1 or of model inertia2 as state variables.
 <font color="blue">end </font>RelativeStates;
 </PRE>
 <HR>
-<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Jun 30 17:43:04 2004
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Jun 30 17:49:05 2004
 .
 </address></BODY>
 </HTML>

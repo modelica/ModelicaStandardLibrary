@@ -4,7 +4,7 @@ package Translational "1-dimensional translational mechanical components"
   
   extends Modelica.Icons.Library2;
   
-  annotation(
+  annotation(preferedView="info",
     Window(
       x=0.05,
       y=0.09,
@@ -31,7 +31,6 @@ package Translational "1-dimensional translational mechanical components"
 This package contains components to model <i>1-dimensional translational
 mechanical</i> systems.
 </p>
-
 <p>
 The <i>filled</i> and <i>non-filled green squares</i> at the left and
 right side of a component represent <i>mechanical flanges</i>.
@@ -40,7 +39,6 @@ flanges are <i>rigidly attached</i> to each other. The components of this
 library can be usually connected together in an arbitrary way. E.g. it is
 possible to connect two springs or two sliding masses with inertia directly
 together.
-
 <p> The only <i>connection restriction</i> is that the Coulomb friction
 elements (Stop) should be only connected
 together provided a compliant element, such as a spring, is in between.
@@ -53,14 +51,11 @@ two connected friction elements into
 one component and resolving the ambiguity of the frictional force in the
 stuck mode.
 </p>
-
 <p> Another restriction arises if the hard stops in model Stop are used, i. e.
 the movement of the mass is limited by a stop at smax or smin.
 <font color=\"#ff0000\"> <b>This requires the states Stop.s and Stop.v</b> </font>. If these states are eliminated during the index reduction
 the model will not work. To avoid this any inertias should be connected via springs
 to the Stop element, other sliding masses, dampers or hydraulic chambers must be avoided. </p>
-
-
 <p>
 In the <i>icon</i> of every component an <i>arrow</i> is displayed in grey
 color. This arrow characterizes the coordinate system in which the vectors
@@ -74,20 +69,16 @@ the positive cut-force of a \"right\" flange (flange_b) is directed out of the
 flange. A flange is described by a Modelica connector containing
 the following variables:
 </p>
-
 <pre>
    SIunits.Position s  \"absolute position of flange\";
    <i>flow</i> Force f        \"cut-force in the flange\";
 </pre>
-
 <p>
 This package contains the following model components:
 </p>
-
 <pre>
    <i>Interfaces</i>       Sublibrary containing interface definitions.
    <i>Examples</i>         Examples of library usage.
-
    <i>SlidingMass</i>      Translational component with inertia.
    <i>Stop</i>             Sliding mass with Coulomb friction and hard stops.
    <i>Rod</i>              Massless rod.
@@ -95,21 +86,17 @@ This package contains the following model components:
    <i>Damper</i>           Linear damper.
    <i>SpringDamper</i>     Linear spring and linear damper in parallel connection.
    <i>ElastoGap</i>        Linear spring and linear damper that can lift off.
-
    <i>Position</i>         Drive a flange with a reference position given as input signal.
    <i>Accelerate</i>       Drive a flange with an acceleration given as input signal.
    <i>Move</i>             Drive a flange with a reference position, velocity and
                     acceleration given as input signal.
    <i>Fixed</i>            Fixed flange at a predefined position.
    <i>Force</i>            External force defined as input signal.
-
    <i>ForceSensor</i>      Ideal sensor to measure the force in a flange.
    <i>PositionSensor</i>   Ideal sensor to measure absolute position of a flange.
    <i>SpeedSensor</i>      Ideal sensor to measure absolute velocity of a flange.
    <i>AccSensor</i>        Ideal sensor to measure absolute acceleration of a flange.
-
 </pre>
-
 <p>
 This library is designed in a fully object oriented way in order that
 components can be connected together in every meaningful combination
@@ -125,7 +112,6 @@ Modelica translator is able to symbolically differentiate equations
 conditions; even if consistent initial conditions are present, most
 numerical DAE integrators can cope at most with index 2 DAEs).
 </p>
-
 <b>Main Author:</b><i><ul> Peter Beater</i> <br>
     Universit&auml;t Paderborn, Abteilung Soest<br>
     Fachbereich Maschinenbau/Automatisierungstechnik<br>
@@ -136,8 +122,15 @@ email: <A HREF=\"mailto:Beater@mailso.uni-paderborn.de\">Beater@mailso.uni-pader
 </ul>
 <br>
 
-<p><b>Release
- Notes:</b></p>
+<p><b>Copyright &copy; 2000-2002, Modelica Association and Universit&auml;t Paderborn, FB 12.</b></p>
+<p><i>
+The Modelica package is free software; it can be redistributed and/or modified
+under the terms of the Modelica license , see the license conditions
+and the accompanying disclaimer in the documentation of package
+Modelica in file \"Modelica/package.mo\".
+</i></p>
+</HTML>
+", revisions="<html>
 <ul>
 <li><i>Version 1.0 (January 5, 2000)</i>
        by Peter Beater <br>
@@ -147,30 +140,15 @@ email: <A HREF=\"mailto:Beater@mailso.uni-paderborn.de\">Beater@mailso.uni-pader
 <li><i>Version 1.01 (July 18, 2001)</i>
        by Peter Beater <br>
        Assert statement added to \"Stop\", small bug fixes in examples.
-
        <br><br>
-
-
 </li>
 </ul>
-<br>
-
-
-<p><b>Copyright &copy; 2000-2002, Modelica Association and Universit&auml;t Paderborn, FB 12.</b></p>
-
-<p><i>
-The Modelica package is free software; it can be redistributed and/or modified
-under the terms of the Modelica license , see the license conditions
-and the accompanying disclaimer in the documentation of package
-Modelica in file \"Modelica/package.mo\".
-</i></p>
-</HTML>
-"));
+</html>"));
   package Examples "Demonstration examples of the components of this package" 
     
     extends Modelica.Icons.Library;
     
-    annotation(
+    annotation(preferedView="info",
       Window(
         x=0.07,
         y=0.14,
@@ -185,7 +163,6 @@ Translational package. Open the models and
 simulate them according to the provided description in the models.
 The following examples are present:
 </p>
-
 <pre>
    <i>SignConvention</i>    Examples for the used sign conventions using simple, basic elements
    <i>InitialConditions</i> Setting of initial conditions
@@ -196,7 +173,6 @@ The following examples are present:
    <i>Friction</i>          Stribeck friction characteristics
    <i>PreLoad</i>           Positioning of a spool using ElastoGap models
 </pre>
-
 <ul>
 <li><i>First Version from December 7, 1999 by P. Beater</i> </li>
 </ul>
@@ -210,7 +186,7 @@ The following examples are present:
       import Modelica.Mechanics.Translational;
       
       extends Icons.Example;
-      annotation( Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
 If all arrows point in the same direction a positive force
 results in a positive acceleration a, velocity v and position s.
@@ -235,7 +211,6 @@ In the third system the two arrows are opposed which means that the
 force acts in the opposite direction (in the same direction as in
 the two other examples).
 </p>
-
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>First Version from December 10, 1999 by P. Beater </i> </li>
@@ -245,30 +220,30 @@ the two other examples).
           Text(extent=[-100, 80; -82, 60], string="1)"),
           Text(extent=[-100, 40; -82, 20], string="2)"),
           Text(extent=[-100, -20; -82, -40], string="3)")));
-      Translational.SlidingMass SlidingMass1(L=1) annotation( extent=[36, 60;
+      Translational.SlidingMass SlidingMass1(L=1) annotation (extent=[36, 60;
             56, 80]);
-      Translational.Force Force1 annotation( extent=[-4, 60; 16, 80]);
-      Sources.Constant Constant1 annotation( extent=[-44, 60; -24, 80]);
-      Translational.SlidingMass SlidingMass2(L=1) annotation( extent=[36, 0; 56,
+      Translational.Force Force1 annotation (extent=[-4, 60; 16, 80]);
+      Sources.Constant Constant1 annotation (extent=[-44, 60; -24, 80]);
+      Translational.SlidingMass SlidingMass2(L=1) annotation (extent=[36, 0; 56,
               20]);
-      Translational.Force Force2 annotation( extent=[-4, 20; 16, 40]);
-      Sources.Constant Constant2 annotation( extent=[-44, 20; -24, 40]);
-      Translational.SlidingMass SlidingMass3(L=1) annotation( extent=[-40, -40;
+      Translational.Force Force2 annotation (extent=[-4, 20; 16, 40]);
+      Sources.Constant Constant2 annotation (extent=[-44, 20; -24, 40]);
+      Translational.SlidingMass SlidingMass3(L=1) annotation (extent=[-40, -40;
               -20, -20]);
-      Translational.Force Force3 annotation( extent=[20, -40; 0, -20]);
-      Sources.Constant Constant3 annotation( extent=[60, -40; 40, -20]);
+      Translational.Force Force3 annotation (extent=[20, -40; 0, -20]);
+      Sources.Constant Constant3 annotation (extent=[60, -40; 40, -20]);
     equation 
-      connect(Constant1.outPort, Force1.inPort) annotation( points=[-23, 70; -6,
+      connect(Constant1.y, Force1.f) annotation (points=[-23, 70; -6,
               70]);
-      connect(Constant2.outPort, Force2.inPort) annotation( points=[-23, 30; -6,
+      connect(Constant2.y, Force2.f) annotation (points=[-23, 30; -6,
               30]);
-      connect(Force3.inPort, Constant3.outPort) annotation( points=[22, -30; 39,
+      connect(Force3.f, Constant3.y) annotation (points=[22, -30; 39,
               -30]);
-      connect(Force1.flange_b, SlidingMass1.flange_a) annotation( points=[16,
+      connect(Force1.flange_b, SlidingMass1.flange_a) annotation (points=[16,
             70; 36, 70], style(color=58));
-      connect(Force2.flange_b, SlidingMass2.flange_b) annotation( points=[16,
+      connect(Force2.flange_b, SlidingMass2.flange_b) annotation (points=[16,
             30; 82, 30; 82, 10; 56, 10], style(color=58));
-      connect(SlidingMass3.flange_b, Force3.flange_b) annotation( points=[-20,
+      connect(SlidingMass3.flange_b, Force3.flange_b) annotation (points=[-20,
             -30; 0, -30], style(color=58));
     end SignConvention;
     
@@ -277,7 +252,7 @@ the two other examples).
       import Modelica.Mechanics.Translational;
       
       extends Icons.Example;
-      annotation(
+      annotation (
         Coordsys(
           extent=[-100, -100; 100, 100],
           grid=[2, 2],
@@ -288,13 +263,11 @@ the two other examples).
           width=0.56,
           height=0.83),
         Documentation(info="There are several ways to set initial conditions.
-
 In the first system the position of the sliding mass m3 was defined
 by using the modifier s(start=4.5), the position of m5 by s(start=12.5).
 These positions were chosen such that the system is a rest. To calculate
 these values start at the left (Fixed1) with a value of 1 m. The spring
 has an unstreched length of 2 m and m3 an length of 3 m, which leads to
-
         1   m (Fixed1)
       + 2   m (Spring S2)
       + 3/2 m (half of the length of SlidingMass m3)
@@ -305,14 +278,11 @@ has an unstreched length of 2 m and m3 an length of 3 m, which leads to
       + 5/2 m (half of length of SlidingMass m5)
       -------
        12,5 m = s(start = 12.5) for m5
-
 This selection of initial conditions has the effect that Dymola selects
 those variables (m3.s and m5.s) as state variables.
-
 In the second example the length of the springs are given as start values
 but they cannot be used as state for pure springs (only for the spring/damper
 combination). In this case the system is not at rest.
-
 <html> <IMG SRC=../Images/Fig.translational.examples.InitialConditions.png>  </HTML>
 <html>
 <p><b>Release Notes:</b></p>
@@ -321,45 +291,43 @@ combination). In this case the system is not at rest.
 <li><i>Parameters and documentation modified, July 17, 2001 by P. Beater </i> </li>
 </ul>
 </HTML>
-
-
 "));
-      Translational.SlidingMass M3(L=3, s(start=4.5)) annotation( extent=[-20,
+      Translational.SlidingMass M3(L=3, s(start=4.5)) annotation (extent=[-20,
             60; 0, 80]);
-      Translational.Spring S2(s_rel0=2, c=1e3) annotation( extent=[-60, 60; -40,
+      Translational.Spring S2(s_rel0=2, c=1e3) annotation (extent=[-60, 60; -40,
               80]);
-      Translational.Fixed Fixed1(s0=1) annotation( extent=[-100, 60; -80, 80]);
-      Translational.SpringDamper SD4(s_rel0=4, c=111) annotation( extent=[20,
+      Translational.Fixed Fixed1(s0=1) annotation (extent=[-100, 60; -80, 80]);
+      Translational.SpringDamper SD4(s_rel0=4, c=111) annotation (extent=[20,
             60; 40, 80]);
-      Translational.SlidingMass M5(L=5, s(start=12.5)) annotation( extent=[60,
+      Translational.SlidingMass M5(L=5, s(start=12.5)) annotation (extent=[60,
             60; 80, 80]);
-      Translational.SlidingMass M1(L=1) annotation( extent=[-20, -20; 0, 0]);
+      Translational.SlidingMass M1(L=1) annotation (extent=[-20, -20; 0, 0]);
       Translational.Spring S1(
         s_rel0=1,
         c=1e3,
-        s_rel(start=1)) annotation( extent=[-58, -20; -38, 0]);
-      Translational.Fixed Fixed2(s0=-1) annotation( extent=[-100, -20; -80, 0]);
+        s_rel(start=1)) annotation (extent=[-58, -20; -38, 0]);
+      Translational.Fixed Fixed2(s0=-1) annotation (extent=[-100, -20; -80, 0]);
       Translational.SpringDamper SD1(
         s_rel0=1,
         c=111,
-        s_rel(start=1)) annotation( extent=[20, -20; 40, 0]);
-      Translational.SlidingMass M2(L=2) annotation( extent=[60, -20; 80, 0]);
+        s_rel(start=1)) annotation (extent=[20, -20; 40, 0]);
+      Translational.SlidingMass M2(L=2) annotation (extent=[60, -20; 80, 0]);
     equation 
-      connect(Fixed1.flange_b, S2.flange_a) annotation( points=[-90, 70; -60,
+      connect(Fixed1.flange_b, S2.flange_a) annotation (points=[-90, 70; -60,
             70], style(color=53));
-      connect(S2.flange_b, M3.flange_a) annotation( points=[-40, 70; -20, 70],
+      connect(S2.flange_b, M3.flange_a) annotation (points=[-40, 70; -20, 70],
           style(color=53));
-      connect(M3.flange_b, SD4.flange_a) annotation( points=[0, 70; 20, 70],
+      connect(M3.flange_b, SD4.flange_a) annotation (points=[0, 70; 20, 70],
           style(color=53));
-      connect(SD4.flange_b, M5.flange_a) annotation( points=[40, 70; 60, 70],
+      connect(SD4.flange_b, M5.flange_a) annotation (points=[40, 70; 60, 70],
           style(color=53));
-      connect(Fixed2.flange_b, S1.flange_a) annotation( points=[-90, -10; -58,
+      connect(Fixed2.flange_b, S1.flange_a) annotation (points=[-90, -10; -58,
             -10], style(color=53));
-      connect(S1.flange_b, M1.flange_a) annotation( points=[-38, -10; -20, -10],
+      connect(S1.flange_b, M1.flange_a) annotation (points=[-38, -10; -20, -10],
             style(color=53));
-      connect(M1.flange_b, SD1.flange_a) annotation( points=[0, -10; 20, -10],
+      connect(M1.flange_b, SD1.flange_a) annotation (points=[0, -10; 20, -10],
           style(color=53));
-      connect(SD1.flange_b, M2.flange_a) annotation( points=[40, -10; 60, -10],
+      connect(SD1.flange_b, M2.flange_a) annotation (points=[40, -10; 60, -10],
             style(color=53));
     end InitialConditions;
     
@@ -368,7 +336,7 @@ combination). In this case the system is not at rest.
       import Modelica.Mechanics.Translational;
       
       extends Icons.Example;
-      annotation(
+      annotation (
         Coordsys(
           extent=[-100, -100; 100, 100],
           grid=[2, 2],
@@ -382,25 +350,20 @@ combination). In this case the system is not at rest.
 it is recommended to make sure that all arrows point in
 the same direction because then all component have the
 same reference system.
-
 In the example the distance from flange_a of Rod1 to flange_b
 of Rod2 is 2 m. The distance from flange_a of Rad1 to flange_b
 of Rod3 is also 2 m though it is difficult to see that. Without
 the arrows it would be almost impossible to notice.
-
 That all arrows point in the same direction is a sufficient
 condition for an easy use of the library. There are cases
 where horizontally flipped models can be used without
 problems.
-
 <html>
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>First Version from July 17, 2001 by P. Beater </i> </li>
 </ul>
 </HTML>
-
-
 "),     Diagram(
           Text(extent=[-80, 14; 90, 0], string=
                 "PositionSensor2.s = PositionSensor3.s"),
@@ -408,47 +371,47 @@ problems.
                 "PositionSensor3.s <> PositionSensor1.s"),
           Text(extent=[-82, -80; 94, -92], string="Both systems are equivalent"),
           Line(points=[-90, -28; 90, -28], style(thickness=2))));
-      Translational.Fixed Fixed1 annotation( extent=[-20, 20; 0, 40]);
-      Translational.Rod Rod1(L=1) annotation( extent=[-48, 20; -28, 40]);
-      Translational.Rod Rod2(L=1) annotation( extent=[20, 20; 40, 40]);
-      Translational.Rod Rod3(L=1) annotation( extent=[-30, 58; -50, 78]);
-      Translational.Sensors.PositionSensor PositionSensor2 annotation( extent=[
+      Translational.Fixed Fixed1 annotation (extent=[-20, 20; 0, 40]);
+      Translational.Rod Rod1(L=1) annotation (extent=[-48, 20; -28, 40]);
+      Translational.Rod Rod2(L=1) annotation (extent=[20, 20; 40, 40]);
+      Translational.Rod Rod3(L=1) annotation (extent=[-30, 58; -50, 78]);
+      Translational.Sensors.PositionSensor PositionSensor2 annotation (extent=[
             60, 20; 80, 40]);
-      Translational.Sensors.PositionSensor PositionSensor1 annotation( extent=[
+      Translational.Sensors.PositionSensor PositionSensor1 annotation (extent=[
             -60, 20; -80, 40]);
-      Translational.Sensors.PositionSensor PositionSensor3 annotation( extent=[
+      Translational.Sensors.PositionSensor PositionSensor3 annotation (extent=[
             -60, 58; -80, 78]);
-      Translational.Fixed Fixed3(s0=-1.9) annotation( extent=[-100, -60; -80, -
+      Translational.Fixed Fixed3(s0=-1.9) annotation (extent=[-100, -60; -80, -
             40]);
-      Translational.Spring Spring1(s_rel0=2, c=11) annotation( extent=[-74, -60;
+      Translational.Spring Spring1(s_rel0=2, c=11) annotation (extent=[-74, -60;
               -54, -40]);
-      Translational.SlidingMass SlidingMass1(L=2) annotation( extent=[-46, -60;
+      Translational.SlidingMass SlidingMass1(L=2) annotation (extent=[-46, -60;
               -26, -40]);
-      Translational.Fixed Fixed2(s0=-1.9) annotation( extent=[4, -60; 24, -40]);
-      Translational.Spring Spring2(s_rel0=2, c=11) annotation( extent=[30, -60;
+      Translational.Fixed Fixed2(s0=-1.9) annotation (extent=[4, -60; 24, -40]);
+      Translational.Spring Spring2(s_rel0=2, c=11) annotation (extent=[30, -60;
               50, -40]);
-      Translational.SlidingMass SlidingMass2(L=2) annotation( extent=[78, -60;
+      Translational.SlidingMass SlidingMass2(L=2) annotation (extent=[78, -60;
             58, -40]);
     equation 
-      connect(Rod1.flange_b, Fixed1.flange_b) annotation( points=[-28, 30; -10,
+      connect(Rod1.flange_b, Fixed1.flange_b) annotation (points=[-28, 30; -10,
               30], style(color=58));
-      connect(Fixed1.flange_b, Rod2.flange_a) annotation( points=[-10, 30; 20,
+      connect(Fixed1.flange_b, Rod2.flange_a) annotation (points=[-10, 30; 20,
             30], style(color=58));
-      connect(Rod3.flange_a, Fixed1.flange_b) annotation( points=[-30, 68; -10,
+      connect(Rod3.flange_a, Fixed1.flange_b) annotation (points=[-30, 68; -10,
               68; -10, 30], style(color=58));
-      connect(Rod2.flange_b, PositionSensor2.flange_a) annotation( points=[40,
+      connect(Rod2.flange_b, PositionSensor2.flange_a) annotation (points=[40,
             30; 60, 30], style(color=58));
-      connect(PositionSensor1.flange_a, Rod1.flange_a) annotation( points=[-60,
+      connect(PositionSensor1.flange_a, Rod1.flange_a) annotation (points=[-60,
               30; -48, 30], style(color=58));
-      connect(PositionSensor3.flange_a, Rod3.flange_b) annotation( points=[-60,
+      connect(PositionSensor3.flange_a, Rod3.flange_b) annotation (points=[-60,
               68; -50, 68], style(color=58));
-      connect(Fixed3.flange_b, Spring1.flange_a) annotation( points=[-90, -50;
+      connect(Fixed3.flange_b, Spring1.flange_a) annotation (points=[-90, -50;
             -74, -50], style(color=58));
-      connect(Spring1.flange_b, SlidingMass1.flange_b) annotation( points=[-54,
+      connect(Spring1.flange_b, SlidingMass1.flange_b) annotation (points=[-54,
               -50; -54, -72; -26, -72; -26, -50], style(color=58));
-      connect(Fixed2.flange_b, Spring2.flange_a) annotation( points=[14, -50;
+      connect(Fixed2.flange_b, Spring2.flange_a) annotation (points=[14, -50;
             30, -50], style(color=58));
-      connect(Spring2.flange_b, SlidingMass2.flange_b) annotation( points=[50,
+      connect(Spring2.flange_b, SlidingMass2.flange_b) annotation (points=[50,
             -50; 58, -50], style(color=58));
     end WhyArrows;
     
@@ -458,14 +421,14 @@ problems.
       import Modelica.Mechanics.Translational;
       
       extends Icons.Example;
-      Translational.Accelerate Accelerate1 annotation( extent=[-40, 20; -20, 40]);
-      Translational.SlidingMass SlidingMass1(L=1) annotation( extent=[40, 20;
+      Translational.Accelerate Accelerate1 annotation (extent=[-40, 20; -20, 40]);
+      Translational.SlidingMass SlidingMass1(L=1) annotation (extent=[40, 20;
             60, 40]);
-      Sources.Constant Constant1 annotation( extent=[-100, 20; -80, 40]);
+      Sources.Constant Constant1 annotation (extent=[-100, 20; -80, 40]);
     equation 
-      connect(Constant1.outPort, Accelerate1.inPort) annotation( points=[-79,
+      connect(Constant1.y, Accelerate1.a) annotation (points=[-79,
             30; -42, 30]);
-      connect(Accelerate1.flange_b, SlidingMass1.flange_a) annotation( points=[
+      connect(Accelerate1.flange_b, SlidingMass1.flange_a) annotation (points=[
             -20, 30; 40, 30], style(color=58));
     end Accelerate;
     
@@ -474,47 +437,46 @@ problems.
       import Modelica.Mechanics.Translational;
       
       extends Icons.Example;
-      annotation( Documentation(info="Release notes:
+      annotation (Documentation(info="Release notes:
 --------------
-
 2001 - 7  - 14: Damping parameters increased (from 1 to 25)
 "));
       Translational.SlidingMass SlidingMass1(
         L=1,
         v(start=10),
-        s(start=3)) annotation( extent=[-80, 60; -60, 80]);
-      Translational.Damper Damper1(d=25) annotation( extent=[-20, 60; 0, 80]);
-      Translational.Fixed Fixed1(s0=4.5) annotation( extent=[22, 60; 42, 80]);
+        s(start=3)) annotation (extent=[-80, 60; -60, 80]);
+      Translational.Damper Damper1(d=25) annotation (extent=[-20, 60; 0, 80]);
+      Translational.Fixed Fixed1(s0=4.5) annotation (extent=[22, 60; 42, 80]);
       Translational.SlidingMass SlidingMass2(
         L=1,
         v(start=10),
-        s(start=3)) annotation( extent=[-80, 0; -60, 20]);
-      Translational.Damper Damper2(d=25) annotation( extent=[-20, 0; 0, 20]);
-      Translational.Fixed Fixed2(s0=4.5) annotation( extent=[20, 0; 40, 20]);
+        s(start=3)) annotation (extent=[-80, 0; -60, 20]);
+      Translational.Damper Damper2(d=25) annotation (extent=[-20, 0; 0, 20]);
+      Translational.Fixed Fixed2(s0=4.5) annotation (extent=[20, 0; 40, 20]);
       Translational.SlidingMass SlidingMass3(
         L=1,
         v(start=10),
-        s(start=3)) annotation( extent=[-80, -60; -60, -40]);
-      Translational.Fixed Fixed3(s0=4.5) annotation( extent=[20, -60; 40, -40]);
-      Translational.Spring Spring1(s_rel0=1) annotation( extent=[-20, -20; 0, 0]);
-      Translational.SpringDamper SpringDamper1(s_rel0=1, d=25) annotation(
+        s(start=3)) annotation (extent=[-80, -60; -60, -40]);
+      Translational.Fixed Fixed3(s0=4.5) annotation (extent=[20, -60; 40, -40]);
+      Translational.Spring Spring1(s_rel0=1) annotation (extent=[-20, -20; 0, 0]);
+      Translational.SpringDamper SpringDamper1(s_rel0=1, d=25) annotation (
           extent=[-20, -60; 0, -40]);
     equation 
-      connect(SlidingMass1.flange_b, Damper1.flange_a) annotation( points=[-60,
+      connect(SlidingMass1.flange_b, Damper1.flange_a) annotation (points=[-60,
               70; -20, 70], style(color=58));
-      connect(Damper1.flange_b, Fixed1.flange_b) annotation( points=[0, 70; 32,
+      connect(Damper1.flange_b, Fixed1.flange_b) annotation (points=[0, 70; 32,
               70], style(color=58));
-      connect(SlidingMass2.flange_b, Damper2.flange_a) annotation( points=[-60,
+      connect(SlidingMass2.flange_b, Damper2.flange_a) annotation (points=[-60,
               10; -20, 10], style(color=58));
-      connect(Damper2.flange_b, Fixed2.flange_b) annotation( points=[0, 10; 30,
+      connect(Damper2.flange_b, Fixed2.flange_b) annotation (points=[0, 10; 30,
               10], style(color=58));
-      connect(Damper2.flange_b, Spring1.flange_b) annotation( points=[0, 10; 0,
+      connect(Damper2.flange_b, Spring1.flange_b) annotation (points=[0, 10; 0,
               -10], style(color=58));
-      connect(Damper2.flange_a, Spring1.flange_a) annotation( points=[-20, 10;
+      connect(Damper2.flange_a, Spring1.flange_a) annotation (points=[-20, 10;
             -20, -10], style(color=58));
-      connect(SlidingMass3.flange_b, SpringDamper1.flange_a) annotation( points=
+      connect(SlidingMass3.flange_b, SpringDamper1.flange_a) annotation (points=
            [-60, -50; -20, -50], style(color=58));
-      connect(SpringDamper1.flange_b, Fixed3.flange_b) annotation( points=[0, -
+      connect(SpringDamper1.flange_b, Fixed3.flange_b) annotation (points=[0, -
             50; 30, -50], style(color=58));
     end Damper;
     
@@ -525,7 +487,7 @@ problems.
       import Modelica.Mechanics.Translational;
       
       extends Icons.Example;
-      annotation(
+      annotation (
         Coordsys(
           extent=[-100, -100; 100, 100],
           grid=[2, 2],
@@ -538,18 +500,13 @@ problems.
         Documentation(info="A spring - mass system is a mechanical oscillator. If no
 damping is included and the system is excited at resonance
 frequency infinite amplitudes will result.
-
 The resonant frequency is given by
-
 omega_res = sqrt(c / m)
-
 with: c spring stiffness
       m mass
-
 To make sure that the system is initially at rest the initial
 conditions s(start=0) and v(start=0) for the SlindingMass
 are set.
-
 If damping is added the amplitudes are bounded.
 <html>
 <p><b>Release Notes:</b></p>
@@ -561,44 +518,44 @@ If damping is added the amplitudes are bounded.
       Translational.SlidingMass SlidingMass1(
         L=1,
         s(start=-0.5),
-        v(start=0.0)) annotation( extent=[-20, 40; 0, 60]);
-      Translational.Spring Spring1(s_rel0=1, c=10000) annotation( extent=[20,
+        v(start=0.0)) annotation (extent=[-20, 40; 0, 60]);
+      Translational.Spring Spring1(s_rel0=1, c=10000) annotation (extent=[20,
             40; 40, 60]);
-      Translational.Fixed Fixed1(s0=1.0) annotation( extent=[60, 40; 80, 60]);
-      Translational.Force Force1 annotation( extent=[-60, 40; -40, 60]);
-      Sources.Sine Sine1(freqHz={15.9155}) annotation( extent=[-100, 40; -80,
+      Translational.Fixed Fixed1(s0=1.0) annotation (extent=[60, 40; 80, 60]);
+      Translational.Force Force1 annotation (extent=[-60, 40; -40, 60]);
+      Sources.Sine Sine1(freqHz=15.9155) annotation (extent=[-100, 40; -80,
             60]);
       Translational.SlidingMass SlidingMass2(
         L=1,
         s(start=-0.5),
-        v(start=0.0)) annotation( extent=[-20, -60; 0, -40]);
-      Translational.Spring Spring2(s_rel0=1, c=10000) annotation( extent=[20, -
+        v(start=0.0)) annotation (extent=[-20, -60; 0, -40]);
+      Translational.Spring Spring2(s_rel0=1, c=10000) annotation (extent=[20, -
             60; 40, -40]);
-      Translational.Fixed Fixed2(s0=1.0) annotation( extent=[60, -60; 80, -40]);
-      Translational.Force Force2 annotation( extent=[-60, -60; -40, -40]);
-      Sources.Sine Sine2(freqHz={15.9155}) annotation( extent=[-100, -60; -80,
+      Translational.Fixed Fixed2(s0=1.0) annotation (extent=[60, -60; 80, -40]);
+      Translational.Force Force2 annotation (extent=[-60, -60; -40, -40]);
+      Sources.Sine Sine2(freqHz=15.9155) annotation (extent=[-100, -60; -80,
             -40]);
-      Translational.Damper Damper1(d=10) annotation( extent=[20, -36; 40, -16]);
+      Translational.Damper Damper1(d=10) annotation (extent=[20, -36; 40, -16]);
     equation 
-      connect(Sine1.outPort, Force1.inPort) annotation( points=[-79, 50; -62,
+      connect(Sine1.y, Force1.f) annotation (points=[-79, 50; -62,
             50]);
-      connect(Sine2.outPort, Force2.inPort) annotation( points=[-79, -50; -62,
+      connect(Sine2.y, Force2.f) annotation (points=[-79, -50; -62,
             -50]);
-      connect(Force1.flange_b, SlidingMass1.flange_a) annotation( points=[-40,
+      connect(Force1.flange_b, SlidingMass1.flange_a) annotation (points=[-40,
             50; -20, 50], style(color=58));
-      connect(Spring1.flange_b, Fixed1.flange_b) annotation( points=[40, 50; 70,
+      connect(Spring1.flange_b, Fixed1.flange_b) annotation (points=[40, 50; 70,
               50], style(color=58));
-      connect(SlidingMass1.flange_b, Spring1.flange_a) annotation( points=[0,
+      connect(SlidingMass1.flange_b, Spring1.flange_a) annotation (points=[0,
             50; 20, 50], style(color=58));
-      connect(Force2.flange_b, SlidingMass2.flange_a) annotation( points=[-40,
+      connect(Force2.flange_b, SlidingMass2.flange_a) annotation (points=[-40,
             -50; -20, -50], style(color=58));
-      connect(Spring2.flange_a, Damper1.flange_a) annotation( points=[20, -50;
+      connect(Spring2.flange_a, Damper1.flange_a) annotation (points=[20, -50;
             20, -26], style(color=58));
-      connect(SlidingMass2.flange_b, Spring2.flange_a) annotation( points=[0, -
+      connect(SlidingMass2.flange_b, Spring2.flange_a) annotation (points=[0, -
             50; 20, -50], style(color=58));
-      connect(Damper1.flange_b, Spring2.flange_b) annotation( points=[40, -26;
+      connect(Damper1.flange_b, Spring2.flange_b) annotation (points=[40, -26;
             40, -50], style(color=58));
-      connect(Spring2.flange_b, Fixed2.flange_b) annotation( points=[40, -50;
+      connect(Spring2.flange_b, Fixed2.flange_b) annotation (points=[40, -50;
             70, -50], style(color=58));
     end Oscillator;
     
@@ -608,7 +565,7 @@ If damping is added the amplitudes are bounded.
       import Modelica.Mechanics.Translational;
       
       extends Icons.Example;
-      annotation(
+      annotation (
         Coordsys(
           extent=[-100, -100; 100, 100],
           grid=[2, 2],
@@ -619,17 +576,14 @@ If damping is added the amplitudes are bounded.
           width=0.56,
           height=0.83),
         Documentation(info="These sensors measure
-
    force f in N
    position s in m
    velocity v in m/s
    acceleration a in m/s2
-
 Dhe measured velocity and acceleration is independent on
 the flange the sensor is connected to. The position
 depends on the flange (flange_a or flange_b) and the
 length L of the component.
-
 Plot PositionSensor1.s, PositionSensor2.s and SlidingMass1.s
 to see the difference.
 <html>
@@ -639,35 +593,35 @@ to see the difference.
 </ul>
 </HTML>
 "));
-      Translational.Sensors.ForceSensor ForceSensor1 annotation( extent=[-20,
+      Translational.Sensors.ForceSensor ForceSensor1 annotation (extent=[-20,
             40; 0, 60]);
-      Translational.Sensors.SpeedSensor SpeedSensor1 annotation( extent=[20, -
+      Translational.Sensors.SpeedSensor SpeedSensor1 annotation (extent=[20, -
             40; 40, -20]);
-      Translational.Sensors.PositionSensor PositionSensor1 annotation( extent=[
+      Translational.Sensors.PositionSensor PositionSensor1 annotation (extent=[
             20, 0; 40, 20]);
-      Translational.Sensors.AccSensor AccSensor1 annotation( extent=[20, -80;
+      Translational.Sensors.AccSensor AccSensor1 annotation (extent=[20, -80;
             40, -60]);
-      Translational.SlidingMass SlidingMass1(L=1) annotation( extent=[20, 40;
+      Translational.SlidingMass SlidingMass1(L=1) annotation (extent=[20, 40;
             40, 60]);
-      Translational.Force Force1 annotation( extent=[-60, 40; -40, 60]);
-      Sources.Sine Sine1(amplitude={10}, freqHz={4}) annotation( extent=[-100,
+      Translational.Force Force1 annotation (extent=[-60, 40; -40, 60]);
+      Sources.Sine Sine1(amplitude=10, freqHz=4) annotation (extent=[-100,
             40; -80, 60]);
-      Translational.Sensors.PositionSensor PositionSensor2 annotation( extent=[
+      Translational.Sensors.PositionSensor PositionSensor2 annotation (extent=[
             60, 40; 80, 60]);
     equation 
-      connect(Sine1.outPort, Force1.inPort) annotation( points=[-79, 50; -62,
+      connect(Sine1.y, Force1.f) annotation (points=[-79, 50; -62,
             50]);
-      connect(ForceSensor1.flange_b, SlidingMass1.flange_a) annotation( points=
+      connect(ForceSensor1.flange_b, SlidingMass1.flange_a) annotation (points=
             [0, 50; 20, 50], style(color=58));
-      connect(SlidingMass1.flange_b, PositionSensor2.flange_a) annotation(
+      connect(SlidingMass1.flange_b, PositionSensor2.flange_a) annotation (
           points=[40, 50; 60, 50], style(color=58));
-      connect(Force1.flange_b, ForceSensor1.flange_a) annotation( points=[-40,
+      connect(Force1.flange_b, ForceSensor1.flange_a) annotation (points=[-40,
             50; -20, 50], style(color=58));
-      connect(SlidingMass1.flange_a, PositionSensor1.flange_a) annotation(
+      connect(SlidingMass1.flange_a, PositionSensor1.flange_a) annotation (
           points=[20, 50; 20, 10], style(color=58));
-      connect(PositionSensor1.flange_a, SpeedSensor1.flange_a) annotation(
+      connect(PositionSensor1.flange_a, SpeedSensor1.flange_a) annotation (
           points=[20, 10; 20, -30], style(color=58));
-      connect(SpeedSensor1.flange_a, AccSensor1.flange_a) annotation( points=[
+      connect(SpeedSensor1.flange_a, AccSensor1.flange_a) annotation (points=[
             20, -30; 20, -70], style(color=58));
     end Sensors;
     
@@ -677,7 +631,7 @@ to see the difference.
       import Modelica.Mechanics.Translational;
       
       extends Icons.Example;
-      annotation(
+      annotation (
         Coordsys(
           extent=[-100, -100; 100, 100],
           grid=[2, 2],
@@ -693,7 +647,6 @@ to see the difference.
           height=0.83),
         Documentation(info="1) Simulate and then plot Stop1.f as a function of Stop1.v
    This gives the Stribeck curve.
-
 2) This model gives an example for a hard stop. However there
    can arise some problems with the used modeling approach (use of
    Reinit, convergence problems). In this case use the ElastoGap
@@ -705,9 +658,9 @@ to see the difference.
 </ul>
 </HTML>
 "));
-      Translational.Stop Stop1(L=1) annotation( extent=[60, 60; 80, 80]);
-      Translational.Force Force1 annotation( extent=[18, 60; 38, 80]);
-      Sources.Sine Sine1(amplitude={25}, freqHz={0.25}) annotation( extent=[-20,
+      Translational.Stop Stop1(L=1) annotation (extent=[60, 60; 80, 80]);
+      Translational.Force Force1 annotation (extent=[18, 60; 38, 80]);
+      Sources.Sine Sine1(amplitude=25, freqHz=0.25) annotation (extent=[-20,
               60; 0, 80]);
       Translational.Stop Stop2(
         L=1,
@@ -716,17 +669,17 @@ to see the difference.
         F_Coulomb=3,
         F_Stribeck=5,
         s(start=0),
-        v(start=-5)) annotation( extent=[60, 0; 80, 20]);
-      Translational.Spring Spring1(s_rel0=1, c=500) annotation( extent=[20, 0;
+        v(start=-5)) annotation (extent=[60, 0; 80, 20]);
+      Translational.Spring Spring1(s_rel0=1, c=500) annotation (extent=[20, 0;
             40, 20]);
-      Translational.Fixed Fixed1(s0=-1.75) annotation( extent=[-22, 0; -2, 20]);
+      Translational.Fixed Fixed1(s0=-1.75) annotation (extent=[-22, 0; -2, 20]);
     equation 
-      connect(Sine1.outPort, Force1.inPort) annotation( points=[1, 70; 16, 70]);
-      connect(Force1.flange_b, Stop1.flange_a) annotation( points=[38, 70; 60,
+      connect(Sine1.y, Force1.f) annotation (points=[1, 70; 16, 70]);
+      connect(Force1.flange_b, Stop1.flange_a) annotation (points=[38, 70; 60,
             70], style(color=58));
-      connect(Fixed1.flange_b, Spring1.flange_a) annotation( points=[-12, 10;
+      connect(Fixed1.flange_b, Spring1.flange_a) annotation (points=[-12, 10;
             20, 10], style(color=58));
-      connect(Spring1.flange_b, Stop2.flange_a) annotation( points=[40, 10; 60,
+      connect(Spring1.flange_b, Stop2.flange_a) annotation (points=[40, 10; 60,
               10], style(color=58));
     end Friction;
     
@@ -737,7 +690,7 @@ to see the difference.
       
       extends Icons.Example;
       
-      annotation(
+      annotation (
         Coordsys(
           extent=[-100, -100; 100, 100],
           grid=[2, 2],
@@ -777,90 +730,90 @@ Spool position s as a function of working force f.
       Translational.ElastoGap InnerContactA(
         s_rel0=1e-3,
         c=1000e3,
-        d=250) annotation( extent=[-68, 20; -48, 40]);
+        d=250) annotation (extent=[-68, 20; -48, 40]);
       Translational.ElastoGap InnerContactB(
         s_rel0=1e-3,
         c=1000e3,
-        d=250) annotation( extent=[54, 20; 74, 40], style(color=58));
+        d=250) annotation (extent=[54, 20; 74, 40], style(color=58));
       Translational.SlidingMass Spool(
         L=0.19,
         m=0.150,
-        s(start=14.75e-3)) annotation( extent=[6, -42; 46, -2]);
-      Translational.Fixed FixedLe(s0=-95.5e-3) annotation(
+        s(start=14.75e-3)) annotation (extent=[6, -42; 46, -2]);
+      Translational.Fixed FixedLe(s0=-95.5e-3) annotation (
           extent=[-98, 58; -78, 78]);
       Translational.SlidingMass SpringPlateA(
         L=2e-3,
         m=10e-3,
-        s(start=-93e-3)) annotation( extent=[-40, 58; -20, 78]);
+        s(start=-93e-3)) annotation (extent=[-40, 58; -20, 78]);
       Translational.SlidingMass SpringPlateB(
         L=2e-3,
         m=10e-3,
-        s(start=-69.25e-3)) annotation( extent=[26, 58; 46, 78], style(color=58));
+        s(start=-69.25e-3)) annotation (extent=[26, 58; 46, 78], style(color=58));
       Translational.Spring Spring(c=20e3, s_rel0=25e-3) 
-        annotation( extent=[-8, 58; 12, 78]);
+        annotation (extent=[-8, 58; 12, 78]);
       Translational.ElastoGap OuterContactA(
         s_rel0=1.5e-3,
         c=1000e3,
-        d=250) annotation( extent=[-74, 58; -54, 78]);
+        d=250) annotation (extent=[-74, 58; -54, 78]);
       Translational.ElastoGap OuterContactB(
         c=1000e3,
         d=250,
-        s_rel0=1.5e-3) annotation( extent=[60, 58; 80, 78]);
-      Translational.Rod Rod1(L=7e-3) annotation( extent=[-40, 32;
+        s_rel0=1.5e-3) annotation (extent=[60, 58; 80, 78]);
+      Translational.Rod Rod1(L=7e-3) annotation (extent=[-40, 32;
               -20, 52]);
-      Translational.Damper Friction(d=2500) annotation( extent=[
+      Translational.Damper Friction(d=2500) annotation (extent=[
             -98, 14; -78, 34], rotation=-90);
-      Translational.Force Force1 annotation( extent=[-32, -32; -
+      Translational.Force Force1 annotation (extent=[-32, -32; -
             12, -12]);
-      Translational.Rod Housing(L=30.5e-3) annotation( extent=[-
+      Translational.Rod Housing(L=30.5e-3) annotation (extent=[-
             8, 78; 12, 98]);
-      Translational.Rod Rod3(L=5.75e-3) annotation( extent=[-40,
+      Translational.Rod Rod3(L=5.75e-3) annotation (extent=[-40,
               -2; -20, 18]);
-      Translational.Rod Rod4(L=5.75e-3) annotation( extent=[26,
+      Translational.Rod Rod4(L=5.75e-3) annotation (extent=[26,
             -2; 46, 18]);
-      Translational.Rod Rod2(L=7e-3) annotation( extent=[26, 32;
+      Translational.Rod Rod2(L=7e-3) annotation (extent=[26, 32;
               46, 52]);
-      Sources.Sine Sine1(amplitude={150}, freqHz={0.01}) 
-        annotation( extent=[-76, -32; -56, -12]);
+      Sources.Sine Sine1(amplitude=150, freqHz=0.01) 
+        annotation (extent=[-76, -32; -56, -12]);
     equation 
-      connect(OuterContactA.flange_b, SpringPlateA.flange_a) annotation( points=[-
+      connect(OuterContactA.flange_b, SpringPlateA.flange_a) annotation (points=[-
             54, 68; -40, 68], style(color=58));
-      connect(SpringPlateA.flange_b, Spring.flange_a) annotation( points=[-20, 68;
+      connect(SpringPlateA.flange_b, Spring.flange_a) annotation (points=[-20, 68;
             -8, 68], style(color=58));
-      connect(Spring.flange_b, SpringPlateB.flange_a) annotation( points=[12, 68;
+      connect(Spring.flange_b, SpringPlateB.flange_a) annotation (points=[12, 68;
             26, 68], style(color=58));
-      connect(SpringPlateB.flange_b, OuterContactB.flange_a) annotation( points=[46,
+      connect(SpringPlateB.flange_b, OuterContactB.flange_a) annotation (points=[46,
               68; 60, 68], style(color=58));
-      connect(FixedLe.flange_b, OuterContactA.flange_a) annotation( points=[-88, 68;
+      connect(FixedLe.flange_b, OuterContactA.flange_a) annotation (points=[-88, 68;
               -74, 68], style(color=58));
-      connect(Friction.flange_a, FixedLe.flange_b) annotation( points=[-88, 34; -88,
+      connect(Friction.flange_a, FixedLe.flange_b) annotation (points=[-88, 34; -88,
               68], style(color=58));
-      connect(FixedLe.flange_b, Housing.flange_a) annotation( points=[-88, 68; -88,
+      connect(FixedLe.flange_b, Housing.flange_a) annotation (points=[-88, 68; -88,
               88; -8, 88], style(color=58));
-      connect(OuterContactB.flange_b, Housing.flange_b) annotation( points=[80, 68;
+      connect(OuterContactB.flange_b, Housing.flange_b) annotation (points=[80, 68;
               80, 88; 12, 88], style(color=58));
-      connect(SpringPlateA.flange_b, Rod1.flange_a) annotation( points=[-20, 68; -
+      connect(SpringPlateA.flange_b, Rod1.flange_a) annotation (points=[-20, 68; -
             20, 52; -40, 52; -40, 42], style(color=58));
-      connect(InnerContactA.flange_a, Rod3.flange_a) annotation( points=[-68, 30; -
+      connect(InnerContactA.flange_a, Rod3.flange_a) annotation (points=[-68, 30; -
             80, 30; -80, 8; -40, 8], style(color=58));
-      connect(InnerContactA.flange_b, Rod1.flange_b) annotation( points=[-48, 30; -
+      connect(InnerContactA.flange_b, Rod1.flange_b) annotation (points=[-48, 30; -
             12, 30; -12, 42; -20, 42], style(color=58));
-      connect(Rod2.flange_a, InnerContactB.flange_a) annotation( points=[26, 42; 26,
+      connect(Rod2.flange_a, InnerContactB.flange_a) annotation (points=[26, 42; 26,
               30; 54, 30], style(color=58));
-      connect(Rod4.flange_b, InnerContactB.flange_b) annotation( points=[46, 8; 80,
+      connect(Rod4.flange_b, InnerContactB.flange_b) annotation (points=[46, 8; 80,
               8; 80, 30; 74, 30], style(color=58));
-      connect(Friction.flange_b, Rod3.flange_a) annotation( points=[-88, 14; -88, 8;
+      connect(Friction.flange_b, Rod3.flange_a) annotation (points=[-88, 14; -88, 8;
               -40, 8], style(color=58));
-      connect(Sine1.outPort, Force1.inPort) annotation( points=[-55, -22; -34, -22],
+      connect(Sine1.y, Force1.f) annotation (points=[-55, -22; -34, -22],
             style(color=3));
-      connect(Force1.flange_b, Spool.flange_a) annotation( points=[-12, -22; 6, -22],
+      connect(Force1.flange_b, Spool.flange_a) annotation (points=[-12, -22; 6, -22],
                style(color=58));
-      connect(Rod3.flange_b, Rod4.flange_a) annotation( points=[-20, 8; 26, 8],
+      connect(Rod3.flange_b, Rod4.flange_a) annotation (points=[-20, 8; 26, 8],
           style(color=58));
-      connect(Rod2.flange_b, SpringPlateB.flange_a) annotation( points=[46, 42; 46,
+      connect(Rod2.flange_b, SpringPlateB.flange_a) annotation (points=[46, 42; 46,
               54; 26, 54; 26, 68], style(color=58));
-      connect(Spool.flange_a, Rod4.flange_a) annotation( points=[6, -20; 6, 8; 26,
-            8], style(color=58));
+      connect(Spool.flange_a, Rod4.flange_a) annotation (points=[6,-22; 6,8; 26,8],
+                style(color=58));
     end PreLoad;
   end Examples;
   
@@ -872,7 +825,7 @@ Spool position s as a function of working force f.
       "(left) 1D translational flange (flange axis directed INTO cut plane, e. g. from left to right)"
       
       
-      annotation(
+      annotation(defaultComponentName=  "flange_a",
         Coordsys(extent=[-100, -100; 100, 100]),
         Window(
           x=0.27,
@@ -880,7 +833,6 @@ Spool position s as a function of working force f.
           width=0.39,
           height=0.83),
         Documentation(info="<html>
-
 This is a flange for 1D translational mechanical systems. In the cut plane of
 the flange a unit vector n, called flange axis, is defined which is directed
 INTO the cut plane, i. e. from left to right. All vectors in the cut plane are
@@ -893,7 +845,6 @@ flanges are identical.
 <p>
 The following variables are transported through this connector:
 <pre>
-
   s: Absolute position of the flange in [m]. A positive translation
      means that the flange is translated along the flange axis.
   f: Cut-force in direction of the flange axis in [N].
@@ -901,9 +852,9 @@ The following variables are transported through this connector:
 </HTML>
 "),     Icon(Rectangle(extent=[-100, -100; 100, 100], style(color=58, fillColor=
                  58))),
-        Diagram(Rectangle(extent=[-100, -100; 100, 100], style(color=58,
+        Diagram(Rectangle(extent=[-40, -40; 40, 40], style(color=58,
                 fillColor=58)), Text(
-            extent=[-100, -120; 100, -220],
+            extent=[-160,110; 40,50],
             string="%name",
             style(color=58))),
         Terminal(Rectangle(extent=[-100, -100; 100, 100], style(color=58,
@@ -915,9 +866,10 @@ The following variables are transported through this connector:
     
     connector Flange_b 
       "right 1D translational flange (flange axis directed OUT OF cut plane)" 
+      
       SI.Position s "absolute position of flange";
       flow SI.Force f "cut force directed into flange";
-      annotation(
+      annotation(defaultComponentName=  "flange_b",
         Coordsys(
           extent=[-100, -100; 100, 100],
           grid=[2, 2],
@@ -939,7 +891,6 @@ flanges are identical.
 <p>
 The following variables are transported through this connector:
 <pre>
-
   s: Absolute position of the flange in [m]. A positive translation
      means that the flange is translated along the flange axis.
   f: Cut-force in direction of the flange axis in [N].
@@ -947,9 +898,9 @@ The following variables are transported through this connector:
 </HTML>
 "),     Icon(Rectangle(extent=[-100, -100; 100, 100], style(color=58, fillColor=
                  7))),
-        Diagram(Rectangle(extent=[-100, -100; 100, 100], style(color=58,
+        Diagram(Rectangle(extent=[-40, -40; 40, 40], style(color=58,
                 fillColor=7)), Text(
-            extent=[-100, -120; 100, -220],
+            extent=[-40,110; 160,50],
             string="%name",
             style(color=58))),
         Terminal(Rectangle(extent=[-100, -100; 100, 100], style(color=58))));
@@ -962,11 +913,11 @@ The following variables are transported through this connector:
         "length of component from left flange to right flange (= flange_b.s - flange_a.s)";
       Flange_a flange_a 
         "(left) driving flange (flange axis directed INTO cut plane, i. e. from left to right)"
-         annotation( extent=[-110, -10; -90, 10]);
+         annotation (extent=[-110, -10; -90, 10]);
       Flange_b flange_b 
         "(right) driven flange (flange axis directed OUT OF cut plane, i. e. from right to left)"
-         annotation( extent=[90, -10; 110, 10]);
-      annotation(
+         annotation (extent=[90, -10; 110, 10]);
+      annotation (
         Documentation(info="<html>
 <p>
 This is a 1D translational component with two <i>rigidly</i> connected flanges.
@@ -998,14 +949,14 @@ It is used e.g. to built up sliding masses.
       "Compliant connection of two translational 1D flanges" 
       Flange_a flange_a 
         "(left) driving flange (flange axis directed INTO cut plane, e. g. from left to right)"
-         annotation( extent=[-110, -10; -90, 10]);
+         annotation (extent=[-110, -10; -90, 10]);
       Flange_b flange_b 
         "(right) driven flange (flange axis directed OUT OF cut plane)" 
-        annotation( extent=[90, -10; 110, 10]);
+        annotation (extent=[90, -10; 110, 10]);
       SI.Distance s_rel "relative distance (= flange_b.s - flange_a.s)";
       SI.Force f 
         "forcee between flanges (positive in direction of flange axis R)";
-      annotation(
+      annotation (
         Coordsys(
           extent=[-100, -100; 100, 100],
           grid=[2, 2],
@@ -1038,11 +989,11 @@ flange is the same. It is used to built up springs, dampers etc.
     partial model TwoFlanges "Component with two translational 1D flanges " 
       Flange_a flange_a 
         "(left) driving flange (flange axis directed INTO cut plane, e. g. from left to right)"
-         annotation( extent=[-110, -10; -90, 10]);
+         annotation (extent=[-110, -10; -90, 10]);
       Flange_b flange_b 
         "(right) driven flange (flange axis directed OUT OF cut plane)" 
-        annotation( extent=[90, -10; 110, 10]);
-      annotation(
+        annotation (extent=[90, -10; 110, 10]);
+      annotation (
         Documentation(info="<html>
 <p>
 This is a 1D translational component with two flanges.
@@ -1072,12 +1023,12 @@ of several base components.
       
       extends Modelica.Icons.TranslationalSensor;
       
-      Flange_a flange_a 
-        "(left) flange to be measured (flange axis directed INTO cut plane, e. g. from left to right)"
-         annotation( extent=[-110, -10; -90, 10]);
-      Modelica.Blocks.Interfaces.OutPort outPort(final n=1) annotation( extent=
-            [100, -10; 120, 10]);
-      annotation(
+      Interfaces.Flange_a flange_a 
+        "flange to be measured (flange axis directed INTO cut plane, e. g. from left to right)"
+         annotation (extent=[-110, -10; -90, 10]);
+      Modelica.Blocks.Interfaces.RealOutput y 
+           annotation (extent=[100, -10; 120, 10]);
+      annotation (
         Coordsys(
           extent=[-100, -100; 100, 100],
           grid=[1, 1],
@@ -1094,7 +1045,6 @@ output signal in order to measure an absolute kinematic quantity in the flange
 and to provide the measured signal as output signal for further processing
 with the Modelica.Blocks blocks.
 </p>
-
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>Version 1.0 (July 18, 1999)</i>
@@ -1102,7 +1052,6 @@ with the Modelica.Blocks blocks.
        Realized.
 </li>
 </ul>
-
 <p><b>Copyright &copy; 1999-2002, Modelica Association and DLR.</b></p>
 </HTML>
 "),     Icon(
@@ -1126,15 +1075,15 @@ with the Modelica.Blocks blocks.
       
       extends Modelica.Icons.TranslationalSensor;
       
-      Flange_a flange_a 
+      Interfaces.Flange_a flange_a 
         "(left) driving flange (flange axis directed INTO cut plane, e. g. from left to right)"
-         annotation( extent=[-110, -10; -90, 10]);
-      Flange_b flange_b 
+         annotation (extent=[-110, -10; -90, 10]);
+      Interfaces.Flange_b flange_b 
         "(right) driven flange (flange axis directed OUT OF cut plane)" 
-        annotation( extent=[90, -10; 110, 10]);
-      Modelica.Blocks.Interfaces.OutPort outPort(final n=1) annotation( extent=
+        annotation (extent=[90, -10; 110, 10]);
+      Modelica.Blocks.Interfaces.RealOutput y annotation (extent=
             [-10, -100; 10, -120], rotation=90);
-      annotation(
+      annotation (
         Coordsys(
           extent=[-100, -100; 100, 100],
           grid=[1, 1],
@@ -1152,7 +1101,6 @@ between the two flanges or the cut-force in the flange and
 to provide the measured signal as output signal for further processing
 with the Modelica.Blocks blocks.
 </p>
-
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>Version 1.0 (July 18, 1999)</i>
@@ -1160,7 +1108,6 @@ with the Modelica.Blocks blocks.
        Realized.
 </li>
 </ul>
-
 <p><b>Copyright &copy; 1999-2002, Modelica Association and DLR.</b></p>
 </HTML>
 "),     Icon(
@@ -1219,7 +1166,7 @@ with the Modelica.Blocks blocks.
         final min=Backward,
         final max=Unknown,
         start=Unknown);
-      annotation( Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>Version from January 5, 2000 by P. Beater
@@ -1273,7 +1220,7 @@ with the Modelica.Blocks blocks.
     SI.Velocity v "absolute velocity of component";
     SI.Acceleration a "absolute acceleration of component";
     
-    annotation(
+    annotation (
       Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
@@ -1368,7 +1315,7 @@ A negative force at flange flange_a moves the sliding mass to the negative direc
       final unit="1/ (m/s)",
       final min=0)=  2 "exponential decay";
     
-    annotation(
+    annotation (
       Documentation(info="
 <HTML>
 <P>This element describes the <i>Stribeck friction characteristics</i> of a sliding mass,
@@ -1378,8 +1325,6 @@ The surface is fixed and there is friction between sliding mass and surface.
 The frictional force f is given for positive velocity v by:</P>
 <i><uL>
 f = F_Coulomb + F_prop * v + F_Stribeck * exp (-fexp * v)</i> </ul><br>
-
-
 <IMG SRC=../Images/Stribeck.png>
 <br><br>
 The distance between the left and the right connector is given by parameter L.
@@ -1391,26 +1336,19 @@ flange_a.s &gt;= smin
 <ul>    and </ul>
 flange_b.s &lt;= xmax </ul></i>
 the sliding mass can move freely.</p>
-
 <p>When the absolute velocity becomes zero, the sliding mass becomes stuck, i.e., the absolute position remains constant. In this phase the
 friction force is calculated from a force balance due to the requirement that the
 absolute acceleration shall be zero. The elements begin to slide when the friction
 force exceeds a threshold value, called the maximum static friction force, computed via: </P>
-
 <i><uL>
-
    maximum_static_friction =  F_Coulomb + F_Stribeck
 </i> </ul>
-
-
 <font color=\"#ff0000\"> <b>This requires the states Stop.s and Stop.v</b> </font>. If these states are eliminated during the index reduction
 the model will not work. To avoid this any inertias should be connected via springs
 to the Stop element, other sliding masses, dampers or hydraulic chambers must be avoided. </p>
-
 <p>For more details of the used friction model see the following reference: <br> <br>
 Beater P. (1999): <DD><a href=\"http://www.springer.de/cgi-bin/search_book.pl?isbn=3-540-65444-5\">
 Entwurf hydraulischer Maschinen</a>. Springer Verlag Berlin Heidelberg New York.</DL></P>
-
 <P>The friction model is implemented in a \"clean\" way by state events and leads to
 continuous/discrete systems of equations which have to be solved by appropriate
 numerical methods. The method is described in: </P>
@@ -1418,7 +1356,6 @@ numerical methods. The method is described in: </P>
 Otter M., Elmqvist H., and Mattsson S.E. (1999):
 <i><DD>Hybrid Modeling in Modelica based on the Synchronous Data Flow Principle</i>. CACSD'99, Aug. 22.-26, Hawaii. </DD>
 </DL>
-
 <P>More precise friction models take into account the elasticity of the material when
 the two elements are \"stuck\", as well as other effects, like hysteresis. This has
 the advantage that the friction element can be completely described by a differential
@@ -1610,7 +1547,7 @@ between the stops.</i> </li>
   model Rod "Rod without inertia" 
     extends Interfaces.Rigid;
     
-    annotation(
+    annotation (
       Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
@@ -1624,7 +1561,6 @@ between the stops.</i> </li>
 <p>
 Rod <i>without inertia</i> and two rigidly connected flanges.
 </p>
-
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>First Version from August 26, 1999 by P. Beater</i> </li>
@@ -1674,7 +1610,7 @@ Rod <i>without inertia</i> and two rigidly connected flanges.
       final unit="N/m",
       final min=0)=  1 "spring constant ";
     
-    annotation(
+    annotation (
       Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[2, 2],
@@ -1725,7 +1661,7 @@ a coupling of the slidin mass with the housing via a spring.
       final unit="N/ (m/s)",
       final min=0)=  0 "damping constant [N/ (m/s)]";
     SI.Velocity v_rel "relative velocity between flange_a and flange_b";
-    annotation(
+    annotation (
       Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[2, 2],
@@ -1787,7 +1723,7 @@ between two sliding masses.
       final min=0)=  1 "damping constant";
     SI.Velocity v_rel "relative velocity between flange_a and flange_b";
     
-    annotation(
+    annotation (
       Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
@@ -1863,7 +1799,7 @@ to describe a coupling of the sliding mass with the housing via a spring/damper.
     SI.Velocity v_rel "relative velocity between flange_a and flange_b";
     Boolean Contact "false, if s_rel > l ";
     
-    annotation(
+    annotation (
       Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[2, 2],
@@ -1881,7 +1817,6 @@ between
 a sliding mass and the housing (model Fixed), to describe
 the contact of a sliding mass with the housing.
 </p>
-
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>First Version from August 26, 1999 by P. Beater</i> </li>
@@ -1954,7 +1889,6 @@ the contact of a sliding mass with the housing.
     parameter SI.Frequency f_crit=50 
       "if exact=false, critical frequency of filter to filter input signal";
     
-    output SI.Position s_ref "reference position defined with the input signal";
     output SI.Position s "absolute position of flange_b";
     output SI.Velocity v "absolute velocity of flange_b";
     output SI.Acceleration a "absolute acceleration of flange_b";
@@ -1964,10 +1898,11 @@ the contact of a sliding mass with the housing.
     constant Real af=1.3617 "s coefficient of Bessel filter";
     constant Real bf=0.6180 "s*s coefficient of Bessel filter";
   public 
-    Interfaces.Flange_b flange_b annotation( extent=[90, -10; 110, 10]);
-    Modelica.Blocks.Interfaces.InPort inPort(final n=1) 
-      "Flange position as input signal" annotation( extent=[-140, -20; -100, 20]);
-    annotation(
+    Interfaces.Flange_b flange_b annotation (extent=[90, -10; 110, 10]);
+    Modelica.Blocks.Interfaces.RealInput s_ref(
+       redeclare type SignalType = SI.Position) 
+      "reference position of flange as input signal" annotation (extent=[-140, -20; -100, 20]);
+    annotation (
       Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[2, 2],
@@ -1979,8 +1914,8 @@ the contact of a sliding mass with the housing.
         height=0.62),
       Documentation(info="<HTML>
 <p>
-The input signal inPort.signal[1] defines the <b>reference
-position</b> <b>s_ref</b> in [m]. Flange <b>flange_b</b> is <b>forced</b>
+The input signal <b>s_ref</b> defines the <b>reference
+position</b> in [m]. Flange <b>flange_b</b> is <b>forced</b>
 to move according to this reference motion. According to parameter
 <b>exact</b> (default = <b>false</b>), this is done in the following way:
 <ol>
@@ -2001,32 +1936,28 @@ to move according to this reference motion. According to parameter
     should be selected in such a way that it is higher as the essential
     low frequencies in the signal.</li>
 </ol>
-
 <p>
 The input signal can be provided from one of the signal generator
 blocks of the block library Modelica.Blocks.Sources.
 </p>
-
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>June 19, 2000</i>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>.<br>
        Realized.</li>
 </ul>
-
 </HTML>
 "),   Icon(
         Text(
-          extent=[-80, -20; -80, -80],
-          string="s",
-          style(color=0)),
+          extent=[-40,-40; -126,-78],
+          style(color=0),
+          string="s_ref"),
         Line(points=[-95, 0; 90, 0], style(color=58)),
         Text(extent=[0, 86; 0, 26], string="%name")),
       Diagram(Polygon(points=[46, -90; 26, -85; 26, -95; 46, -90], style(color=
                 10, fillColor=10)), Line(points=[-44, -90; 27, -90], style(
               color=10, fillColor=10))));
   equation 
-    s_ref = inPort.signal[1];
     s = flange_b.s;
     v = der(s);
     a = der(v);
@@ -2046,20 +1977,21 @@ blocks of the block library Modelica.Blocks.Sources.
   
   model Accelerate 
     "Forced movement of a flange according to an acceleration signal" 
+    
     parameter SI.Position s_start=0 "Start position";
     parameter SI.Velocity v_start=0 "Start velocity";
     
-    SI.Acceleration a "absolute acceleration of flange_b";
     SI.Velocity v(final start=v_start, final fixed=true) 
       "absolute velocity of flange_b";
     SI.Position s(final start=s_start, final fixed=true) 
       "absolute position of flange_b";
     
-    Modelica.Blocks.Interfaces.InPort inPort(final n=1) 
-      "Connector of input signal used as force" annotation( extent=[-140, -20;
-          -100, 20]);
-    Interfaces.Flange_b flange_b annotation( extent=[90, -10; 110, 10]);
-    annotation(
+    Modelica.Blocks.Interfaces.RealInput a(
+       redeclare type SignalType = SI.Acceleration) 
+      "absolute acceleration of flange as input signal" 
+       annotation (extent=[-140, -20; -100, 20]);
+    Interfaces.Flange_b flange_b annotation (extent=[90, -10; 110, 10]);
+    annotation (
       Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
@@ -2071,13 +2003,12 @@ blocks of the block library Modelica.Blocks.Sources.
         height=0.6),
       Documentation(info="<html>
 <p>
-The input signal \"a\"  in [m/s2] of connector \"i\" moves the 1D translational flange
+The input signal <b>a</b> in [m/s2] moves the 1D translational flange
 connector flange_b with a predefined <i>acceleration</i>, i.e., the flange
 is <i>forced</i> to move with this acceleration. The velocity and the
 position of the flange are also predefined and are determined by
 integration of the acceleration.
 </p>
-
 <p>
 The acceleration \"a(t)\" can be provided from one of the signal generator
 blocks of the block library Modelica.Blocks.Source.
@@ -2090,7 +2021,7 @@ blocks of the block library Modelica.Blocks.Source.
 "),   Icon(
         Line(points=[-95, 0; 90, 0], style(color=58)),
         Text(
-          extent=[-80, -20; -80, -80],
+          extent=[-75,-18; -124,-58],
           string="a",
           style(color=0)),
         Text(extent=[0, 80; 0, 20], string="%name")),
@@ -2101,7 +2032,6 @@ blocks of the block library Modelica.Blocks.Source.
     s = flange_b.s;
     v = der(s);
     a = der(v);
-    a = inPort.signal[1];
   end Accelerate;
   
   model Move 
@@ -2117,10 +2047,11 @@ blocks of the block library Modelica.Blocks.Source.
     Real constraintResidue_d;
     Real constraintResidue_dd;
   public 
-    Modelica.Blocks.Interfaces.InPort inPort(final n=3) annotation( extent=[-
-          140, -20; -100, 20]);
-    Interfaces.Flange_b flange_b annotation( extent=[90, -10; 110, 10]);
-    annotation(
+    Modelica.Blocks.Interfaces.RealInput u[3] 
+      "position, velocity and acceleration of flange as input signals" 
+      annotation (extent=[-140, -20; -100, 20]);
+    Interfaces.Flange_b flange_b annotation (extent=[90, -10; 110, 10]);
+    annotation (
       Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[2, 2],
@@ -2130,28 +2061,24 @@ blocks of the block library Modelica.Blocks.Source.
 Flange <b>flange_b</b> is <b>forced</b> to move with a predefined motion
 according to the input signals:
 </p>
-
 <pre>
-    inPort.signal[1]: position of flange
-    inPort.signal[2]: velocity of flange
-    inPort.signal[3]: acceleration of flange
+    u[1]: position of flange
+    u[2]: velocity of flange
+    u[3]: acceleration of flange
 </pre>
-
 <p>
 The user has to guarantee that the input signals are consistent to each other,
-i.e., that inPort.signal[2] is the derivative of inPort.signal[1] and that
-inPort.signal[3] is the derivative of inPort.signal[2]. There are, however,
+i.e., that u[2] is the derivative of u[1] and that
+u[3] is the derivative of u. There are, however,
 also applications where by purpose these conditions do not hold. For example,
 if only the position dependent terms of a mechanical system shall be
 calculated, one may provide position = position(t) and set the velocity
 and the acceleration to zero.
 </p>
-
 <p>
 The input signals can be provided from one of the signal generator
 blocks of the block library Modelica.Blocks.Sources.
 </p>
-
 <p>
 Note, this model utilizes the non-standard function <b>constrain(..)</b>
 and assumes that this function is supported by the Modelica translator:
@@ -2168,11 +2095,9 @@ and assumes that this function is supported by the Modelica translator:
 where r, rd and rdd are variables which need to be computed
 somewhere else. A simple implementation of constrain() is:
 </p>
-
 <pre>
    r = 0;
 </pre>
-
 <p>
 However, this implementation requires that r(t) is given as analytical,
 smooth function in order that it can be differentiated and it does
@@ -2186,14 +2111,12 @@ rd and rdd whenever the Pantelides algorithm requires to compute
 the derivatives of r (and takes rd and rdd instead of actually
 differentiating r).
 </p>
-
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>June 25, 2001</i>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
        realized.</li>
 </ul>
-
 </HTML>
 "),   Diagram(Polygon(points=[0, -90; -20, -85; -20, -95; 0, -90], style(color=
                 10, fillColor=10)), Line(points=[-90, -90; -19, -90], style(
@@ -2215,16 +2138,16 @@ differentiating r).
     v = der(s);
     a = der(v);
     
-    constraintResidue = inPort.signal[1] - s;
-    constraintResidue_d = inPort.signal[2] - v;
-    constraintResidue_dd = inPort.signal[3] - a;
+    constraintResidue = u[1] - s;
+    constraintResidue_d = u[2] - v;
+    constraintResidue_dd = u[3] - a;
     constrain(constraintResidue, constraintResidue_d, constraintResidue_dd);
   end Move;
   
   model Fixed "Fixed flange" 
     parameter SI.Position s0=0 "fixed offset position of housing";
     
-    annotation(
+    annotation (
       Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[2, 2],
@@ -2257,11 +2180,9 @@ differentiating r).
 The <i>flange</i> of a 1D translational mechanical system <i>fixed</i>
 at an position s0 in the <i>housing</i>. May be used:
 </p>
-
 <ul>
 <li> to connect a compliant element, such as a spring or a damper,
      between a sliding mass and the housing.
-
 <li> to fix a rigid element, such as a sliding mass, at a specific
      position.
 </ul>
@@ -2271,7 +2192,7 @@ at an position s0 in the <i>housing</i>. May be used:
 </ul>
 </HTML>
 "));
-    Interfaces.Flange_b flange_b annotation( extent=[-10, -10; 10, 10],
+    Interfaces.Flange_b flange_b annotation (extent=[-10, -10; 10, 10],
         rotation=180);
   equation 
     flange_b.s = s0;
@@ -2279,13 +2200,12 @@ at an position s0 in the <i>housing</i>. May be used:
   
   model Force "External force acting on a drive train element as input signal" 
     
-    SI.Force f "driving force";
-    
-    Interfaces.Flange_b flange_b annotation( extent=[90, -10; 110, 10]);
-    Modelica.Blocks.Interfaces.InPort inPort(final n=1) 
-      "Connector of input signal used as force" annotation( extent=[-140, -20;
+    Interfaces.Flange_b flange_b annotation (extent=[90, -10; 110, 10]);
+    Modelica.Blocks.Interfaces.RealInput f(
+       redeclare type SignalType = SI.Force) "driving force as input signal" 
+                                      annotation (extent=[-140, -20;
           -100, 20]);
-    annotation(
+    annotation (
       Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
@@ -2301,8 +2221,6 @@ The input signal \"s\" in [N] characterizes an <i>external
 force</i> which acts (with positive sign) at a flange,
 i.e., the component connected to the flange is driven by force f.
 </p>
-
-
 <p>
 Input signal s can be provided from one of the signal generator
 blocks of Modelica.Blocks.Source.
@@ -2327,7 +2245,6 @@ blocks of Modelica.Blocks.Source.
         Polygon(points=[-100, 10; 20, 10; 20, 41; 90, 0; 20, -41; 20, -10; -100,
                 -10; -100, 10], style(color=10, fillColor=58))));
   equation 
-    f = inPort.signal[1];
     flange_b.f = -f;
   end Force;
   
@@ -2338,7 +2255,7 @@ blocks of Modelica.Blocks.Source.
     SI.Velocity v_rel(stateSelect=StateSelect.prefer) 
       "relative velocity used as state variable";
     SI.Acceleration a_rel "relative angular acceleration";
-    annotation(
+    annotation (
       Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[2, 2],
@@ -2357,26 +2274,21 @@ because it may be easier to supply initial values.
 In such cases, model <b>RelativeStates</b> allows the definition of state variables
 in the following way:
 </p>
-
 <ul>
 <li> Connect an instance of this model between two flange connectors.</li>
 <li> The <b>relative position</b> and the <b>relative velocity</b>
      between the two connectors are used as <b>state variables</b>.
 </ul>
-
 <p>
 An example is given in the next figure
 </p>
-
 <IMG SRC=\"../Images/relativeStates2.png\" ALT=\"relativeStates2\">
-
 <p>
 Here, the relative position and the relative velocity between
 the two masses are used as state variables. Additionally, the
 simulator selects either the absolute position and absolute
 velocity of model mass1 or of model mass2 as state variables.
 </p>
-
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>June 19, 2000</i>
@@ -2432,7 +2344,7 @@ velocity of model mass1 or of model mass2 as state variables.
     
     extends Modelica.Icons.Library2;
     
-    annotation(
+    annotation (
       Window(
         x=0.08,
         y=0.16,
@@ -2455,10 +2367,19 @@ velocity of model mass1 or of model mass2 as state variables.
         Line(points=[24, -61; 24, -81], style(color=0)),
         Line(points=[44, -61; 44, -81], style(color=0))));
     model ForceSensor "Ideal sensor to measure the force between two flanges" 
-      extends Interfaces.RelativeSensor;
-      SI.Force f 
-        "force in flange_a and flange_b (f = flange_a.f = -flange_b.f)";
-      annotation(
+      extends Modelica.Icons.TranslationalSensor;
+      
+      Interfaces.Flange_a flange_a 
+        "(left) driving flange (flange axis directed INTO cut plane, e. g. from left to right)"
+         annotation (extent=[-110, -10; -90, 10]);
+      Interfaces.Flange_b flange_b 
+        "(right) driven flange (flange axis directed OUT OF cut plane)" 
+        annotation (extent=[90, -10; 110, 10]);
+      Modelica.Blocks.Interfaces.RealOutput f(
+           redeclare type SignalType = SI.Force) 
+        "force in flange_a and flange_b (f = flange_a.f = -flange_b.f)" 
+         annotation (extent=[-10, -100; 10, -120], rotation=90);
+      annotation (
         Documentation(info="<html>
 <p>
 Measures the <i>cut-force between two flanges</i> in an ideal way
@@ -2473,7 +2394,10 @@ with blocks of the Modelica.Blocks library).
 "),     Icon(Text(
             extent=[40, -70; 120, -120],
             string="f",
-            style(color=0))),
+            style(color=0)),
+          Line(points=[-70,0; -90,0],   style(color=0)),
+          Line(points=[70,0; 90,0],   style(color=0)),
+          Line(points=[0,-100; 0,-60])),
         Coordsys(
           extent=[-100, -100; 100, 100],
           grid=[1, 1],
@@ -2482,25 +2406,28 @@ with blocks of the Modelica.Blocks library).
           x=0.27,
           y=0.08,
           width=0.6,
-          height=0.6));
+          height=0.6),
+        Diagram(
+          Line(points=[-70,0; -96,0],   style(color=0)),
+          Line(points=[70,0; 96,0],   style(color=0)),
+          Line(points=[0,-100; 0,-60])));
     equation 
       flange_a.s = flange_b.s;
       flange_a.f = f;
       flange_b.f = -f;
-      f = outPort.signal[1];
     end ForceSensor;
     
     model PositionSensor "Ideal sensor to measure the absolute position" 
       extends Modelica.Icons.TranslationalSensor;
       
-      SI.Position s "Absolute position of flange";
-      
       Interfaces.Flange_a flange_a 
-        "(left) flange to be measured (flange axis directed INTO cut plane, e. g. from left to right)"
-         annotation( extent=[-110, -10; -90, 10]);
-      Modelica.Blocks.Interfaces.OutPort outPort(final n=1) annotation( extent=
-            [100, -10; 120, 10]);
-      annotation(
+        "flange to be measured (flange axis directed INTO cut plane, e. g. from left to right)"
+         annotation (extent=[-110, -10; -90, 10]);
+      Modelica.Blocks.Interfaces.RealOutput s( redeclare type SignalType = 
+            SI.Position) "Absolute position of flange as output signal" 
+           annotation (extent=[100, -10; 120, 10]);
+      
+      annotation (
         Coordsys(
           extent=[-100, -100; 100, 100],
           grid=[1, 1],
@@ -2529,25 +2456,24 @@ Modelica.Blocks library).
             string="s",
             style(color=0)),
           Text(extent=[0, 100; 0, 40], string="%name")),
-        Diagram(Line(points=[100, 0; 70, 0]), Line(points=[-70, 0; -92, 0],
+        Diagram(Line(points=[100, 0; 70, 0]), Line(points=[-70,0; -96,0],
               style(color=53))));
     equation 
       s = flange_a.s;
-      s = outPort.signal[1];
       0 = flange_a.f;
     end PositionSensor;
     
     model SpeedSensor "Ideal sensor to measure the absolute velocity" 
       extends Modelica.Icons.TranslationalSensor;
-      SI.Position s "Absolute position of flange";
-      SI.Velocity v "Absolute velocity of flange";
       
       Interfaces.Flange_a flange_a 
-        "(left) flange to be measured (flange axis directed INTO cut plane, e. g. from left to right)"
-         annotation( extent=[-110, -10; -90, 10]);
-      Modelica.Blocks.Interfaces.OutPort outPort(final n=1) annotation( extent=
-            [100, -10; 120, 10]);
-      annotation(
+        "flange to be measured (flange axis directed INTO cut plane, e. g. from left to right)"
+         annotation (extent=[-110, -10; -90, 10]);
+      SI.Position s "Absolute position of flange";
+      Modelica.Blocks.Interfaces.RealOutput v( redeclare type SignalType = 
+            SI.Velocity) "Absolute velocity of flange as output signal" 
+           annotation (extent=[100, -10; 120, 10]);
+      annotation (
         Coordsys(
           extent=[-100, -100; 100, 100],
           grid=[1, 1],
@@ -2576,26 +2502,25 @@ Modelica.Blocks library).
             string="v",
             style(color=0)),
           Text(extent=[0, 100; 0, 40], string="%name")),
-        Diagram(Line(points=[-70, 0; -90, 0], style(color=53)), Line(points=[
+        Diagram(Line(points=[-70,0; -96,0],   style(color=53)), Line(points=[
                 100, 0; 70, 0], style(color=0))));
     equation 
       s = flange_a.s;
       v = der(s);
-      v = outPort.signal[1];
       0 = flange_a.f;
     end SpeedSensor;
     
     model AccSensor "Ideal sensor to measure the absolute acceleration" 
       extends Modelica.Icons.TranslationalSensor;
-      SI.Velocity v "Absolute velocity of flange";
-      SI.Acceleration a "Absolute acceleration of a flange";
       
       Interfaces.Flange_a flange_a 
-        "(left) flange to be measured (flange axis directed INTO cut plane, e. g. from left to right)"
-         annotation( extent=[-110, -10; -90, 10]);
-      Modelica.Blocks.Interfaces.OutPort outPort(final n=1) annotation( extent=
-            [100, -10; 120, 10]);
-      annotation(
+        "flange to be measured (flange axis directed INTO cut plane, e. g. from left to right)"
+         annotation (extent=[-110, -10; -90, 10]);
+      SI.Velocity v "Absolute velocity of flange";
+      Modelica.Blocks.Interfaces.RealOutput a( redeclare type SignalType = 
+            SI.Acceleration) "Absolute acceleration of flange as output signal"
+           annotation (extent=[100, -10; 120, 10]);
+      annotation (
         Coordsys(
           extent=[-100, -100; 100, 100],
           grid=[1, 1],
@@ -2625,12 +2550,11 @@ Modelica.Blocks library).
             string="a",
             style(color=0)),
           Text(extent=[0, 100; 0, 40], string="%name")),
-        Diagram(Line(points=[-70, 0; -90, 0], style(color=53)), Line(points=[
+        Diagram(Line(points=[-70,0; -97,0],   style(color=53)), Line(points=[
                 100, 0; 70, 0])));
     equation 
       v = der(flange_a.s);
       a = der(v);
-      a = outPort.signal[1];
       0 = flange_a.f;
     end AccSensor;
   end Sensors;

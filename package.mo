@@ -1,8 +1,7 @@
 package Modelica "Modelica Standard Library"
 extends Icons.Library;
 
-
-annotation (
+annotation(preferedView="info",
   Window(
     x=0.02,
     y=0.01,
@@ -10,8 +9,11 @@ annotation (
     height=0.57,
     library=1,
     autolayout=1),
-  version="1.6",
-  versionDate="2004-06-30",
+  version="2.1 Beta1",
+  versionDate="2004-07-07",
+  conversion(
+    from(version="1.6", script="Scripts/ConvertToModelica_2.1.mos")),
+  Settings(NewStateSelection=true),
   Documentation(info="<HTML>
 <p>
 Package <b>Modelica</b> is a <b>standardized</b> and <b>pre-defined</b> package
@@ -23,37 +25,36 @@ It provides constants, types, connectors, partial models and model
 components
 in various disciplines.
 </p>
-
 <p>
 For an introduction, have especially a look at:
 </p>
 <ul>
-<li> <a href=\"Modelica:Modelica.UsersGuide\">Modelica.UsersGuide</a>
+<li> <a href=\"Modelica://Modelica.UsersGuide\">Modelica.UsersGuide</a>
      discusses the most important aspects of this library.</li>
+<li><a href=\"Modelica://Modelica.UsersGuide.ReleaseNotes\">Release Notes</a>
+    summarizes the changes of new versions of this package.</li>
 <li> Packages <b>Examples</b> in the various subpackages, provide
      demos of the corresponding subpackage.</li>
 </ul>
-
 <p>
 The Modelica package consists currently of the following subpackages
 </p>
 <pre>
+   <b>Blocks</b>      Input/output blocks.
    <b>Constants</b>   Mathematical and physical constants (pi, eps, h, ...)
+   <b>Electrical</b>  Electric and electronic components.
    <b>Icons</b>       Icon definitions of general interest
    <b>Math</b>        Mathematical functions (such as sin, cos)
+   <b>Mechanics</b>   Mechanical components 
+               (1D-rotational, 1D-translational, 3D multi-body)
    <b>SIunits</b>     SI-unit type definitions (such as Voltage, Torque)
-   <b>Blocks</b>      Input/output blocks.
-   <b>Electrical</b>  Electric and electronic components.
-   <b>Mechanics</b>   Mechanical components
-               (currently: 1D-rotational and 1D-translational components)
+   <b>StateGraph</b>  Hierarchical state machines (similiar power as StateCharts)
    <b>Thermal</b>     Thermal components
-               (currently: 1-D heat transfer with lumped elements)
+               (1-D heat transfer with lumped elements)
 </pre>
-
 <p>
 Copyright &copy; 1998-2004, Modelica Association.
 </p>
-
 <p>
 <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
 under the terms of the <b>Modelica license</b>, see the license conditions
@@ -62,7 +63,6 @@ and the accompanying <b>disclaimer</b>
 </p><br>
 </HTML>
 "));
-
 
 package UsersGuide "Users Guide" 
   
@@ -148,7 +148,126 @@ Preferred instance names for connectors:
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>Release notes</font></h3>
 
-<h3><font color=\"#008000\">Version 1.6 (June 30, 2004)</font></h3>
+<h3><font color=\"#008000\">Version 2.1 Beta1 (July 7, 2004)</font></h3>
+
+<p> This is a major change with respect to previous versions of the
+    Modelica Standard Library. The changes are not backward compatible.
+    A script to automatically convert models to this new version is
+    provided. There are cases, where this script does not convert
+    correctly. In this case models have to be manually converted.
+    In any case you should make a back-up copy of your model
+    before automatic conversion is performed. 
+    Note, conversion should work successfully for all models that
+    are using components of the Modelica standard and ModelicaAdditions 
+    library with the following exceptions:
+</p>
+
+<ul>
+<li> Whenever an inPort or outPort connector has more than 1 signal,
+     it is most likely that the conversion will fail. If a signal
+     connector has only 1 signal (dimension n=1), the conversion should
+     always be successful.</li>
+<li> Conversion from ModelicaAdditions.MultiBody to Modelica.Mechanics.MultiBody
+     is not completely defined.</li>
+</ul>
+
+<p>
+    It is planned to improve the automatic conversion for the release version.   
+    The major changes of Modelica 2.1 Beta1 with respect to Modelica 1.6 are:
+</p>
+
+<ul>
+<li> Simplified the definition of the <b>signal connectors</b> in
+     Modelica.Blocks.Interfaces. For example, an output signal
+     \"FirstOrder.outPort.signal[1]\" is now named
+     \"FirstOrder.y\". This simplifies the understanding and usage 
+      especially for beginners.</li>
+<li> De-vectorized the <b>Modelica.Blocks</b> library. All blocks in the
+     Modelica.Blocks library are now scalar blocks. As a result,
+     the parameters of the Blocks are scalars and no vectors any
+     more. For example, a parameter \"amplitude\" that might had
+     a value of \"{1}\" previously, has now a value of \"1\". This simplifies
+     the understanding and usage especially for beginners.<br>
+     If a vector of blocks is needed, this can be easily
+     accomplished by adding a dimension to the instance.</li>
+<li> All components of the <b>ModelicaAdditions</b> library are included
+     in the Modelica Standard Library in an improved way:
+     <ul>
+     <li> ModelicaAdditions.Blocks is included in Modelica.Blocks.
+          The logical blocks have a nicer icon layout now.</li>
+     <li> ModelicaAdditions.Tables is included in Modelica.Blocks.Sources
+          and Modelica.Blocks.Tables.</li>
+     <li> ModelicaAdditions.MultiBody is obsolet and is replaced by the
+          much more powerful library Modelica.Mechanics.MultiBody
+          (this is version 1.0.1 of the MultiBody library where the
+          signal connectors have been changed to the new signal connectors).
+          </li>
+     <li> ModelicaAdditions.HeatFlow1D is obsolet since a long time. It was
+          replaced by the improved library Modelica.Thermal.HeatTransfer.</li>
+     <li> ModelicaAdditions.PetriNets is obsolet and is replaced by the
+          much more powerful library Modelica.StateGraph.</li> 
+     </li>
+     </ul>
+<li> Added a new library <b>Modelica.StateGraph</b> to model <b>discrete event</b> 
+     and <b>reactive</b> systems in a convenient way. It is based on the 
+     JGraphChart method and takes advantage of Modelica features for
+     the \"action\" language. JGraphChart is a further development of 
+     Grafcet to include elements of StateCharts that are not present
+     in Grafcet/Sequential Function Charts. Therefore, the StateGraph
+     library has a similar modeling power as StateCharts but avoids
+     some deficiences of action languages usually used together
+     with StateCharts.</li>
+</ul>
+
+<p>
+Additionally, the following 16 new components have been added:
+</p>
+
+<table border=\"1\" cellspacing=0 cellpadding=2>
+  <tr><td colspan=\"2\"><b>Modelica.Blocks.Logical.</b></td></tr>
+  <tr><td>Pre</td>
+      <td>y = pre(u): Breaks algebraic loops by an infinitesimal small <br>
+          time delay (event iteration continues until u = pre(u))</td></tr>
+  <tr><td>Edge</td>
+      <td>y = edge(u): Output y is true, if the input u has a rising edge </td></tr>
+  <tr><td>FallingEdge</td>
+      <td>y = edge(not u): Output y is true, if the input u has a falling edge </td></tr>
+  <tr><td>Change</td>
+      <td>y = change(u): Output y is true, if the input u has a rising or falling edge </td></tr>
+  <tr><td>GreaterEqual</td>
+      <td>Output y is true, if input u1 is greater or equal as input u2 </td></tr>
+  <tr><td>Less</td>
+      <td>Output y is true, if input u1 is less as input u2 </td></tr>
+  <tr><td>LessEqual</td>
+      <td>Output y is true, if input u1 is less or equal as input u2 </td></tr>
+  <tr><td>Timer</td>
+      <td>Timer measuring the time from the time instant where the <br>
+          Boolean input became true </td></tr>
+
+  <tr><td colspan=\"2\"><b>Modelica.Blocks.Math.</b></td></tr>
+  <tr><td>BooleanToReal</td>
+      <td>Convert Boolean to Real signal</td></tr>
+  <tr><td>BooleanToInteger</td>
+      <td>Convert Boolean to Integer signal</td></tr>
+  <tr><td>RealToBoolean</td>
+      <td>Convert Real to Boolean signal</td></tr>
+  <tr><td>IntegerToBoolean</td>
+      <td>Convert Integer to Boolean signal</td></tr>
+
+  <tr><td colspan=\"2\"><b>Modelica.Blocks.Sources.</b></td></tr>
+  <tr><td>RealExpression</td>
+      <td>Set output signal to a time varying Real expression</td></tr>
+  <tr><td>IntegerExpression</td>
+      <td>Set output signal to a time varying Integer expression</td></tr>
+  <tr><td>BooleanExpression</td>
+      <td>Set output signal to a time varying Boolean expression</td></tr>
+  <tr><td>BooleanTable</td>
+      <td>Generate a Boolean output signal based on a vector of time instants</td></tr>
+</table>
+
+
+
+<h3><font color=\"#008000\">Version 1.6 (June 21, 2004)</font></h3>
 
 <p> Added 1 new library (Electrical.MultiPhase), 17 new components, 
     improved 3 existing components
@@ -189,6 +308,8 @@ Preferred instance names for connectors:
   <tr><td colspan=\"2\"><b>Modelica.Electrical.MultiPhase</b><br>
       A new library for multi-phase electrical circuits</td></tr>
 </table>
+
+
 
 <p>
 <b>New examples</b>
@@ -290,10 +411,10 @@ ShowVariableResistor
   <tr><td>ControlledIdealCommutingSwitch</td><td>Controlled ideal commuting switch</td></tr>
   <tr><td>ControlledIdealIntermediateSwitch</td><td>Controlled ideal intermediate switch</td></tr>
   <tr><td>IdealOpAmpLimited</td><td>Ideal operational amplifier with limitation</td></tr>
-  <tr><td>IdealOpener</td><td>Ideal opener</td></tr>
-  <tr><td>IdealCloser</td><td>Ideal closer</td></tr>
-  <tr><td>ControlledIdealOpener</td><td>Controlled ideal opener</td></tr>
-  <tr><td>ControlledIdealCloser</td><td>Controlled ideal closer</td></tr>
+  <tr><td>IdealOpeningSwitch</td><td>Ideal opener</td></tr>
+  <tr><td>IdealClosingSwitch</td><td>Ideal closer</td></tr>
+  <tr><td>ControlledIdealOpeningSwitch</td><td>Controlled ideal opener</td></tr>
+  <tr><td>ControlledIdealClosingSwitch</td><td>Controlled ideal closer</td></tr>
   
   <tr><td colspan=\"2\"><b>Modelica.Electrical.Analog.Lines.</b></td></tr>
   <tr><td>TLine1</td><td>Lossless transmission line (Z0, TD)</td></tr>
@@ -338,7 +459,7 @@ ShowVariableResistor
   <tr><td>ZeroCrossing</td><td>Trigger zero crossing of input signal</td></tr>
 
   <tr><td colspan=\"2\"><b>ModelicaAdditions.</b></td></tr>
-  <tr><td>Blocks.Multiplexer.Extractor</td><td>Extract scalar signal out of signal vector dependent on IntegerInPort index</td></tr>
+  <tr><td>Blocks.Multiplexer.Extractor</td><td>Extract scalar signal out of signal vector dependent on IntegerRealInput index</td></tr>
   <tr><td>Tables.CombiTable1Ds</td><td>Table look-up in one dimension (matrix/file) with only single input</td></tr>
 </table>
 
@@ -508,7 +629,7 @@ filled with white and not transparent any more.</p>
 <ul>
 <li>Several minor bugs fixed. </li>
 <li>New models:<br>
-    Modelica.Blocks.Interfaces.IntegerInPort/IntegerOutPort,<br>
+    Modelica.Blocks.Interfaces.IntegerRealInput/IntegerRealOutput,<br>
     Modelica.Blocks.Math.TwoInputs/TwoOutputs<br>
     Modelica.Electrical.Analog.Ideal.IdealOpAmp3Pin,<br>
     Modelica.Mechanics.Rotational.Move,<br>
@@ -552,7 +673,7 @@ filled with white and not transparent any more.</p>
 
     <li>Changes to Modelica.<b>Blocks.Interfaces</b>:<br>
        Introduced a replaceable signal type into
-       Blocks.Interfaces.InPort/OutPort:
+       Blocks.Interfaces.RealInput/RealOutput:
 <pre>
    replaceable type SignalType = Real
 </pre>

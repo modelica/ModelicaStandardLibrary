@@ -1,12 +1,11 @@
 package Analog "Library for analog electrical models"
-
 import SI = Modelica.SIunits;
 
 
 extends Modelica.Icons.Library2;
 
 
-annotation (Window(
+annotation(preferedView="info", Window(
     x=0.05,
     y=0.06,
     width=0.16,
@@ -25,7 +24,6 @@ This package contains packages for analog electrical components:
 <li>Sensors: sensors to measure potential, voltage, and current</li>
 </ul>
 </p>
-
 <dl>
 <dt>
 <b>Main Authors:</b>
@@ -38,7 +36,6 @@ This package contains packages for analog electrical components:
     Design Automation Department<br>
     Zeunerstra&szlig;e 38<br>
     D-01069 Dresden<br>
-
 <p>
 <dt>
 <b>Version:</b>

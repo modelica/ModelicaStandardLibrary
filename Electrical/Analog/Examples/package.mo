@@ -1,10 +1,8 @@
 package Examples "Examples for analog electrical packages"
-
-
 extends Modelica.Icons.Library2;
 
 
-annotation (
+annotation(preferedView="info",
   Window(
     x=0.03,
     y=0.04,
@@ -16,7 +14,6 @@ annotation (
 <p>
 This package contains examples for the analog electrical package.
 </p>
-
 <dl>
 <dt>
 <b>Main Authors:</b>
@@ -29,7 +26,6 @@ This package contains examples for the analog electrical package.
     Design Automation Department<br>
     Zeunerstra&szlig;e 38<br>
     D-01069 Dresden<br>
-
 <p>
 <dt>
 <b>Version:</b>

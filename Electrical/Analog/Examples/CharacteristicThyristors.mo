@@ -1,4 +1,5 @@
 model CharacteristicThyristors "Characteristic of ideal thyristors" 
+  
   extends Modelica.Icons.Example;
   
   Modelica.Electrical.Analog.Ideal.IdealThyristor IdealThyristor1(
@@ -14,9 +15,8 @@ model CharacteristicThyristors "Characteristic of ideal thyristors"
   
 annotation (Diagram(Text(extent=[-96, 100; 98, 60], string=
           "Characteristic Thyristors")));
-  Modelica.Blocks.Sources.BooleanStep BooleanStep1(startValue={false},
-      startTime={1.25}) 
-                      annotation (extent=[-60, 40; -40, 60]);
+  Modelica.Blocks.Sources.BooleanStep BooleanStep1(startValue=false,
+      startTime=1.25) annotation (extent=[-60, 40; -40, 60]);
   Modelica.Electrical.Analog.Ideal.IdealGTOThyristor IdealGTOThyristor1(
                        Vknee=0) 
                               annotation (extent=[-20, -30; 0, -10]);
@@ -54,7 +54,7 @@ equation
   annotation (points=[-40, -40; -40, -20], style(color=3));
   connect(SineVoltage1.p, IdealThyristor1.p) 
   annotation (points=[-40, 0; -40, 10; -20, 10], style(color=3));
-  connect(BooleanStep1.outPort, IdealThyristor1.firePort) 
+  connect(BooleanStep1.y, IdealThyristor1.fire) 
   annotation (points=[-39,50; -3,50; -3,20],    style(color=5));
   connect(IdealGTOThyristor1.n, R1.p) 
   annotation (points=[0, -20; 40, -20], style(color=3));
@@ -64,7 +64,7 @@ equation
   annotation (points=[60, -20; 60, -40; -40, -40], style(color=3));
   connect(IdealGTOThyristor1.p, IdealThyristor1.p) 
   annotation (points=[-20, -20; -20, 10], style(color=3));
-  connect(IdealGTOThyristor1.firePort, IdealThyristor1.firePort) 
+  connect(IdealGTOThyristor1.fire, IdealThyristor1.fire) 
   annotation (points=[-3,-10; -3,-2.5; -2,-2.5; -2,5; -3,5; -3,20],
                                         style(color=5));
 end CharacteristicThyristors;

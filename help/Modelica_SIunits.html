@@ -13,47 +13,36 @@
 <P><P>
 <H3>Information</H3>
 <PRE></pre>
-
 <p>This package provides predefined types, such as <i>Mass</i>,
 <i>Length</i>, <i>Time</i>, based on the international standard
 on units:</p>
-
 <ul>
 <li>ISO 31-1992 "General principles concerning
     quantities, units and symbols"</li>
 <li>ISO 1000-1992 "SI units and recommendations for the use
     of their multiples and of certain other units".</li>
 </ul>
-
 <p>For more information on units, see also the book of
 Francois Cardarelli "Scientific Unit Conversion - A Practical
 Guide to Metrication"
 (Springer 1997).</p>
-
 <p>The following conventions are used in this package:</p>
-
 <ul>
 <li>Modelica quantity names are defined according to the recommendations
     of ISO 31. Some of these name are rather long, such as
     "ThermodynamicTemperature". Shorter alias names are defined, e.g.,
     "type Temp_K = ThermodynamicTemperature;".</li>
-
 <li>Modelica units are defined according to the SI base units without
     multiples (only exception "kg").</li>
-
 <li>For some quantities, more convenient units for an engineer are
     defined as "displayUnit", i.e., the default unit for display
     purposes (e.g., displayUnit="deg" for quantity="Angle").</li>
-
 <li>The type name is identical to the quantity name, following
     the convention of type names.</li>
-
 <li>All quantity and unit attributes are defined as final in order
     that they cannot be redefined to another value.</li>
-
 <li>Similiar quantities, such as "Length, Breadth, Height, Thickness,
     Radius" are defined as the same quantity (here: "Length").</li>
-
 <li>The ordering of the type declarations in this package follows ISO 31:
 <pre>
   Chapter  1: <b>Space and Time</b>
@@ -71,11 +60,9 @@ Guide to Metrication"
   Chapter 13: <b>Solid State Physics</b>
 </pre>
 </li>
-
 <li>Conversion functions between SI and non-SI units are available in subpackage
     <b>Conversions</b>.</li>
 </ul>
-
 <dl>
 <dt><b>Main Author:</b>
 <dd><a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a><br>
@@ -86,15 +73,12 @@ Guide to Metrication"
     email: <A HREF="mailto:Martin.Otter@dlr.de">Martin.Otter@dlr.de</A><br>
 </dl>
 <br>
-
-
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>October 21, 2002</i>
        by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>
        and <a href="http://www.robotic.dlr.de/Christian.Schweiger/">Christian Schweiger</a>:<br>
        Added new package <b>Conversions</b>. Corrected typo <i>Wavelenght</i>.</li>
-
 <li><i>June 6, 2000</i>
        by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>:<br>
        Introduced the following new types<br>
@@ -107,17 +91,14 @@ Guide to Metrication"
        the allowed range of values.<br>
        Quantity="Stress" removed from type "Stress", in order
        that a type "Stress" can be connected to a type "Pressure".</li>
-
 <li><i>Oct. 27, 1999</i>
        by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>:<br>
        New types due to electrical library: Transconductance, InversePotential,
        Damping.</li>
-
 <li><i>Sept. 18, 1999</i>
        by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>:<br>
        Renamed from SIunit to SIunits. Subpackages expanded, i.e., the
        SIunits package, does no longer contain subpackages.</li>
-
 <li><i>Aug 12, 1999</i>
        by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>:<br>
        Type "Pressure" renamed to "AbsolutePressure" and introduced a new
@@ -125,32 +106,26 @@ Guide to Metrication"
        to allow convenient handling of relative pressure. Redefined
        BulkModulus as an alias to AbsolutePressure instead of Stress, since
        needed in hydraulics.</li>
-
 <li><i>June 29, 1999</i>
        by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>:<br>
        Bug-fix: Double definition of "Compressibility" removed
        and appropriate "extends Heat" clause introduced in
        package SolidStatePhysics to incorporate ThermodynamicTemperature.</li>
-
 <li><i>April 8, 1998</i>
        by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>
        and Astrid Jaschinski:<br>
        Complete ISO 31 chapters realized.</li>
-
 <li><i>Nov. 15, 1997</i>
        by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>
        and <a href="http://www.control.lth.se/~hubertus/">Hubertus Tummescheit</a>:<br>
        Some chapters realized.</li>
 </ul>
 <br>
-
 <p><b>Copyright &copy; 1999-2002, Modelica Association and DLR.</b></p>
-
 <p><i>The Modelica package is free software; it can be redistributed and/or modified
 under the terms of the <b>Modelica license</b>, see the license conditions
 and the accompanying <b>disclaimer</b> in the documentation of package
 Modelica in file "Modelica/package.mo".</i></p>
-
 <pre></PRE><P>
 <H3>Types and constants</H3>
 <A NAME="Modelica.SIunits.Angle"></A>  <font color="blue">type</font> Angle = Real (
@@ -1008,7 +983,7 @@ Modelica in file "Modelica/package.mo".</i></p>
 </TD><TD>Conversion functions to/from non SI units and type definitions of non SI units</TD></TR>
 </TABLE>
 <HR>
-<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Jun 30 17:42:49 2004
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Jun 30 17:48:45 2004
 .
 </address></BODY>
 </HTML>

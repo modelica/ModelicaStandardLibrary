@@ -55,7 +55,7 @@ package Constants "Mathematical constants and constants of nature"
   constant Real G_EARTH=g_n;
   constant Real T_ZERO=T_zero;
   
-  annotation(
+  annotation (
     Documentation(info="<html>
 <p>
 This package provides often needed constants from mathematics, machine

@@ -20,10 +20,6 @@
 ><IMG SRC="Modelica.Electrical.MultiPhase.Interfaces.FourPlugI.png" ALT="Modelica.Electrical.MultiPhase.Interfaces.FourPlug" WIDTH=80  HEIGHT=80 ></A>
 <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.TwoPort"
 ><IMG SRC="Modelica.Electrical.MultiPhase.Interfaces.TwoPortI.png" ALT="Modelica.Electrical.MultiPhase.Interfaces.TwoPort" WIDTH=80  HEIGHT=80 ></A>
-<A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.AbsoluteSensor"
-><IMG SRC="Modelica.Electrical.MultiPhase.Interfaces.AbsoluteSensorI.png" ALT="Modelica.Electrical.MultiPhase.Interfaces.AbsoluteSensor" WIDTH=80  HEIGHT=80 ></A>
-<A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.RelativeSensor"
-><IMG SRC="Modelica.Electrical.MultiPhase.Interfaces.RelativeSensorI.png" ALT="Modelica.Electrical.MultiPhase.Interfaces.RelativeSensor" WIDTH=80  HEIGHT=80 ></A>
 <P><P>
 <H3>Information</H3>
 <PRE></pre>
@@ -81,12 +77,6 @@ electrical multiphase components, based on Modelica.Electrical.Analog.
 <TR><TD><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.TwoPort"
 >TwoPort</A>
 </TD><TD>Component with two m-phase electric ports, including currents</TD></TR>
-<TR><TD><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.AbsoluteSensor"
->AbsoluteSensor</A>
-</TD><TD>Base partial model for measuring potentials</TD></TR>
-<TR><TD><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.RelativeSensor"
->RelativeSensor</A>
-</TD><TD>Base partial model for measuring relative variables between two plugs</TD></TR>
 </TABLE>
 <HR>
 <!--[if supportFields]><span style='mso-element:field-begin'></span>
@@ -260,18 +250,6 @@ Superclass of elements which have <b>four</b> electrical plugs.
 <H2><A NAME="Modelica.Electrical.MultiPhase.Interfaces.Plug"></A><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces"
 >Modelica.Electrical.MultiPhase.Interfaces</A>.Plug</H2>
 <B>Plug with m pins for an electric component</B><p>
-<IMG SRC="Modelica.Electrical.MultiPhase.Interfaces.PlugD.png" ALT="Modelica.Electrical.MultiPhase.Interfaces.Plug">
-<H3>Information</H3>
-<PRE></pre>
-<p>
-Connectors PositivePlug and NegativePlug are nearly identical. 
-The only difference is that the icons are different in order 
-to identify more easily the plugs of a component. 
-Usually, connector PositivePlug is used for the positive and 
-connector NegativePlug for the negative plug of an electrical component.<br>
-Connector Plug is a composite connector containing m Pins (Modelica.Electrical.Analog.Interfaces.Pin).
-</p>
-<pre></PRE>
 <H3>Parameters</H3><P>
 <TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
 <TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
@@ -313,6 +291,7 @@ It is assumed that the currents flowing into plug_p are identical to the current
 <PRE>
 <font color="blue">partial </font><font color="blue">model</font> OnePort <font color="darkgreen">
   &quot;Component with two electrical plugs and currents from plug_p to plug_n&quot;</font> 
+  
   <font color="blue">extends </font><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.TwoPlug"
 >TwoPlug</A>;
 <font color="blue">equation </font>
@@ -353,80 +332,7 @@ and that the currents flowing into plug_p2 are identical to the currents flowing
 <font color="blue">end </font>TwoPort;
 </PRE>
 <HR>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE AbsoluteSensor<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.MultiPhase.Interfaces.AbsoluteSensorI.png" ALT="Modelica.Electrical.MultiPhase.Interfaces.AbsoluteSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.MultiPhase.Interfaces.AbsoluteSensor"></A><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces"
->Modelica.Electrical.MultiPhase.Interfaces</A>.AbsoluteSensor</H2>
-<B>Base partial model for measuring potentials</B><p>
-<IMG SRC="Modelica.Electrical.MultiPhase.Interfaces.AbsoluteSensorD.png" ALT="Modelica.Electrical.MultiPhase.Interfaces.AbsoluteSensor">
-<H3>Information</H3>
-<PRE></pre>
-<p>
-Superclass for models measuring potentials.
-</p>
-<pre></PRE>
-<H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
-<TR><TD>m</TD><TD>3</TD><TD>number of phases</TD></TR>
-</TABLE>
-<H3>Modelica definition</H3>
-<PRE>
-<font color="blue">partial </font><font color="blue">model</font> AbsoluteSensor <font color="darkgreen">
-  &quot;Base partial model for measuring potentials&quot;</font> 
-  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.RotationalSensor"
->Modelica.Icons.RotationalSensor</A>;
-  <font color="blue">parameter </font>Integer m(<font color="blue">final </font>min=1) = 3 <font color="darkgreen">&quot;number of phases&quot;</font>;
-  <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.PositivePlug"
->PositivePlug</A> plug_p(
-                      m);
-  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.OutPort"
->Modelica.Blocks.Interfaces.OutPort</A> outPort(
-                                             <font color="blue">final </font>n=m);
-<font color="blue">end </font>AbsoluteSensor;
-</PRE>
-<HR>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE RelativeSensor<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.MultiPhase.Interfaces.RelativeSensorI.png" ALT="Modelica.Electrical.MultiPhase.Interfaces.RelativeSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.MultiPhase.Interfaces.RelativeSensor"></A><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces"
->Modelica.Electrical.MultiPhase.Interfaces</A>.RelativeSensor</H2>
-<B>Base partial model for measuring relative variables between two plugs</B><p>
-<IMG SRC="Modelica.Electrical.MultiPhase.Interfaces.RelativeSensorD.png" ALT="Modelica.Electrical.MultiPhase.Interfaces.RelativeSensor">
-<H3>Information</H3>
-<PRE></pre>
-<p>
-Superclass for models measuring relative variables between plugs.
-</p>
-<pre></PRE>
-<H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
-<TR><TD>m</TD><TD>3</TD><TD>number of phases</TD></TR>
-</TABLE>
-<H3>Modelica definition</H3>
-<PRE>
-<font color="blue">partial </font><font color="blue">model</font> RelativeSensor <font color="darkgreen">
-  &quot;Base partial model for measuring relative variables between two plugs&quot;</font> 
-  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.RotationalSensor"
->Modelica.Icons.RotationalSensor</A>;
-  <font color="blue">parameter </font>Integer m(<font color="blue">final </font>min=1) = 3 <font color="darkgreen">&quot;number of phases&quot;</font>;
-  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.OutPort"
->Modelica.Blocks.Interfaces.OutPort</A> outPort(
-                                             <font color="blue">final </font>n=m);
-  <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.PositivePlug"
->PositivePlug</A> plug_p(
-                      <font color="blue">final </font>m=m);
-  <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.NegativePlug"
->NegativePlug</A> plug_n(
-                      <font color="blue">final </font>m=m);
-<font color="blue">end </font>RelativeSensor;
-</PRE>
-<HR>
-<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Jun 30 17:43:57 2004
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Jun 30 17:50:09 2004
 .
 </address></BODY>
 </HTML>

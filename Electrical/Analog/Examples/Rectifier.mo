@@ -126,7 +126,7 @@ You may watch Losses (of the whole diode bridge) trying different diode paramete
   annotation (extent=[40, -80; 60, -60]);
   Modelica.Electrical.Analog.Sources.SignalCurrent SignalCurrent1 
   annotation (extent=[50, -10; 70, 10], rotation=-90);
-  Modelica.Blocks.Sources.Constant Constant1(k={IDC}) 
+  Modelica.Blocks.Sources.Constant Constant1(k=IDC) 
   annotation (extent=[100, -10; 80, 10], rotation=0);
 initial equation 
   Capacitor1.v = VAC*sqrt(2)/2;
@@ -196,9 +196,9 @@ equation
   connect(SignalCurrent1.n, Capacitor2.n) 
                                         annotation (points=[60, -10;
       60, -50; 40, -50], style(color=3, rgbcolor={0,0,255}));
-  connect(Constant1.outPort, SignalCurrent1.inPort) 
-                                                  annotation (points=[79,0; 79,
-        0.05; 67.05,0.05],            style(color=3, rgbcolor={0,0,
+  connect(Constant1.y, SignalCurrent1.i)          annotation (points=[79,0; 79,
+        4.30211e-016; 67,4.30211e-016],
+                                      style(color=3, rgbcolor={0,0,
         255}));
   connect(Inductor1.n, IdealDiode1.p) 
                                     annotation (points=[-40, 20; -20,

@@ -2,7 +2,7 @@ package Basic
   
   extends Modelica.Icons.Library;
   
-  annotation (Window(
+  annotation(preferedView="info", Window(
        x=0.03,
        y=0.04,
        width=0.54,
@@ -29,7 +29,6 @@ This package contains basic analog electrical components:
     VariableCapacitor, VariableInductor</li>
 </ul>
 </p>
-
 </HTML>
 ", revisions="<html>
 <dl>
@@ -44,7 +43,6 @@ This package contains basic analog electrical components:
     Design Automation Department<br>
     Zeunerstra&szlig;e 38<br>
     D-01069 Dresden<br>
-
 <p>
 <dt>
 <b>Version:</b>
@@ -77,7 +75,7 @@ at least one ground object.
         Line(points=[-60, 50; 60, 50], style(thickness=2)),
         Line(points=[-40, 30; 40, 30], style(thickness=2)),
         Line(points=[-20, 10; 20, 10], style(thickness=2)),
-        Line(points=[0, 90; 0, 50], style(thickness=2)),
+        Line(points=[0,96; 0,50],   style(thickness=2)),
         Text(extent=[-24, -38; 22, -6], string="p.v=0")),
       Window(
         x=0.23,
@@ -118,8 +116,8 @@ The Resistance <i>R</i> is allowed to be positive, zero, or negative.
         Text(extent=[-100, 40; 100, 100], string="%name")),
       Diagram(
         Rectangle(extent=[-70, 30; 70, -30]),
-        Line(points=[-90, 0; -70, 0]),
-        Line(points=[70, 0; 90, 0])),
+        Line(points=[-96,0; -70,0]),
+        Line(points=[70,0; 96,0])),
       Window(
         x=0.2,
         y=0.06,
@@ -134,7 +132,7 @@ The Resistance <i>R</i> is allowed to be positive, zero, or negative.
     
     parameter SI.Resistance R_ref "Resistance at temperature T_ref";
     parameter SI.Temperature T_ref=300 "Reference temperature";
-    parameter Real alpha(unit="1/K") = 0 
+    parameter Real alpha(unit="1/K")=  0 
       "Temperature coefficient of resistance";
     
     SI.Resistance R "Resistance = R_ref*(1 + alpha*(heatPort.T - T_ref));";
@@ -163,8 +161,8 @@ The Resistance <i>R</i> is allowed to be positive, zero, or negative.
           string="i",
           style(color=9)),
         Rectangle(extent=[-70, 30; 70, -30]),
-        Line(points=[-90, 0; -70, 0]),
-        Line(points=[70, 0; 90, 0]),
+        Line(points=[-96,0; -70,0]),
+        Line(points=[70,0; 96,0]),
         Line(points=[0, -30; 0, -90], style(color=42)),
         Line(points=[-52, -50; 48, 50], style(color=73, fillColor=73)),
         Polygon(points=[40, 52; 50, 42; 54, 56; 40, 52], style(color=73,
@@ -186,19 +184,16 @@ The Resistance <i>R</i> is allowed to be positive, zero, or negative.
 is dissipated to the environment via connector <b>heatPort</b> and where
 the resistance R is temperature dependent according to the following
 equation:</p>
-
 <pre>    R = R_ref*(1 + alpha*(heatPort.T - T_ref))
 </pre>
-
 <p><b>alpha</b> is the <b>temperature coefficient of resistance</b>, which
 is often abbreviated as <b>TCR</b>. In resistor catalogues, it is usually
 defined as <b>X [ppm/K]</b> (parts per million, similarly to per centage)
 meaning <b>X*1.e-6 [1/K]</b>. Resistors are available for 1 .. 7000 ppm/K,
 i.e., alpha = 1e-6 .. 7e-3 1/K;</p>
-
 <p>When connector <b>heatPort</b> is <b>not</b> connected, the temperature
 dependent behaviour is switched off by setting heatPort.T = T_ref.
-Additionally, the equation <tt>heatPort.Q_dot = 0</tt> is implicitly present
+Additionally, the equation <tt>heatPort.Q_flow = 0</tt> is implicitly present
 due to a special rule in Modelica that flow variables of not connected
 connectors are set to zero.</p>
 </HTML>
@@ -210,10 +205,10 @@ connectors are set to zero.</p>
     
     if cardinality(heatPort) > 0 then
       R = R_ref*(1 + alpha*(heatPort.T - T_ref));
-      heatPort.Q_dot = -v*i;
+      heatPort.Q_flow = -v*i;
     else
       /* heatPort is not connected resulting in the
-         implicit equation 'heatPort.Q_dot = 0'
+         implicit equation 'heatPort.Q_flow = 0'
       */
       R = R_ref;
       heatPort.T = T_ref;
@@ -245,7 +240,8 @@ The Conductance <i>G</i> is allowed to be positive, zero, or negative.
           string="G=%G",
           style(color=0, pattern=0)),
         Text(extent=[-100, 40; 100, 98], string="%name")),
-      Diagram(Line(points=[-90, 0; -70, 0]), Line(points=[70, 0; 90, 0])),
+      Diagram(Line(points=[-96,0; -70,0]),   Line(points=[70,0; 96,0]),
+        Rectangle(extent=[-70,30; 70,-30])),
       Window(
         x=0,
         y=0.2,
@@ -288,8 +284,8 @@ The Capacitance <i>C</i> is allowed to be positive, zero, or negative.
       Diagram(
         Line(points=[-20, 40; -20, -40], style(thickness=2)),
         Line(points=[20, 40; 20, -40], style(thickness=2)),
-        Line(points=[-90, 0; -20, 0]),
-        Line(points=[20, 0; 90, 0])));
+        Line(points=[-96,0; -20,0]),
+        Line(points=[20,0; 96,0])));
   equation 
     i = C*der(v);
   end Capacitor;
@@ -328,8 +324,8 @@ The Inductance <i>L</i> is allowed to be positive, zero, or negative.
         Ellipse(extent=[0, -15; 30, 15]),
         Ellipse(extent=[30, -15; 60, 15]),
         Rectangle(extent=[-60, -30; 60, 0], style(color=7, fillColor=7)),
-        Line(points=[60, 0; 90, 0]),
-        Line(points=[-90, 0; -60, 0])),
+        Line(points=[60,0; 96,0]),
+        Line(points=[-96,0; -60,0])),
       Window(
         x=0.3,
         y=0.12,
@@ -357,7 +353,7 @@ The Inductance <i>L</i> is allowed to be positive, zero, or negative.
         Ellipse(extent=[-30, -15; 0, 15]),
         Ellipse(extent=[0, -15; 30, 15]),
         Ellipse(extent=[30, -15; 60, 15]),
-        Rectangle(extent=[-60,-20; 60,0],   style(color=7, fillColor=7)),
+        Rectangle(extent=[-60,-20; 62,0],   style(color=7, fillColor=7)),
         Line(points=[60, 0; 90, 0]),
         Line(points=[-90, 0; -60, 0]),
         Rectangle(extent=[-60,-10; 60,-20], style(
@@ -403,7 +399,21 @@ The parameters are:
   </ul>
   </dd>
 </dl>
-</html>"));
+</html>"),
+      Diagram(
+        Ellipse(extent=[-60,-15; -30,15]),
+        Ellipse(extent=[-30,-15; 0,15]),
+        Ellipse(extent=[0,-15; 30,15]),
+        Ellipse(extent=[30,-15; 60,15]),
+        Rectangle(extent=[-60,-20; 62,0],   style(color=7, fillColor=7)),
+        Line(points=[60,0; 96,0]),
+        Line(points=[-96,0; -60,0]),
+        Rectangle(extent=[-60,-10; 60,-20], style(
+            color=3,
+            rgbcolor={0,0,255},
+            gradient=3,
+            fillColor=3,
+            rgbfillColor={0,0,255}))));
   initial equation 
     (Lnom - Linf) = (Lzer - Linf)*Ipar/Inom*(Modelica.Constants.pi/2-arctan(Ipar/Inom));
   equation 
@@ -460,15 +470,15 @@ relation:</p>
         Ellipse(extent=[-45, 0; -20, 25]),
         Ellipse(extent=[-45, 25; -20, 50]),
         Rectangle(extent=[-72, -60; -33, 60], style(color=7, fillColor=7)),
-        Line(points=[-90, 50; -32, 50]),
-        Line(points=[-90, -50; -32, -50]),
+        Line(points=[-96,50; -32,50]),
+        Line(points=[-96,-50; -32,-50]),
         Ellipse(extent=[20, -50; 45, -25]),
         Ellipse(extent=[20, -25; 45, 0]),
         Ellipse(extent=[20, 0; 45, 25]),
         Ellipse(extent=[20, 25; 45, 50]),
         Rectangle(extent=[33, -60; 72, 60], style(color=7, fillColor=7)),
-        Line(points=[32, 50; 90, 50]),
-        Line(points=[32, -50; 90, -50])),
+        Line(points=[32,50; 96,50]),
+        Line(points=[32,-50; 96,-50])),
       Window(
         x=0.26,
         y=0.43,
@@ -520,10 +530,10 @@ where the constants <i>G1</i>, <i>G2</i> are called the gyration conductance.
         Text(extent=[-29, -29; 29, -58], string="G2")),
       Diagram(
         Rectangle(extent=[-60, 60; 60, -60]),
-        Line(points=[-90, 50; -60, 50]),
-        Line(points=[-90, -50; -60, -50]),
-        Line(points=[60, 50; 90, 50]),
-        Line(points=[60, -50; 90, -50]),
+        Line(points=[-96,50; -60,50]),
+        Line(points=[-96,-50; -60,-50]),
+        Line(points=[60,50; 96,50]),
+        Line(points=[60,-50; 96,-50]),
         Line(points=[-40, 30; 40, 30]),
         Line(points=[-21, -22; 19, -22]),
         Polygon(points=[30, 34; 40, 30; 30, 26; 30, 34], style(fillColor=3,
@@ -546,7 +556,7 @@ where the constants <i>G1</i>, <i>G2</i> are called the gyration conductance.
   end Gyrator;
   
   model EMF "Electromotoric force (electric/mechanic transformer)" 
-    parameter Real k(final unit="N.m/A") = 1 "Transformation coefficient";
+    parameter Real k(final unit="N.m/A")=  1 "Transformation coefficient";
     
     SI.Voltage v "Voltage drop between the two pins";
     SI.Current i "Current flowing from positive to negative pin";
@@ -558,7 +568,7 @@ where the constants <i>G1</i>, <i>G2</i> are called the gyration conductance.
         component=[20, 20]),
       Icon(
         Line(points=[0, 90; 0, 40]),
-        Rectangle(extent=[40, 10; 90, -10], style(
+        Rectangle(extent=[40,10; 100,-10],  style(
             gradient=2,
             fillColor=8,
             fillPattern=1)),
@@ -580,9 +590,9 @@ where the constants <i>G1</i>, <i>G2</i> are called the gyration conductance.
           string="i",
           style(color=9, fillColor=9)),
         Line(points=[9, 75; 19, 75], style(color=8)),
-        Line(points=[0, 90; 0, 40]),
+        Line(points=[0,96; 0,40]),
         Ellipse(extent=[-40, 40; 40, -40]),
-        Rectangle(extent=[40, 10; 90, -10], style(
+        Rectangle(extent=[40,10; 96,-10],   style(
             gradient=2,
             fillColor=8,
             fillPattern=1)),
@@ -596,7 +606,7 @@ where the constants <i>G1</i>, <i>G2</i> are called the gyration conductance.
           string="i",
           style(color=9)),
         Line(points=[8, -79; 18, -79], style(color=8)),
-        Line(points=[0, -90; 0, -40]),
+        Line(points=[0,-96; 0,-40]),
         Line(points=[14, 80; 14, 70], style(color=8)),
         Line(points=[140, 0; 110, 0], style(color=0, fillColor=0)),
         Text(extent=[114, -4; 148, -14], string="flange_b.phi"),
@@ -650,11 +660,9 @@ The linear voltage-controlled voltage source is a TwoPort.
 The right port voltage v2 is controlled by the left port voltage v1
 via
 </p>
-
 <pre>
     v2 = v1 * gain.
 </pre>
-
 <p>
 The left port current is zero. Any voltage gain can be chosen.
 </p>
@@ -679,9 +687,9 @@ The left port current is zero. Any voltage gain can be chosen.
         Polygon(points=[20, 60; 10, 63; 10, 57; 20, 60], style(fillColor=3,
               fillPattern=1))),
       Diagram(
-        Line(points=[-90, 50; -30, 50]),
-        Line(points=[-30, -50; -90, -50]),
-        Line(points=[90, 50; 30, 50; 30, -50; 90, -50]),
+        Line(points=[-96,50; -31,50]),
+        Line(points=[-30,-50; -96,-50]),
+        Line(points=[96,50; 30,50; 30,-50; 96,-50]),
         Ellipse(extent=[10, 20; 50, -20]),
         Rectangle(extent=[-70, 70; 70, -70]),
         Line(points=[-20, 60; 20, 60]),
@@ -726,15 +734,15 @@ The left port current is zero. Any transConductance can be chosen.
         Line(points=[91, -50; 30, -50; 30, -20]),
         Line(points=[10, 0; 50, 0])),
       Diagram(
-        Line(points=[-90, 50; -30, 50]),
-        Line(points=[-30, -50; -90, -50]),
+        Line(points=[-96,50; -30,50]),
+        Line(points=[-30,-50; -96,-50]),
         Ellipse(extent=[10, 20; 50, -20]),
         Rectangle(extent=[-70, 70; 70, -70]),
         Line(points=[-20, 60; 20, 60]),
         Polygon(points=[20, 60; 10, 63; 10, 57; 20, 60], style(fillColor=3,
               fillPattern=1)),
-        Line(points=[90, 50; 30, 50; 30, 20]),
-        Line(points=[91, -50; 30, -50; 30, -20]),
+        Line(points=[96,50; 30,50; 30,20]),
+        Line(points=[96,-50; 30,-50; 30,-20]),
         Line(points=[10, 0; 50, 0])),
       Window(
         x=0.34,
@@ -783,8 +791,8 @@ The left port voltage is zero. Any transResistance can be chosen.
         Line(points=[-20, 60; 20, 60]),
         Polygon(points=[20, 60; 10, 63; 10, 57; 20, 60], style(fillColor=3,
               fillPattern=1)),
-        Line(points=[90, 50; 30, 50; 30, -50; 90, -50]),
-        Line(points=[-90, 50; -30, 50; -30, -50; -90, -50])),
+        Line(points=[96,50; 30,50; 30,-50; 96,-50]),
+        Line(points=[-96,50; -30,50; -30,-50; -96,-50])),
       Window(
         x=0.3,
         y=0.13,
@@ -805,11 +813,9 @@ The linear current-controlled current source is a TwoPort.
 The right port current i2 is controlled by the left port current i1
 via
 </p>
-
 <pre>
     i2 = i1 * gain.
 </pre>
-
 <p>
 The left port voltage is zero. Any current gain can be chosen.
 </p>
@@ -835,10 +841,10 @@ The left port voltage is zero. Any current gain can be chosen.
         Line(points=[-20, 60; 20, 60]),
         Polygon(points=[20, 60; 10, 63; 10, 57; 20, 60], style(fillColor=3,
               fillPattern=1)),
-        Line(points=[90, 50; 30, 50; 30, 20]),
-        Line(points=[91, -50; 30, -50; 30, -20]),
+        Line(points=[96,50; 30,50; 30,20]),
+        Line(points=[96,-50; 30,-50; 30,-20]),
         Line(points=[10, 0; 50, 0]),
-        Line(points=[-90, 50; -30, 50; -30, -50; -91, -50])),
+        Line(points=[-96,50; -30,50; -30,-50; -96,-50])),
       Window(
         x=0.31,
         y=0.09,
@@ -881,11 +887,11 @@ value of Slope is taken into calculation.)
         Polygon(points=[60, 0; -60, 70; -60, -70; 60, 0], style(fillColor=7)),
         Line(points=[-45, -10; -20, -10; -14, -9; -11, -7; -9, 7; -6, 9; 0, 10;
                 20, 10]),
-        Line(points=[0, 35; 0, 80]),
-        Line(points=[0, -35; 0, -80]),
-        Line(points=[-90, 50; -60, 50]),
-        Line(points=[-90, -50; -60, -50]),
-        Line(points=[60, 0; 90, 0]),
+        Line(points=[0,35; 0,70]),
+        Line(points=[0,-35; 0,-70]),
+        Line(points=[-96,50; -60,50]),
+        Line(points=[-96,-50; -60,-50]),
+        Line(points=[60,0; 96,0]),
         Line(points=[-55, 50; -45, 50]),
         Line(points=[-50, -45; -50, -55]),
         Line(points=[-55, -50; -45, -50]),
@@ -927,9 +933,9 @@ value of Slope is taken into calculation.)
     Modelica.Electrical.Analog.Interfaces.PositivePin in_p 
       "Positive pin of the input port" annotation (extent=[-110, -60; -90, -40]);
     Modelica.Electrical.Analog.Interfaces.NegativePin in_n 
-      "Negative pin of the input port" annotation (extent=[-110, 40; -90, 60]);
+      "Negative pin of the input port" annotation (extent=[-90,40; -110,60]);
     Modelica.Electrical.Analog.Interfaces.PositivePin out "Output pin" 
-      annotation (extent=[90, -10; 110, 10]);
+      annotation (extent=[110,-10; 90,10]);
     Modelica.Electrical.Analog.Interfaces.PositivePin VMax 
       "Positive output voltage limitation" annotation (extent=[-10, 60; 10, 80]);
     Modelica.Electrical.Analog.Interfaces.NegativePin VMin 
@@ -954,10 +960,9 @@ value of Slope is taken into calculation.)
         model VariableResistor 
     "Ideal linear electrical resistor with variable resistance" 
           extends Modelica.Electrical.Analog.Interfaces.OnePort;
-          Modelica.Blocks.Interfaces.InPort R_Port(final n=1) 
+          Modelica.Blocks.Interfaces.RealInput R(
+            redeclare type SignalType = Modelica.SIunits.Resistance) 
             annotation (extent=[-10, 90; 10, 110], rotation=-90);
-  protected 
-          Modelica.SIunits.Resistance R;
           annotation (
             Documentation(info="<HTML>
 <P>
@@ -966,15 +971,15 @@ branch current <i>i</i> by <br><br>
       <b> <i>i*R = v</i></b>
 </P>
 <P>
-The Resistance <i>R</i> is defined by the R_Port signal.
+The Resistance <i>R</i> is given as input signal.
 <P>
 <b>Attention!!!</b><br>
-  It is recomended that the R_Port signal should not cross the zero value. Otherwise 
+  It is recommended that the R signal should not cross the zero value. Otherwise 
   depending on the surrounding circuit the probability of singularities is high. <br>
 </P>
-
 </HTML>
-", revisions="<html>
+",         revisions=
+             "<html>
 <ul>
 <li><i>June 7, 2004   </i>
        by Christoph Clauss<br>changed, docu added<br>
@@ -996,19 +1001,24 @@ The Resistance <i>R</i> is defined by the R_Port signal.
                   fillPattern=1)),
               Line(points=[70, 0; 90, 0]),
               Line(points=[0, 90; 0, 30], style(color=73))),
-            Diagram);
+            Diagram(
+              Rectangle(extent=[-70,30; 70,-30],   style(
+                  color=3,
+                  fillColor=7,
+                  fillPattern=1)),
+              Line(points=[-96,0; -70,0]),
+              Line(points=[0,90; 0,30],   style(color=73)),
+              Line(points=[70,0; 96,0])));
         equation 
-          R = R_Port.signal[1];
           v = R*i;
         end VariableResistor;
   
         model VariableConductor 
     "Ideal linear electrical conductor with variable conductance" 
           extends Modelica.Electrical.Analog.Interfaces.OnePort;
-          Modelica.Blocks.Interfaces.InPort G_Port(final n=1) 
+          Modelica.Blocks.Interfaces.RealInput G(
+             redeclare type SignalType = Modelica.SIunits.Conductance) 
             annotation (extent=[-10, 90; 10, 110], rotation=-90);
-  protected 
-          Modelica.SIunits.Conductance G "Conductance";
           annotation (
             Documentation(info="<HTML>
 <P>
@@ -1017,17 +1027,16 @@ branch current <i>i</i> by <br><br>
       <b> <i>i = G*v</i></b>
 </P>
 <P>
-The Conductance <i>G</i> is defined by the G_Port signal.
-
+The Conductance <i>G</i> is given as input signal.
 </P>
 <P>
 <b>Attention!!!</b><br>
-  It is recomended that the G_Port signal should not cross the zero value. Otherwise 
+  It is recommended that the G signal should not cross the zero value. Otherwise 
   depending on the surrounding circuit the probability of singularities is high. <br>
 </P>
-
 </HTML>
-", revisions="<html>
+",         revisions=
+             "<html>
 <ul>
 <li><i>June 7, 2004   </i>
        by Christoph Clauss<br> implemented<br>
@@ -1046,21 +1055,26 @@ The Conductance <i>G</i> is defined by the G_Port signal.
                   fillPattern=1)),
               Line(points=[70, 0; 90, 0]),
               Line(points=[0, 90; 0, 30], style(color=73))),
-            Diagram);
+            Diagram(
+              Line(points=[0,90; 0,30],   style(color=73)),
+              Line(points=[-96,0; -70,0]),
+              Line(points=[70,0; 96,0]),
+              Rectangle(extent=[-70,30; 70,-30],   style(
+                  color=3,
+                  fillColor=7,
+                  fillPattern=1))));
         equation 
-          G = G_Port.signal[1];
           i = G*v;
         end VariableConductor;
   
         model VariableCapacitor 
     "Ideal linear electrical capacitor with variable capacitance" 
           extends Modelica.Electrical.Analog.Interfaces.OnePort;
-          Modelica.Blocks.Interfaces.InPort C_Port(final n=1) 
+          Modelica.Blocks.Interfaces.RealInput C(
+            redeclare type SignalType = Modelica.SIunits.Capacitance) 
             annotation (extent=[-10, 90; 10, 110], rotation=-90);
           parameter Modelica.SIunits.Capacitance Cmin=Modelica.Constants.eps;
           Modelica.SIunits.ElectricCharge Q;
-  protected 
-          Modelica.SIunits.Capacitance C;
           annotation (
             Documentation(info="<HTML>
 <P>
@@ -1069,17 +1083,17 @@ branch current <i>i</i> by <br><br>
       <b> <i>i = dQ/dt</i></b>  with <b><i>Q = C * v</i> </b>.
 </P>
 <P>
-The capacitance <i>C</i> is defined by the C_Port signal.
+The capacitance <i>C</i> is given as input signal.
 </P>
 <P>
-It is required that C_Port.signal &ge; 0, otherwise an 
+It is required that C &ge; 0, otherwise an 
 assertion is raised. To avoid a variable index system,<br>
-C = Cmin, if 0 &le; C_Port.signal &lt; Cmin, where
+C = Cmin, if 0 &le; C &lt; Cmin, where
 Cmin is a parameter with default value Modelica.Constants.eps.
 </P>
-
 </HTML>
-", revisions="<html>
+",         revisions=
+             "<html>
 <ul>
 <li><i>June 7, 2004   </i>
        by Christoph Clauss<br>changed, docu added<br>
@@ -1095,13 +1109,17 @@ Cmin is a parameter with default value Modelica.Constants.eps.
               Line(points=[0, 90; 0, 30], style(color=73)),
               Line(points=[-14, 28; -14, -28], style(thickness=2)),
               Line(points=[14, 28; 14, -28], style(thickness=2))),
-            Diagram);
+            Diagram(
+              Line(points=[-96,0; -14,0]),
+              Line(points=[14,0; 96,0]),
+              Line(points=[0,90; 0,30],   style(color=73)),
+              Line(points=[-14,28; -14,-28],   style(thickness=2)),
+              Line(points=[14,28; 14,-28],   style(thickness=2))));
         equation 
-          assert(C_Port.signal[1]>=0,"Capacitance C_Port.signal[1] (= " +
-                                     String(C_Port.signal[1]) + ") has to be >= 0!");
+          assert(C>=0,"Capacitance C (= " +
+                 String(C) + ") has to be >= 0!");
           // protect solver from index change
-          C = noEvent(max(C_Port.signal[1],Cmin));
-          Q = C*v;
+          Q = noEvent(max(C,Cmin))*v;
           i = der(Q);
         end VariableCapacitor;
   
@@ -1109,12 +1127,11 @@ Cmin is a parameter with default value Modelica.Constants.eps.
     "Ideal linear electrical inductor with variable inductance" 
     
           extends Modelica.Electrical.Analog.Interfaces.OnePort;
-          Modelica.Blocks.Interfaces.InPort L_Port(final n=1) 
+          Modelica.Blocks.Interfaces.RealInput L(
+             redeclare type SignalType = Modelica.SIunits.Inductance) 
             annotation (extent=[-10, 90; 10, 110], rotation=-90);
           Modelica.SIunits.MagneticFlux Psi;
           parameter Modelica.SIunits.Inductance Lmin=Modelica.Constants.eps;
-  protected 
-          Modelica.SIunits.Inductance L;
           annotation (
             Documentation(info="<HTML>
 <P>
@@ -1123,17 +1140,17 @@ branch current <i>i</i> by <br><br>
       <b> <i>v = d Psi/dt </i></b>   with  <b><i>Psi = L * i </i></b>.
 </P>
 <P>
-The inductance <i>L</i> is defined by the L_Port signal.
+The inductance <i>L</i> is as input signal.
 </P>
 <P>
-It is required that L_Port.signal &ge; 0, otherwise an 
+It is required that L &ge; 0, otherwise an 
 assertion is raised. To avoid a variable index system,<br>
-L = Lmin, if 0 &le; L_Port.signal &lt; Lmin, where
+L = Lmin, if 0 &le; L &lt; Lmin, where
 Lmin is a parameter with default value Modelica.Constants.eps.
 </P>
-
 </HTML>
-", revisions="<html>
+",         revisions=
+             "<html>
 <ul>
 <li><i>June 7, 2004   </i>
        by Christoph Clauss<br>changed, docu added<br>
@@ -1152,13 +1169,20 @@ Lmin is a parameter with default value Modelica.Constants.eps.
               Ellipse(extent=[0, -15; 30, 15]),
               Ellipse(extent=[30, -15; 60, 15]),
               Rectangle(extent=[-60, -30; 60, 0], style(color=7, fillColor=7))),
-            Diagram);
+            Diagram(
+              Line(points=[-96,0; -60,0]),
+              Line(points=[0,90; 0,8],   style(color=73)),
+              Ellipse(extent=[-60,-15; -30,15]),
+              Ellipse(extent=[-30,-15; 0,15]),
+              Ellipse(extent=[0,-15; 30,15]),
+              Ellipse(extent=[30,-15; 60,15]),
+              Rectangle(extent=[-60,-30; 62,0],   style(color=7, fillColor=7)),
+              Line(points=[60,0; 96,0])));
         equation 
-          assert(L_Port.signal[1]>=0,"Inductance L_Port.signal[1] (= " +
-                                     String(L_Port.signal[1]) + ") has to be >= 0!");
+          assert(L>=0,"Inductance L_ (= " +
+                 String(L) + ") has to be >= 0!");
           // protect solver from index change
-          L = noEvent(max(L_Port.signal[1],Lmin));
-          Psi = L*i;
+          Psi = noEvent(max(L,Lmin))*i;
           v = der(Psi);
         end VariableInductor;
   

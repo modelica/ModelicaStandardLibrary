@@ -26,7 +26,6 @@ The components of this package are provided for the convenience of
 people working mostly with Celsius units, since all models
 in package HeatTransfer are based on Kelvin units.
 </p>
-
 <p>
 Note, that in package SIunits.Conversions, functions are provided
 to convert between the units Kelvin, degree Celsius, degree Fahrenheit,
@@ -34,12 +33,10 @@ and degree Rankine. These functions allow, e.g., a direct conversion
 of units at all places where Kelvin is required as parameter.
 Example:
 </p>
-
 <pre>
     <b>import</b> SIunits.Conversions.*;
     Modelica.Thermal.HeatTransfer.HeatCapacitor C(T0 = from_degC(20));
 </pre>
-
 <pre>
 </PRE><P>
 <TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
@@ -71,7 +68,6 @@ Example:
 <IMG SRC="Modelica.Thermal.HeatTransfer.Celsius.TemperatureSensorD.png" ALT="Modelica.Thermal.HeatTransfer.Celsius.TemperatureSensor">
 <H3>Information</H3>
 <PRE></pre>
-
 <p>
 This is an ideal absolute temperature sensor which returns
 the temperature of the connected port in Celsius as an output
@@ -86,15 +82,15 @@ sensor model.
 <PRE>
 <font color="blue">model</font> TemperatureSensor <font color="darkgreen">&quot;Absolute temperature sensor in °Celsius&quot;</font> 
   
-  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.OutPort"
->Modelica.Blocks.Interfaces.OutPort</A> T(
-                                       <font color="blue">redeclare </font><font color="blue">type</font> SignalType = <A HREF="Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits.Temperature_degC"
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> T(
+                                          <font color="blue">redeclare </font><font color="blue">type</font> SignalType = <A HREF="Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits.Temperature_degC"
 >NonSI.Temperature_degC</A>);
   <A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a"
 >Interfaces.HeatPort_a</A> port;
 <font color="blue">equation </font>
-  T.signal[1] =<font color="red"> to_degC</font>(port.T);
-  port.Q_dot = 0;
+  T =<font color="red"> to_degC</font>(port.T);
+  port.Q_flow = 0;
 <font color="blue">end </font>TemperatureSensor;
 </PRE>
 <HR>
@@ -143,28 +139,24 @@ i.e., it defines a fixed temperature as a boundary condition.
 <H3>Information</H3>
 <PRE></pre>
 <p>
-This component converts all input signals from Celsius to Kelvin
-and provides them as output signals.
+This component converts an input signal from Celsius to Kelvin
+and provide is as output signal.
 </p>
 <pre>
 </PRE>
-<H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
-<TR><TD>n</TD><TD>1</TD><TD>Number of inputs (= number of outputs)</TD></TR>
-</TABLE>
 <H3>Modelica definition</H3>
 <PRE>
 <font color="blue">model</font> ToKelvin <font color="darkgreen">&quot;Conversion block from °Celsius to Kelvin&quot;</font> 
-  <font color="blue">parameter </font>Integer n=1 <font color="darkgreen">&quot;Number of inputs (= number of outputs)&quot;</font>;
-  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
->Modelica.Blocks.Interfaces.InPort</A> Celsius(
-                                            <font color="blue">final </font>n=n);
-  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.OutPort"
->Modelica.Blocks.Interfaces.OutPort</A> Kelvin(
-                                            <font color="blue">final </font>n=n);
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> Celsius(
+     <font color="blue">redeclare </font><font color="blue">type</font> SignalType = <A HREF="Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits.Temperature_degC"
+>Modelica.SIunits.Conversions.NonSIunits.Temperature_degC</A>);
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> Kelvin(
+     <font color="blue">redeclare </font><font color="blue">type</font> SignalType = <A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Modelica.SIunits.Temperature</A>);
 <font color="blue">equation </font>
-  Kelvin.signal =<font color="red"> from_degC</font>(Celsius.signal);
+  Kelvin =<font color="red"> from_degC</font>(Celsius);
 <font color="blue">end </font>ToKelvin;
 </PRE>
 <HR>
@@ -179,28 +171,24 @@ and provides them as output signals.
 <H3>Information</H3>
 <PRE></pre>
 <p>
-This component converts all input signals from Kelvin to Celsius
-and provides them as output signals.
+This component converts an input signal from Kelvin to Celsius
+and provides is as output signal.
 </p>
 <pre>
 </PRE>
-<H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
-<TR><TD>n</TD><TD>1</TD><TD>Number of inputs (= number of outputs)</TD></TR>
-</TABLE>
 <H3>Modelica definition</H3>
 <PRE>
 <font color="blue">model</font> FromKelvin <font color="darkgreen">&quot;Conversion from Kelvin to °Celsius&quot;</font> 
-  <font color="blue">parameter </font>Integer n=1 <font color="darkgreen">&quot;Number of inputs (= number of outputs)&quot;</font>;
-  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
->Modelica.Blocks.Interfaces.InPort</A> Kelvin(
-                                           <font color="blue">final </font>n=n);
-  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.OutPort"
->Modelica.Blocks.Interfaces.OutPort</A> Celsius(
-                                             <font color="blue">final </font>n=n);
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> Kelvin(
+     <font color="blue">redeclare </font><font color="blue">type</font> SignalType = <A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Modelica.SIunits.Temperature</A>);
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> Celsius(
+     <font color="blue">redeclare </font><font color="blue">type</font> SignalType = <A HREF="Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits.Temperature_degC"
+>Modelica.SIunits.Conversions.NonSIunits.Temperature_degC</A>);
 <font color="blue">equation </font>
-  Celsius.signal =<font color="red"> to_degC</font>(Kelvin.signal);
+  Celsius =<font color="red"> to_degC</font>(Kelvin);
 <font color="blue">end </font>FromKelvin;
 </PRE>
 <HR>
@@ -230,15 +218,16 @@ as required to keep the temperature at the specified value.
   
   <A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_b"
 >Interfaces.HeatPort_b</A> port;
-  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
->Modelica.Blocks.Interfaces.InPort</A> T(
-                                      <font color="blue">final </font>n=1);
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> T(
+     <font color="blue">redeclare </font><font color="blue">type</font> SignalType = <A HREF="Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits.Temperature_degC"
+>Modelica.SIunits.Conversions.NonSIunits.Temperature_degC</A>);
 <font color="blue">equation </font>
-  port.T =<font color="red"> from_degC</font>(T.signal[1]);
+  port.T =<font color="red"> from_degC</font>(T);
 <font color="blue">end </font>PrescribedTemperature;
 </PRE>
 <HR>
-<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Jun 30 17:44:15 2004
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Jun 30 17:50:46 2004
 .
 </address></BODY>
 </HTML>

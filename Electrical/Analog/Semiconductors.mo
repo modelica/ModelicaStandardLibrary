@@ -2,7 +2,7 @@ package Semiconductors
   extends Modelica.Icons.Library;
   import Modelica.SIunits;
   
-  annotation (
+  annotation(preferedView="info",
     Window(
       x=0.03,
       y=0.04,
@@ -23,7 +23,6 @@ This package contains semiconductor devices:
     to the thermal domain</li>
 </ul>
 </p>
-
 </HTML>
 ", revisions="<html>
 <dl>
@@ -38,7 +37,6 @@ This package contains semiconductor devices:
     Design Automation Department<br>
     Zeunerstra&szlig;e 38<br>
     D-01069 Dresden<br>
-
 <p>
 <dt>
 <b>Version:</b>
@@ -54,7 +52,7 @@ $Id$<br>
     parameter SIunits.Current Ids=1.e-6 "Saturation current";
     parameter SIunits.Voltage Vt=0.04 
       "Voltage equivalent of temperature (kT/qn)";
-    parameter Real Maxexp(final min=Modelica.Constants.SMALL) = 15 
+    parameter Real Maxexp(final min=Modelica.Constants.SMALL)=  15 
       "Max. exponent for linear continuation";
     parameter SIunits.Resistance R=1.e8 "Parallel ohmic resistance";
     annotation (
@@ -96,8 +94,8 @@ continued to avoid overflow.
             gradient=0,
             fillColor=1,
             fillPattern=0)),
-        Line(points=[-90, 0; 40, 0]),
-        Line(points=[40, 0; 90, 0]),
+        Line(points=[-96,0; 40,0]),
+        Line(points=[40,0; 96,0]),
         Line(points=[30, 40; 30, -40], style(color=3))),
       Window(
         x=0.13,
@@ -135,7 +133,6 @@ Some typical parameter sets are:
 <PRE>
   W       L      Beta        Vt       K2       K5       DW         DL    
   m       m      A/V^2       V        -        -        m          m    
-
   50.e-6  8.e-6  .0085e-3   -.15     .41      .839    -3.8e-6    -4.0e-6           
   20.e-6  6.e-6  .0105e-3  -1.0      .41      .839    -2.5e-6    -2.1e-6 
   30.e-6  5.e-6  .0059e-3   -.3      .98     1.01      0         -3.9e-6   
@@ -155,7 +152,7 @@ Some typical parameter sets are:
         width=0.6,
         height=0.6),
       Icon(
-        Text(extent=[-100, 80; 100, 100], string="%name"),
+        Text(extent=[-100,60; 100,100],   string="%name"),
         Line(points=[-90, -50; -10, -50]),
         Line(points=[-10, -50; -10, 50]),
         Line(points=[10, 70; 10, 29]),
@@ -167,14 +164,14 @@ Some typical parameter sets are:
         Polygon(points=[60, 0; 40, 5; 40, -5; 60, 0], style(fillColor=3,
               fillPattern=1))),
       Diagram(
-        Line(points=[-90, -50; -10, -50]),
+        Line(points=[-96,-50; -10,-50]),
         Line(points=[-10, -50; -10, 50]),
         Line(points=[10, 70; 10, 29]),
         Line(points=[10, 20; 10, -21]),
         Line(points=[10, -30; 10, -71]),
-        Line(points=[10, 50; 91, 50]),
-        Line(points=[10, 0; 90, 0]),
-        Line(points=[10, -50; 90, -50]),
+        Line(points=[10,50; 96,50]),
+        Line(points=[10,0; 96,0]),
+        Line(points=[10,-50; 96,-50]),
         Polygon(points=[60, 0; 40, 5; 40, -5; 60, 0], style(fillColor=3,
               fillPattern=1))));
     
@@ -238,7 +235,6 @@ is included to avoid numerical difficulties.
 <PRE>
   W       L      Beta        Vt       K2      K5       DW         DL    
   m       m      A/V^2       V        -       -        m          m    
-
   12.e-6  4.e-6  .062e-3   -4.5      .24     .61     -1.2e-6     -.9e-6      depletion
   60.e-6  3.e-6  .048e-3     .1      .08     .68     -1.2e-6     -.9e-6      enhancement
   12.e-6  4.e-6  .0625e-3   -.8      .21     .78     -1.2e-6     -.9e-6      zero
@@ -282,14 +278,14 @@ Muenchen Wien 1990.
         Polygon(points=[40, 0; 60, 5; 60, -5; 40, 0], style(fillColor=3,
               fillPattern=1))),
       Diagram(
-        Line(points=[-90, -50; -10, -50]),
+        Line(points=[-96,-50; -10,-50]),
         Line(points=[-10, -50; -10, 50]),
         Line(points=[10, 70; 10, 29]),
         Line(points=[10, 20; 10, -21]),
         Line(points=[10, -30; 10, -71]),
-        Line(points=[10, 50; 91, 50]),
-        Line(points=[10, 0; 90, 0]),
-        Line(points=[10, -50; 90, -50]),
+        Line(points=[10,50; 96,50]),
+        Line(points=[10,0; 96,0]),
+        Line(points=[10,-50; 96,-50]),
         Polygon(points=[40, 0; 60, 5; 60, -5; 40, 0], style(fillColor=3,
               fillPattern=1))));
     Interfaces.Pin D "Drain" annotation (extent=[90, 40; 110, 60]);
@@ -387,7 +383,6 @@ A typical parameter set is:
 <PRE>
   Bf  Br  Is     Vak  Tauf    Taur  Ccs   Cje     Cjc     Phie  Me   PHic   Mc     Gbc    Gbe    Vt   
   -   -   A      V    s       s     F     F       F       V     -    V      -      mS     mS     V
-
   50  0.1 1e-16  0.02 0.12e-9 5e-9  1e-12 0.4e-12 0.5e-12 0.8   0.4  0.8    0.333  1e-15  1e-15  0.02585
 </PRE>
 <P>
@@ -420,10 +415,10 @@ on page 317 ff.
                 fillPattern=1))),
       Diagram(
         Line(points=[-10, 40; -10, -40]),
-        Line(points=[-10, 0; -90, 0]),
+        Line(points=[-10,0; -100,0]),
         Line(points=[30, 50; -10, 10]),
         Line(points=[-10, -10; 30, -50]),
-        Line(points=[30, -50; 91, -50]),
+        Line(points=[30,-50; 100,-50]),
         Line(points=[100, 50; 30, 50]),
         Polygon(points=[30, -50; 24, -36; 16, -44; 30, -50], style(fillColor=3,
                 fillPattern=1))));
@@ -515,7 +510,6 @@ A typical parameter set is:
 <PRE>
   Bf  Br  Is     Vak  Tauf    Taur  Ccs   Cje     Cjc     Phie  Me   PHic   Mc     Gbc    Gbe    Vt   
   -   -   A      V    s       s     F     F       F       V     -    V      -      mS     mS     V
-
   50  0.1 1e-16  0.02 0.12e-9 5e-9  1e-12 0.4e-12 0.5e-12 0.8   0.4  0.8    0.333  1e-15  1e-15  0.02585
 </PRE>
 <P>
@@ -543,11 +537,11 @@ on page 317 ff.
                 3, fillPattern=1))),
       Diagram(
         Line(points=[-10, 40; -10, -40]),
-        Line(points=[-10, 0; -90, 0]),
-        Line(points=[91, 50; 30, 50]),
+        Line(points=[-10,0; -99,0]),
+        Line(points=[100,50; 30,50]),
         Line(points=[30, 50; -10, 10]),
         Line(points=[-10, -10; 30, -50]),
-        Line(points=[30, -50; 91, -50]),
+        Line(points=[30,-50; 99,-50]),
         Polygon(points=[-10, -10; 5, -17; -3, -25; -10, -10], style(fillColor=
                 3, fillPattern=1))));
   public 
@@ -595,7 +589,7 @@ on page 317 ff.
           parameter Modelica.SIunits.Current Ids=1.e-6 "Saturation current";
     
             /* parameter Modelica.SIunits.Voltage Vt=0.04 "Voltage equivalent of temperature (kT/qn)"; */
-          parameter Real Maxexp(final min=Modelica.Constants.SMALL) = 15 
+          parameter Real Maxexp(final min=Modelica.Constants.SMALL)=  15 
       "Max. exponent for linear continuation";
           parameter Modelica.SIunits.Resistance R=1.e8 
       "Parallel ohmic resistance";
@@ -634,7 +628,6 @@ If the exponent <i>v/vt_t</i> reaches the limit <i>maxex</i>, the diode characte
 continued to avoid overflow.<br>
 The thermal power is calculated by <i>i*v</i>.
 </P>
-
 </HTML>
 ", revisions="<html>
 <ul>
@@ -662,9 +655,10 @@ The thermal power is calculated by <i>i*v</i>.
                   gradient=0,
                   fillColor=1,
                   fillPattern=0)),
-              Line(points=[-90, 0; 40, 0]),
-              Line(points=[40, 0; 90, 0]),
-              Line(points=[30, 40; 30, -40], style(color=3))),
+              Line(points=[-99,0; 39,0]),
+              Line(points=[40,0; 96,0]),
+              Line(points=[30, 40; 30, -40], style(color=3)),
+              Line(points=[0,-20; 0,-91],   style(color=42))),
             Window(
               x=0.13,
               y=0.09,
@@ -682,7 +676,7 @@ The thermal power is calculated by <i>i*v</i>.
     
           i = Ids*id*pow(htemp/TNOM, XTI/N)*auxp + v/R;
     
-          heatPort.Q_dot = -i*v;
+          heatPort.Q_flow = -i*v;
         end HeatingDiode;
   
         model HeatingNMOS "Simple MOS Transistor with heating port" 
@@ -732,7 +726,6 @@ is included to avoid numerical difficulties.
 Muenchen Wien 1990.  
 </DL>
 </P>
-
 </HTML>
 ", revisions="<html>
 <ul>
@@ -758,16 +751,17 @@ Muenchen Wien 1990.
                     fillPattern=1)),
               Line(points=[0, -91; 0, -50], style(color=42))),
             Diagram(
-              Line(points=[-90, -50; -10, -50]),
+              Line(points=[-96,-50; -10,-50]),
               Line(points=[-10, -50; -10, 50]),
               Line(points=[10, 70; 10, 29]),
               Line(points=[10, 20; 10, -21]),
               Line(points=[10, -30; 10, -71]),
-              Line(points=[10, 50; 91, 50]),
-              Line(points=[10, 0; 90, 0]),
-              Line(points=[10, -50; 90, -50]),
+              Line(points=[10,50; 96,50]),
+              Line(points=[10,0; 96,0]),
+              Line(points=[10,-50; 96,-50]),
               Polygon(points=[40, 0; 60, 5; 60, -5; 40, 0], style(fillColor=3,
-                    fillPattern=1))));
+                    fillPattern=1)),
+              Line(points=[0,-90; 0,-49],   style(color=42))));
     
           Modelica.Electrical.Analog.Interfaces.Pin D "Drain" 
             annotation (extent=[90, 40; 110, 60]);
@@ -830,7 +824,7 @@ Muenchen Wien 1990.
           D.i = if (D.v < S.v) then -id else id;
           S.i = if (D.v < S.v) then id else -id;
           B.i = 0;
-          heatPort.Q_dot = -D.i*(D.v - S.v);
+          heatPort.Q_flow = -D.i*(D.v - S.v);
         end HeatingNMOS;
   
         model HeatingPMOS "Simple PMOS Transistor with heating port" 
@@ -872,7 +866,6 @@ Some typical parameter sets are:
   20.e-6  6.e-6  .0074e-3  -1.       .4       .59      0          0           
 </PRE>
 </P>
-
 </HTML>
 ", revisions="<html>
 <ul>
@@ -903,16 +896,17 @@ Some typical parameter sets are:
                     fillPattern=1)),
               Line(points=[0, -91; 0, -50], style(color=42))),
             Diagram(
-              Line(points=[-90, -50; -10, -50]),
+              Line(points=[-100,-50; -10,-50]),
               Line(points=[-10, -50; -10, 50]),
               Line(points=[10, 70; 10, 29]),
               Line(points=[10, 20; 10, -21]),
               Line(points=[10, -30; 10, -71]),
-              Line(points=[10, 50; 91, 50]),
-              Line(points=[10, 0; 90, 0]),
-              Line(points=[10, -50; 90, -50]),
+              Line(points=[10,50; 96,50]),
+              Line(points=[10,0; 101,0]),
+              Line(points=[10,-50; 100,-50]),
               Polygon(points=[60, 0; 40, 5; 40, -5; 60, 0], style(fillColor=3,
-                    fillPattern=1))));
+                    fillPattern=1)),
+              Line(points=[0,-95; 0,-50],   style(color=42))));
     
           Modelica.Electrical.Analog.Interfaces.Pin D "Drain" 
             annotation (extent=[90, 40; 110, 60]);
@@ -975,7 +969,7 @@ Some typical parameter sets are:
           D.i = if (D.v > S.v) then -id else id;
           S.i = if (D.v > S.v) then id else -id;
           B.i = 0;
-          heatPort.Q_dot = -D.i*(D.v - S.v);
+          heatPort.Q_flow = -D.i*(D.v - S.v);
         end HeatingPMOS;
   
         model HeatingNPN 
@@ -1064,7 +1058,6 @@ Van Nostrand Reinhold, New York 1983
 on page 317 ff.
 </DL>
 </P>
-
 </HTML>
 ", revisions="<html>
 <ul>
@@ -1094,13 +1087,14 @@ on page 317 ff.
               Line(points=[0, -91; 0, -30], style(color=42))),
             Diagram(
               Line(points=[-10, 40; -10, -40]),
-              Line(points=[-10, 0; -90, 0]),
+              Line(points=[-10,0; -100,0]),
               Line(points=[30, 50; -10, 10]),
               Line(points=[-10, -10; 30, -50]),
-              Line(points=[30, -50; 91, -50]),
+              Line(points=[30,-50; 100,-50]),
               Line(points=[100, 50; 30, 50]),
               Polygon(points=[30, -50; 24, -36; 16, -44; 30, -50], style(
-                    fillColor=3, fillPattern=1))));
+                    fillColor=3, fillPattern=1)),
+              Line(points=[0,-94; 0,-32],   style(color=42))));
     
   public 
           Modelica.Electrical.Analog.Interfaces.Pin C "Collector" 
@@ -1153,7 +1147,7 @@ on page 317 ff.
           B.i = ibe/bf_t + ibc/br_t + cbc*der(vbc) + cbe*der(vbe);
           E.i = -B.i - C.i + Ccs*der(C.v);
     
-          heatPort.Q_dot = -(vbc*ibc/br_t + vbe*ibe/bf_t + (ibe - ibc)*qbk*(C.v
+          heatPort.Q_flow = -(vbc*ibc/br_t + vbe*ibe/bf_t + (ibe - ibc)*qbk*(C.v
              - E.v));
         end HeatingNPN;
   
@@ -1242,7 +1236,6 @@ A typical parameter set is  (the parameter Vt is no longer used):
 Van Nostrand Reinhold, New York 1983
 on page 317 ff.
 </DL>
-
 </HTML>
 ", revisions="<html>
 <ul>
@@ -1267,13 +1260,14 @@ on page 317 ff.
               Line(points=[0, -91; 0, -30], style(color=42))),
             Diagram(
               Line(points=[-10, 40; -10, -40]),
-              Line(points=[-10, 0; -90, 0]),
-              Line(points=[91, 50; 30, 50]),
+              Line(points=[-10,0; -99,0]),
+              Line(points=[96,50; 30,50]),
               Line(points=[30, 50; -10, 10]),
               Line(points=[-10, -10; 30, -50]),
-              Line(points=[30, -50; 91, -50]),
+              Line(points=[30,-50; 96,-50]),
               Polygon(points=[-10, -10; 5, -17; -3, -25; -10, -10], style(
-                    fillColor=3, fillPattern=1))));
+                    fillColor=3, fillPattern=1)),
+              Line(points=[0,-91; 0,-30],   style(color=42))));
     
   public 
           Modelica.Electrical.Analog.Interfaces.Pin C "Collector" 
@@ -1328,13 +1322,14 @@ on page 317 ff.
           B.i = -ieb/bf_t - icb/br_t - ceb*der(veb) - ccb*der(vcb);
           E.i = -B.i - C.i + Ccs*der(C.v);
     
-          heatPort.Q_dot = -(vcb*icb/br_t + veb*ieb/bf_t + (icb - ieb)*qbk*(E.v
+          heatPort.Q_flow = -(vcb*icb/br_t + veb*ieb/bf_t + (icb - ieb)*qbk*(E.v
              - C.v));
         end HeatingPNP;
   
 protected 
         function pow 
-    "Just a helper function for x^y in order that a symbolic engine can apply some transformations more easily" 
+    "Just a helper function for x^y in order that a symbolic engine can apply some transformations more easily"
+    
     
           input Real x;
           input Real y;
@@ -1343,7 +1338,8 @@ protected
           z := x^y;
         end pow;
   
-        function exlin "Exponential function linearly continued for x > Maxexp" 
+        function exlin "Exponential function linearly continued for x > Maxexp"
+    
     
           input Real x;
           input Real Maxexp;
@@ -1353,4 +1349,3 @@ protected
         end exlin;
   
 end Semiconductors;
-

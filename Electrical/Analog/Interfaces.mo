@@ -1,7 +1,7 @@
 package Interfaces 
   
   extends Modelica.Icons.Library;
-  annotation (Window(
+  annotation(preferedView="info", Window(
       x=0.03,
       y=0.04,
       width=0.21,
@@ -12,7 +12,6 @@ package Interfaces
 This package contains connectors and interfaces (partial models) for
 analog electrical components.
 </p>
-
 <dl>
 <dt>
 <b>Main Authors:</b>
@@ -25,7 +24,6 @@ analog electrical components.
     Design Automation Department<br>
     Zeunerstra&szlig;e 38<br>
     D-01069 Dresden<br>
-
 <p>
 <dt>
 <b>Version:</b>
@@ -48,21 +46,19 @@ Modelica in file \"Modelica/package.mo\".</i><br>
   connector Pin "Pin of an electrical component" 
     SI.Voltage v "Potential at the pin";
     flow SI.Current i "Current flowing into the pin";
-    annotation (
+    annotation (defaultComponentName="pin",
       Icon(Rectangle(extent=[-100, 100; 100, -100], style(color=3, fillColor=3))),
-      Diagram(Rectangle(extent=[-100, 100; 100, -100], style(color=3, fillColor=
+      Diagram(Rectangle(extent=[-40,40; 40,-40], style(color=3, fillColor=
                3)), Text(
-          extent=[-100, -120; 100, -220],
+          extent=[-160,110; 40,50],
           string="%name",
-          style(color=3))),
-      Terminal(Rectangle(extent=[-100, 100; 100, -100], style(color=3,
-              fillColor=3))));
+          style(color=3))));
   end Pin;
   
   connector PositivePin "Positive pin of an electric component" 
     SI.Voltage v "Potential at the pin";
     flow SI.Current i "Current flowing into the pin";
-    annotation (
+    annotation (defaultComponentName="pin_p",
       Documentation(info="<html><p>Connectors PositivePin
 and NegativePin are nearly identical.
 The only difference is that the icons are different in order
@@ -71,19 +67,17 @@ connector PositivePin is used for the positive and
 connector NegativePin for the negative pin of an electrical
 component.</p></html>"),
       Icon(Rectangle(extent=[-100, 100; 100, -100], style(color=3, fillColor=3))),
-      Diagram(Rectangle(extent=[-100, 100; 100, -100], style(color=3, fillColor=
+      Diagram(Rectangle(extent=[-40,40; 40,-40], style(color=3, fillColor=
                3)), Text(
-          extent=[-100, -120; 100, -220],
+          extent=[-160,110; 40,50],
           string="%name",
-          style(color=3))),
-      Terminal(Rectangle(extent=[-100, 100; 100, -100], style(color=3,
-              fillColor=3))));
+          style(color=3))));
   end PositivePin;
   
   connector NegativePin "Negative pin of an electric component" 
     SI.Voltage v "Potential at the pin";
     flow SI.Current i "Current flowing into the pin";
-    annotation (
+    annotation (defaultComponentName="pin_n",
       Documentation(info="<html><p>Connectors PositivePin
 and NegativePin are nearly identical.
 The only difference is that the icons are different in order
@@ -96,10 +90,10 @@ component.</p></html>"),
             gradient=0,
             fillColor=7,
             fillPattern=1))),
-      Diagram(Rectangle(extent=[-100, 100; 100, -100], style(
+      Diagram(Rectangle(extent=[-40,40; 40,-40], style(
             color=3,
             fillColor=7,
-            fillPattern=1)), Text(extent=[-100, -120; 100, -220], string=
+            fillPattern=1)), Text(extent=[-40,110; 160,50], string=
               "%name")),
       Terminal(Rectangle(extent=[-100, 100; 100, -100], style(color=3))));
   end NegativePin;
@@ -143,6 +137,7 @@ component.</p></html>"),
   
   partial model OnePort 
     "Component with two electrical pins p and n and current i from p to n" 
+    
     SI.Voltage v "Voltage drop between the two pins (= p.v - n.v)";
     SI.Current i "Current flowing from pin p to pin n";
     annotation (
@@ -202,10 +197,10 @@ This current is provided explicitly as current i.
     SI.Current i2 "Current flowing from pos. to neg. pin of the right port";
     PositivePin p1 "Positive pin of the left port" annotation (extent=[-110, 40;
             -90, 60]);
-    NegativePin n1 "Negative pin of the left port" annotation (extent=[-110, -
-          60; -90, -40]);
-    PositivePin p2 "Positive pin of the right port" annotation (extent=[90, 40;
-            110, 60]);
+    NegativePin n1 "Negative pin of the left port" annotation (extent=[-90,-60;
+          -110,-40]);
+    PositivePin p2 "Positive pin of the right port" annotation (extent=[110,40;
+          90,60]);
     NegativePin n2 "Negative pin of the right port" annotation (extent=[90, -60;
             110, -40]);
     annotation (
@@ -275,8 +270,8 @@ This current is provided explicitly as current i.
     "Base class to measure the absolute value of a pin variable" 
     extends Modelica.Icons.RotationalSensor;
     
-    PositivePin p "pin to be measured" annotation (extent=[-110, -10; -90, 10]);
-    Modelica.Blocks.Interfaces.OutPort outPort(final n=1) annotation (extent=[100, -10; 120, 10]);
+    Interfaces.PositivePin p "pin to be measured" annotation (extent=[-110, -10; -90, 10]);
+    Modelica.Blocks.Interfaces.RealOutput y annotation (extent=[100, -10; 120, 10]);
     annotation (
       Coordsys(
         extent=[-100, -100; 100, 100],
@@ -290,8 +285,8 @@ This current is provided explicitly as current i.
       Icon(
         Line(points=[-70, 0; -90, 0], style(color=0)),
         Line(points=[70, 0; 100, 0]),
-        Text(extent=[-110, 80; 110, 120], string="%name")),
-      Diagram(Line(points=[-70, 0; -90, 0], style(color=0)), Line(points=[70, 0;
+        Text(extent=[-150, 80; 150, 120], string="%name")),
+      Diagram(Line(points=[-70,0; -96,0],   style(color=0)), Line(points=[70, 0;
                 100, 0])));
   end AbsoluteSensor;
   
@@ -299,9 +294,9 @@ This current is provided explicitly as current i.
     "Base class to measure a relative variable between two pins" 
     extends Modelica.Icons.RotationalSensor;
     
-    PositivePin p "positive pin" annotation (extent=[-110, -10; -90, 10]);
-    NegativePin n "negative pin" annotation (extent=[90, -10; 110, 10]);
-    Modelica.Blocks.Interfaces.OutPort outPort(final n=1) annotation (extent=[-10, -90; 10, -110],
+    Interfaces.PositivePin p "positive pin" annotation (extent=[-110, -10; -90, 10]);
+    Interfaces.NegativePin n "negative pin" annotation (extent=[90, -10; 110, 10]);
+    Modelica.Blocks.Interfaces.RealOutput y annotation (extent=[-10, -90; 10, -110],
         rotation=90);
     
     annotation (
@@ -313,11 +308,11 @@ This current is provided explicitly as current i.
         Line(points=[-70, 0; -90, 0], style(color=0)),
         Line(points=[70, 0; 90, 0], style(color=0)),
         Line(points=[0, -90; 0, -70]),
-        Text(extent=[-110, 80; 110, 120], string="%name")),
+        Text(extent=[-150, 80; 150, 120], string="%name")),
       Diagram(
-        Line(points=[-70, 0; -90, 0], style(color=0)),
+        Line(points=[-70,0; -96,0],   style(color=0)),
         Line(points=[0, -90; 0, -70]),
-        Line(points=[70, 0; 90, 0], style(color=0))));
+        Line(points=[70,0; 96,0],   style(color=0))));
     
   end RelativeSensor;
   
@@ -332,21 +327,23 @@ This current is provided explicitly as current i.
         grid=[1, 1],
         component=[20, 20]),
       Icon(
-        Ellipse(extent=[-50, 50; 50, -50], style(color=3, fillColor=7)),
-        Line(points=[-90, 0; -50, 0]),
-        Line(points=[50, 0; 90, 0]),
-        Text(extent=[-100, -120; 100, -80], string="%name=%V"),
-        Line(points=[-50, 0; 50, 0])),
+        Ellipse(extent=[-50, 50; 50, -50], style(
+            color=0,
+            rgbcolor={0,0,0},
+            fillColor=7,
+            rgbfillColor={255,255,255})),
+        Text(extent=[-150,80; 150,120], string="%name"),
+        Line(points=[-90,0; 90,0], style(color=0, rgbcolor={0,0,0}))),
       Window(
         x=0.31,
         y=0.09,
         width=0.6,
         height=0.6));
-    replaceable Modelica.Blocks.Interfaces.SignalSource signalSource(final 
-        offset =                                                                  {offset}, final 
-        startTime={startTime}) annotation (extent=[70, 70; 90, 90]);
+    replaceable Modelica.Blocks.Interfaces.SignalSource signalSource(
+        final offset=  offset, final startTime=startTime) 
+    annotation (extent=[70, 70; 90, 90]);
   equation 
-    v = signalSource.outPort.signal[1];
+    v = signalSource.y;
   end VoltageSource;
   
   partial model CurrentSource "Interface for current sources" 
@@ -360,20 +357,24 @@ This current is provided explicitly as current i.
         grid=[1, 1],
         component=[20, 20]),
       Icon(
-        Ellipse(extent=[-50, 50; 50, -50], style(color=3, fillColor=7)),
-        Line(points=[-90, 0; -50, 0]),
-        Line(points=[50, 0; 90, 0]),
-        Line(points=[0, -50; 0, 50]),
-        Text(extent=[-100, -120; 100, -80], string="%name=%I")),
+        Ellipse(extent=[-50, 50; 50, -50], style(
+            color=0,
+            rgbcolor={0,0,0},
+            fillColor=7,
+            rgbfillColor={255,255,255})),
+        Line(points=[-90, 0; -50, 0], style(color=0, rgbcolor={0,0,0})),
+        Line(points=[50, 0; 90, 0], style(color=0, rgbcolor={0,0,0})),
+        Line(points=[0, -50; 0, 50], style(color=0, rgbcolor={0,0,0})),
+        Text(extent=[-150, 120; 150, 80], string="%name")),
       Window(
         x=0.33,
         y=0.24,
         width=0.6,
         height=0.6));
-    replaceable Modelica.Blocks.Interfaces.SignalSource signalSource(final 
-        offset =                                                                  {offset}, final 
-        startTime={startTime}) annotation (extent=[69, 70; 90, 90]);
+    replaceable Modelica.Blocks.Interfaces.SignalSource signalSource(
+        final offset=  offset, final startTime=startTime) annotation (extent=[70,
+          69; 91,89]);
   equation 
-    i = signalSource.outPort.signal[1];
+    i = signalSource.y;
   end CurrentSource;
 end Interfaces;

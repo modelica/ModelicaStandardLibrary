@@ -60,18 +60,16 @@ Modelica.Blocks library).
   <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.TranslationalSensor"
 >Modelica.Icons.TranslationalSensor</A>;
   
-  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
->SI.Position</A> s <font color="darkgreen">&quot;Absolute position of flange&quot;</font>;
-  
   <A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_a"
 >Interfaces.Flange_a</A> flange_a <font color="darkgreen">
-    &quot;(left) flange to be measured (flange axis directed INTO cut plane, e. g. from left to right)&quot;</font>;
-  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.OutPort"
->Modelica.Blocks.Interfaces.OutPort</A> outPort(
-                                             <font color="blue">final </font>n=1);
+    &quot;flange to be measured (flange axis directed INTO cut plane, e. g. from left to right)&quot;</font>;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> s(
+                                           <font color="blue">redeclare </font><font color="blue">type</font> SignalType = <A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A>) <font color="darkgreen">&quot;Absolute position of flange as output signal&quot;</font>;
+  
 <font color="blue">equation </font>
   s = flange_a.s;
-  s = outPort.signal[1];
   0 = flange_a.f;
 <font color="blue">end </font>PositionSensor;
 </PRE>
@@ -101,15 +99,23 @@ with blocks of the Modelica.Blocks library).
 <PRE>
 <font color="blue">model</font> ForceSensor <font color="darkgreen">
   &quot;Ideal sensor to measure the force between two flanges&quot;</font> 
-  <font color="blue">extends </font><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.RelativeSensor"
->Interfaces.RelativeSensor</A>;
-  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Force"
->SI.Force</A> f <font color="darkgreen">&quot;force in flange_a and flange_b (f = flange_a.f = -flange_b.f)&quot;</font>;
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.TranslationalSensor"
+>Modelica.Icons.TranslationalSensor</A>;
+  
+  <A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_a"
+>Interfaces.Flange_a</A> flange_a <font color="darkgreen">
+    &quot;(left) driving flange (flange axis directed INTO cut plane, e. g. from left to right)&quot;</font>;
+  <A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_b"
+>Interfaces.Flange_b</A> flange_b <font color="darkgreen">
+    &quot;(right) driven flange (flange axis directed OUT OF cut plane)&quot;</font>;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> f(
+       <font color="blue">redeclare </font><font color="blue">type</font> SignalType = <A HREF="Modelica_SIunits.html#Modelica.SIunits.Force"
+>SI.Force</A>) <font color="darkgreen">&quot;force in flange_a and flange_b (f = flange_a.f = -flange_b.f)&quot;</font>;
 <font color="blue">equation </font>
   flange_a.s = flange_b.s;
   flange_a.f = f;
   flange_b.f = -f;
-  f = outPort.signal[1];
 <font color="blue">end </font>ForceSensor;
 </PRE>
 <HR>
@@ -139,21 +145,19 @@ Modelica.Blocks library).
 <font color="blue">model</font> SpeedSensor <font color="darkgreen">&quot;Ideal sensor to measure the absolute velocity&quot;</font> 
   <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.TranslationalSensor"
 >Modelica.Icons.TranslationalSensor</A>;
-  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
->SI.Position</A> s <font color="darkgreen">&quot;Absolute position of flange&quot;</font>;
-  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Velocity"
->SI.Velocity</A> v <font color="darkgreen">&quot;Absolute velocity of flange&quot;</font>;
   
   <A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_a"
 >Interfaces.Flange_a</A> flange_a <font color="darkgreen">
-    &quot;(left) flange to be measured (flange axis directed INTO cut plane, e. g. from left to right)&quot;</font>;
-  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.OutPort"
->Modelica.Blocks.Interfaces.OutPort</A> outPort(
-                                             <font color="blue">final </font>n=1);
+    &quot;flange to be measured (flange axis directed INTO cut plane, e. g. from left to right)&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> s <font color="darkgreen">&quot;Absolute position of flange&quot;</font>;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> v(
+                                           <font color="blue">redeclare </font><font color="blue">type</font> SignalType = <A HREF="Modelica_SIunits.html#Modelica.SIunits.Velocity"
+>SI.Velocity</A>) <font color="darkgreen">&quot;Absolute velocity of flange as output signal&quot;</font>;
 <font color="blue">equation </font>
   s = flange_a.s;
   v =<font color="red"> der</font>(s);
-  v = outPort.signal[1];
   0 = flange_a.f;
 <font color="blue">end </font>SpeedSensor;
 </PRE>
@@ -185,26 +189,24 @@ Modelica.Blocks library).
 <font color="blue">model</font> AccSensor <font color="darkgreen">&quot;Ideal sensor to measure the absolute acceleration&quot;</font> 
   <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.TranslationalSensor"
 >Modelica.Icons.TranslationalSensor</A>;
-  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Velocity"
->SI.Velocity</A> v <font color="darkgreen">&quot;Absolute velocity of flange&quot;</font>;
-  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Acceleration"
->SI.Acceleration</A> a <font color="darkgreen">&quot;Absolute acceleration of a flange&quot;</font>;
   
   <A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_a"
 >Interfaces.Flange_a</A> flange_a <font color="darkgreen">
-    &quot;(left) flange to be measured (flange axis directed INTO cut plane, e. g. from left to right)&quot;</font>;
-  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.OutPort"
->Modelica.Blocks.Interfaces.OutPort</A> outPort(
-                                             <font color="blue">final </font>n=1);
+    &quot;flange to be measured (flange axis directed INTO cut plane, e. g. from left to right)&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Velocity"
+>SI.Velocity</A> v <font color="darkgreen">&quot;Absolute velocity of flange&quot;</font>;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> a(
+                                           <font color="blue">redeclare </font><font color="blue">type</font> SignalType = <A HREF="Modelica_SIunits.html#Modelica.SIunits.Acceleration"
+>SI.Acceleration</A>) <font color="darkgreen">&quot;Absolute acceleration of flange as output signal&quot;</font>;
 <font color="blue">equation </font>
   v =<font color="red"> der</font>(flange_a.s);
   a =<font color="red"> der</font>(v);
-  a = outPort.signal[1];
   0 = flange_a.f;
 <font color="blue">end </font>AccSensor;
 </PRE>
 <HR>
-<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Jun 30 17:44:12 2004
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Jun 30 17:50:39 2004
 .
 </address></BODY>
 </HTML>

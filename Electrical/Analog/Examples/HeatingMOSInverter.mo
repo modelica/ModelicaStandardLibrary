@@ -43,7 +43,7 @@ Simulate until T=5 s.
 Plot in separate windows:<br> <br>
 Sin.p.v  and  Capacitor1.p.v <br>
 HeatCapacitor1.port.T and H_PMOS.heatPort.T and H_NMOS.heatPort.T<br>
-H_PMOS.heatPort.Q_dot and H_NMOS.heatPort.Q_dot<br>
+H_PMOS.heatPort.Q_flow and H_NMOS.heatPort.Q_flow<br>
 </P>
 <p><b>Release Notes:</b></p>
 <ul>

@@ -1,10 +1,8 @@
 package Mechanics "Library for mechanical systems"
-
-
 extends Modelica.Icons.Library2;
 
 
-annotation(
+annotation(preferedView="info",
   Window(
     x=0.03,
     y=0.05,
@@ -30,31 +28,19 @@ annotation(
 <p>
 This package contains components to model <b>mechanical systems</b>.
 Currently, the following subpackages are available:</p>
-
 <pre>
+   <b>MultiBody</b>      3-dimensional mechanical components.
    <b>Rotational</b>     1-dimensional rotational mechanical components.
    <b>Translational</b>  1-dimensional translational mechanical components.
 </pre>
 
-<p>
-It is planned to add a subpackage for multibody systems to
-model 3-dimensional mechanical systems.
-</p>
-
-<dl>
-<dt><b>Main Author:</b>
-<dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a><br>
-    Deutsches Zentrum f&uuml;r Luft und Raumfahrt e.V. (DLR)<br>
-    Institut f&uuml;r Robotik und Mechatronik<br>
-    Postfach 1116<br>
-    D-82230 Wessling<br>
-    Germany<br>
-    email: <A HREF=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</A><br>
-</dl>
-<br>
-
-<p><b>Release Notes:</b></p>
+</HTML>
+", revisions="<html>
 <ul>
+<li><i>June 23, 2004</i>
+       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
+       included the Mechanics.MultiBody library 1.0 and adapted it to the new
+       Blocks connectors.</li>
 <li><i>Oct. 27, 2003</i>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>
        and <a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Christian Schweiger</a>:<br>
@@ -76,17 +62,5 @@ model 3-dimensional mechanical systems.
        systems based on an existing Dymola library of Martin Otter and
        Hilding Elmqvist.</li>
 </ul>
-<br>
-
-
-<p><b>Copyright &copy; 1999-2003, Modelica Association and DLR.</b></p>
-
-<p><i>
-The Modelica package is <b>free</b> software; it can be redistributed and/or modified
-under the terms of the <b>Modelica license</b>, see the license conditions
-and the accompanying <b>disclaimer</b> in the documentation of package
-Modelica in file \"Modelica/package.mo\".
-</i></p>
-</HTML>
-"));
+</html>"));
 end Mechanics;

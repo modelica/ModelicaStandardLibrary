@@ -30,7 +30,7 @@ package SIunits "Type definitions based on SI units according to ISO 31-1992"
       type MassFlowRate_gps = Real (final quantity="MassFlowRate", final unit=
               "g/s");
       
-      annotation( Documentation(info="<HTML>
+      annotation(preferedView="info", Documentation(info="<HTML>
 <p>
 This package provides predefined types, such as <b>Angle_deg</b> (angle in
 degree), <b>AngularVelocity_rpm</b> (angular velocity in revolutions per
@@ -39,18 +39,15 @@ which are in common use but are not part of the international standard on
 units according to ISO 31-1992 \"General principles concerning quantities,
 units and symbols\" and ISO 1000-1992 \"SI units and recommendations for
 the use of their multiples and of certain other units\".</p>
-
 <p>If possible, the types in this package should not be used. Use instead
 types of package Modelica.SIunits. For more information on units, see also
 the book of Francois Cardarelli <b>Scientific Unit Conversion - A
 Practical Guide to Metrication</b> (Springer 1997).</p>
-
 <p>Some units, such as <b>Temperature_degC/Temp_C</b> are both defined in
 Modelica.SIunits and in Modelica.Conversions.NonSIunits. The reason is that these
 definitions have been placed erroneously in Modelica.SIunits although they
 are not SIunits. For backward compatibility, these type definitions are
 still kept in Modelica.SIunits.</p>
-
 </HTML>
 "), Icon(Text(
             extent=[-66, -13; 52, -67],
@@ -62,7 +59,7 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input Temperature Kelvin "Kelvin value";
       output NonSIunits.Temperature_degC Celsius "Celsius value";
-      annotation( Icon(Text(
+      annotation (Icon(Text(
             extent=[-20, 100; -100, 20],
             style(color=0),
             string="K"), Text(
@@ -77,7 +74,7 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input NonSIunits.Temperature_degC Celsius "Celsius value";
       output Temperature Kelvin "Kelvin value";
-      annotation( Icon(Text(
+      annotation (Icon(Text(
             extent=[-20, 100; -100, 20],
             style(color=0),
             string="°C"), Text(
@@ -92,7 +89,7 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input Temperature Kelvin "Kelvin value";
       output NonSIunits.Temperature_degF Fahrenheit "Fahrenheit value";
-      annotation( Icon(Text(
+      annotation (Icon(Text(
             extent=[-20, 100; -100, 20],
             style(color=0),
             string="K"), Text(
@@ -107,7 +104,7 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input NonSIunits.Temperature_degF Fahrenheit "Fahrenheit value";
       output Temperature Kelvin "Kelvin value";
-      annotation( Icon(Text(
+      annotation (Icon(Text(
             extent=[-20, 100; -100, 20],
             style(color=0),
             string="°F"), Text(
@@ -122,7 +119,7 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input Temperature Kelvin "Kelvin value";
       output NonSIunits.Temperature_degRk Rankine "Rankine value";
-      annotation( Icon(Text(
+      annotation (Icon(Text(
             extent=[-20, 100; -100, 20],
             style(color=0),
             string="K"), Text(
@@ -137,7 +134,7 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input NonSIunits.Temperature_degRk Rankine "Rankine value";
       output Temperature Kelvin "Kelvin value";
-      annotation( Icon(Text(
+      annotation (Icon(Text(
             extent=[-20, 100; -100, 20],
             style(color=0),
             string="°Rk"), Text(
@@ -152,7 +149,7 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input Angle radian "radian value";
       output NonSIunits.Angle_deg degree "degree value";
-      annotation( Icon(Text(
+      annotation (Icon(Text(
             extent=[-20, 100; -100, 20],
             style(color=0),
             string="rad"), Text(
@@ -167,7 +164,7 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input NonSIunits.Angle_deg degree "degree value";
       output Angle radian "radian value";
-      annotation( Icon(Text(
+      annotation (Icon(Text(
             extent=[-20, 100; -100, 20],
             style(color=0),
             string="deg"), Text(
@@ -182,7 +179,7 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input AngularVelocity rs "radian per second value";
       output NonSIunits.AngularVelocity_rpm rpm "revolutions per minute value";
-      annotation( Icon(Text(
+      annotation (Icon(Text(
             extent=[-20, 100; -100, 20],
             style(color=0),
             string="rad/s"), Text(
@@ -198,7 +195,7 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input NonSIunits.AngularVelocity_rpm rpm "revolutions per minute value";
       output AngularVelocity rs "radian per second value";
-      annotation( Icon(Text(
+      annotation (Icon(Text(
             extent=[-20, 100; -100, 20],
             style(color=0),
             string="rev/min"), Text(
@@ -213,7 +210,7 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input Velocity ms "metre per second value";
       output NonSIunits.Velocity_kmh kmh "kilometre per hour value";
-      annotation( Icon(Text(
+      annotation (Icon(Text(
             extent=[-20, 100; -100, 20],
             style(color=0),
             string="m/s"), Text(
@@ -228,7 +225,7 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input NonSIunits.Velocity_kmh kmh "kilometre per hour value";
       output Velocity ms "metre per second value";
-      annotation( Icon(Text(
+      annotation (Icon(Text(
             extent=[-20, 100; -100, 20],
             style(color=0),
             string="km/h"), Text(
@@ -243,7 +240,7 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input Time s "second value";
       output NonSIunits.Time_day day "day value";
-      annotation( Icon(Text(
+      annotation (Icon(Text(
             extent=[-20, 100; -100, 20],
             style(color=0),
             string="s"), Text(
@@ -258,7 +255,7 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input NonSIunits.Time_day day "day value";
       output Time s "second value";
-      annotation( Icon(Text(
+      annotation (Icon(Text(
             extent=[-20, 100; -100, 20],
             style(color=0),
             string="day"), Text(
@@ -273,7 +270,7 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input Time s "second value";
       output NonSIunits.Time_hour hour "hour value";
-      annotation( Icon(Text(
+      annotation (Icon(Text(
             extent=[-20, 100; -100, 20],
             style(color=0),
             string="s"), Text(
@@ -288,7 +285,7 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input NonSIunits.Time_hour hour "hour value";
       output Time s "second value";
-      annotation( Icon(Text(
+      annotation (Icon(Text(
             extent=[-20, 100; -100, 20],
             style(color=0),
             string="hour"), Text(
@@ -303,7 +300,7 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input Time s "second value";
       output NonSIunits.Time_minute minute "minute value";
-      annotation( Icon(Text(
+      annotation (Icon(Text(
             extent=[-20, 100; -100, 20],
             style(color=0),
             string="s"), Text(
@@ -318,7 +315,7 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input NonSIunits.Time_minute minute "minute value";
       output Time s "second value";
-      annotation( Icon(Text(
+      annotation (Icon(Text(
             extent=[-20, 100; -100, 20],
             style(color=0),
             string="minute"), Text(
@@ -333,7 +330,7 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input Volume m3 "cubic metre value";
       output NonSIunits.Volume_litre litre "litre value";
-      annotation( Icon(Text(
+      annotation (Icon(Text(
             extent=[-20, 100; -100, 20],
             style(color=0),
             string="m3"), Text(
@@ -348,7 +345,7 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input NonSIunits.Volume_litre litre "litre value";
       output Volume m3 "cubic metre value";
-      annotation( Icon(Text(
+      annotation (Icon(Text(
             extent=[-20, 100; -100, 20],
             style(color=0),
             string="litre"), Text(
@@ -363,7 +360,7 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input Energy J "Joule value";
       output NonSIunits.Energy_kWh kWh "kWh value";
-      annotation( Icon(Text(
+      annotation (Icon(Text(
             extent=[-20, 100; -100, 20],
             style(color=0),
             string="J"), Text(
@@ -378,7 +375,7 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input NonSIunits.Energy_kWh kWh "kWh value";
       output Energy J "Joule value";
-      annotation( Icon(Text(
+      annotation (Icon(Text(
             extent=[-20, 100; -100, 20],
             style(color=0),
             string="kWh"), Text(
@@ -393,7 +390,7 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input Pressure Pa "Pascal value";
       output NonSIunits.Pressure_bar bar "bar value";
-      annotation( Icon(Text(
+      annotation (Icon(Text(
             extent=[-20, 100; -100, 20],
             style(color=0),
             string="Pa"), Text(
@@ -408,7 +405,7 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input NonSIunits.Pressure_bar bar "bar value";
       output Pressure Pa "Pascal value";
-      annotation( Icon(Text(
+      annotation (Icon(Text(
             extent=[-20, 100; -100, 20],
             style(color=0),
             string="bar"), Text(
@@ -423,7 +420,7 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input MassFlowRate kgps "kg/s value";
       output NonSIunits.MassFlowRate_gps gps "g/s value";
-      annotation( Icon(Text(
+      annotation (Icon(Text(
             extent=[-20, 100; -100, 20],
             style(color=0),
             string="kg/s"), Text(
@@ -438,7 +435,7 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input NonSIunits.MassFlowRate_gps gps "g/s value";
       output MassFlowRate kgps "kg/s value";
-      annotation( Icon(Text(
+      annotation (Icon(Text(
             extent=[-20, 100; -100, 20],
             style(color=0),
             string="g/s"), Text(
@@ -450,7 +447,7 @@ still kept in Modelica.SIunits.</p>
     end from_gps;
     
     partial function ConversionIcon "Base icon for conversion functions" 
-      annotation( Icon(
+      annotation (Icon(
           Rectangle(extent=[-100, 100; 100, -100], style(color=42, fillColor=7)),
           Line(points=[-90, 0; 30, 0], style(color=42)),
           Polygon(points=[90, 0; 30, 20; 30, -20; 90, 0], style(color=42,
@@ -458,7 +455,7 @@ still kept in Modelica.SIunits.</p>
           Text(extent=[-115, 155; 115, 105], string="%name")));
     end ConversionIcon;
     
-    annotation( Icon(
+    annotation(preferedView="info", Icon(
         Text(
           extent=[-33, -7; -92, -67],
           string="°C",
@@ -475,7 +472,6 @@ defined in package Modelica.SIunits.Conversions.NonSIunits to the
 corresponding SI Units defined in package Modelica.SIunits and vice
 versa. It is recommended to use these functions in the following
 way:</p>
-
 <pre>
   <b>import</b> SI = Modelica.SIunits;
   <b>import</b> Modelica.SIunits.Conversions.*;
@@ -485,100 +481,85 @@ way:</p>
   <b>parameter</b> SI.AngularVelocity w   = from_rpm(3600);  // convert 3600 revolutions per minutes
                                                       // to radian per seconds
 </pre>
-
 <p>The following conversion functions are provided. Note, that all
 of them have one Real input and one Real output argument:</p>
-
 <table border=1 cellspacing=0 cellpadding=2>
 <tr>
 <th>Function</th>
 <th>Description</th>
 </tr>
-
 <tr>
 <td><b>to_degC</b><br>
 <b>from_degC</b></td>
 <td>Convert from Kelvin to degree Celsius<br>
 Convert from degree Celsius to Kelvin</td>
 </tr>
-
 <tr>
 <td><b>to_degF</b><br>
 <b>from_degF</b></td>
 <td>Convert from Kelvin to degree Fahrenheit<br>
 Convert from degree Fahrenheit to Kelvin</td>
 </tr>
-
 <tr>
 <td><b>to_degRk</b><br>
 <b>from_degRk</b></td>
 <td>Convert from Kelvin to degree Rankine<br>
 Convert from degree Rankine to Kelvin</td>
 </tr>
-
 <tr>
 <td><b>to_deg</b><br>
 <b>from_deg</b></td>
 <td>Convert from radian to degree<br>
 Convert from degree to radian</td>
 </tr>
-
 <tr>
 <td><b>to_rpm</b><br>
 <b>from_rpm</b></td>
 <td>Convert from radian per second to revolutions per minute<br>
 Convert from revolutions per minute to radian per second</td>
 </tr>
-
 <tr>
 <td><b>to_kmh</b><br>
 <b>from_kmh</b></td>
 <td>Convert from metre per second to kilometre per hour<br>
 Convert from kilometre per hour to metre per second</td>
 </tr>
-
 <tr>
 <td><b>to_day</b><br>
 <b>from_day</b></td>
 <td>Convert from second to day<br>
 Convert from day to second</td>
 </tr>
-
 <tr>
 <td><b>to_hour</b><br>
 <b>from_hour</b></td>
 <td>Convert from second to hour<br>
 Convert from hour to second</td>
 </tr>
-
 <tr>
 <td><b>to_minute</b><br>
 <b>from_minute</b></td>
 <td>Convert from second to minute<br>
 Convert from minute to second</td>
 </tr>
-
 <tr>
 <td><b>to_litre</b><br>
 <b>from_litre</b></td>
 <td>Convert from cubic metre to litre<br>
 Convert from litre to cubic metre</td>
 </tr>
-
 <tr>
 <td><b>to_kWh</b><br>
 <b>from_kWh</b></td>
 <td>Convert from Joule to kilo Watt hour<br>
 Convert from kilo Watt hour to Joule</td>
 </tr>
-
 <tr>
 <td><b>to_bar</b><br>
 <b>from_bar</b></td>
 <td>Convert from Pascal to bar<br>
 Convert from bar to Pascal</td>
 </tr>
-
 <tr>
 <td><b>to_gps</b><br>
 <b>from_gps</b></td>
@@ -586,11 +567,9 @@ Convert from bar to Pascal</td>
 Convert from gram per second to kilogram per second</td>
 </tr>
 </table>
-
 <p>There is the additional <b>partial</b> function <b>ConversionIcon</b>
 in this package. It contains just the base icon for all the conversion
 functions.</p>
-
 </HTML>
 "));
   end Conversions;
@@ -1403,7 +1382,7 @@ functions.</p>
           final unit="1");
   type FluxiodQuantum = Real (final quantity="FluxiodQuantum", final unit="Wb");
   
-  annotation(
+  annotation(preferedView="info",
     Window(
       x=0.08,
       y=0.04,
@@ -1417,47 +1396,36 @@ functions.</p>
         string="[kg.m2]",
         style(color=0))),
     Documentation(info="<html>
-
 <p>This package provides predefined types, such as <i>Mass</i>,
 <i>Length</i>, <i>Time</i>, based on the international standard
 on units:</p>
-
 <ul>
 <li>ISO 31-1992 \"General principles concerning
     quantities, units and symbols\"</li>
 <li>ISO 1000-1992 \"SI units and recommendations for the use
     of their multiples and of certain other units\".</li>
 </ul>
-
 <p>For more information on units, see also the book of
 Francois Cardarelli \"Scientific Unit Conversion - A Practical
 Guide to Metrication\"
 (Springer 1997).</p>
-
 <p>The following conventions are used in this package:</p>
-
 <ul>
 <li>Modelica quantity names are defined according to the recommendations
     of ISO 31. Some of these name are rather long, such as
     \"ThermodynamicTemperature\". Shorter alias names are defined, e.g.,
     \"type Temp_K = ThermodynamicTemperature;\".</li>
-
 <li>Modelica units are defined according to the SI base units without
     multiples (only exception \"kg\").</li>
-
 <li>For some quantities, more convenient units for an engineer are
     defined as \"displayUnit\", i.e., the default unit for display
     purposes (e.g., displayUnit=\"deg\" for quantity=\"Angle\").</li>
-
 <li>The type name is identical to the quantity name, following
     the convention of type names.</li>
-
 <li>All quantity and unit attributes are defined as final in order
     that they cannot be redefined to another value.</li>
-
 <li>Similiar quantities, such as \"Length, Breadth, Height, Thickness,
     Radius\" are defined as the same quantity (here: \"Length\").</li>
-
 <li>The ordering of the type declarations in this package follows ISO 31:
 <pre>
   Chapter  1: <b>Space and Time</b>
@@ -1475,11 +1443,9 @@ Guide to Metrication\"
   Chapter 13: <b>Solid State Physics</b>
 </pre>
 </li>
-
 <li>Conversion functions between SI and non-SI units are available in subpackage
     <b>Conversions</b>.</li>
 </ul>
-
 <dl>
 <dt><b>Main Author:</b>
 <dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a><br>
@@ -1490,15 +1456,12 @@ Guide to Metrication\"
     email: <A HREF=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</A><br>
 </dl>
 <br>
-
-
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>October 21, 2002</i>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>
        and <a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Christian Schweiger</a>:<br>
        Added new package <b>Conversions</b>. Corrected typo <i>Wavelenght</i>.</li>
-
 <li><i>June 6, 2000</i>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
        Introduced the following new types<br>
@@ -1511,17 +1474,14 @@ Guide to Metrication\"
        the allowed range of values.<br>
        Quantity=\"Stress\" removed from type \"Stress\", in order
        that a type \"Stress\" can be connected to a type \"Pressure\".</li>
-
 <li><i>Oct. 27, 1999</i>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
        New types due to electrical library: Transconductance, InversePotential,
        Damping.</li>
-
 <li><i>Sept. 18, 1999</i>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
        Renamed from SIunit to SIunits. Subpackages expanded, i.e., the
        SIunits package, does no longer contain subpackages.</li>
-
 <li><i>Aug 12, 1999</i>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
        Type \"Pressure\" renamed to \"AbsolutePressure\" and introduced a new
@@ -1529,32 +1489,26 @@ Guide to Metrication\"
        to allow convenient handling of relative pressure. Redefined
        BulkModulus as an alias to AbsolutePressure instead of Stress, since
        needed in hydraulics.</li>
-
 <li><i>June 29, 1999</i>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
        Bug-fix: Double definition of \"Compressibility\" removed
        and appropriate \"extends Heat\" clause introduced in
        package SolidStatePhysics to incorporate ThermodynamicTemperature.</li>
-
 <li><i>April 8, 1998</i>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>
        and Astrid Jaschinski:<br>
        Complete ISO 31 chapters realized.</li>
-
 <li><i>Nov. 15, 1997</i>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>
        and <a href=\"http://www.control.lth.se/~hubertus/\">Hubertus Tummescheit</a>:<br>
        Some chapters realized.</li>
 </ul>
 <br>
-
 <p><b>Copyright &copy; 1999-2002, Modelica Association and DLR.</b></p>
-
 <p><i>The Modelica package is free software; it can be redistributed and/or modified
 under the terms of the <b>Modelica license</b>, see the license conditions
 and the accompanying <b>disclaimer</b> in the documentation of package
 Modelica in file \"Modelica/package.mo\".</i></p>
-
 </HTML>"),
     Diagram(
       Rectangle(extent=[169, 86; 349, 236], style(fillColor=30, fillPattern=1)),

@@ -24,10 +24,10 @@
 ><IMG SRC="Modelica.Electrical.MultiPhase.Ideal.IdleI.png" ALT="Modelica.Electrical.MultiPhase.Ideal.Idle" WIDTH=80  HEIGHT=80 ></A>
 <A HREF="Modelica_Electrical_MultiPhase_Ideal.html#Modelica.Electrical.MultiPhase.Ideal.Short"
 ><IMG SRC="Modelica.Electrical.MultiPhase.Ideal.ShortI.png" ALT="Modelica.Electrical.MultiPhase.Ideal.Short" WIDTH=80  HEIGHT=80 ></A>
-<A HREF="Modelica_Electrical_MultiPhase_Ideal.html#Modelica.Electrical.MultiPhase.Ideal.IdealOpener"
-><IMG SRC="Modelica.Electrical.MultiPhase.Ideal.IdealOpenerI.png" ALT="Modelica.Electrical.MultiPhase.Ideal.IdealOpener" WIDTH=80  HEIGHT=80 ></A>
-<A HREF="Modelica_Electrical_MultiPhase_Ideal.html#Modelica.Electrical.MultiPhase.Ideal.IdealCloser"
-><IMG SRC="Modelica.Electrical.MultiPhase.Ideal.IdealCloserI.png" ALT="Modelica.Electrical.MultiPhase.Ideal.IdealCloser" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Electrical_MultiPhase_Ideal.html#Modelica.Electrical.MultiPhase.Ideal.IdealOpeningSwitch"
+><IMG SRC="Modelica.Electrical.MultiPhase.Ideal.IdealOpeningSwitchI.png" ALT="Modelica.Electrical.MultiPhase.Ideal.IdealOpeningSwitch" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Modelica_Electrical_MultiPhase_Ideal.html#Modelica.Electrical.MultiPhase.Ideal.IdealClosingSwitch"
+><IMG SRC="Modelica.Electrical.MultiPhase.Ideal.IdealClosingSwitchI.png" ALT="Modelica.Electrical.MultiPhase.Ideal.IdealClosingSwitch" WIDTH=80  HEIGHT=80 ></A>
 <P><P>
 <H3>Information</H3>
 <PRE></pre>
@@ -88,11 +88,11 @@ like thyristor, diode, switch, transformer.
 <TR><TD><A HREF="Modelica_Electrical_MultiPhase_Ideal.html#Modelica.Electrical.MultiPhase.Ideal.Short"
 >Short</A>
 </TD><TD>Multiphase short cut branch</TD></TR>
-<TR><TD><A HREF="Modelica_Electrical_MultiPhase_Ideal.html#Modelica.Electrical.MultiPhase.Ideal.IdealOpener"
->IdealOpener</A>
+<TR><TD><A HREF="Modelica_Electrical_MultiPhase_Ideal.html#Modelica.Electrical.MultiPhase.Ideal.IdealOpeningSwitch"
+>IdealOpeningSwitch</A>
 </TD><TD>Multiphase ideal opener</TD></TR>
-<TR><TD><A HREF="Modelica_Electrical_MultiPhase_Ideal.html#Modelica.Electrical.MultiPhase.Ideal.IdealCloser"
->IdealCloser</A>
+<TR><TD><A HREF="Modelica_Electrical_MultiPhase_Ideal.html#Modelica.Electrical.MultiPhase.Ideal.IdealClosingSwitch"
+>IdealClosingSwitch</A>
 </TD><TD>Multiphase ideal closer</TD></TR>
 </TABLE>
 <HR>
@@ -216,17 +216,17 @@ Contains m ideal thyristors (Modelica.Electrical.Analog.Ideal.IdealThyristor).
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
 >Modelica.SIunits.Voltage</A> Vknee[       m](<font color="blue">final </font>min=<font color="red">zeros</font>(m)) =<font color="red"> zeros</font>(m) <font color="darkgreen">
     &quot;Treshold voltage&quot;</font>;
-  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInPort"
->Modelica.Blocks.Interfaces.BooleanInPort</A> firePort(
-                                                    <font color="blue">final </font>n=m);
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInput"
+>Modelica.Blocks.Interfaces.BooleanInput</A> fire[
+                                               m];
   <A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealThyristor"
 >Modelica.Electrical.Analog.Ideal.IdealThyristor</A> idealThyristor[
                                                                  m](<font color="blue">final </font>Roff=
            Roff, <font color="blue">final </font>Gon=Gon, <font color="blue">final </font>Vknee=Vknee);
 <font color="blue">equation </font>
-  idealThyristor.firePort.signal[1] = firePort.signal;
   <font color="red">connect</font>(plug_p.pin, idealThyristor.p);
   <font color="red">connect</font>(idealThyristor.n, plug_n.pin);
+  <font color="red">connect</font>(fire, idealThyristor.fire);
 <font color="blue">end </font>IdealThyristor;
 </PRE>
 <HR>
@@ -266,17 +266,17 @@ Contains m ideal GTO thyristors (Modelica.Electrical.Analog.Ideal.IdealGTOThyris
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
 >Modelica.SIunits.Voltage</A> Vknee[       m](<font color="blue">final </font>min=<font color="red">zeros</font>(m)) =<font color="red"> zeros</font>(m) <font color="darkgreen">
     &quot;Treshold voltage&quot;</font>;
-  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInPort"
->Modelica.Blocks.Interfaces.BooleanInPort</A> firePort(
-                                                    <font color="blue">final </font>n=m);
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInput"
+>Modelica.Blocks.Interfaces.BooleanInput</A> fire[
+                                               m];
   <A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealGTOThyristor"
 >Modelica.Electrical.Analog.Ideal.IdealGTOThyristor</A> idealGTOThyristor[
                                                                        m](
       <font color="blue">final </font>Roff=Roff, <font color="blue">final </font>Gon=Gon, <font color="blue">final </font>Vknee=Vknee);
 <font color="blue">equation </font>
-  idealGTOThyristor.firePort.signal[1] = firePort.signal;
   <font color="red">connect</font>(idealGTOThyristor.p, plug_p.pin);
   <font color="red">connect</font>(idealGTOThyristor.n, plug_n.pin);
+  <font color="red">connect</font>(fire, idealGTOThyristor.fire);
 <font color="blue">end </font>IdealGTOThyristor;
 </PRE>
 <HR>
@@ -311,9 +311,10 @@ Contains m ideal commuting switches (Modelica.Electrical.Analog.Ideal.IdealCommu
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Conductance"
 >Modelica.SIunits.Conductance</A> Goff[       m](<font color="blue">final </font>min=<font color="red">zeros</font>(m)) =<font color="red"> fill</font>(
     1.E-5, m) <font color="darkgreen">&quot;Opened switch conductance&quot;</font>;
-  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInPort"
->Modelica.Blocks.Interfaces.BooleanInPort</A> control(
-                                                   <font color="blue">final </font>n=m);
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInput"
+>Modelica.Blocks.Interfaces.BooleanInput</A> off[
+                                              m] <font color="darkgreen">
+    &quot;true =&gt; p--n2 connected, false =&gt; p--n1 connected&quot;</font>;
   <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.PositivePlug"
 >Interfaces.PositivePlug</A> plug_p(
                                  <font color="blue">final </font>m=m);
@@ -327,10 +328,10 @@ Contains m ideal commuting switches (Modelica.Electrical.Analog.Ideal.IdealCommu
 >Modelica.Electrical.Analog.Ideal.IdealCommutingSwitch</A> idealCommutingSwitch[
                          m](<font color="blue">final </font>Ron=Ron, <font color="blue">final </font>Goff=Goff);
 <font color="blue">equation </font>
-  idealCommutingSwitch.control.signal[1] = control.signal;
   <font color="red">connect</font>(plug_p.pin, idealCommutingSwitch.p);
   <font color="red">connect</font>(idealCommutingSwitch.n2, plug_n2.pin);
   <font color="red">connect</font>(idealCommutingSwitch.n1, plug_n1.pin);
+  <font color="red">connect</font>(off, idealCommutingSwitch.off);
 <font color="blue">end </font>IdealCommutingSwitch;
 </PRE>
 <HR>
@@ -365,9 +366,10 @@ Contains m ideal intermediate switches (Modelica.Electrical.Analog.Ideal.IdealIn
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Conductance"
 >Modelica.SIunits.Conductance</A> Goff[       m](<font color="blue">final </font>min=<font color="red">zeros</font>(m)) =<font color="red"> fill</font>(
     1.E-5, m) <font color="darkgreen">&quot;Opened switch conductance&quot;</font>;
-  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInPort"
->Modelica.Blocks.Interfaces.BooleanInPort</A> control(
-                                                   <font color="blue">final </font>n=m);
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInput"
+>Modelica.Blocks.Interfaces.BooleanInput</A> off[
+                                              m] <font color="darkgreen">
+    &quot;true =&gt; p1--n2, p2--n1 connected, otherwise p1--n1, p2--n2 connected&quot;</font>;
   <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.PositivePlug"
 >Interfaces.PositivePlug</A> plug_p1(
                                   <font color="blue">final </font>m=m);
@@ -384,11 +386,11 @@ Contains m ideal intermediate switches (Modelica.Electrical.Analog.Ideal.IdealIn
 >Modelica.Electrical.Analog.Ideal.IdealIntermediateSwitch</A> 
     idealIntermediateSwitch[m](<font color="blue">final </font>Ron=Ron, <font color="blue">final </font>Goff=Goff);
 <font color="blue">equation </font>
-  idealIntermediateSwitch.control.signal[1] = control.signal;
   <font color="red">connect</font>(plug_p2.pin, idealIntermediateSwitch.p2);
   <font color="red">connect</font>(idealIntermediateSwitch.n2, plug_n2.pin);
   <font color="red">connect</font>(idealIntermediateSwitch.p1, plug_p1.pin);
   <font color="red">connect</font>(idealIntermediateSwitch.n1, plug_n1.pin);
+  <font color="red">connect</font>(off, idealIntermediateSwitch.off);
 <font color="blue">end </font>IdealIntermediateSwitch;
 </PRE>
 <HR>
@@ -461,13 +463,13 @@ Contains m short cuts (Modelica.Electrical.Analog.Ideal.Short)
 </PRE>
 <HR>
 <!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE IdealOpener<![endif]-->
+<span style='mso-spacerun:yes'></span>XE IdealOpeningSwitch<![endif]-->
 <!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.MultiPhase.Ideal.IdealOpenerI.png" ALT="Modelica.Electrical.MultiPhase.Ideal.IdealOpener" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.MultiPhase.Ideal.IdealOpener"></A><A HREF="Modelica_Electrical_MultiPhase_Ideal.html#Modelica.Electrical.MultiPhase.Ideal"
->Modelica.Electrical.MultiPhase.Ideal</A>.IdealOpener</H2>
+<H2><IMG SRC="Modelica.Electrical.MultiPhase.Ideal.IdealOpeningSwitchI.png" ALT="Modelica.Electrical.MultiPhase.Ideal.IdealOpeningSwitch" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.MultiPhase.Ideal.IdealOpeningSwitch"></A><A HREF="Modelica_Electrical_MultiPhase_Ideal.html#Modelica.Electrical.MultiPhase.Ideal"
+>Modelica.Electrical.MultiPhase.Ideal</A>.IdealOpeningSwitch</H2>
 <B>Multiphase ideal opener</B><p>
-<IMG SRC="Modelica.Electrical.MultiPhase.Ideal.IdealOpenerD.png" ALT="Modelica.Electrical.MultiPhase.Ideal.IdealOpener">
+<IMG SRC="Modelica.Electrical.MultiPhase.Ideal.IdealOpeningSwitchD.png" ALT="Modelica.Electrical.MultiPhase.Ideal.IdealOpeningSwitch">
 <H3>Information</H3>
 <PRE></pre>
 <p>
@@ -483,7 +485,7 @@ Contains m ideal opening switches (Modelica.Electrical.Analog.Ideal.IdealOpener)
 </TABLE>
 <H3>Modelica definition</H3>
 <PRE>
-<font color="blue">model</font> IdealOpener <font color="darkgreen">&quot;Multiphase ideal opener&quot;</font> 
+<font color="blue">model</font> IdealOpeningSwitch <font color="darkgreen">&quot;Multiphase ideal opener&quot;</font> 
   <font color="blue">extends </font><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.TwoPlug"
 >Interfaces.TwoPlug</A>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
@@ -492,28 +494,29 @@ Contains m ideal opening switches (Modelica.Electrical.Analog.Ideal.IdealOpener)
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Conductance"
 >Modelica.SIunits.Conductance</A> Goff[       m](<font color="blue">final </font>min=<font color="red">zeros</font>(m)) =<font color="red"> fill</font>(
     1.E-5, m) <font color="darkgreen">&quot;Opened switch conductance&quot;</font>;
-  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInPort"
->Modelica.Blocks.Interfaces.BooleanInPort</A> control(
-                                                   <font color="blue">final </font>n=m);
-  <A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealOpener"
->Modelica.Electrical.Analog.Ideal.IdealOpener</A> idealOpener[
-                                                           m](<font color="blue">final </font>Ron=Ron,
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInput"
+>Modelica.Blocks.Interfaces.BooleanInput</A> control[
+                                                  m] <font color="darkgreen">
+    &quot;true =&gt; switch open, false =&gt; p--n connected&quot;</font>;
+  <A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch"
+>Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch</A> idealOpeningSwitch[
+                                                                         m](<font color="blue">final </font>Ron=Ron,
        <font color="blue">final </font>Goff=Goff);
 <font color="blue">equation </font>
-  idealOpener.control.signal[1] = control.signal;
-  <font color="red">connect</font>(plug_p.pin, idealOpener.p);
-  <font color="red">connect</font>(idealOpener.n, plug_n.pin);
-<font color="blue">end </font>IdealOpener;
+  <font color="red">connect</font>(plug_p.pin, idealOpeningSwitch.p);
+  <font color="red">connect</font>(idealOpeningSwitch.n, plug_n.pin);
+  <font color="red">connect</font>(control, idealOpeningSwitch.control);
+<font color="blue">end </font>IdealOpeningSwitch;
 </PRE>
 <HR>
 <!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE IdealCloser<![endif]-->
+<span style='mso-spacerun:yes'></span>XE IdealClosingSwitch<![endif]-->
 <!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.MultiPhase.Ideal.IdealCloserI.png" ALT="Modelica.Electrical.MultiPhase.Ideal.IdealCloser" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.MultiPhase.Ideal.IdealCloser"></A><A HREF="Modelica_Electrical_MultiPhase_Ideal.html#Modelica.Electrical.MultiPhase.Ideal"
->Modelica.Electrical.MultiPhase.Ideal</A>.IdealCloser</H2>
+<H2><IMG SRC="Modelica.Electrical.MultiPhase.Ideal.IdealClosingSwitchI.png" ALT="Modelica.Electrical.MultiPhase.Ideal.IdealClosingSwitch" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.MultiPhase.Ideal.IdealClosingSwitch"></A><A HREF="Modelica_Electrical_MultiPhase_Ideal.html#Modelica.Electrical.MultiPhase.Ideal"
+>Modelica.Electrical.MultiPhase.Ideal</A>.IdealClosingSwitch</H2>
 <B>Multiphase ideal closer</B><p>
-<IMG SRC="Modelica.Electrical.MultiPhase.Ideal.IdealCloserD.png" ALT="Modelica.Electrical.MultiPhase.Ideal.IdealCloser">
+<IMG SRC="Modelica.Electrical.MultiPhase.Ideal.IdealClosingSwitchD.png" ALT="Modelica.Electrical.MultiPhase.Ideal.IdealClosingSwitch">
 <H3>Information</H3>
 <PRE></pre>
 <p>
@@ -529,7 +532,7 @@ Contains m ideal closing switches (Modelica.Electrical.Analog.Ideal.IdealCloser)
 </TABLE>
 <H3>Modelica definition</H3>
 <PRE>
-<font color="blue">model</font> IdealCloser <font color="darkgreen">&quot;Multiphase ideal closer&quot;</font> 
+<font color="blue">model</font> IdealClosingSwitch <font color="darkgreen">&quot;Multiphase ideal closer&quot;</font> 
   <font color="blue">extends </font><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.TwoPlug"
 >Interfaces.TwoPlug</A>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
@@ -538,21 +541,22 @@ Contains m ideal closing switches (Modelica.Electrical.Analog.Ideal.IdealCloser)
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Conductance"
 >Modelica.SIunits.Conductance</A> Goff[       m](<font color="blue">final </font>min=<font color="red">zeros</font>(m)) =<font color="red"> fill</font>(
     1.E-5, m) <font color="darkgreen">&quot;Opened switch conductance&quot;</font>;
-  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInPort"
->Modelica.Blocks.Interfaces.BooleanInPort</A> control(
-                                                   <font color="blue">final </font>n=m);
-  <A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealCloser"
->Modelica.Electrical.Analog.Ideal.IdealCloser</A> idealCloser[
-                                                           m](<font color="blue">final </font>Ron=Ron,
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInput"
+>Modelica.Blocks.Interfaces.BooleanInput</A> control[
+                                                  m] <font color="darkgreen">
+    &quot;true =&gt; p--n connected, false =&gt; switch open&quot;</font>;
+  <A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealClosingSwitch"
+>Modelica.Electrical.Analog.Ideal.IdealClosingSwitch</A> idealClosingSwitch[
+                                                                         m](<font color="blue">final </font>Ron=Ron,
        <font color="blue">final </font>Goff=Goff);
 <font color="blue">equation </font>
-  idealCloser.control.signal[1] = control.signal;
-  <font color="red">connect</font>(plug_p.pin, idealCloser.p);
-  <font color="red">connect</font>(idealCloser.n, plug_n.pin);
-<font color="blue">end </font>IdealCloser;
+  <font color="red">connect</font>(plug_p.pin, idealClosingSwitch.p);
+  <font color="red">connect</font>(idealClosingSwitch.n, plug_n.pin);
+  <font color="red">connect</font>(control, idealClosingSwitch.control);
+<font color="blue">end </font>IdealClosingSwitch;
 </PRE>
 <HR>
-<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Jun 30 17:43:57 2004
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Jun 30 17:50:09 2004
 .
 </address></BODY>
 </HTML>

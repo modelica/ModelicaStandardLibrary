@@ -35,7 +35,6 @@ Translational package. Open the models and
 simulate them according to the provided description in the models.
 The following examples are present:
 </p>
-
 <pre>
    <i>SignConvention</i>    Examples for the used sign conventions using simple, basic elements
    <i>InitialConditions</i> Setting of initial conditions
@@ -46,7 +45,6 @@ The following examples are present:
    <i>Friction</i>          Stribeck friction characteristics
    <i>PreLoad</i>           Positioning of a spool using ElastoGap models
 </pre>
-
 <ul>
 <li><i>First Version from December 7, 1999 by P. Beater</i> </li>
 </ul>
@@ -117,7 +115,6 @@ In the third system the two arrows are opposed which means that the
 force acts in the opposite direction (in the same direction as in
 the two other examples).
 </p>
-
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>First Version from December 10, 1999 by P. Beater </i> </li>
@@ -160,9 +157,9 @@ the two other examples).
   <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
 >Sources.Constant</A> Constant3;
 <font color="blue">equation </font>
-  <font color="red">connect</font>(Constant1.outPort, Force1.inPort);
-  <font color="red">connect</font>(Constant2.outPort, Force2.inPort);
-  <font color="red">connect</font>(Force3.inPort, Constant3.outPort);
+  <font color="red">connect</font>(Constant1.y, Force1.f);
+  <font color="red">connect</font>(Constant2.y, Force2.f);
+  <font color="red">connect</font>(Force3.f, Constant3.y);
   <font color="red">connect</font>(Force1.flange_b, SlidingMass1.flange_a);
   <font color="red">connect</font>(Force2.flange_b, SlidingMass2.flange_b);
   <font color="red">connect</font>(SlidingMass3.flange_b, Force3.flange_b);
@@ -179,13 +176,11 @@ the two other examples).
 <IMG SRC="Modelica.Mechanics.Translational.Examples.InitialConditionsD.png" ALT="Modelica.Mechanics.Translational.Examples.InitialConditions">
 <H3>Information</H3>
 <PRE>There are several ways to set initial conditions.
-
 In the first system the position of the sliding mass m3 was defined
 by using the modifier s(start=4.5), the position of m5 by s(start=12.5).
 These positions were chosen such that the system is a rest. To calculate
 these values start at the left (Fixed1) with a value of 1 m. The spring
 has an unstreched length of 2 m and m3 an length of 3 m, which leads to
-
         1   m (Fixed1)
       + 2   m (Spring S2)
       + 3/2 m (half of the length of SlidingMass m3)
@@ -196,14 +191,11 @@ has an unstreched length of 2 m and m3 an length of 3 m, which leads to
       + 5/2 m (half of length of SlidingMass m5)
       -------
        12,5 m = s(start = 12.5) for m5
-
 This selection of initial conditions has the effect that Dymola selects
 those variables (m3.s and m5.s) as state variables.
-
 In the second example the length of the springs are given as start values
 but they cannot be used as state for pure springs (only for the spring/damper
 combination). In this case the system is not at rest.
-
 </pre> <IMG SRC=../Images/Fig.translational.examples.InitialConditions.png>  <pre>
 </pre>
 <p><b>Release Notes:</b></p>
@@ -212,8 +204,6 @@ combination). In this case the system is not at rest.
 <li><i>Parameters and documentation modified, July 17, 2001 by P. Beater </i> </li>
 </ul>
 <pre>
-
-
 </PRE>
 <H3>Modelica definition</H3>
 <PRE>
@@ -284,25 +274,20 @@ combination). In this case the system is not at rest.
 it is recommended to make sure that all arrows point in
 the same direction because then all component have the
 same reference system.
-
 In the example the distance from flange_a of Rod1 to flange_b
 of Rod2 is 2 m. The distance from flange_a of Rad1 to flange_b
 of Rod3 is also 2 m though it is difficult to see that. Without
 the arrows it would be almost impossible to notice.
-
 That all arrows point in the same direction is a sufficient
 condition for an easy use of the library. There are cases
 where horizontally flipped models can be used without
 problems.
-
 </pre>
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>First Version from July 17, 2001 by P. Beater </i> </li>
 </ul>
 <pre>
-
-
 </PRE>
 <H3>Modelica definition</H3>
 <PRE>
@@ -392,7 +377,7 @@ problems.
   <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
 >Sources.Constant</A> Constant1;
 <font color="blue">equation </font>
-  <font color="red">connect</font>(Constant1.outPort, Accelerate1.inPort);
+  <font color="red">connect</font>(Constant1.y, Accelerate1.a);
   <font color="red">connect</font>(Accelerate1.flange_b, SlidingMass1.flange_a);
 <font color="blue">end </font>Accelerate;
 </PRE>
@@ -408,7 +393,6 @@ problems.
 <H3>Information</H3>
 <PRE>Release notes:
 --------------
-
 2001 - 7  - 14: Damping parameters increased (from 1 to 25)
 </PRE>
 <H3>Modelica definition</H3>
@@ -481,18 +465,13 @@ problems.
 <PRE>A spring - mass system is a mechanical oscillator. If no
 damping is included and the system is excited at resonance
 frequency infinite amplitudes will result.
-
 The resonant frequency is given by
-
 omega_res = sqrt(c / m)
-
 with: c spring stiffness
       m mass
-
 To make sure that the system is initially at rest the initial
 conditions s(start=0) and v(start=0) for the SlindingMass
 are set.
-
 If damping is added the amplitudes are bounded.
 </pre>
 <p><b>Release Notes:</b></p>
@@ -529,7 +508,7 @@ If damping is added the amplitudes are bounded.
 >Translational.Force</A> Force1;
   <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Sine"
 >Sources.Sine</A> Sine1(
-                     freqHz={15.9155});
+                     freqHz=15.9155);
   <A HREF="Modelica_Mechanics_Translational.html#Modelica.Mechanics.Translational.SlidingMass"
 >Translational.SlidingMass</A> SlidingMass2(
     L=1,
@@ -545,13 +524,13 @@ If damping is added the amplitudes are bounded.
 >Translational.Force</A> Force2;
   <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Sine"
 >Sources.Sine</A> Sine2(
-                     freqHz={15.9155});
+                     freqHz=15.9155);
   <A HREF="Modelica_Mechanics_Translational.html#Modelica.Mechanics.Translational.Damper"
 >Translational.Damper</A> Damper1(
                                d=10);
 <font color="blue">equation </font>
-  <font color="red">connect</font>(Sine1.outPort, Force1.inPort);
-  <font color="red">connect</font>(Sine2.outPort, Force2.inPort);
+  <font color="red">connect</font>(Sine1.y, Force1.f);
+  <font color="red">connect</font>(Sine2.y, Force2.f);
   <font color="red">connect</font>(Force1.flange_b, SlidingMass1.flange_a);
   <font color="red">connect</font>(Spring1.flange_b, Fixed1.flange_b);
   <font color="red">connect</font>(SlidingMass1.flange_b, Spring1.flange_a);
@@ -573,17 +552,14 @@ If damping is added the amplitudes are bounded.
 <IMG SRC="Modelica.Mechanics.Translational.Examples.SensorsD.png" ALT="Modelica.Mechanics.Translational.Examples.Sensors">
 <H3>Information</H3>
 <PRE>These sensors measure
-
    force f in N
    position s in m
    velocity v in m/s
    acceleration a in m/s2
-
 Dhe measured velocity and acceleration is independent on
 the flange the sensor is connected to. The position
 depends on the flange (flange_a or flange_b) and the
 length L of the component.
-
 Plot PositionSensor1.s, PositionSensor2.s and SlidingMass1.s
 to see the difference.
 </pre>
@@ -620,11 +596,11 @@ to see the difference.
 >Translational.Force</A> Force1;
   <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Sine"
 >Sources.Sine</A> Sine1(
-                     amplitude={10}, freqHz={4});
+                     amplitude=10, freqHz=4);
   <A HREF="Modelica_Mechanics_Translational_Sensors.html#Modelica.Mechanics.Translational.Sensors.PositionSensor"
 >Translational.Sensors.PositionSensor</A> PositionSensor2;
 <font color="blue">equation </font>
-  <font color="red">connect</font>(Sine1.outPort, Force1.inPort);
+  <font color="red">connect</font>(Sine1.y, Force1.f);
   <font color="red">connect</font>(ForceSensor1.flange_b, SlidingMass1.flange_a);
   <font color="red">connect</font>(SlidingMass1.flange_b, PositionSensor2.flange_a);
   <font color="red">connect</font>(Force1.flange_b, ForceSensor1.flange_a);
@@ -645,7 +621,6 @@ to see the difference.
 <H3>Information</H3>
 <PRE>1) Simulate and then plot Stop1.f as a function of Stop1.v
    This gives the Stribeck curve.
-
 2) This model gives an example for a hard stop. However there
    can arise some problems with the used modeling approach (use of
    Reinit, convergence problems). In this case use the ElastoGap
@@ -676,7 +651,7 @@ to see the difference.
 >Translational.Force</A> Force1;
   <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Sine"
 >Sources.Sine</A> Sine1(
-                     amplitude={25}, freqHz={0.25});
+                     amplitude=25, freqHz=0.25);
   <A HREF="Modelica_Mechanics_Translational.html#Modelica.Mechanics.Translational.Stop"
 >Translational.Stop</A> Stop2(
     L=1,
@@ -693,7 +668,7 @@ to see the difference.
 >Translational.Fixed</A> Fixed1(
                              s0=-1.75);
 <font color="blue">equation </font>
-  <font color="red">connect</font>(Sine1.outPort, Force1.inPort);
+  <font color="red">connect</font>(Sine1.y, Force1.f);
   <font color="red">connect</font>(Force1.flange_b, Stop1.flange_a);
   <font color="red">connect</font>(Fixed1.flange_b, Spring1.flange_a);
   <font color="red">connect</font>(Spring1.flange_b, Stop2.flange_a);
@@ -807,7 +782,7 @@ Spool position s as a function of working force f.
                          L=7e-3);
   <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Sine"
 >Sources.Sine</A> Sine1(
-                     amplitude={150}, freqHz={0.01});
+                     amplitude=150, freqHz=0.01);
 <font color="blue">equation </font>
   <font color="red">connect</font>(OuterContactA.flange_b, SpringPlateA.flange_a);
   <font color="red">connect</font>(SpringPlateA.flange_b, Spring.flange_a);
@@ -823,7 +798,7 @@ Spool position s as a function of working force f.
   <font color="red">connect</font>(Rod2.flange_a, InnerContactB.flange_a);
   <font color="red">connect</font>(Rod4.flange_b, InnerContactB.flange_b);
   <font color="red">connect</font>(Friction.flange_b, Rod3.flange_a);
-  <font color="red">connect</font>(Sine1.outPort, Force1.inPort);
+  <font color="red">connect</font>(Sine1.y, Force1.f);
   <font color="red">connect</font>(Force1.flange_b, Spool.flange_a);
   <font color="red">connect</font>(Rod3.flange_b, Rod4.flange_a);
   <font color="red">connect</font>(Rod2.flange_b, SpringPlateB.flange_a);
@@ -831,7 +806,7 @@ Spool position s as a function of working force f.
 <font color="blue">end </font>PreLoad;
 </PRE>
 <HR>
-<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Jun 30 17:44:11 2004
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Jun 30 17:50:38 2004
 .
 </address></BODY>
 </HTML>

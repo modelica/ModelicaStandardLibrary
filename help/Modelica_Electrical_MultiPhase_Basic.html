@@ -79,7 +79,7 @@ This package contains basic analog electrical multiphase components.
 </TD><TD>Delta (polygon) connection</TD></TR>
 <TR><TD><A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.PlugToPin_p"
 >PlugToPin_p</A>
-</TD><TD>Connect one (positive) Pin to a Plug Connector</TD></TR>
+</TD><TD>Connect one (positive) Pin to a Plug connector</TD></TR>
 <TR><TD><A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.PlugToPin_n"
 >PlugToPin_n</A>
 </TD><TD>Connect one (negative) Pin to a Plug connector</TD></TR>
@@ -198,7 +198,7 @@ when used in parallel to another component.
 <H2><IMG SRC="Modelica.Electrical.MultiPhase.Basic.PlugToPin_pI.png" ALT="Modelica.Electrical.MultiPhase.Basic.PlugToPin_p" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
 <A NAME="Modelica.Electrical.MultiPhase.Basic.PlugToPin_p"></A><A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic"
 >Modelica.Electrical.MultiPhase.Basic</A>.PlugToPin_p</H2>
-<B>Connect one (positive) Pin to a Plug Connector</B><p>
+<B>Connect one (positive) Pin to a Plug connector</B><p>
 <IMG SRC="Modelica.Electrical.MultiPhase.Basic.PlugToPin_pD.png" ALT="Modelica.Electrical.MultiPhase.Basic.PlugToPin_p">
 <H3>Information</H3>
 <PRE></pre>
@@ -214,7 +214,7 @@ Connects pin <i>k</i> of plug_p to pin_p, leaving the other pins of plug_p uncon
 </TABLE>
 <H3>Modelica definition</H3>
 <PRE>
-<font color="blue">model</font> PlugToPin_p <font color="darkgreen">&quot;Connect one (positive) Pin to a Plug Connector&quot;</font> 
+<font color="blue">model</font> PlugToPin_p <font color="darkgreen">&quot;Connect one (positive) Pin to a Plug connector&quot;</font> 
   <font color="blue">parameter </font>Integer m(<font color="blue">final </font>min=1) = 3 <font color="darkgreen">&quot;number of phases&quot;</font>;
   <font color="blue">parameter </font>Integer k(
     <font color="blue">final </font>min=1,
@@ -550,16 +550,18 @@ Contains m variable resistors (Modelica.Electrical.Analog.Basic.VariableResistor
   &quot;Ideal linear electrical resistors with variable resistance&quot;</font> 
   <font color="blue">extends </font><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.TwoPlug"
 >Interfaces.TwoPlug</A>;
-  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
->Modelica.Blocks.Interfaces.InPort</A> R_Port(
-                                           <font color="blue">final </font>n=m);
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> R[
+                                         m](
+    <font color="blue">redeclare </font><font color="blue">type</font> SignalType = <A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Modelica.SIunits.Resistance</A>);
   <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.VariableResistor"
 >Modelica.Electrical.Analog.Basic.VariableResistor</A> variableResistor[
                                                                      m];
 <font color="blue">equation </font>
-  variableResistor.R_Port.signal[1]=R_Port.signal;
   <font color="red">connect</font>(variableResistor.p, plug_p.pin);
   <font color="red">connect</font>(variableResistor.n, plug_n.pin);
+  <font color="red">connect</font>(R, variableResistor.R);
 <font color="blue">end </font>VariableResistor;
 </PRE>
 <HR>
@@ -593,16 +595,18 @@ Contains m variable conductors (Modelica.Electrical.Analog.Basic.VariableConduct
   &quot;Ideal linear electrical conductors with variable conductance&quot;</font> 
   <font color="blue">extends </font><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.TwoPlug"
 >Interfaces.TwoPlug</A>;
-  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
->Modelica.Blocks.Interfaces.InPort</A> G_Port(
-                                           <font color="blue">final </font>n=m);
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> G[
+                                         m](
+     <font color="blue">redeclare </font><font color="blue">type</font> SignalType = <A HREF="Modelica_SIunits.html#Modelica.SIunits.Conductance"
+>Modelica.SIunits.Conductance</A>);
   <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.VariableConductor"
 >Modelica.Electrical.Analog.Basic.VariableConductor</A> variableConductor[
                                                                        m];
 <font color="blue">equation </font>
-  variableConductor.G_Port.signal[1]=G_Port.signal;
   <font color="red">connect</font>(variableConductor.p, plug_p.pin);
   <font color="red">connect</font>(variableConductor.n, plug_n.pin);
+  <font color="red">connect</font>(G, variableConductor.G);
 <font color="blue">end </font>VariableConductor;
 </PRE>
 <HR>
@@ -640,17 +644,18 @@ Cmin is a parameter with default value Modelica.Constants.eps.
 >Interfaces.TwoPlug</A>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Capacitance"
 >Modelica.SIunits.Capacitance</A> Cmin[       m]=<font color="red">fill</font>(Modelica.Constants.eps,m);
-  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
->Modelica.Blocks.Interfaces.InPort</A> C_Port(
-                                           <font color="blue">final </font>n=m);
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> C[
+                                         m](
+    <font color="blue">redeclare </font><font color="blue">type</font> SignalType = <A HREF="Modelica_SIunits.html#Modelica.SIunits.Capacitance"
+>Modelica.SIunits.Capacitance</A>);
   <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.VariableCapacitor"
 >Modelica.Electrical.Analog.Basic.VariableCapacitor</A> variableCapacitor[
-                                                                       m](<font color="blue">final </font>Cmin
-      =    Cmin);
+                                                                       m](<font color="blue">final </font>Cmin = Cmin);
 <font color="blue">equation </font>
-  variableCapacitor.C_Port.signal[1]=C_Port.signal;
   <font color="red">connect</font>(variableCapacitor.p, plug_p.pin);
   <font color="red">connect</font>(variableCapacitor.n, plug_n.pin);
+  <font color="red">connect</font>(C, variableCapacitor.C);
 <font color="blue">end </font>VariableCapacitor;
 </PRE>
 <HR>
@@ -688,21 +693,23 @@ Lmin is a parameter with default value Modelica.Constants.eps.
 >Interfaces.TwoPlug</A>;
   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inductance"
 >Modelica.SIunits.Inductance</A> Lmin[       m]=<font color="red">fill</font>(Modelica.Constants.eps,m);
-  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
->Modelica.Blocks.Interfaces.InPort</A> L_Port(
-                                           <font color="blue">final </font>n=m);
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> L[
+                                         m](
+     <font color="blue">redeclare </font><font color="blue">type</font> SignalType = <A HREF="Modelica_SIunits.html#Modelica.SIunits.Inductance"
+>Modelica.SIunits.Inductance</A>);
   <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.VariableInductor"
 >Modelica.Electrical.Analog.Basic.VariableInductor</A> variableInductor[
                                                                      m](<font color="blue">final </font>Lmin
       =    Lmin);
 <font color="blue">equation </font>
-  variableInductor.L_Port.signal[1]=L_Port.signal;
   <font color="red">connect</font>(variableInductor.p, plug_p.pin);
   <font color="red">connect</font>(variableInductor.n, plug_n.pin);
+  <font color="red">connect</font>(L, variableInductor.L);
 <font color="blue">end </font>VariableInductor;
 </PRE>
 <HR>
-<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Jun 30 17:43:50 2004
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Jun 30 17:50:01 2004
 .
 </address></BODY>
 </HTML>

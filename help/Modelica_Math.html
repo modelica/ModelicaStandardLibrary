@@ -44,28 +44,25 @@
 <p>
 This package contains the following basic mathematical functions:
 </p>
-
 <pre>
    <b>sin</b>(u)        sine
    <b>cos</b>(u)        cosine
    <b>tan</b>(u)        tangent     (u shall not be -pi/2, pi/2, 3*pi/2, ...)
-   <b>asin</b>(u)       inverse sine    (-1 <= u <= 1)
-   <b>acos</b>(u)       inverse cosine  (-1 <= u <= 1)
+   <b>asin</b>(u)       inverse sine    (-1 &le; u &le; 1)
+   <b>acos</b>(u)       inverse cosine  (-1 &le; u &le; 1)
    <b>atan</b>(u)       inverse tangent
    <b>atan2</b>(u1,u2)  four quadrant inverse tangent
    <b>sinh</b>(u)       hyperbolic sine
    <b>cosh</b>(u)       hyperbolic cosine
    <b>tanh</b>(u)       hyperbolic tangent
    <b>exp</b>(u)        exponential, base e
-   <b>log</b>(u)        natural (base e) logarithm (u > 0)
-   <b>log10</b>(u)      base 10 logarithm (u > 0)
+   <b>log</b>(u)        natural (base e) logarithm (u &gt; 0)
+   <b>log10</b>(u)      base 10 logarithm (u &gt; 0)
 </pre>
-
 <p>
 These functions are used by calling them directly
 with a full name (e.g. y = Modelica.Math.asin(0.5)).
 </p>
-
 <dl>
 <dt><b>Main Author:</b>
 <dd><a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a><br>
@@ -77,7 +74,6 @@ with a full name (e.g. y = Modelica.Math.asin(0.5)).
     email: <A HREF="mailto:Martin.Otter@dlr.de">Martin.Otter@dlr.de</A><br>
 </dl>
 <br>
-
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>October 21, 2002</i>
@@ -87,23 +83,18 @@ with a full name (e.g. y = Modelica.Math.asin(0.5)).
 <li><i>Oct. 24, 1999</i>
        by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>:<br>
        Icons for icon and diagram level introduced.</li>
-
 <li><i>June 30, 1999</i>
        by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>:<br>
        Realized.</li>
 </ul>
 <br>
-
-
 <p><b>Copyright &copy; 1999-2002, Modelica Association and DLR.</b></p>
-
 <p><i>
 The Modelica package is <b>free</b> software; it can be redistributed and/or modified
 under the terms of the <b>Modelica license</b>, see the license conditions
 and the accompanying <b>disclaimer</b> in the documentation of package
 Modelica in file "Modelica/package.mo".
 </i></p>
-
 <pre>
 </PRE><P>
 <TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
@@ -619,22 +610,29 @@ u1 is not zero.
   Real y2;
 <font color="blue">algorithm </font>
   n :=<font color="red"> size</font>(table, 1);
+  
   <font color="blue">if </font>n &lt;= 1<font color="blue"> then</font>
     y := table[1, icol];
+    
   <font color="blue">else</font>
     <font color="darkgreen">// Search interval</font>
+    
     <font color="blue">if </font>u &lt;= table[1, 1]<font color="blue"> then</font>
       i := 1;
+      
     <font color="blue">else</font>
       i := 2;
       <font color="darkgreen">// Supports duplicate table[i, 1] values</font>
       <font color="darkgreen">// in the interior to allow discontinuities.</font>
       <font color="darkgreen">// Interior means that</font>
       <font color="darkgreen">// if table[i, 1] = table[i+1, 1] we require i&gt;1 and i+1&lt;n</font>
+      
       <font color="blue">while </font>i &lt; n<font color="blue"> and </font>u &gt;= table[i, 1]<font color="blue"> loop</font>
         i := i + 1;
+        
       <font color="blue">end while</font>;
       i := i - 1;
+      
     <font color="blue">end if</font>;
     
     <font color="darkgreen">// Get interpolation data</font>
@@ -646,6 +644,7 @@ u1 is not zero.
     <font color="red">assert</font>(u2 &gt; u1, &quot;Table index must be increasing&quot;);
     <font color="darkgreen">// Interpolate</font>
     y := y1 + (y2 - y1)*(u - u1)/(u2 - u1);
+    
   <font color="blue">end if</font>;
 <font color="blue">end </font>tempInterpol1;
 </PRE>
@@ -672,6 +671,7 @@ u1 is not zero.
 <PRE>
 <font color="blue">function</font> tempInterpol2 <font color="darkgreen">
   &quot;temporary routine for vectorized linear interpolation (will be removed)&quot;</font> 
+  
   <font color="blue">input </font>Real u <font color="darkgreen">&quot;input value (first column of table)&quot;</font>;
   <font color="blue">input </font>Real table[:, :] <font color="darkgreen">&quot;table to be interpolated&quot;</font>;
   <font color="blue">input </font>Integer icol[:] <font color="darkgreen">&quot;column(s) of table to be interpolated&quot;</font>;
@@ -686,22 +686,29 @@ u1 is not zero.
   Real y2[1,<font color="red"> size</font>(icol, 1)];
 <font color="blue">algorithm </font>
   n :=<font color="red"> size</font>(table, 1);
+  
   <font color="blue">if </font>n &lt;= 1<font color="blue"> then</font>
     y :=<font color="red"> transpose</font>([table[1, icol]]);
+    
   <font color="blue">else</font>
     <font color="darkgreen">// Search interval</font>
+    
     <font color="blue">if </font>u &lt;= table[1, 1]<font color="blue"> then</font>
       i := 1;
+      
     <font color="blue">else</font>
       i := 2;
       <font color="darkgreen">// Supports duplicate table[i, 1] values</font>
       <font color="darkgreen">// in the interior to allow discontinuities.</font>
       <font color="darkgreen">// Interior means that</font>
       <font color="darkgreen">// if table[i, 1] = table[i+1, 1] we require i&gt;1 and i+1&lt;n</font>
+      
       <font color="blue">while </font>i &lt; n<font color="blue"> and </font>u &gt;= table[i, 1]<font color="blue"> loop</font>
         i := i + 1;
+        
       <font color="blue">end while</font>;
       i := i - 1;
+      
     <font color="blue">end if</font>;
     
     <font color="darkgreen">// Get interpolation data</font>
@@ -713,11 +720,12 @@ u1 is not zero.
     <font color="red">assert</font>(u2 &gt; u1, &quot;Table index must be increasing&quot;);
     <font color="darkgreen">// Interpolate</font>
     y := y1 + (y2 - y1)*(u - u1)/(u2 - u1);
+    
   <font color="blue">end if</font>;
 <font color="blue">end </font>tempInterpol2;
 </PRE>
 <HR>
-<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Jun 30 17:42:49 2004
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Jun 30 17:48:45 2004
 .
 </address></BODY>
 </HTML>

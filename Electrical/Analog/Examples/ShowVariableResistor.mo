@@ -27,7 +27,6 @@ sould be compared with R2.
 Simulate until T=1 s.
 </P>
 <P>
-
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>Mai 6, 2004   </i>
@@ -46,7 +45,7 @@ Simulate until T=1 s.
 annotation(Diagram);
   Modelica.Electrical.Analog.Sources.SineVoltage SineVoltage1 
   annotation(extent=[-100,-40; -80,-20], rotation=90);
-  Modelica.Blocks.Sources.Ramp Ramp1(height={5}, offset={2}) 
+  Modelica.Blocks.Sources.Ramp Ramp1(height=5, offset=2) 
   annotation(extent=[-20,10; 0,30], rotation=270);
 equation 
   connect(R1.n, R2.p)             annotation(points=[-40,50; -20,50],
@@ -68,8 +67,7 @@ equation
       50; -60,50], style(color=3, rgbcolor={0,0,255}));
   connect(SineVoltage1.n, R4.p)      annotation(points=[-90,-20; -90,-10; -60,
         -10],                 style(color=3, rgbcolor={0,0,255}));
-  connect(Ramp1.outPort, VariableResistor.R_Port) 
-                                                 annotation(points=[-10,9; -10,
+  connect(Ramp1.y, VariableResistor.R)           annotation(points=[-10,9; -10,
         4.5; -10,4.5; -10,0],          style(color=3, rgbcolor={0,0,
         255}));
 end ShowVariableResistor;

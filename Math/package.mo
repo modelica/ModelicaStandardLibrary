@@ -1,12 +1,11 @@
 package Math "Mathematical functions"
-
 import SI = Modelica.SIunits;
 
 
 extends Modelica.Icons.Library2;
 
 
-annotation(
+annotation(preferedView="info",
     Window(
       x=0.04,
       y=0.05,
@@ -23,28 +22,25 @@ annotation(
 <p>
 This package contains the following basic mathematical functions:
 </p>
-
 <pre>
    <b>sin</b>(u)        sine
    <b>cos</b>(u)        cosine
    <b>tan</b>(u)        tangent     (u shall not be -pi/2, pi/2, 3*pi/2, ...)
-   <b>asin</b>(u)       inverse sine    (-1 <= u <= 1)
-   <b>acos</b>(u)       inverse cosine  (-1 <= u <= 1)
+   <b>asin</b>(u)       inverse sine    (-1 &le; u &le; 1)
+   <b>acos</b>(u)       inverse cosine  (-1 &le; u &le; 1)
    <b>atan</b>(u)       inverse tangent
    <b>atan2</b>(u1,u2)  four quadrant inverse tangent
    <b>sinh</b>(u)       hyperbolic sine
    <b>cosh</b>(u)       hyperbolic cosine
    <b>tanh</b>(u)       hyperbolic tangent
    <b>exp</b>(u)        exponential, base e
-   <b>log</b>(u)        natural (base e) logarithm (u > 0)
-   <b>log10</b>(u)      base 10 logarithm (u > 0)
+   <b>log</b>(u)        natural (base e) logarithm (u &gt; 0)
+   <b>log10</b>(u)      base 10 logarithm (u &gt; 0)
 </pre>
-
 <p>
 These functions are used by calling them directly
 with a full name (e.g. y = Modelica.Math.asin(0.5)).
 </p>
-
 <dl>
 <dt><b>Main Author:</b>
 <dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a><br>
@@ -56,7 +52,6 @@ with a full name (e.g. y = Modelica.Math.asin(0.5)).
     email: <A HREF=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</A><br>
 </dl>
 <br>
-
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>October 21, 2002</i>
@@ -66,30 +61,25 @@ with a full name (e.g. y = Modelica.Math.asin(0.5)).
 <li><i>Oct. 24, 1999</i>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
        Icons for icon and diagram level introduced.</li>
-
 <li><i>June 30, 1999</i>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
        Realized.</li>
 </ul>
 <br>
-
-
 <p><b>Copyright &copy; 1999-2002, Modelica Association and DLR.</b></p>
-
 <p><i>
 The Modelica package is <b>free</b> software; it can be redistributed and/or modified
 under the terms of the <b>Modelica license</b>, see the license conditions
 and the accompanying <b>disclaimer</b> in the documentation of package
 Modelica in file \"Modelica/package.mo\".
 </i></p>
-
 </HTML>
 "));
 
 
 partial function baseIcon1 
   "Basic icon for mathematical function with y-axis on left side" 
-  annotation( Icon(
+  annotation (Icon(
       Rectangle(extent=[-100, 100; 100, -100], style(color=0, fillColor=7)),
       Line(points=[-80, -80; -80, 68], style(color=8)),
       Polygon(points=[-80, 90; -88, 68; -72, 68; -80, 90], style(color=8,
@@ -109,7 +99,7 @@ end baseIcon1;
 
 partial function baseIcon2 
   "Basic icon for mathematical function with y-axis in middle" 
-  annotation( Icon(
+  annotation (Icon(
       Rectangle(extent=[-100, 100; 100, -100], style(color=0, fillColor=7)),
       Line(points=[0, -80; 0, 68], style(color=8)),
       Polygon(points=[0, 90; -8, 68; 8, 68; 0, 90], style(color=8, fillColor=8)),
@@ -130,7 +120,7 @@ function sin "sine"
   extends baseIcon1;
   input SI.Angle u;
   output Real y;
-  annotation(
+  annotation (
     Coordsys(
       extent=[-100, -100; 100, 100],
       grid=[2, 2],
@@ -176,7 +166,7 @@ function cos "cosine"
   extends baseIcon1;
   input SI.Angle u;
   output Real y;
-  annotation(
+  annotation (
     Coordsys(
       extent=[-100, -100; 100, 100],
       grid=[2, 2],
@@ -222,7 +212,7 @@ function tan "tangent (u shall not be -pi/2, pi/2, 3*pi/2, ...)"
   extends baseIcon2;
   input SI.Angle u;
   output Real y;
-  annotation(
+  annotation (
     Coordsys(
       extent=[-100, -100; 100, 100],
       grid=[2, 2],
@@ -266,7 +256,7 @@ function asin "inverse sine (-1 <= u <= 1)"
   extends baseIcon2;
   input Real u;
   output SI.Angle y;
-  annotation(
+  annotation (
     Coordsys(
       extent=[-100, -100; 100, 100],
       grid=[2, 2],
@@ -309,7 +299,7 @@ function acos "inverse cosine (-1 <= u <= 1)"
   extends baseIcon2;
   input Real u;
   output SI.Angle y;
-  annotation(
+  annotation (
     Coordsys(
       extent=[-100, -100; 100, 100],
       grid=[2, 2],
@@ -352,7 +342,7 @@ function atan "inverse tangent"
   extends baseIcon2;
   input Real u;
   output SI.Angle y;
-  annotation(
+  annotation (
     Coordsys(
       extent=[-100, -100; 100, 100],
       grid=[2, 2],
@@ -398,7 +388,7 @@ function atan2 "four quadrant inverse tangent"
   input Real u1;
   input Real u2;
   output SI.Angle y;
-  annotation(
+  annotation (
     Coordsys(
       extent=[-100, -100; 100, 100],
       grid=[2, 2],
@@ -457,7 +447,7 @@ function sinh "hyperbolic sine"
   extends baseIcon2;
   input Real u;
   output Real y;
-  annotation(
+  annotation (
     Coordsys(
       extent=[-100, -100; 100, 100],
       grid=[2, 2],
@@ -502,7 +492,7 @@ function cosh "hyperbolic cosine"
   extends baseIcon2;
   input Real u;
   output Real y;
-  annotation(
+  annotation (
     Coordsys(
       extent=[-100, -100; 100, 100],
       grid=[2, 2],
@@ -551,7 +541,7 @@ function tanh "hyperbolic tangent"
   extends baseIcon2;
   input Real u;
   output Real y;
-  annotation(
+  annotation (
     Coordsys(
       extent=[-100, -100; 100, 100],
       grid=[2, 2],
@@ -596,7 +586,7 @@ function exp "exponential, base e"
   extends baseIcon2;
   input Real u;
   output Real y;
-  annotation(
+  annotation (
     Coordsys(
       extent=[-100, -100; 100, 100],
       grid=[2, 2],
@@ -640,7 +630,7 @@ function log "natural (base e) logarithm (u shall be > 0)"
   extends baseIcon1;
   input Real u;
   output Real y;
-  annotation(
+  annotation (
     Coordsys(
       extent=[-100, -100; 100, 100],
       grid=[2, 2],
@@ -685,7 +675,7 @@ function log10 "base 10 logarithm (u shall be > 0)"
   extends baseIcon1;
   input Real u;
   output Real y;
-  annotation(
+  annotation (
     Coordsys(
       extent=[-100, -100; 100, 100],
       grid=[2, 2],
@@ -741,22 +731,29 @@ protected
   Real y2;
 algorithm 
   n := size(table, 1);
+  
   if n <= 1 then
     y := table[1, icol];
+    
   else
     // Search interval
+    
     if u <= table[1, 1] then
       i := 1;
+      
     else
       i := 2;
       // Supports duplicate table[i, 1] values
       // in the interior to allow discontinuities.
       // Interior means that
       // if table[i, 1] = table[i+1, 1] we require i>1 and i+1<n
+      
       while i < n and u >= table[i, 1] loop
         i := i + 1;
+        
       end while;
       i := i - 1;
+      
     end if;
     
     // Get interpolation data
@@ -768,12 +765,14 @@ algorithm
     assert(u2 > u1, "Table index must be increasing");
     // Interpolate
     y := y1 + (y2 - y1)*(u - u1)/(u2 - u1);
+    
   end if;
 end tempInterpol1;
 
 
 function tempInterpol2 
   "temporary routine for vectorized linear interpolation (will be removed)" 
+  
   input Real u "input value (first column of table)";
   input Real table[:, :] "table to be interpolated";
   input Integer icol[:] "column(s) of table to be interpolated";
@@ -788,22 +787,29 @@ protected
   Real y2[1, size(icol, 1)];
 algorithm 
   n := size(table, 1);
+  
   if n <= 1 then
     y := transpose([table[1, icol]]);
+    
   else
     // Search interval
+    
     if u <= table[1, 1] then
       i := 1;
+      
     else
       i := 2;
       // Supports duplicate table[i, 1] values
       // in the interior to allow discontinuities.
       // Interior means that
       // if table[i, 1] = table[i+1, 1] we require i>1 and i+1<n
+      
       while i < n and u >= table[i, 1] loop
         i := i + 1;
+        
       end while;
       i := i - 1;
+      
     end if;
     
     // Get interpolation data
@@ -815,6 +821,7 @@ algorithm
     assert(u2 > u1, "Table index must be increasing");
     // Interpolate
     y := y1 + (y2 - y1)*(u - u1)/(u2 - u1);
+    
   end if;
 end tempInterpol2;
 end Math;

@@ -2,7 +2,7 @@ package Sources
   
   extends Modelica.Icons.Library;
   
-  annotation (
+  annotation(preferedView="info",
     Window(
       x=0.03,
       y=0.04,
@@ -13,7 +13,6 @@ package Sources
 <p>
 This package contains time-dependend and controlled voltage and current sources.
 </p>
-
 <dl>
 <dt>
 <b>Main Authors:</b>
@@ -26,7 +25,6 @@ This package contains time-dependend and controlled voltage and current sources.
     Design Automation Department<br>
     Zeunerstra&szlig;e 38<br>
     D-01069 Dresden<br>
-
 <p>
 <dt>
 <b>Version:</b>
@@ -48,7 +46,14 @@ Modelica in file \"Modelica/package.mo\".</i><br>
   
   model SignalVoltage 
     "Generic voltage source using the input signal as source voltage" 
-    extends Interfaces.OnePort;
+    
+    Interfaces.PositivePin p annotation (extent=[-110, -10; -90, 10]);
+    Interfaces.NegativePin n annotation (extent=[110, -10; 90, 10]);
+    Modelica.Blocks.Interfaces.RealInput v(
+        redeclare type SignalType = SI.Voltage) 
+      "Voltage between pin p and n (= p.v - n.v) as input signal" 
+       annotation (extent=[-20, 50; 20, 90], rotation=-90);
+    SI.Current i "Current flowing from pin p to pin n";
     
     annotation (
       Coordsys(
@@ -56,20 +61,54 @@ Modelica in file \"Modelica/package.mo\".</i><br>
         grid=[1, 1],
         component=[20, 20]),
       Icon(
-        Ellipse(extent=[-50, 50; 50, -50], style(fillColor=7)),
-        Line(points=[-90, 0; -50, 0]),
-        Line(points=[50, 0; 90, 0]),
-        Line(points=[-50, 0; 50, 0]),
+        Ellipse(extent=[-50, 50; 50, -50], style(
+            color=0,
+            rgbcolor={0,0,0},
+            fillColor=7,
+            rgbfillColor={255,255,255})),
+        Line(points=[-90, 0; -50, 0], style(color=0, rgbcolor={0,0,0})),
+        Line(points=[50, 0; 90, 0], style(color=0, rgbcolor={0,0,0})),
+        Line(points=[-50, 0; 50, 0], style(color=0, rgbcolor={0,0,0})),
         Text(extent=[-100, -120; 100, -80], string="%name")),
       Window(
         x=0.36,
         y=0.03,
         width=0.62,
-        height=0.76));
-    Modelica.Blocks.Interfaces.InPort inPort(final n=1) annotation (extent=[-20, 50; 20, 90], rotation=
-         -90);
+        height=0.76),
+      Diagram(
+        Ellipse(extent=[-50,50; 50,-50], style(
+            color=0,
+            rgbcolor={0,0,0},
+            fillColor=7,
+            rgbfillColor={255,255,255})),
+        Line(points=[-96,0; -50,0], style(color=0, rgbcolor={0,0,0})),
+        Line(points=[50,0; 96,0], style(color=0, rgbcolor={0,0,0})),
+        Line(points=[-50,0; 50,0], style(color=0, rgbcolor={0,0,0})),
+        Line(points=[-109,20; -84,20],   style(color=9, fillColor=9)),
+        Polygon(points=[-94,23; -84,20; -94,17; -94,23],     style(
+            color=9,
+            fillColor=9,
+            fillPattern=1)),
+        Line(points=[91,20; 116,20],   style(color=9, fillColor=9)),
+        Text(
+          extent=[-109,25; -89,45],
+          string="i",
+          style(color=9)),
+        Polygon(points=[106,23; 116,20; 106,17; 106,23],     style(
+            color=9,
+            fillColor=9,
+            fillPattern=1)),
+        Text(
+          extent=[91,45; 111,25],
+          string="i",
+          style(color=9)),
+        Line(points=[-119,-5; -119,5],   style(color=9)),
+        Line(points=[-124,0; -114,0],   style(color=9)),
+        Line(points=[116,0; 126,0],   style(color=9))));
   equation 
-    inPort.signal[1] = v;
+    v = p.v - n.v;
+    0 = p.i + n.i;
+    i = p.i;
   end SignalVoltage;
   
   model ConstantVoltage "Source for constant voltage" 
@@ -86,16 +125,16 @@ Modelica in file \"Modelica/package.mo\".</i><br>
         width=0.6,
         height=0.6),
       Icon(
-        Line(points=[-90, 0; -10, 0]),
-        Line(points=[-10, 60; -10, -60]),
-        Line(points=[0, 30; 0, -30]),
-        Line(points=[0, 0; 90, 0]),
+        Line(points=[-90, 0; -10, 0], style(color=0, rgbcolor={0,0,0})),
+        Line(points=[-10, 60; -10, -60], style(color=0, rgbcolor={0,0,0})),
+        Line(points=[0, 30; 0, -30], style(color=0, rgbcolor={0,0,0})),
+        Line(points=[0, 0; 90, 0], style(color=0, rgbcolor={0,0,0})),
         Text(extent=[-100, -120; 100, -80], string="%name=%V")),
       Diagram(
-        Line(points=[-90, 0; -10, 0]),
-        Line(points=[-10, 60; -10, -60]),
-        Line(points=[0, 30; 0, -30]),
-        Line(points=[0, 0; 90, 0])));
+        Line(points=[-90, 0; -10, 0], style(color=0, rgbcolor={0,0,0})),
+        Line(points=[-10, 60; -10, -60], style(color=0, rgbcolor={0,0,0})),
+        Line(points=[0, 30; 0, -30], style(color=0, rgbcolor={0,0,0})),
+        Line(points=[0, 0; 90, 0], style(color=0, rgbcolor={0,0,0}))));
   equation 
     v = V;
   end ConstantVoltage;
@@ -103,7 +142,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
   model StepVoltage "Step voltage source" 
     parameter SI.Voltage V=1 "Height of step";
     extends Interfaces.VoltageSource(redeclare Modelica.Blocks.Sources.Step 
-        signalSource(                                                                    height={V}));
+        signalSource(height=V));
     annotation (
       Icon(Line(points=[-70, -70; 0, -70; 0, 70; 69, 70], style(color=8))),
       Diagram(
@@ -177,11 +216,11 @@ Modelica in file \"Modelica/package.mo\".</i><br>
   
   model RampVoltage "Ramp voltage source" 
     parameter SI.Voltage V=1 "Height of ramp";
-    parameter SI.Time duration(min=Modelica.Constants.small) = 2 
+    parameter SI.Time duration(min=Modelica.Constants.small)=  2 
       "Duration of ramp";
     extends Interfaces.VoltageSource(redeclare Modelica.Blocks.Sources.Ramp 
-        signalSource(                                                                    final 
-          height={V}, final duration={duration}));
+        signalSource( final height=
+                 V, final duration=duration));
     annotation (
       Diagram(
         Polygon(points=[-80, 90; -88, 68; -72, 68; -80, 90], style(color=8,
@@ -277,9 +316,9 @@ Modelica in file \"Modelica/package.mo\".</i><br>
     parameter SI.Frequency freqHz=1 "Frequency of sine wave";
     extends Interfaces.VoltageSource(redeclare Modelica.Blocks.Sources.Sine 
         signalSource(
-        amplitude={V},
-        freqHz={freqHz},
-        phase={phase}));
+        amplitude=V,
+        freqHz=freqHz,
+        phase=phase));
     annotation (
       Coordsys(
         extent=[-100, -100; 100, 100],
@@ -353,10 +392,10 @@ Modelica in file \"Modelica/package.mo\".</i><br>
     parameter SI.Damping damping=1 "Damping coefficient of sine wave";
     extends Interfaces.VoltageSource(redeclare Modelica.Blocks.Sources.ExpSine 
         signalSource(
-        amplitude={V},
-        freqHz={freqHz},
-        phase={phase},
-        damping={damping}));
+        amplitude=V,
+        freqHz=freqHz,
+        phase=phase,
+        damping=damping));
     annotation (
       Icon(Line(points=[-80, -14; -75.2, 18.3; -72, 36.3; -68.7, 50.5; -65.5,
               60.2; -62.3, 65.3; -59.1, 65.6; -55.9, 61.3; -52.7, 53.1; -48.6,
@@ -441,17 +480,17 @@ Modelica in file \"Modelica/package.mo\".</i><br>
   
   model ExponentialsVoltage " Rising and falling exponential voltage source" 
     parameter Real vMax=1 "Upper bound for rising edge";
-    parameter SI.Time riseTime(min=0) = 0.5 "Rise time";
-    parameter SI.Time riseTimeConst(min=Modelica.Constants.small) = 0.1 
+    parameter SI.Time riseTime(min=0)=  0.5 "Rise time";
+    parameter SI.Time riseTimeConst(min=Modelica.Constants.small)=  0.1 
       "Rise time constant";
-    parameter SI.Time fallTimeConst(min=Modelica.Constants.small) = riseTimeConst 
+    parameter SI.Time fallTimeConst(min=Modelica.Constants.small)=  riseTimeConst 
       "Fall time constant";
     extends Interfaces.VoltageSource(redeclare 
         Modelica.Blocks.Sources.Exponentials signalSource(
-        outMax={vMax},
-        riseTime={riseTime},
-        riseTimeConst={riseTimeConst},
-        fallTimeConst={fallTimeConst}));
+        outMax=vMax,
+        riseTime=riseTime,
+        riseTimeConst=riseTimeConst,
+        fallTimeConst=fallTimeConst));
     annotation (
       Icon(Line(points=[-76, -59; -73.2, -44.3; -70.3, -31.1; -66.8, -16.6; -
               63.3, -4; -59.7, 6.92; -55.5, 18.18; -51.3, 27.7; -46.3, 37; -
@@ -599,14 +638,14 @@ Modelica in file \"Modelica/package.mo\".</i><br>
     parameter SI.Voltage V=1 "Amplitude of pulse";
     parameter Real width(
       final min=Modelica.Constants.small,
-      final max=100) = 50 "Width of pulse in % of period";
-    parameter SI.Time period(final min=Modelica.Constants.small) = 1 
+      final max=100)=  50 "Width of pulse in % of period";
+    parameter SI.Time period(final min=Modelica.Constants.small)=  1 
       "Time for one period";
     extends Interfaces.VoltageSource(redeclare Modelica.Blocks.Sources.Pulse 
         signalSource(
-        amplitude={V},
-        width={width},
-        period={period}));
+        amplitude=V,
+        width=width,
+        period=period));
     annotation (
       Icon(Line(points=[-70, -70; -40, -70; -40, 70; 0, 70; 0, -70; 40, -70; 41,
                 70; 80, 70], style(color=8))),
@@ -716,7 +755,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
     parameter SI.Time period=1 "Time for one period";
     extends Interfaces.VoltageSource(redeclare Modelica.Blocks.Sources.SawTooth
         signalSource(
-          amplitude={V}, period={period}));
+          amplitude=V, period=period));
     annotation (
       Icon(Line(points=[-70, -71; -50, -71; 10, 70; 10, -71; 70, 70; 70, -71],
             style(color=8))),
@@ -808,21 +847,21 @@ Modelica in file \"Modelica/package.mo\".</i><br>
   
   model TrapezoidVoltage "Trapezoidal voltage source" 
     parameter SI.Voltage V=1 "Amplitude of trapezoid";
-    parameter SI.Time rising(final min=0) = 0 "Rising duration of trapezoid";
-    parameter SI.Time width(final min=0) = 0.5 "Width duration of trapezoid";
-    parameter SI.Time falling(final min=0) = 0 "Falling duration of trapezoid";
-    parameter SI.Time period(final min=Modelica.Constants.small) = 1 
+    parameter SI.Time rising(final min=0)=  0 "Rising duration of trapezoid";
+    parameter SI.Time width(final min=0)=  0.5 "Width duration of trapezoid";
+    parameter SI.Time falling(final min=0)=  0 "Falling duration of trapezoid";
+    parameter SI.Time period(final min=Modelica.Constants.small)=  1 
       "Time for one period";
     parameter Integer nperiod=-1 
       "Number of periods (< 0 means infinite number of periods)";
     extends Interfaces.VoltageSource(redeclare 
         Modelica.Blocks.Sources.Trapezoid signalSource(
-        amplitude={V},
-        rising={rising},
-        width={width},
-        falling={falling},
-        period={period},
-        nperiod={nperiod}));
+        amplitude=V,
+        rising=rising,
+        width=width,
+        falling=falling,
+        period=period,
+        nperiod=nperiod));
     annotation (
       Icon(Line(points=[-81, -70; -60, -70; -30, 70; 1, 70; 30, -70; 51, -70;
               80, 70], style(color=8))),
@@ -1035,7 +1074,6 @@ a table. The time points and voltage values are stored in a matrix
 time points and the second column contains the voltage to be interpolated.
 The table interpolation has the following proporties:
 </p>
-
 <ul>
 <li>The time points need to be <b>monotonically increasing</b>. </li>
 <li><b>Discontinuities</b> are allowed, by providing the same
@@ -1054,11 +1092,9 @@ The table interpolation has the following proporties:
     points.
 </li>
 </ul>
-
 <p>
 Example:
 </p>
-
 <pre>
    table = [0  0
             1  0
@@ -1066,20 +1102,25 @@ Example:
             2  4
             3  9
             4 16]
-
 If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
     e.g., time = 1.5, the voltage v =  2.5,
     e.g., time = 2.0, the voltage v =  4.0,
     e.g., time = 5.0, the voltage v = 23.0 (i.e. extrapolation).
 </pre>
-
 </HTML>
 "));
   end TableVoltage;
   
   model SignalCurrent 
     "Generic current source using the input signal as source current" 
-    extends Interfaces.OnePort;
+    
+    Interfaces.PositivePin p annotation (extent=[-110, -10; -90, 10]);
+    Interfaces.NegativePin n annotation (extent=[110, -10; 90, 10]);
+    SI.Voltage v "Voltage drop between the two pins (= p.v - n.v)";
+    Modelica.Blocks.Interfaces.RealInput i(
+        redeclare type SignalType = SI.Current) 
+      "Current flowing from pin p to pin n as input signal" 
+       annotation (extent=[-20, 50; 20, 90], rotation=-90);
     
     annotation (
       Coordsys(
@@ -1087,20 +1128,33 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
         grid=[1, 1],
         component=[20, 20]),
       Icon(
-        Ellipse(extent=[-50, 50; 50, -50], style(fillColor=7)),
-        Line(points=[-90, 0; -50, 0]),
-        Line(points=[50, 0; 90, 0]),
-        Line(points=[0, -50; 0, 50]),
+        Ellipse(extent=[-50, 50; 50, -50], style(
+            color=0,
+            rgbcolor={0,0,0},
+            fillColor=7,
+            rgbfillColor={255,255,255})),
+        Line(points=[-90, 0; -50, 0], style(color=0, rgbcolor={0,0,0})),
+        Line(points=[50, 0; 90, 0], style(color=0, rgbcolor={0,0,0})),
+        Line(points=[0, -50; 0, 50], style(color=0, rgbcolor={0,0,0})),
         Text(extent=[-100, -120; 100, -80], string="%name")),
       Window(
         x=0.39,
         y=0.19,
         width=0.6,
-        height=0.6));
-    Modelica.Blocks.Interfaces.InPort inPort(final n=1) annotation (extent=[-20, 51; 19, 90], rotation=
-         -90);
+        height=0.6),
+      Diagram(
+        Ellipse(extent=[-50,50; 50,-50], style(
+            color=0,
+            rgbcolor={0,0,0},
+            fillColor=7,
+            rgbfillColor={255,255,255})),
+        Line(points=[-96,0; -50,0], style(color=0, rgbcolor={0,0,0})),
+        Line(points=[50,0; 96,0], style(color=0, rgbcolor={0,0,0})),
+        Line(points=[0,-50; 0,50], style(color=0, rgbcolor={0,0,0}))));
   equation 
-    i = inPort.signal[1];
+    v = p.v - n.v;
+    0 = p.i + n.i;
+    i = p.i;
   end SignalCurrent;
   
   model ConstantCurrent "Source for constant current" 
@@ -1112,16 +1166,29 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
         grid=[1, 1],
         component=[20, 20]),
       Icon(
-        Ellipse(extent=[-50, 50; 50, -50], style(color=3, fillColor=7)),
-        Line(points=[-90, 0; -50, 0]),
-        Line(points=[50, 0; 90, 0]),
-        Line(points=[0, -50; 0, 50]),
+        Ellipse(extent=[-50, 50; 50, -50], style(
+            color=0,
+            rgbcolor={0,0,0},
+            fillColor=7,
+            rgbfillColor={255,255,255})),
+        Line(points=[-90, 0; -50, 0], style(color=0, rgbcolor={0,0,0})),
+        Line(points=[50, 0; 90, 0], style(color=0, rgbcolor={0,0,0})),
+        Line(points=[0, -50; 0, 50], style(color=0, rgbcolor={0,0,0})),
         Text(extent=[-100, -120; 100, -80], string="%name=%I")),
       Window(
         x=0.33,
         y=0.24,
         width=0.6,
-        height=0.6));
+        height=0.6),
+      Diagram(
+        Ellipse(extent=[-50,50; 50,-50], style(
+            color=0,
+            rgbcolor={0,0,0},
+            fillColor=7,
+            rgbfillColor={255,255,255})),
+        Line(points=[-96,0; -50,0], style(color=0, rgbcolor={0,0,0})),
+        Line(points=[50,0; 96,0], style(color=0, rgbcolor={0,0,0})),
+        Line(points=[0,-50; 0,50], style(color=0, rgbcolor={0,0,0}))));
   equation 
     i = I;
   end ConstantCurrent;
@@ -1129,9 +1196,9 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
   model StepCurrent "Step current source" 
     parameter SI.Current I=1 "Height of step";
     extends Interfaces.CurrentSource(redeclare Modelica.Blocks.Sources.Step 
-        signalSource(                                                                    height={I}));
+        signalSource(                                                                    height=I));
     annotation (
-      Icon(Line(points=[-80, -70; -10, -70; -10, 70; 59, 70], style(color=8))),
+      Icon(Line(points=[-86,-70; -13,-70; -14,70; 57,70],     style(color=8))),
       Diagram(
         Polygon(points=[-80, 90; -88, 68; -72, 68; -80, 90], style(color=8,
               fillColor=8)),
@@ -1203,11 +1270,11 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
   
   model RampCurrent "Ramp current source" 
     parameter SI.Current I=1 "Height of ramp";
-    parameter SI.Time duration(min=Modelica.Constants.small) = 2 
+    parameter SI.Time duration(min=Modelica.Constants.small)=  2 
       "Duration of ramp";
     extends Interfaces.CurrentSource(redeclare Modelica.Blocks.Sources.Ramp 
         signalSource(                                                                    final 
-          height={I}, final duration={duration}));
+          height=I, final duration=duration));
     annotation (
       Diagram(
         Polygon(points=[-80, 90; -88, 68; -72, 68; -80, 90], style(color=8,
@@ -1303,9 +1370,9 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
     parameter SI.Frequency freqHz=1 "Frequency of sine wave";
     extends Interfaces.CurrentSource(redeclare Modelica.Blocks.Sources.Sine 
         signalSource(
-        amplitude={I},
-        freqHz={freqHz},
-        phase={phase}));
+        amplitude=I,
+        freqHz=freqHz,
+        phase=phase));
     annotation (
       Coordsys(
         extent=[-100, -100; 100, 100],
@@ -1379,10 +1446,10 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
     parameter SI.Damping damping=1 "Damping coefficient of sine wave";
     extends Interfaces.CurrentSource(redeclare Modelica.Blocks.Sources.ExpSine 
         signalSource(
-        amplitude={I},
-        freqHz={freqHz},
-        phase={phase},
-        damping={damping}));
+        amplitude=I,
+        freqHz=freqHz,
+        phase=phase,
+        damping=damping));
     annotation (
       Icon(Line(points=[-80, -14; -75.2, 18.3; -72, 36.3; -68.7, 50.5; -65.5,
               60.2; -62.3, 65.3; -59.1, 65.6; -55.9, 61.3; -52.7, 53.1; -48.6,
@@ -1467,17 +1534,17 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
   
   model ExponentialsCurrent " Rising and falling exponential current source" 
     parameter Real iMax=1 "Upper bound for rising edge";
-    parameter SI.Time riseTime(min=0) = 0.5 "Rise time";
-    parameter SI.Time riseTimeConst(min=Modelica.Constants.small) = 0.1 
+    parameter SI.Time riseTime(min=0)=  0.5 "Rise time";
+    parameter SI.Time riseTimeConst(min=Modelica.Constants.small)=  0.1 
       "Rise time constant";
-    parameter SI.Time fallTimeConst(min=Modelica.Constants.small) = riseTimeConst 
+    parameter SI.Time fallTimeConst(min=Modelica.Constants.small)=  riseTimeConst 
       "Fall time constant";
     extends Interfaces.CurrentSource(redeclare 
         Modelica.Blocks.Sources.Exponentials signalSource(
-        outMax={iMax},
-        riseTime={riseTime},
-        riseTimeConst={riseTimeConst},
-        fallTimeConst={fallTimeConst}));
+        outMax=iMax,
+        riseTime=riseTime,
+        riseTimeConst=riseTimeConst,
+        fallTimeConst=fallTimeConst));
     annotation (
       Icon(Line(points=[-76, -59; -73.2, -44.3; -70.3, -31.1; -66.8, -16.6; -
               63.3, -4; -59.7, 6.92; -55.5, 18.18; -51.3, 27.7; -46.3, 37; -
@@ -1557,14 +1624,14 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
     parameter SI.Current I=1 "Amplitude of pulse";
     parameter Real width(
       final min=Modelica.Constants.small,
-      final max=100) = 50 "Width of pulse in % of period";
-    parameter SI.Time period(final min=Modelica.Constants.small) = 1 
+      final max=100)=  50 "Width of pulse in % of period";
+    parameter SI.Time period(final min=Modelica.Constants.small)=  1 
       "Time for one period";
     extends Interfaces.CurrentSource(redeclare Modelica.Blocks.Sources.Pulse 
         signalSource(
-        amplitude={I},
-        width={width},
-        period={period}));
+        amplitude=I,
+        width=width,
+        period=period));
     annotation (
       Icon(Line(points=[-70, -70; -40, -70; -40, 70; 0, 70; 0, -70; 40, -70; 41,
                 70; 80, 70], style(color=8))),
@@ -1674,7 +1741,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
     parameter SI.Time period=1 "Time for one period";
     extends Interfaces.CurrentSource(redeclare Modelica.Blocks.Sources.SawTooth
         signalSource(
-          amplitude={I}, period={period}));
+          amplitude=I, period=period));
     annotation (
       Icon(Line(points=[-70, -71; -50, -71; 10, 70; 10, -71; 70, 70; 70, -71],
             style(color=8))),
@@ -1766,21 +1833,21 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
   
   model TrapezoidCurrent "Trapezoidal current source" 
     parameter SI.Current I=1 "Amplitude of trapezoid";
-    parameter SI.Time rising(final min=0) = 0 "Rising duration of trapezoid";
-    parameter SI.Time width(final min=0) = 0.5 "Width duration of trapezoid";
-    parameter SI.Time falling(final min=0) = 0 "Falling duration of trapezoid";
-    parameter SI.Time period(final min=Modelica.Constants.small) = 1 
+    parameter SI.Time rising(final min=0)=  0 "Rising duration of trapezoid";
+    parameter SI.Time width(final min=0)=  0.5 "Width duration of trapezoid";
+    parameter SI.Time falling(final min=0)=  0 "Falling duration of trapezoid";
+    parameter SI.Time period(final min=Modelica.Constants.small)=  1 
       "Time for one period";
     parameter Integer nperiod=-1 
       "Number of periods (< 0 means infinite number of periods)";
     extends Interfaces.CurrentSource(redeclare 
         Modelica.Blocks.Sources.Trapezoid signalSource(
-        amplitude={I},
-        rising={rising},
-        width={width},
-        falling={falling},
-        period={period},
-        nperiod={nperiod}));
+        amplitude=I,
+        rising=rising,
+        width=width,
+        falling=falling,
+        period=period,
+        nperiod=nperiod));
     annotation (
       Icon(Line(points=[-81, -70; -60, -70; -30, 70; 1, 70; 30, -70; 51, -70;
               80, 70], style(color=8))),
@@ -1993,7 +2060,6 @@ a table. The time points and current values are stored in a matrix
 time points and the second column contains the current to be interpolated.
 The table interpolation has the following proporties:
 </p>
-
 <ul>
 <li>The time points need to be <b>monotonically increasing</b>. </li>
 <li><b>Discontinuities</b> are allowed, by providing the same
@@ -2012,11 +2078,9 @@ The table interpolation has the following proporties:
     points.
 </li>
 </ul>
-
 <p>
 Example:
 </p>
-
 <pre>
    table = [0  0
             1  0
@@ -2024,13 +2088,11 @@ Example:
             2  4
             3  9
             4 16]
-
 If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
     e.g., time = 1.5, the current i =  2.5,
     e.g., time = 2.0, the current i =  4.0,
     e.g., time = 5.0, the current i = 23.0 (i.e. extrapolation).
 </pre>
-
 </HTML>
 "));
   end TableCurrent;
