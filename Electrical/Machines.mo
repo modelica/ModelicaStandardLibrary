@@ -1,7 +1,7 @@
 package Machines "Library for electric machines" 
   extends Modelica.Icons.Library;
   annotation (
-  version="1.3.1", versionDate="2004-11-06",
+  version="1.3.2", versionDate="2004-11-10",
   Settings(NewStateSelection=true, Evaluate=true),
   Documentation(info="<HTML>
 <p>
@@ -47,7 +47,6 @@ You may have a look at a short summary of space phasor theory at <a href=\"http:
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
 </p>
-
 <p>
   <dt><b>Copyright:</b></dt>
   <dd>Copyright &copy; 1998-2004, Modelica Association and Anton Haumer.<br>
@@ -80,6 +79,8 @@ You may have a look at a short summary of space phasor theory at <a href=\"http:
        several improvements in SpacePhasors.Blocks</li>
   <li> v1.3.1 2004/11/06 Anton Haumer<br>
        small changes in Examples.Utilities.VfController</li>
+  <li> v1.3.2 2004/11/10 Anton Haumer<br>
+       ReluctanceRotor moved to SynchronousMachines</li>
   </ul>
 </HTML>"));
   
@@ -101,8 +102,15 @@ and a package utilities with components used for the examples.
   </dd>
 </p>
 <p>
-  <dt><b>Release Notes:</b></dt>
-  <dd>
+  <dt><b>Copyright:</b></dt>
+  <dd>Copyright &copy; 1998-2004, Modelica Association and Anton Haumer.<br>
+  <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
+  under the terms of the <b>Modelica license</b>, see the license conditions
+  and the accompanying <b>disclaimer</b> in the documentation of package
+  Modelica in file \"Modelica/package.mo\".</i></dd>
+</p>
+</dl>
+</HTML>", revisions="<HTML>
   <ul>
   <li> v1.00 2004/09/16 Anton Haumer</li>
   <li> v1.01 2004/09/18 Anton Haumer<br>
@@ -118,17 +126,6 @@ and a package utilities with components used for the examples.
   <li> v1.3.1 2004/11/06 Anton Haumer<br>
        small changes in Utilities.VfController</li>
   </ul>
-  </dd>
-</p>
-<p>
-  <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2004, Modelica Association and Anton Haumer.<br>
-  <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
-  under the terms of the <b>Modelica license</b>, see the license conditions
-  and the accompanying <b>disclaimer</b> in the documentation of package
-  Modelica in file \"Modelica/package.mo\".</i></dd>
-</p>
-</dl>
 </HTML>"));
     
     model AIMC_DOL 
@@ -184,8 +181,8 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
         annotation (extent=[0,0; -20,20]);
       Modelica.Mechanics.Rotational.Inertia LoadInertia(J=J_Load) 
         annotation (extent=[40,-50; 60,-30]);
-      Modelica.Mechanics.Rotational.QuadraticSpeedDependentTorque 
-        QuadraticLoadTorque1(w_nominal=Modelica.SIunits.Conversions.from_rpm(rpmLoad),
+      Modelica.Mechanics.Rotational.QuadraticSpeedDependentTorque QuadraticLoadTorque1(
+                    w_nominal=Modelica.SIunits.Conversions.from_rpm(rpmLoad),
           tau_nominal=-T_Load) 
         annotation (extent=[90,-50; 70,-30]);
     equation 
@@ -195,7 +192,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
         annotation (points=[-6.12303e-016,70; -6.12303e-016,90; -50,90],
                                                         style(color=3));
       connect(SineVoltage1.plug_p, IdealCloser1.plug_p) 
-        annotation (points=[6.12303e-016,50; 0,48; 1.22461e-015,46;
+        annotation (points=[6.12303e-016,50; 0,48; 1.22461e-015,46; 
             6.12303e-016,46; 6.12303e-016,40], style(color=3));
       connect(IdealCloser1.plug_n, Delta1.plug_p) annotation (points=[
             -6.12303e-016,20; -6.12303e-016,16; 0,16; 0,10],
@@ -212,10 +209,10 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
           fillColor=10,
           rgbfillColor={95,95,95},
           fillPattern=1));
-      connect(BooleanStep1.y, IdealCloser1.control) annotation (points=[-59,40; -20,
-            40; -20,30; -7,30],
+      connect(BooleanStep1.y, IdealCloser1.control) annotation (points=[-59,40;
+            -20,40; -20,30; -7,30],
                      style(color=5, rgbcolor={255,0,255}));
-      connect(Delta1.plug_p, CurrentRMSsensor1.plug_p) annotation (points=[0,10;
+      connect(Delta1.plug_p, CurrentRMSsensor1.plug_p) annotation (points=[0,10; 
             0,0; 6.12303e-016,0], style(color=3, rgbcolor={0,0,255}));
       connect(CurrentRMSsensor1.plug_n, AIMC1.plug_sp) annotation (points=[
             -6.12303e-016,-20; 0,-20; 0,-30; -4,-30], style(color=3, rgbcolor={
@@ -277,8 +274,8 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
         annotation (extent=[-80, 0; -60, 20]);
       Modelica.Mechanics.Rotational.Inertia LoadInertia(J=J_Load) 
         annotation (extent=[40,-50; 60,-30]);
-      Modelica.Mechanics.Rotational.QuadraticSpeedDependentTorque 
-        QuadraticLoadTorque1(w_nominal=Modelica.SIunits.Conversions.from_rpm(rpmLoad),
+      Modelica.Mechanics.Rotational.QuadraticSpeedDependentTorque QuadraticLoadTorque1(
+                    w_nominal=Modelica.SIunits.Conversions.from_rpm(rpmLoad),
           tau_nominal=-T_Load) 
         annotation (extent=[90,-50; 70,-30]);
     equation 
@@ -313,8 +310,8 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
       connect(BooleanStep1.y, IdealCloser1.control) annotation (points=[-59,40;
             -20,40; -20,30; -7,30],
                  style(color=5, rgbcolor={255,0,255}));
-      connect(BooleanStep2.y, SwitchYD1.control) annotation (points=[-59,10; -21,10],
-                     style(color=5, rgbcolor={255,0,255}));
+      connect(BooleanStep2.y, SwitchYD1.control) annotation (points=[-59,10;
+            -21,10], style(color=5, rgbcolor={255,0,255}));
       connect(SwitchYD1.pug_PS, CurrentRMSsensor1.plug_p) annotation (points=[0,
             0; 6.12303e-016,0], style(color=3, rgbcolor={0,0,255}));
       connect(AIMC1.plug_sp, CurrentRMSsensor1.plug_n) annotation (points=[-4,
@@ -389,8 +386,8 @@ Default machine parameters of model <i>AIM_SlipRing</i> are used.
         annotation (extent=[-80,-50; -60,-30]);
       Modelica.Mechanics.Rotational.Inertia LoadInertia(J=J_Load) 
         annotation (extent=[40,-50; 60,-30]);
-      Modelica.Mechanics.Rotational.QuadraticSpeedDependentTorque 
-        QuadraticLoadTorque1(w_nominal=Modelica.SIunits.Conversions.from_rpm(rpmLoad),
+      Modelica.Mechanics.Rotational.QuadraticSpeedDependentTorque QuadraticLoadTorque1(
+                    w_nominal=Modelica.SIunits.Conversions.from_rpm(rpmLoad),
           tau_nominal=-T_Load) 
         annotation (extent=[90,-50; 70,-30]);
     equation 
@@ -441,13 +438,13 @@ Default machine parameters of model <i>AIM_SlipRing</i> are used.
       connect(BooleanStep1.y, IdealCloser1.control) annotation (points=[-59,40;
             -20,40; -20,30; -7,30],
                     style(color=5, rgbcolor={255,0,255}));
+      connect(BooleanStep2.y, IdealCommutingSwitch1.control) annotation (points=[
+            -59,-40; -48,-40], style(color=5, rgbcolor={255,0,255}));
       connect(Delta1.plug_p, CurrentRMSsensor1.plug_p) annotation (points=[0,10;
             0,0; 6.12303e-016,0], style(color=3, rgbcolor={0,0,255}));
       connect(CurrentRMSsensor1.plug_n, AIMS1.plug_sp) annotation (points=[
             -6.12303e-016,-20; 0,-20; 0,-30; -4,-30], style(color=3, rgbcolor={
               0,0,255}));
-      connect(BooleanStep2.y, IdealCommutingSwitch1.control) annotation (points=[
-            -59,-40; -48,-40], style(color=5, rgbcolor={255,0,255}));
     end AIMS_start;
     
     model AIMC_Inverter 
@@ -471,7 +468,7 @@ Default machine parameters of model <i>AIM_SlipRing</i> are used.
 <p>
 <b>4th Test example: Asynchronous induction Machine with squirrel cage fed by an ideal inverter</b><br>
 An ideal frequency inverter is modeled by using a VfController and a threephase SignalVoltage.<br>
-Frequency is raised by a ramp, causing the asynchronous induction machine with squirrel cage to start,
+Frequency is raised by a ramp, causing the asynchronous induction machine with squirrel cage to start, 
 and accelerating inertias.<br>At time tStep a load step is applied.<br>
 Simulate for 1.5 seconds and plot (versus time):
 <ul>
@@ -503,8 +500,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
         annotation (extent=[-50,-40; -70,-20]);
       Modelica.Mechanics.Rotational.Inertia LoadInertia(J=J_Load) 
         annotation (extent=[40,-50; 60,-30]);
-      Modelica.Mechanics.Rotational.TorqueStep TorqueStep1(startTime=tStep,
-         stepTorque=-T_Load) 
+      Modelica.Mechanics.Rotational.TorqueStep TorqueStep1(startTime=tStep, stepTorque=-T_Load) 
                     annotation (extent=[90,-50; 70,-30]);
     equation 
       connect(SignalVoltage1.plug_n, Star1.plug_p) 
@@ -532,8 +528,8 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
               0,0,255}));
     end AIMC_Inverter;
     
-    model AIMR_Inverter 
-      "Test example 5: AsynchronousInductionMachineReluctanceRotor with inverter" 
+    model SMRD_Inverter 
+      "Test example 5: SynchronousInductionMachineReluctanceRotor with inverter" 
       extends Modelica.Icons.Example;
       constant Integer m=3 "number of phases";
       parameter Real p=2 "number of pole pairs";
@@ -552,9 +548,9 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
           doublePrecision=true),
         Documentation(info="<HTML>
 <p>
-<b>5th Test example: Asynchronous induction Machine with reluctance rotor fed by an ideal inverter</b><br>
+<b>5th Test example: Synchronous Induction Machine with Reluctance rotor fed by an ideal inverter</b><br>
 An ideal frequency inverter is modeled by using a VfController and a threephase SignalVoltage.<br>
-Frequency is raised by a ramp, causing the reluctance machine to start,
+Frequency is raised by a ramp, causing the reluctance machine to start, 
 and accelerating inertias.<br>At time tStep a load step is applied.<br>
 Simulate for 1.5 seconds and plot (versus time):
 <ul>
@@ -563,11 +559,11 @@ Simulate for 1.5 seconds and plot (versus time):
 <li>AIMR1.tau_electrical: motor's torque</li>
 <li>RotorAngle.rotorAngle: rotor angle</li>
 </ul>
-Default machine parameters of model <i>AIM_ReluctanceRotor</i> are used.
+Default machine parameters of model <i>SM_ReluctanceRotorDamperCage</i> are used.
 </p>
 </HTML>"));
-      Machines.BasicMachines.AsynchronousInductionMachines.AIM_ReluctanceRotor 
-        AIMR1 
+      Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotorDamperCage
+        SMRD1 
         annotation (extent=[-20,-50; 0,-30]);
       Machines.Sensors.CurrentRMSsensor CurrentRMSsensor1 
         annotation (extent=[10,20; -10,40], rotation=-90);
@@ -589,8 +585,7 @@ Default machine parameters of model <i>AIM_ReluctanceRotor</i> are used.
         annotation (extent=[-50,-40; -70,-20]);
       Modelica.Mechanics.Rotational.Inertia LoadInertia(J=J_Load) 
         annotation (extent=[40,-50; 60,-30]);
-      Modelica.Mechanics.Rotational.TorqueStep TorqueStep1(startTime=tStep,
-          stepTorque=-T_Load) 
+      Modelica.Mechanics.Rotational.TorqueStep TorqueStep1(startTime=tStep, stepTorque=-T_Load) 
                     annotation (extent=[90,-50; 70,-30]);
     equation 
       connect(SignalVoltage1.plug_n, Star1.plug_p) 
@@ -598,14 +593,14 @@ Default machine parameters of model <i>AIM_ReluctanceRotor</i> are used.
                                                         style(color=3));
       connect(Star1.pin_n, Ground1.p) 
         annotation (points=[-70, 90; -80, 90], style(color=3));
-      connect(Star2.plug_p, AIMR1.plug_sn) annotation (points=[-50,-30; -16,-30],
+      connect(Star2.plug_p,SMRD1. plug_sn) annotation (points=[-50,-30; -16,-30],
            style(
           color=3,
           rgbcolor={0,0,255},
           fillColor=7,
           rgbfillColor={255,255,255},
           fillPattern=1));
-      connect(AIMR1.flange_a, LoadInertia.flange_a) annotation (points=[0,-40;
+      connect(SMRD1.flange_a, LoadInertia.flange_a) annotation (points=[0,-40;
             40,-40], style(color=0, rgbcolor={0,0,0}));
       connect(Ramp1.y, VfController1.u) 
         annotation (points=[-59,60; -42,60], style(color=3, rgbcolor={0,0,255}));
@@ -613,22 +608,23 @@ Default machine parameters of model <i>AIM_ReluctanceRotor</i> are used.
         annotation (points=[-19,60; -7,60],  style(color=3, rgbcolor={0,0,255}));
       connect(LoadInertia.flange_b, TorqueStep1.flange) 
         annotation (points=[60,-40; 70,-40], style(color=0, rgbcolor={0,0,0}));
-      connect(CurrentRMSsensor1.plug_n, AIMR1.plug_sp) annotation (points=[
+      connect(CurrentRMSsensor1.plug_n,SMRD1. plug_sp) annotation (points=[
             -6.12303e-016,20; 10,20; 10,-30; -4,-30], style(color=3, rgbcolor={
               0,0,255}));
       connect(CurrentRMSsensor1.plug_p, SignalVoltage1.plug_p) annotation (
           points=[6.12303e-016,40; 6.12303e-016,42.5; 6.12303e-016,42.5;
             6.12303e-016,45; 6.12303e-016,50; 6.12303e-016,50], style(color=3,
             rgbcolor={0,0,255}));
-      connect(AIMR1.plug_sn, RotorAngle1.plug_n) annotation (points=[-16,-30;
+      connect(SMRD1.plug_sn, RotorAngle1.plug_n) annotation (points=[-16,-30;
             -16,-20], style(color=3, rgbcolor={0,0,255}));
-      connect(AIMR1.plug_sp, RotorAngle1.plug_p) annotation (points=[-4,-30; -4,
+      connect(SMRD1.plug_sp, RotorAngle1.plug_p) annotation (points=[-4,-30; -4,
             -25; -4,-20; -4,-20], style(color=3, rgbcolor={0,0,255}));
-      connect(AIMR1.flange_a, RotorAngle1.flange) 
+      connect(SMRD1.flange_a, RotorAngle1.flange) 
         annotation (points=[0,-40; 0,-10], style(color=0, rgbcolor={0,0,0}));
-    end AIMR_Inverter;
+    end SMRD_Inverter;
     
-    model PMSMD_Inverter "Test example 6: PMSMD with inverter" 
+    model PMSMD_Inverter 
+      "Test example 6: PermanentMagnetSynchronousInductionMachine with inverter" 
       extends Modelica.Icons.Example;
       constant Integer m=3 "number of phases";
       parameter Real p=2 "number of pole pairs";
@@ -647,9 +643,9 @@ Default machine parameters of model <i>AIM_ReluctanceRotor</i> are used.
           doublePrecision=true),
         Documentation(info="<HTML>
 <p>
-<b>6th Test example: Permanent magnet Synchronous induction Machine fed by an ideal inverter</b><br>
+<b>6th Test example: Permanent Magnet Synchronous Induction Machine fed by an ideal inverter</b><br>
 An ideal frequency inverter is modeled by using a VfController and a threephase SignalVoltage.<br>
-Frequency is raised by a ramp, causing the permanent magnet synchronous induction machine to start,
+Frequency is raised by a ramp, causing the permanent magnet synchronous induction machine to start, 
 and accelerating inertias.<br>At time tStep a load step is applied.<br>
 Simulate for 1.5 seconds and plot (versus time):
 <ul>
@@ -689,9 +685,8 @@ Default machine parameters of model <i>SM_PermanentMagnetDamperCage</i> are used
         annotation (extent=[-50,-40; -70,-20]);
       Modelica.Mechanics.Rotational.Inertia LoadInertia(J=J_Load) 
         annotation (extent=[40,-50; 60,-30]);
-      Modelica.Mechanics.Rotational.TorqueStep TorqueStep1(startTime=tStep,
-          stepTorque=-T_Load) 
-                    annotation (extent=[90,-50; 70,-30]);
+      Modelica.Mechanics.Rotational.TorqueStep TorqueStep1(startTime=tStep, stepTorque=-
+            T_Load) annotation (extent=[90,-50; 70,-30]);
     equation 
       connect(SignalVoltage1.plug_n, Star1.plug_p) 
         annotation (points=[-6.12303e-016,70; -6.12303e-016,90; -50,90],
@@ -722,7 +717,8 @@ Default machine parameters of model <i>SM_PermanentMagnetDamperCage</i> are used
         annotation (points=[0,-40; 40,-40], style(color=0, rgbcolor={0,0,0}));
     end PMSMD_Inverter;
     
-    model DCPM_start "Test example 8: DCPM starting with voltage ramp" 
+    model DCPM_start 
+      "Test example 8: DC with permanent magnet starting with voltage ramp" 
       extends Modelica.Icons.Example;
       parameter Modelica.SIunits.Voltage Va=100 "actual armature voltage";
       parameter Modelica.SIunits.Time tStart=0.2 "armature voltage ramp";
@@ -738,7 +734,7 @@ Default machine parameters of model <i>SM_PermanentMagnetDamperCage</i> are used
         Documentation(info="<HTML>
 <p>
 <b>8th Test example: Permanent magnet DC Machine started with an armature voltage ramp</b><br>
-A voltage ramp is applied to the armature, causing the DC machine to start,
+A voltage ramp is applied to the armature, causing the DC machine to start, 
 and accelerating inertias.<br>At time tStep a load step is applied.<br>
 Simulate for 2 seconds and plot (versus time):
 <ul>
@@ -760,9 +756,8 @@ Default machine parameters of model <i>DC_PermanentMagnet</i> are used.
         annotation (extent=[-80,30; -60,50],  rotation=-90);
       Modelica.Mechanics.Rotational.Inertia LoadInertia(J=J_Load) 
         annotation (extent=[40,-50; 60,-30]);
-      Modelica.Mechanics.Rotational.TorqueStep TorqueStep1(startTime=tStep,
-          stepTorque=-T_Load) 
-                    annotation (extent=[90,-50; 70,-30]);
+      Modelica.Mechanics.Rotational.TorqueStep TorqueStep1(startTime=tStep, stepTorque=-
+            T_Load) annotation (extent=[90,-50; 70,-30]);
     equation 
       connect(DCPM1.flange_a, LoadInertia.flange_a) annotation (points=[0,-40;
             40,-40], style(color=0, rgbcolor={0,0,0}));
@@ -779,7 +774,8 @@ Default machine parameters of model <i>DC_PermanentMagnet</i> are used.
         annotation (points=[60,-40; 70,-40], style(color=0, rgbcolor={0,0,0}));
     end DCPM_start;
     
-    model DCEE_start "Test example 9: DCEE starting with voltage ramp" 
+    model DCEE_start 
+      "Test example 9: DC with electrical ecxitation starting with voltage ramp" 
       extends Modelica.Icons.Example;
       parameter Modelica.SIunits.Voltage Va=100 "actual armature voltage";
       parameter Modelica.SIunits.Time tStart=0.2 "armature voltage ramp";
@@ -796,7 +792,7 @@ Default machine parameters of model <i>DC_PermanentMagnet</i> are used.
         Documentation(info="<HTML>
 <p>
 <b>9th Test example: Electrically separate excited DC Machine started with an armature voltage ramp</b><br>
-A voltage ramp is applied to the armature, causing the DC machine to start,
+A voltage ramp is applied to the armature, causing the DC machine to start, 
 and accelerating inertias.<br>At time tStep a load step is applied.<br>
 Simulate for 2 seconds and plot (versus time):
 <ul>
@@ -823,9 +819,8 @@ Default machine parameters of model <i>DC_ElectricalExcited</i> are used.
         annotation (extent=[-80,-80; -60,-60],rotation=0);
       Modelica.Mechanics.Rotational.Inertia LoadInertia(J=J_Load) 
         annotation (extent=[40,-50; 60,-30]);
-      Modelica.Mechanics.Rotational.TorqueStep TorqueStep1(startTime=tStep,
-          stepTorque=-T_Load) 
-                    annotation (extent=[90,-50; 70,-30]);
+      Modelica.Mechanics.Rotational.TorqueStep TorqueStep1(startTime=tStep, stepTorque=-
+            T_Load) annotation (extent=[90,-50; 70,-30]);
     equation 
       connect(DCEE1.flange_a, LoadInertia.flange_a) annotation (points=[0,-40;
             40,-40], style(color=0, rgbcolor={0,0,0}));
@@ -849,7 +844,8 @@ Default machine parameters of model <i>DC_ElectricalExcited</i> are used.
         annotation (points=[60,-40; 70,-40], style(color=0, rgbcolor={0,0,0}));
     end DCEE_start;
     
-    model DCSE_start "Test example 10: DCSE starting with voltage ramp" 
+    model DCSE_start 
+      "Test example 10: DC with serial excitation starting with voltage ramp" 
       extends Modelica.Icons.Example;
       parameter Modelica.SIunits.Voltage Va=100 "actual armature voltage";
       parameter Modelica.SIunits.Time tStart=0.2 "armature voltage ramp";
@@ -866,7 +862,7 @@ Default machine parameters of model <i>DC_ElectricalExcited</i> are used.
         Documentation(info="<HTML>
 <p>
 <b>10th Test example: Series excited DC Machine started with an armature voltage ramp</b><br>
-A voltage ramp is applied to the armature, causing the DC machine to start,
+A voltage ramp is applied to the armature, causing the DC machine to start, 
 and accelerating inertiasagainst load torque quadratic dependent on speed, finally reaching nominal speed.<br>
 Simulate for 2 seconds and plot (versus time):
 <ul>
@@ -888,8 +884,7 @@ Default machine parameters of model <i>DC_SeriesExcited</i> are used.
         annotation (extent=[-80,30; -60,50],  rotation=-90);
       Modelica.Mechanics.Rotational.Inertia LoadInertia(J=J_Load) 
         annotation (extent=[40,-50; 60,-30]);
-      Modelica.Mechanics.Rotational.QuadraticSpeedDependentTorque 
-        QuadraticLoadTorque1(
+      Modelica.Mechanics.Rotational.QuadraticSpeedDependentTorque QuadraticLoadTorque1(
         w_nominal=Modelica.SIunits.Conversions.from_rpm(rpmLoad),
         tau_nominal=-T_Load) 
         annotation (extent=[90,-50; 70,-30]);
@@ -927,19 +922,6 @@ This package contains components utility components for testing examples.
   </dd>
 </p>
 <p>
-  <dt><b>Release Notes:</b></dt>
-  <dd>
-  <ul>
-  <li> v1.00 2004/09/16 Anton Haumer</li>
-  <li> v1.1  2004/10/01 Anton Haumer<br>
-       changed naming and structure<br>
-       issued to Modelica Standard Library 2.1</li>
-  <li> v1.3.1 2004/11/06 Anton Haumer<br>
-       small changes in VfController</li>
-  </ul>
-  </dd>
-</p>
-<p>
   <dt><b>Copyright:</b></dt>
   <dd>Copyright &copy; 1998-2004, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
@@ -948,6 +930,15 @@ This package contains components utility components for testing examples.
   Modelica in file \"Modelica/package.mo\".</i></dd>
 </p>
 </dl>
+</HTML>", revisions="<HTML>
+  <ul>
+  <li> v1.00 2004/09/16 Anton Haumer</li>
+  <li> v1.1  2004/10/01 Anton Haumer<br>
+       changed naming and structure<br>
+       issued to Modelica Standard Library 2.1</li>
+  <li> v1.3.1 2004/11/06 Anton Haumer<br>
+       small changes in VfController</li>
+  </ul>
 </HTML>"));
       
       block VfController "Voltage-Frequency-Controller" 
@@ -960,8 +951,7 @@ This package contains components utility components for testing examples.
           "nominal RMS voltage per phase";
         parameter Modelica.SIunits.Frequency fNominal "nominal frequency";
         parameter Modelica.SIunits.Angle BasePhase=0 "common phase shift";
-        output Modelica.SIunits.Angle x(start=0, fixed=true) 
-          "Integrator states";
+        output Modelica.SIunits.Angle x(start=0, fixed=true) "Integrator state";
         output Modelica.SIunits.Voltage amplitude;
         annotation (
           Diagram,
@@ -1047,8 +1037,13 @@ If <i>control</i> is true, plug_PS and plug_NS are delta connected and they are 
                -55; 10, -40; 60, -40], style(color=3, rgbcolor={0,0,255}));
         connect(idealCommutingSwitch.plug_p, plug_NS) annotation (points=[-10, -60;
                -100, -60; -100, -100], style(color=3, rgbcolor={0,0,255}));
-        connect(control, idealCommutingSwitch.control) annotation (points=[-110,0;
-              0,0; 0,-52], style(color=5, rgbcolor={255,0,255}));
+        connect(control, idealCommutingSwitch.control) annotation (points=[-110,0; 0,
+              0; 0,-52],          style(
+            color=5,
+            rgbcolor={255,0,255},
+            fillColor=7,
+            rgbfillColor={255,255,255},
+            fillPattern=1));
       end SwitchYD;
     end Utilities;
   end Examples;
@@ -1084,8 +1079,15 @@ One may also fix the the shaft and let rotate the stator; parameter J_Stator is 
   </dd>
 </p>
 <p>
-  <dt><b>Release Notes:</b></dt>
-  <dd>
+  <dt><b>Copyright:</b></dt>
+  <dd>Copyright &copy; 1998-2004, Modelica Association and Anton Haumer.<br>
+  <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
+  under the terms of the <b>Modelica license</b>, see the license conditions
+  and the accompanying <b>disclaimer</b> in the documentation of package
+  Modelica in file \"Modelica/package.mo\".</i></dd>
+</p>
+</dl>
+</HTML>", revisions="<HTML>
   <ul>
   <li> v1.00 2004/09/16 Anton Haumer</li>
   <li> v1.01 2004/09/18 Anton Haumer<br>
@@ -1100,19 +1102,10 @@ One may also fix the the shaft and let rotate the stator; parameter J_Stator is 
        issued to Modelica Standard Library 2.1</li>
   <li> v1.2  2004/10/27 Anton Haumer<br>
        fixed a bug with support (formerly bearing)</li>
+  <li> v1.3.2 2004/11/10 Anton Haumer<br>
+       ReluctanceRotor moved to SynchronousMachines</li>
   </ul>
-  </dd>
-</p>
-<p>
-  <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2004, Modelica Association and Anton Haumer.<br>
-  <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
-  under the terms of the <b>Modelica license</b>, see the license conditions
-  and the accompanying <b>disclaimer</b> in the documentation of package
-  Modelica in file \"Modelica/package.mo\".</i></dd>
-</p>
-</dl>
-</HTML>"));
+<HTML>"));
     
     package AsynchronousInductionMachines 
       "Models of asynchronous induction machines" 
@@ -1123,8 +1116,6 @@ This package contains models of asynchronous induction machines, based on space 
 <ul>
 <li>AIM_SquirrelCage: asynchronous induction machine with squirrel cage</li>
 <li>AIM_SlipRing: asynchronous induction machine with wound rotor</li>
-<li>AIM_ReluctanceRotor: induction machine with reluctance rotor<br>
-i.e. a squirrel cage rotor with magnetic poles due to different airgap width</li>
 </ul>
 These models use package SpacePhasors.
 </p>
@@ -1139,8 +1130,15 @@ These models use package SpacePhasors.
   </dd>
 </p>
 <p>
-  <dt><b>Release Notes:</b></dt>
-  <dd>
+  <dt><b>Copyright:</b></dt>
+  <dd>Copyright &copy; 1998-2004, Modelica Association and Anton Haumer.<br>
+  <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
+  under the terms of the <b>Modelica license</b>, see the license conditions
+  and the accompanying <b>disclaimer</b> in the documentation of package
+  Modelica in file \"Modelica/package.mo\".</i></dd>
+</p>
+</dl>
+</HTML>", revisions="<HTML>
   <ul>
   <li> v1.02 2004/09/19 Anton Haumer</li>
   <li> v1.03 2004/09/24 Anton Haumer<br>
@@ -1150,18 +1148,9 @@ These models use package SpacePhasors.
        issued to Modelica Standard Library 2.1</li>
   <li> v1.2  2004/10/27 Anton Haumer<br>
        fixed a bug with support (formerly bearing)</li>
+  <li> v1.3.2 2004/11/10 Anton Haumer<br>
+       ReluctanceRotor moved to SynchronousMachines</li>
   </ul>
-  </dd>
-</p>
-<p>
-  <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2004, Modelica Association and Anton Haumer.<br>
-  <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
-  under the terms of the <b>Modelica license</b>, see the license conditions
-  and the accompanying <b>disclaimer</b> in the documentation of package
-  Modelica in file \"Modelica/package.mo\".</i></dd>
-</p>
-</dl>
 </HTML>"));
       
       model AIM_SquirrelCage 
@@ -1353,7 +1342,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             fNominal) "|Impedances|rotor stray inductance per phase";
         parameter Modelica.SIunits.Resistance Rr=0.04 
           "|Impedances|warm rotor resistance per phase";
-        parameter Real TurnsRatio=1 "w1*xi1 / w2*xi2";
+        parameter Real TurnsRatio=1 "(ws*xis) / (wr*xir)";
         output Modelica.SIunits.Current is[m] = plug_sp.pin.i 
           "stator instantaneous currents";
         output Modelica.SIunits.Current i_0_s( stateSelect=StateSelect.prefer) = spacePhasorS.zero.i 
@@ -1471,7 +1460,7 @@ Resistance and stray inductance of stator and rotor are modeled directly in stat
 </tr>
 <tr>
 <td>TurnsRatio</td>
-<td>1</td><td>effective ratio of stator and rotor current (w1*xi1 / w2*xi2)</td>
+<td>1</td><td>effective ratio of stator and rotor current (ws*xis) / (wr*xir)</td>
 </tr>
 <tr>
 <td>These values give the following inductances:</td>
@@ -1492,10 +1481,10 @@ Resistance and stray inductance of stator and rotor are modeled directly in stat
 </table>
 </p>
 <p>
-Parameter TurnsRatio could be obtained from the following relationship
+Parameter TurnsRatio could be obtained from the following relationship 
 at standstill with open rotor circuit at nominal voltage and nominal frequency, <br>
 using the locked-rotor voltage VR, no-load stator current I0 and powerfactor PF0:<br>
-TurnsRatio * <u>V</u><sub>R</sub> = <u>U</u><sub>s</sub> - (R<sub>s</sub> + j X<sub>s,sigma</sub>) <u>I</u><sub>0</sub>
+TurnsRatio * <u>V</u><sub>R</sub> = <u>V</u><sub>s</sub> - (R<sub>s</sub> + j X<sub>s,sigma</sub>) <u>I</u><sub>0</sub>
 </p>
 </HTML>"),   Diagram,
           Icon(Line(points=[-100,50; -100,20; -60,20], style(color=3, rgbcolor={0,
@@ -1562,197 +1551,6 @@ TurnsRatio * <u>V</u><sub>R</sub> = <u>U</u><sub>s</sub> - (R<sub>s</sub> + j X<
               -6.12303e-016; -90,-6.12303e-016; -90,-100; 20,-100], style(color=
                0, rgbcolor={0,0,0}));
       end AIM_SlipRing;
-      
-      model AIM_ReluctanceRotor 
-        "Asynchronous induction machine with reluctance rotor" 
-        extends Interfaces.PartialBasicInductionMachine(J_Rotor=0.29, J_Stator=0.29);
-        constant Modelica.SIunits.Frequency fNominal=50 "nominal frequency";
-        parameter Modelica.SIunits.Resistance Rs=0.03 
-          "|Impedances|warm stator resistance per phase";
-        parameter Modelica.SIunits.Inductance Lssigma=0.1/(2*pi*fNominal) 
-          "|Impedances|stator stray inductance per phase";
-        parameter Modelica.SIunits.Inductance Lmd=2.9/(2*pi*fNominal) 
-          "|Impedances|main inductance d-axis";
-        parameter Modelica.SIunits.Inductance Lmq=0.9/(2*pi*fNominal) 
-          "|Impedances|main inductance q-axis";
-        parameter Modelica.SIunits.Inductance Lrsigma=0.1/(2*pi*fNominal) 
-          "|Impedances|rotor stray inductance";
-        parameter Modelica.SIunits.Resistance Rr=0.04 
-          "|Impedances|warm rotor resistance";
-        output Modelica.SIunits.Current is[m] = plug_sp.pin.i 
-          "stator instantaneous currents";
-        output Modelica.SIunits.Current i_0_s( stateSelect=StateSelect.prefer) = spacePhasorS.zero.i 
-          "stator zero-sequence current";
-        output Modelica.SIunits.Current idq_ss[2] = airGapR.i_ss 
-          "stator space phasor current / stator fixed frame";
-        output Modelica.SIunits.Current idq_sr[2](each stateSelect=StateSelect.prefer) = airGapR.i_sr 
-          "stator space phasor current / rotor fixed frame";
-        output Modelica.SIunits.Current idq_rs[2] = airGapR.i_rs 
-          "rotor space phasor current / stator fixed frame";
-        output Modelica.SIunits.Current idq_rr[2](each stateSelect=StateSelect.prefer) = airGapR.i_rr 
-          "rotor space phasor current / rotor fixed frame";
-        Modelica.Electrical.MultiPhase.Basic.Resistor rs(final m=m, final R=fill(Rs, m)) 
-          annotation (extent=[60,50; 40,70]);
-        Modelica.Electrical.MultiPhase.Basic.Inductor lssigma(final m=m, final L=fill(Lssigma, m)) 
-          annotation (extent=[30,50; 10,70]);
-        Machines.SpacePhasors.Components.SpacePhasor spacePhasorS 
-          annotation (extent=[10,40; -10,20],   rotation=90);
-        Machines.BasicMachines.Components.AirGapR airGapR(
-          final p=p,
-          final Lmd=Lmd,
-          final Lmq=Lmq) annotation (extent=[-10,-10; 10,10],   rotation=-90);
-        Machines.BasicMachines.Components.SquirrelCage squirrelCageR(final 
-            Lrsigma =                                                              Lrsigma, final Rr=Rr) 
-          annotation (extent=[-10, -40; 10, -20], rotation=-90);
-        annotation (defaultComponentName="AIMR",
-          Diagram,
-          Icon(
-            Polygon(points=[-130,20; -130,28; -122,34; -114,38; -106,40; -94,40;
-                  -86,38; -76,34; -70,28; -70,20; -80,20; -80,-12; -80,-20; -70,
-                  -20; -70,-28; -76,-34; -86,-38; -94,-40; -104,-40; -114,-38;
-                  -124,-34; -130,-28; -130,-20; -120,-20; -120,-8; -120,20; -130,
-                  20], style(
-                color=0,
-                rgbcolor={0,0,0},
-                fillColor=7,
-                rgbfillColor={255,255,255},
-                fillPattern=1))),
-          Documentation(info="<HTML>
-<p>
-<b>Model of a three phase asynchronous induction machine with reluctance rotor.</b><br>
-Resistance and stray inductance of stator is modeled directly in stator phases, then using space phasor transformation. Resistance and stray inductance of rotor's squirrel cage is modeled in two axis of the rotor-fixed ccordinate system. Both together connected via a rotor-fixed <i>AirGap</i> model. Only losses in stator and rotor resistance are taken into account.
-</p>
-<p>
-<b>Default values for machine's parameters (a realistic example) are:</b><br>
-<table>
-<tr>
-<td>number of pole pairs p</td>
-<td>4</td><td> </td>
-</tr>
-<tr>
-<td>stator's moment of inertia</td>
-<td>0.29</td><td>kg.m2</td>
-</tr>
-<tr>
-<td>rotor's moment of inertia</td>
-<td>0.29</td><td>kg.m2</td>
-</tr>
-<tr>
-<td>nominal frequency fNominal</td>
-<td>50</td><td>Hz</td>
-</tr>
-<tr>
-<td>nominal voltage per phase</td>
-<td>100</td><td>V RMS</td>
-</tr>
-<tr>
-<td>nominal current per phase</td>
-<td>50</td><td>A RMS</td>
-</tr>
-<tr>
-<td>nominal torque</td>
-<td> 46</td><td>Nm</td>
-</tr>
-<tr>
-<td>nominal speed</td>
-<td>1500</td><td>rpm</td>
-</tr>
-<tr>
-<td>nominal mechanical output</td>
-<td> 7.23</td><td>kW</td>
-</tr>
-<tr>
-<td>efficiency</td>
-<td>96.98</td><td>%</td>
-</tr>
-<tr>
-<td>power factor</td>
-<td>0.497</td><td> </td>
-</tr>
-<tr>
-<td>stator resistance</td>
-<td>0.03</td><td>Ohm per phase in warm condition</td>
-</tr>
-<tr>
-<td>rotor resistance</td>
-<td>0.04</td><td>Ohm in warm condition</td>
-</tr>
-<tr>
-<td>stator reactance Xsd in d-axis</td>
-<td>3</td><td>Ohm per phase</td>
-</tr>
-<tr>
-<td>stator reactance Xsq in q-axis</td>
-<td>1</td><td>Ohm</td>
-</tr>
-<tr>
-<td>stator stray reactance Xss</td>
-<td>0.1</td><td>Ohm per phase</td>
-</tr>
-<tr>
-<td>rotor stray reactance Xrs</td>
-<td>0.1</td><td>Ohm per phase</td>
-</tr>
-<tr>
-<td>These values give the following inductances:</td>
-<td> </td><td> </td>
-</tr>
-<tr>
-<td>stator stray inductance per phase</td>
-<td>Xss/(2*pi*fNominal)</td><td> </td>
-</tr>
-<tr>
-<td>rotor stray inductance</td>
-<td>Xrs/(2*pi*fNominal)</td><td> </td>
-</tr>
-<tr>
-<td>main inductance per phase in d-axis</td>
-<td>(Xsd-Xss)/(2*pi*fNominal)</td><td> </td>
-</tr>
-<tr>
-<td>main inductance per phase in q-axis</td>
-<td>(Xsq-Xss)/(2*pi*fNominal)</td><td> </td>
-</tr>
-</table>
-</p>
-</HTML>"));
-      equation 
-        connect(rs.plug_n, lssigma.plug_p) 
-          annotation (points=[40,60; 30,60],   style(color=3));
-        connect(lssigma.plug_n, spacePhasorS.plug_p) 
-          annotation (points=[10,60; 10,40],           style(color=3));
-        connect(rs.plug_p, plug_sp)        annotation (points=[60,60; 60,100],
-            style(color=3, rgbcolor={0,0,255}));
-        connect(spacePhasorS.plug_n, plug_sn) annotation (points=[-10,40; -12,40;
-              -12,60; -60,60; -60,100], style(color=3, rgbcolor={0,0,255}));
-        connect(spacePhasorS.spacePhasor, airGapR.spacePhasor_s) annotation (
-            points=[10,20; 10,10; 10,10], style(
-            color=3,
-            rgbcolor={0,0,255},
-            fillColor=3,
-            rgbfillColor={0,0,255},
-            fillPattern=1));
-        connect(airGapR.spacePhasor_r, squirrelCageR.spacePhasor_r) annotation (
-            points=[10,-10; 10,-20], style(
-            color=3,
-            rgbcolor={0,0,255},
-            fillColor=3,
-            rgbfillColor={0,0,255},
-            fillPattern=1));
-        connect(spacePhasorS.ground, spacePhasorS.zero) annotation (points=[-10,
-              20; -10,14; -6.12303e-016,14; -6.12303e-016,20], style(
-            color=3,
-            rgbcolor={0,0,255},
-            fillColor=3,
-            rgbfillColor={0,0,255},
-            fillPattern=1));
-        connect(airGapR.flange_a, inertiaRotor.flange_a) annotation (points=[10,
-              6.12303e-016; 25,6.12303e-016; 25,-1.22461e-015; 60,-1.22461e-015],
-            style(color=0, rgbcolor={0,0,0}));
-        connect(airGapR.support, adapter.flange_b) annotation (points=[-10,
-              -6.12303e-016; -90,-6.12303e-016; -90,-100; 20,-100], style(color=
-               0, rgbcolor={0,0,0}));
-      end AIM_ReluctanceRotor;
     end AsynchronousInductionMachines;
     
     package SynchronousInductionMachines 
@@ -1763,6 +1561,8 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 This package contains models of synchronous induction machines, based on space phasor theory:
 <ul>
 <li>SM_PermanentMagnetDamperCage: synchronous induction machine with permanent magnet excitation, with damper cage</li>
+<li>SM_ReluctanceRotorDampeCage: induction machine with reluctance rotor and damper cage<br>
+i.e. a squirrel cage rotor with magnetic poles due to different airgap width</li>
 </ul>
 These models use package SpacePhasors.
 </p>
@@ -1777,8 +1577,15 @@ These models use package SpacePhasors.
   </dd>
 </p>
 <p>
-  <dt><b>Release Notes:</b></dt>
-  <dd>
+  <dt><b>Copyright:</b></dt>
+  <dd>Copyright &copy; 1998-2004, Modelica Association and Anton Haumer.<br>
+  <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
+  under the terms of the <b>Modelica license</b>, see the license conditions
+  and the accompanying <b>disclaimer</b> in the documentation of package
+  Modelica in file \"Modelica/package.mo\".</i></dd>
+</p>
+</dl>
+</HTML>", revisions="<HTML>
   <ul>
   <li> v1.02 2004/09/19 Anton Haumer</li>
   <li> v1.03 2004/09/24 Anton Haumer<br>
@@ -1788,18 +1595,9 @@ These models use package SpacePhasors.
        issued to Modelica Standard Library 2.1</li>
   <li> v1.2  2004/10/27 Anton Haumer<br>
        fixed a bug with support (formerly bearing)</li>
+  <li> v1.3.2 2004/11/10 Anton Haumer<br>
+       ReluctanceRotor moved to SynchronousMachines</li>
   </ul>
-  </dd>
-</p>
-<p>
-  <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2004, Modelica Association and Anton Haumer.<br>
-  <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
-  under the terms of the <b>Modelica license</b>, see the license conditions
-  and the accompanying <b>disclaimer</b> in the documentation of package
-  Modelica in file \"Modelica/package.mo\".</i></dd>
-</p>
-</dl>
 </HTML>"));
       
       model SM_PermanentMagnetDamperCage 
@@ -1850,7 +1648,7 @@ These models use package SpacePhasors.
         Machines.BasicMachines.Components.SquirrelCage squirrelCageD(final 
             Lrsigma =                                                              Lrsigma, final Rr=Rr) 
           annotation (extent=[-10,-40; 10,-20],   rotation=-90);
-        annotation (defaultComponentName="SMPM",
+        annotation (defaultComponentName="SMPMD",
           Diagram,
           Icon(
             Rectangle(extent=[-130,10; -100,-10],
@@ -2013,6 +1811,198 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
               -6.12303e-016; -50,0; -90,0; -90,-100; 20,-100], style(color=0,
               rgbcolor={0,0,0}));
       end SM_PermanentMagnetDamperCage;
+      
+      model SM_ReluctanceRotorDamperCage 
+        "Synchronous induction machine with reluctance rotor and damper cage" 
+        extends Interfaces.PartialBasicInductionMachine(J_Rotor=0.29, J_Stator=0.29);
+        constant Modelica.SIunits.Frequency fNominal=50 "nominal frequency";
+        parameter Modelica.SIunits.Resistance Rs=0.03 
+          "|Impedances|warm stator resistance per phase";
+        parameter Modelica.SIunits.Inductance Lssigma=0.1/(2*pi*fNominal) 
+          "|Impedances|stator stray inductance per phase";
+        parameter Modelica.SIunits.Inductance Lmd=2.9/(2*pi*fNominal) 
+          "|Impedances|main inductance d-axis";
+        parameter Modelica.SIunits.Inductance Lmq=0.9/(2*pi*fNominal) 
+          "|Impedances|main inductance q-axis";
+        parameter Modelica.SIunits.Inductance Lrsigma=0.1/(2*pi*fNominal) 
+          "|Impedances|rotor stray inductance";
+        parameter Modelica.SIunits.Resistance Rr=0.04 
+          "|Impedances|warm rotor resistance";
+        output Modelica.SIunits.Current is[m] = plug_sp.pin.i 
+          "stator instantaneous currents";
+        output Modelica.SIunits.Current i_0_s( stateSelect=StateSelect.prefer) = spacePhasorS.zero.i 
+          "stator zero-sequence current";
+        output Modelica.SIunits.Current idq_ss[2] = airGapR.i_ss 
+          "stator space phasor current / stator fixed frame";
+        output Modelica.SIunits.Current idq_sr[2](each stateSelect=StateSelect.prefer) = airGapR.i_sr 
+          "stator space phasor current / rotor fixed frame";
+        output Modelica.SIunits.Current idq_rs[2] = airGapR.i_rs 
+          "rotor space phasor current / stator fixed frame";
+        output Modelica.SIunits.Current idq_rr[2](each stateSelect=StateSelect.prefer) = airGapR.i_rr 
+          "rotor space phasor current / rotor fixed frame";
+        Modelica.Electrical.MultiPhase.Basic.Resistor rs(final m=m, final R=fill(Rs, m)) 
+          annotation (extent=[60,50; 40,70]);
+        Modelica.Electrical.MultiPhase.Basic.Inductor lssigma(final m=m, final L=fill(Lssigma, m)) 
+          annotation (extent=[30,50; 10,70]);
+        Machines.SpacePhasors.Components.SpacePhasor spacePhasorS 
+          annotation (extent=[10,40; -10,20],   rotation=90);
+        Machines.BasicMachines.Components.AirGapR airGapR(
+          final p=p,
+          final Lmd=Lmd,
+          final Lmq=Lmq) annotation (extent=[-10,-10; 10,10],   rotation=-90);
+        Machines.BasicMachines.Components.SquirrelCage squirrelCageR(final 
+            Lrsigma =                                                              Lrsigma, final Rr=Rr) 
+          annotation (extent=[-10, -40; 10, -20], rotation=-90);
+        annotation (defaultComponentName="SMRD",
+          Diagram,
+          Icon(
+            Rectangle(extent=[-130,10; -100,-10], style(
+                color=0,
+                rgbcolor={0,0,0},
+                fillColor=7,
+                rgbfillColor={255,255,255})),
+            Rectangle(extent=[-100,10; -70,-10], style(
+                color=0,
+                rgbcolor={0,0,0},
+                fillColor=7,
+                rgbfillColor={255,255,255})),
+             Ellipse(extent=[-134,34; -66,-34], style(color=3, rgbcolor={0,0,255}))),
+          Documentation(info="<HTML>
+<p>
+<b>Model of a three phase synchronous induction machine with reluctance rotor and damper cage.</b><br>
+Resistance and stray inductance of stator is modeled directly in stator phases, then using space phasor transformation. Resistance and stray inductance of rotor's squirrel cage is modeled in two axis of the rotor-fixed ccordinate system. Both together connected via a rotor-fixed <i>AirGap</i> model. Only losses in stator and rotor resistance are taken into account.
+</p>
+<p>
+<b>Default values for machine's parameters (a realistic example) are:</b><br>
+<table>
+<tr>
+<td>number of pole pairs p</td>
+<td>4</td><td> </td>
+</tr>
+<tr>
+<td>stator's moment of inertia</td>
+<td>0.29</td><td>kg.m2</td>
+</tr>
+<tr>
+<td>rotor's moment of inertia</td>
+<td>0.29</td><td>kg.m2</td>
+</tr>
+<tr>
+<td>nominal frequency fNominal</td>
+<td>50</td><td>Hz</td>
+</tr>
+<tr>
+<td>nominal voltage per phase</td>
+<td>100</td><td>V RMS</td>
+</tr>
+<tr>
+<td>nominal current per phase</td>
+<td>50</td><td>A RMS</td>
+</tr>
+<tr>
+<td>nominal torque</td>
+<td> 46</td><td>Nm</td>
+</tr>
+<tr>
+<td>nominal speed</td>
+<td>1500</td><td>rpm</td>
+</tr>
+<tr>
+<td>nominal mechanical output</td>
+<td> 7.23</td><td>kW</td>
+</tr>
+<tr>
+<td>efficiency</td>
+<td>96.98</td><td>%</td>
+</tr>
+<tr>
+<td>power factor</td>
+<td>0.497</td><td> </td>
+</tr>
+<tr>
+<td>stator resistance</td>
+<td>0.03</td><td>Ohm per phase in warm condition</td>
+</tr>
+<tr>
+<td>rotor resistance</td>
+<td>0.04</td><td>Ohm in warm condition</td>
+</tr>
+<tr>
+<td>stator reactance Xsd in d-axis</td>
+<td>3</td><td>Ohm per phase</td>
+</tr>
+<tr>
+<td>stator reactance Xsq in q-axis</td>
+<td>1</td><td>Ohm</td>
+</tr>
+<tr>
+<td>stator stray reactance Xss</td>
+<td>0.1</td><td>Ohm per phase</td>
+</tr>
+<tr>
+<td>rotor stray reactance Xrs</td>
+<td>0.1</td><td>Ohm per phase</td>
+</tr>
+<tr>
+<td>These values give the following inductances:</td>
+<td> </td><td> </td>
+</tr>
+<tr>
+<td>stator stray inductance per phase</td>
+<td>Xss/(2*pi*fNominal)</td><td> </td>
+</tr>
+<tr>
+<td>rotor stray inductance</td>
+<td>Xrs/(2*pi*fNominal)</td><td> </td>
+</tr>
+<tr>
+<td>main inductance per phase in d-axis</td>
+<td>(Xsd-Xss)/(2*pi*fNominal)</td><td> </td>
+</tr>
+<tr>
+<td>main inductance per phase in q-axis</td>
+<td>(Xsq-Xss)/(2*pi*fNominal)</td><td> </td>
+</tr>
+</table>
+</p>
+</HTML>"));
+      equation 
+        connect(rs.plug_n, lssigma.plug_p) 
+          annotation (points=[40,60; 30,60],   style(color=3));
+        connect(lssigma.plug_n, spacePhasorS.plug_p) 
+          annotation (points=[10,60; 10,40],           style(color=3));
+        connect(rs.plug_p, plug_sp)        annotation (points=[60,60; 60,100],
+            style(color=3, rgbcolor={0,0,255}));
+        connect(spacePhasorS.plug_n, plug_sn) annotation (points=[-10,40; -12,40;
+              -12,60; -60,60; -60,100], style(color=3, rgbcolor={0,0,255}));
+        connect(spacePhasorS.spacePhasor, airGapR.spacePhasor_s) annotation (
+            points=[10,20; 10,10; 10,10], style(
+            color=3,
+            rgbcolor={0,0,255},
+            fillColor=3,
+            rgbfillColor={0,0,255},
+            fillPattern=1));
+        connect(airGapR.spacePhasor_r, squirrelCageR.spacePhasor_r) annotation (
+            points=[10,-10; 10,-20], style(
+            color=3,
+            rgbcolor={0,0,255},
+            fillColor=3,
+            rgbfillColor={0,0,255},
+            fillPattern=1));
+        connect(spacePhasorS.ground, spacePhasorS.zero) annotation (points=[-10,
+              20; -10,14; -6.12303e-016,14; -6.12303e-016,20], style(
+            color=3,
+            rgbcolor={0,0,255},
+            fillColor=3,
+            rgbfillColor={0,0,255},
+            fillPattern=1));
+        connect(airGapR.flange_a, inertiaRotor.flange_a) annotation (points=[10,
+              6.12303e-016; 25,6.12303e-016; 25,-1.22461e-015; 60,-1.22461e-015],
+            style(color=0, rgbcolor={0,0,0}));
+        connect(airGapR.support, adapter.flange_b) annotation (points=[-10,
+              -6.12303e-016; -90,-6.12303e-016; -90,-100; 20,-100], style(color=
+               0, rgbcolor={0,0,0}));
+      end SM_ReluctanceRotorDamperCage;
     end SynchronousInductionMachines;
     
     package DCMachines "Models of DC machines" 
@@ -2037,8 +2027,16 @@ This package contains models of DC machines:
   </dd>
 </p>
 <p>
-  <dt><b>Release Notes:</b></dt>
-  <dd>
+  <dt><b>Copyright:</b></dt>
+  <dd>Copyright &copy; 1998-2004, Modelica Association and Anton Haumer.<br>
+  <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
+  under the terms of the <b>Modelica license</b>, see the license conditions
+  and the accompanying <b>disclaimer</b> in the documentation of package
+  Modelica in file \"Modelica/package.mo\".</i></dd>
+</p>
+</dl>
+</HTML>
+", revisions="<HTML>
   <ul>
   <li> v1.02 2004/09/19 Anton Haumer</li>
   <li> v1.03 2004/09/24 Anton Haumer<br>
@@ -2049,19 +2047,7 @@ This package contains models of DC machines:
   <li> v1.2  2004/10/27 Anton Haumer<br>
        fixed a bug with support (formerly bearing)</li>
   </ul>
-  </dd>
-</p>
-<p>
-  <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2004, Modelica Association and Anton Haumer.<br>
-  <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
-  under the terms of the <b>Modelica license</b>, see the license conditions
-  and the accompanying <b>disclaimer</b> in the documentation of package
-  Modelica in file \"Modelica/package.mo\".</i></dd>
-</p>
-</dl>
-</HTML>
-"));
+</HTML>"));
       
       model DC_PermanentMagnet "Permanent magnet DC machine" 
         extends Interfaces.PartialBasicDCMachine(J_Rotor=0.15, J_Stator=0.15);
@@ -2317,7 +2303,7 @@ Shunt or separate excitation is defined by the user's external circuit.
 <td>1</td><td>H</td>
 </tr>
 </table>
-Armature resistance resp. inductance include resistance resp. inductance of commutating pole winding and
+Armature resistance resp. inductance include resistance resp. inductance of commutating pole winding and 
 compensation windig, if present.<br>
 Armature current does not cover excitation current of a shunt excitation; in this case total current drawn from the grid = armature current + excitation current.
 </p>
@@ -2456,7 +2442,7 @@ Series excitation has to be connected by the user's external circuit.
 <td>0.0005</td><td>H</td>
 </tr>
 </table>
-Armature resistance resp. inductance include resistance resp. inductance of commutating pole winding and
+Armature resistance resp. inductance include resistance resp. inductance of commutating pole winding and 
 compensation windig, if present.<br>
 Parameter nominal armature voltage includes voltage drop of series excitation;<br>
 but for output the voltage is splitted into:<br>
@@ -2513,18 +2499,6 @@ These models use package SpacePhasors.
   </dd>
 </p>
 <p>
-  <dt><b>Release Notes:</b></dt>
-  <dd>
-  <ul>
-  <li> v1.00 2004/09/16 Anton Haumer</li>
-  <li> v1.02 2004/09/19 Anton Haumer<br>
-       added AirGapDC models</li>
-  <li> v1.2  2004/10/27 Anton Haumer<br>
-       fixed a bug with support (formerly bearing)</li>
-  </ul>
-  </dd>
-</p>
-<p>
   <dt><b>Copyright:</b></dt>
   <dd>Copyright &copy; 1998-2004, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
@@ -2533,6 +2507,14 @@ These models use package SpacePhasors.
   Modelica in file \"Modelica/package.mo\".</i></dd>
 </p>
 </dl>
+</HTML>", revisions="<HTML>
+  <ul>
+  <li> v1.00 2004/09/16 Anton Haumer</li>
+  <li> v1.02 2004/09/19 Anton Haumer<br>
+       added AirGapDC models</li>
+  <li> v1.2  2004/10/27 Anton Haumer<br>
+       fixed a bug with support (formerly bearing)</li>
+  </ul>
 </HTML>"));
       
       model AirGapS "Airgap in stator-fixed coordinate system" 
@@ -2942,16 +2924,6 @@ This package contains sensors that are usefull when modelling machines.
   </dd>
 </p>
 <p>
-  <dt><b>Release Notes:</b></dt>
-  <dd>
-  <ul>
-  <li> v1.03 2004/09/24 Anton Haumer</li>
-  <li> v1.1  2004/10/01 Anton Haumer<br>
-       changed RotorAngle</li>
-  </ul>
-  </dd>
-</p>
-<p>
   <dt><b>Copyright:</b></dt>
   <dd>Copyright &copy; 1998-2004, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
@@ -2960,6 +2932,12 @@ This package contains sensors that are usefull when modelling machines.
   Modelica in file \"Modelica/package.mo\".</i></dd>
 </p>
 </dl>
+</HTML>", revisions="<HTML>
+  <ul>
+  <li> v1.03 2004/09/24 Anton Haumer</li>
+  <li> v1.1  2004/10/01 Anton Haumer<br>
+       changed RotorAngle</li>
+  </ul>
 </HTML>"));
     
     model VoltageRMSsensor 
@@ -3380,16 +3358,6 @@ This package contains components, blocks and functions to utilize space phasor t
   </dd>
 </p>
 <p>
-  <dt><b>Release Notes:</b></dt>
-  <dd>
-  <ul>
-  <li> v1.00 2004/09/16 Anton Haumer</li>
-  <li> v1.30 2004/11/05 Anton Haumer<br>
-       several improvements in SpacePhasors.Blocks</li>
-  </ul>
-  </dd>
-</p>
-<p>
   <dt><b>Copyright:</b></dt>
   <dd>Copyright &copy; 1998-2004, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
@@ -3398,6 +3366,12 @@ This package contains components, blocks and functions to utilize space phasor t
   Modelica in file \"Modelica/package.mo\".</i></dd>
 </p>
 </dl>
+</HTML>", revisions="<HTML>
+  <ul>
+  <li> v1.00 2004/09/16 Anton Haumer</li>
+  <li> v1.30 2004/11/05 Anton Haumer<br>
+       several improvements in SpacePhasors.Blocks</li>
+  </ul>
 </HTML>"));
     
     package Components "Basic space phasor models" 
@@ -3424,14 +3398,6 @@ Zero-sequence voltage and current are present at pin zero. An additional zero-se
   </dd>
 </p>
 <p>
-  <dt><b>Release Notes:</b></dt>
-  <dd>
-  <ul>
-  <li> v1.00 2004/09/16 Anton Haumer</li>
-  </ul>
-  </dd>
-</p>
-<p>
   <dt><b>Copyright:</b></dt>
   <dd>Copyright &copy; 1998-2004, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
@@ -3440,6 +3406,10 @@ Zero-sequence voltage and current are present at pin zero. An additional zero-se
   Modelica in file \"Modelica/package.mo\".</i></dd>
 </p>
 </dl>
+</HTML>", revisions="<HTML>
+  <ul>
+  <li> v1.00 2004/09/16 Anton Haumer</li>
+  </ul>
 </HTML>"));
       
       model SpacePhasor 
@@ -3564,16 +3534,6 @@ This package contains space phasor transformation blocks for use in controllers:
   </dd>
 </p>
 <p>
-  <dt><b>Release Notes:</b></dt>
-  <dd>
-  <ul>
-  <li> v1.00 2004/09/16 Anton Haumer</li>
-  <li> v1.30 2004/11/05 Anton Haumer<br>
-       several improvements in SpacePhasors.Blocks</li>
-  </ul>
-  </dd>
-</p>
-<p>
   <dt><b>Copyright:</b></dt>
   <dd>Copyright &copy; 1998-2004, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
@@ -3582,6 +3542,12 @@ This package contains space phasor transformation blocks for use in controllers:
   Modelica in file \"Modelica/package.mo\".</i></dd>
 </p>
 </dl>
+</HTML>", revisions="<HTML>
+  <ul>
+  <li> v1.00 2004/09/16 Anton Haumer</li>
+  <li> v1.30 2004/11/05 Anton Haumer<br>
+       several improvements in SpacePhasors.Blocks</li>
+  </ul>
 </HTML>"));
       
       block ToSpacePhasor "Conversion: three phase -> space phasor" 
@@ -3809,6 +3775,10 @@ This package contains space phasor transformation functions for use in calculati
   Modelica in file \"Modelica/package.mo\".</i></dd>
 </p>
 </dl>
+</HTML>", revisions="<HTML>
+  <ul>
+  <li> v1.00 2004/09/16 Anton Haumer</li>
+  </ul>
 </HTML>"));
       
       function ToSpacePhasor "Conversion: three phase -> space phasor" 
@@ -3932,8 +3902,15 @@ This package contains the space phasor connector and partial models for machine 
   </dd>
 </p>
 <p>
-  <dt><b>Release Notes:</b></dt>
-  <dd>
+  <dt><b>Copyright:</b></dt>
+  <dd>Copyright &copy; 1998-2004, Modelica Association and Anton Haumer.<br>
+  <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
+  under the terms of the <b>Modelica license</b>, see the license conditions
+  and the accompanying <b>disclaimer</b> in the documentation of package
+  Modelica in file \"Modelica/package.mo\".</i></dd>
+</p>
+</dl>
+</HTML>", revisions="<HTML>
   <ul>
   <li> v1.00 2004/09/16 Anton Haumer</li>
   <li> v1.01 2004/09/18 Anton Haumer<br>
@@ -3943,17 +3920,6 @@ This package contains the space phasor connector and partial models for machine 
   <li> v1.2  2004/10/27 Anton Haumer<br>
        fixed a bug with support (formerly bearing)</li>
   </ul>
-  </dd>
-</p>
-<p>
-  <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2004, Modelica Association and Anton Haumer.<br>
-  <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
-  under the terms of the <b>Modelica license</b>, see the license conditions
-  and the accompanying <b>disclaimer</b> in the documentation of package
-  Modelica in file \"Modelica/package.mo\".</i></dd>
-</p>
-</dl>
 </HTML>"));
     
     connector SpacePhasor 
