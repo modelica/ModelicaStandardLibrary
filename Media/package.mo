@@ -2185,7 +2185,7 @@ equation
   //  medium.X_liquidWater = if medium.X_sat < medium.X[2] then medium.X[2] - medium.X_sat else 0.0;
 end MoistAir;
   
-  package TwoPhaseWater "extension of the StabdardWater package" 
+  package TwoPhaseWater "extension of the StandardWater package" 
     extends Modelica.Media.Water.StandardWater;
     
     model ExtendedProperties "plenty of two-phase properties" 
