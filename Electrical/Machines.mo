@@ -47,9 +47,17 @@ You may have a look at a short summary of space phasor theory at <a href=\"http:
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
 </p>
+
 <p>
-  <dt><b>Release Notes:</b></dt>
-  <dd>
+  <dt><b>Copyright:</b></dt>
+  <dd>Copyright &copy; 1998-2004, Modelica Association and Anton Haumer.<br>
+  <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
+  under the terms of the <b>Modelica license</b>, see the license conditions
+  and the accompanying <b>disclaimer</b> in the documentation of package
+  Modelica in file \"Modelica/package.mo\".</i></dd>
+</p>
+</dl>
+</HTML>", revisions="<html>
   <ul>
   <li> v1.00 2004/09/16 Anton Haumer<br>
        first stable release</li>
@@ -69,18 +77,7 @@ You may have a look at a short summary of space phasor theory at <a href=\"http:
   <li> v1.2  2004/10/27 Anton Haumer<br>
        fixed a bug with support (formerly bearing)</li>
   </ul>
-  </dd>
-</p>
-<p>
-  <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2004, Modelica Association and Anton Haumer.<br>
-  <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
-  under the terms of the <b>Modelica license</b>, see the license conditions
-  and the accompanying <b>disclaimer</b> in the documentation of package
-  Modelica in file \"Modelica/package.mo\".</i></dd>
-</p>
-</dl>
-</HTML>"));
+</html>"));
   
   package Examples "Test examples" 
     extends Modelica.Icons.Library;
@@ -981,8 +978,8 @@ This package contains components utility components for testing examples.
           Documentation(info="<HTML>
 <p>
 Simple Voltage-Frequency-Controller.<br>
-Amplitude of voltage is linear dependent (VNominal/fNominal) on Frequency (inPort), but limited by VNominal (nominal RMS voltage per phase).<br>
-m sine-waves with amplitudes as described above are provided at outPort.<br>
+Amplitude of voltage is linear dependent (VNominal/fNominal) on Frequency (input signal \"u\"), but limited by VNominal (nominal RMS voltage per phase).<br>
+m sine-waves with amplitudes as described above are provided as output signal \"y\".<br>
 The sine-waves are intended to feed a m-phase SignalVoltage.<br>
 Phase shifts between sine-waves may be choosen by the user; default values are <i>(k-1)/m*pi for k in 1:m</i>.
 </p>
@@ -1050,7 +1047,7 @@ If <i>control</i> is true, plug_PS and plug_NS are delta connected and they are 
                -55; 10, -40; 60, -40], style(color=3, rgbcolor={0,0,255}));
         connect(idealCommutingSwitch.plug_p, plug_NS) annotation (points=[-10, -60;
                -100, -60; -100, -100], style(color=3, rgbcolor={0,0,255}));
-        connect(control, idealCommutingSwitch.control) annotation (points=[-110,0; 
+        connect(control, idealCommutingSwitch.control) annotation (points=[-110,0;
               0,0; 0,-52], style(color=5, rgbcolor={255,0,255}));
       end SwitchYD;
     end Utilities;
@@ -3022,10 +3019,10 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
       connect(VoltageSensor1.v, ToSpacePhasor1.u) annotation (points=[0,39; 0,
             22; -7.34764e-016,22],
                                style(color=3, rgbcolor={0,0,255}));
-      connect(ToSpacePhasor1.y, ToPolar1.u) annotation (points=[6.73533e-016,-1;
+      connect(ToSpacePhasor1.y, ToPolar1.u) annotation (points=[6.73533e-016,-1; 
             6.73533e-016,-8.5; -7.34764e-016,-8.5; -7.34764e-016,-18], style(color=
               3, rgbcolor={0,0,255}));
-      connect(ToPolar1.y[1], Gain1.u) annotation (points=[-0.5,-41; -0.5,-49.5;
+      connect(ToPolar1.y[1], Gain1.u) annotation (points=[-0.5,-41; -0.5,-49.5; 
             -7.34764e-016,-49.5; -7.34764e-016,-58], style(color=3, rgbcolor={0,0,
               255}));
       connect(Gain1.y, V) annotation (points=[6.73533e-016,-81; 6.73533e-016,
@@ -3090,10 +3087,10 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
       connect(CurrentSensor1.i, ToSpacePhasor1.u) annotation (points=[0,39; 0,
             22; -7.34764e-016,22],
                                style(color=3, rgbcolor={0,0,255}));
-      connect(ToSpacePhasor1.y, ToPolar1.u) annotation (points=[6.73533e-016,-1;
+      connect(ToSpacePhasor1.y, ToPolar1.u) annotation (points=[6.73533e-016,-1; 
             6.73533e-016,-8.5; -7.34764e-016,-8.5; -7.34764e-016,-18], style(color=
               3, rgbcolor={0,0,255}));
-      connect(ToPolar1.y[1], Gain1.u) annotation (points=[-0.5,-41; -0.5,-49.5;
+      connect(ToPolar1.y[1], Gain1.u) annotation (points=[-0.5,-41; -0.5,-49.5; 
             -7.34764e-016,-49.5; -7.34764e-016,-58], style(color=3, rgbcolor={0,0,
               255}));
       connect(Gain1.y,I)  annotation (points=[6.73533e-016,-81; 6.73533e-016,
@@ -3212,7 +3209,7 @@ Calculates (mechanical) power from torque times angular speed.
         annotation (points=[40,0; 100,0], style(color=0, rgbcolor={0,0,0}));
       connect(SpeedSensor1.flange_a, flange_a) 
         annotation (points=[-30,0; -100,0], style(color=0, rgbcolor={0,0,0}));
-      connect(SpeedSensor1.w, Product1.u2) annotation (points=[-30,-21; -30,-40;
+      connect(SpeedSensor1.w, Product1.u2) annotation (points=[-30,-21; -30,-40; 
             -6,-40; -6,-58], style(color=3, rgbcolor={0,0,255}));
       connect(TorqueSensor1.tau, Product1.u1) annotation (points=[22,-11; 22,
             -40; 6,-40; 6,-58], style(color=3, rgbcolor={0,0,255}));
@@ -3248,7 +3245,7 @@ Calculates (mechanical) power from torque times angular speed.
       Modelica.Blocks.Math.Add add(final k2=1, final k1=p) 
         annotation (extent=[-20,10; 0,30],  rotation=-90);
       Machines.SpacePhasors.Blocks.Rotator rotatorVS2R 
-        annotation (extent=[-20,-20; 0,0],     rotation=0);
+        annotation (extent=[-20,0; 0,-20],     rotation=0);
       Machines.SpacePhasors.Blocks.ToPolar ToPolarVSR 
         annotation (extent=[20,-20; 40,0],    rotation=0);
       Modelica.Blocks.Routing.DeMultiplex2 deMultiplex2(final n1=1,
@@ -3334,7 +3331,7 @@ rotating the space phasor to the rotor-fixed coordinate system and calculating t
     equation 
       connect(constant_.y, add.u2) annotation (points=[-29,40; -16,40; -16,32],
           style(color=3, rgbcolor={0,0,255}));
-      connect(add.y, rotatorVS2R.angle) annotation (points=[-10,9; -10,0],
+      connect(add.y, rotatorVS2R.angle) annotation (points=[-10,9; -10,2],
                                                  style(color=3, rgbcolor={0,0,255}));
       connect(ToSpacePhasorVS.y, rotatorVS2R.u) annotation (points=[-39,-10;
             -22,-10],                    style(color=3, rgbcolor={0,0,255}));
@@ -3356,7 +3353,7 @@ rotating the space phasor to the rotor-fixed coordinate system and calculating t
             90,0; 110,0], style(color=3, rgbcolor={0,0,255}));
       connect(adapter.flange_a, support) 
         annotation (points=[80,100; 100,100], style(color=0, rgbcolor={0,0,0}));
-      connect(relativeAngleSensor.phi_rel, add.u1) annotation (points=[30,69;
+      connect(relativeAngleSensor.phi_rel, add.u1) annotation (points=[30,69; 
             30,40; -4,40; -4,32],
                            style(color=3, rgbcolor={0,0,255}));
       connect(relativeAngleSensor.flange_a, adapter.flange_b) annotation (
@@ -3587,7 +3584,7 @@ This package contains space phasor transformation blocks for use in controllers:
         extends Modelica.Blocks.Interfaces.MIMO(final nin=m, final nout=2);
         constant Integer m=3 "number of phases";
         Modelica.Blocks.Interfaces.RealOutput zero 
-          annotation (extent=[90, -80; 110, -100]);
+          annotation (extent=[100,-70; 120,-90]);
         annotation (
           Diagram,
           Icon(
@@ -3602,7 +3599,11 @@ This package contains space phasor transformation blocks for use in controllers:
                   -20; -23.33, -17.32; -16.67, -10; -10, 0], style(color=3)),
             Line(points=[-70, 0; -63.33, 10; -56.67, 17.32; -50, 20; -43.33,
                   17.32; -36.67, 10; -30, 0; -23.33, -10; -16.67, -17.32; -10,
-                  -20; -3.33, -17.32; 3.33, -10; 10, 0], style(color=3))),
+                  -20; -3.33, -17.32; 3.33, -10; 10, 0], style(color=3)), 
+            Text(
+              extent=[-12,-74; 64,-86], 
+              string="zero", 
+              style(color=0, rgbcolor={0,0,0}))),
           Documentation(info="<HTML>
 <p>
 Transformation of threephase values (voltages or currents) to space phasor and zero sequence value, using <i>Function TospacePhasor</i>.
@@ -3616,7 +3617,7 @@ Transformation of threephase values (voltages or currents) to space phasor and z
         extends Modelica.Blocks.Interfaces.MIMO(final nin=2, final nout=m);
         constant Integer m=3 "number of phases";
         Modelica.Blocks.Interfaces.RealInput zero 
-          annotation (extent=[-110, -80; -90, -100]);
+          annotation (extent=[-140,-60; -100,-100]);
         annotation (
           Diagram,
           Icon(
@@ -3632,7 +3633,11 @@ Transformation of threephase values (voltages or currents) to space phasor and z
                   -17.32; 63.33, -10; 70, 0], style(color=3)),
             Line(points=[10, 0; 16.67, 10; 23.33, 17.32; 30, 20; 36.67, 17.32;
                   43.33, 10; 50, 0; 56.67, -10; 63.33, -17.32; 70, -20; 76.67,
-                  -17.32; 83.33, -10; 90, 0], style(color=3))),
+                  -17.32; 83.33, -10; 90, 0], style(color=3)), 
+            Text(
+              extent=[-62,-74; 14,-86], 
+              string="zero", 
+              style(color=0, rgbcolor={0,0,0}))),
           Documentation(info="<HTML>
 <p>
 Transformation of space phasor and zero sequence value to threephase values (voltages or currents), using <i>Function FromSpacecePhasor</i>.
@@ -3646,7 +3651,7 @@ Transformation of space phasor and zero sequence value to threephase values (vol
         extends Modelica.Blocks.Interfaces.MIMOs(final n=2);
         Modelica.Blocks.Interfaces.RealInput angle(
             redeclare type SignalType = Modelica.SIunits.Angle) 
-          annotation (extent=[-10, 110; 10, 90], rotation=-270);
+          annotation (extent=[-20,-140; 20,-100],rotation=-270);
         annotation (
           Diagram,
           Icon(
@@ -3659,10 +3664,14 @@ Transformation of space phasor and zero sequence value to threephase values (vol
                 fillColor=7,
                 fillPattern=1)),
             Polygon(points=[50, 0; 42, 14; 54, 16; 50, 0], style(color=3,
-                  fillColor=3))),
+                  fillColor=3)), 
+            Text(
+              extent=[-88,-72; 84,-92], 
+              string="angle", 
+              style(color=0, rgbcolor={0,0,0}))),
           Documentation(info="<HTML>
 <p>
-Rotates a space phasor (voltage or current) by the angle provided by inPort <i>Angle</i> from one coordinate system into another, using <i>Function Rotator</i>.
+Rotates a space phasor (voltage or current) by the angle provided by the input signal \"angle\" from one coordinate system into another, using <i>Function Rotator</i>.
 </p>
 </HTML>"));
       equation 
@@ -3825,7 +3834,7 @@ were x designates three phase values, Y[Re,Im] designates the space phasor and Y
         output Real y[2];
         annotation (Documentation(info="<HTML>
 <p>
-Rotates a space phasor (voltage or current) by the angle provided by inPort <i>Angle</i> from one coordinate system into another:<br>
+Rotates a space phasor (voltage or current) by the angle provided by input argument \"angle\" from one coordinate system into another:<br>
 y[Re,Im] := {{+cos(-angle),-sin(-angle)},{+sin(-angle),+cos(-angle)}}*x[Re,Im]<br>
 where y[Re,Im] designates the space phasor in the new coordinate system (twisted by angle against old coordinate system) and y[Re,Im] designates the space phasor in the old coordinate system.
 </p>
