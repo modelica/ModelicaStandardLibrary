@@ -146,7 +146,7 @@ Partial model of torque dependent on speed that accelerates the flange.
       Documentation(info="<HTML>
 <p>
 Model of torque, linearly dependent on angular velocity of flange.<br>
-Torque acts accelerating in both directions of rotation.
+Positive torque acts accelerating in both directions of rotation.
 </p>
 </HTML>"));
   equation 
@@ -166,7 +166,7 @@ Torque acts accelerating in both directions of rotation.
       Documentation(info="<HTML>
 <p>
 Model of torque, quadratic dependent on angular velocity of flange.<br>
-Torque acts accelerating in both directions of rotation.
+Positive torque acts accelerating in both directions of rotation.
 </p>
 </HTML>"));
   equation 
@@ -182,7 +182,7 @@ Torque acts accelerating in both directions of rotation.
       Documentation(info="<HTML>
 <p>
 Model of constant torque, not dependent on angular velocity of flange.<br>
-Torque acts accelerating.
+Positive torque acts accelerating.
 </p>
 </HTML>"));
   equation 
@@ -203,10 +203,36 @@ Model of <b>fixed</b> angular verlocity of flange, not dependent on torque.
   equation 
     w = w_fixed;
   end ConstantSpeed;
+
+  model TorqueStep "Constant torque, not dependent on speed" 
+    extends PartialSpeedDependentTorque;
+    parameter Modelica.SIunits.Torque offsetTorque=0 "offset of torque";
+    parameter Modelica.SIunits.Time startTime=0 
+        "output = offset for time < startTime";
+    parameter Modelica.SIunits.Torque stepTorque=1 "height of torque step";
+      
+    annotation (
+      Diagram,
+      Icon(
+        Line(points=[-80,-60; 0,-60; 0,60; 80,60], style(color=3, rgbcolor={0,0,
+                  255})), Text(
+            extent=[0,-40; 100,-60], 
+            style(color=3, rgbcolor={0,0,255}), 
+            string="time")),
+      Documentation(info="<HTML>
+<p>
+Model of a torque step at time .<br>
+Positive torque acts accelerating.
+</p>
+</HTML>"));
+  equation 
+    tau = -offsetTorque - (if time < startTime then 0 else stepTorque);
+  end TorqueStep;
 end MoveToRotational;
   
   package Examples "Test examples" 
     extends Modelica.Icons.Library;
+    import Machines.MoveToRotational.*;
     annotation (Documentation(info="<HTML>
 <p>
 This package contains test examples of electric machines.
@@ -293,7 +319,7 @@ Default machine parameters of model <i>AsynchronousInductionMachineSquirrelCage<
         annotation (extent=[-40, -30; -20, -10], rotation=0);
       Modelica.Mechanics.Rotational.Inertia LoadInertia(J=J_Load) 
         annotation (extent=[20,-30; 40,-10]);
-      MoveToRotational.QuadraticSpeedDependentTorque QuadraticLoadTorque1(
+      QuadraticSpeedDependentTorque QuadraticLoadTorque1(
                     w_nominal=Modelica.SIunits.Conversions.from_rpm(rpmLoad),
           tau_nominal=-T_Load) 
         annotation (extent=[50,-30; 70,-10]);
@@ -309,7 +335,7 @@ Default machine parameters of model <i>AsynchronousInductionMachineSquirrelCage<
       connect(AIMC1.flange_a, LoadInertia.flange_a)  annotation (points=[-20,-20; 20,
             -20],    style(color=0, rgbcolor={0,0,0}));
       connect(LoadInertia.flange_b, QuadraticLoadTorque1.flange) 
-        annotation (points=[40,-20; 49,-20], style(color=0, rgbcolor={0,0,0}));
+        annotation (points=[40,-20; 50,-20], style(color=0, rgbcolor={0,0,0}));
       connect(AIMC1.plug_sn, Delta1.plug_n)  annotation (points=[-36,-10; -40,-10; -40,
             0], style(
           color=3,
@@ -378,7 +404,7 @@ Default machine parameters of model <i>AsynchronousInductionMachineSquirrelCage<
         annotation (extent=[-80, 0; -60, 20]);
       Modelica.Mechanics.Rotational.Inertia LoadInertia(J=J_Load) 
         annotation (extent=[20,-30; 40,-10]);
-      MoveToRotational.QuadraticSpeedDependentTorque QuadraticLoadTorque1(
+      QuadraticSpeedDependentTorque QuadraticLoadTorque1(
                     w_nominal=Modelica.SIunits.Conversions.from_rpm(rpmLoad),
           tau_nominal=-T_Load) 
         annotation (extent=[50,-30; 70,-10]);
@@ -415,7 +441,7 @@ Default machine parameters of model <i>AsynchronousInductionMachineSquirrelCage<
       connect(AIMC1.flange_a, LoadInertia.flange_a)  annotation (points=[-20,-20;
             20,-20], style(color=0, rgbcolor={0,0,0}));
       connect(LoadInertia.flange_b, QuadraticLoadTorque1.flange) 
-        annotation (points=[40,-20; 49,-20], style(color=0, rgbcolor={0,0,0}));
+        annotation (points=[40,-20; 50,-20], style(color=0, rgbcolor={0,0,0}));
       connect(BooleanStep1.y, IdealCloser1.control) annotation (points=[-59,40; -27,
             40], style(color=5, rgbcolor={255,0,255}));
       connect(BooleanStep2.y, SwitchYD1.control) annotation (points=[-59,10;
@@ -485,7 +511,7 @@ Default machine parameters of model <i>AsynchronousInductionMachineSlipRing</i> 
         annotation (extent=[-100,-30; -80,-10]);
       Modelica.Mechanics.Rotational.Inertia LoadInertia(J=J_Load) 
         annotation (extent=[40,-30; 60,-10]);
-      MoveToRotational.QuadraticSpeedDependentTorque QuadraticLoadTorque1(
+      QuadraticSpeedDependentTorque QuadraticLoadTorque1(
                     w_nominal=Modelica.SIunits.Conversions.from_rpm(rpmLoad),
           tau_nominal=-T_Load) 
         annotation (extent=[70,-30; 90,-10]);
@@ -496,7 +522,7 @@ Default machine parameters of model <i>AsynchronousInductionMachineSlipRing</i> 
         annotation (points=[-6.12303e-016,80; -6.12303e-016,90; -50,90],
                                                         style(color=3));
       connect(SineVoltage1.plug_p, IdealCloser1.plug_p) 
-        annotation (points=[6.12303e-016,60; 0,58; 1.22461e-015,56;
+        annotation (points=[6.12303e-016,60; 0,58; 1.22461e-015,56; 
             6.12303e-016,56; 6.12303e-016,50], style(color=3));
       connect(Star3.pin_n, Ground3.p) 
         annotation (points=[-70,-70; -80,-70],   style(color=3));
@@ -530,7 +556,7 @@ Default machine parameters of model <i>AsynchronousInductionMachineSlipRing</i> 
             -40,-30; -28,-30; -28,-26; -20,-26],
                                             style(color=3, rgbcolor={0,0,255}));
       connect(LoadInertia.flange_b, QuadraticLoadTorque1.flange) 
-        annotation (points=[60,-20; 69,-20], style(color=0, rgbcolor={0,0,0}));
+        annotation (points=[60,-20; 70,-20], style(color=0, rgbcolor={0,0,0}));
       connect(AIMS1.flange_a, LoadInertia.flange_a)  annotation (points=[0,-20;
             40,-20],
                   style(color=0, rgbcolor={0,0,0}));
@@ -590,12 +616,10 @@ Default machine parameters of model <i>AsynchronousInductionMachineSquirrelCage<
         annotation (extent=[-40, -30; -20, -10], rotation=0);
       MultiPhase.Basic.Star Star2(final m=m) 
         annotation (extent=[-50, -20; -70, 0]);
-      Modelica.Blocks.Sources.Step Step1(height=-T_Load, startTime=tStep) 
-        annotation (extent=[50,0; 70,20]);
       Modelica.Mechanics.Rotational.Inertia LoadInertia(J=J_Load) 
         annotation (extent=[20,-30; 40,-10]);
-      Modelica.Mechanics.Rotational.Torque Torque1 
-        annotation (extent=[70,-30; 50,-10]);
+      MoveToRotational.TorqueStep TorqueStep1(startTime=tStep, stepTorque=-
+            T_Load) annotation (extent=[50,-30; 70,-10]);
     equation 
       connect(SignalVoltage1.plug_n, Star1.plug_p) 
         annotation (points=[-20, 70; -20, 90; -50, 90], style(color=3));
@@ -610,14 +634,12 @@ Default machine parameters of model <i>AsynchronousInductionMachineSquirrelCage<
       connect(AIMC1.flange_a, LoadInertia.flange_a)  annotation (points=[-20,
             -20; 20,-20],
                      style(color=0, rgbcolor={0,0,0}));
-      connect(LoadInertia.flange_b, Torque1.flange_b) 
-        annotation (points=[40,-20; 50,-20], style(color=0, rgbcolor={0,0,0}));
       connect(Ramp1.y, VfController1.u) annotation (points=[-79,60; -62,60], style(
             color=3, rgbcolor={0,0,255}));
       connect(VfController1.y, SignalVoltage1.v) annotation (points=[-39,60;
             -27,60], style(color=3, rgbcolor={0,0,255}));
-      connect(Step1.y, Torque1.tau) annotation (points=[71,10; 80,10; 80,-20;
-            72,-20], style(color=3, rgbcolor={0,0,255}));
+      connect(TorqueStep1.flange, LoadInertia.flange_b)
+        annotation (points=[50,-20; 40,-20], style(color=0, rgbcolor={0,0,0}));
     end AIMC_Inverter;
     
     model AIMR_Inverter 
@@ -675,12 +697,10 @@ Default machine parameters of model <i>AsynchronousInductionMachineReluctanceRot
         annotation (extent=[-20,20; -40,0]);
       Modelica.Mechanics.Rotational.Sensors.AngleSensor AngleSensor1 
         annotation (extent=[10, -20; -10, 0], rotation=90);
-      Modelica.Blocks.Sources.Step Step1(height=-T_Load, startTime=tStep) 
-        annotation (extent=[50,0; 70,20]);
       Modelica.Mechanics.Rotational.Inertia LoadInertia(J=J_Load) 
         annotation (extent=[20,-30; 40,-10]);
-      Modelica.Mechanics.Rotational.Torque Torque1 
-        annotation (extent=[70,-30; 50,-10]);
+      MoveToRotational.TorqueStep TorqueStep1(startTime=tStep, stepTorque=-
+            T_Load) annotation (extent=[50,-30; 70,-10]);
     equation 
       connect(SignalVoltage1.plug_n, Star1.plug_p) 
         annotation (points=[-20, 70; -20, 90; -50, 90], style(color=3));
@@ -724,22 +744,19 @@ Default machine parameters of model <i>AsynchronousInductionMachineReluctanceRot
           fillColor=7,
           rgbfillColor={255,255,255},
           fillPattern=1));
-      connect(LoadInertia.flange_b,Torque1. flange_b) 
-        annotation (points=[40,-20; 50,-20], style(color=0, rgbcolor={0,0,0}));
       connect(AIMR1.flange_a, LoadInertia.flange_a) annotation (points=[-20,-20;
             20,-20], style(color=0, rgbcolor={0,0,0}));
       connect(Ramp1.y, VfController1.u) 
         annotation (points=[-79,60; -62,60], style(color=3, rgbcolor={0,0,255}));
       connect(VfController1.y, SignalVoltage1.v) 
         annotation (points=[-39,60; -27,60], style(color=3, rgbcolor={0,0,255}));
-      connect(Step1.y, Torque1.tau) annotation (points=[71,10; 80,10; 80,-20;
-            72,-20],
-                  style(color=3, rgbcolor={0,0,255}));
       connect(VoltageSensor1.v, RotorAngle1.u) annotation (points=[-30,21; -30,30;
             -12,30], style(color=3, rgbcolor={0,0,255}));
       connect(AngleSensor1.phi, RotorAngle1.angle) annotation (points=[
             -6.73533e-016,1; -6.73533e-016,9.5; 0,9.5; 0,20], style(color=3,
             rgbcolor={0,0,255}));
+      connect(LoadInertia.flange_b, TorqueStep1.flange)
+        annotation (points=[40,-20; 50,-20], style(color=0, rgbcolor={0,0,0}));
     end AIMR_Inverter;
     
     model PMSMD_Inverter "Test example 6: PSMD with inverter" 
@@ -801,12 +818,10 @@ Default machine parameters of model <i>PermanentMagnetSynchronousMachineDamperCa
         annotation (extent=[-20,20; -40,0]);
       Modelica.Mechanics.Rotational.Sensors.AngleSensor AngleSensor1 
         annotation (extent=[10, -20; -10, 0], rotation=90);
-      Modelica.Blocks.Sources.Step Step1(height=-T_Load, startTime=tStep) 
-        annotation (extent=[50,0; 70,20]);
       Modelica.Mechanics.Rotational.Inertia LoadInertia(J=J_Load) 
         annotation (extent=[20,-30; 40,-10]);
-      Modelica.Mechanics.Rotational.Torque Torque1 
-        annotation (extent=[70,-30; 50,-10]);
+      MoveToRotational.TorqueStep TorqueStep1(startTime=tStep, stepTorque=-
+            T_Load) annotation (extent=[50,-30; 70,-10]);
     equation 
       connect(SignalVoltage1.plug_n, Star1.plug_p) 
         annotation (points=[-20,70; -20,90; -50,90],    style(color=3));
@@ -840,8 +855,6 @@ Default machine parameters of model <i>PermanentMagnetSynchronousMachineDamperCa
           fillColor=7,
           rgbfillColor={255,255,255},
           fillPattern=1));
-      connect(LoadInertia.flange_b,Torque1. flange_b) 
-        annotation (points=[40,-20; 50,-20], style(color=0, rgbcolor={0,0,0}));
       connect(PMSMD1.flange_a, LoadInertia.flange_a) annotation (points=[-20,-20;
             20,-20], style(color=0, rgbcolor={0,0,0}));
       connect(Ramp1.y, VfController1.u) 
@@ -853,9 +866,8 @@ Default machine parameters of model <i>PermanentMagnetSynchronousMachineDamperCa
       connect(AngleSensor1.phi, RotorAngle1.angle) annotation (points=[
             -6.73533e-016,1; -6.73533e-016,9.5; 0,9.5; 0,20], style(color=3,
             rgbcolor={0,0,255}));
-      connect(Step1.y, Torque1.tau) annotation (points=[71,10; 80,10; 80,-20;
-            72,-20],
-                  style(color=3, rgbcolor={0,0,255}));
+      connect(LoadInertia.flange_b, TorqueStep1.flange)
+        annotation (points=[40,-20; 50,-20], style(color=0, rgbcolor={0,0,0}));
     end PMSMD_Inverter;
     
     model DCPM_start "Test example 7: DCPM starting with voltage ramp" 
@@ -882,23 +894,17 @@ Default machine parameters of model <i>DCMachinePermanentMagnet</i> are used.
       Modelica.Blocks.Sources.Ramp Ramp1(duration=tRamp, height=Va,
         startTime=tStart) 
         annotation (extent=[-80,60; -60,80]);
-      Modelica.Blocks.Sources.Step Step1(height=-T_Load, startTime=tStep) 
-        annotation (extent=[50,0; 70,20]);
       Modelica.Mechanics.Rotational.Inertia LoadInertia(J=J_Load) 
         annotation (extent=[20,-30; 40,-10]);
-      Modelica.Mechanics.Rotational.Torque Torque1 
-        annotation (extent=[70,-30; 50,-10]);
       Machines.Basic.DCMachines.DCMachinePermanentMagnet DCPM1 
         annotation (extent=[-40,-30; -20,-10]);
       Modelica.Electrical.Analog.Sources.SignalVoltage SignalVoltage1 
         annotation (extent=[-20,30; -40,50], rotation=0);
       Modelica.Electrical.Analog.Basic.Ground Ground1 
         annotation (extent=[-80,30; -60,50],  rotation=-90);
+      MoveToRotational.TorqueStep TorqueStep1(startTime=tStep, stepTorque=-
+            T_Load) annotation (extent=[50,-30; 70,-10]);
     equation 
-      connect(LoadInertia.flange_b,Torque1. flange_b) 
-        annotation (points=[40,-20; 50,-20], style(color=0, rgbcolor={0,0,0}));
-      connect(Step1.y, Torque1.tau) annotation (points=[71,10; 80,10; 80,-20;
-            72,-20], style(color=3, rgbcolor={0,0,255}));
       connect(DCPM1.flange_a, LoadInertia.flange_a) annotation (points=[-20,-20;
             20,-20], style(color=0, rgbcolor={0,0,0}));
       connect(Ramp1.y, SignalVoltage1.v) annotation (points=[-59,70; -30,70;
@@ -909,6 +915,8 @@ Default machine parameters of model <i>DCMachinePermanentMagnet</i> are used.
                      style(color=3, rgbcolor={0,0,255}));
       connect(DCPM1.pin_an, SignalVoltage1.n) annotation (points=[-36,-10; -36,
             0; -40,0; -40,40], style(color=3, rgbcolor={0,0,255}));
+      connect(LoadInertia.flange_b, TorqueStep1.flange)
+        annotation (points=[40,-20; 50,-20], style(color=0, rgbcolor={0,0,0}));
     end DCPM_start;
     
     model DCEE_start "Test example 8: DCEE starting with voltage ramp" 
@@ -936,12 +944,8 @@ Default machine parameters of model <i>DCMachineElectricalExcited</i> are used.
       Modelica.Blocks.Sources.Ramp Ramp1(duration=tRamp, height=Va,
         startTime=tStart) 
         annotation (extent=[-80,60; -60,80]);
-      Modelica.Blocks.Sources.Step Step1(height=-T_Load, startTime=tStep) 
-        annotation (extent=[50,0; 70,20]);
       Modelica.Mechanics.Rotational.Inertia LoadInertia(J=J_Load) 
         annotation (extent=[20,-30; 40,-10]);
-      Modelica.Mechanics.Rotational.Torque Torque1 
-        annotation (extent=[70,-30; 50,-10]);
       Machines.Basic.DCMachines.DCMachineElectricalExcited DCEE1 
         annotation (extent=[-40,-30; -20,-10]);
       Modelica.Electrical.Analog.Sources.SignalVoltage SignalVoltage1 
@@ -952,11 +956,9 @@ Default machine parameters of model <i>DCMachineElectricalExcited</i> are used.
         annotation (extent=[-90,-60; -70,-40],rotation=0);
       Modelica.Electrical.Analog.Sources.ConstantVoltage ConstantVoltage1(V=Ve) 
         annotation (extent=[-90,-30; -70,-10], rotation=270);
+      MoveToRotational.TorqueStep TorqueStep1(startTime=tStep, stepTorque=-
+            T_Load) annotation (extent=[50,-30; 70,-10]);
     equation 
-      connect(LoadInertia.flange_b,Torque1. flange_b) 
-        annotation (points=[40,-20; 50,-20], style(color=0, rgbcolor={0,0,0}));
-      connect(Step1.y, Torque1.tau) annotation (points=[71,10; 80,10; 80,-20;
-            72,-20], style(color=3, rgbcolor={0,0,255}));
       connect(DCEE1.flange_a, LoadInertia.flange_a) annotation (points=[-20,-20;
             20,-20], style(color=0, rgbcolor={0,0,0}));
       connect(Ramp1.y, SignalVoltage1.v) annotation (points=[-59,70; -30,70;
@@ -973,6 +975,8 @@ Default machine parameters of model <i>DCMachineElectricalExcited</i> are used.
             -50,-14; -50,-10; -80,-10], style(color=3, rgbcolor={0,0,255}));
       connect(DCEE1.pin_en, ConstantVoltage1.n) annotation (points=[-40,-26; -50,
             -26; -50,-30; -80,-30], style(color=3, rgbcolor={0,0,255}));
+      connect(LoadInertia.flange_b, TorqueStep1.flange)
+        annotation (points=[40,-20; 50,-20], style(color=0, rgbcolor={0,0,0}));
     end DCEE_start;
   end Examples;
   
