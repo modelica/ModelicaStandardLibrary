@@ -6315,7 +6315,8 @@ Ordinary Water Substance<br>
       aux.cp := -aux.R*g.tau*g.tau*g.gtautau;
       aux.cv := aux.R*(-g.tau*g.tau*g.gtautau + ((g.gpi - g.tau*g.gtaupi)*(g.gpi - g.tau*g.gtaupi)/g.gpipi));
     else
-      assert(false, "error in region computation of IF97 steam tables");
+      assert(false, "error in region computation of IF97 steam tables",
+	     + "(p = " + String(p) + ", h = " + String(h) + ")");
     end if;
   end waterBaseProp_ph;
   
@@ -6782,7 +6783,8 @@ Ordinary Water Substance<br>
       aux.cp := -aux.R*g.tau*g.tau*g.gtautau;
       aux.cv := aux.R*(-g.tau*g.tau*g.gtautau + ((g.gpi - g.tau*g.gtaupi)*(g.gpi - g.tau*g.gtaupi)/g.gpipi));
     else
-      assert(false, "error in region computation of IF97 steam tables");
+      assert(false, "error in region computation of IF97 steam tables",
+	      + "(p = " + String(p) + ", T = " + String(T) + ")");
     end if;
   end waterBaseProp_pT;
   
@@ -7192,7 +7194,8 @@ Ordinary Water Substance<br>
       aux.cp := -aux.R*g.tau*g.tau*g.gtautau;
       aux.cv := aux.R*(-g.tau*g.tau*g.gtautau + ((g.gpi - g.tau*g.gtaupi)*(g.gpi - g.tau*g.gtaupi)/g.gpipi));
     else
-      assert(false, "error in region computation of IF97 steam tables");
+      assert(false, "error in region computation of IF97 steam tables",
+	      + "(d = " + String(d) + ", T = " + String(T) + ")");
     end if;
   end waterBaseProp_dT;
   
