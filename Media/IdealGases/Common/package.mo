@@ -495,9 +495,9 @@ transform the formula to SI units:
   redeclare replaceable function extends dynamicViscosity "dynamic viscosity" 
   algorithm 
     assert(fluidConstants[1].hasCriticalData,
-	   "Failed to compute dynamicViscosity: For the species " + mediumName + "no critical data is available.");
+    "Failed to compute dynamicViscosity: For the species " + mediumName + "no critical data is available.");
     assert(fluidConstants[1].hasDipoleMoment,
-	   "Failed to compute dynamicViscosity: For the species " + mediumName + "no critical data is available.");
+    "Failed to compute dynamicViscosity: For the species " + mediumName + "no critical data is available.");
     eta := dynamicViscosityLowPressure(state.T,
                        fluidConstants[1].criticalTemperature,
                        fluidConstants[1].molarMass,
@@ -542,10 +542,10 @@ transform the formula to SI units:
   redeclare replaceable function extends thermalConductivity 
     "thermal conductivity of gas" 
     input Integer method=1 "1: Eucken Method, 2: Modified Eucken Method";
-  algorithm
-    assert(fluidConstants[1].hasCrititcalData,
-	   "Failed to compute thermalConductivity: For the species " + mediumName + "no critical data is available.");
-    lambda := ThermalConductivityEstimate(heatCapacity_cp(state),
+  algorithm 
+    assert(fluidConstants[1].hasCriticalData,
+    "Failed to compute thermalConductivity: For the species " + mediumName + "no critical data is available.");
+    lambda := thermalConductivityEstimate(heatCapacity_cp(state),
       dynamicViscosity(state), method=method);
   end thermalConductivity;
   

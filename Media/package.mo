@@ -2354,7 +2354,7 @@ is given to compare the approximation.
       medium.X = {0.2,0.8};
       der(medium2.p) = 1.0e3;
       der(medium2.T) = 0.0;
-      der(medium2.X[1]) = {0.0,0.0};
+      der(medium2.X) = {0.0,0.0};
     //  s2 = s;
     end MixIdealGasAir;
     
@@ -3157,12 +3157,6 @@ The details of the pipe friction model are described
                   final enthalpyOfT =                                                              true));
         end Glycol47;
         
-        model Glycol47_old 
-          "Test Modelica.Media.Incompressible.Examples.Glycol47_old" 
-          extends Modelica.Media.Examples.Tests.Components.PartialTestModel(
-             redeclare package Medium = 
-                Modelica.Media.Incompressible.Examples.Glycol47_old);
-        end Glycol47_old;
         
         model Essotherm650 
           "Test Modelica.Media.Incompressible.Examples.Essotherm65" 
