@@ -40,11 +40,11 @@
     license conditions and the accompanying disclaimer in file
     _ModelicaLicense.txt or in Modelica.UsersGuide.ModelicaLicense. 
 
-
-Needs to be fixed:
-- Files.temporaryFileName not yet implemented
-
 */
+
+#if defined(linux)
+#define _POSIX_ 1
+#endif
 
 #include <string.h>
 #include "ModelicaUtilities.h"
@@ -108,7 +108,7 @@ static void ModelicaNotExistError(const char* name) {
       /* include the opendir/readdir/closedir implementation for _WIN32 */
 #     include "win32_dirent.c"
 #  elif defined(_POSIX_)
-#     include <direct.h>
+#     include <dirent.h>
 #     include <unistd.h>
 #     include <sys/types.h>
 #     include <sys/stat.h>
