@@ -1,7 +1,7 @@
 package Machines "Library for electric machines" 
   extends Modelica.Icons.Library;
   annotation (
-  version="1.31", versionDate="2004-11-06",
+  version="1.3.1", versionDate="2004-11-06",
   Settings(NewStateSelection=true, Evaluate=true),
   Documentation(info="<HTML>
 <p>
@@ -78,7 +78,7 @@ You may have a look at a short summary of space phasor theory at <a href=\"http:
        fixed a bug with support (formerly bearing)</li>
   <li> v1.3  2004/11/05 Anton Haumer<br>
        several improvements in SpacePhasors.Blocks</li>
-  <li> v1.31 2004/11/06 Anton Haumer<br>
+  <li> v1.3.1 2004/11/06 Anton Haumer<br>
        small changes in Examples.Utilities.VfController</li>
   </ul>
 </HTML>"));
@@ -115,7 +115,7 @@ and a package utilities with components used for the examples.
   <li> v1.1  2004/10/01 Anton Haumer<br>
        changed naming and structure<br>
        issued to Modelica Standard Library 2.1</li>
-  <li> v1.31 2004/11/06 Anton Haumer<br>
+  <li> v1.3.1 2004/11/06 Anton Haumer<br>
        small changes in Utilities.VfController</li>
   </ul>
   </dd>
@@ -934,7 +934,7 @@ This package contains components utility components for testing examples.
   <li> v1.1  2004/10/01 Anton Haumer<br>
        changed naming and structure<br>
        issued to Modelica Standard Library 2.1</li>
-  <li> v1.31 2004/11/06 Anton Haumer<br>
+  <li> v1.3.1 2004/11/06 Anton Haumer<br>
        small changes in VfController</li>
   </ul>
   </dd>
