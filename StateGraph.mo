@@ -709,7 +709,7 @@ The StateGraph library is based on the following references:
 <p><b>Acknowledgements:</b></p>
 <ul>
 <li> The development of this library was strongly motivated by the
-     master thesis of Isolode Dressler
+     master thesis of Isolde Dressler
      (<a href=\"Modelica://Modelica.StateGraph.UsersGuide.Literature\">see literature</a>),
      in which
      a compiler from JGrafChart to Modelica was designed and
@@ -1449,7 +1449,7 @@ buttons:
     end MakeProduct;
       
     connector inflow 
-        "Inflow connector (this is a copy from Isolde Dresslers master thesis project)" 
+        "Inflow connector (this is a copy from Isolde Dressler's master thesis project)" 
         
         import Units = Modelica.SIunits;
         
@@ -1463,7 +1463,7 @@ buttons:
     end inflow;
       
     connector outflow 
-        "Outflow connector (this is a copy from Isolde Dresslers master thesis project)" 
+        "Outflow connector (this is a copy from Isolde Dressler's master thesis project)" 
         
         import Units = Modelica.SIunits;
         
@@ -1478,7 +1478,7 @@ buttons:
     end outflow;
       
     model valve 
-        "Simple valve model (this is a copy from Isolde Dresslers master thesis project)" 
+        "Simple valve model (this is a copy from Isolde Dressler's master thesis project)" 
         
       annotation (
         Diagram(Line(points=[0, -60; 0, 0], style(color=5))),
@@ -1509,7 +1509,7 @@ buttons:
     end valve;
       
     model Tank 
-        "Simple tank model (this is a copy from Isolde Dresslers master thesis project)" 
+        "Simple tank model (this is a copy from Isolde Dressler's master thesis project)" 
         
       Modelica.Blocks.Interfaces.RealOutput levelSensor 
         annotation (extent=[-61, -30; -81, -10]);
@@ -1553,7 +1553,7 @@ buttons:
     end Tank;
       
     model Source 
-        "Simple source model (this is a copy from Isolde Dresslers master thesis project)" 
+        "Simple source model (this is a copy from Isolde Dressler's master thesis project)" 
         
       outflow outflow1 annotation (extent=[-10, -60; 10, -40]);
       parameter Real maxflow=1 "maximal flow out of source";
