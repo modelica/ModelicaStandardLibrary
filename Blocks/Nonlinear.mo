@@ -47,7 +47,7 @@ In particular the following blocks are provided:
 "));
       block Limiter "Limit the range of a signal" 
         parameter Real uMax=1 "Upper limits of input signals";
-        parameter Real uMin(max=uMax)=  -uMax "Lower limits of input signals";
+        parameter Real uMin(max=uMax) = -uMax "Lower limits of input signals";
         extends Interfaces.SISO;
     
         annotation (
@@ -181,7 +181,7 @@ is passed as output.
   
       block DeadZone "Provide a region of zero output" 
         parameter Real uMax=1 "Upper limits of dead zones";
-        parameter Real uMin(max=uMax)=  -uMax "Lower limits of dead zones";
+        parameter Real uMin(max=uMax) = -uMax "Lower limits of dead zones";
         extends Interfaces.SISO;
     
         annotation (
@@ -334,10 +334,10 @@ The Input signal is delayed by a given time instant, or more precisely:
     extends Modelica.Blocks.Interfaces.SISO;
     parameter SI.Time delayTime=1 
       "Delay time of output with respect to input signal";
-    parameter Integer n(min=1)=  1 "Order of pade approximation";
+    parameter Integer n(min=1) = 1 "Order of pade approximation";
     parameter Integer m(
       min=1,
-      max=n)=  n "Order of numerator";
+      max=n) = n "Order of numerator";
     
   protected 
     Real x1dot "Derivative of first state of TransferFcn";
@@ -505,7 +505,7 @@ chapter 11.9, page 412-414, Huethig Verlag Heidelberg, 1994
   
   block VariableDelay "Delay block with variable DelayTime" 
     extends Modelica.Blocks.Interfaces.SISO;
-    parameter Real delayMax(min=0)=  1 "maximum delay time";
+    parameter Real delayMax(min=0) = 1 "maximum delay time";
     annotation (
       Coordsys(
         extent=[-100, -100; 100, 100],

@@ -2275,7 +2275,7 @@ Several matrices may be defined one after another.
       Modelica.SIunits.Time nextTime;
       Integer index "Index of actual table entry";
     initial algorithm 
-      (index, nextTime, y) =  getFirstIndex(table, time, startValue);
+      (index, nextTime, y) :=getFirstIndex(table, time, startValue);
     algorithm 
       when time >= pre(nextTime) and n > 0 then
          if index < n then

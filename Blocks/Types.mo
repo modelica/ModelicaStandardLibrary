@@ -10,8 +10,7 @@ user interface when the type is used as parameter in a declaration.
 </p>
 </HTML>"));
   package Extrapolation 
-    "Type, constants and menu choices to define the extrapolation of time table interpolation"
-    
+    "Type, constants and menu choices to define the extrapolation of time table interpolation" 
     
     annotation (preferedView="text");
     extends Modelica.Icons.Library;
@@ -21,8 +20,7 @@ user interface when the type is used as parameter in a declaration.
     constant Integer Periodic=2;
     
     type Temp 
-      "Temporary type of Extrapolation with choices for menus (until enumerations are available)"
-      
+      "Temporary type of Extrapolation with choices for menus (until enumerations are available)" 
       
       extends Integer;
       annotation (choices(
@@ -36,8 +34,7 @@ user interface when the type is used as parameter in a declaration.
   end Extrapolation;
   
   package Smoothness 
-    "Type, constants and menu choices to define the smoothness of table interpolation"
-    
+    "Type, constants and menu choices to define the smoothness of table interpolation" 
     
     annotation (preferedView="text");
     extends Modelica.Icons.Library;
@@ -46,8 +43,7 @@ user interface when the type is used as parameter in a declaration.
     constant Integer ContinuousDerivative=1;
     
     type Temp 
-      "Temporary type of Smoothness with choices for menus (until enumerations are available)"
-      
+      "Temporary type of Smoothness with choices for menus (until enumerations are available)" 
       
       extends Integer;
       annotation (choices(

@@ -208,7 +208,7 @@ Modelica in file \"Modelica/package.mo\".
         Text(
           extent=[-100,100; 100,-100],
           style(color=45),
-          string="F")));
+          string="f")));
   end Function;
   
   partial record Record "Icon for a record" 

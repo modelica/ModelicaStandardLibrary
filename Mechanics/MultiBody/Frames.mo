@@ -180,8 +180,7 @@ The used variables have the following declaration:
       "Absolute angular velocity of local frame, resolved in local frame";
     
     encapsulated function equalityConstraint 
-      "Return the constraint residues to express that two frames have the same orientation"
-      
+      "Return the constraint residues to express that two frames have the same orientation" 
       
       import Modelica;
       import Modelica.Mechanics.MultiBody.Frames;
@@ -289,7 +288,7 @@ with
     input Orientation R "Orientation object to rotate frame 1 into frame 2";
     input Real v2[3] "Vector in frame 2";
     output Real v1[3] "Vector in frame 1";
-    annotation (derivative(noDerivative=R)=  Internal.resolve1_der,
+    annotation (derivative(noDerivative=R) = Internal.resolve1_der,
         InlineAfterIndexReduction=true);
   algorithm 
     v1 := transpose(R.T)*v2;
@@ -300,15 +299,14 @@ with
     input Orientation R "Orientation object to rotate frame 1 into frame 2";
     input Real v1[3] "Vector in frame 1";
     output Real v2[3] "Vector in frame 2";
-    annotation (derivative(noDerivative=R)=  Internal.resolve2_der,
+    annotation (derivative(noDerivative=R) = Internal.resolve2_der,
         InlineAfterIndexReduction=true);
   algorithm 
     v2 := R.T*v1;
   end resolve2;
   
   function resolveRelative 
-    "Transform vector from frame 1 to frame 2 using absolute orientation objects of frame 1 and of frame 2"
-    
+    "Transform vector from frame 1 to frame 2 using absolute orientation objects of frame 1 and of frame 2" 
     
     extends Modelica.Icons.Function;
     input Real v1[3] "Vector in frame 1";
@@ -369,8 +367,7 @@ with
   end relativeRotation;
   
   function absoluteRotation 
-    "Return absolute orientation object from another absolute and a relative orientation object"
-    
+    "Return absolute orientation object from another absolute and a relative orientation object" 
     
     extends Modelica.Icons.Function;
     input Orientation R1 "Orientation object to rotate frame 0 into frame 1";
@@ -395,8 +392,7 @@ with
   end planarRotation;
   
   function planarRotationAngle 
-    "Return angle of a planar rotation, given the rotation axis and the representations of a vector in frame 1 and frame 2"
-    
+    "Return angle of a planar rotation, given the rotation axis and the representations of a vector in frame 1 and frame 2" 
     
     extends Modelica.Icons.Function;
     input Real e[3] 
@@ -495,14 +491,13 @@ and/or a division by zero will occur.
   end axisRotation;
   
   function axesRotations 
-    "Return fixed rotation object to rotate in sequence around fixed angles along 3 axes"
-    
+    "Return fixed rotation object to rotate in sequence around fixed angles along 3 axes" 
     
     import TM = Modelica.Mechanics.MultiBody.Frames.TransformationMatrices;
     extends Modelica.Icons.Function;
     input Integer sequence[3](
       min={1,1,1},
-      max={3,3,3})=  {1,2,3} 
+      max={3,3,3}) = {1,2,3} 
       "Sequence of rotations from frame 1 to frame 2 along axis sequence[i]";
     input Modelica.SIunits.Angle angles[3] 
       "Rotation angles around the axes defined in 'sequence'";
@@ -523,8 +518,7 @@ and/or a division by zero will occur.
   end axesRotations;
   
   function axesRotationsAngles 
-    "Return the 3 angles to rotate in sequence around 3 axes to construct the given orientation object"
-    
+    "Return the 3 angles to rotate in sequence around 3 axes to construct the given orientation object" 
     
     import SI = Modelica.SIunits;
     
@@ -532,7 +526,7 @@ and/or a division by zero will occur.
     input Orientation R "Orientation object to rotate frame 1 into frame 2";
     input Integer sequence[3](
       min={1,1,1},
-      max={3,3,3})=  {1,2,3} 
+      max={3,3,3}) = {1,2,3} 
       "Sequence of rotations from frame 1 to frame 2 along axis sequence[i]";
     input SI.Angle guessAngle1=0 
       "Select angles[1] such that |angles[1] - guessAngle1| is a minimum";
@@ -670,8 +664,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
   end axesRotationsAngles;
   
   function smallRotation 
-    "Return rotation angles valid for a small rotation and optionally residues that should be zero"
-    
+    "Return rotation angles valid for a small rotation and optionally residues that should be zero" 
     
     extends Modelica.Icons.Function;
     input Orientation R "Orientation object to rotate frame 1 into frame 2";
@@ -861,8 +854,7 @@ arbitrarily such that n_x and e_z are orthogonal to each other.
   end to_vector;
   
   function to_exy 
-    "Map rotation object into e_x and e_y vectors of frame 2, resolved in frame 1"
-    
+    "Map rotation object into e_x and e_y vectors of frame 2, resolved in frame 1" 
     
     extends Modelica.Icons.Function;
     input Orientation R "Orientation object to rotate frame 1 into frame 2";
@@ -898,8 +890,7 @@ arbitrarily such that n_x and e_z are orthogonal to each other.
   end axis;
   
   package Quaternions 
-    "Functions to transform rotational frame quantities based on quaternions (also called Euler parameters)"
-    
+    "Functions to transform rotational frame quantities based on quaternions (also called Euler parameters)" 
     
     annotation (preferedView="info", Documentation(info="<HTML>
 <p>
@@ -1009,8 +1000,7 @@ The used variables have the following declaration:
 </HTML>"));
     
     type Orientation 
-      "Orientation type defining rotation from a frame 1 into a frame 2 with quaternions {p1,p2,p3,p0}"
-      
+      "Orientation type defining rotation from a frame 1 into a frame 2 with quaternions {p1,p2,p3,p0}" 
       
       extends Internal.QuaternionBase;
       annotation (preferedView="info", Documentation(info="<html>
@@ -1042,8 +1032,7 @@ confused with Modelica \"parameters\".
 "));
       
       encapsulated function equalityConstraint 
-        "Return the constraint residues to express that two frames have the same quaternion orientation"
-        
+        "Return the constraint residues to express that two frames have the same quaternion orientation" 
         
         import Modelica;
         import Modelica.Mechanics.MultiBody.Frames.Quaternions;
@@ -1075,8 +1064,7 @@ confused with Modelica \"parameters\".
     end orientationConstraint;
     
     function angularVelocity1 
-      "Compute angular velocity resolved in frame 1 from quaternion orientation object and its derivative"
-      
+      "Compute angular velocity resolved in frame 1 from quaternion orientation object and its derivative" 
       
       extends Modelica.Icons.Function;
       input Quaternions.Orientation Q 
@@ -1090,8 +1078,7 @@ confused with Modelica \"parameters\".
     end angularVelocity1;
     
     function angularVelocity2 
-      "Compute angular velocity resolved in frame 2 from quaternions orientation object and its derivative"
-      
+      "Compute angular velocity resolved in frame 2 from quaternions orientation object and its derivative" 
       
       extends Modelica.Icons.Function;
       input Quaternions.Orientation Q 
@@ -1184,8 +1171,7 @@ confused with Modelica \"parameters\".
     end relativeRotation;
     
     function absoluteRotation 
-      "Return absolute quaternions orientation object from another absolute and a relative quaternions orientation object"
-      
+      "Return absolute quaternions orientation object from another absolute and a relative quaternions orientation object" 
       
       extends Modelica.Icons.Function;
       input Quaternions.Orientation Q1 
@@ -1294,8 +1280,7 @@ confused with Modelica \"parameters\".
     end from_T;
     
     function from_T_inv 
-      "Return quaternions orientation object Q from inverse transformation matrix T_inv"
-      
+      "Return quaternions orientation object Q from inverse transformation matrix T_inv" 
       
       extends Modelica.Icons.Function;
       input Real T_inv[3, 3] 
@@ -1328,8 +1313,7 @@ confused with Modelica \"parameters\".
     end to_T;
     
     function to_T_inv 
-      "Return inverse transformation matrix T_inv from quaternion orientation object Q"
-      
+      "Return inverse transformation matrix T_inv from quaternion orientation object Q" 
       
       extends Modelica.Icons.Function;
       input Quaternions.Orientation Q 
@@ -1351,8 +1335,7 @@ confused with Modelica \"parameters\".
   
   package TransformationMatrices "Functions for transformation matrices" 
     type Orientation 
-      "Orientation type defining rotation from a frame 1 into a frame 2 with a transformation matrix"
-      
+      "Orientation type defining rotation from a frame 1 into a frame 2 with a transformation matrix" 
       
       extends Internal.TransformationMatrix;
       annotation (Documentation(info="<html>
@@ -1394,8 +1377,7 @@ Rotation can be defined by adapting this package correspondingly.
 "));
       
       encapsulated function equalityConstraint 
-        "Return the constraint residues to express that two frames have the same orientation"
-        
+        "Return the constraint residues to express that two frames have the same orientation" 
         
         import Modelica;
         import Modelica.Mechanics.MultiBody.Frames;
@@ -1428,8 +1410,7 @@ Rotation can be defined by adapting this package correspondingly.
     end orientationConstraint;
     
     function angularVelocity1 
-      "Return angular velocity resolved in frame 1 from orientation object and its derivative"
-      
+      "Return angular velocity resolved in frame 1 from orientation object and its derivative" 
       
       extends Modelica.Icons.Function;
       input TransformationMatrices.Orientation T 
@@ -1460,8 +1441,7 @@ Rotation can be defined by adapting this package correspondingly.
     end angularVelocity1;
     
     function angularVelocity2 
-      "Return angular velocity resolved in frame 2 from orientation object and its derivative"
-      
+      "Return angular velocity resolved in frame 2 from orientation object and its derivative" 
       
       extends Modelica.Icons.Function;
       input TransformationMatrices.Orientation T 
@@ -1589,8 +1569,7 @@ Rotation can be defined by adapting this package correspondingly.
     end relativeRotation;
     
     function absoluteRotation 
-      "Return absolute orientation object from another absolute and a relative orientation object"
-      
+      "Return absolute orientation object from another absolute and a relative orientation object" 
       
       extends Modelica.Icons.Function;
       input TransformationMatrices.Orientation T1 
@@ -1617,8 +1596,7 @@ Rotation can be defined by adapting this package correspondingly.
     end planarRotation;
     
     function planarRotationAngle 
-      "Return angle of a planar rotation, given the rotation axis and the representations of a vector in frame 1 and frame 2"
-      
+      "Return angle of a planar rotation, given the rotation axis and the representations of a vector in frame 1 and frame 2" 
       
       extends Modelica.Icons.Function;
       input Real e[3] 
@@ -1719,7 +1697,7 @@ and/or a division by zero will occur.
       extends Modelica.Icons.Function;
       input Integer sequence[3](
         min={1,1,1},
-        max={3,3,3})=  {1,2,3} 
+        max={3,3,3}) = {1,2,3} 
         "Sequence of rotations from frame 1 to frame 2 along axis sequence[i]";
       input Modelica.SIunits.Angle angles[3]={0,0,0} 
         "Rotation angles around the axes defined in 'sequence'";
@@ -1732,8 +1710,7 @@ and/or a division by zero will occur.
     end axesRotations;
     
     function axesRotationsAngles 
-      "Return the 3 angles to rotate in sequence around 3 axes to construct the given orientation object"
-      
+      "Return the 3 angles to rotate in sequence around 3 axes to construct the given orientation object" 
       
       import SI = Modelica.SIunits;
       
@@ -1742,7 +1719,7 @@ and/or a division by zero will occur.
         "Orientation object to rotate frame 1 into frame 2";
       input Integer sequence[3](
         min={1,1,1},
-        max={3,3,3})=  {1,2,3} 
+        max={3,3,3}) = {1,2,3} 
         "Sequence of rotations from frame 1 to frame 2 along axis sequence[i]";
       input SI.Angle guessAngle1=0 
         "Select angles[1] such that |angles[1] - guessAngle1| is a minimum";
@@ -1880,8 +1857,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
     end axesRotationsAngles;
     
     function smallRotation 
-      "Return rotation angles valid for a small rotation and optionally residues that should be zero"
-      
+      "Return rotation angles valid for a small rotation and optionally residues that should be zero" 
       
       extends Modelica.Icons.Function;
       input TransformationMatrices.Orientation T 
@@ -2075,8 +2051,7 @@ arbitrarily such that n_x and e_z are orthogonal to each other.
     end to_vector;
     
     function to_exy 
-      "Map rotation object into e_x and e_y vectors of frame 2, resolved in frame 1"
-      
+      "Map rotation object into e_x and e_y vectors of frame 2, resolved in frame 1" 
       
       extends Modelica.Icons.Function;
       input TransformationMatrices.Orientation T 
@@ -2242,8 +2217,7 @@ The used variables have the following declaration:
     type QuaternionBase = Real[4];
     
     function maxWithoutEvent 
-      "maximum of the input arguments, without event and without warning message when differentiating"
-      
+      "maximum of the input arguments, without event and without warning message when differentiating" 
       
       input Real u1;
       input Real u2;
@@ -2277,7 +2251,7 @@ messages.
       input Real u1_d;
       input Real u2_d;
       output Real y_d;
-      annotation (derivative(order=2)=  maxWithoutEvent_dd);
+      annotation (derivative(order=2) = maxWithoutEvent_dd);
       //annotation (Header="#include \"MultiBody.h\"");
     protected 
       Integer dummy;

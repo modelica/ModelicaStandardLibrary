@@ -152,8 +152,7 @@ This block is used to enable calculation of values preliminary defined as inputs
       end TwoOutputs;
   
       block Gain 
-    "Output the element-wise product of a gain vector with the input signal vector"
-    
+    "Output the element-wise product of a gain vector with the input signal vector" 
     
         parameter Real k=1 
       "Gain vector multiplied element-wise with input vector";

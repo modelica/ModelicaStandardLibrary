@@ -59,19 +59,19 @@ Modelica in file \"Modelica/package.mo\".</i><br>
     SI.Current i2;
     parameter Real r(
       final min=Modelica.Constants.small,
-      unit="Ohm/m")=  1 "Resistance per meter";
+      unit="Ohm/m") = 1 "Resistance per meter";
     parameter Real l(
       final min=Modelica.Constants.small,
-      unit="H/m")=  1 "Inductance per meter";
+      unit="H/m") = 1 "Inductance per meter";
     parameter Real g(
       final min=Modelica.Constants.small,
-      unit="Siemens/m")=  1 "Conductance per meter";
+      unit="Siemens/m") = 1 "Conductance per meter";
     parameter Real c(
       final min=Modelica.Constants.small,
-      unit="F/m")=  1 "Capacitance per meter";
-    parameter SI.Length length(final min=Modelica.Constants.small)=  1 
+      unit="F/m") = 1 "Capacitance per meter";
+    parameter SI.Length length(final min=Modelica.Constants.small) = 1 
       "Length of line";
-    parameter Integer N(final min=1)=  1 "Number of lumped segments";
+    parameter Integer N(final min=1) = 1 "Number of lumped segments";
   protected 
     Basic.Resistor R[N + 1](R=fill(r*length/(N + 1), N + 1));
     Basic.Inductor L[N + 1](L=fill(l*length/(N + 1), N + 1));
@@ -155,13 +155,13 @@ Lossy Transmission Line.
     SI.Current i2;
     parameter Real r(
       final min=Modelica.Constants.small,
-      unit="Ohm/m")=  1 "Resistance per meter";
+      unit="Ohm/m") = 1 "Resistance per meter";
     parameter Real c(
       final min=Modelica.Constants.small,
-      unit="F/m")=  1 "Capacitance per meter";
-    parameter SI.Length length(final min=Modelica.Constants.small)=  1 
+      unit="F/m") = 1 "Capacitance per meter";
+    parameter SI.Length length(final min=Modelica.Constants.small) = 1 
       "Length of line";
-    parameter Integer N(final min=1)=  1 "Number of lumped segments";
+    parameter Integer N(final min=1) = 1 "Number of lumped segments";
   protected 
     Basic.Resistor R[N + 1](R=fill(r*length/(N + 1), N + 1));
     Basic.Capacitor C[N](C=fill(c*length/(N), N));
@@ -231,8 +231,7 @@ lumped segments.
   end ULine;
   
    model TLine1 
-    "Lossless transmission line with characteristic impedance Z0 and transmission delay TD"
-    
+    "Lossless transmission line with characteristic impedance Z0 and transmission delay TD" 
     
     extends Modelica.Electrical.Analog.Interfaces.TwoPort;
     
@@ -301,8 +300,7 @@ References:
    end TLine1;
   
   model TLine2 
-    "Lossless transmission line with characteristic impedance Z0, frequency F and normalized length NL"
-    
+    "Lossless transmission line with characteristic impedance Z0, frequency F and normalized length NL" 
     
     extends Modelica.Electrical.Analog.Interfaces.TwoPort;
     
@@ -378,8 +376,7 @@ References:
   end TLine2;
   
   model TLine3 
-    "Lossless transmission line with characteristic impedance Z0 and frequency F"
-    
+    "Lossless transmission line with characteristic impedance Z0 and frequency F" 
     
     extends Modelica.Electrical.Analog.Interfaces.TwoPort;
     

@@ -1,6 +1,5 @@
 package StateGraph 
-  "Library to model discrete event and reactive systems by hierarchical state machines"
-  
+  "Library to model discrete event and reactive systems by hierarchical state machines" 
   
 extends Modelica.Icons.Library2;
   
@@ -761,8 +760,7 @@ The StateGraph library is based on the following references:
 end UsersGuide;
   
 package Examples 
-    "Examples to demonstrate the usage of the components of the StateGraph library"
-    
+    "Examples to demonstrate the usage of the components of the StateGraph library" 
     
   model FirstExample "A first simple StateGraph example" 
     extends Modelica.Icons.Example;
@@ -1058,8 +1056,7 @@ is that the alternative paths are included in a \"CompositeStep\".
   end ShowCompositeStep;
     
   model ShowExceptions 
-      "Example to demonstrate how a hierarchically structured StateGraph can suspend and resume actions on different levels"
-      
+      "Example to demonstrate how a hierarchically structured StateGraph can suspend and resume actions on different levels" 
       
     extends Modelica.Icons.Example;
       
@@ -1476,8 +1473,7 @@ buttons:
     end MakeProduct;
       
     connector inflow 
-        "Inflow connector (this is a copy from Isolde Dresslers master thesis project)"
-        
+        "Inflow connector (this is a copy from Isolde Dresslers master thesis project)" 
         
         import Units = Modelica.SIunits;
         
@@ -1491,8 +1487,7 @@ buttons:
     end inflow;
       
     connector outflow 
-        "Outflow connector (this is a copy from Isolde Dresslers master thesis project)"
-        
+        "Outflow connector (this is a copy from Isolde Dresslers master thesis project)" 
         
         import Units = Modelica.SIunits;
         
@@ -1507,8 +1502,7 @@ buttons:
     end outflow;
       
     model valve 
-        "Simple valve model (this is a copy from Isolde Dresslers master thesis project)"
-        
+        "Simple valve model (this is a copy from Isolde Dresslers master thesis project)" 
         
       annotation (
         Diagram(Line(points=[0, -60; 0, 0], style(color=5))),
@@ -1539,8 +1533,7 @@ buttons:
     end valve;
       
     model Tank 
-        "Simple tank model (this is a copy from Isolde Dresslers master thesis project)"
-        
+        "Simple tank model (this is a copy from Isolde Dresslers master thesis project)" 
         
       Modelica.Blocks.Interfaces.RealOutput levelSensor 
         annotation (extent=[-61, -30; -81, -10]);
@@ -1584,8 +1577,7 @@ buttons:
     end Tank;
       
     model Source 
-        "Simple source model (this is a copy from Isolde Dresslers master thesis project)"
-        
+        "Simple source model (this is a copy from Isolde Dresslers master thesis project)" 
         
       outflow outflow1 annotation (extent=[-10, -60; 10, -40]);
       parameter Real maxflow=1 "maximal flow out of source";
@@ -1850,8 +1842,7 @@ package Interfaces "Connectors and partial models"
   end CompositeStep_suspend;
     
   connector CompositeStepStatePort_in 
-      "Communication port between a CompositeStep and the ordinary steps within the CompositeStep (suspend/resume are inputs)"
-      
+      "Communication port between a CompositeStep and the ordinary steps within the CompositeStep (suspend/resume are inputs)" 
       
     annotation(structurallyIncomplete);
     input Boolean suspend 
@@ -1861,8 +1852,7 @@ package Interfaces "Connectors and partial models"
   end CompositeStepStatePort_in;
     
   connector CompositeStepStatePort_out 
-      "Communication port between a CompositeStep and the ordinary steps within the CompositeStep (suspend/resume are outputs)"
-      
+      "Communication port between a CompositeStep and the ordinary steps within the CompositeStep (suspend/resume are outputs)" 
       
     annotation(structurallyIncomplete);
     output Boolean suspend 
@@ -1876,8 +1866,8 @@ package Interfaces "Connectors and partial models"
       "Partial step with one input and one output transition port" 
       
     annotation(structurallyIncomplete);
-    parameter Integer nIn(min=0)=  1 "Number of input connections";
-    parameter Integer nOut(min=0)=  1 "Number of output connections";
+    parameter Integer nIn(min=0) = 1 "Number of input connections";
+    parameter Integer nOut(min=0) = 1 "Number of output connections";
       
     /* localActive is introduced since component 'Step' has Boolean variable 'active'
      and component 'StepWithSignal' has connector instance 'active' defined
@@ -1970,7 +1960,7 @@ to more than one transition");
       annotation (Hide=true);
     parameter Boolean enableTimer=false "= true, if timer is enabled" 
       annotation (Evaluate=true, Dialog(group="Timer"));
-    parameter Modelica.SIunits.Time waitTime(min=0)=  0 
+    parameter Modelica.SIunits.Time waitTime(min=0) = 0 
         "Wait time before transition fires" 
       annotation (Dialog(group="Timer", enable=enableTimer));
     output Modelica.SIunits.Time t 
@@ -2026,11 +2016,10 @@ to more than one transition");
   end PartialStateGraphIcon;
     
   block CompositeStepState 
-      "Communication channel between CompositeSteps and steps in the CompositeStep"
+      "Communication channel between CompositeSteps and steps in the CompositeStep" 
       
-      
-    output Boolean suspend=  false;
-    output Boolean resume=   false;
+    output Boolean suspend = false;
+    output Boolean resume =  false;
     StateGraph.Interfaces.CompositeStepStatePort_out subgraphStatePort;
     annotation (
       defaultComponentName="stateGraphRoot",
@@ -2049,8 +2038,7 @@ top level your model.");
   end CompositeStepState;
 end Interfaces;
   
-block InitialStep "Initial step (= step that is active when simulation starts)"
-    
+block InitialStep "Initial step (= step that is active when simulation starts)" 
     
   output Boolean active 
       "= true if step is active, otherwise the step is not active";
@@ -2082,8 +2070,7 @@ initial equation
 end InitialStep;
   
 block InitialStepWithSignal 
-    "Initial step (= step that is active when simulation starts). Connector 'active' is true when the step is active"
-    
+    "Initial step (= step that is active when simulation starts). Connector 'active' is true when the step is active" 
     
   extends Interfaces.PartialStep(localActive = active);
     
@@ -2135,8 +2122,7 @@ initial equation
 end Step;
   
 block StepWithSignal 
-    "Ordinary step (= step that is not active when simulation starts). Connector 'active' is true when the step is active"
-    
+    "Ordinary step (= step that is not active when simulation starts). Connector 'active' is true when the step is active" 
     
   extends Interfaces.PartialStep(localActive = active);
     
@@ -2159,8 +2145,7 @@ initial equation
 end StepWithSignal;
   
 block Transition 
-    "Transition where the fire condition is set by a modification of variable condition"
-    
+    "Transition where the fire condition is set by a modification of variable condition" 
     
   input Boolean condition=true 
       "= true, if transition may fire (time varying expression)" 
@@ -2232,8 +2217,7 @@ block TransitionWithSignal
 end TransitionWithSignal;
   
 block Alternative 
-    "Alternative splitting of execution path (use component between two steps)"
-    
+    "Alternative splitting of execution path (use component between two steps)" 
     
   annotation (
     Icon(
@@ -2262,8 +2246,7 @@ block Alternative
     
   protected 
 connector Step_in_forAlternative 
-      "Input port of a step (has special icon for usage in component 'Alternative')"
-      
+      "Input port of a step (has special icon for usage in component 'Alternative')" 
       
   output Boolean occupied "true, if step is active" 
     annotation (Hide=true);
@@ -2285,8 +2268,7 @@ connector Step_in_forAlternative
 end Step_in_forAlternative;
     
 connector Step_out_forAlternative 
-      "Output port of a step (has special icon for usage in component 'Alternative')"
-      
+      "Output port of a step (has special icon for usage in component 'Alternative')" 
       
   output Boolean available "true, if step is active" 
     annotation (Hide=true);
@@ -2340,8 +2322,7 @@ equation
 end Alternative;
   
 block Parallel 
-    "Parallel splitting of execution path (use component between two transitions)"
-    
+    "Parallel splitting of execution path (use component between two transitions)" 
     
   annotation (
     Icon(
@@ -2389,8 +2370,7 @@ block Parallel
     
   protected 
 connector Transition_in_forParallel 
-      "Input port of a transition (has special icon for usage in component 'Parallel')"
-      
+      "Input port of a transition (has special icon for usage in component 'Parallel')" 
       
   input Boolean available 
         "true, if step connected to the transition input is active" 
@@ -2448,8 +2428,7 @@ connector Transition_in_forParallel
 end Transition_in_forParallel;
     
 connector Transition_out_forParallel 
-      "Output port of a transition (has special icon for usage in component 'Parallel')"
-      
+      "Output port of a transition (has special icon for usage in component 'Parallel')" 
       
   input Boolean occupied 
         "true, if step connected to the transition output is active" 
@@ -2534,8 +2513,7 @@ equation
 end Parallel;
   
 partial block PartialCompositeStep 
-    "Superclass of a subgraph, i.e., a composite step that has internally a StateGraph"
-    
+    "Superclass of a subgraph, i.e., a composite step that has internally a StateGraph" 
     
   parameter Integer nSuspend = 1 "Number of suspend ports" annotation(Dialog(group="Exception connections"));
   parameter Integer nResume = 1 "Number of resume ports" annotation(Dialog(group="Exception connections"));
@@ -2546,7 +2524,7 @@ partial block PartialCompositeStep
   */
   inner outer StateGraph.Interfaces.CompositeStepState stateGraphRoot(
                   suspend = StateGraph.Temporary.anyTrue(suspend.reset) or outerState.subgraphStatePort.suspend,
-                  resume  = StateGraph.Temporary.anyTrue(resume.set) or outerState.subgraphStatePort.resume) 
+                  resume =  StateGraph.Temporary.anyTrue(resume.set) or outerState.subgraphStatePort.resume) 
       "Communication port between the CompositeStep and the steps within the CompositeStep";
   output Boolean active 
       "= true if step is active, otherwise the step is not active";
@@ -2705,8 +2683,7 @@ inside the CompositeStep to the outPort connector.");
 end PartialCompositeStep;
   
 block StateGraphRoot 
-    "Root of a StateGraph (has to be present on the highest level of a StateGraph)"
-    
+    "Root of a StateGraph (has to be present on the highest level of a StateGraph)" 
     
   extends StateGraph.Interfaces.CompositeStepState;
   output Integer activeSteps "Number of active steps within the stategraph";
@@ -2838,8 +2815,7 @@ value, still requires to go in to the text layer.
   extends Modelica.Icons.Library;
     
   function anyTrue 
-      "Returns true, if at least on element of the Boolean input vector is true"
-      
+      "Returns true, if at least on element of the Boolean input vector is true" 
       
     extends Modelica.Icons.Function;
     input Boolean b[:];
@@ -2864,8 +2840,7 @@ value, still requires to go in to the text layer.
   end allTrue;
     
   block RadioButton 
-      "Button that sets its output to true when pressed and is reset when an element of 'reset' becomes true"
-      
+      "Button that sets its output to true when pressed and is reset when an element of 'reset' becomes true" 
       
     parameter Modelica.SIunits.Time buttonTimeTable[:] 
         "Time instants where button is pressend and released";
@@ -2896,7 +2871,7 @@ value, still requires to go in to the text layer.
   end RadioButton;
     
   model NumericValue "Show value of Real input signal dynamically" 
-    parameter Integer precision(min=0)=  3 
+    parameter Integer precision(min=0) = 3 
         "Number of significant digits to be shown";
     parameter Boolean hideConnector=false 
         "= true, if connector is not shown in the dynamic object diagram";

@@ -1,6 +1,5 @@
 encapsulated model Fourbar_analytic 
-  "One kinematic loop with four bars (with JointSSP joint; analytic solution of non-linear algebraic loop)"
-  
+  "One kinematic loop with four bars (with JointSSP joint; analytic solution of non-linear algebraic loop)" 
   
   import Modelica;
   import Modelica.Mechanics.MultiBody;

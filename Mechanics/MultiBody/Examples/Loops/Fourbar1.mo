@@ -1,6 +1,5 @@
 encapsulated model Fourbar1 
-  "One kinematic loop with four bars (with only revolute joints; 5 non-linear equations)"
-  
+  "One kinematic loop with four bars (with only revolute joints; 5 non-linear equations)" 
   
   import Modelica;
   import Modelica.Mechanics.MultiBody;

@@ -1,19 +1,18 @@
 package Tables "One and two-dimensional interpolation in tables" 
   extends Icons.Library;
   model CombiTable1D 
-    "Table look-up in one dimension (matrix/file) with n inputs and n outputs "
+    "Table look-up in one dimension (matrix/file) with n inputs and n outputs " 
     
-    
-    parameter Boolean tableOnFile=  false "true, if table is defined on file" 
+    parameter Boolean tableOnFile = false "true, if table is defined on file" 
     annotation(Dialog(group="table data definition"));
     parameter Real table[:, :]=fill(0.0,0,2) 
       "table matrix (grid = first column)" 
-         annotation(Dialog(group="table data definition", enable=  not tableOnFile));
+         annotation(Dialog(group="table data definition", enable = not tableOnFile));
     parameter String tableName="NoName" 
       "table name on file or in function usertab (see docu)" 
-         annotation(Dialog(group="table data definition", enable=  tableOnFile));
+         annotation(Dialog(group="table data definition", enable = tableOnFile));
     parameter String fileName="NoName" "file where matrix is stored" 
-         annotation(Dialog(group="table data definition", enable=  tableOnFile));
+         annotation(Dialog(group="table data definition", enable = tableOnFile));
     parameter Integer columns[:]=2:size(table, 2) 
       "columns of table to be interpolated" 
     annotation(Dialog(group="table data interpretation"));
@@ -185,19 +184,18 @@ Several matrices may be defined one after another.
   end CombiTable1D;
   
   model CombiTable1Ds 
-    "Table look-up in one dimension (matrix/file) with one input and n outputs"
+    "Table look-up in one dimension (matrix/file) with one input and n outputs" 
     
-    
-    parameter Boolean tableOnFile=  false "true, if table is defined on file" 
+    parameter Boolean tableOnFile = false "true, if table is defined on file" 
     annotation(Dialog(group="table data definition"));
     parameter Real table[:, :]=fill(0.0,0,2) 
       "table matrix (grid = first column)" 
-         annotation(Dialog(group="table data definition", enable=  not tableOnFile));
+         annotation(Dialog(group="table data definition", enable = not tableOnFile));
     parameter String tableName="NoName" 
       "table name on file or in function usertab (see docu)" 
-         annotation(Dialog(group="table data definition", enable=  tableOnFile));
+         annotation(Dialog(group="table data definition", enable = tableOnFile));
     parameter String fileName="NoName" "file where matrix is stored" 
-         annotation(Dialog(group="table data definition", enable=  tableOnFile));
+         annotation(Dialog(group="table data definition", enable = tableOnFile));
     parameter Integer columns[:]=2:size(table, 2) 
       "columns of table to be interpolated" 
     annotation(Dialog(group="table data interpretation"));
@@ -372,16 +370,16 @@ Several matrices may be defined one after another.
     
     extends Modelica.Blocks.Interfaces.SI2SO;
     
-    parameter Boolean tableOnFile=  false "true, if table is defined on file" 
+    parameter Boolean tableOnFile = false "true, if table is defined on file" 
     annotation(Dialog(group="table data definition"));
     parameter Real table[:, :]=fill(0.0,0,2) 
       "table matrix (grid u1 = first column, grid u2 = first row)" 
-         annotation(Dialog(group="table data definition", enable=  not tableOnFile));
+         annotation(Dialog(group="table data definition", enable = not tableOnFile));
     parameter String tableName="NoName" 
       "table name on file or in function usertab (see docu)" 
-         annotation(Dialog(group="table data definition", enable=  tableOnFile));
+         annotation(Dialog(group="table data definition", enable = tableOnFile));
     parameter String fileName="NoName" "file where matrix is stored" 
-         annotation(Dialog(group="table data definition", enable=  tableOnFile));
+         annotation(Dialog(group="table data definition", enable = tableOnFile));
     parameter Blocks.Types.Smoothness.Temp smoothness=Blocks.Types.Smoothness.LinearSegments 
       "smoothness of table interpolation" 
     annotation(Dialog(group="table data interpretation"));

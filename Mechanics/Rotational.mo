@@ -996,7 +996,7 @@ Modelica in file \"Modelica/package.mo\".
     connector Flange_a "1D rotational flange (filled square icon)" 
       SI.Angle phi "Absolute rotation angle of flange";
       flow SI.Torque tau "Cut torque in the flange";
-      annotation(defaultComponentName=  "flange_a",
+      annotation(defaultComponentName = "flange_a",
         Coordsys(
           extent=[-100, -100; 100, 100],
           grid=[2, 2],
@@ -1062,7 +1062,7 @@ differentiation of the flange angle phi:
     connector Flange_b "1D rotational flange (non-filled square icon)" 
       SI.Angle phi "Absolute rotation angle of flange";
       flow SI.Torque tau "Cut torque in the flange";
-      annotation(defaultComponentName=  "flange_b",
+      annotation(defaultComponentName = "flange_b",
         Coordsys(
           extent=[-100, -100; 100, 100],
           grid=[2, 2],
@@ -1276,8 +1276,7 @@ It is a superclass for the two components TwoFlangesAndBearing and TwoFlangesAnd
     end Bearing;
     
     partial model TwoFlangesAndBearing 
-      "Base class for a equation-based component with two rotational 1D flanges and one rotational 1D bearing flange"
-      
+      "Base class for a equation-based component with two rotational 1D flanges and one rotational 1D bearing flange" 
       
       extends Bearing;
       
@@ -1311,8 +1310,7 @@ It is used e.g. to build up equation-based parts of a drive train.</p>
     end TwoFlangesAndBearing;
     
     partial model TwoFlangesAndBearingH 
-      "Base class for a hierarchically composed component with two rotational 1D flanges and one rotational bearing flange"
-      
+      "Base class for a hierarchically composed component with two rotational 1D flanges and one rotational bearing flange" 
       
       extends Bearing;
       
@@ -1920,7 +1918,7 @@ in the flanges, are along the axis vector displayed in the icon.
   model IdealGearR2T 
     "Gearbox transforming rotational into translational motion" 
     
-    parameter Real ratio(final unit="rad/m")=  1 
+    parameter Real ratio(final unit="rad/m") = 1 
       "transmission ratio (flange_a.phi/flange_b.s)";
     
     SI.Torque tau_support;
@@ -2107,7 +2105,7 @@ a coupling of the element with the housing via a spring.
     extends Interfaces.Compliant;
     parameter Real d(
       final unit="N.m.s/rad",
-      final min=0)=  0 "Damping constant";
+      final min=0) = 0 "Damping constant";
     SI.AngularVelocity w_rel 
       "Relative angular velocity between flange_b and flange_a";
     annotation (
@@ -2180,7 +2178,7 @@ between two inertia/gear elements.
     parameter SI.Angle phi_rel0=0 "Unstretched spring angle";
     parameter Real d(
       final unit="N.m.s/rad",
-      final min=0)=  0 "Damping constant";
+      final min=0) = 0 "Damping constant";
     SI.AngularVelocity w_rel 
       "Relative angular velocity between flange_b and flange_a";
     
@@ -2261,20 +2259,19 @@ to describe a coupling of the element with the housing via a spring/damper.
   end SpringDamper;
   
   model ElastoBacklash 
-    "Backlash connected in series to linear spring and damper (backlash is modeled with elasticity)"
-    
+    "Backlash connected in series to linear spring and damper (backlash is modeled with elasticity)" 
     
     extends Interfaces.Compliant;
     
-    parameter SI.Angle b(final min=0)=  0 "Total backlash";
+    parameter SI.Angle b(final min=0) = 0 "Total backlash";
     parameter Real c(
       final unit="N.m/rad",
-      final min=Modelica.Constants.small)=  1.e5 
+      final min=Modelica.Constants.small) = 1.e5 
       "Spring constant (c > 0 required)";
     parameter SI.Angle phi_rel0=0 "Unstretched spring angle";
     parameter Real d(
       final unit="N.m.s/rad",
-      final min=0)=  0 "Damping constant";
+      final min=0) = 0 "Damping constant";
     SI.AngularVelocity w_rel 
       "Relative angular velocity between flange_b and flange_a";
   protected 
@@ -2435,7 +2432,7 @@ can be used to model a gear box with backlash, elasticity and damping.
     
     parameter Real tau_pos[:, :]=[0, 1] 
       "[w,tau] Positive sliding friction characteristic (w>=0)";
-    parameter Real peak(final min=1)=  1 
+    parameter Real peak(final min=1) = 1 
       "peak*tau_pos[1,2] = Maximum friction torque for w==0";
     
     extends Interfaces.FrictionBase;
@@ -2695,11 +2692,11 @@ following references, especially (Armstrong and Canudas de Witt 1996):
     
     parameter Real mue_pos[:, :]=[0, 0.5] 
       "[w,mue] positive sliding friction coefficient (w_rel>=0)";
-    parameter Real peak(final min=1)=  1 
+    parameter Real peak(final min=1) = 1 
       "peak*mue_pos[1,2] = maximum value of mue for w_rel==0";
-    parameter Real cgeo(final min=0)=  1 
+    parameter Real cgeo(final min=0) = 1 
       "Geometry constant containing friction distribution assumption";
-    parameter SI.Force fn_max(final min=0)=  1 "Maximum normal force";
+    parameter SI.Force fn_max(final min=0) = 1 "Maximum normal force";
     
     extends Interfaces.FrictionBase;
     
@@ -2907,12 +2904,12 @@ following references, especially (Armstrong and Canudas de Witt 1996):
     
     parameter Real mue_pos[:, :]=[0, 0.5] 
       "[w,mue] positive sliding friction coefficient (w_rel>=0)";
-    parameter Real peak(final min=1)=  1 
+    parameter Real peak(final min=1) = 1 
       "peak*mue_pos[1,2] = maximum value of mue for w_rel==0";
-    parameter Real cgeo(final min=0)=  1 
+    parameter Real cgeo(final min=0) = 1 
       "Geometry constant containing friction distribution assumption";
-    parameter SI.Force fn_max(final min=0)=  1 "Maximum normal force";
-    parameter SI.AngularVelocity w_small(min=Modelica.Constants.eps)=  1 
+    parameter SI.Force fn_max(final min=0) = 1 "Maximum normal force";
+    parameter SI.AngularVelocity w_small(min=Modelica.Constants.eps) = 1 
       "Relative angular velocity near to zero (see model info text)";
     
     SI.AngularVelocity w_rel 
@@ -3140,11 +3137,11 @@ are dynamically coupled. The method is described in:
     
     parameter Real mue_pos[:, :]=[0, 0.5] 
       "[w,mue] positive sliding friction coefficient (w_rel>=0)";
-    parameter Real peak(final min=1)=  1 
+    parameter Real peak(final min=1) = 1 
       "peak*mue_pos[1,2] = maximum value of mue for w_rel==0";
-    parameter Real cgeo(final min=0)=  1 
+    parameter Real cgeo(final min=0) = 1 
       "Geometry constant containing friction distribution assumption";
-    parameter SI.Force fn_max(final min=0)=  1 "Maximum normal force";
+    parameter SI.Force fn_max(final min=0) = 1 "Maximum normal force";
     
     extends Interfaces.FrictionBase;
     
@@ -3722,7 +3719,7 @@ Modelica.Constants.eps).
     
     parameter Real eta(
       min=Modelica.Constants.small,
-      max=1)=  1 "Efficiency";
+      max=1) = 1 "Efficiency";
     SI.Angle phi;
     SI.Power power_a "Energy flowing into flange_a (= power)";
     Boolean driving_a 
@@ -3868,19 +3865,19 @@ from tables of the gear manufacturers.
     parameter Real ratio=1 "transmission ratio (flange_a.phi/flange_b.phi)";
     parameter Real eta(
       min=Modelica.Constants.small,
-      max=1)=  1 "Gear efficiency";
+      max=1) = 1 "Gear efficiency";
     parameter Real friction_pos[:, :]=[0, 1] 
       "[w,tau] positive sliding friction characteristic (w>=0)";
-    parameter Real peak(final min=1)=  1 
+    parameter Real peak(final min=1) = 1 
       "peak*friction_pos[1,2] = maximum friction torque at zero velocity";
     parameter Real c(
       final unit="N.m/rad",
-      final min=Modelica.Constants.small)=  1.e5 
+      final min=Modelica.Constants.small) = 1.e5 
       "Gear elasticity (spring constant)";
     parameter Real d(
       final unit="N.m.s/rad",
-      final min=0)=  0 "(relative) gear damping";
-    parameter SI.Angle b(final min=0)=  0 "Total backlash";
+      final min=0) = 0 "(relative) gear damping";
+    parameter SI.Angle b(final min=0) = 0 "Total backlash";
     
     annotation (
       Documentation(info="<html>
@@ -3984,12 +3981,12 @@ to the left and/or the right flange.
     
     parameter Real c(
       final unit="N.m/rad",
-      final min=Modelica.Constants.small)=  1.e5 
+      final min=Modelica.Constants.small) = 1.e5 
       "Gear elasticity (spring constant)";
     parameter Real d(
       final unit="N.m.s/rad",
-      final min=0)=  0 "(relative) gear damping";
-    parameter SI.Angle b(final min=0)=  0 "Total backlash";
+      final min=0) = 0 "(relative) gear damping";
+    parameter SI.Angle b(final min=0) = 0 "Total backlash";
     
     annotation (
       Documentation(info="<html>
@@ -4224,8 +4221,7 @@ blocks of the block library Modelica.Blocks.Sources.
   end Position;
   
   model Speed 
-    "Forced movement of a flange according to a reference angular velocity signal"
-    
+    "Forced movement of a flange according to a reference angular velocity signal" 
     
     parameter Boolean exact=false 
       "true/false exact treatment/filtering the input signal";
@@ -4475,8 +4471,7 @@ blocks of the block library Modelica.Blocks.Sources.
   end Accelerate;
   
   model Move 
-    "Forced movement of a flange according to an angle, speed and angular acceleration signal"
-    
+    "Forced movement of a flange according to an angle, speed and angular acceleration signal" 
     
     SI.Angle phi "absolute rotation angle of flange flange_b";
     SI.AngularVelocity w "absolute angular velocity of flange flange_b";
@@ -4956,8 +4951,7 @@ velocity of model inertia1 or of model inertia2 as state variables.
     extends Modelica.Icons.Library2;
     
     model TorqueSensor 
-      "Ideal sensor to measure the torque between two flanges (= flange_a.tau)"
-      
+      "Ideal sensor to measure the torque between two flanges (= flange_a.tau)" 
       
       extends Modelica.Icons.RotationalSensor;
       Interfaces.Flange_a flange_a annotation (extent=[-110, -10; -90, 10]);
@@ -5235,8 +5229,7 @@ in an ideal way and provides the result as output signal <b>phi_rel</b>
     end RelAngleSensor;
     
     model RelSpeedSensor 
-      "Ideal sensor to measure the relative angular velocity between two flanges"
-      
+      "Ideal sensor to measure the relative angular velocity between two flanges" 
       
      extends Modelica.Icons.RotationalSensor;
       
@@ -5305,8 +5298,7 @@ in an ideal way and provides the result as output signal <b>w_rel</b>
     end RelSpeedSensor;
     
     model RelAccSensor 
-      "Ideal sensor to measure the relative angular acceleration between two flanges"
-      
+      "Ideal sensor to measure the relative angular acceleration between two flanges" 
       
      extends Modelica.Icons.RotationalSensor;
       

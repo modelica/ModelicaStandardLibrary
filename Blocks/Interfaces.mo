@@ -135,26 +135,40 @@ connector RealInput = input RealSignal "'input Real' as connector"
   Coordsys(extent=[-100, -100; 100, 100],
     grid=[1,1],
     component=[20,20]),
-  Icon(Polygon(points=[-100,100; 100,0; -100,-100; -100,100],     style(color=
-           3, fillColor=3))),
-  Diagram(Polygon(points=[0,50; 100,0; 0,-50; 0,50],                 style(
-          color=3, fillColor=3)), Text(
+  Icon(Polygon(points=[-100,100; 100,0; -100,-100; -100,100], style(
+          color=62, 
+          rgbcolor={0,127,127}, 
+          fillColor=74, 
+          rgbfillColor={0,0,127}))),
+  Diagram(Polygon(points=[0,50; 100,0; 0,-50; 0,50], style(
+          color=74, 
+          rgbcolor={0,0,127}, 
+          fillColor=74, 
+          rgbfillColor={0,0,127})),
+                                  Text(
       extent=[-140,120; 100,60],
-      style(color=3, rgbcolor={0,0,255}),
-      string="%name")));
+      string="%name", 
+        style(color=74, rgbcolor={0,0,127}))));
   
 connector RealOutput = output RealSignal "'output Real' as connector" 
   annotation (defaultComponentName="y",
   Coordsys(extent=[-100, -100; 100, 100],
     grid=[1,1],
     component=[20,20]),
-  Icon(Polygon(points=[-100, 100; 100, 0; -100, -100; -100, 100], style(color=
-           3, fillColor=7))),
-  Diagram(Polygon(points=[-100,50; 0,0; -100,-50; -100,50],          style(
-          color=3, fillColor=7)), Text(
+  Icon(Polygon(points=[-100, 100; 100, 0; -100, -100; -100, 100], style(
+          color=74, 
+          rgbcolor={0,0,127}, 
+          fillColor=7, 
+          rgbfillColor={255,255,255}))),
+  Diagram(Polygon(points=[-100,50; 0,0; -100,-50; -100,50], style(
+          color=74, 
+          rgbcolor={0,0,127}, 
+          fillColor=7, 
+          rgbfillColor={255,255,255})),
+                                  Text(
       extent=[-100,120; 140,60],
-      style(color=3, rgbcolor={0,0,255}),
-      string="%name")));
+      string="%name", 
+        style(color=74, rgbcolor={0,0,127}))));
   
 connector BooleanInput = input BooleanSignal "'input Boolean' as connector" 
   annotation (defaultComponentName="u",
@@ -216,8 +230,12 @@ connector IntegerOutput = output IntegerSignal "'output Integer' as connector"
           y=0,
           width=0.6,
           height=0.6),
-        Icon(Rectangle(extent=[-100, -100; 100, 100], style(color=3,
-                fillColor=7)), Text(extent=[-150, 150; 150, 110], string=
+        Icon(Rectangle(extent=[-100, -100; 100, 100], style(
+            color=74, 
+            rgbcolor={0,0,127}, 
+            fillColor=7, 
+            rgbfillColor={255,255,255})),
+                               Text(extent=[-150, 150; 150, 110], string=
                 "%name")));
     equation 
     
@@ -244,7 +262,7 @@ connector IntegerOutput = output IntegerSignal "'output Integer' as connector"
     partial block MO "Multiple Output continuous control block" 
       extends BlockIcon;
     
-      parameter Integer nout(min=1)=  1 "Number of outputs";
+      parameter Integer nout(min=1) = 1 "Number of outputs";
       RealOutput y[nout] "Connector of Real output signals" 
         annotation (extent=[100, -10; 120, 10]);
       annotation (
@@ -359,8 +377,7 @@ The signal sizes of the input and output vector may be different.
     end MIMO;
   
     partial block MIMOs 
-    "Multiple Input Multiple Output continuous control block with same number of inputs and outputs"
-    
+    "Multiple Input Multiple Output continuous control block with same number of inputs and outputs" 
     
       extends BlockIcon;
       parameter Integer n=1 "Number of inputs (= number of outputs)";
@@ -484,7 +501,7 @@ output vector y. All vectors have the same number of elements.
     partial block DiscreteBlock "Base class of discrete control blocks" 
       extends DiscreteBlockIcon;
     
-      parameter SI.Time samplePeriod(min=100*Modelica.Constants.eps)=  0.1 
+      parameter SI.Time samplePeriod(min=100*Modelica.Constants.eps) = 0.1 
       "Sample period of component";
       parameter SI.Time startTime=0 "First sample time instant";
   protected 
@@ -674,8 +691,7 @@ These signals are sampled due to the defined <b>samplePeriod</b> parameter.
     end BooleanSISO;
   
 partial block BooleanMIMOs 
-    "Multiple Input Multiple Output continuous control block with same number of inputs and outputs of boolean type"
-    
+    "Multiple Input Multiple Output continuous control block with same number of inputs and outputs of boolean type" 
     
   extends BooleanBlockIcon;
   parameter Integer n=1 "Number of inputs (= number of outputs)";
@@ -694,8 +710,7 @@ and of type Boolean.
 end BooleanMIMOs;
   
 partial block MI2BooleanMOs 
-    "2 Multiple Input / Boolean Multiple Output block with same signal lengths"
-    
+    "2 Multiple Input / Boolean Multiple Output block with same signal lengths" 
     
   extends BooleanBlockIcon;
   parameter Integer n=1 "Dimension of input and output vectors.";
@@ -804,8 +819,7 @@ Block has a continuous Integer input and a continuous Boolean output signal.
 end IntegerSIBooleanSO;
   
 partial block IntegerMIBooleanMOs 
-    "Multiple Integer Input Multiple Boolean Output continuous control block with same number of inputs and outputs"
-    
+    "Multiple Integer Input Multiple Boolean Output continuous control block with same number of inputs and outputs" 
     
   extends BooleanBlockIcon;
   parameter Integer n=1 "Number of inputs (= number of outputs)";

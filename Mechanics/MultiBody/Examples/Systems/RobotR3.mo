@@ -11,8 +11,8 @@ package RobotR3
     parameter Real ks=0.5 "gain of speed controller of axis 2";
     parameter SI.Time Ts=0.05 
       "time constant of integrator of speed controller of axis 2";
-    parameter Real startAngle(unit="deg")=  0 "start angle of axis 2";
-    parameter Real endAngle(unit="deg")=  120 "end angle of axis 2";
+    parameter Real startAngle(unit="deg") = 0 "start angle of axis 2";
+    parameter Real endAngle(unit="deg") = 120 "end angle of axis 2";
     
     parameter SI.Time swingTime=0.5 
       "additional time after reference motion is in rest before simulation is stopped";
@@ -74,8 +74,7 @@ load inertia.
   end oneAxis;
   
   model fullRobot 
-    "6 degree of freedom robot with path planning, controllers, motors, brakes, gears and mechanics"
-    
+    "6 degree of freedom robot with path planning, controllers, motors, brakes, gears and mechanics" 
     
     annotation (
       Diagram,
@@ -113,30 +112,30 @@ to plot variables.
     parameter SI.Time refSwingTime=0.7 
       "additional time after reference motion is in rest before simulation is stopped";
     
-    parameter Real startAngle1(unit="deg")=  -60 
+    parameter Real startAngle1(unit="deg") = -60 
       "|Reference|startAngles| start angle of axis 1";
-    parameter Real startAngle2(unit="deg")=  20 
+    parameter Real startAngle2(unit="deg") = 20 
       "|Reference|startAngles| start angle of axis 2";
-    parameter Real startAngle3(unit="deg")=  90 
+    parameter Real startAngle3(unit="deg") = 90 
       "|Reference|startAngles| start angle of axis 3";
-    parameter Real startAngle4(unit="deg")=  0 
+    parameter Real startAngle4(unit="deg") = 0 
       "|Reference|startAngles| start angle of axis 4";
-    parameter Real startAngle5(unit="deg")=  -110 
+    parameter Real startAngle5(unit="deg") = -110 
       "|Reference|startAngles| start angle of axis 5";
-    parameter Real startAngle6(unit="deg")=  0 
+    parameter Real startAngle6(unit="deg") = 0 
       "|Reference|startAngles| start angle of axis 6";
     
-    parameter Real endAngle1(unit="deg")=  60 
+    parameter Real endAngle1(unit="deg") = 60 
       "|Reference|endAngles| end angle of axis 1";
-    parameter Real endAngle2(unit="deg")=  -70 
+    parameter Real endAngle2(unit="deg") = -70 
       "|Reference|endAngles| end angle of axis 2";
-    parameter Real endAngle3(unit="deg")=  -35 
+    parameter Real endAngle3(unit="deg") = -35 
       "|Reference|endAngles| end angle of axis 3";
-    parameter Real endAngle4(unit="deg")=  45 
+    parameter Real endAngle4(unit="deg") = 45 
       "|Reference|endAngles| end angle of axis 4";
-    parameter Real endAngle5(unit="deg")=  110 
+    parameter Real endAngle5(unit="deg") = 110 
       "|Reference|endAngles| end angle of axis 5";
-    parameter Real endAngle6(unit="deg")=  45 
+    parameter Real endAngle6(unit="deg") = 45 
       "|Reference|endAngles| end angle of axis 6";
     
     parameter SI.AngularVelocity refSpeedMax[6]={3,1.5,5,3.1,3.1,4.1} 
@@ -362,9 +361,9 @@ to plot variables.
       import SI = Modelica.SIunits;
       import Cv = Modelica.SIunits.Conversions;
       parameter Integer naxis=6 "number of driven axis";
-      parameter Real angleBegDeg[naxis](unit="deg")=  zeros(naxis) 
+      parameter Real angleBegDeg[naxis](unit="deg") = zeros(naxis) 
         "start angles";
-      parameter Real angleEndDeg[naxis](unit="deg")=  ones(naxis) "end angles";
+      parameter Real angleEndDeg[naxis](unit="deg") = ones(naxis) "end angles";
       parameter SI.AngularVelocity speedMax[naxis]=fill(3, naxis) 
         "maximum axis speed";
       parameter SI.AngularAcceleration accMax[naxis]=fill(2.5, naxis) 
@@ -456,10 +455,10 @@ computed angular speeds as function of time. The ordering is:
     model GearType1 "Motor inertia and gearbox model for r3 joints 1,2,3 " 
       extends Modelica.Mechanics.Rotational.Interfaces.TwoFlanges;
       parameter Real i=-105 "gear ratio";
-      parameter Real c(unit="N.m/rad")=  43 "spring constant";
-      parameter Real d(unit="N.m.s/rad")=  0.005 "damper constant";
+      parameter Real c(unit="N.m/rad") = 43 "spring constant";
+      parameter Real d(unit="N.m.s/rad") = 0.005 "damper constant";
       parameter SI.Torque Rv0=0.4 "viscous friction torque at zero velocity";
-      parameter Real Rv1(unit="N.m.s/rad")=  (0.13/160) 
+      parameter Real Rv1(unit="N.m.s/rad") = (0.13/160) 
         "viscous friction coefficient (R=Rv0+Rv1*abs(qd))";
       parameter Real peak=1 
         "peak*Rv0 = maximum static friction torque (peak >= 1)";
@@ -864,16 +863,16 @@ produced by the motor).
       parameter Real D=0.6 "|Motor| damping constant of motor";
       parameter SI.Inertia J=0.0013 "|Motor| moment of inertia of motor";
       parameter Real ratio=-105 "|Gear| gear ratio";
-      parameter Real c(unit="N.m/rad")=  43 "|Gear| spring constant";
-      parameter Real cd(unit="N.m.s/rad")=  0.005 "|Gear| damper constant";
+      parameter Real c(unit="N.m/rad") = 43 "|Gear| spring constant";
+      parameter Real cd(unit="N.m.s/rad") = 0.005 "|Gear| damper constant";
       parameter SI.Torque Rv0=0.4 
         "|Gear| viscous friction torque at zero velocity in [Nm]";
-      parameter Real Rv1(unit="N.m.s/rad")=  (0.13/160) 
+      parameter Real Rv1(unit="N.m.s/rad") = (0.13/160) 
         "|Gear| viscous friction coefficient in [Nms/rad]";
       parameter Real peak=1 
         "|Gear| peak*Rv0 = maximum static friction torque (peak >= 1)";
-      SI.Angle phi_flange(stateSelect=StateSelect.prefer)=  flange.phi;
-      SI.AngularVelocity w_flange(stateSelect=StateSelect.prefer)=  der(
+      SI.Angle phi_flange(stateSelect=StateSelect.prefer) = flange.phi;
+      SI.AngularVelocity w_flange(stateSelect=StateSelect.prefer) = der(
         phi_flange);
       SI.AngularAcceleration a_flange=der(w_flange);
       annotation (
@@ -977,12 +976,12 @@ Default values of the parameters are given for the axis of joint 1.
       parameter Real ratio=-105 "|Gear| gear ratio";
       parameter SI.Torque Rv0=0.4 
         "|Gear| viscous friction torque at zero velocity in [Nm]";
-      parameter Real Rv1(unit="N.m.s/rad")=  (0.13/160) 
+      parameter Real Rv1(unit="N.m.s/rad") = (0.13/160) 
         "|Gear| viscous friction coefficient in [Nms/rad]";
       parameter Real peak=1 
         "|Gear| peak*Rv0 = maximum static friction torque (peak >= 1)";
-      SI.Angle phi_flange(stateSelect=StateSelect.prefer)=  flange.phi;
-      SI.AngularVelocity w_flange(stateSelect=StateSelect.prefer)=  der(
+      SI.Angle phi_flange(stateSelect=StateSelect.prefer) = flange.phi;
+      SI.AngularVelocity w_flange(stateSelect=StateSelect.prefer) = der(
         phi_flange);
       SI.AngularAcceleration a_flange=der(w_flange);
       annotation (
@@ -1313,14 +1312,13 @@ This model contains the mechanical components of the r3 robot
     end MechanicalStructure;
     
     block KinematicPTPc 
-      "Move as fast as possible along a distance within given kinematic constraints"
-      
+      "Move as fast as possible along a distance within given kinematic constraints" 
       
       parameter Real q_begin[:]={0} "Start position";
       parameter Real q_end[:]={1} "End position";
-      parameter Real qd_max[:](final min=Modelica.Constants.SMALL)=  {1} 
+      parameter Real qd_max[:](final min=Modelica.Constants.SMALL) = {1} 
         "Maximum velocities der(q)";
-      parameter Real qdd_max[:](final min=Modelica.Constants.SMALL)=  {1} 
+      parameter Real qdd_max[:](final min=Modelica.Constants.SMALL) = {1} 
         "Maximum accelerations der(qd)";
       parameter SI.Time startTime=0 "Time instant at which movement starts";
       

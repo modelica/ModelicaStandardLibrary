@@ -1,5 +1,4 @@
-package Interfaces "Connectors and partial models for 3D mechanical components"
-  
+package Interfaces "Connectors and partial models for 3D mechanical components" 
   
   extends Modelica.Icons.Library;
   
@@ -83,8 +82,7 @@ PlanarCutJoint=true in the Advanced menu.");
   end Frame_b;
   
   connector Frame_resolve 
-    "Frame of a mechanical element that is solely used to provide orientation information"
-    
+    "Frame of a mechanical element that is solely used to provide orientation information" 
     
     extends Frame;
     
@@ -118,8 +116,7 @@ PlanarCutJoint=true in the Advanced menu.");
   end Frame_resolve;
   
   partial model PartialTwoFrames 
-    "Base model for components providing two frame connectors + outer world + assert to guarantee that the component is connected"
-    
+    "Base model for components providing two frame connectors + outer world + assert to guarantee that the component is connected" 
     
     Interfaces.Frame_a frame_a annotation (extent=[-120, -15; -100, 15]);
     Interfaces.Frame_b frame_b annotation (extent=[100, -15; 120, 15]);
@@ -151,8 +148,7 @@ needed and if the two frame connectors should be connected for a correct model.
   end PartialTwoFrames;
   
   partial model PartialElementaryJoint 
-    "Base model of elementary joints (has two frames + outer world + assert to guarantee that the joint is connected)"
-    
+    "Base model of elementary joints (has two frames + outer world + assert to guarantee that the joint is connected)" 
     
     Interfaces.Frame_a frame_a annotation (extent=[-120, -15; -100, 15]);
     Interfaces.Frame_b frame_b annotation (extent=[100, -15; 120, 15]);
@@ -186,8 +182,7 @@ object and an assert to check that both frame connectors are connected.
   end PartialElementaryJoint;
   
   partial model PartialForce 
-    "Superclass of force elements (provide frame_b.f and frame_b.t in subclasses)"
-    
+    "Superclass of force elements (provide frame_b.f and frame_b.t in subclasses)" 
     
     import SI = Modelica.SIunits;
     Interfaces.Frame_a frame_a annotation (extent=[-120, -15; -100, 15]);
@@ -336,7 +331,7 @@ has to be defined. Example:
   partial model PartialAbsoluteSensor 
     "Base class to measure an absolute frame variable" 
     extends Modelica.Icons.RotationalSensor;
-    parameter Integer n_out=  1 "Number of output signals";
+    parameter Integer n_out = 1 "Number of output signals";
     Frame_a frame_a annotation (extent=[-120, -15; -100, 15]);
     Modelica.Blocks.Interfaces.RealOutput y[n_out] "Measured data as signals" 
       annotation (extent=[100, -10; 120, 10]);
@@ -376,7 +371,7 @@ with the blocks of package Modelica.Blocks.
   partial model PartialRelativeSensor 
     "Base class to measure a relative variable between two frames" 
     extends Modelica.Icons.RotationalSensor;
-    parameter Integer n_out=  1 "Number of output signals";
+    parameter Integer n_out = 1 "Number of output signals";
     Frame_a frame_a annotation (extent=[-120, -15; -100, 15]);
     Frame_b frame_b annotation (extent=[100, -15; 120, 15]);
     Modelica.Blocks.Interfaces.RealOutput y[n_out] 
@@ -513,8 +508,7 @@ with the blocks of package Modelica.Blocks.
   end PartialCutForceSensor;
   
   partial model PartialVisualizer 
-    "Base model of visualizers (has a frame_a on the left side + outer world + assert to guarantee that the component is connected)"
-    
+    "Base model of visualizers (has a frame_a on the left side + outer world + assert to guarantee that the component is connected)" 
     
     MultiBody.Interfaces.Frame_a frame_a 
       annotation (extent=[-120, -15; -100, 15]);

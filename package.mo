@@ -1,6 +1,7 @@
 package Modelica "Modelica Standard Library"
 extends Icons.Library;
 
+
 annotation(preferedView="info",
   Window(
     x=0.02,
@@ -63,6 +64,7 @@ and the accompanying <b>disclaimer</b>
 </p><br>
 </HTML>
 "));
+
 
 package UsersGuide "Users Guide" 
   

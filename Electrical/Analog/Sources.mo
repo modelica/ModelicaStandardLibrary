@@ -216,7 +216,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
   
   model RampVoltage "Ramp voltage source" 
     parameter SI.Voltage V=1 "Height of ramp";
-    parameter SI.Time duration(min=Modelica.Constants.small)=  2 
+    parameter SI.Time duration(min=Modelica.Constants.small) = 2 
       "Duration of ramp";
     extends Interfaces.VoltageSource(redeclare Modelica.Blocks.Sources.Ramp 
         signalSource( final height=
@@ -480,10 +480,10 @@ Modelica in file \"Modelica/package.mo\".</i><br>
   
   model ExponentialsVoltage " Rising and falling exponential voltage source" 
     parameter Real vMax=1 "Upper bound for rising edge";
-    parameter SI.Time riseTime(min=0)=  0.5 "Rise time";
-    parameter SI.Time riseTimeConst(min=Modelica.Constants.small)=  0.1 
+    parameter SI.Time riseTime(min=0) = 0.5 "Rise time";
+    parameter SI.Time riseTimeConst(min=Modelica.Constants.small) = 0.1 
       "Rise time constant";
-    parameter SI.Time fallTimeConst(min=Modelica.Constants.small)=  riseTimeConst 
+    parameter SI.Time fallTimeConst(min=Modelica.Constants.small) = riseTimeConst 
       "Fall time constant";
     extends Interfaces.VoltageSource(redeclare 
         Modelica.Blocks.Sources.Exponentials signalSource(
@@ -638,8 +638,8 @@ Modelica in file \"Modelica/package.mo\".</i><br>
     parameter SI.Voltage V=1 "Amplitude of pulse";
     parameter Real width(
       final min=Modelica.Constants.small,
-      final max=100)=  50 "Width of pulse in % of period";
-    parameter SI.Time period(final min=Modelica.Constants.small)=  1 
+      final max=100) = 50 "Width of pulse in % of period";
+    parameter SI.Time period(final min=Modelica.Constants.small) = 1 
       "Time for one period";
     extends Interfaces.VoltageSource(redeclare Modelica.Blocks.Sources.Pulse 
         signalSource(
@@ -847,10 +847,10 @@ Modelica in file \"Modelica/package.mo\".</i><br>
   
   model TrapezoidVoltage "Trapezoidal voltage source" 
     parameter SI.Voltage V=1 "Amplitude of trapezoid";
-    parameter SI.Time rising(final min=0)=  0 "Rising duration of trapezoid";
-    parameter SI.Time width(final min=0)=  0.5 "Width duration of trapezoid";
-    parameter SI.Time falling(final min=0)=  0 "Falling duration of trapezoid";
-    parameter SI.Time period(final min=Modelica.Constants.small)=  1 
+    parameter SI.Time rising(final min=0) = 0 "Rising duration of trapezoid";
+    parameter SI.Time width(final min=0) = 0.5 "Width duration of trapezoid";
+    parameter SI.Time falling(final min=0) = 0 "Falling duration of trapezoid";
+    parameter SI.Time period(final min=Modelica.Constants.small) = 1 
       "Time for one period";
     parameter Integer nperiod=-1 
       "Number of periods (< 0 means infinite number of periods)";
@@ -1270,7 +1270,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
   
   model RampCurrent "Ramp current source" 
     parameter SI.Current I=1 "Height of ramp";
-    parameter SI.Time duration(min=Modelica.Constants.small)=  2 
+    parameter SI.Time duration(min=Modelica.Constants.small) = 2 
       "Duration of ramp";
     extends Interfaces.CurrentSource(redeclare Modelica.Blocks.Sources.Ramp 
         signalSource(                                                                    final 
@@ -1534,10 +1534,10 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
   
   model ExponentialsCurrent " Rising and falling exponential current source" 
     parameter Real iMax=1 "Upper bound for rising edge";
-    parameter SI.Time riseTime(min=0)=  0.5 "Rise time";
-    parameter SI.Time riseTimeConst(min=Modelica.Constants.small)=  0.1 
+    parameter SI.Time riseTime(min=0) = 0.5 "Rise time";
+    parameter SI.Time riseTimeConst(min=Modelica.Constants.small) = 0.1 
       "Rise time constant";
-    parameter SI.Time fallTimeConst(min=Modelica.Constants.small)=  riseTimeConst 
+    parameter SI.Time fallTimeConst(min=Modelica.Constants.small) = riseTimeConst 
       "Fall time constant";
     extends Interfaces.CurrentSource(redeclare 
         Modelica.Blocks.Sources.Exponentials signalSource(
@@ -1624,8 +1624,8 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
     parameter SI.Current I=1 "Amplitude of pulse";
     parameter Real width(
       final min=Modelica.Constants.small,
-      final max=100)=  50 "Width of pulse in % of period";
-    parameter SI.Time period(final min=Modelica.Constants.small)=  1 
+      final max=100) = 50 "Width of pulse in % of period";
+    parameter SI.Time period(final min=Modelica.Constants.small) = 1 
       "Time for one period";
     extends Interfaces.CurrentSource(redeclare Modelica.Blocks.Sources.Pulse 
         signalSource(
@@ -1833,10 +1833,10 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
   
   model TrapezoidCurrent "Trapezoidal current source" 
     parameter SI.Current I=1 "Amplitude of trapezoid";
-    parameter SI.Time rising(final min=0)=  0 "Rising duration of trapezoid";
-    parameter SI.Time width(final min=0)=  0.5 "Width duration of trapezoid";
-    parameter SI.Time falling(final min=0)=  0 "Falling duration of trapezoid";
-    parameter SI.Time period(final min=Modelica.Constants.small)=  1 
+    parameter SI.Time rising(final min=0) = 0 "Rising duration of trapezoid";
+    parameter SI.Time width(final min=0) = 0.5 "Width duration of trapezoid";
+    parameter SI.Time falling(final min=0) = 0 "Falling duration of trapezoid";
+    parameter SI.Time period(final min=Modelica.Constants.small) = 1 
       "Time for one period";
     parameter Integer nperiod=-1 
       "Number of periods (< 0 means infinite number of periods)";

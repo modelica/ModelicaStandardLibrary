@@ -2,8 +2,7 @@ package SIunits "Type definitions based on SI units according to ISO 31-1992"
   extends Modelica.Icons.Library2;
   
   package Conversions 
-    "Conversion functions to/from non SI units and type definitions of non SI units"
-    
+    "Conversion functions to/from non SI units and type definitions of non SI units" 
     
     extends Modelica.Icons.Library2;
     
@@ -725,7 +724,7 @@ functions.</p>
   type ThermodynamicTemperature = Real (
       final quantity="ThermodynamicTemperature",
       final unit="K",
-      min=  0,
+      min = 0,
       displayUnit="degC");
   type Temp_K = ThermodynamicTemperature;
   type Temperature = ThermodynamicTemperature;
@@ -843,8 +842,10 @@ functions.</p>
         final unit="A/m");
   type MagneticFieldStrength = Real (final quantity="MagneticFieldStrength",
         final unit="A/m");
+  type MagneticPotential = Real (final quantity="MagneticPotential", final unit
+        =                                                                       "A");
   type MagneticPotentialDifference = Real (final quantity=
-          "MagneticPotentialDifference", final unit="A");
+          "MagneticPotential", final unit="A");
   type MagnetomotiveForce = Real (final quantity="MagnetomotiveForce", final unit
         =    "A");
   type CurrentLinkage = Real (final quantity="CurrentLinkage", final unit="A");
@@ -856,8 +857,7 @@ functions.</p>
   type Inductance = Real (
       final quantity="Inductance",
       final unit="H");
-  type SelfInductance = Inductance (
-                                   min=0);
+  type SelfInductance = Inductance(min=0);
   type MutualInductance = Inductance;
   type CouplingCoefficient = Real (final quantity="CouplingCoefficient", final unit
         =    "1");

@@ -83,8 +83,7 @@ user interface when the type is used as parameter in a declaration.
         final unit="deg/s2");
   
   package RotationTypes 
-    "Type, constants and menu choices for rotation types, as temporary solution until enumerations are available"
-    
+    "Type, constants and menu choices for rotation types, as temporary solution until enumerations are available" 
     
     annotation (preferedView="text");
     
@@ -93,12 +92,12 @@ user interface when the type is used as parameter in a declaration.
     constant Integer TwoAxesVectors=2;
     constant Integer PlanarRotationSequence=3;
     type Temp 
-      "Temporary type of RotationTypes with choices for menus (until enumerations are available)"
-      
+      "Temporary type of RotationTypes with choices for menus (until enumerations are available)" 
       
       extends Integer;
       annotation (Evaluate=true, choices(
-          choice=Modelica.Mechanics.MultiBody.Types.RotationTypes.RotationAxis "Rotation axis",
+          choice=Modelica.Mechanics.MultiBody.Types.RotationTypes.RotationAxis 
+            "Rotation axis",
           choice=Modelica.Mechanics.MultiBody.Types.RotationTypes.TwoAxesVectors 
             "Two axes vectors",
           choice=Modelica.Mechanics.MultiBody.Types.RotationTypes.PlanarRotationSequence 
@@ -108,8 +107,7 @@ user interface when the type is used as parameter in a declaration.
   end RotationTypes;
   
   package GravityTypes 
-    "Type, constants and menu choices for gravity fields, as temporary solution until enumerations are available"
-    
+    "Type, constants and menu choices for gravity fields, as temporary solution until enumerations are available" 
     
     annotation (preferedView="text");
     extends Modelica.Icons.Library;
@@ -118,21 +116,22 @@ user interface when the type is used as parameter in a declaration.
     constant Integer PointGravity=2;
     
     type Temp 
-      "Temporary type of gravity field with choices for menus (until enumerations are available)"
-      
+      "Temporary type of gravity field with choices for menus (until enumerations are available)" 
       
       extends Integer;
       annotation (choices(
-          choice=Modelica.Mechanics.MultiBody.Types.GravityTypes.NoGravity "no gravity",
-          choice=Modelica.Mechanics.MultiBody.Types.GravityTypes.UniformGravity "uniform gravity",
-          choice=Modelica.Mechanics.MultiBody.Types.GravityTypes.PointGravity "point gravity"));
+          choice=Modelica.Mechanics.MultiBody.Types.GravityTypes.NoGravity 
+            "no gravity",
+          choice=Modelica.Mechanics.MultiBody.Types.GravityTypes.UniformGravity 
+            "uniform gravity",
+          choice=Modelica.Mechanics.MultiBody.Types.GravityTypes.PointGravity 
+            "point gravity"));
       
     end Temp;
   end GravityTypes;
   
   package Init 
-    "Type, constants and menu choices to define initialization, as temporary solution until enumerations are available"
-    
+    "Type, constants and menu choices to define initialization, as temporary solution until enumerations are available" 
     
     annotation (preferedView="text");
     extends Modelica.Icons.Library;
@@ -146,12 +145,12 @@ user interface when the type is used as parameter in a declaration.
     constant Integer PositionVelocityAcceleration=7;
     
     type Temp 
-      "Temporary type of Init with choices for menus (until enumerations are available)"
-      
+      "Temporary type of Init with choices for menus (until enumerations are available)" 
       
       extends Integer;
       annotation (choices(
-          choice=Modelica.Mechanics.MultiBody.Types.Init.Free "free (no initialization)",
+          choice=Modelica.Mechanics.MultiBody.Types.Init.Free 
+            "free (no initialization)",
           choice=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity 
             "initialize generalized position and velocity variables",
           choice=Modelica.Mechanics.MultiBody.Types.Init.SteadyState 

@@ -1,6 +1,5 @@
 encapsulated model Fourbar2 
-  "One kinematic loop with four bars (with UniversalSpherical joint; 1 non-linear equation)"
-  
+  "One kinematic loop with four bars (with UniversalSpherical joint; 1 non-linear equation)" 
   
   import Modelica;
   import Modelica.Mechanics.MultiBody;

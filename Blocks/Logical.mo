@@ -68,10 +68,9 @@ network built with package Logical is shown in the next figure:
   end Not;
   
   model Pre 
-    "y = pre(u): Breaks algebraic loops by an infinitesimal small time delay (event iteration continues until u = pre(u))"
+    "y = pre(u): Breaks algebraic loops by an infinitesimal small time delay (event iteration continues until u = pre(u))" 
     
-    
-    parameter Boolean pre_u_start=  false 
+    parameter Boolean pre_u_start = false 
       "Start value of pre(u) at initial time";
     extends Blocks.Interfaces.partialBooleanSISO;
     
@@ -86,7 +85,7 @@ network built with package Logical is shown in the next figure:
   
   model Edge "y = edge(u): Output y is true, if the input u has a rising edge" 
     
-    parameter Boolean pre_u_start=  false 
+    parameter Boolean pre_u_start = false 
       "Start value of pre(u) at initial time";
     extends Blocks.Interfaces.partialBooleanSISO;
     
@@ -102,7 +101,7 @@ network built with package Logical is shown in the next figure:
   model FallingEdge 
     "y = edge(not u): Output y is true, if the input u has a falling edge" 
     
-    parameter Boolean pre_u_start=  false 
+    parameter Boolean pre_u_start = false 
       "Start value of pre(u) at initial time";
     extends Blocks.Interfaces.partialBooleanSISO;
     
@@ -118,10 +117,9 @@ network built with package Logical is shown in the next figure:
   end FallingEdge;
   
   model Change 
-    "y = change(u): Output y is true, if the input u has a rising or falling edge"
+    "y = change(u): Output y is true, if the input u has a rising or falling edge" 
     
-    
-    parameter Boolean pre_u_start=  false 
+    parameter Boolean pre_u_start = false 
       "Start value of pre(u) at initial time";
     extends Blocks.Interfaces.partialBooleanSISO;
     
@@ -393,7 +391,7 @@ u1, else it is set equal to u3.</p>
     extends Blocks.Interfaces.partialBooleanBlockIcon;
     parameter Real uLow=0 "if y=true and u<=uLow, switch to y=false";
     parameter Real uHigh=1 "if y=false and u>=uHigh, switch to y=true";
-    parameter Boolean pre_y_start=  false "Value of pre(y) at initial time";
+    parameter Boolean pre_y_start = false "Value of pre(y) at initial time";
     
     Blocks.Interfaces.RealInput u annotation(extent=[-140,-20; -100,20]);
     Blocks.Interfaces.BooleanOutput y 
@@ -500,7 +498,7 @@ The default value of this parameter is <b>false</b>.
     Blocks.Interfaces.BooleanOutput y annotation(extent=[100,-10; 120,10]);
     
     parameter Real bandwidth=0.1 "Bandwidth around reference signal";
-    parameter Boolean pre_y_start=  false "Value of pre(y) at initial time";
+    parameter Boolean pre_y_start = false "Value of pre(y) at initial time";
     
     annotation (Icon(
         Text(
@@ -708,8 +706,7 @@ handled properly.</p>
   end TriggeredTrapezoid;
   
   block Timer 
-    "Timer measuring the time from the time instant where the Boolean input became true"
-    
+    "Timer measuring the time from the time instant where the Boolean input became true" 
     
     extends Interfaces.partialBooleanBlockIcon;
     Blocks.Interfaces.BooleanInput u annotation(extent=[-140,-20; -100,20]);

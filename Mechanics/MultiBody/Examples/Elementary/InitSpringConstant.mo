@@ -1,6 +1,5 @@
 model InitSpringConstant 
-  "Determine spring constant such that system is in steady state at given position"
-  
+  "Determine spring constant such that system is in steady state at given position" 
   
   extends Modelica.Icons.Example;
   inner MultiBody.World world(gravityType=MultiBody.Types.GravityTypes.

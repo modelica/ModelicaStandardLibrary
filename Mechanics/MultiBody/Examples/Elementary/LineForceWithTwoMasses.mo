@@ -1,6 +1,5 @@
 model LineForceWithTwoMasses 
-  "Demonstrate line force with two point masses using a JointUPS and alternatively a LineForceWithTwoMasses component"
-  
+  "Demonstrate line force with two point masses using a JointUPS and alternatively a LineForceWithTwoMasses component" 
   
   import SI = Modelica.SIunits;
   

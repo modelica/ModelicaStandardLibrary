@@ -134,8 +134,7 @@ Modelica in file \"Modelica/package.mo\".
 </HTML>
 "));
   package Examples 
-    "Example models to demonstrate the usage of package Modelica.Thermal.HeatTransfer"
-    
+    "Example models to demonstrate the usage of package Modelica.Thermal.HeatTransfer" 
     
     extends Modelica.Icons.Library;
     
@@ -315,8 +314,7 @@ An approppriate simulating time would be 10 seconds.
         startTime=2) annotation (extent=[20, 0; 0, 20]);
       
       encapsulated block SwitchController 
-        "On-off controller for use with Modelica.Electrical.Analog.Ideal.IdealSwitch"
-        
+        "On-off controller for use with Modelica.Electrical.Analog.Ideal.IdealSwitch" 
         
         import Modelica.Blocks;
         extends Blocks.Interfaces.SI2BooleanSO;
@@ -399,7 +397,7 @@ Standard library.</p>
       
       extends HeatPort;
       
-      annotation(defaultComponentName=  "port_a",
+      annotation(defaultComponentName = "port_a",
         Documentation(info="<HTML>
 <p>This connector is used for 1-dimensional heat flow between components.
 The variables in the connector are:</p>
@@ -431,7 +429,7 @@ class.</p>
       
       extends HeatPort;
       
-      annotation(defaultComponentName=  "port_b",
+      annotation(defaultComponentName = "port_b",
         Documentation(info="<HTML>
 <p>This connector is used for 1-dimensional heat flow between components.
 The variables in the connector are:</p>
@@ -459,8 +457,7 @@ class.</p>
     end HeatPort_b;
     
     partial model Element1D 
-      "Partial heat transfer element with two HeatPort connectors that does not store energy"
-      
+      "Partial heat transfer element with two HeatPort connectors that does not store energy" 
       
       SI.HeatFlowRate Q_flow "Heat flow rate from port_a -> port_b";
       SI.Temperature dT "port_a.T - port_b.T";

@@ -197,8 +197,7 @@ animation = <b>false</b>.
     frame_b.R = Frames.nullRotation();
   end Fixed;
   
-  model FixedTranslation "Fixed translation of frame_b with respect to frame_a"
-    
+  model FixedTranslation "Fixed translation of frame_b with respect to frame_a" 
     
     import SI = Modelica.SIunits;
     Interfaces.Frame_a frame_a annotation (extent=[-120, -15; -100, 15]);
@@ -329,8 +328,7 @@ the animation may be switched off via parameter animation = <b>false</b>.
   end FixedTranslation;
   
   model FixedRotation 
-    "Fixed translation followed by a fixed rotation of frame_b with respect to frame_a"
-    
+    "Fixed translation followed by a fixed rotation of frame_b with respect to frame_a" 
     
     import Modelica.Mechanics.MultiBody.Frames;
     import SI = Modelica.SIunits;
@@ -360,7 +358,7 @@ the animation may be switched off via parameter animation = <b>false</b>.
     
     parameter MultiBody.Types.RotationSequence sequence(
       min={1,1,1},
-      max={3,3,3})=  {1,2,3} 
+      max={3,3,3}) = {1,2,3} 
       "|if rotationType = PlanarRotationSequence| Sequence of rotations" 
       annotation (Evaluate=true);
     parameter Cv.NonSIunits.Angle_deg angles[3]={0,0,0} 
@@ -536,8 +534,7 @@ the animation may be switched off via parameter animation = <b>false</b>.
   end FixedRotation;
   
   model Body 
-    "Rigid body with mass, inertia tensor and one frame connector (12 potential states)"
-    
+    "Rigid body with mass, inertia tensor and one frame connector (12 potential states)" 
     
     import SI = Modelica.SIunits;
     import Cv = Modelica.SIunits.Conversions;
@@ -905,8 +902,7 @@ to the setting of parameters \"useQuaternions\" and
   end Body;
   
   model BodyShape 
-    "Rigid body with mass, inertia tensor, different shapes for animation, and two frame connectors (12 potential states)"
-    
+    "Rigid body with mass, inertia tensor, different shapes for animation, and two frame connectors (12 potential states)" 
     
     import SI = Modelica.SIunits;
     import NonSI = Modelica.SIunits.Conversions.NonSIunits;
@@ -1142,8 +1138,7 @@ states and of the \"Advanced\" menu parameters, see model
   end BodyShape;
   
   model BodyBox 
-    "Rigid body with box shape. Mass and animation properties are computed from box data and density (12 potential states)"
-    
+    "Rigid body with box shape. Mass and animation properties are computed from box data and density (12 potential states)" 
     
     import SI = Modelica.SIunits;
     import NonSI = Modelica.SIunits.Conversions.NonSIunits;
@@ -1172,7 +1167,7 @@ states and of the \"Advanced\" menu parameters, see model
     parameter Real density(
       quantity="Density",
       unit="g/cm3",
-      min=0)=  7.7 
+      min=0) = 7.7 
       "Density of box (e.g., steel: 7.7 .. 7.9, wood : 0.4 .. 0.8)";
     parameter MultiBody.Types.Color color=MultiBody.Types.Defaults.BodyColor 
       "Color of box";
@@ -1328,8 +1323,7 @@ states and of the \"Advanced\" menu parameters, see model
   end BodyBox;
   
   model BodyCylinder 
-    "Rigid body with cylinder shape. Mass and animation properties are computed from cylinder data and density (12 potential states)"
-    
+    "Rigid body with cylinder shape. Mass and animation properties are computed from cylinder data and density (12 potential states)" 
     
     import SI = Modelica.SIunits;
     import NonSI = Modelica.SIunits.Conversions.NonSIunits;
@@ -1351,7 +1345,7 @@ states and of the \"Advanced\" menu parameters, see model
       "Inner diameter of cylinder (0 <= innerDiameter <= Diameter)";
     parameter Real density(
       quantity="Density",
-      unit="g/cm3")=  7.7 
+      unit="g/cm3") = 7.7 
       "Density of cylinder (e.g., steel: 7.7 .. 7.9, wood : 0.4 .. 0.8)";
     parameter MultiBody.Types.Color color=MultiBody.Types.Defaults.BodyColor 
       "Color of cylinder";

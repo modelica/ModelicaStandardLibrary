@@ -1,6 +1,5 @@
 encapsulated model PlanarLoops_analytic 
-  "Mechanism with three planar kinematic loops and one degree-of-freedom with analytic loop handling (with JointRRR joints)"
-  
+  "Mechanism with three planar kinematic loops and one degree-of-freedom with analytic loop handling (with JointRRR joints)" 
   
   import Modelica;
   import Modelica.Mechanics.MultiBody;

@@ -124,8 +124,7 @@ equation
 end ExtractSignal;
   
 block Extractor 
-    "Extract scalar signal out of signal vector dependent on IntegerRealInput index"
-    
+    "Extract scalar signal out of signal vector dependent on IntegerRealInput index" 
     
   extends Modelica.Blocks.Interfaces.MISO;
     

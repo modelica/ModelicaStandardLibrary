@@ -52,7 +52,7 @@ $Id$<br>
     parameter SIunits.Current Ids=1.e-6 "Saturation current";
     parameter SIunits.Voltage Vt=0.04 
       "Voltage equivalent of temperature (kT/qn)";
-    parameter Real Maxexp(final min=Modelica.Constants.SMALL)=  15 
+    parameter Real Maxexp(final min=Modelica.Constants.SMALL) = 15 
       "Max. exponent for linear continuation";
     parameter SIunits.Resistance R=1.e8 "Parallel ohmic resistance";
     annotation (
@@ -589,7 +589,7 @@ on page 317 ff.
           parameter Modelica.SIunits.Current Ids=1.e-6 "Saturation current";
     
             /* parameter Modelica.SIunits.Voltage Vt=0.04 "Voltage equivalent of temperature (kT/qn)"; */
-          parameter Real Maxexp(final min=Modelica.Constants.SMALL)=  15 
+          parameter Real Maxexp(final min=Modelica.Constants.SMALL) = 15 
       "Max. exponent for linear continuation";
           parameter Modelica.SIunits.Resistance R=1.e8 
       "Parallel ohmic resistance";
@@ -1328,8 +1328,7 @@ on page 317 ff.
   
 protected 
         function pow 
-    "Just a helper function for x^y in order that a symbolic engine can apply some transformations more easily"
-    
+    "Just a helper function for x^y in order that a symbolic engine can apply some transformations more easily" 
     
           input Real x;
           input Real y;
@@ -1338,8 +1337,7 @@ protected
           z := x^y;
         end pow;
   
-        function exlin "Exponential function linearly continued for x > Maxexp"
-    
+        function exlin "Exponential function linearly continued for x > Maxexp" 
     
           input Real x;
           input Real Maxexp;

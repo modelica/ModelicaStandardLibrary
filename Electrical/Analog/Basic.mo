@@ -132,7 +132,7 @@ The Resistance <i>R</i> is allowed to be positive, zero, or negative.
     
     parameter SI.Resistance R_ref "Resistance at temperature T_ref";
     parameter SI.Temperature T_ref=300 "Reference temperature";
-    parameter Real alpha(unit="1/K")=  0 
+    parameter Real alpha(unit="1/K") = 0 
       "Temperature coefficient of resistance";
     
     SI.Resistance R "Resistance = R_ref*(1 + alpha*(heatPort.T - T_ref));";
@@ -556,7 +556,7 @@ where the constants <i>G1</i>, <i>G2</i> are called the gyration conductance.
   end Gyrator;
   
   model EMF "Electromotoric force (electric/mechanic transformer)" 
-    parameter Real k(final unit="N.m/A")=  1 "Transformation coefficient";
+    parameter Real k(final unit="N.m/A") = 1 "Transformation coefficient";
     
     SI.Voltage v "Voltage drop between the two pins";
     SI.Current i "Current flowing from positive to negative pin";

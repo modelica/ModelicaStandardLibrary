@@ -178,8 +178,7 @@ The following examples are present:
 </ul>
 </HTML>
 "));
-    encapsulated model SignConvention "Examples for the used sign conventions."
-      
+    encapsulated model SignConvention "Examples for the used sign conventions." 
       
       import Modelica.Icons;
       import Modelica.Blocks.Sources;
@@ -822,10 +821,9 @@ Spool position s as a function of working force f.
     extends Modelica.Icons.Library;
     
     connector Flange_a 
-      "(left) 1D translational flange (flange axis directed INTO cut plane, e. g. from left to right)"
+      "(left) 1D translational flange (flange axis directed INTO cut plane, e. g. from left to right)" 
       
-      
-      annotation(defaultComponentName=  "flange_a",
+      annotation(defaultComponentName = "flange_a",
         Coordsys(extent=[-100, -100; 100, 100]),
         Window(
           x=0.27,
@@ -869,7 +867,7 @@ The following variables are transported through this connector:
       
       SI.Position s "absolute position of flange";
       flow SI.Force f "cut force directed into flange";
-      annotation(defaultComponentName=  "flange_b",
+      annotation(defaultComponentName = "flange_b",
         Coordsys(
           extent=[-100, -100; 100, 100],
           grid=[2, 2],
@@ -1298,8 +1296,8 @@ A negative force at flange flange_a moves the sliding mass to the negative direc
   
   model Stop "Sliding mass with hard stop and Stribeck friction" 
     extends Modelica.Mechanics.Translational.Interfaces.FrictionBase(
-  s(stateSelect=  StateSelect.always));
-    Modelica.SIunits.Velocity v(stateSelect=  StateSelect.always) 
+  s(stateSelect = StateSelect.always));
+    Modelica.SIunits.Velocity v(stateSelect = StateSelect.always) 
       "Absolute velocity of flange_a and flange_b";
     Modelica.SIunits.Acceleration a 
       "Absolute acceleration of flange_a and flange_b";
@@ -1307,13 +1305,13 @@ A negative force at flange flange_a moves the sliding mass to the negative direc
     
     parameter Real F_prop(
       final unit="N/ (m/s)",
-      final min=0)=  1 "velocity dependent friction";
+      final min=0) = 1 "velocity dependent friction";
     parameter Modelica.SIunits.Force F_Coulomb=5 
       "constant friction: Coulomb force";
     parameter Modelica.SIunits.Force F_Stribeck=10 "Stribeck effect";
     parameter Real fexp(
       final unit="1/ (m/s)",
-      final min=0)=  2 "exponential decay";
+      final min=0) = 2 "exponential decay";
     
     annotation (
       Documentation(info="
@@ -1608,7 +1606,7 @@ Rod <i>without inertia</i> and two rigidly connected flanges.
     parameter SI.Distance s_rel0=0 "unstretched spring length";
     parameter Real c(
       final unit="N/m",
-      final min=0)=  1 "spring constant ";
+      final min=0) = 1 "spring constant ";
     
     annotation (
       Coordsys(
@@ -1659,7 +1657,7 @@ a coupling of the slidin mass with the housing via a spring.
     extends Interfaces.Compliant;
     parameter Real d(
       final unit="N/ (m/s)",
-      final min=0)=  0 "damping constant [N/ (m/s)]";
+      final min=0) = 0 "damping constant [N/ (m/s)]";
     SI.Velocity v_rel "relative velocity between flange_a and flange_b";
     annotation (
       Coordsys(
@@ -1717,10 +1715,10 @@ between two sliding masses.
     parameter SI.Position s_rel0=0 "unstretched spring length";
     parameter Real c(
       final unit="N/m",
-      final min=0)=  1 "spring constant";
+      final min=0) = 1 "spring constant";
     parameter Real d(
       final unit="N/(m/s)",
-      final min=0)=  1 "damping constant";
+      final min=0) = 1 "damping constant";
     SI.Velocity v_rel "relative velocity between flange_a and flange_b";
     
     annotation (
@@ -1792,10 +1790,10 @@ to describe a coupling of the sliding mass with the housing via a spring/damper.
     parameter SI.Position s_rel0=0 "unstretched spring length";
     parameter Real c(
       final unit="N/m",
-      final min=0)=  1 "spring constant";
+      final min=0) = 1 "spring constant";
     parameter Real d(
       final unit="N/ (m/s)",
-      final min=0)=  1 "damping constant";
+      final min=0) = 1 "damping constant";
     SI.Velocity v_rel "relative velocity between flange_a and flange_b";
     Boolean Contact "false, if s_rel > l ";
     
@@ -2035,8 +2033,7 @@ blocks of the block library Modelica.Blocks.Source.
   end Accelerate;
   
   model Move 
-    "Forced movement of a flange according to a position, velocity and acceleration signal"
-    
+    "Forced movement of a flange according to a position, velocity and acceleration signal" 
     
     SI.Position s "absolute position of flange_b";
     SI.Velocity v "absolute velocity of flange_b";

@@ -196,8 +196,7 @@ definition of the colors used in the MultiBody library
   end FixedShape;
   
   model FixedShape2 
-    "Fixed animation shape of a part and fixed translation of frame_b with respect to frame_a"
-    
+    "Fixed animation shape of a part and fixed translation of frame_b with respect to frame_a" 
     
     import SI = Modelica.SIunits;
     Interfaces.Frame_a frame_a annotation (extent=[-120, -15; -100, 15]);
@@ -697,8 +696,7 @@ with respect to frame_a (vector from the origin of frame_a to the arrow tail).
   end SignalArrow;
   
   package Advanced 
-    "Visualizers that require basic knowledge about Modelica in order to use them"
-    
+    "Visualizers that require basic knowledge about Modelica in order to use them" 
     
     extends Modelica.Icons.Library;
     annotation (preferedView="info", Documentation(info="<HTML>
@@ -732,8 +730,7 @@ since they all have frame connectors).
 </table>
 </HTML>"));
     model Arrow 
-      "Visualizing an arrow with variable size; all data have to be set as modifiers (see info layer)"
-      
+      "Visualizing an arrow with variable size; all data have to be set as modifiers (see info layer)" 
       
       import SI = Modelica.SIunits;
       
@@ -749,7 +746,7 @@ since they all have frame connectors).
         "Diameter of arrow line";
       input MultiBody.Types.Color color=MultiBody.Types.Defaults.ArrowColor 
         "Color of arrow";
-      input Real specularCoefficient(min=0)=  0.7 
+      input Real specularCoefficient(min=0) = 0.7 
         "Material property describing the reflecting of ambient light (= 0 means, that light is completely absorbed)";
     protected 
       outer MultiBody.World world;
@@ -856,8 +853,7 @@ library (will be replaced by a color editor).
     end Arrow;
     
     model DoubleArrow 
-      "Visualizing a double arrow with variable size; all data have to be set as modifiers (see info layer)"
-      
+      "Visualizing a double arrow with variable size; all data have to be set as modifiers (see info layer)" 
       
       import SI = Modelica.SIunits;
       input Frames.Orientation R=MultiBody.Frames.nullRotation() 
@@ -872,7 +868,7 @@ library (will be replaced by a color editor).
         "Diameter of arrow line";
       input MultiBody.Types.Color color=MultiBody.Types.Defaults.ArrowColor 
         "Color of double arrow";
-      input Real specularCoefficient(min=0)=  0.7 
+      input Real specularCoefficient(min=0) = 0.7 
         "Material property describing the reflecting of ambient light (= 0 means, that light is completely absorbed)";
     protected 
       outer MultiBody.World world;
@@ -992,8 +988,7 @@ library (will be replaced by a color editor).
     end DoubleArrow;
     
     model Shape 
-      "Different visual shapes with variable size; all data have to be set as modifiers (see info layer)"
-      
+      "Different visual shapes with variable size; all data have to be set as modifiers (see info layer)" 
       
       import T = Modelica.Mechanics.MultiBody.Frames.TransformationMatrices;
       import SI = Modelica.SIunits;
@@ -1015,7 +1010,7 @@ library (will be replaced by a color editor).
       input Real extra=0.0 
         "Additional size data for some of the shape types (details see docu).";
       input Real color[3]={255,0,0} "Color (details see docu).";
-      input Real specularCoefficient(min=0)=  0.7 
+      input Real specularCoefficient(min=0) = 0.7 
         "Material property describing the reflecting of ambient light (= 0 means, that light is completely absorbed)";
       // Real rxry[3, 2];
     protected 
@@ -1222,26 +1217,24 @@ library (will be replaced by a color editor).
   end Advanced;
   
   encapsulated package Internal 
-    "Visualizers that will be replaced by improved versions in the future (don't use them)"
-    
+    "Visualizers that will be replaced by improved versions in the future (don't use them)" 
     
     import Modelica;
     extends Modelica.Icons.Library;
     
     model FixedLines 
-      "Visualizing a set of lines as cylinders (e.g., used to display characters)"
-      
+      "Visualizing a set of lines as cylinders (e.g., used to display characters)" 
       
       import SI = Modelica.SIunits;
       import Modelica.Mechanics.MultiBody;
       extends MultiBody.Interfaces.PartialVisualizer;
       
       parameter Boolean animation=true "= true, if animation shall be enabled";
-      parameter Real scale(min=0)=  1 
+      parameter Real scale(min=0) = 1 
         "|if animation = true| The 'lines' are visualized 'scale' times bigger";
       parameter SI.Position lines[:, 2, 2]={[0, 0; 1, 1],[0, 1; 1, 0]} 
         "|if animation = true| List of start and end points of cylinders resolved along n_x and n_y";
-      parameter SI.Distance diameter(min=0)=  0.05 
+      parameter SI.Distance diameter(min=0) = 0.05 
         "|if animation = true| Diameter of the cylinders defined by lines";
       parameter SI.Position r_lines[3]={0,0,0} 
         "|if animation = true| Position vector from origin of frame_a to the origin of the 'lines' frame, resolved in frame_a";
@@ -1311,8 +1304,7 @@ and are defined by parameters.
     end FixedLines;
     
     model Lines 
-      "Visualizing a set of lines as cylinders with variable size, e.g., used to display characters (no Frame connector)"
-      
+      "Visualizing a set of lines as cylinders with variable size, e.g., used to display characters (no Frame connector)" 
       
       import SI = Modelica.SIunits;
       import Modelica.Mechanics.MultiBody;
@@ -1329,10 +1321,10 @@ and are defined by parameters.
         "Vector in direction of y-axis of 'lines' frame, resolved in object frame.";
       input SI.Position lines[:, 2, 2]=zeros(0, 2, 2) 
         "List of start and end points of cylinders resolved in an x-y frame defined by n_x, n_y, e.g., {[0,0;1,1], [0,1;1,0], [2,0; 3,1]}";
-      input SI.Length diameter(min=0)=  0.05 
+      input SI.Length diameter(min=0) = 0.05 
         "Diameter of the cylinders defined by lines";
       input MultiBody.Types.Color color={0,128,255} "Color of cylinders";
-      input Real specularCoefficient(min=0)=  0 
+      input Real specularCoefficient(min=0) = 0 
         "Material property describing the reflecting of ambient light (= 0 means, that light is completely absorbed)";
     protected 
       parameter Integer n=size(lines, 1) "Number of cylinders";

@@ -28,7 +28,7 @@ package Sensors "Sensors to measure variables"
       "= true, to measure the absolute angular acceleration to frame_a in [rad/s^2]";
     parameter MultiBody.Types.RotationSequence sequence(
       min={1,1,1},
-      max={3,3,3})=  {1,2,3} 
+      max={3,3,3}) = {1,2,3} 
       "|if get_angles = true| Angles are returned to rotate world frame around axes sequence[1], sequence[2] and finally sequence[3] into frame_a"
       annotation (Evaluate=true);
     parameter SI.Angle guessAngle1=0 
@@ -381,7 +381,7 @@ Exact definition of the returned quantities:
       "= true, to measure the relative angular acceleration of frame_b with respect to frame_a in [rad/s^2]";
     parameter MultiBody.Types.RotationSequence sequence(
       min={1,1,1},
-      max={3,3,3})=  {1,2,3} 
+      max={3,3,3}) = {1,2,3} 
       "|if get_angles = true| Angles are returned to rotate frame_a around axes sequence[1], sequence[2] and finally sequence[3] into frame_b"
       annotation (Evaluate=true);
     parameter SI.Angle guessAngle1=0 
@@ -868,7 +868,7 @@ a division by zero may occur.
       "= true, if force with positive sign is returned (= frame_a.f), otherwise with negative sign (= frame_b.f)";
     parameter Boolean resolveInFrame_a=true 
       "= true, if force is resolved in frame_a/frame_b, otherwise in the world frame (if connector frame_resolve is connected, the force is resolved in frame_resolve)";
-    parameter Real N_to_m(unit="N/m")=  1000 
+    parameter Real N_to_m(unit="N/m") = 1000 
       "|if animation = true| Force arrow scaling (length = force/N_to_m)";
     parameter SI.Diameter forceDiameter=world.defaultArrowDiameter 
       "|if animation = true| Diameter of force arrow";
@@ -947,7 +947,7 @@ with negative sign at frame_a.
       "= true, if torque with positive sign is returned (= frame_a.t), otherwise with negative sign (= frame_b.t)";
     parameter Boolean resolveInFrame_a=true 
       "= true, if torque is resolved in frame_a/frame_b, otherwise in the world frame (if connector frame_resolve is connected, the torque is resolved in frame_resolve)";
-    parameter Real Nm_to_m(unit="N.m/m")=  1000 
+    parameter Real Nm_to_m(unit="N.m/m") = 1000 
       "|if animation = true| Torque arrow scaling (length = torque/Nm_to_m)";
     parameter SI.Diameter torqueDiameter=world.defaultArrowDiameter 
       "|if animation = true| Diameter of torque arrow";
@@ -1024,9 +1024,9 @@ with negative sign at frame_a.
       "= true, if force and torque with positive sign is returned (= frame_a.f/.t), otherwise with negative sign (= frame_b.f/.t)";
     parameter Boolean resolveInFrame_a=true 
       "= true, if force and torque are resolved in frame_a/frame_b, otherwise in the world frame (if connector frame_resolve is connected, the force/torque is resolved in frame_resolve)";
-    parameter Real N_to_m(unit="N/m")=  1000 
+    parameter Real N_to_m(unit="N/m") = 1000 
       "|if animation = true| Force arrow scaling (length = force/N_to_m)";
-    parameter Real Nm_to_m(unit="N.m/m")=  1000 
+    parameter Real Nm_to_m(unit="N.m/m") = 1000 
       "|if animation = true| Torque arrow scaling (length = torque/Nm_to_m)";
     parameter SI.Diameter forceDiameter=world.defaultArrowDiameter 
       "|if animation = true| Diameter of force arrow";

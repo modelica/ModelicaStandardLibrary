@@ -340,7 +340,7 @@ This current is provided explicitly as current i.
         width=0.6,
         height=0.6));
     replaceable Modelica.Blocks.Interfaces.SignalSource signalSource(
-        final offset=  offset, final startTime=startTime) 
+        final offset = offset, final startTime=startTime) 
     annotation (extent=[70, 70; 90, 90]);
   equation 
     v = signalSource.y;
@@ -372,7 +372,7 @@ This current is provided explicitly as current i.
         width=0.6,
         height=0.6));
     replaceable Modelica.Blocks.Interfaces.SignalSource signalSource(
-        final offset=  offset, final startTime=startTime) annotation (extent=[70,
+        final offset = offset, final startTime=startTime) annotation (extent=[70,
           69; 91,89]);
   equation 
     i = signalSource.y;

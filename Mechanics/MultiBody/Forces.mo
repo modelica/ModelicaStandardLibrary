@@ -107,8 +107,7 @@ between two frame connectors, e.g., between two parts.
 </HTML>"));
   
   model WorldForce 
-    "External force acting at frame_b, defined by 3 input signals and resolved in world frame"
-    
+    "External force acting at frame_b, defined by 3 input signals and resolved in world frame" 
     
     import SI = Modelica.SIunits;
     Interfaces.Frame_b frame_b annotation (extent=[100, -15; 120, 15]);
@@ -117,7 +116,7 @@ between two frame connectors, e.g., between two parts.
       "x-, y-, z-coordinates of force resolved in world frame" 
       annotation (extent=[-140, -20; -100, 20]);
     parameter Boolean animation=true "= true, if animation shall be enabled";
-    parameter Real N_to_m(unit="N/m")=  1000 
+    parameter Real N_to_m(unit="N/m") = 1000 
       "|if animation = true| Force arrow scaling (length = force/N_to_m)";
     parameter SI.Diameter diameter=world.defaultArrowDiameter 
       "|if animation = true| Diameter of force arrow";
@@ -222,8 +221,7 @@ is resolved in the world frame).
   end WorldForce;
   
   model WorldTorque 
-    "External torque acting at frame_b, defined by 3 input signals and resolved in world frame"
-    
+    "External torque acting at frame_b, defined by 3 input signals and resolved in world frame" 
     
     Interfaces.Frame_b frame_b annotation (extent=[100, -15; 120, 15]);
     Modelica.Blocks.Interfaces.RealInput torque[3](redeclare each type 
@@ -231,7 +229,7 @@ is resolved in the world frame).
       "x-, y-, z-coordinates of torque resolved in world frame" 
       annotation (extent=[-140, -20; -100, 20]);
     parameter Boolean animation=true "= true, if animation shall be enabled";
-    parameter Real Nm_to_m(unit="N.m/m")=  1000 
+    parameter Real Nm_to_m(unit="N.m/m") = 1000 
       "|if animation = true| Torque arrow scaling (length = torque/Nm_to_m)";
     parameter SI.Diameter diameter=world.defaultArrowDiameter 
       "|if animation = true| Diameter of torque arrow";
@@ -320,8 +318,7 @@ This leads to the following animation
   end WorldTorque;
   
   model WorldForceAndTorque 
-    "External force and torque acting at frame_b, defined by 6 input signals and resolved in world frame"
-    
+    "External force and torque acting at frame_b, defined by 6 input signals and resolved in world frame" 
     
     import SI = Modelica.SIunits;
     Interfaces.Frame_b frame_b annotation (extent=[100, -15; 120, 15]);
@@ -329,9 +326,9 @@ This leads to the following animation
       "[1:6] = x-, y-, z-coordinates of force and x-, y-, z-coordiantes of torque resolved in world frame"
       annotation (extent=[-140, -20; -100, 20]);
     parameter Boolean animation=true "= true, if animation shall be enabled";
-    parameter Real N_to_m(unit="N/m")=  1000 
+    parameter Real N_to_m(unit="N/m") = 1000 
       "|if animation = true| Force arrow scaling (length = force/N_to_m)";
-    parameter Real Nm_to_m(unit="N.m/m")=  1000 
+    parameter Real Nm_to_m(unit="N.m/m") = 1000 
       "|if animation = true| Torque arrow scaling (length = torque/Nm_to_m)";
     parameter SI.Diameter forceDiameter=world.defaultArrowDiameter 
       "|if animation = true| Diameter of force arrow";
@@ -472,8 +469,7 @@ is resolved in the world frame).
   end WorldForceAndTorque;
   
   model FrameForce 
-    "External force acting at frame_b, defined by 3 input signals and resolved in frame_b or in frame_resolve"
-    
+    "External force acting at frame_b, defined by 3 input signals and resolved in frame_b or in frame_resolve" 
     
     import SI = Modelica.SIunits;
     Interfaces.Frame_resolve frame_resolve 
@@ -485,7 +481,7 @@ is resolved in the world frame).
       "x-, y-, z-coordinates of force resolved in frame_b or frame_resolve (if connected)"
       annotation (extent=[-140, -20; -100, 20]);
     parameter Boolean animation=true "= true, if animation shall be enabled";
-    parameter Real N_to_m(unit="N/m")=  1000 
+    parameter Real N_to_m(unit="N/m") = 1000 
       "|if animation = true| Force arrow scaling (length = force/N_to_m)";
     parameter SI.Diameter diameter=world.defaultArrowDiameter 
       "|if animation = true| Diameter of force arrow";
@@ -609,8 +605,7 @@ is resolved in the world frame).
   end FrameForce;
   
   model FrameTorque 
-    "External torque acting at frame_b, defined by 3 input signals and resolved in frame_b or in frame_resolve"
-    
+    "External torque acting at frame_b, defined by 3 input signals and resolved in frame_b or in frame_resolve" 
     
     import SI = Modelica.SIunits;
     Interfaces.Frame_resolve frame_resolve 
@@ -622,7 +617,7 @@ is resolved in the world frame).
       "x-, y-, z-coordinates of torque resolved in frame_b or frame_resolve (if connected)"
       annotation (extent=[-140, -20; -100, 20]);
     parameter Boolean animation=true "= true, if animation shall be enabled";
-    parameter Real Nm_to_m(unit="N.m/m")=  1000 
+    parameter Real Nm_to_m(unit="N.m/m") = 1000 
       "|if animation = true| Torque arrow scaling (length = torque/Nm_to_m)";
     parameter SI.Diameter diameter=world.defaultArrowDiameter 
       "|if animation = true| Diameter of torque arrow";
@@ -748,8 +743,7 @@ is resolved in the world frame).
   end FrameTorque;
   
   model FrameForceAndTorque 
-    "External force and torque acting at frame_b, defined by 6 input signals and resolved in frame_b or in frame_resolve"
-    
+    "External force and torque acting at frame_b, defined by 6 input signals and resolved in frame_b or in frame_resolve" 
     
     import SI = Modelica.SIunits;
     Interfaces.Frame_b frame_b annotation (extent=[100, -15; 120, 15]);
@@ -760,9 +754,9 @@ is resolved in the world frame).
       "[1:6] = x-, y-, z-coordinates of force and x-, y-, z-coordiantes of torque resolved in frame_b or frame_resolved (if connected)"
       annotation (extent=[-140, -20; -100, 20]);
     parameter Boolean animation=true "= true, if animation shall be enabled";
-    parameter Real N_to_m(unit="N/m")=  1000 
+    parameter Real N_to_m(unit="N/m") = 1000 
       "|if animation = true| Force arrow scaling (length = force/N_to_m)";
-    parameter Real Nm_to_m(unit="N.m/m")=  1000 
+    parameter Real Nm_to_m(unit="N.m/m") = 1000 
       "|if animation = true| Torque arrow scaling (length = torque/Nm_to_m)";
     parameter SI.Diameter forceDiameter=world.defaultArrowDiameter 
       "|if animation = true| Diameter of force arrow";
@@ -924,8 +918,7 @@ is resolved in the world frame).
   end FrameForceAndTorque;
   
   model Force 
-    "Force acting between two frames, defined by 3 input signals and resolved in frame_b or in frame_resolve"
-    
+    "Force acting between two frames, defined by 3 input signals and resolved in frame_b or in frame_resolve" 
     
     import SI = Modelica.SIunits;
     Interfaces.Frame_a frame_a annotation (extent=[-120, -16; -100, 14]);
@@ -939,7 +932,7 @@ is resolved in the world frame).
       "x-, y-, z-coordinates of force resolved in frame_b or frame_resolved (if connected)"
       annotation (extent=[-80, 100; -40, 140], rotation=-90);
     parameter Boolean animation=true "= true, if animation shall be enabled";
-    parameter Real N_to_m(unit="N/m")=  1000 
+    parameter Real N_to_m(unit="N/m") = 1000 
       "|if animation = true| Force arrow scaling (length = force/N_to_m)";
     parameter SI.Diameter forceDiameter=world.defaultArrowDiameter 
       "|if animation = true| Diameter of force arrow";
@@ -1088,8 +1081,7 @@ is resolved in the world frame).
   end Force;
   
   model Torque 
-    "Torque acting between two frames, defined by 3 input signals and resolved in frame_b or in frame_resolve"
-    
+    "Torque acting between two frames, defined by 3 input signals and resolved in frame_b or in frame_resolve" 
     
     import SI = Modelica.SIunits;
     Interfaces.Frame_a frame_a annotation (extent=[-120, -15; -100, 15]);
@@ -1103,7 +1095,7 @@ is resolved in the world frame).
       "x-, y-, z-coordiantes of torque resolved in frame_b or frame_resolved (if connected)"
       annotation (extent=[-80, 100; -40, 140], rotation=-90);
     parameter Boolean animation=true "= true, if animation shall be enabled";
-    parameter Real Nm_to_m(unit="N.m/m")=  1000 
+    parameter Real Nm_to_m(unit="N.m/m") = 1000 
       "|if animation = true| Torque arrow scaling (length = torque/Nm_to_m)";
     parameter SI.Diameter torqueDiameter=world.defaultArrowDiameter 
       "|if animation = true| Diameter of torque arrow";
@@ -1259,8 +1251,7 @@ is resolved in the world frame).
   end Torque;
   
   model ForceAndTorque 
-    "Force and torque acting between two frames, defined by 6 input signals and resolved in frame_b or in frame_resolve"
-    
+    "Force and torque acting between two frames, defined by 6 input signals and resolved in frame_b or in frame_resolve" 
     
     import SI = Modelica.SIunits;
     Interfaces.Frame_a frame_a annotation (extent=[-120, -15; -100, 15]);
@@ -1273,9 +1264,9 @@ is resolved in the world frame).
       "[1:6] = x-, y-, z-coordinates of force and x-, y-, z-coordiantes of torque resolved in frame_b or frame_resolved (if connected)"
       annotation (extent=[-80, 100; -40, 140], rotation=-90);
     parameter Boolean animation=true "= true, if animation shall be enabled";
-    parameter Real N_to_m(unit="N/m")=  1000 
+    parameter Real N_to_m(unit="N/m") = 1000 
       "|if animation = true| Force arrow scaling (length = force/N_to_m)";
-    parameter Real Nm_to_m(unit="N.m/m")=  1000 
+    parameter Real Nm_to_m(unit="N.m/m") = 1000 
       "|if animation = true| Torque arrow scaling (length = torque/Nm_to_m)";
     parameter SI.Diameter forceDiameter=world.defaultArrowDiameter 
       "|if animation = true| Diameter of force arrow";
@@ -1459,8 +1450,7 @@ is resolved in the world frame).
   end ForceAndTorque;
   
   model LineForceWithMass 
-    "General line force component with an optional point mass on the connection line"
-    
+    "General line force component with an optional point mass on the connection line" 
     
     import SI = Modelica.SIunits;
     extends Interfaces.PartialTwoFrames;
@@ -1477,7 +1467,7 @@ is resolved in the world frame).
       "Mass of point mass on the connetion line between the origin of frame_a and the origin of frame_b";
     parameter Real lengthFraction(
       min=0,
-      max=1)=  0.5 
+      max=1) = 0.5 
       "Location of point mass with respect to frame_a as a fraction of the distance from frame_a to frame_b";
     parameter MultiBody.Types.ShapeType lineShapeType="cylinder" 
       "|Animation|if animateLine = true| Type of shape visualizing the line from frame_a to frame_b";
@@ -1762,8 +1752,7 @@ for this situation:
   end LineForceWithMass;
   
   model LineForceWithTwoMasses 
-    "General line force component with two optional point masses on the connection line"
-    
+    "General line force component with two optional point masses on the connection line" 
     
     import SI = Modelica.SIunits;
     extends Interfaces.PartialTwoFrames;
@@ -2166,7 +2155,7 @@ for this situation:
       "Spring mass located on the connetion line between the origin of frame_a and the origin of frame_b";
     parameter Real lengthFraction(
       min=0,
-      max=1)=  0.5 
+      max=1) = 0.5 
       "Location of spring mass with respect to frame_a as a fraction of the distance from frame_a to frame_b (=0: at frame_a; =1: at frame_b)";
     parameter SI.Distance width=world.defaultForceWidth 
       "|Animation|if animation = true| Width of spring";
@@ -2261,7 +2250,7 @@ ALT=\"model Examples.Elementary.SpringWithMass\">
     parameter Boolean animation=true "= true, if animation shall be enabled";
     parameter Real d(
       final unit="N.s/m",
-      final min=0)=  0 "Damping constant";
+      final min=0) = 0 "Damping constant";
     parameter SI.Distance length_a=world.defaultForceLength 
       "|Animation|if animation = true| Length of cylinder at frame_a side";
     parameter SI.Distance diameter_a=world.defaultForceWidth 
@@ -2374,7 +2363,7 @@ where a mass is hanging on a damper.
     parameter SI.Length s_unstretched=0 "Unstretched spring length";
     parameter Real d(
       final unit="N.s/m",
-      final min=0)=  0 "Damping constant";
+      final min=0) = 0 "Damping constant";
     parameter SI.Distance width=world.defaultForceWidth 
       "|Animation|if animation = true| Width of spring";
     parameter SI.Distance coilWidth=width/10 
@@ -2475,7 +2464,7 @@ and der(s) is the time derivative of s.
     parameter SI.Length s_unstretched=0 "Unstretched spring length";
     parameter Real d(
       final unit="N.s/m",
-      final min=0)=  0 "Damping constant";
+      final min=0) = 0 "Damping constant";
     parameter SI.Length s_damper_start=0 "Initial length of damper";
     extends Interfaces.PartialLineForce;
     SI.Position s_damper(start=s_damper_start, fixed=true) 
