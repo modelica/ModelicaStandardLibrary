@@ -154,46 +154,14 @@ The following quantities are always computed:
 <p>
 In some cases additional medium properties are needed.
 A component that needs these optional properties has to call
-one of the functions listed in the following table
-(for more details, see 
-<a href=\"Modelica:Modelica.Media.Tutorial.MediumUsage.OptionalProperties\">
-Modelica.Media.Tutorial.Medium usage.Optional properties</a>).
-In the table it is assumed that there are declarations of the
-form:
-<pre>
-   <b>replaceable package</b> Medium = Modelica.Media.Interfaces.PartialMedium;
-   Medium.BaseProperties medium;
-</pre>
-<table border=1 cellspacing=0 cellpadding=2>
-  <tr><td><b>Variable</b></td>
-      <td><b>Function call</b></td>
-      <td><b>Unit</b></td>
-      <td><b>Description</b></td></tr>
-  <tr><td>s</td>
-      <td>= Medium.specificEntropy(medium)</b></td>
-      <td>J/(kg.K)</td>
-      <td>specific entropy</td></tr>
-  <tr><td>cp</td>
-      <td>= Medium.heatCapacity_cp(medium)</b></td>
-      <td>J/(kg.K)</td>
-      <td>heat capacity at constant pressure</td></tr>
-  <tr><td>cv</td>
-      <td>= Medium.cv(medium)</b></td>
-      <td>J/(kg.K)</td>
-      <td>heat capacity at constant volume</td></tr>
-  <tr><td>eta</td>
-      <td>= Medium.dynamicViscosity(medium)</b></td>
-      <td>Pa.s</td>
-      <td>dynamic viscosity</td></tr>
-  <tr><td>lambda</td>
-      <td>= Medium.thermalConductivity(medium)</td>
-      <td>W/(m.K)</td>
-      <td>thermal conductivity</td></tr>
-  <tr><td>sigma</td>
-      <td>= Medium.surfaceTension(medium)</td>
-      <td>N/m</td>
-      <td>surface tension</td></tr>
-</table>
+one of the functions listed in 
+<a href=\"Modelica:Modelica.Media.UsersGuide.MediumUsage.OptionalProperties\">
+Modelica.Media.UsersGuide.MediumUsage.OptionalProperties</a> and in
+<a href=\"Modelica:Modelica.Media.UsersGuide.MediumUsage.TwoPhase\">
+Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
+</p>
+
+</p>
 <p>Many further properties can be computed. Using the well-known Bridgman's Tables, all first partial derivatives of the standard thermodynamic variables can be computed easily.</p>
 </HTML>
 "));
@@ -603,47 +571,15 @@ The following quantities are always computed:
 <p>
 In some cases additional medium properties are needed.
 A component that needs these optional properties has to call
-one of the functions listed in the following table
-(for more details, see 
-<a href=\"Modelica:Modelica.Media.Tutorial.MediumUsage.OptionalProperties\">
-Modelica.Media.Tutorial.Medium usage.Optional properties</a>).
-In the table it is assumed that there are declarations of the
-form:
-<pre>
-   <b>replaceable package</b> Medium = Modelica.Media.Interfaces.PartialMedium;
-   Medium.BaseProperties medium;
-</pre>
-<table border=1 cellspacing=0 cellpadding=2>
-  <tr><td><b>Variable</b></td>
-      <td><b>Function call</b></td>
-      <td><b>Unit</b></td>
-      <td><b>Description</b></td></tr>
-  <tr><td>s</td>
-      <td>= Medium.specificEntropy(medium)</b></td>
-      <td>J/(kg.K)</td>
-      <td>specific entropy</td></tr>
-  <tr><td>cp</td>
-      <td>= Medium.heatCapacity_cp(medium)</b></td>
-      <td>J/(kg.K)</td>
-      <td>heat capacity at constant pressure</td></tr>
-  <tr><td>cv</td>
-      <td>= Medium.cv(medium)</b></td>
-      <td>J/(kg.K)</td>
-      <td>heat capacity at constant volume</td></tr>
-  <tr><td>eta</td>
-      <td>= Medium.dynamicViscosity(medium)</b></td>
-      <td>Pa.s</td>
-      <td>dynamic viscosity</td></tr>
-  <tr><td>lambda</td>
-      <td>= Medium.thermalConductivity(medium)</td>
-      <td>W/(m.K)</td>
-      <td>thermal conductivity</td></tr>
-  <tr><td>sigma</td>
-      <td>= Medium.surfaceTension(medium)</td>
-      <td>N/m</td>
-      <td>surface tension</td></tr>
-</table>
-<p>Many further properties can be computed. Using the well-known Bridgman's Tables, all first partial derivatives of the standard thermodynamic variables can be computed easily.</p>
+one of the functions listed in 
+<a href=\"Modelica:Modelica.Media.UsersGuide.MediumUsage.OptionalProperties\">
+Modelica.Media.UsersGuide.MediumUsage.OptionalProperties</a> and in
+<a href=\"Modelica:Modelica.Media.UsersGuide.MediumUsage.TwoPhase\">
+Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
+</p>
+
+</p>
+<p>Many further properties can be computed. Using the well-known Bridgman's Tables, all first partial derivatives of the standard thermodynamic variables can be computed easily.<
 </HTML>
 "));
   extends Interfaces.PartialTwoPhaseMedium(

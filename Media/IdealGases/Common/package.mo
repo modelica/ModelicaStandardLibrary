@@ -79,35 +79,50 @@ The following quantities are always computed:
       <td>density d = d(p,T)</td></tr>
 </table>
 <p>
-The following variables are only computed, if the
-corresponding function is called:
+For the other variables, see the functions in
+Modelica.Media.IdealGases.Common.SingleGasNasa.
+Note, dynamic viscosity and thermal conductivity are only provided
+for gases that use a data record from Modelica.Media.IdealGases.FluidData.
+Currently these are the following gases:
 </p>
-<table border=1 cellspacing=0 cellpadding=2>
-  <tr><td><b>Variable</b></td>
-      <td><b>Unit</b></td>
-      <td><b>Function</b></td>
-      <td><b>Description</b></td></tr>
-  <tr><td>s</td>
-      <td>J/(kg.K)</td>
-      <td>specificEntropy(medium)</td>
-      <td>specific entropy s = s(p,T)</td></tr>
-  <tr><td>cp</td>
-      <td>J/(kg.K)</td>
-      <td>heatCapacity_cp(medium)</td>
-      <td>specific heat capacity at constant pressure cp = heatCapacity_cp(T)</td></tr>
-  <tr><td>cv</td>
-      <td>J/(kg.K)</td>
-      <td>heatCapacity_cv(medium)</td>
-      <td>specific heat capacity at constant density cv = heatCapacity_cv(T)</td></tr>
-  <tr><td>kappa</td>
-      <td>1</td>
-      <td>isentropicExponent(medium)</td>
-      <td>isentropic exponent kappa = kappa(T)</td></tr>
-  <tr><td>a</td>
-      <td>m/s</td>
-      <td>velocityOfSound(medium)</td>
-      <td>velocity of sound a = a(T)</td></tr>
-</table>
+
+<pre>
+  Ar
+  C2H2_vinylidene
+  C2H4
+  C2H5OH
+  C2H6
+  C3H6_propylene
+  C3H7OH
+  C3H8
+  C4H8_1_butene
+  C4H9OH
+  C4H10_n_butane
+  C5H10_1_pentene
+  C5H12_n_pentane
+  C6H6
+  C6H12_1_hexene
+  C6H14_n_heptane
+  C7H14_1_heptene
+  C8H10_ethylbenz
+  CH3OH
+  CH4
+  CL2
+  CO
+  CO2
+  F2
+  H2
+  H2O
+  He
+  N2
+  N2O 
+  NH3
+  NO
+  O2
+  SO2
+  SO3
+</pre>
+
 <p>
 <b>Sources for model and literature:</b><br>
 Original Data: Computer program for calculation of complex chemical
@@ -487,7 +502,7 @@ transform the formula to SI units:
                        fluidConstants[1].dipoleMoment);
   end dynamicViscosity;
   
-  function ThermalConductivityEstimate 
+  function thermalConductivityEstimate 
     "thermal conductivity estimation function" 
     extends Modelica.Icons.Function;
     input SpecificHeatCapacity Cp "constant pressure heat capacity";
@@ -518,12 +533,13 @@ transform the formula to SI units:
            <br>
            </body>
            </html>"));
-  end ThermalConductivityEstimate;
+  end thermalConductivityEstimate;
   
-  redeclare function extends thermalConductivity "thermal conductivity of gas" 
+  redeclare replaceable function extends thermalConductivity 
+    "thermal conductivity of gas" 
     input Integer method=1 "1: Eucken Method, 2: Modified Eucken Method";
   algorithm 
-    lambda := ThermalConductivityEstimate(heatCapacity_cp(state),
+    lambda := thermalConductivityEstimate(heatCapacity_cp(state),
       dynamicViscosity(state), method=method);
   end thermalConductivity;
   
@@ -768,7 +784,7 @@ required from medium model \"" + mediumName + "\".");
     h_is := isentropicEnthalpyApproximation(p_downstream,refState);
   end isentropicEnthalpy;
   
-function GasMixtureViscosity "Viscosities of gas mixtures at low pressures" 
+function gasMixtureViscosity "Viscosities of gas mixtures at low pressures" 
   extends Modelica.Icons.Function;
   input MoleFraction[:] yi "Mole fractions";
   input MolarMass[:] M "Mole masses";
@@ -824,9 +840,10 @@ and etai&gt;&gt;etaj.<br>
 "));
 equation 
     
-end GasMixtureViscosity;
+end gasMixtureViscosity;
   
-    redeclare function extends dynamicViscosity "mixture dynamic viscosity" 
+    redeclare replaceable function extends dynamicViscosity 
+    "mixture dynamic viscosity" 
   protected 
       DynamicViscosity[nX] etaX "component dynamic viscosities";
     algorithm 
@@ -838,13 +855,13 @@ end GasMixtureViscosity;
                        fluidConstants[i].acentricFactor,
                        fluidConstants[i].dipoleMoment);
       end for;
-      eta := GasMixtureViscosity(massToMoleFractions(state.X,
+      eta := gasMixtureViscosity(massToMoleFractions(state.X,
                              fluidConstants[:].molarMass),
                  fluidConstants[:].molarMass,
                  etaX);
     end dynamicViscosity;
   
-  function MixtureViscosityChung 
+  function mixtureViscosityChung 
     "compute the viscosity of gas mixtures without access to component viscosities" 
   //Chung, et al. rules (1984, 1988)
   extends Modelica.Icons.Function;
@@ -1058,9 +1075,9 @@ Fundam., 23: 3 ()1984).<br>
 "));
   equation 
     
-  end MixtureViscosityChung;
+  end mixtureViscosityChung;
   
-function LowPressureThermalConductivity 
+function lowPressureThermalConductivity 
     "Thermal conductivites of low-pressure gas mixtures" 
   extends Modelica.Icons.Function;
   input MoleFraction[:] y "Mole fraction of the components in the gass mixture";
@@ -1117,9 +1134,9 @@ output: lambdam \"Thermal conductivity of the gas mixture\"<br>
 "));
 equation 
     
-end LowPressureThermalConductivity;
+end lowPressureThermalConductivity;
   
-    redeclare function extends thermalConductivity 
+    redeclare replaceable function extends thermalConductivity 
     "thermal conductivity for low pressure gas mixtures" 
       input Integer method=1 
       "method to compute single component thermal conductivity";
@@ -1136,10 +1153,10 @@ end LowPressureThermalConductivity;
                        fluidConstants[i].acentricFactor,
                        fluidConstants[i].dipoleMoment);
     cp[i] := SingleGasNasa.cp_T(data[i],state.T);
-    lambdaX[i] :=SingleGasNasa.ThermalConductivityEstimate(Cp=cp[i], eta=
+    lambdaX[i] :=SingleGasNasa.thermalConductivityEstimate(Cp=cp[i], eta=
           eta[i], method=method);
       end for;
-      lambda := LowPressureThermalConductivity(massToMoleFractions(state.X,
+      lambda := lowPressureThermalConductivity(massToMoleFractions(state.X,
                                    fluidConstants[:].molarMass),
                            state.T,
                            fluidConstants[:].criticalTemperature,

@@ -67,22 +67,28 @@ package Incompressible
     constant Boolean hasViscosity = not (size(tableViscosity,1)==0);
     constant Boolean hasVaporPressure = not (size(tableVaporPressure,1)==0);
     
-    final constant Real invTK[neta] = {1/(if TinK then tableViscosity[i,1] else Cv.from_degC(tableViscosity[i,1])) for i in 1:neta};
+    final constant Real invTK[neta] = {1/(if TinK then tableViscosity[i,1] else Cv.from_degC(tableViscosity[i,1])) for i in 1:neta} annotation(
+        keepConstant =                                                                                                    true);
     final constant Real poly_rho[:] = if hasDensity then 
                                          Poly.fitting(tableDensity[:,1],tableDensity[:,2],npol) else 
-                                           zeros(npol+1);
+                                           zeros(npol+1) annotation(
+        keepConstant =                                                           true);
     final constant Real poly_Cp[:] = if hasHeatCapacity then 
                                          Poly.fitting(tableHeatCapacity[:,1],tableHeatCapacity[:,2],npol) else 
-                                           zeros(npol+1);
+                                           zeros(npol+1) annotation(
+        keepConstant =                                                           true);
     final constant Real poly_eta[:] = if hasViscosity then 
                                          Poly.fitting(invTK, Math.log(tableViscosity[:,2]),npol) else 
-                                           zeros(npol+1);
+                                           zeros(npol+1) annotation(
+        keepConstant =                                                           true);
     final constant Real poly_pVap[:] = if hasVaporPressure then 
                                          Poly.fitting(tableVaporPressure[:,1],tableVaporPressure[:,2],npol) else 
-                                            zeros(npol+1);
+                                            zeros(npol+1) annotation(
+        keepConstant =                                                            true);
     final constant Real poly_lam[:] = if size(tableConductivity,1)>0 then 
                                          Poly.fitting(tableConductivity[:,1],tableConductivity[:,2],npol) else 
-                                           zeros(npol+1);
+                                           zeros(npol+1) annotation(
+        keepConstant =                                                           true);
     
     redeclare model extends BaseProperties(
       R=Modelica.Constants.R,
@@ -93,17 +99,17 @@ package Incompressible
       "Base properties of T dependent medium" 
       
       annotation(Documentation(info="
-			       Note that the inner energy neglects the pressure dependence, which is only
-			       true for an incompressible medium with d = constant. The neglected term is
-			       (p-reference_p)/rho*(T/rho)*(partial rho /partial T). This is very small for
-			       liquids due to proportionality to 1/d^2, but can be problematic for gases that are
-			       modeled incompressible.
-			       
-			       Enthalpy is never a function of T only (h = h(T) + (p-reference_p)/d), but the
-			       error is also small and non-linear systems can be avoided. In particular,
-			       non-linear systems are small and local as opposed to large and over all volumes.
-			       
-			       Entropy is calculated as
+                               Note that the inner energy neglects the pressure dependence, which is only
+                               true for an incompressible medium with d = constant. The neglected term is
+                               (p-reference_p)/rho*(T/rho)*(partial rho /partial T). This is very small for
+                               liquids due to proportionality to 1/d^2, but can be problematic for gases that are
+                               modeled incompressible.
+                               
+                               Enthalpy is never a function of T only (h = h(T) + (p-reference_p)/d), but the
+                               error is also small and non-linear systems can be avoided. In particular,
+                               non-linear systems are small and local as opposed to large and over all volumes.
+                               
+                               Entropy is calculated as
   s = s0 + integral(Cp(T)/T,dt)
 which is only exactly true for a fluid with constant density d=d0.
       "));
