@@ -1164,7 +1164,7 @@ following structure:</p>
 <pre>
 <b>partial package</b> PartialMedium
   <b>import</b> SI = Modelica.SIunits;
-  <b>constant</b> String mediumName;
+  <b>constant</b> String mediumName = "";
   <b>constant</b> String substanceNames[:] = {mediumName}; 
   <b>constant</b> String extraPropertiesNames[:] = fill(\"\",0); 
   <b>constant</b> Boolean singleState = <b>false</b>;
