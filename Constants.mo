@@ -1,60 +1,45 @@
-package Constants "Mathematical constants and constants of nature" 
-  
+package Constants "Mathematical constants and constants of nature"
+
   import SI = Modelica.SIunits;
   import NonSI = Modelica.SIunits.Conversions.NonSIunits;
-  
+
   extends Modelica.Icons.Library2;
-  
+
   // Mathematical constants
   constant Real e=Modelica.Math.exp(1.0);
   constant Real pi=2*Modelica.Math.asin(1.0);
   // 3.14159265358979;
   constant Real D2R=pi/180 "Degree to Radian";
   constant Real R2D=180/pi "Radian to Degree";
-  
+
   // Machine dependent constants
   // (the definition is a temporary fix since not adapted to the
   // machine where the Modelica translator is running)
   constant Real eps=1.e-15 "Biggest number such that 1.0 + eps = 1.0";
-  constant Real small=1.e-60 
+  constant Real small=1.e-60
     "Smallest number such that small and -small are representable on the machine";
-  constant Real inf=1.e+60 
+  constant Real inf=1.e+60
     "Biggest Real number such that inf and -inf are representable on the machine";
-  constant Integer Integer_inf=2147483647 
+  constant Integer Integer_inf=2147483647
     "Biggest Integer number such that Integer_inf and -Integer_inf are representable on the machine";
-  
+
   // Constants of nature
   // (name, value, description from http://physics.nist.gov/cuu/Constants/)
   constant SI.Velocity c=299792458 "Speed of light in vacuum";
-  constant SI.Acceleration g_n=9.80665 
+  constant SI.Acceleration g_n=9.80665
     "Standard acceleration of gravity on earth";
-  constant Real G(final unit="m3/(kg.s2)") = 6.673e-11 
+  constant Real G(final unit="m3/(kg.s2)") = 6.673e-11
     "Newtonian constant of gravitation";
   constant Real h(final unit="J.s") = 6.62606876e-34 "Planck constant";
   constant Real k(final unit="J/K") = 1.3806503e-23 "Boltzmann constant";
   constant Real R(final unit="J/(mol.K)") = 8.314472 "Molar gas constant";
-  constant Real sigma(final unit="W/(m2.K4)") = 5.670400e-8 
+  constant Real sigma(final unit="W/(m2.K4)") = 5.670400e-8
     "Stefan-Boltzmann constant";
   constant Real N_A(final unit="1/mol") = 6.02214199e23 "Avogadro constant";
   constant Real mue_0(final unit="N/A2") = 4*pi*1.e-7 "Magnetic constant";
   constant Real epsilon_0(final unit="F/m") = 1/(mue_0*c*c) "Electric constant";
   constant NonSI.Temperature_degC T_zero=-273.15 "Absolute zero temperature";
-  
-  // For compatibility with previous versions (do not use in new models)
-  constant Real E=e;
-  constant Real PI=pi;
-  constant Real EPS=eps;
-  constant Real SMALL=small;
-  constant Real INF=inf;
-  constant Real INTEGER_INF=Integer_inf;
-  constant Real C=c;
-  constant Real H=h;
-  constant Real K=k;
-  constant Real R0=R;
-  constant Real SIGMA=sigma;
-  constant Real G_EARTH=g_n;
-  constant Real T_ZERO=T_zero;
-  
+
   annotation (
     Documentation(info="<html>
 <p>
