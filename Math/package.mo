@@ -874,22 +874,16 @@ matrices <tt>U</tt> and <tt>V</tt>.
     assert(info == 0, "The numerical algorithm to compute the
 singular value decomposition did not converge");
   end singularValues;
-  
+
   function det 
-    "Determinant of a matrix (computed by singular value decomposition)" 
+    "Determinant of a matrix (computed by LU decomposition)" 
     
     extends Modelica.Icons.Function;
     input Real A[:, size(A, 1)];
     output Real result "Determinant of matrix A";
   protected 
-    Integer n=size(A, 1) "Size of matrix A";
-    Real sigma[n] "Singular values";
-  algorithm 
-    sigma := singularValues(A);
-    result := sigma[1];
-    for i in 2:n loop
-      result := result*sigma[i];
-    end for;
+    Real LU[size(A,1),size(A,1)];
+    Integer pivots[size(A,1)];
     annotation (preferedView="info", Documentation(info="<HTML>
 <h3><font color=\"#008000\">Syntax</font></h3>
 <blockquote><pre>
@@ -898,7 +892,7 @@ Matrices.<b>det</b>(A);
 <h3><font color=\"#008000\">Description</font></h3>
 <p>
 This function call returns the determinant of matrix A
-computed by a singular value decomposition.
+computed by a LU decomposition.
 Usally, this function should never be used, because
 there are nearly always better numerical algorithms
 as by computing the determinant. E.g., use function
@@ -908,6 +902,10 @@ to compute the rank of a matrix.
 <a href=\"Modelica:Modelica.Math.Matrices.rank\">Matrices.rank</a>,
 <a href=\"Modelica:Modelica.Math.Matrices.solve\">Matrices.solve</a>
 </HTML>"));
+  algorithm 
+    (LU,pivots) := Matrices.LU(A);
+    result:=product(LU[i,i] for i in 1:size(A,1))*
+      product(if pivots[i]==i then 1 else -1 for i in 1:size(pivots,1));
   end det;
   
   function inv "Inverse of a matrix" 
