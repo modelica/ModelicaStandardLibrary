@@ -203,12 +203,12 @@ Modelica in file \"Modelica/package.mo\".
   
   partial function Function "Icon for a function" 
     annotation (Icon(
-        Text(extent=[-134, 104; 142, 44], string="%name"),
-        Ellipse(extent=[-100, 40; 100, -100], style(color=45, fillColor=7)),
+        Text(extent=[-140,162; 136,102],  string="%name"),
+        Ellipse(extent=[-100,100; 100,-100],  style(color=45, fillColor=7)),
         Text(
-          extent=[-84, -4; 84, -52],
-          string="function",
-          style(color=45))));
+          extent=[-100,100; 100,-100],
+          style(color=45),
+          string="F")));
   end Function;
   
   partial record Record "Icon for a record" 
@@ -223,15 +223,77 @@ Modelica in file \"Modelica/package.mo\".
   
   partial function Enumeration "Icon for an enumeration" 
     annotation (Icon(
-        Text(extent=[-134, 104; 142, 44], string="%name"),
-        Ellipse(extent=[-100, 40; 100, -100], style(color=85, fillColor=7)),
+        Text(extent=[-138,164; 138,104],  string="%name"),
+        Ellipse(extent=[-100,100; 100,-100],  style(color=85, fillColor=7)),
         Text(
-          extent=[-84, -4; 84, -52],
-          string="enumeration",
-          style(color=85, fillColor=88))));
-  algorithm 
-    
+          extent=[-100,100; 100,-100],
+          style(color=85, fillColor=88),
+          string="e")));
   end Enumeration;
+  
+  partial type TypeReal "Icon for a Real type" 
+      extends Real;
+      annotation(Icon(Rectangle(extent=[-100,100; 100,-100], style(
+            color=0,
+            rgbcolor={0,0,0},
+            fillColor=8,
+            rgbfillColor={181,181,181})), Text(
+          extent=[-94,94; 94,-94],
+          style(
+            color=0,
+            rgbcolor={0,0,0},
+            fillColor=8,
+            rgbfillColor={181,181,181}),
+          string="R")));
+  end TypeReal;
+  
+  partial type TypeInteger "Icon for an Integer type" 
+      extends Integer;
+      annotation(Icon(Rectangle(extent=[-100,100; 100,-100], style(
+            color=0,
+            rgbcolor={0,0,0},
+            fillColor=8,
+            rgbfillColor={181,181,181})), Text(
+          extent=[-94,94; 94,-94],
+          style(
+            color=0,
+            rgbcolor={0,0,0},
+            fillColor=8,
+            rgbfillColor={181,181,181}),
+          string="I")));
+  end TypeInteger;
+  
+  partial type TypeBoolean "Icon for a Boolean type" 
+      extends Boolean;
+      annotation(Icon(Rectangle(extent=[-100,100; 100,-100], style(
+            color=0,
+            rgbcolor={0,0,0},
+            fillColor=8,
+            rgbfillColor={181,181,181})), Text(
+          extent=[-94,94; 94,-94],
+          style(
+            color=0,
+            rgbcolor={0,0,0},
+            fillColor=8,
+            rgbfillColor={181,181,181}),
+          string="B")));
+  end TypeBoolean;
+  
+  partial type TypeString "Icon for a String type" 
+      extends String;
+      annotation(Icon(Rectangle(extent=[-100,100; 100,-100], style(
+            color=0,
+            rgbcolor={0,0,0},
+            fillColor=8,
+            rgbfillColor={181,181,181})), Text(
+          extent=[-94,94; 94,-94],
+          style(
+            color=0,
+            rgbcolor={0,0,0},
+            fillColor=8,
+            rgbfillColor={181,181,181}),
+          string="S")));
+  end TypeString;
   
   partial model TranslationalSensor 
     "Icon representing translational measurement device" 
