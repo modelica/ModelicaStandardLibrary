@@ -1502,16 +1502,16 @@ states and of the \"Advanced\" menu parameters, see model
       annotation (points=[-33, 0; -110, 0]);
   end BodyCylinder;
   
-  model Mounting1D "Propagate 1D support torque to 3D system" 
+  model Mounting1D 
+    "Propagate 1D support torque to 3D system (provided world.driveTrainMechanics3D=true; default=false)" 
     parameter Modelica.SIunits.Angle phi0=0 "Fixed offset angle of housing";
-    parameter Boolean enable3D=true "Enable 3D effects and frame_a connector";
     parameter Modelica.Mechanics.MultiBody.Types.Axis n={1,0,0} 
-      "Axis of rotation = axis of support torque (resolved in frame_a)" annotation(Dialog(enable=enable3D));
+      "Axis of rotation = axis of support torque (resolved in frame_a)";
     
     Modelica.Mechanics.Rotational.Interfaces.Flange_b flange_b 
       "(right) flange fixed in housing" annotation (extent=[110, 10; 90, -10]);
-    Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a(f=zeros(3), t=-n*flange_b.tau) if effectiveEnable3D 
-      "Frame in which housing is fixed" 
+    Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a(f=zeros(3), t=-n*flange_b.tau) if world.driveTrainMechanics3D 
+      "Frame in which housing is fixed (connector is removed, if world.driveTrainMechanics3D=false)"
       annotation (extent=[-15, -120; 15, -100], rotation=90);
     annotation (
       Icon(
@@ -1555,49 +1555,49 @@ November 3-4, 2003, pp. 149-158</p>
           style(color=10))));
   protected 
     outer World world;
-    parameter Boolean effectiveEnable3D=world.driveTrainMechanics3D and enable3D;
   equation 
     flange_b.phi = phi0;
   end Mounting1D;
   
   model Rotor1D 
-    "1D inertia attachable on 3D bodies (without neglecting dynamic effects)" 
+    "1D inertia attachable on 3D bodies (3D dynamic effects are taken into account if world.driveTrainMechanics3D=true; default=false)" 
     
     import SI = Modelica.SIunits;
     import Cv = Modelica.SIunits.Conversions;
-
+    
     parameter SI.Inertia J=1 
       "Moment of inertia of rotor around its axis of rotation";
     
     parameter Boolean animation=true 
       "= true, if animation shall be enabled (show rotor as cylinder)";
-    parameter Boolean enable3D=true "Enable 3D effects and frame_a connector";
-
+    parameter Boolean driveTrainMechanics3D=true 
+      "Enable 3D mechanical effects and frame_a connector (provided world.driveTrainMechanics3D=true";
+    
     parameter Modelica.Mechanics.MultiBody.Types.Axis n={1,0,0} 
-      "Axis of rotation resolved in frame_a" annotation(Dialog(enable=enable3D));
+      "Axis of rotation resolved in frame_a";
     parameter Types.Init.Temp initType=Types.Init.Free 
-      "Type of initialization (defines usage of start values below)"
+      "Type of initialization (defines usage of start values below)" 
       annotation (Dialog(group="Initialization"));
     parameter Cv.NonSIunits.Angle_deg phi_start=0 
-      "Initial value of rotor rotation angle phi (fixed or guess value)"
+      "Initial value of rotor rotation angle phi (fixed or guess value)" 
       annotation (Evaluate=false, Dialog(group="Initialization"));
     parameter Modelica.Mechanics.MultiBody.Types.AngularVelocity_degs w_start=0 
-      "Initial value of relative angular velocity w = der(phi)"
+      "Initial value of relative angular velocity w = der(phi)" 
       annotation (Evaluate=false, Dialog(group="Initialization"));
     parameter Modelica.Mechanics.MultiBody.Types.AngularAcceleration_degs2 
-      a_start=0 "Initial value of relative angular acceleration a = der(w)"
+      a_start=0 "Initial value of relative angular acceleration a = der(w)" 
       annotation (Evaluate=false, Dialog(group="Initialization"));
     parameter SI.Position r_center[3]=zeros(3) 
-      "Position vector from origin of frame_a to center of cylinder"
+      "Position vector from origin of frame_a to center of cylinder" 
       annotation (Dialog(tab="Animation", group="if animation = true"));
     parameter SI.Distance cylinderLength=2*world.defaultJointLength 
-      "Length of cylinder representing the rotor"
+      "Length of cylinder representing the rotor" 
       annotation (Dialog(tab="Animation", group="if animation = true"));
     parameter SI.Distance cylinderDiameter=2*world.defaultJointWidth 
-      "Diameter of cylinder representing the rotor"
+      "Diameter of cylinder representing the rotor" 
       annotation (Dialog(tab="Animation", group="if animation = true"));
     parameter Modelica.Mechanics.MultiBody.Types.Color cylinderColor=Types.Defaults.RodColor 
-      "Color of cylinder representing the rotor"
+      "Color of cylinder representing the rotor" 
       annotation (Dialog(tab="Animation", group="if animation = true"));
     parameter Boolean enforceStates=false 
       "= true, if rotor angle (phi) and rotor speed (w) shall be used as states"
@@ -1626,7 +1626,8 @@ November 3-4, 2003, pp. 149-158</p>
         r_0=r_0,
         R=R,
         f=zeros(3),
-        t=nJ*a + cross(w_a, nJ*w)) if effectiveEnable3D
+        t=nJ*a + cross(w_a, nJ*w)) if world.driveTrainMechanics3D 
+      "Frame in which rotor housing is fixed (connector is removed, if world.driveTrainMechanics3D=false)"
       annotation (extent=[-15, -120; 15, -100], rotation=90);
     annotation (
       Documentation(info="<html>
@@ -1735,14 +1736,12 @@ November 3-4, 2003, pp. 149-158</p>
       each r_shape=r_center - e*(cylinderLength/2),
       each r=r_0,
       each R=Frames.absoluteRotation(R, Frames.planarRotation(e, phi, 0)));
-
-    SI.Position r_0[3]
+    
+    SI.Position r_0[3] 
       "Position vector from world frame to the connector frame origin, resolved in world frame";
-    Frames.Orientation R
+    Frames.Orientation R 
       "Orientation object to rotate the world frame into the connector frame";
-
-    parameter Boolean effectiveEnable3D=world.driveTrainMechanics3D and enable3D;
-  initial equation
+  initial equation 
     if initType == Types.Init.PositionVelocity then
       phi = Cv.from_deg(phi_start);
       w = w_start*Modelica.Constants.D2R;
@@ -1761,10 +1760,7 @@ November 3-4, 2003, pp. 149-158</p>
       w = w_start*Modelica.Constants.D2R;
       a = a_start*Modelica.Constants.D2R;
     end if;
-  equation
-    /*assert(not effectiveEnable3D or cardinality(frame_a) > 0,
-    "Connector frame_a of Parts.Rotor1D object is not connected");*/
-
+  equation 
     phi = flange_a.phi;
     phi = flange_b.phi;
     w = der(phi);
@@ -1776,8 +1772,8 @@ November 3-4, 2003, pp. 149-158</p>
     else
       J*a = flange_a.tau + flange_b.tau;
     end if;
-
-    if not effectiveEnable3D then
+    
+    if not world.driveTrainMechanics3D then
       r_0 = zeros(3);
       R.T = identity(3);
       R.w = zeros(3);
@@ -1785,17 +1781,16 @@ November 3-4, 2003, pp. 149-158</p>
   end Rotor1D;
   
   model BevelGear1D 
-    "1D gearbox with arbitrary shaft directions (3D bearing frame)" 
+    "1D gearbox with arbitrary shaft directions and 3D bearing frame (3D dynamic effects are taken into account provided world.driveTrainMechanics3D=true; default=false)" 
     extends Modelica.Mechanics.Rotational.Interfaces.TwoFlanges;
     
     parameter Real ratio=1 "Gear speed ratio";
-    parameter Boolean enable3D=true "Enable 3D effects and frame_a connector";
     parameter Modelica.Mechanics.MultiBody.Types.Axis n_a={1,0,0} 
-      "Axis of rotation of flange_a, resolved in frame_a" annotation(Dialog(enable=enable3D));
+      "Axis of rotation of flange_a, resolved in frame_a";
     parameter Modelica.Mechanics.MultiBody.Types.Axis n_b={1,0,0} 
-      "Axis of rotation of flange_b, resolved in frame_a" annotation(Dialog(enable=enable3D));
+      "Axis of rotation of flange_b, resolved in frame_a";
     
-    Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a(f = zeros(3), t = -flange_a.tau*e_a - flange_b.tau*e_b) if effectiveEnable3D
+    Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a(f = zeros(3), t = -flange_a.tau*e_a - flange_b.tau*e_b) if world.driveTrainMechanics3D 
       "Bearing frame" 
       annotation (extent=[-15, -120; 15, -100], rotation=90);
     
@@ -1857,7 +1852,6 @@ November 3-4, 2003, pp. 149-158</p>
 </html>"));
   protected 
     outer World world;
-    parameter Boolean effectiveEnable3D=world.driveTrainMechanics3D and enable3D;
     parameter Real e_a[3]=Modelica.Mechanics.MultiBody.Frames.normalize(n_a) 
       "Unit vector in direction of flange_a rotation axis";
     parameter Real e_b[3]=Modelica.Mechanics.MultiBody.Frames.normalize(n_b) 

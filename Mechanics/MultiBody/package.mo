@@ -1361,18 +1361,20 @@ of these axes can be set via parameters.
     "Label of horizontal axis in icon";
   parameter Modelica.Mechanics.MultiBody.Types.AxisLabel label2="y" 
     "Label of vertical axis in icon";
-  parameter Modelica.Mechanics.MultiBody.Types.GravityTypes.Temp gravityType=Modelica.Mechanics.MultiBody.Types.
-      GravityTypes.UniformGravity "Type of gravity field" 
-    annotation (Evaluate=true);
-  parameter SI.Acceleration g=9.81 
-    "|gravityType = UniformGravity| Constant gravity acceleration";
-  parameter Modelica.Mechanics.MultiBody.Types.Axis n={0,-1,0} 
-    "|gravityType = UniformGravity| Direction of gravity resolved in world frame (gravity = g*n/length(n))"
-    annotation (Evaluate=true);
+  parameter Types.GravityTypes.Temp gravityType=Modelica.Mechanics.MultiBody.Types.GravityTypes.UniformGravity 
+    "Type of gravity field"                                                                                                     annotation (Evaluate=true);
+  parameter SI.Acceleration g=9.81 " Constant gravity acceleration" 
+    annotation (Dialog(enable=gravityType==Modelica.Mechanics.MultiBody.Types.GravityTypes.UniformGravity));
+  parameter Types.Axis n={0,-1,0} 
+    " Direction of gravity resolved in world frame (gravity = g*n/length(n))" 
+    annotation (Evaluate=true, Dialog(enable=gravityType==Modelica.Mechanics.MultiBody.Types.GravityTypes.UniformGravity));
   parameter Real mue(
     unit="m3/s2",
     min=0) = 3.986e14 
-    "|gravityType = PointGravity| Gravity field constant (default = field constant of earth)";
+    " Gravity field constant (default = field constant of earth)" 
+    annotation (Dialog(enable=gravityType==Modelica.Mechanics.MultiBody.Types.GravityTypes.PointGravity));
+  parameter Boolean driveTrainMechanics3D=false 
+    "= true, if 3D mechanical effects of Parts.Mounting1D/Rotor1D/BevelGear1D shall be taken into account";
   
   parameter SI.Distance axisLength=nominalLength/2 
     "|Animation|if animateWorld = true| Length of world axes arrows";
@@ -1421,8 +1423,7 @@ of these axes can be set via parameters.
     "|Defaults|| Default for arrow diameter (e.g., of forces, torques, sensors)";
   parameter Real defaultFrameDiameterFraction=40 
     "|Defaults|| Default for arrow diameter of a coordinate system as a fraction of axis length";
-  parameter Boolean driveTrainMechanics3D=false "Enable 3D mechanical effects of 1D drivetrains";
-
+  
   Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_b annotation (extent=[100, -15; 120, 15]);
   
   /* The World object can only use the Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape model, but no

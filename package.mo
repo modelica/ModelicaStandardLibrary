@@ -10,8 +10,8 @@ annotation(preferedView="info",
     height=0.57,
     library=1,
     autolayout=1),
-  version="2.1",
-  versionDate="2004-11-11",
+  version="2.2",
+  versionDate="2005-03-03",
   conversion(
     from(version="1.6",
          ModelicaAdditions(version="1.5"),
@@ -19,7 +19,8 @@ annotation(preferedView="info",
          MultiBody(version="1.0"),
          Matrices(version="0.8"),
          script="Scripts/ConvertModelica_from_1.6_to_2.1.mos"),
-    from(version="2.1 Beta1", script="Scripts/ConvertModelica_from_2.1Beta1_to_2.1.mos")),
+    from(version="2.1 Beta1", script="Scripts/ConvertModelica_from_2.1Beta1_to_2.1.mos"),
+    noneFromVersion ="2.1"),
   Settings(NewStateSelection=true),
   Documentation(info="<HTML>
 <p>
@@ -202,7 +203,27 @@ Preferred instance names for connectors:
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>Release notes</font></h3>
 
+<p>
+This section summarizes the changes that have been performed
+on the Modelica standard library.
+</p>
 
+<ul>
+<li> <a href=\"Modelica://Modelica.UsersGuide.ReleaseNotes.Version_2_2\">Version 2.2</a> (Mar. 3, 2005)</li>
+<li> <a href=\"Modelica://Modelica.UsersGuide.ReleaseNotes.Version_2_1\">Version 2.1</a> (Nov. 11, 2004)</li>
+<li> <a href=\"Modelica://Modelica.UsersGuide.ReleaseNotes.Version_1_6\">Version 1.6</a> (June 21, 2004)</li>
+<li> <a href=\"Modelica://Modelica.UsersGuide.ReleaseNotes.Version_1_5\">Version 1.5</a> (Dec. 16, 2002)</li>
+<li> <a href=\"Modelica://Modelica.UsersGuide.ReleaseNotes.Version_1_4\">Version 1.4</a> (June 28, 2001
+     and previous versions)</li>
+</ul>
+
+</html>
+"));
+
+
+  class Version_2_2 "Version 2.2" 
+
+annotation (Documentation(info="<html>
 <h3><font color=\"#008000\">Version 2.2 (March 3, 2005)</font></h3>
 
 <p>
@@ -213,15 +234,64 @@ The following <b>new libraries</b> have been added:
 </p>
 <table border=\"1\" cellspacing=0 cellpadding=2>
   <tr><td><a href=\"Modelica://Modelica.Media\">Modelica.Media</a></td>
-      <td>Property models of liquids and gases designed to work well in 
-          dynamic simulations:<br>
-      
-dedicated for
-          dynamic simulations.</td><tr>
-  <tr><td><a href=\"Modelica://Modelica.Thermal.FluidHeatFlow\">Thermal.FluidHeatFlow</a></td>
-      <td> </td><tr>
+      <td> Property models of liquids and gases, especially
+           <ul>
+           <li>1241 detailed gas models,</li>
+           <li> moist air,</li>
+           <li> high precision water model (according to IAPWS/IF97 standard), </li>
+           <li> incompressible media defined by tables (cp(T), rho(t), eta(T), etc. are defined by tables).</li>
+           </ul>
+           The user can conveniently define mixtures of gases between the 
+           1241 gas models. The models are
+           designed to work well in dynamic simulations. They
+           are based on a new standard interface for media with
+           single and multiple substances and one or multiple phases
+           with the following features:
+           <ul>
+           <li> The independent variables of a medium model do not influence the 
+                definition of a fluid connector port or how the
+                balance equations have to be implemented.<br>
+                Used independent variables: \"p,T\", \"p,T,X\", \"p,h\", \"d,T\".</li>
+           <li> Optional variables, e.g., dynamic viscosity, are only computed 
+                if needed.<li>
+           <li> The medium models are implemented with regards to efficient 
+                dynamic simulation.</li>
+           </ul>
+      </td><tr>
+  <tr><td><a href=\"Modelica://Modelica.Thermal.FluidHeatFlow\">Modelica.Thermal.FluidHeatFlow</a></td>
+      <td> Simple components for 1-dim., incompressible thermo-fluid flow 
+           to model coolant flows, e.g., of electrical machines.
+           Components can be connected arbitrarily together (= ideal mixing
+           at connection points) and fluid may reverse direction of flow. 
+  </td><tr>
 </table>
 
+<p>
+The following <b>changes</b> have been performed in the
+<b>Modelica.Mechanics.MultiBody</b> library:
+</p>
+
+<ul>
+<li> Component MultiBody.World has a new parameter
+     <b>driveTrainMechanics3D</b>. If set to <b>true</b>, 3D mechanical effects
+     of MultiBody.Parts.Mounting1D/Rotor1D/BevelGear1D are taken into account. If set to 
+     <b>false</b> (= default), 3D mechanical effects in these elements
+     are not taken into account and the
+     frame connectors to connect to 3D parts are disabled (all
+     connections to such a disabled connector are also disabled, due to the
+     new feature of conditional declarations in Modelica language 2.2)</li>
+<li> All references to \"MultiBody.xxx\" have
+     been changed to \"Modelica.Mechanics.MultiBodys.xxx\" in order that after
+     copying of a component outside of the Modelica library, the references
+     still remain valid.</li>
+</ul>
+</html>
+"));
+  end Version_2_2;
+
+
+  class Version_2_1 "Version 2.1" 
+annotation (Documentation(info="<html>
 
 <h3><font color=\"#008000\">Version 2.1 (November 11, 2004)</font></h3>
 <p> This is a major change with respect to previous versions of the
@@ -409,6 +479,12 @@ Other changes:
 <li> The Modelica.Blocks connectors for Real signals are changed from
      blue to dark blue in order to distinguish them from electrical signals.</li>
 </ul>
+</html>
+"));
+  end Version_2_1;
+
+  class Version_1_6 "Version 1.6" 
+annotation (Documentation(info="<html>
 <h3><font color=\"#008000\">Version 1.6 (June 21, 2004)</font></h3>
 <p> Added 1 new library (Electrical.MultiPhase), 17 new components, 
     improved 3 existing components
@@ -481,6 +557,12 @@ ShowVariableResistor
   <tr><td>ThermodynamicTemperature</td>
       <td>min=0 added</td></tr>
 </table>
+</html>
+"));
+  end Version_1_6;
+
+  class Version_1_5 "Version 1.5" 
+annotation (Documentation(info="<html>
 <h3><font color=\"#008000\">Version 1.5 (December 16, 2002)</font></h3>
 <p> Added 55 new components. In particular, added new package
     <b>Thermal.HeatTransfer</b> for modeling of lumped
@@ -679,6 +761,12 @@ filled with white and not transparent any more.</p>
 <tt>flow SIunits.HeatFlux q;</tt> changed to <tt>flow SIunits.HeatFlowRate q;</tt></p>
 <p><i>MultiBody.Parts.InertialSystem</i></p>
 <p>Icon corrected.</p>
+</html>
+"));
+  end Version_1_5;
+
+  class Version_1_4 "Version 1.4" 
+  annotation (Documentation(info="<html>
 <h3><font color=\"#008000\">Version 1.4.1 (June 28, 2001)</font></h3>
 <ul>
 <li>Several minor bugs fixed. </li>
@@ -690,8 +778,14 @@ filled with white and not transparent any more.</p>
     Modelica.Mechanics.Translational.Move.<br>
     </li>
 </ul>
+
+<hr>
+
 <h3><font color=\"#008000\">Version 1.4.1beta1 (February 12, 2001)</font></h3>
 <p> Adapted to Modelica 1.4</p>
+
+<hr>
+
 <h3><font color=\"#008000\">Version 1.3.2beta2 (June 20, 2000)</font></h3>
 <ul>
     <li>New subpackage Modelica.Mechanics.<b>Translational</b></li>
@@ -731,19 +825,21 @@ filled with white and not transparent any more.</p>
       </li></ul>
 </li>
 </ul>
+
+<hr>
+
 <h3><font color=\"#008000\">Version 1.3.1 (Dec. 13, 1999)</font></h3>
 <p>
 First official release of the library.
 </p>
 </html>
 "));
-  equation 
-    
+  end Version_1_4;
   end ReleaseNotes;
   
   class Contact "Contact" 
     
-    annotation (Documentation(info=" <html>
+    annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>Contact</font></h3>
 <dl>
 <dt>The development of the Modelica package is organized by<br>&nbsp;</dt>
@@ -772,29 +868,57 @@ In particular, the following people have directly contributed
       <td> Dynasim AB, Lund, Sweden</td>
       <td> Modelica.Utilities</td>
   </tr>
+
+  <tr><td><b>Francesco Casella</b> </td
+      <td> Politecnico di Milano, Milano, Italy</td>
+      <td> Modelica.Media</td>
+  </tr>
+
   <tr><td><b>Christoph Clauss</b> </td
       <td> Fraunhofer Institute for Integrated Circuits,<br> Dresden, Germany</td>
       <td> Modelica.Electrical.Analog<br> 
            Modelica.Electrical.Digital</td>
   </tr>
+
+  <tr><td><b>Jonas Eborn</b> </td
+      <td> Modelon AB, Lund, Sweden</td>
+      <td> Modelica.Media</td>
+  </tr>
+
   <tr><td><b>Hilding Elmqvist</b> </td
       <td> Dynasim AB, Lund, Sweden</td>
       <td> Modelica.Mechanics.MultiBody<br>
+           Modelica.Media<br>
            Modelica.StateGraph<br>
            Modelica.Utilities<br>
            Conversion from 1.6 to 2.0</td>
   </tr>
+
+  <tr><td><b>R&uuml;diger Franke</b> </td
+      <td> ABB Corporate Research,<br>Ladenburg, German</td>
+      <td> Modelica.Media</td>
+  </tr>
+
   <tr><td><b>Anton Haumer</b> </td
-      <td> Consultant, St.Andrae-Woerdern, Austria</td>
+      <td> Consultant, St.Andrae-Woerdern,<br>Austria</td>
       <td> Modelica.Electrical.Machines<br>
            Modelica.Electrical.Multiphase<br>
-           Modelica.Mechanics.Rotational</td>
+           Modelica.Mechanics.Rotational<br>
+           Modelica.Thermal.FluidHeatFlow</td>
   </tr>
+
   <tr><td><b>Hans-Dieter Joos</b> </td
       <td> DLR, German Aerospace Center, <br>
            Oberpfaffenhofen, Germany</td>
       <td> Modelica.Math.Matrices</td>
   </tr>
+
+  <tr><td><b>Christian Kral</b> </td
+      <td> arsenal research, Vienna, Austria</td>
+      <td> Modelica.Electrical.Machines<br>
+           Modelica.Thermal.FluidHeatFlow</td>
+  </tr>
+
   <tr><td><b>Sven Erik Mattsson</b> </td
       <td> Dynasim AB, Lund, Sweden</td>
       <td> Modelica.Mechanics.MultiBody</td>
@@ -813,6 +937,7 @@ In particular, the following people have directly contributed
            Modelica.Mechanics.MultiBody<br>
            Modelica.Mechanics.Rotational<br>
            Modelica.Math<br>
+           Modelica.Media<br>
            Modelica.SIunits<br>
            Modelica.StateGraph<br>
            Modelica.Thermal<br>
@@ -820,6 +945,12 @@ In particular, the following people have directly contributed
            ModelicaReference<br>
            Conversion from 1.6 to 2.0</td>
   </tr>
+
+  <tr><td><b>Katrin Pr&ouml;l&szlig;</b> </td
+      <td> Technical University Hamburg-Harburg,<br>Germany</td>
+      <td> Modelica.Media/td>
+  </tr>
+
   <tr><td><b>Andr&eacute; Schneider</b> </td
       <td> Fraunhofer Institute for Integrated Circuits,<br> Dresden, Germany</td>
       <td> Modelica.Electrical.Analog<br> 
@@ -833,15 +964,18 @@ In particular, the following people have directly contributed
   </tr>
   <tr><td><b>Michael Tiller</b> </td
       <td> Ford Motor Company, Dearborn, MI, U.S.A </td>
-      <td> Modelica.Thermal</td>
+      <td> Modelica.Media<br>
+           Modelica.Thermal</td>
   </tr>
   <tr><td><b>Hubertus Tummescheit</b> </td
-      <td> Scynamics, Lund, Sweden</td>
-      <td> Modelica.Thermal</td>
+      <td> Modelon AB, Lund, Sweden </td>
+      <td> Modelica.Media<br>
+           Modelica.Thermal</td>
   </tr>
   <tr><td><b>Nico Walter</b> </td
-      <td> Master thesis at HTWK Leipzig (Prof. R. M&uuml;ller)<br>
-           and DLR Oberpfaffenhofen, Germany</td>
+      <td> Master thesis at HTWK Leipzig<br>
+           (Prof. R. M&uuml;ller) and<br>
+           DLR Oberpfaffenhofen, Germany</td>
       <td> Modelica.Math.Matrices</td>
   </tr>
 </table>
