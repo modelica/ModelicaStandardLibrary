@@ -12,8 +12,13 @@ annotation(preferedView="info",
   version="2.1",
   versionDate="2004-10-01",
   conversion(
-    from(version="1.6"      , script="Scripts/ConvertModelica_from_1.6_to_2.1.mos"),
-    from(version="2.1 Beta1", script="Scripts/ConvertModelica_from_2.1Beta1_to_2.1.mos")),
+    from(version="1.6", 
+         ModelicaAdditions(version="1.5"), 
+         MultiBody(version="1.0.1"), 
+         MultiBody(version="1.0"), 
+         script="Scripts/ConvertModelica_from_1.6_to_2.1.mos"),
+    from(version="2.1 Beta1", script="Scripts/ConvertModelica_from_2.1Beta1_to_2.1.mos")
+  ),
   Settings(NewStateSelection=true),
   Documentation(info="<HTML>
 <p>
