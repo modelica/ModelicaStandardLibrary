@@ -11,7 +11,7 @@ annotation(preferedView="info",
     library=1,
     autolayout=1),
   version="2.2",
-  versionDate="2005-03-03",
+  versionDate="2005-04-06",
   conversion(
     from(version="1.6",
          ModelicaAdditions(version="1.5"),
@@ -97,13 +97,13 @@ The Modelica package consists currently of the following subpackages
 
   <tr><td><a href=\"Modelica://Modelica.Thermal\">Thermal</a></td>
       <td>Thermal components<br>
-          <a href=\"Modelica://Modelica.Thermal.HeatTransfer\">1-D lumped heat transfer</a>,
+          (<a href=\"Modelica://Modelica.Thermal.HeatTransfer\">1-D lumped heat transfer</a>,
           <a href=\"Modelica://Modelica.Thermal.FluidHeatFlow\">1-D incompressible thermo-fluid flow</a>)</td>
   </tr>
 
   <tr><td><a href=\"Modelica://Modelica.Utilities\">Utilities</a></td>
       <td>Utility functions especially for scripting<br> 
-          <a href=\"Modelica://Modelica.Utilities.Files\">Files</a>,
+          (<a href=\"Modelica://Modelica.Utilities.Files\">Files</a>,
           <a href=\"Modelica://Modelica.Utilities.Streams\">Streams</a>,
           <a href=\"Modelica://Modelica.Utilities.Strings\">Strings</a>,
           <a href=\"Modelica://Modelica.Utilities.System\">System</a>)</td>
@@ -209,7 +209,7 @@ on the Modelica standard library.
 </p>
 
 <ul>
-<li> <a href=\"Modelica://Modelica.UsersGuide.ReleaseNotes.Version_2_2\">Version 2.2</a> (Mar. 3, 2005)</li>
+<li> <a href=\"Modelica://Modelica.UsersGuide.ReleaseNotes.Version_2_2\">Version 2.2</a> (April 6, 2005)</li>
 <li> <a href=\"Modelica://Modelica.UsersGuide.ReleaseNotes.Version_2_1\">Version 2.1</a> (Nov. 11, 2004)</li>
 <li> <a href=\"Modelica://Modelica.UsersGuide.ReleaseNotes.Version_1_6\">Version 1.6</a> (June 21, 2004)</li>
 <li> <a href=\"Modelica://Modelica.UsersGuide.ReleaseNotes.Version_1_5\">Version 1.5</a> (Dec. 16, 2002)</li>
@@ -224,7 +224,7 @@ on the Modelica standard library.
   class Version_2_2 "Version 2.2" 
 
 annotation (Documentation(info="<html>
-<h3><font color=\"#008000\">Version 2.2 (March 3, 2005)</font></h3>
+<h3><font color=\"#008000\">Version 2.2 (April 6, 2005)</font></h3>
 
 <p>
 Version 2.2 is backward compatible to version 2.1.

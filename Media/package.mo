@@ -1869,7 +1869,7 @@ states. Only then, static selection is possible
 for a tool.
 </p>
 <p>
-<b>Example for a multiple substance medium:</p>
+<b>Example for a multiple substance medium:</b></p>
 </p>
 <p>
 p, T and Xi are defined as preferred states and 
@@ -1879,7 +1879,7 @@ the equations are written in the form:
    d = fp(p,T,Xi);
    u = fu(p,T,Xi);
    h = fh(p,T,Xi);
-</p>
+</pre>
 <p>
 Since the balance equations are written in the form:
 </p>
@@ -2878,138 +2878,6 @@ The details of the pipe friction model are described
         m_flow = (m_flow_nominal/dp_nominal)*dp;
       end ShortPipe;
       
-      package DummyFunctionMedium 
-        "Fictitious liquid mixture with function-computed properties - emulates externally supplied media models" 
-        
-        extends Modelica.Media.Interfaces.PartialMixtureMedium(
-           mediumName="Fictitous Liquid Mixture",
-           substanceNames={"Kryptene","Simulene","Hysteric Acid"},
-           final singleState=true,
-           final reducedX=true,
-           reference_X={0.3, 0.3, 0.4},
-           SpecificEnthalpy(start=1.0e5, nominal=5.0e5),
-           Density(start=1000, nominal=1000),
-           AbsolutePressure(start=50e5, nominal=10e5),
-           Temperature(start=300, nominal=300));
-        
-        constant SI.Pressure p0=1e5 "Reference pressure";
-        constant Modelica.SIunits.Temperature T0=293.15 "Reference temperature";
-        constant Modelica.SIunits.SpecificHeatCapacity cp0[nX]={4000,2500,2000};
-        constant Modelica.SIunits.Density rho0[nX]={1000,500,700};
-        constant SI.RelativePressureCoefficient beta[nX]={1e-3,3e-3,5e-3};
-        constant Modelica.SIunits.SpecificEnthalpy h0[nX]=fill(0, nX);
-        redeclare record extends ThermodynamicState 
-          Modelica.SIunits.Temperature T(start=300);
-          Modelica.SIunits.MassFraction X[nX];
-        end ThermodynamicState;
-        
-        redeclare model extends BaseProperties(
-          T(stateSelect=if preferredMediumStates then StateSelect.default else StateSelect.default),
-          Xi(each stateSelect=if preferredMediumStates then StateSelect.prefer else StateSelect.default)) 
-        equation 
-          d = f_density(T,X);
-          h = f_enthalpy(T,Xi);
-          u = h;
-          R=1;
-          state.p=p;
-          state.T=T;
-          state.X=X;
-          MM=0.1;
-        end BaseProperties;
-        
-        redeclare function extends heatCapacity_cp 
-          "Return specific heat capacity at constant pressure" 
-        algorithm 
-          cp := sum(cp0[i]*state.X[i] for i in 1:nX);
-        end heatCapacity_cp;
-        
-        redeclare function extends heatCapacity_cv 
-          "Return specific heat capacity at constant volume" 
-        algorithm 
-          cv := sum(cp0[i]*state.X[i] for i in 1:nX);
-        end heatCapacity_cv;
-        
-        redeclare function extends density_derT_p 
-          "density derivative by specific enthalpy at const pressure" 
-        algorithm 
-          ddTp:=sum(-rho0[i]*beta[i]/cp0[i]*state.X[i] for i in 1:nX);
-        end density_derT_p;
-        
-        redeclare function extends density_derp_T 
-          "density derivative by pressure at const specific enthalpy" 
-        algorithm 
-          ddpT:=0;
-        end density_derp_T;
-        
-        redeclare function extends density_derX 
-          "density derivative by pressure at const specific enthalpy" 
-        protected 
-          Modelica.SIunits.Density dX[nX];
-          Modelica.SIunits.Density d;
-        algorithm 
-          for i in 1:nX loop
-            dX[i] := rho0[i]*(1-beta[i]*(state.T-T0));
-          end for;
-          d :=1/sum(state.X[i]/dX[i] for i in 1:nX);
-          for i in 1:nX loop
-            dddX[i]:=-d^2/dX[i];
-          end for;
-        end density_derX;
-        
-        function f_density 
-          annotation(derivative=f_density_der);
-          input Modelica.SIunits.Temperature T;
-          input Modelica.SIunits.MassFraction X[nX];
-          output Modelica.SIunits.Density d;
-        algorithm 
-          d := 1/sum(X[i]/(rho0[i]*(1-beta[i]*(T-T0))) for i in 1:nX);
-        end f_density;
-        
-        function f_density_der 
-          input Modelica.SIunits.Temperature T;
-          input Modelica.SIunits.MassFraction X[nX];
-          input Real T_der;
-          input Real X_der[nX];
-          output Modelica.SIunits.Density d_der;
-        protected 
-                    ThermodynamicState state;
-        algorithm 
-          state.T:=T;
-          state.X:=X;
-          state.p:=1e5;
-          d_der := density_derT_p(state)*T_der+density_derX(state)*X_der;
-        end f_density_der;
-        
-        function f_enthalpy 
-          input Modelica.SIunits.Temperature T;
-          input Modelica.SIunits.MassFraction Xi[nXi];
-          output Modelica.SIunits.SpecificEnthalpy h;
-        protected 
-          SI.SpecificEnthalpy h_component[nX];
-          annotation(derivative=f_enthalpy_der);
-        algorithm 
-          for i in 1:nX loop
-            h_component[i] :=(cp0[i]*(T - T0) + h0[i]);
-          end for;
-          h:= sum(h_component[1:nX-1]*Xi)+ h_component[nX]*(1-sum(Xi));
-        end f_enthalpy;
-        
-        function f_enthalpy_der 
-          input Modelica.SIunits.Temperature T;
-          input Modelica.SIunits.MassFraction Xi[nXi];
-          input Real T_der;
-          input Real Xi_der[nXi];
-          output Modelica.SIunits.SpecificEnthalpy h_der;
-          annotation(derivative=f_enthalpy_der);
-        algorithm 
-          h_der := sum((cp0[i]*(T-T0)+h0[i])*Xi_der[i] for i in 1:nX-1)+
-                   sum(cp0[i]*Xi[i]*T_der for i in 1:nX-1)+
-                       (cp0[nX]*(T-T0)+h0[nX])*(1-sum(Xi_der)) +
-                        cp0[nX]*(1-sum(Xi))*T_der;
-        end f_enthalpy_der;
-        
-      end DummyFunctionMedium;
-      
       partial model PartialTestModel "Basic test model to test a medium" 
         import SI = Modelica.SIunits;
         extends Modelica.Icons.Example;
@@ -3225,12 +3093,6 @@ The details of the pipe friction model are described
 */
       end Water;
       
-      model TestDummyFunctionMedium 
-        "Test Modelica.Media.Examples.Tests.Components.DummyFunctionMedium" 
-        extends Modelica.Media.Examples.Tests.Components.PartialTestModel(
-           redeclare package Medium = 
-              Modelica.Media.Examples.Tests.Components.DummyFunctionMedium);
-      end TestDummyFunctionMedium;
     end MediaTestModels;
   end Tests;
 end Examples;

@@ -1798,8 +1798,10 @@ of several base components.</p>
     end TwoFlangesAndBearingH;
     
     partial model FrictionBase "Base class of Coulomb friction elements" 
-      parameter SI.AngularVelocity w_small=1 
-        "Relative angular velocity near to zero (see model info text)";
+      // parameter SI.AngularVelocity w_small=1 "Relative angular velocity near to zero (see model info text)";
+      parameter SI.AngularVelocity w_small=1e10 
+        "Relative angular velocity near to zero if jumps due to a reinit(..) of the velocity can occur (set to low value only if such impulses can occur)"
+         annotation(Dialog(tab="Advanced"));
       
         // Equations to define the following variables have to be defined in subclasses
       SI.AngularVelocity w_relfric 
