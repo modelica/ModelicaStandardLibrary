@@ -364,7 +364,7 @@ phi_rel0 = pi/3
 The function returns the value \"3.0\" when called as:
 </p>
 <blockquote><pre>
-getRealParameter(\"test.txt\", \"w_rel0\")
+readRealParameter(\"test.txt\", \"w_rel0\")
 </pre></blockquote>
 </html>"));
   end readRealParameter;
