@@ -1,0 +1,11 @@
+
+// Animation commands
+animationRemove(id = 1);
+animationPosition(position={20,50,406,312},id=1);
+animationView(view = 
+[0.707106781186547, 0, 0, 0;
+0, 0.707106781186547, 0, (-0.694974746830583);
+0, 0, 0.707106781186547, (-1.24740775104278E-009);
+0, 0, 0, 1]);
+animationRedraw()
+simulateModel("Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.fullRobot", stopTime=3, method="dassl", resultFile="fullRobot");

@@ -89,7 +89,7 @@ load inertia.
           string="mLoad=%mLoad",
           style(color=0))),
       experiment(StopTime=3),
-      Commands(file="fullRobotPlot.mos" "plot"),
+      Commands(file="Run.mos" "Simulate", file="fullRobotPlot.mos" "Plot"),
       Documentation(info="<HTML>
 <p>
 This is a detailed model of the robot. For animation CAD data
