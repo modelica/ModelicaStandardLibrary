@@ -125,7 +125,7 @@ which is only exactly true for a fluid with constant density d=d0.
       assert(not(singleState and (not enthalpyOfT) and densityOfT),
 	     "the flags enthalpyOfT, densityOfT and singleState may mot be used in this combination");
       cp = Poly.evaluate(poly_Cp,if TinK then T else T_degC);
-      h = if enthalpyOfT then h_T(T) else h = h_pT(p,T,densityOfT);
+      h = if enthalpyOfT then h_T(T) else h_pT(p,T,densityOfT);
       if singleState then
 	u = h_T(T) - reference_p/d;
       else
