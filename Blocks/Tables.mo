@@ -4,7 +4,7 @@ package Tables "One and two-dimensional interpolation in tables"
     "Table look-up in one dimension (matrix/file) with n inputs and n outputs "
 
     parameter Boolean tableOnFile=false "true, if table is defined on file or in function usertab"
-      annotation(Dialog(group="table data definition"), Evaluate=true);
+      annotation(Dialog(group="table data definition"));
     parameter Real table[:, :]=fill(0.0,0,2)
       "table matrix (grid = first column)"
          annotation(Dialog(group="table data definition", enable = not tableOnFile));
@@ -177,7 +177,8 @@ Several matrices may be defined one after another.
   equation
     if tableOnFile then
       assert(tableName<>"NoName", "tableOnFile = true and no table name given");
-    else
+    end if;
+    if not tableOnFile then
       assert(size(table,1) > 0 and size(table,2) > 0, "tableOnFile = false and parameter table is an empty matrix");
     end if;
 
@@ -191,7 +192,7 @@ Several matrices may be defined one after another.
     "Table look-up in one dimension (matrix/file) with one input and n outputs"
 
     parameter Boolean tableOnFile=false "true, if table is defined on file or in function usertab"
-      annotation(Dialog(group="table data definition"), Evaluate=true);
+      annotation(Dialog(group="table data definition"));
     parameter Real table[:, :]=fill(0.0,0,2)
       "table matrix (grid = first column)"
          annotation(Dialog(group="table data definition", enable = not tableOnFile));
@@ -364,7 +365,8 @@ Several matrices may be defined one after another.
   equation
     if tableOnFile then
       assert(tableName<>"NoName", "tableOnFile = true and no table name given");
-    else
+    end if;
+    if not tableOnFile then
       assert(size(table,1) > 0 and size(table,2) > 0, "tableOnFile = false and parameter table is an empty matrix");
     end if;
 
@@ -379,7 +381,7 @@ Several matrices may be defined one after another.
     extends Modelica.Blocks.Interfaces.SI2SO;
 
     parameter Boolean tableOnFile=false "true, if table is defined on file or in function usertab"
-      annotation(Dialog(group="table data definition"), Evaluate=true);
+      annotation(Dialog(group="table data definition"));
     parameter Real table[:, :]=fill(0.0,0,2)
       "table matrix (grid u1 = first column, grid u2 = first row)"
          annotation(Dialog(group="table data definition", enable = not tableOnFile));
@@ -571,7 +573,8 @@ Several matrices may be defined one after another.
   equation
     if tableOnFile then
       assert(tableName<>"NoName", "tableOnFile = true and no table name given");
-    else
+    end if;
+    if not tableOnFile then
       assert(size(table,1) > 0 and size(table,2) > 0, "tableOnFile = false and parameter table is an empty matrix");
     end if;
 
