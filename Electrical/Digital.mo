@@ -69,6 +69,11 @@ An application example will be given here (not yet done).
       
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>Release notes</font></h3>
+<h3><font color=\"#008000\">Version 1.0.6, 2004-10-18</font></h3>
+<ul>
+<li> Missing HTML tags added (problems with mismatched pre tags fixed).</li>
+<li> CVS ID string deleted.</li>
+</ul>
 <h3><font color=\"#008000\">Version 1.0.5, 2004-10-01</font></h3>
 <ul>
 <li> Wrong identifiers x0 and Tdel in HalfAdder example fixed.</li>
@@ -257,7 +262,7 @@ the library is implemented and released for public use.
 <dt>
 <b>Version:</b>
 <dd>
-$Id$<br>
+<br>
 <br>
 <p>
 <dt>
@@ -607,25 +612,27 @@ The simulation stop time should be 5 seconds.
       annotation (
         Documentation(info="<HTML>
 <P>
-<br>It is an adding circuit for binary numbers with input carry bit, which consists of two Halfadders.
+<br>It is an adding circuit for binary numbers with input carry bit, which consists of two HalfAdders.
 <br>
 <br>
-tab<b>a</b>.y, tab<b>b</b>.y and tab<b>c</b>.y are the inputs of the Fulladder.
+<b>a</b>.y, <b>b</b>.y and <b>c</b>.y are the inputs of the FullAdder.
 <br>
 <b>c</b>out = <b>Or1</b>.y and <b>h</b>.s are the outputs of the Fulladder.
 <br>
 <br>
 <b>t</b> is the pick-up instant of the next bit(s) in the simulation.   
-<pre>   tab<b>a</b>.y   tab<b>b</b>.y   tab<b>c</b>.y   <b>c</b>out = <b>Or1</b>y      <b>h</b>.s       <b>t</b> </pre>
+<pre>   <b>a</b>.y      <b>b</b>.y      <b>c</b>.y     <b>c</b>out        <b>h</b>.s        <b>t</b> </pre>
        
-<pre>     1        0        0        0               1        1  
-<pre>     0        1        0        0               1        2
-<pre>     0        0        1        0               1        3
-<pre>     1        1        0        1               0        4
-<pre>     0        1        1        1               0        5
-<pre>     1        0        1        1               0        6
-<pre>     1        1        1        1               1        7
-<pre>     0        0        0        0               0        8     
+<pre>
+     1        0        0        0          1        1  
+     0        1        0        0          1        2
+     0        0        1        0          1        3
+     1        1        0        1          0        4
+     0        1        1        1          0        5
+     1        0        1        1          0        6
+     1        1        1        1          1        7
+     0        0        0        0          0        8     
+</pre>
 </P>
 The simulation stop time should be 10 seconds.  
 </HTML>
@@ -695,27 +702,30 @@ Four Fulladders are combined to built a four bit adder unit.
 <br>
 In dependence on time five additions are carried out:
 <br> 
-<pre> at t = 0                            at t = 1        
-<pre> a       0 0 0 0                       a      1 1 1 0                      
-<pre> b    +  0 0 0 0                       b   +  1 0 1 1
-<pre> <b>s     0 0 0 0 0</b>                      <b>s     1 0 0 1 0</b>
-<pre>at t = 2                             at t = 3   
-<pre> a       0 1 1 0                       a      1 1 1 0 
-<pre> b    +  0 0 1 1                       b   +  1 0 1 0
-<pre> <b>s     1 0 1 0 0</b>                      <b>s     0 0 0 1 1</b>
+<pre> 
+at t = 0                            at t = 1        
+ a       0 0 0 0                       a      1 1 1 0                      
+ b    +  0 0 0 0                       b   +  1 0 1 1
+ <b>s     0 0 0 0 0</b>                      <b>s     1 0 0 1 0</b>
+at t = 2                             at t = 3   
+ a       0 1 1 0                       a      1 1 1 0 
+ b    +  0 0 1 1                       b   +  1 0 1 0
+ <b>s     1 0 1 0 0</b>                      <b>s     0 0 0 1 1</b>
         
 at t = 4
-<pre> a      1 1 0 0
-<pre> b   +  1 1 1 0
-<pre> <b>s    0 0 1 0 1</b></pre>
+ a      1 1 0 0
+ b   +  1 1 1 0
+ <b>s    0 0 1 0 1</b>
+ </pre>
 To show the influence of delay a large delay time of 0.1s is choosen.
 Furthermore, all signals are initialized with U, the unitialized value.
 Please remember, that the nine logic values are coded by the numbers 1,...,9.
 The summands a and b can be found at the output signals of the taba and tabb sources.
 The result can be seen in the output signals of the Fulladders according to: 
-<pre> a                       <b>a4</b>.y      <b>a3</b>.y      <b>a2</b>.y      <b>a1</b>.y
-<pre> b                       <b>b4</b>.y      <b>b3</b>.y      <b>b2</b>.y      <b>b1</b>.y
-<pre> sum   <b>Adder4</b>.c_out  <b>Adder4.s</b>  <b>Adder3.s</b>  <b>Adder2.s</b>  <b>Adder1.s</b>
+<pre> 
+      a                       <b>a4</b>.y      <b>a3</b>.y      <b>a2</b>.y      <b>a1</b>.y
+      b                       <b>b4</b>.y      <b>b3</b>.y      <b>b2</b>.y      <b>b1</b>.y
+      sum   <b>Adder4</b>.c_out  <b>Adder4.s</b>  <b>Adder3.s</b>  <b>Adder2.s</b>  <b>Adder1.s</b>
 </pre>
 The simulation stop time has to be 5s.
         
@@ -1221,14 +1231,14 @@ The simulation stop time has to be 5s.
             fillColor=51,
             rgbfillColor={255,255,170},
             fillPattern=1));
-        connect(a1, And4.x[1]) annotation (points=[-100,-70; -80,-70; -80,-90; 
+        connect(a1, And4.x[1]) annotation (points=[-100,-70; -80,-70; -80,-90;
               -30,-90; -30,-13.3333; -16,-13.3333], style(
             color=78,
             rgbcolor={127,0,127},
             fillColor=51,
             rgbfillColor={255,255,170},
             fillPattern=1));
-        connect(a1, And3.x[1]) annotation (points=[-100,-70; -80,-70; -80,-90; 
+        connect(a1, And3.x[1]) annotation (points=[-100,-70; -80,-70; -80,-90;
               -30,-90; -30,12.6667; -16,12.6667], style(
             color=78,
             rgbcolor={127,0,127},
@@ -1917,13 +1927,14 @@ The simulation stop time has to be 5s.
       annotation (
         Documentation(info="<HTML>
 <P>
- <pre>   <b>a     b     c in     c out     s</b></pre>
+ <pre>   
+  <b>a     b     c in     c out     s</b>
        
- <pre>   1     1     1     0
- <pre>   0     0     0     0
- <pre>   1     0     0     1
- <pre>   0     1     0     1
-   
+         1     1     1     0
+         0     0     0     0
+         1     0     0     1
+         0     1     0     1
+ </pre>  
        
        
 </P>
@@ -2436,7 +2447,7 @@ The simulation stop time has to be 5s.
           string="%name",
           style(color=1))));
   end Examples;
-
+  
   package Interfaces 
     
     type Logic = Integer 
@@ -4662,6 +4673,5 @@ The values val... are given by parameters.</P>
           string="%name",
           style(color=1))));
   end Converters;
-  
   
 end Digital;
