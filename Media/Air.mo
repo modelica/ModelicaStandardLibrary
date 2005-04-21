@@ -73,16 +73,23 @@ in the allowed range (" + String(T_min) + " K <= T <= " + String(T_max)
   
   package DryAirNasa "Air: Detailed dry air model as ideal gas (200..6000 K)" 
     extends IdealGases.SingleGases.Air(fluidConstants={IdealGases.Common.FluidData.N2});
+    import Cv = Modelica.SIunits.Conversions;
 
-    
-  redeclare function extends dynamicViscosity "simple polynomial for dry air (moisture influence small), valid from 73.15 K to 373.15 K"
-    algorithm 
-    eta := Polynomials_Temp.evaluate({(-4.96717436974791E-011), 5.06626785714286E-008, 1.72937731092437E-005}, Cv.to_degC(state.T));
+  redeclare function dynamicViscosity "simple polynomial for dry air (moisture influence small), valid from 73.15 K to 373.15 K"
+    extends Modelica.Icons.Function;
+    input ThermodynamicState state;
+    output DynamicViscosity eta "Dynamic viscosity";
+  algorithm 
+    eta := Incompressible.TableBased.Polynomials_Temp.evaluate({(-4.96717436974791E-011), 5.06626785714286E-008, 1.72937731092437E-005}, Cv.to_degC(state.T));
   end dynamicViscosity;
     
-    redeclare function extends thermalConductivity "simple polynomial for dry air (moisture influence small), valid from 73.15 K to 373.15 K" 
+    redeclare function thermalConductivity "simple polynomial for dry air (moisture influence small), valid from 73.15 K to 373.15 K" 
+      extends Modelica.Icons.Function;
+      input ThermodynamicState state;
+      input Integer method=1 "1: Eucken Method, 2: Modified Eucken Method";
+      output ThermalConductivity lambda "Thermal conductivity";
     algorithm 
-      lambda := Polynomials_Temp.evaluate({(-4.8737307422969E-008), 7.67803133753502E-005, 0.0241814385504202},Cv.to_degC(state.T));
+      lambda := Incompressible.TableBased.Polynomials_Temp.evaluate({(-4.8737307422969E-008), 7.67803133753502E-005, 0.0241814385504202},Cv.to_degC(state.T));
     end thermalConductivity;
     
   end DryAirNasa;
