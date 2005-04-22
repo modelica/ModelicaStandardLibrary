@@ -853,7 +853,7 @@ differentiable everywhere. The derivative at zero distance is 3/(2*s_small).
     frame_a.t = zeros(3);
     frame_b.t = zeros(3);
     
-    distance =  smooth(1,noEvent(if L2 > s_small2 then sqrt(L2) else L2/(2*s_small)*(3-L2/s_small2)));
+    distance =  smooth(1,if L2 > s_small2 then sqrt(L2) else L2/(2*s_small)*(3-L2/s_small2));
   end Distance;
   
   model CutForce "Measure cut force vector" 
