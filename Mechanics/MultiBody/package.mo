@@ -898,12 +898,49 @@ calls in 0.99 should be changed:
     
     annotation (Documentation(info="<HTML>
 <h3><font color=\"#008000\" size=5>Release notes</font></h3>
+
+<h3><font color=\"#008000\">Version 1.1.3, 2005-04-21</font></h3>
+<p>
+This version has some minor improvements:
+</p>
+
+<ul>
+<li> Component MultiBody.<b>Sensors.Distance</b> has been modified: If the distance
+     is less than s_small (a parameter in the \"advanced\" menu), it is approximated
+     such that the derivative is finite for zero distance. Previously,
+     an assert was triggered.</li>
+</ul>
+
+
+
+<h3><font color=\"#008000\">Version 1.1.2, 2005-04-06</font></h3>
+<p>
+This version has some minor improvements:
+</p>
+
+<ul>
+<li> Component MultiBody.<b>World</b> has a new parameter
+     <b>driveTrainMechanics3D</b>. If set to <b>true</b>, 3D mechanical effects
+     of MultiBody.Parts.Mounting1D/Rotor1D/BevelGear1D are taken into account. If set to 
+     <b>false</b> (= default), 3D mechanical effects in these elements
+     are not taken into account and the
+     frame connectors to connect to 3D parts are disabled (all
+     connections to such a disabled connector are also disabled, due to the
+     new feature of conditional declarations in Modelica language 2.2).
+     </li>
+<li> All references to \"MultiBody.xxx\" have
+     been changed to \"Modelica.Mechanics.MultiBody.xxx\" in order that after
+     copying of a component outside of the Modelica library, the references
+     still remain valid.</li>
+</ul>
+
+
 <h3><font color=\"#008000\">Version 1.1.1, 2004-11-03</font></h3>
 <p>
 This version has some minor improvements:
 </p>
 <ul>
-<li> New function \"MultiBody.Frames.from_T2\" to compute an orientation
+<li> New function MultiBody.<b>Frames.from_T2</b> to compute an orientation
      object from a transformation matrix and its derivative.</li>
 <li> Added a paragraph in the \"Upgrade from Former Versions\" section
      of the Users Guide to show how a conversion from 0.99 to 1.0 that

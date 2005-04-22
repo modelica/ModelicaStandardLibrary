@@ -757,14 +757,15 @@ and resolved in the following frame
     
     parameter Boolean animation=true 
       "= true, if animation shall be enabled (show arrow)";
-    parameter Boolean resolveInFrame_a=true;
     parameter SI.Diameter arrowDiameter=world.defaultArrowDiameter 
-      "|Animation|if animation = true| Diameter of relative arrow from frame_a to frame_b";
-    parameter Modelica.Mechanics.MultiBody.Types.Color arrowColor=Modelica.Mechanics.MultiBody.Types.Defaults.
-        SensorColor 
-      "|Animation|if animation = true| Color of relative arrow from frame_a to frame_b";
-    parameter SI.Position s_small=1.E-10 
-      "|Advanced|| Prevent zero-division if distance between frame_a and frame_b is zero";
+      " Diameter of relative arrow from frame_a to frame_b" 
+      annotation (Dialog(group="if animation = true"));
+    parameter Types.Color arrowColor=Modelica.Mechanics.MultiBody.Types.Defaults.
+        SensorColor " Color of relative arrow from frame_a to frame_b" 
+      annotation (Dialog(group="if animation = true"));
+    parameter SI.Position s_small(min=sqrt(Modelica.Constants.small))=1.E-10 
+      " Prevent zero-division if distance between frame_a and frame_b is zero" 
+      annotation (Dialog(tab="Advanced"));
   protected 
     outer Modelica.Mechanics.MultiBody.World world;
     parameter Integer ndim=if world.enableAnimation and animation then 1 else 0;
@@ -787,10 +788,7 @@ and resolved in the following frame
           extent=[101, 41; 137, 16],
           style(color=10),
           string="b"),
-        Text(
-          extent=[0,-88; 180,-118],
-          style(color=8),
-          string="distance")),
+        Text(extent=[-128,30; 133,78],    string="%name")),
       Diagram(
         Line(points=[-70, 0; -101, 0], style(color=0)),
         Line(points=[70, 0; 100, 0], style(color=0)),
@@ -813,6 +811,7 @@ block
 to \"distance\" (this block performs analytic differentiation
 of the input signal using the der(..) operator).
 </p>
+
 <p>
 In the following figure the animation of a Distance
 sensor is shown. The light blue coordinate system is
@@ -822,34 +821,39 @@ the yellow arrow is the animated sensor.
 <p align=\"center\">
 <IMG SRC=\"../Images/MultiBody/Sensors/Distance.png\">
 </p>
+
+<p>
+If the distance is smaller as parameter <b>s_small</b> (in the \"advanced\" menu),
+it is approximated such that its derivative is
+finite for zero distance. Without such an approximation, the derivative would
+be infinite and a division by zero would occur. The approximation is performed
+in the following way: If distance > s_small, it is computed as sqrt(r*r) where
+r is the position vector from the origin of frame_a to the origin of frame_b.
+If the distance becomes smaller as s_small, the \"sqrt()\" function is approximated
+by a second order polynomial, such that the function value and its first derivative
+are identical for sqrt() and the polynomial at s_small. Futhermore, the polynomial
+passes through zero. The effect is, that the distance function is continuous and
+differentiable everywhere. The derivative at zero distance is 3/(2*s_small).
+</p>
+
 </HTML>"));
   protected 
-    SI.Position r_rel_0[3] 
+    SI.Position r_rel_0[3] = frame_b.r_0 - frame_a.r_0 
       "Position vector from frame_a to frame_b resolved in world frame";
-    SI.Length trueDistance 
-      "True distance between the origin of frame_a and the origin of frame_b";
+    SI.Length L2 = r_rel_0*r_rel_0;
+    SI.Length s_small2 = s_small^2;
   equation 
     assert(cardinality(frame_a) > 0,
       "Connector frame_a of LineSensor object is not connected");
     assert(cardinality(frame_b) > 0,
       "Connector frame_b of LineSensor object is not connected");
-    assert(noEvent(trueDistance > s_small), "
-The distance between the origin of frame_a and the origin of frame_b
-of a LineSensor component became smaller as parameter s_small
-(= a small number, defined in the \"Advanced\" menu). The distance is
-set to s_small, although it is smaller. The reason is that the
-time derivative of the distance becomes infinity for distance = 0.
-This situation leads usually to numerical problems, e.g., 
-a division by zero may occur.
-");
+    
     frame_a.f = zeros(3);
     frame_b.f = zeros(3);
     frame_a.t = zeros(3);
     frame_b.t = zeros(3);
     
-    r_rel_0 = frame_b.r_0 - frame_a.r_0;
-    trueDistance = Frames.length(r_rel_0);
-    distance = Frames.Internal.maxWithoutEvent(trueDistance, s_small);
+    distance =  smooth(1,noEvent(if L2 > s_small2 then sqrt(L2) else L2/(2*s_small)*(3-L2/s_small2)));
   end Distance;
   
   model CutForce "Measure cut force vector" 

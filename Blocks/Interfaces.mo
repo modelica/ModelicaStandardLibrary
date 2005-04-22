@@ -997,8 +997,8 @@ end IntegerMIBooleanMOs;
     
     parameter Real threshold=0 "Comparison with respect to threshold";
     
-    Blocks.Interfaces.RealInput u annotation(extent=[-140,-20; -100,20], Hide=true);
-    Blocks.Interfaces.BooleanOutput y annotation (extent=[100,-10; 120,10], Hide=true);
+    Blocks.Interfaces.RealInput u annotation(extent=[-140,-20; -100,20]);
+    Blocks.Interfaces.BooleanOutput y annotation (extent=[100,-10; 120,10]);
     
     annotation (Icon(
   Rectangle(extent=[-100,100; 100,-100],   style(
