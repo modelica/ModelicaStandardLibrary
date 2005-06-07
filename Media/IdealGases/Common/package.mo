@@ -292,6 +292,12 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
   algorithm 
     ddTp := -state.p/(state.T*state.T*data.R);
   end density_derT_p;
+
+  redeclare function extends density_derX
+    "density derivative by mass fraction" 
+  algorithm
+    dddX := fill(0,0);
+  end density_derX;
   
   function cp_T 
     "Compute specific heat capacity at constant pressure from temperature and gas data" 
