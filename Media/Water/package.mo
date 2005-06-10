@@ -490,21 +490,23 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
   redeclare function extends setDewState 
     "set the thermodynamic state on the dew line" 
   algorithm 
-    state.phase := phase;
-    state.p := sat.psat;
-    state.T := sat.Tsat;
-    state.h := dewEnthalpy(sat);
-    state.d := dewDensity(sat);
+    state := ThermodynamicState(
+       phase = phase,
+       p = sat.psat,
+       T = sat.Tsat,
+       h = dewEnthalpy(sat),
+       d = dewDensity(sat));
   end setDewState;
   
   redeclare function extends setBubbleState 
     "set the thermodynamic state on the bubble line" 
   algorithm 
-    state.phase := phase;
-    state.p := sat.psat;
-    state.T := sat.Tsat;
-    state.h := bubbleEnthalpy(sat);
-    state.d := bubbleDensity(sat);
+    state := ThermodynamicState(
+       phase = phase,
+       p = sat.psat,
+       T = sat.Tsat,
+       h = bubbleEnthalpy(sat),
+       d = bubbleDensity(sat));
   end setBubbleState;
   
   redeclare function extends dynamicViscosity "Dynamic viscosity of water" 
