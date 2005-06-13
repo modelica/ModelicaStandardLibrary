@@ -1,7 +1,7 @@
 package FluidHeatFlow 
   "Simple components for 1-dimensional incompressible thermo-fluid flow models" 
   extends Modelica.Icons.Library2;
-  annotation (version="1.40", versionDate="2005-06-08",
+  annotation (version="1.40", versionDate="2005-06-13",
     preferedView="info",Documentation(info="<HTML>
 <p>
 This package contains very simple-to-use components to model coolant flows as needed to simulate cooling e.g. of electric machines:
@@ -94,7 +94,7 @@ and the accompanying <b>disclaimer</b>
        <i>new example: PumpDropOut</i></li>
   <li> v1.33 Beta 2005/06/07 Anton Haumer<br>
        corrected usage of simpleFlow</li>
-  <li> v1.40 2005/06/08 Anton Haumer<br>
+  <li> v1.40 2005/06/13 Anton Haumer<br>
        stable release</li>
   </ul>
 </HTML>
@@ -897,7 +897,8 @@ leads to neglection of temperature transient cv*m*der(T).
               Text(extent=[-150,100; 150,40], string="%name")), Diagram);
       extends Interfaces.Partials.TwoPort;
       extends Interfaces.Partials.SimpleFriction;
-      parameter Modelica.SIunits.Length h_g=0 "geodetic height";
+      parameter Modelica.SIunits.Length h_g=0 
+        "geodetic height (heigth difference from flowPort_a to flowPort_b)";
     equation 
       // coupling with FrictionModel
       VolumeFlow = V_flow;
@@ -937,7 +938,8 @@ temperature rise defined by storing heat in medium's mass.
               fillPattern=1))), Diagram);
       extends Interfaces.Partials.TwoPort;
       extends Interfaces.Partials.SimpleFriction;
-      parameter Modelica.SIunits.Length h_g=0 "geodetic height";
+      parameter Modelica.SIunits.Length h_g=0 
+        "geodetic height (heigth difference from flowPort_a to flowPort_b)";
       Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort 
         annotation (extent=[-10,-110; 10,-90]);
     equation 
@@ -1344,8 +1346,6 @@ Mixing rule is applied.
       protected 
         Modelica.SIunits.SpecificEnthalpy h = medium.cp*T 
           "medium's specific enthalpy";
-        constant Real limit = 1E-10 "minimum mass flow";
-        constant Real kT = 1 "heatPort's temperature between inlet and outlet";
         Modelica.SIunits.Temperature T_q "heat port's temperature";
       public 
         Interfaces.FlowPort_a flowPort_a(final medium=medium) 
@@ -1365,14 +1365,8 @@ Mixing rule is applied.
         // massflow b->a mixing rule at b, energy flow at a defined by medium's temperature
         flowPort_a.H_flow = semiLinear(flowPort_a.m_flow,flowPort_a.h,h);
         flowPort_b.H_flow = semiLinear(flowPort_b.m_flow,flowPort_b.h,h);
-        // defines heatPort's temperature between inlet and outlet of medium  
-        if noEvent(flowPort_a.m_flow > +limit) then
-          T_q = (1-kT)*T_a + kT*T;
-        elseif noEvent(flowPort_a.m_flow < -limit) then
-          T_q = (1-kT)*T_b + kT*T;
-        else
-          T_q = T;
-        end if;
+        // defines heatPort's temperature 
+        T_q = T;
       end TwoPort;
       
       partial model Ambient 
