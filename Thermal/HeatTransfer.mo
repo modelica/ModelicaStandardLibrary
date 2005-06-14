@@ -39,11 +39,13 @@ calculating the lumped element parameters from some basic analytic
 formulas is usually not possible).
 </p>
 <p>
-Example models how to use this library are given in subpackage <b>Examples</b>.
-For a first simple example, see Examples.TwoMasses where two masses
+Example models how to use this library are given in subpackage <b>Examples</b>.<br>
+For a first simple example, see <b>Examples.TwoMasses</b> where two masses
 with different initial temperatures are getting in contact to each
-other and arriving after some time at a common temperature.
-A more realistic example is provided in <b>Examples.Drive</b> where the
+other and arriving after some time at a common temperature.<br>
+<b>Examples.ControlledTemperature</b> shows how to hold a temperature 
+within desired limits by switching on and off an electric resistor.<br>
+A more realistic example is provided in <b>Examples.Motor</b> where the
 heating of an electrical motor is modelled, see the following screen shot
 of this example:
 </p>
@@ -135,7 +137,7 @@ Modelica in file \"Modelica/package.mo\".
 <li><i>June 13, 2005</i>
        by <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
        Refined placing of connectors (cosmetic).<br>
-       Refined all Exmaples; removed Examples.FrequencyInverter, introducing Examples.Motor<br>
+       Refined all Examples; removed Examples.FrequencyInverter, introducing Examples.Motor<br>
        Introduced temperature dependent correction (1 + alpha*(T - T_ref)) in Fixed/PrescribedHeatFlow<br>
 </li>
 </ul>
@@ -311,58 +313,61 @@ Simulate for 7200 s; plot Twinding.T and Tcore.T.
       Modelica.Blocks.Sources.CombiTimeTable lossTable(extrapolation=Modelica.
             Blocks.Types.Extrapolation.Periodic, table=[0,100,500; 360,100,500;
             360,1000,500; 600,1000,500]) 
-                                annotation (extent=[-40,60; -20,80], rotation=
+                                annotation (extent=[-50,60; -30,80], rotation=
             -90);
       HeatTransfer.PrescribedHeatFlow windingLosses(T_ref=from_degC(95), alpha=
-            3.03E-3)                         annotation (extent=[-80,0; -60,20],
+            3.03E-3)                         annotation (extent=[-90,0; -70,20],
           rotation=-90);
       HeatTransfer.HeatCapacitor winding(T(start=from_degC(TAmb)), C=2500) 
-                                            annotation (extent=[-80,-20; -60,
+                                            annotation (extent=[-90,-20; -70,
             -40]);
       HeatTransfer.Celsius.TemperatureSensor Twinding 
-                                                     annotation (extent=[-60,
-            -60; -40,-40], rotation=-90);
+                                                     annotation (extent=[-70,
+            -60; -50,-40], rotation=-90);
       HeatTransfer.ThermalConductor winding2core(G=10) 
-                                            annotation (extent=[-40,-20; -20,0]);
+                                            annotation (extent=[-50,-20; -30,0]);
       HeatTransfer.PrescribedHeatFlow coreLosses 
-                                             annotation (extent=[0,0; 20,20],
+                                             annotation (extent=[-10,0; 10,20],
           rotation=-90);
       HeatTransfer.HeatCapacitor core(T(start=from_degC(TAmb)), C=25000) 
-                                            annotation (extent=[0,-20; 20,-40]);
-      HeatTransfer.Celsius.TemperatureSensor Tcore   annotation (extent=[-20,
-            -60; 0,-40], rotation=-90);
+                                            annotation (extent=[-10,-20; 10,-40]);
+      HeatTransfer.Celsius.TemperatureSensor Tcore   annotation (extent=[-30,
+            -60; -10,-40],
+                         rotation=-90);
       Modelica.Blocks.Sources.Constant convectionConstant(k=25) 
-        annotation (extent=[40,20; 60,40], rotation=-90);
-      HeatTransfer.Convection convection annotation (extent=[40,-20; 60,0]);
+        annotation (extent=[30,20; 50,40], rotation=-90);
+      HeatTransfer.Convection convection annotation (extent=[30,-20; 50,0]);
       HeatTransfer.Celsius.FixedTemperature environment(T=TAmb) 
                                                               annotation (
-          extent=[80, -20; 100, 0], rotation=180);
+          extent=[70,-20; 90,0],    rotation=180);
     equation 
-      connect(windingLosses.port, winding.port)  annotation (points=[-70,0; -70,
+      connect(windingLosses.port, winding.port)  annotation (points=[-80,0; -80,
             -20], style(color=42, rgbcolor={191,0,0}));
-      connect(coreLosses.port, core.port)  annotation (points=[10,0; 10,-20],
+      connect(coreLosses.port, core.port)  annotation (points=[6.12303e-016,0; 
+            6.12303e-016,-10; 0,-10; 0,-20],
           style(color=42, rgbcolor={191,0,0}));
       connect(winding.port, winding2core.port_a) 
-                                       annotation (points=[-70,-20; -70,-10;
-            -40,-10], style(color=42, rgbcolor={191,0,0}));
+                                       annotation (points=[-80,-20; -80,-10; 
+            -50,-10], style(color=42, rgbcolor={191,0,0}));
       connect(winding2core.port_b, core.port) 
-                                    annotation (points=[-20,-10; 10,-10; 10,-20],
+                                    annotation (points=[-30,-10; 0,-10; 0,-20],
           style(color=42, rgbcolor={191,0,0}));
-      connect(winding.port, Twinding.port)  annotation (points=[-70,-20; -70,
-            -10; -50,-10; -50,-40], style(color=42, rgbcolor={191,0,0}));
-      connect(core.port, Tcore.port)  annotation (points=[10,-20; 10,-10; -10,
-            -10; -10,-40], style(color=42, rgbcolor={191,0,0}));
+      connect(winding.port, Twinding.port)  annotation (points=[-80,-20; -80,
+            -10; -60,-10; -60,-40], style(color=42, rgbcolor={191,0,0}));
+      connect(core.port, Tcore.port)  annotation (points=[0,-20; 0,-10; -20,-10; 
+            -20,-40],      style(color=42, rgbcolor={191,0,0}));
       connect(winding2core.port_b, convection.solid) 
-                                          annotation (points=[-20,-10; 40,-10],
+                                          annotation (points=[-30,-10; 30,-10],
           style(color=42, rgbcolor={191,0,0}));
-      connect(convection.fluid, environment.port) annotation (points=[60,-10;
-            70,-10; 70,-10; 80,-10], style(color=42, rgbcolor={191,0,0}));
+      connect(convection.fluid, environment.port) annotation (points=[50,-10; 
+            60,-10; 60,-10; 70,-10], style(color=42, rgbcolor={191,0,0}));
       connect(convectionConstant.y, convection.Gc) 
-        annotation (points=[50,19; 50,0], style(color=74, rgbcolor={0,0,127}));
-      connect(lossTable.y[1], windingLosses.Q_flow) annotation (points=[-30,59; -30,
-            40; -70,40; -70,20],     style(color=74, rgbcolor={0,0,127}));
-      connect(lossTable.y[2], coreLosses.Q_flow) annotation (points=[-30,59; -30,40;
-            10,40; 10,20],         style(color=74, rgbcolor={0,0,127}));
+        annotation (points=[40,19; 40,0], style(color=74, rgbcolor={0,0,127}));
+      connect(lossTable.y[1], windingLosses.Q_flow) annotation (points=[-40,59; 
+            -40,40; -80,40; -80,20], style(color=74, rgbcolor={0,0,127}));
+      connect(lossTable.y[2], coreLosses.Q_flow) annotation (points=[-40,59; 
+            -40,40; -6.12303e-016,40; -6.12303e-016,20],
+                                   style(color=74, rgbcolor={0,0,127}));
     end Motor;
     annotation (Icon(
          Ellipse(extent=[-60,10; 40,-90], style(color=10, rgbcolor={135,135,135})),
