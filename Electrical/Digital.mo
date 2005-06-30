@@ -71,7 +71,7 @@ An application example will be given here (not yet done).
 <h3><font color=\"#008000\" size=5>Release notes</font></h3>
 <h3><font color=\"#008000\">Version 1.0.7, 2005-07-01</font></h3>
 <ul>
-<li> xxx</li>
+<li> xxxx</li>
 </ul>
 <h3><font color=\"#008000\">Version 1.0.6, 2004-10-18</font></h3>
 <ul>
