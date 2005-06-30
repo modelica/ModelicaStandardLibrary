@@ -69,6 +69,10 @@ An application example will be given here (not yet done).
       
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>Release notes</font></h3>
+<h3><font color=\"#008000\">Version 1.0.7, 2005-07-01</font></h3>
+<ul>
+<li> xxx</li>
+</ul>
 <h3><font color=\"#008000\">Version 1.0.6, 2004-10-18</font></h3>
 <ul>
 <li> Missing HTML tags added (problems with mismatched pre tags fixed).</li>
@@ -2787,23 +2791,23 @@ If time is less than <i>Tdel</i> the initial value <i>initout</i> holds.
             string="Delay")));
     end InertialDelay;
     
-    model InertialDelaySensitive
-      "Provide the input as output if it holds its value for a specific amount of time"
+    model InertialDelaySensitive 
+      "Provide the input as output if it holds its value for a specific amount of time" 
       import D = Modelica.Electrical.Digital;
       import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       extends D.Interfaces.SISO;
       parameter Modelica.SIunits.Time tLH=0 "rise inertial delay";
       parameter Modelica.SIunits.Time tHL=0 "fall inertial delay";
       parameter D.Interfaces.Logic y0=L.'U' "initial value of output";
-    protected
-      Integer delayTable[:,:]=D.Tables.DelayTable
+    protected 
+      Integer delayTable[:,:]=D.Tables.DelayTable 
         "specification of delay according to signal change";
       Modelica.SIunits.Time delayTime;
       D.Interfaces.Logic y_auxiliary(start=y0, fixed=true);
       D.Interfaces.Logic x_old(start=y0, fixed=true);
       Integer lh;
       discrete Modelica.SIunits.Time t_next;
-    algorithm
+    algorithm 
       when {initial(),(tLH > 0 or tHL > 0) and change(x) and not initial()} then
         x_old := if initial() or pre(x) == 0 then y0 else pre(x);
         lh := delayTable[x_old, x];
