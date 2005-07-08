@@ -582,7 +582,7 @@ functions.</p>
   type Length = Real (final quantity="Length", final unit="m");
   type PathLength = Length;
   type Position = Length;
-  type Distance = Length (min=0);
+  type Distance = Length;
   type Breadth = Distance;
   type Height = Distance;
   type Thickness = Distance;
@@ -632,29 +632,23 @@ functions.</p>
   // Mechanics (chapter 3 of ISO 31-1992)
   type Mass = Real (
       quantity="Mass",
-      final unit="kg",
-      min=0);
+      final unit="kg");
   type Density = Real (
       final quantity="Density",
       final unit="kg/m3",
-      displayUnit="g/cm3",
-      min=0);
+      displayUnit="g/cm3");
   type RelativeDensity = Real (
       final quantity="RelativeDensity",
-      final unit="1",
-      min=0);
+      final unit="1");
   type SpecificVolume = Real (
       final quantity="SpecificVolume",
-      final unit="m3/kg",
-      min=0);
+      final unit="m3/kg");
   type LinearDensity = Real (
       final quantity="LinearDensity",
-      final unit="kg/m",
-      min=0);
+      final unit="kg/m");
   type SurfaceDensity = Real (
       final quantity="SurfaceDensity",
-      final unit="kg/m2",
-      min=0);
+      final unit="kg/m2");
   type Momentum = Real (final quantity="Momentum", final unit="kg.m/s");
   type Impulse = Real (final quantity="Impulse", final unit="N.s");
   type AngularMomentum = Real (final quantity="AngularMomentum", final unit=
@@ -692,12 +686,10 @@ functions.</p>
         final unit="1");
   type DynamicViscosity = Real (
       final quantity="DynamicViscosity",
-      final unit="Pa.s",
-      min=0);
+      final unit="Pa.s");
   type KinematicViscosity = Real (
       final quantity="KinematicViscosity",
-      final unit="m2/s",
-      min=0);
+      final unit="m2/s");
   type SurfaceTension = Real (final quantity="SurfaceTension", final unit="N/m");
   type Work = Real (final quantity="Work", final unit="J");
   type Energy = Real (final quantity="Energy", final unit="J");
@@ -724,7 +716,6 @@ functions.</p>
   type ThermodynamicTemperature = Real (
       final quantity="ThermodynamicTemperature",
       final unit="K",
-      min = 0,
       displayUnit="degC");
   type Temp_K = ThermodynamicTemperature;
   type Temperature = ThermodynamicTemperature;
@@ -802,12 +793,10 @@ functions.</p>
   type Charge = ElectricCharge;
   type VolumeDensityOfCharge = Real (
       final quantity="VolumeDensityOfCharge",
-      final unit="C/m3",
-      min=0);
+      final unit="C/m3");
   type SurfaceDensityOfCharge = Real (
       final quantity="SurfaceDensityOfCharge",
-      final unit="C/m2",
-      min=0);
+      final unit="C/m2");
   type ElectricFieldStrength = Real (final quantity="ElectricFieldStrength",
         final unit="V/m");
   type ElectricPotential = Real (final quantity="ElectricPotential", final unit
@@ -820,12 +809,10 @@ functions.</p>
   type ElectricFlux = Real (final quantity="ElectricFlux", final unit="C");
   type Capacitance = Real (
       final quantity="Capacitance",
-      final unit="F",
-      min=0);
+      final unit="F");
   type Permittivity = Real (
       final quantity="Permittivity",
-      final unit="F/m",
-      min=0);
+      final unit="F/m");
   type PermittivityOfVacuum = Permittivity;
   type RelativePermittivity = Real (final quantity="RelativePermittivity",
         final unit="1");
@@ -857,7 +844,7 @@ functions.</p>
   type Inductance = Real (
       final quantity="Inductance",
       final unit="H");
-  type SelfInductance = Inductance(min=0);
+  type SelfInductance = Inductance;
   type MutualInductance = Inductance;
   type CouplingCoefficient = Real (final quantity="CouplingCoefficient", final unit
         =    "1");
@@ -882,8 +869,7 @@ functions.</p>
           "W/m2");
   type Resistance = Real (
       final quantity="Resistance",
-      final unit="Ohm",
-      min=0);
+      final unit="Ohm");
   type Resistivity = Real (final quantity="Resistivity", final unit="Ohm.m");
   type Conductivity = Real (final quantity="Conductivity", final unit="S/m");
   type Reluctance = Real (final quantity="Reluctance", final unit="H-1");
@@ -902,8 +888,7 @@ functions.</p>
       displayUnit="deg");
   type Conductance = Real (
       final quantity="Conductance",
-      final unit="S",
-      min=0);
+      final unit="S");
   type Admittance = Conductance;
   type ModulusOfAdmittance = Conductance;
   type Susceptance = Conductance;
@@ -980,8 +965,7 @@ functions.</p>
   type StaticPressure = Real (
       final quantity="Pressure",
       final unit="Pa",
-      displayUnit="bar",
-      min=0);
+      displayUnit="bar");
   type SoundPressure = StaticPressure;
   type SoundParticleDisplacement = Real (final quantity="Length", final unit=
           "m");
@@ -1030,8 +1014,7 @@ functions.</p>
         ="1");
   type AmountOfSubstance = Real (
       final quantity="AmountOfSubstance",
-      final unit="mol",
-      min=0);
+      final unit="mol");
   type MolarMass = Real (final quantity="MolarMass", final unit="kg/mol");
   type MolarVolume = Real (final quantity="MolarVolume", final unit="m3/mol");
   type MolarInternalEnergy = Real (final quantity="MolarInternalEnergy", final unit
@@ -1058,8 +1041,7 @@ functions.</p>
   type PartialPressure = Real (
       final quantity="Pressure",
       final unit="Pa",
-      displayUnit="bar",
-      min=0);
+      displayUnit="bar");
   type Fugacity = Real (final quantity="Fugacity", final unit="Pa");
   type StandardAbsoluteActivity = Real (final quantity=
           "StandardAbsoluteActivity", final unit="1");
@@ -1080,8 +1062,7 @@ functions.</p>
   type OsmoticPressure = Real (
       final quantity="Pressure",
       final unit="Pa",
-      displayUnit="bar",
-      min=0);
+      displayUnit="bar");
   type StoichiometricNumber = Real (final quantity="StoichiometricNumber",
         final unit="1");
   type Affinity = Real (final quantity="Affinity", final unit="J/mol");

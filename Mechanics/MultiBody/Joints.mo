@@ -5436,8 +5436,8 @@ this force is an unknown quantity).
       else
         // Determine relative position vector resolved in frame_a
         R_rel = Frames.relativeRotation(frame_a.R, frame_b.R);
-        // r_rel_a = Frames.resolve2(frame_a.R, frame_b.r_0 - frame_a.r_0);
-        r_rel_a = T.resolve1(R_rel.T, T.resolve2(frame_b.R.T, frame_b.r_0 - frame_a.r_0));
+        r_rel_a = Frames.resolve2(frame_a.R, frame_b.r_0 - frame_a.r_0);
+        // r_rel_a = T.resolve1(R_rel.T, T.resolve2(frame_b.R.T, frame_b.r_0 - frame_a.r_0));
         
         // Constraint equations
         0 = ex_a*r_rel_a;
