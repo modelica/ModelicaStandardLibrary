@@ -396,7 +396,8 @@ vector \"n\" defining the translation axis
     parameter SI.Acceleration a_start=0 
       "|Initialization| Initial value of relative acceleration a = der(v)" 
       annotation (Evaluate=false);
-    parameter Modelica.Mechanics.MultiBody.Types.AngularAcceleration_degs2 wd_start=0 
+    parameter Modelica.Mechanics.MultiBody.Types.AngularAcceleration_degs2 
+      wd_start =                                                                    0 
       "|Initialization| Initial value of relative angular acceleration wd = der(w)"
       annotation (Evaluate=false);
     parameter SI.Distance cylinderDiameter=world.defaultJointWidth 
@@ -520,13 +521,17 @@ vector \"n\" defining the cylinder axis
       "|Initialization| Initial value of rotation angle at frame_a (fixed or guess value)";
     parameter NonSI.Angle_deg phi_start_b=0 
       "|Initialization| Initial value of rotation angle at frame_b (fixed or guess value)";
-    parameter Modelica.Mechanics.MultiBody.Types.AngularVelocity_degs w_start_a=0 
+    parameter Modelica.Mechanics.MultiBody.Types.AngularVelocity_degs w_start_a
+      =                                                                         0 
       "|Initialization| Initial value of derivative of rotation angle at frame_a";
-    parameter Modelica.Mechanics.MultiBody.Types.AngularVelocity_degs w_start_b=0 
+    parameter Modelica.Mechanics.MultiBody.Types.AngularVelocity_degs w_start_b
+      =                                                                         0 
       "|Initialization| Initial value of derivative of rotation angle at frame_b";
-    parameter Modelica.Mechanics.MultiBody.Types.AngularAcceleration_degs2 a_start_a=0 
+    parameter Modelica.Mechanics.MultiBody.Types.AngularAcceleration_degs2 
+      a_start_a =                                                                    0 
       "|Initialization| Initial value of second derivative of rotation angle at frame_a";
-    parameter Modelica.Mechanics.MultiBody.Types.AngularAcceleration_degs2 a_start_b=0 
+    parameter Modelica.Mechanics.MultiBody.Types.AngularAcceleration_degs2 
+      a_start_b =                                                                    0 
       "|Initialization| Initial value of second derivative of rotation angle at frame_b";
     
     parameter SI.Distance cylinderLength=world.defaultJointLength 
@@ -686,7 +691,8 @@ phi_start_b = 45<sup>o</sup>).
       "|Initialization| Initial value of second derivative of x-distance";
     parameter SI.Acceleration a_start_y=0 
       "|Initialization| Initial value of second derivative of y-distance";
-    parameter Modelica.Mechanics.MultiBody.Types.AngularAcceleration_degs2 wd_start=0 
+    parameter Modelica.Mechanics.MultiBody.Types.AngularAcceleration_degs2 
+      wd_start =                                                                    0 
       "|Initialization| Initial value of second derivative of rotation angle";
     parameter SI.Distance cylinderLength=world.defaultJointLength 
       "|Animation|if animation = true| Length of revolute cylinder";
@@ -862,16 +868,19 @@ s_start_y = 0.5, phi_start = 45<sup>o</sup>).
       "|if animation = true| Color of sphere representing the spherical joint";
     parameter Types.Init.Temp initType=Types.Init.Free 
       "|Initialization|| Type of initialization (defines usage of start values below)";
-    parameter Modelica.Mechanics.MultiBody.Types.RotationSequence sequence_start={1,2,3} 
+    parameter Modelica.Mechanics.MultiBody.Types.RotationSequence 
+      sequence_start =                                                           {1,2,3} 
       "|Initialization|| Sequence of rotations to rotate frame_a into frame_b at initial time"
       annotation (Evaluate=true);
     parameter Cv.NonSIunits.Angle_deg angles_start[3]={0,0,0} 
       "|Initialization|| Initial values of angles to rotate frame_a around 'sequence_start' axes into frame_b"
       annotation (Evaluate=false);
-    parameter Modelica.Mechanics.MultiBody.Types.AngularVelocity_degs w_rel_a_start[3]={0,0,0} 
+    parameter Modelica.Mechanics.MultiBody.Types.AngularVelocity_degs 
+      w_rel_a_start[                                                                3]={0,0,0} 
       "|Initialization|| Initial values of angular velocity of frame_b with respect to frame_a, resolved in frame_a"
       annotation (Evaluate=false);
-    parameter Modelica.Mechanics.MultiBody.Types.AngularAcceleration_degs2 z_rel_a_start[3]={0,0,0} 
+    parameter Modelica.Mechanics.MultiBody.Types.AngularAcceleration_degs2 
+      z_rel_a_start[                                                                     3]={0,0,0} 
       "|Initialization|| Initial values of angular acceleration z_rel = der(w_rel)"
       annotation (Evaluate=false);
     
@@ -1175,7 +1184,8 @@ frame_b of the joint.
     
     parameter SI.Position r_rel_a_start[3]={0,0,0} 
       "|Initialization| Initial values of r_rel_a (vector from origin of frame_a to origin of frame_b resolved in frame_a)";
-    parameter Modelica.Mechanics.MultiBody.Types.RotationSequence sequence_start={1,2,3} 
+    parameter Modelica.Mechanics.MultiBody.Types.RotationSequence 
+      sequence_start =                                                           {1,2,3} 
       "|Initialization| Sequence of rotations to rotate frame_a into frame_b at initial time"
       annotation (Evaluate=true);
     parameter Cv.NonSIunits.Angle_deg angles_start[3]={0,0,0} 
@@ -1183,11 +1193,13 @@ frame_b of the joint.
       annotation (Evaluate=false);
     parameter SI.Velocity v_rel_a_start[3]={0,0,0} 
       "|Initialization| Initial values of velocity v_rel_a = der(r_rel_a)";
-    parameter Modelica.Mechanics.MultiBody.Types.AngularVelocity_degs w_rel_a_start[3]={0,0,0} 
+    parameter Modelica.Mechanics.MultiBody.Types.AngularVelocity_degs 
+      w_rel_a_start[                                                                3]={0,0,0} 
       "|Initialization| Initial values of angular velocity of frame_b with respect to frame_a resolved in frame_a";
     parameter SI.Acceleration a_rel_a_start[3]={0,0,0} 
       "|Initialization| Initial values of acceleration a_rel_a = der(v_rel_a)";
-    parameter Modelica.Mechanics.MultiBody.Types.AngularAcceleration_degs2 z_rel_a_start[3]={0,0,0} 
+    parameter Modelica.Mechanics.MultiBody.Types.AngularAcceleration_degs2 
+      z_rel_a_start[                                                                     3]={0,0,0} 
       "|Initialization| Initial values of angular acceleration z_rel_a = der(w_rel_a)";
     
     parameter SI.Length arrowDiameter=world.defaultArrowDiameter 
@@ -1523,7 +1535,8 @@ frame_b of the joint.
       min=Modelica.Constants.eps,
       fixed=not computeRodLength) = 1 
       "Distance between the origins of frame_a and frame_b (if computeRodLength=true, guess value)";
-    parameter SI.Mass m=0 "Mass of rod (= point mass located in middle of rod)";
+    parameter SI.Mass m(min=0)=0 
+      "Mass of rod (= point mass located in middle of rod)";
     parameter Real sphereDiameter=world.defaultJointLength 
       "|Animation|if animation = true| Diameter of spheres respresenting the spherical joints";
     parameter Modelica.Mechanics.MultiBody.Types.Color sphereColor=Modelica.Mechanics.MultiBody.Types.Defaults.
@@ -3462,7 +3475,8 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
           Line(points=[100, 40; 93, 40; 93, 30], style(color=10, thickness=2))),
         Diagram);
       
-      Modelica.Mechanics.MultiBody.Joints.Internal.RevoluteWithLengthConstraint revolute(
+      Modelica.Mechanics.MultiBody.Joints.Internal.RevoluteWithLengthConstraint
+        revolute(
         animation=animation,
         lengthConstraint=rod1Length,
         n=n_b,
@@ -3913,7 +3927,8 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
             style(color=10)),
           Line(points=[3, 30; -43, 30], style(color=10, arrow=1))));
       
-      Modelica.Mechanics.MultiBody.Joints.Internal.PrismaticWithLengthConstraint prismatic(
+      Modelica.Mechanics.MultiBody.Joints.Internal.PrismaticWithLengthConstraint
+        prismatic(
         animation=animation,
         length=rod1.rodLength,
         n=n_b,
@@ -4079,7 +4094,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
         "= true, if point mass on rod 1 shall be shown (provided animation = true and rod1Mass > 0)";
       parameter SI.Length rod1Length(min=Modelica.Constants.eps) = 1 
         "Distance between the origins of the two spherical joints ";
-      parameter SI.Mass rod1Mass=0 
+      parameter SI.Mass rod1Mass(min=0)=0 
         "Mass of rod 1 (= point mass located in middle of rod connecting the two spherical joints)";
       parameter Modelica.Mechanics.MultiBody.Types.Axis n_b={0,0,1} 
         "Axis of revolute joint fixed and resolved in frame_b";
@@ -4233,7 +4248,8 @@ component).
             string="im")),
         Diagram);
       
-      Modelica.Mechanics.MultiBody.Joints.Internal.RevoluteWithLengthConstraint revolute(
+      Modelica.Mechanics.MultiBody.Joints.Internal.RevoluteWithLengthConstraint
+        revolute(
         animation=animation,
         lengthConstraint=rod1Length,
         n=n_b,
@@ -4392,7 +4408,7 @@ component).
         "= true, if point mass on rod 1 shall be shown (provided animation = true and rod1Mass > 0)";
       parameter SI.Length rod1Length(min=Modelica.Constants.eps) = 1 
         "Distance between the origins of the two spherical joints ";
-      parameter SI.Mass rod1Mass=0 
+      parameter SI.Mass rod1Mass(min=0)=0 
         "Mass of rod 1 (= point mass located in middle of rod connecting the two spherical joints)";
       parameter Modelica.Mechanics.MultiBody.Types.Axis n_b={0,0,1} 
         "Axis of prismatic joint fixed and resolved in frame_b";
@@ -4545,7 +4561,8 @@ component).
           Line(points=[99, 40; 90, 40; 90, 30], style(color=58))),
         Diagram);
       
-      Modelica.Mechanics.MultiBody.Joints.Internal.PrismaticWithLengthConstraint prismatic(
+      Modelica.Mechanics.MultiBody.Joints.Internal.PrismaticWithLengthConstraint
+        prismatic(
         animation=animation,
         length=rod1Length,
         n=n_b,
@@ -5225,10 +5242,12 @@ and 1 prismatic joint are connected by rigid rods.
       parameter Cv.NonSIunits.Angle_deg phi_start=0 
         "|Initialization| Initial value of rotation angle phi (fixed or guess value)"
         annotation (Evaluate=false);
-      parameter Modelica.Mechanics.MultiBody.Types.AngularVelocity_degs w_start=0 
+      parameter Modelica.Mechanics.MultiBody.Types.AngularVelocity_degs w_start
+        =                                                                       0 
         "|Initialization| Initial value of relative angular velocity w = der(phi)"
         annotation (Evaluate=false);
-      parameter Modelica.Mechanics.MultiBody.Types.AngularAcceleration_degs2 a_start=0 
+      parameter Modelica.Mechanics.MultiBody.Types.AngularAcceleration_degs2 
+        a_start =                                                                    0 
         "|Initialization| Initial value of relative angular acceleration a = der(w)"
         annotation (Evaluate=false);
       parameter SI.Distance cylinderLength=world.defaultJointLength 

@@ -546,12 +546,12 @@ the animation may be switched off via parameter animation = <b>false</b>.
       "= true, if animation shall be enabled (show cylinder and sphere)";
     parameter SI.Position r_CM[3]={0,0,0} 
       "Vector from frame_a to center of mass, resolved in frame_a";
-    parameter SI.Mass m=1 "Mass of rigid body";
-    parameter SI.Inertia I_11=0.001 
+    parameter SI.Mass m(min=0)=1 "Mass of rigid body";
+    parameter SI.Inertia I_11(min=0)=0.001 
       "|Inertia tensor (resolved in center of mass, parallel to frame_a)| (1,1) element of inertia tensor";
-    parameter SI.Inertia I_22=0.001 
+    parameter SI.Inertia I_22(min=0)=0.001 
       "|Inertia tensor (resolved in center of mass, parallel to frame_a)| (2,2) element of inertia tensor";
-    parameter SI.Inertia I_33=0.001 
+    parameter SI.Inertia I_33(min=0)=0.001 
       "|Inertia tensor (resolved in center of mass, parallel to frame_a)| (3,3) element of inertia tensor";
     parameter SI.Inertia I_21=0 
       "|Inertia tensor (resolved in center of mass, parallel to frame_a)| (2,1) element of inertia tensor";
@@ -918,11 +918,11 @@ to the setting of parameters \"useQuaternions\" and
     parameter SI.Position r_CM[3]={0,0,0} 
       "Vector from frame_a to center of mass, resolved in frame_a";
     parameter SI.Mass m=1 "Mass of rigid body";
-    parameter SI.Inertia I_11=0.001 
+    parameter SI.Inertia I_11(min=0)=0.001 
       "|Inertia tensor (resolved in center of mass, parallel to frame_a)| (1,1) element of inertia tensor";
-    parameter SI.Inertia I_22=0.001 
+    parameter SI.Inertia I_22(min=0)=0.001 
       "|Inertia tensor (resolved in center of mass, parallel to frame_a)| (2,2) element of inertia tensor";
-    parameter SI.Inertia I_33=0.001 
+    parameter SI.Inertia I_33(min=0)=0.001 
       "|Inertia tensor (resolved in center of mass, parallel to frame_a)| (3,3) element of inertia tensor";
     parameter SI.Inertia I_21=0 
       "|Inertia tensor (resolved in center of mass, parallel to frame_a)| (2,1) element of inertia tensor";
@@ -1211,11 +1211,11 @@ states and of the \"Advanced\" menu parameters, see model
        annotation (Evaluate=true, Dialog(tab="Advanced", enable=not 
             useQuaternions));
     
-    final parameter SI.Mass mo=1000*density*length*width*height 
+    final parameter SI.Mass mo(min=0)=1000*density*length*width*height 
       "Mass of box without hole";
-    final parameter SI.Mass mi=1000*density*length*innerWidth*innerHeight 
+    final parameter SI.Mass mi(min=0)=1000*density*length*innerWidth*innerHeight 
       "Mass of hole of box";
-    final parameter SI.Mass m=mo - mi "Mass of box";
+    final parameter SI.Mass m(min=0)=mo - mi "Mass of box";
     final parameter Frames.Orientation R=Frames.from_nxy(r, widthDirection);
     final parameter SI.Position r_CM[3]=Frames.normalize(r)*length/2;
     final parameter SI.Inertia I[3, 3]=Frames.resolveDyade1(R, diagonal({mo*(
@@ -1395,13 +1395,13 @@ states and of the \"Advanced\" menu parameters, see model
     constant Real pi=Modelica.Constants.pi;
     final parameter SI.Distance radius=diameter/2;
     final parameter SI.Distance innerRadius=innerDiameter/2;
-    final parameter SI.Mass mo=1000*density*pi*length*radius*radius 
+    final parameter SI.Mass mo(min=0)=1000*density*pi*length*radius*radius 
       "Mass of cylinder without hole";
-    final parameter SI.Mass mi=1000*density*pi*length*innerRadius*innerRadius 
+    final parameter SI.Mass mi(min=0)=1000*density*pi*length*innerRadius*innerRadius 
       "Mass of hole of cylinder";
     final parameter SI.Inertia I22=(mo*(length*length + 3*radius*radius) - mi*(
         length*length + 3*innerRadius*innerRadius))/12;
-    final parameter SI.Mass m=mo - mi "Mass of cylinder";
+    final parameter SI.Mass m(min=0)=mo - mi "Mass of cylinder";
     final parameter Frames.Orientation R=Frames.from_nxy(r, {0,1,0});
     final parameter SI.Position r_CM[3]=Frames.normalize(r)*length/2;
     final parameter SI.Inertia I[3, 3]=Frames.resolveDyade1(R, diagonal({(mo*
@@ -1565,7 +1565,7 @@ November 3-4, 2003, pp. 149-158</p>
     import SI = Modelica.SIunits;
     import Cv = Modelica.SIunits.Conversions;
     
-    parameter SI.Inertia J=1 
+    parameter SI.Inertia J(min=0)=1 
       "Moment of inertia of rotor around its axis of rotation";
     
     parameter Boolean animation=true 

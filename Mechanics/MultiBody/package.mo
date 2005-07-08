@@ -55,9 +55,7 @@ and the accompanying <b>disclaimer</b>
 </HTML>"));
   import SI = Modelica.SIunits;
 
-
 extends Modelica.Icons.Library;
-
 
 package UsersGuide "Users Guide" 
   annotation (DocumentationClass=true, Documentation(info="<HTML>
@@ -1274,7 +1272,6 @@ dynamical effects is described in:
   end Contact;
   
 end UsersGuide;
-
 
 model World 
   "World coordinate system + gravity field + default animation definition" 

@@ -72,8 +72,8 @@ Modelica in file \"Modelica/package.mo\".
       
       parameter Real amplitude=10;
       parameter SI.Frequency freqHz=5;
-      parameter SI.Inertia Jmotor=0.1;
-      parameter SI.Inertia Jload=2;
+      parameter SI.Inertia Jmotor(min=0)=0.1;
+      parameter SI.Inertia Jload(min=0)=2;
       parameter Real ratio=10;
       parameter Real damping=10;
       
@@ -2015,7 +2015,7 @@ Partial model of torque dependent on speed that accelerates the flange.
   end Interfaces;
   
   model Inertia "1D-rotational component with inertia" 
-    parameter SI.Inertia J=1 "Moment of inertia";
+    parameter SI.Inertia J(min=0)=1 "Moment of inertia";
     SI.AngularVelocity w "Absolute angular velocity of component";
     SI.AngularAcceleration a "Absolute angular acceleration of component";
     annotation (

@@ -1,8 +1,8 @@
-model Engine1b
+model Engine1b 
   "Model of one cylinder engine with gas force and preparation for assembly joint JointRRP" 
   import SI = Modelica.SIunits;
   extends Modelica.Icons.Example;
-  extends Utilities.Engine2Base;
+  extends Utilities.Engine1bBase;
   annotation (
     experiment(StopTime=0.5),
     Diagram(

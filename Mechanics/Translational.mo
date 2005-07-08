@@ -1451,7 +1451,7 @@ with the Modelica.Blocks blocks.
   
   model SlidingMass "Sliding mass with inertia" 
     extends Interfaces.Rigid;
-    parameter SI.Mass m=1 "mass of the sliding mass";
+    parameter SI.Mass m(min=0)=1 "mass of the sliding mass";
     SI.Velocity v "absolute velocity of component";
     SI.Acceleration a "absolute acceleration of component";
     

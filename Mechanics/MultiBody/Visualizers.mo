@@ -1323,7 +1323,8 @@ and are defined by parameters.
         "List of start and end points of cylinders resolved in an x-y frame defined by n_x, n_y, e.g., {[0,0;1,1], [0,1;1,0], [2,0; 3,1]}";
       input SI.Length diameter(min=0) = 0.05 
         "Diameter of the cylinders defined by lines";
-      input Modelica.Mechanics.MultiBody.Types.Color color={0,128,255} "Color of cylinders";
+      input Modelica.Mechanics.MultiBody.Types.Color color={0,128,255} 
+        "Color of cylinders";
       input Real specularCoefficient(min=0) = 0 
         "Material property describing the reflecting of ambient light (= 0 means, that light is completely absorbed)";
     protected 

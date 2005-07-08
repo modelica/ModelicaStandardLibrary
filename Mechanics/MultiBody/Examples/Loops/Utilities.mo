@@ -359,23 +359,23 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
     parameter SI.Length pistonLength=0.1 "|Piston| Length of cylinder";
     parameter SI.Length pistonCenterOfMass=pistonLength/2 
       "|Piston| Distance from frame_a to center of mass of piston";
-    parameter SI.Mass pistonMass=6 "|Piston| Mass of piston";
-    parameter SI.Inertia pistonInertia_11=0.0088 
+    parameter SI.Mass pistonMass(min=0)=6 "|Piston| Mass of piston";
+    parameter SI.Inertia pistonInertia_11(min=0)=0.0088 
       "|Piston| Inertia 11 of piston with respect to center of mass frame, parallel to frame_a";
-    parameter SI.Inertia pistonInertia_22=0.0076 
+    parameter SI.Inertia pistonInertia_22(min=0)=0.0076 
       "|Piston| Inertia 22 of piston with respect to center of mass frame, parallel to frame_a";
-    parameter SI.Inertia pistonInertia_33=0.0088 
+    parameter SI.Inertia pistonInertia_33(min=0)=0.0088 
       "|Piston| Inertia 33 of piston with respect to center of mass frame, parallel to frame_a";
     
     parameter SI.Length rodLength=0.175 "|Rod| Length of rod";
     parameter SI.Length rodCenterOfMass=rodLength/2 
       "|Rod| Distance from frame_a to center of mass of piston";
-    parameter SI.Mass rodMass=1 "|Rod| Mass of rod";
-    parameter SI.Inertia rodInertia_11=0.006 
+    parameter SI.Mass rodMass(min=0)=1 "|Rod| Mass of rod";
+    parameter SI.Inertia rodInertia_11(min=0)=0.006 
       "|Rod| Inertia 11 of rod with respect to center of mass frame, parallel to frame_a";
-    parameter SI.Inertia rodInertia_22=0.0005 
+    parameter SI.Inertia rodInertia_22(min=0)=0.0005 
       "|Rod| Inertia 22 of rod with respect to center of mass frame, parallel to frame_a";
-    parameter SI.Inertia rodInertia_33=0.006 
+    parameter SI.Inertia rodInertia_33(min=0)=0.006 
       "|Rod| Inertia 33 of rod with respect to center of mass frame, parallel to frame_a";
     final parameter SI.Length cylinderLength=cylinderTopPosition - (
         pistonLength + rodLength - crankPinOffset) 
@@ -622,7 +622,7 @@ annotation (choices(choice(redeclare model Cylinder =
            -66; 90, 0; 110, 0], style(color=0));
   end EngineV6_analytic;
   
-  model Engine2Base "Model of one cylinder engine with gas force" 
+  partial model Engine1bBase "Model of one cylinder engine with gas force" 
     import SI = Modelica.SIunits;
     extends Modelica.Icons.Example;
     annotation (
@@ -738,5 +738,5 @@ An animation of this example is shown in the figure below.
         fillPattern=1));
     connect(Mid.frame_a, Crank2.frame_b) annotation (points=[29,-43; 23,-43; 23,
           -61; 30,-61; 30,-65],    style(color=0, thickness=2));
-  end Engine2Base;
+  end Engine1bBase;
 end Utilities;

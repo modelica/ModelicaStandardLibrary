@@ -110,7 +110,8 @@ side in the back is the animation with the JointUPS component.
     animation=false) annotation (extent=[-50, -6; -30, -26], rotation=-90);
   Modelica.Mechanics.Translational.Damper damper2(d=3) 
     annotation (extent=[0, -76; 20, -96]);
-  Modelica.Mechanics.MultiBody.Forces.LineForceWithTwoMasses lineForceWithTwoMasses(
+  Modelica.Mechanics.MultiBody.Forces.LineForceWithTwoMasses 
+    lineForceWithTwoMasses(
     L_a=0.2,
     L_b=0.2,
     cylinderLength_a=0.2,

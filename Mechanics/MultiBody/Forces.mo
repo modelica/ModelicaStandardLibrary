@@ -1460,7 +1460,7 @@ is resolved in the world frame).
       "= true, if a line shape between frame_a and frame_b shall be visualized";
     parameter Boolean animateMass=true 
       "= true, if point mass shall be visualized as sphere provided m > 0";
-    parameter SI.Mass m=0 
+    parameter SI.Mass m(min=0)=0 
       "Mass of point mass on the connetion line between the origin of frame_a and the origin of frame_b";
     parameter Real lengthFraction(
       min=0,
@@ -1763,9 +1763,9 @@ for this situation:
     parameter Boolean animate=true "= true, if animation shall be enabled";
     parameter Boolean animateMasses=true 
       "= true, if point masses shall be visualized provided animate=true and m_a, m_b > 0";
-    parameter SI.Mass m_a=0 
+    parameter SI.Mass m_a(min=0)=0 
       "Mass of point mass a on the connetion line between the origin of frame_a and the origin of frame_b";
-    parameter SI.Mass m_b=0 
+    parameter SI.Mass m_b(min=0)=0 
       "Mass of point mass b on the connetion line between the origin of frame_a and the origin of frame_b";
     parameter SI.Position L_a=0 
       "Distance between point mass a and frame_a (positive, if in direction of frame_b)";
@@ -2153,7 +2153,7 @@ for this situation:
     
     parameter Real c(final unit="N/m", final min=0) "Spring constant";
     parameter SI.Length s_unstretched=0 "Unstretched spring length";
-    parameter SI.Mass m=0 
+    parameter SI.Mass m(min=0)=0 
       "Spring mass located on the connetion line between the origin of frame_a and the origin of frame_b";
     parameter Real lengthFraction(
       min=0,

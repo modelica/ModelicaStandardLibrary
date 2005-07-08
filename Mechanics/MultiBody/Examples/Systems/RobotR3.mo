@@ -6,7 +6,7 @@ package RobotR3
     
     import SI = Modelica.SIunits;
     extends Modelica.Icons.Example;
-    parameter SI.Mass mLoad=15 "mass of load";
+    parameter SI.Mass mLoad(min=0)=15 "mass of load";
     parameter Real kp=5 "gain of position controller of axis 2";
     parameter Real ks=0.5 "gain of speed controller of axis 2";
     parameter SI.Time Ts=0.05 
@@ -104,7 +104,7 @@ to plot variables.
     
     import SI = Modelica.SIunits;
     
-    parameter SI.Mass mLoad=15 "mass of load";
+    parameter SI.Mass mLoad(min=0)=15 "mass of load";
     parameter SI.Position rLoad[3]={0.1,0.25,0.1} 
       "distance from last flange to load mass";
     parameter SI.Acceleration g=9.81 "gravity acceleration";
@@ -252,7 +252,7 @@ to plot variables.
     RobotR3.Components.Bus bus(naxis=6) 
       annotation (extent=[-42.5, -75; -40, 45.5], rotation=90);
   equation 
-    connect(axis2.flange, mechanics.axis2) annotation (points=[-4,-45; 25,-45; 
+    connect(axis2.flange, mechanics.axis2) annotation (points=[-4,-45; 25,-45;
           25,-21.5; 33,-21.5],      style(color=0));
     connect(path.bus, bus) annotation (points=[-59, -15; -41.25, -15; -41.25, -14.75],
          style(color=77));
@@ -268,9 +268,9 @@ to plot variables.
       annotation (points=[-26, 15; -40, 15], style(color=77));
     connect(axis6.bus, bus.axis[6]) 
       annotation (points=[-26, 35; -40, 35], style(color=77));
-    connect(axis1.flange, mechanics.axis1) annotation (points=[-4,-65; 30,-65; 
+    connect(axis1.flange, mechanics.axis1) annotation (points=[-4,-65; 30,-65;
           30,-30.5; 33,-30.5],      style(color=0));
-    connect(axis3.flange, mechanics.axis3) annotation (points=[-4,-25; 15,-25; 
+    connect(axis3.flange, mechanics.axis3) annotation (points=[-4,-25; 15,-25;
           15,-12.5; 33,-12.5],      style(color=0));
     connect(axis4.flange, mechanics.axis4) annotation (points=[-4,-5; 15,-5; 15,
           -3.5; 33,-3.5],        style(color=0));
@@ -630,7 +630,7 @@ Default values for all parameters are given for joint 4.
     
     model Motor "Motor model including current controller of r3 motors " 
       extends Modelica.Icons.MotorIcon;
-      parameter SI.Inertia J=0.0013 "moment of inertia of motor";
+      parameter SI.Inertia J(min=0)=0.0013 "moment of inertia of motor";
       parameter Real k=1.1616 "gain of motor";
       parameter Real w=4590 "time constant of motor";
       parameter Real D=0.6 "damping constant of motor";
@@ -863,7 +863,7 @@ produced by the motor).
       parameter Real k=1.1616 "|Motor| gain of motor";
       parameter Real w=4590 "|Motor| time constant of motor";
       parameter Real D=0.6 "|Motor| damping constant of motor";
-      parameter SI.Inertia J=0.0013 "|Motor| moment of inertia of motor";
+      parameter SI.Inertia J(min=0)=0.0013 "|Motor| moment of inertia of motor";
       parameter Real ratio=-105 "|Gear| gear ratio";
       parameter Real c(unit="N.m/rad") = 43 "|Gear| spring constant";
       parameter Real cd(unit="N.m.s/rad") = 0.005 "|Gear| damper constant";
@@ -974,7 +974,7 @@ Default values of the parameters are given for the axis of joint 1.
       parameter Real k=1.1616 "|Motor| gain of motor";
       parameter Real w=4590 "|Motor| time constant of motor";
       parameter Real D=0.6 "|Motor| damping constant of motor";
-      parameter SI.Inertia J=0.0013 "|Motor| moment of inertia of motor";
+      parameter SI.Inertia J(min=0)=0.0013 "|Motor| moment of inertia of motor";
       parameter Real ratio=-105 "|Gear| gear ratio";
       parameter SI.Torque Rv0=0.4 
         "|Gear| viscous friction torque at zero velocity in [Nm]";
@@ -1077,7 +1077,7 @@ Default values of the parameters are given for the axis of joint 1.
       "Model of the mechanical part of the r3 robot (without animation)" 
       
       parameter Boolean animation=true "= true, if animation shall be enabled";
-      parameter SI.Mass mLoad=15 "mass of load";
+      parameter SI.Mass mLoad(min=0)=15 "mass of load";
       parameter SI.Position rLoad[3]={0,0.25,0} 
         "distance from last flange to load mass>";
       parameter SI.Acceleration g=9.81 "gravity acceleration";
@@ -1134,25 +1134,25 @@ This model contains the mechanical components of the r3 robot
         g=(g)*MultiBody.Frames.length(({0,-1,0})),
         n={0,-1,0},
         animateWorld=false,
-        animateGravity=false, 
+        animateGravity=false,
         enableAnimation=animation) 
                               annotation (extent=[-100, -200; -80, -180]);
-      Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute r1(n={0,1,0}, 
+      Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute r1(n={0,1,0},
           animation=animation) 
         annotation (extent=[-80, -170; -60, -150], rotation=90);
-      Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute r2(n={1,0,0}, 
+      Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute r2(n={1,0,0},
           animation=animation) 
         annotation (extent=[-50, -110; -30, -90]);
-      Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute r3(n={1,0,0}, 
+      Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute r3(n={1,0,0},
           animation=animation) 
         annotation (extent=[-60, -46; -40, -26], rotation=180);
-      Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute r4(n={0,1,0}, 
+      Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute r4(n={0,1,0},
           animation=animation) 
         annotation (extent=[-80, 0; -60, 20], rotation=90);
-      Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute r5(n={1,0,0}, 
+      Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute r5(n={1,0,0},
           animation=animation) 
         annotation (extent=[-60, 70; -40, 90]);
-      Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute r6(n={0,1,0}, 
+      Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute r6(n={0,1,0},
           animation=animation) 
         annotation (extent=[-70, 120; -50, 140], rotation=90);
       Modelica.Mechanics.MultiBody.Parts.BodyShape b0(
@@ -1270,7 +1270,7 @@ This model contains the mechanical components of the r3 robot
         height=0.05,
         color={255,0,0},
         lengthDirection=rLoad,
-        length=Modelica.Mechanics.MultiBody.Frames.length(rLoad), 
+        length=Modelica.Mechanics.MultiBody.Frames.length(rLoad),
         animation=animation) 
         annotation (extent=[-70,178; -50,198],   rotation=90);
     equation 
