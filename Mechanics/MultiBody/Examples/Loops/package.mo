@@ -10,11 +10,11 @@ mechanical systems with kinematic loops can be modeled.
 <h4>Content</h4>
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><th><b><i>Model</i></b></th><th><b><i>Description</i></b></th></tr>
-  <tr><td><b><a href=\"Modelica://Modelica.Mechanics.MultiBody.Examples.Loops.Engine1\">Engine1</a><br>
-             <a href=\"Modelica://Modelica.Mechanics.MultiBody.Examples.Loops.Engine2a\">Engine2a</a><br>
-             <a href=\"Modelica://Modelica.Mechanics.MultiBody.Examples.Loops.Engine2b\">Engine2b</a></b></td>
-      <td> Model of one cylinder engine (Engine1: simple, without combustion; Engine2a: with combustion;
-           Engine2b: same as Engine2a but analytic loop handling)<br> 
+  <tr><td><b><a href=\"Modelica://Modelica.Mechanics.MultiBody.Examples.Loops.Engine1a\">Engine1a</a><br>
+             <a href=\"Modelica://Modelica.Mechanics.MultiBody.Examples.Loops.Engine1b\">Engine1b</a><br>
+             <a href=\"Modelica://Modelica.Mechanics.MultiBody.Examples.Loops.Engine1b_analytic\">Engine1b_analytic</a></b></td>
+      <td> Model of one cylinder engine (Engine1a: simple, without combustion; Engine1b: with combustion;
+           Engine1b_analytic: same as Engine1b but analytic loop handling)<br> 
       <img src=\"../Images/MultiBody/Examples/Loops/Engine.png\">
       </td>
   </tr>
