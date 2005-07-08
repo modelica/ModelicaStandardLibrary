@@ -5,10 +5,11 @@ model EngineV6_analytic
   import SI = Modelica.SIunits;
   extends Modelica.Icons.Example;
   parameter Boolean animation=true "= true, if animation shall be enabled";
-  inner Modelica.Mechanics.MultiBody.World world(animateWorld=false, animateGravity=false) 
+  inner Modelica.Mechanics.MultiBody.World world(animateWorld=false,
+      animateGravity =                                                              false) 
     annotation (extent=[-60, -20; -40, 0]);
   Utilities.EngineV6_analytic engine(redeclare model Cylinder = 
-        Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Cylinder_analytic_CAD) 
+        Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Cylinder_analytic_CAD)
     annotation (extent=[-20, 0; 20, 40]);
   Modelica.Mechanics.Rotational.Inertia load(phi(
       start=0,

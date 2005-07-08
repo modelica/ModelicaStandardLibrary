@@ -102,7 +102,7 @@ equation
     annotation (points=[21, -50; 39, -50], style(color=0, thickness=2));
   connect(rod4.frame_b, jointRRR3.frame_b) annotation (points=[61, -50; 70, -50;
          70, -1], style(color=0, thickness=2));
-  connect(jointRRR2.frame_im, jointRRR3.frame_a) annotation (points=[41,10.1; 
+  connect(jointRRR2.frame_im, jointRRR3.frame_a) annotation (points=[41,10.1;
         52,10.1; 52,30; 70,30; 70,21],     style(color=0, thickness=2));
   connect(jointRRR3.frame_ia, body3.frame_a) annotation (points=[81, 18; 88, 18;
          88, 30; 80, 30; 80, 59], style(color=0, thickness=2));

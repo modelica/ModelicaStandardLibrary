@@ -136,12 +136,12 @@ package Utilities "Utility models for Examples.Loops"
       annotation (points=[21, 130; 110, 130], style(color=0, thickness=2));
     connect(Rod.frame_a, B1.frame_b) annotation (points=[14, -3; 14, -9; 30, -9;
            30, -17; 25, -17], style(color=0, thickness=2));
-    connect(Cylinder.frame_b, Piston.frame_b) annotation (points=[14, 88; 14,
-          81.05; 14.5, 81.05], style(color=0, thickness=2));
+    connect(Cylinder.frame_b, Piston.frame_b) annotation (points=[14,88; 14,
+          81.05; 14.5,81.05],  style(color=0, thickness=2));
     connect(Crank1.frame_a, CrankAngle1.frame_b) 
       annotation (points=[-51, -90; -69, -90], style(color=0, thickness=2));
-    connect(B2.frame_a, Piston.frame_a) annotation (points=[3, 35; -6, 35; -6,
-          49; 14.5, 49; 14.5, 57.95], style(color=0, thickness=2));
+    connect(B2.frame_a, Piston.frame_a) annotation (points=[3,35; -6,35; -6,49;
+          14.5,49; 14.5,57.95],       style(color=0, thickness=2));
     connect(Rod.frame_b, B2.frame_b) annotation (points=[14, 19; 14, 23; 32, 23;
            32, 35; 25, 35], style(color=0, thickness=2));
     connect(CrankAngle1.frame_a, crank_a) 
@@ -238,6 +238,108 @@ package Utilities "Utility models for Examples.Loops"
     dens = 1/V;
     press*V = k*T;
   end GasForce;
+  
+  model GasForce2 "Rough approximation of gas force in a cylinder" 
+    import SI = Modelica.SIunits;
+    
+    extends Modelica.Mechanics.Translational.Interfaces.Compliant;
+    parameter SI.Length L "Length of cylinder";
+    parameter SI.Length d "diameter of cylinder";
+    parameter Real k0=0.01;
+    parameter Real k1=1;
+    parameter Real k=1;
+    constant Real pi=Modelica.Constants.pi;
+    constant Real PI=Modelica.Constants.pi;
+    SI.Position x;
+    SI.Density dens;
+    SI.Pressure press "cylinder pressure";
+    SI.Volume V;
+    SI.Temperature T;
+    SI.Velocity v_rel;
+    annotation (Icon(
+        Rectangle(extent=[-90, 50; 90, -50], style(
+            color=0,
+            gradient=0,
+            fillColor=8,
+            fillPattern=1)),
+        Polygon(points=[-13,4; -16,4; -65,4; -65,15; -90,0; -65,-15; -65,-4;
+              -13,-4; -13,4],
+                       style(
+            color=1,
+            fillColor=1,
+            fillPattern=1)),
+        Text(extent=[-100, 120; 100, 60], string="%name"),
+        Text(
+          extent=[-135,44; -99,19],
+          style(color=10),
+          string="a"),
+        Text(
+          extent=[97,40; 133,15],
+          style(color=10),
+          string="b"),
+        Polygon(points=[12,4; 70,4; 65,4; 65,15; 90,0; 65,-15; 65,-4; 12,-4; 12,
+              4],      style(
+            color=1,
+            fillColor=1,
+            fillPattern=1))),                               Diagram(
+        Rectangle(extent=[-90, 50; 90, -50], style(
+            color=0,
+            gradient=0,
+            fillColor=8,
+            fillPattern=1)),
+        Text(extent=[-100, 120; 100, 60], string="%name"),
+        Polygon(points=[12,5; 70,5; 65,5; 65,16; 90,1; 65,-14; 65,-3; 12,-3; 12,
+              5],      style(
+            color=1,
+            fillColor=1,
+            fillPattern=1)),
+        Polygon(points=[-13,5; -16,5; -65,5; -65,16; -90,1; -65,-14; -65,-3;
+              -13,-3; -13,5],
+                       style(
+            color=1,
+            fillColor=1,
+            fillPattern=1))),
+      Coordsys(grid=[1,1], component=[20,20]),
+      Documentation(info="<html>
+<p>
+The gas force in a cylinder is computed as function of the relative
+distance of the two flanges. It is required that s_rel = flange_b.s - flange_a.s 
+is in the range 
+</p>
+
+<pre>
+    0 &le; s_rel &le; L
+</pre>
+
+<p>
+where the parameter L is the length
+of the cylinder. If this assumption is not fulfilled, an error occurs.
+</p>
+</html>"));
+    
+  equation 
+    x = 1 - s_rel/L;
+    v_rel = der(s_rel);
+    
+    press = if v_rel < 0 then (if x < 0.987 then 177.4132*x^4 - 287.2189*x^3 +
+      151.8252*x^2 - 24.9973*x + 2.4 else 2836360*x^4 - 10569296*x^3 + 14761814
+      *x^2 - 9158505*x + 2129670) else (if x > 0.93 then -3929704*x^4 +
+      14748765*x^3 - 20747000*x^2 + 12964477*x - 3036495 else 145.930*x^4 -
+      131.707*x^3 + 17.3438*x^2 + 17.9272*x + 2.4);
+    
+    f = -1.0E5*press*pi*d^2/4;
+    
+    V = k0 + k1*(1 - x);
+    dens = 1/V;
+    press*V = k*T;
+    
+    assert(s_rel >= -1.e-12, "flange_b.s - flange_a.s (= " + String(s_rel) +
+                             ") >= 0 required for GasForce component.\n" +
+                             "Most likely, the component has to be flipped.");
+    assert(s_rel <= L + 1.e-12, " flange_b.s - flange_a.s (= " + String(s_rel) +
+                                " <= L (" + String(L) + ") required for GasForce component.\n" +
+                                "Most likely, parameter L is not correct.");
+  end GasForce2;
   
   model CylinderBase "One cylinder with analytic handling of kinematic loop" 
     import SI = Modelica.SIunits;
@@ -380,18 +482,18 @@ package Utilities "Utility models for Examples.Loops"
     connect(CylinderInclination.frame_a, cylinder_a) annotation (points=[-45,
           40; -55, 40; -55, 100; -105, 100; -105, 99; -110, 99], style(color=0,
            thickness=2));
-    connect(jointRRP.frame_ia, Rod.frame_a) annotation (points=[22, -4; 49, -4;
-           49, -2], style(color=0, thickness=2));
-    connect(Mid.frame_b, jointRRP.frame_a) annotation (points=[-23, -20;
-          1.34707e-015, -20; 1.34707e-015, -10], style(color=0, thickness=2));
+    connect(jointRRP.frame_ia, Rod.frame_a) annotation (points=[22,-4; 49,-4;
+          49,-2],   style(color=0, thickness=2));
+    connect(Mid.frame_b, jointRRP.frame_a) annotation (points=[-23,-20;
+          1.34707e-015,-20; 1.34707e-015,-10],   style(color=0, thickness=2));
     connect(gasForce.flange_a, jointRRP.axis) 
-      annotation (points=[9, 70; 16, 70; 16, 34], style(color=58));
-    connect(jointRRP.bearing, gasForce.flange_b) annotation (points=[8, 34; 8,
-          52; -20, 52; -20, 70; -11, 70], style(color=58));
+      annotation (points=[9,70; 16,70; 16,34],    style(color=58));
+    connect(jointRRP.bearing, gasForce.flange_b) annotation (points=[8,34; 8,52;
+          -20,52; -20,70; -11,70],        style(color=58));
     connect(jointRRP.frame_ib, Piston.frame_b) annotation (points=[22, 28; 30,
           28; 30, 70; 50, 70; 50, 61], style(color=0, thickness=2));
     connect(jointRRP.frame_b, CylinderInclination.frame_b) annotation (points=[
-          -1.34707e-015, 34; 1, 34; 1, 40; -23, 40], style(color=0, thickness=2));
+          -1.34707e-015,34; 1,34; 1,40; -23,40],     style(color=0, thickness=2));
     connect(Crank.frame_b, crank_b) 
       annotation (points=[11, -100; 110, -100], style(color=0, thickness=2));
     connect(Crank.frame_a, crank_a) 
@@ -519,4 +621,122 @@ annotation (choices(choice(redeclare model Cylinder =
     connect(bearing.axis, flange_b) annotation (points=[-80, -60; -80, -66; 90,
            -66; 90, 0; 110, 0], style(color=0));
   end EngineV6_analytic;
+  
+  model Engine2Base "Model of one cylinder engine with gas force" 
+    import SI = Modelica.SIunits;
+    extends Modelica.Icons.Example;
+    annotation (
+      experiment(StopTime=0.5),
+      Diagram,
+      Coordsys(
+        extent=[-100, -120; 150, 120],
+        grid=[1, 1],
+        component=[20, 20]),
+      Documentation(info="<html>
+<p>
+This is a model of the mechanical part of one cylinder of an engine. 
+The combustion is not modelled. The \"inertia\" component at the lower
+left part is the output inertia of the engine driving the gearbox.
+The angular velocity of the output inertia has a start value of 10 rad/s
+in order to demonstrate the movement of the engine.
+</p>
+<p>
+The engine is modeled solely by revolute and prismatic joints.
+Since this results in a <b>planar</b> loop there is the well known
+difficulty that the cut-forces perpendicular to the loop cannot be
+uniquely computed, as well as the cut-torques within the plane.
+This ambiguity is resolved by using the option <b>planarCutJoint</b>
+in the <b>Advanced</b> menu of one revolute joint in every planar loop
+(here: joint B1). This option sets the cut-force in direction of the
+axis of rotation, as well as the cut-torques perpendicular to the axis
+of rotation at this joint to zero and makes the problem mathematically
+well-formed.
+</p>
+<p>
+An animation of this example is shown in the figure below.
+</p>
+<p align=\"center\">
+<IMG SRC=\"../Images/MultiBody/Examples/Loops/Engine.png\" ALT=\"model Examples.Loops.Engine\">
+</p>
+</html>"),
+      experimentSetupOutput);
+    Modelica.Mechanics.MultiBody.Parts.BodyCylinder Piston(diameter=0.1, r={0,-0.1,0}) 
+      annotation (extent=[150,43; 90,63],   rotation=270);
+    Modelica.Mechanics.MultiBody.Parts.BodyBox Rod2(
+      widthDirection={1,0,0},
+      width=0.02,
+      height=0.06,
+      color={0,0,200},
+      r={0,0.2,0})     annotation (extent=[110,0; 130,20],   rotation=90);
+    Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute Bearing(
+      n={1,0,0},
+      cylinderLength=0.02,
+      cylinderDiameter=0.05) annotation (extent=[-50,-80; -30,-100],  rotation=0);
+    inner Modelica.Mechanics.MultiBody.World world annotation (extent=[-90,-100;
+          -70,-80]);
+    Modelica.Mechanics.Rotational.Inertia Inertia(
+      J=0.1,
+      w(fixed=true, stateSelect=StateSelect.always),
+      phi(
+        fixed=true,
+        stateSelect=StateSelect.always,
+        start=0.001))                    annotation (extent=[-68,-120; -48,-100]);
+    Modelica.Mechanics.MultiBody.Parts.BodyBox Crank4(
+      height=0.05,
+      widthDirection={1,0,0},
+      width=0.02,
+      r={0,-0.1,0}) annotation (extent=[65.5,-65; 85.5,-85],     rotation=90);
+    Modelica.Mechanics.MultiBody.Parts.BodyCylinder Crank3(r={0.1,0,0}, diameter=0.03) annotation (
+      extent=[41.5,-71; 61.5,-51],
+      rotation=0,
+      style(color=0, thickness=2));
+    Modelica.Mechanics.MultiBody.Parts.BodyCylinder Crank1(diameter=0.05, r={0.1,0,0}) 
+      annotation (extent=[-16,-100; 4,-80],   rotation=0);
+    Modelica.Mechanics.MultiBody.Parts.BodyBox Crank2(
+      height=0.05,
+      widthDirection={1,0,0},
+      width=0.02,
+      r={0,0.1,0}) 
+                  annotation (extent=[20,-86; 40,-66],   rotation=90);
+    Modelica.Mechanics.MultiBody.Parts.FixedTranslation Mid(r={0.05,0,0}) 
+      annotation (extent=[30,-53; 50,-33]);
+    Modelica.Mechanics.MultiBody.Parts.FixedTranslation cylPosition(                 animation=false, r={0.15,
+          0.55,0}) 
+      annotation (extent=[-40.5,100; -20.5,120]);
+    Utilities.GasForce2 gasForce(        d=0.1, L=0.35) 
+      annotation (extent=[109,107; 129,87],rotation=90);
+  equation 
+    connect(world.frame_b, Bearing.frame_a) 
+      annotation (points=[-69,-90; -51,-90],   style(color=0, thickness=2));
+    connect(Crank2.frame_a, Crank1.frame_b) annotation (points=[30,-87; 30,-90; 5,
+          -90],      style(
+        color=0,
+        thickness=2,
+        fillColor=8,
+        fillPattern=1));
+    connect(Crank2.frame_b, Crank3.frame_a) annotation (points=[30,-65; 30,-61;
+          40.5,-61],   style(
+        color=0,
+        thickness=2,
+        fillColor=8,
+        fillPattern=1));
+    connect(Bearing.frame_b, Crank1.frame_a) annotation (points=[-29,-90; -17,-90],
+         style(
+        color=0,
+        thickness=2,
+        fillColor=8,
+        fillPattern=1));
+    connect(world.frame_b, cylPosition.frame_a) annotation (points=[-69,-90; -60,
+          -90; -60,110; -41.5,110],   style(color=0, thickness=2));
+    connect(Crank3.frame_b, Crank4.frame_a) annotation (points=[62.5,-61; 75,-61;
+          75,-64; 75.5,-64],          style(color=0, thickness=2));
+    connect(Inertia.flange_b, Bearing.axis) annotation (points=[-48,-110; -40,
+          -110; -40,-100],
+                     style(
+        color=0,
+        fillColor=7,
+        fillPattern=1));
+    connect(Mid.frame_a, Crank2.frame_b) annotation (points=[29,-43; 23,-43; 23,
+          -61; 30,-61; 30,-65],    style(color=0, thickness=2));
+  end Engine2Base;
 end Utilities;
