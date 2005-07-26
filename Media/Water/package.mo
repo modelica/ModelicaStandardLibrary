@@ -1,5 +1,5 @@
 package Water "Medium models for water"
-annotation (preferedView="info",Documentation(info="<html>
+annotation (Documentation(info="<html>
 <p>This package contains different medium models for water:</p>
 <ul>
 <li><b>ConstantPropertyLiquidWater</b><br>
@@ -541,14 +541,17 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
   
   redeclare function extends heatCapacity_cp 
     "specific heat capacity at constant pressure of water" 
+      annotation (Documentation(info="<html><body>
+				<p>In the two phase region this function returns the interpolated heat capacity between the
+				liquid and vapour state heat capacities.</p>
+			  </body><html>"));
   algorithm 
-    //    assert(state.phase <> 2, "heat capacity at constant pressure can not be computed with 2-phase inputs!");
     if dT_explicit then
-      cp := IF97_Utilities.cp_dT(state.d, state.T);
+      cp := IF97_Utilities.cp_dT(state.d, state.T, state.phase);
     elseif pT_explicit then
       cp := IF97_Utilities.cp_pT(state.p, state.T);
     else
-      cp := IF97_Utilities.cp_ph(state.p, state.h);
+      cp := IF97_Utilities.cp_ph(state.p, state.h, state.phase);
     end if;
   end heatCapacity_cp;
   
@@ -580,7 +583,6 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
   redeclare function extends isothermalCompressibility 
     "Isothermal compressibility of water" 
   algorithm 
-    //    assert(state.phase <> 2, "isothermal compressibility can not be computed with 2-phase inputs!");
     if dT_explicit then
       kappa := IF97_Utilities.kappa_dT(state.d, state.T, state.phase);
     elseif pT_explicit then
@@ -593,7 +595,6 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
   redeclare function extends isobaricExpansionCoefficient 
     "isobaric expansion coefficient of water" 
   algorithm 
-    //    assert(state.phase <> 2, "the isobaric expansion coefficient can not be computed with 2-phase inputs!");
     if dT_explicit then
       beta := IF97_Utilities.beta_dT(state.d, state.T, state.phase);
     elseif pT_explicit then
