@@ -94,7 +94,7 @@ one of the following functions:
   <tr><td>Medium.isentropicExponent(medium.state)</td>
       <td>1</td>
       <td>isentropic exponent</td></tr>
-  <tr><td>Medium.isentropicEnthatlpy(pressure, medium.state)</td>
+  <tr><td>Medium.isentropicEnthalpy(pressure, medium.state)</td>
       <td>J/kg</td>
       <td>isentropic enthalpy</td></tr>
   <tr><td>Medium.velocityOfSound(medium.state)</td>
