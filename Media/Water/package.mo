@@ -615,7 +615,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
     end if;
   end velocityOfSound;
   
-  redeclare function extends isentropicEnthalpy "compute h(s,p)" 
+  redeclare function extends isentropicEnthalpy "compute h(p,s)" 
   algorithm 
     h_is := IF97_Utilities.isentropicEnthalpy(p_downstream, specificEntropy(
       refState), 0);
