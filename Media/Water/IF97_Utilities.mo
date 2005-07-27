@@ -6305,7 +6305,7 @@ Ordinary Water Substance<br>
     elseif (aux.region == 5) then
       (aux.T,error) := BaseIF97.Inverses.tofph5(p=p,h= h,reldh= 1.0e-7);
       assert(error == 0, "error in inverse iteration of steam tables");
-      g := BaseIF97.Basic.g2(p, aux.T);
+      g := BaseIF97.Basic.g5(p, aux.T);
       aux.s := aux.R*(g.tau*g.gtau - g.g);
       aux.rho := p/(aux.R*aux.T*g.pi*g.gpi);
       aux.vt := aux.R/p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
@@ -6419,7 +6419,7 @@ Ordinary Water Substance<br>
     elseif (aux.region == 5) then
       (aux.T,error) := BaseIF97.Inverses.tofps5(p=p,s=s,relds= 1.0e-7);
       assert(error == 0, "error in inverse iteration of steam tables");
-      g := BaseIF97.Basic.g2(p, aux.T);
+      g := BaseIF97.Basic.g5(p, aux.T);
       aux.h := aux.R*aux.T*g.tau*g.gtau;
       aux.rho := p/(aux.R*aux.T*g.pi*g.gpi);
       aux.vt := aux.R/p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
@@ -6883,7 +6883,7 @@ Ordinary Water Substance<br>
       aux.cv := aux.R*(-f.tau*f.tau*f.ftautau);
       aux.x := 0.0;
     elseif (aux.region == 5) then
-      g := BaseIF97.Basic.g2(p, T);
+      g := BaseIF97.Basic.g5(p, T);
       aux.h := aux.R*aux.T*g.tau*g.gtau;
       aux.s := aux.R*(g.tau*g.gtau - g.g);
       aux.rho := p/(aux.R*T*g.pi*g.gpi);
