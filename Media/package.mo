@@ -3263,12 +3263,12 @@ Modelica source.
     final constant Integer nS = size(substanceNames,1) "Number of substances" annotation(Evaluate=true);
     final constant Integer nX = if nS==1 then 0 else nS 
       "Number of mass fractions (= 0, if only one substance)" annotation(Evaluate=true);
-    final constant Integer nXi = if fixedX then 0 else if reducedX then nS-1 else 0 
+    final constant Integer nXi = if fixedX then 0 else if reducedX then nS-1 else nX 
       "Number of structurally independent mass fractions (see docu for details)"
-                                                                                 annotation(Evaluate=true);
+     annotation(Evaluate=true);
     final constant Integer nC = size(extraPropertiesNames,1) 
       "Number of extra (outside of standard mass-balance) transported properties"
-                                                                                  annotation(Evaluate=true);
+     annotation(Evaluate=true);
     constant FluidConstants[nS] fluidConstants "fluid constants";
     
     record FluidConstants 
