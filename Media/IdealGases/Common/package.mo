@@ -613,7 +613,7 @@ It has been developed by Hubertus Tummescheit.
   
   extends Modelica.Media.Interfaces.PartialMixtureMedium(
      substanceNames=data[:].name,
-     final reducedX = false,
+     reducedX = false,
      singleState=false,
      reference_X=fill(1/nX,nX),
      SpecificEnthalpy(start=if referenceChoice==ReferenceEnthalpy.ZeroAt0K then 3e5 else 
