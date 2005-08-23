@@ -478,7 +478,7 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
   protected 
     parameter Real Const1_SI=40.785*10^(-9.5) 
       "Constant in formula for eta converted to SI units";
-    parameter Real Const2_SI=131.3/3.335641e-27 
+    parameter Real Const2_SI=131.3/1000.0 
       "Constant in formula for mur converted to SI units";
     parameter Real mur=Const2_SI*mu/sqrt(Vc*Tc) 
       "Dimensionless dipole moment of gas molecule";
