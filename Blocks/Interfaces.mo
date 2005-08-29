@@ -1020,10 +1020,10 @@ end IntegerMIBooleanMOs;
   
   partial block partialBooleanComparison 
     "partialBoolean block to compare two Real inputs u1 and u2" 
-    Blocks.Interfaces.RealInput u1 annotation(extent=[-140,-20; -100,20], Hide=true);
-    Blocks.Interfaces.RealInput u2 annotation(extent=[-140,-100; -100,-60], Hide=true);
+    Blocks.Interfaces.RealInput u1 annotation(extent=[-140,-20; -100,20]);
+    Blocks.Interfaces.RealInput u2 annotation(extent=[-140,-100; -100,-60]);
     Blocks.Interfaces.BooleanOutput y 
-      annotation (extent=[100,-10; 120,10], Hide=true);
+      annotation (extent=[100,-10; 120,10]);
     
     annotation (Icon(
   Rectangle(extent=[-100,100; 100,-100],   style(
