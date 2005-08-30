@@ -1418,7 +1418,7 @@ This means that the equations in the equation section are only correct
 for the specified units. A different issue is the user interface, i.e.,
 in which unit the variable is presented to the user in graphical
 user interfaces, both for input (e.g., parameter menu), as well as
-for output (e.g., in the plot window). Prefereably, the Modelica tool
+for output (e.g., in the plot window). Preferably, the Modelica tool
 should provide a list of units from which the user can select, e.g.,
 \"m\", \"cm\", \"km\", \"inch\" for quantity \"Length\". When storing the value in
 the model as a Modelica modifier, it has to be converted to the unit defined
@@ -1450,13 +1450,13 @@ menu of an instance of MassOnGround, a tool might generate the following code:
 </p>
 
 <pre>
-   MassOnGround myObject(m(displayUnit=\"cm\")=2, f=3);
+   MassOnGround myObject(m(displayUnit=\"g\")=2, f=3);
 </pre>
 
 <p>
 The meaning is that in the equations a value of \"2\" is used
-and that in the graphical user interface a value of \"0.02\" should be used,
-together with the unit \"cm\" from the unit set \"Mass\" (= the quantity name). 
+and that in the graphical user interface a value of \"2000\" should be used,
+together with the unit \"g\" from the unit set \"Mass\" (= the quantity name). 
 Note, according to the Modelica specification
 a tool might ignore the \"displayUnit\" attribute.
 </p>
@@ -1502,7 +1502,7 @@ in the declaration as in the example at the beginning.
 </p>
 
 <p>
-<b>Convenions used in package Modelica.SIunits</b>
+<b>Conventions used in package Modelica.SIunits</b>
 </p>
 
 
