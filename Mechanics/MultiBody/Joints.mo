@@ -5277,7 +5277,8 @@ connected to the revolute joint.
       SI.AngularAcceleration a 
         "Second derivative of angle phi (relative angular acceleration)";
       SI.Torque tau=0 "Driving torque in direction of axis of rotation";
-      SI.Angle angle "= from_deg(phi_offset) + phi";
+      SI.Angle angle(start=Cv.from_deg(phi_start+phi_offset)) 
+        "= from_deg(phi_offset) + phi";
       annotation (
         preferedView="info",
         Coordsys(
