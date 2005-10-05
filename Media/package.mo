@@ -1,4 +1,4 @@
-package Modelica_Media "Property models of media"
+package Media "Property models of media"
 extends Modelica.Icons.Library;
 import SI = Modelica.SIunits;
 
@@ -6753,4 +6753,4 @@ end BridgmansTablesForWater;
   end helmholtz_ps;
   
 end Common;
-end Modelica_Media;
+end Media;
