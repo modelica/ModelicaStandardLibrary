@@ -12,8 +12,6 @@ package MixtureGases "Medium models consisting of mixtures of ideal gases"
       reference_X={0.768,0.232});
   end CombustionAir;
   
-  
-  
   package AirSteam "air and steam mixture (no condensation!, pseudo-mixture)" 
     extends Common.MixtureGasNasa(
        mediumName="MoistAir",

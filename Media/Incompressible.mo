@@ -10,7 +10,7 @@ package Incompressible
     
     // Extended record for input to functions based on polynomials
     record BaseProps_Tpoly "fluid state record" 
-      extends Modelica.Media.Interfaces.PartialMedium.ThermodynamicState;
+      extends Modelica_Media.Interfaces.PartialMedium.ThermodynamicState;
       //      SI.SpecificHeatCapacity cp "specific heat capacity";
       SI.Temperature T "temperature";
       SI.Pressure p "pressure";
@@ -18,7 +18,7 @@ package Incompressible
     end BaseProps_Tpoly;
     
     //     record BaseProps_Tpoly_old "fluid state record" 
-    //       extends Modelica.Media.Interfaces.PartialMedium.ThermodynamicState;
+    //       extends Modelica_Media.Interfaces.PartialMedium.ThermodynamicState;
     //       //      SI.SpecificHeatCapacity cp "specific heat capacity";
     //       SI.Temperature T "temperature";
     //       SI.Pressure p "pressure";
@@ -34,9 +34,9 @@ package Incompressible
   
   package TableBased "Incompressible medium properties based on tables" 
     
-    import Poly = Modelica.Media.Incompressible.TableBased.Polynomials_Temp;
+    import Poly = Modelica_Media.Incompressible.TableBased.Polynomials_Temp;
     
-    extends Modelica.Media.Interfaces.PartialMedium(
+    extends Modelica_Media.Interfaces.PartialMedium(
        final reducedX=true,
        mediumName="tableMedium",
        redeclare record ThermodynamicState=Common.BaseProps_Tpoly,
@@ -67,7 +67,7 @@ package Incompressible
     constant Boolean hasViscosity = not (size(tableViscosity,1)==0);
     constant Boolean hasVaporPressure = not (size(tableVaporPressure,1)==0);
     final constant Real invTK[neta] = invertTemp(tableViscosity[:,1],TinK);
-	 annotation(keepConstant = true);
+  annotation(keepConstant = true);
     final constant Real poly_rho[:] = if hasDensity then 
                                          Poly.fitting(tableDensity[:,1],tableDensity[:,2],npol) else 
                                            zeros(npol+1) annotation(keepConstant = true);
@@ -79,20 +79,20 @@ package Incompressible
                                            zeros(npol+1) annotation(keepConstant = true);
     final constant Real poly_pVap[:] = if hasVaporPressure then 
                                          Poly.fitting(tableVaporPressure[:,1],tableVaporPressure[:,2],npol) else 
-                                            zeros(npol+1) annotation(keepConstant =true);
+                                            zeros(npol+1) annotation(keepConstant= true);
     final constant Real poly_lam[:] = if size(tableConductivity,1)>0 then 
                                          Poly.fitting(tableConductivity[:,1],tableConductivity[:,2],npol) else 
                                            zeros(npol+1) annotation(keepConstant = true);
-    function invertTemp "function to invert temperatures"
+    function invertTemp "function to invert temperatures" 
       input Real[:] table "table temperature data";
       input Boolean Tink "flag for Celsius or Kelvin";
       output Real invTable[size(table,1)] "inverted temperatures";
-    algorithm
+    algorithm 
       for i in 1:size(table,1) loop
-	invTable[i] :=  if TinK then 1/table[i] else 1/Cv.from_degC(table[i]);
+        invTable[i] := if TinK then 1/table[i] else 1/Cv.from_degC(table[i]);
       end for;
-    end invertTemp;   
-	 
+    end invertTemp;
+    
     redeclare model extends BaseProperties(
       R=Modelica.Constants.R,
       p_bar=Cv.to_bar(p),
@@ -126,9 +126,9 @@ which is only exactly true for a fluid with constant density d=d0.
              " K <= T <= " + String(T_max) + " K) required from medium model \""
              + mediumName + "\".");
       cp = Poly.evaluate(poly_Cp,if TinK then T else T_degC);
-      h = if enthalpyOfT then h_T(T) else  h_pT(p,T,densityOfT);
+      h = if enthalpyOfT then enthalpy_T(T) else  enthalpy_pT(p,T,densityOfT);
       if singleState then
-        u = h_T(T) - reference_p/d;
+        u = enthalpy_T(T) - reference_p/d;
       else
         u = h - p/d;
       end if;
@@ -138,31 +138,32 @@ which is only exactly true for a fluid with constant density d=d0.
       MM = MM_const;
     end BaseProperties;
     
-    redeclare function extends setState "Returns state record" 
+    function setState_pT "Returns state record" 
       input SI.Pressure p "Pressure";
       input SI.Temperature T "Temperature";
+      output ThermodynamicState state "Thermodynamic state record";
     algorithm 
       state.p :=p;
       state.T :=T;
-    end setState;
+    end setState_pT;
     
-    redeclare function extends heatCapacity_cv 
+    redeclare function extends heatCapacityCv 
       "Specific heat capacity at constant volume (or pressure) of medium" 
      annotation(smoothOrder=2);
     algorithm 
       assert(hasHeatCapacity,"Specific Heat Capacity, Cv, is not defined for medium "
                                              + mediumName + ".");
       cv := Poly.evaluate(poly_Cp,if TinK then state.T else state.T - 273.15);
-    end heatCapacity_cv;
+    end heatCapacityCv;
     
-    redeclare function extends heatCapacity_cp 
+    redeclare function extends heatCapacityCp 
       "Specific heat capacity at constant volume (or pressure) of medium" 
      annotation(smoothOrder=2);
     algorithm 
       assert(hasHeatCapacity,"Specific Heat Capacity, Cv, is not defined for medium "
                                              + mediumName + ".");
       cp := Poly.evaluate(poly_Cp,if TinK then state.T else state.T - 273.15);
-    end heatCapacity_cp;
+    end heatCapacityCp;
     
     redeclare function extends dynamicViscosity 
      annotation(smoothOrder=2);
@@ -180,7 +181,7 @@ which is only exactly true for a fluid with constant density d=d0.
       lambda := Poly.evaluate(poly_lam,if TinK then state.T else Cv.to_degC(state.T));
     end thermalConductivity;
     
-    redeclare function extends specificEntropy 
+    redeclare function extends entropy 
     protected 
       Integer npol=size(poly_Cp,1)-1;
      annotation(smoothOrder=2);
@@ -192,20 +193,20 @@ which is only exactly true for a fluid with constant density d=d0.
         Poly.integralValue(poly_Cp[1:npol],Cv.to_degC(state.T),Cv.to_degC(T0)))
         + Modelica.Math.log(state.T/T0)*
         Poly.evaluate(poly_Cp,if TinK then 0 else Modelica.Constants.T_zero);
-    end specificEntropy;
+    end entropy;
     
-    function h_T "Compute specific enthalpy from temperature" 
+    function enthalpy_T "Compute specific enthalpy from temperature" 
       import Modelica.SIunits.Conversions.to_degC;
       extends Modelica.Icons.Function;
       input SI.Temperature T "Temperature";
       output SI.SpecificEnthalpy h "Specific enthalpy at p, T";
-     annotation(derivative=h_T_der);
+     annotation(derivative=enthalpy_T_der);
     algorithm 
       h :=h0 + Poly.integralValue(poly_Cp, if TinK then T else to_degC(T), if TinK then 
       T0 else to_degC(T0));
-    end h_T;
+    end enthalpy_T;
     
-    function h_T_der "Compute specific enthalpy from temperature" 
+    function enthalpy_T_der "Compute specific enthalpy from temperature" 
       import Modelica.SIunits.Conversions.to_degC;
       extends Modelica.Icons.Function;
       input SI.Temperature T "Temperature";
@@ -213,9 +214,10 @@ which is only exactly true for a fluid with constant density d=d0.
       output Real dh "derivative of Specific enthalpy at T";
     algorithm 
       dh :=Poly.evaluate(poly_Cp, if TinK then T else to_degC(T))*dT;
-    end h_T_der;
+    end enthalpy_T_der;
     
-    function h_pT "Compute specific enthalpy from pressure and temperature" 
+    function enthalpy_pT 
+      "Compute specific enthalpy from pressure and temperature" 
       import Modelica.SIunits.Conversions.to_degC;
       extends Modelica.Icons.Function;
       input SI.Pressure p "Pressure";
@@ -230,10 +232,10 @@ which is only exactly true for a fluid with constant density d=d0.
               T else to_degC(T))
         *(if densityOfT then (1 + T/Poly.evaluate(poly_rho, if TinK then T else to_degC(T))
       *Poly.derivativeValue(poly_rho,if TinK then T else to_degC(T))) else 1.0);
-    end h_pT;
+    end enthalpy_pT;
     
     package Polynomials_Temp 
-      "Temporary Functions operating on polynomials (including polynomial fitting); only to be used in Modelica.Media.Incompressible.TableBased" 
+      "Temporary Functions operating on polynomials (including polynomial fitting); only to be used in Modelica_Media.Incompressible.TableBased" 
       extends Modelica.Icons.Library;
       
       annotation (Documentation(info="<HTML>
@@ -388,8 +390,182 @@ returned as a vector p[n+1] that has the following definition:
         end for;
         
         // Solve least squares problem
-        p :=Modelica.Math.Matrices.leastSquares(V, y);
+        p :=leastSquares(V, y);
       end fitting;
+      
+      function leastSquares 
+        "Solve overdetermined or underdetermined real system of linear equations A*x=b in a least squares sense" 
+        extends Modelica.Icons.Function;
+        input Real A[:,:] "Matrix A";
+        input Real b[size(A, 1)] "Vector b";
+        output Real x[size(A, 2)] 
+          "Vector x such that min|A*x-b|^2 if size(A,1) >= size(A,2) or min|x|^2 and A*x=b, if size(A,1) < size(A,2)";
+        annotation (
+          preferedView="info",
+      Coordsys(
+        extent=[-100, -100; 100, 100],
+        grid=[2, 2],
+        component=[20, 20]),
+      Window(
+      x=0.4,
+      y=0.4,
+      width=0.6,
+      height=0.6),
+      Documentation(info="<HTML>
+				  <h3><font color=\"#008000\">Syntax</font></h3>
+				  <blockquote><pre>
+				  x = Matrices.<b>leastSquares</b>(A,b);
+				  </pre></blockquote>
+				  <h3><font color=\"#008000\">Description</font></h3>
+				  <p>
+				  A linear system of equations A*x = b has no solutions or infinitely
+				  many solutions if A is not square. Function \"leastSquares\" returns
+				  a solution in a least squarse sense:
+				  </p>
+				  <pre>
+				  size(A,1) &gt; size(A,2):  returns x such that |A*x - b|^2 is a minimum
+				  size(A,1) = size(A,2):  returns x such that A*x = b
+				  size(A,1) &lt; size(A,2):  returns x such that |x|^2 is a minimum for all 
+				  vectors x that fulfill A*x = b
+				  </pre>
+				  <p>
+				  Note, the solution is computed with the LAPACK function \"dgesl\",
+				  i.e., QR or LQ factorization of A. It is required that
+				  A has full rank.
+				  </p>
+				  </HTML>"));
+      protected 
+        Integer info;
+        Real xx[max(size(A, 1), size(A, 2))];
+      algorithm 
+        (xx,info) := dgels_vec(A, b);
+        x := xx[1:size(A, 2)];
+        assert(info == 0,
+                   "Solving an overdetermined or underdetermined linear system of 
+	       equations with function \"Matrices.leastSquares\" failed.");
+      end leastSquares;
+      
+    function dgels_vec 
+        "Solves overdetermined or underdetermined real linear equations A*x=b with a b vector" 
+        
+      extends Modelica.Icons.Function;
+      input Real A[:, :];
+      input Real b[size(A,1)];
+      output Real x[nx]= cat(1,b,zeros(nx-nrow)) 
+          "solution is in first size(A,2) rows";
+      output Integer info;
+      protected 
+      Integer nrow=size(A,1);
+      Integer ncol=size(A,2);
+      Integer nx=max(nrow,ncol);
+      Integer lwork=min(nrow,ncol) + nx;
+      Real work[lwork];
+      Real Awork[nrow,ncol]=A;
+      external "FORTRAN 77" dgels("N", nrow, ncol, 1, Awork, nrow, x,
+                                  nx, work, lwork, info) annotation (Library="Lapack");
+      annotation (
+        Coordsys(
+          extent=[-100, -100; 100, 100],
+          grid=[2, 2],
+          component=[20, 20]),
+        Window(
+          x=0.25,
+          y=0.3,
+          width=0.6,
+          height=0.6),
+        Documentation(info="Lapack documentation
+  Purpose                                                                 
+  =======                                                                 
+                                                                          
+  DGELS solves overdetermined or underdetermined real linear systems      
+  involving an M-by-N matrix A, or its transpose, using a QR or LQ        
+  factorization of A.  It is assumed that A has full rank.                
+                                                                          
+  The following options are provided:                                     
+                                                                          
+  1. If TRANS = 'N' and m >= n:  find the least squares solution of       
+     an overdetermined system, i.e., solve the least squares problem      
+                  minimize || B - A*X ||.                                 
+                                                                          
+  2. If TRANS = 'N' and m < n:  find the minimum norm solution of         
+     an underdetermined system A * X = B.                                 
+                                                                          
+  3. If TRANS = 'T' and m >= n:  find the minimum norm solution of        
+     an undetermined system A**T * X = B.                                 
+                                                                          
+  4. If TRANS = 'T' and m < n:  find the least squares solution of        
+     an overdetermined system, i.e., solve the least squares problem      
+                  minimize || B - A**T * X ||.                            
+                                                                          
+  Several right hand side vectors b and solution vectors x can be         
+  handled in a single call; they are stored as the columns of the         
+  M-by-NRHS right hand side matrix B and the N-by-NRHS solution           
+  matrix X.                                                               
+                                                                          
+  Arguments                                                               
+  =========                                                               
+                                                                          
+  TRANS   (input) CHARACTER                                               
+          = 'N': the linear system involves A;                            
+          = 'T': the linear system involves A**T.                         
+                                                                          
+  M       (input) INTEGER                                                 
+          The number of rows of the matrix A.  M >= 0.                    
+                                                                          
+  N       (input) INTEGER                                                 
+          The number of columns of the matrix A.  N >= 0.                 
+                                                                          
+  NRHS    (input) INTEGER                                                 
+          The number of right hand sides, i.e., the number of             
+          columns of the matrices B and X. NRHS >=0.                      
+                                                                          
+  A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)        
+          On entry, the M-by-N matrix A.                                  
+          On exit,                                                        
+            if M >= N, A is overwritten by details of its QR              
+                       factorization as returned by DGEQRF;               
+            if M <  N, A is overwritten by details of its LQ              
+                       factorization as returned by DGELQF.               
+                                                                          
+  LDA     (input) INTEGER                                                 
+          The leading dimension of the array A.  LDA >= max(1,M).         
+                                                                          
+  B       (input/output) DOUBLE PRECISION array, dimension (LDB,NRHS)     
+          On entry, the matrix B of right hand side vectors, stored       
+          columnwise; B is M-by-NRHS if TRANS = 'N', or N-by-NRHS         
+          if TRANS = 'T'.                                                 
+          On exit, B is overwritten by the solution vectors, stored       
+          columnwise:  if TRANS = 'N' and m >= n, rows 1 to n of B        
+          contain the least squares solution vectors; the residual        
+          sum of squares for the solution in each column is given by      
+          the sum of squares of elements N+1 to M in that column;         
+          if TRANS = 'N' and m < n, rows 1 to N of B contain the          
+          minimum norm solution vectors;                                  
+          if TRANS = 'T' and m >= n, rows 1 to M of B contain the         
+          minimum norm solution vectors;                                  
+          if TRANS = 'T' and m < n, rows 1 to M of B contain the          
+          least squares solution vectors; the residual sum of squares     
+          for the solution in each column is given by the sum of          
+          squares of elements M+1 to N in that column.                    
+                                                                          
+  LDB     (input) INTEGER                                                 
+          The leading dimension of the array B. LDB >= MAX(1,M,N).        
+                                                                          
+  WORK    (workspace) DOUBLE PRECISION array, dimension (LWORK)           
+          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.        
+                                                                          
+  LWORK   (input) INTEGER                                                 
+          The dimension of the array WORK.                                
+          LWORK >= min(M,N) + MAX(1,M,N,NRHS).                            
+          For optimal performance,                                        
+          LWORK >= min(M,N) + MAX(1,M,N,NRHS) * NB                        
+          where NB is the optimum block size.                             
+                                                                          
+  INFO    (output) INTEGER                                                
+          = 0:  successful exit                                           
+          < 0:  if INFO = -i, the i-th argument had an illegal value      
+                                                                          "));
+    end dgels_vec;
       
       function evaluate_der "Evaluate polynomial at a given abszissa value" 
         extends Modelica.Icons.Function;
@@ -510,7 +686,7 @@ function calls can not be used.
         [160, 3; 180, 10; 200, 40; 220, 100; 240, 300; 260, 600;
          280, 1600; 300, 3e3; 320, 5.5e3]);
   end Essotherm650;
-  
+    
   model TestGlycol "Test Glycol47 Medium model" 
     extends Modelica.Icons.Example;
     package Medium = Glycol47;
@@ -518,13 +694,13 @@ function calls can not be used.
       
     Medium.DynamicViscosity eta=Medium.dynamicViscosity(state);
     Medium.ThermalConductivity lambda=Medium.thermalConductivity(state);
-    Medium.SpecificEntropy s=Medium.specificEntropy(state);
-    Medium.SpecificHeatCapacity cv=Medium.heatCapacity_cv(state);
+    Medium.SpecificEntropy s=Medium.entropy(state);
+    Medium.SpecificHeatCapacity cv=Medium.heatCapacityCv(state);
   equation 
     p = 1e5;
     T = Medium.T_min + time;
   end TestGlycol;
-
+    
   annotation (
     Documentation(info="<HTML>
 <h3><font color=\"#008000\" size=5>Examples of incompressible media</font></h3>
@@ -573,8 +749,8 @@ energy, which makes all medium properties pure functions of temperature.</li>
 The default setting for both these flags is true, which enables the simulation tool
 to choose temperature as the only medium state and avoids non-linear equation
 systems, see the section about
-<a href=\"Modelica:Modelica.Media.UsersGuide.MediumUDefinition.StaticStateSelection\">Static
-state selection</a> in the Modelica.Media users guide.
+<a href=\"Modelica:Modelica_Media.UsersGuide.MediumUDefinition.StaticStateSelection\">Static
+state selection</a> in the Modelica_Media users guide.
 
 </p>
 <h4>Contents</h4>
@@ -582,18 +758,18 @@ state selection</a> in the Modelica.Media users guide.
 Currently, the package contains the following parts:
 </p>
 <ol>
-<li> <a href=\"Modelica:Modelica.Media.Incompressible.TableBased\">
+<li> <a href=\"Modelica:Modelica_Media.Incompressible.TableBased\">
       Table based medium models</a></li>
-<li> <a href=\"Modelica:Modelica.Media.Incompressible.Examples\">
+<li> <a href=\"Modelica:Modelica_Media.Incompressible.Examples\">
       Example medium models</a></li>
 </ol>
 
 <p>
 A few examples are given in the Examples package. The model
-<a href=\"Modelica:Modelica.Media.TableBased.Examples.TestGlycol\">
+<a href=\"Modelica:Modelica_Media.TableBased.Examples.TestGlycol\">
 Examples.TestGlycol</a> shows how the medium models can be used. For more
 realistic examples of how to implement volume models with medium properties
-look in the <a href=\"Modelica:Modelica.Media.UsersGuide.MediumUsage\">Medium
+look in the <a href=\"Modelica:Modelica_Media.UsersGuide.MediumUsage\">Medium
 usage section</a> of the Users guide.
 </p>
 

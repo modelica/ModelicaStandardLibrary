@@ -82,7 +82,7 @@ one of the following functions:
   <tr><td>Medium.prandtlNumber(medium.state)</td>
       <td>1</td>
       <td>Prandtl number</td></tr>
-  <tr><td>Medium.specificEntropy(medium.state)</td>
+  <tr><td>Medium.entropy(medium.state)</td>
       <td>J/(kg.K)</td>
       <td>specific entropy</td></tr>
   <tr><td>Medium.heatCapacity_cp(medium.state)</td>
@@ -126,8 +126,8 @@ one of the following functions:
       <td>molar mass</td></tr>
 </table>
 <p>More details are given in
-<a href=\"Modelica:Modelica.Media.UsersGuide.MediumUsage.OptionalProperties\">
-Modelica.Media.UsersGuide.MediumUsage.OptionalProperties</a>.
+<a href=\"Modelica:Modelica_Media.UsersGuide.MediumUsage.OptionalProperties\">
+Modelica_Media.UsersGuide.MediumUsage.OptionalProperties</a>.
 
 Many additional optional functions are defined to compute properties of 
 saturated media, either liquid (bubble point) or vapour (dew point). 
@@ -186,8 +186,8 @@ SaturationProperties record sat, the following functions are provided:
 </table>
 
 <p>Details on usage and some examples are given in:
-<a href=\"Modelica:Modelica.Media.UsersGuide.MediumUsage.TwoPhase\">
-Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
+<a href=\"Modelica:Modelica_Media.UsersGuide.MediumUsage.TwoPhase\">
+Modelica_Media.UsersGuide.MediumUsage.TwoPhase</a>.
 </p>
 
 <p>Many further properties can be computed. Using the well-known Bridgman's Tables,
@@ -208,6 +208,7 @@ distributed with computer implementations and are included here
 </ul>
 </html>"));
 
+
 extends Modelica.Icons.Library;
   constant Interfaces.PartialMedium.FluidConstants[1] waterConstants(
      each chemicalFormula = "H2O",
@@ -225,6 +226,7 @@ extends Modelica.Icons.Library;
      each acentricFactor = 0.344,
      each dipoleMoment = 1.8,
      each hasCriticalData=true);
+
 
 package ConstantPropertyLiquidWater 
   "Water: Simple liquid water medium (incompressible, constant data)" 
@@ -259,16 +261,20 @@ package ConstantPropertyLiquidWater
           fillPattern=1))), Diagram);
 end ConstantPropertyLiquidWater;
 
+
 package IdealSteam "Water: Steam as ideal gas from NASA source" 
   extends IdealGases.SingleGases.H2O(
   fluidConstants = waterConstants);
 end IdealSteam;
 
+
 package StandardWater = WaterIF97_ph 
   "Water using the IF97 standard, explicit in p and h. Recommended for most applications";
 
+
 package StandardWaterOnePhase = WaterIF97_pT 
   "Water using the IF97 standard, explicit in p and T. Recommended for one-phase applications";
+
 
 package WaterIF97OnePhase_ph 
   "Water using the IF97 standard, explicit in p and h, and only valid outside the two-phase dome" 
@@ -280,6 +286,7 @@ package WaterIF97OnePhase_ph
     final onePhase=true);
 end WaterIF97OnePhase_ph;
 
+
 package WaterIF97_pT "Water using the IF97 standard, explicit in p and T" 
   extends WaterIF97_base(
     final ph_explicit=false,
@@ -289,6 +296,7 @@ package WaterIF97_pT "Water using the IF97 standard, explicit in p and T"
     final onePhase=true);
 end WaterIF97_pT;
 
+
 package WaterIF97_ph "Water using the IF97 standard, explicit in p and h" 
   extends WaterIF97_base(
     final ph_explicit=true,
@@ -297,6 +305,7 @@ package WaterIF97_ph "Water using the IF97 standard, explicit in p and h"
     smoothModel=false,
     onePhase=false);
 end WaterIF97_ph;
+
 
 partial package WaterIF97_base 
   "Water: Steam properties as defined by IAPWS/IF97 standard" 
@@ -312,8 +321,8 @@ This model calculates medium properties
 for water in the <b>liquid</b>, <b>gas</b> and <b>two phase</b> regions 
 according to the IAPWS/IF97 standard, i.e., the accepted industrial standard
 and best compromise between accuracy and computation time.
-For more details see <a href=\"Modelica:Modelica.Media.Water.IF97_Utilities\">
-Modelica.Media.Water.IF97_Utilities</a>. Three variable pairs can be the 
+For more details see <a href=\"Modelica:Modelica_Media.Water.IF97_Utilities\">
+Modelica_Media.Water.IF97_Utilities</a>. Three variable pairs can be the 
 independent variables of the model:
 <ol>
 <li>Pressure <b>p</b> and specific enthalpy <b>h</b> are the most natural choice for general applications. This is the recommended choice for most general purpose applications, in particular for power plants.</li>
@@ -346,10 +355,10 @@ The following quantities are always computed:
 In some cases additional medium properties are needed.
 A component that needs these optional properties has to call
 one of the functions listed in 
-<a href=\"Modelica:Modelica.Media.UsersGuide.MediumUsage.OptionalProperties\">
-Modelica.Media.UsersGuide.MediumUsage.OptionalProperties</a> and in
-<a href=\"Modelica:Modelica.Media.UsersGuide.MediumUsage.TwoPhase\">
-Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
+<a href=\"Modelica:Modelica_Media.UsersGuide.MediumUsage.OptionalProperties\">
+Modelica_Media.UsersGuide.MediumUsage.OptionalProperties</a> and in
+<a href=\"Modelica:Modelica_Media.UsersGuide.MediumUsage.TwoPhase\">
+Modelica_Media.UsersGuide.MediumUsage.TwoPhase</a>.
 </p>
 </p>
 <p>Many further properties can be computed. Using the well-known Bridgman's Tables, all first partial derivatives of the standard thermodynamic variables can be computed easily.</p>
@@ -491,22 +500,22 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
     "set the thermodynamic state on the dew line" 
   algorithm 
     state := ThermodynamicState(
-       phase = phase,
-       p = sat.psat,
-       T = sat.Tsat,
-       h = dewEnthalpy(sat),
-       d = dewDensity(sat));
+       phase=  phase,
+       p=  sat.psat,
+       T=  sat.Tsat,
+       h=  dewEnthalpy(sat),
+       d=  dewDensity(sat));
   end setDewState;
   
   redeclare function extends setBubbleState 
     "set the thermodynamic state on the bubble line" 
   algorithm 
     state := ThermodynamicState(
-       phase = phase,
-       p = sat.psat,
-       T = sat.Tsat,
-       h = bubbleEnthalpy(sat),
-       d = bubbleDensity(sat));
+       phase=  phase,
+       p=  sat.psat,
+       T=  sat.Tsat,
+       h=  bubbleEnthalpy(sat),
+       d=  bubbleDensity(sat));
   end setBubbleState;
   
   redeclare function extends dynamicViscosity "Dynamic viscosity of water" 
@@ -528,7 +537,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
     sigma := IF97_Utilities.surfaceTension(sat.Tsat);
   end surfaceTension;
   
-  redeclare function extends specificEntropy "specific entropy of water" 
+  redeclare function extends entropy "specific entropy of water" 
   algorithm 
     if dT_explicit then
       s := IF97_Utilities.s_dT(state.d, state.T, state.phase);
@@ -537,9 +546,9 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
     else
       s := IF97_Utilities.s_ph(state.p, state.h, state.phase);
     end if;
-  end specificEntropy;
+  end entropy;
   
-  redeclare function extends heatCapacity_cp 
+  redeclare function extends heatCapacityCp 
     "specific heat capacity at constant pressure of water" 
       annotation (Documentation(info="<html><body>
 				<p>In the two phase region this function returns the interpolated heat capacity between the
@@ -553,9 +562,9 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
     else
       cp := IF97_Utilities.cp_ph(state.p, state.h, state.phase);
     end if;
-  end heatCapacity_cp;
+  end heatCapacityCp;
   
-  redeclare function extends heatCapacity_cv 
+  redeclare function extends heatCapacityCv 
     "specific heat capacity at constant volume of water" 
   algorithm 
     if dT_explicit then
@@ -565,7 +574,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
     else
       cv := IF97_Utilities.cv_ph(state.p, state.h, state.phase);
     end if;
-  end heatCapacity_cv;
+  end heatCapacityCv;
   
   redeclare function extends isentropicExponent "Return isentropic exponent" 
   algorithm 
@@ -617,7 +626,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
   
   redeclare function extends isentropicEnthalpy "compute h(p,s)" 
   algorithm 
-    h_is := IF97_Utilities.isentropicEnthalpy(p_downstream, specificEntropy(
+    h_is := IF97_Utilities.isentropicEnthalpy(p_downstream, entropy(
       refState), 0);
   end isentropicEnthalpy;
   
@@ -716,6 +725,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
   
 end WaterIF97_base;
 
+
 partial package WaterIF97_fixedregion 
   "Water: Steam properties as defined by IAPWS/IF97 standard" 
   annotation (Icon(Text(
@@ -730,8 +740,8 @@ This model calculates medium properties
 for water in the <b>liquid</b>, <b>gas</b> and <b>two phase</b> regions 
 according to the IAPWS/IF97 standard, i.e., the accepted industrial standard
 and best compromise between accuracy and computation time.
-For more details see <a href=\"Modelica:Modelica.Media.Water.IF97_Utilities\">
-Modelica.Media.Water.IF97_Utilities</a>. Three variable pairs can be the 
+For more details see <a href=\"Modelica:Modelica_Media.Water.IF97_Utilities\">
+Modelica_Media.Water.IF97_Utilities</a>. Three variable pairs can be the 
 independent variables of the model:
 <ol>
 <li>Pressure <b>p</b> and specific enthalpy <b>h</b> are the most natural choice for general applications. This is the recommended choice for most general purpose applications, in particular for power plants.</li>
@@ -764,10 +774,10 @@ The following quantities are always computed:
 In some cases additional medium properties are needed.
 A component that needs these optional properties has to call
 one of the functions listed in 
-<a href=\"Modelica:Modelica.Media.UsersGuide.MediumUsage.OptionalProperties\">
-Modelica.Media.UsersGuide.MediumUsage.OptionalProperties</a> and in
-<a href=\"Modelica:Modelica.Media.UsersGuide.MediumUsage.TwoPhase\">
-Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
+<a href=\"Modelica:Modelica_Media.UsersGuide.MediumUsage.OptionalProperties\">
+Modelica_Media.UsersGuide.MediumUsage.OptionalProperties</a> and in
+<a href=\"Modelica:Modelica_Media.UsersGuide.MediumUsage.TwoPhase\">
+Modelica_Media.UsersGuide.MediumUsage.TwoPhase</a>.
 </p>
 </p>
 <p>Many further properties can be computed. Using the well-known Bridgman's Tables, all first partial derivatives of the standard thermodynamic variables can be computed easily.
@@ -935,8 +945,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
   
   redeclare function extends dynamicViscosity "Dynamic viscosity of water" 
   algorithm 
-    eta := IF97_Utilities.dynamicViscosity(state.d, state.T, state.p, state.
-      phase);
+    eta := IF97_Utilities.dynamicViscosity(state.d, state.T, state.p, state.phase);
   end dynamicViscosity;
   
   redeclare function extends thermalConductivity 
@@ -952,7 +961,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
     sigma := IF97_Utilities.surfaceTension(sat.Tsat);
   end surfaceTension;
   
-  redeclare function extends specificEntropy "specific entropy of water" 
+  redeclare function extends entropy "specific entropy of water" 
   algorithm 
     if dT_explicit then
       s := IF97_Utilities.s_dT(state.d, state.T, state.phase, Region);
@@ -961,9 +970,9 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
     else
       s := IF97_Utilities.s_ph(state.p, state.h, state.phase, Region);
     end if;
-  end specificEntropy;
+  end entropy;
   
-  redeclare function extends heatCapacity_cp 
+  redeclare function extends heatCapacityCp 
     "specific heat capacity at constant pressure of water" 
   algorithm 
     if dT_explicit then
@@ -973,9 +982,9 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
     else
       cp := IF97_Utilities.cp_ph(state.p, state.h, Region);
     end if;
-  end heatCapacity_cp;
+  end heatCapacityCp;
   
-  redeclare function extends heatCapacity_cv 
+  redeclare function extends heatCapacityCv 
     "specific heat capacity at constant volume of water" 
   algorithm 
     if dT_explicit then
@@ -985,7 +994,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
     else
       cv := IF97_Utilities.cv_ph(state.p, state.h, state.phase, Region);
     end if;
-  end heatCapacity_cv;
+  end heatCapacityCv;
   
   redeclare function extends isentropicExponent "Return isentropic exponent" 
   algorithm 
@@ -1041,7 +1050,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
   
   redeclare function extends isentropicEnthalpy "compute h(s,p)" 
   algorithm 
-    h_is := IF97_Utilities.isentropicEnthalpy(p_downstream, specificEntropy(
+    h_is := IF97_Utilities.isentropicEnthalpy(p_downstream, entropy(
       refState), 0);
   end isentropicEnthalpy;
   
@@ -1140,6 +1149,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
   
 end WaterIF97_fixedregion;
 
+
 package WaterIF97_R1ph "region 1 (liquid) water according to IF97 standard" 
   extends WaterIF97_fixedregion(
     final Region=1,
@@ -1149,6 +1159,7 @@ package WaterIF97_R1ph "region 1 (liquid) water according to IF97 standard"
     smoothModel=true,
     onePhase=true);
 end WaterIF97_R1ph;
+
 
 package WaterIF97_R2ph "region 2 (steam) water according to IF97 standard" 
   extends WaterIF97_fixedregion(
@@ -1160,6 +1171,7 @@ package WaterIF97_R2ph "region 2 (steam) water according to IF97 standard"
     onePhase=true);
 end WaterIF97_R2ph;
 
+
 package WaterIF97_R3ph "region 3 water according to IF97 standard" 
   extends WaterIF97_fixedregion(
     final Region=3,
@@ -1169,6 +1181,7 @@ package WaterIF97_R3ph "region 3 water according to IF97 standard"
     smoothModel=true,
     onePhase=true);
 end WaterIF97_R3ph;
+
 
 package WaterIF97_R4ph "region 4 water according to IF97 standard" 
   extends WaterIF97_fixedregion(
@@ -1180,6 +1193,7 @@ package WaterIF97_R4ph "region 4 water according to IF97 standard"
     onePhase=false);
 end WaterIF97_R4ph;
 
+
 package WaterIF97_R5ph "region 5 water according to IF97 standard" 
   extends WaterIF97_fixedregion(
     final Region=5,
@@ -1190,6 +1204,7 @@ package WaterIF97_R5ph "region 5 water according to IF97 standard"
     onePhase=true);
 end WaterIF97_R5ph;
 
+
 package WaterIF97_R1pT "region 1 (liquid) water according to IF97 standard" 
   extends WaterIF97_fixedregion(
     final Region=1,
@@ -1199,6 +1214,7 @@ package WaterIF97_R1pT "region 1 (liquid) water according to IF97 standard"
     smoothModel=true,
     onePhase=true);
 end WaterIF97_R1pT;
+
 
 package WaterIF97_R2pT "region 2 (steam) water according to IF97 standard" 
   extends WaterIF97_fixedregion(

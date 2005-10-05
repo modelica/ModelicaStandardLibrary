@@ -10,7 +10,7 @@ annotation (preferedView="info", Documentation(info="<HTML>
   report TP-2002-211556</p>
 </blockquote>
 <p>Medium models for the following gases are available in package
-<a href=\"Modelica:Modelica.Media.IdealGases.SingleGases\">IdealGases.SingleGases</a>:
+<a href=\"Modelica:Modelica_Media.IdealGases.SingleGases\">IdealGases.SingleGases</a>:
 </p>
  
 <pre>
