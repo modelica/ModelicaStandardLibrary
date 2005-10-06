@@ -126,9 +126,8 @@ one of the following functions:
       <td>molar mass</td></tr>
 </table>
 <p>More details are given in
-<a href=\"Modelica:Modelica_Media.UsersGuide.MediumUsage.OptionalProperties\">
-Modelica_Media.UsersGuide.MediumUsage.OptionalProperties</a>.
-
+<a href=\"Modelica.Media.UsersGuide.MediumUsage.OptionalProperties\">
+Modelica.Media.UsersGuide.MediumUsage.OptionalProperties</a>.
 Many additional optional functions are defined to compute properties of 
 saturated media, either liquid (bubble point) or vapour (dew point). 
 The argument to such functions is a SaturationProperties record, which can be
@@ -184,12 +183,10 @@ SaturationProperties record sat, the following functions are provided:
       <td>N/m</td>
       <td>Surface tension between liquid and vapour phase</td></tr>
 </table>
-
 <p>Details on usage and some examples are given in:
-<a href=\"Modelica:Modelica_Media.UsersGuide.MediumUsage.TwoPhase\">
-Modelica_Media.UsersGuide.MediumUsage.TwoPhase</a>.
+<a href=\"Modelica.Media.UsersGuide.MediumUsage.TwoPhase\">
+Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
 </p>
-
 <p>Many further properties can be computed. Using the well-known Bridgman's Tables,
 all first partial derivatives of the standard thermodynamic variables can be computed easily.
 </p>
@@ -312,8 +309,8 @@ This model calculates medium properties
 for water in the <b>liquid</b>, <b>gas</b> and <b>two phase</b> regions 
 according to the IAPWS/IF97 standard, i.e., the accepted industrial standard
 and best compromise between accuracy and computation time.
-For more details see <a href=\"Modelica:Modelica_Media.Water.IF97_Utilities\">
-Modelica_Media.Water.IF97_Utilities</a>. Three variable pairs can be the 
+For more details see <a href=\"Modelica.Media.Water.IF97_Utilities\">
+Modelica.Media.Water.IF97_Utilities</a>. Three variable pairs can be the 
 independent variables of the model:
 <ol>
 <li>Pressure <b>p</b> and specific enthalpy <b>h</b> are the most natural choice for general applications. This is the recommended choice for most general purpose applications, in particular for power plants.</li>
@@ -346,10 +343,10 @@ The following quantities are always computed:
 In some cases additional medium properties are needed.
 A component that needs these optional properties has to call
 one of the functions listed in 
-<a href=\"Modelica:Modelica_Media.UsersGuide.MediumUsage.OptionalProperties\">
-Modelica_Media.UsersGuide.MediumUsage.OptionalProperties</a> and in
-<a href=\"Modelica:Modelica_Media.UsersGuide.MediumUsage.TwoPhase\">
-Modelica_Media.UsersGuide.MediumUsage.TwoPhase</a>.
+<a href=\"Modelica.Media.UsersGuide.MediumUsage.OptionalProperties\">
+Modelica.Media.UsersGuide.MediumUsage.OptionalProperties</a> and in
+<a href=\"Modelica.Media.UsersGuide.MediumUsage.TwoPhase\">
+Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
 </p>
 </p>
 <p>Many further properties can be computed. Using the well-known Bridgman's Tables, all first partial derivatives of the standard thermodynamic variables can be computed easily.</p>
@@ -615,9 +612,9 @@ Modelica_Media.UsersGuide.MediumUsage.TwoPhase</a>.
   redeclare function extends heatCapacityCp 
       "specific heat capacity at constant pressure of water" 
       annotation (Documentation(info="<html><body>
-				<p>In the two phase region this function returns the interpolated heat capacity between the
-				liquid and vapour state heat capacities.</p>
-			  </body><html>"));
+                                <p>In the two phase region this function returns the interpolated heat capacity between the
+                                liquid and vapour state heat capacities.</p>
+                          </body><html>"));
   algorithm 
     if dT_explicit then
       cp := IF97_Utilities.cp_dT(state.d, state.T, state.phase);
@@ -803,8 +800,8 @@ This model calculates medium properties
 for water in the <b>liquid</b>, <b>gas</b> and <b>two phase</b> regions 
 according to the IAPWS/IF97 standard, i.e., the accepted industrial standard
 and best compromise between accuracy and computation time.
-For more details see <a href=\"Modelica:Modelica_Media.Water.IF97_Utilities\">
-Modelica_Media.Water.IF97_Utilities</a>. Three variable pairs can be the 
+For more details see <a href=\"Modelica.Media.Water.IF97_Utilities\">
+Modelica.Media.Water.IF97_Utilities</a>. Three variable pairs can be the 
 independent variables of the model:
 <ol>
 <li>Pressure <b>p</b> and specific enthalpy <b>h</b> are the most natural choice for general applications. This is the recommended choice for most general purpose applications, in particular for power plants.</li>
@@ -837,10 +834,10 @@ The following quantities are always computed:
 In some cases additional medium properties are needed.
 A component that needs these optional properties has to call
 one of the functions listed in 
-<a href=\"Modelica:Modelica_Media.UsersGuide.MediumUsage.OptionalProperties\">
-Modelica_Media.UsersGuide.MediumUsage.OptionalProperties</a> and in
-<a href=\"Modelica:Modelica_Media.UsersGuide.MediumUsage.TwoPhase\">
-Modelica_Media.UsersGuide.MediumUsage.TwoPhase</a>.
+<a href=\"Modelica.Media.UsersGuide.MediumUsage.OptionalProperties\">
+Modelica.Media.UsersGuide.MediumUsage.OptionalProperties</a> and in
+<a href=\"Modelica.Media.UsersGuide.MediumUsage.TwoPhase\">
+Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
 </p>
 </p>
 <p>Many further properties can be computed. Using the well-known Bridgman's Tables, all first partial derivatives of the standard thermodynamic variables can be computed easily.

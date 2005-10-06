@@ -118,12 +118,12 @@ in the allowed range (" + String(T_min) + " K <= T <= " + String(T_max)
     constant IdealGases.Common.DataRecord dryair = IdealGases.Common.SingleGasesData.Air;
     constant IdealGases.Common.DataRecord steam = IdealGases.Common.SingleGasesData.H2O;
     
-    import Modelica_Media.Interfaces;
+    import Modelica.Media.Interfaces;
     import Modelica.Math;
     import SI = Modelica.SIunits;
     import Cv = Modelica.SIunits.Conversions;
     import Modelica.Constants;
-    import Modelica_Media.IdealGases.Common.SingleGasNasa;
+    import Modelica.Media.IdealGases.Common.SingleGasNasa;
     
     redeclare replaceable model extends BaseProperties(
       T(stateSelect=if preferredMediumStates then StateSelect.prefer else StateSelect.default),
@@ -304,7 +304,7 @@ required from medium model \""       + mediumName + "\".");
     
   redeclare function extends dynamicViscosity 
       "simple polynomial for dry air (moisture influence small), valid from 73.15 K to 373.15 K" 
-      import Modelica_Media.Incompressible.TableBased.Polynomials_Temp;
+      import Modelica.Media.Incompressible.TableBased.Polynomials_Temp;
   algorithm 
     eta := Polynomials_Temp.evaluate({(-4.96717436974791E-011), 5.06626785714286E-008, 1.72937731092437E-005},
          Cv.to_degC(state.T));
@@ -312,7 +312,7 @@ required from medium model \""       + mediumName + "\".");
     
   redeclare function extends thermalConductivity 
       "simple polynomial for dry air (moisture influence small), valid from 73.15 K to 373.15 K" 
-      import Modelica_Media.Incompressible.TableBased.Polynomials_Temp;
+      import Modelica.Media.Incompressible.TableBased.Polynomials_Temp;
   algorithm 
     lambda := Polynomials_Temp.evaluate({(-4.8737307422969E-008), 7.67803133753502E-005, 0.0241814385504202},
      Cv.to_degC(state.T));
@@ -405,7 +405,7 @@ required from medium model \""       + mediumName + "\".");
     //     end Utilities;
     
     /* Flattened Modelica model:
-function Modelica_Media.Air.MoistAir.enthalpy_pTX:der
+function Modelica.Media.Air.MoistAir.enthalpy_pTX:der
   input Real p;
   input Real T;
   input Real Xi[size({"water", "air"}, 1)-1];
@@ -426,49 +426,49 @@ protected
   constant Real _GlobalScope.dryair.ahigh[7];
   constant Real _GlobalScope.dryair.bhigh[2];
   constant Real _GlobalScope.dryair.R;
-  constant String _GlobalScope.Modelica_Media.IdealGases.Common.SingleGasesData.Air.name
+  constant String _GlobalScope.Modelica.Media.IdealGases.Common.SingleGasesData.Air.name
      := "Air";
-  constant Real _GlobalScope.Modelica_Media.IdealGases.Common.SingleGasesData.Air.MM
+  constant Real _GlobalScope.Modelica.Media.IdealGases.Common.SingleGasesData.Air.MM
      := 0.0289651159;
-  constant Real _GlobalScope.Modelica_Media.IdealGases.Common.SingleGasesData.Air.Hf
+  constant Real _GlobalScope.Modelica.Media.IdealGases.Common.SingleGasesData.Air.Hf
      := (-4333.83385840345);
-  constant Real _GlobalScope.Modelica_Media.IdealGases.Common.SingleGasesData.Air.H0
+  constant Real _GlobalScope.Modelica.Media.IdealGases.Common.SingleGasesData.Air.H0
      := 298609.680343105;
-  constant Real _GlobalScope.Modelica_Media.IdealGases.Common.SingleGasesData.Air.Tlimit
+  constant Real _GlobalScope.Modelica.Media.IdealGases.Common.SingleGasesData.Air.Tlimit
      := 1000;
-  constant Real _GlobalScope.Modelica_Media.IdealGases.Common.SingleGasesData.Air.alow
+  constant Real _GlobalScope.Modelica.Media.IdealGases.Common.SingleGasesData.Air.alow
     [7] := {10099.5016, (-196.827561), 5.00915511, (-0.00576101373), 
     1.06685993E-005, (-7.94029797E-009), 2.18523191E-012};
-  constant Real _GlobalScope.Modelica_Media.IdealGases.Common.SingleGasesData.Air.blow
+  constant Real _GlobalScope.Modelica.Media.IdealGases.Common.SingleGasesData.Air.blow
     [2] := {(-176.796731), (-3.921504225)};
-  constant Real _GlobalScope.Modelica_Media.IdealGases.Common.SingleGasesData.Air.ahigh
+  constant Real _GlobalScope.Modelica.Media.IdealGases.Common.SingleGasesData.Air.ahigh
     [7] := {241521.443, (-1257.8746), 5.14455867, (-0.000213854179), 
     7.06522784E-008, (-1.07148349E-011), 6.57780015E-016};
-  constant Real _GlobalScope.Modelica_Media.IdealGases.Common.SingleGasesData.Air.bhigh
+  constant Real _GlobalScope.Modelica.Media.IdealGases.Common.SingleGasesData.Air.bhigh
     [2] := {6462.26319, (-8.147411905)};
-  constant Real _GlobalScope.Modelica_Media.IdealGases.Common.SingleGasesData.Air.R
+  constant Real _GlobalScope.Modelica.Media.IdealGases.Common.SingleGasesData.Air.R
      := 287.051224952979;
-  constant String _GlobalScope.Modelica_Media.IdealGases.Common.SingleGasesData.H2O.name
+  constant String _GlobalScope.Modelica.Media.IdealGases.Common.SingleGasesData.H2O.name
      := "H2O";
-  constant Real _GlobalScope.Modelica_Media.IdealGases.Common.SingleGasesData.H2O.MM
+  constant Real _GlobalScope.Modelica.Media.IdealGases.Common.SingleGasesData.H2O.MM
      := 0.01801528;
-  constant Real _GlobalScope.Modelica_Media.IdealGases.Common.SingleGasesData.H2O.Hf
+  constant Real _GlobalScope.Modelica.Media.IdealGases.Common.SingleGasesData.H2O.Hf
      := (-13423382.8172529);
-  constant Real _GlobalScope.Modelica_Media.IdealGases.Common.SingleGasesData.H2O.H0
+  constant Real _GlobalScope.Modelica.Media.IdealGases.Common.SingleGasesData.H2O.H0
      := 549760.647628014;
-  constant Real _GlobalScope.Modelica_Media.IdealGases.Common.SingleGasesData.H2O.Tlimit
+  constant Real _GlobalScope.Modelica.Media.IdealGases.Common.SingleGasesData.H2O.Tlimit
      := 1000;
-  constant Real _GlobalScope.Modelica_Media.IdealGases.Common.SingleGasesData.H2O.alow
+  constant Real _GlobalScope.Modelica.Media.IdealGases.Common.SingleGasesData.H2O.alow
     [7] := {(-39479.6083), 575.573102, 0.931782653, 0.00722271286, (
     -7.34255737E-006), 4.95504349E-009, (-1.336933246E-012)};
-  constant Real _GlobalScope.Modelica_Media.IdealGases.Common.SingleGasesData.H2O.blow
+  constant Real _GlobalScope.Modelica.Media.IdealGases.Common.SingleGasesData.H2O.blow
     [2] := {(-33039.7431), 17.24205775};
-  constant Real _GlobalScope.Modelica_Media.IdealGases.Common.SingleGasesData.H2O.ahigh
+  constant Real _GlobalScope.Modelica.Media.IdealGases.Common.SingleGasesData.H2O.ahigh
     [7] := {1034972.096, (-2412.698562), 4.64611078, 0.002291998307, (
     -6.83683048E-007), 9.42646893E-011, (-4.82238053E-015)};
-  constant Real _GlobalScope.Modelica_Media.IdealGases.Common.SingleGasesData.H2O.bhigh
+  constant Real _GlobalScope.Modelica.Media.IdealGases.Common.SingleGasesData.H2O.bhigh
     [2] := {(-13842.86509), (-7.97814851)};
-  constant Real _GlobalScope.Modelica_Media.IdealGases.Common.SingleGasesData.H2O.R
+  constant Real _GlobalScope.Modelica.Media.IdealGases.Common.SingleGasesData.H2O.R
      := 461.523329085088;
   constant String _GlobalScope.steam.name;
   constant Real _GlobalScope.steam.MM;
@@ -507,17 +507,17 @@ algorithm
   X_steam := Xi[1]-X_liquid;
   X_air_der :=  -Xi_der[1];
   X_air := 1-Xi[1];
-  h_der := {Modelica_Media.IdealGases.Common.SingleGasNasa.h_Tlow:der(
-    _GlobalScope.Modelica_Media.IdealGases.Common.SingleGasesData.H2O, T, true, 3,
-     2547494.319, T_der, 0), Modelica_Media.IdealGases.Common.SingleGasNasa.h_Tlow:der
-    (_GlobalScope.Modelica_Media.IdealGases.Common.SingleGasesData.Air, T, true,
-     3, 25104.684, T_der, 0)}*{X_steam, X_air}+{Modelica_Media.IdealGases.Common.SingleGasNasa.h_Tlow
-    (_GlobalScope.Modelica_Media.IdealGases.Common.SingleGasesData.H2O, T, true,
-     3, 2547494.319), Modelica_Media.IdealGases.Common.SingleGasNasa.h_Tlow(
-    _GlobalScope.Modelica_Media.IdealGases.Common.SingleGasesData.Air, T, true, 3,
+  h_der := {Modelica.Media.IdealGases.Common.SingleGasNasa.h_Tlow:der(
+    _GlobalScope.Modelica.Media.IdealGases.Common.SingleGasesData.H2O, T, true, 3,
+     2547494.319, T_der, 0), Modelica.Media.IdealGases.Common.SingleGasNasa.h_Tlow:der
+    (_GlobalScope.Modelica.Media.IdealGases.Common.SingleGasesData.Air, T, true,
+     3, 25104.684, T_der, 0)}*{X_steam, X_air}+{Modelica.Media.IdealGases.Common.SingleGasNasa.h_Tlow
+    (_GlobalScope.Modelica.Media.IdealGases.Common.SingleGasesData.H2O, T, true,
+     3, 2547494.319), Modelica.Media.IdealGases.Common.SingleGasNasa.h_Tlow(
+    _GlobalScope.Modelica.Media.IdealGases.Common.SingleGasesData.Air, T, true, 3,
      25104.684)}*{X_steam_der, X_air_der}+enthalpyOfLiquid_Unique'"0753C388"':der
     (T, T_der)*X_liquid+enthalpyOfLiquid_Unique'"0753C388"'(T)*X_liquid_der;
-end Modelica_Media.Air.MoistAir.h_pTX:der;
+end Modelica.Media.Air.MoistAir.h_pTX:der;
     function h_pTX_der "derivative function for h_pTX"
       input SI.Pressure p "Pressure";
       input SI.Temperature T "Temperature";

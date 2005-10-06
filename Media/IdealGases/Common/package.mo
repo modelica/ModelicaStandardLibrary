@@ -1,7 +1,6 @@
 package Common "Common packages and data for the ideal gas models"
 extends Modelica.Icons.Library;
 
-
 record DataRecord 
   "Coefficient data record for properties of ideal gases based on NASA source" 
   extends Modelica.Icons.Record;
@@ -42,7 +41,6 @@ gases also differentiable at Tlimit.
 </HTML>"));
 end DataRecord;
 
-
 partial package SingleGasNasa 
   "Medium model of an ideal gas based on NASA source" 
   
@@ -80,9 +78,9 @@ The following quantities are always computed:
 </table>
 <p>
 For the other variables, see the functions in
-Modelica_Media.IdealGases.Common.SingleGasNasa.
+Modelica.Media.IdealGases.Common.SingleGasNasa.
 Note, dynamic viscosity and thermal conductivity are only provided
-for gases that use a data record from Modelica_Media.IdealGases.FluidData.
+for gases that use a data record from Modelica.Media.IdealGases.FluidData.
 Currently these are the following gases:
 </p>
 <pre>
@@ -139,7 +137,7 @@ this never caused problems so far.
 </p>
 <p>
 This model has been copied from the ThermoFluid library
-and adapted to the Modelica_Media package.
+and adapted to the Modelica.Media package.
 </p>
 </HTML>"),
     Icon,
@@ -162,9 +160,9 @@ and adapted to the Modelica_Media package.
     Temperature T "Temperature of medium";
   end ThermodynamicState;
   
-  import SI = Modelica.SIunits;
-  import Modelica.Math;
-  import Modelica_Media.Interfaces.PartialMedium.Choices.ReferenceEnthalpy;
+    import SI = Modelica.SIunits;
+    import Modelica.Math;
+    import Modelica.Media.Interfaces.PartialMedium.Choices.ReferenceEnthalpy;
   
   constant Boolean excludeEnthalpyOfFormation=true 
     "If true, enthalpy of formation Hf is not included in specific enthalpy h";
@@ -351,7 +349,7 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
   
   function enthalpy_T "Compute specific enthalpy from temperature and gas data; reference is decided by the 
     refChoice input, or by the referenceChoice package constant by default" 
-    import Modelica_Media.Interfaces.PartialMedium.Choices;
+      import Modelica.Media.Interfaces.PartialMedium.Choices;
     extends Modelica.Icons.Function;
     
     input IdealGases.Common.DataRecord data "Ideal gas data";
@@ -383,7 +381,7 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
   end enthalpy_T;
   
   function enthalpy_T_der "derivative function for enthalpy_T" 
-    import Modelica_Media.Interfaces.PartialMedium.Choices;
+      import Modelica.Media.Interfaces.PartialMedium.Choices;
     extends Modelica.Icons.Function;
     
     input IdealGases.Common.DataRecord data "Ideal gas data";
@@ -402,7 +400,7 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
   
   function enthalpy_Tlow "Compute specific enthalpy, low T region; reference is decided by the 
     refChoice input, or by the referenceChoice package constant by default" 
-    import Modelica_Media.Interfaces.PartialMedium.Choices;
+      import Modelica.Media.Interfaces.PartialMedium.Choices;
     extends Modelica.Icons.Function;
     
     input IdealGases.Common.DataRecord data "Ideal gas data";
@@ -432,7 +430,7 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
   
   function enthalpy_Tlow_der 
     "Compute derivative of specific enthalpy, low T region" 
-    import Modelica_Media.Interfaces.PartialMedium.Choices;
+      import Modelica.Media.Interfaces.PartialMedium.Choices;
     extends Modelica.Icons.Function;
     input IdealGases.Common.DataRecord data "Ideal gas data";
     input SI.Temperature T "Temperature";
@@ -603,7 +601,6 @@ transform the formula to SI units:
   
 end SingleGasNasa;
 
-
 partial package MixtureGasNasa 
   "Medium model of a mixture of ideal gases based on NASA source" 
   
@@ -633,10 +630,10 @@ It has been developed by Hubertus Tummescheit.
 </p>
 </HTML>"), Icon);
   
-  import Modelica.Math;
-  import Modelica_Media.Interfaces.PartialMedium.Choices.ReferenceEnthalpy;
+    import Modelica.Math;
+    import Modelica.Media.Interfaces.PartialMedium.Choices.ReferenceEnthalpy;
   
-  extends Modelica_Media.Interfaces.PartialMixtureMedium(
+  extends Modelica.Media.Interfaces.PartialMixtureMedium(
      substanceNames=data[:].name,
      final reducedX = false,
      singleState=false,
@@ -647,7 +644,7 @@ It has been developed by Hubertus Tummescheit.
      AbsolutePressure(start=10e5, nominal=10e5),
      Temperature(start=500, nominal=500));
   
-  constant Modelica_Media.IdealGases.Common.DataRecord[:] data 
+  constant Modelica.Media.IdealGases.Common.DataRecord[:] data 
     "Data records of ideal gas substances";
     // ={Common.SingleGasesData.N2,Common.SingleGasesData.O2}
   
@@ -666,7 +663,7 @@ It has been developed by Hubertus Tummescheit.
     T(stateSelect=if preferredMediumStates then StateSelect.prefer else StateSelect.default),
     p(stateSelect=if preferredMediumStates then StateSelect.prefer else StateSelect.default),
     Xi(each stateSelect=if preferredMediumStates then StateSelect.prefer else StateSelect.default)) 
-    import Modelica_Media.IdealGases.Common.SingleGasNasa;
+      import Modelica.Media.IdealGases.Common.SingleGasNasa;
     annotation (structurallyIncomplete);
       //    SpecificEnthalpy h_component[nX];
   equation 
@@ -693,7 +690,7 @@ required from medium model \"" + mediumName + "\".");
        X(start = reference_X),
        T(stateSelect=if preferredMediumStates then StateSelect.prefer else StateSelect.default), 
        p(stateSelect=if preferredMediumStates then StateSelect.prefer else StateSelect.default)); 
-    import Modelica_Media.IdealGases.Common.SingleGasNasa;
+    import Modelica.Media.IdealGases.Common.SingleGasNasa;
     parameter MolarMass[nX] MMX=data[:].MM "molar masses of components";
     SpecificEnthalpy h_component[nX] "component specific enthalpy";
     SpecificEntropy[nX] s_component "component specific entropy";
@@ -733,7 +730,7 @@ required from medium model \"" + mediumName + "\".");
 */
   
   function h_TX "Return specific enthalpy" 
-    import Modelica_Media.Interfaces.PartialMedium.Choices;
+      import Modelica.Media.Interfaces.PartialMedium.Choices;
      extends Modelica.Icons.Function;
     
      input SI.Temperature T "Temperature";
@@ -750,7 +747,7 @@ required from medium model \"" + mediumName + "\".");
   end h_TX;
   
   function h_TX_der "Return specific enthalpy derivative" 
-    import Modelica_Media.Interfaces.PartialMedium.Choices;
+      import Modelica.Media.Interfaces.PartialMedium.Choices;
      extends Modelica.Icons.Function;
      input SI.Temperature T "Temperature";
      input MassFraction Xi[nXi] "Independent Mass fractions of gas mixture";
@@ -941,7 +938,7 @@ end gasMixtureViscosity;
     "compute the viscosity of gas mixtures without access to component viscosities" 
   //Chung, et al. rules (1984, 1988)
   extends Modelica.Icons.Function;
-    import SI = Modelica.SIunits;
+      import SI = Modelica.SIunits;
     input Temperature T "Temperature";
     input Temperature[:] Tc "Critical temperatures";
     input MolarVolume[:] Vcrit "Critical volumes (m3/mol)";

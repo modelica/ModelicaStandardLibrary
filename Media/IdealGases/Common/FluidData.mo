@@ -1,8 +1,8 @@
 package FluidData "critical data, dipole moments and related data" 
   extends Modelica.Icons.Library;
   
-  import Modelica_Media.Interfaces.PartialMedium;
-  import Modelica_Media.IdealGases.Common.SingleGasesData;
+  import Modelica.Media.Interfaces.PartialMedium;
+  import Modelica.Media.IdealGases.Common.SingleGasesData;
   
   constant PartialMedium.FluidConstants N2(
                        chemicalFormula =        "N2",

@@ -10,7 +10,7 @@ package Incompressible
     
     // Extended record for input to functions based on polynomials
     record BaseProps_Tpoly "fluid state record" 
-      extends Modelica_Media.Interfaces.PartialMedium.ThermodynamicState;
+      extends Modelica.Media.Interfaces.PartialMedium.ThermodynamicState;
       //      SI.SpecificHeatCapacity cp "specific heat capacity";
       SI.Temperature T "temperature";
       SI.Pressure p "pressure";
@@ -18,7 +18,7 @@ package Incompressible
     end BaseProps_Tpoly;
     
     //     record BaseProps_Tpoly_old "fluid state record" 
-    //       extends Modelica_Media.Interfaces.PartialMedium.ThermodynamicState;
+    //       extends Modelica.Media.Interfaces.PartialMedium.ThermodynamicState;
     //       //      SI.SpecificHeatCapacity cp "specific heat capacity";
     //       SI.Temperature T "temperature";
     //       SI.Pressure p "pressure";
@@ -34,9 +34,9 @@ package Incompressible
   
   package TableBased "Incompressible medium properties based on tables" 
     
-    import Poly = Modelica_Media.Incompressible.TableBased.Polynomials_Temp;
+    import Poly = Modelica.Media.Incompressible.TableBased.Polynomials_Temp;
     
-    extends Modelica_Media.Interfaces.PartialMedium(
+    extends Modelica.Media.Interfaces.PartialMedium(
        final reducedX=true,
        mediumName="tableMedium",
        redeclare record ThermodynamicState=Common.BaseProps_Tpoly,
@@ -412,28 +412,28 @@ returned as a vector p[n+1] that has the following definition:
       width=0.6,
       height=0.6),
       Documentation(info="<HTML>
-				  <h3><font color=\"#008000\">Syntax</font></h3>
-				  <blockquote><pre>
-				  x = Matrices.<b>leastSquares</b>(A,b);
-				  </pre></blockquote>
-				  <h3><font color=\"#008000\">Description</font></h3>
-				  <p>
-				  A linear system of equations A*x = b has no solutions or infinitely
-				  many solutions if A is not square. Function \"leastSquares\" returns
-				  a solution in a least squarse sense:
-				  </p>
-				  <pre>
-				  size(A,1) &gt; size(A,2):  returns x such that |A*x - b|^2 is a minimum
-				  size(A,1) = size(A,2):  returns x such that A*x = b
-				  size(A,1) &lt; size(A,2):  returns x such that |x|^2 is a minimum for all 
-				  vectors x that fulfill A*x = b
-				  </pre>
-				  <p>
-				  Note, the solution is computed with the LAPACK function \"dgesl\",
-				  i.e., QR or LQ factorization of A. It is required that
-				  A has full rank.
-				  </p>
-				  </HTML>"));
+                                  <h3><font color=\"#008000\">Syntax</font></h3>
+                                  <blockquote><pre>
+                                  x = Matrices.<b>leastSquares</b>(A,b);
+                                  </pre></blockquote>
+                                  <h3><font color=\"#008000\">Description</font></h3>
+                                  <p>
+                                  A linear system of equations A*x = b has no solutions or infinitely
+                                  many solutions if A is not square. Function \"leastSquares\" returns
+                                  a solution in a least squarse sense:
+                                  </p>
+                                  <pre>
+                                  size(A,1) &gt; size(A,2):  returns x such that |A*x - b|^2 is a minimum
+                                  size(A,1) = size(A,2):  returns x such that A*x = b
+                                  size(A,1) &lt; size(A,2):  returns x such that |x|^2 is a minimum for all 
+                                  vectors x that fulfill A*x = b
+                                  </pre>
+                                  <p>
+                                  Note, the solution is computed with the LAPACK function \"dgesl\",
+                                  i.e., QR or LQ factorization of A. It is required that
+                                  A has full rank.
+                                  </p>
+                                  </HTML>"));
       protected 
         Integer info;
         Real xx[max(size(A, 1), size(A, 2))];
@@ -442,7 +442,7 @@ returned as a vector p[n+1] that has the following definition:
         x := xx[1:size(A, 2)];
         assert(info == 0,
                    "Solving an overdetermined or underdetermined linear system of 
-	       equations with function \"Matrices.leastSquares\" failed.");
+               equations with function \"Matrices.leastSquares\" failed.");
       end leastSquares;
       
     function dgels_vec 
@@ -712,7 +712,6 @@ incompressible fluids. The package contains:
 <li><b>Glycol47</b>, a model of 47% glycol water mixture, based on tables of
 density and heat capacity as functions of temperature.</li>
 <li><b>Essotherm650</b>, a medium model for thermal oil, also based on tables.</li>
-
 </HTML>"));
   end Examples;
   
@@ -749,29 +748,26 @@ energy, which makes all medium properties pure functions of temperature.</li>
 The default setting for both these flags is true, which enables the simulation tool
 to choose temperature as the only medium state and avoids non-linear equation
 systems, see the section about
-<a href=\"Modelica:Modelica_Media.UsersGuide.MediumUDefinition.StaticStateSelection\">Static
-state selection</a> in the Modelica_Media users guide.
-
+<a href=\"Modelica.Media.UsersGuide.MediumUDefinition.StaticStateSelection\">Static
+state selection</a> in the Modelica.Media users guide.
 </p>
 <h4>Contents</h4>
 <p>
 Currently, the package contains the following parts:
 </p>
 <ol>
-<li> <a href=\"Modelica:Modelica_Media.Incompressible.TableBased\">
+<li> <a href=\"Modelica.Media.Incompressible.TableBased\">
       Table based medium models</a></li>
-<li> <a href=\"Modelica:Modelica_Media.Incompressible.Examples\">
+<li> <a href=\"Modelica.Media.Incompressible.Examples\">
       Example medium models</a></li>
 </ol>
-
 <p>
 A few examples are given in the Examples package. The model
-<a href=\"Modelica:Modelica_Media.TableBased.Examples.TestGlycol\">
+<a href=\"Modelica.Media.TableBased.Examples.TestGlycol\">
 Examples.TestGlycol</a> shows how the medium models can be used. For more
 realistic examples of how to implement volume models with medium properties
-look in the <a href=\"Modelica:Modelica_Media.UsersGuide.MediumUsage\">Medium
+look in the <a href=\"Modelica.Media.UsersGuide.MediumUsage\">Medium
 usage section</a> of the Users guide.
 </p>
-
 </HTML>"));
 end Incompressible;
