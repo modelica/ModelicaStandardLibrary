@@ -205,6 +205,7 @@ distributed with computer implementations and are included here
 </ul>
 </html>"));
 
+
 extends Modelica.Icons.Library;
   constant Interfaces.PartialTwoPhaseMedium.FluidConstants 
   waterConstantsTwoPhase(
@@ -257,6 +258,7 @@ extends Modelica.Icons.Library;
      each dipoleMoment = 1.8,
      each hasCriticalData=true);
 
+
 package ConstantPropertyLiquidWater 
   "Water: Simple liquid water medium (incompressible, constant data)" 
   
@@ -290,16 +292,20 @@ package ConstantPropertyLiquidWater
           fillPattern=1))), Diagram);
 end ConstantPropertyLiquidWater;
 
+
 package IdealSteam "Water: Steam as ideal gas from NASA source" 
   extends IdealGases.SingleGases.H2O(
   fluidConstants = waterConstantsPureSubstance);
 end IdealSteam;
 
+
 package StandardWater = WaterIF97_ph 
   "Water using the IF97 standard, explicit in p and h. Recommended for most applications";
 
+
 package StandardWaterOnePhase = WaterIF97_pT 
   "Water using the IF97 standard, explicit in p and T. Recommended for one-phase applications";
+
 
 package WaterIF97OnePhase_ph 
   "Water using the IF97 standard, explicit in p and h, and only valid outside the two-phase dome" 
@@ -311,6 +317,7 @@ package WaterIF97OnePhase_ph
     final onePhase=true);
 end WaterIF97OnePhase_ph;
 
+
 package WaterIF97_pT "Water using the IF97 standard, explicit in p and T" 
   extends WaterIF97_base(
     final ph_explicit=false,
@@ -320,6 +327,7 @@ package WaterIF97_pT "Water using the IF97 standard, explicit in p and T"
     final onePhase=true);
 end WaterIF97_pT;
 
+
 package WaterIF97_ph "Water using the IF97 standard, explicit in p and h" 
   extends WaterIF97_base(
     final ph_explicit=true,
@@ -328,6 +336,7 @@ package WaterIF97_ph "Water using the IF97 standard, explicit in p and h"
     smoothModel=false,
     onePhase=false);
 end WaterIF97_ph;
+
 
 partial package WaterIF97_base 
   "Water: Steam properties as defined by IAPWS/IF97 standard" 
@@ -658,6 +667,21 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
     end if;
   end heatCapacityCp;
   
+  redeclare function extends heatCapacityCp_dT 
+  algorithm 
+    cp := IF97_Utilities.cp_dT(d, T, phase);
+  end heatCapacityCp_dT;
+  
+  redeclare function extends heatCapacityCp_ph 
+  algorithm 
+    cp := IF97_Utilities.cp_ph(p, h, phase);
+  end heatCapacityCp_ph;
+  
+  redeclare function extends heatCapacityCp_pT 
+  algorithm 
+    cp := IF97_Utilities.cp_pT(p, T);
+  end heatCapacityCp_pT;
+  
   redeclare function extends heatCapacityCv 
     "specific heat capacity at constant volume of water" 
   algorithm 
@@ -669,6 +693,21 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       cv := IF97_Utilities.cv_ph(state.p, state.h, state.phase);
     end if;
   end heatCapacityCv;
+  
+  redeclare function extends heatCapacityCv_dT 
+  algorithm 
+    cv := IF97_Utilities.cv_dT(d, T, phase);
+  end heatCapacityCv_dT;
+  
+  redeclare function extends heatCapacityCv_ph 
+  algorithm 
+    cv := IF97_Utilities.cv_ph(p, h, phase);
+  end heatCapacityCv_ph;
+  
+  redeclare function extends heatCapacityCv_pT 
+  algorithm 
+    cv := IF97_Utilities.cv_pT(p, T);
+  end heatCapacityCv_pT;
   
   redeclare function extends isentropicExponent "Return isentropic exponent" 
   algorithm 
@@ -818,6 +857,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
   end dDewEnthalpy_dPressure;
   
 end WaterIF97_base;
+
 
 partial package WaterIF97_fixedregion 
   "Water: Steam properties as defined by IAPWS/IF97 standard" 
@@ -1242,6 +1282,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
   
 end WaterIF97_fixedregion;
 
+
 package WaterIF97_R1ph "region 1 (liquid) water according to IF97 standard" 
   extends WaterIF97_fixedregion(
     final Region=1,
@@ -1251,6 +1292,7 @@ package WaterIF97_R1ph "region 1 (liquid) water according to IF97 standard"
     smoothModel=true,
     onePhase=true);
 end WaterIF97_R1ph;
+
 
 package WaterIF97_R2ph "region 2 (steam) water according to IF97 standard" 
   extends WaterIF97_fixedregion(
@@ -1262,6 +1304,7 @@ package WaterIF97_R2ph "region 2 (steam) water according to IF97 standard"
     onePhase=true);
 end WaterIF97_R2ph;
 
+
 package WaterIF97_R3ph "region 3 water according to IF97 standard" 
   extends WaterIF97_fixedregion(
     final Region=3,
@@ -1271,6 +1314,7 @@ package WaterIF97_R3ph "region 3 water according to IF97 standard"
     smoothModel=true,
     onePhase=true);
 end WaterIF97_R3ph;
+
 
 package WaterIF97_R4ph "region 4 water according to IF97 standard" 
   extends WaterIF97_fixedregion(
@@ -1282,6 +1326,7 @@ package WaterIF97_R4ph "region 4 water according to IF97 standard"
     onePhase=false);
 end WaterIF97_R4ph;
 
+
 package WaterIF97_R5ph "region 5 water according to IF97 standard" 
   extends WaterIF97_fixedregion(
     final Region=5,
@@ -1292,6 +1337,7 @@ package WaterIF97_R5ph "region 5 water according to IF97 standard"
     onePhase=true);
 end WaterIF97_R5ph;
 
+
 package WaterIF97_R1pT "region 1 (liquid) water according to IF97 standard" 
   extends WaterIF97_fixedregion(
     final Region=1,
@@ -1301,6 +1347,7 @@ package WaterIF97_R1pT "region 1 (liquid) water according to IF97 standard"
     smoothModel=true,
     onePhase=true);
 end WaterIF97_R1pT;
+
 
 package WaterIF97_R2pT "region 2 (steam) water according to IF97 standard" 
   extends WaterIF97_fixedregion(
