@@ -186,7 +186,7 @@ and adapted to the Modelica.Media package.
 Temperature T (= " + String(T) + " K) is not in the allowed range
 200 K <= T <= 6000 K required from medium model \"" + mediumName + "\".
 ");
-    MM = molarMass(state);
+    MM = molarMass();
     R = data.R;
     h = enthalpy(state);
     u = internalEnergy(state);
@@ -764,9 +764,9 @@ required from medium model \"" + mediumName + "\".");
   algorithm 
     assert(reducedX == false, "reducedX = true is not supported");
     h_der := if fixedX then 
-      dT*sum((SingleGasNasa.cp_T(data[i], T)*reference_X[i]) for i in 1:nX) else 
-      dT*sum((SingleGasNasa.cp_T(data[i], T)*Xi[i]) for i in 1:nX)+
-      sum((SingleGasNasa.h_T(data[i], T)*dXi[i]) for i in 1:nX);
+      dT*sum((SingleGasNasa.heatCapacityCp_T(data[i], T)*reference_X[i]) for i in 1:nX) else 
+      dT*sum((SingleGasNasa.heatCapacityCp_T(data[i], T)*Xi[i]) for i in 1:nX)+
+      sum((SingleGasNasa.enthalpy_T(data[i], T)*dXi[i]) for i in 1:nX);
   end h_TX_der;
   
   redeclare function extends gasConstant 
@@ -1227,7 +1227,7 @@ end lowPressureThermalConductivity;
                        fluidConstants[i].criticalMolarVolume,
                        fluidConstants[i].acentricFactor,
                        fluidConstants[i].dipoleMoment);
-    cp[i] := SingleGasNasa.cp_T(data[i],state.T);
+    cp[i] := SingleGasNasa.heatCapacityCp_T(data[i],state.T);
     lambdaX[i] :=SingleGasNasa.thermalConductivityEstimate(Cp=cp[i], eta=
           eta[i], method=method);
       end for;
@@ -1270,7 +1270,10 @@ end lowPressureThermalConductivity;
       i].MM for i in 1:nX};
   end density_derX;
   
-  redeclare function extends molarMass "compute molar mass of mixture" 
+  redeclare function molarMass "compute molar mass of mixture" 
+    extends Modelica.Icons.Function;
+    input ThermodynamicState state "complete thermodynamic state";
+    output MolarMass MM "molar mass";
   algorithm 
     MM := 1/sum(state.X[j]/data[j].MM for j in 1:size(state.X, 1));
   end molarMass;

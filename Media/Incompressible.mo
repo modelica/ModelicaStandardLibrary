@@ -235,7 +235,7 @@ which is only exactly true for a fluid with constant density d=d0.
     end enthalpy_pT;
     
     package Polynomials_Temp 
-      "Temporary Functions operating on polynomials (including polynomial fitting); only to be used in Modelica_Media.Incompressible.TableBased" 
+      "Temporary Functions operating on polynomials (including polynomial fitting); only to be used in Media.Incompressible.TableBased" 
       extends Modelica.Icons.Library;
       
       annotation (Documentation(info="<HTML>

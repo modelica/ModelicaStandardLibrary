@@ -318,7 +318,7 @@ required from medium model \""       + mediumName + "\".");
      Cv.to_degC(state.T));
   end thermalConductivity;
     
-    function enthalpy_pTX 
+    redeclare function enthalpy_pTX 
       "Compute specific enthalpy from pressure, temperature and mass fraction" 
       extends Modelica.Icons.Function;
       input SI.Pressure p "Pressure";
