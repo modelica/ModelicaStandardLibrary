@@ -2,6 +2,7 @@ package Media "Property models of media"
 extends Modelica.Icons.Library;
 import SI = Modelica.SIunits;
 
+
 annotation (
   version="0.98",
   versionDate="2005-07-28",
@@ -54,6 +55,7 @@ and the accompanying <b>disclaimer</b>
   conversion(from(version="0.795", script=
           "../ConvertFromModelica_Media_0.795.mos")),
   uses(Modelica(version="2.2"), Modelica_Interpolation(version="0.95")));
+
 
 package UsersGuide "Users Guide" 
   annotation (DocumentationClass=true, Documentation(info="<HTML>
@@ -1901,6 +1903,7 @@ end Contact;
   
 end UsersGuide;
 
+
 package Examples 
   "Demonstrate usage of property models (currently: simple tests)" 
   
@@ -2966,6 +2969,7 @@ The details of the pipe friction model are described
     end MediaTestModels;
   end Tests;
 end Examples;
+
 
 package Interfaces "Interfaces for media models" 
   
@@ -4940,6 +4944,7 @@ are defined that every medium is supposed to support
     constant Temperature T_max "Maximum temperature valid for medium model";
     constant Temperature T0 "Zero enthalpy temperature";
     constant MolarMass MM_const "Molar mass";
+    constant FluidConstants fluidConstants "record of fluid constants";
     
     redeclare model extends BaseProperties(
         T(stateSelect=StateSelect.prefer)) "Base properties" 
@@ -5170,6 +5175,7 @@ int getDistinctID(void)
   end PartialExternalTwoPhaseMedium;
   
 end Interfaces;
+
 
 package Common "data structures and fundamental functions for fluid properties" 
   
@@ -6583,9 +6589,9 @@ end BridgmansTablesForWater;
     nderivs.p := f.d*f.R*f.T*f.delta*f.fdelta;
     nderivs.h := f.R*f.T*(f.tau*f.ftau + f.delta*f.fdelta);
     nderivs.pd := f.R*f.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
-    nderivs.pt := f.R*f.d*f.delta*(f.fdelta - f.tau*f.fdeltatau);
-    nderivs.ht := cv + nderivs.pt/f.d;
-    nderivs.hd := (nderivs.pd - f.T*nderivs.pt/f.d)/f.d;
+    nderivs.pT := f.R*f.d*f.delta*(f.fdelta - f.tau*f.fdeltatau);
+    nderivs.hT := cv + nderivs.pT/f.d;
+    nderivs.hd := (nderivs.pd - f.T*nderivs.pT/f.d)/f.d;
   end helmholtz_ph;
   
   function helmholtz_pT 
@@ -6612,9 +6618,9 @@ end BridgmansTablesForWater;
     nderivs.p := f.d*f.R*f.T*f.delta*f.fdelta;
     nderivs.s := f.R*(f.tau*f.ftau - f.f);
     nderivs.pd := f.R*f.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
-    nderivs.pt := f.R*f.d*f.delta*(f.fdelta - f.tau*f.fdeltatau);
-    nderivs.st := cv/f.T;
-    nderivs.sd := -nderivs.pt/(f.d*f.d);
+    nderivs.pT := f.R*f.d*f.delta*(f.fdelta - f.tau*f.fdeltatau);
+    nderivs.sT := cv/f.T;
+    nderivs.sd := -nderivs.pT/(f.d*f.d);
   end helmholtz_ps;
   
 end Common;
