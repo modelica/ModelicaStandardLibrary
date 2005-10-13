@@ -1,6 +1,7 @@
 package Common "Common packages and data for the ideal gas models"
 extends Modelica.Icons.Library;
 
+
 record DataRecord 
   "Coefficient data record for properties of ideal gases based on NASA source" 
   extends Modelica.Icons.Record;
@@ -40,6 +41,7 @@ gases also differentiable at Tlimit.
 </p>
 </HTML>"));
 end DataRecord;
+
 
 partial package SingleGasNasa 
   "Medium model of an ideal gas based on NASA source" 
@@ -600,6 +602,7 @@ transform the formula to SI units:
   end pressure_derd_T;
   
 end SingleGasNasa;
+
 
 partial package MixtureGasNasa 
   "Medium model of a mixture of ideal gases based on NASA source" 
@@ -1270,10 +1273,7 @@ end lowPressureThermalConductivity;
       i].MM for i in 1:nX};
   end density_derX;
   
-  redeclare function molarMass "compute molar mass of mixture" 
-    extends Modelica.Icons.Function;
-    input ThermodynamicState state "complete thermodynamic state";
-    output MolarMass MM "molar mass";
+  redeclare function extends molarMass 
   algorithm 
     MM := 1/sum(state.X[j]/data[j].MM for j in 1:size(state.X, 1));
   end molarMass;

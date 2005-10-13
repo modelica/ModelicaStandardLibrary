@@ -556,10 +556,10 @@ form:
   <tr><td>Medium.entropy(medium.state)</td>
       <td>J/(kg.K)</td>
       <td>specific entropy</td></tr>
-  <tr><td>Medium.heatCapacity_cp(medium.state)</td>
+  <tr><td>Medium.heatCapacitycp(medium.state)</td>
       <td>J/(kg.K)</td>
       <td>specific heat capacity at constant pressure</td></tr>
-  <tr><td>Medium.heatCapacity_cv(medium.state)</td>
+  <tr><td>Medium.heatCapacitycv(medium.state)</td>
       <td>J/(kg.K)</td>
       <td>specific heat capacity at constant density</td></tr>
   <tr><td>Medium.isentropicExponent(medium.state)</td>
@@ -940,7 +940,7 @@ Here are some examples:
    sat.Tsat = Medium.saturationTemperature(p);
    // Compute dew point properties, one-phase side
    dew_1 = setDewState(sat);
-   cpDew = Medium.heatCapacity_cp(dew_1);
+   cpDew = Medium.heatCapacitycp(dew_1);
    drho_dp_h_1 = Medium.density_derp_h(dew_1);
    // Compute bubble point properties, two-phase side
    bubble_2    = setBubbleState(sat, 2);
@@ -2171,7 +2171,7 @@ boundary are: <br>
 <li>Compute the state, using an instance of SaturationProperties,
 e.g. dew = setDewState(sat)</li>
 <li>Compute properties on the phase boundary to your full desire,
-e.g. \"cp_d = heatCapacity_cp(dew)\". <br>
+e.g. \"cp_d = heatCapacitycp(dew)\". <br>
 </li>
 </ol>
 <p>The sample model TestTwoPhaseStates test the extended properties</p>
@@ -3664,10 +3664,10 @@ equation
       output Density[nX] dddX "derivative of density by mass fraction";
     end density_derX;
     
-    replaceable partial function molarMass 
-      "return the molar mass of the medium" 
+    replaceable partial function molarMass "compute molar mass of mixture" 
       extends Modelica.Icons.Function;
-      output MolarMass MM "mixture molar mass";
+      input ThermodynamicState state "complete thermodynamic state";
+      output MolarMass MM "molar mass";
     end molarMass;
     
     type AbsolutePressure = SI.AbsolutePressure (
