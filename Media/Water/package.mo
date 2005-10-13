@@ -85,10 +85,10 @@ one of the following functions:
   <tr><td>Medium.entropy(medium.state)</td>
       <td>J/(kg.K)</td>
       <td>specific entropy</td></tr>
-  <tr><td>Medium.heatCapacity_cp(medium.state)</td>
+  <tr><td>Medium.heatCapacityCp(medium.state)</td>
       <td>J/(kg.K)</td>
       <td>specific heat capacity at constant pressure</td></tr>
-  <tr><td>Medium.heatCapacity_cv(medium.state)</td>
+  <tr><td>Medium.heatCapacityCv(medium.state)</td>
       <td>J/(kg.K)</td>
       <td>specific heat capacity at constant density</td></tr>
   <tr><td>Medium.isentropicExponent(medium.state)</td>
