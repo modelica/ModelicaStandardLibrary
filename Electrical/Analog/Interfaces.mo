@@ -330,9 +330,13 @@ This current is provided explicitly as current i.
         Text(extent=[-150,80; 150,120], string="%name"),
         Line(points=[-90,0; 90,0], style(color=0, rgbcolor={0,0,0})), 
         Text(
-          extent=[-90,40; -60,10], 
+          extent=[-120,50; -20,0], 
           style(color=3, rgbcolor={0,0,255}), 
-          string="+")),
+          string="+"), 
+        Text(
+          extent=[20,50; 120,0], 
+          style(color=3, rgbcolor={0,0,255}), 
+          string="-")),
       Window(
         x=0.31,
         y=0.09,
@@ -364,7 +368,13 @@ This current is provided explicitly as current i.
         Line(points=[-90, 0; -50, 0], style(color=0, rgbcolor={0,0,0})),
         Line(points=[50, 0; 90, 0], style(color=0, rgbcolor={0,0,0})),
         Line(points=[0, -50; 0, 50], style(color=0, rgbcolor={0,0,0})),
-        Text(extent=[-150, 120; 150, 80], string="%name")),
+        Text(extent=[-150, 120; 150, 80], string="%name"), 
+        Line(points=[-60,-80; 60,-80], style(color=3, rgbcolor={0,0,255})), 
+        Polygon(points=[60,-80; 30,-70; 30,-90; 60,-80], style(
+            color=3, 
+            rgbcolor={0,0,255}, 
+            fillColor=3, 
+            rgbfillColor={0,0,255}))),
       Window(
         x=0.33,
         y=0.24,
