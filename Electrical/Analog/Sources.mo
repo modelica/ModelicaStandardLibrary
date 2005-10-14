@@ -64,7 +64,15 @@ Modelica in file \"Modelica/package.mo\".</i><br>
         Line(points=[-90, 0; -50, 0], style(color=0, rgbcolor={0,0,0})),
         Line(points=[50, 0; 90, 0], style(color=0, rgbcolor={0,0,0})),
         Line(points=[-50, 0; 50, 0], style(color=0, rgbcolor={0,0,0})),
-        Text(extent=[-100, -120; 100, -80], string="%name")),
+        Text(extent=[-100, -120; 100, -80], string="%name"), 
+        Text(
+          extent=[-120,50; -20,0], 
+          style(color=3, rgbcolor={0,0,255}), 
+          string="+"), 
+        Text(
+          extent=[20,50; 120,0], 
+          style(color=3, rgbcolor={0,0,255}), 
+          string="-")),
       Window(
         x=0.36,
         y=0.03,
@@ -124,7 +132,15 @@ Modelica in file \"Modelica/package.mo\".</i><br>
         Line(points=[-10, 60; -10, -60], style(color=0, rgbcolor={0,0,0})),
         Line(points=[0, 30; 0, -30], style(color=0, rgbcolor={0,0,0})),
         Line(points=[0, 0; 90, 0], style(color=0, rgbcolor={0,0,0})),
-        Text(extent=[-100, -120; 100, -80], string="%name=%V")),
+        Text(extent=[-100, -120; 100, -80], string="%name=%V"), 
+        Text(
+          extent=[-120,50; -20,0], 
+          style(color=3, rgbcolor={0,0,255}), 
+          string="+"), 
+        Text(
+          extent=[20,50; 120,0], 
+          style(color=3, rgbcolor={0,0,255}), 
+          string="-")),
       Diagram(
         Line(points=[-90, 0; -10, 0], style(color=0, rgbcolor={0,0,0})),
         Line(points=[-10, 60; -10, -60], style(color=0, rgbcolor={0,0,0})),
@@ -324,11 +340,11 @@ Modelica in file \"Modelica/package.mo\".</i><br>
         y=0.06,
         width=0.6,
         height=0.6),
-      Icon(Line(points=[-70, 0; -60.2, 29.9; -53.8, 46.5; -48.2, 58.1; -43.3,
-              65.2; -38.3, 69.2; -33.4, 69.8; -28.5, 67; -23.6, 61; -18.6, 52;
-              -13, 38.6; -5.98, 18.6; 8.79, -26.9; 15.1, -44; 20.8, -56.2; 25.7,
-                -64; 30.6, -68.6; 35.5, -70; 40.5, -67.9; 45.4, -62.5; 50.3, -
-              54.1; 55.9, -41.3; 63, -21.7; 70, 0], style(color=8))),
+      Icon(Line(points=[-66,0; -56.2,29.9; -49.8,46.5; -44.2,58.1; -39.3,65.2; 
+              -34.3,69.2; -29.4,69.8; -24.5,67; -19.6,61; -14.6,52; -9,38.6; 
+              -1.98,18.6; 12.79,-26.9; 19.1,-44; 24.8,-56.2; 29.7,-64; 34.6,
+              -68.6; 39.5,-70; 44.5,-67.9; 49.4,-62.5; 54.3,-54.1; 59.9,-41.3; 
+              67,-21.7; 74,0],                      style(color=8))),
       Diagram(
         Line(points=[-80, -90; -80, 84], style(color=8)),
         Polygon(points=[-80, 100; -86, 84; -74, 84; -80, 100], style(color=8,
@@ -392,13 +408,13 @@ Modelica in file \"Modelica/package.mo\".</i><br>
         phase=phase,
         damping=damping));
     annotation (
-      Icon(Line(points=[-80, -14; -75.2, 18.3; -72, 36.3; -68.7, 50.5; -65.5,
-              60.2; -62.3, 65.3; -59.1, 65.6; -55.9, 61.3; -52.7, 53.1; -48.6,
-              38.2; -43, 11.8; -35, -27.9; -30.2, -47.7; -26.1, -59.9; -22.1, -
-              67.2; -18.1, -69.3; -14.1, -66.5; -10.1, -59.3; -5.23, -46.1;
-              8.44, -0.3; 13.3, 12.4; 18.1, 20.8; 22.1, 24; 26.9, 23.2; 31.8,
-              17.8; 38.2, 5.4; 51.1, -24.5; 57.5, -35.2; 63.1, -39.9; 68.7, -
-              39.9; 75.2, -34.5; 80, -27.8], style(color=8))),
+      Icon(Line(points=[-64,-14; -59.2,18.3; -56,36.3; -52.7,50.5; -49.5,60.2; 
+              -46.3,65.3; -43.1,65.6; -39.9,61.3; -36.7,53.1; -32.6,38.2; -27,
+              11.8; -19,-27.9; -14.2,-47.7; -10.1,-59.9; -6.1,-67.2; -2.1,-69.3; 
+              1.9,-66.5; 5.9,-59.3; 10.77,-46.1; 24.44,-0.3; 29.3,12.4; 34.1,
+              20.8; 38.1,24; 42.9,23.2; 47.8,17.8; 54.2,5.4; 67.1,-24.5; 73.5,
+              -35.2; 79.1,-39.9; 84.7,-39.9; 91.2,-34.5; 96,-27.8],
+                                             style(color=8))),
       Diagram(
         Line(points=[-80, -90; -80, 84], style(color=8)),
         Polygon(points=[-80, 100; -86, 84; -74, 84; -80, 100], style(color=8,
@@ -642,8 +658,8 @@ Modelica in file \"Modelica/package.mo\".</i><br>
         width=width,
         period=period));
     annotation (
-      Icon(Line(points=[-70, -70; -40, -70; -40, 70; 0, 70; 0, -70; 40, -70; 41,
-                70; 80, 70], style(color=8))),
+      Icon(Line(points=[-70,-70; -40,-70; -40,70; 0,70; 0,-70; 40,-70; 40,70; 
+              80,70],        style(color=8))),
       Diagram(
         Polygon(points=[-80, 90; -88, 68; -72, 68; -80, 90], style(color=8,
               fillColor=8)),
@@ -752,7 +768,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
         signalSource(
           amplitude=V, period=period));
     annotation (
-      Icon(Line(points=[-70, -71; -50, -71; 10, 70; 10, -71; 70, 70; 70, -71],
+      Icon(Line(points=[-85,-70; -65,-70; -5,71; -5,-70; 55,71; 55,-70],
             style(color=8))),
       Diagram(
         Polygon(points=[-80, 90; -88, 68; -72, 68; -80, 90], style(color=8,
@@ -993,9 +1009,9 @@ Modelica in file \"Modelica/package.mo\".</i><br>
         Modelica.Blocks.Sources.TimeTable signalSource(                                       table=
            table));
     annotation (
-      Icon(Line(points=[-66, -36; -66, 84; 34, 84; 34, -36; -66, -36; -66, -6;
-              34, -6; 34, 24; -66, 24; -66, 54; 34, 54; 34, 84; -16, 84; -16, -
-              37], style(color=8))),
+      Icon(Line(points=[-58,-36; -58,84; 42,84; 42,-36; -58,-36; -58,-6; 42,-6; 
+              42,24; -58,24; -58,54; 42,54; 42,84; -8,84; -8,-37],
+                   style(color=8))),
       Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
@@ -1131,7 +1147,13 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
         Line(points=[-90, 0; -50, 0], style(color=0, rgbcolor={0,0,0})),
         Line(points=[50, 0; 90, 0], style(color=0, rgbcolor={0,0,0})),
         Line(points=[0, -50; 0, 50], style(color=0, rgbcolor={0,0,0})),
-        Text(extent=[-100, -120; 100, -80], string="%name")),
+        Text(extent=[-100, -120; 100, -80], string="%name"), 
+        Line(points=[-60,-70; 60,-70], style(color=3, rgbcolor={0,0,255})), 
+        Polygon(points=[60,-70; 30,-60; 30,-80; 60,-70], style(
+            color=3, 
+            rgbcolor={0,0,255}, 
+            fillColor=3, 
+            rgbfillColor={0,0,255}))),
       Window(
         x=0.39,
         y=0.19,
@@ -1169,7 +1191,13 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
         Line(points=[-90, 0; -50, 0], style(color=0, rgbcolor={0,0,0})),
         Line(points=[50, 0; 90, 0], style(color=0, rgbcolor={0,0,0})),
         Line(points=[0, -50; 0, 50], style(color=0, rgbcolor={0,0,0})),
-        Text(extent=[-100, -120; 100, -80], string="%name=%I")),
+        Text(extent=[-100,80; 100,120],     string="%name=%I"), 
+        Line(points=[-60,-80; 60,-80], style(color=3, rgbcolor={0,0,255})), 
+        Polygon(points=[60,-80; 30,-70; 30,-90; 60,-80], style(
+            color=3, 
+            rgbcolor={0,0,255}, 
+            fillColor=3, 
+            rgbfillColor={0,0,255}))),
       Window(
         x=0.33,
         y=0.24,
@@ -1193,7 +1221,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
     extends Interfaces.CurrentSource(redeclare Modelica.Blocks.Sources.Step 
         signalSource(                                                                    height=I));
     annotation (
-      Icon(Line(points=[-86,-70; -13,-70; -14,70; 57,70],     style(color=8))),
+      Icon(Line(points=[-86,-70; -14,-70; -14,70; 57,70],     style(color=8))),
       Diagram(
         Polygon(points=[-80, 90; -88, 68; -72, 68; -80, 90], style(color=8,
               fillColor=8)),
@@ -1628,8 +1656,8 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
         width=width,
         period=period));
     annotation (
-      Icon(Line(points=[-70, -70; -40, -70; -40, 70; 0, 70; 0, -70; 40, -70; 41,
-                70; 80, 70], style(color=8))),
+      Icon(Line(points=[-70,-67; -40,-67; -40,73; 0,73; 0,-67; 40,-67; 40,73; 
+              80,73],        style(color=8))),
       Diagram(
         Polygon(points=[-80, 90; -88, 68; -72, 68; -80, 90], style(color=8,
               fillColor=8)),
@@ -1844,8 +1872,8 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
         period=period,
         nperiod=nperiod));
     annotation (
-      Icon(Line(points=[-81, -70; -60, -70; -30, 70; 1, 70; 30, -70; 51, -70;
-              80, 70], style(color=8))),
+      Icon(Line(points=[-81,-66; -60,-66; -30,74; 1,74; 30,-66; 51,-66; 80,74],
+                       style(color=8))),
       Diagram(
         Polygon(points=[-80, 90; -88, 68; -72, 68; -80, 90], style(color=8,
               fillColor=8)),
