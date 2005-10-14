@@ -2120,7 +2120,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
         extends Modelica.Icons.Function;
         input SI.Pressure p "pressure";
         input SI.Temperature T "temperature (K)";
-        output Modelica.Media.Common.GibbsDerivs g 
+        output Media.Common.GibbsDerivs g 
           "dimensionless Gibbs funcion and dervatives wrt pi and tau";
       protected 
         Real pi1 "dimensionless pressure";
@@ -2278,7 +2278,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
         extends Modelica.Icons.Function;
         input SI.Pressure p "pressure";
         input SI.Temperature T "temperature (K)";
-        output Modelica.Media.Common.GibbsDerivs g 
+        output Media.Common.GibbsDerivs g 
           "dimensionless Gibbs funcion and dervatives wrt pi and tau";
       protected 
         Real tau2 "dimensionless temperature";
@@ -2481,7 +2481,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
         extends Modelica.Icons.Function;
         input SI.Pressure p "pressure";
         input SI.Temperature T "temperature (K)";
-        output Modelica.Media.Common.GibbsDerivs g 
+        output Media.Common.GibbsDerivs g 
           "dimensionless Gibbs funcion and dervatives wrt pi and tau";
       protected 
         Real pi "dimensionless pressure";
@@ -2581,7 +2581,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
         extends Modelica.Icons.Function;
         input SI.Density d "density";
         input SI.Temperature T "temperature (K)";
-        output Modelica.Media.Common.HelmholtzDerivs f 
+        output Media.Common.HelmholtzDerivs f 
           "dimensionless Helmholtz function and dervatives wrt delta and tau";
       protected 
         Real[40] o "vector of auxiliary variables";
@@ -2718,7 +2718,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
         extends Modelica.Icons.Function;
         input SI.Pressure p "pressure";
         input SI.Temperature T "temperature (K)";
-        output Modelica.Media.Common.GibbsDerivs g 
+        output Media.Common.GibbsDerivs g 
           "dimensionless Gibbs funcion and dervatives wrt pi and tau";
       protected 
         Real[11] o "vector of auxiliary variables";
@@ -2780,7 +2780,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
        input Integer region "IF97 region, 1, 2 or 5";
         output Real g "dimensionless Gibbs funcion";
       protected 
-        Modelica.Media.Common.GibbsDerivs gibbs 
+        Media.Common.GibbsDerivs gibbs 
           "dimensionless Gibbs funcion and dervatives wrt pi and tau";
       algorithm 
         assert(region == 1 or region == 2 or region == 5,
@@ -4411,9 +4411,9 @@ Ordinary Water Substance<br>
         Real dpitau "auxiliary variable";
         Real ddelpi "auxiliary variable";
         Real d2 "auxiliary variable";
-        Modelica.Media.Common.GibbsDerivs g 
+        Media.Common.GibbsDerivs g 
           "dimensionless Gibbs funcion and dervatives wrt pi and tau";
-        Modelica.Media.Common.HelmholtzDerivs f 
+        Media.Common.HelmholtzDerivs f 
           "dimensionless Helmholtz function and dervatives wrt delta and tau";
         Real Tc=T - 273.15 "Celsius temperature for region check";
         Real Chi "symmetrized compressibility";
@@ -5089,9 +5089,9 @@ Ordinary Water Substance<br>
                       0 "phase: 2 for two-phase, 1 for one phase, 0 if unknown";
         output SI.SpecificEnthalpy h "specific enthalpy";
       protected 
-        Modelica.Media.Common.GibbsDerivs g 
+        Media.Common.GibbsDerivs g 
           "derivatives of dimensionless Gibbs-function w.r.t dimensionless pi and tau";
-        Modelica.Media.Common.HelmholtzDerivs f 
+        Media.Common.HelmholtzDerivs f 
           "derivatives of dimensionless Helmholtz-function w.r.t dimensionless delta and tau";
         Integer region(min=1, max=5) "IF97 region";
         Integer error "error if not 0";
@@ -5126,9 +5126,9 @@ Ordinary Water Substance<br>
         input Integer phase "1 for one phase, 2 for two phase";
         output SI.SpecificEnthalpy h "specific enthalpy";
       protected 
-        Modelica.Media.Common.GibbsDerivs g 
+        Media.Common.GibbsDerivs g 
           "derivatives of dimensionless Gibbs-function w.r.t dimensionless pi and tau";
-        Modelica.Media.Common.HelmholtzDerivs f 
+        Media.Common.HelmholtzDerivs f 
           "derivatives of dimensionless Helmholtz-function w.r.t dimensionless delta and tau";
         Integer region(min=1, max=5) "IF97 region";
         Integer error "error if not 0";
@@ -5328,9 +5328,9 @@ Ordinary Water Substance<br>
         Integer i=0 "loop counter";
         Real dp "pressure difference";
         SI.Density deld "density step";
-        Modelica.Media.Common.HelmholtzDerivs f 
+        Media.Common.HelmholtzDerivs f 
           "dimensionless Helmholtz function and dervatives wrt delta and tau";
-        Modelica.Media.Common.NewtonDerivatives_pT nDerivs 
+        Media.Common.NewtonDerivatives_pT nDerivs 
           "derivatives needed in Newton iteration";
         Boolean found=false "flag for iteration success";
         Boolean supercritical "flag, true for supercritical states";
@@ -5367,7 +5367,7 @@ Ordinary Water Substance<br>
         while ((i < IterationData.IMAX) and not found) loop
           d := dguess;
           f := Basic.f3(d, T);
-          nDerivs := Modelica.Media.Common.helmholtz_pT(f);
+          nDerivs := Media.Common.helmholtz_pT(f);
           dp := nDerivs.p - p;
           if (abs(dp/p) <= delp) then
             found := true;
@@ -5414,9 +5414,9 @@ Ordinary Water Substance<br>
         Real det "determinant of directional derivatives";
         Real deld "Newton-step in d-direction";
         Real delt "Newton-step in T-direction";
-        Modelica.Media.Common.HelmholtzDerivs f 
+        Media.Common.HelmholtzDerivs f 
           "dimensionless Helmholtz function and dervatives wrt delta and tau";
-        Modelica.Media.Common.NewtonDerivatives_ph nDerivs 
+        Media.Common.NewtonDerivatives_ph nDerivs 
           "derivatives needed in Newton iteration";
         Boolean found "flag for iteration success";
         Integer subregion "1 for subregion 3a, 2 for subregion 3b";
@@ -5436,7 +5436,7 @@ Ordinary Water Substance<br>
         error := 0;
         while ((i < IterationData.IMAX) and not found) loop
           f := Basic.f3(d, T);
-          nDerivs := Modelica.Media.Common.helmholtz_ph(f);
+          nDerivs := Media.Common.helmholtz_ph(f);
           dh := nDerivs.h - h;
           dp := nDerivs.p - p;
           if ((abs(dh/h) <= delh) and (abs(dp/p) <= delp)) then
@@ -5477,9 +5477,9 @@ Ordinary Water Substance<br>
         Real det "determinant of directional derivatives";
         Real deld "Newton-step in d-direction";
         Real delt "Newton-step in T-direction";
-        Modelica.Media.Common.HelmholtzDerivs f 
+        Media.Common.HelmholtzDerivs f 
           "dimensionless Helmholtz function and dervatives wrt delta and tau";
-        Modelica.Media.Common.NewtonDerivatives_ps nDerivs 
+        Media.Common.NewtonDerivatives_ps nDerivs 
           "derivatives needed in Newton iteration";
         Boolean found "flag for iteration success";
         Integer subregion "1 for subregion 3a, 2 for subregion 3b";
@@ -5499,7 +5499,7 @@ Ordinary Water Substance<br>
         d := if subregion == 1 then 1/Basic.v3a_ph(p,s) else 1/Basic.v3b_ph(p,s);
         while ((i < IterationData.IMAX) and not found) loop
           f := Basic.f3(d, T);
-          nDerivs := Modelica.Media.Common.helmholtz_ps(f);
+          nDerivs := Media.Common.helmholtz_ps(f);
           ds := nDerivs.s - s;
           dp := nDerivs.p - p;
           if ((abs(ds/s) <= dels) and (abs(dp/p) <= delp)) then
@@ -5541,9 +5541,9 @@ Ordinary Water Substance<br>
         Real det "determinant of directional derivatives";
         Real deld "Newton-step in d-direction";
         Real delt "Newton-step in T-direction";
-        Modelica.Media.Common.HelmholtzDerivs f 
+        Media.Common.HelmholtzDerivs f 
           "dimensionless Helmholtz function and dervatives wrt delta and tau";
-        Modelica.Media.Common.NewtonDerivatives_ps nDerivs 
+        Media.Common.NewtonDerivatives_ps nDerivs 
           "derivatives needed in Newton iteration";
         Boolean found "flag for iteration success";
         SI.Density diter "density";
@@ -5556,7 +5556,7 @@ Ordinary Water Substance<br>
         while ((i < IterationData.IMAX) and not found) loop
           (d,T) := fixdT(diter, Titer);
           f := Basic.f3(d, T);
-          nDerivs := Modelica.Media.Common.helmholtz_ps(f);
+          nDerivs := Media.Common.helmholtz_ps(f);
           ds := nDerivs.s - s;
           dp := nDerivs.p - p;
           if ((abs(ds/s) <= dels) and (abs(dp/p) <= delp)) then
@@ -5589,7 +5589,7 @@ Ordinary Water Substance<br>
         output Integer error "error flag: iteration failed if different from 0";
       protected 
         Integer i "counter for while-loop";
-        Modelica.Media.Common.GibbsDerivs g 
+        Media.Common.GibbsDerivs g 
           "dimensionless Gibbs funcion and dervatives wrt pi and tau";
         Boolean found "flag if iteration has been successful";
         Real dd 
@@ -5655,7 +5655,7 @@ Ordinary Water Substance<br>
         output Integer error "error flag: iteration failed if different from 0";
         
       protected 
-        Modelica.Media.Common.GibbsDerivs g 
+        Media.Common.GibbsDerivs g 
           "dimensionless Gibbs funcion and dervatives wrt pi and tau";
         SI.SpecificEnthalpy proh "h for current guess in T";
         constant SI.Temperature Tguess=1500 "initial temperature";
@@ -5697,7 +5697,7 @@ Ordinary Water Substance<br>
         output Integer error "error flag: iteration failed if different from 0";
         
       protected 
-        Modelica.Media.Common.GibbsDerivs g 
+        Media.Common.GibbsDerivs g 
           "dimensionless Gibbs funcion and dervatives wrt pi and tau";
         SI.SpecificEnthalpy pros "s for current guess in T";
         parameter SI.Temperature Tguess=1500 "initial temperature";
@@ -5740,7 +5740,7 @@ Ordinary Water Substance<br>
         output Integer error "error flag: iteration failed if different from 0";
         
       protected 
-        Modelica.Media.Common.GibbsDerivs g 
+        Media.Common.GibbsDerivs g 
           "dimensionless Gibbs funcion and dervatives wrt pi and tau";
         SI.SpecificEnthalpy pros "s for current guess in T";
         Integer i "iteration counter";
@@ -5815,29 +5815,29 @@ Ordinary Water Substance<br>
         extends Modelica.Icons.Function;
         input SI.Pressure p "pressure";
         input SI.Temperature T "temperature (K)";
-        output Modelica.Media.Common.ThermoFluidSpecial.ThermoProperties_pT pro
+        output Media.Common.ThermoFluidSpecial.ThermoProperties_pT pro 
           "thermodynamic property collection";
         
       protected 
-        Modelica.Media.Common.GibbsDerivs g 
+        Media.Common.GibbsDerivs g 
           "dimensionless Gibbs funcion and dervatives wrt pi and tau";
       algorithm 
         g := Basic.g1(p, T);
-        pro := Modelica.Media.Common.ThermoFluidSpecial.gibbsToProps_pT(g);
+        pro := Media.Common.ThermoFluidSpecial.gibbsToProps_pT(g);
       end waterR1_pT;
       
       function waterR2_pT "standard properties for region 2, (p,T) as inputs" 
         extends Modelica.Icons.Function;
         input SI.Pressure p "pressure";
         input SI.Temperature T "temperature (K)";
-        output Modelica.Media.Common.ThermoFluidSpecial.ThermoProperties_pT pro
+        output Media.Common.ThermoFluidSpecial.ThermoProperties_pT pro 
           "thermodynamic property collection";
       protected 
-        Modelica.Media.Common.GibbsDerivs g 
+        Media.Common.GibbsDerivs g 
           "dimensionless Gibbs funcion and dervatives wrt pi and tau";
       algorithm 
         g := Basic.g2(p, T);
-        pro := Modelica.Media.Common.ThermoFluidSpecial.gibbsToProps_pT(g);
+        pro := Media.Common.ThermoFluidSpecial.gibbsToProps_pT(g);
       end waterR2_pT;
       
       function waterR3_dT "standard properties for region 3, (d,T) as inputs" 
@@ -5851,7 +5851,7 @@ Ordinary Water Substance<br>
           "dimensionless Helmholtz function and dervatives wrt delta and tau";
       algorithm 
         f := Basic.f3(d, T);
-        pro := Modelica.Media.Common.ThermoFluidSpecial.helmholtzToProps_dT(f);
+        pro := Media.Common.ThermoFluidSpecial.helmholtzToProps_dT(f);
         assert(pro.p <= 100.0e6,
           "IF97 medium function waterR3_dT: the input pressure (= " + String(pro.p) +
           " Pa) is higher than 100 Mpa");
@@ -5861,14 +5861,14 @@ Ordinary Water Substance<br>
         extends Modelica.Icons.Function;
         input SI.Pressure p "pressure";
         input SI.Temperature T "temperature (K)";
-        output Modelica.Media.Common.ThermoFluidSpecial.ThermoProperties_pT pro
+        output Media.Common.ThermoFluidSpecial.ThermoProperties_pT pro 
           "thermodynamic property collection";
       protected 
-        Modelica.Media.Common.GibbsDerivs g 
+        Media.Common.GibbsDerivs g 
           "dimensionless Gibbs funcion and dervatives wrt pi and tau";
       algorithm 
         g := Basic.g5(p, T);
-        pro := Modelica.Media.Common.ThermoFluidSpecial.gibbsToProps_pT(g);
+        pro := Media.Common.ThermoFluidSpecial.gibbsToProps_pT(g);
       end waterR5_pT;
     end ByRegion;
     
@@ -5914,26 +5914,26 @@ Ordinary Water Substance<br>
         
         extends Modelica.Icons.Function;
         input SI.Pressure p "pressure";
-        output Modelica.Media.Common.PhaseBoundaryProperties liq 
+        output Media.Common.PhaseBoundaryProperties liq 
           "liquid thermodynamic property collection";
       protected 
         SI.Temperature Tsat "saturation temperature";
         Real dpT "derivative of saturation pressure wrt temperature";
         SI.Density dl "liquid density";
-        Modelica.Media.Common.GibbsDerivs g 
+        Media.Common.GibbsDerivs g 
           "dimensionless Gibbs funcion and dervatives wrt pi and tau";
-        Modelica.Media.Common.HelmholtzDerivs f 
+        Media.Common.HelmholtzDerivs f 
           "dimensionless Helmholtz function and dervatives wrt delta and tau";
       algorithm 
         Tsat := Basic.tsat(p);
         dpT := Basic.dptofT(Tsat);
         if p < data.PLIMIT4A then
           g := Basic.g1(p, Tsat);
-          liq := Modelica.Media.Common.gibbsToBoundaryProps(g);
+          liq := Media.Common.gibbsToBoundaryProps(g);
         else
           dl := Regions.rhol_p_R4b(p);
           f := Basic.f3(dl, Tsat);
-          liq := Modelica.Media.Common.helmholtzToBoundaryProps(f);
+          liq := Media.Common.helmholtzToBoundaryProps(f);
         end if;
       end waterLiq_p;
       
@@ -5941,26 +5941,26 @@ Ordinary Water Substance<br>
         
         extends Modelica.Icons.Function;
         input SI.Pressure p "pressure";
-        output Modelica.Media.Common.PhaseBoundaryProperties vap 
+        output Media.Common.PhaseBoundaryProperties vap 
           "vapour thermodynamic property collection";
       protected 
         SI.Temperature Tsat "saturation temperature";
         Real dpT "derivative of saturation pressure wrt temperature";
         SI.Density dv "vapour density";
-        Modelica.Media.Common.GibbsDerivs g 
+        Media.Common.GibbsDerivs g 
           "dimensionless Gibbs funcion and dervatives wrt pi and tau";
-        Modelica.Media.Common.HelmholtzDerivs f 
+        Media.Common.HelmholtzDerivs f 
           "dimensionless Helmholtz function and dervatives wrt delta and tau";
       algorithm 
         Tsat := Basic.tsat(p);
         dpT := Basic.dptofT(Tsat);
         if p < data.PLIMIT4A then
           g := Basic.g2(p, Tsat);
-          vap := Modelica.Media.Common.gibbsToBoundaryProps(g);
+          vap := Media.Common.gibbsToBoundaryProps(g);
         else
           dv := Regions.rhov_p_R4b(p);
           f := Basic.f3(dv, Tsat);
-          vap := Modelica.Media.Common.helmholtzToBoundaryProps(f);
+          vap := Media.Common.helmholtzToBoundaryProps(f);
         end if;
       end waterVap_p;
       
@@ -5970,18 +5970,18 @@ Ordinary Water Substance<br>
         extends Modelica.Icons.Function;
         input SI.Pressure p "pressure";
         input SI.SpecificEnthalpy h "specific enthalpy";
-        output Modelica.Media.Common.SaturationProperties pro 
+        output Media.Common.SaturationProperties pro 
           "thermodynamic property collection";
       protected 
         SI.Density dl "liquid density";
         SI.Density dv "vapour density";
-        Modelica.Media.Common.GibbsDerivs gl 
+        Media.Common.GibbsDerivs gl 
           "dimensionless Gibbs funcion and dervatives wrt pi and tau";
-        Modelica.Media.Common.GibbsDerivs gv 
+        Media.Common.GibbsDerivs gv 
           "dimensionless Gibbs funcion and dervatives wrt pi and tau";
-        Modelica.Media.Common.HelmholtzDerivs fl 
+        Media.Common.HelmholtzDerivs fl 
           "dimensionless Helmholtz function and dervatives wrt delta and tau";
-        Modelica.Media.Common.HelmholtzDerivs fv 
+        Media.Common.HelmholtzDerivs fv 
           "dimensionless Helmholtz function and dervatives wrt delta and tau";
       algorithm 
         pro.h := h;
@@ -5991,15 +5991,15 @@ Ordinary Water Substance<br>
         if p < data.PLIMIT4A then
           gl := Basic.g1(p, pro.T);
           gv := Basic.g2(p, pro.T);
-          pro.liq := Modelica.Media.Common.gibbsToBoundaryProps(gl);
-          pro.vap := Modelica.Media.Common.gibbsToBoundaryProps(gv);
+          pro.liq := Media.Common.gibbsToBoundaryProps(gl);
+          pro.vap := Media.Common.gibbsToBoundaryProps(gv);
         else
           dl := Regions.rhol_p_R4b(p);
           dv := Regions.rhov_p_R4b(p);
           fl := Basic.f3(dl, pro.T);
           fv := Basic.f3(dv, pro.T);
-          pro.liq := Modelica.Media.Common.helmholtzToBoundaryProps(fl);
-          pro.vap := Modelica.Media.Common.helmholtzToBoundaryProps(fv);
+          pro.liq := Media.Common.helmholtzToBoundaryProps(fl);
+          pro.vap := Media.Common.helmholtzToBoundaryProps(fv);
         end if;
         pro.x := if (h < pro.liq.h) then 0.0 else if (pro.vap.h <> pro.liq.h) then 
                 (h - pro.liq.h)/(pro.vap.h - pro.liq.h) else 1.0;
@@ -6007,7 +6007,7 @@ Ordinary Water Substance<br>
         pro.u := pro.x*pro.vap.u + (1 - pro.x)*pro.liq.u;
         pro.s := pro.x*pro.vap.s + (1 - pro.x)*pro.liq.s;
         pro.cp := Modelica.Constants.inf;
-        pro.cv := Modelica.Media.Common.cv2Phase(pro.liq, pro.vap, pro.x, pro.T,
+        pro.cv := Media.Common.cv2Phase(pro.liq, pro.vap, pro.x, pro.T,
            p);
         pro.kappa := 1/(pro.d*p)*pro.dpT*pro.dpT*pro.T/pro.cv;
         pro.R := data.RH2O;
@@ -6019,22 +6019,22 @@ Ordinary Water Substance<br>
         extends Modelica.Icons.Function;
         input SI.Pressure p "pressure";
         input SI.SpecificEnthalpy h "specific enthalpy";
-        output Modelica.Media.Common.ThermoFluidSpecial.ThermoProperties_ph pro
+        output Media.Common.ThermoFluidSpecial.ThermoProperties_ph pro 
           "thermodynamic property collection";
       protected 
         SI.Density dl "liquid density";
         SI.Density dv "vapour density";
-        Modelica.Media.Common.PhaseBoundaryProperties liq 
+        Media.Common.PhaseBoundaryProperties liq 
           "phase boundary property record";
-        Modelica.Media.Common.PhaseBoundaryProperties vap 
+        Media.Common.PhaseBoundaryProperties vap 
           "phase boundary property record";
-        Modelica.Media.Common.GibbsDerivs gl 
+        Media.Common.GibbsDerivs gl 
           "dimensionless Gibbs funcion and dervatives wrt pi and tau";
-        Modelica.Media.Common.GibbsDerivs gv 
+        Media.Common.GibbsDerivs gv 
           "dimensionless Gibbs funcion and dervatives wrt pi and tau";
-        Modelica.Media.Common.HelmholtzDerivs fl 
+        Media.Common.HelmholtzDerivs fl 
           "dimensionless Helmholtz function and dervatives wrt delta and tau";
-        Modelica.Media.Common.HelmholtzDerivs fv 
+        Media.Common.HelmholtzDerivs fv 
           "dimensionless Helmholtz function and dervatives wrt delta and tau";
         Real x "dryness fraction";
         Real dpT "derivative of saturation curve";
@@ -6046,20 +6046,20 @@ Ordinary Water Substance<br>
         if p < data.PLIMIT4A then
           gl := Basic.g1(p, pro.T);
           gv := Basic.g2(p, pro.T);
-          liq := Modelica.Media.Common.gibbsToBoundaryProps(gl);
-          vap := Modelica.Media.Common.gibbsToBoundaryProps(gv);
+          liq := Media.Common.gibbsToBoundaryProps(gl);
+          vap := Media.Common.gibbsToBoundaryProps(gv);
         else
           fl := Basic.f3(dl, pro.T);
           fv := Basic.f3(dv, pro.T);
-          liq := Modelica.Media.Common.helmholtzToBoundaryProps(fl);
-          vap := Modelica.Media.Common.helmholtzToBoundaryProps(fv);
+          liq := Media.Common.helmholtzToBoundaryProps(fl);
+          vap := Media.Common.helmholtzToBoundaryProps(fv);
         end if;
         x := if (vap.h <> liq.h) then (h - liq.h)/(vap.h - liq.h) else 1.0;
         pro.d := liq.d*vap.d/(vap.d + x*(liq.d - vap.d));
         pro.u := x*vap.u + (1 - x)*liq.u;
         pro.s := x*vap.s + (1 - x)*liq.s;
         pro.cp := Modelica.Constants.inf;
-        pro.cv := Modelica.Media.Common.cv2Phase(liq, vap, x, pro.T, p);
+        pro.cv := Media.Common.cv2Phase(liq, vap, x, pro.T, p);
         pro.kappa := 1/(pro.d*p)*dpT*dpT*pro.T/pro.cv;
         pro.a := Modelica.Constants.inf;
         pro.R := data.RH2O;
@@ -6072,22 +6072,22 @@ Ordinary Water Substance<br>
         extends Modelica.Icons.Function;
         input SI.Density d "Density";
         input SI.Temperature T "temperature";
-        output Modelica.Media.Common.ThermoFluidSpecial.ThermoProperties_dT pro
+        output Media.Common.ThermoFluidSpecial.ThermoProperties_dT pro 
           "thermodynamic property collection";
       protected 
         SI.Density dl "liquid density";
         SI.Density dv "vapour density";
-        Modelica.Media.Common.PhaseBoundaryProperties liq 
+        Media.Common.PhaseBoundaryProperties liq 
           "phase boundary property record";
-        Modelica.Media.Common.PhaseBoundaryProperties vap 
+        Media.Common.PhaseBoundaryProperties vap 
           "phase boundary property record";
-        Modelica.Media.Common.GibbsDerivs gl 
+        Media.Common.GibbsDerivs gl 
           "dimensionless Gibbs funcion and dervatives wrt pi and tau";
-        Modelica.Media.Common.GibbsDerivs gv 
+        Media.Common.GibbsDerivs gv 
           "dimensionless Gibbs funcion and dervatives wrt pi and tau";
-        Modelica.Media.Common.HelmholtzDerivs fl 
+        Media.Common.HelmholtzDerivs fl 
           "dimensionless Helmholtz function and dervatives wrt delta and tau";
-        Modelica.Media.Common.HelmholtzDerivs fv 
+        Media.Common.HelmholtzDerivs fv 
           "dimensionless Helmholtz function and dervatives wrt delta and tau";
         Real x "dryness fraction";
         Real dpT "derivative of saturation curve";
@@ -6099,20 +6099,20 @@ Ordinary Water Substance<br>
         if pro.p < data.PLIMIT4A then
           gl := Basic.g1(pro.p, T);
           gv := Basic.g2(pro.p, T);
-          liq := Modelica.Media.Common.gibbsToBoundaryProps(gl);
-          vap := Modelica.Media.Common.gibbsToBoundaryProps(gv);
+          liq := Media.Common.gibbsToBoundaryProps(gl);
+          vap := Media.Common.gibbsToBoundaryProps(gv);
         else
           fl := Basic.f3(dl, T);
           fv := Basic.f3(dv, T);
-          liq := Modelica.Media.Common.helmholtzToBoundaryProps(fl);
-          vap := Modelica.Media.Common.helmholtzToBoundaryProps(fv);
+          liq := Media.Common.helmholtzToBoundaryProps(fl);
+          vap := Media.Common.helmholtzToBoundaryProps(fv);
         end if;
         x := if (vap.d <> liq.d) then (1/d - 1/liq.d)/(1/vap.d - 1/liq.d) else 
           1.0;
         pro.u := x*vap.u + (1 - x)*liq.u;
         pro.h := x*vap.h + (1 - x)*liq.h;
         pro.cp := Modelica.Constants.inf;
-        pro.cv := Modelica.Media.Common.cv2Phase(liq, vap, x, T, pro.p);
+        pro.cv := Media.Common.cv2Phase(liq, vap, x, T, pro.p);
         pro.kappa := 1/(d*pro.p)*dpT*dpT*T/pro.cv;
         pro.a := Modelica.Constants.inf;
         pro.R := data.RH2O;
@@ -6128,16 +6128,16 @@ Ordinary Water Substance<br>
       input SI.SpecificEnthalpy h "specific enthalpy";
       input Integer phase= 0 
         "phase: 2 for two-phase, 1 for one phase, 0 if unknown";
-      output Modelica.Media.Common.ExtraDerivatives dpro 
+      output Media.Common.ExtraDerivatives dpro 
         "thermodynamic property collection";
     protected 
       SI.Density d "density";
       SI.Temperature T "temperature";
       Integer region "IF97 region";
       Integer error "error flag";
-      Modelica.Media.Common.HelmholtzDerivs f 
+      Media.Common.HelmholtzDerivs f 
         "dimensionless Helmholtz function and dervatives wrt delta and tau";
-      Modelica.Media.Common.GibbsDerivs g 
+      Media.Common.GibbsDerivs g 
         "dimensionless Gibbs funcion and dervatives wrt pi and tau";
     algorithm 
       assert(phase ==1,
@@ -6146,20 +6146,20 @@ Ordinary Water Substance<br>
       if region == 1 then
         T := Basic.tph1(p, h);
         g := Basic.g1(p, T);
-        dpro := Modelica.Media.Common.gibbsToExtraDerivs(g);
+        dpro := Media.Common.gibbsToExtraDerivs(g);
       elseif region == 2 then
         T := Basic.tph2(p, h);
         g := Basic.g2(p, T);
-        dpro := Modelica.Media.Common.gibbsToExtraDerivs(g);
+        dpro := Media.Common.gibbsToExtraDerivs(g);
       elseif region == 3 then
         (d,T,error) := Inverses.dtofph3(p=p,h= h,delp= 1.0e-7,delh= 1.0e-6);
         f := Basic.f3(d, T);
-        dpro := Modelica.Media.Common.helmholtzToExtraDerivs(f);
+        dpro := Media.Common.helmholtzToExtraDerivs(f);
       elseif region == 5 then
         // region assumed to be 5
         (T,error) := Inverses.tofph5(p=p,h= h,reldh= 1.0e-7);
         g := Basic.g5(p, T);
-        dpro := Modelica.Media.Common.gibbsToExtraDerivs(g);
+        dpro := Media.Common.gibbsToExtraDerivs(g);
       end if;
     end extraDerivs_ph;
     
@@ -6169,32 +6169,32 @@ Ordinary Water Substance<br>
       extends Modelica.Icons.Function;
       input SI.Pressure p "pressure";
       input SI.Temperature T "temperature";
-      output Modelica.Media.Common.ExtraDerivatives dpro 
+      output Media.Common.ExtraDerivatives dpro 
         "thermodynamic property collection";
     protected 
       SI.Density d "density";
       Integer region "IF97 region";
       Integer error "error flag";
-      Modelica.Media.Common.HelmholtzDerivs f 
+      Media.Common.HelmholtzDerivs f 
         "dimensionless Helmholtz function and dervatives wrt delta and tau";
-      Modelica.Media.Common.GibbsDerivs g 
+      Media.Common.GibbsDerivs g 
         "dimensionless Gibbs funcion and dervatives wrt pi and tau";
     algorithm 
       region := Regions.region_pT(p=p,T= T);
       if region == 1 then
         g := Basic.g1(p, T);
-        dpro := Modelica.Media.Common.gibbsToExtraDerivs(g);
+        dpro := Media.Common.gibbsToExtraDerivs(g);
       elseif region == 2 then
         g := Basic.g2(p, T);
-        dpro := Modelica.Media.Common.gibbsToExtraDerivs(g);
+        dpro := Media.Common.gibbsToExtraDerivs(g);
       elseif region == 3 then
         (d,error) := Inverses.dofpt3(p=p,T= T,delp= 1.0e-7);
         f := Basic.f3(d, T);
-        dpro := Modelica.Media.Common.helmholtzToExtraDerivs(f);
+        dpro := Media.Common.helmholtzToExtraDerivs(f);
       elseif region == 5 then
         // region assumed to be 5
         g := Basic.g5(p, T);
-        dpro := Modelica.Media.Common.gibbsToExtraDerivs(g);
+        dpro := Media.Common.gibbsToExtraDerivs(g);
       end if;
     end extraDerivs_pT;
     
@@ -6227,9 +6227,9 @@ Ordinary Water Substance<br>
       "dimensionless Gibbs funcion and dervatives wrt pi and tau";
     Common.GibbsDerivs gv 
       "dimensionless Gibbs funcion and dervatives wrt pi and tau";
-    Modelica.Media.Common.HelmholtzDerivs fl 
+    Common.HelmholtzDerivs fl 
       "dimensionless Helmholtz function and dervatives wrt delta and tau";
-    Modelica.Media.Common.HelmholtzDerivs fv 
+    Common.HelmholtzDerivs fv 
       "dimensionless Helmholtz function and dervatives wrt delta and tau";
     SI.Temperature t1 
       "temperature at phase boundary, using inverse from region 1";
@@ -6343,9 +6343,9 @@ Ordinary Water Substance<br>
       "dimensionless Gibbs funcion and dervatives wrt pi and tau";
     Common.GibbsDerivs gv 
       "dimensionless Gibbs funcion and dervatives wrt pi and tau";
-    Modelica.Media.Common.HelmholtzDerivs fl 
+    Common.HelmholtzDerivs fl 
       "dimensionless Helmholtz function and dervatives wrt delta and tau";
-    Modelica.Media.Common.HelmholtzDerivs fv 
+    Common.HelmholtzDerivs fv 
       "dimensionless Helmholtz function and dervatives wrt delta and tau";
     SI.Temperature t1 
       "temperature at phase boundary, using inverse from region 1";
@@ -7216,17 +7216,17 @@ Ordinary Water Substance<br>
       "dimensionless Gibbs funcion and dervatives wrt pi and tau";
     Common.HelmholtzDerivs f 
       "dimensionless Helmholtz funcion and dervatives wrt delta and tau";
-    Modelica.Media.Common.PhaseBoundaryProperties liq 
+    Common.PhaseBoundaryProperties liq 
       "phase boundary property record";
-    Modelica.Media.Common.PhaseBoundaryProperties vap 
+    Common.PhaseBoundaryProperties vap 
       "phase boundary property record";
-    Modelica.Media.Common.GibbsDerivs gl 
+    Common.GibbsDerivs gl 
       "dimensionless Gibbs funcion and dervatives wrt pi and tau";
-    Modelica.Media.Common.GibbsDerivs gv 
+    Common.GibbsDerivs gv 
       "dimensionless Gibbs funcion and dervatives wrt pi and tau";
-    Modelica.Media.Common.HelmholtzDerivs fl 
+    Common.HelmholtzDerivs fl 
       "dimensionless Helmholtz function and dervatives wrt delta and tau";
-    Modelica.Media.Common.HelmholtzDerivs fv 
+    Common.HelmholtzDerivs fv 
       "dimensionless Helmholtz function and dervatives wrt delta and tau";
     Integer error "error flag for inverse iterations";
   algorithm 
@@ -7617,12 +7617,12 @@ protected
       input SI.SpecificEnthalpy h "specific enthalpy";
       input Integer phase= 0 
         "phase: 2 for two-phase, 1 for one phase, 0 if unknown";
-      output Modelica.Media.Common.ThermoFluidSpecial.ThermoProperties_ph pro 
+      output Common.ThermoFluidSpecial.ThermoProperties_ph pro 
         "property record for dynamic simulation";
     protected 
-      Modelica.Media.Common.GibbsDerivs g 
+      Common.GibbsDerivs g 
         "dimensionless Gibbs funcion and dervatives wrt pi and tau";
-      Modelica.Media.Common.HelmholtzDerivs f 
+      Common.HelmholtzDerivs f 
         "dimensionless Helmholtz funcion and dervatives wrt delta and tau";
       Integer region(min=1, max=5) "IF97 region";
       Integer error "error flag";
@@ -7633,22 +7633,22 @@ protected
       if (region == 1) then
         T := BaseIF97.Basic.tph1(p, h);
         g := BaseIF97.Basic.g1(p, T);
-        pro := Modelica.Media.Common.ThermoFluidSpecial.gibbsToProps_ph(g);
+        pro := Common.ThermoFluidSpecial.gibbsToProps_ph(g);
       elseif (region == 2) then
         T := BaseIF97.Basic.tph2(p, h);
         g := BaseIF97.Basic.g2(p, T);
-        pro := Modelica.Media.Common.ThermoFluidSpecial.gibbsToProps_ph(g);
+        pro := Common.ThermoFluidSpecial.gibbsToProps_ph(g);
       elseif (region == 3) then
         (d,T,error) := BaseIF97.Inverses.dtofph3(p=p,h= h,delp= 1.0e-7,delh=
           1.0e-6);
         f := BaseIF97.Basic.f3(d, T);
-        pro := Modelica.Media.Common.ThermoFluidSpecial.helmholtzToProps_ph(f);
+        pro := Common.ThermoFluidSpecial.helmholtzToProps_ph(f);
       elseif (region == 4) then
         pro := BaseIF97.TwoPhase.waterR4_ph(p=p,h= h);
       elseif (region == 5) then
         (T,error) := BaseIF97.Inverses.tofph5(p=p,h= h,reldh= 1.0e-7);
         g := BaseIF97.Basic.g5(p, T);
-        pro := Modelica.Media.Common.ThermoFluidSpecial.gibbsToProps_ph(g);
+        pro := Common.ThermoFluidSpecial.gibbsToProps_ph(g);
       end if;
     end water_ph;
     
@@ -7659,14 +7659,14 @@ protected
       input SI.Temperature T "temperature";
       input Integer phase= 0 
         "phase: 2 for two-phase, 1 for one phase, 0 if unknown";
-      output Modelica.Media.Common.ThermoFluidSpecial.ThermoProperties_dT pro 
+      output Common.ThermoFluidSpecial.ThermoProperties_dT pro 
         "property record for dynamic simulation";
     protected 
       SI.Pressure p "pressure";
       Integer region(min=1, max=5) "IF97 region";
-      Modelica.Media.Common.GibbsDerivs g 
+      Common.GibbsDerivs g 
         "dimensionless Gibbs funcion and dervatives wrt pi and tau";
-      Modelica.Media.Common.HelmholtzDerivs f 
+      Common.HelmholtzDerivs f 
         "dimensionless Helmholtz funcion and dervatives wrt delta and tau";
       Integer error "error flag";
     algorithm 
@@ -7675,22 +7675,22 @@ protected
         (p,error) := BaseIF97.Inverses.pofdt125(d=d,T= T,reldd= iter.DELD,region=
                  1);
         g := BaseIF97.Basic.g1(p, T);
-        pro := Modelica.Media.Common.ThermoFluidSpecial.gibbsToProps_dT(g);
+        pro := Common.ThermoFluidSpecial.gibbsToProps_dT(g);
       elseif (region == 2) then
         (p,error) := BaseIF97.Inverses.pofdt125(d=d,T= T,reldd= iter.DELD,region=
                  2);
         g := BaseIF97.Basic.g2(p, T);
-        pro := Modelica.Media.Common.ThermoFluidSpecial.gibbsToProps_dT(g);
+        pro := Common.ThermoFluidSpecial.gibbsToProps_dT(g);
       elseif (region == 3) then
         f := BaseIF97.Basic.f3(d, T);
-        pro := Modelica.Media.Common.ThermoFluidSpecial.helmholtzToProps_dT(f);
+        pro := Common.ThermoFluidSpecial.helmholtzToProps_dT(f);
       elseif (region == 4) then
         pro := BaseIF97.TwoPhase.waterR4_dT(d=d,T= T);
       elseif (region == 5) then
         (p,error) := BaseIF97.Inverses.pofdt125(d=d,T= T,reldd= iter.DELD,region=
                  5);
         g := BaseIF97.Basic.g5(p, T);
-        pro := Modelica.Media.Common.ThermoFluidSpecial.gibbsToProps_dT(g);
+        pro := Common.ThermoFluidSpecial.gibbsToProps_dT(g);
       end if;
     end water_dT;
     
@@ -7700,31 +7700,31 @@ protected
       extends Modelica.Icons.Function;
       input SI.Pressure p "pressure";
       input SI.Temperature T "temperature";
-      output Modelica.Media.Common.ThermoFluidSpecial.ThermoProperties_pT pro 
+      output Common.ThermoFluidSpecial.ThermoProperties_pT pro 
         "property record for dynamic simulation";
     protected 
       SI.Density d "density";
       Integer region(min=1, max=5) "IF97 region";
-      Modelica.Media.Common.GibbsDerivs g 
+      Common.GibbsDerivs g 
         "dimensionless Gibbs funcion and dervatives wrt pi and tau";
-      Modelica.Media.Common.HelmholtzDerivs f 
+      Common.HelmholtzDerivs f 
         "dimensionless Helmholtz funcion and dervatives wrt delta and tau";
       Integer error "error flag";
     algorithm 
       region := BaseIF97.Regions.region_pT(p, T);
       if (region == 1) then
         g := BaseIF97.Basic.g1(p, T);
-        pro := Modelica.Media.Common.ThermoFluidSpecial.gibbsToProps_pT(g);
+        pro := Common.ThermoFluidSpecial.gibbsToProps_pT(g);
       elseif (region == 2) then
         g := BaseIF97.Basic.g2(p, T);
-        pro := Modelica.Media.Common.ThermoFluidSpecial.gibbsToProps_pT(g);
+        pro := Common.ThermoFluidSpecial.gibbsToProps_pT(g);
       elseif (region == 3) then
         (d,error) := BaseIF97.Inverses.dofpt3(p=p,T= T,delp= iter.DELP);
         f := BaseIF97.Basic.f3(d, T);
-        pro := Modelica.Media.Common.ThermoFluidSpecial.helmholtzToProps_pT(f);
+        pro := Common.ThermoFluidSpecial.helmholtzToProps_pT(f);
       elseif (region == 5) then
         g := BaseIF97.Basic.g5(p, T);
-        pro := Modelica.Media.Common.ThermoFluidSpecial.gibbsToProps_pT(g);
+        pro := Common.ThermoFluidSpecial.gibbsToProps_pT(g);
       end if;
     end water_pT;
   end ThermoFluidSpecial;
