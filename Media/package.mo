@@ -788,7 +788,7 @@ Record FluidConstants contains the following elements
       <td>true if vapour pressure data, e.g. Antoine coefficents are known</td></tr>
   <tr><td>Boolean</td>
       <td>hasAcentricFactor</td>
-      <td>true if Pitzer accentric factor is known</td></tr>
+      <td>true if Pitzer acentric factor is known</td></tr>
 </table>
 </HTML>
 "));
@@ -3181,7 +3181,7 @@ Modelica source.
       constant Boolean hasVapourPressureCurve=false 
         "true if vapour pressure data, e.g. Antoine coefficents are known";
       constant Boolean hasAcentricFactor=false 
-        "true if Pitzer accentric factor is known";
+        "true if Pitzer acentric factor is known";
       //       constant String fundamentalEquationSource="none" "source of the fundamental equation model";
       //       constant String criticalDataSource="none" "source for critical data";
       //       constant String idealGasHeatCapacitySource="none" "data source for ideal gas heat capacity coefficients";
@@ -3706,6 +3706,8 @@ equation
         min=0,
         max=1,
         nominal=0.1);
+    type MolarHeatCapacity = SI.MolarHeatCapacity (
+        min = 0);
     type MolarMass = SI.MolarMass (
         min=0.001,
         max=0.25,
@@ -4130,7 +4132,7 @@ are defined that every medium is supposed to support
       //       T_der := p_der*temperature_derp_s(setState_ps(p,s,phase)) + s_der*temperature_ders_p(setState_ps(p,s,phase));
     end temperature_ps_der;
     
-    replaceable partial function enthalpy_pT 
+    replaceable function enthalpy_pT 
       "compute specific enthalpy as a function of pressure and temperature" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "pressure";
@@ -4138,9 +4140,9 @@ are defined that every medium is supposed to support
       input FixedPhase phase =  0 
         "phase of the fluid: 1 for 1-phase, 2 for two-phase, 0 for not known";
       output SpecificEnthalpy h "specific enthalpy";
-      //      annotation(derivative(zeroDerivative=phase)=enthalpy_pT_der);
-      //     algorithm 
-      //       h := enthalpy(setState_pT(p,T,phase));
+    //  annotation(derivative(zeroDerivative=phase)=enthalpy_pT_der);
+    //algorithm 
+    //   h := enthalpy(setState_pT(p,T,phase));
     end enthalpy_pT;
     
     replaceable partial function enthalpy_pT_der "derivative function" 
