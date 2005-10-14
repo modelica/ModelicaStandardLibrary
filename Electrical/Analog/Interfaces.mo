@@ -328,7 +328,11 @@ This current is provided explicitly as current i.
             fillColor=7,
             rgbfillColor={255,255,255})),
         Text(extent=[-150,80; 150,120], string="%name"),
-        Line(points=[-90,0; 90,0], style(color=0, rgbcolor={0,0,0}))),
+        Line(points=[-90,0; 90,0], style(color=0, rgbcolor={0,0,0})), 
+        Text(
+          extent=[-90,40; -60,10], 
+          style(color=3, rgbcolor={0,0,255}), 
+          string="+")),
       Window(
         x=0.31,
         y=0.09,
