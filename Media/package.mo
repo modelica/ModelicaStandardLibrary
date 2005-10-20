@@ -2,9 +2,8 @@ package Media "Property models of media"
 extends Modelica.Icons.Library;
 import SI = Modelica.SIunits;
 
-
 annotation (
-  version="0.98",
+  version="0.99",
   versionDate="2005-07-28",
   preferedView="info",
   Documentation(info="<HTML>
@@ -54,8 +53,8 @@ and the accompanying <b>disclaimer</b>
 </HTML>"),
   conversion(from(version="0.795", script=
           "../ConvertFromMedia_0.795.mos")),
+  conversion(from(version="0.98", script="../Scripts/ConvertTo_0.99.mos")),
   uses(Modelica(version="2.2"), Modelica_Interpolation(version="0.95")));
-
 
 package UsersGuide "Users Guide" 
   annotation (DocumentationClass=true, Documentation(info="<HTML>
@@ -1903,7 +1902,6 @@ end Contact;
   
 end UsersGuide;
 
-
 package Examples 
   "Demonstrate usage of property models (currently: simple tests)" 
   
@@ -2969,7 +2967,6 @@ The details of the pipe friction model are described
     end MediaTestModels;
   end Tests;
 end Examples;
-
 
 package Interfaces "Interfaces for media models" 
   
@@ -5176,7 +5173,6 @@ int getDistinctID(void)
   end PartialExternalTwoPhaseMedium;
   
 end Interfaces;
-
 
 package Common "data structures and fundamental functions for fluid properties" 
   

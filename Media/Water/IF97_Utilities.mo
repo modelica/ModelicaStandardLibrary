@@ -7216,10 +7216,8 @@ Ordinary Water Substance<br>
       "dimensionless Gibbs funcion and dervatives wrt pi and tau";
     Common.HelmholtzDerivs f 
       "dimensionless Helmholtz funcion and dervatives wrt delta and tau";
-    Common.PhaseBoundaryProperties liq 
-      "phase boundary property record";
-    Common.PhaseBoundaryProperties vap 
-      "phase boundary property record";
+    Common.PhaseBoundaryProperties liq "phase boundary property record";
+    Common.PhaseBoundaryProperties vap "phase boundary property record";
     Common.GibbsDerivs gl 
       "dimensionless Gibbs funcion and dervatives wrt pi and tau";
     Common.GibbsDerivs gv 
