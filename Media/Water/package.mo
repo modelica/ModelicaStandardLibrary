@@ -82,7 +82,7 @@ one of the following functions:
   <tr><td>Medium.prandtlNumber(medium.state)</td>
       <td>1</td>
       <td>Prandtl number</td></tr>
-  <tr><td>Medium.entropy(medium.state)</td>
+  <tr><td>Medium.specificEntropy(medium.state)</td>
       <td>J/(kg.K)</td>
       <td>specific entropy</td></tr>
   <tr><td>Medium.heatCapacity_cp(medium.state)</td>
@@ -126,8 +126,9 @@ one of the following functions:
       <td>molar mass</td></tr>
 </table>
 <p>More details are given in
-<a href=\"Modelica.Media.UsersGuide.MediumUsage.OptionalProperties\">
+<a href=\"Modelica:Modelica.Media.UsersGuide.MediumUsage.OptionalProperties\">
 Modelica.Media.UsersGuide.MediumUsage.OptionalProperties</a>.
+
 Many additional optional functions are defined to compute properties of 
 saturated media, either liquid (bubble point) or vapour (dew point). 
 The argument to such functions is a SaturationProperties record, which can be
@@ -183,10 +184,12 @@ SaturationProperties record sat, the following functions are provided:
       <td>N/m</td>
       <td>Surface tension between liquid and vapour phase</td></tr>
 </table>
+
 <p>Details on usage and some examples are given in:
-<a href=\"Modelica.Media.UsersGuide.MediumUsage.TwoPhase\">
+<a href=\"Modelica:Modelica.Media.UsersGuide.MediumUsage.TwoPhase\">
 Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
 </p>
+
 <p>Many further properties can be computed. Using the well-known Bridgman's Tables,
 all first partial derivatives of the standard thermodynamic variables can be computed easily.
 </p>
@@ -206,48 +209,7 @@ distributed with computer implementations and are included here
 </html>"));
 
 extends Modelica.Icons.Library;
-  constant Interfaces.PartialTwoPhaseMedium.FluidConstants 
-  waterConstantsTwoPhase(
-     each chemicalFormula = "H2O",
-     each structureFormula="H2O",
-     each casRegistryNumber="7732-18-5",
-     each iupacName="oxidane",
-     each molarMass=0.018015268,
-     each criticalTemperature=647.096,
-     each criticalPressure=22064.0e3,
-     each criticalMolarVolume=1/(322.0*0.018015268),
-     each normalBoilingPoint=373.124,
-     each meltingPoint=273.15,
-     each triplePointTemperature=273.16,
-     each triplePointPressure=611.657,
-     each acentricFactor = 0.344,
-     each dipoleMoment = 1.8,
-     each hasCriticalData=true,
-     each criticalDensity=322.0,
-     each HCRIT0=0.0,
-     each SCRIT0=0.0,
-     each deltah=0.0,
-     each deltas=0.0,
-     each pseudoPure=false,
-     each binaryMixture=false);
-  constant Interfaces.PartialSimpleMedium.FluidConstants waterConstantsSimple(
-     each chemicalFormula = "H2O",
-     each structureFormula="H2O",
-     each casRegistryNumber="7732-18-5",
-     each iupacName="oxidane",
-     each molarMass=0.018015268,
-     each criticalTemperature=647.096,
-     each criticalPressure=22064.0e3,
-     each criticalMolarVolume=1/(322.0*0.018015268),
-     each normalBoilingPoint=373.124,
-     each meltingPoint=273.15,
-     each triplePointTemperature=273.16,
-     each triplePointPressure=611.657,
-     each acentricFactor = 0.344,
-     each dipoleMoment = 1.8,
-     each hasCriticalData=true);
-  constant Interfaces.PartialPureSubstance.FluidConstants[1] 
-  waterConstantsPureSubstance(
+  constant Interfaces.PartialMedium.FluidConstants[1] waterConstants(
      each chemicalFormula = "H2O",
      each structureFormula="H2O",
      each casRegistryNumber="7732-18-5",
@@ -280,7 +242,7 @@ package ConstantPropertyLiquidWater
      T_max=Cv.from_degC(130),
      T0=273.15,
      MM_const=0.018015268,
-     fluidConstants = waterConstantsSimple);
+     fluidConstants = waterConstants);
   
   annotation (Icon(Text(
         extent=[-90, 88; 90, 18],
@@ -299,7 +261,7 @@ end ConstantPropertyLiquidWater;
 
 package IdealSteam "Water: Steam as ideal gas from NASA source" 
   extends IdealGases.SingleGases.H2O(
-  fluidConstants = waterConstantsPureSubstance);
+  fluidConstants = waterConstants);
 end IdealSteam;
 
 package StandardWater = WaterIF97_ph 
@@ -350,7 +312,7 @@ This model calculates medium properties
 for water in the <b>liquid</b>, <b>gas</b> and <b>two phase</b> regions 
 according to the IAPWS/IF97 standard, i.e., the accepted industrial standard
 and best compromise between accuracy and computation time.
-For more details see <a href=\"Modelica.Media.Water.IF97_Utilities\">
+For more details see <a href=\"Modelica:Modelica.Media.Water.IF97_Utilities\">
 Modelica.Media.Water.IF97_Utilities</a>. Three variable pairs can be the 
 independent variables of the model:
 <ol>
@@ -384,9 +346,9 @@ The following quantities are always computed:
 In some cases additional medium properties are needed.
 A component that needs these optional properties has to call
 one of the functions listed in 
-<a href=\"Modelica.Media.UsersGuide.MediumUsage.OptionalProperties\">
+<a href=\"Modelica:Modelica.Media.UsersGuide.MediumUsage.OptionalProperties\">
 Modelica.Media.UsersGuide.MediumUsage.OptionalProperties</a> and in
-<a href=\"Modelica.Media.UsersGuide.MediumUsage.TwoPhase\">
+<a href=\"Modelica:Modelica.Media.UsersGuide.MediumUsage.TwoPhase\">
 Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
 </p>
 </p>
@@ -404,14 +366,13 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
      Temperature(start=500, nominal=500),
      smoothModel=false,
      onePhase=false,
-     fluidConstants = waterConstantsTwoPhase);
+     fluidConstants = waterConstants);
   
   redeclare record extends ThermodynamicState "thermodynamic state" 
     SpecificEnthalpy h "specific enthalpy";
     Density d "density";
     Temperature T "temperature";
     AbsolutePressure p "pressure";
-  //  Common.IF97BaseTwoPhase aux "auxiliary variables for the cache record";
   end ThermodynamicState;
   
   constant Boolean ph_explicit 
@@ -431,19 +392,19 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
     SaturationProperties sat(Tsat(start=300.0), psat(start=1.0e5)) 
       "saturation temperature and pressure";
   equation 
-    MM = fluidConstants.molarMass;
+    MM = fluidConstants[1].molarMass;
     if smoothModel then
       if onePhase then
         phase = 1;
         if ph_explicit then
           assert(((h < bubbleEnthalpy(sat) or h > dewEnthalpy(sat)) or p >
-    fluidConstants.criticalPressure),
+    fluidConstants[1].criticalPressure),
    "With onePhase=true this model may only be called with one-phase states h < hl or h > hv!"
    + "(p = " + String(p) + ", h = " + String(h) + ")");
         else
    if dT_explicit then
      assert(not ((d < bubbleDensity(sat) and d > dewDensity(sat)) and T <
-   fluidConstants.criticalTemperature),
+   fluidConstants[1].criticalTemperature),
      "With onePhase=true this model may only be called with one-phase states d > dl or d < dv!"
      + "(d = " + String(d) + ", T = " + String(T) + ")");
    else
@@ -456,34 +417,33 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
     else
       if ph_explicit then
         phase = if ((h < bubbleEnthalpy(sat) or h > dewEnthalpy(sat)) or p >
-          fluidConstants.criticalPressure) then 1 else 2;
+          fluidConstants[1].criticalPressure) then 1 else 2;
       elseif dT_explicit then
         phase = if not ((d < bubbleDensity(sat) and d > dewDensity(sat)) and T
-           < fluidConstants.criticalTemperature) then 1 else 2;
+           < fluidConstants[1].criticalTemperature) then 1 else 2;
       else
         phase = 1;
         //this is for the one-phase only case pT
       end if;
     end if;
     if dT_explicit then
-      // setState_dT(d,T,phase)
-      p = pressure_dT(d, T, phase);
-      h = enthalpy_dT(d, T, phase);
+      p = p_dT(d, T, phase);
+      h = h_dT(d, T, phase);
       sat.Tsat = T;
       sat.psat = saturationPressure(T);
     elseif ph_explicit then
-      d = density_ph(p, h, phase);
-      T = temperature_ph(p, h, phase);
+      d = rho_ph(p, h, phase);
+      T = T_ph(p, h, phase);
       sat.Tsat = saturationTemperature(p);
       sat.psat = p;
     else
-      h = enthalpy_pT(p, T);
-      d = density_pT(p, T);
+      h = h_pT(p, T);
+      d = rho_pT(p, T);
       sat.psat = p;
       sat.Tsat = saturationTemperature(p);
     end if;
     u = h - p/d;
-    R = Modelica.Constants.R/fluidConstants.molarMass;
+    R = Modelica.Constants.R/fluidConstants[1].molarMass;
     h = state.h;
     p = state.p;
     T = state.T;
@@ -491,143 +451,63 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
     phase = state.phase;
   end BaseProperties;
   
-  redeclare function extends density_ph 
+  redeclare function extends rho_ph 
     "compute density as a function of pressure and specific enthalpy" 
   algorithm 
     d := IF97_Utilities.rho_ph(p, h, phase);
-  end density_ph;
+  end rho_ph;
   
-  redeclare function extends temperature_ph 
+  redeclare function extends T_ph 
     "compute temperature as a function of pressure and specific enthalpy" 
   algorithm 
     T := IF97_Utilities.T_ph(p, h, phase);
-  end temperature_ph;
+  end T_ph;
   
-  redeclare function extends temperature_phX "temporary implementation by CCR" 
-  algorithm 
-    T := temperature_ph(p, h);
-  end temperature_phX;
-  
-  redeclare function extends pressure_dT 
+  redeclare function extends p_dT 
     "compute pressure as a function of density and temperature" 
   algorithm 
     p := IF97_Utilities.p_dT(d, T, phase);
-  end pressure_dT;
+  end p_dT;
   
-  redeclare function extends enthalpy_dT 
+  redeclare function extends h_dT 
     "compute specific enthalpy as a function of density and temperature" 
   algorithm 
     h := IF97_Utilities.h_dT(d, T, phase);
-  end enthalpy_dT;
+  end h_dT;
   
-  redeclare function extends enthalpy_pT 
+  redeclare function extends h_pT 
     "compute specific enthalpy as a function of pressure and temperature" 
   algorithm 
     h := IF97_Utilities.h_pT(p, T);
-  end enthalpy_pT;
+  end h_pT;
   
-  redeclare function extends enthalpy_pTX "temporary implementation by CCR" 
-  algorithm 
-    h := enthalpy_pT(p, T);
-  end enthalpy_pTX;
-  
-  redeclare function extends density_pT 
+  redeclare function extends rho_pT 
     "compute density as a function of pressure and temperature" 
   algorithm 
     d := IF97_Utilities.rho_pT(p, T);
-  end density_pT;
+  end rho_pT;
   
   redeclare function extends setDewState 
     "set the thermodynamic state on the dew line" 
   algorithm 
     state := ThermodynamicState(
-       phase=  phase,
-       p=  sat.psat,
-       T=  sat.Tsat,
-       h=  dewEnthalpy(sat),
-       d=  dewDensity(sat));
+       phase = phase,
+       p = sat.psat,
+       T = sat.Tsat,
+       h = dewEnthalpy(sat),
+       d = dewDensity(sat));
   end setDewState;
   
   redeclare function extends setBubbleState 
     "set the thermodynamic state on the bubble line" 
   algorithm 
     state := ThermodynamicState(
-       phase=  phase,
-       p=  sat.psat,
-       T=  sat.Tsat,
-       h=  bubbleEnthalpy(sat),
-       d=  bubbleDensity(sat));
+       phase = phase,
+       p = sat.psat,
+       T = sat.Tsat,
+       h = bubbleEnthalpy(sat),
+       d = bubbleDensity(sat));
   end setBubbleState;
-  
-  redeclare function extends setState_ph 
-    "set the complete state as function of p and h" 
-  algorithm 
-    state := ThermodynamicState(
-       phase=  IF97_Utilities.phase_ph(p,h),
-       p=  p,
-       T=  temperature_ph(p,h),
-       h=  h,
-       d=  density_ph(p,h));
-  end setState_ph;
-  
-/*  
-  redeclare function extends setState_ps "set the complete state as function of p and s"
-  algorithm
-    state := ThermodynamicState(
-       phase = IF97_Utilities.phase_ps(p,s),
-       p = p,
-       T = T_ps(p,s),
-       h = h_ps(p,s),
-       d = rho_ps(p,s));
-  end setState_ps;
-*/
-  
-  redeclare function extends setState_pT 
-    "set the complete state as function of p and T" 
-  algorithm 
-    state := ThermodynamicState(
-       phase=  1,
-       p=  p,
-       T=  T,
-       h=  enthalpy_pT(p,T),
-       d=  density_pT(p,T));
-  end setState_pT;
-  
-  redeclare function extends setState_dT 
-    "set the complete state as function of d and T" 
-  algorithm 
-    state := ThermodynamicState(
-       phase=  1,
-       p=  pressure_dT(d,T),
-       T=  T,
-       h=  enthalpy_dT(d,T),
-       d=  d);
-  end setState_dT;
-  
-  redeclare function extends density "compute density" 
-  algorithm 
-    d := state.d;
-  end density;
-  
-  redeclare function extends temperature "compute temperature" 
-  algorithm 
-    T := state.T;
-  end temperature;
-  
-  redeclare function extends pressure "compute pressure" 
-  algorithm 
-    p := state.p;
-  end pressure;
-  
-  redeclare function extends enthalpy "compute specific enthalpy" 
-  algorithm 
-    h := state.h;
-  end enthalpy;
-  
-  redeclare function extends internalEnergy "compute specific internal energy" 
-  algorithm 
-    u := state.h - state.p/state.d;
-  end internalEnergy;
   
   redeclare function extends dynamicViscosity "Dynamic viscosity of water" 
   algorithm 
@@ -648,7 +528,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
     sigma := IF97_Utilities.surfaceTension(sat.Tsat);
   end surfaceTension;
   
-  redeclare function extends entropy "specific entropy of water" 
+  redeclare function extends specificEntropy "specific entropy of water" 
   algorithm 
     if dT_explicit then
       s := IF97_Utilities.s_dT(state.d, state.T, state.phase);
@@ -657,14 +537,14 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
     else
       s := IF97_Utilities.s_ph(state.p, state.h, state.phase);
     end if;
-  end entropy;
+  end specificEntropy;
   
-  redeclare function extends heatCapacityCp 
+  redeclare function extends heatCapacity_cp 
     "specific heat capacity at constant pressure of water" 
       annotation (Documentation(info="<html><body>
-                                <p>In the two phase region this function returns the interpolated heat capacity between the
-                                liquid and vapour state heat capacities.</p>
-                          </body><html>"));
+				<p>In the two phase region this function returns the interpolated heat capacity between the
+				liquid and vapour state heat capacities.</p>
+			  </body><html>"));
   algorithm 
     if dT_explicit then
       cp := IF97_Utilities.cp_dT(state.d, state.T, state.phase);
@@ -673,24 +553,9 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
     else
       cp := IF97_Utilities.cp_ph(state.p, state.h, state.phase);
     end if;
-  end heatCapacityCp;
+  end heatCapacity_cp;
   
-  redeclare function extends heatCapacityCp_dT 
-  algorithm 
-    cp := IF97_Utilities.cp_dT(d, T, phase);
-  end heatCapacityCp_dT;
-  
-  redeclare function extends heatCapacityCp_ph 
-  algorithm 
-    cp := IF97_Utilities.cp_ph(p, h, phase);
-  end heatCapacityCp_ph;
-  
-  redeclare function extends heatCapacityCp_pT 
-  algorithm 
-    cp := IF97_Utilities.cp_pT(p, T);
-  end heatCapacityCp_pT;
-  
-  redeclare function extends heatCapacityCv 
+  redeclare function extends heatCapacity_cv 
     "specific heat capacity at constant volume of water" 
   algorithm 
     if dT_explicit then
@@ -700,22 +565,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
     else
       cv := IF97_Utilities.cv_ph(state.p, state.h, state.phase);
     end if;
-  end heatCapacityCv;
-  
-  redeclare function extends heatCapacityCv_dT 
-  algorithm 
-    cv := IF97_Utilities.cv_dT(d, T, phase);
-  end heatCapacityCv_dT;
-  
-  redeclare function extends heatCapacityCv_ph 
-  algorithm 
-    cv := IF97_Utilities.cv_ph(p, h, phase);
-  end heatCapacityCv_ph;
-  
-  redeclare function extends heatCapacityCv_pT 
-  algorithm 
-    cv := IF97_Utilities.cv_pT(p, T);
-  end heatCapacityCv_pT;
+  end heatCapacity_cv;
   
   redeclare function extends isentropicExponent "Return isentropic exponent" 
   algorithm 
@@ -767,7 +617,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
   
   redeclare function extends isentropicEnthalpy "compute h(p,s)" 
   algorithm 
-    h_is := IF97_Utilities.isentropicEnthalpy(p_downstream, entropy(
+    h_is := IF97_Utilities.isentropicEnthalpy(p_downstream, specificEntropy(
       refState), 0);
   end isentropicEnthalpy;
   
@@ -880,7 +730,7 @@ This model calculates medium properties
 for water in the <b>liquid</b>, <b>gas</b> and <b>two phase</b> regions 
 according to the IAPWS/IF97 standard, i.e., the accepted industrial standard
 and best compromise between accuracy and computation time.
-For more details see <a href=\"Modelica.Media.Water.IF97_Utilities\">
+For more details see <a href=\"Modelica:Modelica.Media.Water.IF97_Utilities\">
 Modelica.Media.Water.IF97_Utilities</a>. Three variable pairs can be the 
 independent variables of the model:
 <ol>
@@ -914,9 +764,9 @@ The following quantities are always computed:
 In some cases additional medium properties are needed.
 A component that needs these optional properties has to call
 one of the functions listed in 
-<a href=\"Modelica.Media.UsersGuide.MediumUsage.OptionalProperties\">
+<a href=\"Modelica:Modelica.Media.UsersGuide.MediumUsage.OptionalProperties\">
 Modelica.Media.UsersGuide.MediumUsage.OptionalProperties</a> and in
-<a href=\"Modelica.Media.UsersGuide.MediumUsage.TwoPhase\">
+<a href=\"Modelica:Modelica.Media.UsersGuide.MediumUsage.TwoPhase\">
 Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
 </p>
 </p>
@@ -935,7 +785,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
      Temperature(start=500, nominal=500),
      smoothModel=false,
      onePhase=false,
-     fluidConstants = waterConstantsTwoPhase);
+     fluidConstants = waterConstants);
   
   redeclare record extends ThermodynamicState "thermodynamic state" 
     SpecificEnthalpy h "specific enthalpy";
@@ -962,13 +812,13 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
     SaturationProperties sat(Tsat(start=300.0), psat(start=1.0e5)) 
       "saturation temperature and pressure";
   equation 
-    MM = fluidConstants.molarMass;
+    MM = fluidConstants[1].molarMass;
     if smoothModel then
       if onePhase then
         phase = 1;
         if ph_explicit then
           assert(((h < bubbleEnthalpy(sat) or h > dewEnthalpy(sat)) or p >
-            fluidConstants.criticalPressure),
+            fluidConstants[1].criticalPressure),
             "With onePhase=true this model may only be called with one-phase states h < hl or h > hv!");
         else
           assert(not ((d < bubbleDensity(sat) and d > dewDensity(sat)) and T <
@@ -981,33 +831,33 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
     else
       if ph_explicit then
         phase = if ((h < bubbleEnthalpy(sat) or h > dewEnthalpy(sat)) or p >
-          fluidConstants.criticalPressure) then 1 else 2;
+          fluidConstants[1].criticalPressure) then 1 else 2;
       elseif dT_explicit then
         phase = if not ((d < bubbleDensity(sat) and d > dewDensity(sat)) and T
-           < fluidConstants.criticalTemperature) then 1 else 2;
+           < fluidConstants[1].criticalTemperature) then 1 else 2;
       else
         phase = 1;
         //this is for the one-phase only case pT
       end if;
     end if;
     if dT_explicit then
-      p = pressure_dT(d, T, phase, Region);
-      h = enthalpy_dT(d, T, phase, Region);
+      p = p_dT(d, T, phase, Region);
+      h = h_dT(d, T, phase, Region);
       sat.Tsat = T;
       sat.psat = saturationPressure(T);
     elseif ph_explicit then
-      d = density_ph(p, h, phase, Region);
-      T = temperature_ph(p, h, phase, Region);
+      d = rho_ph(p, h, phase, Region);
+      T = T_ph(p, h, phase, Region);
       sat.Tsat = saturationTemperature(p);
       sat.psat = p;
     else
-      h = enthalpy_pT(p, T, Region);
-      d = density_pT(p, T, Region);
+      h = h_pT(p, T, Region);
+      d = rho_pT(p, T, Region);
       sat.psat = p;
       sat.Tsat = saturationTemperature(p);
     end if;
     u = h - p/d;
-    R = Modelica.Constants.R/fluidConstants.molarMass;
+    R = Modelica.Constants.R/fluidConstants[1].molarMass;
     h = state.h;
     p = state.p;
     T = state.T;
@@ -1015,53 +865,53 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
     phase = state.phase;
   end BaseProperties;
   
-  redeclare function extends density_ph 
+  redeclare function extends rho_ph 
     "compute density as a function of pressure and specific enthalpy" 
     input Integer region=0 
       "if 0, region is unknown, otherwise known and this input";
   algorithm 
     d := IF97_Utilities.rho_ph(p, h, phase, region);
-  end density_ph;
+  end rho_ph;
   
-  redeclare function extends temperature_ph 
+  redeclare function extends T_ph 
     "compute temperature as a function of pressure and specific enthalpy" 
     input Integer region=0 
       "if 0, region is unknown, otherwise known and this input";
   algorithm 
     T := IF97_Utilities.T_ph(p, h, phase, region);
-  end temperature_ph;
+  end T_ph;
   
-  redeclare function extends pressure_dT 
+  redeclare function extends p_dT 
     "compute pressure as a function of density and temperature" 
     input Integer region=0 
       "if 0, region is unknown, otherwise known and this input";
   algorithm 
     p := IF97_Utilities.p_dT(d, T, phase, region);
-  end pressure_dT;
+  end p_dT;
   
-  redeclare function extends enthalpy_dT 
+  redeclare function extends h_dT 
     "compute specific enthalpy as a function of density and temperature" 
     input Integer region=0 
       "if 0, region is unknown, otherwise known and this input";
   algorithm 
     h := IF97_Utilities.h_dT(d, T, phase, region);
-  end enthalpy_dT;
+  end h_dT;
   
-  redeclare function extends enthalpy_pT 
+  redeclare function extends h_pT 
     "compute specific enthalpy as a function of pressure and temperature" 
     input Integer region=0 
       "if 0, region is unknown, otherwise known and this input";
   algorithm 
     h := IF97_Utilities.h_pT(p, T, region);
-  end enthalpy_pT;
+  end h_pT;
   
-  redeclare function extends density_pT 
+  redeclare function extends rho_pT 
     "compute density as a function of pressure and temperature" 
     input Integer region=0 
       "if 0, region is unknown, otherwise known and this input";
   algorithm 
     d := IF97_Utilities.rho_pT(p, T, region);
-  end density_pT;
+  end rho_pT;
   
   redeclare function extends setDewState 
     "set the thermodynamic state on the dew line" 
@@ -1085,7 +935,8 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
   
   redeclare function extends dynamicViscosity "Dynamic viscosity of water" 
   algorithm 
-    eta := IF97_Utilities.dynamicViscosity(state.d, state.T, state.p, state.phase);
+    eta := IF97_Utilities.dynamicViscosity(state.d, state.T, state.p, state.
+      phase);
   end dynamicViscosity;
   
   redeclare function extends thermalConductivity 
@@ -1101,7 +952,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
     sigma := IF97_Utilities.surfaceTension(sat.Tsat);
   end surfaceTension;
   
-  redeclare function extends entropy "specific entropy of water" 
+  redeclare function extends specificEntropy "specific entropy of water" 
   algorithm 
     if dT_explicit then
       s := IF97_Utilities.s_dT(state.d, state.T, state.phase, Region);
@@ -1110,9 +961,9 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
     else
       s := IF97_Utilities.s_ph(state.p, state.h, state.phase, Region);
     end if;
-  end entropy;
+  end specificEntropy;
   
-  redeclare function extends heatCapacityCp 
+  redeclare function extends heatCapacity_cp 
     "specific heat capacity at constant pressure of water" 
   algorithm 
     if dT_explicit then
@@ -1122,9 +973,9 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
     else
       cp := IF97_Utilities.cp_ph(state.p, state.h, Region);
     end if;
-  end heatCapacityCp;
+  end heatCapacity_cp;
   
-  redeclare function extends heatCapacityCv 
+  redeclare function extends heatCapacity_cv 
     "specific heat capacity at constant volume of water" 
   algorithm 
     if dT_explicit then
@@ -1134,7 +985,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
     else
       cv := IF97_Utilities.cv_ph(state.p, state.h, state.phase, Region);
     end if;
-  end heatCapacityCv;
+  end heatCapacity_cv;
   
   redeclare function extends isentropicExponent "Return isentropic exponent" 
   algorithm 
@@ -1190,7 +1041,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
   
   redeclare function extends isentropicEnthalpy "compute h(s,p)" 
   algorithm 
-    h_is := IF97_Utilities.isentropicEnthalpy(p_downstream, entropy(
+    h_is := IF97_Utilities.isentropicEnthalpy(p_downstream, specificEntropy(
       refState), 0);
   end isentropicEnthalpy;
   
