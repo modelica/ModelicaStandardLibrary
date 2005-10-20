@@ -739,7 +739,7 @@ required from medium model \"" + mediumName + "\".");
      input SI.Temperature T "Temperature";
      input MassFraction Xi[nXi] "Independent Mass fractions of gas mixture";
      output SI.SpecificEnthalpy h "Specific enthalpy at temperature T";
-      // annotation(Inline=false,smoothOrder=1);
+     annotation(Inline=false,smoothOrder=1);
       //     annotation (Inline = false,
       //                 derivative(zeroDerivative=exclEnthForm,
       //                            zeroDerivative=refChoice,
