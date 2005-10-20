@@ -3246,27 +3246,27 @@ Modelica source.
     
     // Constants to be set in Medium
     constant String mediumName "Name of the medium";
-    constant String substanceNames[:] = {mediumName} 
+    constant String substanceNames[:]={mediumName} 
       "Names of the mixture substances. Set substanceNames={mediumName} if only one substance.";
-    constant String extraPropertiesNames[:]= fill("",0) 
+    constant String extraPropertiesNames[:]=fill("", 0) 
       "Names of the additional (extra) transported properties. Set extraPropertiesNames=fill(\"\",0) if unused";
     constant Boolean singleState 
       "= true, if u and d are not a function of pressure";
-    constant Boolean reducedX = true 
+    constant Boolean reducedX=true 
       "= true if medium contains the equation sum(X) = 1.0; set reducedX=true if only one substance (see docu for details)";
-    constant Boolean fixedX = false 
+    constant Boolean fixedX=false 
       "= true if medium contains the equation X = reference_X";
-    constant AbsolutePressure reference_p = 101325 
+    constant AbsolutePressure reference_p=101325 
       "Reference pressure of Medium: default 1 atmosphere";
-    constant MassFraction reference_X[nX]=fill(1/nX,nX) 
+    constant MassFraction reference_X[nX]=fill(1/nX, nX) 
       "Default mass fractions of medium";
-    final constant Integer nS = size(substanceNames,1) "Number of substances" annotation(Evaluate=true);
-    final constant Integer nX = if nS==1 then 0 else nS 
+    final constant Integer nS=size(substanceNames, 1) "Number of substances"  annotation(Evaluate=true);
+    final constant Integer nX=if nS == 1 then 0 else nS 
       "Number of mass fractions (= 0, if only one substance)" annotation(Evaluate=true);
-    final constant Integer nXi = if fixedX then 0 else if reducedX then nS-1 else nX 
+    final constant Integer nXi=if fixedX then 0 else if reducedX then nS - 1 else nX 
       "Number of structurally independent mass fractions (see docu for details)"
      annotation(Evaluate=true);
-    final constant Integer nC = size(extraPropertiesNames,1) 
+    final constant Integer nC=size(extraPropertiesNames, 1) 
       "Number of extra (outside of standard mass-balance) transported properties"
      annotation(Evaluate=true);
     constant FluidConstants[nS] fluidConstants "fluid constants";
@@ -3344,10 +3344,12 @@ Modelica source.
         "= true if StateSelect.prefer shall be used for the independent property variables of the medium"
         annotation (Hide=true, Evaluate=true, Dialog(tab="Advanced"));
       
-      annotation(structurallyIncomplete);
-      SI.Conversions.NonSIunits.Temperature_degC T_degC=Modelica.SIunits.Conversions.to_degC(T) 
+      annotation (structurallyIncomplete);
+      SI.Conversions.NonSIunits.Temperature_degC T_degC=
+          Modelica.SIunits.Conversions.to_degC(T) 
         "Temperature of medium in [degC]";
-      SI.Conversions.NonSIunits.Pressure_bar p_bar=Modelica.SIunits.Conversions.to_bar(p) 
+      SI.Conversions.NonSIunits.Pressure_bar p_bar=
+          Modelica.SIunits.Conversions.to_bar(p) 
         "Absolute pressure of medium in [bar]";
       //       MassFraction X[nX](start=reference_X[1:nX]) 
       //         "Independent mass fractions" annotation(Hide=true);
@@ -3414,26 +3416,25 @@ In some components, such as \"Ambient\", explicit equations for
 medium variables are provided as \"boundary conditions\".
 For example, the \"Ambient\" component may define a temperature
 T_ambient.
-</html>"), Icon(Rectangle(extent=[-100, 100; 100, -100], style(fillColor=7)),
-            Text(extent=[-152, 164; 152, 102], string="%name")));
+</html>"),   Icon(Rectangle(extent=[-100,100; 100,-100], style(fillColor=7)), Text(extent=
+               [-152,164; 152,102], string="%name")));
     equation 
       Xi = X[1:nXi];
       if nX > 1 then
-         if fixedX then
-            X = reference_X;
-         elseif reducedX then
-            X[nX] = 1 - sum(Xi);
-         end if;
-         for i in 1:nX loop
-           assert(X[i] >= -1.e-5 and X[i] <= 1 + 1.e-5, "Mass fraction X[" +
-             String(i) + "] = " + String(X[i]) + "of substance " +
-             substanceNames[i] + "\nof medium " + mediumName +
-             " is not in the range 0..1");
+        if fixedX then
+          X = reference_X;
+        elseif reducedX then
+          X[nX] = 1 - sum(Xi);
+        end if;
+        for i in 1:nX loop
+          assert(X[i] >= -1.e-5 and X[i] <= 1 + 1.e-5, "Mass fraction X[" +
+            String(i) + "] = " + String(X[i]) + "of substance " + substanceNames[
+            i] + "\nof medium " + mediumName + " is not in the range 0..1");
         end for;
       end if;
       
-      assert(p >= 0.0, "Pressure (= " + String(p) + " Pa) of medium \"" + mediumName
-             + "\" is negative\n(Temperature = " + String(T)+ " K)");
+      assert(p >= 0.0, "Pressure (= " + String(p) + " Pa) of medium \"" +
+        mediumName + "\" is negative\n(Temperature = " + String(T) + " K)");
       
       /*  function checkParameters 
     "Checks the validity of the medium parameters" 
@@ -3489,8 +3490,8 @@ equation
       input ThermodynamicState state;
       output PrandtlNumber Pr "Prandtl number";
     algorithm 
-      Pr := dynamicViscosity(state)*heatCapacity_cp(state)/
-         thermalConductivity(state);
+      Pr := dynamicViscosity(state)*heatCapacity_cp(state)/thermalConductivity(
+        state);
     end prandtlNumber;
     
     replaceable partial function specificEntropy "Return specific entropy" 
@@ -3580,20 +3581,39 @@ equation
       output DerDensityByTemperature ddTp "density derivative by temperature";
     end density_derT_p;
     
-  replaceable partial function density_derX 
+    replaceable partial function density_derX 
       "density derivative by mass fraction" 
-    extends Modelica.Icons.Function;
-    input ThermodynamicState state;
-    output Density[nX] dddX "derivative of density by mass fraction";
-  end density_derX;
+      extends Modelica.Icons.Function;
+      input ThermodynamicState state;
+      output Density[nX] dddX "derivative of density by mass fraction";
+    end density_derX;
     
-  replaceable partial function molarMass "return the molar mass of the medium" 
-    extends Modelica.Icons.Function;
-    input ThermodynamicState state;
-    output MolarMass MM "mixture molar mass";
-  end molarMass;
+    replaceable partial function molarMass 
+      "return the molar mass of the medium" 
+      extends Modelica.Icons.Function;
+      input ThermodynamicState state;
+      output MolarMass MM "mixture molar mass";
+    end molarMass;
     
-  type AbsolutePressure = SI.AbsolutePressure (
+    replaceable partial function h_pTX 
+      "Compute specific enthalpy from pressure, temperature and mass fraction" 
+      extends Modelica.Icons.Function;
+      input AbsolutePressure p "Pressure";
+      input Temperature T "Temperature";
+      input MassFraction Xi[nXi] "Independent mass fractions";
+      output SpecificEnthalpy h "Specific enthalpy at p, T, Xi";
+    end h_pTX;
+    
+    replaceable partial function T_phX 
+      "Compute temperature from pressure, specific enthalpy and mass fraction" 
+      extends Modelica.Icons.Function;
+      input AbsolutePressure p "Pressure";
+      input SpecificEnthalpy h "Specific enthalpy";
+      input MassFraction Xi[nXi] "Independent mass fractions";
+      output Temperature T "Temperature";
+    end T_phX;
+    
+    type AbsolutePressure = SI.AbsolutePressure (
         min=0,
         max=1.e8,
         nominal=1.e5,
@@ -3610,10 +3630,10 @@ equation
         nominal=1.e-3,
         start=1.e-3);
     type EnthalpyFlowRate = Real (
-         unit="J/(kg.s)",
-         nominal=1000.0,
-         min=-1.0e8,
-         max=1.e8);
+        unit="J/(kg.s)",
+        nominal=1000.0,
+        min=-1.0e8,
+        max=1.e8);
     type MassFlowRate = SI.MassFlowRate (
         quantity="MassFlowRate." + mediumName,
         min=-1.0e5,
@@ -3635,9 +3655,9 @@ equation
         max=0.25,
         nominal=0.032);
     type MolarVolume = SI.MolarVolume (
-       min = 1e-6,
-       max = 1.0e6,
-       nominal = 1.0);
+        min=1e-6,
+        max=1.0e6,
+        nominal=1.0);
     type IsentropicExponent = SI.RatioOfSpecificHeatCapacities (
         min=1,
         max=1.7,
@@ -3673,31 +3693,29 @@ equation
         nominal=1,
         start=1);
     type PrandtlNumber = SI.PrandtlNumber (
-       min = 1e-3,
-       max = 1e5,
-       nominal = 1.0);
+        min=1e-3,
+        max=1e5,
+        nominal=1.0);
     type VelocityOfSound = SI.Velocity (
         min=0,
         max=1.e5,
         nominal=1000,
         start=1000);
-    type ExtraProperty = Real (
-       min = 0.0,
-       start = 1.0) "unspecified, mass-specific property transported by flow";
-    type CumulativeExtraProperty = Real (
-       min = 0.0,
-       start = 1.0) "conserved integral of unspecified, mass specific property";
+    type ExtraProperty = Real (min=0.0, start=1.0) 
+      "unspecified, mass-specific property transported by flow";
+    type CumulativeExtraProperty = Real (min=0.0, start=1.0) 
+      "conserved integral of unspecified, mass specific property";
     type ExtraPropertyFlowRate = Real 
       "flow rate of unspecified, mass-specific property";
     type IsobaricExpansionCoefficient = Real (
-       min = 1e-8,
-       max = 1.0e8,
-       unit = "1/K") "isobaric expansion coefficient";
-  type DipoleMoment = Real (
-     min = 0.0,
-     max = 2.0,
-     unit = "debye",
-     quantity="ElectricDipoleMoment");
+        min=1e-8,
+        max=1.0e8,
+        unit="1/K") "isobaric expansion coefficient";
+    type DipoleMoment = Real (
+        min=0.0,
+        max=2.0,
+        unit="debye",
+        quantity="ElectricDipoleMoment");
     
     type DerDensityByPressure = SI.DerDensityByPressure;
     type DerDensityByEnthalpy = SI.DerDensityByEnthalpy;
@@ -3721,11 +3739,11 @@ equation
           extends Integer;
           annotation (Evaluate=true, choices(
               choice=Modelica.Media.Interfaces.PartialMedium.Choices.Init.
-                  NoInit "NoInit (no initialization)",
+                  NoInit "NoInit (no initialization)", 
               choice=Modelica.Media.Interfaces.PartialMedium.Choices.Init.
-                  InitialStates "InitialStates (initialize medium states)",
+                  InitialStates "InitialStates (initialize medium states)", 
               choice=Modelica.Media.Interfaces.PartialMedium.Choices.Init.
-                  SteadyState "SteadyState (initialize in steady state)",
+                  SteadyState "SteadyState (initialize in steady state)", 
               choice=Modelica.Media.Interfaces.PartialMedium.Choices.Init.
                   SteadyMass 
                 "SteadyMass (initialize density or pressure in steady state)"));
@@ -3748,10 +3766,12 @@ equation
           annotation (Evaluate=true, choices(
               choice=Modelica.Media.Interfaces.PartialMedium.Choices.Init.
                   ZeroAt0K 
-                "The enthalpy is 0 at 0 K (default), if the enthalpy of formation is excluded",
+                "The enthalpy is 0 at 0 K (default), if the enthalpy of formation is excluded", 
+                
               choice=Modelica.Media.Interfaces.PartialMedium.Choices.Init.
                   ZeroAt25C 
-                "The enthalpy is 0 at 25 degC, if the enthalpy of formation is excluded",
+                "The enthalpy is 0 at 25 degC, if the enthalpy of formation is excluded", 
+                
               choice=Modelica.Media.Interfaces.PartialMedium.Choices.Init.
                   UserDefined 
                 "The user-defined reference enthalpy is used at 293.15 K (25 degC)"));
@@ -3774,9 +3794,9 @@ equation
           extends Integer;
           annotation (Evaluate=true, choices(
               choice=Modelica.Media.Interfaces.PartialMedium.Choices.Init.
-                  ZeroAt0K "The entropy is 0 at 0 K (default)",
+                  ZeroAt0K "The entropy is 0 at 0 K (default)", 
               choice=Modelica.Media.Interfaces.PartialMedium.Choices.Init.
-                  ZeroAt0C "The entropy is 0 at 0 degC",
+                  ZeroAt0C "The entropy is 0 at 0 degC", 
               choice=Modelica.Media.Interfaces.PartialMedium.Choices.Init.
                   UserDefined 
                 "The user-defined reference entropy is used at 293.15 K (25 degC)"));
@@ -3799,11 +3819,11 @@ equation
           
           extends Integer;
           annotation (Evaluate=true, choices(
-              choice=Modelica.Media.Interfaces.PartialMedium.Choices.pd.default 
-                "default (no boundary condition for p or d)",
-              choice=Modelica.Media.Interfaces.PartialMedium.Choices.pd.p_known 
-                "p_known (pressure p is known)",
-              choice=Modelica.Media.Interfaces.PartialMedium.Choices.pd.d_known 
+              choice=Modelica.Media.Interfaces.PartialMedium.Choices.pd.default
+                "default (no boundary condition for p or d)", 
+              choice=Modelica.Media.Interfaces.PartialMedium.Choices.pd.p_known
+                "p_known (pressure p is known)", 
+              choice=Modelica.Media.Interfaces.PartialMedium.Choices.pd.d_known
                 "d_known (density d is known)"));
         end Temp;
       end pd;
@@ -3823,11 +3843,11 @@ equation
           
           extends Integer;
           annotation (Evaluate=true, choices(
-              choice=Modelica.Media.Interfaces.PartialMedium.Choices.Th.default 
-                "default (no boundary condition for T or h)",
-              choice=Modelica.Media.Interfaces.PartialMedium.Choices.Th.T_known 
-                "T_known (temperature T is known)",
-              choice=Modelica.Media.Interfaces.PartialMedium.Choices.Th.h_known 
+              choice=Modelica.Media.Interfaces.PartialMedium.Choices.Th.default
+                "default (no boundary condition for T or h)", 
+              choice=Modelica.Media.Interfaces.PartialMedium.Choices.Th.T_known
+                "T_known (temperature T is known)", 
+              choice=Modelica.Media.Interfaces.PartialMedium.Choices.Th.h_known
                 "h_known (specific enthalpy h is known)"));
         end Temp;
       end Th;
