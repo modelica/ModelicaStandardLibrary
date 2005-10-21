@@ -473,7 +473,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
   end T_ph;
   
   redeclare function extends T_phX 
-    "simple implementation assuming that Xi = {1}" 
+    "Compute temperature from pressure and specific enthalpy"  
   algorithm 
     T := T_ph(p, h);
   end T_phX;
@@ -496,7 +496,8 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
     h := IF97_Utilities.h_pT(p, T);
   end h_pT;
   
-  redeclare function extends h_pTX "simple implementation assuming Xi = {1}" 
+  redeclare function extends h_pTX 
+    "Compute specific enthalpy from pressure, temperature and mass fraction" 
   algorithm 
     h := h_pT(p, T);
   end h_pTX;
