@@ -70,6 +70,18 @@ in the allowed range (" + String(T_min) + " K <= T <= " + String(T_max)
       cp := cp_air;
     end heatCapacity_cp;
     
+    redeclare function extends h_pTX 
+      "Compute specific enthalpy from pressure, temperature and mass fraction" 
+    algorithm 
+      h :=cp_air*Modelica.SIunits.Conversions.to_degC(T);
+    end h_pTX;
+    
+    redeclare function extends T_phX 
+      "Compute temperature from pressure, specific enthalpy and mass fraction" 
+    algorithm 
+      T :=Modelica.SIunits.Conversions.from_degC(h/cp_air);
+    end T_phX;
+    
   end SimpleAir;
   
   package DryAirNasa "Air: Detailed dry air model as ideal gas (200..6000 K)" 
