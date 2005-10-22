@@ -3739,11 +3739,11 @@ equation
           extends Integer;
           annotation (Evaluate=true, choices(
               choice=Modelica.Media.Interfaces.PartialMedium.Choices.Init.
-                  NoInit "NoInit (no initialization)", 
+                  NoInit "NoInit (no initialization)",
               choice=Modelica.Media.Interfaces.PartialMedium.Choices.Init.
-                  InitialStates "InitialStates (initialize medium states)", 
+                  InitialStates "InitialStates (initialize medium states)",
               choice=Modelica.Media.Interfaces.PartialMedium.Choices.Init.
-                  SteadyState "SteadyState (initialize in steady state)", 
+                  SteadyState "SteadyState (initialize in steady state)",
               choice=Modelica.Media.Interfaces.PartialMedium.Choices.Init.
                   SteadyMass 
                 "SteadyMass (initialize density or pressure in steady state)"));
@@ -3766,12 +3766,10 @@ equation
           annotation (Evaluate=true, choices(
               choice=Modelica.Media.Interfaces.PartialMedium.Choices.Init.
                   ZeroAt0K 
-                "The enthalpy is 0 at 0 K (default), if the enthalpy of formation is excluded", 
-                
+                "The enthalpy is 0 at 0 K (default), if the enthalpy of formation is excluded",
               choice=Modelica.Media.Interfaces.PartialMedium.Choices.Init.
                   ZeroAt25C 
-                "The enthalpy is 0 at 25 degC, if the enthalpy of formation is excluded", 
-                
+                "The enthalpy is 0 at 25 degC, if the enthalpy of formation is excluded",
               choice=Modelica.Media.Interfaces.PartialMedium.Choices.Init.
                   UserDefined 
                 "The user-defined reference enthalpy is used at 293.15 K (25 degC)"));
@@ -3794,9 +3792,9 @@ equation
           extends Integer;
           annotation (Evaluate=true, choices(
               choice=Modelica.Media.Interfaces.PartialMedium.Choices.Init.
-                  ZeroAt0K "The entropy is 0 at 0 K (default)", 
+                  ZeroAt0K "The entropy is 0 at 0 K (default)",
               choice=Modelica.Media.Interfaces.PartialMedium.Choices.Init.
-                  ZeroAt0C "The entropy is 0 at 0 degC", 
+                  ZeroAt0C "The entropy is 0 at 0 degC",
               choice=Modelica.Media.Interfaces.PartialMedium.Choices.Init.
                   UserDefined 
                 "The user-defined reference entropy is used at 293.15 K (25 degC)"));
@@ -3819,11 +3817,11 @@ equation
           
           extends Integer;
           annotation (Evaluate=true, choices(
-              choice=Modelica.Media.Interfaces.PartialMedium.Choices.pd.default
-                "default (no boundary condition for p or d)", 
-              choice=Modelica.Media.Interfaces.PartialMedium.Choices.pd.p_known
-                "p_known (pressure p is known)", 
-              choice=Modelica.Media.Interfaces.PartialMedium.Choices.pd.d_known
+              choice=Modelica.Media.Interfaces.PartialMedium.Choices.pd.default 
+                "default (no boundary condition for p or d)",
+              choice=Modelica.Media.Interfaces.PartialMedium.Choices.pd.p_known 
+                "p_known (pressure p is known)",
+              choice=Modelica.Media.Interfaces.PartialMedium.Choices.pd.d_known 
                 "d_known (density d is known)"));
         end Temp;
       end pd;
@@ -3843,11 +3841,11 @@ equation
           
           extends Integer;
           annotation (Evaluate=true, choices(
-              choice=Modelica.Media.Interfaces.PartialMedium.Choices.Th.default
-                "default (no boundary condition for T or h)", 
-              choice=Modelica.Media.Interfaces.PartialMedium.Choices.Th.T_known
-                "T_known (temperature T is known)", 
-              choice=Modelica.Media.Interfaces.PartialMedium.Choices.Th.h_known
+              choice=Modelica.Media.Interfaces.PartialMedium.Choices.Th.default 
+                "default (no boundary condition for T or h)",
+              choice=Modelica.Media.Interfaces.PartialMedium.Choices.Th.T_known 
+                "T_known (temperature T is known)",
+              choice=Modelica.Media.Interfaces.PartialMedium.Choices.Th.h_known 
                 "h_known (specific enthalpy h is known)"));
         end Temp;
       end Th;
@@ -3928,6 +3926,17 @@ are described in
       output SpecificEnthalpy h "specific enthalpy";
     end h_dT;
     
+    redeclare function extends h_pTX 
+      "compute specific enthalpy from pressure, temperature and mass fractions" 
+    algorithm 
+      h := h_pT(p,T);
+    end h_pTX;
+    
+    redeclare function extends T_phX 
+      "Compute temperature from pressure, specific enthalpy and mass fractions" 
+    algorithm 
+      T := T_ph(p,h);
+    end T_phX;
   end PartialPureSubstance;
   
   partial package PartialMixtureMedium 
@@ -4388,6 +4397,17 @@ quantities are assumed to be constant.
       a := a_const;
     end velocityOfSound;
     
+    redeclare function extends h_pTX 
+      "Return specific enthalpy from pressure, temperature and mass fraction" 
+    algorithm 
+      h := cp_const*(T-T0);
+    end h_pTX;
+    
+    redeclare function extends T_phX 
+      "Compute temperature from pressure, specific enthalpy and mass fraction" 
+    algorithm 
+      T := T0 + h/cp_const;
+    end T_phX;
   end PartialSimpleMedium;
   
 end Interfaces;
