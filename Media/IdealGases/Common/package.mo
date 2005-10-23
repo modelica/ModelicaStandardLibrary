@@ -1,6 +1,7 @@
 package Common "Common packages and data for the ideal gas models"
 extends Modelica.Icons.Library;
 
+
 record DataRecord 
   "Coefficient data record for properties of ideal gases based on NASA source" 
   extends Modelica.Icons.Record;
@@ -40,6 +41,7 @@ gases also differentiable at Tlimit.
 </p>
 </HTML>"));
 end DataRecord;
+
 
 partial package SingleGasNasa 
   "Medium model of an ideal gas based on NASA source" 
@@ -83,7 +85,6 @@ Note, dynamic viscosity and thermal conductivity are only provided
 for gases that use a data record from Modelica.Media.IdealGases.FluidData.
 Currently these are the following gases:
 </p>
-
 <pre>
   Ar
   C2H2_vinylidene
@@ -120,7 +121,6 @@ Currently these are the following gases:
   SO2
   SO3
 </pre>
-
 <p>
 <b>Sources for model and literature:</b><br>
 Original Data: Computer program for calculation of complex chemical
@@ -292,10 +292,9 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
   algorithm 
     ddTp := -state.p/(state.T*state.T*data.R);
   end density_derT_p;
-
-  redeclare function extends density_derX
-    "density derivative by mass fraction" 
-  algorithm
+  
+  redeclare function extends density_derX "density derivative by mass fraction" 
+  algorithm 
     dddX := fill(0,0);
   end density_derX;
   
@@ -577,7 +576,14 @@ transform the formula to SI units:
   algorithm 
     MM := data.MM;
   end molarMass;
+  
+  redeclare function extends h_pTX 
+    "Compute specific enthalpy from pressure, temperature and mass fractions" 
+  algorithm 
+    h := h_T(data,T);
+  end h_pTX;
 end SingleGasNasa;
+
 
 partial package MixtureGasNasa 
   "Medium model of a mixture of ideal gases based on NASA source" 
@@ -1260,5 +1266,10 @@ end lowPressureThermalConductivity;
     MM := 1/sum(state.X[j]/data[j].MM for j in 1:size(state.X, 1));
   end molarMass;
   
+  redeclare function extends h_pTX 
+    "Compute specific enthalpy from pressure, temperature and mass fractions" 
+  algorithm 
+    h := h_TX(T,Xi);
+  end h_pTX;
 end MixtureGasNasa;
 end Common;

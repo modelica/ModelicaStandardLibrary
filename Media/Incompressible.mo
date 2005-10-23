@@ -67,7 +67,7 @@ package Incompressible
     constant Boolean hasViscosity = not (size(tableViscosity,1)==0);
     constant Boolean hasVaporPressure = not (size(tableVaporPressure,1)==0);
     final constant Real invTK[neta] = invertTemp(tableViscosity[:,1],TinK);
-	 annotation(keepConstant = true);
+  annotation(keepConstant = true);
     final constant Real poly_rho[:] = if hasDensity then 
                                          Poly.fitting(tableDensity[:,1],tableDensity[:,2],npol) else 
                                            zeros(npol+1) annotation(keepConstant = true);
@@ -79,20 +79,20 @@ package Incompressible
                                            zeros(npol+1) annotation(keepConstant = true);
     final constant Real poly_pVap[:] = if hasVaporPressure then 
                                          Poly.fitting(tableVaporPressure[:,1],tableVaporPressure[:,2],npol) else 
-                                            zeros(npol+1) annotation(keepConstant =true);
+                                            zeros(npol+1) annotation(keepConstant= true);
     final constant Real poly_lam[:] = if size(tableConductivity,1)>0 then 
                                          Poly.fitting(tableConductivity[:,1],tableConductivity[:,2],npol) else 
                                            zeros(npol+1) annotation(keepConstant = true);
-    function invertTemp "function to invert temperatures"
+    function invertTemp "function to invert temperatures" 
       input Real[:] table "table temperature data";
       input Boolean Tink "flag for Celsius or Kelvin";
       output Real invTable[size(table,1)] "inverted temperatures";
-    algorithm
+    algorithm 
       for i in 1:size(table,1) loop
-	invTable[i] :=  if TinK then 1/table[i] else 1/Cv.from_degC(table[i]);
+        invTable[i] := if TinK then 1/table[i] else 1/Cv.from_degC(table[i]);
       end for;
-    end invertTemp;   
-	 
+    end invertTemp;
+    
     redeclare model extends BaseProperties(
       R=Modelica.Constants.R,
       p_bar=Cv.to_bar(p),
@@ -231,6 +231,12 @@ which is only exactly true for a fluid with constant density d=d0.
         *(if densityOfT then (1 + T/Poly.evaluate(poly_rho, if TinK then T else to_degC(T))
       *Poly.derivativeValue(poly_rho,if TinK then T else to_degC(T))) else 1.0);
     end h_pT;
+    
+    redeclare function extends h_pTX 
+      "Compute specific enthalpy from pressure, temperature and mass fractions" 
+    algorithm 
+      h := if singleState then h_T(T) else h_pT(p,T);
+    end h_pTX;
     
     package Polynomials_Temp 
       "Temporary Functions operating on polynomials (including polynomial fitting); only to be used in Modelica.Media.Incompressible.TableBased" 
@@ -510,7 +516,7 @@ function calls can not be used.
         [160, 3; 180, 10; 200, 40; 220, 100; 240, 300; 260, 600;
          280, 1600; 300, 3e3; 320, 5.5e3]);
   end Essotherm650;
-  
+    
   model TestGlycol "Test Glycol47 Medium model" 
     extends Modelica.Icons.Example;
     package Medium = Glycol47;
@@ -524,7 +530,7 @@ function calls can not be used.
     p = 1e5;
     T = Medium.T_min + time;
   end TestGlycol;
-
+    
   annotation (
     Documentation(info="<HTML>
 <h3><font color=\"#008000\" size=5>Examples of incompressible media</font></h3>

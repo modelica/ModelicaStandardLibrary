@@ -343,29 +343,29 @@ Simulate for 7200 s; plot Twinding.T and Tcore.T.
     equation 
       connect(windingLosses.port, winding.port)  annotation (points=[-80,0; -80,
             -20], style(color=42, rgbcolor={191,0,0}));
-      connect(coreLosses.port, core.port)  annotation (points=[6.12303e-016,0; 
+      connect(coreLosses.port, core.port)  annotation (points=[6.12303e-016,0;
             6.12303e-016,-10; 0,-10; 0,-20],
           style(color=42, rgbcolor={191,0,0}));
       connect(winding.port, winding2core.port_a) 
-                                       annotation (points=[-80,-20; -80,-10; 
+                                       annotation (points=[-80,-20; -80,-10;
             -50,-10], style(color=42, rgbcolor={191,0,0}));
       connect(winding2core.port_b, core.port) 
                                     annotation (points=[-30,-10; 0,-10; 0,-20],
           style(color=42, rgbcolor={191,0,0}));
       connect(winding.port, Twinding.port)  annotation (points=[-80,-20; -80,
             -10; -60,-10; -60,-40], style(color=42, rgbcolor={191,0,0}));
-      connect(core.port, Tcore.port)  annotation (points=[0,-20; 0,-10; -20,-10; 
+      connect(core.port, Tcore.port)  annotation (points=[0,-20; 0,-10; -20,-10;
             -20,-40],      style(color=42, rgbcolor={191,0,0}));
       connect(winding2core.port_b, convection.solid) 
                                           annotation (points=[-30,-10; 30,-10],
           style(color=42, rgbcolor={191,0,0}));
-      connect(convection.fluid, environment.port) annotation (points=[50,-10; 
+      connect(convection.fluid, environment.port) annotation (points=[50,-10;
             60,-10; 60,-10; 70,-10], style(color=42, rgbcolor={191,0,0}));
       connect(convectionConstant.y, convection.Gc) 
         annotation (points=[40,19; 40,0], style(color=74, rgbcolor={0,0,127}));
-      connect(lossTable.y[1], windingLosses.Q_flow) annotation (points=[-40,59; 
+      connect(lossTable.y[1], windingLosses.Q_flow) annotation (points=[-40,59;
             -40,40; -80,40; -80,20], style(color=74, rgbcolor={0,0,127}));
-      connect(lossTable.y[2], coreLosses.Q_flow) annotation (points=[-40,59; 
+      connect(lossTable.y[2], coreLosses.Q_flow) annotation (points=[-40,59;
             -40,40; -6.12303e-016,40; -6.12303e-016,20],
                                    style(color=74, rgbcolor={0,0,127}));
     end Motor;
@@ -410,10 +410,7 @@ class.</p>
 <b>HeatPort_b</b> are identical with the only exception of the different
 <b>icon layout</b>.</p></HTML>
 "),     Icon(Rectangle(extent=[-100, 100; 100, -100], style(color=42, fillColor=
-                 42)), Text(
-            extent=[-98, 196; 102, 102],
-            string="%name",
-            style(color=42))),
+                 42))),
         Diagram(Rectangle(extent=[-50,50; 50,-50],   style(color=42,
                 fillColor=42)), Text(
             extent=[-120,120; 100,60],
@@ -447,10 +444,7 @@ class.</p>
             string="%name",
             style(color=42))),
         Icon(Rectangle(extent=[-100, 100; 100, -100], style(color=42, fillColor=
-                 7)), Text(
-            extent=[-98, 196; 102, 102],
-            string="%name",
-            style(color=42))));
+                 7))));
     end HeatPort_b;
     
     partial model Element1D 

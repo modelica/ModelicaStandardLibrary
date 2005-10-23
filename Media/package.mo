@@ -3926,17 +3926,7 @@ are described in
       output SpecificEnthalpy h "specific enthalpy";
     end h_dT;
     
-    redeclare function extends h_pTX 
-      "compute specific enthalpy from pressure, temperature and mass fractions" 
-    algorithm 
-      h := h_pT(p,T);
-    end h_pTX;
     
-    redeclare function extends T_phX 
-      "Compute temperature from pressure, specific enthalpy and mass fractions" 
-    algorithm 
-      T := T_ph(p,h);
-    end T_phX;
   end PartialPureSubstance;
   
   partial package PartialMixtureMedium 
