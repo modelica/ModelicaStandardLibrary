@@ -3595,22 +3595,43 @@ equation
       output MolarMass MM "mixture molar mass";
     end molarMass;
     
-    replaceable partial function h_pTX 
+    replaceable partial function specificEnthalpy_pTX 
       "Compute specific enthalpy from pressure, temperature and mass fraction" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input Temperature T "Temperature";
       input MassFraction Xi[nXi] "Independent mass fractions";
       output SpecificEnthalpy h "Specific enthalpy at p, T, Xi";
+    end specificEnthalpy_pTX;
+    
+    function h_pTX 
+      "Short-Form of specificEnthalpy_pTX provided for convenience" 
+      extends Modelica.Icons.Function;
+      input AbsolutePressure p "Pressure";
+      input Temperature T "Temperature";
+      input MassFraction Xi[nXi] "Independent mass fractions";
+      output SpecificEnthalpy h "Specific enthalpy at p, T, Xi";
+    algorithm 
+      h := specificEnthalpy_pTX(p, T, Xi);
     end h_pTX;
     
-    replaceable partial function T_phX 
+    replaceable partial function temperature_phX 
       "Compute temperature from pressure, specific enthalpy and mass fraction" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEnthalpy h "Specific enthalpy";
       input MassFraction Xi[nXi] "Independent mass fractions";
       output Temperature T "Temperature";
+    end temperature_phX;
+    
+    function T_phX "Short-form of temperature_phX provided for convenience" 
+      extends Modelica.Icons.Function;
+      input AbsolutePressure p "Pressure";
+      input SpecificEnthalpy h "Specific enthalpy";
+      input MassFraction Xi[nXi] "Independent mass fractions";
+      output Temperature T "Temperature";
+    algorithm 
+       T := temperature_phX(p, h, Xi);
     end T_phX;
     
     type AbsolutePressure = SI.AbsolutePressure (
@@ -3925,7 +3946,6 @@ are described in
         "phase of the fluid: 1 for 1-phase, 2 for two-phase, 0 for not known, e.g. interactive use";
       output SpecificEnthalpy h "specific enthalpy";
     end h_dT;
-    
     
   end PartialPureSubstance;
   
@@ -4387,17 +4407,17 @@ quantities are assumed to be constant.
       a := a_const;
     end velocityOfSound;
     
-    redeclare function extends h_pTX 
+    redeclare function extends specificEnthalpy_pTX 
       "Return specific enthalpy from pressure, temperature and mass fraction" 
     algorithm 
       h := cp_const*(T-T0);
-    end h_pTX;
+    end specificEnthalpy_pTX;
     
-    redeclare function extends T_phX 
+    redeclare function extends temperature_phX 
       "Compute temperature from pressure, specific enthalpy and mass fraction" 
     algorithm 
       T := T0 + h/cp_const;
-    end T_phX;
+    end temperature_phX;
   end PartialSimpleMedium;
   
 end Interfaces;

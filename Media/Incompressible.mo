@@ -232,11 +232,11 @@ which is only exactly true for a fluid with constant density d=d0.
       *Poly.derivativeValue(poly_rho,if TinK then T else to_degC(T))) else 1.0);
     end h_pT;
     
-    redeclare function extends h_pTX 
+    redeclare function extends specificEnthalpy_pTX 
       "Compute specific enthalpy from pressure, temperature and mass fractions" 
     algorithm 
       h := if singleState then h_T(T) else h_pT(p,T);
-    end h_pTX;
+    end specificEnthalpy_pTX;
     
     package Polynomials_Temp 
       "Temporary Functions operating on polynomials (including polynomial fitting); only to be used in Modelica.Media.Incompressible.TableBased" 

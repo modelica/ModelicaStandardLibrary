@@ -70,17 +70,17 @@ in the allowed range (" + String(T_min) + " K <= T <= " + String(T_max)
       cp := cp_air;
     end heatCapacity_cp;
     
-    redeclare function extends h_pTX 
+    redeclare function extends specificEnthalpy_pTX
       "Compute specific enthalpy from pressure, temperature and mass fraction" 
     algorithm 
       h :=cp_air*Modelica.SIunits.Conversions.to_degC(T);
-    end h_pTX;
+    end specificEnthalpy_pTX;
     
-    redeclare function extends T_phX 
+    redeclare function extends temperature_phX
       "Compute temperature from pressure, specific enthalpy and mass fraction" 
     algorithm 
       T :=Modelica.SIunits.Conversions.from_degC(h/cp_air);
-    end T_phX;
+    end temperature_phX;
     
   end SimpleAir;
   
@@ -329,7 +329,7 @@ required from medium model \""       + mediumName + "\".");
      Cv.to_degC(state.T));
   end thermalConductivity;
     
-    redeclare function h_pTX 
+    redeclare function specificEnthalpy_pTX 
       "Compute specific enthalpy from pressure, temperature and mass fraction" 
       extends Modelica.Icons.Function;
       input SI.Pressure p "Pressure";
@@ -352,7 +352,7 @@ required from medium model \""       + mediumName + "\".");
       h        := {SingleGasNasa.h_Tlow(data=steam,  T=T, refChoice=3, h_off=46479.819+2501014.5),
                    SingleGasNasa.h_Tlow(data=dryair, T=T, refChoice=3, h_off=25104.684)}*
                   {X_steam, X_air} + enthalpyOfLiquid(T)*X_liquid;
-    end h_pTX;
+    end specificEnthalpy_pTX;
     
     package Utilities "utility functions" 
       function spliceFunction 
