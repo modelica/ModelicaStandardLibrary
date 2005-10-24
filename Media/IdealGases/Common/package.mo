@@ -577,11 +577,11 @@ transform the formula to SI units:
     MM := data.MM;
   end molarMass;
   
-  redeclare function extends h_pTX 
+  redeclare function extends specificEnthalpy_pTX
     "Compute specific enthalpy from pressure, temperature and mass fractions" 
   algorithm 
     h := h_T(data,T);
-  end h_pTX;
+  end specificEnthalpy_pTX;
 end SingleGasNasa;
 
 
@@ -1266,10 +1266,10 @@ end lowPressureThermalConductivity;
     MM := 1/sum(state.X[j]/data[j].MM for j in 1:size(state.X, 1));
   end molarMass;
   
-  redeclare function extends h_pTX 
+  redeclare function extends specificEnthalpy_pTX
     "Compute specific enthalpy from pressure, temperature and mass fractions" 
   algorithm 
     h := h_TX(T,Xi);
-  end h_pTX;
+  end specificEnthalpy_pTX;
 end MixtureGasNasa;
 end Common;
