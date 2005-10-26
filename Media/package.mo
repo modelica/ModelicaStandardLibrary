@@ -4170,7 +4170,7 @@ are described in
       "set thermodynamic state from pressure and specific entropy" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "pressure";
-      input SpecificEntropy h "entropy";
+      input SpecificEntropy s "entropy";
       input FixedPhase phase =  1 "phase: default is one phase";
       output ThermodynamicState state "complete thermodynamic state info";
     end setState_ps;
