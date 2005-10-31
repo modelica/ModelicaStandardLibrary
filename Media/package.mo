@@ -3604,17 +3604,9 @@ equation
       output SpecificEnthalpy h "Specific enthalpy at p, T, Xi";
     end specificEnthalpy_pTX;
     
-    function h_pTX 
-      "Short-Form of specificEnthalpy_pTX provided for convenience" 
-      extends Modelica.Icons.Function;
-      input AbsolutePressure p "Pressure";
-      input Temperature T "Temperature";
-      input MassFraction Xi[nXi] "Independent mass fractions";
-      output SpecificEnthalpy h "Specific enthalpy at p, T, Xi";
-    algorithm 
-      h := specificEnthalpy_pTX(p, T, Xi);
-    end h_pTX;
-    
+    function h_pTX = specificEnthalpy_pTX
+      "Short-Form of specificEnthalpy_pTX provided for convenience" ;
+
     replaceable partial function temperature_phX 
       "Compute temperature from pressure, specific enthalpy and mass fraction" 
       extends Modelica.Icons.Function;
@@ -3624,15 +3616,8 @@ equation
       output Temperature T "Temperature";
     end temperature_phX;
     
-    function T_phX "Short-form of temperature_phX provided for convenience" 
-      extends Modelica.Icons.Function;
-      input AbsolutePressure p "Pressure";
-      input SpecificEnthalpy h "Specific enthalpy";
-      input MassFraction Xi[nXi] "Independent mass fractions";
-      output Temperature T "Temperature";
-    algorithm 
-       T := temperature_phX(p, h, Xi);
-    end T_phX;
+    function T_phX = temperature_phX 
+      "Short-form of temperature_phX provided for convenience";
     
     type AbsolutePressure = SI.AbsolutePressure (
         min=0,
