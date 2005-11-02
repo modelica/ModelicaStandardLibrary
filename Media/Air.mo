@@ -334,8 +334,8 @@ required from medium model \""       + mediumName + "\".");
       extends Modelica.Icons.Function;
       input SI.Pressure p "Pressure";
       input SI.Temperature T "Temperature";
-      input SI.MassFraction Xi[nXi] "Independent mass fractions of moist air";
-      output SI.SpecificEnthalpy h "Specific enthalpy at p, T, Xi";
+      input SI.MassFraction X[nX] "Mass fractions of moist air";
+      output SI.SpecificEnthalpy h "Specific enthalpy at p, T, X";
      annotation(Inline=false,smoothOrder=1);
     protected 
       SI.AbsolutePressure p_steam_sat "Partial saturation pressure of steam";
@@ -346,9 +346,9 @@ required from medium model \""       + mediumName + "\".");
     algorithm 
       p_steam_sat :=saturationPressure(T);
       x_sat    :=k_mair*p_steam_sat/(p - p_steam_sat);
-      X_liquid :=max(Xi[Water] - x_sat/(1 + x_sat), 0.0);
-      X_steam  :=Xi[Water] - X_liquid;
-      X_air    :=1 - Xi[Water];
+      X_liquid :=max(X[Water] - x_sat/(1 + x_sat), 0.0);
+      X_steam  :=X[Water] - X_liquid;
+      X_air    :=1 - X[Water];
       h        := {SingleGasNasa.h_Tlow(data=steam,  T=T, refChoice=3, h_off=46479.819+2501014.5),
                    SingleGasNasa.h_Tlow(data=dryair, T=T, refChoice=3, h_off=25104.684)}*
                   {X_steam, X_air} + enthalpyOfLiquid(T)*X_liquid;
