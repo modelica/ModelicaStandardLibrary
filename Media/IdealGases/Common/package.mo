@@ -1269,7 +1269,7 @@ end lowPressureThermalConductivity;
   redeclare function extends specificEnthalpy_pTX
     "Compute specific enthalpy from pressure, temperature and mass fractions" 
   algorithm 
-    h := h_TX(T,Xi);
+    h := h_TX(T,X[1:nXi]);
   end specificEnthalpy_pTX;
 end MixtureGasNasa;
 end Common;
