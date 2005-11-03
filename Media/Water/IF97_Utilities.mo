@@ -6699,7 +6699,7 @@ Ordinary Water Substance<br>
       LateInline=true);
   algorithm 
     kappa := if aux.region == 3 or aux.region == 4 then 
-      aux.pt/(aux.rho*aux.pd) else aux.vt*aux.rho;
+      1/(aux.rho*aux.pd) else -aux.vp*aux.rho;
   end kappa_props_ph;
   
   function kappa_ph 
@@ -7111,7 +7111,7 @@ Ordinary Water Substance<br>
       LateInline=true);
   algorithm 
     kappa := if aux.region == 3 then 
-      aux.pt/(aux.rho*aux.pd) else aux.vt*aux.rho;
+      1/(aux.rho*aux.pd) else -aux.vp*aux.rho;
   end kappa_props_pT;
   
   function kappa_pT 
@@ -7511,7 +7511,7 @@ Ordinary Water Substance<br>
       LateInline=true);
   algorithm 
     kappa := if aux.region == 3 or aux.region == 4 then 
-      aux.pt/(aux.rho*aux.pd) else aux.vt*aux.rho;
+      1/(aux.rho*aux.pd) else -aux.vp*aux.rho;
   end kappa_props_dT;
   
   function kappa_dT 
