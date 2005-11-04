@@ -1,7 +1,7 @@
 package Machines "Library for electric machines" 
   extends Modelica.Icons.Library;
   annotation (
-  version="1.60", versionDate="2005-11-03",
+  version="1.6", versionDate="2005-11-04",
   conversion(from(version="1.4", script="ConvertMachines_from_1.4_to_1.6.mos")),
   Settings(NewStateSelection=true, Evaluate=true),
   preferedView="info", Documentation(info="<HTML>
@@ -94,7 +94,7 @@ and the accompanying <b>disclaimer</b>
        as well as a new exmaple.</li>
   <li> v1.53 Beta 2005/10/14 Anton Haumer<br>
        introduced unsymmetrical DamperCage for Synchronous Machines</li>
-  <li> v1.60      2005/11/03 Anton Haumer<br>
+  <li> v1.60      2005/11/04 Anton Haumer<br>
        added SpacePhasors.Components.Rotator<br>
        corrected consistent naming of parameters and variables</li>
   </ul>
@@ -2254,14 +2254,14 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           "|Nominal resistances and inductances|main inductance in d-axis";
         parameter Modelica.SIunits.Inductance Lmq=0.9/(2*pi*fNominal) 
           "|Nominal resistances and inductances|main inductance in q-axis";
-        parameter Modelica.SIunits.Inductance Lrdsigma=0.1/(2*pi*fNominal) 
-          "|Nominal resistances and inductances|rotor stray inductance in d-axis";
-        parameter Modelica.SIunits.Inductance Lrqsigma=Lrdsigma 
-          "|Nominal resistances and inductances|rotor stray inductance in q-axis";
-        parameter Modelica.SIunits.Resistance Rrd=0.04 
-          "|Nominal resistances and inductances|warm rotor resistance in d-axis";
-        parameter Modelica.SIunits.Resistance Rrq=Rrd 
-          "|Nominal resistances and inductances|warm rotor resistance in q-axis";
+        parameter Modelica.SIunits.Inductance LDdsigma=0.1/(2*pi*fNominal) 
+          "|Nominal resistances and inductances|damper stray inductance in d-axis";
+        parameter Modelica.SIunits.Inductance LDqsigma=LDdsigma 
+          "|Nominal resistances and inductances|damper stray inductance in q-axis";
+        parameter Modelica.SIunits.Resistance RDd=0.04 
+          "|Nominal resistances and inductances|warm damper resistance in d-axis";
+        parameter Modelica.SIunits.Resistance RDq=RDd 
+          "|Nominal resistances and inductances|warm damper resistance in q-axis";
         output Modelica.SIunits.Current is[m] = plug_sp.pin.i 
           "stator instantaneous currents";
         output Modelica.SIunits.Current i_0_s( stateSelect=StateSelect.prefer) = spacePhasorS.zero.i 
@@ -2409,11 +2409,11 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 </table>
 </p>
 </HTML>"));
-        Components.DamperCage squirrelCageR(
-          final LDdsigma=Lrdsigma,
-          final LDqsigma=Lrqsigma,
-          final RDd=Rrd,
-          final RDq=Rrq)     annotation (extent=[-10,-40; 10,-20], rotation=-90);
+        Components.DamperCage damperCage(
+          final LDdsigma=LDdsigma,
+          final LDqsigma=LDqsigma,
+          final RDd=RDd,
+          final RDq=RDq)     annotation (extent=[-10,-40; 10,-20], rotation=-90);
       equation 
         connect(rs.plug_n, lssigma.plug_p) 
           annotation (points=[40,60; 30,60],   style(color=3));
@@ -2430,7 +2430,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             fillColor=3,
             rgbfillColor={0,0,255},
             fillPattern=1));
-        connect(spacePhasorS.ground, spacePhasorS.zero) annotation (points=[-10,20;
+        connect(spacePhasorS.ground, spacePhasorS.zero) annotation (points=[-10,20; 
               -10,14; -6.12303e-016,14; -6.12303e-016,20],     style(
             color=3,
             rgbcolor={0,0,255},
@@ -2443,7 +2443,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
         connect(airGapR.support, internalSupport) annotation (points=[-10,
               -6.12303e-016; -50,-6.12303e-016; -50,0; -90,0; -90,-100; 20,-100],
             style(color=0, rgbcolor={0,0,0}));
-        connect(airGapR.spacePhasor_r, squirrelCageR.spacePhasor_r) 
+        connect(airGapR.spacePhasor_r, damperCage.spacePhasor_r) 
           annotation (points=[10,-10; 10,-20], style(color=3, rgbcolor={0,0,255}));
       end SM_ReluctanceRotorDamperCage;
     end SynchronousInductionMachines;
