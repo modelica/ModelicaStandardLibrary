@@ -70,13 +70,13 @@ in the allowed range (" + String(T_min) + " K <= T <= " + String(T_max)
       cp := cp_air;
     end heatCapacity_cp;
     
-    redeclare function extends specificEnthalpy_pTX
+    redeclare function extends specificEnthalpy_pTX 
       "Compute specific enthalpy from pressure, temperature and mass fraction" 
     algorithm 
       h :=cp_air*Modelica.SIunits.Conversions.to_degC(T);
     end specificEnthalpy_pTX;
     
-    redeclare function extends temperature_phX
+    redeclare function extends temperature_phX 
       "Compute temperature from pressure, specific enthalpy and mass fraction" 
     algorithm 
       T :=Modelica.SIunits.Conversions.from_degC(h/cp_air);
@@ -179,7 +179,7 @@ required from medium model \""       + mediumName + "\".");
       //offset adjusts enthalpy to zero at 0°C plus enthalpy of evaporation in case of steam  
       // h = h_component *{X_steam, X_air} + enthalpyOfLiquid(T)*X_liquid;  
       
-      h = h_pTX(p,T,Xi);
+      h = specificEnthalpy_pTXi(p,T,Xi);
       R = dryair.R*X_air + steam.R*X_steam;
       u = h - R*T;
       d = p/(R*T);
@@ -354,6 +354,33 @@ required from medium model \""       + mediumName + "\".");
                   {X_steam, X_air} + enthalpyOfLiquid(T)*X_liquid;
     end specificEnthalpy_pTX;
     
+    function specificEnthalpy_pTXi 
+      "Compute specific enthalpy from pressure, temperature and independent mass fraction" 
+      extends Modelica.Icons.Function;
+      input SI.Pressure p "Pressure";
+      input SI.Temperature T "Temperature";
+      input SI.MassFraction Xi[nXi] "Independent mass fractions of moist air";
+      output SI.SpecificEnthalpy h "Specific enthalpy at p, T, Xi";
+      
+      annotation (LateInline=true,Documentation(info="<html>
+<p>
+In order that symbolic processing of connection equations is
+possible, the specific enthalpy in model BaseProperties has to
+be computed with a function where the independent mass fractions
+are an input argument (for details see the discussion in
+<a href=\"Modelica:Modelica.Media.UsersGuide.MediumDefinition.SpecificEnthalpyAsFunction\">SpecificEnthalpyAsFunction</a> 
+of the Modelica.Media Users Guide).
+For this reason, function specificEnthalpy_pTXi() is provided.
+</p> 
+<p>
+For all other purposes, the standard Interfaces.PartialMedium.specificEnthalpy_pTX()
+function should be used.
+</p>
+</html>"));
+    algorithm 
+      h :=specificEnthalpy_pTX(p, T, {Xi[1], 1-Xi[1]});
+    end specificEnthalpy_pTXi;
+
     package Utilities "utility functions" 
       function spliceFunction 
           input Real pos;
