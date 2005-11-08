@@ -115,10 +115,7 @@ After every call of \"print(..)\" a \"new line\" is printed automatically.
     extends Modelica.Icons.Function;
     input String fileName "Name of the file that shall be read";
     output String stringVector[countLines(fileName)] "Content of file";
-  algorithm 
-    for i in 1:size(stringVector, 1) loop
-      stringVector[i] := readLine(fileName, i);
-    end for;
+    
     annotation (preferedView="info", Documentation(info="<html>
 <h3><font color=\"#008000\">Syntax</font></h3>
 <blockquote><pre>
@@ -130,6 +127,12 @@ Function <b>readFile</b>(..) opens the given file, reads the complete
 content, closes the file and returns the content as a vector of strings. Lines are separated by LF or CR-LF; the returned strings do not contain the line separators. 
 </p>
 </html>"));
+    
+  algorithm 
+    for i in 1:size(stringVector, 1) loop
+      stringVector[i] := readLine(fileName, i);
+    end for;
+    close(fileName);
   end readFile;
   
   function readLine 
