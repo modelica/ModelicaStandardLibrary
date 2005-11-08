@@ -132,7 +132,7 @@ content, closes the file and returns the content as a vector of strings. Lines a
     for i in 1:size(stringVector, 1) loop
       stringVector[i] := readLine(fileName, i);
     end for;
-    close(fileName);
+    Streams.close(fileName);
   end readFile;
   
   function readLine 
