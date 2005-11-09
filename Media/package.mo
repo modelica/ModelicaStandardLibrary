@@ -3310,6 +3310,15 @@ Modelica source.
       constant Boolean hasAcentricFactor=false 
         "true if Pitzer accentric factor is known";
       
+      constant SpecificEnthalpy HCRIT0=0.0 
+        "critical specific enthalpy of the fundamental equation";
+      constant SpecificEntropy SCRIT0=0.0 
+        "critical specific entropy of the fundamental equation";
+      constant SpecificEnthalpy deltah=0.0 
+        "difference between specific enthalpy model (h_m) and f.eq. (h_f) (h_m - h_f)";
+      constant SpecificEntropy deltas=0.0 
+        "difference between specific enthalpy model (s_m) and f.eq. (s_f) (s_m - s_f)";
+      
       //  constant String fundamentalEquationSource="none" "source of the fundamental equation model";
       //  constant String criticalDataSource="none" "source for critical data";
       //  constant String idealGasHeatCapacitySource="none" "data source for ideal gas heat capacity coefficients";
