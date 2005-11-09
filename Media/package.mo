@@ -4361,7 +4361,8 @@ in the allowed range (" + String(T_min) + " K <= T <= " + String(T_max)
 required from medium model \"" + mediumName + "\".
 ");
       
-      h = cp_const*(T-T0);
+      // h = cp_const*(T-T0);
+      h = specificEnthalpy_pTXi(p,T,Xi);
       u = cv_const*(T-T0);
       d = d_const;
       R = 0;
@@ -4415,6 +4416,30 @@ quantities are assumed to be constant.
     algorithm 
       h := cp_const*(T-T0);
     end specificEnthalpy_pTX;
+    
+    function specificEnthalpy_pTXi 
+      "Return specific enthalpy from pressure, temperature and mass fraction" 
+      extends Modelica.Icons.Function;
+      input AbsolutePressure p "Pressure";
+      input Temperature T "Temperature";
+      input MassFraction Xi[nXi] "Independent mass fractions";
+      output SpecificEnthalpy h "Specific enthalpy at p, T, Xi";
+      annotation(LateInline=true, Documentation(info="<html>
+<p>
+In order that symbolic processing of connection equations is
+possible, the specific enthalpy in model BaseProperties has to
+be computed with a <b>function</b>. Additionally,
+the independent mass fractions Xi have to be
+an input argument (for details see the discussion in
+<a href=\"Modelica:Modelica.Media.UsersGuide.MediumDefinition.SpecificEnthalpyAsFunction\">SpecificEnthalpyAsFunction</a> 
+of the Modelica.Media Users Guide).
+For this reason, function specificEnthalpy_pTXi() is provided.
+</p> 
+
+</html>"));
+    algorithm 
+      h := cp_const*(T-T0);
+    end specificEnthalpy_pTXi;
     
     redeclare function extends temperature_phX 
       "Compute temperature from pressure, specific enthalpy and mass fraction" 
