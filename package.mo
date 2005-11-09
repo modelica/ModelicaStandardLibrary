@@ -20,7 +20,7 @@ annotation(preferedView="info",
          Matrices(version="0.8"),
          script="Scripts/ConvertModelica_from_1.6_to_2.1.mos"),
     from(version="2.1 Beta1", script="Scripts/ConvertModelica_from_2.1Beta1_to_2.1.mos"),
-    noneFromVersion ="2.1"),
+    noneFromVersion= "2.1"),
   Settings(NewStateSelection=true),
   Documentation(info="<HTML>
 <p>
@@ -202,13 +202,12 @@ Preferred instance names for connectors:
     
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>Release notes</font></h3>
-
 <p>
 This section summarizes the changes that have been performed
 on the Modelica standard library.
 </p>
-
 <ul>
+<li> <a href=\"Modelica://Modelica.UsersGuide.ReleaseNotes.Version_2_3\">Version 2.3</a> (not yet released)</li>
 <li> <a href=\"Modelica://Modelica.UsersGuide.ReleaseNotes.Version_2_2\">Version 2.2</a> (April 6, 2005)</li>
 <li> <a href=\"Modelica://Modelica.UsersGuide.ReleaseNotes.Version_2_1\">Version 2.1</a> (Nov. 11, 2004)</li>
 <li> <a href=\"Modelica://Modelica.UsersGuide.ReleaseNotes.Version_1_6\">Version 1.6</a> (June 21, 2004)</li>
@@ -216,20 +215,37 @@ on the Modelica standard library.
 <li> <a href=\"Modelica://Modelica.UsersGuide.ReleaseNotes.Version_1_4\">Version 1.4</a> (June 28, 2001
      and previous versions)</li>
 </ul>
-
 </html>
 "));
+    
+  class Version_2_3 "Version 2.3" 
+      
+      annotation (Documentation(info="<html>
+<h3><font color=\"#008000\">Version 2.3 (not yet released)</font></h3>
+<p>
+Version 2.3 is backward compatible to version 2.2.
+</p>
 
+<p>
+The following other (minor) <b>changes</b> have been performed:
+</p>
 
+<ul>
+<li> Fixed bug in Modelica.Utilities.Streams.readLine(), by
+     adding a \"Streams.close(..)\" after reading the file content.</li>
+</ul>
+</html>
+"));
+  end Version_2_3;
+    
   class Version_2_2 "Version 2.2" 
-
-annotation (Documentation(info="<html>
+      
+      annotation (Documentation(info=
+                               "<html>
 <h3><font color=\"#008000\">Version 2.2 (April 6, 2005)</font></h3>
-
 <p>
 Version 2.2 is backward compatible to version 2.1.
 </p>
-
 The following <b>new libraries</b> have been added:
 </p>
 <table border=\"1\" cellspacing=0 cellpadding=2>
@@ -265,12 +281,10 @@ The following <b>new libraries</b> have been added:
            at connection points) and fluid may reverse direction of flow. 
   </td><tr>
 </table>
-
 <p>
 The following <b>changes</b> have been performed in the
 <b>Modelica.Mechanics.MultiBody</b> library:
 </p>
-
 <ul>
 <li> Component MultiBody.World has a new parameter
      <b>driveTrainMechanics3D</b>. If set to <b>true</b>, 3D mechanical effects
@@ -288,11 +302,10 @@ The following <b>changes</b> have been performed in the
 </html>
 "));
   end Version_2_2;
-
-
+    
   class Version_2_1 "Version 2.1" 
-annotation (Documentation(info="<html>
-
+      annotation (Documentation(info=
+                               "<html>
 <h3><font color=\"#008000\">Version 2.1 (November 11, 2004)</font></h3>
 <p> This is a major change with respect to previous versions of the
     Modelica Standard Library, because <b>many new libraries</b> and components
@@ -482,9 +495,10 @@ Other changes:
 </html>
 "));
   end Version_2_1;
-
+    
   class Version_1_6 "Version 1.6" 
-annotation (Documentation(info="<html>
+      annotation (Documentation(info=
+                               "<html>
 <h3><font color=\"#008000\">Version 1.6 (June 21, 2004)</font></h3>
 <p> Added 1 new library (Electrical.MultiPhase), 17 new components, 
     improved 3 existing components
@@ -560,9 +574,10 @@ ShowVariableResistor
 </html>
 "));
   end Version_1_6;
-
+    
   class Version_1_5 "Version 1.5" 
-annotation (Documentation(info="<html>
+      annotation (Documentation(info=
+                               "<html>
 <h3><font color=\"#008000\">Version 1.5 (December 16, 2002)</font></h3>
 <p> Added 55 new components. In particular, added new package
     <b>Thermal.HeatTransfer</b> for modeling of lumped
@@ -764,7 +779,7 @@ filled with white and not transparent any more.</p>
 </html>
 "));
   end Version_1_5;
-
+    
   class Version_1_4 "Version 1.4" 
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\">Version 1.4.1 (June 28, 2001)</font></h3>
@@ -778,14 +793,10 @@ filled with white and not transparent any more.</p>
     Modelica.Mechanics.Translational.Move.<br>
     </li>
 </ul>
-
 <hr>
-
 <h3><font color=\"#008000\">Version 1.4.1beta1 (February 12, 2001)</font></h3>
 <p> Adapted to Modelica 1.4</p>
-
 <hr>
-
 <h3><font color=\"#008000\">Version 1.3.2beta2 (June 20, 2000)</font></h3>
 <ul>
     <li>New subpackage Modelica.Mechanics.<b>Translational</b></li>
@@ -825,9 +836,7 @@ filled with white and not transparent any more.</p>
       </li></ul>
 </li>
 </ul>
-
 <hr>
-
 <h3><font color=\"#008000\">Version 1.3.1 (Dec. 13, 1999)</font></h3>
 <p>
 First official release of the library.
