@@ -3282,8 +3282,8 @@ Modelica source.
       constant MolarMass molarMass "molar mass";
       constant Temperature criticalTemperature "critical temperature";
       constant AbsolutePressure criticalPressure "critical pressure";
-      constant MolarVolume criticalMolarVolume "critical molar Volume";
       constant Density criticalDensity "critical density";
+      constant MolarVolume criticalMolarVolume "critical molar Volume";
       constant Real acentricFactor "Pitzer acentric factor";
       constant Temperature triplePointTemperature "triple point temperature";
       constant AbsolutePressure triplePointPressure "triple point pressure";
