@@ -1212,7 +1212,7 @@ as <b>tan</b> of the input <b>u</b>:
 <HTML>
 <p>
 This blocks computes the output <b>y</b> (element-wise) as the
-<i>sine-inverse</b> of the input <b>u</b>:
+<i>sine-inverse</i> of the input <b>u</b>:
 </p>
 <pre>
     y = <b>asin</b>( u );
@@ -1290,7 +1290,7 @@ Otherwise an error occurs.
 <HTML>
 <p>
 This blocks computes the output <b>y</b> (element-wise) as the
-<i>cosine-inverse</b> of the input <b>u</b>:
+<i>cosine-inverse</i> of the input <b>u</b>:
 </p>
 <pre>
     y = <b>acos</b>( u );
@@ -1368,7 +1368,7 @@ Otherwise an error occurs.
 <HTML>
 <p>
 This blocks computes the output <b>y</b> (element-wise) as the
-<i>tangent-inverse</b> of the input <b>u</b>:
+<i>tangent-inverse</i> of the input <b>u</b>:
 </p>
 <pre>
     y= <b>atan</b>( u );
@@ -1450,7 +1450,7 @@ This blocks computes the output <b>y</b> (element-wise) as the
 <HTML>
 <p>
 This blocks computes the output <b>y</b> (element-wise) as the
-<i>tangent-inverse</b> of the input <b>u1</b> divided by
+<i>tangent-inverse</i> of the input <b>u1</b> divided by
 input <b>u2</b>:
 </p>
 <pre>
@@ -1531,7 +1531,7 @@ block <b>Atan</b> gives a solution in the range
 <HTML>
 <p>
 This blocks computes the output <b>y</b> (element-wise) as the
-<i>hyperbolic sine</b> of the input <b>u</b>:
+<i>hyperbolic sine</i> of the input <b>u</b>:
 </p>
 <pre>
     y = <b>sinh</b>( u );
@@ -1608,7 +1608,7 @@ This blocks computes the output <b>y</b> (element-wise) as the
 <HTML>
 <p>
 This blocks computes the output <b>y</b> (element-wise) as the
-<i>hyperbolic cosine</b> of the input <b>u</b>:
+<i>hyperbolic cosine</i> of the input <b>u</b>:
 </p>
 <pre>
     y = <b>cosh</b>( u );
@@ -1681,7 +1681,7 @@ This blocks computes the output <b>y</b> (element-wise) as the
 <HTML>
 <p>
 This blocks computes the output <b>y</b> (element-wise) as the
-<i>hyperbolic tangent</b> of the input <b>u</b>:
+<i>hyperbolic tangent</i> of the input <b>u</b>:
 </p>
 <pre>
     y = <b>tanh</b>( u );
@@ -1752,7 +1752,7 @@ This blocks computes the output <b>y</b> (element-wise) as the
 <HTML>
 <p>
 This blocks computes the output <b>y</b> (element-wise) as the
-<i>exponential</b> (of base e) of the input <b>u</b>:
+<i>exponential</i> (of base e) of the input <b>u</b>:
 </p>
 <pre>
     y = <b>exp</b>( u );
@@ -1827,7 +1827,7 @@ This blocks computes the output <b>y</b> (element-wise) as the
 <HTML>
 <p>
 This blocks computes the output <b>y</b> (element-wise) as the
-<i>natural (base e) logarithm</b> of the input <b>u</b>:
+<i>natural (base e) logarithm</i> of the input <b>u</b>:
 </p>
 <pre>
     y = <b>log</b>( u );
@@ -1906,7 +1906,7 @@ zero or negative.
 <HTML>
 <p>
 This blocks computes the output <b>y</b> (element-wise) as the
-<i>base 10 logarithm</b> of the input <b>u</b>:
+<i>base 10 logarithm</i> of the input <b>u</b>:
 </p>
 <pre>
     y = <b>log10</b>( u );
