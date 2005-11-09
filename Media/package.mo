@@ -3282,7 +3282,6 @@ Modelica source.
       constant MolarMass molarMass "molar mass";
       constant Temperature criticalTemperature "critical temperature";
       constant AbsolutePressure criticalPressure "critical pressure";
-      constant Density criticalDensity "critical density";
       constant MolarVolume criticalMolarVolume "critical molar Volume";
       constant Real acentricFactor "Pitzer acentric factor";
       constant Temperature triplePointTemperature "triple point temperature";
@@ -3310,22 +3309,6 @@ Modelica source.
         "true if vapour pressure data, e.g. Antoine coefficents are known";
       constant Boolean hasAcentricFactor=false 
         "true if Pitzer accentric factor is known";
-      constant SpecificEnthalpy HCRIT0 
-        "critical specific enthalpy of the fundamental equation";
-      constant SpecificEntropy SCRIT0 
-        "critical specific entropy of the fundamental equation";
-      constant SpecificEnthalpy deltah=0.0 
-        "difference between specific enthalpy model (h_m) and f.eq. (h_f) (h_m - h_f)";
-      constant SpecificEntropy deltas=0.0 
-        "difference between specific enthalpy model (s_m) and f.eq. (s_f) (s_m - s_f)";
-      
-      //  constant SpecificEnthalpy criticalEnthalpy = HCRIT0 + deltah 
-      //    "critical specific enthalpy of model";
-      //  constant SpecificEntropy criticalEntropy = SCRIT0 + deltas 
-      //    "critical specific entropy of model";
-      constant Boolean pseudoPure=false "true for pseudo-pure fluid models";
-      constant Boolean binaryMixture=false 
-        "true if properties include (some) mixture effects, e.g. from oil";
       
       //  constant String fundamentalEquationSource="none" "source of the fundamental equation model";
       //  constant String criticalDataSource="none" "source for critical data";
