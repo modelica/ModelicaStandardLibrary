@@ -66,7 +66,17 @@ If the exponent <i>v/vt</i> reaches the limit <i>maxex</i>, the diode characteri
 continued to avoid overflow.
 </P>
 </HTML>
-"),   Coordsys(
+", revisions="<html>
+<ul>
+<li><i> November 15, 2005   </i>
+       by Christoph Clauss<br> smooth function added<br>
+       </li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> implemented<br>
+       </li>
+</ul>
+</html>"),
+      Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
         component=[20, 20]),
@@ -98,8 +108,8 @@ continued to avoid overflow.
         width=0.75,
         height=0.63));
   equation 
-    i = if (v/Vt > Maxexp) then Ids*(exp(Maxexp)*(1 + v/Vt - Maxexp) - 1) +
-      v/R else Ids*(exp(v/Vt) - 1) + v/R;
+    i = smooth(1,(if (v/Vt > Maxexp) then Ids*(exp(Maxexp)*(1 + v/Vt - Maxexp) - 1) +
+      v/R else Ids*(exp(v/Vt) - 1) + v/R));
   end Diode;
   
   model PMOS "Simple MOS Transistor" 
