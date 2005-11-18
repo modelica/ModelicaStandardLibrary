@@ -3408,8 +3408,9 @@ following references, especially (Armstrong and Canudas de Witt 1996):
     parameter Real cgeo(final min=0) = 1 
       "Geometry constant containing friction distribution assumption";
     parameter SI.Force fn_max(final min=0) = 1 "Maximum normal force";
-    parameter SI.AngularVelocity w_small(min=Modelica.Constants.eps) = 1 
-      "Relative angular velocity near to zero (see model info text)";
+    parameter SI.AngularVelocity w_small=1e10 
+      "Relative angular velocity near to zero if jumps due to a reinit(..) of the velocity can occur (set to low value only if such impulses can occur)"
+       annotation(Dialog(tab="Advanced"));
     
     SI.AngularVelocity w_rel 
       "Relative angular velocity (flange_b.w - flange_a.w)";
