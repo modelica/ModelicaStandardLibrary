@@ -211,7 +211,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
           tau_nominal=-T_Load) 
         annotation (extent=[90,-50; 70,-30]);
       Utilities.TerminalBox TerminalBox1(StarDelta="D") 
-        annotation (extent=[-20,-34; 0,-14]);
+        annotation (extent=[-20,-30; 0,-10]);
     equation 
       connect(Star1.pin_n, Ground1.p) 
         annotation (points=[-70, 90; -80, 90], style(color=3));
@@ -327,9 +327,9 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
         annotation (points=[-6.12303e-016,70; -6.12303e-016,90; -50,90],
                                                         style(color=3));
       connect(SineVoltage1.plug_p, IdealCloser1.plug_p) 
-        annotation (points=[6.12303e-016,50; 0,48; 1.22461e-015,46;
+        annotation (points=[6.12303e-016,50; 0,48; 1.22461e-015,46; 
             6.12303e-016,46; 6.12303e-016,40], style(color=3));
-      connect(SwitchYD1.plug_NS, AIMC1.plug_sn)  annotation (points=[-20,-30;
+      connect(SwitchYD1.plug_NS, AIMC1.plug_sn)  annotation (points=[-20,-30; 
             -16,-30],
                    style(
           color=3,
@@ -344,10 +344,10 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
       connect(BooleanStep1.y, IdealCloser1.control) annotation (points=[-59,40;
             -20,40; -20,30; -7,30],
                  style(color=5, rgbcolor={255,0,255}));
-      connect(BooleanStep2.y, SwitchYD1.control) annotation (points=[-59,-20;
+      connect(BooleanStep2.y, SwitchYD1.control) annotation (points=[-59,-20; 
             -21,-20],style(color=5, rgbcolor={255,0,255}));
-      connect(IdealCloser1.plug_n, CurrentRMSsensor1.plug_p) annotation (points=
-           [-6.12303e-016,20; -6.12303e-016,18; 6.12303e-016,18; 6.12303e-016,
+      connect(IdealCloser1.plug_n, CurrentRMSsensor1.plug_p) annotation (points=[
+            -6.12303e-016,20; -6.12303e-016,18; 6.12303e-016,18; 6.12303e-016,
             10], style(
           color=3,
           rgbcolor={0,0,255},
@@ -361,6 +361,8 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
           fillColor=10,
           rgbfillColor={135,135,135},
           fillPattern=1));
+      connect(AIMC1.plug_sp, SwitchYD1.pug_PS) annotation (points=[-4,-30; 0,
+            -30], style(color=3, rgbcolor={0,0,255}));
     end AIMC_YD;
     
     model AIMS_start "Test example 3: AsynchronousInductionMachineSlipRing" 
@@ -434,7 +436,7 @@ Default machine parameters of model <i>AIM_SlipRing</i> are used.
           tau_nominal=-T_Load) 
         annotation (extent=[90,-50; 70,-30]);
       Utilities.TerminalBox TerminalBox1(StarDelta="D") 
-        annotation (extent=[-20,-34; 0,-14]);
+        annotation (extent=[-20,-30; 0,-10]);
     equation 
       connect(Star1.pin_n, Ground1.p) 
         annotation (points=[-70, 90; -80, 90], style(color=3));
@@ -442,7 +444,7 @@ Default machine parameters of model <i>AIM_SlipRing</i> are used.
         annotation (points=[-6.12303e-016,70; -6.12303e-016,90; -50,90],
                                                         style(color=3));
       connect(SineVoltage1.plug_p, IdealCloser1.plug_p) 
-        annotation (points=[6.12303e-016,50; 0,48; 1.22461e-015,46;
+        annotation (points=[6.12303e-016,50; 0,48; 1.22461e-015,46; 
             6.12303e-016,46; 6.12303e-016,40], style(color=3));
       connect(Star3.pin_n, Ground3.p) 
         annotation (points=[-70,-90; -80,-90],   style(color=3));
@@ -479,8 +481,8 @@ Default machine parameters of model <i>AIM_SlipRing</i> are used.
                     style(color=5, rgbcolor={255,0,255}));
       connect(BooleanStep2.y, IdealCommutingSwitch1.control) annotation (points=[
             -59,-40; -48,-40], style(color=5, rgbcolor={255,0,255}));
-      connect(IdealCloser1.plug_n, CurrentRMSsensor1.plug_p) annotation (points=
-           [-6.12303e-016,20; -6.12303e-016,16; 6.12303e-016,16; 6.12303e-016,
+      connect(IdealCloser1.plug_n, CurrentRMSsensor1.plug_p) annotation (points=[
+            -6.12303e-016,20; -6.12303e-016,16; 6.12303e-016,16; 6.12303e-016,
             10], style(
           color=3,
           rgbcolor={0,0,255},
@@ -564,7 +566,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
         annotation (extent=[40,-50; 60,-30]);
       Modelica.Mechanics.Rotational.TorqueStep TorqueStep1(startTime=tStep, stepTorque=-T_Load) 
                     annotation (extent=[90,-50; 70,-30]);
-      Utilities.TerminalBox TerminalBox1 annotation (extent=[-20,-34; 0,-14]);
+      Utilities.TerminalBox TerminalBox1 annotation (extent=[-20,-30; 0,-10]);
     equation 
       connect(SignalVoltage1.plug_n, Star1.plug_p) 
         annotation (points=[-6.12303e-016,70; -6.12303e-016,90; -50,90],
@@ -580,7 +582,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
       connect(TorqueStep1.flange, LoadInertia.flange_b) 
         annotation (points=[70,-40; 60,-40], style(color=0, rgbcolor={0,0,0}));
       connect(SignalVoltage1.plug_p, CurrentRMSsensor1.plug_p) annotation (points=[
-            6.12303e-016,50; 6.12303e-016,40; 6.12303e-016,40; 6.12303e-016,30;
+            6.12303e-016,50; 6.12303e-016,40; 6.12303e-016,40; 6.12303e-016,30; 
             6.12303e-016,10; 6.12303e-016,10],   style(color=3, rgbcolor={0,0,
               255}));
       connect(TerminalBox1.negativeMachinePlug, AIMC1.plug_sn) annotation (
@@ -663,7 +665,7 @@ Default machine parameters of model <i>SM_ReluctanceRotorDamperCage</i> are used
         annotation (extent=[40,-50; 60,-30]);
       Modelica.Mechanics.Rotational.TorqueStep TorqueStep1(startTime=tStep, stepTorque=-T_Load) 
                     annotation (extent=[90,-50; 70,-30]);
-      Utilities.TerminalBox TerminalBox1 annotation (extent=[-20,-34; 0,-14]);
+      Utilities.TerminalBox TerminalBox1 annotation (extent=[-20,-30; 0,-10]);
     equation 
       connect(SignalVoltage1.plug_n, Star1.plug_p) 
         annotation (points=[-6.12303e-016,70; -6.12303e-016,90; -50,90],
@@ -688,8 +690,8 @@ Default machine parameters of model <i>SM_ReluctanceRotorDamperCage</i> are used
             -25; -4,-20; -4,-20], style(color=3, rgbcolor={0,0,255}));
       connect(SMR1.shaft, RotorAngle1.flange) 
         annotation (points=[0,-40; 0,-10], style(color=0, rgbcolor={0,0,0}));
-      connect(TerminalBox1.positiveMachinePlug, SMR1.plug_sp)  annotation (points=[
-            -4,-30; -4,-30], style(
+      connect(TerminalBox1.positiveMachinePlug, SMR1.plug_sp)  annotation (points=[-4,-30; 
+            -4,-30],         style(
           color=3,
           rgbcolor={0,0,255},
           fillColor=10,
@@ -772,7 +774,7 @@ Default machine parameters of model <i>SM_PermanentMagnetDamperCage</i> are used
         annotation (extent=[40,-50; 60,-30]);
       Modelica.Mechanics.Rotational.TorqueStep TorqueStep1(startTime=tStep, stepTorque=-
             T_Load) annotation (extent=[90,-50; 70,-30]);
-      Utilities.TerminalBox TerminalBox1 annotation (extent=[-20,-34; 0,-14]);
+      Utilities.TerminalBox TerminalBox1 annotation (extent=[-20,-30; 0,-10]);
     equation 
       connect(SignalVoltage1.plug_n, Star1.plug_p) 
         annotation (points=[-6.12303e-016,70; -6.12303e-016,90; -50,90],
@@ -796,8 +798,8 @@ Default machine parameters of model <i>SM_PermanentMagnetDamperCage</i> are used
         annotation (points=[0,-10; 0,-40], style(color=0, rgbcolor={0,0,0}));
       connect(SMPM1.shaft, LoadInertia.flange_a) 
         annotation (points=[0,-40; 40,-40], style(color=0, rgbcolor={0,0,0}));
-      connect(TerminalBox1.negativeMachinePlug, SMPM1.plug_sn)  annotation (points=[
-            -16,-30; -16,-30], style(
+      connect(TerminalBox1.negativeMachinePlug, SMPM1.plug_sn)  annotation (points=[-16,-30; 
+            -16,-30],          style(
           color=3,
           rgbcolor={0,0,255},
           fillColor=10,
@@ -885,7 +887,7 @@ Default machine parameters of model <i>SM_ElectricalExcitedDamperCage</i> are us
         duration=0.1,
         I=Ie - Ie0,
         offset=Ie0)        annotation (extent=[-60,-50; -40,-30], rotation=90);
-      Utilities.TerminalBox TerminalBox1 annotation (extent=[-20,-34; 0,-14]);
+      Utilities.TerminalBox TerminalBox1 annotation (extent=[-20,-30; 0,-10]);
     equation 
       connect(RotorAngle1.plug_n, SMEE1.plug_sn)  annotation (points=[-16,-20;
             -16,-30], style(color=3, rgbcolor={0,0,255}));
@@ -1283,26 +1285,26 @@ If <i>control</i> is true, plug_PS and plug_NS are delta connected and they are 
         Modelica.Electrical.MultiPhase.Interfaces.PositivePlug 
           positiveMachinePlug(
             final m=m) 
-          annotation (extent=[50,-70; 70,-50]);
+          annotation (extent=[50,-110; 70,-90]);
         Modelica.Electrical.MultiPhase.Interfaces.NegativePlug 
           negativeMachinePlug(
             final m=m) 
-          annotation (extent=[-70,-70; -50,-50]);
+          annotation (extent=[-70,-110; -50,-90]);
         Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) if (StarDelta<>"D") 
-          annotation (extent=[-80,-30; -60,-50], rotation=-180);
+          annotation (extent=[-80,-70; -60,-90], rotation=-180);
         Modelica.Electrical.MultiPhase.Basic.Delta delta(final m=m) if (StarDelta=="D") 
-          annotation (extent=[10,-70; -10,-50]);
+          annotation (extent=[-20,-70; -40,-50]);
         Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plugToGrid(final m=m) 
-          annotation (extent=[-10,-30; 10,-50]);
+          annotation (extent=[-10,-70; 10,-90]);
         annotation (Diagram,
-          Icon(Polygon(points=[-96,-40; -100,-44; -100,-100; -60,-100; 40,-100;
-                  80,-70; 80,-44; 76,-40; -96,-40],
+          Icon(Polygon(points=[-80,-80; -80,-84; -80,-120; -40,-140; 40,-140; 80,-110;
+                  80,-84; 76,-80; -80,-80],
                                          style(
                 color=10,
                 rgbcolor={95,95,95},
                 fillColor=10,
                 rgbfillColor={135,135,135})), Text(
-              extent=[-40,-50; 40,-90],
+              extent=[-40,-90; 40,-130],
               string="%StarDelta",
               style(
                 color=0,
@@ -1317,22 +1319,25 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
 </p>
 </html>"));
         Modelica.Electrical.Analog.Interfaces.NegativePin starpoint if (StarDelta<>"D") 
-          annotation (extent=[-100,-100; -80,-80]);
+          annotation (extent=[-100,-90; -80,-70]);
       equation 
         connect(negativeMachinePlug, star.plug_p) 
-          annotation (points=[-60,-60; -60,-40],
+          annotation (points=[-60,-100; -60,-80],
             style(color=3, rgbcolor={0,0,255}));
         connect(negativeMachinePlug, delta.plug_n) 
-                                              annotation (points=[-60,-60; -10,-60],
+                                              annotation (points=[-60,-100; -40,-100;
+              -40,-60],
             style(color=3, rgbcolor={0,0,255}));
         connect(delta.plug_p, positiveMachinePlug) 
-                                              annotation (points=[10,-60; 60,-60],
+                                              annotation (points=[-20,-60; 60,-60; 60,
+              -100],
             style(color=3, rgbcolor={0,0,255}));
         connect(positiveMachinePlug, plugToGrid) 
-                                              annotation (points=[60,-60; 60,-40; 0,-40],
+                                              annotation (points=[60,-100; 0,-100; 0,
+              -80],
             style(color=3, rgbcolor={0,0,255}));
-        connect(star.pin_n, starpoint) annotation (points=[-80,-40; -80,-90;
-              -90,-90], style(color=3, rgbcolor={0,0,255}));
+        connect(star.pin_n, starpoint) annotation (points=[-80,-80; -90,-80],
+                        style(color=3, rgbcolor={0,0,255}));
       end TerminalBox;
     end Utilities;
   end Examples;
@@ -2127,7 +2132,7 @@ Whether a damper cage is present or not, can be selected with Boolean parameter 
             style(color=3, rgbcolor={0,0,255}));
         connect(spacePhasorS.plug_n, plug_sn) annotation (points=[-10,40; -10,
               60; -60,60; -60,100],     style(color=3, rgbcolor={0,0,255}));
-        connect(spacePhasorS.ground, spacePhasorS.zero) annotation (points=[-10,20; 
+        connect(spacePhasorS.ground, spacePhasorS.zero) annotation (points=[-10,20;
               -10,14; -6.12303e-016,14; -6.12303e-016,20], style(
             color=3,
             rgbcolor={0,0,255},
@@ -2393,7 +2398,7 @@ Whether a damper cage is present or not, can be selected with Boolean parameter 
             style(color=3, rgbcolor={0,0,255}));
         connect(spacePhasorS.plug_n, plug_sn) annotation (points=[-10,40; -10,
               60; -60,60; -60,100],     style(color=3, rgbcolor={0,0,255}));
-        connect(spacePhasorS.ground, spacePhasorS.zero) annotation (points=[-10,20; 
+        connect(spacePhasorS.ground, spacePhasorS.zero) annotation (points=[-10,20;
               -10,14; -6.12303e-016,14; -6.12303e-016,20], style(
             color=3,
             rgbcolor={0,0,255},
@@ -2626,7 +2631,7 @@ Whether a damper cage is present or not, can be selected with Boolean parameter 
             fillColor=3,
             rgbfillColor={0,0,255},
             fillPattern=1));
-        connect(spacePhasorS.ground, spacePhasorS.zero) annotation (points=[-10,20; 
+        connect(spacePhasorS.ground, spacePhasorS.zero) annotation (points=[-10,20;
               -10,14; -6.12303e-016,14; -6.12303e-016,20],     style(
             color=3,
             rgbcolor={0,0,255},
@@ -4966,7 +4971,7 @@ The machine's stator is implicitely fixed.
 </HTML>"),
         Diagram);
     equation 
-      connect(inertiaRotor.flange_b, shaft) annotation (points=[80,1.22461e-015; 
+      connect(inertiaRotor.flange_b, shaft) annotation (points=[80,1.22461e-015;
             92,1.22461e-015; 92,0; 100,0], style(color=0, rgbcolor={0,0,0}));
       connect(internalSupport, fixedHousing.flange_b) 
         annotation (points=[20,-100; 40,-100], style(color=0, rgbcolor={0,0,0}));
