@@ -6,12 +6,21 @@
 //             first version
 // 2005/11/04: Anton Haumer
 //             corrected typos
+// 2005/11/23: Anton Haumer
+//             naming of synchronous induction machines
 
 clear
 
 convertClear();
 
 convertClass  ("Machines.Sensors.RotorAngle", "Machines.Sensors.RotorDisplacementAngle");
+
+convertClass  ("Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnetDamperCage", 
+               "Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet");
+convertClass  ("Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage",
+               "Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited");
+convertClass  ("Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotorDamperCage",
+               "Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor");
 
 convertElement({"Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnetDamperCage",
                 "Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage",
