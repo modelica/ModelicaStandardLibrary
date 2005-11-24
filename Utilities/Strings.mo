@@ -396,7 +396,7 @@ performed replacements.
        if i_found > 0 then
           result := if i_found == 1 then 
                        replaceString else 
-                       result + substring(string, i, i_found-1) + replaceString;
+                       result + (if i_found-1<i then "" else substring(string, i, i_found-1)) + replaceString;
           i := i_found + lenSearchString;
           if i > lenString then
              i := 0;
@@ -404,6 +404,8 @@ performed replacements.
              result := result + substring(string, i, lenString);
              i := 0;
           end if;
+       elseif lenString<i then
+          i := 0;
        else
           result := result + substring(string, i, lenString);
           i := 0;
