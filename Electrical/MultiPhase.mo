@@ -1,7 +1,8 @@
 package MultiPhase "Library for electrical multiphase models" 
-  extends Modelica.Icons.Library;
-  annotation (version="1.0", versionDate="2004-10-01", 
-    Documentation(info="<HTML>
+  extends Modelica.Icons.Library2;
+  annotation (
+    version="1.0", versionDate="2004-10-01",
+    preferedView="info", Documentation(info="<HTML>
 <p>
 This package contains packages for electrical multiphase components, based on Modelica.Electrical.Analog:
 <ul>
@@ -34,8 +35,6 @@ Further development:
   </dd>
 </p>
 </dl>
-
-
 <p>
 Copyright &copy; 1998-2005, Modelica Association and Anton Haumer.
 </p>
@@ -45,13 +44,28 @@ under the terms of the <b>Modelica license</b>, see the license conditions
 and the accompanying <b>disclaimer</b> 
 <a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a>.</i>
 </p><br>
-
 </HTML>", revisions="<html>
   <ul>
   <li> v1.0 2004/10/01 Anton Haumer</li>
   </ul>
-
-</html>"));
+</html>"),
+    Icon(
+      Ellipse(extent=[-60,10; 40,-90], style(color=3, rgbcolor={0,0,255})),
+      Ellipse(extent=[-40,-14; -20,-34], style(
+          color=3,
+          rgbcolor={0,0,255},
+          fillColor=3,
+          rgbfillColor={0,0,255})),
+      Ellipse(extent=[0,-14; 20,-34], style(
+          color=3,
+          rgbcolor={0,0,255},
+          fillColor=3,
+          rgbfillColor={0,0,255})),
+      Ellipse(extent=[-20,-54; 0,-74], style(
+          color=3,
+          rgbcolor={0,0,255},
+          fillColor=3,
+          rgbfillColor={0,0,255}))));
   annotation (Documentation(info="<HTML>
 <p>
 This package contains packages for electrical multiphase components, based on Modelica.Electrical.Analog:
@@ -103,7 +117,7 @@ Further development:
 </HTML>"));
   
   package Basic "Basic components for electrical multiphase models" 
-    extends Modelica.Icons.Library;
+    extends Modelica.Icons.Library2;
     annotation (Documentation(info="<HTML>
 <p>
 This package contains basic analog electrical multiphase components.
@@ -134,7 +148,13 @@ This package contains basic analog electrical multiphase components.
   Modelica in file \"Modelica/package.mo\".</i></dd>
 </p>
 </dl>
-</HTML>"));
+</HTML>"), Icon(
+        Rectangle(extent=[-80,-10; 60,-70],  style(
+            color=3,
+            fillColor=7,
+            fillPattern=1)),
+        Line(points=[60,-40; 80,-40]),
+        Line(points=[-100,-40; -80,-40])));
     
     model Star "Star-connection" 
       parameter Integer m(final min=1) = 3 "number of phases";
@@ -270,7 +290,7 @@ Connects pin <i>k</i> of plug_n to pin_n, leaving the other pins of plug_n uncon
               fillPattern=1)),
           Line(points=[-90, 0; -70, 0]),
           Line(points=[70, 0; 90, 0]),
-          Text(extent=[-148,40; 152,100],   string="%name"),
+          Text(extent=[-150,40; 150,100],   string="%name"),
           Text(extent=[-100,-100; 100,-60],   string="m=%m",
             style(color=0, rgbcolor={0,0,0}))),
         Documentation(info="<HTML>
@@ -648,7 +668,7 @@ Lmin is a parameter with default value Modelica.Constants.eps.
   end Basic;
   
   package Examples "Multiphase test examples" 
-    extends Modelica.Icons.Library;
+    extends Modelica.Icons.Library2;
     annotation (Documentation(info="<HTML>
 <p>
 This package contains test examples of analog electrical multiphase circuits.
@@ -679,7 +699,14 @@ This package contains test examples of analog electrical multiphase circuits.
   Modelica in file \"Modelica/package.mo\".</i></dd>
 </p>
 </dl>
-</HTML>"));
+</HTML>"), Icon(
+         Ellipse(extent=[-60,12; 40,-88], style(color=10, rgbcolor={135,135,135})),
+          Polygon(points=[-30,-10; -30,-66; 28,-38; -30,-10], style(
+            color=10,
+            rgbcolor={135,135,135},
+            fillColor=10,
+            rgbfillColor={135,135,135},
+            fillPattern=1))));
     
     model TransformerYY "Test example with multiphase components" 
       extends Modelica.Icons.Example;
@@ -888,7 +915,7 @@ neglecting initial transient.
   end Examples;
   
   package Ideal "Multiphase components with idealized behaviour" 
-    extends Modelica.Icons.Library;
+    extends Modelica.Icons.Library2;
     annotation (Documentation(info="<HTML>
 <p>
 This package contains analog electrical multiphase components with idealized behaviour, 
@@ -920,7 +947,13 @@ like thyristor, diode, switch, transformer.
   Modelica in file \"Modelica/package.mo\".</i></dd>
 </p>
 </dl>
-</HTML>"));
+</HTML>"), Icon(
+        Line(points=[-100,-40; 80,-40]),
+        Polygon(points=[20,-40; -40,0; -40,-80; 20,-40],  style(
+            color=3,
+            gradient=0,
+            fillColor=7)),
+        Line(points=[20,0; 20,-80],    style(color=3))));
     
     model IdealThyristor "Multiphase ideal thyristor" 
       extends Interfaces.TwoPlug;
@@ -1399,7 +1432,7 @@ Contains m ideal closing switches (Modelica.Electrical.Analog.Ideal.IdealClosing
   end Ideal;
   
   package Interfaces "Interfaces for electrical multiphase models" 
-    extends Modelica.Icons.Library;
+    extends Modelica.Icons.Library2;
     annotation (Documentation(info="<HTML>
 <p>
 This package contains connectors and interfaces (partial models) for
@@ -1431,7 +1464,23 @@ electrical multiphase components, based on Modelica.Electrical.Analog.
   Modelica in file \"Modelica/package.mo\".</i></dd>
 </p>
 </dl>
-</HTML>"));
+</HTML>"), Icon(
+        Ellipse(extent=[-60,10; 40,-90], style(color=3, rgbcolor={0,0,255})),
+        Ellipse(extent=[-40,-14; -20,-34], style(
+            color=3,
+            rgbcolor={0,0,255},
+            fillColor=3,
+            rgbfillColor={0,0,255})),
+        Ellipse(extent=[0,-14; 20,-34], style(
+            color=3,
+            rgbcolor={0,0,255},
+            fillColor=3,
+            rgbfillColor={0,0,255})),
+        Ellipse(extent=[-20,-54; 0,-74], style(
+            color=3,
+            rgbcolor={0,0,255},
+            fillColor=3,
+            rgbfillColor={0,0,255}))));
     
     connector Plug "Plug with m pins for an electric component" 
       parameter Integer m(final min=1) = 3 "number of phases";
@@ -1574,7 +1623,7 @@ and that the currents flowing into plug_p2 are identical to the currents flowing
   end Interfaces;
   
   package Sensors "Multiphase potential, voltage and current Sensors" 
-    extends Modelica.Icons.Library;
+    extends Modelica.Icons.Library2;
     annotation (Documentation(info="<HTML>
 <p>
 This package contains multiphase potential, voltage, and current sensors.
@@ -1605,7 +1654,46 @@ This package contains multiphase potential, voltage, and current sensors.
   Modelica in file \"Modelica/package.mo\".</i></dd>
 </p>
 </dl>
-</HTML>"));
+</HTML>"), Icon(
+        Ellipse(extent=[-60,10; 40,-90], style(
+            color=0,
+            rgbcolor={0,0,0},
+            fillColor=7,
+            rgbfillColor={255,255,255})),
+        Line(points=[-50,-16; -36,-25],
+                                      style(
+            color=0,
+            rgbcolor={0,0,0},
+            fillPattern=1)),
+        Line(points=[-35,0; -25,-14], style(
+            color=0,
+            rgbcolor={0,0,0},
+            fillPattern=1)),
+        Line(points=[-10,7; -10,-10],
+                                  style(
+            color=0,
+            rgbcolor={0,0,0},
+            fillPattern=1)),
+        Line(points=[15,0; 5,-14],  style(
+            color=0,
+            rgbcolor={0,0,0},
+            fillPattern=1)),
+        Line(points=[30,-15; 16,-25],
+                                    style(
+            color=0,
+            rgbcolor={0,0,0},
+            fillPattern=1)),
+        Ellipse(extent=[-15,-35; -5,-45],
+                                       style(
+            color=0,
+            gradient=0,
+            fillColor=0,
+            fillPattern=1)),
+        Line(points=[-10,-40; -6,-26],  style(color=0)),
+        Polygon(points=[-12,-24; -0.5,-27; 2,1.5; -12,-24],          style(
+            color=0,
+            fillColor=0,
+            fillPattern=1))));
     
     model PotentialSensor "Multiphase potential sensor" 
       extends Modelica.Icons.RotationalSensor;
@@ -1757,7 +1845,7 @@ thus measuring the m currents <i>i[m]</i> flowing from the m pins of plug_p to t
   end Sensors;
   
   package Sources "Multiphase voltage and current sources" 
-    extends Modelica.Icons.Library;
+    extends Modelica.Icons.Library2;
     annotation (Documentation(info="<HTML>
 <p>
 This package contains time-dependend and controlled multiphase voltage and current sources:
@@ -1794,7 +1882,11 @@ This package contains time-dependend and controlled multiphase voltage and curre
   Modelica in file \"Modelica/package.mo\".</i></dd>
 </p>
 </dl>
-</HTML>"));
+</HTML>"), Icon(
+        Line(points=[-100,-40; -60,-40]),
+        Line(points=[-60,-40; 40,-40]),
+        Line(points=[40,-40; 80,-40]),
+        Ellipse(extent=[-60,10; 40,-90],   style(color=3, fillColor=7))));
     
     model SignalVoltage "Multiphase signal voltage source" 
       parameter Integer m(min=1) = 3 "number of phases";

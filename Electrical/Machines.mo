@@ -1,7 +1,7 @@
 package Machines "Library for electric machines" 
-  extends Modelica.Icons.Library;
+  extends Modelica.Icons.Library2;
   annotation (
-  version="1.6.2", versionDate="2005-11-23",
+  version="1.6.3", versionDate="2005-11-25",
   conversion(from(version="1.4", script="ConvertMachines_from_1.4_to_1.6.mos")),
   Settings(NewStateSelection=true, Evaluate=true),
   preferedView="info", Documentation(info="<HTML>
@@ -102,12 +102,41 @@ and the accompanying <b>disclaimer</b>
        introduced Examples.Utilities.TerminalBox</li>
   <li> v1.6.2 2005/10/23 Anton Haumer<br>
        selectable DamperCage for Synchronous Machines</li>
-</li>
+  <li> v1.6.3 2005/11/25 Anton Haumer<br>
+       easier parametrisation of AsynchronousInductionMachines.AIM_SlipRing model</li>
   </ul>
-</HTML>"));
+</HTML>"),
+    Icon(
+      Rectangle(extent=[-60,60; 60,-60],    style(
+          color=3,
+          rgbcolor={0,0,255},
+          gradient=2,
+          fillColor=69,
+          rgbfillColor={0,128,255})),
+      Rectangle(extent=[-60,60; -80,-60],    style(
+          color=10,
+          gradient=2,
+          fillColor=10)),
+      Rectangle(extent=[60,10; 80,-10],  style(
+          color=10,
+          rgbcolor={95,95,95},
+          gradient=2,
+          fillColor=10,
+          rgbfillColor={95,95,95})),
+      Rectangle(extent=[-60,70; 20,50], style(
+          color=10,
+          rgbcolor={95,95,95},
+          fillColor=10,
+          rgbfillColor={95,95,95})),
+  Polygon(points=[-70,-90; -60,-90; -30,-20; 20,-20; 50,-90; 60,-90; 60,-100;
+            -70,-100; -70,-90],               style(
+      color=0,
+      gradient=0,
+      fillColor=0,
+      fillPattern=1))));
   
   package Examples "Test examples" 
-    extends Modelica.Icons.Library;
+    extends Modelica.Icons.Library2;
     annotation (Documentation(info="<HTML>
 <p>
 This package contains test examples of electric machines,<br>
@@ -152,7 +181,13 @@ and a package utilities with components used for the examples.
   <li> v1.6.1 2004/11/22 Anton Haumer<br>
        introduced Utilities.TerminalBox</li>
   </ul>
-</HTML>"));
+</HTML>"), Icon(Ellipse(extent=[-80,44; 60,-96], style(color=10, rgbcolor={95,
+                95,95})), Polygon(points=[-40,36; -40,-88; 60,-26; -40,36],
+            style(
+            color=10,
+            rgbcolor={95,95,95},
+            fillColor=10,
+            rgbfillColor={95,95,95}))));
     
     model AIMC_DOL 
       "Test example 1: AsynchronousInductionMachineSquirrelCage direct-on-line" 
@@ -219,7 +254,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
         annotation (points=[-6.12303e-016,70; -6.12303e-016,90; -50,90],
                                                         style(color=3));
       connect(SineVoltage1.plug_p, IdealCloser1.plug_p) 
-        annotation (points=[6.12303e-016,50; 0,48; 1.22461e-015,46; 
+        annotation (points=[6.12303e-016,50; 0,48; 1.22461e-015,46;
             6.12303e-016,46; 6.12303e-016,40], style(color=3));
       connect(AIMC1.shaft, LoadInertia.flange_a)  annotation (points=[0,-40;
             40,-40], style(color=0, rgbcolor={0,0,0}));
@@ -327,9 +362,9 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
         annotation (points=[-6.12303e-016,70; -6.12303e-016,90; -50,90],
                                                         style(color=3));
       connect(SineVoltage1.plug_p, IdealCloser1.plug_p) 
-        annotation (points=[6.12303e-016,50; 0,48; 1.22461e-015,46; 
+        annotation (points=[6.12303e-016,50; 0,48; 1.22461e-015,46;
             6.12303e-016,46; 6.12303e-016,40], style(color=3));
-      connect(SwitchYD1.plug_NS, AIMC1.plug_sn)  annotation (points=[-20,-30; 
+      connect(SwitchYD1.plug_NS, AIMC1.plug_sn)  annotation (points=[-20,-30;
             -16,-30],
                    style(
           color=3,
@@ -344,7 +379,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
       connect(BooleanStep1.y, IdealCloser1.control) annotation (points=[-59,40;
             -20,40; -20,30; -7,30],
                  style(color=5, rgbcolor={255,0,255}));
-      connect(BooleanStep2.y, SwitchYD1.control) annotation (points=[-59,-20; 
+      connect(BooleanStep2.y, SwitchYD1.control) annotation (points=[-59,-20;
             -21,-20],style(color=5, rgbcolor={255,0,255}));
       connect(IdealCloser1.plug_n, CurrentRMSsensor1.plug_p) annotation (points=[
             -6.12303e-016,20; -6.12303e-016,18; 6.12303e-016,18; 6.12303e-016,
@@ -444,7 +479,7 @@ Default machine parameters of model <i>AIM_SlipRing</i> are used.
         annotation (points=[-6.12303e-016,70; -6.12303e-016,90; -50,90],
                                                         style(color=3));
       connect(SineVoltage1.plug_p, IdealCloser1.plug_p) 
-        annotation (points=[6.12303e-016,50; 0,48; 1.22461e-015,46; 
+        annotation (points=[6.12303e-016,50; 0,48; 1.22461e-015,46;
             6.12303e-016,46; 6.12303e-016,40], style(color=3));
       connect(Star3.pin_n, Ground3.p) 
         annotation (points=[-70,-90; -80,-90],   style(color=3));
@@ -582,7 +617,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
       connect(TorqueStep1.flange, LoadInertia.flange_b) 
         annotation (points=[70,-40; 60,-40], style(color=0, rgbcolor={0,0,0}));
       connect(SignalVoltage1.plug_p, CurrentRMSsensor1.plug_p) annotation (points=[
-            6.12303e-016,50; 6.12303e-016,40; 6.12303e-016,40; 6.12303e-016,30; 
+            6.12303e-016,50; 6.12303e-016,40; 6.12303e-016,40; 6.12303e-016,30;
             6.12303e-016,10; 6.12303e-016,10],   style(color=3, rgbcolor={0,0,
               255}));
       connect(TerminalBox1.negativeMachinePlug, AIMC1.plug_sn) annotation (
@@ -681,7 +716,7 @@ Default machine parameters of model <i>SM_ReluctanceRotorDamperCage</i> are used
       connect(LoadInertia.flange_b, TorqueStep1.flange) 
         annotation (points=[60,-40; 70,-40], style(color=0, rgbcolor={0,0,0}));
       connect(CurrentRMSsensor1.plug_p, SignalVoltage1.plug_p) annotation (
-          points=[6.12303e-016,40; 6.12303e-016,42.5; 6.12303e-016,42.5; 
+          points=[6.12303e-016,40; 6.12303e-016,42.5; 6.12303e-016,42.5;
             6.12303e-016,45; 6.12303e-016,50; 6.12303e-016,50], style(color=3,
             rgbcolor={0,0,255}));
       connect(SMR1.plug_sn, RotorAngle1.plug_n)  annotation (points=[-16,-30;
@@ -690,7 +725,7 @@ Default machine parameters of model <i>SM_ReluctanceRotorDamperCage</i> are used
             -25; -4,-20; -4,-20], style(color=3, rgbcolor={0,0,255}));
       connect(SMR1.shaft, RotorAngle1.flange) 
         annotation (points=[0,-40; 0,-10], style(color=0, rgbcolor={0,0,0}));
-      connect(TerminalBox1.positiveMachinePlug, SMR1.plug_sp)  annotation (points=[-4,-30; 
+      connect(TerminalBox1.positiveMachinePlug, SMR1.plug_sp)  annotation (points=[-4,-30;
             -4,-30],         style(
           color=3,
           rgbcolor={0,0,255},
@@ -792,13 +827,13 @@ Default machine parameters of model <i>SM_PermanentMagnetDamperCage</i> are used
             rgbcolor={0,0,255}));
       connect(RotorAngle1.plug_n, SMPM1.plug_sn)  annotation (points=[-16,-20;
             -16,-30], style(color=3, rgbcolor={0,0,255}));
-      connect(RotorAngle1.plug_p, SMPM1.plug_sp)  annotation (points=[-4,-20; 
+      connect(RotorAngle1.plug_p, SMPM1.plug_sp)  annotation (points=[-4,-20;
             -4,-25; -4,-25; -4,-30], style(color=3, rgbcolor={0,0,255}));
       connect(RotorAngle1.flange, SMPM1.shaft) 
         annotation (points=[0,-10; 0,-40], style(color=0, rgbcolor={0,0,0}));
       connect(SMPM1.shaft, LoadInertia.flange_a) 
         annotation (points=[0,-40; 40,-40], style(color=0, rgbcolor={0,0,0}));
-      connect(TerminalBox1.negativeMachinePlug, SMPM1.plug_sn)  annotation (points=[-16,-30; 
+      connect(TerminalBox1.negativeMachinePlug, SMPM1.plug_sn)  annotation (points=[-16,-30;
             -16,-30],          style(
           color=3,
           rgbcolor={0,0,255},
@@ -891,7 +926,7 @@ Default machine parameters of model <i>SM_ElectricalExcitedDamperCage</i> are us
     equation 
       connect(RotorAngle1.plug_n, SMEE1.plug_sn)  annotation (points=[-16,-20;
             -16,-30], style(color=3, rgbcolor={0,0,255}));
-      connect(RotorAngle1.plug_p, SMEE1.plug_sp)  annotation (points=[-4,-20; 
+      connect(RotorAngle1.plug_p, SMEE1.plug_sp)  annotation (points=[-4,-20;
             -4,-25; -4,-25; -4,-30], style(color=3, rgbcolor={0,0,255}));
       connect(RotorAngle1.flange, SMEE1.shaft) 
         annotation (points=[0,-10; 0,-40], style(color=0, rgbcolor={0,0,0}));
@@ -900,7 +935,7 @@ Default machine parameters of model <i>SM_ElectricalExcitedDamperCage</i> are us
       connect(Star1.plug_p, SineVoltage1.plug_n) annotation (points=[-50,90;
             -40,90], style(color=3, rgbcolor={0,0,255}));
       connect(ElectricalPowerSensor1.plug_ni, CurrentRMSsensor1.plug_p) 
-        annotation (points=[6.12303e-016,50; 1.76911e-022,46; 6.12303e-016,46; 
+        annotation (points=[6.12303e-016,50; 1.76911e-022,46; 6.12303e-016,46;
             6.12303e-016,40], style(color=3, rgbcolor={0,0,255}));
       connect(SMEE1.shaft, MechanicalPowerSensor1.flange_a) 
         annotation (points=[0,-40; 10,-40], style(color=0, rgbcolor={0,0,0}));
@@ -1343,7 +1378,7 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
   end Examples;
   
   package BasicMachines "Basic machine models" 
-    extends Modelica.Icons.Library;
+    extends Modelica.Icons.Library2;
     annotation (Documentation(info="<HTML>
 <p>
 This package contains components for modeling electrical machines, specially threephase induction machines, based on space phasor theory:
@@ -1398,8 +1433,37 @@ The induction machine models use package SpacePhasors.
        introduced unsymmetrical DamperCage for Synchronous Machines</li>
   <li> v1.6.2 2005/10/23 Anton Haumer<br>
        selectable DamperCage for Synchronous Machines</li>
+  <li> v1.6.3 2005/11/25 Anton Haumer<br>
+       easier parametrisation of AsynchronousInductionMachines.AIM_SlipRing model</li>
   </ul>
-<HTML>"));
+<HTML>"), Icon(
+        Rectangle(extent=[-60,60; 60,-60],    style(
+            color=3,
+            rgbcolor={0,0,255},
+            gradient=2,
+            fillColor=69,
+            rgbfillColor={0,128,255})),
+        Rectangle(extent=[-60,60; -80,-60],    style(
+            color=10,
+            gradient=2,
+            fillColor=10)),
+        Rectangle(extent=[60,10; 80,-10],  style(
+            color=10,
+            rgbcolor={95,95,95},
+            gradient=2,
+            fillColor=10,
+            rgbfillColor={95,95,95})),
+        Rectangle(extent=[-60,70; 20,50], style(
+            color=10,
+            rgbcolor={95,95,95},
+            fillColor=10,
+            rgbfillColor={95,95,95})),
+    Polygon(points=[-70,-90; -60,-90; -30,-20; 20,-20; 50,-90; 60,-90; 60,-100;
+              -70,-100; -70,-90],               style(
+        color=0,
+        gradient=0,
+        fillColor=0,
+        fillPattern=1))));
     
     package AsynchronousInductionMachines 
       "Models of asynchronous induction machines" 
@@ -1447,6 +1511,8 @@ These models use package SpacePhasors.
   <li> v1.4   2004/11/11 Anton Haumer<br>
        removed mechanical flange support<br>
        to ease the implementation of a 3D-frame in a future release</li>
+  <li> v1.6.3 2005/11/25 Anton Haumer<br>
+       easier parametrisation of SlipRing model</li>
   </ul>
 </HTML>"));
       
@@ -1643,7 +1709,18 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           "|Nominal resistances and inductances|rotor stray inductance per phase";
         parameter Modelica.SIunits.Resistance Rr=0.04 
           "|Nominal resistances and inductances|warm rotor resistance per phase";
-        parameter Real TurnsRatio=1 "(ws*xis) / (wr*xir)";
+        parameter Boolean useTurnsRatio=true 
+          "use TurnsRatio or calculate from locked-rotor voltage?";
+        parameter Real TurnsRatio(final min=Modelica.Constants.small)=1 
+          "(ws*xis) / (wr*xir)" 
+          annotation(Dialog(enable=useTurnsRatio));
+        parameter Modelica.SIunits.Voltage VsNom=100 
+          "Nominal stator voltage per phase" 
+          annotation(Dialog(enable=not useTurnsRatio));
+        parameter Modelica.SIunits.Voltage Vr_LR=100*
+          (2*pi*fNominal*Lm)/sqrt(Rs^2+(2*pi*fNominal*(Lm+Lssigma))^2) 
+          "Locked-rotor voltage per phase" 
+          annotation(Dialog(enable=not useTurnsRatio));
         output Modelica.SIunits.Current is[m] = plug_sp.pin.i 
           "stator instantaneous currents";
         output Modelica.SIunits.Current i_0_s( stateSelect=StateSelect.prefer) = spacePhasorS.zero.i 
@@ -1660,6 +1737,10 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           "rotor zero-sequence current";
         output Modelica.SIunits.Current ir[m] = plug_rp.pin.i 
           "rotor instantaneous currents";
+      protected 
+        parameter Real internalTurnsRatio=if useTurnsRatio then TurnsRatio else 
+          VsNom/Vr_LR*(2*pi*fNominal*Lm)/sqrt(Rs^2+(2*pi*fNominal*(Lm+Lssigma))^2);
+      public 
         Modelica.Electrical.MultiPhase.Basic.Resistor rs(final m=m, final R=fill(Rs, m)) 
           annotation (extent=[60,50; 40,70]);
         Modelica.Electrical.MultiPhase.Basic.Inductor lssigma(final m=m, final L=fill(Lssigma, m)) 
@@ -1672,7 +1753,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           annotation (extent=[10, -40; -10, -20], rotation=90);
         Modelica.Electrical.MultiPhase.Ideal.IdealTransformer IdealTransformer1
           (                                                                     final m=m, final n=
-              fill(1/TurnsRatio, m)) 
+              fill(1/internalTurnsRatio, m)) 
           annotation (extent=[10,-70; -10,-50], rotation=90);
         Modelica.Electrical.MultiPhase.Basic.Star Star1(final m=m) 
           annotation (extent=[-20,-60; -40,-40]);
@@ -1817,14 +1898,14 @@ TurnsRatio * <u>V</u><sub>R</sub> = <u>V</u><sub>s</sub> - (R<sub>s</sub> + j X<
             style(color=3, rgbcolor={0,0,255}));
         connect(plug_sn, spacePhasorS.plug_n) annotation (points=[-60,100; -60,60;
               -10,60; -10,40], style(color=3, rgbcolor={0,0,255}));
-        connect(spacePhasorS.ground, spacePhasorS.zero) annotation (points=[-10,20;
+        connect(spacePhasorS.ground, spacePhasorS.zero) annotation (points=[-10,20; 
               -10,14; -6.12303e-016,14; -6.12303e-016,20],     style(
             color=3,
             rgbcolor={0,0,255},
             fillColor=3,
             rgbfillColor={0,0,255},
             fillPattern=1));
-        connect(spacePhasorR.ground, spacePhasorR.zero) annotation (points=[-10,-20;
+        connect(spacePhasorR.ground, spacePhasorR.zero) annotation (points=[-10,-20; 
               -10,-14; -6.12303e-016,-14; -6.12303e-016,-20],      style(
             color=3,
             rgbcolor={0,0,255},
@@ -3662,6 +3743,7 @@ Induced armature voltage is calculated from flux times angular velocity.
   end BasicMachines;
   
   package Sensors 
+   extends Modelica.Icons.Library2;
     annotation (Documentation(info="<HTML>
 <p>
 This package contains sensors that are usefull when modelling machines.
@@ -3694,7 +3776,23 @@ This package contains sensors that are usefull when modelling machines.
        removed mechanical flange support, also in sensor RotorAngle<br>
        to ease the implementation of a 3D-frame in a future release</li>
   </ul>
-</HTML>"));
+</HTML>"), Icon(
+        Ellipse(extent=[-74,46; 66,-94],   style(color=0, fillColor=7)),
+        Line(points=[-4,46; -4,16], style(color=0)),
+        Line(points=[18.9,8.8; 36.2,33.3],    style(color=0)),
+        Line(points=[-26.9,8.8; -44.2,33.3],    style(color=0)),
+        Line(points=[33.6,-10.3; 61.8,-0.1],  style(color=0)),
+        Line(points=[-41.6,-10.3; -69.8,-0.1],  style(color=0)),
+        Line(points=[-4,-24; 5.02,4.6], style(color=0)),
+        Polygon(points=[-4.48,7.6; 14,2; 14,33.2; -4.48,7.6],        style(
+            color=0,
+            fillColor=0,
+            fillPattern=1)),
+        Ellipse(extent=[-9,-19; 1,-29],style(
+            color=0,
+            gradient=0,
+            fillColor=0,
+            fillPattern=1))));
     
     model VoltageRMSsensor 
       constant Integer m(final min=1) = 3 "number of phases";
@@ -4081,7 +4179,7 @@ is equal to the angle of the machine's rotor against the stator.
   end Sensors;
   
   package SpacePhasors "Library with space phasor-models" 
-    extends Modelica.Icons.Library;
+    extends Modelica.Icons.Library2;
     annotation (Documentation(info="<HTML>
 <p>
 This package contains components, blocks and functions to utilize space phasor theory.
@@ -4115,7 +4213,15 @@ This package contains components, blocks and functions to utilize space phasor t
   <li> v1.6.1 2005/11/10 Anton Haumer<br>
        improved Transformation and Rotation</li>
   </ul>
-</HTML>"));
+</HTML>"), Icon(
+        Line(points=[-8,-26; 64,46; 44,38; 56,26; 64,46], style(
+            color=3,
+            rgbcolor={0,0,255},
+            thickness=2)),
+        Line(points=[-8,-26; 64,-98; 56,-78; 44,-90; 64,-98], style(
+            color=3,
+            rgbcolor={0,0,255},
+            thickness=2))));
     
     package Components "Basic space phasor models" 
       extends Modelica.Icons.Library;
@@ -4699,7 +4805,7 @@ Converts a space phasor from polar coordinates to rectangular coordinates.
   end SpacePhasors;
   
   package Interfaces "SpacePhasor connector and PartialMachines" 
-    extends Modelica.Icons.Library;
+    extends Modelica.Icons.Library2;
     annotation (Documentation(info="<HTML>
 <p>
 This package contains the space phasor connector and partial models for machine models.
@@ -4738,7 +4844,13 @@ This package contains the space phasor connector and partial models for machine 
   <li> v1.51 Beta 2005/02/01 Anton Haumer<br>
        changed parameter polePairs to Integer</li>
   </ul>
-</HTML>"));
+</HTML>"), Icon(Polygon(points=[-70,-30; -10,30; 50,-30; -10,-90; -70,-30],
+            style(
+            color=3,
+            rgbcolor={0,0,255},
+            fillColor=3,
+            rgbfillColor={0,0,255},
+            fillPattern=1))));
     
     connector SpacePhasor 
       Modelica.SIunits.Voltage v_[2];
@@ -4971,7 +5083,7 @@ The machine's stator is implicitely fixed.
 </HTML>"),
         Diagram);
     equation 
-      connect(inertiaRotor.flange_b, shaft) annotation (points=[80,1.22461e-015;
+      connect(inertiaRotor.flange_b, shaft) annotation (points=[80,1.22461e-015; 
             92,1.22461e-015; 92,0; 100,0], style(color=0, rgbcolor={0,0,0}));
       connect(internalSupport, fixedHousing.flange_b) 
         annotation (points=[20,-100; 40,-100], style(color=0, rgbcolor={0,0,0}));
