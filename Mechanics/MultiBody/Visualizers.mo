@@ -199,8 +199,8 @@ definition of the colors used in the MultiBody library
     "Fixed animation shape of a part and fixed translation of frame_b with respect to frame_a" 
     
     import SI = Modelica.SIunits;
-    Interfaces.Frame_a frame_a annotation (extent=[-120, -15; -100, 15]);
-    Interfaces.Frame_b frame_b annotation (extent=[100, -15; 120, 15]);
+    Interfaces.Frame_a frame_a annotation (extent=[-110,-15; -90,15]);
+    Interfaces.Frame_b frame_b annotation (extent=[110,-15; 90,15]);
     
     parameter Boolean animation=true "= true, if animation shall be enabled";
     parameter SI.Position r[3]={1,0,0} 
@@ -262,8 +262,7 @@ definition of the colors used in the MultiBody library
             color=7,
             fillColor=9,
             fillPattern=1))),
-      Diagram(Line(points=[-100, -4; -100, -69], style(color=10)), Line(points=
-              [100, -3; 100, -68], style(color=10))),
+      Diagram,
       Documentation(info="<HTML>
 <p>
 Model <b>FixedShape2</b> defines a visual shape that is

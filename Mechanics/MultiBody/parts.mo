@@ -102,7 +102,7 @@ definition of the colors used in the MultiBody library
   
   model Fixed "Frame fixed in the world frame at a given position" 
     import SI = Modelica.SIunits;
-    Interfaces.Frame_b frame_b annotation (extent=[100, -15; 120, 15]);
+    Interfaces.Frame_b frame_b annotation (extent=[90, -15; 110, 15]);
     
     parameter Boolean animation=true "= true, if animation shall be enabled";
     parameter SI.Position r[3]={0,0,0} 
@@ -198,8 +198,8 @@ animation = <b>false</b>.
   model FixedTranslation "Fixed translation of frame_b with respect to frame_a" 
     
     import SI = Modelica.SIunits;
-    Interfaces.Frame_a frame_a annotation (extent=[-120, -15; -100, 15]);
-    Interfaces.Frame_b frame_b annotation (extent=[100, -15; 120, 15]);
+    Interfaces.Frame_a frame_a annotation (extent=[-110,-15; -90,15]);
+    Interfaces.Frame_b frame_b annotation (extent=[110,-15; 90,15]);
     
     parameter Boolean animation=true "= true, if animation shall be enabled";
     parameter SI.Position r[3]={0,0,0} 
@@ -331,9 +331,8 @@ the animation may be switched off via parameter animation = <b>false</b>.
     import Modelica.Mechanics.MultiBody.Frames;
     import SI = Modelica.SIunits;
     import Cv = Modelica.SIunits.Conversions;
-    Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a 
-      annotation (extent=[-120, -15; -100, 15]);
-    Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_b annotation (extent=[100, -15; 120, 15]);
+    Interfaces.Frame_a frame_a annotation (extent=[-110,-15; -90,15]);
+    Interfaces.Frame_b frame_b annotation (extent=[110,-15; 90,15]);
     
     parameter Boolean animation=true "= true, if animation shall be enabled";
     parameter SI.Position r[3]={0,0,0} 
@@ -539,8 +538,8 @@ the animation may be switched off via parameter animation = <b>false</b>.
     import Cv = Modelica.SIunits.Conversions;
     import Modelica.Math.*;
     Interfaces.Frame_a frame_a(r_0(start=r_0_start, stateSelect=if 
-            enforceStates then StateSelect.always else StateSelect.default)) 
-      annotation (extent=[-120, -15; -100, 15]);
+            enforceStates then StateSelect.always else StateSelect.avoid)) 
+      annotation (extent=[-110, -15; -90, 15]);
     
     parameter Boolean animation=true 
       "= true, if animation shall be enabled (show cylinder and sphere)";
@@ -626,13 +625,12 @@ the animation may be switched off via parameter animation = <b>false</b>.
         Modelica.Mechanics.MultiBody.Frames.resolve2(R_start, z_0_start*Modelica.Constants.D2R);
     
     SI.Velocity v_0[3](start=v_0_start, stateSelect=if enforceStates then 
-          StateSelect.always else StateSelect.default) 
+          StateSelect.always else StateSelect.avoid) 
       "Absolute velocity of frame_a, resolved in world frame";
     SI.Acceleration a_0[3] 
       "Absolute acceleration of frame_a resolved in world frame";
     SI.AngularVelocity w_a[3](start=w_a_start, stateSelect=if enforceStates then 
-                (if useQuaternions then StateSelect.always else StateSelect.
-          avoid) else StateSelect.default) 
+                (if useQuaternions then StateSelect.always else StateSelect.never) else StateSelect.avoid) 
       "Absolute angular velocity of frame_a resolved in frame_a";
     SI.AngularAcceleration z_a[3] 
       "Absolute angular acceleration of frame_a resolved in frame_a";
@@ -759,7 +757,7 @@ to the setting of parameters \"useQuaternions\" and
       "Quaternion orientation object from world frame to frame_a at initial time";
     Frames.Quaternions.Orientation Q(start=Q_start, stateSelect=if 
           enforceStates then (if useQuaternions then StateSelect.prefer else 
-          StateSelect.never) else StateSelect.default) 
+          StateSelect.never) else StateSelect.avoid) 
       "Quaternion orientation object from world frame to frame_a (dummy value, if quaternions are not used as states)";
     
     // Declaration for 3 angles
@@ -770,11 +768,11 @@ to the setting of parameters \"useQuaternions\" and
         sequence_angleStates) "Potential angle states at initial time";
     SI.Angle phi[3](start=phi_start, stateSelect=if enforceStates then (if 
           useQuaternions then StateSelect.never else StateSelect.always) else 
-          StateSelect.default) 
+          StateSelect.avoid) 
       "Dummy or 3 angles to rotate world frame into frame_a of body";
     SI.AngularVelocity phi_d[3](stateSelect=if enforceStates then (if 
           useQuaternions then StateSelect.never else StateSelect.always) else 
-          StateSelect.default) "= der(phi)";
+          StateSelect.avoid) "= der(phi)";
     SI.AngularAcceleration phi_dd[3] "= der(phi_d)";
     
     // Declarations for animation
@@ -907,8 +905,9 @@ to the setting of parameters \"useQuaternions\" and
     
     import SI = Modelica.SIunits;
     import NonSI = Modelica.SIunits.Conversions.NonSIunits;
-    Interfaces.Frame_a frame_a annotation (extent=[-120, -15; -100, 15]);
-    Interfaces.Frame_b frame_b annotation (extent=[100, -15; 120, 15]);
+    Interfaces.Frame_a frame_a annotation (extent=[-110,-15; -90,15]);
+    Interfaces.Frame_b frame_b annotation (extent=[110,-15; 90,15]);
+    
     parameter Boolean animation=true 
       "= true, if animation shall be enabled (show shape between frame_a and frame_b and optionally a sphere at the center of mass)";
     parameter Boolean animateSphere=true 
@@ -1129,11 +1128,12 @@ states and of the \"Advanced\" menu parameters, see model
       each R=frame_a.R);
   equation 
     connect(frame_a, frameTranslation.frame_a) 
-      annotation (points=[-110, 0; -44, 0], style(color=0, thickness=2));
+      annotation (points=[-100,0; -40,0],   style(color=0, thickness=2));
     connect(frame_b, frameTranslation.frame_b) 
-      annotation (points=[110, 0; 44, 0], style(color=0, thickness=2));
-    connect(frame_a, body.frame_a) annotation (points=[-110, 0; -60, 0; -60, -50.1666;
-           -29.35, -50.1666], style(
+      annotation (points=[100,0; 40,0],   style(color=0, thickness=2));
+    connect(frame_a, body.frame_a) annotation (points=[-100,0; -60,0; -60,
+          -50.1666; -27.3333,-50.1666],
+                              style(
         color=0,
         thickness=2,
         fillColor=0,
@@ -1145,8 +1145,8 @@ states and of the \"Advanced\" menu parameters, see model
     
     import SI = Modelica.SIunits;
     import NonSI = Modelica.SIunits.Conversions.NonSIunits;
-    Interfaces.Frame_a frame_a annotation (extent=[-120, -15; -100, 15]);
-    Interfaces.Frame_b frame_b annotation (extent=[100, -15; 120, 15]);
+    Interfaces.Frame_a frame_a annotation (extent=[-110, -15; -90, 15]);
+    Interfaces.Frame_b frame_b annotation (extent=[90, -15; 110, 15]);
     parameter Boolean animation=true 
       "= true, if animation shall be enabled (show box between frame_a and frame_b)";
     parameter SI.Position r[3]={0.1,0,0} 
@@ -1320,11 +1320,11 @@ states and of the \"Advanced\" menu parameters, see model
     assert(innerHeight <= height,
       "parameter innerHeight is greater as paraemter height");
     connect(body.frame_a, frame_a) 
-      annotation (points=[-32, -60; -80, -60; -80, 0; -110, 0]);
+      annotation (points=[-30,-60; -80,-60; -80,0; -100,0]);
     connect(frameTranslation.frame_b, frame_b) 
-      annotation (points=[33, 0; 110, 0]);
+      annotation (points=[30,0; 100,0]);
     connect(frameTranslation.frame_a, frame_a) 
-      annotation (points=[-33, 0; -110, 0]);
+      annotation (points=[-30,0; -100,0]);
   end BodyBox;
   
   model BodyCylinder 
@@ -1332,8 +1332,8 @@ states and of the \"Advanced\" menu parameters, see model
     
     import SI = Modelica.SIunits;
     import NonSI = Modelica.SIunits.Conversions.NonSIunits;
-    Interfaces.Frame_a frame_a annotation (extent=[-120, -15; -100, 15]);
-    Interfaces.Frame_b frame_b annotation (extent=[100, -15; 120, 15]);
+    Interfaces.Frame_a frame_a annotation (extent=[-110,-15; -90,15]);
+    Interfaces.Frame_b frame_b annotation (extent=[110,-15; 90,15]);
     parameter Boolean animation=true 
       "= true, if animation shall be enabled (show cylinder between frame_a and frame_b)";
     parameter SI.Position r[3]={0.1,0,0} 
@@ -1495,11 +1495,11 @@ states and of the \"Advanced\" menu parameters, see model
     assert(innerDiameter < diameter,
       "parameter innerDiameter is greater as parameter diameter.");
     connect(body.frame_a, frame_a) 
-      annotation (points=[-32, -60; -80, -60; -80, 0; -110, 0]);
+      annotation (points=[-30,-60; -80,-60; -80,0; -100,0]);
     connect(frameTranslation.frame_b, frame_b) 
-      annotation (points=[33, 0; 110, 0]);
+      annotation (points=[30,0; 100,0]);
     connect(frameTranslation.frame_a, frame_a) 
-      annotation (points=[-33, 0; -110, 0]);
+      annotation (points=[-30,0; -100,0]);
   end BodyCylinder;
   
   model Mounting1D 
@@ -1512,7 +1512,7 @@ states and of the \"Advanced\" menu parameters, see model
       "(right) flange fixed in housing" annotation (extent=[110, 10; 90, -10]);
     Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a(f=zeros(3), t=-n*flange_b.tau) if world.driveTrainMechanics3D 
       "Frame in which housing is fixed (connector is removed, if world.driveTrainMechanics3D=false)"
-      annotation (extent=[-15, -120; 15, -100], rotation=90);
+      annotation (extent=[-15, -110; 15, -90], rotation=90);
     annotation (
       Icon(
         Rectangle(extent=[-80, -60; 80, -100], style(color=0, fillColor=7)),
@@ -1626,7 +1626,7 @@ November 3-4, 2003, pp. 149-158</p>
         f=zeros(3),
         t=nJ*a + cross(w_a, nJ*w)) if world.driveTrainMechanics3D 
       "Frame in which rotor housing is fixed (connector is removed, if world.driveTrainMechanics3D=false)"
-      annotation (extent=[-15, -120; 15, -100], rotation=90);
+      annotation (extent=[-15, -110; 15, -90], rotation=90);
     annotation (
       Documentation(info="<html>
 <p>This component is used to model the gyroscopic torques exerted by a 1D
@@ -1790,7 +1790,7 @@ November 3-4, 2003, pp. 149-158</p>
     
     Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a(f = zeros(3), t = -flange_a.tau*e_a - flange_b.tau*e_b) if world.driveTrainMechanics3D 
       "Bearing frame" 
-      annotation (extent=[-15, -120; 15, -100], rotation=90);
+      annotation (extent=[-15, -110; 15, -90], rotation=90);
     
     annotation (Icon(
         Rectangle(extent=[-40, 20; -20, -20], style(

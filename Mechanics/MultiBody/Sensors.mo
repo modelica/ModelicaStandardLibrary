@@ -748,8 +748,8 @@ and resolved in the following frame
     import Modelica.Mechanics.MultiBody.Frames;
     
     extends Modelica.Icons.TranslationalSensor;
-    Interfaces.Frame_a frame_a annotation (extent=[-120, -15; -100, 15]);
-    Interfaces.Frame_b frame_b annotation (extent=[100, -15; 120, 15]);
+    Interfaces.Frame_a frame_a annotation (extent=[-110, -15; -90, 15]);
+    Interfaces.Frame_b frame_b annotation (extent=[90, -15; 110, 15]);
     Modelica.Blocks.Interfaces.RealOutput distance( redeclare type SignalType 
         = SI.Length) 
       "Distance between the origin of frame_a and the origin of frame_b" 
@@ -811,7 +811,6 @@ block
 to \"distance\" (this block performs analytic differentiation
 of the input signal using the der(..) operator).
 </p>
-
 <p>
 In the following figure the animation of a Distance
 sensor is shown. The light blue coordinate system is
@@ -821,7 +820,6 @@ the yellow arrow is the animated sensor.
 <p align=\"center\">
 <IMG SRC=\"../Images/MultiBody/Sensors/Distance.png\">
 </p>
-
 <p>
 If the distance is smaller as parameter <b>s_small</b> (in the \"advanced\" menu),
 it is approximated such that its derivative is
@@ -835,7 +833,6 @@ are identical for sqrt() and the polynomial at s_small. Futhermore, the polynomi
 passes through zero. The effect is, that the distance function is continuous and
 differentiable everywhere. The derivative at zero distance is 3/(2*s_small).
 </p>
-
 </HTML>"));
   protected 
     SI.Position r_rel_0[3] = frame_b.r_0 - frame_a.r_0 
@@ -1150,8 +1147,9 @@ This component provides the power flowing from frame_a to frame_b
 as output signal <b>power</b>).
 </p>
 </HTML>"));
-    Interfaces.Frame_a frame_a annotation (extent=[-120, -15; -100, 15]);
-    Interfaces.Frame_b frame_b annotation (extent=[100, -15; 120, 15]);
+    Interfaces.Frame_a frame_a annotation (extent=[-110,-15; -90,15]);
+    Interfaces.Frame_b frame_b annotation (extent=[110,-15; 90,15]);
+    
   equation 
     defineBranch(frame_a.R, frame_b.R);
     frame_a.r_0 = frame_b.r_0;

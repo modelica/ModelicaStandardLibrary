@@ -46,11 +46,11 @@ equation
   connect(revolute1.bearing, damper.flange_a) annotation (points=[-44, 20; -44,
          28; -58, 28; -58, 50; -48, 50], style(color=0));
   connect(revolute1.frame_b, boxBody1.frame_a) 
-    annotation (points=[-27, 10; -11, 10], style(color=0, thickness=2));
+    annotation (points=[-28,10; -10,10],   style(color=0, thickness=2));
   connect(revolute2.frame_b, boxBody2.frame_a) 
-    annotation (points=[53, 10; 73, 10], style(color=0, thickness=2));
+    annotation (points=[52,10; 74,10],   style(color=0, thickness=2));
   connect(boxBody1.frame_b, revolute2.frame_a) 
-    annotation (points=[11, 10; 31, 10], style(color=0, thickness=2));
+    annotation (points=[10,10; 32,10],   style(color=0, thickness=2));
   connect(world.frame_b, revolute1.frame_a) 
-    annotation (points=[-67, 10; -49, 10], style(color=0, thickness=2));
+    annotation (points=[-68,10; -48,10],   style(color=0, thickness=2));
 end DoublePendulum;

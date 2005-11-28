@@ -115,7 +115,7 @@ vector \"n\" defining the translation axis
 <IMG SRC=\"../Images/MultiBody/Joints/Prismatic.png\">
 </p>
 </HTML>
-"));
+"),   Diagram);
     
   end Prismatic;
   
@@ -290,7 +290,7 @@ vector \"n\" defining the translation axis
         Polygon(points=[10, 30; 30, 50; 30, -50; 10, -30; 10, 30], style(color=
                 0, fillColor=8)),
         Rectangle(extent=[-100, 60; -30, -60], style(color=0)),
-        Rectangle(extent=[30, 60; 100, -60], style(color=0)),
+        Rectangle(extent=[30,60; 96,-60],    style(color=0)),
         Text(
           extent=[-140, -105; 149, -66],
           string="n=%n",
@@ -498,11 +498,11 @@ vector \"n\" defining the cylinder axis
       each R=frame_a.R) annotation (extent=[-10, 40; 10, 60]);
   equation 
     connect(frame_a, prismatic.frame_a) 
-      annotation (points=[-110, 0; -72.75, 0], style(color=0, thickness=2));
+      annotation (points=[-100,0; -70,0],      style(color=0, thickness=2));
     connect(prismatic.frame_b, revolute.frame_a) 
-      annotation (points=[-12.25,0; 7.25,0],   style(color=0, thickness=2));
+      annotation (points=[-15,0; 10,0],        style(color=0, thickness=2));
     connect(revolute.frame_b, frame_b) 
-      annotation (points=[67.75, 0; 110, 0], style(color=0, thickness=2));
+      annotation (points=[65,0; 100,0],      style(color=0, thickness=2));
   end Cylindrical;
   
   model Universal "Universal joint (2 degrees-of-freedom, 4 potential states)" 
@@ -655,11 +655,11 @@ phi_start_b = 45<sup>o</sup>).
   equation 
     
     connect(frame_a, revolute_a.frame_a) 
-      annotation (points=[-110, 0; -62.5, 0], style(color=0, thickness=2));
-    connect(revolute_b.frame_b, frame_b) annotation (points=[35, 72.5; 35, 90;
-          70, 90; 70, 0; 110, 0], style(color=0, thickness=2));
-    connect(revolute_a.frame_b, revolute_b.frame_a) annotation (points=[-7.5, 0;
-           35, 0; 35, 17.5], style(color=0, thickness=2));
+      annotation (points=[-100,0; -60,0],     style(color=0, thickness=2));
+    connect(revolute_b.frame_b, frame_b) annotation (points=[35,70; 35,90; 70,
+          90; 70,0; 100,0],       style(color=0, thickness=2));
+    connect(revolute_a.frame_b, revolute_b.frame_a) annotation (points=[-10,0; 
+          35,0; 35,20],      style(color=0, thickness=2));
   end Universal;
   
   model Planar "Planar joint (3 degrees-of-freedom, 6 potential states)" 
@@ -842,14 +842,14 @@ s_start_y = 0.5, phi_start = 45<sup>o</sup>).
       each R=revolute.frame_b.R) annotation (extent=[50, 30; 70, 50]);
   equation 
     connect(frame_a, prismatic_x.frame_a) 
-      annotation (points=[-110, 0; -71, 0], style(color=0, thickness=2));
-    connect(prismatic_x.frame_b, prismatic_y.frame_a) annotation (points=[-27,
-          0; -1.34707e-015, 0; -1.34707e-015, 28], style(color=0, thickness=2));
+      annotation (points=[-100,0; -69,0],   style(color=0, thickness=2));
+    connect(prismatic_x.frame_b, prismatic_y.frame_a) annotation (points=[-29,0; 
+          -1.22461e-015,0; -1.22461e-015,30],      style(color=0, thickness=2));
     connect(prismatic_y.frame_b, revolute.frame_a) annotation (points=[
-          1.34707e-015, 72; 0, 80; 30, 80; 30, 0; 39, 0], style(color=0,
+          1.22461e-015,70; 0,80; 30,80; 30,0; 41,0],      style(color=0,
           thickness=2));
     connect(revolute.frame_b, frame_b) 
-      annotation (points=[83, 0; 110, 0], style(color=0, thickness=2));
+      annotation (points=[81,0; 100,0],   style(color=0, thickness=2));
   end Planar;
   
   model Spherical 
@@ -1173,8 +1173,8 @@ frame_b of the joint.
     import SI = Modelica.SIunits;
     import Cv = Modelica.SIunits.Conversions;
     
-    Interfaces.Frame_a frame_a annotation (extent=[-120, -15; -100, 15]);
-    Interfaces.Frame_b frame_b annotation (extent=[100, -15; 120, 15]);
+    Interfaces.Frame_a frame_a annotation (extent=[-110,-15; -90,15]);
+    Interfaces.Frame_b frame_b annotation (extent=[110,-15; 90,15]);
     
     parameter Boolean animation=true 
       "= true, if animation shall be enabled (show arrow from frame_a to frame_b)";
@@ -1846,7 +1846,7 @@ that has this property.
     import SI = Modelica.SIunits;
     extends Interfaces.PartialTwoFrames;
     Interfaces.Frame_a frame_ia 
-      annotation (extent=[-55, 100; -25, 121], rotation=-90);
+      annotation (extent=[-55, 90; -25, 110], rotation=-90);
     
     parameter Boolean animation=true "= true, if animation shall be enabled";
     parameter Boolean showUniversalAxes=true 
@@ -2398,9 +2398,9 @@ singular configuration.
     parameter Modelica.SIunits.Position r_b[3]={0,0,0} 
       "Vector from frame bearing to frame_b resolved in bearing";
     
-    Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_b annotation (extent=[100, -15; 120, 15]);
-    Modelica.Mechanics.MultiBody.Interfaces.Frame_a bearing 
-      annotation (extent=[-15, -120; 15, -100], rotation=90);
+    Interfaces.Frame_a frame_a annotation (extent=[-110,-15; -90,15]);
+    Interfaces.Frame_b frame_b annotation (extent=[110,-15; 90,15]);
+    Interfaces.Frame_a bearing annotation (extent=[-15, -110; 15, -90], rotation=90);
     annotation (
       Icon(
         Rectangle(extent=[-98, 98; 98, -98], style(color=7, fillColor=7)),
@@ -2458,8 +2458,6 @@ November 3-4, 2003, pp. 149-158</p>
       annotation (extent=[-40, -10; -60, 10], rotation=0);
     Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute actuatedRevolute_b(n=n_b, animation=false) 
       annotation (extent=[40, -10; 60, 10]);
-    Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a 
-      annotation (extent=[-120, -15; -100, 15], rotation=0);
     Modelica.Mechanics.Rotational.IdealGear idealGear(ratio=ratio) 
       annotation (extent=[-10, 30; 10, 50]);
     Modelica.Mechanics.MultiBody.Parts.FixedTranslation FixedTranslation1(animation=false, r=r_b) 
@@ -2472,19 +2470,19 @@ November 3-4, 2003, pp. 149-158</p>
     connect(idealGear.flange_b, actuatedRevolute_b.axis) 
       annotation (points=[10, 40; 50, 40; 50, 10], style(color=0));
     connect(actuatedRevolute_a.frame_a, FixedTranslation2.frame_b) annotation (
-        points=[-39, 0; -35, 0; -35, 1.34707e-015; -31, 1.34707e-015], style(
+        points=[-40,0; -35,0; -35,1.22461e-015; -30,1.22461e-015],     style(
           color=0, thickness=2));
-    connect(FixedTranslation2.frame_a, bearing) annotation (points=[-9,
-          -1.34707e-015; -4, -1.34707e-015; -4, 0; 0, 0; 0, -110], style(color=
+    connect(FixedTranslation2.frame_a, bearing) annotation (points=[-10,
+          -1.22461e-015; -4,-1.22461e-015; -4,0; 0,0; 0,-100],     style(color=
             0, thickness=2));
     connect(FixedTranslation1.frame_a, bearing) 
-      annotation (points=[9, 0; 0, 0; 0, -110], style(color=0, thickness=2));
+      annotation (points=[10,0; 0,0; 0,-100],   style(color=0, thickness=2));
     connect(FixedTranslation1.frame_b, actuatedRevolute_b.frame_a) 
-      annotation (points=[31, 0; 39, 0], style(color=0, thickness=2));
+      annotation (points=[30,0; 40,0],   style(color=0, thickness=2));
     connect(frame_a, actuatedRevolute_a.frame_b) 
-      annotation (points=[-110, 0; -61, 0], style(color=0, thickness=2));
+      annotation (points=[-100,0; -60,0],   style(color=0, thickness=2));
     connect(actuatedRevolute_b.frame_b, frame_b) 
-      annotation (points=[61, 0; 110, 0], style(color=0, thickness=2));
+      annotation (points=[60,0; 100,0],   style(color=0, thickness=2));
   end GearConstraint;
   
   package Assemblies "Joint aggregations for analytic loop handling" 
@@ -2608,9 +2606,10 @@ pair of joints\" from Woernle and Hiller is described in:
       import SI = Modelica.SIunits;
       extends Interfaces.PartialTwoFrames;
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_ia 
-        annotation (extent=[-95, 110; -65, 90], rotation=-90);
+        annotation (extent=[-90,85; -70,115], rotation=-90);
       Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_ib 
-        annotation (extent=[65, 120; 95, 100], rotation=-90);
+        annotation (extent=[90,85; 70,115], rotation=-90);
+      
       parameter Boolean animation=true "= true, if animation shall be enabled";
       parameter Boolean showUniversalAxes=true 
         " = true, if universal joint shall be visualized with two cylinders, otherwise with a sphere (provided animation=true)";
@@ -2771,11 +2770,6 @@ component).
               thickness=2,
               fillColor=7,
               fillPattern=1)),
-          Line(points=[-118, 28; -42, 94], style(
-              color=0,
-              pattern=0,
-              fillColor=7,
-              fillPattern=1)),
           Line(points=[-49, 20; -69, -15], style(
               color=0,
               thickness=2,
@@ -2866,11 +2860,6 @@ component).
               thickness=2,
               fillColor=7,
               fillPattern=1)),
-          Line(points=[-118, 28; -42, 94], style(
-              color=0,
-              pattern=0,
-              fillColor=7,
-              fillPattern=1)),
           Line(points=[-49, 20; -69, -15], style(
               color=0,
               thickness=2,
@@ -2928,7 +2917,6 @@ component).
             string="nAxis"),
           Line(points=[-61, 1; -2, 1], style(fillColor=0, fillPattern=1)),
           Polygon(points=[10, 1; -2, 4; -2, -2; 10, 1], style(fillPattern=7)),
-          Line(points=[60, 90; 30, 90; 30, 89], style(color=58)),
           Line(points=[60, -1; 60, 90; 80, 90; 80, 100], style(color=10,
                 thickness=2)),
           Text(extent=[-20, 116; -5, 101], string="f"),
@@ -5226,8 +5214,8 @@ and 1 prismatic joint are connected by rigid rods.
       import SI = Modelica.SIunits;
       import Cv = Modelica.SIunits.Conversions;
       import T = Modelica.Mechanics.MultiBody.Frames.TransformationMatrices;
-      Interfaces.Frame_a frame_a annotation (extent=[-120, -15; -100, 15]);
-      Interfaces.Frame_b frame_b annotation (extent=[100, -15; 120, 15]);
+      Interfaces.Frame_a frame_a annotation (extent=[-110,-15; -90,15]);
+      Interfaces.Frame_b frame_b annotation (extent=[110,-15; 90,15]);
       
       parameter Boolean animation=true 
         "= true, if animation shall be enabled (show axis as cylinder)";
@@ -5296,17 +5284,17 @@ connected to the revolute joint.
               gradient=0,
               fillColor=8,
               fillPattern=1)),
-          Rectangle(extent=[-100, -60; -20, 60], style(
+          Rectangle(extent=[-100,-60; -20,60],   style(
               color=8,
               gradient=2,
               fillColor=8)),
-          Rectangle(extent=[20, -60; 100, 60], style(
+          Rectangle(extent=[20,-60; 100,60],   style(
               color=8,
               gradient=2,
               fillColor=8,
               fillPattern=1)),
           Rectangle(extent=[-100, 60; -20, -59], style(color=0)),
-          Rectangle(extent=[20, 60; 100, -60], style(color=0)),
+          Rectangle(extent=[20,60; 100,-60],   style(color=0)),
           Text(
             extent=[-99, 12; -63, -13],
             style(color=10),
@@ -5325,7 +5313,7 @@ connected to the revolute joint.
               gradient=0,
               fillColor=8,
               fillPattern=1)),
-          Rectangle(extent=[20, -60; 100, 60], style(
+          Rectangle(extent=[20,-60; 100,60],   style(
               color=8,
               gradient=2,
               fillColor=8,

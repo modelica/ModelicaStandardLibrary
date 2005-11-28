@@ -31,18 +31,22 @@ PlanarCutJoint=true in the Advanced menu.");
     
     annotation (defaultComponentName="frame_a",
       Coordsys(
-        extent=[-100, -100; 100, 100],
-        grid=[2, 2],
-        component=[20, 20]),
-      Icon(Rectangle(extent=[0, 100; 100, -100], style(
+        extent=[-100,-150; 100,150],
+        grid=[1,1],
+        component=[20, 20], 
+        scale=0.1),
+      Icon(Rectangle(extent=[-50,150; 50,-150], style(
             color=0,
+            rgbcolor={0,0,0},
             thickness=2,
             fillColor=8))),
       Diagram(Text(
-          extent=[-136, -102; 134, -198],
+          extent=[-155,-68; 171,-137],
           string="%name",
-          style(color=0)), Rectangle(extent=[0, 100; 100, -100], style(
+          style(color=0)),
+              Rectangle(extent=[-20,60; 20,-60], style(
             color=0,
+            rgbcolor={0,0,0},
             thickness=2,
             fillColor=8))),
       Terminal(Polygon(points=[0, 0; -100, -100; 100, -100; 100, 100; -100, 100;
@@ -56,55 +60,29 @@ PlanarCutJoint=true in the Advanced menu.");
   
   connector Frame_b "Frame b of a mechanical element" 
     extends Frame;
+    
     annotation (defaultComponentName="frame_b",
       Coordsys(
-        extent=[-100, -100; 100, 100],
-        grid=[2, 2],
-        component=[20, 20]),
-      Icon(Rectangle(extent=[-100, 100; 0, -100], style(
-            color=0,
-            thickness=2,
-            fillColor=7))),
-      Diagram(Rectangle(extent=[-100, 100; 0, -100], style(
-            color=0,
-            thickness=2,
-            fillColor=7)), Text(
-          extent=[-126, -110; 144, -206],
-          string="%name",
-          style(color=0))),
-      Terminal(Polygon(points=[-100, -100; 0, -100; 100, 0; 0, 100; -100, 100;
-              -100, -100])),
-      Window(
-        x=0.06,
-        y=0.09,
-        width=0.63,
-        height=0.6));
-  end Frame_b;
-  
-  connector Frame_resolve 
-    "Frame of a mechanical element that is solely used to provide orientation information" 
-    
-    extends Frame;
-    
-    annotation (defaultComponentName="frame_resolve",
-      Coordsys(
-        extent=[-100, -100; 100, 100],
-        grid=[2, 2],
-        component=[20, 20]),
-      Icon(Rectangle(extent=[0, 100; 100, -100], style(
-            color=0,
-            pattern=3,
-            fillColor=8)), Rectangle(extent=[0, 100; 100, -100], style(color=0))),
-      Diagram(
-        Text(
-          extent=[-136, -102; 134, -198],
+        extent=[-100,-150; 100,150],
+        grid=[1,1],
+        component=[20, 20],
+        scale=0.1),
+      Icon(Rectangle(extent=[-50,150; 50,-150], style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            thickness=2, 
+            fillColor=7, 
+            rgbfillColor={255,255,255}))),
+      Diagram(Text(
+          extent=[-155,-68; 171,-137],
           string="%name",
           style(color=0)),
-        Rectangle(extent=[0, 100; 100, -100], style(
-            color=0,
-            pattern=3,
-            fillColor=8)),
-        Rectangle(extent=[0, 100; 100, -100], style(color=0))),
+              Rectangle(extent=[-20,60; 20,-60], style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            thickness=2, 
+            fillColor=7, 
+            rgbfillColor={255,255,255}))),
       Terminal(Polygon(points=[0, 0; -100, -100; 100, -100; 100, 100; -100, 100;
                0, 0], style(fillColor=3))),
       Window(
@@ -112,14 +90,48 @@ PlanarCutJoint=true in the Advanced menu.");
         y=0.18,
         width=0.71,
         height=0.65));
+  end Frame_b;
+  
+  connector Frame_resolve 
+    "Frame of a mechanical element that is solely used to provide orientation information" 
     
+    extends Frame;
+    annotation (defaultComponentName="frame_resolve",
+      Coordsys(
+        extent=[-100,-150; 100,150],
+        grid=[1,1],
+        component=[20, 20],
+        scale=0.1),
+      Icon(Rectangle(extent=[-50,150; 50,-150], style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            pattern=3, 
+            fillColor=8, 
+            rgbfillColor={192,192,192})), Rectangle(extent=[-50,150; 50,-150], 
+            style(color=0, rgbcolor={0,0,0}))),
+      Diagram(Text(
+          extent=[-155,-68; 171,-137],
+          string="%name",
+          style(color=0)),
+              Rectangle(extent=[-20,60; 20,-60], style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=8, 
+            rgbfillColor={192,192,192}))),
+      Terminal(Polygon(points=[0, 0; -100, -100; 100, -100; 100, 100; -100, 100;
+               0, 0], style(fillColor=3))),
+      Window(
+        x=0.21,
+        y=0.18,
+        width=0.71,
+        height=0.65));
   end Frame_resolve;
   
   partial model PartialTwoFrames 
     "Base model for components providing two frame connectors + outer world + assert to guarantee that the component is connected" 
     
-    Interfaces.Frame_a frame_a annotation (extent=[-120, -15; -100, 15]);
-    Interfaces.Frame_b frame_b annotation (extent=[100, -15; 120, 15]);
+    Interfaces.Frame_a frame_a annotation (extent=[-110,-15; -90,15]);
+    Interfaces.Frame_b frame_b annotation (extent=[ 110, -15; 90, 15]);
   protected 
     outer Modelica.Mechanics.MultiBody.World world;
   equation 
@@ -129,10 +141,10 @@ PlanarCutJoint=true in the Advanced menu.");
       "Connector frame_b of component is not connected");
     annotation (
       Icon(Text(
-          extent=[-128, -16; -92, -41],
+          extent=[-119,-18; -83,-43],
           style(color=10),
           string="a"), Text(
-          extent=[97, -19; 133, -44],
+          extent=[85,-19; 121,-44],
           style(color=10),
           string="b")),
       Documentation(info="<HTML>
@@ -143,15 +155,17 @@ Therefore, inherit from this partial model if the two frame connectors are
 needed and if the two frame connectors should be connected for a correct model.
 </p>
 </HTML>"),
-      Coordsys(grid=[1, 1], component=[20, 20]));
+      Coordsys(grid=[1, 1], component=[20, 20]),
+      Diagram);
     
   end PartialTwoFrames;
   
   partial model PartialElementaryJoint 
     "Base model of elementary joints (has two frames + outer world + assert to guarantee that the joint is connected)" 
     
-    Interfaces.Frame_a frame_a annotation (extent=[-120, -15; -100, 15]);
-    Interfaces.Frame_b frame_b annotation (extent=[100, -15; 120, 15]);
+    Interfaces.Frame_a frame_a annotation (extent=[-110,-15; -90,15]);
+    Interfaces.Frame_b frame_b annotation (extent=[110,-15; 90,15]);
+    
   protected 
     outer Modelica.Mechanics.MultiBody.World world;
   equation 
@@ -178,15 +192,18 @@ between frame_a and frame_b, access to the world
 object and an assert to check that both frame connectors are connected.
 </p>
 </HTML>
- "), Icon);
+ "), Icon,
+      Diagram,
+      Coordsys(grid=[1,1], scale=0));
   end PartialElementaryJoint;
   
   partial model PartialForce 
     "Superclass of force elements (provide frame_b.f and frame_b.t in subclasses)" 
     
     import SI = Modelica.SIunits;
-    Interfaces.Frame_a frame_a annotation (extent=[-120, -15; -100, 15]);
-    Interfaces.Frame_b frame_b annotation (extent=[100, -15; 120, 15]);
+    Interfaces.Frame_a frame_a annotation (extent=[-110,-15; -90,15]);
+    Interfaces.Frame_b frame_b annotation (extent=[ 110, -15; 90, 15]);
+    
     SI.Position r_rel_b[3] 
       "Position vector from origin of frame_a to origin of frame_b, resolved in frame_b";
   protected 
@@ -255,8 +272,8 @@ to which this force element is connected.
     import SI = Modelica.SIunits;
     parameter SI.Position s_small=1.E-6 
       "|Advanced|| Prevent zero-division if relative distance s=0";
-    Interfaces.Frame_a frame_a annotation (extent=[-120, -15; -100, 15]);
-    Interfaces.Frame_b frame_b annotation (extent=[100, -15; 120, 15]);
+    Interfaces.Frame_a frame_a annotation (extent=[-110,-15; -90,15]);
+    Interfaces.Frame_b frame_b annotation (extent=[ 110, -15; 90, 15]);
     SI.Force f 
       "Line force acting on frame_a and on frame_b (positive, if acting on frame_b and directed from frame_a to frame_b)";
     SI.Position s 
@@ -332,7 +349,7 @@ has to be defined. Example:
     "Base class to measure an absolute frame variable" 
     extends Modelica.Icons.RotationalSensor;
     parameter Integer n_out = 1 "Number of output signals";
-    Frame_a frame_a annotation (extent=[-120, -15; -100, 15]);
+    Frame_a frame_a annotation (extent=[-110,-15; -90,15]);
     Modelica.Blocks.Interfaces.RealOutput y[n_out] "Measured data as signals" 
       annotation (extent=[100, -10; 120, 10]);
   protected 
@@ -372,8 +389,9 @@ with the blocks of package Modelica.Blocks.
     "Base class to measure a relative variable between two frames" 
     extends Modelica.Icons.RotationalSensor;
     parameter Integer n_out = 1 "Number of output signals";
-    Frame_a frame_a annotation (extent=[-120, -15; -100, 15]);
-    Frame_b frame_b annotation (extent=[100, -15; 120, 15]);
+    Interfaces.Frame_a frame_a annotation (extent=[-110,-15; -90,15]);
+    Interfaces.Frame_b frame_b annotation (extent=[ 110, -15; 90, 15]);
+    
     Modelica.Blocks.Interfaces.RealOutput y[n_out] 
       annotation (extent=[-10, -100; 10, -120], rotation=90);
   protected 
@@ -428,11 +446,11 @@ with the blocks of package Modelica.Blocks.
     "Base class to measure the cut force and/or torque between two frames" 
     
     extends Modelica.Icons.RotationalSensor;
-    Frame_a frame_a annotation (extent=[-120, -15; -100, 15]);
-    Frame_b frame_b annotation (extent=[100, -15; 120, 15]);
+    Interfaces.Frame_a frame_a annotation (extent=[-110,-15; -90,15]);
+    Interfaces.Frame_b frame_b annotation (extent=[ 110, -15; 90, 15]);
     Frame_resolve frame_resolve 
       "If connected, the output signals are resolved in this frame" 
-      annotation (extent=[95, -110; 64, -90], rotation=-90);
+      annotation (extent=[70,-115; 90,-85], rotation=-90);
     
     annotation (
       Coordsys(
@@ -476,7 +494,10 @@ with the blocks of package Modelica.Blocks.
         Line(points=[-70, 0; -100, 0], style(color=0)),
         Line(points=[70, 0; 100, 0], style(color=0)),
         Line(points=[-80, -100; -80, 0]),
-        Line(points=[80,0; 80,-100],   style(color=6, thickness=2))));
+        Line(points=[80,0; 80,-100], style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            pattern=3))));
     
   protected 
     outer Modelica.Mechanics.MultiBody.World world;
@@ -510,8 +531,7 @@ with the blocks of package Modelica.Blocks.
   partial model PartialVisualizer 
     "Base model of visualizers (has a frame_a on the left side + outer world + assert to guarantee that the component is connected)" 
     
-    Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a 
-      annotation (extent=[-120, -15; -100, 15]);
+    Interfaces.Frame_a frame_a annotation (extent=[-110,-15; -90,15]);
   protected 
     outer Modelica.Mechanics.MultiBody.World world;
   equation 

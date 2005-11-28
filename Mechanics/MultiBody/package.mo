@@ -55,7 +55,9 @@ and the accompanying <b>disclaimer</b>
 </HTML>"));
   import SI = Modelica.SIunits;
 
+
 extends Modelica.Icons.Library;
+
 
 package UsersGuide "Users Guide" 
   annotation (DocumentationClass=true, Documentation(info="<HTML>
@@ -1273,6 +1275,7 @@ dynamical effects is described in:
   
 end UsersGuide;
 
+
 model World 
   "World coordinate system + gravity field + default animation definition" 
   
@@ -1458,7 +1461,7 @@ of these axes can be set via parameters.
   parameter Real defaultFrameDiameterFraction=40 
     "|Defaults|| Default for arrow diameter of a coordinate system as a fraction of axis length";
   
-  Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_b annotation (extent=[100, -15; 120, 15]);
+  Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_b annotation (extent=[90, -15; 110, 15]);
   
   /* The World object can only use the Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape model, but no
      other models in package Modelica.Mechanics.MultiBody.Visualizers, since the other models access
