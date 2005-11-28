@@ -510,71 +510,6 @@ Simulate for about 10 seconds and plot the angular velocities of the inertias <t
   
   package Sensors 
     "Sensors to measure variables in 1D rotational mechanical components" 
-    
-    extends Modelica.Icons.Library2;
-    
-    model TorqueSensor 
-      "Ideal sensor to measure the torque between two flanges (= flange_a.tau)" 
-      
-      extends Modelica.Icons.RotationalSensor;
-      Interfaces.Flange_a flange_a annotation (extent=[-110, -10; -90, 10]);
-      Interfaces.Flange_b flange_b annotation (extent=[90, -10; 110, 10]);
-      Modelica.Blocks.Interfaces.RealOutput tau( redeclare type SignalType = 
-            SI.Torque) 
-        "Torque in flange flange_a and flange_b (= flange_a.tau = -flange_b.tau)"
-    annotation (extent=[-90, -100; -70, -120], rotation=90);
-      
-      annotation (
-        Documentation(info="<html>
-<p>
-Measures the <b>cut-torque between two flanges</b> in an ideal way
-and provides the result as output signal <b>tau</b>
-(to be further processed with blocks of the Modelica.Blocks library).
-</p>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>July 18, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       realized.
-</li>
-</ul>
-</HTML>
-"),     Icon(
-          Text(
-            extent=[-51,-78; 49,-119],
-            string="tau",
-            style(color=0)),
-          Line(points=[-80, -100; -80, 0]),
-          Line(points=[-70, 0; -90, 0], style(color=0)),
-          Line(points=[70, 0; 90, 0], style(color=0)),
-          Text(extent=[150,80; -150,120],
-                                       string="%name")),
-        Diagram(
-          Polygon(points=[14, 85; -6, 90; -6, 80; 14, 85], style(color=10,
-                fillColor=10)),
-          Line(points=[-76, 85; -5, 85], style(color=10, fillColor=10)),
-          Text(
-            extent=[18, 92; 86, 79],
-            string="rotation axis",
-            style(color=10)),
-          Line(points=[-70,0; -96,0],   style(color=0)),
-          Line(points=[70,0; 96,0],   style(color=0)),
-          Line(points=[-80, -100; -80, 0])),
-        Coordsys(
-          extent=[-100, -100; 100, 100],
-          grid=[1, 1],
-          component=[20, 20]),
-        Window(
-          x=0.43,
-          y=0.11,
-          width=0.55,
-          height=0.59));
-    equation 
-      flange_a.phi = flange_b.phi;
-      flange_a.tau = tau;
-      flange_b.tau = -tau;
-    end TorqueSensor;
-    
     model AngleSensor "Ideal sensor to measure the absolute flange angle" 
       
       extends Modelica.Icons.RotationalSensor;
@@ -622,7 +557,7 @@ way and provides the result as output signal <b>phi</b>
       phi = flange_a.phi;
       0 = flange_a.tau;
     end AngleSensor;
-    
+
     model SpeedSensor 
       "Ideal sensor to measure the absolute flange angular velocity" 
       
@@ -672,7 +607,7 @@ way and provides the result as output signal <b>w</b>
       w = der(flange_a.phi);
       0 = flange_a.tau;
     end SpeedSensor;
-    
+
     model AccSensor 
       "Ideal sensor to measure the absolute flange angular acceleration" 
       
@@ -724,6 +659,12 @@ blocks of the Modelica.Blocks library).
       a = der(w);
       0 = flange_a.tau;
     end AccSensor;
+    
+    extends Modelica.Icons.Library2;
+    
+    
+    
+    
     
     model RelAngleSensor 
       "Ideal sensor to measure the relative angle between two flanges" 
@@ -947,6 +888,128 @@ in an ideal way and provides the result as output signal <b>a_rel</b>
         Line(points=[-56, -61; -56, -81], style(color=0)),
         Line(points=[-36, -61; -36, -81], style(color=0)),
         Line(points=[-16, -61; -16, -81], style(color=0))));
+    model TorqueSensor 
+      "Ideal sensor to measure the torque between two flanges (= flange_a.tau)" 
+      
+      extends Modelica.Icons.RotationalSensor;
+      Interfaces.Flange_a flange_a annotation (extent=[-110, -10; -90, 10]);
+      Interfaces.Flange_b flange_b annotation (extent=[90, -10; 110, 10]);
+      Modelica.Blocks.Interfaces.RealOutput tau( redeclare type SignalType = 
+            SI.Torque) 
+        "Torque in flange flange_a and flange_b (= flange_a.tau = -flange_b.tau)"
+    annotation (extent=[-90, -100; -70, -120], rotation=90);
+      
+      annotation (
+        Documentation(info="<html>
+<p>
+Measures the <b>cut-torque between two flanges</b> in an ideal way
+and provides the result as output signal <b>tau</b>
+(to be further processed with blocks of the Modelica.Blocks library).
+</p>
+<p><b>Release Notes:</b></p>
+<ul>
+<li><i>July 18, 1999</i>
+       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
+       realized.
+</li>
+</ul>
+</HTML>
+"),     Icon(
+          Text(
+            extent=[-51,-78; 49,-119],
+            string="tau",
+            style(color=0)),
+          Line(points=[-80, -100; -80, 0]),
+          Line(points=[-70, 0; -90, 0], style(color=0)),
+          Line(points=[70, 0; 90, 0], style(color=0)),
+          Text(extent=[150,80; -150,120],
+                                       string="%name")),
+        Diagram(
+          Polygon(points=[14, 85; -6, 90; -6, 80; 14, 85], style(color=10,
+                fillColor=10)),
+          Line(points=[-76, 85; -5, 85], style(color=10, fillColor=10)),
+          Text(
+            extent=[18, 92; 86, 79],
+            string="rotation axis",
+            style(color=10)),
+          Line(points=[-70,0; -96,0],   style(color=0)),
+          Line(points=[70,0; 96,0],   style(color=0)),
+          Line(points=[-80, -100; -80, 0])),
+        Coordsys(
+          extent=[-100, -100; 100, 100],
+          grid=[1, 1],
+          component=[20, 20]),
+        Window(
+          x=0.43,
+          y=0.11,
+          width=0.55,
+          height=0.59));
+    equation 
+      flange_a.phi = flange_b.phi;
+      flange_a.tau = tau;
+      flange_b.tau = -tau;
+    end TorqueSensor;
+
+    model PowerSensor 
+      "Ideal sensor to measure the power between two flanges (= flange_a.tau*flange_a.phi)" 
+      
+      extends Modelica.Icons.RotationalSensor;
+      Interfaces.Flange_a flange_a annotation (extent=[-110, -10; -90, 10]);
+      Interfaces.Flange_b flange_b annotation (extent=[90, -10; 110, 10]);
+      Modelica.Blocks.Interfaces.RealOutput power( redeclare type SignalType = 
+            SI.Power) "Power in flange flange_a" 
+    annotation (extent=[-90, -100; -70, -120], rotation=90);
+      
+      annotation (
+        Documentation(info="<html>
+<p>
+Measures the <b>cut-torque between two flanges</b> in an ideal way
+and provides the result as output signal <b>tau</b>
+(to be further processed with blocks of the Modelica.Blocks library).
+</p>
+<p><b>Release Notes:</b></p>
+<ul>
+<li><i>July 18, 1999</i>
+       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
+       realized.
+</li>
+</ul>
+</HTML>
+"),     Icon(
+          Text(
+            extent=[-51,-78; 98,-119],
+            style(color=0), 
+            string="power"),
+          Line(points=[-80, -100; -80, 0]),
+          Line(points=[-70, 0; -90, 0], style(color=0)),
+          Line(points=[70, 0; 90, 0], style(color=0)),
+          Text(extent=[150,80; -150,120],
+                                       string="%name")),
+        Diagram(
+          Polygon(points=[14, 85; -6, 90; -6, 80; 14, 85], style(color=10,
+                fillColor=10)),
+          Line(points=[-76, 85; -5, 85], style(color=10, fillColor=10)),
+          Text(
+            extent=[18, 92; 86, 79],
+            string="rotation axis",
+            style(color=10)),
+          Line(points=[-70,0; -96,0],   style(color=0)),
+          Line(points=[70,0; 96,0],   style(color=0)),
+          Line(points=[-80, -100; -80, 0])),
+        Coordsys(
+          extent=[-100, -100; 100, 100],
+          grid=[1, 1],
+          component=[20, 20]),
+        Window(
+          x=0.43,
+          y=0.11,
+          width=0.55,
+          height=0.59));
+    equation 
+      flange_a.phi = flange_b.phi;
+      0 = flange_a.tau + flange_b.tau;
+      power = flange_a.tau*flange_a.phi;
+    end PowerSensor;
   end Sensors;
   import SI = Modelica.SIunits;
   
