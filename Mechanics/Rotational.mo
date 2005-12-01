@@ -951,7 +951,7 @@ and provides the result as output signal <b>tau</b>
     end TorqueSensor;
 
     model PowerSensor 
-      "Ideal sensor to measure the power between two flanges (= flange_a.tau*flange_a.phi)" 
+      "Ideal sensor to measure the power between two flanges (= flange_a.tau*der(flange_a.phi))" 
       
       extends Modelica.Icons.RotationalSensor;
       Interfaces.Flange_a flange_a annotation (extent=[-110, -10; -90, 10]);
@@ -963,13 +963,13 @@ and provides the result as output signal <b>tau</b>
       annotation (
         Documentation(info="<html>
 <p>
-Measures the <b>cut-torque between two flanges</b> in an ideal way
-and provides the result as output signal <b>tau</b>
+Measures the <b>power between two flanges</b> in an ideal way
+and provides the result as output signal <b>power</b>
 (to be further processed with blocks of the Modelica.Blocks library).
 </p>
 <p><b>Release Notes:</b></p>
 <ul>
-<li><i>July 18, 1999</i>
+<li><i>December 1, 2005</i>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
        realized.
 </li>
@@ -1008,7 +1008,7 @@ and provides the result as output signal <b>tau</b>
     equation 
       flange_a.phi = flange_b.phi;
       0 = flange_a.tau + flange_b.tau;
-      power = flange_a.tau*flange_a.phi;
+      power = flange_a.tau*der(flange_a.phi);
     end PowerSensor;
   end Sensors;
   import SI = Modelica.SIunits;
