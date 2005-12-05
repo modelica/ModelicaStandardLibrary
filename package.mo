@@ -231,8 +231,11 @@ The following other (minor) <b>changes</b> have been performed:
 </p>
 
 <ul>
-<li> Fixed bug in Modelica.Utilities.Streams.readLine(), by
-     adding a \"Streams.close(..)\" after reading the file content.</li>
+<li>Fixed bug in Modelica.Blocks.Tables: tableOnFile now determines
+    independently of fileName's value whether a table is read from
+    file or used from the class modification.</li>
+<li>Fixed bug in Modelica.Utilities.Streams.readLine(), by
+    adding a \"Streams.close(..)\" after reading the file content.</li>
 </ul>
 </html>
 "));
