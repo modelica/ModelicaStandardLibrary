@@ -22,7 +22,7 @@ package Tables "One and two-dimensional interpolation in tables"
     annotation(Dialog(group="table data interpretation"));
     extends Modelica.Blocks.Interfaces.MIMOs(final n=size(columns, 1));
   protected 
-    final parameter Real tableID=dymTableInit(1.0, smoothness, tableName, fileName, table, 0.0);
+    final parameter Real tableID=dymTableInit(1.0, smoothness, if tableOnFile then tableName else "NoName", if tableOnFile then fileName else "NoName", table, 0.0);
     annotation (
       Documentation(info="<html>
 <p>
@@ -211,7 +211,7 @@ Several matrices may be defined one after another.
     annotation(Dialog(group="table data interpretation"));
     extends Modelica.Blocks.Interfaces.SIMO(final nout=size(columns, 1));
   protected 
-    final parameter Real tableID=dymTableInit(1.0, smoothness, tableName, fileName, table, 0.0);
+    final parameter Real tableID=dymTableInit(1.0, smoothness, if tableOnFile then tableName else "NoName", if tableOnFile then fileName else "NoName", table, 0.0);
     annotation (
       Documentation(info="<html>
 <p>
@@ -572,7 +572,7 @@ Several matrices may be defined one after another.
         Text(extent=[28, 58; 52, 44], string="u2"),
         Text(extent=[-2,12; 32,-22], string="y")));
   protected 
-    final parameter Real tableID=dymTableInit(2.0, smoothness, tableName, fileName, table, 0.0);
+    final parameter Real tableID=dymTableInit(2.0, smoothness, if tableOnFile then tableName else "NoName", if tableOnFile then fileName else "NoName", table, 0.0);
   equation 
     if tableOnFile then
       assert(tableName<>"NoName", "tableOnFile = true and no table name given");
