@@ -1701,16 +1701,14 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
     parameter SI.Time startTime=0 "Output = offset for time < startTime" 
     annotation(Dialog(group="table data interpretation"));
     extends Modelica.Blocks.Interfaces.MO(final nout=max([size(columns, 1); size(offset, 1)]));
-    final parameter Real t_min=tableTimeTmin(tableID);
-    final parameter Real t_max=tableTimeTmax(tableID);
+    final parameter Real t_min(fixed=false);
+    final parameter Real t_max(fixed=false);
     
   protected 
     final parameter Real p_offset[nout]=(if size(offset, 1) == 1 then ones(nout)
          *offset[1] else offset);
     
-    final parameter Integer tableID=tableTimeInit(0.0, startTime, smoothness,
-        extrapolation, (if not tableOnFile then "NoName" else tableName),
-                       (if not tableOnFile then "NoName" else fileName), table, 0);
+    Integer tableID;
     
     function tableTimeInit 
       input Real timeIn;
@@ -1974,6 +1972,14 @@ Several matrices may be defined one after another.
     for i in 1:nout loop
       y[i] = p_offset[i] + tableTimeIpo(tableID, columns[i], time);
     end for;
+    when initial() then
+      tableID=tableTimeInit(0.0, startTime, smoothness,
+        extrapolation, (if not tableOnFile then "NoName" else tableName),
+                       (if not tableOnFile then "NoName" else fileName), table, 0);
+    end when;
+  initial equation
+      t_min=tableTimeTmin(tableID);
+      t_max=tableTimeTmax(tableID);
   end CombiTimeTable;
   
     block BooleanConstant "Generate constant signal of type Boolean" 
