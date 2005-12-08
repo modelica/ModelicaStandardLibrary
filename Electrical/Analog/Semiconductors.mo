@@ -147,7 +147,17 @@ Some typical parameter sets are:
   20.e-6  6.e-6  .0074e-3  -1.       .4       .59      0          0
 </PRE>
 </HTML>
-"),   Coordsys(
+", revisions="<html>
+<ul>
+<li><i>December 7, 2005   </i>
+       by Christoph Clauss<br>
+       error in RDS calculation deleted</li>
+<li><i>August 10, 2000</i>
+       by Christoph Clauss<br>
+       initially modelled.</li>
+</ul>
+</html>"),
+      Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
         component=[20, 20]),
@@ -214,8 +224,8 @@ Some typical parameter sets are:
     uds = ud - us;
     ubs = if (B.v < us) then 0 else B.v - us;
     ugst = (G.v - us - Vt + K2*ubs)*K5;
-    id = if (ugst >= 0) then v*uds*gds else if (ugst < uds) then -v*uds*(
-      ugst - uds/2 - gds) else -v*(ugst*ugst/2 - uds*gds);
+    id = if (ugst >= 0) then uds*gds else if (ugst < uds) then -v*uds*(
+      ugst - uds/2) + uds*gds else -v*ugst*ugst/2 + uds*gds;
     G.i = 0;
     D.i = if (D.v > S.v) then -id else id;
     S.i = if (D.v > S.v) then id else -id;
@@ -266,7 +276,17 @@ is included to avoid numerical difficulties.
 Muenchen Wien 1990.
 </DL>
 </HTML>
-"),   Coordsys(
+", revisions="<html>
+<ul>
+<li><i>December 7, 2005   </i>
+       by Christoph Clauss<br>
+       error in RDS calculation deleted</li>
+<li><i>August 10, 2000</i>
+       by Christoph Clauss<br>
+       initially modelled.</li>
+</ul>
+</html>"),
+      Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
         component=[20, 20]),
@@ -326,8 +346,8 @@ Muenchen Wien 1990.
     uds = ud - us;
     ubs = if (B.v > us) then 0 else B.v - us;
     ugst = (G.v - us - Vt + K2*ubs)*K5;
-    id = if (ugst <= 0) then v*uds*gds else if (ugst > uds) then v*uds*(ugst
-       - uds/2 + gds) else v*(ugst*ugst/2 + uds*gds);
+    id = if (ugst <= 0) then uds*gds else if (ugst > uds) then v*uds*(ugst
+       - uds/2) + uds*gds else v*ugst*ugst/2 + uds*gds;
     G.i = 0;
     D.i = if (D.v < S.v) then -id else id;
     S.i = if (D.v < S.v) then id else -id;
