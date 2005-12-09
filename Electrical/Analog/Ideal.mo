@@ -358,7 +358,16 @@ open switch could be also exactly zero. Note, there are circuits,
 where a description with zero Ron or zero Goff is not possible. 
 </P>
 </HTML>
-"),   Coordsys(
+", revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"),
+      Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
         component=[20, 20]),
@@ -431,7 +440,16 @@ open switch could be also exactly zero. Note, there are circuits,
 where a description with zero Ron or zero Goff is not possible. 
 </P>
 </HTML>
-"),   Coordsys(
+", revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"),
+      Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
         component=[20, 20]),
@@ -512,7 +530,16 @@ open switch could be also exactly zero. Note, there are circuits,
 where a description with zero Ron or zero Goff is not possible. 
 </P>
 </HTML>
-"),   Coordsys(
+", revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"),
+      Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
         component=[20, 20]),
@@ -589,7 +616,16 @@ open switch could be also exactly zero. Note, there are circuits,
 where a description with zero Ron or zero Goff is not possible. 
 </P>
 </HTML>
-"),   Coordsys(
+", revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"),
+      Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
         component=[20, 20]),
@@ -662,7 +698,16 @@ The ideal OpAmp is a two-port. The left port is fixed to <i>v1=0</i> and <i>i1=0
 are possible (norator).
 </P>
 </HTML>
-"),   Coordsys(
+", revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"),
+      Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
         component=[20, 20]),
@@ -758,7 +803,16 @@ At the output pin both any voltage <i>v2</i> and any current <i>i2</i>
 are possible.
 </P>
 </HTML>
-"),   Coordsys(
+", revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 2002   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"),
+      Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
         component=[20, 20]),
@@ -831,7 +885,16 @@ If the input voltage is vin < 0, the output voltage is out.v = VMin.
 If the input voltage is vin > 0, the output voltage is out.v = VMax.
 </P>
 </HTML>
-"),   Coordsys(
+", revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"),
+      Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
         component=[20, 20]),
@@ -1061,7 +1124,16 @@ which is characterized by the following two equations:
 where <i>n</i> is a real number called the turns ratio.
 </P>
 </HTML>
-"),   Coordsys(extent=[-100, -100; 100, 100], grid=[1, 1]),
+", revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"),
+      Coordsys(extent=[-100, -100; 100, 100], grid=[1, 1]),
       Icon(
         Text(extent=[-100, 100; 100, 80], string="%name"),
         Ellipse(extent=[-45, -50; -20, -25]),
@@ -1119,7 +1191,16 @@ A gyrator is an ideal two-port element defined by the following equations:
 where the constant <i>G</i> is called the gyration conductance.
 </P>
 </HTML>
-"),   Coordsys(extent=[-100, -100; 100, 100], grid=[1, 1]),
+", revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"),
+      Coordsys(extent=[-100, -100; 100, 100], grid=[1, 1]),
       Icon(
         Ellipse(extent=[-70, -30; -10, 30]),
         Rectangle(extent=[-80, -40; -41, 40], style(
@@ -1169,7 +1250,16 @@ where the constant <i>G</i> is called the gyration conductance.
 The model Idle is a simple idle running branch.
 </P>
 </HTML>
-"),   Coordsys(
+", revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"),
+      Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
         component=[20, 20]),
@@ -1201,7 +1291,16 @@ The model Idle is a simple idle running branch.
 The model Short is a simple short cut branch.
 </P>
 </HTML>
-"),   Coordsys(
+", revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"),
+      Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
         component=[20, 20]),
@@ -1253,7 +1352,16 @@ open switch could be also exactly zero. Note, there are circuits,
 where a description with zero Ron or zero Goff is not possible. 
 </P>
 </HTML>
-"),   Coordsys(
+", revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"),
+      Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
         component=[20, 20]),
@@ -1315,7 +1423,16 @@ open switch could be also exactly zero. Note, there are circuits,
 where a description with zero Ron or zero Goff is not possible. 
 </P>
 </HTML>
-"),     Coordsys(
+", revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"),
+        Coordsys(
           extent=[-100, -100; 100, 100],
           grid=[1, 1],
           component=[20, 20]),
@@ -1373,7 +1490,16 @@ open switch could be also exactly zero. Note, there are circuits,
 where a description with zero Ron or zero Goff is not possible. 
 </P>
 </HTML>
-"),   Coordsys(
+", revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"),
+      Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
         component=[20, 20]),
@@ -1441,7 +1567,16 @@ open switch could be also exactly zero. Note, there are circuits,
 where a description with zero Ron or zero Goff is not possible. 
 </P>
 </HTML>
-"),     Coordsys(
+", revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"),
+        Coordsys(
           extent=[-100, -100; 100, 100],
           grid=[1, 1],
           component=[20, 20]),

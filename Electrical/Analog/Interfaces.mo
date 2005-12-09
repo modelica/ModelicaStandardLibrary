@@ -36,7 +36,16 @@ Modelica in file \"Modelica/package.mo\".</i><br>
 <p>
 </dl>
 </HTML>
-"));
+", revisions="<html>
+<ul>
+<li><i>  </i>
+       <br>
+       </li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"));
   
   connector Pin "Pin of an electrical component" 
     SI.Voltage v "Potential at the pin";
@@ -47,7 +56,16 @@ Modelica in file \"Modelica/package.mo\".</i><br>
                3)), Text(
           extent=[-160,110; 40,50],
           string="%name",
-          style(color=3))));
+          style(color=3))), 
+      Documentation(revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"));
   end Pin;
   
   connector PositivePin "Positive pin of an electric component" 
@@ -60,7 +78,15 @@ The only difference is that the icons are different in order
 to identify more easily the pins of a component. Usually,
 connector PositivePin is used for the positive and
 connector NegativePin for the negative pin of an electrical
-component.</p></html>"),
+component.</p></html>", revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"),
       Icon(Rectangle(extent=[-100, 100; 100, -100], style(color=3, fillColor=3))),
       Diagram(Rectangle(extent=[-40,40; 40,-40], style(color=3, fillColor=
                3)), Text(
@@ -79,7 +105,15 @@ The only difference is that the icons are different in order
 to identify more easily the pins of a component. Usually,
 connector PositivePin is used for the positive and
 connector NegativePin for the negative pin of an electrical
-component.</p></html>"),
+component.</p></html>", revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"),
       Icon(Rectangle(extent=[-100, 100; 100, -100], style(
             color=3,
             gradient=0,
@@ -125,7 +159,16 @@ component.</p></html>"),
         x=0.11,
         y=0.14,
         width=0.55,
-        height=0.64));
+        height=0.64), 
+      Documentation(revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"));
   equation 
     v = p.v - n.v;
   end TwoPin;
@@ -149,7 +192,16 @@ into pin p is identical to the current flowing out of pin n.
 This current is provided explicitly as current i.
 </P>
 </HTML>
-"),   Diagram(
+", revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"),
+      Diagram(
         Line(points=[-110, 20; -85, 20], style(color=9, fillColor=9)),
         Polygon(points=[-95, 23; -85, 20; -95, 17; -95, 23], style(
             color=9,
@@ -251,7 +303,16 @@ This current is provided explicitly as current i.
         x=0.16,
         y=0.12,
         width=0.6,
-        height=0.6));
+        height=0.6), 
+      Documentation(revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"));
   equation 
     v1 = p1.v - n1.v;
     v2 = p2.v - n2.v;
@@ -282,7 +343,16 @@ This current is provided explicitly as current i.
         Line(points=[70, 0; 100, 0]),
         Text(extent=[-150, 80; 150, 120], string="%name")),
       Diagram(Line(points=[-70,0; -96,0],   style(color=0)), Line(points=[70, 0;
-                100, 0])));
+                100, 0])), 
+      Documentation(revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"));
   end AbsoluteSensor;
   
   partial model RelativeSensor 
@@ -307,7 +377,16 @@ This current is provided explicitly as current i.
       Diagram(
         Line(points=[-70,0; -96,0],   style(color=0)),
         Line(points=[0, -90; 0, -70]),
-        Line(points=[70,0; 96,0],   style(color=0))));
+        Line(points=[70,0; 96,0],   style(color=0))), 
+      Documentation(revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"));
     
   end RelativeSensor;
   
@@ -328,20 +407,29 @@ This current is provided explicitly as current i.
             fillColor=7,
             rgbfillColor={255,255,255})),
         Text(extent=[-150,80; 150,120], string="%name"),
-        Line(points=[-90,0; 90,0], style(color=0, rgbcolor={0,0,0})), 
+        Line(points=[-90,0; 90,0], style(color=0, rgbcolor={0,0,0})),
         Text(
-          extent=[-120,50; -20,0], 
-          style(color=3, rgbcolor={0,0,255}), 
-          string="+"), 
+          extent=[-120,50; -20,0],
+          style(color=3, rgbcolor={0,0,255}),
+          string="+"),
         Text(
-          extent=[20,50; 120,0], 
-          style(color=3, rgbcolor={0,0,255}), 
+          extent=[20,50; 120,0],
+          style(color=3, rgbcolor={0,0,255}),
           string="-")),
       Window(
         x=0.31,
         y=0.09,
         width=0.6,
-        height=0.6));
+        height=0.6), 
+      Documentation(revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"));
     replaceable Modelica.Blocks.Interfaces.SignalSource signalSource(
         final offset = offset, final startTime=startTime) 
     annotation (extent=[70, 70; 90, 90]);
@@ -368,18 +456,27 @@ This current is provided explicitly as current i.
         Line(points=[-90, 0; -50, 0], style(color=0, rgbcolor={0,0,0})),
         Line(points=[50, 0; 90, 0], style(color=0, rgbcolor={0,0,0})),
         Line(points=[0, -50; 0, 50], style(color=0, rgbcolor={0,0,0})),
-        Text(extent=[-150, 120; 150, 80], string="%name"), 
-        Line(points=[-60,-80; 60,-80], style(color=3, rgbcolor={0,0,255})), 
+        Text(extent=[-150, 120; 150, 80], string="%name"),
+        Line(points=[-60,-80; 60,-80], style(color=3, rgbcolor={0,0,255})),
         Polygon(points=[60,-80; 30,-70; 30,-90; 60,-80], style(
-            color=3, 
-            rgbcolor={0,0,255}, 
-            fillColor=3, 
+            color=3,
+            rgbcolor={0,0,255},
+            fillColor=3,
             rgbfillColor={0,0,255}))),
       Window(
         x=0.33,
         y=0.24,
         width=0.6,
-        height=0.6));
+        height=0.6), 
+      Documentation(revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"));
     replaceable Modelica.Blocks.Interfaces.SignalSource signalSource(
         final offset = offset, final startTime=startTime) annotation (extent=[70,
           69; 91,89]);

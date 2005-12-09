@@ -95,7 +95,16 @@ Lossy Transmission Line.
 </DL>
 </P>
 </HTML>
-"),   Coordsys(
+", revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"),
+      Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
         component=[20, 20]),
@@ -181,7 +190,16 @@ lumped segments.
 </DL>
 </P>
 </HTML>
-"),   Coordsys(
+", revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"),
+      Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[2, 2],
         component=[20, 20]),
@@ -252,7 +270,16 @@ References:
   Proceedings of the IEEE 55(1967), 2012 - 2013
   Hoefer, E. E. E.; Nielinger, H.: SPICE : Analyseprogramm fuer elektronische
   Schaltungen. Springer-Verlag, Berlin, Heidelberg, New York, Tokyo, 1985.
-"),   Coordsys(
+", revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Joachim Haase<br> initially implemented<br>
+       </li>
+</ul>
+</html>"),
+      Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
         component=[20, 20]),
@@ -327,7 +354,16 @@ References:
   Hoefer, E. E. E.; Nielinger, H.: SPICE : Analyseprogramm fuer elektronische
   Schaltungen. Springer-Verlag, Berlin, Heidelberg, New York, Tokyo, 1985.
  
-"),   Coordsys(
+", revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Joachim Haase<br> initially implemented<br>
+       </li>
+</ul>
+</html>"),
+      Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
         component=[20, 20]),
@@ -402,7 +438,16 @@ Lossless transmission line with characteristic impedance Z0 and frequency F
     Proceedings of the IEEE 55(1967), 2012 - 2013
     Hoefer, E. E. E.; Nielinger, H.: SPICE : Analyseprogramm fuer elektronische
     Schaltungen. Springer-Verlag, Berlin, Heidelberg, New York, Tokyo, 1985.
-"),   Coordsys(
+", revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Joachim Haase<br> initially implemented<br>
+       </li>
+</ul>
+</html>"),
+      Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
         component=[20, 20]),

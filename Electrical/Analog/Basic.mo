@@ -59,7 +59,16 @@ ground node is zero. Every electrical circuit has to contain
 at least one ground object.
 </P>
 </HTML>
-"),   Icon(
+", revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"),
+      Icon(
         Line(points=[-60, 50; 60, 50]),
         Line(points=[-40, 30; 40, 30]),
         Line(points=[-20, 10; 20, 10]),
@@ -92,7 +101,16 @@ branch current <i>i</i> by <i>i*R = v</i>.
 The Resistance <i>R</i> is allowed to be positive, zero, or negative.
 </P>
 </HTML>
-"),   Coordsys(
+", revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"),
+      Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[2, 2],
         component=[20, 20]),
@@ -191,7 +209,15 @@ Additionally, the equation <tt>heatPort.Q_flow = 0</tt> is implicitly present
 due to a special rule in Modelica that flow variables of not connected
 connectors are set to zero.</p>
 </HTML>
-"));
+", revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 2002   </i>
+       by Anton Haumer<br> initially implemented<br>
+       </li>
+</ul>
+</html>"));
       Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort annotation (
           extent=[-10, -90; 10, -110], rotation=-90);
     equation 
@@ -220,7 +246,16 @@ branch current <i>i</i> by <i>i = v*G</i>.
 The Conductance <i>G</i> is allowed to be positive, zero, or negative.
 </P>
 </HTML>
-"),   Coordsys(
+", revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"),
+      Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[2, 2],
         component=[20, 20]),
@@ -266,7 +301,16 @@ branch current <i>i</i> by <i>i = C * dv/dt</i>.
 The Capacitance <i>C</i> is allowed to be positive, zero, or negative.
 </p>
 </HTML>
-"),   Icon(
+", revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"),
+      Icon(
         Line(points=[-14, 28; -14, -28], style(thickness=2)),
         Line(points=[14, 28; 14, -28], style(thickness=2)),
         Line(points=[-90, 0; -14, 0]),
@@ -300,7 +344,16 @@ branch current <i>i</i> by  <i>v = L * di/dt</i>.
 The Inductance <i>L</i> is allowed to be positive, zero, or negative.
 </p>
 </HTML>
-"),   Icon(
+", revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"),
+      Icon(
         Ellipse(extent=[-60, -15; -30, 15]),
         Ellipse(extent=[-30, -15; 0, 15]),
         Ellipse(extent=[0, -15; 30, 15]),
@@ -436,7 +489,16 @@ relation:</p>
          | v2 |         | M    L2 |  | i2' |</pre>
 <p><i>L1</i>, <i>L2</i>, and <i>M</i> are the primary, secondary, and coupling inductances respectively.</p>
 </html>
-"),   Coordsys(
+", revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"),
+      Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
         component=[20, 20]),
@@ -501,7 +563,16 @@ A gyrator is a two-port element defined by the following equations:
 where the constants <i>G1</i>, <i>G2</i> are called the gyration conductance.
 </P>
 </HTML>
-"),   Coordsys(
+", revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"),
+      Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
         component=[20, 20]),
@@ -629,7 +700,15 @@ Modelica.Mechanics.Rotational library. flange_b.tau is the cut-torque,
 flange_b.phi is the angle at the rotational connection.
 </p>
 </HTML>
-"));
+", revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Martin Otter<br> initially implemented<br>
+       </li>
+</ul>
+</html>"));
     Interfaces.PositivePin p annotation (extent=[-10, 90; 10, 110], rotation=90);
     Interfaces.NegativePin n annotation (extent=[-10, -110; 10, -90], rotation=
           90);
@@ -662,7 +741,16 @@ via
 The left port current is zero. Any voltage gain can be chosen.
 </p>
 </HTML>
-"),   Coordsys(
+", revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"),
+      Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
         component=[20, 20]),
@@ -712,7 +800,16 @@ via
 The left port current is zero. Any transConductance can be chosen.
 </p>
 </HTML>
-"),   Coordsys(
+", revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"),
+      Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
         component=[20, 20]),
@@ -767,7 +864,16 @@ via
 The left port voltage is zero. Any transResistance can be chosen.
 </p>
 </HTML>
-"),   Coordsys(
+", revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"),
+      Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
         component=[20, 20]),
@@ -815,7 +921,16 @@ via
 The left port voltage is zero. Any current gain can be chosen.
 </p>
 </HTML>
-"),   Coordsys(
+", revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"),
+      Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
         component=[20, 20]),
@@ -861,7 +976,16 @@ is the parameter Slope, which must be positive. (Therefore, the absolute
 value of Slope is taken into calculation.)
 </P>
 </HTML>
-"),   Coordsys(
+", revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 2000   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"),
+      Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
         component=[20, 20]),

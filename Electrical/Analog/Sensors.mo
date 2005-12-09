@@ -67,7 +67,16 @@ Modelica in file \"Modelica/package.mo\".</i><br>
         height=0.6),
       Diagram(
         Line(points=[-70,0; -96,0],   style(color=0)),
-        Line(points=[100,0; 70,0])));
+        Line(points=[100,0; 70,0])), 
+      Documentation(revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"));
   equation 
     p.i = 0;
     phi = p.v;
@@ -105,7 +114,16 @@ Modelica in file \"Modelica/package.mo\".</i><br>
       Diagram(
         Line(points=[-70,0; -96,0],   style(color=0)),
         Line(points=[70,0; 96,0],   style(color=0)),
-        Line(points=[0,-90; 0,-70])));
+        Line(points=[0,-90; 0,-70])), 
+      Documentation(revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"));
   equation 
     p.i = 0;
     n.i = 0;
@@ -144,7 +162,16 @@ Modelica in file \"Modelica/package.mo\".</i><br>
         Text(extent=[-153,79; 147,119],   string="%name"),
         Line(points=[-70,0; -96,0],   style(color=0)),
         Line(points=[70,0; 96,0],   style(color=0)),
-        Line(points=[0,-90; 0,-70])));
+        Line(points=[0,-90; 0,-70])), 
+      Documentation(revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"));
   equation 
     p.v = n.v;
     p.i = i;

@@ -64,14 +64,14 @@ Modelica in file \"Modelica/package.mo\".</i><br>
         Line(points=[-90, 0; -50, 0], style(color=0, rgbcolor={0,0,0})),
         Line(points=[50, 0; 90, 0], style(color=0, rgbcolor={0,0,0})),
         Line(points=[-50, 0; 50, 0], style(color=0, rgbcolor={0,0,0})),
-        Text(extent=[-100, -120; 100, -80], string="%name"), 
+        Text(extent=[-100, -120; 100, -80], string="%name"),
         Text(
-          extent=[-120,50; -20,0], 
-          style(color=3, rgbcolor={0,0,255}), 
-          string="+"), 
+          extent=[-120,50; -20,0],
+          style(color=3, rgbcolor={0,0,255}),
+          string="+"),
         Text(
-          extent=[20,50; 120,0], 
-          style(color=3, rgbcolor={0,0,255}), 
+          extent=[20,50; 120,0],
+          style(color=3, rgbcolor={0,0,255}),
           string="-")),
       Window(
         x=0.36,
@@ -107,7 +107,16 @@ Modelica in file \"Modelica/package.mo\".</i><br>
           style(color=9)),
         Line(points=[-119,-5; -119,5],   style(color=9)),
         Line(points=[-124,0; -114,0],   style(color=9)),
-        Line(points=[116,0; 126,0],   style(color=9))));
+        Line(points=[116,0; 126,0],   style(color=9))), 
+      Documentation(revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Martin Otter<br> initially implemented<br>
+       </li>
+</ul>
+</html>"));
   equation 
     v = p.v - n.v;
     0 = p.i + n.i;
@@ -132,20 +141,29 @@ Modelica in file \"Modelica/package.mo\".</i><br>
         Line(points=[-10, 60; -10, -60], style(color=0, rgbcolor={0,0,0})),
         Line(points=[0, 30; 0, -30], style(color=0, rgbcolor={0,0,0})),
         Line(points=[0, 0; 90, 0], style(color=0, rgbcolor={0,0,0})),
-        Text(extent=[-100, -120; 100, -80], string="%name=%V"), 
+        Text(extent=[-100, -120; 100, -80], string="%name=%V"),
         Text(
-          extent=[-120,50; -20,0], 
-          style(color=3, rgbcolor={0,0,255}), 
-          string="+"), 
+          extent=[-120,50; -20,0],
+          style(color=3, rgbcolor={0,0,255}),
+          string="+"),
         Text(
-          extent=[20,50; 120,0], 
-          style(color=3, rgbcolor={0,0,255}), 
+          extent=[20,50; 120,0],
+          style(color=3, rgbcolor={0,0,255}),
           string="-")),
       Diagram(
         Line(points=[-90, 0; -10, 0], style(color=0, rgbcolor={0,0,0})),
         Line(points=[-10, 60; -10, -60], style(color=0, rgbcolor={0,0,0})),
         Line(points=[0, 30; 0, -30], style(color=0, rgbcolor={0,0,0})),
-        Line(points=[0, 0; 90, 0], style(color=0, rgbcolor={0,0,0}))));
+        Line(points=[0, 0; 90, 0], style(color=0, rgbcolor={0,0,0}))), 
+      Documentation(revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"));
   equation 
     v = V;
   end ConstantVoltage;
@@ -222,7 +240,16 @@ Modelica in file \"Modelica/package.mo\".</i><br>
         x=0.28,
         y=0,
         width=0.72,
-        height=0.73));
+        height=0.73), 
+      Documentation(revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"));
   end StepVoltage;
   
   model RampVoltage "Ramp voltage source" 
@@ -318,7 +345,16 @@ Modelica in file \"Modelica/package.mo\".</i><br>
         x=0.29,
         y=0.11,
         width=0.6,
-        height=0.6));
+        height=0.6), 
+      Documentation(revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"));
   end RampVoltage;
   
   model SineVoltage "Sine voltage source" 
@@ -340,10 +376,10 @@ Modelica in file \"Modelica/package.mo\".</i><br>
         y=0.06,
         width=0.6,
         height=0.6),
-      Icon(Line(points=[-66,0; -56.2,29.9; -49.8,46.5; -44.2,58.1; -39.3,65.2; 
-              -34.3,69.2; -29.4,69.8; -24.5,67; -19.6,61; -14.6,52; -9,38.6; 
+      Icon(Line(points=[-66,0; -56.2,29.9; -49.8,46.5; -44.2,58.1; -39.3,65.2;
+              -34.3,69.2; -29.4,69.8; -24.5,67; -19.6,61; -14.6,52; -9,38.6;
               -1.98,18.6; 12.79,-26.9; 19.1,-44; 24.8,-56.2; 29.7,-64; 34.6,
-              -68.6; 39.5,-70; 44.5,-67.9; 49.4,-62.5; 54.3,-54.1; 59.9,-41.3; 
+              -68.6; 39.5,-70; 44.5,-67.9; 49.4,-62.5; 54.3,-54.1; 59.9,-41.3;
               67,-21.7; 74,0],                      style(color=8))),
       Diagram(
         Line(points=[-80, -90; -80, 84], style(color=8)),
@@ -393,7 +429,16 @@ Modelica in file \"Modelica/package.mo\".</i><br>
         Text(
           extent=[-69, 109; -4, 83],
           string="v = p.v - n.v",
-          style(color=9))));
+          style(color=9))), 
+      Documentation(revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"));
   end SineVoltage;
   
   model ExpSineVoltage "Exponentially damped sine voltage source" 
@@ -408,9 +453,9 @@ Modelica in file \"Modelica/package.mo\".</i><br>
         phase=phase,
         damping=damping));
     annotation (
-      Icon(Line(points=[-64,-14; -59.2,18.3; -56,36.3; -52.7,50.5; -49.5,60.2; 
+      Icon(Line(points=[-64,-14; -59.2,18.3; -56,36.3; -52.7,50.5; -49.5,60.2;
               -46.3,65.3; -43.1,65.6; -39.9,61.3; -36.7,53.1; -32.6,38.2; -27,
-              11.8; -19,-27.9; -14.2,-47.7; -10.1,-59.9; -6.1,-67.2; -2.1,-69.3; 
+              11.8; -19,-27.9; -14.2,-47.7; -10.1,-59.9; -6.1,-67.2; -2.1,-69.3;
               1.9,-66.5; 5.9,-59.3; 10.77,-46.1; 24.44,-0.3; 29.3,12.4; 34.1,
               20.8; 38.1,24; 42.9,23.2; 47.8,17.8; 54.2,5.4; 67.1,-24.5; 73.5,
               -35.2; 79.1,-39.9; 84.7,-39.9; 91.2,-34.5; 96,-27.8],
@@ -486,7 +531,16 @@ Modelica in file \"Modelica/package.mo\".</i><br>
         x=0.33,
         y=0.06,
         width=0.6,
-        height=0.75));
+        height=0.75), 
+      Documentation(revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"));
   end ExpSineVoltage;
   
   model ExponentialsVoltage " Rising and falling exponential voltage source" 
@@ -642,7 +696,16 @@ Modelica in file \"Modelica/package.mo\".</i><br>
         x=0.11,
         y=0.12,
         width=0.78,
-        height=0.83));
+        height=0.83), 
+      Documentation(revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"));
   end ExponentialsVoltage;
   
   model PulseVoltage "Pulse voltage source" 
@@ -658,7 +721,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
         width=width,
         period=period));
     annotation (
-      Icon(Line(points=[-70,-70; -40,-70; -40,70; 0,70; 0,-70; 40,-70; 40,70; 
+      Icon(Line(points=[-70,-70; -40,-70; -40,70; 0,70; 0,-70; 40,-70; 40,70;
               80,70],        style(color=8))),
       Diagram(
         Polygon(points=[-80, 90; -88, 68; -72, 68; -80, 90], style(color=8,
@@ -758,7 +821,16 @@ Modelica in file \"Modelica/package.mo\".</i><br>
         x=0.4,
         y=0.23,
         width=0.6,
-        height=0.6));
+        height=0.6), 
+      Documentation(revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"));
   end PulseVoltage;
   
   model SawToothVoltage "Saw tooth voltage source" 
@@ -853,7 +925,16 @@ Modelica in file \"Modelica/package.mo\".</i><br>
         x=0.37,
         y=0.04,
         width=0.6,
-        height=0.6));
+        height=0.6), 
+      Documentation(revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"));
   end SawToothVoltage;
   
   model TrapezoidVoltage "Trapezoidal voltage source" 
@@ -999,7 +1080,16 @@ Modelica in file \"Modelica/package.mo\".</i><br>
         x=0.21,
         y=0.22,
         width=0.6,
-        height=0.63));
+        height=0.63), 
+      Documentation(revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"));
   end TrapezoidVoltage;
   
   model TableVoltage "Voltage source by linear interpolation in a table" 
@@ -1009,7 +1099,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
         Modelica.Blocks.Sources.TimeTable signalSource(                                       table=
            table));
     annotation (
-      Icon(Line(points=[-58,-36; -58,84; 42,84; 42,-36; -58,-36; -58,-6; 42,-6; 
+      Icon(Line(points=[-58,-36; -58,84; 42,84; 42,-36; -58,-36; -58,-6; 42,-6;
               42,24; -58,24; -58,54; 42,54; 42,84; -8,84; -8,-37],
                    style(color=8))),
       Coordsys(
@@ -1119,7 +1209,15 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
     e.g., time = 5.0, the voltage v = 23.0 (i.e. extrapolation).
 </pre>
 </HTML>
-"));
+", revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"));
   end TableVoltage;
   
   model SignalCurrent 
@@ -1147,12 +1245,12 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
         Line(points=[-90, 0; -50, 0], style(color=0, rgbcolor={0,0,0})),
         Line(points=[50, 0; 90, 0], style(color=0, rgbcolor={0,0,0})),
         Line(points=[0, -50; 0, 50], style(color=0, rgbcolor={0,0,0})),
-        Text(extent=[-100, -120; 100, -80], string="%name"), 
-        Line(points=[-60,-70; 60,-70], style(color=3, rgbcolor={0,0,255})), 
+        Text(extent=[-100, -120; 100, -80], string="%name"),
+        Line(points=[-60,-70; 60,-70], style(color=3, rgbcolor={0,0,255})),
         Polygon(points=[60,-70; 30,-60; 30,-80; 60,-70], style(
-            color=3, 
-            rgbcolor={0,0,255}, 
-            fillColor=3, 
+            color=3,
+            rgbcolor={0,0,255},
+            fillColor=3,
             rgbfillColor={0,0,255}))),
       Window(
         x=0.39,
@@ -1167,7 +1265,16 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
             rgbfillColor={255,255,255})),
         Line(points=[-96,0; -50,0], style(color=0, rgbcolor={0,0,0})),
         Line(points=[50,0; 96,0], style(color=0, rgbcolor={0,0,0})),
-        Line(points=[0,-50; 0,50], style(color=0, rgbcolor={0,0,0}))));
+        Line(points=[0,-50; 0,50], style(color=0, rgbcolor={0,0,0}))), 
+      Documentation(revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Martin Otter<br> initially implemented<br>
+       </li>
+</ul>
+</html>"));
   equation 
     v = p.v - n.v;
     0 = p.i + n.i;
@@ -1191,12 +1298,12 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
         Line(points=[-90, 0; -50, 0], style(color=0, rgbcolor={0,0,0})),
         Line(points=[50, 0; 90, 0], style(color=0, rgbcolor={0,0,0})),
         Line(points=[0, -50; 0, 50], style(color=0, rgbcolor={0,0,0})),
-        Text(extent=[-100,80; 100,120],     string="%name=%I"), 
-        Line(points=[-60,-80; 60,-80], style(color=3, rgbcolor={0,0,255})), 
+        Text(extent=[-100,80; 100,120],     string="%name=%I"),
+        Line(points=[-60,-80; 60,-80], style(color=3, rgbcolor={0,0,255})),
         Polygon(points=[60,-80; 30,-70; 30,-90; 60,-80], style(
-            color=3, 
-            rgbcolor={0,0,255}, 
-            fillColor=3, 
+            color=3,
+            rgbcolor={0,0,255},
+            fillColor=3,
             rgbfillColor={0,0,255}))),
       Window(
         x=0.33,
@@ -1211,7 +1318,16 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
             rgbfillColor={255,255,255})),
         Line(points=[-96,0; -50,0], style(color=0, rgbcolor={0,0,0})),
         Line(points=[50,0; 96,0], style(color=0, rgbcolor={0,0,0})),
-        Line(points=[0,-50; 0,50], style(color=0, rgbcolor={0,0,0}))));
+        Line(points=[0,-50; 0,50], style(color=0, rgbcolor={0,0,0}))), 
+      Documentation(revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"));
   equation 
     i = I;
   end ConstantCurrent;
@@ -1288,7 +1404,16 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
         x=0.28,
         y=0,
         width=0.72,
-        height=0.73));
+        height=0.73), 
+      Documentation(revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"));
   end StepCurrent;
   
   model RampCurrent "Ramp current source" 
@@ -1384,7 +1509,16 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
         x=0.29,
         y=0.11,
         width=0.6,
-        height=0.6));
+        height=0.6), 
+      Documentation(revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"));
   end RampCurrent;
   
   model SineCurrent "Sine current source" 
@@ -1459,7 +1593,16 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
         Text(
           extent=[-73, 82; -53, 102],
           string="i",
-          style(color=8))));
+          style(color=8))), 
+      Documentation(revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"));
   end SineCurrent;
   
   model ExpSineCurrent "Exponentially damped sine current source" 
@@ -1552,7 +1695,16 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
         x=0.33,
         y=0.06,
         width=0.6,
-        height=0.75));
+        height=0.75), 
+      Documentation(revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"));
   end ExpSineCurrent;
   
   model ExponentialsCurrent " Rising and falling exponential current source" 
@@ -1640,7 +1792,16 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
         x=0.11,
         y=0.12,
         width=0.78,
-        height=0.83));
+        height=0.83), 
+      Documentation(revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"));
   end ExponentialsCurrent;
   
   model PulseCurrent "Pulse current source" 
@@ -1656,7 +1817,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
         width=width,
         period=period));
     annotation (
-      Icon(Line(points=[-70,-67; -40,-67; -40,73; 0,73; 0,-67; 40,-67; 40,73; 
+      Icon(Line(points=[-70,-67; -40,-67; -40,73; 0,73; 0,-67; 40,-67; 40,73;
               80,73],        style(color=8))),
       Diagram(
         Polygon(points=[-80, 90; -88, 68; -72, 68; -80, 90], style(color=8,
@@ -1756,7 +1917,16 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
         x=0.4,
         y=0.23,
         width=0.6,
-        height=0.6));
+        height=0.6), 
+      Documentation(revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"));
   end PulseCurrent;
   
   model SawToothCurrent "Saw tooth current source" 
@@ -1851,7 +2021,16 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
         x=0.37,
         y=0.04,
         width=0.6,
-        height=0.6));
+        height=0.6), 
+      Documentation(revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"));
   end SawToothCurrent;
   
   model TrapezoidCurrent "Trapezoidal current source" 
@@ -1997,7 +2176,16 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
         x=0.19,
         y=0.28,
         width=0.6,
-        height=0.63));
+        height=0.63), 
+      Documentation(revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"));
   end TrapezoidCurrent;
   
   model TableCurrent "Current source by linear interpolation in a table" 
@@ -2117,7 +2305,15 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
     e.g., time = 5.0, the current i = 23.0 (i.e. extrapolation).
 </pre>
 </HTML>
-"));
+", revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"));
   end TableCurrent;
   
 end Sources;

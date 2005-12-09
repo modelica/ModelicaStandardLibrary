@@ -152,9 +152,9 @@ Some typical parameter sets are:
 <li><i>December 7, 2005   </i>
        by Christoph Clauss<br>
        error in RDS calculation deleted</li>
-<li><i>August 10, 2000</i>
-       by Christoph Clauss<br>
-       initially modelled.</li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
 </ul>
 </html>"),
       Coordsys(
@@ -281,9 +281,9 @@ Muenchen Wien 1990.
 <li><i>December 7, 2005   </i>
        by Christoph Clauss<br>
        error in RDS calculation deleted</li>
-<li><i>August 10, 2000</i>
-       by Christoph Clauss<br>
-       initially modelled.</li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
 </ul>
 </html>"),
       Coordsys(
@@ -419,7 +419,16 @@ on page 317 ff.
 </DL>
 <P>
 </HTML>
-"),   Coordsys(
+", revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"),
+      Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[2, 2],
         component=[20, 20]),
@@ -546,7 +555,16 @@ on page 317 ff.
 </DL>
 <P>
 </HTML>
-"),   Coordsys(
+", revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"),
+      Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
         component=[20, 20]),
@@ -754,6 +772,9 @@ Muenchen Wien 1990.
 </HTML>
 ", revisions="<html>
 <ul>
+<li><i>December 7, 2005   </i>
+       by Christoph Clauss<br>
+       error in RDS calculation deleted</li>
 <li><i>March 31, 2004   </i>
        by Christoph Clauss<br> implemented<br>
        </li>
@@ -838,8 +859,8 @@ Muenchen Wien 1990.
           uds = ud - us;
           ubs = if (B.v > us) then 0 else B.v - us;
           ugst = (G.v - us - vt_t + k2_t*ubs)*K5;
-          id = if (ugst <= 0) then v*uds*gds else if (ugst > uds) then v*uds*(
-            ugst - uds/2 + gds) else v*(ugst*ugst/2 + uds*gds);
+          id = if (ugst <= 0) then uds*gds else if (ugst > uds) then v*uds*(
+            ugst - uds/2) + uds*gds else v*ugst*ugst/2 + uds*gds;
     
           beta_t = Beta*pow((heatPort.T/Tnom), -1.5);
           vt_t = Vt*(1 + (heatPort.T - Tnom)*kvt);
@@ -894,6 +915,9 @@ Some typical parameter sets are:
 </HTML>
 ", revisions="<html>
 <ul>
+<li><i>December 7, 2005   </i>
+       by Christoph Clauss<br>
+       error in RDS calculation deleted</li>
 <li><i>March 31, 2004   </i>
        by Christoph Clauss<br> implemented<br>
        </li>
@@ -983,8 +1007,8 @@ Some typical parameter sets are:
           uds = ud - us;
           ubs = if (B.v < us) then 0 else B.v - us;
           ugst = (G.v - us - vt_t + k2_t*ubs)*K5;
-          id = if (ugst >= 0) then v*uds*gds else if (ugst < uds) then -v*uds*(
-            ugst - uds/2 - gds) else -v*(ugst*ugst/2 - uds*gds);
+          id = if (ugst >= 0) then uds*gds else if (ugst < uds) then -v*uds*(
+            ugst - uds/2) + uds*gds else -v*ugst*ugst/2 + uds*gds;
     
           beta_t = Beta*pow((heatPort.T/Tnom), -1.5);
           vt_t = Vt*(1 + (heatPort.T - Tnom)*kvt);
