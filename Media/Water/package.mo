@@ -225,9 +225,8 @@ extends Modelica.Icons.Library;
      each acentricFactor = 0.344,
      each dipoleMoment = 1.8,
      each hasCriticalData=true,
-     each h_reference=1e4,
-     each T_reference=SI.Conversions.from_degC(20.0),
-     each s_reference=1e3);
+     each h_default=1e4,
+     each T_default=SI.Conversions.from_degC(20.0));
 
 package ConstantPropertyLiquidWater 
   "Water: Simple liquid water medium (incompressible, constant data)" 

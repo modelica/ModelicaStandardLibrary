@@ -3319,11 +3319,9 @@ Modelica source.
       constant SpecificEntropy deltas=0.0 
         "difference between specific enthalpy model (s_m) and f.eq. (s_f) (s_m - s_f)";
       
-      constant Temperature T_reference "reference temperature of medium";
-      constant SpecificEnthalpy h_reference 
+      constant Temperature T_default "reference temperature of medium";
+      constant SpecificEnthalpy h_default 
         "reference specific enthalpy of medium";
-      constant SpecificEntropy s_reference 
-        "reference specific entropy of medium";
       
       //  constant String fundamentalEquationSource="none" "source of the fundamental equation model";
       //  constant String criticalDataSource="none" "source for critical data";
