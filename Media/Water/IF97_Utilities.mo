@@ -6317,13 +6317,15 @@ Ordinary Water Substance<br>
       + "(p = " + String(p) + ", h = " + String(h) + ")");
     end if;
   end waterBaseProp_ph;
-
+  
   function waterBaseProp_ps "intermediate property record for water" 
     extends Modelica.Icons.Function;
     input SI.Pressure p "pressure";
     input SI.SpecificEntropy s "specific entropy";
-    input Integer phase = 0 "phase: 2 for two-phase, 1 for one phase, 0 if unknown";
-    input Integer region = 0 "if 0, do region computation, otherwise assume the region is this input";
+    input Integer phase = 0 
+      "phase: 2 for two-phase, 1 for one phase, 0 if unknown";
+    input Integer region = 0 
+      "if 0, do region computation, otherwise assume the region is this input";
     output Common.IF97BaseTwoPhase aux "auxiliary record";
   protected 
     Common.GibbsDerivs g 
@@ -6378,7 +6380,7 @@ Ordinary Water Substance<br>
       aux.x := 1.0;
     elseif (aux.region == 3) then
       (aux.rho,aux.T,error) := BaseIF97.Inverses.dtofps3(p=p,s=s,delp=1.0e-7,dels=
-							 1.0e-6);
+        1.0e-6);
       f := BaseIF97.Basic.f3(aux.rho, aux.T);
       aux.h := aux.R*aux.T*(f.tau*f.ftau + f.delta*f.fdelta);
       aux.s := aux.R*(f.tau*f.ftau - f.f);
@@ -6392,24 +6394,24 @@ Ordinary Water Substance<br>
       s_vap := BaseIF97.Regions.sv_p(p);
       aux.x := if (s_vap <> s_liq) then (s - s_liq)/(s_vap - s_liq) else 1.0;
       if p < BaseIF97.data.PLIMIT4A then
-	t1:= BaseIF97.Basic.tps1(p, s_liq);
-	t2:= BaseIF97.Basic.tps2(p, s_vap);
-	gl := BaseIF97.Basic.g1(p, t1);
-	gv := BaseIF97.Basic.g2(p, t2);
-	liq := Common.gibbsToBoundaryProps(gl);
-	vap := Common.gibbsToBoundaryProps(gv);
-	aux.T := t1 + aux.x*(t2-t1);
+        t1 := BaseIF97.Basic.tps1(p, s_liq);
+        t2 := BaseIF97.Basic.tps2(p, s_vap);
+        gl := BaseIF97.Basic.g1(p, t1);
+        gv := BaseIF97.Basic.g2(p, t2);
+        liq := Common.gibbsToBoundaryProps(gl);
+        vap := Common.gibbsToBoundaryProps(gv);
+        aux.T := t1 + aux.x*(t2 - t1);
       else
-	aux.T := BaseIF97.Basic.tsat(p); 
-	d_liq:= rhol_T(aux.T);
-	d_vap:= rhov_T(aux.T);
-	fl := BaseIF97.Basic.f3(d_liq, aux.T);
-	fv := BaseIF97.Basic.f3(d_vap, aux.T);
-	liq := Common.helmholtzToBoundaryProps(fl);
-	vap := Common.helmholtzToBoundaryProps(fv);
+        aux.T := BaseIF97.Basic.tsat(p);
+        d_liq := rhol_T(aux.T);
+        d_vap := rhov_T(aux.T);
+        fl := BaseIF97.Basic.f3(d_liq, aux.T);
+        fv := BaseIF97.Basic.f3(d_vap, aux.T);
+        liq := Common.helmholtzToBoundaryProps(fl);
+        vap := Common.helmholtzToBoundaryProps(fv);
       end if;
-      aux.dpT := (vap.s - liq.s)*(if (liq.d <> vap.d) then liq.d*vap.d/(liq.d - vap.d)
-				  else BaseIF97.Basic.dptofT(aux.T));
+      aux.dpT := (vap.s - liq.s)*(if (liq.d <> vap.d) then liq.d*vap.d/(liq.d - vap.d) else 
+           BaseIF97.Basic.dptofT(aux.T));
       aux.h := liq.h + aux.x*(vap.h - liq.h);
       aux.rho := liq.d*vap.d/(vap.d + aux.x*(liq.d - vap.d));
       aux.cv := Common.cv2Phase(liq, vap, aux.x, aux.T, p);
@@ -6428,7 +6430,7 @@ Ordinary Water Substance<br>
       aux.cv := aux.R*(-g.tau*g.tau*g.gtautau + ((g.gpi - g.tau*g.gtaupi)*(g.gpi - g.tau*g.gtaupi)/g.gpipi));
     else
       assert(false, "error in region computation of IF97 steam tables"
-	     + "(p = " + String(p) + ", s = " + String(s) + ")");
+      + "(p = " + String(p) + ", s = " + String(s) + ")");
     end if;
   end waterBaseProp_ps;
   
@@ -6482,7 +6484,8 @@ Ordinary Water Substance<br>
     input SI.Pressure p "pressure";
     input SI.SpecificEnthalpy h "specific enthalpy";
     input Integer phase = 0 "2 for two-phase, 1 for one-phase, 0 if not known";
-    input Integer region = 0 "if 0, region is unknown, otherwise known and this input";
+    input Integer region = 0 
+      "if 0, region is unknown, otherwise known and this input";
     output SI.Density rho "density";
   algorithm 
     rho := rho_props_ph(p, h, waterBaseProp_ph(p, h, phase, region));
@@ -6530,7 +6533,8 @@ Ordinary Water Substance<br>
     input SI.Pressure p "pressure";
     input SI.SpecificEnthalpy h "specific enthalpy";
     input Integer phase = 0 "2 for two-phase, 1 for one-phase, 0 if not known";
-    input Integer region = 0 "if 0, region is unknown, otherwise known and this input";
+    input Integer region = 0 
+      "if 0, region is unknown, otherwise known and this input";
     output SI.Temperature T "Temperature";
   algorithm 
     T := T_props_ph(p, h, waterBaseProp_ph(p, h, phase, region));
@@ -6565,12 +6569,12 @@ Ordinary Water Substance<br>
     input Common.IF97BaseTwoPhase properties "auxiliary record";
     output SI.SpecificEntropy s "specific entropy";
     annotation (derivative(noDerivative=properties) = s_ph_der,
-		Inline=false,
-		LateInline=true);
+  Inline=false,
+  LateInline=true);
   algorithm 
     s := properties.s;
   end s_props_ph;
-
+  
   function s_ph 
     "specific entropy as function of pressure and specific enthalpy" 
     extends Modelica.Icons.Function;
@@ -6584,7 +6588,7 @@ Ordinary Water Substance<br>
   algorithm 
     s := s_props_ph(p, h, waterBaseProp_ph(p, h, phase, region));
   end s_ph;
-
+  
   function s_ph_der 
     "specific entropy as function of pressure and specific enthalpy" 
     extends Modelica.Icons.Function;
@@ -6597,7 +6601,7 @@ Ordinary Water Substance<br>
   algorithm 
     s_der := -1/(aux.rho*aux.T)*p_der + 1/aux.T*h_der;
   end s_ph_der;
-
+  
   function cv_props_ph 
     "specific heat capacity at constant volume as function of pressure and specific enthalpy" 
     extends Modelica.Icons.Function;
@@ -6618,7 +6622,8 @@ Ordinary Water Substance<br>
     input SI.Pressure p "pressure";
     input SI.SpecificEnthalpy h "specific enthalpy";
     input Integer phase = 0 "2 for two-phase, 1 for one-phase, 0 if not known";
-    input Integer region = 0 "if 0, region is unknown, otherwise known and this input";
+    input Integer region = 0 
+      "if 0, region is unknown, otherwise known and this input";
     output SI.SpecificHeatCapacity cv "specific heat capacity";
   algorithm 
     cv := cv_props_ph(p, h, waterBaseProp_ph(p, h, phase, region));
@@ -6652,7 +6657,8 @@ Ordinary Water Substance<br>
     input SI.Pressure p "pressure";
     input SI.SpecificEnthalpy h "specific enthalpy";
     input Integer phase = 0 "2 for two-phase, 1 for one-phase, 0 if not known";
-    input Integer region = 0 "if 0, region is unknown, otherwise known and this input";
+    input Integer region = 0 
+      "if 0, region is unknown, otherwise known and this input";
     output SI.SpecificHeatCapacity cp "specific heat capacity";
   algorithm 
     cp := cp_props_ph(p, h, waterBaseProp_ph(p, h, phase, region));
@@ -6680,7 +6686,8 @@ Ordinary Water Substance<br>
     input SI.Pressure p "pressure";
     input SI.SpecificEnthalpy h "specific enthalpy";
     input Integer phase = 0 "2 for two-phase, 1 for one-phase, 0 if not known";
-    input Integer region = 0 "if 0, region is unknown, otherwise known and this input";
+    input Integer region = 0 
+      "if 0, region is unknown, otherwise known and this input";
     output SI.RelativePressureCoefficient beta "isobaric expansion coefficient";
   algorithm 
     beta := beta_props_ph(p, h, waterBaseProp_ph(p, h, phase, region));
@@ -6708,7 +6715,8 @@ Ordinary Water Substance<br>
     input SI.Pressure p "pressure";
     input SI.SpecificEnthalpy h "specific enthalpy";
     input Integer phase = 0 "2 for two-phase, 1 for one-phase, 0 if not known";
-    input Integer region = 0 "if 0, region is unknown, otherwise known and this input";
+    input Integer region = 0 
+      "if 0, region is unknown, otherwise known and this input";
     output SI.IsothermalCompressibility kappa 
       "isothermal compressibility factor";
   algorithm 
@@ -6738,7 +6746,8 @@ Ordinary Water Substance<br>
     input SI.Pressure p "pressure";
     input SI.SpecificEnthalpy h "specific enthalpy";
     input Integer phase = 0 "2 for two-phase, 1 for one-phase, 0 if not known";
-    input Integer region = 0 "if 0, region is unknown, otherwise known and this input";
+    input Integer region = 0 
+      "if 0, region is unknown, otherwise known and this input";
     output SI.Velocity v_sound "speed of sound";
   algorithm 
     v_sound := velocityOfSound_props_ph(p, h, waterBaseProp_ph(p, h, phase, region));
@@ -6798,7 +6807,8 @@ Ordinary Water Substance<br>
     input SI.Pressure p "pressure";
     input SI.SpecificEnthalpy h "specific enthalpy";
     input Integer phase = 0 "2 for two-phase, 1 for one-phase, 0 if not known";
-    input Integer region = 0 "if 0, region is unknown, otherwise known and this input";
+    input Integer region = 0 
+      "if 0, region is unknown, otherwise known and this input";
     output SI.DerDensityByPressure ddph "density derivative by pressure";
   algorithm 
     ddph := ddph_props(p, h, waterBaseProp_ph(p, h, phase, region));
@@ -6826,7 +6836,8 @@ Ordinary Water Substance<br>
     input SI.Pressure p "pressure";
     input SI.SpecificEnthalpy h "specific enthalpy";
     input Integer phase = 0 "2 for two-phase, 1 for one-phase, 0 if not known";
-    input Integer region = 0 "if 0, region is unknown, otherwise known and this input";
+    input Integer region = 0 
+      "if 0, region is unknown, otherwise known and this input";
     output SI.DerDensityByEnthalpy ddhp 
       "density derivative by specific enthalpy";
   algorithm 
@@ -7119,8 +7130,10 @@ Ordinary Water Substance<br>
     extends Modelica.Icons.Function;
     input SI.Pressure p "pressure";
     input SI.Temperature T "temperature";
-    input Integer region =  0 "if 0, region is unknown, otherwise known and this input";
-    output SI.IsothermalCompressibility kappa "isothermal compressibility factor";
+    input Integer region =  0 
+      "if 0, region is unknown, otherwise known and this input";
+    output SI.IsothermalCompressibility kappa 
+      "isothermal compressibility factor";
     annotation (InlineNoEvent=false);
   algorithm 
     kappa := kappa_props_pT(p, T, waterBaseProp_pT(p, T, region));
@@ -7367,7 +7380,8 @@ Ordinary Water Substance<br>
     input SI.Density d "density";
     input SI.Temperature T "Temperature";
     input Integer phase =  0 "2 for two-phase, 1 for one-phase, 0 if not known";
-    input Integer region =  0 "if 0, region is unknown, otherwise known and this input";
+    input Integer region =  0 
+      "if 0, region is unknown, otherwise known and this input";
     output SI.Pressure p "pressure";
   algorithm 
     p := p_props_dT(d, T, waterBaseProp_dT(d, T, phase, region));
@@ -7411,7 +7425,8 @@ Ordinary Water Substance<br>
     input SI.Density d "density";
     input SI.Temperature T "Temperature";
     input Integer phase =  0 "2 for two-phase, 1 for one-phase, 0 if not known";
-    input Integer region =  0 "if 0, region is unknown, otherwise known and this input";
+    input Integer region =  0 
+      "if 0, region is unknown, otherwise known and this input";
     output SI.SpecificEntropy s "specific entropy";
   algorithm 
     s := s_props_dT(d, T, waterBaseProp_dT(d, T, phase, region));
@@ -7437,7 +7452,8 @@ Ordinary Water Substance<br>
     input SI.Density d "density";
     input SI.Temperature T "temperature";
     input Integer phase =  0 "2 for two-phase, 1 for one-phase, 0 if not known";
-    input Integer region =  0 "if 0, region is unknown, otherwise known and this input";
+    input Integer region =  0 
+      "if 0, region is unknown, otherwise known and this input";
     output SI.SpecificHeatCapacity cv "specific heat capacity";
   algorithm 
     cv := cv_props_dT(d, T, waterBaseProp_dT(d, T, phase, region));
@@ -7463,7 +7479,8 @@ Ordinary Water Substance<br>
     input SI.Density d "density";
     input SI.Temperature T "temperature";
     input Integer phase =  0 "2 for two-phase, 1 for one-phase, 0 if not known";
-    input Integer region =  0 "if 0, region is unknown, otherwise known and this input";
+    input Integer region =  0 
+      "if 0, region is unknown, otherwise known and this input";
     output SI.SpecificHeatCapacity cp "specific heat capacity";
   algorithm 
     cp := cp_props_dT(d, T, waterBaseProp_dT(d, T, phase, region));
@@ -7753,26 +7770,28 @@ public
     input SI.Pressure p "pressure";
     input SI.SpecificEntropy s "specific entropy";
     input Integer phase = 0 "2 for two-phase, 1 for one-phase, 0 if not known";
-    input Integer region = 0 "if 0, region is unknown, otherwise known and this input";
+    input Integer region = 0 
+      "if 0, region is unknown, otherwise known and this input";
     output SI.SpecificEnthalpy h "specific enthalpy";
   algorithm 
-    h := isentropicEnthalpy_props(p, s, waterBaseProp_ps(p, s, phase, region));;
+    h := isentropicEnthalpy_props(p, s, waterBaseProp_ps(p, s, phase, region));
   end isentropicEnthalpy;
   
-  function isentropicEnthalpy_props
+  function isentropicEnthalpy_props 
     extends Modelica.Icons.Function;
     input SI.Pressure p "pressure";
     input SI.SpecificEntropy s "specific entropy";
     input Common.IF97BaseTwoPhase aux "auxiliary record";
     output SI.SpecificEnthalpy h "isentropic enthalpay";
     annotation (derivative(noDerivative=aux) = isentropicEnthalpy_der,
-		Inline=false,
-		LateInline=true);
-  algorithm
+  Inline=false,
+  LateInline=true);
+  algorithm 
     h := aux.h;
   end isentropicEnthalpy_props;
   
-  function isentropicEnthalpy_der "derivative of isentropic specific enthalpy from p,s" 
+  function isentropicEnthalpy_der 
+    "derivative of isentropic specific enthalpy from p,s" 
     extends Modelica.Icons.Function;
     input SI.Pressure p "pressure";
     input SI.SpecificEntropy s "specific entropy";
