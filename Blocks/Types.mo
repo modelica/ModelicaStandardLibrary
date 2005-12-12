@@ -13,7 +13,7 @@ user interface when the type is used as parameter in a declaration.
     "Type, constants and menu choices to define the extrapolation of time table interpolation" 
     
     annotation (preferedView="text");
-    extends Modelica.Icons.Library;
+    extends Modelica.Icons.Enumeration;
     
     constant Integer HoldLastPoint=0;
     constant Integer LastTwoPoints=1;
@@ -22,7 +22,7 @@ user interface when the type is used as parameter in a declaration.
     type Temp 
       "Temporary type of Extrapolation with choices for menus (until enumerations are available)" 
       
-      extends Integer;
+      extends Modelica.Icons.TypeInteger;
       annotation (choices(
         choice=Modelica.Blocks.Types.Extrapolation.HoldLastPoint 
             "hold last point (constant extrapolation)",
@@ -37,7 +37,7 @@ user interface when the type is used as parameter in a declaration.
     "Type, constants and menu choices to define the smoothness of table interpolation" 
     
     annotation (preferedView="text");
-    extends Modelica.Icons.Library;
+    extends Modelica.Icons.Enumeration;
     
     constant Integer LinearSegments=0;
     constant Integer ContinuousDerivative=1;
@@ -45,7 +45,7 @@ user interface when the type is used as parameter in a declaration.
     type Temp 
       "Temporary type of Smoothness with choices for menus (until enumerations are available)" 
       
-      extends Integer;
+      extends Modelica.Icons.TypeInteger;
       annotation (choices(
         choice=Modelica.Blocks.Types.Smoothness.LinearSegments 
             "linear segments",

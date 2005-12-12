@@ -3,13 +3,14 @@ package Sensors "Sensors to measure variables"
     "Measure absolute kinematic quantities of a frame connector" 
     import SI = Modelica.SIunits;
     import Modelica.Mechanics.MultiBody.Frames;
+    import Modelica.Mechanics.MultiBody.Types;
     extends Interfaces.PartialAbsoluteSensor(n_out=3*((if get_r_abs then 1 else 
                   0) + (if get_v_abs then 1 else 0) + (if get_a_abs then 1 else 
                   0) + (if get_angles then 1 else 0) + (if get_w_abs then 1 else 
                   0) + (if get_z_abs then 1 else 0)));
     Interfaces.Frame_resolve frame_resolve 
       "If connected, the output signals are resolved in this frame" 
-      annotation (extent=[-15, 100; 16, 120], rotation=-90);
+      annotation (extent=[-20, 80; 20, 120], rotation=-90);
     parameter Boolean animation=true 
       "= true, if animation shall be enabled (show arrow)";
     parameter Boolean resolveInFrame_a=false 
@@ -26,32 +27,46 @@ package Sensors "Sensors to measure variables"
       "= true, to measure the absolute angular velocity of frame_a in [rad/s]";
     parameter Boolean get_z_abs=false 
       "= true, to measure the absolute angular acceleration to frame_a in [rad/s^2]";
-    parameter Modelica.Mechanics.MultiBody.Types.RotationSequence sequence(
+    parameter Types.RotationSequence sequence(
       min={1,1,1},
       max={3,3,3}) = {1,2,3} 
-      "|if get_angles = true| Angles are returned to rotate world frame around axes sequence[1], sequence[2] and finally sequence[3] into frame_a"
-      annotation (Evaluate=true);
+      " Angles are returned to rotate world frame around axes sequence[1], sequence[2] and finally sequence[3] into frame_a"
+      annotation (Evaluate=true, Dialog(group="if get_angles = true", enable=get_angles));
     parameter SI.Angle guessAngle1=0 
-      "|if get_angles = true| Select angles[1] such that abs(angles[1] - guessAngle1) is a minimum";
-    parameter SI.Diameter arrowDiameter=world.defaultArrowDiameter 
-      "|Animation|if animation = true| Diameter of arrow from world frame to frame_a";
-    parameter Modelica.Mechanics.MultiBody.Types.Color arrowColor=Modelica.Mechanics.MultiBody.Types.Defaults.
-        SensorColor 
-      "|Animation|if animation = true| Color of arrow from world frame to frame_a";
+      " Select angles[1] such that abs(angles[1] - guessAngle1) is a minimum" 
+      annotation (Dialog(group="if get_angles = true", enable=get_angles));
+    input SI.Diameter arrowDiameter=world.defaultArrowDiameter 
+      " Diameter of arrow from world frame to frame_a" 
+      annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+    input Types.Color arrowColor=Types.Defaults.SensorColor 
+      " Color of arrow from world frame to frame_a" 
+      annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
+      "Reflection of ambient light (= 0: light is completely absorbed)" 
+      annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+    
     annotation (
       preferedView="info",
       Icon(
         Text(
-          extent=[19, 121; 150, 96],
+          extent=[19,109; 150,84],
           style(color=8),
           string="resolve"),
-        Line(points=[-70, 0; -70, 80; 0, 80; 0, 100], style(color=6, thickness=
-                2)),
+        Line(points=[-80,0; -80,80; 0,80; 0,100], style(
+            color=0,
+            rgbcolor={0,0,0},
+            pattern=3,
+            thickness=2)),
         Text(
           extent=[-132, 52; -96, 27],
           style(color=10),
           string="a")),
-      Diagram,
+      Diagram(
+        Line(points=[-80,0; -80,80; 0,80; 0,98], style(
+            color=0,
+            rgbcolor={0,0,0},
+            pattern=3,
+            thickness=2))),
       Documentation(info="<HTML>
 <p>
 Absolute kinematic quantities of frame_a are
@@ -158,7 +173,7 @@ Exact definition of the returned quantities:
             resolved according to table below).</li> 
 </ol>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><th><b><i>frame_resolved is</i></b></th>
+  <tr><th><b><i>frame_resolve is</i></b></th>
       <th><b><i>resolveInFrame_a =</i></b></th>
       <th><b><i>vector is resolved in</i></b></th>
   </tr>
@@ -206,11 +221,11 @@ Exact definition of the returned quantities:
     parameter Integer i4=if get_a_abs then i3 + 3 else i3;
     parameter Integer i5=if get_angles then i4 + 3 else i4;
     parameter Integer i6=if get_w_abs then i5 + 3 else i5;
-    parameter Integer ndim=if world.enableAnimation and animation then 1 else 0;
-    Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow arrow[ndim](
-      each r_head=frame_a.r_0,
-      each diameter=arrowDiameter,
-      each color=arrowColor);
+    Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow arrow(
+      r_head=frame_a.r_0,
+      diameter=arrowDiameter,
+      specularCoefficient=specularCoefficient,
+      color=arrowColor) if world.enableAnimation and animation;
   equation 
     if get_angles then
       angles = Frames.axesRotationsAngles(frame_a.R, sequence, guessAngle1);
@@ -354,14 +369,15 @@ Exact definition of the returned quantities:
     
     import SI = Modelica.SIunits;
     import Modelica.Mechanics.MultiBody.Frames;
+    import Modelica.Mechanics.MultiBody.Types;
     
-    extends Modelica.Mechanics.MultiBody.Interfaces.PartialRelativeSensor(n_out=3*((if 
+    extends Interfaces.PartialRelativeSensor(n_out=3*((if 
             get_r_rel then 1 else 0) + (if get_v_rel then 1 else 0) + (if 
             get_a_rel then 1 else 0) + (if get_angles then 1 else 0) + (if 
             get_w_rel then 1 else 0) + (if get_z_rel then 1 else 0)));
     Interfaces.Frame_resolve frame_resolve 
       "If connected, the output signals are resolved in this frame" 
-      annotation (extent=[-95, -110; -64, -90], rotation=-90);
+      annotation (extent=[-80,-120; -40,-80],  rotation=-90);
     
     parameter Boolean animation=true 
       "= true, if animation shall be enabled (show arrow)";
@@ -379,18 +395,23 @@ Exact definition of the returned quantities:
       "= true, to measure the relative angular velocity of frame_b with respect to frame_a in [rad/s]";
     parameter Boolean get_z_rel=false 
       "= true, to measure the relative angular acceleration of frame_b with respect to frame_a in [rad/s^2]";
-    parameter Modelica.Mechanics.MultiBody.Types.RotationSequence sequence(
+    parameter Types.RotationSequence sequence(
       min={1,1,1},
       max={3,3,3}) = {1,2,3} 
-      "|if get_angles = true| Angles are returned to rotate frame_a around axes sequence[1], sequence[2] and finally sequence[3] into frame_b"
-      annotation (Evaluate=true);
+      " Angles are returned to rotate frame_a around axes sequence[1], sequence[2] and finally sequence[3] into frame_b"
+      annotation (Evaluate=true, Dialog(group="if get_angles = true", enable=get_angles));
     parameter SI.Angle guessAngle1=0 
-      "|if get_angles = true| Select angles[1] such that abs(angles[1] - guessAngle1) is a minimum";
-    parameter SI.Diameter arrowDiameter=world.defaultArrowDiameter 
-      "|Animation|if animation = true| Diameter of relative arrow from frame_a to frame_b";
-    parameter Modelica.Mechanics.MultiBody.Types.Color arrowColor=Modelica.Mechanics.MultiBody.Types.Defaults.
-        SensorColor 
-      "|Animation|if animation = true| Color of relative arrow from frame_a to frame_b";
+      " Select angles[1] such that abs(angles[1] - guessAngle1) is a minimum" 
+      annotation (Dialog(group="if get_angles = true", enable=get_angles));
+    input SI.Diameter arrowDiameter=world.defaultArrowDiameter 
+      " Diameter of relative arrow from frame_a to frame_b" 
+      annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+    input Types.Color arrowColor=Types.Defaults.SensorColor 
+      " Color of relative arrow from frame_a to frame_b" 
+      annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
+      "Reflection of ambient light (= 0: light is completely absorbed)" 
+      annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     
     SI.Position r_rel[3] 
       "Dummy or relative position vector (resolved in frame_a, frame_b or frame_resolve)";
@@ -422,19 +443,22 @@ Exact definition of the returned quantities:
     parameter Integer i4=if get_a_rel then i3 + 3 else i3;
     parameter Integer i5=if get_angles then i4 + 3 else i4;
     parameter Integer i6=if get_w_rel then i5 + 3 else i5;
-    parameter Integer ndim=if world.enableAnimation and animation then 1 else 0;
-    Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow arrow[ndim](
-      each r=frame_a.r_0,
-      each r_head=frame_b.r_0 - frame_a.r_0,
-      each diameter=arrowDiameter,
-      each color=arrowColor);
+    Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow arrow(
+      r=frame_a.r_0,
+      r_head=frame_b.r_0 - frame_a.r_0,
+      diameter=arrowDiameter,
+      color=arrowColor,
+      specularCoefficient) if world.enableAnimation and animation;
     annotation (
       preferedView="info",
-      Icon(Line(points=[-80, -102; -80, -90; 0, -90; 0, -90], style(color=6,
-              thickness=2)), Text(
-          extent=[-135, -61; -4, -86],
-          style(color=8),
-          string="resolve")),
+      Icon(Line(points=[-60,-94; -60,-80; 0,-80; 0,-80], style(
+            color=0,
+            rgbcolor={0,0,0},
+            pattern=3,
+            thickness=2)),   Text(
+          extent=[-131,-55; 0,-80],
+          string="resolve",
+          style(color=8, rgbcolor={192,192,192}))),
       Diagram,
       Documentation(info="<HTML>
 <p>
@@ -569,7 +593,7 @@ using the auxiliary quantities
 and resolved in the following frame
 </p>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><th><b><i>frame_resolved is</i></b></th>
+  <tr><th><b><i>frame_resolve is</i></b></th>
       <th><b><i>resolveInFrame_a =</i></b></th>
       <th><b><i>vector is resolved in</i></b></th>
   </tr>
@@ -746,10 +770,10 @@ and resolved in the following frame
     
     import SI = Modelica.SIunits;
     import Modelica.Mechanics.MultiBody.Frames;
+    import Modelica.Mechanics.MultiBody.Types;
     
+    extends Interfaces.PartialTwoFrames;
     extends Modelica.Icons.TranslationalSensor;
-    Interfaces.Frame_a frame_a annotation (extent=[-110, -15; -90, 15]);
-    Interfaces.Frame_b frame_b annotation (extent=[90, -15; 110, 15]);
     Modelica.Blocks.Interfaces.RealOutput distance( redeclare type SignalType 
         = SI.Length) 
       "Distance between the origin of frame_a and the origin of frame_b" 
@@ -757,37 +781,31 @@ and resolved in the following frame
     
     parameter Boolean animation=true 
       "= true, if animation shall be enabled (show arrow)";
-    parameter SI.Diameter arrowDiameter=world.defaultArrowDiameter 
-      " Diameter of relative arrow from frame_a to frame_b" 
-      annotation (Dialog(group="if animation = true"));
-    parameter Types.Color arrowColor=Modelica.Mechanics.MultiBody.Types.Defaults.
-        SensorColor " Color of relative arrow from frame_a to frame_b" 
-      annotation (Dialog(group="if animation = true"));
-    parameter SI.Position s_small(min=sqrt(Modelica.Constants.small))=1.E-10 
-      " Prevent zero-division if distance between frame_a and frame_b is zero" 
+    input SI.Diameter arrowDiameter=world.defaultArrowDiameter 
+      "Diameter of relative arrow from frame_a to frame_b" 
+      annotation (Dialog(group="if animation = true", enable=animation));
+    input Types.Color arrowColor=Types.Defaults.SensorColor 
+      "Color of relative arrow from frame_a to frame_b" 
+      annotation (Dialog(group="if animation = true", enable=animation));
+    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
+      "Reflection of ambient light (= 0: light is completely absorbed)" 
+      annotation (Dialog(group="if animation = true", enable=animation));
+    input SI.Position s_small(min=sqrt(Modelica.Constants.small))=1.E-10 
+      "Prevent zero-division if distance between frame_a and frame_b is zero" 
       annotation (Dialog(tab="Advanced"));
   protected 
-    outer Modelica.Mechanics.MultiBody.World world;
-    parameter Integer ndim=if world.enableAnimation and animation then 1 else 0;
-    Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow arrow[ndim](
-      each r=frame_a.r_0,
-      each r_head=frame_b.r_0 - frame_a.r_0,
-      each diameter=arrowDiameter,
-      each color=arrowColor);
+    Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow arrow(
+      r=frame_a.r_0,
+      r_head=frame_b.r_0 - frame_a.r_0,
+      diameter=arrowDiameter,
+      color=arrowColor,
+      specularCoefficient=specularCoefficient) if world.enableAnimation and animation;
     annotation (
       preferedView="info",
       Icon(
         Line(points=[0, -60; 0, -100]),
         Line(points=[-70, 0; -101, 0], style(color=0)),
         Line(points=[70, 0; 100, 0], style(color=0)),
-        Text(
-          extent=[-136, 44; -100, 19],
-          style(color=10),
-          string="a"),
-        Text(
-          extent=[101, 41; 137, 16],
-          style(color=10),
-          string="b"),
         Text(extent=[-128,30; 133,78],    string="%name")),
       Diagram(
         Line(points=[-70, 0; -101, 0], style(color=0)),
@@ -840,11 +858,6 @@ differentiable everywhere. The derivative at zero distance is 3/(2*s_small).
     SI.Length L2 = r_rel_0*r_rel_0;
     SI.Length s_small2 = s_small^2;
   equation 
-    assert(cardinality(frame_a) > 0,
-      "Connector frame_a of LineSensor object is not connected");
-    assert(cardinality(frame_b) > 0,
-      "Connector frame_b of LineSensor object is not connected");
-    
     frame_a.f = zeros(3);
     frame_b.f = zeros(3);
     frame_a.t = zeros(3);
@@ -856,6 +869,7 @@ differentiable everywhere. The derivative at zero distance is 3/(2*s_small).
   model CutForce "Measure cut force vector" 
     
     import SI = Modelica.SIunits;
+    import Modelica.Mechanics.MultiBody.Types;
     
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialCutForceSensor;
     Modelica.Blocks.Interfaces.RealOutput force[3](redeclare each type 
@@ -869,12 +883,17 @@ differentiable everywhere. The derivative at zero distance is 3/(2*s_small).
       "= true, if force with positive sign is returned (= frame_a.f), otherwise with negative sign (= frame_b.f)";
     parameter Boolean resolveInFrame_a=true 
       "= true, if force is resolved in frame_a/frame_b, otherwise in the world frame (if connector frame_resolve is connected, the force is resolved in frame_resolve)";
-    parameter Real N_to_m(unit="N/m") = 1000 
-      "|if animation = true| Force arrow scaling (length = force/N_to_m)";
-    parameter SI.Diameter forceDiameter=world.defaultArrowDiameter 
-      "|if animation = true| Diameter of force arrow";
-    parameter Modelica.Mechanics.MultiBody.Types.Color forceColor=Modelica.Mechanics.MultiBody.Types.Defaults.
-        ForceColor "|if animation = true| Color of force arrow";
+    input Real N_to_m(unit="N/m") = 1000 
+      " Force arrow scaling (length = force/N_to_m)" 
+      annotation (Dialog(group="if animation = true", enable=animation));
+    input SI.Diameter forceDiameter=world.defaultArrowDiameter 
+      " Diameter of force arrow" annotation (Dialog(group="if animation = true", enable=animation));
+    input Types.Color forceColor=Modelica.Mechanics.MultiBody.Types.Defaults.
+        ForceColor " Color of force arrow" 
+      annotation (Dialog(group="if animation = true", enable=animation));
+    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
+      "Reflection of ambient light (= 0: light is completely absorbed)" 
+      annotation (Dialog(group="if animation = true", enable=animation));
     
     annotation (
       preferedView="info",
@@ -910,16 +929,16 @@ with negative sign at frame_a.
 </HTML>"));
   protected 
     outer Modelica.Mechanics.MultiBody.World world;
-    parameter Integer ndim=if world.enableAnimation and animation then 1 else 0;
     SI.Position f_in_m[3]=frame_a.f*(if positiveSign then +1 else -1)/N_to_m 
       "Force mapped from N to m for animation";
-    Visualizers.Advanced.Arrow forceArrow[ndim](
-      each diameter=forceDiameter,
-      each color=forceColor,
-      each R=frame_b.R,
-      each r=frame_b.r_0,
-      each r_tail=f_in_m,
-      each r_head=-f_in_m);
+    Visualizers.Advanced.Arrow forceArrow(
+      diameter=forceDiameter,
+      color=forceColor,
+      specularCoefficient=specularCoefficient,
+      R=frame_b.R,
+      r=frame_b.r_0,
+      r_tail=f_in_m,
+      r_head=-f_in_m) if world.enableAnimation and animation;
   equation 
     if cardinality(frame_resolve) == 1 then
       force = Frames.resolve2(frame_resolve.R, Frames.resolve1(frame_a.R,
@@ -935,6 +954,7 @@ with negative sign at frame_a.
   model CutTorque "Measure cut torque vector" 
     
     import SI = Modelica.SIunits;
+    import Modelica.Mechanics.MultiBody.Types;
     
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialCutForceSensor;
     Modelica.Blocks.Interfaces.RealOutput torque[3](redeclare each type 
@@ -948,12 +968,18 @@ with negative sign at frame_a.
       "= true, if torque with positive sign is returned (= frame_a.t), otherwise with negative sign (= frame_b.t)";
     parameter Boolean resolveInFrame_a=true 
       "= true, if torque is resolved in frame_a/frame_b, otherwise in the world frame (if connector frame_resolve is connected, the torque is resolved in frame_resolve)";
-    parameter Real Nm_to_m(unit="N.m/m") = 1000 
-      "|if animation = true| Torque arrow scaling (length = torque/Nm_to_m)";
-    parameter SI.Diameter torqueDiameter=world.defaultArrowDiameter 
-      "|if animation = true| Diameter of torque arrow";
-    parameter Modelica.Mechanics.MultiBody.Types.Color torqueColor=Modelica.Mechanics.MultiBody.Types.Defaults.
-        TorqueColor "|if animation = true| Color of torque arrow";
+    input Real Nm_to_m(unit="N.m/m") = 1000 
+      " Torque arrow scaling (length = torque/Nm_to_m)" 
+      annotation (Dialog(group="if animation = true", enable=animation));
+    input SI.Diameter torqueDiameter=world.defaultArrowDiameter 
+      " Diameter of torque arrow" annotation (Dialog(group="if animation = true", enable=animation));
+    input Types.Color torqueColor=Types.Defaults.TorqueColor 
+      " Color of torque arrow" 
+      annotation (Dialog(group="if animation = true", enable=animation));
+    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
+      "Reflection of ambient light (= 0: light is completely absorbed)" 
+      annotation (Dialog(group="if animation = true", enable=animation));
+    
     annotation (
       preferedView="info",
       Icon(Text(
@@ -988,16 +1014,16 @@ with negative sign at frame_a.
 </HTML>"));
   protected 
     outer Modelica.Mechanics.MultiBody.World world;
-    parameter Integer ndim=if world.enableAnimation and animation then 1 else 0;
     SI.Position t_in_m[3]=frame_a.t*(if positiveSign then +1 else -1)/Nm_to_m 
       "Torque mapped from Nm to m for animation";
-    Visualizers.Advanced.DoubleArrow torqueArrow[ndim](
-      each diameter=torqueDiameter,
-      each color=torqueColor,
-      each R=frame_b.R,
-      each r=frame_b.r_0,
-      each r_tail=t_in_m,
-      each r_head=-t_in_m);
+    Visualizers.Advanced.DoubleArrow torqueArrow(
+      diameter=torqueDiameter,
+      color=torqueColor,
+      specularCoefficient=specularCoefficient,
+      R=frame_b.R,
+      r=frame_b.r_0,
+      r_tail=t_in_m,
+      r_head=-t_in_m) if world.enableAnimation and animation;
   equation 
     if cardinality(frame_resolve) == 1 then
       torque = Frames.resolve2(frame_resolve.R, Frames.resolve1(frame_a.R,
@@ -1013,6 +1039,7 @@ with negative sign at frame_a.
   model CutForceAndTorque "Measure cut force and cut torque vector" 
     
     import SI = Modelica.SIunits;
+    import Modelica.Mechanics.MultiBody.Types;
     
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialCutForceSensor;
     Modelica.Blocks.Interfaces.RealOutput load[6] 
@@ -1025,18 +1052,26 @@ with negative sign at frame_a.
       "= true, if force and torque with positive sign is returned (= frame_a.f/.t), otherwise with negative sign (= frame_b.f/.t)";
     parameter Boolean resolveInFrame_a=true 
       "= true, if force and torque are resolved in frame_a/frame_b, otherwise in the world frame (if connector frame_resolve is connected, the force/torque is resolved in frame_resolve)";
-    parameter Real N_to_m(unit="N/m") = 1000 
-      "|if animation = true| Force arrow scaling (length = force/N_to_m)";
-    parameter Real Nm_to_m(unit="N.m/m") = 1000 
-      "|if animation = true| Torque arrow scaling (length = torque/Nm_to_m)";
-    parameter SI.Diameter forceDiameter=world.defaultArrowDiameter 
-      "|if animation = true| Diameter of force arrow";
-    parameter SI.Diameter torqueDiameter=forceDiameter 
-      "|if animation = true| Diameter of torque arrow";
-    parameter Modelica.Mechanics.MultiBody.Types.Color forceColor=Modelica.Mechanics.MultiBody.Types.Defaults.
-        ForceColor "|if animation = true| Color of force arrow";
-    parameter Modelica.Mechanics.MultiBody.Types.Color torqueColor=Modelica.Mechanics.MultiBody.Types.Defaults.
-        TorqueColor "|if animation = true| Color of torque arrow";
+    input Real N_to_m(unit="N/m") = 1000 
+      " Force arrow scaling (length = force/N_to_m)" 
+      annotation (Dialog(group="if animation = true", enable=animation));
+    input Real Nm_to_m(unit="N.m/m") = 1000 
+      " Torque arrow scaling (length = torque/Nm_to_m)" 
+      annotation (Dialog(group="if animation = true", enable=animation));
+    input SI.Diameter forceDiameter=world.defaultArrowDiameter 
+      " Diameter of force arrow" annotation (Dialog(group="if animation = true", enable=animation));
+    input SI.Diameter torqueDiameter=forceDiameter " Diameter of torque arrow" 
+                                  annotation (Dialog(group="if animation = true", enable=animation));
+    input Types.Color forceColor=Types.Defaults.ForceColor 
+      " Color of force arrow" 
+      annotation (Dialog(group="if animation = true", enable=animation));
+    input Types.Color torqueColor=Types.Defaults.TorqueColor 
+      " Color of torque arrow" 
+      annotation (Dialog(group="if animation = true", enable=animation));
+    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
+      "Reflection of ambient light (= 0: light is completely absorbed)" 
+      annotation (Dialog(group="if animation = true", enable=animation));
+    
     SI.Force force[3] 
       "Cut force resolved in frame_a/frame_b or in frame_resolved, if connected";
     SI.Torque torque[3] 
@@ -1081,26 +1116,27 @@ with negative sign at frame_a.
 </HTML>"));
   protected 
     outer Modelica.Mechanics.MultiBody.World world;
-    parameter Integer ndim=if world.enableAnimation and animation then 1 else 0;
     parameter Integer csign=if positiveSign then +1 else -1;
     SI.Position f_in_m[3]=frame_a.f*csign/N_to_m 
       "Force mapped from N to m for animation";
     SI.Position t_in_m[3]=frame_a.t*csign/Nm_to_m 
       "Torque mapped from Nm to m for animation";
-    Visualizers.Advanced.Arrow forceArrow[ndim](
-      each diameter=forceDiameter,
-      each color=forceColor,
-      each R=frame_b.R,
-      each r=frame_b.r_0,
-      each r_tail=f_in_m,
-      each r_head=-f_in_m);
-    Visualizers.Advanced.DoubleArrow torqueArrow[ndim](
-      each diameter=torqueDiameter,
-      each color=torqueColor,
-      each R=frame_b.R,
-      each r=frame_b.r_0,
-      each r_tail=t_in_m,
-      each r_head=-t_in_m);
+    Visualizers.Advanced.Arrow forceArrow(
+      diameter=forceDiameter,
+      color=forceColor,
+      specularCoefficient=specularCoefficient,
+      R=frame_b.R,
+      r=frame_b.r_0,
+      r_tail=f_in_m,
+      r_head=-f_in_m) if world.enableAnimation and animation;
+    Visualizers.Advanced.DoubleArrow torqueArrow(
+      diameter=torqueDiameter,
+      color=torqueColor,
+      specularCoefficient=specularCoefficient,
+      R=frame_b.R,
+      r=frame_b.r_0,
+      r_tail=t_in_m,
+      r_head=-t_in_m) if world.enableAnimation and animation;
   equation 
     if cardinality(frame_resolve) == 1 then
       force = Frames.resolve2(frame_resolve.R, Frames.resolve1(frame_a.R,
@@ -1122,13 +1158,14 @@ with negative sign at frame_a.
   model Power "Measure power flowing from frame_a to frame_b" 
     import SI = Modelica.SIunits;
     extends Modelica.Icons.RotationalSensor;
+    
+    extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
     Modelica.Blocks.Interfaces.RealOutput power(redeclare type SignalType = 
-          SI.Power) 
+          SI.Power) "Power at frame_a as output signal" 
       annotation (extent=[-90, -100; -70, -120], rotation=90);
     
     annotation (
       Diagram(
-        Text(extent=[-44, -80; 28, -106], string="Power P"),
         Line(points=[-70, 0; -101, 0], style(color=0)),
         Line(points=[70, 0; 100, 0], style(color=0)),
         Line(points=[-80, 0; -80, -100])),
@@ -1137,19 +1174,16 @@ with negative sign at frame_a.
         Line(points=[70, 0; 100, 0], style(color=0)),
         Line(points=[-80, 0; -80, -100]),
         Text(
-          extent=[-68, -80; -16, -114],
-          string="P",
-          style(color=0)),
+          extent=[-60,-92; 16,-114],
+          style(color=0),
+          string="power"),
         Text(extent=[-128, 126; 126, 68], string="%name")),
       Documentation(info="<HTML>
 <p>
 This component provides the power flowing from frame_a to frame_b
-as output signal <b>power</b>).
+as output signal <b>power</b>.
 </p>
 </HTML>"));
-    Interfaces.Frame_a frame_a annotation (extent=[-110,-15; -90,15]);
-    Interfaces.Frame_b frame_b annotation (extent=[110,-15; 90,15]);
-    
   equation 
     defineBranch(frame_a.R, frame_b.R);
     frame_a.r_0 = frame_b.r_0;

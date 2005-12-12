@@ -1,5 +1,6 @@
-package Examples "Examples for the 3D mechanical systems library"
+package Examples "Examples that demonstrate the usage of the MultiBody library"
 extends Modelica.Icons.Library;
+
 
 annotation (preferedView="info", Documentation(info="<html>
 <p>

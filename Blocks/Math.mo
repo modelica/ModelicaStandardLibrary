@@ -23,47 +23,7 @@ such as summation and multiplication, and basic <b>mathematical
 functions</b>, such as <b>sqrt</b> and <b>sin</b>, as
 input/output blocks. All blocks of this library can be either
 connected with continuous blocks or with sampled-data blocks.
-In particular the following operations and functions are
-provided:
 </p>
-<pre>
-   <b>TwoInputs</b>        Change causality of input signals.
-   <b>TwoOutputs</b>       Change causality of output signals.
-   <b>Gain</b>             Output the input multiplied by a scalar gain
-   <b>MatrixGain</b>       Output the product of a gain matrix with the input
-   <b>Sum</b>              Output the sum of the elements of the input vector
-   <b>Feedback</b>         Output difference between commanded and feedback input
-   <b>Add</b>              Output the sum of the two inputs
-   <b>Add3</b>             Output the sum of the three inputs
-   <b>Product</b>          Output product of the two inputs
-   <b>Division</b>         Output first input divided by second input
-   <b>Abs</b>              Output the absolute value of the input
-   <b>Sign</b>             Output the sign of the input
-   <b>Sqrt</b>             Output the square root of the input
-   <b>Sin</b>              Output the sine of the input
-   <b>Cos</b>              Output the cosine of the input
-   <b>Tan</b>              Output the tangent of the input
-   <b>Asin</b>             Output the arc sine of the input
-   <b>Acos</b>             Output the arc cosine of the input
-   <b>Atan</b>             Output the arc tangent of the input
-   <b>Atan2</b>            Output atan(u1/u2) of the inputs u1 and u2
-   <b>Sinh</b>             Output the hyperbolic sine of the input
-   <b>Cosh</b>             Output the hyperbolic cosine of the input
-   <b>Tanh</b>             Output the hyperbolic tangent of the input
-   <b>Exp</b>              Output the exponential (base e) of the input
-   <b>Log</b>              Output the natural (base e) logarithm of the input
-   <b>Log10</b>            Output the base 10 logarithm of the input
-   <b>RealToInteger</b>    Output the nearest Integer value to the input
-   <b>IntegerToReal</b>    Output the input as Real value
-   <b>RealToBoolean</b>    Convert Real to Boolean
-   <b>BooleanToReal</b>    Convert Boolean to Real
-   <b>IntegerToBoolean</b> Convert Integer to Boolean
-   <b>BooleanToInteger</b> Convert Boolean to Integer
-   <b>Min</b>              Output the minimum of the two inputs
-   <b>Edge</b>             Set output to true at rising edge of the input
-   <b>BooleanChange</b>    Set output to true when Boolean input changes
-   <b>IntegerChange</b>    Set output to true when Integer input changes
-</pre>
 </HTML>
 ", revisions="<html>
 <ul>

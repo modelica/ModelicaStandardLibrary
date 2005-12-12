@@ -592,4 +592,10 @@ Several matrices may be defined one after another.
       tableID=dymTableInit(2.0, smoothness, if tableOnFile then tableName else "NoName", if tableOnFile then fileName else "NoName", table, 0.0);
     end when;
   end CombiTable2D;
+  annotation (Documentation(info="<html>
+<p>
+This package contains blocks for one- and two-dimensional
+interpolation in tables.
+</p>
+</html>"));
 end Tables;

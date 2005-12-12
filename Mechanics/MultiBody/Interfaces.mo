@@ -1,4 +1,5 @@
-package Interfaces "Connectors and partial models for 3D mechanical components" 
+package Interfaces 
+  "Connectors and partial models for 3-dim. mechanical components" 
   
   extends Modelica.Icons.Library;
   
@@ -8,9 +9,15 @@ package Interfaces "Connectors and partial models for 3D mechanical components"
       width=0.38,
       height=0.26,
       library=1,
-      autolayout=1));
+      autolayout=1), preferedView="info", Documentation(info="<html>
+<p>
+This package contains connectors and partial models (i.e. models
+that are only used to build other models) of the MultiBody library.
+</p>
+</html>"));
   
-  connector Frame "Frame of a mechanical system" 
+  connector Frame 
+    "Coordinate system fixed to the component with one cut-force and cut-torque (no icon)" 
     import SI = Modelica.SIunits;
     SI.Position r_0[3] 
       "Position vector from world frame to the connector frame origin, resolved in world frame";
@@ -24,27 +31,42 @@ same motion. For planar loops, use in one
 revolute joint per loop the option
 PlanarCutJoint=true in the Advanced menu.");
     flow SI.Torque t[3] "Cut-torque resolved in connector frame";
+    annotation (Documentation(info="<html>
+<p>
+Basic definition of a coordinate system that is fixed to a mechanical
+component. In the origin of the coordinate system the cut-force
+and the cut-torque is acting. This component has no icon definition
+and is only used by inheritance from frame connectors to define
+different icons.
+</p>
+</html>"));
   end Frame;
   
-  connector Frame_a "Frame a of a mechanical element" 
+  connector Frame_a 
+    "Coordinate system fixed to the component with one cut-force and cut-torque (filled rectangular icon)" 
     extends Frame;
     
     annotation (defaultComponentName="frame_a",
       Coordsys(
-        extent=[-100,-150; 100,150],
-        grid=[1,1],
-        component=[20, 20], 
-        scale=0.1),
-      Icon(Rectangle(extent=[-50,150; 50,-150], style(
+        extent=[-100,-100; 100,100],
+        grid=[2,2],
+        component=[20, 20],
+        scale=0.2),
+      Icon(coordinateSystem(extent=[-200,-200; 200,200]),
+           Rectangle(extent=[-10,10; 10,-10], style(
             color=0,
             rgbcolor={0,0,0},
-            thickness=2,
-            fillColor=8))),
+            thickness=2)),
+           Rectangle(extent=[-30,100; 30,-100], style(
+            color=0,
+            rgbcolor={0,0,0},
+            fillColor=8,
+            rgbfillColor={192,192,192}))),
       Diagram(Text(
-          extent=[-155,-68; 171,-137],
+          extent=[-140,-60; 140,-90],
           string="%name",
           style(color=0)),
-              Rectangle(extent=[-20,60; 20,-60], style(
+              Rectangle(extent=[-15,50; 15,-50], style(
             color=0,
             rgbcolor={0,0,0},
             thickness=2,
@@ -55,33 +77,46 @@ PlanarCutJoint=true in the Advanced menu.");
         x=0.21,
         y=0.18,
         width=0.71,
-        height=0.65));
+        height=0.65),
+      Documentation(info="<html>
+<p>
+Basic definition of a coordinate system that is fixed to a mechanical
+component. In the origin of the coordinate system the cut-force
+and the cut-torque is acting.
+This component has a filled rectangular icon.
+</p>
+</html>"));
   end Frame_a;
   
-  connector Frame_b "Frame b of a mechanical element" 
+  connector Frame_b 
+    "Coordinate system fixed to the component with one cut-force and cut-torque (non-filled rectangular icon)" 
     extends Frame;
     
-    annotation (defaultComponentName="frame_b",
+    annotation (defaultComponentName="frame_a",
       Coordsys(
-        extent=[-100,-150; 100,150],
-        grid=[1,1],
+        extent=[-100,-100; 100,100],
+        grid=[2,2],
         component=[20, 20],
-        scale=0.1),
-      Icon(Rectangle(extent=[-50,150; 50,-150], style(
-            color=0, 
-            rgbcolor={0,0,0}, 
-            thickness=2, 
-            fillColor=7, 
+        scale=0.2),
+      Icon(coordinateSystem(extent=[-200,-200; 200,200]),
+           Rectangle(extent=[-10,10; 10,-10], style(
+            color=0,
+            rgbcolor={0,0,0},
+            thickness=2)),
+           Rectangle(extent=[-30,100; 30,-100], style(
+            color=0,
+            rgbcolor={0,0,0},
+            fillColor=7,
             rgbfillColor={255,255,255}))),
       Diagram(Text(
-          extent=[-155,-68; 171,-137],
+          extent=[-140,-60; 140,-90],
           string="%name",
           style(color=0)),
-              Rectangle(extent=[-20,60; 20,-60], style(
-            color=0, 
-            rgbcolor={0,0,0}, 
-            thickness=2, 
-            fillColor=7, 
+              Rectangle(extent=[-15,50; 15,-50], style(
+            color=0,
+            rgbcolor={0,0,0},
+            thickness=2,
+            fillColor=7,
             rgbfillColor={255,255,255}))),
       Terminal(Polygon(points=[0, 0; -100, -100; 100, -100; 100, 100; -100, 100;
                0, 0], style(fillColor=3))),
@@ -89,49 +124,79 @@ PlanarCutJoint=true in the Advanced menu.");
         x=0.21,
         y=0.18,
         width=0.71,
-        height=0.65));
+        height=0.65),
+      Documentation(info="<html>
+<p>
+Basic definition of a coordinate system that is fixed to a mechanical
+component. In the origin of the coordinate system the cut-force
+and the cut-torque is acting. This component has a non-filled rectangular icon.
+</p>
+</html>"));
   end Frame_b;
   
   connector Frame_resolve 
-    "Frame of a mechanical element that is solely used to provide orientation information" 
-    
+    "Coordinate system fixed to the component used to express in which coordinate system a vector is resolved (non-filled rectangular icon)" 
     extends Frame;
+    
     annotation (defaultComponentName="frame_resolve",
       Coordsys(
-        extent=[-100,-150; 100,150],
-        grid=[1,1],
+        extent=[-100,-100; 100,100],
+        grid=[2,2],
         component=[20, 20],
-        scale=0.1),
-      Icon(Rectangle(extent=[-50,150; 50,-150], style(
-            color=0, 
-            rgbcolor={0,0,0}, 
-            pattern=3, 
-            fillColor=8, 
-            rgbfillColor={192,192,192})), Rectangle(extent=[-50,150; 50,-150], 
-            style(color=0, rgbcolor={0,0,0}))),
+        scale=0.2),
+      Icon(coordinateSystem(extent=[-200,-200; 200,200]),
+           Rectangle(extent=[-10,10; 10,-10], style(
+            color=0,
+            rgbcolor={0,0,0},
+            pattern=3,
+            thickness=2)),
+           Rectangle(extent=[-30,100; 30,-100], style(
+            color=0,
+            rgbcolor={0,0,0},
+            fillColor=7,
+            rgbfillColor={255,255,255}))),
       Diagram(Text(
-          extent=[-155,-68; 171,-137],
+          extent=[-140,-60; 140,-90],
           string="%name",
           style(color=0)),
-              Rectangle(extent=[-20,60; 20,-60], style(
-            color=0, 
-            rgbcolor={0,0,0}, 
-            fillColor=8, 
-            rgbfillColor={192,192,192}))),
+              Rectangle(extent=[-15,50; 15,-50], style(
+            color=0,
+            rgbcolor={0,0,0},
+            pattern=3,
+            thickness=2,
+            fillColor=7,
+            rgbfillColor={255,255,255}))),
       Terminal(Polygon(points=[0, 0; -100, -100; 100, -100; 100, 100; -100, 100;
                0, 0], style(fillColor=3))),
       Window(
         x=0.21,
         y=0.18,
         width=0.71,
-        height=0.65));
+        height=0.65),
+      Documentation(info="<html>
+<p>
+Basic definition of a coordinate system that is fixed to a mechanical
+component. In the origin of the coordinate system the cut-force
+and the cut-torque is acting. This coordinate system is used to 
+express in which coordinate system a vector is resolved.
+A component that uses a Frame_resolve connector has to set the
+cut-force and cut-torque of this frame to zero. When connecting
+from a Frame_resolve connector to another frame connector,
+by default the connecting line has line style \"dotted\".
+This component has a non-filled rectangular icon.
+</p>
+</html>"));
   end Frame_resolve;
   
   partial model PartialTwoFrames 
     "Base model for components providing two frame connectors + outer world + assert to guarantee that the component is connected" 
     
-    Interfaces.Frame_a frame_a annotation (extent=[-110,-15; -90,15]);
-    Interfaces.Frame_b frame_b annotation (extent=[ 110, -15; 90, 15]);
+    Interfaces.Frame_a frame_a 
+      "Coordinate system fixed to the component with one cut-force and cut-torque"
+                               annotation (extent=[-120,-20; -80,20]);
+    Interfaces.Frame_b frame_b 
+      "Coordinate system fixed to the component with one cut-force and cut-torque"
+                               annotation (extent=[80,-20; 120,20]);
   protected 
     outer Modelica.Mechanics.MultiBody.World world;
   equation 
@@ -141,10 +206,10 @@ PlanarCutJoint=true in the Advanced menu.");
       "Connector frame_b of component is not connected");
     annotation (
       Icon(Text(
-          extent=[-119,-18; -83,-43],
+          extent=[-136,-25; -100,-50],
           style(color=10),
           string="a"), Text(
-          extent=[85,-19; 121,-44],
+          extent=[100,-25; 136,-50],
           style(color=10),
           string="b")),
       Documentation(info="<HTML>
@@ -160,11 +225,107 @@ needed and if the two frame connectors should be connected for a correct model.
     
   end PartialTwoFrames;
   
-  partial model PartialElementaryJoint 
-    "Base model of elementary joints (has two frames + outer world + assert to guarantee that the joint is connected)" 
+  partial model PartialTwoFramesDoubleSize 
+    "Base model for components providing two frame connectors + outer world + assert to guarantee that the component is connected (default icon size is factor 2 larger as usual)" 
     
-    Interfaces.Frame_a frame_a annotation (extent=[-110,-15; -90,15]);
-    Interfaces.Frame_b frame_b annotation (extent=[110,-15; 90,15]);
+    Interfaces.Frame_a frame_a 
+      "Coordinate system fixed to the component with one cut-force and cut-torque"
+                               annotation (extent=[-110,-10; -90,10]);
+    Interfaces.Frame_b frame_b 
+      "Coordinate system fixed to the component with one cut-force and cut-torque"
+                               annotation (extent=[90,-10; 110,10]);
+  protected 
+    outer Modelica.Mechanics.MultiBody.World world;
+  equation 
+    assert(cardinality(frame_a) > 0,
+      "Connector frame_a of component is not connected");
+    assert(cardinality(frame_b) > 0,
+      "Connector frame_b of component is not connected");
+    annotation (
+      Icon(coordinateSystem(extent=[-200,-200; 200,200]),
+           Text(
+          extent=[-123,-15; -100,-34],
+          style(color=10),
+          string="a"),
+           Text(
+          extent=[100,-15; 124,-34],
+          style(color=10),
+          string="b")),
+      Documentation(info="<HTML>
+<p>
+This partial model provides two frame connectors, access to the world
+object and an assert to check that both frame connectors are connected.
+Therefore, inherit from this partial model if the two frame connectors are
+needed and if the two frame connectors should be connected for a correct model.
+</p>
+<p>
+When dragging \"PartialTwoFrames\", the default size is a factor of two
+larger as usual. This partial model is used by the Joint.Assemblies
+joint aggregation models.
+</p>
+</HTML>"),
+      Coordsys(grid=[2,2],  component=[20, 20],
+        scale=0.2),
+      Diagram);
+    
+  end PartialTwoFramesDoubleSize;
+  
+  partial model PartialOneFrame_a 
+    "Base model for components providing one frame_a connector + outer world + assert to guarantee that the component is connected" 
+    
+    Interfaces.Frame_a frame_a 
+      "Coordinate system fixed to the component with one cut-force and cut-torque"
+                                                                                                          annotation (extent=[-120,-20; -80,20]);
+  protected 
+    outer Modelica.Mechanics.MultiBody.World world;
+  equation 
+    assert(cardinality(frame_a) > 0,
+      "Connector frame_a of component is not connected");
+    annotation (Icon, Documentation(info="<html>
+<p>
+This partial model provides one frame_a connector, access to the world
+object and an assert to check that the frame_a connector is connected.
+Therefore, inherit from this partial model if the frame_a connector is
+needed and if this connector should be connected for a correct model.
+</p>
+</html>"));
+  end PartialOneFrame_a;
+  
+  partial model PartialOneFrame_b 
+    "Base model for components providing one frame_b connector + outer world + assert to guarantee that the component is connected" 
+    
+    Interfaces.Frame_b frame_b 
+      "Coordinate system fixed to the component with one cut-force and cut-torque"
+      annotation (extent=[80,-20; 120,20]);
+  protected 
+    outer Modelica.Mechanics.MultiBody.World world;
+  equation 
+    assert(cardinality(frame_b) > 0,
+      "Connector frame_b of component is not connected");
+    annotation (
+      Icon,
+      Documentation(info="<HTML>
+<p>
+This partial model provides one frame_b connector, access to the world
+object and an assert to check that the frame_b connector is connected.
+Therefore, inherit from this partial model if the frame_b connector is
+needed and if this connector should be connected for a correct model.
+</p>
+</HTML>"),
+      Coordsys(grid=[1, 1], component=[20, 20]),
+      Diagram);
+    
+  end PartialOneFrame_b;
+  
+  partial model PartialElementaryJoint 
+    "Base model for elementary joints (has two frames + outer world + assert to guarantee that the joint is connected)" 
+    
+    Interfaces.Frame_a frame_a 
+      "Coordinate system fixed to the joint with one cut-force and cut-torque" 
+                               annotation (extent=[-120,-20; -80,20]);
+    Interfaces.Frame_b frame_b 
+      "Coordinate system fixed to the joint with one cut-force and cut-torque" 
+                               annotation (extent=[80,-20; 120,20]);
     
   protected 
     outer Modelica.Mechanics.MultiBody.World world;
@@ -198,11 +359,15 @@ object and an assert to check that both frame connectors are connected.
   end PartialElementaryJoint;
   
   partial model PartialForce 
-    "Superclass of force elements (provide frame_b.f and frame_b.t in subclasses)" 
+    "Base model for force elements (provide frame_b.f and frame_b.t in subclasses)" 
     
     import SI = Modelica.SIunits;
-    Interfaces.Frame_a frame_a annotation (extent=[-110,-15; -90,15]);
-    Interfaces.Frame_b frame_b annotation (extent=[ 110, -15; 90, 15]);
+    Interfaces.Frame_a frame_a 
+      "Coordinate system fixed to the joint with one cut-force and cut-torque" 
+                               annotation (extent=[-120,-20; -80,20]);
+    Interfaces.Frame_b frame_b 
+      "Coordinate system fixed to the joint with one cut-force and cut-torque" 
+                               annotation (extent=[80,-20; 120,20]);
     
     SI.Position r_rel_b[3] 
       "Position vector from origin of frame_a to origin of frame_b, resolved in frame_b";
@@ -268,12 +433,17 @@ to which this force element is connected.
           string="b")));
   end PartialForce;
   
-  partial model PartialLineForce "Base model of line force elements" 
+  partial model PartialLineForce "Base model for line force elements" 
     import SI = Modelica.SIunits;
     parameter SI.Position s_small=1.E-6 
-      "|Advanced|| Prevent zero-division if relative distance s=0";
-    Interfaces.Frame_a frame_a annotation (extent=[-110,-15; -90,15]);
-    Interfaces.Frame_b frame_b annotation (extent=[ 110, -15; 90, 15]);
+      " Prevent zero-division if relative distance s=0" 
+      annotation (Dialog(tab="Advanced"));
+    Interfaces.Frame_a frame_a 
+      "Coordinate system fixed to the force element with one cut-force and cut-torque"
+                               annotation (extent=[-120,-20; -80,20]);
+    Interfaces.Frame_b frame_b 
+      "Coordinate system fixed to the force element with one cut-force and cut-torque"
+                               annotation (extent=[80,-20; 120,20]);
     SI.Force f 
       "Line force acting on frame_a and on frame_b (positive, if acting on frame_b and directed from frame_a to frame_b)";
     SI.Position s 
@@ -346,11 +516,15 @@ has to be defined. Example:
   end PartialLineForce;
   
   partial model PartialAbsoluteSensor 
-    "Base class to measure an absolute frame variable" 
+    "Base model to measure an absolute frame variable" 
     extends Modelica.Icons.RotationalSensor;
     parameter Integer n_out = 1 "Number of output signals";
-    Frame_a frame_a annotation (extent=[-110,-15; -90,15]);
-    Modelica.Blocks.Interfaces.RealOutput y[n_out] "Measured data as signals" 
+    Interfaces.Frame_a frame_a 
+      "Coordinate system from which absolute quantities are provided as output signals"
+                                                                                                          annotation (extent=[-120,-20; -80,20]);
+    
+    Modelica.Blocks.Interfaces.RealOutput y[n_out] 
+      "Measured data as signal vector" 
       annotation (extent=[100, -10; 120, 10]);
   protected 
     outer Modelica.Mechanics.MultiBody.World world;
@@ -367,7 +541,7 @@ has to be defined. Example:
       Documentation(info="
 <HTML>
 <p>
-This is the base class of a 3D mechanics component with one frame and one
+This is the base class of a 3-dim. mechanics component with one frame and one
 output port in order to measure an absolute quantity in the frame connector
 and to provide the measured signal as output for further processing
 with the blocks of package Modelica.Blocks.
@@ -380,19 +554,19 @@ with the blocks of package Modelica.Blocks.
       Diagram(Line(points=[-70, 0; -100, 0], style(color=0)), Line(points=[70,
               0; 100, 0])));
   equation 
-    
     assert(cardinality(frame_a) > 0,
       "Connector frame_a of absolute sensor object is not connected");
   end PartialAbsoluteSensor;
   
   partial model PartialRelativeSensor 
-    "Base class to measure a relative variable between two frames" 
+    "Base model to measure a relative variable between two frames" 
     extends Modelica.Icons.RotationalSensor;
     parameter Integer n_out = 1 "Number of output signals";
-    Interfaces.Frame_a frame_a annotation (extent=[-110,-15; -90,15]);
-    Interfaces.Frame_b frame_b annotation (extent=[ 110, -15; 90, 15]);
+    Interfaces.Frame_a frame_a "Coordinate system a" annotation (extent=[-120,-20; -80,20]);
+    Interfaces.Frame_b frame_b "Coordinate system b" annotation (extent=[80,-20; 120,20]);
     
     Modelica.Blocks.Interfaces.RealOutput y[n_out] 
+      "Measured data as signal vector" 
       annotation (extent=[-10, -100; 10, -120], rotation=90);
   protected 
     outer Modelica.Mechanics.MultiBody.World world;
@@ -409,7 +583,7 @@ with the blocks of package Modelica.Blocks.
       Documentation(info="
 <HTML>
 <p>
-This is a base class for 3D mechanical components with two frames
+This is a base class for 3-dim. mechanical components with two frames
 and one output port in order to measure relative quantities
 between the two frames or the cut-forces/torques in the frame and
 to provide the measured signals as output for further processing
@@ -422,11 +596,11 @@ with the blocks of package Modelica.Blocks.
         Line(points=[0, -100; 0, -70]),
         Text(extent=[-132, 76; 129, 124], string="%name"),
         Text(
-          extent=[-136, 44; -100, 19],
+          extent=[-118,52; -82,27],
           style(color=10),
           string="a"),
         Text(
-          extent=[101, 41; 137, 16],
+          extent=[85,53; 121,28],
           style(color=10),
           string="b")),
       Diagram(
@@ -443,14 +617,16 @@ with the blocks of package Modelica.Blocks.
   end PartialRelativeSensor;
   
   partial model PartialCutForceSensor 
-    "Base class to measure the cut force and/or torque between two frames" 
+    "Base model to measure the cut force and/or torque between two frames" 
     
     extends Modelica.Icons.RotationalSensor;
-    Interfaces.Frame_a frame_a annotation (extent=[-110,-15; -90,15]);
-    Interfaces.Frame_b frame_b annotation (extent=[ 110, -15; 90, 15]);
-    Frame_resolve frame_resolve 
-      "If connected, the output signals are resolved in this frame" 
-      annotation (extent=[70,-115; 90,-85], rotation=-90);
+    Interfaces.Frame_a frame_a 
+      "Coordinate system with one cut-force and cut-torque"                          annotation (extent=[-120,-20; -80,20]);
+    Interfaces.Frame_b frame_b 
+      "Coordinate system with one cut-force and cut-torque"                          annotation (extent=[80,-20; 120,20]);
+    Interfaces.Frame_resolve frame_resolve 
+      "If connected, the output signals are resolved in this frame (cut-force/-torque are set to zero)"
+      annotation (extent=[60,-120; 100,-80],  rotation=-90);
     
     annotation (
       Coordsys(
@@ -465,7 +641,7 @@ with the blocks of package Modelica.Blocks.
       Documentation(info="
 <HTML>
 <p>
-This is a base class for 3D mechanical components with two frames
+This is a base class for 3-dim. mechanical components with two frames
 and one output port in order to measure the cut-force and/or
 cut-torque acting between the two frames and
 to provide the measured signals as output for further processing
@@ -478,26 +654,31 @@ with the blocks of package Modelica.Blocks.
         Line(points=[-80, -100; -80, 0]),
         Text(extent=[-132, 76; 129, 124], string="%name"),
         Text(
-          extent=[-136, 44; -100, 19],
+          extent=[-118,55; -82,30],
           style(color=10),
           string="a"),
         Text(
-          extent=[101, 41; 137, 16],
+          extent=[83,55; 119,30],
           style(color=10),
           string="b"),
         Text(
           extent=[-31, -72; 100, -97],
           style(color=8),
           string="resolve"),
-        Line(points=[80, 0; 80, -100], style(color=6, thickness=2))),
+        Line(points=[80, 0; 80, -100], style(
+            color=0,
+            rgbcolor={0,0,0},
+            pattern=3,
+            thickness=2))),
       Diagram(
         Line(points=[-70, 0; -100, 0], style(color=0)),
         Line(points=[70, 0; 100, 0], style(color=0)),
         Line(points=[-80, -100; -80, 0]),
         Line(points=[80,0; 80,-100], style(
-            color=0, 
-            rgbcolor={0,0,0}, 
-            pattern=3))));
+            color=0,
+            rgbcolor={0,0,0},
+            pattern=3,
+            thickness=2))));
     
   protected 
     outer Modelica.Mechanics.MultiBody.World world;
@@ -529,15 +710,22 @@ with the blocks of package Modelica.Blocks.
   end PartialCutForceSensor;
   
   partial model PartialVisualizer 
-    "Base model of visualizers (has a frame_a on the left side + outer world + assert to guarantee that the component is connected)" 
+    "Base model for visualizers (has a frame_a on the left side + outer world + assert to guarantee that the component is connected)" 
     
-    Interfaces.Frame_a frame_a annotation (extent=[-110,-15; -90,15]);
+    Interfaces.Frame_a frame_a 
+      "Coordinate system in which visualization data is resolved"                          annotation (extent=[-120,-20; -80,20]);
   protected 
     outer Modelica.Mechanics.MultiBody.World world;
   equation 
     assert(cardinality(frame_a) > 0,
       "Connector frame_a of visualizer object is not connected");
-    annotation (Icon);
+    annotation (Icon, Documentation(info="<html>
+<p>
+This partial model provides one frame_a connector, access to the world
+object and an assert to check that the frame_a connector is connected.
+It is used by inheritance from all visualizer objects.
+</p>
+</html>"));
   end PartialVisualizer;
   
 end Interfaces;

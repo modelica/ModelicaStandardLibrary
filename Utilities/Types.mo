@@ -2,7 +2,7 @@ package Types "Type definitions used in package Modelica.Utilities"
   package Compare 
     "Type and constants to compare two strings, as temporary solution until enumerations are available" 
     
-    extends Modelica.Icons.Library;
+    extends Modelica.Icons.Enumeration;
     constant Integer Less=1;
     constant Integer Equal=2;
     constant Integer Greater=3;
@@ -31,7 +31,7 @@ Modelica tools.
   package FileType 
     "Type and constants to describe the type of a file, as temporary solution until enumerations are available" 
     
-    extends Modelica.Icons.Library;
+    extends Modelica.Icons.Enumeration;
     constant Integer NoFile=1 "no file exists";
     constant Integer RegularFile=2 "regular file";
     constant Integer Directory=3 "directory";
@@ -60,7 +60,7 @@ Modelica tools.
   package TokenType 
     "Type and constants for token types, as temporary solution until enumerations are available" 
     
-    extends Modelica.Icons.Library;
+    extends Modelica.Icons.Enumeration;
     constant Integer RealToken=1;
     constant Integer IntegerToken=2;
     constant Integer BooleanToken=3;
@@ -100,4 +100,10 @@ Modelica tools.
      String string 
       "Value if tokenType == TokenType.StringToken/IdentifierToken/DelimiterToken";
   end TokenValue;
+  annotation (Documentation(info="<html>
+<p>
+This package contains type definitions used in Modelica.Utilities.
+</p>
+
+</html>"));
 end Types;

@@ -757,4 +757,9 @@ explicitly defined via parameters n1, n2, n3, n4, n5 and n6.
     [u] = [y1; y2; y3; y4; y5; y6];
   end DeMultiplex6;
   
+  annotation (Documentation(info="<html>
+<p>
+This package contains blocks to combine and extract signals.
+</p>
+</html>"));
 end Routing;

@@ -28,22 +28,8 @@ annotation(preferedView="info",
         fillPattern=1))), Documentation(info="<html>
 <p>
 This library contains input/output blocks to build up block diagrams.
-The library is structured in the following sublibraries:
 </p>
-<pre>
-  Interfaces    Connectors and partial models for block diagram components
-  Examples      Demonstration examples
-  Continuous    Basic continuous input/output blocks
-  Discrete      Discrete control blocks
-  Logical       Logical and relational operations on Boolean signals
-  Nonlinear     Discontinuous or non-differentiable algebraic
-                control blocks
-  Math          Mathematical functions as input/output blocks
-  Sources       Sources such as signal generators
-  Routing       Combine and extract signals
-  Tables        One and two-dimensional interpolation in tables
-  Types         Constants and types with choices, especially to build menus
-</pre>
+
 <dl>
 <dt><b>Main Author:</b>
 <dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a><br>
@@ -60,7 +46,7 @@ The library is structured in the following sublibraries:
 Copyright &copy; 1998-2005, Modelica Association and DLR.
 </p>
 <p>
-<i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
+<i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified
 under the terms of the <b>Modelica license</b>, see the license conditions
 and the accompanying <b>disclaimer</b> 
 <a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a>.</i>

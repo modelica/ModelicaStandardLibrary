@@ -1,4 +1,5 @@
-package Translational "1-dimensional translational mechanical components" 
+package Translational 
+  "Library to model 1-dimensional, translational mechanical systems" 
   package Examples "Demonstration examples of the components of this package" 
     
     extends Modelica.Icons.Library;
@@ -963,30 +964,7 @@ the following variables:
    SIunits.Position s  \"absolute position of flange\";
    <i>flow</i> Force f        \"cut-force in the flange\";
 </pre>
-<p>
-This package contains the following model components:
-</p>
-<pre>
-   <i>Interfaces</i>       Sublibrary containing interface definitions.
-   <i>Examples</i>         Examples of library usage.
-   <i>SlidingMass</i>      Translational component with inertia.
-   <i>Stop</i>             Sliding mass with Coulomb friction and hard stops.
-   <i>Rod</i>              Massless rod.
-   <i>Spring</i>           Linear spring.
-   <i>Damper</i>           Linear damper.
-   <i>SpringDamper</i>     Linear spring and linear damper in parallel connection.
-   <i>ElastoGap</i>        Linear spring and linear damper that can lift off.
-   <i>Position</i>         Drive a flange with a reference position given as input signal.
-   <i>Accelerate</i>       Drive a flange with an acceleration given as input signal.
-   <i>Move</i>             Drive a flange with a reference position, velocity and
-                    acceleration given as input signal.
-   <i>Fixed</i>            Fixed flange at a predefined position.
-   <i>Force</i>            External force defined as input signal.
-   <i>ForceSensor</i>      Ideal sensor to measure the force in a flange.
-   <i>PositionSensor</i>   Ideal sensor to measure absolute position of a flange.
-   <i>SpeedSensor</i>      Ideal sensor to measure absolute velocity of a flange.
-   <i>AccSensor</i>        Ideal sensor to measure absolute acceleration of a flange.
-</pre>
+
 <p>
 This library is designed in a fully object oriented way in order that
 components can be connected together in every meaningful combination
@@ -1019,7 +997,7 @@ numerical DAE integrators can cope at most with index 2 DAEs).
 Copyright &copy; 1998-2005, Modelica Association and Universit&auml;t Paderborn, FB 12.
 </p>
 <p>
-<i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
+<i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified
 under the terms of the <b>Modelica license</b>, see the license conditions
 and the accompanying <b>disclaimer</b> 
 <a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a>.</i>

@@ -115,40 +115,10 @@ package Sources "Signal source blocks generating Real and Boolean signals"
         Documentation(info="<HTML>
 <p>
 This package contains <b>source</b> components, i.e., blocks which
-have only output signals. These blocks are used as signal generators.
+have only output signals. These blocks are used as signal generators
+for Real, Integer and Boolean signals.
 </p>
-<p>The following <b>sources</b> are provided to generate <b>Real</b> signals:</p>
-<pre>
-  <b>Clock</b>             Generate actual time.
-  <b>Constant</b>          Generate constant signals.
-  <b>Step</b>              Generate step signals.
-  <b>Ramp</b>              Generate ramp signals.
-  <b>Sine</b>              Generate sine signals.
-  <b>ExpSine</b>           Generate exponentially damped sine signals.
-  <b>Exponentials</b>      Generate a rising and falling exponential signal.
-  <b>Pulse</b>             Generate pulse signals.
-  <b>SawTooth</b>          Generate sawtooth signals.
-  <b>Trapezoid</b>         Generate trapezoidal signals.
-  <b>KinematicPTP</b>      Generate an acceleration signal to move as fast as
-                    possible along a distance within given kinematic constraints.
-  <b>TimeTable</b>         Generate a (possibly discontinuous) signal by
-                    linear interpolation in a table.
-</pre
-<p>
-The following <b>sources</b> are provided to generate <b>Boolean</b> signals:
-</p>
-<pre>
-  <b>BooleanExpression</b> Generate signal by a Boolean expression
-  <b>BooleanConstant</b>   Generate constant signals.
-  <b>BooleanStep</b>       Generate step signals.
-  <b>BooleanPulse</b>      Generate pulse signals.
-  <b>SampleTrigger</b>     Generate sample triggers.
-</pre>
-<p>The following <b>sources</b> are provided to generate <b>Integer</b> signals:</p>
-<pre>
-  <b>IntegerConstant</b>   Generate constant signals.
-  <b>IntegerStep</b>       Generate step signals.
-</pre>
+
 <p>
 All Real source signals (with the exception of the Constant source)
 have at least the following two parameters:

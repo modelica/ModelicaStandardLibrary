@@ -20,7 +20,6 @@ The advantage of using JointRRP is, that the
 non-linear algebraic equation of this loop is solved analytically, and 
 not numerically as in \"Examples.Loops.Engine2a\".
 </p>
-
 <p>
 An animation of this example is shown in the figure below.
 </p>

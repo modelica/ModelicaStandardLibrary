@@ -107,7 +107,8 @@ between two frame connectors, e.g., between two parts.
     "External force acting at frame_b, defined by 3 input signals and resolved in world frame" 
     
     import SI = Modelica.SIunits;
-    Interfaces.Frame_b frame_b annotation (extent=[100, -15; 120, 15]);
+    import Modelica.Mechanics.MultiBody.Types;
+    extends Interfaces.PartialOneFrame_b;
     Modelica.Blocks.Interfaces.RealInput force[3](redeclare each type 
         SignalType = SI.Force) 
       "x-, y-, z-coordinates of force resolved in world frame" 
@@ -117,12 +118,12 @@ between two frame connectors, e.g., between two parts.
       "|if animation = true| Force arrow scaling (length = force/N_to_m)";
     parameter SI.Diameter diameter=world.defaultArrowDiameter 
       "|if animation = true| Diameter of force arrow";
-    parameter Modelica.Mechanics.MultiBody.Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.ForceColor 
+    parameter Modelica.Mechanics.MultiBody.Types.Color color=Types.Defaults.ForceColor 
       "|if animation = true| Color of arrow";
     annotation (
       preferedView="info",
-      Diagram(Polygon(points=[-100, 10; 50, 10; 50, 31; 100, 0; 50, -31; 50, -10;
-               -100, -10; -100, 10], style(
+      Diagram(Polygon(points=[-100,10; 50,10; 50,31; 97,0; 50,-31; 50,-10; -100,
+              -10; -100,10],         style(
             color=0,
             gradient=0,
             fillColor=0,
@@ -132,8 +133,8 @@ between two frame connectors, e.g., between two parts.
           extent=[-100, -30; 50, -70],
           string="world",
           style(color=8)),
-        Polygon(points=[-100, 10; 50, 10; 50, 31; 100, 0; 50, -31; 50, -10; -100,
-               -10; -100, 10], style(
+        Polygon(points=[-100,10; 50,10; 50,31; 94,0; 50,-31; 50,-10; -100,-10;
+              -100,10],        style(
             color=0,
             gradient=0,
             fillColor=0,
@@ -201,7 +202,6 @@ is resolved in the world frame).
             fillPattern=1))));
     
   protected 
-    outer Modelica.Mechanics.MultiBody.World world;
     parameter Integer ndim=if world.enableAnimation and animation then 1 else 0;
     SI.Position f_in_m[3]=frame_b.f/N_to_m 
       "Force mapped from N to m for animation";
@@ -220,7 +220,8 @@ is resolved in the world frame).
   model WorldTorque 
     "External torque acting at frame_b, defined by 3 input signals and resolved in world frame" 
     
-    Interfaces.Frame_b frame_b annotation (extent=[100, -15; 120, 15]);
+    extends Interfaces.PartialOneFrame_b;
+    
     Modelica.Blocks.Interfaces.RealInput torque[3](redeclare each type 
         SignalType = SI.Torque) 
       "x-, y-, z-coordinates of torque resolved in world frame" 
@@ -285,20 +286,19 @@ This leads to the following animation
         Line(points=[-100, 0; -94, 13; -86, 28; -74, 48; -65, 60; -52, 72; -35,
                81; -22, 84; -8, 84; 7, 80; 19, 73; 32, 65; 44, 55; 52, 47; 58,
               40], style(color=0, thickness=2)),
-        Polygon(points=[100, 0; 75, 59; 41, 24; 100, 0], style(
+        Polygon(points=[94,0; 75,59; 41,24; 94,0],       style(
             color=0,
             fillColor=0,
             fillPattern=1))),
       Diagram(Line(points=[-100, 0; -94, 13; -86, 28; -74, 48; -65, 60; -52, 72;
                -35, 81; -22, 84; -8, 84; 7, 80; 19, 73; 32, 65; 44, 55; 52, 47;
-               58, 40], style(color=0, thickness=2)), Polygon(points=[100, 0;
-              75, 59; 41, 24; 100, 0], style(
+               58, 40], style(color=0, thickness=2)), Polygon(points=[97,0; 75,59;
+              41,24; 97,0],            style(
             color=0,
             fillColor=0,
             fillPattern=1))));
     
   protected 
-    outer Modelica.Mechanics.MultiBody.World world;
     parameter Integer ndim=if world.enableAnimation and animation then 1 else 0;
     SI.Position t_in_m[3]=frame_b.t/Nm_to_m 
       "Torque mapped from Nm to m for animation";
@@ -318,7 +318,8 @@ This leads to the following animation
     "External force and torque acting at frame_b, defined by 6 input signals and resolved in world frame" 
     
     import SI = Modelica.SIunits;
-    Interfaces.Frame_b frame_b annotation (extent=[100, -15; 120, 15]);
+    extends Interfaces.PartialOneFrame_b;
+    
     Modelica.Blocks.Interfaces.RealInput load[6] 
       "[1:6] = x-, y-, z-coordinates of force and x-, y-, z-coordiantes of torque resolved in world frame"
       annotation (extent=[-140, -20; -100, 20]);
@@ -338,8 +339,8 @@ This leads to the following animation
     annotation (
       preferedView="info",
       Diagram(
-        Polygon(points=[-100, 10; 50, 10; 50, 31; 100, 0; 50, -31; 50, -10; -100,
-               -10; -100, 10], style(
+        Polygon(points=[-100,10; 50,10; 50,31; 97,0; 50,-31; 50,-10; -100,-10;
+              -100,10],        style(
             color=0,
             gradient=0,
             fillColor=0,
@@ -356,8 +357,8 @@ This leads to the following animation
           extent=[-74, 62; 44, 24],
           string="world",
           style(color=8)),
-        Polygon(points=[-100, 10; 50, 10; 50, 31; 100, 0; 50, -31; 50, -10; -100,
-               -10; -100, 10], style(
+        Polygon(points=[-100,10; 50,10; 50,31; 94,0; 50,-31; 50,-10; -100,-10;
+              -100,10],        style(
             color=0,
             gradient=0,
             fillColor=0,
@@ -440,7 +441,6 @@ is resolved in the world frame).
             fillPattern=1))));
     
   protected 
-    outer Modelica.Mechanics.MultiBody.World world;
     parameter Integer ndim=if world.enableAnimation and animation then 1 else 0;
     SI.Position f_in_m[3]=frame_b.f/N_to_m 
       "Force mapped from N to m for animation";
@@ -469,10 +469,11 @@ is resolved in the world frame).
     "External force acting at frame_b, defined by 3 input signals and resolved in frame_b or in frame_resolve" 
     
     import SI = Modelica.SIunits;
+    extends Interfaces.PartialOneFrame_b;
     Interfaces.Frame_resolve frame_resolve 
       "If connected, the input signals are resolved in this frame" 
-      annotation (extent=[-16, -110; 15, -90], rotation=-90);
-    Interfaces.Frame_b frame_b annotation (extent=[100, -15; 120, 15]);
+      annotation (extent=[-20,-120; 20,-80], rotation=-90);
+    
     Modelica.Blocks.Interfaces.RealInput force[3](redeclare each type 
         SignalType = SI.Force) 
       "x-, y-, z-coordinates of force resolved in frame_b or frame_resolve (if connected)"
@@ -486,26 +487,33 @@ is resolved in the world frame).
       "|if animation = true| Color of arrow";
     annotation (
       preferedView="info",
-      Diagram(Polygon(points=[-100, 10; 50, 10; 50, 31; 100, 0; 50, -31; 50, -10;
-               -100, -10; -100, 10], style(
+      Diagram(Polygon(points=[-100,10; 50,10; 50,31; 97,0; 50,-31; 50,-10;
+              -100,-10; -100,10],    style(
             color=0,
             gradient=0,
             fillColor=0,
-            fillPattern=1)), Line(points=[0, -10; 0, -100], style(color=6,
-              thickness=2))),
+            fillPattern=1)), Line(points=[0,-10; 0,-97],    style(
+            color=0,
+            rgbcolor={0,0,0},
+            pattern=3,
+            thickness=2))),
       Icon(
         Text(
-          extent=[-90, -60; 90, -90],
+          extent=[-89,-46; 91,-76],
           string="resolve",
           style(color=8)),
-        Polygon(points=[-100, 10; 50, 10; 50, 31; 100, 0; 50, -31; 50, -10; -100,
-               -10; -100, 10], style(
+        Polygon(points=[-100,10; 50,10; 50,31; 94,0; 50,-31; 50,-10; -100,-10;
+              -100,10],        style(
             color=0,
             gradient=0,
             fillColor=0,
             fillPattern=1)),
         Text(extent=[-149, 103; 136, 42], string="%name"),
-        Line(points=[0, -10; 0, -100], style(color=6, thickness=2))),
+        Line(points=[0,-10; 0,-94],    style(
+            color=0,
+            rgbcolor={0,0,0},
+            pattern=3,
+            thickness=2))),
       Documentation(info="<HTML>
 <p>
 The 3 signals of the <b>force</b> connector are interpreted
@@ -576,7 +584,6 @@ is resolved in the world frame).
             fillPattern=1))));
     
   protected 
-    outer Modelica.Mechanics.MultiBody.World world;
     parameter Integer ndim=if world.enableAnimation and animation then 1 else 0;
     SI.Position f_in_m[3]=frame_b.f/N_to_m 
       "Force mapped from N to m for animation";
@@ -605,10 +612,10 @@ is resolved in the world frame).
     "External torque acting at frame_b, defined by 3 input signals and resolved in frame_b or in frame_resolve" 
     
     import SI = Modelica.SIunits;
+    extends Interfaces.PartialOneFrame_b;
     Interfaces.Frame_resolve frame_resolve 
       "If connected, the input signals are resolved in this frame" 
-      annotation (extent=[-16, 100; 15, 120], rotation=-90);
-    Interfaces.Frame_b frame_b annotation (extent=[100, -15; 120, 15]);
+      annotation (extent=[-20,120; 20,80], rotation=-90);
     Modelica.Blocks.Interfaces.RealInput torque[3](redeclare each type 
         SignalType = SI.Torque) 
       "x-, y-, z-coordinates of torque resolved in frame_b or frame_resolve (if connected)"
@@ -623,25 +630,33 @@ is resolved in the world frame).
     annotation (
       preferedView="info",
       Diagram(
-        Line(points=[0, 100; 0, 82], style(color=6, thickness=2)),
+        Line(points=[0,97; 0,82], style(
+            color=0,
+            rgbcolor={0,0,0},
+            pattern=3,
+            thickness=2)),
         Line(points=[-100, 0; -94, 13; -86, 28; -74, 48; -65, 60; -52, 72; -35,
                81; -22, 84; -8, 84; 7, 80; 19, 73; 32, 65; 44, 55; 52, 47; 58,
               40], style(color=0, thickness=2)),
-        Polygon(points=[100, 0; 75, 59; 41, 24; 100, 0], style(
+        Polygon(points=[97,6; 75,59; 41,24; 97,6],       style(
             color=0,
             fillColor=0,
             fillPattern=1))),
       Icon(
         Text(
-          extent=[-59, 66; 48, 29],
+          extent=[-61,64; 46,27],
           string="resolve",
           style(color=8)),
         Text(extent=[-145, -28; 140, -89], string="%name"),
-        Line(points=[0, 100; 0, 82], style(color=6, thickness=2)),
+        Line(points=[0,94; 0,82], style(
+            color=0,
+            rgbcolor={0,0,0},
+            pattern=3,
+            thickness=2)),
         Line(points=[-100, 0; -94, 13; -86, 28; -74, 48; -65, 60; -52, 72; -35,
                81; -22, 84; -8, 84; 7, 80; 19, 73; 32, 65; 44, 55; 52, 47; 58,
               40], style(color=0, thickness=2)),
-        Polygon(points=[100, 0; 75, 59; 41, 24; 100, 0], style(
+        Polygon(points=[94,10; 75,59; 41,24; 94,10],     style(
             color=0,
             fillColor=0,
             fillPattern=1))),
@@ -714,7 +729,6 @@ is resolved in the world frame).
             fillPattern=1))));
     
   protected 
-    outer Modelica.Mechanics.MultiBody.World world;
     parameter Integer ndim=if world.enableAnimation and animation then 1 else 0;
     SI.Position t_in_m[3]=frame_b.t/Nm_to_m 
       "Torque mapped from Nm to m for animation";
@@ -743,10 +757,10 @@ is resolved in the world frame).
     "External force and torque acting at frame_b, defined by 6 input signals and resolved in frame_b or in frame_resolve" 
     
     import SI = Modelica.SIunits;
-    Interfaces.Frame_b frame_b annotation (extent=[100, -15; 120, 15]);
+    extends Interfaces.PartialOneFrame_b;
     Interfaces.Frame_resolve frame_resolve 
       "If connected, the input signals are resolved in this frame" 
-      annotation (extent=[-16, 100; 15, 120], rotation=-90);
+      annotation (extent=[20,120; -20,80], rotation=-90);
     Modelica.Blocks.Interfaces.RealInput load[6] 
       "[1:6] = x-, y-, z-coordinates of force and x-, y-, z-coordiantes of torque resolved in frame_b or frame_resolved (if connected)"
       annotation (extent=[-140, -20; -100, 20]);
@@ -766,40 +780,48 @@ is resolved in the world frame).
     annotation (
       preferedView="info",
       Diagram(
-        Polygon(points=[-100, 10; 50, 10; 50, 31; 100, 0; 50, -31; 50, -10; -100,
-               -10; -100, 10], style(
+        Polygon(points=[-100,10; 50,10; 50,31; 97,0; 50,-31; 50,-10; -100,-10;
+              -100,10],        style(
             color=0,
             gradient=0,
             fillColor=0,
             fillPattern=1)),
         Line(points=[-100, 11; -94, 24; -86, 39; -74, 59; -65, 71; -52, 83; -35,
                92; -22, 95; -8, 95; 7, 91; 19, 84; 32, 76; 44, 66; 52, 58; 58,
-              51], style(color=0, thickness=2)),
+              51], style(color=0, rgbcolor={0,0,0})),
         Polygon(points=[97, 18; 72, 77; 38, 42; 97, 18], style(
             color=0,
             fillColor=0,
             fillPattern=1)),
-        Line(points=[0, 100; 0, 10], style(color=6, thickness=2))),
+        Line(points=[0,97; 0,10], style(
+            color=0,
+            rgbcolor={0,0,0},
+            pattern=3,
+            thickness=2))),
       Icon(
         Text(
           extent=[-74, 62; 44, 24],
           style(color=8),
           string="resolve"),
-        Polygon(points=[-100, 10; 50, 10; 50, 31; 100, 0; 50, -31; 50, -10; -100,
-               -10; -100, 10], style(
+        Polygon(points=[-100,10; 50,10; 50,31; 94,0; 50,-31; 50,-10; -100,-10;
+              -100,10],        style(
             color=0,
             gradient=0,
             fillColor=0,
             fillPattern=1)),
         Text(extent=[-137, -47; 148, -108], string="%name"),
-        Line(points=[-98, 14; -92, 27; -84, 42; -72, 62; -63, 74; -50, 86; -33,
-               95; -20, 98; -6, 98; 9, 94; 21, 87; 34, 79; 46, 69; 54, 61; 60,
-              54], style(color=0, thickness=2)),
+        Line(points=[-100,10; -92,26; -84,42; -76,52; -60,68; -46,76; -31,82;
+              -17,85; -2,87; 14,86; 26,82; 37,75; 46,69; 54,61; 60,54], style(
+              color=0, rgbcolor={0,0,0})),
         Polygon(points=[99, 21; 74, 80; 40, 45; 99, 21], style(
             color=0,
             fillColor=0,
             fillPattern=1)),
-        Line(points=[0, 100; 0, 10], style(color=6, thickness=2))),
+        Line(points=[0,94; 0,10], style(
+            color=0,
+            rgbcolor={0,0,0},
+            pattern=3,
+            thickness=2))),
       Documentation(info="<HTML>
 <p>
 The <b>6</b> signals of the <b>load</b> connector are interpreted
@@ -878,7 +900,6 @@ is resolved in the world frame).
             fillPattern=1))));
     
   protected 
-    outer Modelica.Mechanics.MultiBody.World world;
     parameter Integer ndim=if world.enableAnimation and animation then 1 else 0;
     SI.Position f_in_m[3]=frame_b.f/N_to_m 
       "Force mapped from N to m for animation";
@@ -918,11 +939,10 @@ is resolved in the world frame).
     "Force acting between two frames, defined by 3 input signals and resolved in frame_b or in frame_resolve" 
     
     import SI = Modelica.SIunits;
-    Interfaces.Frame_a frame_a annotation (extent=[-120, -16; -100, 14]);
-    Interfaces.Frame_b frame_b annotation (extent=[100, -15; 120, 15]);
+    extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
     Interfaces.Frame_resolve frame_resolve 
       "If connected, the input signals are resolved in this frame" 
-      annotation (extent=[25, 100; 56, 120], rotation=-90);
+      annotation (extent=[20,80; 60,120], rotation=90);
     
     Modelica.Blocks.Interfaces.RealInput force[3]( redeclare each type 
         SignalType = SI.Force) 
@@ -950,26 +970,26 @@ is resolved in the world frame).
       Icon(
         Rectangle(extent=[-98, 99; 99, -98], style(color=7, fillColor=7)),
         Text(
-          extent=[-59, 55; 72, 30],
+          extent=[-92,61; 87,35],
           style(color=8),
           string="resolve"),
         Text(extent=[-136, -52; 149, -113], string="%name"),
-        Line(points=[40, 100; 40, 0], style(color=6, thickness=2)),
-        Polygon(points=[-99, 0; -64, 11; -64, -10; -99, 0], style(color=0,
+        Line(points=[40, 100; 40, 0], style(
+            color=0,
+            rgbcolor={0,0,0},
+            pattern=3,
+            thickness=2)),
+        Polygon(points=[-94,0; -64,11; -64,-10; -94,0],     style(color=0,
               fillColor=0)),
-        Line(points=[-60, 100; 40, 100], style(color=6, thickness=2)),
-        Polygon(points=[100, 0; 65, 12; 65, -11; 100, 0], style(color=0,
+        Line(points=[-60, 100; 40, 100], style(
+            color=0,
+            rgbcolor={0,0,0},
+            pattern=3,
+            thickness=2)),
+        Polygon(points=[94,0; 65,12; 65,-11; 94,0],       style(color=0,
               fillColor=0)),
         Line(points=[-64, 0; -20, 0], style(color=0)),
-        Line(points=[20, 0; 65, 0], style(color=0)),
-        Text(
-          extent=[-114, -24; -78, -49],
-          style(color=10),
-          string="a"),
-        Text(
-          extent=[82, -23; 118, -48],
-          style(color=10),
-          string="b")),
+        Line(points=[20, 0; 65, 0], style(color=0))),
       Documentation(info="<HTML>
 <p>
 The <b>3</b> signals of the <b>force</b> connector are interpreted
@@ -1037,7 +1057,6 @@ is resolved in the world frame).
             fillPattern=1))));
     
   protected 
-    outer Modelica.Mechanics.MultiBody.World world;
     parameter Integer ndim=if world.enableAnimation and animation then 1 else 0;
     SI.Position f_in_m[3]=frame_b.f/N_to_m 
       "Force mapped from N to m for animation";
@@ -1081,11 +1100,10 @@ is resolved in the world frame).
     "Torque acting between two frames, defined by 3 input signals and resolved in frame_b or in frame_resolve" 
     
     import SI = Modelica.SIunits;
-    Interfaces.Frame_a frame_a annotation (extent=[-120, -15; -100, 15]);
-    Interfaces.Frame_b frame_b annotation (extent=[100, -15; 120, 15]);
+    extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
     Interfaces.Frame_resolve frame_resolve 
       "If connected, the input signals are resolved in this frame" 
-      annotation (extent=[25, 100; 56, 120], rotation=-90);
+      annotation (extent=[20,80; 60,120], rotation=90);
     
     Modelica.Blocks.Interfaces.RealInput torque[3]( redeclare each type 
         SignalType = SI.Torque) 
@@ -1117,28 +1135,28 @@ is resolved in the world frame).
           style(color=8),
           string="resolve"),
         Text(extent=[-139, -27; 146, -88], string="%name"),
-        Polygon(points=[99, 18; 84, 52; 69, 39; 99, 18], style(
+        Polygon(points=[100,20; 84,52; 69,39; 100,20],   style(
             color=0,
             fillColor=0,
             fillPattern=1)),
-        Line(points=[40, 100; 76, 46], style(color=6, thickness=2)),
-        Polygon(points=[-98, 15; -86, 53; -70, 42; -98, 15], style(
+        Line(points=[40, 100; 76, 46], style(
+            color=0,
+            rgbcolor={0,0,0},
+            pattern=3,
+            thickness=2)),
+        Polygon(points=[-99,20; -86,53; -70,42; -99,20],     style(
             color=0,
             fillColor=0,
             fillPattern=1)),
-        Line(points=[-60, 100; 40, 100], style(color=6, thickness=2)),
+        Line(points=[-60, 100; 40, 100], style(
+            color=0,
+            rgbcolor={0,0,0},
+            pattern=3,
+            thickness=2)),
         Line(points=[-79, 47; -70, 61; -59, 72; -45, 81; -32, 84; -20, 85],
             style(color=0)),
         Line(points=[77, 45; 66, 60; 55, 69; 49, 74; 41, 80; 31, 84; 20, 85],
-            style(color=0)),
-        Text(
-          extent=[-94, 13; -58, -12],
-          style(color=10),
-          string="a"),
-        Text(
-          extent=[60, 11; 96, -14],
-          style(color=10),
-          string="b")),
+            style(color=0))),
       Documentation(info="<HTML>
 <p>
 The <b>3</b> signals of the <b>torque</b> connector are interpreted
@@ -1207,7 +1225,6 @@ is resolved in the world frame).
             fillPattern=1))));
     
   protected 
-    outer Modelica.Mechanics.MultiBody.World world;
     parameter Integer ndim=if world.enableAnimation and animation then 1 else 0;
     SI.Position t_in_m[3]=frame_b.t/Nm_to_m 
       "Torque mapped from Nm to m for animation";
@@ -1251,11 +1268,10 @@ is resolved in the world frame).
     "Force and torque acting between two frames, defined by 6 input signals and resolved in frame_b or in frame_resolve" 
     
     import SI = Modelica.SIunits;
-    Interfaces.Frame_a frame_a annotation (extent=[-120, -15; -100, 15]);
-    Interfaces.Frame_b frame_b annotation (extent=[100, -15; 120, 15]);
+    extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
     Interfaces.Frame_resolve frame_resolve 
       "If connected, the input signals are resolved in this frame" 
-      annotation (extent=[25, 100; 56, 120], rotation=-90);
+      annotation (extent=[20,80; 60,120], rotation=90);
     
     Modelica.Blocks.Interfaces.RealInput load[6] 
       "[1:6] = x-, y-, z-coordinates of force and x-, y-, z-coordiantes of torque resolved in frame_b or frame_resolved (if connected)"
@@ -1297,30 +1313,30 @@ is resolved in the world frame).
             color=0,
             fillColor=0,
             fillPattern=1)),
-        Line(points=[40, 100; 40, 0], style(color=6, thickness=2)),
-        Polygon(points=[-99, 0; -64, 11; -64, -10; -99, 0], style(color=0,
+        Line(points=[40, 100; 40, 0], style(
+            color=0,
+            rgbcolor={0,0,0},
+            pattern=3,
+            thickness=2)),
+        Polygon(points=[-95,1; -64,11; -64,-10; -95,1],     style(color=0,
               fillColor=0)),
-        Polygon(points=[-98, 15; -86, 53; -70, 42; -98, 15], style(
+        Polygon(points=[-100,20; -86,53; -70,42; -100,20],   style(
             color=0,
             fillColor=0,
             fillPattern=1)),
-        Line(points=[-60, 100; 40, 100], style(color=6, thickness=2)),
-        Polygon(points=[100, 0; 65, 12; 65, -11; 100, 0], style(color=0,
+        Line(points=[-60, 100; 40, 100], style(
+            color=0,
+            rgbcolor={0,0,0},
+            pattern=3,
+            thickness=2)),
+        Polygon(points=[94,0; 65,12; 65,-11; 94,0],       style(color=0,
               fillColor=0)),
         Line(points=[-64, 0; -20, 0], style(color=0)),
         Line(points=[20, 0; 65, 0], style(color=0)),
         Line(points=[-79, 47; -70, 61; -59, 72; -45, 81; -32, 84; -20, 85],
             style(color=0)),
         Line(points=[76, 47; 66, 60; 55, 69; 49, 74; 41, 80; 31, 84; 20, 85],
-            style(color=0)),
-        Text(
-          extent=[-114, -24; -78, -49],
-          style(color=10),
-          string="a"),
-        Text(
-          extent=[82, -23; 118, -48],
-          style(color=10),
-          string="b")),
+            style(color=0))),
       Documentation(info="<HTML>
 <p>
 The <b>6</b> signals of the <b>load</b> connector are interpreted
@@ -1394,7 +1410,6 @@ is resolved in the world frame).
             fillPattern=1))));
     
   protected 
-    outer Modelica.Mechanics.MultiBody.World world;
     parameter Integer ndim=if world.enableAnimation and animation then 1 else 0;
     SI.Position f_in_m[3]=frame_b.f/N_to_m 
       "Force mapped from N to m for animation";
@@ -1452,9 +1467,11 @@ is resolved in the world frame).
     import SI = Modelica.SIunits;
     extends Interfaces.PartialTwoFrames;
     Modelica.Mechanics.Translational.Interfaces.Flange_a flange_b 
-      annotation (extent=[50, 100; 70, 120], rotation=90);
+      "1-dim. translational flange (connect force of Translational library between flange_a and flange_b)"
+      annotation (extent=[50,90; 70,110],    rotation=90);
     Modelica.Mechanics.Translational.Interfaces.Flange_b flange_a 
-      annotation (extent=[-70, 100; -50, 120], rotation=90);
+      "1-dim. translational flange (connect force of Translational library between flange_a and flange_b)"
+      annotation (extent=[-70,90; -50,110],    rotation=90);
     
     parameter Boolean animateLine=true 
       "= true, if a line shape between frame_a and frame_b shall be visualized";
@@ -1502,40 +1519,41 @@ is resolved in the world frame).
         width=0.69,
         height=0.78),
       Icon(
-        Ellipse(extent=[-100, -40; -20, 40], style(
+        Ellipse(extent=[-94,-40; -14,40],    style(
             color=10,
             gradient=3,
             fillColor=8)),
-        Ellipse(extent=[-90, -30; -30, 30], style(
+        Ellipse(extent=[-85,-30; -25,30], style(
             color=0,
+            rgbcolor={0,0,0},
             fillColor=7,
-            fillPattern=1)),
-        Ellipse(extent=[20, -40; 100, 40], style(
+            rgbfillColor={255,255,255})),
+        Ellipse(extent=[14,-40; 94,40],    style(
             color=10,
             gradient=3,
             fillColor=8)),
-        Ellipse(extent=[31, -29; 91, 30], style(
+        Ellipse(extent=[23,-30; 83,29],   style(
             color=10,
             fillColor=7,
             fillPattern=1)),
         Text(extent=[-145, -53; 145, -113], string="%name"),
-        Rectangle(extent=[-52, 40; 48, -40], style(
+        Rectangle(extent=[-40,41; 44,-40],   style(
             color=7,
             fillColor=7,
             fillPattern=1)),
-        Ellipse(extent=[-74, 15; -45, -13], style(
+        Ellipse(extent=[-70,15; -41,-13],   style(
             color=0,
             gradient=3,
             fillColor=8)),
-        Ellipse(extent=[45, 14; 74, -14], style(
+        Ellipse(extent=[40,14; 69,-14],   style(
             color=0,
             gradient=3,
             fillColor=8)),
-        Line(points=[-60, 0; -60, 23; -30, 23; -30, 70; -60, 70; -60, 101],
+        Line(points=[-56,0; -56,23; -30,23; -30,70; -60,70; -60,101],
             style(color=0)),
-        Line(points=[60, 0; 60, 20; 30, 20; 30, 70; 60, 70; 60, 100], style(
+        Line(points=[55,-1; 55,20; 30,20; 30,70; 60,70; 60,100],      style(
               color=0)),
-        Line(points=[-60, 0; 60, 0], style(color=0, pattern=3)),
+        Line(points=[-56,0; 55,-1],  style(color=0, pattern=3)),
         Ellipse(extent=[-8, 8; 8, -8], style(color=0, fillColor=0))),
       Diagram(
         Line(points=[-60, 80; 46, 80]),
@@ -1756,8 +1774,10 @@ for this situation:
     import SI = Modelica.SIunits;
     extends Interfaces.PartialTwoFrames;
     Modelica.Mechanics.Translational.Interfaces.Flange_a flange_b 
+      "1-dim. translational flange (connect force of Translational library between flange_a and flange_b)"
       annotation (extent=[50, 100; 70, 120], rotation=90);
     Modelica.Mechanics.Translational.Interfaces.Flange_b flange_a 
+      "1-dim. translational flange (connect force of Translational library between flange_a and flange_b)"
       annotation (extent=[-70, 100; -50, 120], rotation=90);
     
     parameter Boolean animate=true "= true, if animation shall be enabled";
@@ -2147,6 +2167,7 @@ for this situation:
   end LineForceWithTwoMasses;
   
   model Spring "Linear translational spring with optional mass" 
+    extends Interfaces.PartialTwoFrames;
     parameter Boolean animation=true "= true, if animation shall be enabled";
     parameter Boolean showMass=true 
       "= true, if point mass shall be visualized as sphere if animation=true and m>0";
@@ -2173,7 +2194,6 @@ for this situation:
         BodyColor 
       "|Animation|if animation = true and showMass = true| Color of mass point";
     
-    extends Interfaces.PartialTwoFrames;
     Forces.LineForceWithMass lineForce(
       animateLine=animation,
       animateMass=showMass,
@@ -2190,13 +2210,13 @@ for this situation:
       annotation (extent=[-8, 40; 12, 60]);
   equation 
     connect(lineForce.frame_a, frame_a) 
-      annotation (points=[-22, 0; -110, 0], style(color=0, thickness=2));
+      annotation (points=[-20,0; -100,0],   style(color=0, thickness=2));
     connect(lineForce.frame_b, frame_b) 
-      annotation (points=[22, 0; 110, 0], style(color=0, thickness=2));
+      annotation (points=[20,0; 100,0],   style(color=0, thickness=2));
     connect(spring.flange_b, lineForce.flange_b) 
-      annotation (points=[12, 50; 12, 22], style(color=58));
+      annotation (points=[12,50; 12,20],   style(color=58));
     connect(spring.flange_a, lineForce.flange_a) 
-      annotation (points=[-8, 50; -12, 50; -12, 22], style(color=58));
+      annotation (points=[-8,50; -12,50; -12,20],    style(color=58));
     annotation (
       preferedView="info",
       Icon(
@@ -2246,6 +2266,7 @@ ALT=\"model Examples.Elementary.SpringWithMass\">
   end Spring;
   
   model Damper "Linear (velocity dependent) damper" 
+    extends Interfaces.PartialLineForce;
     parameter Boolean animation=true "= true, if animation shall be enabled";
     parameter Real d(
       final unit="N.s/m",
@@ -2260,7 +2281,6 @@ ALT=\"model Examples.Elementary.SpringWithMass\">
       "|Animation|if animation = true| Color at frame_a";
     parameter Modelica.Mechanics.MultiBody.Types.Color color_b={155,155,155} 
       "|Animation|if animation = true| Color at frame_b";
-    extends Interfaces.PartialLineForce;
     annotation (
       preferedView="info",
       Coordsys(
@@ -2462,9 +2482,9 @@ and der(s) is the time derivative of s.
       final unit="N.s/m",
       final min=0) = 0 "Damping constant";
     parameter SI.Length s_damper_start=0 "Initial length of damper";
-    extends Interfaces.PartialLineForce;
     SI.Position s_damper(start=s_damper_start, fixed=true) 
       "Actual length of damper (frame_a - damper - spring - frame_b)";
+    extends Interfaces.PartialLineForce;
     annotation (
       preferedView="info",
       Coordsys(

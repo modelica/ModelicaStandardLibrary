@@ -21,20 +21,7 @@ and of every other purely <b>algebraic</b> input/output block, such
 as the components of packages <b>Modelica.Blocks.Math</b>,
 <b>Modelica.Blocks.Nonlinear</b> or <b>Modelica.Blocks.Sources</b>.
 </p>
-<p>
-This package contains the following components:
-</p>
-<pre>
-   <b>Sampler</b>           Ideal sampling of continuous signals
-   <b>ZeroOrderHold</b>     Zero order hold of a sampled-data system
-   <b>FirstOrder</b>        Discrete-time approximation of first order system
-   <b>UnitDelay</b>         Delay input signal by one sampling period
-   <b>TransferFunction</b>  Discrete-time approximation of transfer function
-   <b>StateSpace</b>        Discrete-time approximation of state space system
-   <b>TriggeredSampler</b>  Triggered sampling of continuous signals
-   <b>TriggeredMax</b>      Compute maximum, absolute value of continuous signal
-                     at trigger instants
-</pre>
+
 </HTML>
 ", revisions="<html>
 <ul>

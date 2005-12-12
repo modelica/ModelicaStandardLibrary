@@ -1,4 +1,4 @@
-package MultiBody "Library to model the movement of 3-dimensional mechanical systems"
+package MultiBody "Library to model 3-dimensional mechanical systems"
 annotation (
   version="1.1",
   versionDate="2004-06-24",
@@ -42,12 +42,11 @@ ModelicaAdditions.MultiBody library. In
 <a href=\"Modelica://Modelica.Mechanics.MultiBody.UsersGuide.Upgrade\">MultiBody.UsersGuide.Upgrade</a>
 it is described how to upgrade.
 </p>
-
 <p>
 Copyright &copy; 1998-2005, Modelica Association and DLR.
 </p>
 <p>
-<i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
+<i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified
 under the terms of the <b>Modelica license</b>, see the license conditions
 and the accompanying <b>disclaimer</b> 
 <a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a>.</i>
@@ -898,33 +897,27 @@ calls in 0.99 should be changed:
     
     annotation (Documentation(info="<HTML>
 <h3><font color=\"#008000\" size=5>Release notes</font></h3>
-
 <h3><font color=\"#008000\">Version 1.1.3, 2005-04-21</font></h3>
 <p>
 This version has some minor improvements:
 </p>
-
 <ul>
 <li> Component MultiBody.<b>Sensors.Distance</b> has been modified: If the distance
      is less than s_small (a parameter in the \"advanced\" menu), it is approximated
      such that the derivative is finite for zero distance. Previously,
      an assert was triggered.</li>
 </ul>
-
-
-
 <h3><font color=\"#008000\">Version 1.1.2, 2005-04-06</font></h3>
 <p>
 This version has some minor improvements:
 </p>
-
 <ul>
 <li> Component MultiBody.<b>World</b> has a new parameter
-     <b>driveTrainMechanics3D</b>. If set to <b>true</b>, 3D mechanical effects
+     <b>driveTrainMechanics3D</b>. If set to <b>true</b>, 3-dim. mechanical effects
      of MultiBody.Parts.Mounting1D/Rotor1D/BevelGear1D are taken into account. If set to 
-     <b>false</b> (= default), 3D mechanical effects in these elements
+     <b>false</b> (= default), 3-dim. mechanical effects in these elements
      are not taken into account and the
-     frame connectors to connect to 3D parts are disabled (all
+     frame connectors to connect to 3-dim. parts are disabled (all
      connections to such a disabled connector are also disabled, due to the
      new feature of conditional declarations in Modelica language 2.2).
      </li>
@@ -933,8 +926,6 @@ This version has some minor improvements:
      copying of a component outside of the Modelica library, the references
      still remain valid.</li>
 </ul>
-
-
 <h3><font color=\"#008000\">Version 1.1.1, 2004-11-03</font></h3>
 <p>
 This version has some minor improvements:
@@ -1040,15 +1031,15 @@ The following changes have been made:
      added in order that the relative coordinates of the joint
      can be used for initialization.</li>
 <li> New model \"MultiBody.Joints.<b>GearConstraint</b>\"<br>
-     to model the 3D constraint of a gear box.</li>
+     to model the 3-dim. constraint of a gear box.</li>
 <li> New model \"MultiBody.Parts.<b>Mounting1D</b>\" <br>
-     to propagate 1D support torques to a 3D mounting.</li>
+     to propagate 1-dim. support torques to a 3-dim. mounting.</li>
 <li> New model \"MultiBody.Parts.<b>Rotor1D</b>\" <br>
-     to attach a 1D inertia on 3D mountings without 
+     to attach a 1-dim. inertia on 3-dim. mountings without 
      neglecting dynamic effects.</li>
 <li> New model \"MultiBody.Parts.<b>BevelGear1D</b>\" <br>
-     that describes a 1D gearbox with arbitrary shaft
-     directions and that is attached on a 3D mounting.</li>
+     that describes a 1-dim. gearbox with arbitrary shaft
+     directions and that is attached on a 3-dim. mounting.</li>
 <li> New package \"MultiBody.Examples.Systems.<b>RobotR3</b>\".<br>
      The models of this package are used to demonstrate in which
      way complex robot models might be built up by testing first
@@ -1201,7 +1192,7 @@ and to mount them on 3-dimensional components without neglecting
 dynamical effects is described in:
 <dl>
 <dt>Schweiger C., and Otter M.:</dt>
-<dd> <b>Modelling 3D Mechanical Effects of 1D Powertrains</b>.
+<dd> <b>Modelling 3-dim. Mechanical Effects of 1-dim. Powertrains</b>.
      Modelica 2003 Conference, Link&ouml;ping, Sweden, 
      pp. 149-158, Nov. 3-4, 2003.
      Download from:
@@ -1260,7 +1251,7 @@ dynamical effects is described in:
 <li> Modelica.Mechanics.MultiBody.Forces.LineForceWithMass is based on model
      \"RelativeDistance\" from the Modelica VehicleDynamics library of
      Johan Andreasson from Royal Institute of Technology, Stockholm, Sweden.</li>
-<li> The 1D components (Parts.Rotor1D, Parts.BevelGear1D, Mounting1D) and
+<li> The 1-dim. components (Parts.Rotor1D, Parts.BevelGear1D, Mounting1D) and
      Joints.GearConstraints are from Christian Schweiger.</li>
 <li> The design of this library is based on work carried out
      in the EU RealSim project (Real-time Simulation for Design of
@@ -1280,6 +1271,12 @@ model World
   "World coordinate system + gravity field + default animation definition" 
   
     import SI = Modelica.SIunits;
+    import Modelica.Mechanics.MultiBody.Types.GravityTypes;
+    import Modelica.Mechanics.MultiBody.Types;
+  
+    Interfaces.Frame_b frame_b 
+    "Coordinate system fixed in the origin of the world frame" 
+                               annotation (extent=[80,-20; 120,20]);
   
   annotation (
     preferedView="info",
@@ -1394,74 +1391,100 @@ of these axes can be set via parameters.
     "= true, if world coordinate system shall be visualized";
   parameter Boolean animateGravity=true 
     "= true, if gravity field shall be visualized (acceleration vector or field center)";
-  parameter Modelica.Mechanics.MultiBody.Types.AxisLabel label1="x" 
-    "Label of horizontal axis in icon";
-  parameter Modelica.Mechanics.MultiBody.Types.AxisLabel label2="y" 
-    "Label of vertical axis in icon";
-  parameter Types.GravityTypes.Temp gravityType=Modelica.Mechanics.MultiBody.Types.GravityTypes.UniformGravity 
+  parameter Types.AxisLabel label1="x" "Label of horizontal axis in icon";
+  parameter Types.AxisLabel label2="y" "Label of vertical axis in icon";
+  parameter Types.GravityTypes.Temp gravityType=GravityTypes.UniformGravity 
     "Type of gravity field"                                                                                                     annotation (Evaluate=true);
-  parameter SI.Acceleration g=9.81 " Constant gravity acceleration" 
-    annotation (Dialog(enable=gravityType==Modelica.Mechanics.MultiBody.Types.GravityTypes.UniformGravity));
+  parameter SI.Acceleration g=9.81 "Constant gravity acceleration" 
+    annotation (Dialog(enable=gravityType == GravityTypes.UniformGravity));
   parameter Types.Axis n={0,-1,0} 
-    " Direction of gravity resolved in world frame (gravity = g*n/length(n))" 
-    annotation (Evaluate=true, Dialog(enable=gravityType==Modelica.Mechanics.MultiBody.Types.GravityTypes.UniformGravity));
+    "Direction of gravity resolved in world frame (gravity = g*n/length(n))" 
+    annotation (Evaluate=true, Dialog(enable=gravityType == Modelica.Mechanics.
+          MultiBody.Types.GravityTypes.UniformGravity));
   parameter Real mue(
     unit="m3/s2",
     min=0) = 3.986e14 
-    " Gravity field constant (default = field constant of earth)" 
-    annotation (Dialog(enable=gravityType==Modelica.Mechanics.MultiBody.Types.GravityTypes.PointGravity));
+    "Gravity field constant (default = field constant of earth)" 
+    annotation (Dialog(enable=gravityType == Types.GravityTypes.PointGravity));
   parameter Boolean driveTrainMechanics3D=false 
-    "= true, if 3D mechanical effects of Parts.Mounting1D/Rotor1D/BevelGear1D shall be taken into account";
+    "= true, if 3-dim. mechanical effects of Parts.Mounting1D/Rotor1D/BevelGear1D shall be taken into account";
   
   parameter SI.Distance axisLength=nominalLength/2 
-    "|Animation|if animateWorld = true| Length of world axes arrows";
+    "Length of world axes arrows" 
+    annotation (Dialog(tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
   parameter SI.Distance axisDiameter=axisLength/defaultFrameDiameterFraction 
-    "|Animation|if animateWorld = true| Diameter of world axes arrows";
-  parameter Boolean axisShowLabels=true 
-    "|Animation|if animateWorld = true| = true, if labels shall be shown";
-  parameter Modelica.Mechanics.MultiBody.Types.Color axisColor_x=Modelica.Mechanics.MultiBody.Types.Defaults.
-      FrameColor "|Animation|if animateWorld = true| Color of x-arrow";
+    "Diameter of world axes arrows" 
+    annotation (Dialog(tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
+  parameter Boolean axisShowLabels=true "= true, if labels shall be shown" 
+    annotation (Dialog(tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
+  parameter Types.Color axisColor_x=Types.Defaults.FrameColor 
+    "Color of x-arrow" 
+    annotation (Dialog(tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
   parameter Modelica.Mechanics.MultiBody.Types.Color axisColor_y=axisColor_x 
-    "|Animation|if animateWorld = true| Color of y-arrow";
-  parameter Modelica.Mechanics.MultiBody.Types.Color axisColor_z=axisColor_x 
-    "|Animation|if animateWorld = true| Color of z-arrow";
+    annotation (Dialog(tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
+  parameter Types.Color axisColor_z=axisColor_x "Color of z-arrow" 
+    annotation (Dialog(tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
   
   parameter SI.Position gravityArrowTail[3]={0,0,0} 
-    "|Animation|if animateGravity = true and gravityType = UniformGravity| Position vector from origin of world frame to arrow tail, resolved in world frame";
-  parameter SI.Length gravityArrowLength=axisLength/2 
-    "|Animation|if animateGravity = true and gravityType = UniformGravity| Length of gravity arrow";
+    "Position vector from origin of world frame to arrow tail, resolved in world frame"
+    annotation (Dialog(tab="Animation", group=
+          "if animateGravity = true and gravityType = UniformGravity",
+          enable=enableAnimation and animateGravity and gravityType == GravityTypes.UniformGravity));
+  parameter SI.Length gravityArrowLength=axisLength/2 "Length of gravity arrow"
+    annotation (Dialog(tab="Animation", group=
+          "if animateGravity = true and gravityType = UniformGravity",
+          enable=enableAnimation and animateGravity and gravityType == GravityTypes.UniformGravity));
   parameter SI.Diameter gravityArrowDiameter=gravityArrowLength/
-      defaultWidthFraction 
-    "|Animation|if animateGravity = true and gravityType = UniformGravity| Diameter of gravity arrow";
-  parameter Modelica.Mechanics.MultiBody.Types.Color gravityArrowColor={0,230,0} 
-    "|Animation|if animateGravity = true and gravityType = UniformGravity| Color of gravity arrow";
+      defaultWidthFraction "Diameter of gravity arrow" annotation (Dialog(tab=
+          "Animation", group=
+          "if animateGravity = true and gravityType = UniformGravity",
+          enable=enableAnimation and animateGravity and gravityType == GravityTypes.UniformGravity));
+  parameter Types.Color gravityArrowColor={0,230,0} "Color of gravity arrow" 
+    annotation (Dialog(tab="Animation", group=
+          "if animateGravity = true and gravityType = UniformGravity",
+          enable=enableAnimation and animateGravity and gravityType == GravityTypes.UniformGravity));
   parameter SI.Diameter gravitySphereDiameter=12742000 
-    "|Animation|if animateGravity = true and gravityType = PointGravity| Diameter of sphere representing gravity center (default = mean diameter of earth)";
-  parameter Modelica.Mechanics.MultiBody.Types.Color gravitySphereColor={0,230,0} 
-    "|Animation|if animateGravity = true and gravityType = PointGravity| Color of gravity sphere";
+    "Diameter of sphere representing gravity center (default = mean diameter of earth)"
+    annotation (Dialog(tab="Animation", group=
+          "if animateGravity = true and gravityType = PointGravity",
+          enable=enableAnimation and animateGravity and gravityType == GravityTypes.PointGravity));
+  parameter Types.Color gravitySphereColor={0,230,0} "Color of gravity sphere" 
+    annotation (Dialog(tab="Animation", group=
+          "if animateGravity = true and gravityType = PointGravity",
+          enable=enableAnimation and animateGravity and gravityType == GravityTypes.PointGravity));
   
-  parameter SI.Length nominalLength=1 
-    "|Defaults|| \"Nominal\" length of multi-body system";
+  parameter SI.Length nominalLength=1 "\"Nominal\" length of multi-body system"
+    annotation (Dialog(tab="Defaults"));
   parameter SI.Length defaultAxisLength=nominalLength/5 
-    "|Defaults|| Default for length of a frame axis (but not world frame)";
+    "Default for length of a frame axis (but not world frame)" 
+    annotation (Dialog(tab="Defaults"));
   parameter SI.Length defaultJointLength=nominalLength/10 
-    "|Defaults|| Default for the fixed length of a shape representing a joint";
+    "Default for the fixed length of a shape representing a joint" 
+    annotation (Dialog(tab="Defaults"));
   parameter SI.Length defaultJointWidth=nominalLength/20 
-    "|Defaults|| Default for the fixed width of a shape representing a joint";
+    "Default for the fixed width of a shape representing a joint" 
+    annotation (Dialog(tab="Defaults"));
   parameter SI.Length defaultForceLength=nominalLength/10 
-    "|Defaults|| Default for the fixed length of a shape representing a force (e.g. damper)";
+    "Default for the fixed length of a shape representing a force (e.g. damper)"
+    annotation (Dialog(tab="Defaults"));
   parameter SI.Length defaultForceWidth=nominalLength/20 
-    "|Defaults|| Default for the fixed width of a shape represening a force (e.g. spring, bushing)";
+    "Default for the fixed width of a shape represening a force (e.g. spring, bushing)"
+    annotation (Dialog(tab="Defaults"));
   parameter SI.Length defaultBodyDiameter=nominalLength/9 
-    "|Defaults|| Default for diameter of sphere representing the center of mass of a body";
+    "Default for diameter of sphere representing the center of mass of a body" 
+    annotation (Dialog(tab="Defaults"));
   parameter Real defaultWidthFraction=20 
-    "|Defaults|| Default for shape width as a fraction of shape length (e.g., for Parts.FixedTranslation)";
+    "Default for shape width as a fraction of shape length (e.g., for Parts.FixedTranslation)"
+    annotation (Dialog(tab="Defaults"));
   parameter SI.Length defaultArrowDiameter=nominalLength/40 
-    "|Defaults|| Default for arrow diameter (e.g., of forces, torques, sensors)";
+    "Default for arrow diameter (e.g., of forces, torques, sensors)" 
+    annotation (Dialog(tab="Defaults"));
   parameter Real defaultFrameDiameterFraction=40 
-    "|Defaults|| Default for arrow diameter of a coordinate system as a fraction of axis length";
-  
-  Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_b annotation (extent=[90, -15; 110, 15]);
+    "Default for arrow diameter of a coordinate system as a fraction of axis length"
+    annotation (Dialog(tab="Defaults"));
+  parameter Real defaultSpecularCoefficient(min=0) = 0.7 
+    "Default reflection of ambient light (= 0: light is completely absorbed)" 
+    annotation (Dialog(tab="Defaults"));
   
   /* The World object can only use the Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape model, but no
      other models in package Modelica.Mechanics.MultiBody.Visualizers, since the other models access

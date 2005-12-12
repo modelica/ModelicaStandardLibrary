@@ -1898,14 +1898,14 @@ TurnsRatio * <u>V</u><sub>R</sub> = <u>V</u><sub>s</sub> - (R<sub>s</sub> + j X<
             style(color=3, rgbcolor={0,0,255}));
         connect(plug_sn, spacePhasorS.plug_n) annotation (points=[-60,100; -60,60;
               -10,60; -10,40], style(color=3, rgbcolor={0,0,255}));
-        connect(spacePhasorS.ground, spacePhasorS.zero) annotation (points=[-10,20; 
+        connect(spacePhasorS.ground, spacePhasorS.zero) annotation (points=[-10,20;
               -10,14; -6.12303e-016,14; -6.12303e-016,20],     style(
             color=3,
             rgbcolor={0,0,255},
             fillColor=3,
             rgbfillColor={0,0,255},
             fillPattern=1));
-        connect(spacePhasorR.ground, spacePhasorR.zero) annotation (points=[-10,-20; 
+        connect(spacePhasorR.ground, spacePhasorR.zero) annotation (points=[-10,-20;
               -10,-14; -6.12303e-016,-14; -6.12303e-016,-20],      style(
             color=3,
             rgbcolor={0,0,255},
@@ -5083,7 +5083,7 @@ The machine's stator is implicitely fixed.
 </HTML>"),
         Diagram);
     equation 
-      connect(inertiaRotor.flange_b, shaft) annotation (points=[80,1.22461e-015; 
+      connect(inertiaRotor.flange_b, shaft) annotation (points=[80,1.22461e-015;
             92,1.22461e-015; 92,0; 100,0], style(color=0, rgbcolor={0,0,0}));
       connect(internalSupport, fixedHousing.flange_b) 
         annotation (points=[20,-100; 40,-100], style(color=0, rgbcolor={0,0,0}));

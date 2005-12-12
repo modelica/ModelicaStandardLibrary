@@ -380,7 +380,7 @@ function should be used.
     algorithm 
       h :=specificEnthalpy_pTX(p, T, {Xi[1], 1-Xi[1]});
     end specificEnthalpy_pTXi;
-
+    
     package Utilities "utility functions" 
       function spliceFunction 
           input Real pos;

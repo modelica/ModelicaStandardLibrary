@@ -1,5 +1,6 @@
-package Mechanics "Library for mechanical systems"
+package Mechanics "Library to model mechanical systems"
 extends Modelica.Icons.Library2;
+
 
 annotation(preferedView="info",
   Window(
@@ -25,13 +26,10 @@ annotation(preferedView="info",
     Line(points=[-10, -34; 72, -34; 72, -76; -10, -76], style(color=0))),
   Documentation(info="<HTML>
 <p>
-This package contains components to model <b>mechanical systems</b>.
-Currently, the following subpackages are available:</p>
-<pre>
-   <b>MultiBody</b>      3-dimensional mechanical components.
-   <b>Rotational</b>     1-dimensional rotational mechanical components.
-   <b>Translational</b>  1-dimensional translational mechanical components.
-</pre>
+This package contains components to model the movement
+of 1-dim. rotational, 1-dim. translational, and
+3-dim. <b>mechanical systems</b>.
+</p>
 </HTML>
 ", revisions="<html>
 <ul>

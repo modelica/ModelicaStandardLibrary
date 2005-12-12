@@ -1,4 +1,424 @@
-package Rotational "1-dimensional rotational mechanical components" 
+package Rotational 
+  "Library to model 1-dimensional, rotational mechanical systems" 
+package UsersGuide "Users Guide" 
+  annotation (DocumentationClass=true, Documentation(info="<HTML>
+<h3><font color=\"#008000\" size=5>Users Guide of package Rotational</font></h3>
+<p>
+Library <b>Rotational</b> is a <b>free</b> Modelica package providing
+1-dimensional, rotational mechanical components to model in a convenient way
+drive trains with frictional losses.
+</p>
+</HTML>"));
+    
+  package Overview "Overview" 
+    annotation (DocumentationClass=true, Documentation(info="<HTML>
+<h3><font color=\"#008000\" size=5>Overview</font></h3>
+
+<p>
+This package contains components to model <b>1-dimensional rotational
+mechanical</b> systems, including different types of gearboxes,
+shafts with inertia, external torques, spring/damper elements,
+frictional elements, backlash, elements to measure angle, angular velocity,
+angular acceleration and the cut-torque of a flange. In sublibrary
+<b>Examples</b> several examples are present to demonstrate the usage of
+the elements. Just open the corresponding example model and simulate
+the model according to the provided description.
+</p>
+<p>
+A unique feature of this library is the <b>component-oriented</b>
+modeling of <b>Coulomb friction</b> elements, such as friction in bearings,
+clutches, brakes, and gear efficiency. Even (dynamically) coupled
+friction elements, e.g., as in automatic gearboxes, can be handeled
+<b>without</b> introducing stiffness which leads to fast simulations.
+The underlying theory is new and is based on the solution of mixed
+continuous/discrete systems of equations, i.e., equations where the
+<b>unknowns</b> are of type <b>Real</b>, <b>Integer</b> or <b>Boolean</b>.
+Provided appropriate numerical algorithms for the solution of such types of
+systems are available in the simulation tool, the simulation of
+(dynamically) coupled friction elements of this library is
+<b>efficient</b> and <b>reliable</b>.
+</p>
+<p><IMG SRC=\"../Images/drive1.png\" ALT=\"drive1\"></p>
+<p>
+A simple example of the usage of this library is given in the
+figure above. This drive consists of a shaft with inertia J1=0.2 which
+is connected via an ideal gearbox with gear ratio=5 to a second shaft
+with inertia J2=5. The left shaft is driven via an external,
+sinusoidal torque.
+The <b>filled</b> and <b>non-filled grey squares</b> at the left and
+right side of a component represent <b>mechanical flanges</b>.
+Drawing a line between such squares means that the corresponding
+flanges are <b>rigidly attached</b> to each other.
+By convention in this library, the connector characterized as a
+<b>filled</b> grey square is called <b>flange_a</b> and placed at the
+left side of the component in the \"design view\" and the connector
+characterized as a <b>non-filled</b> grey square is called <b>flange_b</b>
+and placed at the right side of the component in the \"design view\".
+The two connectors are completely <b>identical</b>, with the only
+exception that the graphical layout is a little bit different in order
+to distinguish them for easier access of the connector variables.
+For example, <tt>J1.flange_a.tau</tt> is the cut-torque in the connector
+<tt>flange_a</tt> of component <tt>J1</tt>.
+</p>
+<p>
+The components of this
+library can be <b>connected</b> together in an <b>arbitrary</b> way. E.g., it is
+possible to connect two springs or two shafts with inertia directly
+together, see figure below.
+</p>
+<p><IMG SRC=\"../Images/driveConnections.png\" ALT=\"driveConnections\"></p>
+
+</HTML>"));
+      
+      
+      
+  end Overview;
+
+  package FlangeConnectors "Flange Connectors" 
+    annotation (DocumentationClass=true, Documentation(info="<HTML>
+<h3><font color=\"#008000\" size=5>Flange connectors</font></h3>
+
+<p>
+A flange is described by the connector class
+Interfaces.<b>Flange_a</b>
+or Interfaces.<b>Flange_b</b>. As already noted, the two connector
+classes are completely identical. There is only a difference in the icons,
+in order to easier identify a flange variable in a diagram.
+Both connector classes contain the following variables:
+</p>
+<pre>
+   SIunits.Angle       phi  \"absolute rotation angle of flange\";
+   <b>flow</b> SIunits.Torque tau  \"cut-torque in the flange\";
+</pre>
+<p>
+If needed, the angular velocity <tt>w</tt> and the
+angular acceleration <tt>a</tt> of a flange connector can be
+determined by differentiation of the flange angle <tt>phi</tt>:
+</p>
+<pre>
+     w = <b>der</b>(phi);    a = <b>der</b>(w);
+</pre>
+</HTML>"));
+      
+  end FlangeConnectors;
+
+  package SupportTorques "Support Torques" 
+    annotation (DocumentationClass=true, Documentation(info="<HTML>
+<h3><font color=\"#008000\" size=5>Support Torques</font></h3>
+ 
+<p>The following figure shows examples of components equipped with
+a bearing flange (framed flange in the lower center), which can be used
+to fix components on the ground or on other rotating elements or to combine
+them with force elements. If the bearing flange is not connected, the
+components are assumed to be mounted on the ground. Otherwise, the bearing
+connector offers the possibility to consider, e.g., gearboxes mounted on
+the ground via spring-damper-systems (cf. example <tt>ElasticBearing</tt>). Independently, these components
+provide a variable <tt>tau_support</tt> stating the support torque exerted
+on the bearing.</p>
+<p><IMG SRC=\"../Images/bearing.png\" ALT=\"bearing\"></p>
+<p>In general, it is not necessary to connect the bearing flange
+with a fixation, i.e., the two implementations in the following figure give
+identical results.</p>
+<p><IMG SRC=\"../Images/bearing2.png\" ALT=\"bearing2\"></p>
+
+</HTML>"));
+      
+  end SupportTorques;
+    
+    
+  package SignConventions "Sign Conventions" 
+    annotation (DocumentationClass=true, Documentation(info="<HTML>
+<h3><font color=\"#008000\" size=5>Sign Conventions</font></h3>
+ 
+<p>
+The variables of a component of this library can be accessed in the
+usual way. However, since most of these variables are basically elements
+of <b>vectors</b>, i.e., have a direction, the question arises how the
+signs of variables shall be interpreted. The basic idea is explained
+at hand of the following figure:
+</p>
+<p><IMG SRC=\"../Images/drive2.png\" ALT=\"drive2\"></p>
+<p>
+In the figure, three identical drive trains are shown. The only
+difference is that the gear of the middle drive train and the
+gear as well as the right inertia of the lower drive train
+are horizontally flipped with regards to the upper drive train.
+The signs of variables are now interpreted in the following way:
+Due to the 1-dimensional nature of the model, all components are
+basically connected together along one line (more complicated
+cases are discussed below). First, one has to define
+a <b>positive</b> direction of this line, called <b>axis of rotation</b>.
+In the top part of the figure this is characterized by an arrow
+defined as <tt>axis of rotation</tt>. The simple rule is now:
+If a variable of a component is positive and can be interpreted as
+the element of a vector (e.g. torque or angular velocity vector), the
+corresponding vector is directed into the positive direction
+of the axis of rotation. In the following figure, the right-most
+inertias of the figure above are displayed with the positive
+vector direction displayed according to this rule:
+</p>
+<p><IMG SRC=\"../Images/drive3.png\" ALT=\"drive3\"></p>
+<p>
+The cut-torques <tt>J2.flange_a.tau, J4.flange_a.tau, J6.flange_b.tau</tt>
+of the right inertias are all identical and are directed into the
+direction of rotation if the values are positive. Similiarily,
+the angular velocities <tt>J2.w, J4.w, J6.w</tt> of the right inertias
+are all identical and are also directed into the
+direction of rotation if the values are positive. Some special
+cases are shown in the next figure:
+</p>
+<p><IMG SRC=\"../Images/drive4.png\" ALT=\"drive4\"></p>
+<p>
+In the upper part of the figure, two variants of the connection of an
+external torque and an inertia are shown. In both cases, a positive
+signal input into the torque component accelerates the inertias
+<tt>inertia1, inertia2</tt> into the positive axis of rotation,
+i.e., the angular accelerations <tt>inertia1.a, inertia2.a</tt>
+are positive and are directed along the \"axis of rotation\" arrow.
+In the lower part of the figure the connection of inertias with
+a planetary gear is shown. Note, that the three flanges of the
+planetary gearbox are located along the axis of rotation and that
+the axis direction determines the positive rotation along these
+flanges. As a result, the positive rotation for <tt>inertia4, inertia6</tt>
+is as indicated with the additional grey arrows.
+</p>
+</HTML>"));
+      
+  end SignConventions;
+
+  package UserDefinedComponents "User Defined Components" 
+    annotation (DocumentationClass=true, Documentation(info="<HTML>
+<h3><font color=\"#008000\" size=5>User Defined Components</font></h3>
+<p>
+In this section some hints are given to define your own
+1-dimensional rotational components which are compatible with the
+elements of this package.
+It is convenient to define a new
+component by inheritance from one of the following base classes,
+which are defined in sublibrary Interfaces:
+</p>
+<table BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td><tt><b>Rigid</b></tt></td><td>Rigid connection of two rotational 1D flanges (used for elements with inertia).</td></tr>
+<tr><td><tt><b>Compliant</b></tt></td><td>Compliant connection of two rotational 1D flanges (used for force laws such as a spring or a damper).</td></tr>
+<tr><td><tt><b>TwoFlanges</b></tt></td><td>General connection of two rotational 1D flanges (used for gearboxes).</td></tr>
+<tr><td><tt><b>AbsoluteSensor</b></tt></td><td>Measure absolute flange variables.</td></tr>
+<tr><td><tt><b>RelativeSensor</b></tt></td><td>Measure relative flange variables.</td></tr>
+</table>
+<p>
+The difference between these base classes are the auxiliary
+variables defined in the model and the relations between
+the flange variables already defined in the base class.
+For example, in model <b>Rigid</b> the flanges flange_a and
+flange_b are rigidly connected, i.e., flange_a.phi = flange_b.phi,
+whereas in model <b>Compliant</b> the cut-torques are the
+same, i.e., flange_a.tau + flange_b.tau = 0.
+</p>
+<p>
+The equations of a mechanical component are vector equations, i.e.,
+they need to be expressed in a common coordinate system.
+Therefore, for a component a <b>local axis of rotation</b> has to be
+defined. All vector quantities, such as cut-torques or angular
+velocities have to be expressed according to this definition.
+Examples for such a definition are given in the following figure
+for an inertia component and a planetary gearbox:
+</p>
+<p><IMG SRC=\"../Images/driveAxis.png\" ALT=\"driveAxis\"></p>
+<p>
+As can be seen, all vectors are directed into the direction
+of the rotation axis. The angles in the flanges are defined
+correspondingly. For example, the angle <tt>sun.phi</tt> in the
+flange of the sun wheel of the planetary gearbox is positive,
+if rotated in mathematical positive direction (= counter clock
+wise) along the axis of rotation.
+</p>
+<p>
+On first view, one may assume that the selected local
+coordinate system has an influence on the usage of the
+component. But this is not the case, as shown in the next figure:
+</p>
+<p><IMG SRC=\"../Images/inertias.png\" ALT=\"inertias\"></p>
+<p>
+In the figure the <b>local</b> axes of rotation of the components
+are shown. The connection of two inertias in the left and in the
+right part of the figure are completely equivalent, i.e., the right
+part is just a different drawing of the left part. This is due to the
+fact, that by a connection, the two local coordinate systems are
+made identical and the (automatically) generated connection equations
+(= angles are identical, cut-torques sum-up to zero) are also
+expressed in this common coordinate system. Therefore, even if in
+the left figure it seems to be that the angular velocity vector of
+<tt>J2</tt> goes from right to left, in reality it goes from
+left to right as shown in the right part of the figure, where the
+local coordinate systems are drawn such that they are aligned.
+Note, that the simple rule stated in section 4 (Sign conventions)
+also determines that
+the angular velocity of <tt>J2</tt> in the left part of the
+figure is directed from left to right.
+</p>
+<p>
+To summarize, the local coordinate system selected for a component
+is just necessary, in order that the equations of this component
+are expressed correctly. The selection of the coordinate system
+is arbitrary and has no influence on the usage of the component.
+Especially, the actual direction of, e.g., a cut-torque is most
+easily determined by the rule of section 4. A more strict determination
+by aligning coordinate systems and then using the vector direction
+of the local coordinate systems, often requires a re-drawing of the
+diagram and is therefore less convenient to use.
+</p>
+</HTML>"));
+      
+  end UserDefinedComponents;
+
+  package RequirementsForSimulationTool "Requirements for Simulation Tools" 
+    annotation (DocumentationClass=true, Documentation(info="<HTML>
+<h3><font color=\"#008000\" size=5>Requirements for Simulation Tools</font></h3>
+
+<p>
+This library is designed in a fully object oriented way in order that
+components can be connected together in every meaningful combination
+(e.g. direct connection of two springs or two inertias).
+As a consequence, most models lead to a system of
+differential-algebraic equations of <b>index 3</b> (= constraint
+equations have to be differentiated twice in order to arrive at
+a state space representation) and the Modelica translator or
+the simulator has to cope with this system representation.
+According to our present knowledge, this requires that the
+Modelica translator is able to symbolically differentiate equations
+(otherwise it is e.g. not possible to provide consistent initial
+conditions; even if consistent initial conditions are present, most
+numerical DAE integrators can cope at most with index 2 DAEs).
+</p>
+</p>
+The elements of this library can be connected together in an
+arbitrary way. However, difficulties may occur, if the elements which can <b>lock</b> the
+<b>relative motion</b> between two flanges are connected <b>rigidly</b>
+together such that essentially the <b>same relative motion</b> can be locked.
+The reason is
+that the cut-torque in the locked phase is not uniquely defined if the
+elements are locked at the same time instant (i.e., there does not exist a
+unique solution) and some simulation systems may not be
+able to handle this situation, since this leads to a singularity during
+simulation. Currently, this type of problem can occur with the
+Coulomb friction elements <b>BearingFriction, Clutch, Brake, LossyGear</b> when
+the elements become stuck:
+</p>
+<p><IMG SRC=\"../Images/driveConnections2.png\" ALT=\"driveConnections2\"></p>
+<p>
+In the figure above two typical situations are shown: In the upper part of
+the figure, the series connection of rigidly attached BearingFriction and
+Clutch components are shown. This does not hurt, because the BearingFriction
+element can lock the relative motion between the element and the housing,
+whereas the clutch element can lock the relative motion between the two
+connected flanges. Contrary, the drive train in the lower part of the figure
+may rise to simulation problems, because the BearingFriction element
+and the Brake element can lock the relative motion between a flange and
+the housing and these flanges are rigidly connected together, i.e.,
+essentially the same relative motion can be locked. These difficulties
+may be solved by either introducing a compliance between these flanges
+or by combining the BearingFriction and Brake element into
+one component and resolving the ambiguity of the frictional torque in the
+stuck mode. A tool may handle this situation also <b>automatically</b>,
+by picking one solution of the infinitely many, e.g., the one where
+the difference to the value of the previous time instant is as small
+as possible.
+</p>
+
+</HTML>"));
+      
+  end RequirementsForSimulationTool;
+
+  class ReleaseNotes "Release notes" 
+      
+    annotation (Documentation(info="<HTML>
+<h3><font color=\"#008000\" size=5>Release notes</font></h3>
+
+<ul>
+<li><i>December 12, 2005</i> 
+    by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
+    Package documentation split into several parts and provided
+    as Users Guide.</li>
+
+<li><i>October 27, 2003</i>
+       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>
+       and <a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Christian Schweiger</a>:<br>
+       Bearing flanges added for mounted components and support torque computation implemented.<br>
+       New component <tt>Torque2</tt> and new example <tt>ElasticBearing</tt>.
+<li><i>October 21, 2002</i>
+       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>
+       and <a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Christian Schweiger</a>:<br>
+       New components <b>LossyGear</b> (with corresponding examples) and <b>Gear2</b>.<br>
+       Interface <b>FrictionBase</b> adapted to new initialization.</li>
+<li><i>June 19, 2000</i>
+       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
+       New elements:<br><!-- silly construction follows as Dymola not able to handle nested lists -->
+       <tt>IdealGearR2T&nbsp;&nbsp;&nbsp;</tt> Ideal gear transforming rotational in translational motion<br>
+       <tt>Position&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt> Forced movement of a flange with a reference angle given as input signal<br>
+       <tt>RelativeStates&nbsp;</tt> Definition of relative state variables<br>
+       Icon of Rotational.Torque changed.
+       Elements Acceleration, Torque, Fixed, Sensors ordered according
+       to the Translational library.</li>
+<li><i>Nov. 4, 1999</i>
+       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
+       Improved documentation and improved graphical layout of the diagram level.
+       Changes according to the Twente meeting introduced. Especially:
+       Alias names, instead of extends. Model Shaft renamed to Inertia.
+       Torque1D renamed to Torque.
+       AccMotion renamed to Accelerate. LockedL, LockedR replaced by Fixed.
+       SpeedSensor splitted into AngleSensor and
+       SpeedSensor. RelSpeedSensor splitted into RelAngleSensor and
+       RelSpeedSensor. Initialization of friction elements improved.
+       Flanges renamed to flange_a, flange_b. MoveAngle renamed to
+       KinematicPTP, vectorized and moved to Blocks.Sources.<br>
+       Advice given from P. Beater, H. Elmqvist, S.E. Mattsson, H. Olsson
+       is appreciated.</li>
+<li><i>July 18, 1999</i>
+       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
+       Documentation and icons improved. Appropriate initial conditions
+       introduced as start values in the demo models. Bearing model
+       replaced by FixedRight and FixedLeft models; sensor elements replaced by
+       TorqueSensor, SpeedSensor, AccSensor; new sensor elements
+       RelSpeedSensor, RelAccSensor to measure relative kinematic quantitites.
+       New elements GearEfficiency and Gear.</li>
+<li><i>June 30, 1999</i>
+       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
+       Realized a first version based on an existing Dymola library
+       of Martin Otter and Hilding Elmqvist.</li>
+</ul>
+
+</HTML>
+"));
+  equation 
+      
+  end ReleaseNotes;
+    
+    
+  class Contact "Contact" 
+      
+    annotation (Documentation(info="<html>
+<h3><font color=\"#008000\" size=5>Contact</font></h3>
+<dl>
+<dt><b>Main Authors:</b>
+<dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a> and
+    <a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Christian Schweiger</a>
+    <br>
+    Deutsches Zentrum f&uuml;r Luft und Raumfahrt e.V. (DLR)<br>
+    Institut f&uuml;r Robotik und Mechatronik<br> 
+    Abteilung f&uuml;r Entwurfsorientierte Regelungstechnik<br>
+    Postfach 1116<br>
+    D-82230 Wessling<br>
+    Germany<br>
+    email: <A HREF=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</A>,
+           <A HREF=\"mailto:Christian.Schweiger@dlr.de\">Christian.Schweiger@dlr.de</A><br>
+</dl>
+
+</html>
+"));
+  end Contact;
+    
+end UsersGuide;
+
   package Examples "Demonstration examples of the components of this package" 
     
     extends Modelica.Icons.Library;
@@ -14,52 +434,8 @@ package Rotational "1-dimensional rotational mechanical components"
 This package contains example models to demonstrate the usage of the
 Modelica.Mechanics.Rotational package. Open the models and
 simulate them according to the provided description in the models.
-The following demo models are present:
 </p>
-<pre>
-   <b>First</b>            First example using simple, basic elements
-   <b>Friction</b>         Example to demonstrate usage of a clutch and a brake
-   <b>CoupledClutches</b>  Example to demonstrate usage of 3 dynamically
-                    coupled clutches.
-   <b>LossyGearDemo1</b>   Example to demonstrate that gear efficiency may lead to stuck motion
-   <b>LossyGearDemo2</b>   Example to show combination of LossyGear and BearingFriction
-   <b>ElasticBearing</b>   Demonstration of bearing flange usage
-</pre>
-<dl>
-<dt><b>Main Author:</b>
-<dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a><br>
-    Deutsches Zentrum f&uuml;r Luft und Raumfahrt e.V. (DLR)<br>
-    Institut f&uuml;r Robotik und Mechatronik<br>
-    Postfach 1116<br>
-    D-82230 Wessling<br>
-    Germany<br>
-    email: <A HREF=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</A><br>
-</dl>
-<br>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>October 27, 2003</i>
-       by <a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Christian Schweiger</a>:<br>
-       New example <tt>ElasticBearing</tt>.</li>
-<li><i>October 21, 2002</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       New examples concerning LossyGear added.</li>
-<li><i>July 18, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       Appropriate initial conditions provided as start values in the models.</li>
-<li><i>June 30, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       Realized a first version based on an existing Dymola library
-       of Martin Otter and Hilding Elmqvist.</li>
-</ul>
-<br>
-<p><b>Copyright &copy; 1999-2003, Modelica Association and DLR.</b></p>
-<p><i>
-The Modelica package is <b>free</b> software; it can be redistributed and/or modified
-under the terms of the <b>Modelica license</b>, see the license conditions
-and the accompanying <b>disclaimer</b> in the documentation of package
-Modelica in file \"Modelica/package.mo\".
-</i></p>
+
 </HTML>
 "));
     encapsulated model First "First example: simple drive train" 
@@ -88,11 +464,7 @@ which is acting between a shaft and the housing has to be fixed
 in the housing on one side via component Fixed.</p>
 <p>Simulate for 1 second and plot the following variables:<br>
    angular velocities of inertias inertia2 and 3: inertia2.w, inertia3.w</p>
-<p><b>Release Notes:</b></p>
-<ul><li><i>June 30, 1999</i>
-    by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-    Realized.</li>
-</ul>
+
 </HTML>"));
       
       Rotational.Fixed fixed annotation (extent=[38, -60; 54, -44]);
@@ -166,11 +538,7 @@ values (defined already in the model):</p>
 </pre>
 <p>as well as the absolute angular velocities of the three inertia components
 (inertia1.w, inertia2.w, inertia3.w).</p>
-<p><b>Release Notes:</b></p>
-<ul><li><i>June 30, 1999</i>
-    by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-    Realized.</li>
-</ul>
+
 </HTML>"));
       
       Rotational.Torque torque annotation (extent=[-45, -5; -35, 5]);
@@ -266,11 +634,8 @@ J4.w), frictional torques of clutches (clutchX.tau),
 frictional mode of clutches (clutchX.mode) where
 mode = -1/0/+1 means backward sliding,
 locked, forward sliding.</p>
-<p><b>Release Notes:</b></p>
-<ul><li><i>June 30, 1999</i>
-        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-        Realized.</li>
-</ul></HTML>"), Commands(file="CoupledClutches.mos" "Plot inertias"));
+
+</HTML>"),      Commands(file="CoupledClutches.mos" "Plot inertias"));
       
       Rotational.Inertia J1(
         J=1,
@@ -525,13 +890,7 @@ Measures the <b>absolute angle phi</b> of a flange in an ideal
 way and provides the result as output signal <b>phi</b>
 (to be further processed with blocks of the Modelica.Blocks library).
 </p>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>July 18, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       realized.
-</li>
-</ul>
+
 </HTML>
 "),     Icon(Text(
             extent=[70, -30; 120, -80],
@@ -557,7 +916,7 @@ way and provides the result as output signal <b>phi</b>
       phi = flange_a.phi;
       0 = flange_a.tau;
     end AngleSensor;
-
+    
     model SpeedSensor 
       "Ideal sensor to measure the absolute flange angular velocity" 
       
@@ -575,13 +934,7 @@ Measures the <b>absolute angular velocity w</b> of a flange in an ideal
 way and provides the result as output signal <b>w</b>
 (to be further processed with blocks of the Modelica.Blocks library).
 </p>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>July 18, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       realized.
-</li>
-</ul>
+
 </HTML>
 "),     Icon(Text(
             extent=[70, -30; 120, -80],
@@ -607,7 +960,7 @@ way and provides the result as output signal <b>w</b>
       w = der(flange_a.phi);
       0 = flange_a.tau;
     end SpeedSensor;
-
+    
     model AccSensor 
       "Ideal sensor to measure the absolute flange angular acceleration" 
       
@@ -626,13 +979,7 @@ Measures the <b>absolute angular acceleration a</b> of a flange in an ideal
 way and provides the result as output signal <b>a</b> (to be further processed with
 blocks of the Modelica.Blocks library).
 </p>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>July 18, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       realized.
-</li>
-</ul>
+
 </HTML>
 "),     Icon(Text(
             extent=[70, -30; 120, -80],
@@ -662,10 +1009,6 @@ blocks of the Modelica.Blocks library).
     
     extends Modelica.Icons.Library2;
     
-    
-    
-    
-    
     model RelAngleSensor 
       "Ideal sensor to measure the relative angle between two flanges" 
       
@@ -689,13 +1032,7 @@ Measures the <b>relative angle phi_rel</b> between two flanges
 in an ideal way and provides the result as output signal <b>phi_rel</b>
 (to be further processed with blocks of the Modelica.Blocks library).
 </p>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>July 18, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       realized.
-</li>
-</ul>
+
 </HTML>
 "),     Icon(Text(
             extent=[20, -70; 160, -100],
@@ -757,13 +1094,7 @@ Measures the <b>relative angular velocity w_rel</b> between two flanges
 in an ideal way and provides the result as output signal <b>w_rel</b>
 (to be further processed with blocks of the Modelica.Blocks library).
 </p>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>July 18, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       realized.
-</li>
-</ul>
+
 </HTML>
 "),     Icon(Text(
             extent=[20, -70; 160, -100],
@@ -827,13 +1158,7 @@ Measures the <b>relative angular acceleration a_rel</b> between two flanges
 in an ideal way and provides the result as output signal <b>a_rel</b>
 (to be further processed with blocks of the Modelica.Blocks library).
 </p>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>July 18, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       realized.
-</li>
-</ul>
+
 </HTML>
 "),     Icon(Text(
             extent=[20, -70; 160, -100],
@@ -887,7 +1212,13 @@ in an ideal way and provides the result as output signal <b>a_rel</b>
         Line(points=[-76, -21; -6, -21], style(color=0)),
         Line(points=[-56, -61; -56, -81], style(color=0)),
         Line(points=[-36, -61; -36, -81], style(color=0)),
-        Line(points=[-16, -61; -16, -81], style(color=0))));
+        Line(points=[-16, -61; -16, -81], style(color=0))), Documentation(info="<html>
+<p>
+This package contains ideal sensor components that provide
+the connector variables as signals for further processing with the
+Modelica.Blocks library.
+</p>
+</html>"));
     model TorqueSensor 
       "Ideal sensor to measure the torque between two flanges (= flange_a.tau)" 
       
@@ -906,13 +1237,7 @@ Measures the <b>cut-torque between two flanges</b> in an ideal way
 and provides the result as output signal <b>tau</b>
 (to be further processed with blocks of the Modelica.Blocks library).
 </p>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>July 18, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       realized.
-</li>
-</ul>
+
 </HTML>
 "),     Icon(
           Text(
@@ -949,7 +1274,7 @@ and provides the result as output signal <b>tau</b>
       flange_a.tau = tau;
       flange_b.tau = -tau;
     end TorqueSensor;
-
+    
     model PowerSensor 
       "Ideal sensor to measure the power between two flanges (= flange_a.tau*der(flange_a.phi))" 
       
@@ -967,18 +1292,11 @@ Measures the <b>power between two flanges</b> in an ideal way
 and provides the result as output signal <b>power</b>
 (to be further processed with blocks of the Modelica.Blocks library).
 </p>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>December 1, 2005</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       realized.
-</li>
-</ul>
 </HTML>
 "),     Icon(
           Text(
             extent=[-51,-78; 98,-119],
-            style(color=0), 
+            style(color=0),
             string="power"),
           Line(points=[-80, -100; -80, 0]),
           Line(points=[-70, 0; -90, 0], style(color=0)),
@@ -1024,391 +1342,37 @@ and provides the result as output signal <b>power</b>
       library=1,
       autolayout=1),
     Documentation(info="<html>
-<h4>Content</h4>
-<ol>
-  <li>Overview of library Modelica.Mechanics.Rotational</li>
-  <li>Components of the library</li>
-  <li>Flange connectors</li>
-  <li>Sign conventions</li>
-  <li>User-defined components</li>
-  <li>Requirements for simulation tools</li>
-  <li>Support torque</li>
-</ol>
-<h4>1. Overview of library Modelica.Mechanics.Rotational</h4>
-<p>
-This package contains components to model <b>1-dimensional rotational
-mechanical</b> systems, including different types of gearboxes,
-shafts with inertia, external torques, spring/damper elements,
-frictional elements, backlash, elements to measure angle, angular velocity,
-angular acceleration and the cut-torque of a flange. In sublibrary
-<b>Examples</b> several examples are present to demonstrate the usage of
-the elements. Just open the corresponding example model and simulate
-the model according to the provided description.
-</p>
-<p>
-A unique feature of this library is the <b>component-oriented</b>
-modeling of <b>Coulomb friction</b> elements, such as friction in bearings,
-clutches, brakes, and gear efficiency. Even (dynamically) coupled
-friction elements, e.g., as in automatic gearboxes, can be handeled
-<b>without</b> introducing stiffness which leads to fast simulations.
-The underlying theory is new and is based on the solution of mixed
-continuous/discrete systems of equations, i.e., equations where the
-<b>unknowns</b> are of type <b>Real</b>, <b>Integer</b> or <b>Boolean</b>.
-Provided appropriate numerical algorithms for the solution of such types of
-systems are available in the simulation tool, the simulation of
-(dynamically) coupled friction elements of this library is
-<b>efficient</b> and <b>reliable</b>.
-</p>
-<p><IMG SRC=\"../Images/drive1.png\" ALT=\"drive1\"></p>
-<p>
-A simple example of the usage of this library is given in the
-figure above. This drive consists of a shaft with inertia J1=0.2 which
-is connected via an ideal gearbox with gear ratio=5 to a second shaft
-with inertia J2=5. The left shaft is driven via an external,
-sinusoidal torque.
-The <b>filled</b> and <b>non-filled grey squares</b> at the left and
-right side of a component represent <b>mechanical flanges</b>.
-Drawing a line between such squares means that the corresponding
-flanges are <b>rigidly attached</b> to each other.
-By convention in this library, the connector characterized as a
-<b>filled</b> grey square is called <b>flange_a</b> and placed at the
-left side of the component in the \"design view\" and the connector
-characterized as a <b>non-filled</b> grey square is called <b>flange_b</b>
-and placed at the right side of the component in the \"design view\".
-The two connectors are completely <b>identical</b>, with the only
-exception that the graphical layout is a little bit different in order
-to distinguish them for easier access of the connector variables.
-For example, <tt>J1.flange_a.tau</tt> is the cut-torque in the connector
-<tt>flange_a</tt> of component <tt>J1</tt>.
-</p>
-<p>
-The components of this
-library can be <b>connected</b> together in an <b>arbitrary</b> way. E.g., it is
-possible to connect two springs or two shafts with inertia directly
-together, see figure below.
-</p>
-<p><IMG SRC=\"../Images/driveConnections.png\" ALT=\"driveConnections\"></p>
-<h4>2. Components of the library</h4>
-<p>
-This package contains the following model components:
-</p>
-<table BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<tr><th>Name</th><th>Description</th></tr>
-<tr><td><tt><b>Examples</b></tt></td><td>Sublibrary containing example models.</td></tr>
-<tr><td><tt><b>Interfaces</b></tt></td><td>Sublibrary containing interface definitions.</td></tr>
-<tr><td><tt><b>Inertia</b></tt></td><td>Rotational component with inertia.</td></tr>
-<tr><td><tt><b>IdealGear</b></tt></td><td>Ideal gear transforming rotational in rotational motion.</td></tr>
-<tr><td><tt><b>IdealPlanetary</b></tt></td><td>Ideal standard planetary gear.</td></tr>
-<tr><td><tt><b>IdealGearR2T</b></tt></td><td>Ideal gear transforming rotational in translational motion.</td></tr>
-<tr><td><tt><b>Spring</b></tt></td><td>Linear spring.</td></tr>
-<tr><td><tt><b>Damper</b></tt></td><td>Linear damper.</td></tr>
-<tr><td><tt><b>SpringDamper</b></tt></td><td>Linear spring and linear damper in parallel connection.</td></tr>
-<tr><td><tt><b>ElastoBacklash</b></tt></td><td>Linear spring, linear damper and backlash in series connection (backlash is modeled with elasticity).</td></tr>
-<tr><td><tt><b>BearingFriction</b></tt></td><td>Coulomb friction in the bearings.</td></tr>
-<tr><td><tt><b>Clutch</b></tt></td><td>Frictional clutch where the clutch pressure force is an input signal (= Coulomb friction between two flanges).</td></tr>
-<tr><td><tt><b>OneWayClutch</b></tt></td><td>Parallel connection of free wheel and clutch</td></tr>
-<tr><td><tt><b>Brake</b></tt></td><td>Frictional brake where the brake pressure force is an input signal (= Coulomb friction between flange and housing).</td></tr>
-<tr><td><tt><b>LossyGear</b></tt></td><td>Gear with mesh efficiency and bearing friction (stuck/rolling possible)</td></tr>
-<tr><td><tt><b>GearEfficiency</b></tt></td><td>Efficiency of a gearbox.</td></tr>
-<tr><td><tt><b>Gear</b></tt></td><td>Realistic model of a gearbox (taking into account efficiency, bearing friction, elasticity, damping, backlash)</td></tr>
-<tr><td><tt><b>GearNew</b></tt></td><td>Realistic model of a gearbox (taking into account efficiency, bearing friction, elasticity, damping, backlash), based on new component LossyGear</td></tr>
-<tr><td><tt><b>Position</b></tt></td><td>Forced movement of a flange with a reference angle given as input signal (positive angle for positive input signal).</td></tr>
-<tr><td><tt><b>Accelerate</b></tt></td><td>Forced movement of a flange with an angular acceleration given as input signal (positive acceleration for positive input signal).</td></tr>
-<tr><td><tt><b>Move</b></tt></td><td>Forced movement of a flange according to an angle, speed and angular acceleration given as input signals.</td></tr>
-<tr><td><tt><b>Fixed</b></tt></td><td>Fixing flange in housing at a predefined angle.</td></tr>
-<tr><td><tt><b>Torque</b></tt></td><td>External torque defined as input signal which accelerates the connected flange for positive input signal.</td></tr>
-<tr><td><tt><b>RelativeStates</b></tt></td><td>Definition of relative state variables</td></tr>
-<tr><td><tt><b>Sensors</b></tt></td><td>Sublibrary containing ideal sensors to measure flange variables.</td></tr>
-</table>
-<h4>3. Flange connectors</h4>
-<p>
-A flange is described by the connector class
-Interfaces.<b>Flange_a</b>
-or Interfaces.<b>Flange_b</b>. As already noted, the two connector
-classes are completely identical. There is only a difference in the icons,
-in order to easier identify a flange variable in a diagram.
-Both connector classes contain the following variables:
-</p>
-<pre>
-   SIunits.Angle       phi  \"absolute rotation angle of flange\";
-   <b>flow</b> SIunits.Torque tau  \"cut-torque in the flange\";
-</pre>
-<p>
-If needed, the angular velocity <tt>w</tt> and the
-angular acceleration <tt>a</tt> of a flange connector can be
-determined by differentiation of the flange angle <tt>phi</tt>:
-</p>
-<pre>
-     w = <b>der</b>(phi);    a = <b>der</b>(w);
-</pre>
-<h4>4. Sign conventions</h4>
-<p>
-The variables of a component of this library can be accessed in the
-usual way. However, since most of these variables are basically elements
-of <b>vectors</b>, i.e., have a direction, the question arises how the
-signs of variables shall be interpreted. The basic idea is explained
-at hand of the following figure:
-</p>
-<p><IMG SRC=\"../Images/drive2.png\" ALT=\"drive2\"></p>
-<p>
-In the figure, three identical drive trains are shown. The only
-difference is that the gear of the middle drive train and the
-gear as well as the right inertia of the lower drive train
-are horizontally flipped with regards to the upper drive train.
-The signs of variables are now interpreted in the following way:
-Due to the 1-dimensional nature of the model, all components are
-basically connected together along one line (more complicated
-cases are discussed below). First, one has to define
-a <b>positive</b> direction of this line, called <b>axis of rotation</b>.
-In the top part of the figure this is characterized by an arrow
-defined as <tt>axis of rotation</tt>. The simple rule is now:
-If a variable of a component is positive and can be interpreted as
-the element of a vector (e.g. torque or angular velocity vector), the
-corresponding vector is directed into the positive direction
-of the axis of rotation. In the following figure, the right-most
-inertias of the figure above are displayed with the positive
-vector direction displayed according to this rule:
-</p>
-<p><IMG SRC=\"../Images/drive3.png\" ALT=\"drive3\"></p>
-<p>
-The cut-torques <tt>J2.flange_a.tau, J4.flange_a.tau, J6.flange_b.tau</tt>
-of the right inertias are all identical and are directed into the
-direction of rotation if the values are positive. Similiarily,
-the angular velocities <tt>J2.w, J4.w, J6.w</tt> of the right inertias
-are all identical and are also directed into the
-direction of rotation if the values are positive. Some special
-cases are shown in the next figure:
-</p>
-<p><IMG SRC=\"../Images/drive4.png\" ALT=\"drive4\"></p>
-<p>
-In the upper part of the figure, two variants of the connection of an
-external torque and an inertia are shown. In both cases, a positive
-signal input into the torque component accelerates the inertias
-<tt>inertia1, inertia2</tt> into the positive axis of rotation,
-i.e., the angular accelerations <tt>inertia1.a, inertia2.a</tt>
-are positive and are directed along the \"axis of rotation\" arrow.
-In the lower part of the figure the connection of inertias with
-a planetary gear is shown. Note, that the three flanges of the
-planetary gearbox are located along the axis of rotation and that
-the axis direction determines the positive rotation along these
-flanges. As a result, the positive rotation for <tt>inertia4, inertia6</tt>
-is as indicated with the additional grey arrows.
-</p>
-<h4>5. User-defined components</h4>
-<p>
-In this section some hints are given to define your own
-1-dimensional rotational components which are compatible with the
-elements of this package.
-It is convenient to define a new
-component by inheritance from one of the following base classes,
-which are defined in sublibrary Interfaces:
-</p>
-<table BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<tr><th>Name</th><th>Description</th></tr>
-<tr><td><tt><b>Rigid</b></tt></td><td>Rigid connection of two rotational 1D flanges (used for elements with inertia).</td></tr>
-<tr><td><tt><b>Compliant</b></tt></td><td>Compliant connection of two rotational 1D flanges (used for force laws such as a spring or a damper).</td></tr>
-<tr><td><tt><b>TwoFlanges</b></tt></td><td>General connection of two rotational 1D flanges (used for gearboxes).</td></tr>
-<tr><td><tt><b>AbsoluteSensor</b></tt></td><td>Measure absolute flange variables.</td></tr>
-<tr><td><tt><b>RelativeSensor</b></tt></td><td>Measure relative flange variables.</td></tr>
-</table>
-<p>
-The difference between these base classes are the auxiliary
-variables defined in the model and the relations between
-the flange variables already defined in the base class.
-For example, in model <b>Rigid</b> the flanges flange_a and
-flange_b are rigidly connected, i.e., flange_a.phi = flange_b.phi,
-whereas in model <b>Compliant</b> the cut-torques are the
-same, i.e., flange_a.tau + flange_b.tau = 0.
-</p>
-<p>
-The equations of a mechanical component are vector equations, i.e.,
-they need to be expressed in a common coordinate system.
-Therefore, for a component a <b>local axis of rotation</b> has to be
-defined. All vector quantities, such as cut-torques or angular
-velocities have to be expressed according to this definition.
-Examples for such a definition are given in the following figure
-for an inertia component and a planetary gearbox:
-</p>
-<p><IMG SRC=\"../Images/driveAxis.png\" ALT=\"driveAxis\"></p>
-<p>
-As can be seen, all vectors are directed into the direction
-of the rotation axis. The angles in the flanges are defined
-correspondingly. For example, the angle <tt>sun.phi</tt> in the
-flange of the sun wheel of the planetary gearbox is positive,
-if rotated in mathematical positive direction (= counter clock
-wise) along the axis of rotation.
-</p>
-<p>
-On first view, one may assume that the selected local
-coordinate system has an influence on the usage of the
-component. But this is not the case, as shown in the next figure:
-</p>
-<p><IMG SRC=\"../Images/inertias.png\" ALT=\"inertias\"></p>
-<p>
-In the figure the <b>local</b> axes of rotation of the components
-are shown. The connection of two inertias in the left and in the
-right part of the figure are completely equivalent, i.e., the right
-part is just a different drawing of the left part. This is due to the
-fact, that by a connection, the two local coordinate systems are
-made identical and the (automatically) generated connection equations
-(= angles are identical, cut-torques sum-up to zero) are also
-expressed in this common coordinate system. Therefore, even if in
-the left figure it seems to be that the angular velocity vector of
-<tt>J2</tt> goes from right to left, in reality it goes from
-left to right as shown in the right part of the figure, where the
-local coordinate systems are drawn such that they are aligned.
-Note, that the simple rule stated in section 4 (Sign conventions)
-also determines that
-the angular velocity of <tt>J2</tt> in the left part of the
-figure is directed from left to right.
-</p>
-<p>
-To summarize, the local coordinate system selected for a component
-is just necessary, in order that the equations of this component
-are expressed correctly. The selection of the coordinate system
-is arbitrary and has no influence on the usage of the component.
-Especially, the actual direction of, e.g., a cut-torque is most
-easily determined by the rule of section 4. A more strict determination
-by aligning coordinate systems and then using the vector direction
-of the local coordinate systems, often requires a re-drawing of the
-diagram and is therefore less convenient to use.
-</p>
-<h4>6. Requirements for simulation tools</h4>
-<p>
-This library is designed in a fully object oriented way in order that
-components can be connected together in every meaningful combination
-(e.g. direct connection of two springs or two inertias).
-As a consequence, most models lead to a system of
-differential-algebraic equations of <b>index 3</b> (= constraint
-equations have to be differentiated twice in order to arrive at
-a state space representation) and the Modelica translator or
-the simulator has to cope with this system representation.
-According to our present knowledge, this requires that the
-Modelica translator is able to symbolically differentiate equations
-(otherwise it is e.g. not possible to provide consistent initial
-conditions; even if consistent initial conditions are present, most
-numerical DAE integrators can cope at most with index 2 DAEs).
-</p>
-</p>
-The elements of this library can be connected together in an
-arbitrary way. However, difficulties may occur, if the elements which can <b>lock</b> the
-<b>relative motion</b> between two flanges are connected <b>rigidly</b>
-together such that essentially the <b>same relative motion</b> can be locked.
-The reason is
-that the cut-torque in the locked phase is not uniquely defined if the
-elements are locked at the same time instant (i.e., there does not exist a
-unique solution) and some simulation systems may not be
-able to handle this situation, since this leads to a singularity during
-simulation. Currently, this type of problem can occur with the
-Coulomb friction elements <b>BearingFriction, Clutch, Brake, LossyGear</b> when
-the elements become stuck:
-</p>
-<p><IMG SRC=\"../Images/driveConnections2.png\" ALT=\"driveConnections2\"></p>
-<p>
-In the figure above two typical situations are shown: In the upper part of
-the figure, the series connection of rigidly attached BearingFriction and
-Clutch components are shown. This does not hurt, because the BearingFriction
-element can lock the relative motion between the element and the housing,
-whereas the clutch element can lock the relative motion between the two
-connected flanges. Contrary, the drive train in the lower part of the figure
-may rise to simulation problems, because the BearingFriction element
-and the Brake element can lock the relative motion between a flange and
-the housing and these flanges are rigidly connected together, i.e.,
-essentially the same relative motion can be locked. These difficulties
-may be solved by either introducing a compliance between these flanges
-or by combining the BearingFriction and Brake element into
-one component and resolving the ambiguity of the frictional torque in the
-stuck mode. A tool may handle this situation also <b>automatically</b>,
-by picking one solution of the infinitely many, e.g., the one where
-the difference to the value of the previous time instant is as small
-as possible.
-</p>
-<h4>7. Support torques</h4>
-<p>The following figure shows examples of components equipped with
-a bearing flange (framed flange in the lower center), which can be used
-to fix components on the ground or on other rotating elements or to combine
-them with force elements. If the bearing flange is not connected, the
-components are assumed to be mounted on the ground. Otherwise, the bearing
-connector offers the possibility to consider, e.g., gearboxes mounted on
-the ground via spring-damper-systems (cf. example <tt>ElasticBearing</tt>). Independently, these components
-provide a variable <tt>tau_support</tt> stating the support torque exerted
-on the bearing.</p>
-<p><IMG SRC=\"../Images/bearing.png\" ALT=\"bearing\"></p>
-<p>In general, it is not necessary to connect the bearing flange
-with a fixation, i.e., the two implementations in the following figure give
-identical results.</p>
-<p><IMG SRC=\"../Images/bearing2.png\" ALT=\"bearing2\"></p>
-<dl>
-<dt><b>Main Author:</b></dt>
-<dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a><br>
-    Deutsches Zentrum f&uuml;r Luft und Raumfahrt e.V. (DLR)<br>
-    Institut f&uuml;r Robotik und Mechatronik<br>
-    Postfach 11 16<br>
-    D-82230 Wessling<br>
-    Germany<br>
-    email: <A HREF=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</A><br></dd>
-</dl>
 
+<p>
+Library <b>Rotational</b> is a <b>free</b> Modelica package providing
+1-dimensional, rotational mechanical components to model in a convenient way
+drive trains with frictional losses. A typical, simple example is shown
+in the next figure:
+</p>
+
+<p><img src=\"../Images/Rotational/driveExample.png\"></p>
+
+<p>
+For an introduction, have especially a look at:
+</p>
+<ul>
+<li> <a href=\"Modelica://Modelica.Mechanics.Rotational.UsersGuide\">Rotational.UsersGuide</a>
+     discusses the most important aspects how to use this library.</li>
+<li> <a href=\"Modelica://Modelica.Mechanics.Rotational.Examples\">Rotational.Examples</a>
+     contains examples that demonstrate the usage of this library.</li>
+</ul>
 
 <p>
 Copyright &copy; 1998-2005, Modelica Association and DLR.
 </p>
 <p>
-<i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
+<i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified
 under the terms of the <b>Modelica license</b>, see the license conditions
 and the accompanying <b>disclaimer</b> 
 <a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a>.</i>
 </p><br>
 </HTML>
-", revisions="<html>
-<ul>
-<li><i>October 27, 2003</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>
-       and <a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Christian Schweiger</a>:<br>
-       Bearing flanges added for mounted components and support torque computation implemented.<br>
-       New component <tt>Torque2</tt> and new example <tt>ElasticBearing</tt>.
-<li><i>October 21, 2002</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>
-       and <a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Christian Schweiger</a>:<br>
-       New components <b>LossyGear</b> (with corresponding examples) and <b>Gear2</b>.<br>
-       Interface <b>FrictionBase</b> adapted to new initialization.</li>
-<li><i>June 19, 2000</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       New elements:<br><!-- silly construction follows as Dymola not able to handle nested lists -->
-       <tt>IdealGearR2T&nbsp;&nbsp;&nbsp;</tt> Ideal gear transforming rotational in translational motion<br>
-       <tt>Position&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt> Forced movement of a flange with a reference angle given as input signal<br>
-       <tt>RelativeStates&nbsp;</tt> Definition of relative state variables<br>
-       Icon of Rotational.Torque changed.
-       Elements Acceleration, Torque, Fixed, Sensors ordered according
-       to the Translational library.</li>
-<li><i>Nov. 4, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       Improved documentation and improved graphical layout of the diagram level.
-       Changes according to the Twente meeting introduced. Especially:
-       Alias names, instead of extends. Model Shaft renamed to Inertia.
-       Torque1D renamed to Torque.
-       AccMotion renamed to Accelerate. LockedL, LockedR replaced by Fixed.
-       SpeedSensor splitted into AngleSensor and
-       SpeedSensor. RelSpeedSensor splitted into RelAngleSensor and
-       RelSpeedSensor. Initialization of friction elements improved.
-       Flanges renamed to flange_a, flange_b. MoveAngle renamed to
-       KinematicPTP, vectorized and moved to Blocks.Sources.<br>
-       Advice given from P. Beater, H. Elmqvist, S.E. Mattsson, H. Olsson
-       is appreciated.</li>
-<li><i>July 18, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       Documentation and icons improved. Appropriate initial conditions
-       introduced as start values in the demo models. Bearing model
-       replaced by FixedRight and FixedLeft models; sensor elements replaced by
-       TorqueSensor, SpeedSensor, AccSensor; new sensor elements
-       RelSpeedSensor, RelAccSensor to measure relative kinematic quantitites.
-       New elements GearEfficiency and Gear.</li>
-<li><i>June 30, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       Realized a first version based on an existing Dymola library
-       of Martin Otter and Hilding Elmqvist.</li>
-</ul>
-</html>"),
+", revisions=""),
     Icon(
       Line(points=[-83, -66; -63, -66], style(color=0)),
       Line(points=[36, -68; 56, -68], style(color=0)),
@@ -1445,59 +1409,11 @@ and the accompanying <b>disclaimer</b>
         library=1,
         autolayout=1), Documentation(info="<html>
 <p>
-This package contains connectors and partial models for 1D rotational mechanical
-components. In particular
+This package contains connectors and partial models for 1-dim.
+rotational mechanical components. The components of this package can
+only be used as basic building elements for models.
 </p>
-<pre>
-  <b>Flange_a</b>                 Left flange of a component.
-  <b>Flange_b</b>                 Right flange of a component.
-  <b>Rigid</b>                    Rigid connection of two rotational 1D flanges
-                           (used for elements with inertia).
-  <b>Compliant</b>                Compliant connection of two rotational 1D flanges
-                           (used for force laws such as a spring or a damper).
-  <b>TwoFlanges</b>               Component with two rotational 1D flanges
-  <b>Bearing</b>                  Component with two rotational 1D flanges, one bearing flange
-                           and cardinality dependent equations
-  <b>TwoFlangesAndBearing</b>     Component inherited from Bearing for equation-based classes
-  <b>TwoFlangesAndBearingH</b>    Component inherited from Bearing for hierarchical components
-  <b>AbsoluteSensor</b>           Base class to measure absolute flange variables.
-  <b>RelativeSensor</b>           Base class to measure relative flange variables.
-</pre>
-<dl>
-<dt><b>Main Author:</b>
-<dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a><br>
-    Deutsches Zentrum f&uuml;r Luft und Raumfahrt e.V. (DLR)<br>
-    Institut f&uuml;r Robotik und Mechatronik<br>
-    Postfach 1116<br>
-    D-82230 Wessling<br>
-    Germany<br>
-    email: <A HREF=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</A><br>
-</dl>
-<br>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>October 27, 2003</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a> and
-       <a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Christian Schweiger</a>:<br>
-       New components: Bearing, TwoFlangesAndBearing and TwoFlangesAndBearingH.</li>
-<li><i>October 21, 2002</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       Component FrictionBase adapted to new initialization.</li>
-<li><i>July 18, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       New components: TwoFlanges, AbsoluteSensor, RelativeSensor.</li>
-<li><i>June 28, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       Realized.</li>
-</ul>
-<br>
-<p><b>Copyright &copy; 1999-2003, Modelica Association and DLR.</b></p>
-<p><i>
-The Modelica package is <b>free</b> software; it can be redistributed and/or modified
-under the terms of the <b>Modelica license</b>, see the license conditions
-and the accompanying <b>disclaimer</b> in the documentation of package
-Modelica in file \"Modelica/package.mo\".
-</i></p>
+
 </HTML>
 "));
     connector Flange_a "1D rotational flange (filled square icon)" 
@@ -1538,15 +1454,7 @@ differentiation of the flange angle phi:
 <pre>
      w = der(phi);    a = der(w)
 </pre>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>Nov. 2, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       Improved documentation.</li>
-<li><i>June 29, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       Realized.</li>
-</ul>
+
 </HTML>
 "),     Icon(Ellipse(extent=[-100,100; 100,-100], style(
               color=0,
@@ -1604,16 +1512,7 @@ differentiation of the flange angle phi:
 <pre>
      w = der(phi);    a = der(w)
 </pre>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>Nov. 2, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       Improved documentation.</li>
-<li><i>June 29, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       Realized.
-</li>
-</ul>
+
 </HTML>
 "),     Icon(Ellipse(extent=[-98,100; 102,-100], style(
               color=0,
@@ -1653,13 +1552,7 @@ This is a 1D rotational component with two rigidly connected flanges,
 i.e., flange_a.phi = flange_b.phi. It is used e.g. to built up components
 with inertia.
 </p>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>June 29, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       Realized.
-</li>
-</ul>
+
 </HTML>
 "),     Diagram,
         Coordsys(
@@ -1707,13 +1600,7 @@ of the two flanges sum-up to zero, i.e., they have the same absolute value
 but opposite sign: flange_a.tau + flange_b.tau = 0. This base class
 is used to built up force elements such as springs, dampers, friction.
 </p>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>June 29, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       Realized.
-</li>
-</ul>
+
 </HTML>
 "),     Diagram);
     equation 
@@ -1735,13 +1622,7 @@ of several base components. There are specialized versions of this
 base class for rigidly connected flanges (Interfaces.Rigid) and
 for a compliant connection of flanges (Interfaces.Compliant).
 </p>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>July 18, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       Realized.
-</li>
-</ul>
+
 </HTML>
 "),     Diagram,
         Coordsys(
@@ -1770,13 +1651,7 @@ for a compliant connection of flanges (Interfaces.Compliant).
 <p>
 This is a 1D rotational component with two flanges and an additional bearing flange.
 It is a superclass for the two components TwoFlangesAndBearing and TwoFlangesAndBearingH.</p>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>October 27, 2003</i>
-       by <a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Christian Schweiger</a>:<br>
-       Realized.
-</li>
-</ul>
+
 </HTML>
 "));
       
@@ -1794,13 +1669,7 @@ It is a superclass for the two components TwoFlangesAndBearing and TwoFlangesAnd
 <p>
 This is a 1D rotational component with two flanges and an additional bearing flange.
 It is used e.g. to build up equation-based parts of a drive train.</p>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>October 27, 2003</i>
-       by <a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Christian Schweiger</a>:<br>
-       Realized.
-</li>
-</ul>
+
 </HTML>
 "));
     equation 
@@ -1842,20 +1711,14 @@ It is used e.g. to build up equation-based parts of a drive train.</p>
       end Adapter;
     equation 
       tau_support = -adapter.flange_b.tau;
-      connect(adapter.flange_a, bearing) annotation (points=[-6.12303e-016,-70; 0,
-            -70; 0,-100],      style(color=0));
+      connect(adapter.flange_a, bearing) annotation (points=[-6.12303e-016,-70; 
+            0,-70; 0,-100],    style(color=0));
       annotation (Documentation(info="<html>
 <p>
 This is a 1D rotational component with two flanges and an additional bearing flange.
 It is used e.g. to build up parts of a drive train consisting
 of several base components.</p>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>October 27, 2003</i>
-       by <a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Christian Schweiger</a>:<br>
-       Realized.
-</li>
-</ul>
+
 </HTML>
 "));
     end TwoFlangesAndBearingH;
@@ -1928,6 +1791,12 @@ of several base components.</p>
         Free or startForward) and w_relfric > 0 then Forward else if (pre(mode)
          == Backward or pre(mode) == Free or startBackward) and w_relfric < 0 then 
               Backward else Stuck);
+      annotation (Documentation(info="<html>
+<p>
+Basic model for Coulomb friction that models the stuck
+phase in a reliable way.
+</p>
+</html>"));
     end FrictionBase;
     
     partial model AbsoluteSensor 
@@ -1956,13 +1825,7 @@ output signal y in order to measure an absolute kinematic quantity in the flange
 and to provide the measured signal as output signal for further processing
 with the blocks of package Modelica.Blocks.
 </p>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>July 18, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       Realized.
-</li>
-</ul>
+
 </HTML>
 "),     Icon(
           Line(points=[-70, 0; -90, 0], style(color=0)),
@@ -2004,13 +1867,7 @@ between the two flanges or the cut-torque in the flange and
 to provide the measured signal as output signal for further processing
 with the blocks of package Modelica.Blocks.
 </p>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>July 18, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       Realized.
-</li>
-</ul>
+
 </HTML>
 "),     Icon(
           Line(points=[-70, 0; -90, 0], style(color=0)),
@@ -2095,12 +1952,7 @@ Partial model of torque dependent on speed that accelerates the flange.
 <p>
 Rotational component with <b>inertia</b> and two rigidly connected flanges.
 </p>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>June 30, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       Realized.</li>
-</ul>
+
 </HTML>
 "),   Icon(
         Rectangle(extent=[-100,10; -50,-10],  style(
@@ -2191,13 +2043,7 @@ The gear is <b>ideal</b>, i.e., it does not have inertia, elasticity, damping
 or backlash. If these effects have to be considered, the gear has to be
 connected to other elements in an appropriate way.
 </p>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>June 30, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       Realized.
-</li>
-</ul>
+
 </HTML>
 "),   Icon(
         Rectangle(extent=[-40, 20; -20, -20], style(
@@ -2354,13 +2200,7 @@ According to the overall convention, the positive direction of all
 vectors, especially the absolute angular velocities and cut-torques
 in the flanges, are along the axis vector displayed in the icon.
 </p>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>July 5, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       Realized.
-</li>
-</ul>
+
 </HTML>
 "),   Icon(
         Rectangle(extent=[50, 100; 10, -100], style(
@@ -2504,13 +2344,7 @@ This is an ideal mass- and inertialess gearbox which transforms a
 or backlash has to be considered, this ideal gearbox has to be
 connected with corresponding elements.
 </p>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>May 16, 2000</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       Realized.
-</li>
-</ul>
+
 </HTML>
 "),   Icon(
         Rectangle(extent=[40, -80; 80, -120], style(color=8, fillColor=8)),
@@ -2621,13 +2455,7 @@ between two inertias/gears to describe the shaft elasticity, or between
 a inertia/gear and the housing (component Fixed), to describe
 a coupling of the element with the housing via a spring.
 </p>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>June 30, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       Realized.
-</li>
-</ul>
+
 </HTML>
 "),   Icon(
         Text(extent=[0, 100; 0, 40], string="%name"),
@@ -2686,13 +2514,7 @@ a coupling of the element with the housing via a spring.
 between an inertia or gear and the housing (component Fixed), or
 between two inertia/gear elements.
 </p>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>June 30, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       Realized.
-</li>
-</ul>
+
 </HTML>
 "),   Icon(
         Line(points=[-90, 0; -60, 0], style(color=0)),
@@ -2762,13 +2584,7 @@ connected either between two inertias/gears to describe the shaft elasticity
 and damping, or between an inertia/gear and the housing (component Fixed),
 to describe a coupling of the element with the housing via a spring/damper.
 </p>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>June 30, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       Realized.
-</li>
-</ul>
+
 </HTML>
 "),   Icon(
         Line(points=[-80, 40; -60, 40; -45, 10; -15, 70; 15, 10; 45, 70; 60, 40;
@@ -2861,13 +2677,7 @@ The spring constant shall be non-zero, otherwise the component cannot be used.
 In combination with components IdealGear, the ElastoBacklash model
 can be used to model a gear box with backlash, elasticity and damping.
 </p>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>June 30, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       Realized.
-</li>
-</ul>
+
 </HTML>
 "),   Icon(
         Line(points=[-80, 32; -58, 32; -48, 0; -34, 61; -20, 0; -8, 60; 0, 30;
@@ -3086,14 +2896,8 @@ following references, especially (Armstrong and Canudas de Witt 1996):
 <dd><b>A new model for control of systems with friction.</b>
     IEEE Transactions on Automatic Control, Vol. 40, No. 3, pp. 419-425.<br><br>
 </dl>
-<br>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>June 30, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       Realized.
-</li>
-</ul>
+
+
 </HTML>
 "),   Coordsys(
         extent=[-100, -100; 100, 100],
@@ -3396,13 +3200,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
     IEEE Transactions on Automatic Control, Vol. 40, No. 3, pp. 419-425.<br><br>
 </dl>
 <br>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>June 29, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       realized first version.
-</li>
-</ul>
+
 </HTML>
 "),   Diagram(
         Polygon(points=[-30, 40; -60, 50; -60, 30; -30, 40], style(fillColor=3,
@@ -3622,14 +3420,7 @@ are dynamically coupled. The method is described in:
 <dd><b>Hybrid Modeling in Modelica based on the Synchronous
     Data Flow Principle</b>. CACSD'99, Aug. 22.-26, Hawaii.
 </dl>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>Version 0.9 (Nov. 26, 1999)</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       Realized.
-</li>
-</ul>
-<p><b>Copyright &copy; 1999-2002, DLR.</b></p>
+
 </HTML>
 "),   Diagram(
         Polygon(points=[-30,40; -60,50; -60,30; -30,40],     style(fillColor=3,
@@ -3849,14 +3640,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
 <dd><b>A new model for control of systems with friction.</b>
     IEEE Transactions on Automatic Control, Vol. 40, No. 3, pp. 419-425.<br><br>
 </dl>
-<br>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>June 29, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       realized first version.
-</li>
-</ul>
+
 </HTML>
 "),   Diagram(
         Polygon(points=[-37, -55; -37, -90; 37, -90; 37, -55; 33, -55; 33, -86;
@@ -4376,13 +4160,7 @@ When the motorTorque becomes smaller as the bearingTorque,
 be careful to determine the gear <b>efficiency</b> of this element
 from tables of the gear manufacturers.
 </p>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>July 18, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       Realized.
-</li>
-</ul>
+
 </HTML>
 "),   Diagram(
         Rectangle(extent=[-96,20; 96,-21],   style(
@@ -4452,13 +4230,7 @@ The inertia of the gear wheels is not modeled. If necessary, inertia
 has to be taken into account by connecting components of model Inertia
 to the left and/or the right flange.
 </p>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>July 18, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       Realized.
-</li>
-</ul>
+
 </HTML>
 "),   Icon(
         Rectangle(extent=[-40, 60; 40, -60], style(
@@ -4527,12 +4299,12 @@ to the left and/or the right flange.
       annotation (points=[30, 0; 50, 0], style(color=0));
     connect(elastoBacklash.flange_b, flange_b) 
       annotation (points=[70, 0; 100, 0], style(color=0));
-    connect(gearRatio.bearing, adapter.flange_b) annotation (points=[-60,-10;
+    connect(gearRatio.bearing, adapter.flange_b) annotation (points=[-60,-10; 
           -60,-40; 6.12303e-016,-40; 6.12303e-016,-50],    style(color=0));
-    connect(gearEfficiency.bearing, adapter.flange_b) annotation (points=[-20,
-          -10; -20,-40; 6.12303e-016,-40; 6.12303e-016,-50],    style(color=0));
-    connect(bearingFriction.bearing, adapter.flange_b) annotation (points=[20,
-          -10; 20,-40; 6.12303e-016,-40; 6.12303e-016,-50],    style(color=0));
+    connect(gearEfficiency.bearing, adapter.flange_b) annotation (points=[-20,-10; 
+          -20,-40; 6.12303e-016,-40; 6.12303e-016,-50],         style(color=0));
+    connect(bearingFriction.bearing, adapter.flange_b) annotation (points=[20,-10; 
+          20,-40; 6.12303e-016,-40; 6.12303e-016,-50],         style(color=0));
   end Gear;
   
   model Gear2 "Realistic model of a gearbox (based on LossyGear)" 
@@ -4572,13 +4344,7 @@ particular</p>
 inertia has to be taken into account by connecting components of
 model Inertia to the left and/or the right flange of component
 GearNew.</p>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>September 12, 2002</i>
-       by <a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Christian Schweiger</a>:<br>
-       Realized based on Rotational.Gear by inventing Rotational.LossyGear.
-</li>
-</ul>
+
 </HTML>
 "),   Icon(
         Rectangle(extent=[-100,10; -60,-10],  style(
@@ -4639,7 +4405,7 @@ GearNew.</p>
       annotation (points=[-20, 0; 20, 0], style(color=0));
     connect(elastoBacklash.flange_b, flange_b) 
       annotation (points=[60, 0; 100, 0], style(color=0));
-    connect(lossyGear.bearing, adapter.flange_b) annotation (points=[-40,-20;
+    connect(lossyGear.bearing, adapter.flange_b) annotation (points=[-40,-20; 
           -40,-40; 6.12303e-016,-40; 6.12303e-016,-50],    style(color=0));
   end Gear2;
   
@@ -4703,12 +4469,7 @@ to move according to this reference motion. According to parameter
 The input signal can be provided from one of the signal generator
 blocks of the block library Modelica.Blocks.Sources.
 </p>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>June 19, 2000</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>.<br>
-       Realized.</li>
-</ul>
+
 </HTML>
 "),   Icon(
         Rectangle(extent=[-20, -80; 20, -120], style(color=8, fillColor=8)),
@@ -4842,13 +4603,7 @@ to move according to this reference motion. According to parameter
 The input signal can be provided from one of the signal generator
 blocks of the block library Modelica.Blocks.Sources.
 </p>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>October 27, 2003</i>
-       by <a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Christian Schweiger</a>.<br>
-       Realized based on component <tt>Position</tt> (implemented by
-       <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>).</li>
-</ul>
+
 </HTML>
 "),   Icon(
         Rectangle(extent=[-20, -80; 20, -120], style(color=8, fillColor=8)),
@@ -4961,15 +4716,7 @@ the acceleration.
 The input signal can be provided from one of the signal generator
 blocks of the block library Modelica.Blocks.Sources.
 </p>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>July 18, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       renamed (previous name: Move).</li>
-<li><i>June 29, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       realized.</li>
-</ul>
+
 </HTML>
 "),   Icon(
         Rectangle(extent=[-20, -80; 20, -120], style(color=8, fillColor=8)),
@@ -5107,12 +4854,7 @@ rd and rdd whenever the Pantelides algorithm requires to compute
 the derivatives of r (and takes rd and rdd instead of actually
 differentiating r).
 </p>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>June 25, 2001</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       realized.</li>
-</ul>
+
 </HTML>
 "),   Diagram(
         Rectangle(extent=[-100,20; 100,-20],  style(
@@ -5220,13 +4962,7 @@ at an angle phi0 in the <b>housing</b>. May be used:
 <li> to fix a rigid element, such as an inertia, with a specific
      angle to the housing.
 </ul>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>July 18, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       Realized.
-</li>
-</ul>
+
 </HTML>
 "),   Diagram(
         Line(points=[-80, -40; 80, -40], style(color=0)),
@@ -5273,13 +5009,7 @@ flange is driven by torque <b>tau</b>.</p>
 The input signal can be provided from one of the signal generator
 blocks of Modelica.Blocks.Sources.
 </p>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>June 30, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       Realized.
-</li>
-</ul>
+
 </HTML>
 "),   Icon(
         Text(extent=[0, 130; 0, 70], string="%name"),
@@ -5355,13 +5085,7 @@ torque in [Nm] which acts at both flange connectors,
 i.e., the components connected to these flanges are driven by torque <b>tau</b>.</p>
 <p>The input signal can be provided from one of the signal generator
 blocks of Modelica.Blocks.Sources.</p>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>October 27, 2003</i>
-       by <a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Christian Schweiger</a>:<br>
-       Realized.
-</li>
-</ul>
+
 </HTML>
 "),   Icon(
         Text(extent=[0, -40; 0, -100], string="%name"),
@@ -5571,13 +5295,7 @@ the two inertias are used as state variables. Additionally, the
 simulator selects either the absolute angle and absolute angular
 velocity of model inertia1 or of model inertia2 as state variables.
 </p>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>June 19, 2000</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       Realized.
-</li>
-</ul>
+
 </HTML>
 "),   Icon(
         Ellipse(extent=[-40, 40; 40, -40], style(color=4, fillColor=4)),

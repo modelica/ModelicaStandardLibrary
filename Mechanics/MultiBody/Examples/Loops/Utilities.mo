@@ -306,11 +306,9 @@ The gas force in a cylinder is computed as function of the relative
 distance of the two flanges. It is required that s_rel = flange_b.s - flange_a.s 
 is in the range 
 </p>
-
 <pre>
     0 &le; s_rel &le; L
 </pre>
-
 <p>
 where the parameter L is the length
 of the cylinder. If this assumption is not fulfilled, an error occurs.

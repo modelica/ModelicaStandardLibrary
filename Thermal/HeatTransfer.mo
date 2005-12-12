@@ -75,29 +75,7 @@ provided. These functions may be used in the following way:
      ...
   <b>parameter</b> SI.Temperature T = from_degC(25);  // convert 25 degree Celsius to Kelvin
 </pre>
-<p>
-This package contains the following model components:
-</p>
-<pre>   <b>Examples</b>               (subpackage) Examples of library usage.
-   <b>Interfaces</b>             (subpackage) Interface definitions.
-   <b>HeatCapacitor</b>          Lumped thermal element storing heat.
-   <b>ThermalConductor</b>       Lumped thermal element transporting heat without
-                          storing it.
-   <b>Convection</b>             Lumped thermal element for heat convection.
-   <b>BodyRadiation</b>          Lumped thermal element for radiation heat transfer
-                          between two bodies
-   <b>FixedTemperature</b>       Fixed temperature boundary condition.
-   <b>PrescribedTemperature</b>  Variable temperature boundary condition
-   <b>FixedHeatFlow</b>          Fixed heat flow boundary condition.
-   <b>PrescribedHeatFlow</b>     Variable heat flow boundary condition.
-   <b>TemperatureSensor</b>      Absolute temperature sensor.
-   <b>RelTemperatureSensor</b>   Relative temperature sensor.
-   <b>HeatFlowSensor</b>         Sensor to determine the heat flow rate
-                          between two ports.
-   <b>Celsius</b>                (subpackage) Elements with Celsius interface.
-   <b>Fahrenheit</b>             (subpackage) Elements with Fahrenheit interface.
-   <b>Rankine</b>                (subpackage) Elements with Rankine interface.
-</pre>
+
 <p>
 There are several other components available, such as AxialConduction (discretized PDE in
 axial direction), which have been temporarily removed from this library. The reason is that
@@ -121,7 +99,7 @@ Hubertus Tummescheit, Lund Institute of Technology, Lund, Sweden.
 </p>
 <p><b>Copyright &copy; 2001-2002, Modelica Association, Michael Tiller and DLR.</b></p>
 <p><i>
-The Modelica package is free software; it can be redistributed and/or modified
+This Modelica package is free software; it can be redistributed and/or modified
 under the terms of the Modelica license, see the license conditions
 and the accompanying disclaimer in the documentation of package
 Modelica in file \"Modelica/package.mo\".

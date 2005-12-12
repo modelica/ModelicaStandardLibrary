@@ -9,7 +9,7 @@ user interface when the type is used as parameter in a declaration.
 </p>
 </HTML>"));
   
-  type Axis = Real[3] "Axis vector with choices for menus" annotation (
+  type Axis = Modelica.Icons.TypeReal[3] "Axis vector with choices for menus" annotation (
     preferedView="text",
     Evaluate=true,
     choices(
@@ -18,15 +18,18 @@ user interface when the type is used as parameter in a declaration.
       choice={0,0,1} "{0,0,1} \"z axis\"",
       choice={-1,0,0} "{-1,0,0} \"negative x axis\"",
       choice={0,-1,0} "{0,-1,0} \"negative y axis\"",
-      choice={0,0,-1} "{0,0,-1} \"negative z axis\""));
+      choice={0,0,-1} "{0,0,-1} \"negative z axis\""),
+    Documentation(info="<html>
+</html>"));
   
-  type AxisLabel = String "Label of axis with choices for menus" annotation (
+  type AxisLabel = Modelica.Icons.TypeString 
+    "Label of axis with choices for menus"                                          annotation (
       preferedView="text", choices(
       choice="x" "x",
       choice="y" "y",
       choice="z" "z"));
   
-  type RotationSequence = Integer[3] (min={1,1,1}, max={3,3,3}) 
+  type RotationSequence = Modelica.Icons.TypeInteger[3] (min={1,1,1}, max={3,3,3}) 
     "Sequence of planar frame rotations with choices for menus" annotation (
     preferedView="text",
     Evaluate=true,
@@ -35,9 +38,11 @@ user interface when the type is used as parameter in a declaration.
       choice={3,1,3} "{3,1,3} \"Euler angles\"",
       choice={3,2,1} "{3,2,1}"));
   
-  type Color = Integer[3] (min=0, max=255) 
+  type Color = Modelica.Icons.TypeInteger[3] (each min=0, each max=255) 
     "RGB representation of color (will be improved with a color editor)" 
-    annotation (preferedView="text", choices(
+    annotation (preferedView="text",
+      Dialog(colorSelector),
+      choices(
       choice={0,0,0} "{0,0,0}       \"black\"",
       choice={155,0,0} "{155,0,0}     \"dark red\"",
       choice={255,0,0} "{255,0,0 }    \"red\"",
@@ -52,9 +57,28 @@ user interface when the type is used as parameter in a declaration.
       choice={255,0,255} "{255,0,255}   \"pink\"",
       choice={100,100,100} "{100,100,100} \"dark grey\"",
       choice={155,155,155} "{155,155,155} \"grey\"",
-      choice={255,255,255} "{255,255,255} \"white\""));
-  
-  type ShapeType = String 
+      choice={255,255,255} "{255,255,255} \"white\""),
+    Documentation(info="<html>
+<p>
+Type <b>Color</b> is an Integer vector with 3 elements,
+{r, g, b}, and specifies the color of a shape.
+{r,g,b} are the \"red\", \"green\" and \"blue\" color parts.
+Note, r g, b are given in the range 0 .. 255.
+</p>
+</html>"));
+  type SpecularCoefficient = Modelica.Icons.TypeReal 
+    "Reflection of ambient light (= 0: light is completely absorbed)" 
+       annotation (preferedView="text", min=0,
+    Documentation(info="<html>
+<p>
+Type <b>SpecularCoefficient</b> defines the reflection of
+ambient light on shape surfaces. If value = 0, the light
+is completely absorbed. Often, 0.7 is a reasonable value.
+It might be that from some viewing directions, a body is no
+longer visible, if the SpecularCoefficient value is too high.
+</p>
+</html>"));
+  type ShapeType = Modelica.Icons.TypeString 
     "Type of shape (box, sphere, cylinder, pipecylinder, cone, pipe, beam, gearwheel, spring, dxf-file)"
      annotation (preferedView="text", choices(
       choice="box" "\"box\"",
@@ -74,27 +98,92 @@ user interface when the type is used as parameter in a declaration.
       choice="6" "File \"6.dxf\" in current directory",
       choice="7" "File \"7.dxf\" in current directory",
       choice="8" "File \"8.dxf\" in current directory",
-      choice="9" "File \"9.dxf\" in current directory"));
+      choice="9" "File \"9.dxf\" in current directory"),
+    Documentation(info="<html>
+<p>
+Type <b>ShapeType</b> is used to define the shape of the
+visual object as parameter String. Usually, \"shapeType\" is used
+as instance name. The following
+values for shapeType are possible, e.g., shapeType=\"box\":
+</p>
+<IMG SRC=\"../Images/MultiBody/Shape.png\" ALT=\"model Visualizers.FixedShape\">
+<p>&nbsp;<br>
+The dark blue arrows in the figure above are directed along
+variable <b>lengthDirection</b>. The light blue arrows are directed
+along variable <b>widthDirection</b>. The <b>coordinate systems</b> 
+in the figure represent frame_a of the Shape component.
+</p>
+<p>
+Additionally, external shapes are specified as DXF-files
+(only 3-dim.Face is supported). External shapes must be named \"1\", \"2\"
+etc.. The corresponding definitions should be in files \"1.dxf\",
+\"2.dxf\" etc.Since the DXF-files contain color and dimensions for
+the individual faces, the corresponding information in the model
+is currently ignored. The DXF-files must be found either in the current 
+directory or in the directory where the Shape instance is stored
+that references the DXF file.
+</p>
+</html>"));
+  type ShapeExtra = Modelica.Icons.TypeReal 
+    "Reflection of ambient light (= 0: light is completely absorbed)" 
+       annotation (preferedView="text", min=0,
+    Documentation(info="<html>
+<p>
+This type is used in shapes of visual objects to define
+extra data depending on the shape type. Usually, input
+variable <b>extra</b> is used as instance name:
+</p>
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th><b>shapeType</b></th><th>Meaning of variable <b>extra</b></th></tr>
+<tr>
+  <td>\"cylinder\"</td>
+  <td>if extra &gt; 0, a black line is included in the
+      cylinder to show the rotation of it.</td>
+</tr>
+<tr>
+  <td>\"cone\"</td>
+  <td>extra = diameter-left-side / diameter-right-side, i.e.,<br>
+      extra = 1: cylinder<br>
+      extra = 0: \"real\" cone.</td>
+</tr>
+<tr>
+  <td>\"pipe\"</td>
+  <td>extra = outer-diameter / inner-diameter, i.e, <br>
+      extra = 1: cylinder that is completely hollow<br>
+      extra = 0: cylinder without a hole.</td>
+</tr>
+<tr>
+  <td>\"gearwheel\"</td>
+  <td>extra is the number of teeth of the gear.</td>
+</tr>
+<tr>
+  <td>\"spring\"</td>
+  <td>extra is the number of windings of the spring.
+      Additionally, \"height\" is <b>not</b> the \"height\" but
+      2*coil-width.</td>
+</tr>
+</table>
+</html>"));
   
-  type AngularVelocity_degs = Real (final quantity="AngularVelocity", final unit
-        =    "deg/s");
+  type AngularVelocity_degs = Modelica.Icons.TypeReal(final quantity="AngularVelocity", final unit
+        =    "deg/s") "Angular velocity type in deg/s";
   
-  type AngularAcceleration_degs2 = Real (final quantity="AngularAcceleration",
-        final unit="deg/s2");
+  type AngularAcceleration_degs2 = Modelica.Icons.TypeReal (final quantity="AngularAcceleration",
+        final unit="deg/s2") "Angular acceleration type in deg/s^2";
   
   package RotationTypes 
     "Type, constants and menu choices for rotation types, as temporary solution until enumerations are available" 
     
     annotation (preferedView="text");
     
-    extends Modelica.Icons.Library;
+    extends Modelica.Icons.Enumeration;
     constant Integer RotationAxis=1;
     constant Integer TwoAxesVectors=2;
     constant Integer PlanarRotationSequence=3;
     type Temp 
       "Temporary type of RotationTypes with choices for menus (until enumerations are available)" 
       
-      extends Integer;
+      extends Modelica.Icons.TypeInteger;
       annotation (Evaluate=true, choices(
           choice=Modelica.Mechanics.MultiBody.Types.RotationTypes.RotationAxis 
             "Rotation axis",
@@ -110,7 +199,7 @@ user interface when the type is used as parameter in a declaration.
     "Type, constants and menu choices for gravity fields, as temporary solution until enumerations are available" 
     
     annotation (preferedView="text");
-    extends Modelica.Icons.Library;
+    extends Modelica.Icons.Enumeration;
     constant Integer NoGravity=0;
     constant Integer UniformGravity=1;
     constant Integer PointGravity=2;
@@ -118,7 +207,7 @@ user interface when the type is used as parameter in a declaration.
     type Temp 
       "Temporary type of gravity field with choices for menus (until enumerations are available)" 
       
-      extends Integer;
+      extends Modelica.Icons.TypeInteger;
       annotation (choices(
           choice=Modelica.Mechanics.MultiBody.Types.GravityTypes.NoGravity 
             "no gravity",
@@ -133,8 +222,12 @@ user interface when the type is used as parameter in a declaration.
   package Init 
     "Type, constants and menu choices to define initialization, as temporary solution until enumerations are available" 
     
-    annotation (preferedView="text");
-    extends Modelica.Icons.Library;
+    annotation (preferedView="text", Documentation(info="<html>
+<p>
+vvv
+</p>
+</html>"));
+    extends Modelica.Icons.Enumeration;
     
     constant Integer Free=1;
     constant Integer PositionVelocity=2;
@@ -147,7 +240,7 @@ user interface when the type is used as parameter in a declaration.
     type Temp 
       "Temporary type of Init with choices for menus (until enumerations are available)" 
       
-      extends Integer;
+      extends Modelica.Icons.TypeInteger;
       annotation (choices(
           choice=Modelica.Mechanics.MultiBody.Types.Init.Free 
             "free (no initialization)",
@@ -168,7 +261,12 @@ user interface when the type is used as parameter in a declaration.
   end Init;
   
   package Defaults "Default settings of the MultiBody library via constants" 
-    annotation (preferedView="text");
+    annotation (preferedView="info", Documentation(info="<html>
+<p>
+This package contains constants used as default setting
+in the MultiBody library.
+</p>
+</html>"));
     extends Modelica.Icons.Library;
     
     // Color defaults

@@ -41,14 +41,12 @@ This exchange of the kinematic loop is shown in
 non-linear algebraic equation of this loop is solved analytically, and 
 not numerically as in \"Examples.Loops.Engine2a\".
 </p>
-
 <p>
 An animation of this example is shown in the figure below.
 </p>
 <p align=\"center\">
 <IMG SRC=\"../Images/MultiBody/Examples/Loops/Engine.png\" ALT=\"model Examples.Loops.Engine\">
 </p>
-
 </html>"),
     experimentSetupOutput);
   Modelica.Mechanics.MultiBody.Joints.Revolute B2(

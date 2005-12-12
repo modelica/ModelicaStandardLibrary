@@ -125,33 +125,37 @@ equation
   connect(jointUPS.axis, damper1.flange_b) 
     annotation (points=[14, 30; 14, 20; 20, 20; 20, 14], style(color=58));
   connect(jointUPS.frame_ib, body2.frame_a) 
-    annotation (points=[18, 29; 18, 24; 31, 24], style(color=0, thickness=2));
-  connect(world.frame_b, rod2.frame_a) annotation (points=[-59, 70; -40, 70; -40,
-         73], style(color=0, thickness=2));
-  connect(world.frame_b, rod1.frame_a) annotation (points=[-59, 70; -40, 70; -40,
-         65], style(color=0, thickness=2));
-  connect(rod2.frame_b, revolute1.frame_a) annotation (points=[-40, 95; -40, 98;
-         -28, 98; -28, 70; -21, 70], style(color=0, thickness=2));
+    annotation (points=[18,30; 18,24; 32,24],    style(color=0, thickness=2));
+  connect(world.frame_b, rod2.frame_a) annotation (points=[-60,70; -40,70;
+        -40,74],
+              style(color=0, thickness=2));
+  connect(world.frame_b, rod1.frame_a) annotation (points=[-60,70; -40,70;
+        -40,64],
+              style(color=0, thickness=2));
+  connect(rod2.frame_b, revolute1.frame_a) annotation (points=[-40,94;
+        -40,98; -28,98; -28,70; -20,70],
+                                     style(color=0, thickness=2));
   connect(revolute1.frame_b, bodyBox1.frame_a) 
-    annotation (points=[1, 70; 19, 70], style(color=0, thickness=2));
-  connect(bodyBox1.frame_b, jointUPS.frame_b) annotation (points=[41, 70; 46,
-        70; 46, 40; 21, 40], style(color=0, thickness=2));
+    annotation (points=[0,70; 20,70],   style(color=0, thickness=2));
+  connect(bodyBox1.frame_b, jointUPS.frame_b) annotation (points=[40,70;
+        46,70; 46,40; 20,40],style(color=0, thickness=2));
   connect(body1.frame_a, jointUPS.frame_ia) 
-    annotation (points=[-13, 24; 2, 24; 2, 30], style(color=0, thickness=2));
-  connect(rod1.frame_b, jointUPS.frame_a) annotation (points=[-40, 43; -40, 40;
-         -1, 40], style(color=0, thickness=2));
-  connect(rod4.frame_b, revolute2.frame_a) annotation (points=[-40, -5; -40, -2;
-         -28, -2; -28, -30; -21, -30], style(color=0, thickness=2));
+    annotation (points=[-14,24; 2,24; 2,30],    style(color=0, thickness=2));
+  connect(rod1.frame_b, jointUPS.frame_a) annotation (points=[-40,44; -40,
+        40; 0,40],style(color=0, thickness=2));
+  connect(rod4.frame_b, revolute2.frame_a) annotation (points=[-40,-6;
+        -40,-2; -28,-2; -28,-30; -20,-30],
+                                       style(color=0, thickness=2));
   connect(revolute2.frame_b, bodyBox2.frame_a) 
-    annotation (points=[1, -30; 19, -30], style(color=0, thickness=2));
-  connect(world.frame_b, rod4.frame_a) annotation (points=[-59, 70; -52, 70; -52,
-         -32; -40, -32; -40, -27], style(color=0, thickness=2));
+    annotation (points=[0,-30; 20,-30],   style(color=0, thickness=2));
+  connect(world.frame_b, rod4.frame_a) annotation (points=[-60,70; -52,70;
+        -52,-32; -40,-32; -40,-26],style(color=0, thickness=2));
   connect(rod3.frame_a, rod4.frame_a) 
-    annotation (points=[-40, -35; -40, -27], style(color=0, thickness=2));
-  connect(lineForceWithTwoMasses.frame_a, rod3.frame_b) annotation (points=[-1,
-         -60; -40, -60; -40, -57], style(color=0, thickness=2));
-  connect(lineForceWithTwoMasses.frame_b, bodyBox2.frame_b) annotation (points=
-        [21, -60; 54, -60; 54, -30; 41, -30], style(color=0, thickness=2));
+    annotation (points=[-40,-36; -40,-26],   style(color=0, thickness=2));
+  connect(lineForceWithTwoMasses.frame_a, rod3.frame_b) annotation (points=[0,-60;
+        -40,-60; -40,-56],         style(color=0, thickness=2));
+  connect(lineForceWithTwoMasses.frame_b, bodyBox2.frame_b) annotation (points=[20,-60;
+        54,-60; 54,-30; 40,-30],              style(color=0, thickness=2));
   connect(lineForceWithTwoMasses.flange_b, damper2.flange_b) 
     annotation (points=[16, -71; 20, -71; 20, -86], style(color=58));
   connect(lineForceWithTwoMasses.flange_a, damper2.flange_a) 

@@ -20,28 +20,10 @@ annotation(preferedView="info",
       style(color=0))),
   Documentation(info="<HTML>
 <p>
-This package contains the following basic mathematical functions:
+This package contains basic mathematical <b>functions</b> (such as sin(..)),
+as well as functions operating on matrices.
 </p>
-<pre>
-   <b>Matrices</b>      Library with functions operating on matrices
-   <b>sin</b>(u)        sine
-   <b>cos</b>(u)        cosine
-   <b>tan</b>(u)        tangent     (u shall not be -pi/2, pi/2, 3*pi/2, ...)
-   <b>asin</b>(u)       inverse sine    (-1 &le; u &le; 1)
-   <b>acos</b>(u)       inverse cosine  (-1 &le; u &le; 1)
-   <b>atan</b>(u)       inverse tangent
-   <b>atan2</b>(u1,u2)  four quadrant inverse tangent
-   <b>sinh</b>(u)       hyperbolic sine
-   <b>cosh</b>(u)       hyperbolic cosine
-   <b>tanh</b>(u)       hyperbolic tangent
-   <b>exp</b>(u)        exponential, base e
-   <b>log</b>(u)        natural (base e) logarithm (u &gt; 0)
-   <b>log10</b>(u)      base 10 logarithm (u &gt; 0)
-</pre>
-<p>
-These functions are used by calling them directly
-with a full name (e.g. y = Modelica.Math.asin(0.5)).
-</p>
+
 <dl>
 <dt><b>Main Author:</b>
 <dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a><br>
@@ -57,7 +39,7 @@ with a full name (e.g. y = Modelica.Math.asin(0.5)).
 Copyright &copy; 1998-2005, Modelica Association and DLR.
 </p>
 <p>
-<i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
+<i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified
 under the terms of the <b>Modelica license</b>, see the license conditions
 and the accompanying <b>disclaimer</b> 
 <a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a>.</i>

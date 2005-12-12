@@ -20,16 +20,7 @@ package Nonlinear
 <p>
 This package contains <b>discontinuous</b> and
 <b>non-differentiable, algebraic</b> input/output blocks.
-In particular the following blocks are provided:
 </p>
-<pre>
-   <b>Limiter</b>         Limit the range of a signal to fixed limits.
-   <b>VariableLimiter</b> Limit the range of a signal to variable limits.
-   <b>DeadZone</b>        Provide a region of zero output.
-   <b>FixedDelay</b>      Delay block with fixed DelayTime
-   <b>PadeDelay</b>       Pade approximation of delay block with fixed DelayTime 
-   <b>VariableDelay</b>        Delay block with variable DelayTime 
-</pre>
 </HTML>
 ", revisions="<html>
 <ul>

@@ -18,82 +18,11 @@ package Interfaces "Connectors and partial models for input/output blocks"
 <HTML>
 <p>
 This package contains interface definitions for
-<b>continuous</b> input/output blocks. In particular it
-contains the following <b>connector</b> classes:
+<b>continuous</b> input/output blocks with Real,
+Integer and Boolean signals. Furthermore, it contains
+partial models for continuous and discrete blocks.
 </p>
-<pre>
-  <b>RealInput</b>       Connector with input  signals of type Real.
-  <b>RealOutput</b>      Connector with output signals of type Real.
-  <b>BooleanInput</b>    Connector with input  signals of type Boolean.
-  <b>BooleanOutput</b>   Connector with output signals of type Boolean.
-  <b>IntegerInput</b>    Connector with input  signals of type Integer.
-  <b>IntegerOutput</b>   Connector with output signals of type Integer.
-  <b>RealSignal</b>      Connector with input/output signals of type Real.
-  <b>BooleanSignal</b>   Connector with input/output signals of type Boolean.
-  <b>IntegerSignal</b>   Connector with input/output signals of type Integer.
-</pre>
-<p>
-The following <b>partial</b> block classes are provided
-to model <b>continuous</b> control blocks:
-</p>
-<pre>
-  <b>BlockIcon</b>     Basic graphical layout of continuous block
-  <b>SO</b>            Single Output continuous control block
-  <b>MO</b>            Multiple Output continuous control block
-  <b>SISO</b>          Single Input Single Output continuous control block
-  <b>SI2SO</b>         2 Single Input / 1 Single Output continuous control block
-  <b>SIMO</b>          Single Input Multiple Output continuous control block
-  <b>MISO</b>          Multiple Input Single Output continuous control block
-  <b>MIMO</b>          Multiple Input Multiple Output continuous control block
-  <b>MIMOs</b>         Multiple Input Multiple Output continuous control block
-                with same number of inputs and outputs
-  <b>MI2MO</b>         2 Multiple Input / Multiple Output continuous
-                control block
-  <b>SignalSource</b>  Base class for continuous signal sources
-  <b>SVcontrol</b>     Single-Variable continuous controller
-  <b>MVcontrol</b>     Multi-Variable continuous controller
-</pre>
-<p>
-The following <b>partial</b> block classes are provided
-to model <b>discrete</b> control blocks:
-</p>
-<pre>
-  <b>DiscreteBlockIcon</b> Basic graphical layout of discrete block
-  <b>DiscreteBlock</b>     Base class of discrete control blocks
-  <b>DiscreteSISO</b>      Single Input Single Output discrete control block
-  <b>DiscreteMIMO</b>      Multiple Input Multiple Output discrete control block
-  <b>DiscreteMIMOs</b>     Multiple Input Multiple Output discrete control block
-  <b>SVdiscrete</b>        Discrete Single-Variable controller
-  <b>MVdiscrete</b>        Discrete Multi-Variable controllerk
-</pre>
-<p>
-The following <b>partial</b> block classes are provided
-to model <b>Boolean</b> control blocks:
-</p>
-<pre>
-  <b>BooleanBlockIcon</b>     Basic graphical layout of Boolean block
-  <b>BooleanSISO</b>          Single Input Single Output control block
-                       with signals of type Boolean
-  <b>BooleanMIMOs</b>         Multiple Input Multiple Output control block
-                       with same number of inputs and outputs
-  <b>MI2BooleanMOs</b>        2 Multiple Input / Boolean Multiple Output
-                       block with same signal lengths
-  <b>BooleanSignalSource</b>  Base class for Boolean signal sources
-  <b>IntegerMIBooleanMOs</b>  Multiple Integer Input Multiple Boolean Output control block
-                       with same number of inputs and outputs
-</pre>
-<p>
-The following <b>partial</b> block classes are provided
-to model <b>Integer</b> control blocks:
-</p>
-<pre>
-  <b>IntegerBlockIcon</b>     Basic graphical layout of Integer block
-  <b>IntegerMO</b>            Multiple Output control block
-  <b>IntegerSignalSource</b>  Base class for Integer signal sources
-</pre>
-<p>In addition, a subpackage <b>BusAdaptors</b> is temporarily provided
-in order to make a signal bus concept available. It will be removed,
-when the package Block is revised exploiting new Modelica features.</p>
+
 </HTML>
 ", revisions="<html>
 <ul>
@@ -132,8 +61,10 @@ connector RealInput = input RealSignal "'input Real' as connector"
   annotation (defaultComponentName="u",
   Coordsys(extent=[-100, -100; 100, 100],
     grid=[1,1],
-    component=[20,20]),
-  Icon(Polygon(points=[-100,100; 100,0; -100,-100; -100,100], style(
+    component=[20,20],
+      scale=0.2),
+  Icon(coordinateSystem(extent=[-200,-200; 200,200]),
+       Polygon(points=[-100,100; 100,0; -100,-100; -100,100], style(
           color=74,
           rgbcolor={0,0,127},
           fillColor=74,
@@ -170,14 +101,16 @@ connector RealOutput = output RealSignal "'output Real' as connector"
   
 connector BooleanInput = input BooleanSignal "'input Boolean' as connector" 
   annotation (defaultComponentName="u",
-       Icon(Polygon(points=[-100, 100; 100, 0; -100, -100; -100, 100],
+       Icon(coordinateSystem(extent=[-200,-200; 200,200]),
+            Polygon(points=[-100, 100; 100, 0; -100, -100; -100, 100],
          style(color=5, fillColor=5))), Diagram(Polygon(points=[0,50; 100,0;
           0,-50; 0,50],                   style(color=5, fillColor=5)),
                                   Text(
       extent=[-140,120; 100,60],
       string="%name",
       style(color=5))),
-  Coordsys(grid=[1,1], component=[20,20]));
+  Coordsys(grid=[1,1], component=[20,20],
+      scale=0.2));
   
 connector BooleanOutput = output BooleanSignal "'output Boolean' as connector" 
                                   annotation (defaultComponentName="y",
@@ -197,8 +130,10 @@ connector IntegerInput = input IntegerSignal "'input Integer' as connector"
   Coordsys(
     extent=[-100, -100; 100, 100],
     grid=[1,1],
-    component=[20,20]),
-  Icon(Polygon(points=[-100, 100; 100, 0; -100, -100; -100, 100], style(color=
+    component=[20,20],
+      scale=0.2),
+  Icon(coordinateSystem(extent=[-200,-200; 200,200]),
+       Polygon(points=[-100, 100; 100, 0; -100, -100; -100, 100], style(color=
            45, fillColor=45))),
   Diagram(Polygon(points=[0,50; 100,0; 0,-50; 0,50],                 style(
           color=45, fillColor=45)), Text(

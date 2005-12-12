@@ -1,4 +1,4 @@
-package Visualizers "3-dimensional visual objects" 
+package Visualizers "3-dimensional visual objects used for animation" 
   extends Modelica.Icons.Library;
   
   annotation (preferedView="info", Documentation(info="<HTML>
@@ -51,10 +51,39 @@ respectively.
 </p>
 </HTML>"));
   
-  model FixedShape "Fixed animation shape of a part" 
+  model FixedShape 
+    "Animation shape of a part with fixed shape type and dynamically varying shape definition" 
     import SI = Modelica.SIunits;
+    import Modelica.Mechanics.MultiBody.Types;
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialVisualizer;
     
+    parameter Boolean animation=true "= true, if animation shall be enabled";
+    parameter Types.ShapeType shapeType="box" "Type of shape" 
+      annotation (Dialog(group="if animation = true", enable=animation));
+    input SI.Position r_shape[3]={0,0,0} 
+      "Vector from frame_a to shape origin, resolved in frame_a" 
+      annotation (Dialog(group="if animation = true", enable=animation));
+    input Types.Axis lengthDirection={1,0,0} 
+      "Vector in length direction of shape, resolved in frame_a" 
+      annotation (Evaluate=true, Dialog(group="if animation = true", enable=animation));
+    input Types.Axis widthDirection={0,1,0} 
+      "Vector in width direction of shape, resolved in frame_a" 
+      annotation (Evaluate=true, Dialog(group="if animation = true", enable=animation));
+    input SI.Distance length=1 "Length of shape" 
+      annotation (Dialog(group="if animation = true", enable=animation));
+    input SI.Distance width=0.1 "Width of shape" 
+      annotation (Dialog(group="if animation = true", enable=animation));
+    input SI.Distance height=0.1 "Height of shape" 
+      annotation (Dialog(group="if animation = true", enable=animation));
+    input Modelica.Mechanics.MultiBody.Types.Color color={0,128,255} 
+      "Color of shape" 
+      annotation (Dialog(group="if animation = true", enable=animation));
+    input Types.ShapeExtra extra=0.0 
+      "Additional data for cylinder, cone, pipe, gearwheel and spring" 
+      annotation (Dialog(group="if animation = true", enable=animation));
+    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
+      "Reflection of ambient light (= 0: light is completely absorbed)" 
+      annotation (Dialog(group="if animation = true", enable=animation));
     annotation (
       preferedView="info",
       Coordsys(
@@ -70,19 +99,23 @@ respectively.
 <p>
 Model <b>FixedShape</b> defines a visual shape that is
 shown at the location of its frame_a.
+All describing data such as size and color can vary dynamically by
+providing appropriate expressions in the input fields of the
+parameter menu. The only exception is parameter shapeType
+that cannot be changed during simulation.
 The following shapes are currently supported via
 parameter <b>shapeType</b> (e.g., shapeType=\"box\"):<br>&nbsp;
 </p>
 <IMG SRC=\"../Images/MultiBody/Shape.png\" ALT=\"model Visualizers.FixedShape\">
 <p>&nbsp;<br>
 The dark blue arrows in the figure above are directed along
-parameter <b>lengthDirection</b>. The light blue arrows are directed
-along parameter <b>widthDirection</b>. The <b>coordinate systems</b> 
+variable <b>lengthDirection</b>. The light blue arrows are directed
+along variable <b>widthDirection</b>. The <b>coordinate systems</b> 
 in the figure represent frame_a of the FixedShape component.
 </p>
 <p>
 Additionally external shapes are specified as DXF-files
-(only 3DFace is supported). External shapes must be named \"1\", \"2\"
+(only 3-dim.Face is supported). External shapes must be named \"1\", \"2\"
 etc.. The corresponding definitions should be in files \"1.dxf\",
 \"2.dxf\" etc.Since the DXF-files contain color and dimensions for
 the individual faces, the corresponding information in the model
@@ -90,8 +123,8 @@ is currently ignored. The DXF-files must be found in the current directory.
 </p>
 <p>
 The sizes of any of the above components are specified by the
-<b>length</b>, <b>width</b> and <b>height</b> parameters.
-Via parameter <b>extra</b> additional data can be defined:
+<b>length</b>, <b>width</b> and <b>height</b> variables.
+Via variable <b>extra</b> additional data can be defined:
 </p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><b>shapeType</b></th><th>Meaning of parameter <b>extra</b></th></tr>
@@ -156,39 +189,20 @@ definition of the colors used in the MultiBody library
         Text(extent=[-131, 118; 129, 58], string="%name")),
       Diagram);
     
-    parameter Boolean animation=true "= true, if animation shall be enabled";
-    parameter Modelica.Mechanics.MultiBody.Types.ShapeType shapeType="box" 
-      "|if animation = true| Type of shape";
-    parameter SI.Position r_shape[3]={0,0,0} 
-      "|if animation = true| Vector from frame_a to shape origin, resolved in frame_a.";
-    parameter Modelica.Mechanics.MultiBody.Types.Axis lengthDirection={1,0,0} 
-      "|if animation = true| Vector in length direction of shape, resolved in frame_a"
-      annotation (Evaluate=true);
-    parameter Modelica.Mechanics.MultiBody.Types.Axis widthDirection={0,1,0} 
-      "|if animation = true| Vector in width direction of shape, resolved in frame_a"
-      annotation (Evaluate=true);
-    parameter SI.Distance length=1 "|if animation = true| Length of shape";
-    parameter SI.Distance width=0.1 "|if animation = true| Width of shape";
-    parameter SI.Distance height=0.1 "|if animation = true| Height of shape";
-    parameter Modelica.Mechanics.MultiBody.Types.Color color={0,128,255} 
-      "|if animation = true| Color of shape.";
-    parameter Real extra=0.0 
-      "|if animation = true| Additional parameter for cylinder, cone, pipe, gearwheel and spring (see docu)";
-    
   protected 
-    parameter Integer ndim=if world.enableAnimation and animation then 1 else 0;
-    Visualizers.Advanced.Shape vis[ndim](
-      each r_shape=r_shape,
-      each length=length,
-      each width=width,
-      each height=height,
-      each lengthDirection=lengthDirection,
-      each widthDirection=widthDirection,
-      each shapeType=shapeType,
-      each color=color,
-      each extra=extra,
-      each r=frame_a.r_0,
-      each R=frame_a.R);
+    Advanced.Shape vis(
+      shapeType=shapeType,
+      r_shape=r_shape,
+      lengthDirection=lengthDirection,
+      widthDirection=widthDirection,
+      length=length,
+      width=width,
+      height=height,
+      color=color,
+      extra=extra,
+      specularCoefficient=specularCoefficient,
+      r=frame_a.r_0,
+      R=frame_a.R) if world.enableAnimation and animation;
   equation 
     // No forces and torques
     frame_a.f = zeros(3);
@@ -196,33 +210,47 @@ definition of the colors used in the MultiBody library
   end FixedShape;
   
   model FixedShape2 
-    "Fixed animation shape of a part and fixed translation of frame_b with respect to frame_a" 
+    "Animation shape of a part with fixed shape type and dynamically varying shape definition with two frames" 
     
     import SI = Modelica.SIunits;
-    Interfaces.Frame_a frame_a annotation (extent=[-110,-15; -90,15]);
-    Interfaces.Frame_b frame_b annotation (extent=[110,-15; 90,15]);
+    import Modelica.Mechanics.MultiBody.Frames;
+    import Modelica.Mechanics.MultiBody.Types;
+    
+    Interfaces.Frame_a frame_a 
+      "Coordinate system a (all shape definition vectors are resolved in this frame)"
+       annotation (extent=[-120,-20; -80,20]);
+    Interfaces.Frame_b frame_b "Coordinate system b" 
+       annotation (extent=[80,-20; 120,20]);
     
     parameter Boolean animation=true "= true, if animation shall be enabled";
-    parameter SI.Position r[3]={1,0,0} 
+    parameter Types.ShapeType shapeType="box" "Type of shape" 
+      annotation (Dialog(group="if animation = true", enable=animation));
+    input SI.Position r[3]={1,0,0} 
       "Vector from frame_a to frame_b resolved in frame_a";
-    parameter Modelica.Mechanics.MultiBody.Types.ShapeType shapeType="box" 
-      "|if animation = true| Type of shape";
-    parameter SI.Position r_shape[3]={0,0,0} 
-      "|if animation = true| Vector from frame_a to shape origin, resolved in frame_a";
-    parameter Modelica.Mechanics.MultiBody.Types.Axis lengthDirection=r - r_shape 
-      "|if animation = true| Vector in length direction of shape, resolved in frame_a"
-      annotation (Evaluate=true);
-    parameter Modelica.Mechanics.MultiBody.Types.Axis widthDirection={0,1,0} 
-      "|if animation = true| Vector in width direction of shape, resolved in frame_a"
-      annotation (Evaluate=true);
-    parameter SI.Length length=Frames.length(r - r_shape) 
-      "|if animation = true| Length of shape";
-    parameter SI.Distance width=0.1 "|if animation = true| Width of shape";
-    parameter SI.Distance height=width "|if animation = true| Height of shape.";
-    parameter Real extra=0.0 
-      "|if animation = true| Additional parameter for cylinder, cone, pipe, gearwheel and spring (see docu)";
-    parameter Modelica.Mechanics.MultiBody.Types.Color color={0,128,255} 
-      "|if animation = true| Color of shape";
+    input SI.Position r_shape[3]={0,0,0} 
+      "Vector from frame_a to shape origin, resolved in frame_a" 
+      annotation (Dialog(group="if animation = true", enable=animation));
+    input Types.Axis lengthDirection=r - r_shape 
+      "Vector in length direction of shape, resolved in frame_a" 
+      annotation (Evaluate=true, Dialog(group="if animation = true", enable=animation));
+    input Types.Axis widthDirection={0,1,0} 
+      "Vector in width direction of shape, resolved in frame_a" 
+      annotation (Evaluate=true, Dialog(group="if animation = true", enable=animation));
+    input SI.Length length=Frames.length(r - r_shape) "Length of shape" 
+      annotation (Dialog(group="if animation = true", enable=animation));
+    input SI.Distance width=0.1 "Width of shape" 
+      annotation (Dialog(group="if animation = true", enable=animation));
+    input SI.Distance height=width "Height of shape" 
+      annotation (Dialog(group="if animation = true", enable=animation));
+    input Types.ShapeExtra extra=0.0 
+      "Additional data for cylinder, cone, pipe, gearwheel and spring" 
+      annotation (Dialog(group="if animation = true", enable=animation));
+    input Types.Color color={0,128,255} "Color of shape" 
+      annotation (Dialog(group="if animation = true", enable=animation));
+    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
+      "Reflection of ambient light (= 0: light is completely absorbed)" 
+      annotation (Dialog(group="if animation = true", enable=animation));
+    
     annotation (
       preferedView="info",
       Coordsys(
@@ -251,11 +279,11 @@ definition of the colors used in the MultiBody library
             fillColor=9,
             fillPattern=1)),
         Text(
-          extent=[-99, 15; -63, -10],
+          extent=[-86,15; -50,-10],
           string="a",
           style(color=0)),
         Text(
-          extent=[45, 16; 81, -9],
+          extent=[37,15; 73,-10],
           string="b",
           style(color=0)),
         Polygon(points=[100, 70; 78, 48; 78, -44; 100, -16; 100, 70], style(
@@ -271,19 +299,23 @@ to <b>FixedShape</b> with the only difference that an
 additional frame_b is present which is parallel to frame_a.
 This makes it more convenient to connect several visual 
 shapes together when building up more complex visual
-objects. The following shapes are currently supported via
+objects. All describing data such as size and color can vary dynamically by
+providing appropriate expressions in the input fields of the
+parameter menu. The only exception is parameter shapeType
+that cannot be changed during simulation.
+The following shapes are currently supported via
 parameter <b>shapeType</b> (e.g., shapeType=\"box\"):<br>&nbsp;
 </p>
 <IMG SRC=\"../Images/MultiBody/Shape.png\" ALT=\"model Visualizers.FixedShape2\">
 <p>&nbsp;<br>
 The dark blue arrows in the figure above are directed along
-parameter <b>lengthDirection</b>. The light blue arrows are directed
-along parameter <b>widthDirection</b>. The <b>coordinate systems</b> 
+variable <b>lengthDirection</b>. The light blue arrows are directed
+along variable <b>widthDirection</b>. The <b>coordinate systems</b> 
 in the figure represent frame_a of the FixedShape component.
 </p>
 <p>
 Additionally external shapes are specified as DXF-files
-(only 3DFace is supported). External shapes must be named \"1\", \"2\"
+(only 3-dim.Face is supported). External shapes must be named \"1\", \"2\"
 etc.. The corresponding definitions should be in files \"1.dxf\",
 \"2.dxf\" etc.Since the DXF-files contain color and dimensions for
 the individual faces, the corresponding information in the model
@@ -291,8 +323,8 @@ is currently ignored. The DXF-files must be found in the current directory.
 </p>
 <p>
 The sizes of any of the above components are specified by the
-<b>length</b>, <b>width</b> and <b>height</b> parameters.
-Via parameter <b>extra</b> additional data can be defined:
+<b>length</b>, <b>width</b> and <b>height</b> variables.
+Via variable <b>extra</b> additional data can be defined:
 </p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><b>shapeType</b></th><th>Meaning of parameter <b>extra</b></th></tr>
@@ -344,20 +376,20 @@ vector <b>r</b>.
 </HTML>
 "));
   protected 
-    outer Modelica.Mechanics.MultiBody.World world;
-    parameter Integer ndim=if world.enableAnimation and animation then 1 else 0;
-    Visualizers.Advanced.Shape shape[ndim](
-      each shapeType=shapeType,
-      each color=color,
-      each r_shape=r_shape,
-      each lengthDirection=lengthDirection,
-      each widthDirection=widthDirection,
-      each length=length,
-      each width=width,
-      each height=height,
-      each extra=extra,
-      each r=frame_a.r_0,
-      each R=frame_a.R);
+    outer MultiBody.World world;
+    Advanced.Shape shape(
+      shapeType=shapeType,
+      r_shape=r_shape,
+      lengthDirection=lengthDirection,
+      widthDirection=widthDirection,
+      length=length,
+      width=width,
+      height=height,
+      extra=extra,
+      color=color,
+      specularCoefficient = specularCoefficient,
+      r=frame_a.r_0,
+      R=frame_a.R) if world.enableAnimation and animation;
   equation 
     defineBranch(frame_a.R, frame_b.R);
     assert(cardinality(frame_a) > 0 or cardinality(frame_b) > 0, "Neither connector frame_a nor frame_b of 
@@ -371,145 +403,145 @@ MultiBody.Visualizers.FixedShape2 object is connected");
     zeros(3) = frame_a.t + frame_b.t + cross(r, frame_b.f);
   end FixedShape2;
   
-  model FixedFrame "Visualizing a coordinate system including axes labels" 
+  model FixedFrame 
+    "Visualizing a coordinate system including axes labels (visualization data may vary dynamically)" 
     
     import SI = Modelica.SIunits;
+    import Modelica.Mechanics.MultiBody.Types;
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialVisualizer;
     parameter Boolean animation=true "= true, if animation shall be enabled";
-    parameter Boolean showLabels=true 
-      "|if animation = true| = true, if labels shall be shown";
-    parameter SI.Distance length=0.5 
-      "|if animation = true| Length of axes arrows";
-    parameter SI.Distance diameter=length/world.defaultFrameDiameterFraction 
-      "|if animation = true| Diameter of axes arrows";
-    parameter Modelica.Mechanics.MultiBody.Types.Color color_x=Modelica.Mechanics.MultiBody.Types.Defaults.FrameColor 
-      "|if animation = true| Color of x-arrow";
-    parameter Modelica.Mechanics.MultiBody.Types.Color color_y=color_x 
-      "|if animation = true| Color of y-arrow";
-    parameter Modelica.Mechanics.MultiBody.Types.Color color_z=color_x 
-      "|if animation = true| Color of z-arrow";
-    
+    parameter Boolean showLabels=true "= true, if labels shall be shown" 
+      annotation (Dialog(group="if animation = true", enable=animation));
+    input SI.Distance length=0.5 "Length of axes arrows" 
+      annotation (Dialog(group="if animation = true", enable=animation));
+    input SI.Distance diameter=length/world.defaultFrameDiameterFraction 
+      "Diameter of axes arrows" annotation (Dialog(group="if animation = true", enable=animation));
+    input Types.Color color_x=Modelica.Mechanics.MultiBody.Types.Defaults.
+        FrameColor "Color of x-arrow" 
+      annotation (Dialog(group="if animation = true", enable=animation));
+    input Types.Color color_y=color_x "Color of y-arrow" 
+      annotation (Dialog(group="if animation = true", enable=animation));
+    input Types.Color color_z=color_x "Color of z-arrow" 
+      annotation (Dialog(group="if animation = true", enable=animation));
+    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
+      "Reflection of ambient light (= 0: light is completely absorbed)" 
+      annotation (Dialog(group="if animation = true", enable=animation));
   protected 
-    parameter Integer ndim=if world.enableAnimation and animation then 1 else 0;
-    parameter Integer ndim2=if world.enableAnimation and animation and 
-        showLabels then 1 else 0;
+    parameter Boolean animation2 = world.enableAnimation and animation;
+    parameter Boolean showLabels2= world.enableAnimation and animation and showLabels;
     
     // Parameters to define axes
-    parameter SI.Length headLength=min(length, diameter*Types.Defaults.
-        FrameHeadLengthFraction);
-    parameter SI.Length headWidth=diameter*Types.Defaults.
-        FrameHeadWidthFraction;
-    parameter SI.Length lineLength=max(0, length - headLength);
-    parameter SI.Length lineWidth=diameter;
+    SI.Length headLength=min(length, diameter*Types.Defaults.FrameHeadLengthFraction);
+    SI.Length headWidth=diameter*Types.Defaults.FrameHeadWidthFraction;
+    SI.Length lineLength=max(0, length - headLength);
+    SI.Length lineWidth=diameter;
     
     // Parameters to define axes labels
-    parameter SI.Length scaledLabel=Types.Defaults.FrameLabelHeightFraction*
-        diameter;
-    parameter SI.Length labelStart=1.05*length;
+    SI.Length scaledLabel=Types.Defaults.FrameLabelHeightFraction*diameter;
+    SI.Length labelStart=1.05*length;
     
     // x-axis
-    Visualizers.Advanced.Shape x_arrowLine[ndim](
-      each shapeType="cylinder",
-      each length=lineLength,
-      each width=lineWidth,
-      each height=lineWidth,
-      each lengthDirection={1,0,0},
-      each widthDirection={0,1,0},
-      each color=color_x,
-      each r=frame_a.r_0,
-      each R=frame_a.R,
-      each specularCoefficient=0);
-    Visualizers.Advanced.Shape x_arrowHead[ndim](
-      each shapeType="cone",
-      each length=headLength,
-      each width=headWidth,
-      each height=headWidth,
-      each lengthDirection={1,0,0},
-      each widthDirection={0,1,0},
-      each color=color_x,
-      each r=frame_a.r_0 + Frames.resolve1(frame_a.R, {lineLength,0,0}),
-      each R=frame_a.R,
-      each specularCoefficient=0);
-    Visualizers.Internal.Lines x_label[ndim2](
-      each lines=scaledLabel*{[0, 0; 1, 1],[0, 1; 1, 0]},
-      each diameter=diameter,
-      each color=color_x,
-      each r_lines={labelStart,0,0},
-      each n_x={1,0,0},
-      each n_y={0,1,0},
-      each r=frame_a.r_0,
-      each R=frame_a.R,
-      each specularCoefficient=0);
+    Visualizers.Advanced.Shape x_arrowLine(
+      shapeType="cylinder",
+      length=lineLength,
+      width=lineWidth,
+      height=lineWidth,
+      lengthDirection={1,0,0},
+      widthDirection={0,1,0},
+      color=color_x,
+      specularCoefficient=specularCoefficient,
+      r=frame_a.r_0,
+      R=frame_a.R) if animation2;
+    Visualizers.Advanced.Shape x_arrowHead(
+      shapeType="cone",
+      length=headLength,
+      width=headWidth,
+      height=headWidth,
+      lengthDirection={1,0,0},
+      widthDirection={0,1,0},
+      color=color_x,
+      specularCoefficient=specularCoefficient,
+      r=frame_a.r_0 + Frames.resolve1(frame_a.R, {lineLength,0,0}),
+      R=frame_a.R) if animation2;
+    Visualizers.Internal.Lines x_label(
+      lines=scaledLabel*{[0, 0; 1, 1],[0, 1; 1, 0]},
+      diameter=diameter,
+      color=color_x,
+      specularCoefficient=specularCoefficient,
+      r_lines={labelStart,0,0},
+      n_x={1,0,0},
+      n_y={0,1,0},
+      r=frame_a.r_0,
+      R=frame_a.R) if showLabels2;
     
     // y-axis
-    Visualizers.Advanced.Shape y_arrowLine[ndim](
-      each shapeType="cylinder",
-      each length=lineLength,
-      each width=lineWidth,
-      each height=lineWidth,
-      each lengthDirection={0,1,0},
-      each widthDirection={1,0,0},
-      each color=color_y,
-      each r=frame_a.r_0,
-      each R=frame_a.R,
-      each specularCoefficient=0);
-    Visualizers.Advanced.Shape y_arrowHead[ndim](
-      each shapeType="cone",
-      each length=headLength,
-      each width=headWidth,
-      each height=headWidth,
-      each lengthDirection={0,1,0},
-      each widthDirection={1,0,0},
-      each color=color_y,
-      each r=frame_a.r_0 + Frames.resolve1(frame_a.R, {0,lineLength,0}),
-      each R=frame_a.R,
-      each specularCoefficient=0);
-    Visualizers.Internal.Lines y_label[ndim2](
-      each lines=scaledLabel*{[0, 0; 1, 1.5],[0, 1.5; 0.5, 0.75]},
-      each diameter=diameter,
-      each color=color_y,
-      each r_lines={0,labelStart,0},
-      each n_x={0,1,0},
-      each n_y={-1,0,0},
-      each r=frame_a.r_0,
-      each R=frame_a.R,
-      each specularCoefficient=0);
+    Visualizers.Advanced.Shape y_arrowLine(
+      shapeType="cylinder",
+      length=lineLength,
+      width=lineWidth,
+      height=lineWidth,
+      lengthDirection={0,1,0},
+      widthDirection={1,0,0},
+      color=color_y,
+      specularCoefficient=specularCoefficient,
+      r=frame_a.r_0,
+      R=frame_a.R) if animation2;
+    Visualizers.Advanced.Shape y_arrowHead(
+      shapeType="cone",
+      length=headLength,
+      width=headWidth,
+      height=headWidth,
+      lengthDirection={0,1,0},
+      widthDirection={1,0,0},
+      color=color_y,
+      specularCoefficient=specularCoefficient,
+      r=frame_a.r_0 + Frames.resolve1(frame_a.R, {0,lineLength,0}),
+      R=frame_a.R) if animation2;
+    Visualizers.Internal.Lines y_label(
+      lines=scaledLabel*{[0, 0; 1, 1.5],[0, 1.5; 0.5, 0.75]},
+      diameter=diameter,
+      color=color_y,
+      specularCoefficient=specularCoefficient,
+      r_lines={0,labelStart,0},
+      n_x={0,1,0},
+      n_y={-1,0,0},
+      r=frame_a.r_0,
+      R=frame_a.R) if showLabels2;
     
     // z-axis
-    Visualizers.Advanced.Shape z_arrowLine[ndim](
-      each shapeType="cylinder",
-      each length=lineLength,
-      each width=lineWidth,
-      each height=lineWidth,
-      each lengthDirection={0,0,1},
-      each widthDirection={0,1,0},
-      each color=color_z,
-      each r=frame_a.r_0,
-      each R=frame_a.R,
-      each specularCoefficient=0);
-    Visualizers.Advanced.Shape z_arrowHead[ndim](
-      each shapeType="cone",
-      each length=headLength,
-      each width=headWidth,
-      each height=headWidth,
-      each lengthDirection={0,0,1},
-      each widthDirection={0,1,0},
-      each color=color_z,
-      each r=frame_a.r_0 + Frames.resolve1(frame_a.R, {0,0,lineLength}),
-      each R=frame_a.R,
-      each specularCoefficient=0);
-    Visualizers.Internal.Lines z_label[ndim2](
-      each lines=scaledLabel*{[0, 0; 1, 0],[0, 1; 1, 1],[0, 1; 1, 0]},
-      each diameter=diameter,
-      each color=color_z,
-      each r_lines={0,0,labelStart},
-      each n_x={0,0,1},
-      each n_y={0,1,0},
-      each r=frame_a.r_0,
-      each R=frame_a.R,
-      each specularCoefficient=0);
+    Visualizers.Advanced.Shape z_arrowLine(
+      shapeType="cylinder",
+      length=lineLength,
+      width=lineWidth,
+      height=lineWidth,
+      lengthDirection={0,0,1},
+      widthDirection={0,1,0},
+      color=color_z,
+      specularCoefficient=specularCoefficient,
+      r=frame_a.r_0,
+      R=frame_a.R) if animation2;
+    Visualizers.Advanced.Shape z_arrowHead(
+      shapeType="cone",
+      length=headLength,
+      width=headWidth,
+      height=headWidth,
+      lengthDirection={0,0,1},
+      widthDirection={0,1,0},
+      color=color_z,
+      specularCoefficient=specularCoefficient,
+      r=frame_a.r_0 + Frames.resolve1(frame_a.R, {0,0,lineLength}),
+      R=frame_a.R) if animation2;
+    Visualizers.Internal.Lines z_label(
+      lines=scaledLabel*{[0, 0; 1, 0],[0, 1; 1, 1],[0, 1; 1, 0]},
+      diameter=diameter,
+      color=color_z,
+      specularCoefficient=specularCoefficient,
+      r_lines={0,0,labelStart},
+      n_x={0,0,1},
+      n_y={0,1,0},
+      r=frame_a.r_0,
+      R=frame_a.R) if showLabels2;
   equation 
-    
     frame_a.f = zeros(3);
     frame_a.t = zeros(3);
     annotation (
@@ -554,8 +586,11 @@ labels. A typical example is shown in the following figure:
 </p>
 <IMG SRC=\"../Images/MultiBody/FixedFrame.png\" ALT=\"model Visualizers.FixedFrame\">
 <p>
-The sizes of the axes and the labels as well as their colors
-can be set by parameters.
+The sizes of the axes, the axes colors and the specular coefficient
+(= reflection factor for
+ambient light) can vary dynamically by
+providing appropriate expressions in the input fields of the
+parameter menu.
 </p>
 </HTML>"),
       Diagram,
@@ -563,50 +598,58 @@ can be set by parameters.
     
   end FixedFrame;
   
-  model FixedArrow "Visualizing an arrow with constant size in frame_a" 
+  model FixedArrow 
+    "Visualizing an arrow with dynamically varying size in frame_a" 
     
     import SI = Modelica.SIunits;
+    import Modelica.Mechanics.MultiBody.Types;
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialVisualizer;
     parameter Boolean animation=true "= true, if animation shall be enabled";
-    parameter SI.Position r_tail[3]={0,0,0} 
-      "|if animation = true| Vector from frame_a to arrow tail, resolved in frame_a";
-    parameter Modelica.Mechanics.MultiBody.Types.Axis n={1,0,0} 
-      "|if animation = true| Vector in arrow direction, resolved in frame_a";
-    parameter SI.Length length=0.1 
-      "|if animation = true| Length of complete arrow";
-    parameter SI.Diameter diameter=world.defaultArrowDiameter 
-      "|if animation = true| Diameter of arrow line";
-    parameter Modelica.Mechanics.MultiBody.Types.Color color={0,0,255} 
-      "|if animation = true| Color of arrow";
+    input SI.Position r_tail[3]={0,0,0} 
+      " Vector from frame_a to arrow tail, resolved in frame_a" 
+      annotation (Dialog(group="if animation = true", enable=animation));
+    input Types.Axis n={1,0,0} 
+      " Vector in arrow direction, resolved in frame_a" 
+      annotation (Dialog(group="if animation = true", enable=animation));
+    input SI.Length length=0.1 " Length of complete arrow" 
+      annotation (Dialog(group="if animation = true", enable=animation));
+    input SI.Diameter diameter=world.defaultArrowDiameter 
+      " Diameter of arrow line" annotation (Dialog(group="if animation = true", enable=animation));
+    input Types.Color color={0,0,255} " Color of arrow" 
+      annotation (Dialog(group="if animation = true", enable=animation));
+    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
+      "Reflection of ambient light (= 0: light is completely absorbed)" 
+      annotation (Dialog(group="if animation = true", enable=animation));
   protected 
-    parameter Integer ndim=if world.enableAnimation and animation then 1 else 0;
-    parameter SI.Length headLength=min(length, diameter*Types.Defaults.
+    SI.Length headLength=min(length, diameter*Types.Defaults.
         ArrowHeadLengthFraction);
-    parameter SI.Length headWidth=diameter*Types.Defaults.
+    SI.Length headWidth=diameter*Types.Defaults.
         ArrowHeadWidthFraction;
-    parameter SI.Length lineLength=max(0, length - headLength);
-    Visualizers.Advanced.Shape arrowLine[ndim](
-      each shapeType="cylinder",
-      each length=lineLength,
-      each width=diameter,
-      each height=diameter,
-      each lengthDirection=n,
-      each widthDirection={0,1,0},
-      each color=color,
-      each r_shape=r_tail,
-      each r=frame_a.r_0,
-      each R=frame_a.R);
-    Visualizers.Advanced.Shape arrowHead[ndim](
-      each shapeType="cone",
-      each length=headLength,
-      each width=headWidth,
-      each height=headWidth,
-      each lengthDirection=n,
-      each widthDirection={0,1,0},
-      each color=color,
-      each r_shape=r_tail + Frames.normalize(n)*lineLength,
-      each r=frame_a.r_0,
-      each R=frame_a.R);
+    SI.Length lineLength=max(0, length - headLength);
+    Visualizers.Advanced.Shape arrowLine(
+      shapeType="cylinder",
+      length=lineLength,
+      width=diameter,
+      height=diameter,
+      lengthDirection=n,
+      widthDirection={0,1,0},
+      color=color,
+      specularCoefficient=specularCoefficient,
+      r_shape=r_tail,
+      r=frame_a.r_0,
+      R=frame_a.R) if world.enableAnimation and animation;
+    Visualizers.Advanced.Shape arrowHead(
+      shapeType="cone",
+      length=headLength,
+      width=headWidth,
+      height=headWidth,
+      lengthDirection=n,
+      widthDirection={0,1,0},
+      color=color,
+      specularCoefficient=specularCoefficient,
+      r_shape=r_tail + Frames.normalize(n)*lineLength,
+      r=frame_a.r_0,
+      R=frame_a.R) if world.enableAnimation and animation;
   equation 
     frame_a.f = zeros(3);
     frame_a.t = zeros(3);
@@ -622,7 +665,7 @@ can be set by parameters.
           string="%length",
           style(color=0))),
       Diagram,
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 Model <b>FixedArrow</b> defines an arrow that is
 shown at the location of its frame_a.
@@ -630,41 +673,51 @@ shown at the location of its frame_a.
 </p>
 <IMG SRC=\"../Images/MultiBody/Visualizers/Arrow.png\" ALT=\"model Visualizers.FixedArrow\">
 <p>
-The direction of the arrow specified with parameter vector
+The direction of the arrow specified with vector
 <b>n</b> is with respect to frame_a, i.e., the local frame to which the
-arrow component is attached. The length of the arrow, its diameter
-and color are defined as parameters.
-If the length of the arrow shall be dynamic, use model
-<b>SignalArrow</b> instead.
-</HTML>"));
+arrow component is attached. The direction and length of the arrow, its diameter
+and color can vary dynamically by
+providing appropriate expressions in the input fields of the
+parameter menu.
+</p>
+</html>"));
     
   end FixedArrow;
   
   model SignalArrow 
-    "Visualizing an arrow with dynamic size in frame_a based on input signal" 
+    "Visualizing an arrow with dynamically varying size in frame_a based on input signal" 
     
     import SI = Modelica.SIunits;
+    import Modelica.Mechanics.MultiBody.Types;
+    
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialVisualizer;
     parameter Boolean animation=true "= true, if animation shall be enabled";
-    parameter SI.Position r_tail[3]={0,0,0} 
-      "|if animation = true| Vector from frame_a to arrow tail, resolved in frame_a";
-    parameter SI.Diameter diameter=world.defaultArrowDiameter 
-      "|if animation = true| Diameter of arrow line";
-    parameter Modelica.Mechanics.MultiBody.Types.Color color={0,0,255} 
-      "|if animation = true| Color of arrow";
+    input SI.Position r_tail[3]={0,0,0} 
+      "Vector from frame_a to arrow tail, resolved in frame_a" 
+      annotation (Dialog(group="if animation = true", enable=animation));
+    input SI.Diameter diameter=world.defaultArrowDiameter 
+      "Diameter of arrow line" 
+      annotation (Dialog(group="if animation = true", enable=animation));
+    input Modelica.Mechanics.MultiBody.Types.Color color={0,0,255} 
+      "Color of arrow" 
+      annotation (Dialog(group="if animation = true", enable=animation));
+    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
+      "Reflection of ambient light (= 0: light is completely absorbed)" 
+      annotation (Dialog(group="if animation = true", enable=animation));
+    
     Modelica.Blocks.Interfaces.RealInput r_head[3](redeclare each type 
         SignalType = SI.Position) 
       "Position vector from origin of frame_a to head of arrow, resolved in frame_a"
       annotation (extent=[-20, -140; 20, -100], rotation=90);
   protected 
-    parameter Integer ndim=if world.enableAnimation and animation then 1 else 0;
-    Visualizers.Advanced.Arrow arrow[ndim](
-      each R=frame_a.R,
-      each r=frame_a.r_0,
-      each r_tail=r_tail,
-      each r_head=r_head,
-      each diameter=diameter,
-      each color=color);
+    Visualizers.Advanced.Arrow arrow(
+      R=frame_a.R,
+      r=frame_a.r_0,
+      r_tail=r_tail,
+      r_head=r_head,
+      diameter=diameter,
+      color=color,
+      specularCoefficient=specularCoefficient) if world.enableAnimation and animation;
   equation 
     frame_a.f = zeros(3);
     frame_a.t = zeros(3);
@@ -683,7 +736,7 @@ Model <b>SignalArrow</b> defines an arrow that is dynamically visualized
 at the location where its frame_a is attached. The
 position vector from the tail to the head of the arrow,
 resolved in frame_a, is defined via the signal vector of
-the InPort connector <b>r_head</b> (r_head.signal[1:3]):<br>&nbsp;
+the connector <b>r_head</b> (Real r_head[3]):<br>&nbsp;
 </p>
 <IMG SRC=\"../Images/MultiBody/Visualizers/Arrow.png\" ALT=\"model Visualizers.SignalArrow\">
 <p>
@@ -701,7 +754,9 @@ with respect to frame_a (vector from the origin of frame_a to the arrow tail).
     annotation (preferedView="info", Documentation(info="<HTML>
 <p>
 Package <b>Visualizers.Advanced</b> contains components to visualize
-3-dimensional shapes with dynamical sizes. Basic knowledge of Modelica
+3-dimensional shapes with dynamical sizes. None of the components
+has a frame connector. The position and orientation is set via
+modifiers. Basic knowledge of Modelica
 is needed in order to utilize the components of this package.
 These components have also to be used for models,
 where the forces and torques in the frame connector are set via
@@ -732,21 +787,27 @@ since they all have frame connectors).
       "Visualizing an arrow with variable size; all data have to be set as modifiers (see info layer)" 
       
       import SI = Modelica.SIunits;
+      import Modelica.Mechanics.MultiBody.Types;
+      import Modelica.Mechanics.MultiBody.Frames;
       
-      input Frames.Orientation R=Modelica.Mechanics.MultiBody.Frames.nullRotation() 
-        "Orientation object to rotate the world frame into the arrow frame.";
+      input Frames.Orientation R=Frames.nullRotation() 
+        "Orientation object to rotate the world frame into the arrow frame." annotation(Dialog);
       input SI.Position r[3]={0,0,0} 
-        "Position vector from origin of world frame to origin of arrow frame, resolved in world frame";
+        "Position vector from origin of world frame to origin of arrow frame, resolved in world frame"
+                                                                                                       annotation(Dialog);
       input SI.Position r_tail[3]={0,0,0} 
-        "Position vector from origin of arrow frame to arrow tail, resolved in arrow frame";
+        "Position vector from origin of arrow frame to arrow tail, resolved in arrow frame"
+                                                                                            annotation(Dialog);
       input SI.Position r_head[3]={0,0,0} 
-        "Position vector from arrow tail to the head of the arrow, resolved in arrow frame";
+        "Position vector from arrow tail to the head of the arrow, resolved in arrow frame"
+                                                                                            annotation(Dialog);
       input SI.Diameter diameter=world.defaultArrowDiameter 
-        "Diameter of arrow line";
-      input Modelica.Mechanics.MultiBody.Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.ArrowColor 
-        "Color of arrow";
-      input Real specularCoefficient(min=0) = 0.7 
-        "Material property describing the reflecting of ambient light (= 0 means, that light is completely absorbed)";
+        "Diameter of arrow line" annotation(Dialog);
+      input Modelica.Mechanics.MultiBody.Types.Color color=Types.Defaults.ArrowColor 
+        "Color of arrow" annotation(Dialog);
+      input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
+        "Material property describing the reflecting of ambient light (= 0 means, that light is completely absorbed)"
+                                                                                                            annotation(Dialog);
     protected 
       outer Modelica.Mechanics.MultiBody.World world;
       SI.Length length=Frames.length(r_head) "Length of arrow";
@@ -759,10 +820,10 @@ since they all have frame connectors).
         widthDirection={0,1,0},
         shapeType="cylinder",
         color=color,
+        specularCoefficient=specularCoefficient,
         r_shape=r_tail,
         r=r,
-        R=R,
-        specularCoefficient=specularCoefficient);
+        R=R) if world.enableAnimation;
       Visualizers.Advanced.Shape arrowHead(
         length=noEvent(max(0, min(length, diameter*Types.Defaults.
             ArrowHeadLengthFraction))),
@@ -774,8 +835,9 @@ since they all have frame connectors).
         widthDirection={0,1,0},
         shapeType="cone",
         color=color,
+        specularCoefficient=specularCoefficient,
         r=arrowLine.rvisobj + arrowLine.rxvisobj*arrowLine.length,
-        R=R);
+        R=R) if world.enableAnimation;
       
       annotation(structurallyIncomplete,
         preferedView="info",
@@ -786,9 +848,8 @@ visualized at the defined location (see variables below).
 </p>
 <IMG SRC=\"../Images/MultiBody/Visualizers/Arrow.png\" ALT=\"model Visualizers.Advanced.Arrow\">
 <p>
-The following variables are declared as <b>input</b>.
-Furthermore the definition <b>import SI = Modelica.SIunits</b>
-is used.
+The variables under heading <b>Parameters</b> below
+are declared as (time varying) <b>input</b> variables.
 If the default equation is not appropriate, a corresponding
 modifier equation has to be provided in the
 model where an <b>Arrow</b> instance is used, e.g., in the form
@@ -796,44 +857,9 @@ model where an <b>Arrow</b> instance is used, e.g., in the form
 <pre>
     Visualizers.Advanced.Arrow arrow(diameter = sin(time));
 </pre>
-<table border=1 cellspacing=0 cellpadding=2>
-<tr><th><b>Declaration</b></th>
-    <th><b>Meaning</th></tr>
-<tr>
-  <td>Frames.Orientation <b>R</b> = Frames.nullRotation()</td>
-  <td>Orientation object to rotate the world frame into the arrow frame.</td>
-</tr>
-<tr>
-  <td>SI.Position[3] <b>r</b> = {0,0,0}</td>
-  <td>Position vector from origin of world frame to origin of
-      arrow frame,<br> resolved in world frame</td>
-</tr>
-<tr>
-  <td>SI.Position[3] <b>r_tail</b> = {0,0,0}</td>
-  <td>Position vector from origin of arrow frame to arrow tail, 
-      resolved in arrow frame</td>
-</tr>
-<tr>
-  <td>SI.Position[3] <b>r_head</b> = {0,0,0}</td>
-  <td>Position vector from origin of arrow frame to the head of
-      the arrow,<br> resolved in arrow frame</td>
-</tr>
-<tr>
-  <td>SI.Diameter <b>diameter</b> = world.defaultArrowDiameter</td>
-  <td>Diameter of arrow line</td>
-</tr>
-<tr>
-  <td>Integer[3] <b>color</b> = {0,0,255} // blue </td>
-  <td>Color (see below)</td>
-</tr>
-<tr>
-  <td>Real <b>specularCoefficient</b> = 0.7</td>
-  <td>Material property describing the reflecting of ambient light <br>
-      (= 0 means, that light is completely absorbed)</td>
-</tr>
-</table>
+ 
 <p>
-Parameter <b>color</b> is an Integer vector with 3 elements,
+Variable <b>color</b> is an Integer vector with 3 elements,
 {r, g, b}, and specifies the color of the shape.
 {r,g,b} are the \"red\", \"green\" and \"blue\" color parts.
 Note, r g, b are given in the range 0 .. 255.
@@ -855,20 +881,26 @@ library (will be replaced by a color editor).
       "Visualizing a double arrow with variable size; all data have to be set as modifiers (see info layer)" 
       
       import SI = Modelica.SIunits;
-      input Frames.Orientation R=Modelica.Mechanics.MultiBody.Frames.nullRotation() 
-        "Orientation object to rotate the world frame into the arrow frame.";
+      import Modelica.Mechanics.MultiBody.Types;
+      import Modelica.Mechanics.MultiBody.Frames;
+      input Frames.Orientation R=Frames.nullRotation() 
+        "Orientation object to rotate the world frame into the arrow frame." annotation(Dialog);
       input SI.Position r[3]={0,0,0} 
-        "Position vector from origin of world frame to origin of arrow frame, resolved in world frame";
+        "Position vector from origin of world frame to origin of arrow frame, resolved in world frame"
+                                                                                                       annotation(Dialog);
       input SI.Position r_tail[3]={0,0,0} 
-        "Position vector from origin of arrow frame to double arrow tail, resolved in arrow frame";
+        "Position vector from origin of arrow frame to double arrow tail, resolved in arrow frame"
+                                                                                                   annotation(Dialog);
       input SI.Position r_head[3]={0,0,0} 
-        "Position vector from double arrow tail to the head of the double arrow, resolved in arrow frame";
+        "Position vector from double arrow tail to the head of the double arrow, resolved in arrow frame"
+                                                                                                          annotation(Dialog);
       input SI.Diameter diameter=world.defaultArrowDiameter 
-        "Diameter of arrow line";
-      input Modelica.Mechanics.MultiBody.Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.ArrowColor 
-        "Color of double arrow";
-      input Real specularCoefficient(min=0) = 0.7 
-        "Material property describing the reflecting of ambient light (= 0 means, that light is completely absorbed)";
+        "Diameter of arrow line" annotation(Dialog);
+      input Modelica.Mechanics.MultiBody.Types.Color color=Types.Defaults.ArrowColor 
+        "Color of double arrow" annotation(Dialog);
+      input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
+        "Material property describing the reflecting of ambient light (= 0 means, that light is completely absorbed)"
+                                                                                                            annotation(Dialog);
     protected 
       outer Modelica.Mechanics.MultiBody.World world;
       SI.Length length=Frames.length(r_head) "Length of arrow";
@@ -885,10 +917,10 @@ library (will be replaced by a color editor).
         widthDirection={0,1,0},
         shapeType="cylinder",
         color=color,
+        specularCoefficient=specularCoefficient,
         r_shape=r_tail,
         r=r,
-        R=R,
-        specularCoefficient=specularCoefficient);
+        R=R) if world.enableAnimation;
       Visualizers.Advanced.Shape arrowHead1(
         length=headLength,
         width=headWidth,
@@ -897,8 +929,9 @@ library (will be replaced by a color editor).
         widthDirection={0,1,0},
         shapeType="cone",
         color=color,
+        specularCoefficient=specularCoefficient,
         r=arrowLine.rvisobj + arrowLine.rxvisobj*arrowLine.length,
-        R=R);
+        R=R) if world.enableAnimation;
       Visualizers.Advanced.Shape arrowHead2(
         length=headLength,
         width=headWidth,
@@ -907,9 +940,10 @@ library (will be replaced by a color editor).
         widthDirection={0,1,0},
         shapeType="cone",
         color=color,
+        specularCoefficient=specularCoefficient,
         r=arrowLine.rvisobj + arrowLine.rxvisobj*(arrowLine.length + 0.5*
             arrowHead1.length),
-        R=R);
+        R=R) if world.enableAnimation;
       annotation(structurallyIncomplete,
         preferedView="info",
         Icon(
@@ -927,54 +961,17 @@ visualized at the defined location (see variables below).
 </p>
 <IMG SRC=\"../Images/MultiBody/Visualizers/DoubleArrow.png\" ALT=\"model Visualizers.Advanced.DoubleArrow\">
 <p>
-The following variables are declared as <b>input</b>.
-Furthermore the definition <b>import SI = Modelica.SIunits</b>
-is used.
+The variables under heading <b>Parameters</b> below
+are declared as (time varying) <b>input</b> variables.
 If the default equation is not appropriate, a corresponding
 modifier equation has to be provided in the
-model where a <b>DoubleArrow</b> instance is used, e.g., in the form
+model where an <b>Arrow</b> instance is used, e.g., in the form
 </p>
 <pre>
     Visualizers.Advanced.DoubleArrow doubleArrow(diameter = sin(time));
 </pre>
-<table border=1 cellspacing=0 cellpadding=2>
-<tr><th><b>Declaration</b></th>
-    <th><b>Meaning</th></tr>
-<tr>
-  <td>Frames.Orientation <b>R</b> = Frames.nullRotation()</td>
-  <td>Orientation object to rotate the world frame into the arrow frame.</td>
-</tr>
-<tr>
-  <td>SI.Position[3] <b>r</b> = {0,0,0}</td>
-  <td>Position vector from origin of world frame to origin of
-      arrow frame,<br> resolved in world frame</td>
-</tr>
-<tr>
-  <td>SI.Position[3] <b>r_tail</b> = {0,0,0}</td>
-  <td>Position vector from origin of arrow frame to arrow tail, 
-      resolved in arrow frame</td>
-</tr>
-<tr>
-  <td>SI.Position[3] <b>r_head</b> = {0,0,0}</td>
-  <td>Position vector from origin of arrow frame to the head of
-      the arrow,<br> resolved in arrow frame</td>
-</tr>
-<tr>
-  <td>SI.Diameter <b>diameter</b> = world.defaultArrowDiameter</td>
-  <td>Diameter of arrow line</td>
-</tr>
-<tr>
-  <td>Integer[3] <b>color</b> = {0,0,255} // blue </td>
-  <td>Color (see below)</td>
-</tr>
-<tr>
-  <td>Real <b>specularCoefficient</b> = 0.7</td>
-  <td>Material property describing the reflecting of ambient light <br>
-      (= 0 means, that light is completely absorbed)</td>
-</tr>
-</table>
 <p>
-Parameter <b>color</b> is an Integer vector with 3 elements,
+Variable <b>color</b> is an Integer vector with 3 elements,
 {r, g, b}, and specifies the color of the shape.
 {r,g,b} are the \"red\", \"green\" and \"blue\" color parts.
 Note, r g, b are given in the range 0 .. 255.
@@ -991,26 +988,31 @@ library (will be replaced by a color editor).
       
       import T = Modelica.Mechanics.MultiBody.Frames.TransformationMatrices;
       import SI = Modelica.SIunits;
-      parameter String shapeType="box" 
+      import Modelica.Mechanics.MultiBody.Frames;
+      import Modelica.Mechanics.MultiBody.Types;
+      
+      parameter Types.ShapeType shapeType="box" 
         "Type of shape (box, sphere, cylinder, pipecylinder, cone, pipe, beam, gearwheel, spring)";
-      input Frames.Orientation R=Modelica.Mechanics.MultiBody.Frames.nullRotation() 
-        "Orientation object to rotate the world frame into the object frame.";
+      input Frames.Orientation R=Frames.nullRotation() 
+        "Orientation object to rotate the world frame into the object frame"  annotation(Dialog);
       input SI.Position r[3]={0,0,0} 
-        "Position vector from origin of world frame to origin of object frame, resolved in world frame";
+        "Position vector from origin of world frame to origin of object frame, resolved in world frame"
+                                                                                                        annotation(Dialog);
       input SI.Position r_shape[3]={0,0,0} 
-        "Position vector from origin of object frame to shape origin, resolved in object frame";
+        "Position vector from origin of object frame to shape origin, resolved in object frame"
+                                                                                                annotation(Dialog);
       input Real lengthDirection[3]={1,0,0} 
-        "Vector in length direction, resolved in object frame.";
+        "Vector in length direction, resolved in object frame"  annotation(Dialog);
       input Real widthDirection[3]={0,1,0} 
-        "Vector in width direction, resolved in object frame.";
-      input SI.Length length=0 "Length of visual object.";
-      input SI.Length width=0 "Width of visual object.";
-      input SI.Length height=0 "Height of visual object.";
-      input Real extra=0.0 
-        "Additional size data for some of the shape types (details see docu).";
-      input Real color[3]={255,0,0} "Color (details see docu).";
-      input Real specularCoefficient(min=0) = 0.7 
-        "Material property describing the reflecting of ambient light (= 0 means, that light is completely absorbed)";
+        "Vector in width direction, resolved in object frame"  annotation(Dialog);
+      input SI.Length length=0 "Length of visual object"  annotation(Dialog);
+      input SI.Length width=0 "Width of visual object"  annotation(Dialog);
+      input SI.Length height=0 "Height of visual object"  annotation(Dialog);
+      input Types.ShapeExtra extra=0.0 
+        "Additional size data for some of the shape types"                                 annotation(Dialog);
+      input Types.Color color={255,0,0} "Color of shape"            annotation(Dialog);
+      input Types.SpecularCoefficient specularCoefficient = 0.7 
+        "Reflection of ambient light (= 0: light is completely absorbed)" annotation(Dialog);
       // Real rxry[3, 2];
     protected 
       Real abs_n_x=Frames.length(lengthDirection) annotation (Hide=true);
@@ -1063,7 +1065,8 @@ library (will be replaced by a color editor).
 Model <b>Shape</b> defines a visual shape that is
 shown at the location of its reference coordinate system, called
 'object frame' below. All describing variables such
-as size and color can vary dynamically. The default equations in the
+as size and color can vary dynamically (with the only exception
+of parameter shapeType). The default equations in the
 declarations should be modified by providing appropriate equations.
 Model <b>Shape</b> is usually used as a basic building block to
 implement simpler to use graphical components.
@@ -1081,7 +1084,7 @@ in the figure represent frame_a of the Shape component.
 </p>
 <p>
 Additionally, external shapes are specified as DXF-files
-(only 3DFace is supported). External shapes must be named \"1\", \"2\"
+(only 3-dim.Face is supported). External shapes must be named \"1\", \"2\"
 etc.. The corresponding definitions should be in files \"1.dxf\",
 \"2.dxf\" etc.Since the DXF-files contain color and dimensions for
 the individual faces, the corresponding information in the model
@@ -1089,68 +1092,9 @@ is currently ignored. The DXF-files must be found either in the current
 directory or in the directory where the Shape instance is stored
 that references the DXF file.
 </p>
+ 
 <p>
-The following variables are declared as <b>input</b>.
-If the default equation is not appropriate, a corresponding
-modifier equations has to be provided in the
-model where a <b>Shape</b> instance is used, e.g., in the form
-</p>
-<pre>
-    Visualizers.Advanced.Shape shape(length = sin(time));
-</pre>
-<table border=1 cellspacing=0 cellpadding=2>
-<tr><th><b>Declaration</b></th>
-    <th><b>Meaning</th></tr>
-<tr>
-  <td>Frames.Orientation <b>R</b> = Frames.nullRotation()</td>
-  <td>Orientation object to rotate the world frame into the object frame.</td>
-</tr>
-<tr>
-  <td>Real[3] <b>r</b> = {0,0,0}</td>
-  <td>Position vector from origin of world frame to origin of
-      object frame, resolved in world frame</td>
-</tr>
-<tr>
-  <td>Real[3] <b>r_shape</b> = {0,0,0}</td>
-  <td>Position vector from origin of object frame to shape origin, resolved in object frame</td>
-</tr>
-<tr>
-  <td>Real[3] <b>lengthDirection</b> = {1,0,0}</td>
-  <td>Vector in length direction, resolved in object frame</td>
-</tr>
-<tr>
-  <td>Real[3] <b>widthDirection</b> = {0,1,0}</td>
-  <td>Vector in width direction, resolved in object frame. When needed,<br> this
-      vector is modified such that it is orthogonal to vector lengthDirection </td>
-</tr>
-<tr>
-  <td>Real <b>length</b> = 0</td>
-  <td>Length of visual object</td>
-</tr>
-<tr>
-  <td>Real <b>width</b> = 0</td>
-  <td>Width of visual object</td>
-</tr>
-<tr>
-  <td>Real <b>height</b> = 0</td>
-  <td>Height of visual object</td>
-</tr>
-<tr>
-  <td>Real <b>extra</b> = 0</td>
-  <td>Additional size data for some of the shape types (see below)</td>
-</tr>
-<tr>
-  <td>Integer[3] <b>color</b> = {255,0,0} (red)</td>
-  <td>Color (see below)</td>
-</tr>
-<tr>
-  <td>Real <b>specularCoefficient</b> = 0.7</td>
-  <td>Material property describing the reflecting of ambient light <br>
-      (= 0 means, that light is completely absorbed)</td>
-</tr>
-</table>
-<p>
-Via parameter <b>extra</b> additional sizing data is defined
+Via input variable <b>extra</b> additional sizing data is defined
 according to:
 </p>
 <table border=1 cellspacing=0 cellpadding=2>
@@ -1183,6 +1127,7 @@ according to:
       2*coil-width.</td>
 </tr>
 </table>
+ 
 <p>
 Parameter <b>color</b> is an Integer vector with 3 elements,
 {r, g, b}, and specifies the color of the shape.
@@ -1192,6 +1137,17 @@ The predefined type <b>MultiBody.Types.Color</b> contains
 a menu definition of the colors used in the MultiBody
 library (will be replaced by a color editor).
 </p>
+ 
+<p>
+The variables under heading <b>Parameters</b> below
+are declared as (time varying) <b>input</b> variables.
+If the default equation is not appropriate, a corresponding
+modifier equation has to be provided in the
+model where a <b>Shape</b> instance is used, e.g., in the form
+</p>
+<pre>
+    Visualizers.Advanced.Shape shape(length = sin(time));
+</pre>
 </HTML>
 "));
     equation 
@@ -1215,10 +1171,9 @@ library (will be replaced by a color editor).
     
   end Advanced;
   
-  encapsulated package Internal 
+  package Internal 
     "Visualizers that will be replaced by improved versions in the future (don't use them)" 
     
-    import Modelica;
     extends Modelica.Icons.Library;
     
     model FixedLines 
@@ -1226,25 +1181,34 @@ library (will be replaced by a color editor).
       
       import SI = Modelica.SIunits;
       import Modelica.Mechanics.MultiBody;
+      import Modelica.Mechanics.MultiBody.Types;
       extends Modelica.Mechanics.MultiBody.Interfaces.PartialVisualizer;
       
       parameter Boolean animation=true "= true, if animation shall be enabled";
-      parameter Real scale(min=0) = 1 
-        "|if animation = true| The 'lines' are visualized 'scale' times bigger";
-      parameter SI.Position lines[:, 2, 2]={[0, 0; 1, 1],[0, 1; 1, 0]} 
-        "|if animation = true| List of start and end points of cylinders resolved along n_x and n_y";
-      parameter SI.Distance diameter(min=0) = 0.05 
-        "|if animation = true| Diameter of the cylinders defined by lines";
-      parameter SI.Position r_lines[3]={0,0,0} 
-        "|if animation = true| Position vector from origin of frame_a to the origin of the 'lines' frame, resolved in frame_a";
-      parameter Real n_x[3]={1,0,0} 
-        "|if animation = true| Vector in direction of x-axis of 'lines' frame, resolved in frame_a.";
+      input Real scale(min=0) = 1 
+        "The 'lines' are visualized 'scale' times bigger" 
+        annotation (Dialog(group="if animation = true", enable=animation));
+      input SI.Position lines[:,2,2]={[0,0; 1,1],[0,1; 1,0]} 
+        "List of start and end points of cylinders resolved along n_x and n_y" 
+        annotation (Dialog(group="if animation = true", enable=animation));
+      input SI.Distance diameter(min=0) = 0.05 
+        "Diameter of the cylinders defined by lines" 
+        annotation (Dialog(group="if animation = true", enable=animation));
+      input SI.Position r_lines[3]={0,0,0} 
+        "Position vector from origin of frame_a to the origin of the 'lines' frame, resolved in frame_a"
+        annotation (Dialog(group="if animation = true", enable=animation));
+      input Real n_x[3]={1,0,0} 
+        "Vector in direction of x-axis of 'lines' frame, resolved in frame_a." 
+        annotation (Dialog(group="if animation = true", enable=animation));
+      input Real n_y[3]={0,1,0} 
+        "Vector in direction of y-axis of 'lines' frame, resolved in frame_a." 
+        annotation (Dialog(group="if animation = true", enable=animation));
+      input MultiBody.Types.Color color={0,128,255} " Color of cylinders" 
+        annotation (Dialog(group="if animation = true", enable=animation));
+      input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
+        "Reflection of ambient light (= 0: light is completely absorbed)" 
+        annotation (Dialog(group="if animation = true", enable=animation));
       
-      parameter Real n_y[3]={0,1,0} 
-        "|if animation = true| Vector in direction of y-axis of 'lines' frame, resolved in frame_a.";
-      
-      parameter Modelica.Mechanics.MultiBody.Types.Color color={0,128,255} 
-        "|if animation = true| Color of cylinders";
       annotation(structurallyIncomplete,
         preferedView="info",
         Icon(
@@ -1280,23 +1244,21 @@ Via parameter vectors <b>n_x</b> and <b>n_y</b> a two-dimensional
 coordinate system is defined. The points defined with parameter
 <b>lines</b> are with respect to this coordinate system. For example
 \"[0, 0; 1, 1]\" defines a line that starts at {0,0} and ends at {1,1}.
-The diameter and color of all line cylinders are identical
-and are defined by parameters.
+The diameter and color of all line cylinders are identical.
 </p>
 </HTML>"));
       
     protected 
-      parameter Integer ndim=if world.enableAnimation and animation then 1 else 
-                0;
-      Lines x_label[ndim](
-        each lines=scale*lines,
-        each diameter=scale*diameter,
-        each color=color,
-        each r_lines=r_lines,
-        each n_x=n_x,
-        each n_y=n_y,
-        each r=frame_a.r_0,
-        each R=frame_a.R);
+      Lines x_label(
+        lines=scale*lines,
+        diameter=scale*diameter,
+        color=color,
+        specularCoefficient = specularCoefficient,
+        r_lines=r_lines,
+        n_x=n_x,
+        n_y=n_y,
+        r=frame_a.r_0,
+        R=frame_a.R) if world.enableAnimation and animation;
     equation 
       frame_a.f = zeros(3);
       frame_a.t = zeros(3);
@@ -1307,25 +1269,35 @@ and are defined by parameters.
       
       import SI = Modelica.SIunits;
       import Modelica.Mechanics.MultiBody;
+      import Modelica.Mechanics.MultiBody.Types;
+      import Modelica.Mechanics.MultiBody.Frames;
       import T = Modelica.Mechanics.MultiBody.Frames.TransformationMatrices;
-      input Modelica.Mechanics.MultiBody.Frames.Orientation R=Modelica.Mechanics.MultiBody.Frames.nullRotation() 
-        "Orientation object to rotate the world frame into the object frame.";
+      input Modelica.Mechanics.MultiBody.Frames.Orientation R=Frames.nullRotation() 
+        "Orientation object to rotate the world frame into the object frame" annotation(Dialog);
       input SI.Position r[3]={0,0,0} 
-        "Position vector from origin of world frame to origin of object frame, resolved in world frame";
+        "Position vector from origin of world frame to origin of object frame, resolved in world frame"
+         annotation(Dialog);
       input SI.Position r_lines[3]={0,0,0} 
-        "Position vector from origin of object frame to the origin of 'lines' frame, resolved in object frame";
+        "Position vector from origin of object frame to the origin of 'lines' frame, resolved in object frame"
+         annotation(Dialog);
       input Real n_x[3]={1,0,0} 
-        "Vector in direction of x-axis of 'lines' frame, resolved in object frame.";
+        "Vector in direction of x-axis of 'lines' frame, resolved in object frame"
+         annotation(Dialog);
       input Real n_y[3]={0,1,0} 
-        "Vector in direction of y-axis of 'lines' frame, resolved in object frame.";
+        "Vector in direction of y-axis of 'lines' frame, resolved in object frame"
+       annotation(Dialog);
       input SI.Position lines[:, 2, 2]=zeros(0, 2, 2) 
-        "List of start and end points of cylinders resolved in an x-y frame defined by n_x, n_y, e.g., {[0,0;1,1], [0,1;1,0], [2,0; 3,1]}";
+        "List of start and end points of cylinders resolved in an x-y frame defined by n_x, n_y, e.g., {[0,0;1,1], [0,1;1,0], [2,0; 3,1]}"
+      annotation(Dialog);
       input SI.Length diameter(min=0) = 0.05 
-        "Diameter of the cylinders defined by lines";
+        "Diameter of the cylinders defined by lines" 
+      annotation(Dialog);
       input Modelica.Mechanics.MultiBody.Types.Color color={0,128,255} 
-        "Color of cylinders";
-      input Real specularCoefficient(min=0) = 0 
-        "Material property describing the reflecting of ambient light (= 0 means, that light is completely absorbed)";
+        "Color of cylinders" 
+      annotation(Dialog);
+      input Types.SpecularCoefficient specularCoefficient = 0.7 
+        "Reflection of ambient light (= 0: light is completely absorbed)" 
+        annotation (Dialog);
     protected 
       parameter Integer n=size(lines, 1) "Number of cylinders";
       T.Orientation R_rel=T.from_nxy(n_x, n_y);
@@ -1384,71 +1356,20 @@ coordinate system is defined. The points defined with variable
 The diameter and color of all line cylinders are identical
 and are defined by parameters.
 </p>
-<p>
-The following variables are declared as <b>input Real</b>.
-If the default equation is not appropriate, a corresponding
-modifier equation has to be provided in the
-model where a <b>Lines</b> instance is used, e.g., in the form
-</p>
-<pre>
-    Visualizers.Lines lines(n_x = {0,1,0});
-</pre>
-<table border=1 cellspacing=0 cellpadding=2>
-<tr><th><b>Declaration</b></th>
-    <th><b>Meaning</th></tr>
-<tr>
-  <td>Real[3,3] <b>T</b> = identity(3)</td>
-  <td>Transformation matrix from object to world frame (r_world = T*r_object)</td>
-</tr>
-<tr>
-  <td>Real[3] <b>r</b> = {0,0,0}</td>
-  <td>Position vector from origin of world frame to origin of
-      object frame, resolved in world frame</td>
-</tr>
-<tr>
-  <td>Real[3] <b>r_lines</b> = {0,0,0}</td>
-  <td>Position vector from origin of object frame to the origin of 'lines' frame, resolved in object frame</td>
-</tr>
-<tr>
-  <td>Real[3] <b>n_x</b> = {1,0,0}</td>
-  <td>Vector in direction of x-axis of 'lines' frame, resolved in object frame</td>
-</tr>
-<tr>
-  <td>Real[3] <b>n_y</b> = {0,1,0}</td>
-  <td>Vector in direction of y-axis of 'lines' frame, resolved in object frame</td>
-</tr>
-<tr>
-  <td>Real[:, 2, 2] <b>lines</b> </td>
-  <td>List of start and end points of cylinders resolved in an x-y frame,<br>
-  defined by n_x, n_y, e.g., {[0,0;1,1], [0,1;1,0], [2,0; 3,1]}</td>
-</tr>
-<tr>
-  <td>Real <b>diameter</b> = 0.05</td>
-  <td>Diameter of the cylinders defined by 'lines'</td>
-</tr>
-<tr>
-  <td>Integer[3] <b>color</b> = {255,0,0} (red)</td>
-  <td>Color (see below)</td>
-</tr>
-<tr>
-  <td>Real <b>specularCoefficient</b> = 0</td>
-  <td>Material property describing the reflecting of ambient light <br>
-      (= 0 means, that light is completely absorbed)</td>
-</tr>
-</table>
-<p>
-Variable <b>color</b> is an Integer vector with 3 elements,
-{r, g, b}, and specifies the color of the shape.
-{r,g,b} are the \"red\", \"green\" and \"blue\" color parts.
-Note, r g, b are given in the range 0 .. 255.
-The predefined type <b>MultiBody.Types.Color</b> defines this
-Integer vector together with a menue for the colors used in the
-MultiBody library (the menu will be replaced by a color editor).
-</p>
+
 </HTML>
 "));
       
     end Lines;
     
+    annotation (Documentation(info="<html>
+<p>
+This package contains components to construct 3-dim. fonts
+with \"cylinder\" elements for the animation window. 
+This is just a temporary hack until 3-dim. fonts are supported in 
+Modelica tools. The components are used to construct the \"x\", \"y\",
+\"z\" labels of coordinates systems in the animation.
+</p>
+</html>"));
   end Internal;
 end Visualizers;

@@ -1,4 +1,4 @@
-package MultiPhase "Library for electrical multiphase models" 
+package MultiPhase "Library for electrical components with 2, 3 or more phases" 
   extends Modelica.Icons.Library2;
   annotation (
     version="1.0", versionDate="2004-10-01",
