@@ -443,10 +443,10 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
     //    annotation (InlineNoEvent=false);
   algorithm 
     s := noEvent(if T < data.Tlimit then data.R*(data.blow[2] - 0.5*data.alow[
-      1]/(T*T) - data.alow[2]/T + data.alow[3]*Math.log(noEvent(abs(T))) + T*(
+      1]/(T*T) - data.alow[2]/T + data.alow[3]*Math.log(T) + T*(
       data.alow[4] + T*(0.5*data.alow[5] + T*(1/3*data.alow[6] + 0.25*data.alow[
       7]*T)))) else data.R*(data.bhigh[2] - 0.5*data.ahigh[1]/(T*T) - data.
-      ahigh[2]/T + data.ahigh[3]*Math.log(noEvent(abs(T))) + T*(data.ahigh[4]
+      ahigh[2]/T + data.ahigh[3]*Math.log(T) + T*(data.ahigh[4]
        + T*(0.5*data.ahigh[5] + T*(1/3*data.ahigh[6] + 0.25*data.ahigh[7]*T)))));
   end s0_T;
   
@@ -458,7 +458,7 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
     //    annotation (InlineNoEvent=false);
   algorithm 
     s := data.R*(data.blow[2] - 0.5*data.alow[
-      1]/(T*T) - data.alow[2]/T + data.alow[3]*Math.log(noEvent(abs(T))) + T*(
+      1]/(T*T) - data.alow[2]/T + data.alow[3]*Math.log(T) + T*(
       data.alow[4] + T*(0.5*data.alow[5] + T*(1/3*data.alow[6] + 0.25*data.alow[
       7]*T))));
   end s0_Tlow;
