@@ -207,7 +207,31 @@ vector \"n\" defining the translation axis
       Icon(Text(
           extent=[-146, 70; 143, 109],
           string="n=%n",
-          style(color=0)), Text(extent=[-137, -125; 139, -68], string="%name")),
+          style(color=0)), Text(extent=[-137, -125; 139, -68], string="%name"),
+        Rectangle(extent=[-20,10; 20,-10],   style(
+            color=0,
+            gradient=0,
+            fillColor=8,
+            fillPattern=1)),
+        Rectangle(extent=[-100,-60; -20,60],   style(
+            color=8,
+            gradient=2,
+            fillColor=8)),
+        Rectangle(extent=[20,-60; 100,60],   style(
+            color=8,
+            gradient=2,
+            fillColor=8,
+            fillPattern=1)),
+        Rectangle(extent=[-100,59; -20,-60],   style(color=0)),
+        Rectangle(extent=[20,60; 100,-60],   style(color=0)),
+        Text(
+          extent=[-90,14; -54,-11],
+          style(color=10),
+          string="a"),
+        Text(
+          extent=[51,11; 87,-14],
+          style(color=10),
+          string="b")),
       Documentation(info="<HTML>
 <p>
 Joint where frame_b rotates around axis n which is fixed in frame_a.
@@ -273,7 +297,30 @@ vector \"n\" defining the translation axis
         width=0.65,
         height=0.69),
       Icon(
-        Rectangle(extent=[-30, 61; 30, -60], style(color=7, fillColor=7)),
+        Rectangle(extent=[-20,10; 20,-10],   style(
+            color=0,
+            gradient=0,
+            fillColor=8,
+            fillPattern=1)),
+        Rectangle(extent=[-100,-60; -30,60],   style(
+            color=8,
+            gradient=2,
+            fillColor=8)),
+        Rectangle(extent=[30,-60; 100,60],   style(
+            color=8,
+            gradient=2,
+            fillColor=8,
+            fillPattern=1)),
+        Rectangle(extent=[-100,59; -30,-60],   style(color=0)),
+        Rectangle(extent=[30,60; 100,-60],   style(color=0)),
+        Text(
+          extent=[-90,14; -54,-11],
+          style(color=10),
+          string="a"),
+        Text(
+          extent=[51,11; 87,-14],
+          style(color=10),
+          string="b"),
         Line(points=[-20, 70; -60, 70], style(color=0)),
         Line(points=[-20, 80; -20, 60], style(color=0)),
         Line(points=[20, 80; 20, 60], style(color=0)),
@@ -286,7 +333,6 @@ vector \"n\" defining the translation axis
             color=0,
             fillColor=8,
             fillPattern=1)),
-        Rectangle(extent=[-100, 60; -30, -60], style(color=0)),
         Line(points=[-60, 60; -60, 90], style(color=0)),
         Rectangle(extent=[-30, 11; 10, -10], style(
             color=0,
@@ -295,8 +341,6 @@ vector \"n\" defining the translation axis
             fillPattern=1)),
         Polygon(points=[10, 30; 30, 50; 30, -50; 10, -30; 10, 30], style(color=
                 0, fillColor=8)),
-        Rectangle(extent=[-100, 60; -30, -60], style(color=0)),
-        Rectangle(extent=[30,60; 100,-60],   style(color=0)),
         Text(
           extent=[-140, -105; 149, -66],
           string="n=%n",
@@ -5441,31 +5485,7 @@ connected to the revolute joint.
           y=0.09,
           width=0.65,
           height=0.69),
-        Icon(
-          Rectangle(extent=[-20, 10; 20, -10], style(
-              color=0,
-              gradient=0,
-              fillColor=8,
-              fillPattern=1)),
-          Rectangle(extent=[-100,-60; -20,60],   style(
-              color=8,
-              gradient=2,
-              fillColor=8)),
-          Rectangle(extent=[20,-60; 100,60],   style(
-              color=8,
-              gradient=2,
-              fillColor=8,
-              fillPattern=1)),
-          Rectangle(extent=[-100, 60; -20, -59], style(color=0)),
-          Rectangle(extent=[20,60; 100,-60],   style(color=0)),
-          Text(
-            extent=[-90,14; -54,-11],
-            style(color=10),
-            string="a"),
-          Text(
-            extent=[51,11; 87,-14],
-            style(color=10),
-            string="b")),
+        Icon,
         Diagram(
           Rectangle(extent=[-100, -60; -20, 60], style(
               color=8,
@@ -5925,7 +5945,7 @@ it might be slightly more efficient, when using the \"enforceStates\" setting.
               gradient=0,
               fillColor=8,
               fillPattern=1)),
-          Rectangle(extent=[-100, -60; -29, 61], style(
+          Rectangle(extent=[-100,-60; -30,60],   style(
               color=8,
               gradient=2,
               fillColor=8)),
@@ -5935,7 +5955,7 @@ it might be slightly more efficient, when using the \"enforceStates\" setting.
               fillColor=8,
               fillPattern=1)),
           Text(extent=[-139, -168; 137, -111], string="%name"),
-          Rectangle(extent=[-100, 60; -29, -59], style(color=0)),
+          Rectangle(extent=[-100,60; -30,-60],   style(color=0)),
           Rectangle(extent=[30, 60; 100, -60], style(color=0)),
           Text(
             extent=[-142, -108; 147, -69],

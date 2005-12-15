@@ -1205,7 +1205,7 @@ states and of the \"Advanced\" menu parameters, see model
       widthDirection={0,1,0},
       r_shape=r_CM - {1,0,0}*sphereDiameter/2,
       r=frame_a.r_0,
-      R=frame_a.R) if world.enableAnimation and animation;
+      R=frame_a.R) if world.enableAnimation and animation and animateSphere;
   equation 
     connect(frame_a, frameTranslation.frame_a) 
       annotation (points=[-100,0; -20,0],   style(color=0, thickness=2));
