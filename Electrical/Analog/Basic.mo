@@ -1,4 +1,5 @@
 package Basic 
+  "Basic electrical components such as resistor, capacitor, transformer" 
   
   extends Modelica.Icons.Library;
   
@@ -11,24 +12,9 @@ package Basic
        autolayout=1),
 Documentation(info="<HTML>
 <p>
-This package contains basic analog electrical components:
-<ul>
-<li>Ground</li>
-<li>Resistor</li>
-<li>HeatingResistor</li>
-<li>Conductor</li>
-<li>Capacitor</li>
-<li>Inductor</li>
-<li>SaturatingInductor</li>
-<li>Transformer</li>
-<li>Gyrator</li>
-<li>EMF (Electroc-Motoric-Force)</li>
-<li>Linear controlled sources (VCV, VCC, CCV, CCC)</li>
-<li>OpAmp</li>
-<li>VariableResistor, VariableConductor, 
-    VariableCapacitor, VariableInductor</li>
-</ul>
+This package contains basic analog electrical components.
 </p>
+
 </HTML>
 ", revisions="<html>
 <dl>

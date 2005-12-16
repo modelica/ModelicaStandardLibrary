@@ -688,4 +688,7 @@ package FluidData "critical data, dipole moments and related data"
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
   
+  annotation (Documentation(info="<html>
+  
+</html>"));
 end FluidData;

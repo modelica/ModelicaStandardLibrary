@@ -10,6 +10,9 @@ package MixtureGases "Medium models consisting of mixtures of ideal gases"
         Common.FluidData.O2},
       substanceNames = {"Nitrogen", "Oxygen"},
       reference_X={0.768,0.232});
+    annotation (Documentation(info="<html>
+  
+</html>"));
   end CombustionAir;
   
   package AirSteam "air and steam mixture (no condensation!, pseudo-mixture)" 
@@ -19,6 +22,9 @@ package MixtureGases "Medium models consisting of mixtures of ideal gases"
       Common.SingleGasesData.H2O},
        substanceNames = {"Air","Water"},
        reference_X={1.0,0.0});
+    annotation (Documentation(info="<html>
+  
+</html>"));
   end AirSteam;
   
   package FlueGasLambdaOnePlus 
@@ -35,6 +41,9 @@ package MixtureGases "Medium models consisting of mixtures of ideal gases"
          Common.FluidData.CO2},
        substanceNames = {"Nitrogen","Oxygen","Water", "Carbondioxide"},
        reference_X={0.768,0.232,0.0,0.0});
+    annotation (Documentation(info="<html>
+  
+</html>"));
   end FlueGasLambdaOnePlus;
   
   package FlueGasSixComponents 
@@ -55,6 +64,9 @@ package MixtureGases "Medium models consisting of mixtures of ideal gases"
          Common.FluidData.CO2},
        substanceNames = {"Nitrogen","Hydrogen,","Carbonmonoxide","Oxygen","Water","Carbondioxide"},
        reference_X={0.768,0.0,0.0,0.232,0.0,0.0});
+    annotation (Documentation(info="<html>
+  
+</html>"));
   end FlueGasSixComponents;
   
   package SimpleNaturalGas "simple natural gas mix with 6 components" 
@@ -74,10 +86,19 @@ package MixtureGases "Medium models consisting of mixtures of ideal gases"
          Common.FluidData.CO2},
        substanceNames = {"Methane","Ethane","Propane","N-Butane,","Nitrogen","Carbondioxide"},
        reference_X={0.92,0.048,0.005,0.002,0.015,0.01});
+    annotation (Documentation(info="<html>
+  
+</html>"));
   end SimpleNaturalGas;
   
   package SimpleNaturalGasFixedComposition 
     "Same as SimpleNaturalGas but with fixed composition" 
   extends SimpleNaturalGas(fixedX=true);
+    annotation (Documentation(info="<html>
+  
+</html>"));
   end SimpleNaturalGasFixedComposition;
+  annotation (Documentation(info="<html>
+  
+</html>"));
 end MixtureGases;

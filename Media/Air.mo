@@ -82,6 +82,9 @@ in the allowed range (" + String(T_min) + " K <= T <= " + String(T_max)
       T :=Modelica.SIunits.Conversions.from_degC(h/cp_air);
     end temperature_phX;
     
+    annotation (Documentation(info="<html>
+  
+</html>"));
   end SimpleAir;
   
   package DryAirNasa "Air: Detailed dry air model as ideal gas (200..6000 K)" 
@@ -107,6 +110,9 @@ in the allowed range (" + String(T_min) + " K <= T <= " + String(T_max)
       lambda := Incompressible.TableBased.Polynomials_Temp.evaluate({(-4.8737307422969E-008), 7.67803133753502E-005, 0.0241814385504202},Cv.to_degC(state.T));
     end thermalConductivity;
     
+    annotation (Documentation(info="<html>
+  
+</html>"));
   end DryAirNasa;
   
   package MoistAir "Air: Moist air model (fog but no ice, 0..150 degC)" 
@@ -601,6 +607,12 @@ end Modelica.Media.Air.MoistAir.h_pTX:der;
       dh := dh_T*dT + dh_p*dp + dh_Xi*dXi;
     end h_pTX_der;
 */
+    annotation (Documentation(info="<html>
+  
+</html>"));
   end MoistAir;
   
+  annotation (Documentation(info="<html>
+  
+</html>"));
 end Air;

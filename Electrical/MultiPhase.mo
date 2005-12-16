@@ -2,6 +2,7 @@ package MultiPhase "Library for electrical components with 2, 3 or more phases"
   extends Modelica.Icons.Library2;
   annotation (
     version="1.0", versionDate="2004-10-01",
+    classOrder={"Examples", "*"},
     preferedView="info", Documentation(info="<HTML>
 <p>
 This package contains packages for electrical multiphase components, based on Modelica.Electrical.Analog:
@@ -122,6 +123,8 @@ Further development:
 <p>
 This package contains basic analog electrical multiphase components.
 </p>
+
+</HTML>", revisions="<html>
 <dl>
 <p>
   <dt><b>Main Authors:</b></dt>
@@ -148,7 +151,7 @@ This package contains basic analog electrical multiphase components.
   Modelica in file \"Modelica/package.mo\".</i></dd>
 </p>
 </dl>
-</HTML>"), Icon(
+</html>"), Icon(
         Rectangle(extent=[-80,-10; 60,-70],  style(
             color=3,
             fillColor=7,
@@ -580,7 +583,7 @@ Contains m variable conductors (Modelica.Electrical.Analog.Basic.VariableConduct
       connect(variableConductor.n, plug_n.pin) 
         annotation (points=[10,0; 100,0], style(color=3, rgbcolor={0,0,255}));
       connect(G, variableConductor.G) 
-        annotation (points=[0,100; 0,10], style(color=3, rgbcolor={0,0,255}));
+        annotation (points=[0,100; 0,11], style(color=3, rgbcolor={0,0,255}));
     end VariableConductor;
     
     model VariableCapacitor 
@@ -619,7 +622,7 @@ Cmin is a parameter with default value Modelica.Constants.eps.
       connect(variableCapacitor.n, plug_n.pin) 
         annotation (points=[10,0; 100,0], style(color=3, rgbcolor={0,0,255}));
       connect(C, variableCapacitor.C) 
-        annotation (points=[0,100; 0,10], style(color=3, rgbcolor={0,0,255}));
+        annotation (points=[0,100; 0,11], style(color=3, rgbcolor={0,0,255}));
     end VariableCapacitor;
     
     model VariableInductor 
@@ -663,7 +666,8 @@ Lmin is a parameter with default value Modelica.Constants.eps.
       connect(variableInductor.n, plug_n.pin) 
         annotation (points=[10,0; 100,0], style(color=3, rgbcolor={0,0,255}));
       connect(L, variableInductor.L) 
-        annotation (points=[0,100; 0,10], style(color=3, rgbcolor={0,0,255}));
+        annotation (points=[0,100; 0,10.8],
+                                          style(color=3, rgbcolor={0,0,255}));
     end VariableInductor;
   end Basic;
   
@@ -673,6 +677,8 @@ Lmin is a parameter with default value Modelica.Constants.eps.
 <p>
 This package contains test examples of analog electrical multiphase circuits.
 </p>
+
+</HTML>", revisions="<html>
 <dl>
 <p>
   <dt><b>Main Authors:</b></dt>
@@ -699,7 +705,7 @@ This package contains test examples of analog electrical multiphase circuits.
   Modelica in file \"Modelica/package.mo\".</i></dd>
 </p>
 </dl>
-</HTML>"), Icon(
+</html>"), Icon(
          Ellipse(extent=[-60,12; 40,-88], style(color=10, rgbcolor={135,135,135})),
           Polygon(points=[-30,-10; -30,-66; 28,-38; -30,-10], style(
             color=10,
@@ -921,6 +927,8 @@ neglecting initial transient.
 This package contains analog electrical multiphase components with idealized behaviour, 
 like thyristor, diode, switch, transformer.
 </p>
+
+</HTML>", revisions="<html>
 <dl>
 <p>
   <dt><b>Main Authors:</b></dt>
@@ -947,7 +955,7 @@ like thyristor, diode, switch, transformer.
   Modelica in file \"Modelica/package.mo\".</i></dd>
 </p>
 </dl>
-</HTML>"), Icon(
+</html>"), Icon(
         Line(points=[-100,-40; 80,-40]),
         Polygon(points=[20,-40; -40,0; -40,-80; 20,-40],  style(
             color=3,
@@ -1438,6 +1446,8 @@ Contains m ideal closing switches (Modelica.Electrical.Analog.Ideal.IdealClosing
 This package contains connectors and interfaces (partial models) for
 electrical multiphase components, based on Modelica.Electrical.Analog.
 </p>
+
+</HTML>", revisions="<html>
 <dl>
 <p>
   <dt><b>Main Authors:</b></dt>
@@ -1464,7 +1474,7 @@ electrical multiphase components, based on Modelica.Electrical.Analog.
   Modelica in file \"Modelica/package.mo\".</i></dd>
 </p>
 </dl>
-</HTML>"), Icon(
+</html>"), Icon(
         Ellipse(extent=[-60,10; 40,-90], style(color=3, rgbcolor={0,0,255})),
         Ellipse(extent=[-40,-14; -20,-34], style(
             color=3,
@@ -1628,6 +1638,8 @@ and that the currents flowing into plug_p2 are identical to the currents flowing
 <p>
 This package contains multiphase potential, voltage, and current sensors.
 </p>
+
+</HTML>", revisions="<html>
 <dl>
 <p>
   <dt><b>Main Authors:</b></dt>
@@ -1654,7 +1666,7 @@ This package contains multiphase potential, voltage, and current sensors.
   Modelica in file \"Modelica/package.mo\".</i></dd>
 </p>
 </dl>
-</HTML>"), Icon(
+</html>"), Icon(
         Ellipse(extent=[-60,10; 40,-90], style(
             color=0,
             rgbcolor={0,0,0},
@@ -1856,6 +1868,8 @@ This package contains time-dependend and controlled multiphase voltage and curre
 <li>SineCurrent : phase shift between consecutive currents by default <tt>= pi/m</tt></li>
 </ul>
 </p>
+
+</HTML>", revisions="<html>
 <dl>
 <p>
   <dt><b>Main Authors:</b></dt>
@@ -1882,7 +1896,7 @@ This package contains time-dependend and controlled multiphase voltage and curre
   Modelica in file \"Modelica/package.mo\".</i></dd>
 </p>
 </dl>
-</HTML>"), Icon(
+</html>"), Icon(
         Line(points=[-100,-40; -60,-40]),
         Line(points=[-60,-40; 40,-40]),
         Line(points=[40,-40; 80,-40]),

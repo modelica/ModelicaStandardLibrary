@@ -12,6 +12,7 @@ annotation(preferedView="info", Window(
     height=0.58,
     library=1,
     autolayout=1),
+    classOrder={"Examples", "*"},
   Documentation(info="<html>
 <p>
 This package contains packages for analog electrical components:
@@ -37,13 +38,13 @@ This package contains packages for analog electrical components:
     Zeunerstra&szlig;e 38<br>
     D-01069 Dresden</dd>
 </dl>
-
-
+ 
+ 
 <p>
 Copyright &copy; 1998-2005, Modelica Association and Fraunhofer-Gesellschaft.
 </p>
 <p>
-<i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
+<i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified
 under the terms of the <b>Modelica license</b>, see the license conditions
 and the accompanying <b>disclaimer</b> 
 <a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a>.</i>

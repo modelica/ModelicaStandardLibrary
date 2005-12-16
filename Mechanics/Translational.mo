@@ -17,23 +17,14 @@ package Translational
 This package contains example models to demonstrate the usage of the
 Translational package. Open the models and
 simulate them according to the provided description in the models.
-The following examples are present:
 </p>
-<pre>
-   <i>SignConvention</i>    Examples for the used sign conventions using simple, basic elements
-   <i>InitialConditions</i> Setting of initial conditions
-   <i>Accelerate </i>       Use of model accelerate
-   <i>Damper</i>            Use of damper elements
-   <i>Oscillator</i>        Oscillator demonstrates the use of initial conditions
-   <i>Sensors</i>           Sensors for translational systems
-   <i>Friction</i>          Stribeck friction characteristics
-   <i>PreLoad</i>           Positioning of a spool using ElastoGap models
-</pre>
+
+</HTML>
+", revisions="<html>
 <ul>
 <li><i>First Version from December 7, 1999 by P. Beater</i> </li>
 </ul>
-</HTML>
-"));
+</html>"));
     encapsulated model SignConvention "Examples for the used sign conventions." 
       
       import Modelica.Icons;
@@ -66,12 +57,15 @@ In the third system the two arrows are opposed which means that the
 force acts in the opposite direction (in the same direction as in
 the two other examples).
 </p>
+
+</HTML>
+", revisions="<html>
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>First Version from December 10, 1999 by P. Beater </i> </li>
 </ul>
-</HTML>
-"), Diagram(
+</html>"),
+    Diagram(
           Text(extent=[-100, 80; -82, 60], string="1)"),
           Text(extent=[-100, 40; -82, 20], string="2)"),
           Text(extent=[-100, -20; -82, -40], string="3)")));
@@ -117,12 +111,17 @@ the two other examples).
           y=0.01,
           width=0.56,
           height=0.83),
-        Documentation(info="There are several ways to set initial conditions.
+        Documentation(info="<html> 
+<p>
+There are several ways to set initial conditions.
 In the first system the position of the sliding mass m3 was defined
 by using the modifier s(start=4.5), the position of m5 by s(start=12.5).
 These positions were chosen such that the system is a rest. To calculate
 these values start at the left (Fixed1) with a value of 1 m. The spring
 has an unstreched length of 2 m and m3 an length of 3 m, which leads to
+</p>
+
+<pre>
         1   m (Fixed1)
       + 2   m (Spring S2)
       + 3/2 m (half of the length of SlidingMass m3)
@@ -133,20 +132,30 @@ has an unstreched length of 2 m and m3 an length of 3 m, which leads to
       + 5/2 m (half of length of SlidingMass m5)
       -------
        12,5 m = s(start = 12.5) for m5
+</pre>
+
+<p>
 This selection of initial conditions has the effect that Dymola selects
 those variables (m3.s and m5.s) as state variables.
 In the second example the length of the springs are given as start values
 but they cannot be used as state for pure springs (only for the spring/damper
 combination). In this case the system is not at rest.
-<html> <IMG SRC=../Images/Fig.translational.examples.InitialConditions.png>  </HTML>
-<html>
+</p>
+
+<p>
+<IMG SRC=../Images/Fig.translational.examples.InitialConditions.png> 
+</p>
+
+
+</html>
+", revisions="<html>
+
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>First Version from December 10, 1999 by P. Beater </i> </li>
 <li><i>Parameters and documentation modified, July 17, 2001 by P. Beater </i> </li>
 </ul>
-</HTML>
-"));
+</html>"));
       Translational.SlidingMass M3(L=3, s(start=4.5)) annotation (extent=[-20,
             60; 0, 80]);
       Translational.Spring S2(s_rel0=2, c=1e3) annotation (extent=[-60, 60; -40,
@@ -201,7 +210,9 @@ combination). In this case the system is not at rest.
           y=0.01,
           width=0.56,
           height=0.83),
-        Documentation(info="When using the models of the translational sublibrary
+        Documentation(info="<html>
+<p>
+When using the models of the translational sublibrary
 it is recommended to make sure that all arrows point in
 the same direction because then all component have the
 same reference system.
@@ -213,13 +224,15 @@ That all arrows point in the same direction is a sufficient
 condition for an easy use of the library. There are cases
 where horizontally flipped models can be used without
 problems.
-<html>
+</p>
+</html>
+", revisions="<html>
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>First Version from July 17, 2001 by P. Beater </i> </li>
 </ul>
-</HTML>
-"),     Diagram(
+</html>"),
+        Diagram(
           Text(extent=[-80, 14; 90, 0], string=
                 "PositionSensor2.s = PositionSensor3.s"),
           Text(extent=[-84, 4; 88, -16], string=
@@ -285,6 +298,9 @@ problems.
             30; -42, 30]);
       connect(Accelerate1.flange_b, SlidingMass1.flange_a) annotation (points=[
             -20, 30; 40, 30], style(color=58));
+      annotation (Documentation(info="<html>
+  
+</html>"));
     end Accelerate;
     
     encapsulated model Damper "Use of damper models." 
@@ -292,10 +308,15 @@ problems.
       import Modelica.Mechanics.Translational;
       
       extends Icons.Example;
-      annotation (Documentation(info="Release notes:
+      annotation (Documentation(info="<html>
+  
+</html>", revisions="<html>
+<pre>
+Release notes:
 --------------
 2001 - 7  - 14: Damping parameters increased (from 1 to 25)
-"));
+</pre>
+</html>"));
       Translational.SlidingMass SlidingMass1(
         L=1,
         v(start=10),
@@ -352,24 +373,37 @@ problems.
           y=0.01,
           width=0.56,
           height=0.83),
-        Documentation(info="A spring - mass system is a mechanical oscillator. If no
+        Documentation(info="<html>
+<p>
+A spring - mass system is a mechanical oscillator. If no
 damping is included and the system is excited at resonance
 frequency infinite amplitudes will result.
 The resonant frequency is given by
 omega_res = sqrt(c / m)
-with: c spring stiffness
+with:
+</p>
+
+<pre> 
+      c spring stiffness
       m mass
+</pre>
+
+<p>
 To make sure that the system is initially at rest the initial
 conditions s(start=0) and v(start=0) for the SlindingMass
 are set.
 If damping is added the amplitudes are bounded.
-<html>
+</p>
+</html>
+
+", revisions="<html>
+
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>First Version from December 10, 1999 by P. Beater </i> </li>
 </ul>
-</HTML>
-"));
+
+</html>"));
       Translational.SlidingMass SlidingMass1(
         L=1,
         s(start=-0.5),
@@ -430,24 +464,35 @@ If damping is added the amplitudes are bounded.
           y=0.01,
           width=0.56,
           height=0.83),
-        Documentation(info="These sensors measure
+        Documentation(info="<html>
+<p>
+These sensors measure
+</p>
+
+<pre>
    force f in N
    position s in m
    velocity v in m/s
    acceleration a in m/s2
+</pre>
+
+<p>
 Dhe measured velocity and acceleration is independent on
 the flange the sensor is connected to. The position
 depends on the flange (flange_a or flange_b) and the
 length L of the component.
 Plot PositionSensor1.s, PositionSensor2.s and SlidingMass1.s
 to see the difference.
-<html>
+</p>
+
+", revisions="<html>
+
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>First Version from December 10, 1999 by P. Beater </i> </li>
 </ul>
-</HTML>
-"));
+
+</html>"));
       Translational.Sensors.ForceSensor ForceSensor1 annotation (extent=[-20,
             40; 0, 60]);
       Translational.Sensors.SpeedSensor SpeedSensor1 annotation (extent=[20, -
@@ -500,19 +545,24 @@ to see the difference.
           y=0.01,
           width=0.56,
           height=0.83),
-        Documentation(info="1) Simulate and then plot Stop1.f as a function of Stop1.v
-   This gives the Stribeck curve.
-2) This model gives an example for a hard stop. However there
-   can arise some problems with the used modeling approach (use of
-   Reinit, convergence problems). In this case use the ElastoGap
-   to model a stop (see example Preload).
-<html>
+        Documentation(info="<html>
+<ol>
+<li> Simulate and then plot Stop1.f as a function of Stop1.v
+     This gives the Stribeck curve.</li>
+<li> This model gives an example for a hard stop. However there
+     can arise some problems with the used modeling approach (use of
+     Reinit, convergence problems). In this case use the ElastoGap
+     to model a stop (see example Preload).</li>
+</ol>
+</html>
+", revisions="<html>
+
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>First Version from December 10, 1999 by P. Beater </i> </li>
 </ul>
-</HTML>
-"));
+
+</html>"));
       Translational.Stop Stop1(L=1) annotation (extent=[60, 60; 80, 80]);
       Translational.Force Force1 annotation (extent=[18, 60; 38, 80]);
       Sources.Sine Sine1(amplitude=25, freqHz=0.25) annotation (extent=[-20,
@@ -561,27 +611,48 @@ to see the difference.
           Text(extent=[-32, -46; 38, -62], string="Simulate for 100 s"),
           Text(extent=[-100, -54; 100, -80], string=
                 "plot Spool.s as a function of Force1.f")),
-        Documentation(info="When designing hydraulic valves it is often necessary to hold the spool in
+        Documentation(info="<html>
+<p>
+When designing hydraulic valves it is often necessary to hold the spool in
 a certain position as long as an external force is below a threshold value.
 If this force exceeds the treshold value a linear relation between force
 and position is desired.
 There are designs that need only one spring to accomplish this task. Using
 the ElastoGap elements this design can be modelled easily.
 Drawing of spool.
-<HTML> <IMG SRC=../Images/PreLoad.png> </HTML>
-<HTML> <IMG SRC=../Images/PreLoad3.png> </HTML>
-<HTML> <IMG SRC=../Images/PreLoad4.png> </HTML>
+</p>
+
+<p>
+<<IMG SRC=../Images/PreLoad.png>
+</p>
+
+<p>
+<IMG SRC=../Images/PreLoad3.png>
+</p>
+
+<p>
+<IMG SRC=../Images/PreLoad4.png>
+</p>
+
+<p>
 Spool position s as a function of working force f.
-<HTML> <IMG SRC=../Images/PreLoad2.png> </HTML>
-<HTML>
+</p>
+
+<p>
+<IMG SRC=../Images/PreLoad2.png> 
+</p>
+</html>
+
+", revisions="<html>
+
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>First Version from December 10, 1999 by P. Beater </i> </li>
 <li><i>July 17, 2001, parameters changed, by P. Beater </i> </li>
 <li><i>Ocotber 5, 2002, object diagram and parameters changed, by P. Beater </i> </li>
 </ul>
-</HTML>
-"));
+
+</html>"));
       Translational.ElastoGap InnerContactA(
         s_rel0=1e-3,
         c=1000e3,
@@ -672,7 +743,7 @@ Spool position s as a function of working force f.
     end PreLoad;
   end Examples;
   
-  package Sensors "Sensor for 1D translational mechanical quantities" 
+  package Sensors "Sensors for 1-dim. translational mechanical quantities" 
     
     extends Modelica.Icons.Library2;
     
@@ -697,7 +768,10 @@ Spool position s as a function of working force f.
         Line(points=[-16, -61; -16, -81], style(color=0)),
         Line(points=[4, -61; 4, -81], style(color=0)),
         Line(points=[24, -61; 24, -81], style(color=0)),
-        Line(points=[44, -61; 44, -81], style(color=0))));
+        Line(points=[44, -61; 44, -81], style(color=0))),
+      Documentation(info="<html>
+  
+</html>"));
     model ForceSensor "Ideal sensor to measure the force between two flanges" 
       extends Modelica.Icons.TranslationalSensor;
       
@@ -718,12 +792,15 @@ Measures the <i>cut-force between two flanges</i> in an ideal way
 and provides the result as output signal (to be further processed
 with blocks of the Modelica.Blocks library).
 </p>
+
+</HTML>
+", revisions="<html>
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>First Version from August 26, 1999 by P. Beater</i> </li>
 </ul>
-</HTML>
-"),     Icon(Text(
+</html>"),
+        Icon(Text(
             extent=[40, -70; 120, -120],
             string="f",
             style(color=0)),
@@ -775,12 +852,15 @@ Measures the <i>absolute position s</i> of a flange in an ideal way and provides
 output signals (to be further processed with blocks of the
 Modelica.Blocks library).
 </p>
+
+</HTML>
+", revisions="<html>
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>First Version from August 26, 1999 by P. Beater</i> </li>
 </ul>
-</HTML>
-"),     Icon(
+</html>"),
+        Icon(
           Line(points=[-70, 0; -90, 0], style(color=0)),
           Line(points=[70.4, 0; 100, 0]),
           Text(
@@ -821,12 +901,15 @@ Measures the <i>absolute velocity v</i> of a flange in an ideal way and provides
 output signals (to be further processed with blocks of the
 Modelica.Blocks library).
 </p>
+
+</HTML>
+", revisions="<html>
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>First Version from August 26, 1999 by P. Beater</i> </li>
 </ul>
-</HTML>
-"),     Icon(
+</html>"),
+        Icon(
           Line(points=[-70, 0; -90, 0], style(color=0)),
           Line(points=[70.4, 0; 100, 0]),
           Text(
@@ -869,12 +952,15 @@ of a flange in an ideal way and provides the result as
 output signals (to be further processed with blocks of the
 Modelica.Blocks library).
 </p>
+
+</HTML>
+", revisions="<html>
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>First Version from August 26, 1999 by P. Beater</i> </li>
 </ul>
-</HTML>
-"),     Icon(
+</html>"),
+        Icon(
           Line(points=[-70, 0; -90, 0], style(color=0)),
           Line(points=[70.4, 0; 100, 0]),
           Text(
@@ -1019,7 +1105,8 @@ and the accompanying <b>disclaimer</b>
 </ul>
 </html>"));
   
-  package Interfaces "Interfaces for 1D translational mechanical components" 
+  package Interfaces 
+    "Interfaces for 1-dim. translational mechanical components" 
     
     extends Modelica.Icons.Library;
     
@@ -1139,12 +1226,15 @@ This is a 1D translational component with two <i>rigidly</i> connected flanges.
 The distance between the left and the right flange is always constant, i. e. L.
 The forces at the right and left flange can be different.
 It is used e.g. to built up sliding masses.
+</p>
+</HTML>
+", revisions="<html>
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>First Version from August 26, 1999 by P. Beater  (based on Rotational.Rigid)</i> </li>
 </ul>
-</HTML>
-"),     Diagram,
+</html>"),
+        Diagram,
         Coordsys(
           extent=[-100, -100; 100, 100],
           grid=[2, 2],
@@ -1186,12 +1276,17 @@ This is a 1D translational component with a <i>compliant </i>connection of two
 translational 1D flanges where inertial effects between the two
 flanges are not included. The absolute value of the force at the left and the right
 flange is the same. It is used to built up springs, dampers etc.
-<p><b>Release Notes:</b></p>
+</p>
+
+</HTML>
+", revisions="<html>
+<p>
+<b>Release Notes:</b></p>
 <ul>
 <li><i>First Version from August 26, 1999 by P. Beater (based on Rotational.Compliant)</i> </li>
 </ul>
-</HTML>
-"),     Diagram(Polygon(points=[50, -90; 20, -80; 20, -100; 50, -90], style(
+</html>"),
+        Diagram(Polygon(points=[50, -90; 20, -80; 20, -100; 50, -90], style(
                 color=10, fillColor=10)), Line(points=[-60, -90; 20, -90],
               style(color=0, fillColor=10))));
     equation 
@@ -1214,12 +1309,15 @@ This is a 1D translational component with two flanges.
 It is used e.g. to built up parts of a drive train consisting
 of several base components.
 </p>
+
+</HTML>
+", revisions="<html>
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>First Version from August 26, 1999 by P. Beater (based on Rotational.TwoFlanges)</i> </li>
 </ul>
-</HTML>
-"),     Diagram,
+</html>"),
+        Diagram,
         Coordsys(
           extent=[-100, -100; 100, 100],
           grid=[2, 2],
@@ -1258,6 +1356,8 @@ output signal in order to measure an absolute kinematic quantity in the flange
 and to provide the measured signal as output signal for further processing
 with the Modelica.Blocks blocks.
 </p>
+</HTML>
+", revisions="<html>
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>Version 1.0 (July 18, 1999)</i>
@@ -1266,8 +1366,9 @@ with the Modelica.Blocks blocks.
 </li>
 </ul>
 <p><b>Copyright &copy; 1999-2002, Modelica Association and DLR.</b></p>
-</HTML>
-"),     Icon(
+
+</html>"),
+        Icon(
           Line(points=[-100, -90; -20, -90], style(
               color=0,
               fillColor=10,
@@ -1314,6 +1415,8 @@ between the two flanges or the cut-force in the flange and
 to provide the measured signal as output signal for further processing
 with the Modelica.Blocks blocks.
 </p>
+</HTML>
+", revisions="<html>
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>Version 1.0 (July 18, 1999)</i>
@@ -1322,8 +1425,9 @@ with the Modelica.Blocks blocks.
 </li>
 </ul>
 <p><b>Copyright &copy; 1999-2002, Modelica Association and DLR.</b></p>
-</HTML>
-"),     Icon(
+
+</html>"),
+        Icon(
           Line(points=[-51, 34; 29, 34], style(
               color=0,
               fillColor=10,
@@ -1380,13 +1484,15 @@ with the Modelica.Blocks blocks.
         final max=Unknown,
         start=Unknown);
       annotation (Documentation(info="<html>
+  
+</html>
+", revisions="<html>
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>Version from January 5, 2000 by P. Beater
 (based on Translational.FrictionBase from Martin Otter)</i> </li>
 </ul>
-</HTML>
-"));
+</html>"));
     equation 
       /* Friction characteristic
      (locked is introduced to help the Modelica translator determining
@@ -1425,6 +1531,9 @@ with the Modelica.Blocks blocks.
               Stuck);
       
     end FrictionBase;
+    annotation (Documentation(info="<html>
+  
+</html>"));
   end Interfaces;
   
   model SlidingMass "Sliding mass with inertia" 
@@ -1452,12 +1561,15 @@ The sliding mass has the length L, the position coordinate s is in the middle.
 Sign convention: A positive force at flange flange_a moves the sliding mass in the positive direction.
 A negative force at flange flange_a moves the sliding mass to the negative direction.
 </p>
+
+</html>
+", revisions="<html>
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>First Version from August 26, 1999 by P. Beater (based on Rotational.Shaft)</i> </li>
 </ul>
-</HTML>
-"),   Icon(
+</html>"),
+      Icon(
         Line(points=[-100, 0; -55, 0], style(color=58, rgbcolor={0,127,0})),
         Line(points=[55, 0; 100, 0], style(color=58, rgbcolor={0,127,0})),
         Rectangle(extent=[-55, -30; 56, 30], style(
@@ -1565,7 +1677,8 @@ Entwurf hydraulischer Maschinen</a>. Springer Verlag Berlin Heidelberg New York.
 <P>The friction model is implemented in a \"clean\" way by state events and leads to
 continuous/discrete systems of equations which have to be solved by appropriate
 numerical methods. The method is described in: </P>
-<DL>
+
+<dl>
 Otter M., Elmqvist H., and Mattsson S.E. (1999):
 <i><DD>Hybrid Modeling in Modelica based on the Synchronous Data Flow Principle</i>. CACSD'99, Aug. 22.-26, Hawaii. </DD>
 </DL>
@@ -1576,17 +1689,21 @@ equation without events. The drawback is that the system becomes stiff (about 10
 slower simulation) and that more material constants have to be supplied which requires more
 sophisticated identification. For more details, see the following references, especially
 (Armstrong and Canudas de Witt 1996): </P>
-<DL>
-Armstrong B. (1991):
-<i><DD>Control of Machines with Friction</i>. Kluwer Academic Press, Boston MA.<BR>
+<dl>
+<dt>
+Armstrong B. (1991):</dt>
+<DD><i>Control of Machines with Friction</i>. Kluwer Academic Press, Boston MA.<BR>
 </DD>
 <DT>Armstrong B., and Canudas de Wit C. (1996): </DT>
-<i><DD>Friction Modeling and Compensation.</i> The Control Handbook, edited by W.S.Levine, CRC Press, pp. 1369-1382.<BR>
+<DD><i>Friction Modeling and Compensation.</i> The Control Handbook, edited by W.S.Levine, CRC Press, pp. 1369-1382.<BR>
 </DD>
 <DT>Canudas de Wit C., Olsson H., Astroem K.J., and Lischinsky P. (1995): </DT>
-<i><DD>A new model for control of systems with friction.</i> IEEE Transactions on Automatic Control, Vol. 40, No. 3, pp. 419-425.<BR>
+<DD>A<i> new model for control of systems with friction.</i> IEEE Transactions on Automatic Control, Vol. 40, No. 3, pp. 419-425.<BR>
 </DD>
 </DL>
+
+</HTML>
+", revisions="<html>
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>First Version from December 7, 1999 by P. Beater (based on Rotational.BearingFriction)</i> </li>
@@ -1596,8 +1713,8 @@ modified event logic such if you have friction parameters equal to zero you do n
 between the stops.</i> </li>
 <li><i>June 10, 2002 by P. Beater, StateSelect.always for variables s and v (instead of fixed=true). </i> </li>
 </ul>
-</HTML>
-"),   Coordsys(
+</html>"),
+      Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
         component=[20, 20]),
@@ -1774,12 +1891,15 @@ between the stops.</i> </li>
 <p>
 Rod <i>without inertia</i> and two rigidly connected flanges.
 </p>
+
+</HTML>
+", revisions="<html>
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>First Version from August 26, 1999 by P. Beater</i> </li>
 </ul>
-</HTML>
-"),   Icon(
+</html>"),
+      Icon(
         Line(points=[-100, 0; -55, 0], style(color=58, rgbcolor={0,127,0})),
         Line(points=[53,0; 99,0], style(color=58, rgbcolor={0,127,0})),
         Polygon(points=[50, -90; 20, -80; 20, -100; 50, -90], style(color=10,
@@ -1840,12 +1960,15 @@ between two sliding masses, or between
 a sliding mass and the housing (model Fixed), to describe
 a coupling of the slidin mass with the housing via a spring.
 </p>
+
+</HTML>
+", revisions="<html>
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>First Version from August 26, 1999 by P. Beater (based on Rotational.Spring)</i> </li>
 </ul>
-</HTML>
-"),   Icon(
+</html>"),
+      Icon(
         Line(points=[-60, -90; 20, -90], style(color=0, fillColor=10)),
         Polygon(points=[50, -90; 20, -80; 20, -100; 50, -90], style(color=10,
               fillColor=10)),
@@ -1890,12 +2013,15 @@ a coupling of the slidin mass with the housing via a spring.
 between a sliding mass and the housing (model Fixed), or
 between two sliding masses.
 </p>
+
+</HTML>
+", revisions="<html>
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>First Version from August 26, 1999 by P. Beater (based on Rotational.Damper)</i> </li>
 </ul>
-</HTML>
-"),   Icon(
+</html>"),
+      Icon(
         Line(points=[-90, 0; -60, 0], style(color=0)),
         Line(points=[-60, -30; -60, 30], style(color=0)),
         Line(points=[-60, -30; 60, -30], style(color=0)),
@@ -1953,12 +2079,15 @@ The component can be
 connected either between two sliding masses to describe the elasticity
 and damping, or between a sliding mass and the housing (model Fixed),
 to describe a coupling of the sliding mass with the housing via a spring/damper.
-<p><b>Release Notes:</b></p>
+<p>
+</HTML>
+", revisions="<html>
+<b>Release Notes:</b></p>
 <ul>
 <li><i>First Version from August 26, 1999 by P. Beater (based on Rotational.SpringDamper)</i> </li>
 </ul>
-</HTML>
-"),   Icon(
+</html>"),
+      Icon(
         Line(points=[-80, 40; -60, 40; -45, 10; -15, 70; 15, 10; 45, 70; 60, 40;
                 80, 40], style(color=0)),
         Line(points=[-80, 40; -80, -70], style(color=0)),
@@ -2030,12 +2159,15 @@ between
 a sliding mass and the housing (model Fixed), to describe
 the contact of a sliding mass with the housing.
 </p>
+
+</HTML>
+", revisions="<html>
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>First Version from August 26, 1999 by P. Beater</i> </li>
 </ul>
-</HTML>
-"),   Diagram(
+</html>"),
+      Diagram(
         Line(points=[-100, 0; -50, 0], style(color=58, rgbcolor={0,127,0})),
         Line(points=[-48, 34; -48, -46], style(color=0, thickness=4)),
         Line(points=[8, 40; 8, 2], style(color=0)),
@@ -2153,14 +2285,17 @@ to move according to this reference motion. According to parameter
 The input signal can be provided from one of the signal generator
 blocks of the block library Modelica.Blocks.Sources.
 </p>
+
+</HTML>
+", revisions="<html>
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>June 19, 2000</i>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>.<br>
        Realized.</li>
 </ul>
-</HTML>
-"),   Icon(
+</html>"),
+      Icon(
         Text(
           extent=[-40,-40; -126,-78],
           style(color=0),
@@ -2226,12 +2361,15 @@ integration of the acceleration.
 The acceleration \"a(t)\" can be provided from one of the signal generator
 blocks of the block library Modelica.Blocks.Source.
 </p>
+
+</HTML>
+", revisions="<html>
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>First Version from August 26, 1999 by P. Beater (based on Rotational.AccMotion)</i> </li>
 </ul>
-</HTML>
-"),   Icon(
+</html>"),
+      Icon(
         Line(points=[-95, 0; 90, 0], style(color=58, rgbcolor={0,127,0})),
         Text(
           extent=[-75,-18; -124,-58],
@@ -2323,14 +2461,17 @@ rd and rdd whenever the Pantelides algorithm requires to compute
 the derivatives of r (and takes rd and rdd instead of actually
 differentiating r).
 </p>
+
+</HTML>
+", revisions="<html>
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>June 25, 2001</i>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
        realized.</li>
 </ul>
-</HTML>
-"),   Diagram(Polygon(points=[0, -90; -20, -85; -20, -95; 0, -90], style(color=
+</html>"),
+      Diagram(Polygon(points=[0, -90; -20, -85; -20, -95; 0, -90], style(color=
                 10, fillColor=10)), Line(points=[-90, -90; -19, -90], style(
               color=10, fillColor=10))),
       Icon(
@@ -2398,12 +2539,14 @@ at an position s0 in the <i>housing</i>. May be used:
 <li> to fix a rigid element, such as a sliding mass, at a specific
      position.
 </ul>
+
+</HTML>
+", revisions="<html>
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>First Version from August 26, 1999 by P. Beater (based on Rotational.LockedR)</i> </li>
 </ul>
-</HTML>
-"));
+</html>"));
     Interfaces.Flange_b flange_b annotation (extent=[-10,10; 10,-10],
         rotation=180);
   equation 
@@ -2437,12 +2580,15 @@ i.e., the component connected to the flange is driven by force f.
 Input signal s can be provided from one of the signal generator
 blocks of Modelica.Blocks.Source.
 </p>
+
+</HTML>
+", revisions="<html>
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>First Version from August 26, 1999 by P. Beater (based on Rotational.Torque1D)</i> </li>
 </ul>
-</HTML>
-"),   Icon(
+</html>"),
+      Icon(
         Polygon(points=[-100, 10; 20, 10; 20, 41; 90, 0; 20, -41; 20, -10; -100,
                 -10; -100, 10], style(
             color=58,
@@ -2509,6 +2655,9 @@ the two masses are used as state variables. Additionally, the
 simulator selects either the absolute position and absolute
 velocity of model mass1 or of model mass2 as state variables.
 </p>
+
+</HTML>
+", revisions="<html>
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>June 19, 2000</i>
@@ -2516,8 +2665,8 @@ velocity of model mass1 or of model mass2 as state variables.
        Realized.
 </li>
 </ul>
-</HTML>
-"),   Icon(
+</html>"),
+      Icon(
         Ellipse(extent=[-40, 40; 40, -40], style(color=4, fillColor=4)),
         Text(extent=[-40, 40; 40, -40], string="S"),
         Line(points=[-92, 0; -42, 0], style(color=0, pattern=3)),

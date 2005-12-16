@@ -1,6 +1,5 @@
-package Examples "Examples for analog electrical packages"
+package Examples "Examples that demonstrate the usage of the Analog electrical components"
 extends Modelica.Icons.Library2;
-
 
 annotation(preferedView="info",
   Window(
@@ -12,8 +11,12 @@ annotation(preferedView="info",
     autolayout=1),
   Documentation(info="<html>
 <p>
-This package contains examples for the analog electrical package.
+This package contains examples that demonstrate the usage of the
+components of the Electrical.Analog library.
 </p>
+
+</HTML>
+", revisions="<html>
 <dl>
 <dt>
 <b>Main Authors:</b>
@@ -37,6 +40,5 @@ and the accompanying <b>disclaimer</b> in the documentation of package
 Modelica in file \"Modelica/package.mo\".</i><br>
 <p>
 </dl>
-</HTML>
-"));
+</html>"));
 end Examples;

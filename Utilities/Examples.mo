@@ -370,6 +370,7 @@ readRealParameter(\"test.txt\", \"w_rel0\")
   end readRealParameter;
   
   model readRealParameterModel 
+    "Demonstrate usage of Examples.readRealParameter/.expression" 
     import SI = Modelica.SIunits;
     extends Modelica.Icons.Example;
     

@@ -2,7 +2,7 @@ package Tables "One and two-dimensional interpolation in tables"
   extends Icons.Library;
   model CombiTable1D 
     "Table look-up in one dimension (matrix/file) with n inputs and n outputs " 
-    
+    import Modelica.Blocks.Types;
     parameter Boolean tableOnFile=false 
       "true, if table is defined on file or in function usertab" 
       annotation(Dialog(group="table data definition"));
@@ -17,7 +17,7 @@ package Tables "One and two-dimensional interpolation in tables"
     parameter Integer columns[:]=2:size(table, 2) 
       "columns of table to be interpolated" 
     annotation(Dialog(group="table data interpretation"));
-    parameter Blocks.Types.Smoothness.Temp smoothness=Blocks.Types.Smoothness.LinearSegments 
+    parameter Blocks.Types.Smoothness.Temp smoothness=Types.Smoothness.LinearSegments 
       "smoothness of table interpolation" 
     annotation(Dialog(group="table data interpretation"));
     extends Modelica.Blocks.Interfaces.MIMOs(final n=size(columns, 1));
@@ -195,6 +195,7 @@ Several matrices may be defined one after another.
   model CombiTable1Ds 
     "Table look-up in one dimension (matrix/file) with one input and n outputs" 
     
+    import Modelica.Blocks.Types;
     parameter Boolean tableOnFile=false 
       "true, if table is defined on file or in function usertab" 
       annotation(Dialog(group="table data definition"));
@@ -209,7 +210,7 @@ Several matrices may be defined one after another.
     parameter Integer columns[:]=2:size(table, 2) 
       "columns of table to be interpolated" 
     annotation(Dialog(group="table data interpretation"));
-    parameter Blocks.Types.Smoothness.Temp smoothness=Blocks.Types.Smoothness.LinearSegments 
+    parameter Blocks.Types.Smoothness.Temp smoothness=Types.Smoothness.LinearSegments 
       "smoothness of table interpolation" 
     annotation(Dialog(group="table data interpretation"));
     extends Modelica.Blocks.Interfaces.SIMO(final nout=size(columns, 1));
@@ -386,6 +387,7 @@ Several matrices may be defined one after another.
   
   model CombiTable2D "Table look-up in two dimensions (matrix/file) " 
     
+    import Modelica.Blocks.Types;
     extends Modelica.Blocks.Interfaces.SI2SO;
     
     parameter Boolean tableOnFile=false 
@@ -399,7 +401,7 @@ Several matrices may be defined one after another.
          annotation(Dialog(group="table data definition", enable = tableOnFile));
     parameter String fileName="NoName" "file where matrix is stored" 
          annotation(Dialog(group="table data definition", enable = tableOnFile));
-    parameter Blocks.Types.Smoothness.Temp smoothness=Blocks.Types.Smoothness.LinearSegments 
+    parameter Blocks.Types.Smoothness.Temp smoothness=Types.Smoothness.LinearSegments 
       "smoothness of table interpolation" 
     annotation(Dialog(group="table data interpretation"));
     annotation (

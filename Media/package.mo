@@ -2036,7 +2036,9 @@ package Examples
   extends Modelica.Icons.Library;
   
   model SimpleLiquidWater "Example for Water.SimpleLiquidWater medium model" 
-    annotation (experiment(StopTime=100));
+    annotation (experiment(StopTime=100), Documentation(info="<html>
+ 
+</html>"));
     import SI = Modelica.SIunits;
     extends Modelica.Icons.Example;
     parameter SI.Volume V=1 "Volume";
@@ -2088,13 +2090,13 @@ package Examples
     state2.T = 500.0;
     //  s2 = s;
     annotation (Documentation(info="<html>
-                  <body>
-                  <p>An example for using ideal gas properties and how to compute isentropic enthalpy changes.
-                  The function that is implemented is approximate, but usually very good: the second medium record medium2
-                  is given to compare the approximation.
-                  </p>
-                  </body>
-                  </html>"));
+<p>An example for using ideal gas properties and how to compute 
+  isentropic enthalpy changes.
+  The function that is implemented is approximate, but usually 
+   very good: the second medium record medium2
+   is given to compare the approximation.
+</p>
+</html>"));
   end IdealGasH2O;
   
   model WaterIF97 "WaterIF97 medium model" 
@@ -2121,6 +2123,9 @@ package Examples
     
     // Energy balance
     der(U) = H_flow_ext;
+    annotation (Documentation(info="<html>
+  
+</html>"));
   end WaterIF97;
   
   model MixtureGases "Test gas mixtures" 
@@ -2162,6 +2167,9 @@ package Examples
     U2 = m2*medium2.u;
     der(m2) = m_flow_ext;
     der(U2) = H_flow_ext;
+    annotation (Documentation(info="<html>
+  
+</html>"));
   end MixtureGases;
   
 model MoistAir "Ideal gas flue gas  model" 
@@ -2178,12 +2186,10 @@ model MoistAir "Ideal gas flue gas  model"
       "molar mass of gas part of mixture";
   //  Real[4] dddX=Medium.density_derX(medium,MM);
     annotation (Documentation(info="<html>
-<body>
 <p>An example for using ideal gas properties and how to compute isentropic enthalpy changes.
 The function that is implemented is approximate, but usually very good: the second medium record medium2
 is given to compare the approximation.
 </p>
-</body>
 </html>"),
       experiment(Tolerance=1e-005),
       experimentSetupOutput);
@@ -2254,7 +2260,6 @@ end MoistAir;
     end ExtendedProperties;
     
     annotation (Documentation(info="<html>
-<body>
 <h3>Example: TwoPhaseWater</h3>
 The TwoPhaseWater package demonstrates how to extend the parsimonius
 BaseProperties with a minimal set of properties from the standard water
@@ -2304,7 +2309,6 @@ e.g. \"cp_d = heatCapacity_cp(dew)\". <br>
 The same procedure can be used to compute properties at other state
 points, e.g. when an isentropic reference state is computed.<br>
 <br>
-</body>
 </html>
 "));
     model TestTwoPhaseStates "test the above model" 
@@ -2352,12 +2356,10 @@ points, e.g. when an isentropic reference state is computed.<br>
       Real gamma2 = Medium.isothermalCompressibility(medium2.state);
       Medium.SpecificEnthalpy h_is = Medium.isentropicEnthalpyApproximation(2.0e5, medium);
       annotation (Documentation(info="<html>
-<body>
 <p>An example for using ideal gas properties and how to compute isentropic enthalpy changes.
 The function that is implemented is approximate, but usually very good: the second medium record medium2
 is given to compare the approximation.
 </p>
-</body>
 </html>"));
     equation 
       der(medium.p) = 1000.0;
@@ -2393,12 +2395,10 @@ is given to compare the approximation.
       Real MM =  1/sum(state.X[j]/MMx[j] for j in 1:4) "molar mass";
       Real[4] dddX=Medium.density_derX(medium2.state);
       annotation (Documentation(info="<html>
-<body>
 <p>An example for using ideal gas properties and how to compute isentropic enthalpy changes.
 The function that is implemented is approximate, but usually very good: the second medium record medium2
 is given to compare the approximation.
 </p>
-</body>
 </html>"));
     equation 
       der(state.p) = 1000.0;
@@ -2426,8 +2426,14 @@ is given to compare the approximation.
       equation 
         medium.p = 1.0e5;
         medium.T = 300 + time/1000;
+        annotation (Documentation(info="<html>
+  
+</html>"));
       end TemplateMedium;
       
+      annotation (Documentation(info="<html> 
+  
+</html>"));
     end TestMedia;
     
     model IdealGasAir "Test IdealGas.SingleMedia.Air medium model" 
@@ -2462,7 +2468,13 @@ is given to compare the approximation.
       
       // Energy balance
       der(U) = H_flow_ext;
+      annotation (Documentation(info="<html>
+  
+</html>"));
     end IdealGasAir;
+    annotation (Documentation(info="<html>
+ 
+</html>"));
   end TestOnly;
   annotation (Documentation(info="<html>
 <h3>Examples</h3>
@@ -2539,6 +2551,9 @@ Modelica.Media.Examples.Tests.MediaTestModels.
         flow Medium.ExtraPropertyFlowRate mC_flow[Medium.nC] 
           "Flow rates of auxiliary properties from the connection point into the component (if m_flow > 0, mC_flow = m_flow*C)";
         
+        annotation (Documentation(info="<html>
+    
+</html>"));
       end FluidPort;
       
       connector FluidPort_a "Fluid connector with filled icon" 
@@ -2562,7 +2577,10 @@ Modelica.Media.Examples.Tests.MediaTestModels.
              Icon(Ellipse(extent=[-100, 100; 100, -100], style(color=69,
                   fillColor=69)), Ellipse(extent=[-100, 100; 100, -100], style(color=16,
                   fillColor=69)), Ellipse(extent=[-80, 80; 80, -80], style(color=69,
-                   fillColor=7))));
+                   fillColor=7))), 
+          Documentation(info="<html> 
+  
+</html>"));
       end FluidPort_b;
       
       model PortVolume 
@@ -2719,7 +2737,10 @@ transport.
             y=0.01,
             width=0.44,
             height=0.65),
-          Diagram);
+          Diagram, 
+          Documentation(info="<html>
+    
+</html>"));
       equation 
          if use_T_ambient then
            medium.T = T_ambient;
@@ -2903,7 +2924,9 @@ The details of the pipe friction model are described
           m_flow=1,
           X_ambient=0.5*X_start) 
                                 annotation (extent=[-80,0; -60,20]);
-        annotation (Diagram);
+        annotation (Diagram, Documentation(info="<html>
+  
+</html>"));
         FixedAmbient ambient(
           redeclare package Medium = Medium,
           T_ambient=T_start,
@@ -2949,7 +2972,9 @@ The details of the pipe friction model are described
           m_flow=1,
           X_ambient=0.5*X_start) 
                                 annotation (extent=[-100,0; -80,20]);
-        annotation (Diagram);
+        annotation (Diagram, Documentation(info="<html>
+  
+</html>"));
         FixedAmbient ambient(
           redeclare package Medium = Medium,
           T_ambient=T_start,
@@ -2985,6 +3010,9 @@ The details of the pipe friction model are described
         connect(shortPipe1.port_b, ambient.port) 
           annotation (points=[57,10; 71,10], style(color=69, rgbcolor={0,127,255}));
       end PartialTestModel2;
+      annotation (Documentation(info="<html>
+  
+</html>"));
     end Components;
     
     package MediaTestModels "Test models to test all media" 
@@ -2994,17 +3022,29 @@ The details of the pipe friction model are described
         model SimpleAir "Test Modelica.Media.Air.SimpleAir" 
           extends Modelica.Media.Examples.Tests.Components.PartialTestModel(
              redeclare package Medium = Modelica.Media.Air.SimpleAir);
+          annotation (Documentation(info="<html>
+  
+</html>"));
         end SimpleAir;
         
         model DryAirNasa "Test Modelica.Media.Air.DryAirNasa" 
           extends Modelica.Media.Examples.Tests.Components.PartialTestModel(
              redeclare package Medium = Modelica.Media.Air.DryAirNasa);
+          annotation (Documentation(info="<html>
+  
+</html>"));
         end DryAirNasa;
         
         model MoistAir "Test Modelica.Media.Air.MoistAir" 
           extends Modelica.Media.Examples.Tests.Components.PartialTestModel(
              redeclare package Medium = Modelica.Media.Air.MoistAir);
+          annotation (Documentation(info="<html>
+   
+</html>"));
         end MoistAir;
+        annotation (Documentation(info="<html>
+  
+</html>"));
       end Air;
       
       package IdealGases "Test models of library Modelica.Media.IdealGases" 
@@ -3014,6 +3054,9 @@ The details of the pipe friction model are described
           extends Modelica.Media.Examples.Tests.Components.PartialTestModel(
              redeclare package Medium = 
                 Modelica.Media.IdealGases.SingleGases.Air);
+          annotation (Documentation(info="<html>
+  
+</html>"));
         end Air;
         
         model SimpleNaturalGas 
@@ -3021,6 +3064,9 @@ The details of the pipe friction model are described
           extends Modelica.Media.Examples.Tests.Components.PartialTestModel(
              redeclare package Medium = 
                 Modelica.Media.IdealGases.MixtureGases.SimpleNaturalGas);
+          annotation (Documentation(info="<html>
+   
+</html>"));
         end SimpleNaturalGas;
         
         model SimpleNaturalGasFixedComposition 
@@ -3040,6 +3086,9 @@ The details of the pipe friction model are described
                 Modelica.Media.Incompressible.Examples.Glycol47(final 
                   singleState =                                                   true,
                   final enthalpyOfT =                                                              true));
+          annotation (Documentation(info="<html>
+  
+</html>"));
         end Glycol47;
         
         model Essotherm650 
@@ -3047,7 +3096,13 @@ The details of the pipe friction model are described
           extends Modelica.Media.Examples.Tests.Components.PartialTestModel(
              redeclare package Medium = 
                 Modelica.Media.Incompressible.Examples.Essotherm650);
+          annotation (Documentation(info="<html>
+  
+</html>"));
         end Essotherm650;
+        annotation (Documentation(info="<html>
+  
+</html>"));
       end Incompressible;
       
       package Water "Test models of library Modelica.Media.Water" 
@@ -3057,11 +3112,17 @@ The details of the pipe friction model are described
           extends Modelica.Media.Examples.Tests.Components.PartialTestModel(
              redeclare package Medium = 
                 Modelica.Media.Water.ConstantPropertyLiquidWater);
+          annotation (Documentation(info="<html>
+  
+</html>"));
         end ConstantPropertyLiquidWater;
         
         model IdealSteam "Test Modelica.Media.Water.IdealSteam" 
           extends Modelica.Media.Examples.Tests.Components.PartialTestModel(
              redeclare package Medium = Modelica.Media.Water.IdealSteam);
+          annotation (Documentation(info="<html>
+  
+</html>"));
         end IdealSteam;
         
         model WaterIF97OnePhase_ph 
@@ -3071,11 +3132,17 @@ The details of the pipe friction model are described
                 Modelica.Media.Water.WaterIF97OnePhase_ph,
             fixedMassFlowRate(use_T_ambient=false, h_ambient=363755),
             ambient(use_T_ambient=false, h_ambient=112570));
+          annotation (Documentation(info="<html>
+  
+</html>"));
         end WaterIF97OnePhase_ph;
         
         model WaterIF97_pT "Test Modelica.Media.Water.WaterIF97_pT" 
           extends Modelica.Media.Examples.Tests.Components.PartialTestModel(
              redeclare package Medium = Modelica.Media.Water.WaterIF97_pT);
+          annotation (Documentation(info="<html>
+  
+</html>"));
         end WaterIF97_pT;
         
         model WaterIF97_ph "Test Modelica.Media.Water.WaterIF97_ph" 
@@ -3083,6 +3150,9 @@ The details of the pipe friction model are described
              redeclare package Medium = Modelica.Media.Water.WaterIF97_ph,
             ambient(use_T_ambient=false, h_ambient=112570),
             fixedMassFlowRate(use_T_ambient=false, h_ambient=363755));
+          annotation (Documentation(info="<html>
+  
+</html>"));
         end WaterIF97_ph;
         /*        
         model WaterIF97_dT "Test Modelica.Media.Water.WaterIF97_dT" 
@@ -3091,9 +3161,18 @@ The details of the pipe friction model are described
               ambient(use_p_ambient=false, d_ambient=996.557));
         end WaterIF97_dT;
 */
+        annotation (Documentation(info="<html>
+  
+</html>"));
       end Water;
       
+      annotation (Documentation(info="<html>
+  
+</html>"));
     end MediaTestModels;
+    annotation (Documentation(info="<html>
+  
+</html>"));
   end Tests;
 end Examples;
 
@@ -3172,6 +3251,9 @@ kind of media.
       R  = 8.3144/MM;
       state.p = p;
       state.T = T;
+      annotation (Documentation(revisions="<html>
+ 
+</html>"));
     end BaseProperties;
     
     /* Provide implementations of the following optional properties.
@@ -3185,46 +3267,70 @@ kind of media.
       "a selction of variables that uniquely defines the thermodynamic state" 
       AbsolutePressure p "Absolute pressure of medium";
       Temperature T "Temperature of medium";
+      annotation (Documentation(revisions="<html>
+  
+</html>"));
     end ThermodynamicState;
     
     redeclare function extends dynamicViscosity "Return dynamic viscosity" 
     algorithm 
       eta := 10 - state.T*0.3 + state.p*0.2;
+      annotation (Documentation(revisions="<html>
+  
+</html>"));
     end dynamicViscosity;
     
     redeclare function extends thermalConductivity 
       "Return thermal conductivity" 
     algorithm 
       lambda := 0;
+      annotation (Documentation(revisions="<html>
+  
+</html>"));
     end thermalConductivity;
     
     redeclare function extends specificEntropy "Return specific entropy" 
     algorithm 
       s := 0;
+      annotation (Documentation(revisions="<html>
+  
+</html>"));
     end specificEntropy;
     
     redeclare function extends heatCapacity_cp 
       "Return specific heat capacity at constant pressure" 
     algorithm 
       cp := 0;
+      annotation (Documentation(revisions="<html>
+  
+</html>"));
     end heatCapacity_cp;
     
     redeclare function extends heatCapacity_cv 
       "Return specific heat capacity at constant volume" 
     algorithm 
       cv := 0;
+      annotation (Documentation(revisions="<html>
+  
+</html>"));
     end heatCapacity_cv;
     
     redeclare function extends isentropicExponent "Return isentropic exponent" 
       extends Modelica.Icons.Function;
     algorithm 
        gamma := 0;
+      annotation (Documentation(revisions="<html>
+  
+</html>"));
     end isentropicExponent;
     
     redeclare function extends velocityOfSound "Return velocity of sound" 
       extends Modelica.Icons.Function;
     algorithm 
       a := 0;
+      annotation (Documentation(revisions="<html>
+  
+</html>"));
     end velocityOfSound;
     
     annotation (Documentation(info="<HTML>
@@ -3882,7 +3988,9 @@ are described in
 <a href=\"Modelica:Modelica.Media.UsersGuide\">Modelica.Media.UsersGuide</a>.
 </p>
 </html>
-"));
+", revisions="<html>
+  
+</html>"));
   end PartialMedium;
   
   partial package PartialPureSubstance 

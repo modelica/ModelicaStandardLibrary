@@ -7,11 +7,11 @@ model RealSwitch
   Interfaces.Pin n2 annotation (extent=[90, 4; 110, 24]);
   Interfaces.Pin control annotation (extent=[24, 90; 44, 110]);
 equation 
-  connect(p, R.p) annotation (points=[-100, 40; -66, 39.3333]);
-  connect(R.n, S.p) annotation (points=[-19.3333, 39.3333; 11.3333, 41.3333]);
-  connect(n1, S.n1) annotation (points=[100, 60; 58, 53]);
-  connect(n2, S.n2) annotation (points=[100, 14; 58, 41.3333]);
-  connect(control, S.control) annotation (points=[34, 100; 34.6667, 64.6667]);
+  connect(p, R.p) annotation (points=[-100,40; -66,39.3333]);
+  connect(R.n, S.p) annotation (points=[-19.3333,39.3333; 11.3333,41.3334]);
+  connect(n1, S.n1) annotation (points=[100,60; 58,53]);
+  connect(n2, S.n2) annotation (points=[100,14; 58,41.3334]);
+  connect(control, S.control) annotation (points=[34,100; 34.6666,64.6667]);
   annotation (Coordsys(
       extent=[-100, -100; 100, 100],
       grid=[2, 2],
@@ -19,5 +19,8 @@ equation
       x=0.4,
       y=0.4,
       width=0.6,
-      height=0.6));
+      height=0.6), 
+    Documentation(info="<html>
+  
+</html>"));
 end RealSwitch;

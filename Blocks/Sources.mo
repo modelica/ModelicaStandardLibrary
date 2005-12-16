@@ -26,7 +26,10 @@ package Sources "Signal source blocks generating Real and Boolean signals"
             color=0,
             fillColor=2,
             fillPattern=1)), Text(extent=[-150,90; 140,50],     string="%name")),
-      Diagram);
+      Diagram, 
+      Documentation(info="<html>
+ 
+</html>"));
     
   end RealExpression;
   
@@ -58,7 +61,10 @@ package Sources "Signal source blocks generating Real and Boolean signals"
             color=0,
             fillColor=2,
             fillPattern=1)), Text(extent=[-150,90; 140,50],     string="%name")),
-      Diagram);
+      Diagram, 
+      Documentation(info="<html>
+ 
+</html>"));
     
   end IntegerExpression;
   
@@ -93,7 +99,10 @@ package Sources "Signal source blocks generating Real and Boolean signals"
   Polygon(points=[100,10; 120,0; 100,-10; 100,10],
              style(color=DynamicSelect(5, if y > 0.5 then 2 else 5),
               fillColor=DynamicSelect(7, if y > 0.5 then 2 else 7)))),
-      Diagram);
+      Diagram, 
+      Documentation(info="<html>
+  
+</html>"));
     
   end BooleanExpression;
   import Modelica.Blocks.Interfaces;
@@ -123,11 +132,17 @@ for Real, Integer and Boolean signals.
 All Real source signals (with the exception of the Constant source)
 have at least the following two parameters:
 </p>
-<pre>
-   <b>offset</b>       Value which is added to the signal.
-   <b>startTime</b>    Start time of signal. For time &lt; startTime,
-                the output y is set to offset.
-</pre>
+
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td><b>offset</b></td>
+      <td>Value which is added to the signal</td>
+  </tr>
+  <tr><td><b>startTime</b></td>
+      <td>Start time of signal. For time &lt; startTime,
+                the output y is set to offset.</td>
+  </tr>
+</table>
+
 <p>
 The <b>offset</b> parameter is especially useful in order to shift
 the corresponding source, such that at initial time the system
@@ -247,7 +262,10 @@ usually requires a trimming calculation.
             Text(
               extent=[14, 13; 32, 1],
               string="1",
-              style(color=9))));
+              style(color=9))), 
+      Documentation(info="<html>
+ 
+</html>"));
     
       equation 
         y = offset + (if time < startTime then 0 else time - startTime);
@@ -298,7 +316,10 @@ usually requires a trimming calculation.
             Text(
               extent=[-101, 8; -81, -12],
               string="k",
-              style(color=9))));
+              style(color=9))), 
+      Documentation(info="<html>
+ 
+</html>"));
       equation 
         y = k;
       end Constant;
@@ -386,7 +407,10 @@ usually requires a trimming calculation.
             Text(
               extent=[-72, 100; -31, 80],
               string="y",
-              style(color=9))));
+              style(color=9))), 
+      Documentation(info="<html>
+ 
+</html>"));
     
       equation 
         y = offset + (if time < startTime then 0 else height);
@@ -502,7 +526,10 @@ usually requires a trimming calculation.
             Text(
               extent=[0, -17; 35, -37],
               string="duration",
-              style(color=9))));
+              style(color=9))), 
+      Documentation(info="<html>
+ 
+</html>"));
       equation 
         y = offset + (if time < startTime then 0 else if time < (startTime +
           duration) then (time - startTime)*height/duration else height);
@@ -594,7 +621,10 @@ usually requires a trimming calculation.
                 color=8,
                 pattern=1,
                 thickness=1,
-                arrow=0))));
+                arrow=0))), 
+      Documentation(info="<html>
+ 
+</html>"));
       equation 
         y = offset + (if time < startTime then 0 else amplitude*
           Modelica.Math.sin(2*pi*freqHz*(time - startTime) + phase));
@@ -701,7 +731,10 @@ usually requires a trimming calculation.
               style(color=9)),
             Line(points=[-50, 0; -50, -40], style(color=8, pattern=2)),
             Line(points=[-50, -54; -50, -72], style(color=8, pattern=2)),
-            Line(points=[-15, -77; -1, -48], style(color=8, pattern=2))));
+            Line(points=[-15, -77; -1, -48], style(color=8, pattern=2))), 
+      Documentation(info="<html>
+ 
+</html>"));
       equation 
         y = offset + (if time < startTime then 0 else amplitude*
           Modelica.Math.exp(-(time - startTime)*damping)*Modelica.Math.sin(2*pi
@@ -812,7 +845,10 @@ usually requires a trimming calculation.
               extent=[78, -76; 102, -96],
               string="time",
               style(color=9)),
-            Line(points=[30, 100; 30, -34], style(color=8, pattern=2))));
+            Line(points=[30, 100; 30, -34], style(color=8, pattern=2))), 
+      Documentation(info="<html>
+ 
+</html>"));
       equation 
         y_riseTime = outMax*(1 - Modelica.Math.exp(-riseTime/riseTimeConst));
         y = offset + (if (time < startTime) then 0 else if (time < (startTime
@@ -947,7 +983,10 @@ usually requires a trimming calculation.
             Polygon(points=[50, 83; 42, 85; 42, 81; 50, 83], style(
                 color=8,
                 fillColor=8,
-                fillPattern=1))));
+                fillPattern=1))), 
+      Documentation(info="<html>
+  
+</html>"));
   protected 
         Modelica.SIunits.Time T0(final start=startTime) 
       "Start time of current period";
@@ -1070,7 +1109,10 @@ usually requires a trimming calculation.
                 fillColor=8,
                 fillPattern=1)),
             Line(points=[-80, -20; -10, -20; 30, 60; 30, -20; 72, 60; 72, -20],
-                 style(color=0, thickness=2))));
+                 style(color=0, thickness=2))), 
+      Documentation(info="<html>
+  
+</html>"));
       equation 
         when sample(startTime, period) then
           T0 = time;
@@ -1244,7 +1286,10 @@ usually requires a trimming calculation.
             Text(
               extent=[16, 70; 45, 60],
               string="falling",
-              style(color=9))));
+              style(color=9))), 
+      Documentation(info="<html>
+ 
+</html>"));
       equation 
         when pre(counter2) <> 0 and sample(startTime, period) then
           T0 = time;
@@ -1345,8 +1390,7 @@ usually requires a trimming calculation.
               extent=[69, 24; 91, 12],
               string="time",
               style(color=8))),
-          Documentation(info="
-<HTML>
+          Documentation(info="<HTML>
 <p>
 The goal is to move as <b>fast</b> as possible along a distance
 <b>deltaq</b>
@@ -1372,6 +1416,9 @@ which controls a drive train or in combination with model
 Modelica.Mechanics.Rotational.<b>Accelerate</b> to drive
 a flange according to a given acceleration.
 </p>
+
+</HTML>
+", revisions="<html>
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>June 27, 2001</i>
@@ -1384,8 +1431,7 @@ a flange according to a given acceleration.
        by <a href=\"http://www.op.dlr.de/~otter/\">Martin Otter</a>:<br>
        realized.</li>
 </ul>
-</HTML>
-"));
+</html>"));
       equation 
         for i in 1:nout loop
           aux1[i] = p_deltaq[i]/p_qd_max[i];
@@ -1552,6 +1598,9 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
     e.g., time = 2.0, the output y =  4.0,
     e.g., time = 5.0, the output y = 23.0 (i.e. extrapolation).
 </pre>
+
+</HTML>
+", revisions="<html>
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>Oct. 21, 2002</i>
@@ -1569,8 +1618,7 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
        by <a href=\"http://www.op.dlr.de/~otter/\">Martin Otter</a>:<br>
        Realized.</li>
 </ul>
-</HTML>
-"));
+</html>"));
         function getInterpolationCoefficients 
       "Determine interpolation coefficients and next time event" 
           input Real table[:, 2] "Table for interpolation";
@@ -1844,6 +1892,9 @@ with type, name and actual dimensions. Finally, in successive
 rows of the file, the elements of the matrix have to be given.
 Several matrices may be defined one after another.
 </p>
+
+</HTML>
+", revisions="<html>
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>March 31, 2001</i>
@@ -1851,9 +1902,9 @@ Several matrices may be defined one after another.
        Used CombiTableTime as a basis and added the
        arguments <b>extrapolation, columns, startTime</b>.
        This allows periodic function definitions. </li>
-</ul>
-</HTML>
-"),   Icon(
+</ul>  
+</html>"),
+      Icon(
         Polygon(points=[-80, 90; -88, 68; -72, 68; -80, 90], style(color=8,
               fillColor=8)),
         Line(points=[-80, 68; -80, -80], style(color=8)),
@@ -1947,7 +1998,7 @@ Several matrices may be defined one after another.
         extrapolation, (if not tableOnFile then "NoName" else tableName),
                        (if not tableOnFile then "NoName" else fileName), table, 0);
     end when;
-  initial equation
+  initial equation 
       t_min=tableTimeTmin(tableID);
       t_max=tableTimeTmax(tableID);
   end CombiTimeTable;
@@ -1982,7 +2033,10 @@ Several matrices may be defined one after another.
           Text(
             extent=[-104, -58; -78, -70],
             string="false",
-            style(color=9))));
+            style(color=9))),
+        Documentation(info="<html>
+ 
+</html>"));
     equation 
       y = k;
     end BooleanConstant;
@@ -2012,7 +2066,10 @@ Several matrices may be defined one after another.
           Text(
             extent=[-126,-64; -94,-78],
             string="startValue",
-            style(color=0, rgbcolor={0,0,0}))));
+            style(color=0, rgbcolor={0,0,0}))),
+        Documentation(info="<html>
+  
+</html>"));
     equation 
      y = if time >= startTime then not startValue else startValue;
     end BooleanStep;
@@ -2086,7 +2143,10 @@ Several matrices may be defined one after another.
           Text(
             extent=[-101, -56; -80, -71],
             string="false",
-          style(color=0, rgbcolor={0,0,0}))));
+          style(color=0, rgbcolor={0,0,0}))),
+        Documentation(info="<html>
+  
+</html>"));
   protected 
       parameter Modelica.SIunits.Time Twidth=period*width/100 
       "width of one pulse"                                              annotation(Hide=true);
@@ -2159,7 +2219,10 @@ Several matrices may be defined one after another.
           Line(points=[0, -70; 0, 19], style(color=0, thickness=2)),
           Line(points=[-30, -70; -30, 19], style(color=0, thickness=2)),
           Line(points=[30, -70; 30, 19], style(color=0, thickness=2)),
-          Line(points=[60, -70; 60, 19], style(color=0, thickness=2))));
+          Line(points=[60, -70; 60, 19], style(color=0, thickness=2))),
+        Documentation(info="<html>
+  
+</html>"));
     equation 
       y = sample(startTime, period);
     end SampleTrigger;
@@ -2193,7 +2256,9 @@ Several matrices may be defined one after another.
             extent=[-29,59; 10,44],
             string="time",
             style(color=0))),
-        Documentation(info=""));
+        Documentation(info="<html>
+  
+</html>"));
     
   protected 
       function getFirstIndex "Get first index of table and check table" 
@@ -2306,7 +2371,10 @@ Several matrices may be defined one after another.
         Text(
           extent=[-101, 8; -81, -12],
           string="k",
-          style(color=9))));
+          style(color=9))),
+      Documentation(info="<html>
+  
+</html>"));
   equation 
     y = k;
   end IntegerConstant;
@@ -2382,7 +2450,10 @@ Several matrices may be defined one after another.
         Text(
           extent=[-72, 100; -31, 80],
           string="outPort",
-          style(color=9))));
+          style(color=9))),
+      Documentation(info="<html>
+  
+</html>"));
   equation 
     y = offset + (if time < startTime then 0 else height);
   end IntegerStep;

@@ -1,4 +1,4 @@
-package Sensors 
+package Sensors "Potential, voltage and current sensors" 
   
   extends Modelica.Icons.Library;
   
@@ -14,6 +14,9 @@ package Sensors
 <p>
 This package contains potential, voltage, and current sensors.
 </p>
+
+</HTML>
+", revisions="<html>
 <dl>
 <dt>
 <b>Main Authors:</b>
@@ -37,8 +40,7 @@ and the accompanying <b>disclaimer</b> in the documentation of package
 Modelica in file \"Modelica/package.mo\".</i><br>
 <p>
 </dl>
-</HTML>
-"));
+</html>"));
   
   model PotentialSensor "Sensor to measure the potential" 
     extends Modelica.Icons.RotationalSensor;
@@ -67,7 +69,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
         height=0.6),
       Diagram(
         Line(points=[-70,0; -96,0],   style(color=0)),
-        Line(points=[100,0; 70,0])), 
+        Line(points=[100,0; 70,0])),
       Documentation(revisions="<html>
 <ul>
 <li><i>  </i>
@@ -114,7 +116,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
       Diagram(
         Line(points=[-70,0; -96,0],   style(color=0)),
         Line(points=[70,0; 96,0],   style(color=0)),
-        Line(points=[0,-90; 0,-70])), 
+        Line(points=[0,-90; 0,-70])),
       Documentation(revisions="<html>
 <ul>
 <li><i>  </i>
@@ -162,7 +164,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
         Text(extent=[-153,79; 147,119],   string="%name"),
         Line(points=[-70,0; -96,0],   style(color=0)),
         Line(points=[70,0; 96,0],   style(color=0)),
-        Line(points=[0,-90; 0,-70])), 
+        Line(points=[0,-90; 0,-70])),
       Documentation(revisions="<html>
 <ul>
 <li><i>  </i>

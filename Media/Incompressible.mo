@@ -6,10 +6,10 @@ package Incompressible
   import Modelica.Constants;
   import Modelica.Math;
   
-  package Common 
+  package Common "Common data structures" 
     
     // Extended record for input to functions based on polynomials
-    record BaseProps_Tpoly "fluid state record" 
+    record BaseProps_Tpoly "Fluid state record" 
       extends Modelica.Media.Interfaces.PartialMedium.ThermodynamicState;
       //      SI.SpecificHeatCapacity cp "specific heat capacity";
       SI.Temperature T "temperature";
@@ -494,6 +494,9 @@ function calls can not be used.
          20, 0.00626; 40, 0.00299; 60, 0.00162; 80, 0.00110; 100, 0.00081],
       tableVaporPressure=
         [0, 500; 20, 1.9e3; 40, 5.3e3; 60, 16e3; 80, 37e3; 100, 80e3]);
+      annotation (Documentation(info="<html>
+   
+</html>"));
   end Glycol47;
     
   package Essotherm650 "Essotherm thermal oil" 
@@ -515,6 +518,9 @@ function calls can not be used.
       tableVaporPressure=
         [160, 3; 180, 10; 200, 40; 220, 100; 240, 300; 260, 600;
          280, 1600; 300, 3e3; 320, 5.5e3]);
+      annotation (Documentation(info="<html>
+  
+</html>"));
   end Essotherm650;
     
   model TestGlycol "Test Glycol47 Medium model" 
@@ -542,6 +548,7 @@ incompressible fluids. The package contains:
 <li><b>Glycol47</b>, a model of 47% glycol water mixture, based on tables of
 density and heat capacity as functions of temperature.</li>
 <li><b>Essotherm650</b>, a medium model for thermal oil, also based on tables.</li>
+</ul>
 
 </HTML>"));
   end Examples;

@@ -39,7 +39,7 @@ connected with continuous blocks or with sampled-data blocks.
 </ul>
 </html"));
       block TwoInputs 
-    "Change causality of input signals (e.g. for inverse models)" 
+    "Change causality of input signals by defining that two input signals are identical (e.g. for inverse models)" 
         extends Blocks.Interfaces.BlockIcon;
         annotation(structurallyIncomplete,
           Coordsys(
@@ -51,23 +51,22 @@ connected with continuous blocks or with sampled-data blocks.
             y=0.21,
             width=0.6,
             height=0.6),
-          Documentation(info="
-<HTML>
+          Documentation(info="<HTML>
 <p>
 This block is used to enable asignment of values to variables preliminary
 defined as outputs (e.g. useful for inverse model generation).
 </p>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>June 28, 2001</i>
-       by Michael Thuemmel
-       Realized.</li>
-</ul>
+ 
 </HTML>
-"));
-        Blocks.Interfaces.RealInput u1 
+"),       Icon(Text(
+              extent=[-95,50; 95,-50],
+              string="=", 
+          style(color=74, rgbcolor={0,0,127}))));
+        Blocks.Interfaces.RealInput u1 "Connector of first Real input signal" 
           annotation (extent=[-139.742, -19.0044; -100, 20], layer="icon");
-        Blocks.Interfaces.RealInput u2 annotation (
+        Blocks.Interfaces.RealInput u2 
+      "Connector of second Real input signal (u1=u2)" 
+                                       annotation (
           extent=[100, -20; 140, 20],
           rotation=180,
           layer="icon");
@@ -76,7 +75,7 @@ defined as outputs (e.g. useful for inverse model generation).
       end TwoInputs;
   
       block TwoOutputs 
-    "Change causality of output signals (e.g. for inverse models)" 
+    "Change causality of output signals by defining that two output signals are identical (e.g. for inverse models)" 
         extends Blocks.Interfaces.BlockIcon;
         annotation(structurallyIncomplete,
           Coordsys(
@@ -94,18 +93,19 @@ defined as outputs (e.g. useful for inverse model generation).
 This block is used to enable calculation of values preliminary defined as inputs.
 (e.g. useful for inverse model generation).
 </p>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>June 28, 2001</i>
-       by Michael Thuemmel
-       Realized.</li>
-</ul>
+ 
 </HTML>
-"));
-        output Blocks.Interfaces.RealOutput y2 annotation (extent=[-120.366, -10.9029;
-               -100.365, 9.09712], rotation=180);
+"),       Icon(Text(
+              extent=[-95,50; 95,-50],
+              string="=",
+              style(color=74, rgbcolor={0,0,127}))));
         output Blocks.Interfaces.RealOutput y1 
+      "Connector of first Real output signal" 
           annotation (extent=[100, -10; 120, 10]);
+        output Blocks.Interfaces.RealOutput y2 
+      "Connector of second Real output signal (y1=y2)" 
+                                               annotation (extent=[-120.366, -10.9029;
+               -100.365, 9.09712], rotation=180);
       equation 
         y1 = y2;
       end TwoOutputs;
@@ -138,16 +138,7 @@ input <i>u</i>:
 <pre>
     y = k * u;
 </pre>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>October 20, 2004</i>
-       by <a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Christian Schweiger</a>:<br>
-       Icon changed. Documentation corrected to scalar implementation.
-<li><i>August 7, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       Realized.
-</li>
-</ul>
+
 </HTML>
 "),       Icon(
             Polygon(points=[-100, -100; -100, 100; 100, 0; -100, -100], style(
@@ -197,13 +188,7 @@ Example:
      |      |  =  |            | * |      |
      | y[2] |     | 3.00  1.50 |   | u[2] |
 </pre>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>August 7, 1999</i>
-       by <a href=\"http://www.op.dlr.de/~otter/\">Martin Otter</a>:<br>
-       Realized.
-</li>
-</ul>
+
 </HTML>
 "),       Icon(Text(
               extent=[-90, -60; 90, 60],
@@ -259,13 +244,7 @@ Example:
   results in the following equations:
      y = u[1] + u[2] + u[3];
 </pre>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>Oct. 24, 1999</i>
-       by <a href=\"http://www.op.dlr.de/~otter/\">Martin Otter</a>:<br>
-       Realized.
-</li>
-</ul>
+
 </HTML>
 "),       Icon(Line(points=[26, 42; -34, 42; 6, 2; -34, -38; 26, -38], style(
                   color=0, thickness=1)), Text(extent=[-150, 150; 150, 110],
@@ -310,13 +289,7 @@ Example:
   results in the following equations:
      y = u1 - u2
 </pre>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>August 7, 1999</i>
-       by <a href=\"http://www.op.dlr.de/~otter/\">Martin Otter</a>:<br>
-       Realized.
-</li>
-</ul>
+
 </HTML>
 "),       Icon(
             Ellipse(extent=[-20, 20; 20, -20], style(
@@ -383,11 +356,7 @@ Example:
 </pre>
 <p><b>Release Notes:</b></p>
 <ul>
-<li><i>August 7, 1999</i>
-       by <a href=\"http://www.op.dlr.de/~otter/\">Martin Otter</a>:<br>
-       Realized.
-</li>
-</ul>
+
 </HTML>
 "),       Icon(
             Text(
@@ -515,11 +484,7 @@ Example:
 </pre>
 <p><b>Release Notes:</b></p>
 <ul>
-<li><i>August 7, 1999</i>
-       by <a href=\"http://www.op.dlr.de/~otter/\">Martin Otter</a>:<br>
-       Realized.
-</li>
-</ul>
+
 </HTML>
 "),       Icon(
             Text(
@@ -591,13 +556,7 @@ the two inputs <b>u1</b> and <b>u2</b>:
 <pre>
     y = u1 * u2;
 </pre>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>August 7, 1999</i>
-       by <a href=\"http://www.op.dlr.de/~otter/\">Martin Otter</a>:<br>
-       Realized.
-</li>
-</ul>
+
 </HTML>
 "),       Icon(
             Line(points=[-100, 60; -40, 60; -30, 40], style(color=74, rgbcolor=
@@ -646,13 +605,7 @@ the two inputs <b>u1</b> and <b>u2</b>:
 <pre>
     y = u1 / u2;
 </pre>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>August 7, 1999</i>
-       by <a href=\"http://www.op.dlr.de/~otter/\">Martin Otter</a>:<br>
-       Realized.
-</li>
-</ul>
+
 </HTML>
 "),       Icon(
             Line(points=[50, 0; 100, 0], style(color=74, rgbcolor={0,0,127})),
@@ -735,13 +688,7 @@ as <i>absolute value</i> of the input <b>u</b>:
 <pre>
     y = <b>abs</b>( u );
 </pre>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>August 7, 1999</i>
-       by <a href=\"http://www.op.dlr.de/~otter/\">Martin Otter</a>:<br>
-       Realized.
-</li>
-</ul>
+
 </HTML>
 "),       Coordsys(
             extent=[-100, -100; 100, 100],
@@ -811,13 +758,7 @@ as <b>sign</b> of the input <b>u</b>:
     y =  0  <b>if</b> u == 0
         -1  <b>if</b> u < 0
 </pre>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>August 7, 1999</i>
-       by <a href=\"http://www.op.dlr.de/~otter/\">Martin Otter</a>:<br>
-       Realized.
-</li>
-</ul>
+
 </HTML>
 "),       Coordsys(
             extent=[-100, -100; 100, 100],
@@ -880,13 +821,7 @@ as <i>square root</i> of the input <b>u</b>:
 All elements of the input vector shall be zero or positive.
 Otherwise an error occurs.
 </p>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>August 7, 1999</i>
-       by <a href=\"http://www.op.dlr.de/~otter/\">Martin Otter</a>:<br>
-       Realized.
-</li>
-</ul>
+
 </HTML>
 "),       Coordsys(
             extent=[-100, -100; 100, 100],
@@ -957,13 +892,7 @@ as <b>sine</b> of the input <b>u</b>:
 <pre>
     y = <b>sin</b>( u );
 </pre>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>August 7, 1999</i>
-       by <a href=\"http://www.op.dlr.de/~otter/\">Martin Otter</a>:<br>
-       Realized.
-</li>
-</ul>
+
 </HTML>
 "),       Coordsys(
             extent=[-100, -100; 100, 100],
@@ -1031,13 +960,7 @@ as <b>cos</b> of the input <b>u</b>:
 <pre>
     y = <b>cos</b>( u );
 </pre>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>August 7, 1999</i>
-       by <a href=\"http://www.op.dlr.de/~otter/\">Martin Otter</a>:<br>
-       Realized.
-</li>
-</ul>
+
 </HTML>
 "),       Coordsys(
             extent=[-100, -100; 100, 100],
@@ -1106,13 +1029,7 @@ as <b>tan</b> of the input <b>u</b>:
 <pre>
     y = <b>tan</b>( u );
 </pre>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>August 7, 1999</i>
-       by <a href=\"http://www.op.dlr.de/~otter/\">Martin Otter</a>:<br>
-       Realized.
-</li>
-</ul>
+
 </HTML>
 "),       Coordsys(
             extent=[-100, -100; 100, 100],
@@ -1182,13 +1099,7 @@ The absolute values of the elements of the input <b>u</b> need to
 be less or equal to one (<b>abs</b>( u ) <= 1).
 Otherwise an error occurs.
 </p>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>August 7, 1999</i>
-       by <a href=\"http://www.op.dlr.de/~otter/\">Martin Otter</a>:<br>
-       Realized.
-</li>
-</ul>
+
 </HTML>
 "),       Coordsys(
             extent=[-100, -100; 100, 100],
@@ -1260,13 +1171,7 @@ The absolute values of the elements of the input <b>u</b> need to
 be less or equal to one (<b>abs</b>( u ) <= 1).
 Otherwise an error occurs.
 </p>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>August 7, 1999</i>
-       by <a href=\"http://www.op.dlr.de/~otter/\">Martin Otter</a>:<br>
-       Realized.
-</li>
-</ul>
+
 </HTML>
 "),       Coordsys(
             extent=[-100, -100; 100, 100],
@@ -1333,13 +1238,7 @@ This blocks computes the output <b>y</b> (element-wise) as the
 <pre>
     y= <b>atan</b>( u );
 </pre>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>August 7, 1999</i>
-       by <a href=\"http://www.op.dlr.de/~otter/\">Martin Otter</a>:<br>
-       Realized.
-</li>
-</ul>
+
 </HTML>
 "),       Coordsys(
             extent=[-100, -100; 100, 100],
@@ -1423,13 +1322,7 @@ the solution in the range -180 deg <= y <= 180 deg, whereas
 block <b>Atan</b> gives a solution in the range
 -90 deg <= y <= 90 deg.
 </p>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>August 7, 1999</i>
-       by <a href=\"http://www.op.dlr.de/~otter/\">Martin Otter</a>:<br>
-       Realized.
-</li>
-</ul>
+
 </HTML>
 "),       Coordsys(
             extent=[-100, -100; 100, 100],
@@ -1496,13 +1389,7 @@ This blocks computes the output <b>y</b> (element-wise) as the
 <pre>
     y = <b>sinh</b>( u );
 </pre>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>August 7, 1999</i>
-       by <a href=\"http://www.op.dlr.de/~otter/\">Martin Otter</a>:<br>
-       Realized.
-</li>
-</ul>
+
 </HTML>
 "),       Coordsys(
             extent=[-100, -100; 100, 100],
@@ -1573,13 +1460,7 @@ This blocks computes the output <b>y</b> (element-wise) as the
 <pre>
     y = <b>cosh</b>( u );
 </pre>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>August 7, 1999</i>
-       by <a href=\"http://www.op.dlr.de/~otter/\">Martin Otter</a>:<br>
-       Realized.
-</li>
-</ul>
+
 </HTML>
 "),       Coordsys(
             extent=[-100, -100; 100, 100],
@@ -1646,13 +1527,7 @@ This blocks computes the output <b>y</b> (element-wise) as the
 <pre>
     y = <b>tanh</b>( u );
 </pre>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>August 7, 1999</i>
-       by <a href=\"http://www.op.dlr.de/~otter/\">Martin Otter</a>:<br>
-       Realized.
-</li>
-</ul>
+
 </HTML>
 "),       Coordsys(
             extent=[-100, -100; 100, 100],
@@ -1717,13 +1592,7 @@ This blocks computes the output <b>y</b> (element-wise) as the
 <pre>
     y = <b>exp</b>( u );
 </pre>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>August 7, 1999</i>
-       by <a href=\"http://www.op.dlr.de/~otter/\">Martin Otter</a>:<br>
-       Realized.
-</li>
-</ul>
+
 </HTML>
 "),       Coordsys(
             extent=[-100, -100; 100, 100],
@@ -1796,13 +1665,7 @@ This blocks computes the output <b>y</b> (element-wise) as the
 An error occurs if the elements of the input <b>u</b> are
 zero or negative.
 </p>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>August 7, 1999</i>
-       by <a href=\"http://www.op.dlr.de/~otter/\">Martin Otter</a>:<br>
-       Realized.
-</li>
-</ul>
+
 </HTML>
 "),       Coordsys(
             extent=[-100, -100; 100, 100],
@@ -1875,13 +1738,7 @@ This blocks computes the output <b>y</b> (element-wise) as the
 An error occurs if the elements of the input <b>u</b> are
 zero or negative.
 </p>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>August 7, 1999</i>
-       by <a href=\"http://www.op.dlr.de/~otter/\">Martin Otter</a>:<br>
-       Realized.
-</li>
-</ul>
+
 </HTML>
 "),       Coordsys(
             extent=[-100, -100; 100, 100],
@@ -1916,8 +1773,10 @@ as <i>nearest integer value</i> of the input <b>u</b>:
 </html>
 "));
   public 
-    Interfaces.RealInput u annotation (extent=[-140, -20; -100, 20]);
-    Interfaces.IntegerOutput y annotation (extent=[100, -10;
+    Interfaces.RealInput u "Connector of Real input signal" 
+                           annotation (extent=[-140, -20; -100, 20]);
+    Interfaces.IntegerOutput y "Connector of Integer output signal" 
+                               annotation (extent=[100, -10;
           120, 10]);
   equation 
      y = if (u > 0) then integer(floor(u + 0.5)) else 
@@ -1935,7 +1794,7 @@ as <i>nearest integer value</i> of the input <b>u</b>:
         Polygon(points=[10, 0; -10, 20; -10, 10; -40, 10; -40, -10; -10, -10; -
               10, -20; 10, 0], style(fillColor=73))), Documentation(info="<html>
 <p>
-This block computes the output <b>y</b> element-wise
+This block computes the output <b>y</b>
 as <i>Real equivalent</i> of the Integer input <b>u</b>:
 </p>
 <pre>    y = u;
@@ -1943,9 +1802,10 @@ as <i>Real equivalent</i> of the Integer input <b>u</b>:
 <p>where <b>u</b> is of Integer and <b>y</b> of Real type.</p>
 </html>
 "));
-    Interfaces.RealOutput y   annotation (extent=[100, -10; 120, 10]);
-    Interfaces.IntegerInput u annotation (extent=[-140, -20; -
+    Interfaces.IntegerInput u "Connector of Integer input signal" 
+                                                               annotation (extent=[-140, -20; -
           100, 20]);
+    Interfaces.RealOutput y "Connector of Real output signal"  annotation (extent=[100, -10; 120, 10]);
   equation 
     y = u;
   end IntegerToReal;
@@ -1955,7 +1815,7 @@ as <i>Real equivalent</i> of the Integer input <b>u</b>:
     parameter Real realTrue=1.0 "Output signal for true Boolean input";
     parameter Real realFalse=0.0 "Output signal for false Boolean input";
     
-    Blocks.Interfaces.RealOutput y 
+    Blocks.Interfaces.RealOutput y "Connector of Real output signal" 
       annotation (extent=[100, -10; 120, 10]);
     
     annotation (
@@ -1968,8 +1828,18 @@ as <i>Real equivalent</i> of the Integer input <b>u</b>:
         y=0.26,
         width=0.6,
         height=0.6),
-      Documentation(info=""),
-      Icon(
+      Documentation(info="<html>
+<p>
+This block computes the output <b>y</b>
+as <i>Real equivalent</i> of the Boolean input <b>u</b>:
+</p>
+<pre>    y = <b>if</b> u <b>then</b> realTrue <b>else</b> realFalse;
+</pre>
+<p>where <b>u</b> is of Boolean and <b>y</b> of Real type,
+and <b>realTrue</b> and <b>realFalse</b> are parameters.
+</p>
+</html>
+"),   Icon(
         Text(
           extent=[-86,92; -6,10],
           string="B",
@@ -1988,7 +1858,7 @@ as <i>Real equivalent</i> of the Integer input <b>u</b>:
     parameter Integer integerTrue=1 "Output signal for true Boolean input";
     parameter Integer integerFalse=0 "Output signal for false Boolean input";
     
-    Blocks.Interfaces.IntegerOutput y 
+    Blocks.Interfaces.IntegerOutput y "Connector of Integer output signal" 
       annotation (extent=[100, -10; 120, 10]);
     
     annotation (
@@ -2001,8 +1871,18 @@ as <i>Real equivalent</i> of the Integer input <b>u</b>:
         y=0.26,
         width=0.6,
         height=0.6),
-      Documentation(info=""),
-      Icon(
+      Documentation(info="<html>
+<p>
+This block computes the output <b>y</b>
+as <i>Integer equivalent</i> of the Boolean input <b>u</b>:
+</p>
+<pre>    y = <b>if</b> u <b>then</b> integerTrue <b>else</b> integerFalse;
+</pre>
+<p>where <b>u</b> is of Boolean and <b>y</b> of Integer type,
+and <b>integerTrue</b> and <b>integerFalse</b> are parameters.
+</p>
+</html>
+"),   Icon(
         Text(
           extent=[-86,92; -6,10],
           string="B",
@@ -2023,11 +1903,10 @@ as <i>Real equivalent</i> of the Integer input <b>u</b>:
   end BooleanToInteger;
   
   block RealToBoolean "Convert Real to Boolean signal" 
+    Blocks.Interfaces.RealInput u "Connector of Real input signal"  annotation(extent=[-140,-20; -100,20]);
     extends Interfaces.partialBooleanSO;
     parameter Real threshold=0.5 
       "Output signal y is true, if input u >= threshold";
-    
-    Blocks.Interfaces.RealInput u annotation(extent=[-140,-20; -100,20]);
     
     annotation (
       Coordsys(
@@ -2039,7 +1918,19 @@ as <i>Real equivalent</i> of the Integer input <b>u</b>:
         y=0.26,
         width=0.6,
         height=0.6),
-      Documentation(info=""),
+      Documentation(info="<html>
+<p>
+This block computes the Boolean output <b>y</b>
+from the Real input <b> u</b> by the equation:
+</p>
+
+<pre>    y = u &ge; threshold;
+</pre> 
+
+<p>
+where <b>threshold</b> is a parameter.
+</p>
+</html>"),
       Icon(
         Text(
           extent=[-86,92; -6,10],
@@ -2059,11 +1950,10 @@ as <i>Real equivalent</i> of the Integer input <b>u</b>:
   end RealToBoolean;
   
   block IntegerToBoolean "Convert Integer to Boolean signal" 
+    Blocks.Interfaces.IntegerInput u "Connector of Integer input signal" annotation(extent=[-140,-20; -100,20]);
     extends Interfaces.partialBooleanSO;
     parameter Integer threshold=1 
       "Output signal y is true, if input u >= threshold";
-    
-    Blocks.Interfaces.IntegerInput u annotation(extent=[-140,-20; -100,20]);
     
     annotation (
       Coordsys(
@@ -2075,7 +1965,19 @@ as <i>Real equivalent</i> of the Integer input <b>u</b>:
         y=0.26,
         width=0.6,
         height=0.6),
-      Documentation(info=""),
+      Documentation(info="<html>
+<p>
+This block computes the Boolean output <b>y</b>
+from the Integer input <b> u</b> by the equation:
+</p>
+
+<pre>    y = u &ge; threshold;
+</pre> 
+
+<p>
+where <b>threshold</b> is a parameter.
+</p>
+</html>"),
       Icon(
         Text(
           extent=[-86,92; -6,10],
@@ -2102,7 +2004,7 @@ as <i>Real equivalent</i> of the Integer input <b>u</b>:
           string="max()")), Documentation(info="<html>
 <p>
 This block computes the output <b>y</b> as <i>maximum</i>
-of the two inputs <b>u1</b> and <b>u2</b>:
+of the two Real inputs <b>u1</b> and <b>u2</b>:
 </p>
 <pre>    y = <b>max</b> ( u1 , u2 );
 </pre>
@@ -2120,7 +2022,7 @@ of the two inputs <b>u1</b> and <b>u2</b>:
           string="min()")), Documentation(info="<html>
 <p>
 This block computes the output <b>y</b> as <i>minimum</i> of
-the two inputs <b>u1</b> and <b>u2</b>:
+the two Real inputs <b>u1</b> and <b>u2</b>:
 </p>
 <pre>    y = <b>min</b> ( u1 , u2 );
 </pre>

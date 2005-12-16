@@ -12,12 +12,16 @@ user interface when the type is used as parameter in a declaration.
   package Extrapolation 
     "Type, constants and menu choices to define the extrapolation of time table interpolation" 
     
-    annotation (preferedView="text");
+    annotation (Documentation(info="<html>
+  
+</html>"));
     extends Modelica.Icons.Enumeration;
     
-    constant Integer HoldLastPoint=0;
-    constant Integer LastTwoPoints=1;
-    constant Integer Periodic=2;
+    constant Integer HoldLastPoint=0 
+      "Hold the last table point outside of the table scope";
+    constant Integer LastTwoPoints=1 
+      "Extrapolate linearly through the last two table points outside of the table scope";
+    constant Integer Periodic=2 "Repeat the table scope periodically";
     
     type Temp 
       "Temporary type of Extrapolation with choices for menus (until enumerations are available)" 
@@ -29,18 +33,42 @@ user interface when the type is used as parameter in a declaration.
         choice=Modelica.Blocks.Types.Extrapolation.LastTwoPoints 
             "last two points (linear extrapolation)",
         choice=Modelica.Blocks.Types.Extrapolation.Periodic 
-            "periodic (repeat table)"));
+            "periodic (repeat table)"), Documentation(info="<html>
+<p>
+Type of extrapolation in a table.
+</p>
+ 
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td><b>choice</b></td>
+      <td><b>Meaning of choice</b></td>
+  </tr>
+ 
+  <tr><td>HoldLastPoint</td>
+      <td>Hold the last table point outside of the table scope</td>
+  </tr>
+  <tr><td>LastTwoPoints</td>
+      <td>Extrapolate linearly through the last two table points
+          outside of the table scope</td>
+  </tr>
+  <tr><td>Periodic</td>
+      <td>Repeat the table scope periodically</td>
+  </tr>
+</table>
+</html>"));
     end Temp;
   end Extrapolation;
   
   package Smoothness 
     "Type, constants and menu choices to define the smoothness of table interpolation" 
     
-    annotation (preferedView="text");
+    annotation (Documentation(info="<html>
+   
+</html>"));
     extends Modelica.Icons.Enumeration;
     
-    constant Integer LinearSegments=0;
-    constant Integer ContinuousDerivative=1;
+    constant Integer LinearSegments=0 "Table points are linearly interpolated";
+    constant Integer ContinuousDerivative=1 
+      "Table points are interpolated such that the first derivative is continuous";
     
     type Temp 
       "Temporary type of Smoothness with choices for menus (until enumerations are available)" 
@@ -50,7 +78,25 @@ user interface when the type is used as parameter in a declaration.
         choice=Modelica.Blocks.Types.Smoothness.LinearSegments 
             "linear segments",
         choice=Modelica.Blocks.Types.Smoothness.ContinuousDerivative 
-            "continuous derivative"));
+            "continuous derivative"), Documentation(info="<html>
+<p>
+Smoothness of interpolation in a table.
+</p>
+ 
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td><b>choice</b></td>
+      <td><b>Meaning of choice</b></td>
+  </tr>
+ 
+  <tr><td>LinearSegments</td>
+      <td>Table points are linearly interpolated</td>
+  </tr>
+  <tr><td>ContinuousDerivative</td>
+      <td>Table points are interpolated such that the
+          first derivative is continuous</td>
+  </tr>
+</table>
+</html>"));
     end Temp;
   end Smoothness;
   

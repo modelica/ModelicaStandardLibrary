@@ -41,8 +41,8 @@ For an introduction, have especially a look at:
      discusses the most important aspects of this library.</li>
 <li><a href=\"Modelica://Modelica.UsersGuide.ReleaseNotes\">Release Notes</a>
     summarizes the changes of new versions of this package.</li>
-<li> Packages <b>Examples</b> in the various subpackages, provide
-     demos of the corresponding subpackage.</li>
+<li> Packages <b>Examples</b> in the various subpackages, demonstrate
+     how to use the components of the corresponding sublibrary.</li>
 </ul>
 
 <p>
@@ -72,24 +72,51 @@ It provides constants, types, connectors, partial models and model
 components in various disciplines.
 </p>
 <p>
-This package contains the <b>users guide</b> for 
-the library and has the following content
-(this users guide will be improved in the future):
+This package contains a short <b>users guide</b> for 
+the overall library. Some of the main sublibraries have their own
+users guides that can be accessed by the following links:
 </p>
-<ol>
-<li><a href=\"Modelica://Modelica.UsersGuide.OverView\">Overview of library</a>
-     gives an overview of the library.</li>
-<li><a href=\"Modelica://Modelica.UsersGuide.ReleaseNotes\">Release Notes</a>
-    summarizes the differences between different versions of this library.</li>
-<li><a href=\"Modelica://Modelica.UsersGuide.Contact\">Contact</a> 
-    provides information about the authors of the library as well as
-    acknowledgments.</li>
-<li><a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">ModelicaLicense</a> 
-    defines the license conditions for using this library.</li>
-</ol>
+
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td><a href=\"Modelica://Modelica.Electrical.Digital.UsersGuide\">Modelica.Electrical.Digital.UsersGuide</a><
+             </td>
+      <td>Library for digital electrical components based on the VHDL standard 
+         (2-,3-,4-,9-valued logic)\"</td>
+  </tr>
+  <tr><td><a href=\"Modelica://Modelica.Mechanics.MultiBody.UsersGuide\">Modelica.Mechanics.MultiBody.UsersGuide</a><
+             </td>
+      <td>Library to model 3-dimensional mechanical systems</td>
+  </tr>
+
+  <tr><td><a href=\"Modelica://Modelica.Mechanics.Rotational.UsersGuide\">Modelica.Mechanics.Rotational.UsersGuide</a><
+             </td>
+      <td>Library to model 1-dimensional mechanical systems</td>
+  </tr>
+
+  <tr><td><a href=\"Modelica://Modelica.Media.UsersGuide\">Modelica.Media.UsersGuide</a><
+             </td>
+      <td>Property models of media</td>
+  </tr>
+  <tr><td><a href=\"Modelica://Modelica.SIunits.UsersGuide\">Modelica.SIunits.UsersGuide</a><
+             </td>
+      <td>Type definitions based on SI units according to ISO 31-1992</td>
+  </tr>
+
+  <tr><td><a href=\"Modelica://Modelica.StateGraph.UsersGuide\">Modelica.StateGraph.UsersGuide</a><
+             </td>
+      <td>Library to model discrete event and reactive systems by hierarchical state machines</td>
+  </tr>
+
+
+  <tr><td><a href=\"Modelica://Modelica.Utilities.UsersGuide\">Modelica.Utilities.UsersGuide</a><
+             </td>
+      <td>Utility functions especially for scripting (Files, Streams, Strings, System)</td>
+  </tr>
+</table>
+
 </html>"));
   
-  class OverView "Overview of library" 
+  class OverView "Overview" 
     
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>Overview of Library Modelica</font></h3>
@@ -956,7 +983,8 @@ In particular, the following people have directly contributed
   </tr>
 
   <tr><td><b>Hans-Dieter Joos</b> </td
-      <td> DLR, German Aerospace Center, <br>
+      <td> Institute of Robotics and Mechatronics<br>
+           DLR, German Aerospace Center, <br>
            Oberpfaffenhofen, Germany</td>
       <td> Modelica.Math.Matrices</td>
   </tr>
@@ -979,7 +1007,8 @@ In particular, the following people have directly contributed
            Conversion from 1.6 to 2.0</td>
   </tr>
   <tr><td><b>Martin Otter</b> </td
-      <td> DLR, German Aerospace Center, <br>
+      <td> Institute of Robotics and Mechatronics<br>
+           DLR, German Aerospace Center, <br>
            Oberpfaffenhofen, Germany</td>
       <td> Modelica.Blocks<br> 
            Modelica.Mechanics.MultiBody<br>
@@ -995,8 +1024,16 @@ In particular, the following people have directly contributed
   </tr>
 
   <tr><td><b>Katrin Pr&ouml;l&szlig;</b> </td
-      <td> Technical University Hamburg-Harburg,<br>Germany</td>
-      <td> Modelica.Media/td>
+      <td> Department of Technical Thermodynamics,<br>
+           Technical University Hamburg-Harburg,<br>Germany</td>
+      <td> Modelica.Media</td>
+  </tr>
+
+  <tr><td><b>Christoph C. Richter</b> </td
+      <td> Institut für Thermodynamik, <br>
+           Technische Universit&auml;t Braunschweig, <br>
+           Germany</td>
+      <td> Modelica.Media</td>
   </tr>
 
   <tr><td><b>Andr&eacute; Schneider</b> </td
@@ -1005,13 +1042,16 @@ In particular, the following people have directly contributed
            Modelica.Electrical.Digital</td>
   </tr>
   <tr><td><b>Christian Schweiger</b> </td
-      <td> DLR, German Aerospace Center,<br>Oberpfaffenhofen, Germany</td>
+      <td> Institute of Robotics and Mechatronics,<br>
+           DLR, German Aerospace Center,<br> 
+           Oberpfaffenhofen, Germany</td>
       <td> Modelica.Mechanics.Rotational<br>
            ModelicaReference<br>
            Conversion from 1.6 to 2.0</td>
   </tr>
   <tr><td><b>Michael Tiller</b> </td
-      <td> Ford Motor Company, Dearborn, MI, U.S.A </td>
+      <td> Emmeskay, Inc., Dearborn, MI, U.S.A, <br>
+           (previously Ford Motor Company, Dearborn) </td>
       <td> Modelica.Media<br>
            Modelica.Thermal</td>
   </tr>

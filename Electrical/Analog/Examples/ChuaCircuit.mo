@@ -21,7 +21,11 @@ The simulation end time should be set to 5e4. To get the chaotic behaviour pleas
 <b>Reference:</b>
 <dd>
 Kennedy, M.P.: Three Steps to Chaos - Part I: Evolution. IEEE Transactions on CAS I 40 (1993)10, 640-656
-<p>
+</dd>
+</dl>
+
+</HTML>
+", revisions="<html>
 <dt>
 <b>Main Authors:</b>
 <dd>
@@ -44,8 +48,8 @@ and the accompanying <b>disclaimer</b> in the documentation of package
 Modelica in file \"Modelica/package.mo\".</i><br>
 <p>
 </dl>
-</HTML>
-"), Window(
+</html>"),
+    Window(
       x=0.22,
       y=0.17,
       width=0.6,

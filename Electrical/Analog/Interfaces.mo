@@ -1,5 +1,5 @@
 package Interfaces 
-  
+  "Connectors and partial models for Analog electrical components" 
   extends Modelica.Icons.Library;
   annotation(preferedView="info", Window(
       x=0.03,
@@ -12,6 +12,9 @@ package Interfaces
 This package contains connectors and interfaces (partial models) for
 analog electrical components.
 </p>
+
+</HTML>
+", revisions="<html>
 <dl>
 <dt>
 <b>Main Authors:</b>
@@ -26,7 +29,10 @@ analog electrical components.
     D-01069 Dresden<br>
 <p>
 <dt>
+</dl>
+
 <b>Copyright:</b>
+<dl>
 <dd>
 Copyright &copy; 1998-2002, Modelica Association and Fraunhofer-Gesellschaft.<br>
 <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
@@ -35,13 +41,9 @@ and the accompanying <b>disclaimer</b> in the documentation of package
 Modelica in file \"Modelica/package.mo\".</i><br>
 <p>
 </dl>
-</HTML>
-", revisions="<html>
+
 <ul>
-<li><i>  </i>
-       <br>
-       </li>
-<li><i> 1998   </i>
+<li><i> 1998</i>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -56,7 +58,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
                3)), Text(
           extent=[-160,110; 40,50],
           string="%name",
-          style(color=3))), 
+          style(color=3))),
       Documentation(revisions="<html>
 <ul>
 <li><i>  </i>
@@ -129,7 +131,9 @@ component.</p></html>", revisions="<html>
   
   partial model TwoPin "Component with one electrical port" 
     SI.Voltage v "Voltage drop between the two pins (= p.v - n.v)";
-    PositivePin p "Positive pin" annotation (extent=[-110, -10; -90, 10]);
+    PositivePin p 
+      "Positive pin Positive pin (potential p.v > n.v for positive voltage drop v)"
+                                                                                                annotation (extent=[-110, -10; -90, 10]);
     NegativePin n "Negative pin" annotation (extent=[90, -10; 110, 10]);
     annotation (
       Diagram(
@@ -159,7 +163,7 @@ component.</p></html>", revisions="<html>
         x=0.11,
         y=0.14,
         width=0.55,
-        height=0.64), 
+        height=0.64),
       Documentation(revisions="<html>
 <ul>
 <li><i>  </i>
@@ -228,8 +232,9 @@ This current is provided explicitly as current i.
         y=0.04,
         width=0.63,
         height=0.67));
-    PositivePin p annotation (extent=[-110, -10; -90, 10]);
-    NegativePin n annotation (extent=[110, -10; 90, 10]);
+    PositivePin p 
+      "Positive pin (potential p.v > n.v for positive voltage drop v)"             annotation (extent=[-110, -10; -90, 10]);
+    NegativePin n "Negative pin" annotation (extent=[110, -10; 90, 10]);
   equation 
     v = p.v - n.v;
     0 = p.i + n.i;
@@ -242,11 +247,15 @@ This current is provided explicitly as current i.
     SI.Voltage v2 "Voltage drop over the right port";
     SI.Current i1 "Current flowing from pos. to neg. pin of the left port";
     SI.Current i2 "Current flowing from pos. to neg. pin of the right port";
-    PositivePin p1 "Positive pin of the left port" annotation (extent=[-110, 40;
+    PositivePin p1 
+      "Positive pin of the left port (potential p1.v > n1.v for positive voltage drop v1)"
+                                                                                                        annotation (extent=[-110, 40;
             -90, 60]);
     NegativePin n1 "Negative pin of the left port" annotation (extent=[-90,-60;
           -110,-40]);
-    PositivePin p2 "Positive pin of the right port" annotation (extent=[110,40;
+    PositivePin p2 
+      "Positive pin of the right port (potential p2.v > n2.v for positive voltage drop v2)"
+                                                                                                         annotation (extent=[110,40;
           90,60]);
     NegativePin n2 "Negative pin of the right port" annotation (extent=[90, -60;
             110, -40]);
@@ -303,7 +312,7 @@ This current is provided explicitly as current i.
         x=0.16,
         y=0.12,
         width=0.6,
-        height=0.6), 
+        height=0.6),
       Documentation(revisions="<html>
 <ul>
 <li><i>  </i>
@@ -312,6 +321,8 @@ This current is provided explicitly as current i.
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
+</html>", info="<html>
+ 
 </html>"));
   equation 
     v1 = p1.v - n1.v;
@@ -326,8 +337,9 @@ This current is provided explicitly as current i.
     "Base class to measure the absolute value of a pin variable" 
     extends Modelica.Icons.RotationalSensor;
     
-    Interfaces.PositivePin p "pin to be measured" annotation (extent=[-110, -10; -90, 10]);
-    Modelica.Blocks.Interfaces.RealOutput y annotation (extent=[100, -10; 120, 10]);
+    Interfaces.PositivePin p "Pin to be measured" annotation (extent=[-110, -10; -90, 10]);
+    Modelica.Blocks.Interfaces.RealOutput y 
+      "Measured quantity as Real output signal"                                       annotation (extent=[100, -10; 120, 10]);
     annotation (
       Coordsys(
         extent=[-100, -100; 100, 100],
@@ -343,7 +355,7 @@ This current is provided explicitly as current i.
         Line(points=[70, 0; 100, 0]),
         Text(extent=[-150, 80; 150, 120], string="%name")),
       Diagram(Line(points=[-70,0; -96,0],   style(color=0)), Line(points=[70, 0;
-                100, 0])), 
+                100, 0])),
       Documentation(revisions="<html>
 <ul>
 <li><i>  </i>
@@ -359,9 +371,10 @@ This current is provided explicitly as current i.
     "Base class to measure a relative variable between two pins" 
     extends Modelica.Icons.RotationalSensor;
     
-    Interfaces.PositivePin p "positive pin" annotation (extent=[-110, -10; -90, 10]);
-    Interfaces.NegativePin n "negative pin" annotation (extent=[90, -10; 110, 10]);
-    Modelica.Blocks.Interfaces.RealOutput y annotation (extent=[-10, -90; 10, -110],
+    Interfaces.PositivePin p "Positive pin" annotation (extent=[-110, -10; -90, 10]);
+    Interfaces.NegativePin n "Negative pin" annotation (extent=[90, -10; 110, 10]);
+    Modelica.Blocks.Interfaces.RealOutput y 
+      "Measured quantity as Real output signal"                                       annotation (extent=[-10, -90; 10, -110],
         rotation=90);
     
     annotation (
@@ -377,7 +390,7 @@ This current is provided explicitly as current i.
       Diagram(
         Line(points=[-70,0; -96,0],   style(color=0)),
         Line(points=[0, -90; 0, -70]),
-        Line(points=[70,0; 96,0],   style(color=0))), 
+        Line(points=[70,0; 96,0],   style(color=0))),
       Documentation(revisions="<html>
 <ul>
 <li><i>  </i>
@@ -420,7 +433,7 @@ This current is provided explicitly as current i.
         x=0.31,
         y=0.09,
         width=0.6,
-        height=0.6), 
+        height=0.6),
       Documentation(revisions="<html>
 <ul>
 <li><i>  </i>
@@ -467,7 +480,7 @@ This current is provided explicitly as current i.
         x=0.33,
         y=0.24,
         width=0.6,
-        height=0.6), 
+        height=0.6),
       Documentation(revisions="<html>
 <ul>
 <li><i>  </i>

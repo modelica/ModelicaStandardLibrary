@@ -8,7 +8,29 @@ model HeatingRectifier "Heating rectifier"
   annotation (extent=[-80, 30; -60, 50], rotation=270);
   
 annotation (Diagram(Text(extent=[-94, 102; 0, 74], string=
-          "HeatingRectifier")));
+          "HeatingRectifier")), Documentation(info="<HTML>
+<P>
+The heating rectifier shows a heat flow always if the electrical capacitor is loaded.
+</P>
+<P>
+Simulate until T=5 s.
+</P>
+<P>
+Plot in separate windows:<br> <br>
+SineVoltage1.v  and  Capacitor1.p.v <br>
+HeatCapacitor1.port.T and HeatingDiode1.heatPort.T<br>
+HeatingDiode1.heatPort.Q_flow<br>
+</P>
+
+</HTML>
+", revisions="<html>
+<p><b>Release Notes:</b></p>
+<ul>
+<li><i>Mai 6, 2004   </i>
+       by Christoph Clauss<br> realized<br>
+       </li>
+</ul>
+</html>"));
   Modelica.Electrical.Analog.Basic.Capacitor Capacitor1 
   annotation (extent=[20, 40; 40, 60]);
   Modelica.Thermal.HeatTransfer.HeatCapacitor HeatCapacitor1(C=1) 
@@ -28,10 +50,10 @@ equation
   annotation (points=[0, 50; 20, 50], style(color=3));
   connect(HeatingDiode1.heatPort, ThermalConductor1.port_a) 
                                                           annotation (
-   points=[-10,40; -10,20.5; -10,1; -10,1],     style(color=42));
+   points=[-10,40; -10,20.5; -10,0; -10,0],     style(color=42));
   connect(ThermalConductor1.port_b, HeatCapacitor1.port) 
                                                        annotation (
-    points=[-10,-21; -10,-25.75; -10,-25.75; -10,-30.5; -10,-40; -10,-40],
+    points=[-10,-20; -10,-25.75; -10,-25.75; -10,-30.5; -10,-40; -10,-40],
                   style(color=42));
   connect(R.p, Capacitor1.p) 
   annotation (points=[20, 80; 20, 50], style(color=3));

@@ -1,6 +1,5 @@
-package Utilities "Utilities for examples"
+package Utilities "Utility components used by package Examples"
 extends Modelica.Icons.Library2;
-
 
 annotation (Window(
     x=0.09,
@@ -11,8 +10,11 @@ annotation (Window(
     autolayout=1),
   Documentation(info="<html>
 <p>
-This package contains utilities ...
+This package contains utility components used by package Examples.
 </p>
+
+</HTML>
+", revisions="<html>
 <dl>
 <dt>
 <b>Main Authors:</b>
@@ -36,6 +38,5 @@ and the accompanying <b>disclaimer</b> in the documentation of package
 Modelica in file \"Modelica/package.mo\".</i><br>
 <p>
 </dl>
-</HTML>
-"));
+</html>"));
 end Utilities;

@@ -1,4 +1,5 @@
 package Ideal 
+  "Ideal electrical elements such as switches, diode, transformer, operational amplifier" 
   
   extends Modelica.Icons.Library;
   
@@ -12,25 +13,9 @@ package Ideal
 <p>
 This package contains electrical components with idealized behaviour:
 </p>
-<ul>
-<li>thyristor</li>
-<li>GTO thyristor</li>
-<li>switches (basic, commuting, intermediate, controlled, 
-    controlled commuting, controlled intermediate)</li>
-<li>operational amplifier</li>
-<li>operational amplifier (3 Pins)</li>
-<li>operational amplifier with limits</li>
-<li>diode</li>
-<li>transformer</li>
-<li>gyrator</li>
-<li>idle branch</li>
-<li>short cut</li>
-<li>opener</li>
-<li>closer</li>
-<li>controlled opener</li>
-<li>controlled closer</li>
-</ul>
-</p>
+
+</HTML>
+", revisions="<html>
 <dl>
 <dt>
 <b>Main Authors:</b>
@@ -54,8 +39,7 @@ and the accompanying <b>disclaimer</b> in the documentation of package
 Modelica in file \"Modelica/package.mo\".</i><br>
 <p>
 </dl>
-</HTML>
-"));
+</html>"));
   
           model IdealThyristor "Ideal thyristor" 
             extends Modelica.Electrical.Analog.Interfaces.OnePort;

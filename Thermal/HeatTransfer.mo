@@ -321,7 +321,7 @@ Simulate for 7200 s; plot Twinding.T and Tcore.T.
     equation 
       connect(windingLosses.port, winding.port)  annotation (points=[-80,0; -80,
             -20], style(color=42, rgbcolor={191,0,0}));
-      connect(coreLosses.port, core.port)  annotation (points=[6.12303e-016,0;
+      connect(coreLosses.port, core.port)  annotation (points=[6.12303e-016,0; 
             6.12303e-016,-10; 0,-10; 0,-20],
           style(color=42, rgbcolor={191,0,0}));
       connect(winding.port, winding2core.port_a) 
@@ -337,13 +337,13 @@ Simulate for 7200 s; plot Twinding.T and Tcore.T.
       connect(winding2core.port_b, convection.solid) 
                                           annotation (points=[-30,-10; 30,-10],
           style(color=42, rgbcolor={191,0,0}));
-      connect(convection.fluid, environment.port) annotation (points=[50,-10;
+      connect(convection.fluid, environment.port) annotation (points=[50,-10; 
             60,-10; 60,-10; 70,-10], style(color=42, rgbcolor={191,0,0}));
       connect(convectionConstant.y, convection.Gc) 
         annotation (points=[40,19; 40,0], style(color=74, rgbcolor={0,0,127}));
       connect(lossTable.y[1], windingLosses.Q_flow) annotation (points=[-40,59;
             -40,40; -80,40; -80,20], style(color=74, rgbcolor={0,0,127}));
-      connect(lossTable.y[2], coreLosses.Q_flow) annotation (points=[-40,59;
+      connect(lossTable.y[2], coreLosses.Q_flow) annotation (points=[-40,59; 
             -40,40; -6.12303e-016,40; -6.12303e-016,20],
                                    style(color=74, rgbcolor={0,0,127}));
     end Motor;
@@ -354,10 +354,12 @@ Simulate for 7200 s; plot Twinding.T and Tcore.T.
             rgbcolor={135,135,135},
             fillColor=10,
             rgbfillColor={135,135,135},
-            fillPattern=1))));
+            fillPattern=1))), Documentation(info="<html>
+  
+</html>"));
   end Examples;
   
-  package Interfaces 
+  package Interfaces "Connectors and partial models" 
     
     extends Modelica.Icons.Library2;
     
@@ -365,6 +367,9 @@ Simulate for 7200 s; plot Twinding.T and Tcore.T.
       SI.Temperature T "Port temperature";
       flow SI.HeatFlowRate Q_flow 
         "Heat flow rate (positive if flowing from outside into the component)";
+      annotation (Documentation(info="<html>
+  
+</html>"));
     end HeatPort;
     
     connector HeatPort_a 
@@ -455,7 +460,9 @@ constitutive equations for many types of heat transfer components.
     end Element1D;
     annotation (Icon(
               Rectangle(extent=[-60,10; 40,-90],   style(color=42,
-              fillColor=42))));
+              fillColor=42))), Documentation(info="<html>
+  
+</html>"));
   end Interfaces;
   
   model HeatCapacitor "Lumped thermal element storing heat" 

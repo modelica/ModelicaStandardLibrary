@@ -103,8 +103,12 @@ as output.
   block VariableLimiter "Limit the range of a signal with variable limits" 
     extends Interfaces.SISO;
     
-    Interfaces.RealInput limit1 annotation (extent=[-140, 60; -100, 100]);
-    Interfaces.RealInput limit2 annotation (extent=[-140, -100; -100, -
+    Interfaces.RealInput limit1 
+      "Connector of Real input signal used as maximum of input u" 
+                                annotation (extent=[-140, 60; -100, 100]);
+    Interfaces.RealInput limit2 
+      "Connector of Real input signal used as minimum of input u" 
+                                annotation (extent=[-140, -100; -100, -
           60]);
   protected 
     Real uMax;

@@ -751,7 +751,10 @@ package Examples
     annotation (structurallyIncomplete,
       Diagram,
       experiment(StopTime=5),
-      experimentSetupOutput);
+      experimentSetupOutput, 
+        Documentation(info="<html>
+  
+</html>"));
     connect(initialStep.outPort[1], transition1.inPort) 
       annotation(points=[-27.5,10; -14,10],style(color=0, rgbcolor={0,0,0}));
     connect(transition1.outPort, step.inPort[1]) 
@@ -781,7 +784,10 @@ package Examples
     annotation (structurallyIncomplete,
       Diagram,
       experiment(StopTime=5),
-      experimentSetupOutput);
+      experimentSetupOutput, 
+        Documentation(info="<html>
+  
+</html>"));
     connect(initialStep.outPort[1], transition1.inPort) 
       annotation(points=[-49.5,10; -36,10],style(color=0, rgbcolor={0,0,0}));
     connect(transition1.outPort, step.inPort[1]) 
@@ -818,7 +824,10 @@ package Examples
     annotation (structurallyIncomplete,
       Diagram,
       experiment(StopTime=5),
-      experimentSetupOutput);
+      experimentSetupOutput, 
+        Documentation(info="<html>
+  
+</html>"));
     connect(initialStep.outPort[1], transition1.inPort) 
       annotation(points=[-49.5,10; -36,10],style(color=0, rgbcolor={0,0,0}));
     connect(transition1.outPort, step.inPort[1]) 
@@ -927,20 +936,19 @@ has a higher priority to fire as alternative.split[2]).
         fillColor=7,
         rgbfillColor={255,255,255},
         fillPattern=1));
-    connect(transition3.inPort, alternative.split[1])  annotation(points=[-36,
-            90; -55.09,90],                    style(color=0, rgbcolor={0,0,0}));
-    connect(transition4.inPort, alternative.split[2])  annotation(points=[-36,
-            50; -55.09,50],              style(color=0, rgbcolor={0,0,0}));
-    connect(transition4a.inPort, alternative.split[3])  annotation(points=[-36,
-            10; -45.0125,10; -45.0125,10; -55.09,10],
-                                                   style(color=0, rgbcolor={0,0,0}));
-    connect(transition5.outPort, alternative.join[1])  annotation(points=[37.5,
-            90; 57.09,90],
+    connect(transition3.inPort, alternative.split[1])  annotation(points=[-36,90; 
+            -55.09,90],                        style(color=0, rgbcolor={0,0,0}));
+    connect(transition4.inPort, alternative.split[2])  annotation(points=[-36,50; 
+            -55.09,50],                  style(color=0, rgbcolor={0,0,0}));
+    connect(transition4a.inPort, alternative.split[3])  annotation(points=[-36,10; 
+            -45.0125,10; -45.0125,10; -55.09,10],  style(color=0, rgbcolor={0,0,0}));
+    connect(transition5.outPort, alternative.join[1])  annotation(points=[37.5,90; 
+            57.09,90],
                style(color=0, rgbcolor={0,0,0}));
-    connect(transition6.outPort, alternative.join[2])  annotation(points=[37.5,
-            50; 57.09,50],style(color=0, rgbcolor={0,0,0}));
-    connect(transition6a.outPort, alternative.join[3])  annotation(points=[37.5,
-            10; 46.7625,10; 46.7625,10; 57.09,10],style(color=0, rgbcolor={0,0,
+    connect(transition6.outPort, alternative.join[2])  annotation(points=[37.5,50; 
+            57.09,50],    style(color=0, rgbcolor={0,0,0}));
+    connect(transition6a.outPort, alternative.join[3])  annotation(points=[37.5,10; 
+            46.7625,10; 46.7625,10; 57.09,10],    style(color=0, rgbcolor={0,0,
             0}));
     connect(step2.outPort[1], alternative.inPort)  annotation(points=[-77.5,50;
           -72.13,50], style(color=0, rgbcolor={0,0,0}));
@@ -1009,22 +1017,22 @@ is that the alternative paths are included in a \"CompositeStep\".
         color=0,
         fillColor=7,
         fillPattern=1));
-    connect(transition1.outPort, Parallel1.inPort) annotation(points=[-47.5,0;
+    connect(transition1.outPort, Parallel1.inPort) annotation(points=[-47.5,0; 
             -30.99,0],               style(color=0, rgbcolor={0,0,0}));
-    connect(Parallel1.outPort, transition2.inPort) annotation(points=[36.66,0;
+    connect(Parallel1.outPort, transition2.inPort) annotation(points=[36.66,0; 
             51,0],               style(color=0, rgbcolor={0,0,0}));
     connect(compositeStep.inPort, Parallel1.split[1]) 
-                                                 annotation(points=[-11,20;
+                                                 annotation(points=[-11,20; 
             -22.575,20],
                        style(color=0, rgbcolor={0,0,0}));
     connect(compositeStep.outPort, Parallel1.join[1]) 
-                                                 annotation(points=[20.5,20;
+                                                 annotation(points=[20.5,20; 
             28.575,20],
                       style(color=0, rgbcolor={0,0,0}));
-    connect(step1.inPort[1], Parallel1.split[2]) annotation(points=[-5,-20;
+    connect(step1.inPort[1], Parallel1.split[2]) annotation(points=[-5,-20; 
             -22.575,-20],
                         style(color=0, rgbcolor={0,0,0}));
-    connect(step1.outPort[1], Parallel1.join[2]) annotation(points=[16.5,-20;
+    connect(step1.outPort[1], Parallel1.join[2]) annotation(points=[16.5,-20; 
             28.575,-20],
                        style(color=0, rgbcolor={0,0,0}));
     connect(setCondition.y, transition7.condition) annotation(points=[-8.5,-80;
@@ -1088,6 +1096,7 @@ according to their setting before leaving the \"compositeStep\" via its
   end ShowExceptions;
     
   model ControlledTanks 
+      "Demonstrating the controller of a tank filling/emptying system" 
     extends Modelica.Icons.Example;
     Utilities.TankController tankController 
       annotation (extent=[-50, -20; -10, 20]);
@@ -1353,7 +1362,7 @@ buttons:
       connect(setValve2.y, valve2) 
         annotation (points=[85.25,-78.5; 90,-78.5; 90,0; 105,0],
                                                               style(color=5));
-      connect(setValve3.y, valve3) annotation (points=[85.3,-90; 95,-90; 95,-60;
+      connect(setValve3.y, valve3) annotation (points=[85.3,-90; 95,-90; 95,-60; 
               105,-60], style(color=5));
       connect(makeProduct.suspend[1], T3.inPort) 
                                               annotation (points=[-13,24.5; -13,
@@ -1716,6 +1725,9 @@ buttons:
     end CompositeStep2;
       
   end Utilities;
+    annotation (Documentation(info="<html>
+  
+</html>"));
 end Examples;
   
 package Interfaces "Connectors and partial models" 
@@ -1733,7 +1745,10 @@ package Interfaces "Connectors and partial models"
           extent=[-141,100; 100,60],
           string="%name",
           style(color=0))),
-      Coordsys(grid=[1,1], component=[20,20]));
+      Coordsys(grid=[1,1], component=[20,20]), 
+        Documentation(info="<html>
+ 
+</html>"));
   end Step_in;
     
   connector Step_out "Output port of a step" 
@@ -1750,7 +1765,10 @@ package Interfaces "Connectors and partial models"
           extent=[-100,100; 146,60],
           string="%name",
           style(color=0))),
-      Coordsys(grid=[1,1], component=[20,20]));
+      Coordsys(grid=[1,1], component=[20,20]), 
+        Documentation(info="<html>
+ 
+</html>"));
   end Step_out;
     
   connector Transition_in "Input port of a transition" 
@@ -1767,7 +1785,10 @@ package Interfaces "Connectors and partial models"
           extent=[-141,100; 100,60],
           string="%name",
           style(color=0))),
-      Coordsys(grid=[1,1], component=[20,20]));
+      Coordsys(grid=[1,1], component=[20,20]), 
+        Documentation(info="<html>
+ 
+</html>"));
   end Transition_in;
     
   connector Transition_out "Output port of a transition" 
@@ -1784,7 +1805,10 @@ package Interfaces "Connectors and partial models"
           string="%name",
           style(color=0)), Rectangle(extent=[-100,50; 0,-50],   style(color=0,
               fillColor=7))),
-      Coordsys(grid=[1,1], component=[20,20]));
+      Coordsys(grid=[1,1], component=[20,20]), 
+        Documentation(info="<html>
+ 
+</html>"));
   end Transition_out;
     
   connector CompositeStep_resume 
@@ -1797,7 +1821,10 @@ package Interfaces "Connectors and partial models"
             style(
             color=7,
             rgbcolor={255,255,255},
-            pattern=0))));
+            pattern=0))), 
+        Documentation(info="<html>
+  
+</html>"));
   end CompositeStep_resume;
     
   connector CompositeStep_suspend 
@@ -1814,13 +1841,18 @@ package Interfaces "Connectors and partial models"
             style(
             color=7,
             rgbcolor={255,255,255},
-            pattern=0))));
+            pattern=0))), 
+        Documentation(info="<html>
+  
+</html>"));
   end CompositeStep_suspend;
     
   connector CompositeStepStatePort_in 
       "Communication port between a CompositeStep and the ordinary steps within the CompositeStep (suspend/resume are inputs)" 
       
-    annotation(structurallyIncomplete);
+    annotation(structurallyIncomplete, Documentation(info="<html>
+  
+</html>"));
     input Boolean suspend 
         "= true, if suspend transition of CompositeStep fires";
     input Boolean resume "= true, if resume transition of CompositeStep fires";
@@ -1830,7 +1862,9 @@ package Interfaces "Connectors and partial models"
   connector CompositeStepStatePort_out 
       "Communication port between a CompositeStep and the ordinary steps within the CompositeStep (suspend/resume are outputs)" 
       
-    annotation(structurallyIncomplete);
+    annotation(structurallyIncomplete, Documentation(info="<html>
+ 
+</html>"));
     output Boolean suspend 
         "= true, if suspend transition of CompositeStep fires";
     output Boolean resume "= true, if resume transition of CompositeStep fires";
@@ -1841,7 +1875,9 @@ package Interfaces "Connectors and partial models"
   partial block PartialStep 
       "Partial step with one input and one output transition port" 
       
-    annotation(structurallyIncomplete);
+    annotation(structurallyIncomplete, Documentation(info="<html>
+ 
+</html>"));
     parameter Integer nIn(min=0) = 1 "Number of input connections";
     parameter Integer nOut(min=0) = 1 "Number of output connections";
       
@@ -1852,9 +1888,9 @@ package Interfaces "Connectors and partial models"
     output Boolean localActive 
         "= true if step is active, otherwise the step is not active" 
       annotation (Hide=true);
-    Interfaces.Step_in inPort[nIn] 
+    Interfaces.Step_in inPort[nIn] "Vector of step input connectors" 
       annotation (extent=[-120, 10; -100,-10]);
-    Interfaces.Step_out outPort[nOut] 
+    Interfaces.Step_out outPort[nOut] "Vector of step output connectors" 
       annotation (extent=[100,5; 110,-5]);
     protected 
     outer Interfaces.CompositeStepState stateGraphRoot;
@@ -1945,8 +1981,10 @@ to more than one transition");
     output Boolean fire "= true, if transition fires" annotation (Hide=true);
       
     StateGraph.Interfaces.Transition_in inPort 
+        "Vector of transition input connectors" 
       annotation (extent=[-50,-10; -30,10]);
     StateGraph.Interfaces.Transition_out outPort 
+        "Vector of transition output connectors" 
       annotation (extent=[10,-5; 20,5]);
     protected 
     Modelica.SIunits.Time t_start 
@@ -1981,12 +2019,18 @@ to more than one transition");
     inPort.reset = fire;
     outPort.set = fire;
     annotation(Icon, Coordsys(grid=[1,1], component=[20,20]),
-      Diagram);
+      Diagram,
+      Documentation(info="<html>
+ 
+</html>"));
   end PartialTransition;
     
   partial block PartialStateGraphIcon "Icon for a StateGraph object" 
     annotation (Icon(Rectangle(extent=[-100, 100; 100, -100], style(color=0,
-              fillColor=7)), Text(extent=[160, 110; -160, 150], string="%name")));
+              fillColor=7)), Text(extent=[160, 110; -160, 150], string="%name")), 
+          Documentation(info="<html>
+ 
+</html>"));
   equation 
       
   end PartialStateGraphIcon;
@@ -2000,7 +2044,10 @@ to more than one transition");
     annotation (
       defaultComponentName="stateGraphRoot",
       defaultComponentPrefixes="inner",
-      missingInnerMessage="A \"stateGraphRoot\" component was automatically introduced.");
+      missingInnerMessage="A \"stateGraphRoot\" component was automatically introduced.", 
+        Documentation(info="<html>
+ 
+</html>"));
       
   /*
     missingInnerMessage="No \"stateGraphRoot\" component is defined on highest level
@@ -2012,6 +2059,9 @@ top level your model.");
     suspend = subgraphStatePort.suspend;
     resume  = subgraphStatePort.resume;
   end CompositeStepState;
+    annotation (Documentation(info="<html>
+ 
+</html>"));
 end Interfaces;
   
 block InitialStep "Initial step (= step that is active when simulation starts)" 
@@ -2040,7 +2090,10 @@ block InitialStep "Initial step (= step that is active when simulation starts)"
               DynamicSelect(7, if active > 0.5 then 2 else 7))),
       Rectangle(extent=[-80, 80; 80, -80], style(color=0))),
     Diagram(Rectangle(extent=[-100, 100; 100, -100], style(color=0)), Rectangle(
-          extent=[-80, 80; 80, -80], style(color=0))));
+          extent=[-80, 80; 80, -80], style(color=0))), 
+      Documentation(info="<html>
+  
+</html>"));
 initial equation 
   active = true;
 end InitialStep;
@@ -2063,7 +2116,10 @@ block InitialStepWithSignal
         extent=[-92,-50; 94,-68],
         string="active",
         style(color=0)),
-      Rectangle(extent=[-80,80; 80,-80],   style(color=0))));
+      Rectangle(extent=[-80,80; 80,-80],   style(color=0))), 
+      Documentation(info="<html>
+  
+</html>"));
   Modelica.Blocks.Interfaces.BooleanOutput active 
     annotation (extent=[-10, -120; 10, -100], rotation=-90);
 initial equation 
@@ -2092,7 +2148,10 @@ block Step "Ordinary step (= step that is not active when simulation starts)"
         string="%name",
         style(fillColor=7)), Rectangle(extent=[-100, 100; 100, -100], style(
             color=0, fillColor=DynamicSelect(7, if active > 0.5 then 2 else 7)))),
-    Diagram(Rectangle(extent=[-100, 100; 100, -100], style(color=0))));
+    Diagram(Rectangle(extent=[-100, 100; 100, -100], style(color=0))), 
+      Documentation(info="<html>
+  
+</html>"));
 initial equation 
   active = false;
 end Step;
@@ -2113,7 +2172,10 @@ block StepWithSignal
       Text(
         extent=[-92, -74; 94, -92],
         string="active",
-        style(color=0))));
+        style(color=0))), 
+      Documentation(info="<html>
+  
+</html>"));
   Modelica.Blocks.Interfaces.BooleanOutput active 
     annotation (extent=[-10, -120; 10, -100], rotation=-90);
 initial equation 
@@ -2153,7 +2215,10 @@ block Transition
         string="%condition",
         style(color=DynamicSelect(0, if condition > 0.5 then 2 else 0)))),
     Diagram(Line(points=[-31, 0; -11, 0], style(color=0)), Rectangle(extent=[-10,
-             100; 10, -100], style(color=0, fillColor=0))));
+             100; 10, -100], style(color=0, fillColor=0))), 
+      Documentation(info="<html>
+  
+</html>"));
     
 end Transition;
   
@@ -2189,7 +2254,10 @@ block TransitionWithSignal
           fillColor=DynamicSelect(0, if condition > 0.5 then 2 else 0),
           fillPattern=1))),
     Diagram(Line(points=[-31, 0; -11, 0], style(color=0)), Rectangle(extent=[-10,
-             100; 10, -100], style(color=0, fillColor=0))));
+             100; 10, -100], style(color=0, fillColor=0))), 
+      Documentation(info="<html>
+  
+</html>"));
 end TransitionWithSignal;
   
 block Alternative 
@@ -2209,7 +2277,10 @@ block Alternative
         Line(points=[80,0; 100,0], style(color=0, rgbcolor={0,0,0}))),
     Diagram(Line(points=[-100,0; -80,0], style(color=0, rgbcolor={0,0,0})),
           Line(points=[80,0; 100,0], style(color=0, rgbcolor={0,0,0}))),
-    Coordsys(grid=[1,1],  component=[20,20]));
+    Coordsys(grid=[1,1],  component=[20,20]), 
+      Documentation(info="<html>
+  
+</html>"));
   parameter Integer nBranches(min=1)=2 "Number of alternative branches";
   Interfaces.Transition_in inPort 
                             annotation (extent=[-106,-3; -100,3]);
@@ -2334,7 +2405,10 @@ block Parallel
           fillColor=7,
           rgbfillColor={255,255,255},
           fillPattern=1))),
-    Coordsys(grid=[1,1],  component=[20,20]));
+    Coordsys(grid=[1,1],  component=[20,20]), 
+      Documentation(info="<html>
+  
+</html>"));
   parameter Integer nBranches(min=1)=2 
       "Number of parallel branches that are executed in parallel";
   Interfaces.Step_in inPort annotation (extent=[-106,-3; -100,3]);
@@ -2537,7 +2611,10 @@ partial block PartialCompositeStep
         extent=[-146,-115; -5,-130],
         style(color=0),
         string="suspend")),
-    Diagram(Rectangle(extent=[-150,150; 150,-150],   style(color=0))));
+    Diagram(Rectangle(extent=[-150,150; 150,-150],   style(color=0))), 
+      Documentation(info="<html>
+  
+</html>"));
   block OuterState 
     Interfaces.CompositeStepStatePort_in subgraphStatePort 
         "port connected to outer stateGraphRoot";
@@ -2800,6 +2877,9 @@ value, still requires to go in to the text layer.
     for i in 1:size(b,1) loop
        result := result or b[i];
     end for;
+      annotation (Documentation(info="<html>
+  
+</html>"));
   end anyTrue;
     
   function allTrue 
@@ -2812,6 +2892,9 @@ value, still requires to go in to the text layer.
     for i in 1:size(b,1) loop
        result := result and b[i];
     end for;
+      annotation (Documentation(info="<html>
+  
+</html>"));
   end allTrue;
     
   block RadioButton 
@@ -2833,7 +2916,10 @@ value, still requires to go in to the text layer.
         Text(
           extent=[-80, -40; 80, 40],
           style(color=0),
-          string="%name")), Diagram);
+          string="%name")), Diagram, 
+        Documentation(info="<html>
+  
+</html>"));
     Modelica.Blocks.Interfaces.BooleanOutput on 
       annotation (extent=[100, -10; 120, 10], style(color=0));
     protected 
@@ -2856,7 +2942,10 @@ value, still requires to go in to the text layer.
             fillColor=7,
             fillPattern=13)), Text(extent=[-90, -46; 90, 34], string=
               DynamicState(" ", realString(Value, 1, integer(precision))))),
-        Diagram);
+        Diagram, 
+        Documentation(info="<html>
+  
+</html>"));
     Modelica.Blocks.Interfaces.RealInput Value "Real value to be shown in icon"
       annotation (
       Dialog(enable=hideConnector),
@@ -2876,7 +2965,10 @@ value, still requires to go in to the text layer.
             pattern=0,
             gradient=3,
             fillColor=DynamicSelect(30, if u > 0.5 then 2 else 30))),
-            Text(extent=[-150,150; 150,110],string="%name")),Diagram);
+            Text(extent=[-150,150; 150,110],string="%name")),Diagram, 
+        Documentation(info="<html>
+  
+</html>"));
       
   end IndicatorLamp;
     

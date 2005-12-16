@@ -61,14 +61,16 @@ Try different load currents iDC = 0..approximately 500 A.
 <p>
 You may watch Losses (of the whole diode bridge) trying different diode parameters.
 </p>
+
+</HTML>
+", revisions="<html>
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>Mai 7, 2004   </i>
        by Anton Haumer<br> realized<br>
        </li>
 </ul>
-</HTML>
-"));
+</html>"));
   Modelica.Electrical.Analog.Sources.SineVoltage SineVoltage1(freqHz=f,
        V=VAC*sqrt(2/3)) 
                       annotation (extent=[-70, 10; -90, 30]);
@@ -153,7 +155,7 @@ equation
   connect(IdealDiode1.p, IdealDiode4.n) 
     annotation (points=[-20, 30; -20,-30], style(color=3, rgbcolor={0,0,255}));
   connect(IdealDiode2.p, IdealDiode5.n) 
-    annotation (points=[-6.12303e-016,30; -6.12303e-016,16; 0,0; 0,-30;
+    annotation (points=[-6.12303e-016,30; -6.12303e-016,16; 0,0; 0,-30; 
         6.12303e-016,-30],                           style(color=3, rgbcolor={0,0,255}));
   connect(IdealDiode3.p, IdealDiode6.n) 
     annotation (points=[20, 30; 20,-30], style(color=3, rgbcolor={0,0,255}));

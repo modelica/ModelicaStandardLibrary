@@ -226,7 +226,7 @@ and the accompanying <b>disclaimer</b>
         Line(points=[0, 50; 0, -100], style(color=0))));
   end Record;
   
-  partial package Enumeration "Icon for an enumeration (emulated by a package)" 
+  partial class Enumeration "Icon for an enumeration (emulated by a package)" 
     
     annotation (Icon(
         Text(extent=[-138,164; 138,104],  string="%name"),

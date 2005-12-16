@@ -17,7 +17,10 @@ model Transistor
       x=0.25,
       y=0.24,
       width=0.6,
-      height=0.6));
+      height=0.6), 
+    Documentation(info="<html>
+  
+</html>"));
   Basic.Resistor rtb(R=0.05) annotation (extent=[-80, -10; -60, 10]);
   Basic.Resistor rtc(R=0.1) annotation (extent=[40, 0; 60, 20]);
   Basic.Capacitor ct(C=1e-10) annotation (extent=[-50, -40; -30, -20], rotation=

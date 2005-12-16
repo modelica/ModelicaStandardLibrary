@@ -1,4 +1,4 @@
-package Math "Mathematical functions"
+package Math "Mathematical functions and operations on matrices"
   import SI = Modelica.SIunits;
 
 
@@ -20,8 +20,8 @@ annotation(preferedView="info",
       style(color=0))),
   Documentation(info="<HTML>
 <p>
-This package contains basic mathematical <b>functions</b> (such as sin(..)),
-as well as functions operating on matrices.
+This package contains <b>basic mathematical functions</b> (such as sin(..)),
+as well as functions operating on <b>matrices</b>.
 </p>
 
 <dl>
@@ -145,16 +145,6 @@ This library provides functions operating on matrices:
   </tr>
 </table>
 
-
-<p>
-Copyright &copy; 1998-2005, Modelica Association.
-</p>
-<p>
-<i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
-under the terms of the <b>Modelica license</b>, see the license conditions
-and the accompanying <b>disclaimer</b> 
-<a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a>.</i>
-</p><br>
 </HTML>
 "));
   
@@ -905,7 +895,8 @@ to compute the rank of a matrix.
       product(if pivots[i]==i then 1 else -1 for i in 1:size(pivots,1));
   end det;
   
-  function inv "Inverse of a matrix" 
+  function inv 
+    "Inverse of a matrix (try to avoid, use function solve(..) instead)" 
     extends Modelica.Icons.Function;
     input Real A[:, size(A, 1)];
     output Real invA[size(A, 1), size(A, 2)] "Inverse of matrix A";
@@ -920,6 +911,9 @@ to compute the rank of a matrix.
 \"Matrices.inv\" is not possible, since matrix A is singular.");
     
     invA := LAPACK.dgetri(LU, pivots);
+    annotation (Documentation(info="<html>
+  
+</html>"));
   end inv;
   
   function rank "Rank of a matrix (computed with singular values)" 
@@ -942,6 +936,9 @@ to compute the rank of a matrix.
       end if;
       i := i - 1;
     end while;
+    annotation (Documentation(info="<html>
+  
+</html>"));
   end rank;
   
   function balance "Balancing of matrix A to improve the condition of A" 
@@ -1004,13 +1001,16 @@ The Algorithm is taken from
 </dl>
 which based on the balanc function from EISPACK.
 </p>
+
+</HTML>
+", revisions="<html>
 <p><b>Release Notes:</b></p>
 <li><i>July 5, 2002</i>
        by H. D. Joos and Nico Walther<br>
        Implemented.
 </li>
-</HTML>
-"),   Window(
+</html>"),
+      Window(
         x=0.13,
         y=0.13,
         width=0.71,
@@ -1117,6 +1117,9 @@ method, this is often slow and inaccurate'. These statements are valid for a
 direct implementation of the Taylor series expansion, but <i>not</i> for the 
 implementation variant used in this function. 
 </p>
+
+</HTML>
+", revisions="<html>
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>July 5, 2002</i>
@@ -1124,8 +1127,7 @@ implementation variant used in this function.
        Implemented.
 </li>
 </ul>
-</HTML>
-"));
+</html>"));
   protected 
     parameter Integer nmax=21;
     /*max number of iterations*/
@@ -1299,6 +1301,9 @@ The Algorithm to calculate psi is taken from
     DLR - Control Systems Group 1991
 </dl>
 </p>
+
+</HTML>
+", revisions="<html>
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>July 5, 2002</i>
@@ -1306,8 +1311,7 @@ The Algorithm to calculate psi is taken from
        Implemented.
 </li>
 </ul>
-</HTML>
-"));
+</html>"));
   algorithm 
     // balancing of A
     (Diag,Atransf) := balance(A);
@@ -1410,6 +1414,9 @@ is discribed in
     Third Edition, p. 256
 </dl>
 </p>
+
+</HTML>
+", revisions="<html>
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>July 31, 2002</i>
@@ -1417,8 +1424,7 @@ is discribed in
        Realized.
 </li>
 </ul>
-</HTML>
-"));
+</html>"));
   algorithm 
     F := [A, B, zeros(na, nb); zeros(2*nb, na), zeros(2*nb, nb), [identity(nb);
        zeros(nb, nb)]];
@@ -3178,7 +3184,10 @@ function sin "sine"
       Text(
         extent=[92, -2; 112, -22],
         string="u",
-        style(color=9))));
+        style(color=9))), 
+    Documentation(info="<html>
+ 
+</html>"));
 external "C" y = sin(u);
 end sin;
 
@@ -3224,7 +3233,10 @@ function cos "cosine"
       Text(
         extent=[92, -2; 112, -22],
         string="u",
-        style(color=9))));
+        style(color=9))), 
+    Documentation(info="<html>
+ 
+</html>"));
 external "C" y = cos(u);
 end cos;
 
@@ -3268,7 +3280,10 @@ function tan "tangent (u shall not be -pi/2, pi/2, 3*pi/2, ...)"
       Text(
         extent=[92, -2; 112, -22],
         string="u",
-        style(color=9))));
+        style(color=9))), 
+    Documentation(info="<html>
+ 
+</html>"));
 external "C" y = tan(u);
 end tan;
 
@@ -3311,7 +3326,10 @@ function asin "inverse sine (-1 <= u <= 1)"
       Text(
         extent=[92, -2; 112, -22],
         string="u",
-        style(color=9))));
+        style(color=9))), 
+    Documentation(info="<html>
+ 
+</html>"));
 external "C" y = asin(u);
 end asin;
 
@@ -3354,7 +3372,10 @@ function acos "inverse cosine (-1 <= u <= 1)"
       Text(
         extent=[90, -82; 110, -102],
         string="u",
-        style(color=9))));
+        style(color=9))), 
+    Documentation(info="<html>
+  
+</html>"));
 external "C" y = acos(u);
 end acos;
 
@@ -3399,7 +3420,10 @@ function atan "inverse tangent"
       Text(
         extent=[92, -2; 112, -22],
         string="u",
-        style(color=9))));
+        style(color=9))), 
+    Documentation(info="<html>
+  
+</html>"));
 external "C" y = atan(u);
 end atan;
 
@@ -3504,7 +3528,10 @@ function sinh "hyperbolic sine"
       Text(
         extent=[92, -2; 112, -22],
         string="u",
-        style(color=9))));
+        style(color=9))), 
+    Documentation(info="<html>
+  
+</html>"));
 external "C" y = sinh(u);
 end sinh;
 
@@ -3553,7 +3580,11 @@ function cosh "hyperbolic cosine"
       Text(
         extent=[90, -88; 110, -108],
         string="u",
-        style(color=9))));
+        style(color=9))), 
+    Documentation(info="<html>
+  
+</html>
+"));
 external "C" y = cosh(u);
 end cosh;
 
@@ -3598,7 +3629,10 @@ function tanh "hyperbolic tangent"
       Text(
         extent=[92, -2; 112, -22],
         string="u",
-        style(color=9))));
+        style(color=9))), 
+    Documentation(info="<html>
+   
+</html>"));
 external "C" y = tanh(u);
 end tanh;
 
@@ -3687,7 +3721,10 @@ function log "natural (base e) logarithm (u shall be > 0)"
       Text(
         extent=[92, -2; 112, -22],
         string="u",
-        style(color=9))));
+        style(color=9))), 
+    Documentation(info="<html>
+    
+</html>"));
 external "C" y = log(u);
 end log;
 
@@ -3732,13 +3769,17 @@ function log10 "base 10 logarithm (u shall be > 0)"
       Text(
         extent=[92, -2; 112, -22],
         string="u",
-        style(color=9))));
+        style(color=9))), 
+    Documentation(info="<html>
+  
+</html>"));
 external "C" y = log10(u);
 end log10;
 
 
 partial function baseIcon1 
   "Basic icon for mathematical function with y-axis on left side" 
+  
   annotation (Icon(
       Rectangle(extent=[-100, 100; 100, -100], style(color=0, fillColor=7)),
       Line(points=[-80, -80; -80, 68], style(color=8)),
@@ -3759,6 +3800,7 @@ end baseIcon1;
 
 partial function baseIcon2 
   "Basic icon for mathematical function with y-axis in middle" 
+  
   annotation (Icon(
       Rectangle(extent=[-100, 100; 100, -100], style(color=0, fillColor=7)),
       Line(points=[0, -80; 0, 68], style(color=8)),
@@ -3827,6 +3869,9 @@ algorithm
     y := y1 + (y2 - y1)*(u - u1)/(u2 - u1);
     
   end if;
+  annotation (Documentation(info="<html>
+  
+</html>"));
 end tempInterpol1;
 
 
@@ -3883,5 +3928,8 @@ algorithm
     y := y1 + (y2 - y1)*(u - u1)/(u2 - u1);
     
   end if;
+  annotation (Documentation(info="<html>
+  
+</html>"));
 end tempInterpol2;
 end Math;

@@ -12,8 +12,7 @@ package Continuous "Continuous control blocks with internal states"
       height=0.74,
       library=1,
       autolayout=1),
-    Documentation(info="
-<HTML>
+    Documentation(info="<HTML>
 <p>
 This package contains basic <b>continuous</b> input/output blocks
 described by differential equations.
@@ -47,15 +46,7 @@ the gain <i>k</i>:
      y = - u
          s
 </pre>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>Nov. 4, 1999</i>
-       by <a href=\"http://www.op.dlr.de/~otter/\">Martin Otter</a>:<br>
-       Vectorized.</li>
-<li><i>June 30, 1999</i>
-       by <a href=\"http://www.op.dlr.de/~otter/\">Martin Otter</a>:<br>
-       Realized.</li>
-</ul>
+
 </HTML>
 "),   Icon(
         Line(points=[-80, 78; -80, -90], style(color=8)),
@@ -122,17 +113,7 @@ input will drive the integral outside of this bound, the
 integration is halted and only restarted if the input drives
 the integral away from the bounds.
 </p>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>Nov. 4, 1999</i>
-       by <a href=\"http://www.op.dlr.de/~otter/\">Martin Otter</a>:<br>
-       Vectorized.</li>
-<li><i>June 30, 1999</i>
-       by <a href=\"http://www.op.dlr.de/~otter/\">Martin Otter</a>:<br>
-       Realized.
-</li>
-</ul>
-<p><b>Copyright (C) 1999-2000, Modelica Association and DLR.</b></p>
+
 </HTML>
 "),   Icon(
         Line(points=[-80, 78; -80, -90], style(color=8)),
@@ -201,20 +182,10 @@ parameters, use the general block <b>TransferFunction</b> instead
 and model a derivative block with parameters<br>
 b = {k,0}, a = {T, 1}.
 </p>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>Nov. 15, 1999</i>
-       by <a href=\"http://www.op.dlr.de/~otter/\">Martin Otter</a>:<br>
-       Special handling, if k is zero. Introduced, in order that
-       the D-part of the PID controllers can be set to zero without
-       introducing numerical problems.</li>
-<li><i>Nov. 4, 1999</i>
-       by <a href=\"http://www.op.dlr.de/~otter/\">Martin Otter</a>:<br>
-       Vectorized.</li>
-<li><i>June 30, 1999</i>
-       by <a href=\"http://www.op.dlr.de/~otter/\">Martin Otter</a>:<br>
-       Realized.</li>
-</ul>
+
+<p>
+If k=0, the block reduces to y=0.
+</p>
 </HTML>
 "),   Icon(
         Line(points=[-80, 78; -80, -90], style(color=8)),
@@ -272,8 +243,7 @@ b = {k,0}, a = {T, 1}.
     extends Interfaces.SISO;
     
     annotation (
-      Documentation(info="
-<HTML>
+      Documentation(info="<HTML>
 <p>
 This blocks defines the transfer function between the input u
 and the output y (element-wise) as <i>first order</i> system:
@@ -298,15 +268,7 @@ Example:
       y = ----------- * u
           0.4 s + 1.0
 </pre>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>Nov. 4, 1999</i>
-       by <a href=\"http://www.op.dlr.de/~otter/\">Martin Otter</a>:<br>
-       Vectorized.</li>
-<li><i>June 30, 1999</i>
-       by <a href=\"http://www.op.dlr.de/~otter/\">Martin Otter</a>:<br>
-       Realized.</li>
-</ul>
+
 </HTML>
 "),   Icon(
         Line(points=[-80, 78; -80, -90], style(color=8)),
@@ -374,8 +336,7 @@ Example:
         y=0.1,
         width=0.54,
         height=0.49),
-      Documentation(info="
-<HTML>
+      Documentation(info="<HTML>
 <p>
 This blocks defines the transfer function between the input u and
 the output y (element-wise) as <i>second order</i> system:
@@ -401,16 +362,7 @@ Example:
       y = ------------------- * u
           4.0 s^2 + 1.6 s + 1
 </pre>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>Nov. 4, 1999</i>
-       by <a href=\"http://www.op.dlr.de/~otter/\">Martin Otter</a>:<br>
-       Vectorized and state space representation changed, such
-       that the output and its derivative are used as state.</li>
-<li><i>June 30, 1999</i>
-       by <a href=\"http://www.op.dlr.de/~otter/\">Martin Otter</a>:<br>
-       Realized.</li>
-</ul>
+
 </HTML>
 "),   Icon(
         Line(points=[-80, 78; -80, -90], style(color=8)),
@@ -533,15 +485,7 @@ Example:
       y = 0.3 ----------- * u
                  0.4 s
 </pre>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>Nov. 4, 1999</i>
-       by <a href=\"http://www.op.dlr.de/~otter/\">Martin Otter</a>:<br>
-       Vectorized.</li>
-<li><i>June 30, 1999</i>
-       by <a href=\"http://www.op.dlr.de/~otter/\">Martin Otter</a>:<br>
-       Realized.</li>
-</ul>
+
 </HTML>
 "),   Icon(
         Line(points=[-80, 78; -80, -90], style(color=8)),
@@ -627,12 +571,7 @@ This is the text-book version of a PID-controller.
 For a more practically useful PID-controller, use
 block LimPID.
 </p>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>Aug. 7, 1999</i>
-       by <a href=\"http://www.op.dlr.de/~otter/\">Martin Otter</a>:<br>
-       Realized.</li>
-</ul>
+
 </HTML>
 "));
     Blocks.Math.Gain P "Proportional part of PID controller" 
@@ -646,16 +585,16 @@ block LimPID.
       annotation (extent=[60, -10; 80, 10]);
     Blocks.Math.Add3 Add annotation (extent=[20, -10; 40, 10]);
   equation 
-    connect(P.y, Add.u1) annotation (points=[-20, 80; 0, 80; 0, 8; 20, 8]);
-    connect(I.y, Add.u2) annotation (points=[-20, 0; 20, 0]);
+    connect(P.y, Add.u1) annotation (points=[-18,80; 0,80; 0,8; 18,8]);
+    connect(I.y, Add.u2) annotation (points=[-18,0; 18,0]);
     connect(D.y, Add.u3) 
-      annotation (points=[-20, -80; 0, -80; 0, -8; 20, -8]);
-    connect(Add.y, Gain.u) annotation (points=[40, 0; 60, 0]);
-    connect(y, Gain.y) annotation (points=[100, 0; 80, 0]);
-    connect(u, I.u) annotation (points=[-100, 0; -60, 0]);
-    connect(u, P.u) annotation (points=[-100, 0; -80, 0; -80, 80; -60, 80]);
+      annotation (points=[-18,-80; 0,-80; 0,-8; 18,-8]);
+    connect(Add.y, Gain.u) annotation (points=[41,0; 58,0]);
+    connect(y, Gain.y) annotation (points=[110,0; 81,0]);
+    connect(u, I.u) annotation (points=[-120,0; -64,0]);
+    connect(u, P.u) annotation (points=[-120,0; -80,0; -80,80; -64,80]);
     connect(u, D.u) 
-      annotation (points=[-100, 0; -80, 0; -80, -80; -60, -80]);
+      annotation (points=[-120,0; -80,0; -80,-80; -64,-80]);
   end PID;
   
   block LimPID 
@@ -728,12 +667,7 @@ part of this controller, the following practical aspects are included:
      for the derivative part to zero, if steps may occur in the
      setpoint signal.</li>
 </ul>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>Aug. 7, 1999</i>
-       by <a href=\"http://www.op.dlr.de/~otter/\">Martin Otter</a>:<br>
-       Realized.</li>
-</ul>
+
 </HTML>
 "));
     Blocks.Math.Add addP(k1=wp, k2=-1) 
@@ -755,36 +689,36 @@ part of this controller, the following practical aspects are included:
   equation 
     assert(yMax >= yMin, "PID: Limits must be consistent");
     connect(u_s, addP.u1) 
-      annotation (points=[-102, 0; -96, 0; -96, 56; -80, 56]);
-    connect(u_m, addP.u2) annotation (points=[0, -100; 0, -92; -92, -92; -92,
-           44; -80, 44], style(thickness=2));
+      annotation (points=[-120,0; -96,0; -96,56; -82,56]);
+    connect(u_m, addP.u2) annotation (points=[0,-120; 0,-92; -92,-92; -92,44; 
+          -82,44],       style(thickness=2));
     connect(u_s, addD.u1) 
-      annotation (points=[-102, 0; -96, 0; -96, 6; -82, 6]);
-    connect(u_m, addD.u2) annotation (points=[0, -100; 0, -92; -92, -92; -92,
-           -6; -82, -6; -82, -6], style(thickness=2));
+      annotation (points=[-120,0; -96,0; -96,6; -82,6]);
+    connect(u_m, addD.u2) annotation (points=[0,-120; 0,-92; -92,-92; -92,-6; 
+          -82,-6; -82,-6],        style(thickness=2));
     connect(u_s, addI.u1) 
-      annotation (points=[-100, 0; -96, 0; -96, -42; -82, -42]);
-    connect(u_m, addI.u2) annotation (points=[0, -104; 0, -92; -92, -92; -92,
-           -50; -80, -50], style(thickness=2));
+      annotation (points=[-120,0; -96,0; -96,-42; -82,-42]);
+    connect(u_m, addI.u2) annotation (points=[0,-120; 0,-92; -92,-92; -92,-50; 
+          -82,-50],        style(thickness=2));
     connect(gainTrack.y, addI.u3) 
-      annotation (points=[20, -70; -88, -70; -88, -58; -80, -58]);
-    connect(addP.y, P.u) annotation (points=[-60, 50; -40, 50; -40, 50]);
-    connect(addD.y, D.u) annotation (points=[-60, 0; -42, 0]);
-    connect(addI.y, I.u) annotation (points=[-58, -50; -40, -50]);
+      annotation (points=[19,-70; -88,-70; -88,-58; -82,-58]);
+    connect(addP.y, P.u) annotation (points=[-59,50; -42,50; -42,50]);
+    connect(addD.y, D.u) annotation (points=[-59,0; -42,0]);
+    connect(addI.y, I.u) annotation (points=[-59,-50; -42,-50]);
     connect(P.y, addPID.u1) 
-      annotation (points=[-18, 50; -10, 50; -10, 8; 0, 8]);
-    connect(D.y, addPID.u2) annotation (points=[-20, 0; -2, 0; -2, 0]);
+      annotation (points=[-19,50; -10,50; -10,8; -2,8]);
+    connect(D.y, addPID.u2) annotation (points=[-19,0; -2,0; -2,0]);
     connect(I.y, addPID.u3) 
-      annotation (points=[-18, -50; -10, -50; -10, -8; -2, -8; -2, -8]);
+      annotation (points=[-19,-50; -10,-50; -10,-8; -2,-8; -2,-8]);
     connect(addPID.y, gainPID.u) annotation (points=[21, 0; 28, 0]);
     connect(gainPID.y, addSat.u2) 
-      annotation (points=[50, 0; 60, 0; 60, -30; 74, -30; 74, -40]);
+      annotation (points=[51,0; 60,0; 60,-30; 74,-30; 74,-38]);
     connect(addSat.y, gainTrack.u) 
-      annotation (points=[80, -62; 80, -70; 42, -70]);
-    connect(gainPID.y, limiter.u) annotation (points=[50, 0; 70, 0]);
-    connect(limiter.y, y) annotation (points=[90, 0; 100, 0]);
+      annotation (points=[80,-61; 80,-70; 42,-70]);
+    connect(gainPID.y, limiter.u) annotation (points=[51,0; 68,0]);
+    connect(limiter.y, y) annotation (points=[91,0; 110,0]);
     connect(limiter.y, addSat.u1) 
-      annotation (points=[90, 0; 94, 0; 94, -20; 86, -20; 86, -40]);
+      annotation (points=[91,0; 94,0; 94,-20; 86,-20; 86,-38]);
   end LimPID;
   
   block TransferFunction "Linear transfer function" 
@@ -844,12 +778,7 @@ results in the following transfer function:
 </pre>
 <p><b>Release Notes:</b></p>
 <ul>
-<li><i>August 7, 1999</i>
-       by <a href=\"http://www.op.dlr.de/~otter/\">Martin Otter</a>:<br>
-       Realized based on a realization of the corresponding
-       Dymola library of Hilding Elmqvist.
-</li>
-</ul>
+
 </HTML>
 "),   Icon(
         Line(points=[-80, 0; 80, 0]),
@@ -894,8 +823,7 @@ results in the following transfer function:
         y=0.03,
         width=0.64,
         height=0.73),
-      Documentation(info="
-<HTML>
+      Documentation(info="<HTML>
 <p>
 The State Space block defines the relation
 between the input u and the output
@@ -1059,15 +987,7 @@ with zeros.</p>
 <pre>
      y = PT21*PT22*...*PT2(n/2)*PT1 u
 </pre>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>October 17, 2002</i>
-       by <a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Christian Schweiger</a>:<br>
-       Changed to block. Therefore made some variables protected, others changed to output variables.</li>
-<li><i>June 28, 2001</i>
-       by Michael Th&uuml;mmel:<br>
-       Realized.</li>
-</ul>
+
 </HTML>
 "));
   equation 
@@ -1176,15 +1096,7 @@ the input.</p>
      y = ------------- * u
          (T * s + 1)^n
 </pre>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>October 17, 2002</i>
-       by <a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Christian Schweiger</a>:<br>
-       Changed to block. Therefore changed variable <b>x</b> to output variable.</li>
-<li><i>June 28, 2001</i>
-       by Michael Th&uuml;mmel:<br>
-       Realized.</li>
-</ul>
+
 </HTML>
 "));
   protected 

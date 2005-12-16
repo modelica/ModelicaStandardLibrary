@@ -6,7 +6,29 @@ model HeatingMOSInverter "Heating MOS Inverter"
   annotation (extent=[-80, -10; -60, 10], rotation=270);
   
 annotation (Diagram(Text(extent=[-100, 100; -6, 72], string=
-          "Heating MOS Inverter")));
+          "Heating MOS Inverter")), Documentation(info="<HTML>
+<P>
+The heating MOS inverter shows a heat flow always if a transistor is leading.
+</P>
+<P>
+Simulate until T=5 s.
+</P>
+<P>
+Plot in separate windows:<br> <br>
+Sin.p.v  and  Capacitor1.p.v <br>
+HeatCapacitor1.port.T and H_PMOS.heatPort.T and H_NMOS.heatPort.T<br>
+H_PMOS.heatPort.Q_flow and H_NMOS.heatPort.Q_flow<br>
+</P>
+
+</HTML>
+", revisions="<html>
+<p><b>Release Notes:</b></p>
+<ul>
+<li><i>Mai 6, 2004   </i>
+       by Christoph Clauss<br> realized<br>
+       </li>
+</ul>
+</html>"));
   Modelica.Electrical.Analog.Basic.Capacitor Capacitor1(C=0.00001) 
   annotation (extent=[20, 0; 40, 20], rotation=270);
   Modelica.Thermal.HeatTransfer.HeatCapacitor HeatCapacitor1(C=0.01) 
@@ -74,20 +96,20 @@ H_PMOS.heatPort.Q_flow and H_NMOS.heatPort.Q_flow<br>
   connect(V.n, G.p) 
   annotation (points=[50, 40; 50, -20; -70, -20], style(color=3));
   connect(TC1.port_b, HeatCapacitor1.port) 
-                                         annotation (points=[21, -40;
-       40, -40; 40, -60; 60, -60], style(color=42));
+                                         annotation (points=[20,-40; 40,-40; 40,
+        -60; 60,-60],              style(color=42));
   connect(TC2.port_b, HeatCapacitor1.port) 
-                                         annotation (points=[21, -80;
-       40, -80; 40, -60; 60, -60], style(color=42));
+                                         annotation (points=[20,-80; 40,-80; 40,
+        -60; 60,-60],              style(color=42));
   connect(TC1.port_a, H_PMOS.heatPort) 
-                                     annotation (points=[-1, -40; -10,
-       -40; -10, 40; -30, 40], style(color=42));
+                                     annotation (points=[0,-40; -10,-40; -10,40; 
+        -30,40],               style(color=42));
   connect(TC2.port_a, H_NMOS.heatPort) 
-  annotation (points=[-1, -80; -30, -80; -30, 0], style(color=42));
+  annotation (points=[0,-80; -30,-80; -30,0],     style(color=42));
   connect(TC3.port_b, FixedTemperature1.port) 
-                                            annotation(points=[67,-30; 70,
-      -30; 70,-28; 77,-28], style(color=42, rgbcolor={191,0,0}));
+                                            annotation(points=[66,-30; 70,-30; 
+        70,-28; 78,-28],    style(color=42, rgbcolor={191,0,0}));
   connect(TC3.port_a, HeatCapacitor1.port) 
-                                         annotation(points=[45,-30;
-      52,-30; 52,-60; 60,-60], style(color=42, rgbcolor={191,0,0}));
+                                         annotation(points=[46,-30; 52,-30; 52,
+        -60; 60,-60],          style(color=42, rgbcolor={191,0,0}));
 end HeatingMOSInverter;

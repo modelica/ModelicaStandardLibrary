@@ -27,14 +27,16 @@ sould be compared with R2.
 Simulate until T=1 s.
 </P>
 <P>
+
+</HTML>
+", revisions="<html>
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>Mai 6, 2004   </i>
        by Teresa Schlegel<br> realized<br>
        </li>
 </ul>
-</HTML>
-"),
+</html>"),
   experiment(
      StopTime=1),
     Diagram(Text(
@@ -68,6 +70,6 @@ equation
   connect(SineVoltage1.n, R4.p)      annotation(points=[-90,-20; -90,-10; -60,
         -10],                 style(color=3, rgbcolor={0,0,255}));
   connect(Ramp1.y, VariableResistor.R)           annotation(points=[-10,9; -10,
-        4.5; -10,4.5; -10,0],          style(color=3, rgbcolor={0,0,
+        4.5; -10,1; -10,1],            style(color=3, rgbcolor={0,0,
         255}));
 end ShowVariableResistor;

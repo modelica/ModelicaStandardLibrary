@@ -1,4 +1,5 @@
 encapsulated model DifferenceAmplifier 
+  "Simple NPN transistor amplifier circuit" 
   import Modelica.Electrical.Analog.Basic;
   import Modelica.Electrical.Analog.Sources;
   import Modelica.Electrical.Analog.Examples.Utilities;
@@ -22,7 +23,12 @@ The simulation end time should be set to 1e- 8. Please plot the input voltage V1
 <b>Reference:</b>
 <dd>
 Tietze, U.; Schenk, Ch.: Halbleiter-Schaltungstechnik. Springer-Verlag Berlin Heidelberg NewYork 1980, p. 59
-<p>
+</dd>
+</dl>
+
+</HTML>
+", revisions="<html>
+<dl>
 <dt>
 <b>Main Authors:</b>
 <dd>
@@ -45,8 +51,8 @@ and the accompanying <b>disclaimer</b> in the documentation of package
 Modelica in file \"Modelica/package.mo\".</i><br>
 <p>
 </dl>
-</HTML>
-"), Window(
+</html>"),
+    Window(
       x=0.35,
       y=0.01,
       width=0.45,

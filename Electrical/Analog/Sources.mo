@@ -1,4 +1,4 @@
-package Sources 
+package Sources "Time-dependend and controlled voltage and current sources" 
   
   extends Modelica.Icons.Library;
   
@@ -13,6 +13,9 @@ package Sources
 <p>
 This package contains time-dependend and controlled voltage and current sources.
 </p>
+
+</HTML>
+", revisions="<html>
 <dl>
 <dt>
 <b>Main Authors:</b>
@@ -36,8 +39,7 @@ and the accompanying <b>disclaimer</b> in the documentation of package
 Modelica in file \"Modelica/package.mo\".</i><br>
 <p>
 </dl>
-</HTML>
-"));
+</html>"));
   
   model SignalVoltage 
     "Generic voltage source using the input signal as source voltage" 
@@ -107,7 +109,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
           style(color=9)),
         Line(points=[-119,-5; -119,5],   style(color=9)),
         Line(points=[-124,0; -114,0],   style(color=9)),
-        Line(points=[116,0; 126,0],   style(color=9))), 
+        Line(points=[116,0; 126,0],   style(color=9))),
       Documentation(revisions="<html>
 <ul>
 <li><i>  </i>
@@ -154,7 +156,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
         Line(points=[-90, 0; -10, 0], style(color=0, rgbcolor={0,0,0})),
         Line(points=[-10, 60; -10, -60], style(color=0, rgbcolor={0,0,0})),
         Line(points=[0, 30; 0, -30], style(color=0, rgbcolor={0,0,0})),
-        Line(points=[0, 0; 90, 0], style(color=0, rgbcolor={0,0,0}))), 
+        Line(points=[0, 0; 90, 0], style(color=0, rgbcolor={0,0,0}))),
       Documentation(revisions="<html>
 <ul>
 <li><i>  </i>
@@ -240,7 +242,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
         x=0.28,
         y=0,
         width=0.72,
-        height=0.73), 
+        height=0.73),
       Documentation(revisions="<html>
 <ul>
 <li><i>  </i>
@@ -345,7 +347,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
         x=0.29,
         y=0.11,
         width=0.6,
-        height=0.6), 
+        height=0.6),
       Documentation(revisions="<html>
 <ul>
 <li><i>  </i>
@@ -429,7 +431,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
         Text(
           extent=[-69, 109; -4, 83],
           string="v = p.v - n.v",
-          style(color=9))), 
+          style(color=9))),
       Documentation(revisions="<html>
 <ul>
 <li><i>  </i>
@@ -531,7 +533,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
         x=0.33,
         y=0.06,
         width=0.6,
-        height=0.75), 
+        height=0.75),
       Documentation(revisions="<html>
 <ul>
 <li><i>  </i>
@@ -696,7 +698,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
         x=0.11,
         y=0.12,
         width=0.78,
-        height=0.83), 
+        height=0.83),
       Documentation(revisions="<html>
 <ul>
 <li><i>  </i>
@@ -821,7 +823,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
         x=0.4,
         y=0.23,
         width=0.6,
-        height=0.6), 
+        height=0.6),
       Documentation(revisions="<html>
 <ul>
 <li><i>  </i>
@@ -925,7 +927,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
         x=0.37,
         y=0.04,
         width=0.6,
-        height=0.6), 
+        height=0.6),
       Documentation(revisions="<html>
 <ul>
 <li><i>  </i>
@@ -1080,7 +1082,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
         x=0.21,
         y=0.22,
         width=0.6,
-        height=0.63), 
+        height=0.63),
       Documentation(revisions="<html>
 <ul>
 <li><i>  </i>
@@ -1265,7 +1267,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
             rgbfillColor={255,255,255})),
         Line(points=[-96,0; -50,0], style(color=0, rgbcolor={0,0,0})),
         Line(points=[50,0; 96,0], style(color=0, rgbcolor={0,0,0})),
-        Line(points=[0,-50; 0,50], style(color=0, rgbcolor={0,0,0}))), 
+        Line(points=[0,-50; 0,50], style(color=0, rgbcolor={0,0,0}))),
       Documentation(revisions="<html>
 <ul>
 <li><i>  </i>
@@ -1318,7 +1320,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
             rgbfillColor={255,255,255})),
         Line(points=[-96,0; -50,0], style(color=0, rgbcolor={0,0,0})),
         Line(points=[50,0; 96,0], style(color=0, rgbcolor={0,0,0})),
-        Line(points=[0,-50; 0,50], style(color=0, rgbcolor={0,0,0}))), 
+        Line(points=[0,-50; 0,50], style(color=0, rgbcolor={0,0,0}))),
       Documentation(revisions="<html>
 <ul>
 <li><i>  </i>
@@ -1404,7 +1406,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
         x=0.28,
         y=0,
         width=0.72,
-        height=0.73), 
+        height=0.73),
       Documentation(revisions="<html>
 <ul>
 <li><i>  </i>
@@ -1509,7 +1511,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
         x=0.29,
         y=0.11,
         width=0.6,
-        height=0.6), 
+        height=0.6),
       Documentation(revisions="<html>
 <ul>
 <li><i>  </i>
@@ -1593,7 +1595,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
         Text(
           extent=[-73, 82; -53, 102],
           string="i",
-          style(color=8))), 
+          style(color=8))),
       Documentation(revisions="<html>
 <ul>
 <li><i>  </i>
@@ -1695,7 +1697,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
         x=0.33,
         y=0.06,
         width=0.6,
-        height=0.75), 
+        height=0.75),
       Documentation(revisions="<html>
 <ul>
 <li><i>  </i>
@@ -1792,7 +1794,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
         x=0.11,
         y=0.12,
         width=0.78,
-        height=0.83), 
+        height=0.83),
       Documentation(revisions="<html>
 <ul>
 <li><i>  </i>
@@ -1917,7 +1919,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
         x=0.4,
         y=0.23,
         width=0.6,
-        height=0.6), 
+        height=0.6),
       Documentation(revisions="<html>
 <ul>
 <li><i>  </i>
@@ -2021,7 +2023,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
         x=0.37,
         y=0.04,
         width=0.6,
-        height=0.6), 
+        height=0.6),
       Documentation(revisions="<html>
 <ul>
 <li><i>  </i>
@@ -2176,7 +2178,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
         x=0.19,
         y=0.28,
         width=0.6,
-        height=0.63), 
+        height=0.63),
       Documentation(revisions="<html>
 <ul>
 <li><i>  </i>

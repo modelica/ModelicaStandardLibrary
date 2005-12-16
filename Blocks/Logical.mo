@@ -16,7 +16,10 @@ network built with package Logical is shown in the next figure:
     extends Blocks.Interfaces.partialBooleanSI2SO;
     annotation (Icon(Text(extent=[-90,40; 90,-40],
             string="and",
-            style(color=0))), Diagram);
+            style(color=0))), Diagram, 
+      Documentation(info="<html>
+
+</html>"));
   equation 
     y = u1 and u2;
   end And;
@@ -25,7 +28,10 @@ network built with package Logical is shown in the next figure:
     extends Blocks.Interfaces.partialBooleanSI2SO;
     annotation (Icon(Text(extent=[-90,40; 90,-40],
             string="or",
-            style(color=0))), Diagram);
+            style(color=0))), Diagram, 
+      Documentation(info="<html>
+ 
+</html>"));
   equation 
     y = u1 or u2;
   end Or;
@@ -34,7 +40,10 @@ network built with package Logical is shown in the next figure:
     extends Blocks.Interfaces.partialBooleanSI2SO;
     annotation (Icon(Text(extent=[-90,40; 90,-40],
             string="xor",
-            style(color=0))), Diagram);
+            style(color=0))), Diagram, 
+      Documentation(info="<html>
+ 
+</html>"));
   equation 
     y =not  ( (u1 and u2) or (not u1 and not u2));
   end Xor;
@@ -43,7 +52,10 @@ network built with package Logical is shown in the next figure:
     extends Blocks.Interfaces.partialBooleanSI2SO;
     annotation (Icon(Text(extent=[-90,40; 90,-40],
             string="nor",
-            style(color=0))), Diagram);
+            style(color=0))), Diagram, 
+      Documentation(info="<html>
+ 
+</html>"));
   equation 
     y =not  ( u1 or u2);
   end Nor;
@@ -52,7 +64,10 @@ network built with package Logical is shown in the next figure:
     extends Blocks.Interfaces.partialBooleanSI2SO;
     annotation (Icon(Text(extent=[-90,40; 90,-40],
             string="nand",
-            style(color=0))), Diagram);
+            style(color=0))), Diagram, 
+      Documentation(info="<html>
+ 
+</html>"));
   equation 
     y =not  ( u1 and u2);
   end Nand;
@@ -62,7 +77,10 @@ network built with package Logical is shown in the next figure:
     
     annotation (Icon(Text(extent=[-90,40; 90,-40],
           string="not",
-          style(color=0))), Diagram);
+          style(color=0))), Diagram, 
+      Documentation(info="<html>
+ 
+</html>"));
   equation 
     y =not  u;
   end Not;
@@ -76,7 +94,10 @@ network built with package Logical is shown in the next figure:
     
     annotation (Icon(Text(extent=[-90,40; 90,-40],
           string="pre",
-          style(color=0))), Diagram);
+          style(color=0))), Diagram, 
+      Documentation(info="<html>
+ 
+</html>"));
   initial equation 
     pre(u) = pre_u_start;
   equation 
@@ -91,7 +112,10 @@ network built with package Logical is shown in the next figure:
     
     annotation (Icon(Text(extent=[-90,40; 90,-40],
           string="edge",
-          style(color=0))), Diagram);
+          style(color=0))), Diagram, 
+      Documentation(info="<html>
+ 
+</html>"));
   initial equation 
     pre(u) = pre_u_start;
   equation 
@@ -107,7 +131,10 @@ network built with package Logical is shown in the next figure:
     
     annotation (Icon(Text(extent=[-90,40; 90,-40],
           string="falling",
-          style(color=0))), Diagram);
+          style(color=0))), Diagram, 
+      Documentation(info="<html>
+ 
+</html>"));
   protected 
    Boolean not_u=not u;
   initial equation 
@@ -125,7 +152,10 @@ network built with package Logical is shown in the next figure:
     
     annotation (Icon(Text(extent=[-90,40; 90,-40],
           style(color=0),
-          string="change")),Diagram);
+          string="change")),Diagram, 
+      Documentation(info="<html>
+ 
+</html>"));
   initial equation 
     pre(u) = pre_u_start;
   equation 
@@ -138,7 +168,10 @@ network built with package Logical is shown in the next figure:
     annotation (Icon(Text(
           extent=[-90,-40; 60,40],
           style(color=0),
-          string=">")), Diagram);
+          string=">")), Diagram, 
+      Documentation(info="<html>
+ 
+</html>"));
   equation 
     y = u > threshold;
   end GreaterThreshold;
@@ -150,7 +183,10 @@ network built with package Logical is shown in the next figure:
     annotation (Icon(Text(
           extent=[-90,-40; 60,40],
           style(color=0),
-          string=">=")),    Diagram);
+          string=">=")),    Diagram, 
+      Documentation(info="<html>
+ 
+</html>"));
   equation 
     y = u >= threshold;
   end GreaterEqualThreshold;
@@ -161,7 +197,10 @@ network built with package Logical is shown in the next figure:
     annotation (Icon(Text(
           extent=[-90,-40; 60,40],
           style(color=0),
-          string="<")),     Diagram);
+          string="<")),     Diagram, 
+      Documentation(info="<html>
+ 
+</html>"));
   equation 
     y = u < threshold;
   end LessThreshold;
@@ -172,7 +211,10 @@ network built with package Logical is shown in the next figure:
     annotation (Icon(Text(
           extent=[-90,-40; 60,40],
           style(color=0),
-          string="<=")),    Diagram);
+          string="<=")),    Diagram, 
+      Documentation(info="<html>
+ 
+</html>"));
   equation 
     y = u <= threshold;
   end LessEqualThreshold;
@@ -187,7 +229,9 @@ network built with package Logical is shown in the next figure:
           extent=[-80,-60; 20,60],
           style(color=0),
           string=">")),
-        Documentation(info=""));
+        Documentation(info="<html>
+ 
+</html>"));
   equation 
     y = u1 > u2;
   end Greater;
@@ -203,7 +247,9 @@ network built with package Logical is shown in the next figure:
           extent=[-80,-60; 20,60],
           style(color=0),
           string=">=")),
-        Documentation(info=""));
+        Documentation(info="<html>
+ 
+</html>"));
   equation 
     y = u1 >= u2;
   end GreaterEqual;
@@ -218,7 +264,9 @@ network built with package Logical is shown in the next figure:
           extent=[-80,-60; 20,60],
           style(color=0),
           string="<")),
-        Documentation(info=""));
+        Documentation(info="<html>
+ 
+</html>"));
   equation 
     y = u1 < u2;
   end Less;
@@ -233,7 +281,9 @@ network built with package Logical is shown in the next figure:
           extent=[-80,-60; 20,60],
           style(color=0),
           string="<=")),
-        Documentation(info=""));
+        Documentation(info="<html>
+ 
+</html>"));
   equation 
     y = u1 <= u2;
   end LessEqual;
@@ -340,10 +390,14 @@ u1, else it is set equal to u2.</p>
   
   block Switch "Switch between two Real signals" 
     extends Blocks.Interfaces.partialBooleanBlockIcon;
-    Blocks.Interfaces.RealInput u1 annotation(extent=[-140,60; -100,100]);
-    Blocks.Interfaces.BooleanInput u2 annotation(extent=[-140,-20; -100,20]);
-    Blocks.Interfaces.RealInput u3 annotation(extent=[-140,-100; -100,-60]);
-    Blocks.Interfaces.RealOutput y annotation(extent=[100,-10; 120,10]);
+    Blocks.Interfaces.RealInput u1 "Connector of first Real input signal" 
+                                   annotation(extent=[-140,60; -100,100]);
+    Blocks.Interfaces.BooleanInput u2 "Connector of Boolean input signal" 
+                                      annotation(extent=[-140,-20; -100,20]);
+    Blocks.Interfaces.RealInput u3 "Connector of second Real input signal" 
+                                   annotation(extent=[-140,-100; -100,-60]);
+    Blocks.Interfaces.RealOutput y "Connector of Real output signal" 
+                                   annotation(extent=[100,-10; 120,10]);
     
     annotation (
       Coordsys(
@@ -493,9 +547,15 @@ The default value of this parameter is <b>false</b>.
   
   block OnOffController "On-off controller" 
     extends Interfaces.partialBooleanBlockIcon;
-    Blocks.Interfaces.RealInput reference annotation(extent=[-140, 80; -100,40]);
-    Blocks.Interfaces.RealInput u annotation(extent=[-140,-40; -100,-80]);
-    Blocks.Interfaces.BooleanOutput y annotation(extent=[100,-10; 120,10]);
+    Blocks.Interfaces.RealInput reference 
+      "Connector of Real input signal used as reference signal" 
+                                          annotation(extent=[-140, 80; -100,40]);
+    Blocks.Interfaces.RealInput u 
+      "Connector of Real input signal used as measurement signal" 
+                                  annotation(extent=[-140,-40; -100,-80]);
+    Blocks.Interfaces.BooleanOutput y 
+      "Connector of Real output signal used as actuator signal" 
+                                      annotation(extent=[100,-10; 120,10]);
     
     parameter Real bandwidth=0.1 "Bandwidth around reference signal";
     parameter Boolean pre_y_start = false "Value of pre(y) at initial time";
@@ -541,8 +601,9 @@ signal <b>u</b> exceeds the <b>reference</b> signal plus half of the bandwidth.<
       "Falling duration of trapezoid";
     parameter Real offset=0 "Offset of output signal";
     
-    Blocks.Interfaces.BooleanInput u annotation(extent=[-140,-20; -100,20]);
-    Blocks.Interfaces.RealOutput y 
+    Blocks.Interfaces.BooleanInput u "Connector of Boolean input signal" 
+                                     annotation(extent=[-140,-20; -100,20]);
+    Blocks.Interfaces.RealOutput y "Connector of Real output signal" 
       annotation (extent=[100,-10; 120,10]);
     
     annotation (
@@ -709,8 +770,9 @@ handled properly.</p>
     "Timer measuring the time from the time instant where the Boolean input became true" 
     
     extends Interfaces.partialBooleanBlockIcon;
-    Blocks.Interfaces.BooleanInput u annotation(extent=[-140,-20; -100,20]);
-    Blocks.Interfaces.RealOutput y 
+    Blocks.Interfaces.BooleanInput u "Connector of Boolean input signal" 
+                                     annotation(extent=[-140,-20; -100,20]);
+    Blocks.Interfaces.RealOutput y "Connector of Real output signal" 
       annotation (extent=[100,-10; 120,10]);
     
     annotation (

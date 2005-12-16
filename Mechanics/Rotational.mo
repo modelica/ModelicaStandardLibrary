@@ -70,10 +70,8 @@ together, see figure below.
 
 </HTML>"));
       
-      
-      
   end Overview;
-
+    
   package FlangeConnectors "Flange Connectors" 
     annotation (DocumentationClass=true, Documentation(info="<HTML>
 <h3><font color=\"#008000\" size=5>Flange connectors</font></h3>
@@ -101,7 +99,7 @@ determined by differentiation of the flange angle <tt>phi</tt>:
 </HTML>"));
       
   end FlangeConnectors;
-
+    
   package SupportTorques "Support Torques" 
     annotation (DocumentationClass=true, Documentation(info="<HTML>
 <h3><font color=\"#008000\" size=5>Support Torques</font></h3>
@@ -124,7 +122,6 @@ identical results.</p>
 </HTML>"));
       
   end SupportTorques;
-    
     
   package SignConventions "Sign Conventions" 
     annotation (DocumentationClass=true, Documentation(info="<HTML>
@@ -185,7 +182,7 @@ is as indicated with the additional grey arrows.
 </HTML>"));
       
   end SignConventions;
-
+    
   package UserDefinedComponents "User Defined Components" 
     annotation (DocumentationClass=true, Documentation(info="<HTML>
 <h3><font color=\"#008000\" size=5>User Defined Components</font></h3>
@@ -270,7 +267,7 @@ diagram and is therefore less convenient to use.
 </HTML>"));
       
   end UserDefinedComponents;
-
+    
   package RequirementsForSimulationTool "Requirements for Simulation Tools" 
     annotation (DocumentationClass=true, Documentation(info="<HTML>
 <h3><font color=\"#008000\" size=5>Requirements for Simulation Tools</font></h3>
@@ -328,7 +325,7 @@ as possible.
 </HTML>"));
       
   end RequirementsForSimulationTool;
-
+    
   class ReleaseNotes "Release notes" 
       
     annotation (Documentation(info="<HTML>
@@ -393,7 +390,6 @@ as possible.
       
   end ReleaseNotes;
     
-    
   class Contact "Contact" 
       
     annotation (Documentation(info="<html>
@@ -418,7 +414,7 @@ as possible.
   end Contact;
     
 end UsersGuide;
-
+  
   package Examples "Demonstration examples of the components of this package" 
     
     extends Modelica.Icons.Library;
@@ -1711,7 +1707,7 @@ It is used e.g. to build up equation-based parts of a drive train.</p>
       end Adapter;
     equation 
       tau_support = -adapter.flange_b.tau;
-      connect(adapter.flange_a, bearing) annotation (points=[-6.12303e-016,-70; 
+      connect(adapter.flange_a, bearing) annotation (points=[-6.12303e-016,-70;
             0,-70; 0,-100],    style(color=0));
       annotation (Documentation(info="<html>
 <p>
@@ -4299,11 +4295,11 @@ to the left and/or the right flange.
       annotation (points=[30, 0; 50, 0], style(color=0));
     connect(elastoBacklash.flange_b, flange_b) 
       annotation (points=[70, 0; 100, 0], style(color=0));
-    connect(gearRatio.bearing, adapter.flange_b) annotation (points=[-60,-10; 
+    connect(gearRatio.bearing, adapter.flange_b) annotation (points=[-60,-10;
           -60,-40; 6.12303e-016,-40; 6.12303e-016,-50],    style(color=0));
-    connect(gearEfficiency.bearing, adapter.flange_b) annotation (points=[-20,-10; 
+    connect(gearEfficiency.bearing, adapter.flange_b) annotation (points=[-20,-10;
           -20,-40; 6.12303e-016,-40; 6.12303e-016,-50],         style(color=0));
-    connect(bearingFriction.bearing, adapter.flange_b) annotation (points=[20,-10; 
+    connect(bearingFriction.bearing, adapter.flange_b) annotation (points=[20,-10;
           20,-40; 6.12303e-016,-40; 6.12303e-016,-50],         style(color=0));
   end Gear;
   
@@ -4405,7 +4401,7 @@ GearNew.</p>
       annotation (points=[-20, 0; 20, 0], style(color=0));
     connect(elastoBacklash.flange_b, flange_b) 
       annotation (points=[60, 0; 100, 0], style(color=0));
-    connect(lossyGear.bearing, adapter.flange_b) annotation (points=[-40,-20; 
+    connect(lossyGear.bearing, adapter.flange_b) annotation (points=[-40,-20;
           -40,-40; 6.12303e-016,-40; 6.12303e-016,-50],    style(color=0));
   end Gear2;
   

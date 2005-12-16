@@ -1417,12 +1417,11 @@ of these axes can be set via parameters.
     annotation (Dialog(tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
   parameter Boolean axisShowLabels=true "= true, if labels shall be shown" 
     annotation (Dialog(tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
-  parameter Types.Color axisColor_x=Types.Defaults.FrameColor 
-    "Color of x-arrow" 
+  input Types.Color axisColor_x=Types.Defaults.FrameColor "Color of x-arrow" 
     annotation (Dialog(tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
-  parameter Modelica.Mechanics.MultiBody.Types.Color axisColor_y=axisColor_x 
+  input Types.Color axisColor_y=axisColor_x 
     annotation (Dialog(tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
-  parameter Types.Color axisColor_z=axisColor_x "Color of z-arrow" 
+  input Types.Color axisColor_z=axisColor_x "Color of z-arrow" 
     annotation (Dialog(tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
   
   parameter SI.Position gravityArrowTail[3]={0,0,0} 
@@ -1439,7 +1438,7 @@ of these axes can be set via parameters.
           "Animation", group=
           "if animateGravity = true and gravityType = UniformGravity",
           enable=enableAnimation and animateGravity and gravityType == GravityTypes.UniformGravity));
-  parameter Types.Color gravityArrowColor={0,230,0} "Color of gravity arrow" 
+  input Types.Color gravityArrowColor={0,230,0} "Color of gravity arrow" 
     annotation (Dialog(tab="Animation", group=
           "if animateGravity = true and gravityType = UniformGravity",
           enable=enableAnimation and animateGravity and gravityType == GravityTypes.UniformGravity));
@@ -1448,7 +1447,7 @@ of these axes can be set via parameters.
     annotation (Dialog(tab="Animation", group=
           "if animateGravity = true and gravityType = PointGravity",
           enable=enableAnimation and animateGravity and gravityType == GravityTypes.PointGravity));
-  parameter Types.Color gravitySphereColor={0,230,0} "Color of gravity sphere" 
+  input Types.Color gravitySphereColor={0,230,0} "Color of gravity sphere" 
     annotation (Dialog(tab="Animation", group=
           "if animateGravity = true and gravityType = PointGravity",
           enable=enableAnimation and animateGravity and gravityType == GravityTypes.PointGravity));
@@ -1485,6 +1484,9 @@ of these axes can be set via parameters.
   parameter Real defaultSpecularCoefficient(min=0) = 0.7 
     "Default reflection of ambient light (= 0: light is completely absorbed)" 
     annotation (Dialog(tab="Defaults"));
+  parameter Real defaultN_to_m(min=0) = 0.7 
+    "Default reflection of ambient light (= 0: light is completely absorbed)" 
+    annotation (Dialog(tab="Defaults"));
   
   /* The World object can only use the Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape model, but no
      other models in package Modelica.Mechanics.MultiBody.Visualizers, since the other models access
@@ -1511,134 +1513,130 @@ protected
   parameter SI.Length labelStart=1.05*axisLength;
   
   // x-axis
-  Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape x_arrowLine[ndim](
-    each shapeType="cylinder",
-    each length=lineLength,
-    each width=lineWidth,
-    each height=lineWidth,
-    each lengthDirection={1,0,0},
-    each widthDirection={0,1,0},
-    each color=axisColor_x,
-    each specularCoefficient=0);
-  Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape x_arrowHead[ndim](
-    each shapeType="cone",
-    each length=headLength,
-    each width=headWidth,
-    each height=headWidth,
-    each lengthDirection={1,0,0},
-    each widthDirection={0,1,0},
-    each color=axisColor_x,
-    each r={lineLength,0,0},
-    each specularCoefficient=0);
-  Modelica.Mechanics.MultiBody.Visualizers.Internal.Lines x_label[ndim2](
-    each lines=scaledLabel*{[0, 0; 1, 1],[0, 1; 1, 0]},
-    each diameter=axisDiameter,
-    each color=axisColor_x,
-    each r_lines={labelStart,0,0},
-    each n_x={1,0,0},
-    each n_y={0,1,0},
-    each specularCoefficient=0);
+  Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape x_arrowLine(
+    shapeType="cylinder",
+    length=lineLength,
+    width=lineWidth,
+    height=lineWidth,
+    lengthDirection={1,0,0},
+    widthDirection={0,1,0},
+    color=axisColor_x,
+    specularCoefficient=0) if enableAnimation and animateWorld;
+  Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape x_arrowHead(
+    shapeType="cone",
+    length=headLength,
+    width=headWidth,
+    height=headWidth,
+    lengthDirection={1,0,0},
+    widthDirection={0,1,0},
+    color=axisColor_x,
+    r={lineLength,0,0},
+    specularCoefficient=0) if enableAnimation and animateWorld;
+  Modelica.Mechanics.MultiBody.Visualizers.Internal.Lines x_label(
+    lines=scaledLabel*{[0, 0; 1, 1],[0, 1; 1, 0]},
+    diameter=axisDiameter,
+    color=axisColor_x,
+    r_lines={labelStart,0,0},
+    n_x={1,0,0},
+    n_y={0,1,0},
+    specularCoefficient=0) if enableAnimation and animateWorld and axisShowLabels;
   
   // y-axis
-  Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape y_arrowLine[ndim](
-    each shapeType="cylinder",
-    each length=lineLength,
-    each width=lineWidth,
-    each height=lineWidth,
-    each lengthDirection={0,1,0},
-    each widthDirection={1,0,0},
-    each color=axisColor_y,
-    each specularCoefficient=0);
-  Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape y_arrowHead[ndim](
-    each shapeType="cone",
-    each length=headLength,
-    each width=headWidth,
-    each height=headWidth,
-    each lengthDirection={0,1,0},
-    each widthDirection={1,0,0},
-    each color=axisColor_y,
-    each r={0,lineLength,0},
-    each specularCoefficient=0);
-  Modelica.Mechanics.MultiBody.Visualizers.Internal.Lines y_label[ndim2](
-    each lines=scaledLabel*{[0, 0; 1, 1.5],[0, 1.5; 0.5, 0.75]},
-    each diameter=axisDiameter,
-    each color=axisColor_y,
-    each r_lines={0,labelStart,0},
-    each n_x={0,1,0},
-    each n_y={-1,0,0},
-    each specularCoefficient=0);
+  Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape y_arrowLine(
+    shapeType="cylinder",
+    length=lineLength,
+    width=lineWidth,
+    height=lineWidth,
+    lengthDirection={0,1,0},
+    widthDirection={1,0,0},
+    color=axisColor_y,
+    specularCoefficient=0) if enableAnimation and animateWorld;
+  Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape y_arrowHead(
+    shapeType="cone",
+    length=headLength,
+    width=headWidth,
+    height=headWidth,
+    lengthDirection={0,1,0},
+    widthDirection={1,0,0},
+    color=axisColor_y,
+    r={0,lineLength,0},
+    specularCoefficient=0) if enableAnimation and animateWorld;
+  Modelica.Mechanics.MultiBody.Visualizers.Internal.Lines y_label(
+    lines=scaledLabel*{[0, 0; 1, 1.5],[0, 1.5; 0.5, 0.75]},
+    diameter=axisDiameter,
+    color=axisColor_y,
+    r_lines={0,labelStart,0},
+    n_x={0,1,0},
+    n_y={-1,0,0},
+    specularCoefficient=0) if enableAnimation and animateWorld and axisShowLabels;
   
   // z-axis
-  Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape z_arrowLine[ndim](
-    each shapeType="cylinder",
-    each length=lineLength,
-    each width=lineWidth,
-    each height=lineWidth,
-    each lengthDirection={0,0,1},
-    each widthDirection={0,1,0},
-    each color=axisColor_z,
-    each specularCoefficient=0);
-  Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape z_arrowHead[ndim](
-    each shapeType="cone",
-    each length=headLength,
-    each width=headWidth,
-    each height=headWidth,
-    each lengthDirection={0,0,1},
-    each widthDirection={0,1,0},
-    each color=axisColor_z,
-    each r={0,0,lineLength},
-    each specularCoefficient=0);
-  Modelica.Mechanics.MultiBody.Visualizers.Internal.Lines z_label[ndim2](
-    each lines=scaledLabel*{[0, 0; 1, 0],[0, 1; 1, 1],[0, 1; 1, 0]},
-    each diameter=axisDiameter,
-    each color=axisColor_z,
-    each r_lines={0,0,labelStart},
-    each n_x={0,0,1},
-    each n_y={0,1,0},
-    each specularCoefficient=0);
+  Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape z_arrowLine(
+    shapeType="cylinder",
+    length=lineLength,
+    width=lineWidth,
+    height=lineWidth,
+    lengthDirection={0,0,1},
+    widthDirection={0,1,0},
+    color=axisColor_z,
+    specularCoefficient=0) if enableAnimation and animateWorld;
+  Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape z_arrowHead(
+    shapeType="cone",
+    length=headLength,
+    width=headWidth,
+    height=headWidth,
+    lengthDirection={0,0,1},
+    widthDirection={0,1,0},
+    color=axisColor_z,
+    r={0,0,lineLength},
+    specularCoefficient=0) if enableAnimation and animateWorld;
+  Modelica.Mechanics.MultiBody.Visualizers.Internal.Lines z_label(
+    lines=scaledLabel*{[0, 0; 1, 0],[0, 1; 1, 1],[0, 1; 1, 0]},
+    diameter=axisDiameter,
+    color=axisColor_z,
+    r_lines={0,0,labelStart},
+    n_x={0,0,1},
+    n_y={0,1,0},
+    specularCoefficient=0) if enableAnimation and animateWorld and axisShowLabels;
   
   // Uniform gravity visualization
-  parameter Integer ndim_uniformGravity=if enableAnimation and animateGravity
-       and gravityType == 1 then 1 else 0;
   parameter SI.Length gravityHeadLength=min(gravityArrowLength,
       gravityArrowDiameter*Types.Defaults.ArrowHeadLengthFraction);
-  parameter SI.Length gravityHeadWidth=gravityArrowDiameter*Types.Defaults.
-      ArrowHeadWidthFraction;
-  parameter SI.Length gravityLineLength=max(0, gravityArrowLength -
-      gravityHeadLength);
-  Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape gravityArrowLine[ndim_uniformGravity](
-    each shapeType="cylinder",
-    each length=gravityLineLength,
-    each width=gravityArrowDiameter,
-    each height=gravityArrowDiameter,
-    each lengthDirection=n,
-    each widthDirection={0,1,0},
-    each color=gravityArrowColor,
-    each r_shape=gravityArrowTail,
-    each specularCoefficient=0);
-  Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape gravityArrowHead[ndim_uniformGravity](
-    each shapeType="cone",
-    each length=gravityHeadLength,
-    each width=gravityHeadWidth,
-    each height=gravityHeadWidth,
-    each lengthDirection=n,
-    each widthDirection={0,1,0},
-    each color=gravityArrowColor,
-    each r_shape=gravityArrowTail + Frames.normalize(n)*gravityLineLength,
-    each specularCoefficient=0);
+  parameter SI.Length gravityHeadWidth=gravityArrowDiameter*Types.Defaults.ArrowHeadWidthFraction;
+  parameter SI.Length gravityLineLength=max(0, gravityArrowLength - gravityHeadLength);
+  Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape gravityArrowLine(
+    shapeType="cylinder",
+    length=gravityLineLength,
+    width=gravityArrowDiameter,
+    height=gravityArrowDiameter,
+    lengthDirection=n,
+    widthDirection={0,1,0},
+    color=gravityArrowColor,
+    r_shape=gravityArrowTail,
+    specularCoefficient=0) if enableAnimation and animateGravity and gravityType == GravityTypes.UniformGravity;
+  Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape gravityArrowHead(
+    shapeType="cone",
+    length=gravityHeadLength,
+    width=gravityHeadWidth,
+    height=gravityHeadWidth,
+    lengthDirection=n,
+    widthDirection={0,1,0},
+    color=gravityArrowColor,
+    r_shape=gravityArrowTail + Frames.normalize(n)*gravityLineLength,
+    specularCoefficient=0) if enableAnimation and animateGravity and gravityType == GravityTypes.UniformGravity;
   
   // Point gravity visualization
   parameter Integer ndim_pointGravity=if enableAnimation and animateGravity
        and gravityType == 2 then 1 else 0;
-  Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape gravitySphere[ndim_pointGravity](
-    each shapeType="sphere",
-    each r_shape={-gravitySphereDiameter/2,0,0},
-    each lengthDirection={1,0,0},
-    each length=gravitySphereDiameter,
-    each width=gravitySphereDiameter,
-    each height=gravitySphereDiameter,
-    each color=gravitySphereColor,
-    each specularCoefficient=0);
+  Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape gravitySphere(
+    shapeType="sphere",
+    r_shape={-gravitySphereDiameter/2,0,0},
+    lengthDirection={1,0,0},
+    length=gravitySphereDiameter,
+    width=gravitySphereDiameter,
+    height=gravitySphereDiameter,
+    color=gravitySphereColor,
+    specularCoefficient=0) if enableAnimation and animateGravity and gravityType == GravityTypes.PointGravity;
   
   function gravityAcceleration = gravityAccelerationTypes (
       gravityType=gravityType,

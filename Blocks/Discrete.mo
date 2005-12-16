@@ -165,13 +165,7 @@ that is, the output signal y is the input signal u of the
 previous sample instant. Before the second sample instant,
 the output y is identical to parameter yStart.
 </p>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>June 13, 2000</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       Realized, based on a model of Dieter Moormann.
-</li>
-</ul>
+
 </HTML>
 "),   Icon(
         Line(points=[-30, 0; 30, 0]),
@@ -242,6 +236,9 @@ states can be set as start values of <b>x</b>.<p>
    y = --------- * u
          z + 3
 </pre>
+
+</HTML>
+", revisions="<html>
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>November 15, 2000</i>
@@ -253,8 +250,8 @@ states can be set as start values of <b>x</b>.<p>
     Realized based on a corresponding model of Dieter Moormann
     and Hilding Elmqvist.</li>
 </ul>
-</HTML>
-"),   Icon(
+</html>"),
+      Icon(
         Line(points=[82, 0; -84, 0], style(color=73)),
         Text(
           extent=[-92, 92; 86, 12],
@@ -352,6 +349,7 @@ Example:
      parameter: B = [2, 7;3, 1]
      parameter: C = [0.1, 2]
      parameter: D = zeros(ny,nu)
+
 results in the following equations:
   [x[1]]   [0.12  2.00] [pre(x[1])]   [2.0  7.0] [u[1]]
   [    ] = [          ]*[         ] + [        ]*[    ]

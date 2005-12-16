@@ -3,7 +3,29 @@ model HeatingNPN_OrGate "Heating NPN Or Gate"
   constant Real CapVal=0;
   
 annotation (Diagram(Text(extent=[-100, 100; -6, 72], string=
-          "Heating NPN Nand Gate")));
+          "Heating NPN Nand Gate")), Documentation(info="<HTML>
+<P>
+The heating NPN nand gate shows a heat flow always if a transistor is leading.
+</P>
+<P>
+Simulate until T=200 s.
+</P>
+<P>
+Plot in separate windows:<br> <br>
+V1.v and V2.v and C2.v <br>
+HeatCapacitor1.port.T and T1.heatPort.T and T2.heatPort.T<br>
+T1.heatPort.Q_flow and T2.heatPort.Q_flow<br>
+</P>
+
+</HTML>
+", revisions="<html>
+<p><b>Release Notes:</b></p>
+<ul>
+<li><i>Mai 6, 2004   </i>
+       by Christoph Clauss<br> realized<br>
+       </li>
+</ul>
+</html>"));
   Modelica.Thermal.HeatTransfer.HeatCapacitor HeatCapacitor1(C=0.1) 
   annotation (extent=[66, -94; 86, -74], rotation=180);
   Modelica.Thermal.HeatTransfer.ThermalConductor TC1(G=0.01) 
@@ -157,14 +179,14 @@ equation
   connect(T2.C, RI.p) 
   annotation (points=[40, -7; 40, 68; 60, 68], style(color=3));
   connect(TC1.port_b, HeatCapacitor1.port) 
-                                         annotation (points=[90, -61;
-       84, -61; 84, -74; 76, -74], style(color=42));
+                                         annotation (points=[90,-60; 84,-60; 84,
+        -74; 76,-74],              style(color=42));
   connect(TC2.port_b, HeatCapacitor1.port) 
-                                         annotation (points=[60, -61;
-       68, -61; 68, -74; 76, -74], style(color=42));
+                                         annotation (points=[60,-60; 68,-60; 68,
+        -74; 76,-74],              style(color=42));
   connect(TC2.port_a, T2.heatPort) 
-  annotation (points=[60, -39; 60, -22; 30, -22], style(color=42));
+  annotation (points=[60,-40; 60,-22; 30,-22],    style(color=42));
   connect(TC1.port_a, T1.heatPort) 
-                                 annotation (points=[90, -39; 90, 2;
-      -10, 2; -10, 48], style(color=42));
+                                 annotation (points=[90,-40; 90,2; -10,2; -10,
+        48],            style(color=42));
 end HeatingNPN_OrGate;

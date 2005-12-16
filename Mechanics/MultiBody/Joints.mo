@@ -781,7 +781,7 @@ phi_start_b = 45<sup>o</sup>).
     parameter SI.Distance cylinderDiameter=world.defaultJointWidth 
       "Diameter of revolute cylinder" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter Types.Color cylinderColor=Types.Defaults.JointColor 
+    input Types.Color cylinderColor=Types.Defaults.JointColor 
       "Color of revolute cylinder" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     parameter SI.Distance boxWidth=0.3*cylinderDiameter 
@@ -789,7 +789,7 @@ phi_start_b = 45<sup>o</sup>).
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     parameter SI.Distance boxHeight=boxWidth "Height of prismatic joint boxes" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter Types.Color boxColor=Types.Defaults.JointColor 
+    input Types.Color boxColor=Types.Defaults.JointColor 
       "Color of prismatic joint boxes" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     parameter Boolean enforceStates=false 
@@ -2731,6 +2731,7 @@ pair of joints\" from Woernle and Hiller is described in:
       "Universal - prismatic - spherical joint aggregation (no constraints, no potential states)" 
       
       import SI = Modelica.SIunits;
+      import Modelica.Mechanics.MultiBody.Types;
       extends Interfaces.PartialTwoFramesDoubleSize;
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_ia 
         "Coordinate system at origin of frame_a fixed at prismatic joint" 
@@ -2749,30 +2750,46 @@ pair of joints\" from Woernle and Hiller is described in:
       parameter Boolean showUniversalAxes=true 
         " = true, if universal joint shall be visualized with two cylinders, otherwise with a sphere (provided animation=true)";
       parameter Modelica.Mechanics.MultiBody.Types.Axis n1_a={0,0,1} 
-        "Axis 1 of universal joint resolved in frame_a (axis 2 is orthogonal to axis 1 and to line from universal to spherical joint)";
+        "Axis 1 of universal joint resolved in frame_a (axis 2 is orthogonal to axis 1 and to line from universal to spherical joint)"
+        annotation (Evaluate=true);
       parameter SI.Position nAxis_ia[3]={1,0,0} 
         "Axis vector along line from origin of frame_a to origin of frame_b, resolved in frame_ia"
         annotation (Evaluate=true);
       parameter SI.Position s_offset=0 
         "Relative distance offset (distance between frame_a and frame_b = s(t) + s_offset)";
       parameter SI.Diameter sphereDiameter=world.defaultJointLength 
-        "|Animation|if animation = true|Diameter of spheres representing the spherical joints";
-      parameter Modelica.Mechanics.MultiBody.Types.Color sphereColor=Types.Defaults.JointColor 
-        "|Animation|if animation = true|Color of spheres representing the spherical joints";
+        "Diameter of spheres representing the spherical joints" 
+        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+      input Types.Color sphereColor=Types.Defaults.JointColor 
+        "Color of spheres representing the spherical joints" 
+        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       parameter SI.Diameter axisDiameter=sphereDiameter/Types.Defaults.
           JointRodDiameterFraction 
-        "|Animation|if animation = true|Diameter of cylinder on the connecting line from frame_a to frame_b";
-      parameter Modelica.Mechanics.MultiBody.Types.Color axisColor=Types.Defaults.SensorColor 
-        "|Animation|if animation = true|Color of cylinder on the connecting line from frame_a to frame_b";
+        "Diameter of cylinder on the connecting line from frame_a to frame_b" 
+        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+      input Types.Color axisColor=Types.Defaults.SensorColor 
+        "Color of cylinder on the connecting line from frame_a to frame_b" 
+        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+      input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
+        "Reflection of ambient light (= 0: light is completely absorbed)" 
+        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       parameter SI.Distance cylinderLength=world.defaultJointLength 
-        "|Animation|if animation = true and showUniversalAxes|Length of cylinders representing the two universal joint axes";
+        "Length of cylinders representing the two universal joint axes" annotation (
+         Dialog(tab="Animation", group="if animation = true and showUniversalAxes",
+                enable=animation and showUniversalAxes));
       parameter SI.Distance cylinderDiameter=world.defaultJointWidth 
-        "|Animation|if animation = true and showUniversalAxes|Diameter of cylinders representing the two universal joint axes";
-      parameter Modelica.Mechanics.MultiBody.Types.Color cylinderColor=Types.Defaults.JointColor 
-        "|Animation|if animation = true and showUniversalAxes|Color of cylinders representing the two universal joint axes";
+        "Diameter of cylinders representing the two universal joint axes" 
+        annotation (Dialog(tab="Animation", group=
+              "if animation = true and showUniversalAxes",
+                enable=animation and showUniversalAxes));
+     input Types.Color cylinderColor=Types.Defaults.JointColor 
+        "Color of cylinders representing the two universal joint axes" annotation (
+          Dialog(tab="Animation", group="if animation = true and showUniversalAxes",
+                enable=animation and showUniversalAxes));
       
       parameter Boolean checkTotalPower=false 
-        "|Advanced||= true, if total power flowing into this component shall be determined (must be zero)";
+        "= true, if total power flowing into this component shall be determined (must be zero)"
+        annotation (Dialog(tab="Advanced"));
       final parameter Real eAxis_ia[3]=Frames.normalize(nAxis_ia) 
         "Unit vector from origin of frame_a to origin of frame_b, resolved in frame_ia";
       final parameter Real e2_ia[3]=Frames.normalize(cross(n1_a, eAxis_ia)) 
@@ -3111,66 +3128,65 @@ component).
       Frames.Orientation R_ia_a "Rotation from frame_a to frame_ia";
       // Real T_ia_a[3, 3] "Transformation matrix from frame_a to frame_ia";
       
-      parameter Integer ndim=if world.enableAnimation and animation then 1 else 
-                0;
-      parameter Integer ndim1=if world.enableAnimation and animation and not 
-          showUniversalAxes then 1 else 0;
-      parameter Integer ndim2=if world.enableAnimation and animation and 
-          showUniversalAxes then 1 else 0;
-      Visualizers.Advanced.Shape axisCylinder[ndim](
-        each shapeType="cylinder",
-        each color=axisColor,
-        each length=axisLength,
-        each width=axisDiameter,
-        each height=axisDiameter,
-        each lengthDirection=eAxis_ia,
-        each widthDirection=e2_ia,
-        each r=frame_ia.r_0,
-        each R=frame_ia.R);
-      Visualizers.Advanced.Shape sphericalShape_b[ndim](
-        each shapeType="sphere",
-        each color=sphereColor,
-        each length=sphereDiameter,
-        each width=sphereDiameter,
-        each height=sphereDiameter,
-        each lengthDirection={1,0,0},
-        each widthDirection={0,1,0},
-        each r_shape={-0.5,0,0}*sphereDiameter,
-        each r=frame_b.r_0,
-        each R=frame_b.R);
-      Visualizers.Advanced.Shape sphericalShape_a[ndim1](
-        each shapeType="sphere",
-        each color=sphereColor,
-        each length=sphereDiameter,
-        each width=sphereDiameter,
-        each height=sphereDiameter,
-        each lengthDirection={1,0,0},
-        each widthDirection={0,1,0},
-        each r_shape={-0.5,0,0}*sphereDiameter,
-        each r=frame_a.r_0,
-        each R=frame_a.R);
-      Visualizers.Advanced.Shape universalShape1[ndim2](
-        each shapeType="cylinder",
-        each color=cylinderColor,
-        each length=cylinderLength,
-        each width=cylinderDiameter,
-        each height=cylinderDiameter,
-        each lengthDirection=n1_a,
-        each widthDirection={0,1,0},
-        each r_shape=-n1_a*(cylinderLength/2),
-        each r=frame_a.r_0,
-        each R=frame_a.R);
-      Visualizers.Advanced.Shape universalShape2[ndim2](
-        each shapeType="cylinder",
-        each color=cylinderColor,
-        each length=cylinderLength,
-        each width=cylinderDiameter,
-        each height=cylinderDiameter,
-        each lengthDirection=e2_ia,
-        each widthDirection={0,1,0},
-        each r_shape=-e2_ia*(cylinderLength/2),
-        each r=frame_ia.r_0,
-        each R=frame_ia.R);
+      Visualizers.Advanced.Shape axisCylinder(
+        shapeType="cylinder",
+        color=axisColor,
+        specularCoefficient=specularCoefficient,
+        length=axisLength,
+        width=axisDiameter,
+        height=axisDiameter,
+        lengthDirection=eAxis_ia,
+        widthDirection=e2_ia,
+        r=frame_ia.r_0,
+        R=frame_ia.R) if world.enableAnimation and animation;
+      Visualizers.Advanced.Shape sphericalShape_b(
+        shapeType="sphere",
+        color=sphereColor,
+        specularCoefficient=specularCoefficient,
+        length=sphereDiameter,
+        width=sphereDiameter,
+        height=sphereDiameter,
+        lengthDirection={1,0,0},
+        widthDirection={0,1,0},
+        r_shape={-0.5,0,0}*sphereDiameter,
+        r=frame_b.r_0,
+        R=frame_b.R) if world.enableAnimation and animation;
+      Visualizers.Advanced.Shape sphericalShape_a(
+        shapeType="sphere",
+        color=sphereColor,
+        specularCoefficient=specularCoefficient,
+        length=sphereDiameter,
+        width=sphereDiameter,
+        height=sphereDiameter,
+        lengthDirection={1,0,0},
+        widthDirection={0,1,0},
+        r_shape={-0.5,0,0}*sphereDiameter,
+        r=frame_a.r_0,
+        R=frame_a.R) if world.enableAnimation and animation;
+      Visualizers.Advanced.Shape universalShape1(
+        shapeType="cylinder",
+        color=cylinderColor,
+        specularCoefficient=specularCoefficient,
+        length=cylinderLength,
+        width=cylinderDiameter,
+        height=cylinderDiameter,
+        lengthDirection=n1_a,
+        widthDirection={0,1,0},
+        r_shape=-n1_a*(cylinderLength/2),
+        r=frame_a.r_0,
+        R=frame_a.R) if world.enableAnimation and animation and showUniversalAxes;
+      Visualizers.Advanced.Shape universalShape2(
+        shapeType="cylinder",
+        color=cylinderColor,
+        specularCoefficient=specularCoefficient,
+        length=cylinderLength,
+        width=cylinderDiameter,
+        height=cylinderDiameter,
+        lengthDirection=e2_ia,
+        widthDirection={0,1,0},
+        r_shape=-e2_ia*(cylinderLength/2),
+        r=frame_ia.r_0,
+        R=frame_ia.R) if world.enableAnimation and animation and showUniversalAxes;
     equation 
       defineBranch(frame_a.R, frame_ia.R);
       defineBranch(frame_ia.R, frame_ib.R);
@@ -3316,6 +3332,7 @@ origin of frame_b. You may try to use another \"n1_a\" vector.
       
       import SI = Modelica.SIunits;
       import Cv = Modelica.SIunits.Conversions;
+      import Modelica.Mechanics.MultiBody.Types;
       
       extends Interfaces.PartialTwoFramesDoubleSize;
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_ia 
@@ -3353,37 +3370,57 @@ origin of frame_b. You may try to use another \"n1_a\" vector.
       parameter Cv.NonSIunits.Angle_deg phi_guess=0 
         "Select the configuration such that at initial time |phi(t0) - from_deg(phi_guess)|is minimal";
       parameter SI.Diameter sphereDiameter=world.defaultJointLength 
-        "|Animation|if animation = true|Diameter of the spheres representing the universal and the spherical joint";
-      parameter Modelica.Mechanics.MultiBody.Types.Color sphereColor=Modelica.Mechanics.MultiBody.Types.Defaults.
-          JointColor 
-        "|Animation|if animation = true|Color of the spheres representing the universal and the spherical joint";
+        "Diameter of the spheres representing the universal and the spherical joint"
+        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+      input Types.Color sphereColor=Modelica.Mechanics.MultiBody.Types.Defaults.
+           JointColor 
+        "Color of the spheres representing the universal and the spherical joint"
+        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       parameter SI.Diameter rod1Diameter=sphereDiameter/Types.Defaults.
           JointRodDiameterFraction 
-        "|Animation|if animation = true|Diameter of rod 1 connecting the universal and the spherical joint";
-      parameter Modelica.Mechanics.MultiBody.Types.Color rod1Color=Modelica.Mechanics.MultiBody.Types.Defaults.
+        "Diameter of rod 1 connecting the universal and the spherical joint" 
+        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+      input Types.Color rod1Color=Modelica.Mechanics.MultiBody.Types.Defaults.
           RodColor 
-        "|Animation|if animation = true|Color of rod 1 connecting the universal and the spherical joint";
+        "Color of rod 1 connecting the universal and the spherical joint" 
+        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       
       parameter SI.Diameter rod2Diameter=rod1Diameter 
-        "|Animation|if animation = true|Diameter of rod 2 connecting the revolute and the spherical joint";
-      parameter Modelica.Mechanics.MultiBody.Types.Color rod2Color=rod1Color 
-        "|Animation|if animation = true|Color of rod 2 connecting the revolute and the spherical joint";
+        "Diameter of rod 2 connecting the revolute and the spherical joint" 
+        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+      input Types.Color rod2Color=rod1Color 
+        "Color of rod 2 connecting the revolute and the spherical joint" 
+        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       parameter SI.Diameter revoluteDiameter=world.defaultJointWidth 
-        "|Animation|if animation = true|Diameter of cylinder representing the revolute joint";
+        "Diameter of cylinder representing the revolute joint" 
+        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       parameter SI.Distance revoluteLength=world.defaultJointLength 
-        "|Animation|if animation = true|Length of cylinder representing the revolute joint";
-      parameter Modelica.Mechanics.MultiBody.Types.Color revoluteColor=Modelica.Mechanics.MultiBody.Types.Defaults.
-          JointColor 
-        "|Animation|if animation = true|Color of cylinder representing the revolute joint";
+        "Length of cylinder representing the revolute joint" 
+        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+      input Types.Color revoluteColor=Modelica.Mechanics.MultiBody.Types.
+          Defaults.JointColor 
+        "Color of cylinder representing the revolute joint" 
+        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+      input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
+        "Reflection of ambient light (= 0: light is completely absorbed)" 
+        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       parameter SI.Distance cylinderLength=world.defaultJointLength 
-        "|Animation|if animation = true and showUniversalAxes|Length of cylinders representing the two universal joint axes";
+        "Length of cylinders representing the two universal joint axes" annotation (
+         Dialog(tab="Animation", group="if animation = true and showUniversalAxes",
+                enable=animation and showUniversalAxes));
       parameter SI.Distance cylinderDiameter=world.defaultJointWidth 
-        "|Animation|if animation = true and showUniversalAxes|Diameter of cylinders representing the two universal joint axes";
-      parameter Modelica.Mechanics.MultiBody.Types.Color cylinderColor=Types.Defaults.JointColor 
-        "|Animation|if animation = true and showUniversalAxes|Color of cylinders representing the two universal joint axes";
+        "Diameter of cylinders representing the two universal joint axes" 
+        annotation (Dialog(tab="Animation", group=
+              "if animation = true and showUniversalAxes",
+                enable=animation and showUniversalAxes));
+      input Types.Color cylinderColor=Types.Defaults.JointColor 
+        "Color of cylinders representing the two universal joint axes" annotation (
+          Dialog(tab="Animation", group="if animation = true and showUniversalAxes",
+                enable=animation and showUniversalAxes));
       
       parameter Boolean checkTotalPower=false 
-        "|Advanced||= true, if total power flowing into this component shall be determined (must be zero)";
+        "= true, if total power flowing into this component shall be determined (must be zero)"
+        annotation (Dialog(tab="Advanced"));
       final parameter Real eRod1_ia[3]=rod1.eRod_ia 
         "Unit vector from origin of frame_a to origin of spherical joint, resolved in frame_ia";
       final parameter Real e2_ia[3]=rod1.e2_ia 
@@ -3628,6 +3665,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
         cylinderDiameter=revoluteDiameter,
         cylinderLength=revoluteLength,
         cylinderColor=revoluteColor,
+        specularCoefficient=specularCoefficient,
         axisTorqueBalance=false) annotation (extent=[75, -20; 35, 20]);
       Modelica.Mechanics.MultiBody.Joints.UniversalSpherical rod1(
         animation=animation,
@@ -3642,12 +3680,14 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
         cylinderLength=cylinderLength,
         cylinderDiameter=cylinderDiameter,
         cylinderColor=cylinderColor,
+        specularCoefficient=specularCoefficient,
         kinematicConstraint=false) annotation (extent=[-92, -20; -52, 20]);
       Modelica.Mechanics.MultiBody.Parts.FixedTranslation rod2(
         animation=animation,
         width=rod2Diameter,
         height=rod2Diameter,
         color=rod2Color,
+        specularCoefficient=specularCoefficient,
         r=rRod2_ib) annotation (extent=[15, -20; -25, 20]);
       Modelica.Mechanics.MultiBody.Sensors.RelativeSensor relativeSensor(animation=false) 
         annotation (extent=[60, -70; 40, -90]);
@@ -3768,6 +3808,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
       "Universal - spherical - prismatic joint aggregation (no constraints, no potential states)" 
       
       import SI = Modelica.SIunits;
+      import Modelica.Mechanics.MultiBody.Types;
       
       extends Interfaces.PartialTwoFramesDoubleSize;
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_ia 
@@ -3799,42 +3840,61 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
         "Vector from origin of frame_a to spherical joint, resolved in frame_ia"
         annotation (Evaluate=true);
       parameter SI.Position rRod2_ib[3]={-1,0,0} 
-        "Vector from origin of frame_ib to spherical joint, resolved in frame_ib (frame_ib is parallel to frame_b)";
+        "Vector from origin of frame_ib to spherical joint, resolved in frame_ib (frame_ib is parallel to frame_b)"
+        annotation (Evaluate=true);
       parameter SI.Position s_offset=0 
         "Relative distance offset of prismatic joint (distance between the prismatic joint frames = s(t) + s_offset)";
       parameter SI.Position s_guess=0 
         "Select the configuration such that at initial time |s(t0)-s_guess|is minimal";
       parameter SI.Diameter sphereDiameter=world.defaultJointLength 
-        "|Animation|if animation = true|Diameter of the spheres representing the universal and the spherical joint";
-      parameter Modelica.Mechanics.MultiBody.Types.Color sphereColor=Types.Defaults.JointColor 
-        "|Animation|if animation = true|Color of the spheres representing the universal and the spherical joint";
+        "Diameter of the spheres representing the universal and the spherical joint"
+        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+      input Types.Color sphereColor=Types.Defaults.JointColor 
+        "Color of the spheres representing the universal and the spherical joint"
+        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       parameter SI.Diameter rod1Diameter=sphereDiameter/Types.Defaults.
           JointRodDiameterFraction 
-        "|Animation|if animation = true|Diameter of rod 1 connecting the universal and the spherical joint";
-      parameter Modelica.Mechanics.MultiBody.Types.Color rod1Color=Types.Defaults.RodColor 
-        "|Animation|if animation = true|Color of rod 1 connecting the universal and the spherical joint";
+        "Diameter of rod 1 connecting the universal and the spherical joint" 
+        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+      input Types.Color rod1Color=Types.Defaults.RodColor 
+        "Color of rod 1 connecting the universal and the spherical joint" 
+        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       parameter SI.Diameter rod2Diameter=rod1Diameter 
-        "|Animation|if animation = true|Diameter of rod 2 connecting the prismatic and the spherical joint";
-      parameter Modelica.Mechanics.MultiBody.Types.Color rod2Color=rod1Color 
-        "|Animation|if animation = true|Color of rod 2 connecting the prismatic and the spherical joint";
-      parameter Modelica.Mechanics.MultiBody.Types.Axis boxWidthDirection={0,1,0} 
-        "|Animation|if animation = true|Vector in width direction of prismatic joint, resolved in frame_b"
-        annotation (Evaluate=true);
+        "Diameter of rod 2 connecting the prismatic and the spherical joint" 
+        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+      input Types.Color rod2Color=rod1Color 
+        "Color of rod 2 connecting the prismatic and the spherical joint" 
+        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+      parameter Types.Axis boxWidthDirection={0,1,0} 
+        "Vector in width direction of prismatic joint, resolved in frame_b" 
+        annotation (Evaluate=true, Dialog(tab="Animation", group=
+              "if animation = true", enable=animation));
       parameter SI.Distance boxWidth=world.defaultJointWidth 
-        "|Animation|if animation = true|Width of prismatic joint box";
-      parameter SI.Distance boxHeight=boxWidth 
-        "|Animation|if animation = true|Height of prismatic joint box";
-      parameter Modelica.Mechanics.MultiBody.Types.Color boxColor=sphereColor 
-        "|Animation|if animation = true|Color of prismatic joint box";
+        "Width of prismatic joint box" 
+        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+      parameter SI.Distance boxHeight=boxWidth "Height of prismatic joint box" 
+        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+      input Types.Color boxColor=sphereColor "Color of prismatic joint box" 
+        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+      input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
+        "Reflection of ambient light (= 0: light is completely absorbed)" 
+        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       parameter SI.Distance cylinderLength=world.defaultJointLength 
-        "|Animation|if animation = true and showUniversalAxes|Length of cylinders representing the two universal joint axes";
+        "Length of cylinders representing the two universal joint axes" annotation (
+         Dialog(tab="Animation", group="if animation = true and showUniversalAxes",
+                enable=animation and showUniversalAxes));
       parameter SI.Distance cylinderDiameter=world.defaultJointWidth 
-        "|Animation|if animation = true and showUniversalAxes|Diameter of cylinders representing the two universal joint axes";
-      parameter Modelica.Mechanics.MultiBody.Types.Color cylinderColor=Types.Defaults.JointColor 
-        "|Animation|if animation = true and showUniversalAxes|Color of cylinders representing the two universal joint axes";
-      
+        "Diameter of cylinders representing the two universal joint axes" 
+        annotation (Dialog(tab="Animation", group=
+              "if animation = true and showUniversalAxes",
+                enable=animation and showUniversalAxes));
+      input Types.Color cylinderColor=Types.Defaults.JointColor 
+        "Color of cylinders representing the two universal joint axes" annotation (
+          Dialog(tab="Animation", group="if animation = true and showUniversalAxes",
+                enable=animation and showUniversalAxes));
       parameter Boolean checkTotalPower=false 
-        "|Advanced||= true, if total power flowing into this component shall be determined (must be zero)";
+        "= true, if total power flowing into this component shall be determined (must be zero)"
+        annotation (Dialog(tab="Advanced"));
       final parameter Real eRod1_ia[3]=rod1.eRod_ia 
         "Unit vector from origin of frame_a to origin of spherical joint, resolved in frame_ia";
       final parameter Real e2_ia[3]=rod1.e2_ia 
@@ -4093,6 +4153,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
         boxWidth=boxWidth,
         boxHeight=boxHeight,
         boxColor=boxColor,
+        specularCoefficient=specularCoefficient,
         axisForceBalance=false) annotation (extent=[76, -20; 36, 20]);
       Modelica.Mechanics.MultiBody.Joints.UniversalSpherical rod1(
         animation=animation,
@@ -4104,6 +4165,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
         rodWidth=rod1Diameter,
         rodHeight=rod1Diameter,
         rodColor=rod1Color,
+        specularCoefficient=specularCoefficient,
         cylinderLength=cylinderLength,
         cylinderDiameter=cylinderDiameter,
         cylinderColor=cylinderColor,
@@ -4113,6 +4175,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
         r=rRod2_ib,
         width=rod2Diameter,
         height=rod2Diameter,
+        specularCoefficient=specularCoefficient,
         color=rod2Color) annotation (extent=[0, 20; -40, -20]);
       Modelica.Mechanics.MultiBody.Sensors.RelativeSensor relativeSensor(animation=false) 
         annotation (extent=[50, -70; 30, -90]);
@@ -4233,6 +4296,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
       
       import SI = Modelica.SIunits;
       import Cv = Modelica.SIunits.Conversions;
+      import Modelica.Mechanics.MultiBody.Types;
       
       extends Interfaces.PartialTwoFramesDoubleSize;
       Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_ib 
@@ -4264,30 +4328,41 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
       parameter Cv.NonSIunits.Angle_deg phi_guess=0 
         "Select the configuration such that at initial time |phi(t0) - from_deg(phi_guess)|is minimal";
       parameter SI.Diameter sphereDiameter=world.defaultJointLength 
-        "|Animation|if animation = true|Diameter of the spheres representing the two spherical joints";
-      parameter Modelica.Mechanics.MultiBody.Types.Color sphereColor=Modelica.Mechanics.MultiBody.Types.Defaults.
-          JointColor 
-        "|Animation|if animation = true|Color of the spheres representing the two spherical joints";
+        "Diameter of the spheres representing the two spherical joints" 
+        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+      input Types.Color sphereColor=Modelica.Mechanics.MultiBody.Types.Defaults.
+           JointColor 
+        "Color of the spheres representing the two spherical joints" 
+        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       parameter SI.Diameter rod1Diameter=sphereDiameter/Types.Defaults.
           JointRodDiameterFraction 
-        "|Animation|if animation = true|Diameter of rod 1 connecting the two spherical joints";
-      parameter Modelica.Mechanics.MultiBody.Types.Color rod1Color=Modelica.Mechanics.MultiBody.Types.Defaults.
-          RodColor 
-        "|Animation|if animation = true|Color of rod 1 connecting the two spherical joint";
-      
+        "Diameter of rod 1 connecting the two spherical joints" 
+        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+      input Types.Color rod1Color=Modelica.Mechanics.MultiBody.Types.Defaults.
+          RodColor "Color of rod 1 connecting the two spherical joint" 
+        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       parameter SI.Diameter rod2Diameter=rod1Diameter 
-        "|Animation|if animation = true|Diameter of rod 2 connecting the revolute joint and spherical joint 2";
-      parameter Modelica.Mechanics.MultiBody.Types.Color rod2Color=rod1Color 
-        "|Animation|if animation = true|Color of rod 2 connecting the revolute joint and spherical joint 2";
+        "Diameter of rod 2 connecting the revolute joint and spherical joint 2"
+        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+      input Types.Color rod2Color=rod1Color 
+        "Color of rod 2 connecting the revolute joint and spherical joint 2" 
+        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       parameter SI.Diameter revoluteDiameter=world.defaultJointWidth 
-        "|Animation|if animation = true|Diameter of cylinder representing the revolute joint";
+        "Diameter of cylinder representing the revolute joint" 
+        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       parameter SI.Distance revoluteLength=world.defaultJointLength 
-        "|Animation|if animation = true|Length of cylinder representing the revolute joint";
-      parameter Modelica.Mechanics.MultiBody.Types.Color revoluteColor=Modelica.Mechanics.MultiBody.Types.Defaults.
-          JointColor 
-        "|Animation|if animation = true|Color of cylinder representing the revolute joint";
+        "Length of cylinder representing the revolute joint" 
+        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+      input Types.Color revoluteColor=Modelica.Mechanics.MultiBody.Types.
+          Defaults.JointColor 
+        "Color of cylinder representing the revolute joint" 
+        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+      input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
+        "Reflection of ambient light (= 0: light is completely absorbed)" 
+        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       parameter Boolean checkTotalPower=false 
-        "|Advanced||= true, if total power flowing into this component shall be determined (must be zero)";
+        "= true, if total power flowing into this component shall be determined (must be zero)"
+        annotation (Dialog(tab="Advanced"));
       SI.Position aux 
         "Denominator used to compute force in rod connecting universal and spherical joint";
       SI.Power totalPower 
@@ -4424,6 +4499,7 @@ component).
         cylinderDiameter=revoluteDiameter,
         cylinderLength=revoluteLength,
         cylinderColor=revoluteColor,
+        specularCoefficient=specularCoefficient,
         axisTorqueBalance=false) annotation (extent=[75, -20; 35, 20]);
       Modelica.Mechanics.MultiBody.Joints.SphericalSpherical rod1(
         animation=animation,
@@ -4433,6 +4509,7 @@ component).
         rodDiameter=rod1Diameter,
         sphereDiameter=sphereDiameter,
         rodColor=rod1Color,
+        specularCoefficient=specularCoefficient,
         kinematicConstraint=false,
         sphereColor=sphereColor) annotation (extent=[-89, -20; -49, 20]);
       Modelica.Mechanics.MultiBody.Parts.FixedTranslation rod2(
@@ -4440,6 +4517,7 @@ component).
         width=rod2Diameter,
         height=rod2Diameter,
         color=rod2Color,
+        specularCoefficient=specularCoefficient,
         r=rRod2_ib) annotation (extent=[15, -20; -25, 20]);
       Modelica.Mechanics.MultiBody.Sensors.RelativeSensor relativeSensor(animation=false) 
         annotation (extent=[60, -70; 40, -90]);
@@ -4558,6 +4636,7 @@ component).
       
       import SI = Modelica.SIunits;
       import Cv = Modelica.SIunits.Conversions;
+      import Modelica.Mechanics.MultiBody.Types;
       
       extends Interfaces.PartialTwoFramesDoubleSize;
       Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_ib 
@@ -4590,33 +4669,45 @@ component).
         "Select the configuration such that at initial time |s(t0)-s_guess|is minimal";
       
       parameter SI.Diameter sphereDiameter=world.defaultJointLength 
-        "|Animation|if animation = true|Diameter of the spheres representing the two spherical joints";
-      parameter Modelica.Mechanics.MultiBody.Types.Color sphereColor=Modelica.Mechanics.MultiBody.Types.Defaults.
-          JointColor 
-        "|Animation|if animation = true|Color of the spheres representing the two spherical joints";
+        "Diameter of the spheres representing the two spherical joints" 
+        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+      input Types.Color sphereColor=Modelica.Mechanics.MultiBody.Types.Defaults.
+           JointColor 
+        "Color of the spheres representing the two spherical joints" 
+        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       parameter SI.Diameter rod1Diameter=sphereDiameter/Types.Defaults.
           JointRodDiameterFraction 
-        "|Animation|if animation = true|Diameter of rod 1 connecting the two spherical joints";
-      parameter Modelica.Mechanics.MultiBody.Types.Color rod1Color=Modelica.Mechanics.MultiBody.Types.Defaults.
-          RodColor 
-        "|Animation|if animation = true|Color of rod 1 connecting the two spherical joint";
+        "Diameter of rod 1 connecting the two spherical joints" 
+        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+      input Types.Color rod1Color=Modelica.Mechanics.MultiBody.Types.Defaults.
+          RodColor "Color of rod 1 connecting the two spherical joint" 
+        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       
       parameter SI.Diameter rod2Diameter=rod1Diameter 
-        "|Animation|if animation = true|Diameter of rod 2 connecting the revolute joint and spherical joint 2";
-      parameter Modelica.Mechanics.MultiBody.Types.Color rod2Color=rod1Color 
-        "|Animation|if animation = true|Color of rod 2 connecting the revolute joint and spherical joint 2";
+        "Diameter of rod 2 connecting the revolute joint and spherical joint 2"
+        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+      input Types.Color rod2Color=rod1Color 
+        "Color of rod 2 connecting the revolute joint and spherical joint 2" 
+        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       
-      parameter Modelica.Mechanics.MultiBody.Types.Axis boxWidthDirection={0,1,0} 
-        "|Animation|if animation = true|Vector in width direction of prismatic joint box, resolved in frame_b"
-        annotation (Evaluate=true);
+      parameter Types.Axis boxWidthDirection={0,1,0} 
+        "Vector in width direction of prismatic joint box, resolved in frame_b"
+        annotation (Evaluate=true, Dialog(tab="Animation", group=
+              "if animation = true", enable=animation));
       parameter SI.Distance boxWidth=world.defaultJointWidth 
-        "|Animation|if animation = true|Width of prismatic joint box";
-      parameter SI.Distance boxHeight=boxWidth 
-        "|Animation|if animation = true|Height of prismatic joint box";
-      parameter Modelica.Mechanics.MultiBody.Types.Color boxColor=Types.Defaults.JointColor 
-        "|Animation|if animation = true|Color of prismatic joint box";
+        "Width of prismatic joint box" 
+        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+      parameter SI.Distance boxHeight=boxWidth "Height of prismatic joint box" 
+        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+      input Types.Color boxColor=Types.Defaults.JointColor 
+        "Color of prismatic joint box" 
+        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+      input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
+        "Reflection of ambient light (= 0: light is completely absorbed)" 
+        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       parameter Boolean checkTotalPower=false 
-        "|Advanced||= true, if total power flowing into this component shall be determined (must be zero)";
+        "= true, if total power flowing into this component shall be determined (must be zero)"
+        annotation (Dialog(tab="Advanced"));
       SI.Position aux 
         "Denominator used to compute force in rod connecting universal and spherical joint";
       SI.Power totalPower 
@@ -4743,6 +4834,7 @@ component).
         boxWidthDirection=boxWidthDirection,
         boxWidth=boxWidth,
         boxHeight=boxHeight,
+        specularCoefficient=specularCoefficient,
         boxColor=boxColor) annotation (extent=[75, -20; 35, 20]);
       Modelica.Mechanics.MultiBody.Joints.SphericalSpherical rod1(
         animation=animation,
@@ -4753,11 +4845,13 @@ component).
         sphereDiameter=sphereDiameter,
         rodColor=rod1Color,
         kinematicConstraint=false,
+        specularCoefficient=specularCoefficient,
         sphereColor=sphereColor) annotation (extent=[-89, -20; -49, 20]);
       Modelica.Mechanics.MultiBody.Parts.FixedTranslation rod2(
         animation=animation,
         width=rod2Diameter,
         height=rod2Diameter,
+        specularCoefficient=specularCoefficient,
         color=rod2Color,
         r=rRod2_ib) annotation (extent=[15, -20; -25, 20]);
       Modelica.Mechanics.MultiBody.Sensors.RelativeSensor relativeSensor(animation=false) 
@@ -4870,6 +4964,7 @@ component).
       
       import SI = Modelica.SIunits;
       import Cv = Modelica.SIunits.Conversions;
+      import Modelica.Mechanics.MultiBody.Types;
       
       extends Interfaces.PartialTwoFramesDoubleSize;
       
@@ -4906,19 +5001,27 @@ component).
       parameter Cv.NonSIunits.Angle_deg phi_guess=0 
         "Select the configuration such that at initial time |phi(t0) - from_deg(phi_guess)|is minimal";
       parameter SI.Distance cylinderLength=world.defaultJointLength 
-        "|Animation|if animation = true|Length of cylinders representing the revolute joints";
+        "Length of cylinders representing the revolute joints" 
+        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       parameter SI.Distance cylinderDiameter=world.defaultJointWidth 
-        "|Animation|if animation = true|Diameter of cylinders representing the revolute joints";
-      parameter Modelica.Mechanics.MultiBody.Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.
-          JointColor 
-        "|Animation|if animation = true|Color of cylinders representing the revolute joints";
+        "Diameter of cylinders representing the revolute joints" 
+        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+      input Types.Color cylinderColor=Types.Defaults.JointColor 
+        "Color of cylinders representing the revolute joints" 
+        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       parameter SI.Diameter rodDiameter=1.1*cylinderDiameter 
-        "|Animation|if animation = true|Diameter of the two rods connecting the revolute joints";
-      parameter Modelica.Mechanics.MultiBody.Types.Color rodColor=Modelica.Mechanics.MultiBody.Types.Defaults.
-          RodColor 
-        "|Animation|if animation = true|Color of the two rods connecting the revolute joint";
+        "Diameter of the two rods connecting the revolute joints" 
+        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+      input Types.Color rodColor=Types.Defaults.RodColor 
+        "Color of the two rods connecting the revolute joint" 
+        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+      input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
+        "Reflection of ambient light (= 0: light is completely absorbed)" 
+        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+      
       parameter Boolean checkTotalPower=false 
-        "|Advanced||= true, if total power flowing into this component shall be determined (must be zero)";
+        "= true, if total power flowing into this component shall be determined (must be zero)"
+        annotation (Dialog(tab="Advanced"));
       final parameter Real e_a[3]=Frames.normalize(n_a) 
         "Unit vector along axes of rotations, resolved in frame_a";
       final parameter Real e_ia[3]=jointUSR.e2_ia 
@@ -5052,61 +5155,64 @@ are connected by rigid rods.
         phi_guess=phi_guess) annotation (extent=[-30, -20; 10, 20]);
       
     protected 
-      parameter Integer ndim=if world.enableAnimation and animation then 1 else 
-                0;
-      Visualizers.Advanced.Shape shape_rev1[ndim](
-        each shapeType="cylinder",
-        each color=cylinderColor,
-        each length=cylinderLength,
-        each width=cylinderDiameter,
-        each height=cylinderDiameter,
-        each lengthDirection=e_a,
-        each widthDirection={0,1,0},
-        each r_shape=-e_a*(cylinderLength/2),
-        each r=frame_a.r_0,
-        each R=frame_a.R);
-      Visualizers.Advanced.Shape shape_rev2[ndim](
-        each shapeType="cylinder",
-        each color=cylinderColor,
-        each length=cylinderLength,
-        each width=cylinderDiameter,
-        each height=cylinderDiameter,
-        each lengthDirection=e_b,
-        each widthDirection={0,1,0},
-        each r_shape=-e_b*(cylinderLength/2),
-        each r=frame_im.r_0,
-        each R=frame_im.R);
-      Visualizers.Advanced.Shape shape_rev3[ndim](
-        each shapeType="cylinder",
-        each color=cylinderColor,
-        each length=cylinderLength,
-        each width=cylinderDiameter,
-        each height=cylinderDiameter,
-        each lengthDirection=e_b,
-        each widthDirection={0,1,0},
-        each r_shape=-e_b*(cylinderLength/2),
-        each r=frame_b.r_0,
-        each R=frame_b.R);
-      Visualizers.Advanced.Shape shape_rod1[ndim](
-        each shapeType="cylinder",
-        each color=rodColor,
-        each length=Frames.length(rRod1_ia),
-        each width=rodDiameter,
-        each height=rodDiameter,
-        each lengthDirection=rRod1_ia,
-        each widthDirection=e_ia,
-        each r=frame_ia.r_0,
-        each R=frame_ia.R);
-      Visualizers.Advanced.Shape shape_rod2[ndim](
-        each shapeType="cylinder",
-        each color=rodColor,
-        each length=Frames.length(rRod2_ib),
-        each width=rodDiameter,
-        each height=rodDiameter,
-        each lengthDirection=rRod2_ib,
-        each widthDirection=e_b,
-        each r=frame_ib.r_0,
-        each R=frame_ib.R);
+     Visualizers.Advanced.Shape shape_rev1(
+        shapeType="cylinder",
+        color=cylinderColor,
+        specularCoefficient=specularCoefficient,
+        length=cylinderLength,
+        width=cylinderDiameter,
+        height=cylinderDiameter,
+        lengthDirection=e_a,
+        widthDirection={0,1,0},
+        r_shape=-e_a*(cylinderLength/2),
+        r=frame_a.r_0,
+        R=frame_a.R) if world.enableAnimation and animation;
+      Visualizers.Advanced.Shape shape_rev2(
+        shapeType="cylinder",
+        color=cylinderColor,
+        specularCoefficient=specularCoefficient,
+        length=cylinderLength,
+        width=cylinderDiameter,
+        height=cylinderDiameter,
+        lengthDirection=e_b,
+        widthDirection={0,1,0},
+        r_shape=-e_b*(cylinderLength/2),
+        r=frame_im.r_0,
+        R=frame_im.R) if world.enableAnimation and animation;
+      Visualizers.Advanced.Shape shape_rev3(
+        shapeType="cylinder",
+        color=cylinderColor,
+        specularCoefficient=specularCoefficient,
+        length=cylinderLength,
+        width=cylinderDiameter,
+        height=cylinderDiameter,
+        lengthDirection=e_b,
+        widthDirection={0,1,0},
+        r_shape=-e_b*(cylinderLength/2),
+        r=frame_b.r_0,
+        R=frame_b.R) if world.enableAnimation and animation;
+      Visualizers.Advanced.Shape shape_rod1(
+        shapeType="cylinder",
+        color=rodColor,
+        specularCoefficient=specularCoefficient,
+        length=Frames.length(rRod1_ia),
+        width=rodDiameter,
+        height=rodDiameter,
+        lengthDirection=rRod1_ia,
+        widthDirection=e_ia,
+        r=frame_ia.r_0,
+        R=frame_ia.R) if world.enableAnimation and animation;
+      Visualizers.Advanced.Shape shape_rod2(
+        shapeType="cylinder",
+        color=rodColor,
+        specularCoefficient=specularCoefficient,
+        length=Frames.length(rRod2_ib),
+        width=rodDiameter,
+        height=rodDiameter,
+        lengthDirection=rRod2_ib,
+        widthDirection=e_b,
+        r=frame_ib.r_0,
+        R=frame_ib.R) if world.enableAnimation and animation;
     initial equation 
       n_b = Frames.resolve2(frame_b.R, Frames.resolve1(frame_a.R, n_a));
     equation 
@@ -5131,6 +5237,7 @@ are connected by rigid rods.
       
       import SI = Modelica.SIunits;
       import Cv = Modelica.SIunits.Conversions;
+      import Modelica.Mechanics.MultiBody.Types;
       
       extends Interfaces.PartialTwoFramesDoubleSize;
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_ia 
@@ -5166,28 +5273,37 @@ are connected by rigid rods.
       parameter SI.Position s_guess=0 
         "Select the configuration such that at initial time |s(t0)-s_guess|is minimal";
       parameter SI.Distance cylinderLength=world.defaultJointLength 
-        "|Animation|if animation = true|Length of cylinders representing the revolute joints";
+        "Length of cylinders representing the revolute joints" 
+        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       parameter SI.Distance cylinderDiameter=world.defaultJointWidth 
-        "|Animation|if animation = true|Diameter of cylinders representing the revolute joints";
-      parameter Modelica.Mechanics.MultiBody.Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.
-          JointColor 
-        "|Animation|if animation = true|Color of cylinders representing the revolute joints";
-      parameter Modelica.Mechanics.MultiBody.Types.Axis boxWidthDirection={0,1,0} 
-        "|Animation|if animation = true|Vector in width direction of prismatic joint, resolved in frame_b"
-        annotation (Evaluate=true);
+        "Diameter of cylinders representing the revolute joints" 
+        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+      input Types.Color cylinderColor=Types.Defaults.JointColor 
+        "Color of cylinders representing the revolute joints" 
+        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+      parameter Types.Axis boxWidthDirection={0,1,0} 
+        "Vector in width direction of prismatic joint, resolved in frame_b" 
+        annotation (Evaluate=true, Dialog(tab="Animation", group=
+              "if animation = true", enable=animation));
       parameter SI.Distance boxWidth=world.defaultJointWidth 
-        "|Animation|if animation = true|Width of prismatic joint box";
-      parameter SI.Distance boxHeight=boxWidth 
-        "|Animation|if animation = true|Height of prismatic joint box";
-      parameter Modelica.Mechanics.MultiBody.Types.Color boxColor=cylinderColor 
-        "|Animation|if animation = true|Color of prismatic joint box";
+        "Width of prismatic joint box" 
+        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+      parameter SI.Distance boxHeight=boxWidth "Height of prismatic joint box" 
+        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+      input Types.Color boxColor=cylinderColor "Color of prismatic joint box" 
+        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       parameter SI.Diameter rodDiameter=1.1*cylinderDiameter 
-        "|Animation|if animation = true|Diameter of the two rods connecting the joints";
-      parameter Modelica.Mechanics.MultiBody.Types.Color rodColor=Modelica.Mechanics.MultiBody.Types.Defaults.
-          RodColor 
-        "|Animation|if animation = true|Color of the two rods connecting the joints";
+        "Diameter of the two rods connecting the joints" 
+        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+      input Types.Color rodColor=Types.Defaults.RodColor 
+        "Color of the two rods connecting the joints" 
+        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+      input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
+        "Reflection of ambient light (= 0: light is completely absorbed)" 
+        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       parameter Boolean checkTotalPower=false 
-        "|Advanced||= true, if total power flowing into this component shall be determined (must be zero)";
+        "= true, if total power flowing into this component shall be determined (must be zero)"
+        annotation (Dialog(tab="Advanced"));
       final parameter Real e_a[3]=Frames.normalize(n_a) 
         "Unit vector along axes of rotations, resolved in frame_a";
       final parameter Real e_ia[3]=jointUSP.e2_ia 
@@ -5324,60 +5440,63 @@ and 1 prismatic joint are connected by rigid rods.
         checkTotalPower=checkTotalPower) annotation (extent=[-30, -20; 10, 20]);
       
     protected 
-      parameter Integer ndim=if world.enableAnimation and animation then 1 else 
-                0;
-      Visualizers.Advanced.Shape shape_rev1[ndim](
-        each shapeType="cylinder",
-        each color=cylinderColor,
-        each length=cylinderLength,
-        each width=cylinderDiameter,
-        each height=cylinderDiameter,
-        each lengthDirection=e_a,
-        each widthDirection={0,1,0},
-        each r_shape=-e_a*(cylinderLength/2),
-        each r=frame_a.r_0,
-        each R=frame_a.R);
-      Visualizers.Advanced.Shape shape_rev2[ndim](
-        each shapeType="cylinder",
-        each color=cylinderColor,
-        each length=cylinderLength,
-        each width=cylinderDiameter,
-        each height=cylinderDiameter,
-        each lengthDirection=e_im,
-        each widthDirection={0,1,0},
-        each r_shape=-e_im*(cylinderLength/2),
-        each r=frame_im.r_0,
-        each R=frame_im.R);
-      Visualizers.Advanced.Shape shape_prism[ndim](
-        each shapeType="box",
-        each color=boxColor,
-        each length=jointUSP.prismatic.distance,
-        each width=boxWidth,
-        each height=boxHeight,
-        each lengthDirection=e_b,
-        each widthDirection=e_im,
-        each r=frame_b.r_0,
-        each R=frame_b.R);
-      Visualizers.Advanced.Shape shape_rod1[ndim](
-        each shapeType="cylinder",
-        each color=rodColor,
-        each length=Frames.length(rRod1_ia),
-        each width=rodDiameter,
-        each height=rodDiameter,
-        each lengthDirection=rRod1_ia,
-        each widthDirection=e_ia,
-        each r=frame_ia.r_0,
-        each R=frame_ia.R);
-      Visualizers.Advanced.Shape shape_rod2[ndim](
-        each shapeType="cylinder",
-        each color=rodColor,
-        each length=Frames.length(rRod2_ib),
-        each width=rodDiameter,
-        each height=rodDiameter,
-        each lengthDirection=rRod2_ib,
-        each widthDirection=e_b,
-        each r=frame_ib.r_0,
-        each R=frame_ib.R);
+      Visualizers.Advanced.Shape shape_rev1(
+        shapeType="cylinder",
+        color=cylinderColor,
+        specularCoefficient=specularCoefficient,
+        length=cylinderLength,
+        width=cylinderDiameter,
+        height=cylinderDiameter,
+        lengthDirection=e_a,
+        widthDirection={0,1,0},
+        r_shape=-e_a*(cylinderLength/2),
+        r=frame_a.r_0,
+        R=frame_a.R) if world.enableAnimation and animation;
+      Visualizers.Advanced.Shape shape_rev2(
+        shapeType="cylinder",
+        color=cylinderColor,
+        specularCoefficient=specularCoefficient,
+        length=cylinderLength,
+        width=cylinderDiameter,
+        height=cylinderDiameter,
+        lengthDirection=e_im,
+        widthDirection={0,1,0},
+        r_shape=-e_im*(cylinderLength/2),
+        r=frame_im.r_0,
+        R=frame_im.R) if world.enableAnimation and animation;
+      Visualizers.Advanced.Shape shape_prism(
+        shapeType="box",
+        color=boxColor,
+        specularCoefficient=specularCoefficient,
+        length=jointUSP.prismatic.distance,
+        width=boxWidth,
+        height=boxHeight,
+        lengthDirection=e_b,
+        widthDirection=e_im,
+        r=frame_b.r_0,
+        R=frame_b.R) if world.enableAnimation and animation;
+      Visualizers.Advanced.Shape shape_rod1(
+        shapeType="cylinder",
+        color=rodColor,
+        specularCoefficient=specularCoefficient,
+        length=Frames.length(rRod1_ia),
+        width=rodDiameter,
+        height=rodDiameter,
+        lengthDirection=rRod1_ia,
+        widthDirection=e_ia,
+        r=frame_ia.r_0,
+        R=frame_ia.R) if world.enableAnimation and animation;
+      Visualizers.Advanced.Shape shape_rod2(
+        shapeType="cylinder",
+        color=rodColor,
+        specularCoefficient=specularCoefficient,
+        length=Frames.length(rRod2_ib),
+        width=rodDiameter,
+        height=rodDiameter,
+        lengthDirection=rRod2_ib,
+        widthDirection=e_b,
+        r=frame_ib.r_0,
+        R=frame_ib.R) if world.enableAnimation and animation;
     initial equation 
       e_im = Frames.resolve2(frame_im.R, Frames.resolve1(frame_a.R, e_a));
     equation 

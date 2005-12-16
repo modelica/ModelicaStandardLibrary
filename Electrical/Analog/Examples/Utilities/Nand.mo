@@ -29,6 +29,12 @@ The nand gate is a basic CMOS building block. It consists of four CMOS transisto
 <dd>
 Tietze, U.; Schenk, Ch.: Halbleiter-Schaltungstechnik. Springer-Verlag Berlin Heidelberg NewYork 1980, p. 157
 <p>
+</dd>
+</dl>
+
+</HTML>
+", revisions="<html>
+<dl>
 <dt>
 <b>Main Authors:</b>
 <dd>
@@ -51,8 +57,8 @@ and the accompanying <b>disclaimer</b> in the documentation of package
 Modelica in file \"Modelica/package.mo\".</i><br>
 <p>
 </dl>
-</HTML>
-"), Window(
+</html>"),
+    Window(
       x=0.28,
       y=0.08,
       width=0.6,

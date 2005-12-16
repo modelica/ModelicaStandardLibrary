@@ -231,37 +231,29 @@ The logic values are coded by integer values. The following code table is necess
 for both setting of input and interpreting the output values.
 </p>
 <p><b>Code Table:</b></p>
-<pre>
-           Logic value       Integer code        Meaning
-              'U'                 1              Uninitialized
-              'X'                 2              Forcing Unknown
-              '0'                 3              Forcing 0
-              '1'                 4              Forcing 1
-              'Z'                 5              High Impedance
-              'W'                 6              Weak    Unknown
-              'L'                 7              Weak    0
-              'H'                 8              Weak    1
-              '-'                 9              Don't care
-</pre>
+
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td><b>Logic value</b></td>
+      <td><b>Integer code</b></td>
+      <td><b>Meaning</b></td>
+  </tr>
+                         
+  <tr><td>'U'</td> <td>1</td> <td>Uninitialized</td></tr>
+  <tr><td>'X'</td> <td>2</td> <td>Forcing Unknown</td></tr>
+  <tr><td>'0'</td> <td>3</td> <td>Forcing 0</td></tr>
+  <tr><td>'1'</td> <td>4</td> <td>Forcing 1</td></tr>
+  <tr><td>'Z'</td> <td>5</td> <td>High Impedance</td></tr>
+  <tr><td>'W'</td> <td>6</td> <td>Weak Unknown</td></tr>
+  <tr><td>'L'</td> <td>7</td> <td>Weak 0</td></tr>
+  <tr><td>'H'</td> <td>8</td> <td>Weak 1</td></tr>
+  <tr><td>'-'</td> <td>9</td> <td>Don't care</td></tr>
+</table>
+
 <p>
 The library will be developed in two main steps. The first step contains the basic components and
 the gates. In the next step the more complicated devices will be added. Currently the first step of
 the library is implemented and released for public use.
 </p>
-<dl>
-<dt>
-<b>Main Authors:</b></dt>
-<dd>
-    <a href=\"http://people.eas.iis.fraunhofer.de/Christoph.Clauss/\">Christoph Clau&szlig;</a>
-    &lt;<a href=\"mailto:Christoph.Clauss@eas.iis.fraunhofer.de\">Christoph.Clauss@eas.iis.fraunhofer.de</a>&gt;<br>
-    <a href=\"http://people.eas.iis.fhg.de/Andre.Schneider/\">Andr&eacute; Schneider</a>
-    &lt;<a href=\"mailto:Andre.Schneider@eas.iis.fraunhofer.de\">Andre.Schneider@eas.iis.fraunhofer.de</a>&gt; <br>
-    Fraunhofer Institute for Integrated Circuits (IIS)<br>
-    Design Automation Department (EAS)<br>
-    Zeunerstra&szlig;e 38<br>
-    D-01069 Dresden<br>
-    Germany</dd>
-</dl>
 
 <p>
 Copyright &copy; 1998-2005, Modelica Association and Fraunhofer-Gesellschaft.
@@ -332,6 +324,7 @@ and the accompanying <b>disclaimer</b>
           fillPattern=1))));
   
   package Examples 
+    "Examples that demonstrate the usage of the Digital electrical components" 
     model Multiplexer "4 to 1 Bit Multiplexer Example" 
       import D = Modelica.Electrical.Digital;
       import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
@@ -885,6 +878,7 @@ The simulation stop time has to be 5s.
       import D = Modelica.Electrical.Digital;
       annotation (
         Documentation(info="<HTML>
+ 
 </HTML>
 "),     Coordsys(
           extent=[-100, -100; 100, 100],
@@ -932,6 +926,7 @@ The simulation stop time has to be 5s.
       import D = Modelica.Electrical.Digital;
       annotation (
         Documentation(info="<HTML>
+ 
 </HTML>
 "),     Coordsys(
           extent=[-100, -100; 100, 100],
@@ -987,10 +982,10 @@ The simulation stop time has to be 5s.
             50,24], style(color=78, rgbcolor={127,0,127}));
     end Counter;
     
-  package Utilities 
+  package Utilities "Utility components used by package Examples" 
     model MUX4 "4 to 1 Bit Multiplexer" 
-        import D = Modelica.Electrical.Digital;
-        import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
+      import D = Modelica.Electrical.Digital;
+      import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       annotation (
         Documentation(info="<HTML>
 </HTML>
@@ -1229,14 +1224,14 @@ The simulation stop time has to be 5s.
             fillColor=51,
             rgbfillColor={255,255,170},
             fillPattern=1));
-        connect(a1, And4.x[1]) annotation (points=[-100,-70; -80,-70; -80,-90;
+        connect(a1, And4.x[1]) annotation (points=[-100,-70; -80,-70; -80,-90; 
               -30,-90; -30,-13.3333; -16,-13.3333], style(
             color=78,
             rgbcolor={127,0,127},
             fillColor=51,
             rgbfillColor={255,255,170},
             fillPattern=1));
-        connect(a1, And3.x[1]) annotation (points=[-100,-70; -80,-70; -80,-90;
+        connect(a1, And3.x[1]) annotation (points=[-100,-70; -80,-70; -80,-90; 
               -30,-90; -30,12.6667; -16,12.6667], style(
             color=78,
             rgbcolor={127,0,127},
@@ -1246,8 +1241,8 @@ The simulation stop time has to be 5s.
     end MUX4;
       
     model RS "Unclocked RS FlipFlop" 
-        import D = Modelica.Electrical.Digital;
-        import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
+      import D = Modelica.Electrical.Digital;
+      import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       annotation (
         Documentation(info="<HTML>
 </HTML>
@@ -1362,8 +1357,8 @@ The simulation stop time has to be 5s.
     end RS;
       
     model RSFF "Unclocked RS FlipFlop" 
-        import D = Modelica.Electrical.Digital;
-        import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
+      import D = Modelica.Electrical.Digital;
+      import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       annotation (
         Documentation(info="<HTML>
 </HTML>
@@ -1513,8 +1508,8 @@ The simulation stop time has to be 5s.
     end RSFF;
       
     model DFF "D FlipFlop" 
-        import D = Modelica.Electrical.Digital;
-        import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
+      import D = Modelica.Electrical.Digital;
+      import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       annotation (
         Documentation(info="<HTML>
 </HTML>
@@ -1641,8 +1636,8 @@ The simulation stop time has to be 5s.
     end DFF;
       
     model JKFF "JK FlipFlop" 
-        import D = Modelica.Electrical.Digital;
-        import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
+      import D = Modelica.Electrical.Digital;
+      import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       annotation (
         Documentation(info="<HTML>
 </HTML>
@@ -1743,9 +1738,9 @@ The simulation stop time has to be 5s.
                 78, rgbcolor={127,0,127}));
         connect(And1.y, RS2.s) annotation (points=[-50,14; -44,14], style(color=
                78, rgbcolor={127,0,127}));
-        connect(clk, And2.x[3]) annotation (points=[-100,0; -74,0; -74,-8.66667;
+        connect(clk, And2.x[3]) annotation (points=[-100,0; -74,0; -74,-8.66667; 
               -66,-8.66667], style(color=78, rgbcolor={127,0,127}));
-        connect(clk, And1.x[1]) annotation (points=[-100,0; -74,0; -74,8.66667;
+        connect(clk, And1.x[1]) annotation (points=[-100,0; -74,0; -74,8.66667; 
               -66,8.66667], style(color=78, rgbcolor={127,0,127}));
         connect(k, And2.x[2]) annotation (points=[-100,-70; -74,-70; -74,-14;
               -66,-14], style(color=78, rgbcolor={127,0,127}));
@@ -1768,7 +1763,7 @@ The simulation stop time has to be 5s.
         connect(RS1.q, And2.x[1]) annotation (points=[70,10; 80,10; 80,-36; -70,
               -36; -70,-19.3333; -66,-19.3333], style(color=78, rgbcolor={127,0,
                 127}));
-        connect(RS1.qn, And1.x[3]) annotation (points=[70,-18; 86,-18; 86,36;
+        connect(RS1.qn, And1.x[3]) annotation (points=[70,-18; 86,-18; 86,36; 
               -70,36; -70,19.3333; -66,19.3333],     style(color=78, rgbcolor={
                 127,0,127}));
       connect(RS1.qn, q) annotation (points=[70,-18; 86,-18; 86,70; 100,70],
@@ -1826,7 +1821,10 @@ The simulation stop time has to be 5s.
                 color=0,
                 rgbcolor={0,0,0},
                 thickness=2,
-                fillPattern=1))));
+                fillPattern=1))), 
+          Documentation(info="<html>
+  
+</html>"));
                 Digital.Interfaces.DigitalInput a 
                   annotation (
                       extent=[-110,60; -90,80],  rotation=0);
@@ -2072,9 +2070,10 @@ The simulation stop time has to be 5s.
     end FullAdder;
       
     model Adder "Generic N Bit Adder" 
-        import Modelica.Electrical.Digital;
+      import Modelica.Electrical.Digital;
       annotation (
         Documentation(info="<HTML>
+  
 </HTML>
 "),     Coordsys(
           extent=[-100,-100; 100,100],
@@ -2186,10 +2185,11 @@ The simulation stop time has to be 5s.
     end Adder;
       
     model Counter3 "3 Bit Counter" 
-        import D = Modelica.Electrical.Digital;
-        import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
+      import D = Modelica.Electrical.Digital;
+      import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
        annotation (
          Documentation(info="<HTML>
+  
 </HTML>
 "),      Diagram,
          Icon(Rectangle(extent=[-90,100; 90,-100], style(
@@ -2336,10 +2336,11 @@ The simulation stop time has to be 5s.
     end Counter3;
       
     model Counter "Generic N Bit Counter" 
-        import D = Modelica.Electrical.Digital;
-        import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
+      import D = Modelica.Electrical.Digital;
+      import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       annotation (
         Documentation(info="<HTML>
+  
 </HTML>
 "),     Diagram(Rectangle(extent=[90,80; 110,-80], style(
                 color=78,
@@ -2427,6 +2428,12 @@ The simulation stop time has to be 5s.
         connect(FF[i].q,q[i]);
       end for;
     end Counter;
+      annotation (Documentation(info="<html>
+<p>
+This package contains utility components used by package Examples.
+</p>
+
+</html>"));
   end Utilities;
     annotation (Icon(
         Rectangle(extent=[-100,-100; 80,50],   style(fillColor=30,
@@ -2443,15 +2450,25 @@ The simulation stop time has to be 5s.
         Text(
           extent=[-120,122; 120,73],
           string="%name",
-          style(color=1))));
+          style(color=1))), Documentation(info="<html>
+<p>
+This package contains examples that demonstrate the usage of the
+components of the Electrical.Digital library.
+</p>
+</html>"));
   end Examples;
   
-  package Interfaces 
+  package Interfaces "Connectors for Digital electrical components" 
     
-    type Logic = Integer 
-      "Signal type in package Digital according to the IEEE 1164 STD_ULOGIC type";
+    type Logic = Modelica.Icons.TypeInteger 
+      "Signal type in package Digital according to the IEEE 1164 STD_ULOGIC type"
+      annotation (Documentation(info="<html>
+ 
+</html>"));
     
     record LogicValue "Logic values and their coding" 
+      extends Modelica.Icons.Enumeration;
+      
       constant Integer min=1;
       constant Integer max=9;
       constant Integer 'U'=1 "Uninitialized";
@@ -2463,10 +2480,35 @@ The simulation stop time has to be 5s.
       constant Integer 'L'=7 "Weak    0";
       constant Integer 'H'=8 "Weak    1";
       constant Integer '-'=9 "Don't care";
+      annotation (Documentation(info="<html>
+<p><b>Code Table:</b></p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td><b>Logic value</b></td>
+      <td><b>Integer code</b></td>
+      <td><b>Meaning</b></td>
+  </tr>
+                         
+  <tr><td>'U'</td> <td>1</td> <td>Uninitialized</td></tr>
+  <tr><td>'X'</td> <td>2</td> <td>Forcing Unknown</td></tr>
+  <tr><td>'0'</td> <td>3</td> <td>Forcing 0</td></tr>
+  <tr><td>'1'</td> <td>4</td> <td>Forcing 1</td></tr>
+  <tr><td>'Z'</td> <td>5</td> <td>High Impedance</td></tr>
+  <tr><td>'W'</td> <td>6</td> <td>Weak Unknown</td></tr>
+  <tr><td>'L'</td> <td>7</td> <td>Weak 0</td></tr>
+  <tr><td>'H'</td> <td>8</td> <td>Weak 1</td></tr>
+  <tr><td>'-'</td> <td>9</td> <td>Don't care</td></tr>
+</table>
+
+
+</html>"));
     end LogicValue;
     
     connector DigitalSignal = Logic "Digital port (both input/output possible)"
-      annotation (Icon, Diagram);
+      annotation (Icon, Diagram, 
+      Documentation(info="<html>
+
+</html>"));
     
     connector DigitalInput = input DigitalSignal 
       "input DigitalSignal as connector" 
@@ -2489,7 +2531,10 @@ The simulation stop time has to be 5s.
             color=78,
             rgbcolor={127,0,127},
             fillColor=78,
-            rgbfillColor={127,0,127}))));
+            rgbfillColor={127,0,127}))), 
+      Documentation(info="<html>
+  
+</html>"));
     
     connector DigitalOutput = output DigitalSignal 
       "output DigitalSignal as connector" 
@@ -2511,9 +2556,9 @@ The simulation stop time has to be 5s.
     
     partial block SISO "Single input, single output" 
       import D = Modelica.Electrical.Digital;
-      D.Interfaces.DigitalInput x 
+      D.Interfaces.DigitalInput x "Connector of Digital input signal" 
                    annotation (extent=[-70,-10; -50,10]);
-      D.Interfaces.DigitalOutput y 
+      D.Interfaces.DigitalOutput y "Connector of Digital output signal" 
                     annotation (extent=[90,-10; 110,10]);
       annotation (Diagram,                                                    Icon(
           Rectangle(extent=[-50,100; 50,-100], style(
@@ -2522,15 +2567,19 @@ The simulation stop time has to be 5s.
               thickness=2,
               fillColor=7,
               rgbfillColor={255,255,255})),
-          Line(points=[50,0; 92,0], style(color=78, rgbcolor={127,0,127}))));
+          Line(points=[50,0; 92,0], style(color=78, rgbcolor={127,0,127}))), 
+        Documentation(info="<html>
+ 
+</html>"));
     end SISO;
     
     partial block MISO "Multiple input - single output" 
       import D = Modelica.Electrical.Digital;
       
       parameter Integer n(final min=2) = 2 "Number of inputs";
-      D.Interfaces.DigitalInput x[n] annotation (extent=[-70,-80; -50,80]);
-      D.Interfaces.DigitalOutput y 
+      D.Interfaces.DigitalInput x[n] "Connector of Digital input signal vector"
+                                     annotation (extent=[-70,-80; -50,80]);
+      D.Interfaces.DigitalOutput y "Connector of Digital output signal" 
                     annotation (extent=[90,-10; 110,10]);
     algorithm 
       annotation (Icon(
@@ -2541,7 +2590,10 @@ The simulation stop time has to be 5s.
               fillColor=7,
               rgbfillColor={255,255,255})),
           Line(points=[50,0; 90,0], style(color=78, rgbcolor={127,0,127}))),
-          Diagram);
+          Diagram, 
+        Documentation(info="<html>
+ 
+</html>"));
     end MISO;
     
     annotation (Icon(
@@ -2559,10 +2611,15 @@ The simulation stop time has to be 5s.
         Text(
           extent=[-120,122; 120,73],
           string="%name",
-          style(color=1))));
+          style(color=1))), Documentation(info="<html>
+<p>
+This package contains interface definitions
+(connectors) digital electrical components.
+</p>
+</html>"));
   end Interfaces;
   
-  package Tables 
+  package Tables "Truth tables for all components of package Digital" 
     
     import D = Modelica.Electrical.Digital;
     import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
@@ -2576,7 +2633,8 @@ The simulation stop time has to be 5s.
         L.'U', L.'X', L.'0', L.'X', L.'X', L.'X', L.'0', L.'X', L.'X';
         L.'0', L.'0', L.'0', L.'0', L.'0', L.'0', L.'0', L.'0', L.'0';
         L.'U', L.'X', L.'0', L.'1', L.'X', L.'X', L.'0', L.'1', L.'X';
-        L.'U', L.'X', L.'0', L.'X', L.'X', L.'X', L.'0', L.'X', L.'X'];
+        L.'U', L.'X', L.'0', L.'X', L.'X', L.'X', L.'0', L.'X', L.'X'] 
+      "9-value logic for 'and'";
     
     constant D.Interfaces.Logic OrTable[L.max, L.max]=[
         L.'U', L.'U', L.'U', L.'1', L.'U', L.'U', L.'U', L.'1', L.'U';
@@ -2587,10 +2645,12 @@ The simulation stop time has to be 5s.
         L.'U', L.'X', L.'X', L.'1', L.'X', L.'X', L.'X', L.'1', L.'X';
         L.'U', L.'X', L.'0', L.'1', L.'X', L.'X', L.'0', L.'1', L.'X';
         L.'1', L.'1', L.'1', L.'1', L.'1', L.'1', L.'1', L.'1', L.'1';
-        L.'U', L.'X', L.'X', L.'1', L.'X', L.'X', L.'X', L.'1', L.'X'];
+        L.'U', L.'X', L.'X', L.'1', L.'X', L.'X', L.'X', L.'1', L.'X'] 
+      "9-value logic for 'or'";
     
     constant D.Interfaces.Logic NotTable[L.max]={
-        L.'U',L.'X',L.'1',L.'0',L.'X',L.'X',L.'1',L.'0',L.'X'};
+        L.'U',L.'X',L.'1',L.'0',L.'X',L.'X',L.'1',L.'0',L.'X'} 
+      "9-value logic for 'not'";
     
     constant D.Interfaces.Logic XorTable[L.max, L.max]=[
         L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U';
@@ -2601,7 +2661,8 @@ The simulation stop time has to be 5s.
         L.'U', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X';
         L.'U', L.'X', L.'0', L.'1', L.'X', L.'X', L.'0', L.'1', L.'X';
         L.'U', L.'X', L.'1', L.'0', L.'X', L.'X', L.'1', L.'0', L.'X';
-        L.'U', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X'];
+        L.'U', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X'] 
+      "9-value logic for 'xor'";
     
     constant D.Interfaces.Logic X01Table[L.max]={
         L.'X',L.'X',L.'0',L.'1',L.'X',L.'X',L.'0',L.'1',L.'X'};
@@ -2637,10 +2698,12 @@ The simulation stop time has to be 5s.
         Text(
           extent=[-120,122; 120,73],
           string="%name",
-          style(color=1))));
+          style(color=1))), Documentation(info="<html>
+ 
+</html>"));
   end Tables;
   
-  package Delay "Delay blocks" 
+  package Delay "Transport and inertial delay blocks" 
     
     partial block DelayParams "Definition of delay parameters" 
       import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
@@ -2648,6 +2711,9 @@ The simulation stop time has to be 5s.
       parameter Modelica.SIunits.Time tHL=0 "fall inertial delay";
       parameter Digital.Interfaces.Logic y0=L.'U' "initial value of output";
     algorithm 
+      annotation (Documentation(info="<html>
+   
+</html>"));
     end DelayParams;
     
     model TransportDelay "Transport delay with initial parameter" 
@@ -2908,10 +2974,12 @@ is used, if it is zero, the input is not delayed.
         Text(
           extent=[-120,122; 120,73],
           string="%name",
-          style(color=1))));
+          style(color=1))), Documentation(info="<html>
+  
+</html>"));
   end Delay;
   
-  package Basic "Basic logic without delay" 
+  package Basic "Basic logic blocks without delays" 
     
     model Not "Not Logic" 
       import D = Modelica.Electrical.Digital;
@@ -3243,12 +3311,15 @@ XNor with n input values, without delay.
         Text(
           extent=[-120,122; 120,73],
           string="%name",
-          style(color=1))));
+          style(color=1))), Documentation(info="<html>
+  
+</html>"));
   end Basic;
   
-  package Gates "Logic gates including delay" 
+  package Gates "Logic gates including delays" 
     
     model InvGate 
+      "InvGate with 1 input value, composed by Not and sensitive intertial delay" 
       import D = Modelica.Electrical.Digital;
       extends D.Delay.DelayParams;
       extends D.Interfaces.SISO;
@@ -3677,6 +3748,7 @@ XNorGate with n input values, composed by XNor and sensitive intertial delay.
     end XnorGate;
     
     model BufGate 
+      "BufGate with 1 input value, composed by Not and sensitive intertial delay" 
       import D = Modelica.Electrical.Digital;
       extends D.Delay.DelayParams;
       extends D.Interfaces.SISO;
@@ -3685,7 +3757,7 @@ XNorGate with n input values, composed by XNor and sensitive intertial delay.
       annotation (
         Documentation(info="<HTML>
 <P>
-InvGate with 1 input value, composed by Not and sensitive intertial delay.
+BufGate with 1 input value, composed by Not and sensitive intertial delay.
 </P>
 </HTML>
 ", revisions="<HTML>
@@ -3743,10 +3815,12 @@ InvGate with 1 input value, composed by Not and sensitive intertial delay.
         Text(
           extent=[-120,122; 120,73],
           string="%name",
-          style(color=1))));
+          style(color=1))), Documentation(info="<html>
+  
+</html>"));
   end Gates;
   
-  package Sources 
+  package Sources "Time-dependend digital signal sources" 
     
     block Set "Digital Set Source" 
       import D = Modelica.Electrical.Digital;
@@ -3764,19 +3838,25 @@ Sets a nine valued digital signal, which is specified by the <i>setval</i> param
 <P>
 To specify <i>setval</i>, the integer code has to be used.
 </P>
-<p><b>Code Table:</b></p>
-<pre>
-           Logic value       Integer code        Meaning
-              'U'                 1              Uninitialized
-              'X'                 2              Forcing Unknown
-              '0'                 3              Forcing 0
-              '1'                 4              Forcing 1
-              'Z'                 5              High Impedance
-              'W'                 6              Weak    Unknown
-              'L'                 7              Weak    0
-              'H'                 8              Weak    1
-              '-'                 9              Don't care
-</pre>
+<p><b>Code Table</b></p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td><b>Logic value</b></td>
+      <td><b>Integer code</b></td>
+      <td><b>Meaning</b></td>
+  </tr>
+                         
+  <tr><td>'U'</td> <td>1</td> <td>Uninitialized</td></tr>
+  <tr><td>'X'</td> <td>2</td> <td>Forcing Unknown</td></tr>
+  <tr><td>'0'</td> <td>3</td> <td>Forcing 0</td></tr>
+  <tr><td>'1'</td> <td>4</td> <td>Forcing 1</td></tr>
+  <tr><td>'Z'</td> <td>5</td> <td>High Impedance</td></tr>
+  <tr><td>'W'</td> <td>6</td> <td>Weak Unknown</td></tr>
+  <tr><td>'L'</td> <td>7</td> <td>Weak 0</td></tr>
+  <tr><td>'H'</td> <td>8</td> <td>Weak 1</td></tr>
+  <tr><td>'-'</td> <td>9</td> <td>Don't care</td></tr>
+</table>
+
 <P>
 If the logic values are imported by <br><b> import L = Modelica.Electrical.Digital.Interfaces.LogicValue; </b> <br>
 they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
@@ -3841,19 +3921,23 @@ at the time <i>stepTime</i>.
 <P>
 To specify the logic value parameters, the integer code has to be used.
 </P>
-<p><b>Code Table:</b></p>
-<pre>
-           Logic value       Integer code        Meaning
-              'U'                 1              Uninitialized
-              'X'                 2              Forcing Unknown
-              '0'                 3              Forcing 0
-              '1'                 4              Forcing 1
-              'Z'                 5              High Impedance
-              'W'                 6              Weak    Unknown
-              'L'                 7              Weak    0
-              'H'                 8              Weak    1
-              '-'                 9              Don't care
-</pre>
+<p><b>Code Table</b></p>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td><b>Logic value</b></td>
+      <td><b>Integer code</b></td>
+      <td><b>Meaning</b></td>
+  </tr>
+                         
+  <tr><td>'U'</td> <td>1</td> <td>Uninitialized</td></tr>
+  <tr><td>'X'</td> <td>2</td> <td>Forcing Unknown</td></tr>
+  <tr><td>'0'</td> <td>3</td> <td>Forcing 0</td></tr>
+  <tr><td>'1'</td> <td>4</td> <td>Forcing 1</td></tr>
+  <tr><td>'Z'</td> <td>5</td> <td>High Impedance</td></tr>
+  <tr><td>'W'</td> <td>6</td> <td>Weak Unknown</td></tr>
+  <tr><td>'L'</td> <td>7</td> <td>Weak 0</td></tr>
+  <tr><td>'H'</td> <td>8</td> <td>Weak 1</td></tr>
+  <tr><td>'-'</td> <td>9</td> <td>Don't care</td></tr>
+</table>
 <P>
 If the logic values are imported by <br><b> import L = Modelica.Electrical.Digital.Interfaces.LogicValue; </b> <br>
 they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
@@ -3924,19 +4008,23 @@ timepoints in the <i>t</i> table. <br>The initial value is specified by <i>y0</i
 <P>
 To specify the logic value parameters, the integer code has to be used.
 </P>
-<p><b>Code Table:</b></p>
-<pre>
-           Logic value       Integer code        Meaning
-              'U'                 1              Uninitialized
-              'X'                 2              Forcing Unknown
-              '0'                 3              Forcing 0
-              '1'                 4              Forcing 1
-              'Z'                 5              High Impedance
-              'W'                 6              Weak    Unknown
-              'L'                 7              Weak    0
-              'H'                 8              Weak    1
-              '-'                 9              Don't care
-</pre>
+<p><b>Code Table</b></p>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td><b>Logic value</b></td>
+      <td><b>Integer code</b></td>
+      <td><b>Meaning</b></td>
+  </tr>
+                         
+  <tr><td>'U'</td> <td>1</td> <td>Uninitialized</td></tr>
+  <tr><td>'X'</td> <td>2</td> <td>Forcing Unknown</td></tr>
+  <tr><td>'0'</td> <td>3</td> <td>Forcing 0</td></tr>
+  <tr><td>'1'</td> <td>4</td> <td>Forcing 1</td></tr>
+  <tr><td>'Z'</td> <td>5</td> <td>High Impedance</td></tr>
+  <tr><td>'W'</td> <td>6</td> <td>Weak Unknown</td></tr>
+  <tr><td>'L'</td> <td>7</td> <td>Weak 0</td></tr>
+  <tr><td>'H'</td> <td>8</td> <td>Weak 1</td></tr>
+  <tr><td>'-'</td> <td>9</td> <td>Don't care</td></tr>
+</table>
 <P>
 If the logic values are imported by <br><b> import L = Modelica.Electrical.Digital.Interfaces.LogicValue; </b> <br>
 they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
@@ -4041,19 +4129,23 @@ the number of periods is unlimited.
 <P>
 To specify the logic value parameters, the integer code has to be used.
 </P>
-<p><b>Code Table:</b></p>
-<pre>
-           Logic value       Integer code        Meaning
-              'U'                 1              Uninitialized
-              'X'                 2              Forcing Unknown
-              '0'                 3              Forcing 0
-              '1'                 4              Forcing 1
-              'Z'                 5              High Impedance
-              'W'                 6              Weak    Unknown
-              'L'                 7              Weak    0
-              'H'                 8              Weak    1
-              '-'                 9              Don't care
-</pre>
+<p><b>Code Table</b></p>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td><b>Logic value</b></td>
+      <td><b>Integer code</b></td>
+      <td><b>Meaning</b></td>
+  </tr>
+                         
+  <tr><td>'U'</td> <td>1</td> <td>Uninitialized</td></tr>
+  <tr><td>'X'</td> <td>2</td> <td>Forcing Unknown</td></tr>
+  <tr><td>'0'</td> <td>3</td> <td>Forcing 0</td></tr>
+  <tr><td>'1'</td> <td>4</td> <td>Forcing 1</td></tr>
+  <tr><td>'Z'</td> <td>5</td> <td>High Impedance</td></tr>
+  <tr><td>'W'</td> <td>6</td> <td>Weak Unknown</td></tr>
+  <tr><td>'L'</td> <td>7</td> <td>Weak 0</td></tr>
+  <tr><td>'H'</td> <td>8</td> <td>Weak 1</td></tr>
+  <tr><td>'-'</td> <td>9</td> <td>Don't care</td></tr>
+</table>
 <P>
 If the logic values are imported by <br><b> import L = Modelica.Electrical.Digital.Interfaces.LogicValue; </b> <br>
 they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
@@ -4098,7 +4190,7 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
       parameter Real width(
         final min=Modelica.Constants.small,
         final max=100) = 50 "Width of pulses in % of period";
-      D.Interfaces.DigitalOutput y 
+      D.Interfaces.DigitalOutput y "Connector of Digital output signal" 
                     annotation (extent=[90,-10; 110,10]);
     protected 
       Modelica.SIunits.Time t_i(final start=startTime) 
@@ -4161,10 +4253,12 @@ The number of periods is unlimited. The first pulse starts at startTime.
         Text(
           extent=[-120,122; 120,73],
           string="%name",
-          style(color=1))));
+          style(color=1))), Documentation(info="<html>
+  
+</html>"));
   end Sources;
   
-  package Converters 
+  package Converters "Converters between 2-,3-,4- and 9-valued logic" 
     block LogicToXO1 "Conversion to XO1" 
       import D = Modelica.Electrical.Digital;
       import T = Modelica.Electrical.Digital.Tables;
@@ -4668,7 +4762,9 @@ The values val... are given by parameters.</P>
         Text(
           extent=[-120,122; 120,73],
           string="%name",
-          style(color=1))));
+          style(color=1))), Documentation(info="<html>
+ 
+</html>"));
   end Converters;
   
 end Digital;

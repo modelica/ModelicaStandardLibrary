@@ -22,6 +22,11 @@ d Nand.x2.v, and the output voltage Nand.y.v.
 <dd>
 Tietze, U.; Schenk, Ch.: Halbleiter-Schaltungstechnik. Springer-Verlag Berlin Heidelberg NewYork 1980, p. 157
 <p>
+</dd>
+</dl>
+</HTML>
+", revisions="<html>
+<dl>
 <dt>
 <b>Main Authors:</b>
 <dd>
@@ -44,8 +49,8 @@ and the accompanying <b>disclaimer</b> in the documentation of package
 Modelica in file \"Modelica/package.mo\".</i><br>
 <p>
 </dl>
-</HTML>
-"), Window(
+</html>"),
+    Window(
       x=0.36,
       y=0.01,
       width=0.44,

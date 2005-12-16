@@ -88,20 +88,6 @@ in Modelica that will allow to catch errors at a defined place.
 </p>
 </HTML>"));
   
-  class ReleaseNotes "Release notes" 
-    
-    annotation (Documentation(info="<HTML>
-<h3><font color=\"#008000\" size=5>Release notes</font></h3>
-<h3><font color=\"#008000\">Version 1.0, 2004-09-29</font></h3>
-<p>
-First version implemented.
-</p>
-</HTML>
-"));
-  equation 
-    
-  end ReleaseNotes;
-  
   class ImplementationNotes "Implementation Notes" 
     
     annotation (Documentation(info="<html>
@@ -180,6 +166,20 @@ Below the major design decisions of this library are summarized.
 </html>
 "));
   end ImplementationNotes;
+  
+  class ReleaseNotes "Release notes" 
+    
+    annotation (Documentation(info="<HTML>
+<h3><font color=\"#008000\" size=5>Release notes</font></h3>
+<h3><font color=\"#008000\">Version 1.0, 2004-09-29</font></h3>
+<p>
+First version implemented.
+</p>
+</HTML>
+"));
+  equation 
+    
+  end ReleaseNotes;
   
   class Contact "Contact" 
     

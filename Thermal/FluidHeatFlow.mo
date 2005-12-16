@@ -128,6 +128,7 @@ and the accompanying <b>disclaimer</b>
           rgbfillColor={255,128,0}))));
   
   package Examples 
+    "Examples that demonstrate the usage of the FluidHeatFlow components" 
     extends Modelica.Icons.Library2;
   annotation (Documentation(info="<HTML>
 <p>
@@ -143,6 +144,8 @@ This package contains test examples:
 <li>8.TwoMass: cooling of two masses (thermal capacities) by two parallel coolant flows</li>
 </ul>
 </p>
+
+</HTML>", revisions="<HTML>
 <p>
 <dl>
   <dt><b>Main Authors:</b></dt>
@@ -172,7 +175,7 @@ under the terms of the <b>Modelica license</b>, see the license conditions
 and the accompanying <b>disclaimer</b> 
 <a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a>.</i>
 </p>
-</HTML>", revisions="<HTML>
+
   <ul>
   <li> v1.00 2005/02/01 Anton Haumer<br>
        first stable official release</li>
@@ -287,12 +290,12 @@ A prescribed heat source dissipates its heat through a thermal conductor to a co
       connect(VolumeFlow.y, Pump1.VolumeFlow) 
                                              annotation (points=[-39,20; -30,20;
             -30,10], style(color=74, rgbcolor={0,0,127}));
-      connect(Convection1.solid, PrescribedHeatFlow1.port) annotation (points=[
-            10,-41; 10,-50; -10,-50], style(color=42, rgbcolor={191,0,0}));
-      connect(Convection1.solid, HeatCapacitor1.port) annotation (points=[10,
-            -41; 10,-50; 30,-50], style(color=42, rgbcolor={191,0,0}));
+      connect(Convection1.solid, PrescribedHeatFlow1.port) annotation (points=[10,-40; 
+            10,-50; -10,-50],         style(color=42, rgbcolor={191,0,0}));
+      connect(Convection1.solid, HeatCapacitor1.port) annotation (points=[10,-40; 
+            10,-50; 30,-50],      style(color=42, rgbcolor={191,0,0}));
       connect(Pipe1.heatPort, Convection1.fluid) annotation (points=[10,-10; 10,
-            -19], style(color=42, rgbcolor={191,0,0}));
+            -20], style(color=42, rgbcolor={191,0,0}));
       connect(G.y, Convection1.Gc) annotation (points=[-9,-30; 0,-30], style(
             color=74, rgbcolor={0,0,127}));
     end SimpleCooling;
@@ -447,17 +450,17 @@ Two prescribed heat sources dissipate their heat through thermal conductors to c
       connect(G1.y, Convection1.Gc) annotation (points=[-9,-40; 0,-40], style(
             color=74, rgbcolor={0,0,127}));
       connect(Pipe1.heatPort, Convection1.fluid) annotation (points=[10,-20; 10,
-            -29], style(color=42, rgbcolor={191,0,0}));
-      connect(Convection2.fluid, Pipe2.heatPort) annotation (points=[10,29; 10,
+            -30], style(color=42, rgbcolor={191,0,0}));
+      connect(Convection2.fluid, Pipe2.heatPort) annotation (points=[10,30; 10,
             20], style(color=42, rgbcolor={191,0,0}));
-      connect(Convection2.solid, PrescribedHeatFlow2.port) annotation (points=[
-            10,51; 10,60; -10,60], style(color=42, rgbcolor={191,0,0}));
-      connect(Convection2.solid, HeatCapacitor2.port) annotation (points=[10,51;
+      connect(Convection2.solid, PrescribedHeatFlow2.port) annotation (points=[10,50; 
+            10,60; -10,60],        style(color=42, rgbcolor={191,0,0}));
+      connect(Convection2.solid, HeatCapacitor2.port) annotation (points=[10,50; 
             10,60; 28,60], style(color=42, rgbcolor={191,0,0}));
-      connect(Convection1.solid, PrescribedHeatFlow1.port) annotation (points=[
-            10,-51; 10,-60; -10,-60], style(color=42, rgbcolor={191,0,0}));
-      connect(Convection1.solid, HeatCapacitor1.port) annotation (points=[10,
-            -51; 10,-60; 30,-60], style(color=42, rgbcolor={191,0,0}));
+      connect(Convection1.solid, PrescribedHeatFlow1.port) annotation (points=[10,-50; 
+            10,-60; -10,-60],         style(color=42, rgbcolor={191,0,0}));
+      connect(Convection1.solid, HeatCapacitor1.port) annotation (points=[10,-50; 
+            10,-60; 30,-60],      style(color=42, rgbcolor={191,0,0}));
       connect(Pipe2.flowPort_b, Pipe3.flowPort_a) annotation (points=[20,10; 30,10;
             30,0; 40,0], style(color=1, rgbcolor={255,0,0}));
       connect(Pipe1.flowPort_b, Pipe3.flowPort_a) annotation (points=[20,-10; 30,
@@ -597,12 +600,12 @@ Inner coolant's temperature rise near the source is the same as temperature drop
       connect(Ambient1.flowPort, outerPump.flowPort_a) 
         annotation (points=[-60,70; -40,70], style(color=1, rgbcolor={255,0,0}));
       connect(PrescribedHeatFlow1.port, ThermalConductor1.port_a) 
-        annotation (points=[-10,-90; 10,-90; 10,-81],
+        annotation (points=[-10,-90; 10,-90; 10,-80],
         style(color=42, rgbcolor={191,0,0}));
       connect(HeatCapacitor1.port, ThermalConductor1.port_a) 
-        annotation (points=[30,-90; 10,-90; 10,-81], style(color=42, rgbcolor={191,0,0}));
+        annotation (points=[30,-90; 10,-90; 10,-80], style(color=42, rgbcolor={191,0,0}));
       connect(Pipe1.heatPort, ThermalConductor1.port_b) 
-        annotation (points=[10,-50; 10,-59], style(color=42, rgbcolor={191,0,0}));
+        annotation (points=[10,-50; 10,-60], style(color=42, rgbcolor={191,0,0}));
       connect(Pipe1.flowPort_b, innerPump.flowPort_a) 
         annotation (points=[0,-40; -20,-40],          style(color=1, rgbcolor={255,0,0}));
       connect(AbsolutePressure1.flowPort, Pipe1.flowPort_a) 
@@ -623,11 +626,11 @@ Inner coolant's temperature rise near the source is the same as temperature drop
       connect(outerPipe.flowPort_b, Ambient2.flowPort) 
         annotation (points=[20,70; 40,70], style(color=1, rgbcolor={255,0,0}));
       connect(outerPipe.heatPort, outerConvection.fluid) 
-        annotation (points=[10,60; 10,51], style(color=42, rgbcolor={191,0,0}));
+        annotation (points=[10,60; 10,50], style(color=42, rgbcolor={191,0,0}));
       connect(outerConvection.solid, innerConvection.solid) 
-        annotation (points=[10,29; 10,21], style(color=42, rgbcolor={191,0,0}));
+        annotation (points=[10,30; 10,20], style(color=42, rgbcolor={191,0,0}));
       connect(innerConvection.fluid, innerPipe.heatPort) 
-        annotation (points=[10,-1; 10,-10], style(color=42, rgbcolor={191,0,0}));
+        annotation (points=[10,0; 10,-10],  style(color=42, rgbcolor={191,0,0}));
       connect(innerGc.y, innerConvection.Gc) 
         annotation (points=[-19,10; 0,10], style(color=74, rgbcolor={0,0,127}));
       connect(outerGc.y, outerConvection.Gc) 
@@ -718,12 +721,12 @@ You may try to<br>
         annotation (points=[20,0; 40,0],   style(color=1, rgbcolor={255,0,0}));
       connect(HeatFlow.y, PrescribedHeatFlow1.Q_flow) annotation (points=[-39,
             -50; -30,-50],   style(color=3, rgbcolor={0,0,255}));
-      connect(Convection1.solid, PrescribedHeatFlow1.port) annotation (points=[10,
-            -41; 10,-50; -10,-50],    style(color=42, rgbcolor={191,0,0}));
-      connect(Convection1.solid, HeatCapacitor1.port) annotation (points=[10,
-            -41; 10,-50; 30,-50], style(color=42, rgbcolor={191,0,0}));
+      connect(Convection1.solid, PrescribedHeatFlow1.port) annotation (points=[10,-40; 
+            10,-50; -10,-50],         style(color=42, rgbcolor={191,0,0}));
+      connect(Convection1.solid, HeatCapacitor1.port) annotation (points=[10,-40; 
+            10,-50; 30,-50],      style(color=42, rgbcolor={191,0,0}));
       connect(Pipe1.heatPort, Convection1.fluid) annotation (points=[10,-10; 10,
-            -19], style(color=42, rgbcolor={191,0,0}));
+            -20], style(color=42, rgbcolor={191,0,0}));
       connect(G.y, Convection1.Gc) annotation (points=[-9,-30; 0,-30], style(
             color=74, rgbcolor={0,0,127}));
       connect(Ambient1.flowPort, IdealPump1.flowPort_a) 
@@ -922,17 +925,17 @@ then started again (using a ramp of 0.2 s).
       connect(G1.y, Convection1.Gc) annotation (points=[-9,-40; 0,-40], style(
             color=74, rgbcolor={0,0,127}));
       connect(Pipe1.heatPort, Convection1.fluid) annotation (points=[10,-20; 10,
-            -29], style(color=42, rgbcolor={191,0,0}));
-      connect(Convection2.fluid, Pipe2.heatPort) annotation (points=[10,29; 10,
+            -30], style(color=42, rgbcolor={191,0,0}));
+      connect(Convection2.fluid, Pipe2.heatPort) annotation (points=[10,30; 10,
             20], style(color=42, rgbcolor={191,0,0}));
-      connect(Convection2.solid, PrescribedHeatFlow2.port) annotation (points=[
-            10,51; 10,60; -10,60], style(color=42, rgbcolor={191,0,0}));
-      connect(Convection2.solid, HeatCapacitor2.port) annotation (points=[10,51;
+      connect(Convection2.solid, PrescribedHeatFlow2.port) annotation (points=[10,50; 
+            10,60; -10,60],        style(color=42, rgbcolor={191,0,0}));
+      connect(Convection2.solid, HeatCapacitor2.port) annotation (points=[10,50; 
             10,60; 28,60], style(color=42, rgbcolor={191,0,0}));
-      connect(Convection1.solid, PrescribedHeatFlow1.port) annotation (points=[
-            10,-51; 10,-60; -10,-60], style(color=42, rgbcolor={191,0,0}));
-      connect(Convection1.solid, HeatCapacitor1.port) annotation (points=[10,
-            -51; 10,-60; 30,-60], style(color=42, rgbcolor={191,0,0}));
+      connect(Convection1.solid, PrescribedHeatFlow1.port) annotation (points=[10,-50; 
+            10,-60; -10,-60],         style(color=42, rgbcolor={191,0,0}));
+      connect(Convection1.solid, HeatCapacitor1.port) annotation (points=[10,-50; 
+            10,-60; 30,-60],      style(color=42, rgbcolor={191,0,0}));
       connect(Pipe2.flowPort_b, Pipe3.flowPort_a) annotation (points=[20,10; 30,10;
             30,0; 40,0], style(color=1, rgbcolor={255,0,0}));
       connect(Pipe1.flowPort_b, Pipe3.flowPort_a) annotation (points=[20,-10; 30,
@@ -1002,10 +1005,10 @@ the time behaviour depending on coolant flow.
         annotation (points=[-20,0; 0,0],   style(color=1, rgbcolor={255,0,0}));
       connect(Pipe1.flowPort_b, Ambient2.flowPort) 
         annotation (points=[20,0; 40,0],   style(color=1, rgbcolor={255,0,0}));
-      connect(ThermalConductor1.port_a, HeatCapacitor1.port) annotation (points=[10,
-            -41; 10,-45.5; 10,-50; 10,-50], style(color=42, rgbcolor={191,0,0}));
+      connect(ThermalConductor1.port_a, HeatCapacitor1.port) annotation (points=[10,-40; 
+            10,-40; 10,-50; 10,-50],        style(color=42, rgbcolor={191,0,0}));
       connect(Pipe1.heatPort, ThermalConductor1.port_b) 
-        annotation (points=[10,-10; 10,-19], style(color=42, rgbcolor={191,0,0}));
+        annotation (points=[10,-10; 10,-20], style(color=42, rgbcolor={191,0,0}));
       connect(DoubleRamp1.y, Pump1.VolumeFlow) annotation (points=[-39,20; -30,20;
             -30,10], style(color=74, rgbcolor={0,0,127}));
     end OneMass;
@@ -1102,14 +1105,14 @@ the time behaviour depending on coolant flow.
             -10; 30,0; 40,0], style(color=1, rgbcolor={255,0,0}));
       connect(Pipe3.flowPort_b, Ambient2.flowPort) 
         annotation (points=[60,0; 80,0], style(color=1, rgbcolor={255,0,0}));
-      connect(HeatCapacitor2.port, ThermalConductor2.port_a) annotation (points=[10,60;
-            10,55.5; 10,55.5; 10,51], style(color=42, rgbcolor={191,0,0}));
+      connect(HeatCapacitor2.port, ThermalConductor2.port_a) annotation (points=[10,60; 
+            10,55.5; 10,50; 10,50],   style(color=42, rgbcolor={191,0,0}));
       connect(ThermalConductor2.port_b, Pipe2.heatPort) 
-        annotation (points=[10,29; 10,20], style(color=42, rgbcolor={191,0,0}));
-      connect(Pipe1.heatPort, ThermalConductor1.port_b) annotation (points=[10,
-            -20; 10,-29],    style(color=42, rgbcolor={191,0,0}));
-      connect(ThermalConductor1.port_a, HeatCapacitor1.port) annotation (points=[10,-51;
-            10,-55.5; 10,-60; 10,-60],
+        annotation (points=[10,30; 10,20], style(color=42, rgbcolor={191,0,0}));
+      connect(Pipe1.heatPort, ThermalConductor1.port_b) annotation (points=[10,-20; 
+            10,-30],         style(color=42, rgbcolor={191,0,0}));
+      connect(ThermalConductor1.port_a, HeatCapacitor1.port) annotation (points=[10,-50; 
+            10,-50; 10,-60; 10,-60],
                                   style(color=42, rgbcolor={191,0,0}));
       connect(DoubleRamp1.y, Pump1.VolumeFlow) annotation (points=[-39,20; -30,
             20; -30,10], style(color=74, rgbcolor={0,0,127}));
@@ -1121,6 +1124,8 @@ the time behaviour depending on coolant flow.
 <p>
 This package contains utility components used for the test examples.
 <p>
+
+</html>", revisions="<HTML>
 <dl>
   <dt><b>Main Authors:</b></dt>
   <dd>
@@ -1149,7 +1154,7 @@ under the terms of the <b>Modelica license</b>, see the license conditions
 and the accompanying <b>disclaimer</b> 
 <a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a>.</i>
 </p>
-</html>", revisions="<HTML>
+
   <ul>
   <li> v1.41 Beta 2005/06/17 Anton Haumer<br>
        first used</li>
@@ -1213,7 +1218,7 @@ Block generating the sum of two ramps.
     end Utilities;
   end Examples;
   
-  package Components 
+  package Components "Basic components (pipes, valves)" 
     extends Modelica.Icons.Library2;
   annotation (Documentation(info="<HTML>
 <p>
@@ -1229,6 +1234,8 @@ Pressure drop is taken from partial model SimpleFriction.<br>
 Thermodynamic equations are defined in partial models (package Partials).
 </p>
 <p>
+
+</HTML>", revisions="<HTML>
 <dl>
   <dt><b>Main Authors:</b></dt>
   <dd>
@@ -1257,7 +1264,7 @@ under the terms of the <b>Modelica license</b>, see the license conditions
 and the accompanying <b>disclaimer</b> 
 <a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a>.</i>
 </p>
-</HTML>", revisions="<HTML>
+
   <ul>
   <li> v1.00 2005/02/01 Anton Haumer<br>
        first stable official release</li>
@@ -1435,7 +1442,7 @@ Flow resistance under real conditions is calculated by<br>
     end Valve;
   end Components;
   
-  package Interfaces 
+  package Interfaces "Connectors and partial models" 
     extends Modelica.Icons.Library2;
   annotation (Documentation(info="<HTML>
 <p>
@@ -1447,6 +1454,8 @@ This package contains connectors and partial models:
 </ul>
 </p>
 <p>
+
+</HTML>", revisions="<HTML>
 <dl>
   <dt><b>Main Authors:</b></dt>
   <dd>
@@ -1475,7 +1484,7 @@ under the terms of the <b>Modelica license</b>, see the license conditions
 and the accompanying <b>disclaimer</b> 
 <a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a>.</i>
 </p>
-</HTML>", revisions="<HTML>
+
   <ul>
   <li> v1.00 2005/02/01 Anton Haumer<br>
        first stable official release</li>
@@ -1954,13 +1963,14 @@ Pressure, mass flow, temperature and enthalpy flow of medium are not affected, b
     end Partials;
   end Interfaces;
   
-  package Media 
+  package Media "Medium properties" 
     extends Modelica.Icons.Library2;
   annotation (Documentation(info="<HTML>
 <p>
 This package contains definitions of medium properties.
 </p>
-<p>
+
+</HTML>", revisions="<HTML>
 <dl>
   <dt><b>Main Authors:</b></dt>
   <dd>
@@ -1989,7 +1999,7 @@ under the terms of the <b>Modelica license</b>, see the license conditions
 and the accompanying <b>disclaimer</b> 
 <a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a>.</i>
 </p>
-</HTML>", revisions="<HTML>
+
   <ul>
   <li> v1.00 2005/02/01 Anton Haumer<br>
        first stable official release</li>
@@ -2057,7 +2067,7 @@ and the accompanying <b>disclaimer</b>
     end Water;
   end Media;
   
-  package Sensors 
+  package Sensors "Ideal sensors to measure port properties" 
     extends Modelica.Icons.Library2;
   annotation (Documentation(info="<HTML>
 <p>
@@ -2079,6 +2089,8 @@ Thermodynamic equations are defined in partial models (package Interfaces.Partia
 All sensors are considered massless, they do not change mass flow or enthalpy flow.
 </p>
 <p>
+
+</HTML>", revisions="<HTML>
 <dl>
   <dt><b>Main Authors:</b></dt>
   <dd>
@@ -2107,7 +2119,7 @@ under the terms of the <b>Modelica license</b>, see the license conditions
 and the accompanying <b>disclaimer</b> 
 <a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a>.</i>
 </p>
-</HTML>", revisions="<HTML>
+
   <ul>
   <li> v1.00 2005/02/01 Anton Haumer<br>
        first stable official release</li>
@@ -2279,7 +2291,7 @@ Thermodynamic equations are defined by Partials.FlowSensor.
     end H_flowSensor;
   end Sensors;
   
-  package Sources 
+  package Sources "Ideal fluid sources, e.g., ambient, volume flow" 
     extends Modelica.Icons.Library2;
   annotation (Documentation(info="<HTML>
 <p>
@@ -2298,6 +2310,8 @@ Thermodynamic equations are defined in partial models (package Interfaces.Partia
 All fans / pumps are considered without losses, they do not change enthalpy flow.
 </p>
 <p>
+
+</HTML>", revisions="<HTML>
 <dl>
   <dt><b>Main Authors:</b></dt>
   <dd>
@@ -2326,7 +2340,7 @@ under the terms of the <b>Modelica license</b>, see the license conditions
 and the accompanying <b>disclaimer</b> 
 <a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a>.</i>
 </p>
-</HTML>", revisions="<HTML>
+
   <ul>
   <li> v1.00 2005/02/01 Anton Haumer<br>
        first stable official release</li>

@@ -14,8 +14,7 @@ package Interfaces "Connectors and partial models for input/output blocks"
         height=0.71,
         library=1,
         autolayout=1),
-      Documentation(info="
-<HTML>
+      Documentation(info="<HTML>
 <p>
 This package contains interface definitions for
 <b>continuous</b> input/output blocks with Real,
@@ -52,10 +51,25 @@ connector RealSignal "Real port (both input/output possible)"
     
   extends SignalType;
     
+    annotation (Documentation(info="<html>
+<p>
+Connector with one signal of type Real (no icon, no input/output prefix).
+</p>
+</html>"));
 end RealSignal;
   
-connector BooleanSignal = Boolean "Boolean port (both input/output possible)";
-connector IntegerSignal = Integer "Integer port (both input/output possible)";
+connector BooleanSignal = Boolean "Boolean port (both input/output possible)" 
+    annotation (Documentation(info="<html>
+<p>
+Connector with one signal of type Boolean (no icon, no input/output prefix).
+</p>
+</html>"));
+connector IntegerSignal = Integer "Integer port (both input/output possible)" 
+    annotation (Documentation(info="<html>
+<p>
+Connector with one signal of type Icon (no icon, no input/output prefix).
+</p>
+</html>"));
   
 connector RealInput = input RealSignal "'input Real' as connector" 
   annotation (defaultComponentName="u",
@@ -77,7 +91,12 @@ connector RealInput = input RealSignal "'input Real' as connector"
                                   Text(
       extent=[-140,120; 100,60],
       string="%name",
-        style(color=74, rgbcolor={0,0,127}))));
+        style(color=74, rgbcolor={0,0,127}))), 
+    Documentation(info="<html>
+<p>
+Connector with one input signal of type Real.
+</p>
+</html>"));
   
 connector RealOutput = output RealSignal "'output Real' as connector" 
   annotation (defaultComponentName="y",
@@ -97,7 +116,12 @@ connector RealOutput = output RealSignal "'output Real' as connector"
                                   Text(
       extent=[-100,120; 140,60],
       string="%name",
-        style(color=74, rgbcolor={0,0,127}))));
+        style(color=74, rgbcolor={0,0,127}))), 
+    Documentation(info="<html>
+<p>
+Connector with one output signal of type Real.
+</p>
+</html>"));
   
 connector BooleanInput = input BooleanSignal "'input Boolean' as connector" 
   annotation (defaultComponentName="u",
@@ -110,7 +134,12 @@ connector BooleanInput = input BooleanSignal "'input Boolean' as connector"
       string="%name",
       style(color=5))),
   Coordsys(grid=[1,1], component=[20,20],
-      scale=0.2));
+      scale=0.2), 
+    Documentation(info="<html>
+<p>
+Connector with one input signal of type Boolean.
+</p>
+</html>"));
   
 connector BooleanOutput = output BooleanSignal "'output Boolean' as connector" 
                                   annotation (defaultComponentName="y",
@@ -123,7 +152,12 @@ connector BooleanOutput = output BooleanSignal "'output Boolean' as connector"
           color=5, fillColor=7)), Text(
       extent=[-100,120; 140,60],
       string="%name",
-      style(color=5))));
+      style(color=5))), 
+    Documentation(info="<html>
+<p>
+Connector with one output signal of type Boolean.
+</p>
+</html>"));
   
 connector IntegerInput = input IntegerSignal "'input Integer' as connector" 
   annotation (defaultComponentName="u",
@@ -139,7 +173,12 @@ connector IntegerInput = input IntegerSignal "'input Integer' as connector"
           color=45, fillColor=45)), Text(
       extent=[-140,120; 100,60],
       style(color=45),
-      string="%name")));
+      string="%name")), 
+    Documentation(info="<html>
+<p>
+Connector with one input signal of type Integer.
+</p>
+</html>"));
   
 connector IntegerOutput = output IntegerSignal "'output Integer' as connector" 
                                   annotation (defaultComponentName="y",
@@ -153,9 +192,14 @@ connector IntegerOutput = output IntegerSignal "'output Integer' as connector"
           color=45, fillColor=7)),  Text(
       extent=[-100,120; 140,60],
       style(color=45),
-      string="%name")));
+      string="%name")), 
+    Documentation(info="<html>
+<p>
+Connector with one output signal of type Integer.
+</p>
+</html>"));
   
-    partial block BlockIcon "Basic graphical layout of continuous block" 
+    partial block BlockIcon "Basic graphical layout of input/output block" 
       annotation (
         Coordsys(extent=[-100, -100; 100, 100]),
         Window(
@@ -169,7 +213,15 @@ connector IntegerOutput = output IntegerSignal "'output Integer' as connector"
             fillColor=7,
             rgbfillColor={255,255,255})),
                                Text(extent=[-150, 150; 150, 110], string=
-                "%name")));
+                "%name")), 
+      Documentation(info="<html>
+<p>
+Block that has only the basic icon for an input/output
+block (no declarations, no equations). Most blocks
+of package Modelica.Blocks inherit directly or indirectly
+from this block.
+</p>
+</html>"));
     equation 
     
     end BlockIcon;
@@ -189,7 +241,12 @@ connector IntegerOutput = output IntegerSignal "'output Integer' as connector"
           y=0.02,
           width=0.6,
           height=0.6),
-        Diagram);
+        Diagram, 
+      Documentation(info="<html>
+<p>
+Block has one continuous Real output signal.
+</p>
+</html>"));
     end SO;
   
     partial block MO "Multiple Output continuous control block" 
@@ -208,8 +265,11 @@ connector IntegerOutput = output IntegerSignal "'output Integer' as connector"
           y=0.03,
           width=0.6,
           height=0.6),
-        Documentation(info="
-"));
+        Documentation(info="<html>
+<p>
+Block has one continuous Real output signal vector.
+</p>
+</html>"));
     end MO;
   
     partial block SISO "Single Input Single Output continuous control block" 
@@ -226,7 +286,12 @@ connector IntegerOutput = output IntegerSignal "'output Integer' as connector"
           x=0.32,
           y=0.07,
           width=0.6,
-          height=0.6));
+          height=0.6), 
+      Documentation(info="<html>
+<p>
+Block has one continuous Real input and one continuous Real output signal.
+</p>
+</html>"));
     end SISO;
   
     partial block SI2SO 
@@ -250,10 +315,13 @@ connector IntegerOutput = output IntegerSignal "'output Integer' as connector"
           y=0.07,
           width=0.6,
           height=0.6),
-        Documentation(info="
-Block has two input vectors u1 and u2 and one
-output vector y. All signals are scalar.
-"),     Diagram);
+        Documentation(info="<html>
+<p>
+Block has two continuous Real input signals u1 and u2 and one
+continuous Real output signal y. 
+</p>
+</html>"),
+        Diagram);
     end SI2SO;
   
 partial block SIMO "Single Input Multiple Output continuous control block" 
@@ -265,8 +333,9 @@ partial block SIMO "Single Input Multiple Output continuous control block"
         annotation (extent=[100, -10; 120, 10]);
     
   annotation (Documentation(info="<HTML>
-<p>Block has one continuous input signal and a vector of continuous output
-signals.</p>
+<p> Block has one continuous Real input signal and a  
+    vector of continuous Real output signals.</p>
+
 </HTML>
 "));
 end SIMO;
@@ -279,11 +348,10 @@ end SIMO;
         annotation (extent=[-140, -20; -100, 20]);
       RealOutput y "Connector of Real output signal" 
         annotation (extent=[100, -10; 120, 10]);
-      annotation (Documentation(info="
-<HTML>
+      annotation (Documentation(info="<HTML>
 <p>
-Block has a vector of continuous input signals and
-one continuous output signal.
+Block has a vector of continuous Real input signals and
+one continuous Real output signal.
 </p>
 </HTML>
 "));
@@ -299,10 +367,9 @@ one continuous output signal.
         annotation (extent=[-140, -20; -100, 20]);
       RealOutput y[nout] "Connector of Real output signals" 
         annotation (extent=[100, -10; 120, 10]);
-      annotation (Documentation(info="
-<HTML>
+      annotation (Documentation(info="<HTML>
 <p>
-Block has a continuous input and a continuous output signal vector.
+Block has a continuous Real input and a continuous Real output signal vector.
 The signal sizes of the input and output vector may be different.
 </p>
 </HTML>
@@ -319,10 +386,9 @@ The signal sizes of the input and output vector may be different.
       RealOutput y[n] "Connector of Real output signals" 
         annotation (extent=[100, -10; 120, 10]);
       annotation (
-        Documentation(info="
-<HTML>
+        Documentation(info="<HTML>
 <p>
-Block has a continuous input and a continuous output signal vector
+Block has a continuous Real input and a continuous Real output signal vector
 where the signal sizes of the input and output vector are identical.
 </p>
 </HTML>
@@ -359,16 +425,28 @@ where the signal sizes of the input and output vector are identical.
           y=0.07,
           width=0.6,
           height=0.6),
-        Documentation(info="
-Block has two Input vectors u1 and u2 and one
-output vector y. All vectors have the same number of elements.
-"),     Diagram);
+        Documentation(info="<html>
+<p>
+Block has two continuous Real input vectors u1 and u2 and one
+continuous Real output vector y. 
+All vectors have the same number of elements.
+</p>
+</html>"),
+        Diagram);
     end MI2MO;
   
     partial block SignalSource "Base class for continuous signal source" 
       extends SO;
       parameter Real offset=0 "offset of output signal";
       parameter SIunits.Time startTime=0 "output = offset for time < startTime";
+    annotation (Documentation(info="<html>
+<p>
+Basic block for Real sources of package Blocks.Sources.
+This component has one continuous Real output signal y
+and two parameters (offset, startTime) to shift the
+generated signal. 
+</p>
+</html>"));
     end SignalSource;
   
     partial block SVcontrol "Single-Variable continuous controller" 
@@ -393,7 +471,14 @@ output vector y. All vectors have the same number of elements.
           x=0.19,
           y=0.21,
           width=0.6,
-          height=0.46));
+          height=0.46), 
+      Documentation(info="<html>
+<p>
+Block has two continuous Real input signals and one
+continuous Real output signal. The block is designed
+to be used as base class for a corresponding controller. 
+</p>
+</html>"));
     end SVcontrol;
   
     partial block MVcontrol "Multi-Variable continuous controller" 
@@ -421,14 +506,27 @@ output vector y. All vectors have the same number of elements.
           x=0.26,
           y=0.19,
           width=0.6,
-          height=0.6));
+          height=0.6), 
+      Documentation(info="<html>
+<p>
+Block has two continuous Real input signal vectors and one
+continuous Real output signal vector. The block is designed
+to be used as base class for a corresponding controller. 
+</p>
+</html>"));
     end MVcontrol;
   
     partial block DiscreteBlockIcon 
     "Graphical layout of discrete block component icon" 
       annotation (Icon(Rectangle(extent=[-100, -100; 100, 100], style(color=3,
                 fillColor=52)), Text(extent=[-150, 150; 150, 110], string=
-                "%name")));
+                "%name")), Documentation(info="<html>
+<p>
+Block that has only the basic icon for an input/output,
+discrete block (no declarations, no equations), e.g., 
+from Blocks.Discrete.
+</p>
+</html>"));
     equation 
     
     end DiscreteBlockIcon;
@@ -447,6 +545,12 @@ output vector y. All vectors have the same number of elements.
       when sampleTrigger then
         firstTrigger = time <= startTime + samplePeriod/2;
       end when;
+    annotation (Documentation(info="<html>
+<p>
+Basic definitions of a discrete block of library 
+Blocks.Discrete.
+</p>
+</html>"));
     end DiscreteBlock;
   
     partial block DiscreteSISO 
@@ -460,6 +564,12 @@ output vector y. All vectors have the same number of elements.
       Modelica.Blocks.Interfaces.RealOutput y "Continuous output signal" 
                                    annotation (extent=[100,
               -10; 120, 10]);
+    annotation (Documentation(info="<html>
+<p>
+Block has one continuous input and one continuous output signal
+which are sampled due to the defined <b>samplePeriod</b> parameter.
+</p>
+</html>"));
     end DiscreteSISO;
   
     partial block DiscreteMIMO 
@@ -539,7 +649,15 @@ These signals are sampled due to the defined <b>samplePeriod</b> parameter.
           Text(
             extent=[-70, -112; -20, -102],
             string=" (measurement)",
-            style(color=0))));
+            style(color=0))), Documentation(info="<html>
+<p>
+Block has two continuous Real input signals and one
+continuous Real output signal
+that are sampled due to the defined <b>samplePeriod</b> parameter.
+The block is designed
+to be used as base class for a corresponding controller. 
+</p>
+</html>"));
     equation 
       connect(u_s, sampler_s.u)           annotation (points=[-120, 0; -102, 0]);
       connect(u_m, sampler_m.u)           annotation (points=[0,-120; 0,-111; 0,
@@ -582,7 +700,15 @@ These signals are sampled due to the defined <b>samplePeriod</b> parameter.
           Text(
             extent=[-62, -110; -12, -100],
             string=" (measurement)",
-            style(color=0))));
+            style(color=0))), Documentation(info="<html>
+<p>
+Block has two continuous Real input signal vectors and one
+continuous Real output signal vector. The vector signals
+are sampled due to the defined <b>samplePeriod</b> parameter.
+The block is designed
+to be used as base class for a corresponding controller. 
+</p>
+</html>"));
     equation 
       connect(u_s, sampler_s.u)           annotation (points=[-120, 0; -92, 0]);
       connect(u_m, sampler_m.u)           annotation (points=[0,-120; 0,-106; 0,
@@ -599,7 +725,13 @@ These signals are sampled due to the defined <b>samplePeriod</b> parameter.
           height=0.6),
         Icon(Rectangle(extent=[-100, -100; 100, 100], style(color=5,
                 fillColor=7)), Text(extent=[-150, 150; 150, 110], string=
-                "%name")));
+                "%name")), 
+      Documentation(info="<html>
+<p>
+Block that has only the basic icon for an input/output,
+Boolean block (no declarations, no equations).
+</p>
+</html>"));
     equation 
     
     end BooleanBlockIcon;
@@ -622,7 +754,12 @@ These signals are sampled due to the defined <b>samplePeriod</b> parameter.
           x=0.37,
           y=0.14,
           width=0.6,
-          height=0.6));
+          height=0.6), 
+      Documentation(info="<html>
+<p>
+Block has one continuous Boolean input and one continuous Boolean output signal.
+</p>
+</html>"));
     end BooleanSISO;
   
 partial block BooleanMIMOs 
@@ -636,9 +773,8 @@ partial block BooleanMIMOs
     annotation (extent=[100, -10; 120, 10]);
   annotation (Documentation(info="<HTML>
 <p>
-Block has a continuous input and a continuous output signal vector
-where the signal sizes of the input and output vector are identical
-and of type Boolean.
+Block has a continuous Boolean input and a continuous Boolean output signal vector
+where the signal sizes of the input and output vector are identical.
 </p>
 </HTML>
 "));
@@ -678,8 +814,11 @@ end MI2BooleanMOs;
           y=0.16,
           width=0.6,
           height=0.6),
-        Documentation(info="
-Block has two Boolean inputs u1 and u2 and one Boolean output y.
+        Documentation(info="<html>
+<p>
+Block has two Boolean input signals u1 and u2 and one Boolean output signal y.
+</p>
+</html>
 "));
     end SI2BooleanSO;
   
@@ -705,12 +844,24 @@ Block has two Boolean inputs u1 and u2 and one Boolean output y.
           Line(points=[-90, -70; 68, -70], style(color=8)),
           Polygon(points=[90, -70; 68, -62; 68, -78; 90, -70], style(color=8,
                  fillColor=8))),
-        Diagram);
+        Diagram, 
+      Documentation(info="<html>
+<p>
+Basic block for Boolean sources of package Blocks.Sources.
+This component has one continuous Boolean output signal y. 
+</p>
+</html>"));
     end BooleanSignalSource;
   
 partial block IntegerBlockIcon "Basic graphical layout of Integer block" 
   annotation (Icon(Rectangle(extent=[-100, -100; 100, 100], style(color=45,
-            fillColor=7)), Text(extent=[-150, 150; 150, 110], string="%name")));
+            fillColor=7)), Text(extent=[-150, 150; 150, 110], string="%name")), 
+        Documentation(info="<html>
+<p>
+Block that has only the basic icon for an input/output,
+Integer block (no declarations, no equations).
+</p>
+</html>"));
 equation 
     
 end IntegerBlockIcon;
@@ -720,6 +871,11 @@ partial block IntegerSO "Single Integer Output continuous control block"
     
   IntegerOutput y "Connector of Integer output signal" 
     annotation (extent=[100, -10; 120, 10]);
+    annotation (Documentation(info="<html>
+<p>
+Block has one continuous Integer output signal.
+</p>
+</html>"));
 end IntegerSO;
   
 partial block IntegerMO "Multiple Integer Output continuous control block" 
@@ -728,6 +884,11 @@ partial block IntegerMO "Multiple Integer Output continuous control block"
   parameter Integer nout(min=1) = 1 "Number of outputs";
   IntegerOutput y[nout] "Connector of Integer output signals" 
     annotation (extent=[100, -10; 120, 10]);
+    annotation (Documentation(info="<html>
+<p>
+Block has one continuous Integer output signal vector.
+</p>
+</html>"));
 end IntegerMO;
   
 partial block IntegerSignalSource 
@@ -735,6 +896,14 @@ partial block IntegerSignalSource
   extends IntegerSO;
   parameter Integer offset=0 "offset of output signal";
   parameter SI.Time startTime=0 "y = offset for time < startTime";
+    annotation (Documentation(info="<html>
+<p>
+Basic block for Integer sources of package Blocks.Sources.
+This component has one continuous Integer output signal y
+and two parameters (offset, startTime) to shift the
+generated signal. 
+</p>
+</html>"));
 end IntegerSignalSource;
   
 partial block IntegerSIBooleanSO 
@@ -764,7 +933,7 @@ partial block IntegerMIBooleanMOs
     annotation (extent=[100, -10; 120, 10]);
   annotation (Documentation(info="<HTML>
 <p>
-Block has a continuous integer input and a continuous boolean output signal vector
+Block has a continuous Integer input and a continuous Boolean output signal vector
 where the signal sizes of the input and output vector are identical.
 </p>
 </HTML>
@@ -779,7 +948,13 @@ end IntegerMIBooleanMOs;
             fillColor=30,
             rgbfillColor={210,210,210},
             fillPattern=11)),
-         Text(extent=[-150,150; 150,110],string="%name")));
+         Text(extent=[-150,150; 150,110],string="%name")), Documentation(info="<html>
+<p>
+Block that has only the basic icon for an input/output,
+Boolean block (no declarations, no equations) used especially
+in the Blocks.Logical library.
+</p>
+</html>"));
   equation 
     
   end partialBooleanBlockIcon;
@@ -787,8 +962,10 @@ end IntegerMIBooleanMOs;
   partial block partialBooleanSISO 
     "partialSingle Input / Single Output Boolean block" 
     extends partialBooleanBlockIcon;
-           Blocks.Interfaces.BooleanInput u annotation(extent=[-140,-20; -100,20]);
-           Blocks.Interfaces.BooleanOutput y annotation(extent=[100,-10; 120,10]);
+           Blocks.Interfaces.BooleanInput u "Connector of Boolean input signal"
+                                            annotation(extent=[-140,-20; -100,20]);
+           Blocks.Interfaces.BooleanOutput y 
+      "Connector of Boolean output signal"   annotation(extent=[100,-10; 120,10]);
     
     annotation (Icon(
         Ellipse(extent=[-71,7; -85,-7], style(
@@ -798,7 +975,12 @@ end IntegerMIBooleanMOs;
    Ellipse(extent=[71,7; 85,-7],     style(
             color=DynamicSelect(30, if y > 0.5 then 2 else 30),
             fillColor=DynamicSelect(30, if y > 0.5 then 2 else 30),
-            fillPattern=1))));
+            fillPattern=1))), Documentation(info="<html>
+<p>
+Block has one continuous Boolean input and one continuous Boolean output signal
+with a 3D icon (e.g. used in Blocks.Logical library).
+</p>
+</html>"));
   equation 
     
   end partialBooleanSISO;
@@ -806,9 +988,14 @@ end IntegerMIBooleanMOs;
   partial block partialBooleanSI2SO 
     "partial2 Single Input / 1 Single Output Boolean block" 
     extends partialBooleanBlockIcon;
-           Blocks.Interfaces.BooleanInput u1 annotation(extent=[-140,-20; -100,20]);
-           Blocks.Interfaces.BooleanInput u2 annotation(extent=[-140,-100; -100,-60]);
-           Blocks.Interfaces.BooleanOutput y annotation(extent=[100,-10; 120,10]);
+           Blocks.Interfaces.BooleanInput u1 
+      "Connector of first Boolean input signal" 
+                                             annotation(extent=[-140,-20; -100,20]);
+           Blocks.Interfaces.BooleanInput u2 
+      "Connector of second Boolean input signal" 
+                                             annotation(extent=[-140,-100; -100,-60]);
+           Blocks.Interfaces.BooleanOutput y 
+      "Connector of Boolean output signal"   annotation(extent=[100,-10; 120,10]);
     
     annotation (Icon(
    Ellipse(extent=[-71,7; -85,-7],    style(
@@ -822,17 +1009,30 @@ end IntegerMIBooleanMOs;
    Ellipse(extent=[71,7; 85,-7],     style(
             color=DynamicSelect(30, if y > 0.5 then 2 else 30),
             fillColor=DynamicSelect(30, if y > 0.5 then 2 else 30),
-            fillPattern=1))), Coordsys(grid=[1,1], component=[20,20]));
+            fillPattern=1))), Coordsys(grid=[1,1], component=[20,20]), 
+      Documentation(info="<html>
+<p>
+Block has two continuous Boolean input and one continuous Boolean output signal
+with a 3D icon (e.g. used in Blocks.Logical library).
+</p>
+</html>"));
     
   end partialBooleanSI2SO;
   
   partial block partialBooleanSI3SO 
     "partial2 Single Input / 1 Single Output Boolean block" 
     extends partialBooleanBlockIcon;
-           Blocks.Interfaces.BooleanInput u1 annotation(extent=[-140,60; -100,100]);
-           Blocks.Interfaces.BooleanInput u2 annotation(extent=[-140,-20; -100,20]);
-           Blocks.Interfaces.BooleanInput u3 annotation(extent=[-140,-100; -100,-60]);
-           Blocks.Interfaces.BooleanOutput y annotation(extent=[100,-10; 120,10]);
+           Blocks.Interfaces.BooleanInput u1 
+      "Connector of first Boolean input signal" 
+                                             annotation(extent=[-140,60; -100,100]);
+           Blocks.Interfaces.BooleanInput u2 
+      "Connector of second Boolean input signal" 
+                                             annotation(extent=[-140,-20; -100,20]);
+           Blocks.Interfaces.BooleanInput u3 
+      "Connector of third Boolean input signal" 
+                                             annotation(extent=[-140,-100; -100,-60]);
+           Blocks.Interfaces.BooleanOutput y 
+      "Connector of Boolean output signal"   annotation(extent=[100,-10; 120,10]);
     
     annotation (Icon(
         Ellipse(extent=[-71,74; -85,88], style(
@@ -850,32 +1050,49 @@ end IntegerMIBooleanMOs;
    Ellipse(extent=[71,7; 85,-7],     style(
             color=DynamicSelect(30, if y > 0.5 then 2 else 30),
             fillColor=DynamicSelect(30, if y > 0.5 then 2 else 30),
-            fillPattern=1))), Coordsys(grid=[1,1], component=[20,20]));
+            fillPattern=1))), Coordsys(grid=[1,1], component=[20,20]), 
+      Documentation(info="<html>
+Block has three continuous Boolean input and one continuous Boolean output signal
+with a 3D icon (e.g. used in Blocks.Logical library).
+</p>
+</html>"));
   end partialBooleanSI3SO;
   
   partial block partialBooleanSI "partialSingle Input Boolean block" 
     extends partialBooleanBlockIcon;
     
-           Blocks.Interfaces.BooleanInput u annotation(extent=[-140,-20; -100,20]);
+           Blocks.Interfaces.BooleanInput u "Connector of Boolean input signal"
+                                            annotation(extent=[-140,-20; -100,20]);
     
     annotation (Icon(
         Ellipse(extent=[-71,7; -85,-7],    style(
             color=DynamicSelect(30, if u > 0.5 then 2 else 30),
             fillColor=DynamicSelect(30, if u > 0.5 then 2 else 30),
-            fillPattern=1))));
+            fillPattern=1))), Documentation(info="<html>
+<p>
+Block has one continuous Boolean input signal
+with a 3D icon (e.g. used in Blocks.Logical library).
+</p>
+</html>"));
   equation 
     
   end partialBooleanSI;
   
   partial block partialBooleanSO "partialSingle Output Boolean block" 
-           Blocks.Interfaces.BooleanOutput y annotation(extent=[100,-10; 120,10]);
+           Blocks.Interfaces.BooleanOutput y 
+      "Connector of Boolean output signal"   annotation(extent=[100,-10; 120,10]);
     extends partialBooleanBlockIcon;
     
     annotation (Icon(
    Ellipse(extent=[71,7; 85,-7],     style(
             color=DynamicSelect(30, if y > 0.5 then 2 else 30),
             fillColor=DynamicSelect(30, if y > 0.5 then 2 else 30),
-            fillPattern=1))));
+            fillPattern=1))), Documentation(info="<html>
+<p>
+Block has one continuous Boolean output signal
+with a 3D icon (e.g. used in Blocks.Logical library).
+</p>
+</html>"));
   equation 
     
   end partialBooleanSO;
@@ -883,7 +1100,7 @@ end IntegerMIBooleanMOs;
   partial block partialBooleanSource "partialBoolean source block" 
     extends partialBooleanBlockIcon;
     
-    Blocks.Interfaces.BooleanOutput y 
+    Blocks.Interfaces.BooleanOutput y "Connector of Boolean output signal" 
       annotation (extent=[100,-10; 120,10]);
     
     annotation (Icon(
@@ -923,7 +1140,14 @@ end IntegerMIBooleanMOs;
         Text(
           extent=[-108,80; -92,64],
           style(color=0, rgbcolor={0,0,0}),
-          string="y")));
+          string="y")), 
+      Documentation(info="<html>
+<p>
+Basic block for Boolean sources of package Blocks.Sources.
+This component has one continuous Boolean output signal y
+and a 3D icon (e.g. used in Blocks.Logical library). 
+</p>
+</html>"));
     
   end partialBooleanSource;
   
@@ -932,8 +1156,10 @@ end IntegerMIBooleanMOs;
     
     parameter Real threshold=0 "Comparison with respect to threshold";
     
-    Blocks.Interfaces.RealInput u annotation(extent=[-140,-20; -100,20]);
-    Blocks.Interfaces.BooleanOutput y annotation (extent=[100,-10; 120,10]);
+    Blocks.Interfaces.RealInput u "Connector of Boolean input signal" 
+                                  annotation(extent=[-140,-20; -100,20]);
+    Blocks.Interfaces.BooleanOutput y "Connector of Boolean output signal" 
+                                      annotation (extent=[100,-10; 120,10]);
     
     annotation (Icon(
   Rectangle(extent=[-100,100; 100,-100],   style(
@@ -949,15 +1175,23 @@ end IntegerMIBooleanMOs;
             color=DynamicSelect(30, if y > 0.5 then 2 else 30),
             fillColor=DynamicSelect(30, if y > 0.5 then 2 else 30),
             fillPattern=1))),
-        Diagram);
+        Diagram, 
+      Documentation(info="<html>
+<p>
+Block has one continuous Real input and one continuous Boolean output signal
+as well as a 3D icon (e.g. used in Blocks.Logical library).
+</p>
+</html>"));
     
   end partialBooleanThresholdComparison;
   
   partial block partialBooleanComparison 
     "partialBoolean block to compare two Real inputs u1 and u2" 
-    Blocks.Interfaces.RealInput u1 annotation(extent=[-140,-20; -100,20]);
-    Blocks.Interfaces.RealInput u2 annotation(extent=[-140,-100; -100,-60]);
-    Blocks.Interfaces.BooleanOutput y 
+    Blocks.Interfaces.RealInput u1 "Connector of first Boolean input signal" 
+                                   annotation(extent=[-140,-20; -100,20]);
+    Blocks.Interfaces.RealInput u2 "Connector of second Boolean input signal" 
+                                   annotation(extent=[-140,-100; -100,-60]);
+    Blocks.Interfaces.BooleanOutput y "Connector of Boolean output signal" 
       annotation (extent=[100,-10; 120,10]);
     
     annotation (Icon(
@@ -972,12 +1206,19 @@ end IntegerMIBooleanMOs;
             fillPattern=1)),
         Ellipse(extent=[32,10; 52,-10],   style(fillPattern=1)),
         Line(points=[-100,-80; 42,-80; 42,0],    style(fillPattern=1))),
-        Diagram);
+        Diagram, 
+      Documentation(info="<html>
+<p>
+Block has two continuous Real input and one continuous Boolean output signal
+as a result of the comparision of the two input signals. The block
+has a 3D icon (e.g. used in Blocks.Logical library).
+</p>
+</html>"));
     
   end partialBooleanComparison;
   
 package Adaptors 
-    "Components to send signals to the bus or receive signals from the bus" 
+    "Components to send signals to a bus or receive signals from a bus" 
     
   extends Modelica.Icons.Library;
     
@@ -1212,5 +1453,13 @@ equation
       
 end AdaptorInteger;
     
+    annotation (Documentation(info="<html>
+<p>
+The components of this package should no longer be used.
+They are only provided for backward compatibility issues.
+Modelica language at release 2.2) should be the basis
+to define signal buses.
+</p>
+</html>"));
 end Adaptors;
 end Interfaces;

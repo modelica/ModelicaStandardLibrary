@@ -99,6 +99,9 @@ Modelica tools.
      Boolean boolean "Value if tokenType == TokenType.BooleanToken";
      String string 
       "Value if tokenType == TokenType.StringToken/IdentifierToken/DelimiterToken";
+    annotation (Documentation(info="<html>
+   
+</html>"));
   end TokenValue;
   annotation (Documentation(info="<html>
 <p>
