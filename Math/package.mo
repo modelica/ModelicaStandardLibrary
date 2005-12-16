@@ -1132,7 +1132,7 @@ implementation variant used in this function.
     parameter Integer na=size(A, 1);
     Integer j=1;
     Integer k=0;
-    Boolean break=false;
+    Boolean done=false;
     Real Anorm;
     Real Tscaled=1;
     Real Atransf[na, na];
@@ -1170,11 +1170,11 @@ implementation variant used in this function.
     // Computation of psi by Taylor-series approximation
     M := identity(na);
     D := M;
-    while j < nmax and not break loop
+    while j < nmax and not done loop
       M := Atransf*M*Tscaled/j;
       //stop if the new element of the series is small
       if columnNorm((D + M) - D) == 0 then
-        break := true;
+        done := true;
       else
         D := M + D;
         j := j + 1;
@@ -1209,7 +1209,7 @@ implementation variant used in this function.
     parameter Integer na=size(A, 1);
     Integer j=2;
     Integer k=0;
-    Boolean break=false;
+    Boolean done=false;
     Real Anorm;
     Real Tscaled=1;
     Real Atransf[na, na];
@@ -1326,11 +1326,11 @@ The Algorithm to calculate psi is taken from
     // Computation of psi by Taylor-series approximation
     M := identity(na)*Tscaled;
     Psi := M;
-    while j < nmax and not break loop
+    while j < nmax and not done loop
       M := Atransf*M*Tscaled/j;
       //stop if the new element of the series is small
       if norm((Psi + M) - Psi, 1) == 0 then
-        break := true;
+        done := true;
       else
         Psi := M + Psi;
         j := j + 1;
@@ -1369,7 +1369,7 @@ The Algorithm to calculate psi is taken from
     parameter Integer na=size(A, 1);
     parameter Integer nb=size(B, 2);
     Integer j=1;
-    Boolean break=false;
+    Boolean done=false;
     Real F[na + 2*nb, na + 2*nb];
     annotation (
       Coordsys(

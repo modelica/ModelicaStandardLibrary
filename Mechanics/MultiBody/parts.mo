@@ -1,4 +1,4 @@
-package Parts 
+package Parts  
   "Rigid components such as bodies with mass and inertia and massless rods" 
   
   import SI = Modelica.SIunits;
