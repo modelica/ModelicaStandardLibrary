@@ -142,7 +142,7 @@ This section summarizes the changes that have been performed
 on the Modelica standard library.
 </p>
 <ul>
-<li> <a href=\"Modelica://Modelica.UsersGuide.ReleaseNotes.Version_2_3\">Version 2.3</a> (not yet released)</li>
+<li> <a href=\"Modelica://Modelica.UsersGuide.ReleaseNotes.Version_2_2_1\">Version 2.2.1</a> (Dec. 19., 2005)</li>
 <li> <a href=\"Modelica://Modelica.UsersGuide.ReleaseNotes.Version_2_2\">Version 2.2</a> (April 6, 2005)</li>
 <li> <a href=\"Modelica://Modelica.UsersGuide.ReleaseNotes.Version_2_1\">Version 2.1</a> (Nov. 11, 2004)</li>
 <li> <a href=\"Modelica://Modelica.UsersGuide.ReleaseNotes.Version_1_6\">Version 1.6</a> (June 21, 2004)</li>
@@ -153,28 +153,122 @@ on the Modelica standard library.
 </html>
 "));
     
-  class Version_2_3 "Version 2.3" 
+  class Version_2_2_1 "Version 2.2.1" 
       
       annotation (Documentation(info="<html>
-<h3><font color=\"#008000\">Version 2.3 (not yet released)</font></h3>
+<h3><font color=\"#008000\">Version 2.2.1</font></h3>
 <p>
-Version 2.3 is backward compatible to version 2.2.
+Version 2.2.1 is backward compatible to version 2.2.
 </p>
 
 <p>
-The following other (minor) <b>changes</b> have been performed:
+In this version, <b>no</b> new libraries have been added.
 </p>
 
-<ul>
-<li>Fixed bug in Modelica.Blocks.Tables: tableOnFile now determines
-    independently of fileName's value whether a table is read from
-    file or used from the class modification.</li>
-<li>Fixed bug in Modelica.Utilities.Streams.readLine(), by
-    adding a \"Streams.close(..)\" after reading the file content.</li>
-</ul>
+<p>
+In Dymola 6, the new feature was introduced to automatically add tables
+for class content and component interface definitions (parameters and 
+connectors) to the info layer. For this reason, the corresponding (partial)
+tables previously present in the Modelica Standard Library have been
+removed. The new feature of Dymola 6 has the significant advantage that
+all tables are now guaranteed to be up-to-date.<br>&nbsp;
+</p>
+
+<p>
+The following <b>new components</b> have been added to <b>existing</b> libraries:
+</p>
+
+<table border=\"1\" cellspacing=0 cellpadding=2>
+  <tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.Types.</b></td></tr>
+  <tr><td>SpecularCoefficient</td>
+      <td> New type to define a specular coefficient.</td> </tr>
+  <tr><td>ShapeExtra</td>
+      <td> New type to define the extra data for visual shape objects and to
+           have a central place for the documentation of this data.</td> </tr>
+  <tr><td colspan=\"2\"><b>Modelica.Mechanics.Rotational.</b></td></tr>
+  <tr><td>UsersGuide</td>
+      <td> A users guide has been added by using the documentation previously
+           present in the package documentation of Rotational.</td> </tr>
+  <tr><td>Sensors.PowerSensor</td>
+      <td> New component to measure the energy flow between two connectors
+           of the Rotational library.</td> </tr>
+</table> 
+
+<p>
+The following <b>components</b> have been improved:
+</p>
+
+<table border=\"1\" cellspacing=0 cellpadding=2>
+  <tr><td colspan=\"2\"><b>Modelica.Blocks.Tables.</b></td></tr>
+  <tr><td>CombiTable1D<br>
+          CombiTable1Ds<br>
+          CombiTable2D</td>
+      <td> Parameter \"tableOnFile\" determines now whether a table is read from
+           file or used from parameter \"table\". Previously, if \"fileName\" was not
+           \"NoName\", a table was always read from file \"fileName\", independently
+           of the setting of \"tableOnFile\". This has been corrected.<br>
+           Furthermore, the initialization of a table is now performed in a 
+           when-clause and no longer in a parameter declaration, because some
+           tools evaluate the parameter declaration in some situation more than
+           once and then the table is unnecessarily read several times    
+           (and occupies also more memory).</td> </tr>
+  <tr><td colspan=\"2\"><b>Modelica.Blocks.Sources.</b></td></tr>
+  <tr><td>CombiTimeTable</td>
+      <td> Same improvements as for the tables from Modelica.Blocks.Tables 
+           as outlined above.</td> </tr>
+
+  <tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.</b></td></tr>
+  <tr><td>all models</td>
+      <td> <ul> 
+           <li> All menus have been changed to follow the Modelica 2.2 annotations
+                \"Dialog, group, tab, enable\" (previously, a non-standard Dymola
+                definition for menus was used). Also, the \"enable\" annotation is used in all menus
+                to disable input fields if the input would be ignored.</li>
+           <li> All components with animation information have a new variable
+                <b>specularCoefficient</b> to define the reflection of ambient light. 
+                The default value is world.defaultSpecularCoefficient which has
+                a default of 0.7. By changing world.defaultSpecularCoefficient, the
+                specularCoefficient of all components is changed that are not
+                explicitly set differently. Since specularCoefficient is a variable
+                (and no parameter), it can be changed during simulation. Since
+                annotation(Dialog) is set, this variable still appears in the
+                parameter menus.<br>
+                Previously, a constant specularCoefficient of 0.7 was used
+                for all components.</li>
+           <li> Variable <b>color</b> of all components is no longer a parameter
+                but an input variable. Also all parameters in package <b>Visualizers</b>,
+                with the exception of <b>shapeType</b> are no longer parameters but
+                defined as input variables with annotation(Dialog). As a result,
+                all these variables appear still in parameter menus, but they can
+                be changed during simulation (e.g., color might be used to
+                display the temperature of a part).</li>
+           </ul></td></tr>
+  <tr><td>Interfaces.Frame.a<br>
+          Interfaces.Frame.b<br>
+          Interfaces.Frame_resolve</td>
+      <td> The Frame connectors are now centered around the origin to ease
+           the usage. The shape was changed a bit, such that the icon has a 
+           height of 20 when dragged (previously, the height was 10 when dragged
+           and in the MultiBody library it was then manually changed to a height of 15).
+           As a result, it is easy to position it with the standard grid size of 2.
+           The size of the diagram layer is still 10, in order that the connector looks
+           nice when used in a diagram layer. The double line width in the icon layer
+           was changed to single line width in order that the icon looks nicer when
+           used in a component.</td>
+  <tr><td>Types</td>
+      <td> All types have a corresponding icon now to visualize the content
+           in the package browser (previously, the types did not have an icon).</td>
+
+  <tr><td colspan=\"2\"><b>Modelica.Utilities.Streams.</b></td></tr>
+  <tr><td>readLine</td>
+      <td> Depending on the C-implementation, the stream was not correctly closed.
+           This has been corrected by adding a \"Streams.close(..)\" 
+           after reading the file content.</td> </tr>
+</table> 
+<p>
 </html>
 "));
-  end Version_2_3;
+  end Version_2_2_1;
     
   class Version_2_2 "Version 2.2" 
       
