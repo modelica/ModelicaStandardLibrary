@@ -192,6 +192,13 @@ The following <b>new components</b> have been added to <b>existing</b> libraries
   <tr><td>Sensors.PowerSensor</td>
       <td> New component to measure the energy flow between two connectors
            of the Rotational library.</td> </tr>
+  <tr><td colspan=\"2\"><b>Modelica.Media.Interfaces.PartialMedium.</b></td></tr>
+  <tr><td>specificEnthalpy_pTX</td>
+      <td> New function to compute specific enthalpy from pressure, temperature
+           and mass fractions.</td> </tr>
+  <tr><td>temperature_phX</td>
+      <td> New function to compute temperature from pressure, specific enthalpy,
+           and mass fractions.</td> </tr>
 </table> 
 
 <p>
