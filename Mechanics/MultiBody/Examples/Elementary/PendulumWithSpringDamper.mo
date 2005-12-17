@@ -61,19 +61,43 @@ ALT=\"model Examples.Elementary.PendulumWithSpringDamper\">
     annotation (extent=[20, 20; 40, 40]);
 equation 
   connect(world.frame_b, bar1.frame_a) 
-    annotation (points=[-59, 30; -47, 30], style(color=0, thickness=2));
+    annotation (points=[-60,30; -46,30], style(
+      color=10,
+      rgbcolor={95,95,95},
+      thickness=2));
   connect(revolute.frame_a, bar1.frame_b) 
-    annotation (points=[-13, 30; -25, 30], style(color=0, thickness=2));
+    annotation (points=[-12,30; -26,30], style(
+      color=10,
+      rgbcolor={95,95,95},
+      thickness=2));
   connect(prismatic.frame_a, revolute.frame_b) 
-    annotation (points=[19, 30; 9, 30], style(color=0, thickness=2));
-  connect(damper1.frame_a, bar1.frame_b) annotation (points=[-1, -10; -18, -10;
-         -18, 30; -25, 30], style(color=0, thickness=2));
-  connect(damper1.frame_b, prismatic.frame_b) annotation (points=[21, -10; 44,
-        -10; 44, 30; 41, 30], style(color=0, thickness=2));
-  connect(spring1.frame_a, bar1.frame_b) annotation (points=[-1, -36; -18, -36;
-         -18, 30; -25, 30], style(color=0, thickness=2));
-  connect(spring1.frame_b, prismatic.frame_b) annotation (points=[21, -36; 44,
-        -36; 44, 30; 41, 30], style(color=0, thickness=2));
+    annotation (points=[20,30; 8,30], style(
+      color=10,
+      rgbcolor={95,95,95},
+      thickness=2));
+  connect(damper1.frame_a, bar1.frame_b) annotation (points=[0,-10; -18,-10;
+        -18,30; -26,30], style(
+      color=10,
+      rgbcolor={95,95,95},
+      thickness=2));
+  connect(damper1.frame_b, prismatic.frame_b) annotation (points=[20,-10; 44,
+        -10; 44,30; 40,30], style(
+      color=10,
+      rgbcolor={95,95,95},
+      thickness=2));
+  connect(spring1.frame_a, bar1.frame_b) annotation (points=[0,-36; -18,-36;
+        -18,30; -26,30], style(
+      color=10,
+      rgbcolor={95,95,95},
+      thickness=2));
+  connect(spring1.frame_b, prismatic.frame_b) annotation (points=[20,-36; 44,
+        -36; 44,30; 40,30], style(
+      color=10,
+      rgbcolor={95,95,95},
+      thickness=2));
   connect(body1.frame_a, prismatic.frame_b) 
-    annotation (points=[61, 30; 41, 30], style(color=0, thickness=2));
+    annotation (points=[62,30; 40,30], style(
+      color=10,
+      rgbcolor={95,95,95},
+      thickness=2));
 end PendulumWithSpringDamper;

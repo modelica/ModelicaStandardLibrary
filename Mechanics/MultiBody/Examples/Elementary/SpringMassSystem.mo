@@ -79,23 +79,47 @@ ALT=\"model Examples.Elementary.SpringMassSystem\">
     width=0.1) annotation (extent=[80, -20; 100, 0], rotation=-90);
 equation 
   connect(body1.frame_a, p1.frame_b) 
-    annotation (points=[-20, -39; -20, -21], style(color=0, thickness=2));
+    annotation (points=[-20,-40; -20,-20], style(
+      color=10,
+      rgbcolor={95,95,95},
+      thickness=2));
   connect(world.frame_b, bar1.frame_a) 
-    annotation (points=[-59, 30; -47, 30], style(color=0, thickness=2));
-  connect(bar1.frame_b, p1.frame_a) annotation (points=[-25, 30; -20, 30; -20,
-        1], style(color=0, thickness=2));
+    annotation (points=[-60,30; -46,30], style(
+      color=10,
+      rgbcolor={95,95,95},
+      thickness=2));
+  connect(bar1.frame_b, p1.frame_a) annotation (points=[-26,30; -20,30; -20,0],
+      style(
+      color=10,
+      rgbcolor={95,95,95},
+      thickness=2));
   connect(p1.bearing, spring1.flange_a) 
     annotation (points=[-14, -6; -8, -6; -8, 0; 10, 0], style(color=58));
   connect(spring1.flange_b, p1.axis) annotation (points=[10, -20; 10, -30; -8,
         -30; -8, -18; -14, -18], style(color=58));
   connect(bar1.frame_b, bar2.frame_a) 
-    annotation (points=[-25, 30; -1, 30], style(color=0, thickness=2));
+    annotation (points=[-26,30; 0,30], style(
+      color=10,
+      rgbcolor={95,95,95},
+      thickness=2));
   connect(bar2.frame_b, p2.frame_a) 
-    annotation (points=[21, 30; 50, 30; 50, 1], style(color=0, thickness=2));
+    annotation (points=[20,30; 50,30; 50,0], style(
+      color=10,
+      rgbcolor={95,95,95},
+      thickness=2));
   connect(p2.frame_b, body2.frame_a) 
-    annotation (points=[50, -21; 50, -39], style(color=0, thickness=2));
+    annotation (points=[50,-20; 50,-40], style(
+      color=10,
+      rgbcolor={95,95,95},
+      thickness=2));
   connect(bar2.frame_b, spring2.frame_a) 
-    annotation (points=[21, 30; 90, 30; 90, 1], style(color=0, thickness=2));
-  connect(body2.frame_a, spring2.frame_b) annotation (points=[50, -39; 90, -39;
-         90, -21], style(color=0, thickness=2));
+    annotation (points=[20,30; 90,30; 90,0], style(
+      color=10,
+      rgbcolor={95,95,95},
+      thickness=2));
+  connect(body2.frame_a, spring2.frame_b) annotation (points=[50,-40; 90,-40;
+        90,-20], style(
+      color=10,
+      rgbcolor={95,95,95},
+      thickness=2));
 end SpringMassSystem;

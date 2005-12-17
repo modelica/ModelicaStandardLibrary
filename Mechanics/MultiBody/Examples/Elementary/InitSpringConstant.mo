@@ -57,15 +57,27 @@ ALT=\"model Examples.Elementary.InitSpringConstant\">
 equation 
   
   connect(world.frame_b, rev.frame_a) 
-    annotation (points=[-59, 10; -41, 10], style(color=0, thickness=2));
+    annotation (points=[-60,10; -40,10], style(
+      color=10,
+      rgbcolor={95,95,95},
+      thickness=2));
   connect(damper.flange_b, rev.axis) annotation (points=[-20, 50; -16, 50; -16,
          26; -30, 26; -30, 20], style(color=0));
   connect(rev.bearing, damper.flange_a) annotation (points=[-36, 20; -36, 26; -48,
          26; -48, 50; -40, 50], style(color=0));
   connect(rev.frame_b, body.frame_a) 
-    annotation (points=[-19, 10; -1, 10], style(color=0, thickness=2));
+    annotation (points=[-20,10; 0,10], style(
+      color=10,
+      rgbcolor={95,95,95},
+      thickness=2));
   connect(fixed.frame_b, spring.frame_a) 
-    annotation (points=[50, 59; 50, 41], style(color=0, thickness=2));
+    annotation (points=[50,60; 50,40], style(
+      color=10,
+      rgbcolor={95,95,95},
+      thickness=2));
   connect(body.frame_b, spring.frame_b) 
-    annotation (points=[21, 10; 50, 10; 50, 19], style(color=0, thickness=2));
+    annotation (points=[20,10; 50,10; 50,20], style(
+      color=10,
+      rgbcolor={95,95,95},
+      thickness=2));
 end InitSpringConstant;

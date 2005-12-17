@@ -218,9 +218,9 @@ definition of the colors used in the MultiBody library
     
     Interfaces.Frame_a frame_a 
       "Coordinate system a (all shape definition vectors are resolved in this frame)"
-       annotation (extent=[-120,-20; -80,20]);
+       annotation (extent=[-116,-16; -84,16]);
     Interfaces.Frame_b frame_b "Coordinate system b" 
-       annotation (extent=[80,-20; 120,20]);
+       annotation (extent=[84,-16; 116,16]);
     
     parameter Boolean animation=true "= true, if animation shall be enabled";
     parameter Types.ShapeType shapeType="box" "Type of shape" 

@@ -35,13 +35,17 @@ ALT=\"model Examples.Elementary.Pendulum\">
     annotation (extent=[20, 0; 40, 20]);
 equation 
   connect(world.frame_b, rev.frame_a) 
-    annotation (points=[-39, 10; -21, 10], style(color=0, thickness=2));
+    annotation (points=[-40,10; -20,10], style(
+      color=10,
+      rgbcolor={95,95,95},
+      thickness=2));
   connect(damper.flange_b, rev.axis) annotation (points=[0, 50; 4, 50; 4, 26; -10,
          26; -10, 20], style(color=0));
   connect(rev.bearing, damper.flange_a) annotation (points=[-16, 20; -16, 26; -28,
          26; -28, 50; -20, 50], style(color=0));
-  connect(body.frame_a, rev.frame_b) annotation (points=[19, 10; 1, 10], style(
-      color=0,
+  connect(body.frame_a, rev.frame_b) annotation (points=[20,10; 0,10], style(
+      color=10,
+      rgbcolor={95,95,95},
       thickness=2,
       gradient=2));
 end Pendulum;

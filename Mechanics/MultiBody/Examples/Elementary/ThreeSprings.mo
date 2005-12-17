@@ -72,17 +72,35 @@ ALT=\"model Examples.Elementary.ThreeSprings\">
     animation=animation) annotation (extent=[-20, -42; 0, -22], rotation=0);
 equation 
   connect(world.frame_b, bar1.frame_a) 
-    annotation (points=[-39, 30; -21, 30], style(color=0, thickness=2));
-  connect(world.frame_b, bar2.frame_a) annotation (points=[-39, 30; -30, 30; -30,
-         1], style(color=0, thickness=2));
+    annotation (points=[-40,30; -20,30], style(
+      color=10,
+      rgbcolor={95,95,95},
+      thickness=2));
+  connect(world.frame_b, bar2.frame_a) annotation (points=[-40,30; -30,30; -30,
+        0], style(
+      color=10,
+      rgbcolor={95,95,95},
+      thickness=2));
   connect(bar1.frame_b, spring1.frame_a) 
-    annotation (points=[1, 30; 30, 30; 30, 21], style(color=0, thickness=2));
-  connect(bar2.frame_b, spring3.frame_a) annotation (points=[-30, -21; -30, -32;
-         -21, -32], style(color=0, thickness=2));
+    annotation (points=[0,30; 30,30; 30,20], style(
+      color=10,
+      rgbcolor={95,95,95},
+      thickness=2));
+  connect(bar2.frame_b, spring3.frame_a) annotation (points=[-30,-20; -30,-32;
+        -20,-32], style(
+      color=10,
+      rgbcolor={95,95,95},
+      thickness=2));
   connect(spring2.frame_b, body1.frame_a) 
-    annotation (points=[30, -49; 30, -59], style(color=0, thickness=2));
+    annotation (points=[30,-48; 30,-60],   style(color=0, thickness=2));
   connect(spring3.frame_b, spring1.frame_b) 
-    annotation (points=[1, -32; 30, -14; 30, -1], style(color=0, thickness=2));
+    annotation (points=[0,-32; 30,-14; 30,0], style(
+      color=10,
+      rgbcolor={95,95,95},
+      thickness=2));
   connect(spring2.frame_a, spring1.frame_b) 
-    annotation (points=[30, -27; 30, -1], style(color=0, thickness=2));
+    annotation (points=[30,-28; 30,0], style(
+      color=10,
+      rgbcolor={95,95,95},
+      thickness=2));
 end ThreeSprings;

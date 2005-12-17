@@ -89,9 +89,9 @@ connector RealInput = input RealSignal "'input Real' as connector"
           fillColor=74,
           rgbfillColor={0,0,127})),
                                   Text(
-      extent=[-140,120; 100,60],
+      extent=[-120,105; 100,60],
       string="%name",
-        style(color=74, rgbcolor={0,0,127}))), 
+        style(color=74, rgbcolor={0,0,127}))),
     Documentation(info="<html>
 <p>
 Connector with one input signal of type Real.
@@ -114,9 +114,9 @@ connector RealOutput = output RealSignal "'output Real' as connector"
           fillColor=7,
           rgbfillColor={255,255,255})),
                                   Text(
-      extent=[-100,120; 140,60],
+      extent=[-100,140; 130,60],
       string="%name",
-        style(color=74, rgbcolor={0,0,127}))), 
+        style(color=74, rgbcolor={0,0,127}))),
     Documentation(info="<html>
 <p>
 Connector with one output signal of type Real.
@@ -130,11 +130,11 @@ connector BooleanInput = input BooleanSignal "'input Boolean' as connector"
          style(color=5, fillColor=5))), Diagram(Polygon(points=[0,50; 100,0;
           0,-50; 0,50],                   style(color=5, fillColor=5)),
                                   Text(
-      extent=[-140,120; 100,60],
+      extent=[-120,105; 100,60],
       string="%name",
       style(color=5))),
   Coordsys(grid=[1,1], component=[20,20],
-      scale=0.2), 
+      scale=0.2),
     Documentation(info="<html>
 <p>
 Connector with one input signal of type Boolean.
@@ -150,9 +150,9 @@ connector BooleanOutput = output BooleanSignal "'output Boolean' as connector"
            5, fillColor=7))),
   Diagram(Polygon(points=[-100,50; 0,0; -100,-50; -100,50],          style(
           color=5, fillColor=7)), Text(
-      extent=[-100,120; 140,60],
+      extent=[-100,140; 130,60],
       string="%name",
-      style(color=5))), 
+      style(color=5))),
     Documentation(info="<html>
 <p>
 Connector with one output signal of type Boolean.
@@ -171,9 +171,9 @@ connector IntegerInput = input IntegerSignal "'input Integer' as connector"
            45, fillColor=45))),
   Diagram(Polygon(points=[0,50; 100,0; 0,-50; 0,50],                 style(
           color=45, fillColor=45)), Text(
-      extent=[-140,120; 100,60],
+      extent=[-120,105; 100,60],
       style(color=45),
-      string="%name")), 
+      string="%name")),
     Documentation(info="<html>
 <p>
 Connector with one input signal of type Integer.
@@ -190,9 +190,9 @@ connector IntegerOutput = output IntegerSignal "'output Integer' as connector"
            45, fillColor=7))),
   Diagram(Polygon(points=[-100,50; 0,0; -100,-50; -100,50],          style(
           color=45, fillColor=7)),  Text(
-      extent=[-100,120; 140,60],
+      extent=[-100,140; 130,60],
       style(color=45),
-      string="%name")), 
+      string="%name")),
     Documentation(info="<html>
 <p>
 Connector with one output signal of type Integer.
@@ -213,7 +213,7 @@ Connector with one output signal of type Integer.
             fillColor=7,
             rgbfillColor={255,255,255})),
                                Text(extent=[-150, 150; 150, 110], string=
-                "%name")), 
+                "%name")),
       Documentation(info="<html>
 <p>
 Block that has only the basic icon for an input/output
@@ -241,7 +241,7 @@ from this block.
           y=0.02,
           width=0.6,
           height=0.6),
-        Diagram, 
+        Diagram,
       Documentation(info="<html>
 <p>
 Block has one continuous Real output signal.
@@ -286,7 +286,7 @@ Block has one continuous Real output signal vector.
           x=0.32,
           y=0.07,
           width=0.6,
-          height=0.6), 
+          height=0.6),
       Documentation(info="<html>
 <p>
 Block has one continuous Real input and one continuous Real output signal.
@@ -471,7 +471,7 @@ generated signal.
           x=0.19,
           y=0.21,
           width=0.6,
-          height=0.46), 
+          height=0.46),
       Documentation(info="<html>
 <p>
 Block has two continuous Real input signals and one
@@ -506,7 +506,7 @@ to be used as base class for a corresponding controller.
           x=0.26,
           y=0.19,
           width=0.6,
-          height=0.6), 
+          height=0.6),
       Documentation(info="<html>
 <p>
 Block has two continuous Real input signal vectors and one
@@ -725,7 +725,7 @@ to be used as base class for a corresponding controller.
           height=0.6),
         Icon(Rectangle(extent=[-100, -100; 100, 100], style(color=5,
                 fillColor=7)), Text(extent=[-150, 150; 150, 110], string=
-                "%name")), 
+                "%name")),
       Documentation(info="<html>
 <p>
 Block that has only the basic icon for an input/output,
@@ -754,7 +754,7 @@ Boolean block (no declarations, no equations).
           x=0.37,
           y=0.14,
           width=0.6,
-          height=0.6), 
+          height=0.6),
       Documentation(info="<html>
 <p>
 Block has one continuous Boolean input and one continuous Boolean output signal.
@@ -844,7 +844,7 @@ Block has two Boolean input signals u1 and u2 and one Boolean output signal y.
           Line(points=[-90, -70; 68, -70], style(color=8)),
           Polygon(points=[90, -70; 68, -62; 68, -78; 90, -70], style(color=8,
                  fillColor=8))),
-        Diagram, 
+        Diagram,
       Documentation(info="<html>
 <p>
 Basic block for Boolean sources of package Blocks.Sources.
@@ -855,7 +855,7 @@ This component has one continuous Boolean output signal y.
   
 partial block IntegerBlockIcon "Basic graphical layout of Integer block" 
   annotation (Icon(Rectangle(extent=[-100, -100; 100, 100], style(color=45,
-            fillColor=7)), Text(extent=[-150, 150; 150, 110], string="%name")), 
+            fillColor=7)), Text(extent=[-150, 150; 150, 110], string="%name")),
         Documentation(info="<html>
 <p>
 Block that has only the basic icon for an input/output,
@@ -1009,7 +1009,7 @@ with a 3D icon (e.g. used in Blocks.Logical library).
    Ellipse(extent=[71,7; 85,-7],     style(
             color=DynamicSelect(30, if y > 0.5 then 2 else 30),
             fillColor=DynamicSelect(30, if y > 0.5 then 2 else 30),
-            fillPattern=1))), Coordsys(grid=[1,1], component=[20,20]), 
+            fillPattern=1))), Coordsys(grid=[1,1], component=[20,20]),
       Documentation(info="<html>
 <p>
 Block has two continuous Boolean input and one continuous Boolean output signal
@@ -1050,7 +1050,7 @@ with a 3D icon (e.g. used in Blocks.Logical library).
    Ellipse(extent=[71,7; 85,-7],     style(
             color=DynamicSelect(30, if y > 0.5 then 2 else 30),
             fillColor=DynamicSelect(30, if y > 0.5 then 2 else 30),
-            fillPattern=1))), Coordsys(grid=[1,1], component=[20,20]), 
+            fillPattern=1))), Coordsys(grid=[1,1], component=[20,20]),
       Documentation(info="<html>
 Block has three continuous Boolean input and one continuous Boolean output signal
 with a 3D icon (e.g. used in Blocks.Logical library).
@@ -1140,7 +1140,7 @@ with a 3D icon (e.g. used in Blocks.Logical library).
         Text(
           extent=[-108,80; -92,64],
           style(color=0, rgbcolor={0,0,0}),
-          string="y")), 
+          string="y")),
       Documentation(info="<html>
 <p>
 Basic block for Boolean sources of package Blocks.Sources.
@@ -1175,7 +1175,7 @@ and a 3D icon (e.g. used in Blocks.Logical library).
             color=DynamicSelect(30, if y > 0.5 then 2 else 30),
             fillColor=DynamicSelect(30, if y > 0.5 then 2 else 30),
             fillPattern=1))),
-        Diagram, 
+        Diagram,
       Documentation(info="<html>
 <p>
 Block has one continuous Real input and one continuous Boolean output signal
@@ -1206,7 +1206,7 @@ as well as a 3D icon (e.g. used in Blocks.Logical library).
             fillPattern=1)),
         Ellipse(extent=[32,10; 52,-10],   style(fillPattern=1)),
         Line(points=[-100,-80; 42,-80; 42,0],    style(fillPattern=1))),
-        Diagram, 
+        Diagram,
       Documentation(info="<html>
 <p>
 Block has two continuous Real input and one continuous Boolean output signal

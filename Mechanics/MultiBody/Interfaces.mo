@@ -47,32 +47,29 @@ different icons.
     extends Frame;
     
     annotation (defaultComponentName="frame_a",
-      Coordsys(
-        extent=[-100,-100; 100,100],
-        grid=[2,2],
-        component=[20, 20],
-        scale=0.2),
-      Icon(coordinateSystem(extent=[-200,-200; 200,200]),
-           Rectangle(extent=[-10,10; 10,-10], style(
-            color=0,
-            rgbcolor={0,0,0},
+     Coordsys(
+       extent=[-100,-100; 100,100],
+       grid=[1,1],
+       component=[20, 20],
+       scale=0.16),
+     Icon(Rectangle(extent=[-10,10; 10,-10], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
             thickness=2)),
-           Rectangle(extent=[-30,100; 30,-100], style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=8,
-            rgbfillColor={192,192,192}))),
-      Diagram(Text(
-          extent=[-140,-60; 140,-90],
-          string="%name",
-          style(color=0)),
-              Rectangle(extent=[-15,50; 15,-50], style(
-            color=0,
-            rgbcolor={0,0,0},
-            thickness=2,
-            fillColor=8))),
-      Terminal(Polygon(points=[0, 0; -100, -100; 100, -100; 100, 100; -100, 100;
-               0, 0], style(fillColor=3))),
+        Rectangle(extent=[-30,100; 30,-100], style(
+         color=0,
+         rgbcolor={0,0,0},
+         fillColor=8,
+         rgbfillColor={192,192,192}))),
+     Diagram(Text(
+       extent=[-140,-50; 140,-88],
+       string="%name",
+       style(color=0)),
+           Rectangle(extent=[-12,40; 12,-40], style(
+         color=0,
+         rgbcolor={0,0,0},
+         fillColor=8,
+         rgbfillColor={192,192,192}))),
       Window(
         x=0.21,
         y=0.18,
@@ -92,34 +89,29 @@ This component has a filled rectangular icon.
     "Coordinate system fixed to the component with one cut-force and cut-torque (non-filled rectangular icon)" 
     extends Frame;
     
-    annotation (defaultComponentName="frame_a",
-      Coordsys(
-        extent=[-100,-100; 100,100],
-        grid=[2,2],
-        component=[20, 20],
-        scale=0.2),
-      Icon(coordinateSystem(extent=[-200,-200; 200,200]),
-           Rectangle(extent=[-10,10; 10,-10], style(
-            color=0,
-            rgbcolor={0,0,0},
+    annotation (defaultComponentName="frame_b",
+     Coordsys(
+       extent=[-100,-100; 100,100],
+       grid=[1,1],
+       component=[20, 20],
+       scale=0.16),
+     Icon(Rectangle(extent=[-10,10; 10,-10], style(          color=10,
+            rgbcolor={95,95,95},
             thickness=2)),
-           Rectangle(extent=[-30,100; 30,-100], style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=7,
-            rgbfillColor={255,255,255}))),
-      Diagram(Text(
-          extent=[-140,-60; 140,-90],
-          string="%name",
-          style(color=0)),
-              Rectangle(extent=[-15,50; 15,-50], style(
-            color=0,
-            rgbcolor={0,0,0},
-            thickness=2,
-            fillColor=7,
-            rgbfillColor={255,255,255}))),
-      Terminal(Polygon(points=[0, 0; -100, -100; 100, -100; 100, 100; -100, 100;
-               0, 0], style(fillColor=3))),
+          Rectangle(extent=[-30,100; 30,-100], style(
+             color=0,
+             rgbcolor={0,0,0},
+             fillColor=7,
+             rgbfillColor={255,255,255}))),
+     Diagram(Text(
+         extent=[-140,-50; 140,-88],
+         string="%name",
+         style(color=0)),
+             Rectangle(extent=[-12,40; 12,-40], style(
+             color=0,
+             rgbcolor={0,0,0},
+             fillColor=7,
+             rgbfillColor={255,255,255}))),
       Window(
         x=0.21,
         y=0.18,
@@ -141,13 +133,12 @@ and the cut-torque is acting. This component has a non-filled rectangular icon.
     annotation (defaultComponentName="frame_resolve",
       Coordsys(
         extent=[-100,-100; 100,100],
-        grid=[2,2],
+        grid=[1,1],
         component=[20, 20],
-        scale=0.2),
-      Icon(coordinateSystem(extent=[-200,-200; 200,200]),
-           Rectangle(extent=[-10,10; 10,-10], style(
-            color=0,
-            rgbcolor={0,0,0},
+        scale=0.16),
+      Icon(Rectangle(extent=[-10,10; 10,-10], style(
+            color=10,
+            rgbcolor={95,95,95},
             pattern=3,
             thickness=2)),
            Rectangle(extent=[-30,100; 30,-100], style(
@@ -156,18 +147,16 @@ and the cut-torque is acting. This component has a non-filled rectangular icon.
             fillColor=7,
             rgbfillColor={255,255,255}))),
       Diagram(Text(
-          extent=[-140,-60; 140,-90],
+          extent=[-140,-50; 140,-88],
           string="%name",
           style(color=0)),
-              Rectangle(extent=[-15,50; 15,-50], style(
-            color=0,
-            rgbcolor={0,0,0},
-            pattern=3,
-            thickness=2,
-            fillColor=7,
+              Rectangle(extent=[-12,40; 12,-40], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            pattern=3, 
+            thickness=2, 
+            fillColor=7, 
             rgbfillColor={255,255,255}))),
-      Terminal(Polygon(points=[0, 0; -100, -100; 100, -100; 100, 100; -100, 100;
-               0, 0], style(fillColor=3))),
       Window(
         x=0.21,
         y=0.18,
@@ -193,10 +182,10 @@ This component has a non-filled rectangular icon.
     
     Interfaces.Frame_a frame_a 
       "Coordinate system fixed to the component with one cut-force and cut-torque"
-                               annotation (extent=[-120,-20; -80,20]);
+                               annotation (extent=[-116,-16; -84,16]);
     Interfaces.Frame_b frame_b 
       "Coordinate system fixed to the component with one cut-force and cut-torque"
-                               annotation (extent=[80,-20; 120,20]);
+                               annotation (extent=[84,-16; 116,16]);
   protected 
     outer Modelica.Mechanics.MultiBody.World world;
   equation 
@@ -230,10 +219,10 @@ needed and if the two frame connectors should be connected for a correct model.
     
     Interfaces.Frame_a frame_a 
       "Coordinate system fixed to the component with one cut-force and cut-torque"
-                               annotation (extent=[-110,-10; -90,10]);
+                               annotation (extent=[-108,-8; -92,8]);
     Interfaces.Frame_b frame_b 
       "Coordinate system fixed to the component with one cut-force and cut-torque"
-                               annotation (extent=[90,-10; 110,10]);
+                               annotation (extent=[92,-8; 108,8]);
   protected 
     outer Modelica.Mechanics.MultiBody.World world;
   equation 
@@ -275,7 +264,7 @@ joint aggregation models.
     
     Interfaces.Frame_a frame_a 
       "Coordinate system fixed to the component with one cut-force and cut-torque"
-                                                                                                          annotation (extent=[-120,-20; -80,20]);
+                                                                                                          annotation (extent=[-116,-16; -84,16]);
   protected 
     outer Modelica.Mechanics.MultiBody.World world;
   equation 
@@ -296,7 +285,7 @@ needed and if this connector should be connected for a correct model.
     
     Interfaces.Frame_b frame_b 
       "Coordinate system fixed to the component with one cut-force and cut-torque"
-      annotation (extent=[80,-20; 120,20]);
+      annotation (extent=[84,-16; 116,16]);
   protected 
     outer Modelica.Mechanics.MultiBody.World world;
   equation 
@@ -322,10 +311,10 @@ needed and if this connector should be connected for a correct model.
     
     Interfaces.Frame_a frame_a 
       "Coordinate system fixed to the joint with one cut-force and cut-torque" 
-                               annotation (extent=[-120,-20; -80,20]);
+                               annotation (extent=[-116,-16; -84,16]);
     Interfaces.Frame_b frame_b 
       "Coordinate system fixed to the joint with one cut-force and cut-torque" 
-                               annotation (extent=[80,-20; 120,20]);
+                               annotation (extent=[84,-16; 116,16]);
     
   protected 
     outer Modelica.Mechanics.MultiBody.World world;
@@ -364,10 +353,10 @@ object and an assert to check that both frame connectors are connected.
     import SI = Modelica.SIunits;
     Interfaces.Frame_a frame_a 
       "Coordinate system fixed to the joint with one cut-force and cut-torque" 
-                               annotation (extent=[-120,-20; -80,20]);
+                               annotation (extent=[-116,-16; -84,16]);
     Interfaces.Frame_b frame_b 
       "Coordinate system fixed to the joint with one cut-force and cut-torque" 
-                               annotation (extent=[80,-20; 120,20]);
+                               annotation (extent=[84,-16; 116,16]);
     
     SI.Position r_rel_b[3] 
       "Position vector from origin of frame_a to origin of frame_b, resolved in frame_b";
@@ -440,10 +429,10 @@ to which this force element is connected.
       annotation (Dialog(tab="Advanced"));
     Interfaces.Frame_a frame_a 
       "Coordinate system fixed to the force element with one cut-force and cut-torque"
-                               annotation (extent=[-120,-20; -80,20]);
+                               annotation (extent=[-116,-16; -84,16]);
     Interfaces.Frame_b frame_b 
       "Coordinate system fixed to the force element with one cut-force and cut-torque"
-                               annotation (extent=[80,-20; 120,20]);
+                               annotation (extent=[84,-16; 116,16]);
     SI.Force f 
       "Line force acting on frame_a and on frame_b (positive, if acting on frame_b and directed from frame_a to frame_b)";
     SI.Position s 
@@ -521,7 +510,7 @@ has to be defined. Example:
     parameter Integer n_out = 1 "Number of output signals";
     Interfaces.Frame_a frame_a 
       "Coordinate system from which absolute quantities are provided as output signals"
-                                                                                                          annotation (extent=[-120,-20; -80,20]);
+      annotation (extent=[-116,-16; -84,16]);
     
     Modelica.Blocks.Interfaces.RealOutput y[n_out] 
       "Measured data as signal vector" 
@@ -562,8 +551,8 @@ with the blocks of package Modelica.Blocks.
     "Base model to measure a relative variable between two frames" 
     extends Modelica.Icons.RotationalSensor;
     parameter Integer n_out = 1 "Number of output signals";
-    Interfaces.Frame_a frame_a "Coordinate system a" annotation (extent=[-120,-20; -80,20]);
-    Interfaces.Frame_b frame_b "Coordinate system b" annotation (extent=[80,-20; 120,20]);
+    Interfaces.Frame_a frame_a "Coordinate system a" annotation (extent=[-116,-16; -84,16]);
+    Interfaces.Frame_b frame_b "Coordinate system b" annotation (extent=[84,-16; 116,16]);
     
     Modelica.Blocks.Interfaces.RealOutput y[n_out] 
       "Measured data as signal vector" 
@@ -621,9 +610,9 @@ with the blocks of package Modelica.Blocks.
     
     extends Modelica.Icons.RotationalSensor;
     Interfaces.Frame_a frame_a 
-      "Coordinate system with one cut-force and cut-torque"                          annotation (extent=[-120,-20; -80,20]);
+      "Coordinate system with one cut-force and cut-torque"                          annotation (extent=[-116,-16; -84,16]);
     Interfaces.Frame_b frame_b 
-      "Coordinate system with one cut-force and cut-torque"                          annotation (extent=[80,-20; 120,20]);
+      "Coordinate system with one cut-force and cut-torque"                          annotation (extent=[84,-16; 116,16]);
     Interfaces.Frame_resolve frame_resolve 
       "If connected, the output signals are resolved in this frame (cut-force/-torque are set to zero)"
       annotation (extent=[60,-120; 100,-80],  rotation=-90);
@@ -675,9 +664,9 @@ with the blocks of package Modelica.Blocks.
         Line(points=[70, 0; 100, 0], style(color=0)),
         Line(points=[-80, -100; -80, 0]),
         Line(points=[80,0; 80,-100], style(
-            color=0,
-            rgbcolor={0,0,0},
-            pattern=3,
+            color=10, 
+            rgbcolor={95,95,95}, 
+            pattern=3, 
             thickness=2))));
     
   protected 
@@ -713,7 +702,7 @@ with the blocks of package Modelica.Blocks.
     "Base model for visualizers (has a frame_a on the left side + outer world + assert to guarantee that the component is connected)" 
     
     Interfaces.Frame_a frame_a 
-      "Coordinate system in which visualization data is resolved"                          annotation (extent=[-120,-20; -80,20]);
+      "Coordinate system in which visualization data is resolved"                          annotation (extent=[-116,-16; -84,16]);
   protected 
     outer Modelica.Mechanics.MultiBody.World world;
   equation 

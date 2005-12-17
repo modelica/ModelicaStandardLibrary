@@ -554,11 +554,20 @@ vector \"n\" defining the cylinder axis
       annotation (extent=[-10, 40; 10, 60]);
   equation 
     connect(frame_a, prismatic.frame_a) 
-      annotation (points=[-100,0; -70,0],      style(color=0, thickness=2));
+      annotation (points=[-100,0; -70,0], style(
+        color=10, 
+        rgbcolor={95,95,95}, 
+        thickness=2));
     connect(prismatic.frame_b, revolute.frame_a) 
-      annotation (points=[-15,0; 10,0],        style(color=0, thickness=2));
+      annotation (points=[-15,0; 10,0], style(
+        color=10, 
+        rgbcolor={95,95,95}, 
+        thickness=2));
     connect(revolute.frame_b, frame_b) 
-      annotation (points=[65,0; 100,0],      style(color=0, thickness=2));
+      annotation (points=[65,0; 100,0], style(
+        color=10, 
+        rgbcolor={95,95,95}, 
+        thickness=2));
   end Cylindrical;
   
   model Universal "Universal joint (2 degrees-of-freedom, 4 potential states)" 
@@ -725,11 +734,20 @@ phi_start_b = 45<sup>o</sup>).
   equation 
     
     connect(frame_a, revolute_a.frame_a) 
-      annotation (points=[-100,0; -60,0],     style(color=0, thickness=2));
+      annotation (points=[-100,0; -60,0], style(
+        color=10, 
+        rgbcolor={95,95,95}, 
+        thickness=2));
     connect(revolute_b.frame_b, frame_b) annotation (points=[35,70; 35,90; 70,
-          90; 70,0; 100,0],       style(color=0, thickness=2));
+          90; 70,0; 100,0], style(
+        color=10, 
+        rgbcolor={95,95,95}, 
+        thickness=2));
     connect(revolute_a.frame_b, revolute_b.frame_a) annotation (points=[-10,0;
-          35,0; 35,20],      style(color=0, thickness=2));
+          35,0; 35,20], style(
+        color=10, 
+        rgbcolor={95,95,95}, 
+        thickness=2));
   end Universal;
   
   model Planar "Planar joint (3 degrees-of-freedom, 6 potential states)" 
@@ -929,14 +947,25 @@ s_start_y = 0.5, phi_start = 45<sup>o</sup>).
       each R=revolute.frame_b.R) annotation (extent=[50, 30; 70, 50]);
   equation 
     connect(frame_a, prismatic_x.frame_a) 
-      annotation (points=[-100,0; -69,0],   style(color=0, thickness=2));
-    connect(prismatic_x.frame_b, prismatic_y.frame_a) annotation (points=[-29,0;
-          -1.22461e-015,0; -1.22461e-015,30],      style(color=0, thickness=2));
+      annotation (points=[-100,0; -69,0], style(
+        color=10, 
+        rgbcolor={95,95,95}, 
+        thickness=2));
+    connect(prismatic_x.frame_b, prismatic_y.frame_a) annotation (points=[-29,0; 
+          -1.22461e-015,0; -1.22461e-015,30], style(
+        color=10, 
+        rgbcolor={95,95,95}, 
+        thickness=2));
     connect(prismatic_y.frame_b, revolute.frame_a) annotation (points=[
-          1.22461e-015,70; 0,80; 30,80; 30,0; 41,0],      style(color=0,
-          thickness=2));
+          1.22461e-015,70; 0,80; 30,80; 30,0; 41,0], style(
+        color=10, 
+        rgbcolor={95,95,95}, 
+        thickness=2));
     connect(revolute.frame_b, frame_b) 
-      annotation (points=[81,0; 100,0],   style(color=0, thickness=2));
+      annotation (points=[81,0; 100,0], style(
+        color=10, 
+        rgbcolor={95,95,95}, 
+        thickness=2));
   end Planar;
   
   model Spherical 
@@ -1691,7 +1720,7 @@ frame_b of the joint.
         width=0.69,
         height=0.78),
       Icon(
-        Ellipse(extent=[-94,-40; -14,40],    style(
+        Ellipse(extent=[-95,-40; -15,40],    style(
             color=10,
             gradient=3,
             fillColor=8)),
@@ -1699,7 +1728,7 @@ frame_b of the joint.
             color=0,
             fillColor=7,
             fillPattern=1)),
-        Ellipse(extent=[14,-40; 94,40],    style(
+        Ellipse(extent=[15,-40; 95,40],    style(
             color=10,
             gradient=3,
             fillColor=8)),
@@ -2510,7 +2539,7 @@ singular configuration.
   model GearConstraint "Ideal 3-dim. gearbox (arbitrary shaft directions)" 
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
     Interfaces.Frame_a bearing "Coordinate system fixed in the bearing" 
-     annotation (extent=[-20, -120; 20, -80], rotation=90);
+     annotation (extent=[-16,-116; 16,-84], rotation=90);
     
     parameter Real ratio=2 "Gear speed ratio";
     
@@ -2597,19 +2626,35 @@ November 3-4, 2003, pp. 149-158</p>
     connect(idealGear.flange_b, actuatedRevolute_b.axis) 
       annotation (points=[10, 40; 50, 40; 50, 10], style(color=0));
     connect(actuatedRevolute_a.frame_a,fixedTranslation2. frame_b) annotation (
-        points=[-40,0; -35,0; -35,1.22461e-015; -30,1.22461e-015],     style(
-          color=0, thickness=2));
+        points=[-40,0; -35,0; -35,1.22461e-015; -30,1.22461e-015], style(
+        color=10, 
+        rgbcolor={95,95,95}, 
+        thickness=2));
     connect(fixedTranslation2.frame_a, bearing) annotation (points=[-10,
-          -1.22461e-015; -4,-1.22461e-015; -4,0; 0,0; 0,-100],     style(color=
-            0, thickness=2));
+          -1.22461e-015; -4,-1.22461e-015; -4,0; 0,0; 0,-100], style(
+        color=10, 
+        rgbcolor={95,95,95}, 
+        thickness=2));
     connect(fixedTranslation1.frame_a, bearing) 
-      annotation (points=[10,0; 0,0; 0,-100],   style(color=0, thickness=2));
+      annotation (points=[10,0; 0,0; 0,-100], style(
+        color=10, 
+        rgbcolor={95,95,95}, 
+        thickness=2));
     connect(fixedTranslation1.frame_b, actuatedRevolute_b.frame_a) 
-      annotation (points=[30,0; 40,0],   style(color=0, thickness=2));
+      annotation (points=[30,0; 40,0], style(
+        color=10, 
+        rgbcolor={95,95,95}, 
+        thickness=2));
     connect(frame_a, actuatedRevolute_a.frame_b) 
-      annotation (points=[-100,0; -60,0],   style(color=0, thickness=2));
+      annotation (points=[-100,0; -60,0], style(
+        color=10, 
+        rgbcolor={95,95,95}, 
+        thickness=2));
     connect(actuatedRevolute_b.frame_b, frame_b) 
-      annotation (points=[60,0; 100,0],   style(color=0, thickness=2));
+      annotation (points=[60,0; 100,0], style(
+        color=10, 
+        rgbcolor={95,95,95}, 
+        thickness=2));
   end GearConstraint;
   
   package Assemblies "Joint aggregations for analytic loop handling" 
@@ -2735,10 +2780,10 @@ pair of joints\" from Woernle and Hiller is described in:
       extends Interfaces.PartialTwoFramesDoubleSize;
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_ia 
         "Coordinate system at origin of frame_a fixed at prismatic joint" 
-        annotation (extent=[-90,90; -70,110],  rotation=-90);
+        annotation (extent=[-88,92; -72,108],  rotation=-90);
       Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_ib 
         "Coordinate system at origin of frame_b fixed at prismatic joint" 
-        annotation (extent=[90,90; 70,110], rotation=-90);
+        annotation (extent=[88,92; 72,108], rotation=-90);
       Modelica.Mechanics.Translational.Interfaces.Flange_a axis 
         "1-dim. translational flange that drives the prismatic joint" 
         annotation (extent=[45,95; 35,105]);
@@ -2952,8 +2997,10 @@ component).
             extent=[-98,84; -60,65],
             style(color=10),
             string="ia"),
-          Line(points=[-40,0; -40,90; -80,90; -80,97],      style(color=10,
-                thickness=2)),
+          Line(points=[-40,0; -40,90; -80,90; -80,97], style(
+              color=10, 
+              rgbcolor={95,95,95}, 
+              thickness=2)),
           Text(
             extent=[61,86; 109,64],
             style(color=10),
@@ -2969,18 +3016,20 @@ component).
               fillColor=0,
               fillPattern=1)),
           Line(points=[-6, -13; -6, 18], style(color=0)),
-          Line(points=[60,-1; 60,90; 80,90; 80,97],      style(color=10,
-                thickness=2)),
+          Line(points=[60,-1; 60,90; 80,90; 80,97], style(
+              color=10, 
+              rgbcolor={95,95,95}, 
+              thickness=2)),
           Line(points=[60,90; 40,90; 40,95], style(
-              color=10,
-              rgbcolor={135,135,135},
+              color=10, 
+              rgbcolor={95,95,95}, 
               thickness=2)),
           Line(points=[-30, 70; 10, 70], style(color=0, fillColor=10)),
           Polygon(points=[30, 70; 10, 76; 10, 63; 30, 70], style(color=10,
                 fillColor=10)),
           Line(points=[-40,90; -40,90; -40,95], style(
-              color=10,
-              rgbcolor={135,135,135},
+              color=10, 
+              rgbcolor={95,95,95}, 
               thickness=2))),
         Diagram(
           Line(points=[-60, -70; 46, -70]),
@@ -3025,8 +3074,10 @@ component).
               thickness=2,
               fillColor=7,
               fillPattern=1)),
-          Line(points=[-40,0; -40,90; -80,90; -80,99],      style(color=10,
-                thickness=2)),
+          Line(points=[-40,0; -40,90; -80,90; -80,99], style(
+              color=10, 
+              rgbcolor={95,95,95}, 
+              thickness=2)),
           Polygon(points=[7, -1; -5, 2; -5, -4; 7, -1], style(fillPattern=7)),
           Line(points=[-50, 19; -30, 57], style(fillColor=0, fillPattern=1)),
           Text(
@@ -3077,8 +3128,10 @@ component).
             string="nAxis"),
           Line(points=[-61, 1; -2, 1], style(fillColor=0, fillPattern=1)),
           Polygon(points=[10, 1; -2, 4; -2, -2; 10, 1], style(fillPattern=7)),
-          Line(points=[60,-1; 60,90; 80,90; 80,99],      style(color=10,
-                thickness=2)),
+          Line(points=[60,-1; 60,90; 80,90; 80,99], style(
+              color=10, 
+              rgbcolor={95,95,95}, 
+              thickness=2)),
           Text(extent=[-24,117; -9,102],   string="f"),
           Polygon(points=[-26,103; -36,100; -26,97; -26,103],     style(color=3,
                  fillColor=3)),
@@ -3095,8 +3148,8 @@ component).
             style(color=10),
             string="s"),
           Line(points=[60,90; 40,90; 40,98], style(
-              color=10,
-              rgbcolor={135,135,135},
+              color=10, 
+              rgbcolor={95,95,95}, 
               thickness=2)),
           Line(points=[-40,90; -40,96; -40,98], style(
               color=10,
@@ -3337,13 +3390,13 @@ origin of frame_b. You may try to use another \"n1_a\" vector.
       extends Interfaces.PartialTwoFramesDoubleSize;
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_ia 
         "Coordinate system at origin of frame_a fixed at connecting rod of universal and spherical joint"
-        annotation (extent=[-90,90; -70,110], rotation=-270);
+        annotation (extent=[-88,92; -72,108], rotation=-270);
       Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_ib 
         "Coordinate system at origin of frame_b fixed at connecting rod of spherical and revolute joint"
-        annotation (extent=[90,90; 70,110], rotation=-90);
+        annotation (extent=[88,92; 72,108], rotation=-90);
       Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_im 
         "Coordinate system at origin of spherical joint fixed at connecting rod of spherical and revolute joint"
-        annotation (extent=[-10, 110; 10, 90], rotation=-90);
+        annotation (extent=[-8, 108; 8, 92], rotation=-90);
       Modelica.Mechanics.Rotational.Interfaces.Flange_a axis 
         "1-dim. rotational flange that drives the revolute joint" 
         annotation (extent=[105,85; 95,75]);
@@ -3600,8 +3653,10 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
               thickness=2,
               fillColor=7,
               fillPattern=1)),
-          Line(points=[-50, 0; -50, 80; -80, 80; -80, 100], style(color=10,
-                thickness=2)),
+          Line(points=[-50, 0; -50, 80; -80, 80; -80, 100], style(
+              color=10, 
+              rgbcolor={95,95,95}, 
+              thickness=2)),
           Ellipse(extent=[-40, -30; 20, 30], style(
               color=8,
               gradient=3,
@@ -3640,18 +3695,22 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
             extent=[-124,109; -95,92],
             style(color=10),
             string="ia"),
-          Line(points=[60, 30; 60, 80; 80, 80; 80, 100], style(color=10,
-                thickness=2)),
+          Line(points=[60, 30; 60, 80; 80, 80; 80, 100], style(
+              color=10, 
+              rgbcolor={95,95,95}, 
+              thickness=2)),
           Text(
             extent=[-43,108; -10,92],
             style(color=10),
             string="im"),
-          Line(points=[19, 6; 19, 80; 0, 80; 0, 100], style(color=10, thickness=
-                 2)),
+          Line(points=[19, 6; 19, 80; 0, 80; 0, 100], style(
+              color=10, 
+              rgbcolor={95,95,95}, 
+              thickness=2)),
           Line(points=[80, 80; 101, 80], style(color=10, thickness=2)),
           Line(points=[90,30; 90,40; 95,40], style(
-              color=10,
-              rgbcolor={135,135,135},
+              color=10, 
+              rgbcolor={95,95,95}, 
               thickness=2))),
         Diagram);
       
@@ -3742,48 +3801,58 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
         totalPower = 0;
       end if;
       
-      connect(revolute.frame_b, rod2.frame_a) annotation (points=[35,0; 15,0],
-           style(
-          color=0,
-          thickness=2,
-          gradient=3,
-          fillColor=8));
-      connect(rod2.frame_b, rod1.frame_b) annotation (points=[-25,0; -52,0],
-          style(
-          color=0,
-          thickness=2,
-          gradient=3,
-          fillColor=8));
-      connect(revolute.frame_a, frame_b) annotation (points=[75,0; 100,0],
-          style(
-          color=0,
-          thickness=2,
-          gradient=3,
-          fillColor=8));
+      connect(revolute.frame_b, rod2.frame_a) annotation (points=[35,0; 15,0], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          thickness=2, 
+          gradient=3, 
+          fillColor=8, 
+          rgbfillColor={192,192,192}));
+      connect(rod2.frame_b, rod1.frame_b) annotation (points=[-25,0; -52,0], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          thickness=2, 
+          gradient=3, 
+          fillColor=8, 
+          rgbfillColor={192,192,192}));
+      connect(revolute.frame_a, frame_b) annotation (points=[75,0; 100,0], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          thickness=2, 
+          gradient=3, 
+          fillColor=8, 
+          rgbfillColor={192,192,192}));
       connect(rod2.frame_a, frame_ib) annotation (points=[15,0; 26,0; 26,70; 80,70;
-            80,100],           style(
-          color=0,
-          thickness=2,
-          gradient=3,
-          fillColor=8));
-      connect(rod1.frame_a, frame_a) annotation (points=[-92,0; -100,0],
-          style(
-          color=0,
-          thickness=2,
-          gradient=3,
-          fillColor=8));
+            80,100], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          thickness=2, 
+          gradient=3, 
+          fillColor=8, 
+          rgbfillColor={192,192,192}));
+      connect(rod1.frame_a, frame_a) annotation (points=[-92,0; -100,0], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          thickness=2, 
+          gradient=3, 
+          fillColor=8, 
+          rgbfillColor={192,192,192}));
       connect(relativeSensor.frame_b, frame_a) annotation (points=[40,-80; -96,-80;
-            -96,0; -100,0],         style(
-          color=0,
-          thickness=2,
-          gradient=3,
-          fillColor=8));
+            -96,0; -100,0], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          thickness=2, 
+          gradient=3, 
+          fillColor=8, 
+          rgbfillColor={192,192,192}));
       connect(relativeSensor.frame_a, frame_b) annotation (points=[60,-80; 96,-80;
-            96,0; 100,0],         style(
-          color=0,
-          thickness=2,
-          gradient=3,
-          fillColor=8));
+            96,0; 100,0], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          thickness=2, 
+          gradient=3, 
+          fillColor=8, 
+          rgbfillColor={192,192,192}));
       connect(relativeSensor.y, revolute.position_a)       annotation (points=[
             50, -69; 50, -40; 90, -40; 90, -12; 79, -12], style(
           color=3,
@@ -3795,9 +3864,15 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
           gradient=3,
           fillColor=8));
       connect(rod2.frame_b, frame_im) annotation (points=[-25,0; -40,0; -40,80; 0,
-            80; 0,100],         style(color=0, thickness=2));
-      connect(rod1.frame_ia, frame_ia) annotation (points=[-80,20; -80,100; -80,100],
-                        style(color=0, thickness=2));
+            80; 0,100], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          thickness=2));
+      connect(rod1.frame_ia, frame_ia) annotation (points=[-80,20; -80,100], 
+          style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          thickness=2));
       connect(revolute.axis, axis) annotation (points=[55,20; 55,60; 90,60; 90,80;
             100,80],          style(color=0));
       connect(revolute.bearing, bearing) 
@@ -3813,13 +3888,13 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
       extends Interfaces.PartialTwoFramesDoubleSize;
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_ia 
         "Coordinate system at origin of frame_a fixed at connecting rod of universal and spherical joint"
-        annotation (extent=[-90,90; -70,110], rotation=-270);
+        annotation (extent=[-88,92; -72,108], rotation=-270);
       Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_ib 
         "Coordinate system at origin of frame_b fixed at connecting rod of spherical and prismatic joint"
-        annotation (extent=[90,90; 70,110], rotation=-90);
+        annotation (extent=[88,92; 72,108], rotation=-90);
       Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_im 
         "Coordinate system at origin of spherical joint fixed at connecting rod of spherical and prismatic joint"
-        annotation (extent=[-10, 110; 10, 90], rotation=-90);
+        annotation (extent=[-8, 108; 8, 92], rotation=-90);
       Modelica.Mechanics.Translational.Interfaces.Flange_a axis 
         "1-dim. translational flange that drives the prismatic joint" 
         annotation (extent=[95,75; 105,85]);
@@ -4081,8 +4156,10 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
               thickness=2,
               fillColor=7,
               fillPattern=1)),
-          Line(points=[-50, 0; -50, 80; -80, 80; -80, 100], style(color=0,
-                thickness=2)),
+          Line(points=[-50, 0; -50, 80; -80, 80; -80, 100], style(
+              color=10, 
+              rgbcolor={95,95,95}, 
+              thickness=2)),
           Ellipse(extent=[-40, -30; 20, 30], style(
               color=8,
               gradient=3,
@@ -4106,14 +4183,18 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
             extent=[-124,110; -93,90],
             style(color=10),
             string="ia"),
-          Line(points=[50, 6; 50, 80; 80, 80; 80, 100], style(color=0,
-                thickness=2)),
+          Line(points=[50, 6; 50, 80; 80, 80; 80, 100], style(
+              color=10, 
+              rgbcolor={95,95,95}, 
+              thickness=2)),
           Text(
             extent=[-44,111; -8,91],
             style(color=10),
             string="im"),
-          Line(points=[19, 6; 19, 80; 0, 80; 0, 100], style(color=0, thickness=
-                  2)),
+          Line(points=[19, 6; 19, 80; 0, 80; 0, 100], style(
+              color=10, 
+              rgbcolor={95,95,95}, 
+              thickness=2)),
           Rectangle(extent=[80, 24; 100, 30], style(
               pattern=0,
               fillColor=0,
@@ -4228,53 +4309,69 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
         totalPower = 0;
       end if;
       
-      connect(prismatic.frame_b, rod2.frame_a) annotation (points=[36,0; 0,0],
-           style(
-          color=0,
-          thickness=2,
-          gradient=3,
-          fillColor=8));
+      connect(prismatic.frame_b, rod2.frame_a) annotation (points=[36,0; 0,0], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          thickness=2, 
+          gradient=3, 
+          fillColor=8, 
+          rgbfillColor={192,192,192}));
       connect(rod2.frame_b, rod1.frame_b) annotation (points=[-40,0; -52,0],
           style(
           color=0,
           thickness=2,
           gradient=3,
           fillColor=8));
-      connect(prismatic.frame_a, frame_b) annotation (points=[76,0; 100,0],
-          style(
-          color=0,
-          thickness=2,
-          gradient=3,
-          fillColor=8));
+      connect(prismatic.frame_a, frame_b) annotation (points=[76,0; 100,0], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          thickness=2, 
+          gradient=3, 
+          fillColor=8, 
+          rgbfillColor={192,192,192}));
       connect(rod2.frame_a, frame_ib) annotation (points=[0,0; 7,0; 7,70; 80,70; 80,
-            100],          style(
-          color=0,
-          thickness=2,
-          gradient=3,
-          fillColor=8));
-      connect(rod1.frame_a, frame_a) annotation (points=[-92,0; -100,0],
-          style(
-          color=0,
-          thickness=2,
-          gradient=3,
-          fillColor=8));
+            100], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          thickness=2, 
+          gradient=3, 
+          fillColor=8, 
+          rgbfillColor={192,192,192}));
+      connect(rod1.frame_a, frame_a) annotation (points=[-92,0; -100,0], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          thickness=2, 
+          gradient=3, 
+          fillColor=8, 
+          rgbfillColor={192,192,192}));
       connect(relativeSensor.frame_b, frame_a) annotation (points=[30,-80; -97,-80;
-            -97,0; -100,0],         style(
-          color=0,
-          pattern=3,
-          thickness=2,
-          gradient=3,
-          fillColor=8));
+            -97,0; -100,0], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          pattern=3, 
+          thickness=2, 
+          gradient=3, 
+          fillColor=8, 
+          rgbfillColor={192,192,192}));
       connect(relativeSensor.frame_a, frame_b) annotation (points=[50,-80; 95,-80;
-            95,0; 100,0],         style(
-          color=0,
-          pattern=3,
-          gradient=3,
-          fillColor=8));
+            95,0; 100,0], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          pattern=3, 
+          thickness=2, 
+          gradient=3, 
+          fillColor=8, 
+          rgbfillColor={192,192,192}));
       connect(rod2.frame_b, frame_im) annotation (points=[-40,0; -46,0; -46,80; 0,
-            80; 0,100],         style(color=0, thickness=2));
-      connect(rod1.frame_ia, frame_ia) annotation (points=[-80,20; -80,100; -80,100],
-                        style(color=0, thickness=2));
+            80; 0,100], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          thickness=2));
+      connect(rod1.frame_ia, frame_ia) annotation (points=[-80,20; -80,100], 
+          style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          thickness=2));
       connect(position_b.y, prismatic.position_b)       annotation (points=[1,
             -50; 10, -50; 10, -12; 32, -12], style(
           color=3,
@@ -4301,10 +4398,10 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
       extends Interfaces.PartialTwoFramesDoubleSize;
       Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_ib 
         "Coordinate system at origin of frame_b fixed at connecting rod of spherical and revolute joint"
-        annotation (extent=[90,90; 70,110], rotation=-90);
+        annotation (extent=[88,92; 72,108], rotation=-90);
       Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_im 
         "Coordinate system at origin of spherical joint in the middle fixed at connecting rod of spherical and revolute joint"
-        annotation (extent=[-10, 110; 10, 90], rotation=-90);
+        annotation (extent=[-8, 108; 8, 92], rotation=-90);
       Modelica.Mechanics.Rotational.Interfaces.Flange_a axis 
         "1-dim. rotational flange that drives the revolute joint" 
         annotation (extent=[105,85; 95,75]);
@@ -4472,20 +4569,24 @@ component).
               fillPattern=1)),
           Rectangle(extent=[-62, 6; -21, -5], style(gradient=2, fillColor=8)),
           Line(points=[80,80; 100,80], style(
-              color=0,
-              rgbcolor={0,0,0},
+              color=10, 
+              rgbcolor={95,95,95}, 
               thickness=2)),
-          Line(points=[20, 6; 20, 80; 1, 80; 1, 100], style(color=0, thickness=
-                  2)),
+          Line(points=[19,6; 19,80; 0,80; 0,100], style(
+              color=10, 
+              rgbcolor={95,95,95}, 
+              thickness=2)),
           Text(
             extent=[-47,111; -8,92],
             style(color=10),
             string="im"),
-          Line(points=[68,30; 68,80; 80,80; 80,97],   style(color=0, thickness=
-                  2)),
+          Line(points=[68,30; 68,80; 80,80; 80,98], style(
+              color=10, 
+              rgbcolor={95,95,95}, 
+              thickness=2)),
           Line(points=[90,30; 90,40; 95,40], style(
-              color=0,
-              rgbcolor={0,0,0},
+              color=10, 
+              rgbcolor={95,95,95}, 
               thickness=2))),
         Diagram);
       
@@ -4571,48 +4672,60 @@ component).
         totalPower = 0;
       end if;
       
-      connect(revolute.frame_b, rod2.frame_a) annotation (points=[35,0; 15,0],
-           style(
-          color=0,
-          thickness=2,
-          gradient=3,
-          fillColor=8));
-      connect(rod2.frame_b, rod1.frame_b) annotation (points=[-25,0; -49,0],
-          style(
-          color=0,
-          thickness=2,
-          gradient=3,
-          fillColor=8));
-      connect(revolute.frame_a, frame_b) annotation (points=[75,0; 100,0],
-          style(
-          color=0,
-          thickness=2,
-          gradient=3,
-          fillColor=8));
+      connect(revolute.frame_b, rod2.frame_a) annotation (points=[35,0; 15,0], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          thickness=2, 
+          gradient=3, 
+          fillColor=8, 
+          rgbfillColor={192,192,192}));
+      connect(rod2.frame_b, rod1.frame_b) annotation (points=[-25,0; -49,0], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          thickness=2, 
+          gradient=3, 
+          fillColor=8, 
+          rgbfillColor={192,192,192}));
+      connect(revolute.frame_a, frame_b) annotation (points=[75,0; 100,0], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          thickness=2, 
+          gradient=3, 
+          fillColor=8, 
+          rgbfillColor={192,192,192}));
       connect(rod2.frame_a, frame_ib) annotation (points=[15,0; 26,0; 26,70; 80,70;
-            80,100],           style(
-          color=0,
-          thickness=2,
-          gradient=3,
-          fillColor=8));
-      connect(rod1.frame_a, frame_a) annotation (points=[-89,0; -100,0],
-          style(
-          color=0,
-          thickness=2,
-          gradient=3,
-          fillColor=8));
+            80,100], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          thickness=2, 
+          gradient=3, 
+          fillColor=8, 
+          rgbfillColor={192,192,192}));
+      connect(rod1.frame_a, frame_a) annotation (points=[-89,0; -100,0], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          thickness=2, 
+          gradient=3, 
+          fillColor=8, 
+          rgbfillColor={192,192,192}));
       connect(relativeSensor.frame_b, frame_a) annotation (points=[40,-80; -95,-80;
-            -95,0; -100,0],         style(
-          color=0,
-          thickness=2,
-          gradient=3,
-          fillColor=8));
+            -95,0; -100,0], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          pattern=3, 
+          thickness=2, 
+          gradient=3, 
+          fillColor=8, 
+          rgbfillColor={192,192,192}));
       connect(relativeSensor.frame_a, frame_b) annotation (points=[60,-80; 96,-80;
-            96,0; 100,0],         style(
-          color=0,
-          thickness=2,
-          gradient=3,
-          fillColor=8));
+            96,0; 100,0], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          pattern=3, 
+          thickness=2, 
+          gradient=3, 
+          fillColor=8, 
+          rgbfillColor={192,192,192}));
       connect(relativeSensor.y, revolute.position_a)       annotation (points=[
             50, -69; 50, -40; 90, -40; 90, -12; 79, -12], style(
           color=3,
@@ -4628,7 +4741,10 @@ component).
       connect(revolute.bearing, bearing) 
         annotation (points=[67,20; 67,40; 100,40],    style(color=0));
       connect(rod2.frame_b, frame_im) annotation (points=[-25,0; -35,0; -35,60; 0,
-            60; 0,100],         style(color=0, thickness=2));
+            60; 0,100], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          thickness=2));
     end JointSSR;
     
     model JointSSP 
@@ -4641,10 +4757,10 @@ component).
       extends Interfaces.PartialTwoFramesDoubleSize;
       Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_ib 
         "Coordinate system at origin of frame_b fixed at connecting rod of spherical and prismatic joint"
-        annotation (extent=[90,90; 70,110], rotation=-90);
+        annotation (extent=[88,92; 72,108], rotation=-90);
       Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_im 
         "Coordinate system at origin of spherical joint in the middle fixed at connecting rod of spherical and prismatic joint"
-        annotation (extent=[-10, 110; 10, 90], rotation=-90);
+        annotation (extent=[-8, 108; 8, 92], rotation=-90);
       Modelica.Mechanics.Translational.Interfaces.Flange_a axis 
         "1-dim. translational flange that drives the prismatic joint" 
         annotation (extent=[95,75; 105,85]);
@@ -4801,8 +4917,10 @@ component).
               fillColor=0,
               fillPattern=1)),
           Rectangle(extent=[-62, 6; -21, -5], style(gradient=2, fillColor=8)),
-          Line(points=[20, 6; 20, 80; 1, 80; 1, 100], style(color=0, thickness=
-                  2)),
+          Line(points=[19,6; 19,80; 0,80; 0,100], style(
+              color=10, 
+              rgbcolor={95,95,95}, 
+              thickness=2)),
           Text(
             extent=[-49,114; -11,92],
             style(color=10),
@@ -4817,10 +4935,18 @@ component).
               pattern=0,
               fillColor=0,
               fillPattern=1)),
-          Line(points=[50, 6; 50, 80; 80, 80; 80, 100], style(color=0,
-                thickness=2)),
-          Line(points=[101, 80; 80, 80], style(color=58)),
-          Line(points=[99, 40; 90, 40; 90, 30], style(color=58))),
+          Line(points=[50, 6; 50, 80; 80, 80; 80, 100], style(
+              color=10, 
+              rgbcolor={95,95,95}, 
+              thickness=2)),
+          Line(points=[101, 80; 80, 80], style(
+              color=10, 
+              rgbcolor={95,95,95}, 
+              thickness=2)),
+          Line(points=[99, 40; 90, 40; 90, 30], style(
+              color=10, 
+              rgbcolor={95,95,95}, 
+              thickness=2))),
         Diagram);
       
       Modelica.Mechanics.MultiBody.Joints.Internal.PrismaticWithLengthConstraint
@@ -4899,48 +5025,60 @@ component).
         totalPower = 0;
       end if;
       
-      connect(prismatic.frame_b, rod2.frame_a) annotation (points=[35,0; 15,0],
-           style(
-          color=0,
-          thickness=2,
-          gradient=3,
-          fillColor=8));
-      connect(rod2.frame_b, rod1.frame_b) annotation (points=[-25,0; -49,0],
-          style(
-          color=0,
-          thickness=2,
-          gradient=3,
-          fillColor=8));
-      connect(prismatic.frame_a, frame_b) annotation (points=[75,0; 100,0],
-          style(
-          color=0,
-          thickness=2,
-          gradient=3,
-          fillColor=8));
+      connect(prismatic.frame_b, rod2.frame_a) annotation (points=[35,0; 15,0], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          thickness=2, 
+          gradient=3, 
+          fillColor=8, 
+          rgbfillColor={192,192,192}));
+      connect(rod2.frame_b, rod1.frame_b) annotation (points=[-25,0; -49,0], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          thickness=2, 
+          gradient=3, 
+          fillColor=8, 
+          rgbfillColor={192,192,192}));
+      connect(prismatic.frame_a, frame_b) annotation (points=[75,0; 100,0], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          thickness=2, 
+          gradient=3, 
+          fillColor=8, 
+          rgbfillColor={192,192,192}));
       connect(rod2.frame_a, frame_ib) annotation (points=[15,0; 26,0; 26,70; 80,70;
-            80,100],           style(
-          color=0,
-          thickness=2,
-          gradient=3,
-          fillColor=8));
-      connect(rod1.frame_a, frame_a) annotation (points=[-89,0; -100,0],
-          style(
-          color=0,
-          thickness=2,
-          gradient=3,
-          fillColor=8));
+            80,100], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          thickness=2, 
+          gradient=3, 
+          fillColor=8, 
+          rgbfillColor={192,192,192}));
+      connect(rod1.frame_a, frame_a) annotation (points=[-89,0; -100,0], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          thickness=2, 
+          gradient=3, 
+          fillColor=8, 
+          rgbfillColor={192,192,192}));
       connect(relativeSensor.frame_b, frame_a) annotation (points=[40,-80; -95,-80;
-            -95,0; -100,0],         style(
-          color=0,
-          thickness=2,
-          gradient=3,
-          fillColor=8));
+            -95,0; -100,0], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          pattern=3, 
+          thickness=2, 
+          gradient=3, 
+          fillColor=8, 
+          rgbfillColor={192,192,192}));
       connect(relativeSensor.frame_a, frame_b) annotation (points=[60,-80; 96,-80;
-            96,0; 100,0],         style(
-          color=0,
-          thickness=2,
-          gradient=3,
-          fillColor=8));
+            96,0; 100,0], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          pattern=3, 
+          thickness=2, 
+          gradient=3, 
+          fillColor=8, 
+          rgbfillColor={192,192,192}));
       connect(relativeSensor.y, prismatic.position_a)       annotation (points=
             [50, -69; 50, -40; 90, -40; 90, -12; 79, -12], style(
           color=3,
@@ -4956,7 +5094,10 @@ component).
       connect(prismatic.bearing, bearing) 
         annotation (points=[63,14; 63,40; 100,40],    style(color=0));
       connect(rod2.frame_b, frame_im) annotation (points=[-25,0; -35,0; -35,60; 0,
-            60; 0,100],         style(color=0, thickness=2));
+            60; 0,100], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          thickness=2));
     end JointSSP;
     
     model JointRRR 
@@ -4970,13 +5111,13 @@ component).
       
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_ia 
         "Coordinate system at origin of frame_a fixed at connecting rod of left and middle revolute joint"
-        annotation (extent=[-90,90; -70,110], rotation=-270);
+        annotation (extent=[-88,92; -72,108], rotation=-270);
       Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_ib 
         "Coordinate system at origin of frame_b fixed at connecting rod of middle and right revolute joint"
-        annotation (extent=[90,90; 70,110], rotation=-90);
+        annotation (extent=[88,92; 72,108], rotation=-90);
       Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_im 
         "Coordinate system at origin of revolute joint in the middle fixed at connecting rod of middle and right revolute joint"
-        annotation (extent=[-10, 110; 10, 90], rotation=-90);
+        annotation (extent=[-8, 108; 8, 92], rotation=-90);
       Modelica.Mechanics.Rotational.Interfaces.Flange_a axis 
         "1-dim. rotational flange that drives the right revolute joint at frame_b"
         annotation (extent=[105,85; 95,75]);
@@ -5121,26 +5262,39 @@ are connected by rigid rods.
           Polygon(points=[100, -4; 83, -4; 84, 3; 100, 3; 100, -4], style(color=
                  0, fillColor=0)),
           Line(points=[80, 24; 80, 80; 80, 80; 80, 100], style(
-              color=0,
-              thickness=2,
-              fillColor=0,
+              color=10, 
+              rgbcolor={95,95,95}, 
+              thickness=2, 
+              fillColor=0, 
+              rgbfillColor={0,0,0}, 
               fillPattern=1)),
           Text(
             extent=[-128,-29; 136,-47],
             string="n_a=%n_a",
             style(color=0)),
           Line(points=[0, 57; 0, 86; 0, 86; 0, 100], style(
-              color=0,
-              thickness=2,
-              fillColor=0,
+              color=10, 
+              rgbcolor={95,95,95}, 
+              thickness=2, 
+              fillColor=0, 
+              rgbfillColor={0,0,0}, 
               fillPattern=1)),
           Text(
             extent=[-46,114; -7,91],
             style(color=10),
             string="im"),
-          Line(points=[-80, 100; -80, 8], style(color=0, thickness=2)),
-          Line(points=[80, 80; 101, 80], style(color=0, thickness=2)),
-          Line(points=[100, 40; 93, 40; 93, 3], style(color=0, thickness=2))),
+          Line(points=[-80, 100; -80, 8], style(
+              color=10, 
+              rgbcolor={95,95,95}, 
+              thickness=2)),
+          Line(points=[80, 80; 101, 80], style(
+              color=10, 
+              rgbcolor={95,95,95}, 
+              thickness=2)),
+          Line(points=[100, 40; 93, 40; 93, 3], style(
+              color=10, 
+              rgbcolor={95,95,95}, 
+              thickness=2))),
         Diagram);
       
       JointUSR jointUSR(
@@ -5217,15 +5371,30 @@ are connected by rigid rods.
       n_b = Frames.resolve2(frame_b.R, Frames.resolve1(frame_a.R, n_a));
     equation 
       connect(jointUSR.frame_a, frame_a) 
-        annotation (points=[-30,0; -100,0],   style(color=0, thickness=2));
+        annotation (points=[-30,0; -100,0], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          thickness=2));
       connect(jointUSR.frame_b, frame_b) 
-        annotation (points=[10,0; 100,0],   style(color=0, thickness=2));
+        annotation (points=[10,0; 100,0], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          thickness=2));
       connect(jointUSR.frame_ia, frame_ia) annotation (points=[-26,20; -26,70; -80,
-            70; -80,100],            style(color=0, thickness=2));
+            70; -80,100], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          thickness=2));
       connect(jointUSR.frame_im, frame_im) annotation (points=[-10,20; -10,70; 0,70;
-            0,100],            style(color=0, thickness=2));
+            0,100], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          thickness=2));
       connect(jointUSR.frame_ib, frame_ib) annotation (points=[6,20; 6,50; 80,50;
-            80,100],       style(color=0, thickness=2));
+            80,100], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          thickness=2));
       connect(jointUSR.axis, axis) 
         annotation (points=[10,16; 86,16; 86,80; 100,80],     style(color=0));
       connect(jointUSR.bearing, bearing) 
@@ -5242,13 +5411,13 @@ are connected by rigid rods.
       extends Interfaces.PartialTwoFramesDoubleSize;
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_ia 
         "Coordinate system at origin of frame_a fixed at connecting rod of revolute joints"
-        annotation (extent=[-90,90; -70,110], rotation=-270);
+        annotation (extent=[-88,92; -72,108], rotation=-270);
       Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_ib 
         "Coordinate system at origin of frame_b fixed at connecting rod of revolute and prismatic joint"
-        annotation (extent=[90,90; 70,110], rotation=-90);
+        annotation (extent=[88,92; 72,108], rotation=-90);
       Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_im 
         "Coordinate system at origin of revolute joint in the middle fixed at connecting rod of revolute and prismatic joint"
-        annotation (extent=[-10, 110; 10, 90], rotation=-90);
+        annotation (extent=[-8, 108; 8, 92], rotation=-90);
       Modelica.Mechanics.Translational.Interfaces.Flange_a axis 
         "1-dim. translational flange that drives the prismatic joint" 
         annotation (extent=[95,75; 105,85]);
@@ -5404,17 +5573,28 @@ and 1 prismatic joint are connected by rigid rods.
             string="n_a=%n_a",
             style(color=0)),
           Line(points=[0, 57; 0, 86; 0, 86; 0, 100], style(
-              color=0,
-              thickness=2,
-              fillColor=0,
+              color=10, 
+              rgbcolor={95,95,95}, 
+              thickness=2, 
+              fillColor=0, 
+              rgbfillColor={0,0,0}, 
               fillPattern=1)),
           Text(
             extent=[-55, 126; -15, 92],
             style(color=10),
             string="im"),
-          Line(points=[-80, 100; -80, 8], style(color=0, thickness=2)),
-          Line(points=[80, 80; 101, 80], style(color=0, thickness=2)),
-          Line(points=[100, 40; 93, 40; 93, 3], style(color=0, thickness=2)),
+          Line(points=[-80, 100; -80, 8], style(
+              color=10, 
+              rgbcolor={95,95,95}, 
+              thickness=2)),
+          Line(points=[80, 80; 101, 80], style(
+              color=10, 
+              rgbcolor={95,95,95}, 
+              thickness=2)),
+          Line(points=[100, 40; 93, 40; 93, 3], style(
+              color=10, 
+              rgbcolor={95,95,95}, 
+              thickness=2)),
           Rectangle(extent=[80, 15; 100, 21], style(
               pattern=0,
               fillColor=0,
@@ -5425,7 +5605,10 @@ and 1 prismatic joint are connected by rigid rods.
               fillPattern=1)),
           Rectangle(extent=[53, 5; 80, -15], style(color=0, fillColor=8)),
           Rectangle(extent=[80, 15; 100, -21], style(color=0, fillColor=8)),
-          Line(points=[80, 100; 80, 80; 57, 11], style(color=0, thickness=2))),
+          Line(points=[80, 100; 80, 80; 57, 11], style(
+              color=10, 
+              rgbcolor={95,95,95}, 
+              thickness=2))),
         Diagram);
       
       JointUSP jointUSP(
@@ -5501,15 +5684,30 @@ and 1 prismatic joint are connected by rigid rods.
       e_im = Frames.resolve2(frame_im.R, Frames.resolve1(frame_a.R, e_a));
     equation 
       connect(jointUSP.frame_a, frame_a) 
-        annotation (points=[-30,0; -100,0],   style(color=0, thickness=2));
+        annotation (points=[-30,0; -100,0], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          thickness=2));
       connect(jointUSP.frame_b, frame_b) 
-        annotation (points=[10,0; 100,0],   style(color=0, thickness=2));
+        annotation (points=[10,0; 100,0], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          thickness=2));
       connect(jointUSP.frame_ia, frame_ia) annotation (points=[-26,20; -26,70;
-            -80,70; -80,100],        style(color=0, thickness=2));
+            -80,70; -80,100], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          thickness=2));
       connect(jointUSP.frame_im, frame_im) annotation (points=[-10,20; -10,70;
-            0,70; 0,100],      style(color=0, thickness=2));
+            0,70; 0,100], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          thickness=2));
       connect(jointUSP.frame_ib, frame_ib) annotation (points=[6,20; 6,50; 80,
-            50; 80,100],   style(color=0, thickness=2));
+            50; 80,100], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          thickness=2));
       connect(jointUSP.axis, axis) 
         annotation (points=[10,16; 86,16; 86,80; 100,80],     style(color=0));
       connect(jointUSP.bearing, bearing) 
@@ -5531,10 +5729,10 @@ and 1 prismatic joint are connected by rigid rods.
       
       Interfaces.Frame_a frame_a 
         "Coordinate system fixed to the joint with one cut-force and cut-torque"
-        annotation (extent=[-120,-20; -80,20]);
+        annotation (extent=[-116,-16; -84,16]);
       Interfaces.Frame_b frame_b 
         "Coordinate system fixed to the joint with one cut-force and cut-torque"
-        annotation (extent=[80,-20; 120,20]);
+        annotation (extent=[84,-16; 116,16]);
       
       parameter Boolean animation=true 
         "= true, if animation shall be enabled (show axis as cylinder)";

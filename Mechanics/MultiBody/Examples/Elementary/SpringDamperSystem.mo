@@ -80,23 +80,53 @@ ALT=\"model Examples.Elementary.SpringDamperSystem\">
     annotation (extent=[-40, -20; -20, 0], rotation=-90);
 equation 
   connect(world.frame_b, bar1.frame_a) 
-    annotation (points=[-59, 30; -47, 30], style(color=0, thickness=2));
+    annotation (points=[-60,30; -46,30], style(
+      color=10,
+      rgbcolor={95,95,95},
+      thickness=2));
   connect(bar1.frame_b, bar2.frame_a) 
-    annotation (points=[-25, 30; -1, 30], style(color=0, thickness=2));
+    annotation (points=[-26,30; 0,30], style(
+      color=10,
+      rgbcolor={95,95,95},
+      thickness=2));
   connect(bar2.frame_b, p2.frame_a) 
-    annotation (points=[21, 30; 50, 30; 50, 1], style(color=0, thickness=2));
+    annotation (points=[20,30; 50,30; 50,0], style(
+      color=10,
+      rgbcolor={95,95,95},
+      thickness=2));
   connect(p2.frame_b, body2.frame_a) 
-    annotation (points=[50, -21; 50, -39], style(color=0, thickness=2));
+    annotation (points=[50,-20; 50,-40], style(
+      color=10,
+      rgbcolor={95,95,95},
+      thickness=2));
   connect(bar2.frame_b, spring2.frame_a) 
-    annotation (points=[21, 30; 90, 30; 90, 1], style(color=0, thickness=2));
-  connect(body2.frame_a, spring2.frame_b) annotation (points=[50, -39; 90, -39;
-         90, -21], style(color=0, thickness=2));
-  connect(damper1.frame_a, bar1.frame_b) annotation (points=[-30, 1; -30, 10; -20,
-         10; -20, 30; -25, 30], style(color=0, thickness=2));
-  connect(spring1.frame_a, bar1.frame_b) annotation (points=[-6, 1; -6, 10; -20,
-         10; -20, 30; -25, 30], style(color=0, thickness=2));
-  connect(damper1.frame_b, body1.frame_a) annotation (points=[-30, -21; -30, -28;
-         -20, -28; -20, -39], style(color=0, thickness=2));
-  connect(spring1.frame_b, body1.frame_a) annotation (points=[-6, -21; -6, -28;
-         -20, -28; -20, -39], style(color=0, thickness=2));
+    annotation (points=[20,30; 90,30; 90,0], style(
+      color=10,
+      rgbcolor={95,95,95},
+      thickness=2));
+  connect(body2.frame_a, spring2.frame_b) annotation (points=[50,-40; 90,-40;
+        90,-20], style(
+      color=10,
+      rgbcolor={95,95,95},
+      thickness=2));
+  connect(damper1.frame_a, bar1.frame_b) annotation (points=[-30,0; -30,10; -20,
+        10; -20,30; -26,30], style(
+      color=10,
+      rgbcolor={95,95,95},
+      thickness=2));
+  connect(spring1.frame_a, bar1.frame_b) annotation (points=[-6,0; -6,10; -20,
+        10; -20,30; -26,30], style(
+      color=10,
+      rgbcolor={95,95,95},
+      thickness=2));
+  connect(damper1.frame_b, body1.frame_a) annotation (points=[-30,-20; -30,-28;
+        -20,-28; -20,-40], style(
+      color=10,
+      rgbcolor={95,95,95},
+      thickness=2));
+  connect(spring1.frame_b, body1.frame_a) annotation (points=[-6,-20; -6,-28; 
+        -20,-28; -20,-40], style(
+      color=10,
+      rgbcolor={95,95,95},
+      thickness=2));
 end SpringDamperSystem;

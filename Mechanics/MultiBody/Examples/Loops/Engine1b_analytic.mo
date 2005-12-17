@@ -36,28 +36,28 @@ An animation of this example is shown in the figure below.
     rRod2_ib={0,-0.1,0}) 
     annotation (extent=[50,34; 10,74],    rotation=90);
 equation 
-  connect(Mid.frame_b, jointRRP.frame_a) annotation (points=[51,-43; 58,-43; 58,
-        -30; 30,-30; 30,32], style(
-      color=0,
-      rgbcolor={0,0,0},
+  connect(Mid.frame_b, jointRRP.frame_a) annotation (points=[50,-43; 58,-43; 58,
+        -30; 30,-30; 30,34], style(
+      color=10, 
+      rgbcolor={95,95,95}, 
       thickness=2));
-  connect(jointRRP.frame_b, cylPosition.frame_b) annotation (points=[30,76; 30,
-        110; -19.5,110], style(
-      color=0,
-      rgbcolor={0,0,0},
+  connect(jointRRP.frame_b, cylPosition.frame_b) annotation (points=[30,74; 30,
+        110; -20.5,110], style(
+      color=10, 
+      rgbcolor={95,95,95}, 
       thickness=2));
-  connect(jointRRP.axis, gasForce.flange_b) annotation (points=[46,76; 46,82;
+  connect(jointRRP.axis, gasForce.flange_b) annotation (points=[46,74; 46,82; 
         119,82; 119,87], style(color=58, rgbcolor={0,127,0}));
-  connect(jointRRP.bearing, gasForce.flange_a) annotation (points=[38,76; 38,
+  connect(jointRRP.bearing, gasForce.flange_a) annotation (points=[38,74; 38,
         114; 119,114; 119,107], style(color=58, rgbcolor={0,127,0}));
-  connect(jointRRP.frame_ib, Piston.frame_a) annotation (points=[52,70; 120,70;
-        120,64], style(
-      color=0,
-      rgbcolor={0,0,0},
+  connect(jointRRP.frame_ib, Piston.frame_a) annotation (points=[50,70; 120,70; 
+        120,63], style(
+      color=10, 
+      rgbcolor={95,95,95}, 
       thickness=2));
-  connect(jointRRP.frame_ia, Rod2.frame_a) annotation (points=[52,38; 80,38; 80,
-        -10; 120,-10; 120,-1], style(
-      color=0,
-      rgbcolor={0,0,0},
+  connect(jointRRP.frame_ia, Rod2.frame_a) annotation (points=[50,38; 80,38; 80,
+        -10; 120,-10; 120,0], style(
+      color=10, 
+      rgbcolor={95,95,95}, 
       thickness=2));
 end Engine1b_analytic;

@@ -49,7 +49,12 @@ the usage of the MultiBody library
       </td>
   </tr>
   <tr><td><b><a href=\"Modelica://Modelica.Mechanics.MultiBody.Examples.Elementary.PointGravity\">PointGravity</a></b></td>
-      <td> Two point masses in a point gravity field <br> 
+      <td> Two bodies in a point gravity field <br> 
+      <img src=\"../Images/MultiBody/Examples/Elementary/PointGravity_small.png\">
+      </td>
+  </tr>
+  <tr><td><b><a href=\"Modelica://Modelica.Mechanics.MultiBody.Examples.Elementary.PointGravityWithMassPoints\">PointGravityWithMassPoints</a></b></td>
+      <td> Two point masses in a point gravity field (body rotation is neglected) <br> 
       <img src=\"../Images/MultiBody/Examples/Elementary/PointGravity_small.png\">
       </td>
   </tr>

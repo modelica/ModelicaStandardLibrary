@@ -63,6 +63,11 @@ BodyBox</b></td>
       <IMG SRC=\"../Images/MultiBody/BodyCylinder.png\" ALT=\"model Parts.BodyCylinder\">
       </td>
   </tr>
+  <tr><td><b><a href=\"Modelica://Modelica.Mechanics.MultiBody.Parts.PointMass\">PointMass</a></b></td>
+      <td>Rigid body where inertia tensor and rotation is neglected:<br>&nbsp;<br>
+      <IMG SRC=\"../Images/MultiBody/Parts/PointMass.png\" ALT=\"model Parts.PointMass\">
+      </td>
+  </tr>
   <tr><td><b><a href=\"Modelica://Modelica.Mechanics.MultiBody.Parts.Mounting1D\">Mounting1D</a></b></td>
       <td> Propagate 1-dim. support torque to 3-dim. system
       </td>
@@ -105,7 +110,7 @@ definition of the colors used in the MultiBody library
     import Modelica.Mechanics.MultiBody.Types;
     
     Interfaces.Frame_b frame_b "Coordinate system fixed in the world frame" 
-      annotation (extent=[80,-20; 120,20]);
+      annotation (extent=[84,-16; 116,16]);
     
     parameter Boolean animation=true "= true, if animation shall be enabled";
     parameter SI.Position r[3]={0,0,0} 
@@ -212,10 +217,10 @@ animation = <b>false</b>.
     import Modelica.Mechanics.MultiBody.Types;
     Interfaces.Frame_a frame_a 
       "Coordinate system fixed to the component with one cut-force and cut-torque"
-                               annotation (extent=[-120,-20; -80,20]);
+                               annotation (extent=[-116,-16; -84,16]);
     Interfaces.Frame_b frame_b 
       "Coordinate system fixed to the component with one cut-force and cut-torque"
-                               annotation (extent=[80,-20; 120,20]);
+                               annotation (extent=[84,-16; 116,16]);
     
     parameter Boolean animation=true "= true, if animation shall be enabled";
     parameter SI.Position r[3]={0,0,0} 
@@ -260,18 +265,18 @@ animation = <b>false</b>.
         width=0.67,
         height=0.69),
       Icon(
-        Rectangle(extent=[-100, 5; 100, -5], style(color=0, fillColor=0)),
-        Text(extent=[-132, 97; 128, 37], string="%name"),
+        Rectangle(extent=[-99,5; 101,-5],    style(color=0, fillColor=0)),
+        Text(extent=[-131,101; 129,41],  string="%name"),
         Text(
           extent=[127, -72; -133, -22],
           string="%=r",
           style(color=0)),
         Text(
-          extent=[-95, 34; -59, 9],
+          extent=[-89,38; -53,13],
           style(color=10),
           string="a"),
         Text(
-          extent=[62, 32; 98, 7],
+          extent=[57,39; 93,14],
           style(color=10),
           string="b")),
       Diagram(
@@ -358,10 +363,10 @@ the animation may be switched off via parameter animation = <b>false</b>.
     import Cv = Modelica.SIunits.Conversions;
     Interfaces.Frame_a frame_a 
       "Coordinate system fixed to the component with one cut-force and cut-torque"
-                               annotation (extent=[-120,-20; -80,20]);
+                               annotation (extent=[-116,-16; -84,16]);
     Interfaces.Frame_b frame_b 
       "Coordinate system fixed to the component with one cut-force and cut-torque"
-                               annotation (extent=[80,-20; 120,20]);
+                               annotation (extent=[84,-16; 116,16]);
     
     parameter Boolean animation=true "= true, if animation shall be enabled";
     parameter SI.Position r[3]={0,0,0} 
@@ -585,7 +590,7 @@ the animation may be switched off via parameter animation = <b>false</b>.
     Interfaces.Frame_a frame_a(r_0(start=r_0_start, stateSelect=if 
             enforceStates then StateSelect.always else StateSelect.avoid)) 
       "Coordinate system fixed at body" 
-      annotation (extent=[-120,-20; -80,20]);
+      annotation (extent=[-116,-16; -84,16]);
     parameter Boolean animation=true 
       "= true, if animation shall be enabled (show cylinder and sphere)";
     parameter SI.Position r_CM[3]={0,0,0} 
@@ -965,10 +970,10 @@ to the setting of parameters \"useQuaternions\" and
     
     Interfaces.Frame_a frame_a 
       "Coordinate system fixed to the component with one cut-force and cut-torque"
-                               annotation (extent=[-120,-20; -80,20]);
+                               annotation (extent=[-116,-16; -84,16]);
     Interfaces.Frame_b frame_b 
       "Coordinate system fixed to the component with one cut-force and cut-torque"
-                               annotation (extent=[80,-20; 120,20]);
+                               annotation (extent=[84,-16; 116,16]);
     
     parameter Boolean animation=true 
       "= true, if animation shall be enabled (show shape between frame_a and frame_b and optionally a sphere at the center of mass)";
@@ -1136,7 +1141,7 @@ states and of the \"Advanced\" menu parameters, see model
       Diagram(
         Line(points=[-100, 9; -100, 43], style(color=10)),
         Line(points=[100, 0; 100, 44], style(color=10)),
-        Line(points=[-100, 40; 90, 40], style(color=10)),
+        Line(points=[-100, 40; 90, 40], style(color=10, rgbcolor={135,135,135})),
         Polygon(points=[90, 44; 90, 36; 100, 40; 90, 44], style(
             color=10,
             fillColor=10,
@@ -1208,15 +1213,22 @@ states and of the \"Advanced\" menu parameters, see model
       R=frame_a.R) if world.enableAnimation and animation and animateSphere;
   equation 
     connect(frame_a, frameTranslation.frame_a) 
-      annotation (points=[-100,0; -20,0],   style(color=0, thickness=2));
+      annotation (points=[-100,0; -20,0], style(
+        color=10,
+        rgbcolor={95,95,95},
+        thickness=2));
     connect(frame_b, frameTranslation.frame_b) 
-      annotation (points=[100,0; 20,0],   style(color=0, thickness=2));
+      annotation (points=[100,0; 20,0], style(
+        color=10,
+        rgbcolor={95,95,95},
+        thickness=2));
     connect(frame_a, body.frame_a) annotation (points=[-100,0; -60,0; -60,
-          -50.1666; -27.3333,-50.1666],
-                              style(
-        color=0,
+          -50.1666; -27.3333,-50.1666], style(
+        color=10,
+        rgbcolor={95,95,95},
         thickness=2,
         fillColor=0,
+        rgbfillColor={0,0,0},
         fillPattern=1));
   end BodyShape;
   
@@ -1229,10 +1241,10 @@ states and of the \"Advanced\" menu parameters, see model
     
     Interfaces.Frame_a frame_a 
       "Coordinate system fixed to the component with one cut-force and cut-torque"
-                               annotation (extent=[-120,-20; -80,20]);
+                               annotation (extent=[-116,-16; -84,16]);
     Interfaces.Frame_b frame_b 
       "Coordinate system fixed to the component with one cut-force and cut-torque"
-                               annotation (extent=[80,-20; 120,20]);
+                               annotation (extent=[84,-16; 116,16]);
     parameter Boolean animation=true 
       "= true, if animation shall be enabled (show box between frame_a and frame_b)";
     parameter SI.Position r[3]={0.1,0,0} 
@@ -1410,18 +1422,18 @@ states and of the \"Advanced\" menu parameters, see model
       "parameter innerHeight is greater as paraemter height");
     connect(frameTranslation.frame_a, frame_a) annotation (points=[-30,0;
           -100,0], style(
-        color=0,
-        rgbcolor={0,0,0},
+        color=10,
+        rgbcolor={95,95,95},
         thickness=2));
     connect(frameTranslation.frame_b, frame_b) annotation (points=[10,0; 100,
           0], style(
-        color=0,
-        rgbcolor={0,0,0},
+        color=10,
+        rgbcolor={95,95,95},
         thickness=2));
     connect(frame_a, body.frame_a) annotation (points=[-100,0; -70,0; -70,-60;
           -30,-60], style(
-        color=0,
-        rgbcolor={0,0,0},
+        color=10,
+        rgbcolor={95,95,95},
         thickness=2));
   end BodyBox;
   
@@ -1433,10 +1445,10 @@ states and of the \"Advanced\" menu parameters, see model
     import Modelica.Mechanics.MultiBody.Types;
     Interfaces.Frame_a frame_a 
       "Coordinate system fixed to the component with one cut-force and cut-torque"
-                               annotation (extent=[-120,-20; -80,20]);
+                               annotation (extent=[-116,-16; -84,16]);
     Interfaces.Frame_b frame_b 
       "Coordinate system fixed to the component with one cut-force and cut-torque"
-                               annotation (extent=[80,-20; 120,20]);
+                               annotation (extent=[84,-16; 116,16]);
     parameter Boolean animation=true 
       "= true, if animation shall be enabled (show cylinder between frame_a and frame_b)";
     parameter SI.Position r[3]={0.1,0,0} 
@@ -1602,21 +1614,182 @@ states and of the \"Advanced\" menu parameters, see model
       "parameter innerDiameter is greater as parameter diameter.");
     connect(frameTranslation.frame_a, frame_a) annotation (points=[-30,0;
           -100,0], style(
-        color=0,
-        rgbcolor={0,0,0},
+        color=10,
+        rgbcolor={95,95,95},
         thickness=2));
     connect(frameTranslation.frame_b, frame_b) annotation (points=[10,0; 100,
           0], style(
-        color=0,
-        rgbcolor={0,0,0},
+        color=10,
+        rgbcolor={95,95,95},
         thickness=2));
     connect(frame_a, body.frame_a) annotation (points=[-100,0; -70,0; -70,-60;
           -30,-60], style(
-        color=0,
-        rgbcolor={0,0,0},
+        color=10,
+        rgbcolor={95,95,95},
         thickness=2));
   end BodyCylinder;
   
+  model PointMass 
+    "Rigid body where body rotation and inertia tensor is neglected (6 potential states)" 
+    
+    import SI = Modelica.SIunits;
+    import Modelica.Mechanics.MultiBody.Types;
+    Interfaces.Frame_a frame_a(r_0(start=r_0_start, stateSelect=if 
+            enforceStates then StateSelect.always else StateSelect.avoid)) 
+      "Coordinate system fixed at center of mass point" 
+      annotation (extent=[-16,-16; 16,16], rotation=0);
+    parameter Boolean animation=true 
+      "= true, if animation shall be enabled (show sphere)";
+    parameter SI.Mass m(min=0) "Mass of mass point";
+    parameter Types.Init.Temp initType=Types.Init.Free 
+      " Type of initialization (defines usage of start values below)" 
+      annotation (Dialog(group="Initialization"));
+    parameter SI.Position r_0_start[3]={0,0,0} 
+      " Initial values of frame_a.r_0 (vector from origin of world frame to origin of frame_a resolved in world frame)"
+      annotation (Evaluate=false, Dialog(group="Initialization"));
+    parameter SI.Velocity v_0_start[3]={0,0,0} 
+      " Initial values of velocity v_0 = der(frame_a.r_0)" 
+      annotation (Evaluate=false, Dialog(group="Initialization"));
+    parameter SI.Acceleration a_0_start[3]={0,0,0} 
+      " Initial values of acceleration a_0 = der(v_0)" 
+      annotation (Evaluate=false, Dialog(group="Initialization"));
+    input SI.Diameter sphereDiameter=world.defaultBodyDiameter 
+      "Diameter of sphere" annotation (Dialog(
+        tab="Animation",
+        group="if animation = true",
+        enable=animation));
+    input Types.Color sphereColor=Types.Defaults.BodyColor "Color of sphere" 
+                        annotation (Dialog(
+        tab="Animation",
+        group="if animation = true",
+        enable=animation));
+    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
+      "Reflection of ambient light (= 0: light is completely absorbed)" 
+      annotation (Dialog(
+        tab="Animation",
+        group="if animation = true",
+        enable=animation));
+    parameter Boolean enforceStates=false 
+      " = true, if frame_a.r_0 and v_0 of body object shall be used as states (StateSelect.always)"
+      annotation (Dialog(tab="Advanced"));
+    
+    SI.Velocity v_0[3](start=v_0_start, stateSelect=if enforceStates then 
+          StateSelect.always else StateSelect.avoid) 
+      "Absolute velocity of frame_a, resolved in world frame";
+    SI.Acceleration a_0[3] 
+      "Absolute acceleration of frame_a resolved in world frame";
+    annotation (
+      defaultAttributes={"inner"},
+      defaultInstanceName="world",
+      defaultModifiers="gravityType=0",
+      missingInnerMessage="No \"world\" component is defined. A default world component
+without a gravity field will be used. If this is not desired,
+drag Modelica.Mechanics.MultiBody.World into the top level of your model.",
+      Coordsys(
+        extent=[-100, -100; 100, 100],
+        grid=[1, 1],
+        component=[20, 20]),
+      Window(
+        x=0.21,
+        y=0,
+        width=0.75,
+        height=0.82),
+      Icon(
+        Text(
+          extent=[132,-102; -129,-56],
+          style(color=0),
+          string="m=%m"),
+        Text(extent=[-128,110; 132,55],   string="%name"),
+        Ellipse(extent=[-50,50; 50,-50],    style(gradient=3, fillColor=69))),
+      Diagram,
+      Documentation(info="<HTML>
+<p>
+<b>Rigid body</b> where the inertia tensor is neglected.
+This body is
+solely defined by its mass.
+By default, this component is visualized by a <b>sphere</b> that has
+its center at frame_a. Note, that
+the animation may be switched off via parameter animation = <b>false</b>.
+</p>
+ 
+<p>
+Every PointMass has potential states. If possible a tool will select
+the states of joints and not the states of PointMasss because this is
+usually the most efficient choice. In this case the position and
+velocity of frame_a of the body will be computed
+by the component that is connected to frame_a. However, if a PointMass is moving
+freely in space, variables of the PointMass have to be used as states. The potential
+states are: The <b>position vector</b> frame_a.r_0 from the origin of the
+world frame to the origin of frame_a of the body, resolved in 
+the world frame and the <b>absolute velocity</b> v_0 of the origin of 
+frame_a, resolved in the world frame (= der(frame_a.r_0)).
+</p>
+ 
+<p>
+Whether or not variables of the body are used as states is usually
+automatically selected by the Modelica translator. If parameter
+<b>enforceStates</b> is set to <b>true</b> in the \"Advanced\" menu,
+then PointMass variables frame_a.r_0 and der(frame_a.r_0)
+are forced to be used as states.
+</p>
+</HTML>"));
+    
+  protected 
+    outer Modelica.Mechanics.MultiBody.World world;
+    
+    // Declarations for animation
+    Visualizers.Advanced.Shape sphere(
+      shapeType="sphere",
+      color=sphereColor,
+      specularCoefficient=specularCoefficient,
+      length=sphereDiameter,
+      width=sphereDiameter,
+      height=sphereDiameter,
+      lengthDirection={1,0,0},
+      widthDirection={0,1,0},
+      r_shape= - {1,0,0}*sphereDiameter/2,
+      r=frame_a.r_0,
+      R=frame_a.R) if world.enableAnimation and animation;
+  initial equation 
+    if initType == Types.Init.Position or initType == Types.Init.
+        PositionVelocity or initType == Types.Init.PositionVelocityAcceleration then
+      // Initialize positional variables
+      frame_a.r_0 = r_0_start;
+    end if;
+    
+    if initType == Types.Init.PositionVelocity or initType == Types.Init.
+        PositionVelocityAcceleration or initType == Types.Init.Velocity or 
+        initType == Types.Init.VelocityAcceleration then
+      // Initialize velocity variables
+      v_0 = v_0_start;
+    end if;
+    
+    if initType == Types.Init.VelocityAcceleration or initType == Types.Init.
+        PositionVelocityAcceleration then
+      // Initialize acceleration variables
+      a_0 = a_0_start;
+    end if;
+    
+    if initType == Types.Init.SteadyState then
+      v_0 = zeros(3);
+      a_0 = zeros(3);
+    end if;
+    
+  equation 
+    definePotentialRoot(frame_a.R, 100);
+    
+    if isRoot(frame_a.R) then
+      frame_a.R = Frames.nullRotation();
+    else
+      frame_a.t = zeros(3);
+    end if;
+    
+    // Newton equation: f = m*(a-g)
+    v_0 = der(frame_a.r_0);
+    a_0 = der(v_0);
+    frame_a.f = m*Frames.resolve2(frame_a.R, a_0 - world.gravityAcceleration(frame_a.r_0));
+  end PointMass;
+
   model Mounting1D 
     "Propagate 1-dim. support torque to 3-dim. system (provided world.driveTrainMechanics3D=true; default=false)" 
     parameter Modelica.SIunits.Angle phi0=0 "Fixed offset angle of housing";

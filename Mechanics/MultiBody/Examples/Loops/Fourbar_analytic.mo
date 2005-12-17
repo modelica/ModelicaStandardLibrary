@@ -51,26 +51,44 @@ MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling</a>.
     rRod2_ib={0,0.2,0},
     rod1Color={0,128,255},
     rod2Color={0,128,255},
-    checkTotalPower=true) annotation (extent=[-20, 0; 0, 20]);
+    checkTotalPower=true) annotation (extent=[-20,0; 20,40]);
   Modelica.Mechanics.MultiBody.Parts.BodyCylinder b2(
     r={0,0.2,0},
     diameter=0.05,
-    animation=false) annotation (extent=[20, -20; 40, 0], rotation=90);
+    animation=false) annotation (extent=[40,20; 60,0],    rotation=90);
 equation 
   j1_phi = j1.phi;
   j2_s = jointSSP.prismatic.distance;
   j1_w = j1.w;
   j2_v = der(jointSSP.prismatic.distance);
-  connect(j1.frame_b, b1.frame_a) annotation (points=[-33, -30; -30, -30; -30,
-        -19], style(color=0, thickness=2));
-  connect(j1.frame_a, world.frame_b) annotation (points=[-55, -30; -59, -30; -59,
-         -50], style(color=0, thickness=2));
+  connect(j1.frame_b, b1.frame_a) annotation (points=[-34,-30; -30,-30; -30,-18], 
+      style(
+      color=10, 
+      rgbcolor={95,95,95}, 
+      thickness=2));
+  connect(j1.frame_a, world.frame_b) annotation (points=[-54,-30; -60,-30; -60,
+        -50], style(
+      color=10, 
+      rgbcolor={95,95,95}, 
+      thickness=2));
   connect(b3.frame_a, world.frame_b) 
-    annotation (points=[-33, -50; -59, -50], style(color=0, thickness=2));
-  connect(b1.frame_b, jointSSP.frame_a) annotation (points=[-30, 3; -30, 10; -21,
-         10], style(color=0, thickness=2));
-  connect(b3.frame_b, jointSSP.frame_b) annotation (points=[-11, -50; 8, -50; 8,
-         10; 1, 10], style(color=0, thickness=2));
-  connect(b2.frame_a, jointSSP.frame_ib) annotation (points=[30, -21; 30, -28;
-        18, -28; 18, 28; -2, 28; -2, 21], style(color=0, thickness=2));
+    annotation (points=[-32,-50; -60,-50], style(
+      color=10, 
+      rgbcolor={95,95,95}, 
+      thickness=2));
+  connect(b1.frame_b, jointSSP.frame_a) annotation (points=[-30,2; -30,20; -20,
+        20], style(
+      color=10, 
+      rgbcolor={95,95,95}, 
+      thickness=2));
+  connect(b3.frame_b, jointSSP.frame_b) annotation (points=[-12,-50; 30,-50; 30,
+        20; 20,20], style(
+      color=10, 
+      rgbcolor={95,95,95}, 
+      thickness=2));
+  connect(b2.frame_a, jointSSP.frame_ib) annotation (points=[50,20; 50,48; 16,
+        48; 16,40], style(
+      color=10, 
+      rgbcolor={95,95,95}, 
+      thickness=2));
 end Fourbar_analytic;

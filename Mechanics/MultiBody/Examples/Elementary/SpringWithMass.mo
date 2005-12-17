@@ -25,7 +25,13 @@ ALT=\"model Examples.Elementary.SpringWithMass\">
       r_0_start={0,-0.3,0}) annotation (extent=[0, -20; 20, 0], rotation=-90);
 equation 
   connect(world.frame_b, spring.frame_a) 
-    annotation (points=[-19, 50; 10, 50; 10, 41], style(color=0));
+    annotation (points=[-20,50; 10,50; 10,40], style(
+      color=10,
+      rgbcolor={95,95,95},
+      thickness=2));
   connect(body.frame_a, spring.frame_b) 
-    annotation (points=[10, 1; 10, 19], style(color=0));
+    annotation (points=[10,0; 10,20], style(
+      color=10,
+      rgbcolor={95,95,95},
+      thickness=2));
 end SpringWithMass;

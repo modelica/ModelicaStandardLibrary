@@ -42,20 +42,42 @@ forceAndTorque component):
   Parts.Fixed fixed2(width=0.03, r={1.5,0.25,0}) 
     annotation (extent=[100, 30; 80, 50]);
 equation 
-  connect(revolute2.frame_b, body.frame_a) annotation (points=[-20, 31; -20, 40;
-         -1, 40], style(color=0, thickness=2));
+  connect(revolute2.frame_b, body.frame_a) annotation (points=[-20,30; -20,40;
+        0,40], style(
+      color=10,
+      rgbcolor={95,95,95},
+      thickness=2));
   connect(forceAndTorque.frame_b, body.frame_b) 
-    annotation (points=[39, 40; 21, 40], style(color=0, thickness=2));
+    annotation (points=[40,40; 20,40], style(
+      color=10,
+      rgbcolor={95,95,95},
+      thickness=2));
   connect(fixed1.frame_b, revolute1.frame_a) 
-    annotation (points=[-69, 0; -61, 0]);
+    annotation (points=[-70,0; -60,0], style(
+      color=10,
+      rgbcolor={95,95,95},
+      thickness=2));
   connect(revolute1.frame_b, revolute2.frame_a) 
-    annotation (points=[-39, 0; -20, 0; -20, 9], style(color=0, thickness=2));
+    annotation (points=[-40,0; -20,0; -20,10], style(
+      color=10,
+      rgbcolor={95,95,95},
+      thickness=2));
   connect(fixed2.frame_b, forceAndTorque.frame_a) 
-    annotation (points=[79, 40; 61, 40], style(color=0, thickness=2));
-  connect(fixedRotation.frame_a, fixed1.frame_b) annotation (points=[-9, -20; -65,
-         -20; -65, 0; -69, 0], style(color=0, thickness=2));
+    annotation (points=[80,40; 60,40], style(
+      color=10,
+      rgbcolor={95,95,95},
+      thickness=2));
+  connect(fixedRotation.frame_a, fixed1.frame_b) annotation (points=[-8,-20;
+        -65,-20; -65,0; -70,0], style(
+      color=10,
+      rgbcolor={95,95,95},
+      thickness=2));
   connect(forceAndTorque.frame_resolve, fixedRotation.frame_b) annotation (
-      points=[45.95, 29; 45, 29; 45, -20; 13, -20], style(color=0, pattern=3));
+      points=[46,30; 46,-20; 12,-20], style(
+      color=10,
+      rgbcolor={95,95,95},
+      pattern=3,
+      thickness=2));
   connect(Constant.y, forceAndTorque.load) annotation(points=[70,1; 70,13; 56,
         13; 56,28],  style(color=3, rgbcolor={0,0,255}));
 end ForceAndTorque;

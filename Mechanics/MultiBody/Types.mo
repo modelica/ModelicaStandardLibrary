@@ -40,24 +40,24 @@ user interface when the type is used as parameter in a declaration.
   
   type Color = Modelica.Icons.TypeInteger[3] (each min=0, each max=255) 
     "RGB representation of color (will be improved with a color editor)" 
-    annotation (preferedView="text",
+    annotation (preferedView="info",
       Dialog(colorSelector),
       choices(
-      choice={0,0,0} "{0,0,0}       \"black\"",
-      choice={155,0,0} "{155,0,0}     \"dark red\"",
-      choice={255,0,0} "{255,0,0 }    \"red\"",
-      choice={255,65,65} "{255,65,65}   \"light red\"",
-      choice={0,128,0} "{0,128,0}     \"dark green\"",
-      choice={0,180,0} "{0,180,0}     \"green\"",
-      choice={0,230,0} "{0,230,0}     \"light green\"",
-      choice={0,0,200} "{0,0,200}     \"dark blue\"",
-      choice={0,0,255} "{0,0,255}     \"blue\"",
-      choice={0,128,255} "{0,128,255}   \"light blue\"",
-      choice={255,255,0} "{255,255,0}   \"yellow\"",
-      choice={255,0,255} "{255,0,255}   \"pink\"",
-      choice={100,100,100} "{100,100,100} \"dark grey\"",
-      choice={155,155,155} "{155,155,155} \"grey\"",
-      choice={255,255,255} "{255,255,255} \"white\""),
+        choice={0,0,0} "{0,0,0}       \"black\"",
+        choice={155,0,0} "{155,0,0}     \"dark red\"",
+        choice={255,0,0} "{255,0,0 }    \"red\"",
+        choice={255,65,65} "{255,65,65}   \"light red\"",
+        choice={0,128,0} "{0,128,0}     \"dark green\"",
+        choice={0,180,0} "{0,180,0}     \"green\"",
+        choice={0,230,0} "{0,230,0}     \"light green\"",
+        choice={0,0,200} "{0,0,200}     \"dark blue\"",
+        choice={0,0,255} "{0,0,255}     \"blue\"",
+        choice={0,128,255} "{0,128,255}   \"light blue\"",
+        choice={255,255,0} "{255,255,0}   \"yellow\"",
+        choice={255,0,255} "{255,0,255}   \"pink\"",
+        choice={100,100,100} "{100,100,100} \"dark grey\"",
+        choice={155,155,155} "{155,155,155} \"grey\"",
+        choice={255,255,255} "{255,255,255} \"white\""),
     Documentation(info="<html>
 <p>
 Type <b>Color</b> is an Integer vector with 3 elements,
@@ -68,7 +68,9 @@ Note, r g, b are given in the range 0 .. 255.
 </html>"));
   type SpecularCoefficient = Modelica.Icons.TypeReal 
     "Reflection of ambient light (= 0: light is completely absorbed)" 
-       annotation (preferedView="text", min=0,
+       annotation (preferedView="info", min=0,
+         choices(choice=0 "\"0.0 (dull)\"",choice=0.7 "\"0.7 (medium)\"", choice=1 
+        "\"1.0 (glossy)\""),
     Documentation(info="<html>
 <p>
 Type <b>SpecularCoefficient</b> defines the reflection of
@@ -76,11 +78,17 @@ ambient light on shape surfaces. If value = 0, the light
 is completely absorbed. Often, 0.7 is a reasonable value.
 It might be that from some viewing directions, a body is no
 longer visible, if the SpecularCoefficient value is too high.
+In the following image, the different values of SpecularCoefficient
+are shown for a cylinder:
 </p>
+ 
+<p>
+<img src=\"../Images/MultiBody/Visualizers/SpecularCoefficient.png\"
+</p> 
 </html>"));
   type ShapeType = Modelica.Icons.TypeString 
     "Type of shape (box, sphere, cylinder, pipecylinder, cone, pipe, beam, gearwheel, spring, dxf-file)"
-     annotation (preferedView="text", choices(
+     annotation (preferedView="info", choices(
       choice="box" "\"box\"",
       choice="sphere" "\"sphere\"",
       choice="cylinder" "\"cylinder\"",
@@ -126,7 +134,7 @@ that references the DXF file.
 </html>"));
   type ShapeExtra = Modelica.Icons.TypeReal 
     "Reflection of ambient light (= 0: light is completely absorbed)" 
-       annotation (preferedView="text", min=0,
+       annotation (preferedView="info", min=0,
     Documentation(info="<html>
 <p>
 This type is used in shapes of visual objects to define
@@ -174,7 +182,9 @@ variable <b>extra</b> is used as instance name:
   package RotationTypes 
     "Type, constants and menu choices for rotation types, as temporary solution until enumerations are available" 
     
-    annotation (preferedView="text");
+    annotation (Documentation(info="<html>
+  
+</html>"));
     
     extends Modelica.Icons.Enumeration;
     constant Integer RotationAxis=1;
@@ -190,7 +200,23 @@ variable <b>extra</b> is used as instance name:
           choice=Modelica.Mechanics.MultiBody.Types.RotationTypes.TwoAxesVectors 
             "Two axes vectors",
           choice=Modelica.Mechanics.MultiBody.Types.RotationTypes.PlanarRotationSequence 
-            "Planar rotation sequence"));
+            "Planar rotation sequence"), 
+        Documentation(info="<html>
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th><b>Types.RotationTypes.</b></th><th><b>Meaning</b></th></tr>
+<tr><td>RotationAxis</td>
+    <td>frame_b is defined by rotating the coordinate system along
+        an axis fixed in frame_a and with a fixed angle.</td></tr>
+ 
+<tr><td>TwoAxesVectors</td>
+    <td>frame_b is defined by resolving two vectors of frame_b in frame_a.</td></tr>
+ 
+<tr><td>PlanarRotationSequence</td>
+    <td>frame_b is defined by rotating the coordinate system along
+        3 consecutive axes vectors with fixed rotation angles
+        (e.g. Cardan or Euler angle sequence rotation).</td></tr>
+</table>
+</html>"));
       
     end Temp;
   end RotationTypes;
@@ -198,7 +224,9 @@ variable <b>extra</b> is used as instance name:
   package GravityTypes 
     "Type, constants and menu choices for gravity fields, as temporary solution until enumerations are available" 
     
-    annotation (preferedView="text");
+    annotation (Documentation(info="<html>
+  
+</html>"));
     extends Modelica.Icons.Enumeration;
     constant Integer NoGravity=0;
     constant Integer UniformGravity=1;
@@ -214,7 +242,21 @@ variable <b>extra</b> is used as instance name:
           choice=Modelica.Mechanics.MultiBody.Types.GravityTypes.UniformGravity 
             "uniform gravity",
           choice=Modelica.Mechanics.MultiBody.Types.GravityTypes.PointGravity 
-            "point gravity"));
+            "point gravity"), Documentation(info="<html>
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th><b>Types.GravityTypes.</b></th><th><b>Meaning</b></th></tr>
+<tr><td>NoGravity</td>
+    <td>No gravity field</td></tr>
+ 
+<tr><td>UniformGravity</td>
+    <td>Gravity field is described by a vector of constant gravity acceleration</td></tr>
+ 
+<tr><td>PointGravity</td>
+    <td>Central gravity field. The gravity acceleration vector is directed to
+        the field center and the gravity is proportional to 1/r^2, where
+        r is the distance to the field center.</td></tr>
+</table>
+</html>"));
       
     end Temp;
   end GravityTypes;
@@ -222,10 +264,8 @@ variable <b>extra</b> is used as instance name:
   package Init 
     "Type, constants and menu choices to define initialization, as temporary solution until enumerations are available" 
     
-    annotation (preferedView="text", Documentation(info="<html>
-<p>
-vvv
-</p>
+    annotation (Documentation(info="<html>
+  
 </html>"));
     extends Modelica.Icons.Enumeration;
     
@@ -255,7 +295,35 @@ vvv
           choice=Modelica.Mechanics.MultiBody.Types.Init.VelocityAcceleration 
             "initialize generalized velocity and acceleration variables",
           choice=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocityAcceleration 
-            "initialize generalized position, velocity and acceleration variables"));
+            "initialize generalized position, velocity and acceleration variables"),
+          Documentation(info="<html>
+  
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th><b>Types.Init.</b></th><th><b>Meaning</b></th></tr>
+<tr><td>Free</td>
+    <td>No initialization</td></tr>
+ 
+<tr><td>PositionVelocity</td>
+    <td>Initialize generalized position and velocity variables</td></tr>
+ 
+<tr><td>SteadyState</td>
+    <td>Initialize in steady state (velocity and acceleration are zero)</td></tr>
+ 
+<tr><td>Position </td>
+    <td>Initialize only generalized position variable(s)</td></tr>
+ 
+<tr><td>Velocity</td>
+    <td>Initialize only generalized velocity variable(s)</td></tr>
+ 
+<tr><td>VelocityAcceleration</td>
+    <td>Initialize generalized velocity and acceleration variables</td></tr>
+ 
+<tr><td>PositionVelocityAcceleration</td>
+    <td>Initialize generalized position, velocity and acceleration variables</td></tr>
+ 
+</table>
+ 
+</html>"));
       
     end Temp;
   end Init;

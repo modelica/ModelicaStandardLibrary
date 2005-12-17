@@ -76,14 +76,6 @@ package Utilities "Utility models for Examples.Loops"
       s_start=-0.3,
       n={0,-1,0},
       boxWidth=0.02) annotation (extent=[4, 89; 24, 109], rotation=-90);
-    Modelica.Mechanics.MultiBody.Interfaces.Frame_a crank_a 
-      annotation (extent=[-120, -105; -100, -75]);
-    Modelica.Mechanics.MultiBody.Interfaces.Frame_b crank_b 
-      annotation (extent=[100, -105; 120, -75]);
-    Modelica.Mechanics.MultiBody.Interfaces.Frame_a cylinder_a 
-      annotation (extent=[-120, 115; -100, 145]);
-    Modelica.Mechanics.MultiBody.Interfaces.Frame_b cylinder_b 
-      annotation (extent=[100, 115; 120, 145]);
     Modelica.Mechanics.MultiBody.Parts.FixedTranslation Mounting(r={crankLength,0,0}, animation=
           false) annotation (extent=[0, 120; 20, 140]);
     Modelica.Mechanics.MultiBody.Parts.FixedRotation CylinderInclination(
@@ -106,9 +98,16 @@ package Utilities "Utility models for Examples.Loops"
         animation=false) annotation (extent=[-40, 61; -20, 81], rotation=90);
     GasForce gasForce(L=cylinderLength, d=0.1) 
       annotation (extent=[40, 97; 60, 117], rotation=90);
+    Interfaces.Frame_a cylinder_a annotation (extent=[-116,114; -84,146]);
+    Interfaces.Frame_a cylinder_b annotation (extent=[84,114; 116,146]);
+    Interfaces.Frame_a crank_a annotation (extent=[-116,-106; -84,-74]);
+    Interfaces.Frame_a crank_b annotation (extent=[84,-106; 116,-74]);
   equation 
-    connect(B1.frame_a, Mid.frame_b) annotation (points=[3, -17; -6, -17; -6, -29;
-           22, -29; 22, -36; 15, -36], style(color=0, thickness=2));
+    connect(B1.frame_a, Mid.frame_b) annotation (points=[4,-17; -6,-17; -6,-29; 
+          22,-29; 22,-36; 14,-36], style(
+        color=10, 
+        rgbcolor={95,95,95}, 
+        thickness=2));
     annotation (
       Coordsys(
         extent=[-100, -150; 100, 150],
@@ -129,45 +128,93 @@ package Utilities "Utility models for Examples.Loops"
         Line(points=[0, -90; 26, -58; -2, 37], style(color=0, thickness=4)),
         Text(extent=[-150, -124; 164, -186], string="%name"),
         Line(points=[-100, -90; 100, -91], style(color=0, thickness=2))));
-    connect(Mounting.frame_a, cylinder_a) 
-      annotation (points=[-1, 130; -110, 130], style(color=0, thickness=2));
     
-    connect(Mounting.frame_b, cylinder_b) 
-      annotation (points=[21, 130; 110, 130], style(color=0, thickness=2));
-    connect(Rod.frame_a, B1.frame_b) annotation (points=[14, -3; 14, -9; 30, -9;
-           30, -17; 25, -17], style(color=0, thickness=2));
-    connect(Cylinder.frame_b, Piston.frame_b) annotation (points=[14,88; 14,
-          81.05; 14.5,81.05],  style(color=0, thickness=2));
+    connect(Rod.frame_a, B1.frame_b) annotation (points=[14,-2; 14,-9; 30,-9; 
+          30,-17; 24,-17], style(
+        color=10, 
+        rgbcolor={95,95,95}, 
+        thickness=2));
+    connect(Cylinder.frame_b, Piston.frame_b) annotation (points=[14,89; 14,80; 
+          14.5,80], style(
+        color=10, 
+        rgbcolor={95,95,95}, 
+        thickness=2));
     connect(Crank1.frame_a, CrankAngle1.frame_b) 
-      annotation (points=[-51, -90; -69, -90], style(color=0, thickness=2));
-    connect(B2.frame_a, Piston.frame_a) annotation (points=[3,35; -6,35; -6,49;
-          14.5,49; 14.5,57.95],       style(color=0, thickness=2));
-    connect(Rod.frame_b, B2.frame_b) annotation (points=[14, 19; 14, 23; 32, 23;
-           32, 35; 25, 35], style(color=0, thickness=2));
-    connect(CrankAngle1.frame_a, crank_a) 
-      annotation (points=[-91, -90; -110, -90], style(color=0, thickness=2));
-    connect(Crank4.frame_b, CrankAngle2.frame_a) annotation (points=[40.5, -85;
-           40.5, -90; 59, -90], style(color=0, thickness=2));
-    connect(CrankAngle2.frame_b, crank_b) 
-      annotation (points=[81, -90; 110, -90], style(color=0, thickness=2));
+      annotation (points=[-50,-90; -70,-90], style(
+        color=10, 
+        rgbcolor={95,95,95}, 
+        thickness=2));
+    connect(B2.frame_a, Piston.frame_a) annotation (points=[4,35; -6,35; -6,49; 
+          14.5,49; 14.5,59], style(
+        color=10, 
+        rgbcolor={95,95,95}, 
+        thickness=2));
+    connect(Rod.frame_b, B2.frame_b) annotation (points=[14,18; 14,23; 32,23; 
+          32,35; 24,35], style(
+        color=10, 
+        rgbcolor={95,95,95}, 
+        thickness=2));
+    connect(Crank4.frame_b, CrankAngle2.frame_a) annotation (points=[40.5,-84; 
+          40.5,-90; 60,-90], style(
+        color=10, 
+        rgbcolor={95,95,95}, 
+        thickness=2));
     connect(Cylinder.bearing, gasForce.flange_b) annotation (points=[20, 103;
           34, 103; 34, 117; 50, 117], style(color=58));
     connect(Cylinder.axis, gasForce.flange_a) 
       annotation (points=[20, 91; 50, 91; 50, 97], style(color=58));
     connect(CylinderInclination.frame_b, CylinderTop.frame_a) 
-      annotation (points=[-39, 40; -30, 40; -30, 60]);
-    connect(CylinderInclination.frame_a, cylinder_a) annotation (points=[-61,
-          40; -70, 40; -70, 130; -110, 130], style(color=0, thickness=2));
-    connect(Crank1.frame_b, Crank2.frame_a) annotation (points=[-29, -90; -10,
-          -90; -10, -87], style(color=0, thickness=2));
-    connect(Crank3.frame_b, Crank4.frame_a) annotation (points=[25.5, -50; 40.5,
-           -50; 40.5, -63], style(color=0, thickness=2));
-    connect(Crank3.frame_a, Crank2.frame_b) annotation (points=[3.5, -50; -10,
-          -50; -10, -65], style(color=0, thickness=2));
-    connect(Crank2.frame_b, Mid.frame_a) annotation (points=[-10, -65; -10, -36;
-           -7, -36], style(color=0, thickness=2));
-    connect(CylinderTop.frame_b, Cylinder.frame_a) annotation (points=[-30, 82;
-           -30, 120; 14, 120; 14, 110], style(color=0, thickness=2));
+      annotation (points=[-40,40; -30,40; -30,61]);
+    connect(Crank1.frame_b, Crank2.frame_a) annotation (points=[-30,-90; -10,
+          -90; -10,-86], style(
+        color=10, 
+        rgbcolor={95,95,95}, 
+        thickness=2));
+    connect(Crank3.frame_b, Crank4.frame_a) annotation (points=[24.5,-50; 40.5,
+          -50; 40.5,-64], style(
+        color=10, 
+        rgbcolor={95,95,95}, 
+        thickness=2));
+    connect(Crank3.frame_a, Crank2.frame_b) annotation (points=[4.5,-50; -10,
+          -50; -10,-66], style(
+        color=10, 
+        rgbcolor={95,95,95}, 
+        thickness=2));
+    connect(Crank2.frame_b, Mid.frame_a) annotation (points=[-10,-66; -10,-36; 
+          -6,-36], style(
+        color=10, 
+        rgbcolor={95,95,95}, 
+        thickness=2));
+    connect(CylinderTop.frame_b, Cylinder.frame_a) annotation (points=[-30,81; 
+          -30,120; 14,120; 14,109], style(
+        color=10, 
+        rgbcolor={95,95,95}, 
+        thickness=2));
+    connect(CylinderInclination.frame_a, cylinder_a) annotation (points=[-60,40; 
+          -80,40; -80,130; -100,130], style(
+        color=10, 
+        rgbcolor={95,95,95}, 
+        thickness=2));
+    connect(Mounting.frame_a, cylinder_a) annotation (points=[0,130; -100,130], 
+        style(
+        color=10, 
+        rgbcolor={95,95,95}, 
+        thickness=2));
+    connect(Mounting.frame_b, cylinder_b) annotation (points=[20,130; 100,130], 
+        style(
+        color=10, 
+        rgbcolor={95,95,95}, 
+        thickness=2));
+    connect(CrankAngle1.frame_a, crank_a) annotation (points=[-90,-90; -100,-90], 
+        style(
+        color=10, 
+        rgbcolor={95,95,95}, 
+        thickness=2));
+    connect(CrankAngle2.frame_b, crank_b) annotation (points=[80,-90; 100,-90], 
+        style(
+        color=10, 
+        rgbcolor={95,95,95}, 
+        thickness=2));
   end Cylinder;
   
   model GasForce 
@@ -382,14 +429,6 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
     Modelica.Mechanics.MultiBody.Parts.FixedTranslation Mid(animation=false, r={crankLength -
           crankPinLength/2,crankPinOffset,0}) 
       annotation (extent=[-44, -30; -24, -10]);
-    Modelica.Mechanics.MultiBody.Interfaces.Frame_a crank_a 
-      annotation (extent=[-120, -115; -100, -85]);
-    Modelica.Mechanics.MultiBody.Interfaces.Frame_b crank_b 
-      annotation (extent=[100, -115; 120, -85]);
-    Modelica.Mechanics.MultiBody.Interfaces.Frame_a cylinder_a 
-      annotation (extent=[-120, 84; -100, 114]);
-    Modelica.Mechanics.MultiBody.Interfaces.Frame_b cylinder_b 
-      annotation (extent=[100, 84; 120, 114]);
     Modelica.Mechanics.MultiBody.Parts.FixedTranslation Mounting(r={crankLength,0,0}, animation=
           false) annotation (extent=[-3, 90; 17, 110]);
     Modelica.Mechanics.MultiBody.Parts.FixedRotation CylinderInclination(
@@ -471,35 +510,71 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
     
     Modelica.Mechanics.MultiBody.Parts.FixedTranslation Crank(animation=false, r={crankLength,0,0}) 
       annotation (extent=[-10, -110; 10, -90]);
+    Interfaces.Frame_a cylinder_a annotation (extent=[-116,84; -84,116]);
+    Interfaces.Frame_a cylinder_b annotation (extent=[84,84; 116,116]);
+    Interfaces.Frame_a crank_a annotation (extent=[-116,-116; -84,-84]);
+    Interfaces.Frame_a crank_b annotation (extent=[84,-116; 116,-84]);
   equation 
     
-    connect(Mounting.frame_a, cylinder_a) annotation (points=[-4, 100; -105,
-          100; -105, 99; -110, 99], style(color=0, thickness=2));
-    connect(Mounting.frame_b, cylinder_b) annotation (points=[18, 100; 100, 100;
-           100, 99; 110, 99], style(color=0, thickness=2));
-    connect(CylinderInclination.frame_a, cylinder_a) annotation (points=[-45,
-          40; -55, 40; -55, 100; -105, 100; -105, 99; -110, 99], style(color=0,
-           thickness=2));
-    connect(jointRRP.frame_ia, Rod.frame_a) annotation (points=[22,-4; 49,-4;
-          49,-2],   style(color=0, thickness=2));
-    connect(Mid.frame_b, jointRRP.frame_a) annotation (points=[-23,-20;
-          1.34707e-015,-20; 1.34707e-015,-10],   style(color=0, thickness=2));
+    connect(jointRRP.frame_ia, Rod.frame_a) annotation (points=[20,-4; 49,-4; 
+          49,-1], style(
+        color=10, 
+        rgbcolor={95,95,95}, 
+        thickness=2));
+    connect(Mid.frame_b, jointRRP.frame_a) annotation (points=[-24,-20; 
+          1.22461e-015,-20; 1.22461e-015,-8], style(
+        color=10, 
+        rgbcolor={95,95,95}, 
+        thickness=2));
     connect(gasForce.flange_a, jointRRP.axis) 
-      annotation (points=[9,70; 16,70; 16,34],    style(color=58));
-    connect(jointRRP.bearing, gasForce.flange_b) annotation (points=[8,34; 8,52;
+      annotation (points=[9,70; 16,70; 16,32],    style(color=58));
+    connect(jointRRP.bearing, gasForce.flange_b) annotation (points=[8,32; 8,52; 
           -20,52; -20,70; -11,70],        style(color=58));
-    connect(jointRRP.frame_ib, Piston.frame_b) annotation (points=[22, 28; 30,
-          28; 30, 70; 50, 70; 50, 61], style(color=0, thickness=2));
+    connect(jointRRP.frame_ib, Piston.frame_b) annotation (points=[20,28; 30,28; 
+          30,70; 50,70; 50,60], style(
+        color=10, 
+        rgbcolor={95,95,95}, 
+        thickness=2));
     connect(jointRRP.frame_b, CylinderInclination.frame_b) annotation (points=[
-          -1.34707e-015,34; 1,34; 1,40; -23,40],     style(color=0, thickness=2));
-    connect(Crank.frame_b, crank_b) 
-      annotation (points=[11, -100; 110, -100], style(color=0, thickness=2));
-    connect(Crank.frame_a, crank_a) 
-      annotation (points=[-11, -100; -110, -100], style(color=0, thickness=2));
-    connect(CrankAngle.frame_b, Mid.frame_a) annotation (points=[-63, -70; -56,
-           -70; -56, -20; -45, -20], style(color=0, thickness=2));
-    connect(CrankAngle.frame_a, crank_a) annotation (points=[-85, -70; -94, -70;
-           -94, -100; -110, -100], style(color=0, thickness=2));
+          -1.22461e-015,32; 1,32; 1,40; -24,40], style(
+        color=10, 
+        rgbcolor={95,95,95}, 
+        thickness=2));
+    connect(CrankAngle.frame_b, Mid.frame_a) annotation (points=[-64,-70; -56,
+          -70; -56,-20; -44,-20], style(
+        color=10, 
+        rgbcolor={95,95,95}, 
+        thickness=2));
+    connect(cylinder_a, CylinderInclination.frame_a) annotation (points=[-100,
+          100; -70,100; -70,40; -44,40], style(
+        color=10, 
+        rgbcolor={95,95,95}, 
+        thickness=2));
+    connect(cylinder_a, Mounting.frame_a) annotation (points=[-100,100; -3,100], 
+        style(
+        color=10, 
+        rgbcolor={95,95,95}, 
+        thickness=2));
+    connect(cylinder_b, Mounting.frame_b) annotation (points=[100,100; 17,100], 
+        style(
+        color=10, 
+        rgbcolor={95,95,95}, 
+        thickness=2));
+    connect(CrankAngle.frame_a, crank_a) annotation (points=[-84,-70; -89.5,-70; 
+          -89.5,-100; -100,-100], style(
+        color=10, 
+        rgbcolor={95,95,95}, 
+        thickness=2));
+    connect(crank_a, Crank.frame_a) annotation (points=[-100,-100; -10,-100], 
+        style(
+        color=10, 
+        rgbcolor={95,95,95}, 
+        thickness=2));
+    connect(Crank.frame_b, crank_b) annotation (points=[10,-100; 100,-100], 
+        style(
+        color=10, 
+        rgbcolor={95,95,95}, 
+        thickness=2));
   end CylinderBase;
   
   model Cylinder_analytic_CAD 
@@ -519,7 +594,10 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
     
     annotation (Coordsys(grid=[1, 1], component=[20, 20]), Diagram);
     connect(CrankShape.frame_a, CrankAngle.frame_b) 
-      annotation (points=[-21, -70; -63, -70], style(color=0, thickness=2));
+      annotation (points=[-20,-70; -64,-70], style(
+        color=10, 
+        rgbcolor={95,95,95}, 
+        thickness=2));
   end Cylinder_analytic_CAD;
   
   model EngineV6_analytic "V6 engine with analytic loop handling" 
@@ -571,31 +649,61 @@ annotation (choices(choice(redeclare model Cylinder =
       I_33=1.e-5,
       m=6*30,
       I_11=0.1) annotation (extent=[-50, -60; -30, -40]);
-    Interfaces.Frame_a frame_a 
-      annotation (extent=[-15, -110; 15, -90], rotation=-90);
     Modelica.Mechanics.Rotational.Interfaces.Flange_b flange_b 
       annotation (extent=[100, -10; 120, 10]);
+    Interfaces.Frame_a frame_a
+      annotation (extent=[-16,-117; 16,-85], rotation=-90);
   equation 
     connect(cylinder1.crank_b, cylinder2.crank_a) 
-      annotation (points=[-69, -10; -61, -10], style(color=0, thickness=2));
-    connect(cylinder2.cylinder_a, cylinder1.cylinder_b) annotation (points=[-61,
-           9.9; -61, 10; -69, 9.9], style(color=0, thickness=2));
-    connect(cylinder3.cylinder_a, cylinder2.cylinder_b) annotation (points=[-31,
-           9.9; -35, 10; -35, 9.9; -39, 9.9], style(color=0, thickness=2));
+      annotation (points=[-70,-10; -60,-10], style(
+        color=10, 
+        rgbcolor={95,95,95}, 
+        thickness=2));
+    connect(cylinder2.cylinder_a, cylinder1.cylinder_b) annotation (points=[-60,10; 
+          -70,10], style(
+        color=10, 
+        rgbcolor={95,95,95}, 
+        thickness=2));
+    connect(cylinder3.cylinder_a, cylinder2.cylinder_b) annotation (points=[-30,10; 
+          -40,10], style(
+        color=10, 
+        rgbcolor={95,95,95}, 
+        thickness=2));
     connect(cylinder3.crank_a, cylinder2.crank_b) 
-      annotation (points=[-31, -10; -39, -10], style(color=0, thickness=2));
-    connect(cylinder3.cylinder_b, cylinder4.cylinder_a) annotation (points=[-9,
-           9.9; -5, 10; -5, 9.9; -1, 9.9], style(color=0, thickness=2));
+      annotation (points=[-30,-10; -40,-10], style(
+        color=10, 
+        rgbcolor={95,95,95}, 
+        thickness=2));
+    connect(cylinder3.cylinder_b, cylinder4.cylinder_a) annotation (points=[-10,10; 
+          0,10], style(
+        color=10, 
+        rgbcolor={95,95,95}, 
+        thickness=2));
     connect(cylinder3.crank_b, cylinder4.crank_a) 
-      annotation (points=[-9, -10; -1, -10], style(color=0, thickness=2));
-    connect(cylinder4.cylinder_b, cylinder5.cylinder_a) annotation (points=[21,
-           9.9; 25, 10; 29, 9.9], style(color=0, thickness=2));
+      annotation (points=[-10,-10; 0,-10], style(
+        color=10, 
+        rgbcolor={95,95,95}, 
+        thickness=2));
+    connect(cylinder4.cylinder_b, cylinder5.cylinder_a) annotation (points=[20,10; 
+          30,10], style(
+        color=10, 
+        rgbcolor={95,95,95}, 
+        thickness=2));
     connect(cylinder4.crank_b, cylinder5.crank_a) 
-      annotation (points=[21, -10; 29, -10], style(color=0, thickness=2));
-    connect(cylinder5.cylinder_b, cylinder6.cylinder_a) annotation (points=[51,
-           9.9; 55, 10; 59, 9.9], style(color=0, thickness=2));
+      annotation (points=[20,-10; 30,-10], style(
+        color=10, 
+        rgbcolor={95,95,95}, 
+        thickness=2));
+    connect(cylinder5.cylinder_b, cylinder6.cylinder_a) annotation (points=[50,10; 
+          60,10], style(
+        color=10, 
+        rgbcolor={95,95,95}, 
+        thickness=2));
     connect(cylinder5.crank_b, cylinder6.crank_a) 
-      annotation (points=[51, -10; 59, -10], style(color=0, thickness=2));
+      annotation (points=[50,-10; 60,-10], style(
+        color=10, 
+        rgbcolor={95,95,95}, 
+        thickness=2));
     annotation (
       Icon(
         Rectangle(extent=[-100, 100; 100, -100], style(color=0, fillColor=7)),
@@ -607,17 +715,28 @@ annotation (choices(choice(redeclare model Cylinder =
               "../../../../Images/MultiBody/Examples/Loops/EngineV6_CAD.png")),
       Coordsys(grid=[1, 1], component=[20, 20]),
       Diagram);
-    connect(cylinder1.cylinder_a, frame_a) annotation (points=[-91, 9.9; -91,
-          10; -100, 10; -100, -80; 0, -80; 0, -100], style(color=0, thickness=2));
-    connect(bearing.frame_a, frame_a) annotation (points=[-91, -50; -100, -50;
-          -100, -80; 0, -80; 0, -100], style(color=0, thickness=2));
     connect(bearing.frame_b, crank.frame_a) 
-      annotation (points=[-69, -50; -51, -50], style(color=0, thickness=2));
-    connect(crank.frame_b, cylinder1.crank_a) annotation (points=[-29, -50; -20,
-           -50; -20, -26; -95, -26; -95, -10; -91, -10], style(color=0,
-          thickness=2));
+      annotation (points=[-70,-50; -50,-50], style(
+        color=10, 
+        rgbcolor={95,95,95}, 
+        thickness=2));
+    connect(crank.frame_b, cylinder1.crank_a) annotation (points=[-30,-50; -24,
+          -50; -24,-26; -94,-26; -94,-10; -90,-10], style(
+        color=10, 
+        rgbcolor={95,95,95}, 
+        thickness=2));
     connect(bearing.axis, flange_b) annotation (points=[-80, -60; -80, -66; 90,
            -66; 90, 0; 110, 0], style(color=0));
+    connect(frame_a, bearing.frame_a) annotation (points=[0,-101; 0,-81; -98,
+          -81; -98,-50; -90,-50], style(
+        color=10, 
+        rgbcolor={95,95,95}, 
+        thickness=2));
+    connect(bearing.frame_a, cylinder1.cylinder_a) annotation (points=[-90,-50; 
+          -98,-50; -98,10; -90,10], style(
+        color=10, 
+        rgbcolor={95,95,95}, 
+        thickness=2));
   end EngineV6_analytic;
   
   partial model Engine1bBase "Model of one cylinder engine with gas force" 
@@ -705,36 +824,54 @@ An animation of this example is shown in the figure below.
       annotation (extent=[109,107; 129,87],rotation=90);
   equation 
     connect(world.frame_b, Bearing.frame_a) 
-      annotation (points=[-69,-90; -51,-90],   style(color=0, thickness=2));
-    connect(Crank2.frame_a, Crank1.frame_b) annotation (points=[30,-87; 30,-90; 5,
-          -90],      style(
-        color=0,
-        thickness=2,
-        fillColor=8,
+      annotation (points=[-70,-90; -50,-90], style(
+        color=10, 
+        rgbcolor={95,95,95}, 
+        thickness=2));
+    connect(Crank2.frame_a, Crank1.frame_b) annotation (points=[30,-86; 30,-90; 
+          4,-90], style(
+        color=10, 
+        rgbcolor={95,95,95}, 
+        thickness=2, 
+        fillColor=8, 
+        rgbfillColor={192,192,192}, 
         fillPattern=1));
-    connect(Crank2.frame_b, Crank3.frame_a) annotation (points=[30,-65; 30,-61;
-          40.5,-61],   style(
-        color=0,
-        thickness=2,
-        fillColor=8,
+    connect(Crank2.frame_b, Crank3.frame_a) annotation (points=[30,-66; 30,-61; 
+          41.5,-61], style(
+        color=10, 
+        rgbcolor={95,95,95}, 
+        thickness=2, 
+        fillColor=8, 
+        rgbfillColor={192,192,192}, 
         fillPattern=1));
-    connect(Bearing.frame_b, Crank1.frame_a) annotation (points=[-29,-90; -17,-90],
-         style(
-        color=0,
-        thickness=2,
-        fillColor=8,
+    connect(Bearing.frame_b, Crank1.frame_a) annotation (points=[-30,-90; -16,
+          -90], style(
+        color=10, 
+        rgbcolor={95,95,95}, 
+        thickness=2, 
+        fillColor=8, 
+        rgbfillColor={192,192,192}, 
         fillPattern=1));
-    connect(world.frame_b, cylPosition.frame_a) annotation (points=[-69,-90; -60,
-          -90; -60,110; -41.5,110],   style(color=0, thickness=2));
-    connect(Crank3.frame_b, Crank4.frame_a) annotation (points=[62.5,-61; 75,-61;
-          75,-64; 75.5,-64],          style(color=0, thickness=2));
+    connect(world.frame_b, cylPosition.frame_a) annotation (points=[-70,-90; 
+          -60,-90; -60,110; -40.5,110], style(
+        color=10, 
+        rgbcolor={95,95,95}, 
+        thickness=2));
+    connect(Crank3.frame_b, Crank4.frame_a) annotation (points=[61.5,-61; 75,
+          -61; 75,-65; 75.5,-65], style(
+        color=10, 
+        rgbcolor={95,95,95}, 
+        thickness=2));
     connect(Inertia.flange_b, Bearing.axis) annotation (points=[-48,-110; -40,
           -110; -40,-100],
                      style(
         color=0,
         fillColor=7,
         fillPattern=1));
-    connect(Mid.frame_a, Crank2.frame_b) annotation (points=[29,-43; 23,-43; 23,
-          -61; 30,-61; 30,-65],    style(color=0, thickness=2));
+    connect(Mid.frame_a, Crank2.frame_b) annotation (points=[30,-43; 23,-43; 23,
+          -61; 30,-61; 30,-66], style(
+        color=10, 
+        rgbcolor={95,95,95}, 
+        thickness=2));
   end Engine1bBase;
 end Utilities;

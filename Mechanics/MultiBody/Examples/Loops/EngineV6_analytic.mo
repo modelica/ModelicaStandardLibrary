@@ -46,7 +46,10 @@ of about 40. This shows the power of the analytic loop handling.
 </HTML>
 "));
   connect(world.frame_b, engine.frame_a) 
-    annotation (points=[-39, -10; 0, -10; 0, 0], style(color=0, thickness=2));
+    annotation (points=[-40,-10; 0,-10; 0,-0.2], style(
+      color=10, 
+      rgbcolor={95,95,95}, 
+      thickness=2));
   connect(engine.flange_b, load.flange_a) 
     annotation (points=[22, 20; 40, 20], style(color=0));
 end EngineV6_analytic;

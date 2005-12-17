@@ -206,12 +206,40 @@ The following <b>new components</b> have been added to <b>existing</b> libraries
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2>
-  <tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.Types.</b></td></tr>
-  <tr><td>SpecularCoefficient</td>
+  <tr><td colspan=\"2\"><b>Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.</b></td></tr>
+  <tr><td> SM_ElectricalExcitedDamperCage</td>
+      <td> Electrical excited synchronous induction machine with damper cage</td> </tr>
+  <tr><td colspan=\"2\"><b>Modelica.Electrical.Machines.BasicMachines.Components.</b></td></tr>
+  <tr><td> ElectricalExcitation </td>
+      <td> Electrical excitation for electrical excited synchronous 
+           induction machines</td> </tr>
+  <tr><td> DamperCage</td>
+      <td> Unsymmetrical damper cage for electrical excited synchronous 
+           induction machines. At least the user has to specify the dampers
+           resistance and stray inductance in d-axis; if he omits the
+           parameters of the q-axis, the same values as for the d.axis 
+           are used, assuming a symmetrical damper.</td> </tr>
+  <tr><td colspan=\"2\"><b>Modelica.Electrical.Machines.Examples.</b></td></tr>
+  <tr><td> SMEE_Gen </td>
+      <td> Test example 7: ElectricalExcitedSynchronousInductionMachine 
+           as Generator</td> </tr>
+  <tr><td> Utilities.TerminalBox</td>
+      <td> Terminal box for three-phase induction machines to choose  
+           either star (wye) ? or delta ? connection</td> </tr>
+
+  <tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.</b></td></tr>
+  <tr><td> Parts.PointMass</td>
+      <td> Point mass, i.e., body where inertia tensor is neglected.</td> </tr>
+  <tr><td> Types.SpecularCoefficient</td>
       <td> New type to define a specular coefficient.</td> </tr>
-  <tr><td>ShapeExtra</td>
+  <tr><td> Types.ShapeExtra</td>
       <td> New type to define the extra data for visual shape objects and to
            have a central place for the documentation of this data.</td> </tr>
+
+  <tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.Examples.Elementary</b></td></tr>
+  <tr><td> PointGravityWithPointMasses</td>
+      <td> Example of two point masses in a central gravity field.</td> </tr>
+
   <tr><td colspan=\"2\"><b>Modelica.Mechanics.Rotational.</b></td></tr>
   <tr><td>UsersGuide</td>
       <td> A users guide has been added by using the documentation previously
@@ -219,6 +247,7 @@ The following <b>new components</b> have been added to <b>existing</b> libraries
   <tr><td>Sensors.PowerSensor</td>
       <td> New component to measure the energy flow between two connectors
            of the Rotational library.</td> </tr>
+
   <tr><td colspan=\"2\"><b>Modelica.Media.Interfaces.PartialMedium.</b></td></tr>
   <tr><td>specificEnthalpy_pTX</td>
       <td> New function to compute specific enthalpy from pressure, temperature
@@ -226,6 +255,26 @@ The following <b>new components</b> have been added to <b>existing</b> libraries
   <tr><td>temperature_phX</td>
       <td> New function to compute temperature from pressure, specific enthalpy,
            and mass fractions.</td> </tr>
+
+  <tr><td colspan=\"2\"><b>Modelica.Thermal.FluidHeatFlow.</b></td></tr>
+  <tr><td> Components.Valve</td>
+      <td> Simple controlled valve with either linear or 
+           exponential characteristic.</td> </tr>
+  <tr><td> Sources. IdealPump </td>
+      <td> Simple ideal pump (resp. fan)  dependent on the shaft?s speed;
+           pressure increase versus volume flow is defined as a linear 
+           function. Torque * Speed = Pressure invrease * Volume flow 
+           (without losses).</td> </tr>
+  <tr><td> Examples.PumpAndValve </td>
+      <td> Test example for valves.</td> </tr>
+  <tr><td> Examples.PumpDropOut </td>
+      <td> Drop out of 1 pump to test behavior of semiLinear.</td> </tr>
+  <tr><td> Examples.ParallelPumpDropOut </td>
+      <td> Drop out of 2 parallel pumps to test behavior of semiLinear.</td> </tr>
+  <tr><td> Examples.OneMass </td>
+      <td> Cooling of 1 hot mass to test behavior of semiLinear.</td> </tr>
+  <tr><td> Examples.TwoMass </td>
+      <td> Cooling of 2 hot masses to test behavior of semiLinear.</td> </tr>
 </table> 
 
 <p>
@@ -233,6 +282,27 @@ The following <b>components</b> have been improved:
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2>
+  <tr><td colspan=\"2\"><b>Modelica.Blocks.Interfaces.</b></td></tr>
+  <tr><td> RealInput<br>
+           BooleanInput<br>
+           IntegerInput</td>
+      <td> When dragging one of these connectors the width and height
+           is a factor of 2 larger as a standard icon. Previously,
+           these connectors have been dragged and then manually enlarged
+           by a factor of 2 in the Modelica standard library.</td> </tr>
+  <tr><td colspan=\"2\"><b>Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines. </b></td></tr>
+  <tr><td> SM_PermanentMagnetDamperCage<br>
+           SM_ElectricalExcitedDamperCage<br>
+           SM_ReluctanceRotorDamperCage</td>
+      <td> The user can choose \"DamperCage = false\" (default: true) 
+           to remove all equations for the damper cage from the model.</td> </tr>
+  <tr><td colspan=\"2\"><b>Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines. </b></td></tr>
+  <tr><td> AIM_SlipRing</td>
+      <td> Easier parameterization: if the user selects \"useTrunsRatio = false\" 
+           (default: true, this is the same behavior as before), 
+            parameter TurnsRatio is calculated internally from 
+            Nominal stator voltage and Locked-rotor voltage.</td> </tr>
+
   <tr><td colspan=\"2\"><b>Modelica.Blocks.Tables.</b></td></tr>
   <tr><td>CombiTable1D<br>
           CombiTable1Ds<br>
@@ -254,10 +324,6 @@ The following <b>components</b> have been improved:
   <tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.</b></td></tr>
   <tr><td>all models</td>
       <td> <ul> 
-           <li> All menus have been changed to follow the Modelica 2.2 annotations
-                \"Dialog, group, tab, enable\" (previously, a non-standard Dymola
-                definition for menus was used). Also, the \"enable\" annotation is used in all menus
-                to disable input fields if the input would be ignored.</li>
            <li> All components with animation information have a new variable
                 <b>specularCoefficient</b> to define the reflection of ambient light. 
                 The default value is world.defaultSpecularCoefficient which has
@@ -276,20 +342,40 @@ The following <b>components</b> have been improved:
                 all these variables appear still in parameter menus, but they can
                 be changed during simulation (e.g., color might be used to
                 display the temperature of a part).</li>
+           <li> All menus have been changed to follow the Modelica 2.2 annotations
+                \"Dialog, group, tab, enable\" (previously, a non-standard Dymola
+                definition for menus was used). Also, the \"enable\" annotation 
+                is used in all menus
+                to disable input fields if the input would be ignored.</li>
+           <li> All visual shapes are now defined with conditional declarations
+                (due remove them, if animation is switched off). Previously,
+                these (protected) objects have been defined by arrays with
+                dimension 0 or 1.</li>
            </ul></td></tr>
+  <tr><td>Forces.*</td>
+      <td> The scaling factors N_to_m and Nm_to_m have no longer a default
+           value of 1000 but a default value of world.defaultN_to_m (=1000) 
+           and world.defaultNm_to_m (=1000). This allows to change the
+           scaling factors for all forces and torques in the world
+           object.</td>
   <tr><td>Interfaces.Frame.a<br>
           Interfaces.Frame.b<br>
           Interfaces.Frame_resolve</td>
       <td> The Frame connectors are now centered around the origin to ease
-           the usage. The shape was changed a bit, such that the icon has a 
-           height of 20 when dragged (previously, the height was 10 when dragged
-           and in the MultiBody library it was then manually changed to a height of 15).
-           As a result, it is easy to position it with the standard grid size of 2.
-           The size of the diagram layer is still 10, in order that the connector looks
-           nice when used in a diagram layer. The double line width in the icon layer
-           was changed to single line width in order that the icon looks nicer when
-           used in a component.</td>
-  <tr><td>Types</td>
+           the usage. The shape was changed, such that the icon is a factor
+           of 1.6 larger as a standard icon (previously, the icon had a 
+           standard size when dragged and then the icon was manually enlarged
+           by a factor of 1.5 in the y-direction in the MultiBody library;
+           the height of 16 allows easy positioning on the standard grid size of 2).
+           The double line width of the border in icon and diagram layer was changed
+           to a single line width and when making a connection the connection
+           line is dark grey and no longer black which looks better.</td>
+  <tr><td>Joints.Assemblies.*</td>
+      <td> When dragging an assembly joint, the icon is a factor of 2
+           larger as a standard icon. Icon texts and connectors have a 
+           standard size in this enlarged icon (and are not a factor of 2
+           larger as previously). </td>
+  <tr><td>Types.*</td>
       <td> All types have a corresponding icon now to visualize the content
            in the package browser (previously, the types did not have an icon).</td>
 
@@ -298,6 +384,16 @@ The following <b>components</b> have been improved:
       <td> Depending on the C-implementation, the stream was not correctly closed.
            This has been corrected by adding a \"Streams.close(..)\" 
            after reading the file content.</td> </tr>
+
+  <tr><td colspan=\"2\"><b>Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.</b></td></tr>
+  <tr><td> SimpleFriction</td>
+      <td> Calculates friction losses from pressure drop and volume flow.</td> </tr>
+  <tr><td colspan=\"2\"><b>Modelica.Thermal.FluidHeatFlow.Components.</b></td></tr>
+  <tr><td> IsolatedPipe <br>
+           HeatedPipe</td>
+      <td> Added geodetic height as a source of pressure change;
+           feeds friction losses as calculated by simple friction to  
+           the energy balance of the medium.</td> </tr>
 </table> 
 <p>
 </html>

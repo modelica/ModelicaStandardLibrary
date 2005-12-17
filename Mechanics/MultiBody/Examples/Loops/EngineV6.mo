@@ -66,31 +66,70 @@ An animation of the engine is shown in the figure below.
 </HTML>
 "));
   connect(bearing.frame_b, cylinder1.crank_a) 
-    annotation (points=[-69, 10; -51, 10], style(color=0, thickness=2));
+    annotation (points=[-70,10; -50,10], style(
+      color=10, 
+      rgbcolor={95,95,95}, 
+      thickness=2));
   connect(cylinder1.crank_b, cylinder2.crank_a) 
-    annotation (points=[-29, 10; -21, 10], style(color=0, thickness=2));
+    annotation (points=[-30,10; -20,10], style(
+      color=10, 
+      rgbcolor={95,95,95}, 
+      thickness=2));
   connect(cylinder2.crank_b, cylinder3.crank_a) 
-    annotation (points=[1, 10; 9, 10], style(color=0, thickness=2));
+    annotation (points=[0,10; 10,10], style(
+      color=10, 
+      rgbcolor={95,95,95}, 
+      thickness=2));
   connect(cylinder3.crank_b, cylinder4.crank_a) 
-    annotation (points=[31, 10; 38, 10], style(color=0, thickness=2));
+    annotation (points=[30,10; 39,10], style(
+      color=10, 
+      rgbcolor={95,95,95}, 
+      thickness=2));
   connect(cylinder4.crank_b, cylinder5.crank_a) 
-    annotation (points=[60, 10; 69, 10], style(color=0, thickness=2));
+    annotation (points=[59,10; 70,10], style(
+      color=10, 
+      rgbcolor={95,95,95}, 
+      thickness=2));
   connect(cylinder5.crank_b, cylinder6.crank_a) 
-    annotation (points=[91, 10; 99, 10], style(color=0, thickness=2));
+    annotation (points=[90,10; 100,10], style(
+      color=10, 
+      rgbcolor={95,95,95}, 
+      thickness=2));
   connect(cylinder5.cylinder_b, cylinder6.cylinder_a) 
-    annotation (points=[91, 32; 99, 32], style(color=0, thickness=2));
+    annotation (points=[90,32; 100,32], style(
+      color=10, 
+      rgbcolor={95,95,95}, 
+      thickness=2));
   connect(cylinder4.cylinder_b, cylinder5.cylinder_a) 
-    annotation (points=[60, 32; 69, 32], style(color=0, thickness=2));
+    annotation (points=[59,32; 70,32], style(
+      color=10, 
+      rgbcolor={95,95,95}, 
+      thickness=2));
   connect(cylinder4.cylinder_a, cylinder3.cylinder_b) 
-    annotation (points=[38, 32; 31, 32], style(color=0, thickness=2));
+    annotation (points=[39,32; 30,32], style(
+      color=10, 
+      rgbcolor={95,95,95}, 
+      thickness=2));
   connect(cylinder3.cylinder_a, cylinder2.cylinder_b) 
-    annotation (points=[9, 32; 1, 32], style(color=0, thickness=2));
+    annotation (points=[10,32; 0,32], style(
+      color=10, 
+      rgbcolor={95,95,95}, 
+      thickness=2));
   connect(cylinder2.cylinder_a, cylinder1.cylinder_b) 
-    annotation (points=[-21, 32; -29, 32], style(color=0, thickness=2));
+    annotation (points=[-20,32; -30,32], style(
+      color=10, 
+      rgbcolor={95,95,95}, 
+      thickness=2));
   connect(inertia.flange_b, bearing.axis) 
     annotation (points=[-90, -20; -80, -20; -80, 0], style(color=0));
-  connect(world.frame_b, cylinder1.cylinder_a) annotation (points=[-99, 30; -59,
-         30; -59, 32; -51, 32], style(color=0, thickness=2));
-  connect(world.frame_b, bearing.frame_a) annotation (points=[-99, 30; -96, 30;
-         -96, 10; -91, 10], style(color=0, thickness=2));
+  connect(world.frame_b, cylinder1.cylinder_a) annotation (points=[-100,30; -59,
+        30; -59,32; -50,32], style(
+      color=10, 
+      rgbcolor={95,95,95}, 
+      thickness=2));
+  connect(world.frame_b, bearing.frame_a) annotation (points=[-100,30; -96,30; 
+        -96,10; -90,10], style(
+      color=10, 
+      rgbcolor={95,95,95}, 
+      thickness=2));
 end EngineV6;

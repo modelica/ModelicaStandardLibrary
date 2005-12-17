@@ -66,13 +66,28 @@ ALT=\"model Examples.Elementary.FreeBody\">
     numberOfWindings=5) annotation (extent=[32, -4; 52, 16], rotation=-90);
 equation 
   connect(bar2.frame_a, world.frame_b) 
-    annotation (points=[-1, 30; -39, 30], style(color=0, thickness=2));
-  connect(spring1.frame_b, body.frame_a) annotation (points=[-24, -5; -24, -12;
-         -1, -30], style(color=0, thickness=2));
+    annotation (points=[0,30; -40,30], style(
+      color=10,
+      rgbcolor={95,95,95},
+      thickness=2));
+  connect(spring1.frame_b, body.frame_a) annotation (points=[-24,-4; -24,-30; 0,
+        -30], style(
+      color=10,
+      rgbcolor={95,95,95},
+      thickness=2));
   connect(spring2.frame_b, body.frame_b) 
-    annotation (points=[42, -5; 21, -30], style(color=0, thickness=2));
+    annotation (points=[42,-4; 20,-30], style(
+      color=10,
+      rgbcolor={95,95,95},
+      thickness=2));
   connect(bar2.frame_b, spring2.frame_a) 
-    annotation (points=[21, 30; 42, 30; 42, 17], style(color=0, thickness=2));
-  connect(spring1.frame_a, world.frame_b) annotation (points=[-24, 17; -24, 30;
-         -39, 30], style(color=0, thickness=2));
+    annotation (points=[20,30; 42,30; 42,16], style(
+      color=10,
+      rgbcolor={95,95,95},
+      thickness=2));
+  connect(spring1.frame_a, world.frame_b) annotation (points=[-24,16; -24,30;
+        -40,30], style(
+      color=10,
+      rgbcolor={95,95,95},
+      thickness=2));
 end FreeBody;

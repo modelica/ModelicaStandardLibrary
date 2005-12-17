@@ -54,9 +54,7 @@ and the accompanying <b>disclaimer</b>
 </HTML>"));
   import SI = Modelica.SIunits;
 
-
 extends Modelica.Icons.Library;
-
 
 package UsersGuide "Users Guide" 
   annotation (DocumentationClass=true, Documentation(info="<HTML>
@@ -1266,7 +1264,6 @@ dynamical effects is described in:
   
 end UsersGuide;
 
-
 model World 
   "World coordinate system + gravity field + default animation definition" 
   
@@ -1276,7 +1273,7 @@ model World
   
     Interfaces.Frame_b frame_b 
     "Coordinate system fixed in the origin of the world frame" 
-                               annotation (extent=[80,-20; 120,20]);
+                               annotation (extent=[84,-16; 116,16]);
   
   annotation (
     preferedView="info",
@@ -1484,8 +1481,11 @@ of these axes can be set via parameters.
   parameter Real defaultSpecularCoefficient(min=0) = 0.7 
     "Default reflection of ambient light (= 0: light is completely absorbed)" 
     annotation (Dialog(tab="Defaults"));
-  parameter Real defaultN_to_m(min=0) = 0.7 
-    "Default reflection of ambient light (= 0: light is completely absorbed)" 
+  parameter Real defaultN_to_m(unit="N/m", min=0) = 1000 
+    "Default scaling of force arrows (length = force/defaultN_to_m)" 
+    annotation (Dialog(tab="Defaults"));
+  parameter Real defaultNm_to_m(unit="N.m/m", min=0) = 1000 
+    "Default scaling of torque arrows (length = torque/defaultNm_to_m)" 
     annotation (Dialog(tab="Defaults"));
   
   /* The World object can only use the Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape model, but no

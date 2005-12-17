@@ -75,26 +75,50 @@ for rodLength:
   Modelica.Mechanics.MultiBody.Parts.FixedTranslation b3(r={1.2,0,0}, animation=false) 
     annotation (extent=[-32, -80; -12, -60]);
   Modelica.Mechanics.MultiBody.Visualizers.FixedFrame fixedFrame(color_x={0,0,255}) 
-    annotation (extent=[-20, 60; 0, 80], rotation=90);
+    annotation (extent=[-16,60; 4,80],   rotation=90);
 equation 
   j1_phi = j1.phi;
   j2_s = j2.s;
   j1_w = j1.w;
   j2_v = j2.v;
-  connect(j2.frame_b, b2.frame_a) annotation (points=[33, -70; 50, -70; 50, -61],
-       style(color=0, thickness=2));
-  connect(j1.frame_b, b1.frame_a) annotation (points=[-33, -30; -30, -30; -30,
-        -11], style(color=0, thickness=2));
-  connect(j1.frame_a, world.frame_b) annotation (points=[-55, -30; -59, -30; -59,
-         -70], style(color=0, thickness=2));
-  connect(b1.frame_b, universalSpherical.frame_b) annotation (points=[-30, 11;
-        -30, 28; -21, 28], style(color=0, thickness=2));
+  connect(j2.frame_b, b2.frame_a) annotation (points=[32,-70; 50,-70; 50,-60], 
+      style(
+      color=10, 
+      rgbcolor={95,95,95}, 
+      thickness=2));
+  connect(j1.frame_b, b1.frame_a) annotation (points=[-34,-30; -30,-30; -30,-10], 
+      style(
+      color=10, 
+      rgbcolor={95,95,95}, 
+      thickness=2));
+  connect(j1.frame_a, world.frame_b) annotation (points=[-54,-30; -60,-30; -60,
+        -70], style(
+      color=10, 
+      rgbcolor={95,95,95}, 
+      thickness=2));
+  connect(b1.frame_b, universalSpherical.frame_b) annotation (points=[-30,10; 
+        -30,28; -20,28], style(
+      color=10, 
+      rgbcolor={95,95,95}, 
+      thickness=2));
   connect(universalSpherical.frame_a, b2.frame_b) 
-    annotation (points=[1, 28; 50, 28; 50, -39], style(color=0, thickness=2));
+    annotation (points=[0,28; 50,28; 50,-40], style(
+      color=10, 
+      rgbcolor={95,95,95}, 
+      thickness=2));
   connect(b3.frame_a, world.frame_b) 
-    annotation (points=[-33, -70; -59, -70], style(color=0, thickness=2));
+    annotation (points=[-32,-70; -60,-70], style(
+      color=10, 
+      rgbcolor={95,95,95}, 
+      thickness=2));
   connect(b3.frame_b, j2.frame_a) 
-    annotation (points=[-11, -70; 11, -70], style(color=0, thickness=2));
-  connect(fixedFrame.frame_a, universalSpherical.frame_ia) annotation (points=[
-        -10, 59; -10, 50; -6, 50; -6, 39.05], style(color=0, thickness=2));
+    annotation (points=[-12,-70; 12,-70], style(
+      color=10, 
+      rgbcolor={95,95,95}, 
+      thickness=2));
+  connect(fixedFrame.frame_a, universalSpherical.frame_ia) annotation (points=[-6,60; 
+        -6,38], style(
+      color=10, 
+      rgbcolor={95,95,95}, 
+      thickness=2));
 end Fourbar2;
