@@ -640,8 +640,33 @@ The following <b>components</b> have been improved:
       <td> Added geodetic height as a source of pressure change;
            feeds friction losses as calculated by simple friction to  
            the energy balance of the medium.</td> </tr>
+  <tr><td colspan=\"2\"><b>Modelica.Media.Interfaces.PartialMedium.FluidConstants.</b></td></tr>
+  <tr><td>HCRIT0</td><td>Critical specifc enthalpy of the fundamental
+          equation (base formulation of the fluid medium model). </td></tr>
+  <tr><td>SCRIT0</td><td>Critical specifc entropy of the fundamental
+          equation (base formulation of the fluid medium model). </td></tr>
+  <tr><td>deltah</td><td>Enthalpy offset (default: 0) between the
+          specific enthalpy of the fluid model and the user-visible
+          specific enthalpy in the model: deltah = h_model - h_fundamentalEquation.
+</td></tr>
+  <tr><td>deltas</td><td>Entropy offset (default: 0) between the
+          specific entropy of the fluid model and the user-visible
+          specific entropy in the model: deltas = s_model - s_fundamentalEquation.</td></tr>
+  <tr><td>T_default</td><td>Default value for temperature of medium (for initialization)</td></tr>
+  <tr><td>h_default</td><td>Default value for specific enthalpy of medium (for initialization)</td></tr>
+  <tr><td>p_default</td><td>Default value for pressure of medium (for initialization)</td></tr>
+  <tr><td>X_default</td><td>Default value for mass fractions of medium (for initialization)</td></tr>
 </table> 
 <p>
+The following <b>errors</b> have been fixed:
+</p>
+ 
+<table border=\"1\" cellspacing=0 cellpadding=2>
+  <tr><td colspan=\"2\"> <b>Modelica.Media.IdealGases.Common.SingleGasNasa.dynamicViscosityLowPressure</td></tr>
+<tr><td></td><td> Viscosity and thermal conductivity (which needs viscosity as input) were computed wrong for polar
+gases and gas mixtures (i.e. if dipole moment not 0.0). This has been fixed in version 2.2.1.
+</td> </tr>
+</table>                                 
 </html>
 "));
   end Version_2_2_1;
