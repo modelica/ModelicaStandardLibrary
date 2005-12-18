@@ -2186,10 +2186,12 @@ model MoistAir "Ideal gas flue gas  model"
       "molar mass of gas part of mixture";
   //  Real[4] dddX=Medium.density_derX(medium,MM);
     annotation (Documentation(info="<html>
+<body>
 <p>An example for using ideal gas properties and how to compute isentropic enthalpy changes.
 The function that is implemented is approximate, but usually very good: the second medium record medium2
 is given to compare the approximation.
 </p>
+</body>
 </html>"),
       experiment(Tolerance=1e-005),
       experimentSetupOutput);
@@ -2260,6 +2262,7 @@ end MoistAir;
     end ExtendedProperties;
     
     annotation (Documentation(info="<html>
+<body>
 <h3>Example: TwoPhaseWater</h3>
 The TwoPhaseWater package demonstrates how to extend the parsimonius
 BaseProperties with a minimal set of properties from the standard water
@@ -2309,6 +2312,7 @@ e.g. \"cp_d = heatCapacity_cp(dew)\". <br>
 The same procedure can be used to compute properties at other state
 points, e.g. when an isentropic reference state is computed.<br>
 <br>
+</body>
 </html>
 "));
     model TestTwoPhaseStates "test the above model" 
@@ -2356,10 +2360,12 @@ points, e.g. when an isentropic reference state is computed.<br>
       Real gamma2 = Medium.isothermalCompressibility(medium2.state);
       Medium.SpecificEnthalpy h_is = Medium.isentropicEnthalpyApproximation(2.0e5, medium);
       annotation (Documentation(info="<html>
+<body>
 <p>An example for using ideal gas properties and how to compute isentropic enthalpy changes.
 The function that is implemented is approximate, but usually very good: the second medium record medium2
 is given to compare the approximation.
 </p>
+</body>
 </html>"));
     equation 
       der(medium.p) = 1000.0;
@@ -2395,10 +2401,12 @@ is given to compare the approximation.
       Real MM =  1/sum(state.X[j]/MMx[j] for j in 1:4) "molar mass";
       Real[4] dddX=Medium.density_derX(medium2.state);
       annotation (Documentation(info="<html>
+<body>
 <p>An example for using ideal gas properties and how to compute isentropic enthalpy changes.
 The function that is implemented is approximate, but usually very good: the second medium record medium2
 is given to compare the approximation.
 </p>
+</body>
 </html>"));
     equation 
       der(state.p) = 1000.0;
@@ -3425,9 +3433,14 @@ Modelica source.
       constant SpecificEntropy deltas=0.0 
         "difference between specific enthalpy model (s_m) and f.eq. (s_f) (s_m - s_f)";
       
-      constant Temperature T_default "reference temperature of medium";
+      constant Temperature T_default 
+        "default value for temperature of medium (for initialization)";
       constant SpecificEnthalpy h_default 
-        "reference specific enthalpy of medium";
+        "default value for specific enthalpy of medium (for initialization)";
+      constant AbsolutePressure p_default=reference_p 
+        "default value for pressure of medium (for initialization)";
+      constant MassFraction X_default[nX]=reference_X 
+        "default value for mass fractions of medium (for initialization)";
       
       //  constant String fundamentalEquationSource="none" "source of the fundamental equation model";
       //  constant String criticalDataSource="none" "source for critical data";
