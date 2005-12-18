@@ -19,7 +19,7 @@ equation
       x=0.4,
       y=0.4,
       width=0.6,
-      height=0.6), 
+      height=0.6),
     Documentation(info="<html>
   
 </html>"));

@@ -63,9 +63,9 @@ package Sensors "Sensors to measure variables"
           string="a")),
       Diagram(
         Line(points=[-80,0; -80,80; 0,80; 0,98], style(
-            color=10, 
-            rgbcolor={95,95,95}, 
-            pattern=3, 
+            color=10,
+            rgbcolor={95,95,95},
+            pattern=3,
             thickness=2))),
       Documentation(info="<HTML>
 <p>

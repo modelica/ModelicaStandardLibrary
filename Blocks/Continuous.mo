@@ -690,15 +690,15 @@ part of this controller, the following practical aspects are included:
     assert(yMax >= yMin, "PID: Limits must be consistent");
     connect(u_s, addP.u1) 
       annotation (points=[-120,0; -96,0; -96,56; -82,56]);
-    connect(u_m, addP.u2) annotation (points=[0,-120; 0,-92; -92,-92; -92,44; 
+    connect(u_m, addP.u2) annotation (points=[0,-120; 0,-92; -92,-92; -92,44;
           -82,44],       style(thickness=2));
     connect(u_s, addD.u1) 
       annotation (points=[-120,0; -96,0; -96,6; -82,6]);
-    connect(u_m, addD.u2) annotation (points=[0,-120; 0,-92; -92,-92; -92,-6; 
+    connect(u_m, addD.u2) annotation (points=[0,-120; 0,-92; -92,-92; -92,-6;
           -82,-6; -82,-6],        style(thickness=2));
     connect(u_s, addI.u1) 
       annotation (points=[-120,0; -96,0; -96,-42; -82,-42]);
-    connect(u_m, addI.u2) annotation (points=[0,-120; 0,-92; -92,-92; -92,-50; 
+    connect(u_m, addI.u2) annotation (points=[0,-120; 0,-92; -92,-92; -92,-50;
           -82,-50],        style(thickness=2));
     connect(gainTrack.y, addI.u3) 
       annotation (points=[19,-70; -88,-70; -88,-58; -82,-58]);

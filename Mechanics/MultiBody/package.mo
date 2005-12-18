@@ -52,9 +52,11 @@ and the accompanying <b>disclaimer</b>
 <a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a>.</i>
 </p><br>
 </HTML>"));
-  import SI = Modelica.SIunits;
+import SI = Modelica.SIunits;
+
 
 extends Modelica.Icons.Library;
+
 
 package UsersGuide "Users Guide" 
   annotation (DocumentationClass=true, Documentation(info="<HTML>
@@ -1264,12 +1266,13 @@ dynamical effects is described in:
   
 end UsersGuide;
 
+
 model World 
   "World coordinate system + gravity field + default animation definition" 
   
-    import SI = Modelica.SIunits;
-    import Modelica.Mechanics.MultiBody.Types.GravityTypes;
-    import Modelica.Mechanics.MultiBody.Types;
+  import SI = Modelica.SIunits;
+  import Modelica.Mechanics.MultiBody.Types.GravityTypes;
+  import Modelica.Mechanics.MultiBody.Types;
   
     Interfaces.Frame_b frame_b 
     "Coordinate system fixed in the origin of the world frame" 
@@ -1662,7 +1665,6 @@ protected
       r*r))*(r/Frames.length(r)) else zeros(3);
   end gravityAccelerationTypes;
 equation 
-  
   defineRoot(frame_b.R);
   
   assert(Frames.length(n) > 1.e-10,

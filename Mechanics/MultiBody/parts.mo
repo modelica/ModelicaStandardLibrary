@@ -1789,7 +1789,7 @@ are forced to be used as states.
     a_0 = der(v_0);
     frame_a.f = m*Frames.resolve2(frame_a.R, a_0 - world.gravityAcceleration(frame_a.r_0));
   end PointMass;
-
+  
   model Mounting1D 
     "Propagate 1-dim. support torque to 3-dim. system (provided world.driveTrainMechanics3D=true; default=false)" 
     parameter Modelica.SIunits.Angle phi0=0 "Fixed offset angle of housing";

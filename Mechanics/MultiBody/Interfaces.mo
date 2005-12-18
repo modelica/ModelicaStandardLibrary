@@ -53,8 +53,8 @@ different icons.
        component=[20, 20],
        scale=0.16),
      Icon(Rectangle(extent=[-10,10; 10,-10], style(
-            color=10, 
-            rgbcolor={95,95,95}, 
+            color=10,
+            rgbcolor={95,95,95},
             thickness=2)),
         Rectangle(extent=[-30,100; 30,-100], style(
          color=0,
@@ -151,11 +151,11 @@ and the cut-torque is acting. This component has a non-filled rectangular icon.
           string="%name",
           style(color=0)),
               Rectangle(extent=[-12,40; 12,-40], style(
-            color=10, 
-            rgbcolor={95,95,95}, 
-            pattern=3, 
-            thickness=2, 
-            fillColor=7, 
+            color=10,
+            rgbcolor={95,95,95},
+            pattern=3,
+            thickness=2,
+            fillColor=7,
             rgbfillColor={255,255,255}))),
       Window(
         x=0.21,
@@ -664,9 +664,9 @@ with the blocks of package Modelica.Blocks.
         Line(points=[70, 0; 100, 0], style(color=0)),
         Line(points=[-80, -100; -80, 0]),
         Line(points=[80,0; 80,-100], style(
-            color=10, 
-            rgbcolor={95,95,95}, 
-            pattern=3, 
+            color=10,
+            rgbcolor={95,95,95},
+            pattern=3,
             thickness=2))));
     
   protected 

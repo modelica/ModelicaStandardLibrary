@@ -1,6 +1,5 @@
-package Thermal "Components for thermal systems"
+package Thermal "Library to model thermal systems (heat transfer, simple thermo-fluid pipe flow)"
   extends Modelica.Icons.Library;
-
 
 annotation (Documentation(info="<html>
 <p>

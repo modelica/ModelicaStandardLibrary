@@ -17,7 +17,7 @@ model Transistor
       x=0.25,
       y=0.24,
       width=0.6,
-      height=0.6), 
+      height=0.6),
     Documentation(info="<html>
   
 </html>"));

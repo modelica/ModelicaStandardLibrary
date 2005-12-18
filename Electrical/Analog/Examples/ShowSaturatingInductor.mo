@@ -13,7 +13,7 @@ model ShowSaturatingInductor
   annotation (
     Diagram,
     experiment(StopTime=6.2832, Interval=0.01),
-    experimentSetupOutput(doublePrecision=true), 
+    experimentSetupOutput(doublePrecision=true),
     Documentation(info="<html>
   
 </html>"));

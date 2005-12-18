@@ -60,7 +60,7 @@ defined as outputs (e.g. useful for inverse model generation).
 </HTML>
 "),       Icon(Text(
               extent=[-95,50; 95,-50],
-              string="=", 
+              string="=",
           style(color=74, rgbcolor={0,0,127}))));
         Blocks.Interfaces.RealInput u1 "Connector of first Real input signal" 
           annotation (extent=[-139.742, -19.0044; -100, 20], layer="icon");

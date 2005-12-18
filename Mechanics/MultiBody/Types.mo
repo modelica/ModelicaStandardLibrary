@@ -200,7 +200,7 @@ variable <b>extra</b> is used as instance name:
           choice=Modelica.Mechanics.MultiBody.Types.RotationTypes.TwoAxesVectors 
             "Two axes vectors",
           choice=Modelica.Mechanics.MultiBody.Types.RotationTypes.PlanarRotationSequence 
-            "Planar rotation sequence"), 
+            "Planar rotation sequence"),
         Documentation(info="<html>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><b>Types.RotationTypes.</b></th><th><b>Meaning</b></th></tr>

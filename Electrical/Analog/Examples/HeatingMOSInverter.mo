@@ -102,12 +102,12 @@ H_PMOS.heatPort.Q_flow and H_NMOS.heatPort.Q_flow<br>
                                          annotation (points=[20,-80; 40,-80; 40,
         -60; 60,-60],              style(color=42));
   connect(TC1.port_a, H_PMOS.heatPort) 
-                                     annotation (points=[0,-40; -10,-40; -10,40; 
+                                     annotation (points=[0,-40; -10,-40; -10,40;
         -30,40],               style(color=42));
   connect(TC2.port_a, H_NMOS.heatPort) 
   annotation (points=[0,-80; -30,-80; -30,0],     style(color=42));
   connect(TC3.port_b, FixedTemperature1.port) 
-                                            annotation(points=[66,-30; 70,-30; 
+                                            annotation(points=[66,-30; 70,-30;
         70,-28; 78,-28],    style(color=42, rgbcolor={191,0,0}));
   connect(TC3.port_a, HeatCapacitor1.port) 
                                          annotation(points=[46,-30; 52,-30; 52,

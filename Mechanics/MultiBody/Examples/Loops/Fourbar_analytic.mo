@@ -61,34 +61,34 @@ equation
   j2_s = jointSSP.prismatic.distance;
   j1_w = j1.w;
   j2_v = der(jointSSP.prismatic.distance);
-  connect(j1.frame_b, b1.frame_a) annotation (points=[-34,-30; -30,-30; -30,-18], 
+  connect(j1.frame_b, b1.frame_a) annotation (points=[-34,-30; -30,-30; -30,-18],
       style(
-      color=10, 
-      rgbcolor={95,95,95}, 
+      color=10,
+      rgbcolor={95,95,95},
       thickness=2));
   connect(j1.frame_a, world.frame_b) annotation (points=[-54,-30; -60,-30; -60,
         -50], style(
-      color=10, 
-      rgbcolor={95,95,95}, 
+      color=10,
+      rgbcolor={95,95,95},
       thickness=2));
   connect(b3.frame_a, world.frame_b) 
     annotation (points=[-32,-50; -60,-50], style(
-      color=10, 
-      rgbcolor={95,95,95}, 
+      color=10,
+      rgbcolor={95,95,95},
       thickness=2));
   connect(b1.frame_b, jointSSP.frame_a) annotation (points=[-30,2; -30,20; -20,
         20], style(
-      color=10, 
-      rgbcolor={95,95,95}, 
+      color=10,
+      rgbcolor={95,95,95},
       thickness=2));
   connect(b3.frame_b, jointSSP.frame_b) annotation (points=[-12,-50; 30,-50; 30,
         20; 20,20], style(
-      color=10, 
-      rgbcolor={95,95,95}, 
+      color=10,
+      rgbcolor={95,95,95},
       thickness=2));
   connect(b2.frame_a, jointSSP.frame_ib) annotation (points=[50,20; 50,48; 16,
         48; 16,40], style(
-      color=10, 
-      rgbcolor={95,95,95}, 
+      color=10,
+      rgbcolor={95,95,95},
       thickness=2));
 end Fourbar_analytic;

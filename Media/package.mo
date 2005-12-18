@@ -2577,7 +2577,7 @@ Modelica.Media.Examples.Tests.MediaTestModels.
              Icon(Ellipse(extent=[-100, 100; 100, -100], style(color=69,
                   fillColor=69)), Ellipse(extent=[-100, 100; 100, -100], style(color=16,
                   fillColor=69)), Ellipse(extent=[-80, 80; 80, -80], style(color=69,
-                   fillColor=7))), 
+                   fillColor=7))),
           Documentation(info="<html> 
   
 </html>"));
@@ -2737,7 +2737,7 @@ transport.
             y=0.01,
             width=0.44,
             height=0.65),
-          Diagram, 
+          Diagram,
           Documentation(info="<html>
     
 </html>"));

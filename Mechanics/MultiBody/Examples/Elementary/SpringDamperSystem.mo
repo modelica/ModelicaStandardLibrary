@@ -124,7 +124,7 @@ equation
       color=10,
       rgbcolor={95,95,95},
       thickness=2));
-  connect(spring1.frame_b, body1.frame_a) annotation (points=[-6,-20; -6,-28; 
+  connect(spring1.frame_b, body1.frame_a) annotation (points=[-6,-20; -6,-28;
         -20,-28; -20,-40], style(
       color=10,
       rgbcolor={95,95,95},

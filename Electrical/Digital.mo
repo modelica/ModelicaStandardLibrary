@@ -984,8 +984,8 @@ The simulation stop time has to be 5s.
     
   package Utilities "Utility components used by package Examples" 
     model MUX4 "4 to 1 Bit Multiplexer" 
-      import D = Modelica.Electrical.Digital;
-      import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
+        import D = Modelica.Electrical.Digital;
+        import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       annotation (
         Documentation(info="<HTML>
 </HTML>
@@ -1224,14 +1224,14 @@ The simulation stop time has to be 5s.
             fillColor=51,
             rgbfillColor={255,255,170},
             fillPattern=1));
-        connect(a1, And4.x[1]) annotation (points=[-100,-70; -80,-70; -80,-90; 
+        connect(a1, And4.x[1]) annotation (points=[-100,-70; -80,-70; -80,-90;
               -30,-90; -30,-13.3333; -16,-13.3333], style(
             color=78,
             rgbcolor={127,0,127},
             fillColor=51,
             rgbfillColor={255,255,170},
             fillPattern=1));
-        connect(a1, And3.x[1]) annotation (points=[-100,-70; -80,-70; -80,-90; 
+        connect(a1, And3.x[1]) annotation (points=[-100,-70; -80,-70; -80,-90;
               -30,-90; -30,12.6667; -16,12.6667], style(
             color=78,
             rgbcolor={127,0,127},
@@ -1241,8 +1241,8 @@ The simulation stop time has to be 5s.
     end MUX4;
       
     model RS "Unclocked RS FlipFlop" 
-      import D = Modelica.Electrical.Digital;
-      import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
+        import D = Modelica.Electrical.Digital;
+        import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       annotation (
         Documentation(info="<HTML>
 </HTML>
@@ -1357,8 +1357,8 @@ The simulation stop time has to be 5s.
     end RS;
       
     model RSFF "Unclocked RS FlipFlop" 
-      import D = Modelica.Electrical.Digital;
-      import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
+        import D = Modelica.Electrical.Digital;
+        import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       annotation (
         Documentation(info="<HTML>
 </HTML>
@@ -1508,8 +1508,8 @@ The simulation stop time has to be 5s.
     end RSFF;
       
     model DFF "D FlipFlop" 
-      import D = Modelica.Electrical.Digital;
-      import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
+        import D = Modelica.Electrical.Digital;
+        import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       annotation (
         Documentation(info="<HTML>
 </HTML>
@@ -1636,8 +1636,8 @@ The simulation stop time has to be 5s.
     end DFF;
       
     model JKFF "JK FlipFlop" 
-      import D = Modelica.Electrical.Digital;
-      import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
+        import D = Modelica.Electrical.Digital;
+        import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       annotation (
         Documentation(info="<HTML>
 </HTML>
@@ -1738,9 +1738,9 @@ The simulation stop time has to be 5s.
                 78, rgbcolor={127,0,127}));
         connect(And1.y, RS2.s) annotation (points=[-50,14; -44,14], style(color=
                78, rgbcolor={127,0,127}));
-        connect(clk, And2.x[3]) annotation (points=[-100,0; -74,0; -74,-8.66667; 
+        connect(clk, And2.x[3]) annotation (points=[-100,0; -74,0; -74,-8.66667;
               -66,-8.66667], style(color=78, rgbcolor={127,0,127}));
-        connect(clk, And1.x[1]) annotation (points=[-100,0; -74,0; -74,8.66667; 
+        connect(clk, And1.x[1]) annotation (points=[-100,0; -74,0; -74,8.66667;
               -66,8.66667], style(color=78, rgbcolor={127,0,127}));
         connect(k, And2.x[2]) annotation (points=[-100,-70; -74,-70; -74,-14;
               -66,-14], style(color=78, rgbcolor={127,0,127}));
@@ -1763,7 +1763,7 @@ The simulation stop time has to be 5s.
         connect(RS1.q, And2.x[1]) annotation (points=[70,10; 80,10; 80,-36; -70,
               -36; -70,-19.3333; -66,-19.3333], style(color=78, rgbcolor={127,0,
                 127}));
-        connect(RS1.qn, And1.x[3]) annotation (points=[70,-18; 86,-18; 86,36; 
+        connect(RS1.qn, And1.x[3]) annotation (points=[70,-18; 86,-18; 86,36;
               -70,36; -70,19.3333; -66,19.3333],     style(color=78, rgbcolor={
                 127,0,127}));
       connect(RS1.qn, q) annotation (points=[70,-18; 86,-18; 86,70; 100,70],
@@ -2070,7 +2070,7 @@ The simulation stop time has to be 5s.
     end FullAdder;
       
     model Adder "Generic N Bit Adder" 
-      import Modelica.Electrical.Digital;
+        import Modelica.Electrical.Digital;
       annotation (
         Documentation(info="<HTML>
   
@@ -2185,8 +2185,8 @@ The simulation stop time has to be 5s.
     end Adder;
       
     model Counter3 "3 Bit Counter" 
-      import D = Modelica.Electrical.Digital;
-      import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
+        import D = Modelica.Electrical.Digital;
+        import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
        annotation (
          Documentation(info="<HTML>
   
@@ -2336,8 +2336,8 @@ The simulation stop time has to be 5s.
     end Counter3;
       
     model Counter "Generic N Bit Counter" 
-      import D = Modelica.Electrical.Digital;
-      import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
+        import D = Modelica.Electrical.Digital;
+        import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       annotation (
         Documentation(info="<HTML>
   
@@ -2460,10 +2460,32 @@ components of the Electrical.Digital library.
   
   package Interfaces "Connectors for Digital electrical components" 
     
-    type Logic = Modelica.Icons.TypeInteger 
+    type Logic = Integer(min=1,max=9) 
       "Signal type in package Digital according to the IEEE 1164 STD_ULOGIC type"
       annotation (Documentation(info="<html>
  
+<p>
+A variable of type Logic is an Integer in the range 1-9.
+The Integer values have the following meaning:
+</p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td><b>Logic value</b></td>
+      <td><b>Integer code</b></td>
+      <td><b>Meaning</b></td>
+  </tr>
+                         
+  <tr><td>'U'</td> <td>1</td> <td>Uninitialized</td></tr>
+  <tr><td>'X'</td> <td>2</td> <td>Forcing Unknown</td></tr>
+  <tr><td>'0'</td> <td>3</td> <td>Forcing 0</td></tr>
+  <tr><td>'1'</td> <td>4</td> <td>Forcing 1</td></tr>
+  <tr><td>'Z'</td> <td>5</td> <td>High Impedance</td></tr>
+  <tr><td>'W'</td> <td>6</td> <td>Weak Unknown</td></tr>
+  <tr><td>'L'</td> <td>7</td> <td>Weak 0</td></tr>
+  <tr><td>'H'</td> <td>8</td> <td>Weak 1</td></tr>
+  <tr><td>'-'</td> <td>9</td> <td>Don't care</td></tr>
+</table>
+
 </html>"));
     
     record LogicValue "Logic values and their coding" 
@@ -2505,7 +2527,7 @@ components of the Electrical.Digital library.
     end LogicValue;
     
     connector DigitalSignal = Logic "Digital port (both input/output possible)"
-      annotation (Icon, Diagram, 
+      annotation (Icon, Diagram,
       Documentation(info="<html>
 
 </html>"));
@@ -2531,7 +2553,7 @@ components of the Electrical.Digital library.
             color=78,
             rgbcolor={127,0,127},
             fillColor=78,
-            rgbfillColor={127,0,127}))), 
+            rgbfillColor={127,0,127}))),
       Documentation(info="<html>
   
 </html>"));
@@ -2567,7 +2589,7 @@ components of the Electrical.Digital library.
               thickness=2,
               fillColor=7,
               rgbfillColor={255,255,255})),
-          Line(points=[50,0; 92,0], style(color=78, rgbcolor={127,0,127}))), 
+          Line(points=[50,0; 92,0], style(color=78, rgbcolor={127,0,127}))),
         Documentation(info="<html>
  
 </html>"));
@@ -2590,7 +2612,7 @@ components of the Electrical.Digital library.
               fillColor=7,
               rgbfillColor={255,255,255})),
           Line(points=[50,0; 90,0], style(color=78, rgbcolor={127,0,127}))),
-          Diagram, 
+          Diagram,
         Documentation(info="<html>
  
 </html>"));

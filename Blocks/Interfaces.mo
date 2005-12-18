@@ -77,7 +77,7 @@ connector RealInput = input RealSignal "'input Real' as connector"
     grid=[1,1],
     component=[20,20],
       scale=0.2),
-  Icon(coordinateSystem(extent=[-200,-200; 200,200]),
+  Icon(coordinateSystem(extent=[-100,-100; 100,100]),
        Polygon(points=[-100,100; 100,0; -100,-100; -100,100], style(
           color=74,
           rgbcolor={0,0,127},
@@ -125,7 +125,7 @@ Connector with one output signal of type Real.
   
 connector BooleanInput = input BooleanSignal "'input Boolean' as connector" 
   annotation (defaultComponentName="u",
-       Icon(coordinateSystem(extent=[-200,-200; 200,200]),
+       Icon(coordinateSystem(extent=[-100,-100; 100,100]),
             Polygon(points=[-100, 100; 100, 0; -100, -100; -100, 100],
          style(color=5, fillColor=5))), Diagram(Polygon(points=[0,50; 100,0;
           0,-50; 0,50],                   style(color=5, fillColor=5)),
@@ -166,7 +166,7 @@ connector IntegerInput = input IntegerSignal "'input Integer' as connector"
     grid=[1,1],
     component=[20,20],
       scale=0.2),
-  Icon(coordinateSystem(extent=[-200,-200; 200,200]),
+  Icon(coordinateSystem(extent=[-100,-100; 100,100]),
        Polygon(points=[-100, 100; 100, 0; -100, -100; -100, 100], style(color=
            45, fillColor=45))),
   Diagram(Polygon(points=[0,50; 100,0; 0,-50; 0,50],                 style(

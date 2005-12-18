@@ -26,7 +26,7 @@ package Sources "Signal source blocks generating Real and Boolean signals"
             color=0,
             fillColor=2,
             fillPattern=1)), Text(extent=[-150,90; 140,50],     string="%name")),
-      Diagram, 
+      Diagram,
       Documentation(info="<html>
  
 </html>"));
@@ -61,7 +61,7 @@ package Sources "Signal source blocks generating Real and Boolean signals"
             color=0,
             fillColor=2,
             fillPattern=1)), Text(extent=[-150,90; 140,50],     string="%name")),
-      Diagram, 
+      Diagram,
       Documentation(info="<html>
  
 </html>"));
@@ -99,7 +99,7 @@ package Sources "Signal source blocks generating Real and Boolean signals"
   Polygon(points=[100,10; 120,0; 100,-10; 100,10],
              style(color=DynamicSelect(5, if y > 0.5 then 2 else 5),
               fillColor=DynamicSelect(7, if y > 0.5 then 2 else 7)))),
-      Diagram, 
+      Diagram,
       Documentation(info="<html>
   
 </html>"));
@@ -262,7 +262,7 @@ usually requires a trimming calculation.
             Text(
               extent=[14, 13; 32, 1],
               string="1",
-              style(color=9))), 
+              style(color=9))),
       Documentation(info="<html>
  
 </html>"));
@@ -316,7 +316,7 @@ usually requires a trimming calculation.
             Text(
               extent=[-101, 8; -81, -12],
               string="k",
-              style(color=9))), 
+              style(color=9))),
       Documentation(info="<html>
  
 </html>"));
@@ -407,7 +407,7 @@ usually requires a trimming calculation.
             Text(
               extent=[-72, 100; -31, 80],
               string="y",
-              style(color=9))), 
+              style(color=9))),
       Documentation(info="<html>
  
 </html>"));
@@ -526,7 +526,7 @@ usually requires a trimming calculation.
             Text(
               extent=[0, -17; 35, -37],
               string="duration",
-              style(color=9))), 
+              style(color=9))),
       Documentation(info="<html>
  
 </html>"));
@@ -621,7 +621,7 @@ usually requires a trimming calculation.
                 color=8,
                 pattern=1,
                 thickness=1,
-                arrow=0))), 
+                arrow=0))),
       Documentation(info="<html>
  
 </html>"));
@@ -731,7 +731,7 @@ usually requires a trimming calculation.
               style(color=9)),
             Line(points=[-50, 0; -50, -40], style(color=8, pattern=2)),
             Line(points=[-50, -54; -50, -72], style(color=8, pattern=2)),
-            Line(points=[-15, -77; -1, -48], style(color=8, pattern=2))), 
+            Line(points=[-15, -77; -1, -48], style(color=8, pattern=2))),
       Documentation(info="<html>
  
 </html>"));
@@ -845,7 +845,7 @@ usually requires a trimming calculation.
               extent=[78, -76; 102, -96],
               string="time",
               style(color=9)),
-            Line(points=[30, 100; 30, -34], style(color=8, pattern=2))), 
+            Line(points=[30, 100; 30, -34], style(color=8, pattern=2))),
       Documentation(info="<html>
  
 </html>"));
@@ -983,7 +983,7 @@ usually requires a trimming calculation.
             Polygon(points=[50, 83; 42, 85; 42, 81; 50, 83], style(
                 color=8,
                 fillColor=8,
-                fillPattern=1))), 
+                fillPattern=1))),
       Documentation(info="<html>
   
 </html>"));
@@ -1109,7 +1109,7 @@ usually requires a trimming calculation.
                 fillColor=8,
                 fillPattern=1)),
             Line(points=[-80, -20; -10, -20; 30, 60; 30, -20; 72, 60; 72, -20],
-                 style(color=0, thickness=2))), 
+                 style(color=0, thickness=2))),
       Documentation(info="<html>
   
 </html>"));
@@ -1286,7 +1286,7 @@ usually requires a trimming calculation.
             Text(
               extent=[16, 70; 45, 60],
               string="falling",
-              style(color=9))), 
+              style(color=9))),
       Documentation(info="<html>
  
 </html>"));

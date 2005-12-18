@@ -260,7 +260,7 @@ package ConstantPropertyLiquidWater
         style(
           color=0,
           fillColor=7,
-          fillPattern=1))), Diagram, 
+          fillPattern=1))), Diagram,
     Documentation(info="<html>
   
 </html>"));

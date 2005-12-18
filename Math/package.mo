@@ -1,9 +1,7 @@
-package Math "Mathematical functions and operations on matrices"
+package Math "Mathematical functions (e.g., sin, cos) and operations on matrices (e.g., norm, solve, eig, exp)"
   import SI = Modelica.SIunits;
 
-
 extends Modelica.Icons.Library2;
-
 
 annotation(preferedView="info",
     Window(
@@ -60,7 +58,6 @@ and the accompanying <b>disclaimer</b>
 </ul>
 
 </html>"));
-
 
 package Matrices "Functions on matrices" 
   
@@ -3142,7 +3139,6 @@ INFO    (output) INTEGER
   
 end Matrices;
 
-
 function sin "sine" 
   extends baseIcon1;
   input SI.Angle u;
@@ -3184,13 +3180,12 @@ function sin "sine"
       Text(
         extent=[92, -2; 112, -22],
         string="u",
-        style(color=9))), 
+        style(color=9))),
     Documentation(info="<html>
  
 </html>"));
 external "C" y = sin(u);
 end sin;
-
 
 function cos "cosine" 
   extends baseIcon1;
@@ -3233,13 +3228,12 @@ function cos "cosine"
       Text(
         extent=[92, -2; 112, -22],
         string="u",
-        style(color=9))), 
+        style(color=9))),
     Documentation(info="<html>
  
 </html>"));
 external "C" y = cos(u);
 end cos;
-
 
 function tan "tangent (u shall not be -pi/2, pi/2, 3*pi/2, ...)" 
   extends baseIcon2;
@@ -3280,13 +3274,12 @@ function tan "tangent (u shall not be -pi/2, pi/2, 3*pi/2, ...)"
       Text(
         extent=[92, -2; 112, -22],
         string="u",
-        style(color=9))), 
+        style(color=9))),
     Documentation(info="<html>
  
 </html>"));
 external "C" y = tan(u);
 end tan;
-
 
 function asin "inverse sine (-1 <= u <= 1)" 
   extends baseIcon2;
@@ -3326,13 +3319,12 @@ function asin "inverse sine (-1 <= u <= 1)"
       Text(
         extent=[92, -2; 112, -22],
         string="u",
-        style(color=9))), 
+        style(color=9))),
     Documentation(info="<html>
  
 </html>"));
 external "C" y = asin(u);
 end asin;
-
 
 function acos "inverse cosine (-1 <= u <= 1)" 
   extends baseIcon2;
@@ -3372,13 +3364,12 @@ function acos "inverse cosine (-1 <= u <= 1)"
       Text(
         extent=[90, -82; 110, -102],
         string="u",
-        style(color=9))), 
+        style(color=9))),
     Documentation(info="<html>
   
 </html>"));
 external "C" y = acos(u);
 end acos;
-
 
 function atan "inverse tangent" 
   extends baseIcon2;
@@ -3420,13 +3411,12 @@ function atan "inverse tangent"
       Text(
         extent=[92, -2; 112, -22],
         string="u",
-        style(color=9))), 
+        style(color=9))),
     Documentation(info="<html>
   
 </html>"));
 external "C" y = atan(u);
 end atan;
-
 
 function atan2 "four quadrant inverse tangent" 
   extends baseIcon2;
@@ -3487,7 +3477,6 @@ u1 is not zero.
 external "C" y = atan2(u1, u2);
 end atan2;
 
-
 function sinh "hyperbolic sine" 
   extends baseIcon2;
   input Real u;
@@ -3528,13 +3517,12 @@ function sinh "hyperbolic sine"
       Text(
         extent=[92, -2; 112, -22],
         string="u",
-        style(color=9))), 
+        style(color=9))),
     Documentation(info="<html>
   
 </html>"));
 external "C" y = sinh(u);
 end sinh;
-
 
 function cosh "hyperbolic cosine" 
   extends baseIcon2;
@@ -3580,14 +3568,13 @@ function cosh "hyperbolic cosine"
       Text(
         extent=[90, -88; 110, -108],
         string="u",
-        style(color=9))), 
+        style(color=9))),
     Documentation(info="<html>
   
 </html>
 "));
 external "C" y = cosh(u);
 end cosh;
-
 
 function tanh "hyperbolic tangent" 
   extends baseIcon2;
@@ -3629,13 +3616,12 @@ function tanh "hyperbolic tangent"
       Text(
         extent=[92, -2; 112, -22],
         string="u",
-        style(color=9))), 
+        style(color=9))),
     Documentation(info="<html>
    
 </html>"));
 external "C" y = tanh(u);
 end tanh;
-
 
 function exp "exponential, base e" 
   extends baseIcon2;
@@ -3680,7 +3666,6 @@ function exp "exponential, base e"
 external "C" y = exp(u);
 end exp;
 
-
 function log "natural (base e) logarithm (u shall be > 0)" 
   extends baseIcon1;
   input Real u;
@@ -3721,13 +3706,12 @@ function log "natural (base e) logarithm (u shall be > 0)"
       Text(
         extent=[92, -2; 112, -22],
         string="u",
-        style(color=9))), 
+        style(color=9))),
     Documentation(info="<html>
     
 </html>"));
 external "C" y = log(u);
 end log;
-
 
 function log10 "base 10 logarithm (u shall be > 0)" 
   extends baseIcon1;
@@ -3769,13 +3753,12 @@ function log10 "base 10 logarithm (u shall be > 0)"
       Text(
         extent=[92, -2; 112, -22],
         string="u",
-        style(color=9))), 
+        style(color=9))),
     Documentation(info="<html>
   
 </html>"));
 external "C" y = log10(u);
 end log10;
-
 
 partial function baseIcon1 
   "Basic icon for mathematical function with y-axis on left side" 
@@ -3797,7 +3780,6 @@ partial function baseIcon1
             fillColor=8))));
 end baseIcon1;
 
-
 partial function baseIcon2 
   "Basic icon for mathematical function with y-axis in middle" 
   
@@ -3816,7 +3798,6 @@ partial function baseIcon2
       Polygon(points=[0, 100; -6, 84; 6, 84; 0, 100], style(color=8, fillColor=
               8))));
 end baseIcon2;
-
 
 function tempInterpol1 
   "temporary routine for linear interpolation (will be removed)" 
@@ -3873,7 +3854,6 @@ algorithm
   
 </html>"));
 end tempInterpol1;
-
 
 function tempInterpol2 
   "temporary routine for vectorized linear interpolation (will be removed)" 

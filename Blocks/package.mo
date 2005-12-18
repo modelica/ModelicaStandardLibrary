@@ -1,9 +1,7 @@
-package Blocks "Library for basic input/output control blocks"
+package Blocks "Library for basic input/output control blocks (continuous, discrete, logical, table blocks)"
   import SI = Modelica.SIunits;
 
-
 extends Modelica.Icons.Library2;
-
 
 annotation(preferedView="info",
   Window(
@@ -94,7 +92,6 @@ and the accompanying <b>disclaimer</b>
 </ul>
 </html>"));
 
-
 package Examples "Demonstration examples of the components of this package" 
   
   extends Icons.Library;
@@ -152,10 +149,10 @@ package Examples "Demonstration examples of the components of this package"
     end LogicalNetwork1;
   
   encapsulated model BusUsage "Demonstration of signal bus usage" 
-      import Modelica.Icons;
-      import Modelica.Blocks.Interfaces.Adaptors;
-      import Modelica.Blocks.Sources;
-      import Modelica;
+    import Modelica.Icons;
+    import Modelica.Blocks.Interfaces.Adaptors;
+    import Modelica.Blocks.Sources;
+    import Modelica;
     
     extends Icons.Example;
     
@@ -269,8 +266,8 @@ block.
       end MultiPort;
       
       connector Bus "Signal bus" 
-          import SI = Modelica.SIunits;
-          import Modelica.Blocks.Interfaces.*;
+        import SI = Modelica.SIunits;
+        import Modelica.Blocks.Interfaces.*;
         
         RealSignal realSignal1(redeclare type SignalType = SI.AngularVelocity) 
           "First Real signal (angular velocity)";
@@ -302,7 +299,7 @@ block.
     end Interfaces;
     
     encapsulated model Part "Component with MultiPort connector" 
-        import Modelica.Blocks.Examples;
+      import Modelica.Blocks.Examples;
       
       Examples.BusUsage.Interfaces.MultiPort multiSignal annotation (extent=[
             100, -10; 120, 10]);
@@ -320,7 +317,7 @@ block.
     encapsulated model RestBus 
       "Set default values for bus variables that are not defined elsewhere" 
       
-        import Modelica.Blocks.Examples;
+      import Modelica.Blocks.Examples;
       
       parameter Boolean set_realSignal1=false 
         "Set dummy value for desiredThrottle";

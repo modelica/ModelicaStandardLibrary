@@ -34,7 +34,7 @@ MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling</a>.
     Diagram,
     Coordsys(grid=[1, 1], component=[20, 20]));
   
-  inner Modelica.Mechanics.MultiBody.World world annotation (extent=[-86,-60; 
+  inner Modelica.Mechanics.MultiBody.World world annotation (extent=[-86,-60;
         -66,-40]);
   Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRR jointRRR1(
     rRod1_ia=r1a,
@@ -78,72 +78,72 @@ MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling</a>.
 equation 
   connect(world.frame_b, rev.frame_a) annotation (points=[-66,-50; -56,-50; -56,
         -20], style(
-      color=10, 
-      rgbcolor={95,95,95}, 
+      color=10,
+      rgbcolor={95,95,95},
       thickness=2));
   connect(rod1.frame_a, rev.frame_b) 
     annotation (points=[-56,20; -56,0],   style(color=0, thickness=2));
-  connect(rod1.frame_b, jointRRR1.frame_a) annotation (points=[-56,40; -56,50; 
+  connect(rod1.frame_b, jointRRR1.frame_a) annotation (points=[-56,40; -56,50;
         -20,50; -20,20], style(
-      color=10, 
-      rgbcolor={95,95,95}, 
+      color=10,
+      rgbcolor={95,95,95},
       thickness=2));
   connect(rod2.frame_a, world.frame_b) 
     annotation (points=[-50,-50; -66,-50], style(
-      color=10, 
-      rgbcolor={95,95,95}, 
+      color=10,
+      rgbcolor={95,95,95},
       thickness=2));
-  connect(rod2.frame_b, jointRRR1.frame_b) annotation (points=[-30,-50; -20,-50; 
+  connect(rod2.frame_b, jointRRR1.frame_b) annotation (points=[-30,-50; -20,-50;
         -20,-20], style(
-      color=10, 
-      rgbcolor={95,95,95}, 
+      color=10,
+      rgbcolor={95,95,95},
       thickness=2));
   connect(jointRRR1.frame_ia, body1.frame_a) annotation (points=[0,16; 6,16; 6,
         50], style(
-      color=10, 
-      rgbcolor={95,95,95}, 
+      color=10,
+      rgbcolor={95,95,95},
       thickness=2));
   connect(position.flange_b, rev.axis) 
     annotation (points=[-70,-10; -66,-10],   style(color=0));
   connect(rod3.frame_a, rod2.frame_b) 
     annotation (points=[0,-50; -30,-50], style(
-      color=10, 
-      rgbcolor={95,95,95}, 
+      color=10,
+      rgbcolor={95,95,95},
       thickness=2));
-  connect(rod3.frame_b, jointRRR2.frame_b) annotation (points=[20,-50; 30,-50; 
+  connect(rod3.frame_b, jointRRR2.frame_b) annotation (points=[20,-50; 30,-50;
         30,-20], style(
-      color=10, 
-      rgbcolor={95,95,95}, 
+      color=10,
+      rgbcolor={95,95,95},
       thickness=2));
-  connect(jointRRR2.frame_ia, body2.frame_a) annotation (points=[50,16; 55,16; 
+  connect(jointRRR2.frame_ia, body2.frame_a) annotation (points=[50,16; 55,16;
         55,51], style(
-      color=10, 
-      rgbcolor={95,95,95}, 
+      color=10,
+      rgbcolor={95,95,95},
       thickness=2));
   connect(jointRRR1.frame_im, jointRRR2.frame_a) annotation (points=[0,
         1.22461e-015; 12,1.22461e-015; 12,25; 30,25; 30,20], style(
-      color=10, 
-      rgbcolor={95,95,95}, 
+      color=10,
+      rgbcolor={95,95,95},
       thickness=2));
   connect(rod3.frame_b, rod4.frame_a) 
     annotation (points=[20,-50; 40,-50], style(
-      color=10, 
-      rgbcolor={95,95,95}, 
+      color=10,
+      rgbcolor={95,95,95},
       thickness=2));
-  connect(rod4.frame_b, jointRRR3.frame_b) annotation (points=[60,-50; 80,-50; 
+  connect(rod4.frame_b, jointRRR3.frame_b) annotation (points=[60,-50; 80,-50;
         80,-20], style(
-      color=10, 
-      rgbcolor={95,95,95}, 
+      color=10,
+      rgbcolor={95,95,95},
       thickness=2));
   connect(jointRRR2.frame_im, jointRRR3.frame_a) annotation (points=[50,
         1.22461e-015; 60,1.22461e-015; 60,26; 80,26; 80,20], style(
-      color=10, 
-      rgbcolor={95,95,95}, 
+      color=10,
+      rgbcolor={95,95,95},
       thickness=2));
-  connect(jointRRR3.frame_ia, body3.frame_a) annotation (points=[100,16; 108,16; 
+  connect(jointRRR3.frame_ia, body3.frame_a) annotation (points=[100,16; 108,16;
         108,52], style(
-      color=10, 
-      rgbcolor={95,95,95}, 
+      color=10,
+      rgbcolor={95,95,95},
       thickness=2));
   connect(sine.y, position.phi_ref) annotation(points=[-96,19; -96,-10; -92,-10],
       style(color=3, rgbcolor={0,0,255}));

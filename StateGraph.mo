@@ -751,7 +751,7 @@ package Examples
     annotation (structurallyIncomplete,
       Diagram,
       experiment(StopTime=5),
-      experimentSetupOutput, 
+      experimentSetupOutput,
         Documentation(info="<html>
   
 </html>"));
@@ -784,7 +784,7 @@ package Examples
     annotation (structurallyIncomplete,
       Diagram,
       experiment(StopTime=5),
-      experimentSetupOutput, 
+      experimentSetupOutput,
         Documentation(info="<html>
   
 </html>"));
@@ -824,7 +824,7 @@ package Examples
     annotation (structurallyIncomplete,
       Diagram,
       experiment(StopTime=5),
-      experimentSetupOutput, 
+      experimentSetupOutput,
         Documentation(info="<html>
   
 </html>"));
@@ -936,18 +936,18 @@ has a higher priority to fire as alternative.split[2]).
         fillColor=7,
         rgbfillColor={255,255,255},
         fillPattern=1));
-    connect(transition3.inPort, alternative.split[1])  annotation(points=[-36,90; 
+    connect(transition3.inPort, alternative.split[1])  annotation(points=[-36,90;
             -55.09,90],                        style(color=0, rgbcolor={0,0,0}));
-    connect(transition4.inPort, alternative.split[2])  annotation(points=[-36,50; 
+    connect(transition4.inPort, alternative.split[2])  annotation(points=[-36,50;
             -55.09,50],                  style(color=0, rgbcolor={0,0,0}));
-    connect(transition4a.inPort, alternative.split[3])  annotation(points=[-36,10; 
+    connect(transition4a.inPort, alternative.split[3])  annotation(points=[-36,10;
             -45.0125,10; -45.0125,10; -55.09,10],  style(color=0, rgbcolor={0,0,0}));
-    connect(transition5.outPort, alternative.join[1])  annotation(points=[37.5,90; 
+    connect(transition5.outPort, alternative.join[1])  annotation(points=[37.5,90;
             57.09,90],
                style(color=0, rgbcolor={0,0,0}));
-    connect(transition6.outPort, alternative.join[2])  annotation(points=[37.5,50; 
+    connect(transition6.outPort, alternative.join[2])  annotation(points=[37.5,50;
             57.09,50],    style(color=0, rgbcolor={0,0,0}));
-    connect(transition6a.outPort, alternative.join[3])  annotation(points=[37.5,10; 
+    connect(transition6a.outPort, alternative.join[3])  annotation(points=[37.5,10;
             46.7625,10; 46.7625,10; 57.09,10],    style(color=0, rgbcolor={0,0,
             0}));
     connect(step2.outPort[1], alternative.inPort)  annotation(points=[-77.5,50;
@@ -1017,22 +1017,22 @@ is that the alternative paths are included in a \"CompositeStep\".
         color=0,
         fillColor=7,
         fillPattern=1));
-    connect(transition1.outPort, Parallel1.inPort) annotation(points=[-47.5,0; 
+    connect(transition1.outPort, Parallel1.inPort) annotation(points=[-47.5,0;
             -30.99,0],               style(color=0, rgbcolor={0,0,0}));
-    connect(Parallel1.outPort, transition2.inPort) annotation(points=[36.66,0; 
+    connect(Parallel1.outPort, transition2.inPort) annotation(points=[36.66,0;
             51,0],               style(color=0, rgbcolor={0,0,0}));
     connect(compositeStep.inPort, Parallel1.split[1]) 
-                                                 annotation(points=[-11,20; 
+                                                 annotation(points=[-11,20;
             -22.575,20],
                        style(color=0, rgbcolor={0,0,0}));
     connect(compositeStep.outPort, Parallel1.join[1]) 
-                                                 annotation(points=[20.5,20; 
+                                                 annotation(points=[20.5,20;
             28.575,20],
                       style(color=0, rgbcolor={0,0,0}));
-    connect(step1.inPort[1], Parallel1.split[2]) annotation(points=[-5,-20; 
+    connect(step1.inPort[1], Parallel1.split[2]) annotation(points=[-5,-20;
             -22.575,-20],
                         style(color=0, rgbcolor={0,0,0}));
-    connect(step1.outPort[1], Parallel1.join[2]) annotation(points=[16.5,-20; 
+    connect(step1.outPort[1], Parallel1.join[2]) annotation(points=[16.5,-20;
             28.575,-20],
                        style(color=0, rgbcolor={0,0,0}));
     connect(setCondition.y, transition7.condition) annotation(points=[-8.5,-80;
@@ -1362,7 +1362,7 @@ buttons:
       connect(setValve2.y, valve2) 
         annotation (points=[85.25,-78.5; 90,-78.5; 90,0; 105,0],
                                                               style(color=5));
-      connect(setValve3.y, valve3) annotation (points=[85.3,-90; 95,-90; 95,-60; 
+      connect(setValve3.y, valve3) annotation (points=[85.3,-90; 95,-90; 95,-60;
               105,-60], style(color=5));
       connect(makeProduct.suspend[1], T3.inPort) 
                                               annotation (points=[-13,24.5; -13,
@@ -1745,7 +1745,7 @@ package Interfaces "Connectors and partial models"
           extent=[-141,100; 100,60],
           string="%name",
           style(color=0))),
-      Coordsys(grid=[1,1], component=[20,20]), 
+      Coordsys(grid=[1,1], component=[20,20]),
         Documentation(info="<html>
  
 </html>"));
@@ -1765,7 +1765,7 @@ package Interfaces "Connectors and partial models"
           extent=[-100,100; 146,60],
           string="%name",
           style(color=0))),
-      Coordsys(grid=[1,1], component=[20,20]), 
+      Coordsys(grid=[1,1], component=[20,20]),
         Documentation(info="<html>
  
 </html>"));
@@ -1785,7 +1785,7 @@ package Interfaces "Connectors and partial models"
           extent=[-141,100; 100,60],
           string="%name",
           style(color=0))),
-      Coordsys(grid=[1,1], component=[20,20]), 
+      Coordsys(grid=[1,1], component=[20,20]),
         Documentation(info="<html>
  
 </html>"));
@@ -1805,7 +1805,7 @@ package Interfaces "Connectors and partial models"
           string="%name",
           style(color=0)), Rectangle(extent=[-100,50; 0,-50],   style(color=0,
               fillColor=7))),
-      Coordsys(grid=[1,1], component=[20,20]), 
+      Coordsys(grid=[1,1], component=[20,20]),
         Documentation(info="<html>
  
 </html>"));
@@ -1821,7 +1821,7 @@ package Interfaces "Connectors and partial models"
             style(
             color=7,
             rgbcolor={255,255,255},
-            pattern=0))), 
+            pattern=0))),
         Documentation(info="<html>
   
 </html>"));
@@ -1841,7 +1841,7 @@ package Interfaces "Connectors and partial models"
             style(
             color=7,
             rgbcolor={255,255,255},
-            pattern=0))), 
+            pattern=0))),
         Documentation(info="<html>
   
 </html>"));
@@ -2027,7 +2027,7 @@ to more than one transition");
     
   partial block PartialStateGraphIcon "Icon for a StateGraph object" 
     annotation (Icon(Rectangle(extent=[-100, 100; 100, -100], style(color=0,
-              fillColor=7)), Text(extent=[160, 110; -160, 150], string="%name")), 
+              fillColor=7)), Text(extent=[160, 110; -160, 150], string="%name")),
           Documentation(info="<html>
  
 </html>"));
@@ -2044,7 +2044,7 @@ to more than one transition");
     annotation (
       defaultComponentName="stateGraphRoot",
       defaultComponentPrefixes="inner",
-      missingInnerMessage="A \"stateGraphRoot\" component was automatically introduced.", 
+      missingInnerMessage="A \"stateGraphRoot\" component was automatically introduced.",
         Documentation(info="<html>
  
 </html>"));
@@ -2090,7 +2090,7 @@ block InitialStep "Initial step (= step that is active when simulation starts)"
               DynamicSelect(7, if active > 0.5 then 2 else 7))),
       Rectangle(extent=[-80, 80; 80, -80], style(color=0))),
     Diagram(Rectangle(extent=[-100, 100; 100, -100], style(color=0)), Rectangle(
-          extent=[-80, 80; 80, -80], style(color=0))), 
+          extent=[-80, 80; 80, -80], style(color=0))),
       Documentation(info="<html>
   
 </html>"));
@@ -2116,7 +2116,7 @@ block InitialStepWithSignal
         extent=[-92,-50; 94,-68],
         string="active",
         style(color=0)),
-      Rectangle(extent=[-80,80; 80,-80],   style(color=0))), 
+      Rectangle(extent=[-80,80; 80,-80],   style(color=0))),
       Documentation(info="<html>
   
 </html>"));
@@ -2148,7 +2148,7 @@ block Step "Ordinary step (= step that is not active when simulation starts)"
         string="%name",
         style(fillColor=7)), Rectangle(extent=[-100, 100; 100, -100], style(
             color=0, fillColor=DynamicSelect(7, if active > 0.5 then 2 else 7)))),
-    Diagram(Rectangle(extent=[-100, 100; 100, -100], style(color=0))), 
+    Diagram(Rectangle(extent=[-100, 100; 100, -100], style(color=0))),
       Documentation(info="<html>
   
 </html>"));
@@ -2172,7 +2172,7 @@ block StepWithSignal
       Text(
         extent=[-92, -74; 94, -92],
         string="active",
-        style(color=0))), 
+        style(color=0))),
       Documentation(info="<html>
   
 </html>"));
@@ -2215,7 +2215,7 @@ block Transition
         string="%condition",
         style(color=DynamicSelect(0, if condition > 0.5 then 2 else 0)))),
     Diagram(Line(points=[-31, 0; -11, 0], style(color=0)), Rectangle(extent=[-10,
-             100; 10, -100], style(color=0, fillColor=0))), 
+             100; 10, -100], style(color=0, fillColor=0))),
       Documentation(info="<html>
   
 </html>"));
@@ -2254,7 +2254,7 @@ block TransitionWithSignal
           fillColor=DynamicSelect(0, if condition > 0.5 then 2 else 0),
           fillPattern=1))),
     Diagram(Line(points=[-31, 0; -11, 0], style(color=0)), Rectangle(extent=[-10,
-             100; 10, -100], style(color=0, fillColor=0))), 
+             100; 10, -100], style(color=0, fillColor=0))),
       Documentation(info="<html>
   
 </html>"));
@@ -2277,7 +2277,7 @@ block Alternative
         Line(points=[80,0; 100,0], style(color=0, rgbcolor={0,0,0}))),
     Diagram(Line(points=[-100,0; -80,0], style(color=0, rgbcolor={0,0,0})),
           Line(points=[80,0; 100,0], style(color=0, rgbcolor={0,0,0}))),
-    Coordsys(grid=[1,1],  component=[20,20]), 
+    Coordsys(grid=[1,1],  component=[20,20]),
       Documentation(info="<html>
   
 </html>"));
@@ -2405,7 +2405,7 @@ block Parallel
           fillColor=7,
           rgbfillColor={255,255,255},
           fillPattern=1))),
-    Coordsys(grid=[1,1],  component=[20,20]), 
+    Coordsys(grid=[1,1],  component=[20,20]),
       Documentation(info="<html>
   
 </html>"));
@@ -2611,7 +2611,7 @@ partial block PartialCompositeStep
         extent=[-146,-115; -5,-130],
         style(color=0),
         string="suspend")),
-    Diagram(Rectangle(extent=[-150,150; 150,-150],   style(color=0))), 
+    Diagram(Rectangle(extent=[-150,150; 150,-150],   style(color=0))),
       Documentation(info="<html>
   
 </html>"));
@@ -2916,7 +2916,7 @@ value, still requires to go in to the text layer.
         Text(
           extent=[-80, -40; 80, 40],
           style(color=0),
-          string="%name")), Diagram, 
+          string="%name")), Diagram,
         Documentation(info="<html>
   
 </html>"));
@@ -2942,7 +2942,7 @@ value, still requires to go in to the text layer.
             fillColor=7,
             fillPattern=13)), Text(extent=[-90, -46; 90, 34], string=
               DynamicState(" ", realString(Value, 1, integer(precision))))),
-        Diagram, 
+        Diagram,
         Documentation(info="<html>
   
 </html>"));
@@ -2965,7 +2965,7 @@ value, still requires to go in to the text layer.
             pattern=0,
             gradient=3,
             fillColor=DynamicSelect(30, if u > 0.5 then 2 else 30))),
-            Text(extent=[-150,150; 150,110],string="%name")),Diagram, 
+            Text(extent=[-150,150; 150,110],string="%name")),Diagram,
         Documentation(info="<html>
   
 </html>"));

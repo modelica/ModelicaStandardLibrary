@@ -24,7 +24,7 @@ model NonlinearResistor "Chua's resistor"
       Line(points=[-50, -60; 50, 60]),
       Polygon(points=[50, 60; 38, 52; 44, 46; 50, 60], style(fillColor=3,
             fillPattern=1)),
-      Text(extent=[-100, 100; 100, 70], string="%name")), 
+      Text(extent=[-100, 100; 100, 70], string="%name")),
     Documentation(info="<html>
   
 </html>"));

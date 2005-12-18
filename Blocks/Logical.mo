@@ -16,7 +16,7 @@ network built with package Logical is shown in the next figure:
     extends Blocks.Interfaces.partialBooleanSI2SO;
     annotation (Icon(Text(extent=[-90,40; 90,-40],
             string="and",
-            style(color=0))), Diagram, 
+            style(color=0))), Diagram,
       Documentation(info="<html>
 
 </html>"));
@@ -28,7 +28,7 @@ network built with package Logical is shown in the next figure:
     extends Blocks.Interfaces.partialBooleanSI2SO;
     annotation (Icon(Text(extent=[-90,40; 90,-40],
             string="or",
-            style(color=0))), Diagram, 
+            style(color=0))), Diagram,
       Documentation(info="<html>
  
 </html>"));
@@ -40,7 +40,7 @@ network built with package Logical is shown in the next figure:
     extends Blocks.Interfaces.partialBooleanSI2SO;
     annotation (Icon(Text(extent=[-90,40; 90,-40],
             string="xor",
-            style(color=0))), Diagram, 
+            style(color=0))), Diagram,
       Documentation(info="<html>
  
 </html>"));
@@ -52,7 +52,7 @@ network built with package Logical is shown in the next figure:
     extends Blocks.Interfaces.partialBooleanSI2SO;
     annotation (Icon(Text(extent=[-90,40; 90,-40],
             string="nor",
-            style(color=0))), Diagram, 
+            style(color=0))), Diagram,
       Documentation(info="<html>
  
 </html>"));
@@ -64,7 +64,7 @@ network built with package Logical is shown in the next figure:
     extends Blocks.Interfaces.partialBooleanSI2SO;
     annotation (Icon(Text(extent=[-90,40; 90,-40],
             string="nand",
-            style(color=0))), Diagram, 
+            style(color=0))), Diagram,
       Documentation(info="<html>
  
 </html>"));
@@ -77,7 +77,7 @@ network built with package Logical is shown in the next figure:
     
     annotation (Icon(Text(extent=[-90,40; 90,-40],
           string="not",
-          style(color=0))), Diagram, 
+          style(color=0))), Diagram,
       Documentation(info="<html>
  
 </html>"));
@@ -94,7 +94,7 @@ network built with package Logical is shown in the next figure:
     
     annotation (Icon(Text(extent=[-90,40; 90,-40],
           string="pre",
-          style(color=0))), Diagram, 
+          style(color=0))), Diagram,
       Documentation(info="<html>
  
 </html>"));
@@ -112,7 +112,7 @@ network built with package Logical is shown in the next figure:
     
     annotation (Icon(Text(extent=[-90,40; 90,-40],
           string="edge",
-          style(color=0))), Diagram, 
+          style(color=0))), Diagram,
       Documentation(info="<html>
  
 </html>"));
@@ -131,7 +131,7 @@ network built with package Logical is shown in the next figure:
     
     annotation (Icon(Text(extent=[-90,40; 90,-40],
           string="falling",
-          style(color=0))), Diagram, 
+          style(color=0))), Diagram,
       Documentation(info="<html>
  
 </html>"));
@@ -152,7 +152,7 @@ network built with package Logical is shown in the next figure:
     
     annotation (Icon(Text(extent=[-90,40; 90,-40],
           style(color=0),
-          string="change")),Diagram, 
+          string="change")),Diagram,
       Documentation(info="<html>
  
 </html>"));
@@ -168,7 +168,7 @@ network built with package Logical is shown in the next figure:
     annotation (Icon(Text(
           extent=[-90,-40; 60,40],
           style(color=0),
-          string=">")), Diagram, 
+          string=">")), Diagram,
       Documentation(info="<html>
  
 </html>"));
@@ -183,7 +183,7 @@ network built with package Logical is shown in the next figure:
     annotation (Icon(Text(
           extent=[-90,-40; 60,40],
           style(color=0),
-          string=">=")),    Diagram, 
+          string=">=")),    Diagram,
       Documentation(info="<html>
  
 </html>"));
@@ -197,7 +197,7 @@ network built with package Logical is shown in the next figure:
     annotation (Icon(Text(
           extent=[-90,-40; 60,40],
           style(color=0),
-          string="<")),     Diagram, 
+          string="<")),     Diagram,
       Documentation(info="<html>
  
 </html>"));
@@ -211,7 +211,7 @@ network built with package Logical is shown in the next figure:
     annotation (Icon(Text(
           extent=[-90,-40; 60,40],
           style(color=0),
-          string="<=")),    Diagram, 
+          string="<=")),    Diagram,
       Documentation(info="<html>
  
 </html>"));

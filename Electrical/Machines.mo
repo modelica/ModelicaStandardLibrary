@@ -257,7 +257,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
         annotation (points=[-6.12303e-016,70; -6.12303e-016,90; -50,90],
                                                         style(color=3));
       connect(SineVoltage1.plug_p, IdealCloser1.plug_p) 
-        annotation (points=[6.12303e-016,50; 0,48; 1.22461e-015,46; 
+        annotation (points=[6.12303e-016,50; 0,48; 1.22461e-015,46;
             6.12303e-016,46; 6.12303e-016,40], style(color=3));
       connect(AIMC1.flange_a, LoadInertia.flange_a)  annotation (points=[0,-40;
             40,-40], style(color=0, rgbcolor={0,0,0}));
@@ -365,7 +365,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
         annotation (points=[-6.12303e-016,70; -6.12303e-016,90; -50,90],
                                                         style(color=3));
       connect(SineVoltage1.plug_p, IdealCloser1.plug_p) 
-        annotation (points=[6.12303e-016,50; 0,48; 1.22461e-015,46; 
+        annotation (points=[6.12303e-016,50; 0,48; 1.22461e-015,46;
             6.12303e-016,46; 6.12303e-016,40], style(color=3));
       connect(SwitchYD1.plug_NS, AIMC1.plug_sn)  annotation (points=[-20,-30;
             -16,-30],
@@ -482,7 +482,7 @@ Default machine parameters of model <i>AIM_SlipRing</i> are used.
         annotation (points=[-6.12303e-016,70; -6.12303e-016,90; -50,90],
                                                         style(color=3));
       connect(SineVoltage1.plug_p, IdealCloser1.plug_p) 
-        annotation (points=[6.12303e-016,50; 0,48; 1.22461e-015,46; 
+        annotation (points=[6.12303e-016,50; 0,48; 1.22461e-015,46;
             6.12303e-016,46; 6.12303e-016,40], style(color=3));
       connect(Star3.pin_n, Ground3.p) 
         annotation (points=[-70,-90; -80,-90],   style(color=3));
@@ -620,7 +620,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
       connect(TorqueStep1.flange, LoadInertia.flange_b) 
         annotation (points=[70,-40; 60,-40], style(color=0, rgbcolor={0,0,0}));
       connect(SignalVoltage1.plug_p, CurrentRMSsensor1.plug_p) annotation (points=[
-            6.12303e-016,50; 6.12303e-016,40; 6.12303e-016,40; 6.12303e-016,30; 
+            6.12303e-016,50; 6.12303e-016,40; 6.12303e-016,40; 6.12303e-016,30;
             6.12303e-016,10; 6.12303e-016,10],   style(color=3, rgbcolor={0,0,
               255}));
       connect(TerminalBox1.negativeMachinePlug, AIMC1.plug_sn) annotation (
@@ -719,7 +719,7 @@ Default machine parameters of model <i>SM_ReluctanceRotorDamperCage</i> are used
       connect(LoadInertia.flange_b, TorqueStep1.flange) 
         annotation (points=[60,-40; 70,-40], style(color=0, rgbcolor={0,0,0}));
       connect(CurrentRMSsensor1.plug_p, SignalVoltage1.plug_p) annotation (
-          points=[6.12303e-016,40; 6.12303e-016,42.5; 6.12303e-016,42.5; 
+          points=[6.12303e-016,40; 6.12303e-016,42.5; 6.12303e-016,42.5;
             6.12303e-016,45; 6.12303e-016,50; 6.12303e-016,50], style(color=3,
             rgbcolor={0,0,255}));
       connect(SMR1.plug_sn, RotorAngle1.plug_n)  annotation (points=[-16,-30;
@@ -830,7 +830,7 @@ Default machine parameters of model <i>SM_PermanentMagnetDamperCage</i> are used
             rgbcolor={0,0,255}));
       connect(RotorAngle1.plug_n, SMPM1.plug_sn)  annotation (points=[-16,-20;
             -16,-30], style(color=3, rgbcolor={0,0,255}));
-      connect(RotorAngle1.plug_p, SMPM1.plug_sp)  annotation (points=[-4,-20; 
+      connect(RotorAngle1.plug_p, SMPM1.plug_sp)  annotation (points=[-4,-20;
             -4,-25; -4,-25; -4,-30], style(color=3, rgbcolor={0,0,255}));
       connect(RotorAngle1.flange, SMPM1.flange_a) 
         annotation (points=[0,-10; 0,-40], style(color=0, rgbcolor={0,0,0}));
@@ -929,7 +929,7 @@ Default machine parameters of model <i>SM_ElectricalExcitedDamperCage</i> are us
     equation 
       connect(RotorAngle1.plug_n, SMEE1.plug_sn)  annotation (points=[-16,-20;
             -16,-30], style(color=3, rgbcolor={0,0,255}));
-      connect(RotorAngle1.plug_p, SMEE1.plug_sp)  annotation (points=[-4,-20; 
+      connect(RotorAngle1.plug_p, SMEE1.plug_sp)  annotation (points=[-4,-20;
             -4,-25; -4,-25; -4,-30], style(color=3, rgbcolor={0,0,255}));
       connect(RotorAngle1.flange, SMEE1.flange_a) 
         annotation (points=[0,-10; 0,-40], style(color=0, rgbcolor={0,0,0}));
@@ -938,7 +938,7 @@ Default machine parameters of model <i>SM_ElectricalExcitedDamperCage</i> are us
       connect(Star1.plug_p, SineVoltage1.plug_n) annotation (points=[-50,90;
             -40,90], style(color=3, rgbcolor={0,0,255}));
       connect(ElectricalPowerSensor1.plug_ni, CurrentRMSsensor1.plug_p) 
-        annotation (points=[6.12303e-016,50; 1.76911e-022,46; 6.12303e-016,46; 
+        annotation (points=[6.12303e-016,50; 1.76911e-022,46; 6.12303e-016,46;
             6.12303e-016,40], style(color=3, rgbcolor={0,0,255}));
       connect(SMEE1.flange_a, MechanicalPowerSensor1.flange_a) 
         annotation (points=[0,-40; 10,-40], style(color=0, rgbcolor={0,0,0}));
@@ -1674,7 +1674,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             fillColor=10,
             rgbfillColor={95,95,95},
             fillPattern=1));
-        connect(spacePhasorS.ground, spacePhasorS.zero) annotation (points=[-10,20; 
+        connect(spacePhasorS.ground, spacePhasorS.zero) annotation (points=[-10,20;
               -10,14; -6.12303e-016,14; -6.12303e-016,20],     style(
             color=3,
             rgbcolor={0,0,255},
@@ -1907,14 +1907,14 @@ TurnsRatio * <u>V</u><sub>R</sub> = <u>V</u><sub>s</sub> - (R<sub>s</sub> + j X<
             style(color=3, rgbcolor={0,0,255}));
         connect(plug_sn, spacePhasorS.plug_n) annotation (points=[-60,100; -60,60;
               -10,60; -10,40], style(color=3, rgbcolor={0,0,255}));
-        connect(spacePhasorS.ground, spacePhasorS.zero) annotation (points=[-10,20; 
+        connect(spacePhasorS.ground, spacePhasorS.zero) annotation (points=[-10,20;
               -10,14; -6.12303e-016,14; -6.12303e-016,20],     style(
             color=3,
             rgbcolor={0,0,255},
             fillColor=3,
             rgbfillColor={0,0,255},
             fillPattern=1));
-        connect(spacePhasorR.ground, spacePhasorR.zero) annotation (points=[-10,-20; 
+        connect(spacePhasorR.ground, spacePhasorR.zero) annotation (points=[-10,-20;
               -10,-14; -6.12303e-016,-14; -6.12303e-016,-20],      style(
             color=3,
             rgbcolor={0,0,255},
@@ -2225,7 +2225,7 @@ Whether a damper cage is present or not, can be selected with Boolean parameter 
             style(color=3, rgbcolor={0,0,255}));
         connect(spacePhasorS.plug_n, plug_sn) annotation (points=[-10,40; -10,
               60; -60,60; -60,100],     style(color=3, rgbcolor={0,0,255}));
-        connect(spacePhasorS.ground, spacePhasorS.zero) annotation (points=[-10,20; 
+        connect(spacePhasorS.ground, spacePhasorS.zero) annotation (points=[-10,20;
               -10,14; -6.12303e-016,14; -6.12303e-016,20], style(
             color=3,
             rgbcolor={0,0,255},
@@ -2491,7 +2491,7 @@ Whether a damper cage is present or not, can be selected with Boolean parameter 
             style(color=3, rgbcolor={0,0,255}));
         connect(spacePhasorS.plug_n, plug_sn) annotation (points=[-10,40; -10,
               60; -60,60; -60,100],     style(color=3, rgbcolor={0,0,255}));
-        connect(spacePhasorS.ground, spacePhasorS.zero) annotation (points=[-10,20; 
+        connect(spacePhasorS.ground, spacePhasorS.zero) annotation (points=[-10,20;
               -10,14; -6.12303e-016,14; -6.12303e-016,20], style(
             color=3,
             rgbcolor={0,0,255},
@@ -2724,7 +2724,7 @@ Whether a damper cage is present or not, can be selected with Boolean parameter 
             fillColor=3,
             rgbfillColor={0,0,255},
             fillPattern=1));
-        connect(spacePhasorS.ground, spacePhasorS.zero) annotation (points=[-10,20; 
+        connect(spacePhasorS.ground, spacePhasorS.zero) annotation (points=[-10,20;
               -10,14; -6.12303e-016,14; -6.12303e-016,20],     style(
             color=3,
             rgbcolor={0,0,255},
@@ -3869,10 +3869,10 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
       connect(VoltageSensor1.v, ToSpacePhasor1.u) annotation (points=[0,39; 0,
             22; -7.34764e-016,22],
                                style(color=3, rgbcolor={0,0,255}));
-      connect(ToSpacePhasor1.y, ToPolar1.u) annotation (points=[6.73533e-016,-1; 
+      connect(ToSpacePhasor1.y, ToPolar1.u) annotation (points=[6.73533e-016,-1;
             6.73533e-016,-8.5; -7.34764e-016,-8.5; -7.34764e-016,-18], style(color=
               3, rgbcolor={0,0,255}));
-      connect(ToPolar1.y[1], Gain1.u) annotation (points=[-0.5,-41; -0.5,-49.5; 
+      connect(ToPolar1.y[1], Gain1.u) annotation (points=[-0.5,-41; -0.5,-49.5;
             -7.34764e-016,-49.5; -7.34764e-016,-58], style(color=3, rgbcolor={0,0,
               255}));
       connect(Gain1.y, V) annotation (points=[6.73533e-016,-81; 6.73533e-016,
@@ -3937,10 +3937,10 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
       connect(CurrentSensor1.i, ToSpacePhasor1.u) annotation (points=[0,39; 0,
             22; -7.34764e-016,22],
                                style(color=3, rgbcolor={0,0,255}));
-      connect(ToSpacePhasor1.y, ToPolar1.u) annotation (points=[6.73533e-016,-1; 
+      connect(ToSpacePhasor1.y, ToPolar1.u) annotation (points=[6.73533e-016,-1;
             6.73533e-016,-8.5; -7.34764e-016,-8.5; -7.34764e-016,-18], style(color=
               3, rgbcolor={0,0,255}));
-      connect(ToPolar1.y[1], Gain1.u) annotation (points=[-0.5,-41; -0.5,-49.5; 
+      connect(ToPolar1.y[1], Gain1.u) annotation (points=[-0.5,-41; -0.5,-49.5;
             -7.34764e-016,-49.5; -7.34764e-016,-58], style(color=3, rgbcolor={0,0,
               255}));
       connect(Gain1.y,I)  annotation (points=[6.73533e-016,-81; 6.73533e-016,
@@ -4059,7 +4059,7 @@ Calculates (mechanical) power from torque times angular speed.
         annotation (points=[40,0; 100,0], style(color=0, rgbcolor={0,0,0}));
       connect(SpeedSensor1.flange_a, flange_a) 
         annotation (points=[-30,0; -100,0], style(color=0, rgbcolor={0,0,0}));
-      connect(SpeedSensor1.w, Product1.u2) annotation (points=[-30,-21; -30,-40; 
+      connect(SpeedSensor1.w, Product1.u2) annotation (points=[-30,-21; -30,-40;
             -6,-40; -6,-58], style(color=3, rgbcolor={0,0,255}));
       connect(TorqueSensor1.tau, Product1.u1) annotation (points=[22,-11; 22,
             -40; 6,-40; 6,-58], style(color=3, rgbcolor={0,0,255}));
@@ -4186,7 +4186,7 @@ is equal to the angle of the machine's rotor against the stator.
                                              style(color=3, rgbcolor={0,0,255}));
       connect(deMultiplex2.y2[1], rotorAngle) annotation (points=[81,-16; 90,-16;
             90,0; 110,0], style(color=3, rgbcolor={0,0,255}));
-      connect(relativeAngleSensor.phi_rel, add.u1) annotation (points=[30,69; 
+      connect(relativeAngleSensor.phi_rel, add.u1) annotation (points=[30,69;
             30,40; -4,40; -4,32],
                            style(color=3, rgbcolor={0,0,255}));
       connect(relativeAngleSensor.flange_b, flange) annotation (points=[20,80;
@@ -4901,15 +4901,7 @@ This package contains the space phasor connector and partial models for machine 
               color=3,
               rgbcolor={0,0,255},
               fillColor=3,
-              rgbfillColor={0,0,255})), Text(
-            extent=[-150,-90; 150,-150],
-            style(
-              color=3,
-              rgbcolor={0,0,255},
-              fillColor=3,
-              rgbfillColor={0,0,255},
-              fillPattern=1),
-            string="%name")),
+              rgbfillColor={0,0,255}))),
         Documentation(info="<HTML>
 <p>
 Connector for Space Phasors:

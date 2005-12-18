@@ -1,4 +1,5 @@
-package SIunits "Type definitions based on SI units according to ISO 31-1992" 
+package SIunits 
+  "Type and unit definitions based on SI units according to ISO 31-1992" 
 package UsersGuide "Users Guide" 
   annotation (DocumentationClass=true, Documentation(info="<HTML>
 <h3><font color=\"#008000\" size=5>Users Guide of package SIunits</font></h3>

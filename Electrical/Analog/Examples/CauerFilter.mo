@@ -167,7 +167,7 @@ equation
   connect(C17.p, S12.n1) annotation (points=[18.5714,28.5714; 10,-22.5714]);
   connect(C17.p, S14.n1) annotation (points=[18.5714,28.5714; 67.1429,-22.5714]);
   connect(C17.p, Op4.n1) annotation (points=[18.5714,28.5714; 75.7143,-62.1429]);
-  connect(C18.p, C13.n) annotation (points=[47.1429,28.5714; 16.4286,28.5714; 
+  connect(C18.p, C13.n) annotation (points=[47.1429,28.5714; 16.4286,28.5714;
         16.4286,28.5714; -14.2857,28.5714; -14.2857,28.5714; -75.7143,28.5714]);
   connect(C18.p, S16.n1) annotation (points=[47.1429,28.5714; -75.7143,-51.1429]);
   connect(C18.p, S18.n1) annotation (points=[47.1429,28.5714; -18.5714,-51.1429]);
@@ -187,7 +187,7 @@ equation
   connect(C7.n, S10.p) annotation (points=[-47.1429,57.1429; -67.1429,-24.5714]);
   connect(C9.p, S11.p) annotation (points=[-10,57.1429; -38.5714,-24.5714]);
   connect(C9.n, S12.p) annotation (points=[10,57.1429; -10,-24.5714]);
-  connect(C10.p, S13.p) annotation (points=[18.5714,57.1429; 18.5714,36.7143; 
+  connect(C10.p, S13.p) annotation (points=[18.5714,57.1429; 18.5714,36.7143;
         18.5714,36.7143; 18.5714,16.2858; 18.5714,-24.5714; 18.5714,-24.5714]);
   connect(C10.n, S14.p) annotation (points=[38.5714,57.1429; 47.1429,-24.5714]);
   connect(C11.p, S15.p) annotation (points=[47.1429,57.1429; 75.7143,-24.5714]);

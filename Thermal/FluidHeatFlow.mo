@@ -290,9 +290,9 @@ A prescribed heat source dissipates its heat through a thermal conductor to a co
       connect(VolumeFlow.y, Pump1.VolumeFlow) 
                                              annotation (points=[-39,20; -30,20;
             -30,10], style(color=74, rgbcolor={0,0,127}));
-      connect(Convection1.solid, PrescribedHeatFlow1.port) annotation (points=[10,-40; 
+      connect(Convection1.solid, PrescribedHeatFlow1.port) annotation (points=[10,-40;
             10,-50; -10,-50],         style(color=42, rgbcolor={191,0,0}));
-      connect(Convection1.solid, HeatCapacitor1.port) annotation (points=[10,-40; 
+      connect(Convection1.solid, HeatCapacitor1.port) annotation (points=[10,-40;
             10,-50; 30,-50],      style(color=42, rgbcolor={191,0,0}));
       connect(Pipe1.heatPort, Convection1.fluid) annotation (points=[10,-10; 10,
             -20], style(color=42, rgbcolor={191,0,0}));
@@ -453,13 +453,13 @@ Two prescribed heat sources dissipate their heat through thermal conductors to c
             -30], style(color=42, rgbcolor={191,0,0}));
       connect(Convection2.fluid, Pipe2.heatPort) annotation (points=[10,30; 10,
             20], style(color=42, rgbcolor={191,0,0}));
-      connect(Convection2.solid, PrescribedHeatFlow2.port) annotation (points=[10,50; 
+      connect(Convection2.solid, PrescribedHeatFlow2.port) annotation (points=[10,50;
             10,60; -10,60],        style(color=42, rgbcolor={191,0,0}));
-      connect(Convection2.solid, HeatCapacitor2.port) annotation (points=[10,50; 
+      connect(Convection2.solid, HeatCapacitor2.port) annotation (points=[10,50;
             10,60; 28,60], style(color=42, rgbcolor={191,0,0}));
-      connect(Convection1.solid, PrescribedHeatFlow1.port) annotation (points=[10,-50; 
+      connect(Convection1.solid, PrescribedHeatFlow1.port) annotation (points=[10,-50;
             10,-60; -10,-60],         style(color=42, rgbcolor={191,0,0}));
-      connect(Convection1.solid, HeatCapacitor1.port) annotation (points=[10,-50; 
+      connect(Convection1.solid, HeatCapacitor1.port) annotation (points=[10,-50;
             10,-60; 30,-60],      style(color=42, rgbcolor={191,0,0}));
       connect(Pipe2.flowPort_b, Pipe3.flowPort_a) annotation (points=[20,10; 30,10;
             30,0; 40,0], style(color=1, rgbcolor={255,0,0}));
@@ -721,9 +721,9 @@ You may try to<br>
         annotation (points=[20,0; 40,0],   style(color=1, rgbcolor={255,0,0}));
       connect(HeatFlow.y, PrescribedHeatFlow1.Q_flow) annotation (points=[-39,
             -50; -30,-50],   style(color=3, rgbcolor={0,0,255}));
-      connect(Convection1.solid, PrescribedHeatFlow1.port) annotation (points=[10,-40; 
+      connect(Convection1.solid, PrescribedHeatFlow1.port) annotation (points=[10,-40;
             10,-50; -10,-50],         style(color=42, rgbcolor={191,0,0}));
-      connect(Convection1.solid, HeatCapacitor1.port) annotation (points=[10,-40; 
+      connect(Convection1.solid, HeatCapacitor1.port) annotation (points=[10,-40;
             10,-50; 30,-50],      style(color=42, rgbcolor={191,0,0}));
       connect(Pipe1.heatPort, Convection1.fluid) annotation (points=[10,-10; 10,
             -20], style(color=42, rgbcolor={191,0,0}));
@@ -809,12 +809,12 @@ then started again (using a ramp of 0.2 s).
         annotation (points=[20,0; 40,0],   style(color=1, rgbcolor={255,0,0}));
       connect(HeatFlow.y, PrescribedHeatFlow1.Q_flow) annotation (points=[-39,
             -50; -30,-50],   style(color=3, rgbcolor={0,0,255}));
-      connect(Convection1.solid, PrescribedHeatFlow1.port) annotation (points=[
-            10,-41; 10,-50; -10,-50], style(color=42, rgbcolor={191,0,0}));
-      connect(Convection1.solid, HeatCapacitor1.port) annotation (points=[10,
-            -41; 10,-50; 30,-50], style(color=42, rgbcolor={191,0,0}));
+      connect(Convection1.solid, PrescribedHeatFlow1.port) annotation (points=[10,-40; 
+            10,-50; -10,-50],         style(color=42, rgbcolor={191,0,0}));
+      connect(Convection1.solid, HeatCapacitor1.port) annotation (points=[10,-40; 
+            10,-50; 30,-50],      style(color=42, rgbcolor={191,0,0}));
       connect(Pipe1.heatPort, Convection1.fluid) annotation (points=[10,-10; 10,
-            -19], style(color=42, rgbcolor={191,0,0}));
+            -20], style(color=42, rgbcolor={191,0,0}));
       connect(G.y, Convection1.Gc) annotation (points=[-9,-30; 0,-30], style(
             color=74, rgbcolor={0,0,127}));
       connect(VolumeFlow.y, Pump1.VolumeFlow) annotation (points=[-39,20; -30,
@@ -928,13 +928,13 @@ then started again (using a ramp of 0.2 s).
             -30], style(color=42, rgbcolor={191,0,0}));
       connect(Convection2.fluid, Pipe2.heatPort) annotation (points=[10,30; 10,
             20], style(color=42, rgbcolor={191,0,0}));
-      connect(Convection2.solid, PrescribedHeatFlow2.port) annotation (points=[10,50; 
+      connect(Convection2.solid, PrescribedHeatFlow2.port) annotation (points=[10,50;
             10,60; -10,60],        style(color=42, rgbcolor={191,0,0}));
-      connect(Convection2.solid, HeatCapacitor2.port) annotation (points=[10,50; 
+      connect(Convection2.solid, HeatCapacitor2.port) annotation (points=[10,50;
             10,60; 28,60], style(color=42, rgbcolor={191,0,0}));
-      connect(Convection1.solid, PrescribedHeatFlow1.port) annotation (points=[10,-50; 
+      connect(Convection1.solid, PrescribedHeatFlow1.port) annotation (points=[10,-50;
             10,-60; -10,-60],         style(color=42, rgbcolor={191,0,0}));
-      connect(Convection1.solid, HeatCapacitor1.port) annotation (points=[10,-50; 
+      connect(Convection1.solid, HeatCapacitor1.port) annotation (points=[10,-50;
             10,-60; 30,-60],      style(color=42, rgbcolor={191,0,0}));
       connect(Pipe2.flowPort_b, Pipe3.flowPort_a) annotation (points=[20,10; 30,10;
             30,0; 40,0], style(color=1, rgbcolor={255,0,0}));
@@ -1109,7 +1109,7 @@ the time behaviour depending on coolant flow.
             10,55.5; 10,50; 10,50],   style(color=42, rgbcolor={191,0,0}));
       connect(ThermalConductor2.port_b, Pipe2.heatPort) 
         annotation (points=[10,30; 10,20], style(color=42, rgbcolor={191,0,0}));
-      connect(Pipe1.heatPort, ThermalConductor1.port_b) annotation (points=[10,-20; 
+      connect(Pipe1.heatPort, ThermalConductor1.port_b) annotation (points=[10,-20;
             10,-30],         style(color=42, rgbcolor={191,0,0}));
       connect(ThermalConductor1.port_a, HeatCapacitor1.port) annotation (points=[10,-50; 
             10,-50; 10,-60; 10,-60],
@@ -1551,12 +1551,7 @@ Same as FlowPort, but icon allows to differentiate direction of flow.
               color=3,
               rgbcolor={0,0,255},
               fillColor=3,
-              rgbfillColor={0,0,255})),
-                       Text(
-            extent=[-100,194; 100,100],
-            string="%name",
-            style(color=3, rgbcolor={0,0,255}))),
-                                             Diagram(Rectangle(extent=[-50,50;
+              rgbfillColor={0,0,255}))),     Diagram(Rectangle(extent=[-50,50;
                 50,-50],         style(
               color=1,
               rgbcolor={255,0,0},
@@ -1585,11 +1580,7 @@ Same as FlowPort, but icon allows to differentiate direction of flow.
               rgbcolor={255,0,0},
               fillColor=7,
               rgbfillColor={255,255,255})), Ellipse(extent=[-98,98; 98,-98],
-              style(color=3, rgbcolor={0,0,255})),
-                       Text(
-            extent=[-100,194; 100,100],
-            string="%name",
-            style(color=3, rgbcolor={0,0,255}))),
+              style(color=3, rgbcolor={0,0,255}))),
                                              Diagram(Rectangle(extent=[-50,50;
                 50,-50],         style(
               color=1,

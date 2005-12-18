@@ -1276,8 +1276,8 @@ This model contains the mechanical components of the r3 robot
     equation 
       connect(r6.frame_b, b6.frame_a) 
         annotation (points=[-60,140; -60,150], style(
-          color=10, 
-          rgbcolor={95,95,95}, 
+          color=10,
+          rgbcolor={95,95,95},
           thickness=2));
       q = {r1.phi,r2.phi,r3.phi,r4.phi,r5.phi,r6.phi};
       qd = der(q);
@@ -1286,38 +1286,38 @@ This model contains the mechanical components of the r3 robot
         axis.tau};
       connect(load.frame_a, b6.frame_b) 
         annotation (points=[-60,178; -60,170], style(
-          color=10, 
-          rgbcolor={95,95,95}, 
+          color=10,
+          rgbcolor={95,95,95},
           thickness=2));
-      connect(world.frame_b, b0.frame_a) annotation (points=[-80,-190; -30,-190; 
+      connect(world.frame_b, b0.frame_a) annotation (points=[-80,-190; -30,-190;
             -30,-180], style(
-          color=10, 
-          rgbcolor={95,95,95}, 
+          color=10,
+          rgbcolor={95,95,95},
           thickness=2));
-      connect(b0.frame_b, r1.frame_a) annotation (points=[-30,-160; -30,-146; 
+      connect(b0.frame_b, r1.frame_a) annotation (points=[-30,-160; -30,-146;
             -48,-146; -48,-180; -70,-180; -70,-170], style(
-          color=10, 
-          rgbcolor={95,95,95}, 
+          color=10,
+          rgbcolor={95,95,95},
           thickness=2));
-      connect(b1.frame_b, r2.frame_a) annotation (points=[-70,-108; -70,-100; 
+      connect(b1.frame_b, r2.frame_a) annotation (points=[-70,-108; -70,-100;
             -50,-100], style(
-          color=10, 
-          rgbcolor={95,95,95}, 
+          color=10,
+          rgbcolor={95,95,95},
           thickness=2));
-      connect(r1.frame_b, b1.frame_a) annotation (points=[-70,-150; -70,-128], 
+      connect(r1.frame_b, b1.frame_a) annotation (points=[-70,-150; -70,-128],
           style(
-          color=10, 
-          rgbcolor={95,95,95}, 
+          color=10,
+          rgbcolor={95,95,95},
           thickness=2));
-      connect(r2.frame_b, b2.frame_a) annotation (points=[-30,-100; -16,-100; 
+      connect(r2.frame_b, b2.frame_a) annotation (points=[-30,-100; -16,-100;
             -16,-80], style(
-          color=10, 
-          rgbcolor={95,95,95}, 
+          color=10,
+          rgbcolor={95,95,95},
           thickness=2));
       connect(b2.frame_b, r3.frame_a) annotation (points=[-16,-60; -16,-36; -40,
             -36], style(
-          color=10, 
-          rgbcolor={95,95,95}, 
+          color=10,
+          rgbcolor={95,95,95},
           thickness=2));
       connect(r2.axis, axis2) annotation (points=[-40, -90; -42, -90; -42, -80;
              -160, -80; -160, -110; -210, -110], style(color=0));
@@ -1325,13 +1325,13 @@ This model contains the mechanical components of the r3 robot
             -170; -210, -170], style(color=0));
       connect(r3.frame_b, b3.frame_a) annotation (points=[-60,-36; -88,-36; -86,
             -32], style(
-          color=10, 
-          rgbcolor={95,95,95}, 
+          color=10,
+          rgbcolor={95,95,95},
           thickness=2));
       connect(b3.frame_b, r4.frame_a) annotation (points=[-86,-12; -86,-8; -70,
             -8; -70,0], style(
-          color=10, 
-          rgbcolor={95,95,95}, 
+          color=10,
+          rgbcolor={95,95,95},
           thickness=2));
       connect(r3.axis, axis3) 
         annotation (points=[-50, -46; -50, -50; -210, -50], style(color=0));
@@ -1339,25 +1339,25 @@ This model contains the mechanical components of the r3 robot
         annotation (points=[-80, 10; -210, 10], style(color=0));
       connect(r4.frame_b, b4.frame_a) 
         annotation (points=[-70,20; -70,40], style(
-          color=10, 
-          rgbcolor={95,95,95}, 
+          color=10,
+          rgbcolor={95,95,95},
           thickness=2));
       connect(b4.frame_b, r5.frame_a) annotation (points=[-70,60; -70,80; -60,
             80], style(
-          color=10, 
-          rgbcolor={95,95,95}, 
+          color=10,
+          rgbcolor={95,95,95},
           thickness=2));
       connect(r5.axis, axis5) annotation (points=[-50, 90; -50, 94; -160, 94; -160,
              70; -210, 70], style(color=0));
       connect(r5.frame_b, b5.frame_a) annotation (points=[-40,80; -20,80; -20,
             88], style(
-          color=10, 
-          rgbcolor={95,95,95}, 
+          color=10,
+          rgbcolor={95,95,95},
           thickness=2));
       connect(b5.frame_b, r6.frame_a) annotation (points=[-20,108; -20,116; -60,
             116; -60,120], style(
-          color=10, 
-          rgbcolor={95,95,95}, 
+          color=10,
+          rgbcolor={95,95,95},
           thickness=2));
       connect(r6.axis, axis6) 
         annotation (points=[-70, 130; -210, 130], style(color=0));

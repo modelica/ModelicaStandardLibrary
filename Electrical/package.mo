@@ -1,6 +1,5 @@
-package Electrical "Library for electrical models"
+package Electrical "Library for electrical models (analog, digital, machines, multi-phase)"
 extends Modelica.Icons.Library2;
-
 
 annotation(preferedView="info",
   Documentation(info="<html>

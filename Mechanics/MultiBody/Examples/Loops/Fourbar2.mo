@@ -81,44 +81,44 @@ equation
   j2_s = j2.s;
   j1_w = j1.w;
   j2_v = j2.v;
-  connect(j2.frame_b, b2.frame_a) annotation (points=[32,-70; 50,-70; 50,-60], 
+  connect(j2.frame_b, b2.frame_a) annotation (points=[32,-70; 50,-70; 50,-60],
       style(
-      color=10, 
-      rgbcolor={95,95,95}, 
+      color=10,
+      rgbcolor={95,95,95},
       thickness=2));
-  connect(j1.frame_b, b1.frame_a) annotation (points=[-34,-30; -30,-30; -30,-10], 
+  connect(j1.frame_b, b1.frame_a) annotation (points=[-34,-30; -30,-30; -30,-10],
       style(
-      color=10, 
-      rgbcolor={95,95,95}, 
+      color=10,
+      rgbcolor={95,95,95},
       thickness=2));
   connect(j1.frame_a, world.frame_b) annotation (points=[-54,-30; -60,-30; -60,
         -70], style(
-      color=10, 
-      rgbcolor={95,95,95}, 
+      color=10,
+      rgbcolor={95,95,95},
       thickness=2));
-  connect(b1.frame_b, universalSpherical.frame_b) annotation (points=[-30,10; 
+  connect(b1.frame_b, universalSpherical.frame_b) annotation (points=[-30,10;
         -30,28; -20,28], style(
-      color=10, 
-      rgbcolor={95,95,95}, 
+      color=10,
+      rgbcolor={95,95,95},
       thickness=2));
   connect(universalSpherical.frame_a, b2.frame_b) 
     annotation (points=[0,28; 50,28; 50,-40], style(
-      color=10, 
-      rgbcolor={95,95,95}, 
+      color=10,
+      rgbcolor={95,95,95},
       thickness=2));
   connect(b3.frame_a, world.frame_b) 
     annotation (points=[-32,-70; -60,-70], style(
-      color=10, 
-      rgbcolor={95,95,95}, 
+      color=10,
+      rgbcolor={95,95,95},
       thickness=2));
   connect(b3.frame_b, j2.frame_a) 
     annotation (points=[-12,-70; 12,-70], style(
-      color=10, 
-      rgbcolor={95,95,95}, 
+      color=10,
+      rgbcolor={95,95,95},
       thickness=2));
-  connect(fixedFrame.frame_a, universalSpherical.frame_ia) annotation (points=[-6,60; 
+  connect(fixedFrame.frame_a, universalSpherical.frame_ia) annotation (points=[-6,60;
         -6,38], style(
-      color=10, 
-      rgbcolor={95,95,95}, 
+      color=10,
+      rgbcolor={95,95,95},
       thickness=2));
 end Fourbar2;
