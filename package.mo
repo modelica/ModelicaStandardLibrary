@@ -124,7 +124,6 @@ users guides that can be accessed by the following links:
 
 </html>"));
   
-  
   class Connectors "Connectors" 
     
     annotation (Documentation(info="<html>
@@ -162,7 +161,7 @@ that have the flow attribute):
   
   <tr><td><b>electrical <br>sphace phasor</b></td>
       <td>2 electrical potentials</td>
-      <td>2 electrcial currents</td>
+      <td>2 electrical currents</td>
       <td><a href=\"Modelica://Modelica.Electrical.Machines.Interfaces\">Modelica.Electrical.Machines.Interfaces</a>
            <br>SpacePhasor</td>
       <td><img src=\"../Images/UsersGuide/SpacePhasor.png\"></td></tr>
@@ -303,7 +302,7 @@ a Plug connector, such as \"connect(resistor.p, plug.phase)\".
 </html>
 "));
   end Connectors;
-
+  
   class Conventions "Conventions" 
     
     annotation (Documentation(info="<html>
@@ -395,7 +394,7 @@ is emulated in the following way:
 </html>
 "));
   end Conventions;
-
+  
   class ReleaseNotes "Release notes" 
     
     annotation (Documentation(info="<html>
@@ -536,6 +535,16 @@ The following <b>components</b> have been improved:
            is a factor of 2 larger as a standard icon. Previously,
            these connectors have been dragged and then manually enlarged
            by a factor of 2 in the Modelica standard library.</td> </tr>
+
+  <tr><td colspan=\"2\"><b>Modelica.Electrical.Analog. </b></td></tr>
+  <tr><td> Sources</td>
+      <td> Icon improved (+/- added to voltage sources, arrow added to
+           current sources).</td> </tr>
+
+  <tr><td colspan=\"2\"><b>Modelica.Electrical.Analog.Semiconductors. </b></td></tr>
+  <tr><td> Diode</td>
+      <td> smooth() operator included to improve numerics.</td> </tr>
+
   <tr><td colspan=\"2\"><b>Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines. </b></td></tr>
   <tr><td> SM_PermanentMagnetDamperCage<br>
            SM_ElectricalExcitedDamperCage<br>
@@ -549,23 +558,6 @@ The following <b>components</b> have been improved:
             parameter TurnsRatio is calculated internally from 
             Nominal stator voltage and Locked-rotor voltage.</td> </tr>
  
-  <tr><td colspan=\"2\"><b>Modelica.Blocks.Tables.</b></td></tr>
-  <tr><td>CombiTable1D<br>
-          CombiTable1Ds<br>
-          CombiTable2D</td>
-      <td> Parameter \"tableOnFile\" determines now whether a table is read from
-           file or used from parameter \"table\". Previously, if \"fileName\" was not
-           \"NoName\", a table was always read from file \"fileName\", independently
-           of the setting of \"tableOnFile\". This has been corrected.<br>
-           Furthermore, the initialization of a table is now performed in a 
-           when-clause and no longer in a parameter declaration, because some
-           tools evaluate the parameter declaration in some situation more than
-           once and then the table is unnecessarily read several times    
-           (and occupies also more memory).</td> </tr>
-  <tr><td colspan=\"2\"><b>Modelica.Blocks.Sources.</b></td></tr>
-  <tr><td>CombiTimeTable</td>
-      <td> Same improvements as for the tables from Modelica.Blocks.Tables 
-           as outlined above.</td> </tr>
  
   <tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.</b></td></tr>
   <tr><td>all models</td>
@@ -624,13 +616,7 @@ The following <b>components</b> have been improved:
   <tr><td>Types.*</td>
       <td> All types have a corresponding icon now to visualize the content
            in the package browser (previously, the types did not have an icon).</td>
- 
-  <tr><td colspan=\"2\"><b>Modelica.Utilities.Streams.</b></td></tr>
-  <tr><td>readLine</td>
-      <td> Depending on the C-implementation, the stream was not correctly closed.
-           This has been corrected by adding a \"Streams.close(..)\" 
-           after reading the file content.</td> </tr>
- 
+  
   <tr><td colspan=\"2\"><b>Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.</b></td></tr>
   <tr><td> SimpleFriction</td>
       <td> Calculates friction losses from pressure drop and volume flow.</td> </tr>
@@ -662,10 +648,42 @@ The following <b>errors</b> have been fixed:
 </p>
  
 <table border=\"1\" cellspacing=0 cellpadding=2>
-  <tr><td colspan=\"2\"> <b>Modelica.Media.IdealGases.Common.SingleGasNasa.dynamicViscosityLowPressure</td></tr>
-<tr><td></td><td> Viscosity and thermal conductivity (which needs viscosity as input) were computed wrong for polar
-gases and gas mixtures (i.e. if dipole moment not 0.0). This has been fixed in version 2.2.1.
-</td> </tr>
+  <tr><td colspan=\"2\"><b>Modelica.Blocks.Tables.</b></td></tr>
+  <tr><td>CombiTable1D<br>
+          CombiTable1Ds<br>
+          CombiTable2D</td>
+      <td> Parameter \"tableOnFile\" determines now whether a table is read from
+           file or used from parameter \"table\". Previously, if \"fileName\" was not
+           \"NoName\", a table was always read from file \"fileName\", independently
+           of the setting of \"tableOnFile\". This has been corrected.<br>
+           Furthermore, the initialization of a table is now performed in a 
+           when-clause and no longer in a parameter declaration, because some
+           tools evaluate the parameter declaration in some situation more than
+           once and then the table is unnecessarily read several times    
+           (and occupies also more memory).</td> </tr>
+
+  <tr><td colspan=\"2\"><b>Modelica.Blocks.Sources.</b></td></tr>
+  <tr><td>CombiTimeTable</td>
+      <td> Same bug fix/improvement as for the tables from Modelica.Blocks.Tables 
+           as outlined above.</td> </tr>
+
+  <tr><td colspan=\"2\"><b>Modelica.Electrical.Analog.Semiconductors. </b></td></tr>
+  <tr><td> PMOS<br>
+           NMOS</td>
+      <td> Bug fixed.</td> </tr>
+
+  <tr><td colspan=\"2\"> <b>Modelica.Media.IdealGases.Common.SingleGasNasa.</td></tr>
+  <tr><td> dynamicViscosityLowPressure</td>
+      <td> Viscosity and thermal conductivity (which needs viscosity as input) 
+           were computed wrong for polar gases and gas mixtures 
+           (i.e. if dipole moment not 0.0). This has been fixed in version 2.2.1.</td> </tr>
+
+  <tr><td colspan=\"2\"><b>Modelica.Utilities.Streams.</b></td></tr>
+  <tr><td>readLine</td>
+      <td> Depending on the C-implementation, the stream was not correctly closed.
+           This has been corrected by adding a \"Streams.close(..)\" 
+           after reading the file content.</td> </tr>
+
 </table>                                 
 </html>
 "));
