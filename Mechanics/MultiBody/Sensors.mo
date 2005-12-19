@@ -52,21 +52,19 @@ package Sensors "Sensors to measure variables"
           extent=[19,109; 150,84],
           style(color=8),
           string="resolve"),
-        Line(points=[-80,0; -80,80; 0,80; 0,100], style(
-            color=0,
-            rgbcolor={0,0,0},
-            pattern=3,
-            thickness=2)),
+        Line(points=[-84,0; -84,84; 0,84; 0,100], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            pattern=3)),
         Text(
           extent=[-132, 52; -96, 27],
           style(color=10),
           string="a")),
       Diagram(
-        Line(points=[-80,0; -80,80; 0,80; 0,98], style(
-            color=10,
-            rgbcolor={95,95,95},
-            pattern=3,
-            thickness=2))),
+        Line(points=[-84,0; -84,82; 0,82; 0,98], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            pattern=3))),
       Documentation(info="<HTML>
 <p>
 Absolute kinematic quantities of frame_a are
@@ -451,18 +449,21 @@ Exact definition of the returned quantities:
       specularCoefficient) if world.enableAnimation and animation;
     annotation (
       preferedView="info",
-      Icon(Line(points=[-60,-94; -60,-80; 0,-80; 0,-80], style(
-            color=10,
-            rgbcolor={95,95,95},
-            pattern=3,
-            thickness=2)),   Text(
+      Icon(Line(points=[-60,-94; -60,-76; 0,-76; 0,-76], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            pattern=3)),     Text(
           extent=[-157,-49; -26,-74],
           string="resolve",
           style(
             color=8,
             rgbcolor={192,192,192},
             pattern=3))),
-      Diagram,
+      Diagram(
+           Line(points=[-60,-98; -60,-76; 0,-76; 0,-76], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            pattern=3))),
       Documentation(info="<HTML>
 <p>
 Relative kinematic quantities between frame_a and frame_b are

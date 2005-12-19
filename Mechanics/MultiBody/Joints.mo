@@ -1759,20 +1759,20 @@ frame_b of the joint.
           style(color=0),
           string="%rodLength")),
       Diagram(
-        Ellipse(extent=[-97,-40; -17,40],    style(
+        Ellipse(extent=[-98,-40; -18,40],    style(
             color=9,
             gradient=0,
             fillColor=9,
             fillPattern=1)),
-        Ellipse(extent=[-87,-30; -27,30],   style(
+        Ellipse(extent=[-88,-30; -28,30],   style(
             color=9,
             fillColor=7,
             fillPattern=1)),
-        Ellipse(extent=[17,-40; 97,40],    style(
+        Ellipse(extent=[18,-40; 98,40],    style(
             color=9,
             fillColor=9,
             fillPattern=1)),
-        Ellipse(extent=[27,-29; 87,30],   style(
+        Ellipse(extent=[29,-30; 89,29],   style(
             color=8,
             fillColor=7,
             fillPattern=1)),
@@ -1795,7 +1795,7 @@ frame_b of the joint.
             color=0,
             fillColor=0,
             fillPattern=1)),
-        Ellipse(extent=[41,14; 70,-14],   style(
+        Ellipse(extent=[42,14; 71,-14],   style(
             color=0,
             fillColor=0,
             fillPattern=1)),
@@ -1980,8 +1980,7 @@ that has this property.
     extends Interfaces.PartialTwoFrames;
     Interfaces.Frame_a frame_ia 
       "Coordinate system at the origin of frame_a, fixed at the rod connecting the universal with the spherical joint"
-      annotation (extent=[-60,80; -20,120], rotation=-90);
-    
+      annotation (extent=[-56,84; -24,116], rotation=-90);
     parameter Boolean animation=true "= true, if animation shall be enabled";
     parameter Boolean showUniversalAxes=true 
       " = true, if universal joint shall be visualized with two cylinders, otherwise with a sphere (provided animation=true)";
@@ -2399,6 +2398,7 @@ the origin of frame_a to the middle of the rod, this might be defined as:
       r_shape=-e2_ia*(cylinderLength/2),
       r=frame_ia.r_0,
       R=frame_ia.R) if world.enableAnimation and animation and showUniversalAxes;
+    
   equation 
     defineBranch(frame_a.R, frame_ia.R);
     if kinematicConstraint then
@@ -3839,19 +3839,19 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
           rgbfillColor={192,192,192}));
       connect(relativeSensor.frame_b, frame_a) annotation (points=[40,-80; -96,-80;
             -96,0; -100,0], style(
-          color=10,
-          rgbcolor={95,95,95},
-          thickness=2,
-          gradient=3,
-          fillColor=8,
+          color=10, 
+          rgbcolor={95,95,95}, 
+          pattern=3, 
+          gradient=3, 
+          fillColor=8, 
           rgbfillColor={192,192,192}));
       connect(relativeSensor.frame_a, frame_b) annotation (points=[60,-80; 96,-80;
             96,0; 100,0], style(
-          color=10,
-          rgbcolor={95,95,95},
-          thickness=2,
-          gradient=3,
-          fillColor=8,
+          color=10, 
+          rgbcolor={95,95,95}, 
+          pattern=3, 
+          gradient=3, 
+          fillColor=8, 
           rgbfillColor={192,192,192}));
       connect(relativeSensor.y, revolute.position_a)       annotation (points=[
             50, -69; 50, -40; 90, -40; 90, -12; 79, -12], style(
@@ -4346,21 +4346,19 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
           rgbfillColor={192,192,192}));
       connect(relativeSensor.frame_b, frame_a) annotation (points=[30,-80; -97,-80;
             -97,0; -100,0], style(
-          color=10,
-          rgbcolor={95,95,95},
-          pattern=3,
-          thickness=2,
-          gradient=3,
-          fillColor=8,
+          color=10, 
+          rgbcolor={95,95,95}, 
+          pattern=3, 
+          gradient=3, 
+          fillColor=8, 
           rgbfillColor={192,192,192}));
       connect(relativeSensor.frame_a, frame_b) annotation (points=[50,-80; 95,-80;
             95,0; 100,0], style(
-          color=10,
-          rgbcolor={95,95,95},
-          pattern=3,
-          thickness=2,
-          gradient=3,
-          fillColor=8,
+          color=10, 
+          rgbcolor={95,95,95}, 
+          pattern=3, 
+          gradient=3, 
+          fillColor=8, 
           rgbfillColor={192,192,192}));
       connect(rod2.frame_b, frame_im) annotation (points=[-40,0; -46,0; -46,80; 0,
             80; 0,100], style(
@@ -4710,21 +4708,19 @@ component).
           rgbfillColor={192,192,192}));
       connect(relativeSensor.frame_b, frame_a) annotation (points=[40,-80; -95,-80;
             -95,0; -100,0], style(
-          color=10,
-          rgbcolor={95,95,95},
-          pattern=3,
-          thickness=2,
-          gradient=3,
-          fillColor=8,
+          color=10, 
+          rgbcolor={95,95,95}, 
+          pattern=3, 
+          gradient=3, 
+          fillColor=8, 
           rgbfillColor={192,192,192}));
       connect(relativeSensor.frame_a, frame_b) annotation (points=[60,-80; 96,-80;
             96,0; 100,0], style(
-          color=10,
-          rgbcolor={95,95,95},
-          pattern=3,
-          thickness=2,
-          gradient=3,
-          fillColor=8,
+          color=10, 
+          rgbcolor={95,95,95}, 
+          pattern=3, 
+          gradient=3, 
+          fillColor=8, 
           rgbfillColor={192,192,192}));
       connect(relativeSensor.y, revolute.position_a)       annotation (points=[
             50, -69; 50, -40; 90, -40; 90, -12; 79, -12], style(
@@ -5063,21 +5059,19 @@ component).
           rgbfillColor={192,192,192}));
       connect(relativeSensor.frame_b, frame_a) annotation (points=[40,-80; -95,-80;
             -95,0; -100,0], style(
-          color=10,
-          rgbcolor={95,95,95},
-          pattern=3,
-          thickness=2,
-          gradient=3,
-          fillColor=8,
+          color=10, 
+          rgbcolor={95,95,95}, 
+          pattern=3, 
+          gradient=3, 
+          fillColor=8, 
           rgbfillColor={192,192,192}));
       connect(relativeSensor.frame_a, frame_b) annotation (points=[60,-80; 96,-80;
             96,0; 100,0], style(
-          color=10,
-          rgbcolor={95,95,95},
-          pattern=3,
-          thickness=2,
-          gradient=3,
-          fillColor=8,
+          color=10, 
+          rgbcolor={95,95,95}, 
+          pattern=3, 
+          gradient=3, 
+          fillColor=8, 
           rgbfillColor={192,192,192}));
       connect(relativeSensor.y, prismatic.position_a)       annotation (points=
             [50, -69; 50, -40; 90, -40; 90, -12; 79, -12], style(

@@ -74,10 +74,9 @@ equation
       thickness=2));
   connect(forceAndTorque.frame_resolve, fixedRotation.frame_b) annotation (
       points=[46,30; 46,-20; 12,-20], style(
-      color=10,
-      rgbcolor={95,95,95},
-      pattern=3,
-      thickness=2));
+      color=10, 
+      rgbcolor={95,95,95}, 
+      pattern=3));
   connect(Constant.y, forceAndTorque.load) annotation(points=[70,1; 70,13; 56,
         13; 56,28],  style(color=3, rgbcolor={0,0,255}));
 end ForceAndTorque;

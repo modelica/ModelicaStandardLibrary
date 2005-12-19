@@ -126,47 +126,46 @@ and the cut-torque is acting. This component has a non-filled rectangular icon.
 </html>"));
   end Frame_b;
   
-  connector Frame_resolve 
-    "Coordinate system fixed to the component used to express in which coordinate system a vector is resolved (non-filled rectangular icon)" 
-    extends Frame;
+connector Frame_resolve "Coordinate system fixed to the component used to express in which
+coordinate system a vector is resolved (non-filled rectangular icon)" 
+  extends Frame;
     
-    annotation (defaultComponentName="frame_resolve",
-      Coordsys(
-        extent=[-100,-100; 100,100],
-        grid=[1,1],
-        component=[20, 20],
-        scale=0.16),
-      Icon(Rectangle(extent=[-10,10; 10,-10], style(
-            color=10,
-            rgbcolor={95,95,95},
-            pattern=3,
-            thickness=2)),
-           Rectangle(extent=[-30,100; 30,-100], style(
-            color=10, 
-            rgbcolor={95,95,95}, 
-            fillColor=7, 
-            rgbfillColor={255,255,255}))),
-      Diagram(Text(
-          extent=[-140,-50; 140,-88],
-          string="%name",
-          style(color=0)),
-              Rectangle(extent=[-12,40; 12,-40], style(
-            color=10,
-            rgbcolor={95,95,95},
-            pattern=3,
-            thickness=2,
-            fillColor=7,
-            rgbfillColor={255,255,255}))),
-      Window(
-        x=0.21,
-        y=0.18,
-        width=0.71,
-        height=0.65),
-      Documentation(info="<html>
+  annotation (defaultComponentName="frame_resolve",
+    Coordsys(
+      extent=[-100,-100; 100,100],
+      grid=[1,1],
+      component=[20, 20],
+      scale=0.16),
+    Icon(Rectangle(extent=[-10,10; 10,-10], style(
+          color=10,
+          rgbcolor={95,95,95},
+          pattern=3)),
+         Rectangle(extent=[-30,100; 30,-100], style(
+          color=10,
+          rgbcolor={95,95,95},
+          pattern=3,
+          fillColor=7,
+          rgbfillColor={255,255,255}))),
+    Diagram(Text(
+        extent=[-140,-50; 140,-88],
+        string="%name",
+        style(color=0)),
+            Rectangle(extent=[-12,40; 12,-40], style(
+          color=10,
+          rgbcolor={95,95,95},
+          pattern=3,
+          fillColor=7,
+          rgbfillColor={255,255,255}))),
+    Window(
+      x=0.21,
+      y=0.18,
+      width=0.71,
+      height=0.65),
+    Documentation(info="<html>
 <p>
 Basic definition of a coordinate system that is fixed to a mechanical
 component. In the origin of the coordinate system the cut-force
-and the cut-torque is acting. This coordinate system is used to 
+and the cut-torque is acting. This coordinate system is used to
 express in which coordinate system a vector is resolved.
 A component that uses a Frame_resolve connector has to set the
 cut-force and cut-torque of this frame to zero. When connecting
@@ -175,7 +174,7 @@ by default the connecting line has line style \"dotted\".
 This component has a non-filled rectangular icon.
 </p>
 </html>"));
-  end Frame_resolve;
+end Frame_resolve;
   
   partial model PartialTwoFrames 
     "Base model for components providing two frame connectors + outer world + assert to guarantee that the component is connected" 
@@ -657,17 +656,15 @@ with the blocks of package Modelica.Blocks.
         Line(points=[80, 0; 80, -100], style(
             color=10, 
             rgbcolor={95,95,95}, 
-            pattern=3, 
-            thickness=2))),
+            pattern=3))),
       Diagram(
         Line(points=[-70, 0; -100, 0], style(color=0)),
         Line(points=[70, 0; 100, 0], style(color=0)),
         Line(points=[-80, -100; -80, 0]),
         Line(points=[80,0; 80,-100], style(
-            color=10,
-            rgbcolor={95,95,95},
-            pattern=3,
-            thickness=2))));
+            color=10, 
+            rgbcolor={95,95,95}, 
+            pattern=3))));
     
   protected 
     outer Modelica.Mechanics.MultiBody.World world;

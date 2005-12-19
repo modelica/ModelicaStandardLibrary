@@ -517,10 +517,9 @@ is resolved in the world frame).
             gradient=0,
             fillColor=0,
             fillPattern=1)), Line(points=[0,-10; 0,-97], style(
-            color=10,
-            rgbcolor={95,95,95},
-            pattern=3,
-            thickness=2))),
+            color=10, 
+            rgbcolor={95,95,95}, 
+            pattern=3))),
       Icon(
         Text(
           extent=[-89,-46; 91,-76],
@@ -536,8 +535,7 @@ is resolved in the world frame).
         Line(points=[0,-10; 0,-95], style(
             color=10, 
             rgbcolor={95,95,95}, 
-            pattern=3, 
-            thickness=2))),
+            pattern=3))),
       Documentation(info="<HTML>
 <p>
 The 3 signals of the <b>force</b> connector are interpreted
@@ -661,10 +659,9 @@ is resolved in the world frame).
       preferedView="info",
       Diagram(
         Line(points=[0,97; 0,82], style(
-            color=10,
-            rgbcolor={95,95,95},
-            pattern=3,
-            thickness=2)),
+            color=10, 
+            rgbcolor={95,95,95}, 
+            pattern=3)),
         Line(points=[-100, 0; -94, 13; -86, 28; -74, 48; -65, 60; -52, 72; -35,
                81; -22, 84; -8, 84; 7, 80; 19, 73; 32, 65; 44, 55; 52, 47; 58,
               40], style(color=0, thickness=2)),
@@ -681,8 +678,7 @@ is resolved in the world frame).
         Line(points=[0,95; 0,82], style(
             color=10, 
             rgbcolor={95,95,95}, 
-            pattern=3, 
-            thickness=2)),
+            pattern=3)),
         Line(points=[-100, 0; -94, 13; -86, 28; -74, 48; -65, 60; -52, 72; -35,
                81; -22, 84; -8, 84; 7, 80; 19, 73; 32, 65; 44, 55; 52, 47; 58,
               40], style(color=0, thickness=2)),
@@ -830,10 +826,9 @@ is resolved in the world frame).
             fillColor=0,
             fillPattern=1)),
         Line(points=[0,97; 0,10], style(
-            color=10,
-            rgbcolor={95,95,95},
-            pattern=3,
-            thickness=2))),
+            color=10, 
+            rgbcolor={95,95,95}, 
+            pattern=3))),
       Icon(
         Text(
           extent=[-74, 62; 44, 24],
@@ -856,8 +851,7 @@ is resolved in the world frame).
         Line(points=[0,95; 0,10], style(
             color=10, 
             rgbcolor={95,95,95}, 
-            pattern=3, 
-            thickness=2))),
+            pattern=3))),
       Documentation(info="<HTML>
 <p>
 The <b>6</b> signals of the <b>load</b> connector are interpreted
@@ -1019,15 +1013,13 @@ is resolved in the world frame).
         Line(points=[40, 100; 40, 0], style(
             color=10, 
             rgbcolor={95,95,95}, 
-            pattern=3, 
-            thickness=2)),
+            pattern=3)),
         Polygon(points=[-94,0; -64,11; -64,-10; -94,0],     style(color=0,
               fillColor=0)),
         Line(points=[-60, 100; 40, 100], style(
             color=10, 
             rgbcolor={95,95,95}, 
-            pattern=3, 
-            thickness=2)),
+            pattern=3)),
         Polygon(points=[94,0; 65,12; 65,-11; 94,0],       style(color=0,
               fillColor=0)),
         Line(points=[-64, 0; -20, 0], style(color=0)),
@@ -1191,8 +1183,7 @@ is resolved in the world frame).
         Line(points=[40, 100; 76, 46], style(
             color=10, 
             rgbcolor={95,95,95}, 
-            pattern=3, 
-            thickness=2)),
+            pattern=3)),
         Polygon(points=[-99,20; -86,53; -70,42; -99,20],     style(
             color=0,
             fillColor=0,
@@ -1200,8 +1191,7 @@ is resolved in the world frame).
         Line(points=[-60, 100; 40, 100], style(
             color=10, 
             rgbcolor={95,95,95}, 
-            pattern=3, 
-            thickness=2)),
+            pattern=3)),
         Line(points=[-79, 47; -70, 61; -59, 72; -45, 81; -32, 84; -20, 85],
             style(color=0)),
         Line(points=[77, 45; 66, 60; 55, 69; 49, 74; 41, 80; 31, 84; 20, 85],
@@ -1371,10 +1361,9 @@ is resolved in the world frame).
             fillColor=0,
             fillPattern=1)),
         Line(points=[40, 100; 40, 0], style(
-            color=10,
-            rgbcolor={95,95,95},
-            pattern=3,
-            thickness=2)),
+            color=10, 
+            rgbcolor={95,95,95}, 
+            pattern=3)),
         Polygon(points=[-95,1; -64,11; -64,-10; -95,1],     style(color=0,
               fillColor=0)),
         Polygon(points=[-100,20; -86,53; -70,42; -100,20],   style(
@@ -1382,10 +1371,9 @@ is resolved in the world frame).
             fillColor=0,
             fillPattern=1)),
         Line(points=[-60, 100; 40, 100], style(
-            color=10,
-            rgbcolor={95,95,95},
-            pattern=3,
-            thickness=2)),
+            color=10, 
+            rgbcolor={95,95,95}, 
+            pattern=3)),
         Polygon(points=[94,0; 65,12; 65,-11; 94,0],       style(color=0,
               fillColor=0)),
         Line(points=[-64, 0; -20, 0], style(color=0)),
