@@ -10,7 +10,7 @@ package Sensors "Sensors to measure variables"
                   0) + (if get_z_abs then 1 else 0)));
     Interfaces.Frame_resolve frame_resolve 
       "If connected, the output signals are resolved in this frame" 
-      annotation (extent=[-20, 80; 20, 120], rotation=-90);
+      annotation (extent=[-16,84; 16,116], rotation=-90);
     parameter Boolean animation=true 
       "= true, if animation shall be enabled (show arrow)";
     parameter Boolean resolveInFrame_a=false 
@@ -377,7 +377,7 @@ Exact definition of the returned quantities:
             get_w_rel then 1 else 0) + (if get_z_rel then 1 else 0)));
     Interfaces.Frame_resolve frame_resolve 
       "If connected, the output signals are resolved in this frame" 
-      annotation (extent=[-80,-120; -40,-80],  rotation=-90);
+      annotation (extent=[-76,-116; -44,-84],  rotation=-90);
     
     parameter Boolean animation=true 
       "= true, if animation shall be enabled (show arrow)";
@@ -452,13 +452,16 @@ Exact definition of the returned quantities:
     annotation (
       preferedView="info",
       Icon(Line(points=[-60,-94; -60,-80; 0,-80; 0,-80], style(
-            color=0,
-            rgbcolor={0,0,0},
+            color=10,
+            rgbcolor={95,95,95},
             pattern=3,
             thickness=2)),   Text(
-          extent=[-131,-55; 0,-80],
+          extent=[-157,-49; -26,-74],
           string="resolve",
-          style(color=8, rgbcolor={192,192,192}))),
+          style(
+            color=8,
+            rgbcolor={192,192,192},
+            pattern=3))),
       Diagram,
       Documentation(info="<HTML>
 <p>

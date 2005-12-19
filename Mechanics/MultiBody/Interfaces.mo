@@ -142,9 +142,9 @@ and the cut-torque is acting. This component has a non-filled rectangular icon.
             pattern=3,
             thickness=2)),
            Rectangle(extent=[-30,100; 30,-100], style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=7,
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=7, 
             rgbfillColor={255,255,255}))),
       Diagram(Text(
           extent=[-140,-50; 140,-88],
@@ -615,7 +615,7 @@ with the blocks of package Modelica.Blocks.
       "Coordinate system with one cut-force and cut-torque"                          annotation (extent=[84,-16; 116,16]);
     Interfaces.Frame_resolve frame_resolve 
       "If connected, the output signals are resolved in this frame (cut-force/-torque are set to zero)"
-      annotation (extent=[60,-120; 100,-80],  rotation=-90);
+      annotation (extent=[64,-116; 96,-84],  rotation=-90);
     
     annotation (
       Coordsys(
@@ -655,9 +655,9 @@ with the blocks of package Modelica.Blocks.
           style(color=8),
           string="resolve"),
         Line(points=[80, 0; 80, -100], style(
-            color=0,
-            rgbcolor={0,0,0},
-            pattern=3,
+            color=10, 
+            rgbcolor={95,95,95}, 
+            pattern=3, 
             thickness=2))),
       Diagram(
         Line(points=[-70, 0; -100, 0], style(color=0)),
