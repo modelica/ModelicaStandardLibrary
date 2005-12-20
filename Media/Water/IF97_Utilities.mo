@@ -6252,6 +6252,7 @@ Ordinary Water Substance<br>
       aux.cp := -aux.R*g.tau*g.tau*g.gtautau;
       aux.cv := aux.R*(-g.tau*g.tau*g.gtautau + ((g.gpi - g.tau*g.gtaupi)*(g.gpi - g.tau*g.gtaupi)/g.gpipi));
       aux.x := 0.0;
+      aux.dpT := aux.vt/aux.vp;
     elseif (aux.region == 2) then
       aux.T := BaseIF97.Basic.tph2(p, h);
       g := BaseIF97.Basic.g2(p, aux.T);
@@ -6262,6 +6263,7 @@ Ordinary Water Substance<br>
       aux.cp := -aux.R*g.tau*g.tau*g.gtautau;
       aux.cv := aux.R*(-g.tau*g.tau*g.gtautau + ((g.gpi - g.tau*g.gtaupi)*(g.gpi - g.tau*g.gtaupi)/g.gpipi));
       aux.x := 1.0;
+      aux.dpT := aux.vt/aux.vp;
     elseif (aux.region == 3) then
       (aux.rho,aux.T,error) := BaseIF97.Inverses.dtofph3(p=p,h= h,delp= 1.0e-7,delh=
               1.0e-6);
@@ -6273,6 +6275,7 @@ Ordinary Water Substance<br>
       aux.cv := aux.R*(-f.tau*f.tau*f.ftautau);
       aux.cp := (aux.rho*aux.rho*aux.pd*aux.cv + aux.T*aux.pt*aux.pt)/(aux.rho*aux.rho*aux.pd);
       aux.x := 0.0;
+      aux.dpT := aux.pt; /*safety against div-by-0 in initialization*/
     elseif (aux.region == 4) then
       h_liq := hl_p(p);
       h_vap := hv_p(p);
@@ -6312,6 +6315,7 @@ Ordinary Water Substance<br>
       aux.vp := aux.R*aux.T/(p*p)*g.pi*g.pi*g.gpipi;
       aux.cp := -aux.R*g.tau*g.tau*g.gtautau;
       aux.cv := aux.R*(-g.tau*g.tau*g.gtautau + ((g.gpi - g.tau*g.gtaupi)*(g.gpi - g.tau*g.gtaupi)/g.gpipi));
+      aux.dpT := aux.vt/aux.vp;
     else
       assert(false, "error in region computation of IF97 steam tables"
       + "(p = " + String(p) + ", h = " + String(h) + ")");
