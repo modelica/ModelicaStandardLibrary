@@ -3474,7 +3474,7 @@ Modelica source.
     extends Modelica.Icons.Library;
     
     // Constants to be set in Medium
-    constant String mediumName "Name of the medium";
+    constant String mediumName = "unusablePartialMedium" "Name of the medium";
     constant String substanceNames[:]={mediumName} 
       "Names of the mixture substances. Set substanceNames={mediumName} if only one substance.";
     constant String extraPropertiesNames[:]=fill("", 0) 
