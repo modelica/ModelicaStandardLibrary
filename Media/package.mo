@@ -3487,7 +3487,7 @@ Modelica source.
       "= true if medium contains the equation X = reference_X";
     constant AbsolutePressure reference_p=101325 
       "Reference pressure of Medium: default 1 atmosphere";
-    constant MassFraction reference_X[nX]=fill(1/nX, nX) 
+    constant MassFraction reference_X[nX]= if nX == 0 then fill(0,nX) else fill(1/nX, nX) 
       "Default mass fractions of medium";
     final constant Integer nS=size(substanceNames, 1) "Number of substances"  annotation(Evaluate=true);
     final constant Integer nX=if nS == 1 then 0 else nS 
