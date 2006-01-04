@@ -27,17 +27,19 @@ connected with continuous blocks or with sampled-data blocks.
 </HTML>
 ", revisions="<html>
 <ul>
+<li><i>January 4, 2006</i> by Mike Dempsey:<br>
+       New block added: Convert.</li>
 <li><i>October 21, 2002</i>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>
        and <a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Christian Schweiger</a>:<br>
-       New blocks added: RealToInteger, IntegerToReal, Max, Min, Edge, BooleanChange, IntegerChange.
+       New blocks added: RealToInteger, IntegerToReal, Max, Min, Edge, BooleanChange, IntegerChange.</li>
 <li><i>August 7, 1999</i>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
        Realized (partly based on an existing Dymola library
        of Dieter Moormann and Hilding Elmqvist).
 </li>
 </ul>
-</html"));
+</html>"));
       block TwoInputs 
     "Change causality of input signals by defining that two input signals are identical (e.g. for inverse models)" 
         extends Blocks.Interfaces.BlockIcon;
@@ -1752,6 +1754,31 @@ zero or negative.
       equation 
         y = Modelica.Math.log10(u);
       end Log10;
+
+  block Convert "Convert signal to a signal with different unit"
+    extends Interfaces.SISO;
+
+    replaceable function convert = SIunits.Conversions.ConversionIcon 
+      extends SIunits.Conversions.ConversionIcon "Conversion function"
+      annotation (choicesAllMatching=true);
+
+    annotation (Icon(
+          Line(points=[-90, 0; 30, 0], style(color=42)), 
+          Polygon(points=[90, 0; 30, 20; 30, -20; 90, 0], style(color=42, 
+            fillColor=42))),
+        Documentation(info="<html>
+<p>This block implements the Modelica.SIunits unit conversion functions as a fixed causality block to
+simplify their use. The block contains a replaceable function class <b>convert</b> that can be
+changed to be any of the functions defined in Modelica.SIunits.Conversions, and more generally, any
+functions that extend from Modelica.SIunits.Conversions.ConversionIcon. The output <b>y</b> is optained
+applying the unit conversion function to the input <b>u</b>:</p>
+<pre>
+    y = <b>convert</b>( u );
+</pre>
+</html>"));
+  equation 
+    y = convert(u);
+  end Convert;
   
   block RealToInteger "Convert Real to Integer signal" 
     extends Interfaces.IntegerBlockIcon;
