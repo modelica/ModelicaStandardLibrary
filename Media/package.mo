@@ -2,6 +2,7 @@ package Media "Property models of media"
 extends Modelica.Icons.Library;
 import SI = Modelica.SIunits;
 
+
 annotation (
   version="1.0",
   versionDate="2005-03-01",
@@ -53,6 +54,7 @@ and the accompanying <b>disclaimer</b>
 </HTML>"),
   conversion(from(version="0.795", script=
           "../ConvertFromModelica.Media_0.795.mos")));
+
 
 package UsersGuide "Users Guide" 
   
@@ -2073,6 +2075,7 @@ end Contact;
   
 end UsersGuide;
 
+
 package Examples 
   "Demonstrate usage of property models (currently: simple tests)" 
   
@@ -3353,6 +3356,7 @@ output window.
   end SolveOneNonlinearEquation;
 end Examples;
 
+
 package Interfaces "Interfaces for media models" 
   
   annotation (Documentation(info="<HTML>
@@ -3907,8 +3911,6 @@ equation
       output SpecificEnthalpy h "Specific enthalpy at p, T, X";
     end specificEnthalpy_pTX;
     
-    function h_pTX = specificEnthalpy_pTX 
-      "Short-Form of specificEnthalpy_pTX provided for convenience";
     
     replaceable partial function temperature_phX 
       "Compute temperature from pressure, specific enthalpy and mass fraction" 
@@ -3919,8 +3921,6 @@ equation
       output Temperature T "Temperature";
     end temperature_phX;
     
-    function T_phX = temperature_phX 
-      "Short-form of temperature_phX provided for convenience";
     
     type AbsolutePressure = SI.AbsolutePressure (
         min=0,
@@ -4736,6 +4736,7 @@ For this reason, function specificEnthalpy_pTXi() is provided.
   end PartialSimpleMedium;
   
 end Interfaces;
+
 
 package Common "data structures and fundamental functions for fluid properties" 
   
