@@ -2,7 +2,6 @@ package Media "Property models of media"
 extends Modelica.Icons.Library;
 import SI = Modelica.SIunits;
 
-
 annotation (
   version="1.0",
   versionDate="2005-03-01",
@@ -55,8 +54,8 @@ and the accompanying <b>disclaimer</b>
   conversion(from(version="0.795", script=
           "../ConvertFromModelica.Media_0.795.mos")));
 
-
 package UsersGuide "Users Guide" 
+  
   annotation (DocumentationClass=true, Documentation(info="<HTML>
 <h3><font color=\"#008000\" size=5>Users Guide of package Modelica.Media</font></h3>
 <p>
@@ -134,6 +133,7 @@ This Users Guide has the following main parts:
 </HTML>"));
   
   package MediumUsage "Medium usage" 
+    
     annotation (DocumentationClass=true, Documentation(info="<HTML>
 <h3><font color=\"#008000\" size=5>Using a fluid medium model</font></h3>
 <p>
@@ -155,7 +155,7 @@ Content:
 <li> <a href=\"Modelica:Modelica.Media.UsersGuide.MediumUsage.Initialization\">
      Initialization</a></li>
 </ol>
-
+ 
 <p>
 A good demonstration how to use the media from Modelica.Media is
 given in package Modelica.Media.Examples.Tests. Under 
@@ -164,7 +164,7 @@ Tests.Components</a> the most basic components of a Fluid library
 are defined. Under Tests.MediaTestModels these basic components are used to test
 all media models with some very simple piping networks.
 </p>
-
+ 
 </HTML>"));
     
     class BasicUsage "Basic usage" 
@@ -222,7 +222,7 @@ medium model basically provides equations to compute
 the remaining variables, including the full mass fraction vector X
 (more details to Xi and X are given below).
 </p>
-
+ 
 <p>
 In a component, the most basic usage of a medium model is as follows
 </p>
@@ -282,7 +282,7 @@ medium. Note, by specific techniques sketched in section
 need not to be the same as the variables in the connector and still
 get the same efficiency, as if the same variables would be used.
 </p>
-
+ 
 <p>
 If a fluid consists of a single
 substance, <b>nXi = 0</b> and the vector of mass fractions Xi is not
@@ -295,13 +295,13 @@ Note, that if nXi = nS, the constraint \"sum(Xi)=1\" between the mass
 fractions is <b>not</b> present in the model; in that case, it is necessary to 
 provide consistent start values for Xi such that sum(Xi) = 1.
 </p>
-
+ 
 <p>
 The reason for this definition of Xi is that a fluid component library
 can be implemented by using only the independent mass fractions Xi and
 then via the medium it is defined how Xi is interpreted:
 </p>
-
+ 
 <ul>
 <li> If Xi = nS, then the constraint equation sum(X) = 1 is neglected
      during simulation. By making sure that the initial conditions of X
@@ -322,7 +322,7 @@ then via the medium it is defined how Xi is interpreted:
      the cases when the composition will always be constant, e.g. with
      circuits having fixed composition sources.
 </ul>
-
+ 
 <p>
 The full vector of mass fractions <b>X[nX]</b> is computed in
 PartialMedium.BaseProperties based on Xi, reference_X, and the information whether Xi = nS or nS-1. For single-substance media, nX = 0, so there's also no X vector. For multiple-substance media, nX = nS, and X always contains the full vector of mass fractions. In order to reduce confusion for the user of a fluid component library, \"Xi\" has the annotation \"Hide=true\", meaning, that this variable is not shown in the plot window. Only X is shown in the plot window and this vector always contains all mass fractions.
@@ -347,14 +347,14 @@ Modelica.Media.Examples.Tests.Components.PortVolume</a>):
   <b>model</b> JunctionVolume
     <b>import</b> SI=Modelica.SIunits;
     <b>import</b> Modelica.Media.Examples.Tests.Components.FluidPort_a;
-
+ 
     <b>parameter</b> SI.Volume V = 1e-6 \"Fixed size of junction volume\";
     <b>replaceable package</b> Medium = Modelica.Media.Interfaces.PartialMedium
                            \"Medium model\" <b>annotation</b> (choicesAllMatching = <b>true</b>);
-
+ 
     FluidPort_a port(<b>redeclare package</b> Medium = Medium);
     Medium.BaseProperties medium(preferredMediumStates = <b>true</b>);
-
+ 
     SI.Energy U               \"Internal energy of junction volume\";
     SI.Mass   M               \"Mass of junction volume\";
     SI.Mass   MX[Medium.nXi] \"Independent substance masses of junction volume\";
@@ -362,11 +362,11 @@ Modelica.Media.Examples.Tests.Components.PortVolume</a>):
     medium.p   = port.p;
     medium.h   = port.h;
     medium.Xi = port.Xi;
-
+ 
     M  = V*medium.d;                  // mass of JunctionVolume
     MX = M*medium.Xi;                // mass fractions in JunctionVolume
     U  = M*medium.u;                  // internal energy in JunctionVolume
-
+ 
     <b>der</b>(M)  = port.m_flow;    // mass balance
     <b>der</b>(MX) = port.mX_flow;   // substance mass balance
     <b>der</b>(U)  = port.H_flow;    // energy balance
@@ -391,23 +391,23 @@ removed, because SimpleAir consists of a single substance only):
 <pre>
     M  = V*medium.d;
     U  = M*medium.u;
-
+ 
     // balance equations
     <b>der</b>(M)  = port.m_flow;
     <b>der</b>(U)  = port.H_flow;
-
+ 
     // abbreviations introduced to get simpler terms
     p = medium.p;
     T = medium.T;
     d = medium.d;
     u = medium.u;
     h = medium.h;
-
+ 
     // medium equations
     d = fd(p,T);
     h = fh(p,T);
     u = h - p/d;
-
+ 
     // equations derived <b>automatically</b> by a Modelica tool due to index reduction
     <b>der</b>(U) = <b>der</b>(M)*u + M*<b>der</b>(u);
     <b>der</b>(M) = V*<b>der</b>(d);
@@ -429,7 +429,7 @@ is provided. A Modelica tool will transform the equations above
 in differential equations with p and T as states, i.e., will
 generate equations to compute <b>der</b>(p) and <b>der</b>(T) as function of p and T.
 </p>
-
+ 
 <p>
 Note, when preferredMediumStates = <b>false</b>, no differentiation
 will take place and the Modelica translator will use the variables
@@ -462,15 +462,15 @@ Modelica.Media.Examples.Tests.Components.ShortPipe</a>):
   <b>model</b> ShortPipe
     <b>import</b> SI=Modelica.SIunits;
     <b>import</b> Modelica.Media.Examples.Tests.Components;
-
+ 
     // parameters defining the pressure drop equation
-
+ 
     <b>replaceable package</b> Medium = Modelica.Media.Interfaces.PartialMedium
                            \"Medium model\" <b>annotation</b> (choicesAllMatching = <b>true</b>);
-
+ 
     Component.FluidPort_a port_a (<b>redeclare package</b> Medium = Medium);
     Component.FluidPort_b port_b (<b>redeclare package</b> Medium = Medium);
-
+ 
     SI.Pressure dp = port_a.p - port_b.p \"Pressure drop\";
     Medium.BaseProperties medium_a \"Medium properties in port_a\";
     Medium.BasePropreties medium_b \"Medium properties in port_b\";
@@ -479,31 +479,31 @@ Modelica.Media.Examples.Tests.Components.ShortPipe</a>):
     medium_a.p   = port_a.p;
     medium_a.h   = port_a.h;
     medium_a.Xi = port_a.Xi;
-
+ 
     medium_b.p   = port_b.p;
     medium_b.h   = port_b.h;
     medium_b.Xi = port_b.Xi;
-
+ 
     // Handle reverse and zero flow (semiLinear is a built-in Modelica operator)
     port_a.H_flow   = <b>semiLinear</b>(port_a.m_flow, port_a.h, port_b.h);
     port_a.mXi_flow = <b>semiLinear</b>(port_a.m_flow, port_a.Xi, port_b.Xi);
-
+ 
     // Energy, mass and substance mass balance
     port_a.H_flow + port_b.H_flow = 0;
     port_a.m_flow + port_b.m_flow = 0;
     port_a.mXi_flow + port_b.mXi_flow = zeros(Medium.nXi);
-
+ 
     // Provide equation: port_a.m_flow = f(dp)
   <b>end</b> ShortPipe;
 </pre>
-
+ 
 <p>
 The <b>semiLinear</b>(..) operator is basically defined as:
 </p>
 <pre>
     semiLinear(m_flow, ha, hb) = if m_flow &ge; 0 then m_flow*ha else m_flow*hb;
 </pre>
-
+ 
 <p>
 that is, it computes the enthalpy flow rate either from the port_a or
 from the port_b properties, depending on flow direction. The exact
@@ -519,7 +519,7 @@ port1.H_flow, port2.H_flow, port3.H_flow, .... The rules for the
 semiLinear(..) operator allow the following solution of this
 linear system of equations:
 </p>
-
+ 
 <ul>
 <li> n = 2 (two components are connected):<br>
      The linear system of equations can be analytically solved
@@ -529,7 +529,7 @@ linear system of equations:
      0 = port1.H_flow + port2.H_flow
      </pre>
      Therefore, no problems with zero mass flow rate are present.</li>
-
+ 
 <li> n &gt; 2 (more than two components are connected together):<br>
      The linear system of equations is solved numerically during simulation. 
      For m_flow = 0, the linear system becomes singular and has an 
@@ -623,6 +623,14 @@ form:
   <tr><td>Medium.molarMass(medium.state)</td>
       <td>kg/mol</td>
       <td>molar mass</td></tr>
+  <tr><td>Medium.specificEnthalpy_pTX(p,T,X)</td>
+      <td>J/kg</td>
+      <td>Specific enthalpy at p, T, X <br>
+          (e.g. used to compute consistent start values)</td></tr>
+  <tr><td>Medium.temperature_phX(p,h,X)</td>
+      <td>K</td>
+      <td>Temperature at p, h, X <br>
+          (e.g. used to compute consistent start values)</td></tr>
 </table>
 <p>
 Assume for example that the dynamic viscosity eta is needed in
@@ -644,12 +652,12 @@ model of a short pipe has to be changed to:
     // use eta in the pressure drop equation: port_a.m_flow = f(dp, eta)
   <b>end</b> ShortPipe;
 </pre>
-
+ 
 <p>
 Note, \"Medium.DynamicViscosity\" is a type defined in Modelica.Interfaces.PartialMedium
 as
 </p>
-
+ 
 <pre>
   <b>import</b> SI = Modelica.SIunits;
   <b>type</b> DynamicViscosity = SI.DynamicViscosity (
@@ -658,7 +666,7 @@ as
                                      nominal=1.e-3,
                                      start=1.e-3);
 </pre>
-
+ 
 <p>
 Every medium model may modify the attributes, to provide, e.g., 
 min, max, nominal, and start values adapted to the medium.
@@ -667,13 +675,14 @@ etc. are defined in PartialMedium. Whenever possible, these medium
 specific types should be used in a model in order that medium information,
 e.g., about nominal or start values, are automatically utilized.
 </p>
-
+ 
 </pre>
-
+ 
 </HTML>"));
     end OptionalProperties;
     
     class Constants "Constants" 
+      
       annotation (Documentation(info="<HTML>
 <h3><font color=\"#008000\">Constants provided by medium model</font></h3>
 <p>
@@ -710,11 +719,17 @@ then constants \"Medium.mediumName\", \"Medium.nX\", etc. are defined:
           initial conditions have to be provided for a volume element that
           contains mass and energy balance.</td></tr>
   <tr><td>AbsolutePressure</td><td>reference_p</td>
-      <td>Reference pressure for the medium (may be used as meaningful 
-          default start value)</td></tr>
+      <td>Reference pressure for the medium</td></tr>
   <tr><td>MassFraction</td><td>reference_X[nX]</td>
-      <td>Reference composition for the medium (may be used as meaningful
-          default start value).</td></tr>
+      <td>Reference composition for the medium</td></tr>
+  <tr><td>AbsolutePressure</td><td>p_default</td>
+      <td>Default value for pressure of medium (for initialization)</td></tr>
+  <tr><td>Temperature</td><td>T_default</td>
+      <td>Default value for temperature of medium (for initialization)</td></tr>
+  <tr><td>SpecificEnthalpy</td><td>h_default</td>
+      <td>Default value for specific enthalpy of medium (for initialization)</td></tr>
+  <tr><td>MassFraction</td><td>X_default[nX]</td>
+      <td>Default value for mass fractions of medium (for initialization)</td></tr>
   <tr><td>Integer</td><td>nS</td>
       <td>number of substances contained in the medium.</td></tr>
   <tr><td>Integer</td><td>nX</td>
@@ -740,124 +755,139 @@ then constants \"Medium.mediumName\", \"Medium.nX\", etc. are defined:
           standard data that are provided for
           every substance of a medium.</td></tr>
 </table>
-
+ 
 <p>
 Record FluidConstants contains the following elements
 </p>
-
-
+ 
+ 
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><td><b>Type</b></td>
       <td><b>Name</b></td>
       <td><b>Description</b></td></tr>
-
+ 
   <tr><td>String</td>
       <td>iupacName</td>
       <td>complete IUPAC name</td></tr>
-
+ 
   <tr><td>String</td>
       <td>casRegistryNumber</td>
       <td>chemical abstracts sequencing number</td></tr>
-
+ 
   <tr><td>String</td>
       <td>chemicalFormula</td>
       <td>Chemical formula, (brutto, nomenclature according to Hill)</td></tr>
-
+ 
   <tr><td>String</td>
       <td>structureFormula</td>
       <td>Chemical structure formula</td></tr>
-
+ 
   <tr><td>MolarMass</td>
       <td>molarMass</td>
       <td>molar mass</td></tr>
-
+ 
   <tr><td>Temperature</td>
       <td>criticalTemperature</td>
       <td>critical temperature</td></tr>
-
+ 
   <tr><td>AbsolutePressure</td>
       <td>criticalPressure</td>
       <td>critical pressure</td></tr>
-
+ 
   <tr><td>MolarVolume</td>
       <td>criticalMolarVolume</td>
       <td>critical molar Volume</td></tr>
-
+ 
   <tr><td>Real</td>
       <td>acentricFactor</td>
       <td>Pitzer acentric factor</td></tr>
-
+ 
   <tr><td>Temperature</td>
       <td>triplePointTemperature</td>
       <td>triple point temperature</td></tr>
-
+ 
   <tr><td>AbsolutePressure</td>
       <td>triplePointPressure</td>
       <td>triple point pressure</td></tr>
-
+ 
   <tr><td>Temperature</td>
       <td>meltingPoint</td>
       <td>melting point at 101325 Pa</td></tr>
-
+ 
   <tr><td>Temperature</td>
       <td>normalBoilingPoint</td>
       <td>normal boiling point (at 101325 Pa)</td></tr>
-
+ 
   <tr><td>DipoleMoment</td>
       <td>dipoleMoment</td>
       <td>dipole moment of molecule in Debye (1 debye = 3.33564e10-30 C.m)</td></tr>
-
+ 
   <tr><td>Boolean</td>
       <td>hasIdealGasHeatCapacity</td>
       <td>true if ideal gas heat capacity is available</td></tr>
-
+ 
   <tr><td>Boolean</td>
       <td>hasCriticalData</td>
       <td>true if critical data are known</td></tr>
-
+ 
   <tr><td>Boolean</td>
       <td>hasDipoleMoment</td>
       <td>true if a dipole moment known</td></tr>
-
-  <tr><td>Boolean</td>
-      <td></td>
-      <td></td></tr>
-
+ 
   <tr><td>Boolean</td>
       <td>hasFundamentalEquation</td>
       <td>true if a fundamental equation</td></tr>
-
+ 
   <tr><td>Boolean</td>
       <td>hasLiquidHeatCapacity</td>
       <td>true if liquid heat capacity is available</td></tr>
-
+ 
   <tr><td>Boolean</td>
       <td>hasSolidHeatCapacity</td>
       <td>true if solid heat capacity is available</td></tr>
-
+ 
   <tr><td>Boolean</td>
       <td>hasAccurateViscosityData</td>
       <td>true if accurate data for a viscosity function is available</td></tr>
-
+ 
   <tr><td>Boolean</td>
       <td>hasAccurateConductivityData</td>
       <td>true if accurate data for thermal conductivity is available</td></tr>
-
+ 
   <tr><td>Boolean</td>
       <td>hasVapourPressureCurve</td>
       <td>true if vapour pressure data, e.g. Antoine coefficents are known</td></tr>
-
+ 
   <tr><td>Boolean</td>
       <td>hasAcentricFactor</td>
       <td>true if Pitzer accentric factor is known</td></tr>
 
-</table>
+  <tr><td>SpecificEnthalpy</td>
+      <td>HCRIT0</td>
+      <td>Critical specific enthalpy of the fundamental equation</td></tr>
 
+  <tr><td>SpecificEntropy</td>
+      <td>SCRIT0</td>
+      <td>Critical specific entropy of the fundamental equation</td></tr>
+
+  <tr><td>SpecificEnthalpy</td>
+      <td>deltah</td>
+      <td>Difference between specific enthalpy model
+          (h_m) and f.eq. (h_f) (h_m - h_f)</td></tr>
+
+  <tr><td>SpecificEntropy</td>
+      <td>deltas</td>
+      <td>Difference between specific enthalpy model (s_m) and f.eq.
+          (s_f) (s_m - s_f)</td></tr>
+
+</table>
+ 
 </HTML>
 "));
     end Constants;
     
     class TwoPhase "Two-phase media" 
+      
       annotation (Documentation(info="<HTML>
 <h3><font color=\"#008000\">Two-phase Media</font></h3>
 <p>
@@ -904,15 +934,15 @@ as shown in the following example.
    // Set sat_p to saturation properties at pressure p
    sat_p.psat = p;
    sat_p.Tsat = Medium.saturationTemperature(p);
-
+ 
    // Compute saturation properties at pressure p
    bubble_density_p = Medium.bubbleDensity(sat_p);
    dew_enthalpy_p   = Medium.dewEnthalpy(sat_p);
-
+ 
    // Set sat_T to saturation properties at temperature T
    sat_T.Tsat = T;
    sat_T.psat = Medium.saturationPressure(T);
-
+ 
    // Compute saturation properties at temperature T
    bubble_density_T = Medium.bubbleDensity(sat_T);
    dew_enthalpy_T   = Medium.dewEnthalpy(sat_T);
@@ -1004,12 +1034,12 @@ Here are some examples:
    // Set sat to saturation properties at pressure p
    sat.psat = p;
    sat.Tsat = Medium.saturationTemperature(p);
-
+ 
    // Compute dew point properties, one-phase side
    dew_1 = setDewState(sat);
    cpDew = Medium.heatCapacity_cp(dew_1);
    drho_dp_h_1 = Medium.density_derp_h(dew_1);
-
+ 
    // Compute bubble point properties, two-phase side
    bubble_2    = setBubbleState(sat, 2);
    drho_dp_h_2 = Medium.density_derp_h(bubble_2);
@@ -1020,16 +1050,17 @@ Here are some examples:
     end TwoPhase;
     
     class Initialization "Initialization" 
+      
       annotation (Documentation(info="<HTML>
 <h3><font color=\"#008000\">Initialization of Medium</font></h3>
-
+ 
 <p>
 When a medium model is used in a balance volume, differential
 equations for the independent medium variables are present and
 therefore initial conditions have to be provided.
 The following possibilities exist:
 </p>
-
+ 
 <h4>Steady state initialization</h4>
 <p>
 Modelica has currently no language element to define
@@ -1042,7 +1073,7 @@ can be set before translation. Then, missing initial
 conditions are provided by automamtically setting appropriate
 state derivatives to zero.
 </p>
-
+ 
 <h4>Explicit start values or initial equations</h4>
 <p>
 Explicit start values can be defined with the \"start\" and
@@ -1069,7 +1100,7 @@ medium variables, non-linear systems of equations may
 occur to compute the initial values of the independent
 medium variables from the provided initial conditions.
 </p>
-
+ 
 <h4>Guess values</h4>
 <p>
 If non-linear systems of equations occur during initialization,
@@ -1103,6 +1134,7 @@ exist:
   end MediumUsage;
   
   package MediumDefinition "Medium definition" 
+    
     annotation (DocumentationClass=true, Documentation(info="<HTML>
 <h3><font color=\"#008000\" size=5>Defining a fluid medium model</font></h3>
 <p>
@@ -1133,6 +1165,7 @@ TemplateMedium package is given here:
 </HTML>"));
     
     class BasicStructure "Basic structure" 
+      
       annotation (Documentation(info="<HTML>
 <h3><font color=\"#008000\">Basic structure of medium interface</font></h3>
 <p>
@@ -1167,21 +1200,26 @@ following structure:</p>
 <pre>
 <b>partial package</b> PartialMedium
   <b>import</b> SI = Modelica.SIunits;
-  <b>constant</b> String mediumName = \"\";
-  <b>constant</b> String substanceNames[:] = {mediumName}; 
-  <b>constant</b> String extraPropertiesNames[:] = fill(\"\",0); 
-  <b>constant</b> Boolean singleState = <b>false</b>;
-  <b>constant</b> Boolean reducedX = <b>true</b>;
-  <b>constant</b> Boolean fixedX = <b>false</b>;
+  <b>constant</b> String           mediumName = \"\";
+  <b>constant</b> String           substanceNames[:] = {mediumName}; 
+  <b>constant</b> String           extraPropertiesNames[:] = fill(\"\",0); 
+  <b>constant</b> Boolean          singleState = <b>false</b>;
+  <b>constant</b> Boolean          reducedX = <b>true</b>;
+  <b>constant</b> Boolean          fixedX = <b>false</b>;
   <b>constant</b> AbsolutePressure reference_p = 101325; 
-  <b>constant</b> MassFraction reference_X[nX]=fill(1/nX,nX); 
-  <b>final constant</b> Integer nS   = size(substanceNames,1); 
-  <b>final constant</b> Integer nX   = <b>if</b> nS==1 <b>then</b> 0 <b>else</b> nS; 
-  <b>final constant</b> Integer nXi = <b>if</b> fixedX <b>then</b> 0 
-     <b>else if</b> reducedX <b>then</b> nS-1 <b>else</b> nS; 
-  <b>final constant</b> Integer nC   = size(extraPropertiesNames,1);
+  <b>constant</b> MassFraction     reference_X[nX]=fill(1/nX,nX); 
+  <b>constant</b> AbsolutePressure p_default = 101325; 
+  <b>constant</b> Temperature      T_default = Modelica.SIunits.Conversions.from_degC(20); 
+  <b>constant</b> SpecificEnthalpy h_default = 
+                            specificEnthalpy_pTX(p_default, T_default, X_default);  
+  <b>constant</b> MassFraction     X_default[nX]=reference_X; 
+  <b>final constant</b> Integer    nS  = size(substanceNames,1); 
+  <b>final constant</b> Integer    nX  = <b>if</b> nS==1 <b>then</b> 0 <b>else</b> nS; 
+  <b>final constant</b> Integer    nXi = <b>if</b> fixedX <b>then</b> 0 
+                                  <b>else if</b> reducedX <b>then</b> nS-1 <b>else</b> nS; 
+  <b>final constant</b> Integer    nC  = size(extraPropertiesNames,1);
   <b>constant</b> FluidConstants[nS] fluidConstants;
-
+ 
   <b>replaceable record</b> BasePropertiesRecord 
     AbsolutePressure p;
     Density d;
@@ -1228,15 +1266,15 @@ following structure:</p>
      //    AbsolutePressure p \"Absolute pressure of medium\";
      //    Temperature      T \"Temperature of medium\";
   <b>end</b> ThermodynamicState;
-
+ 
   // optional medium properties
   <b>replaceable partial function</b> dynamicViscosity
     <b>input</b>  ThermodynamicState state;
     <b>output</b> DynamicViscosity eta;
   <b>end</b> dynamicViscosity;
-
+ 
   // other optional functions
-
+ 
   // medium specific types
   <b>type</b> AbsolutePressure = SI.AbsolutePressure (
                                min     = 0,
@@ -1252,7 +1290,7 @@ We will discuss all parts of this package in the
 following paragraphs. An actual medium model should extend from PartialMedium
 and has to provide implementations of the various parts.
 </p>
-
+ 
 <p>
 Some of the constants at the beginning of the package do not have a value yet  
 (this is valid in Modelica), but a value has to be provided when extending from
@@ -1267,13 +1305,13 @@ connector, only <i>constants</i> in packages can be accessed, but not
 <i>parameters</i> in a model, because a connector cannot contain an instance 
 of BaseProperties.
 </p>
-
+ 
 <p>The record BasePropertiesRecord contains the variables
 primarily used in balance equations. Three equations for these variables have
 to be provided by every medium in model BaseProperties, plus two equations
 for the gas constant and the molar mass. 
 </p>
-
+ 
 <p>Optional medium properties are defined by functions, such as the function 
 dynamicViscosity (see code Section above) to compute the dynamic viscosity. 
 The argument of those functions is the ThermodynamicState record, defined
@@ -1282,7 +1320,7 @@ needed as an input to compute all the optional properties.
 This construction simplifies the usage
 considerably as demonstrated in the following code fragment:
 </p>
-
+ 
 <pre>
   <b>replaceable package</b> Medium = Modelica.Media.Interfaces.PartialMedium;
   Medium.BaseProperties   medium;
@@ -1291,7 +1329,7 @@ considerably as demonstrated in the following code fragment:
   U   = m*medium.u; //Internal energy
   eta = Medium.dynamicViscosity(medium.state);
 </pre>
-
+ 
 <p>Medium is the medium package that satisfies the
 requirements of a PartialMedium (when using the model above, a value for
 Medium has to be provided by a redeclaration). The medium component is an
@@ -1303,7 +1341,7 @@ Medium.dynamicViscosity. The medium.state vector can be given as input argument
 to this function, and its fields are kept consistent to those of BaseProperties
 by suitable equations, contained in BaseProperties itself (see above).
 </p>
-
+ 
 <p>If a medium model does not provide implementations of all
 optional functions and one of these functions is called in a model, an error
 occurs during translation since the optional functions which have not been
@@ -1312,7 +1350,7 @@ dynamicViscosity is not provided in the medium model when it is used, only
 simple pressure drop loss models without a reference to the viscosity can be 
 used and not the sophisticated ones.
 </p>
-
+ 
 <p>At the bottom of the PartialMedium package type declarations
 are present, that are used in all other parts of the PartialMedium package and
 that should be used in all models and connectors where a medium model is
@@ -1330,7 +1368,7 @@ default start or guess value if the variable is used, e.g., as iteration
 variable in a non-linear system of equations. Note, that all these attributes 
 can be set specifically for a medium in the following way:
 </p>
-
+ 
 <p>
 <pre>
 <b>package</b> MyMedium 
@@ -1340,25 +1378,25 @@ can be set specifically for a medium in the following way:
 <b>end</b> MyMedium;
 </pre>
 </p>
-
+ 
 <p>
 The type PartialMedium.MassFlowRate is defined as
 </p>
-
+ 
 <p>
 <pre>
 <b>type</b> MassFlowRate = Modelica.SIunits.MassFlowRate
      (quantity = \"MassFlowRate.\" + mediumName);
 </pre>
 </p>
-
+ 
 <p>Note that the constant mediumName, that has to be
 defined in every medium model, is used in the quantity attribute. For example,
 if mediumName = SimpleLiquidWater, then the quantity attribute has the value
 MassFlowRate.SimpleLiquidWater. This type should be used in a connector
 definition of a fluid library:
 </p>
-
+ 
 <p>
 <pre>
 <b>connector</b> FluidPort
@@ -1367,7 +1405,7 @@ definition of a fluid library:
   ...
 <b>end</b> FluidPort;
 </pre></p>
-
+ 
 <p>In the model where this connector is used, the actual
 Medium has to be defined. Connectors can only be connected together, if the
 corresponding attributes are either not defined or have identical values. Since
@@ -1380,6 +1418,7 @@ of the graphical user interface.</p>
     end BasicStructure;
     
     class BasicDefinition "Basic definition" 
+      
       annotation (Documentation(info="<HTML>
 <h3><font color=\"#008000\">Basic definition of a medium model</font></h3>
 <p>
@@ -1451,6 +1490,7 @@ defined in the base class and adding their algorithms, e.g.:
     end BasicDefinition;
     
     class MultipleSubstances "Multiple Substances" 
+      
       annotation (Documentation(info="<HTML>
 <h3><font color=\"#008000\">Models of multiple-substance media</font></h3>
 <p>
@@ -1481,7 +1521,7 @@ which declares <b>final</b> reducedX = <b>true</b>, and always assumes nXi = nX 
 <p>It is also possible to leave reducedX modifiable. In this case, the 
 BaseProperties model and all additional functions should check for the actual
 value of reducedX, and provide the corresponding implementation.</p>
-
+ 
 <p>If fixedX is left modifiable, then the implementation should also handle the 
 case fixedX = true properly.</p>
 <p>Fluid connectors should always use composition vectors of size Xi, such as
@@ -1491,10 +1531,10 @@ in the Modelica_Fluid library: </p>
   <b>replaceable package</b> Medium = Modelica.Media.Interfaces.PartialMedium; 
   Medium.AbsolutePressure      p;
   <b>flow</b> Medium.MassFlowRate     m_flow;
-
+ 
   Medium.SpecificEnthalpy      h;
   <b>flow</b> Medium.EnthalpyFlowRate H_flow; 
-
+ 
   Medium.MassFraction          Xi    [Medium.nXi]; 
   <b>flow</b> Medium.MassFlowRate     mX_flow[Medium.nXi]; 
 <b>end</b> FluidPort;
@@ -1511,6 +1551,7 @@ For further details, refer to the implementation of
     end MultipleSubstances;
     
     model SpecificEnthalpyAsFunction "Specific enthalpy as function" 
+      
       annotation (Documentation(info="<html>
 <h3><font color=\"#008000\">Specific enthalpy as function</font></h3>
 <p>
@@ -1522,11 +1563,11 @@ computed by an equation. For example, if p and T are used
 as independent medium variables, a function h_pT(p,T) should
 be defined that is called to compute h:
 </p>
-
+ 
 <pre>
     h = h_pT(p,T);
 </pre>
-
+ 
 <p>
 The reason for this rule requires a longer explanation.
 In short, if h is not a computed by a Modelica function and
@@ -1538,7 +1579,7 @@ Modelica.Media.Examples.Tests.Components.FluidPort).
 Only, if the above rule is fulfilled, a tool is able to
 remove these non-linear system of equations in most cases.
 </p>
-
+ 
 <p>
 The basic idea of the FluidPort connector is that 2 or more
 components can be connected together at a point and that
@@ -1548,23 +1589,23 @@ are generated. Note, the momentum balance is only correct for
 straight line connections. If \"ideal mixing\" is not sufficient,
 a special component to define the mixing equations must be introduced.
 </p>
-
+ 
 <p>
 The mass and momentum balance equations in a component are
 derived from the partial differential equations along the
 flow direction of a pipe:
 </p>
-
+ 
 <IMG SRC=\"../Images/Media/UsersGuide/BalanceEquations1.png\">
-
+ 
 <p>
 Note, F<sub>F</sub> is the fanning friction factor.
 The energy balance can be given in different forms.
 Usually, it is given as:
 </p>
-
+ 
 <IMG SRC=\"../Images/Media/UsersGuide/EnergyBalance1.png\">
-
+ 
 <p>
 This form describes the change of the internal energy, kinetic
 energy and potential energy of a volume as function of the
@@ -1573,9 +1614,9 @@ with the flow velocity v and subtracting it from the energy
 balance above, results in the following alternative form
 of the energy balance:
 </p>
-
+ 
 <IMG SRC=\"../Images/Media/UsersGuide/EnergyBalance2.png\">
-
+ 
 <p>
 This form has the advantage that the kinetic and potential
 energy is no longer part of the energy balance and therefore
@@ -1584,41 +1625,41 @@ systems of equations occur in the first form since the velocity
 is present in the energy balance; in the second form this is not
 the case and it is still valid also for high speeds).
 </p>
-
+ 
 <p>
 Assume now that the second form of the energy balance above
 is used in all components and that the following FluidPort connector
 is used in all components:
 </p>
-
+ 
 <pre>
 <b>connector</b> FluidPort 
   <b>replaceable package</b> Medium = Modelica.Media.Interfaces.PartialMedium; 
   Medium.AbsolutePressure      p;
   <b>flow</b> Medium.MassFlowRate     m_flow;
-
+ 
   Medium.SpecificEnthalpy      h;
   <b>flow</b> Medium.EnthalpyFlowRate H_flow; 
-
+ 
   Medium.MassFraction          Xi    [Medium.nXi]; 
   <b>flow</b> Medium.MassFlowRate     mX_flow[Medium.nXi]; 
 <b>end</b> FluidPort;
 </pre>
-
+ 
 <p>
 As an example, assume that 3 components 
 are connected together and that the medium is a single substance
 fluid. This will result in the following
 connection equations:
 </p>
-
+ 
 <pre>
     p1=p2=p3; 
     h1=h2=h3;  
     0 = m_flow1 + m_flow2 + m_flow3;
     0 = H_flow1 + H_flow2 + H_flow3;
 </pre>
-
+ 
 <p>
 These are the mass balance and the
 energy balance (form 2) of an infinitesimal volume
@@ -1629,13 +1670,13 @@ ideal mixing. Under the assumption that the velocity
 vectors of the 3 flows are identical (especially, they are
 parallel), also the momentum balance is fulfilled:
 </p>
-
+ 
 <pre>
    0 = m_flow1*v1 + m_flow2*v2 + m_flow3*v3;
      = v*(m_flow1 + m_flow2 + m_flow3);
      = 0;
 </pre>
-
+ 
 <p>
 With the above connector it is therefore possible to 
 connect components together in a nearly arbitrary fashion,
@@ -1645,57 +1686,57 @@ If two components are connected together, then the medium
 variables on both sides of the connector are identical.
 However, due to the connector, only the two equations
 </p>
-
+ 
 <pre>
    p1 = p2;
    h1 = h2;
 </pre>
-
+ 
 <p>
 are present. Assume, that p,T are the independent medium variables
 and that the medium properties are computed at one side of the
 connections. This means, the following equations are basically
 present:
 </p>
-
+ 
 <pre>
     h1 = h(p1,T1);
     h2 = h(p2,T2);
     p1 = p2;
     h1 = h2;
 </pre>
-
+ 
 <p>
 These equations can be solved in the following way:
 </p>
-
+ 
 <pre>
     h1 := h(p1,T1)
     p2 := p1;
     h2 := h1;
     0  := h2 - h(p2,T2);   // non-linear system of equations for T2
 </pre>
-
+ 
 <p>
 This means that T2 is computed by solving a non-linear system
 of equations. If h1 and h2 are provided as Modelica functions,
 a Modelica translator, such as Dymola, can replace
 this non-linear system of equations by the equation:
 </p>
-
+ 
 <pre>
    T2 := T1;
 </pre>
-
+ 
 <p>
 because after alias substition there are two function calls
 </p>
-
+ 
 <pre>
     h1 := h(p1,T1);
     h1 := h(p1,T2);
 </pre>
-
+ 
 <p>
 Since the left hand side of the function call and the first
 argument are the same, the second arguments T1 and T2 must also be 
@@ -1703,13 +1744,14 @@ identical and therefore T2 := T1. This type of analysis seems
 to be only possible, if the specific enthalpy is defined as a function
 of the independent medium variables.
 </p>
-
+ 
 </html>"));
     equation 
       
     end SpecificEnthalpyAsFunction;
     
     model StaticStateSelection "Static State Selection" 
+      
       annotation (Documentation(info="<html>
 <h3><font color=\"#008000\">Static State Selection</font></h3>
 <p>
@@ -1901,6 +1943,7 @@ states. This means that static state selection is possible.
     end StaticStateSelection;
     
     model TestOfMedium "Test of medium" 
+      
       annotation (Documentation(info="<html>
 <h3><font color=\"#008000\">Test of medium</font></h3>
 <p>
@@ -1909,14 +1952,14 @@ be tested. A basic test is already provided with model
 Modelica.Media.Examples.Tests.Components.PartialTestModel
 which might be used in the following way:
 </p>
-
+ 
 <pre>
   <b>model</b> TestOfMyMedium
      <b>extends</b> Modelica.Media.Examples.Tests.Components.PartialTestModel(
               <b>redeclare package</b> Medium = MyMedium);
   <b>end</b> TestOfMyMedium;
 </pre>
-
+ 
 <p>
 It might be necessary to adapt or change initial values 
 depending on the validity range of the medium.
@@ -1930,12 +1973,12 @@ medium variable or is only a function of T. If h is a function
 of, say h=h(p,T), one non-linear system of equations occurs that
 cannot be avoided.
 </p>
-
+ 
 <p>
 The test model above can be used to test the most basic
 properties. Of course, more tests should be performed.
 </p>
-
+ 
 </html>"));
     equation 
       
@@ -1943,6 +1986,7 @@ properties. Of course, more tests should be performed.
   end MediumDefinition;
   
   model ReleaseNotes "Release notes" 
+    
     annotation (Documentation(info="<HTML>
 <h3><font color=\"#008000\" size=5>Release notes</font></h3>
 <h4><font color=\"#008000\">Version 1.0, 2005-03-01</font></h4>
@@ -2029,13 +2073,13 @@ end Contact;
   
 end UsersGuide;
 
-
 package Examples 
   "Demonstrate usage of property models (currently: simple tests)" 
   
   extends Modelica.Icons.Library;
   
   model SimpleLiquidWater "Example for Water.SimpleLiquidWater medium model" 
+    
     annotation (experiment(StopTime=100), Documentation(info="<html>
  
 </html>"));
@@ -2513,7 +2557,7 @@ point is to declare an instance of ThermodynamicState and use that as
 input to arbitrary property functions.<br>
 </li>
 </ul>
-
+ 
 <p>
 A small library of generic volume, pipe, pump and ambient models
 is provided in Modelica.Media.Examples.Tests.Components to demonstrate
@@ -2913,12 +2957,22 @@ The details of the pipe friction model are described
         
         replaceable package Medium = Modelica.Media.Interfaces.PartialMedium 
           "Medium model" annotation (choicesAllMatching=true);
-        parameter SI.AbsolutePressure p_start = 1.0e5 
+        parameter SI.AbsolutePressure p_start = Medium.p_default 
           "Initial value of pressure";
-        parameter SI.Temperature T_start = 300 "Initial value of temperature";
-        parameter SI.Density h_start = 1 "Initial value of specific enthalpy";
-        parameter Real X_start[Medium.nX] = Medium.reference_X 
+        parameter SI.Temperature T_start = Medium.T_default 
+          "Initial value of temperature";
+        parameter SI.Density h_start = Medium.h_default 
+          "Initial value of specific enthalpy";
+        parameter Real X_start[Medium.nX] = Medium.X_default 
           "Initial value of mass fractions";
+        
+      /*
+  parameter SI.AbsolutePressure p_start = 1.0e5 "Initial value of pressure";
+  parameter SI.Temperature T_start = 300 "Initial value of temperature";
+  parameter SI.Density h_start = 1 "Initial value of specific enthalpy";
+  parameter Real X_start[Medium.nX] = Medium.reference_X 
+    "Initial value of mass fractions";
+*/
         PortVolume volume(redeclare package Medium = Medium,
                           p_start=p_start,
                           T_start=T_start,
@@ -3192,7 +3246,7 @@ This package demonstrates how to solve one non-linear algebraic
 equation in one unknown with function 
 Modelica.Media.Common.OneNonLinearEquation.
 </p>
-
+ 
 </html>"));
    model Inverse_sine "Solve y = A*sin(w*x) for x, given y" 
      import Modelica.Utilities.Streams.print;
@@ -3245,17 +3299,17 @@ Modelica.Media.Common.OneNonLinearEquation.
 <p>
 This models solves the following non-linear equation
 </p>
-
+ 
 <pre>
    y = A*sin(w*x); -> determine x for given y
 </pre>
-
+ 
 <p>
 Translate model \"Inverse_sine\"
 and simulate for 0 sec. The result is printed to the
 output window.
 </p>
-
+ 
 </html>"));
    end Inverse_sine;
     
@@ -3298,7 +3352,6 @@ output window.
    end Inverse_h_T;
   end SolveOneNonlinearEquation;
 end Examples;
-
 
 package Interfaces "Interfaces for media models" 
   
@@ -3489,15 +3542,26 @@ Modelica source.
       "Reference pressure of Medium: default 1 atmosphere";
     constant MassFraction reference_X[nX]= if nX == 0 then fill(0,nX) else fill(1/nX, nX) 
       "Default mass fractions of medium";
+    constant AbsolutePressure p_default=101325 
+      "Default value for pressure of medium (for initialization)";
+    constant Temperature T_default = Modelica.SIunits.Conversions.from_degC(20) 
+      "Default value for temperature of medium (for initialization)";
+    constant SpecificEnthalpy h_default = specificEnthalpy_pTX(p_default, T_default, X_default) 
+      "Default value for specific enthalpy of medium (for initialization)";
+    constant MassFraction X_default[nX]=reference_X 
+      "Default value for mass fractions of medium (for initialization)";
+    
     final constant Integer nS=size(substanceNames, 1) "Number of substances"  annotation(Evaluate=true);
     final constant Integer nX=if nS == 1 then 0 else nS 
       "Number of mass fractions (= 0, if only one substance)" annotation(Evaluate=true);
     final constant Integer nXi=if fixedX then 0 else if reducedX then nS - 1 else nX 
       "Number of structurally independent mass fractions (see docu for details)"
      annotation(Evaluate=true);
+    
     final constant Integer nC=size(extraPropertiesNames, 1) 
       "Number of extra (outside of standard mass-balance) transported properties"
      annotation(Evaluate=true);
+    
     constant FluidConstants[nS] fluidConstants "fluid constants";
     
     record FluidConstants 
@@ -3540,22 +3604,13 @@ Modelica source.
         "true if Pitzer accentric factor is known";
       
       constant SpecificEnthalpy HCRIT0=0.0 
-        "critical specific enthalpy of the fundamental equation";
+        "Critical specific enthalpy of the fundamental equation";
       constant SpecificEntropy SCRIT0=0.0 
-        "critical specific entropy of the fundamental equation";
+        "Critical specific entropy of the fundamental equation";
       constant SpecificEnthalpy deltah=0.0 
-        "difference between specific enthalpy model (h_m) and f.eq. (h_f) (h_m - h_f)";
+        "Difference between specific enthalpy model (h_m) and f.eq. (h_f) (h_m - h_f)";
       constant SpecificEntropy deltas=0.0 
-        "difference between specific enthalpy model (s_m) and f.eq. (s_f) (s_m - s_f)";
-      
-      constant Temperature T_default 
-        "default value for temperature of medium (for initialization)";
-      constant SpecificEnthalpy h_default 
-        "default value for specific enthalpy of medium (for initialization)";
-      constant AbsolutePressure p_default=reference_p 
-        "default value for pressure of medium (for initialization)";
-      constant MassFraction X_default[nX]=reference_X 
-        "default value for mass fractions of medium (for initialization)";
+        "Difference between specific enthalpy model (s_m) and f.eq. (s_f) (s_m - s_f)";
       
       //  constant String fundamentalEquationSource="none" "source of the fundamental equation model";
       //  constant String criticalDataSource="none" "source for critical data";
@@ -3849,7 +3904,7 @@ equation
       input AbsolutePressure p "Pressure";
       input Temperature T "Temperature";
       input MassFraction X[nX] "Mass fractions";
-      output SpecificEnthalpy h "Specific enthalpy at p, T, Xi";
+      output SpecificEnthalpy h "Specific enthalpy at p, T, X";
     end specificEnthalpy_pTX;
     
     function h_pTX = specificEnthalpy_pTX 
@@ -4667,7 +4722,7 @@ an input argument (for details see the discussion in
 of the Modelica.Media Users Guide).
 For this reason, function specificEnthalpy_pTXi() is provided.
 </p> 
-
+ 
 </html>"));
     algorithm 
       h := cp_const*(T-T0);
@@ -4682,7 +4737,6 @@ For this reason, function specificEnthalpy_pTXi() is provided.
   
 end Interfaces;
 
-
 package Common "data structures and fundamental functions for fluid properties" 
   
   annotation (Documentation(info="<HTML><h4>Package description</h4>
@@ -4690,7 +4744,7 @@ package Common "data structures and fundamental functions for fluid properties"
       High accuracy fluid property models share a lot of common structure, even if the actual models are different.
       Common data structures and computations shared by these property models are collected in this library.
       </p>
-
+ 
 </HTML>
 ", revisions="<html>
       <ul>
@@ -4703,7 +4757,7 @@ package Common "data structures and fundamental functions for fluid properties"
                             properties library.</li>
       <li>Inclusion into Modelica.Media: September 2003 </li>
       </ul>
-
+ 
       <address>Author: Hubertus Tummescheit, <br>
       Lund University<br>
       Department of Automatic Control<br>
@@ -6139,7 +6193,7 @@ since it might be replaced in the future by another strategy,
 where the tool is responsible for the solution of the non-linear 
 equation.
 </p>
-
+ 
 <p>
 This library determines the solution of one non-linear algebraic equation \"y=f(x)\"
 in one unknown \"x\" in a reliable way. As input, the desired value y of the 

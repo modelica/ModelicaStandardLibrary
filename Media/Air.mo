@@ -229,6 +229,7 @@ required from medium model \""       + mediumName + "\".");
     
     redeclare function extends saturationPressure 
       "saturation curve valid for 223.16 <= T <= 373.16 (and slightly outside with less accuracy)" 
+      
       annotation(Inline=false,smoothOrder=5);
     algorithm 
       psat := Utilities.spliceFunction(saturationPressureLiquid(Tsat),sublimationPressureIce(Tsat),Tsat-273.16,1.0);
@@ -240,7 +241,7 @@ required from medium model \""       + mediumName + "\".");
     //       output Real dpsat "saturation pressure derivative";
     //     algorithm
     //       dpsat := 2509622.55443*dT_sat*Math.exp(17.2799-4102.99/(Tsat-35.719))/
-    // 	(Tsat-35.719)^2;
+    //         (Tsat-35.719)^2;
     //     end saturationPressureWithoutLimits_der;
     
     //     function saturationPressure_der "derivative of saturation pressure"
@@ -249,8 +250,8 @@ required from medium model \""       + mediumName + "\".");
     //       output Real dpsat "saturation pressure derivative";
     //     algorithm
     //       dpsat := if T > 224.15 and T < 422.15 then
-    // 	2509622.55443*dT_sat*Math.exp(17.2799-4102.99/(Tsat-35.719))/
-    // 	(Tsat-35.719)^2 else 0.0;
+    //         2509622.55443*dT_sat*Math.exp(17.2799-4102.99/(Tsat-35.719))/
+    //         (Tsat-35.719)^2 else 0.0;
     //     end saturationPressure_der;
     
     //     model testpsat
@@ -284,6 +285,7 @@ required from medium model \""       + mediumName + "\".");
     end HeatCapacityOfWater;
     
    redeclare function extends enthalpyOfLiquid 
+      
      annotation(Inline=false,smoothOrder=5);
    algorithm 
      h := (T - 273.15)*1e3*(4.2166 - 0.5*(T - 273.15)*(0.0033166 + 0.333333*(T - 273.15)*(0.00010295
@@ -291,6 +293,7 @@ required from medium model \""       + mediumName + "\".");
    end enthalpyOfLiquid;
     
    redeclare function extends enthalpyOfGas 
+      
      annotation(Inline=false,smoothOrder=5);
    algorithm 
      h := SingleGasNasa.h_Tlow(data=steam, T=T, refChoice=3, h_off=46479.819+2501014.5)*X[Water]
@@ -298,6 +301,7 @@ required from medium model \""       + mediumName + "\".");
    end enthalpyOfGas;
     
    redeclare function extends enthalpyOfCondensingGas 
+      
      annotation(Inline=false,smoothOrder=5);
    algorithm 
      h := SingleGasNasa.h_Tlow(data=steam, T=T, refChoice=3, h_off=46479.819+2501014.5);
@@ -305,6 +309,7 @@ required from medium model \""       + mediumName + "\".");
     
   redeclare function extends heatCapacity_cp 
       "Return specific heat capacity at constant pressure" 
+      
      annotation(Inline=false,smoothOrder=5);
   algorithm 
     cp:= SingleGasNasa.cp_Tlow(dryair, state.T)*(1-state.X[Water]) + SingleGasNasa.cp_Tlow(steam, state.T)*state.X[Water];
@@ -312,6 +317,7 @@ required from medium model \""       + mediumName + "\".");
     
   redeclare function extends heatCapacity_cv 
       "Return specific heat capacity at constant volume" 
+      
      annotation(Inline=false,smoothOrder=5);
   algorithm 
     cv:= SingleGasNasa.cp_Tlow(dryair, state.T)*(1-state.X[Water]) +
@@ -449,7 +455,7 @@ function should be used.
     end Utilities;
     
     /* Flattened Modelica model:
-
+ 
 function Modelica.Media.Air.MoistAir.h_pTX:der
   input Real p;
   input Real T;
@@ -563,7 +569,7 @@ algorithm
      25104.684)}*{X_steam_der, X_air_der}+enthalpyOfLiquid_Unique'"0753C388"':der
     (T, T_der)*X_liquid+enthalpyOfLiquid_Unique'"0753C388"'(T)*X_liquid_der;
 end Modelica.Media.Air.MoistAir.h_pTX:der;
-
+ 
     function h_pTX_der "derivative function for h_pTX"
       input SI.Pressure p "Pressure";
       input SI.Temperature T "Temperature";
@@ -597,13 +603,13 @@ end Modelica.Media.Air.MoistAir.h_pTX:der;
       dX_steam :=  if condensing then 0.0 else 1.0;
       dX_air := -1.0;
       dh_T := {SingleGasNasa.cp_Tlow(data=steam,  T=T), SingleGasNasa.cp_Tlow(data=dryair, T=T)}
-	       *{X_steam, X_air} + HeatCapacityOfWater(T)*X_liquid +  enthalpyOfLiquid(T)*YYYYY(dX_li_T/dT);
+               *{X_steam, X_air} + HeatCapacityOfWater(T)*X_liquid +  enthalpyOfLiquid(T)*YYYYY(dX_li_T/dT);
       dh_p := {SingleGasNasa.h_Tlow(data=steam,  T=T, refChoice=3, h_off=46479.819+2501014.5),
-		SingleGasNasa.h_Tlow(data=dryair, T=T, refChoice=3, h_off=25104.684)}*{dX_steam_dp, dX_air_dp}
-	+ enthalpyOfLiquid(T)*dX_liquid_dp;
+                SingleGasNasa.h_Tlow(data=dryair, T=T, refChoice=3, h_off=25104.684)}*{dX_steam_dp, dX_air_dp}
+        + enthalpyOfLiquid(T)*dX_liquid_dp;
       dh_Xi := {SingleGasNasa.h_Tlow(data=steam,  T=T, refChoice=3, h_off=46479.819+2501014.5),
-		SingleGasNasa.h_Tlow(data=dryair, T=T, refChoice=3, h_off=25104.684)}*{dX_steam, dX_air}
-	+ enthalpyOfLiquid(T)*dX_liquid;
+                SingleGasNasa.h_Tlow(data=dryair, T=T, refChoice=3, h_off=25104.684)}*{dX_steam, dX_air}
+        + enthalpyOfLiquid(T)*dX_liquid;
       dh := dh_T*dT + dh_p*dp + dh_Xi*dXi;
     end h_pTX_der;
 */

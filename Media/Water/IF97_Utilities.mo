@@ -4137,6 +4137,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
     
   package IceBoundaries 
       "the melting line and sublimation line curves from IAPWS" 
+      
       annotation (                                                                                                    uses(Modelica(version="1.6")),
   Documentation(info="<html>
 <body>
@@ -5155,6 +5156,7 @@ Ordinary Water Substance<br>
     end Isentropic;
     //work needed: (Pr,lam,eta) = f(d,T,p, region?)
     package Inverses "efficient inverses for selected pairs of variables" 
+      
       annotation (Documentation(info="<HTML><h4>Package description</h4>
           <p></p>
           <h4>Package contents</h4>

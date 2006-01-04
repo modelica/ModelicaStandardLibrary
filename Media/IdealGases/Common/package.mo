@@ -1,7 +1,6 @@
 package Common "Common packages and data for the ideal gas models"
 extends Modelica.Icons.Library;
 
-
 record DataRecord 
   "Coefficient data record for properties of ideal gases based on NASA source" 
   extends Modelica.Icons.Record;
@@ -41,7 +40,6 @@ gases also differentiable at Tlimit.
 </p>
 </HTML>"));
 end DataRecord;
-
 
 partial package SingleGasNasa 
   "Medium model of an ideal gas based on NASA source" 
@@ -183,6 +181,7 @@ and adapted to the Modelica.Media package.
    T(stateSelect=if preferredMediumStates then StateSelect.prefer else StateSelect.default),
    p(stateSelect=if preferredMediumStates then StateSelect.prefer else StateSelect.default)) 
     "Base properties of ideal gas medium" 
+    
    annotation(structurallyIncomplete);
   equation 
     assert(T >= 200 and T <= 6000, "
@@ -607,7 +606,6 @@ protected
    end solve;
  end Inverse_of_h_T;
 end SingleGasNasa;
-
 
 partial package MixtureGasNasa 
   "Medium model of a mixture of ideal gases based on NASA source" 
@@ -1296,7 +1294,6 @@ end lowPressureThermalConductivity;
     h := h_TX(T,X[1:nXi]);
   end specificEnthalpy_pTX;
 end MixtureGasNasa;
-
 
 annotation (Documentation(info="<html>
  

@@ -148,6 +148,7 @@ which is only exactly true for a fluid with constant density d=d0.
     
     redeclare function extends heatCapacity_cv 
       "Specific heat capacity at constant volume (or pressure) of medium" 
+      
      annotation(smoothOrder=2);
     algorithm 
       assert(hasHeatCapacity,"Specific Heat Capacity, Cv, is not defined for medium "
@@ -157,6 +158,7 @@ which is only exactly true for a fluid with constant density d=d0.
     
     redeclare function extends heatCapacity_cp 
       "Specific heat capacity at constant volume (or pressure) of medium" 
+      
      annotation(smoothOrder=2);
     algorithm 
       assert(hasHeatCapacity,"Specific Heat Capacity, Cv, is not defined for medium "
@@ -165,6 +167,7 @@ which is only exactly true for a fluid with constant density d=d0.
     end heatCapacity_cp;
     
     redeclare function extends dynamicViscosity 
+      
      annotation(smoothOrder=2);
     algorithm 
       assert(size(tableViscosity,1)>0,"DynamicViscosity, eta, is not defined for medium "
@@ -173,6 +176,7 @@ which is only exactly true for a fluid with constant density d=d0.
     end dynamicViscosity;
     
     redeclare function extends thermalConductivity 
+      
      annotation(smoothOrder=2);
     algorithm 
       assert(size(tableConductivity,1)>0,"ThermalConductivity, lambda, is not defined for medium "
@@ -549,7 +553,7 @@ incompressible fluids. The package contains:
 density and heat capacity as functions of temperature.</li>
 <li><b>Essotherm650</b>, a medium model for thermal oil, also based on tables.</li>
 </ul>
-
+ 
 </HTML>"));
   end Examples;
   
@@ -588,7 +592,7 @@ to choose temperature as the only medium state and avoids non-linear equation
 systems, see the section about
 <a href=\"Modelica:Modelica.Media.UsersGuide.MediumUDefinition.StaticStateSelection\">Static
 state selection</a> in the Modelica.Media users guide.
-
+ 
 </p>
 <h4>Contents</h4>
 <p>
@@ -600,7 +604,7 @@ Currently, the package contains the following parts:
 <li> <a href=\"Modelica:Modelica.Media.Incompressible.Examples\">
       Example medium models</a></li>
 </ol>
-
+ 
 <p>
 A few examples are given in the Examples package. The model
 <a href=\"Modelica:Modelica.Media.TableBased.Examples.TestGlycol\">
@@ -609,6 +613,6 @@ realistic examples of how to implement volume models with medium properties
 look in the <a href=\"Modelica:Modelica.Media.UsersGuide.MediumUsage\">Medium
 usage section</a> of the Users guide.
 </p>
-
+ 
 </HTML>"));
 end Incompressible;

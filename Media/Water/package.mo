@@ -128,7 +128,7 @@ one of the following functions:
 <p>More details are given in
 <a href=\"Modelica:Modelica.Media.UsersGuide.MediumUsage.OptionalProperties\">
 Modelica.Media.UsersGuide.MediumUsage.OptionalProperties</a>.
-
+ 
 Many additional optional functions are defined to compute properties of 
 saturated media, either liquid (bubble point) or vapour (dew point). 
 The argument to such functions is a SaturationProperties record, which can be
@@ -184,12 +184,12 @@ SaturationProperties record sat, the following functions are provided:
       <td>N/m</td>
       <td>Surface tension between liquid and vapour phase</td></tr>
 </table>
-
+ 
 <p>Details on usage and some examples are given in:
 <a href=\"Modelica:Modelica.Media.UsersGuide.MediumUsage.TwoPhase\">
 Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
 </p>
-
+ 
 <p>Many further properties can be computed. Using the well-known Bridgman's Tables,
 all first partial derivatives of the standard thermodynamic variables can be computed easily.
 </p>
@@ -208,7 +208,6 @@ distributed with computer implementations and are included here
 </ul>
 </html>"));
 
-
 extends Modelica.Icons.Library;
   constant Interfaces.PartialMedium.FluidConstants[1] waterConstants(
      each chemicalFormula = "H2O",
@@ -225,10 +224,7 @@ extends Modelica.Icons.Library;
      each triplePointPressure=611.657,
      each acentricFactor = 0.344,
      each dipoleMoment = 1.8,
-     each hasCriticalData=true,
-     each h_default=1e4,
-     each T_default=SI.Conversions.from_degC(20.0));
-
+     each hasCriticalData=true);
 
 package ConstantPropertyLiquidWater 
   "Water: Simple liquid water medium (incompressible, constant data)" 
@@ -266,7 +262,6 @@ package ConstantPropertyLiquidWater
 </html>"));
 end ConstantPropertyLiquidWater;
 
-
 package IdealSteam "Water: Steam as ideal gas from NASA source" 
   extends IdealGases.SingleGases.H2O(
   fluidConstants = waterConstants);
@@ -275,14 +270,11 @@ package IdealSteam "Water: Steam as ideal gas from NASA source"
 </html>"));
 end IdealSteam;
 
-
 package StandardWater = WaterIF97_ph 
   "Water using the IF97 standard, explicit in p and h. Recommended for most applications";
 
-
 package StandardWaterOnePhase = WaterIF97_pT 
   "Water using the IF97 standard, explicit in p and T. Recommended for one-phase applications";
-
 
 package WaterIF97OnePhase_ph 
   "Water using the IF97 standard, explicit in p and h, and only valid outside the two-phase dome" 
@@ -297,7 +289,6 @@ package WaterIF97OnePhase_ph
 </html>"));
 end WaterIF97OnePhase_ph;
 
-
 package WaterIF97_pT "Water using the IF97 standard, explicit in p and T" 
   extends WaterIF97_base(
     final ph_explicit=false,
@@ -306,7 +297,6 @@ package WaterIF97_pT "Water using the IF97 standard, explicit in p and T"
     final smoothModel=true,
     final onePhase=true);
 end WaterIF97_pT;
-
 
 package WaterIF97_ph "Water using the IF97 standard, explicit in p and h" 
   extends WaterIF97_base(
@@ -320,9 +310,9 @@ package WaterIF97_ph "Water using the IF97 standard, explicit in p and h"
 </html>"));
 end WaterIF97_ph;
 
-
 partial package WaterIF97_base 
   "Water: Steam properties as defined by IAPWS/IF97 standard" 
+  
   annotation (Icon(Text(
         extent=[-94, 84; 94, 40],
         style(color=71),
@@ -576,6 +566,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
   
   redeclare function extends heatCapacity_cp 
     "specific heat capacity at constant pressure of water" 
+    
       annotation (Documentation(info="<html><body>
                                 <p>In the two phase region this function returns the interpolated heat capacity between the
                                 liquid and vapour state heat capacities.</p>
@@ -751,9 +742,9 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
   
 end WaterIF97_base;
 
-
 partial package WaterIF97_fixedregion 
   "Water: Steam properties as defined by IAPWS/IF97 standard" 
+  
   annotation (Icon(Text(
         extent=[-94, 84; 94, 40],
         style(color=71),
@@ -1176,7 +1167,6 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
   
 end WaterIF97_fixedregion;
 
-
 package WaterIF97_R1ph "region 1 (liquid) water according to IF97 standard" 
   extends WaterIF97_fixedregion(
     final Region=1,
@@ -1189,7 +1179,6 @@ package WaterIF97_R1ph "region 1 (liquid) water according to IF97 standard"
   
 </html>"));
 end WaterIF97_R1ph;
-
 
 package WaterIF97_R2ph "region 2 (steam) water according to IF97 standard" 
   extends WaterIF97_fixedregion(
@@ -1204,7 +1193,6 @@ package WaterIF97_R2ph "region 2 (steam) water according to IF97 standard"
 </html>"));
 end WaterIF97_R2ph;
 
-
 package WaterIF97_R3ph "region 3 water according to IF97 standard" 
   extends WaterIF97_fixedregion(
     final Region=3,
@@ -1217,7 +1205,6 @@ package WaterIF97_R3ph "region 3 water according to IF97 standard"
   
 </html>"));
 end WaterIF97_R3ph;
-
 
 package WaterIF97_R4ph "region 4 water according to IF97 standard" 
   extends WaterIF97_fixedregion(
@@ -1232,7 +1219,6 @@ package WaterIF97_R4ph "region 4 water according to IF97 standard"
 </html>"));
 end WaterIF97_R4ph;
 
-
 package WaterIF97_R5ph "region 5 water according to IF97 standard" 
   extends WaterIF97_fixedregion(
     final Region=5,
@@ -1246,7 +1232,6 @@ package WaterIF97_R5ph "region 5 water according to IF97 standard"
 </html>"));
 end WaterIF97_R5ph;
 
-
 package WaterIF97_R1pT "region 1 (liquid) water according to IF97 standard" 
   extends WaterIF97_fixedregion(
     final Region=1,
@@ -1259,7 +1244,6 @@ package WaterIF97_R1pT "region 1 (liquid) water according to IF97 standard"
   
 </html>"));
 end WaterIF97_R1pT;
-
 
 package WaterIF97_R2pT "region 2 (steam) water according to IF97 standard" 
   extends WaterIF97_fixedregion(
