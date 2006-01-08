@@ -14,11 +14,12 @@ network built with package Logical is shown in the next figure:
   
   model And "Logical 'and': y = u1 and u2" 
     extends Blocks.Interfaces.partialBooleanSI2SO;
-    annotation (Icon(Text(extent=[-90,40; 90,-40],
+    annotation (defaultComponentName="and1",
+           Icon(Text(extent=[-90,40; 90,-40],
             string="and",
             style(color=0))), Diagram,
       Documentation(info="<html>
-
+ 
 </html>"));
   equation 
     y = u1 and u2;
@@ -26,7 +27,8 @@ network built with package Logical is shown in the next figure:
   
   model Or "Logical 'or': y = u1 or u2" 
     extends Blocks.Interfaces.partialBooleanSI2SO;
-    annotation (Icon(Text(extent=[-90,40; 90,-40],
+    annotation (defaultComponentName="or1",
+           Icon(Text(extent=[-90,40; 90,-40],
             string="or",
             style(color=0))), Diagram,
       Documentation(info="<html>
@@ -75,7 +77,8 @@ network built with package Logical is shown in the next figure:
   model Not "Logical 'not': y = not u" 
     extends Blocks.Interfaces.partialBooleanSISO;
     
-    annotation (Icon(Text(extent=[-90,40; 90,-40],
+    annotation (defaultComponentName="not1",
+         Icon(Text(extent=[-90,40; 90,-40],
           string="not",
           style(color=0))), Diagram,
       Documentation(info="<html>
@@ -92,7 +95,8 @@ network built with package Logical is shown in the next figure:
       "Start value of pre(u) at initial time";
     extends Blocks.Interfaces.partialBooleanSISO;
     
-    annotation (Icon(Text(extent=[-90,40; 90,-40],
+    annotation (defaultComponentName="pre1",
+         Icon(Text(extent=[-90,40; 90,-40],
           string="pre",
           style(color=0))), Diagram,
       Documentation(info="<html>
@@ -110,7 +114,8 @@ network built with package Logical is shown in the next figure:
       "Start value of pre(u) at initial time";
     extends Blocks.Interfaces.partialBooleanSISO;
     
-    annotation (Icon(Text(extent=[-90,40; 90,-40],
+    annotation (defaultComponentName="edge1",
+      Icon(Text(extent=[-90,40; 90,-40],
           string="edge",
           style(color=0))), Diagram,
       Documentation(info="<html>
@@ -150,7 +155,8 @@ network built with package Logical is shown in the next figure:
       "Start value of pre(u) at initial time";
     extends Blocks.Interfaces.partialBooleanSISO;
     
-    annotation (Icon(Text(extent=[-90,40; 90,-40],
+    annotation (defaultComponentName="change1",
+      Icon(Text(extent=[-90,40; 90,-40],
           style(color=0),
           string="change")),Diagram,
       Documentation(info="<html>
@@ -399,7 +405,7 @@ u1, else it is set equal to u2.</p>
     Blocks.Interfaces.RealOutput y "Connector of Real output signal" 
                                    annotation(extent=[100,-10; 120,10]);
     
-    annotation (
+    annotation (defaultComponentName="switch1",
       Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[2, 2],

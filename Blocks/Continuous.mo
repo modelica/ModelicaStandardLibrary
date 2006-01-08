@@ -888,7 +888,7 @@ results in the following equations:
   block Der "Derivative of input (= analytic differentations)" 
       extends Interfaces.SISO;
     
-      annotation (
+      annotation (defaultComponentName="der1",
    Icon(Text(extent=[-80, 76; 80, -82], string="der()")),
           Documentation(info="<HTML>
 <p>

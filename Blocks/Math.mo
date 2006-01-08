@@ -218,7 +218,7 @@ Example:
       block Sum "Output the sum of the elements of the input vector" 
         extends Interfaces.MISO;
         parameter Real k[nin]=ones(nin) "Optional: sum coefficients";
-        annotation (
+        annotation (defaultComponentName="sum1",
           Coordsys(
             extent=[-100, -100; 100, 100],
             grid=[2, 2],
@@ -246,7 +246,7 @@ Example:
   results in the following equations:
      y = u[1] + u[2] + u[3];
 </pre>
-
+ 
 </HTML>
 "),       Icon(Line(points=[26, 42; -34, 42; 6, 2; -34, -38; 26, -38], style(
                   color=0, thickness=1)), Text(extent=[-150, 150; 150, 110],
@@ -646,7 +646,7 @@ the two inputs <b>u1</b> and <b>u2</b>:
   
       block Abs "Output the absolute value of the input" 
         extends Interfaces.SISO;
-        annotation (
+        annotation (defaultComponentName="abs1",
           Icon(
             Polygon(points=[92, 0; 70, 8; 70, -8; 92, 0], style(color=8,
                   fillColor=8)),
@@ -690,7 +690,7 @@ as <i>absolute value</i> of the input <b>u</b>:
 <pre>
     y = <b>abs</b>( u );
 </pre>
-
+ 
 </HTML>
 "),       Coordsys(
             extent=[-100, -100; 100, 100],
@@ -707,7 +707,7 @@ as <i>absolute value</i> of the input <b>u</b>:
   
       block Sign "Output the sign of the input" 
         extends Interfaces.SISO;
-        annotation (
+        annotation (defaultComponentName="sign1",
           Icon(
             Line(points=[-90, 0; 68, 0], style(color=8)),
             Polygon(points=[90, 0; 68, 8; 68, -8; 90, 0], style(color=8,
@@ -760,7 +760,7 @@ as <b>sign</b> of the input <b>u</b>:
     y =  0  <b>if</b> u == 0
         -1  <b>if</b> u < 0
 </pre>
-
+ 
 </HTML>
 "),       Coordsys(
             extent=[-100, -100; 100, 100],
@@ -777,7 +777,7 @@ as <b>sign</b> of the input <b>u</b>:
   
       block Sqrt "Output the square root of the input (input >= 0 required)" 
         extends Interfaces.SISO;
-        annotation (
+        annotation (defaultComponentName="sqrt1",
           Icon(
             Line(points=[-90, -80; 68, -80], style(color=8)),
             Polygon(points=[90, -80; 68, -72; 68, -88; 90, -80], style(color=8,
@@ -823,7 +823,7 @@ as <i>square root</i> of the input <b>u</b>:
 All elements of the input vector shall be zero or positive.
 Otherwise an error occurs.
 </p>
-
+ 
 </HTML>
 "),       Coordsys(
             extent=[-100, -100; 100, 100],
@@ -894,7 +894,7 @@ as <b>sine</b> of the input <b>u</b>:
 <pre>
     y = <b>sin</b>( u );
 </pre>
-
+ 
 </HTML>
 "),       Coordsys(
             extent=[-100, -100; 100, 100],
@@ -962,7 +962,7 @@ as <b>cos</b> of the input <b>u</b>:
 <pre>
     y = <b>cos</b>( u );
 </pre>
-
+ 
 </HTML>
 "),       Coordsys(
             extent=[-100, -100; 100, 100],
@@ -1031,7 +1031,7 @@ as <b>tan</b> of the input <b>u</b>:
 <pre>
     y = <b>tan</b>( u );
 </pre>
-
+ 
 </HTML>
 "),       Coordsys(
             extent=[-100, -100; 100, 100],
@@ -1101,7 +1101,7 @@ The absolute values of the elements of the input <b>u</b> need to
 be less or equal to one (<b>abs</b>( u ) <= 1).
 Otherwise an error occurs.
 </p>
-
+ 
 </HTML>
 "),       Coordsys(
             extent=[-100, -100; 100, 100],
@@ -1173,7 +1173,7 @@ The absolute values of the elements of the input <b>u</b> need to
 be less or equal to one (<b>abs</b>( u ) <= 1).
 Otherwise an error occurs.
 </p>
-
+ 
 </HTML>
 "),       Coordsys(
             extent=[-100, -100; 100, 100],
@@ -1754,17 +1754,17 @@ zero or negative.
       equation 
         y = Modelica.Math.log10(u);
       end Log10;
-
-  block Convert "Convert signal to a signal with different unit"
+  
+  block Convert "Convert signal to a signal with different unit" 
     extends Interfaces.SISO;
-
+    
     replaceable function convert = SIunits.Conversions.ConversionIcon 
-      extends SIunits.Conversions.ConversionIcon "Conversion function"
+      extends SIunits.Conversions.ConversionIcon "Conversion function" 
       annotation (choicesAllMatching=true);
-
+    
     annotation (Icon(
-          Line(points=[-90, 0; 30, 0], style(color=42)), 
-          Polygon(points=[90, 0; 30, 20; 30, -20; 90, 0], style(color=42, 
+          Line(points=[-90, 0; 30, 0], style(color=42)),
+          Polygon(points=[90, 0; 30, 20; 30, -20; 90, 0], style(color=42,
             fillColor=42))),
         Documentation(info="<html>
 <p>This block implements the Modelica.SIunits unit conversion functions as a fixed causality block to
