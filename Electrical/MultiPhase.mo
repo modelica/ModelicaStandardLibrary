@@ -1,7 +1,7 @@
 package MultiPhase "Library for electrical components with 2, 3 or more phases" 
   extends Modelica.Icons.Library2;
   annotation (
-    version="1.0", versionDate="2004-10-01",
+    version="1.1", versionDate="2006-01-12",
     classOrder={"Examples", "*"},
     preferedView="info", Documentation(info="<HTML>
 <p>
@@ -47,7 +47,9 @@ and the accompanying <b>disclaimer</b>
 </p><br>
 </HTML>", revisions="<html>
   <ul>
-  <li> v1.0 2004/10/01 Anton Haumer</li>
+  <li>v1.0 2004/10/01 Anton Haumer</li>
+  <li>v1.1 2006/01/12 Anton Haumer<br>
+      added Sensors.PowerSensor</li>
   </ul>
 </html>"),
     Icon(
@@ -67,55 +69,6 @@ and the accompanying <b>disclaimer</b>
           rgbcolor={0,0,255},
           fillColor=3,
           rgbfillColor={0,0,255}))));
-  annotation (Documentation(info="<HTML>
-<p>
-This package contains packages for electrical multiphase components, based on Modelica.Electrical.Analog:
-<ul>
-<li>Basic: basic components (resistor, capacitor, inductor, ...)</li>
-<li>Ideal: ideal elements (switches, diode, transformer, ...)</li>
-<li>Sensors: sensors to measure potentials, voltages, and currents</li>
-<li>Sources: time-dependend and controlled voltage and current sources</li>
-</ul>
-This package is intended to be used the same way as Modelica.Electrical.Analog 
-but to make design of multiphase models easier.<br>
-The package is based on the plug: a composite connector containing m pins.<br>
-It is possible to connect plugs to plugs or single pins of a plug to single pins.<br>
-Potentials may be accessed as <tt>plug.pin[].v</tt>, currents may be accessed as <tt>plug.pin[].i</tt>.
-</p>
-<p>
-Further development:
-<ul>
-<li>temperature-dependent resistor</li>
-<li>lines (m-phase models)</li>
-</ul>
-</p>
-<dl>
-<p>
-  <dt><b>Main Authors:</b></dt>
-  <dd>
-  <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
-  Technical Consulting & Electrical Engineering<br>
-  A-3423 St.Andrae-Woerdern<br>Austria<br>
-  email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
-  </dd>
-</p>
-<p>
-  <dt><b>Release Notes:</b></dt>
-  <dd>
-  <ul>
-  <li> v1.0 2004/10/01 Anton Haumer</li>
-  </ul>
-  </dd>
-<p>
-  <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2004, Modelica Association and Anton Haumer.<br>
-  <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
-  under the terms of the <b>Modelica license</b>, see the license conditions
-  and the accompanying <b>disclaimer</b> in the documentation of package
-  Modelica in file \"Modelica/package.mo\".</i></dd>
-</p>
-</dl>
-</HTML>"));
   
   package Basic "Basic components for electrical multiphase models" 
     extends Modelica.Icons.Library2;
@@ -1654,7 +1607,9 @@ This package contains multiphase potential, voltage, and current sensors.
   <dt><b>Release Notes:</b></dt>
   <dd>
   <ul>
-  <li> v1.0 2004/10/01 Anton Haumer</li>
+  <li>v1.0 2004/10/01 Anton Haumer</li>
+  <li>v1.1 2006/01/12 Anton Haumer<br>
+      added PowerSensor</li>
   </ul>
   </dd>
 <p>
@@ -1854,6 +1809,92 @@ thus measuring the m currents <i>i[m]</i> flowing from the m pins of plug_p to t
       connect(currentSensor.i, i) 
         annotation (points=[0,-10; 0,-110], style(color=3, rgbcolor={0,0,255}));
     end CurrentSensor;
+    
+  model PowerSensor "Multiphase instantaneous power sensor" 
+    parameter Integer m(min=1) = 3 "number of phases";
+    annotation (
+      Icon(
+        Line(points=[0,100; 0,70], style(color=3, rgbcolor={0,0,255})),
+        Line(points=[0,-70; 0,-100], style(color=3, rgbcolor={0,0,255})),
+        Line(points=[-80,-100; -80,0],style(color=3, rgbcolor={0,0,255})),
+        Text(extent=[150,120; -150,160], string="%name"),
+        Text(
+          extent=[0,-80; 140,-120],
+          string="m=%m",
+          style(
+            color=0,
+            rgbcolor={0,0,0},
+            fillColor=3,
+            rgbfillColor={0,0,255},
+            fillPattern=1)),
+        Ellipse(extent=[-70,70; 70,-70],   style(color=0, fillColor=7)),
+        Line(points=[0,70; 0,40],   style(color=0)),
+        Line(points=[22.9,32.8; 40.2,57.3],   style(color=0)),
+        Line(points=[-22.9,32.8; -40.2,57.3],   style(color=0)),
+        Line(points=[37.6,13.7; 65.8,23.9],   style(color=0)),
+        Line(points=[-37.6,13.7; -65.8,23.9],   style(color=0)),
+        Line(points=[0,0; 9.02,28.6],   style(color=0)),
+        Polygon(points=[-0.48,31.6; 18,26; 18,57.2; -0.48,31.6],     style(
+            color=0,
+            fillColor=0,
+            fillPattern=1)),
+        Ellipse(extent=[-5,5; 5,-5],   style(
+            color=0,
+            gradient=0,
+            fillColor=0,
+            fillPattern=1)),
+           Text(
+          extent=[-29,-11; 30,-70],
+          style(color=0),
+          string="P"),
+        Line(points=[-100,0; 100,0], style(color=3, rgbcolor={0,0,255}))),
+      Diagram,
+      Documentation(info="<html><p>
+This power sensor measures instantaneous electrical power of a multiphase system and has a separated voltage and current path. The plugs of the voltage path are <code>pv</code> and <code>nv</code>, the plugs of the current path are <code>pc</code> and <code>nc</code>. The internal resistance of each current path is zero, the internal resistance of each voltage path is infinite. 
+</p></html>"));
+    Modelica.Electrical.MultiPhase.Interfaces.PositivePlug pc(final m=m) 
+        "Positive plug, current path" 
+      annotation (extent=[-110,10; -90,-10]);
+    Modelica.Electrical.MultiPhase.Interfaces.NegativePlug nc(final m=m) 
+        "Negative plug, current path" 
+      annotation (extent=[90,10; 110,-10]);
+    Modelica.Electrical.MultiPhase.Interfaces.PositivePlug pv(final m=m) 
+        "Positive plug, voltage path" 
+      annotation (extent=[-10,90; 10,110]);
+    Modelica.Electrical.MultiPhase.Interfaces.NegativePlug nv(final m=m) 
+        "Negative plug, voltage path" 
+      annotation (extent=[-10,-90; 10,-110]);
+    Modelica.Blocks.Interfaces.RealOutput power(redeclare type SignalType = 
+          Modelica.SIunits.Power) 
+      annotation (extent=[-90,-100; -70,-120], rotation=90);
+    Modelica.Electrical.MultiPhase.Sensors.VoltageSensor voltageSensor(final m=m) 
+      annotation (extent=[10,-10; -10,-30], rotation=90);
+    Modelica.Electrical.MultiPhase.Sensors.CurrentSensor currentSensor(final m=m) 
+      annotation (extent=[-50,-10; -30,10],rotation=0);
+    Modelica.Blocks.Math.Product product[m] 
+      annotation (extent=[-40,-50; -20,-30], rotation=270);
+    Modelica.Blocks.Math.Sum sum(final nin=m, final k=ones(m)) 
+      annotation (extent=[-40,-60; -20,-80],rotation=90);
+  equation 
+    connect(pc, currentSensor.plug_p) annotation (points=[-100,0; -50,0],
+                  style(color=3, rgbcolor={0,0,255}));
+    connect(currentSensor.plug_n, nc) 
+      annotation (points=[-30,0; 100,0], style(color=3, rgbcolor={0,0,255}));
+    connect(voltageSensor.plug_p, pv) annotation (points=[6.12303e-016,-10; 0,
+            -10; 0,100],
+                  style(color=3, rgbcolor={0,0,255}));
+    connect(voltageSensor.plug_n, nv) annotation (points=[-6.12303e-016,-30; 0,
+            -30; 0,-100],
+                        style(color=3, rgbcolor={0,0,255}));
+    connect(currentSensor.i, product.u2) annotation (points=[-40,-11; -40,-20;
+          -36,-20; -36,-28], style(color=74, rgbcolor={0,0,127}));
+    connect(product.u1, voltageSensor.v) annotation (points=[-24,-28; -24,-20;
+          -11,-20], style(color=74, rgbcolor={0,0,127}));
+    connect(product.y, sum.u) annotation (points=[-30,-51; -30,-58],
+                    style(color=74, rgbcolor={0,0,127}));
+    connect(sum.y, power) annotation (points=[-30,-81; -30,-90; -80,-90; -80,-110],
+        style(color=74, rgbcolor={0,0,127}));
+  end PowerSensor;
   end Sensors;
   
   package Sources "Multiphase voltage and current sources" 
