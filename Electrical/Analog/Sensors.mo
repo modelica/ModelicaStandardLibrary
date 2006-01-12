@@ -1,4 +1,4 @@
-package Sensors "Potential, voltage and current sensors" 
+package Sensors "Potential, voltage, current, and power sensors" 
   
   extends Modelica.Icons.Library;
   
@@ -14,7 +14,7 @@ package Sensors "Potential, voltage and current sensors"
 <p>
 This package contains potential, voltage, and current sensors.
 </p>
-
+ 
 </HTML>
 ", revisions="<html>
 <dl>
@@ -180,4 +180,87 @@ Modelica in file \"Modelica/package.mo\".</i><br>
     n.i = -i;
   end CurrentSensor;
   
+model PowerSensor "Sensor to measure the power" 
+    
+  annotation (uses(Modelica(version="2.2")),
+    Icon(
+      Ellipse(extent=[-70,70; 70,-70],   style(color=0, fillColor=7)),
+      Line(points=[0,100; 0,70], style(color=3, rgbcolor={0,0,255})),
+      Line(points=[0,-70; 0,-100], style(color=3, rgbcolor={0,0,255})),
+      Line(points=[-80,-100; -80,0],style(color=3, rgbcolor={0,0,255})),
+      Line(points=[-100,0; 100,0], style(color=3, rgbcolor={0,0,255})),
+      Text(extent=[150,120; -150,160], string="%name"),
+      Line(points=[0,70; 0,40],   style(color=0)),
+      Line(points=[22.9,32.8; 40.2,57.3],   style(color=0)),
+      Line(points=[-22.9,32.8; -40.2,57.3],   style(color=0)),
+      Line(points=[37.6,13.7; 65.8,23.9],   style(color=0)),
+      Line(points=[-37.6,13.7; -65.8,23.9],   style(color=0)),
+      Line(points=[0,0; 9.02,28.6],   style(color=0)),
+      Polygon(points=[-0.48,31.6; 18,26; 18,57.2; -0.48,31.6],     style(
+          color=0,
+          fillColor=0,
+          fillPattern=1)),
+      Ellipse(extent=[-5,5; 5,-5],   style(
+          color=0,
+          gradient=0,
+          fillColor=0,
+          fillPattern=1)),
+         Text(
+        extent=[-29,-11; 30,-70],
+        style(color=0),
+        string="P")),
+    Diagram,
+    Coordsys(grid=[2,2], component=[20,20]),
+    Documentation(info="<html><p>
+This power sensor measures instantaneous electrical power of a singlephase system and has a separated voltage and current path. The pins of the voltage path are <code>pv</code> and <code>nv</code>, the pins of the current path are <code>pc</code> and <code>nc</code>. The internal resistance of the current path is zero, the internal resistance of the voltage path is infinite.
+</p>
+</html>", revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> January 12, 2006   </i>
+       by Anton Haumer<br> implemented<br>
+       </li>
+</ul>
+</html>"));
+  Modelica.Electrical.Analog.Interfaces.PositivePin pc 
+      "Positive pin, current path" 
+    annotation (extent=[-90,-10; -110,10]);
+  Modelica.Electrical.Analog.Interfaces.NegativePin nc 
+      "Negative pin, current path" 
+    annotation (extent=[110,-10; 90,10], rotation=0);
+  Modelica.Electrical.Analog.Interfaces.PositivePin pv 
+      "Positive pin, voltage path" 
+    annotation (extent=[-10,110; 10,90]);
+  Modelica.Electrical.Analog.Interfaces.NegativePin nv 
+      "Negative pin, voltage path" 
+    annotation (extent=[10,-110; -10,-90]);
+  Modelica.Blocks.Interfaces.RealOutput power(redeclare type SignalType = 
+        Modelica.SIunits.Power) 
+    annotation (extent=[-70,-120; -90,-100],rotation=270);
+  Modelica.Electrical.Analog.Sensors.VoltageSensor voltageSensor 
+    annotation (extent=[10,-20; -10,-40], rotation=90);
+  Modelica.Electrical.Analog.Sensors.CurrentSensor currentSensor 
+    annotation (extent=[-50,-10; -30,10],rotation=0);
+  Modelica.Blocks.Math.Product product 
+    annotation (extent=[-40,-60; -20,-40], rotation=270);
+equation 
+  connect(pv, voltageSensor.p) annotation (points=[0,100; 0,-20; 6.12303e-016,
+          -20],
+              style(color=3, rgbcolor={0,0,255}));
+  connect(voltageSensor.n, nv) annotation (points=[-6.12303e-016,-40; 
+          -6.12303e-016,-63; 0,-63; 0,-100],
+                                           style(color=3, rgbcolor={0,0,255}));
+  connect(pc, currentSensor.p) 
+    annotation (points=[-100,0; -50,0], style(color=3, rgbcolor={0,0,255}));
+  connect(currentSensor.n, nc) 
+    annotation (points=[-30,0; 100,0], style(color=3, rgbcolor={0,0,255}));
+  connect(currentSensor.i, product.u2) annotation (points=[-40,-10; -40,-30;
+        -36,-30; -36,-38], style(color=74, rgbcolor={0,0,127}));
+  connect(voltageSensor.v, product.u1) annotation (points=[-10,-30; -24,-30;
+        -24,-38], style(color=74, rgbcolor={0,0,127}));
+  connect(product.y, power) annotation (points=[-30,-61; -30,-80; -80,-80; -80,
+          -110],
+               style(color=74, rgbcolor={0,0,127}));
+end PowerSensor;
 end Sensors;
