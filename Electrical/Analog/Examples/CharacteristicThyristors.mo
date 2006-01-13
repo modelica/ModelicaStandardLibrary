@@ -28,7 +28,7 @@ Plot in separate windows:<br> <br>
 IdealThyristor1.i and IdealGTOThyristor1.i <br>
 IdealThyristor1.v and IdealGTOThyristor1.v <br>
 </P>
-
+ 
 </HTML>
 ", revisions="<html>
 <p><b>Release Notes:</b></p>

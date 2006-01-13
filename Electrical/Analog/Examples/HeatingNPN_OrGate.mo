@@ -16,7 +16,7 @@ V1.v and V2.v and C2.v <br>
 HeatCapacitor1.port.T and T1.heatPort.T and T2.heatPort.T<br>
 T1.heatPort.Q_flow and T2.heatPort.Q_flow<br>
 </P>
-
+ 
 </HTML>
 ", revisions="<html>
 <p><b>Release Notes:</b></p>

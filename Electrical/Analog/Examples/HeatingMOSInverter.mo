@@ -19,7 +19,7 @@ Sin.p.v  and  Capacitor1.p.v <br>
 HeatCapacitor1.port.T and H_PMOS.heatPort.T and H_NMOS.heatPort.T<br>
 H_PMOS.heatPort.Q_flow and H_NMOS.heatPort.Q_flow<br>
 </P>
-
+ 
 </HTML>
 ", revisions="<html>
 <p><b>Release Notes:</b></p>

@@ -61,7 +61,7 @@ Try different load currents iDC = 0..approximately 500 A.
 <p>
 You may watch Losses (of the whole diode bridge) trying different diode parameters.
 </p>
-
+ 
 </HTML>
 ", revisions="<html>
 <p><b>Release Notes:</b></p>

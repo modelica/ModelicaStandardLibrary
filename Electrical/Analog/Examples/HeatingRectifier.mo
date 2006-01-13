@@ -21,7 +21,7 @@ SineVoltage1.v  and  Capacitor1.p.v <br>
 HeatCapacitor1.port.T and HeatingDiode1.heatPort.T<br>
 HeatingDiode1.heatPort.Q_flow<br>
 </P>
-
+ 
 </HTML>
 ", revisions="<html>
 <p><b>Release Notes:</b></p>

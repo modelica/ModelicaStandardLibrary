@@ -1,7 +1,6 @@
 package Examples "Examples that demonstrate the usage of the Analog electrical components"
 extends Modelica.Icons.Library2;
 
-
 annotation(preferedView="info",
   Window(
     x=0.03,
@@ -15,7 +14,7 @@ annotation(preferedView="info",
 This package contains examples that demonstrate the usage of the
 components of the Electrical.Analog library.
 </p>
-
+ 
 </HTML>
 ", revisions="<html>
 <dl>
