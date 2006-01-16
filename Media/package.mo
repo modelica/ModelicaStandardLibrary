@@ -3252,7 +3252,7 @@ Modelica.Media.Common.OneNonLinearEquation.
  
 </html>"));
    model Inverse_sine "Solve y = A*sin(w*x) for x, given y" 
-     import Modelica.Utilities.Streams.print;
+      import Modelica.Utilities.Streams.print;
       extends Modelica.Icons.Example;
       
       parameter Real y_zero = 0.5 "Desired value of A*sin(w*x)";
@@ -3266,7 +3266,7 @@ Modelica.Media.Common.OneNonLinearEquation.
       
    encapsulated package Inverse_sine_definition 
         "Define sine as non-linear equation to be solved" 
-       import Modelica;
+        import Modelica;
       extends Modelica.Media.Common.OneNonLinearEquation;
         
       redeclare record extends f_nonlinear_Data 
@@ -3911,7 +3911,6 @@ equation
       output SpecificEnthalpy h "Specific enthalpy at p, T, X";
     end specificEnthalpy_pTX;
     
-    
     replaceable partial function temperature_phX 
       "Compute temperature from pressure, specific enthalpy and mass fraction" 
       extends Modelica.Icons.Function;
@@ -3920,7 +3919,6 @@ equation
       input MassFraction X[nX] "Mass fractions";
       output Temperature T "Temperature";
     end temperature_phX;
-    
     
     type AbsolutePressure = SI.AbsolutePressure (
         min=0,
@@ -6264,7 +6262,7 @@ provide a package in the following way:
     
     replaceable function solve 
       "Solve f_nonlinear(x_zero)=y_zero; f_nonlinear(x_min) - y_zero and f_nonlinear(x_max)-y_zero must have different sign" 
-     import Modelica.Utilities.Streams.error;
+      import Modelica.Utilities.Streams.error;
        extends Modelica.Icons.Function;
        input Real y_zero 
         "Determine x_zero, such that f_nonlinear(x_zero) = y_zero";

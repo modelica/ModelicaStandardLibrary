@@ -53,8 +53,8 @@ package Sensors "Sensors to measure variables"
           style(color=8),
           string="resolve"),
         Line(points=[-84,0; -84,84; 0,84; 0,100], style(
-            color=10, 
-            rgbcolor={95,95,95}, 
+            color=10,
+            rgbcolor={95,95,95},
             pattern=3)),
         Text(
           extent=[-132, 52; -96, 27],
@@ -62,8 +62,8 @@ package Sensors "Sensors to measure variables"
           string="a")),
       Diagram(
         Line(points=[-84,0; -84,82; 0,82; 0,98], style(
-            color=10, 
-            rgbcolor={95,95,95}, 
+            color=10,
+            rgbcolor={95,95,95},
             pattern=3))),
       Documentation(info="<HTML>
 <p>
@@ -450,8 +450,8 @@ Exact definition of the returned quantities:
     annotation (
       preferedView="info",
       Icon(Line(points=[-60,-94; -60,-76; 0,-76; 0,-76], style(
-            color=10, 
-            rgbcolor={95,95,95}, 
+            color=10,
+            rgbcolor={95,95,95},
             pattern=3)),     Text(
           extent=[-157,-49; -26,-74],
           string="resolve",
@@ -461,8 +461,8 @@ Exact definition of the returned quantities:
             pattern=3))),
       Diagram(
            Line(points=[-60,-98; -60,-76; 0,-76; 0,-76], style(
-            color=10, 
-            rgbcolor={95,95,95}, 
+            color=10,
+            rgbcolor={95,95,95},
             pattern=3))),
       Documentation(info="<HTML>
 <p>

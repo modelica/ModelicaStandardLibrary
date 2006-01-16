@@ -517,8 +517,8 @@ is resolved in the world frame).
             gradient=0,
             fillColor=0,
             fillPattern=1)), Line(points=[0,-10; 0,-97], style(
-            color=10, 
-            rgbcolor={95,95,95}, 
+            color=10,
+            rgbcolor={95,95,95},
             pattern=3))),
       Icon(
         Text(
@@ -533,8 +533,8 @@ is resolved in the world frame).
             fillPattern=1)),
         Text(extent=[-149, 103; 136, 42], string="%name"),
         Line(points=[0,-10; 0,-95], style(
-            color=10, 
-            rgbcolor={95,95,95}, 
+            color=10,
+            rgbcolor={95,95,95},
             pattern=3))),
       Documentation(info="<HTML>
 <p>
@@ -659,8 +659,8 @@ is resolved in the world frame).
       preferedView="info",
       Diagram(
         Line(points=[0,97; 0,82], style(
-            color=10, 
-            rgbcolor={95,95,95}, 
+            color=10,
+            rgbcolor={95,95,95},
             pattern=3)),
         Line(points=[-100, 0; -94, 13; -86, 28; -74, 48; -65, 60; -52, 72; -35,
                81; -22, 84; -8, 84; 7, 80; 19, 73; 32, 65; 44, 55; 52, 47; 58,
@@ -676,8 +676,8 @@ is resolved in the world frame).
           style(color=8)),
         Text(extent=[-145, -28; 140, -89], string="%name"),
         Line(points=[0,95; 0,82], style(
-            color=10, 
-            rgbcolor={95,95,95}, 
+            color=10,
+            rgbcolor={95,95,95},
             pattern=3)),
         Line(points=[-100, 0; -94, 13; -86, 28; -74, 48; -65, 60; -52, 72; -35,
                81; -22, 84; -8, 84; 7, 80; 19, 73; 32, 65; 44, 55; 52, 47; 58,
@@ -826,8 +826,8 @@ is resolved in the world frame).
             fillColor=0,
             fillPattern=1)),
         Line(points=[0,97; 0,10], style(
-            color=10, 
-            rgbcolor={95,95,95}, 
+            color=10,
+            rgbcolor={95,95,95},
             pattern=3))),
       Icon(
         Text(
@@ -849,8 +849,8 @@ is resolved in the world frame).
             fillColor=0,
             fillPattern=1)),
         Line(points=[0,95; 0,10], style(
-            color=10, 
-            rgbcolor={95,95,95}, 
+            color=10,
+            rgbcolor={95,95,95},
             pattern=3))),
       Documentation(info="<HTML>
 <p>
@@ -1011,14 +1011,14 @@ is resolved in the world frame).
           string="resolve"),
         Text(extent=[-136, -52; 149, -113], string="%name"),
         Line(points=[40, 100; 40, 0], style(
-            color=10, 
-            rgbcolor={95,95,95}, 
+            color=10,
+            rgbcolor={95,95,95},
             pattern=3)),
         Polygon(points=[-94,0; -64,11; -64,-10; -94,0],     style(color=0,
               fillColor=0)),
         Line(points=[-60, 100; 40, 100], style(
-            color=10, 
-            rgbcolor={95,95,95}, 
+            color=10,
+            rgbcolor={95,95,95},
             pattern=3)),
         Polygon(points=[94,0; 65,12; 65,-11; 94,0],       style(color=0,
               fillColor=0)),
@@ -1181,16 +1181,16 @@ is resolved in the world frame).
             fillColor=0,
             fillPattern=1)),
         Line(points=[40, 100; 76, 46], style(
-            color=10, 
-            rgbcolor={95,95,95}, 
+            color=10,
+            rgbcolor={95,95,95},
             pattern=3)),
         Polygon(points=[-99,20; -86,53; -70,42; -99,20],     style(
             color=0,
             fillColor=0,
             fillPattern=1)),
         Line(points=[-60, 100; 40, 100], style(
-            color=10, 
-            rgbcolor={95,95,95}, 
+            color=10,
+            rgbcolor={95,95,95},
             pattern=3)),
         Line(points=[-79, 47; -70, 61; -59, 72; -45, 81; -32, 84; -20, 85],
             style(color=0)),
@@ -1361,8 +1361,8 @@ is resolved in the world frame).
             fillColor=0,
             fillPattern=1)),
         Line(points=[40, 100; 40, 0], style(
-            color=10, 
-            rgbcolor={95,95,95}, 
+            color=10,
+            rgbcolor={95,95,95},
             pattern=3)),
         Polygon(points=[-95,1; -64,11; -64,-10; -95,1],     style(color=0,
               fillColor=0)),
@@ -1371,8 +1371,8 @@ is resolved in the world frame).
             fillColor=0,
             fillPattern=1)),
         Line(points=[-60, 100; 40, 100], style(
-            color=10, 
-            rgbcolor={95,95,95}, 
+            color=10,
+            rgbcolor={95,95,95},
             pattern=3)),
         Polygon(points=[94,0; 65,12; 65,-11; 94,0],       style(color=0,
               fillColor=0)),

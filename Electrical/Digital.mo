@@ -1,5 +1,5 @@
 package Digital 
-  "Library for digital electrical components based on the VHDL standard (2-,3-,4-,9-valued logic)" 
+  "Library for digital electrical components based on the VHDL standard with 9-valued logic and conversion to 2-,3-,4-valued logic" 
 package UsersGuide "Users Guide" 
     
   annotation (DocumentationClass=true, Documentation(info="<html>

@@ -3839,19 +3839,19 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
           rgbfillColor={192,192,192}));
       connect(relativeSensor.frame_b, frame_a) annotation (points=[40,-80; -96,-80;
             -96,0; -100,0], style(
-          color=10, 
-          rgbcolor={95,95,95}, 
-          pattern=3, 
-          gradient=3, 
-          fillColor=8, 
+          color=10,
+          rgbcolor={95,95,95},
+          pattern=3,
+          gradient=3,
+          fillColor=8,
           rgbfillColor={192,192,192}));
       connect(relativeSensor.frame_a, frame_b) annotation (points=[60,-80; 96,-80;
             96,0; 100,0], style(
-          color=10, 
-          rgbcolor={95,95,95}, 
-          pattern=3, 
-          gradient=3, 
-          fillColor=8, 
+          color=10,
+          rgbcolor={95,95,95},
+          pattern=3,
+          gradient=3,
+          fillColor=8,
           rgbfillColor={192,192,192}));
       connect(relativeSensor.y, revolute.position_a)       annotation (points=[
             50, -69; 50, -40; 90, -40; 90, -12; 79, -12], style(
@@ -4346,19 +4346,19 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
           rgbfillColor={192,192,192}));
       connect(relativeSensor.frame_b, frame_a) annotation (points=[30,-80; -97,-80;
             -97,0; -100,0], style(
-          color=10, 
-          rgbcolor={95,95,95}, 
-          pattern=3, 
-          gradient=3, 
-          fillColor=8, 
+          color=10,
+          rgbcolor={95,95,95},
+          pattern=3,
+          gradient=3,
+          fillColor=8,
           rgbfillColor={192,192,192}));
       connect(relativeSensor.frame_a, frame_b) annotation (points=[50,-80; 95,-80;
             95,0; 100,0], style(
-          color=10, 
-          rgbcolor={95,95,95}, 
-          pattern=3, 
-          gradient=3, 
-          fillColor=8, 
+          color=10,
+          rgbcolor={95,95,95},
+          pattern=3,
+          gradient=3,
+          fillColor=8,
           rgbfillColor={192,192,192}));
       connect(rod2.frame_b, frame_im) annotation (points=[-40,0; -46,0; -46,80; 0,
             80; 0,100], style(
@@ -4708,19 +4708,19 @@ component).
           rgbfillColor={192,192,192}));
       connect(relativeSensor.frame_b, frame_a) annotation (points=[40,-80; -95,-80;
             -95,0; -100,0], style(
-          color=10, 
-          rgbcolor={95,95,95}, 
-          pattern=3, 
-          gradient=3, 
-          fillColor=8, 
+          color=10,
+          rgbcolor={95,95,95},
+          pattern=3,
+          gradient=3,
+          fillColor=8,
           rgbfillColor={192,192,192}));
       connect(relativeSensor.frame_a, frame_b) annotation (points=[60,-80; 96,-80;
             96,0; 100,0], style(
-          color=10, 
-          rgbcolor={95,95,95}, 
-          pattern=3, 
-          gradient=3, 
-          fillColor=8, 
+          color=10,
+          rgbcolor={95,95,95},
+          pattern=3,
+          gradient=3,
+          fillColor=8,
           rgbfillColor={192,192,192}));
       connect(relativeSensor.y, revolute.position_a)       annotation (points=[
             50, -69; 50, -40; 90, -40; 90, -12; 79, -12], style(
@@ -5059,19 +5059,19 @@ component).
           rgbfillColor={192,192,192}));
       connect(relativeSensor.frame_b, frame_a) annotation (points=[40,-80; -95,-80;
             -95,0; -100,0], style(
-          color=10, 
-          rgbcolor={95,95,95}, 
-          pattern=3, 
-          gradient=3, 
-          fillColor=8, 
+          color=10,
+          rgbcolor={95,95,95},
+          pattern=3,
+          gradient=3,
+          fillColor=8,
           rgbfillColor={192,192,192}));
       connect(relativeSensor.frame_a, frame_b) annotation (points=[60,-80; 96,-80;
             96,0; 100,0], style(
-          color=10, 
-          rgbcolor={95,95,95}, 
-          pattern=3, 
-          gradient=3, 
-          fillColor=8, 
+          color=10,
+          rgbcolor={95,95,95},
+          pattern=3,
+          gradient=3,
+          fillColor=8,
           rgbfillColor={192,192,192}));
       connect(relativeSensor.y, prismatic.position_a)       annotation (points=
             [50, -69; 50, -40; 90, -40; 90, -12; 79, -12], style(

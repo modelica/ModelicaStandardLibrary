@@ -1,8 +1,5 @@
 package Modelica "Modelica Standard Library"
-
-
 extends Icons.Library;
-
 
 annotation(preferedView="info",
   Window(
@@ -36,11 +33,11 @@ It provides model components in many domains that are based on
 standardized interface definitions. Some typical examples are shown
 in the next figure:
 </p>
-
+ 
 <p>
 <img src=\"../Images/UsersGuide/ModelicaLibraries.png\">
 </p>
-
+ 
 <p>
 For an introduction, have especially a look at:
 </p>
@@ -53,7 +50,7 @@ For an introduction, have especially a look at:
 <li> Packages <b>Examples</b> in the various subpackages, demonstrate
      how to use the components of the corresponding sublibrary.</li>
 </ul>
-
+ 
 <p>
 Copyright &copy; 1998-2005, Modelica Association.
 </p>
@@ -65,7 +62,6 @@ and the accompanying <b>disclaimer</b>
 </p><br>
 </HTML>
 "));
-
 
 package UsersGuide "Users Guide" 
   
@@ -441,6 +437,11 @@ The following <b>new components</b> have been added to <b>existing</b> libraries
 </p>
  
 <table border=\"1\" cellspacing=0 cellpadding=2>
+  <tr><td colspan=\"2\"><b>Modelica.Blocks.Interfaces.</b></td></tr>
+  <tr><td> SignalBus</td>
+      <td> An empty expandable connector used as signal bus</td> </tr>
+  <tr><td> SignalSubBus</td>
+      <td> An empty expandable connector used as sub bus in a signal bus</td> </tr>
   <tr><td colspan=\"2\"><b>Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.</b></td></tr>
   <tr><td> SM_ElectricalExcitedDamperCage</td>
       <td> Electrical excited synchronous induction machine with damper cage</td> </tr>
@@ -465,6 +466,12 @@ The following <b>new components</b> have been added to <b>existing</b> libraries
   <tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.</b></td></tr>
   <tr><td> Parts.PointMass</td>
       <td> Point mass, i.e., body where inertia tensor is neglected.</td> </tr>
+  <tr><td> Interfaces.FlangeWithBearing</td>
+      <td> Connector consisting of 1-dim. rotational flange and its 
+           3-dim. bearing frame.</td> </tr>
+  <tr><td> Interfaces.FlangeWithBearingAdaptor</td>
+      <td> Adaptor to allow direct connections to the sub-connectors 
+           of FlangeWithBearing.</td> </tr>
   <tr><td> Types.SpecularCoefficient</td>
       <td> New type to define a specular coefficient.</td> </tr>
   <tr><td> Types.ShapeExtra</td>

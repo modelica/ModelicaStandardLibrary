@@ -176,6 +176,191 @@ This component has a non-filled rectangular icon.
 </html>"));
 end Frame_resolve;
   
+  connector FlangeWithBearing 
+    "Connector consisting of 1-dim. rotational flange and its bearing frame" 
+    parameter Boolean includeBearingConnector=false 
+      "= true, if bearing frame connector is present, otherwise not present";
+    Modelica.Mechanics.Rotational.Interfaces.Flange_a flange 
+      "1-dim. rotational flange";
+    Modelica.Mechanics.MultiBody.Interfaces.Frame bearingFrame if 
+      includeBearingConnector 
+      "3-dim. frame in which the 1-dim. shaft is mounted";
+    
+    annotation (
+      defaultComponentName="flange",
+      Icon(
+        Rectangle(extent=[-20, 1; 20, -1], style(
+            color=10,
+            rgbcolor={135,135,135},
+            thickness=2,
+            fillPattern=1)),
+        Rectangle(extent=[-100, 100; 100, -100], style(
+            color=7,
+            rgbcolor={255,255,255},
+            fillColor=7,
+            rgbfillColor={255,255,255})),
+        Rectangle(extent=[-100, 25; 100, -24], style(
+            color=0,
+            rgbcolor={0,0,0},
+            gradient=2,
+            fillColor=9,
+            rgbfillColor={175,175,175})),
+        Line(points=[-80, 60; 80, 60], style(
+            color=0,
+            rgbcolor={0,0,0},
+            fillPattern=1)),
+        Line(points=[-80, -60; 80, -60], style(
+            color=0,
+            rgbcolor={0,0,0},
+            fillPattern=1)),
+        Line(points=[0, 100; 0, 60], style(
+            color=0,
+            rgbcolor={0,0,0},
+            fillPattern=1)),
+        Line(points=[0, -60; 0, -100], style(
+            color=0,
+            rgbcolor={0,0,0},
+            fillPattern=1)),
+        Rectangle(extent=[-100, 100; 100, -100], style(color=10, rgbcolor={135,
+                135,135})),
+        Rectangle(extent=[-100, 25; 100, -24], style(color=0, rgbcolor={0,0,0}))),
+      Diagram(
+        Line(points=[-50, -40; 50, -40], style(
+            color=0,
+            rgbcolor={0,0,0},
+            thickness=2,
+            fillPattern=1)),
+        Line(points=[-50, 40; 50, 40], style(
+            color=0,
+            rgbcolor={0,0,0},
+            thickness=2,
+            fillPattern=1)),
+        Text(
+          extent=[-158, -66; 158, -124],
+          string="%name",
+          style(
+            color=0,
+            rgbcolor={0,0,0},
+            thickness=2)),
+        Rectangle(extent=[-60, 60; 60, -60], style(
+            color=7,
+            rgbcolor={255,255,255},
+            thickness=2,
+            fillColor=7,
+            rgbfillColor={255,255,255},
+            fillPattern=1)),
+        Rectangle(extent=[-60, 15; 60, -15], style(
+            color=0,
+            rgbcolor={0,0,0},
+            gradient=2,
+            fillColor=9,
+            rgbfillColor={175,175,175})),
+        Line(points=[0, 60; 0, 40], style(
+            color=0,
+            rgbcolor={0,0,0},
+            fillPattern=1)),
+        Line(points=[0, -40; 0, -60], style(
+            color=0,
+            rgbcolor={0,0,0},
+            fillPattern=1)),
+        Line(points=[-50, 40; 50, 40], style(
+            color=0,
+            rgbcolor={0,0,0},
+            fillPattern=1)),
+        Line(points=[-50, -40; 50, -40], style(
+            color=0,
+            rgbcolor={0,0,0},
+            fillPattern=1)),
+        Rectangle(extent=[-60, 60; 60, -60], style(color=10, rgbcolor={135,135,
+                135})),
+        Rectangle(extent=[-60, 15; 60, -15], style(color=0, rgbcolor={0,0,0}))),
+      Coordsys(grid=[1, 1],scale=0),
+      Documentation(info="<html>
+<p>
+This hierarchical connector models a 1-dim. rotational flange
+connector and its optional bearing defined by a 3-dim. frame connector.
+If a connection to the subconnectors should be clearly visible,
+connect first an  instance of
+<a href=\"Modelica://Modelica.Mechanics.MultiBody.Interfaces.FlangeWithBearingAdaptor\">FlangeWithBearingAdaptor</a>
+to the FlangeWithBearing connector.
+</p>
+</html>"));
+    
+  end FlangeWithBearing;
+
+  model FlangeWithBearingAdaptor 
+    "Adaptor to allow direct connections to the sub-connectors of FlangeWithBearing" 
+    parameter Boolean includeBearingConnector=false 
+      "= true, if bearing frame connector is present, otherwise not present";
+    
+    Modelica.Mechanics.MultiBody.Interfaces.FlangeWithBearing flangeAndFrame(
+        includeBearingConnector=includeBearingConnector) 
+      "Compound connector consisting of 1-dim. rotational flange and 3-dim. frame mounting"
+                                   annotation (extent=[-130, -30; -70, 30]);
+    Modelica.Mechanics.Rotational.Interfaces.Flange_b flange 
+      "1-dim. rotational flange" 
+      annotation (extent=[-10, -10; 10, 10]);
+    Frame_a frame "3-dim. frame in which the 1-dim. shaft is mounted" annotation (extent=[-16,-116; 16,-84], rotation=90);
+    
+    annotation (
+      defaultComponentName="adaptor",
+      Diagram,
+      Icon(
+        Rectangle(extent=[-100, 30; 20, -100], style(
+            color=7,
+            rgbcolor={255,255,255},
+            fillColor=7,
+            rgbfillColor={255,255,255},
+            fillPattern=1)),
+        Line(points=[-100, -10; -100, -40; 0, -40; 0, -100], style(
+            color=0,
+            rgbcolor={0,0,0},
+            thickness=2,
+            fillColor=10,
+            rgbfillColor={95,95,95},
+            fillPattern=1)),
+        Line(points=[-90, 0; 0, 0],style(
+            color=0,
+            rgbcolor={0,0,0},
+            fillColor=10,
+            rgbfillColor={95,95,95},
+            fillPattern=1)),
+        Text(
+          extent=[-216, 88; 86, 36],
+          string="%name",
+          style(
+            color=3,
+            rgbcolor={0,0,255},
+            fillColor=7,
+            rgbfillColor={255,255,255},
+            fillPattern=1))),
+      Coordsys(grid=[1, 1],scale=0),
+      Documentation(info="<html>
+<p>
+Adaptor object to make a more visible connection to the flange and frame
+subconnectors of a 
+<a href=\"Modelica://Modelica.Mechanics.MultiBody.Interfaces.FlangeWithBearing\">FlangeWithBearing</a>
+connector.
+</p>
+</html>"));
+  equation 
+    connect(flange, flangeAndFrame.flange) annotation (points=[0, 0; -100, 0],
+        style(
+        color=0,
+        rgbcolor={0,0,0},
+        fillColor=7,
+        rgbfillColor={255,255,255},
+        fillPattern=1));
+    connect(frame, flangeAndFrame.bearingFrame) annotation (points=[0, -100; 0,
+          -40; -100, -40; -100, 0], style(
+        color=0,
+        rgbcolor={0,0,0},
+        thickness=2,
+        fillColor=7,
+        rgbfillColor={255,255,255},
+        fillPattern=1));
+  end FlangeWithBearingAdaptor;
+
   partial model PartialTwoFrames 
     "Base model for components providing two frame connectors + outer world + assert to guarantee that the component is connected" 
     
@@ -654,16 +839,16 @@ with the blocks of package Modelica.Blocks.
           style(color=8),
           string="resolve"),
         Line(points=[80, 0; 80, -100], style(
-            color=10, 
-            rgbcolor={95,95,95}, 
+            color=10,
+            rgbcolor={95,95,95},
             pattern=3))),
       Diagram(
         Line(points=[-70, 0; -100, 0], style(color=0)),
         Line(points=[70, 0; 100, 0], style(color=0)),
         Line(points=[-80, -100; -80, 0]),
         Line(points=[80,0; 80,-100], style(
-            color=10, 
-            rgbcolor={95,95,95}, 
+            color=10,
+            rgbcolor={95,95,95},
             pattern=3))));
     
   protected 

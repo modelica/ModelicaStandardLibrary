@@ -1,6 +1,7 @@
 package Mechanics "Library to model 1-dim. and 3-dim. mechanical systems (multi-body, rotational, translational)"
 extends Modelica.Icons.Library2;
 
+
 annotation(preferedView="info",
   Window(
     x=0.03,

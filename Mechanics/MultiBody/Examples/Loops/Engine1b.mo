@@ -22,7 +22,7 @@ model Engine1b
         style(
           color=1,
           rgbcolor={255,0,0},
-          thickness=2), 
+          thickness=2),
         string="Loops.Engine1b_analytic")),
     Coordsys(
       extent=[-100, -120; 150, 120],
