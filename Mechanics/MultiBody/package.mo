@@ -43,7 +43,7 @@ ModelicaAdditions.MultiBody library. In
 it is described how to upgrade.
 </p>
 <p>
-Copyright &copy; 1998-2005, Modelica Association and DLR.
+Copyright &copy; 1998-2006, Modelica Association and DLR.
 </p>
 <p>
 <i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified

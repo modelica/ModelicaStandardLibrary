@@ -254,7 +254,7 @@ of a polynomial and to use a polynomial to fit a given set
 of data points.
 </p>
 <p>
-<p><b>Copyright (C) 2004, Modelica Association and DLR.</b></p>
+<p><b>Copyright &copy; 2004-2006, Modelica Association and DLR.</b></p>
 <p><i>
 This package is <b>free</b> software. It can be redistributed and/or modified
 under the terms of the <b>Modelica license</b>, see the license conditions

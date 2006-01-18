@@ -41,7 +41,7 @@ This package contains packages for analog electrical components:
  
  
 <p>
-Copyright &copy; 1998-2005, Modelica Association and Fraunhofer-Gesellschaft.
+Copyright &copy; 1998-2006, Modelica Association and Fraunhofer-Gesellschaft.
 </p>
 <p>
 <i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified

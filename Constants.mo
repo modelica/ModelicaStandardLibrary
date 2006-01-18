@@ -70,7 +70,7 @@ dependent constants and constants from nature. The latter constants
 
 
 <p>
-Copyright &copy; 1998-2005, Modelica Association and DLR.
+Copyright &copy; 1998-2006, Modelica Association and DLR.
 </p>
 <p>
 <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified

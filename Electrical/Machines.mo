@@ -49,7 +49,7 @@ You may have a look at a short summary of space phasor theory at <a href=\"http:
 </dl>
 </p>
 <p>
-Copyright &copy; 1998-2005, Modelica Association and Anton Haumer.
+Copyright &copy; 1998-2006, Modelica Association and Anton Haumer.
 </p>
 <p>
 <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
@@ -157,7 +157,7 @@ and a package utilities with components used for the examples.
 </p>
 <p>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2004, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2006, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
@@ -1192,7 +1192,7 @@ This package contains components utility components for testing examples.
 </p>
 <p>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2004, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2006, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
@@ -1409,7 +1409,7 @@ The induction machine models use package SpacePhasors.
 </p>
 <p>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2004, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2006, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
@@ -1498,7 +1498,7 @@ These models use package SpacePhasors.
 </p>
 <p>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2004, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2006, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
@@ -1985,7 +1985,7 @@ These models use package SpacePhasors.
 </p>
 <p>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2004, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2006, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
@@ -2768,7 +2768,7 @@ This package contains models of DC machines:
 </p>
 <p>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2004, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2006, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
@@ -3245,7 +3245,7 @@ These models use package SpacePhasors.
 </p>
 <p>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2004, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2006, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
@@ -3778,7 +3778,7 @@ This package contains sensors that are usefull when modelling machines.
 </p>
 <p>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2004, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2006, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
@@ -4216,7 +4216,7 @@ This package contains components, blocks and functions to utilize space phasor t
 </p>
 <p>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2004, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2006, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
@@ -4270,7 +4270,7 @@ Zero-sequence voltage and current are present at pin zero. An additional zero-se
 </p>
 <p>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2004, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2006, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
@@ -4459,7 +4459,7 @@ This package contains space phasor transformation blocks for use in controllers:
 </p>
 <p>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2004, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2006, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
@@ -4709,7 +4709,7 @@ This package contains space phasor transformation functions for use in calculati
 </p>
 <p>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2004, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2006, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
@@ -4850,7 +4850,7 @@ This package contains the space phasor connector and partial models for machine 
 </p>
 <p>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2004, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2006, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package

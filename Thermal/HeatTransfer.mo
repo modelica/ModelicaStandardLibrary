@@ -97,7 +97,7 @@ Ludwig Marvan, VA TECH ELIN EBG Elektronik GmbH, Wien, Austria;
 Hans Olsson, Dynasim AB, Sweden;
 Hubertus Tummescheit, Lund Institute of Technology, Lund, Sweden.
 </p>
-<p><b>Copyright &copy; 2001-2002, Modelica Association, Michael Tiller and DLR.</b></p>
+<p><b>Copyright &copy; 2001-2006, Modelica Association, Michael Tiller and DLR.</b></p>
 <p><i>
 This Modelica package is free software; it can be redistributed and/or modified
 under the terms of the Modelica license, see the license conditions
