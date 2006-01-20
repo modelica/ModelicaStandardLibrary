@@ -275,7 +275,7 @@ usually requires a trimming calculation.
         parameter Real k=1 "Constant output value";
         extends Interfaces.SO;
     
-        annotation (
+        annotation (defaultComponentName="const",
           Coordsys(
             extent=[-100, -100; 100, 100],
             grid=[2, 2],
