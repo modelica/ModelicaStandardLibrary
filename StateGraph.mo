@@ -1362,17 +1362,18 @@ buttons:
       connect(setValve2.y, valve2) 
         annotation (points=[85.25,-78.5; 90,-78.5; 90,0; 105,0],
                                                               style(color=5));
-      connect(setValve3.y, valve3) annotation (points=[85.3,-90; 95,-90; 95,-60;
+      connect(setValve3.y, valve3) annotation (points=[85.3,-90; 95,-90; 95,-60; 
               105,-60], style(color=5));
       connect(makeProduct.suspend[1], T3.inPort) 
-                                              annotation (points=[-13,24.5; -13,
-            12; -23,12; -23,3],      style(color=0, rgbcolor={0,0,0}));
+                                              annotation (points=[-12.5,24.5; 
+              -12.5,12; -23,12; -23,3],
+                                     style(color=0, rgbcolor={0,0,0}));
       connect(T3.outPort, s2.inPort[1]) 
                                      annotation (points=[-23,-2.5; -23,-20; -66,
             -20; -66,-50; -51,-50],        style(color=0, rgbcolor={0,0,0}));
       connect(T4.outPort, makeProduct.resume[1]) 
-                                              annotation (points=[10,0.5; 10,15;
-            3,15; 3,24],             style(color=0, rgbcolor={0,0,0}));
+                                              annotation (points=[10,0.5; 10,15; 
+              2.5,15; 2.5,24],       style(color=0, rgbcolor={0,0,0}));
       connect(level1, makeProduct.level1) annotation(points=[-60,-110; -60,-80;
             -80,-80; -80,20; -30,20; -30,28; -22,28], style(color=3, rgbcolor={
               0,0,255}));
@@ -2601,10 +2602,9 @@ partial block PartialCompositeStep
         string="%name",
         style(fillColor=7)),
       Rectangle(extent=[-150,150; 150,-150], style(
-            color=0, 
-            rgbcolor={0,0,0}, 
-            fillColor=7, 
-            rgbfillColor={255,255,255})),
+            color=0,
+            rgbcolor={0,0,0},
+            fillColor=DynamicSelect(7, if active > 0.5 then 2 else 7))),
       Text(
         extent=[4,-115; 145,-130],
         string="resume",
