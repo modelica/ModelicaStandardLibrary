@@ -1762,7 +1762,7 @@ package Interfaces "Connectors and partial models"
               fillColor=7))), Diagram(
                            Rectangle(extent=[-100,50; 0,-50],   style(color=0,
               fillColor=7)),          Text(
-          extent=[-100,100; 146,60],
+          extent=[-100,100; 186,58],
           string="%name",
           style(color=0))),
       Coordsys(grid=[1,1], component=[20,20]),
@@ -2581,9 +2581,9 @@ partial block PartialCompositeStep
   StateGraph.Interfaces.Step_in inPort annotation (extent=[-170,10; -150,-10]);
   StateGraph.Interfaces.Step_out outPort annotation (extent=[150,5; 160,-5]);
   StateGraph.Interfaces.CompositeStep_suspend suspend[nSuspend] 
-    annotation (extent=[-75,-160; -85,-150],    rotation=-90);
+    annotation (extent=[-70,-160; -80,-150],    rotation=-90);
   StateGraph.Interfaces.CompositeStep_resume resume[nResume] 
-    annotation (extent=[70,-170; 90,-150],     rotation=90);
+    annotation (extent=[65,-170; 85,-150],     rotation=90);
     
   annotation (structurallyIncomplete,
     Coordsys(
@@ -2601,14 +2601,16 @@ partial block PartialCompositeStep
         string="%name",
         style(fillColor=7)),
       Rectangle(extent=[-150,150; 150,-150], style(
-          color=0,
-          fillColor=DynamicSelect(7, if active > 0.5 then 2 else 7))),
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=7, 
+            rgbfillColor={255,255,255})),
       Text(
-        extent=[5,-115; 146,-130],
+        extent=[4,-115; 145,-130],
         string="resume",
         style(color=0)),
       Text(
-        extent=[-146,-115; -5,-130],
+        extent=[-144,-114; -3,-129],
         style(color=0),
         string="suspend")),
     Diagram(Rectangle(extent=[-150,150; 150,-150],   style(color=0))),

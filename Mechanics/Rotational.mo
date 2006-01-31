@@ -1743,7 +1743,7 @@ of several base components.</p>
         "true, if w_rel=0 and start of forward sliding or w_rel > w_small";
       Boolean startBackward(start=false, fixed=true) 
         "true, if w_rel=0 and start of backward sliding or w_rel < -w_small";
-      Boolean locked "true, if w_rel=0 and not sliding";
+      Boolean locked(start=false) "true, if w_rel=0 and not sliding";
       
       constant Integer Unknown=3 "Value of mode is not known";
       constant Integer Free=2 "Element is not active";

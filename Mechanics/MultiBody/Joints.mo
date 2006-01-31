@@ -342,10 +342,10 @@ vector \"n\" defining the translation axis
         Polygon(points=[10, 30; 30, 50; 30, -50; 10, -30; 10, 30], style(color=
                 0, fillColor=8)),
         Text(
-          extent=[-140, -105; 149, -66],
+          extent=[-141,-116; 148,-77],
           string="n=%n",
           style(color=0)),
-        Text(extent=[-138, -166; 138, -109], string="%name")),
+        Text(extent=[-140,-172; 136,-115],   string="%name")),
       Diagram(
         Rectangle(extent=[-29, 60; 29, -62], style(color=7, fillColor=7)),
         Line(points=[-60,60; -60,96],   style(color=0)),
