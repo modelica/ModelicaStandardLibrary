@@ -1,6 +1,7 @@
 package Common "Common packages and data for the ideal gas models"
 extends Modelica.Icons.Library;
 
+
 record DataRecord 
   "Coefficient data record for properties of ideal gases based on NASA source" 
   extends Modelica.Icons.Record;
@@ -40,6 +41,7 @@ gases also differentiable at Tlimit.
 </p>
 </HTML>"));
 end DataRecord;
+
 
 partial package SingleGasNasa 
   "Medium model of an ideal gas based on NASA source" 
@@ -607,6 +609,7 @@ protected
  end Inverse_of_h_T;
 end SingleGasNasa;
 
+
 partial package MixtureGasNasa 
   "Medium model of a mixture of ideal gases based on NASA source" 
   
@@ -674,9 +677,9 @@ It has been developed by Hubertus Tummescheit.
       //    SpecificEnthalpy h_component[nX];
   equation 
     assert(T >= 200 and T <= 6000, "
-Temperature T (= 200 K) is not in the allowed range
-200 K <= T (= " + String(T) + " <= 6000 K
-required from medium model \"" + mediumName + "\".");
+Temperature T (="   + String(T) + " K = 200 K) is not in the allowed range
+200 K <= T <= 6000 K
+required from medium model \""   + mediumName + "\".");
     
     MM = molarMass(state);
     h = h_TX(T, Xi);
@@ -1294,6 +1297,7 @@ end lowPressureThermalConductivity;
     h := h_TX(T,X[1:nXi]);
   end specificEnthalpy_pTX;
 end MixtureGasNasa;
+
 
 annotation (Documentation(info="<html>
  
