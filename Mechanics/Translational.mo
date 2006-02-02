@@ -2323,6 +2323,98 @@ blocks of the block library Modelica.Blocks.Sources.
     end if;
   end Position;
   
+  model Speed "Forced movement of a flange according to a reference speed" 
+    parameter Boolean exact=false 
+      "true/false exact treatment/filtering the input signal";
+    parameter SI.Frequency f_crit=50 
+      "if exact=false, critical frequency of filter to filter input signal";
+    parameter SI.Position s_start=0 "Start position of flange_b";
+    
+    output SI.Position s "absolute position of flange_b";
+    output SI.Velocity v "absolute velocity of flange_b";
+    output SI.Acceleration a "absolute acceleration of flange_b";
+    SI.Position s_ref 
+      "reference position defined by time integration of input signal"  annotation (extent=[-140, -20; -100, 20]);
+    Modelica.Blocks.Interfaces.RealInput v_ref(
+       redeclare type SignalType = SI.Position) 
+      "reference speed of flange as input signal" annotation (extent=[-140, -20; -100, 20]);
+    Interfaces.Flange_b flange_b 
+      "Flange that is forced to move according to input signals u" 
+        annotation (extent=[90, -10; 110, 10]);
+    annotation (
+      Coordsys(
+        extent=[-100, -100; 100, 100],
+        grid=[2, 2],
+        component=[20, 20]),
+      Window(
+        x=0.33,
+        y=0.01,
+        width=0.66,
+        height=0.62),
+      Documentation(info="<HTML>
+<p>
+The input signal <b>v_ref</b> defines the <b>reference
+speed</b> in [m/s]. Flange <b>flange_b</b> is <b>forced</b>
+to move according to this reference motion. According to parameter
+<b>exact</b> (default = <b>false</b>), this is done in the following way:
+<ol>
+<li><b>exact=true</b><br>
+    The reference speed is treated <b>exactly</b>. This is only possible, if
+    the input signal is defined by an analytical function which can be
+    differentiated at least once. If this prerequisite is fulfilled,
+    the Modelica translator will differentiate the input signal once
+    in order to compute the reference acceleration of the flange.</li>
+<li><b>exact=false</b><br>
+    The reference speed is <b>filtered</b> and the first derivative
+    of the filtered curve is used to compute the reference acceleration
+    of the flange. This first derivative is <b>not</b> computed by
+    numerical differentiation but by an appropriate realization of the
+    filter. For filtering, a first order filter is used.
+    The critical frequency (also called cut-off frequency) of the
+    filter is defined via parameter <b>f_crit</b> in [Hz]. This value
+    should be selected in such a way that it is higher as the essential
+    low frequencies in the signal.</li>
+</ol>
+<p>
+The input signal can be provided from one of the signal generator
+blocks of the block library Modelica.Blocks.Sources.
+</p>
+ 
+</HTML>
+"),   Icon(
+        Text(
+          extent=[-40,-40; -126,-78],
+          style(color=0),
+          string="v_ref"),
+        Line(points=[-95, 0; 90, 0], style(color=58, rgbcolor={0,127,0})),
+        Text(extent=[0, 86; 0, 26], string="%name")),
+      Diagram(Polygon(points=[46, -90; 26, -85; 26, -95; 46, -90], style(color=
+                10, fillColor=10)), Line(points=[-44, -90; 27, -90], style(
+              color=10, fillColor=10))));
+  protected 
+    parameter Real w_crit=2*Modelica.Constants.pi*f_crit 
+      "critical frequency in [1/s]";
+  equation 
+    der(s_ref) = v_ref;
+    s = flange_b.s;
+    v = der(s);
+    a = der(v);
+    
+    if exact then
+      v = v_ref;
+    else
+      // Filter: a = v_ref/(1 + (1/w_crit)*s)
+      a = (v_ref - v)*w_crit;
+    end if;
+    
+  initial equation 
+    s = s_start;
+    s_ref = s_start;
+    if not exact then
+      v = v_ref;
+    end if;
+  end Speed;
+
   model Accelerate 
     "Forced movement of a flange according to an acceleration signal" 
     
@@ -2392,15 +2484,11 @@ blocks of the block library Modelica.Blocks.Source.
     SI.Velocity v "absolute velocity of flange_b";
     SI.Acceleration a "absolute acceleration of flange_b";
     
-  protected 
-    Real constraintResidue;
-    Real constraintResidue_d;
-    Real constraintResidue_dd;
-  public 
     Modelica.Blocks.Interfaces.RealInput u[3] 
       "position, velocity and acceleration of flange as input signals" 
       annotation (extent=[-140, -20; -100, 20]);
-    Interfaces.Flange_b flange_b annotation (extent=[90, -10; 110, 10]);
+    Interfaces.Flange_b flange_b 
+      "Flange that is forced to move according to input signals u"                            annotation (extent=[90, -10; 110, 10]);
     annotation (
       Coordsys(
         extent=[-100, -100; 100, 100],
@@ -2429,40 +2517,8 @@ and the acceleration to zero.
 The input signals can be provided from one of the signal generator
 blocks of the block library Modelica.Blocks.Sources.
 </p>
-<p>
-Note, this model utilizes the non-standard function <b>constrain(..)</b>
-and assumes that this function is supported by the Modelica translator:
-</p>
-<pre>
-   Real r[:], rd[:], rdd[:];
-      ...
-   r   = ..
-   rd  = ...
-   rdd = ...
-   constrain(r,rd,rdd);
-</pre>
-<p>
-where r, rd and rdd are variables which need to be computed
-somewhere else. A simple implementation of constrain() is:
-</p>
-<pre>
-   r = 0;
-</pre>
-<p>
-However, this implementation requires that r(t) is given as analytical,
-smooth function in order that it can be differentiated and it does
-not allow applications such as the one sketched above.
-Function constrain()
-is used to explicitly inform the Modelica translator that
-rd is the derivative of r and rdd is the derivative of rd
-and that all derivatives need to be identical to zero.
-The Modelica translator can utilize this information to use
-rd and rdd whenever the Pantelides algorithm requires to compute
-the derivatives of r (and takes rd and rdd instead of actually
-differentiating r).
-</p>
-
-</HTML>
+ 
+</html>
 ", revisions="<html>
 <p><b>Release Notes:</b></p>
 <ul>
@@ -2471,14 +2527,12 @@ differentiating r).
        realized.</li>
 </ul>
 </html>"),
-      Diagram(Polygon(points=[0, -90; -20, -85; -20, -95; 0, -90], style(color=
-                10, fillColor=10)), Line(points=[-90, -90; -19, -90], style(
-              color=10, fillColor=10))),
+      Diagram,
       Icon(
         Text(
           extent=[-140, -62; 20, -100],
-          string="phi,w,a",
-          style(color=0)),
+          style(color=0), 
+          string="s,v,a"),
         Line(points=[-95, 0; 90, 0], style(color=58, rgbcolor={0,127,0})),
         Text(extent=[0, 80; 0, 20], string="%name")),
       Window(
@@ -2486,15 +2540,48 @@ differentiating r).
         y=0.05,
         width=0.6,
         height=0.6));
+  protected 
+    function position 
+       input Real q_qd_qdd[3] 
+        "Required values for position, speed, acceleration";
+       input Real dummy 
+        "Just to have one input signal that should be differentiated to avoid possible problems in the Modelica tool (is not used)";
+       output Real q;
+      annotation (derivative(noDerivative=q_qd_qdd) = position_der,
+          InlineAfterIndexReduction=true);
+    algorithm 
+      q :=q_qd_qdd[1];
+    end position;
+    
+    function position_der 
+       input Real q_qd_qdd[3] 
+        "Required values for position, speed, acceleration";
+       input Real dummy 
+        "Just to have one input signal that should be differentiated to avoid possible problems in the Modelica tool (is not used)";
+       input Real dummy_der;
+       output Real qd;
+      annotation (derivative(noDerivative=q_qd_qdd) = position_der2,
+          InlineAfterIndexReduction=true);
+    algorithm 
+      qd :=q_qd_qdd[2];
+    end position_der;
+    
+    function position_der2 
+       input Real q_qd_qdd[3] 
+        "Required values for position, speed, acceleration";
+       input Real dummy 
+        "Just to have one input signal that should be differentiated to avoid possible problems in the Modelica tool (is not used)";
+       input Real dummy_der;
+       input Real dummy_der2;
+       output Real qdd;
+    algorithm 
+      qdd :=q_qd_qdd[3];
+    end position_der2;
   equation 
     s = flange_b.s;
+    s = position(u,time);
     v = der(s);
     a = der(v);
-    
-    constraintResidue = u[1] - s;
-    constraintResidue_d = u[2] - v;
-    constraintResidue_dd = u[3] - a;
-    constrain(constraintResidue, constraintResidue_d, constraintResidue_dd);
   end Move;
   
   model Fixed "Fixed flange" 

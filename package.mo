@@ -1,6 +1,7 @@
 package Modelica "Modelica Standard Library"
 extends Icons.Library;
 
+
 annotation(preferedView="info",
   Window(
     x=0.02,
@@ -62,6 +63,7 @@ and the accompanying <b>disclaimer</b>
 </p><br>
 </HTML>
 "));
+
 
 package UsersGuide "Users Guide" 
   
@@ -437,11 +439,6 @@ The following <b>new components</b> have been added to <b>existing</b> libraries
 </p>
  
 <table border=\"1\" cellspacing=0 cellpadding=2>
-  <tr><td colspan=\"2\"><b>Modelica.Blocks.Interfaces.</b></td></tr>
-  <tr><td> SignalBus</td>
-      <td> An empty expandable connector used as signal bus</td> </tr>
-  <tr><td> SignalSubBus</td>
-      <td> An empty expandable connector used as sub bus in a signal bus</td> </tr>
   <tr><td colspan=\"2\"><b>Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.</b></td></tr>
   <tr><td> SM_ElectricalExcitedDamperCage</td>
       <td> Electrical excited synchronous induction machine with damper cage</td> </tr>
@@ -462,6 +459,12 @@ The following <b>new components</b> have been added to <b>existing</b> libraries
   <tr><td> Utilities.TerminalBox</td>
       <td> Terminal box for three-phase induction machines to choose  
            either star (wye) ? or delta ? connection</td> </tr>
+
+  <tr><td colspan=\"2\"><b>Modelica.Icons.</b></td></tr>
+  <tr><td> SignalBusIcon</td>
+      <td> Icon for signal bus</td> </tr>
+  <tr><td> SignalSubBusIcon</td>
+      <td> Icon for signal sub-bus</td> </tr>
  
   <tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.</b></td></tr>
   <tr><td> Parts.PointMass</td>
@@ -490,6 +493,11 @@ The following <b>new components</b> have been added to <b>existing</b> libraries
       <td> New component to measure the energy flow between two connectors
            of the Rotational library.</td> </tr>
  
+  <tr><td colspan=\"2\"><b>Modelica.Mechanics.Translational.</b></td></tr>
+  <tr><td>Speed</td>
+      <td> New component to move a translational flange 
+           according to a reference speed</td> </tr>
+
   <tr><td colspan=\"2\"><b>Modelica.Media.Interfaces.PartialMedium.</b></td></tr>
   <tr><td>specificEnthalpy_pTX</td>
       <td> New function to compute specific enthalpy from pressure, temperature
@@ -623,7 +631,19 @@ The following <b>components</b> have been improved:
   <tr><td>Types.*</td>
       <td> All types have a corresponding icon now to visualize the content
            in the package browser (previously, the types did not have an icon).</td>
-  
+ 
+  <tr><td colspan=\"2\"><b>Modelica.Mechanics.Rotational.</b></td></tr>
+  <tr><td> Speed</td>
+      <td> Start angle of flange (phi_start) included as parameter.</td> </tr>
+  <tr><td> Move</td>
+      <td> New implementation based solely on Modelica 2.2 language
+           (previously, the Dymola specific constrain(..) function was used).</td> </tr>
+
+  <tr><td colspan=\"2\"><b>Modelica.Mechanics.Translational.</b></td></tr>
+  <tr><td> Move</td>
+      <td> New implementation based solely on Modelica 2.2 language
+           (previously, the Dymola specific constrain(..) function was used).</td> </tr>
+
   <tr><td colspan=\"2\"><b>Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.</b></td></tr>
   <tr><td> SimpleFriction</td>
       <td> Calculates friction losses from pressure drop and volume flow.</td> </tr>

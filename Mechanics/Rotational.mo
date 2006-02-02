@@ -4547,20 +4547,22 @@ blocks of the block library Modelica.Blocks.Sources.
       "true/false exact treatment/filtering the input signal";
     parameter SI.Frequency f_crit=50 
       "if exact=false, critical frequency of filter to filter input signal";
+    parameter SI.Angle phi_start=0 "Start angle of flange_b";
     SI.Angle phi_ref 
       "reference angle defined by time integration of input signal";
     SI.Angle phi "absolute rotation angle of flange flange_b";
     SI.AngularVelocity w "absolute angular velocity of flange flange_b";
     SI.AngularAcceleration a "absolute angular acceleration of flange flange_b";
     SI.Torque tau_support "Support torque";
-  protected 
-    parameter Real w_crit=2*Constants.pi*f_crit "critical frequency in [1/s]";
-  public 
-    Interfaces.Flange_b flange_b annotation (extent=[90, -10; 110, 10]);
     Blocks.Interfaces.RealInput w_ref(redeclare type SignalType = 
           SI.AngularVelocity) 
       "Reference angular velocity of flange_b as input signal" 
       annotation (extent=[-140, -20; -100, 20]);
+    Interfaces.Flange_b flange_b 
+      "Flange that is forced to move according to input signals u"                            annotation (extent=[90, -10; 110, 10]);
+    Interfaces.Flange_a bearing 
+      "Bearing flange (if not connected, it is assumed that it is fixed on ground)"
+      annotation (extent=[-10, -110; 10, -90]);
     annotation (
       Coordsys(
         extent=[-100, -100; 100, 100],
@@ -4579,17 +4581,17 @@ to move according to this reference motion. According to parameter
 <b>exact</b> (default = <b>false</b>), this is done in the following way:
 <ol>
 <li><b>exact=true</b><br>
-    The reference angle is treated <b>exactly</b>. This is only possible, if
+    The reference angular velocity is treated <b>exactly</b>. This is only possible, if
     the input signal is defined by an analytical function which can be
-    differentiated at least twice. If this prerequisite is fulfilled,
-    the Modelica translator will differentiate the input signal twice
+    differentiated at least once. If this prerequisite is fulfilled,
+    the Modelica translator will differentiate the input signal once
     in order to compute the reference acceleration of the flange.</li>
 <li><b>exact=false</b><br>
-    The reference angle is <b>filtered</b> and the second derivative
+    The reference angular velocity is <b>filtered</b> and the first derivative
     of the filtered curve is used to compute the reference acceleration
-    of the flange. This second derivative is <b>not</b> computed by
+    of the flange. This first derivative is <b>not</b> computed by
     numerical differentiation but by an appropriate realization of the
-    filter. For filtering, a second order Bessel filter is used.
+    filter. For filtering, a first order filter is used.
     The critical frequency (also called cut-off frequency) of the
     filter is defined via parameter <b>f_crit</b> in [Hz]. This value
     should be selected in such a way that it is higher as the essential
@@ -4599,7 +4601,7 @@ to move according to this reference motion. According to parameter
 The input signal can be provided from one of the signal generator
 blocks of the block library Modelica.Blocks.Sources.
 </p>
-
+ 
 </HTML>
 "),   Icon(
         Rectangle(extent=[-20, -80; 20, -120], style(color=8, fillColor=8)),
@@ -4646,7 +4648,9 @@ blocks of the block library Modelica.Blocks.Sources.
           extent=[50, 87; 50, 73],
           string="rotation axis",
           style(color=10))));
-    Interfaces.Flange_a bearing annotation (extent=[-10, -110; 10, -90]);
+  protected 
+    parameter Real w_crit=2*Constants.pi*f_crit "critical frequency in [1/s]";
+    
   equation 
     0 = flange_b.tau + tau_support;
     
@@ -4668,6 +4672,8 @@ blocks of the block library Modelica.Blocks.Sources.
       a = (w_ref - w)*w_crit;
     end if;
   initial equation 
+    phi = phi_start;
+    phi_ref = phi_start;
     if not exact then
       w = w_ref;
     end if;
@@ -4782,14 +4788,16 @@ blocks of the block library Modelica.Blocks.Sources.
     SI.AngularAcceleration a "absolute angular acceleration of flange flange_b";
     SI.Torque tau_support "Support torque";
     
-    Interfaces.Flange_b flange_b annotation (extent=[90, -10; 110, 10]);
     Modelica.Blocks.Interfaces.RealInput u[3] 
       "angle, angular velocity and angular acceleration of flange_b as input signals"
       annotation (extent=[-140, -20; -100, 20]);
-  protected 
-    Real constraintResidue;
-    Real constraintResidue_d;
-    Real constraintResidue_dd;
+    Interfaces.Flange_b flange_b 
+      "Flange that is forced to move according to input signals u" 
+             annotation (extent=[90, -10; 110, 10]);
+    Interfaces.Flange_a bearing 
+      "Bearing flange (if not connected, it is assumed that it is fixed on ground)"
+             annotation (extent=[-10, -110; 10, -90]);
+    
     annotation (
       Coordsys(
         extent=[-100, -100; 100, 100],
@@ -4818,40 +4826,8 @@ and the angular acceleration to zero.
 The input signals can be provided from one of the signal generator
 blocks of the block library Modelica.Blocks.Sources.
 </p>
-<p>
-Note, this model utilizes the non-standard function <b>constrain(..)</b>
-and assumes that this function is supported by the Modelica translator:
-</p>
-<pre>
-   Real r[:], rd[:], rdd[:];
-      ...
-   r   = ..
-   rd  = ...
-   rdd = ...
-   constrain(r,rd,rdd);
-</pre>
-<p>
-where r, rd and rdd are variables which need to be computed
-somewhere else. A simple implementation of constrain() is:
-</p>
-<pre>
-   r = 0;
-</pre>
-<p>
-However, this implementation requires that r(t) is given as analytical,
-smooth function in order that it can be differentiated and it does
-not allow applications such as the one sketched above.
-Function constrain()
-is used to explicitly inform the Modelica translator that
-rd is the derivative of r and rdd is the derivative of rd
-and that all derivatives need to be identical to zero.
-The Modelica translator can utilize this information to use
-rd and rdd whenever the Pantelides algorithm requires to compute
-the derivatives of r (and takes rd and rdd instead of actually
-differentiating r).
-</p>
-
-</HTML>
+ 
+</html>
 "),   Diagram(
         Rectangle(extent=[-100,20; 100,-20],  style(
             gradient=2,
@@ -4903,8 +4879,43 @@ differentiating r).
         y=0.05,
         width=0.6,
         height=0.6));
-  public 
-    Interfaces.Flange_a bearing annotation (extent=[-10, -110; 10, -90]);
+  protected 
+    function position 
+       input Real q_qd_qdd[3] 
+        "Required values for position, speed, acceleration";
+       input Real dummy 
+        "Just to have one input signal that should be differentiated to avoid possible problems in the Modelica tool (is not used)";
+       output Real q;
+      annotation (derivative(noDerivative=q_qd_qdd) = position_der,
+          InlineAfterIndexReduction=true);
+    algorithm 
+      q :=q_qd_qdd[1];
+    end position;
+    
+    function position_der 
+       input Real q_qd_qdd[3] 
+        "Required values for position, speed, acceleration";
+       input Real dummy 
+        "Just to have one input signal that should be differentiated to avoid possible problems in the Modelica tool (is not used)";
+       input Real dummy_der;
+       output Real qd;
+      annotation (derivative(noDerivative=q_qd_qdd) = position_der2,
+          InlineAfterIndexReduction=true);
+    algorithm 
+      qd :=q_qd_qdd[2];
+    end position_der;
+    
+    function position_der2 
+       input Real q_qd_qdd[3] 
+        "Required values for position, speed, acceleration";
+       input Real dummy 
+        "Just to have one input signal that should be differentiated to avoid possible problems in the Modelica tool (is not used)";
+       input Real dummy_der;
+       input Real dummy_der2;
+       output Real qdd;
+    algorithm 
+      qdd :=q_qd_qdd[3];
+    end position_der2;
   equation 
     0 = flange_b.tau + tau_support;
     
@@ -4915,13 +4926,9 @@ differentiating r).
     end if;
     
     phi = flange_b.phi;
+    phi = position(u,time);
     w = der(phi);
     a = der(w);
-    
-    constraintResidue = u[1] - phi;
-    constraintResidue_d = u[2] - w;
-    constraintResidue_dd = u[3] - a;
-    constrain(constraintResidue, constraintResidue_d, constraintResidue_dd);
   end Move;
   
   model Fixed "Flange fixed in housing at a given angle" 
