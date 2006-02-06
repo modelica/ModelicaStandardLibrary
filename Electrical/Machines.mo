@@ -1,7 +1,7 @@
 package Machines "Library for electric machines" 
   extends Modelica.Icons.Library2;
   annotation (
-  version="1.7.0", versionDate="2005-12-15",
+  version="1.7.2", versionDate="2006-02-06",
   Settings(NewStateSelection=true, Evaluate=true),
   preferedView="info", Documentation(info="<HTML>
 <p>
@@ -105,6 +105,8 @@ and the accompanying <b>disclaimer</b>
        easier parametrisation of AsynchronousInductionMachines.AIM_SlipRing model</li>
   <li> v1.7.0 2005/12/15 Anton Haumer<br>
        back-changed the naming to ensure backward compatibility</li>
+  <li> v1.7.1 2006/02/06 Anton Haumer<br>
+       changed some naming of synchronous machines, not affecting existing models</li>
   </ul>
 </HTML>"),
     Icon(
@@ -719,7 +721,7 @@ Default machine parameters of model <i>SM_ReluctanceRotorDamperCage</i> are used
       connect(LoadInertia.flange_b, TorqueStep1.flange) 
         annotation (points=[60,-40; 70,-40], style(color=0, rgbcolor={0,0,0}));
       connect(CurrentRMSsensor1.plug_p, SignalVoltage1.plug_p) annotation (
-          points=[6.12303e-016,40; 6.12303e-016,42.5; 6.12303e-016,42.5;
+          points=[6.12303e-016,40; 6.12303e-016,42.5; 6.12303e-016,42.5; 
             6.12303e-016,45; 6.12303e-016,50; 6.12303e-016,50], style(color=3,
             rgbcolor={0,0,255}));
       connect(SMR1.plug_sn, RotorAngle1.plug_n)  annotation (points=[-16,-30;
@@ -830,7 +832,7 @@ Default machine parameters of model <i>SM_PermanentMagnetDamperCage</i> are used
             rgbcolor={0,0,255}));
       connect(RotorAngle1.plug_n, SMPM1.plug_sn)  annotation (points=[-16,-20;
             -16,-30], style(color=3, rgbcolor={0,0,255}));
-      connect(RotorAngle1.plug_p, SMPM1.plug_sp)  annotation (points=[-4,-20;
+      connect(RotorAngle1.plug_p, SMPM1.plug_sp)  annotation (points=[-4,-20; 
             -4,-25; -4,-25; -4,-30], style(color=3, rgbcolor={0,0,255}));
       connect(RotorAngle1.flange, SMPM1.flange_a) 
         annotation (points=[0,-10; 0,-40], style(color=0, rgbcolor={0,0,0}));
@@ -929,7 +931,7 @@ Default machine parameters of model <i>SM_ElectricalExcitedDamperCage</i> are us
     equation 
       connect(RotorAngle1.plug_n, SMEE1.plug_sn)  annotation (points=[-16,-20;
             -16,-30], style(color=3, rgbcolor={0,0,255}));
-      connect(RotorAngle1.plug_p, SMEE1.plug_sp)  annotation (points=[-4,-20;
+      connect(RotorAngle1.plug_p, SMEE1.plug_sp)  annotation (points=[-4,-20; 
             -4,-25; -4,-25; -4,-30], style(color=3, rgbcolor={0,0,255}));
       connect(RotorAngle1.flange, SMEE1.flange_a) 
         annotation (points=[0,-10; 0,-40], style(color=0, rgbcolor={0,0,0}));
@@ -938,7 +940,7 @@ Default machine parameters of model <i>SM_ElectricalExcitedDamperCage</i> are us
       connect(Star1.plug_p, SineVoltage1.plug_n) annotation (points=[-50,90;
             -40,90], style(color=3, rgbcolor={0,0,255}));
       connect(ElectricalPowerSensor1.plug_ni, CurrentRMSsensor1.plug_p) 
-        annotation (points=[6.12303e-016,50; 1.76911e-022,46; 6.12303e-016,46;
+        annotation (points=[6.12303e-016,50; 1.76911e-022,46; 6.12303e-016,46; 
             6.12303e-016,40], style(color=3, rgbcolor={0,0,255}));
       connect(SMEE1.flange_a, MechanicalPowerSensor1.flange_a) 
         annotation (points=[0,-40; 10,-40], style(color=0, rgbcolor={0,0,0}));
@@ -1442,6 +1444,8 @@ The induction machine models use package SpacePhasors.
        selectable DamperCage for Synchronous Machines</li>
   <li> v1.6.3 2005/11/25 Anton Haumer<br>
        easier parametrisation of AsynchronousInductionMachines.AIM_SlipRing model</li>
+  <li> v1.7.1 2006/02/06 Anton Haumer<br>
+       changed some naming of synchronous machines, not affecting existing models</li>
   </ul>
 <HTML>"), Icon(
         Rectangle(extent=[-60,60; 60,-60],    style(
@@ -2013,6 +2017,8 @@ These models use package SpacePhasors.
        introduced unsymmetrical DamperCage for Synchronous Machines</li>
   <li> v1.6.2 2005/10/23 Anton Haumer<br>
        selectable DamperCage for Synchronous Machines</li>
+  <li> v1.7.1 2006/02/06 Anton Haumer<br>
+       changed some naming of synchronous machines, not affecting existing models</li>
   </ul>
 </HTML>"));
       
@@ -2036,13 +2042,13 @@ These models use package SpacePhasors.
         parameter Modelica.SIunits.Inductance Lrsigma=0.05/(2*pi*fNominal) 
           "damper stray inductance in d-axis" 
           annotation(Dialog(group = "DamperCage", enable = DamperCage));
-        parameter Modelica.SIunits.Inductance LDqsigma=Lrsigma 
+        parameter Modelica.SIunits.Inductance Lrsigmaq=Lrsigma 
           "damper stray inductance in q-axis" 
           annotation(Dialog(group = "DamperCage", enable = DamperCage));
         parameter Modelica.SIunits.Resistance Rr=0.04 
           "warm damper resistance in d-axis" 
           annotation(Dialog(group = "DamperCage", enable = DamperCage));
-        parameter Modelica.SIunits.Resistance RDq=Rr 
+        parameter Modelica.SIunits.Resistance Rrq=Rr 
           "warm damper resistance in q-axis" 
           annotation(Dialog(group = "DamperCage", enable = DamperCage));
         output Modelica.SIunits.Current is[m] = plug_sp.pin.i 
@@ -2074,9 +2080,9 @@ These models use package SpacePhasors.
           annotation (extent=[-10, -70; 10, -50], rotation=-90);
         Components.DamperCage damperCage(
           final Lrsigma=Lrsigma,
-          final LDqsigma=LDqsigma,
+          final Lrsigmaq=Lrsigmaq,
           final Rr=Rr,
-          final RDq=RDq) if DamperCage 
+          final Rrq=Rrq) if DamperCage 
                              annotation (extent=[-10,-40; 10,-20], rotation=-90);
         annotation (defaultComponentName="SMPM",
           Diagram,
@@ -2225,7 +2231,7 @@ Whether a damper cage is present or not, can be selected with Boolean parameter 
             style(color=3, rgbcolor={0,0,255}));
         connect(spacePhasorS.plug_n, plug_sn) annotation (points=[-10,40; -10,
               60; -60,60; -60,100],     style(color=3, rgbcolor={0,0,255}));
-        connect(spacePhasorS.ground, spacePhasorS.zero) annotation (points=[-10,20;
+        connect(spacePhasorS.ground, spacePhasorS.zero) annotation (points=[-10,20; 
               -10,14; -6.12303e-016,14; -6.12303e-016,20], style(
             color=3,
             rgbcolor={0,0,255},
@@ -2267,13 +2273,13 @@ Whether a damper cage is present or not, can be selected with Boolean parameter 
         parameter Modelica.SIunits.Inductance Lrsigma=0.05/(2*pi*fNominal) 
           "damper stray inductance in d-axis" 
           annotation(Dialog(group = "DamperCage", enable = DamperCage));
-        parameter Modelica.SIunits.Inductance LDqsigma=Lrsigma 
+        parameter Modelica.SIunits.Inductance Lrsigmaq=Lrsigma 
           "damper stray inductance in q-axis" 
           annotation(Dialog(group = "DamperCage", enable = DamperCage));
         parameter Modelica.SIunits.Resistance Rr=0.04 
           "warm damper resistance in d-axis" 
           annotation(Dialog(group = "DamperCage", enable = DamperCage));
-        parameter Modelica.SIunits.Resistance RDq=Rr 
+        parameter Modelica.SIunits.Resistance Rrq=Rr 
           "warm damper resistance in q-axis" 
           annotation(Dialog(group = "DamperCage", enable = DamperCage));
         parameter Modelica.SIunits.Voltage VNominal=100 
@@ -2284,7 +2290,7 @@ Whether a damper cage is present or not, can be selected with Boolean parameter 
           "|Excitation|no-load excitation current @ nominal voltage and frequency";
         parameter Modelica.SIunits.Resistance Re=2.5 
           "|Excitation|warm excitation resistance";
-        parameter Real Les(min=0, max=1)=0.025 
+        parameter Real sigmae(min=0, max=1)=0.025 
           "|Excitation|stray fraction of total excitation inductance";
         output Modelica.SIunits.Current is[m] = plug_sp.pin.i 
           "stator instantaneous currents";
@@ -2300,7 +2306,7 @@ Whether a damper cage is present or not, can be selected with Boolean parameter 
       protected 
         parameter Real TurnsRatio = sqrt(2)*VNominal/(2*pi*fNominal*Lmd*Ie0) 
           "stator current / excitation current";
-        parameter Modelica.SIunits.Inductance Lesigma = Lmd*TurnsRatio^2 * Les/(1-Les);
+        parameter Modelica.SIunits.Inductance Lesigma = Lmd*TurnsRatio^2 * sigmae/(1-sigmae);
       public 
         Modelica.Electrical.MultiPhase.Basic.Resistor rs(final m=m, final R=fill(Rs, m)) 
           annotation (extent=[60,50; 40,70]);
@@ -2314,9 +2320,9 @@ Whether a damper cage is present or not, can be selected with Boolean parameter 
           final Lmq=Lmq) annotation (extent=[-10,-10; 10,10],   rotation=-90);
         Components.DamperCage damperCage(
           final Lrsigma=Lrsigma,
-          final LDqsigma=LDqsigma,
+          final Lrsigmaq=Lrsigmaq,
           final Rr=Rr,
-          final RDq=RDq) if DamperCage 
+          final Rrq=Rrq) if DamperCage 
           annotation (extent=[-10,-40; 10,-20], rotation=-90);
         Components.ElectricalExcitation electricalExcitation(final TurnsRatio=
               TurnsRatio) 
@@ -2491,7 +2497,7 @@ Whether a damper cage is present or not, can be selected with Boolean parameter 
             style(color=3, rgbcolor={0,0,255}));
         connect(spacePhasorS.plug_n, plug_sn) annotation (points=[-10,40; -10,
               60; -60,60; -60,100],     style(color=3, rgbcolor={0,0,255}));
-        connect(spacePhasorS.ground, spacePhasorS.zero) annotation (points=[-10,20;
+        connect(spacePhasorS.ground, spacePhasorS.zero) annotation (points=[-10,20; 
               -10,14; -6.12303e-016,14; -6.12303e-016,20], style(
             color=3,
             rgbcolor={0,0,255},
@@ -2542,13 +2548,13 @@ Whether a damper cage is present or not, can be selected with Boolean parameter 
         parameter Modelica.SIunits.Inductance Lrsigma=0.05/(2*pi*fNominal) 
           "damper stray inductance in d-axis" 
           annotation(Dialog(group = "DamperCage", enable = DamperCage));
-        parameter Modelica.SIunits.Inductance LDqsigma=Lrsigma 
+        parameter Modelica.SIunits.Inductance Lrsigmaq=Lrsigma 
           "damper stray inductance in q-axis" 
           annotation(Dialog(group = "DamperCage", enable = DamperCage));
         parameter Modelica.SIunits.Resistance Rr=0.04 
           "warm damper resistance in d-axis" 
           annotation(Dialog(group = "DamperCage", enable = DamperCage));
-        parameter Modelica.SIunits.Resistance RDq=Rr 
+        parameter Modelica.SIunits.Resistance Rrq=Rr 
           "warm damper resistance in q-axis" 
           annotation(Dialog(group = "DamperCage", enable = DamperCage));
         output Modelica.SIunits.Current is[m] = plug_sp.pin.i 
@@ -2576,9 +2582,9 @@ Whether a damper cage is present or not, can be selected with Boolean parameter 
           final Lmq=Lmq) annotation (extent=[-10,-10; 10,10],   rotation=-90);
         Components.DamperCage damperCage(
           final Lrsigma=Lrsigma,
-          final LDqsigma=LDqsigma,
+          final Lrsigmaq=Lrsigmaq,
           final Rr=Rr,
-          final RDq=RDq) if DamperCage 
+          final Rrq=Rrq) if DamperCage 
           annotation (extent=[-10,-40; 10,-20], rotation=-90);
         annotation (defaultComponentName="SMR",
           Diagram,
@@ -2724,7 +2730,7 @@ Whether a damper cage is present or not, can be selected with Boolean parameter 
             fillColor=3,
             rgbfillColor={0,0,255},
             fillPattern=1));
-        connect(spacePhasorS.ground, spacePhasorS.zero) annotation (points=[-10,20;
+        connect(spacePhasorS.ground, spacePhasorS.zero) annotation (points=[-10,20; 
               -10,14; -6.12303e-016,14; -6.12303e-016,20],     style(
             color=3,
             rgbcolor={0,0,255},
@@ -2894,6 +2900,7 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
 </p>
 </HTML>"));
       equation 
+        assert(VaNominal > Ra*IaNominal, "VaNominal has to be > (Ra+Re)*IaNominal");
         connect(la.p, ra.n) 
           annotation (points=[30,60; 40,60], style(color=3, rgbcolor={0,0,255}));
         connect(pin_ap, ra.p) 
@@ -3051,6 +3058,7 @@ Armature current does not cover excitation current of a shunt excitation; in thi
 </p>
 </HTML>"));
       equation 
+        assert(VaNominal > Ra*IaNominal, "VaNominal has to be > (Ra+Re)*IaNominal");
         connect(la.p, ra.n) 
           annotation (points=[30,60; 40,60], style(color=3, rgbcolor={0,0,255}));
         connect(pin_ap, ra.p) 
@@ -3193,6 +3201,7 @@ ve = voltage drop of series excitation
 </p>
 </HTML>"));
       equation 
+        assert(VaNominal > (Ra+Re)*IaNominal, "VaNominal has to be > (Ra+Re)*IaNominal");
         connect(la.p, ra.n) 
           annotation (points=[30,60; 40,60], style(color=3, rgbcolor={0,0,255}));
         connect(pin_ap, ra.p) 
@@ -3498,11 +3507,11 @@ Model of a squirrel cage / damper cage in two axis.
       model DamperCage "Squirrel Cage" 
         parameter Modelica.SIunits.Inductance Lrsigma 
           "stray inductance in d-axis per phase translated to stator";
-        parameter Modelica.SIunits.Inductance LDqsigma 
+        parameter Modelica.SIunits.Inductance Lrsigmaq 
           "stray inductance in q-axis per phase translated to stator";
         parameter Modelica.SIunits.Resistance Rr 
           "warm resistance in d-axis per phase translated to stator";
-        parameter Modelica.SIunits.Resistance RDq 
+        parameter Modelica.SIunits.Resistance Rrq 
           "warm resistance in q-axis per phase translated to stator";
         Machines.Interfaces.SpacePhasor spacePhasor_r 
           annotation (extent=[-110,90; -90,110]);
@@ -3546,7 +3555,7 @@ Model of an unsymmetrical damper cage cage in two axis.
         
       equation 
         spacePhasor_r.v_[1] = Rr * spacePhasor_r.i_[1] + Lrsigma * der(spacePhasor_r.i_[1]);
-        spacePhasor_r.v_[2] = RDq * spacePhasor_r.i_[2] + LDqsigma * der(spacePhasor_r.i_[2]);
+        spacePhasor_r.v_[2] = Rrq * spacePhasor_r.i_[2] + Lrsigmaq * der(spacePhasor_r.i_[2]);
       end DamperCage;
       
       model PermanentMagnet "Permanent magnet excitation" 
