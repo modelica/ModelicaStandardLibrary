@@ -461,7 +461,7 @@ in the housing on one side via component Fixed.</p>
 <p>Simulate for 1 second and plot the following variables:<br>
    angular velocities of inertias inertia2 and 3: inertia2.w, inertia3.w</p>
 
-</HTML>"));
+</HTML>"), Diagram);
       
       Rotational.Fixed fixed annotation (extent=[38, -60; 54, -44]);
       Rotational.Torque torque annotation (extent=[-70, -8; -54, 8]);
@@ -483,8 +483,6 @@ in the housing on one side via component Fixed.</p>
       Sources.Sine sine(amplitude=amplitude, freqHz=freqHz) 
         annotation (extent=[-100, -8; -84, 8]);
     equation 
-      connect(sine.y, torque.tau) 
-        annotation (points=[-83.2, 0; -71.6, 0], style(color=3));
       connect(torque.flange_b, inertia1.flange_a) 
         annotation (points=[-54, 0; -40, 0], style(color=0));
       connect(inertia1.flange_b, idealGear.flange_a) 
@@ -499,6 +497,8 @@ in the housing on one side via component Fixed.</p>
         annotation (points=[46, -20; 46, 0; 36, 0], style(color=0));
       connect(damper.flange_b, fixed.flange_b) 
         annotation (points=[46, -36; 46, -52], style(color=0));
+      connect(sine.y, torque.tau) annotation (points=[-83.2,0; -71.6,0], style(
+            color=74, rgbcolor={0,0,127}));
     end First;
     
     encapsulated model Friction "Drive train with clutch and brake" 
@@ -535,7 +535,7 @@ values (defined already in the model):</p>
 <p>as well as the absolute angular velocities of the three inertia components
 (inertia1.w, inertia2.w, inertia3.w).</p>
 
-</HTML>"));
+</HTML>"), Diagram);
       
       Rotational.Torque torque annotation (extent=[-45, -5; -35, 5]);
       Rotational.Inertia inertia3(
@@ -571,28 +571,29 @@ values (defined already in the model):</p>
       tBrake = brake.tau;
       tSpring = spring.tau;
       
-      connect(sine.y, product.u1) annotation (points=[-74.5, 10; -70,
-             10; -70, 3; -66, 3], style(color=3));
-      connect(step2.y, product.u2) annotation (points=[-74.5, -10; -70,
-             -10; -70, -3; -66, -3], style(color=3));
-      connect(product.y, torque.tau) 
-        annotation (points=[-54.5, 0; -46, 0], style(color=3));
       connect(torque.flange_b, inertia3.flange_a) 
         annotation (points=[-35, 0; -25, 0], style(color=0));
       connect(inertia3.flange_b, clutch.flange_a) 
         annotation (points=[-15, 0; -5, 0], style(color=0));
       connect(clutch.flange_b, inertia2.flange_a) 
         annotation (points=[5, 0; 15, 0], style(color=0));
-      connect(const.y, clutch.f_normalized) annotation (points=[3.36767e-016,
-            19.5; 3.36767e-016,12.25; 0,12.25; 0,5.5],    style(color=3));
       connect(inertia2.flange_b, spring.flange_a) 
         annotation (points=[25, 0; 35, 0], style(color=0));
       connect(spring.flange_b, brake.flange_a) 
         annotation (points=[45, 0; 55, 0], style(color=0));
       connect(brake.flange_b, inertia1.flange_a) 
         annotation (points=[65, 0; 75, 0], style(color=0));
-      connect(step.y, brake.f_normalized) 
-        annotation (points=[60, 19.5; 60, 5.5], style(color=3));
+      connect(sine.y, product.u1) annotation (points=[-74.5,10; -70,10; -70,3; 
+            -66,3], style(color=74, rgbcolor={0,0,127}));
+      connect(step2.y, product.u2) annotation (points=[-74.5,-10; -70,-10; -70,
+            -3; -66,-3], style(color=74, rgbcolor={0,0,127}));
+      connect(product.y, torque.tau) annotation (points=[-54.5,0; -46,0], style(
+            color=74, rgbcolor={0,0,127}));
+      connect(const.y, clutch.f_normalized) annotation (points=[3.36767e-016,
+            19.5; 3.36767e-016,12.75; 0,12.75; 0,5.5], style(color=74, rgbcolor
+            ={0,0,127}));
+      connect(step.y, brake.f_normalized) annotation (points=[60,19.5; 60,5.5], 
+          style(color=74, rgbcolor={0,0,127}));
     end Friction;
     
     encapsulated model CoupledClutches 
@@ -631,7 +632,8 @@ frictional mode of clutches (clutchX.mode) where
 mode = -1/0/+1 means backward sliding,
 locked, forward sliding.</p>
 
-</HTML>"),      Commands(file="CoupledClutches.mos" "Plot inertias"));
+</HTML>"),      Commands(file="CoupledClutches.mos" "Plot inertias"), 
+        Diagram);
       
       Rotational.Inertia J1(
         J=1,
@@ -658,8 +660,6 @@ locked, forward sliding.</p>
       Sources.Step step2(startTime=T3) 
         annotation (extent=[55, 15; 65, 25], rotation=-90);
     equation 
-      connect(sin1.y, torque.tau) 
-        annotation (points=[-74.5, 0; -66, 0], style(color=3));
       connect(torque.flange_b, J1.flange_a) 
         annotation (points=[-55, 0; -45, 0], style(color=0));
       connect(J1.flange_b, clutch1.flange_a) 
@@ -674,12 +674,14 @@ locked, forward sliding.</p>
         annotation (points=[45, 0; 55, 0], style(color=0));
       connect(clutch3.flange_b, J4.flange_a) 
         annotation (points=[65, 0; 75, 0], style(color=0));
-      connect(step2.y, clutch3.f_normalized) 
-        annotation (points=[60, 14.5; 60, 5.5], style(color=3));
-      connect(step1.y, clutch2.f_normalized) 
-        annotation (points=[20, 14.5; 20, 5.5], style(color=3));
-      connect(sin2.y, clutch1.f_normalized) 
-        annotation (points=[-20, 14.5; -20, 5.5], style(color=3));
+      connect(sin1.y, torque.tau) annotation (points=[-74.5,0; -66,0], style(
+            color=74, rgbcolor={0,0,127}));
+      connect(sin2.y, clutch1.f_normalized) annotation (points=[-20,14.5; -20,
+            5.5], style(color=74, rgbcolor={0,0,127}));
+      connect(step1.y, clutch2.f_normalized) annotation (points=[20,14.5; 20,
+            5.5], style(color=74, rgbcolor={0,0,127}));
+      connect(step2.y, clutch3.f_normalized) annotation (points=[60,14.5; 60,
+            5.5], style(color=74, rgbcolor={0,0,127}));
     end CoupledClutches;
     
     encapsulated model LossyGearDemo1 
@@ -715,7 +717,7 @@ gear.mode  :  1 = forward rolling
              -1 = backward rolling
 </pre>
 </HTML>
-"));
+"), Diagram);
       Rotational.LossyGear gear(i=2, lossTable=[0, 0.5, 0.5, 0, 0]) 
         annotation (extent=[-10, 0; 10, 20]);
       Rotational.Inertia Inertia1 annotation (extent=[-40, 0; -20, 20]);
@@ -737,13 +739,13 @@ gear.mode  :  1 = forward rolling
         annotation (points=[-50, 10; -40, 10], style(color=0));
       connect(torque2.flange_b, Inertia2.flange_b) 
         annotation (points=[50, 10; 40, 10], style(color=0));
-      connect(DriveSine.y, torque1.tau) 
-        annotation (points=[-79, 10; -72, 10], style(color=3));
-      connect(load.y, torque2.tau) 
-        annotation (points=[79, 10; 72, 10], style(color=3));
       
       PowerLoss = gear.flange_a.tau*der(gear.flange_a.phi) + gear.flange_b.tau*
         der(gear.flange_b.phi);
+      connect(DriveSine.y, torque1.tau) annotation (points=[-79,10; -72,10], 
+          style(color=74, rgbcolor={0,0,127}));
+      connect(load.y, torque2.tau) annotation (points=[79,10; 72,10], style(
+            color=74, rgbcolor={0,0,127}));
     end LossyGearDemo1;
     
     encapsulated model LossyGearDemo2 
@@ -785,7 +787,7 @@ gear.mode           :  1 = forward rolling
 as component LossyGear includes the functionality of component BearingFriction
 (only <i>peak</i> not supported).</p>
 </HTML>
-"));
+"), Diagram);
       Rotational.LossyGear gear(i=2, lossTable=[0, 0.5, 0.5, 0, 0]) 
         annotation (extent=[-10, 0; 10, 20]);
       Rotational.Inertia Inertia1 annotation (extent=[-40, 0; -20, 20]);
@@ -803,8 +805,6 @@ as component LossyGear includes the functionality of component BearingFriction
     equation 
       PowerLoss = gear.flange_a.tau*der(gear.flange_a.phi) + gear.flange_b.tau*
         der(gear.flange_b.phi);
-      connect(load.y, torque2.tau) 
-        annotation (points=[79, 10; 72, 10], style(color=3));
       connect(torque2.flange_b, Inertia2.flange_b) 
         annotation (points=[50, 10; 40, 10], style(color=0));
       connect(Inertia2.flange_a, gear.flange_b) 
@@ -815,8 +815,10 @@ as component LossyGear includes the functionality of component BearingFriction
         annotation (points=[-40, 10; -50, 10], style(color=0));
       connect(bearingFriction.flange_a, torque1.flange_b) annotation (points=[-70,
              10; -80, 10; -80, 70; -70, 70], style(color=0));
-      connect(DriveSine.y, torque1.tau) 
-        annotation (points=[-41, 70; -48, 70], style(color=3));
+      connect(DriveSine.y, torque1.tau) annotation (points=[-41,70; -48,70], 
+          style(color=74, rgbcolor={0,0,127}));
+      connect(load.y, torque2.tau) annotation (points=[79,10; 72,10], style(
+            color=74, rgbcolor={0,0,127}));
     end LossyGearDemo2;
     
     model ElasticBearing "Example to show possible usage of bearing flange" 
@@ -850,8 +852,6 @@ Simulate for about 10 seconds and plot the angular velocities of the inertias <t
         annotation (extent=[10, 40; 30, 60]);
       Inertia housing(J=5) annotation (extent=[10, 0; 30, 20], rotation=90);
     equation 
-      connect(ramp.y, torque.tau) 
-        annotation (points=[-69, 50; -52, 50], style(color=3));
       connect(torque.flange_b, shaft.flange_a) 
         annotation (points=[-30, 50; -20, 50], style(color=0));
       connect(spring.flange_b, load.flange_a) 
@@ -866,6 +866,8 @@ Simulate for about 10 seconds and plot the angular velocities of the inertias <t
         annotation (points=[20, 40; 20, 20], style(color=0));
       connect(housing.flange_a, springDamper.flange_b) 
         annotation (points=[20, 0; 20, -20], style(color=0));
+      connect(ramp.y, torque.tau) annotation (points=[-69,50; -52,50], style(
+            color=74, rgbcolor={0,0,127}));
     end ElasticBearing;
   end Examples;
   
@@ -886,14 +888,14 @@ Measures the <b>absolute angle phi</b> of a flange in an ideal
 way and provides the result as output signal <b>phi</b>
 (to be further processed with blocks of the Modelica.Blocks library).
 </p>
-
+ 
 </HTML>
 "),     Icon(Text(
             extent=[70, -30; 120, -80],
             string="phi",
             style(color=0)),
-          Line(points=[-70,0; -90,0],   style(color=0)),
-          Line(points=[70,0; 100,0]),
+          Line(points=[-70,0; -90,0], style(color=0)),
+          Line(points=[70,0; 100,0], style(color=74, rgbcolor={0,0,127})),
           Text(extent=[150,80; -150,120],
                                        string="%name")),
         Diagram(
@@ -930,14 +932,14 @@ Measures the <b>absolute angular velocity w</b> of a flange in an ideal
 way and provides the result as output signal <b>w</b>
 (to be further processed with blocks of the Modelica.Blocks library).
 </p>
-
+ 
 </HTML>
 "),     Icon(Text(
             extent=[70, -30; 120, -80],
             string="w",
             style(color=0)),
           Line(points=[-70,0; -90,0],   style(color=0)),
-          Line(points=[70,0; 100,0]),
+          Line(points=[70,0; 100,0], style(color=74, rgbcolor={0,0,127})),
           Text(extent=[150,80; -150,120],
                                        string="%name")),
         Diagram(
@@ -975,14 +977,14 @@ Measures the <b>absolute angular acceleration a</b> of a flange in an ideal
 way and provides the result as output signal <b>a</b> (to be further processed with
 blocks of the Modelica.Blocks library).
 </p>
-
+ 
 </HTML>
 "),     Icon(Text(
             extent=[70, -30; 120, -80],
             string="a",
             style(color=0)),
           Line(points=[-70,0; -90,0],   style(color=0)),
-          Line(points=[70,0; 100,0]),
+          Line(points=[70,0; 100,0], style(color=74, rgbcolor={0,0,127})),
           Text(extent=[150,80; -150,120],
                                        string="%name")),
         Diagram(
@@ -1028,7 +1030,7 @@ Measures the <b>relative angle phi_rel</b> between two flanges
 in an ideal way and provides the result as output signal <b>phi_rel</b>
 (to be further processed with blocks of the Modelica.Blocks library).
 </p>
-
+ 
 </HTML>
 "),     Icon(Text(
             extent=[20, -70; 160, -100],
@@ -1038,7 +1040,7 @@ in an ideal way and provides the result as output signal <b>phi_rel</b>
                                        string="%name"),
           Line(points=[-70,0; -90,0],   style(color=0)),
           Line(points=[70,0; 90,0],   style(color=0)),
-          Line(points=[0,-100; 0,-70])),
+          Line(points=[0,-100; 0,-70], style(color=74, rgbcolor={0,0,127}))),
         Diagram(
           Polygon(points=[13, 93; -7, 98; -7, 88; 13, 93], style(color=10,
                 fillColor=10)),
@@ -1090,7 +1092,7 @@ Measures the <b>relative angular velocity w_rel</b> between two flanges
 in an ideal way and provides the result as output signal <b>w_rel</b>
 (to be further processed with blocks of the Modelica.Blocks library).
 </p>
-
+ 
 </HTML>
 "),     Icon(Text(
             extent=[20, -70; 160, -100],
@@ -1100,7 +1102,7 @@ in an ideal way and provides the result as output signal <b>w_rel</b>
           Text(extent=[150,80; -150,120],
                                        string="%name"),
           Line(points=[70,0; 90,0],   style(color=0)),
-          Line(points=[0,-100; 0,-70])),
+          Line(points=[0,-100; 0,-70], style(color=74, rgbcolor={0,0,127}))),
         Diagram(
           Polygon(points=[13, 93; -7, 98; -7, 88; 13, 93], style(color=10,
                 fillColor=10)),
@@ -1154,7 +1156,7 @@ Measures the <b>relative angular acceleration a_rel</b> between two flanges
 in an ideal way and provides the result as output signal <b>a_rel</b>
 (to be further processed with blocks of the Modelica.Blocks library).
 </p>
-
+ 
 </HTML>
 "),     Icon(Text(
             extent=[20, -70; 160, -100],
@@ -1162,7 +1164,7 @@ in an ideal way and provides the result as output signal <b>a_rel</b>
             style(color=0)),
           Line(points=[-70,0; -90,0],   style(color=0)),
           Line(points=[70,0; 90,0],   style(color=0)),
-          Line(points=[0,-100; 0,-70]),
+          Line(points=[0,-100; 0,-70], style(color=74, rgbcolor={0,0,127})),
           Text(extent=[150,80; -150,120],
                                        string="%name")),
         Diagram(
@@ -1233,14 +1235,14 @@ Measures the <b>cut-torque between two flanges</b> in an ideal way
 and provides the result as output signal <b>tau</b>
 (to be further processed with blocks of the Modelica.Blocks library).
 </p>
-
+ 
 </HTML>
 "),     Icon(
           Text(
             extent=[-51,-78; 49,-119],
             string="tau",
             style(color=0)),
-          Line(points=[-80, -100; -80, 0]),
+          Line(points=[-80, -100; -80, 0], style(color=74, rgbcolor={0,0,127})),
           Line(points=[-70, 0; -90, 0], style(color=0)),
           Line(points=[70, 0; 90, 0], style(color=0)),
           Text(extent=[150,80; -150,120],
@@ -1294,7 +1296,7 @@ and provides the result as output signal <b>power</b>
             extent=[-51,-78; 98,-119],
             style(color=0),
             string="power"),
-          Line(points=[-80, -100; -80, 0]),
+          Line(points=[-80, -100; -80, 0], style(color=74, rgbcolor={0,0,127})),
           Line(points=[-70, 0; -90, 0], style(color=0)),
           Line(points=[70, 0; 90, 0], style(color=0)),
           Text(extent=[150,80; -150,120],
@@ -1707,7 +1709,7 @@ It is used e.g. to build up equation-based parts of a drive train.</p>
       end Adapter;
     equation 
       tau_support = -adapter.flange_b.tau;
-      connect(adapter.flange_a, bearing) annotation (points=[-6.12303e-016,-70;
+      connect(adapter.flange_a, bearing) annotation (points=[-6.12303e-016,-70; 
             0,-70; 0,-100],    style(color=0));
       annotation (Documentation(info="<html>
 <p>
@@ -1821,11 +1823,11 @@ output signal y in order to measure an absolute kinematic quantity in the flange
 and to provide the measured signal as output signal for further processing
 with the blocks of package Modelica.Blocks.
 </p>
-
+ 
 </HTML>
 "),     Icon(
           Line(points=[-70, 0; -90, 0], style(color=0)),
-          Line(points=[70, 0; 100, 0]),
+          Line(points=[70, 0; 100, 0], style(color=74, rgbcolor={0,0,127})),
           Text(extent=[150,80; -150,120],
                                        string="%name")),
         Diagram(Line(points=[-70, 0; -90, 0], style(color=0)), Line(points=[70,
@@ -1863,12 +1865,12 @@ between the two flanges or the cut-torque in the flange and
 to provide the measured signal as output signal for further processing
 with the blocks of package Modelica.Blocks.
 </p>
-
+ 
 </HTML>
 "),     Icon(
           Line(points=[-70, 0; -90, 0], style(color=0)),
           Line(points=[70, 0; 90, 0], style(color=0)),
-          Line(points=[0, -100; 0, -70]),
+          Line(points=[0, -100; 0, -70], style(color=74, rgbcolor={0,0,127})),
           Text(extent=[0, 70; 0, 110], string="%name")),
         Diagram(
           Line(points=[-70, 0; -90, 0], style(color=0)),
@@ -3083,15 +3085,10 @@ following references, especially (Armstrong and Canudas de Witt 1996):
         width=0.63,
         height=0.64),
       Icon(
-        Polygon(points=[-30, 40; -60, 50; -60, 30; -30, 40], style(fillColor=3,
-               fillPattern=1)),
-        Line(points=[0, 90; -90, 70; -90, 40; -30, 40], style(
-            pattern=1,
-            thickness=1,
-            arrow=0)),
-        Line(points=[0, 90; 90, 70; 90, 40; 30, 40]),
-        Polygon(points=[30, 40; 60, 50; 60, 30; 30, 40], style(fillColor=3,
-              fillPattern=1)),
+        Polygon(points=[-30, 40; -60, 50; -60, 30; -30, 40], style(color=74, rgbcolor={0,0,127}, fillColor=74, rgbfillColor={0,0,127})),
+        Line(points=[0, 90; -90, 70; -90, 40; -30, 40], style(color=74, rgbcolor={0,0,127})),
+        Line(points=[0, 90; 90, 70; 90, 40; 30, 40], style(color=74, rgbcolor={0,0,127})),
+        Polygon(points=[30, 40; 60, 50; 60, 30; 30, 40], style(color=74, rgbcolor={0,0,127}, fillColor=74, rgbfillColor={0,0,127})),
         Rectangle(extent=[10, 60; 30, -60], style(
             gradient=2,
             fillColor=8,
@@ -3196,7 +3193,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
     IEEE Transactions on Automatic Control, Vol. 40, No. 3, pp. 419-425.<br><br>
 </dl>
 <br>
-
+ 
 </HTML>
 "),   Diagram(
         Polygon(points=[-30, 40; -60, 50; -60, 30; -30, 40], style(fillColor=3,
@@ -3304,15 +3301,10 @@ following references, especially (Armstrong and Canudas de Witt 1996):
         width=0.55,
         height=0.72),
       Icon(
-        Polygon(points=[-30, 40; -60, 50; -60, 30; -30, 40], style(fillColor=3,
-               fillPattern=1)),
-        Line(points=[0, 90; -90, 70; -90, 40; -30, 40], style(
-            pattern=1,
-            thickness=1,
-            arrow=0)),
-        Line(points=[0, 90; 90, 70; 90, 40; 30, 40]),
-        Polygon(points=[30, 40; 60, 50; 60, 30; 30, 40], style(fillColor=3,
-              fillPattern=1)),
+        Polygon(points=[-30, 40; -60, 50; -60, 30; -30, 40], style(color=74, rgbcolor={0,0,127}, fillColor=74, rgbfillColor={0,0,127})),
+        Line(points=[0, 90; -90, 70; -90, 40; -30, 40], style(color=74, rgbcolor={0,0,127})),
+        Line(points=[0, 90; 90, 70; 90, 40; 30, 40], style(color=74, rgbcolor={0,0,127})),
+        Polygon(points=[30, 40; 60, 50; 60, 30; 30, 40], style(color=74, rgbcolor={0,0,127}, fillColor=74, rgbfillColor={0,0,127})),
         Rectangle(extent=[10, 60; 30, -60], style(
             gradient=2,
             fillColor=8,
@@ -3416,7 +3408,7 @@ are dynamically coupled. The method is described in:
 <dd><b>Hybrid Modeling in Modelica based on the Synchronous
     Data Flow Principle</b>. CACSD'99, Aug. 22.-26, Hawaii.
 </dl>
-
+ 
 </HTML>
 "),   Diagram(
         Polygon(points=[-30,40; -60,50; -60,30; -30,40],     style(fillColor=3,
@@ -3532,23 +3524,18 @@ are dynamically coupled. The method is described in:
             gradient=2,
             fillColor=8,
             fillPattern=1)),
-        Polygon(points=[40, -40; 70, -30; 70, -50; 40, -40], style(fillColor=3,
-               fillPattern=1)),
+        Polygon(points=[40, -40; 70, -30; 70, -50; 40, -40], style(color=74, rgbcolor={0,0,127}, fillColor=74, rgbfillColor={0,0,127})),
         Rectangle(extent=[30, -25; 40, -55], style(
             color=0,
             fillColor=0,
             fillPattern=1)),
-        Polygon(points=[-40, -40; -70, -30; -70, -50; -40, -40], style(
-              fillColor=3, fillPattern=1)),
+        Polygon(points=[-40, -40; -70, -30; -70, -50; -40, -40], style(color=74, rgbcolor={0,0,127}, fillColor=74, rgbfillColor={0,0,127})),
         Rectangle(extent=[-40, -25; -30, -55], style(
             color=0,
             fillColor=0,
             fillPattern=1)),
-        Line(points=[0, 90; 80, 70; 80, -40; 70, -40]),
-        Line(points=[0, 90; -80, 70; -80, -40; -70, -40], style(
-            pattern=1,
-            thickness=1,
-            arrow=0)),
+        Line(points=[0, 90; 80, 70; 80, -40; 70, -40], style(color=74, rgbcolor={0,0,127})),
+        Line(points=[0, 90; -80, 70; -80, -40; -70, -40], style(color=74, rgbcolor={0,0,127})),
         Text(extent=[0, -200; 0, -140], string="%name")),
       Documentation(info="<html>
 <p>
@@ -3636,7 +3623,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
 <dd><b>A new model for control of systems with friction.</b>
     IEEE Transactions on Automatic Control, Vol. 40, No. 3, pp. 419-425.<br><br>
 </dl>
-
+ 
 </HTML>
 "),   Diagram(
         Polygon(points=[-37, -55; -37, -90; 37, -90; 37, -55; 33, -55; 33, -86;
@@ -4295,11 +4282,11 @@ to the left and/or the right flange.
       annotation (points=[30, 0; 50, 0], style(color=0));
     connect(elastoBacklash.flange_b, flange_b) 
       annotation (points=[70, 0; 100, 0], style(color=0));
-    connect(gearRatio.bearing, adapter.flange_b) annotation (points=[-60,-10;
+    connect(gearRatio.bearing, adapter.flange_b) annotation (points=[-60,-10; 
           -60,-40; 6.12303e-016,-40; 6.12303e-016,-50],    style(color=0));
-    connect(gearEfficiency.bearing, adapter.flange_b) annotation (points=[-20,-10;
+    connect(gearEfficiency.bearing, adapter.flange_b) annotation (points=[-20,-10; 
           -20,-40; 6.12303e-016,-40; 6.12303e-016,-50],         style(color=0));
-    connect(bearingFriction.bearing, adapter.flange_b) annotation (points=[20,-10;
+    connect(bearingFriction.bearing, adapter.flange_b) annotation (points=[20,-10; 
           20,-40; 6.12303e-016,-40; 6.12303e-016,-50],         style(color=0));
   end Gear;
   
@@ -4401,7 +4388,7 @@ GearNew.</p>
       annotation (points=[-20, 0; 20, 0], style(color=0));
     connect(elastoBacklash.flange_b, flange_b) 
       annotation (points=[60, 0; 100, 0], style(color=0));
-    connect(lossyGear.bearing, adapter.flange_b) annotation (points=[-40,-20;
+    connect(lossyGear.bearing, adapter.flange_b) annotation (points=[-40,-20; 
           -40,-40; 6.12303e-016,-40; 6.12303e-016,-50],    style(color=0));
   end Gear2;
   
