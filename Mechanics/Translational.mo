@@ -82,18 +82,18 @@ the two other examples).
       Translational.Force Force3 annotation (extent=[20, -40; 0, -20]);
       Sources.Constant Constant3 annotation (extent=[60, -40; 40, -20]);
     equation 
-      connect(Constant1.y, Force1.f) annotation (points=[-23, 70; -6,
-              70]);
-      connect(Constant2.y, Force2.f) annotation (points=[-23, 30; -6,
-              30]);
-      connect(Force3.f, Constant3.y) annotation (points=[22, -30; 39,
-              -30]);
       connect(Force1.flange_b, SlidingMass1.flange_a) annotation (points=[16,
             70; 36, 70], style(color=58));
       connect(Force2.flange_b, SlidingMass2.flange_b) annotation (points=[16,
             30; 82, 30; 82, 10; 56, 10], style(color=58));
       connect(SlidingMass3.flange_b, Force3.flange_b) annotation (points=[-20,
             -30; 0, -30], style(color=58));
+      connect(Constant1.y, Force1.f) annotation (points=[-23,70; -6,70], style(
+            color=74, rgbcolor={0,0,127}));
+      connect(Constant2.y, Force2.f) annotation (points=[-23,30; -6,30], style(
+            color=74, rgbcolor={0,0,127}));
+      connect(Constant3.y, Force3.f) annotation (points=[39,-30; 22,-30], style(
+            color=74, rgbcolor={0,0,127}));
     end SignConvention;
     
     encapsulated model InitialConditions "Setting of initial conditions" 
@@ -294,13 +294,13 @@ problems.
             60, 40]);
       Sources.Constant Constant1 annotation (extent=[-100, 20; -80, 40]);
     equation 
-      connect(Constant1.y, Accelerate1.a) annotation (points=[-79,
-            30; -42, 30]);
       connect(Accelerate1.flange_b, SlidingMass1.flange_a) annotation (points=[
             -20, 30; 40, 30], style(color=58));
       annotation (Documentation(info="<html>
   
-</html>"));
+</html>"), Diagram);
+      connect(Constant1.y, Accelerate1.a) annotation (points=[-79,30; -42,30], 
+          style(color=74, rgbcolor={0,0,127}));
     end Accelerate;
     
     encapsulated model Damper "Use of damper models." 
@@ -403,7 +403,8 @@ If damping is added the amplitudes are bounded.
 <li><i>First Version from December 10, 1999 by P. Beater </i> </li>
 </ul>
 
-</html>"));
+</html>"), 
+        Diagram);
       Translational.SlidingMass SlidingMass1(
         L=1,
         s(start=-0.5),
@@ -426,10 +427,6 @@ If damping is added the amplitudes are bounded.
             -40]);
       Translational.Damper Damper1(d=10) annotation (extent=[20, -36; 40, -16]);
     equation 
-      connect(Sine1.y, Force1.f) annotation (points=[-79, 50; -62,
-            50]);
-      connect(Sine2.y, Force2.f) annotation (points=[-79, -50; -62,
-            -50]);
       connect(Force1.flange_b, SlidingMass1.flange_a) annotation (points=[-40,
             50; -20, 50], style(color=58));
       connect(Spring1.flange_b, Fixed1.flange_b) annotation (points=[40, 50; 70,
@@ -446,6 +443,10 @@ If damping is added the amplitudes are bounded.
             40, -50], style(color=58));
       connect(Spring2.flange_b, Fixed2.flange_b) annotation (points=[40, -50;
             70, -50], style(color=58));
+      connect(Sine1.y, Force1.f) annotation (points=[-79,50; -62,50], style(
+            color=74, rgbcolor={0,0,127}));
+      connect(Sine2.y, Force2.f) annotation (points=[-79,-50; -62,-50], style(
+            color=74, rgbcolor={0,0,127}));
     end Oscillator;
     
     encapsulated model Sensors "Sensors for translational systems." 
@@ -492,7 +493,8 @@ to see the difference.
 <li><i>First Version from December 10, 1999 by P. Beater </i> </li>
 </ul>
 
-</html>"));
+</html>"), 
+        Diagram);
       Translational.Sensors.ForceSensor ForceSensor1 annotation (extent=[-20,
             40; 0, 60]);
       Translational.Sensors.SpeedSensor SpeedSensor1 annotation (extent=[20, -
@@ -509,8 +511,6 @@ to see the difference.
       Translational.Sensors.PositionSensor PositionSensor2 annotation (extent=[
             60, 40; 80, 60]);
     equation 
-      connect(Sine1.y, Force1.f) annotation (points=[-79, 50; -62,
-            50]);
       connect(ForceSensor1.flange_b, SlidingMass1.flange_a) annotation (points=
             [0, 50; 20, 50], style(color=58));
       connect(SlidingMass1.flange_b, PositionSensor2.flange_a) annotation (
@@ -523,6 +523,8 @@ to see the difference.
           points=[20, 10; 20, -30], style(color=58));
       connect(SpeedSensor1.flange_a, AccSensor1.flange_a) annotation (points=[
             20, -30; 20, -70], style(color=58));
+      connect(Sine1.y, Force1.f) annotation (points=[-79,50; -62,50], style(
+            color=74, rgbcolor={0,0,127}));
     end Sensors;
     
     encapsulated model Friction "Use of model Stop" 
@@ -579,13 +581,14 @@ to see the difference.
             40, 20]);
       Translational.Fixed Fixed1(s0=-1.75) annotation (extent=[-22, 0; -2, 20]);
     equation 
-      connect(Sine1.y, Force1.f) annotation (points=[1, 70; 16, 70]);
       connect(Force1.flange_b, Stop1.flange_a) annotation (points=[38, 70; 60,
             70], style(color=58));
       connect(Fixed1.flange_b, Spring1.flange_a) annotation (points=[-12, 10;
             20, 10], style(color=58));
       connect(Spring1.flange_b, Stop2.flange_a) annotation (points=[40, 10; 60,
               10], style(color=58));
+      connect(Sine1.y, Force1.f)
+        annotation (points=[1,70; 16,70], style(color=74, rgbcolor={0,0,127}));
     end Friction;
     
     encapsulated model PreLoad "Preload of a spool using ElastoGap models." 
@@ -730,8 +733,6 @@ Spool position s as a function of working force f.
               8; 80, 30; 74, 30], style(color=58));
       connect(Friction.flange_b, Rod3.flange_a) annotation (points=[-88, 14; -88, 8;
               -40, 8], style(color=58));
-      connect(Sine1.y, Force1.f) annotation (points=[-55, -22; -34, -22],
-            style(color=3));
       connect(Force1.flange_b, Spool.flange_a) annotation (points=[-12, -22; 6, -22],
                style(color=58));
       connect(Rod3.flange_b, Rod4.flange_a) annotation (points=[-20, 8; 26, 8],
@@ -740,6 +741,8 @@ Spool position s as a function of working force f.
               54; 26, 54; 26, 68], style(color=58));
       connect(Spool.flange_a, Rod4.flange_a) annotation (points=[6,-22; 6,8; 26,8],
                 style(color=58));
+      connect(Sine1.y, Force1.f) annotation (points=[-55,-22; -34,-22], style(
+            color=74, rgbcolor={0,0,127}));
     end PreLoad;
   end Examples;
   
@@ -792,9 +795,10 @@ Measures the <i>cut-force between two flanges</i> in an ideal way
 and provides the result as output signal (to be further processed
 with blocks of the Modelica.Blocks library).
 </p>
-
+ 
 </HTML>
-", revisions="<html>
+",     revisions=
+             "<html>
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>First Version from August 26, 1999 by P. Beater</i> </li>
@@ -804,9 +808,9 @@ with blocks of the Modelica.Blocks library).
             extent=[40, -70; 120, -120],
             string="f",
             style(color=0)),
-          Line(points=[-70,0; -90,0],   style(color=0)),
-          Line(points=[70,0; 90,0],   style(color=0)),
-          Line(points=[0,-100; 0,-60])),
+          Line(points=[-70,0; -90,0], style(color=0)),
+          Line(points=[70,0; 90,0], style(color=0)),
+          Line(points=[0,-100; 0,-60], style(color=74, rgbcolor={0,0,127}))),
         Coordsys(
           extent=[-100, -100; 100, 100],
           grid=[1, 1],
@@ -852,9 +856,10 @@ Measures the <i>absolute position s</i> of a flange in an ideal way and provides
 output signals (to be further processed with blocks of the
 Modelica.Blocks library).
 </p>
-
+ 
 </HTML>
-", revisions="<html>
+",     revisions=
+             "<html>
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>First Version from August 26, 1999 by P. Beater</i> </li>
@@ -862,7 +867,7 @@ Modelica.Blocks library).
 </html>"),
         Icon(
           Line(points=[-70, 0; -90, 0], style(color=0)),
-          Line(points=[70.4, 0; 100, 0]),
+          Line(points=[70.4, 0; 100, 0], style(color=74, rgbcolor={0,0,127})),
           Text(
             extent=[80, -28; 114, -62],
             string="s",
@@ -901,9 +906,10 @@ Measures the <i>absolute velocity v</i> of a flange in an ideal way and provides
 output signals (to be further processed with blocks of the
 Modelica.Blocks library).
 </p>
-
+ 
 </HTML>
-", revisions="<html>
+",     revisions=
+             "<html>
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>First Version from August 26, 1999 by P. Beater</i> </li>
@@ -911,7 +917,7 @@ Modelica.Blocks library).
 </html>"),
         Icon(
           Line(points=[-70, 0; -90, 0], style(color=0)),
-          Line(points=[70.4, 0; 100, 0]),
+          Line(points=[70.4, 0; 100, 0], style(color=74, rgbcolor={0,0,127})),
           Text(
             extent=[80, -28; 111, -61],
             string="v",
@@ -952,9 +958,10 @@ of a flange in an ideal way and provides the result as
 output signals (to be further processed with blocks of the
 Modelica.Blocks library).
 </p>
-
+ 
 </HTML>
-", revisions="<html>
+",     revisions=
+             "<html>
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>First Version from August 26, 1999 by P. Beater</i> </li>
@@ -962,7 +969,7 @@ Modelica.Blocks library).
 </html>"),
         Icon(
           Line(points=[-70, 0; -90, 0], style(color=0)),
-          Line(points=[70.4, 0; 100, 0]),
+          Line(points=[70.4, 0; 100, 0], style(color=74, rgbcolor={0,0,127})),
           Text(
             extent=[80, -28; 115, -60],
             string="a",
@@ -1357,7 +1364,8 @@ and to provide the measured signal as output signal for further processing
 with the Modelica.Blocks blocks.
 </p>
 </HTML>
-", revisions="<html>
+",     revisions=
+             "<html>
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>Version 1.0 (July 18, 1999)</i>
@@ -1366,7 +1374,7 @@ with the Modelica.Blocks blocks.
 </li>
 </ul>
 <p><b>Copyright &copy; 1999-2006, Modelica Association and DLR.</b></p>
-
+ 
 </html>"),
         Icon(
           Line(points=[-100, -90; -20, -90], style(
@@ -1378,7 +1386,7 @@ with the Modelica.Blocks blocks.
               fillColor=10,
               fillPattern=1)),
           Line(points=[-70, 0; -90, 0], style(color=0)),
-          Line(points=[70, 0; 100, 0]),
+          Line(points=[70, 0; 100, 0], style(color=74, rgbcolor={0,0,127})),
           Text(extent=[-118, 99; 118, 40], string="%name")),
         Diagram(Line(points=[-70, 0; -90, 0], style(color=0)), Line(points=[70,
                   0; 100, 0])));
@@ -1416,7 +1424,8 @@ to provide the measured signal as output signal for further processing
 with the Modelica.Blocks blocks.
 </p>
 </HTML>
-", revisions="<html>
+",     revisions=
+             "<html>
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>Version 1.0 (July 18, 1999)</i>
@@ -1425,7 +1434,7 @@ with the Modelica.Blocks blocks.
 </li>
 </ul>
 <p><b>Copyright &copy; 1998-2006, Modelica Association and DLR.</b></p>
-
+ 
 </html>"),
         Icon(
           Line(points=[-51, 34; 29, 34], style(
@@ -1438,7 +1447,7 @@ with the Modelica.Blocks blocks.
               fillPattern=1)),
           Line(points=[-70, 0; -90, 0], style(color=0)),
           Line(points=[70, 0; 90, 0], style(color=0)),
-          Line(points=[0, -100; 0, -60]),
+          Line(points=[0, -100; 0, -60], style(color=74, rgbcolor={0,0,127})),
           Text(extent=[-117, 116; 115, 52], string="%name")),
         Diagram(
           Line(points=[-70, 0; -90, 0], style(color=0)),
@@ -2414,7 +2423,7 @@ blocks of the block library Modelica.Blocks.Sources.
       v = v_ref;
     end if;
   end Speed;
-
+  
   model Accelerate 
     "Forced movement of a flange according to an acceleration signal" 
     
@@ -2531,7 +2540,7 @@ blocks of the block library Modelica.Blocks.Sources.
       Icon(
         Text(
           extent=[-140, -62; 20, -100],
-          style(color=0), 
+          style(color=0),
           string="s,v,a"),
         Line(points=[-95, 0; 90, 0], style(color=58, rgbcolor={0,127,0})),
         Text(extent=[0, 80; 0, 20], string="%name")),
