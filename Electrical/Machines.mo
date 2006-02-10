@@ -1,7 +1,7 @@
 package Machines "Library for electric machines" 
   extends Modelica.Icons.Library2;
   annotation (
-  version="1.7.2", versionDate="2006-02-06",
+  version="1.7.2", versionDate="2006-02-10",
   Settings(NewStateSelection=true, Evaluate=true),
   preferedView="info", Documentation(info="<HTML>
 <p>
@@ -721,7 +721,7 @@ Default machine parameters of model <i>SM_ReluctanceRotorDamperCage</i> are used
       connect(LoadInertia.flange_b, TorqueStep1.flange) 
         annotation (points=[60,-40; 70,-40], style(color=0, rgbcolor={0,0,0}));
       connect(CurrentRMSsensor1.plug_p, SignalVoltage1.plug_p) annotation (
-          points=[6.12303e-016,40; 6.12303e-016,42.5; 6.12303e-016,42.5; 
+          points=[6.12303e-016,40; 6.12303e-016,42.5; 6.12303e-016,42.5;
             6.12303e-016,45; 6.12303e-016,50; 6.12303e-016,50], style(color=3,
             rgbcolor={0,0,255}));
       connect(SMR1.plug_sn, RotorAngle1.plug_n)  annotation (points=[-16,-30;
@@ -832,7 +832,7 @@ Default machine parameters of model <i>SM_PermanentMagnetDamperCage</i> are used
             rgbcolor={0,0,255}));
       connect(RotorAngle1.plug_n, SMPM1.plug_sn)  annotation (points=[-16,-20;
             -16,-30], style(color=3, rgbcolor={0,0,255}));
-      connect(RotorAngle1.plug_p, SMPM1.plug_sp)  annotation (points=[-4,-20; 
+      connect(RotorAngle1.plug_p, SMPM1.plug_sp)  annotation (points=[-4,-20;
             -4,-25; -4,-25; -4,-30], style(color=3, rgbcolor={0,0,255}));
       connect(RotorAngle1.flange, SMPM1.flange_a) 
         annotation (points=[0,-10; 0,-40], style(color=0, rgbcolor={0,0,0}));
@@ -931,7 +931,7 @@ Default machine parameters of model <i>SM_ElectricalExcitedDamperCage</i> are us
     equation 
       connect(RotorAngle1.plug_n, SMEE1.plug_sn)  annotation (points=[-16,-20;
             -16,-30], style(color=3, rgbcolor={0,0,255}));
-      connect(RotorAngle1.plug_p, SMEE1.plug_sp)  annotation (points=[-4,-20; 
+      connect(RotorAngle1.plug_p, SMEE1.plug_sp)  annotation (points=[-4,-20;
             -4,-25; -4,-25; -4,-30], style(color=3, rgbcolor={0,0,255}));
       connect(RotorAngle1.flange, SMEE1.flange_a) 
         annotation (points=[0,-10; 0,-40], style(color=0, rgbcolor={0,0,0}));
@@ -940,7 +940,7 @@ Default machine parameters of model <i>SM_ElectricalExcitedDamperCage</i> are us
       connect(Star1.plug_p, SineVoltage1.plug_n) annotation (points=[-50,90;
             -40,90], style(color=3, rgbcolor={0,0,255}));
       connect(ElectricalPowerSensor1.plug_ni, CurrentRMSsensor1.plug_p) 
-        annotation (points=[6.12303e-016,50; 1.76911e-022,46; 6.12303e-016,46; 
+        annotation (points=[6.12303e-016,50; 1.76911e-022,46; 6.12303e-016,46;
             6.12303e-016,40], style(color=3, rgbcolor={0,0,255}));
       connect(SMEE1.flange_a, MechanicalPowerSensor1.flange_a) 
         annotation (points=[0,-40; 10,-40], style(color=0, rgbcolor={0,0,0}));
@@ -1545,8 +1545,6 @@ These models use package SpacePhasors.
           "|Nominal resistances and inductances|rotor stray inductance";
         parameter Modelica.SIunits.Resistance Rr=0.04 
           "|Nominal resistances and inductances|warm rotor resistance";
-        output Modelica.SIunits.Current is[m] = plug_sp.pin.i 
-          "stator instantaneous currents";
         output Modelica.SIunits.Current i_0_s( stateSelect=StateSelect.prefer) = spacePhasorS.zero.i 
           "stator zero-sequence current";
         output Modelica.SIunits.Current idq_ss[2] = airGapS.i_ss 
@@ -1678,7 +1676,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             fillColor=10,
             rgbfillColor={95,95,95},
             fillPattern=1));
-        connect(spacePhasorS.ground, spacePhasorS.zero) annotation (points=[-10,20;
+        connect(spacePhasorS.ground, spacePhasorS.zero) annotation (points=[-10,20; 
               -10,14; -6.12303e-016,14; -6.12303e-016,20],     style(
             color=3,
             rgbcolor={0,0,255},
@@ -1734,8 +1732,6 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           (2*pi*fNominal*Lm)/sqrt(Rs^2+(2*pi*fNominal*(Lm+Lssigma))^2) 
           "Locked-rotor voltage per phase" 
           annotation(Dialog(enable=not useTurnsRatio));
-        output Modelica.SIunits.Current is[m] = plug_sp.pin.i 
-          "stator instantaneous currents";
         output Modelica.SIunits.Current i_0_s( stateSelect=StateSelect.prefer) = spacePhasorS.zero.i 
           "stator zero-sequence current";
         output Modelica.SIunits.Current idq_ss[2] = airGapS.i_ss 
@@ -1748,6 +1744,8 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           "rotor space phasor current / rotor fixed frame";
         output Modelica.SIunits.Current i_0_r = spacePhasorR.zero.i 
           "rotor zero-sequence current";
+        output Modelica.SIunits.Voltage vr[m] = plug_rp.pin.v - plug_rn.pin.v 
+          "rotor instantaneous voltages";
         output Modelica.SIunits.Current ir[m] = plug_rp.pin.i 
           "rotor instantaneous currents";
       protected 
@@ -1911,14 +1909,14 @@ TurnsRatio * <u>V</u><sub>R</sub> = <u>V</u><sub>s</sub> - (R<sub>s</sub> + j X<
             style(color=3, rgbcolor={0,0,255}));
         connect(plug_sn, spacePhasorS.plug_n) annotation (points=[-60,100; -60,60;
               -10,60; -10,40], style(color=3, rgbcolor={0,0,255}));
-        connect(spacePhasorS.ground, spacePhasorS.zero) annotation (points=[-10,20;
+        connect(spacePhasorS.ground, spacePhasorS.zero) annotation (points=[-10,20; 
               -10,14; -6.12303e-016,14; -6.12303e-016,20],     style(
             color=3,
             rgbcolor={0,0,255},
             fillColor=3,
             rgbfillColor={0,0,255},
             fillPattern=1));
-        connect(spacePhasorR.ground, spacePhasorR.zero) annotation (points=[-10,-20;
+        connect(spacePhasorR.ground, spacePhasorR.zero) annotation (points=[-10,-20; 
               -10,-14; -6.12303e-016,-14; -6.12303e-016,-20],      style(
             color=3,
             rgbcolor={0,0,255},
@@ -2051,8 +2049,6 @@ These models use package SpacePhasors.
         parameter Modelica.SIunits.Resistance Rrq=Rr 
           "warm damper resistance in q-axis" 
           annotation(Dialog(group = "DamperCage", enable = DamperCage));
-        output Modelica.SIunits.Current is[m] = plug_sp.pin.i 
-          "stator instantaneous currents";
         output Modelica.SIunits.Current i_0_s( stateSelect=StateSelect.prefer) = spacePhasorS.zero.i 
           "stator zero-sequence current";
         output Modelica.SIunits.Current idq_ss[2] = airGapR.i_ss 
@@ -2292,8 +2288,6 @@ Whether a damper cage is present or not, can be selected with Boolean parameter 
           "|Excitation|warm excitation resistance";
         parameter Real sigmae(min=0, max=1)=0.025 
           "|Excitation|stray fraction of total excitation inductance";
-        output Modelica.SIunits.Current is[m] = plug_sp.pin.i 
-          "stator instantaneous currents";
         output Modelica.SIunits.Current i_0_s( stateSelect=StateSelect.prefer) = spacePhasorS.zero.i 
           "stator zero-sequence current";
         output Modelica.SIunits.Current idq_ss[2] = airGapR.i_ss 
@@ -2303,6 +2297,9 @@ Whether a damper cage is present or not, can be selected with Boolean parameter 
         output Modelica.SIunits.Current idq_dr[2](each stateSelect=StateSelect.prefer)=
           damperCage.spacePhasor_r.i_ if DamperCage 
           "damper space phasor current / rotor fixed frame";
+        output Modelica.SIunits.Voltage ve = pin_ep.v-pin_en.v 
+          "excitation voltage";
+        output Modelica.SIunits.Current ie = pin_ep.i "excitation current";
       protected 
         parameter Real TurnsRatio = sqrt(2)*VNominal/(2*pi*fNominal*Lmd*Ie0) 
           "stator current / excitation current";
@@ -2557,8 +2554,6 @@ Whether a damper cage is present or not, can be selected with Boolean parameter 
         parameter Modelica.SIunits.Resistance Rrq=Rr 
           "warm damper resistance in q-axis" 
           annotation(Dialog(group = "DamperCage", enable = DamperCage));
-        output Modelica.SIunits.Current is[m] = plug_sp.pin.i 
-          "stator instantaneous currents";
         output Modelica.SIunits.Current i_0_s( stateSelect=StateSelect.prefer) = spacePhasorS.zero.i 
           "stator zero-sequence current";
         output Modelica.SIunits.Current idq_ss[2] = airGapR.i_ss 
@@ -2809,9 +2804,6 @@ This package contains models of DC machines:
           "|Nominal resistances and inductances|warm armature resistance";
         parameter Modelica.SIunits.Inductance La=0.0015 
           "|Nominal resistances and inductances|armature inductance";
-        output Modelica.SIunits.Voltage va = pin_ap.v-pin_an.v 
-          "armature voltage";
-        output Modelica.SIunits.Current ia = pin_ap.i "armature current";
       protected 
         constant Modelica.SIunits.Current IeNominal=1 
           "equivalent excitation current";
@@ -2942,9 +2934,6 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
           "|Excitation|warm field excitation resistance";
         parameter Modelica.SIunits.Inductance Le=1 
           "|Excitation|total field excitation inductance";
-        output Modelica.SIunits.Voltage va = pin_ap.v-pin_an.v 
-          "Armature voltage";
-        output Modelica.SIunits.Current ia = pin_ap.i "Armature current";
         output Modelica.SIunits.Voltage ve = pin_ep.v-pin_en.v 
           "Field excitation voltage";
         output Modelica.SIunits.Current ie = pin_ep.i 
@@ -3097,9 +3086,6 @@ Armature current does not cover excitation current of a shunt excitation; in thi
           "|Excitation|warm field excitation resistance";
         parameter Modelica.SIunits.Inductance Le=0.0005 
           "|Excitation|total field excitation inductance";
-        output Modelica.SIunits.Voltage va = pin_ap.v-pin_an.v 
-          "Armature voltage";
-        output Modelica.SIunits.Current ia = pin_ap.i "Armature current";
         output Modelica.SIunits.Voltage ve = pin_ep.v-pin_en.v 
           "Field excitation voltage";
         output Modelica.SIunits.Current ie = pin_ep.i 
@@ -3364,7 +3350,7 @@ Model of the airgap in stator-fixed coordinate system, using only equations.
         support.tau = tau_electrical;
       end AirGapS;
       
-      model AirGapR "Airgap in stator-fixed coordinate system" 
+      model AirGapR "Airgap in rotor-fixed coordinate system" 
         constant Integer m=3 "number of phases";
         parameter Integer p(min=1) "number of pole pairs";
         parameter Modelica.SIunits.Inductance Lmd "main inductance d-axis";
@@ -3431,7 +3417,7 @@ Model of the airgap in stator-fixed coordinate system, using only equations.
               string="%name")),
           Documentation(info="<HTML>
 <p>
-Model of the airgap in stator-fixed coordinate system, using only equations.
+Model of the airgap in rotor-fixed coordinate system, using only equations.
 </p>
 </HTML>"));
       equation 
@@ -5125,6 +5111,10 @@ The machine's stator is implicitely fixed.
       constant Real pi=Modelica.Constants.pi;
       constant Integer m=3 "number of phases";
       parameter Integer p(min=1)=2 "number of pole pairs (Integer)";
+      output Modelica.SIunits.Voltage vs[m] = plug_sp.pin.v - plug_sn.pin.v 
+        "stator instantaneous voltages";
+      output Modelica.SIunits.Current is[m] = plug_sp.pin.i 
+        "stator instantaneous currents";
       Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_sp(final m=m) 
         annotation (extent=[50,90; 70,110]);
       Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_sn(final m=m) 
@@ -5147,6 +5137,8 @@ Partial model for induction machine models, containing:
     
     partial model PartialBasicDCMachine "Partial model for DC machine" 
       extends PartialBasicMachine(J_Rotor=0.15);
+      output Modelica.SIunits.Voltage va = pin_ap.v-pin_an.v "armature voltage";
+      output Modelica.SIunits.Current ia = pin_ap.i "armature current";
       annotation (Documentation(info="<HTML>
 <p>
 Partial model for DC machine models, containing:
