@@ -586,27 +586,30 @@ transform the formula to SI units:
   
   redeclare function extends temperature_phX 
     "Compute temperature from pressure, specific enthalpy and mass fraction" 
+    
+  protected 
+  package Internal 
+      "Solve h(data,T) for T with given h (never use this package directly, but only indirectly via temperature_phX)" 
+    extends Modelica.Media.Common.OneNonLinearEquation;
+    redeclare record extends f_nonlinear_Data 
+        "Data to be passed to non-linear function" 
+      extends Modelica.Media.IdealGases.Common.DataRecord;
+    end f_nonlinear_Data;
+      
+    redeclare function extends f_nonlinear 
+    algorithm 
+        y := h_T(f_nonlinear_data,x);
+    end f_nonlinear;
+      
+    // Dummy definition has to be added for current Dymola
+    redeclare function extends solve 
+    end solve;
+  end Internal;
+    
   algorithm 
-    T := Inverse_of_h_T.solve(h, 200, 6000, data);
+    T := Internal.solve(h, 200, 6000, data);
   end temperature_phX;
   
-protected 
- package Inverse_of_h_T "Solve h_T(data,T) for T, for given h" 
-   extends Modelica.Media.Common.OneNonLinearEquation;
-   redeclare record extends f_nonlinear_Data 
-      "Data to be passed to non-linear function" 
-     extends Modelica.Media.IdealGases.Common.DataRecord;
-   end f_nonlinear_Data;
-    
-   redeclare function extends f_nonlinear 
-   algorithm 
-       y := h_T(f_nonlinear_data,x);
-   end f_nonlinear;
-    
-   // Dummy definition has to be added for current Dymola
-   redeclare function extends solve 
-   end solve;
- end Inverse_of_h_T;
 end SingleGasNasa;
 
 

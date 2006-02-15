@@ -3347,11 +3347,9 @@ output window.
       
       // Solve for temperature
       T = Medium.temperature_phX(1e5, h1, fill(0.0,0));
-      // T = Medium.Inverse_of_h_T.solve(h1, 200, 6000, Medium.data);
       
-      // Check 
+      // Check (h2 must be identical to h1)
       h2 = Medium.specificEnthalpy_pTX(1e5, T, fill(0.0,0));
-      // h2 = Medium.h_T(Medium.data, T);
    end Inverse_h_T;
   end SolveOneNonlinearEquation;
 end Examples;
