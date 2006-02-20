@@ -134,7 +134,7 @@ package Utilities "Utility models for Examples.Loops"
         rgbcolor={95,95,95},
         thickness=2));
     
-    connect(Cylinder.frame_b, Piston.frame_b) annotation (points=[14,89; 14,80;
+    connect(Cylinder.frame_b, Piston.frame_b) annotation (points=[14,89; 14,80; 
           14.5,80], style(
         color=10,
         rgbcolor={95,95,95},
@@ -144,7 +144,7 @@ package Utilities "Utility models for Examples.Loops"
         color=10,
         rgbcolor={95,95,95},
         thickness=2));
-    connect(B2.frame_a, Piston.frame_a) annotation (points=[4,35; -6,35; -6,49;
+    connect(B2.frame_a, Piston.frame_a) annotation (points=[4,35; -6,35; -6,49; 
           14.5,49; 14.5,59], style(
         color=10,
         rgbcolor={95,95,95},
@@ -401,27 +401,39 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
       "Inclination of cylinder";
     parameter Cv.NonSIunits.Angle_deg crankAngleOffset=0 
       "Offset for crank angle";
-    parameter SI.Length pistonLength=0.1 "|Piston| Length of cylinder";
+    parameter SI.Length pistonLength=0.1 " Length of cylinder"
+      annotation (Dialog(group="Piston"));
     parameter SI.Length pistonCenterOfMass=pistonLength/2 
-      "|Piston| Distance from frame_a to center of mass of piston";
-    parameter SI.Mass pistonMass(min=0)=6 "|Piston| Mass of piston";
-    parameter SI.Inertia pistonInertia_11(min=0)=0.0088 
-      "|Piston| Inertia 11 of piston with respect to center of mass frame, parallel to frame_a";
-    parameter SI.Inertia pistonInertia_22(min=0)=0.0076 
-      "|Piston| Inertia 22 of piston with respect to center of mass frame, parallel to frame_a";
-    parameter SI.Inertia pistonInertia_33(min=0)=0.0088 
-      "|Piston| Inertia 33 of piston with respect to center of mass frame, parallel to frame_a";
+      " Distance from frame_a to center of mass of piston"
+      annotation (Dialog(group="Piston"));
+    parameter SI.Mass pistonMass(min=0) = 6 " Mass of piston"
+      annotation (Dialog(group="Piston"));
+    parameter SI.Inertia pistonInertia_11(min=0) = 0.0088 
+      " Inertia 11 of piston with respect to center of mass frame, parallel to frame_a"
+      annotation (Dialog(group="Piston"));
+    parameter SI.Inertia pistonInertia_22(min=0) = 0.0076 
+      " Inertia 22 of piston with respect to center of mass frame, parallel to frame_a"
+      annotation (Dialog(group="Piston"));
+    parameter SI.Inertia pistonInertia_33(min=0) = 0.0088 
+      " Inertia 33 of piston with respect to center of mass frame, parallel to frame_a"
+      annotation (Dialog(group="Piston"));
     
-    parameter SI.Length rodLength=0.175 "|Rod| Length of rod";
+    parameter SI.Length rodLength=0.175 " Length of rod"
+      annotation (Dialog(group="Rod"));
     parameter SI.Length rodCenterOfMass=rodLength/2 
-      "|Rod| Distance from frame_a to center of mass of piston";
-    parameter SI.Mass rodMass(min=0)=1 "|Rod| Mass of rod";
-    parameter SI.Inertia rodInertia_11(min=0)=0.006 
-      "|Rod| Inertia 11 of rod with respect to center of mass frame, parallel to frame_a";
-    parameter SI.Inertia rodInertia_22(min=0)=0.0005 
-      "|Rod| Inertia 22 of rod with respect to center of mass frame, parallel to frame_a";
-    parameter SI.Inertia rodInertia_33(min=0)=0.006 
-      "|Rod| Inertia 33 of rod with respect to center of mass frame, parallel to frame_a";
+      " Distance from frame_a to center of mass of piston"
+      annotation (Dialog(group="Rod"));
+    parameter SI.Mass rodMass(min=0) = 1 " Mass of rod"
+      annotation (Dialog(group="Rod"));
+    parameter SI.Inertia rodInertia_11(min=0) = 0.006 
+      " Inertia 11 of rod with respect to center of mass frame, parallel to frame_a"
+      annotation (Dialog(group="Rod"));
+    parameter SI.Inertia rodInertia_22(min=0) = 0.0005 
+      " Inertia 22 of rod with respect to center of mass frame, parallel to frame_a"
+      annotation (Dialog(group="Rod"));
+    parameter SI.Inertia rodInertia_33(min=0) = 0.006 
+      " Inertia 33 of rod with respect to center of mass frame, parallel to frame_a"
+      annotation (Dialog(group="Rod"));
     final parameter SI.Length cylinderLength=cylinderTopPosition - (
         pistonLength + rodLength - crankPinOffset) 
       "Maximum length of cylinder volume";
@@ -431,12 +443,6 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
       annotation (extent=[-44, -30; -24, -10]);
     Modelica.Mechanics.MultiBody.Parts.FixedTranslation Mounting(r={crankLength,0,0}, animation=
           false) annotation (extent=[-3, 90; 17, 110]);
-    Modelica.Mechanics.MultiBody.Parts.FixedRotation CylinderInclination(
-      r={crankLength - crankPinLength/2,0,0},
-      animation=false,
-      rotationType=Modelica.Mechanics.MultiBody.Types.RotationTypes.RotationAxis,
-      n={1,0,0},
-      angle=cylinderInclination) annotation (extent=[-44, 30; -24, 50]);
     Modelica.Mechanics.MultiBody.Parts.FixedRotation CrankAngle(
       animation=false,
       rotationType=Modelica.Mechanics.MultiBody.Types.RotationTypes.RotationAxis,
@@ -516,19 +522,19 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
     Interfaces.Frame_a crank_b annotation (extent=[84,-116; 116,-84]);
   equation 
     
-    connect(jointRRP.frame_ia, Rod.frame_a) annotation (points=[20,-4; 49,-4;
+    connect(jointRRP.frame_ia, Rod.frame_a) annotation (points=[20,-4; 49,-4; 
           49,-1], style(
         color=10,
         rgbcolor={95,95,95},
         thickness=2));
-    connect(Mid.frame_b, jointRRP.frame_a) annotation (points=[-24,-20;
+    connect(Mid.frame_b, jointRRP.frame_a) annotation (points=[-24,-20; 
           1.22461e-015,-20; 1.22461e-015,-8], style(
         color=10,
         rgbcolor={95,95,95},
         thickness=2));
     connect(gasForce.flange_a, jointRRP.axis) 
       annotation (points=[9,70; 16,70; 16,32],    style(color=58));
-    connect(jointRRP.bearing, gasForce.flange_b) annotation (points=[8,32; 8,52;
+    connect(jointRRP.bearing, gasForce.flange_b) annotation (points=[8,32; 8,52; 
           -20,52; -20,70; -11,70],        style(color=58));
     connect(jointRRP.frame_ib, Piston.frame_b) annotation (points=[20,28; 30,28;
           30,70; 50,70; 50,60], style(
