@@ -573,7 +573,8 @@ block LimPID.
 </p>
 
 </HTML>
-"));
+"), 
+      Diagram);
     Blocks.Math.Gain P "Proportional part of PID controller" 
       annotation (extent=[-60, 60; -20, 100]);
     Blocks.Continuous.Integrator I(k=1/Ti) "Integral part of PID controller" 
@@ -585,16 +586,22 @@ block LimPID.
       annotation (extent=[60, -10; 80, 10]);
     Blocks.Math.Add3 Add annotation (extent=[20, -10; 40, 10]);
   equation 
-    connect(P.y, Add.u1) annotation (points=[-18,80; 0,80; 0,8; 18,8]);
-    connect(I.y, Add.u2) annotation (points=[-18,0; 18,0]);
-    connect(D.y, Add.u3) 
-      annotation (points=[-18,-80; 0,-80; 0,-8; 18,-8]);
-    connect(Add.y, Gain.u) annotation (points=[41,0; 58,0]);
-    connect(y, Gain.y) annotation (points=[110,0; 81,0]);
-    connect(u, I.u) annotation (points=[-120,0; -64,0]);
-    connect(u, P.u) annotation (points=[-120,0; -80,0; -80,80; -64,80]);
-    connect(u, D.u) 
-      annotation (points=[-120,0; -80,0; -80,-80; -64,-80]);
+    connect(u, P.u) annotation (points=[-120,0; -80,0; -80,80; -64,80], style(
+          color=74, rgbcolor={0,0,127}));
+    connect(u, I.u)
+      annotation (points=[-120,0; -64,0], style(color=74, rgbcolor={0,0,127}));
+    connect(u, D.u) annotation (points=[-120,0; -80,0; -80,-80; -64,-80], style(
+          color=74, rgbcolor={0,0,127}));
+    connect(P.y, Add.u1) annotation (points=[-18,80; 0,80; 0,8; 18,8], style(
+          color=74, rgbcolor={0,0,127}));
+    connect(I.y, Add.u2)
+      annotation (points=[-18,0; 18,0], style(color=74, rgbcolor={0,0,127}));
+    connect(D.y, Add.u3) annotation (points=[-18,-80; 0,-80; 0,-8; 18,-8], 
+        style(color=74, rgbcolor={0,0,127}));
+    connect(Add.y, Gain.u)
+      annotation (points=[41,0; 58,0], style(color=74, rgbcolor={0,0,127}));
+    connect(Gain.y, y)
+      annotation (points=[81,0; 110,0], style(color=74, rgbcolor={0,0,127}));
   end PID;
   
   block LimPID 
@@ -669,7 +676,8 @@ part of this controller, the following practical aspects are included:
 </ul>
 
 </HTML>
-"));
+"), 
+      Diagram);
     Blocks.Math.Add addP(k1=wp, k2=-1) 
       annotation (extent=[-80, 40; -60, 60]);
     Blocks.Math.Add addD(k1=wd, k2=-1) 
@@ -688,37 +696,53 @@ part of this controller, the following practical aspects are included:
       annotation (extent=[40, -80; 20, -60]);
   equation 
     assert(yMax >= yMin, "PID: Limits must be consistent");
-    connect(u_s, addP.u1) 
-      annotation (points=[-120,0; -96,0; -96,56; -82,56]);
-    connect(u_m, addP.u2) annotation (points=[0,-120; 0,-92; -92,-92; -92,44;
-          -82,44],       style(thickness=2));
-    connect(u_s, addD.u1) 
-      annotation (points=[-120,0; -96,0; -96,6; -82,6]);
-    connect(u_m, addD.u2) annotation (points=[0,-120; 0,-92; -92,-92; -92,-6;
-          -82,-6; -82,-6],        style(thickness=2));
-    connect(u_s, addI.u1) 
-      annotation (points=[-120,0; -96,0; -96,-42; -82,-42]);
-    connect(u_m, addI.u2) annotation (points=[0,-120; 0,-92; -92,-92; -92,-50;
-          -82,-50],        style(thickness=2));
-    connect(gainTrack.y, addI.u3) 
-      annotation (points=[19,-70; -88,-70; -88,-58; -82,-58]);
-    connect(addP.y, P.u) annotation (points=[-59,50; -42,50; -42,50]);
-    connect(addD.y, D.u) annotation (points=[-59,0; -42,0]);
-    connect(addI.y, I.u) annotation (points=[-59,-50; -42,-50]);
-    connect(P.y, addPID.u1) 
-      annotation (points=[-19,50; -10,50; -10,8; -2,8]);
-    connect(D.y, addPID.u2) annotation (points=[-19,0; -2,0; -2,0]);
-    connect(I.y, addPID.u3) 
-      annotation (points=[-19,-50; -10,-50; -10,-8; -2,-8; -2,-8]);
-    connect(addPID.y, gainPID.u) annotation (points=[21, 0; 28, 0]);
-    connect(gainPID.y, addSat.u2) 
-      annotation (points=[51,0; 60,0; 60,-30; 74,-30; 74,-38]);
-    connect(addSat.y, gainTrack.u) 
-      annotation (points=[80,-61; 80,-70; 42,-70]);
-    connect(gainPID.y, limiter.u) annotation (points=[51,0; 68,0]);
-    connect(limiter.y, y) annotation (points=[91,0; 110,0]);
-    connect(limiter.y, addSat.u1) 
-      annotation (points=[91,0; 94,0; 94,-20; 86,-20; 86,-38]);
+    connect(u_s, addP.u1) annotation (points=[-120,0; -96,0; -96,56; -82,56], 
+        style(color=74, rgbcolor={0,0,127}));
+    connect(u_s, addD.u1) annotation (points=[-120,0; -96,0; -96,6; -82,6], 
+        style(color=74, rgbcolor={0,0,127}));
+    connect(u_s, addI.u1) annotation (points=[-120,0; -96,0; -96,-42; -82,-42], 
+        style(color=74, rgbcolor={0,0,127}));
+    connect(addP.y, P.u) annotation (points=[-59,50; -42,50], style(color=74, 
+          rgbcolor={0,0,127}));
+    connect(addD.y, D.u)
+      annotation (points=[-59,0; -42,0], style(color=74, rgbcolor={0,0,127}));
+    connect(addI.y, I.u) annotation (points=[-59,-50; -42,-50], style(color=74, 
+          rgbcolor={0,0,127}));
+    connect(P.y, addPID.u1) annotation (points=[-19,50; -10,50; -10,8; -2,8], 
+        style(color=74, rgbcolor={0,0,127}));
+    connect(D.y, addPID.u2)
+      annotation (points=[-19,0; -2,0], style(color=74, rgbcolor={0,0,127}));
+    connect(I.y, addPID.u3) annotation (points=[-19,-50; -10,-50; -10,-8; -2,-8], 
+        style(color=74, rgbcolor={0,0,127}));
+    connect(addPID.y, gainPID.u)
+      annotation (points=[21,0; 28,0], style(color=74, rgbcolor={0,0,127}));
+    connect(gainPID.y, addSat.u2) annotation (points=[51,0; 60,0; 60,-20; 74,
+          -20; 74,-38], style(color=74, rgbcolor={0,0,127}));
+    connect(gainPID.y, limiter.u)
+      annotation (points=[51,0; 68,0], style(color=74, rgbcolor={0,0,127}));
+    connect(limiter.y, addSat.u1) annotation (points=[91,0; 94,0; 94,-20; 86,
+          -20; 86,-38], style(color=74, rgbcolor={0,0,127}));
+    connect(limiter.y, y)
+      annotation (points=[91,0; 110,0], style(color=74, rgbcolor={0,0,127}));
+    connect(addSat.y, gainTrack.u) annotation (points=[80,-61; 80,-70; 42,-70], 
+        style(color=74, rgbcolor={0,0,127}));
+    connect(gainTrack.y, addI.u3) annotation (points=[19,-70; -88,-70; -88,-58; 
+          -82,-58], style(color=74, rgbcolor={0,0,127}));
+    connect(u_m, addP.u2) annotation (points=[0,-120; 0,-92; -92,-92; -92,44; 
+          -82,44], style(
+        color=74, 
+        rgbcolor={0,0,127}, 
+        thickness=2));
+    connect(u_m, addD.u2) annotation (points=[0,-120; 0,-92; -92,-92; -92,-6; 
+          -82,-6], style(
+        color=74, 
+        rgbcolor={0,0,127}, 
+        thickness=2));
+    connect(u_m, addI.u2) annotation (points=[0,-120; 0,-92; -92,-92; -92,-50; 
+          -82,-50], style(
+        color=74, 
+        rgbcolor={0,0,127}, 
+        thickness=2));
   end LimPID;
   
   block TransferFunction "Linear transfer function" 
