@@ -3351,7 +3351,82 @@ output window.
       // Check (h2 must be identical to h1)
       h2 = Medium.specificEnthalpy_pTX(1e5, T, fill(0.0,0));
    end Inverse_h_T;
-  end SolveOneNonlinearEquation;
+
+   model InverseIncompressible_h_T 
+     "inverse computation for incmpressible media" 
+     import SI = Modelica.SIunits;
+     import Cv = Modelica.SIunits.Conversions;
+     extends Modelica.Icons.Example;
+  
+     replaceable package Medium = Modelica.Media.Incompressible.Examples.Glycol47 
+       "Medium model"   annotation (choicesAllMatching=true);
+     
+     parameter SI.Temperature T_min = Medium.T_min;
+     parameter SI.Temperature T_max = Medium.T_max;
+     parameter SI.SpecificEnthalpy h_min = Medium.h_T(Medium.T_min);
+     parameter SI.SpecificEnthalpy h_max = Medium.h_T(Medium.T_max);
+     SI.SpecificEnthalpy h1 "Pre-defined specific enthalpy";
+     SI.SpecificEnthalpy h2 "Specific enthalpy computed from T (= h1 required)";
+     SI.Temperature T "Temperature computed from h1";
+     annotation (
+                 experiment,
+                 experimentSetupOutput,
+                 Documentation(info="<html>
+                               
+                               </html>"));
+     
+   equation 
+     // Define specific enthalpy
+     h1 = if time < 0 then h_min else 
+       if time > 1 then h_max else 
+       h_min + time*(h_max - h_min);
+     
+     // Solve for temperature
+     T = Medium.temperature_phX(1e5, h1, fill(0.0,0));
+  
+     // Check (h2 must be identical to h1)
+     h2 = Medium.specificEnthalpy_pTX(1e5, T, fill(0.0,0));
+   end InverseIncompressible_h_T;
+   
+   model Inverse_h_TX "Solve h = h_TX(TX) for T, if h is given for ideal gas NASA" 
+      import SI = Modelica.SIunits;
+      extends Modelica.Icons.Example;
+      
+      replaceable package Medium = Modelica.Media.IdealGases.MixtureGases.FlueGasLambdaOnePlus
+            extends Modelica.Media.IdealGases.Common.MixtureGasNasa 
+        "Medium model"     annotation (choicesAllMatching=true);
+      
+      parameter SI.Temperature T_min = 300;
+      parameter SI.Temperature T_max = 500;
+      SI.SpecificEnthalpy h_min = Medium.h_TX(T_min,X);
+      SI.SpecificEnthalpy h_max = Medium.h_TX(T_max,X);
+      SI.SpecificEnthalpy h1 "Pre-defined specific enthalpy";
+      SI.SpecificEnthalpy h2 "Specific enthalpy computed from T (= h1 required)";
+      SI.Temperature T "Temperature computed from h1";
+      SI.MassFraction[4] X "mass fraction vector";
+     annotation (
+       experiment,
+       experimentSetupOutput,
+       Documentation(info="<html>
+ 
+</html>"));
+      
+   equation
+     X = {0.78, 0.12,0.05,0.05};
+      // Define specific enthalpy
+      h1 = if time < 0 then h_min else 
+           if time > 1 then h_max else 
+              h_min + time*(h_max - h_min);
+      
+      // Solve for temperature
+      T = Medium.temperature_phX(1e5, h1, X);
+      
+      // Check (h2 must be identical to h1)
+      h2 = Medium.specificEnthalpy_pTX(1e5, T, X);
+   end Inverse_h_TX;
+   
+
+ end SolveOneNonlinearEquation;
 end Examples;
 
 
@@ -3917,6 +3992,33 @@ equation
       input MassFraction X[nX] "Mass fractions";
       output Temperature T "Temperature";
     end temperature_phX;
+    
+    replaceable partial function density_phX 
+      "Compute density from pressure, specific enthalpy and mass fraction" 
+      extends Modelica.Icons.Function;
+      input AbsolutePressure p "Pressure";
+      input SpecificEnthalpy h "Specific enthalpy";
+      input MassFraction X[nX] "Mass fractions";
+      output Density d "density";
+    end density_phX;
+    
+    replaceable partial function temperature_psX 
+      "Compute temperature from pressure, specific enthalpy and mass fraction" 
+      extends Modelica.Icons.Function;
+      input AbsolutePressure p "Pressure";
+      input SpecificEntropy s "Specific entropy";
+      input MassFraction X[nX] "Mass fractions";
+      output Temperature T "Temperature";
+    end temperature_psX;
+    
+    replaceable partial function specificEnthalpy_psX 
+      "Compute specific enthalpy from pressure, specific entropy and mass fraction" 
+      extends Modelica.Icons.Function;
+      input AbsolutePressure p "Pressure";
+      input SpecificEntropy s "Specific entropy";
+      input MassFraction X[nX] "Mass fractions";
+      output SpecificEnthalpy h "specific enthalpy";
+    end specificEnthalpy_psX;
     
     type AbsolutePressure = SI.AbsolutePressure (
         min=0,
@@ -4729,6 +4831,13 @@ For this reason, function specificEnthalpy_pTXi() is provided.
     algorithm 
       T := T0 + h/cp_const;
     end temperature_phX;
+
+    redeclare function extends density_phX 
+      "Compute temperature from pressure, specific enthalpy and mass fraction" 
+    algorithm 
+      d := d_const;
+    end density_phX;
+
   end PartialSimpleMedium;
   
 end Interfaces;
@@ -6250,22 +6359,26 @@ provide a package in the following way:
     end f_nonlinear_Data;
     
     replaceable partial function f_nonlinear 
-      "Nonlinear algebraic equation in one unknown: y = f_nonlinear(x)" 
-       extends Modelica.Icons.Function;
-       input Real x "Independent variable of function";
-       input f_nonlinear_Data f_nonlinear_data 
-        "Additional data for the function";
-       output Real y "= f_nonlinear(x)";
+      "Nonlinear algebraic equation in one unknown: y = f_nonlinear(x,p,X)" 
+      extends Modelica.Icons.Function;
+      input Real x "Independent variable of function";
+      input Real p = 0.0 "disregaded variables (here always used for pressure)";
+      input Real[:] X = fill(0,0) "disregaded variables (her always used for composition)";
+      input f_nonlinear_Data f_nonlinear_data  "Additional data for the function";
+      output Real y "= f_nonlinear(x)";
+      // annotation(derivative(zeroDerivative=y)); // this must hold for all replaced functions
     end f_nonlinear;
     
     replaceable function solve 
       "Solve f_nonlinear(x_zero)=y_zero; f_nonlinear(x_min) - y_zero and f_nonlinear(x_max)-y_zero must have different sign" 
       import Modelica.Utilities.Streams.error;
-       extends Modelica.Icons.Function;
-       input Real y_zero 
+      extends Modelica.Icons.Function;
+      input Real y_zero 
         "Determine x_zero, such that f_nonlinear(x_zero) = y_zero";
-       input Real x_min "Minimum value of x";
-       input Real x_max "Maximum value of x";
+      input Real x_min "Minimum value of x";
+      input Real x_max "Maximum value of x";
+      input Real pressure = 0.0 "disregaded variables (here always used for pressure)";
+      input Real[:] X = fill(0,0) "disregaded variables (here always used for composition)";
        input f_nonlinear_Data f_nonlinear_data 
         "Additional data for function f_nonlinear";
        input Real x_tol =  100*Modelica.Constants.eps 
@@ -6290,8 +6403,8 @@ provide a package in the following way:
        Boolean found = false;
     algorithm 
        // Check that f(x_min) and f(x_max) have different sign
-       fa :=f_nonlinear(x_min, f_nonlinear_data) - y_zero;
-       fb :=f_nonlinear(x_max, f_nonlinear_data) - y_zero;
+       fa :=f_nonlinear(x_min, pressure, X, f_nonlinear_data) - y_zero;
+       fb :=f_nonlinear(x_max, pressure, X, f_nonlinear_data) - y_zero;
        fc := fb;
        if fa > 0.0 and fb > 0.0 or 
           fa < 0.0 and fb < 0.0 then
@@ -6370,7 +6483,7 @@ provide a package in the following way:
              a :=b;
              fa :=fb;
              b :=b + (if abs(d) > tol then d else if m > 0 then tol else -tol);
-             fb :=f_nonlinear(b, f_nonlinear_data) - y_zero;
+             fb :=f_nonlinear(b, pressure, X, f_nonlinear_data) - y_zero;
           
              if fb > 0 and fc > 0 or 
                 fb < 0 and fc < 0 then
