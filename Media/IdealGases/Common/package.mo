@@ -634,16 +634,16 @@ transform the formula to SI units:
   algorithm 
     T := Internal.solve(s, 200, 6000, 1.0e5, {1}, data);
   end temperature_psX;
-
-  redeclare function extends specificEnthalpy_psX
-  protected
-    Temperature T := temperature_psX(p,s,X);
-  algorithm  
+  
+  redeclare function extends specificEnthalpy_psX 
+  protected 
+    Temperature T =  temperature_psX(p,s,X);
+  algorithm 
   end specificEnthalpy_psX;
-      
+  
   redeclare function extends density_phX 
     "Compute density from pressure, specific enthalpy and mass fraction" 
-    protected
+  protected 
     Temperature T "temperature";
   algorithm 
     T := temperature_phX(p,h,X);
@@ -720,7 +720,7 @@ It has been developed by Hubertus Tummescheit.
       //    SpecificEnthalpy h_component[nX];
   equation 
     assert(T >= 200 and T <= 6000, "
-Temperature T (="   + String(T) + " K = 200 K) is not in the allowed range
+Temperature T (="   + String(T) + " K) is not in the allowed range
 200 K <= T <= 6000 K
 required from medium model \""   + mediumName + "\".");
     
@@ -826,10 +826,10 @@ required from medium model \""   + mediumName + "\".");
       sum((SingleGasNasa.h_T(data[i], T)*dXi[i]) for i in 1:nX);
   end h_TX_der;
   
-  redeclare function extends gasConstant "compute gasConstant"
+  redeclare function extends gasConstant "compute gasConstant" 
   algorithm 
-    R := if (not reducedX) then
-      sum(data[i].R*state.X[i] for i in 1:size(substanceNames, 1)) else
+    R := if (not reducedX) then 
+      sum(data[i].R*state.X[i] for i in 1:size(substanceNames, 1)) else 
       sum(data[i].R*state.X[i] for i in 1:size(substanceNames, 1)-1) + data[end].R*(1-sum(state.X[i]));
   end gasConstant;
   
@@ -864,22 +864,22 @@ required from medium model \""   + mediumName + "\".");
     input SI.MoleFraction x[:] "mole fraction of mixture";
     output Real smix "mixing entropy contribution, divided by gas constant";
   algorithm 
-    smix := sum(if x[i] > Modelica.Constants.eps then -x[i]*Modelica.Math.log(x[i])
-                else x[i] for i in 1:size(x,1));
+    smix := sum(if x[i] > Modelica.Constants.eps then -x[i]*Modelica.Math.log(x[i]) else 
+                     x[i] for i in 1:size(x,1));
   end MixEntropy;
   
-  function s_TX "temperature dependent part of the entropy"
+  function s_TX "temperature dependent part of the entropy" 
     input Temperature T "temperature";
     input MassFraction[:] X "mass fraction";
     output SpecificEntropy s "specific entropy";
-  algorithm
+  algorithm 
     s := sum(SingleGasNasa.s0_T(data[i], T)*X[i] for i in 1:nS);
   end s_TX;
-
+  
   redeclare function extends specificEntropy "Return specific entropy" 
-    protected
+  protected 
     MassFraction[nS] X "complete X-vector";
-  algorithm
+  algorithm 
     X := if reducedX then cat(1,state.X,{1-sum(state.X)}) else state.X;
     s := s_TX(state.T,X) - (data.R*X)*(Modelica.Math.log(state.p/reference_p))
       + MixEntropy(massToMoleFractions(X,data[:].MM));
@@ -1343,7 +1343,7 @@ end lowPressureThermalConductivity;
   algorithm 
     h := h_TX(T,X[1:nXi]);
   end specificEnthalpy_pTX;
-
+  
   redeclare function extends temperature_phX 
     "Compute temperature from pressure, specific enthalpy and mass fraction" 
     
@@ -1381,8 +1381,8 @@ end lowPressureThermalConductivity;
       extends Modelica.Media.IdealGases.Common.DataRecord;
     end f_nonlinear_Data;
       
-    redeclare function extends f_nonlinear
-    protected
+    redeclare function extends f_nonlinear 
+      protected 
       MassFraction[nS] Xf "complete X-vector";
     algorithm 
       Xf := if reducedX then cat(1,X,{1-sum(X)}) else X;
@@ -1398,28 +1398,27 @@ end lowPressureThermalConductivity;
   algorithm 
     T := Internal.solve(s, 200, 6000, 1.0e5, {1}, data[1]);
   end temperature_psX;
-
-  redeclare function extends specificEnthalpy_psX
-  protected
+  
+  redeclare function extends specificEnthalpy_psX 
+  protected 
     Temperature T "temperature";
-  algorithm
+  algorithm 
     T := temperature_psX(p,s,X);
     h := specificEnthalpy_pTX(p,T,X);
   end specificEnthalpy_psX;
-      
+  
   redeclare function extends density_phX 
     "Compute density from pressure, specific enthalpy and mass fraction" 
-    protected
+  protected 
     Temperature T "temperature";
-    SpecificHeatCapacity R "gas constant"; 
+    SpecificHeatCapacity R "gas constant";
   algorithm 
     T := temperature_phX(p,h,X);
-    R := if (not reducedX) then
-      sum(data[i].R*X[i] for i in 1:size(substanceNames, 1)) else
-      sum(data[i].R*X[i] for i in 1:size(substanceNames, 1)-1) + data[end].R*(1-sum(X[i])); 
+    R := if (not reducedX) then 
+      sum(data[i].R*X[i] for i in 1:size(substanceNames, 1)) else 
+      sum(data[i].R*X[i] for i in 1:size(substanceNames, 1)-1) + data[end].R*(1-sum(X[i]));
     d := p/(R*T);
   end density_phX;
-  
   
 end MixtureGasNasa;
 
