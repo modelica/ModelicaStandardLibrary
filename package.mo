@@ -467,12 +467,11 @@ The following <b>new components</b> have been added to <b>existing</b> libraries
       <td> Terminal box for three-phase induction machines to choose  
            either star (wye) ? or delta ? connection</td> </tr>
 
-  <tr><td colspan=\"2\"><b>Modelica.Icons.</b></td></tr>
-  <tr><td> SignalBus</td>
-      <td> Icon for signal bus</td> </tr>
-  <tr><td> SignalSubBus</td>
-      <td> Icon for signal sub-bus</td> </tr>
- 
+  <tr><td colspan=\"2\"><b>Modelica.Math.Matrices.</b></td></tr>
+  <tr><td> equalityLeastSquares</td>
+      <td> Solve a linear equality constrained least squares problem:<br>
+          min|A*x-a|^2 subject to B*x=b</td> </tr>
+
   <tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.</b></td></tr>
   <tr><td> Parts.PointMass</td>
       <td> Point mass, i.e., body where inertia tensor is neglected.</td> </tr>
@@ -512,6 +511,12 @@ The following <b>new components</b> have been added to <b>existing</b> libraries
   <tr><td>temperature_phX</td>
       <td> New function to compute temperature from pressure, specific enthalpy,
            and mass fractions.</td> </tr>
+
+  <tr><td colspan=\"2\"><b>Modelica.Icons.</b></td></tr>
+  <tr><td> SignalBus</td>
+      <td> Icon for signal bus</td> </tr>
+  <tr><td> SignalSubBus</td>
+      <td> Icon for signal sub-bus</td> </tr>
 
   <tr><td colspan=\"2\"><b>Modelica.SIunits.</b></td></tr>
   <tr><td>UsersGuide</td>
@@ -580,7 +585,11 @@ The following <b>components</b> have been improved:
             parameter TurnsRatio is calculated internally from 
             Nominal stator voltage and Locked-rotor voltage.</td> </tr>
  
- 
+  <tr><td colspan=\"2\"><b>Modelica.Math.Matrices.</b></td></tr>
+  <tr><td>leastSquares</td>
+      <td>The A matrix in the least squares problem might be rank deficient.
+          Previously, it was required that A has full rank.</td>
+
   <tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.</b></td></tr>
   <tr><td>all models</td>
       <td> <ul> 

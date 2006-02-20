@@ -98,6 +98,10 @@ This library provides functions operating on matrices:
       <td>Solve overdetermined or underdetermined real system of <br>
           linear equations A*x=b in a least squares sense</td>
   </tr>
+  <tr><td><a href=\"Modelica:Modelica.Math.Matrices.equalityLeastSquares\">equalityLeastSquares</a>(A,a,B,b)</td>
+      <td>Solve a linear equality constrained least squares problem:<br>
+          min|A*x-a|^2 subject to B*x=b</td>
+  </tr>
   <tr><td>(LU,p,info) = <a href=\"Modelica:Modelica.Math.Matrices.LU\">LU</a>(A)</td>
       <td>LU decomposition of square or rectangular matrix</td>
   </tr>
@@ -144,6 +148,20 @@ This library provides functions operating on matrices:
       <td> compute the exponential of a matrix and two integrals</td>
   </tr>
 </table>
+
+<p>
+Most functions are solely an interface to the external LAPACK library
+(<a href=\"http://www.netlib.org/lapack\">http://www.netlib.org/lapack</a>).
+The details of this library are described in:
+</p>
+
+<dl>
+<dt>Anderson E., Bai Z., Bischof C., Blackford S., Demmel J., Dongarra J.,
+    Du Croz J., Greenbaum A., Hammarling S., McKenney A., and Sorensen D.:</dt>
+<dd> <b>Lapack Users' Guide</b>.
+     Third Edition, SIAM, 1999.</dd>
+</dl>
+
 
 </HTML>
 "));
@@ -333,7 +351,7 @@ no or infinitely many solutions (A is singular).");
   end solve;
   
   function leastSquares 
-    "Solve overdetermined or underdetermined real system of linear equations A*x=b in a least squares sense" 
+    "Solve overdetermined or underdetermined real system of linear equations A*x=b in a least squares sense (A may be rank deficient)" 
     extends Modelica.Icons.Function;
     input Real A[:, :] "Matrix A";
     input Real b[size(A, 1)] "Vector b";
@@ -367,21 +385,90 @@ a solution in a least squarse sense:
                           vectors x that fulfill A*x = b
 </pre>
 <p>
-Note, the solution is computed with the LAPACK function \"dgesl\",
-i.e., QR or LQ factorization of A. It is required that
-A has full rank.
+Note, the solution is computed with the LAPACK function \"dgelsx\",
+i.e., QR or LQ factorization of A with column pivoting. 
+If A does not have full rank,
+the solution is not unique and from the infinitely many solutions
+the one is selected that minimizes both |x|^2 and |A*x - b|^2.
 </p>
 </HTML>"));
   protected 
     Integer info;
+    Integer rank;
     Real xx[max(size(A,1),size(A,2))];
   algorithm 
-    (xx,info) := LAPACK.dgels_vec(A, b);
+    (xx,info,rank) := LAPACK.dgelsx_vec(A, b, 100*Modelica.Constants.eps);
     x := xx[1:size(A,2)];
     assert(info == 0, "Solving an overdetermined or underdetermined linear system of 
 equations with function \"Matrices.leastSquares\" failed.");
   end leastSquares;
   
+  function equalityLeastSquares 
+    "Solve a linear equality constrained least squares problem" 
+    extends Modelica.Icons.Function;
+    input Real A[:,:] "Minimize |A*x - a|^2";
+    input Real a[size(A,1)];
+    input Real B[:,size(A,2)] "subject to B*x=b";
+    input Real b[size(B,1)];
+    output Real x[size(A,2)] "solution vector";
+    annotation (preferedView="info",
+      Coordsys(
+        extent=[-100, -100; 100, 100],
+        grid=[2, 2],
+        component=[20, 20]),
+      Window(
+        x=0.4,
+        y=0.4,
+        width=0.6,
+        height=0.6),
+      Documentation(info="<HTML>
+<h3><font color=\"#008000\">Syntax</font></h3>
+<blockquote><pre>
+x = Matrices.<b>equalityLeastSquares</b>(A,a,B,b);
+</pre></blockquote>
+<h3><font color=\"#008000\">Description</font></h3>
+<p>
+This function returns the
+solution <b>x</b> of the linear equality-constrained least squares problem:
+</p>
+<blockquote>
+<p>
+min|<b>A</b>*<b>x</b> - <b>a</b>|^2 over <b>x</b>, subject to <b>B</b>*<b>x</b> = <b>b</b>
+</p>
+</blockquote>
+
+<p>
+It is required that the dimensions of A and B fulfill the following
+relationship:
+</p>
+
+<blockquote>
+size(B,1) &le; size(A,2) &le; size(A,1) + size(B,1)
+</blockquote>
+
+<p>
+Note, the solution is computed with the LAPACK function \"dgglse\"
+using the generalized RQ factorization under the assumptions that
+B has full row rank (= size(B,1)) and the matrix [A;B] has
+full column rank (= size(A,2)). In this case, the problem
+has a unique solution.
+</p>
+</HTML>"));
+  protected 
+    Integer info;
+  algorithm 
+    assert(size(A,2) >= size(B,1) and size(A,2) <= size(A,1) + size(B,1),
+           "It is required that size(B,1) <= size(A,2) <= size(A,1) + size(B,1)\n" +
+           "This relationship is not fulfilled, since the matrices are declared as:\n" +
+           "  A[" + String(size(A,1)) + "," + String(size(A,2)) + "], B[" +
+           String(size(B,1)) + "," + String(size(B,2)) + "]\n");
+    
+    (x, info) := LAPACK.dgglse_vec(A, a, B, b);
+    
+    assert(info == 0, "Solving a linear equality-constrained least squares problem 
+with function \"Matrices.equalityLeastSquares\" failed.");
+  end equalityLeastSquares;
+
   function LU "LU decomposition of square or rectangular matrix" 
     extends Modelica.Icons.Function;
     input Real A[:, :] "Square or rectangular matrix";
@@ -1794,16 +1881,16 @@ protected
     end dgels_vec;
     
     function dgelsx_vec 
-      "Computes the minimum-norm solution to a real linear least squares problem with singular A (not yet tested)" 
+      "Computes the minimum-norm solution to a real linear least squares problem with rank deficient A" 
       
       extends Modelica.Icons.Function;
       input Real A[:, :];
       input Real b[size(A,1)];
       input Real rcond=0.0 "Reciprocal condition number to estimate rank";
-      output Real x[nx]= cat(1,b,zeros(nx-nrow)) 
+      output Real x[max(nrow,ncol)]= cat(1,b,zeros(max(nrow,ncol)-nrow)) 
         "solution is in first size(A,2) rows";
       output Integer info;
-      output Real rank "Effective rank of A";
+      output Integer rank "Effective rank of A";
     protected 
       Integer nrow=size(A,1);
       Integer ncol=size(A,2);
@@ -1812,7 +1899,7 @@ protected
       Real work[lwork];
       Real Awork[nrow,ncol]=A;
       Integer jpvt[ncol]=zeros(ncol);
-      external "FORTRAN 77" dgelsx(nrow, ncol, 1, Awork, nrow, x, nx,
+      external "FORTRAN 77" dgelsx(nrow, ncol, 1, Awork, nrow, x, nx, jpvt,
                                   rcond, rank, work, lwork, info) annotation (Library="Lapack");
       annotation (
         Coordsys(
@@ -2296,6 +2383,120 @@ For details of the arguments, see documentation of dgesvx.
          size(A, 1), ipiv, equed, R, C, Bwork, size(b, 1), x, size(x, 1), RCond,
          FErrBound, BErrBound, work, iwork, info) annotation (Library="Lapack");
     end dgesvx_vec;
+    
+    function dgglse_vec 
+      "Solve a linear equality constrained least squares problem" 
+      extends Modelica.Icons.Function;
+      input Real A[:,:] "Minimize |A*x - c|^2";
+      input Real c[size(A,1)];
+      input Real B[:,size(A,2)] "subject to B*x=d";
+      input Real d[size(B,1)];
+      output Real x[size(A,2)] "solution vector";
+      output Integer info;
+    protected 
+      Integer nrow_A=size(A,1);
+      Integer nrow_B=size(B,1);
+      Integer ncol_A=size(A,2) "(min=nrow_B,max=nrow_A+nrow_B) required";
+      Real Awork[nrow_A,ncol_A]=A;
+      Real Bwork[nrow_B,ncol_A]=B;
+      Real cwork[nrow_A] = c;
+      Real dwork[nrow_B] = d;
+      Integer lwork=ncol_A + nrow_B + max(nrow_A, max(ncol_A, nrow_B))*5;
+      Real work[lwork];
+      external "FORTRAN 77" dgglse(nrow_A, ncol_A, nrow_B, Awork, nrow_A,
+                                   Bwork, nrow_B, cwork, dwork, x,
+                                   work, lwork, info)             annotation (Library="Lapack");
+      annotation (
+        Coordsys(
+          extent=[-100, -100; 100, 100],
+          grid=[2, 2],
+          component=[20, 20]),
+        Documentation(info="Lapack documentation
+ 
+  Purpose
+  =======
+ 
+  DGGLSE solves the linear equality constrained least squares (LSE)
+  problem:
+ 
+          minimize || A*x - c ||_2   subject to B*x = d
+ 
+  using a generalized RQ factorization of matrices A and B, where A is
+  M-by-N, B is P-by-N, assume P <= N <= M+P, and ||.||_2 denotes vector
+  2-norm. It is assumed that
+ 
+                       rank(B) = P                                  (1)
+ 
+  and the null spaces of A and B intersect only trivially, i.e.,
+ 
+   intersection of Null(A) and Null(B) = {0} <=> rank( ( A ) ) = N  (2)
+                                                     ( ( B ) )
+ 
+  where N(A) denotes the null space of matrix A. Conditions (1) and (2)
+  ensure that the problem LSE has a unique solution.
+ 
+  Arguments
+  =========
+ 
+  M       (input) INTEGER
+          The number of rows of the matrix A.  M >= 0.
+ 
+  N       (input) INTEGER
+          The number of columns of the matrices A and B. N >= 0.
+          Assume that P <= N <= M+P.
+ 
+  P       (input) INTEGER
+          The number of rows of the matrix B.  P >= 0.
+ 
+  A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
+          On entry, the P-by-M matrix A.
+          On exit, A is destroyed.
+ 
+  LDA     (input) INTEGER
+          The leading dimension of the array A. LDA >= max(1,M).
+ 
+  B       (input/output) DOUBLE PRECISION array, dimension (LDB,N)
+          On entry, the P-by-N matrix B.
+          On exit, B is destroyed.
+ 
+  LDB     (input) INTEGER
+          The leading dimension of the array B. LDB >= max(1,P).
+ 
+  C       (input/output) DOUBLE PRECISION array, dimension (M)
+          On entry, C contains the right hand side vector for the
+          least squares part of the LSE problem.
+          On exit, the residual sum of squares for the solution
+          is given by the sum of squares of elements N-P+1 to M of
+          vector C.
+ 
+  D       (input/output) DOUBLE PRECISION array, dimension (P)
+          On entry, D contains the right hand side vector for the
+          constrained equation.
+          On exit, D is destroyed.
+ 
+  X       (output) DOUBLE PRECISION array, dimension (N)
+          On exit, X is the solution of the LSE problem.
+ 
+  WORK    (workspace) DOUBLE PRECISION array, dimension (LWORK)
+          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
+ 
+  LWORK   (input) INTEGER
+          The dimension of the array WORK. LWORK >= N+P+max(N,M,P).
+          For optimum performance LWORK >=
+          N+P+max(M,P,N)*max(NB1,NB2), where NB1 is the optimal
+          blocksize for the QR factorization of M-by-N matrix A.
+          NB2 is the optimal blocksize for the RQ factorization of
+          P-by-N matrix B.
+ 
+  INFO    (output) INTEGER
+          = 0:  successful exit.
+          < 0:  if INFO = -i, the i-th argument had an illegal value.
+"),     Window(
+          x=0.34,
+          y=0.06,
+          width=0.6,
+          height=0.6));
+    end dgglse_vec;
     
     function dgtsv 
       "Solve real system of linear equations A*X=B with B matrix and tridiagonal A" 
