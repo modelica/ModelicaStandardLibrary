@@ -242,7 +242,9 @@ Since the orientation is described by 9 variables, there are
 are defined in function <b>Frames.orientationConstraint</b>.
 </p>
 <p>
-Formerly, w is defined as: <b>skew</b>(R.w) = R.T*<b>der</b>(transpose(R.T))
+R.w is the angular velocity of frame 2 with respect to frame 1, resolved
+in frame 2. Formally, R.w is defined as:<br>
+<b>skew</b>(R.w) = R.T*<b>der</b>(transpose(R.T))
 with
 </p>
 <pre>
@@ -250,6 +252,7 @@ with
    <b>skew</b>(w) = |  w[3]   0   -w[1] |
              | -w[2]  w[1]     0 |
 </pre>
+
 </html>
 "));
     
@@ -318,6 +321,8 @@ with
     input Orientation R1 "Orientation object to rotate frame 0 into frame 1";
     input Orientation R2 "Orientation object to rotate frame 0 into frame 2";
     output Real v2[3] "Vector in frame 2";
+    annotation (derivative(noDerivative=R1, noDerivative=R2) = Internal.resolveRelative_der,
+        InlineAfterIndexReduction=true);
   algorithm 
     v2 := resolve2(R2, resolve1(R1, v1));
   end resolveRelative;
@@ -2322,6 +2327,32 @@ messages.
     algorithm 
       v2_der := Frames.resolve2(R, v1_der) - cross(R.w, Frames.resolve2(R, v1));
     end resolve2_der;
+
+    function resolveRelative_der 
+      "Derivative of function Frames.resolveRelative(..)" 
+      import Modelica.Mechanics.MultiBody.Frames;
+      extends Modelica.Icons.Function;
+      input Real v1[3] "Vector in frame 1";
+      input Orientation R1 "Orientation object to rotate frame 0 into frame 1";
+      input Orientation R2 "Orientation object to rotate frame 0 into frame 2";
+      input Real v1_der[3] "= der(v1)";
+      output Real v2_der[3] "Derivative of vector v resolved in frame 2";
+      annotation (Documentation(info="<html>
+ 
+</html>"));
+    algorithm 
+      v2_der := Frames.resolveRelative(v1_der+cross(R1.w,v1), R1, R2)
+                - cross(R2.w, Frames.resolveRelative(v1, R1, R2));
+      
+      /* skew(w) = T*der(T'), -skew(w) = der(T)*T'
+
+     v2 = T2*(T1'*v1)
+     der(v2) = der(T2)*T1'*v1 + T2*der(T1')*v1 + T2*T1'*der(v1)
+             = der(T2)*T2'*T2*T1'*v1 + T2*T1'*T1*der(T1')*v1 + T2*T1'*der(v1)
+             = -w2 x (T2*T1'*v1) + T2*T1'*(w1 x v1) + T2*T1'*der(v1)
+             = T2*T1'*(der(v1) + w1 x v1) - w2 x (T2*T1'*v1)
+  */
+    end resolveRelative_der;
   end Internal;
   
 end Frames;
