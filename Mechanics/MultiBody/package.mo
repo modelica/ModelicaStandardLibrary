@@ -54,9 +54,7 @@ and the accompanying <b>disclaimer</b>
 </HTML>"));
 import SI = Modelica.SIunits;
 
-
 extends Modelica.Icons.Library;
-
 
 package UsersGuide "Users Guide" 
   annotation (DocumentationClass=true, Documentation(info="<HTML>
@@ -1266,7 +1264,6 @@ dynamical effects is described in:
   
 end UsersGuide;
 
-
 model World 
   "World coordinate system + gravity field + default animation definition" 
   
@@ -1417,7 +1414,8 @@ of these axes can be set via parameters.
     annotation (Dialog(tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
   parameter Boolean axisShowLabels=true "= true, if labels shall be shown" 
     annotation (Dialog(tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
-  input Types.Color axisColor_x=Types.Defaults.FrameColor "Color of x-arrow" 
+  input Types.Color axisColor_x=Modelica.Mechanics.MultiBody.Types.Defaults.FrameColor 
+    "Color of x-arrow" 
     annotation (Dialog(tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
   input Types.Color axisColor_y=axisColor_x 
     annotation (Dialog(tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
@@ -1511,7 +1509,7 @@ protected
   parameter SI.Length lineWidth=axisDiameter;
   
   // Parameters to define axes labels
-  parameter SI.Length scaledLabel=Types.Defaults.FrameLabelHeightFraction*
+  parameter SI.Length scaledLabel=Modelica.Mechanics.MultiBody.Types.Defaults.FrameLabelHeightFraction*
       axisDiameter;
   parameter SI.Length labelStart=1.05*axisLength;
   

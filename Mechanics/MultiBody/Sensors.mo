@@ -38,7 +38,7 @@ package Sensors "Sensors to measure variables"
     input SI.Diameter arrowDiameter=world.defaultArrowDiameter 
       " Diameter of arrow from world frame to frame_a" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    input Types.Color arrowColor=Types.Defaults.SensorColor 
+    input Types.Color arrowColor=Modelica.Mechanics.MultiBody.Types.Defaults.SensorColor 
       " Color of arrow from world frame to frame_a" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
@@ -404,7 +404,7 @@ Exact definition of the returned quantities:
     input SI.Diameter arrowDiameter=world.defaultArrowDiameter 
       " Diameter of relative arrow from frame_a to frame_b" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    input Types.Color arrowColor=Types.Defaults.SensorColor 
+    input Types.Color arrowColor=Modelica.Mechanics.MultiBody.Types.Defaults.SensorColor 
       " Color of relative arrow from frame_a to frame_b" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
@@ -788,7 +788,7 @@ and resolved in the following frame
     input SI.Diameter arrowDiameter=world.defaultArrowDiameter 
       "Diameter of relative arrow from frame_a to frame_b" 
       annotation (Dialog(group="if animation = true", enable=animation));
-    input Types.Color arrowColor=Types.Defaults.SensorColor 
+    input Types.Color arrowColor=Modelica.Mechanics.MultiBody.Types.Defaults.SensorColor 
       "Color of relative arrow from frame_a to frame_b" 
       annotation (Dialog(group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
@@ -977,7 +977,7 @@ with negative sign at frame_a.
       annotation (Dialog(group="if animation = true", enable=animation));
     input SI.Diameter torqueDiameter=world.defaultArrowDiameter 
       " Diameter of torque arrow" annotation (Dialog(group="if animation = true", enable=animation));
-    input Types.Color torqueColor=Types.Defaults.TorqueColor 
+    input Types.Color torqueColor=Modelica.Mechanics.MultiBody.Types.Defaults.TorqueColor 
       " Color of torque arrow" 
       annotation (Dialog(group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
@@ -1066,10 +1066,10 @@ with negative sign at frame_a.
       " Diameter of force arrow" annotation (Dialog(group="if animation = true", enable=animation));
     input SI.Diameter torqueDiameter=forceDiameter " Diameter of torque arrow" 
                                   annotation (Dialog(group="if animation = true", enable=animation));
-    input Types.Color forceColor=Types.Defaults.ForceColor 
+    input Types.Color forceColor=Modelica.Mechanics.MultiBody.Types.Defaults.ForceColor 
       " Color of force arrow" 
       annotation (Dialog(group="if animation = true", enable=animation));
-    input Types.Color torqueColor=Types.Defaults.TorqueColor 
+    input Types.Color torqueColor=Modelica.Mechanics.MultiBody.Types.Defaults.TorqueColor 
       " Color of torque arrow" 
       annotation (Dialog(group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 

@@ -134,7 +134,7 @@ package Utilities "Utility models for Examples.Loops"
         rgbcolor={95,95,95},
         thickness=2));
     
-    connect(Cylinder.frame_b, Piston.frame_b) annotation (points=[14,89; 14,80; 
+    connect(Cylinder.frame_b, Piston.frame_b) annotation (points=[14,89; 14,80;
           14.5,80], style(
         color=10,
         rgbcolor={95,95,95},
@@ -144,7 +144,7 @@ package Utilities "Utility models for Examples.Loops"
         color=10,
         rgbcolor={95,95,95},
         thickness=2));
-    connect(B2.frame_a, Piston.frame_a) annotation (points=[4,35; -6,35; -6,49; 
+    connect(B2.frame_a, Piston.frame_a) annotation (points=[4,35; -6,35; -6,49;
           14.5,49; 14.5,59], style(
         color=10,
         rgbcolor={95,95,95},
@@ -401,12 +401,12 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
       "Inclination of cylinder";
     parameter Cv.NonSIunits.Angle_deg crankAngleOffset=0 
       "Offset for crank angle";
-    parameter SI.Length pistonLength=0.1 " Length of cylinder"
+    parameter SI.Length pistonLength=0.1 " Length of cylinder" 
       annotation (Dialog(group="Piston"));
     parameter SI.Length pistonCenterOfMass=pistonLength/2 
-      " Distance from frame_a to center of mass of piston"
+      " Distance from frame_a to center of mass of piston" 
       annotation (Dialog(group="Piston"));
-    parameter SI.Mass pistonMass(min=0) = 6 " Mass of piston"
+    parameter SI.Mass pistonMass(min=0) = 6 " Mass of piston" 
       annotation (Dialog(group="Piston"));
     parameter SI.Inertia pistonInertia_11(min=0) = 0.0088 
       " Inertia 11 of piston with respect to center of mass frame, parallel to frame_a"
@@ -418,12 +418,12 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
       " Inertia 33 of piston with respect to center of mass frame, parallel to frame_a"
       annotation (Dialog(group="Piston"));
     
-    parameter SI.Length rodLength=0.175 " Length of rod"
+    parameter SI.Length rodLength=0.175 " Length of rod" 
       annotation (Dialog(group="Rod"));
     parameter SI.Length rodCenterOfMass=rodLength/2 
-      " Distance from frame_a to center of mass of piston"
+      " Distance from frame_a to center of mass of piston" 
       annotation (Dialog(group="Rod"));
-    parameter SI.Mass rodMass(min=0) = 1 " Mass of rod"
+    parameter SI.Mass rodMass(min=0) = 1 " Mass of rod" 
       annotation (Dialog(group="Rod"));
     parameter SI.Inertia rodInertia_11(min=0) = 0.006 
       " Inertia 11 of rod with respect to center of mass frame, parallel to frame_a"
@@ -443,6 +443,12 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
       annotation (extent=[-44, -30; -24, -10]);
     Modelica.Mechanics.MultiBody.Parts.FixedTranslation Mounting(r={crankLength,0,0}, animation=
           false) annotation (extent=[-3, 90; 17, 110]);
+    Modelica.Mechanics.MultiBody.Parts.FixedRotation CylinderInclination(
+      r={crankLength - crankPinLength/2,0,0},
+      animation=false,
+      rotationType=Modelica.Mechanics.MultiBody.Types.RotationTypes.RotationAxis,
+      n={1,0,0},
+      angle=cylinderInclination) annotation (extent=[-44, 30; -24, 50]);
     Modelica.Mechanics.MultiBody.Parts.FixedRotation CrankAngle(
       animation=false,
       rotationType=Modelica.Mechanics.MultiBody.Types.RotationTypes.RotationAxis,

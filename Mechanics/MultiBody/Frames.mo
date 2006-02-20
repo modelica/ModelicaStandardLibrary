@@ -2327,7 +2327,7 @@ messages.
     algorithm 
       v2_der := Frames.resolve2(R, v1_der) - cross(R.w, Frames.resolve2(R, v1));
     end resolve2_der;
-
+    
     function resolveRelative_der 
       "Derivative of function Frames.resolveRelative(..)" 
       import Modelica.Mechanics.MultiBody.Frames;
@@ -2345,7 +2345,7 @@ messages.
                 - cross(R2.w, Frames.resolveRelative(v1, R1, R2));
       
       /* skew(w) = T*der(T'), -skew(w) = der(T)*T'
-
+ 
      v2 = T2*(T1'*v1)
      der(v2) = der(T2)*T1'*v1 + T2*der(T1')*v1 + T2*T1'*der(v1)
              = der(T2)*T2'*T2*T1'*v1 + T2*T1'*T1*der(T1')*v1 + T2*T1'*der(v1)

@@ -136,7 +136,8 @@ definition of the colors used in the MultiBody library
     parameter Types.ShapeExtra extra=0.0 
       " Additional parameter for cone, pipe etc. (see docu of Visualizers.Advanced.Shape)"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    input Types.Color color=Types.Defaults.RodColor " Color of shape" 
+    input Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.RodColor 
+      " Color of shape" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
       "Reflection of ambient light (= 0: light is completely absorbed)" 
@@ -248,7 +249,8 @@ animation = <b>false</b>.
     parameter Types.ShapeExtra extra=0.0 
       " Additional parameter depending on shapeType (see docu of Visualizers.Advanced.Shape)."
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    input Types.Color color=Types.Defaults.RodColor " Color of shape" 
+    input Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.RodColor 
+      " Color of shape" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
       "Reflection of ambient light (= 0: light is completely absorbed)" 
@@ -371,7 +373,7 @@ the animation may be switched off via parameter animation = <b>false</b>.
     parameter Boolean animation=true "= true, if animation shall be enabled";
     parameter SI.Position r[3]={0,0,0} 
       "Vector from frame_a to frame_b resolved in frame_a";
-    parameter Types.RotationTypes.Temp rotationType=Types.RotationTypes.RotationAxis 
+    parameter Types.RotationTypes.Temp rotationType=Modelica.Mechanics.MultiBody.Types.RotationTypes.RotationAxis 
       "Type of rotation description" 
       annotation (Evaluate=true);
     parameter Types.Axis n={1,0,0} 
@@ -425,7 +427,8 @@ the animation may be switched off via parameter animation = <b>false</b>.
     parameter Types.ShapeExtra extra=0.0 
       " Additional parameter depending on shapeType (see docu of Visualizers.Advanced.Shape)."
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    input Types.Color color=Types.Defaults.RodColor " Color of shape" 
+    input Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.RodColor 
+      " Color of shape" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
       "Reflection of ambient light (= 0: light is completely absorbed)" 
@@ -614,7 +617,7 @@ the animation may be switched off via parameter animation = <b>false</b>.
     parameter SI.Inertia I_32(min=-C.inf)=0 " (3,2) element of inertia tensor" annotation (
         Dialog(group=
             "Inertia tensor (resolved in center of mass, parallel to frame_a)"));
-    parameter Types.Init.Temp initType=Types.Init.Free 
+    parameter Types.Init.Temp initType=Modelica.Mechanics.MultiBody.Types.Init.Free 
       " Type of initialization (defines usage of start values below)" 
       annotation (Dialog(tab="Initialization"));
     parameter SI.Position r_0_start[3]={0,0,0} 
@@ -643,8 +646,8 @@ the animation may be switched off via parameter animation = <b>false</b>.
         tab="Animation",
         group="if animation = true",
         enable=animation));
-    input Types.Color sphereColor=Types.Defaults.BodyColor "Color of sphere" 
-                        annotation (Dialog(
+    input Types.Color sphereColor=Modelica.Mechanics.MultiBody.Types.Defaults.BodyColor 
+      "Color of sphere" annotation (Dialog(
         tab="Animation",
         group="if animation = true",
         enable=animation));
@@ -1005,7 +1008,7 @@ to the setting of parameters \"useQuaternions\" and
       " (3,2) element of inertia tensor" 
       annotation (Dialog(group=
             "Inertia tensor (resolved in center of mass, parallel to frame_a)"));
-    parameter Types.Init.Temp initType=Types.Init.Free 
+    parameter Types.Init.Temp initType=Modelica.Mechanics.MultiBody.Types.Init.Free 
       " Type of initialization (defines usage of start values below)" 
       annotation (Dialog(tab="Initialization"));
     parameter SI.Position r_0_start[3]={0,0,0} 
@@ -1052,7 +1055,8 @@ to the setting of parameters \"useQuaternions\" and
     parameter Types.ShapeExtra extra=0.0 
       " Additional parameter depending on shapeType (see docu of Visualizers.Advanced.Shape)."
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    input Types.Color color=Types.Defaults.BodyColor " Color of shape" 
+    input Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.BodyColor 
+      " Color of shape" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     parameter SI.Diameter sphereDiameter=2*width " Diameter of sphere" 
       annotation (Dialog(tab="Animation", group=
@@ -1270,13 +1274,13 @@ states and of the \"Advanced\" menu parameters, see model
       unit="g/cm3",
       min=0) = 7.7 
       "Density of box (e.g., steel: 7.7 .. 7.9, wood : 0.4 .. 0.8)";
-    input Modelica.Mechanics.MultiBody.Types.Color color=Types.Defaults.BodyColor 
+    input Modelica.Mechanics.MultiBody.Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.BodyColor 
       "Color of box" 
       annotation (Dialog(enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
       "Reflection of ambient light (= 0: light is completely absorbed)" 
       annotation (Dialog(enable=animation));
-    parameter Types.Init.Temp initType=Types.Init.Free 
+    parameter Types.Init.Temp initType=Modelica.Mechanics.MultiBody.Types.Init.Free 
       " Type of initialization (defines usage of start values below)" 
       annotation (Dialog(tab="Initialization"));
     parameter SI.Position r_0_start[3]={0,0,0} 
@@ -1467,13 +1471,13 @@ states and of the \"Advanced\" menu parameters, see model
       quantity="Density",
       unit="g/cm3") = 7.7 
       "Density of cylinder (e.g., steel: 7.7 .. 7.9, wood : 0.4 .. 0.8)";
-    input Modelica.Mechanics.MultiBody.Types.Color color=Types.Defaults.BodyColor 
+    input Modelica.Mechanics.MultiBody.Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.BodyColor 
       "Color of cylinder" annotation (Dialog(enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
       "Reflection of ambient light (= 0: light is completely absorbed)" 
       annotation (Dialog(enable=animation));
     
-    parameter Types.Init.Temp initType=Types.Init.Free 
+    parameter Types.Init.Temp initType=Modelica.Mechanics.MultiBody.Types.Init.Free 
       " Type of initialization (defines usage of start values below)" 
       annotation (Dialog(tab="Initialization"));
     parameter SI.Position r_0_start[3]={0,0,0} 
@@ -1641,7 +1645,7 @@ states and of the \"Advanced\" menu parameters, see model
     parameter Boolean animation=true 
       "= true, if animation shall be enabled (show sphere)";
     parameter SI.Mass m(min=0) "Mass of mass point";
-    parameter Types.Init.Temp initType=Types.Init.Free 
+    parameter Types.Init.Temp initType=Modelica.Mechanics.MultiBody.Types.Init.Free 
       " Type of initialization (defines usage of start values below)" 
       annotation (Dialog(group="Initialization"));
     parameter SI.Position r_0_start[3]={0,0,0} 
@@ -1658,8 +1662,8 @@ states and of the \"Advanced\" menu parameters, see model
         tab="Animation",
         group="if animation = true",
         enable=animation));
-    input Types.Color sphereColor=Types.Defaults.BodyColor "Color of sphere" 
-                        annotation (Dialog(
+    input Types.Color sphereColor=Modelica.Mechanics.MultiBody.Types.Defaults.BodyColor 
+      "Color of sphere" annotation (Dialog(
         tab="Animation",
         group="if animation = true",
         enable=animation));
@@ -1853,7 +1857,7 @@ November 3-4, 2003, pp. 149-158</p>
       "Moment of inertia of rotor around its axis of rotation";
     parameter Modelica.Mechanics.MultiBody.Types.Axis n={1,0,0} 
       "Axis of rotation resolved in frame_a";
-    parameter Types.Init.Temp initType=Types.Init.Free 
+    parameter Types.Init.Temp initType=Modelica.Mechanics.MultiBody.Types.Init.Free 
       "Type of initialization (defines usage of start values below)" 
       annotation (Dialog(group="Initialization"));
     parameter Cv.NonSIunits.Angle_deg phi_start=0 
@@ -1874,7 +1878,7 @@ November 3-4, 2003, pp. 149-158</p>
     parameter SI.Distance cylinderDiameter=2*world.defaultJointWidth 
       "Diameter of cylinder representing the rotor" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    input Modelica.Mechanics.MultiBody.Types.Color cylinderColor=Types.Defaults.RodColor 
+    input Modelica.Mechanics.MultiBody.Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.RodColor 
       "Color of cylinder representing the rotor" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 

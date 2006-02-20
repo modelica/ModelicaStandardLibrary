@@ -119,7 +119,8 @@ between two frame connectors, e.g., between two parts.
       annotation (Dialog(group="if animation = true", enable=animation));
     input SI.Diameter diameter=world.defaultArrowDiameter 
       " Diameter of force arrow" annotation (Dialog(group="if animation = true", enable=animation));
-    input Types.Color color=Types.Defaults.ForceColor " Color of arrow" 
+    input Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.ForceColor 
+      " Color of arrow" 
       annotation (Dialog(group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
       "Reflection of ambient light (= 0: light is completely absorbed)" 
@@ -238,7 +239,8 @@ is resolved in the world frame).
       annotation (Dialog(group="if animation = true", enable=animation));
     input SI.Diameter diameter=world.defaultArrowDiameter 
       " Diameter of torque arrow" annotation (Dialog(group="if animation = true", enable=animation));
-    input Types.Color color=Types.Defaults.TorqueColor " Color of arrow" 
+    input Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.TorqueColor 
+      " Color of arrow" 
       annotation (Dialog(group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
       "Reflection of ambient light (= 0: light is completely absorbed)" 
@@ -345,9 +347,9 @@ This leads to the following animation
       " Diameter of force arrow" annotation (Dialog(group="if animation = true", enable=animation));
     input SI.Diameter torqueDiameter=forceDiameter " Diameter of torque arrow" 
                                   annotation (Dialog(group="if animation = true", enable=animation));
-    input Types.Color forceColor=Types.Defaults.ForceColor 
+    input Types.Color forceColor=Modelica.Mechanics.MultiBody.Types.Defaults.ForceColor 
       " Color of force arrow" annotation (Dialog(group="if animation = true", enable=animation));
-    input Types.Color torqueColor=Types.Defaults.TorqueColor 
+    input Types.Color torqueColor=Modelica.Mechanics.MultiBody.Types.Defaults.TorqueColor 
       " Color of torque arrow" annotation (Dialog(group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
       "Reflection of ambient light (= 0: light is completely absorbed)" 
@@ -503,7 +505,8 @@ is resolved in the world frame).
       annotation (Dialog(group="if animation = true", enable=animation));
     input SI.Diameter diameter=world.defaultArrowDiameter 
       " Diameter of force arrow" annotation (Dialog(group="if animation = true", enable=animation));
-    input Types.Color color=Types.Defaults.ForceColor " Color of arrow" 
+    input Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.ForceColor 
+      " Color of arrow" 
       annotation (Dialog(group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
       "Reflection of ambient light (= 0: light is completely absorbed)" 
@@ -650,7 +653,8 @@ is resolved in the world frame).
       annotation (Dialog(group="if animation = true", enable=animation));
     input SI.Diameter diameter=world.defaultArrowDiameter 
       " Diameter of torque arrow" annotation (Dialog(group="if animation = true", enable=animation));
-    input Types.Color color=Types.Defaults.TorqueColor " Color of arrow" 
+    input Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.TorqueColor 
+      " Color of arrow" 
       annotation (Dialog(group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
       "Reflection of ambient light (= 0: light is completely absorbed)" 
@@ -802,9 +806,9 @@ is resolved in the world frame).
       " Diameter of force arrow" annotation (Dialog(group="if animation = true", enable=animation));
     input SI.Diameter torqueDiameter=forceDiameter " Diameter of torque arrow" 
                                   annotation (Dialog(group="if animation = true", enable=animation));
-    input Types.Color forceColor=Types.Defaults.ForceColor 
+    input Types.Color forceColor=Modelica.Mechanics.MultiBody.Types.Defaults.ForceColor 
       " Color of force arrow" annotation (Dialog(group="if animation = true", enable=animation));
-    input Types.Color torqueColor=Types.Defaults.TorqueColor 
+    input Types.Color torqueColor=Modelica.Mechanics.MultiBody.Types.Defaults.TorqueColor 
       " Color of torque arrow" annotation (Dialog(group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
       "Reflection of ambient light (= 0: light is completely absorbed)" 
@@ -988,9 +992,9 @@ is resolved in the world frame).
     input SI.Diameter connectionLineDiameter=forceDiameter 
       " Diameter of line connecting frame_a and frame_b" 
       annotation (Dialog(group="if animation = true", enable=animation));
-    input Types.Color forceColor=Types.Defaults.ForceColor 
+    input Types.Color forceColor=Modelica.Mechanics.MultiBody.Types.Defaults.ForceColor 
       " Color of force arrow" annotation (Dialog(group="if animation = true", enable=animation));
-    input Types.Color connectionLineColor=Types.Defaults.SensorColor 
+    input Types.Color connectionLineColor=Modelica.Mechanics.MultiBody.Types.Defaults.SensorColor 
       " Color of line connecting frame_a and frame_b" 
       annotation (Dialog(group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
@@ -1154,9 +1158,9 @@ is resolved in the world frame).
     input SI.Diameter connectionLineDiameter=torqueDiameter 
       " Diameter of line connecting frame_a and frame_b" 
       annotation (Dialog(group="if animation = true", enable=animation));
-    input Types.Color torqueColor=Types.Defaults.TorqueColor 
+    input Types.Color torqueColor=Modelica.Mechanics.MultiBody.Types.Defaults.TorqueColor 
       " Color of torque arrow" annotation (Dialog(group="if animation = true", enable=animation));
-    input Types.Color connectionLineColor=Types.Defaults.SensorColor 
+    input Types.Color connectionLineColor=Modelica.Mechanics.MultiBody.Types.Defaults.SensorColor 
       " Color of line connecting frame_a and frame_b" 
       annotation (Dialog(group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
@@ -1331,11 +1335,11 @@ is resolved in the world frame).
     input SI.Diameter connectionLineDiameter=forceDiameter 
       " Diameter of line connecting frame_a and frame_b" 
       annotation (Dialog(group="if animation = true", enable=animation));
-    input Types.Color forceColor=Types.Defaults.ForceColor 
+    input Types.Color forceColor=Modelica.Mechanics.MultiBody.Types.Defaults.ForceColor 
       " Color of force arrow" annotation (Dialog(group="if animation = true", enable=animation));
-    input Types.Color torqueColor=Types.Defaults.TorqueColor 
+    input Types.Color torqueColor=Modelica.Mechanics.MultiBody.Types.Defaults.TorqueColor 
       " Color of torque arrow" annotation (Dialog(group="if animation = true", enable=animation));
-    input Types.Color connectionLineColor=Types.Defaults.SensorColor 
+    input Types.Color connectionLineColor=Modelica.Mechanics.MultiBody.Types.Defaults.SensorColor 
       " Color of line connecting frame_a and frame_b" 
       annotation (Dialog(group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
@@ -1543,13 +1547,14 @@ is resolved in the world frame).
       annotation (Dialog(tab="Animation", group="if animateLine = true", enable=animateLine));
     parameter Types.ShapeExtra lineShapeExtra=0.0 " Extra parameter for shape" 
       annotation (Dialog(tab="Animation", group="if animateLine = true", enable=animateLine));
-    input Types.Color lineShapeColor=Types.Defaults.SensorColor 
+    input Types.Color lineShapeColor=Modelica.Mechanics.MultiBody.Types.Defaults.SensorColor 
       " Color of line shape" 
       annotation (Dialog(tab="Animation", group="if animateLine = true", enable=animateLine));
     input Real massDiameter=world.defaultBodyDiameter 
       " Diameter of point mass sphere" 
       annotation (Dialog(tab="Animation", group="if animateMass = true", enable=animateMass));
-    input Types.Color massColor=Types.Defaults.BodyColor " Color of point mass"
+    input Types.Color massColor=Modelica.Mechanics.MultiBody.Types.Defaults.BodyColor 
+      " Color of point mass" 
       annotation (Dialog(tab="Animation", group="if animateMass = true", enable=animateMass));
     parameter SI.Position s_small=1.E-10 
       " Prevent zero-division if distance between frame_a and frame_b is zero" 
@@ -1863,7 +1868,7 @@ for this situation:
     input Real massDiameterFaction=1.7 
       " Diameter of point mass spheres with respect to cylinderDiameter_a" 
       annotation (Dialog(tab="Animation", group="if animation = true and animateMasses = true", enable=animate and animateMasses));
-    input Types.Color massColor=Types.Defaults.BodyColor 
+    input Types.Color massColor=Modelica.Mechanics.MultiBody.Types.Defaults.BodyColor 
       " Color of point masses" 
       annotation (Dialog(tab="Animation", group="if animation = true and animateMasses = true", enable=animate and animateMasses));
     parameter SI.Position s_small=1.E-10 
@@ -2249,7 +2254,8 @@ for this situation:
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     parameter Integer numberOfWindings=5 " Number of spring windings" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    input Types.Color color=Types.Defaults.SpringColor " Color of spring" 
+    input Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.SpringColor 
+      " Color of spring" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
       "Reflection of ambient light (= 0: light is completely absorbed)" 
@@ -2257,8 +2263,8 @@ for this situation:
     input Real massDiameter=max(0, (width - 2*coilWidth)*0.9) 
       " Diameter of mass point sphere" annotation (Dialog(tab="Animation", group=
             "if animation = true and showMass = true", enable=animation and showMass));
-    input Types.Color massColor=Types.Defaults.BodyColor " Color of mass point"
-                             annotation (Dialog(tab="Animation", group=
+    input Types.Color massColor=Modelica.Mechanics.MultiBody.Types.Defaults.BodyColor 
+      " Color of mass point" annotation (Dialog(tab="Animation", group=
             "if animation = true and showMass = true", enable=animation and showMass));
     
     Forces.LineForceWithMass lineForce(
@@ -2470,7 +2476,8 @@ where a mass is hanging on a damper.
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     parameter Integer numberOfWindings=5 " Number of spring windings" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    input Types.Color color=Types.Defaults.SpringColor " Color of spring" 
+    input Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.SpringColor 
+      " Color of spring" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
       "Reflection of ambient light (= 0: light is completely absorbed)" 

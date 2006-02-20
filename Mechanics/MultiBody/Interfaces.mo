@@ -287,7 +287,7 @@ to the FlangeWithBearing connector.
 </html>"));
     
   end FlangeWithBearing;
-
+  
   model FlangeWithBearingAdaptor 
     "Adaptor to allow direct connections to the sub-connectors of FlangeWithBearing" 
     parameter Boolean includeBearingConnector=false 
@@ -360,7 +360,7 @@ connector.
         rgbfillColor={255,255,255},
         fillPattern=1));
   end FlangeWithBearingAdaptor;
-
+  
   partial model PartialTwoFrames 
     "Base model for components providing two frame connectors + outer world + assert to guarantee that the component is connected" 
     

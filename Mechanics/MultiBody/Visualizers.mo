@@ -437,7 +437,7 @@ MultiBody.Visualizers.FixedShape2 object is connected");
     SI.Length lineWidth=diameter;
     
     // Parameters to define axes labels
-    SI.Length scaledLabel=Types.Defaults.FrameLabelHeightFraction*diameter;
+    SI.Length scaledLabel=Modelica.Mechanics.MultiBody.Types.Defaults.FrameLabelHeightFraction*diameter;
     SI.Length labelStart=1.05*length;
     
     // x-axis
@@ -803,7 +803,7 @@ since they all have frame connectors).
                                                                                             annotation(Dialog);
       input SI.Diameter diameter=world.defaultArrowDiameter 
         "Diameter of arrow line" annotation(Dialog);
-      input Modelica.Mechanics.MultiBody.Types.Color color=Types.Defaults.ArrowColor 
+      input Modelica.Mechanics.MultiBody.Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.ArrowColor 
         "Color of arrow" annotation(Dialog);
       input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
         "Material property describing the reflecting of ambient light (= 0 means, that light is completely absorbed)"
@@ -896,7 +896,7 @@ library (will be replaced by a color editor).
                                                                                                           annotation(Dialog);
       input SI.Diameter diameter=world.defaultArrowDiameter 
         "Diameter of arrow line" annotation(Dialog);
-      input Modelica.Mechanics.MultiBody.Types.Color color=Types.Defaults.ArrowColor 
+      input Modelica.Mechanics.MultiBody.Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.ArrowColor 
         "Color of double arrow" annotation(Dialog);
       input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
         "Material property describing the reflecting of ambient light (= 0 means, that light is completely absorbed)"
