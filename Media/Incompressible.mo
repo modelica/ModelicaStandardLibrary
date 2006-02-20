@@ -235,6 +235,13 @@ which is only exactly true for a fluid with constant density d=d0.
         *(if densityOfT then (1 + T/Poly.evaluate(poly_rho, if TinK then T else to_degC(T))
       *Poly.derivativeValue(poly_rho,if TinK then T else to_degC(T))) else 1.0);
     end h_pT;
+
+    function density_T
+      input Temperature T "temperature";
+      output Density d "density";
+    algorithm
+      d := Poly.evaluate(poly_rho,if TinK then T else to_degC(T));
+    end density_T;
     
     redeclare function extends specificEnthalpy_pTX 
       "Compute specific enthalpy from pressure, temperature and mass fractions" 
@@ -242,6 +249,42 @@ which is only exactly true for a fluid with constant density d=d0.
       h := if singleState then h_T(T) else h_pT(p,T);
     end specificEnthalpy_pTX;
     
+redeclare function extends temperature_phX 
+  "Compute temperature from pressure, specific enthalpy and mass fraction" 
+  
+protected 
+  package Internal 
+    "Solve h(T) for T with given h (use only indirectly via temperature_phX)" 
+    extends Modelica.Media.Common.OneNonLinearEquation;
+    
+    redeclare record extends f_nonlinear_Data
+        "superfluous record, fix later when better structure of inverse functions exists"
+        constant Real[5] dummy = {1,2,3,4,5};
+    end f_nonlinear_Data;
+    
+    redeclare function extends f_nonlinear "p is smuggled in via vector"
+      algorithm 
+      y := if singleState then h_T(x) else h_pT(p,x);
+    end f_nonlinear;
+    
+    // Dummy definition has to be added for current Dymola
+    redeclare function extends solve 
+      end solve;
+    end Internal;
+    
+  algorithm 
+    T := Internal.solve(h, T_min, T_max, p, X, Internal.f_nonlinear_Data());
+  end temperature_phX;
+
+  redeclare function extends density_phX 
+    "Compute density from pressure, specific enthalpy and mass fraction" 
+    protected
+    Temperature T "temperature";
+  algorithm 
+    T := temperature_phX(p,h,X);
+    d := Poly.evaluate(poly_rho,if TinK then T else to_degC(T));
+  end density_phX;
+
     package Polynomials_Temp 
       "Temporary Functions operating on polynomials (including polynomial fitting); only to be used in Modelica.Media.Incompressible.TableBased" 
       extends Modelica.Icons.Library;
