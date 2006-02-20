@@ -299,7 +299,7 @@ problems.
       annotation (Documentation(info="<html>
   
 </html>"), Diagram);
-      connect(Constant1.y, Accelerate1.a) annotation (points=[-79,30; -42,30], 
+      connect(Constant1.y, Accelerate1.a) annotation (points=[-79,30; -42,30],
           style(color=74, rgbcolor={0,0,127}));
     end Accelerate;
     
@@ -403,7 +403,7 @@ If damping is added the amplitudes are bounded.
 <li><i>First Version from December 10, 1999 by P. Beater </i> </li>
 </ul>
 
-</html>"), 
+</html>"),
         Diagram);
       Translational.SlidingMass SlidingMass1(
         L=1,
@@ -493,7 +493,7 @@ to see the difference.
 <li><i>First Version from December 10, 1999 by P. Beater </i> </li>
 </ul>
 
-</html>"), 
+</html>"),
         Diagram);
       Translational.Sensors.ForceSensor ForceSensor1 annotation (extent=[-20,
             40; 0, 60]);
@@ -587,7 +587,7 @@ to see the difference.
             20, 10], style(color=58));
       connect(Spring1.flange_b, Stop2.flange_a) annotation (points=[40, 10; 60,
               10], style(color=58));
-      connect(Sine1.y, Force1.f)
+      connect(Sine1.y, Force1.f) 
         annotation (points=[1,70; 16,70], style(color=74, rgbcolor={0,0,127}));
     end Friction;
     
@@ -2241,7 +2241,7 @@ the contact of a sliding mass with the housing.
     parameter Boolean exact=false 
       "true/false exact treatment/filtering the input signal";
     parameter SI.Frequency f_crit=50 
-      "if exact=false, critical frequency of filter to filter input signal";
+      "if exact=false, critical frequency of filter to filter input signal" annotation(Dialog(enable=not exact));
     
     output SI.Position s "absolute position of flange_b";
     output SI.Velocity v "absolute velocity of flange_b";
@@ -2294,7 +2294,7 @@ to move according to this reference motion. According to parameter
 The input signal can be provided from one of the signal generator
 blocks of the block library Modelica.Blocks.Sources.
 </p>
-
+ 
 </HTML>
 ", revisions="<html>
 <p><b>Release Notes:</b></p>
@@ -2336,7 +2336,7 @@ blocks of the block library Modelica.Blocks.Sources.
     parameter Boolean exact=false 
       "true/false exact treatment/filtering the input signal";
     parameter SI.Frequency f_crit=50 
-      "if exact=false, critical frequency of filter to filter input signal";
+      "if exact=false, critical frequency of filter to filter input signal" annotation(Dialog(enable=not exact));
     parameter SI.Position s_start=0 "Start position of flange_b";
     
     output SI.Position s "absolute position of flange_b";

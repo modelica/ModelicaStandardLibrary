@@ -583,16 +583,16 @@ values (defined already in the model):</p>
         annotation (points=[45, 0; 55, 0], style(color=0));
       connect(brake.flange_b, inertia1.flange_a) 
         annotation (points=[65, 0; 75, 0], style(color=0));
-      connect(sine.y, product.u1) annotation (points=[-74.5,10; -70,10; -70,3; 
+      connect(sine.y, product.u1) annotation (points=[-74.5,10; -70,10; -70,3;
             -66,3], style(color=74, rgbcolor={0,0,127}));
       connect(step2.y, product.u2) annotation (points=[-74.5,-10; -70,-10; -70,
             -3; -66,-3], style(color=74, rgbcolor={0,0,127}));
       connect(product.y, torque.tau) annotation (points=[-54.5,0; -46,0], style(
             color=74, rgbcolor={0,0,127}));
       connect(const.y, clutch.f_normalized) annotation (points=[3.36767e-016,
-            19.5; 3.36767e-016,12.75; 0,12.75; 0,5.5], style(color=74, rgbcolor
-            ={0,0,127}));
-      connect(step.y, brake.f_normalized) annotation (points=[60,19.5; 60,5.5], 
+            19.5; 3.36767e-016,12.75; 0,12.75; 0,5.5], style(color=74, rgbcolor=
+             {0,0,127}));
+      connect(step.y, brake.f_normalized) annotation (points=[60,19.5; 60,5.5],
           style(color=74, rgbcolor={0,0,127}));
     end Friction;
     
@@ -632,7 +632,7 @@ frictional mode of clutches (clutchX.mode) where
 mode = -1/0/+1 means backward sliding,
 locked, forward sliding.</p>
 
-</HTML>"),      Commands(file="CoupledClutches.mos" "Plot inertias"), 
+</HTML>"),      Commands(file="CoupledClutches.mos" "Plot inertias"),
         Diagram);
       
       Rotational.Inertia J1(
@@ -742,7 +742,7 @@ gear.mode  :  1 = forward rolling
       
       PowerLoss = gear.flange_a.tau*der(gear.flange_a.phi) + gear.flange_b.tau*
         der(gear.flange_b.phi);
-      connect(DriveSine.y, torque1.tau) annotation (points=[-79,10; -72,10], 
+      connect(DriveSine.y, torque1.tau) annotation (points=[-79,10; -72,10],
           style(color=74, rgbcolor={0,0,127}));
       connect(load.y, torque2.tau) annotation (points=[79,10; 72,10], style(
             color=74, rgbcolor={0,0,127}));
@@ -815,7 +815,7 @@ as component LossyGear includes the functionality of component BearingFriction
         annotation (points=[-40, 10; -50, 10], style(color=0));
       connect(bearingFriction.flange_a, torque1.flange_b) annotation (points=[-70,
              10; -80, 10; -80, 70; -70, 70], style(color=0));
-      connect(DriveSine.y, torque1.tau) annotation (points=[-41,70; -48,70], 
+      connect(DriveSine.y, torque1.tau) annotation (points=[-41,70; -48,70],
           style(color=74, rgbcolor={0,0,127}));
       connect(load.y, torque2.tau) annotation (points=[79,10; 72,10], style(
             color=74, rgbcolor={0,0,127}));
@@ -1709,7 +1709,7 @@ It is used e.g. to build up equation-based parts of a drive train.</p>
       end Adapter;
     equation 
       tau_support = -adapter.flange_b.tau;
-      connect(adapter.flange_a, bearing) annotation (points=[-6.12303e-016,-70; 
+      connect(adapter.flange_a, bearing) annotation (points=[-6.12303e-016,-70;
             0,-70; 0,-100],    style(color=0));
       annotation (Documentation(info="<html>
 <p>
@@ -4282,11 +4282,11 @@ to the left and/or the right flange.
       annotation (points=[30, 0; 50, 0], style(color=0));
     connect(elastoBacklash.flange_b, flange_b) 
       annotation (points=[70, 0; 100, 0], style(color=0));
-    connect(gearRatio.bearing, adapter.flange_b) annotation (points=[-60,-10; 
+    connect(gearRatio.bearing, adapter.flange_b) annotation (points=[-60,-10;
           -60,-40; 6.12303e-016,-40; 6.12303e-016,-50],    style(color=0));
-    connect(gearEfficiency.bearing, adapter.flange_b) annotation (points=[-20,-10; 
+    connect(gearEfficiency.bearing, adapter.flange_b) annotation (points=[-20,-10;
           -20,-40; 6.12303e-016,-40; 6.12303e-016,-50],         style(color=0));
-    connect(bearingFriction.bearing, adapter.flange_b) annotation (points=[20,-10; 
+    connect(bearingFriction.bearing, adapter.flange_b) annotation (points=[20,-10;
           20,-40; 6.12303e-016,-40; 6.12303e-016,-50],         style(color=0));
   end Gear;
   
@@ -4388,7 +4388,7 @@ GearNew.</p>
       annotation (points=[-20, 0; 20, 0], style(color=0));
     connect(elastoBacklash.flange_b, flange_b) 
       annotation (points=[60, 0; 100, 0], style(color=0));
-    connect(lossyGear.bearing, adapter.flange_b) annotation (points=[-40,-20; 
+    connect(lossyGear.bearing, adapter.flange_b) annotation (points=[-40,-20;
           -40,-40; 6.12303e-016,-40; 6.12303e-016,-50],    style(color=0));
   end Gear2;
   
@@ -4398,7 +4398,7 @@ GearNew.</p>
     parameter Boolean exact=false 
       "true/false exact treatment/filtering the input signal";
     parameter SI.Frequency f_crit=50 
-      "if exact=false, critical frequency of filter to filter input signal";
+      "if exact=false, critical frequency of filter to filter input signal" annotation(Dialog(enable=not exact));
     Modelica.Blocks.Interfaces.RealInput phi_ref( redeclare type SignalType = 
           SI.Angle) "reference angle of flange_b as input signal" 
         annotation (extent=[-140, -20; -100, 20]);
@@ -4452,7 +4452,7 @@ to move according to this reference motion. According to parameter
 The input signal can be provided from one of the signal generator
 blocks of the block library Modelica.Blocks.Sources.
 </p>
-
+ 
 </HTML>
 "),   Icon(
         Rectangle(extent=[-20, -80; 20, -120], style(color=8, fillColor=8)),
@@ -4533,7 +4533,7 @@ blocks of the block library Modelica.Blocks.Sources.
     parameter Boolean exact=false 
       "true/false exact treatment/filtering the input signal";
     parameter SI.Frequency f_crit=50 
-      "if exact=false, critical frequency of filter to filter input signal";
+      "if exact=false, critical frequency of filter to filter input signal" annotation(Dialog(enable=not exact));
     parameter SI.Angle phi_start=0 "Start angle of flange_b";
     SI.Angle phi_ref 
       "reference angle defined by time integration of input signal";
