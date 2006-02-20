@@ -589,7 +589,7 @@ transform the formula to SI units:
     
   protected 
   package Internal 
-      "Solve h(data,T) for T with given h (never use this package directly, but only indirectly via temperature_phX)" 
+      "Solve h(data,T) for T with given h (use only indirectly via temperature_phX)" 
     extends Modelica.Media.Common.OneNonLinearEquation;
     redeclare record extends f_nonlinear_Data 
         "Data to be passed to non-linear function" 
@@ -607,8 +607,48 @@ transform the formula to SI units:
   end Internal;
     
   algorithm 
-    T := Internal.solve(h, 200, 6000, data);
+    T := Internal.solve(h, 200, 6000, 1.0e5, {1}, data);
   end temperature_phX;
+  
+  redeclare function extends temperature_psX 
+    "Compute temperature from pressure, specific entropy and mass fraction" 
+  protected 
+  package Internal 
+      "Solve h(data,T) for T with given h (use only indirectly via temperature_phX)" 
+    extends Modelica.Media.Common.OneNonLinearEquation;
+    redeclare record extends f_nonlinear_Data 
+        "Data to be passed to non-linear function" 
+      extends Modelica.Media.IdealGases.Common.DataRecord;
+    end f_nonlinear_Data;
+      
+    redeclare function extends f_nonlinear 
+    algorithm 
+        y := s0_T(f_nonlinear_data,x)- data.R*Modelica.Math.log(p/reference_p);
+    end f_nonlinear;
+      
+    // Dummy definition has to be added for current Dymola
+    redeclare function extends solve 
+    end solve;
+  end Internal;
+    
+  algorithm 
+    T := Internal.solve(s, 200, 6000, 1.0e5, {1}, data);
+  end temperature_psX;
+
+  redeclare function extends specificEnthalpy_psX
+  protected
+    Temperature T := temperature_psX(p,s,X);
+  algorithm  
+  end specificEnthalpy_psX;
+      
+  redeclare function extends density_phX 
+    "Compute density from pressure, specific enthalpy and mass fraction" 
+    protected
+    Temperature T "temperature";
+  algorithm 
+    T := temperature_phX(p,h,X);
+    d := p/(data.R*T);
+  end density_phX;
   
 end SingleGasNasa;
 
@@ -786,9 +826,11 @@ required from medium model \""   + mediumName + "\".");
       sum((SingleGasNasa.h_T(data[i], T)*dXi[i]) for i in 1:nX);
   end h_TX_der;
   
-  redeclare function extends gasConstant 
+  redeclare function extends gasConstant "compute gasConstant"
   algorithm 
-    R := sum(data[i].R*state.X[i] for i in 1:size(substanceNames, 1));
+    R := if (not reducedX) then
+      sum(data[i].R*state.X[i] for i in 1:size(substanceNames, 1)) else
+      sum(data[i].R*state.X[i] for i in 1:size(substanceNames, 1)-1) + data[end].R*(1-sum(state.X[i]));
   end gasConstant;
   
   function density "return density of ideal gas" 
@@ -821,24 +863,26 @@ required from medium model \""   + mediumName + "\".");
     extends Modelica.Icons.Function;
     input SI.MoleFraction x[:] "mole fraction of mixture";
     output Real smix "mixing entropy contribution, divided by gas constant";
-  protected 
-    Real eps=Modelica.Constants.eps 
-      "values smaller than eps are not used correctly in entropy summation";
   algorithm 
-    smix := 0.0;
-    for i in 1: size(x,1) loop
-      smix := smix + (if x[i] > eps then -x[i]*Modelica.Math.log(x[i]) else x[i]);
-    end for;
+    smix := sum(if x[i] > Modelica.Constants.eps then -x[i]*Modelica.Math.log(x[i])
+                else x[i] for i in 1:size(x,1));
   end MixEntropy;
   
+  function s_TX "temperature dependent part of the entropy"
+    input Temperature T "temperature";
+    input MassFraction[:] X "mass fraction";
+    output SpecificEntropy s "specific entropy";
+  algorithm
+    s := sum(SingleGasNasa.s0_T(data[i], T)*X[i] for i in 1:nS);
+  end s_TX;
+
   redeclare function extends specificEntropy "Return specific entropy" 
-  algorithm 
-    s := 0.0;
-    for i in 1:size(data,1) loop
-      s := s + SingleGasNasa.s0_T(data[i], state.T)*state.X[i];
-    end for;
-    s := s - (data.R*state.X)*(Modelica.Math.log(state.p/reference_p))
-    + MixEntropy(massToMoleFractions(state.X,data[:].MM));
+    protected
+    MassFraction[nS] X "complete X-vector";
+  algorithm
+    X := if reducedX then cat(1,state.X,{1-sum(state.X)}) else state.X;
+    s := s_TX(state.T,X) - (data.R*X)*(Modelica.Math.log(state.p/reference_p))
+      + MixEntropy(massToMoleFractions(X,data[:].MM));
   end specificEntropy;
   
   redeclare function extends isentropicExponent "Return isentropic exponent" 
@@ -1299,6 +1343,84 @@ end lowPressureThermalConductivity;
   algorithm 
     h := h_TX(T,X[1:nXi]);
   end specificEnthalpy_pTX;
+
+  redeclare function extends temperature_phX 
+    "Compute temperature from pressure, specific enthalpy and mass fraction" 
+    
+  protected 
+  package Internal 
+      "Solve h(data,T) for T with given h (use only indirectly via temperature_phX)" 
+    extends Modelica.Media.Common.OneNonLinearEquation;
+    redeclare record extends f_nonlinear_Data 
+        "Data to be passed to non-linear function" 
+      extends Modelica.Media.IdealGases.Common.DataRecord;
+    end f_nonlinear_Data;
+      
+    redeclare function extends f_nonlinear 
+    algorithm 
+        y := h_TX(x,X);
+    end f_nonlinear;
+      
+    // Dummy definition has to be added for current Dymola
+    redeclare function extends solve 
+    end solve;
+  end Internal;
+    
+  algorithm 
+    T := Internal.solve(h, 200, 6000, p, X[1:nXi], data[1]);
+  end temperature_phX;
+  
+  redeclare function extends temperature_psX 
+    "Compute temperature from pressure, specific entropy and mass fraction" 
+  protected 
+  package Internal 
+      "Solve h(data,T) for T with given h (use only indirectly via temperature_phX)" 
+    extends Modelica.Media.Common.OneNonLinearEquation;
+    redeclare record extends f_nonlinear_Data 
+        "Data to be passed to non-linear function" 
+      extends Modelica.Media.IdealGases.Common.DataRecord;
+    end f_nonlinear_Data;
+      
+    redeclare function extends f_nonlinear
+    protected
+      MassFraction[nS] Xf "complete X-vector";
+    algorithm 
+      Xf := if reducedX then cat(1,X,{1-sum(X)}) else X;
+      y := s_TX(x,Xf)- data.R*Xf*Modelica.Math.log(p/reference_p)
+        + MixEntropy(massToMoleFractions(Xf,data[:].MM));
+    end f_nonlinear;
+      
+    // Dummy definition has to be added for current Dymola
+    redeclare function extends solve 
+    end solve;
+  end Internal;
+    
+  algorithm 
+    T := Internal.solve(s, 200, 6000, 1.0e5, {1}, data[1]);
+  end temperature_psX;
+
+  redeclare function extends specificEnthalpy_psX
+  protected
+    Temperature T "temperature";
+  algorithm
+    T := temperature_psX(p,s,X);
+    h := specificEnthalpy_pTX(p,T,X);
+  end specificEnthalpy_psX;
+      
+  redeclare function extends density_phX 
+    "Compute density from pressure, specific enthalpy and mass fraction" 
+    protected
+    Temperature T "temperature";
+    SpecificHeatCapacity R "gas constant"; 
+  algorithm 
+    T := temperature_phX(p,h,X);
+    R := if (not reducedX) then
+      sum(data[i].R*X[i] for i in 1:size(substanceNames, 1)) else
+      sum(data[i].R*X[i] for i in 1:size(substanceNames, 1)-1) + data[end].R*(1-sum(X[i])); 
+    d := p/(R*T);
+  end density_phX;
+  
+  
 end MixtureGasNasa;
 
 
