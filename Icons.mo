@@ -448,8 +448,8 @@ and the accompanying <b>disclaimer</b>
   equation 
     
   end MotorIcon;
-
-  connector SignalBusIcon "Icon for signal bus" 
+  
+  connector SignalBus "Icon for signal bus" 
     
     annotation (
       Icon(
@@ -523,9 +523,9 @@ and the accompanying <b>disclaimer</b>
           string="%name",
           style(color=0))));
     
-  end SignalBusIcon;
-
-  connector SignalSubBusIcon "Icon for signal sub-bus" 
+  end SignalBus;
+  
+  connector SignalSubBus "Icon for signal sub-bus" 
     
     annotation (
       Icon(
@@ -583,5 +583,5 @@ and the accompanying <b>disclaimer</b>
           string="%name",
           style(color=0))));
     
-  end SignalSubBusIcon;
+  end SignalSubBus;
 end Icons;

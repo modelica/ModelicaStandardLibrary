@@ -10,8 +10,8 @@ annotation(preferedView="info",
     height=0.57,
     library=1,
     autolayout=1),
-  version="2.2",
-  versionDate="2006-01-08",
+  version="2.2.1",
+  versionDate="2006-02-27",
   conversion(
     from(version="1.6",
          ModelicaAdditions(version="1.5"),
@@ -402,7 +402,7 @@ This section summarizes the changes that have been performed
 on the Modelica standard library.
 </p>
 <ul>
-<li> <a href=\"Modelica://Modelica.UsersGuide.ReleaseNotes.Version_2_2_1\">Version 2.2.1</a> (Dec. 19., 2005)</li>
+<li> <a href=\"Modelica://Modelica.UsersGuide.ReleaseNotes.Version_2_2_1\">Version 2.2.1</a> (Feb. 27., 2005)</li>
 <li> <a href=\"Modelica://Modelica.UsersGuide.ReleaseNotes.Version_2_2\">Version 2.2</a> (April 6, 2005)</li>
 <li> <a href=\"Modelica://Modelica.UsersGuide.ReleaseNotes.Version_2_1\">Version 2.1</a> (Nov. 11, 2004)</li>
 <li> <a href=\"Modelica://Modelica.UsersGuide.ReleaseNotes.Version_1_6\">Version 1.6</a> (June 21, 2004)</li>
@@ -426,12 +426,19 @@ In this version, <b>no</b> new libraries have been added.
 </p>
  
 <p>
+Improving the <b>documentation</b> of the Modelica standard library:<br>
 In Dymola 6, the new feature was introduced to automatically add tables
 for class content and component interface definitions (parameters and 
 connectors) to the info layer. For this reason, the corresponding (partial)
 tables previously present in the Modelica Standard Library have been
 removed. The new feature of Dymola 6 has the significant advantage that
-all tables are now guaranteed to be up-to-date.<br>&nbsp;
+all tables are now guaranteed to be up-to-date.<br>
+Additionally, the documentation has been improved by adding appropriate
+description texts to parameters, connector instances, function input
+and output arguments etc., in order that the automatically generated
+tables do not have empty entries. Also new users guides for sublibraries
+Rotational and SIunits have been added and the users guide on top
+level (Modelica.UsersGuide) has been improved.<br>&nbsp;
 </p>
  
 <p>
@@ -461,9 +468,9 @@ The following <b>new components</b> have been added to <b>existing</b> libraries
            either star (wye) ? or delta ? connection</td> </tr>
 
   <tr><td colspan=\"2\"><b>Modelica.Icons.</b></td></tr>
-  <tr><td> SignalBusIcon</td>
+  <tr><td> SignalBus</td>
       <td> Icon for signal bus</td> </tr>
-  <tr><td> SignalSubBusIcon</td>
+  <tr><td> SignalSubBus</td>
       <td> Icon for signal sub-bus</td> </tr>
  
   <tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.</b></td></tr>
@@ -601,10 +608,17 @@ The following <b>components</b> have been improved:
                 is used in all menus
                 to disable input fields if the input would be ignored.</li>
            <li> All visual shapes are now defined with conditional declarations
-                (due remove them, if animation is switched off). Previously,
+                (to remove them, if animation is switched off). Previously,
                 these (protected) objects have been defined by arrays with
                 dimension 0 or 1.</li>
            </ul></td></tr>
+
+  <tr><td>Frames.resolveRelative</td>
+      <td> The derivative of this function added as function and defined via
+           an annotation. In certain situations, tools had previously
+           difficulties to differentiate the inlined function automatically.</td>
+
+
   <tr><td>Forces.*</td>
       <td> The scaling factors N_to_m and Nm_to_m have no longer a default
            value of 1000 but a default value of world.defaultN_to_m (=1000) 
@@ -696,15 +710,23 @@ The following <b>errors</b> have been fixed:
 
   <tr><td colspan=\"2\"><b>Modelica.Electrical.Analog.Semiconductors. </b></td></tr>
   <tr><td> PMOS<br>
-           NMOS</td>
-      <td> Bug fixed.</td> </tr>
+           NMOS<br>
+           HeatingPMOS<br>
+           HeatingNMOS</td>
+      <td> The Drain-Source-Resistance RDS had actually a resistance of
+           RDS/v, with v=Beta*(W+dW)/(L+dL). The correct formula is without
+           the divison by \"v\". This has now been corrected.<br>
+           This bug fix should not have an essential effect in most applications.
+           In the default case (Beta=1e-5), the Drain-Source-Resistance was
+           a factor of 1e5 too large and had in the default case the
+           wrong value 1e12, although it should have the value 1e7. The effect
+           was that this resistance had practically no effect.</td> </tr>
 
-  <tr><td colspan=\"2\"> <b>Modelica.Media.IdealGases.Common.SingleGasNasa.</td></tr>
+  <tr><td colspan=\"2\"> <b>Modelica.Media.IdealGases.Common.SingleGasNasa.</b></td></tr>
   <tr><td> dynamicViscosityLowPressure</td>
       <td> Viscosity and thermal conductivity (which needs viscosity as input) 
            were computed wrong for polar gases and gas mixtures 
            (i.e. if dipole moment not 0.0). This has been fixed in version 2.2.1.</td> </tr>
-
   <tr><td colspan=\"2\"><b>Modelica.Utilities.Streams.</b></td></tr>
   <tr><td>readLine</td>
       <td> Depending on the C-implementation, the stream was not correctly closed.
