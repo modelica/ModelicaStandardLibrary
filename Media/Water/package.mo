@@ -482,6 +482,19 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
     T := T_ph(p, h);
   end temperature_phX;
   
+  redeclare function extends temperature_psX 
+    "Compute temperature from pressure and specific enthalpy" 
+  algorithm 
+  assert(false,"not yet implemented");
+//  T := IF97_Utilities.T_ps(p, s);
+  end temperature_psX;
+  
+  redeclare function extends density_phX 
+    "Compute density from pressure and specific enthalpy" 
+  algorithm 
+    d := IF97_Utilities.rho_ph(p, h);
+  end density_phX;
+  
   redeclare function extends p_dT 
     "compute pressure as a function of density and temperature" 
   algorithm 
@@ -646,6 +659,11 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
     h_is := IF97_Utilities.isentropicEnthalpy(p_downstream, specificEntropy(
       refState), 0);
   end isentropicEnthalpy;
+  
+  redeclare function extends specificEnthalpy_psX "compute h(p,s)" 
+  algorithm 
+    h := IF97_Utilities.isentropicEnthalpy(p, s, 0);
+  end specificEnthalpy_psX;
   
   redeclare function extends density_derh_p 
     "density derivative by specific enthalpy" 
