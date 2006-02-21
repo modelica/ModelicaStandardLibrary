@@ -37,7 +37,7 @@ This package contains <b>discontinuous</b> and
 "));
       block Limiter "Limit the range of a signal" 
         parameter Real uMax=1 "Upper limits of input signals";
-        parameter Real uMin(max=uMax) = -uMax "Lower limits of input signals";
+        parameter Real uMin= -uMax "Lower limits of input signals";
         extends Interfaces.SISO;
     
         annotation (
@@ -97,6 +97,8 @@ as output.
               string="uMax",
               style(color=10))));
       equation 
+        assert(uMax >= uMin, "Limiter: Limits must be consistent. However, uMax (=" + String(uMax) +
+                             ") < uMin (=" + String(uMin) + ")");
         y = if u > uMax then uMax else if u < uMin then uMin else u;
       end Limiter;
   

@@ -23,9 +23,10 @@ described by differential equations.
     import Modelica.Blocks.Types.Init;
     parameter Real k=1 "Integrator gain";
     parameter Init.Temp initType=Modelica.Blocks.Types.Init.NoInit 
-      "Type of initialization (InitialState and InitialOutput are identical)"         annotation(Evaluate=true, 
+      "Type of initialization (SteadyState, InitialState and InitialOutput are identical)"
+                                                                                      annotation(Evaluate=true,
         Dialog(group="Initialization"));
-    parameter Real y_start=0 "Initial or guess value of output (= state)"
+    parameter Real y_start=0 "Initial or guess value of output (= state)" 
       annotation (Dialog(group="Initialization"));
     extends Interfaces.SISO(y(start=y_start));
     
@@ -51,6 +52,13 @@ the gain <i>k</i>:
      y = - u
          s
 </pre>
+
+<p>
+The integrator is initialized in steady state only, if the
+input u is zero which cannot be forced from the integrator
+block. For this reason, initType = SteadyState is ignored
+and interpreted as initType = InitialOutput.
+</p>
 
 </HTML>
 "),   Icon(
@@ -87,9 +95,9 @@ the gain <i>k</i>:
           style(color=0)),
         Line(points=[-46, 0; 46, 0], style(color=0))));
   initial equation 
-    if initType == Init.SteadyState then
-      der(y) = 0;
-    elseif initType == Init.InitialState or initType == Init.InitialOutput then
+    if initType == Init.SteadyState or 
+       initType == Init.InitialState or 
+       initType == Init.InitialOutput then
       y = y_start;
     end if;
   equation 
@@ -102,9 +110,10 @@ the gain <i>k</i>:
     parameter Real outMax=1 "Upper limit of output";
     parameter Real outMin=-outMax "Lower limit of output";
     parameter Init.Temp initType=Modelica.Blocks.Types.Init.NoInit 
-      "Type of initialization (InitialState and InitialOutput are identical)"         annotation(Evaluate=true, 
+      "Type of initialization (SteadyState, InitialState and InitialOutput are identical)"
+                                                                                                   annotation(Evaluate=true,
         Dialog(group="Initialization"));
-    parameter Real y_start=0 "Initial or guess value of output (= state)"
+    parameter Real y_start=0 "Initial or guess value of output (= state)" 
       annotation (Dialog(group="Initialization"));
     extends Interfaces.SISO(y(start=y_start));
     annotation (
@@ -126,6 +135,13 @@ integral reaches a given upper or lower <i>limit</i> and the
 input will drive the integral outside of this bound, the
 integration is halted and only restarted if the input drives
 the integral away from the bounds.
+</p>
+ 
+<p>
+The limited integrator is initialized in steady state only, if the
+input u is zero which cannot be forced from the integrator
+block. For this reason, initType = SteadyState is ignored
+and interpreted as initType = InitialOutput.
 </p>
 
 </HTML>
@@ -163,14 +179,13 @@ the integral away from the bounds.
           style(color=0)),
         Line(points=[4, 0; 46, 0], style(color=0))));
   initial equation 
-    if initType == Init.SteadyState then
-      der(y) = 0;
-    elseif initType == Init.InitialState or initType == Init.InitialOutput then
+    if initType == Init.SteadyState or 
+       initType == Init.InitialState or 
+       initType == Init.InitialOutput then
       y = y_start;
     end if;
   equation 
-    der(y) = if y < outMin and u < 0 or y > outMax and u > 0 then 0 else k*
-      u;
+    der(y) = if y < outMin and u < 0 or y > outMax and u > 0 then 0 else k*u;
   end LimIntegrator;
   
   block Derivative "Approximated derivative block" 
@@ -280,9 +295,9 @@ If k=0, the block reduces to y=0.
     parameter Real k=1 "Gain";
     parameter SIunits.Time T=1 "Time Constant";
     parameter Init.Temp initType=Modelica.Blocks.Types.Init.NoInit 
-      "Type of initialization (InitialState and InitialOutput are identical)"         annotation(Evaluate=true, 
+      "Type of initialization (InitialState and InitialOutput are identical)"         annotation(Evaluate=true,
         Dialog(group="Initialization"));
-    parameter Real y_start=0 "Initial or guess value of output (= state)"
+    parameter Real y_start=0 "Initial or guess value of output (= state)" 
       annotation (Dialog(group="Initialization"));
     
     extends Interfaces.SISO(y(start=y_start));
@@ -376,12 +391,12 @@ Example:
     parameter Real w=1 "Angular frequency";
     parameter Real D=1 "Damping";
     parameter Init.Temp initType=Modelica.Blocks.Types.Init.NoInit 
-      "Type of initialization (InitialState and InitialOutput are identical)"         annotation(Evaluate=true, 
+      "Type of initialization (InitialState and InitialOutput are identical)"         annotation(Evaluate=true,
         Dialog(group="Initialization"));
-    parameter Real y_start=0 "Initial or guess value of output (= state)"
+    parameter Real y_start=0 "Initial or guess value of output (= state)" 
       annotation (Dialog(group="Initialization"));
     parameter Real yd_start=0 
-      "Initial or guess value of derivative of output (= state)"
+      "Initial or guess value of derivative of output (= state)" 
       annotation (Dialog(group="Initialization"));
     
     extends Interfaces.SISO(y(start=y_start));
@@ -509,18 +524,18 @@ Example:
     parameter Real k=1 "Gain";
     parameter SIunits.Time T=1 "Time Constant (T>0 required)";
     parameter Init.Temp initType=Modelica.Blocks.Types.Init.NoInit 
-      "Type of initialization"                                                        annotation(Evaluate=true, 
+      "Type of initialization (SteadyState and InitialOutput are identical)"  annotation(Evaluate=true,
         Dialog(group="Initialization"));
-    parameter Real x_start=0 "Initial or guess value of state"
+    parameter Real x_start=0 "Initial or guess value of state" 
       annotation (Dialog(group="Initialization"));
     parameter Real y_start=0 "Initial value of output" 
-      annotation(Dialog(enable=initType == Init.InitialOutput, group=
+      annotation(Dialog(enable=initType == Init.SteadyState or initType == Init.InitialOutput, group=
             "Initialization"));
     
     extends Interfaces.SISO;
     output Real x(start=x_start) "State of block";
     
-    annotation (
+    annotation (defaultComponentName="PI",
       Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[2, 2],
@@ -562,6 +577,13 @@ Example:
                  0.4 s
 </pre>
  
+<p>
+The PI-block is initialized in steady state only, if the
+input u is zero which cannot be forced from this
+block. For this reason, initType = SteadyState is ignored
+and interpreted as initType = InitialOutput.
+</p>
+
 </HTML>
 "),   Icon(
         Line(points=[-80, 78; -80, -90], style(color=8)),
@@ -601,12 +623,11 @@ Example:
         Line(points=[-100, 0; -60, 0]),
         Line(points=[62, 0; 100, 0])));
   initial equation 
-    if initType == Init.SteadyState then
-      der(x) = 0;
+    if initType == Init.SteadyState or 
+       initType == Init.InitialOutput then
+      y = y_start;
     elseif initType == Init.InitialState then
       x = x_start;
-    elseif initType == Init.InitialOutput then
-      y = y_start;
     end if;
   equation 
     der(x) = u/T;
@@ -636,7 +657,7 @@ Example:
       annotation(Dialog(enable=initType == Init.InitialOutput, group=
             "Initialization"));
     
-    annotation (
+    annotation (defaultComponentName="PID",
       Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[2, 2],
@@ -669,6 +690,12 @@ For a more practically useful PID-controller, use
 block LimPID.
 </p>
  
+<p>
+The PID-block is initialized in steady state only, if the
+input u is zero which cannot be forced from this
+block. For this reason, initType = SteadyState is ignored
+and interpreted as initType = InitialOutput.
+</p>
 </HTML>
 "),   Diagram);
     Blocks.Math.Gain P "Proportional part of PID controller" 
@@ -684,15 +711,12 @@ block LimPID.
       annotation (extent=[60, -10; 80, 10]);
     Blocks.Math.Add3 Add annotation (extent=[20, -10; 40, 10]);
   initial equation 
-    if initType == Init.SteadyState then
-      der(I.y) = 0;
-      der(D.x) = 0;
+    if initType == Init.SteadyState or initType == Init.InitialOutput then
+      y = y_start;
+      D.x = D.u;
     elseif initType == Init.InitialState then
       I.y = xi_start;
       D.x = xd_start;
-    elseif initType == Init.InitialOutput then
-      y = y_start;
-      D.x = D.u;
     end if;
   equation 
     connect(u, P.u) annotation (points=[-120,0; -80,0; -80,80; -64,80], style(
@@ -744,9 +768,11 @@ block LimPID.
     parameter Real y_start=0 "Initial value of output" 
       annotation(Dialog(enable=initType == Init.InitialOutput, group=
             "Initialization"));
-    Blocks.Nonlinear.Limiter limiter(uMax=yMax, uMin=yMin) 
+    Blocks.Nonlinear.Limiter limiter(uMax=yMax, uMin=yMin,
+                             u(start=if initType == Init.SteadyState or initType == Init.InitialOutput then 
+                                     y_start else 0)) 
       annotation (extent=[70, -10; 90, 10]);
-    annotation (
+    annotation (defaultComponentName="PID",
       Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[2, 2],
@@ -797,6 +823,14 @@ part of this controller, the following practical aspects are included:
      setpoint signal.</li>
 </ul>
  
+ 
+<p>
+The LimPID-block is initialized in steady state only, if the
+input u is zero which cannot be forced from this
+block. For this reason, initType = SteadyState is ignored
+and interpreted as initType = InitialOutput.
+</p>
+
 </HTML>
 "),   Diagram);
     Blocks.Math.Add addP(k1=wp, k2=-1) 
@@ -817,18 +851,22 @@ part of this controller, the following practical aspects are included:
     Blocks.Math.Gain gainTrack(k=1/(k*Ni)) 
       annotation (extent=[40, -80; 20, -60]);
   initial equation 
-    if initType == Init.SteadyState then
-      der(I.y) = 0;
-      der(D.x) = 0;
+    if initType == Init.SteadyState or initType == Init.InitialOutput then
+      y = y_start;
+      D.x = D.u;
     elseif initType == Init.InitialState then
       I.y = xi_start;
       D.x = xd_start;
-    elseif initType == Init.InitialOutput then
-      y = y_start;
-      D.x = D.u;
     end if;
   equation 
-    assert(yMax >= yMin, "PID: Limits must be consistent");
+    assert(yMax >= yMin, "LimPID: Limits must be consistent. However, yMax (=" + String(yMax) +
+                         ") < yMin (=" + String(yMin) + ")");
+    assert(initType == Init.NoInit or 
+           initType == Init.InitialState or 
+           (initType == Init.SteadyState or 
+           initType == Init.InitialOutput) and 
+           (y_start >= yMin and y_start <= yMax), "LimPID: Start value y_start (=" + String(y_start) +
+           ") is outside of the limits of yMin (=" + String(yMin) +") or yMax (=" + String(yMax) + ")");
     connect(u_s, addP.u1) annotation (points=[-120,0; -96,0; -96,56; -82,56],
         style(color=74, rgbcolor={0,0,127}));
     connect(u_s, addD.u1) annotation (points=[-120,0; -96,0; -96,6; -82,6],
@@ -1217,7 +1255,7 @@ with zeros.</p>
       if not evenOrder then
         xr = xr_start;
       end if;
-    elseif initType == MyBlocks.Continuous.Initialization.InitialOutput then
+    elseif initType == Init.InitialOutput then
       y = y_start;
       der(x1) = zeros(m);
       if evenOrder then
