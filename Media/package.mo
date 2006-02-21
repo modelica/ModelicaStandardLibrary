@@ -5258,6 +5258,832 @@ quantities are assumed to be constant.
     
   end PartialSimpleMedium;
   
+  partial package PartialTwoPhaseMediumWithCache 
+    extends PartialTwoPhaseMedium;
+    
+    replaceable record TwoPhaseProps "intermediate data record" 
+      extends Modelica.Icons.Record;
+      Density d "density";
+      Temperature T "temperature";
+      FixedPhase phase "2 for two-phase, 1 for one-phase, 0 if not known";
+      AbsolutePressure p "pressure";
+      SpecificEntropy s "specific entropy";
+      SpecificEnergy u "specific internal energy";
+      SpecificHeatCapacity cv "specific heat capacity";
+      SpecificEnthalpy h "specific enthalpy";
+      SpecificHeatCapacity cp "specific heat capacity";
+      SpecificEnergy g "specific Gibbs energy";
+      SI.Velocity w "speed of sound";
+      SI.RelativePressureCoefficient beta "isobaric expansion coefficient";
+      SI.IsothermalCompressibility kappa "isothermal compressibility factor";
+      MassFraction x "steam mass fraction";
+    end TwoPhaseProps;
+    
+    redeclare replaceable function density_ph 
+      "Computes density as a function of pressure and specific enthalpy" 
+      extends Modelica.Icons.Function;
+      input AbsolutePressure p "Pressure";
+      input SpecificEnthalpy h "Specific enthalpy";
+      input FixedPhase phase=0 
+        "2 for two-phase, 1 for one-phase, 0 if not known";
+      output Density d "Density";
+    algorithm 
+      d := Utilities.d_props_ph(p, h, Utilities.twoPhaseProps_ph(p, h, phase));
+    end density_ph;
+  /*
+  redeclare function extends density_ps 
+  algorithm 
+    d := Utilities.d_props_ps(p, s, Utilities.twoPhaseProps_ps(p, s, phase));
+  end density_ps;
+*/
+    redeclare replaceable function density_pT 
+      "Computes density as a function of pressure and temperature" 
+      extends Modelica.Icons.Function;
+      input AbsolutePressure p "Pressure";
+      input Temperature T "Temperature";
+      input FixedPhase phase=0 
+        "2 for two-phase, 1 for one-phase, 0 if not known";
+      output Density d "Density";
+    algorithm 
+      d := Utilities.d_props_pT(p, T, Utilities.twoPhaseProps_pT(p, T));
+    end density_pT;
+    
+    redeclare replaceable function pressure_dT 
+      "Computes pressure as a function of density and temperature" 
+      extends Modelica.Icons.Function;
+      input Density d "Density";
+      input Temperature T "Temperature";
+      input FixedPhase phase=0 
+        "2 for two-phase, 1 for one-phase, 0 if not known";
+      output AbsolutePressure p "Pressure";
+    algorithm 
+      p := Utilities.p_props_dT(d, T, Utilities.twoPhaseProps_dT(d, T, phase));
+    end pressure_dT;
+    
+    redeclare replaceable function specificEnthalpy_dT 
+      "Computes specific enthalpy as a function of density and temperature" 
+      extends Modelica.Icons.Function;
+      input Density d "Density";
+      input Temperature T "Temperature";
+      input FixedPhase phase=0 
+        "2 for two-phase, 1 for one-phase, 0 if not known";
+      output SpecificEnthalpy h "specific enthalpy";
+    algorithm 
+      h := Utilities.h_props_dT(d, T, Utilities.twoPhaseProps_dT(d, T, phase));
+    end specificEnthalpy_dT;
+    
+    redeclare replaceable function specificEnthalpy_ps 
+      "Computes specific enthalpy as a function of pressure and specific entropy" 
+      extends Modelica.Icons.Function;
+      input AbsolutePressure p "Pressure";
+      input SpecificEntropy s "Specific entropy";
+      input FixedPhase phase=0 
+        "2 for two-phase, 1 for one-phase, 0 if not known";
+      output SpecificEnthalpy h "specific enthalpy";
+    algorithm 
+      h := Utilities.h_props_ps(p, s, Utilities.twoPhaseProps_ps(p, s, phase));
+    end specificEnthalpy_ps;
+    
+    redeclare replaceable function specificEnthalpy_pT 
+      "Computes specific enthalpy as a function of pressure and temperature" 
+      extends Modelica.Icons.Function;
+      input AbsolutePressure p "Pressure";
+      input Temperature T "Temperature";
+      input FixedPhase phase=0 
+        "2 for two-phase, 1 for one-phase, 0 if not known";
+      output SpecificEnthalpy h "specific enthalpy";
+    algorithm 
+      h := Utilities.h_props_pT(p, T, Utilities.twoPhaseProps_pT(p, T));
+    end specificEnthalpy_pT;
+  /*  
+  redeclare function extends specificEntropy_dT 
+  algorithm 
+    s := Utilities.s_props_dT(d, T, Utilities.twoPhaseProps_dT(d, T, phase));
+  end specificEntropy_dT;
+ 
+  redeclare function extends specificEntropy_ph 
+  algorithm 
+    s := Utilities.s_props_ph(p, h, Utilities.twoPhaseProps_ph(p, h, phase));
+  end specificEntropy_ph;
+ 
+  redeclare function extends specificEntropy_pT 
+  algorithm 
+    s := Utilities.s_props_pT(p, T, Utilities.twoPhaseProps_pT(p, T));
+  end specificEntropy_pT;
+  
+  redeclare function extends specificGibbsEnergy_dT 
+  algorithm 
+    g := Utilities.g_props_dT(d, T, Utilities.twoPhaseProps_dT(d, T, phase));
+  end specificGibbsEnergy_dT;
+  
+  redeclare function extends specificGibbsEnergy_ph 
+  algorithm 
+    g := Utilities.g_props_ph(p, h, Utilities.twoPhaseProps_ph(p, h, phase));
+  end specificGibbsEnergy_ph;
+  
+  redeclare function extends specificGibbsEnergy_ps 
+  algorithm 
+    g := Utilities.g_props_ps(p, s, Utilities.twoPhaseProps_ps(p, s, phase));
+  end specificGibbsEnergy_ps;
+  
+  redeclare function extends specificGibbsEnergy_pT 
+  algorithm 
+    g := Utilities.g_props_pT(p, T, Utilities.twoPhaseProps_pT(p, T));
+  end specificGibbsEnergy_pT;
+  
+  redeclare function extends specificHeatCapacityCp_dT 
+  algorithm 
+    cp := Utilities.cp_props_dT(d, T, Utilities.twoPhaseProps_dT(d, T, phase));
+  end specificHeatCapacityCp_dT;
+  
+  redeclare function extends specificHeatCapacityCp_ph 
+  algorithm 
+    cp := Utilities.cp_props_ph(p, h, Utilities.twoPhaseProps_ph(p, h, phase));
+  end specificHeatCapacityCp_ph;
+  
+  redeclare function extends specificHeatCapacityCp_ps 
+  algorithm 
+    cp := Utilities.cp_props_ps(p, s, Utilities.twoPhaseProps_ps(p, s, phase));
+  end specificHeatCapacityCp_ps;
+  
+  redeclare function extends specificHeatCapacityCp_pT 
+  algorithm 
+    cp := Utilities.cp_props_pT(p, T, Utilities.twoPhaseProps_pT(p, T));
+  end specificHeatCapacityCp_pT;
+  
+  redeclare function extends specificHeatCapacityCv_dT 
+  algorithm 
+    cv := Utilities.cv_props_dT(d, T, Utilities.twoPhaseProps_dT(d, T, phase));
+  end specificHeatCapacityCv_dT;
+  
+  redeclare function extends specificHeatCapacityCv_ph 
+  algorithm 
+    cv := Utilities.cv_props_ph(p, h, Utilities.twoPhaseProps_ph(p, h, phase));
+  end specificHeatCapacityCv_ph;
+  
+  redeclare function extends specificHeatCapacityCv_ps 
+  algorithm 
+    cv := Utilities.cv_props_ps(p, s, Utilities.twoPhaseProps_ps(p, s, phase));
+  end specificHeatCapacityCv_ps;
+  
+  redeclare function extends specificHeatCapacityCv_pT 
+  algorithm 
+    cv := Utilities.cv_props_pT(p, T, Utilities.twoPhaseProps_pT(p, T));
+  end specificHeatCapacityCv_pT;
+  
+  redeclare function extends specificInternalEnergy_dT 
+  algorithm 
+    u := Utilities.u_props_dT(d, T, Utilities.twoPhaseProps_dT(d, T, phase));
+  end specificInternalEnergy_dT;
+  
+  redeclare function extends specificInternalEnergy_ph 
+  algorithm 
+    u := Utilities.u_props_ph(p, h, Utilities.twoPhaseProps_ph(p, h, phase));
+  end specificInternalEnergy_ph;
+  
+  redeclare function extends specificInternalEnergy_ps 
+  algorithm 
+    u := Utilities.u_props_ps(p, s, Utilities.twoPhaseProps_ps(p, s, phase));
+  end specificInternalEnergy_ps;
+  
+  redeclare function extends specificInternalEnergy_pT 
+  algorithm 
+    u := Utilities.u_props_pT(p, T, Utilities.twoPhaseProps_pT(p, T));
+  end specificInternalEnergy_pT;
+*/
+    redeclare replaceable function temperature_ph 
+      "Computes temperature as a function of pressure and specific enthalpy" 
+      extends Modelica.Icons.Function;
+      input AbsolutePressure p "Pressure";
+      input SpecificEnthalpy h "Specific enthalpy";
+      input FixedPhase phase=0 
+        "2 for two-phase, 1 for one-phase, 0 if not known";
+      output Temperature T "Temperature";
+    algorithm 
+      T := Utilities.T_props_ph(p, h, Utilities.twoPhaseProps_ph(p, h, phase));
+    end temperature_ph;
+    
+    redeclare replaceable function temperature_ps 
+      "Computes temperature as a function of pressure and specific entropy" 
+      extends Modelica.Icons.Function;
+      input AbsolutePressure p "Pressure";
+      input SpecificEntropy s "Specific entropy";
+      input FixedPhase phase=0 
+        "2 for two-phase, 1 for one-phase, 0 if not known";
+      output Temperature T "Temperature";
+    algorithm 
+      T := Utilities.T_props_ps(p, s, Utilities.twoPhaseProps_ps(p, s, phase));
+    end temperature_ps;
+  /*  
+  redeclare function extends beta_dT 
+  algorithm 
+    beta := Utilities.beta_props_dT(d, T, Utilities.twoPhaseProps_dT(d, T, phase));
+  end beta_dT;
+  
+  redeclare function extends beta_ph 
+  algorithm 
+    beta := Utilities.beta_props_ph(p, h, Utilities.twoPhaseProps_ph(p, h, phase));
+  end beta_ph;
+  
+  redeclare function extends beta_ps 
+  algorithm 
+    beta := Utilities.beta_props_ps(p, s, Utilities.twoPhaseProps_ps(p, s, phase));
+  end beta_ps;
+  
+  redeclare function extends beta_pT 
+  algorithm 
+    beta := Utilities.beta_props_pT(p, T, Utilities.twoPhaseProps_pT(p, T));
+  end beta_pT;
+  
+  redeclare function extends kappa_dT 
+  algorithm 
+    kappa := Utilities.kappa_props_dT(d, T, Utilities.twoPhaseProps_dT(d, T, phase));
+  end kappa_dT;
+  
+  redeclare function extends kappa_ph 
+  algorithm 
+    kappa := Utilities.kappa_props_ph(p, h, Utilities.twoPhaseProps_ph(p, h, phase));
+  end kappa_ph;
+  
+  redeclare function extends kappa_ps 
+  algorithm 
+    kappa := Utilities.kappa_props_ps(p, s, Utilities.twoPhaseProps_ps(p, s, phase));
+  end kappa_ps;
+  
+  redeclare function extends kappa_pT 
+  algorithm 
+    kappa := Utilities.kappa_props_pT(p, T, Utilities.twoPhaseProps_pT(p, T));
+  end kappa_pT;
+
+  redeclare function extends pressure_derd_T_dT 
+  algorithm 
+    dpd_T := Utilities.dpd_T_props_dT(d, T, Utilities.twoPhaseProps_dT(d, T, phase));
+  end pressure_derd_T_dT;
+  
+  redeclare function extends pressure_derd_T_ph 
+  algorithm 
+    dpd_T := Utilities.dpd_T_props_ph(p, h, Utilities.twoPhaseProps_ph(p, h, phase));
+  end pressure_derd_T_ph;
+  
+  redeclare function extends pressure_derd_T_ps 
+  algorithm 
+    dpd_T := Utilities.dpd_T_props_ps(p, s, Utilities.twoPhaseProps_ps(p, s, phase));
+  end pressure_derd_T_ps;
+  
+  redeclare function extends pressure_derd_T_pT 
+  algorithm 
+    dpd_T := Utilities.dpd_T_props_pT(p, T, Utilities.twoPhaseProps_pT(p, T));
+  end pressure_derd_T_pT;
+  
+  redeclare function extends pressure_derT_d_dT 
+  algorithm 
+    dpT_d := Utilities.dpT_d_props_dT(d, T, Utilities.twoPhaseProps_dT(d, T, phase));
+  end pressure_derT_d_dT;
+  
+  redeclare function extends pressure_derT_d_ph 
+  algorithm 
+    dpT_d := Utilities.dpT_d_props_ph(p, h, Utilities.twoPhaseProps_ph(p, h, phase));
+  end pressure_derT_d_ph;
+  
+  redeclare function extends pressure_derT_d_ps 
+  algorithm 
+    dpT_d := Utilities.dpT_d_props_ps(p, s, Utilities.twoPhaseProps_ps(p, s, phase));
+  end pressure_derT_d_ps;
+  
+  redeclare function extends pressure_derT_d_pT 
+  algorithm 
+    dpT_d := Utilities.dpT_d_props_pT(p, T, Utilities.twoPhaseProps_pT(p, T));
+  end pressure_derT_d_pT;
+  redeclare function extends density_derp_h_dT 
+  algorithm 
+    ddp_h := Utilities.ddp_h_props_dT(d, T, Utilities.twoPhaseProps_dT(d, T, phase));
+  end density_derp_h_dT;
+  
+  redeclare function extends density_derp_h_ph 
+  algorithm 
+    ddp_h := Utilities.ddp_h_props_ph(p, h, Utilities.twoPhaseProps_ph(p, h, phase));
+  end density_derp_h_ph;
+  
+  redeclare function extends density_derh_p_dT 
+  algorithm 
+    ddh_p := Utilities.ddh_p_props_dT(d, T, Utilities.twoPhaseProps_dT(d, T, phase));
+  end density_derh_p_dT;
+  
+  redeclare function extends density_derh_p_ph 
+  algorithm 
+    ddh_p := Utilities.ddh_p_props_ph(p, h, Utilities.twoPhaseProps_dT(d, T, phase));
+  end density_derh_p_ph;
+*/
+    replaceable package Utilities 
+      constant Boolean phaseBoundaryComputation=false 
+        "true if phase boundary-computation is performed";
+      
+      function phaseAssert "assert function for inlining" 
+        
+        input Boolean check "condition to check";
+        output Real dummy "dummy output";
+      algorithm 
+        assert(check, "this function can not be called with two-phase input");
+      end phaseAssert;
+      
+      replaceable partial function twoPhaseProps_dT 
+        "intermediate property record for medium" 
+        
+        input Density d "density";
+        input Temperature T "temperature";
+        input FixedPhase phase=0 
+          "2 for two-phase, 1 for one-phase, 0 if not known";
+        output TwoPhaseProps aux "auxiliary record";
+      end twoPhaseProps_dT;
+      
+      function phase_dT "phase as a function of density and temperature" 
+        
+        input Density d "density";
+        input Temperature T "temperature";
+        input TwoPhaseProps aux "auxiliary record";
+        output FixedPhase phase 
+          "2 for two-phase, 1 for one-phase, 0 if not known";
+        annotation (Inline=false, LateInline=true);
+      algorithm 
+        phase := aux.phase;
+      end phase_dT;
+      
+      function p_props_dT 
+        
+        input Density d "density";
+        input Temperature T "temperature";
+        input TwoPhaseProps aux "auxiliary record";
+        output AbsolutePressure p "pressure";
+        annotation (Inline=false, LateInline=true);
+      algorithm 
+        p := aux.p;
+      end p_props_dT;
+      
+      function s_props_dT 
+        
+        input Density d "density";
+        input Temperature T "temperature";
+        input TwoPhaseProps aux "auxiliary record";
+        output SpecificEntropy s "specific entropy";
+        annotation (Inline=false, LateInline=true);
+      algorithm 
+        s := aux.s;
+      end s_props_dT;
+      
+      function u_props_dT 
+        
+        input Density d "density";
+        input Temperature T "temperature";
+        input TwoPhaseProps aux "auxiliary record";
+        output SpecificEnergy u "specific internal energy";
+        annotation (Inline=false, LateInline=true);
+      algorithm 
+        u := aux.u;
+      end u_props_dT;
+      
+      function cv_props_dT 
+        
+        input Density d "density";
+        input Temperature T "temperature";
+        input TwoPhaseProps aux "auxiliary record";
+        output SpecificHeatCapacity cv "specific heat capacity";
+        annotation (Inline=false, LateInline=true);
+      algorithm 
+        cv := aux.cv;
+      end cv_props_dT;
+      
+      function h_props_dT 
+        
+        input Density d "density";
+        input Temperature T "temperature";
+        input TwoPhaseProps aux "auxiliary record";
+        output SpecificEnthalpy h "specific enthalpy";
+        annotation (Inline=false, LateInline=true);
+      algorithm 
+        h := aux.h;
+      end h_props_dT;
+      
+      function cp_props_dT 
+        
+        input Density d "density";
+        input Temperature T "temperature";
+        input TwoPhaseProps aux "auxiliary record";
+        output SpecificHeatCapacity cp "specific heat capacity";
+        annotation (Inline=false, LateInline=true);
+      algorithm 
+        cp := aux.cp;
+      end cp_props_dT;
+      
+      function g_props_dT 
+        
+        input Density d "density";
+        input Temperature T "temperature";
+        input TwoPhaseProps aux "auxiliary record";
+        output SpecificEnergy g "specific Gibbs energy";
+        annotation (Inline=false, LateInline=true);
+      algorithm 
+        g := aux.g;
+      end g_props_dT;
+      
+      function w_props_dT 
+        
+        input Density d "density";
+        input Temperature T "temperature";
+        input TwoPhaseProps aux "auxiliary record";
+        output SI.Velocity w "velocity of sound";
+        annotation (Inline=false, LateInline=true);
+      algorithm 
+        w := aux.w;
+      end w_props_dT;
+      
+      function beta_props_dT 
+        
+        input Density d "density";
+        input Temperature T "temperature";
+        input TwoPhaseProps aux "auxiliary record";
+        output SI.RelativePressureCoefficient beta 
+          "isobaric expansion coefficient";
+        annotation (Inline=false, LateInline=true);
+      algorithm 
+        beta := aux.beta;
+      end beta_props_dT;
+      
+      function kappa_props_dT 
+        
+        input Density d "density";
+        input Temperature T "temperature";
+        input TwoPhaseProps aux "auxiliary record";
+        output SI.IsothermalCompressibility kappa 
+          "isothermal compressibility factor";
+        annotation (Inline=false, LateInline=true);
+      algorithm 
+        kappa := aux.kappa;
+      end kappa_props_dT;
+      
+      replaceable partial function twoPhaseProps_ph 
+        "intermediate property record for medium" 
+        
+        input AbsolutePressure p "pressure";
+        input SpecificEnthalpy h "specific enthalpy";
+        input FixedPhase phase=0 
+          "2 for two-phase, 1 for one-phase, 0 if not known";
+        output TwoPhaseProps aux "auxiliary record";
+      end twoPhaseProps_ph;
+      
+      function d_props_ph 
+        
+        input AbsolutePressure p "pressure";
+        input SpecificEnthalpy h "specific enthalpy";
+        input TwoPhaseProps aux "auxiliary record";
+        output Density d "density";
+        annotation (
+          Inline=false,
+          LateInline=true);
+      /*
+  annotation (
+    derivative(noDerivative=aux) = d_ph_der,
+    Inline=false,
+    LateInline=true);
+*/
+      algorithm 
+        d := aux.d;
+      end d_props_ph;
+      
+      function T_props_ph 
+        
+        input AbsolutePressure p "pressure";
+        input SpecificEnthalpy h "specific enthalpy";
+        input TwoPhaseProps aux "auxiliary record";
+        output Temperature T "temperature";
+        annotation (Inline=false, LateInline=true);
+      algorithm 
+        T := aux.T;
+      end T_props_ph;
+      
+      function phase_ph "phase as a function of pressure and specific enthalpy" 
+        
+        input AbsolutePressure p "pressure";
+        input SpecificEnthalpy h "specific enthalpy";
+        input TwoPhaseProps aux "auxiliary record";
+        output FixedPhase phase 
+          "2 for two-phase, 1 for one-phase, 0 if not known";
+        annotation (Inline=false, LateInline=true);
+      algorithm 
+        phase := aux.phase;
+      end phase_ph;
+      
+      function s_props_ph 
+        
+        input AbsolutePressure p "pressure";
+        input SpecificEnthalpy h "specific enthalpy";
+        input TwoPhaseProps aux "auxiliary record";
+        output SpecificEntropy s "specific entropy";
+        annotation (Inline=false, LateInline=true);
+      algorithm 
+        s := aux.s;
+      end s_props_ph;
+      
+      function u_props_ph 
+        
+        input AbsolutePressure p "pressure";
+        input SpecificEnthalpy h "specific enthalpy";
+        input TwoPhaseProps aux "auxiliary record";
+        output SpecificEnergy u "specific internal energy";
+        annotation (Inline=false, LateInline=true);
+      algorithm 
+        u := aux.u;
+      end u_props_ph;
+      
+      function cv_props_ph 
+        
+        input AbsolutePressure p "pressure";
+        input SpecificEnthalpy h "specific enthalpy";
+        input TwoPhaseProps aux "auxiliary record";
+        output SpecificHeatCapacity cv "specific heat capacity";
+        annotation (Inline=false, LateInline=true);
+      algorithm 
+        cv := aux.cv;
+      end cv_props_ph;
+      
+      function cp_props_ph 
+        
+        input AbsolutePressure p "pressure";
+        input SpecificEnthalpy h "specific enthalpy";
+        input TwoPhaseProps aux "auxiliary record";
+        output SpecificHeatCapacity cp "specific heat capacity";
+        annotation (Inline=false, LateInline=true);
+      algorithm 
+        cp := aux.cp;
+      end cp_props_ph;
+      
+      function g_props_ph 
+        
+        input AbsolutePressure p "pressure";
+        input SpecificEnthalpy h "specific enthalpy";
+        input TwoPhaseProps aux "auxiliary record";
+        output SpecificEnergy g "specific Gibbs energy";
+        annotation (Inline=false, LateInline=true);
+      algorithm 
+        g := aux.g;
+      end g_props_ph;
+      
+      function beta_props_ph 
+        
+        input AbsolutePressure p "pressure";
+        input SpecificEnthalpy h "specific enthalpy";
+        input TwoPhaseProps aux "auxiliary record";
+        output SI.RelativePressureCoefficient beta 
+          "isobaric expansion coefficient";
+        annotation (Inline=false, LateInline=true);
+      algorithm 
+        beta := aux.beta;
+      end beta_props_ph;
+      
+      function kappa_props_ph 
+        
+        input AbsolutePressure p "pressure";
+        input SpecificEnthalpy h "specific enthalpy";
+        input TwoPhaseProps aux "auxiliary record";
+        output SI.IsothermalCompressibility kappa 
+          "isothermal compressibility factor";
+        annotation (Inline=false, LateInline=true);
+      algorithm 
+        kappa := aux.kappa;
+      end kappa_props_ph;
+      
+      replaceable partial function twoPhaseProps_ps 
+        "intermediate property record for medium" 
+        
+        input AbsolutePressure p "pressure";
+        input SpecificEntropy s "specific entropy";
+        input FixedPhase phase=0 
+          "2 for two-phase, 1 for one-phase, 0 if not known";
+        output TwoPhaseProps aux "auxiliary record";
+      end twoPhaseProps_ps;
+      
+      function d_props_ps 
+        
+        input AbsolutePressure p "pressure";
+        input SpecificEntropy s "specific entropy";
+        input TwoPhaseProps aux "auxiliary record";
+        output Density d "density";
+        annotation (Inline=false, LateInline=true);
+      algorithm 
+        d := aux.d;
+      end d_props_ps;
+      
+      function T_props_ps 
+        
+        input AbsolutePressure p "pressure";
+        input SpecificEntropy s "specific entropy";
+        input TwoPhaseProps aux "auxiliary record";
+        output Temperature T "temperature";
+        annotation (Inline=false, LateInline=true);
+      algorithm 
+        T := aux.T;
+      end T_props_ps;
+      
+      function phase_ps "phase as a function of pressure and specific entropy" 
+        
+        input AbsolutePressure p "pressure";
+        input SpecificEntropy s "specific entropy";
+        input TwoPhaseProps aux "auxiliary record";
+        output FixedPhase phase 
+          "2 for two-phase, 1 for one-phase, 0 if not known";
+        annotation (Inline=false, LateInline=true);
+      algorithm 
+        phase := aux.phase;
+      end phase_ps;
+      
+      function u_props_ps 
+        
+        input AbsolutePressure p "pressure";
+        input SpecificEntropy s "specific entropy";
+        input TwoPhaseProps aux "auxiliary record";
+        output SpecificEnergy u "specific internal energy";
+        annotation (Inline=false, LateInline=true);
+      algorithm 
+        u := aux.u;
+      end u_props_ps;
+      
+      function cv_props_ps 
+        
+        input AbsolutePressure p "pressure";
+        input SpecificEntropy s "specific entropy";
+        input TwoPhaseProps aux "auxiliary record";
+        output SpecificHeatCapacity cv "specific heat capacity";
+        annotation (Inline=false, LateInline=true);
+      algorithm 
+        cv := aux.cv;
+      end cv_props_ps;
+      
+      function h_props_ps 
+        
+        input AbsolutePressure p "pressure";
+        input SpecificEntropy s "specific entropy";
+        input TwoPhaseProps aux "auxiliary record";
+        output SpecificEnthalpy h "specific enthalpy";
+        annotation (Inline=false, LateInline=true);
+      algorithm 
+        h := aux.h;
+      end h_props_ps;
+      
+      function cp_props_ps 
+        
+        input AbsolutePressure p "pressure";
+        input SpecificEntropy s "specific entropy";
+        input TwoPhaseProps aux "auxiliary record";
+        output SpecificHeatCapacity cp "specific heat capacity";
+        annotation (Inline=false, LateInline=true);
+      algorithm 
+        cp := aux.cp;
+      end cp_props_ps;
+      
+      function g_props_ps 
+        
+        input AbsolutePressure p "pressure";
+        input SpecificEntropy s "specific entropy";
+        input TwoPhaseProps aux "auxiliary record";
+        output SpecificEnergy g "specific Gibbs energy";
+        annotation (Inline=false, LateInline=true);
+      algorithm 
+        g := aux.g;
+      end g_props_ps;
+      
+      function beta_props_ps 
+        
+        input AbsolutePressure p "pressure";
+        input SpecificEntropy s "specific entropy";
+        input TwoPhaseProps aux "auxiliary record";
+        output SI.RelativePressureCoefficient beta 
+          "isobaric expansion coefficient";
+        annotation (Inline=false, LateInline=true);
+      algorithm 
+        beta := aux.beta;
+      end beta_props_ps;
+      
+      function kappa_props_ps 
+        
+        input AbsolutePressure p "pressure";
+        input SpecificEntropy s "specific entropy";
+        input TwoPhaseProps aux "auxiliary record";
+        output SI.IsothermalCompressibility kappa 
+          "isothermal compressibility factor";
+        annotation (Inline=false, LateInline=true);
+      algorithm 
+        kappa := aux.kappa;
+      end kappa_props_ps;
+      
+      replaceable partial function twoPhaseProps_pT 
+        "intermediate property record for medium" 
+        
+        input AbsolutePressure p "pressure";
+        input Temperature T "temperature";
+        output TwoPhaseProps aux "auxiliary record";
+      end twoPhaseProps_pT;
+      
+      function d_props_pT 
+        
+        input AbsolutePressure p "pressure";
+        input Temperature T "temperature";
+        input TwoPhaseProps aux "auxiliary record";
+        output Density d "density";
+        annotation (Inline=false, LateInline=true);
+      algorithm 
+        d := aux.d;
+      end d_props_pT;
+      
+      function s_props_pT 
+        
+        input AbsolutePressure p "pressure";
+        input Temperature T "temperature";
+        input TwoPhaseProps aux "auxiliary record";
+        output SpecificEntropy s "specific entropy";
+        annotation (Inline=false, LateInline=true);
+      algorithm 
+        s := aux.s;
+      end s_props_pT;
+      
+      function u_props_pT 
+        
+        input AbsolutePressure p "pressure";
+        input Temperature T "temperature";
+        input TwoPhaseProps aux "auxiliary record";
+        output SpecificEnergy u "specific internal energy";
+        annotation (Inline=false, LateInline=true);
+      algorithm 
+        u := aux.u;
+      end u_props_pT;
+      
+      function cv_props_pT 
+        
+        input AbsolutePressure p "pressure";
+        input Temperature T "temperature";
+        input TwoPhaseProps aux "auxiliary record";
+        output SpecificHeatCapacity cv "specific heat capacity";
+        annotation (Inline=false, LateInline=true);
+      algorithm 
+        cv := aux.cv;
+      end cv_props_pT;
+      
+      function h_props_pT 
+        
+        input AbsolutePressure p "pressure";
+        input Temperature T "temperature";
+        input TwoPhaseProps aux "auxiliary record";
+        output SpecificEnthalpy h "specific enthalpy";
+        annotation (Inline=false, LateInline=true);
+      algorithm 
+        h := aux.h;
+      end h_props_pT;
+      
+      function cp_props_pT 
+        
+        input AbsolutePressure p "pressure";
+        input Temperature T "temperature";
+        input TwoPhaseProps aux "auxiliary record";
+        output SpecificHeatCapacity cp "specific heat capacity";
+        annotation (Inline=false, LateInline=true);
+      algorithm 
+        cp := aux.cp;
+      end cp_props_pT;
+      
+      function g_props_pT 
+        
+        input AbsolutePressure p "pressure";
+        input Temperature T "temperature";
+        input TwoPhaseProps aux "auxiliary record";
+        output SpecificEnergy g "specific Gibbs energy";
+        annotation (Inline=false, LateInline=true);
+      algorithm 
+        g := aux.g;
+      end g_props_pT;
+      
+      function beta_props_pT 
+        
+        input AbsolutePressure p "pressure";
+        input Temperature T "temperature";
+        input TwoPhaseProps aux "auxiliary record";
+        output SI.RelativePressureCoefficient beta 
+          "isobaric expansion coefficient";
+        annotation (Inline=false, LateInline=true);
+      algorithm 
+        beta := aux.beta;
+      end beta_props_pT;
+      
+      function kappa_props_pT 
+        
+        input AbsolutePressure p "pressure";
+        input Temperature T "temperature";
+        input TwoPhaseProps aux "auxiliary record";
+        output SI.IsothermalCompressibility kappa 
+          "isothermal compressibility factor";
+        annotation (Inline=false, LateInline=true);
+      algorithm 
+        kappa := aux.kappa;
+      end kappa_props_pT;
+    end Utilities;
+  end PartialTwoPhaseMediumWithCache;
 end Interfaces;
 
 
