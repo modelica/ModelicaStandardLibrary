@@ -58,6 +58,35 @@ Type of extrapolation in a table.
     end Temp;
   end Extrapolation;
   
+  package Init 
+    "Type, constants and menu choices to define initialization of blocks" 
+    extends Modelica.Icons.Enumeration;
+    constant Integer NoInit=1 
+      "no initialization (start values are used as guess values with fixed=false)";
+    constant Integer SteadyState=2 "steady state initialization";
+    constant Integer InitialState=3 "initialization with initial states";
+    constant Integer InitialOutput=4 
+      "initialization with initial outputs (and steady state of the states if possibles)";
+    
+    type Temp 
+      "Temporary type of initialization with choices for menus (until enumerations are available)" 
+      extends Modelica.Icons.TypeInteger(min=1,max=4);
+      
+      annotation (Evaluate=true, choices(
+          choice=Modelica.Blocks.Types.Init.NoInit 
+            "no initialization (start values are used as guess values with fixed=false)",
+          choice=Modelica.Blocks.Types.Init.SteadyState 
+            "steady state initialization",
+          choice=Modelica.Blocks.Types.Init.InitialState 
+            "initialization with initial states",
+          choice=Modelica.Blocks.Types.Init.InitialOutput 
+            "initialization with initial outputs (and steady state of the states if possibles)"));
+    end Temp;
+    annotation (Documentation(revisions="<html>
+ 
+</html>"));
+  end Init;
+  
   package Smoothness 
     "Type, constants and menu choices to define the smoothness of table interpolation" 
     
