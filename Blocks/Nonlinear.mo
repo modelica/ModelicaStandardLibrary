@@ -38,6 +38,8 @@ This package contains <b>discontinuous</b> and
       block Limiter "Limit the range of a signal" 
         parameter Real uMax=1 "Upper limits of input signals";
         parameter Real uMin= -uMax "Lower limits of input signals";
+        parameter Boolean LimitsAtInit = true 
+      "= false, if limits are ignored during initializiation (i.e., y=u)";
         extends Interfaces.SISO;
     
         annotation (
@@ -99,12 +101,22 @@ as output.
       equation 
         assert(uMax >= uMin, "Limiter: Limits must be consistent. However, uMax (=" + String(uMax) +
                              ") < uMin (=" + String(uMin) + ")");
-        y = if u > uMax then uMax else if u < uMin then uMin else u;
+        if initial() and not LimitsAtInit then
+           y = u;
+           assert(u >= uMin - 0.01*abs(uMin) and 
+                  u <= uMax + 0.01*abs(uMax),
+                 "Limiter: During initialization the limits have been ignored.\n"+
+                 "However, the result is that the input u is not within the required limits:\n"+
+                 "  u = " + String(u) + ", uMin = " + String(uMin) + ", uMax = " + String(uMax));
+        else
+           y = if u > uMax then uMax else if u < uMin then uMin else u;
+        end if;
       end Limiter;
   
   block VariableLimiter "Limit the range of a signal with variable limits" 
     extends Interfaces.SISO;
-    
+    parameter Boolean LimitsAtInit = true 
+      "= false, if limits are ignored during initializiation (i.e., y=u)";
     Interfaces.RealInput limit1 
       "Connector of Real input signal used as maximum of input u" 
                                 annotation (extent=[-140, 60; -100, 100]);
@@ -172,12 +184,24 @@ is passed as output.
   equation 
     uMax = max(limit1, limit2);
     uMin = min(limit1, limit2);
-    y    = if u > uMax then uMax else if u < uMin then uMin else u;
+    
+    if initial() and not LimitsAtInit then
+       y = u;
+       assert(u >= uMin - 0.01*abs(uMin) and 
+              u <= uMax + 0.01*abs(uMax),
+             "VariableLimiter: During initialization the limits have been ignored.\n"+
+             "However, the result is that the input u is not within the required limits:\n"+
+             "  u = " + String(u) + ", uMin = " + String(uMin) + ", uMax = " + String(uMax));
+    else
+       y = if u > uMax then uMax else if u < uMin then uMin else u;
+    end if;
   end VariableLimiter;
   
       block DeadZone "Provide a region of zero output" 
         parameter Real uMax=1 "Upper limits of dead zones";
         parameter Real uMin(max=uMax) = -uMax "Lower limits of dead zones";
+        parameter Boolean DeadZoneAtInit = true 
+      "= false, if dead zone is ignored during initializiation (i.e., y=u)";
         extends Interfaces.SISO;
     
         annotation (
@@ -239,7 +263,11 @@ function of the input with a slope of 1.
               string="uMax",
               style(color=10))));
       equation 
-        y = if u > uMax then u - uMax else if u < uMin then u - uMin else 0;
+        if initial() and not DeadZoneAtInit then
+           y = u;
+        else
+           y = if u > uMax then u - uMax else if u < uMin then u - uMin else 0;
+        end if;
       end DeadZone;
   
   block FixedDelay "Delay block with fixed DelayTime" 

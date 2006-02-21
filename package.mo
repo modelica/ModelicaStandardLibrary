@@ -446,6 +446,11 @@ The following <b>new components</b> have been added to <b>existing</b> libraries
 </p>
  
 <table border=\"1\" cellspacing=0 cellpadding=2>
+  <tr><td colspan=\"2\"><b>Modelica.Blocks.Math.</b></td></tr>
+  <tr><td> UnitConversions.*</td>
+      <td> New package that provides blocks for unit conversions.
+           UnitConversions.ConvertAllBlocks allows to select all
+           available conversions from a menu.</td> </tr>
   <tr><td colspan=\"2\"><b>Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.</b></td></tr>
   <tr><td> SM_ElectricalExcitedDamperCage</td>
       <td> Electrical excited synchronous induction machine with damper cage</td> </tr>
@@ -562,6 +567,16 @@ The following <b>components</b> have been improved:
            is a factor of 2 larger as a standard icon. Previously,
            these connectors have been dragged and then manually enlarged
            by a factor of 2 in the Modelica standard library.</td> </tr>
+
+  <tr><td colspan=\"2\"><b>Modelica.Blocks.</b></td></tr>
+  <tr><td> Continuous.*</td>
+      <td> Initialization options added to all blocks
+           (NoInit, SteadyState, InitialState, InitialOutput).</td> </tr>
+  <tr><td> Nonlinear.Limiter<br>
+           Nonlinear.VariableLimiter<br>
+           Nonlinear.Deadzone</td>
+      <td> New parameter LimitsAtInit/DeadZoneAtInit to switch off the limits
+           or the dead zone during initialization</td> </tr>
 
   <tr><td colspan=\"2\"><b>Modelica.Electrical.Analog. </b></td></tr>
   <tr><td> Sources</td>
