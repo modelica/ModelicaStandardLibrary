@@ -4372,63 +4372,142 @@ are described in
     "base class for pure substances of one chemical substance" 
     extends PartialMedium;
     // the following are parallel to the cape-open names
-    
-    replaceable partial function rho_ph 
-      "compute density as a function of pressure and specific enthalpy" 
+  /*
+  replaceable partial function rho_ph 
+    "compute density as a function of pressure and specific enthalpy" 
+    extends Modelica.Icons.Function;
+    input AbsolutePressure p "pressure";
+    input SpecificEnthalpy h "specific enthalpy";
+    input Integer phase =  0 
+      "phase of the fluid: 1 for 1-phase, 2 for two-phase, 0 for not known, e.g. interactive use";
+    output Density d "density";
+  end rho_ph;
+  
+  replaceable partial function T_ph 
+    "compute temperature as a function of pressure and specific enthalpy" 
+    extends Modelica.Icons.Function;
+    input AbsolutePressure p "pressure";
+    input SpecificEnthalpy h "specific enthalpy";
+    input Integer phase =  0 
+      "phase of the fluid: 1 for 1-phase, 2 for two-phase, 0 for not known, e.g. interactive use";
+    output Temperature T "temperature";
+  end T_ph;
+  
+  replaceable partial function rho_pT 
+    "compute density as a function of pressure and temperature" 
+    extends Modelica.Icons.Function;
+    input AbsolutePressure p "pressure";
+    input Temperature T "temperature";
+    output Density d "density";
+  end rho_pT;
+  
+  replaceable partial function h_pT 
+    "compute specific enthalpy as a function of pressure and temperature" 
+    extends Modelica.Icons.Function;
+    input AbsolutePressure p "pressure";
+    input Temperature T "temperature";
+    output SpecificEnthalpy h "specific enthalpy";
+  end h_pT;
+  
+  replaceable partial function p_dT 
+    "compute pressure as a function of density and temperature" 
+    extends Modelica.Icons.Function;
+    input Density d "density";
+    input Temperature T "temperature";
+    input Integer phase =  0 
+      "phase of the fluid: 1 for 1-phase, 2 for two-phase, 0 for not known, e.g. interactive use";
+    output AbsolutePressure p "pressure";
+  end p_dT;
+  
+  replaceable partial function h_dT 
+    "compute specific enthalpy as a function of density and temperature" 
+    extends Modelica.Icons.Function;
+    input Density d "density";
+    input Temperature T "temperature";
+    input Integer phase =  0 
+      "phase of the fluid: 1 for 1-phase, 2 for two-phase, 0 for not known, e.g. interactive use";
+    output SpecificEnthalpy h "specific enthalpy";
+  end h_dT;
+*/
+    replaceable function density_ph 
+      "Computes density as a function of pressure and specific enthalpy" 
       extends Modelica.Icons.Function;
-      input AbsolutePressure p "pressure";
-      input SpecificEnthalpy h "specific enthalpy";
-      input Integer phase =  0 
-        "phase of the fluid: 1 for 1-phase, 2 for two-phase, 0 for not known, e.g. interactive use";
-      output Density d "density";
-    end rho_ph;
+      input AbsolutePressure p "Pressure";
+      input SpecificEnthalpy h "Specific enthalpy";
+      output Density d "Density";
+    algorithm 
+      d := density_phX(p, h, fill(0,0));
+    end density_ph;
     
-    replaceable partial function T_ph 
-      "compute temperature as a function of pressure and specific enthalpy" 
+    replaceable function temperature_ph 
+      "Computes temperature as a function of pressure and specific enthalpy" 
       extends Modelica.Icons.Function;
-      input AbsolutePressure p "pressure";
-      input SpecificEnthalpy h "specific enthalpy";
-      input Integer phase =  0 
-        "phase of the fluid: 1 for 1-phase, 2 for two-phase, 0 for not known, e.g. interactive use";
-      output Temperature T "temperature";
-    end T_ph;
+      input AbsolutePressure p "Pressure";
+      input SpecificEnthalpy h "Specific enthalpy";
+      output Temperature T "Temperature";
+    algorithm 
+      T := temperature_phX(p, h, fill(0,0));
+    end temperature_ph;
     
-    replaceable partial function rho_pT 
-      "compute density as a function of pressure and temperature" 
+    replaceable function pressure_dT 
+      "Computes pressure as a function of density and temperature" 
       extends Modelica.Icons.Function;
-      input AbsolutePressure p "pressure";
-      input Temperature T "temperature";
-      output Density d "density";
-    end rho_pT;
+      input Density d "Density";
+      input Temperature T "Temperature";
+      output AbsolutePressure p "Pressure";
+    algorithm 
+      p := pressure(setState_pTX(d, T, fill(0,0)));
+    end pressure_dT;
     
-    replaceable partial function h_pT 
-      "compute specific enthalpy as a function of pressure and temperature" 
+    replaceable function specificEnthalpy_dT 
+      "Computes specific enthalpy as a function of density and temperature" 
       extends Modelica.Icons.Function;
-      input AbsolutePressure p "pressure";
-      input Temperature T "temperature";
+      input Density d "Density";
+      input Temperature T "Temperature";
       output SpecificEnthalpy h "specific enthalpy";
-    end h_pT;
+    algorithm 
+      h := specificEnthalpy(setState_pTX(d, T, fill(0,0)));
+    end specificEnthalpy_dT;
     
-    replaceable partial function p_dT 
-      "compute pressure as a function of density and temperature" 
+    replaceable function specificEnthalpy_ps 
+      "Computes specific enthalpy as a function of pressure and specific entropy" 
       extends Modelica.Icons.Function;
-      input Density d "density";
-      input Temperature T "temperature";
-      input Integer phase =  0 
-        "phase of the fluid: 1 for 1-phase, 2 for two-phase, 0 for not known, e.g. interactive use";
-      output AbsolutePressure p "pressure";
-    end p_dT;
-    
-    replaceable partial function h_dT 
-      "compute specific enthalpy as a function of density and temperature" 
-      extends Modelica.Icons.Function;
-      input Density d "density";
-      input Temperature T "temperature";
-      input Integer phase =  0 
-        "phase of the fluid: 1 for 1-phase, 2 for two-phase, 0 for not known, e.g. interactive use";
+      input AbsolutePressure p "Pressure";
+      input SpecificEntropy s "Specific entropy";
       output SpecificEnthalpy h "specific enthalpy";
-    end h_dT;
+    algorithm 
+      h := specificEnthalpy_psX(p,s,fill(0,0));
+    end specificEnthalpy_ps;
     
+    replaceable function temperature_ps 
+      "Computes temperature as a function of pressure and specific entropy" 
+      extends Modelica.Icons.Function;
+      input AbsolutePressure p "Pressure";
+      input SpecificEntropy s "Specific entropy";
+      output Temperature T "Temperature";
+    algorithm 
+      T := temperature_psX(p,s,fill(0,0));
+    end temperature_ps;
+    
+    replaceable function specificEnthalpy_pT 
+      "Computes specific enthalpy as a function of pressure and temperature" 
+      extends Modelica.Icons.Function;
+      input AbsolutePressure p "Pressure";
+      input Temperature T "Temperature";
+      output SpecificEnthalpy h "specific enthalpy";
+    algorithm 
+      h := specificEnthalpy_pTX(p, T, fill(0,0));
+    end specificEnthalpy_pT;
+    
+    replaceable function density_pT 
+      "Computes density as a function of pressure and temperature" 
+      extends Modelica.Icons.Function;
+      input AbsolutePressure p "Pressure";
+      input Temperature T "Temperature";
+      output Density d "Density";
+    algorithm 
+      d := density(setState_pTX(p, T, fill(0,0)));
+    end density_pT;
   end PartialPureSubstance;
   
   partial package PartialMixtureMedium 
@@ -4875,6 +4954,106 @@ are described in
       algorithm 
         h := specificEnthalpy(setState_psX(p,s,X,phase));
       end specificEnthalpy_psX;
+    
+  // alias functions for simplified access
+  // note that there is a Dymola error which does not allow writing
+  // replaceable function density_ph = density_phX(p,h,fill(0,0))
+    
+    redeclare replaceable function density_ph 
+      "Computes density as a function of pressure and specific enthalpy" 
+      extends Modelica.Icons.Function;
+      input AbsolutePressure p "Pressure";
+      input SpecificEnthalpy h "Specific enthalpy";
+      input FixedPhase phase=0 
+        "2 for two-phase, 1 for one-phase, 0 if not known";
+      output Density d "Density";
+    algorithm 
+      d := density_phX(p, h, fill(0,0), phase);
+    end density_ph;
+    
+    redeclare replaceable function temperature_ph 
+      "Computes temperature as a function of pressure and specific enthalpy" 
+      extends Modelica.Icons.Function;
+      input AbsolutePressure p "Pressure";
+      input SpecificEnthalpy h "Specific enthalpy";
+      input FixedPhase phase=0 
+        "2 for two-phase, 1 for one-phase, 0 if not known";
+      output Temperature T "Temperature";
+    algorithm 
+      T := temperature_phX(p, h, fill(0,0),phase);
+    end temperature_ph;
+    
+    redeclare replaceable function pressure_dT 
+      "Computes pressure as a function of density and temperature" 
+      extends Modelica.Icons.Function;
+      input Density d "Density";
+      input Temperature T "Temperature";
+      input FixedPhase phase=0 
+        "2 for two-phase, 1 for one-phase, 0 if not known";
+      output AbsolutePressure p "Pressure";
+    algorithm 
+      p := pressure(setState_pTX(d, T, fill(0,0),phase));
+    end pressure_dT;
+    
+    redeclare replaceable function specificEnthalpy_dT 
+      "Computes specific enthalpy as a function of density and temperature" 
+      extends Modelica.Icons.Function;
+      input Density d "Density";
+      input Temperature T "Temperature";
+      input FixedPhase phase=0 
+        "2 for two-phase, 1 for one-phase, 0 if not known";
+      output SpecificEnthalpy h "specific enthalpy";
+    algorithm 
+      h := specificEnthalpy(setState_pTX(d, T, fill(0,0),phase));
+    end specificEnthalpy_dT;
+    
+    redeclare replaceable function specificEnthalpy_ps 
+      "Computes specific enthalpy as a function of pressure and specific entropy" 
+      extends Modelica.Icons.Function;
+      input AbsolutePressure p "Pressure";
+      input SpecificEntropy s "Specific entropy";
+      input FixedPhase phase=0 
+        "2 for two-phase, 1 for one-phase, 0 if not known";
+      output SpecificEnthalpy h "specific enthalpy";
+    algorithm 
+      h := specificEnthalpy_psX(p,s,fill(0,0));
+    end specificEnthalpy_ps;
+    
+    redeclare replaceable function temperature_ps 
+      "Computes temperature as a function of pressure and specific entropy" 
+      extends Modelica.Icons.Function;
+      input AbsolutePressure p "Pressure";
+      input SpecificEntropy s "Specific entropy";
+      input FixedPhase phase=0 
+        "2 for two-phase, 1 for one-phase, 0 if not known";
+      output Temperature T "Temperature";
+    algorithm 
+      T := temperature_psX(p,s,fill(0,0),phase);
+    end temperature_ps;
+    
+    redeclare replaceable function specificEnthalpy_pT 
+      "Computes specific enthalpy as a function of pressure and temperature" 
+      extends Modelica.Icons.Function;
+      input AbsolutePressure p "Pressure";
+      input Temperature T "Temperature";
+      input FixedPhase phase=0 
+        "2 for two-phase, 1 for one-phase, 0 if not known";
+      output SpecificEnthalpy h "specific enthalpy";
+    algorithm 
+      h := specificEnthalpy_pTX(p, T, fill(0,0),phase);
+    end specificEnthalpy_pT;
+    
+    redeclare replaceable function density_pT 
+      "Computes density as a function of pressure and temperature" 
+      extends Modelica.Icons.Function;
+      input AbsolutePressure p "Pressure";
+      input Temperature T "Temperature";
+      input FixedPhase phase=0 
+        "2 for two-phase, 1 for one-phase, 0 if not known";
+      output Density d "Density";
+    algorithm 
+      d := density(setState_pTX(p, T, fill(0,0),phase));
+    end density_pT;
   end PartialTwoPhaseMedium;
   
   partial package PartialSimpleMedium 
@@ -4966,7 +5145,6 @@ quantities are assumed to be constant.
     algorithm 
       h := cp_const*(T-T0);
     end specificEnthalpy_pTX;
-    
     
     redeclare function temperature_phX 
       "Compute temperature from pressure, specific enthalpy and mass fraction" 
