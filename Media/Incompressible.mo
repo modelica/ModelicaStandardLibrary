@@ -138,15 +138,17 @@ which is only exactly true for a fluid with constant density d=d0.
       MM = MM_const;
     end BaseProperties;
     
-    redeclare function extends setState "Returns state record" 
-      input SI.Pressure p "Pressure";
-      input SI.Temperature T "Temperature";
+    redeclare function extends setState_pTX "Returns state record, given pressure and temperature" 
     algorithm 
-      state.p :=p;
-      state.T :=T;
-    end setState;
+      state := ThermodynamicState(p=p,T=T);
+    end setState_pTX;
     
-    redeclare function extends heatCapacity_cv 
+    redeclare function extends setState_phX "Returns state record, given pressure and specific enthalpy" 
+    algorithm 
+      state :=ThermodynamicState(p=p,T=T_ph(p,h));
+    end setState_phX;
+    
+    redeclare function extends specificHeatCapacityCv 
       "Specific heat capacity at constant volume (or pressure) of medium" 
       
      annotation(smoothOrder=2);
@@ -154,9 +156,9 @@ which is only exactly true for a fluid with constant density d=d0.
       assert(hasHeatCapacity,"Specific Heat Capacity, Cv, is not defined for medium "
                                              + mediumName + ".");
       cv := Poly.evaluate(poly_Cp,if TinK then state.T else state.T - 273.15);
-    end heatCapacity_cv;
+    end specificHeatCapacityCv;
     
-    redeclare function extends heatCapacity_cp 
+    redeclare function extends specificHeatCapacityCp 
       "Specific heat capacity at constant volume (or pressure) of medium" 
       
      annotation(smoothOrder=2);
@@ -164,7 +166,7 @@ which is only exactly true for a fluid with constant density d=d0.
       assert(hasHeatCapacity,"Specific Heat Capacity, Cv, is not defined for medium "
                                              + mediumName + ".");
       cp := Poly.evaluate(poly_Cp,if TinK then state.T else state.T - 273.15);
-    end heatCapacity_cp;
+    end specificHeatCapacityCp;
     
     redeclare function extends dynamicViscosity 
       
@@ -183,6 +185,17 @@ which is only exactly true for a fluid with constant density d=d0.
                                              + mediumName + ".");
       lambda := Poly.evaluate(poly_lam,if TinK then state.T else Cv.to_degC(state.T));
     end thermalConductivity;
+
+    function s_T "compute specific entropy"
+      input Temperature T "temperature";
+      output SpecificEntropy s "specific entropy";
+    algorithm
+      s := s0 + (if TinK then 
+        Poly.integralValue(poly_Cp[1:npol],T, T0) else 
+        Poly.integralValue(poly_Cp[1:npol],Cv.to_degC(T),Cv.to_degC(T0)))
+        + Modelica.Math.log(T/T0)*
+        Poly.evaluate(poly_Cp,if TinK then 0 else Modelica.Constants.T_zero);
+    end s_T;
     
     redeclare function extends specificEntropy 
     protected 
@@ -191,11 +204,7 @@ which is only exactly true for a fluid with constant density d=d0.
     algorithm 
       assert(hasHeatCapacity,"Specific Entropy, s(T), is not defined for medium "
                                              + mediumName + ".");
-      s := s0 + (if TinK then 
-        Poly.integralValue(poly_Cp[1:npol],state.T, T0) else 
-        Poly.integralValue(poly_Cp[1:npol],Cv.to_degC(state.T),Cv.to_degC(T0)))
-        + Modelica.Math.log(state.T/T0)*
-        Poly.evaluate(poly_Cp,if TinK then 0 else Modelica.Constants.T_zero);
+      s := s_T(state.T);
     end specificEntropy;
     
     function h_T "Compute specific enthalpy from temperature" 
@@ -205,8 +214,8 @@ which is only exactly true for a fluid with constant density d=d0.
       output SI.SpecificEnthalpy h "Specific enthalpy at p, T";
      annotation(derivative=h_T_der);
     algorithm 
-      h :=h0 + Poly.integralValue(poly_Cp, if TinK then T else to_degC(T), if TinK then 
-      T0 else to_degC(T0));
+      h :=h0 + Poly.integralValue(poly_Cp, if TinK then T else Cv.to_degC(T), if TinK then 
+      T0 else Cv.to_degC(T0));
     end h_T;
     
     function h_T_der "Compute specific enthalpy from temperature" 
@@ -216,7 +225,7 @@ which is only exactly true for a fluid with constant density d=d0.
       input Real dT "temperature derivative";
       output Real dh "derivative of Specific enthalpy at T";
     algorithm 
-      dh :=Poly.evaluate(poly_Cp, if TinK then T else to_degC(T))*dT;
+      dh :=Poly.evaluate(poly_Cp, if TinK then T else Cv.to_degC(T))*dT;
     end h_T_der;
     
     function h_pT "Compute specific enthalpy from pressure and temperature" 
@@ -229,61 +238,89 @@ which is only exactly true for a fluid with constant density d=d0.
       output SI.SpecificEnthalpy h "Specific enthalpy at p, T";
      annotation(smoothOrder=2);
     algorithm 
-      h :=h0 + Poly.integralValue(poly_Cp, if TinK then T else to_degC(T), if TinK then 
-      T0 else to_degC(T0)) + (p - reference_p)/Poly.evaluate(poly_rho, if TinK then 
-              T else to_degC(T))
-        *(if densityOfT then (1 + T/Poly.evaluate(poly_rho, if TinK then T else to_degC(T))
-      *Poly.derivativeValue(poly_rho,if TinK then T else to_degC(T))) else 1.0);
+      h :=h0 + Poly.integralValue(poly_Cp, if TinK then T else Cv.to_degC(T), if TinK then 
+      T0 else Cv.to_degC(T0)) + (p - reference_p)/Poly.evaluate(poly_rho, if TinK then 
+              T else Cv.to_degC(T))
+        *(if densityOfT then (1 + T/Poly.evaluate(poly_rho, if TinK then T else Cv.to_degC(T))
+      *Poly.derivativeValue(poly_rho,if TinK then T else Cv.to_degC(T))) else 1.0);
     end h_pT;
 
     function density_T
       input Temperature T "temperature";
       output Density d "density";
     algorithm
-      d := Poly.evaluate(poly_rho,if TinK then T else to_degC(T));
+      d := Poly.evaluate(poly_rho,if TinK then T else Cv.to_degC(T));
     end density_T;
-    
-    redeclare function extends specificEnthalpy_pTX 
-      "Compute specific enthalpy from pressure, temperature and mass fractions" 
-    algorithm 
-      h := if singleState then h_T(T) else h_pT(p,T);
-    end specificEnthalpy_pTX;
-    
-redeclare function extends temperature_phX 
-  "Compute temperature from pressure, specific enthalpy and mass fraction" 
-  
-protected 
-  package Internal 
-    "Solve h(T) for T with given h (use only indirectly via temperature_phX)" 
-    extends Modelica.Media.Common.OneNonLinearEquation;
-    
-    redeclare record extends f_nonlinear_Data
-        "superfluous record, fix later when better structure of inverse functions exists"
-        constant Real[5] dummy = {1,2,3,4,5};
-    end f_nonlinear_Data;
-    
-    redeclare function extends f_nonlinear "p is smuggled in via vector"
-      algorithm 
-      y := if singleState then h_T(x) else h_pT(p,x);
-    end f_nonlinear;
-    
-    // Dummy definition has to be added for current Dymola
-    redeclare function extends solve 
-      end solve;
-    end Internal;
-    
-  algorithm 
-    T := Internal.solve(h, T_min, T_max, p, X, Internal.f_nonlinear_Data());
-  end temperature_phX;
 
-  redeclare function extends density_phX 
-    "Compute density from pressure, specific enthalpy and mass fraction" 
-    protected
-    Temperature T "temperature";
-  algorithm 
-    T := temperature_phX(p,h,X);
-    d := Poly.evaluate(poly_rho,if TinK then T else to_degC(T));
-  end density_phX;
+    redeclare function extends density
+    algorithm
+      d := Poly.evaluate(poly_rho,if TinK then state.T else Cv.to_degC(state.T));
+    end density;    
+    
+    redeclare function extends specificEnthalpy
+    algorithm    
+      h := if enthalpyOfT then h_T(state.T) else h_pT(state.p,state.T);
+    end specificEnthalpy;
+    
+    redeclare function extends specificInternalEnergy
+    algorithm    
+      u := if enthalpyOfT then h_T(state.T) else h_pT(state.p,state.T)
+        - (if singleState then  reference_p/density(state) else state.p/density(state));
+    end specificInternalEnergy;
+
+    function T_ph  "Compute temperature from pressure and specific enthalpy"   
+      input AbsolutePressure p "pressure";
+      input SpecificEnthalpy h "specific enthalpy";
+      output Temperature T "temperature";
+    protected 
+      package Internal 
+        "Solve h(T) for T with given h (use only indirectly via temperature_phX)" 
+        extends Modelica.Media.Common.OneNonLinearEquation;
+        
+        redeclare record extends f_nonlinear_Data
+            "superfluous record, fix later when better structure of inverse functions exists"
+            constant Real[5] dummy = {1,2,3,4,5};
+        end f_nonlinear_Data;
+        
+        redeclare function extends f_nonlinear "p is smuggled in via vector"
+          algorithm 
+          y := if singleState then h_T(x) else h_pT(p,x);
+        end f_nonlinear;
+        
+        // Dummy definition has to be added for current Dymola
+        redeclare function extends solve 
+          end solve;
+        end Internal;
+   algorithm 
+     T := Internal.solve(h, T_min, T_max, p, {1}, Internal.f_nonlinear_Data());
+    end T_ph;
+    
+    function T_ps  "Compute temperature from pressure and specific enthalpy"   
+      input AbsolutePressure p "pressure";
+      input SpecificEntropy s "specific entropy";
+      output Temperature T "temperature";
+    protected 
+      package Internal 
+        "Solve h(T) for T with given h (use only indirectly via temperature_phX)" 
+        extends Modelica.Media.Common.OneNonLinearEquation;
+        
+        redeclare record extends f_nonlinear_Data
+            "superfluous record, fix later when better structure of inverse functions exists"
+            constant Real[5] dummy = {1,2,3,4,5};
+        end f_nonlinear_Data;
+        
+        redeclare function extends f_nonlinear "p is smuggled in via vector"
+          algorithm 
+          y := s_T(T);
+        end f_nonlinear;
+        
+        // Dummy definition has to be added for current Dymola
+        redeclare function extends solve 
+          end solve;
+        end Internal;
+   algorithm 
+     T := Internal.solve(h, T_min, T_max, p, {1}, Internal.f_nonlinear_Data());
+    end T_ps;
 
     package Polynomials_Temp 
       "Temporary Functions operating on polynomials (including polynomial fitting); only to be used in Modelica.Media.Incompressible.TableBased" 
@@ -578,7 +615,7 @@ function calls can not be used.
     Medium.DynamicViscosity eta=Medium.dynamicViscosity(state);
     Medium.ThermalConductivity lambda=Medium.thermalConductivity(state);
     Medium.SpecificEntropy s=Medium.specificEntropy(state);
-    Medium.SpecificHeatCapacity cv=Medium.heatCapacity_cv(state);
+    Medium.SpecificHeatCapacity cv=Medium.specificHeatCapacityCv(state);
   equation 
     p = 1e5;
     T = Medium.T_min + time;
