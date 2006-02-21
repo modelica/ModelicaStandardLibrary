@@ -478,7 +478,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
     extends Modelica.Icons.Function;
     input AbsolutePressure p "Pressure";
     input SpecificEnthalpy h "Specific enthalpy";
-    input FixedPhase phase "2 for two-phase, 1 for one-phase, 0 if not known";
+    input FixedPhase phase=0 "2 for two-phase, 1 for one-phase, 0 if not known";
     output Density d "Density";
   algorithm 
     d := IF97_Utilities.rho_ph(p, h, phase);
@@ -489,7 +489,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
     extends Modelica.Icons.Function;
     input AbsolutePressure p "Pressure";
     input SpecificEnthalpy h "Specific enthalpy";
-    input FixedPhase phase "2 for two-phase, 1 for one-phase, 0 if not known";
+    input FixedPhase phase=0 "2 for two-phase, 1 for one-phase, 0 if not known";
     output Temperature T "Temperature";
   algorithm 
     T := IF97_Utilities.T_ph(p, h, phase);
@@ -819,6 +819,40 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
     dhvdp := IF97_Utilities.BaseIF97.Regions.dhv_dp(sat.psat);
   end dDewEnthalpy_dPressure;
   
+  redeclare function extends setState_dTX 
+  algorithm 
+    state := ThermodynamicState(
+      d=d,
+      T=T,
+      phase=IF97_Utilities.phase_dT(d,T),
+      h=specificEnthalpy_dT(d,T),
+      p=pressure_dT(d,T));
+  end setState_dTX;
+  
+  redeclare function extends setState_phX 
+  algorithm 
+    state := ThermodynamicState(
+      d=density_ph(p,h),
+      T=temperature_ph(p,h),
+      phase=IF97_Utilities.phase_ph(p,h),
+      h=h,
+      p=p);
+  end setState_phX;
+  
+  redeclare function extends setState_psX 
+  algorithm 
+    assert(false,"not yet implemented");
+  end setState_psX;
+  
+  redeclare function extends setState_pTX 
+  algorithm 
+    state := ThermodynamicState(
+      d=density_pT(p,T),
+      T=T,
+      phase=1,
+      h=specificEnthalpy_pT(p,T),
+      p=p);
+  end setState_pTX;
 end WaterIF97_base;
 
 
