@@ -40,6 +40,400 @@ connected with continuous blocks or with sampled-data blocks.
 </li>
 </ul>
 </html>"));
+  encapsulated package UnitConversions 
+    block ConvertAllUnits "Convert signal to a signal with different unit" 
+      replaceable block ConversionBlock = 
+          Modelica.Blocks.Interfaces.PartialConversionBlock "Conversion block" 
+                           annotation (choicesAllMatching=true);
+      extends ConversionBlock;
+      
+      annotation (defaultComponentName="convert", Icon(
+            Line(points=[-90, 0; 30, 0], style(color=42)),
+            Polygon(points=[90, 0; 30, 20; 30, -20; 90, 0], style(color=42,
+              fillColor=42))),
+          Documentation(info="<html>
+<p>This block implements the Modelica.SIunits unit conversion functions as a fixed causality block to
+simplify their use. The block contains a replaceable function class <b>convert</b> that can be
+changed to be any of the functions defined in Modelica.SIunits.Conversions, and more generally, any
+functions that extend from Modelica.SIunits.Conversions.ConversionIcon. The output <b>y</b> is optained
+applying the unit conversion function to the input <b>u</b>:</p>
+<pre>
+    y = <b>convert</b>( u );
+</pre>
+</html>"),
+        Diagram);
+    end ConvertAllUnits;
+    import Modelica;
+    import SI = Modelica.SIunits;
+    import NonSI = Modelica.SIunits.Conversions.NonSIunits;
+      block to_degC "Convert from Kelvin to °Celsius" 
+         extends Modelica.Blocks.Interfaces.PartialConversionBlock(
+            u(unit="K"), y(unit="degC"));
+      
+      annotation (Icon(Text(
+            extent=[-20, 100; -100, 20],
+            style(color=0),
+            string="K"), Text(
+            extent=[100, -20; 20, -100],
+            style(color=0),
+            string="°C")));
+      equation 
+      y =  u + Modelica.Constants.T_zero;
+      end to_degC;
+    
+    block from_degC "Convert from °Celsius to Kelvin" 
+       extends Modelica.Blocks.Interfaces.PartialConversionBlock(
+          u(unit="degC"), y(unit="K"));
+      annotation (Icon(Text(
+            extent=[-20, 100; -100, 20],
+            style(color=0),
+            string="°C"), Text(
+            extent=[100, -20; 20, -100],
+            style(color=0),
+            string="K")));
+    equation 
+      y =  u - Modelica.Constants.T_zero;
+    end from_degC;
+    
+    block to_degF "Convert from Kelvin to °Fahrenheit" 
+       extends Modelica.Blocks.Interfaces.PartialConversionBlock(
+          u(unit="K"), y(unit="degF"));
+      annotation (Icon(Text(
+            extent=[-20, 100; -100, 20],
+            style(color=0),
+            string="K"), Text(
+            extent=[100, -20; 20, -100],
+            style(color=0),
+            string="°F")));
+    equation 
+      y =  (u + Modelica.Constants.T_zero)*(9/5) + 32;
+    end to_degF;
+    
+    block from_degF "Convert from °Fahrenheit to Kelvin" 
+       extends Modelica.Blocks.Interfaces.PartialConversionBlock(
+          u(unit="degF"), y(unit="K"));
+      annotation (Icon(Text(
+            extent=[-20, 100; -100, 20],
+            style(color=0),
+            string="°F"), Text(
+            extent=[100, -20; 20, -100],
+            style(color=0),
+            string="K")));
+    equation 
+      y =  (u - 32)*(5/9) - Modelica.Constants.T_zero;
+    end from_degF;
+    
+    block to_degRk "Convert from Kelvin to °Rankine" 
+       extends Modelica.Blocks.Interfaces.PartialConversionBlock(
+          u(unit="K"), y(unit="degRk"));
+      annotation (Icon(Text(
+            extent=[-20, 100; -100, 20],
+            style(color=0),
+            string="K"), Text(
+            extent=[100, -20; 20, -100],
+            style(color=0),
+            string="°Rk")));
+    equation 
+      y =  (9/5)*u;
+    end to_degRk;
+    
+    block from_degRk "Convert from °Rankine to Kelvin" 
+       extends Modelica.Blocks.Interfaces.PartialConversionBlock(
+          u(unit="degRk"), y(unit="K"));
+      annotation (Icon(Text(
+            extent=[-20, 100; -100, 20],
+            style(color=0),
+            string="°Rk"), Text(
+            extent=[100, -20; 20, -100],
+            style(color=0),
+            string="K")));
+    equation 
+      y =  (5/9)*u;
+    end from_degRk;
+    
+    block to_deg "Convert from radian to degree" 
+       extends Modelica.Blocks.Interfaces.PartialConversionBlock(
+          u(unit="rad"), y(unit="deg"));
+      annotation (Icon(Text(
+            extent=[-20, 100; -100, 20],
+            style(color=0),
+            string="rad"), Text(
+            extent=[100, -20; 20, -100],
+            style(color=0),
+            string="deg")));
+    equation 
+      y =  (180.0/Modelica.Constants.pi)*u;
+    end to_deg;
+    
+    block from_deg "Convert from degree to radian" 
+       extends Modelica.Blocks.Interfaces.PartialConversionBlock(
+          u(unit="deg"), y(unit="rad"));
+      annotation (Icon(Text(
+            extent=[-20, 100; -100, 20],
+            style(color=0),
+            string="deg"), Text(
+            extent=[100, -20; 20, -100],
+            style(color=0),
+            string="rad")));
+    equation 
+      y =  (Modelica.Constants.pi/180.0)*u;
+    end from_deg;
+    
+    block to_rpm "Convert from radian per second to revolutions per minute" 
+       extends Modelica.Blocks.Interfaces.PartialConversionBlock(
+          u(unit="rad/s"), y(unit="rev/min"));
+      annotation (Icon(Text(
+            extent=[-20, 100; -100, 20],
+            style(color=0),
+            string="rad/s"), Text(
+            extent=[100, -20; 20, -100],
+            style(color=0),
+            string="rev/min")));
+    equation 
+      y =  (30/Modelica.Constants.pi)*u;
+    end to_rpm;
+    
+    block from_rpm "Convert from revolutions per minute to radian per second" 
+       extends Modelica.Blocks.Interfaces.PartialConversionBlock(
+          u(unit="rev/min"), y(unit="rad/s"));
+      annotation (Icon(Text(
+            extent=[-20, 100; -100, 20],
+            style(color=0),
+            string="rev/min"), Text(
+            extent=[100, -20; 20, -100],
+            style(color=0),
+            string="rad/s")));
+    equation 
+      y =  (Modelica.Constants.pi/30)*u;
+    end from_rpm;
+    
+    block to_kmh "Convert from metre per second to kilometre per hour" 
+      extends Modelica.Blocks.Interfaces.PartialConversionBlock(
+          u(unit="m/s"), y(unit="km/h"));
+     annotation (Icon(Text(
+            extent=[-20, 100; -100, 20],
+            style(color=0),
+            string="m/s"), Text(
+            extent=[100, -20; 20, -100],
+            style(color=0),
+            string="km/h")));
+    equation 
+      y =  3.6*u;
+    end to_kmh;
+    
+    block from_kmh "Convert from kilometre per hour to metre per second" 
+       extends Modelica.Blocks.Interfaces.PartialConversionBlock(
+          u(unit="km/h"), y(unit="m/s"));
+      annotation (Icon(Text(
+            extent=[-20, 100; -100, 20],
+            style(color=0),
+            string="km/h"), Text(
+            extent=[100, -20; 20, -100],
+            style(color=0),
+            string="m/s")));
+    equation 
+      y =  u/3.6;
+    end from_kmh;
+    
+    block to_day "Convert from second to day" 
+       extends Modelica.Blocks.Interfaces.PartialConversionBlock(
+          u(unit="s"), y(unit="d"));
+      annotation (Icon(Text(
+            extent=[-20, 100; -100, 20],
+            style(color=0),
+            string="s"), Text(
+            extent=[100, -20; 20, -100],
+            style(color=0),
+            string="day")));
+    equation 
+      y =  u/86400;
+    end to_day;
+    
+    block from_day "Convert from day to second" 
+       extends Modelica.Blocks.Interfaces.PartialConversionBlock(
+          u(unit="d"), y(unit="s"));
+      annotation (Icon(Text(
+            extent=[-20, 100; -100, 20],
+            style(color=0),
+            string="day"), Text(
+            extent=[100, -20; 20, -100],
+            style(color=0),
+            string="s")));
+    equation 
+      y =  86400*u;
+    end from_day;
+    
+    block to_hour "Convert from second to hour" 
+       extends Modelica.Blocks.Interfaces.PartialConversionBlock(
+          u(unit="s"), y(unit="h"));
+     annotation (Icon(Text(
+            extent=[-20, 100; -100, 20],
+            style(color=0),
+            string="s"), Text(
+            extent=[100, -20; 20, -100],
+            style(color=0),
+            string="hour")));
+    equation 
+      y =  u/3600;
+    end to_hour;
+    
+    block from_hour "Convert from hour to second" 
+       extends Modelica.Blocks.Interfaces.PartialConversionBlock(
+          u(unit="h"), y(unit="s"));
+      annotation (Icon(Text(
+            extent=[-20, 100; -100, 20],
+            style(color=0),
+            string="hour"), Text(
+            extent=[100, -20; 20, -100],
+            style(color=0),
+            string="s")));
+    equation 
+      y =  3600*u;
+    end from_hour;
+    
+    block to_minute "Convert from second to minute" 
+       extends Modelica.Blocks.Interfaces.PartialConversionBlock(
+          u(unit="s"), y(unit="min"));
+      annotation (Icon(Text(
+            extent=[-20, 100; -100, 20],
+            style(color=0),
+            string="s"), Text(
+            extent=[100, -20; 20, -100],
+            style(color=0),
+            string="minute")));
+    equation 
+      y =  u/60;
+    end to_minute;
+    
+    block from_minute "Convert from minute to second" 
+       extends Modelica.Blocks.Interfaces.PartialConversionBlock(
+          u(unit="min"), y(unit="s"));
+      annotation (Icon(Text(
+            extent=[-20, 100; -100, 20],
+            style(color=0),
+            string="minute"), Text(
+            extent=[100, -20; 20, -100],
+            style(color=0),
+            string="s")));
+    equation 
+      y =  60*u;
+    end from_minute;
+    
+    block to_litre "Convert from cubic metre to litre" 
+       extends Modelica.Blocks.Interfaces.PartialConversionBlock(
+          u(unit="m3"), y(unit="l"));
+      annotation (Icon(Text(
+            extent=[-20, 100; -100, 20],
+            style(color=0),
+            string="m3"), Text(
+            extent=[100, -20; 20, -100],
+            style(color=0),
+            string="litre")));
+    equation 
+      y =  1000*u;
+    end to_litre;
+    
+    block from_litre "Convert from litre to cubic metre" 
+       extends Modelica.Blocks.Interfaces.PartialConversionBlock(
+          u(unit="l"), y(unit="m3"));
+      annotation (Icon(Text(
+            extent=[-20, 100; -100, 20],
+            style(color=0),
+            string="litre"), Text(
+            extent=[100, -20; 20, -100],
+            style(color=0),
+            string="m3")));
+    equation 
+      y =  u/1000;
+    end from_litre;
+    
+    block to_kWh "Convert from Joule to kilo Watt hour" 
+       extends Modelica.Blocks.Interfaces.PartialConversionBlock(
+          u(unit="J"), y(unit="kWh"));
+      annotation (Icon(Text(
+            extent=[-20, 100; -100, 20],
+            style(color=0),
+            string="J"), Text(
+            extent=[100, -20; 20, -100],
+            style(color=0),
+            string="kWh")));
+    equation 
+      y =  u/3.6e6;
+    end to_kWh;
+    
+    block from_kWh "Convert from kilo Watt hour to Joule" 
+       extends Modelica.Blocks.Interfaces.PartialConversionBlock(
+          u(unit="kWh"), y(unit="J"));
+      annotation (Icon(Text(
+            extent=[-20, 100; -100, 20],
+            style(color=0),
+            string="kWh"), Text(
+            extent=[100, -20; 20, -100],
+            style(color=0),
+            string="J")));
+    equation 
+      y =  3.6e6*u;
+    end from_kWh;
+    
+    block to_bar "Convert from Pascal to bar" 
+       extends Modelica.Blocks.Interfaces.PartialConversionBlock(
+          u(unit="Pa"), y(unit="bar"));
+     annotation (Icon(Text(
+            extent=[-20, 100; -100, 20],
+            style(color=0),
+            string="Pa"), Text(
+            extent=[100, -20; 20, -100],
+            style(color=0),
+            string="bar")));
+    equation 
+      y =  u/1e5;
+    end to_bar;
+    
+    block from_bar "Convert from bar to Pascal" 
+       extends Modelica.Blocks.Interfaces.PartialConversionBlock(
+          u(unit="bar"), y(unit="Pa"));
+      annotation (Icon(Text(
+            extent=[-20, 100; -100, 20],
+            style(color=0),
+            string="bar"), Text(
+            extent=[100, -20; 20, -100],
+            style(color=0),
+            string="Pa")));
+    equation 
+      y =  1e5*u;
+    end from_bar;
+    
+    block to_gps "Convert from kilogram per second to gram per second" 
+       extends Modelica.Blocks.Interfaces.PartialConversionBlock(
+          u(unit="kg/s"), y(unit="g/s"));
+     annotation (Icon(Text(
+            extent=[-20, 100; -100, 20],
+            style(color=0),
+            string="kg/s"), Text(
+            extent=[100, -20; 20, -100],
+            style(color=0),
+            string="g/s")));
+    equation 
+      y =  1000*u;
+    end to_gps;
+    
+    block from_gps "Convert from gram per second to kilogram per second" 
+       extends Modelica.Blocks.Interfaces.PartialConversionBlock(
+          u(unit="g/s"), y(unit="kg/s"));
+      annotation (Icon(Text(
+            extent=[-20, 100; -100, 20],
+            style(color=0),
+            string="g/s"), Text(
+            extent=[100, -20; 20, -100],
+            style(color=0),
+            string="kg/s")));
+    equation 
+      y =  u/1000;
+    end from_gps;
+    
+    annotation (uses(Modelica(version="2.2.1")));
+  end UnitConversions;
+
       block TwoInputs 
     "Change causality of input signals by defining that two input signals are identical (e.g. for inverse models)" 
         extends Blocks.Interfaces.BlockIcon;
@@ -1755,30 +2149,6 @@ zero or negative.
         y = Modelica.Math.log10(u);
       end Log10;
   
-  block Convert "Convert signal to a signal with different unit" 
-    extends Interfaces.SISO;
-    
-    replaceable function convert = SIunits.Conversions.ConversionIcon 
-      extends SIunits.Conversions.ConversionIcon "Conversion function" 
-      annotation (choicesAllMatching=true);
-    
-    annotation (Icon(
-          Line(points=[-90, 0; 30, 0], style(color=42)),
-          Polygon(points=[90, 0; 30, 20; 30, -20; 90, 0], style(color=42,
-            fillColor=42))),
-        Documentation(info="<html>
-<p>This block implements the Modelica.SIunits unit conversion functions as a fixed causality block to
-simplify their use. The block contains a replaceable function class <b>convert</b> that can be
-changed to be any of the functions defined in Modelica.SIunits.Conversions, and more generally, any
-functions that extend from Modelica.SIunits.Conversions.ConversionIcon. The output <b>y</b> is optained
-applying the unit conversion function to the input <b>u</b>:</p>
-<pre>
-    y = <b>convert</b>( u );
-</pre>
-</html>"));
-  equation 
-    y = convert(u);
-  end Convert;
   
   block RealToInteger "Convert Real to Integer signal" 
     extends Interfaces.IntegerBlockIcon;

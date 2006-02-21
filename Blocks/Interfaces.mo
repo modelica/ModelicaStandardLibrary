@@ -199,7 +199,6 @@ Connector with one output signal of type Integer.
 </p>
 </html>"));
   
-  
     partial block BlockIcon "Basic graphical layout of input/output block" 
       annotation (
         Coordsys(extent=[-100, -100; 100, 100]),
@@ -1463,4 +1462,30 @@ to define signal buses.
 </p>
 </html>"));
 end Adaptors;
+
+  partial block PartialConversionBlock 
+    "Partial block defining the interface for conversion blocks" 
+    RealInput u "Connector of Real input signal to be converted" 
+      annotation (extent=[-140, -20; -100, 20]);
+    RealOutput y 
+      "Connector of Real output signal containing input signal u in another unit"
+      annotation (extent=[100, -10; 120, 10]);
+    annotation (Icon(
+        Rectangle(extent=[-100, 100; 100, -100], style(
+               color=74,
+               rgbcolor={0,0,127},
+               fillColor=7, rgbfillColor=
+                {255,255,255})),
+        Line(points=[-90, 0; 30, 0], style(color=42)),
+        Polygon(points=[90, 0; 30, 20; 30, -20; 90, 0], style(color=42,
+              fillColor=42)),
+        Text(extent=[-115, 155; 115, 105], string="%name")),             Documentation(info="<html>
+<p>
+This block defines the interface of a conversion block that
+converts from one unit into another one. 
+</p>
+ 
+</html>"));
+    
+  end PartialConversionBlock;
 end Interfaces;

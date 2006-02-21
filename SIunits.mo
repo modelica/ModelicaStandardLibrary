@@ -353,6 +353,37 @@ and the accompanying <b>disclaimer</b>
     
     extends Modelica.Icons.Library2;
     
+    annotation(preferedView="info", Icon(
+        Text(
+          extent=[-33, -7; -92, -67],
+          string="°C",
+          style(color=0, thickness=4)),
+        Text(
+          extent=[82, -7; 22, -67],
+          string="K",
+          style(color=0)),
+        Line(points=[-26, -36; 6, -36], style(color=0)),
+        Polygon(points=[6, -28; 6, -45; 26, -37; 6, -28], style(pattern=0,
+              fillColor=0))), Documentation(info="<HTML>
+<p>This package provides conversion functions from the non SI Units
+defined in package Modelica.SIunits.Conversions.NonSIunits to the
+corresponding SI Units defined in package Modelica.SIunits and vice
+versa. It is recommended to use these functions in the following
+way (note, that all functions have one Real input and one Real output 
+argument):</p>
+<pre>
+  <b>import</b> SI = Modelica.SIunits;
+  <b>import</b> Modelica.SIunits.Conversions.*;
+     ...
+  <b>parameter</b> SI.Temperature     T   = from_degC(25);   // convert 25 degree Celsius to Kelvin
+  <b>parameter</b> SI.Angle           phi = from_deg(180);   // convert 180 degree to radian
+  <b>parameter</b> SI.AngularVelocity w   = from_rpm(3600);  // convert 3600 revolutions per minutes
+                                                      // to radian per seconds
+</pre>
+ 
+</HTML>
+"));
+    
     package NonSIunits "Type definitions of non SI units" 
       
       extends Modelica.Icons.Library2;
@@ -801,36 +832,6 @@ still kept in Modelica.SIunits.</p>
           Text(extent=[-115, 155; 115, 105], string="%name")));
     end ConversionIcon;
     
-    annotation(preferedView="info", Icon(
-        Text(
-          extent=[-33, -7; -92, -67],
-          string="°C",
-          style(color=0, thickness=4)),
-        Text(
-          extent=[82, -7; 22, -67],
-          string="K",
-          style(color=0)),
-        Line(points=[-26, -36; 6, -36], style(color=0)),
-        Polygon(points=[6, -28; 6, -45; 26, -37; 6, -28], style(pattern=0,
-              fillColor=0))), Documentation(info="<HTML>
-<p>This package provides conversion functions from the non SI Units
-defined in package Modelica.SIunits.Conversions.NonSIunits to the
-corresponding SI Units defined in package Modelica.SIunits and vice
-versa. It is recommended to use these functions in the following
-way (note, that all functions have one Real input and one Real output 
-argument):</p>
-<pre>
-  <b>import</b> SI = Modelica.SIunits;
-  <b>import</b> Modelica.SIunits.Conversions.*;
-     ...
-  <b>parameter</b> SI.Temperature     T   = from_degC(25);   // convert 25 degree Celsius to Kelvin
-  <b>parameter</b> SI.Angle           phi = from_deg(180);   // convert 180 degree to radian
-  <b>parameter</b> SI.AngularVelocity w   = from_rpm(3600);  // convert 3600 revolutions per minutes
-                                                      // to radian per seconds
-</pre>
-
-</HTML>
-"));
   end Conversions;
   
   // Space and Time (chapter 1 of ISO 31-1992)
