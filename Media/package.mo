@@ -586,10 +586,10 @@ form:
   <tr><td>Medium.specificEntropy(medium.state)</td>
       <td>J/(kg.K)</td>
       <td>specific entropy</td></tr>
-  <tr><td>Medium.heatCapacity_cp(medium.state)</td>
+  <tr><td>Medium.specificHeatCapacityCp(medium.state)</td>
       <td>J/(kg.K)</td>
       <td>specific heat capacity at constant pressure</td></tr>
-  <tr><td>Medium.heatCapacity_cv(medium.state)</td>
+  <tr><td>Medium.specificHeatCapacityCv(medium.state)</td>
       <td>J/(kg.K)</td>
       <td>specific heat capacity at constant density</td></tr>
   <tr><td>Medium.isentropicExponent(medium.state)</td>
@@ -1039,7 +1039,7 @@ Here are some examples:
  
    // Compute dew point properties, one-phase side
    dew_1 = setDewState(sat);
-   cpDew = Medium.heatCapacity_cp(dew_1);
+   cpDew = Medium.specificHeatCapacityCp(dew_1);
    drho_dp_h_1 = Medium.density_derp_h(dew_1);
  
    // Compute bubble point properties, two-phase side
@@ -2102,7 +2102,7 @@ package Examples
     // Use type declarations from the Medium
     Medium.MassFlowRate m_flow_ext;
     Medium.DynamicViscosity eta=Medium.dynamicViscosity(medium);
-    Medium.SpecificHeatCapacity cv=Medium.heatCapacity_cv(medium);
+    Medium.SpecificHeatCapacity cv=Medium.specificHeatCapacityCv(medium);
   equation 
     medium.p = 1.e5;
     
@@ -2121,8 +2121,8 @@ package Examples
     package Medium = IdealGases.SingleGases.H2O;
     Medium.ThermodynamicState state;
     Medium.ThermodynamicState state2;
-    Medium.SpecificHeatCapacity cp=Medium.heatCapacity_cp(state);
-    Medium.SpecificHeatCapacity cv=Medium.heatCapacity_cv(state);
+    Medium.SpecificHeatCapacity cp=Medium.specificHeatCapacityCp(state);
+    Medium.SpecificHeatCapacity cv=Medium.specificHeatCapacityCv(state);
     Medium.IsentropicExponent k=Medium.isentropicExponent(state);
     Medium.SpecificEntropy s=Medium.specificEntropy(state);
     //  Medium.SpecificEntropy s2=Medium.specificEntropy(state2);
@@ -2188,7 +2188,7 @@ package Examples
        X(start={0.8,0.2}));
     Real m1(quantity=Medium1.mediumName, start = 1.0);
     SI.InternalEnergy U1;
-    Medium1.SpecificHeatCapacity cp1=Medium1.heatCapacity_cp(medium1.state);
+    Medium1.SpecificHeatCapacity cp1=Medium1.specificHeatCapacityCp(medium1.state);
     Medium1.DynamicViscosity eta1= Medium1.dynamicViscosity(medium1.state);
     Medium1.ThermalConductivity lambda1= Medium1.thermalConductivity(medium1.state);
     
@@ -2198,7 +2198,7 @@ package Examples
        X(start={0.1,0.1,0.1,0.2,0.2,0.3}));
     Real m2(quantity=Medium2.mediumName, start = 1.0);
     SI.InternalEnergy U2;
-    Medium2.SpecificHeatCapacity cp2=Medium2.heatCapacity_cp(medium2.state);
+    Medium2.SpecificHeatCapacity cp2=Medium2.specificHeatCapacityCp(medium2.state);
     Medium2.DynamicViscosity eta2= Medium2.dynamicViscosity(medium2.state);
     Medium2.ThermalConductivity lambda2= Medium2.thermalConductivity(medium2.state);
     
@@ -2291,8 +2291,8 @@ end MoistAir;
       eta_b = dynamicViscosity(bubble);
       lambda_d = thermalConductivity(dew);
       lambda_b = thermalConductivity(bubble);
-      cp_d = heatCapacity_cp(dew);
-      cp_b = heatCapacity_cp(bubble);
+      cp_d = specificHeatCapacityCp(dew);
+      cp_b = specificHeatCapacityCp(bubble);
       s_d = specificEntropy(dew);
       s_b = specificEntropy(bubble);
       ddph = density_derp_h(state);
@@ -2352,7 +2352,7 @@ boundary are: <br>
 <li>Compute the state, using an instance of SaturationProperties,
 e.g. dew = setDewState(sat)</li>
 <li>Compute properties on the phase boundary to your full desire,
-e.g. \"cp_d = heatCapacity_cp(dew)\". <br>
+e.g. \"cp_d = specificHeatCapacityCp(dew)\". <br>
 </li>
 </ol>
 <p>The sample model TestTwoPhaseStates test the extended properties</p>
@@ -2395,8 +2395,8 @@ points, e.g. when an isentropic reference state is computed.<br>
          T(start = 300.0),
          X(start = {0.2,0.8}),
          p(start = 2.0e5));
-      Medium.SpecificHeatCapacity cp=Medium.heatCapacity_cp(medium.state);
-      Medium.SpecificHeatCapacity cv=Medium.heatCapacity_cv(medium.state);
+      Medium.SpecificHeatCapacity cp=Medium.specificHeatCapacityCp(medium.state);
+      Medium.SpecificHeatCapacity cv=Medium.specificHeatCapacityCv(medium.state);
       Medium.IsentropicExponent gamma=Medium.isentropicExponent(medium.state);
       Medium.SpecificEntropy s=Medium.specificEntropy(medium.state);
       Medium.SpecificEntropy s2=Medium.specificEntropy(medium2.state);
@@ -2435,8 +2435,8 @@ is given to compare the approximation.
          T(start = 300.0),
          X(start = {0.2,0.1,0.3,0.4}),
          p(start = 2.0e5));
-      Medium.SpecificHeatCapacity cp=Medium.heatCapacity_cp(state);
-      Medium.SpecificHeatCapacity cv=Medium.heatCapacity_cv(state);
+      Medium.SpecificHeatCapacity cp=Medium.specificHeatCapacityCp(state);
+      Medium.SpecificHeatCapacity cv=Medium.specificHeatCapacityCv(state);
       Medium.IsentropicExponent gamma=Medium.isentropicExponent(state);
       Medium.SpecificEntropy s=Medium.specificEntropy(state);
       Medium.SpecificEntropy s2=Medium.specificEntropy(medium2.state);
@@ -2474,8 +2474,8 @@ is given to compare the approximation.
         Medium.DynamicViscosity eta=Medium.dynamicViscosity(medium);
         Medium.ThermalConductivity lambda=Medium.thermalConductivity(medium);
         Medium.SpecificEntropy s=Medium.specificEntropy(medium);
-        Medium.SpecificHeatCapacity cp=Medium.heatCapacity_cp(medium);
-        Medium.SpecificHeatCapacity cv=Medium.heatCapacity_cv(medium);
+        Medium.SpecificHeatCapacity cp=Medium.specificHeatCapacityCp(medium);
+        Medium.SpecificHeatCapacity cv=Medium.specificHeatCapacityCv(medium);
         Medium.IsentropicExponent gamma=Medium.isentropicExponent(medium);
         Medium.VelocityOfSound a=Medium.velocityOfSound(medium);
       equation 
@@ -2508,8 +2508,8 @@ is given to compare the approximation.
       Real m(quantity=Medium.mediumName, start = 1.0);
       SI.InternalEnergy U;
       
-      Medium.SpecificHeatCapacity cp=Medium.heatCapacity_cp(medium);
-      Medium.SpecificHeatCapacity cv=Medium.heatCapacity_cv(medium);
+      Medium.SpecificHeatCapacity cp=Medium.specificHeatCapacityCp(medium);
+      Medium.SpecificHeatCapacity cv=Medium.specificHeatCapacityCv(medium);
       Medium.IsentropicExponent gamma=Medium.isentropicExponent(medium);
       Medium.SpecificEntropy s=Medium.specificEntropy(medium);
       Medium.VelocityOfSound a=Medium.velocityOfSound(medium);
@@ -3550,23 +3550,23 @@ kind of media.
 </html>"));
     end specificEntropy;
     
-    redeclare function extends heatCapacity_cp 
+    redeclare function extends specificHeatCapacityCp 
       "Return specific heat capacity at constant pressure" 
     algorithm 
       cp := 0;
       annotation (Documentation(revisions="<html>
   
 </html>"));
-    end heatCapacity_cp;
+    end specificHeatCapacityCp;
     
-    redeclare function extends heatCapacity_cv 
+    redeclare function extends specificHeatCapacityCv 
       "Return specific heat capacity at constant volume" 
     algorithm 
       cv := 0;
       annotation (Documentation(revisions="<html>
   
 </html>"));
-    end heatCapacity_cv;
+    end specificHeatCapacityCv;
     
     redeclare function extends isentropicExponent "Return isentropic exponent" 
       extends Modelica.Icons.Function;
@@ -3847,10 +3847,37 @@ equation
 */
     end BaseProperties;
     
-    replaceable partial function setState "Return thermodynamic state" 
+    replaceable partial function setState_pTX "Return thermodynamic state as function of p, T and composition X" 
       extends Modelica.Icons.Function;
+      input AbsolutePressure p "Pressure";
+      input Temperature T "Temperature";
+      input MassFraction X[nX] "Mass fractions";
       output ThermodynamicState state;
-    end setState;
+    end setState_pTX;
+    
+    replaceable partial function setState_phX "Return thermodynamic state as function of p, h and composition X" 
+      extends Modelica.Icons.Function;
+      input AbsolutePressure p "Pressure";
+      input SpecificEnthalpy h "Specific enthalpy";
+      input MassFraction X[nX] "Mass fractions";
+      output ThermodynamicState state;
+    end setState_phX;
+    
+    replaceable partial function setState_psX "Return thermodynamic state as function of p, s and composition X" 
+      extends Modelica.Icons.Function;
+      input AbsolutePressure p "Pressure";
+      input SpecificEntropy s "Specific entropy";
+      input MassFraction X[nX] "Mass fractions";
+      output ThermodynamicState state;
+    end setState_psX;
+    
+    replaceable partial function setState_dTX "Return thermodynamic state as function of d, T and composition X" 
+      extends Modelica.Icons.Function;
+      input Density d "density";
+      input Temperature T "Temperature";
+      input MassFraction X[nX] "Mass fractions";
+      output ThermodynamicState state;
+    end setState_dTX;
     
     replaceable partial function dynamicViscosity "Return dynamic viscosity" 
       extends Modelica.Icons.Function;
@@ -3870,9 +3897,39 @@ equation
       input ThermodynamicState state;
       output PrandtlNumber Pr "Prandtl number";
     algorithm 
-      Pr := dynamicViscosity(state)*heatCapacity_cp(state)/thermalConductivity(
+      Pr := dynamicViscosity(state)*specificHeatCapacityCp(state)/thermalConductivity(
         state);
     end prandtlNumber;
+    
+    replaceable partial function pressure "computes pressure" 
+      extends Modelica.Icons.Function;
+      input ThermodynamicState state "thermodynamic state record";
+      output AbsolutePressure p "pressure";
+    end pressure;
+    
+    replaceable partial function temperature "computes temperature" 
+      extends Modelica.Icons.Function;
+      input ThermodynamicState state "thermodynamic state record";
+      output Temperature T "temperature";
+    end temperature;
+    
+    replaceable partial function density "computes density" 
+      extends Modelica.Icons.Function;
+      input ThermodynamicState state "thermodynamic state record";
+      output Density d "density";
+    end density;
+    
+    replaceable partial function specificEnthalpy "computes specific enthalpy" 
+      extends Modelica.Icons.Function;
+      input ThermodynamicState state "thermodynamic state record";
+      output SpecificEnthalpy h "specific enthalpy";
+    end SpecificEnthalpy;
+    
+    replaceable partial function specificInternalEnergy "retuns specific internal energy" 
+      extends Modelica.Icons.Function;
+      input ThermodynamicState state "thermodynamic state record";
+      output SpecificEnergy u "specific internal energy";
+    end specificInternalEnergy;
     
     replaceable partial function specificEntropy "Return specific entropy" 
       extends Modelica.Icons.Function;
@@ -3880,21 +3937,37 @@ equation
       output SpecificEntropy s "Specific entropy";
     end specificEntropy;
     
-    replaceable partial function heatCapacity_cp 
+    replaceable partial function specificGibbsEnergy "computes specific Gibbs energy" 
+      extends Modelica.Icons.Function;
+      input ThermodynamicState state "thermodynamic state record";
+      output SpecificEnergy g "specific Gibbs energy";
+    end specificGibbsEnergy;
+    
+    replaceable partial function specificHelmholtzEnergy "computes specific Helmholtz energy" 
+      extends Modelica.Icons.Function;
+      input ThermodynamicState state "thermodynamic state record";
+      output SpecificEnergy f "specific Helmholtz energy";
+    end specificHelmholtzEnergy;
+
+    replaceable partial function specificHeatCapacityCp 
       "Return specific heat capacity at constant pressure" 
       extends Modelica.Icons.Function;
       input ThermodynamicState state;
       output SpecificHeatCapacity cp 
         "Specific heat capacity at constant pressure";
-    end heatCapacity_cp;
+    end specificHeatCapacityCp;
+
+    function heatCapacity_cp = specificHeatCapacityCp "alias for deprecated name";
     
-    replaceable partial function heatCapacity_cv 
+    replaceable partial function specificHeatCapacityCv 
       "Return specific heat capacity at constant volume" 
       extends Modelica.Icons.Function;
       input ThermodynamicState state;
       output SpecificHeatCapacity cv 
         "Specific heat capacity at constant volume";
-    end heatCapacity_cv;
+    end specificHeatCapacityCv;
+
+    function heatCapacity_cv = specificHeatCapacityCv "alias for deprecated name";
     
     replaceable partial function isentropicExponent 
       "Return isentropic exponent" 
@@ -3975,49 +4048,59 @@ equation
       output MolarMass MM "mixture molar mass";
     end molarMass;
     
-    replaceable partial function specificEnthalpy_pTX 
+    replaceable function specificEnthalpy_pTX 
       "Compute specific enthalpy from pressure, temperature and mass fraction" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input Temperature T "Temperature";
       input MassFraction X[nX] "Mass fractions";
       output SpecificEnthalpy h "Specific enthalpy at p, T, X";
+    algorithm
+      h := specificEnthalpy(setState_pTX(p,T,X));
     end specificEnthalpy_pTX;
     
-    replaceable partial function temperature_phX 
+    replaceable function temperature_phX 
       "Compute temperature from pressure, specific enthalpy and mass fraction" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEnthalpy h "Specific enthalpy";
       input MassFraction X[nX] "Mass fractions";
       output Temperature T "Temperature";
+    algorithm
+      T := temperature(setState_phX(p,h,X));
     end temperature_phX;
     
-    replaceable partial function density_phX 
+    replaceable function density_phX 
       "Compute density from pressure, specific enthalpy and mass fraction" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEnthalpy h "Specific enthalpy";
       input MassFraction X[nX] "Mass fractions";
       output Density d "density";
+    algorithm
+      d := density(setState_phX(p,h,X));
     end density_phX;
     
-    replaceable partial function temperature_psX 
+    replaceable function temperature_psX 
       "Compute temperature from pressure, specific enthalpy and mass fraction" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEntropy s "Specific entropy";
       input MassFraction X[nX] "Mass fractions";
       output Temperature T "Temperature";
+    algorithm
+      T := temperature(setState_psX(p,s,X));
     end temperature_psX;
     
-    replaceable partial function specificEnthalpy_psX 
+    replaceable function specificEnthalpy_psX 
       "Compute specific enthalpy from pressure, specific entropy and mass fraction" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEntropy s "Specific entropy";
       input MassFraction X[nX] "Mass fractions";
       output SpecificEnthalpy h "specific enthalpy";
+    algorithm
+      h := specificEnthalpy(setState_psX(p,s,X));
     end specificEnthalpy_psX;
     
     type AbsolutePressure = SI.AbsolutePressure (
@@ -4774,17 +4857,17 @@ quantities are assumed to be constant.
       lambda := lambda_const;
     end thermalConductivity;
     
-    redeclare function extends heatCapacity_cp 
+    redeclare function extends specificHeatCapacityCp 
       "Return specific heat capacity at constant pressure" 
     algorithm 
       cp := cp_const;
-    end heatCapacity_cp;
+    end specificHeatCapacityCp;
     
-    redeclare function extends heatCapacity_cv 
+    redeclare function extends specificHeatCapacityCv 
       "Return specific heat capacity at constant volume" 
     algorithm 
       cv := cv_const;
-    end heatCapacity_cv;
+    end specificHeatCapacityCv;
     
     redeclare function extends isentropicExponent "Return isentropic exponent" 
     algorithm 
