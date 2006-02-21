@@ -21,6 +21,7 @@ package Air "Media models for air"
       "Minimum temperature valid for medium model";
     constant SI.Temperature T_max=Cv.from_degC(100) 
       "Maximum temperature valid for medium model";
+    constant FluidConstants[nS] fluidConstants ={IdealGases.Common.FluidData.N2} "constant data for the fluid";
     
     redeclare replaceable record extends ThermodynamicState 
       "thermodynamic state" 
@@ -53,6 +54,36 @@ in the allowed range (" + String(T_min) + " K <= T <= " + String(T_max)
             string=" 0..100°C")));
     end BaseProperties;
     
+    redeclare function setState_pTX "Return thermodynamic state as function of p, T and composition X" 
+      extends Modelica.Icons.Function;
+      input AbsolutePressure p "Pressure";
+      input Temperature T "Temperature";
+      input MassFraction X[:] = fill(0,0) "Mass fractions";
+      output ThermodynamicState state;
+    algorithm
+      state := ThermodynamicState(p=p,T=T);
+    end setState_pTX;
+    
+    redeclare function setState_phX "Return thermodynamic state as function of p, h and composition X" 
+      extends Modelica.Icons.Function;
+      input AbsolutePressure p "Pressure";
+      input SpecificEnthalpy h "Specific enthalpy";
+      input MassFraction X[:] = fill(0,0) "Mass fractions";
+      output ThermodynamicState state;
+    algorithm
+      state := ThermodynamicState(p=p,T=h/cp_air);
+    end setState_phX;
+        
+    redeclare function setState_dTX "Return thermodynamic state as function of d, T and composition X" 
+      extends Modelica.Icons.Function;
+      input Density d "density";
+      input Temperature T "Temperature";
+      input MassFraction X[:] = fill(0,0) "Mass fractions";
+      output ThermodynamicState state;
+    algorithm
+      state := ThermodynamicState(p=d*R_air*T,T=T);
+    end setState_dTX;
+    
     redeclare function extends dynamicViscosity "Dynamic viscosity of dry air" 
     algorithm 
       eta := 1.82e-5;
@@ -64,27 +95,20 @@ in the allowed range (" + String(T_min) + " K <= T <= " + String(T_max)
       lambda := 0.026;
     end thermalConductivity;
     
-    redeclare function extends heatCapacity_cp 
+    redeclare function extends specificHeatCapacityCp 
       "Specific heat capacity at constant pressure of dry air" 
     algorithm 
       cp := cp_air;
-    end heatCapacity_cp;
-    
-    redeclare function extends specificEnthalpy_pTX 
-      "Compute specific enthalpy from pressure, temperature and mass fraction" 
-    algorithm 
-      h :=cp_air*Modelica.SIunits.Conversions.to_degC(T);
-    end specificEnthalpy_pTX;
-    
-    redeclare function extends temperature_phX 
-      "Compute temperature from pressure, specific enthalpy and mass fraction" 
-    algorithm 
-      T :=Modelica.SIunits.Conversions.from_degC(h/cp_air);
-    end temperature_phX;
+    end specificHeatCapacityCp;
+
+    redeclare function extends specificEnthalpy
+      "specific enthalpy"
+    algorithm
+     h := cp_air*state.T;  
+    end specificEnthalpy;
     
     annotation (Documentation(info="<html>
-  
-</html>"));
+                              </html>"));
   end SimpleAir;
   
   package DryAirNasa "Air: Detailed dry air model as ideal gas (200..6000 K)" 
@@ -174,9 +198,10 @@ Temperature T is not in the allowed range
 required from medium model \""       + mediumName + "\".");
       MM = 1/(Xi[Water]/MMX[Water]+(1.0-Xi[Water])/MMX[Air]);
       
-      p_steam_sat = saturationPressure(T);
+      p_steam_sat = min(saturationPressure(T),0.999*p);
       x_sat    = k_mair*p_steam_sat/(p - p_steam_sat);
-      X_liquid = max(Xi[Water] - x_sat/(1+x_sat), 0.0);
+      // X_liquid = max(Xi[Water] - x_sat/(1+x_sat), 0.0); //approximate version
+      X_liquid = max((x_water - x_sat)/(1+x_water), 0.0); // correct version
       X_steam  = Xi[Water]-X_liquid;
       X_air    = 1-Xi[Water];
       
@@ -185,7 +210,7 @@ required from medium model \""       + mediumName + "\".");
       //offset adjusts enthalpy to zero at 0°C plus enthalpy of evaporation in case of steam  
       // h = h_component *{X_steam, X_air} + enthalpyOfLiquid(T)*X_liquid;  
       
-      h = specificEnthalpy_pTXi(p,T,Xi);
+      h = specificEnthalpy_pTX(p,T,Xi);
       R = dryair.R*X_air + steam.R*X_steam;
       u = h - R*T;
       d = p/(R*T);
@@ -202,6 +227,52 @@ required from medium model \""       + mediumName + "\".");
       phi = p/p_steam_sat*Xi[Water]/(Xi[Water] + k_mair*X_air);
     end BaseProperties;
     
+    redeclare function setState_pTX "Return thermodynamic state as function of p, T and composition X" 
+      extends Modelica.Icons.Function;
+      input AbsolutePressure p "Pressure";
+      input Temperature T "Temperature";
+      input MassFraction X[:] "Mass fractions";
+      output ThermodynamicState state;
+    algorithm
+      state := if size(X,1) == nX then ThermodynamicState(p=p,T=T, X=X)
+        else ThermodynamicState(p=p,T=T, X=cat(1,X,{1-sum(X)}));
+    end setState_pTX;
+    
+    redeclare function setState_phX "Return thermodynamic state as function of p, h and composition X" 
+      extends Modelica.Icons.Function;
+      input AbsolutePressure p "Pressure";
+      input SpecificEnthalpy h "Specific enthalpy";
+      input MassFraction X[:] "Mass fractions";
+      output ThermodynamicState state;
+    algorithm
+      state := if size(X,1) == nX then ThermodynamicState(p=p,T=T_phX(h,X),X=X)
+        else ThermodynamicState(p=p,T=T_phX(h,X), X=cat(1,X,{1-sum(X)}));
+    end setState_phX;
+/*    
+    redeclare function setState_psX "Return thermodynamic state as function of p, s and composition X" 
+      extends Modelica.Icons.Function;
+      input AbsolutePressure p "Pressure";
+      input SpecificEntropy s "Specific entropy";
+      input MassFraction X[:] "Mass fractions";
+      output ThermodynamicState state;
+    algorithm
+      state := if size(X,1) == nX then ThermodynamicState(p=p,T=T_psX(s,p,X),X=X)
+        else ThermodynamicState(p=p,T=T_psX(p,s,X), X=cat(1,X,{1-sum(X)}));        
+    end setState_psX;
+*/    
+    redeclare function setState_dTX "Return thermodynamic state as function of d, T and composition X" 
+      extends Modelica.Icons.Function;
+      input Density d "density";
+      input Temperature T "Temperature";
+      input MassFraction X[:] "Mass fractions";
+      output ThermodynamicState state;
+    protected
+      SpecificHeatCapacity R = dryair.R*(1-state.X[1]) + steam.R*state.X[1] "moist air heat capacity";
+    algorithm
+      state := if size(X,1) == nX then ThermodynamicState(p=d*(R*X)*T,T=T,X=X)
+        else ThermodynamicState(p=d*(R*cat(1,X,{1-sum(X)}))*T,T=T, X=cat(1,X,{1-sum(X)}));
+    end setState_dTX;
+      
     redeclare function extends gasConstant 
     algorithm 
       R := dryair.R*(1-state.X[Water]) + steam.R*state.X[Water];
@@ -234,36 +305,6 @@ required from medium model \""       + mediumName + "\".");
     algorithm 
       psat := Utilities.spliceFunction(saturationPressureLiquid(Tsat),sublimationPressureIce(Tsat),Tsat-273.16,1.0);
     end saturationPressure;
-    
-    //     function saturationPressureWithoutLimits_der "derivative of saturation pressure"
-    //       input SI.Temperature Tsat "saturation temperature";
-    //       input Real dT_sat "derivative of saturation temperature";
-    //       output Real dpsat "saturation pressure derivative";
-    //     algorithm
-    //       dpsat := 2509622.55443*dT_sat*Math.exp(17.2799-4102.99/(Tsat-35.719))/
-    //         (Tsat-35.719)^2;
-    //     end saturationPressureWithoutLimits_der;
-    
-    //     function saturationPressure_der "derivative of saturation pressure"
-    //       input SI.Temperature Tsat "saturation temperature";
-    //       input Real dT_sat "derivative of saturation temperature";
-    //       output Real dpsat "saturation pressure derivative";
-    //     algorithm
-    //       dpsat := if T > 224.15 and T < 422.15 then
-    //         2509622.55443*dT_sat*Math.exp(17.2799-4102.99/(Tsat-35.719))/
-    //         (Tsat-35.719)^2 else 0.0;
-    //     end saturationPressure_der;
-    
-    //     model testpsat
-    //       Real T1(start = 220.0);
-    //       Real p1,p2,p3, p4;
-    //     equation
-    //       der(T1) = 100.0;
-    //       p1 = sublimationPressureIce(T1);
-    //       p2 = saturationPressureLiquid(T1);
-    //       p3 = if T1 < 273.16 then sublimationPressureIce(T1) else saturationPressureLiquid(T1);
-    //       p4 = saturationPressure(T1);
-    //     end testpsat;
     
    redeclare function extends enthalpyOfVaporization 
       "enthalpy of vaporization of water" 
@@ -301,29 +342,26 @@ required from medium model \""       + mediumName + "\".");
    end enthalpyOfGas;
     
    redeclare function extends enthalpyOfCondensingGas 
-      
      annotation(Inline=false,smoothOrder=5);
    algorithm 
      h := SingleGasNasa.h_Tlow(data=steam, T=T, refChoice=3, h_off=46479.819+2501014.5);
    end enthalpyOfCondensingGas;
     
-  redeclare function extends heatCapacity_cp 
+  redeclare function extends specificHeatCapacityCp 
       "Return specific heat capacity at constant pressure" 
-      
      annotation(Inline=false,smoothOrder=5);
   algorithm 
     cp:= SingleGasNasa.cp_Tlow(dryair, state.T)*(1-state.X[Water]) + SingleGasNasa.cp_Tlow(steam, state.T)*state.X[Water];
-  end heatCapacity_cp;
+  end specificHeatCapacityCp;
     
-  redeclare function extends heatCapacity_cv 
+  redeclare function extends specificHeatCapacityCv 
       "Return specific heat capacity at constant volume" 
-      
      annotation(Inline=false,smoothOrder=5);
   algorithm 
     cv:= SingleGasNasa.cp_Tlow(dryair, state.T)*(1-state.X[Water]) +
       SingleGasNasa.cp_Tlow(steam, state.T)*state.X[Water]
       - gasConstant(state);
-  end heatCapacity_cv;
+  end specificHeatCapacityCv;
     
   redeclare function extends dynamicViscosity 
       "simple polynomial for dry air (moisture influence small), valid from 73.15 K to 373.15 K" 
@@ -341,58 +379,66 @@ required from medium model \""       + mediumName + "\".");
      Cv.to_degC(state.T));
   end thermalConductivity;
     
-    redeclare function specificEnthalpy_pTX 
-      "Compute specific enthalpy from pressure, temperature and mass fraction" 
-      extends Modelica.Icons.Function;
-      input SI.Pressure p "Pressure";
-      input SI.Temperature T "Temperature";
-      input SI.MassFraction X[nX] "Mass fractions of moist air";
-      output SI.SpecificEnthalpy h "Specific enthalpy at p, T, X";
-     annotation(Inline=false,smoothOrder=1);
-    protected 
-      SI.AbsolutePressure p_steam_sat "Partial saturation pressure of steam";
-      SI.MassFraction x_sat "steam water mass fraction of saturation boundary";
-      SI.MassFraction X_liquid "mass fraction of liquid water";
-      SI.MassFraction X_steam "mass fraction of steam water";
-      SI.MassFraction X_air "mass fraction of air";
-    algorithm 
-      p_steam_sat :=saturationPressure(T);
-      x_sat    :=k_mair*p_steam_sat/(p - p_steam_sat);
-      X_liquid :=max(X[Water] - x_sat/(1 + x_sat), 0.0);
-      X_steam  :=X[Water] - X_liquid;
-      X_air    :=1 - X[Water];
-      h        := {SingleGasNasa.h_Tlow(data=steam,  T=T, refChoice=3, h_off=46479.819+2501014.5),
-                   SingleGasNasa.h_Tlow(data=dryair, T=T, refChoice=3, h_off=25104.684)}*
-                  {X_steam, X_air} + enthalpyOfLiquid(T)*X_liquid;
-    end specificEnthalpy_pTX;
+  function h_pTX 
+    "Compute specific enthalpy from pressure, temperature and mass fraction" 
+    extends Modelica.Icons.Function;
+    input SI.Pressure p "Pressure";
+    input SI.Temperature T "Temperature";
+    input SI.MassFraction X[nX] "Mass fractions of moist air";
+    output SI.SpecificEnthalpy h "Specific enthalpy at p, T, X";
+    annotation(Inline=false,smoothOrder=1);
+  protected 
+    SI.AbsolutePressure p_steam_sat "Partial saturation pressure of steam";
+    SI.MassFraction x_sat "steam water mass fraction of saturation boundary";
+    SI.MassFraction X_liquid "mass fraction of liquid water";
+    SI.MassFraction X_steam "mass fraction of steam water";
+    SI.MassFraction X_air "mass fraction of air";
+  algorithm 
+    p_steam_sat :=saturationPressure(T);
+    x_sat    :=k_mair*p_steam_sat/(p - p_steam_sat);
+    X_liquid :=max(X[Water] - x_sat/(1 + x_sat), 0.0);
+    X_steam  :=X[Water] - X_liquid;
+    X_air    :=1 - X[Water];
+    h        := {SingleGasNasa.h_Tlow(data=steam,  T=T, refChoice=3, h_off=46479.819+2501014.5),
+                 SingleGasNasa.h_Tlow(data=dryair, T=T, refChoice=3, h_off=25104.684)}*
+      {X_steam, X_air} + enthalpyOfLiquid(T)*X_liquid;
+  end h_pTX;
     
-    function specificEnthalpy_pTXi 
-      "Compute specific enthalpy from pressure, temperature and independent mass fraction" 
-      extends Modelica.Icons.Function;
-      input SI.Pressure p "Pressure";
-      input SI.Temperature T "Temperature";
-      input SI.MassFraction Xi[nXi] "Independent mass fractions of moist air";
-      output SI.SpecificEnthalpy h "Specific enthalpy at p, T, Xi";
+  redeclare function extends specificEnthalpy
+      "specific enthalpy"
+  algorithm
+    h := h_pTX(state.p, state.p, state.X);  
+  end specificEnthalpy;
+    
+  function T_phX 
+    "Compute temperature from specific enthalpy and mass fraction" 
+    input AbsolutePressure p "Pressure";
+    input SpecificEnthalpy h "specific enthalpy";
+    input MassFraction[:] X "mass fractions of composition";
+    output Temperature T "temperature";
+  protected 
+  package Internal 
+      "Solve h(data,T) for T with given h (use only indirectly via temperature_phX)" 
+    extends Modelica.Media.Common.OneNonLinearEquation;
+    redeclare record extends f_nonlinear_Data 
+        "Data to be passed to non-linear function" 
+      extends Modelica.Media.IdealGases.Common.DataRecord;
+    end f_nonlinear_Data;
       
-      annotation (LateInline=true,Documentation(info="<html>
-<p>
-In order that symbolic processing of connection equations is
-possible, the specific enthalpy in model BaseProperties has to
-be computed with a function where the independent mass fractions
-are an input argument (for details see the discussion in
-<a href=\"Modelica:Modelica.Media.UsersGuide.MediumDefinition.SpecificEnthalpyAsFunction\">SpecificEnthalpyAsFunction</a> 
-of the Modelica.Media Users Guide).
-For this reason, function specificEnthalpy_pTXi() is provided.
-</p> 
-<p>
-For all other purposes, the standard Interfaces.PartialMedium.specificEnthalpy_pTX()
-function should be used.
-</p>
-</html>"));
+    redeclare function extends f_nonlinear 
     algorithm 
-      h :=specificEnthalpy_pTX(p, T, {Xi[1], 1-Xi[1]});
-    end specificEnthalpy_pTXi;
+        y := h_pTX(p,x,X);
+    end f_nonlinear;
+      
+    // Dummy definition has to be added for current Dymola
+    redeclare function extends solve 
+    end solve;
+  end Internal;
     
+  algorithm 
+    T := Internal.solve(h, 200, 6000, p, X[1:nXi], data[1]);
+  end T_phX;
+      
     package Utilities "utility functions" 
       function spliceFunction 
           input Real pos;
@@ -454,165 +500,6 @@ function should be used.
       
     end Utilities;
     
-    /* Flattened Modelica model:
- 
-function Modelica.Media.Air.MoistAir.h_pTX:der
-  input Real p;
-  input Real T;
-  input Real Xi[size({"water", "air"}, 1)-1];
-protected 
-  Real h;
-  Real p_steam_sat;
-  Real x_sat;
-  Real X_liquid;
-  Real X_steam;
-  Real X_air;
-  constant String _GlobalScope.dryair.name;
-  constant Real _GlobalScope.dryair.MM;
-  constant Real _GlobalScope.dryair.Hf;
-  constant Real _GlobalScope.dryair.H0;
-  constant Real _GlobalScope.dryair.Tlimit;
-  constant Real _GlobalScope.dryair.alow[7];
-  constant Real _GlobalScope.dryair.blow[2];
-  constant Real _GlobalScope.dryair.ahigh[7];
-  constant Real _GlobalScope.dryair.bhigh[2];
-  constant Real _GlobalScope.dryair.R;
-  constant String _GlobalScope.Modelica.Media.IdealGases.Common.SingleGasesData.Air.name
-     := "Air";
-  constant Real _GlobalScope.Modelica.Media.IdealGases.Common.SingleGasesData.Air.MM
-     := 0.0289651159;
-  constant Real _GlobalScope.Modelica.Media.IdealGases.Common.SingleGasesData.Air.Hf
-     := (-4333.83385840345);
-  constant Real _GlobalScope.Modelica.Media.IdealGases.Common.SingleGasesData.Air.H0
-     := 298609.680343105;
-  constant Real _GlobalScope.Modelica.Media.IdealGases.Common.SingleGasesData.Air.Tlimit
-     := 1000;
-  constant Real _GlobalScope.Modelica.Media.IdealGases.Common.SingleGasesData.Air.alow
-    [7] := {10099.5016, (-196.827561), 5.00915511, (-0.00576101373), 
-    1.06685993E-005, (-7.94029797E-009), 2.18523191E-012};
-  constant Real _GlobalScope.Modelica.Media.IdealGases.Common.SingleGasesData.Air.blow
-    [2] := {(-176.796731), (-3.921504225)};
-  constant Real _GlobalScope.Modelica.Media.IdealGases.Common.SingleGasesData.Air.ahigh
-    [7] := {241521.443, (-1257.8746), 5.14455867, (-0.000213854179), 
-    7.06522784E-008, (-1.07148349E-011), 6.57780015E-016};
-  constant Real _GlobalScope.Modelica.Media.IdealGases.Common.SingleGasesData.Air.bhigh
-    [2] := {6462.26319, (-8.147411905)};
-  constant Real _GlobalScope.Modelica.Media.IdealGases.Common.SingleGasesData.Air.R
-     := 287.051224952979;
-  constant String _GlobalScope.Modelica.Media.IdealGases.Common.SingleGasesData.H2O.name
-     := "H2O";
-  constant Real _GlobalScope.Modelica.Media.IdealGases.Common.SingleGasesData.H2O.MM
-     := 0.01801528;
-  constant Real _GlobalScope.Modelica.Media.IdealGases.Common.SingleGasesData.H2O.Hf
-     := (-13423382.8172529);
-  constant Real _GlobalScope.Modelica.Media.IdealGases.Common.SingleGasesData.H2O.H0
-     := 549760.647628014;
-  constant Real _GlobalScope.Modelica.Media.IdealGases.Common.SingleGasesData.H2O.Tlimit
-     := 1000;
-  constant Real _GlobalScope.Modelica.Media.IdealGases.Common.SingleGasesData.H2O.alow
-    [7] := {(-39479.6083), 575.573102, 0.931782653, 0.00722271286, (
-    -7.34255737E-006), 4.95504349E-009, (-1.336933246E-012)};
-  constant Real _GlobalScope.Modelica.Media.IdealGases.Common.SingleGasesData.H2O.blow
-    [2] := {(-33039.7431), 17.24205775};
-  constant Real _GlobalScope.Modelica.Media.IdealGases.Common.SingleGasesData.H2O.ahigh
-    [7] := {1034972.096, (-2412.698562), 4.64611078, 0.002291998307, (
-    -6.83683048E-007), 9.42646893E-011, (-4.82238053E-015)};
-  constant Real _GlobalScope.Modelica.Media.IdealGases.Common.SingleGasesData.H2O.bhigh
-    [2] := {(-13842.86509), (-7.97814851)};
-  constant Real _GlobalScope.Modelica.Media.IdealGases.Common.SingleGasesData.H2O.R
-     := 461.523329085088;
-  constant String _GlobalScope.steam.name;
-  constant Real _GlobalScope.steam.MM;
-  constant Real _GlobalScope.steam.Hf;
-  constant Real _GlobalScope.steam.H0;
-  constant Real _GlobalScope.steam.Tlimit;
-  constant Real _GlobalScope.steam.alow[7];
-  constant Real _GlobalScope.steam.blow[2];
-  constant Real _GlobalScope.steam.ahigh[7];
-  constant Real _GlobalScope.steam.bhigh[2];
-  constant Real _GlobalScope.steam.R;
-public 
-  input Real p_der;
-  input Real T_der;
-  input Real Xi_der[size({"water", "air"}, 1)-1];
-  output Real h_der;
-protected 
-  Real p_steam_sat_der;
-  Real x_sat_der;
-  Real X_liquid_der;
-  Real X_steam_der;
-  Real X_air_der;
-  public 
-algorithm 
-  p_steam_sat_der := saturationPressure_Unique'"0753C608"':der(T, T_der);
-  p_steam_sat := saturationPressure_Unique'"0753C608"'(T);
-  x_sat_der := _GlobalScope.steam.MM*p_steam_sat_der/_GlobalScope.dryair.MM/(p-
-    p_steam_sat)-_GlobalScope.steam.MM*p_steam_sat*(p_der-p_steam_sat_der)/
-    _GlobalScope.dryair.MM/(p-p_steam_sat)^2;
-  x_sat := _GlobalScope.steam.MM*p_steam_sat/_GlobalScope.dryair.MM/(p-
-    p_steam_sat);
-  X_liquid_der := if noEvent(Xi[1]-x_sat/(1+x_sat) > 0) then Xi_der[1]-x_sat_der
-    /(1+x_sat)+x_sat*x_sat_der/(1+x_sat)^2 else 0;
-  X_liquid := max(Xi[1]-x_sat/(1+x_sat), 0);
-  X_steam_der := Xi_der[1]-X_liquid_der;
-  X_steam := Xi[1]-X_liquid;
-  X_air_der :=  -Xi_der[1];
-  X_air := 1-Xi[1];
-  h_der := {Modelica.Media.IdealGases.Common.SingleGasNasa.h_Tlow:der(
-    _GlobalScope.Modelica.Media.IdealGases.Common.SingleGasesData.H2O, T, true, 3,
-     2547494.319, T_der, 0), Modelica.Media.IdealGases.Common.SingleGasNasa.h_Tlow:der
-    (_GlobalScope.Modelica.Media.IdealGases.Common.SingleGasesData.Air, T, true,
-     3, 25104.684, T_der, 0)}*{X_steam, X_air}+{Modelica.Media.IdealGases.Common.SingleGasNasa.h_Tlow
-    (_GlobalScope.Modelica.Media.IdealGases.Common.SingleGasesData.H2O, T, true,
-     3, 2547494.319), Modelica.Media.IdealGases.Common.SingleGasNasa.h_Tlow(
-    _GlobalScope.Modelica.Media.IdealGases.Common.SingleGasesData.Air, T, true, 3,
-     25104.684)}*{X_steam_der, X_air_der}+enthalpyOfLiquid_Unique'"0753C388"':der
-    (T, T_der)*X_liquid+enthalpyOfLiquid_Unique'"0753C388"'(T)*X_liquid_der;
-end Modelica.Media.Air.MoistAir.h_pTX:der;
- 
-    function h_pTX_der "derivative function for h_pTX"
-      input SI.Pressure p "Pressure";
-      input SI.Temperature T "Temperature";
-      input SI.MassFraction Xi[nXi] "Independent mass fractions of most air";
-      input Real dp "Pressure";
-      input Real dT "Temperature";
-      input Real dXi[nXi] "Independent mass fractions of moist air";
-      output Real dh "derivative of specific enthalpy at p, T, Xi";
-    protected
-      SI.AbsolutePressure p_steam_sat "Partial saturation pressure of steam";
-      Real p_steam_sat_der "derivative of saturation pressure of steam";
-      SI.MassFraction x_sat "steam water mass fraction of saturation boundary";
-      SI.MassFraction X_liquid "mass fraction of liquid water";
-      SI.MassFraction X_steam "mass fraction of steam water";
-      SI.MassFraction X_air "mass fraction of air";
-      Real dh_T "derivative of h w.r.t. T";
-      Real dh_p "derivative of h w.r.t. p";
-      Real dh_Xi "derivative of h w.r.t. Xi";
-      Real dX_liquid "change of liquid content with Xi";
-      Real dX_steam "change of steam content with Xi";
-      Real dX_air "change of air content with Xi";
-      Boolean condensing "true if condensing conditions"; 
-    algorithm
-      p_steam_sat :=saturationPressure(T);
-      x_sat    :=k_mair*p_steam_sat/(p - p_steam_sat);
-      condensing := x_sat/(1 + x_sat) > Xi[Water];
-      X_liquid :=max(Xi[Water] - x_sat/(1 + x_sat), 0.0);
-      X_steam  :=Xi[Water] - X_liquid;
-      X_air    :=1 - Xi[Water];
-      dX_liquid := if condensing then 1.0 else 0.0;
-      dX_steam :=  if condensing then 0.0 else 1.0;
-      dX_air := -1.0;
-      dh_T := {SingleGasNasa.cp_Tlow(data=steam,  T=T), SingleGasNasa.cp_Tlow(data=dryair, T=T)}
-               *{X_steam, X_air} + HeatCapacityOfWater(T)*X_liquid +  enthalpyOfLiquid(T)*YYYYY(dX_li_T/dT);
-      dh_p := {SingleGasNasa.h_Tlow(data=steam,  T=T, refChoice=3, h_off=46479.819+2501014.5),
-                SingleGasNasa.h_Tlow(data=dryair, T=T, refChoice=3, h_off=25104.684)}*{dX_steam_dp, dX_air_dp}
-        + enthalpyOfLiquid(T)*dX_liquid_dp;
-      dh_Xi := {SingleGasNasa.h_Tlow(data=steam,  T=T, refChoice=3, h_off=46479.819+2501014.5),
-                SingleGasNasa.h_Tlow(data=dryair, T=T, refChoice=3, h_off=25104.684)}*{dX_steam, dX_air}
-        + enthalpyOfLiquid(T)*dX_liquid;
-      dh := dh_T*dT + dh_p*dp + dh_Xi*dXi;
-    end h_pTX_der;
-*/
     annotation (Documentation(info="<html>
   
 </html>"));
