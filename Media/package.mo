@@ -3854,7 +3854,7 @@ equation
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input Temperature T "Temperature";
-      input MassFraction X[nX] "Mass fractions";
+      input MassFraction X[:] "Mass fractions";
       output ThermodynamicState state;
     end setState_pTX;
     
@@ -3863,7 +3863,7 @@ equation
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEnthalpy h "Specific enthalpy";
-      input MassFraction X[nX] "Mass fractions";
+      input MassFraction X[:] "Mass fractions";
       output ThermodynamicState state;
     end setState_phX;
     
@@ -3872,7 +3872,7 @@ equation
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEntropy s "Specific entropy";
-      input MassFraction X[nX] "Mass fractions";
+      input MassFraction X[:] "Mass fractions";
       output ThermodynamicState state;
     end setState_psX;
     
@@ -3881,7 +3881,7 @@ equation
       extends Modelica.Icons.Function;
       input Density d "density";
       input Temperature T "Temperature";
-      input MassFraction X[nX] "Mass fractions";
+      input MassFraction X[:] "Mass fractions";
       output ThermodynamicState state;
     end setState_dTX;
     
@@ -4064,7 +4064,7 @@ equation
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input Temperature T "Temperature";
-      input MassFraction X[nX] "Mass fractions";
+      input MassFraction X[:] "Mass fractions";
       output SpecificEnthalpy h "Specific enthalpy at p, T, X";
     algorithm 
       h := specificEnthalpy(setState_pTX(p,T,X));
@@ -4075,7 +4075,7 @@ equation
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEnthalpy h "Specific enthalpy";
-      input MassFraction X[nX] "Mass fractions";
+      input MassFraction X[:] "Mass fractions";
       output Temperature T "Temperature";
     algorithm 
       T := temperature(setState_phX(p,h,X));
@@ -4086,7 +4086,7 @@ equation
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEnthalpy h "Specific enthalpy";
-      input MassFraction X[nX] "Mass fractions";
+      input MassFraction X[:] "Mass fractions";
       output Density d "density";
     algorithm 
       d := density(setState_phX(p,h,X));
@@ -4097,7 +4097,7 @@ equation
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEntropy s "Specific entropy";
-      input MassFraction X[nX] "Mass fractions";
+      input MassFraction X[:] "Mass fractions";
       output Temperature T "Temperature";
     algorithm 
       T := temperature(setState_psX(p,s,X));
@@ -4108,7 +4108,7 @@ equation
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEntropy s "Specific entropy";
-      input MassFraction X[nX] "Mass fractions";
+      input MassFraction X[:] "Mass fractions";
       output SpecificEnthalpy h "specific enthalpy";
     algorithm 
       h := specificEnthalpy(setState_psX(p,s,X));
@@ -4429,6 +4429,46 @@ are described in
     output SpecificEnthalpy h "specific enthalpy";
   end h_dT;
 */
+    replaceable partial function setState_pT 
+      "Return thermodynamic state as function of p and T" 
+      extends Modelica.Icons.Function;
+      input AbsolutePressure p "Pressure";
+      input Temperature T "Temperature";
+      output ThermodynamicState state;
+    algorithm 
+      state := setState_pTX(p,T,fill(0,0));
+    end setState_pT;
+    
+    replaceable partial function setState_ph 
+      "Return thermodynamic state as function of p and h" 
+      extends Modelica.Icons.Function;
+      input AbsolutePressure p "Pressure";
+      input SpecificEnthalpy h "Specific enthalpy";
+      output ThermodynamicState state;
+    algorithm 
+      state := setState_phX(p,h,fill(0, 0));
+    end setState_ph;
+    
+    replaceable partial function setState_ps 
+      "Return thermodynamic state as function of p and s" 
+      extends Modelica.Icons.Function;
+      input AbsolutePressure p "Pressure";
+      input SpecificEntropy s "Specific entropy";
+      output ThermodynamicState state;
+    algorithm 
+      state := setState_psX(p,s,fill(0,0));
+    end setState_ps;
+    
+    replaceable partial function setState_dT 
+      "Return thermodynamic state as function of d and T" 
+      extends Modelica.Icons.Function;
+      input Density d "density";
+      input Temperature T "Temperature";
+      output ThermodynamicState state;
+    algorithm 
+      state := setState_dTX(d,T,fill(0,0));
+    end setState_dT;
+    
     replaceable function density_ph 
       "Computes density as a function of pressure and specific enthalpy" 
       extends Modelica.Icons.Function;
@@ -4958,6 +4998,54 @@ are described in
   // alias functions for simplified access
   // note that there is a Dymola error which does not allow writing
   // replaceable function density_ph = density_phX(p,h,fill(0,0))
+    
+    redeclare replaceable partial function setState_pT 
+      "Return thermodynamic state as function of p and T" 
+      extends Modelica.Icons.Function;
+      input AbsolutePressure p "Pressure";
+      input Temperature T "Temperature";
+      input FixedPhase phase=0 
+        "2 for two-phase, 1 for one-phase, 0 if not known";
+      output ThermodynamicState state;
+    algorithm 
+      state := setState_pTX(p,T,fill(0,0),phase);
+    end setState_pT;
+    
+    redeclare replaceable partial function setState_ph 
+      "Return thermodynamic state as function of p and h" 
+      extends Modelica.Icons.Function;
+      input AbsolutePressure p "Pressure";
+      input SpecificEnthalpy h "Specific enthalpy";
+      input FixedPhase phase=0 
+        "2 for two-phase, 1 for one-phase, 0 if not known";
+      output ThermodynamicState state;
+    algorithm 
+      state := setState_phX(p,h,fill(0, 0),phase);
+    end setState_ph;
+    
+    redeclare replaceable partial function setState_ps 
+      "Return thermodynamic state as function of p and s" 
+      extends Modelica.Icons.Function;
+      input AbsolutePressure p "Pressure";
+      input SpecificEntropy s "Specific entropy";
+      input FixedPhase phase=0 
+        "2 for two-phase, 1 for one-phase, 0 if not known";
+      output ThermodynamicState state;
+    algorithm 
+      state := setState_psX(p,s,fill(0,0),phase);
+    end setState_ps;
+    
+    redeclare replaceable partial function setState_dT 
+      "Return thermodynamic state as function of d and T" 
+      extends Modelica.Icons.Function;
+      input Density d "density";
+      input Temperature T "Temperature";
+      input FixedPhase phase=0 
+        "2 for two-phase, 1 for one-phase, 0 if not known";
+      output ThermodynamicState state;
+    algorithm 
+      state := setState_dTX(d,T,fill(0,0),phase);
+    end setState_dT;
     
     redeclare replaceable function density_ph 
       "Computes density as a function of pressure and specific enthalpy" 
