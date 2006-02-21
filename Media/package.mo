@@ -3316,7 +3316,7 @@ output window.
 </html>"));
    end Inverse_sine;
     
-   model Inverse_h_T "Solve h = h_T(T) for T, if h is given for ideal gas NASA" 
+   model Inverse_sh_T "Solve h = h_T(T), s = s_T(T) for T, if h or s is given for ideal gas NASA" 
       import SI = Modelica.SIunits;
       extends Modelica.Icons.Example;
       
@@ -3324,35 +3324,43 @@ output window.
             extends Modelica.Media.IdealGases.Common.SingleGasNasa 
         "Medium model"     annotation (choicesAllMatching=true);
       
-      parameter SI.Temperature T_min = 300;
-      parameter SI.Temperature T_max = 500;
-      parameter SI.SpecificEnthalpy h_min = Medium.h_T(Medium.data,T_min);
-      parameter SI.SpecificEnthalpy h_max = Medium.h_T(Medium.data,T_max);
-      SI.SpecificEnthalpy h1 "Pre-defined specific enthalpy";
-      SI.SpecificEnthalpy h2 
-        "Specific enthalpy computed from T (= h1 required)";
-      SI.Temperature T "Temperature computed from h1";
-     annotation (
-       experiment,
-       experimentSetupOutput,
-       Documentation(info="<html>
- 
-</html>"));
-      
+     parameter SI.Temperature T_min = 300;
+     parameter SI.Temperature T_max = 500;
+     parameter SI.Pressure p = 1.0e5;
+     parameter SI.SpecificEnthalpy h_min = Medium.h_T(Medium.data,T_min);
+     parameter SI.SpecificEnthalpy h_max = Medium.h_T(Medium.data,T_max);
+     parameter SI.SpecificEntropy s_min = Medium.specificEntropy(Medium.setState_pT(p,T_min));
+     parameter SI.SpecificEntropy s_max = Medium.specificEntropy(Medium.setState_pT(p,T_max));
+     SI.SpecificEnthalpy h1 "Pre-defined specific enthalpy";
+     SI.SpecificEnthalpy h2 "Specific enthalpy computed from T (= h1 required)";
+     SI.SpecificEntropy s1 "Pre-defined specific entropy";
+     SI.SpecificEntropy s2 "Specific entropy computed from T (= h1 required)";
+     SI.Temperature Th "Temperature computed from h1";
+     SI.Temperature Ts "Temperature computed from s1";
+     annotation (experiment,
+                 experimentSetupOutput,
+                 Documentation(info="<html>
+                               </html>"));
+     
    equation 
       // Define specific enthalpy
       h1 = if time < 0 then h_min else 
            if time > 1 then h_max else 
               h_min + time*(h_max - h_min);
-      
+      s1 = if time < 0 then s_min else 
+           if time > 1 then s_max else 
+              s_min + time*(s_max - s_min);
+            
       // Solve for temperature
-      T = Medium.temperature_phX(1e5, h1, fill(0.0,0));
+      Th = Medium.temperature_phX(p, h1, fill(0.0,0));
+      Ts = Medium.temperature_psX(p, s1, fill(0.0,0));
       
       // Check (h2 must be identical to h1)
-      h2 = Medium.specificEnthalpy_pTX(1e5, T, fill(0.0,0));
-   end Inverse_h_T;
+      h2 = Medium.specificEnthalpy_pTX(p, Th, fill(0.0,0));
+      s2 = Medium.specificEntropy(Medium.setState_pT(p,Ts));
+   end Inverse_sh_T;
     
-   model InverseIncompressible_h_T 
+   model InverseIncompressible_sh_T 
       "inverse computation for incmpressible media" 
      import SI = Modelica.SIunits;
      import Cv = Modelica.SIunits.Conversions;
@@ -3364,11 +3372,17 @@ output window.
       
      parameter SI.Temperature T_min = Medium.T_min;
      parameter SI.Temperature T_max = Medium.T_max;
+     parameter SI.Pressure p = 1.0e5;
      parameter SI.SpecificEnthalpy h_min = Medium.h_T(Medium.T_min);
      parameter SI.SpecificEnthalpy h_max = Medium.h_T(Medium.T_max);
+     parameter SI.SpecificEntropy s_min = Medium.specificEntropy(Medium.setState_pT(p,T_min));
+     parameter SI.SpecificEntropy s_max = Medium.specificEntropy(Medium.setState_pT(p,T_max));
      SI.SpecificEnthalpy h1 "Pre-defined specific enthalpy";
      SI.SpecificEnthalpy h2 "Specific enthalpy computed from T (= h1 required)";
-     SI.Temperature T "Temperature computed from h1";
+     SI.SpecificEntropy s1 "Pre-defined specific entropy";
+     SI.SpecificEntropy s2 "Specific entropy computed from T (= h1 required)";
+     SI.Temperature Th "Temperature computed from h1";
+     SI.Temperature Ts "Temperature computed from s1";
      annotation (experiment,
                  experimentSetupOutput,
                  Documentation(info="<html>
@@ -3380,15 +3394,20 @@ output window.
      h1 = if time < 0 then h_min else 
        if time > 1 then h_max else 
        h_min + time*(h_max - h_min);
+     s1 = if time < 0 then s_min else 
+       if time > 1 then s_max else 
+       s_min + time*(s_max - s_min);
       
      // Solve for temperature
-     T = Medium.temperature_phX(1e5, h1, fill(0.0,0));
+     Th = Medium.temperature_phX(p, h1, fill(0.0,0));
+     Ts = Medium.temperature_psX(p, s1, fill(0.0,0));
       
      // Check (h2 must be identical to h1)
-     h2 = Medium.specificEnthalpy_pTX(1e5, T, fill(0.0,0));
-   end InverseIncompressible_h_T;
+     h2 = Medium.specificEnthalpy_pTX(p, Th, fill(0.0,0));
+     s2 = Medium.specificEntropy(Medium.setState_pT(p, Ts));
+   end InverseIncompressible_sh_T;
     
-   model Inverse_h_TX 
+   model Inverse_sh_TX 
       "Solve h = h_TX(TX) for T, if h is given for ideal gas NASA" 
       import SI = Modelica.SIunits;
       extends Modelica.Icons.Example;
@@ -3398,15 +3417,20 @@ output window.
             extends Modelica.Media.IdealGases.Common.MixtureGasNasa 
         "Medium model"     annotation (choicesAllMatching=true);
       
-      parameter SI.Temperature T_min = 300;
-      parameter SI.Temperature T_max = 500;
-      SI.SpecificEnthalpy h_min = Medium.h_TX(T_min,X);
-      SI.SpecificEnthalpy h_max = Medium.h_TX(T_max,X);
-      SI.SpecificEnthalpy h1 "Pre-defined specific enthalpy";
-      SI.SpecificEnthalpy h2 
-        "Specific enthalpy computed from T (= h1 required)";
-      SI.Temperature T "Temperature computed from h1";
-      SI.MassFraction[4] X "mass fraction vector";
+     parameter SI.Temperature T_min = 300;
+     parameter SI.Temperature T_max = 500;
+     parameter SI.Pressure p = 1.0e5;
+     SI.SpecificEnthalpy h_min = Medium.h_TX(T_min,X);
+     SI.SpecificEnthalpy h_max = Medium.h_TX(T_max,X);
+     parameter SI.SpecificEntropy s_min = Medium.specificEntropy(Medium.setState_pTX(p,T_min,Medium.reference_X));
+     parameter SI.SpecificEntropy s_max = Medium.specificEntropy(Medium.setState_pTX(p,T_max,Medium.reference_X));
+     SI.SpecificEnthalpy h1 "Pre-defined specific enthalpy";
+     SI.SpecificEnthalpy h2 "Specific enthalpy computed from T (= h1 required)";
+     SI.SpecificEntropy s1 "Pre-defined specific entropy";
+     SI.SpecificEntropy s2 "Specific entropy computed from T (= h1 required)";
+     SI.Temperature Th "Temperature computed from h1";
+     SI.Temperature Ts "Temperature computed from s1";
+     SI.MassFraction[4] X "mass fraction vector";
      annotation (
        experiment,
        experimentSetupOutput,
@@ -3415,18 +3439,23 @@ output window.
 </html>"));
       
    equation 
-     X = {0.78, 0.12,0.05,0.05};
+     X = Medium.reference_X;
       // Define specific enthalpy
       h1 = if time < 0 then h_min else 
            if time > 1 then h_max else 
               h_min + time*(h_max - h_min);
+      s1 = if time < 0 then s_min else 
+           if time > 1 then s_max else 
+              s_min + time*(s_max - s_min);
       
       // Solve for temperature
-      T = Medium.temperature_phX(1e5, h1, X);
+      Th = Medium.temperature_phX(p, h1, X);
+      Ts = Medium.temperature_psX(p, s1, X);
       
       // Check (h2 must be identical to h1)
-      h2 = Medium.specificEnthalpy_pTX(1e5, T, X);
-   end Inverse_h_TX;
+      h2 = Medium.specificEnthalpy_pTX(p, Th, X);
+      s2 = Medium.specificEntropy(Medium.setState_pTX(p,Ts,X));
+   end Inverse_sh_TX;
     
   end SolveOneNonlinearEquation;
 end Examples;
@@ -3641,59 +3670,14 @@ Modelica source.
       "Number of extra (outside of standard mass-balance) transported properties"
      annotation(Evaluate=true);
     
-    constant FluidConstants[nS] fluidConstants "fluid constants";
-    
-    record FluidConstants 
+    replaceable record FluidConstants 
       "critical, triple, molecular and other standard data of fluid" 
       extends Modelica.Icons.Record;
-      constant String iupacName "complete IUPAC name";
-      constant String casRegistryNumber "chemical abstracts sequencing number";
-      constant String chemicalFormula 
-        "Chemical formula, (brutto, nomenclature according to Hill";
-      constant String structureFormula "Chemical structure formula";
-      constant MolarMass molarMass "molar mass";
-      constant Temperature criticalTemperature "critical temperature";
-      constant AbsolutePressure criticalPressure "critical pressure";
-      constant MolarVolume criticalMolarVolume "critical molar Volume";
-      constant Real acentricFactor "Pitzer acentric factor";
-      constant Temperature triplePointTemperature "triple point temperature";
-      constant AbsolutePressure triplePointPressure "triple point pressure";
-      constant Temperature meltingPoint "melting point at 101325 Pa";
-      constant Temperature normalBoilingPoint 
-        "normal boiling point (at 101325 Pa)";
-      constant DipoleMoment dipoleMoment 
-        "dipole moment of molecule in Debye (1 debye = 3.33564e10-30 C.m)";
-      constant Boolean hasIdealGasHeatCapacity=false 
-        "true if ideal gas heat capacity is available";
-      constant Boolean hasCriticalData=false "true if critical data are known";
-      constant Boolean hasDipoleMoment=false "true if a dipole moment known";
-      constant Boolean hasFundamentalEquation=false 
-        "true if a fundamental equation";
-      constant Boolean hasLiquidHeatCapacity=false 
-        "true if liquid heat capacity is available";
-      constant Boolean hasSolidHeatCapacity=false 
-        "true if solid heat capacity is available";
-      constant Boolean hasAccurateViscosityData=false 
-        "true if accurate data for a viscosity function is available";
-      constant Boolean hasAccurateConductivityData=false 
-        "true if accurate data for thermal conductivity is available";
-      constant Boolean hasVapourPressureCurve=false 
-        "true if vapour pressure data, e.g. Antoine coefficents are known";
-      constant Boolean hasAcentricFactor=false 
-        "true if Pitzer accentric factor is known";
-      
-      constant SpecificEnthalpy HCRIT0=0.0 
-        "Critical specific enthalpy of the fundamental equation";
-      constant SpecificEntropy SCRIT0=0.0 
-        "Critical specific entropy of the fundamental equation";
-      constant SpecificEnthalpy deltah=0.0 
-        "Difference between specific enthalpy model (h_m) and f.eq. (h_f) (h_m - h_f)";
-      constant SpecificEntropy deltas=0.0 
-        "Difference between specific enthalpy model (s_m) and f.eq. (s_f) (s_m - s_f)";
-      
-      //  constant String fundamentalEquationSource="none" "source of the fundamental equation model";
-      //  constant String criticalDataSource="none" "source for critical data";
-      //  constant String idealGasHeatCapacitySource="none" "data source for ideal gas heat capacity coefficients";
+      String iupacName "complete IUPAC name (or common name, if non-existent)";
+      String casRegistryNumber "chemical abstracts sequencing number (if it exists)";
+      String chemicalFormula "Chemical formula, (brutto, nomenclature according to Hill";
+      String structureFormula "Chemical structure formula";
+      MolarMass molarMass "molar mass";
     end FluidConstants;
     
     replaceable record ThermodynamicState 
@@ -3710,7 +3694,7 @@ Modelica source.
       MassFraction[nX] X(start=reference_X) 
         "Mass fractions (= (component mass)/total mass  m_i/m)";
       MassFraction[nXi] Xi(start=reference_X[1:nXi]) 
-        "Structurally independent mass fractions"                                     annotation (Hide=true);
+        "Structurally independent mass fractions" annotation (Hide=true);
       SpecificEnthalpy h "Specific enthalpy of medium";
       SpecificInternalEnergy u "Specific internal energy of medium";
       SpecificHeatCapacity R "Gas constant (of mixture if applicable)";
@@ -3725,7 +3709,6 @@ Modelica source.
       parameter Boolean preferredMediumStates=false 
         "= true if StateSelect.prefer shall be used for the independent property variables of the medium"
         annotation (Hide=true, Evaluate=true, Dialog(tab="Advanced"));
-      
       annotation (structurallyIncomplete);
       SI.Conversions.NonSIunits.Temperature_degC T_degC=
           Modelica.SIunits.Conversions.to_degC(T) 
@@ -3733,10 +3716,6 @@ Modelica source.
       SI.Conversions.NonSIunits.Pressure_bar p_bar=
           Modelica.SIunits.Conversions.to_bar(p) 
         "Absolute pressure of medium in [bar]";
-      //       MassFraction X[nX](start=reference_X[1:nX]) 
-      //         "Independent mass fractions" annotation(Hide=true);
-      //         "= true if StateSelect.prefer shall be used for the independent property variables of the medium"
-      //         annotation (Hide=true, Evaluate=true, Dialog(tab="Advanced"));
       annotation (Documentation(info="<html>
 <p>
 Model <b>BaseProperties</b> is a model within package <b>PartialMedium</b>
@@ -3818,35 +3797,6 @@ T_ambient.
       assert(p >= 0.0, "Pressure (= " + String(p) + " Pa) of medium \"" +
         mediumName + "\" is negative\n(Temperature = " + String(T) + " K)");
       
-      /*  function checkParameters 
-    "Checks the validity of the medium parameters" 
-    extends Modelica.Icons.Function;
-    input String mediumName;
-    input Boolean incompressible;
-    input Integer nX;
-  algorithm 
-    for i in 1:nX loop
-      assertX_start[i] >= 0.0, "
-         Wrong initialization in medium \""
-         + mediumName + "\":
-         The start value X_start("
-         + integerString(i) + ") = " + String(X_start[i])
-         + "
-         is negative. It must be positive.
-         ");
-    end for;
-    
-    assert(nX == 0 or abs(sum(X_start) - 1.0) < 1.e-10, "
-       Wrong initialization in medium \""
-       + mediumName + "\":
-       This medium requires that the start values X_start for the mass
-       fractions sum up to 1. However, sum(X_start) = "
-       + String(sum(X_start)) + ".
-       ");
-  end checkParameters; 
-equation 
-  checkParameters(mediumName, incompressible, nX);
-*/
     end BaseProperties;
     
     replaceable partial function setState_pTX 
@@ -4371,64 +4321,7 @@ are described in
   partial package PartialPureSubstance 
     "base class for pure substances of one chemical substance" 
     extends PartialMedium;
-    // the following are parallel to the cape-open names
-  /*
-  replaceable partial function rho_ph 
-    "compute density as a function of pressure and specific enthalpy" 
-    extends Modelica.Icons.Function;
-    input AbsolutePressure p "pressure";
-    input SpecificEnthalpy h "specific enthalpy";
-    input Integer phase =  0 
-      "phase of the fluid: 1 for 1-phase, 2 for two-phase, 0 for not known, e.g. interactive use";
-    output Density d "density";
-  end rho_ph;
-  
-  replaceable partial function T_ph 
-    "compute temperature as a function of pressure and specific enthalpy" 
-    extends Modelica.Icons.Function;
-    input AbsolutePressure p "pressure";
-    input SpecificEnthalpy h "specific enthalpy";
-    input Integer phase =  0 
-      "phase of the fluid: 1 for 1-phase, 2 for two-phase, 0 for not known, e.g. interactive use";
-    output Temperature T "temperature";
-  end T_ph;
-  
-  replaceable partial function rho_pT 
-    "compute density as a function of pressure and temperature" 
-    extends Modelica.Icons.Function;
-    input AbsolutePressure p "pressure";
-    input Temperature T "temperature";
-    output Density d "density";
-  end rho_pT;
-  
-  replaceable partial function h_pT 
-    "compute specific enthalpy as a function of pressure and temperature" 
-    extends Modelica.Icons.Function;
-    input AbsolutePressure p "pressure";
-    input Temperature T "temperature";
-    output SpecificEnthalpy h "specific enthalpy";
-  end h_pT;
-  
-  replaceable partial function p_dT 
-    "compute pressure as a function of density and temperature" 
-    extends Modelica.Icons.Function;
-    input Density d "density";
-    input Temperature T "temperature";
-    input Integer phase =  0 
-      "phase of the fluid: 1 for 1-phase, 2 for two-phase, 0 for not known, e.g. interactive use";
-    output AbsolutePressure p "pressure";
-  end p_dT;
-  
-  replaceable partial function h_dT 
-    "compute specific enthalpy as a function of density and temperature" 
-    extends Modelica.Icons.Function;
-    input Density d "density";
-    input Temperature T "temperature";
-    input Integer phase =  0 
-      "phase of the fluid: 1 for 1-phase, 2 for two-phase, 0 for not known, e.g. interactive use";
-    output SpecificEnthalpy h "specific enthalpy";
-  end h_dT;
-*/
+
     replaceable partial function setState_pT 
       "Return thermodynamic state as function of p and T" 
       extends Modelica.Icons.Function;
@@ -4554,34 +4447,6 @@ are described in
     "base class for pure substances of several chemical substances" 
     extends PartialMedium;
     
-    //     record FluidConstants 
-    //       "critical, triple, molecular and other standard data of fluid" 
-    //       extends Modelica.Icons.Record;
-    //       Temperature[nX] criticalTemperature "all critical temperatures";
-    //       AbsolutePressure[nX] criticalPressure "all critical pressures";
-    //       Density[nX] criticalDensity "all critical densities";
-    //       Real[nX] omega "all Pitzer accentric factors";
-    //       Temperature[nX] triplePointTemperature "all triple point temperatures";
-    //       AbsolutePressure[nX] triplePointPressure "all triple point pressures";
-    //       Temperature[nX] meltingPoint "all melting point temperatures at 101325 Pa";
-    //       Temperature[nX] normalBoilingPoint "all normal boiling point temperatures (at 101325 Pa)";
-    //       DipoleMoment[nX] dipoleMoment "all dipole moments of molecule in Debye (1 debye = 3.33564e10-30 C.m)";
-    //     end FluidConstants;
-    
-    //     record DataSources "data availability and sources, only true if true for all components"
-    //       constant Boolean hasIdealGasHeatCapacity=false "true if ideal gas heat capacity is available for all components";
-    //       constant Boolean hasCriticalData=false "true if critical data are known for all components";
-    //       constant Boolean hasFundamentalEquation=false "true if a fundamental equation for all components";
-    //       constant Boolean hasLiquidHeatCapacity=false "true if liquid heat capacity is available for all components";
-    //       constant Boolean hasSolidHeatCapacity=false "true if solid heat capacity is available for all components";
-    //       constant Boolean hasAccurateViscosityData=false "true if accurate data for a viscosity function is available for all components";
-    //       constant Boolean hasAccurateConductivityData=false "true if accurate data for thermal conductivity is available for all components";
-    //       constant Boolean hasVapourPressureCurve=false "true if vapour pressure data, e.g. Antoine coefficents are known for all components";
-    //       constant Boolean hasAccentricFactor=false "true if Pitzer accentric factor is known for all components";
-    //       //       constant String fundamentalEquationSource="none" "source of the fundamental equation model";
-    //       //       constant String criticalDataSource="none" "source for critical data";
-    //       //       constant String idealGasHeatCapacitySource="none" "data source for ideal gas heat capacity coefficients";
-    //     end DataSources;
     
     redeclare replaceable record extends ThermodynamicState 
       "thermodynamic state variables" 
@@ -4590,20 +4455,36 @@ are described in
       MassFraction X[nX] 
         "Mass fractions (= (component mass)/total mass  m_i/m)";
     end ThermodynamicState;
-    
-  /* h_component cannot be used, because there must be ONE function h(T,X)
-   in order that a tool can propagate computed medium data over a connector
-   without recomputing it and solving a non-linear system of equations
-  redeclare replaceable model extends BaseProperties 
-    SpecificEnthalpy[nX] h_component 
-      "specific enthalpies of the component fluids";
-  end BaseProperties;
-  */
-    //     replaceable model EquilibriumProperties "medium properties for chemical equilibrium reactions"
-    //       extends BaseProperties;
-    //     end EquilibriumProperties;
-    
-    replaceable function gasConstant 
+        
+    redeclare replaceable record extends FluidConstants "extended fluid constants"
+      Temperature criticalTemperature "critical temperature";
+      AbsolutePressure criticalPressure "critical pressure";
+      MolarVolume criticalMolarVolume "critical molar Volume";
+      Real acentricFactor "Pitzer acentric factor";
+      Temperature triplePointTemperature "triple point temperature";
+      AbsolutePressure triplePointPressure "triple point pressure";
+      Temperature meltingPoint "melting point at 101325 Pa";
+      Temperature normalBoilingPoint "normal boiling point (at 101325 Pa)";
+      DipoleMoment dipoleMoment "dipole moment of molecule in Debye (1 debye = 3.33564e10-30 C.m)";
+      Boolean hasIdealGasHeatCapacity=false "true if ideal gas heat capacity is available";
+      Boolean hasCriticalData=false "true if critical data are known";
+      Boolean hasDipoleMoment=false "true if a dipole moment known";
+      Boolean hasFundamentalEquation=false "true if a fundamental equation";
+      Boolean hasLiquidHeatCapacity=false "true if liquid heat capacity is available";
+      Boolean hasSolidHeatCapacity=false "true if solid heat capacity is available";
+      Boolean hasAccurateViscosityData=false "true if accurate data for a viscosity function is available";
+      Boolean hasAccurateConductivityData=false "true if accurate data for thermal conductivity is available";
+      Boolean hasVapourPressureCurve=false "true if vapour pressure data, e.g. Antoine coefficents are known";
+      Boolean hasAcentricFactor=false "true if Pitzer accentric factor is known";
+      SpecificEnthalpy HCRIT0=0.0 "Critical specific enthalpy of the fundamental equation";
+      SpecificEntropy SCRIT0=0.0 "Critical specific entropy of the fundamental equation";
+      SpecificEnthalpy deltah=0.0 "Difference between specific enthalpy model (h_m) and f.eq. (h_f) (h_m - h_f)";
+      SpecificEntropy deltas=0.0 "Difference between specific enthalpy model (s_m) and f.eq. (s_f) (s_m - s_f)";
+  end FluidConstants;
+
+  constant FluidConstants[nS] fluidConstants "constant data for the fluid";
+
+  replaceable function gasConstant 
       "return the gas constant of the mixture (also for liquids)" 
       extends Modelica.Icons.Function;
       input ThermodynamicState state "thermodynamic state";
@@ -4642,19 +4523,7 @@ are described in
         moleFractions[i] := Mmix*X[i]/MMX[i];
       end for;
     end massToMoleFractions;
-    
-    // function massToMoleFractions 
-    //       "Compute mole fractions from mass fractions X" 
-    //       extends Modelica.Icons.Function;
-    //       input SI.MassFraction X[:] "Mass fractions of mixture";
-    //       input SI.MolarMass[:] MMX "molar masses of components";
-    //       output SI.MoleFraction moleFractions[size(X, 1)] "Mole fractions of gas mixture";
-    //     protected 
-    //       SI.MolarMass Mmix = 1/sum(X[i]/MMX[i] for i in 1:size(X, 1)) "molar mass of mixture";
-    //     algorithm 
-    //       moleFractions := Mmix*{(X[i]/MMX[i]) for i in 1:size(X, 1)};
-    //     end massToMoleFractions;
-    
+
   end PartialMixtureMedium;
   
   partial package PartialCondensingGases 
@@ -4728,10 +4597,38 @@ are described in
           </body></html>"));
     end FluidLimits;
     
-    redeclare replaceable record extends ThermodynamicState 
+    redeclare replaceable record extends FluidConstants "extended fluid constants"
+      Temperature criticalTemperature "critical temperature";
+      AbsolutePressure criticalPressure "critical pressure";
+      MolarVolume criticalMolarVolume "critical molar Volume";
+      Real acentricFactor "Pitzer acentric factor";
+      Temperature triplePointTemperature "triple point temperature";
+      AbsolutePressure triplePointPressure "triple point pressure";
+      Temperature meltingPoint "melting point at 101325 Pa";
+      Temperature normalBoilingPoint "normal boiling point (at 101325 Pa)";
+      DipoleMoment dipoleMoment "dipole moment of molecule in Debye (1 debye = 3.33564e10-30 C.m)";
+      Boolean hasIdealGasHeatCapacity=false "true if ideal gas heat capacity is available";
+      Boolean hasCriticalData=false "true if critical data are known";
+      Boolean hasDipoleMoment=false "true if a dipole moment known";
+      Boolean hasFundamentalEquation=false "true if a fundamental equation";
+      Boolean hasLiquidHeatCapacity=false "true if liquid heat capacity is available";
+      Boolean hasSolidHeatCapacity=false "true if solid heat capacity is available";
+      Boolean hasAccurateViscosityData=false "true if accurate data for a viscosity function is available";
+      Boolean hasAccurateConductivityData=false "true if accurate data for thermal conductivity is available";
+      Boolean hasVapourPressureCurve=false "true if vapour pressure data, e.g. Antoine coefficents are known";
+      Boolean hasAcentricFactor=false "true if Pitzer accentric factor is known";
+      SpecificEnthalpy HCRIT0=0.0 "Critical specific enthalpy of the fundamental equation";
+      SpecificEntropy SCRIT0=0.0 "Critical specific entropy of the fundamental equation";
+      SpecificEnthalpy deltah=0.0 "Difference between specific enthalpy model (h_m) and f.eq. (h_f) (h_m - h_f)";
+      SpecificEntropy deltas=0.0 "Difference between specific enthalpy model (s_m) and f.eq. (s_f) (s_m - s_f)";
+  end FluidConstants;
+
+  constant FluidConstants[nS] fluidConstants "constant data for the fluid";
+  
+  redeclare replaceable record extends ThermodynamicState 
       Integer phase(min=0, max=2) 
-        "phase of the fluid: 1 for 1-phase, 2 for two-phase, 0 for not known, e.g. interactive use";
-    end ThermodynamicState;
+      "phase of the fluid: 1 for 1-phase, 2 for two-phase, 0 for not known, e.g. interactive use";
+  end ThermodynamicState;
     
     replaceable record SaturationProperties 
       extends Modelica.Icons.Record;
@@ -4858,39 +4755,6 @@ are described in
         input AbsolutePressure p "pressure";
         output Real dTp "derivatives of saturation temperature w.r.t pressure";
       end saturationTemperature_derp;
-      //       replaceable partial function dewPressure 
-    
-      //         "Returns dew line pressure, for (near)-azeotropic mixtures that can be treated as pseudo-components" 
-    //         extends Modelica.Icons.Function;
-    //         input SaturationProperties sat "saturation property record";
-    //         output AbsolutePressure p "dew saturation pressure";
-    //       end dewPressure;
-    
-    //       replaceable partial function bubblePressure 
-    
-      //         "Returns bubble line pressure, for (near)-azeotropic mixtures that can be treated as pseudo-components" 
-    //         extends Modelica.Icons.Function;
-    //         input SaturationProperties sat "saturation property record";
-    //         output AbsolutePressure p "bubble saturation pressure";
-    //       end bubblePressure;
-    
-      //note: for azeotropic mixtures, dewPressure and bubblePressure are needed
-    
-    //       replaceable partial function dewTemperature 
-    
-      //         "Returns dew line temperature, for (near)-azeotropic mixtures that can be treated as pseudo-components" 
-    //         extends Modelica.Icons.Function;
-    //         input SaturationProperties sat "saturation property record";
-    //         output Temperature T "dew saturation temperature";
-    //       end dewTemperature;
-    
-    //       replaceable partial function bubbleTemperature 
-    
-      //         "Returns bubble line temperature, for (near)-azeotropic mixtures that can be treated as pseudo-components" 
-    //         extends Modelica.Icons.Function;
-    //         input SaturationProperties sat "saturation property record";
-    //         output Temperature T "bubble saturation temperature";
-    //       end bubbleTemperature;
     
     replaceable partial function surfaceTension 
       "Return surface tension sigma in the two phase region" 
@@ -4994,11 +4858,7 @@ are described in
       algorithm 
         h := specificEnthalpy(setState_psX(p,s,X,phase));
       end specificEnthalpy_psX;
-    
-  // alias functions for simplified access
-  // note that there is a Dymola error which does not allow writing
-  // replaceable function density_ph = density_phX(p,h,fill(0,0))
-    
+        
     redeclare replaceable partial function setState_pT 
       "Return thermodynamic state as function of p and T" 
       extends Modelica.Icons.Function;
@@ -5163,6 +5023,8 @@ are described in
     constant Temperature T0 "Zero enthalpy temperature";
     constant MolarMass MM_const "Molar mass";
     
+    constant FluidConstants[nS] fluidConstants "fluid constants";
+
     redeclare model extends BaseProperties(
         T(stateSelect=StateSelect.prefer)) "Base properties" 
     equation 
@@ -5355,102 +5217,7 @@ quantities are assumed to be constant.
     algorithm 
       h := Utilities.h_props_pT(p, T, Utilities.twoPhaseProps_pT(p, T));
     end specificEnthalpy_pT;
-  /*  
-  redeclare function extends specificEntropy_dT 
-  algorithm 
-    s := Utilities.s_props_dT(d, T, Utilities.twoPhaseProps_dT(d, T, phase));
-  end specificEntropy_dT;
- 
-  redeclare function extends specificEntropy_ph 
-  algorithm 
-    s := Utilities.s_props_ph(p, h, Utilities.twoPhaseProps_ph(p, h, phase));
-  end specificEntropy_ph;
- 
-  redeclare function extends specificEntropy_pT 
-  algorithm 
-    s := Utilities.s_props_pT(p, T, Utilities.twoPhaseProps_pT(p, T));
-  end specificEntropy_pT;
-  
-  redeclare function extends specificGibbsEnergy_dT 
-  algorithm 
-    g := Utilities.g_props_dT(d, T, Utilities.twoPhaseProps_dT(d, T, phase));
-  end specificGibbsEnergy_dT;
-  
-  redeclare function extends specificGibbsEnergy_ph 
-  algorithm 
-    g := Utilities.g_props_ph(p, h, Utilities.twoPhaseProps_ph(p, h, phase));
-  end specificGibbsEnergy_ph;
-  
-  redeclare function extends specificGibbsEnergy_ps 
-  algorithm 
-    g := Utilities.g_props_ps(p, s, Utilities.twoPhaseProps_ps(p, s, phase));
-  end specificGibbsEnergy_ps;
-  
-  redeclare function extends specificGibbsEnergy_pT 
-  algorithm 
-    g := Utilities.g_props_pT(p, T, Utilities.twoPhaseProps_pT(p, T));
-  end specificGibbsEnergy_pT;
-  
-  redeclare function extends specificHeatCapacityCp_dT 
-  algorithm 
-    cp := Utilities.cp_props_dT(d, T, Utilities.twoPhaseProps_dT(d, T, phase));
-  end specificHeatCapacityCp_dT;
-  
-  redeclare function extends specificHeatCapacityCp_ph 
-  algorithm 
-    cp := Utilities.cp_props_ph(p, h, Utilities.twoPhaseProps_ph(p, h, phase));
-  end specificHeatCapacityCp_ph;
-  
-  redeclare function extends specificHeatCapacityCp_ps 
-  algorithm 
-    cp := Utilities.cp_props_ps(p, s, Utilities.twoPhaseProps_ps(p, s, phase));
-  end specificHeatCapacityCp_ps;
-  
-  redeclare function extends specificHeatCapacityCp_pT 
-  algorithm 
-    cp := Utilities.cp_props_pT(p, T, Utilities.twoPhaseProps_pT(p, T));
-  end specificHeatCapacityCp_pT;
-  
-  redeclare function extends specificHeatCapacityCv_dT 
-  algorithm 
-    cv := Utilities.cv_props_dT(d, T, Utilities.twoPhaseProps_dT(d, T, phase));
-  end specificHeatCapacityCv_dT;
-  
-  redeclare function extends specificHeatCapacityCv_ph 
-  algorithm 
-    cv := Utilities.cv_props_ph(p, h, Utilities.twoPhaseProps_ph(p, h, phase));
-  end specificHeatCapacityCv_ph;
-  
-  redeclare function extends specificHeatCapacityCv_ps 
-  algorithm 
-    cv := Utilities.cv_props_ps(p, s, Utilities.twoPhaseProps_ps(p, s, phase));
-  end specificHeatCapacityCv_ps;
-  
-  redeclare function extends specificHeatCapacityCv_pT 
-  algorithm 
-    cv := Utilities.cv_props_pT(p, T, Utilities.twoPhaseProps_pT(p, T));
-  end specificHeatCapacityCv_pT;
-  
-  redeclare function extends specificInternalEnergy_dT 
-  algorithm 
-    u := Utilities.u_props_dT(d, T, Utilities.twoPhaseProps_dT(d, T, phase));
-  end specificInternalEnergy_dT;
-  
-  redeclare function extends specificInternalEnergy_ph 
-  algorithm 
-    u := Utilities.u_props_ph(p, h, Utilities.twoPhaseProps_ph(p, h, phase));
-  end specificInternalEnergy_ph;
-  
-  redeclare function extends specificInternalEnergy_ps 
-  algorithm 
-    u := Utilities.u_props_ps(p, s, Utilities.twoPhaseProps_ps(p, s, phase));
-  end specificInternalEnergy_ps;
-  
-  redeclare function extends specificInternalEnergy_pT 
-  algorithm 
-    u := Utilities.u_props_pT(p, T, Utilities.twoPhaseProps_pT(p, T));
-  end specificInternalEnergy_pT;
-*/
+
     redeclare replaceable function temperature_ph 
       "Computes temperature as a function of pressure and specific enthalpy" 
       extends Modelica.Icons.Function;
@@ -5474,106 +5241,7 @@ quantities are assumed to be constant.
     algorithm 
       T := Utilities.T_props_ps(p, s, Utilities.twoPhaseProps_ps(p, s, phase));
     end temperature_ps;
-  /*  
-  redeclare function extends beta_dT 
-  algorithm 
-    beta := Utilities.beta_props_dT(d, T, Utilities.twoPhaseProps_dT(d, T, phase));
-  end beta_dT;
-  
-  redeclare function extends beta_ph 
-  algorithm 
-    beta := Utilities.beta_props_ph(p, h, Utilities.twoPhaseProps_ph(p, h, phase));
-  end beta_ph;
-  
-  redeclare function extends beta_ps 
-  algorithm 
-    beta := Utilities.beta_props_ps(p, s, Utilities.twoPhaseProps_ps(p, s, phase));
-  end beta_ps;
-  
-  redeclare function extends beta_pT 
-  algorithm 
-    beta := Utilities.beta_props_pT(p, T, Utilities.twoPhaseProps_pT(p, T));
-  end beta_pT;
-  
-  redeclare function extends kappa_dT 
-  algorithm 
-    kappa := Utilities.kappa_props_dT(d, T, Utilities.twoPhaseProps_dT(d, T, phase));
-  end kappa_dT;
-  
-  redeclare function extends kappa_ph 
-  algorithm 
-    kappa := Utilities.kappa_props_ph(p, h, Utilities.twoPhaseProps_ph(p, h, phase));
-  end kappa_ph;
-  
-  redeclare function extends kappa_ps 
-  algorithm 
-    kappa := Utilities.kappa_props_ps(p, s, Utilities.twoPhaseProps_ps(p, s, phase));
-  end kappa_ps;
-  
-  redeclare function extends kappa_pT 
-  algorithm 
-    kappa := Utilities.kappa_props_pT(p, T, Utilities.twoPhaseProps_pT(p, T));
-  end kappa_pT;
 
-  redeclare function extends pressure_derd_T_dT 
-  algorithm 
-    dpd_T := Utilities.dpd_T_props_dT(d, T, Utilities.twoPhaseProps_dT(d, T, phase));
-  end pressure_derd_T_dT;
-  
-  redeclare function extends pressure_derd_T_ph 
-  algorithm 
-    dpd_T := Utilities.dpd_T_props_ph(p, h, Utilities.twoPhaseProps_ph(p, h, phase));
-  end pressure_derd_T_ph;
-  
-  redeclare function extends pressure_derd_T_ps 
-  algorithm 
-    dpd_T := Utilities.dpd_T_props_ps(p, s, Utilities.twoPhaseProps_ps(p, s, phase));
-  end pressure_derd_T_ps;
-  
-  redeclare function extends pressure_derd_T_pT 
-  algorithm 
-    dpd_T := Utilities.dpd_T_props_pT(p, T, Utilities.twoPhaseProps_pT(p, T));
-  end pressure_derd_T_pT;
-  
-  redeclare function extends pressure_derT_d_dT 
-  algorithm 
-    dpT_d := Utilities.dpT_d_props_dT(d, T, Utilities.twoPhaseProps_dT(d, T, phase));
-  end pressure_derT_d_dT;
-  
-  redeclare function extends pressure_derT_d_ph 
-  algorithm 
-    dpT_d := Utilities.dpT_d_props_ph(p, h, Utilities.twoPhaseProps_ph(p, h, phase));
-  end pressure_derT_d_ph;
-  
-  redeclare function extends pressure_derT_d_ps 
-  algorithm 
-    dpT_d := Utilities.dpT_d_props_ps(p, s, Utilities.twoPhaseProps_ps(p, s, phase));
-  end pressure_derT_d_ps;
-  
-  redeclare function extends pressure_derT_d_pT 
-  algorithm 
-    dpT_d := Utilities.dpT_d_props_pT(p, T, Utilities.twoPhaseProps_pT(p, T));
-  end pressure_derT_d_pT;
-  redeclare function extends density_derp_h_dT 
-  algorithm 
-    ddp_h := Utilities.ddp_h_props_dT(d, T, Utilities.twoPhaseProps_dT(d, T, phase));
-  end density_derp_h_dT;
-  
-  redeclare function extends density_derp_h_ph 
-  algorithm 
-    ddp_h := Utilities.ddp_h_props_ph(p, h, Utilities.twoPhaseProps_ph(p, h, phase));
-  end density_derp_h_ph;
-  
-  redeclare function extends density_derh_p_dT 
-  algorithm 
-    ddh_p := Utilities.ddh_p_props_dT(d, T, Utilities.twoPhaseProps_dT(d, T, phase));
-  end density_derh_p_dT;
-  
-  redeclare function extends density_derh_p_ph 
-  algorithm 
-    ddh_p := Utilities.ddh_p_props_ph(p, h, Utilities.twoPhaseProps_dT(d, T, phase));
-  end density_derh_p_ph;
-*/
     replaceable package Utilities 
       constant Boolean phaseBoundaryComputation=false 
         "true if phase boundary-computation is performed";
@@ -7364,8 +7032,6 @@ end BridgmansTablesForWater;
     sat.cv := f.R*(-f.tau*f.tau*f.ftautau);
     sat.pt := f.R*f.d*f.delta*(f.fdelta - f.tau*f.fdeltatau);
     sat.pd := f.R*f.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
-    //     sat.kappa := 1/(f.d*p)*((sat.pd*sat.cv/(f.d*f.d) + sat.pt*sat.pt*f.T)/(sat.
-    //       cv));
   end helmholtzToBoundaryProps;
   
   function cv2Phase 

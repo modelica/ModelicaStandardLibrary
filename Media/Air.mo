@@ -5,8 +5,7 @@ package Air "Media models for air"
     extends Interfaces.PartialMedium(
        mediumName="SimpleAir",
        final reducedX=true,
-       final singleState=false,
-       fluidConstants={IdealGases.Common.FluidData.N2});
+       final singleState=false);
     
     import SI = Modelica.SIunits;
     import Cv = Modelica.SIunits.Conversions;
@@ -21,7 +20,12 @@ package Air "Media models for air"
       "Minimum temperature valid for medium model";
     constant SI.Temperature T_max=Cv.from_degC(100) 
       "Maximum temperature valid for medium model";
-    constant FluidConstants[nS] fluidConstants ={IdealGases.Common.FluidData.N2} "constant data for the fluid";
+    constant FluidConstants[nS] fluidConstants =
+      FluidConstants(iupacName={"simple air"},
+                     casRegistryNumber={"not a real substance"},
+                     chemicalFormula={"N2, O2"},
+                     structureFormula={"N2, O2"},
+                     molarMass=Modelica.Media.IdealGases.Common.SingleGasesData.N2.MM) "constant data for the fluid";
     
     redeclare replaceable record extends ThermodynamicState 
       "thermodynamic state" 
@@ -187,9 +191,10 @@ in the allowed range (" + String(T_min) + " K <= T <= " + String(T_max)
       MassFraction X_liquid "mass fraction of liquid water";
       MassFraction X_steam "mass fraction of steam water";
       MassFraction X_air "mass fraction of air";
-      MassFraction x_sat "steam water mass fraction of saturation boundary";
-      
-      // SpecificEnthalpy h_component[2];
+      MassFraction X_sat
+        "steam water mass fraction of saturation boundary in kg_water/kg_moistair";
+      MassFraction x_sat
+        "steam water mass content of saturation boundary in kg_water/kg_dryair";
       AbsolutePressure p_steam_sat "Partial saturation pressure of steam";
     equation 
       assert(T >= 200.0 and T <= 423.15, "
@@ -199,33 +204,37 @@ required from medium model \""       + mediumName + "\".");
       MM = 1/(Xi[Water]/MMX[Water]+(1.0-Xi[Water])/MMX[Air]);
       
       p_steam_sat = min(saturationPressure(T),0.999*p);
-      x_sat    = k_mair*p_steam_sat/(p - p_steam_sat);
-      // X_liquid = max(Xi[Water] - x_sat/(1+x_sat), 0.0); //approximate version
-      X_liquid = max((x_water - x_sat)/(1+x_water), 0.0); // correct version
+      X_sat = min(p_steam_sat * k_mair/max(100*Constants.eps, p - p_steam_sat)*(1 - Xi[Water]), 1.0)
+                        "Water content at saturation with respect to actual water content";
+      X_liquid = max(Xi[Water] - X_sat, 0.0); 
       X_steam  = Xi[Water]-X_liquid;
       X_air    = 1-Xi[Water];
       
-      // h_component = {SingleGasNasa.h_Tlow(data=steam, T=T, refChoice=3, h_off=46479.819+2501014.5),
-      //                SingleGasNasa.h_Tlow(data=dryair, T=T, refChoice=3, h_off=25104.684)};
-      //offset adjusts enthalpy to zero at 0°C plus enthalpy of evaporation in case of steam  
-      // h = h_component *{X_steam, X_air} + enthalpyOfLiquid(T)*X_liquid;  
-      
       h = specificEnthalpy_pTX(p,T,Xi);
-      R = dryair.R*X_air + steam.R*X_steam;
+      R = dryair.R*(1 - X_steam/(1 - X_liquid)) + steam.R*X_steam/(1 - X_liquid);
+      //                
       u = h - R*T;
       d = p/(R*T);
       /* Note, u and d are computed under the assumption that the volume of the liquid
          water is neglible with respect to the volume of air and of steam
       */
-      
       state.p = p;
       state.T = T;
       state.X = X;
       
       // this x_steam is water load / dry air!!!!!!!!!!!
+      x_sat    = k_mair*p_steam_sat/max(100*Constants.eps,p - p_steam_sat);
       x_water = Xi[Water]/max(X_air,100*Constants.eps);
       phi = p/p_steam_sat*Xi[Water]/(Xi[Water] + k_mair*X_air);
     end BaseProperties;
+
+    function Xsaturation "steam water mass fraction of saturation boundary in kg_water/kg_moistair"
+      input ThermodynamicState state "shermodynamic state";
+      output MassFraction X_sat "steam mass fraction of sat. boundary";
+      protected
+    algorithm
+      X_sat := k_mair/(state.p/min(saturationPressure(state.T),0.999*state.p) - 1 + k_mair);
+    end Xsaturation;
     
     redeclare function setState_pTX "Return thermodynamic state as function of p, T and composition X" 
       extends Modelica.Icons.Function;
@@ -245,8 +254,8 @@ required from medium model \""       + mediumName + "\".");
       input MassFraction X[:] "Mass fractions";
       output ThermodynamicState state;
     algorithm
-      state := if size(X,1) == nX then ThermodynamicState(p=p,T=T_phX(h,X),X=X)
-        else ThermodynamicState(p=p,T=T_phX(h,X), X=cat(1,X,{1-sum(X)}));
+      state := if size(X,1) == nX then ThermodynamicState(p=p,T=T_phX(p,h,X),X=X)
+        else ThermodynamicState(p=p,T=T_phX(p,h,X), X=cat(1,X,{1-sum(X)}));
     end setState_phX;
 /*    
     redeclare function setState_psX "Return thermodynamic state as function of p, s and composition X" 
@@ -266,14 +275,12 @@ required from medium model \""       + mediumName + "\".");
       input Temperature T "Temperature";
       input MassFraction X[:] "Mass fractions";
       output ThermodynamicState state;
-    protected
-      SpecificHeatCapacity R = dryair.R*(1-state.X[1]) + steam.R*state.X[1] "moist air heat capacity";
     algorithm
-      state := if size(X,1) == nX then ThermodynamicState(p=d*(R*X)*T,T=T,X=X)
-        else ThermodynamicState(p=d*(R*cat(1,X,{1-sum(X)}))*T,T=T, X=cat(1,X,{1-sum(X)}));
+      state := if size(X,1) == nX then ThermodynamicState(p=d*({steam.R,dryair.R}*X)*T,T=T,X=X)
+        else ThermodynamicState(p=d*({steam.R,dryair.R}*cat(1,X,{1-sum(X)}))*T,T=T, X=cat(1,X,{1-sum(X)}));
     end setState_dTX;
       
-    redeclare function extends gasConstant 
+    redeclare function extends gasConstant "gas constnat: computation neglects liquid fraction"
     algorithm 
       R := dryair.R*(1-state.X[Water]) + steam.R*state.X[Water];
     end gasConstant;
@@ -347,11 +354,40 @@ required from medium model \""       + mediumName + "\".");
      h := SingleGasNasa.h_Tlow(data=steam, T=T, refChoice=3, h_off=46479.819+2501014.5);
    end enthalpyOfCondensingGas;
     
-  redeclare function extends specificHeatCapacityCp 
+   redeclare function extends pressure "return pressure of ideal gas" 
+   algorithm 
+    p := state.p;
+   end pressure;
+
+   redeclare function extends temperature "return temperature of ideal gas" 
+   algorithm 
+     T := state.T;
+   end temperature;
+
+   redeclare function extends density "return density of ideal gas" 
+   algorithm 
+     d := state.p/(gasConstant(state)*state.T);
+   end density;
+
+   redeclare function extends specificEntropy
+     "return specific entropy (liquid part neglected, mixing entropy included)"  
+       annotation(Inline=false,smoothOrder=5);
+   protected
+     MoleFraction[2] Y = massToMoleFractions(state.X,{steam.MM,dryair.MM}) "molar fraction";
+   algorithm
+     s := SingleGasNasa.s0_Tlow(dryair, state.T)*(1-state.X[Water])
+       + SingleGasNasa.s0_Tlow(steam, state.T)*state.X[Water]
+       - gasConstant(state)*Modelica.Math.log(state.p/reference_p)
+       + sum(if Y[i] > Modelica.Constants.eps then -Y[i]*Modelica.Math.log(Y[i]) else 
+                   Y[i] for i in 1:size(Y,1));;
+   end specificEntropy;
+   
+   redeclare function extends specificHeatCapacityCp 
       "Return specific heat capacity at constant pressure" 
      annotation(Inline=false,smoothOrder=5);
   algorithm 
-    cp:= SingleGasNasa.cp_Tlow(dryair, state.T)*(1-state.X[Water]) + SingleGasNasa.cp_Tlow(steam, state.T)*state.X[Water];
+     cp:= SingleGasNasa.cp_Tlow(dryair, state.T)*(1-state.X[Water])
+       + SingleGasNasa.cp_Tlow(steam, state.T)*state.X[Water];
   end specificHeatCapacityCp;
     
   redeclare function extends specificHeatCapacityCv 
@@ -407,9 +443,27 @@ required from medium model \""       + mediumName + "\".");
   redeclare function extends specificEnthalpy
       "specific enthalpy"
   algorithm
-    h := h_pTX(state.p, state.p, state.X);  
+    h := h_pTX(state.p, state.T, state.X);  
   end specificEnthalpy;
     
+  redeclare function extends specificInternalEnergy "Return specific internal energy" 
+    extends Modelica.Icons.Function;
+  algorithm 
+    u := h_pTX(state.p,state.T,state.X) - gasConstant(state)*state.T;
+  end specificInternalEnergy;
+  
+  redeclare function extends specificGibbsEnergy "Return specific Gibbs energy" 
+    extends Modelica.Icons.Function;
+  algorithm 
+    g := h_pTX(state.p,state.T,state.X) - state.T*specificEntropy(state);
+  end specificGibbsEnergy;
+  
+  redeclare function extends specificHelmholtzEnergy "Return specific Helmholtz energy" 
+    extends Modelica.Icons.Function;
+  algorithm 
+    f := h_pTX(state.p,state.T,state.X) - gasConstant(state)*state.T - state.T*specificEntropy(state);
+  end specificHelmholtzEnergy;
+  
   function T_phX 
     "Compute temperature from specific enthalpy and mass fraction" 
     input AbsolutePressure p "Pressure";
@@ -436,7 +490,7 @@ required from medium model \""       + mediumName + "\".");
   end Internal;
     
   algorithm 
-    T := Internal.solve(h, 200, 6000, p, X[1:nXi], data[1]);
+    T := Internal.solve(h, 200, 6000, p, X[1:nXi], steam);
   end T_phX;
       
     package Utilities "utility functions" 

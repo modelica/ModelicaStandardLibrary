@@ -18,15 +18,17 @@ package MixtureGases "Medium models consisting of mixtures of ideal gases"
   package AirSteam "air and steam mixture (no condensation!, pseudo-mixture)" 
     extends Common.MixtureGasNasa(
        mediumName="MoistAir",
-       data={Common.SingleGasesData.Air,
-      Common.SingleGasesData.H2O},
-       substanceNames = {"Air","Water"},
-       reference_X={1.0,0.0});
+       data={Common.SingleGasesData.H2O,
+      Common.SingleGasesData.Air},
+       substanceNames = {"Water","Air"},
+       reference_X={0.0,1.0});
     annotation (Documentation(info="<html>
   
 </html>"));
   end AirSteam;
   
+  package simpleMoistAir = AirSteam(reference_X={0.03,0.97}) "moist air without condensation";
+
   package FlueGasLambdaOnePlus 
     "simple flue gas for over0stochiometric O2-fuel ratios" 
     extends Common.MixtureGasNasa(

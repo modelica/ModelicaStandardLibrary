@@ -161,7 +161,33 @@ and adapted to the Modelica.Media package.
     AbsolutePressure p "Absolute pressure of medium";
     Temperature T "Temperature of medium";
   end ThermodynamicState;
-  
+
+  redeclare replaceable record extends FluidConstants "extended fluid constants"
+    Temperature criticalTemperature "critical temperature";
+    AbsolutePressure criticalPressure "critical pressure";
+    MolarVolume criticalMolarVolume "critical molar Volume";
+    Real acentricFactor "Pitzer acentric factor";
+    Temperature triplePointTemperature "triple point temperature";
+    AbsolutePressure triplePointPressure "triple point pressure";
+    Temperature meltingPoint "melting point at 101325 Pa";
+    Temperature normalBoilingPoint "normal boiling point (at 101325 Pa)";
+    DipoleMoment dipoleMoment "dipole moment of molecule in Debye (1 debye = 3.33564e10-30 C.m)";
+    Boolean hasIdealGasHeatCapacity=false "true if ideal gas heat capacity is available";
+    Boolean hasCriticalData=false "true if critical data are known";
+    Boolean hasDipoleMoment=false "true if a dipole moment known";
+    Boolean hasFundamentalEquation=false "true if a fundamental equation";
+    Boolean hasLiquidHeatCapacity=false "true if liquid heat capacity is available";
+    Boolean hasSolidHeatCapacity=false "true if solid heat capacity is available";
+    Boolean hasAccurateViscosityData=false "true if accurate data for a viscosity function is available";
+    Boolean hasAccurateConductivityData=false "true if accurate data for thermal conductivity is available";
+    Boolean hasVapourPressureCurve=false "true if vapour pressure data, e.g. Antoine coefficents are known";
+    Boolean hasAcentricFactor=false "true if Pitzer accentric factor is known";
+    SpecificEnthalpy HCRIT0=0.0 "Critical specific enthalpy of the fundamental equation";
+    SpecificEntropy SCRIT0=0.0 "Critical specific entropy of the fundamental equation";
+    SpecificEnthalpy deltah=0.0 "Difference between specific enthalpy model (h_m) and f.eq. (h_f) (h_m - h_f)";
+    SpecificEntropy deltas=0.0 "Difference between specific enthalpy model (s_m) and f.eq. (s_f) (s_m - s_f)";
+  end FluidConstants;
+
   import SI = Modelica.SIunits;
   import Modelica.Math;
   import Modelica.Media.Interfaces.PartialMedium.Choices.ReferenceEnthalpy;
@@ -176,8 +202,7 @@ and adapted to the Modelica.Media package.
   constant IdealGases.Common.DataRecord data 
     "Data record of ideal gas substance";
   
-//   replaceable constant FluidConstants fluidConstants 
-//     "constant data for the fluid";
+  constant FluidConstants[nS] fluidConstants "constant data for the fluid";
   
   redeclare model extends BaseProperties(
    T(stateSelect=if preferredMediumStates then StateSelect.prefer else StateSelect.default),
@@ -230,7 +255,7 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
       input MassFraction X[:] = fill(0,0) "Mass fractions";
       output ThermodynamicState state;
     algorithm
-      state := ThermodynamicState(p=p,T=T_ps(s,p));
+      state := ThermodynamicState(p=p,T=T_ps(p,s));
     end setState_psX;
     
     redeclare function setState_dTX "Return thermodynamic state as function of d, T and composition X" 
@@ -699,7 +724,7 @@ transform the formula to SI units:
   end Internal;
     
   algorithm 
-    T := Internal.solve(s, 200, 6000, 1.0e5, {1}, data);
+    T := Internal.solve(s, 200, 6000, p, {1}, data);
   end T_ps;
 
 end SingleGasNasa;
@@ -816,7 +841,7 @@ required from medium model \""   + mediumName + "\".");
       input MassFraction X[:] "Mass fractions";
       output ThermodynamicState state;
     algorithm
-      state := if size(X,1) == nX then ThermodynamicState(p=p,T=T_psX(s,p,X),X=X)
+      state := if size(X,1) == nX then ThermodynamicState(p=p,T=T_psX(p,s,X),X=X)
         else ThermodynamicState(p=p,T=T_psX(p,s,X), X=cat(1,X,{1-sum(X)}));        
     end setState_psX;
     
@@ -861,7 +886,8 @@ required from medium model \""   + mediumName + "\".");
   redeclare function extends specificEntropy "Return specific entropy" 
     extends Modelica.Icons.Function;
   algorithm 
-    s := s_TX(state.T, state.X) - gasConstant(state)*Modelica.Math.log(state.p/reference_p);
+    s := s_TX(state.T, state.X) - gasConstant(state)*Modelica.Math.log(state.p/reference_p)
+      + MixEntropy(massToMoleFractions(state.X,data.MM));
   end specificEntropy;
 
   redeclare function extends specificGibbsEnergy "Return specific Gibbs energy" 
@@ -951,7 +977,7 @@ required from medium model \""   + mediumName + "\".");
     input MassFraction[nX] X "mass fraction";
     output SpecificEntropy s "specific entropy";
   algorithm
-    s := SingleGasNasa.s0_T(data, T)*X "automatic vectorization due to data";
+    s := sum(SingleGasNasa.s0_T(data[i], T)*X[i] for i in 1:size(X,1));
   end s_TX;
 
   redeclare function extends isentropicExponent "Return isentropic exponent" 

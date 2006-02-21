@@ -143,10 +143,41 @@ which is only exactly true for a fluid with constant density d=d0.
       state := ThermodynamicState(p=p,T=T);
     end setState_pTX;
     
+    function setState_pT "returns state record as function of p and T"
+      input AbsolutePressure p "pressure";
+      input Temperature T "temperature";
+      output ThermodynamicState state "thermodynamic state";
+    algorithm
+      state.T := T;
+      state.p := p;
+    end setState_pT;
+
     redeclare function extends setState_phX "Returns state record, given pressure and specific enthalpy" 
     algorithm 
       state :=ThermodynamicState(p=p,T=T_ph(p,h));
     end setState_phX;
+
+    function setState_ph "returns state record as function of p and h"
+      input AbsolutePressure p "pressure";
+      input SpecificEnthalpy h "specific enthalpy";
+      output ThermodynamicState state "thermodynamic state";
+    algorithm
+      state :=ThermodynamicState(p=p,T=T_ph(p,h));
+    end setState_ph;
+
+    redeclare function extends setState_psX "Returns state record, given pressure and specific entropy" 
+    algorithm 
+      state :=ThermodynamicState(p=p,T=T_ps(p,s));
+    end setState_psX;
+
+    function setState_ps "returns state record as function of p and s"
+      input AbsolutePressure p "pressure";
+      input SpecificEntropy s "specific entropy";
+      output ThermodynamicState state "thermodynamic state";
+    algorithm
+      state :=ThermodynamicState(p=p,T=T_ps(p,s));
+    end setState_ps;
+
     
     redeclare function extends specificHeatCapacityCv 
       "Specific heat capacity at constant volume (or pressure) of medium" 
@@ -252,6 +283,16 @@ which is only exactly true for a fluid with constant density d=d0.
       d := Poly.evaluate(poly_rho,if TinK then T else Cv.to_degC(T));
     end density_T;
 
+    redeclare function extends temperature
+    algorithm    
+     T := state.T;
+    end temperature;
+    
+    redeclare function extends pressure
+    algorithm    
+     p := state.p;
+    end pressure;
+    
     redeclare function extends density
     algorithm
       d := Poly.evaluate(poly_rho,if TinK then state.T else Cv.to_degC(state.T));
@@ -311,7 +352,7 @@ which is only exactly true for a fluid with constant density d=d0.
         
         redeclare function extends f_nonlinear "p is smuggled in via vector"
           algorithm 
-          y := s_T(T);
+          y := s_T(x);
         end f_nonlinear;
         
         // Dummy definition has to be added for current Dymola
@@ -319,7 +360,7 @@ which is only exactly true for a fluid with constant density d=d0.
           end solve;
         end Internal;
    algorithm 
-     T := Internal.solve(h, T_min, T_max, p, {1}, Internal.f_nonlinear_Data());
+     T := Internal.solve(s, T_min, T_max, p, {1}, Internal.f_nonlinear_Data());
     end T_ps;
 
     package Polynomials_Temp 

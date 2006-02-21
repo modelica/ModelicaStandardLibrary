@@ -210,7 +210,7 @@ distributed with computer implementations and are included here
 
 
 extends Modelica.Icons.Library;
-  constant Interfaces.PartialMedium.FluidConstants[1] waterConstants(
+  constant Interfaces.PartialTwoPhaseMedium.FluidConstants[1] waterConstants(
      each chemicalFormula = "H2O",
      each structureFormula="H2O",
      each casRegistryNumber="7732-18-5",
@@ -226,6 +226,13 @@ extends Modelica.Icons.Library;
      each acentricFactor = 0.344,
      each dipoleMoment = 1.8,
      each hasCriticalData=true);
+
+  constant Interfaces.PartialMedium.FluidConstants[1] simpleWaterConstants(
+     each chemicalFormula = "H2O",
+     each structureFormula="H2O",
+     each casRegistryNumber="7732-18-5",
+     each iupacName="oxidane",
+     each molarMass=0.018015268);
 
 
 package ConstantPropertyLiquidWater 
@@ -244,7 +251,7 @@ package ConstantPropertyLiquidWater
      T_max=Cv.from_degC(130),
      T0=273.15,
      MM_const=0.018015268,
-     fluidConstants = waterConstants);
+     fluidConstants = simpleWaterConstants);
   
   annotation (Icon(Text(
         extent=[-90, 88; 90, 18],
@@ -616,6 +623,46 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
     sigma := IF97_Utilities.surfaceTension(sat.Tsat);
   end surfaceTension;
   
+  redeclare function extends pressure "return pressure of ideal gas" 
+  algorithm 
+    p := state.p;
+  end pressure;
+
+  redeclare function extends temperature "return temperature of ideal gas" 
+  algorithm 
+    T := state.T;
+  end temperature;
+
+  redeclare function extends density "return density of ideal gas" 
+  algorithm 
+    d := state.d;
+  end density;
+  
+  redeclare function extends specificEnthalpy "Return specific enthalpy" 
+    extends Modelica.Icons.Function;
+  algorithm 
+    h := state.h;
+  end specificEnthalpy;
+  
+  redeclare function extends specificInternalEnergy "Return specific internal energy" 
+    extends Modelica.Icons.Function;
+  algorithm
+    u := state.h  - state.p/state.d;
+  end specificInternalEnergy;
+  
+  redeclare function extends specificGibbsEnergy "Return specific Gibbs energy" 
+    extends Modelica.Icons.Function;
+  algorithm 
+    g := state.h - state.T*specificEntropy(state);
+  end specificGibbsEnergy;
+  
+  redeclare function extends specificHelmholtzEnergy "Return specific Helmholtz energy" 
+    extends Modelica.Icons.Function;
+  algorithm 
+    f := state.h - state.p/state.d - state.T*specificEntropy(state);
+  end specificHelmholtzEnergy;
+  
+
   redeclare function extends specificEntropy "specific entropy of water" 
   algorithm 
     if dT_explicit then
@@ -1123,6 +1170,45 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
     sigma := IF97_Utilities.surfaceTension(sat.Tsat);
   end surfaceTension;
   
+  redeclare function extends pressure "return pressure of ideal gas" 
+  algorithm 
+    p := state.p;
+  end pressure;
+
+  redeclare function extends temperature "return temperature of ideal gas" 
+  algorithm 
+    T := state.T;
+  end temperature;
+
+  redeclare function extends density "return density of ideal gas" 
+  algorithm 
+    d := state.d;
+  end density;
+  
+  redeclare function extends specificEnthalpy "Return specific enthalpy" 
+    extends Modelica.Icons.Function;
+  algorithm 
+    h := state.h;
+  end specificEnthalpy;
+  
+  redeclare function extends specificInternalEnergy "Return specific internal energy" 
+    extends Modelica.Icons.Function;
+  algorithm
+    u := state.h  - state.p/state.d;
+  end specificInternalEnergy;
+  
+  redeclare function extends specificGibbsEnergy "Return specific Gibbs energy" 
+    extends Modelica.Icons.Function;
+  algorithm 
+    g := state.h - state.T*specificEntropy(state);
+  end specificGibbsEnergy;
+  
+  redeclare function extends specificHelmholtzEnergy "Return specific Helmholtz energy" 
+    extends Modelica.Icons.Function;
+  algorithm 
+    f := state.h - state.p/state.d - state.T*specificEntropy(state);
+  end specificHelmholtzEnergy;
+  
   redeclare function extends specificEntropy "specific entropy of water" 
   algorithm 
     if dT_explicit then
@@ -1308,6 +1394,47 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
   algorithm 
     dhvdp := IF97_Utilities.BaseIF97.Regions.dhv_dp(sat.psat);
   end dDewEnthalpy_dPressure;
+
+  
+  redeclare function extends setState_dTX 
+    input Integer region=0  "if 0, region is unknown, otherwise known and this input";
+  algorithm 
+    state := ThermodynamicState(
+      d=d,
+      T=T,
+      phase= if region == 0 then IF97_Utilities.phase_dT(d,T) else if region == 4 then 2 else 1,
+      h=specificEnthalpy_dT(d,T,region=region),
+      p=pressure_dT(d,T,region=region));
+  end setState_dTX;
+  
+  redeclare function extends setState_phX 
+    input Integer region=0  "if 0, region is unknown, otherwise known and this input";
+  algorithm 
+    state := ThermodynamicState(
+      d=density_ph(p,h,region=region),
+      T=temperature_ph(p,h,region=region),
+      phase=if region == 0 then IF97_Utilities.phase_ph(p,h) else if region == 4 then 2 else 1,
+      h=h,
+      p=p);
+  end setState_phX;
+  
+  redeclare function extends setState_psX 
+    input Integer region=0  "if 0, region is unknown, otherwise known and this input";
+  algorithm 
+    assert(false,"not yet implemented");
+  end setState_psX;
+  
+  redeclare function extends setState_pTX 
+    input Integer region=0  "if 0, region is unknown, otherwise known and this input";
+  algorithm 
+    state := ThermodynamicState(
+      d=density_pT(p,T,region=region),
+      T=T,
+      phase=1,
+      h=specificEnthalpy_pT(p,T,region=region),
+      p=p);
+  end setState_pTX;
+
   
 end WaterIF97_fixedregion;
 
