@@ -3351,16 +3351,17 @@ output window.
       // Check (h2 must be identical to h1)
       h2 = Medium.specificEnthalpy_pTX(1e5, T, fill(0.0,0));
    end Inverse_h_T;
-
+    
    model InverseIncompressible_h_T 
-     "inverse computation for incmpressible media" 
+      "inverse computation for incmpressible media" 
      import SI = Modelica.SIunits;
      import Cv = Modelica.SIunits.Conversions;
      extends Modelica.Icons.Example;
-  
-     replaceable package Medium = Modelica.Media.Incompressible.Examples.Glycol47 
-       "Medium model"   annotation (choicesAllMatching=true);
-     
+      
+     replaceable package Medium = 
+          Modelica.Media.Incompressible.Examples.Glycol47 "Medium model" 
+                        annotation (choicesAllMatching=true);
+      
      parameter SI.Temperature T_min = Medium.T_min;
      parameter SI.Temperature T_max = Medium.T_max;
      parameter SI.SpecificEnthalpy h_min = Medium.h_T(Medium.T_min);
@@ -3368,31 +3369,32 @@ output window.
      SI.SpecificEnthalpy h1 "Pre-defined specific enthalpy";
      SI.SpecificEnthalpy h2 "Specific enthalpy computed from T (= h1 required)";
      SI.Temperature T "Temperature computed from h1";
-     annotation (
-                 experiment,
+     annotation (experiment,
                  experimentSetupOutput,
                  Documentation(info="<html>
                                
                                </html>"));
-     
+      
    equation 
      // Define specific enthalpy
      h1 = if time < 0 then h_min else 
        if time > 1 then h_max else 
        h_min + time*(h_max - h_min);
-     
+      
      // Solve for temperature
      T = Medium.temperature_phX(1e5, h1, fill(0.0,0));
-  
+      
      // Check (h2 must be identical to h1)
      h2 = Medium.specificEnthalpy_pTX(1e5, T, fill(0.0,0));
    end InverseIncompressible_h_T;
-   
-   model Inverse_h_TX "Solve h = h_TX(TX) for T, if h is given for ideal gas NASA" 
+    
+   model Inverse_h_TX 
+      "Solve h = h_TX(TX) for T, if h is given for ideal gas NASA" 
       import SI = Modelica.SIunits;
       extends Modelica.Icons.Example;
       
-      replaceable package Medium = Modelica.Media.IdealGases.MixtureGases.FlueGasLambdaOnePlus
+      replaceable package Medium = 
+          Modelica.Media.IdealGases.MixtureGases.FlueGasLambdaOnePlus 
             extends Modelica.Media.IdealGases.Common.MixtureGasNasa 
         "Medium model"     annotation (choicesAllMatching=true);
       
@@ -3401,7 +3403,8 @@ output window.
       SI.SpecificEnthalpy h_min = Medium.h_TX(T_min,X);
       SI.SpecificEnthalpy h_max = Medium.h_TX(T_max,X);
       SI.SpecificEnthalpy h1 "Pre-defined specific enthalpy";
-      SI.SpecificEnthalpy h2 "Specific enthalpy computed from T (= h1 required)";
+      SI.SpecificEnthalpy h2 
+        "Specific enthalpy computed from T (= h1 required)";
       SI.Temperature T "Temperature computed from h1";
       SI.MassFraction[4] X "mass fraction vector";
      annotation (
@@ -3411,7 +3414,7 @@ output window.
  
 </html>"));
       
-   equation
+   equation 
      X = {0.78, 0.12,0.05,0.05};
       // Define specific enthalpy
       h1 = if time < 0 then h_min else 
@@ -3424,9 +3427,8 @@ output window.
       // Check (h2 must be identical to h1)
       h2 = Medium.specificEnthalpy_pTX(1e5, T, X);
    end Inverse_h_TX;
-   
-
- end SolveOneNonlinearEquation;
+    
+  end SolveOneNonlinearEquation;
 end Examples;
 
 
@@ -3847,7 +3849,8 @@ equation
 */
     end BaseProperties;
     
-    replaceable partial function setState_pTX "Return thermodynamic state as function of p, T and composition X" 
+    replaceable partial function setState_pTX 
+      "Return thermodynamic state as function of p, T and composition X" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input Temperature T "Temperature";
@@ -3855,7 +3858,8 @@ equation
       output ThermodynamicState state;
     end setState_pTX;
     
-    replaceable partial function setState_phX "Return thermodynamic state as function of p, h and composition X" 
+    replaceable partial function setState_phX 
+      "Return thermodynamic state as function of p, h and composition X" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEnthalpy h "Specific enthalpy";
@@ -3863,7 +3867,8 @@ equation
       output ThermodynamicState state;
     end setState_phX;
     
-    replaceable partial function setState_psX "Return thermodynamic state as function of p, s and composition X" 
+    replaceable partial function setState_psX 
+      "Return thermodynamic state as function of p, s and composition X" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEntropy s "Specific entropy";
@@ -3871,7 +3876,8 @@ equation
       output ThermodynamicState state;
     end setState_psX;
     
-    replaceable partial function setState_dTX "Return thermodynamic state as function of d, T and composition X" 
+    replaceable partial function setState_dTX 
+      "Return thermodynamic state as function of d, T and composition X" 
       extends Modelica.Icons.Function;
       input Density d "density";
       input Temperature T "Temperature";
@@ -3925,7 +3931,8 @@ equation
       output SpecificEnthalpy h "specific enthalpy";
     end specificEnthalpy;
     
-    replaceable partial function specificInternalEnergy "retuns specific internal energy" 
+    replaceable partial function specificInternalEnergy 
+      "retuns specific internal energy" 
       extends Modelica.Icons.Function;
       input ThermodynamicState state "thermodynamic state record";
       output SpecificEnergy u "specific internal energy";
@@ -3937,18 +3944,20 @@ equation
       output SpecificEntropy s "Specific entropy";
     end specificEntropy;
     
-    replaceable partial function specificGibbsEnergy "computes specific Gibbs energy" 
+    replaceable partial function specificGibbsEnergy 
+      "computes specific Gibbs energy" 
       extends Modelica.Icons.Function;
       input ThermodynamicState state "thermodynamic state record";
       output SpecificEnergy g "specific Gibbs energy";
     end specificGibbsEnergy;
     
-    replaceable partial function specificHelmholtzEnergy "computes specific Helmholtz energy" 
+    replaceable partial function specificHelmholtzEnergy 
+      "computes specific Helmholtz energy" 
       extends Modelica.Icons.Function;
       input ThermodynamicState state "thermodynamic state record";
       output SpecificEnergy f "specific Helmholtz energy";
     end specificHelmholtzEnergy;
-
+    
     replaceable partial function specificHeatCapacityCp 
       "Return specific heat capacity at constant pressure" 
       extends Modelica.Icons.Function;
@@ -3956,8 +3965,9 @@ equation
       output SpecificHeatCapacity cp 
         "Specific heat capacity at constant pressure";
     end specificHeatCapacityCp;
-
-    function heatCapacity_cp = specificHeatCapacityCp "alias for deprecated name";
+    
+    function heatCapacity_cp = specificHeatCapacityCp 
+      "alias for deprecated name";
     
     replaceable partial function specificHeatCapacityCv 
       "Return specific heat capacity at constant volume" 
@@ -3966,8 +3976,9 @@ equation
       output SpecificHeatCapacity cv 
         "Specific heat capacity at constant volume";
     end specificHeatCapacityCv;
-
-    function heatCapacity_cv = specificHeatCapacityCv "alias for deprecated name";
+    
+    function heatCapacity_cv = specificHeatCapacityCv 
+      "alias for deprecated name";
     
     replaceable partial function isentropicExponent 
       "Return isentropic exponent" 
@@ -4055,7 +4066,7 @@ equation
       input Temperature T "Temperature";
       input MassFraction X[nX] "Mass fractions";
       output SpecificEnthalpy h "Specific enthalpy at p, T, X";
-    algorithm
+    algorithm 
       h := specificEnthalpy(setState_pTX(p,T,X));
     end specificEnthalpy_pTX;
     
@@ -4066,7 +4077,7 @@ equation
       input SpecificEnthalpy h "Specific enthalpy";
       input MassFraction X[nX] "Mass fractions";
       output Temperature T "Temperature";
-    algorithm
+    algorithm 
       T := temperature(setState_phX(p,h,X));
     end temperature_phX;
     
@@ -4077,7 +4088,7 @@ equation
       input SpecificEnthalpy h "Specific enthalpy";
       input MassFraction X[nX] "Mass fractions";
       output Density d "density";
-    algorithm
+    algorithm 
       d := density(setState_phX(p,h,X));
     end density_phX;
     
@@ -4088,7 +4099,7 @@ equation
       input SpecificEntropy s "Specific entropy";
       input MassFraction X[nX] "Mass fractions";
       output Temperature T "Temperature";
-    algorithm
+    algorithm 
       T := temperature(setState_psX(p,s,X));
     end temperature_psX;
     
@@ -4099,7 +4110,7 @@ equation
       input SpecificEntropy s "Specific entropy";
       input MassFraction X[nX] "Mass fractions";
       output SpecificEnthalpy h "specific enthalpy";
-    algorithm
+    algorithm 
       h := specificEnthalpy(setState_psX(p,s,X));
     end specificEnthalpy_psX;
     
@@ -4628,23 +4639,25 @@ are described in
       output ThermodynamicState state "complete thermodynamic state info";
     end setBubbleState;
     
-    replaceable partial function setState_ph 
-      "set thermodynamic state from pressure and specific enthalpy" 
-      extends Modelica.Icons.Function;
-      input AbsolutePressure p "pressure";
-      input SpecificEnthalpy h "enthalpy";
-      input FixedPhase phase =  1 "phase: default is one phase";
-      output ThermodynamicState state "complete thermodynamic state info";
-    end setState_ph;
+    redeclare replaceable partial function extends setState_dTX 
+      input FixedPhase phase=0 
+        "2 for two-phase, 1 for one-phase, 0 if not known";
+    end setState_dTX;
     
-    replaceable partial function setState_ps 
-      "set thermodynamic state from pressure and specific entropy" 
-      extends Modelica.Icons.Function;
-      input AbsolutePressure p "pressure";
-      input SpecificEntropy s "entropy";
-      input FixedPhase phase =  1 "phase: default is one phase";
-      output ThermodynamicState state "complete thermodynamic state info";
-    end setState_ps;
+    redeclare replaceable partial function extends setState_phX 
+      input FixedPhase phase=0 
+        "2 for two-phase, 1 for one-phase, 0 if not known";
+    end setState_phX;
+    
+    redeclare replaceable partial function extends setState_psX 
+      input FixedPhase phase=0 
+        "2 for two-phase, 1 for one-phase, 0 if not known";
+    end setState_psX;
+    
+    redeclare replaceable partial function extends setState_pTX 
+      input FixedPhase phase=0 
+        "2 for two-phase, 1 for one-phase, 0 if not known";
+    end setState_pTX;
     
     replaceable function setSat_T 
       "set saturation property record from temperature" 
@@ -4798,6 +4811,70 @@ are described in
         "saturated steam specific enthalpy derivative";
       end dDewEnthalpy_dPressure;
     
+      redeclare replaceable function specificEnthalpy_pTX 
+      "Compute specific enthalpy from pressure, temperature and mass fraction" 
+        extends Modelica.Icons.Function;
+        input AbsolutePressure p "Pressure";
+        input Temperature T "Temperature";
+        input MassFraction X[nX] "Mass fractions";
+        input FixedPhase phase=0 
+        "2 for two-phase, 1 for one-phase, 0 if not known";
+        output SpecificEnthalpy h "Specific enthalpy at p, T, X";
+      algorithm 
+        h := specificEnthalpy(setState_pTX(p,T,X,phase));
+      end specificEnthalpy_pTX;
+    
+      redeclare replaceable function temperature_phX 
+      "Compute temperature from pressure, specific enthalpy and mass fraction" 
+        extends Modelica.Icons.Function;
+        input AbsolutePressure p "Pressure";
+        input SpecificEnthalpy h "Specific enthalpy";
+        input MassFraction X[nX] "Mass fractions";
+        input FixedPhase phase=0 
+        "2 for two-phase, 1 for one-phase, 0 if not known";
+        output Temperature T "Temperature";
+      algorithm 
+        T := temperature(setState_phX(p,h,X,phase));
+      end temperature_phX;
+    
+      redeclare replaceable function density_phX 
+      "Compute density from pressure, specific enthalpy and mass fraction" 
+        extends Modelica.Icons.Function;
+        input AbsolutePressure p "Pressure";
+        input SpecificEnthalpy h "Specific enthalpy";
+        input MassFraction X[nX] "Mass fractions";
+        input FixedPhase phase=0 
+        "2 for two-phase, 1 for one-phase, 0 if not known";
+        output Density d "density";
+      algorithm 
+        d := density(setState_phX(p,h,X,phase));
+      end density_phX;
+    
+      redeclare replaceable function temperature_psX 
+      "Compute temperature from pressure, specific enthalpy and mass fraction" 
+        extends Modelica.Icons.Function;
+        input AbsolutePressure p "Pressure";
+        input SpecificEntropy s "Specific entropy";
+        input MassFraction X[nX] "Mass fractions";
+        input FixedPhase phase=0 
+        "2 for two-phase, 1 for one-phase, 0 if not known";
+        output Temperature T "Temperature";
+      algorithm 
+        T := temperature(setState_psX(p,s,X,phase));
+      end temperature_psX;
+    
+      redeclare replaceable function specificEnthalpy_psX 
+      "Compute specific enthalpy from pressure, specific entropy and mass fraction" 
+        extends Modelica.Icons.Function;
+        input AbsolutePressure p "Pressure";
+        input SpecificEntropy s "Specific entropy";
+        input MassFraction X[nX] "Mass fractions";
+        input FixedPhase phase=0 
+        "2 for two-phase, 1 for one-phase, 0 if not known";
+        output SpecificEnthalpy h "specific enthalpy";
+      algorithm 
+        h := specificEnthalpy(setState_psX(p,s,X,phase));
+      end specificEnthalpy_psX;
   end PartialTwoPhaseMedium;
   
   partial package PartialSimpleMedium 
@@ -4830,7 +4907,7 @@ required from medium model \"" + mediumName + "\".
 ");
       
       // h = cp_const*(T-T0);
-      h = specificEnthalpy_pTXi(p,T,Xi);
+      h = specificEnthalpy_pTX(p,T,X);
       u = cv_const*(T-T0);
       d = d_const;
       R = 0;
@@ -4879,48 +4956,40 @@ quantities are assumed to be constant.
       a := a_const;
     end velocityOfSound;
     
-    redeclare function extends specificEnthalpy_pTX 
-      "Return specific enthalpy from pressure, temperature and mass fraction" 
+    redeclare function specificEnthalpy_pTX 
+      "Compute specific enthalpy from pressure, temperature and mass fraction" 
+      extends Modelica.Icons.Function;
+      input AbsolutePressure p "Pressure";
+      input Temperature T "Temperature";
+      input MassFraction X[nX] "Mass fractions";
+      output SpecificEnthalpy h "Specific enthalpy at p, T, X";
     algorithm 
       h := cp_const*(T-T0);
     end specificEnthalpy_pTX;
     
-    function specificEnthalpy_pTXi 
-      "Return specific enthalpy from pressure, temperature and mass fraction" 
+    
+    redeclare function temperature_phX 
+      "Compute temperature from pressure, specific enthalpy and mass fraction" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
-      input Temperature T "Temperature";
-      input MassFraction Xi[nXi] "Independent mass fractions";
-      output SpecificEnthalpy h "Specific enthalpy at p, T, Xi";
-      annotation(LateInline=true, Documentation(info="<html>
-<p>
-In order that symbolic processing of connection equations is
-possible, the specific enthalpy in model BaseProperties has to
-be computed with a <b>function</b>. Additionally,
-the independent mass fractions Xi have to be
-an input argument (for details see the discussion in
-<a href=\"Modelica:Modelica.Media.UsersGuide.MediumDefinition.SpecificEnthalpyAsFunction\">SpecificEnthalpyAsFunction</a> 
-of the Modelica.Media Users Guide).
-For this reason, function specificEnthalpy_pTXi() is provided.
-</p> 
- 
-</html>"));
-    algorithm 
-      h := cp_const*(T-T0);
-    end specificEnthalpy_pTXi;
-    
-    redeclare function extends temperature_phX 
-      "Compute temperature from pressure, specific enthalpy and mass fraction" 
+      input SpecificEnthalpy h "Specific enthalpy";
+      input MassFraction X[nX] "Mass fractions";
+      output Temperature T "Temperature";
     algorithm 
       T := T0 + h/cp_const;
     end temperature_phX;
-
-    redeclare function extends density_phX 
-      "Compute temperature from pressure, specific enthalpy and mass fraction" 
+    
+    redeclare function density_phX 
+      "Compute density from pressure, specific enthalpy and mass fraction" 
+      extends Modelica.Icons.Function;
+      input AbsolutePressure p "Pressure";
+      input SpecificEnthalpy h "Specific enthalpy";
+      input MassFraction X[nX] "Mass fractions";
+      output Density d "density";
     algorithm 
       d := d_const;
     end density_phX;
-
+    
   end PartialSimpleMedium;
   
 end Interfaces;
@@ -6446,8 +6515,10 @@ provide a package in the following way:
       extends Modelica.Icons.Function;
       input Real x "Independent variable of function";
       input Real p = 0.0 "disregaded variables (here always used for pressure)";
-      input Real[:] X = fill(0,0) "disregaded variables (her always used for composition)";
-      input f_nonlinear_Data f_nonlinear_data  "Additional data for the function";
+      input Real[:] X = fill(0,0) 
+        "disregaded variables (her always used for composition)";
+      input f_nonlinear_Data f_nonlinear_data 
+        "Additional data for the function";
       output Real y "= f_nonlinear(x)";
       // annotation(derivative(zeroDerivative=y)); // this must hold for all replaced functions
     end f_nonlinear;
@@ -6460,8 +6531,10 @@ provide a package in the following way:
         "Determine x_zero, such that f_nonlinear(x_zero) = y_zero";
       input Real x_min "Minimum value of x";
       input Real x_max "Maximum value of x";
-      input Real pressure = 0.0 "disregaded variables (here always used for pressure)";
-      input Real[:] X = fill(0,0) "disregaded variables (here always used for composition)";
+      input Real pressure = 0.0 
+        "disregaded variables (here always used for pressure)";
+      input Real[:] X = fill(0,0) 
+        "disregaded variables (here always used for composition)";
        input f_nonlinear_Data f_nonlinear_data 
         "Additional data for function f_nonlinear";
        input Real x_tol =  100*Modelica.Constants.eps 
