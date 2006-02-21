@@ -3923,7 +3923,7 @@ equation
       extends Modelica.Icons.Function;
       input ThermodynamicState state "thermodynamic state record";
       output SpecificEnthalpy h "specific enthalpy";
-    end SpecificEnthalpy;
+    end specificEnthalpy;
     
     replaceable partial function specificInternalEnergy "retuns specific internal energy" 
       extends Modelica.Icons.Function;
