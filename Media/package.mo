@@ -789,7 +789,7 @@ then constants \"Medium.mediumName\", \"Medium.nX\", etc. are defined:
 </table>
  
 <p>
-Record FluidConstants contains the following elements
+The record FluidConstants that is defined in PartialMedium contains the following elements
 </p>
  
  
@@ -817,7 +817,13 @@ Record FluidConstants contains the following elements
   <tr><td>MolarMass</td>
       <td>molarMass</td>
       <td>molar mass</td></tr>
- 
+</table>
+
+<p> This record is extended in the partial packages further down the hierarchy (such as
+PartialTwoPhaseMedium or PartialMixtureMedium) and may contain some or all of the following
+elements </p>
+
+<table border=1 cellspacing=0 cellpadding=2>
   <tr><td>Temperature</td>
       <td>criticalTemperature</td>
       <td>critical temperature</td></tr>
