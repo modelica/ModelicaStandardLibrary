@@ -423,29 +423,51 @@ Version 2.2.1 is backward compatible to version 2.2.
  
 <p>
 In this version, <b>no</b> new libraries have been added.
+The following major improvements have been made:
 </p>
  
-<p>
-Improving the <b>documentation</b> of the Modelica standard library:<br>
-In Dymola 6, the new feature was introduced to automatically add tables
-for class content and component interface definitions (parameters and 
-connectors) to the info layer. For this reason, the corresponding (partial)
-tables previously present in the Modelica Standard Library have been
-removed. The new feature of Dymola 6 has the significant advantage that
-all tables are now guaranteed to be up-to-date.<br>
-Additionally, the documentation has been improved by adding appropriate
-description texts to parameters, connector instances, function input
-and output arguments etc., in order that the automatically generated
-tables do not have empty entries. Also new users guides for sublibraries
-Rotational and SIunits have been added and the users guide on top
-level (Modelica.UsersGuide) has been improved.<br>&nbsp;
-</p>
+<ul>
+<li> The <b>Documentation</b> of the Modelica standard library was
+     considerably improved:<br>
+     In Dymola 6, the new feature was introduced to automatically add tables
+     for class content and component interface definitions (parameters and 
+     connectors) to the info layer. For this reason, the corresponding (partial)
+     tables previously present in the Modelica Standard Library have been
+     removed. The new feature of Dymola 6 has the significant advantage that
+     all tables are now guaranteed to be up-to-date.<br>
+     Additionally, the documentation has been improved by adding appropriate
+     description texts to parameters, connector instances, function input
+     and output arguments etc., in order that the automatically generated
+     tables do not have empty entries. Also new users guides for sublibraries
+     Rotational and SIunits have been added and the users guide on top
+     level (Modelica.UsersGuide) has been improved.<br>&nbsp;</li>
+
+<li> Initialization options have been added to the Modelica.Blocks.<b>Continuous</b>
+     blocks (NoInit, SteadyState, InitialState, InitialOutput). If InitialOutput
+     is selected, the block output is provided as initial condition. The states
+     of the block are then initialized as close as possible to steady state.
+     Furthermore, the Continuous.LimPID block has been significantly
+     improved and much better documented.<br>&nbsp;</li>
+
+<li> The Modelica.<b>Media</b> library has been significantly improved:<br>
+     New functions setState_pTX, setState_phX, setState_psX, setState_dTX
+     have been added to PartialMedium to compute the independent medium variables
+     (= state of medium) from p,T,X, or from p,h,X or from p,s,X or from
+     d,T,X. Then functions are provided for all interesting medium variables
+     to compute them from its medium state. All these functions are
+     implemented in a robust way for all media (with a few exceptions, if the
+     generic function does not make sense for a particular medium).</li>
+</ul>
  
 <p>
 The following <b>new components</b> have been added to <b>existing</b> libraries:
 </p>
  
 <table border=\"1\" cellspacing=0 cellpadding=2>
+  <tr><td colspan=\"2\"><b>Modelica.Blocks.Examples.</b></td></tr>
+  <tr><td> PID_Controller</td>
+      <td> Example to demonstrate the usage of the
+           Blocks.Continuous.LimPID block.</td> </tr>
   <tr><td colspan=\"2\"><b>Modelica.Blocks.Math.</b></td></tr>
   <tr><td> UnitConversions.*</td>
       <td> New package that provides blocks for unit conversions.
@@ -571,11 +593,16 @@ The following <b>components</b> have been improved:
   <tr><td colspan=\"2\"><b>Modelica.Blocks.</b></td></tr>
   <tr><td> Continuous.*</td>
       <td> Initialization options added to all blocks
-           (NoInit, SteadyState, InitialState, InitialOutput).</td> </tr>
+           (NoInit, SteadyState, InitialState, InitialOutput).
+           New parameter limitsAtInit to switch off the limits
+           of LimIntegrator or LimPID during initialization</td> </tr>
+  <tr><td> Continuous.LimPID</td>
+      <td> Option to select P, PI, PD, PID controller.
+           Documentation significantly improved.</td> </tr>
   <tr><td> Nonlinear.Limiter<br>
            Nonlinear.VariableLimiter<br>
            Nonlinear.Deadzone</td>
-      <td> New parameter LimitsAtInit/DeadZoneAtInit to switch off the limits
+      <td> New parameter limitsAtInit/deadZoneAtInit to switch off the limits
            or the dead zone during initialization</td> </tr>
 
   <tr><td colspan=\"2\"><b>Modelica.Electrical.Analog. </b></td></tr>
@@ -671,11 +698,15 @@ The following <b>components</b> have been improved:
            in the package browser (previously, the types did not have an icon).</td>
  
   <tr><td colspan=\"2\"><b>Modelica.Mechanics.Rotational.</b></td></tr>
-  <tr><td> Speed</td>
-      <td> Start angle of flange (phi_start) included as parameter.</td> </tr>
+  <tr><td> Inertia</td>
+      <td> Initialization and state selection added.</td> </tr>
+  <tr><td> SpringDamper</td>
+      <td> Initialization and state selection added.</td> </tr>
   <tr><td> Move</td>
       <td> New implementation based solely on Modelica 2.2 language
            (previously, the Dymola specific constrain(..) function was used).</td> </tr>
+  <tr><td> Speed</td>
+      <td> Start angle of flange (phi_start) included as parameter.</td> </tr>
 
   <tr><td colspan=\"2\"><b>Modelica.Mechanics.Translational.</b></td></tr>
   <tr><td> Move</td>
