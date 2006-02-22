@@ -1933,9 +1933,48 @@ Partial model of torque dependent on speed that accelerates the flange.
   end Interfaces;
   
   model Inertia "1D-rotational component with inertia" 
+    import SI = Modelica.SIunits;
+    import Modelica.Mechanics.Rotational.Types.Init;
+    import Modelica.Blocks.Types.StateSelection;
     parameter SI.Inertia J(min=0)=1 "Moment of inertia";
-    SI.AngularVelocity w "Absolute angular velocity of component";
+    parameter Init.Temp initType=Modelica.Mechanics.Rotational.Types.Init.NoInit 
+      "Type of initialization (defines usage of start values below)" 
+      annotation (Dialog(group="Initialization"));
+    parameter SI.Angle phi_start=0 
+      "Initial or guess value of rotor rotation angle phi" 
+      annotation (Evaluate=false, Dialog(group="Initialization"));
+    parameter SI.AngularVelocity w_start=0 
+      "Initial or guess value of angular velocity w = der(phi)" 
+      annotation (Evaluate=false, Dialog(group="Initialization"));
+    parameter SI.AngularAcceleration a_start=0 
+      "Initial value of angular acceleration a = der(w)" 
+      annotation (Evaluate=false, Dialog(group="Initialization",
+                  enable=initType>=Init.InitialAcceleration));
+    parameter StateSelection.Temp stateSelection=
+              Modelica.Blocks.Types.StateSelection.Default 
+      "Priority to use phi and w as states" annotation(Dialog(tab="Advanced"));
+    
+    extends Interfaces.Rigid(phi(start=phi_start,stateSelect=
+             if stateSelection==StateSelection.Never then 
+                StateSelect.never else 
+             if stateSelection==StateSelection.Avoid then 
+                StateSelect.avoid else 
+             if stateSelection==StateSelection.Default then 
+                StateSelect.default else 
+             if stateSelection==StateSelection.Prefer then 
+                StateSelect.prefer else StateSelect.always));
+    SI.AngularVelocity w(start=w_start, stateSelect=
+             if stateSelection==StateSelection.Never then 
+                StateSelect.never else 
+             if stateSelection==StateSelection.Avoid then 
+                StateSelect.avoid else 
+             if stateSelection==StateSelection.Default then 
+                StateSelect.default else 
+             if stateSelection==StateSelection.Prefer then 
+                StateSelect.prefer else StateSelect.always) 
+      "Absolute angular velocity of component";
     SI.AngularAcceleration a "Absolute angular acceleration of component";
+    
     annotation (
       Coordsys(
         extent=[-100, -100; 100, 100],
@@ -1950,7 +1989,7 @@ Partial model of torque dependent on speed that accelerates the flange.
 <p>
 Rotational component with <b>inertia</b> and two rigidly connected flanges.
 </p>
-
+ 
 </HTML>
 "),   Icon(
         Rectangle(extent=[-100,10; -50,-10],  style(
@@ -2012,7 +2051,30 @@ Rotational component with <b>inertia</b> and two rigidly connected flanges.
                 0)),
         Line(points=[9, 70; -21, 70], style(color=0, fillColor=0)),
         Text(extent=[25, 77; 77, 65], string="w = der(phi) ")));
-    extends Interfaces.Rigid;
+  initial equation 
+    if initType == Init.SteadyState then
+       der(phi) = 0;
+       der(w)   = 0;
+    elseif initType == Init.InitialState then
+       phi = phi_start;
+       w = w_start;
+    elseif initType == Init.InitialAngle then
+       phi = phi_start;
+    elseif initType == Init.InitialSpeed then
+       w = w_start;
+    elseif initType == Init.InitialAcceleration then
+       a = a_start;
+    elseif initType == Init.InitialAngleAcceleration then
+       phi = phi_start;
+       a = a_start;
+    elseif initType == Init.InitialSpeedAcceleration then
+       w = w_start;
+       a = a_start;
+    elseif initType == Init.InitialAngleSpeedAcceleration then
+       phi = phi_start;
+       w = w_start;
+       a = a_start;
+    end if;
   equation 
     w = der(phi);
     a = der(w);
@@ -2555,13 +2617,46 @@ between two inertia/gear elements.
   end Damper;
   
   model SpringDamper "Linear 1D rotational spring and damper in parallel" 
-    extends Interfaces.Compliant;
+    import SI = Modelica.SIunits;
+    import Modelica.Mechanics.Rotational.Types.InitRel;
+    import Modelica.Blocks.Types.StateSelection;
     parameter Real c(final unit="N.m/rad", final min=0) "Spring constant";
     parameter SI.Angle phi_rel0=0 "Unstretched spring angle";
     parameter Real d(
       final unit="N.m.s/rad",
       final min=0) = 0 "Damping constant";
-    SI.AngularVelocity w_rel 
+    parameter InitRel.Temp initType=Modelica.Mechanics.Rotational.Types.InitRel.NoInit 
+      "Type of initialization (defines usage of start values below)" 
+      annotation (Dialog(group="Initialization"));
+    parameter SI.Angle phi_rel_start=0 
+      "Initial or guess value of relative rotation angle phi_rel" 
+      annotation (Evaluate=false, Dialog(group="Initialization"));
+    parameter SI.AngularVelocity w_rel_start=0 
+      "Initial or guess value of relative angular velocity w_rel = der(phi_rel)"
+      annotation (Evaluate=false, Dialog(group="Initialization"));
+    
+    parameter StateSelection.Temp stateSelection=
+              Modelica.Blocks.Types.StateSelection.Default 
+      "Priority to use phi_rel and w_rel as states" annotation(Dialog(tab="Advanced"));
+    
+    extends Interfaces.Compliant(phi_rel(start=phi_rel_start, stateSelect=
+             if stateSelection==StateSelection.Never then 
+                StateSelect.never else 
+             if stateSelection==StateSelection.Avoid then 
+                StateSelect.avoid else 
+             if stateSelection==StateSelection.Default then 
+                StateSelect.default else 
+             if stateSelection==StateSelection.Prefer then 
+                StateSelect.prefer else StateSelect.always));
+    SI.AngularVelocity w_rel(start=w_rel_start, stateSelect=
+             if stateSelection==StateSelection.Never then 
+                StateSelect.never else 
+             if stateSelection==StateSelection.Avoid then 
+                StateSelect.avoid else 
+             if stateSelection==StateSelection.Default then 
+                StateSelect.default else 
+             if stateSelection==StateSelection.Prefer then 
+                StateSelect.prefer else StateSelect.always) 
       "Relative angular velocity between flange_b and flange_a";
     
     annotation (
@@ -2582,7 +2677,7 @@ connected either between two inertias/gears to describe the shaft elasticity
 and damping, or between an inertia/gear and the housing (component Fixed),
 to describe a coupling of the element with the housing via a spring/damper.
 </p>
-
+ 
 </HTML>
 "),   Icon(
         Line(points=[-80, 40; -60, 40; -45, 10; -15, 70; 15, 10; 45, 70; 60, 40;
@@ -2629,6 +2724,18 @@ to describe a coupling of the element with the housing via a spring/damper.
         Polygon(points=[11, -94; -9, -89; -9, -99; 11, -94], style(color=10,
               fillColor=10)),
         Line(points=[-79, -94; -8, -94], style(color=10, fillColor=10))));
+  initial equation 
+    if initType == InitRel.SteadyState then
+       der(phi_rel) = 0;
+       der(w_rel)   = 0;
+    elseif initType == InitRel.InitialState then
+       phi_rel = phi_rel_start;
+       w_rel = w_rel_start;
+    elseif initType == InitRel.InitialAngle then
+       phi_rel = phi_rel_start;
+    elseif initType == InitRel.InitialSpeed then
+       w_rel = w_rel_start;
+    end if;
   equation 
     w_rel = der(phi_rel);
     tau = c*(phi_rel - phi_rel0) + d*w_rel;
@@ -5330,4 +5437,107 @@ velocity of model inertia1 or of model inertia2 as state variables.
     flange_b.tau = 0;
   end RelativeStates;
   
+  package Types "Constants and types with choices, especially to build menus" 
+    extends Modelica.Icons.Library;
+    
+    annotation (preferedView="info", Documentation(info="<HTML>
+<p>
+In this package <b>types</b> and <b>constants</b> are defined that are used
+in library Modelica.Blocks. The types have additional annotation choices
+definitions that define the menus to be built up in the graphical
+user interface when the type is used as parameter in a declaration.
+</p>
+</HTML>"));
+    
+    package Init 
+      "Type, constants and menu choices to define initialization of absolute rotational quantities" 
+      extends Modelica.Icons.Enumeration;
+      constant Integer NoInit=1 
+        "no initialization (phi_start, w_start are guess values)";
+      constant Integer SteadyState=2 
+        "steady state initialization (der(phi)=der(w)=0)";
+      constant Integer InitialState=3 "initialization with phi_start, w_start";
+      constant Integer InitialAngle=4 "initialization with phi_start";
+      constant Integer InitialSpeed=5 "initialization with w_start";
+      constant Integer InitialAcceleration=6 "initialization with a_start";
+      constant Integer InitialAngleAcceleration=7 
+        "initialization with phi_start, a_start";
+      constant Integer InitialSpeedAcceleration=8 
+        "initialization with w_start, a_start";
+      constant Integer InitialAngleSpeedAcceleration=9 
+        "initialization with phi_start, w_start, a_start";
+      
+      type Temp 
+        "Temporary type of absolute initialization with choices for menus (until enumerations are available)" 
+        extends Modelica.Icons.TypeInteger(min=1,max=9);
+        
+        annotation (Evaluate=true, choices(
+            choice=Modelica.Mechanics.Rotational.Types.Init.NoInit 
+              "no initialization (phi_start, w_start are guess values)",
+            choice=Modelica.Mechanics.Rotational.Types.Init.SteadyState 
+              "steady state initialization (der(phi)=der(w)=0)",
+            choice=Modelica.Mechanics.Rotational.Types.Init.InitialState 
+              "initialization with phi_start, w_start",
+            choice=Modelica.Mechanics.Rotational.Types.Init.InitialAngle 
+              "initialization with phi_start",
+            choice=Modelica.Mechanics.Rotational.Types.Init.InitialSpeed 
+              "initialization with w_start",
+            choice=Modelica.Mechanics.Rotational.Types.Init.InitialAcceleration 
+              "initialization with a_start",
+            choice=Modelica.Mechanics.Rotational.Types.Init.InitialAngleAcceleration 
+              "initialization with phi_start, a_start",
+            choice=Modelica.Mechanics.Rotational.Types.Init.InitialSpeedAcceleration 
+              "initialization with w_start, a_start",
+            choice=Modelica.Mechanics.Rotational.Types.Init.InitialAngleSpeedAcceleration 
+              "initialization with phi_start, w_start, a_start"));
+      end Temp;
+      
+      annotation (Documentation(info="<html>
+<p>
+Type <b>Init</b> defines initialization of absolute rotational
+quantities.
+</p>
+ 
+</html>"));
+    end Init;
+    
+    
+    package InitRel 
+      "Type, constants and menu choices to define initialization of relative rotational quantities" 
+      extends Modelica.Icons.Enumeration;
+      constant Integer NoInit=1 
+        "no initialization (phi_rel_start, w_rel_start are guess values)";
+      constant Integer SteadyState=2 
+        "steady state initialization (der(phi_rel)=der(w_rel)=0)";
+      constant Integer InitialState=3 
+        "initialization with phi_rel_start, w_rel_start";
+      constant Integer InitialAngle=4 "initialization with phi_rel_start";
+      constant Integer InitialSpeed=5 "initialization with w_rel_start";
+      
+      type Temp 
+        "Temporary type of absolute initialization with choices for menus (until enumerations are available)" 
+        extends Modelica.Icons.TypeInteger(min=1,max=5);
+        
+        annotation (Evaluate=true, choices(
+            choice=Modelica.Mechanics.Rotational.Types.Init.NoInit 
+              "no initialization (phi_rel_start, w_rel_start are guess values)",
+            choice=Modelica.Mechanics.Rotational.Types.Init.SteadyState 
+              "steady state initialization (der(phi)=der(w)=0)",
+            choice=Modelica.Mechanics.Rotational.Types.Init.InitialState 
+              "initialization with phi_rel_start, w_rel_start",
+            choice=Modelica.Mechanics.Rotational.Types.Init.InitialAngle 
+              "initialization with phi_rel_start",
+            choice=Modelica.Mechanics.Rotational.Types.Init.InitialSpeed 
+              "initialization with w_rel_start"));
+      end Temp;
+      
+      annotation (Documentation(info="<html>
+<p>
+Type <b>Init</b> defines initialization of relative rotational
+quantities.
+</p>
+ 
+</html>"));
+    end InitRel;
+  end Types;
 end Rotational;

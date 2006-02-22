@@ -38,7 +38,7 @@ This package contains <b>discontinuous</b> and
       block Limiter "Limit the range of a signal" 
         parameter Real uMax=1 "Upper limits of input signals";
         parameter Real uMin= -uMax "Lower limits of input signals";
-        parameter Boolean LimitsAtInit = true 
+        parameter Boolean limitsAtInit = true 
       "= false, if limits are ignored during initializiation (i.e., y=u)";
         extends Interfaces.SISO;
     
@@ -101,7 +101,7 @@ as output.
       equation 
         assert(uMax >= uMin, "Limiter: Limits must be consistent. However, uMax (=" + String(uMax) +
                              ") < uMin (=" + String(uMin) + ")");
-        if initial() and not LimitsAtInit then
+        if initial() and not limitsAtInit then
            y = u;
            assert(u >= uMin - 0.01*abs(uMin) and 
                   u <= uMax + 0.01*abs(uMax),
@@ -115,7 +115,7 @@ as output.
   
   block VariableLimiter "Limit the range of a signal with variable limits" 
     extends Interfaces.SISO;
-    parameter Boolean LimitsAtInit = true 
+    parameter Boolean limitsAtInit = true 
       "= false, if limits are ignored during initializiation (i.e., y=u)";
     Interfaces.RealInput limit1 
       "Connector of Real input signal used as maximum of input u" 
@@ -185,7 +185,7 @@ is passed as output.
     uMax = max(limit1, limit2);
     uMin = min(limit1, limit2);
     
-    if initial() and not LimitsAtInit then
+    if initial() and not limitsAtInit then
        y = u;
        assert(u >= uMin - 0.01*abs(uMin) and 
               u <= uMax + 0.01*abs(uMax),
@@ -200,7 +200,7 @@ is passed as output.
       block DeadZone "Provide a region of zero output" 
         parameter Real uMax=1 "Upper limits of dead zones";
         parameter Real uMin(max=uMax) = -uMax "Lower limits of dead zones";
-        parameter Boolean DeadZoneAtInit = true 
+        parameter Boolean deadZoneAtInit = true 
       "= false, if dead zone is ignored during initializiation (i.e., y=u)";
         extends Interfaces.SISO;
     
@@ -263,7 +263,7 @@ function of the input with a slope of 1.
               string="uMax",
               style(color=10))));
       equation 
-        if initial() and not DeadZoneAtInit then
+        if initial() and not deadZoneAtInit then
            y = u;
         else
            y = if u > uMax then u - uMax else if u < uMin then u - uMin else 0;

@@ -831,19 +831,31 @@ Example:
         y = k1*u1 + k2*u2;
       end Add;
 
-      block Add3 "Output the sum of the three inputs"
+      block Add3 "Output the sum of the three inputs" 
         extends Interfaces.BlockIcon;
-
+    
         parameter Real k1=+1 "Gain of upper input";
         parameter Real k2=+1 "Gain of middle input";
         parameter Real k3=+1 "Gain of lower input";
-        input Interfaces.RealInput u1 "Connector 1 of Real input signals"
+        parameter Boolean u1_enable=true 
+      "= true, if connector u1 is present, otherwise it is removed" 
+                                         annotation(Evaluate=true,Hide=true);
+        parameter Boolean u2_enable=true 
+      "= true, if connector u2 is present, otherwise it is removed" 
+                                         annotation(Evaluate=true,Hide=true);
+        parameter Boolean u3_enable=true 
+      "= true, if connector u3 is present, otherwise it is removed" 
+                                         annotation(Evaluate=true,Hide=true);
+        input Interfaces.RealInput u1 if u1_enable 
+      "Connector 1 of Real input signals" 
           annotation (extent=[-140, 60; -100, 100]);
-        input Interfaces.RealInput u2 "Connector 2 of Real input signals"
+        input Interfaces.RealInput u2 if u2_enable 
+      "Connector 2 of Real input signals" 
           annotation (extent=[-140, -20; -100, 20]);
-        input Interfaces.RealInput u3 "Connector 3 of Real input signals"
+        input Interfaces.RealInput u3 if u3_enable 
+      "Connector 3 of Real input signals" 
           annotation (extent=[-140, -100; -100, -60]);
-        output Interfaces.RealOutput y "Connector of Real output signals"
+        output Interfaces.RealOutput y "Connector of Real output signals" 
           annotation (extent=[100, -10; 120, 10]);
         annotation (
           Coordsys(
@@ -874,7 +886,7 @@ Example:
 </pre>
 <p><b>Release Notes:</b></p>
 <ul>
-
+ 
 </HTML>
 "),       Icon(
             Text(
@@ -928,9 +940,29 @@ Example:
               extent=[2, 36; 100, -44],
               string="+",
               style(color=0))));
-
-      equation
-        y = k1*u1 + k2*u2 + k3*u3;
+  protected 
+        block Internal 
+           Modelica.Blocks.Interfaces.RealInput u1 annotation(Evaluate=true,Hide=true);
+           Modelica.Blocks.Interfaces.RealInput u2 annotation(Evaluate=true,Hide=true);
+           Modelica.Blocks.Interfaces.RealInput u3 annotation(Evaluate=true,Hide=true);
+        end Internal;
+        Internal internal;
+      equation 
+        y = k1*internal.u1 + k2*internal.u2 + k3*internal.u3;
+    
+        connect(u1, internal.u1);
+        connect(u2, internal.u2);
+        connect(u3, internal.u3);
+    
+        if not u1_enable then
+           internal.u1 = 0;
+        end if;
+        if not u2_enable then
+           internal.u2 = 0;
+        end if;
+        if not u3_enable then
+           internal.u3 = 0;
+        end if;
       end Add3;
 
       block Product "Output product of the two inputs"
