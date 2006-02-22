@@ -181,6 +181,9 @@ partial package Modelica.Media.Interfaces.PartialMedium. Every package defines:
      molecular data, critical properties, etc.).
 <li> A BaseProperties <b>model</b>, to compute the basic thermodynamic 
      properties of the fluid;
+<li> <b>setState_XXX</b> functions to compute the thermodynamic state record from
+     different input arguments (such as density, temperature, and composition which
+     would be setState_dTX);
 <li> <b>Functions</b> to compute additional properties (such as saturation 
      properties, viscosity, thermal conductivity, etc.).
 </ul>
@@ -237,6 +240,18 @@ In a component, the most basic usage of a medium model is as follows
      ...
   <b>end</b> Pump;
 </pre>
+One could also use ThermodynamicState records to compute medium properties in a component. The
+simple example from above would then become
+<pre>
+  <b>model</b> Pump
+    <b>replaceable package</b> Medium = Modelica.Media.Interfaces.PartialMedium
+                         \"Medium model\" <b>annotation</b> (choicesAllMatching = <b>true</b>);
+    Medium.ThermodynamicState state_a \"Thermodynamic state record at location a (e.g. port_a)\";
+    // Compute medium variables from thermodynamic state record (pressure(state_a), temperature(state_a), 
+    // specificEnthalpy(state_a), ...)
+    ...
+  <b>end</b> Pump;
+</pre>
 <p>
 All media models are directly or indirectly a subpackage of package
 Modelica.Media.Interfaces.PartialMedium. Therefore,
@@ -273,6 +288,21 @@ in the medium model:
      ...
   <b>end</b> Pump;
 </pre>
+in the case of using BaseProperties or
+<pre>
+  <b>model</b> Pump
+    <b>replaceable package</b> Medium = Modelica.Media.Interfaces.PartialMedium
+                         \"Medium model\" <b>annotation</b> (choicesAllMatching = <b>true</b>);
+    Medium.ThermodynamicState state_a \"Thermodynamic state record of medium at port_a\";
+    // definition of the fluid port port_a
+     ...
+  <b>equation</b>
+    state_a = Medium.setState_phX(port_a.p, port_a.h, port_a.Xi) // if port_a contains the variables
+                                                                 // p, h, and Xi
+     ...
+  <b>end</b> Pump;
+</pre>
+in the case of using ThermodynamicState.
 <p>
 If a component model shall treat both single and multiple
 substance fluids, equations for the mass fractions have to be
@@ -863,25 +893,25 @@ Record FluidConstants contains the following elements
   <tr><td>Boolean</td>
       <td>hasAcentricFactor</td>
       <td>true if Pitzer accentric factor is known</td></tr>
-
+ 
   <tr><td>SpecificEnthalpy</td>
       <td>HCRIT0</td>
       <td>Critical specific enthalpy of the fundamental equation</td></tr>
-
+ 
   <tr><td>SpecificEntropy</td>
       <td>SCRIT0</td>
       <td>Critical specific entropy of the fundamental equation</td></tr>
-
+ 
   <tr><td>SpecificEnthalpy</td>
       <td>deltah</td>
       <td>Difference between specific enthalpy model
           (h_m) and f.eq. (h_f) (h_m - h_f)</td></tr>
-
+ 
   <tr><td>SpecificEntropy</td>
       <td>deltas</td>
       <td>Difference between specific enthalpy model (s_m) and f.eq.
           (s_f) (s_m - s_f)</td></tr>
-
+ 
 </table>
  
 </HTML>
@@ -4848,8 +4878,8 @@ are described in
     
       replaceable partial function dDewEnthalpy_dPressure 
       "Returns dew point specific enthalpy derivative" 
-        extends Modelica.Icons.Function;    
-
+        extends Modelica.Icons.Function;
+      
         input SaturationProperties sat "saturation property record";
         output DerEnthalpyByPressure dhvdp 
         "saturated steam specific enthalpy derivative";
@@ -5068,7 +5098,8 @@ are described in
   partial package PartialSimpleMedium 
     "Medium model with linear dependency of u, h from temperature. All other quantities, especially density, are constant." 
     
-    extends Interfaces.PartialPureSubstance(final singleState=true,final reducedX=true);
+    extends Interfaces.PartialPureSubstance(final singleState=true,final 
+        reducedX =                                                                true);
     
     import SI = Modelica.SIunits;
     constant SpecificHeatCapacity cp_const 
@@ -5091,27 +5122,27 @@ are described in
       AbsolutePressure p "Absolute pressure of medium";
       Temperature T "Temperature of medium";
     end ThermodynamicState;
-
-redeclare replaceable model extends BaseProperties(
-        T(stateSelect=StateSelect.prefer)) "Base properties" 
+    
+    redeclare replaceable model extends BaseProperties(
+            T(stateSelect=StateSelect.prefer)) "Base properties" 
     equation 
-      assert(T >= T_min and T <= T_max, "
-Temperature T (= " + String(T) + " K) is not
-in the allowed range (" + String(T_min) + " K <= T <= " + String(T_max)
-         + " K)
-required from medium model \"" + mediumName + "\".
+          assert(T >= T_min and T <= T_max, "
+Temperature T (= "     + String(T) + " K) is not
+in the allowed range ("     + String(T_min) + " K <= T <= " + String(T_max)
+             + " K)
+required from medium model \""     + mediumName + "\".
 ");
       
-      // h = cp_const*(T-T0);
-  h = specificEnthalpy_pTX(p,T,X);
-  u = cv_const*(T-T0);
-  d = d_const;
-  R = 0;
-  MM = MM_const;
-  state.T = T;
-  state.p = p;
+          // h = cp_const*(T-T0);
+      h = specificEnthalpy_pTX(p,T,X);
+      u = cv_const*(T-T0);
+      d = d_const;
+      R = 0;
+      MM = MM_const;
+      state.T = T;
+      state.p = p;
       
-      annotation (Documentation(info="<HTML>
+          annotation (Documentation(info="<HTML>
 <p>
 This is the most simple incompressible medium model, where
 specific enthalpy h and specific internal energy u are only
@@ -5120,45 +5151,49 @@ quantities are assumed to be constant.
 </p>
 </HTML>"));
     end BaseProperties;
-
-    redeclare function setState_pTX "Return thermodynamic state as function of p, T and composition X" 
+    
+    redeclare function setState_pTX 
+      "Return thermodynamic state as function of p, T and composition X" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input Temperature T "Temperature";
       input MassFraction X[:] = fill(0,0) "Mass fractions";
       output ThermodynamicState state;
-    algorithm
+    algorithm 
       state := ThermodynamicState(p=p,T=T);
     end setState_pTX;
     
-    redeclare function setState_phX "Return thermodynamic state as function of p, h and composition X" 
+    redeclare function setState_phX 
+      "Return thermodynamic state as function of p, h and composition X" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEnthalpy h "Specific enthalpy";
       input MassFraction X[:] = fill(0,0) "Mass fractions";
       output ThermodynamicState state;
-    algorithm
+    algorithm 
       state := ThermodynamicState(p=p,T=T0+h/cp_const);
     end setState_phX;
-        
-    redeclare replaceable function setState_psX "Return thermodynamic state as function of p, s and composition X" 
+    
+    redeclare replaceable function setState_psX 
+      "Return thermodynamic state as function of p, s and composition X" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEntropy s "Specific entropy";
       input MassFraction X[:] = fill(0,0) "Mass fractions";
       output ThermodynamicState state;
-    algorithm
-      state := ThermodynamicState(p=p,T=Modelica.Math.exp(s/cp_const + Modelica.Math.log(reference_T)))
+    algorithm 
+      state := ThermodynamicState(p=p,T=Modelica.Math.exp(s/cp_const + Modelica.Math.log(reference_T))) 
         "here the incompressible limit is used, with cp as heat capacity";
     end setState_psX;
-        
-    redeclare function setState_dTX "Return thermodynamic state as function of d, T and composition X" 
+    
+    redeclare function setState_dTX 
+      "Return thermodynamic state as function of d, T and composition X" 
       extends Modelica.Icons.Function;
       input Density d "density";
       input Temperature T "Temperature";
       input MassFraction X[:] = fill(0,0) "Mass fractions";
       output ThermodynamicState state;
-    algorithm
+    algorithm 
       state := ThermodynamicState(p=d*R_gas*T,T=T);
     end setState_dTX;
     
@@ -5233,45 +5268,46 @@ quantities are assumed to be constant.
   partial package PartialSimpleIdealGasMedium 
     "Medium model of Ideal gas with constant cp and cv. All other quantities, e.g. transport properties, are constant." 
     
-    extends Interfaces.PartialPureSubstance(final singleState=false,final reducedX=true);
+    extends Interfaces.PartialPureSubstance(final singleState=false,final 
+        reducedX =                                                                 true);
     
     import SI = Modelica.SIunits;
     constant SpecificHeatCapacity cp_const 
       "Constant specific heat capacity at constant pressure";
     constant SpecificHeatCapacity cv_const= cp_const/R_gas 
       "Constant specific heat capacity at constant volume";
-    constant SpecificHeatCapacity R_gas 
-      "medium specific gas constant";
+    constant SpecificHeatCapacity R_gas "medium specific gas constant";
     constant MolarMass MM_const "Molar mass";
     constant DynamicViscosity eta_const "Constant dynamic viscosity";
     constant ThermalConductivity lambda_const "Constant thermal conductivity";
     constant Temperature T_min "Minimum temperature valid for medium model";
     constant Temperature T_max "Maximum temperature valid for medium model";
-    constant Temperature T0 =reference_T "Zero enthalpy temperature";
+    constant Temperature T0= reference_T "Zero enthalpy temperature";
     
-    redeclare replaceable record extends ThermodynamicState "thermodynamic state" 
+    redeclare replaceable record extends ThermodynamicState 
+      "thermodynamic state" 
       AbsolutePressure p "Absolute pressure of medium";
       Temperature T "Temperature of medium";
     end ThermodynamicState;
-
-redeclare replaceable model extends BaseProperties(
-        T(stateSelect=StateSelect.prefer)) "Base properties" 
+    
+    redeclare replaceable model extends BaseProperties(
+            T(stateSelect=StateSelect.prefer)) "Base properties" 
     equation 
-      assert(T >= T_min and T <= T_max, "
-Temperature T (= " + String(T) + " K) is not
-in the allowed range (" + String(T_min) + " K <= T <= " + String(T_max)
-         + " K)
-required from medium model \"" + mediumName + "\".
+          assert(T >= T_min and T <= T_max, "
+Temperature T (= "     + String(T) + " K) is not
+in the allowed range ("     + String(T_min) + " K <= T <= " + String(T_max)
+             + " K)
+required from medium model \""     + mediumName + "\".
 ");
-  h = specificEnthalpy_pTX(p,T,X);
-  u = h-R*T;
-  R = R_gas;
-  d = p/(R*T);
-  MM = MM_const;
-  state.T = T;
-  state.p = p;
+      h = specificEnthalpy_pTX(p,T,X);
+      u = h-R*T;
+      R = R_gas;
+      d = p/(R*T);
+      MM = MM_const;
+      state.T = T;
+      state.p = p;
       
-      annotation (Documentation(info="<HTML>
+          annotation (Documentation(info="<HTML>
 <p>
 This is the most simple incompressible medium model, where
 specific enthalpy h and specific internal energy u are only
@@ -5280,94 +5316,102 @@ quantities are assumed to be constant.
 </p>
 </HTML>"));
     end BaseProperties;
-
-    redeclare function setState_pTX "Return thermodynamic state as function of p, T and composition X" 
+    
+    redeclare function setState_pTX 
+      "Return thermodynamic state as function of p, T and composition X" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input Temperature T "Temperature";
       input MassFraction X[:] = fill(0,0) "Mass fractions";
       output ThermodynamicState state;
-    algorithm
+    algorithm 
       state := ThermodynamicState(p=p,T=T);
     end setState_pTX;
     
-    redeclare function setState_phX "Return thermodynamic state as function of p, h and composition X" 
+    redeclare function setState_phX 
+      "Return thermodynamic state as function of p, h and composition X" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEnthalpy h "Specific enthalpy";
       input MassFraction X[:] = fill(0,0) "Mass fractions";
       output ThermodynamicState state;
-    algorithm
+    algorithm 
       state := ThermodynamicState(p=p,T=T0+h/cp_const);
     end setState_phX;
-        
-    redeclare replaceable function setState_psX "Return thermodynamic state as function of p, s and composition X" 
+    
+    redeclare replaceable function setState_psX 
+      "Return thermodynamic state as function of p, s and composition X" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEntropy s "Specific entropy";
       input MassFraction X[:] = fill(0,0) "Mass fractions";
       output ThermodynamicState state;
-    algorithm
+    algorithm 
       state := ThermodynamicState(p=p,T=Modelica.Math.exp(s/cp_const + Modelica.Math.log(reference_T))
                                   + R_gas*Modelica.Math.log(p/reference_p));
     end setState_psX;
-        
-    redeclare function setState_dTX "Return thermodynamic state as function of d, T and composition X" 
+    
+    redeclare function setState_dTX 
+      "Return thermodynamic state as function of d, T and composition X" 
       extends Modelica.Icons.Function;
       input Density d "density";
       input Temperature T "Temperature";
       input MassFraction X[:] = fill(0,0) "Mass fractions";
       output ThermodynamicState state;
-    algorithm
+    algorithm 
       state := ThermodynamicState(p=d*R_gas*T,T=T);
     end setState_dTX;
     
     redeclare function extends pressure "return pressure of ideal gas" 
-      algorithm 
+    algorithm 
       p := state.p;
     end pressure;
-
+    
     redeclare function extends temperature "return temperature of ideal gas" 
-      algorithm 
+    algorithm 
       T := state.T;
     end temperature;
-
+    
     redeclare function extends density "return density of ideal gas" 
-      algorithm 
+    algorithm 
       d := state.p/(R_gas*state.T);
     end density;
-  
+    
     redeclare function extends specificEnthalpy "Return specific enthalpy" 
         extends Modelica.Icons.Function;
     algorithm 
       h := cp_const*state.T;
     end specificEnthalpy;
-  
-    redeclare function extends specificInternalEnergy "Return specific internal energy" 
+    
+    redeclare function extends specificInternalEnergy 
+      "Return specific internal energy" 
       extends Modelica.Icons.Function;
     algorithm 
       u := cp_const*state.T - R_gas*state.T;
     end specificInternalEnergy;
-  
+    
     redeclare function extends specificEntropy "Return specific entropy" 
         extends Modelica.Icons.Function;
     algorithm 
       s := cp_const*Modelica.Math.log(state.T/T0) - R_gas*Modelica.Math.log(state.p/reference_p);
     end specificEntropy;
-
-    redeclare function extends specificGibbsEnergy "Return specific Gibbs energy" 
+    
+    redeclare function extends specificGibbsEnergy 
+      "Return specific Gibbs energy" 
       extends Modelica.Icons.Function;
     algorithm 
       g := cp_const*state.T - state.T*specificEntropy(state);
     end specificGibbsEnergy;
-  
-    redeclare function extends specificHelmholtzEnergy "Return specific Helmholtz energy" 
+    
+    redeclare function extends specificHelmholtzEnergy 
+      "Return specific Helmholtz energy" 
       extends Modelica.Icons.Function;
     algorithm 
       f := cp_const*state.T - R_gas*state.T - state.T*specificEntropy(state);
     end specificHelmholtzEnergy;
-  
-    redeclare function extends dynamicViscosity "Return dya_constnamic viscosity" 
+    
+    redeclare function extends dynamicViscosity 
+      "Return dya_constnamic viscosity" 
     algorithm 
       eta := eta_const;
     end dynamicViscosity;
