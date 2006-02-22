@@ -3961,12 +3961,16 @@ T_ambient.
       output IsobaricExpansionCoefficient beta "isobaric expansion coefficient";
     end isobaricExpansionCoefficient;
     
+    function beta = isobaricExpansionCoefficient;
+    
     replaceable partial function isothermalCompressibility 
       "Returns overall the isothermal compressibility factor" 
       extends Modelica.Icons.Function;
       input ThermodynamicState state;
       output SI.IsothermalCompressibility kappa "isothermal compressibility";
     end isothermalCompressibility;
+    
+    function kappa = isothermalCompressibility;
     
     // explicit derivative functions for finite element models
     replaceable partial function density_derp_h 
