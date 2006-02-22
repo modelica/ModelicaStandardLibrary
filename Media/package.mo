@@ -187,6 +187,8 @@ partial package Modelica.Media.Interfaces.PartialMedium. Every package defines:
 <li> <b>Functions</b> to compute additional properties (such as saturation 
      properties, viscosity, thermal conductivity, etc.).
 </ul>
+There are - as stated above - two different basic ways of using the Media library which
+will be described in more details in the following section. One way is to use the model BaseProperties.
 Every instance of BaseProperties for any medium model provides <b>3+nXi 
 equations</b> for the following <b>5+nXi variables</b> that are declared in 
 the medium model (nXi is the number of independent mass fractions, see
@@ -225,9 +227,8 @@ explanation below):
 <b>mass fractions</b> Xi are the <b>independent</b> variables and the
 medium model basically provides equations to compute
 the remaining variables, including the full mass fraction vector X
-(more details to Xi and X are given below).
+(more details to Xi and X are given further below).
 </p>
- 
 <p>
 In a component, the most basic usage of a medium model is as follows
 </p>
@@ -240,8 +241,33 @@ In a component, the most basic usage of a medium model is as follows
      ...
   <b>end</b> Pump;
 </pre>
-One could also use ThermodynamicState records to compute medium properties in a component. The
-simple example from above would then become
+<p>
+The second way is to use the setState_XXX functions to compute the thermodynamic state
+record from which all other thermodynamic state variables can be computed (see 
+<a href=\"Modelica:Modelica.Media.UsersGuide.MediumDefinition.BasicDefinition\">
+Basic definition of medium</a> for further details on ThermodynamicState). The setState_XXX functions
+accept either X or Xi (see explanation below) and will decide internally which of these two compositions 
+is provided by the user. The four fundamental setState_XXX functions are provided in PartialMedium
+</p>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td><b>Function</b></td>
+      <td><b>Description</b></td>
+      <td><b>Short-form for<br>single component medium</b></td></tr>
+  <tr><td>setState_dTX</td>
+      <td>computes ThermodynamicState from density, temperature, and composition X or Xi</td>
+      <td>setState_dT</td></tr>
+  <tr><td>setState_phX</td>
+      <td>computes ThermodynamicState from pressure, specific enthalpy, and composition X or Xi</td>
+      <td>setState_ph</td></tr>
+  <tr><td>setState_psX</td>
+      <td>computes ThermodynamicState from pressure, specific entropy, and composition X or Xi</td>
+      <td>setState_ps</td></tr>
+  <tr><td>setState_pTX</td>
+      <td>computes ThermodynamicState from pressure, temperature, and composition X or Xi</td>
+      <td>setState_pT</td></tr>
+</table> 
+<p>
+The simple example that explained the basic usage of BaseProperties would then become
 <pre>
   <b>model</b> Pump
     <b>replaceable package</b> Medium = Modelica.Media.Interfaces.PartialMedium
@@ -591,78 +617,102 @@ medium package does not provide a new implementation for this
 function, an error message is printed at translation time,
 since the function is \"partial\", i.e., incomplete.
 The argument of all functions is the <b>state</b> record,
-automatically defined by the BaseProperties model, which contains the 
+automatically defined by the BaseProperties model or specifically computed using the
+setState_XXX functions, which contains the 
 minimum number of thermodynamic variables needed to compute all the additional
 properties. In the table it is assumed that there is a declaration of the
 form:
 </p>
 <pre>
    <b>replaceable package</b> Medium = Modelica.Media.Interfaces.PartialMedium;
-   Medium.BaseProperties medium;
+   Medium.ThermodynamicState state;
 </pre>
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><td><b>Function call</b></td>
       <td><b>Unit</b></td>
       <td><b>Description</b></td></tr>
-  <tr><td>Medium.dynamicViscosity(medium.state)</b></td>
+  <tr><td>Medium.dynamicViscosity(state)</b></td>
       <td>Pa.s</td>
       <td>dynamic viscosity</td></tr>
-  <tr><td>Medium.thermalConductivity(medium.state)</td>
+  <tr><td>Medium.thermalConductivity(state)</td>
       <td>W/(m.K)</td>
       <td>thermal conductivity</td></tr>
-  <tr><td>Medium.prandtlNumber(medium.state)</td>
+  <tr><td>Medium.prandtlNumber(state)</td>
       <td>1</td>
       <td>Prandtl number</td></tr>
-  <tr><td>Medium.specificEntropy(medium.state)</td>
+  <tr><td>Medium.specificEntropy(state)</td>
       <td>J/(kg.K)</td>
       <td>specific entropy</td></tr>
-  <tr><td>Medium.specificHeatCapacityCp(medium.state)</td>
+  <tr><td>Medium.specificHeatCapacityCp(state)</td>
       <td>J/(kg.K)</td>
       <td>specific heat capacity at constant pressure</td></tr>
-  <tr><td>Medium.specificHeatCapacityCv(medium.state)</td>
+  <tr><td>Medium.specificHeatCapacityCv(state)</td>
       <td>J/(kg.K)</td>
       <td>specific heat capacity at constant density</td></tr>
-  <tr><td>Medium.isentropicExponent(medium.state)</td>
+  <tr><td>Medium.isentropicExponent(state)</td>
       <td>1</td>
       <td>isentropic exponent</td></tr>
-  <tr><td>Medium.isentropicEnthatlpy(pressure, medium.state)</td>
+  <tr><td>Medium.isentropicEnthatlpy(pressure, state)</td>
       <td>J/kg</td>
       <td>isentropic enthalpy</td></tr>
-  <tr><td>Medium.velocityOfSound(medium.state)</td>
+  <tr><td>Medium.velocityOfSound(state)</td>
       <td>m/s</td>
       <td>velocity of sound</td></tr>
-  <tr><td>Medium.isobaricExpansionCoefficient(medium.state)</td>
+  <tr><td>Medium.isobaricExpansionCoefficient(state)</td>
       <td>1/K</td>
       <td>isobaric expansion coefficient</td></tr>
-  <tr><td>Medium.isothermalCompressibility(medium.state)</td>
+  <tr><td>Medium.isothermalCompressibility(state)</td>
       <td>1/Pa</td>
       <td>isothermal compressibility</td></tr>
-  <tr><td>Medium.density_derp_h(medium.state)</td>
+  <tr><td>Medium.density_derp_h(state)</td>
       <td>kg/(m3.Pa)</td>
       <td>derivative of density by pressure at constant enthalpy</td></tr>
-  <tr><td>Medium.density_derh_p(medium.state)</td>
+  <tr><td>Medium.density_derh_p(state)</td>
       <td>kg2/(m3.J)</td>
       <td>derivative of density by enthalpy at constant pressure</td></tr>
-  <tr><td>Medium.density_derp_T(medium.state)</td>
+  <tr><td>Medium.density_derp_T(state)</td>
       <td>kg/(m3.Pa)</td>
       <td>derivative of density by pressure at constant temperature</td></tr>
-  <tr><td>Medium.density_derT_p(medium.state)</td>
+  <tr><td>Medium.density_derT_p(state)</td>
       <td>kg/(m3.K)</td>
       <td>derivative of density by temperature at constant pressure</td></tr>
-  <tr><td>Medium.density_derX(medium.state)</td>
+  <tr><td>Medium.density_derX(state)</td>
       <td>kg/m3</td>
       <td>derivative of density by mass fraction</td></tr>
-  <tr><td>Medium.molarMass(medium.state)</td>
+  <tr><td>Medium.molarMass(state)</td>
       <td>kg/mol</td>
       <td>molar mass</td></tr>
+</table>
+<p>
+There are also some short forms provided for user convenience that allow the computation of certain
+thermodynamic state variables without using the ThermodynamicState record explicitly. Those short forms
+are for example useful to compute consistent start values in the initial equation section. Let's
+consider the function temperature_phX(p,h,X) as an exmaple. This function computes the temperature
+from pressure, specific enthalpy, and composition X (or Xi) and is a short form for writing
+</p>
+<pre>
+  temperature(setState_phX(p,h,X))
+</pre>
+<p>
+The following functions are predefined in PartialMedium (other functions can be added in the actual
+medium implementation package if they are useful)
+</p>
+<table border=1 cellspacing=0 cellpadding=2>
   <tr><td>Medium.specificEnthalpy_pTX(p,T,X)</td>
       <td>J/kg</td>
-      <td>Specific enthalpy at p, T, X <br>
-          (e.g. used to compute consistent start values)</td></tr>
+      <td>Specific enthalpy at p, T, X </td></tr>
   <tr><td>Medium.temperature_phX(p,h,X)</td>
       <td>K</td>
-      <td>Temperature at p, h, X <br>
-          (e.g. used to compute consistent start values)</td></tr>
+      <td>Temperature at p, h, X</td></tr>
+  <tr><td>Medium.density_phX(p,h,X)</td>
+      <td>kg/m³</td>
+      <td>Density at p, h, X</td></tr>
+  <tr><td>Medium.temperature_psX(p,s,X)</td>
+      <td>K</td>
+      <td>Temperature at p, s, X</td></tr>
+  <tr><td>Medium.specificEnthalpy_psX(p,s,X)</td>
+      <td>J/(kg.K)</td>
+      <td>Specific entropy at p, s, X</td></tr>
 </table>
 <p>
 Assume for example that the dynamic viscosity eta is needed in
@@ -3841,7 +3891,7 @@ T_ambient.
     end BaseProperties;
     
     replaceable partial function setState_pTX 
-      "Return thermodynamic state as function of p, T and composition X" 
+      "Return thermodynamic state as function of p, T and composition X or Xi" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input Temperature T "Temperature";
@@ -3850,7 +3900,7 @@ T_ambient.
     end setState_pTX;
     
     replaceable partial function setState_phX 
-      "Return thermodynamic state as function of p, h and composition X" 
+      "Return thermodynamic state as function of p, h and composition X or Xi" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEnthalpy h "Specific enthalpy";
@@ -3859,7 +3909,7 @@ T_ambient.
     end setState_phX;
     
     replaceable partial function setState_psX 
-      "Return thermodynamic state as function of p, s and composition X" 
+      "Return thermodynamic state as function of p, s and composition X or Xi" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEntropy s "Specific entropy";
@@ -3868,7 +3918,7 @@ T_ambient.
     end setState_psX;
     
     replaceable partial function setState_dTX 
-      "Return thermodynamic state as function of d, T and composition X" 
+      "Return thermodynamic state as function of d, T and composition X or Xi" 
       extends Modelica.Icons.Function;
       input Density d "density";
       input Temperature T "Temperature";
@@ -3889,7 +3939,7 @@ T_ambient.
       output ThermalConductivity lambda "Thermal conductivity";
     end thermalConductivity;
     
-    replaceable function prandtlNumber "Returns the Prandtl number" 
+    replaceable function prandtlNumber "Return the Prandtl number" 
       extends Modelica.Icons.Function;
       input ThermodynamicState state;
       output PrandtlNumber Pr "Prandtl number";
@@ -3898,35 +3948,35 @@ T_ambient.
         state);
     end prandtlNumber;
     
-    replaceable partial function pressure "computes pressure" 
+    replaceable partial function pressure "Return pressure" 
       extends Modelica.Icons.Function;
-      input ThermodynamicState state "thermodynamic state record";
-      output AbsolutePressure p "pressure";
+      input ThermodynamicState state;
+      output AbsolutePressure p "Pressure";
     end pressure;
     
-    replaceable partial function temperature "computes temperature" 
+    replaceable partial function temperature "Return temperature" 
       extends Modelica.Icons.Function;
-      input ThermodynamicState state "thermodynamic state record";
-      output Temperature T "temperature";
+      input ThermodynamicState state;
+      output Temperature T "Temperature";
     end temperature;
     
-    replaceable partial function density "computes density" 
+    replaceable partial function density "Return density" 
       extends Modelica.Icons.Function;
-      input ThermodynamicState state "thermodynamic state record";
-      output Density d "density";
+      input ThermodynamicState state;
+      output Density d "Density";
     end density;
     
-    replaceable partial function specificEnthalpy "computes specific enthalpy" 
+    replaceable partial function specificEnthalpy "Return specific enthalpy" 
       extends Modelica.Icons.Function;
-      input ThermodynamicState state "thermodynamic state record";
-      output SpecificEnthalpy h "specific enthalpy";
+      input ThermodynamicState state;
+      output SpecificEnthalpy h "Specific enthalpy";
     end specificEnthalpy;
     
     replaceable partial function specificInternalEnergy 
-      "retuns specific internal energy" 
+      "Return specific internal energy" 
       extends Modelica.Icons.Function;
-      input ThermodynamicState state "thermodynamic state record";
-      output SpecificEnergy u "specific internal energy";
+      input ThermodynamicState state;
+      output SpecificEnergy u "Specific internal energy";
     end specificInternalEnergy;
     
     replaceable partial function specificEntropy "Return specific entropy" 
@@ -3936,17 +3986,17 @@ T_ambient.
     end specificEntropy;
     
     replaceable partial function specificGibbsEnergy 
-      "computes specific Gibbs energy" 
+      "Return specific Gibbs energy" 
       extends Modelica.Icons.Function;
-      input ThermodynamicState state "thermodynamic state record";
-      output SpecificEnergy g "specific Gibbs energy";
+      input ThermodynamicState state;
+      output SpecificEnergy g "Specific Gibbs energy";
     end specificGibbsEnergy;
     
     replaceable partial function specificHelmholtzEnergy 
-      "computes specific Helmholtz energy" 
+      "Return specific Helmholtz energy" 
       extends Modelica.Icons.Function;
-      input ThermodynamicState state "thermodynamic state record";
-      output SpecificEnergy f "specific Helmholtz energy";
+      input ThermodynamicState state;
+      output SpecificEnergy f "Specific Helmholtz energy";
     end specificHelmholtzEnergy;
     
     replaceable partial function specificHeatCapacityCp 
@@ -3993,80 +4043,82 @@ T_ambient.
     end velocityOfSound;
     
     replaceable partial function isobaricExpansionCoefficient 
-      "Returns overall the isobaric expansion coefficient beta" 
+      "Return overall the isobaric expansion coefficient beta" 
       extends Modelica.Icons.Function;
       input ThermodynamicState state;
-      output IsobaricExpansionCoefficient beta "isobaric expansion coefficient";
+      output IsobaricExpansionCoefficient beta "Isobaric expansion coefficient";
     end isobaricExpansionCoefficient;
     
-    function beta = isobaricExpansionCoefficient;
+    function beta = isobaricExpansionCoefficient 
+      "alias for isobaricExpansionCoefficient for user convenience";
     
     replaceable partial function isothermalCompressibility 
-      "Returns overall the isothermal compressibility factor" 
+      "Return overall the isothermal compressibility factor" 
       extends Modelica.Icons.Function;
       input ThermodynamicState state;
-      output SI.IsothermalCompressibility kappa "isothermal compressibility";
+      output SI.IsothermalCompressibility kappa "Isothermal compressibility";
     end isothermalCompressibility;
     
-    function kappa = isothermalCompressibility;
+    function kappa = isothermalCompressibility 
+      "alias of isothermalCompressibility for user convenience";
     
     // explicit derivative functions for finite element models
     replaceable partial function density_derp_h 
-      "density derivative by pressure at const specific enthalpy" 
+      "Return density derivative wrt pressure at const specific enthalpy" 
       extends Modelica.Icons.Function;
       input ThermodynamicState state;
-      output DerDensityByPressure ddph "density derivative by pressure";
+      output DerDensityByPressure ddph "Density derivative wrt pressure";
     end density_derp_h;
     
     replaceable partial function density_derh_p 
-      "density derivative by specific enthalpy at constant pressure" 
+      "Return density derivative wrt specific enthalpy at constant pressure" 
       extends Modelica.Icons.Function;
       input ThermodynamicState state;
       output DerDensityByEnthalpy ddhp 
-        "density derivative by specific enthalpy";
+        "Density derivative wrt specific enthalpy";
     end density_derh_p;
     
     replaceable partial function density_derp_T 
-      "density derivative by pressure at const temperature" 
+      "Return density derivative wrt pressure at const temperature" 
       extends Modelica.Icons.Function;
       input ThermodynamicState state;
-      output DerDensityByPressure ddpT "density derivative by pressure";
+      output DerDensityByPressure ddpT "Density derivative wrt pressure";
     end density_derp_T;
     
     replaceable partial function density_derT_p 
-      "density derivative by temperature at constant pressure" 
+      "Return density derivative wrt temperature at constant pressure" 
       extends Modelica.Icons.Function;
       input ThermodynamicState state;
-      output DerDensityByTemperature ddTp "density derivative by temperature";
+      output DerDensityByTemperature ddTp "Density derivative wrt temperature";
     end density_derT_p;
     
     replaceable partial function density_derX 
-      "density derivative by mass fraction" 
+      "Return density derivative wrt mass fraction" 
       extends Modelica.Icons.Function;
       input ThermodynamicState state;
-      output Density[nX] dddX "derivative of density by mass fraction";
+      output Density[nX] dddX "Derivative of density wrt mass fraction";
     end density_derX;
     
     replaceable partial function molarMass 
-      "return the molar mass of the medium" 
+      "Return the molar mass of the medium" 
       extends Modelica.Icons.Function;
       input ThermodynamicState state;
-      output MolarMass MM "mixture molar mass";
+      output MolarMass MM "Mixture molar mass";
     end molarMass;
     
     replaceable function specificEnthalpy_pTX 
-      "Compute specific enthalpy from pressure, temperature and mass fraction" 
+      "Return specific enthalpy from p, T, and X or Xi" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input Temperature T "Temperature";
       input MassFraction X[:] "Mass fractions";
-      output SpecificEnthalpy h "Specific enthalpy at p, T, X";
+      output SpecificEnthalpy h "Specific enthalpy";
     algorithm 
       h := specificEnthalpy(setState_pTX(p,T,X));
     end specificEnthalpy_pTX;
     
     replaceable function temperature_phX 
-      "Compute temperature from pressure, specific enthalpy and mass fraction" 
+      "Return temperature from p, h, and X or Xi" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEnthalpy h "Specific enthalpy";
@@ -4076,19 +4128,18 @@ T_ambient.
       T := temperature(setState_phX(p,h,X));
     end temperature_phX;
     
-    replaceable function density_phX 
-      "Compute density from pressure, specific enthalpy and mass fraction" 
+    replaceable function density_phX "Return density from p, h, and X or Xi" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEnthalpy h "Specific enthalpy";
       input MassFraction X[:] "Mass fractions";
-      output Density d "density";
+      output Density d "Density";
     algorithm 
       d := density(setState_phX(p,h,X));
     end density_phX;
     
     replaceable function temperature_psX 
-      "Compute temperature from pressure, specific enthalpy and mass fraction" 
+      "Return temperature from p,s, and X or Xi" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEntropy s "Specific entropy";
@@ -4099,23 +4150,23 @@ T_ambient.
     end temperature_psX;
     
     replaceable function density_psX 
-      "Compute density from pressure, specific entropy and mass fraction" 
+      "Return density from p, s, and X or Xi" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEntropy s "Specific entropy";
       input MassFraction X[:] "Mass fractions";
-      output Density d "density";
+      output Density d "Density";
     algorithm 
       d := density(setState_psX(p,s,X));
     end density_psX;
     
     replaceable function specificEnthalpy_psX 
-      "Compute specific enthalpy from pressure, specific entropy and mass fraction" 
+      "Return specific enthalpy from p, s, and X or Xi" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEntropy s "Specific entropy";
       input MassFraction X[:] "Mass fractions";
-      output SpecificEnthalpy h "specific enthalpy";
+      output SpecificEnthalpy h "Specific enthalpy";
     algorithm 
       h := specificEnthalpy(setState_psX(p,s,X));
     end specificEnthalpy_psX;
@@ -4404,48 +4455,43 @@ are described in
     "base class for pure substances of one chemical substance" 
     extends PartialMedium;
     
-    replaceable function setState_pT 
-      "Return thermodynamic state as function of pressure and temperature" 
+    replaceable function setState_pT "Return thermodynamic state from p and T" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input Temperature T "Temperature";
-      output ThermodynamicState state "thermodynamic state";
+      output ThermodynamicState state;
     algorithm 
       state := setState_pTX(p,T,fill(0,0));
     end setState_pT;
     
-    replaceable function setState_ph 
-      "Return thermodynamic state as function of pressure and specific enthalpy" 
+    replaceable function setState_ph "Return thermodynamic state from p and h" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEnthalpy h "Specific enthalpy";
-      output ThermodynamicState state "thermodynamic state";
+      output ThermodynamicState state;
     algorithm 
       state := setState_phX(p,h,fill(0, 0));
     end setState_ph;
     
-    replaceable function setState_ps 
-      "Return thermodynamic state as function of pressure and specific entropy" 
+    replaceable function setState_ps "Return thermodynamic state from p and s" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEntropy s "Specific entropy";
-      output ThermodynamicState state "thermodynamic state";
+      output ThermodynamicState state;
     algorithm 
       state := setState_psX(p,s,fill(0,0));
     end setState_ps;
     
-    replaceable function setState_dT 
-      "Return thermodynamic state as function of density and temperature" 
+    replaceable function setState_dT "Return thermodynamic state from d and T" 
       extends Modelica.Icons.Function;
       input Density d "density";
       input Temperature T "Temperature";
-      output ThermodynamicState state "thermodynamic state";
+      output ThermodynamicState state;
     algorithm 
       state := setState_dTX(d,T,fill(0,0));
     end setState_dT;
     
-    replaceable function density_ph 
-      "Computes density as a function of pressure and specific enthalpy" 
+    replaceable function density_ph "Return density from p and h" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEnthalpy h "Specific enthalpy";
@@ -4454,8 +4500,7 @@ are described in
       d := density_phX(p, h, fill(0,0));
     end density_ph;
     
-    replaceable function temperature_ph 
-      "Computes temperature as a function of pressure and specific enthalpy" 
+    replaceable function temperature_ph "Return temperature from p and h" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEnthalpy h "Specific enthalpy";
@@ -4464,8 +4509,7 @@ are described in
       T := temperature_phX(p, h, fill(0,0));
     end temperature_ph;
     
-    replaceable function pressure_dT 
-      "Computes pressure as a function of density and temperature" 
+    replaceable function pressure_dT "Return pressure from d and T" 
       extends Modelica.Icons.Function;
       input Density d "Density";
       input Temperature T "Temperature";
@@ -4475,7 +4519,7 @@ are described in
     end pressure_dT;
     
     replaceable function specificEnthalpy_dT 
-      "Computes specific enthalpy as a function of density and temperature" 
+      "Return specific enthalpy from d and T" 
       extends Modelica.Icons.Function;
       input Density d "Density";
       input Temperature T "Temperature";
@@ -4485,7 +4529,7 @@ are described in
     end specificEnthalpy_dT;
     
     replaceable function specificEnthalpy_ps 
-      "Computes specific enthalpy as a function of pressure and specific entropy" 
+      "Return specific enthalpy from p and s" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEntropy s "Specific entropy";
@@ -4494,8 +4538,7 @@ are described in
       h := specificEnthalpy_psX(p,s,fill(0,0));
     end specificEnthalpy_ps;
     
-    replaceable function temperature_ps 
-      "Computes temperature as a function of pressure and specific entropy" 
+    replaceable function temperature_ps "Return temperature from p and s" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEntropy s "Specific entropy";
@@ -4505,7 +4548,7 @@ are described in
     end temperature_ps;
     
     replaceable function density_ps 
-      "Computes density as a function of pressure and specific entropy" 
+      "Return density from p and s" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEntropy s "Specific entropy";
@@ -4515,7 +4558,7 @@ are described in
     end density_ps;
     
     replaceable function specificEnthalpy_pT 
-      "Computes specific enthalpy as a function of pressure and temperature" 
+      "Return specific enthalpy from p and T" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input Temperature T "Temperature";
@@ -4524,8 +4567,7 @@ are described in
       h := specificEnthalpy_pTX(p, T, fill(0,0));
     end specificEnthalpy_pT;
     
-    replaceable function density_pT 
-      "Computes density as a function of pressure and temperature" 
+    replaceable function density_pT "Return density from p and T" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input Temperature T "Temperature";
@@ -4926,7 +4968,7 @@ are described in
       end specificEnthalpy_pTX;
     
       redeclare replaceable function temperature_phX 
-      "Compute temperature from pressure, specific enthalpy and mass fraction" 
+      "Return temperature from p, h, and X or Xi" 
         extends Modelica.Icons.Function;
         input AbsolutePressure p "Pressure";
         input SpecificEnthalpy h "Specific enthalpy";
@@ -4939,7 +4981,7 @@ are described in
       end temperature_phX;
     
       redeclare replaceable function density_phX 
-      "Compute density from pressure, specific enthalpy and mass fraction" 
+      "Return density from p, h, and X or Xi" 
         extends Modelica.Icons.Function;
         input AbsolutePressure p "Pressure";
         input SpecificEnthalpy h "Specific enthalpy";
@@ -4952,7 +4994,7 @@ are described in
       end density_phX;
     
       redeclare replaceable function temperature_psX 
-      "Compute temperature from pressure, specific enthalpy and mass fraction" 
+      "Return temperature from p, s, and X or Xi" 
         extends Modelica.Icons.Function;
         input AbsolutePressure p "Pressure";
         input SpecificEntropy s "Specific entropy";
@@ -4965,20 +5007,20 @@ are described in
       end temperature_psX;
     
       redeclare replaceable function density_psX 
-      "Compute density from pressure, specific entropy and mass fraction" 
+      "Return density from p, s, and X or Xi" 
         extends Modelica.Icons.Function;
         input AbsolutePressure p "Pressure";
         input SpecificEntropy s "Specific entropy";
         input MassFraction X[nX] "Mass fractions";
         input FixedPhase phase=0 
         "2 for two-phase, 1 for one-phase, 0 if not known";
-        output Density d "density";
+        output Density d "Density";
       algorithm 
         d := density(setState_psX(p,s,X,phase));
       end density_psX;
     
       redeclare replaceable function specificEnthalpy_psX 
-      "Compute specific enthalpy from pressure, specific entropy and mass fraction" 
+      "Return specific enthalpy from p, s, and X or Xi" 
         extends Modelica.Icons.Function;
         input AbsolutePressure p "Pressure";
         input SpecificEntropy s "Specific entropy";
@@ -4991,7 +5033,7 @@ are described in
       end specificEnthalpy_psX;
     
     redeclare replaceable function setState_pT 
-      "Return thermodynamic state as function of p and T" 
+      "Return thermodynamic state from p and T" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input Temperature T "Temperature";
@@ -5003,7 +5045,7 @@ are described in
     end setState_pT;
     
     redeclare replaceable function setState_ph 
-      "Return thermodynamic state as function of p and h" 
+      "Return thermodynamic state from p and h" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEnthalpy h "Specific enthalpy";
@@ -5015,7 +5057,7 @@ are described in
     end setState_ph;
     
     redeclare replaceable function setState_ps 
-      "Return thermodynamic state as function of p and s" 
+      "Return thermodynamic state from p and s" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEntropy s "Specific entropy";
@@ -5027,7 +5069,7 @@ are described in
     end setState_ps;
     
     redeclare replaceable function setState_dT 
-      "Return thermodynamic state as function of d and T" 
+      "Return thermodynamic state from d and T" 
       extends Modelica.Icons.Function;
       input Density d "density";
       input Temperature T "Temperature";
@@ -5038,8 +5080,7 @@ are described in
       state := setState_dTX(d,T,fill(0,0),phase);
     end setState_dT;
     
-    redeclare replaceable function density_ph 
-      "Computes density as a function of pressure and specific enthalpy" 
+    redeclare replaceable function density_ph "Return density from p and h" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEnthalpy h "Specific enthalpy";
@@ -5051,7 +5092,7 @@ are described in
     end density_ph;
     
     redeclare replaceable function temperature_ph 
-      "Computes temperature as a function of pressure and specific enthalpy" 
+      "Return temperature from p and h" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEnthalpy h "Specific enthalpy";
@@ -5062,8 +5103,7 @@ are described in
       T := temperature_phX(p, h, fill(0,0),phase);
     end temperature_ph;
     
-    redeclare replaceable function pressure_dT 
-      "Computes pressure as a function of density and temperature" 
+    redeclare replaceable function pressure_dT "Return pressure from d and T" 
       extends Modelica.Icons.Function;
       input Density d "Density";
       input Temperature T "Temperature";
@@ -5075,7 +5115,7 @@ are described in
     end pressure_dT;
     
     redeclare replaceable function specificEnthalpy_dT 
-      "Computes specific enthalpy as a function of density and temperature" 
+      "Return specific enthalpy from d and T" 
       extends Modelica.Icons.Function;
       input Density d "Density";
       input Temperature T "Temperature";
@@ -5087,7 +5127,7 @@ are described in
     end specificEnthalpy_dT;
     
     redeclare replaceable function specificEnthalpy_ps 
-      "Computes specific enthalpy as a function of pressure and specific entropy" 
+      "Return specific enthalpy from p and s" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEntropy s "Specific entropy";
@@ -5099,7 +5139,7 @@ are described in
     end specificEnthalpy_ps;
     
     redeclare replaceable function temperature_ps 
-      "Computes temperature as a function of pressure and specific entropy" 
+      "Return temperature from p and s" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEntropy s "Specific entropy";
@@ -5111,7 +5151,7 @@ are described in
     end temperature_ps;
     
     redeclare replaceable function density_ps 
-      "Computes density as a function of pressure and specific entropy" 
+      "Return density from p and s" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEntropy s "Specific entropy";
@@ -5122,7 +5162,7 @@ are described in
     end density_ps;
     
     redeclare replaceable function specificEnthalpy_pT 
-      "Computes specific enthalpy as a function of pressure and temperature" 
+      "Return specific enthalpy from p and T" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input Temperature T "Temperature";
@@ -5133,8 +5173,7 @@ are described in
       h := specificEnthalpy_pTX(p, T, fill(0,0),phase);
     end specificEnthalpy_pT;
     
-    redeclare replaceable function density_pT 
-      "Computes density as a function of pressure and temperature" 
+    redeclare replaceable function density_pT "Return density from p and T" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input Temperature T "Temperature";
@@ -5204,7 +5243,7 @@ quantities are assumed to be constant.
     end BaseProperties;
     
     redeclare function setState_pTX 
-      "Return thermodynamic state as function of p, T and composition X" 
+      "Return thermodynamic state from p, T, and X or Xi" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input Temperature T "Temperature";
@@ -5215,7 +5254,7 @@ quantities are assumed to be constant.
     end setState_pTX;
     
     redeclare function setState_phX 
-      "Return thermodynamic state as function of p, h and composition X" 
+      "Return thermodynamic state from p, h, and X or Xi" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEnthalpy h "Specific enthalpy";
@@ -5226,7 +5265,7 @@ quantities are assumed to be constant.
     end setState_phX;
     
     redeclare replaceable function setState_psX 
-      "Return thermodynamic state as function of p, s and composition X" 
+      "Return thermodynamic state from p, s, and X or Xi" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEntropy s "Specific entropy";
@@ -5238,7 +5277,7 @@ quantities are assumed to be constant.
     end setState_psX;
     
     redeclare function setState_dTX 
-      "Return thermodynamic state as function of d, T and composition X" 
+      "Return thermodynamic state from d, T, and X or Xi" 
       extends Modelica.Icons.Function;
       input Density d "density";
       input Temperature T "Temperature";
@@ -5282,18 +5321,18 @@ quantities are assumed to be constant.
     end velocityOfSound;
     
     redeclare function specificEnthalpy_pTX 
-      "Compute specific enthalpy from pressure, temperature and mass fraction" 
+      "Return specific enthalpy from p, T, and X or Xi" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input Temperature T "Temperature";
       input MassFraction X[nX] "Mass fractions";
-      output SpecificEnthalpy h "Specific enthalpy at p, T, X";
+      output SpecificEnthalpy h "Specific enthalpy";
     algorithm 
       h := cp_const*(T-T0);
     end specificEnthalpy_pTX;
     
     redeclare function temperature_phX 
-      "Compute temperature from pressure, specific enthalpy and mass fraction" 
+      "Return temperature from p, h, and X or Xi" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEnthalpy h "Specific enthalpy";
@@ -5303,8 +5342,7 @@ quantities are assumed to be constant.
       T := T0 + h/cp_const;
     end temperature_phX;
     
-    redeclare function density_phX 
-      "Compute density from pressure, specific enthalpy and mass fraction" 
+    redeclare function density_phX "Return density from p, h, and X or Xi" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEnthalpy h "Specific enthalpy";
@@ -5369,7 +5407,7 @@ quantities are assumed to be constant.
     end BaseProperties;
     
     redeclare function setState_pTX 
-      "Return thermodynamic state as function of p, T and composition X" 
+      "Return thermodynamic state from p, T, and X or Xi" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input Temperature T "Temperature";
@@ -5380,7 +5418,7 @@ quantities are assumed to be constant.
     end setState_pTX;
     
     redeclare function setState_phX 
-      "Return thermodynamic state as function of p, h and composition X" 
+      "Return thermodynamic state from p, h, and X or Xi" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEnthalpy h "Specific enthalpy";
@@ -5391,7 +5429,7 @@ quantities are assumed to be constant.
     end setState_phX;
     
     redeclare replaceable function setState_psX 
-      "Return thermodynamic state as function of p, s and composition X" 
+      "Return thermodynamic state from p, s, and X or Xi" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEntropy s "Specific entropy";
@@ -5403,7 +5441,7 @@ quantities are assumed to be constant.
     end setState_psX;
     
     redeclare function setState_dTX 
-      "Return thermodynamic state as function of d, T and composition X" 
+      "Return thermodynamic state from d, T, and X or Xi" 
       extends Modelica.Icons.Function;
       input Density d "density";
       input Temperature T "Temperature";
@@ -5496,7 +5534,7 @@ quantities are assumed to be constant.
     end velocityOfSound;
     
     redeclare function specificEnthalpy_pTX 
-      "Compute specific enthalpy from pressure, temperature and mass fraction" 
+      "Return specific enthalpy from p, T, and X or Xi" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input Temperature T "Temperature";
@@ -5507,7 +5545,7 @@ quantities are assumed to be constant.
     end specificEnthalpy_pTX;
     
     redeclare function temperature_phX 
-      "Compute temperature from pressure, specific enthalpy and mass fraction" 
+      "Return temperature from p, h, and X or Xi" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEnthalpy h "Specific enthalpy";
@@ -5517,8 +5555,7 @@ quantities are assumed to be constant.
       T := h/cp_const + T0;
     end temperature_phX;
     
-    redeclare function density_phX 
-      "Compute density from pressure, specific enthalpy and mass fraction" 
+    redeclare function density_phX "Return density from p, h, and X or Xi" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEnthalpy h "Specific enthalpy";
@@ -5551,8 +5588,7 @@ quantities are assumed to be constant.
       MassFraction x "steam mass fraction";
     end TwoPhaseProps;
     
-    redeclare replaceable function density_ph 
-      "Computes density as a function of pressure and specific enthalpy" 
+    redeclare replaceable function density_ph "Return density from p and h" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEnthalpy h "Specific enthalpy";
@@ -5568,8 +5604,7 @@ quantities are assumed to be constant.
     d := Utilities.d_props_ps(p, s, Utilities.twoPhaseProps_ps(p, s, phase));
   end density_ps;
 */
-    redeclare replaceable function density_pT 
-      "Computes density as a function of pressure and temperature" 
+    redeclare replaceable function density_pT "Return density from p and T" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input Temperature T "Temperature";
@@ -5580,8 +5615,7 @@ quantities are assumed to be constant.
       d := Utilities.d_props_pT(p, T, Utilities.twoPhaseProps_pT(p, T));
     end density_pT;
     
-    redeclare replaceable function pressure_dT 
-      "Computes pressure as a function of density and temperature" 
+    redeclare replaceable function pressure_dT "Return pressure from d and T" 
       extends Modelica.Icons.Function;
       input Density d "Density";
       input Temperature T "Temperature";
@@ -5593,43 +5627,43 @@ quantities are assumed to be constant.
     end pressure_dT;
     
     redeclare replaceable function specificEnthalpy_dT 
-      "Computes specific enthalpy as a function of density and temperature" 
+      "Return specific enthalpy from d and T" 
       extends Modelica.Icons.Function;
       input Density d "Density";
       input Temperature T "Temperature";
       input FixedPhase phase=0 
         "2 for two-phase, 1 for one-phase, 0 if not known";
-      output SpecificEnthalpy h "specific enthalpy";
+      output SpecificEnthalpy h "Specific enthalpy";
     algorithm 
       h := Utilities.h_props_dT(d, T, Utilities.twoPhaseProps_dT(d, T, phase));
     end specificEnthalpy_dT;
     
     redeclare replaceable function specificEnthalpy_ps 
-      "Computes specific enthalpy as a function of pressure and specific entropy" 
+      "Return specific enthalpy from p and s" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEntropy s "Specific entropy";
       input FixedPhase phase=0 
         "2 for two-phase, 1 for one-phase, 0 if not known";
-      output SpecificEnthalpy h "specific enthalpy";
+      output SpecificEnthalpy h "Specific enthalpy";
     algorithm 
       h := Utilities.h_props_ps(p, s, Utilities.twoPhaseProps_ps(p, s, phase));
     end specificEnthalpy_ps;
     
     redeclare replaceable function specificEnthalpy_pT 
-      "Computes specific enthalpy as a function of pressure and temperature" 
+      "Return specific enthalpy from p and T" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input Temperature T "Temperature";
       input FixedPhase phase=0 
         "2 for two-phase, 1 for one-phase, 0 if not known";
-      output SpecificEnthalpy h "specific enthalpy";
+      output SpecificEnthalpy h "Specific enthalpy";
     algorithm 
       h := Utilities.h_props_pT(p, T, Utilities.twoPhaseProps_pT(p, T));
     end specificEnthalpy_pT;
     
     redeclare replaceable function temperature_ph 
-      "Computes temperature as a function of pressure and specific enthalpy" 
+      "Return temperature from p and h" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEnthalpy h "Specific enthalpy";
@@ -5641,7 +5675,7 @@ quantities are assumed to be constant.
     end temperature_ph;
     
     redeclare replaceable function temperature_ps 
-      "Computes temperature as a function of pressure and specific entropy" 
+      "Return temperature from p and s" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEntropy s "Specific entropy";
