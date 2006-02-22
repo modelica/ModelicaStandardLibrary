@@ -4098,6 +4098,17 @@ T_ambient.
       T := temperature(setState_psX(p,s,X));
     end temperature_psX;
     
+    replaceable function density_psX 
+      "Compute density from pressure, specific entropy and mass fraction" 
+      extends Modelica.Icons.Function;
+      input AbsolutePressure p "Pressure";
+      input SpecificEntropy s "Specific entropy";
+      input MassFraction X[:] "Mass fractions";
+      output Density d "density";
+    algorithm 
+      d := density(setState_psX(p,s,X));
+    end density_psX;
+    
     replaceable function specificEnthalpy_psX 
       "Compute specific enthalpy from pressure, specific entropy and mass fraction" 
       extends Modelica.Icons.Function;
@@ -4398,7 +4409,7 @@ are described in
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input Temperature T "Temperature";
-      output ThermodynamicState state;
+      output ThermodynamicState state "thermodynamic state";
     algorithm 
       state := setState_pTX(p,T,fill(0,0));
     end setState_pT;
@@ -4408,7 +4419,7 @@ are described in
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEnthalpy h "Specific enthalpy";
-      output ThermodynamicState state;
+      output ThermodynamicState state "thermodynamic state";
     algorithm 
       state := setState_phX(p,h,fill(0, 0));
     end setState_ph;
@@ -4418,7 +4429,7 @@ are described in
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEntropy s "Specific entropy";
-      output ThermodynamicState state;
+      output ThermodynamicState state "thermodynamic state";
     algorithm 
       state := setState_psX(p,s,fill(0,0));
     end setState_ps;
@@ -4428,7 +4439,7 @@ are described in
       extends Modelica.Icons.Function;
       input Density d "density";
       input Temperature T "Temperature";
-      output ThermodynamicState state;
+      output ThermodynamicState state "thermodynamic state";
     algorithm 
       state := setState_dTX(d,T,fill(0,0));
     end setState_dT;
@@ -4492,6 +4503,16 @@ are described in
     algorithm 
       T := temperature_psX(p,s,fill(0,0));
     end temperature_ps;
+    
+    replaceable function density_ps 
+      "Computes density as a function of pressure and specific entropy" 
+      extends Modelica.Icons.Function;
+      input AbsolutePressure p "Pressure";
+      input SpecificEntropy s "Specific entropy";
+      output Density d "Density";
+    algorithm 
+      d := density_psX(p, s, fill(0,0));
+    end density_ps;
     
     replaceable function specificEnthalpy_pT 
       "Computes specific enthalpy as a function of pressure and temperature" 
@@ -4943,6 +4964,19 @@ are described in
         T := temperature(setState_psX(p,s,X,phase));
       end temperature_psX;
     
+      redeclare replaceable function density_psX 
+      "Compute density from pressure, specific entropy and mass fraction" 
+        extends Modelica.Icons.Function;
+        input AbsolutePressure p "Pressure";
+        input SpecificEntropy s "Specific entropy";
+        input MassFraction X[nX] "Mass fractions";
+        input FixedPhase phase=0 
+        "2 for two-phase, 1 for one-phase, 0 if not known";
+        output Density d "density";
+      algorithm 
+        d := density(setState_psX(p,s,X,phase));
+      end density_psX;
+    
       redeclare replaceable function specificEnthalpy_psX 
       "Compute specific enthalpy from pressure, specific entropy and mass fraction" 
         extends Modelica.Icons.Function;
@@ -5075,6 +5109,17 @@ are described in
     algorithm 
       T := temperature_psX(p,s,fill(0,0),phase);
     end temperature_ps;
+    
+    redeclare replaceable function density_ps 
+      "Computes density as a function of pressure and specific entropy" 
+      extends Modelica.Icons.Function;
+      input AbsolutePressure p "Pressure";
+      input SpecificEntropy s "Specific entropy";
+      input FixedPhase phase=0 "2 for two-phase, 1 for one-phase, 0 if not known";
+      output Density d "Density";
+    algorithm 
+      d := density_psX(p, s, fill(0,0), phase);
+    end density_ps;
     
     redeclare replaceable function specificEnthalpy_pT 
       "Computes specific enthalpy as a function of pressure and temperature" 

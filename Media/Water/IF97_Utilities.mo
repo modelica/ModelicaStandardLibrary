@@ -6440,10 +6440,83 @@ Ordinary Water Substance<br>
     end if;
   end waterBaseProp_ps;
   
+  function rho_props_ps "density as function of pressure and specific entropy" 
+    extends Modelica.Icons.Function;
+    input SI.Pressure p "pressure";
+    input SI.SpecificEntropy s "specific entropy";
+    input Common.IF97BaseTwoPhase properties "auxiliary record";
+    output SI.Density rho "density";
+    annotation (
+      Inline=false,
+      LateInline=true);
+  algorithm 
+    rho := properties.rho;
+  end rho_props_ps;
+  
+  function rho_ps "density as function of pressure and specific entropy" 
+    extends Modelica.Icons.Function;
+    input SI.Pressure p "pressure";
+    input SI.SpecificEntropy s "specific entropy";
+    input Integer phase = 0 "2 for two-phase, 1 for one-phase, 0 if not known";
+    input Integer region = 0 "if 0, region is unknown, otherwise known and this input";
+    output SI.Density rho "density";
+  algorithm 
+    rho := rho_props_ps(p, s, waterBaseProp_ps(p, s, phase, region));
+  end rho_ps;
+  
+  function T_props_ps 
+    "temperature as function of pressure and specific entropy" 
+    extends Modelica.Icons.Function;
+    input SI.Pressure p "pressure";
+    input SI.SpecificEntropy s "specific entropy";
+    input Common.IF97BaseTwoPhase properties "auxiliary record";
+    output SI.Temperature T "temperature";
+    annotation (Inline=false,
+                LateInline=true);
+  algorithm 
+    T := properties.T;
+  end T_props_ps;
+  
+  function T_ps "temperature as function of pressure and specific entropy" 
+    extends Modelica.Icons.Function;
+    input SI.Pressure p "pressure";
+    input SI.SpecificEntropy s "specific entropy";
+    input Integer phase = 0 "2 for two-phase, 1 for one-phase, 0 if not known";
+    input Integer region = 0 "if 0, region is unknown, otherwise known and this input";
+    output SI.Temperature T "Temperature";
+  algorithm 
+    T := T_props_ps(p, s, waterBaseProp_ps(p, s, phase, region));
+  end T_ps;
+  
+  function h_props_ps 
+    "specific enthalpy as function or pressure and temperature" 
+    extends Modelica.Icons.Function;
+    input SI.Pressure p "pressure";
+    input SI.SpecificEntropy s "specific entropy";
+    input Common.IF97BaseTwoPhase aux "auxiliary record";
+    output SI.SpecificEnthalpy h "specific enthalpy";
+    annotation (
+      Inline=false,
+      LateInline=true);
+  algorithm 
+    h := aux.h;
+  end h_props_ps;
+  
+  function h_ps "specific enthalpy as function or pressure and temperature" 
+    extends Modelica.Icons.Function;
+    input SI.Pressure p "pressure";
+    input SI.SpecificEntropy s "specific entropy";
+    input Integer phase = 0 "2 for two-phase, 1 for one-phase, 0 if not known";
+    input Integer region =  0 "if 0, region is unknown, otherwise known and this input";
+    output SI.SpecificEnthalpy h "specific enthalpy";
+  algorithm 
+    h := h_props_ps(p, s, waterBaseProp_ps(p, s, phase, region));
+  end h_ps;
+  
   function phase_ps "phase as a function of  pressure and specific entropy" 
     extends Modelica.Icons.Function;
     input SI.Pressure p "pressure";
-    input SI.SpecificEnthalpy s "specific entropy";
+    input SI.SpecificEntropy s "specific entropy";
     output Integer phase "true if in liquid or gas or supercritical region";
     annotation (InlineNoEvent=false);
   algorithm 

@@ -501,37 +501,30 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
   algorithm 
     T := IF97_Utilities.T_ph(p, h, phase);
   end temperature_ph;
-/*  
-  redeclare function extends temperature_phX 
-    "Compute temperature from pressure and specific enthalpy" 
-  algorithm 
-    T := T_ph(p, h);
-  end temperature_phX;
- 
-  redeclare function extends temperature_psX 
-    "Compute temperature from pressure and specific enthalpy" 
-  algorithm 
-  assert(false,"not yet implemented");
-    //  T := IF97_Utilities.T_ps(p, s);
-  end temperature_psX;
-*/
+
   redeclare function temperature_ps 
-    "Computes temperature as a function of pressure and specific entropy" 
+    "Compute temperature from pressure and specific enthalpy" 
     extends Modelica.Icons.Function;
     input AbsolutePressure p "Pressure";
     input SpecificEntropy s "Specific entropy";
     input FixedPhase phase=0 "2 for two-phase, 1 for one-phase, 0 if not known";
     output Temperature T "Temperature";
   algorithm 
-    assert(false,"not yet implemented");
+    T := IF97_Utilities.T_ps(p, s, phase);
   end temperature_ps;
-/*  
-  redeclare function extends density_phX 
-    "Compute density from pressure and specific enthalpy" 
+
+  redeclare function density_ps 
+    "Computes density as a function of pressure and specific enthalpy" 
+      extends Modelica.Icons.Function;
+    input AbsolutePressure p "Pressure";
+    input SpecificEntropy s "Specific entropy";
+    input FixedPhase phase=0 
+      "2 for two-phase, 1 for one-phase, 0 if not known";
+    output Density d "density";
   algorithm 
-    d := IF97_Utilities.rho_ph(p, h);
-  end density_phX;
-*/
+    d := IF97_Utilities.rho_ps(p, s, phase);
+  end density_ps;
+
   redeclare function pressure_dT 
     "Computes pressure as a function of density and temperature" 
     extends Modelica.Icons.Function;
@@ -564,13 +557,18 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
   algorithm 
     h := IF97_Utilities.h_pT(p, T);
   end specificEnthalpy_pT;
-/*  
-  redeclare function extends specificEnthalpy_pTX 
-    "Compute specific enthalpy from pressure, temperature and mass fraction" 
+
+  redeclare function specificEnthalpy_ps 
+    "Computes specific enthalpy as a function of pressure and temperature" 
+      extends Modelica.Icons.Function;
+    input AbsolutePressure p "Pressure";
+    input SpecificEntropy s "Specific entropy";
+    input FixedPhase phase=0 "2 for two-phase, 1 for one-phase, 0 if not known";
+    output SpecificEnthalpy h "specific enthalpy";
   algorithm 
-    h := h_pT(p, T);
-  end specificEnthalpy_pTX;
-*/
+    h := IF97_Utilities.h_ps(p, s, phase);
+  end specificEnthalpy_ps;
+
   redeclare function density_pT 
     "Computes density as a function of pressure and temperature" 
     extends Modelica.Icons.Function;
@@ -756,22 +754,6 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
     h_is := IF97_Utilities.isentropicEnthalpy(p_downstream, specificEntropy(
       refState), 0);
   end isentropicEnthalpy;
-/*  
-  redeclare function extends specificEnthalpy_psX "compute h(p,s)" 
-  algorithm 
-    h := IF97_Utilities.isentropicEnthalpy(p, s, 0);
-  end specificEnthalpy_psX;
-*/
-  redeclare function specificEnthalpy_ps 
-    "Computes specific enthalpy as a function of pressure and specific entropy" 
-    extends Modelica.Icons.Function;
-    input AbsolutePressure p "Pressure";
-    input SpecificEntropy s "Specific entropy";
-    input FixedPhase phase=0 "2 for two-phase, 1 for one-phase, 0 if not known";
-    output SpecificEnthalpy h "specific enthalpy";
-  algorithm 
-    h := IF97_Utilities.isentropicEnthalpy(p, s, 0);
-  end specificEnthalpy_ps;
   
   redeclare function extends density_derh_p 
     "density derivative by specific enthalpy" 
@@ -888,7 +870,12 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
   
   redeclare function extends setState_psX 
   algorithm 
-    assert(false,"not yet implemented");
+    state := ThermodynamicState(
+      d=density_ps(p,s),
+      T=temperature_ps(p,s),
+      phase=IF97_Utilities.phase_ps(p,s),
+      h=specificEnthalpy_ps(p,s),
+      p=p);
   end setState_psX;
   
   redeclare function extends setState_pTX 
@@ -1029,18 +1016,18 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       end if;
     end if;
     if dT_explicit then
-      p = p_dT(d, T, phase, Region);
-      h = h_dT(d, T, phase, Region);
+      p = pressure_dT(d, T, phase, Region);
+      h = specificEnthalpy_dT(d, T, phase, Region);
       sat.Tsat = T;
       sat.psat = saturationPressure(T);
     elseif ph_explicit then
-      d = rho_ph(p, h, phase, Region);
-      T = T_ph(p, h, phase, Region);
+      d = density_ph(p, h, phase, Region);
+      T = temperature_ph(p, h, phase, Region);
       sat.Tsat = saturationTemperature(p);
       sat.psat = p;
     else
-      h = h_pT(p, T, Region);
-      d = rho_pT(p, T, Region);
+      h = specificEnthalpy_pT(p, T, Region);
+      d = density_pT(p, T, Region);
       sat.psat = p;
       sat.Tsat = saturationTemperature(p);
     end if;
@@ -1079,6 +1066,30 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
     T := IF97_Utilities.T_ph(p, h, phase, region);
   end temperature_ph;
   
+  redeclare function temperature_ps 
+    "Compute temperature from pressure and specific enthalpy" 
+    extends Modelica.Icons.Function;
+    input AbsolutePressure p "Pressure";
+    input SpecificEntropy s "Specific entropy";
+    input FixedPhase phase=0 "2 for two-phase, 1 for one-phase, 0 if not known";
+    input Integer region=0 "if 0, region is unknown, otherwise known and this input";
+    output Temperature T "Temperature";
+  algorithm 
+    T := IF97_Utilities.T_ps(p, s, phase,region);
+  end temperature_ps;
+
+  redeclare function density_ps 
+    "Computes density as a function of pressure and specific enthalpy" 
+    extends Modelica.Icons.Function;
+    input AbsolutePressure p "Pressure";
+    input SpecificEntropy s "Specific entropy";
+    input FixedPhase phase=0 "2 for two-phase, 1 for one-phase, 0 if not known";
+    input Integer region=0 "if 0, region is unknown, otherwise known and this input";
+    output Density d "density";
+  algorithm 
+    d := IF97_Utilities.rho_ps(p, s, phase, region);
+  end density_ps;
+
   redeclare function pressure_dT 
     "Computes pressure as a function of density and temperature" 
     extends Modelica.Icons.Function;
@@ -1111,13 +1122,24 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
     input AbsolutePressure p "Pressure";
     input Temperature T "Temperature";
     input FixedPhase phase=0 "2 for two-phase, 1 for one-phase, 0 if not known";
-    input Integer region=0 
-      "if 0, region is unknown, otherwise known and this input";
+    input Integer region=0  "if 0, region is unknown, otherwise known and this input";
     output SpecificEnthalpy h "specific enthalpy";
   algorithm 
     h := IF97_Utilities.h_pT(p, T, region);
   end specificEnthalpy_pT;
   
+  redeclare function specificEnthalpy_ps 
+    "Computes specific enthalpy as a function of pressure and temperature" 
+    extends Modelica.Icons.Function;
+    input AbsolutePressure p "Pressure";
+    input SpecificEntropy s "Specific entropy";
+    input FixedPhase phase=0 "2 for two-phase, 1 for one-phase, 0 if not known";
+    input Integer region=0  "if 0, region is unknown, otherwise known and this input";
+    output SpecificEnthalpy h "specific enthalpy";
+  algorithm 
+    h := IF97_Utilities.h_ps(p, s, phase, region);
+  end specificEnthalpy_ps;
+
   redeclare function density_pT 
     "Computes density as a function of pressure and temperature" 
     extends Modelica.Icons.Function;
@@ -1421,7 +1443,12 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
   redeclare function extends setState_psX 
     input Integer region=0  "if 0, region is unknown, otherwise known and this input";
   algorithm 
-    assert(false,"not yet implemented");
+    state := ThermodynamicState(
+      d=density_ps(p,s,region=region),
+      T=temperature_ps(p,s,region=region),
+      phase=IF97_Utilities.phase_ps(p,s),
+      h=specificEnthalpy_ps(p,s,region=region),
+      p=p);
   end setState_psX;
   
   redeclare function extends setState_pTX 

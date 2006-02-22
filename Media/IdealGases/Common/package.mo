@@ -902,11 +902,11 @@ required from medium model \""   + mediumName + "\".");
     f := h_TX(state.T,state.X) - gasConstant(state)*state.T - state.T*specificEntropy(state);
   end specificHelmholtzEnergy;
   
-  function h_TX "Return specific enthalpy (requires full X-vector)" 
+  function h_TX "Return specific enthalpy" 
     import Modelica.Media.Interfaces.PartialMedium.Choices;
      extends Modelica.Icons.Function;
      input SI.Temperature T "Temperature";
-     input MassFraction X[nX] "Independent Mass fractions of gas mixture";
+     input MassFraction X[:] "Independent Mass fractions of gas mixture";
      input Boolean exclEnthForm=excludeEnthalpyOfFormation 
       "If true, enthalpy of formation Hf is not included in specific enthalpy h";
      input Choices.ReferenceEnthalpy.Temp refChoice=referenceChoice 
@@ -915,10 +915,6 @@ required from medium model \""   + mediumName + "\".");
       "User defined offset for reference enthalpy, if referenceChoice = UserDefined";
      output SI.SpecificEnthalpy h "Specific enthalpy at temperature T";
     annotation(Inline=false,smoothOrder=1);
-      //     annotation (Inline = false,
-      //                 derivative(zeroDerivative=exclEnthForm,
-      //                            zeroDerivative=refChoice,
-      //                            zeroDerivative=h_off) = h_TX_der);
   algorithm 
     h :=(if fixedX then reference_X else X)*
          {SingleGasNasa.h_T(data[i], T, exclEnthForm, refChoice, h_off) for i in 1:nX};
@@ -936,7 +932,7 @@ required from medium model \""   + mediumName + "\".");
      input SI.SpecificEnthalpy h_off=h_offset 
       "User defined offset for reference enthalpy, if referenceChoice = UserDefined";
     input Real dT "Temperature derivative";
-    input Real dXi[nX] "independent mass fraction derivative";
+    input Real dX[nX] "independent mass fraction derivative";
     output Real h_der "Specific enthalpy at temperature T";
     annotation (InlineNoEvent=false, Inline = false);
   algorithm 
@@ -1016,7 +1012,7 @@ required from medium model \""   + mediumName + "\".");
   redeclare function extends isentropicEnthalpy "Return isentropic enthalpy" 
     input Boolean exact = false "flag wether exact or approximate version should be used";
   algorithm 
-    h_is := if exact then specificEnthalpy_psX(p_downstream,specificEntropy(refState),refstate.X)
+    h_is := if exact then specificEnthalpy_psX(p_downstream,specificEntropy(refState),refState.X)
       else isentropicEnthalpyApproximation(p_downstream,refState);
   end isentropicEnthalpy;
   
@@ -1444,6 +1440,7 @@ end lowPressureThermalConductivity;
     input MassFraction[:] X "mass fractions of composition";
     output Temperature T "temperature";
   protected 
+    MassFraction[nX] Xfull = if size(X,1) == nX then X else cat(1,X,{1-sum(X)}); 
   package Internal 
       "Solve h(data,T) for T with given h (use only indirectly via temperature_phX)" 
     extends Modelica.Media.Common.OneNonLinearEquation;
@@ -1463,7 +1460,7 @@ end lowPressureThermalConductivity;
   end Internal;
     
   algorithm 
-    T := Internal.solve(h, 200, 6000, 1.0e5, X[1:nXi], data[1]);
+    T := Internal.solve(h, 200, 6000, 1.0e5, Xfull, data[1]);
   end T_hX;
   
   function T_psX 
