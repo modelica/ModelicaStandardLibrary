@@ -52,14 +52,10 @@ connected with continuous blocks or with sampled-data blocks.
             Polygon(points=[90, 0; 30, 20; 30, -20; 90, 0], style(color=42,
               fillColor=42))),
           Documentation(info="<html>
-<p>This block implements the Modelica.SIunits unit conversion functions as a fixed causality block to
-simplify their use. The block contains a replaceable function class <b>convert</b> that can be
-changed to be any of the functions defined in Modelica.SIunits.Conversions, and more generally, any
-functions that extend from Modelica.SIunits.Conversions.ConversionIcon. The output <b>y</b> is optained
-applying the unit conversion function to the input <b>u</b>:</p>
-<pre>
-    y = <b>convert</b>( u );
-</pre>
+<p>This block implements the Modelica.SIunits.Conversions functions as a fixed causality block to
+simplify their use. The block contains a replaceable block class <b>ConversionBlock</b> that can be
+changed to be any of the blocks defined in Modelica.Blocks.Math.UnitConversions, and more generally, any
+blocks that extend from Modelica.Blocks.Interfaces.PartialConversionBlock.</p>
 </html>"),
         Diagram);
     end ConvertAllUnits;
@@ -433,7 +429,7 @@ applying the unit conversion function to the input <b>u</b>:</p>
     
     annotation (uses(Modelica(version="2.2.1")));
   end UnitConversions;
-
+  
       block TwoInputs 
     "Change causality of input signals by defining that two input signals are identical (e.g. for inverse models)" 
         extends Blocks.Interfaces.BlockIcon;
@@ -2148,7 +2144,6 @@ zero or negative.
       equation 
         y = Modelica.Math.log10(u);
       end Log10;
-  
   
   block RealToInteger "Convert Real to Integer signal" 
     extends Interfaces.IntegerBlockIcon;
