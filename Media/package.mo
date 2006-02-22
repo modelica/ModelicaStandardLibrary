@@ -3316,7 +3316,8 @@ output window.
 </html>"));
    end Inverse_sine;
     
-   model Inverse_sh_T "Solve h = h_T(T), s = s_T(T) for T, if h or s is given for ideal gas NASA" 
+   model Inverse_sh_T 
+      "Solve h = h_T(T), s = s_T(T) for T, if h or s is given for ideal gas NASA" 
       import SI = Modelica.SIunits;
       extends Modelica.Icons.Example;
       
@@ -3341,7 +3342,7 @@ output window.
                  experimentSetupOutput,
                  Documentation(info="<html>
                                </html>"));
-     
+      
    equation 
       // Define specific enthalpy
       h1 = if time < 0 then h_min else 
@@ -3350,7 +3351,7 @@ output window.
       s1 = if time < 0 then s_min else 
            if time > 1 then s_max else 
               s_min + time*(s_max - s_min);
-            
+      
       // Solve for temperature
       Th = Medium.temperature_phX(p, h1, fill(0.0,0));
       Ts = Medium.temperature_psX(p, s1, fill(0.0,0));
@@ -3674,8 +3675,10 @@ Modelica source.
       "critical, triple, molecular and other standard data of fluid" 
       extends Modelica.Icons.Record;
       String iupacName "complete IUPAC name (or common name, if non-existent)";
-      String casRegistryNumber "chemical abstracts sequencing number (if it exists)";
-      String chemicalFormula "Chemical formula, (brutto, nomenclature according to Hill";
+      String casRegistryNumber 
+        "chemical abstracts sequencing number (if it exists)";
+      String chemicalFormula 
+        "Chemical formula, (brutto, nomenclature according to Hill";
       String structureFormula "Chemical structure formula";
       MolarMass molarMass "molar mass";
     end FluidConstants;
@@ -4300,6 +4303,32 @@ T_ambient.
                 "h_known (specific enthalpy h is known)"));
         end Temp;
       end Th;
+      
+      package Explicit 
+        "Type, constants and menu choices to define the explicitly given state variable inputs" 
+        extends Modelica.Icons.Enumeration;
+        
+        constant Integer dT_explicit=0 "explicit in density and temperature";
+        constant Integer ph_explicit=1 
+          "explicit in pressure and specific enthalpy";
+        constant Integer ps_explicit=2 
+          "explicit in pressure and specific entropy";
+        constant Integer pT_explicit=3 "explicit in pressure and temperature";
+        
+        type Temp 
+          "Temporary type with choices for menus (until enumerations are available)" 
+          extends Integer(min=0,max=3);
+          annotation (Evaluate=true, choices(
+              choice=Modelica.Media.Interfaces.PartialMedium.Choices.Explicit.dT_explicit 
+                "explicit in d and T",
+              choice=Modelica.Media.Interfaces.PartialMedium.Choices.Explicit.ph_explicit 
+                "explicit in p and h",
+              choice=Modelica.Media.Interfaces.PartialMedium.Choices.Explicit.ps_explicit 
+                "explicit in p and s",
+              choice=Modelica.Media.Interfaces.PartialMedium.Choices.Explicit.pT_explicit 
+                "explicit in p and s"));
+        end Temp;
+      end Explicit;
     end Choices;
     annotation (Documentation(info="<html>
 <p>
@@ -4321,9 +4350,9 @@ are described in
   partial package PartialPureSubstance 
     "base class for pure substances of one chemical substance" 
     extends PartialMedium;
-
-    replaceable partial function setState_pT 
-      "Return thermodynamic state as function of p and T" 
+    
+    replaceable function setState_pT 
+      "Return thermodynamic state as function of pressure and temperature" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input Temperature T "Temperature";
@@ -4332,8 +4361,8 @@ are described in
       state := setState_pTX(p,T,fill(0,0));
     end setState_pT;
     
-    replaceable partial function setState_ph 
-      "Return thermodynamic state as function of p and h" 
+    replaceable function setState_ph 
+      "Return thermodynamic state as function of pressure and specific enthalpy" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEnthalpy h "Specific enthalpy";
@@ -4342,8 +4371,8 @@ are described in
       state := setState_phX(p,h,fill(0, 0));
     end setState_ph;
     
-    replaceable partial function setState_ps 
-      "Return thermodynamic state as function of p and s" 
+    replaceable function setState_ps 
+      "Return thermodynamic state as function of pressure and specific entropy" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEntropy s "Specific entropy";
@@ -4352,8 +4381,8 @@ are described in
       state := setState_psX(p,s,fill(0,0));
     end setState_ps;
     
-    replaceable partial function setState_dT 
-      "Return thermodynamic state as function of d and T" 
+    replaceable function setState_dT 
+      "Return thermodynamic state as function of density and temperature" 
       extends Modelica.Icons.Function;
       input Density d "density";
       input Temperature T "Temperature";
@@ -4447,7 +4476,6 @@ are described in
     "base class for pure substances of several chemical substances" 
     extends PartialMedium;
     
-    
     redeclare replaceable record extends ThermodynamicState 
       "thermodynamic state variables" 
       AbsolutePressure p "Absolute pressure of medium";
@@ -4455,8 +4483,9 @@ are described in
       MassFraction X[nX] 
         "Mass fractions (= (component mass)/total mass  m_i/m)";
     end ThermodynamicState;
-        
-    redeclare replaceable record extends FluidConstants "extended fluid constants"
+    
+    redeclare replaceable record extends FluidConstants 
+      "extended fluid constants" 
       Temperature criticalTemperature "critical temperature";
       AbsolutePressure criticalPressure "critical pressure";
       MolarVolume criticalMolarVolume "critical molar Volume";
@@ -4465,31 +4494,43 @@ are described in
       AbsolutePressure triplePointPressure "triple point pressure";
       Temperature meltingPoint "melting point at 101325 Pa";
       Temperature normalBoilingPoint "normal boiling point (at 101325 Pa)";
-      DipoleMoment dipoleMoment "dipole moment of molecule in Debye (1 debye = 3.33564e10-30 C.m)";
-      Boolean hasIdealGasHeatCapacity=false "true if ideal gas heat capacity is available";
+      DipoleMoment dipoleMoment 
+        "dipole moment of molecule in Debye (1 debye = 3.33564e10-30 C.m)";
+      Boolean hasIdealGasHeatCapacity=false 
+        "true if ideal gas heat capacity is available";
       Boolean hasCriticalData=false "true if critical data are known";
       Boolean hasDipoleMoment=false "true if a dipole moment known";
       Boolean hasFundamentalEquation=false "true if a fundamental equation";
-      Boolean hasLiquidHeatCapacity=false "true if liquid heat capacity is available";
-      Boolean hasSolidHeatCapacity=false "true if solid heat capacity is available";
-      Boolean hasAccurateViscosityData=false "true if accurate data for a viscosity function is available";
-      Boolean hasAccurateConductivityData=false "true if accurate data for thermal conductivity is available";
-      Boolean hasVapourPressureCurve=false "true if vapour pressure data, e.g. Antoine coefficents are known";
-      Boolean hasAcentricFactor=false "true if Pitzer accentric factor is known";
-      SpecificEnthalpy HCRIT0=0.0 "Critical specific enthalpy of the fundamental equation";
-      SpecificEntropy SCRIT0=0.0 "Critical specific entropy of the fundamental equation";
-      SpecificEnthalpy deltah=0.0 "Difference between specific enthalpy model (h_m) and f.eq. (h_f) (h_m - h_f)";
-      SpecificEntropy deltas=0.0 "Difference between specific enthalpy model (s_m) and f.eq. (s_f) (s_m - s_f)";
-  end FluidConstants;
-
+      Boolean hasLiquidHeatCapacity=false 
+        "true if liquid heat capacity is available";
+      Boolean hasSolidHeatCapacity=false 
+        "true if solid heat capacity is available";
+      Boolean hasAccurateViscosityData=false 
+        "true if accurate data for a viscosity function is available";
+      Boolean hasAccurateConductivityData=false 
+        "true if accurate data for thermal conductivity is available";
+      Boolean hasVapourPressureCurve=false 
+        "true if vapour pressure data, e.g. Antoine coefficents are known";
+      Boolean hasAcentricFactor=false 
+        "true if Pitzer accentric factor is known";
+      SpecificEnthalpy HCRIT0=0.0 
+        "Critical specific enthalpy of the fundamental equation";
+      SpecificEntropy SCRIT0=0.0 
+        "Critical specific entropy of the fundamental equation";
+      SpecificEnthalpy deltah=0.0 
+        "Difference between specific enthalpy model (h_m) and f.eq. (h_f) (h_m - h_f)";
+      SpecificEntropy deltas=0.0 
+        "Difference between specific enthalpy model (s_m) and f.eq. (s_f) (s_m - s_f)";
+    end FluidConstants;
+    
   constant FluidConstants[nS] fluidConstants "constant data for the fluid";
-
+    
   replaceable function gasConstant 
       "return the gas constant of the mixture (also for liquids)" 
       extends Modelica.Icons.Function;
       input ThermodynamicState state "thermodynamic state";
       output SI.SpecificHeatCapacity R "mixture gas constant";
-    end gasConstant;
+  end gasConstant;
     
     function moleToMassFractions "Compute mass fractions X from mole fractions" 
       extends Modelica.Icons.Function;
@@ -4523,7 +4564,7 @@ are described in
         moleFractions[i] := Mmix*X[i]/MMX[i];
       end for;
     end massToMoleFractions;
-
+    
   end PartialMixtureMedium;
   
   partial package PartialCondensingGases 
@@ -4597,7 +4638,8 @@ are described in
           </body></html>"));
     end FluidLimits;
     
-    redeclare replaceable record extends FluidConstants "extended fluid constants"
+    redeclare replaceable record extends FluidConstants 
+      "extended fluid constants" 
       Temperature criticalTemperature "critical temperature";
       AbsolutePressure criticalPressure "critical pressure";
       MolarVolume criticalMolarVolume "critical molar Volume";
@@ -4606,28 +4648,40 @@ are described in
       AbsolutePressure triplePointPressure "triple point pressure";
       Temperature meltingPoint "melting point at 101325 Pa";
       Temperature normalBoilingPoint "normal boiling point (at 101325 Pa)";
-      DipoleMoment dipoleMoment "dipole moment of molecule in Debye (1 debye = 3.33564e10-30 C.m)";
-      Boolean hasIdealGasHeatCapacity=false "true if ideal gas heat capacity is available";
+      DipoleMoment dipoleMoment 
+        "dipole moment of molecule in Debye (1 debye = 3.33564e10-30 C.m)";
+      Boolean hasIdealGasHeatCapacity=false 
+        "true if ideal gas heat capacity is available";
       Boolean hasCriticalData=false "true if critical data are known";
       Boolean hasDipoleMoment=false "true if a dipole moment known";
       Boolean hasFundamentalEquation=false "true if a fundamental equation";
-      Boolean hasLiquidHeatCapacity=false "true if liquid heat capacity is available";
-      Boolean hasSolidHeatCapacity=false "true if solid heat capacity is available";
-      Boolean hasAccurateViscosityData=false "true if accurate data for a viscosity function is available";
-      Boolean hasAccurateConductivityData=false "true if accurate data for thermal conductivity is available";
-      Boolean hasVapourPressureCurve=false "true if vapour pressure data, e.g. Antoine coefficents are known";
-      Boolean hasAcentricFactor=false "true if Pitzer accentric factor is known";
-      SpecificEnthalpy HCRIT0=0.0 "Critical specific enthalpy of the fundamental equation";
-      SpecificEntropy SCRIT0=0.0 "Critical specific entropy of the fundamental equation";
-      SpecificEnthalpy deltah=0.0 "Difference between specific enthalpy model (h_m) and f.eq. (h_f) (h_m - h_f)";
-      SpecificEntropy deltas=0.0 "Difference between specific enthalpy model (s_m) and f.eq. (s_f) (s_m - s_f)";
-  end FluidConstants;
-
+      Boolean hasLiquidHeatCapacity=false 
+        "true if liquid heat capacity is available";
+      Boolean hasSolidHeatCapacity=false 
+        "true if solid heat capacity is available";
+      Boolean hasAccurateViscosityData=false 
+        "true if accurate data for a viscosity function is available";
+      Boolean hasAccurateConductivityData=false 
+        "true if accurate data for thermal conductivity is available";
+      Boolean hasVapourPressureCurve=false 
+        "true if vapour pressure data, e.g. Antoine coefficents are known";
+      Boolean hasAcentricFactor=false 
+        "true if Pitzer accentric factor is known";
+      SpecificEnthalpy HCRIT0=0.0 
+        "Critical specific enthalpy of the fundamental equation";
+      SpecificEntropy SCRIT0=0.0 
+        "Critical specific entropy of the fundamental equation";
+      SpecificEnthalpy deltah=0.0 
+        "Difference between specific enthalpy model (h_m) and f.eq. (h_f) (h_m - h_f)";
+      SpecificEntropy deltas=0.0 
+        "Difference between specific enthalpy model (s_m) and f.eq. (s_f) (s_m - s_f)";
+    end FluidConstants;
+    
   constant FluidConstants[nS] fluidConstants "constant data for the fluid";
-  
+    
   redeclare replaceable record extends ThermodynamicState 
-      Integer phase(min=0, max=2) 
-      "phase of the fluid: 1 for 1-phase, 2 for two-phase, 0 for not known, e.g. interactive use";
+      FixedPhase phase(min=0, max=2) 
+        "phase of the fluid: 1 for 1-phase, 2 for two-phase, 0 for not known, e.g. interactive use";
   end ThermodynamicState;
     
     replaceable record SaturationProperties 
@@ -4858,8 +4912,8 @@ are described in
       algorithm 
         h := specificEnthalpy(setState_psX(p,s,X,phase));
       end specificEnthalpy_psX;
-        
-    redeclare replaceable partial function setState_pT 
+    
+    redeclare replaceable function setState_pT 
       "Return thermodynamic state as function of p and T" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
@@ -4871,7 +4925,7 @@ are described in
       state := setState_pTX(p,T,fill(0,0),phase);
     end setState_pT;
     
-    redeclare replaceable partial function setState_ph 
+    redeclare replaceable function setState_ph 
       "Return thermodynamic state as function of p and h" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
@@ -4883,7 +4937,7 @@ are described in
       state := setState_phX(p,h,fill(0, 0),phase);
     end setState_ph;
     
-    redeclare replaceable partial function setState_ps 
+    redeclare replaceable function setState_ps 
       "Return thermodynamic state as function of p and s" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
@@ -4895,7 +4949,7 @@ are described in
       state := setState_psX(p,s,fill(0,0),phase);
     end setState_ps;
     
-    redeclare replaceable partial function setState_dT 
+    redeclare replaceable function setState_dT 
       "Return thermodynamic state as function of d and T" 
       extends Modelica.Icons.Function;
       input Density d "density";
@@ -5024,7 +5078,7 @@ are described in
     constant MolarMass MM_const "Molar mass";
     
     constant FluidConstants[nS] fluidConstants "fluid constants";
-
+    
     redeclare model extends BaseProperties(
         T(stateSelect=StateSelect.prefer)) "Base properties" 
     equation 
@@ -5217,7 +5271,7 @@ quantities are assumed to be constant.
     algorithm 
       h := Utilities.h_props_pT(p, T, Utilities.twoPhaseProps_pT(p, T));
     end specificEnthalpy_pT;
-
+    
     redeclare replaceable function temperature_ph 
       "Computes temperature as a function of pressure and specific enthalpy" 
       extends Modelica.Icons.Function;
@@ -5241,13 +5295,9 @@ quantities are assumed to be constant.
     algorithm 
       T := Utilities.T_props_ps(p, s, Utilities.twoPhaseProps_ps(p, s, phase));
     end temperature_ps;
-
+    
     replaceable package Utilities 
-      constant Boolean phaseBoundaryComputation=false 
-        "true if phase boundary-computation is performed";
-      
       function phaseAssert "assert function for inlining" 
-        
         input Boolean check "condition to check";
         output Real dummy "dummy output";
       algorithm 
@@ -5256,7 +5306,6 @@ quantities are assumed to be constant.
       
       replaceable partial function twoPhaseProps_dT 
         "intermediate property record for medium" 
-        
         input Density d "density";
         input Temperature T "temperature";
         input FixedPhase phase=0 
@@ -5265,7 +5314,6 @@ quantities are assumed to be constant.
       end twoPhaseProps_dT;
       
       function phase_dT "phase as a function of density and temperature" 
-        
         input Density d "density";
         input Temperature T "temperature";
         input TwoPhaseProps aux "auxiliary record";
@@ -5277,7 +5325,6 @@ quantities are assumed to be constant.
       end phase_dT;
       
       function p_props_dT 
-        
         input Density d "density";
         input Temperature T "temperature";
         input TwoPhaseProps aux "auxiliary record";
@@ -5288,7 +5335,6 @@ quantities are assumed to be constant.
       end p_props_dT;
       
       function s_props_dT 
-        
         input Density d "density";
         input Temperature T "temperature";
         input TwoPhaseProps aux "auxiliary record";
@@ -5299,7 +5345,6 @@ quantities are assumed to be constant.
       end s_props_dT;
       
       function u_props_dT 
-        
         input Density d "density";
         input Temperature T "temperature";
         input TwoPhaseProps aux "auxiliary record";
