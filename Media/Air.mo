@@ -2,116 +2,31 @@ package Air "Media models for air"
   
   package SimpleAir "Air: Simple dry air model (0..100 degC)" 
     
-    extends Interfaces.PartialMedium(
-       mediumName="SimpleAir",
-       final reducedX=true,
-       final singleState=false);
+    extends Interfaces.PartialSimpleIdealGasMedium
+      (mediumName="SimpleAir",
+       cp_const=1005.45,
+       MM_const=0.0289651159,
+       R_gas=Constants.R/0.0289651159,
+       eta_const=1.82e-5,
+       lambda_const=0.026,
+       T_min=Cv.from_degC(0),
+       T_max=Cv.from_degC(100));
     
     import SI = Modelica.SIunits;
     import Cv = Modelica.SIunits.Conversions;
     import Modelica.Constants;
     
-    constant SI.MolarMass MM_air=0.0289651159 "Molar mass of air";
-    constant SI.SpecificHeatCapacity R_air=Constants.R/MM_air 
-      "Gas constant of dry air";
-    constant SI.SpecificHeatCapacity cp_air=1005.45 
-      "Specific heat capacity of dry air";
-    constant SI.Temperature T_min=Cv.from_degC(0) 
-      "Minimum temperature valid for medium model";
-    constant SI.Temperature T_max=Cv.from_degC(100) 
-      "Maximum temperature valid for medium model";
     constant FluidConstants[nS] fluidConstants =
       FluidConstants(iupacName={"simple air"},
                      casRegistryNumber={"not a real substance"},
                      chemicalFormula={"N2, O2"},
                      structureFormula={"N2, O2"},
                      molarMass=Modelica.Media.IdealGases.Common.SingleGasesData.N2.MM) "constant data for the fluid";
-    
-    redeclare replaceable record extends ThermodynamicState 
-      "thermodynamic state" 
-      AbsolutePressure p "Absolute pressure of medium";
-      Temperature T "Temperature of medium";
-    end ThermodynamicState;
-    
-    redeclare model extends BaseProperties(
-       T(stateSelect=if preferredMediumStates then StateSelect.prefer else StateSelect.default),
-       p(stateSelect=if preferredMediumStates then StateSelect.prefer else StateSelect.default)) 
-      "Base properties of dry air medium" 
-    equation 
-      assert(T >= T_min and T <= T_max, "Temperature T (= " + String(T) + " K) is not 
-in the allowed range (" + String(T_min) + " K <= T <= " + String(T_max)
-         + " K) required from medium model \"" + mediumName + "\".");
-      
-      h = cp_air*T_degC;
-      u = h - R_air*T;
-      d = p/(R_air*T);
-      R = R_air;
-      state.T = T;
-      state.p = p;
-      MM = MM_air;
-      annotation (Icon(Text(
-            extent=[-86, 62; 82, 6],
-            style(color=0),
-            string="air"), Text(
-            extent=[-94, -28; 100, -66],
-            style(color=10),
-            string=" 0..100°C")));
-    end BaseProperties;
-    
-    redeclare function setState_pTX "Return thermodynamic state as function of p, T and composition X" 
-      extends Modelica.Icons.Function;
-      input AbsolutePressure p "Pressure";
-      input Temperature T "Temperature";
-      input MassFraction X[:] = fill(0,0) "Mass fractions";
-      output ThermodynamicState state;
-    algorithm
-      state := ThermodynamicState(p=p,T=T);
-    end setState_pTX;
-    
-    redeclare function setState_phX "Return thermodynamic state as function of p, h and composition X" 
-      extends Modelica.Icons.Function;
-      input AbsolutePressure p "Pressure";
-      input SpecificEnthalpy h "Specific enthalpy";
-      input MassFraction X[:] = fill(0,0) "Mass fractions";
-      output ThermodynamicState state;
-    algorithm
-      state := ThermodynamicState(p=p,T=h/cp_air);
-    end setState_phX;
         
-    redeclare function setState_dTX "Return thermodynamic state as function of d, T and composition X" 
-      extends Modelica.Icons.Function;
-      input Density d "density";
-      input Temperature T "Temperature";
-      input MassFraction X[:] = fill(0,0) "Mass fractions";
-      output ThermodynamicState state;
-    algorithm
-      state := ThermodynamicState(p=d*R_air*T,T=T);
-    end setState_dTX;
-    
-    redeclare function extends dynamicViscosity "Dynamic viscosity of dry air" 
-    algorithm 
-      eta := 1.82e-5;
-    end dynamicViscosity;
-    
-    redeclare function extends thermalConductivity 
-      "thermal conductivity of dry air" 
-    algorithm 
-      lambda := 0.026;
-    end thermalConductivity;
-    
-    redeclare function extends specificHeatCapacityCp 
-      "Specific heat capacity at constant pressure of dry air" 
-    algorithm 
-      cp := cp_air;
-    end specificHeatCapacityCp;
-
-    redeclare function extends specificEnthalpy
-      "specific enthalpy"
-    algorithm
-     h := cp_air*state.T;  
-    end specificEnthalpy;
-    
     annotation (Documentation(info="<html>
+                              <h2>Simple Ideal gas air model for low temperatures<h1>
+                              <p>This model demonstrats how to use the PartialSimpleIdealGas base class to build a
+                              simple ideal gas model with a limited temperature validity range.</p>
                               </html>"));
   end SimpleAir;
   

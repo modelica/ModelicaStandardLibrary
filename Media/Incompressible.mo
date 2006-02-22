@@ -143,6 +143,11 @@ which is only exactly true for a fluid with constant density d=d0.
       state := ThermodynamicState(p=p,T=T);
     end setState_pTX;
     
+    redeclare function extends setState_dTX "Returns state record, given pressure and temperature" 
+    algorithm 
+      assert(false, "for incompressible media with d(T) only, state can not be set from density and temperature");
+    end setState_dTX;
+    
     function setState_pT "returns state record as function of p and T"
       input AbsolutePressure p "pressure";
       input Temperature T "temperature";
