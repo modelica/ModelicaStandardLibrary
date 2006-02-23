@@ -39,7 +39,7 @@ You may have a look at a short summary of space phasor theory at <a href=\"http:
 </p>
 <p>
 <dl>
-  <dt><b>Main Author:</b></dt>
+  <dt><b>Main Authors:</b></dt>
   <dd>
   <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting & Electrical Engineering<br>
@@ -1539,7 +1539,7 @@ These models use package SpacePhasors.
             fNominal) 
           "|Nominal resistances and inductances|stator stray inductance per phase";
         parameter Modelica.SIunits.Inductance Lm=3*sqrt(1 - 0.0667)/(2*pi*fNominal) 
-          "|Nominal resistances and inductances|main inductance";
+          "|Nominal resistances and inductances|main field inductance";
         parameter Modelica.SIunits.Inductance Lrsigma=3*(1 - sqrt(1 - 0.0667))/(2*pi*
             fNominal) 
           "|Nominal resistances and inductances|rotor stray inductance";
@@ -1640,7 +1640,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 <td>0.0667</td><td> </td>
 </tr>
 <tr>
-<td>These values give the following inductances, <br>assuming equal stator and rotor leakage inductances:</td>
+<td>These values give the following inductances, <br>assuming equal stator and rotor stray inductances:</td>
 <td> </td><td> </td>
 </tr>
 <tr>
@@ -1652,7 +1652,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 <td>Xr * (1 - sqrt(1-sigma))/(2*pi*fNominal)</td><td> </td>
 </tr>
 <tr>
-<td>main inductance per phase</td>
+<td>main field inductance per phase</td>
 <td>sqrt(Xs*Xr * (1-sigma))/(2*pi*fNominal)</td><td> </td>
 </tr>
 </table>
@@ -1714,7 +1714,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             fNominal) 
           "|Nominal resistances and inductances|stator stray inductance per phase";
         parameter Modelica.SIunits.Inductance Lm=3*sqrt(1 - 0.0667)/(2*pi*fNominal) 
-          "|Nominal resistances and inductances|main inductance";
+          "|Nominal resistances and inductances|main field inductance";
         parameter Modelica.SIunits.Inductance Lrsigma=3*(1 - sqrt(1 - 0.0667))/(2*pi*
             fNominal) 
           "|Nominal resistances and inductances|rotor stray inductance per phase";
@@ -1868,7 +1868,7 @@ Resistance and stray inductance of stator and rotor are modeled directly in stat
 <td>Xr * (1 - sqrt(1-sigma))/(2*pi*fNominal)</td><td> </td>
 </tr>
 <tr>
-<td>main inductance per phase</td>
+<td>main field inductance per phase</td>
 <td>sqrt(Xs*Xr * (1-sigma))/(2*pi*f)</td><td> </td>
 </tr>
 </table>
@@ -2032,9 +2032,9 @@ These models use package SpacePhasors.
         parameter Modelica.SIunits.Inductance Lssigma=0.1/(2*pi*fNominal) 
           "|Nominal resistances and inductances|stator stray inductance per phase";
         parameter Modelica.SIunits.Inductance Lmd=0.3/(2*pi*fNominal) 
-          "|Nominal resistances and inductances|main inductance in d-axis";
+          "|Nominal resistances and inductances|main field inductance in d-axis";
         parameter Modelica.SIunits.Inductance Lmq=0.3/(2*pi*fNominal) 
-          "|Nominal resistances and inductances|main inductance in q-axis";
+          "|Nominal resistances and inductances|main field inductance in q-axis";
         parameter Boolean DamperCage = true "damper cage is present?" 
           annotation(Dialog(group = "DamperCage"));
         parameter Modelica.SIunits.Inductance Lrsigma=0.05/(2*pi*fNominal) 
@@ -2196,11 +2196,11 @@ Whether a damper cage is present or not, can be selected with Boolean parameter 
 <td> </td><td> </td>
 </tr>
 <tr>
-<td>main inductance in d-axis</td>
+<td>main field inductance in d-axis</td>
 <td>(Xd - Xss)/(2*pi*fNominal)</td><td> </td>
 </tr>
 <tr>
-<td>main inductance in q-axis</td>
+<td>main field inductance in q-axis</td>
 <td>(Xq - Xss)/(2*pi*fNominal)</td><td> </td>
 </tr>
 <tr>
@@ -2261,9 +2261,9 @@ Whether a damper cage is present or not, can be selected with Boolean parameter 
         parameter Modelica.SIunits.Inductance Lssigma=0.1/(2*pi*fNominal) 
           "|Nominal resistances and inductances|stator stray inductance per phase";
         parameter Modelica.SIunits.Inductance Lmd=1.5/(2*pi*fNominal) 
-          "|Nominal resistances and inductances|main inductance in d-axis";
+          "|Nominal resistances and inductances|main field inductance in d-axis";
         parameter Modelica.SIunits.Inductance Lmq=1.5/(2*pi*fNominal) 
-          "|Nominal resistances and inductances|main inductance in q-axis";
+          "|Nominal resistances and inductances|main field inductance in q-axis";
         parameter Boolean DamperCage = true "damper cage is present?" 
           annotation(Dialog(group = "DamperCage"));
         parameter Modelica.SIunits.Inductance Lrsigma=0.05/(2*pi*fNominal) 
@@ -2463,11 +2463,11 @@ Whether a damper cage is present or not, can be selected with Boolean parameter 
 <td> </td><td> </td>
 </tr>
 <tr>
-<td>main inductance in d-axis</td>
+<td>main field inductance in d-axis</td>
 <td>(Xd - Xss)/(2*pi*fNominal)</td><td> </td>
 </tr>
 <tr>
-<td>main inductance in q-axis</td>
+<td>main field inductance in q-axis</td>
 <td>(Xq - Xss)/(2*pi*fNominal)</td><td> </td>
 </tr>
 <tr>
@@ -2537,9 +2537,9 @@ Whether a damper cage is present or not, can be selected with Boolean parameter 
         parameter Modelica.SIunits.Inductance Lssigma=0.1/(2*pi*fNominal) 
           "|Nominal resistances and inductances|stator stray inductance per phase";
         parameter Modelica.SIunits.Inductance Lmd=2.9/(2*pi*fNominal) 
-          "|Nominal resistances and inductances|main inductance in d-axis";
+          "|Nominal resistances and inductances|main field inductance in d-axis";
         parameter Modelica.SIunits.Inductance Lmq=0.9/(2*pi*fNominal) 
-          "|Nominal resistances and inductances|main inductance in q-axis";
+          "|Nominal resistances and inductances|main field inductance in q-axis";
         parameter Boolean DamperCage = true "damper cage is present?" 
           annotation(Dialog(group = "DamperCage"));
         parameter Modelica.SIunits.Inductance Lrsigma=0.05/(2*pi*fNominal) 
@@ -2699,11 +2699,11 @@ Whether a damper cage is present or not, can be selected with Boolean parameter 
 <td>Xrqs/(2*pi*fNominal)</td><td> </td>
 </tr>
 <tr>
-<td>main inductance per phase in d-axis</td>
+<td>main field inductance per phase in d-axis</td>
 <td>(Xsd-Xss)/(2*pi*fNominal)</td><td> </td>
 </tr>
 <tr>
-<td>main inductance per phase in q-axis</td>
+<td>main field inductance per phase in q-axis</td>
 <td>(Xsq-Xss)/(2*pi*fNominal)</td><td> </td>
 </tr>
 </table>
@@ -3264,7 +3264,7 @@ These models use package SpacePhasors.
       model AirGapS "Airgap in stator-fixed coordinate system" 
         constant Integer m=3 "number of phases";
         parameter Integer p(min=1) "number of pole pairs";
-        parameter Modelica.SIunits.Inductance Lm "main inductance";
+        parameter Modelica.SIunits.Inductance Lm "main field inductance";
         output Modelica.SIunits.Torque tau_electrical;
         Modelica.SIunits.Angle gamma "Rotor displacement angle";
         Modelica.SIunits.Current i_ss[2] 
@@ -3353,8 +3353,8 @@ Model of the airgap in stator-fixed coordinate system, using only equations.
       model AirGapR "Airgap in rotor-fixed coordinate system" 
         constant Integer m=3 "number of phases";
         parameter Integer p(min=1) "number of pole pairs";
-        parameter Modelica.SIunits.Inductance Lmd "main inductance d-axis";
-        parameter Modelica.SIunits.Inductance Lmq "main inductance q-axis";
+        parameter Modelica.SIunits.Inductance Lmd "main field inductance d-axis";
+        parameter Modelica.SIunits.Inductance Lmq "main field inductance q-axis";
         output Modelica.SIunits.Torque tau_electrical;
         Modelica.SIunits.Angle gamma "Rotor displacement angle";
         Modelica.SIunits.Current i_ss[2] 
