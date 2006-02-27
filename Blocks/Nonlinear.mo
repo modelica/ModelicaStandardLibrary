@@ -109,7 +109,7 @@ as output.
                  "However, the result is that the input u is not within the required limits:\n"+
                  "  u = " + String(u) + ", uMin = " + String(uMin) + ", uMax = " + String(uMax));
         else
-           y = if u > uMax then uMax else if u < uMin then uMin else u;
+           y = smooth(0,if u > uMax then uMax else if u < uMin then uMin else u);
         end if;
       end Limiter;
   
@@ -193,13 +193,13 @@ is passed as output.
              "However, the result is that the input u is not within the required limits:\n"+
              "  u = " + String(u) + ", uMin = " + String(uMin) + ", uMax = " + String(uMax));
     else
-       y = if u > uMax then uMax else if u < uMin then uMin else u;
+       y = smooth(0,if u > uMax then uMax else if u < uMin then uMin else u);
     end if;
   end VariableLimiter;
   
       block DeadZone "Provide a region of zero output" 
         parameter Real uMax=1 "Upper limits of dead zones";
-        parameter Real uMin(max=uMax) = -uMax "Lower limits of dead zones";
+        parameter Real uMin=-uMax "Lower limits of dead zones";
         parameter Boolean deadZoneAtInit = true 
       "= false, if dead zone is ignored during initializiation (i.e., y=u)";
         extends Interfaces.SISO;
@@ -263,10 +263,13 @@ function of the input with a slope of 1.
               string="uMax",
               style(color=10))));
       equation 
+        assert(uMax >= uMin, "DeadZone: Limits must be consistent. However, uMax (=" + String(uMax) +
+                             ") < uMin (=" + String(uMin) + ")");
+    
         if initial() and not deadZoneAtInit then
            y = u;
         else
-           y = if u > uMax then u - uMax else if u < uMin then u - uMin else 0;
+           y = smooth(0,if u > uMax then u - uMax else if u < uMin then u - uMin else 0);
         end if;
       end DeadZone;
   

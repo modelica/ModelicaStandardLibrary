@@ -285,7 +285,7 @@ to use <b>limitAtInit</b> = <b>false</b>.
              "However, the result is that the output y is not within the required limits:\n"+
              "  y = " + String(y) + ", outMin = " + String(outMin) + ", outMax = " + String(outMax));
     else
-       der(y) = if y < outMin and u < 0 or y > outMax and u > 0 then 0 else k*u;
+       der(y) = smooth(0,if y < outMin and u < 0 or y > outMax and u > 0 then 0 else k*u);
     end if;
   end LimIntegrator;
   
