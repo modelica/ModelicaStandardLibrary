@@ -822,7 +822,7 @@ blocks inside the PID controller are initialized according to the following tabl
       <td>NoInit</td></tr>
  
   <tr><td><b>SteadyState</b></td>
-      <td>NoInit</td>
+      <td>SteadyState</td>
       <td>SteadyState</td></tr>
  
   <tr><td><b>InitialState</b></td>
@@ -839,12 +839,11 @@ blocks inside the PID controller are initialized according to the following tabl
       <td>NoInit</td></tr>
 </table>
  
- 
 <p>
 In many cases, the most useful initial condition is
 <b>SteadyState</b> because initial transients are then no longer
-present. If initType = InitPID.SteadyState, then the
-integrator is initialized with NoInit. The reason is the 
+present. If initType = InitPID.SteadyState, then in some
+cases difficulties might occur. The reason is the 
 equation of the integrator:
 </p>
  
@@ -853,29 +852,26 @@ equation of the integrator:
 </pre>
  
 <p>
-The steady state equation \"der(x)=0\" would lead to the condition that the input u to the
+The steady state equation \"der(x)=0\" leads to the condition that the input u to the
 integrator is zero. If the input u is already (directly or indirectly) defined
 by another initial condition, then the initialization problem is <b>singular</b>
 (has none or infinitely many solutions). This situation occurs often
 for mechanical systems, where, e.g., u = desiredSpeed - measuredSpeed and
-since speed is both a state and a derivative, it is always defined by
-InitialState or SteadyState initializtion.
+since speed is both a state and a derivative, it is natural to
+initialize it with zero. As sketched this is, however, not possible.
+The solution is to not initialize u or the variable that is used
+to compute u by an algebraic equation.
 </p>
- 
-<p>
-Since <b>NoInit</b> is used for the integrator in SteadyState,
-an additional initial equation has to be added to the system
-to which the integrator is connected. E.g., useful initial conditions
-for a 1-dim. rotational inertia controlled by a PI controller are:
-<b>angle</b>, <b>speed</b>, and <b>acceleration</b> of the inertia are zero.
-</p>
+
  
 </HTML>
 "),   Diagram);
     Blocks.Math.Gain P "Proportional part of PID controller" 
       annotation (extent=[-60,60; -20,100]);
     Blocks.Continuous.Integrator I(k=1/Ti, y_start=xi_start,
-      initType=if initType==InitPID.InitialState or 
+      initType=if initType==InitPID.SteadyState then 
+                  InitPID.SteadyState else 
+               if initType==InitPID.InitialState or 
                   initType==InitPID.DoNotUse_InitialIntegratorState then 
                   InitPID.InitialState else InitPID.NoInit) 
       "Integral part of PID controller" 
@@ -894,6 +890,7 @@ for a 1-dim. rotational inertia controlled by a PI controller are:
     if initType==InitPID.InitialOutput then
        y = y_start;
     end if;
+    
   equation 
     connect(u, P.u) annotation (points=[-120,0; -80,0; -80,80; -64,80], style(
           color=74, rgbcolor={0,0,127}));
@@ -1095,7 +1092,7 @@ blocks inside the PID controller are initialized according to the following tabl
       <td>NoInit</td></tr>
  
   <tr><td><b>SteadyState</b></td>
-      <td>NoInit</td>
+      <td>SteadyState</td>
       <td>SteadyState</td></tr>
  
   <tr><td><b>InitialState</b></td>
@@ -1112,12 +1109,11 @@ blocks inside the PID controller are initialized according to the following tabl
       <td>NoInit</td></tr>
 </table>
  
- 
 <p>
 In many cases, the most useful initial condition is
 <b>SteadyState</b> because initial transients are then no longer
-present. If initType = InitPID.SteadyState, then the
-integrator is initialized with NoInit. The reason is the 
+present. If initType = InitPID.SteadyState, then in some
+cases difficulties might occur. The reason is the 
 equation of the integrator:
 </p>
  
@@ -1126,21 +1122,15 @@ equation of the integrator:
 </pre>
  
 <p>
-The steady state equation \"der(x)=0\" would lead to the condition that the input u to the
+The steady state equation \"der(x)=0\" leads to the condition that the input u to the
 integrator is zero. If the input u is already (directly or indirectly) defined
 by another initial condition, then the initialization problem is <b>singular</b>
 (has none or infinitely many solutions). This situation occurs often
 for mechanical systems, where, e.g., u = desiredSpeed - measuredSpeed and
-since speed is both a state and a derivative, it is always defined by
-InitialState or SteadyState initializtion.
-</p>
- 
-<p>
-Since <b>NoInit</b> is used for the integrator in SteadyState,
-an additional initial equation has to be added to the system
-to which the integrator is connected. E.g., useful initial conditions
-for a 1-dim. rotational inertia controlled by a PI controller are:
-<b>angle</b>, <b>speed</b>, and <b>acceleration</b> of the inertia are zero.
+since speed is both a state and a derivative, it is natural to
+initialize it with zero. As sketched this is, however, not possible.
+The solution is to not initialize u_m or the variable that is used
+to compute u_m by an algebraic equation.
 </p>
 
 <p>
@@ -1160,7 +1150,9 @@ to use <b>limitAtInit</b> = <b>false</b>.
       annotation (extent=[-80, -10; -60, 10]);
     Blocks.Math.Gain P annotation (extent=[-40, 40; -20, 60]);
     Blocks.Continuous.Integrator I(k=1/Ti, y_start=xi_start,
-      initType=if initType==InitPID.InitialState or 
+      initType=if initType==InitPID.SteadyState then 
+                  InitPID.SteadyState else 
+               if initType==InitPID.InitialState or 
                   initType==InitPID.DoNotUse_InitialIntegratorState then 
                   InitPID.InitialState else InitPID.NoInit) if with_I 
       annotation (extent=[-40, -60; -20, -40]);

@@ -103,47 +103,47 @@ package Examples "Demonstration examples of the components of this package"
     extends Modelica.Icons.Example;
     parameter Modelica.SIunits.Angle driveAngle=1.57;
     Modelica.Blocks.Continuous.LimPID PI(
-      controllerType=Modelica.Blocks.Types.SimpleController.PI, 
-      k=100, 
-      Ti=0.1, 
-      yMax=12, 
-      Ni=0.1, 
-      initType=Modelica.Blocks.Types.Init.SteadyState, 
+      controllerType=Modelica.Blocks.Types.SimpleController.PI,
+      k=100,
+      Ti=0.1,
+      yMax=12,
+      Ni=0.1,
+      initType=Modelica.Blocks.Types.Init.SteadyState,
       limitsAtInit=false) 
       annotation (extent=[-56,-20; -36,0]);
     Modelica.Mechanics.Rotational.Inertia inertia1(initType=Modelica.Mechanics.
-          Rotational.Types.Init.InitialAngleSpeedAcceleration) 
+          Rotational.Types.Init.InitialAngleAcceleration) 
                                               annotation (extent=[2,-20; 22,0]);
     annotation (
       Diagram(
-        Rectangle(extent=[-99,48; -32,8], style(color=1, rgbcolor={255,0,0})), 
+        Rectangle(extent=[-99,48; -32,8], style(color=1, rgbcolor={255,0,0})),
         Text(
-          extent=[-98,59; -31,51], 
-          style(color=1, rgbcolor={255,0,0}), 
-          string="reference speed generation"), 
+          extent=[-98,59; -31,51],
+          style(color=1, rgbcolor={255,0,0}),
+          string="reference speed generation"),
         Text(
-          extent=[-98,-46; -60,-52], 
-          style(color=1, rgbcolor={255,0,0}), 
-          string="PI controller"), 
+          extent=[-98,-46; -60,-52],
+          style(color=1, rgbcolor={255,0,0}),
+          string="PI controller"),
         Line(points=[-76,-44; -57,-23], style(
-            color=1, 
-            rgbcolor={255,0,0}, 
-            arrow=1)), 
-        Rectangle(extent=[-25,6; 99,-50], style(color=1, rgbcolor={255,0,0})), 
+            color=1,
+            rgbcolor={255,0,0},
+            arrow=1)),
+        Rectangle(extent=[-25,6; 99,-50], style(color=1, rgbcolor={255,0,0})),
         Text(
-          extent=[4,14; 71,7], 
-          style(color=1, rgbcolor={255,0,0}), 
+          extent=[4,14; 71,7],
+          style(color=1, rgbcolor={255,0,0}),
           string="plant (simple drive train)")),
       Coordsys(
         extent=[-100,-100; 100,100],
         grid=[1,1],
         scale=0),
       experiment(StopTime=4),
-      experimentSetupOutput, 
+      experimentSetupOutput,
       Documentation(info="<html>
 
 <p>
-This is a simple drive train controller by a PID controller:
+This is a simple drive train controlled by a PID controller:
 </p>
 
 <ul>
@@ -158,23 +158,28 @@ This is a simple drive train controller by a PID controller:
      anti-windup-compensation has been added. In this case, the control block
      is used as PI controller.</li>
 
-<li> The output of the controller is a torque that drive a motor inertia
+<li> The output of the controller is a torque that drives a motor inertia
      \"inertia1\". Via a complöiant spring/damper component, the load
      inertia \"inertia2\" is attached. A constant external torque of 10 Nm
      is acting on the load inertia.</li>
 </ul>
 
-</p>
+<p>
 The PI controller settings included \"limitAtInit=false\", in order that
 the controller output limits of 12 Nm are removed from the initialization
-problem. The PI controller is initialized in steady state (initType=SteadyState).
-This means that the integrator part is <b>not</b> initialized (see discussion
-in the info layer of block 
-<a href=\"Modelica://Modelica.Blocks.Continuous.LimPID\">LimPID</a>).
-Therefore, <b>one extra initial equation</b> has to be added to the plant.
-For this reason, angle, speed and acceleration are initialized for \"inertia1\"
-(i.e., 3 instead of 2 conditions) and component \"spring\" is also
-initialized in SteadyState.
+problem. 
+</p>
+
+<p>
+The PI controller is initialized in steady state (initType=SteadyState)
+and the drive shall also be initialized in steady state.
+However, it is not possible to initialize \"inertia1\" in SteadyState, because
+\"der(inertia1.phi)=inertia1.w=0\" is an input to the PI controller that
+defines that the derivative of the integrator state is zero (= the same
+condition that was already defined by option SteadyState of the PI controller).
+Furthermore, one initial condition is missing, because the absolute position
+of inertia1 or inertia2 is not defined. The solution shown in this examples is
+to initialize the angle and the angular acceleration of \"inertia1\".
 </p>
 
 <p>
@@ -202,7 +207,7 @@ is forced back to its limit after a transient phase.
     Modelica.Mechanics.Rotational.Torque torque 
       annotation (extent=[-25,-20; -5,0]);
     Modelica.Mechanics.Rotational.SpringDamper spring(c=1e4, d=100,
-      initType=Modelica.Mechanics.Rotational.Types.Init.SteadyState, 
+      initType=Modelica.Mechanics.Rotational.Types.Init.SteadyState,
       stateSelection=Modelica.Blocks.Types.StateSelection.Prefer) 
       annotation (extent=[32,-20; 52,0]);
     Modelica.Mechanics.Rotational.Inertia inertia2(J=2) 
@@ -232,10 +237,10 @@ is forced back to its limit after a transient phase.
           color=74, rgbcolor={0,0,127}));
     connect(speedSensor.w, PI.u_m)  annotation (points=[1,-40; -46,-40; -46,-22],
         style(color=74, rgbcolor={0,0,127}));
-    connect(integrator.y, PI.u_s)  annotation (points=[-42,30; -37,30; -37,11; 
+    connect(integrator.y, PI.u_s)  annotation (points=[-42,30; -37,30; -37,11;
           -67,11; -67,-10; -58,-10], style(color=74, rgbcolor={0,0,127}));
   end PID_Controller;
-
+  
      model ShowLogicalSources 
        extends Modelica.Icons.Example;
        Sources.BooleanTable table(table={2,4,6,8}) 
