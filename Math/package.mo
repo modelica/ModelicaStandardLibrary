@@ -468,7 +468,7 @@ has a unique solution.
     assert(info == 0, "Solving a linear equality-constrained least squares problem 
 with function \"Matrices.equalityLeastSquares\" failed.");
   end equalityLeastSquares;
-
+  
   function LU "LU decomposition of square or rectangular matrix" 
     extends Modelica.Icons.Function;
     input Real A[:, :] "Square or rectangular matrix";
@@ -3692,7 +3692,7 @@ function atan2 "four quadrant inverse tangent"
         style(color=9))),
     Documentation(info="<HTML>
 y = atan2(u1,u2) computes y such that tan(y) = u1/u2 and
-y is in the range -pi < y < pi. u2 may be zero, provided
+y is in the range -pi &lt; y &le; pi. u2 may be zero, provided
 u1 is not zero.
 </HTML>
 "));
