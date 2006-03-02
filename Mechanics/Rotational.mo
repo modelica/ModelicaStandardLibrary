@@ -13,7 +13,7 @@ drive trains with frictional losses.
   package Overview "Overview" 
     annotation (DocumentationClass=true, Documentation(info="<HTML>
 <h3><font color=\"#008000\" size=5>Overview</font></h3>
-
+ 
 <p>
 This package contains components to model <b>1-dimensional rotational
 mechanical</b> systems, including different types of gearboxes,
@@ -67,7 +67,7 @@ possible to connect two springs or two shafts with inertia directly
 together, see figure below.
 </p>
 <p><IMG SRC=\"../Images/driveConnections.png\" ALT=\"driveConnections\"></p>
-
+ 
 </HTML>"));
       
   end Overview;
@@ -75,7 +75,7 @@ together, see figure below.
   package FlangeConnectors "Flange Connectors" 
     annotation (DocumentationClass=true, Documentation(info="<HTML>
 <h3><font color=\"#008000\" size=5>Flange connectors</font></h3>
-
+ 
 <p>
 A flange is described by the connector class
 Interfaces.<b>Flange_a</b>
@@ -118,7 +118,7 @@ on the bearing.</p>
 with a fixation, i.e., the two implementations in the following figure give
 identical results.</p>
 <p><IMG SRC=\"../Images/bearing2.png\" ALT=\"bearing2\"></p>
-
+ 
 </HTML>"));
       
   end SupportTorques;
@@ -271,7 +271,7 @@ diagram and is therefore less convenient to use.
   package RequirementsForSimulationTool "Requirements for Simulation Tools" 
     annotation (DocumentationClass=true, Documentation(info="<HTML>
 <h3><font color=\"#008000\" size=5>Requirements for Simulation Tools</font></h3>
-
+ 
 <p>
 This library is designed in a fully object oriented way in order that
 components can be connected together in every meaningful combination
@@ -321,7 +321,7 @@ by picking one solution of the infinitely many, e.g., the one where
 the difference to the value of the previous time instant is as small
 as possible.
 </p>
-
+ 
 </HTML>"));
       
   end RequirementsForSimulationTool;
@@ -330,13 +330,13 @@ as possible.
       
     annotation (Documentation(info="<HTML>
 <h3><font color=\"#008000\" size=5>Release notes</font></h3>
-
+ 
 <ul>
 <li><i>December 12, 2005</i> 
     by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
     Package documentation split into several parts and provided
     as Users Guide.</li>
-
+ 
 <li><i>October 27, 2003</i>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>
        and <a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Christian Schweiger</a>:<br>
@@ -383,7 +383,7 @@ as possible.
        Realized a first version based on an existing Dymola library
        of Martin Otter and Hilding Elmqvist.</li>
 </ul>
-
+ 
 </HTML>
 "));
   equation 
@@ -408,7 +408,7 @@ as possible.
     email: <A HREF=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</A>,
            <A HREF=\"mailto:Christian.Schweiger@dlr.de\">Christian.Schweiger@dlr.de</A><br>
 </dl>
-
+ 
 </html>
 "));
   end Contact;
@@ -431,7 +431,7 @@ This package contains example models to demonstrate the usage of the
 Modelica.Mechanics.Rotational package. Open the models and
 simulate them according to the provided description in the models.
 </p>
-
+ 
 </HTML>
 "));
     encapsulated model First "First example: simple drive train" 
@@ -460,7 +460,7 @@ which is acting between a shaft and the housing has to be fixed
 in the housing on one side via component Fixed.</p>
 <p>Simulate for 1 second and plot the following variables:<br>
    angular velocities of inertias inertia2 and 3: inertia2.w, inertia3.w</p>
-
+ 
 </HTML>"), Diagram);
       
       Rotational.Fixed fixed annotation (extent=[38, -60; 54, -44]);
@@ -534,7 +534,7 @@ values (defined already in the model):</p>
 </pre>
 <p>as well as the absolute angular velocities of the three inertia components
 (inertia1.w, inertia2.w, inertia3.w).</p>
-
+ 
 </HTML>"), Diagram);
       
       Rotational.Torque torque annotation (extent=[-45, -5; -35, 5]);
@@ -631,7 +631,7 @@ J4.w), frictional torques of clutches (clutchX.tau),
 frictional mode of clutches (clutchX.mode) where
 mode = -1/0/+1 means backward sliding,
 locked, forward sliding.</p>
-
+ 
 </HTML>"),      Commands(file="CoupledClutches.mos" "Plot inertias"),
         Diagram);
       
@@ -891,7 +891,7 @@ way and provides the result as output signal <b>phi</b>
  
 </HTML>
 "),     Icon(Text(
-            extent=[70, -30; 120, -80],
+            extent=[70, -30; 120, -70],
             string="phi",
             style(color=0)),
           Line(points=[-70,0; -90,0], style(color=0)),
@@ -935,7 +935,7 @@ way and provides the result as output signal <b>w</b>
  
 </HTML>
 "),     Icon(Text(
-            extent=[70, -30; 120, -80],
+            extent=[70, -30; 120, -70],
             string="w",
             style(color=0)),
           Line(points=[-70,0; -90,0],   style(color=0)),
@@ -980,7 +980,7 @@ blocks of the Modelica.Blocks library).
  
 </HTML>
 "),     Icon(Text(
-            extent=[70, -30; 120, -80],
+            extent=[70, -30; 120, -70],
             string="a",
             style(color=0)),
           Line(points=[-70,0; -90,0],   style(color=0)),
@@ -1239,7 +1239,7 @@ and provides the result as output signal <b>tau</b>
 </HTML>
 "),     Icon(
           Text(
-            extent=[-51,-78; 49,-119],
+            extent=[-50,-80; 50,-120],
             string="tau",
             style(color=0)),
           Line(points=[-80, -100; -80, 0], style(color=74, rgbcolor={0,0,127})),
@@ -1293,7 +1293,7 @@ and provides the result as output signal <b>power</b>
 </HTML>
 "),     Icon(
           Text(
-            extent=[-51,-78; 98,-119],
+            extent=[-50,-80; 100,-120],
             style(color=0),
             string="power"),
           Line(points=[-80, -100; -80, 0], style(color=74, rgbcolor={0,0,127})),
@@ -1340,16 +1340,16 @@ and provides the result as output signal <b>power</b>
       library=1,
       autolayout=1),
     Documentation(info="<html>
-
+ 
 <p>
 Library <b>Rotational</b> is a <b>free</b> Modelica package providing
 1-dimensional, rotational mechanical components to model in a convenient way
 drive trains with frictional losses. A typical, simple example is shown
 in the next figure:
 </p>
-
+ 
 <p><img src=\"../Images/Rotational/driveExample.png\"></p>
-
+ 
 <p>
 For an introduction, have especially a look at:
 </p>
@@ -1359,7 +1359,7 @@ For an introduction, have especially a look at:
 <li> <a href=\"Modelica://Modelica.Mechanics.Rotational.Examples\">Rotational.Examples</a>
      contains examples that demonstrate the usage of this library.</li>
 </ul>
-
+ 
 <p>
 Copyright &copy; 1998-2006, Modelica Association and DLR.
 </p>
@@ -1411,7 +1411,7 @@ This package contains connectors and partial models for 1-dim.
 rotational mechanical components. The components of this package can
 only be used as basic building elements for models.
 </p>
-
+ 
 </HTML>
 "));
     connector Flange_a "1D rotational flange (filled square icon)" 
@@ -1452,7 +1452,7 @@ differentiation of the flange angle phi:
 <pre>
      w = der(phi);    a = der(w)
 </pre>
-
+ 
 </HTML>
 "),     Icon(Ellipse(extent=[-100,100; 100,-100], style(
               color=0,
@@ -1461,7 +1461,7 @@ differentiation of the flange angle phi:
               rgbfillColor={95,95,95},
               fillPattern=1))),
         Diagram(                Text(
-            extent=[-160,110; 40,50],
+            extent=[-160,90; 40,50],
             string="%name",
             style(color=0)), Ellipse(extent=[-40,40; 40,-40], style(
               color=0,
@@ -1510,7 +1510,7 @@ differentiation of the flange angle phi:
 <pre>
      w = der(phi);    a = der(w)
 </pre>
-
+ 
 </HTML>
 "),     Icon(Ellipse(extent=[-98,100; 102,-100], style(
               color=0,
@@ -1524,7 +1524,7 @@ differentiation of the flange angle phi:
               fillColor=7,
               rgbfillColor={255,255,255})),
                                 Text(
-            extent=[-40,110; 160,50],
+            extent=[-40,90; 160,50],
             string="%name",
             style(color=0))),
         Terminal(Rectangle(extent=[-100, -100; 100, 100], style(color=0,
@@ -1550,7 +1550,7 @@ This is a 1D rotational component with two rigidly connected flanges,
 i.e., flange_a.phi = flange_b.phi. It is used e.g. to built up components
 with inertia.
 </p>
-
+ 
 </HTML>
 "),     Diagram,
         Coordsys(
@@ -1598,7 +1598,7 @@ of the two flanges sum-up to zero, i.e., they have the same absolute value
 but opposite sign: flange_a.tau + flange_b.tau = 0. This base class
 is used to built up force elements such as springs, dampers, friction.
 </p>
-
+ 
 </HTML>
 "),     Diagram);
     equation 
@@ -1620,7 +1620,7 @@ of several base components. There are specialized versions of this
 base class for rigidly connected flanges (Interfaces.Rigid) and
 for a compliant connection of flanges (Interfaces.Compliant).
 </p>
-
+ 
 </HTML>
 "),     Diagram,
         Coordsys(
@@ -1649,7 +1649,7 @@ for a compliant connection of flanges (Interfaces.Compliant).
 <p>
 This is a 1D rotational component with two flanges and an additional bearing flange.
 It is a superclass for the two components TwoFlangesAndBearing and TwoFlangesAndBearingH.</p>
-
+ 
 </HTML>
 "));
       
@@ -1667,7 +1667,7 @@ It is a superclass for the two components TwoFlangesAndBearing and TwoFlangesAnd
 <p>
 This is a 1D rotational component with two flanges and an additional bearing flange.
 It is used e.g. to build up equation-based parts of a drive train.</p>
-
+ 
 </HTML>
 "));
     equation 
@@ -1697,7 +1697,7 @@ It is used e.g. to build up equation-based parts of a drive train.</p>
         parameter Boolean bearingConnected;
         
         annotation (Icon(Rectangle(extent=[-90, 10; 90, -10], style(color=8,
-                  fillColor=8)), Text(extent=[0, 60; 0, 20], string="%name")));
+                  fillColor=8)), Text(extent=[-150, 60; 150, 20], string="%name")));
       equation 
         flange_a.phi = flange_b.phi;
         
@@ -1709,14 +1709,14 @@ It is used e.g. to build up equation-based parts of a drive train.</p>
       end Adapter;
     equation 
       tau_support = -adapter.flange_b.tau;
-      connect(adapter.flange_a, bearing) annotation (points=[-6.12303e-016,-70;
+      connect(adapter.flange_a, bearing) annotation (points=[-6.12303e-016,-70; 
             0,-70; 0,-100],    style(color=0));
       annotation (Documentation(info="<html>
 <p>
 This is a 1D rotational component with two flanges and an additional bearing flange.
 It is used e.g. to build up parts of a drive train consisting
 of several base components.</p>
-
+ 
 </HTML>
 "));
     end TwoFlangesAndBearingH;
@@ -1871,7 +1871,7 @@ with the blocks of package Modelica.Blocks.
           Line(points=[-70, 0; -90, 0], style(color=0)),
           Line(points=[70, 0; 90, 0], style(color=0)),
           Line(points=[0, -100; 0, -70], style(color=74, rgbcolor={0,0,127})),
-          Text(extent=[0, 70; 0, 110], string="%name")),
+          Text(extent=[-150, 70; 150, 110], string="%name")),
         Diagram(
           Line(points=[-70, 0; -90, 0], style(color=0)),
           Line(points=[70, 0; 90, 0], style(color=0)),
@@ -1911,7 +1911,7 @@ with the blocks of package Modelica.Blocks.
               fillColor=0,
               rgbfillColor={0,0,0})),
           Text(
-            extent=[-162,162; 162,98],
+            extent=[-150,140; 150,100],
             style(color=3, rgbcolor={0,0,255}),
             string="%name"),
           Polygon(points=[94,16; 80,74; 50,52; 94,16],   style(
@@ -2013,9 +2013,9 @@ Rotational component with <b>inertia</b> and two rigidly connected flanges.
             color=0,
             gradient=2,
             fillColor=8)),
-        Text(extent=[0, 120; 0, 60], string="%name"),
+        Text(extent=[-150, 100; 150, 60], string="%name"),
         Text(
-          extent=[0, -80; 0, -130],
+          extent=[-150, -80; 150, -120],
           string="J=%J",
           style(color=0))),
       Diagram(
@@ -2103,7 +2103,7 @@ The gear is <b>ideal</b>, i.e., it does not have inertia, elasticity, damping
 or backlash. If these effects have to be considered, the gear has to be
 connected to other elements in an appropriate way.
 </p>
-
+ 
 </HTML>
 "),   Icon(
         Rectangle(extent=[-40, 20; -20, -20], style(
@@ -2134,7 +2134,7 @@ connected to other elements in an appropriate way.
             gradient=2,
             fillColor=8,
             fillPattern=1)),
-        Text(extent=[0, 190; 0, 130], string="%name=%ratio"),
+        Text(extent=[-150, 180; 150, 140], string="%name=%ratio"),
         Line(points=[-80, 20; -60, 20], style(color=0)),
         Line(points=[-80, -20; -60, -20], style(color=0)),
         Line(points=[-70, -20; -70, -70], style(color=0)),
@@ -2260,7 +2260,7 @@ According to the overall convention, the positive direction of all
 vectors, especially the absolute angular velocities and cut-torques
 in the flanges, are along the axis vector displayed in the icon.
 </p>
-
+ 
 </HTML>
 "),   Icon(
         Rectangle(extent=[50, 100; 10, -100], style(
@@ -2303,9 +2303,9 @@ in the flanges, are along the axis vector displayed in the icon.
         Line(points=[-70, 50; -70, 40], style(color=0)),
         Line(points=[-80, 80; -59, 80], style(color=0)),
         Line(points=[-70, 100; -70, 80], style(color=0)),
-        Text(extent=[0, 168; 0, 108], string="%name"),
+        Text(extent=[-150, 150; 150, 110], string="%name"),
         Text(
-          extent=[0, -112; 0, -163],
+          extent=[-150, -110; 150, -150],
           string="ratio=%ratio",
           style(color=0))),
       Diagram(
@@ -2404,7 +2404,7 @@ This is an ideal mass- and inertialess gearbox which transforms a
 or backlash has to be considered, this ideal gearbox has to be
 connected with corresponding elements.
 </p>
-
+ 
 </HTML>
 "),   Icon(
         Rectangle(extent=[40, -80; 80, -120], style(color=8, fillColor=8)),
@@ -2420,7 +2420,7 @@ connected with corresponding elements.
             gradient=2,
             fillColor=8,
             fillPattern=1)),
-        Text(extent=[0, 110; 0, 50], string="%name=%ratio"),
+        Text(extent=[-150, 90; 150, 50], string="%name=%ratio"),
         Polygon(points=[-74, -60; -54, -40; -34, -60; -14, -40; 6, -60; 26, -40;
                46, -60; 66, -40; 86, -60; -74, -60], style(
             color=0,
@@ -2515,12 +2515,12 @@ between two inertias/gears to describe the shaft elasticity, or between
 a inertia/gear and the housing (component Fixed), to describe
 a coupling of the element with the housing via a spring.
 </p>
-
+ 
 </HTML>
 "),   Icon(
-        Text(extent=[0, 100; 0, 40], string="%name"),
+        Text(extent=[-150, 80; 150, 40], string="%name"),
         Text(
-          extent=[10, -40; 10, -90],
+          extent=[-150, -40; 150, -80],
           string="c=%c",
           style(color=0)),
         Line(points=[-100, 0; -58, 0; -43, -30; -13, 30; 17, -30; 47, 30; 62, 0;
@@ -2574,7 +2574,7 @@ a coupling of the element with the housing via a spring.
 between an inertia or gear and the housing (component Fixed), or
 between two inertia/gear elements.
 </p>
-
+ 
 </HTML>
 "),   Icon(
         Line(points=[-90, 0; -60, 0], style(color=0)),
@@ -2583,9 +2583,9 @@ between two inertia/gear elements.
         Line(points=[-60, 30; 60, 30], style(color=0)),
         Rectangle(extent=[-60, 30; 30, -30], style(color=0, fillColor=8)),
         Line(points=[30, 0; 90, 0], style(color=0)),
-        Text(extent=[0, 100; 0, 40], string="%name"),
+        Text(extent=[-150, 80; 150, 40], string="%name"),
         Text(
-          extent=[0, -50; 0, -100],
+          extent=[-150, -50; 150, -90],
           string="d=%d",
           style(color=0))),
       Diagram(
@@ -2695,7 +2695,7 @@ to describe a coupling of the element with the housing via a spring/damper.
           extent=[-101, -147; 98, -107],
           string="d=%d",
           style(color=0)),
-        Text(extent=[0, 130; 0, 70], string="%name=%c")),
+        Text(extent=[-150, 110; 150, 70], string="%name=%c")),
       Diagram(
         Line(points=[-80, 32; -58, 32; -43, 2; -13, 62; 17, 2; 47, 62; 62, 32;
               80, 32], style(color=0, thickness=2)),
@@ -2782,7 +2782,7 @@ The spring constant shall be non-zero, otherwise the component cannot be used.
 In combination with components IdealGear, the ElastoBacklash model
 can be used to model a gear box with backlash, elasticity and damping.
 </p>
-
+ 
 </HTML>
 "),   Icon(
         Line(points=[-80, 32; -58, 32; -48, 0; -34, 61; -20, 0; -8, 60; 0, 30;
@@ -2848,10 +2848,10 @@ can be used to model a gear box with backlash, elasticity and damping.
             thickness=1,
             arrow=0)),
         Text(
-          extent=[-99, -130; 100, -90],
+          extent=[-150, -130; 150, -90],
           string="b=%b",
           style(color=0)),
-        Text(extent=[0, 120; 0, 60], string="%name=%c")),
+        Text(extent=[-150, 100; 150, 60], string="%name=%c")),
       Diagram(
         Line(points=[-80, 32; -58, 32; -48, 0; -34, 60; -20, 0; -8, 60; 0, 30;
               20, 30], style(color=0, thickness=2)),
@@ -3001,8 +3001,8 @@ following references, especially (Armstrong and Canudas de Witt 1996):
 <dd><b>A new model for control of systems with friction.</b>
     IEEE Transactions on Automatic Control, Vol. 40, No. 3, pp. 419-425.<br><br>
 </dl>
-
-
+ 
+ 
 </HTML>
 "),   Coordsys(
         extent=[-100, -100; 100, 100],
@@ -3059,7 +3059,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
             fillColor=9,
             fillPattern=1)),
         Line(points=[75, 70; 75, 10], style(color=0)),
-        Text(extent=[0, 150; 0, 90], string="%name"),
+        Text(extent=[-150, 130; 150, 90], string="%name"),
         Line(points=[-10, -90; 0, -80], style(color=0)),
         Line(points=[-5, -90; 5, -80], style(color=0)),
         Line(points=[0, -90; 10, -80], style(color=0)),
@@ -3212,7 +3212,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
             gradient=2,
             fillColor=8,
             fillPattern=1)),
-        Text(extent=[0, -130; 0, -70], string="%name")),
+        Text(extent=[-150, -110; 150, -70], string="%name")),
       Documentation(info="<html>
 <p>
 This component models a <b>clutch</b>, i.e., a component with
@@ -3428,7 +3428,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
             gradient=2,
             fillColor=8,
             fillPattern=1)),
-        Text(extent=[0, -130; 0, -70], string="%name"),
+        Text(extent=[-150, -110; 150, -70], string="%name"),
         Polygon(points=[-10, 30; 50, 0; -10, -30; -10, 30], style(
             color=0,
             fillColor=0,
@@ -3643,7 +3643,7 @@ are dynamically coupled. The method is described in:
             fillPattern=1)),
         Line(points=[0, 90; 80, 70; 80, -40; 70, -40], style(color=74, rgbcolor={0,0,127})),
         Line(points=[0, 90; -80, 70; -80, -40; -70, -40], style(color=74, rgbcolor={0,0,127})),
-        Text(extent=[0, -200; 0, -140], string="%name")),
+        Text(extent=[-150, -180; 150, -140], string="%name")),
       Documentation(info="<html>
 <p>
 This component models a <b>brake</b>, i.e., a component where a frictional
@@ -4006,7 +4006,7 @@ Deutsches Zentrum f&uuml;r Luft- und Raumfahrt e. V., March 18-19, 2002.</p>
         Line(points=[60, 20; 80, 20], style(color=0)),
         Line(points=[60, -20; 80, -20], style(color=0)),
         Line(points=[70, -20; 70, -70], style(color=0)),
-        Text(extent=[0, 190; 0, 130], string="%name=%i")),
+        Text(extent=[-150, 180; 150, 140], string="%name=%i")),
       Diagram(
         Rectangle(extent=[-40, 20; -20, -20], style(
             gradient=2,
@@ -4173,7 +4173,7 @@ Modelica.Constants.eps).
         width=0.69,
         height=0.62),
       Icon(
-        Text(extent=[0, 130; 0, 70], string="%name"),
+        Text(extent=[-150, 100; 150, 60], string="%name"),
         Rectangle(extent=[-100,20; 100,-20], style(
             gradient=2,
             fillColor=8,
@@ -4187,7 +4187,7 @@ Modelica.Constants.eps).
             fillColor=1,
             fillPattern=1)),
         Text(
-          extent=[0, 70; 0, 20],
+          extent=[-150, 60; 150, 20],
           string="eta=%eta",
           style(color=0)),
         Line(points=[30, -50; 20, -60], style(color=0)),
@@ -4250,7 +4250,7 @@ When the motorTorque becomes smaller as the bearingTorque,
 be careful to determine the gear <b>efficiency</b> of this element
 from tables of the gear manufacturers.
 </p>
-
+ 
 </HTML>
 "),   Diagram(
         Rectangle(extent=[-96,20; 96,-21],   style(
@@ -4320,7 +4320,7 @@ The inertia of the gear wheels is not modeled. If necessary, inertia
 has to be taken into account by connecting components of model Inertia
 to the left and/or the right flange.
 </p>
-
+ 
 </HTML>
 "),   Icon(
         Rectangle(extent=[-40, 60; 40, -60], style(
@@ -4354,9 +4354,9 @@ to the left and/or the right flange.
             color=10,
             fillColor=10,
             fillPattern=1)),
-        Text(extent=[0, 129; 0, 70], string="%name=%ratio"),
+        Text(extent=[-150, 110; 150, 70], string="%name=%ratio"),
         Text(
-          extent=[-100, -152; 99, -112],
+          extent=[-150, -160; 150, -120],
           string="c=%c",
           style(color=0))),
       Diagram(
@@ -4389,11 +4389,11 @@ to the left and/or the right flange.
       annotation (points=[30, 0; 50, 0], style(color=0));
     connect(elastoBacklash.flange_b, flange_b) 
       annotation (points=[70, 0; 100, 0], style(color=0));
-    connect(gearRatio.bearing, adapter.flange_b) annotation (points=[-60,-10;
+    connect(gearRatio.bearing, adapter.flange_b) annotation (points=[-60,-10; 
           -60,-40; 6.12303e-016,-40; 6.12303e-016,-50],    style(color=0));
-    connect(gearEfficiency.bearing, adapter.flange_b) annotation (points=[-20,-10;
+    connect(gearEfficiency.bearing, adapter.flange_b) annotation (points=[-20,-10; 
           -20,-40; 6.12303e-016,-40; 6.12303e-016,-50],         style(color=0));
-    connect(bearingFriction.bearing, adapter.flange_b) annotation (points=[20,-10;
+    connect(bearingFriction.bearing, adapter.flange_b) annotation (points=[20,-10; 
           20,-40; 6.12303e-016,-40; 6.12303e-016,-50],         style(color=0));
   end Gear;
   
@@ -4434,7 +4434,7 @@ particular</p>
 inertia has to be taken into account by connecting components of
 model Inertia to the left and/or the right flange of component
 GearNew.</p>
-
+ 
 </HTML>
 "),   Icon(
         Rectangle(extent=[-100,10; -60,-10],  style(
@@ -4463,9 +4463,9 @@ GearNew.</p>
             color=10,
             fillColor=10,
             fillPattern=1)),
-        Text(extent=[0, 129; 0, 70], string="%name=%i"),
+        Text(extent=[-150, 110; 150, 70], string="%name=%i"),
         Text(
-          extent=[-100, -152; 99, -112],
+          extent=[-150, -160; 150, -120],
           string="c=%c",
           style(color=0)),
         Polygon(points=[-60, -80; -46, -80; -20, -20; 20, -20; 46, -80; 60, -80;
@@ -4495,7 +4495,7 @@ GearNew.</p>
       annotation (points=[-20, 0; 20, 0], style(color=0));
     connect(elastoBacklash.flange_b, flange_b) 
       annotation (points=[60, 0; 100, 0], style(color=0));
-    connect(lossyGear.bearing, adapter.flange_b) annotation (points=[-40,-20;
+    connect(lossyGear.bearing, adapter.flange_b) annotation (points=[-40,-20; 
           -40,-40; 6.12303e-016,-40; 6.12303e-016,-50],    style(color=0));
   end Gear2;
   
@@ -4718,7 +4718,7 @@ blocks of the block library Modelica.Blocks.Sources.
           extent=[-54,-44; -158,-78],
           style(color=0),
           string="w_ref"),
-        Text(extent=[0, 120; 0, 60], string="%name")),
+        Text(extent=[-150, 100; 150, 60], string="%name")),
       Diagram(
         Rectangle(extent=[-100,20; 100,-20],  style(
             gradient=2,
@@ -4812,7 +4812,7 @@ the acceleration.
 The input signal can be provided from one of the signal generator
 blocks of the block library Modelica.Blocks.Sources.
 </p>
-
+ 
 </HTML>
 "),   Icon(
         Rectangle(extent=[-20, -80; 20, -120], style(color=8, fillColor=8)),
@@ -4835,7 +4835,7 @@ blocks of the block library Modelica.Blocks.Sources.
           extent=[-84,-48; -144,-86],
           style(color=0),
           string="a"),
-        Text(extent=[0, 120; 0, 60], string="%name")),
+        Text(extent=[-150, 100; 150, 60], string="%name")),
       Diagram(
         Rectangle(extent=[-100,20; 100,-20],  style(
             gradient=2,
@@ -4967,7 +4967,7 @@ blocks of the block library Modelica.Blocks.Sources.
         Line(points=[0, -32; -20, -52], style(color=0)),
         Line(points=[-10, -32; -30, -52], style(color=0)),
         Line(points=[-20, -32; -30, -42], style(color=0)),
-        Text(extent=[0, 120; 0, 60], string="%name")),
+        Text(extent=[-150, 100; 150, 60], string="%name")),
       Window(
         x=0.27,
         y=0.05,
@@ -5041,7 +5041,7 @@ blocks of the block library Modelica.Blocks.Sources.
         width=0.63,
         height=0.73),
       Icon(
-        Text(extent=[0, -92; 0, -152], string="%name=%phi0"),
+        Text(extent=[-150, -90; 150, -130], string="%name=%phi0"),
         Line(points=[-80, -40; 80, -40], style(color=0)),
         Line(points=[80, -40; 40, -80], style(color=0)),
         Line(points=[40, -40; 0, -80], style(color=0)),
@@ -5059,7 +5059,7 @@ at an angle phi0 in the <b>housing</b>. May be used:
 <li> to fix a rigid element, such as an inertia, with a specific
      angle to the housing.
 </ul>
-
+ 
 </HTML>
 "),   Diagram(
         Line(points=[-80, -40; 80, -40], style(color=0)),
@@ -5106,10 +5106,10 @@ flange is driven by torque <b>tau</b>.</p>
 The input signal can be provided from one of the signal generator
 blocks of Modelica.Blocks.Sources.
 </p>
-
+ 
 </HTML>
 "),   Icon(
-        Text(extent=[0, 130; 0, 70], string="%name"),
+        Text(extent=[-150, 110; 150, 70], string="%name"),
         Text(
           extent=[-62,-29; -141,-70],
           string="tau",
@@ -5182,10 +5182,10 @@ torque in [Nm] which acts at both flange connectors,
 i.e., the components connected to these flanges are driven by torque <b>tau</b>.</p>
 <p>The input signal can be provided from one of the signal generator
 blocks of Modelica.Blocks.Sources.</p>
-
+ 
 </HTML>
 "),   Icon(
-        Text(extent=[0, -40; 0, -100], string="%name"),
+        Text(extent=[-150, -40; 150, -80], string="%name"),
         Polygon(points=[-78, 24; -69, 17; -89, 0; -78, 24], style(
             color=0,
             thickness=2,
@@ -5392,7 +5392,7 @@ the two inertias are used as state variables. Additionally, the
 simulator selects either the absolute angle and absolute angular
 velocity of model inertia1 or of model inertia2 as state variables.
 </p>
-
+ 
 </HTML>
 "),   Icon(
         Ellipse(extent=[-40, 40; 40, -40], style(color=4, fillColor=4)),
@@ -5402,7 +5402,7 @@ velocity of model inertia1 or of model inertia2 as state variables.
             color=0,
             pattern=3,
             fillColor=4)),
-        Text(extent=[0, -40; 0, -100], string="%name")),
+        Text(extent=[-150, -40; 150, -80], string="%name")),
       Diagram(
         Ellipse(extent=[-40, 40; 40, -40], style(color=4, fillColor=4)),
         Text(extent=[-40, 40; 40, -40], string="S"),
@@ -5500,7 +5500,6 @@ quantities.
  
 </html>"));
     end Init;
-    
     
     package InitRel 
       "Type, constants and menu choices to define initialization of relative rotational quantities" 
