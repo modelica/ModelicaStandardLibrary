@@ -71,8 +71,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
   end Pin;
   
   connector PositivePin "Positive pin of an electric component" 
-    SI.Voltage v "Potential at the pin";
-    flow SI.Current i "Current flowing into the pin";
+    extends Pin;
     annotation (defaultComponentName="pin_p",
       Documentation(info="<html><p>Connectors PositivePin
 and NegativePin are nearly identical.
@@ -98,8 +97,7 @@ component.</p></html>", revisions="<html>
   end PositivePin;
   
   connector NegativePin "Negative pin of an electric component" 
-    SI.Voltage v "Potential at the pin";
-    flow SI.Current i "Current flowing into the pin";
+    extends Pin;
     annotation (defaultComponentName="pin_n",
       Documentation(info="<html><p>Connectors PositivePin
 and NegativePin are nearly identical.
