@@ -1709,7 +1709,7 @@ It is used e.g. to build up equation-based parts of a drive train.</p>
       end Adapter;
     equation 
       tau_support = -adapter.flange_b.tau;
-      connect(adapter.flange_a, bearing) annotation (points=[-6.12303e-016,-70; 
+      connect(adapter.flange_a, bearing) annotation (points=[-6.12303e-016,-70;
             0,-70; 0,-100],    style(color=0));
       annotation (Documentation(info="<html>
 <p>
@@ -4389,11 +4389,11 @@ to the left and/or the right flange.
       annotation (points=[30, 0; 50, 0], style(color=0));
     connect(elastoBacklash.flange_b, flange_b) 
       annotation (points=[70, 0; 100, 0], style(color=0));
-    connect(gearRatio.bearing, adapter.flange_b) annotation (points=[-60,-10; 
+    connect(gearRatio.bearing, adapter.flange_b) annotation (points=[-60,-10;
           -60,-40; 6.12303e-016,-40; 6.12303e-016,-50],    style(color=0));
-    connect(gearEfficiency.bearing, adapter.flange_b) annotation (points=[-20,-10; 
+    connect(gearEfficiency.bearing, adapter.flange_b) annotation (points=[-20,-10;
           -20,-40; 6.12303e-016,-40; 6.12303e-016,-50],         style(color=0));
-    connect(bearingFriction.bearing, adapter.flange_b) annotation (points=[20,-10; 
+    connect(bearingFriction.bearing, adapter.flange_b) annotation (points=[20,-10;
           20,-40; 6.12303e-016,-40; 6.12303e-016,-50],         style(color=0));
   end Gear;
   
@@ -4495,7 +4495,7 @@ GearNew.</p>
       annotation (points=[-20, 0; 20, 0], style(color=0));
     connect(elastoBacklash.flange_b, flange_b) 
       annotation (points=[60, 0; 100, 0], style(color=0));
-    connect(lossyGear.bearing, adapter.flange_b) annotation (points=[-40,-20; 
+    connect(lossyGear.bearing, adapter.flange_b) annotation (points=[-40,-20;
           -40,-40; 6.12303e-016,-40; 6.12303e-016,-50],    style(color=0));
   end Gear2;
   
@@ -4640,23 +4640,21 @@ blocks of the block library Modelica.Blocks.Sources.
     parameter Boolean exact=false 
       "true/false exact treatment/filtering the input signal";
     parameter SI.Frequency f_crit=50 
-      "if exact=false, critical frequency of filter to filter input signal" annotation(Dialog(enable=not exact));
-    parameter SI.Angle phi_start=0 "Start angle of flange_b";
+      "if exact=false, critical frequency of filter to filter input signal";
     SI.Angle phi_ref 
       "reference angle defined by time integration of input signal";
     SI.Angle phi "absolute rotation angle of flange flange_b";
     SI.AngularVelocity w "absolute angular velocity of flange flange_b";
     SI.AngularAcceleration a "absolute angular acceleration of flange flange_b";
     SI.Torque tau_support "Support torque";
+  protected 
+    parameter Real w_crit=2*Constants.pi*f_crit "critical frequency in [1/s]";
+  public 
+    Interfaces.Flange_b flange_b annotation (extent=[90, -10; 110, 10]);
     Blocks.Interfaces.RealInput w_ref(redeclare type SignalType = 
           SI.AngularVelocity) 
       "Reference angular velocity of flange_b as input signal" 
       annotation (extent=[-140, -20; -100, 20]);
-    Interfaces.Flange_b flange_b 
-      "Flange that is forced to move according to input signals u"                            annotation (extent=[90, -10; 110, 10]);
-    Interfaces.Flange_a bearing 
-      "Bearing flange (if not connected, it is assumed that it is fixed on ground)"
-      annotation (extent=[-10, -110; 10, -90]);
     annotation (
       Coordsys(
         extent=[-100, -100; 100, 100],
@@ -4675,17 +4673,17 @@ to move according to this reference motion. According to parameter
 <b>exact</b> (default = <b>false</b>), this is done in the following way:
 <ol>
 <li><b>exact=true</b><br>
-    The reference angular velocity is treated <b>exactly</b>. This is only possible, if
+    The reference angle is treated <b>exactly</b>. This is only possible, if
     the input signal is defined by an analytical function which can be
-    differentiated at least once. If this prerequisite is fulfilled,
-    the Modelica translator will differentiate the input signal once
+    differentiated at least twice. If this prerequisite is fulfilled,
+    the Modelica translator will differentiate the input signal twice
     in order to compute the reference acceleration of the flange.</li>
 <li><b>exact=false</b><br>
-    The reference angular velocity is <b>filtered</b> and the first derivative
+    The reference angle is <b>filtered</b> and the second derivative
     of the filtered curve is used to compute the reference acceleration
-    of the flange. This first derivative is <b>not</b> computed by
+    of the flange. This second derivative is <b>not</b> computed by
     numerical differentiation but by an appropriate realization of the
-    filter. For filtering, a first order filter is used.
+    filter. For filtering, a second order Bessel filter is used.
     The critical frequency (also called cut-off frequency) of the
     filter is defined via parameter <b>f_crit</b> in [Hz]. This value
     should be selected in such a way that it is higher as the essential
@@ -4695,7 +4693,13 @@ to move according to this reference motion. According to parameter
 The input signal can be provided from one of the signal generator
 blocks of the block library Modelica.Blocks.Sources.
 </p>
- 
+<p><b>Release Notes:</b></p>
+<ul>
+<li><i>October 27, 2003</i>
+       by <a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Christian Schweiger</a>.<br>
+       Realized based on component <tt>Position</tt> (implemented by
+       <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>).</li>
+</ul>
 </HTML>
 "),   Icon(
         Rectangle(extent=[-20, -80; 20, -120], style(color=8, fillColor=8)),
@@ -4718,7 +4722,7 @@ blocks of the block library Modelica.Blocks.Sources.
           extent=[-54,-44; -158,-78],
           style(color=0),
           string="w_ref"),
-        Text(extent=[-150, 100; 150, 60], string="%name")),
+        Text(extent=[0, 120; 0, 60], string="%name")),
       Diagram(
         Rectangle(extent=[-100,20; 100,-20],  style(
             gradient=2,
@@ -4742,9 +4746,7 @@ blocks of the block library Modelica.Blocks.Sources.
           extent=[50, 87; 50, 73],
           string="rotation axis",
           style(color=10))));
-  protected 
-    parameter Real w_crit=2*Constants.pi*f_crit "critical frequency in [1/s]";
-    
+    Interfaces.Flange_a bearing annotation (extent=[-10, -110; 10, -90]);
   equation 
     0 = flange_b.tau + tau_support;
     
@@ -4766,13 +4768,11 @@ blocks of the block library Modelica.Blocks.Sources.
       a = (w_ref - w)*w_crit;
     end if;
   initial equation 
-    phi = phi_start;
-    phi_ref = phi_start;
     if not exact then
       w = w_ref;
     end if;
   end Speed;
-  
+
   model Accelerate 
     "Forced movement of a flange according to an acceleration signal" 
     

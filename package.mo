@@ -402,7 +402,7 @@ This section summarizes the changes that have been performed
 on the Modelica standard library.
 </p>
 <ul>
-<li> <a href=\"Modelica://Modelica.UsersGuide.ReleaseNotes.Version_2_2_1\">Version 2.2.1</a> (Feb. 27., 2005)</li>
+<li> <a href=\"Modelica://Modelica.UsersGuide.ReleaseNotes.Version_2_2_1\">Version 2.2.1</a> (March 24, 2006)</li>
 <li> <a href=\"Modelica://Modelica.UsersGuide.ReleaseNotes.Version_2_2\">Version 2.2</a> (April 6, 2005)</li>
 <li> <a href=\"Modelica://Modelica.UsersGuide.ReleaseNotes.Version_2_1\">Version 2.1</a> (Nov. 11, 2004)</li>
 <li> <a href=\"Modelica://Modelica.UsersGuide.ReleaseNotes.Version_1_6\">Version 1.6</a> (June 21, 2004)</li>
@@ -705,8 +705,6 @@ The following <b>components</b> have been improved:
   <tr><td> Move</td>
       <td> New implementation based solely on Modelica 2.2 language
            (previously, the Dymola specific constrain(..) function was used).</td> </tr>
-  <tr><td> Speed</td>
-      <td> Start angle of flange (phi_start) included as parameter.</td> </tr>
 
   <tr><td colspan=\"2\"><b>Modelica.Mechanics.Translational.</b></td></tr>
   <tr><td> Move</td>

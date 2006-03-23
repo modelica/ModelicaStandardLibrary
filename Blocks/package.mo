@@ -103,13 +103,13 @@ package Examples "Demonstration examples of the components of this package"
     extends Modelica.Icons.Example;
     parameter Modelica.SIunits.Angle driveAngle=1.57;
     Modelica.Blocks.Continuous.LimPID PI(
-      controllerType=Modelica.Blocks.Types.SimpleController.PI,
       k=100,
       Ti=0.1,
       yMax=12,
       Ni=0.1,
       initType=Modelica.Blocks.Types.Init.SteadyState,
-      limitsAtInit=false) 
+      limitsAtInit=false, 
+      controllerType=Modelica.Blocks.Types.SimpleController.PI) 
       annotation (extent=[-56,-20; -36,0]);
     Modelica.Mechanics.Rotational.Inertia inertia1(initType=Modelica.Mechanics.
           Rotational.Types.Init.InitialAngleAcceleration) 

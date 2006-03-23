@@ -62,7 +62,7 @@ blocks that extend from Modelica.Blocks.Interfaces.PartialConversionBlock.</p>
 </html>"));
     end ConvertAllUnits;
     
-    block to_degC "Convert from Kelvin to °Celsius" 
+    block To_degC "Convert from Kelvin to °Celsius" 
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="K"), y(
             unit="degC"));
       
@@ -75,9 +75,9 @@ blocks that extend from Modelica.Blocks.Interfaces.PartialConversionBlock.</p>
             string="°C")));
     equation 
       y = SI.Conversions.to_degC(u);
-    end to_degC;
+    end To_degC;
     
-    block from_degC "Convert from °Celsius to Kelvin" 
+    block From_degC "Convert from °Celsius to Kelvin" 
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="degC"),
           y(unit="K"));
       annotation (Icon(Text(
@@ -89,9 +89,9 @@ blocks that extend from Modelica.Blocks.Interfaces.PartialConversionBlock.</p>
             string="K")));
     equation 
       y = SI.Conversions.from_degC(u);
-    end from_degC;
+    end From_degC;
     
-    block to_degF "Convert from Kelvin to °Fahrenheit" 
+    block To_degF "Convert from Kelvin to °Fahrenheit" 
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="K"), y(
             unit="degF"));
       annotation (Icon(Text(
@@ -103,9 +103,9 @@ blocks that extend from Modelica.Blocks.Interfaces.PartialConversionBlock.</p>
             string="°F")));
     equation 
       y = SI.Conversions.to_degF(u);
-    end to_degF;
+    end To_degF;
     
-    block from_degF "Convert from °Fahrenheit to Kelvin" 
+    block From_degF "Convert from °Fahrenheit to Kelvin" 
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="degF"),
           y(unit="K"));
       annotation (Icon(Text(
@@ -117,9 +117,9 @@ blocks that extend from Modelica.Blocks.Interfaces.PartialConversionBlock.</p>
             string="K")));
     equation 
       y = SI.Conversions.from_degF(u);
-    end from_degF;
+    end From_degF;
     
-    block to_degRk "Convert from Kelvin to °Rankine" 
+    block To_degRk "Convert from Kelvin to °Rankine" 
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="K"), y(
             unit="degRk"));
       annotation (Icon(Text(
@@ -131,9 +131,9 @@ blocks that extend from Modelica.Blocks.Interfaces.PartialConversionBlock.</p>
             string="°Rk")));
     equation 
       y = SI.Conversions.to_degRk(u);
-    end to_degRk;
+    end To_degRk;
     
-    block from_degRk "Convert from °Rankine to Kelvin" 
+    block From_degRk "Convert from °Rankine to Kelvin" 
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="degRk"),
           y(unit="K"));
       annotation (Icon(Text(
@@ -145,9 +145,9 @@ blocks that extend from Modelica.Blocks.Interfaces.PartialConversionBlock.</p>
             string="K")));
     equation 
       y = SI.Conversions.from_degRk(u);
-    end from_degRk;
+    end From_degRk;
     
-    block to_deg "Convert from radian to degree" 
+    block To_deg "Convert from radian to degree" 
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="rad"),
           y(unit="deg"));
       annotation (Icon(Text(
@@ -159,9 +159,9 @@ blocks that extend from Modelica.Blocks.Interfaces.PartialConversionBlock.</p>
             string="deg")));
     equation 
       y = SI.Conversions.to_deg(u);
-    end to_deg;
+    end To_deg;
     
-    block from_deg "Convert from degree to radian" 
+    block From_deg "Convert from degree to radian" 
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="deg"),
           y(unit="rad"));
       annotation (Icon(Text(
@@ -173,65 +173,65 @@ blocks that extend from Modelica.Blocks.Interfaces.PartialConversionBlock.</p>
             string="rad")));
     equation 
       y = SI.Conversions.from_deg(u);
-    end from_deg;
+    end From_deg;
     
-    block to_rpm "Convert from radian per second to revolutions per minute" 
+    block To_rpm "Convert from radian per second to revolutions per minute" 
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="rad/s"),
           y(unit="rev/min"));
       annotation (Icon(Text(
-            extent=[-20, 100; -100, 20],
+            extent=[26,82; -98,50],
             style(color=0),
             string="rad/s"), Text(
-            extent=[100, -20; 20, -100],
+            extent=[100,-42; -62,-74],
             style(color=0),
             string="rev/min")));
     equation 
       y = SI.Conversions.to_rpm(u);
-    end to_rpm;
+    end To_rpm;
     
-    block from_rpm "Convert from revolutions per minute to radian per second" 
+    block From_rpm "Convert from revolutions per minute to radian per second" 
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit=
               "rev/min"), y(unit="rad/s"));
       annotation (Icon(Text(
-            extent=[-20, 100; -100, 20],
+            extent=[50,84; -94,56],
             style(color=0),
             string="rev/min"), Text(
-            extent=[100, -20; 20, -100],
+            extent=[94,-42; -26,-74],
             style(color=0),
             string="rad/s")));
     equation 
       y = SI.Conversions.from_rpm(u);
-    end from_rpm;
+    end From_rpm;
     
-    block to_kmh "Convert from metre per second to kilometre per hour" 
+    block To_kmh "Convert from metre per second to kilometre per hour" 
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="m/s"),
           y(unit="km/h"));
       annotation (Icon(Text(
-            extent=[-20, 100; -100, 20],
+            extent=[0,82; -96,42],
             style(color=0),
             string="m/s"), Text(
-            extent=[100, -20; 20, -100],
+            extent=[92,-40; -14,-84],
             style(color=0),
             string="km/h")));
     equation 
       y = SI.Conversions.to_kmh(u);
-    end to_kmh;
+    end To_kmh;
     
-    block from_kmh "Convert from kilometre per hour to metre per second" 
+    block From_kmh "Convert from kilometre per hour to metre per second" 
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="km/h"),
           y(unit="m/s"));
       annotation (Icon(Text(
-            extent=[-20, 100; -100, 20],
+            extent=[26,80; -96,48],
             style(color=0),
             string="km/h"), Text(
-            extent=[100, -20; 20, -100],
+            extent=[92,-46; -20,-82],
             style(color=0),
             string="m/s")));
     equation 
       y = SI.Conversions.from_kmh(u);
-    end from_kmh;
+    end From_kmh;
     
-    block to_day "Convert from second to day" 
+    block To_day "Convert from second to day" 
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="s"), y(
             unit="d"));
       annotation (Icon(Text(
@@ -243,9 +243,9 @@ blocks that extend from Modelica.Blocks.Interfaces.PartialConversionBlock.</p>
             string="day")));
     equation 
       y = SI.Conversions.to_day(u);
-    end to_day;
+    end To_day;
     
-    block from_day "Convert from day to second" 
+    block From_day "Convert from day to second" 
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="d"), y(
             unit="s"));
       annotation (Icon(Text(
@@ -257,9 +257,9 @@ blocks that extend from Modelica.Blocks.Interfaces.PartialConversionBlock.</p>
             string="s")));
     equation 
       y = SI.Conversions.from_day(u);
-    end from_day;
+    end From_day;
     
-    block to_hour "Convert from second to hour" 
+    block To_hour "Convert from second to hour" 
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="s"), y(
             unit="h"));
       annotation (Icon(Text(
@@ -271,9 +271,9 @@ blocks that extend from Modelica.Blocks.Interfaces.PartialConversionBlock.</p>
             string="hour")));
     equation 
       y = SI.Conversions.to_hour(u);
-    end to_hour;
+    end To_hour;
     
-    block from_hour "Convert from hour to second" 
+    block From_hour "Convert from hour to second" 
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="h"), y(
             unit="s"));
       annotation (Icon(Text(
@@ -285,9 +285,9 @@ blocks that extend from Modelica.Blocks.Interfaces.PartialConversionBlock.</p>
             string="s")));
     equation 
       y = SI.Conversions.from_hour(u);
-    end from_hour;
+    end From_hour;
     
-    block to_minute "Convert from second to minute" 
+    block To_minute "Convert from second to minute" 
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="s"), y(
             unit="min"));
       annotation (Icon(Text(
@@ -299,9 +299,9 @@ blocks that extend from Modelica.Blocks.Interfaces.PartialConversionBlock.</p>
             string="minute")));
     equation 
       y = SI.Conversions.to_minute(u);
-    end to_minute;
+    end To_minute;
     
-    block from_minute "Convert from minute to second" 
+    block From_minute "Convert from minute to second" 
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="min"),
           y(unit="s"));
       annotation (Icon(Text(
@@ -313,9 +313,9 @@ blocks that extend from Modelica.Blocks.Interfaces.PartialConversionBlock.</p>
             string="s")));
     equation 
       y = SI.Conversions.from_minute(u);
-    end from_minute;
+    end From_minute;
     
-    block to_litre "Convert from cubic metre to litre" 
+    block To_litre "Convert from cubic metre to litre" 
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="m3"), y(
             unit="l"));
       annotation (Icon(Text(
@@ -327,9 +327,9 @@ blocks that extend from Modelica.Blocks.Interfaces.PartialConversionBlock.</p>
             string="litre")));
     equation 
       y = SI.Conversions.to_litre(u);
-    end to_litre;
+    end To_litre;
     
-    block from_litre "Convert from litre to cubic metre" 
+    block From_litre "Convert from litre to cubic metre" 
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="l"), y(
             unit="m3"));
       annotation (Icon(Text(
@@ -341,9 +341,9 @@ blocks that extend from Modelica.Blocks.Interfaces.PartialConversionBlock.</p>
             string="m3")));
     equation 
       y = SI.Conversions.from_litre(u);
-    end from_litre;
+    end From_litre;
     
-    block to_kWh "Convert from Joule to kilo Watt hour" 
+    block To_kWh "Convert from Joule to kilo Watt hour" 
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="J"), y(
             unit="kWh"));
       annotation (Icon(Text(
@@ -355,9 +355,9 @@ blocks that extend from Modelica.Blocks.Interfaces.PartialConversionBlock.</p>
             string="kWh")));
     equation 
       y = SI.Conversions.to_kWh(u);
-    end to_kWh;
+    end To_kWh;
     
-    block from_kWh "Convert from kilo Watt hour to Joule" 
+    block From_kWh "Convert from kilo Watt hour to Joule" 
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="kWh"),
           y(unit="J"));
       annotation (Icon(Text(
@@ -369,9 +369,9 @@ blocks that extend from Modelica.Blocks.Interfaces.PartialConversionBlock.</p>
             string="J")));
     equation 
       y = SI.Conversions.from_kWh(u);
-    end from_kWh;
+    end From_kWh;
     
-    block to_bar "Convert from Pascal to bar" 
+    block To_bar "Convert from Pascal to bar" 
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="Pa"), y(
             unit="bar"));
       annotation (Icon(Text(
@@ -383,9 +383,9 @@ blocks that extend from Modelica.Blocks.Interfaces.PartialConversionBlock.</p>
             string="bar")));
     equation 
       y = SI.Conversions.to_bar(u);
-    end to_bar;
+    end To_bar;
     
-    block from_bar "Convert from bar to Pascal" 
+    block From_bar "Convert from bar to Pascal" 
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="bar"),
           y(unit="Pa"));
       annotation (Icon(Text(
@@ -397,9 +397,9 @@ blocks that extend from Modelica.Blocks.Interfaces.PartialConversionBlock.</p>
             string="Pa")));
     equation 
       y = SI.Conversions.from_bar(u);
-    end from_bar;
+    end From_bar;
     
-    block to_gps "Convert from kilogram per second to gram per second" 
+    block To_gps "Convert from kilogram per second to gram per second" 
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="kg/s"),
           y(unit="g/s"));
       annotation (Icon(Text(
@@ -411,9 +411,9 @@ blocks that extend from Modelica.Blocks.Interfaces.PartialConversionBlock.</p>
             string="g/s")));
     equation 
       y = SI.Conversions.to_gps(u);
-    end to_gps;
+    end To_gps;
     
-    block from_gps "Convert from gram per second to kilogram per second" 
+    block From_gps "Convert from gram per second to kilogram per second" 
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="g/s"),
           y(unit="kg/s"));
       annotation (Icon(Text(
@@ -425,7 +425,10 @@ blocks that extend from Modelica.Blocks.Interfaces.PartialConversionBlock.</p>
             string="kg/s")));
     equation 
       y = SI.Conversions.from_gps(u);
-    end from_gps;
+    end From_gps;
+    annotation (Documentation(info="<html>
+ 
+</html>"));
   end UnitConversions;
   
   block TwoInputs 
@@ -837,23 +840,11 @@ Example:
         parameter Real k1=+1 "Gain of upper input";
         parameter Real k2=+1 "Gain of middle input";
         parameter Real k3=+1 "Gain of lower input";
-        parameter Boolean u1_enable=true 
-      "= true, if connector u1 is present, otherwise it is removed" 
-                                         annotation(Evaluate=true,Hide=true);
-        parameter Boolean u2_enable=true 
-      "= true, if connector u2 is present, otherwise it is removed" 
-                                         annotation(Evaluate=true,Hide=true);
-        parameter Boolean u3_enable=true 
-      "= true, if connector u3 is present, otherwise it is removed" 
-                                         annotation(Evaluate=true,Hide=true);
-        input Interfaces.RealInput u1 if u1_enable 
-      "Connector 1 of Real input signals" 
+        input Interfaces.RealInput u1 "Connector 1 of Real input signals" 
           annotation (extent=[-140, 60; -100, 100]);
-        input Interfaces.RealInput u2 if u2_enable 
-      "Connector 2 of Real input signals" 
+        input Interfaces.RealInput u2 "Connector 2 of Real input signals" 
           annotation (extent=[-140, -20; -100, 20]);
-        input Interfaces.RealInput u3 if u3_enable 
-      "Connector 3 of Real input signals" 
+        input Interfaces.RealInput u3 "Connector 3 of Real input signals" 
           annotation (extent=[-140, -100; -100, -60]);
         output Interfaces.RealOutput y "Connector of Real output signals" 
           annotation (extent=[100, -10; 120, 10]);
@@ -884,8 +875,6 @@ Example:
   results in the following equations:
      y = 2 * u1 - 3 * u2 + u3;
 </pre>
-<p><b>Release Notes:</b></p>
-<ul>
  
 </HTML>
 "),       Icon(
@@ -940,29 +929,9 @@ Example:
               extent=[2, 36; 100, -44],
               string="+",
               style(color=0))));
-  protected 
-        block Internal 
-           Modelica.Blocks.Interfaces.RealInput u1 annotation(Evaluate=true,Hide=true);
-           Modelica.Blocks.Interfaces.RealInput u2 annotation(Evaluate=true,Hide=true);
-           Modelica.Blocks.Interfaces.RealInput u3 annotation(Evaluate=true,Hide=true);
-        end Internal;
-        Internal internal;
+    
       equation 
-        y = k1*internal.u1 + k2*internal.u2 + k3*internal.u3;
-    
-        connect(u1, internal.u1);
-        connect(u2, internal.u2);
-        connect(u3, internal.u3);
-    
-        if not u1_enable then
-           internal.u1 = 0;
-        end if;
-        if not u2_enable then
-           internal.u2 = 0;
-        end if;
-        if not u3_enable then
-           internal.u3 = 0;
-        end if;
+        y = k1*u1 + k2*u2 + k3*u3;
       end Add3;
   
       block Product "Output product of the two inputs" 

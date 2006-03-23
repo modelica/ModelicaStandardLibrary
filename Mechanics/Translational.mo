@@ -2341,9 +2341,6 @@ blocks of the block library Modelica.Blocks.Sources.
     
     output SI.Position s "absolute position of flange_b";
     output SI.Velocity v "absolute velocity of flange_b";
-    output SI.Acceleration a "absolute acceleration of flange_b";
-    SI.Position s_ref 
-      "reference position defined by time integration of input signal"  annotation (extent=[-140, -20; -100, 20]);
     Modelica.Blocks.Interfaces.RealInput v_ref(
        redeclare type SignalType = SI.Position) 
       "reference speed of flange as input signal" annotation (extent=[-140, -20; -100, 20]);
@@ -2403,22 +2400,23 @@ blocks of the block library Modelica.Blocks.Sources.
   protected 
     parameter Real w_crit=2*Modelica.Constants.pi*f_crit 
       "critical frequency in [1/s]";
+    SI.Acceleration a 
+      "absolute acceleration of flange_b if exact=false (a=0, if exact=true)";
   equation 
-    der(s_ref) = v_ref;
     s = flange_b.s;
     v = der(s);
-    a = der(v);
     
     if exact then
       v = v_ref;
+      a = 0;
     else
       // Filter: a = v_ref/(1 + (1/w_crit)*s)
+      a = der(v);
       a = (v_ref - v)*w_crit;
     end if;
     
   initial equation 
     s = s_start;
-    s_ref = s_start;
     if not exact then
       v = v_ref;
     end if;
