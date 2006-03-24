@@ -11,7 +11,7 @@ annotation(preferedView="info",
     library=1,
     autolayout=1),
   version="2.2.1",
-  versionDate="2006-02-27",
+  versionDate="2006-03-24",
   conversion(
     from(version="1.6",
          ModelicaAdditions(version="1.5"),
