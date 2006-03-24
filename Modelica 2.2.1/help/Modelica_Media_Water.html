@@ -1,0 +1,301 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Media.Water</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Medium models for water&quot;">
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Water<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Water"></A><A HREF="Modelica_Media.html#Modelica.Media"
+>Modelica.Media</A>.Water</H2>
+<B>Medium models for water</B>
+<P>
+<H3>Information</H3>
+<PRE></pre>
+<p>This package contains different medium models for water:</p>
+<ul>
+<li><b>ConstantPropertyLiquidWater</b><br>
+    Simple liquid water medium (incompressible, constant data).</li>
+<li><b>IdealSteam</b><br>
+    Steam water medium as ideal gas from Media.IdealGases.SingleGases.H2O</li>
+<li><b>WaterIF97 derived models</b><br>
+    High precision water model according to the IAPWS/IF97 standard
+    (liquid, steam, two phase region). Models with different independent
+    variables are provided as well as models valid only
+    for particular regions. The <b>WaterIF97_ph</b> model is valid
+    in all regions and is the recommended one to use.</li>
+</ul>
+<h3>Overview of WaterIF97 derived water models</h3>
+<p>
+The WaterIF97 models calculate medium properties
+for water in the <b>liquid</b>, <b>gas</b> and <b>two phase</b> regions
+according to the IAPWS/IF97 standard, i.e., the accepted industrial standard
+and best compromise between accuracy and computation time.
+It has been part of the ThermoFluid Modelica library and been extended,
+reorganized and documented to become part of the Modelica Standard library.</p>
+<p>An important feature that distinguishes this implementation of the IF97 steam property standard
+is that this implementation has been explicitly designed to work well in dynamic simulations. Computational
+performance has been of high importance. This means that there often exist several ways to get the same result
+from different functions if one of the functions is called often but can be optimized for that purpose.
+</p>
+<p>Three variable pairs can be the independent variables of the model:
+</p>
+<ol>
+<li>Pressure <b>p</b> and specific enthalpy <b>h</b> are
+    the most natural choice for general applications.
+    This is the recommended choice for most general purpose
+    applications, in particular for power plants.</li>
+<li>Pressure <b>p</b> and temperature <b>T</b> are the most natural
+    choice for applications where water is always in the same phase,
+    both for liquid water and steam.</li>
+<li>Density <b>d</b> and temperature <b>T</b> are explicit
+    variables of the Helmholtz function in the near-critical
+    region and can be the best choice for applications with
+    super-critical or near-critial states.</li>
+</ol>
+<p>
+The following quantities are always computed in Medium.Baseproperties:
+</p>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td><b>Variable</b></td>
+      <td><b>Unit</b></td>
+      <td><b>Description</b></td></tr>
+  <tr><td>T</td>
+      <td>K</td>
+      <td>temperature</td></tr>
+  <tr><td>u</td>
+      <td>J/kg</td>
+      <td>specific internal energy</b></td></tr>
+  <tr><td>d</td>
+      <td>kg/m^3</td>
+      <td>density</td></tr>
+  <tr><td>p</td>
+      <td>Pa</td>
+      <td>pressure</td></tr>
+  <tr><td>h</td>
+      <td>J/kg</td>
+      <td>specific enthalpy</b></td></tr>
+</table>
+<p>
+In some cases additional medium properties are needed.
+A component that needs these optional properties has to call
+one of the following functions:
+</p>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td><b>Function call</b></td>
+      <td><b>Unit</b></td>
+      <td><b>Description</b></td></tr>
+  <tr><td>Medium.dynamicViscosity(medium.state)</b></td>
+      <td>Pa.s</td>
+      <td>dynamic viscosity</td></tr>
+  <tr><td>Medium.thermalConductivity(medium.state)</td>
+      <td>W/(m.K)</td>
+      <td>thermal conductivity</td></tr>
+  <tr><td>Medium.prandtlNumber(medium.state)</td>
+      <td>1</td>
+      <td>Prandtl number</td></tr>
+  <tr><td>Medium.specificEntropy(medium.state)</td>
+      <td>J/(kg.K)</td>
+      <td>specific entropy</td></tr>
+  <tr><td>Medium.heatCapacity_cp(medium.state)</td>
+      <td>J/(kg.K)</td>
+      <td>specific heat capacity at constant pressure</td></tr>
+  <tr><td>Medium.heatCapacity_cv(medium.state)</td>
+      <td>J/(kg.K)</td>
+      <td>specific heat capacity at constant density</td></tr>
+  <tr><td>Medium.isentropicExponent(medium.state)</td>
+      <td>1</td>
+      <td>isentropic exponent</td></tr>
+  <tr><td>Medium.isentropicEnthalpy(pressure, medium.state)</td>
+      <td>J/kg</td>
+      <td>isentropic enthalpy</td></tr>
+  <tr><td>Medium.velocityOfSound(medium.state)</td>
+      <td>m/s</td>
+      <td>velocity of sound</td></tr>
+  <tr><td>Medium.isobaricExpansionCoefficient(medium.state)</td>
+      <td>1/K</td>
+      <td>isobaric expansion coefficient</td></tr>
+  <tr><td>Medium.isothermalCompressibility(medium.state)</td>
+      <td>1/Pa</td>
+      <td>isothermal compressibility</td></tr>
+  <tr><td>Medium.density_derp_h(medium.state)</td>
+      <td>kg/(m3.Pa)</td>
+      <td>derivative of density by pressure at constant enthalpy</td></tr>
+  <tr><td>Medium.density_derh_p(medium.state)</td>
+      <td>kg2/(m3.J)</td>
+      <td>derivative of density by enthalpy at constant pressure</td></tr>
+  <tr><td>Medium.density_derp_T(medium.state)</td>
+      <td>kg/(m3.Pa)</td>
+      <td>derivative of density by pressure at constant temperature</td></tr>
+  <tr><td>Medium.density_derT_p(medium.state)</td>
+      <td>kg/(m3.K)</td>
+      <td>derivative of density by temperature at constant pressure</td></tr>
+  <tr><td>Medium.density_derX(medium.state)</td>
+      <td>kg/m3</td>
+      <td>derivative of density by mass fraction</td></tr>
+  <tr><td>Medium.molarMass(medium.state)</td>
+      <td>kg/mol</td>
+      <td>molar mass</td></tr>
+</table>
+<p>More details are given in
+<A HREF="Modelica_Media_UsersGuide_MediumUsage.html#Modelica.Media.UsersGuide.MediumUsage.OptionalProperties"
+>
+Modelica.Media.UsersGuide.MediumUsage.OptionalProperties</a>.
+
+Many additional optional functions are defined to compute properties of
+saturated media, either liquid (bubble point) or vapour (dew point).
+The argument to such functions is a SaturationProperties record, which can be
+set starting from either the saturation pressure or the saturation temperature.
+With reference to a model defining a pressure p, a temperature T, and a
+SaturationProperties record sat, the following functions are provided:
+</p>
+<p>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td><b>Function call</b></td>
+      <td><b>Unit</b></td>
+      <td><b>Description</b></td></tr>
+  <tr><td>Medium.saturationPressure(T)</b></td>
+      <td>Pa</td>
+      <td>Saturation pressure at temperature T</td></tr>
+  <tr><td>Medium.saturationTemperature(p)</b></td>
+      <td>K</td>
+      <td>Saturation temperature at pressure p</td></tr>
+  <tr><td>Medium.saturationTemperature_derp(p)</b></td>
+      <td>K/Pa</td>
+      <td>Derivative of saturation temperature with respect to pressure</td></tr>
+  <tr><td>Medium.bubbleEnthalpy(sat)</b></td>
+      <td>J/kg</td>
+      <td>Specific enthalpy at bubble point</td></tr>
+  <tr><td>Medium.dewEnthalpy(sat)</b></td>
+      <td>J/kg</td>
+      <td>Specific enthalpy at dew point</td></tr>
+  <tr><td>Medium.bubbleEntropy(sat)</b></td>
+      <td>J/(kg.K)</td>
+      <td>Specific entropy at bubble point</td></tr>
+  <tr><td>Medium.dewEntropy(sat)</b></td>
+      <td>J/(kg.K)</td>
+      <td>Specific entropy at dew point</td></tr>
+  <tr><td>Medium.bubbleDensity(sat)</b></td>
+      <td>kg/m3</td>
+      <td>Density at bubble point</td></tr>
+  <tr><td>Medium.dewDensity(sat)</b></td>
+      <td>kg/m3</td>
+      <td>Density at dew point</td></tr>
+  <tr><td>Medium.dBubbleDensity_dPressure(sat)</b></td>
+      <td>kg/(m3.Pa)</td>
+      <td>Derivative of density at bubble point with respect to pressure</td></tr>
+  <tr><td>Medium.dDewDensity_dPressure(sat)</b></td>
+      <td>kg/(m3.Pa)</td>
+      <td>Derivative of density at dew point with respect to pressure</td></tr>
+  <tr><td>Medium.dBubbleEnthalpy_dPressure(sat)</b></td>
+      <td>J/(kg.Pa)</td>
+      <td>Derivative of specific enthalpy at bubble point with respect to pressure</td></tr>
+  <tr><td>Medium.dDewEnthalpy_dPressure(sat)</b></td>
+      <td>J/(kg.Pa)</td>
+      <td>Derivative of specific enthalpy at dew point with respect to pressure</td></tr>
+  <tr><td>Medium.surfaceTension(sat)</b></td>
+      <td>N/m</td>
+      <td>Surface tension between liquid and vapour phase</td></tr>
+</table>
+
+<p>Details on usage and some examples are given in:
+<A HREF="Modelica_Media_UsersGuide_MediumUsage.html#Modelica.Media.UsersGuide.MediumUsage.TwoPhase"
+>
+Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
+</p>
+
+<p>Many further properties can be computed. Using the well-known Bridgman's Tables,
+all first partial derivatives of the standard thermodynamic variables can be computed easily.
+</p>
+<p>
+The documentation of the IAPWS/IF97 steam properties can be freely
+distributed with computer implementations and are included here
+(in directory Modelica\help\IF97documentation):
+<ul>
+<li><a href="IF97documentation/IF97.pdf">IF97.pdf</a> The standards document for the main part of the IF97.</li>
+<li><a href="IF97documentation/Back3.pdf">Back3.pdf</a> The backwards equations for region 3.</li>
+<li><a href="IF97documentation/crits.pdf">crits.pdf</a> The critical point data.</li>
+<li><a href="IF97documentation/meltsub.pdf">meltsub.pdf</a> The melting- and sublimation line formulation (not implemented)</li>
+<li><a href="IF97documentation/surf.pdf">surf.pdf</a> The surface tension standard definition</li>
+<li><a href="IF97documentation/thcond.pdf">thcond.pdf</a> The thermal conductivity standard definition</li>
+<li><a href="IF97documentation/visc.pdf">visc.pdf</a> The viscosity standard definition</li>
+</ul>
+<pre></PRE><P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD>waterConstants</TD><TD>&nbsp;</TD></TR>
+<TR><TD>simpleWaterConstants</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.ConstantPropertyLiquidWaterS.png" ALT="Modelica.Media.Water.ConstantPropertyLiquidWater" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_ConstantPropertyLiquidWater.html#Modelica.Media.Water.ConstantPropertyLiquidWater"
+>ConstantPropertyLiquidWater</A>
+</TD><TD>Water: Simple liquid water medium (incompressible, constant data)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IdealSteamS.png" ALT="Modelica.Media.Water.IdealSteam" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IdealSteam.html#Modelica.Media.Water.IdealSteam"
+>IdealSteam</A>
+</TD><TD>Water: Steam as ideal gas from NASA source</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.WaterIF97OnePhase_phS.png" ALT="Modelica.Media.Water.WaterIF97OnePhase_ph" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_WaterIF97OnePhase_ph.html#Modelica.Media.Water.WaterIF97OnePhase_ph"
+>WaterIF97OnePhase_ph</A>
+</TD><TD>Water using the IF97 standard, explicit in p and h, and only valid outside the two-phase dome</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.WaterIF97OnePhase_phS.png" ALT="Modelica.Media.Water.WaterIF97_ph" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_WaterIF97_ph.html#Modelica.Media.Water.WaterIF97_ph"
+>WaterIF97_ph</A>
+</TD><TD>Water using the IF97 standard, explicit in p and h</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.WaterIF97OnePhase_phS.png" ALT="Modelica.Media.Water.WaterIF97_base" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_WaterIF97_base.html#Modelica.Media.Water.WaterIF97_base"
+>WaterIF97_base</A>
+</TD><TD>Water: Steam properties as defined by IAPWS/IF97 standard</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.WaterIF97OnePhase_phS.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion"
+>WaterIF97_fixedregion</A>
+</TD><TD>Water: Steam properties as defined by IAPWS/IF97 standard</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.WaterIF97OnePhase_phS.png" ALT="Modelica.Media.Water.WaterIF97_R1ph" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_WaterIF97_R1ph.html#Modelica.Media.Water.WaterIF97_R1ph"
+>WaterIF97_R1ph</A>
+</TD><TD>region 1 (liquid) water according to IF97 standard</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.WaterIF97OnePhase_phS.png" ALT="Modelica.Media.Water.WaterIF97_R2ph" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_WaterIF97_R2ph.html#Modelica.Media.Water.WaterIF97_R2ph"
+>WaterIF97_R2ph</A>
+</TD><TD>region 2 (steam) water according to IF97 standard</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.WaterIF97OnePhase_phS.png" ALT="Modelica.Media.Water.WaterIF97_R3ph" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_WaterIF97_R3ph.html#Modelica.Media.Water.WaterIF97_R3ph"
+>WaterIF97_R3ph</A>
+</TD><TD>region 3 water according to IF97 standard</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.WaterIF97OnePhase_phS.png" ALT="Modelica.Media.Water.WaterIF97_R4ph" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_WaterIF97_R4ph.html#Modelica.Media.Water.WaterIF97_R4ph"
+>WaterIF97_R4ph</A>
+</TD><TD>region 4 water according to IF97 standard</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.WaterIF97OnePhase_phS.png" ALT="Modelica.Media.Water.WaterIF97_R5ph" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_WaterIF97_R5ph.html#Modelica.Media.Water.WaterIF97_R5ph"
+>WaterIF97_R5ph</A>
+</TD><TD>region 5 water according to IF97 standard</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.WaterIF97OnePhase_phS.png" ALT="Modelica.Media.Water.WaterIF97_R1pT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_WaterIF97_R1pT.html#Modelica.Media.Water.WaterIF97_R1pT"
+>WaterIF97_R1pT</A>
+</TD><TD>region 1 (liquid) water according to IF97 standard</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.WaterIF97OnePhase_phS.png" ALT="Modelica.Media.Water.WaterIF97_R2pT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_WaterIF97_R2pT.html#Modelica.Media.Water.WaterIF97_R2pT"
+>WaterIF97_R2pT</A>
+</TD><TD>region 2 (steam) water according to IF97 standard</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_UtilitiesS.png" ALT="Modelica.Media.Water.IF97_Utilities" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>IF97_Utilities</A>
+</TD><TD>Low level and utility computation for high accuracy water properties according to the IAPWS/IF97 standard</TD></TR>
+</TABLE>
+<H3>Types and constants</H3>
+<PRE>  <font color="blue">constant </font>Interfaces.PartialTwoPhaseMedium.FluidConstants[1] waterConstants(
+     <font color="blue">each </font>chemicalFormula = &quot;H2O&quot;,
+     <font color="blue">each </font>structureFormula=&quot;H2O&quot;,
+     <font color="blue">each </font>casRegistryNumber=&quot;7732-18-5&quot;,
+     <font color="blue">each </font>iupacName=&quot;oxidane&quot;,
+     <font color="blue">each </font>molarMass=0.018015268,
+     <font color="blue">each </font>criticalTemperature=647.096,
+     <font color="blue">each </font>criticalPressure=22064.0e3,
+     <font color="blue">each </font>criticalMolarVolume=1/(322.0*0.018015268),
+     <font color="blue">each </font>normalBoilingPoint=373.124,
+     <font color="blue">each </font>meltingPoint=273.15,
+     <font color="blue">each </font>triplePointTemperature=273.16,
+     <font color="blue">each </font>triplePointPressure=611.657,
+     <font color="blue">each </font>acentricFactor = 0.344,
+     <font color="blue">each </font>dipoleMoment = 1.8,
+     <font color="blue">each </font>hasCriticalData=true);</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.FluidConstants"
+>Interfaces.PartialMedium.FluidConstants</A>[1] simpleWaterConstants(
+     <font color="blue">each </font>chemicalFormula = &quot;H2O&quot;,
+     <font color="blue">each </font>structureFormula=&quot;H2O&quot;,
+     <font color="blue">each </font>casRegistryNumber=&quot;7732-18-5&quot;,
+     <font color="blue">each </font>iupacName=&quot;oxidane&quot;,
+     <font color="blue">each </font>molarMass=0.018015268);</PRE><p>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Tue Mar 28 11:40:27 2006.
+</address></BODY>
+</HTML>

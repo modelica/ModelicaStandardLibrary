@@ -1,0 +1,256 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Electrical.MultiPhase.Sensors</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Multiphase potential, voltage and current Sensors&quot;">
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Sensors<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Electrical.MultiPhase.Sensors"></A><A HREF="Modelica_Electrical_MultiPhase.html#Modelica.Electrical.MultiPhase"
+>Modelica.Electrical.MultiPhase</A>.Sensors</H2>
+<B>Multiphase potential, voltage and current Sensors</B>
+<P>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This package contains multiphase potential, voltage, and current sensors.
+</p>
+
+<pre></PRE><P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.MultiPhase.Sensors.PotentialSensorS.png" ALT="Modelica.Electrical.MultiPhase.Sensors.PotentialSensor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_MultiPhase_Sensors.html#Modelica.Electrical.MultiPhase.Sensors.PotentialSensor"
+>PotentialSensor</A>
+</TD><TD>Multiphase potential sensor</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.MultiPhase.Sensors.VoltageSensorS.png" ALT="Modelica.Electrical.MultiPhase.Sensors.VoltageSensor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_MultiPhase_Sensors.html#Modelica.Electrical.MultiPhase.Sensors.VoltageSensor"
+>VoltageSensor</A>
+</TD><TD>Multiphase voltage sensor</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.MultiPhase.Sensors.VoltageSensorS.png" ALT="Modelica.Electrical.MultiPhase.Sensors.CurrentSensor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_MultiPhase_Sensors.html#Modelica.Electrical.MultiPhase.Sensors.CurrentSensor"
+>CurrentSensor</A>
+</TD><TD>Multiphase current sensor</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.MultiPhase.Sensors.PowerSensorS.png" ALT="Modelica.Electrical.MultiPhase.Sensors.PowerSensor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_MultiPhase_Sensors.html#Modelica.Electrical.MultiPhase.Sensors.PowerSensor"
+>PowerSensor</A>
+</TD><TD>Multiphase instantaneous power sensor</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PotentialSensor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.MultiPhase.Sensors.PotentialSensorI.png" ALT="Modelica.Electrical.MultiPhase.Sensors.PotentialSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.MultiPhase.Sensors.PotentialSensor"></A><A HREF="Modelica_Electrical_MultiPhase_Sensors.html#Modelica.Electrical.MultiPhase.Sensors"
+>Modelica.Electrical.MultiPhase.Sensors</A>.PotentialSensor</H2>
+<B>Multiphase potential sensor</B><p>
+<IMG SRC="Modelica.Electrical.MultiPhase.Sensors.PotentialSensorD.png" ALT="Modelica.Electrical.MultiPhase.Sensors.PotentialSensor">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+Contains m potential sensors (Modelica.Electrical.Analog.Sensors.PotentialSensor),
+thus measuring the m potentials <i>phi[m]</i> of the m pins of plug_p.
+</p>
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>m</TD><TD>3</TD><TD>number of phases</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>plug_p</TD><TD>&nbsp;</TD></TR>
+<TR><TD>output &nbsp;</TD><TD>phi[m]</TD><TD>Absolute voltage potential as output signal</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> PotentialSensor <font color="darkgreen">&quot;Multiphase potential sensor&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.RotationalSensor"
+>Modelica.Icons.RotationalSensor</A>;
+  <font color="blue">parameter </font>Integer m(<font color="blue">final </font>min=1) = 3 <font color="darkgreen">&quot;number of phases&quot;</font>;
+  <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.PositivePlug"
+>Interfaces.PositivePlug</A> plug_p(m);
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> phi[m](
+      <font color="blue">redeclare </font><font color="blue">type</font> SignalType = <A HREF="Modelica_SIunits.html#Modelica.SIunits.ElectricPotential"
+>Modelica.SIunits.ElectricPotential</A>) <font color="darkgreen">
+    &quot;Absolute voltage potential as output signal&quot;</font>;
+  <A HREF="Modelica_Electrical_Analog_Sensors.html#Modelica.Electrical.Analog.Sensors.PotentialSensor"
+>Modelica.Electrical.Analog.Sensors.PotentialSensor</A> potentialSensor[m];
+<font color="blue">equation </font>
+  <font color="red">connect</font>(potentialSensor.p, plug_p.pin);
+  <font color="red">connect</font>(potentialSensor.phi, phi);
+<font color="blue">end </font>PotentialSensor;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE VoltageSensor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.MultiPhase.Sensors.VoltageSensorI.png" ALT="Modelica.Electrical.MultiPhase.Sensors.VoltageSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.MultiPhase.Sensors.VoltageSensor"></A><A HREF="Modelica_Electrical_MultiPhase_Sensors.html#Modelica.Electrical.MultiPhase.Sensors"
+>Modelica.Electrical.MultiPhase.Sensors</A>.VoltageSensor</H2>
+<B>Multiphase voltage sensor</B><p>
+<IMG SRC="Modelica.Electrical.MultiPhase.Sensors.VoltageSensorD.png" ALT="Modelica.Electrical.MultiPhase.Sensors.VoltageSensor">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+Contains m voltage sensors (Modelica.Electrical.Analog.Sensors.VoltageSensor),
+thus measuring the m potential differences <i>v[m]</i> between the m pins of plug_p and plug_n.
+</p>
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>m</TD><TD>3</TD><TD>number of phases</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>plug_p</TD><TD>&nbsp;</TD></TR>
+<TR><TD>&nbsp;</TD><TD>plug_n</TD><TD>&nbsp;</TD></TR>
+<TR><TD>output &nbsp;</TD><TD>v[m]</TD><TD>Voltage between pin p and n (= p.v - n.v) as output signal</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> VoltageSensor <font color="darkgreen">&quot;Multiphase voltage sensor&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.RotationalSensor"
+>Modelica.Icons.RotationalSensor</A>;
+  <font color="blue">parameter </font>Integer m(<font color="blue">final </font>min=1) = 3 <font color="darkgreen">&quot;number of phases&quot;</font>;
+  <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.PositivePlug"
+>Interfaces.PositivePlug</A> plug_p(<font color="blue">final </font>m=m);
+  <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.NegativePlug"
+>Interfaces.NegativePlug</A> plug_n(<font color="blue">final </font>m=m);
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> v[m](
+      <font color="blue">redeclare </font><font color="blue">type</font> SignalType = <A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A>) <font color="darkgreen">
+    &quot;Voltage between pin p and n (= p.v - n.v) as output signal&quot;</font>;
+  <A HREF="Modelica_Electrical_Analog_Sensors.html#Modelica.Electrical.Analog.Sensors.VoltageSensor"
+>Modelica.Electrical.Analog.Sensors.VoltageSensor</A> voltageSensor[m];
+<font color="blue">equation </font>
+  <font color="red">connect</font>(voltageSensor.n, plug_n.pin);
+  <font color="red">connect</font>(voltageSensor.p, plug_p.pin);
+  <font color="red">connect</font>(voltageSensor.v, v);
+<font color="blue">end </font>VoltageSensor;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE CurrentSensor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.MultiPhase.Sensors.CurrentSensorI.png" ALT="Modelica.Electrical.MultiPhase.Sensors.CurrentSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.MultiPhase.Sensors.CurrentSensor"></A><A HREF="Modelica_Electrical_MultiPhase_Sensors.html#Modelica.Electrical.MultiPhase.Sensors"
+>Modelica.Electrical.MultiPhase.Sensors</A>.CurrentSensor</H2>
+<B>Multiphase current sensor</B><p>
+<IMG SRC="Modelica.Electrical.MultiPhase.Sensors.CurrentSensorD.png" ALT="Modelica.Electrical.MultiPhase.Sensors.CurrentSensor">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+Contains m current sensors (Modelica.Electrical.Analog.Sensors.CurrentSensor),
+thus measuring the m currents <i>i[m]</i> flowing from the m pins of plug_p to the m pins of plug_n.
+</p>
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>m</TD><TD>3</TD><TD>number of phases</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>plug_p</TD><TD>&nbsp;</TD></TR>
+<TR><TD>&nbsp;</TD><TD>plug_n</TD><TD>&nbsp;</TD></TR>
+<TR><TD>output &nbsp;</TD><TD>i[m]</TD><TD>current in the branch from p to n as output signal</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> CurrentSensor <font color="darkgreen">&quot;Multiphase current sensor&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.RotationalSensor"
+>Modelica.Icons.RotationalSensor</A>;
+  <font color="blue">parameter </font>Integer m(<font color="blue">final </font>min=1) = 3 <font color="darkgreen">&quot;number of phases&quot;</font>;
+  <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.PositivePlug"
+>Interfaces.PositivePlug</A> plug_p(<font color="blue">final </font>m=m);
+  <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.NegativePlug"
+>Interfaces.NegativePlug</A> plug_n(<font color="blue">final </font>m=m);
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> i[m](
+      <font color="blue">redeclare </font><font color="blue">type</font> SignalType = <A HREF="Modelica_SIunits.html#Modelica.SIunits.Current"
+>Modelica.SIunits.Current</A>) <font color="darkgreen">
+    &quot;current in the branch from p to n as output signal&quot;</font>;
+  <A HREF="Modelica_Electrical_Analog_Sensors.html#Modelica.Electrical.Analog.Sensors.CurrentSensor"
+>Modelica.Electrical.Analog.Sensors.CurrentSensor</A> currentSensor[m];
+<font color="blue">equation </font>
+  <font color="red">connect</font>(plug_p.pin, currentSensor.p);
+  <font color="red">connect</font>(currentSensor.n, plug_n.pin);
+  <font color="red">connect</font>(currentSensor.i, i);
+<font color="blue">end </font>CurrentSensor;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PowerSensor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.MultiPhase.Sensors.PowerSensorI.png" ALT="Modelica.Electrical.MultiPhase.Sensors.PowerSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.MultiPhase.Sensors.PowerSensor"></A><A HREF="Modelica_Electrical_MultiPhase_Sensors.html#Modelica.Electrical.MultiPhase.Sensors"
+>Modelica.Electrical.MultiPhase.Sensors</A>.PowerSensor</H2>
+<B>Multiphase instantaneous power sensor</B><p>
+<IMG SRC="Modelica.Electrical.MultiPhase.Sensors.PowerSensorD.png" ALT="Modelica.Electrical.MultiPhase.Sensors.PowerSensor">
+<H3>Information</H3>
+<PRE></pre><p>
+This power sensor measures instantaneous electrical power of a multiphase system and has a separated voltage and current path. The plugs of the voltage path are <code>pv</code> and <code>nv</code>, the plugs of the current path are <code>pc</code> and <code>nc</code>. The internal resistance of each current path is zero, the internal resistance of each voltage path is infinite.
+</p><pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>m</TD><TD>3</TD><TD>number of phases</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>pc</TD><TD>Positive plug, current path</TD></TR>
+<TR><TD>&nbsp;</TD><TD>nc</TD><TD>Negative plug, current path</TD></TR>
+<TR><TD>&nbsp;</TD><TD>pv</TD><TD>Positive plug, voltage path</TD></TR>
+<TR><TD>&nbsp;</TD><TD>nv</TD><TD>Negative plug, voltage path</TD></TR>
+<TR><TD>output &nbsp;</TD><TD>power</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> PowerSensor <font color="darkgreen">&quot;Multiphase instantaneous power sensor&quot;</font>
+  <font color="blue">parameter </font>Integer m(min=1) = 3 <font color="darkgreen">&quot;number of phases&quot;</font>;
+  <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.PositivePlug"
+>Modelica.Electrical.MultiPhase.Interfaces.PositivePlug</A> pc(<font color="blue">final </font>m=m) <font color="darkgreen">
+    &quot;Positive plug, current path&quot;</font>;
+  <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.NegativePlug"
+>Modelica.Electrical.MultiPhase.Interfaces.NegativePlug</A> nc(<font color="blue">final </font>m=m) <font color="darkgreen">
+    &quot;Negative plug, current path&quot;</font>;
+  <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.PositivePlug"
+>Modelica.Electrical.MultiPhase.Interfaces.PositivePlug</A> pv(<font color="blue">final </font>m=m) <font color="darkgreen">
+    &quot;Positive plug, voltage path&quot;</font>;
+  <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.NegativePlug"
+>Modelica.Electrical.MultiPhase.Interfaces.NegativePlug</A> nv(<font color="blue">final </font>m=m) <font color="darkgreen">
+    &quot;Negative plug, voltage path&quot;</font>;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> power(<font color="blue">redeclare </font><font color="blue">type</font> SignalType =
+        <A HREF="Modelica_SIunits.html#Modelica.SIunits.Power"
+>Modelica.SIunits.Power</A>);
+  <A HREF="Modelica_Electrical_MultiPhase_Sensors.html#Modelica.Electrical.MultiPhase.Sensors.VoltageSensor"
+>Modelica.Electrical.MultiPhase.Sensors.VoltageSensor</A> voltageSensor(<font color="blue">final </font>m=m);
+  <A HREF="Modelica_Electrical_MultiPhase_Sensors.html#Modelica.Electrical.MultiPhase.Sensors.CurrentSensor"
+>Modelica.Electrical.MultiPhase.Sensors.CurrentSensor</A> currentSensor(<font color="blue">final </font>m=m);
+  <A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Product"
+>Modelica.Blocks.Math.Product</A> product[m];
+  <A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Sum"
+>Modelica.Blocks.Math.Sum</A> sum(<font color="blue">final </font>nin=m, <font color="blue">final </font>k=<font color="red">ones</font>(m));
+<font color="blue">equation </font>
+  <font color="red">connect</font>(pc, currentSensor.plug_p);
+  <font color="red">connect</font>(currentSensor.plug_n, nc);
+  <font color="red">connect</font>(voltageSensor.plug_p, pv);
+  <font color="red">connect</font>(voltageSensor.plug_n, nv);
+  <font color="red">connect</font>(currentSensor.i, product.u2);
+  <font color="red">connect</font>(product.u1, voltageSensor.v);
+  <font color="red">connect</font>(product.y, sum.u);
+  <font color="red">connect</font>(sum.y, power);
+<font color="blue">end </font>PowerSensor;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Tue Mar 28 11:38:14 2006.
+</address></BODY>
+</HTML>

@@ -1,0 +1,1630 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Blocks.Continuous</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Continuous control blocks with internal states&quot;">
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Continuous<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Blocks.Continuous"></A><A HREF="Modelica_Blocks.html#Modelica.Blocks"
+>Modelica.Blocks</A>.Continuous</H2>
+<B>Continuous control blocks with internal states</B>
+<P>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This package contains basic <b>continuous</b> input/output blocks
+described by differential equations.
+</p>
+
+<p>
+All blocks of this package can be initialized in different
+ways controlled by parameter <b>initType</b>. The possible
+values of initType are defined in
+<A HREF="Modelica_Blocks_Types_Init.html#Modelica.Blocks.Types.Init"
+>Modelica.Blocks.Types.Init</a>:
+</p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td><b>Name</b></td>
+      <td><b>Description</b></td></tr>
+
+  <tr><td><b>Init.NoInit</b></td>
+      <td>no initialization (start values are used as guess values with fixed=false)</td></tr>
+
+  <tr><td><b>Init.SteadyState</b></td>
+      <td>steady state initialization (derivatives of states are zero)</td></tr>
+
+  <tr><td><b>Init.InitialState</b></td>
+      <td>Initialization with initial states</td></tr>
+
+  <tr><td><b>Init.InitialOutput</b></td>
+      <td>Initialization with initial outputs (and steady state of the states if possibles)</td></tr>
+</table>
+
+<p>
+For backward compatibility reasons the default of all blocks is
+<b>Init.NoInit</b>, with the exception of Integrator and LimIntegrator
+where the default is <b>Init.InitialState</b> (this was the initialization
+defined in version 2.2 of the Modelica standard library).
+</p>
+
+<p>
+In many cases, the most useful initial condition is
+<b>Init.SteadyState</b> because initial transients are then no longer
+present. The drawback is that in combination with a non-linear
+plant, non-linear algebraic equations occur that might be
+difficult to solve if appropriate guess values for the
+iteration variables are not provided (i.e. start values with fixed=false).
+However, it is often already useful to just initialize
+the linear blocks from the Continuous blocks library in SteadyState.
+This is uncritical, because only linear algebraic equations occur.
+If Init.NoInit is set, then the start values for the states are
+interpreted as <b>guess</b> values and are propagated to the
+states with fixed=<b>false</b>.
+</p>
+
+<p>
+Note, initialization with Init.SteadyState is usually difficult
+for a block that contains an integrator
+(Integrator, LimIntegrator, PI, PID, LimPID).
+This is due to the basic equation of an integrator:
+</p>
+
+<pre>
+  <b>initial equation</b>
+     <b>der</b>(y) = 0;   // Init.SteadyState
+  <b>equation</b>
+     <b>der</b>(y) = k*u;
+</pre>
+
+<p>
+The steady state equation leads to the condition that the input to the
+integrator is zero. If the input u is already (directly or indirectly) defined
+by another initial condition, then the initialization problem is <b>singular</b>
+(has none or infinitely many solutions). This situation occurs often
+for mechanical systems, where, e.g., u = desiredSpeed - measuredSpeed and
+since speed is both a state and a derivative, it is always defined by
+Init.InitialState or Init.SteadyState initializtion.
+</p>
+
+<p>
+In such a case, <b>Init.NoInit</b> has to be selected for the integrator
+and an additional initial equation has to be added to the system
+to which the integrator is connected. E.g., useful initial conditions
+for a 1-dim. rotational inertia controlled by a PI controller are that
+<b>angle</b>, <b>speed</b>, and <b>acceleration</b> of the inertia are zero.
+</p>
+
+<pre>
+</PRE><P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Continuous.IntegratorS.png" ALT="Modelica.Blocks.Continuous.Integrator" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous.Integrator"
+>Integrator</A>
+</TD><TD>Output the integral of the input signal</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Continuous.LimIntegratorS.png" ALT="Modelica.Blocks.Continuous.LimIntegrator" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous.LimIntegrator"
+>LimIntegrator</A>
+</TD><TD>Integrator with limited value of the output</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Continuous.DerivativeS.png" ALT="Modelica.Blocks.Continuous.Derivative" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous.Derivative"
+>Derivative</A>
+</TD><TD>Approximated derivative block</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Continuous.FirstOrderS.png" ALT="Modelica.Blocks.Continuous.FirstOrder" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous.FirstOrder"
+>FirstOrder</A>
+</TD><TD>First order transfer function block (= 1 pole)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Continuous.SecondOrderS.png" ALT="Modelica.Blocks.Continuous.SecondOrder" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous.SecondOrder"
+>SecondOrder</A>
+</TD><TD>Second order transfer function block (= 2 poles)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Continuous.PIS.png" ALT="Modelica.Blocks.Continuous.PI" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous.PI"
+>PI</A>
+</TD><TD>Proportional-Integral controller</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Continuous.PIDS.png" ALT="Modelica.Blocks.Continuous.PID" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous.PID"
+>PID</A>
+</TD><TD>PID-controller in additive description form</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Continuous.LimPIDS.png" ALT="Modelica.Blocks.Continuous.LimPID" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous.LimPID"
+>LimPID</A>
+</TD><TD>P, PI, PD, and PID controller with limited output, anti-windup compensation and setpoint weighting</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Continuous.TransferFunctionS.png" ALT="Modelica.Blocks.Continuous.TransferFunction" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous.TransferFunction"
+>TransferFunction</A>
+</TD><TD>Linear transfer function</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Continuous.StateSpaceS.png" ALT="Modelica.Blocks.Continuous.StateSpace" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous.StateSpace"
+>StateSpace</A>
+</TD><TD>Linear state space system</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Continuous.DerS.png" ALT="Modelica.Blocks.Continuous.Der" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous.Der"
+>Der</A>
+</TD><TD>Derivative of input (= analytic differentations)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Continuous.LowpassButterworthS.png" ALT="Modelica.Blocks.Continuous.LowpassButterworth" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous.LowpassButterworth"
+>LowpassButterworth</A>
+</TD><TD>Output the input signal filtered with a low pass Butterworth filter of any order</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Continuous.CriticalDampingS.png" ALT="Modelica.Blocks.Continuous.CriticalDamping" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous.CriticalDamping"
+>CriticalDamping</A>
+</TD><TD>Output the input signal filtered with an n-th order filter with critical damping</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Integrator<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Continuous.IntegratorI.png" ALT="Modelica.Blocks.Continuous.Integrator" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Continuous.Integrator"></A><A HREF="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous"
+>Modelica.Blocks.Continuous</A>.Integrator</H2>
+<B>Output the integral of the input signal</B><p>
+<IMG SRC="Modelica.Blocks.Continuous.IntegratorD.png" ALT="Modelica.Blocks.Continuous.Integrator">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This blocks computes output <b>y</b> (element-wise) as
+<i>integral</i> of the input <b>u</b> multiplied with
+the gain <i>k</i>:
+</p>
+<pre>
+         k
+     y = - u
+         s
+</pre>
+
+<p>
+It might be difficult to initialize the integrator in steady state.
+This is discussed in the description of package
+<A HREF="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous"
+>Continuous</a>.
+</p>
+
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>k</TD><TD>1</TD><TD>Integrator gain</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Initialization</TD></TR>
+<TR><TD>&nbsp;</TD><TD>initType</TD><TD>Modelica.Blocks.Types.Init.I...</TD><TD>Type of initialization (InitialState and InitialOutput are identical)</TD></TR>
+<TR><TD>&nbsp;</TD><TD>y_start</TD><TD>0</TD><TD>Initial or guess value of output (= state)</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>input &nbsp;</TD><TD>u</TD><TD>Connector of Real input signal</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">block</font> Integrator <font color="darkgreen">&quot;Output the integral of the input signal&quot;</font>
+  <font color="blue">import </font><A HREF="Modelica_Blocks_Types_Init.html#Modelica.Blocks.Types.Init"
+>Modelica.Blocks.Types.Init</A>;
+  <font color="blue">parameter </font>Real k=1 <font color="darkgreen">&quot;Integrator gain&quot;</font>;
+
+  <font color="darkgreen">/* InitialState is the default, because it was the default in Modelica 2.2
+     and therefore this setting is backward compatible
+  */</font>
+  <font color="blue">parameter </font><A HREF="Modelica_Blocks_Types_Init.html#Modelica.Blocks.Types.Init.Temp"
+>Init.Temp</A> initType=Modelica.Blocks.Types.Init.InitialState <font color="darkgreen">
+    &quot;Type of initialization (InitialState and InitialOutput are identical)&quot;</font>;
+  <font color="blue">parameter </font>Real y_start=0 <font color="darkgreen">&quot;Initial or guess value of output (= state)&quot;</font>;
+  <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SISO"
+>Interfaces.SISO</A>(y(start=y_start));
+
+<font color="blue">initial </font><font color="blue">equation </font>
+  <font color="blue">if </font>initType == Init.SteadyState<font color="blue"> then</font>
+    <font color="red"> der</font>(y) = 0;
+  <font color="blue">elseif </font>initType == Init.InitialState<font color="blue"> or </font>
+         initType == Init.InitialOutput<font color="blue"> then</font>
+    y = y_start;
+  <font color="blue">end if</font>;
+<font color="blue">equation </font>
+  <font color="red">der</font>(y) = k*u;
+<font color="blue">end </font>Integrator;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE LimIntegrator<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Continuous.LimIntegratorI.png" ALT="Modelica.Blocks.Continuous.LimIntegrator" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Continuous.LimIntegrator"></A><A HREF="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous"
+>Modelica.Blocks.Continuous</A>.LimIntegrator</H2>
+<B>Integrator with limited value of the output</B><p>
+<IMG SRC="Modelica.Blocks.Continuous.LimIntegratorD.png" ALT="Modelica.Blocks.Continuous.LimIntegrator">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This blocks computes <b>y</b> (element-wise) as <i>integral</i>
+of the input <b>u</b> multiplied with the gain <i>k</i>. If the
+integral reaches a given upper or lower <i>limit</i> and the
+input will drive the integral outside of this bound, the
+integration is halted and only restarted if the input drives
+the integral away from the bounds.
+</p>
+
+<p>
+It might be difficult to initialize the integrator in steady state.
+This is discussed in the description of package
+<A HREF="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous"
+>Continuous</a>.
+</p>
+
+<p>
+If parameter <b>limitAtInit</b> = <b>false</b>, the limits of the
+integrator are removed from the initialization problem which
+leads to a much simpler equation system. After initialization has been
+performed, it is checked via an assert whether the output is in the
+defined limits. For backward compatibility reasons
+<b>limitAtInit</b> = <b>true</b>. In most cases it is best
+to use <b>limitAtInit</b> = <b>false</b>.
+</p>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>k</TD><TD>1</TD><TD>Integrator gain</TD></TR>
+<TR><TD>&nbsp;</TD><TD>outMax</TD><TD>1</TD><TD>Upper limit of output</TD></TR>
+<TR><TD>&nbsp;</TD><TD>outMin</TD><TD>-outMax</TD><TD>Lower limit of output</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Initialization</TD></TR>
+<TR><TD>&nbsp;</TD><TD>initType</TD><TD>Modelica.Blocks.Types.Init.I...</TD><TD>Type of initialization</TD></TR>
+<TR><TD>&nbsp;</TD><TD>limitsAtInit</TD><TD>true</TD><TD>= false, if limits are ignored during initializiation (i.e., der(y)=k*u)</TD></TR>
+<TR><TD>&nbsp;</TD><TD>y_start</TD><TD>0</TD><TD>Initial or guess value of output (must be in the limits outMin .. outMax)</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>input &nbsp;</TD><TD>u</TD><TD>Connector of Real input signal</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">block</font> LimIntegrator <font color="darkgreen">&quot;Integrator with limited value of the output&quot;</font>
+  <font color="blue">import </font><A HREF="Modelica_Blocks_Types_Init.html#Modelica.Blocks.Types.Init"
+>Modelica.Blocks.Types.Init</A>;
+  <font color="blue">parameter </font>Real k=1 <font color="darkgreen">&quot;Integrator gain&quot;</font>;
+  <font color="blue">parameter </font>Real outMax=1 <font color="darkgreen">&quot;Upper limit of output&quot;</font>;
+  <font color="blue">parameter </font>Real outMin=-outMax <font color="darkgreen">&quot;Lower limit of output&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Blocks_Types_Init.html#Modelica.Blocks.Types.Init.Temp"
+>Init.Temp</A> initType=Modelica.Blocks.Types.Init.InitialState <font color="darkgreen">
+    &quot;Type of initialization&quot;</font>;
+  <font color="blue">parameter </font>Boolean limitsAtInit = true <font color="darkgreen">
+    &quot;= false, if limits are ignored during initializiation (i.e., der(y)=k*u)&quot;</font>;
+  <font color="blue">parameter </font>Real y_start=0 <font color="darkgreen">
+    &quot;Initial or guess value of output (must be in the limits outMin .. outMax)&quot;</font>;
+  <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SISO"
+>Interfaces.SISO</A>(y(start=y_start));
+<font color="blue">initial </font><font color="blue">equation </font>
+  <font color="blue">if </font>initType == Init.SteadyState<font color="blue"> then</font>
+    <font color="red"> der</font>(y) = 0;
+  <font color="blue">elseif </font>initType == Init.InitialState<font color="blue"> or </font>
+         initType == Init.InitialOutput<font color="blue"> then</font>
+    y = y_start;
+  <font color="blue">end if</font>;
+<font color="blue">equation </font>
+  <font color="blue">if </font><font color="red">initial</font>()<font color="blue"> and </font><font color="blue">not </font>limitsAtInit<font color="blue"> then</font>
+    <font color="red"> der</font>(y) = k*u;
+    <font color="red"> assert</font>(y &gt;= outMin - 0.01*<font color="red">abs</font>(outMin)<font color="blue"> and </font>
+            y &lt;= outMax + 0.01*<font color="red">abs</font>(outMax),
+           &quot;LimIntegrator: During initialization the limits have been ignored.\n&quot;+
+           &quot;However, the result is that the output y is not within the required limits:\n&quot;+
+           &quot;  y = &quot; +<font color="red"> String</font>(y) + &quot;, outMin = &quot; +<font color="red"> String</font>(outMin) + &quot;, outMax = &quot; +<font color="red"> String</font>(outMax));
+  <font color="blue">else</font>
+    <font color="red"> der</font>(y) =<font color="red"> smooth</font>(0,<font color="blue">if </font>y &lt; outMin<font color="blue"> and </font>u &lt; 0<font color="blue"> or </font>y &gt; outMax<font color="blue"> and </font>u &gt; 0<font color="blue"> then </font>0<font color="blue"> else </font>k*u);
+  <font color="blue">end if</font>;
+<font color="blue">end </font>LimIntegrator;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Derivative<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Continuous.DerivativeI.png" ALT="Modelica.Blocks.Continuous.Derivative" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Continuous.Derivative"></A><A HREF="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous"
+>Modelica.Blocks.Continuous</A>.Derivative</H2>
+<B>Approximated derivative block</B><p>
+<IMG SRC="Modelica.Blocks.Continuous.DerivativeD.png" ALT="Modelica.Blocks.Continuous.Derivative">
+<H3>Information</H3>
+<PRE>
+</pre>
+<p>
+This blocks defines the transfer function between the
+input u and the output y
+(element-wise) as <i>approximated derivative</i>:
+</p>
+<pre>
+             k * s
+     y = ------------ * u
+            T * s + 1
+</pre>
+<p>
+If you would like to be able to change easily between different
+transfer functions (FirstOrder, SecondOrder, ... ) by changing
+parameters, use the general block <b>TransferFunction</b> instead
+and model a derivative block with parameters<br>
+b = {k,0}, a = {T, 1}.
+</p>
+
+<p>
+If k=0, the block reduces to y=0.
+</p>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>k</TD><TD>1</TD><TD>Gains</TD></TR>
+<TR><TD>&nbsp;</TD><TD>T</TD><TD>0.01</TD><TD>Time constants (T&gt;0 required; T=0 is ideal derivative block) [s]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Initialization</TD></TR>
+<TR><TD>&nbsp;</TD><TD>initType</TD><TD>Modelica.Blocks.Types.Init.N...</TD><TD>Type of initialization</TD></TR>
+<TR><TD>&nbsp;</TD><TD>x_start</TD><TD>0</TD><TD>Initial or guess value of state</TD></TR>
+<TR><TD>&nbsp;</TD><TD>y_start</TD><TD>0</TD><TD>Initial value of output (= state)</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>input &nbsp;</TD><TD>u</TD><TD>Connector of Real input signal</TD></TR>
+<TR><TD>output &nbsp;</TD><TD>y</TD><TD>Connector of Real output signal</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">block</font> Derivative <font color="darkgreen">&quot;Approximated derivative block&quot;</font>
+  <font color="blue">import </font><A HREF="Modelica_Blocks_Types_Init.html#Modelica.Blocks.Types.Init"
+>Modelica.Blocks.Types.Init</A>;
+  <font color="blue">parameter </font>Real k=1 <font color="darkgreen">&quot;Gains&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
+>SIunits.Time</A> T(min=Modelica.Constants.small) = 0.01 <font color="darkgreen">
+    &quot;Time constants (T&gt;0 required; T=0 is ideal derivative block)&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Blocks_Types_Init.html#Modelica.Blocks.Types.Init.Temp"
+>Init.Temp</A> initType=Modelica.Blocks.Types.Init.NoInit <font color="darkgreen">
+    &quot;Type of initialization&quot;</font>;
+  <font color="blue">parameter </font>Real x_start=0 <font color="darkgreen">&quot;Initial or guess value of state&quot;</font>;
+  <font color="blue">parameter </font>Real y_start=0 <font color="darkgreen">&quot;Initial value of output (= state)&quot;</font>;
+  <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SISO"
+>Interfaces.SISO</A>;
+
+  <font color="blue">output </font>Real x(start=x_start) <font color="darkgreen">&quot;State of block&quot;</font>;
+
+<font color="blue">protected </font>
+  <font color="blue">parameter </font>Boolean zeroGain =<font color="red"> abs</font>(k) &lt; Modelica.Constants.eps;
+<font color="blue">initial </font><font color="blue">equation </font>
+  <font color="blue">if </font>initType == Init.SteadyState<font color="blue"> then</font>
+    <font color="red">der</font>(x) = 0;
+  <font color="blue">elseif </font>initType == Init.InitialState<font color="blue"> then</font>
+    x = x_start;
+  <font color="blue">elseif </font>initType == Init.InitialOutput<font color="blue"> then</font>
+    <font color="blue">if </font>zeroGain<font color="blue"> then</font>
+       x = u;
+    <font color="blue">else</font>
+       y = y_start;
+    <font color="blue">end if</font>;
+  <font color="blue">end if</font>;
+<font color="blue">equation </font>
+  <font color="red">der</font>(x) = <font color="blue">if </font>zeroGain<font color="blue"> then </font>0<font color="blue"> else </font>(u - x)/T;
+  y = <font color="blue">if </font>zeroGain<font color="blue"> then </font>0<font color="blue"> else </font>(k/T)*(u - x);
+<font color="blue">end </font>Derivative;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE FirstOrder<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Continuous.FirstOrderI.png" ALT="Modelica.Blocks.Continuous.FirstOrder" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Continuous.FirstOrder"></A><A HREF="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous"
+>Modelica.Blocks.Continuous</A>.FirstOrder</H2>
+<B>First order transfer function block (= 1 pole)</B><p>
+<IMG SRC="Modelica.Blocks.Continuous.FirstOrderD.png" ALT="Modelica.Blocks.Continuous.FirstOrder">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This blocks defines the transfer function between the input u
+and the output y (element-wise) as <i>first order</i> system:
+</p>
+<pre>
+               k
+     y = ------------ * u
+            T * s + 1
+</pre>
+<p>
+If you would like to be able to change easily between different
+transfer functions (FirstOrder, SecondOrder, ... ) by changing
+parameters, use the general block <b>TransferFunction</b> instead
+and model a first order SISO system with parameters<br>
+b = {k}, a = {T, 1}.
+</p>
+<pre>
+Example:
+   parameter: k = 0.3, T = 0.4
+   results in:
+             0.3
+      y = ----------- * u
+          0.4 s + 1.0
+</pre>
+
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>k</TD><TD>1</TD><TD>Gain</TD></TR>
+<TR><TD>&nbsp;</TD><TD>T</TD><TD>1</TD><TD>Time Constant [s]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Initialization</TD></TR>
+<TR><TD>&nbsp;</TD><TD>initType</TD><TD>Modelica.Blocks.Types.Init.N...</TD><TD>Type of initialization (InitialState and InitialOutput are identical)</TD></TR>
+<TR><TD>&nbsp;</TD><TD>y_start</TD><TD>0</TD><TD>Initial or guess value of output (= state)</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>input &nbsp;</TD><TD>u</TD><TD>Connector of Real input signal</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">block</font> FirstOrder <font color="darkgreen">&quot;First order transfer function block (= 1 pole)&quot;</font>
+  <font color="blue">import </font><A HREF="Modelica_Blocks_Types_Init.html#Modelica.Blocks.Types.Init"
+>Modelica.Blocks.Types.Init</A>;
+  <font color="blue">parameter </font>Real k=1 <font color="darkgreen">&quot;Gain&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
+>SIunits.Time</A> T=1 <font color="darkgreen">&quot;Time Constant&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Blocks_Types_Init.html#Modelica.Blocks.Types.Init.Temp"
+>Init.Temp</A> initType=Modelica.Blocks.Types.Init.NoInit <font color="darkgreen">
+    &quot;Type of initialization (InitialState and InitialOutput are identical)&quot;</font>;
+  <font color="blue">parameter </font>Real y_start=0 <font color="darkgreen">&quot;Initial or guess value of output (= state)&quot;</font>;
+
+  <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SISO"
+>Interfaces.SISO</A>(y(start=y_start));
+
+<font color="blue">initial </font><font color="blue">equation </font>
+  <font color="blue">if </font>initType == Init.SteadyState<font color="blue"> then</font>
+    <font color="red">der</font>(y) = 0;
+  <font color="blue">elseif </font>initType == Init.InitialState<font color="blue"> or </font>initType == Init.InitialOutput<font color="blue"> then</font>
+    y = y_start;
+  <font color="blue">end if</font>;
+<font color="blue">equation </font>
+  <font color="red">der</font>(y) = (k*u - y)/T;
+<font color="blue">end </font>FirstOrder;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SecondOrder<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Continuous.SecondOrderI.png" ALT="Modelica.Blocks.Continuous.SecondOrder" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Continuous.SecondOrder"></A><A HREF="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous"
+>Modelica.Blocks.Continuous</A>.SecondOrder</H2>
+<B>Second order transfer function block (= 2 poles)</B><p>
+<IMG SRC="Modelica.Blocks.Continuous.SecondOrderD.png" ALT="Modelica.Blocks.Continuous.SecondOrder">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This blocks defines the transfer function between the input u and
+the output y (element-wise) as <i>second order</i> system:
+</p>
+<pre>
+                             k
+     y = ---------------------------------------- * u
+            ( s / w )^2 + 2*D*( s / w ) + 1
+</pre>
+<p>
+If you would like to be able to change easily between different
+transfer functions (FirstOrder, SecondOrder, ... ) by changing
+parameters, use the general model class <b>TransferFunction</b>
+instead and model a second order SISO system with parameters<br>
+b = {k}, a = {1/w^2, 2*D/w, 1}.
+</p>
+<pre>
+Example:
+
+   parameter: k =  0.3,  w = 0.5,  D = 0.4
+   results in:
+                  0.3
+      y = ------------------- * u
+          4.0 s^2 + 1.6 s + 1
+</pre>
+
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>k</TD><TD>1</TD><TD>Gain</TD></TR>
+<TR><TD>&nbsp;</TD><TD>w</TD><TD>1</TD><TD>Angular frequency</TD></TR>
+<TR><TD>&nbsp;</TD><TD>D</TD><TD>1</TD><TD>Damping</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Initialization</TD></TR>
+<TR><TD>&nbsp;</TD><TD>initType</TD><TD>Modelica.Blocks.Types.Init.N...</TD><TD>Type of initialization (InitialState and InitialOutput are identical)</TD></TR>
+<TR><TD>&nbsp;</TD><TD>y_start</TD><TD>0</TD><TD>Initial or guess value of output (= state)</TD></TR>
+<TR><TD>&nbsp;</TD><TD>yd_start</TD><TD>0</TD><TD>Initial or guess value of derivative of output (= state)</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>input &nbsp;</TD><TD>u</TD><TD>Connector of Real input signal</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">block</font> SecondOrder <font color="darkgreen">&quot;Second order transfer function block (= 2 poles)&quot;</font>
+  <font color="blue">import </font><A HREF="Modelica_Blocks_Types_Init.html#Modelica.Blocks.Types.Init"
+>Modelica.Blocks.Types.Init</A>;
+  <font color="blue">parameter </font>Real k=1 <font color="darkgreen">&quot;Gain&quot;</font>;
+  <font color="blue">parameter </font>Real w=1 <font color="darkgreen">&quot;Angular frequency&quot;</font>;
+  <font color="blue">parameter </font>Real D=1 <font color="darkgreen">&quot;Damping&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Blocks_Types_Init.html#Modelica.Blocks.Types.Init.Temp"
+>Init.Temp</A> initType=Modelica.Blocks.Types.Init.NoInit <font color="darkgreen">
+    &quot;Type of initialization (InitialState and InitialOutput are identical)&quot;</font>;
+  <font color="blue">parameter </font>Real y_start=0 <font color="darkgreen">&quot;Initial or guess value of output (= state)&quot;</font>;
+  <font color="blue">parameter </font>Real yd_start=0 <font color="darkgreen">
+    &quot;Initial or guess value of derivative of output (= state)&quot;</font>;
+
+  <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SISO"
+>Interfaces.SISO</A>(y(start=y_start));
+  <font color="blue">output </font>Real yd(start=yd_start) <font color="darkgreen">&quot;Derivative of y&quot;</font>;
+<font color="blue">initial </font><font color="blue">equation </font>
+  <font color="blue">if </font>initType == Init.SteadyState<font color="blue"> then</font>
+    <font color="red">der</font>(y) = 0;
+    <font color="red">der</font>(yd) = 0;
+  <font color="blue">elseif </font>initType == Init.InitialState<font color="blue"> or </font>initType == Init.InitialOutput<font color="blue"> then</font>
+    y = y_start;
+    yd = yd_start;
+  <font color="blue">end if</font>;
+<font color="blue">equation </font>
+  <font color="red">der</font>(y) = yd;
+  <font color="red">der</font>(yd) = w*(w*(k*u - y) - 2*D*yd);
+<font color="blue">end </font>SecondOrder;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PI<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Continuous.PII.png" ALT="Modelica.Blocks.Continuous.PI" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Continuous.PI"></A><A HREF="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous"
+>Modelica.Blocks.Continuous</A>.PI</H2>
+<B>Proportional-Integral controller</B><p>
+<IMG SRC="Modelica.Blocks.Continuous.PID.png" ALT="Modelica.Blocks.Continuous.PI">
+<H3>Information</H3>
+<PRE>
+</pre>
+<p>
+This blocks defines the transfer function between the input u and
+the output y (element-wise) as <i>PI</i> system:
+</p>
+<pre>
+                 1
+   y = k * (1 + ---) * u
+                T*s
+           T*s + 1
+     = k * ------- * u
+             T*s
+</pre>
+<p>
+If you would like to be able to change easily between different
+transfer functions (FirstOrder, SecondOrder, ... ) by changing
+parameters, use the general model class <b>TransferFunction</b>
+instead and model a PI SISO system with parameters<br>
+b = {k*T, k}, a = {T, 0}.
+</p>
+<pre>
+Example:
+
+   parameter: k = 0.3,  T = 0.4
+
+   results in:
+               0.4 s + 1
+      y = 0.3 ----------- * u
+                 0.4 s
+</pre>
+
+<p>
+It might be difficult to initialize the PI component in steady state
+due to the integrator part.
+This is discussed in the description of package
+<A HREF="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous"
+>Continuous</a>.
+</p>
+
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>k</TD><TD>1</TD><TD>Gain</TD></TR>
+<TR><TD>&nbsp;</TD><TD>T</TD><TD>1</TD><TD>Time Constant (T&gt;0 required) [s]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Initialization</TD></TR>
+<TR><TD>&nbsp;</TD><TD>initType</TD><TD>Modelica.Blocks.Types.Init.N...</TD><TD>Type of initialization (SteadyState and InitialOutput are identical)</TD></TR>
+<TR><TD>&nbsp;</TD><TD>x_start</TD><TD>0</TD><TD>Initial or guess value of state</TD></TR>
+<TR><TD>&nbsp;</TD><TD>y_start</TD><TD>0</TD><TD>Initial value of output</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>input &nbsp;</TD><TD>u</TD><TD>Connector of Real input signal</TD></TR>
+<TR><TD>output &nbsp;</TD><TD>y</TD><TD>Connector of Real output signal</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">block</font> PI <font color="darkgreen">&quot;Proportional-Integral controller&quot;</font>
+  <font color="blue">import </font><A HREF="Modelica_Blocks_Types_Init.html#Modelica.Blocks.Types.Init"
+>Modelica.Blocks.Types.Init</A>;
+  <font color="blue">parameter </font>Real k=1 <font color="darkgreen">&quot;Gain&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
+>SIunits.Time</A> T=1 <font color="darkgreen">&quot;Time Constant (T&gt;0 required)&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Blocks_Types_Init.html#Modelica.Blocks.Types.Init.Temp"
+>Init.Temp</A> initType=Modelica.Blocks.Types.Init.NoInit <font color="darkgreen">
+    &quot;Type of initialization (SteadyState and InitialOutput are identical)&quot;</font>;
+  <font color="blue">parameter </font>Real x_start=0 <font color="darkgreen">&quot;Initial or guess value of state&quot;</font>;
+  <font color="blue">parameter </font>Real y_start=0 <font color="darkgreen">&quot;Initial value of output&quot;</font>;
+
+  <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SISO"
+>Interfaces.SISO</A>;
+  <font color="blue">output </font>Real x(start=x_start) <font color="darkgreen">&quot;State of block&quot;</font>;
+
+<font color="blue">initial </font><font color="blue">equation </font>
+  <font color="blue">if </font>initType == Init.SteadyState<font color="blue"> then</font>
+    <font color="red">der</font>(x) = 0;
+  <font color="blue">elseif </font>initType == Init.InitialState<font color="blue"> then</font>
+    x = x_start;
+  <font color="blue">elseif </font>initType == Init.InitialOutput<font color="blue"> then</font>
+    y = y_start;
+  <font color="blue">end if</font>;
+<font color="blue">equation </font>
+  <font color="red">der</font>(x) = u/T;
+  y = k*(x + u);
+<font color="blue">end </font>PI;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PID<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Continuous.PIDI.png" ALT="Modelica.Blocks.Continuous.PID" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Continuous.PID"></A><A HREF="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous"
+>Modelica.Blocks.Continuous</A>.PID</H2>
+<B>PID-controller in additive description form</B><p>
+<IMG SRC="Modelica.Blocks.Continuous.PIDD.png" ALT="Modelica.Blocks.Continuous.PID">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This is the text-book version of a PID-controller.
+For a more practically useful PID-controller, use
+block LimPID.
+</p>
+
+<p>
+The PID block can be initialized in different
+ways controlled by parameter <b>initType</b>. The possible
+values of initType are defined in
+<A HREF="Modelica_Blocks_Types_InitPID.html#Modelica.Blocks.Types.InitPID"
+>Modelica.Blocks.Types.InitPID</a>.
+This type is identical to
+<A HREF="Modelica_Blocks_Types_Init.html#Modelica.Blocks.Types.Init"
+>Types.Init</a>,
+with the only exception that the additional option
+<b>DoNotUse_InitialIntegratorState</b> is added for
+backward compatibility reasons (= integrator is initialized with
+InitialState whereas differential part is initialized with
+NoInit which was the initialization in version 2.2 of the Modelica
+standard library).
+</p>
+
+<p>
+Based on the setting of initType, the integrator (I) and derivative (D)
+blocks inside the PID controller are initialized according to the following table:
+</p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td><b>initType</b></td>
+      <td><b>I.initType</b></td>
+      <td><b>D.initType</b></td></tr>
+
+  <tr><td><b>NoInit</b></td>
+      <td>NoInit</td>
+      <td>NoInit</td></tr>
+
+  <tr><td><b>SteadyState</b></td>
+      <td>SteadyState</td>
+      <td>SteadyState</td></tr>
+
+  <tr><td><b>InitialState</b></td>
+      <td>InitialState</td>
+      <td>InitialState</td></tr>
+
+  <tr><td><b>InitialOutput</b><br>
+          and initial equation: y = y_start</td>
+      <td>NoInit</td>
+      <td>SteadyState</td></tr>
+
+  <tr><td><b>DoNotUse_InitialIntegratorState</b></td>
+      <td>InitialState</td>
+      <td>NoInit</td></tr>
+</table>
+
+<p>
+In many cases, the most useful initial condition is
+<b>SteadyState</b> because initial transients are then no longer
+present. If initType = InitPID.SteadyState, then in some
+cases difficulties might occur. The reason is the
+equation of the integrator:
+</p>
+
+<pre>
+   <b>der</b>(y) = k*u;
+</pre>
+
+<p>
+The steady state equation "der(x)=0" leads to the condition that the input u to the
+integrator is zero. If the input u is already (directly or indirectly) defined
+by another initial condition, then the initialization problem is <b>singular</b>
+(has none or infinitely many solutions). This situation occurs often
+for mechanical systems, where, e.g., u = desiredSpeed - measuredSpeed and
+since speed is both a state and a derivative, it is natural to
+initialize it with zero. As sketched this is, however, not possible.
+The solution is to not initialize u or the variable that is used
+to compute u by an algebraic equation.
+</p>
+
+
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>k</TD><TD>1</TD><TD>Gain</TD></TR>
+<TR><TD>&nbsp;</TD><TD>Ti</TD><TD>0.5</TD><TD>Time Constant of Integrator [s]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>Td</TD><TD>0.1</TD><TD>Time Constant of Derivative block [s]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>Nd</TD><TD>10</TD><TD>The higher Nd, the more ideal the derivative block</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Initialization</TD></TR>
+<TR><TD>&nbsp;</TD><TD>initType</TD><TD>Modelica.Blocks.Types.InitPI...</TD><TD>Type of initialization</TD></TR>
+<TR><TD>&nbsp;</TD><TD>xi_start</TD><TD>0</TD><TD>Initial or guess value value for integrator output (= integrator state)</TD></TR>
+<TR><TD>&nbsp;</TD><TD>xd_start</TD><TD>0</TD><TD>Initial or guess value for state of derivative block</TD></TR>
+<TR><TD>&nbsp;</TD><TD>y_start</TD><TD>0</TD><TD>Initial value of output</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>input &nbsp;</TD><TD>u</TD><TD>Connector of Real input signal</TD></TR>
+<TR><TD>output &nbsp;</TD><TD>y</TD><TD>Connector of Real output signal</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">block</font> PID <font color="darkgreen">&quot;PID-controller in additive description form&quot;</font>
+  <font color="blue">import </font><A HREF="Modelica_Blocks_Types_InitPID.html#Modelica.Blocks.Types.InitPID"
+>Modelica.Blocks.Types.InitPID</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SISO"
+>Interfaces.SISO</A>;
+
+  <font color="blue">parameter </font>Real k=1 <font color="darkgreen">&quot;Gain&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
+>SIunits.Time</A> Ti(min=Modelica.Constants.small) = 0.5 <font color="darkgreen">
+    &quot;Time Constant of Integrator&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
+>SIunits.Time</A> Td(min=0) = 0.1 <font color="darkgreen">&quot;Time Constant of Derivative block&quot;</font>;
+  <font color="blue">parameter </font>Real Nd(min=Modelica.Constants.small) = 10 <font color="darkgreen">
+    &quot;The higher Nd, the more ideal the derivative block&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Blocks_Types_InitPID.html#Modelica.Blocks.Types.InitPID.Temp"
+>InitPID.Temp</A> initType=Modelica.Blocks.Types.InitPID.DoNotUse_InitialIntegratorState <font color="darkgreen">
+    &quot;Type of initialization&quot;</font>;
+  <font color="blue">parameter </font>Real xi_start=0 <font color="darkgreen">
+    &quot;Initial or guess value value for integrator output (= integrator state)&quot;</font>;
+  <font color="blue">parameter </font>Real xd_start=0 <font color="darkgreen">
+    &quot;Initial or guess value for state of derivative block&quot;</font>;
+  <font color="blue">parameter </font>Real y_start=0 <font color="darkgreen">&quot;Initial value of output&quot;</font>;
+
+  <A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Gain"
+>Blocks.Math.Gain</A> P <font color="darkgreen">&quot;Proportional part of PID controller&quot;</font>;
+  <A HREF="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous.Integrator"
+>Blocks.Continuous.Integrator</A> I(k=1/Ti, y_start=xi_start,
+    initType=<font color="blue">if </font>initType==InitPID.SteadyState<font color="blue"> then </font>
+                InitPID.SteadyState<font color="blue"> else </font>
+             <font color="blue">if </font>initType==InitPID.InitialState<font color="blue"> or </font>
+                initType==InitPID.DoNotUse_InitialIntegratorState<font color="blue"> then </font>
+                InitPID.InitialState<font color="blue"> else </font>InitPID.NoInit) <font color="darkgreen">
+    &quot;Integral part of PID controller&quot;</font>;
+  <A HREF="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous.Derivative"
+>Blocks.Continuous.Derivative</A> D(k=Td, T=<font color="red">max</font>([Td/Nd, 100*Modelica.
+        Constants.eps]), x_start=xd_start,
+    initType=<font color="blue">if </font>initType==InitPID.SteadyState<font color="blue"> or </font>
+                initType==InitPID.InitialOutput<font color="blue"> then </font>InitPID.SteadyState<font color="blue"> else </font>
+             <font color="blue">if </font>initType==InitPID.InitialState<font color="blue"> then </font>InitPID.InitialState<font color="blue"> else </font>
+                InitPID.NoInit) <font color="darkgreen">&quot;Derivative part of PID controller&quot;</font>;
+  <A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Gain"
+>Blocks.Math.Gain</A> Gain(k=k) <font color="darkgreen">&quot;Gain of PID controller&quot;</font>;
+  <A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Add3"
+>Blocks.Math.Add3</A> Add;
+<font color="blue">initial </font><font color="blue">equation </font>
+  <font color="blue">if </font>initType==InitPID.InitialOutput<font color="blue"> then</font>
+     y = y_start;
+  <font color="blue">end if</font>;
+
+<font color="blue">equation </font>
+  <font color="red">connect</font>(u, P.u);
+  <font color="red">connect</font>(u, I.u);
+  <font color="red">connect</font>(u, D.u);
+  <font color="red">connect</font>(P.y, Add.u1);
+  <font color="red">connect</font>(I.y, Add.u2);
+  <font color="red">connect</font>(D.y, Add.u3);
+  <font color="red">connect</font>(Add.y, Gain.u);
+  <font color="red">connect</font>(Gain.y, y);
+<font color="blue">end </font>PID;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE LimPID<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Continuous.LimPIDI.png" ALT="Modelica.Blocks.Continuous.LimPID" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Continuous.LimPID"></A><A HREF="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous"
+>Modelica.Blocks.Continuous</A>.LimPID</H2>
+<B>P, PI, PD, and PID controller with limited output, anti-windup compensation and setpoint weighting</B><p>
+<IMG SRC="Modelica.Blocks.Continuous.LimPIDD.png" ALT="Modelica.Blocks.Continuous.LimPID">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+Via parameter <b>controllerType</b> either <b>P</b>, <b>PI</b>, <b>PD</b>,
+or <b>PID</b> can be selected. If, e.g., PI is selected, all components belonging to the
+D-part are removed from the block (via conditional declarations).
+The example model
+<A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.PID_Controller"
+>Modelica.Blocks.Examples.PID_Controller</a>
+demonstrates the usage of this controller.
+Several practical aspects of PID controller design are incorporated
+according to chapter 3 of the book:
+</p>
+
+<dl>
+<dt>Astroem K.J., and Haegglund T.:</dt>
+<dd> <b>PID Controllers: Theory, Design, and Tuning</b>.
+     Instrument Society of America, 2nd edition, 1995.
+     Information from:
+     <a href="http://www.control.lth.se/publications/books/asthagg95.html">http://www.control.lth.se/publications/books/asthagg95.html</a>
+     </dd>
+</dl>
+
+<p>
+Besides the additive <b>proportional, integral</b> and <b>derivative</b>
+part of this controller, the following features are present:
+</p>
+<ul>
+<li> The output of this controller is limited. If the controller is
+     in its limits, anti-windup compensation is activated to drive
+     the integrator state to zero. </li>
+<li> The high-frequency gain of the derivative part is limited
+     to avoid excessive amplification of measurement noise.</li>
+<li> Setpoint weighting is present, which allows to weight
+     the setpoint in the proportional and the derivative part
+     independantly from the measurement. The controller will respond
+     to load disturbances and measurement noise independantly of this setting
+     (parameters wp, wd). However, setpoint changes will depend on this
+     setting. For example, it is useful to set the setpoint weight wd
+     for the derivative part to zero, if steps may occur in the
+     setpoint signal.</li>
+</ul>
+
+<p>
+The parameters of the controller can be manually adjusted by performing
+simulations of the closed loop system (= controller + plant connected
+together) and using the following strategy:
+</p>
+
+<ol>
+<li> Set very large limits, e.g., yMax = Modelica.Constants.inf</li>
+<li> Select a <b>P</b>-controller and manually enlarge parameter <b>k</b>
+     (the total gain of the controller) until the closed-loop response
+     cannot be improved any more.</li>
+<li> Select a <b>PI</b>-controller and manually adjust parameters
+     <b>k</b> and <b>Ti</b> (the time constant of the integrator).
+     The first value of Ti can be selected, such that it is in the
+     order of the time constant of the oscillations occuring with
+     the P-controller. If, e.g., vibrations in the order of T=10 ms
+     occur in the previous step, start with Ti=0.01 s.</li>
+<li> If you want to make the reaction of the control loop faster
+     (but probably less robust against disturbances and measurement noise)
+     select a <b>PID</b>-Controller and manually adjust parameters
+     <b>k</b>, <b>Ti</b>, <b>Td</b> (time constant of derivative block).</li>
+<li> Set the limits yMax and yMin according to your specification.</li>
+<li> Perform simulations such that the output of the PID controller
+     goes in its limits. Tune <b>Ni</b> (Ni*Ti is the time constant of
+     the anti-windup compensation) such that the input to the limiter
+     block (= limiter.u) goes quickly enough back to its limits.
+     If Ni is decreased, this happens faster. If Ni=infinity, the
+     anti-windup compensation is switched off and the controller works bad.</li>
+</ol>
+
+<p>
+<b>Initialization</b>
+</p>
+
+<p>
+This block can be initialized in different
+ways controlled by parameter <b>initType</b>. The possible
+values of initType are defined in
+<A HREF="Modelica_Blocks_Types_InitPID.html#Modelica.Blocks.Types.InitPID"
+>Modelica.Blocks.Types.InitPID</a>.
+This type is identical to
+<A HREF="Modelica_Blocks_Types_Init.html#Modelica.Blocks.Types.Init"
+>Types.Init</a>,
+with the only exception that the additional option
+<b>DoNotUse_InitialIntegratorState</b> is added for
+backward compatibility reasons (= integrator is initialized with
+InitialState whereas differential part is initialized with
+NoInit which was the initialization in version 2.2 of the Modelica
+standard library).
+</p>
+
+<p>
+Based on the setting of initType, the integrator (I) and derivative (D)
+blocks inside the PID controller are initialized according to the following table:
+</p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td><b>initType</b></td>
+      <td><b>I.initType</b></td>
+      <td><b>D.initType</b></td></tr>
+
+  <tr><td><b>NoInit</b></td>
+      <td>NoInit</td>
+      <td>NoInit</td></tr>
+
+  <tr><td><b>SteadyState</b></td>
+      <td>SteadyState</td>
+      <td>SteadyState</td></tr>
+
+  <tr><td><b>InitialState</b></td>
+      <td>InitialState</td>
+      <td>InitialState</td></tr>
+
+  <tr><td><b>InitialOutput</b><br>
+          and initial equation: y = y_start</td>
+      <td>NoInit</td>
+      <td>SteadyState</td></tr>
+
+  <tr><td><b>DoNotUse_InitialIntegratorState</b></td>
+      <td>InitialState</td>
+      <td>NoInit</td></tr>
+</table>
+
+<p>
+In many cases, the most useful initial condition is
+<b>SteadyState</b> because initial transients are then no longer
+present. If initType = InitPID.SteadyState, then in some
+cases difficulties might occur. The reason is the
+equation of the integrator:
+</p>
+
+<pre>
+   <b>der</b>(y) = k*u;
+</pre>
+
+<p>
+The steady state equation "der(x)=0" leads to the condition that the input u to the
+integrator is zero. If the input u is already (directly or indirectly) defined
+by another initial condition, then the initialization problem is <b>singular</b>
+(has none or infinitely many solutions). This situation occurs often
+for mechanical systems, where, e.g., u = desiredSpeed - measuredSpeed and
+since speed is both a state and a derivative, it is natural to
+initialize it with zero. As sketched this is, however, not possible.
+The solution is to not initialize u_m or the variable that is used
+to compute u_m by an algebraic equation.
+</p>
+
+<p>
+If parameter <b>limitAtInit</b> = <b>false</b>, the limits at the
+output of this controller block are removed from the initialization problem which
+leads to a much simpler equation system. After initialization has been
+performed, it is checked via an assert whether the output is in the
+defined limits. For backward compatibility reasons
+<b>limitAtInit</b> = <b>true</b>. In most cases it is best
+to use <b>limitAtInit</b> = <b>false</b>.
+</p>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>controllerType</TD><TD>Modelica.Blocks.Types.Simple...</TD><TD>Type of controller</TD></TR>
+<TR><TD>&nbsp;</TD><TD>k</TD><TD>1</TD><TD>Gain of controller</TD></TR>
+<TR><TD>&nbsp;</TD><TD>Ti</TD><TD>0.5</TD><TD>Time constant of Integrator block [s]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>Td</TD><TD>0.1</TD><TD>Time constant of Derivative block [s]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>yMax</TD><TD>1</TD><TD>Upper limit of output</TD></TR>
+<TR><TD>&nbsp;</TD><TD>yMin</TD><TD>-yMax</TD><TD>Lower limit of output</TD></TR>
+<TR><TD>&nbsp;</TD><TD>wp</TD><TD>1</TD><TD>Set-point weight for Proportional block (0..1)</TD></TR>
+<TR><TD>&nbsp;</TD><TD>wd</TD><TD>0</TD><TD>Set-point weight for Derivative block (0..1)</TD></TR>
+<TR><TD>&nbsp;</TD><TD>Ni</TD><TD>0.9</TD><TD>Ni*Ti is time constant of anti-windup compensation</TD></TR>
+<TR><TD>&nbsp;</TD><TD>Nd</TD><TD>10</TD><TD>The higher Nd, the more ideal the derivative block</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Initialization</TD></TR>
+<TR><TD>&nbsp;</TD><TD>initType</TD><TD>Modelica.Blocks.Types.InitPI...</TD><TD>Type of initialization</TD></TR>
+<TR><TD>&nbsp;</TD><TD>limitsAtInit</TD><TD>true</TD><TD>= false, if limits are ignored during initializiation</TD></TR>
+<TR><TD>&nbsp;</TD><TD>xi_start</TD><TD>0</TD><TD>Initial or guess value value for integrator output (= integrator state)</TD></TR>
+<TR><TD>&nbsp;</TD><TD>xd_start</TD><TD>0</TD><TD>Initial or guess value for state of derivative block</TD></TR>
+<TR><TD>&nbsp;</TD><TD>y_start</TD><TD>0</TD><TD>Initial value of output</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>input &nbsp;</TD><TD>u_s</TD><TD>Connector of setpoint input signal</TD></TR>
+<TR><TD>input &nbsp;</TD><TD>u_m</TD><TD>Connector of measurement input signal</TD></TR>
+<TR><TD>output &nbsp;</TD><TD>y</TD><TD>Connector of actuator output signal</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">block</font> LimPID <font color="darkgreen">
+  &quot;P, PI, PD, and PID controller with limited output, anti-windup compensation and setpoint weighting&quot;</font>
+  <font color="blue">import </font><A HREF="Modelica_Blocks_Types_InitPID.html#Modelica.Blocks.Types.InitPID"
+>Modelica.Blocks.Types.InitPID</A>;
+  <font color="blue">import </font><A HREF="Modelica_Blocks_Types_SimpleController.html#Modelica.Blocks.Types.SimpleController"
+>Modelica.Blocks.Types.SimpleController</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SVcontrol"
+>Interfaces.SVcontrol</A>;
+  <font color="blue">output </font>Real controlError = u_s - u_m <font color="darkgreen">
+    &quot;Control error (set point - measurement)&quot;</font>;
+
+  <font color="blue">parameter </font><A HREF="Modelica_Blocks_Types_SimpleController.html#Modelica.Blocks.Types.SimpleController.Temp"
+>SimpleController.Temp</A> controllerType=
+         Modelica.Blocks.Types.SimpleController.PID <font color="darkgreen">&quot;Type of controller&quot;</font>;
+  <font color="blue">parameter </font>Real k(min=0) = 1 <font color="darkgreen">&quot;Gain of controller&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
+>SIunits.Time</A> Ti(min=Modelica.Constants.small) = 0.5 <font color="darkgreen">
+    &quot;Time constant of Integrator block&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
+>SIunits.Time</A> Td(min=0) = 0.1 <font color="darkgreen">&quot;Time constant of Derivative block&quot;</font>;
+  <font color="blue">parameter </font>Real yMax=1 <font color="darkgreen">&quot;Upper limit of output&quot;</font>;
+  <font color="blue">parameter </font>Real yMin=-yMax <font color="darkgreen">&quot;Lower limit of output&quot;</font>;
+  <font color="blue">parameter </font>Real wp(min=0) = 1 <font color="darkgreen">&quot;Set-point weight for Proportional block (0..1)&quot;</font>;
+  <font color="blue">parameter </font>Real wd(min=0) = 0 <font color="darkgreen">&quot;Set-point weight for Derivative block (0..1)&quot;</font>;
+  <font color="blue">parameter </font>Real Ni(min=100*Modelica.Constants.eps) = 0.9 <font color="darkgreen">
+    &quot;Ni*Ti is time constant of anti-windup compensation&quot;</font>;
+  <font color="blue">parameter </font>Real Nd(min=100*Modelica.Constants.eps) = 10 <font color="darkgreen">
+    &quot;The higher Nd, the more ideal the derivative block&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Blocks_Types_InitPID.html#Modelica.Blocks.Types.InitPID.Temp"
+>InitPID.Temp</A> initType=Modelica.Blocks.Types.InitPID.DoNotUse_InitialIntegratorState <font color="darkgreen">
+    &quot;Type of initialization&quot;</font>;
+  <font color="blue">parameter </font>Boolean limitsAtInit = true <font color="darkgreen">
+    &quot;= false, if limits are ignored during initializiation&quot;</font>;
+  <font color="blue">parameter </font>Real xi_start=0 <font color="darkgreen">
+    &quot;Initial or guess value value for integrator output (= integrator state)&quot;</font>;
+  <font color="blue">parameter </font>Real xd_start=0 <font color="darkgreen">
+    &quot;Initial or guess value for state of derivative block&quot;</font>;
+  <font color="blue">parameter </font>Real y_start=0 <font color="darkgreen">&quot;Initial value of output&quot;</font>;
+
+  <A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Add"
+>Blocks.Math.Add</A> addP(k1=wp, k2=-1);
+  <A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Add"
+>Blocks.Math.Add</A> addD(k1=wd, k2=-1) <font color="blue">if </font>with_D;
+  <A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Gain"
+>Blocks.Math.Gain</A> P;
+  <A HREF="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous.Integrator"
+>Blocks.Continuous.Integrator</A> I(k=1/Ti, y_start=xi_start,
+    initType=<font color="blue">if </font>initType==InitPID.SteadyState<font color="blue"> then </font>
+                InitPID.SteadyState<font color="blue"> else </font>
+             <font color="blue">if </font>initType==InitPID.InitialState<font color="blue"> or </font>
+                initType==InitPID.DoNotUse_InitialIntegratorState<font color="blue"> then </font>
+                InitPID.InitialState<font color="blue"> else </font>InitPID.NoInit) <font color="blue">if </font>with_I;
+  <A HREF="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous.Derivative"
+>Blocks.Continuous.Derivative</A> D(k=Td, T=<font color="red">max</font>([Td/Nd, 1.e-14]), x_start=xd_start,
+    initType=<font color="blue">if </font>initType==InitPID.SteadyState<font color="blue"> or </font>
+                initType==InitPID.InitialOutput<font color="blue"> then </font>InitPID.SteadyState<font color="blue"> else </font>
+             <font color="blue">if </font>initType==InitPID.InitialState<font color="blue"> then </font>InitPID.InitialState<font color="blue"> else </font>
+                InitPID.NoInit) <font color="blue">if </font>with_D;
+  <A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Gain"
+>Blocks.Math.Gain</A> gainPID(k=k);
+  <A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Add3"
+>Blocks.Math.Add3</A> addPID;
+  <A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Add3"
+>Blocks.Math.Add3</A> addI(k2=-1) <font color="blue">if </font>with_I;
+  <A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Add"
+>Blocks.Math.Add</A> addSat(k1=+1, k2=-1) <font color="blue">if </font>
+                                   with_I;
+  <A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Gain"
+>Blocks.Math.Gain</A> gainTrack(k=1/(k*Ni)) <font color="blue">if </font>with_I;
+  <A HREF="Modelica_Blocks_Nonlinear.html#Modelica.Blocks.Nonlinear.Limiter"
+>Blocks.Nonlinear.Limiter</A> limiter(uMax=yMax, uMin=yMin, limitsAtInit=limitsAtInit);
+<font color="blue">protected </font>
+  <font color="blue">parameter </font>Boolean with_I = controllerType==SimpleController.PI<font color="blue"> or </font>
+                             controllerType==SimpleController.PID;
+  <font color="blue">parameter </font>Boolean with_D = controllerType==SimpleController.PD<font color="blue"> or </font>
+                             controllerType==SimpleController.PID;
+<font color="blue">public </font>
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Sources.Constant</A> Dzero(k=0) <font color="blue">if </font><font color="blue">not </font>with_D;
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Sources.Constant</A> Izero(k=0) <font color="blue">if </font><font color="blue">not </font>with_I;
+<font color="blue">initial </font><font color="blue">equation </font>
+  <font color="blue">if </font>initType==InitPID.InitialOutput<font color="blue"> then</font>
+     y = y_start;
+  <font color="blue">end if</font>;
+<font color="blue">equation </font>
+  <font color="red">assert</font>(yMax &gt;= yMin, &quot;LimPID: Limits must be consistent. However, yMax (=&quot; +<font color="red"> String</font>(yMax) +
+                       &quot;) &lt; yMin (=&quot; +<font color="red"> String</font>(yMin) + &quot;)&quot;);
+  <font color="blue">if </font>initType == InitPID.InitialOutput<font color="blue"> and </font>(y_start &lt; yMin<font color="blue"> or </font>y_start &gt; yMax)<font color="blue"> then</font>
+    <font color="red">  Modelica.Utilities.Streams.error</font>(&quot;LimPID: Start value y_start (=&quot; +<font color="red"> String</font>(y_start) +
+         &quot;) is outside of the limits of yMin (=&quot; +<font color="red"> String</font>(yMin) +&quot;) and yMax (=&quot; +<font color="red"> String</font>(yMax) + &quot;)&quot;);
+  <font color="blue">end if</font>;
+  <font color="red">assert</font>(limitsAtInit<font color="blue"> or </font><font color="blue">not </font>limitsAtInit<font color="blue"> and </font>y &gt;= yMin<font color="blue"> and </font>y &lt;= yMax,
+         &quot;LimPID: During initialization the limits have been switched off.\n&quot; +
+         &quot;After initialization, the output y (=&quot; +<font color="red"> String</font>(y) +
+         &quot;) is outside of the limits of yMin (=&quot; +<font color="red"> String</font>(yMin) +&quot;) and yMax (=&quot; +<font color="red"> String</font>(yMax) + &quot;)&quot;);
+
+  <font color="red">connect</font>(u_s, addP.u1);
+  <font color="red">connect</font>(u_s, addD.u1);
+  <font color="red">connect</font>(u_s, addI.u1);
+  <font color="red">connect</font>(addP.y, P.u);
+  <font color="red">connect</font>(addD.y, D.u);
+  <font color="red">connect</font>(addI.y, I.u);
+  <font color="red">connect</font>(P.y, addPID.u1);
+  <font color="red">connect</font>(D.y, addPID.u2);
+  <font color="red">connect</font>(I.y, addPID.u3);
+  <font color="red">connect</font>(addPID.y, gainPID.u);
+  <font color="red">connect</font>(gainPID.y, addSat.u2);
+  <font color="red">connect</font>(gainPID.y, limiter.u);
+  <font color="red">connect</font>(limiter.y, addSat.u1);
+  <font color="red">connect</font>(limiter.y, y);
+  <font color="red">connect</font>(addSat.y, gainTrack.u);
+  <font color="red">connect</font>(gainTrack.y, addI.u3);
+  <font color="red">connect</font>(u_m, addP.u2);
+  <font color="red">connect</font>(u_m, addD.u2);
+  <font color="red">connect</font>(u_m, addI.u2);
+  <font color="red">connect</font>(Dzero.y, addPID.u2);
+  <font color="red">connect</font>(Izero.y, addPID.u3);
+<font color="blue">end </font>LimPID;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TransferFunction<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Continuous.TransferFunctionI.png" ALT="Modelica.Blocks.Continuous.TransferFunction" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Continuous.TransferFunction"></A><A HREF="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous"
+>Modelica.Blocks.Continuous</A>.TransferFunction</H2>
+<B>Linear transfer function</B><p>
+<IMG SRC="Modelica.Blocks.Continuous.TransferFunctionD.png" ALT="Modelica.Blocks.Continuous.TransferFunction">
+<H3>Information</H3>
+<PRE>
+</pre>
+<p>
+This block defines the transfer function between the input
+u and the output y
+as (nb = dimension of b, na = dimension of a):
+</p>
+<pre>
+           b[1]*s^[nb-1] + b[2]*s^[nb-2] + ... + b[nb]
+   y(s) = --------------------------------------------- * u(s)
+           a[1]*s^[na-1] + a[2]*s^[na-2] + ... + a[na]
+</pre>
+<p>
+State variables <b>x</b> are defined according to <b>controller canonical</b>
+form. Initial values of the states can be set as start values of <b>x</b>.
+<p>
+<p>
+Example:
+</p>
+<pre>
+     TransferFunction g(b = {2,4}, a = {1,3});
+</pre>
+<p>
+results in the following transfer function:
+</p>
+<pre>
+        2*s + 4
+   y = --------- * u
+         s + 3
+</pre>
+<p><b>Release Notes:</b></p>
+<ul>
+
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>b[:]</TD><TD>{1}</TD><TD>Numerator coefficients of transfer function.</TD></TR>
+<TR><TD>&nbsp;</TD><TD>a[:]</TD><TD>{1,1}</TD><TD>Denominator coefficients of transfer function.</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Initialization</TD></TR>
+<TR><TD>&nbsp;</TD><TD>initType</TD><TD>Modelica.Blocks.Types.Init.N...</TD><TD>Type of initialization</TD></TR>
+<TR><TD>&nbsp;</TD><TD>x_start[size(a, 1) - 1]</TD><TD>zeros(nx)</TD><TD>Initial or guess values of states</TD></TR>
+<TR><TD>&nbsp;</TD><TD>y_start</TD><TD>0</TD><TD>Initial value of output (derivatives of y are zero upto nx-1-th derivative)</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>input &nbsp;</TD><TD>u</TD><TD>Connector of Real input signal</TD></TR>
+<TR><TD>output &nbsp;</TD><TD>y</TD><TD>Connector of Real output signal</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">block</font> TransferFunction <font color="darkgreen">&quot;Linear transfer function&quot;</font>
+  <font color="blue">import </font><A HREF="Modelica_Blocks_Types_Init.html#Modelica.Blocks.Types.Init"
+>Modelica.Blocks.Types.Init</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SISO"
+>Interfaces.SISO</A>;
+
+  <font color="blue">parameter </font>Real b[:]={1} <font color="darkgreen">&quot;Numerator coefficients of transfer function.&quot;</font>;
+  <font color="blue">parameter </font>Real a[:]={1,1} <font color="darkgreen">&quot;Denominator coefficients of transfer function.&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Blocks_Types_Init.html#Modelica.Blocks.Types.Init.Temp"
+>Init.Temp</A> initType=Modelica.Blocks.Types.Init.NoInit <font color="darkgreen">
+    &quot;Type of initialization&quot;</font>;
+  <font color="blue">parameter </font>Real x_start[<font color="red">size</font>(a, 1) - 1]=<font color="red">zeros</font>(nx) <font color="darkgreen">
+    &quot;Initial or guess values of states&quot;</font>;
+  <font color="blue">parameter </font>Real y_start=0 <font color="darkgreen">
+    &quot;Initial value of output (derivatives of y are zero upto nx-1-th derivative)&quot;</font>;
+  <font color="blue">output </font>Real x[<font color="red">size</font>(a, 1) - 1](start=x_start) <font color="darkgreen">
+    &quot;State of transfer function from controller canonical form&quot;</font>;
+<font color="blue">protected </font>
+  <font color="blue">parameter </font>Integer na=<font color="red">size</font>(a, 1) <font color="darkgreen">&quot;Size of Denominator of transfer function.&quot;</font>;
+  <font color="blue">parameter </font>Integer nb(max=na) =<font color="red"> size</font>(b, 1) <font color="darkgreen">
+    &quot;Size of Numerator of transfer function.&quot;</font>;
+  <font color="blue">parameter </font>Integer nx=<font color="red">size</font>(a, 1) - 1;
+  Real x1dot <font color="darkgreen">&quot;Derivative of first state of TransferFcn&quot;</font>;
+  Real xn <font color="darkgreen">&quot;Highest order state of TransferFcn&quot;</font>;
+<font color="blue">initial </font><font color="blue">equation </font>
+  <font color="blue">if </font>initType == Init.SteadyState<font color="blue"> then</font>
+    <font color="red">der</font>(x) =<font color="red"> zeros</font>(nx);
+  <font color="blue">elseif </font>initType == Init.InitialState<font color="blue"> then</font>
+    x = x_start;
+  <font color="blue">elseif </font>initType == Init.InitialOutput<font color="blue"> then</font>
+    y = y_start;
+    <font color="red">der</font>(x[1:nx-1]) =<font color="red"> zeros</font>(nx-1);
+  <font color="blue">end if</font>;
+<font color="blue">equation </font>
+  [<font color="red">der</font>(x); xn] = [x1dot; x];
+  [u] =<font color="red"> transpose</font>([a])*[x1dot; x];
+  [y] =<font color="red"> transpose</font>([<font color="red">zeros</font>(na - nb, 1); b])*[x1dot; x];
+<font color="blue">end </font>TransferFunction;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE StateSpace<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Continuous.StateSpaceI.png" ALT="Modelica.Blocks.Continuous.StateSpace" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Continuous.StateSpace"></A><A HREF="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous"
+>Modelica.Blocks.Continuous</A>.StateSpace</H2>
+<B>Linear state space system</B><p>
+<IMG SRC="Modelica.Blocks.Continuous.StateSpaceD.png" ALT="Modelica.Blocks.Continuous.StateSpace">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+The State Space block defines the relation
+between the input u and the output
+y in state space form:
+</p>
+<pre>
+
+    der(x) = A * x + B * u
+        y  = C * x + D * u
+</pre>
+<p>
+The input is a vector of length nu, the output is a vector
+of length ny and nx is the number of states. Accordingly
+</p>
+<pre>
+        A has the dimension: A(nx,nx),
+        B has the dimension: B(nx,nu),
+        C has the dimension: C(ny,nx),
+        D has the dimension: D(ny,nu)
+</pre>
+<p>
+Example:
+</p>
+<pre>
+     parameter: A = [0.12, 2;3, 1.5]
+     parameter: B = [2, 7;3, 1]
+     parameter: C = [0.1, 2]
+     parameter: D = zeros(ny,nu)
+results in the following equations:
+  [der(x[1])]   [0.12  2.00] [x[1]]   [2.0  7.0] [u[1]]
+  [         ] = [          ]*[    ] + [        ]*[    ]
+  [der(x[2])]   [3.00  1.50] [x[2]]   [0.1  2.0] [u[2]]
+                             [x[1]]            [u[1]]
+       y[1]   = [0.1  2.0] * [    ] + [0  0] * [    ]
+                             [x[2]]            [u[2]]
+</pre>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>A[:, size(A, 1)]</TD><TD>[1, 0; 0, 1]</TD><TD>Matrix A of state space model</TD></TR>
+<TR><TD>&nbsp;</TD><TD>B[size(A, 1), :]</TD><TD>[1; 1]</TD><TD>Matrix B of state space model</TD></TR>
+<TR><TD>&nbsp;</TD><TD>C[:, size(A, 1)]</TD><TD>[1, 1]</TD><TD>Matrix C of state space model</TD></TR>
+<TR><TD>&nbsp;</TD><TD>D[size(C, 1), size(B, 2)]</TD><TD>zeros(size(C, 1), size(B, 2))</TD><TD>Matrix D of state space model</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Initialization</TD></TR>
+<TR><TD>&nbsp;</TD><TD>initType</TD><TD>Modelica.Blocks.Types.Init.N...</TD><TD>Type of initialization</TD></TR>
+<TR><TD>&nbsp;</TD><TD>x_start[nx]</TD><TD>zeros(nx)</TD><TD>Initial or guess values of states</TD></TR>
+<TR><TD>&nbsp;</TD><TD>y_start[ny]</TD><TD>zeros(ny)</TD><TD>Initial values of outputs (remaining states are in steady state if possible)</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>input &nbsp;</TD><TD>u[nin]</TD><TD>Connector of Real input signals</TD></TR>
+<TR><TD>output &nbsp;</TD><TD>y[nout]</TD><TD>Connector of Real output signals</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">block</font> StateSpace <font color="darkgreen">&quot;Linear state space system&quot;</font>
+  <font color="blue">import </font><A HREF="Modelica_Blocks_Types_Init.html#Modelica.Blocks.Types.Init"
+>Modelica.Blocks.Types.Init</A>;
+  <font color="blue">parameter </font>Real A[:,<font color="red"> size</font>(A, 1)]=[1, 0; 0, 1] <font color="darkgreen">&quot;Matrix A of state space model&quot;</font>;
+  <font color="blue">parameter </font>Real B[<font color="red">size</font>(A, 1), :]=[1; 1] <font color="darkgreen">&quot;Matrix B of state space model&quot;</font>;
+  <font color="blue">parameter </font>Real C[:,<font color="red"> size</font>(A, 1)]=[1, 1] <font color="darkgreen">&quot;Matrix C of state space model&quot;</font>;
+  <font color="blue">parameter </font>Real D[<font color="red">size</font>(C, 1),<font color="red"> size</font>(B, 2)]=<font color="red">zeros</font>(<font color="red">size</font>(C, 1),<font color="red"> size</font>(B, 2)) <font color="darkgreen">
+    &quot;Matrix D of state space model&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Blocks_Types_Init.html#Modelica.Blocks.Types.Init.Temp"
+>Init.Temp</A> initType=Modelica.Blocks.Types.Init.NoInit <font color="darkgreen">
+    &quot;Type of initialization&quot;</font>;
+  <font color="blue">parameter </font>Real x_start[nx]=<font color="red">zeros</font>(nx) <font color="darkgreen">&quot;Initial or guess values of states&quot;</font>;
+  <font color="blue">parameter </font>Real y_start[ny]=<font color="red">zeros</font>(ny) <font color="darkgreen">
+    &quot;Initial values of outputs (remaining states are in steady state if possible)&quot;</font>;
+
+  <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.MIMO"
+>Interfaces.MIMO</A>(<font color="blue">final </font>nin=<font color="red">size</font>(B, 2), <font color="blue">final </font>nout=<font color="red">size</font>(C, 1));
+  <font color="blue">output </font>Real x[<font color="red">size</font>(A, 1)](start=x_start) <font color="darkgreen">&quot;State vector&quot;</font>;
+<font color="blue">protected </font>
+  <font color="blue">parameter </font>Integer nx =<font color="red"> size</font>(A, 1) <font color="darkgreen">&quot;number of states&quot;</font>;
+  <font color="blue">parameter </font>Integer ny =<font color="red"> size</font>(C, 1) <font color="darkgreen">&quot;number of outputs&quot;</font>;
+<font color="blue">initial </font><font color="blue">equation </font>
+  <font color="blue">if </font>initType == Init.SteadyState<font color="blue"> then</font>
+    <font color="red">der</font>(x) =<font color="red"> zeros</font>(nx);
+  <font color="blue">elseif </font>initType == Init.InitialState<font color="blue"> then</font>
+    x = x_start;
+  <font color="blue">elseif </font>initType == Init.InitialOutput<font color="blue"> then</font>
+    x =<font color="red"> Modelica.Math.Matrices.equalityLeastSquares</font>(A, -B*u, C, y_start - D*u);
+  <font color="blue">end if</font>;
+<font color="blue">equation </font>
+  <font color="red">der</font>(x) = A*x + B*u;
+  y = C*x + D*u;
+<font color="blue">end </font>StateSpace;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Der<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Continuous.DerI.png" ALT="Modelica.Blocks.Continuous.Der" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Continuous.Der"></A><A HREF="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous"
+>Modelica.Blocks.Continuous</A>.Der</H2>
+<B>Derivative of input (= analytic differentations)</B><p>
+<IMG SRC="Modelica.Blocks.Continuous.DerD.png" ALT="Modelica.Blocks.Continuous.Der">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+Defines that the output y is the <i>derivative</i>
+of the input u. Note, that Modelica.Blocks.Continuous.Derivative
+computes the derivative in an approximate sense, where as this block computes
+the derivative exactly. This requires that the input u is differentiated
+by the Modelica translator, if this derivative is not yet present in
+the model.
+</p>
+<pre></PRE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>input &nbsp;</TD><TD>u</TD><TD>Connector of Real input signal</TD></TR>
+<TR><TD>output &nbsp;</TD><TD>y</TD><TD>Connector of Real output signal</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">block</font> Der <font color="darkgreen">&quot;Derivative of input (= analytic differentations)&quot;</font>
+    <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SISO"
+>Interfaces.SISO</A>;
+
+<font color="blue">equation </font>
+  y =<font color="red"> der</font>(u);
+<font color="blue">end </font>Der;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE LowpassButterworth<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Continuous.LowpassButterworthI.png" ALT="Modelica.Blocks.Continuous.LowpassButterworth" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Continuous.LowpassButterworth"></A><A HREF="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous"
+>Modelica.Blocks.Continuous</A>.LowpassButterworth</H2>
+<B>Output the input signal filtered with a low pass Butterworth filter of any order</B><p>
+<IMG SRC="Modelica.Blocks.Continuous.LowpassButterworthD.png" ALT="Modelica.Blocks.Continuous.LowpassButterworth">
+<H3>Information</H3>
+<PRE></pre>
+<p>This block defines the transfer function between the input u
+and the output y as an n-th order low pass filter with <i>Butterworth</i>
+characteristics and cut-off frequency f. It is implemented as
+a series of second order filters and a first order filter.</p>
+<p>If transients at the simulation start shall be avoided the
+states x1 and xr need to be initialized with the start value
+of the input signal and the states x2 need to be initialized
+with zeros.</p>
+<pre>
+     y = PT21*PT22*...*PT2(n/2)*PT1 u
+</pre>
+
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>n</TD><TD>2</TD><TD>Order of filter</TD></TR>
+<TR><TD>&nbsp;</TD><TD>f</TD><TD>1</TD><TD>Cut-off frequency [Hz]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Initialization</TD></TR>
+<TR><TD>&nbsp;</TD><TD>initType</TD><TD>Modelica.Blocks.Types.Init.N...</TD><TD>Type of initialization</TD></TR>
+<TR><TD>&nbsp;</TD><TD>x1_start[m]</TD><TD>zeros(m)</TD><TD>Initial or guess values of states 1 (der(x1)=x2))</TD></TR>
+<TR><TD>&nbsp;</TD><TD>x2_start[m]</TD><TD>zeros(m)</TD><TD>Initial or guess values of states 2</TD></TR>
+<TR><TD>&nbsp;</TD><TD>xr_start</TD><TD>0.0</TD><TD>Initial or guess value of real pole for uneven order otherwise dummy</TD></TR>
+<TR><TD>&nbsp;</TD><TD>y_start</TD><TD>0.0</TD><TD>Initial value of output (states are initialized in steady state if possible)</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>input &nbsp;</TD><TD>u</TD><TD>Connector of Real input signal</TD></TR>
+<TR><TD>output &nbsp;</TD><TD>y</TD><TD>Connector of Real output signal</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">block</font> LowpassButterworth <font color="darkgreen">
+  &quot;Output the input signal filtered with a low pass Butterworth filter of any order&quot;</font>
+
+  <font color="blue">import </font><A HREF="Modelica_Math.html#Modelica.Math"
+>Modelica.Math</A>.*;
+  <font color="blue">import </font><A HREF="Modelica_Blocks_Types_Init.html#Modelica.Blocks.Types.Init"
+>Modelica.Blocks.Types.Init</A>;
+
+  <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SISO"
+>Modelica.Blocks.Interfaces.SISO</A>;
+
+  <font color="blue">parameter </font>Integer n(min=1) = 2 <font color="darkgreen">&quot;Order of filter&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Frequency"
+>SI.Frequency</A> f=1 <font color="darkgreen">&quot;Cut-off frequency&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Blocks_Types_Init.html#Modelica.Blocks.Types.Init.Temp"
+>Init.Temp</A> initType=Modelica.Blocks.Types.Init.NoInit <font color="darkgreen">
+    &quot;Type of initialization&quot;</font>;
+  <font color="blue">parameter </font>Real x1_start[m]=<font color="red">zeros</font>(m) <font color="darkgreen">
+    &quot;Initial or guess values of states 1 (der(x1)=x2))&quot;</font>;
+  <font color="blue">parameter </font>Real x2_start[m]=<font color="red">zeros</font>(m) <font color="darkgreen">&quot;Initial or guess values of states 2&quot;</font>;
+  <font color="blue">parameter </font>Real xr_start=0.0 <font color="darkgreen">
+    &quot;Initial or guess value of real pole for uneven order otherwise dummy&quot;</font>;
+  <font color="blue">parameter </font>Real y_start=0.0 <font color="darkgreen">
+    &quot;Initial value of output (states are initialized in steady state if possible)&quot;</font>;
+
+  <font color="blue">output </font>Real x1[m](start=x1_start) <font color="darkgreen">
+    &quot;states 1 of second order filters (der(x1) = x2)&quot;</font>;
+  <font color="blue">output </font>Real x2[m](start=x2_start) <font color="darkgreen">&quot;states 2 of second order filters&quot;</font>;
+  <font color="blue">output </font>Real xr(start=xr_start) <font color="darkgreen">
+    &quot;state of real pole for uneven order otherwise dummy&quot;</font>;
+<font color="blue">protected </font>
+  <font color="blue">constant </font>Real pi=Modelica.Constants.pi;
+  <font color="blue">parameter </font>Integer m=<font color="red">integer</font>(n/2);
+  <font color="blue">parameter </font>Boolean evenOrder = 2*m == n;
+  <font color="blue">parameter </font>Real w=2*pi*f;
+  Real z[m + 1];
+  Real polereal[m];
+  Real poleimag[m];
+  Real realpol;
+  Real k2[m];
+  Real D[m];
+  Real w0[m];
+  Real k1;
+  Real T;
+<font color="blue">initial </font><font color="blue">equation </font>
+  <font color="blue">if </font>initType == Init.SteadyState<font color="blue"> then</font>
+    <font color="red">der</font>(x1) =<font color="red"> zeros</font>(m);
+    <font color="red">der</font>(x2) =<font color="red"> zeros</font>(m);
+    <font color="blue">if </font><font color="blue">not </font>evenOrder<font color="blue"> then</font>
+      <font color="red">der</font>(xr) = 0.0;
+    <font color="blue">end if</font>;
+  <font color="blue">elseif </font>initType == Init.InitialState<font color="blue"> then</font>
+    x1 = x1_start;
+    x2 = x2_start;
+    <font color="blue">if </font><font color="blue">not </font>evenOrder<font color="blue"> then</font>
+      xr = xr_start;
+    <font color="blue">end if</font>;
+  <font color="blue">elseif </font>initType == Init.InitialOutput<font color="blue"> then</font>
+    y = y_start;
+    <font color="red">der</font>(x1) =<font color="red"> zeros</font>(m);
+    <font color="blue">if </font>evenOrder<font color="blue"> then</font>
+      <font color="blue">if </font>m &gt; 1<font color="blue"> then</font>
+        <font color="red">der</font>(x2[1:m-1]) =<font color="red"> zeros</font>(m-1);
+      <font color="blue">end if</font>;
+    <font color="blue">else</font>
+      <font color="red">der</font>(x1) =<font color="red"> zeros</font>(m);
+    <font color="blue">end if</font>;
+  <font color="blue">end if</font>;
+<font color="blue">equation </font>
+  k2 =<font color="red"> ones</font>(m);
+  k1 = 1;
+  z[1] = u;
+
+  <font color="darkgreen">// calculate filter parameters</font>
+  <font color="blue">for </font>i<font color="blue"> in </font>1:m<font color="blue"> loop</font>
+    <font color="darkgreen">// poles of prototype lowpass</font>
+    polereal[i] =<font color="red"> cos</font>(pi/2 + pi/n*(i - 0.5));
+    poleimag[i] =<font color="red"> sin</font>(pi/2 + pi/n*(i - 0.5));
+    <font color="darkgreen">// scaling and calculation of secon order filter coefficients</font>
+    w0[i] = (polereal[i]^2 + poleimag[i]^2)*w;
+    D[i] = -polereal[i]/w0[i]*w;
+  <font color="blue">end for</font>;
+  realpol = 1*w;
+  T = 1/realpol;
+
+  <font color="darkgreen">// calculate second order filters</font>
+  <font color="blue">for </font>i<font color="blue"> in </font>1:m<font color="blue"> loop</font>
+    <font color="red">der</font>(x1[i]) = x2[i];
+    <font color="red">der</font>(x2[i]) = k2[i]*w0[i]^2*z[i] - 2*D[i]*w0[i]*x2[i] - w0[i]^2*x1[i];
+    z[i + 1] = x1[i];
+  <font color="blue">end for</font>;
+
+  <font color="darkgreen">// calculate first order filter if necessary</font>
+  <font color="blue">if </font>evenOrder<font color="blue"> then</font>
+    <font color="darkgreen">// even order</font>
+    xr = 0;
+    y = z[m + 1];
+  <font color="blue">else</font>
+    <font color="darkgreen">// uneven order</font>
+    <font color="red">der</font>(xr) = (k1*z[m + 1] - xr)/T;
+    y = xr;
+  <font color="blue">end if</font>;
+<font color="blue">end </font>LowpassButterworth;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE CriticalDamping<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Continuous.CriticalDampingI.png" ALT="Modelica.Blocks.Continuous.CriticalDamping" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Continuous.CriticalDamping"></A><A HREF="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous"
+>Modelica.Blocks.Continuous</A>.CriticalDamping</H2>
+<B>Output the input signal filtered with an n-th order filter with critical damping</B><p>
+<IMG SRC="Modelica.Blocks.Continuous.CriticalDampingD.png" ALT="Modelica.Blocks.Continuous.CriticalDamping">
+<H3>Information</H3>
+<PRE></pre>
+<p>This block defines the transfer function between the
+input u and the output y
+as an n-th order filter with <i>critical damping</i>
+characteristics and cut-off frequency f=1/T. It is
+implemented as a series of first order filters.</p>
+<p>If transients at the simulation start shall be avoided
+the states x need to be initialized with the start value of
+the input.</p>
+<pre>
+               k
+     y = ------------- * u
+         (T * s + 1)^n
+</pre>
+
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>n</TD><TD>2</TD><TD>Order of filter</TD></TR>
+<TR><TD>&nbsp;</TD><TD>f</TD><TD>1</TD><TD>Cut-off frequency [Hz]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Initialization</TD></TR>
+<TR><TD>&nbsp;</TD><TD>initType</TD><TD>Modelica.Blocks.Types.Init.N...</TD><TD>Type of initialization</TD></TR>
+<TR><TD>&nbsp;</TD><TD>x_start[n]</TD><TD>zeros(n)</TD><TD>Initial or guess values of states</TD></TR>
+<TR><TD>&nbsp;</TD><TD>y_start</TD><TD>0.0</TD><TD>Initial value of output (remaining states are in steady state)</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>input &nbsp;</TD><TD>u</TD><TD>Connector of Real input signal</TD></TR>
+<TR><TD>output &nbsp;</TD><TD>y</TD><TD>Connector of Real output signal</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">block</font> CriticalDamping <font color="darkgreen">
+  &quot;Output the input signal filtered with an n-th order filter with critical damping&quot;</font>
+
+  <font color="blue">import </font><A HREF="Modelica_Blocks_Types_Init.html#Modelica.Blocks.Types.Init"
+>Modelica.Blocks.Types.Init</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SISO"
+>Modelica.Blocks.Interfaces.SISO</A>;
+
+  <font color="blue">parameter </font>Integer n=2 <font color="darkgreen">&quot;Order of filter&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Frequency"
+>Modelica.SIunits.Frequency</A> f=1 <font color="darkgreen">&quot;Cut-off frequency&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Blocks_Types_Init.html#Modelica.Blocks.Types.Init.Temp"
+>Init.Temp</A> initType=Modelica.Blocks.Types.Init.NoInit <font color="darkgreen">
+    &quot;Type of initialization&quot;</font>;
+  <font color="blue">parameter </font>Real x_start[n]=<font color="red">zeros</font>(n) <font color="darkgreen">&quot;Initial or guess values of states&quot;</font>;
+  <font color="blue">parameter </font>Real y_start=0.0 <font color="darkgreen">
+    &quot;Initial value of output (remaining states are in steady state)&quot;</font>;
+
+  <font color="blue">output </font>Real x[n](start=x_start) <font color="darkgreen">&quot;Filter states&quot;</font>;
+<font color="blue">protected </font>
+  <font color="blue">parameter </font>Real w=2*Modelica.Constants.pi*f;
+<font color="blue">initial </font><font color="blue">equation </font>
+  <font color="blue">if </font>initType == Init.SteadyState<font color="blue"> then</font>
+    <font color="red">der</font>(x) =<font color="red"> zeros</font>(n);
+  <font color="blue">elseif </font>initType == Init.InitialState<font color="blue"> then</font>
+    x = x_start;
+  <font color="blue">elseif </font>initType == Init.InitialOutput<font color="blue"> then</font>
+    y = y_start;
+    <font color="red">der</font>(x[1:n-1]) =<font color="red"> zeros</font>(n-1);
+  <font color="blue">end if</font>;
+<font color="blue">equation </font>
+  <font color="red">der</font>(x[1]) = (u - x[1])*w;
+  <font color="blue">for </font>i<font color="blue"> in </font>2:n<font color="blue"> loop</font>
+    <font color="red">der</font>(x[i]) = (x[i - 1] - x[i])*w;
+  <font color="blue">end for</font>;
+  y = x[n];
+<font color="blue">end </font>CriticalDamping;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Tue Mar 28 11:35:47 2006.
+</address></BODY>
+</HTML>

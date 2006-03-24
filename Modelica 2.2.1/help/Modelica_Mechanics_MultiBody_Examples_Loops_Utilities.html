@@ -1,0 +1,905 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Mechanics.MultiBody.Examples.Loops.Utilities</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Utility models for Examples.Loops&quot;">
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Utilities<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities"></A><A HREF="Modelica_Mechanics_MultiBody_Examples_Loops.html#Modelica.Mechanics.MultiBody.Examples.Loops"
+>Modelica.Mechanics.MultiBody.Examples.Loops</A>.Utilities</H2>
+<B>Utility models for Examples.Loops</B>
+<P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.CylinderS.png" ALT="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Cylinder" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Examples_Loops_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Cylinder"
+>Cylinder</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.GasForceS.png" ALT="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.GasForce" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Examples_Loops_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.GasForce"
+>GasForce</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.GasForce2S.png" ALT="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.GasForce2" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Examples_Loops_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.GasForce2"
+>GasForce2</A>
+</TD><TD>Rough approximation of gas force in a cylinder</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.CylinderBaseS.png" ALT="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.CylinderBase" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Examples_Loops_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.CylinderBase"
+>CylinderBase</A>
+</TD><TD>One cylinder with analytic handling of kinematic loop</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.CylinderBaseS.png" ALT="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Cylinder_analytic_CAD" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Examples_Loops_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Cylinder_analytic_CAD"
+>Cylinder_analytic_CAD</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.EngineV6_analyticS.png" ALT="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.EngineV6_analytic" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Examples_Loops_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.EngineV6_analytic"
+>EngineV6_analytic</A>
+</TD><TD>V6 engine with analytic loop handling</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Engine1bBaseS.png" ALT="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Engine1bBase" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Examples_Loops_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Engine1bBase"
+>Engine1bBase</A>
+</TD><TD>Model of one cylinder engine with gas force</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Cylinder<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.CylinderI.png" ALT="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Cylinder" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Cylinder"></A><A HREF="Modelica_Mechanics_MultiBody_Examples_Loops_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Loops.Utilities"
+>Modelica.Mechanics.MultiBody.Examples.Loops.Utilities</A>.Cylinder</H2>
+<IMG SRC="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.CylinderD.png" ALT="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Cylinder">
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>animation</TD><TD>true</TD><TD>= true, if animation shall be enabled</TD></TR>
+<TR><TD>&nbsp;</TD><TD>cylinderTopPosition</TD><TD>0.42</TD><TD>Length from crank shaft to end of cylinder. [m]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>pistonLength</TD><TD>0.1</TD><TD>Length of cylinder [m]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>rodLength</TD><TD>0.2</TD><TD>Length of rod [m]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>crankLength</TD><TD>0.2</TD><TD>Length of crank shaft in x direction [m]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>crankPinOffset</TD><TD>0.1</TD><TD>Offset of crank pin from center axis [m]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>crankPinLength</TD><TD>0.1</TD><TD>Offset of crank pin from center axis [m]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>cylinderInclination</TD><TD>0</TD><TD>Inclination of cylinder [rad]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>crankAngleOffset</TD><TD>0</TD><TD>Offset for crank angle [rad]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>cylinderLength</TD><TD>cylinderTopPosition - (pisto...</TD><TD>Maximum length of cylinder volume [m]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>cylinder_a</TD><TD>&nbsp;</TD></TR>
+<TR><TD>&nbsp;</TD><TD>cylinder_b</TD><TD>&nbsp;</TD></TR>
+<TR><TD>&nbsp;</TD><TD>crank_a</TD><TD>&nbsp;</TD></TR>
+<TR><TD>&nbsp;</TD><TD>crank_b</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Cylinder
+  <font color="blue">import </font>SI = <A HREF="Modelica_SIunits.html#Modelica.SIunits"
+>Modelica.SIunits</A>;
+  <font color="blue">parameter </font>Boolean animation=true <font color="darkgreen">&quot;= true, if animation shall be enabled&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> cylinderTopPosition=0.42 <font color="darkgreen">
+    &quot;Length from crank shaft to end of cylinder.&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> pistonLength=0.1 <font color="darkgreen">&quot;Length of cylinder&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> rodLength=0.2 <font color="darkgreen">&quot;Length of rod&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> crankLength=0.2 <font color="darkgreen">&quot;Length of crank shaft in x direction&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> crankPinOffset=0.1 <font color="darkgreen">&quot;Offset of crank pin from center axis&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> crankPinLength=0.1 <font color="darkgreen">&quot;Offset of crank pin from center axis&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>SI.Angle</A> cylinderInclination=0 <font color="darkgreen">&quot;Inclination of cylinder&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>SI.Angle</A> crankAngleOffset=0 <font color="darkgreen">&quot;Offset for crank angle&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> cylinderLength=cylinderTopPosition - (pistonLength +
+      rodLength - crankPinOffset) <font color="darkgreen">&quot;Maximum length of cylinder volume&quot;</font>;
+
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.BodyCylinder"
+>Modelica.Mechanics.MultiBody.Parts.BodyCylinder</A> Piston(
+    diameter=0.1,
+    r={0,pistonLength,0},
+    color={180,180,180},
+    animation=animation);
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.BodyBox"
+>Modelica.Mechanics.MultiBody.Parts.BodyBox</A> Rod(
+    widthDirection={1,0,0},
+    height=0.06,
+    color={0,0,200},
+    width=0.02,
+    r_shape={0,-0.02,0},
+    r={0,rodLength,0},
+    animation=animation);
+  <A HREF="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints.Revolute"
+>Modelica.Mechanics.MultiBody.Joints.Revolute</A> B2(
+    n={1,0,0},
+    phi_start=0,
+    cylinderLength=0.02,
+    animation=animation,
+    cylinderDiameter=0.055);
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.BodyBox"
+>Modelica.Mechanics.MultiBody.Parts.BodyBox</A> Crank4(
+    height=0.05,
+    widthDirection={1,0,0},
+    width=0.02,
+    r={0,-crankPinOffset,0},
+    animation=animation);
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.BodyCylinder"
+>Modelica.Mechanics.MultiBody.Parts.BodyCylinder</A> Crank3(
+    r_shape={-0.01,0,0},
+    length=0.12,
+    diameter=0.03,
+    r={crankPinLength,0,0},
+    color={180,180,180},
+    animation=animation);
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.BodyCylinder"
+>Modelica.Mechanics.MultiBody.Parts.BodyCylinder</A> Crank1(
+    diameter=0.05,
+    r_shape={-0.01,0,0},
+    length=0.12,
+    r={crankLength - crankPinLength,0,0},
+    color={180,180,180},
+    animation=animation);
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.BodyBox"
+>Modelica.Mechanics.MultiBody.Parts.BodyBox</A> Crank2(
+    height=0.05,
+    widthDirection={1,0,0},
+    width=0.02,
+    r={0,crankPinOffset,0},
+    animation=animation);
+  <A HREF="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints.Revolute"
+>Modelica.Mechanics.MultiBody.Joints.Revolute</A> B1(
+    n={1,0,0},
+    planarCutJoint=true,
+    cylinderLength=0.02,
+    animation=animation,
+    cylinderDiameter=0.055);
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.FixedTranslation"
+>Modelica.Mechanics.MultiBody.Parts.FixedTranslation</A> Mid(r={crankPinLength/2,0,0}, animation=
+        false);
+  <A HREF="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints.ActuatedPrismatic"
+>Modelica.Mechanics.MultiBody.Joints.ActuatedPrismatic</A> Cylinder(
+    s_start=-0.3,
+    n={0,-1,0},
+    boxWidth=0.02);
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.FixedTranslation"
+>Modelica.Mechanics.MultiBody.Parts.FixedTranslation</A> Mounting(r={crankLength,0,0}, animation=
+        false);
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.FixedRotation"
+>Modelica.Mechanics.MultiBody.Parts.FixedRotation</A> CylinderInclination(
+    r={crankLength - crankPinLength/2,0,0},
+    n_y={0,<font color="red">cos</font>(cylinderInclination),<font color="red">sin</font>(cylinderInclination)},
+    animation=false,
+    rotationType=Modelica.Mechanics.MultiBody.Types.RotationTypes.TwoAxesVectors);
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.FixedRotation"
+>Modelica.Mechanics.MultiBody.Parts.FixedRotation</A> CrankAngle1(
+    n_y={0,<font color="red">cos</font>(crankAngleOffset),<font color="red">sin</font>(crankAngleOffset)},
+    animation=false,
+    rotationType=Modelica.Mechanics.MultiBody.Types.RotationTypes.TwoAxesVectors);
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.FixedRotation"
+>Modelica.Mechanics.MultiBody.Parts.FixedRotation</A> CrankAngle2(
+    n_y={0,<font color="red">cos</font>(-crankAngleOffset),<font color="red">sin</font>(-crankAngleOffset)},
+    animation=false,
+    rotationType=Modelica.Mechanics.MultiBody.Types.RotationTypes.TwoAxesVectors);
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.FixedTranslation"
+>Modelica.Mechanics.MultiBody.Parts.FixedTranslation</A> CylinderTop(r={0,cylinderTopPosition,0},
+      animation=false);
+  <A HREF="Modelica_Mechanics_MultiBody_Examples_Loops_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.GasForce"
+>GasForce</A> gasForce(L=cylinderLength, d=0.1);
+  <A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.Frame_a"
+>Interfaces.Frame_a</A> cylinder_a;
+  <A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.Frame_a"
+>Interfaces.Frame_a</A> cylinder_b;
+  <A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.Frame_a"
+>Interfaces.Frame_a</A> crank_a;
+  <A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.Frame_a"
+>Interfaces.Frame_a</A> crank_b;
+<font color="blue">equation </font>
+  <font color="red">connect</font>(B1.frame_a, Mid.frame_b);
+  <font color="red">connect</font>(Rod.frame_a, B1.frame_b);
+
+  <font color="red">connect</font>(Cylinder.frame_b, Piston.frame_b);
+  <font color="red">connect</font>(Crank1.frame_a, CrankAngle1.frame_b);
+  <font color="red">connect</font>(B2.frame_a, Piston.frame_a);
+  <font color="red">connect</font>(Rod.frame_b, B2.frame_b);
+  <font color="red">connect</font>(Crank4.frame_b, CrankAngle2.frame_a);
+  <font color="red">connect</font>(Cylinder.bearing, gasForce.flange_b);
+  <font color="red">connect</font>(Cylinder.axis, gasForce.flange_a);
+  <font color="red">connect</font>(CylinderInclination.frame_b, CylinderTop.frame_a);
+  <font color="red">connect</font>(Crank1.frame_b, Crank2.frame_a);
+  <font color="red">connect</font>(Crank3.frame_b, Crank4.frame_a);
+  <font color="red">connect</font>(Crank3.frame_a, Crank2.frame_b);
+  <font color="red">connect</font>(Crank2.frame_b, Mid.frame_a);
+  <font color="red">connect</font>(CylinderTop.frame_b, Cylinder.frame_a);
+  <font color="red">connect</font>(CylinderInclination.frame_a, cylinder_a);
+  <font color="red">connect</font>(Mounting.frame_a, cylinder_a);
+  <font color="red">connect</font>(Mounting.frame_b, cylinder_b);
+  <font color="red">connect</font>(CrankAngle1.frame_a, crank_a);
+  <font color="red">connect</font>(CrankAngle2.frame_b, crank_b);
+<font color="blue">end </font>Cylinder;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE GasForce<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.GasForceI.png" ALT="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.GasForce" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.GasForce"></A><A HREF="Modelica_Mechanics_MultiBody_Examples_Loops_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Loops.Utilities"
+>Modelica.Mechanics.MultiBody.Examples.Loops.Utilities</A>.GasForce</H2>
+<IMG SRC="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.GasForceD.png" ALT="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.GasForce">
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>L</TD><TD>&nbsp;</TD><TD>Length of cylinder [m]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>d</TD><TD>&nbsp;</TD><TD>diameter of cylinder [m]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>k0</TD><TD>0.01</TD><TD>&nbsp;</TD></TR>
+<TR><TD>&nbsp;</TD><TD>k1</TD><TD>1</TD><TD>&nbsp;</TD></TR>
+<TR><TD>&nbsp;</TD><TD>k</TD><TD>1</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>flange_a</TD><TD>(left) driving flange (flange axis directed INTO cut plane, e. g. from left to right)</TD></TR>
+<TR><TD>&nbsp;</TD><TD>flange_b</TD><TD>(right) driven flange (flange axis directed OUT OF cut plane)</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> GasForce
+  <font color="blue">import </font>SI = <A HREF="Modelica_SIunits.html#Modelica.SIunits"
+>Modelica.SIunits</A>;
+
+  <font color="blue">extends </font><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Compliant"
+>Modelica.Mechanics.Translational.Interfaces.Compliant</A>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> L <font color="darkgreen">&quot;Length of cylinder&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> d <font color="darkgreen">&quot;diameter of cylinder&quot;</font>;
+  <font color="blue">parameter </font>Real k0=0.01;
+  <font color="blue">parameter </font>Real k1=1;
+  <font color="blue">parameter </font>Real k=1;
+  <font color="blue">constant </font>Real pi=Modelica.Constants.pi;
+  <font color="blue">constant </font>Real PI=Modelica.Constants.pi;
+  <font color="darkgreen">// Only for compatibility reasons</font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> x;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> y;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> dens;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> press <font color="darkgreen">&quot;cylinder pressure&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Volume"
+>SI.Volume</A> V;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> T;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Velocity"
+>SI.Velocity</A> v_rel;
+
+<font color="blue">equation </font>
+  y = -s_rel/L;
+  x = 1 + s_rel/L;
+  v_rel =<font color="red"> der</font>(s_rel);
+
+  press = <font color="blue">if </font>v_rel &lt; 0<font color="blue"> then </font>(<font color="blue">if </font>x &lt; 0.987<font color="blue"> then </font>177.4132*x^4 - 287.2189*x^3 +
+    151.8252*x^2 - 24.9973*x + 2.4<font color="blue"> else </font>2836360*x^4 - 10569296*x^3 + 14761814
+    *x^2 - 9158505*x + 2129670)<font color="blue"> else </font>(<font color="blue">if </font>x &gt; 0.93<font color="blue"> then </font>-3929704*x^4 +
+    14748765*x^3 - 20747000*x^2 + 12964477*x - 3036495<font color="blue"> else </font>145.930*x^4 -
+    131.707*x^3 + 17.3438*x^2 + 17.9272*x + 2.4);
+
+  f = -1.0E5*press*pi*d^2/4;
+
+  V = k0 + k1*(1 - x);
+  dens = 1/V;
+  press*V = k*T;
+<font color="blue">end </font>GasForce;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE GasForce2<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.GasForce2I.png" ALT="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.GasForce2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.GasForce2"></A><A HREF="Modelica_Mechanics_MultiBody_Examples_Loops_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Loops.Utilities"
+>Modelica.Mechanics.MultiBody.Examples.Loops.Utilities</A>.GasForce2</H2>
+<B>Rough approximation of gas force in a cylinder</B><p>
+<IMG SRC="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.GasForce2D.png" ALT="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.GasForce2">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+The gas force in a cylinder is computed as function of the relative
+distance of the two flanges. It is required that s_rel = flange_b.s - flange_a.s
+is in the range
+</p>
+<pre>
+    0 &le; s_rel &le; L
+</pre>
+<p>
+where the parameter L is the length
+of the cylinder. If this assumption is not fulfilled, an error occurs.
+</p>
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>L</TD><TD>&nbsp;</TD><TD>Length of cylinder [m]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>d</TD><TD>&nbsp;</TD><TD>diameter of cylinder [m]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>k0</TD><TD>0.01</TD><TD>&nbsp;</TD></TR>
+<TR><TD>&nbsp;</TD><TD>k1</TD><TD>1</TD><TD>&nbsp;</TD></TR>
+<TR><TD>&nbsp;</TD><TD>k</TD><TD>1</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>flange_a</TD><TD>(left) driving flange (flange axis directed INTO cut plane, e. g. from left to right)</TD></TR>
+<TR><TD>&nbsp;</TD><TD>flange_b</TD><TD>(right) driven flange (flange axis directed OUT OF cut plane)</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> GasForce2 <font color="darkgreen">&quot;Rough approximation of gas force in a cylinder&quot;</font>
+  <font color="blue">import </font>SI = <A HREF="Modelica_SIunits.html#Modelica.SIunits"
+>Modelica.SIunits</A>;
+
+  <font color="blue">extends </font><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Compliant"
+>Modelica.Mechanics.Translational.Interfaces.Compliant</A>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> L <font color="darkgreen">&quot;Length of cylinder&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> d <font color="darkgreen">&quot;diameter of cylinder&quot;</font>;
+  <font color="blue">parameter </font>Real k0=0.01;
+  <font color="blue">parameter </font>Real k1=1;
+  <font color="blue">parameter </font>Real k=1;
+  <font color="blue">constant </font>Real pi=Modelica.Constants.pi;
+  <font color="blue">constant </font>Real PI=Modelica.Constants.pi;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> x;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> dens;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> press <font color="darkgreen">&quot;cylinder pressure&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Volume"
+>SI.Volume</A> V;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> T;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Velocity"
+>SI.Velocity</A> v_rel;
+
+<font color="blue">equation </font>
+  x = 1 - s_rel/L;
+  v_rel =<font color="red"> der</font>(s_rel);
+
+  press = <font color="blue">if </font>v_rel &lt; 0<font color="blue"> then </font>(<font color="blue">if </font>x &lt; 0.987<font color="blue"> then </font>177.4132*x^4 - 287.2189*x^3 +
+    151.8252*x^2 - 24.9973*x + 2.4<font color="blue"> else </font>2836360*x^4 - 10569296*x^3 + 14761814
+    *x^2 - 9158505*x + 2129670)<font color="blue"> else </font>(<font color="blue">if </font>x &gt; 0.93<font color="blue"> then </font>-3929704*x^4 +
+    14748765*x^3 - 20747000*x^2 + 12964477*x - 3036495<font color="blue"> else </font>145.930*x^4 -
+    131.707*x^3 + 17.3438*x^2 + 17.9272*x + 2.4);
+
+  f = -1.0E5*press*pi*d^2/4;
+
+  V = k0 + k1*(1 - x);
+  dens = 1/V;
+  press*V = k*T;
+
+  <font color="red">assert</font>(s_rel &gt;= -1.e-12, &quot;flange_b.s - flange_a.s (= &quot; +<font color="red"> String</font>(s_rel) +
+                           &quot;) &gt;= 0 required for GasForce component.\n&quot; +
+                           &quot;Most likely, the component has to be flipped.&quot;);
+  <font color="red">assert</font>(s_rel &lt;= L + 1.e-12, &quot; flange_b.s - flange_a.s (= &quot; +<font color="red"> String</font>(s_rel) +
+                              &quot; &lt;= L (&quot; +<font color="red"> String</font>(L) + &quot;) required for GasForce component.\n&quot; +
+                              &quot;Most likely, parameter L is not correct.&quot;);
+<font color="blue">end </font>GasForce2;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE CylinderBase<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.CylinderBaseI.png" ALT="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.CylinderBase" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.CylinderBase"></A><A HREF="Modelica_Mechanics_MultiBody_Examples_Loops_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Loops.Utilities"
+>Modelica.Mechanics.MultiBody.Examples.Loops.Utilities</A>.CylinderBase</H2>
+<B>One cylinder with analytic handling of kinematic loop</B><p>
+<IMG SRC="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.CylinderBaseD.png" ALT="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.CylinderBase">
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>animation</TD><TD>true</TD><TD>= true, if animation shall be enabled</TD></TR>
+<TR><TD>&nbsp;</TD><TD>cylinderTopPosition</TD><TD>0.42</TD><TD>Length from crank shaft to end of cylinder. [m]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>crankLength</TD><TD>0.14</TD><TD>Length of crank shaft in x direction [m]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>crankPinOffset</TD><TD>0.05</TD><TD>Offset of crank pin from center axis [m]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>crankPinLength</TD><TD>0.1</TD><TD>Offset of crank pin from center axis [m]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>cylinderInclination</TD><TD>0</TD><TD>Inclination of cylinder [deg]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>crankAngleOffset</TD><TD>0</TD><TD>Offset for crank angle [deg]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Piston</TD></TR>
+<TR><TD>&nbsp;</TD><TD>pistonLength</TD><TD>0.1</TD><TD> Length of cylinder [m]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>pistonCenterOfMass</TD><TD>pistonLength/2</TD><TD> Distance from frame_a to center of mass of piston [m]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>pistonMass</TD><TD>6</TD><TD> Mass of piston [kg]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>pistonInertia_11</TD><TD>0.0088</TD><TD> Inertia 11 of piston with respect to center of mass frame, parallel to frame_a [kg.m2]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>pistonInertia_22</TD><TD>0.0076</TD><TD> Inertia 22 of piston with respect to center of mass frame, parallel to frame_a [kg.m2]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>pistonInertia_33</TD><TD>0.0088</TD><TD> Inertia 33 of piston with respect to center of mass frame, parallel to frame_a [kg.m2]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Rod</TD></TR>
+<TR><TD>&nbsp;</TD><TD>rodLength</TD><TD>0.175</TD><TD> Length of rod [m]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>rodCenterOfMass</TD><TD>rodLength/2</TD><TD> Distance from frame_a to center of mass of piston [m]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>rodMass</TD><TD>1</TD><TD> Mass of rod [kg]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>rodInertia_11</TD><TD>0.006</TD><TD> Inertia 11 of rod with respect to center of mass frame, parallel to frame_a [kg.m2]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>rodInertia_22</TD><TD>0.0005</TD><TD> Inertia 22 of rod with respect to center of mass frame, parallel to frame_a [kg.m2]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>rodInertia_33</TD><TD>0.006</TD><TD> Inertia 33 of rod with respect to center of mass frame, parallel to frame_a [kg.m2]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>cylinder_a</TD><TD>&nbsp;</TD></TR>
+<TR><TD>&nbsp;</TD><TD>cylinder_b</TD><TD>&nbsp;</TD></TR>
+<TR><TD>&nbsp;</TD><TD>crank_a</TD><TD>&nbsp;</TD></TR>
+<TR><TD>&nbsp;</TD><TD>crank_b</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> CylinderBase <font color="darkgreen">
+  &quot;One cylinder with analytic handling of kinematic loop&quot;</font>
+  <font color="blue">import </font>SI = <A HREF="Modelica_SIunits.html#Modelica.SIunits"
+>Modelica.SIunits</A>;
+  <font color="blue">import </font>Cv = <A HREF="Modelica_SIunits_Conversions.html#Modelica.SIunits.Conversions"
+>Modelica.SIunits.Conversions</A>;
+  <font color="blue">parameter </font>Boolean animation=true <font color="darkgreen">&quot;= true, if animation shall be enabled&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> cylinderTopPosition=0.42 <font color="darkgreen">
+    &quot;Length from crank shaft to end of cylinder.&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> crankLength=0.14 <font color="darkgreen">&quot;Length of crank shaft in x direction&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> crankPinOffset=0.05 <font color="darkgreen">
+    &quot;Offset of crank pin from center axis&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> crankPinLength=0.1 <font color="darkgreen">&quot;Offset of crank pin from center axis&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits.Angle_deg"
+>Cv.NonSIunits.Angle_deg</A> cylinderInclination=0 <font color="darkgreen">
+    &quot;Inclination of cylinder&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits.Angle_deg"
+>Cv.NonSIunits.Angle_deg</A> crankAngleOffset=0 <font color="darkgreen">&quot;Offset for crank angle&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> pistonLength=0.1 <font color="darkgreen">&quot; Length of cylinder&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> pistonCenterOfMass=pistonLength/2 <font color="darkgreen">
+    &quot; Distance from frame_a to center of mass of piston&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Mass"
+>SI.Mass</A> pistonMass(min=0) = 6 <font color="darkgreen">&quot; Mass of piston&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inertia"
+>SI.Inertia</A> pistonInertia_11(min=0) = 0.0088 <font color="darkgreen">
+    &quot; Inertia 11 of piston with respect to center of mass frame, parallel to frame_a&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inertia"
+>SI.Inertia</A> pistonInertia_22(min=0) = 0.0076 <font color="darkgreen">
+    &quot; Inertia 22 of piston with respect to center of mass frame, parallel to frame_a&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inertia"
+>SI.Inertia</A> pistonInertia_33(min=0) = 0.0088 <font color="darkgreen">
+    &quot; Inertia 33 of piston with respect to center of mass frame, parallel to frame_a&quot;</font>;
+
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> rodLength=0.175 <font color="darkgreen">&quot; Length of rod&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> rodCenterOfMass=rodLength/2 <font color="darkgreen">
+    &quot; Distance from frame_a to center of mass of piston&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Mass"
+>SI.Mass</A> rodMass(min=0) = 1 <font color="darkgreen">&quot; Mass of rod&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inertia"
+>SI.Inertia</A> rodInertia_11(min=0) = 0.006 <font color="darkgreen">
+    &quot; Inertia 11 of rod with respect to center of mass frame, parallel to frame_a&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inertia"
+>SI.Inertia</A> rodInertia_22(min=0) = 0.0005 <font color="darkgreen">
+    &quot; Inertia 22 of rod with respect to center of mass frame, parallel to frame_a&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inertia"
+>SI.Inertia</A> rodInertia_33(min=0) = 0.006 <font color="darkgreen">
+    &quot; Inertia 33 of rod with respect to center of mass frame, parallel to frame_a&quot;</font>;
+  <font color="blue">final </font><font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> cylinderLength=cylinderTopPosition - (
+      pistonLength + rodLength - crankPinOffset) <font color="darkgreen">
+    &quot;Maximum length of cylinder volume&quot;</font>;
+
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.FixedTranslation"
+>Modelica.Mechanics.MultiBody.Parts.FixedTranslation</A> Mid(animation=false, r={crankLength -
+        crankPinLength/2,crankPinOffset,0});
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.FixedTranslation"
+>Modelica.Mechanics.MultiBody.Parts.FixedTranslation</A> Mounting(r={crankLength,0,0}, animation=
+        false);
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.FixedRotation"
+>Modelica.Mechanics.MultiBody.Parts.FixedRotation</A> CylinderInclination(
+    r={crankLength - crankPinLength/2,0,0},
+    animation=false,
+    rotationType=Modelica.Mechanics.MultiBody.Types.RotationTypes.RotationAxis,
+    n={1,0,0},
+    angle=cylinderInclination);
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.FixedRotation"
+>Modelica.Mechanics.MultiBody.Parts.FixedRotation</A> CrankAngle(
+    animation=false,
+    rotationType=Modelica.Mechanics.MultiBody.Types.RotationTypes.RotationAxis,
+    n={1,0,0},
+    angle=crankAngleOffset);
+  <A HREF="Modelica_Mechanics_MultiBody_Joints_Assemblies.html#Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRP"
+>Joints.Assemblies.JointRRP</A> jointRRP(
+    n_a={1,0,0},
+    n_b={0,-1,0},
+    rRod1_ia={0,rodLength,0},
+    animation=false,
+    rRod2_ib=-{0,pistonLength,0},
+    s_offset=-cylinderTopPosition);
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.BodyShape"
+>Modelica.Mechanics.MultiBody.Parts.BodyShape</A> Rod(
+    animation=animation,
+    r={0,rodLength,0},
+    r_CM={0,rodLength/2,0},
+    shapeType=&quot;2&quot;,
+    lengthDirection={1,0,0},
+    widthDirection={0,0,-1},
+    length=rodLength/1.75,
+    width=rodLength/1.75,
+    height=rodLength/1.75,
+    color={155,155,155},
+    extra=1,
+    r_shape={0,0,0},
+    animateSphere=false,
+    m=rodMass,
+    I_11=rodInertia_11,
+    I_22=rodInertia_22,
+    I_33=rodInertia_33);
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.BodyShape"
+>Modelica.Mechanics.MultiBody.Parts.BodyShape</A> Piston(
+    animation=animation,
+    r={0,pistonLength,0},
+    r_CM={0,pistonLength/2,0},
+    shapeType=&quot;3&quot;,
+    length=0.08,
+    width=0.08,
+    height=0.08,
+    extra=1,
+    lengthDirection={1,0,0},
+    widthDirection={0,0,-1},
+    color={180,180,180},
+    animateSphere=false,
+    m=pistonMass,
+    I_11=pistonInertia_11,
+    I_22=pistonInertia_22,
+    I_33=pistonInertia_33);
+  <A HREF="Modelica_Mechanics_MultiBody_Examples_Loops_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.GasForce"
+>GasForce</A> gasForce(L=cylinderLength, d=0.1);
+
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.FixedTranslation"
+>Modelica.Mechanics.MultiBody.Parts.FixedTranslation</A> Crank(animation=false, r={crankLength,0,0});
+  <A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.Frame_a"
+>Interfaces.Frame_a</A> cylinder_a;
+  <A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.Frame_a"
+>Interfaces.Frame_a</A> cylinder_b;
+  <A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.Frame_a"
+>Interfaces.Frame_a</A> crank_a;
+  <A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.Frame_a"
+>Interfaces.Frame_a</A> crank_b;
+<font color="blue">equation </font>
+
+  <font color="red">connect</font>(jointRRP.frame_ia, Rod.frame_a);
+  <font color="red">connect</font>(Mid.frame_b, jointRRP.frame_a);
+  <font color="red">connect</font>(gasForce.flange_a, jointRRP.axis);
+  <font color="red">connect</font>(jointRRP.bearing, gasForce.flange_b);
+  <font color="red">connect</font>(jointRRP.frame_ib, Piston.frame_b);
+  <font color="red">connect</font>(jointRRP.frame_b, CylinderInclination.frame_b);
+  <font color="red">connect</font>(CrankAngle.frame_b, Mid.frame_a);
+  <font color="red">connect</font>(cylinder_a, CylinderInclination.frame_a);
+  <font color="red">connect</font>(cylinder_a, Mounting.frame_a);
+  <font color="red">connect</font>(cylinder_b, Mounting.frame_b);
+  <font color="red">connect</font>(CrankAngle.frame_a, crank_a);
+  <font color="red">connect</font>(crank_a, Crank.frame_a);
+  <font color="red">connect</font>(Crank.frame_b, crank_b);
+<font color="blue">end </font>CylinderBase;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Cylinder_analytic_CAD<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.CylinderBaseI.png" ALT="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Cylinder_analytic_CAD" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Cylinder_analytic_CAD"></A><A HREF="Modelica_Mechanics_MultiBody_Examples_Loops_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Loops.Utilities"
+>Modelica.Mechanics.MultiBody.Examples.Loops.Utilities</A>.Cylinder_analytic_CAD</H2>
+<IMG SRC="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Cylinder_analytic_CADD.png" ALT="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Cylinder_analytic_CAD">
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>animation</TD><TD>true</TD><TD>= true, if animation shall be enabled</TD></TR>
+<TR><TD>&nbsp;</TD><TD>cylinderTopPosition</TD><TD>0.42</TD><TD>Length from crank shaft to end of cylinder. [m]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>crankLength</TD><TD>0.14</TD><TD>Length of crank shaft in x direction [m]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>crankPinOffset</TD><TD>0.05</TD><TD>Offset of crank pin from center axis [m]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>crankPinLength</TD><TD>0.1</TD><TD>Offset of crank pin from center axis [m]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>cylinderInclination</TD><TD>0</TD><TD>Inclination of cylinder [deg]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>crankAngleOffset</TD><TD>0</TD><TD>Offset for crank angle [deg]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Piston</TD></TR>
+<TR><TD>&nbsp;</TD><TD>pistonLength</TD><TD>0.1</TD><TD> Length of cylinder [m]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>pistonCenterOfMass</TD><TD>pistonLength/2</TD><TD> Distance from frame_a to center of mass of piston [m]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>pistonMass</TD><TD>6</TD><TD> Mass of piston [kg]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>pistonInertia_11</TD><TD>0.0088</TD><TD> Inertia 11 of piston with respect to center of mass frame, parallel to frame_a [kg.m2]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>pistonInertia_22</TD><TD>0.0076</TD><TD> Inertia 22 of piston with respect to center of mass frame, parallel to frame_a [kg.m2]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>pistonInertia_33</TD><TD>0.0088</TD><TD> Inertia 33 of piston with respect to center of mass frame, parallel to frame_a [kg.m2]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Rod</TD></TR>
+<TR><TD>&nbsp;</TD><TD>rodLength</TD><TD>0.175</TD><TD> Length of rod [m]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>rodCenterOfMass</TD><TD>rodLength/2</TD><TD> Distance from frame_a to center of mass of piston [m]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>rodMass</TD><TD>1</TD><TD> Mass of rod [kg]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>rodInertia_11</TD><TD>0.006</TD><TD> Inertia 11 of rod with respect to center of mass frame, parallel to frame_a [kg.m2]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>rodInertia_22</TD><TD>0.0005</TD><TD> Inertia 22 of rod with respect to center of mass frame, parallel to frame_a [kg.m2]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>rodInertia_33</TD><TD>0.006</TD><TD> Inertia 33 of rod with respect to center of mass frame, parallel to frame_a [kg.m2]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>cylinder_a</TD><TD>&nbsp;</TD></TR>
+<TR><TD>&nbsp;</TD><TD>cylinder_b</TD><TD>&nbsp;</TD></TR>
+<TR><TD>&nbsp;</TD><TD>crank_a</TD><TD>&nbsp;</TD></TR>
+<TR><TD>&nbsp;</TD><TD>crank_b</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Cylinder_analytic_CAD
+  <font color="blue">extends </font><A HREF="Modelica_Mechanics_MultiBody_Examples_Loops_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.CylinderBase"
+>CylinderBase</A>;
+  <A HREF="Modelica_Mechanics_MultiBody_Visualizers.html#Modelica.Mechanics.MultiBody.Visualizers.FixedShape"
+>Visualizers.FixedShape</A> CrankShape(
+    animation=animation,
+    shapeType=&quot;1&quot;,
+    lengthDirection={1,0,0},
+    extra=1,
+    widthDirection={0,1,0},
+    length=crankPinOffset/0.5,
+    width=crankPinOffset/0.5,
+    height=crankPinOffset/0.5,
+    r_shape={crankLength - crankPinLength/2 - 0.002,0,0});
+<font color="blue">equation </font>
+
+  <font color="red">connect</font>(CrankShape.frame_a, CrankAngle.frame_b);
+<font color="blue">end </font>Cylinder_analytic_CAD;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE EngineV6_analytic<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.EngineV6_analyticI.png" ALT="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.EngineV6_analytic" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.EngineV6_analytic"></A><A HREF="Modelica_Mechanics_MultiBody_Examples_Loops_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Loops.Utilities"
+>Modelica.Mechanics.MultiBody.Examples.Loops.Utilities</A>.EngineV6_analytic</H2>
+<B>V6 engine with analytic loop handling</B><p>
+<IMG SRC="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.EngineV6_analyticD.png" ALT="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.EngineV6_analytic">
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>animation</TD><TD>true</TD><TD>= true, if animation shall be enabled</TD></TR>
+<TR><TD colspan="2">replaceable model Cylinder</TD><TD>Cylinder_analytic_CAD</TD><TD>Cylinder type</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>flange_b</TD><TD>&nbsp;</TD></TR>
+<TR><TD>&nbsp;</TD><TD>frame_a</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> EngineV6_analytic <font color="darkgreen">&quot;V6 engine with analytic loop handling&quot;</font>
+  <font color="blue">import </font>SI = <A HREF="Modelica_SIunits.html#Modelica.SIunits"
+>Modelica.SIunits</A>;
+  <font color="blue">parameter </font>Boolean animation=true <font color="darkgreen">&quot;= true, if animation shall be enabled&quot;</font>;
+  <font color="blue">replaceable </font><font color="blue">model</font> Cylinder = <A HREF="Modelica_Mechanics_MultiBody_Examples_Loops_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Cylinder_analytic_CAD"
+>Cylinder_analytic_CAD</A> <font color="blue">extends </font>CylinderBase <font color="darkgreen">
+    &quot;Cylinder type&quot;</font>;
+  <font color="darkgreen">/*
+annotation (choices(choice(redeclare model Cylinder =
+            Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Cylinder_analytic_CAD
+          &quot;Analytic loop handling + CAD animation&quot;), choice(redeclare model
+          Cylinder = Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Cylinder_analytic
+          &quot;Analytic loop handling + standard animation&quot;)));
+*/</font>
+
+  <A HREF="Modelica_Mechanics_MultiBody_Examples_Loops_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.EngineV6_analytic.Cylinder"
+>Cylinder</A> cylinder1(
+    crankAngleOffset=-30,
+    cylinderInclination=-30,
+    animation=animation);
+  <A HREF="Modelica_Mechanics_MultiBody_Examples_Loops_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.EngineV6_analytic.Cylinder"
+>Cylinder</A> cylinder2(
+    crankAngleOffset=90,
+    cylinderInclination=30,
+    animation=animation);
+  <A HREF="Modelica_Mechanics_MultiBody_Examples_Loops_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.EngineV6_analytic.Cylinder"
+>Cylinder</A> cylinder3(
+    crankAngleOffset=-150,
+    cylinderInclination=-30,
+    animation=animation);
+  <A HREF="Modelica_Mechanics_MultiBody_Examples_Loops_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.EngineV6_analytic.Cylinder"
+>Cylinder</A> cylinder4(
+    crankAngleOffset=-90,
+    cylinderInclination=30,
+    animation=animation);
+  <A HREF="Modelica_Mechanics_MultiBody_Examples_Loops_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.EngineV6_analytic.Cylinder"
+>Cylinder</A> cylinder5(
+    crankAngleOffset=300,
+    cylinderInclination=-30,
+    animation=animation);
+  <A HREF="Modelica_Mechanics_MultiBody_Examples_Loops_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.EngineV6_analytic.Cylinder"
+>Cylinder</A> cylinder6(
+    crankAngleOffset=150,
+    cylinderInclination=30,
+    animation=animation);
+  <A HREF="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute"
+>Joints.ActuatedRevolute</A> bearing(
+    n={1,0,0},
+    cylinderLength=0.02,
+    cylinderDiameter=0.06,
+    animation=true);
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.BodyShape"
+>Parts.BodyShape</A> crank(
+    animation=false,
+    r_CM={6*0.1/2,0,0},
+    I_22=1.e-5,
+    I_33=1.e-5,
+    m=6*30,
+    I_11=0.1);
+  <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_b"
+>Modelica.Mechanics.Rotational.Interfaces.Flange_b</A> flange_b;
+  <A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.Frame_a"
+>Interfaces.Frame_a</A> frame_a;
+<font color="blue">equation </font>
+  <font color="red">connect</font>(cylinder1.crank_b, cylinder2.crank_a);
+  <font color="red">connect</font>(cylinder2.cylinder_a, cylinder1.cylinder_b);
+  <font color="red">connect</font>(cylinder3.cylinder_a, cylinder2.cylinder_b);
+  <font color="red">connect</font>(cylinder3.crank_a, cylinder2.crank_b);
+  <font color="red">connect</font>(cylinder3.cylinder_b, cylinder4.cylinder_a);
+  <font color="red">connect</font>(cylinder3.crank_b, cylinder4.crank_a);
+  <font color="red">connect</font>(cylinder4.cylinder_b, cylinder5.cylinder_a);
+  <font color="red">connect</font>(cylinder4.crank_b, cylinder5.crank_a);
+  <font color="red">connect</font>(cylinder5.cylinder_b, cylinder6.cylinder_a);
+  <font color="red">connect</font>(cylinder5.crank_b, cylinder6.crank_a);
+  <font color="red">connect</font>(bearing.frame_b, crank.frame_a);
+  <font color="red">connect</font>(crank.frame_b, cylinder1.crank_a);
+  <font color="red">connect</font>(bearing.axis, flange_b);
+  <font color="red">connect</font>(frame_a, bearing.frame_a);
+  <font color="red">connect</font>(bearing.frame_a, cylinder1.cylinder_a);
+<font color="blue">end </font>EngineV6_analytic;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Engine1bBase<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Engine1bBaseI.png" ALT="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Engine1bBase" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Engine1bBase"></A><A HREF="Modelica_Mechanics_MultiBody_Examples_Loops_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Loops.Utilities"
+>Modelica.Mechanics.MultiBody.Examples.Loops.Utilities</A>.Engine1bBase</H2>
+<B>Model of one cylinder engine with gas force</B><p>
+<IMG SRC="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Engine1bBaseD.png" ALT="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Engine1bBase">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This is a model of the mechanical part of one cylinder of an engine.
+The combustion is not modelled. The "inertia" component at the lower
+left part is the output inertia of the engine driving the gearbox.
+The angular velocity of the output inertia has a start value of 10 rad/s
+in order to demonstrate the movement of the engine.
+</p>
+<p>
+The engine is modeled solely by revolute and prismatic joints.
+Since this results in a <b>planar</b> loop there is the well known
+difficulty that the cut-forces perpendicular to the loop cannot be
+uniquely computed, as well as the cut-torques within the plane.
+This ambiguity is resolved by using the option <b>planarCutJoint</b>
+in the <b>Advanced</b> menu of one revolute joint in every planar loop
+(here: joint B1). This option sets the cut-force in direction of the
+axis of rotation, as well as the cut-torques perpendicular to the axis
+of rotation at this joint to zero and makes the problem mathematically
+well-formed.
+</p>
+<p>
+An animation of this example is shown in the figure below.
+</p>
+<p align="center">
+<IMG SRC="../Images/MultiBody/Examples/Loops/Engine.png" ALT="model Examples.Loops.Engine">
+</p>
+<pre></PRE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">partial </font><font color="blue">model</font> Engine1bBase <font color="darkgreen">
+  &quot;Model of one cylinder engine with gas force&quot;</font>
+  <font color="blue">import </font>SI = <A HREF="Modelica_SIunits.html#Modelica.SIunits"
+>Modelica.SIunits</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.BodyCylinder"
+>Modelica.Mechanics.MultiBody.Parts.BodyCylinder</A> Piston(diameter=0.1, r={0,-0.1,0});
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.BodyBox"
+>Modelica.Mechanics.MultiBody.Parts.BodyBox</A> Rod2(
+    widthDirection={1,0,0},
+    width=0.02,
+    height=0.06,
+    color={0,0,200},
+    r={0,0.2,0});
+  <A HREF="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute"
+>Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute</A> Bearing(
+    n={1,0,0},
+    cylinderLength=0.02,
+    cylinderDiameter=0.05);
+  <font color="blue">inner </font><A HREF="Modelica_Mechanics_MultiBody.html#Modelica.Mechanics.MultiBody.World"
+>Modelica.Mechanics.MultiBody.World</A> world;
+  <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Inertia"
+>Modelica.Mechanics.Rotational.Inertia</A> Inertia(
+    J=0.1,
+    w(fixed=true, stateSelect=StateSelect.always),
+    phi(
+      fixed=true,
+      stateSelect=StateSelect.always,
+      start=0.001));
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.BodyBox"
+>Modelica.Mechanics.MultiBody.Parts.BodyBox</A> Crank4(
+    height=0.05,
+    widthDirection={1,0,0},
+    width=0.02,
+    r={0,-0.1,0});
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.BodyCylinder"
+>Modelica.Mechanics.MultiBody.Parts.BodyCylinder</A> Crank3(r={0.1,0,0}, diameter=0.03);
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.BodyCylinder"
+>Modelica.Mechanics.MultiBody.Parts.BodyCylinder</A> Crank1(diameter=0.05, r={0.1,0,0});
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.BodyBox"
+>Modelica.Mechanics.MultiBody.Parts.BodyBox</A> Crank2(
+    height=0.05,
+    widthDirection={1,0,0},
+    width=0.02,
+    r={0,0.1,0});
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.FixedTranslation"
+>Modelica.Mechanics.MultiBody.Parts.FixedTranslation</A> Mid(r={0.05,0,0});
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.FixedTranslation"
+>Modelica.Mechanics.MultiBody.Parts.FixedTranslation</A> cylPosition(                 animation=false, r={0.15,
+        0.55,0});
+  <A HREF="Modelica_Mechanics_MultiBody_Examples_Loops_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.GasForce2"
+>Utilities.GasForce2</A> gasForce(        d=0.1, L=0.35);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(world.frame_b, Bearing.frame_a);
+  <font color="red">connect</font>(Crank2.frame_a, Crank1.frame_b);
+  <font color="red">connect</font>(Crank2.frame_b, Crank3.frame_a);
+  <font color="red">connect</font>(Bearing.frame_b, Crank1.frame_a);
+  <font color="red">connect</font>(world.frame_b, cylPosition.frame_a);
+  <font color="red">connect</font>(Crank3.frame_b, Crank4.frame_a);
+  <font color="red">connect</font>(Inertia.flange_b, Bearing.axis);
+  <font color="red">connect</font>(Mid.frame_a, Crank2.frame_b);
+<font color="blue">end </font>Engine1bBase;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Cylinder<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.EngineV6_analytic.CylinderI.png" ALT="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.EngineV6_analytic.Cylinder" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.EngineV6_analytic.Cylinder"></A><A HREF="Modelica_Mechanics_MultiBody_Examples_Loops_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.EngineV6_analytic"
+>Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.EngineV6_analytic</A>.Cylinder</H2>
+<B>Cylinder type</B><p>
+<IMG SRC="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.EngineV6_analytic.CylinderD.png" ALT="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.EngineV6_analytic.Cylinder">
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>animation</TD><TD>true</TD><TD>= true, if animation shall be enabled</TD></TR>
+<TR><TD>&nbsp;</TD><TD>cylinderTopPosition</TD><TD>0.42</TD><TD>Length from crank shaft to end of cylinder. [m]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>crankLength</TD><TD>0.14</TD><TD>Length of crank shaft in x direction [m]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>crankPinOffset</TD><TD>0.05</TD><TD>Offset of crank pin from center axis [m]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>crankPinLength</TD><TD>0.1</TD><TD>Offset of crank pin from center axis [m]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>cylinderInclination</TD><TD>0</TD><TD>Inclination of cylinder [deg]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>crankAngleOffset</TD><TD>0</TD><TD>Offset for crank angle [deg]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Piston</TD></TR>
+<TR><TD>&nbsp;</TD><TD>pistonLength</TD><TD>0.1</TD><TD> Length of cylinder [m]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>pistonCenterOfMass</TD><TD>pistonLength/2</TD><TD> Distance from frame_a to center of mass of piston [m]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>pistonMass</TD><TD>6</TD><TD> Mass of piston [kg]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>pistonInertia_11</TD><TD>0.0088</TD><TD> Inertia 11 of piston with respect to center of mass frame, parallel to frame_a [kg.m2]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>pistonInertia_22</TD><TD>0.0076</TD><TD> Inertia 22 of piston with respect to center of mass frame, parallel to frame_a [kg.m2]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>pistonInertia_33</TD><TD>0.0088</TD><TD> Inertia 33 of piston with respect to center of mass frame, parallel to frame_a [kg.m2]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Rod</TD></TR>
+<TR><TD>&nbsp;</TD><TD>rodLength</TD><TD>0.175</TD><TD> Length of rod [m]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>rodCenterOfMass</TD><TD>rodLength/2</TD><TD> Distance from frame_a to center of mass of piston [m]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>rodMass</TD><TD>1</TD><TD> Mass of rod [kg]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>rodInertia_11</TD><TD>0.006</TD><TD> Inertia 11 of rod with respect to center of mass frame, parallel to frame_a [kg.m2]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>rodInertia_22</TD><TD>0.0005</TD><TD> Inertia 22 of rod with respect to center of mass frame, parallel to frame_a [kg.m2]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>rodInertia_33</TD><TD>0.006</TD><TD> Inertia 33 of rod with respect to center of mass frame, parallel to frame_a [kg.m2]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>cylinder_a</TD><TD>&nbsp;</TD></TR>
+<TR><TD>&nbsp;</TD><TD>cylinder_b</TD><TD>&nbsp;</TD></TR>
+<TR><TD>&nbsp;</TD><TD>crank_a</TD><TD>&nbsp;</TD></TR>
+<TR><TD>&nbsp;</TD><TD>crank_b</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">replaceable </font><font color="blue">model</font> Cylinder = <A HREF="Modelica_Mechanics_MultiBody_Examples_Loops_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Cylinder_analytic_CAD"
+>Cylinder_analytic_CAD</A> <font color="blue">extends </font>CylinderBase <font color="darkgreen">
+  &quot;Cylinder type&quot;</font>;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Tue Mar 28 11:38:49 2006.
+</address></BODY>
+</HTML>

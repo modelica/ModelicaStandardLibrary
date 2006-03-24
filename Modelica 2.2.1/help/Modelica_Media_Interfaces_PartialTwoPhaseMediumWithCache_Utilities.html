@@ -1,0 +1,1679 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities</TITLE>
+<META name="HTML-Generator" content="Dymola">
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Utilities<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities"></A><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache"
+>Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache</A>.Utilities</H2>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.phaseAssertS.png" ALT="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.phaseAssert" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.phaseAssert"
+>phaseAssert</A>
+</TD><TD>assert function for inlining</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.phaseAssertS.png" ALT="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.twoPhaseProps_dT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.twoPhaseProps_dT"
+>twoPhaseProps_dT</A>
+</TD><TD>intermediate property record for medium</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.phaseAssertS.png" ALT="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.phase_dT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.phase_dT"
+>phase_dT</A>
+</TD><TD>phase as a function of density and temperature</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.phaseAssertS.png" ALT="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.p_props_dT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.p_props_dT"
+>p_props_dT</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.phaseAssertS.png" ALT="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.s_props_dT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.s_props_dT"
+>s_props_dT</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.phaseAssertS.png" ALT="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.u_props_dT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.u_props_dT"
+>u_props_dT</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.phaseAssertS.png" ALT="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.cv_props_dT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.cv_props_dT"
+>cv_props_dT</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.phaseAssertS.png" ALT="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.h_props_dT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.h_props_dT"
+>h_props_dT</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.phaseAssertS.png" ALT="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.cp_props_dT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.cp_props_dT"
+>cp_props_dT</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.phaseAssertS.png" ALT="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.g_props_dT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.g_props_dT"
+>g_props_dT</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.phaseAssertS.png" ALT="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.w_props_dT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.w_props_dT"
+>w_props_dT</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.phaseAssertS.png" ALT="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.beta_props_dT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.beta_props_dT"
+>beta_props_dT</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.phaseAssertS.png" ALT="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.kappa_props_dT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.kappa_props_dT"
+>kappa_props_dT</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.phaseAssertS.png" ALT="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.twoPhaseProps_ph" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.twoPhaseProps_ph"
+>twoPhaseProps_ph</A>
+</TD><TD>intermediate property record for medium</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.phaseAssertS.png" ALT="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.d_props_ph" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.d_props_ph"
+>d_props_ph</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.phaseAssertS.png" ALT="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.T_props_ph" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.T_props_ph"
+>T_props_ph</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.phaseAssertS.png" ALT="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.phase_ph" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.phase_ph"
+>phase_ph</A>
+</TD><TD>phase as a function of pressure and specific enthalpy</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.phaseAssertS.png" ALT="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.s_props_ph" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.s_props_ph"
+>s_props_ph</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.phaseAssertS.png" ALT="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.u_props_ph" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.u_props_ph"
+>u_props_ph</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.phaseAssertS.png" ALT="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.cv_props_ph" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.cv_props_ph"
+>cv_props_ph</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.phaseAssertS.png" ALT="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.cp_props_ph" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.cp_props_ph"
+>cp_props_ph</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.phaseAssertS.png" ALT="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.g_props_ph" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.g_props_ph"
+>g_props_ph</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.phaseAssertS.png" ALT="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.beta_props_ph" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.beta_props_ph"
+>beta_props_ph</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.phaseAssertS.png" ALT="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.kappa_props_ph" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.kappa_props_ph"
+>kappa_props_ph</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.phaseAssertS.png" ALT="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.twoPhaseProps_ps" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.twoPhaseProps_ps"
+>twoPhaseProps_ps</A>
+</TD><TD>intermediate property record for medium</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.phaseAssertS.png" ALT="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.d_props_ps" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.d_props_ps"
+>d_props_ps</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.phaseAssertS.png" ALT="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.T_props_ps" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.T_props_ps"
+>T_props_ps</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.phaseAssertS.png" ALT="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.phase_ps" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.phase_ps"
+>phase_ps</A>
+</TD><TD>phase as a function of pressure and specific entropy</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.phaseAssertS.png" ALT="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.u_props_ps" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.u_props_ps"
+>u_props_ps</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.phaseAssertS.png" ALT="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.cv_props_ps" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.cv_props_ps"
+>cv_props_ps</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.phaseAssertS.png" ALT="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.h_props_ps" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.h_props_ps"
+>h_props_ps</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.phaseAssertS.png" ALT="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.cp_props_ps" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.cp_props_ps"
+>cp_props_ps</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.phaseAssertS.png" ALT="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.g_props_ps" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.g_props_ps"
+>g_props_ps</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.phaseAssertS.png" ALT="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.beta_props_ps" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.beta_props_ps"
+>beta_props_ps</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.phaseAssertS.png" ALT="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.kappa_props_ps" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.kappa_props_ps"
+>kappa_props_ps</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.phaseAssertS.png" ALT="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.twoPhaseProps_pT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.twoPhaseProps_pT"
+>twoPhaseProps_pT</A>
+</TD><TD>intermediate property record for medium</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.phaseAssertS.png" ALT="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.d_props_pT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.d_props_pT"
+>d_props_pT</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.phaseAssertS.png" ALT="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.s_props_pT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.s_props_pT"
+>s_props_pT</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.phaseAssertS.png" ALT="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.u_props_pT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.u_props_pT"
+>u_props_pT</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.phaseAssertS.png" ALT="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.cv_props_pT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.cv_props_pT"
+>cv_props_pT</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.phaseAssertS.png" ALT="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.h_props_pT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.h_props_pT"
+>h_props_pT</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.phaseAssertS.png" ALT="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.cp_props_pT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.cp_props_pT"
+>cp_props_pT</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.phaseAssertS.png" ALT="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.g_props_pT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.g_props_pT"
+>g_props_pT</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.phaseAssertS.png" ALT="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.beta_props_pT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.beta_props_pT"
+>beta_props_pT</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.phaseAssertS.png" ALT="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.kappa_props_pT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.kappa_props_pT"
+>kappa_props_pT</A>
+</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE phaseAssert<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.phaseAssert"></A><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities"
+>Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities</A>.phaseAssert</H2>
+<B>assert function for inlining</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>check</TD><TD>&nbsp;</TD><TD>condition to check</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>dummy</TD><TD>dummy output</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> phaseAssert <font color="darkgreen">&quot;assert function for inlining&quot;</font>
+  <font color="blue">input </font>Boolean check <font color="darkgreen">&quot;condition to check&quot;</font>;
+  <font color="blue">output </font>Real dummy <font color="darkgreen">&quot;dummy output&quot;</font>;
+<font color="blue">algorithm </font>
+  <font color="red">assert</font>(check, &quot;this function can not be called with two-phase input&quot;);
+<font color="blue">end </font>phaseAssert;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE twoPhaseProps_dT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.twoPhaseProps_dT"></A><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities"
+>Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities</A>.twoPhaseProps_dT</H2>
+<B>intermediate property record for medium</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>d</TD><TD>&nbsp;</TD><TD>density [kg/m3]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>T</TD><TD>&nbsp;</TD><TD>temperature [K]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>phase</TD><TD>0</TD><TD>2 for two-phase, 1 for one-phase, 0 if not known</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>aux</TD><TD>auxiliary record</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">replaceable </font><font color="blue">partial </font><font color="blue">function</font> twoPhaseProps_dT <font color="darkgreen">
+  &quot;intermediate property record for medium&quot;</font>
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Density"
+>Density</A> d <font color="darkgreen">&quot;density&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Temperature"
+>Temperature</A> T <font color="darkgreen">&quot;temperature&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.FixedPhase"
+>FixedPhase</A> phase=0 <font color="darkgreen">&quot;2 for two-phase, 1 for one-phase, 0 if not known&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.TwoPhaseProps"
+>TwoPhaseProps</A> aux <font color="darkgreen">&quot;auxiliary record&quot;</font>;
+<font color="blue">end </font>twoPhaseProps_dT;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE phase_dT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.phase_dT"></A><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities"
+>Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities</A>.phase_dT</H2>
+<B>phase as a function of density and temperature</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>d</TD><TD>&nbsp;</TD><TD>density [kg/m3]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>T</TD><TD>&nbsp;</TD><TD>temperature [K]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>aux</TD><TD>&nbsp;</TD><TD>auxiliary record</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>phase</TD><TD>2 for two-phase, 1 for one-phase, 0 if not known</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> phase_dT <font color="darkgreen">&quot;phase as a function of density and temperature&quot;</font>
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Density"
+>Density</A> d <font color="darkgreen">&quot;density&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Temperature"
+>Temperature</A> T <font color="darkgreen">&quot;temperature&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.TwoPhaseProps"
+>TwoPhaseProps</A> aux <font color="darkgreen">&quot;auxiliary record&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.FixedPhase"
+>FixedPhase</A> phase <font color="darkgreen">&quot;2 for two-phase, 1 for one-phase, 0 if not known&quot;</font>;
+<font color="blue">algorithm </font>
+  phase := aux.phase;
+<font color="blue">end </font>phase_dT;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE p_props_dT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.p_props_dT"></A><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities"
+>Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities</A>.p_props_dT</H2>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>d</TD><TD>&nbsp;</TD><TD>density [kg/m3]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>T</TD><TD>&nbsp;</TD><TD>temperature [K]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>aux</TD><TD>&nbsp;</TD><TD>auxiliary record</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>p</TD><TD>pressure [Pa]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> p_props_dT
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Density"
+>Density</A> d <font color="darkgreen">&quot;density&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Temperature"
+>Temperature</A> T <font color="darkgreen">&quot;temperature&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.TwoPhaseProps"
+>TwoPhaseProps</A> aux <font color="darkgreen">&quot;auxiliary record&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+<font color="blue">algorithm </font>
+  p := aux.p;
+<font color="blue">end </font>p_props_dT;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE s_props_dT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.s_props_dT"></A><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities"
+>Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities</A>.s_props_dT</H2>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>d</TD><TD>&nbsp;</TD><TD>density [kg/m3]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>T</TD><TD>&nbsp;</TD><TD>temperature [K]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>aux</TD><TD>&nbsp;</TD><TD>auxiliary record</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>s</TD><TD>specific entropy [J/(kg.K)]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> s_props_dT
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Density"
+>Density</A> d <font color="darkgreen">&quot;density&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Temperature"
+>Temperature</A> T <font color="darkgreen">&quot;temperature&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.TwoPhaseProps"
+>TwoPhaseProps</A> aux <font color="darkgreen">&quot;auxiliary record&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEntropy"
+>SpecificEntropy</A> s <font color="darkgreen">&quot;specific entropy&quot;</font>;
+<font color="blue">algorithm </font>
+  s := aux.s;
+<font color="blue">end </font>s_props_dT;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE u_props_dT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.u_props_dT"></A><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities"
+>Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities</A>.u_props_dT</H2>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>d</TD><TD>&nbsp;</TD><TD>density [kg/m3]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>T</TD><TD>&nbsp;</TD><TD>temperature [K]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>aux</TD><TD>&nbsp;</TD><TD>auxiliary record</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>u</TD><TD>specific internal energy [J/kg]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> u_props_dT
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Density"
+>Density</A> d <font color="darkgreen">&quot;density&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Temperature"
+>Temperature</A> T <font color="darkgreen">&quot;temperature&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.TwoPhaseProps"
+>TwoPhaseProps</A> aux <font color="darkgreen">&quot;auxiliary record&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEnergy"
+>SpecificEnergy</A> u <font color="darkgreen">&quot;specific internal energy&quot;</font>;
+<font color="blue">algorithm </font>
+  u := aux.u;
+<font color="blue">end </font>u_props_dT;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE cv_props_dT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.cv_props_dT"></A><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities"
+>Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities</A>.cv_props_dT</H2>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>d</TD><TD>&nbsp;</TD><TD>density [kg/m3]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>T</TD><TD>&nbsp;</TD><TD>temperature [K]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>aux</TD><TD>&nbsp;</TD><TD>auxiliary record</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>cv</TD><TD>specific heat capacity [J/(kg.K)]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> cv_props_dT
+
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Density"
+>Density</A> d <font color="darkgreen">&quot;density&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Temperature"
+>Temperature</A> T <font color="darkgreen">&quot;temperature&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.TwoPhaseProps"
+>TwoPhaseProps</A> aux <font color="darkgreen">&quot;auxiliary record&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificHeatCapacity"
+>SpecificHeatCapacity</A> cv <font color="darkgreen">&quot;specific heat capacity&quot;</font>;
+<font color="blue">algorithm </font>
+  cv := aux.cv;
+<font color="blue">end </font>cv_props_dT;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE h_props_dT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.h_props_dT"></A><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities"
+>Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities</A>.h_props_dT</H2>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>d</TD><TD>&nbsp;</TD><TD>density [kg/m3]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>T</TD><TD>&nbsp;</TD><TD>temperature [K]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>aux</TD><TD>&nbsp;</TD><TD>auxiliary record</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>h</TD><TD>specific enthalpy [J/kg]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> h_props_dT
+
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Density"
+>Density</A> d <font color="darkgreen">&quot;density&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Temperature"
+>Temperature</A> T <font color="darkgreen">&quot;temperature&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.TwoPhaseProps"
+>TwoPhaseProps</A> aux <font color="darkgreen">&quot;auxiliary record&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEnthalpy"
+>SpecificEnthalpy</A> h <font color="darkgreen">&quot;specific enthalpy&quot;</font>;
+<font color="blue">algorithm </font>
+  h := aux.h;
+<font color="blue">end </font>h_props_dT;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE cp_props_dT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.cp_props_dT"></A><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities"
+>Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities</A>.cp_props_dT</H2>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>d</TD><TD>&nbsp;</TD><TD>density [kg/m3]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>T</TD><TD>&nbsp;</TD><TD>temperature [K]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>aux</TD><TD>&nbsp;</TD><TD>auxiliary record</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>cp</TD><TD>specific heat capacity [J/(kg.K)]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> cp_props_dT
+
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Density"
+>Density</A> d <font color="darkgreen">&quot;density&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Temperature"
+>Temperature</A> T <font color="darkgreen">&quot;temperature&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.TwoPhaseProps"
+>TwoPhaseProps</A> aux <font color="darkgreen">&quot;auxiliary record&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificHeatCapacity"
+>SpecificHeatCapacity</A> cp <font color="darkgreen">&quot;specific heat capacity&quot;</font>;
+<font color="blue">algorithm </font>
+  cp := aux.cp;
+<font color="blue">end </font>cp_props_dT;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE g_props_dT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.g_props_dT"></A><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities"
+>Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities</A>.g_props_dT</H2>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>d</TD><TD>&nbsp;</TD><TD>density [kg/m3]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>T</TD><TD>&nbsp;</TD><TD>temperature [K]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>aux</TD><TD>&nbsp;</TD><TD>auxiliary record</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>g</TD><TD>specific Gibbs energy [J/kg]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> g_props_dT
+
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Density"
+>Density</A> d <font color="darkgreen">&quot;density&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Temperature"
+>Temperature</A> T <font color="darkgreen">&quot;temperature&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.TwoPhaseProps"
+>TwoPhaseProps</A> aux <font color="darkgreen">&quot;auxiliary record&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEnergy"
+>SpecificEnergy</A> g <font color="darkgreen">&quot;specific Gibbs energy&quot;</font>;
+<font color="blue">algorithm </font>
+  g := aux.g;
+<font color="blue">end </font>g_props_dT;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE w_props_dT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.w_props_dT"></A><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities"
+>Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities</A>.w_props_dT</H2>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>d</TD><TD>&nbsp;</TD><TD>density [kg/m3]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>T</TD><TD>&nbsp;</TD><TD>temperature [K]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>aux</TD><TD>&nbsp;</TD><TD>auxiliary record</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>w</TD><TD>velocity of sound [m/s]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> w_props_dT
+
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Density"
+>Density</A> d <font color="darkgreen">&quot;density&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Temperature"
+>Temperature</A> T <font color="darkgreen">&quot;temperature&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.TwoPhaseProps"
+>TwoPhaseProps</A> aux <font color="darkgreen">&quot;auxiliary record&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Velocity"
+>SI.Velocity</A> w <font color="darkgreen">&quot;velocity of sound&quot;</font>;
+<font color="blue">algorithm </font>
+  w := aux.w;
+<font color="blue">end </font>w_props_dT;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE beta_props_dT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.beta_props_dT"></A><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities"
+>Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities</A>.beta_props_dT</H2>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>d</TD><TD>&nbsp;</TD><TD>density [kg/m3]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>T</TD><TD>&nbsp;</TD><TD>temperature [K]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>aux</TD><TD>&nbsp;</TD><TD>auxiliary record</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>beta</TD><TD>isobaric expansion coefficient [1/K]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> beta_props_dT
+
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Density"
+>Density</A> d <font color="darkgreen">&quot;density&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Temperature"
+>Temperature</A> T <font color="darkgreen">&quot;temperature&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.TwoPhaseProps"
+>TwoPhaseProps</A> aux <font color="darkgreen">&quot;auxiliary record&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.RelativePressureCoefficient"
+>SI.RelativePressureCoefficient</A> beta <font color="darkgreen">&quot;isobaric expansion coefficient&quot;</font>;
+<font color="blue">algorithm </font>
+  beta := aux.beta;
+<font color="blue">end </font>beta_props_dT;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE kappa_props_dT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.kappa_props_dT"></A><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities"
+>Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities</A>.kappa_props_dT</H2>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>d</TD><TD>&nbsp;</TD><TD>density [kg/m3]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>T</TD><TD>&nbsp;</TD><TD>temperature [K]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>aux</TD><TD>&nbsp;</TD><TD>auxiliary record</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>kappa</TD><TD>isothermal compressibility factor [1/Pa]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> kappa_props_dT
+
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Density"
+>Density</A> d <font color="darkgreen">&quot;density&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Temperature"
+>Temperature</A> T <font color="darkgreen">&quot;temperature&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.TwoPhaseProps"
+>TwoPhaseProps</A> aux <font color="darkgreen">&quot;auxiliary record&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.IsothermalCompressibility"
+>SI.IsothermalCompressibility</A> kappa <font color="darkgreen">&quot;isothermal compressibility factor&quot;</font>;
+<font color="blue">algorithm </font>
+  kappa := aux.kappa;
+<font color="blue">end </font>kappa_props_dT;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE twoPhaseProps_ph<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.twoPhaseProps_ph"></A><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities"
+>Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities</A>.twoPhaseProps_ph</H2>
+<B>intermediate property record for medium</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>h</TD><TD>&nbsp;</TD><TD>specific enthalpy [J/kg]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>phase</TD><TD>0</TD><TD>2 for two-phase, 1 for one-phase, 0 if not known</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>aux</TD><TD>auxiliary record</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">replaceable </font><font color="blue">partial </font><font color="blue">function</font> twoPhaseProps_ph <font color="darkgreen">
+  &quot;intermediate property record for medium&quot;</font>
+
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEnthalpy"
+>SpecificEnthalpy</A> h <font color="darkgreen">&quot;specific enthalpy&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.FixedPhase"
+>FixedPhase</A> phase=0 <font color="darkgreen">&quot;2 for two-phase, 1 for one-phase, 0 if not known&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.TwoPhaseProps"
+>TwoPhaseProps</A> aux <font color="darkgreen">&quot;auxiliary record&quot;</font>;
+<font color="blue">end </font>twoPhaseProps_ph;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE d_props_ph<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.d_props_ph"></A><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities"
+>Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities</A>.d_props_ph</H2>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>h</TD><TD>&nbsp;</TD><TD>specific enthalpy [J/kg]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>aux</TD><TD>&nbsp;</TD><TD>auxiliary record</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>d</TD><TD>density [kg/m3]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> d_props_ph
+
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEnthalpy"
+>SpecificEnthalpy</A> h <font color="darkgreen">&quot;specific enthalpy&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.TwoPhaseProps"
+>TwoPhaseProps</A> aux <font color="darkgreen">&quot;auxiliary record&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Density"
+>Density</A> d <font color="darkgreen">&quot;density&quot;</font>;
+<font color="darkgreen">/*
+  annotation (
+    derivative(noDerivative=aux) = d_ph_der,
+    Inline=false,
+    LateInline=true);
+*/</font>
+<font color="blue">algorithm </font>
+  d := aux.d;
+<font color="blue">end </font>d_props_ph;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE T_props_ph<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.T_props_ph"></A><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities"
+>Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities</A>.T_props_ph</H2>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>h</TD><TD>&nbsp;</TD><TD>specific enthalpy [J/kg]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>aux</TD><TD>&nbsp;</TD><TD>auxiliary record</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>T</TD><TD>temperature [K]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> T_props_ph
+
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEnthalpy"
+>SpecificEnthalpy</A> h <font color="darkgreen">&quot;specific enthalpy&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.TwoPhaseProps"
+>TwoPhaseProps</A> aux <font color="darkgreen">&quot;auxiliary record&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Temperature"
+>Temperature</A> T <font color="darkgreen">&quot;temperature&quot;</font>;
+<font color="blue">algorithm </font>
+  T := aux.T;
+<font color="blue">end </font>T_props_ph;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE phase_ph<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.phase_ph"></A><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities"
+>Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities</A>.phase_ph</H2>
+<B>phase as a function of pressure and specific enthalpy</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>h</TD><TD>&nbsp;</TD><TD>specific enthalpy [J/kg]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>aux</TD><TD>&nbsp;</TD><TD>auxiliary record</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>phase</TD><TD>2 for two-phase, 1 for one-phase, 0 if not known</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> phase_ph <font color="darkgreen">
+  &quot;phase as a function of pressure and specific enthalpy&quot;</font>
+
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEnthalpy"
+>SpecificEnthalpy</A> h <font color="darkgreen">&quot;specific enthalpy&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.TwoPhaseProps"
+>TwoPhaseProps</A> aux <font color="darkgreen">&quot;auxiliary record&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.FixedPhase"
+>FixedPhase</A> phase <font color="darkgreen">&quot;2 for two-phase, 1 for one-phase, 0 if not known&quot;</font>;
+<font color="blue">algorithm </font>
+  phase := aux.phase;
+<font color="blue">end </font>phase_ph;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE s_props_ph<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.s_props_ph"></A><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities"
+>Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities</A>.s_props_ph</H2>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>h</TD><TD>&nbsp;</TD><TD>specific enthalpy [J/kg]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>aux</TD><TD>&nbsp;</TD><TD>auxiliary record</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>s</TD><TD>specific entropy [J/(kg.K)]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> s_props_ph
+
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEnthalpy"
+>SpecificEnthalpy</A> h <font color="darkgreen">&quot;specific enthalpy&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.TwoPhaseProps"
+>TwoPhaseProps</A> aux <font color="darkgreen">&quot;auxiliary record&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEntropy"
+>SpecificEntropy</A> s <font color="darkgreen">&quot;specific entropy&quot;</font>;
+<font color="blue">algorithm </font>
+  s := aux.s;
+<font color="blue">end </font>s_props_ph;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE u_props_ph<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.u_props_ph"></A><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities"
+>Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities</A>.u_props_ph</H2>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>h</TD><TD>&nbsp;</TD><TD>specific enthalpy [J/kg]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>aux</TD><TD>&nbsp;</TD><TD>auxiliary record</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>u</TD><TD>specific internal energy [J/kg]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> u_props_ph
+
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEnthalpy"
+>SpecificEnthalpy</A> h <font color="darkgreen">&quot;specific enthalpy&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.TwoPhaseProps"
+>TwoPhaseProps</A> aux <font color="darkgreen">&quot;auxiliary record&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEnergy"
+>SpecificEnergy</A> u <font color="darkgreen">&quot;specific internal energy&quot;</font>;
+<font color="blue">algorithm </font>
+  u := aux.u;
+<font color="blue">end </font>u_props_ph;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE cv_props_ph<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.cv_props_ph"></A><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities"
+>Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities</A>.cv_props_ph</H2>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>h</TD><TD>&nbsp;</TD><TD>specific enthalpy [J/kg]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>aux</TD><TD>&nbsp;</TD><TD>auxiliary record</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>cv</TD><TD>specific heat capacity [J/(kg.K)]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> cv_props_ph
+
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEnthalpy"
+>SpecificEnthalpy</A> h <font color="darkgreen">&quot;specific enthalpy&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.TwoPhaseProps"
+>TwoPhaseProps</A> aux <font color="darkgreen">&quot;auxiliary record&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificHeatCapacity"
+>SpecificHeatCapacity</A> cv <font color="darkgreen">&quot;specific heat capacity&quot;</font>;
+<font color="blue">algorithm </font>
+  cv := aux.cv;
+<font color="blue">end </font>cv_props_ph;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE cp_props_ph<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.cp_props_ph"></A><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities"
+>Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities</A>.cp_props_ph</H2>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>h</TD><TD>&nbsp;</TD><TD>specific enthalpy [J/kg]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>aux</TD><TD>&nbsp;</TD><TD>auxiliary record</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>cp</TD><TD>specific heat capacity [J/(kg.K)]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> cp_props_ph
+
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEnthalpy"
+>SpecificEnthalpy</A> h <font color="darkgreen">&quot;specific enthalpy&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.TwoPhaseProps"
+>TwoPhaseProps</A> aux <font color="darkgreen">&quot;auxiliary record&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificHeatCapacity"
+>SpecificHeatCapacity</A> cp <font color="darkgreen">&quot;specific heat capacity&quot;</font>;
+<font color="blue">algorithm </font>
+  cp := aux.cp;
+<font color="blue">end </font>cp_props_ph;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE g_props_ph<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.g_props_ph"></A><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities"
+>Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities</A>.g_props_ph</H2>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>h</TD><TD>&nbsp;</TD><TD>specific enthalpy [J/kg]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>aux</TD><TD>&nbsp;</TD><TD>auxiliary record</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>g</TD><TD>specific Gibbs energy [J/kg]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> g_props_ph
+
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEnthalpy"
+>SpecificEnthalpy</A> h <font color="darkgreen">&quot;specific enthalpy&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.TwoPhaseProps"
+>TwoPhaseProps</A> aux <font color="darkgreen">&quot;auxiliary record&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEnergy"
+>SpecificEnergy</A> g <font color="darkgreen">&quot;specific Gibbs energy&quot;</font>;
+<font color="blue">algorithm </font>
+  g := aux.g;
+<font color="blue">end </font>g_props_ph;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE beta_props_ph<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.beta_props_ph"></A><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities"
+>Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities</A>.beta_props_ph</H2>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>h</TD><TD>&nbsp;</TD><TD>specific enthalpy [J/kg]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>aux</TD><TD>&nbsp;</TD><TD>auxiliary record</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>beta</TD><TD>isobaric expansion coefficient [1/K]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> beta_props_ph
+
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEnthalpy"
+>SpecificEnthalpy</A> h <font color="darkgreen">&quot;specific enthalpy&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.TwoPhaseProps"
+>TwoPhaseProps</A> aux <font color="darkgreen">&quot;auxiliary record&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.RelativePressureCoefficient"
+>SI.RelativePressureCoefficient</A> beta <font color="darkgreen">&quot;isobaric expansion coefficient&quot;</font>;
+<font color="blue">algorithm </font>
+  beta := aux.beta;
+<font color="blue">end </font>beta_props_ph;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE kappa_props_ph<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.kappa_props_ph"></A><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities"
+>Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities</A>.kappa_props_ph</H2>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>h</TD><TD>&nbsp;</TD><TD>specific enthalpy [J/kg]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>aux</TD><TD>&nbsp;</TD><TD>auxiliary record</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>kappa</TD><TD>isothermal compressibility factor [1/Pa]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> kappa_props_ph
+
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEnthalpy"
+>SpecificEnthalpy</A> h <font color="darkgreen">&quot;specific enthalpy&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.TwoPhaseProps"
+>TwoPhaseProps</A> aux <font color="darkgreen">&quot;auxiliary record&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.IsothermalCompressibility"
+>SI.IsothermalCompressibility</A> kappa <font color="darkgreen">&quot;isothermal compressibility factor&quot;</font>;
+<font color="blue">algorithm </font>
+  kappa := aux.kappa;
+<font color="blue">end </font>kappa_props_ph;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE twoPhaseProps_ps<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.twoPhaseProps_ps"></A><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities"
+>Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities</A>.twoPhaseProps_ps</H2>
+<B>intermediate property record for medium</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>s</TD><TD>&nbsp;</TD><TD>specific entropy [J/(kg.K)]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>phase</TD><TD>0</TD><TD>2 for two-phase, 1 for one-phase, 0 if not known</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>aux</TD><TD>auxiliary record</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">replaceable </font><font color="blue">partial </font><font color="blue">function</font> twoPhaseProps_ps <font color="darkgreen">
+  &quot;intermediate property record for medium&quot;</font>
+
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEntropy"
+>SpecificEntropy</A> s <font color="darkgreen">&quot;specific entropy&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.FixedPhase"
+>FixedPhase</A> phase=0 <font color="darkgreen">&quot;2 for two-phase, 1 for one-phase, 0 if not known&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.TwoPhaseProps"
+>TwoPhaseProps</A> aux <font color="darkgreen">&quot;auxiliary record&quot;</font>;
+<font color="blue">end </font>twoPhaseProps_ps;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE d_props_ps<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.d_props_ps"></A><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities"
+>Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities</A>.d_props_ps</H2>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>s</TD><TD>&nbsp;</TD><TD>specific entropy [J/(kg.K)]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>aux</TD><TD>&nbsp;</TD><TD>auxiliary record</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>d</TD><TD>density [kg/m3]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> d_props_ps
+
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEntropy"
+>SpecificEntropy</A> s <font color="darkgreen">&quot;specific entropy&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.TwoPhaseProps"
+>TwoPhaseProps</A> aux <font color="darkgreen">&quot;auxiliary record&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Density"
+>Density</A> d <font color="darkgreen">&quot;density&quot;</font>;
+<font color="blue">algorithm </font>
+  d := aux.d;
+<font color="blue">end </font>d_props_ps;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE T_props_ps<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.T_props_ps"></A><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities"
+>Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities</A>.T_props_ps</H2>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>s</TD><TD>&nbsp;</TD><TD>specific entropy [J/(kg.K)]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>aux</TD><TD>&nbsp;</TD><TD>auxiliary record</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>T</TD><TD>temperature [K]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> T_props_ps
+
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEntropy"
+>SpecificEntropy</A> s <font color="darkgreen">&quot;specific entropy&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.TwoPhaseProps"
+>TwoPhaseProps</A> aux <font color="darkgreen">&quot;auxiliary record&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Temperature"
+>Temperature</A> T <font color="darkgreen">&quot;temperature&quot;</font>;
+<font color="blue">algorithm </font>
+  T := aux.T;
+<font color="blue">end </font>T_props_ps;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE phase_ps<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.phase_ps"></A><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities"
+>Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities</A>.phase_ps</H2>
+<B>phase as a function of pressure and specific entropy</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>s</TD><TD>&nbsp;</TD><TD>specific entropy [J/(kg.K)]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>aux</TD><TD>&nbsp;</TD><TD>auxiliary record</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>phase</TD><TD>2 for two-phase, 1 for one-phase, 0 if not known</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> phase_ps <font color="darkgreen">
+  &quot;phase as a function of pressure and specific entropy&quot;</font>
+
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEntropy"
+>SpecificEntropy</A> s <font color="darkgreen">&quot;specific entropy&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.TwoPhaseProps"
+>TwoPhaseProps</A> aux <font color="darkgreen">&quot;auxiliary record&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.FixedPhase"
+>FixedPhase</A> phase <font color="darkgreen">&quot;2 for two-phase, 1 for one-phase, 0 if not known&quot;</font>;
+<font color="blue">algorithm </font>
+  phase := aux.phase;
+<font color="blue">end </font>phase_ps;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE u_props_ps<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.u_props_ps"></A><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities"
+>Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities</A>.u_props_ps</H2>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>s</TD><TD>&nbsp;</TD><TD>specific entropy [J/(kg.K)]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>aux</TD><TD>&nbsp;</TD><TD>auxiliary record</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>u</TD><TD>specific internal energy [J/kg]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> u_props_ps
+
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEntropy"
+>SpecificEntropy</A> s <font color="darkgreen">&quot;specific entropy&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.TwoPhaseProps"
+>TwoPhaseProps</A> aux <font color="darkgreen">&quot;auxiliary record&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEnergy"
+>SpecificEnergy</A> u <font color="darkgreen">&quot;specific internal energy&quot;</font>;
+<font color="blue">algorithm </font>
+  u := aux.u;
+<font color="blue">end </font>u_props_ps;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE cv_props_ps<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.cv_props_ps"></A><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities"
+>Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities</A>.cv_props_ps</H2>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>s</TD><TD>&nbsp;</TD><TD>specific entropy [J/(kg.K)]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>aux</TD><TD>&nbsp;</TD><TD>auxiliary record</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>cv</TD><TD>specific heat capacity [J/(kg.K)]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> cv_props_ps
+
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEntropy"
+>SpecificEntropy</A> s <font color="darkgreen">&quot;specific entropy&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.TwoPhaseProps"
+>TwoPhaseProps</A> aux <font color="darkgreen">&quot;auxiliary record&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificHeatCapacity"
+>SpecificHeatCapacity</A> cv <font color="darkgreen">&quot;specific heat capacity&quot;</font>;
+<font color="blue">algorithm </font>
+  cv := aux.cv;
+<font color="blue">end </font>cv_props_ps;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE h_props_ps<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.h_props_ps"></A><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities"
+>Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities</A>.h_props_ps</H2>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>s</TD><TD>&nbsp;</TD><TD>specific entropy [J/(kg.K)]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>aux</TD><TD>&nbsp;</TD><TD>auxiliary record</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>h</TD><TD>specific enthalpy [J/kg]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> h_props_ps
+
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEntropy"
+>SpecificEntropy</A> s <font color="darkgreen">&quot;specific entropy&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.TwoPhaseProps"
+>TwoPhaseProps</A> aux <font color="darkgreen">&quot;auxiliary record&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEnthalpy"
+>SpecificEnthalpy</A> h <font color="darkgreen">&quot;specific enthalpy&quot;</font>;
+<font color="blue">algorithm </font>
+  h := aux.h;
+<font color="blue">end </font>h_props_ps;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE cp_props_ps<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.cp_props_ps"></A><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities"
+>Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities</A>.cp_props_ps</H2>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>s</TD><TD>&nbsp;</TD><TD>specific entropy [J/(kg.K)]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>aux</TD><TD>&nbsp;</TD><TD>auxiliary record</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>cp</TD><TD>specific heat capacity [J/(kg.K)]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> cp_props_ps
+
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEntropy"
+>SpecificEntropy</A> s <font color="darkgreen">&quot;specific entropy&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.TwoPhaseProps"
+>TwoPhaseProps</A> aux <font color="darkgreen">&quot;auxiliary record&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificHeatCapacity"
+>SpecificHeatCapacity</A> cp <font color="darkgreen">&quot;specific heat capacity&quot;</font>;
+<font color="blue">algorithm </font>
+  cp := aux.cp;
+<font color="blue">end </font>cp_props_ps;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE g_props_ps<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.g_props_ps"></A><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities"
+>Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities</A>.g_props_ps</H2>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>s</TD><TD>&nbsp;</TD><TD>specific entropy [J/(kg.K)]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>aux</TD><TD>&nbsp;</TD><TD>auxiliary record</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>g</TD><TD>specific Gibbs energy [J/kg]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> g_props_ps
+
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEntropy"
+>SpecificEntropy</A> s <font color="darkgreen">&quot;specific entropy&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.TwoPhaseProps"
+>TwoPhaseProps</A> aux <font color="darkgreen">&quot;auxiliary record&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEnergy"
+>SpecificEnergy</A> g <font color="darkgreen">&quot;specific Gibbs energy&quot;</font>;
+<font color="blue">algorithm </font>
+  g := aux.g;
+<font color="blue">end </font>g_props_ps;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE beta_props_ps<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.beta_props_ps"></A><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities"
+>Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities</A>.beta_props_ps</H2>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>s</TD><TD>&nbsp;</TD><TD>specific entropy [J/(kg.K)]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>aux</TD><TD>&nbsp;</TD><TD>auxiliary record</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>beta</TD><TD>isobaric expansion coefficient [1/K]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> beta_props_ps
+
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEntropy"
+>SpecificEntropy</A> s <font color="darkgreen">&quot;specific entropy&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.TwoPhaseProps"
+>TwoPhaseProps</A> aux <font color="darkgreen">&quot;auxiliary record&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.RelativePressureCoefficient"
+>SI.RelativePressureCoefficient</A> beta <font color="darkgreen">&quot;isobaric expansion coefficient&quot;</font>;
+<font color="blue">algorithm </font>
+  beta := aux.beta;
+<font color="blue">end </font>beta_props_ps;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE kappa_props_ps<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.kappa_props_ps"></A><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities"
+>Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities</A>.kappa_props_ps</H2>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>s</TD><TD>&nbsp;</TD><TD>specific entropy [J/(kg.K)]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>aux</TD><TD>&nbsp;</TD><TD>auxiliary record</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>kappa</TD><TD>isothermal compressibility factor [1/Pa]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> kappa_props_ps
+
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEntropy"
+>SpecificEntropy</A> s <font color="darkgreen">&quot;specific entropy&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.TwoPhaseProps"
+>TwoPhaseProps</A> aux <font color="darkgreen">&quot;auxiliary record&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.IsothermalCompressibility"
+>SI.IsothermalCompressibility</A> kappa <font color="darkgreen">&quot;isothermal compressibility factor&quot;</font>;
+<font color="blue">algorithm </font>
+  kappa := aux.kappa;
+<font color="blue">end </font>kappa_props_ps;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE twoPhaseProps_pT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.twoPhaseProps_pT"></A><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities"
+>Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities</A>.twoPhaseProps_pT</H2>
+<B>intermediate property record for medium</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>T</TD><TD>&nbsp;</TD><TD>temperature [K]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>aux</TD><TD>auxiliary record</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">replaceable </font><font color="blue">partial </font><font color="blue">function</font> twoPhaseProps_pT <font color="darkgreen">
+  &quot;intermediate property record for medium&quot;</font>
+
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Temperature"
+>Temperature</A> T <font color="darkgreen">&quot;temperature&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.TwoPhaseProps"
+>TwoPhaseProps</A> aux <font color="darkgreen">&quot;auxiliary record&quot;</font>;
+<font color="blue">end </font>twoPhaseProps_pT;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE d_props_pT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.d_props_pT"></A><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities"
+>Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities</A>.d_props_pT</H2>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>T</TD><TD>&nbsp;</TD><TD>temperature [K]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>aux</TD><TD>&nbsp;</TD><TD>auxiliary record</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>d</TD><TD>density [kg/m3]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> d_props_pT
+
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Temperature"
+>Temperature</A> T <font color="darkgreen">&quot;temperature&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.TwoPhaseProps"
+>TwoPhaseProps</A> aux <font color="darkgreen">&quot;auxiliary record&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Density"
+>Density</A> d <font color="darkgreen">&quot;density&quot;</font>;
+<font color="blue">algorithm </font>
+  d := aux.d;
+<font color="blue">end </font>d_props_pT;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE s_props_pT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.s_props_pT"></A><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities"
+>Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities</A>.s_props_pT</H2>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>T</TD><TD>&nbsp;</TD><TD>temperature [K]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>aux</TD><TD>&nbsp;</TD><TD>auxiliary record</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>s</TD><TD>specific entropy [J/(kg.K)]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> s_props_pT
+
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Temperature"
+>Temperature</A> T <font color="darkgreen">&quot;temperature&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.TwoPhaseProps"
+>TwoPhaseProps</A> aux <font color="darkgreen">&quot;auxiliary record&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEntropy"
+>SpecificEntropy</A> s <font color="darkgreen">&quot;specific entropy&quot;</font>;
+<font color="blue">algorithm </font>
+  s := aux.s;
+<font color="blue">end </font>s_props_pT;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE u_props_pT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.u_props_pT"></A><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities"
+>Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities</A>.u_props_pT</H2>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>T</TD><TD>&nbsp;</TD><TD>temperature [K]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>aux</TD><TD>&nbsp;</TD><TD>auxiliary record</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>u</TD><TD>specific internal energy [J/kg]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> u_props_pT
+
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Temperature"
+>Temperature</A> T <font color="darkgreen">&quot;temperature&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.TwoPhaseProps"
+>TwoPhaseProps</A> aux <font color="darkgreen">&quot;auxiliary record&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEnergy"
+>SpecificEnergy</A> u <font color="darkgreen">&quot;specific internal energy&quot;</font>;
+<font color="blue">algorithm </font>
+  u := aux.u;
+<font color="blue">end </font>u_props_pT;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE cv_props_pT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.cv_props_pT"></A><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities"
+>Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities</A>.cv_props_pT</H2>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>T</TD><TD>&nbsp;</TD><TD>temperature [K]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>aux</TD><TD>&nbsp;</TD><TD>auxiliary record</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>cv</TD><TD>specific heat capacity [J/(kg.K)]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> cv_props_pT
+
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Temperature"
+>Temperature</A> T <font color="darkgreen">&quot;temperature&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.TwoPhaseProps"
+>TwoPhaseProps</A> aux <font color="darkgreen">&quot;auxiliary record&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificHeatCapacity"
+>SpecificHeatCapacity</A> cv <font color="darkgreen">&quot;specific heat capacity&quot;</font>;
+<font color="blue">algorithm </font>
+  cv := aux.cv;
+<font color="blue">end </font>cv_props_pT;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE h_props_pT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.h_props_pT"></A><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities"
+>Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities</A>.h_props_pT</H2>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>T</TD><TD>&nbsp;</TD><TD>temperature [K]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>aux</TD><TD>&nbsp;</TD><TD>auxiliary record</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>h</TD><TD>specific enthalpy [J/kg]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> h_props_pT
+
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Temperature"
+>Temperature</A> T <font color="darkgreen">&quot;temperature&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.TwoPhaseProps"
+>TwoPhaseProps</A> aux <font color="darkgreen">&quot;auxiliary record&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEnthalpy"
+>SpecificEnthalpy</A> h <font color="darkgreen">&quot;specific enthalpy&quot;</font>;
+<font color="blue">algorithm </font>
+  h := aux.h;
+<font color="blue">end </font>h_props_pT;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE cp_props_pT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.cp_props_pT"></A><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities"
+>Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities</A>.cp_props_pT</H2>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>T</TD><TD>&nbsp;</TD><TD>temperature [K]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>aux</TD><TD>&nbsp;</TD><TD>auxiliary record</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>cp</TD><TD>specific heat capacity [J/(kg.K)]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> cp_props_pT
+
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Temperature"
+>Temperature</A> T <font color="darkgreen">&quot;temperature&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.TwoPhaseProps"
+>TwoPhaseProps</A> aux <font color="darkgreen">&quot;auxiliary record&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificHeatCapacity"
+>SpecificHeatCapacity</A> cp <font color="darkgreen">&quot;specific heat capacity&quot;</font>;
+<font color="blue">algorithm </font>
+  cp := aux.cp;
+<font color="blue">end </font>cp_props_pT;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE g_props_pT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.g_props_pT"></A><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities"
+>Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities</A>.g_props_pT</H2>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>T</TD><TD>&nbsp;</TD><TD>temperature [K]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>aux</TD><TD>&nbsp;</TD><TD>auxiliary record</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>g</TD><TD>specific Gibbs energy [J/kg]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> g_props_pT
+
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Temperature"
+>Temperature</A> T <font color="darkgreen">&quot;temperature&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.TwoPhaseProps"
+>TwoPhaseProps</A> aux <font color="darkgreen">&quot;auxiliary record&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEnergy"
+>SpecificEnergy</A> g <font color="darkgreen">&quot;specific Gibbs energy&quot;</font>;
+<font color="blue">algorithm </font>
+  g := aux.g;
+<font color="blue">end </font>g_props_pT;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE beta_props_pT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.beta_props_pT"></A><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities"
+>Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities</A>.beta_props_pT</H2>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>T</TD><TD>&nbsp;</TD><TD>temperature [K]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>aux</TD><TD>&nbsp;</TD><TD>auxiliary record</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>beta</TD><TD>isobaric expansion coefficient [1/K]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> beta_props_pT
+
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Temperature"
+>Temperature</A> T <font color="darkgreen">&quot;temperature&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.TwoPhaseProps"
+>TwoPhaseProps</A> aux <font color="darkgreen">&quot;auxiliary record&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.RelativePressureCoefficient"
+>SI.RelativePressureCoefficient</A> beta <font color="darkgreen">&quot;isobaric expansion coefficient&quot;</font>;
+<font color="blue">algorithm </font>
+  beta := aux.beta;
+<font color="blue">end </font>beta_props_pT;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE kappa_props_pT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities.kappa_props_pT"></A><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache_Utilities.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities"
+>Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.Utilities</A>.kappa_props_pT</H2>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>T</TD><TD>&nbsp;</TD><TD>temperature [K]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>aux</TD><TD>&nbsp;</TD><TD>auxiliary record</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>kappa</TD><TD>isothermal compressibility factor [1/Pa]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> kappa_props_pT
+
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Temperature"
+>Temperature</A> T <font color="darkgreen">&quot;temperature&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMediumWithCache.html#Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache.TwoPhaseProps"
+>TwoPhaseProps</A> aux <font color="darkgreen">&quot;auxiliary record&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.IsothermalCompressibility"
+>SI.IsothermalCompressibility</A> kappa <font color="darkgreen">&quot;isothermal compressibility factor&quot;</font>;
+<font color="blue">algorithm </font>
+  kappa := aux.kappa;
+<font color="blue">end </font>kappa_props_pT;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Tue Mar 28 11:39:40 2006.
+</address></BODY>
+</HTML>

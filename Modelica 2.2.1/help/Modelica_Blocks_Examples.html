@@ -1,0 +1,548 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Blocks.Examples</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Demonstration examples of the components of this package&quot;">
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Examples<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Blocks.Examples"></A><A HREF="Modelica_Blocks.html#Modelica.Blocks"
+>Modelica.Blocks</A>.Examples</H2>
+<B>Demonstration examples of the components of this package</B>
+<P>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This package contains example models to demonstrate the
+usage of package blocks.
+</p>
+<pre>
+</PRE><P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Examples.PID_ControllerS.png" ALT="Modelica.Blocks.Examples.PID_Controller" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.PID_Controller"
+>PID_Controller</A>
+</TD><TD>Demonstrate usage of the Continuous.LimPID controller</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Examples.PID_ControllerS.png" ALT="Modelica.Blocks.Examples.ShowLogicalSources" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.ShowLogicalSources"
+>ShowLogicalSources</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Examples.PID_ControllerS.png" ALT="Modelica.Blocks.Examples.LogicalNetwork1" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.LogicalNetwork1"
+>LogicalNetwork1</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Examples.PID_ControllerS.png" ALT="Modelica.Blocks.Examples.BusUsage" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.BusUsage"
+>BusUsage</A>
+</TD><TD>Demonstration of signal bus usage</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PID_Controller<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Examples.PID_ControllerI.png" ALT="Modelica.Blocks.Examples.PID_Controller" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Examples.PID_Controller"></A><A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples"
+>Modelica.Blocks.Examples</A>.PID_Controller</H2>
+<B>Demonstrate usage of the Continuous.LimPID controller</B><p>
+<IMG SRC="Modelica.Blocks.Examples.PID_ControllerD.png" ALT="Modelica.Blocks.Examples.PID_Controller">
+<H3>Information</H3>
+<PRE></pre>
+
+<p>
+This is a simple drive train controlled by a PID controller:
+</p>
+
+<ul>
+<li> The two blocks "kinematic_PTP" and "integrator" are used to generate
+     the reference speed (= constant acceleration phase, constant speed phase,
+     constant deceleration phase until inertia is at rest). To check
+     whether the system starts in steady state, the reference speed is
+     zero until time = 0.5 s and then follows the sketched trajectory.</li>
+
+<li> The block "PI" is an instance of "Blocks.Continuous.LimPID" which is
+     a PID controller where several practical important aspects, such as
+     anti-windup-compensation has been added. In this case, the control block
+     is used as PI controller.</li>
+
+<li> The output of the controller is a torque that drives a motor inertia
+     "inertia1". Via a complöiant spring/damper component, the load
+     inertia "inertia2" is attached. A constant external torque of 10 Nm
+     is acting on the load inertia.</li>
+</ul>
+
+<p>
+The PI controller settings included "limitAtInit=false", in order that
+the controller output limits of 12 Nm are removed from the initialization
+problem.
+</p>
+
+<p>
+The PI controller is initialized in steady state (initType=SteadyState)
+and the drive shall also be initialized in steady state.
+However, it is not possible to initialize "inertia1" in SteadyState, because
+"der(inertia1.phi)=inertia1.w=0" is an input to the PI controller that
+defines that the derivative of the integrator state is zero (= the same
+condition that was already defined by option SteadyState of the PI controller).
+Furthermore, one initial condition is missing, because the absolute position
+of inertia1 or inertia2 is not defined. The solution shown in this examples is
+to initialize the angle and the angular acceleration of "inertia1".
+</p>
+
+<p>
+In the following figure, results of a typical simulation are shown:
+</p>
+
+<p>
+<img src="../Images/Blocks/PID_controller.png"><br>
+<img src="../Images/Blocks/PID_controller2.png">
+</p>
+
+<p>
+In the upper figure the reference speed (= integrator.y) and
+the actual speed (= inertia1.w) are shown. As can be seen,
+the system initializes in steady state, since no transients
+are present. The inertia follows the reference speed quite good
+until the end of the constant speed phase. Then there is a deviation.
+In the lower figure the reason can be seen: The output of the
+controller (PI.y) is in its limits. The anti-windup compensation
+works reasonably, since the input to the limiter (PI.limiter.u)
+is forced back to its limit after a transient phase.
+</p>
+
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>driveAngle</TD><TD>1.57</TD><TD>[rad]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> PID_Controller <font color="darkgreen">
+  &quot;Demonstrate usage of the Continuous.LimPID controller&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Modelica.SIunits.Angle</A> driveAngle=1.57;
+  <A HREF="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous.LimPID"
+>Modelica.Blocks.Continuous.LimPID</A> PI(
+    k=100,
+    Ti=0.1,
+    yMax=12,
+    Ni=0.1,
+    initType=Modelica.Blocks.Types.Init.SteadyState,
+    limitsAtInit=false,
+    controllerType=Modelica.Blocks.Types.SimpleController.PI);
+  <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Inertia"
+>Modelica.Mechanics.Rotational.Inertia</A> inertia1(initType=Modelica.Mechanics.
+        Rotational.Types.Init.InitialAngleAcceleration);
+  <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Torque"
+>Modelica.Mechanics.Rotational.Torque</A> torque;
+  <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.SpringDamper"
+>Modelica.Mechanics.Rotational.SpringDamper</A> spring(c=1e4, d=100,
+    initType=Modelica.Mechanics.Rotational.Types.Init.SteadyState,
+    stateSelection=Modelica.Blocks.Types.StateSelection.Prefer);
+  <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Inertia"
+>Modelica.Mechanics.Rotational.Inertia</A> inertia2(J=2);
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.KinematicPTP"
+>Modelica.Blocks.Sources.KinematicPTP</A> kinematicPTP(startTime=0.5, deltaq={
+        driveAngle});
+  <A HREF="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous.Integrator"
+>Modelica.Blocks.Continuous.Integrator</A> integrator(initType=Modelica.Blocks.
+        Types.Init.InitialState);
+  <A HREF="Modelica_Mechanics_Rotational_Sensors.html#Modelica.Mechanics.Rotational.Sensors.SpeedSensor"
+>Modelica.Mechanics.Rotational.Sensors.SpeedSensor</A> speedSensor;
+  <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.ConstantTorque"
+>Modelica.Mechanics.Rotational.ConstantTorque</A> loadTorque(tau_constant=10);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(spring.flange_b,inertia2. flange_a);
+  <font color="red">connect</font>(inertia1.flange_b, spring.flange_a);
+  <font color="red">connect</font>(torque.flange_b, inertia1.flange_a);
+  <font color="red">connect</font>(kinematicPTP.y[1], integrator.u);
+  <font color="red">connect</font>(speedSensor.flange_a, inertia1.flange_b);
+  <font color="red">connect</font>(loadTorque.flange, inertia2.flange_b);
+  <font color="red">connect</font>(PI.y, torque.tau);
+  <font color="red">connect</font>(speedSensor.w, PI.u_m);
+  <font color="red">connect</font>(integrator.y, PI.u_s);
+<font color="blue">end </font>PID_Controller;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ShowLogicalSources<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Examples.PID_ControllerI.png" ALT="Modelica.Blocks.Examples.ShowLogicalSources" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Examples.ShowLogicalSources"></A><A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples"
+>Modelica.Blocks.Examples</A>.ShowLogicalSources</H2>
+<IMG SRC="Modelica.Blocks.Examples.ShowLogicalSourcesD.png" ALT="Modelica.Blocks.Examples.ShowLogicalSources">
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> ShowLogicalSources
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.BooleanTable"
+>Sources.BooleanTable</A> table(table={2,4,6,8});
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.BooleanConstant"
+>Sources.BooleanConstant</A> const;
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.BooleanStep"
+>Sources.BooleanStep</A> step(startTime=4);
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.BooleanPulse"
+>Sources.BooleanPulse</A> pulse(period=1.5);
+ <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.SampleTrigger"
+>Sources.SampleTrigger</A> sample(
+                     period=0.5);
+ <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.BooleanExpression"
+>Sources.BooleanExpression</A> booleanExpression(
+                                           y=pulse.y<font color="blue"> and </font>step.y);
+<font color="blue">end </font>ShowLogicalSources;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE LogicalNetwork1<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Examples.PID_ControllerI.png" ALT="Modelica.Blocks.Examples.LogicalNetwork1" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Examples.LogicalNetwork1"></A><A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples"
+>Modelica.Blocks.Examples</A>.LogicalNetwork1</H2>
+<IMG SRC="Modelica.Blocks.Examples.LogicalNetwork1D.png" ALT="Modelica.Blocks.Examples.LogicalNetwork1">
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> LogicalNetwork1
+
+<font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+<A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.BooleanTable"
+>Sources.BooleanTable</A> table2(table={1,3,5,7});
+<A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.BooleanTable"
+>Sources.BooleanTable</A> table1(table={2,4,6,8});
+<A HREF="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical.Not"
+>Logical.Not</A> Not1;
+
+<A HREF="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical.And"
+>Logical.And</A> And1;
+<A HREF="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical.Or"
+>Logical.Or</A> Or1;
+<A HREF="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical.Pre"
+>Logical.Pre</A> Pre1;
+<font color="blue">equation </font>
+
+<font color="red">connect</font>(table2.y, Not1.u);
+
+<font color="red">connect</font>(And1.y, Or1.u2);
+
+<font color="red">connect</font>(table1.y, Or1.u1);
+
+<font color="red">connect</font>(Not1.y, And1.u1);
+
+<font color="red">connect</font>(Pre1.y, And1.u2);
+
+<font color="red">connect</font>(Or1.y, Pre1.u);
+
+<font color="blue">end </font>LogicalNetwork1;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE BusUsage<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Examples.PID_ControllerI.png" ALT="Modelica.Blocks.Examples.BusUsage" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Examples.BusUsage"></A><A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples"
+>Modelica.Blocks.Examples</A>.BusUsage</H2>
+<B>Demonstration of signal bus usage</B><p>
+<IMG SRC="Modelica.Blocks.Examples.BusUsageD.png" ALT="Modelica.Blocks.Examples.BusUsage">
+<H3>Information</H3>
+<PRE></pre>
+<p><b>Signal bus concept</b></p>
+<p>
+In technical systems, such as vehicles, robots or satellites, many signals
+are exchanged between components. In a simulation system, these signals
+are  usually modelled by signal connections of input/output blocks.
+Unfortunately, the signal connection structure may become very complicated,
+especially for hierarchical models.
+</p>
+<p>
+The same is also true for real technical systems. To reduce complexity
+and get higher flexibility, many technical systems use data buses to
+exchange data between components. For the same reasons, it is often better
+to use a "signal bus" concept also in a Modelica model. This is demonstrated
+at hand of this model (Modelica.Blocks.Examples.BusUsage), see diagram layer:
+</p>
+<ul>
+<li>The thick line in the middle called "bus" is just a connector instance
+    which is drawn such that it looks like a "usual" bus representation. </li>
+<li>A component, such as "part", can be directly connected to the "bus",
+    provided it has also a bus connector, or the "part" connector is a
+    sub-connector contained in the "bus". </li>
+</ul>
+<p>
+Difficulties arise if the input or output connector of an
+input/output block shall be connected directly to a variable
+of a bus because connections can only be performed between
+connectors but not between variables. For convenience,
+single variable connectors for Real, Integer and Boolean
+variables are provided as Modelica.Blocks.Interfaces.<b>RealSignal</b>,
+Modelica.Blocks.Interfaces.<b>IntegerSignal</b>,
+Modelica.Blocks.Interfaces.<b>BooleanSignal</b>.
+For example, the RealSignal connector is basically defined as:
+</p>
+<pre>  <b>connector</b> RealSignal = Real;
+</pre>
+<p>
+This allows a definition of a bus in the form:
+</p>
+<pre>   <b>connector</b> Bus
+      RealSignal r1;
+      RealSignal r2;
+        ...
+   <b>end</b> Bus;
+</pre>
+<p>
+and a connection to r1 and r2 is possible since these are connectors.
+Unfortunately, signals defined in this way have, by default, no unit.
+To improve this situation, a RealSignal is actually defined as
+</p>
+<pre>   <b>connector</b> RealSignal
+      <b>replaceable type</b> SignalType = Real;
+      <b>extends</b> SignalType;
+   <b>end</b> RealSignal;
+</pre>
+<p>
+This allows a redeclaration of the Real type to the desired type, such as:
+</p>
+<pre>   <b>connector</b> Bus
+      <b>import</b> SI=Modelica.SIunits;
+      RealSignal v(<b>redeclare</b> SignalType=SI.Velocity);
+      RealSignal p(<b>redeclare</b> SignalType=SI.Pressure);
+      ...
+   <b>end</b> Bus;
+</pre>
+<p>
+Note, since RealSignal, RealInput and RealOutput have basically
+the same definition, it is possible to directly connector
+from a RealSignal of a bus to a RealInput or RealOutput of
+a block component.
+</p>
+<p>
+If a bus connector contains many signals it is no longer so easy
+to test just one part of a system, because all parts of
+the bus connector must get a value. To simplify this,
+it is practical to provide a <b>RestBus</b> component which
+sets all parts of a bus to a default value when selected
+via the parameter menu. This is also demonstrated in the example
+model (see diagram layer).
+</p>
+<p>Simulate the system for 1 s. The output of the "gain" block
+should be the same as the one from the "generateRealSignal1"
+block.
+</p>
+<pre></PRE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">encapsulated </font><font color="blue">model</font> BusUsage <font color="darkgreen">&quot;Demonstration of signal bus usage&quot;</font>
+  <font color="blue">import </font><A HREF="Modelica_Icons.html#Modelica.Icons"
+>Modelica.Icons</A>;
+  <font color="blue">import </font><A HREF="Modelica_Blocks_Interfaces_Adaptors.html#Modelica.Blocks.Interfaces.Adaptors"
+>Modelica.Blocks.Interfaces.Adaptors</A>;
+  <font color="blue">import </font><A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources"
+>Modelica.Blocks.Sources</A>;
+  <font color="blue">import </font><A HREF="Modelica.html#Modelica"
+>Modelica</A>;
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Icons.Example</A>;
+
+<font color="blue">protected </font>
+  <A HREF="Modelica_Blocks_Examples_Interfaces.html#Modelica.Blocks.Examples.BusUsage.Interfaces.Bus"
+>Interfaces.Bus</A> bus;
+<font color="blue">public </font>
+  <A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.BusUsage.RestBus"
+>RestBus</A> restBus(set_realSignal2=true);
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.IntegerStep"
+>Sources.IntegerStep</A> integerStep(
+    height=1,
+    offset=2,
+    startTime=0.5);
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.BooleanStep"
+>Sources.BooleanStep</A> booleanStep(startTime=0.5);
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Sine"
+>Sources.Sine</A> sine;
+
+  <font color="blue">encapsulated </font><font color="blue">package</font> Interfaces <font color="darkgreen">
+    &quot;Interfaces specialised for this example&quot;</font>
+
+    <font color="blue">connector</font> MultiPort <font color="darkgreen">&quot;Combined port of real and boolean signal&quot;</font>
+      Real myRealSignal;
+      Boolean myBooleanSignal;
+
+    <font color="blue">end </font>MultiPort;
+
+    <font color="blue">connector</font> Bus <font color="darkgreen">&quot;Signal bus&quot;</font>
+      <font color="blue">import </font>SI = <A HREF="Modelica_SIunits.html#Modelica.SIunits"
+>Modelica.SIunits</A>;
+      <font color="blue">import </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces"
+>Modelica.Blocks.Interfaces</A>.*;
+
+      <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealSignal"
+>RealSignal</A> realSignal1(<font color="blue">redeclare </font><font color="blue">type</font> SignalType = <A HREF="Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
+>SI.AngularVelocity</A>) <font color="darkgreen">
+        &quot;First Real signal (angular velocity)&quot;</font>;
+      <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealSignal"
+>RealSignal</A> realSignal2 <font color="darkgreen">&quot;Second Real signal&quot;</font>;
+      <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.IntegerSignal"
+>IntegerSignal</A> integerSignal <font color="darkgreen">&quot;Integer signal&quot;</font>;
+      <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanSignal"
+>BooleanSignal</A> booleanSignal <font color="darkgreen">&quot;Boolean signal&quot;</font>;
+      <A HREF="Modelica_Blocks_Examples_Interfaces.html#Modelica.Blocks.Examples.BusUsage.Interfaces.MultiPort"
+>MultiPort</A> multiSignal <font color="darkgreen">&quot;Combined signal&quot;</font>;
+
+    <font color="blue">end </font>Bus;
+  <font color="blue">end </font>Interfaces;
+
+  <font color="blue">encapsulated </font><font color="blue">model</font> Part <font color="darkgreen">&quot;Component with MultiPort connector&quot;</font>
+    <font color="blue">import </font><A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples"
+>Modelica.Blocks.Examples</A>;
+
+    <A HREF="Modelica_Blocks_Examples_Interfaces.html#Modelica.Blocks.Examples.BusUsage.Interfaces.MultiPort"
+>Examples.BusUsage.Interfaces.MultiPort</A> multiSignal;
+
+  <font color="blue">equation </font>
+    multiSignal.myRealSignal = time;
+    multiSignal.myBooleanSignal = time &gt; 0.5;
+  <font color="blue">end </font>Part;
+
+  <font color="blue">encapsulated </font><font color="blue">model</font> RestBus <font color="darkgreen">
+    &quot;Set default values for bus variables that are not defined elsewhere&quot;</font>
+
+    <font color="blue">import </font><A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples"
+>Modelica.Blocks.Examples</A>;
+
+    <font color="blue">parameter </font>Boolean set_realSignal1=false <font color="darkgreen">
+      &quot;Set dummy value for desiredThrottle&quot;</font>;
+    <font color="blue">parameter </font>Boolean set_realSignal2=false <font color="darkgreen">&quot;Set dummy value for brake&quot;</font>;
+    <font color="blue">parameter </font>Boolean set_integerSignal=false <font color="darkgreen">
+      &quot;Set dummy value for controlLeverPosition&quot;</font>;
+    <font color="blue">parameter </font>Boolean set_booleanSignal=false <font color="darkgreen">&quot;Set dummy value for desiredGear&quot;</font>;
+    <font color="blue">parameter </font>Boolean set_multiSignal=false <font color="darkgreen">&quot;Set dummy value for ignition&quot;</font>;
+
+    <A HREF="Modelica_Blocks_Examples_Interfaces.html#Modelica.Blocks.Examples.BusUsage.Interfaces.Bus"
+>Examples.BusUsage.Interfaces.Bus</A> bus;
+  <font color="blue">equation </font>
+    <font color="blue">if </font>set_realSignal1<font color="blue"> then</font>
+      bus.realSignal1 = 0;
+    <font color="blue">end if</font>;
+    <font color="blue">if </font>set_realSignal2<font color="blue"> then</font>
+      bus.realSignal2 = 0;
+    <font color="blue">end if</font>;
+    <font color="blue">if </font>set_integerSignal<font color="blue"> then</font>
+      bus.integerSignal = 0;
+    <font color="blue">end if</font>;
+    <font color="blue">if </font>set_booleanSignal<font color="blue"> then</font>
+      bus.booleanSignal = false;
+    <font color="blue">end if</font>;
+    <font color="blue">if </font>set_multiSignal<font color="blue"> then</font>
+      bus.multiSignal.myRealSignal = 0;
+      bus.multiSignal.myBooleanSignal = false;
+    <font color="blue">end if</font>;
+  <font color="blue">end </font>RestBus;
+
+  <A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.BusUsage.Part"
+>Part</A> part;
+  <A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Gain"
+>Modelica.Blocks.Math.Gain</A> gain;
+<font color="blue">equation </font>
+
+  <font color="red">connect</font>(restBus.bus, bus);
+  <font color="red">connect</font>(part.multiSignal, bus.multiSignal);
+  <font color="red">connect</font>(sine.y, bus.realSignal1);
+  <font color="red">connect</font>(booleanStep.y, bus.booleanSignal);
+  <font color="red">connect</font>(integerStep.y, bus.integerSignal);
+  <font color="red">connect</font>(gain.u, bus.realSignal1);
+<font color="blue">end </font>BusUsage;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE RestBus<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Examples.BusUsage.RestBusI.png" ALT="Modelica.Blocks.Examples.BusUsage.RestBus" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Examples.BusUsage.RestBus"></A><A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.BusUsage"
+>Modelica.Blocks.Examples.BusUsage</A>.RestBus</H2>
+<B>Set default values for bus variables that are not defined elsewhere</B><p>
+<IMG SRC="Modelica.Blocks.Examples.BusUsage.RestBusD.png" ALT="Modelica.Blocks.Examples.BusUsage.RestBus">
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>set_realSignal1</TD><TD>false</TD><TD>Set dummy value for desiredThrottle</TD></TR>
+<TR><TD>&nbsp;</TD><TD>set_realSignal2</TD><TD>false</TD><TD>Set dummy value for brake</TD></TR>
+<TR><TD>&nbsp;</TD><TD>set_integerSignal</TD><TD>false</TD><TD>Set dummy value for controlLeverPosition</TD></TR>
+<TR><TD>&nbsp;</TD><TD>set_booleanSignal</TD><TD>false</TD><TD>Set dummy value for desiredGear</TD></TR>
+<TR><TD>&nbsp;</TD><TD>set_multiSignal</TD><TD>false</TD><TD>Set dummy value for ignition</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>bus</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">encapsulated </font><font color="blue">model</font> RestBus <font color="darkgreen">
+  &quot;Set default values for bus variables that are not defined elsewhere&quot;</font>
+
+  <font color="blue">import </font><A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples"
+>Modelica.Blocks.Examples</A>;
+
+  <font color="blue">parameter </font>Boolean set_realSignal1=false <font color="darkgreen">&quot;Set dummy value for desiredThrottle&quot;</font>;
+  <font color="blue">parameter </font>Boolean set_realSignal2=false <font color="darkgreen">&quot;Set dummy value for brake&quot;</font>;
+  <font color="blue">parameter </font>Boolean set_integerSignal=false <font color="darkgreen">
+    &quot;Set dummy value for controlLeverPosition&quot;</font>;
+  <font color="blue">parameter </font>Boolean set_booleanSignal=false <font color="darkgreen">&quot;Set dummy value for desiredGear&quot;</font>;
+  <font color="blue">parameter </font>Boolean set_multiSignal=false <font color="darkgreen">&quot;Set dummy value for ignition&quot;</font>;
+
+  <A HREF="Modelica_Blocks_Examples_Interfaces.html#Modelica.Blocks.Examples.BusUsage.Interfaces.Bus"
+>Examples.BusUsage.Interfaces.Bus</A> bus;
+<font color="blue">equation </font>
+  <font color="blue">if </font>set_realSignal1<font color="blue"> then</font>
+    bus.realSignal1 = 0;
+  <font color="blue">end if</font>;
+  <font color="blue">if </font>set_realSignal2<font color="blue"> then</font>
+    bus.realSignal2 = 0;
+  <font color="blue">end if</font>;
+  <font color="blue">if </font>set_integerSignal<font color="blue"> then</font>
+    bus.integerSignal = 0;
+  <font color="blue">end if</font>;
+  <font color="blue">if </font>set_booleanSignal<font color="blue"> then</font>
+    bus.booleanSignal = false;
+  <font color="blue">end if</font>;
+  <font color="blue">if </font>set_multiSignal<font color="blue"> then</font>
+    bus.multiSignal.myRealSignal = 0;
+    bus.multiSignal.myBooleanSignal = false;
+  <font color="blue">end if</font>;
+<font color="blue">end </font>RestBus;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Part<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Examples.BusUsage.PartI.png" ALT="Modelica.Blocks.Examples.BusUsage.Part" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Examples.BusUsage.Part"></A><A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.BusUsage"
+>Modelica.Blocks.Examples.BusUsage</A>.Part</H2>
+<B>Component with MultiPort connector</B><p>
+<IMG SRC="Modelica.Blocks.Examples.BusUsage.PartD.png" ALT="Modelica.Blocks.Examples.BusUsage.Part">
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>multiSignal</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">encapsulated </font><font color="blue">model</font> Part <font color="darkgreen">&quot;Component with MultiPort connector&quot;</font>
+  <font color="blue">import </font><A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples"
+>Modelica.Blocks.Examples</A>;
+
+  <A HREF="Modelica_Blocks_Examples_Interfaces.html#Modelica.Blocks.Examples.BusUsage.Interfaces.MultiPort"
+>Examples.BusUsage.Interfaces.MultiPort</A> multiSignal;
+
+<font color="blue">equation </font>
+  multiSignal.myRealSignal = time;
+  multiSignal.myBooleanSignal = time &gt; 0.5;
+<font color="blue">end </font>Part;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Tue Mar 28 11:35:43 2006.
+</address></BODY>
+</HTML>

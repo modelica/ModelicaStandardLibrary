@@ -1,0 +1,1830 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Media.Water.WaterIF97_fixedregion</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Water: Steam properties as defined by IAPWS/IF97 standard&quot;">
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE WaterIF97_fixedregion<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Water.WaterIF97_fixedregion"></A><A HREF="Modelica_Media_Water.html#Modelica.Media.Water"
+>Modelica.Media.Water</A>.WaterIF97_fixedregion</H2>
+<B>Water: Steam properties as defined by IAPWS/IF97 standard</B>
+<P>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This model calculates medium properties
+for water in the <b>liquid</b>, <b>gas</b> and <b>two phase</b> regions
+according to the IAPWS/IF97 standard, i.e., the accepted industrial standard
+and best compromise between accuracy and computation time.
+For more details see <A HREF="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>
+Modelica.Media.Water.IF97_Utilities</a>. Three variable pairs can be the
+independent variables of the model:
+<ol>
+<li>Pressure <b>p</b> and specific enthalpy <b>h</b> are the most natural choice for general applications. This is the recommended choice for most general purpose applications, in particular for power plants.</li>
+<li>Pressure <b>p</b> and temperature <b>T</b> are the most natural choice for applications where water is always in the same phase, both for liquid water and steam.</li>
+<li>Density <b>d</b> and temperature <b>T</b> are explicit variables of the Helmholtz function in the near-critical region and can be the best choice for applications with super-critical or near-critial states.</li>
+</ol>
+The following quantities are always computed:
+</p>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td><b>Variable</b></td>
+      <td><b>Unit</b></td>
+      <td><b>Description</b></td></tr>
+  <tr><td>T</td>
+      <td>K</td>
+      <td>temperature</td></tr>
+  <tr><td>u</td>
+      <td>J/kg</td>
+      <td>specific internal energy</b></td></tr>
+  <tr><td>d</td>
+      <td>kg/m^3</td>
+      <td>density</td></tr>
+  <tr><td>p</td>
+      <td>Pa</td>
+      <td>pressure</td></tr>
+  <tr><td>h</td>
+      <td>J/kg</td>
+      <td>specific enthalpy</b></td></tr>
+</table>
+<p>
+In some cases additional medium properties are needed.
+A component that needs these optional properties has to call
+one of the functions listed in
+<A HREF="Modelica_Media_UsersGuide_MediumUsage.html#Modelica.Media.UsersGuide.MediumUsage.OptionalProperties"
+>
+Modelica.Media.UsersGuide.MediumUsage.OptionalProperties</a> and in
+<A HREF="Modelica_Media_UsersGuide_MediumUsage.html#Modelica.Media.UsersGuide.MediumUsage.TwoPhase"
+>
+Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
+</p>
+</p>
+<p>Many further properties can be computed. Using the well-known Bridgman's Tables, all first partial derivatives of the standard thermodynamic variables can be computed easily.
+</p>
+<pre>
+</PRE><P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.ThermodynamicStateS.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.ThermodynamicState" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion.ThermodynamicState"
+>ThermodynamicState</A>
+</TD><TD>thermodynamic state</TD></TR>
+<TR><TD>Region</TD><TD>region of IF97, if known</TD></TR>
+<TR><TD>ph_explicit</TD><TD>true if explicit in pressure and specific enthalpy</TD></TR>
+<TR><TD>dT_explicit</TD><TD>true if explicit in density and temperature</TD></TR>
+<TR><TD>pT_explicit</TD><TD>true if explicit in pressure and temperature</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.BasePropertiesS.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.BaseProperties" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion.BaseProperties"
+>BaseProperties</A>
+</TD><TD>Base properties of water</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phS.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.density_ph" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion.density_ph"
+>density_ph</A>
+</TD><TD>Computes density as a function of pressure and specific enthalpy</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phS.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.temperature_ph" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion.temperature_ph"
+>temperature_ph</A>
+</TD><TD>Computes temperature as a function of pressure and specific enthalpy</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phS.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.temperature_ps" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion.temperature_ps"
+>temperature_ps</A>
+</TD><TD>Compute temperature from pressure and specific enthalpy</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phS.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.density_ps" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion.density_ps"
+>density_ps</A>
+</TD><TD>Computes density as a function of pressure and specific enthalpy</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phS.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.pressure_dT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion.pressure_dT"
+>pressure_dT</A>
+</TD><TD>Computes pressure as a function of density and temperature</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phS.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.specificEnthalpy_dT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion.specificEnthalpy_dT"
+>specificEnthalpy_dT</A>
+</TD><TD>Computes specific enthalpy as a function of density and temperature</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phS.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.specificEnthalpy_pT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion.specificEnthalpy_pT"
+>specificEnthalpy_pT</A>
+</TD><TD>Computes specific enthalpy as a function of pressure and temperature</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phS.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.specificEnthalpy_ps" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion.specificEnthalpy_ps"
+>specificEnthalpy_ps</A>
+</TD><TD>Computes specific enthalpy as a function of pressure and temperature</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phS.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.density_pT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion.density_pT"
+>density_pT</A>
+</TD><TD>Computes density as a function of pressure and temperature</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phS.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.setDewState" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion.setDewState"
+>setDewState</A>
+</TD><TD>set the thermodynamic state on the dew line</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phS.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.setBubbleState" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion.setBubbleState"
+>setBubbleState</A>
+</TD><TD>set the thermodynamic state on the bubble line</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phS.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.dynamicViscosity" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion.dynamicViscosity"
+>dynamicViscosity</A>
+</TD><TD>Dynamic viscosity of water</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phS.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.thermalConductivity" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion.thermalConductivity"
+>thermalConductivity</A>
+</TD><TD>Thermal conductivity of water</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phS.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.surfaceTension" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion.surfaceTension"
+>surfaceTension</A>
+</TD><TD>Surface tension in two phase region of water</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phS.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.pressure" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion.pressure"
+>pressure</A>
+</TD><TD>return pressure of ideal gas</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phS.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.temperature" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion.temperature"
+>temperature</A>
+</TD><TD>return temperature of ideal gas</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phS.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.density" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion.density"
+>density</A>
+</TD><TD>return density of ideal gas</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phS.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.specificEnthalpy" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion.specificEnthalpy"
+>specificEnthalpy</A>
+</TD><TD>Return specific enthalpy</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phS.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.specificInternalEnergy" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion.specificInternalEnergy"
+>specificInternalEnergy</A>
+</TD><TD>Return specific internal energy</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phS.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.specificGibbsEnergy" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion.specificGibbsEnergy"
+>specificGibbsEnergy</A>
+</TD><TD>Return specific Gibbs energy</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phS.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.specificHelmholtzEnergy" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion.specificHelmholtzEnergy"
+>specificHelmholtzEnergy</A>
+</TD><TD>Return specific Helmholtz energy</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phS.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.specificEntropy" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion.specificEntropy"
+>specificEntropy</A>
+</TD><TD>specific entropy of water</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phS.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.specificHeatCapacityCp" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion.specificHeatCapacityCp"
+>specificHeatCapacityCp</A>
+</TD><TD>specific heat capacity at constant pressure of water</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phS.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.specificHeatCapacityCv" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion.specificHeatCapacityCv"
+>specificHeatCapacityCv</A>
+</TD><TD>specific heat capacity at constant volume of water</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phS.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.isentropicExponent" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion.isentropicExponent"
+>isentropicExponent</A>
+</TD><TD>Return isentropic exponent</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phS.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.isothermalCompressibility" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion.isothermalCompressibility"
+>isothermalCompressibility</A>
+</TD><TD>Isothermal compressibility of water</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phS.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.isobaricExpansionCoefficient" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion.isobaricExpansionCoefficient"
+>isobaricExpansionCoefficient</A>
+</TD><TD>isobaric expansion coefficient of water</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phS.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.velocityOfSound" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion.velocityOfSound"
+>velocityOfSound</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phS.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.isentropicEnthalpy" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion.isentropicEnthalpy"
+>isentropicEnthalpy</A>
+</TD><TD>compute h(s,p)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phS.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.density_derh_p" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion.density_derh_p"
+>density_derh_p</A>
+</TD><TD>density derivative by specific enthalpy</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phS.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.density_derp_h" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion.density_derp_h"
+>density_derp_h</A>
+</TD><TD>density derivative by pressure</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phS.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.bubbleEnthalpy" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion.bubbleEnthalpy"
+>bubbleEnthalpy</A>
+</TD><TD>boiling curve specific enthalpy of water</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phS.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.dewEnthalpy" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion.dewEnthalpy"
+>dewEnthalpy</A>
+</TD><TD>dew curve specific enthalpy of water</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phS.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.bubbleEntropy" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion.bubbleEntropy"
+>bubbleEntropy</A>
+</TD><TD>boiling curve specific entropy of water</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phS.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.dewEntropy" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion.dewEntropy"
+>dewEntropy</A>
+</TD><TD>dew curve specific entropy of water</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phS.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.bubbleDensity" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion.bubbleDensity"
+>bubbleDensity</A>
+</TD><TD>boiling curve specific density of water</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phS.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.dewDensity" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion.dewDensity"
+>dewDensity</A>
+</TD><TD>dew curve specific density of water</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phS.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.saturationTemperature" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion.saturationTemperature"
+>saturationTemperature</A>
+</TD><TD>saturation temperature of water</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phS.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.saturationTemperature_derp" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion.saturationTemperature_derp"
+>saturationTemperature_derp</A>
+</TD><TD>derivative of saturation temperature w.r.t. pressure</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phS.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.saturationPressure" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion.saturationPressure"
+>saturationPressure</A>
+</TD><TD>saturation pressure of water</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phS.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.dBubbleDensity_dPressure" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion.dBubbleDensity_dPressure"
+>dBubbleDensity_dPressure</A>
+</TD><TD>bubble point density derivative</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phS.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.dDewDensity_dPressure" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion.dDewDensity_dPressure"
+>dDewDensity_dPressure</A>
+</TD><TD>dew point density derivative</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phS.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.dBubbleEnthalpy_dPressure" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion.dBubbleEnthalpy_dPressure"
+>dBubbleEnthalpy_dPressure</A>
+</TD><TD>bubble point specific enthalpy derivative</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phS.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.dDewEnthalpy_dPressure" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion.dDewEnthalpy_dPressure"
+>dDewEnthalpy_dPressure</A>
+</TD><TD>dew point specific enthalpy derivative</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phS.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.setState_dTX" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion.setState_dTX"
+>setState_dTX</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phS.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.setState_phX" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion.setState_phX"
+>setState_phX</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phS.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.setState_psX" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion.setState_psX"
+>setState_psX</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phS.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.setState_pTX" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion.setState_pTX"
+>setState_pTX</A>
+</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Types and constants</H3>
+<PRE>  <font color="blue">constant </font>Integer Region <font color="darkgreen">&quot;region of IF97, if known&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font>Boolean ph_explicit <font color="darkgreen">
+  &quot;true if explicit in pressure and specific enthalpy&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font>Boolean dT_explicit <font color="darkgreen">&quot;true if explicit in density and temperature&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font>Boolean pT_explicit <font color="darkgreen">&quot;true if explicit in pressure and temperature&quot;</font>;</PRE><p>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ThermodynamicState<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.ThermodynamicStateI.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.ThermodynamicState" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.WaterIF97_fixedregion.ThermodynamicState"></A><A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion"
+>Modelica.Media.Water.WaterIF97_fixedregion</A>.ThermodynamicState</H2>
+<B>thermodynamic state</B><p>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">record</font> <font color="blue">extends </font>ThermodynamicState <font color="darkgreen">&quot;thermodynamic state&quot;</font>
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEnthalpy"
+>SpecificEnthalpy</A> h <font color="darkgreen">&quot;specific enthalpy&quot;</font>;
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Density"
+>Density</A> d <font color="darkgreen">&quot;density&quot;</font>;
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Temperature"
+>Temperature</A> T <font color="darkgreen">&quot;temperature&quot;</font>;
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+<font color="blue">end </font>ThermodynamicState;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE BaseProperties<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.BasePropertiesI.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.BaseProperties" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.WaterIF97_fixedregion.BaseProperties"></A><A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion"
+>Modelica.Media.Water.WaterIF97_fixedregion</A>.BaseProperties</H2>
+<B>Base properties of water</B><p>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Advanced</B></TD></TR>
+<TR><TD>&nbsp;</TD><TD>preferredMediumStates</TD><TD>false</TD><TD>= true if StateSelect.prefer shall be used for the independent property variables of the medium</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">replaceable </font><font color="blue">model</font> <font color="blue">extends </font>BaseProperties(
+  h(stateSelect=<font color="blue">if </font>ph_explicit<font color="blue"> then </font>StateSelect.prefer<font color="blue"> else </font>StateSelect.default),
+  d(stateSelect=<font color="blue">if </font>dT_explicit<font color="blue"> then </font>StateSelect.prefer<font color="blue"> else </font>StateSelect.default),
+  T(stateSelect=<font color="blue">if </font>(pT_explicit<font color="blue"> or </font>dT_explicit)<font color="blue"> then </font>StateSelect.prefer<font color="blue"> else </font>StateSelect.default),
+  p(stateSelect=<font color="blue">if </font>(pT_explicit<font color="blue"> or </font>ph_explicit)<font color="blue"> then </font>StateSelect.prefer<font color="blue"> else </font>StateSelect.default)) <font color="darkgreen">
+  &quot;Base properties of water&quot;</font>
+  Integer phase(min=0, max=2) <font color="darkgreen">
+    &quot;2 for two-phase, 1 for one-phase, 0 if not known&quot;</font>;
+  <A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.SaturationProperties"
+>SaturationProperties</A> sat(Tsat(start=300.0), psat(start=1.0e5)) <font color="darkgreen">
+    &quot;saturation temperature and pressure&quot;</font>;
+<font color="blue">equation </font>
+  MM = fluidConstants[1].molarMass;
+  <font color="blue">if </font>smoothModel<font color="blue"> then</font>
+    <font color="blue">if </font>onePhase<font color="blue"> then</font>
+      phase = 1;
+      <font color="blue">if </font>ph_explicit<font color="blue"> then</font>
+        <font color="red">assert</font>(((h &lt;<font color="red"> bubbleEnthalpy</font>(sat)<font color="blue"> or </font>h &gt;<font color="red"> dewEnthalpy</font>(sat))<font color="blue"> or </font>p &gt;
+          fluidConstants[1].criticalPressure),
+          &quot;With onePhase=true this model may only be called with one-phase states h &lt; hl or h &gt; hv!&quot;);
+      <font color="blue">else</font>
+        <font color="red">assert</font>(<font color="blue">not </font>((d &lt;<font color="red"> bubbleDensity</font>(sat)<font color="blue"> and </font>d &gt;<font color="red"> dewDensity</font>(sat))<font color="blue"> and </font>T &lt;
+          fluidConstants[1].criticalTemperature),
+          &quot;With onePhase=true this model may only be called with one-phase states d &gt; dl or d &lt; dv!&quot;);
+      <font color="blue">end if</font>;
+    <font color="blue">else</font>
+      phase = 0;
+    <font color="blue">end if</font>;
+  <font color="blue">else</font>
+    <font color="blue">if </font>ph_explicit<font color="blue"> then</font>
+      phase = <font color="blue">if </font>((h &lt;<font color="red"> bubbleEnthalpy</font>(sat)<font color="blue"> or </font>h &gt;<font color="red"> dewEnthalpy</font>(sat))<font color="blue"> or </font>p &gt;
+        fluidConstants[1].criticalPressure)<font color="blue"> then </font>1<font color="blue"> else </font>2;
+    <font color="blue">elseif </font>dT_explicit<font color="blue"> then</font>
+      phase = <font color="blue">if </font><font color="blue">not </font>((d &lt;<font color="red"> bubbleDensity</font>(sat)<font color="blue"> and </font>d &gt;<font color="red"> dewDensity</font>(sat))<font color="blue"> and </font>T
+         &lt; fluidConstants[1].criticalTemperature)<font color="blue"> then </font>1<font color="blue"> else </font>2;
+    <font color="blue">else</font>
+      phase = 1;
+      <font color="darkgreen">//this is for the one-phase only case pT</font>
+    <font color="blue">end if</font>;
+  <font color="blue">end if</font>;
+  <font color="blue">if </font>dT_explicit<font color="blue"> then</font>
+    p =<font color="red"> pressure_dT</font>(d, T, phase, Region);
+    h =<font color="red"> specificEnthalpy_dT</font>(d, T, phase, Region);
+    sat.Tsat = T;
+    sat.psat =<font color="red"> saturationPressure</font>(T);
+  <font color="blue">elseif </font>ph_explicit<font color="blue"> then</font>
+    d =<font color="red"> density_ph</font>(p, h, phase, Region);
+    T =<font color="red"> temperature_ph</font>(p, h, phase, Region);
+    sat.Tsat =<font color="red"> saturationTemperature</font>(p);
+    sat.psat = p;
+  <font color="blue">else</font>
+    h =<font color="red"> specificEnthalpy_pT</font>(p, T, Region);
+    d =<font color="red"> density_pT</font>(p, T, Region);
+    sat.psat = p;
+    sat.Tsat =<font color="red"> saturationTemperature</font>(p);
+  <font color="blue">end if</font>;
+  u = h - p/d;
+  R = Modelica.Constants.R/fluidConstants[1].molarMass;
+  h = state.h;
+  p = state.p;
+  T = state.T;
+  d = state.d;
+  phase = state.phase;
+<font color="blue">end </font>BaseProperties;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE density_ph<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phI.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.density_ph" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.WaterIF97_fixedregion.density_ph"></A><A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion"
+>Modelica.Media.Water.WaterIF97_fixedregion</A>.density_ph</H2>
+<B>Computes density as a function of pressure and specific enthalpy</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>p</TD><TD>&nbsp;</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>h</TD><TD>&nbsp;</TD><TD>Specific enthalpy [J/kg]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>phase</TD><TD>0</TD><TD>2 for two-phase, 1 for one-phase, 0 if not known</TD></TR>
+<TR><TD>&nbsp;</TD><TD>region</TD><TD>0</TD><TD>if 0, region is unknown, otherwise known and this input</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>d</TD><TD>Density [kg/m3]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> density_ph <font color="darkgreen">
+  &quot;Computes density as a function of pressure and specific enthalpy&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A> p <font color="darkgreen">&quot;Pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEnthalpy"
+>SpecificEnthalpy</A> h <font color="darkgreen">&quot;Specific enthalpy&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.FixedPhase"
+>FixedPhase</A> phase=0 <font color="darkgreen">&quot;2 for two-phase, 1 for one-phase, 0 if not known&quot;</font>;
+  <font color="blue">input </font>Integer region=0 <font color="darkgreen">
+    &quot;if 0, region is unknown, otherwise known and this input&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Density"
+>Density</A> d <font color="darkgreen">&quot;Density&quot;</font>;
+<font color="blue">algorithm </font>
+  d :=<font color="red"> IF97_Utilities.rho_ph</font>(p, h, phase, region);
+<font color="blue">end </font>density_ph;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE temperature_ph<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phI.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.temperature_ph" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.WaterIF97_fixedregion.temperature_ph"></A><A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion"
+>Modelica.Media.Water.WaterIF97_fixedregion</A>.temperature_ph</H2>
+<B>Computes temperature as a function of pressure and specific enthalpy</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>p</TD><TD>&nbsp;</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>h</TD><TD>&nbsp;</TD><TD>Specific enthalpy [J/kg]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>phase</TD><TD>0</TD><TD>2 for two-phase, 1 for one-phase, 0 if not known</TD></TR>
+<TR><TD>&nbsp;</TD><TD>region</TD><TD>0</TD><TD>if 0, region is unknown, otherwise known and this input</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>T</TD><TD>Temperature [K]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> temperature_ph <font color="darkgreen">
+  &quot;Computes temperature as a function of pressure and specific enthalpy&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A> p <font color="darkgreen">&quot;Pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEnthalpy"
+>SpecificEnthalpy</A> h <font color="darkgreen">&quot;Specific enthalpy&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.FixedPhase"
+>FixedPhase</A> phase=0 <font color="darkgreen">&quot;2 for two-phase, 1 for one-phase, 0 if not known&quot;</font>;
+  <font color="blue">input </font>Integer region=0 <font color="darkgreen">
+    &quot;if 0, region is unknown, otherwise known and this input&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Temperature"
+>Temperature</A> T <font color="darkgreen">&quot;Temperature&quot;</font>;
+<font color="blue">algorithm </font>
+  T :=<font color="red"> IF97_Utilities.T_ph</font>(p, h, phase, region);
+<font color="blue">end </font>temperature_ph;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE temperature_ps<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phI.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.temperature_ps" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.WaterIF97_fixedregion.temperature_ps"></A><A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion"
+>Modelica.Media.Water.WaterIF97_fixedregion</A>.temperature_ps</H2>
+<B>Compute temperature from pressure and specific enthalpy</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>p</TD><TD>&nbsp;</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>s</TD><TD>&nbsp;</TD><TD>Specific entropy [J/(kg.K)]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>phase</TD><TD>0</TD><TD>2 for two-phase, 1 for one-phase, 0 if not known</TD></TR>
+<TR><TD>&nbsp;</TD><TD>region</TD><TD>0</TD><TD>if 0, region is unknown, otherwise known and this input</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>T</TD><TD>Temperature [K]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> temperature_ps <font color="darkgreen">
+  &quot;Compute temperature from pressure and specific enthalpy&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A> p <font color="darkgreen">&quot;Pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEntropy"
+>SpecificEntropy</A> s <font color="darkgreen">&quot;Specific entropy&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.FixedPhase"
+>FixedPhase</A> phase=0 <font color="darkgreen">&quot;2 for two-phase, 1 for one-phase, 0 if not known&quot;</font>;
+  <font color="blue">input </font>Integer region=0 <font color="darkgreen">
+    &quot;if 0, region is unknown, otherwise known and this input&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Temperature"
+>Temperature</A> T <font color="darkgreen">&quot;Temperature&quot;</font>;
+<font color="blue">algorithm </font>
+  T :=<font color="red"> IF97_Utilities.T_ps</font>(p, s, phase,region);
+<font color="blue">end </font>temperature_ps;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE density_ps<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phI.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.density_ps" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.WaterIF97_fixedregion.density_ps"></A><A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion"
+>Modelica.Media.Water.WaterIF97_fixedregion</A>.density_ps</H2>
+<B>Computes density as a function of pressure and specific enthalpy</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>p</TD><TD>&nbsp;</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>s</TD><TD>&nbsp;</TD><TD>Specific entropy [J/(kg.K)]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>phase</TD><TD>0</TD><TD>2 for two-phase, 1 for one-phase, 0 if not known</TD></TR>
+<TR><TD>&nbsp;</TD><TD>region</TD><TD>0</TD><TD>if 0, region is unknown, otherwise known and this input</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>d</TD><TD>density [kg/m3]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> density_ps <font color="darkgreen">
+  &quot;Computes density as a function of pressure and specific enthalpy&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A> p <font color="darkgreen">&quot;Pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEntropy"
+>SpecificEntropy</A> s <font color="darkgreen">&quot;Specific entropy&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.FixedPhase"
+>FixedPhase</A> phase=0 <font color="darkgreen">&quot;2 for two-phase, 1 for one-phase, 0 if not known&quot;</font>;
+  <font color="blue">input </font>Integer region=0 <font color="darkgreen">
+    &quot;if 0, region is unknown, otherwise known and this input&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Density"
+>Density</A> d <font color="darkgreen">&quot;density&quot;</font>;
+<font color="blue">algorithm </font>
+  d :=<font color="red"> IF97_Utilities.rho_ps</font>(p, s, phase, region);
+<font color="blue">end </font>density_ps;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE pressure_dT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phI.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.pressure_dT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.WaterIF97_fixedregion.pressure_dT"></A><A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion"
+>Modelica.Media.Water.WaterIF97_fixedregion</A>.pressure_dT</H2>
+<B>Computes pressure as a function of density and temperature</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>d</TD><TD>&nbsp;</TD><TD>Density [kg/m3]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>T</TD><TD>&nbsp;</TD><TD>Temperature [K]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>phase</TD><TD>0</TD><TD>2 for two-phase, 1 for one-phase, 0 if not known</TD></TR>
+<TR><TD>&nbsp;</TD><TD>region</TD><TD>0</TD><TD>if 0, region is unknown, otherwise known and this input</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> pressure_dT <font color="darkgreen">
+  &quot;Computes pressure as a function of density and temperature&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Density"
+>Density</A> d <font color="darkgreen">&quot;Density&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Temperature"
+>Temperature</A> T <font color="darkgreen">&quot;Temperature&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.FixedPhase"
+>FixedPhase</A> phase=0 <font color="darkgreen">&quot;2 for two-phase, 1 for one-phase, 0 if not known&quot;</font>;
+  <font color="blue">input </font>Integer region=0 <font color="darkgreen">
+    &quot;if 0, region is unknown, otherwise known and this input&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A> p <font color="darkgreen">&quot;Pressure&quot;</font>;
+<font color="blue">algorithm </font>
+  p :=<font color="red"> IF97_Utilities.p_dT</font>(d, T, phase, region);
+<font color="blue">end </font>pressure_dT;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE specificEnthalpy_dT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phI.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.specificEnthalpy_dT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.WaterIF97_fixedregion.specificEnthalpy_dT"></A><A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion"
+>Modelica.Media.Water.WaterIF97_fixedregion</A>.specificEnthalpy_dT</H2>
+<B>Computes specific enthalpy as a function of density and temperature</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>d</TD><TD>&nbsp;</TD><TD>Density [kg/m3]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>T</TD><TD>&nbsp;</TD><TD>Temperature [K]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>phase</TD><TD>0</TD><TD>2 for two-phase, 1 for one-phase, 0 if not known</TD></TR>
+<TR><TD>&nbsp;</TD><TD>region</TD><TD>0</TD><TD>if 0, region is unknown, otherwise known and this input</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>h</TD><TD>specific enthalpy [J/kg]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> specificEnthalpy_dT <font color="darkgreen">
+  &quot;Computes specific enthalpy as a function of density and temperature&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Density"
+>Density</A> d <font color="darkgreen">&quot;Density&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Temperature"
+>Temperature</A> T <font color="darkgreen">&quot;Temperature&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.FixedPhase"
+>FixedPhase</A> phase=0 <font color="darkgreen">&quot;2 for two-phase, 1 for one-phase, 0 if not known&quot;</font>;
+  <font color="blue">input </font>Integer region=0 <font color="darkgreen">
+    &quot;if 0, region is unknown, otherwise known and this input&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEnthalpy"
+>SpecificEnthalpy</A> h <font color="darkgreen">&quot;specific enthalpy&quot;</font>;
+<font color="blue">algorithm </font>
+  h :=<font color="red"> IF97_Utilities.h_dT</font>(d, T, phase, region);
+<font color="blue">end </font>specificEnthalpy_dT;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE specificEnthalpy_pT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phI.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.specificEnthalpy_pT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.WaterIF97_fixedregion.specificEnthalpy_pT"></A><A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion"
+>Modelica.Media.Water.WaterIF97_fixedregion</A>.specificEnthalpy_pT</H2>
+<B>Computes specific enthalpy as a function of pressure and temperature</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>p</TD><TD>&nbsp;</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>T</TD><TD>&nbsp;</TD><TD>Temperature [K]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>phase</TD><TD>0</TD><TD>2 for two-phase, 1 for one-phase, 0 if not known</TD></TR>
+<TR><TD>&nbsp;</TD><TD>region</TD><TD>0</TD><TD>if 0, region is unknown, otherwise known and this input</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>h</TD><TD>specific enthalpy [J/kg]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> specificEnthalpy_pT <font color="darkgreen">
+  &quot;Computes specific enthalpy as a function of pressure and temperature&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A> p <font color="darkgreen">&quot;Pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Temperature"
+>Temperature</A> T <font color="darkgreen">&quot;Temperature&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.FixedPhase"
+>FixedPhase</A> phase=0 <font color="darkgreen">&quot;2 for two-phase, 1 for one-phase, 0 if not known&quot;</font>;
+  <font color="blue">input </font>Integer region=0 <font color="darkgreen">
+    &quot;if 0, region is unknown, otherwise known and this input&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEnthalpy"
+>SpecificEnthalpy</A> h <font color="darkgreen">&quot;specific enthalpy&quot;</font>;
+<font color="blue">algorithm </font>
+  h :=<font color="red"> IF97_Utilities.h_pT</font>(p, T, region);
+<font color="blue">end </font>specificEnthalpy_pT;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE specificEnthalpy_ps<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phI.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.specificEnthalpy_ps" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.WaterIF97_fixedregion.specificEnthalpy_ps"></A><A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion"
+>Modelica.Media.Water.WaterIF97_fixedregion</A>.specificEnthalpy_ps</H2>
+<B>Computes specific enthalpy as a function of pressure and temperature</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>p</TD><TD>&nbsp;</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>s</TD><TD>&nbsp;</TD><TD>Specific entropy [J/(kg.K)]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>phase</TD><TD>0</TD><TD>2 for two-phase, 1 for one-phase, 0 if not known</TD></TR>
+<TR><TD>&nbsp;</TD><TD>region</TD><TD>0</TD><TD>if 0, region is unknown, otherwise known and this input</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>h</TD><TD>specific enthalpy [J/kg]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> specificEnthalpy_ps <font color="darkgreen">
+  &quot;Computes specific enthalpy as a function of pressure and temperature&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A> p <font color="darkgreen">&quot;Pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEntropy"
+>SpecificEntropy</A> s <font color="darkgreen">&quot;Specific entropy&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.FixedPhase"
+>FixedPhase</A> phase=0 <font color="darkgreen">&quot;2 for two-phase, 1 for one-phase, 0 if not known&quot;</font>;
+  <font color="blue">input </font>Integer region=0 <font color="darkgreen">
+    &quot;if 0, region is unknown, otherwise known and this input&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEnthalpy"
+>SpecificEnthalpy</A> h <font color="darkgreen">&quot;specific enthalpy&quot;</font>;
+<font color="blue">algorithm </font>
+  h :=<font color="red"> IF97_Utilities.h_ps</font>(p, s, phase, region);
+<font color="blue">end </font>specificEnthalpy_ps;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE density_pT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phI.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.density_pT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.WaterIF97_fixedregion.density_pT"></A><A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion"
+>Modelica.Media.Water.WaterIF97_fixedregion</A>.density_pT</H2>
+<B>Computes density as a function of pressure and temperature</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>p</TD><TD>&nbsp;</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>T</TD><TD>&nbsp;</TD><TD>Temperature [K]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>phase</TD><TD>0</TD><TD>2 for two-phase, 1 for one-phase, 0 if not known</TD></TR>
+<TR><TD>&nbsp;</TD><TD>region</TD><TD>0</TD><TD>if 0, region is unknown, otherwise known and this input</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>d</TD><TD>Density [kg/m3]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> density_pT <font color="darkgreen">
+  &quot;Computes density as a function of pressure and temperature&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A> p <font color="darkgreen">&quot;Pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Temperature"
+>Temperature</A> T <font color="darkgreen">&quot;Temperature&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.FixedPhase"
+>FixedPhase</A> phase=0 <font color="darkgreen">&quot;2 for two-phase, 1 for one-phase, 0 if not known&quot;</font>;
+  <font color="blue">input </font>Integer region=0 <font color="darkgreen">
+    &quot;if 0, region is unknown, otherwise known and this input&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Density"
+>Density</A> d <font color="darkgreen">&quot;Density&quot;</font>;
+<font color="blue">algorithm </font>
+  d :=<font color="red"> IF97_Utilities.rho_pT</font>(p, T, region);
+<font color="blue">end </font>density_pT;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE setDewState<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phI.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.setDewState" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.WaterIF97_fixedregion.setDewState"></A><A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion"
+>Modelica.Media.Water.WaterIF97_fixedregion</A>.setDewState</H2>
+<B>set the thermodynamic state on the dew line</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>sat</TD><TD>&nbsp;</TD><TD>saturation point</TD></TR>
+<TR><TD>&nbsp;</TD><TD>phase</TD><TD>1</TD><TD>phase: default is one phase</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>state</TD><TD>complete thermodynamic state info</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>setDewState <font color="darkgreen">
+  &quot;set the thermodynamic state on the dew line&quot;</font>
+<font color="blue">algorithm </font>
+  state.phase := phase;
+  state.p := sat.psat;
+  state.T := sat.Tsat;
+  state.h :=<font color="red"> dewEnthalpy</font>(sat);
+  state.d :=<font color="red"> dewDensity</font>(sat);
+<font color="blue">end </font>setDewState;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE setBubbleState<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phI.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.setBubbleState" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.WaterIF97_fixedregion.setBubbleState"></A><A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion"
+>Modelica.Media.Water.WaterIF97_fixedregion</A>.setBubbleState</H2>
+<B>set the thermodynamic state on the bubble line</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>sat</TD><TD>&nbsp;</TD><TD>saturation point</TD></TR>
+<TR><TD>&nbsp;</TD><TD>phase</TD><TD>1</TD><TD>phase: default is one phase</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>state</TD><TD>complete thermodynamic state info</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>setBubbleState <font color="darkgreen">
+  &quot;set the thermodynamic state on the bubble line&quot;</font>
+<font color="blue">algorithm </font>
+  state.phase := phase;
+  state.p := sat.psat;
+  state.T := sat.Tsat;
+  state.h :=<font color="red"> bubbleEnthalpy</font>(sat);
+  state.d :=<font color="red"> bubbleDensity</font>(sat);
+<font color="blue">end </font>setBubbleState;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dynamicViscosity<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phI.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.dynamicViscosity" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.WaterIF97_fixedregion.dynamicViscosity"></A><A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion"
+>Modelica.Media.Water.WaterIF97_fixedregion</A>.dynamicViscosity</H2>
+<B>Dynamic viscosity of water</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>state</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>eta</TD><TD>Dynamic viscosity [Pa.s]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>dynamicViscosity <font color="darkgreen">
+  &quot;Dynamic viscosity of water&quot;</font>
+<font color="blue">algorithm </font>
+  eta :=<font color="red"> IF97_Utilities.dynamicViscosity</font>(state.d, state.T, state.p, state.
+    phase);
+<font color="blue">end </font>dynamicViscosity;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE thermalConductivity<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phI.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.thermalConductivity" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.WaterIF97_fixedregion.thermalConductivity"></A><A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion"
+>Modelica.Media.Water.WaterIF97_fixedregion</A>.thermalConductivity</H2>
+<B>Thermal conductivity of water</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>state</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>lambda</TD><TD>Thermal conductivity [W/(m.K)]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>thermalConductivity <font color="darkgreen">
+  &quot;Thermal conductivity of water&quot;</font>
+<font color="blue">algorithm </font>
+  lambda :=<font color="red"> IF97_Utilities.thermalConductivity</font>(state.d, state.T, state.p,
+    state.phase);
+<font color="blue">end </font>thermalConductivity;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE surfaceTension<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phI.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.surfaceTension" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.WaterIF97_fixedregion.surfaceTension"></A><A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion"
+>Modelica.Media.Water.WaterIF97_fixedregion</A>.surfaceTension</H2>
+<B>Surface tension in two phase region of water</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>sat</TD><TD>&nbsp;</TD><TD>saturation property record</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>sigma</TD><TD>Surface tension sigma in the two phase region [N/m]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>surfaceTension <font color="darkgreen">
+  &quot;Surface tension in two phase region of water&quot;</font>
+<font color="blue">algorithm </font>
+  sigma :=<font color="red"> IF97_Utilities.surfaceTension</font>(sat.Tsat);
+<font color="blue">end </font>surfaceTension;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE pressure<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phI.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.pressure" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.WaterIF97_fixedregion.pressure"></A><A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion"
+>Modelica.Media.Water.WaterIF97_fixedregion</A>.pressure</H2>
+<B>return pressure of ideal gas</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>state</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>pressure <font color="darkgreen">&quot;return pressure of ideal gas&quot;</font>
+<font color="blue">algorithm </font>
+  p := state.p;
+<font color="blue">end </font>pressure;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE temperature<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phI.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.temperature" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.WaterIF97_fixedregion.temperature"></A><A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion"
+>Modelica.Media.Water.WaterIF97_fixedregion</A>.temperature</H2>
+<B>return temperature of ideal gas</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>state</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>T</TD><TD>Temperature [K]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>temperature <font color="darkgreen">
+  &quot;return temperature of ideal gas&quot;</font>
+<font color="blue">algorithm </font>
+  T := state.T;
+<font color="blue">end </font>temperature;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE density<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phI.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.density" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.WaterIF97_fixedregion.density"></A><A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion"
+>Modelica.Media.Water.WaterIF97_fixedregion</A>.density</H2>
+<B>return density of ideal gas</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>state</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>d</TD><TD>Density [kg/m3]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>density <font color="darkgreen">&quot;return density of ideal gas&quot;</font>
+<font color="blue">algorithm </font>
+  d := state.d;
+<font color="blue">end </font>density;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE specificEnthalpy<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phI.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.specificEnthalpy" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.WaterIF97_fixedregion.specificEnthalpy"></A><A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion"
+>Modelica.Media.Water.WaterIF97_fixedregion</A>.specificEnthalpy</H2>
+<B>Return specific enthalpy</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>state</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>specificEnthalpy <font color="darkgreen">
+  &quot;Return specific enthalpy&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+<font color="blue">algorithm </font>
+  h := state.h;
+<font color="blue">end </font>specificEnthalpy;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE specificInternalEnergy<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phI.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.specificInternalEnergy" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.WaterIF97_fixedregion.specificInternalEnergy"></A><A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion"
+>Modelica.Media.Water.WaterIF97_fixedregion</A>.specificInternalEnergy</H2>
+<B>Return specific internal energy</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>state</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>u</TD><TD>Specific internal energy [J/kg]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>specificInternalEnergy <font color="darkgreen">
+  &quot;Return specific internal energy&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+<font color="blue">algorithm </font>
+  u := state.h  - state.p/state.d;
+<font color="blue">end </font>specificInternalEnergy;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE specificGibbsEnergy<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phI.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.specificGibbsEnergy" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.WaterIF97_fixedregion.specificGibbsEnergy"></A><A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion"
+>Modelica.Media.Water.WaterIF97_fixedregion</A>.specificGibbsEnergy</H2>
+<B>Return specific Gibbs energy</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>state</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>g</TD><TD>Specific Gibbs energy [J/kg]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>specificGibbsEnergy <font color="darkgreen">
+  &quot;Return specific Gibbs energy&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+<font color="blue">algorithm </font>
+  g := state.h - state.T*<font color="red">specificEntropy</font>(state);
+<font color="blue">end </font>specificGibbsEnergy;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE specificHelmholtzEnergy<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phI.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.specificHelmholtzEnergy" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.WaterIF97_fixedregion.specificHelmholtzEnergy"></A><A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion"
+>Modelica.Media.Water.WaterIF97_fixedregion</A>.specificHelmholtzEnergy</H2>
+<B>Return specific Helmholtz energy</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>state</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>f</TD><TD>Specific Helmholtz energy [J/kg]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>specificHelmholtzEnergy <font color="darkgreen">
+  &quot;Return specific Helmholtz energy&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+<font color="blue">algorithm </font>
+  f := state.h - state.p/state.d - state.T*<font color="red">specificEntropy</font>(state);
+<font color="blue">end </font>specificHelmholtzEnergy;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE specificEntropy<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phI.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.specificEntropy" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.WaterIF97_fixedregion.specificEntropy"></A><A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion"
+>Modelica.Media.Water.WaterIF97_fixedregion</A>.specificEntropy</H2>
+<B>specific entropy of water</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>state</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>s</TD><TD>Specific entropy [J/(kg.K)]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>specificEntropy <font color="darkgreen">
+  &quot;specific entropy of water&quot;</font>
+<font color="blue">algorithm </font>
+  <font color="blue">if </font>dT_explicit<font color="blue"> then</font>
+    s :=<font color="red"> IF97_Utilities.s_dT</font>(state.d, state.T, state.phase, Region);
+  <font color="blue">elseif </font>pT_explicit<font color="blue"> then</font>
+    s :=<font color="red"> IF97_Utilities.s_pT</font>(state.p, state.T, Region);
+  <font color="blue">else</font>
+    s :=<font color="red"> IF97_Utilities.s_ph</font>(state.p, state.h, state.phase, Region);
+  <font color="blue">end if</font>;
+<font color="blue">end </font>specificEntropy;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE specificHeatCapacityCp<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phI.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.specificHeatCapacityCp" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.WaterIF97_fixedregion.specificHeatCapacityCp"></A><A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion"
+>Modelica.Media.Water.WaterIF97_fixedregion</A>.specificHeatCapacityCp</H2>
+<B>specific heat capacity at constant pressure of water</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>state</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>cp</TD><TD>Specific heat capacity at constant pressure [J/(kg.K)]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>specificHeatCapacityCp <font color="darkgreen">
+  &quot;specific heat capacity at constant pressure of water&quot;</font>
+<font color="blue">algorithm </font>
+  <font color="blue">if </font>dT_explicit<font color="blue"> then</font>
+    cp :=<font color="red"> IF97_Utilities.cp_dT</font>(state.d, state.T, Region);
+  <font color="blue">elseif </font>pT_explicit<font color="blue"> then</font>
+    cp :=<font color="red"> IF97_Utilities.cp_pT</font>(state.p, state.T, Region);
+  <font color="blue">else</font>
+    cp :=<font color="red"> IF97_Utilities.cp_ph</font>(state.p, state.h, Region);
+  <font color="blue">end if</font>;
+<font color="blue">end </font>specificHeatCapacityCp;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE specificHeatCapacityCv<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phI.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.specificHeatCapacityCv" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.WaterIF97_fixedregion.specificHeatCapacityCv"></A><A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion"
+>Modelica.Media.Water.WaterIF97_fixedregion</A>.specificHeatCapacityCv</H2>
+<B>specific heat capacity at constant volume of water</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>state</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>cv</TD><TD>Specific heat capacity at constant volume [J/(kg.K)]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>specificHeatCapacityCv <font color="darkgreen">
+  &quot;specific heat capacity at constant volume of water&quot;</font>
+<font color="blue">algorithm </font>
+  <font color="blue">if </font>dT_explicit<font color="blue"> then</font>
+    cv :=<font color="red"> IF97_Utilities.cv_dT</font>(state.d, state.T, state.phase, Region);
+  <font color="blue">elseif </font>pT_explicit<font color="blue"> then</font>
+    cv :=<font color="red"> IF97_Utilities.cv_pT</font>(state.p, state.T, Region);
+  <font color="blue">else</font>
+    cv :=<font color="red"> IF97_Utilities.cv_ph</font>(state.p, state.h, state.phase, Region);
+  <font color="blue">end if</font>;
+<font color="blue">end </font>specificHeatCapacityCv;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE isentropicExponent<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phI.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.isentropicExponent" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.WaterIF97_fixedregion.isentropicExponent"></A><A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion"
+>Modelica.Media.Water.WaterIF97_fixedregion</A>.isentropicExponent</H2>
+<B>Return isentropic exponent</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>state</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>gamma</TD><TD>Isentropic exponent [1]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>isentropicExponent <font color="darkgreen">
+  &quot;Return isentropic exponent&quot;</font>
+<font color="blue">algorithm </font>
+  <font color="blue">if </font>dT_explicit<font color="blue"> then</font>
+    gamma :=<font color="red"> IF97_Utilities.isentropicExponent_dT</font>(state.d, state.T,
+        state.phase, Region);
+  <font color="blue">elseif </font>pT_explicit<font color="blue"> then</font>
+    gamma :=<font color="red"> IF97_Utilities.isentropicExponent_pT</font>(state.p, state.T, Region);
+  <font color="blue">else</font>
+    gamma :=<font color="red"> IF97_Utilities.isentropicExponent_ph</font>(state.p, state.h,
+        state.phase, Region);
+  <font color="blue">end if</font>;
+<font color="blue">end </font>isentropicExponent;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE isothermalCompressibility<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phI.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.isothermalCompressibility" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.WaterIF97_fixedregion.isothermalCompressibility"></A><A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion"
+>Modelica.Media.Water.WaterIF97_fixedregion</A>.isothermalCompressibility</H2>
+<B>Isothermal compressibility of water</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>state</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>kappa</TD><TD>Isothermal compressibility [1/Pa]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>isothermalCompressibility <font color="darkgreen">
+  &quot;Isothermal compressibility of water&quot;</font>
+<font color="blue">algorithm </font>
+  <font color="darkgreen">//    assert(state.phase &lt;&gt; 2, &quot;isothermal compressibility can not be computed with 2-phase inputs!&quot;);</font>
+  <font color="blue">if </font>dT_explicit<font color="blue"> then</font>
+    kappa :=<font color="red"> IF97_Utilities.kappa_dT</font>(state.d, state.T, state.phase, Region);
+  <font color="blue">elseif </font>pT_explicit<font color="blue"> then</font>
+    kappa :=<font color="red"> IF97_Utilities.kappa_pT</font>(state.p, state.T, Region);
+  <font color="blue">else</font>
+    kappa :=<font color="red"> IF97_Utilities.kappa_ph</font>(state.p, state.h, state.phase, Region);
+  <font color="blue">end if</font>;
+<font color="blue">end </font>isothermalCompressibility;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE isobaricExpansionCoefficient<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phI.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.isobaricExpansionCoefficient" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.WaterIF97_fixedregion.isobaricExpansionCoefficient"></A><A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion"
+>Modelica.Media.Water.WaterIF97_fixedregion</A>.isobaricExpansionCoefficient</H2>
+<B>isobaric expansion coefficient of water</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>state</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>beta</TD><TD>Isobaric expansion coefficient [1/K]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>isobaricExpansionCoefficient <font color="darkgreen">
+  &quot;isobaric expansion coefficient of water&quot;</font>
+<font color="blue">algorithm </font>
+  <font color="darkgreen">//    assert(state.phase &lt;&gt; 2, &quot;the isobaric expansion coefficient can not be computed with 2-phase inputs!&quot;);</font>
+  <font color="blue">if </font>dT_explicit<font color="blue"> then</font>
+    beta :=<font color="red"> IF97_Utilities.beta_dT</font>(state.d, state.T, state.phase, Region);
+  <font color="blue">elseif </font>pT_explicit<font color="blue"> then</font>
+    beta :=<font color="red"> IF97_Utilities.beta_pT</font>(state.p, state.T, Region);
+  <font color="blue">else</font>
+    beta :=<font color="red"> IF97_Utilities.beta_ph</font>(state.p, state.h, state.phase, Region);
+  <font color="blue">end if</font>;
+<font color="blue">end </font>isobaricExpansionCoefficient;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE velocityOfSound<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phI.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.velocityOfSound" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.WaterIF97_fixedregion.velocityOfSound"></A><A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion"
+>Modelica.Media.Water.WaterIF97_fixedregion</A>.velocityOfSound</H2>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>state</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>a</TD><TD>Velocity of sound [m/s]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>velocityOfSound
+<font color="blue">algorithm </font>
+  <font color="blue">if </font>dT_explicit<font color="blue"> then</font>
+    a :=<font color="red"> IF97_Utilities.velocityOfSound_dT</font>(state.d, state.T, state.phase,
+      Region);
+  <font color="blue">elseif </font>pT_explicit<font color="blue"> then</font>
+    a :=<font color="red"> IF97_Utilities.velocityOfSound_pT</font>(state.p, state.T, Region);
+  <font color="blue">else</font>
+    a :=<font color="red"> IF97_Utilities.velocityOfSound_ph</font>(state.p, state.h, state.phase,
+      Region);
+  <font color="blue">end if</font>;
+<font color="blue">end </font>velocityOfSound;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE isentropicEnthalpy<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phI.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.isentropicEnthalpy" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.WaterIF97_fixedregion.isentropicEnthalpy"></A><A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion"
+>Modelica.Media.Water.WaterIF97_fixedregion</A>.isentropicEnthalpy</H2>
+<B>compute h(s,p)</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>p_downstream</TD><TD>&nbsp;</TD><TD>downstream pressure [Pa]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>refState</TD><TD>&nbsp;</TD><TD>reference state for entropy</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>h_is</TD><TD>Isentropic enthalpy [J/kg]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>isentropicEnthalpy <font color="darkgreen">&quot;compute h(s,p)&quot;</font>
+<font color="blue">algorithm </font>
+  h_is :=<font color="red"> IF97_Utilities.isentropicEnthalpy</font>(p_downstream,<font color="red"> specificEntropy</font>(
+    refState), 0);
+<font color="blue">end </font>isentropicEnthalpy;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE density_derh_p<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phI.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.density_derh_p" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.WaterIF97_fixedregion.density_derh_p"></A><A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion"
+>Modelica.Media.Water.WaterIF97_fixedregion</A>.density_derh_p</H2>
+<B>density derivative by specific enthalpy</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>state</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>ddhp</TD><TD>Density derivative wrt specific enthalpy [kg.s^2/m^5]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>density_derh_p <font color="darkgreen">
+  &quot;density derivative by specific enthalpy&quot;</font>
+<font color="blue">algorithm </font>
+  ddhp :=<font color="red"> IF97_Utilities.ddhp</font>(state.p, state.h, state.phase, Region);
+<font color="blue">end </font>density_derh_p;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE density_derp_h<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phI.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.density_derp_h" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.WaterIF97_fixedregion.density_derp_h"></A><A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion"
+>Modelica.Media.Water.WaterIF97_fixedregion</A>.density_derp_h</H2>
+<B>density derivative by pressure</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>state</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>ddph</TD><TD>Density derivative wrt pressure [s^2/m^2]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>density_derp_h <font color="darkgreen">
+  &quot;density derivative by pressure&quot;</font>
+<font color="blue">algorithm </font>
+  ddph :=<font color="red"> IF97_Utilities.ddph</font>(state.p, state.h, state.phase, Region);
+<font color="blue">end </font>density_derp_h;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE bubbleEnthalpy<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phI.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.bubbleEnthalpy" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.WaterIF97_fixedregion.bubbleEnthalpy"></A><A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion"
+>Modelica.Media.Water.WaterIF97_fixedregion</A>.bubbleEnthalpy</H2>
+<B>boiling curve specific enthalpy of water</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>sat</TD><TD>&nbsp;</TD><TD>saturation property record</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>hl</TD><TD>boiling curve specific enthalpy [J/kg]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>bubbleEnthalpy <font color="darkgreen">
+  &quot;boiling curve specific enthalpy of water&quot;</font>
+<font color="blue">algorithm </font>
+  hl :=<font color="red"> IF97_Utilities.BaseIF97.Regions.hl_p</font>(sat.psat);
+<font color="blue">end </font>bubbleEnthalpy;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dewEnthalpy<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phI.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.dewEnthalpy" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.WaterIF97_fixedregion.dewEnthalpy"></A><A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion"
+>Modelica.Media.Water.WaterIF97_fixedregion</A>.dewEnthalpy</H2>
+<B>dew curve specific enthalpy of water</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>sat</TD><TD>&nbsp;</TD><TD>saturation property record</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>hv</TD><TD>dew curve specific enthalpy [J/kg]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>dewEnthalpy <font color="darkgreen">
+  &quot;dew curve specific enthalpy of water&quot;</font>
+<font color="blue">algorithm </font>
+  hv :=<font color="red"> IF97_Utilities.BaseIF97.Regions.hv_p</font>(sat.psat);
+<font color="blue">end </font>dewEnthalpy;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE bubbleEntropy<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phI.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.bubbleEntropy" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.WaterIF97_fixedregion.bubbleEntropy"></A><A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion"
+>Modelica.Media.Water.WaterIF97_fixedregion</A>.bubbleEntropy</H2>
+<B>boiling curve specific entropy of water</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>sat</TD><TD>&nbsp;</TD><TD>saturation property record</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>sl</TD><TD>boiling curve specific entropy [J/(kg.K)]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>bubbleEntropy <font color="darkgreen">
+  &quot;boiling curve specific entropy of water&quot;</font>
+<font color="blue">algorithm </font>
+  sl :=<font color="red"> IF97_Utilities.BaseIF97.Regions.sl_p</font>(sat.psat);
+<font color="blue">end </font>bubbleEntropy;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dewEntropy<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phI.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.dewEntropy" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.WaterIF97_fixedregion.dewEntropy"></A><A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion"
+>Modelica.Media.Water.WaterIF97_fixedregion</A>.dewEntropy</H2>
+<B>dew curve specific entropy of water</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>sat</TD><TD>&nbsp;</TD><TD>saturation property record</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>sv</TD><TD>dew curve specific entropy [J/(kg.K)]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>dewEntropy <font color="darkgreen">
+  &quot;dew curve specific entropy of water&quot;</font>
+<font color="blue">algorithm </font>
+  sv :=<font color="red"> IF97_Utilities.BaseIF97.Regions.sv_p</font>(sat.psat);
+<font color="blue">end </font>dewEntropy;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE bubbleDensity<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phI.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.bubbleDensity" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.WaterIF97_fixedregion.bubbleDensity"></A><A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion"
+>Modelica.Media.Water.WaterIF97_fixedregion</A>.bubbleDensity</H2>
+<B>boiling curve specific density of water</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>sat</TD><TD>&nbsp;</TD><TD>saturation property record</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>dl</TD><TD>boiling curve density [kg/m3]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>bubbleDensity <font color="darkgreen">
+  &quot;boiling curve specific density of water&quot;</font>
+<font color="blue">algorithm </font>
+  <font color="blue">if </font>ph_explicit<font color="blue"> or </font>pT_explicit<font color="blue"> then</font>
+    dl :=<font color="red"> IF97_Utilities.BaseIF97.Regions.rhol_p</font>(sat.psat);
+  <font color="blue">else</font>
+    dl :=<font color="red"> IF97_Utilities.BaseIF97.Regions.rhol_T</font>(sat.Tsat);
+  <font color="blue">end if</font>;
+<font color="blue">end </font>bubbleDensity;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dewDensity<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phI.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.dewDensity" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.WaterIF97_fixedregion.dewDensity"></A><A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion"
+>Modelica.Media.Water.WaterIF97_fixedregion</A>.dewDensity</H2>
+<B>dew curve specific density of water</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>sat</TD><TD>&nbsp;</TD><TD>saturation property record</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>dv</TD><TD>dew curve density [kg/m3]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>dewDensity <font color="darkgreen">
+  &quot;dew curve specific density of water&quot;</font>
+<font color="blue">algorithm </font>
+  <font color="blue">if </font>ph_explicit<font color="blue"> or </font>pT_explicit<font color="blue"> then</font>
+    dv :=<font color="red"> IF97_Utilities.BaseIF97.Regions.rhov_p</font>(sat.psat);
+  <font color="blue">else</font>
+    dv :=<font color="red"> IF97_Utilities.BaseIF97.Regions.rhov_T</font>(sat.Tsat);
+  <font color="blue">end if</font>;
+<font color="blue">end </font>dewDensity;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE saturationTemperature<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phI.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.saturationTemperature" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.WaterIF97_fixedregion.saturationTemperature"></A><A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion"
+>Modelica.Media.Water.WaterIF97_fixedregion</A>.saturationTemperature</H2>
+<B>saturation temperature of water</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>T</TD><TD>saturation temperature [K]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>saturationTemperature <font color="darkgreen">
+  &quot;saturation temperature of water&quot;</font>
+<font color="blue">algorithm </font>
+  T :=<font color="red"> IF97_Utilities.BaseIF97.Basic.tsat</font>(p);
+<font color="blue">end </font>saturationTemperature;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE saturationTemperature_derp<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phI.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.saturationTemperature_derp" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.WaterIF97_fixedregion.saturationTemperature_derp"></A><A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion"
+>Modelica.Media.Water.WaterIF97_fixedregion</A>.saturationTemperature_derp</H2>
+<B>derivative of saturation temperature w.r.t. pressure</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>dTp</TD><TD>derivatives of saturation temperature w.r.t pressure</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>saturationTemperature_derp <font color="darkgreen">
+  &quot;derivative of saturation temperature w.r.t. pressure&quot;</font>
+<font color="blue">algorithm </font>
+  dTp :=<font color="red"> IF97_Utilities.BaseIF97.Basic.dtsatofp</font>(p);
+<font color="blue">end </font>saturationTemperature_derp;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE saturationPressure<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phI.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.saturationPressure" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.WaterIF97_fixedregion.saturationPressure"></A><A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion"
+>Modelica.Media.Water.WaterIF97_fixedregion</A>.saturationPressure</H2>
+<B>saturation pressure of water</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>T</TD><TD>&nbsp;</TD><TD>temperature [K]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>p</TD><TD>saturation pressure [Pa]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>saturationPressure <font color="darkgreen">
+  &quot;saturation pressure of water&quot;</font>
+<font color="blue">algorithm </font>
+  p :=<font color="red"> IF97_Utilities.BaseIF97.Basic.psat</font>(T);
+<font color="blue">end </font>saturationPressure;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dBubbleDensity_dPressure<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phI.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.dBubbleDensity_dPressure" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.WaterIF97_fixedregion.dBubbleDensity_dPressure"></A><A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion"
+>Modelica.Media.Water.WaterIF97_fixedregion</A>.dBubbleDensity_dPressure</H2>
+<B>bubble point density derivative</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>sat</TD><TD>&nbsp;</TD><TD>saturation property record</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>ddldp</TD><TD>boiling curve density derivative [kg.s^2/m^5]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>dBubbleDensity_dPressure <font color="darkgreen">
+  &quot;bubble point density derivative&quot;</font>
+<font color="blue">algorithm </font>
+  ddldp :=<font color="red"> IF97_Utilities.BaseIF97.Regions.drhol_dp</font>(sat.psat);
+<font color="blue">end </font>dBubbleDensity_dPressure;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dDewDensity_dPressure<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phI.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.dDewDensity_dPressure" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.WaterIF97_fixedregion.dDewDensity_dPressure"></A><A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion"
+>Modelica.Media.Water.WaterIF97_fixedregion</A>.dDewDensity_dPressure</H2>
+<B>dew point density derivative</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>sat</TD><TD>&nbsp;</TD><TD>saturation property record</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>ddvdp</TD><TD>saturated steam density derivative [kg.s^2/m^5]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>dDewDensity_dPressure <font color="darkgreen">
+  &quot;dew point density derivative&quot;</font>
+<font color="blue">algorithm </font>
+  ddvdp :=<font color="red"> IF97_Utilities.BaseIF97.Regions.drhov_dp</font>(sat.psat);
+<font color="blue">end </font>dDewDensity_dPressure;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dBubbleEnthalpy_dPressure<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phI.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.dBubbleEnthalpy_dPressure" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.WaterIF97_fixedregion.dBubbleEnthalpy_dPressure"></A><A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion"
+>Modelica.Media.Water.WaterIF97_fixedregion</A>.dBubbleEnthalpy_dPressure</H2>
+<B>bubble point specific enthalpy derivative</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>sat</TD><TD>&nbsp;</TD><TD>saturation property record</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>dhldp</TD><TD>boiling curve specific enthalpy derivative [J.m.s^2/kg^2]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>dBubbleEnthalpy_dPressure <font color="darkgreen">
+  &quot;bubble point specific enthalpy derivative&quot;</font>
+<font color="blue">algorithm </font>
+  dhldp :=<font color="red"> IF97_Utilities.BaseIF97.Regions.dhl_dp</font>(sat.psat);
+<font color="blue">end </font>dBubbleEnthalpy_dPressure;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dDewEnthalpy_dPressure<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phI.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.dDewEnthalpy_dPressure" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.WaterIF97_fixedregion.dDewEnthalpy_dPressure"></A><A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion"
+>Modelica.Media.Water.WaterIF97_fixedregion</A>.dDewEnthalpy_dPressure</H2>
+<B>dew point specific enthalpy derivative</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>sat</TD><TD>&nbsp;</TD><TD>saturation property record</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>dhvdp</TD><TD>saturated steam specific enthalpy derivative [J.m.s^2/kg^2]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>dDewEnthalpy_dPressure <font color="darkgreen">
+  &quot;dew point specific enthalpy derivative&quot;</font>
+<font color="blue">algorithm </font>
+  dhvdp :=<font color="red"> IF97_Utilities.BaseIF97.Regions.dhv_dp</font>(sat.psat);
+<font color="blue">end </font>dDewEnthalpy_dPressure;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE setState_dTX<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phI.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.setState_dTX" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.WaterIF97_fixedregion.setState_dTX"></A><A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion"
+>Modelica.Media.Water.WaterIF97_fixedregion</A>.setState_dTX</H2>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>region</TD><TD>0</TD><TD>if 0, region is unknown, otherwise known and this input</TD></TR>
+<TR><TD>&nbsp;</TD><TD>phase</TD><TD>0</TD><TD>2 for two-phase, 1 for one-phase, 0 if not known</TD></TR>
+<TR><TD>&nbsp;</TD><TD>d</TD><TD>&nbsp;</TD><TD>density [kg/m3]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>T</TD><TD>&nbsp;</TD><TD>Temperature [K]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>X[:]</TD><TD>&nbsp;</TD><TD>Mass fractions [kg/kg]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>state</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>setState_dTX
+  <font color="blue">input </font>Integer region=0 <font color="darkgreen">
+    &quot;if 0, region is unknown, otherwise known and this input&quot;</font>;
+<font color="blue">algorithm </font>
+  state :=<font color="red"> ThermodynamicState</font>(
+    d=d,
+    T=T,
+    phase= <font color="blue">if </font>region == 0<font color="blue"> then </font><font color="red">IF97_Utilities.phase_dT</font>(d,T)<font color="blue"> else </font><font color="blue">if </font>region == 4<font color="blue"> then </font>2<font color="blue"> else </font>1,
+    h=<font color="red">specificEnthalpy_dT</font>(d,T,region=region),
+    p=<font color="red">pressure_dT</font>(d,T,region=region));
+<font color="blue">end </font>setState_dTX;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE setState_phX<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phI.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.setState_phX" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.WaterIF97_fixedregion.setState_phX"></A><A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion"
+>Modelica.Media.Water.WaterIF97_fixedregion</A>.setState_phX</H2>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>region</TD><TD>0</TD><TD>if 0, region is unknown, otherwise known and this input</TD></TR>
+<TR><TD>&nbsp;</TD><TD>phase</TD><TD>0</TD><TD>2 for two-phase, 1 for one-phase, 0 if not known</TD></TR>
+<TR><TD>&nbsp;</TD><TD>p</TD><TD>&nbsp;</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>h</TD><TD>&nbsp;</TD><TD>Specific enthalpy [J/kg]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>X[:]</TD><TD>&nbsp;</TD><TD>Mass fractions [kg/kg]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>state</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>setState_phX
+  <font color="blue">input </font>Integer region=0 <font color="darkgreen">
+    &quot;if 0, region is unknown, otherwise known and this input&quot;</font>;
+<font color="blue">algorithm </font>
+  state :=<font color="red"> ThermodynamicState</font>(
+    d=<font color="red">density_ph</font>(p,h,region=region),
+    T=<font color="red">temperature_ph</font>(p,h,region=region),
+    phase=<font color="blue">if </font>region == 0<font color="blue"> then </font><font color="red">IF97_Utilities.phase_ph</font>(p,h)<font color="blue"> else </font><font color="blue">if </font>region == 4<font color="blue"> then </font>2<font color="blue"> else </font>1,
+    h=h,
+    p=p);
+<font color="blue">end </font>setState_phX;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE setState_psX<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phI.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.setState_psX" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.WaterIF97_fixedregion.setState_psX"></A><A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion"
+>Modelica.Media.Water.WaterIF97_fixedregion</A>.setState_psX</H2>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>region</TD><TD>0</TD><TD>if 0, region is unknown, otherwise known and this input</TD></TR>
+<TR><TD>&nbsp;</TD><TD>phase</TD><TD>0</TD><TD>2 for two-phase, 1 for one-phase, 0 if not known</TD></TR>
+<TR><TD>&nbsp;</TD><TD>p</TD><TD>&nbsp;</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>s</TD><TD>&nbsp;</TD><TD>Specific entropy [J/(kg.K)]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>X[:]</TD><TD>&nbsp;</TD><TD>Mass fractions [kg/kg]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>state</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>setState_psX
+  <font color="blue">input </font>Integer region=0 <font color="darkgreen">
+    &quot;if 0, region is unknown, otherwise known and this input&quot;</font>;
+<font color="blue">algorithm </font>
+  state :=<font color="red"> ThermodynamicState</font>(
+    d=<font color="red">density_ps</font>(p,s,region=region),
+    T=<font color="red">temperature_ps</font>(p,s,region=region),
+    phase=<font color="red">IF97_Utilities.phase_ps</font>(p,s),
+    h=<font color="red">specificEnthalpy_ps</font>(p,s,region=region),
+    p=p);
+<font color="blue">end </font>setState_psX;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE setState_pTX<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.WaterIF97_fixedregion.density_phI.png" ALT="Modelica.Media.Water.WaterIF97_fixedregion.setState_pTX" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.WaterIF97_fixedregion.setState_pTX"></A><A HREF="Modelica_Media_Water_WaterIF97_fixedregion.html#Modelica.Media.Water.WaterIF97_fixedregion"
+>Modelica.Media.Water.WaterIF97_fixedregion</A>.setState_pTX</H2>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>region</TD><TD>0</TD><TD>if 0, region is unknown, otherwise known and this input</TD></TR>
+<TR><TD>&nbsp;</TD><TD>phase</TD><TD>0</TD><TD>2 for two-phase, 1 for one-phase, 0 if not known</TD></TR>
+<TR><TD>&nbsp;</TD><TD>p</TD><TD>&nbsp;</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>T</TD><TD>&nbsp;</TD><TD>Temperature [K]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>X[:]</TD><TD>&nbsp;</TD><TD>Mass fractions [kg/kg]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>state</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>setState_pTX
+  <font color="blue">input </font>Integer region=0 <font color="darkgreen">
+    &quot;if 0, region is unknown, otherwise known and this input&quot;</font>;
+<font color="blue">algorithm </font>
+  state :=<font color="red"> ThermodynamicState</font>(
+    d=<font color="red">density_pT</font>(p,T,region=region),
+    T=T,
+    phase=1,
+    h=<font color="red">specificEnthalpy_pT</font>(p,T,region=region),
+    p=p);
+<font color="blue">end </font>setState_pTX;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Tue Mar 28 11:40:28 2006.
+</address></BODY>
+</HTML>

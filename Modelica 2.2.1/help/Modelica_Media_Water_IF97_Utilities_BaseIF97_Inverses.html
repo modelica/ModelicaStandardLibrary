@@ -1,0 +1,1009 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;efficient inverses for selected pairs of variables&quot;">
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Inverses<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97.html#Modelica.Media.Water.IF97_Utilities.BaseIF97"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97</A>.Inverses</H2>
+<B>efficient inverses for selected pairs of variables</B>
+<P>
+<H3>Information</H3>
+<PRE></pre><h4>Package description</h4>
+          <p></p>
+          <h4>Package contents</h4>
+          <p>
+          <ul>
+          <li>Function <b>fixdT</b> constrains density and temperature to allowed region</li>
+          <li>Function <b>dofp13</b> computes d as a function of p at boundary between regions 1 and 3</li>
+          <li>Function <b>dofp23</b> computes d as a function of p at boundary between regions 2 and 3</li>
+          <li>Function <b>dofpt3</b> iteration to compute d as a function of p and T in region 3</li>
+          <li>Function <b>dtofph3</b> iteration to compute d and T as a function of p and h in region 3</li>
+          <li>Function <b>dtofps3</b> iteration to compute d and T as a function of p and s in region 3</li>
+          <li>Function <b>dtofpsdt3</b> iteration to compute d and T as a function of p and s in region 3,
+          with initial guesses</li>
+          <li>Function <b>pofdt125</b> iteration to compute p as a function of p and T in regions 1, 2 and 5</li>
+          <li>Function <b>tofph5</b> iteration to compute T as a function of p and h in region 5</li>
+          <li>Function <b>tofps5</b> iteration to compute T as a function of p and s in region 5</li>
+          <li>Function <b>tofpst5</b> iteration to compute T as a function of p and s in region 5, with initial guess in T</li>
+          <li>Function <b></b></li>
+          </ul>
+          </p>
+          <h4>Version Info and Revision history
+          </h4>
+          <ul>
+          <li>First implemented: <i>July, 2000</i>
+          by <a href="http://www.control.lth.se/~hubertus/">Hubertus Tummescheit</a>
+          </li>
+          </ul>
+          <address>Author: Hubertus Tummescheit, <br>
+          Lund University<br>
+          Department of Automatic Control<br>
+          Box 118, 22100 Lund, Sweden<br>
+          email: hubertus@control.lth.se
+          </address>
+          <ul>
+          <li>Initial version: July 2000</li>
+          <li>Documentation added: December 2002</li>
+          </ul>
+          <pre>
+          </PRE><P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.fixdT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.fixdT"
+>fixdT</A>
+</TD><TD>region limits for inverse iteration in region 3</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dofp13" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dofp13"
+>dofp13</A>
+</TD><TD>density at the boundary between regions 1 and 3</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dofp23" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dofp23"
+>dofp23</A>
+</TD><TD>density at the boundary between regions 2 and 3</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dofpt3" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dofpt3"
+>dofpt3</A>
+</TD><TD>inverse iteration in region 3: (d) = f(p,T)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dtofph3" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dtofph3"
+>dtofph3</A>
+</TD><TD>inverse iteration in region 3: (d,T) = f(p,h)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dtofps3" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dtofps3"
+>dtofps3</A>
+</TD><TD>inverse iteration in region 3: (d,T) = f(p,s)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dtofpsdt3" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dtofpsdt3"
+>dtofpsdt3</A>
+</TD><TD>inverse iteration in region 3: (d,T) = f(p,s)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.pofdt125" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.pofdt125"
+>pofdt125</A>
+</TD><TD>inverse iteration in region 1,2 and 5: p = g(d,T)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.tofph5" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.tofph5"
+>tofph5</A>
+</TD><TD>inverse iteration in region 5: (p,T) = f(p,h)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.tofps5" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.tofps5"
+>tofps5</A>
+</TD><TD>inverse iteration in region 5: (p,T) = f(p,s)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.tofpst5" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.tofpst5"
+>tofpst5</A>
+</TD><TD>inverse iteration in region 5: (p,T) = f(p,s)</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE fixdT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.fixdTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.fixdT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.fixdT"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses</A>.fixdT</H2>
+<B>region limits for inverse iteration in region 3</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>din</TD><TD>&nbsp;</TD><TD>density [kg/m3]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>Tin</TD><TD>&nbsp;</TD><TD>temperature [K]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>dout</TD><TD>density [kg/m3]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>Tout</TD><TD>temperature [K]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> fixdT <font color="darkgreen">&quot;region limits for inverse iteration in region 3&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> din <font color="darkgreen">&quot;density&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> Tin <font color="darkgreen">&quot;temperature&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> dout <font color="darkgreen">&quot;density&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> Tout <font color="darkgreen">&quot;temperature&quot;</font>;
+<font color="blue">protected </font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> Tmin <font color="darkgreen">&quot;approximation of minimum temperature&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> Tmax <font color="darkgreen">&quot;approximation of maximum temperature&quot;</font>;
+<font color="blue">algorithm </font>
+  <font color="blue">if </font>(din &gt; 765.0)<font color="blue"> then</font>
+    dout := 765.0;
+  <font color="blue">elseif </font>(din &lt; 110.0)<font color="blue"> then</font>
+    dout := 110.0;
+  <font color="blue">else</font>
+    dout := din;
+  <font color="blue">end if</font>;
+  <font color="blue">if </font>(dout &lt; 390.0)<font color="blue"> then</font>
+    Tmax := 554.3557377 + dout*0.809344262;
+  <font color="blue">else</font>
+    Tmax := 1116.85 - dout*0.632948717;
+  <font color="blue">end if</font>;
+  <font color="blue">if </font>(dout &lt; data.DCRIT)<font color="blue"> then</font>
+    Tmin := data.TCRIT*(1.0 - (dout - data.DCRIT)*(dout - data.DCRIT)/
+      1.0e6);
+  <font color="blue">else</font>
+    Tmin := data.TCRIT*(1.0 - (dout - data.DCRIT)*(dout - data.DCRIT)/
+      1.44e6);
+  <font color="blue">end if</font>;
+  <font color="blue">if </font>(Tin &lt; Tmin)<font color="blue"> then</font>
+    Tout := Tmin;
+  <font color="blue">elseif </font>(Tin &gt; Tmax)<font color="blue"> then</font>
+    Tout := Tmax;
+  <font color="blue">else</font>
+    Tout := Tin;
+  <font color="blue">end if</font>;
+<font color="blue">end </font>fixdT;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dofp13<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.fixdTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dofp13" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dofp13"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses</A>.dofp13</H2>
+<B>density at the boundary between regions 1 and 3</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>d</TD><TD>density [kg/m3]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> dofp13 <font color="darkgreen">&quot;density at the boundary between regions 1 and 3&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> d <font color="darkgreen">&quot;density&quot;</font>;
+<font color="blue">protected </font>
+  Real p2 <font color="darkgreen">&quot;auxiliary variable&quot;</font>;
+  Real[3] o <font color="darkgreen">&quot;vector of auxiliary variables&quot;</font>;
+<font color="blue">algorithm </font>
+  p2 := 7.1 - 6.04960677555959e-8*p;
+  o[1] := p2*p2;
+  o[2] := o[1]*o[1];
+  o[3] := o[2]*o[2];
+  d := 57.4756752485113/(0.0737412153522555 + p2*(0.00145092247736023 +
+    p2*(0.000102697173772229 + p2*(0.0000114683182476084 + p2*(
+    1.99080616601101e-6 + o[1]*p2*(1.13217858826367e-8 + o[2]*o[3]*p2*(
+    1.35549330686006e-17 + o[1]*(-3.11228834832975e-19 + o[1]*o[2]*(-7.02987180039442e-22
+     + p2*(3.29199117056433e-22 + (-5.17859076694812e-23 +
+    2.73712834080283e-24*p2)*p2))))))))));
+
+<font color="blue">end </font>dofp13;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dofp23<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.fixdTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dofp23" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dofp23"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses</A>.dofp23</H2>
+<B>density at the boundary between regions 2 and 3</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>d</TD><TD>density [kg/m3]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> dofp23 <font color="darkgreen">&quot;density at the boundary between regions 2 and 3&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> d <font color="darkgreen">&quot;density&quot;</font>;
+<font color="blue">protected </font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> T;
+  Real[13] o <font color="darkgreen">&quot;vector of auxiliary variables&quot;</font>;
+  Real taug <font color="darkgreen">&quot;auxiliary variable&quot;</font>;
+  Real pi <font color="darkgreen">&quot;dimensionless pressure&quot;</font>;
+  Real gpi23 <font color="darkgreen">
+    &quot;derivative of g w.r.t. pi on the boundary between regions 2 and 3&quot;</font>;
+<font color="blue">algorithm </font>
+  pi := p/data.PSTAR2;
+  T := 572.54459862746 + 31.3220101646784*(-13.91883977887 + pi)^0.5;
+  o[1] := (-13.91883977887 + pi)^0.5;
+  taug := -0.5 + 540.0/(572.54459862746 + 31.3220101646784*o[1]);
+  o[2] := taug*taug;
+  o[3] := o[2]*taug;
+  o[4] := o[2]*o[2];
+  o[5] := o[4]*o[4];
+  o[6] := o[5]*o[5];
+  o[7] := o[4]*o[5]*o[6]*taug;
+  o[8] := o[4]*o[5]*taug;
+  o[9] := o[2]*o[4]*o[5];
+  o[10] := pi*pi;
+  o[11] := o[10]*o[10];
+  o[12] := o[4]*o[6]*taug;
+  o[13] := o[6]*o[6];
+
+  gpi23 := (1.0 + pi*(-0.0017731742473213 + taug*(-0.017834862292358 +
+    taug*(-0.045996013696365 + (-0.057581259083432 - 0.05032527872793*o[3])
+    *taug)) + pi*(taug*(-0.000066065283340406 + (-0.0003789797503263 + o[
+    2]*(-0.007878555448671 + o[3]*(-0.087594591301146 -
+    0.000053349095828174*o[7])))*taug) + pi*(6.1445213076927e-8 + (
+    1.31612001853305e-6 + o[2]*(-0.00009683303171571 + o[3]*(-0.0045101773626444
+     - 0.122004760687947*o[7])))*taug + pi*(taug*(-3.15389238237468e-9 +
+    (5.116287140914e-8 + 1.92901490874028e-6*taug)*taug) + pi*(
+    0.0000114610381688305*o[2]*o[4]*taug + pi*(o[3]*(-1.00288598706366e-10
+     + o[8]*(-0.012702883392813 - 143.374451604624*o[2]*o[6]*taug)) + pi*
+    (-4.1341695026989e-17 + o[2]*o[5]*(-8.8352662293707e-6 -
+    0.272627897050173*o[9])*taug + pi*(o[5]*(9.0049690883672e-11 -
+    65.8490727183984*o[4]*o[5]*o[6]) + pi*(1.78287415218792e-7*o[8] + pi*
+    (o[4]*(1.0406965210174e-18 + o[2]*(-1.0234747095929e-12 -
+    1.0018179379511e-8*o[4])*o[4]) + o[10]*o[11]*((-1.29412653835176e-9
+     + 1.71088510070544*o[12])*o[7] + o[10]*(-6.05920510335078*o[13]*o[5]
+    *o[6]*taug + o[10]*(o[4]*o[6]*(1.78371690710842e-23 + o[2]*o[4]*o[5]*
+    (6.1258633752464e-12 - 0.000084004935396416*o[8])*taug) + pi*(-1.24017662339842e-24
+    *o[12] + pi*(0.0000832192847496054*o[13]*o[4]*o[6]*taug + pi*(o[2]*o[
+    5]*o[6]*(1.75410265428146e-27 + (1.32995316841867e-15 -
+    0.0000226487297378904*o[2]*o[6])*o[9])*pi - 2.93678005497663e-14*o[13]
+    *o[2]*o[4]*taug)))))))))))))))))/pi;
+  d := p/(data.RH2O*T*pi*gpi23);
+<font color="blue">end </font>dofp23;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dofpt3<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.fixdTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dofpt3" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dofpt3"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses</A>.dofpt3</H2>
+<B>inverse iteration in region 3: (d) = f(p,T)</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>T</TD><TD>&nbsp;</TD><TD>temperature (K) [K]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>delp</TD><TD>&nbsp;</TD><TD>iteration converged if (p-pre(p) &lt; delp) [Pa]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>d</TD><TD>density [kg/m3]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>error</TD><TD>error flag: iteration failed if different from 0</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> dofpt3 <font color="darkgreen">&quot;inverse iteration in region 3: (d) = f(p,T)&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> T <font color="darkgreen">&quot;temperature (K)&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> delp <font color="darkgreen">&quot;iteration converged if (p-pre(p) &lt; delp)&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> d <font color="darkgreen">&quot;density&quot;</font>;
+  <font color="blue">output </font>Integer error=0 <font color="darkgreen">&quot;error flag: iteration failed if different from 0&quot;</font>;
+<font color="blue">protected </font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> dguess <font color="darkgreen">&quot;guess density&quot;</font>;
+  Integer i=0 <font color="darkgreen">&quot;loop counter&quot;</font>;
+  Real dp <font color="darkgreen">&quot;pressure difference&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> deld <font color="darkgreen">&quot;density step&quot;</font>;
+  <A HREF="Modelica_Media_Common.html#Modelica.Media.Common.HelmholtzDerivs"
+>Modelica.Media.Common.HelmholtzDerivs</A> f <font color="darkgreen">
+    &quot;dimensionless Helmholtz function and dervatives wrt delta and tau&quot;</font>;
+  <A HREF="Modelica_Media_Common.html#Modelica.Media.Common.NewtonDerivatives_pT"
+>Modelica.Media.Common.NewtonDerivatives_pT</A> nDerivs <font color="darkgreen">
+    &quot;derivatives needed in Newton iteration&quot;</font>;
+  Boolean found=false <font color="darkgreen">&quot;flag for iteration success&quot;</font>;
+  Boolean supercritical <font color="darkgreen">&quot;flag, true for supercritical states&quot;</font>;
+  Boolean liquid <font color="darkgreen">&quot;flag, true for liquid states&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> dmin <font color="darkgreen">&quot;lower density limit&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> dmax <font color="darkgreen">&quot;upper density limit&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> Tmax <font color="darkgreen">&quot;maximum temperature&quot;</font>;
+<font color="blue">algorithm </font>
+  <font color="red">assert</font>(p &gt;= data.PLIMIT4A,
+    &quot;BaseIF97.dofpt3: function called outside of region 3! p too low\n&quot; +
+    &quot;p = &quot; +<font color="red"> String</font>(p) + &quot; Pa &lt; &quot; +<font color="red"> String</font>(data.PLIMIT4A) + &quot; Pa&quot;);
+  <font color="red">assert</font>(T &gt;= data.TLIMIT1,
+    &quot;BaseIF97.dofpt3: function called outside of region 3! T too low\n&quot; +
+    &quot;T = &quot; +<font color="red"> String</font>(T) + &quot; K &lt; &quot; +<font color="red"> String</font>(data.TLIMIT1) + &quot; K&quot;);
+  <font color="red">assert</font>(p &gt;=<font color="red"> Regions.boundary23ofT</font>(T),
+    &quot;BaseIF97.dofpt3: function called outside of region 3! T too high\n&quot; +
+    &quot;p = &quot; +<font color="red"> String</font>(p) + &quot; Pa, T = &quot; +<font color="red"> String</font>(T) + &quot; K&quot;);
+  supercritical := p &gt; data.PCRIT;
+  dmax :=<font color="red"> dofp13</font>(p);
+  dmin :=<font color="red"> dofp23</font>(p);
+  Tmax :=<font color="red"> Regions.boundary23ofp</font>(p);
+  <font color="blue">if </font>supercritical<font color="blue"> then</font>
+    dguess := dmin + (T - data.TLIMIT1)/(data.TLIMIT1 - Tmax)*(dmax -
+      dmin);
+    <font color="darkgreen">//this may need improvement!!</font>
+  <font color="blue">else</font>
+    liquid := T &lt;<font color="red"> Basic.tsat</font>(p);
+    <font color="blue">if </font>liquid<font color="blue"> then</font>
+      dguess := 0.5*(<font color="red">Regions.rhol_p_R4b</font>(p) + dmax);
+    <font color="blue">else</font>
+      dguess := 0.5*(<font color="red">Regions.rhov_p_R4b</font>(p) + dmin);
+    <font color="blue">end if</font>;
+  <font color="blue">end if</font>;
+  <font color="blue">while </font>((i &lt; IterationData.IMAX)<font color="blue"> and </font><font color="blue">not </font>found)<font color="blue"> loop</font>
+    d := dguess;
+    f :=<font color="red"> Basic.f3</font>(d, T);
+    nDerivs :=<font color="red"> Modelica.Media.Common.Helmholtz_pT</font>(f);
+    dp := nDerivs.p - p;
+    <font color="blue">if </font>(<font color="red">abs</font>(dp/p) &lt;= delp)<font color="blue"> then</font>
+      found := true;
+    <font color="blue">end if</font>;
+    deld := dp/nDerivs.pd;
+    d := d - deld;
+    <font color="blue">if </font>d &gt; dmin<font color="blue"> and </font>d &lt; dmax<font color="blue"> then</font>
+      dguess := d;
+    <font color="blue">else</font>
+      <font color="blue">if </font>d &gt; dmax<font color="blue"> then</font>
+        dguess := dmax -<font color="red"> sqrt</font>(Modelica.Constants.eps);
+        <font color="darkgreen">  // put it on the correct spot just inside the boundary here instead</font>
+      <font color="blue">else</font>
+        dguess := dmin +<font color="red"> sqrt</font>(Modelica.Constants.eps);
+      <font color="blue">end if</font>;
+    <font color="blue">end if</font>;
+    i := i + 1;
+  <font color="blue">end while</font>;
+  <font color="blue">if </font><font color="blue">not </font>found<font color="blue"> then</font>
+    error := 1;
+  <font color="blue">end if</font>;
+  <font color="red">assert</font>(error &lt;&gt; 1, &quot;error in inverse function dofpt3: iteration failed&quot;);
+<font color="blue">end </font>dofpt3;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dtofph3<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.fixdTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dtofph3" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dtofph3"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses</A>.dtofph3</H2>
+<B>inverse iteration in region 3: (d,T) = f(p,h)</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>h</TD><TD>&nbsp;</TD><TD>specific enthalpy [J/kg]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>delp</TD><TD>&nbsp;</TD><TD>iteration accuracy [Pa]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>delh</TD><TD>&nbsp;</TD><TD>iteration accuracy [J/kg]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>d</TD><TD>density [kg/m3]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>T</TD><TD>temperature (K) [K]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>error</TD><TD>error flag: iteration failed if different from 0</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> dtofph3 <font color="darkgreen">&quot;inverse iteration in region 3: (d,T) = f(p,h)&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SI.SpecificEnthalpy</A> h <font color="darkgreen">&quot;specific enthalpy&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> delp <font color="darkgreen">&quot;iteration accuracy&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SI.SpecificEnthalpy</A> delh <font color="darkgreen">&quot;iteration accuracy&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> d <font color="darkgreen">&quot;density&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> T <font color="darkgreen">&quot;temperature (K)&quot;</font>;
+  <font color="blue">output </font>Integer error <font color="darkgreen">&quot;error flag: iteration failed if different from 0&quot;</font>;
+<font color="blue">protected </font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> Tguess <font color="darkgreen">&quot;initial temperature&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> dguess <font color="darkgreen">&quot;initial density&quot;</font>;
+  Integer i <font color="darkgreen">&quot;iteration counter&quot;</font>;
+  Real dh <font color="darkgreen">&quot;Newton-error in h-direction&quot;</font>;
+  Real dp <font color="darkgreen">&quot;Newton-error in p-direction&quot;</font>;
+  Real det <font color="darkgreen">&quot;determinant of directional derivatives&quot;</font>;
+  Real deld <font color="darkgreen">&quot;Newton-step in d-direction&quot;</font>;
+  Real delt <font color="darkgreen">&quot;Newton-step in T-direction&quot;</font>;
+  <A HREF="Modelica_Media_Common.html#Modelica.Media.Common.HelmholtzDerivs"
+>Modelica.Media.Common.HelmholtzDerivs</A> f <font color="darkgreen">
+    &quot;dimensionless Helmholtz function and dervatives wrt delta and tau&quot;</font>;
+  <A HREF="Modelica_Media_Common.html#Modelica.Media.Common.NewtonDerivatives_ph"
+>Modelica.Media.Common.NewtonDerivatives_ph</A> nDerivs <font color="darkgreen">
+    &quot;derivatives needed in Newton iteration&quot;</font>;
+  Boolean found <font color="darkgreen">&quot;flag for iteration success&quot;</font>;
+  Integer subregion <font color="darkgreen">&quot;1 for subregion 3a, 2 for subregion 3b&quot;</font>;
+<font color="blue">algorithm </font>
+  <font color="blue">if </font>p &lt; data.PCRIT<font color="blue"> then</font>
+    <font color="darkgreen">// allow a 10 J margin inside the (well approximated) phase boundary</font>
+    subregion := <font color="blue">if </font>h &lt; (<font color="red">Regions.hl_p</font>(p) + 10.0)<font color="blue"> then </font>1<font color="blue"> else </font>
+      <font color="blue">if </font>h &gt; (<font color="red">Regions.hv_p</font>(p) - 10.0)<font color="blue"> then </font>2<font color="blue"> else </font>0;
+    <font color="red">assert</font>(subregion &lt;&gt; 0,&quot;inverse iteration of dt from ph called in 2 phase region: this can not work&quot;);
+  <font color="blue">else</font>
+    <font color="darkgreen">//supercritical</font>
+    subregion := <font color="blue">if </font>h &lt;<font color="red"> Basic.h3ab_p</font>(p)<font color="blue"> then </font>1<font color="blue"> else </font>2;
+  <font color="blue">end if</font>;
+  T := <font color="blue">if </font>subregion == 1<font color="blue"> then </font><font color="red">Basic.T3a_ph</font>(p,h)<font color="blue"> else </font><font color="red">Basic.T3b_ph</font>(p,h);
+  d := <font color="blue">if </font>subregion == 1<font color="blue"> then </font>1/<font color="red">Basic.v3a_ph</font>(p,h)<font color="blue"> else </font>1/<font color="red">Basic.v3b_ph</font>(p,h);
+  i := 0;
+  error := 0;
+  <font color="blue">while </font>((i &lt; IterationData.IMAX)<font color="blue"> and </font><font color="blue">not </font>found)<font color="blue"> loop</font>
+    f :=<font color="red"> Basic.f3</font>(d, T);
+    nDerivs :=<font color="red"> Modelica.Media.Common.Helmholtz_ph</font>(f);
+    dh := nDerivs.h - h;
+    dp := nDerivs.p - p;
+    <font color="blue">if </font>((<font color="red">abs</font>(dh/h) &lt;= delh)<font color="blue"> and </font>(<font color="red">abs</font>(dp/p) &lt;= delp))<font color="blue"> then</font>
+      found := true;
+    <font color="blue">end if</font>;
+    det := nDerivs.ht*nDerivs.pd - nDerivs.pt*nDerivs.hd;
+    delt := (nDerivs.pd*dh - nDerivs.hd*dp)/det;
+    deld := (nDerivs.ht*dp - nDerivs.pt*dh)/det;
+    T := T - delt;
+    d := d - deld;
+    dguess := d;
+    Tguess := T;
+    i := i + 1;
+    (d,T) :=<font color="red"> fixdT</font>(dguess, Tguess);
+  <font color="blue">end while</font>;
+  <font color="blue">if </font><font color="blue">not </font>found<font color="blue"> then</font>
+    error := 1;
+  <font color="blue">end if</font>;
+  <font color="red">assert</font>(error &lt;&gt; 1,
+    &quot;error in inverse function dtofph3: iteration failed&quot;);
+<font color="blue">end </font>dtofph3;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dtofps3<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.fixdTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dtofps3" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dtofps3"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses</A>.dtofps3</H2>
+<B>inverse iteration in region 3: (d,T) = f(p,s)</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>s</TD><TD>&nbsp;</TD><TD>specific entropy [J/(kg.K)]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>delp</TD><TD>&nbsp;</TD><TD>iteration accuracy [Pa]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>dels</TD><TD>&nbsp;</TD><TD>iteration accuracy [J/(kg.K)]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>d</TD><TD>density [kg/m3]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>T</TD><TD>temperature (K) [K]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>error</TD><TD>error flag: iteration failed if different from 0</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> dtofps3 <font color="darkgreen">&quot;inverse iteration in region 3: (d,T) = f(p,s)&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEntropy"
+>SI.SpecificEntropy</A> s <font color="darkgreen">&quot;specific entropy&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> delp <font color="darkgreen">&quot;iteration accuracy&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEntropy"
+>SI.SpecificEntropy</A> dels <font color="darkgreen">&quot;iteration accuracy&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> d <font color="darkgreen">&quot;density&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> T <font color="darkgreen">&quot;temperature (K)&quot;</font>;
+  <font color="blue">output </font>Integer error <font color="darkgreen">&quot;error flag: iteration failed if different from 0&quot;</font>;
+<font color="blue">protected </font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> Tguess <font color="darkgreen">&quot;initial temperature&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> dguess <font color="darkgreen">&quot;initial density&quot;</font>;
+  Integer i <font color="darkgreen">&quot;iteration counter&quot;</font>;
+  Real ds <font color="darkgreen">&quot;Newton-error in s-direction&quot;</font>;
+  Real dp <font color="darkgreen">&quot;Newton-error in p-direction&quot;</font>;
+  Real det <font color="darkgreen">&quot;determinant of directional derivatives&quot;</font>;
+  Real deld <font color="darkgreen">&quot;Newton-step in d-direction&quot;</font>;
+  Real delt <font color="darkgreen">&quot;Newton-step in T-direction&quot;</font>;
+  <A HREF="Modelica_Media_Common.html#Modelica.Media.Common.HelmholtzDerivs"
+>Modelica.Media.Common.HelmholtzDerivs</A> f <font color="darkgreen">
+    &quot;dimensionless Helmholtz function and dervatives wrt delta and tau&quot;</font>;
+  <A HREF="Modelica_Media_Common.html#Modelica.Media.Common.NewtonDerivatives_ps"
+>Modelica.Media.Common.NewtonDerivatives_ps</A> nDerivs <font color="darkgreen">
+    &quot;derivatives needed in Newton iteration&quot;</font>;
+  Boolean found <font color="darkgreen">&quot;flag for iteration success&quot;</font>;
+  Integer subregion <font color="darkgreen">&quot;1 for subregion 3a, 2 for subregion 3b&quot;</font>;
+<font color="blue">algorithm </font>
+  i := 0;
+  error := 0;
+  found := false;
+  <font color="blue">if </font>p &lt; data.PCRIT<font color="blue"> then</font>
+    <font color="darkgreen">// allow a 1 J/K margin inside the (well approximated) phase boundary</font>
+    subregion := <font color="blue">if </font>s &lt; (<font color="red">Regions.sl_p</font>(p) + 10.0)<font color="blue"> then </font>1<font color="blue"> else </font>
+      <font color="blue">if </font>s &gt; (<font color="red">Regions.sv_p</font>(p) - 10.0)<font color="blue"> then </font>2<font color="blue"> else </font>0;
+    <font color="red">assert</font>(subregion &lt;&gt; 0,&quot;inverse iteration of dt from ps called in 2 phase region: this is illegal!&quot;);
+  <font color="blue">else</font>
+    subregion := <font color="blue">if </font>s &lt; data.SCRIT<font color="blue"> then </font>1<font color="blue"> else </font>2;
+  <font color="blue">end if</font>;
+  T := <font color="blue">if </font>subregion == 1<font color="blue"> then </font><font color="red">Basic.T3a_ps</font>(p,s)<font color="blue"> else </font><font color="red">Basic.T3b_ps</font>(p,s);
+  d := <font color="blue">if </font>subregion == 1<font color="blue"> then </font>1/<font color="red">Basic.v3a_ph</font>(p,s)<font color="blue"> else </font>1/<font color="red">Basic.v3b_ph</font>(p,s);
+  <font color="blue">while </font>((i &lt; IterationData.IMAX)<font color="blue"> and </font><font color="blue">not </font>found)<font color="blue"> loop</font>
+    f :=<font color="red"> Basic.f3</font>(d, T);
+    nDerivs :=<font color="red"> Modelica.Media.Common.Helmholtz_ps</font>(f);
+    ds := nDerivs.s - s;
+    dp := nDerivs.p - p;
+    <font color="blue">if </font>((<font color="red">abs</font>(ds/s) &lt;= dels)<font color="blue"> and </font>(<font color="red">abs</font>(dp/p) &lt;= delp))<font color="blue"> then</font>
+      found := true;
+    <font color="blue">end if</font>;
+    det := nDerivs.st*nDerivs.pd - nDerivs.pt*nDerivs.sd;
+    delt := (nDerivs.pd*ds - nDerivs.sd*dp)/det;
+    deld := (nDerivs.st*dp - nDerivs.pt*ds)/det;
+    T := T - delt;
+    d := d - deld;
+    dguess := d;
+    Tguess := T;
+    i := i + 1;
+    (d,T) :=<font color="red"> fixdT</font>(dguess, Tguess);
+  <font color="blue">end while</font>;
+  <font color="blue">if </font><font color="blue">not </font>found<font color="blue"> then</font>
+    error := 1;
+  <font color="blue">end if</font>;
+  <font color="red">assert</font>(error &lt;&gt; 1,
+    &quot;error in inverse function dtofps3: iteration failed&quot;);
+<font color="blue">end </font>dtofps3;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dtofpsdt3<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.fixdTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dtofpsdt3" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dtofpsdt3"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses</A>.dtofpsdt3</H2>
+<B>inverse iteration in region 3: (d,T) = f(p,s)</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>s</TD><TD>&nbsp;</TD><TD>specific entropy [J/(kg.K)]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>dguess</TD><TD>&nbsp;</TD><TD>guess density, e.g. from adjacent volume [kg/m3]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>Tguess</TD><TD>&nbsp;</TD><TD>guess temperature, e.g. from adjacent volume [K]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>delp</TD><TD>&nbsp;</TD><TD>iteration accuracy [Pa]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>dels</TD><TD>&nbsp;</TD><TD>iteration accuracy [J/(kg.K)]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>d</TD><TD>density [kg/m3]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>T</TD><TD>temperature (K) [K]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>error</TD><TD>error flag: iteration failed if different from 0</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> dtofpsdt3 <font color="darkgreen">&quot;inverse iteration in region 3: (d,T) = f(p,s)&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEntropy"
+>SI.SpecificEntropy</A> s <font color="darkgreen">&quot;specific entropy&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> dguess <font color="darkgreen">&quot;guess density, e.g. from adjacent volume&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> Tguess <font color="darkgreen">&quot;guess temperature, e.g. from adjacent volume&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> delp <font color="darkgreen">&quot;iteration accuracy&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEntropy"
+>SI.SpecificEntropy</A> dels <font color="darkgreen">&quot;iteration accuracy&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> d <font color="darkgreen">&quot;density&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> T <font color="darkgreen">&quot;temperature (K)&quot;</font>;
+  <font color="blue">output </font>Integer error <font color="darkgreen">&quot;error flag: iteration failed if different from 0&quot;</font>;
+<font color="blue">protected </font>
+  Integer i <font color="darkgreen">&quot;iteration counter&quot;</font>;
+  Real ds <font color="darkgreen">&quot;Newton-error in s-direction&quot;</font>;
+  Real dp <font color="darkgreen">&quot;Newton-error in p-direction&quot;</font>;
+  Real det <font color="darkgreen">&quot;determinant of directional derivatives&quot;</font>;
+  Real deld <font color="darkgreen">&quot;Newton-step in d-direction&quot;</font>;
+  Real delt <font color="darkgreen">&quot;Newton-step in T-direction&quot;</font>;
+  <A HREF="Modelica_Media_Common.html#Modelica.Media.Common.HelmholtzDerivs"
+>Modelica.Media.Common.HelmholtzDerivs</A> f <font color="darkgreen">
+    &quot;dimensionless Helmholtz function and dervatives wrt delta and tau&quot;</font>;
+  <A HREF="Modelica_Media_Common.html#Modelica.Media.Common.NewtonDerivatives_ps"
+>Modelica.Media.Common.NewtonDerivatives_ps</A> nDerivs <font color="darkgreen">
+    &quot;derivatives needed in Newton iteration&quot;</font>;
+  Boolean found <font color="darkgreen">&quot;flag for iteration success&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> diter <font color="darkgreen">&quot;density&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> Titer <font color="darkgreen">&quot;temperature (K)&quot;</font>;
+<font color="blue">algorithm </font>
+  i := 0;
+  error := 0;
+  found := false;
+  (diter,Titer) :=<font color="red"> fixdT</font>(dguess, Tguess);
+  <font color="blue">while </font>((i &lt; IterationData.IMAX)<font color="blue"> and </font><font color="blue">not </font>found)<font color="blue"> loop</font>
+    (d,T) :=<font color="red"> fixdT</font>(diter, Titer);
+    f :=<font color="red"> Basic.f3</font>(d, T);
+    nDerivs :=<font color="red"> Modelica.Media.Common.Helmholtz_ps</font>(f);
+    ds := nDerivs.s - s;
+    dp := nDerivs.p - p;
+    <font color="blue">if </font>((<font color="red">abs</font>(ds/s) &lt;= dels)<font color="blue"> and </font>(<font color="red">abs</font>(dp/p) &lt;= delp))<font color="blue"> then</font>
+      found := true;
+    <font color="blue">end if</font>;
+    det := nDerivs.st*nDerivs.pd - nDerivs.pt*nDerivs.sd;
+    delt := (nDerivs.pd*ds - nDerivs.sd*dp)/det;
+    deld := (nDerivs.st*dp - nDerivs.pt*ds)/det;
+    T := T - delt;
+    d := d - deld;
+    diter := d;
+    Titer := T;
+    i := i + 1;
+  <font color="blue">end while</font>;
+  <font color="blue">if </font><font color="blue">not </font>found<font color="blue"> then</font>
+    error := 1;
+  <font color="blue">end if</font>;
+  <font color="red">assert</font>(error &lt;&gt; 1,
+    &quot;error in inverse function dtofpsdt3: iteration failed&quot;);
+<font color="blue">end </font>dtofpsdt3;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE pofdt125<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.fixdTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.pofdt125" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.pofdt125"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses</A>.pofdt125</H2>
+<B>inverse iteration in region 1,2 and 5: p = g(d,T)</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>d</TD><TD>&nbsp;</TD><TD>density [kg/m3]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>T</TD><TD>&nbsp;</TD><TD>temperature (K) [K]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>reldd</TD><TD>&nbsp;</TD><TD>relative iteration accuracy of density [Pa]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>region</TD><TD>&nbsp;</TD><TD>region in IAPWS/IF97 in which inverse should be calculated</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>p</TD><TD>pressure [Pa]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>error</TD><TD>error flag: iteration failed if different from 0</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> pofdt125 <font color="darkgreen">&quot;inverse iteration in region 1,2 and 5: p = g(d,T)&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> d <font color="darkgreen">&quot;density&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> T <font color="darkgreen">&quot;temperature (K)&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> reldd <font color="darkgreen">&quot;relative iteration accuracy of density&quot;</font>;
+  <font color="blue">input </font>Integer region <font color="darkgreen">
+    &quot;region in IAPWS/IF97 in which inverse should be calculated&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">output </font>Integer error <font color="darkgreen">&quot;error flag: iteration failed if different from 0&quot;</font>;
+<font color="blue">protected </font>
+  Integer i <font color="darkgreen">&quot;counter for while-loop&quot;</font>;
+  <A HREF="Modelica_Media_Common.html#Modelica.Media.Common.GibbsDerivs"
+>Modelica.Media.Common.GibbsDerivs</A> g <font color="darkgreen">
+    &quot;dimensionless Gibbs funcion and dervatives wrt pi and tau&quot;</font>;
+  Boolean found <font color="darkgreen">&quot;flag if iteration has been successful&quot;</font>;
+  Real dd <font color="darkgreen">&quot;difference between density for  guessed p and the current density&quot;</font>;
+  Real delp <font color="darkgreen">&quot;step in p in Newton-iteration&quot;</font>;
+  Real relerr <font color="darkgreen">&quot;relative error in d&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> pguess1=1.0e6 <font color="darkgreen">&quot;initial pressure guess in region 1&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> pguess2 <font color="darkgreen">&quot;initial pressure guess in region 2&quot;</font>;
+  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> pguess5=0.5e6 <font color="darkgreen">&quot;initial pressure guess in region 5&quot;</font>;
+<font color="blue">algorithm </font>
+  i := 0;
+  error := 0;
+  pguess2 := 42800*d;
+  found := false;
+  <font color="blue">if </font>region == 1<font color="blue"> then</font>
+    p := pguess1;
+  <font color="blue">elseif </font>region == 2<font color="blue"> then</font>
+    p := pguess2;
+  <font color="blue">else</font>
+    p := pguess5;
+  <font color="blue">end if</font>;
+  <font color="blue">while </font>((i &lt; IterationData.IMAX)<font color="blue"> and </font><font color="blue">not </font>found)<font color="blue"> loop</font>
+    <font color="blue">if </font>region == 1<font color="blue"> then</font>
+      g :=<font color="red"> Basic.g1</font>(p, T);
+    <font color="blue">elseif </font>region == 2<font color="blue"> then</font>
+      g :=<font color="red"> Basic.g2</font>(p, T);
+    <font color="blue">else</font>
+      g :=<font color="red"> Basic.g5</font>(p, T);
+    <font color="blue">end if</font>;
+    dd := p/(data.RH2O*T*g.pi*g.gpi) - d;
+    relerr := dd/d;
+    <font color="blue">if </font>(<font color="red">abs</font>(relerr) &lt; reldd)<font color="blue"> then</font>
+      found := true;
+    <font color="blue">end if</font>;
+    delp := dd*(-p*p/(d*d*data.RH2O*T*g.pi*g.pi*g.gpipi));
+    p := p - delp;
+    i := i + 1;
+    <font color="blue">if </font><font color="blue">not </font>found<font color="blue"> then</font>
+      <font color="blue">if </font>p &lt; triple.ptriple<font color="blue"> then</font>
+        p := 2.0*triple.ptriple;
+      <font color="blue">end if</font>;
+      <font color="blue">if </font>p &gt; data.PLIMIT1<font color="blue"> then</font>
+        p := 0.95*data.PLIMIT1;
+      <font color="blue">end if</font>;
+    <font color="blue">end if</font>;
+  <font color="blue">end while</font>;
+
+  <font color="darkgreen">  // print(&quot;i = &quot; + i2s(i) + &quot;, p = &quot; + r2s(p/1.0e5) + &quot;, delp = &quot; + r2s(delp*1.0e-5) + &quot;\n&quot;);</font>
+  <font color="blue">if </font><font color="blue">not </font>found<font color="blue"> then</font>
+    error := 1;
+  <font color="blue">end if</font>;
+  <font color="red">assert</font>(error &lt;&gt; 1,
+    &quot;error in inverse function pofdt125: iteration failed&quot;);
+<font color="blue">end </font>pofdt125;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE tofph5<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.fixdTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.tofph5" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.tofph5"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses</A>.tofph5</H2>
+<B>inverse iteration in region 5: (p,T) = f(p,h)</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>h</TD><TD>&nbsp;</TD><TD>specific enthalpy [J/kg]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>reldh</TD><TD>&nbsp;</TD><TD>iteration accuracy [J/kg]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>T</TD><TD>temperature (K) [K]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>error</TD><TD>error flag: iteration failed if different from 0</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> tofph5 <font color="darkgreen">&quot;inverse iteration in region 5: (p,T) = f(p,h)&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SI.SpecificEnthalpy</A> h <font color="darkgreen">&quot;specific enthalpy&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SI.SpecificEnthalpy</A> reldh <font color="darkgreen">&quot;iteration accuracy&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> T <font color="darkgreen">&quot;temperature (K)&quot;</font>;
+  <font color="blue">output </font>Integer error <font color="darkgreen">&quot;error flag: iteration failed if different from 0&quot;</font>;
+
+<font color="blue">protected </font>
+  <A HREF="Modelica_Media_Common.html#Modelica.Media.Common.GibbsDerivs"
+>Modelica.Media.Common.GibbsDerivs</A> g <font color="darkgreen">
+    &quot;dimensionless Gibbs funcion and dervatives wrt pi and tau&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SI.SpecificEnthalpy</A> proh <font color="darkgreen">&quot;h for current guess in T&quot;</font>;
+  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> Tguess=1500 <font color="darkgreen">&quot;initial temperature&quot;</font>;
+  Integer i <font color="darkgreen">&quot;iteration counter&quot;</font>;
+  Real relerr <font color="darkgreen">&quot;relative error in h&quot;</font>;
+  Real dh <font color="darkgreen">&quot;Newton-error in h-direction&quot;</font>;
+  Real dT <font color="darkgreen">&quot;Newton-step in T-direction&quot;</font>;
+  Boolean found <font color="darkgreen">&quot;flag for iteration success&quot;</font>;
+<font color="blue">algorithm </font>
+  i := 0;
+  error := 0;
+  T := Tguess;
+  found := false;
+  <font color="blue">while </font>((i &lt; IterationData.IMAX)<font color="blue"> and </font><font color="blue">not </font>found)<font color="blue"> loop</font>
+    g :=<font color="red"> Basic.g5</font>(p, T);
+    proh := data.RH2O*T*g.tau*g.gtau;
+    dh := proh - h;
+    relerr := dh/h;
+    <font color="blue">if </font>(<font color="red">abs</font>(relerr) &lt; reldh)<font color="blue"> then</font>
+      found := true;
+    <font color="blue">end if</font>;
+    dT := dh/(-data.RH2O*g.tau*g.tau*g.gtautau);
+    T := T - dT;
+    i := i + 1;
+  <font color="blue">end while</font>;
+  <font color="blue">if </font><font color="blue">not </font>found<font color="blue"> then</font>
+    error := 1;
+  <font color="blue">end if</font>;
+  <font color="red">assert</font>(error &lt;&gt; 1, &quot;error in inverse function tofph5: iteration failed&quot;);
+<font color="blue">end </font>tofph5;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE tofps5<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.fixdTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.tofps5" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.tofps5"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses</A>.tofps5</H2>
+<B>inverse iteration in region 5: (p,T) = f(p,s)</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>s</TD><TD>&nbsp;</TD><TD>specific entropy [J/(kg.K)]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>relds</TD><TD>&nbsp;</TD><TD>iteration accuracy [J/kg]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>T</TD><TD>temperature (K) [K]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>error</TD><TD>error flag: iteration failed if different from 0</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> tofps5 <font color="darkgreen">&quot;inverse iteration in region 5: (p,T) = f(p,s)&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEntropy"
+>SI.SpecificEntropy</A> s <font color="darkgreen">&quot;specific entropy&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SI.SpecificEnthalpy</A> relds <font color="darkgreen">&quot;iteration accuracy&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> T <font color="darkgreen">&quot;temperature (K)&quot;</font>;
+  <font color="blue">output </font>Integer error <font color="darkgreen">&quot;error flag: iteration failed if different from 0&quot;</font>;
+
+<font color="blue">protected </font>
+  <A HREF="Modelica_Media_Common.html#Modelica.Media.Common.GibbsDerivs"
+>Modelica.Media.Common.GibbsDerivs</A> g <font color="darkgreen">
+    &quot;dimensionless Gibbs funcion and dervatives wrt pi and tau&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SI.SpecificEnthalpy</A> pros <font color="darkgreen">&quot;s for current guess in T&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> Tguess=1500 <font color="darkgreen">&quot;initial temperature&quot;</font>;
+  Integer i <font color="darkgreen">&quot;iteration counter&quot;</font>;
+  Real relerr <font color="darkgreen">&quot;relative error in s&quot;</font>;
+  Real ds <font color="darkgreen">&quot;Newton-error in s-direction&quot;</font>;
+  Real dT <font color="darkgreen">&quot;Newton-step in T-direction&quot;</font>;
+  Boolean found <font color="darkgreen">&quot;flag for iteration success&quot;</font>;
+<font color="blue">algorithm </font>
+  i := 0;
+  error := 0;
+  T := Tguess;
+  found := false;
+  <font color="blue">while </font>((i &lt; IterationData.IMAX)<font color="blue"> and </font><font color="blue">not </font>found)<font color="blue"> loop</font>
+    g :=<font color="red"> Basic.g5</font>(p, T);
+    pros := data.RH2O*(g.tau*g.gtau - g.g);
+    ds := pros - s;
+    relerr := ds/s;
+    <font color="blue">if </font>(<font color="red">abs</font>(relerr) &lt; relds)<font color="blue"> then</font>
+      found := true;
+    <font color="blue">end if</font>;
+    dT := ds*T/(-data.RH2O*g.tau*g.tau*g.gtautau);
+    T := T - dT;
+    i := i + 1;
+  <font color="blue">end while</font>;
+  <font color="blue">if </font><font color="blue">not </font>found<font color="blue"> then</font>
+    error := 1;
+  <font color="blue">end if</font>;
+  <font color="red">assert</font>(error &lt;&gt; 1, &quot;error in inverse function tofps5: iteration failed&quot;);
+<font color="blue">end </font>tofps5;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE tofpst5<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.fixdTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.tofpst5" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.tofpst5"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses</A>.tofpst5</H2>
+<B>inverse iteration in region 5: (p,T) = f(p,s)</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>s</TD><TD>&nbsp;</TD><TD>specific entropy [J/(kg.K)]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>Tguess</TD><TD>&nbsp;</TD><TD>guess temperature, e.g. from adjacent volume [K]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>relds</TD><TD>&nbsp;</TD><TD>iteration accuracy [J/(kg.K)]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>T</TD><TD>temperature (K) [K]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>error</TD><TD>error flag: iteration failed if different from 0</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> tofpst5 <font color="darkgreen">&quot;inverse iteration in region 5: (p,T) = f(p,s)&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEntropy"
+>SI.SpecificEntropy</A> s <font color="darkgreen">&quot;specific entropy&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> Tguess <font color="darkgreen">&quot;guess temperature, e.g. from adjacent volume&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEntropy"
+>SI.SpecificEntropy</A> relds <font color="darkgreen">&quot;iteration accuracy&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> T <font color="darkgreen">&quot;temperature (K)&quot;</font>;
+  <font color="blue">output </font>Integer error <font color="darkgreen">&quot;error flag: iteration failed if different from 0&quot;</font>;
+
+<font color="blue">protected </font>
+  <A HREF="Modelica_Media_Common.html#Modelica.Media.Common.GibbsDerivs"
+>Modelica.Media.Common.GibbsDerivs</A> g <font color="darkgreen">
+    &quot;dimensionless Gibbs funcion and dervatives wrt pi and tau&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SI.SpecificEnthalpy</A> pros <font color="darkgreen">&quot;s for current guess in T&quot;</font>;
+  Integer i <font color="darkgreen">&quot;iteration counter&quot;</font>;
+  Real relerr <font color="darkgreen">&quot;relative error in s&quot;</font>;
+  Real ds <font color="darkgreen">&quot;Newton-error in s-direction&quot;</font>;
+  Real dT <font color="darkgreen">&quot;Newton-step in T-direction&quot;</font>;
+  Boolean found <font color="darkgreen">&quot;flag for iteration success&quot;</font>;
+<font color="blue">algorithm </font>
+  i := 0;
+  error := 0;
+  T := Tguess;
+  found := false;
+  <font color="blue">while </font>((i &lt; IterationData.IMAX)<font color="blue"> and </font><font color="blue">not </font>found)<font color="blue"> loop</font>
+    g :=<font color="red"> Basic.g5</font>(p, T);
+    pros := data.RH2O*(g.tau*g.gtau - g.g);
+    ds := pros - s;
+    relerr := ds/s;
+    <font color="blue">if </font>(<font color="red">abs</font>(relerr) &lt; relds)<font color="blue"> then</font>
+      found := true;
+    <font color="blue">end if</font>;
+    dT := ds*T/(-data.RH2O*g.tau*g.tau*g.gtautau);
+    T := T - dT;
+    i := i + 1;
+  <font color="blue">end while</font>;
+  <font color="blue">if </font><font color="blue">not </font>found<font color="blue"> then</font>
+    error := 1;
+  <font color="blue">end if</font>;
+  <font color="red">assert</font>(error &lt;&gt; 1,
+    &quot;error in inverse function tofpst5: iteration failed&quot;);
+<font color="blue">end </font>tofpst5;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Tue Mar 28 11:40:32 2006.
+</address></BODY>
+</HTML>

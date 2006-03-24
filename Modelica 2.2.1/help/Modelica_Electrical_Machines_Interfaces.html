@@ -1,0 +1,243 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Electrical.Machines.Interfaces</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;SpacePhasor connector and PartialMachines&quot;">
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Interfaces<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Electrical.Machines.Interfaces"></A><A HREF="Modelica_Electrical_Machines.html#Modelica.Electrical.Machines"
+>Modelica.Electrical.Machines</A>.Interfaces</H2>
+<B>SpacePhasor connector and PartialMachines</B>
+<P>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This package contains the space phasor connector and partial models for machine models.
+</p>
+
+<pre></PRE><P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Machines.Interfaces.SpacePhasorS.png" ALT="Modelica.Electrical.Machines.Interfaces.SpacePhasor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Machines_Interfaces.html#Modelica.Electrical.Machines.Interfaces.SpacePhasor"
+>SpacePhasor</A>
+</TD><TD>Connector for Space Phasors</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Machines.Interfaces.PartialBasicMachineS.png" ALT="Modelica.Electrical.Machines.Interfaces.PartialBasicMachine" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Machines_Interfaces.html#Modelica.Electrical.Machines.Interfaces.PartialBasicMachine"
+>PartialBasicMachine</A>
+</TD><TD>Partial machine model</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Machines.Interfaces.PartialBasicInductionMachineS.png" ALT="Modelica.Electrical.Machines.Interfaces.PartialBasicInductionMachine" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Machines_Interfaces.html#Modelica.Electrical.Machines.Interfaces.PartialBasicInductionMachine"
+>PartialBasicInductionMachine</A>
+</TD><TD>Partial model for induction machine</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Machines.Interfaces.PartialBasicInductionMachineS.png" ALT="Modelica.Electrical.Machines.Interfaces.PartialBasicDCMachine" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Machines_Interfaces.html#Modelica.Electrical.Machines.Interfaces.PartialBasicDCMachine"
+>PartialBasicDCMachine</A>
+</TD><TD>Partial model for DC machine</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SpacePhasor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Machines.Interfaces.SpacePhasorI.png" ALT="Modelica.Electrical.Machines.Interfaces.SpacePhasor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Machines.Interfaces.SpacePhasor"></A><A HREF="Modelica_Electrical_Machines_Interfaces.html#Modelica.Electrical.Machines.Interfaces"
+>Modelica.Electrical.Machines.Interfaces</A>.SpacePhasor</H2>
+<B>Connector for Space Phasors</B><p>
+<IMG SRC="Modelica.Electrical.Machines.Interfaces.SpacePhasorD.png" ALT="Modelica.Electrical.Machines.Interfaces.SpacePhasor">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+Connector for Space Phasors:
+<ul>
+<li>Voltage v_[2] ... Real and Imaginary part of voltage space phasor</li>
+<li>Current i_[2] ... Real and Imaginary part of current space phasor</li>
+</ul>
+</p>
+<pre></PRE>
+<H3>Contents</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>v_[2]</TD><TD>[V]</TD></TR>
+<TR><TD>flow &nbsp;</TD><TD>i_[2]</TD><TD>[A]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">connector</font> SpacePhasor <font color="darkgreen">&quot;Connector for Space Phasors&quot;</font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> v_[2];
+  <font color="blue">flow </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Current"
+>Modelica.SIunits.Current</A> i_[2];
+<font color="blue">end </font>SpacePhasor;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PartialBasicMachine<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Machines.Interfaces.PartialBasicMachineI.png" ALT="Modelica.Electrical.Machines.Interfaces.PartialBasicMachine" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Machines.Interfaces.PartialBasicMachine"></A><A HREF="Modelica_Electrical_Machines_Interfaces.html#Modelica.Electrical.Machines.Interfaces"
+>Modelica.Electrical.Machines.Interfaces</A>.PartialBasicMachine</H2>
+<B>Partial machine model</B><p>
+<IMG SRC="Modelica.Electrical.Machines.Interfaces.PartialBasicMachineD.png" ALT="Modelica.Electrical.Machines.Interfaces.PartialBasicMachine">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+Base partial model DC machines:
+<ul>
+<li>main parts of the icon</li>
+<li>mechanical flange</li>
+<li>mechanical support</li>
+</ul>
+</p>
+<p>
+The machine's stator is implicitely fixed.
+</p>
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>J_Rotor</TD><TD>&nbsp;</TD><TD>rotor's moment of inertia [kg.m2]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>flange_a</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">partial </font><font color="blue">model</font> PartialBasicMachine <font color="darkgreen">&quot;Partial machine model&quot;</font>
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inertia"
+>Modelica.SIunits.Inertia</A> J_Rotor <font color="darkgreen">&quot;rotor's moment of inertia&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Modelica.SIunits.Angle</A> phi_mechanical = flange_a.phi <font color="darkgreen">
+    &quot;mechanical angle of rotor against stator&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
+>Modelica.SIunits.AngularVelocity</A> w_mechanical =<font color="red"> der</font>(phi_mechanical) <font color="darkgreen">
+    &quot;mechanical angular velocity of rotor against stator&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits.AngularVelocity_rpm"
+>Modelica.SIunits.Conversions.NonSIunits.AngularVelocity_rpm</A>
+    rpm_mechanical =<font color="red"> Modelica.SIunits.Conversions.to_rpm</font>(w_mechanical) <font color="darkgreen">
+    &quot;mechanical speed of rotor against stator [rpm]&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Torque"
+>Modelica.SIunits.Torque</A> tau_electrical = inertiaRotor.flange_a.tau <font color="darkgreen">
+    &quot;electromagnetic torque&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Torque"
+>Modelica.SIunits.Torque</A> tau_shaft = -flange_a.tau <font color="darkgreen">&quot;shaft torque&quot;</font>;
+  <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_a"
+>Modelica.Mechanics.Rotational.Interfaces.Flange_a</A> flange_a;
+  <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Inertia"
+>Modelica.Mechanics.Rotational.Inertia</A> inertiaRotor(<font color="blue">final </font>J=J_Rotor);
+  <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Fixed"
+>Modelica.Mechanics.Rotational.Fixed</A> fixedHousing(<font color="blue">final </font>phi0=0);
+<font color="blue">protected </font>
+  <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_b"
+>Modelica.Mechanics.Rotational.Interfaces.Flange_b</A> internalSupport;
+<font color="blue">equation </font>
+  <font color="red">connect</font>(inertiaRotor.flange_b, flange_a);
+  <font color="red">connect</font>(internalSupport, fixedHousing.flange_b);
+<font color="blue">end </font>PartialBasicMachine;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PartialBasicInductionMachine<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Machines.Interfaces.PartialBasicInductionMachineI.png" ALT="Modelica.Electrical.Machines.Interfaces.PartialBasicInductionMachine" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Machines.Interfaces.PartialBasicInductionMachine"></A><A HREF="Modelica_Electrical_Machines_Interfaces.html#Modelica.Electrical.Machines.Interfaces"
+>Modelica.Electrical.Machines.Interfaces</A>.PartialBasicInductionMachine</H2>
+<B>Partial model for induction machine</B><p>
+<IMG SRC="Modelica.Electrical.Machines.Interfaces.PartialBasicInductionMachineD.png" ALT="Modelica.Electrical.Machines.Interfaces.PartialBasicInductionMachine">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+Partial model for induction machine models, containing:
+<ul>
+<li>main parts of the icon</li>
+<li>stator plugs</li>
+<li>mechanical connectors</li>
+</ul>
+</p>
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>J_Rotor</TD><TD>&nbsp;</TD><TD>rotor's moment of inertia [kg.m2]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>p</TD><TD>2</TD><TD>number of pole pairs (Integer)</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>flange_a</TD><TD>&nbsp;</TD></TR>
+<TR><TD>&nbsp;</TD><TD>plug_sp</TD><TD>&nbsp;</TD></TR>
+<TR><TD>&nbsp;</TD><TD>plug_sn</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">partial </font><font color="blue">model</font> PartialBasicInductionMachine <font color="darkgreen">
+  &quot;Partial model for induction machine&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Machines_Interfaces.html#Modelica.Electrical.Machines.Interfaces.PartialBasicMachine"
+>PartialBasicMachine</A>(J_Rotor=0.29);
+  <font color="blue">constant </font>Real pi=Modelica.Constants.pi;
+  <font color="blue">constant </font>Integer m=3 <font color="darkgreen">&quot;number of phases&quot;</font>;
+  <font color="blue">parameter </font>Integer p(min=1)=2 <font color="darkgreen">&quot;number of pole pairs (Integer)&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> vs[m] = plug_sp.pin.v - plug_sn.pin.v <font color="darkgreen">
+    &quot;stator instantaneous voltages&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Current"
+>Modelica.SIunits.Current</A> is[m] = plug_sp.pin.i <font color="darkgreen">
+    &quot;stator instantaneous currents&quot;</font>;
+  <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.PositivePlug"
+>Modelica.Electrical.MultiPhase.Interfaces.PositivePlug</A> plug_sp(<font color="blue">final </font>m=m);
+  <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.NegativePlug"
+>Modelica.Electrical.MultiPhase.Interfaces.NegativePlug</A> plug_sn(<font color="blue">final </font>m=m);
+<font color="blue">end </font>PartialBasicInductionMachine;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PartialBasicDCMachine<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Machines.Interfaces.PartialBasicDCMachineI.png" ALT="Modelica.Electrical.Machines.Interfaces.PartialBasicDCMachine" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Machines.Interfaces.PartialBasicDCMachine"></A><A HREF="Modelica_Electrical_Machines_Interfaces.html#Modelica.Electrical.Machines.Interfaces"
+>Modelica.Electrical.Machines.Interfaces</A>.PartialBasicDCMachine</H2>
+<B>Partial model for DC machine</B><p>
+<IMG SRC="Modelica.Electrical.Machines.Interfaces.PartialBasicDCMachineD.png" ALT="Modelica.Electrical.Machines.Interfaces.PartialBasicDCMachine">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+Partial model for DC machine models, containing:
+<ul>
+<li>main parts of the icon</li>
+<li>armature pins</li>
+<li>mechanical connectors</li>
+</ul>
+</p>
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>J_Rotor</TD><TD>&nbsp;</TD><TD>rotor's moment of inertia [kg.m2]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>flange_a</TD><TD>&nbsp;</TD></TR>
+<TR><TD>&nbsp;</TD><TD>pin_ap</TD><TD>&nbsp;</TD></TR>
+<TR><TD>&nbsp;</TD><TD>pin_an</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">partial </font><font color="blue">model</font> PartialBasicDCMachine <font color="darkgreen">&quot;Partial model for DC machine&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Machines_Interfaces.html#Modelica.Electrical.Machines.Interfaces.PartialBasicMachine"
+>PartialBasicMachine</A>(J_Rotor=0.15);
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> va = pin_ap.v-pin_an.v <font color="darkgreen">&quot;armature voltage&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Current"
+>Modelica.SIunits.Current</A> ia = pin_ap.i <font color="darkgreen">&quot;armature current&quot;</font>;
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.PositivePin"
+>Modelica.Electrical.Analog.Interfaces.PositivePin</A> pin_ap;
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.NegativePin"
+>Modelica.Electrical.Analog.Interfaces.NegativePin</A> pin_an;
+<font color="blue">end </font>PartialBasicDCMachine;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Tue Mar 28 11:38:01 2006.
+</address></BODY>
+</HTML>

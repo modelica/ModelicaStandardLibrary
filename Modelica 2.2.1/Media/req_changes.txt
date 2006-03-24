@@ -1,0 +1,376 @@
+REQUESTED CHANGES TO MODELICA.MEDIA
+0.
+Add package constants for all physical data that is needed by physical
+property estimation routines, and add to NASA data were available.
+Initial list:
+Molar Masses
+Critical Temperature, Pressure and Volume/Density
+Accentric factor
+Dipole Moments
+? Association factors
+
+scalar for pure substance, vector otherwise
+
+1.
+Remove references to "gas" from Interfaces.PartialMixtureMedium
+---
+Date submitted: 13 Jan 2005 by: Francesco Casella
+Date fixed: 2005-01-14 by: Hubertus
+---
+
+2.
+IdealGases.Common.SingleGas should probably be renamed to
+IdealGases.Common.SingleGasNasa for uniformity reasons
+---
+Date submitted: 13 Jan 2005 by: Francesco Casella
+Date fixed: 2005-01-14 by: Hubertus
+---
+
+3.
+Interfaces.TemplateMedium should be updated with the last changes
+(add R=0 to BaseProperties, new nX and reducedX, etc.)
+It should be tested by creating a new, simple medium model from scratch
+just before the release of the library
+---
+Date submitted: 13 Jan 2005 by: Francesco Casella
+Assigned to: Francesco
+Date fixed: None by: None
+---
+
+4.
+References to Prandtl and Brigdman are sometimes misspelled throughout
+the library
+---
+Date submitted: 13 Jan 2005 by: Francesco Casella
+Date fixed: 2005-01-14 by: Hubertus
+---
+
+5.
+A final check of all the "restricted" WaterIF97 models should be performed,
+some of them, though restricted, do not perform better than the base model,
+and should then probably be removed.
+---
+Date submitted: 13 Jan 2005 by: Francesco Casella
+Assigned to: Francesco (keep me posted, Hubertus)
+Date fixed: None by: None
+---
+
+6.
+Add WaterIF97_ph models, restricted to Region 1 and to Region 2, to
+allow for faster performance.
+---
+Date submitted: 13 Jan 2005 by: Francesco Casella
+Assigned to: Francesco Casella (?)
+Date fixed: None by: None
+---
+
+7.
+The unit type used for the Volumetric coefficient of thermal expansion
+[Bejan], a.k.a. volume expansivity or beta coefficient, is called
+RelativePressureCoefficient. Although the actual unit is OK (1/K),
+this has nothing to do with pressure, so the name should be changed.
+----
+Date submitted: 13 Jan 2005 by: Francesco Casella
+Date fixed: 2005-01-14 by: Hubertus
+---
+
+8.
+Function Interfaces.PartialMixtureMedium.density_derX requires the molar
+mass of the mixture as an input. Although this can be useful for ideal gas
+mixtures, it is probably of no use, e.g., for liquid mixtures. Therefore,
+it is probably better to remove it as an input, and to add it to the
+ThermodynamicState vector.
+Comment: I dissagree on that issue: the ThermodynamicState vector
+should be minimal if possible. But: this shows the need that a lot
+more package constants are needed, molar masses, critical data and the like.
+
+I fixed it a little differently: a new function mixtureMolaMass that
+takes state as input. It works for ideal gas mixtures.
+
+Name later changed to molarMass, since it also applies to pure media.
+----
+Date submitted: 13 Jan 2005 by: Francesco Casella
+Assigned to: Hubertus
+Testing assigned to: Francesco
+Date fixed: 2005-01-14 by: Hubertus
+Date fixed: 2005-02-17 by: Francesco
+---
+
+9.
+1) Nasa vs. NASA: this is consistent: as part of a function or class
+name nameNasa, if by itself NASA
+* The spelling should be "discontinuous" and "monatomic" in the documentation of SingleGas that currently reads "A few of the data sets for monoatomic gases have a discontinous 1st derivative at 1000K, but this never caused problems so far."
+[The first I saw myself - the second I detected when using spell-checking in word, and Webster confirmed it.]
+* The Media-model should be SingleGas (singular) as you wrote in req_changes.txt.
+
+Date submitted: 13 Jan 2005 by: Hans
+Date fixed: 2005-01-14 by: Hubertus
+
+10.
+ Renaming of cp and cv
+Date fixed: 2005-01-16 by: Hubertus
+---
+
+11.
+Modelica_Media.Interfaces.PartialMixtureMedium.ThermodynamicState already contains p,T,X.
+Although fairly sophisticated models would probably just need those
+variables, an incompressible fluid model (e.g.) won't need the pressure
+p by definition. I would thus remove those declarations, and leave to
+each single medium model the task to declare its own state variables, as
+it's done with media extending PartialMedium.
+---
+Date submitted: 17 Jan 2005 by: Francesco Casella
+Assigned to: None
+Testing assigned to: None
+Date fixed:  by: None
+---
+
+12.
+Modelica_Media.Interfaces.PartialMixtureMedium.BaseProperties.MM
+This is surely needed for ideal gas mixtures, but maybe not for other
+models (e.g. for liquid mixtures). Same cure, remove from here and add
+to IdealGas.MixtureGasNasa.* models.
+---
+Date submitted: 17 Jan 2005 by: Francesco Casella
+Assigned to: None
+Testing assigned to: None
+Date fixed:  by: None
+---
+
+13.
+Modelica_Media.Interfaces.PartialMixtureMedium.BaseProperties.h_component[]
+Externally supplied media models (e.g. foreign C models) could supply the total
+mixture enthalpy h, but not the componentwise enthalpy. It is of course possible
+to set them to zero, but maybe it's better to remove this from the standard
+interface and to add it to gas mixture models as well.
+---
+Date submitted: 17 Jan 2005 by: Francesco Casella
+Assigned to: None
+Testing assigned to: None
+Date fixed:  by: None
+---
+
+14.
+Component molar masses in current IdealGases NASA models are contained
+in the package "data" record. Unfortunately, this datum, which can be
+important when dealing with chemical reactions, is not included in any
+generic medium interfaces. I'd suggest adding it to the PartialMixtureMedium
+interface.
+---
+Date submitted: 17 Jan 2005 by: Francesco Casella
+Assigned to: None
+Testing assigned to: None
+Date fixed:  by: None
+---
+
+
+15.
+o Dimension of nX is number of substances (nX=1 for one substance)
+o Changed size(substanceNames,1) everywhere to nX
+o Changed p_reference to reference_p
+  Changed referenceX  to reference_X
+o Changed SimpleMedium to PartialSimpleMedium
+o Introduced "MM_const" in PartialSimpleMedium
+o Set MM_const=18.016e-3 for ConstantPropertyLiquidWater
+---
+Date submitted: 21 Jan 2005 by: Martin Otter
+Assigned to: None
+Testing assigned to: None
+Date fixed:  by: Martin Otter
+
+
+16) Fixing viscosity and thermal conductivity for gases and consistent
+addition of data as it becomes available:
+
+Current situation:
+The currently implemented functions for ideal gas viscosity and
+thermal conductivity don't follow the standard for all other functions
+that have the state record as input. They can't: they require data
+that is not yet present in Modelica.Media.
+
+In order to fix the situation, more data is needed, and if the input
+convention is to be kept, the data has to be present in the form of
+package constants.
+
+The following constants are currently declared in the Media package:
+
+In PartialMedium
+    constant String mediumName "Name of the medium";
+    constant String substanceNames[:]= fill("",0) "Names of the mixture substances. Set substanceNames=fill(\"\",0) if only one substance.";
+    constant String extraPropertiesNames[:]= fill("",0) "Names of ... Set extraPropertiesNames=fill(\"\",0) if unused";
+    constant Boolean incompressible "= true, if medium is incompressible (i.e., density = constant)";
+    constant Integer nX =  if size(substanceNames, 1) > 1 then size(substanceNames, 1) else 0;
+    constant MassFraction referenceX[nX] "Default composition of medium";
+    constant Integer nC =  size(extraPropertiesNames,1) ;
+    constant AbsolutePressure p_reference = 101325 "reference pressure of Medium: default 1 atmosphere";
+
+In PartialPureSubstance:
+    constant String iupacName "complete IUPAC name";
+    constant String casRegistryNumber "chemical abstracts sequencing number";
+    constant String chemicalFormula "Chemical formula, (brutto, nomenclature according to Hill";
+    constant String structureFormula "Chemical structure formula";
+
+
+The following additional constants are needed to compute viscosity and
+thermal conductivity:
+
+criticalPressure
+criticalTemperature
+criticalDensity (or criticalVolume)
+molarMass
+dipoleMoment
+
+They could be in a record for each pure component, and a vector of
+records for each mixture, parallel to the heat capacity data from
+NASA. Most of the above are already defined the the record
+FluidConstats for two phase media, which would instead be "redeclare
+extends" from the basic one.
+
+Except for the molar mass, none of these is available in the NASA
+data. The NASA data comes with extra coefficients for viscosity in an
+extra file, but for much fewer components, and complex to use in
+mixtures due to separate "interaction parameters" for each pair of
+gases in a mixture. I have acess to a few hundred sets of
+critical data, but far less than the NASA-coefficients, and not even a
+proper subset.
+
+This highlights particular problems with medium data:
+1) Data has to be obtained and used from different sources.
+2) The situation changes yearly.
+3) Users need a simple means to take some data from Modelica.Media,
+and add their own when they have better data (subscription to a
+particularly "good" property databases comes at 36 000 Euro/year
+
+Obviously the best solution would be to completely separate the data
+from the model, and query the data on demand from a database (unless
+you run embedded of course).
+
+A solution that takes this situation into account should at least do
+the following:
+1) Each "data-source" that is used in Modelica.Media should have a
+name (e.g. the NASA-data comes from 1 public file that is widely used,
+the critical data that I have comes from a book, etc.)
+2) Each medium package should have a set of Booleans (a data
+structure) that lets a user query what data is available, and from
+what source it comes. This data structure can grow as we get access to
+more data. See a suggestion that covers the current status below.
+
+
+record DataSources "data sources"
+constant Boolean hasIdealGasHeatCapacity=false "true if ideal gas heat capacity is available";
+constant String idealGasHeatCapacitySource="none" "data source for ideal gas heat capacity coefficients";
+constant Boolean hasCriticalPressure=false "true if critical pressure is known";
+constant Boolean hasCriticalTemperature=false "true if critical temperature is known";
+constant Boolean hasCriticalVolume=false "true if critical volume is known";
+constant String criticalDataSource="none" "source for critical data";
+constant Boolean hasFundamentalEquation=false "true if a fundamental
+equation";
+constant String fundamentalEquationSource="none" "source of the fundamental
+equation model";
+constant Boolean hasLiquidHeatCapacity=false "true if liquid heat capacity is available";
+constant Boolean hasSolidHeatCapacity=false "true if solid heat capacity is available";
+constant Boolean hasAccurateViscosityData "true if accurate data for
+a viscosity function is available";
+constant Boolean hasAccurateConductivityData "true if accurate data for
+a thermal conductivity function is available";
+end DataSources;
+
+For some of the NASA data, there are heat capacity coefficients for
+the solid state too.  Molar Mass is always known, and could be a
+separate package constant that has to be defined always.
+
+That data record should be part of every pure medium data set, or
+medium package if we don't separate it. Mixture models need a way to
+query what data is available for all of the mixture constituents and
+based on that, the best possible method for computing properties is
+selected. In the current situation that woudl mean: only when critical
+data and dipole moments of all species in a mixture are known can the
+viscosity be computed.
+
+Now that there are a number of string parsing functions in
+Modelica_Utilities, the critical data could be stored on file as a
+primitive database and parsed: no changes to the medium models are
+necessary as we get access to more data.
+
+The goal is, that this could even work with external data, using a
+user-supplied query function. The casRegistryNumber is the simplest
+generally accepted identifier for a substance.
+
+I would at least like to be able to compute viscosities and thermal
+conductivity for the most important technical gases, i.e. combustion
+poducts, natural gas mixtures, gaseous fuels, refrigerants, ... for the 1.0
+release.
+
+Date submitted: 27 Jan 2005 by: Hubertus
+
+
+======================================================================
+Martin Feb. 22 2005:
+
+
+Results of Modelica_Media.Examples.Tests
+
+- Models that are satisfactorily (they simulate,
+  static state selection and no non-linear system of equations)
+    Modelica_Media.Examples.Tests.MediaTestModels.Air.SimpleAir
+    Modelica_Media.Examples.Tests.MediaTestModels.IdealGases.SimpleNaturalGas
+    Modelica_Media.Examples.Tests.MediaTestModels.Water.ConstantPropertyLiquidWater
+    Modelica_Media.Examples.Tests.MediaTestModels.Water.WaterIF97OnePhase_ph
+    Modelica_Media.Examples.Tests.MediaTestModels.Water.WaterIF97_ph
+
+
+- Issues to be fixed by Dynasim (Sven Erik/Hans):
+  o Modelica_Media.Examples.Tests.MediaTestModels.Air.DryAirNasa
+    Modelica_Media.Examples.Tests.MediaTestModels.IdealGases.Air
+    Modelica_Media.Examples.Tests.MediaTestModels.Water.IdealSteam
+      two non-linear systems of equations of size 1 each
+      (the same reason for all media)
+
+  o Modelica_Media.Examples.Tests.MediaTestModels.Incompressible.Glycol47
+    Modelica_Media.Examples.Tests.MediaTestModels.Incompressible.Essotherm650
+      two non-linear systems of equations of size 1 each
+      (the same reason for both media)
+
+  o Modelica_Media.Examples.Tests.MediaTestModels.Water.WaterIF97_pT
+      two non-linear systems of equations of size 1 each
+
+  o Modelica_Media.Examples.Tests.MediaTestModels.Water.WaterIF97_dT
+      three non-linear systems of equations of size {1,2,2}
+
+  o Modelica_Media.Examples.Tests.MediaTestModels.Air.MoistAir
+    When using a function in MoistAir
+        h = h_pTX(p,T,X_i);
+    instead of
+        h = h_component *{X_steam, X_air} + enthalpyOfLiquid(T)*X_liquid;
+    Dymola does not translate
+        Error for function: Modelica_Media.Air.MoistAir.h_pTX:der.
+    This was already reported to Hans.
+    When replacing the function by the equation, the test model
+    translates and simulates. There are two non-linear systems of
+    equations of size 1 each (this is understandable, since h is not
+    computed via a function).
+
+
+- Issues to be fixed by Hubertus and/or Jonas:
+  o Modelica_Media.Examples.Tests.MediaTestModels.Incompressible.Glycol47
+    Modelica_Media.Examples.Tests.MediaTestModels.Incompressible.Essotherm650
+      Simulation fails (wrong initial conditions?)
+
+    The table based media have the general problem that "u" is a function
+    of "pressure". Therefore, there will be two states "p,T", two
+    differential equations and two initial conditions. The flag
+    "incompressible" was introduced to define whether an initial condition
+    for "p" or "d" has to be provided. This means "incompressible" has to
+    be set to "false", since 2 initial conditions are needed. I have
+    changed the flag from "true" to "false". However, then the general
+    name for the package "Incompressible" is odd.
+
+  o Modelica_Media.Examples.Tests.MediaTestModels.Water.WaterIF97_pT
+    Modelica_Media.Examples.Tests.MediaTestModels.Water.WaterIF97_dT
+      Simulation fails. This is a bit strange, because simulation with
+      Modelica_Media.Examples.Tests.MediaTestModels.Water.WaterIF97_ph
+      works fine.
+
+  o PartialMixtureMedium has "p" as ThermodynamicState.
+    This is not true for incompressible mixtures.
+    Probably best to remove redeclaration of ThermodynamicState

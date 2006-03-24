@@ -1,0 +1,279 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Thermal.HeatTransfer.Examples</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Example models to demonstrate the usage of package Modelica.Thermal.HeatTransfer&quot;">
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Examples<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Thermal.HeatTransfer.Examples"></A><A HREF="Modelica_Thermal_HeatTransfer.html#Modelica.Thermal.HeatTransfer"
+>Modelica.Thermal.HeatTransfer</A>.Examples</H2>
+<B>Example models to demonstrate the usage of package Modelica.Thermal.HeatTransfer</B>
+<P>
+<H3>Information</H3>
+<PRE></pre>
+
+<pre></PRE><P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Thermal.HeatTransfer.Examples.TwoMassesS.png" ALT="Modelica.Thermal.HeatTransfer.Examples.TwoMasses" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_HeatTransfer_Examples.html#Modelica.Thermal.HeatTransfer.Examples.TwoMasses"
+>TwoMasses</A>
+</TD><TD>Simple conduction demo</TD></TR>
+<TR><TD><IMG SRC="Modelica.Thermal.HeatTransfer.Examples.TwoMassesS.png" ALT="Modelica.Thermal.HeatTransfer.Examples.ControlledTemperature" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_HeatTransfer_Examples.html#Modelica.Thermal.HeatTransfer.Examples.ControlledTemperature"
+>ControlledTemperature</A>
+</TD><TD>Control temperature of a resistor</TD></TR>
+<TR><TD><IMG SRC="Modelica.Thermal.HeatTransfer.Examples.TwoMassesS.png" ALT="Modelica.Thermal.HeatTransfer.Examples.Motor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_HeatTransfer_Examples.html#Modelica.Thermal.HeatTransfer.Examples.Motor"
+>Motor</A>
+</TD><TD>Second order thermal model of a motor</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TwoMasses<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Thermal.HeatTransfer.Examples.TwoMassesI.png" ALT="Modelica.Thermal.HeatTransfer.Examples.TwoMasses" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Thermal.HeatTransfer.Examples.TwoMasses"></A><A HREF="Modelica_Thermal_HeatTransfer_Examples.html#Modelica.Thermal.HeatTransfer.Examples"
+>Modelica.Thermal.HeatTransfer.Examples</A>.TwoMasses</H2>
+<B>Simple conduction demo</B><p>
+<IMG SRC="Modelica.Thermal.HeatTransfer.Examples.TwoMassesD.png" ALT="Modelica.Thermal.HeatTransfer.Examples.TwoMasses">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This example demonstrates the thermal response of two masses connected by
+a conducting element. The two masses have the same heat capacity but different
+initial temperatures (T1=100 [degC], T2= 0 [degC]). The mass with the higher
+temperature will cool off while the mass with the lower temperature heats up.
+They will each asymptotically approach the calculated temperature <b>T_final_K</b>
+(<b>T_final_degC</b>) that results from dividing the total initial energy in the system by the sum
+of the heat capacities of each element.
+</p>
+<p>
+Simulate for 5 s and plot the variables<br>
+mass1.T, mass2.T, T_final_K or <br>
+Tsensor1.T, Tsensor2.T, T_final_degC
+</p>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>T_final_K</TD><TD>&nbsp;</TD><TD>Projected final temperature [K]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>T_final_degC</TD><TD>&nbsp;</TD><TD>Projected final temperature [degC]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TwoMasses <font color="darkgreen">&quot;Simple conduction demo&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> T_final_K(fixed=false) <font color="darkgreen">&quot;Projected final temperature&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits.Temperature_degC"
+>NonSI.Temperature_degC</A> T_final_degC(fixed=false) <font color="darkgreen">
+    &quot;Projected final temperature&quot;</font>;
+  <A HREF="Modelica_Thermal_HeatTransfer.html#Modelica.Thermal.HeatTransfer.HeatCapacitor"
+>HeatTransfer.HeatCapacitor</A> mass1(C=15, T(start=<font color="red">from_degC</font>(100)));
+  <A HREF="Modelica_Thermal_HeatTransfer.html#Modelica.Thermal.HeatTransfer.HeatCapacitor"
+>HeatTransfer.HeatCapacitor</A> mass2(C=15, T(start=<font color="red">from_degC</font>(0)));
+  <A HREF="Modelica_Thermal_HeatTransfer.html#Modelica.Thermal.HeatTransfer.ThermalConductor"
+>HeatTransfer.ThermalConductor</A> conduction(G=10);
+  <A HREF="Modelica_Thermal_HeatTransfer_Celsius.html#Modelica.Thermal.HeatTransfer.Celsius.TemperatureSensor"
+>HeatTransfer.Celsius.TemperatureSensor</A> Tsensor1;
+  <A HREF="Modelica_Thermal_HeatTransfer_Celsius.html#Modelica.Thermal.HeatTransfer.Celsius.TemperatureSensor"
+>HeatTransfer.Celsius.TemperatureSensor</A> Tsensor2;
+<font color="blue">equation </font>
+  <font color="red">connect</font>(mass1.port, conduction.port_a);
+  <font color="red">connect</font>(conduction.port_b, mass2.port);
+  <font color="red">connect</font>(mass1.port, Tsensor1.port);
+  <font color="red">connect</font>(mass2.port, Tsensor2.port);
+<font color="blue">initial </font><font color="blue">equation </font>
+  T_final_K = (mass1.port.T*mass1.C + mass2.port.T*mass2.C)/(mass1.C +
+    mass2.C);
+  T_final_degC =<font color="red"> to_degC</font>(T_final_K);
+<font color="blue">end </font>TwoMasses;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ControlledTemperature<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Thermal.HeatTransfer.Examples.TwoMassesI.png" ALT="Modelica.Thermal.HeatTransfer.Examples.ControlledTemperature" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Thermal.HeatTransfer.Examples.ControlledTemperature"></A><A HREF="Modelica_Thermal_HeatTransfer_Examples.html#Modelica.Thermal.HeatTransfer.Examples"
+>Modelica.Thermal.HeatTransfer.Examples</A>.ControlledTemperature</H2>
+<B>Control temperature of a resistor</B><p>
+<IMG SRC="Modelica.Thermal.HeatTransfer.Examples.ControlledTemperatureD.png" ALT="Modelica.Thermal.HeatTransfer.Examples.ControlledTemperature">
+<H3>Information</H3>
+<PRE></pre>
+<P>
+A constant voltage of 10 V is applied to a
+temperature dependent resistor of 10*(1+(T-20C)/(235+20C)) Ohms,
+whose losses v**2/r are dissipated via a
+thermal conductance of 0.1 W/K to ambient temperature 20 degree C.
+The resistor is assumed to have a thermal capacity of 1 J/K,
+having ambient temparature at the beginning of the experiment.
+The temperature of this heating resistor is held by an OnOff-controller
+at reference temperature within a given bandwith +/- 1 K
+by switching on and off the voltage source.
+The reference temperature starts at 25 degree C
+and rises between t = 2 and 8 seconds linear to 50 degree C.
+An approppriate simulating time would be 10 seconds.
+</P>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>TAmb</TD><TD>20</TD><TD>Ambient Temperature [degC]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>TDif</TD><TD>2</TD><TD>Error in Temperature [degC]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> ControlledTemperature <font color="darkgreen">&quot;Control temperature of a resistor&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits.Temperature_degC"
+>NonSI.Temperature_degC</A> TAmb=20 <font color="darkgreen">&quot;Ambient Temperature&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits.Temperature_degC"
+>NonSI.Temperature_degC</A> TDif=2 <font color="darkgreen">&quot;Error in Temperature&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits.Temperature_degC"
+>NonSI.Temperature_degC</A> TRes =<font color="red"> to_degC</font>(HeatingResistor1.heatPort.T) <font color="darkgreen">
+    &quot;Resulting Temperature&quot;</font>;
+  <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Ground"
+>Modelica.Electrical.Analog.Basic.Ground</A> Ground1;
+  <A HREF="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources.ConstantVoltage"
+>Modelica.Electrical.Analog.Sources.ConstantVoltage</A> ConstantVoltage1(V=10);
+  <A HREF="Modelica_Thermal_HeatTransfer.html#Modelica.Thermal.HeatTransfer.HeatCapacitor"
+>HeatTransfer.HeatCapacitor</A> HeatCapacitor1(C=1, T(start=<font color="red">from_degC</font>(TAmb)));
+  <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.HeatingResistor"
+>Modelica.Electrical.Analog.Basic.HeatingResistor</A> HeatingResistor1(
+    R_ref=10,
+    T_ref=<font color="red">from_degC</font>(20),
+    alpha=1/(235 + 20));
+  <A HREF="Modelica_Thermal_HeatTransfer_Celsius.html#Modelica.Thermal.HeatTransfer.Celsius.FixedTemperature"
+>HeatTransfer.Celsius.FixedTemperature</A> FixedTemperature1(T=TAmb);
+  <A HREF="Modelica_Thermal_HeatTransfer_Celsius.html#Modelica.Thermal.HeatTransfer.Celsius.TemperatureSensor"
+>HeatTransfer.Celsius.TemperatureSensor</A> TemperatureSensor1;
+  <A HREF="Modelica_Thermal_HeatTransfer.html#Modelica.Thermal.HeatTransfer.ThermalConductor"
+>HeatTransfer.ThermalConductor</A> ThermalConductor1(G=0.1);
+  <A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch"
+>Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch</A> IdealSwitch1;
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> Ramp1(
+    height=25,
+    duration=6,
+    offset=25,
+    startTime=2);
+  <A HREF="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical.OnOffController"
+>Modelica.Blocks.Logical.OnOffController</A> OnOffController1(bandwidth=TDif);
+  <A HREF="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical.Not"
+>Modelica.Blocks.Logical.Not</A> Not1;
+<font color="blue">equation </font>
+  <font color="red">connect</font>(ConstantVoltage1.n, HeatingResistor1.n);
+  <font color="red">connect</font>(ConstantVoltage1.n, Ground1.p);
+  <font color="red">connect</font>(HeatingResistor1.heatPort, ThermalConductor1.port_a);
+  <font color="red">connect</font>(ThermalConductor1.port_b, FixedTemperature1.port);
+  <font color="red">connect</font>(HeatingResistor1.heatPort, TemperatureSensor1.port);
+  <font color="red">connect</font>(HeatingResistor1.heatPort, HeatCapacitor1.port);
+  <font color="red">connect</font>(ConstantVoltage1.p, IdealSwitch1.p);
+  <font color="red">connect</font>(IdealSwitch1.n, HeatingResistor1.p);
+  <font color="red">connect</font>(Ramp1.y, OnOffController1.reference);
+  <font color="red">connect</font>(TemperatureSensor1.T, OnOffController1.u);
+  <font color="red">connect</font>(OnOffController1.y, Not1.u);
+  <font color="red">connect</font>(Not1.y, IdealSwitch1.control);
+<font color="blue">end </font>ControlledTemperature;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Motor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Thermal.HeatTransfer.Examples.TwoMassesI.png" ALT="Modelica.Thermal.HeatTransfer.Examples.Motor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Thermal.HeatTransfer.Examples.Motor"></A><A HREF="Modelica_Thermal_HeatTransfer_Examples.html#Modelica.Thermal.HeatTransfer.Examples"
+>Modelica.Thermal.HeatTransfer.Examples</A>.Motor</H2>
+<B>Second order thermal model of a motor</B><p>
+<IMG SRC="Modelica.Thermal.HeatTransfer.Examples.MotorD.png" ALT="Modelica.Thermal.HeatTransfer.Examples.Motor">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This example contains a simple second order thermal model of a motor.
+The periodic power losses are described by table "lossTable":<br>
+<table>
+<tr><td>time</td><td>winding losses</td><td>core losses</td></tr>
+<tr><td>   0</td><td>           100</td><td>        500</td></tr>
+<tr><td> 360</td><td>           100</td><td>        500</td></tr>
+<tr><td> 360</td><td>          1000</td><td>        500</td></tr>
+<tr><td> 600</td><td>          1000</td><td>        500</td></tr>
+</table><br>
+Since constant speed is assumed, the core losses keep constant
+whereas the winding losses are low for 6 minutes (no-load) and high for 4 minutes (over load).
+<br>
+The winding losses are corrected by (1 + alpha*(T - T_ref)) because the winding's resistance is temperature dependent whereas the core losses are kept constant (alpha = 0).
+</p>
+<p>
+The power dissipation to the environment is approximated by heat flow through
+a thermal conductance between winding and core,
+partially storage of the heat in the winding's heat capacity
+as well as the core's heat capacity and finally by forced convection to the environment.<br>
+Since constant speed is assumed, the cinvective conductance keeps constant.<br>
+Using Modelica.Thermal.FluidHeatFlow it would be possible to model the coolant air flow, too
+(instead of simple dissipation to a constant ambient's temperature).
+</p>
+<p>
+Simulate for 7200 s; plot Twinding.T and Tcore.T.
+</p>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>TAmb</TD><TD>20</TD><TD>Ambient temperature [degC]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Motor <font color="darkgreen">&quot;Second order thermal model of a motor&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits.Temperature_degC"
+>NonSI.Temperature_degC</A> TAmb = 20 <font color="darkgreen">&quot;Ambient temperature&quot;</font>;
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.CombiTimeTable"
+>Modelica.Blocks.Sources.CombiTimeTable</A> lossTable(extrapolation=Modelica.
+        Blocks.Types.Extrapolation.Periodic, table=[0,100,500; 360,100,500;
+        360,1000,500; 600,1000,500]);
+  <A HREF="Modelica_Thermal_HeatTransfer.html#Modelica.Thermal.HeatTransfer.PrescribedHeatFlow"
+>HeatTransfer.PrescribedHeatFlow</A> windingLosses(T_ref=<font color="red">from_degC</font>(95), alpha=
+        3.03E-3);
+  <A HREF="Modelica_Thermal_HeatTransfer.html#Modelica.Thermal.HeatTransfer.HeatCapacitor"
+>HeatTransfer.HeatCapacitor</A> winding(T(start=<font color="red">from_degC</font>(TAmb)), C=2500);
+  <A HREF="Modelica_Thermal_HeatTransfer_Celsius.html#Modelica.Thermal.HeatTransfer.Celsius.TemperatureSensor"
+>HeatTransfer.Celsius.TemperatureSensor</A> Twinding;
+  <A HREF="Modelica_Thermal_HeatTransfer.html#Modelica.Thermal.HeatTransfer.ThermalConductor"
+>HeatTransfer.ThermalConductor</A> winding2core(G=10);
+  <A HREF="Modelica_Thermal_HeatTransfer.html#Modelica.Thermal.HeatTransfer.PrescribedHeatFlow"
+>HeatTransfer.PrescribedHeatFlow</A> coreLosses;
+  <A HREF="Modelica_Thermal_HeatTransfer.html#Modelica.Thermal.HeatTransfer.HeatCapacitor"
+>HeatTransfer.HeatCapacitor</A> core(T(start=<font color="red">from_degC</font>(TAmb)), C=25000);
+  <A HREF="Modelica_Thermal_HeatTransfer_Celsius.html#Modelica.Thermal.HeatTransfer.Celsius.TemperatureSensor"
+>HeatTransfer.Celsius.TemperatureSensor</A> Tcore;
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> convectionConstant(k=25);
+  <A HREF="Modelica_Thermal_HeatTransfer.html#Modelica.Thermal.HeatTransfer.Convection"
+>HeatTransfer.Convection</A> convection;
+  <A HREF="Modelica_Thermal_HeatTransfer_Celsius.html#Modelica.Thermal.HeatTransfer.Celsius.FixedTemperature"
+>HeatTransfer.Celsius.FixedTemperature</A> environment(T=TAmb);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(windingLosses.port, winding.port);
+  <font color="red">connect</font>(coreLosses.port, core.port);
+  <font color="red">connect</font>(winding.port, winding2core.port_a);
+  <font color="red">connect</font>(winding2core.port_b, core.port);
+  <font color="red">connect</font>(winding.port, Twinding.port);
+  <font color="red">connect</font>(core.port, Tcore.port);
+  <font color="red">connect</font>(winding2core.port_b, convection.solid);
+  <font color="red">connect</font>(convection.fluid, environment.port);
+  <font color="red">connect</font>(convectionConstant.y, convection.Gc);
+  <font color="red">connect</font>(lossTable.y[1], windingLosses.Q_flow);
+  <font color="red">connect</font>(lossTable.y[2], coreLosses.Q_flow);
+<font color="blue">end </font>Motor;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Tue Mar 28 11:40:57 2006.
+</address></BODY>
+</HTML>

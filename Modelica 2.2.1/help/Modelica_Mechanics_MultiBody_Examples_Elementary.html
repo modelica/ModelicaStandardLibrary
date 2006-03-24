@@ -1,0 +1,1223 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Mechanics.MultiBody.Examples.Elementary</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Elementary examples to demonstrate various features of the MultiBody library&quot;">
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Elementary<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Mechanics.MultiBody.Examples.Elementary"></A><A HREF="Modelica_Mechanics_MultiBody_Examples.html#Modelica.Mechanics.MultiBody.Examples"
+>Modelica.Mechanics.MultiBody.Examples</A>.Elementary</H2>
+<B>Elementary examples to demonstrate various features of the MultiBody library</B>
+<P>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This package contains elementary example models to demonstrate
+the usage of the MultiBody library
+</p>
+<h4>Content</h4>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><th><b><i>Model</i></b></th><th><b><i>Description</i></b></th></tr>
+  <tr><td><b><A HREF="Modelica_Mechanics_MultiBody_Examples_Elementary.html#Modelica.Mechanics.MultiBody.Examples.Elementary.DoublePendulum"
+>DoublePendulum</a></b></td>
+      <td> Simple double pendulum with two revolute joints and two bodies.<br>
+      <img src="../Images/MultiBody/Examples/Elementary/DoublePendulumSmall.png">
+      </td>
+  </tr>
+  <tr><td><b><A HREF="Modelica_Mechanics_MultiBody_Examples_Elementary.html#Modelica.Mechanics.MultiBody.Examples.Elementary.ForceAndTorque"
+>ForceAndTorque</a></b></td>
+      <td> Demonstrates usage of Forces.ForceAndTorque element.<br>
+      <img src="../Images/MultiBody/Examples/Elementary/ForceAndTorque_small.png">
+      </td>
+  </tr>
+  <tr><td><b><A HREF="Modelica_Mechanics_MultiBody_Examples_Elementary.html#Modelica.Mechanics.MultiBody.Examples.Elementary.FreeBody"
+>FreeBody</a></b></td>
+      <td> Free flying body attached by two springs to environment.<br>
+      <img src="../Images/MultiBody/Examples/Elementary/FreeBody_small.png">
+      </td>
+  </tr>
+  <tr><td><b><A HREF="Modelica_Mechanics_MultiBody_Examples_Elementary.html#Modelica.Mechanics.MultiBody.Examples.Elementary.InitSpringConstant"
+>InitSpringConstant</a></b></td>
+      <td> Determine spring constant such that system is in steady state
+           at given position.<br>
+      <img src="../Images/MultiBody/Examples/Elementary/InitSpringConstant_small.png">
+      </td>
+  </tr>
+  <tr><td><b><A HREF="Modelica_Mechanics_MultiBody_Examples_Elementary.html#Modelica.Mechanics.MultiBody.Examples.Elementary.LineForceWithTwoMasses"
+>LineForceWithTwoMasses</a></b></td>
+      <td> Demonstrates a line force with two point masses using a
+           Joints.Assemblies.JointUPS and alternatively a
+           Forces.LineForceWithTwoMasses component.<br>
+      <img src="../Images/MultiBody/Examples/Elementary/LineForceWithTwoMasses_small.png">
+      </td>
+  </tr>
+  <tr><td><b><A HREF="Modelica_Mechanics_MultiBody_Examples_Elementary.html#Modelica.Mechanics.MultiBody.Examples.Elementary.Pendulum"
+>Pendulum</a></b></td>
+      <td> Simple pendulum with one revolute joint and one body. <br>
+      <img src="../Images/MultiBody/Examples/Elementary/Pendulum_small.png">
+      </td>
+  </tr>
+  <tr><td><b><A HREF="Modelica_Mechanics_MultiBody_Examples_Elementary.html#Modelica.Mechanics.MultiBody.Examples.Elementary.PendulumWithSpringDamper"
+>PendulumWithSpringDamper</a></b></td>
+      <td> Simple spring/damper/mass system <br>
+      <img src="../Images/MultiBody/Examples/Elementary/PendulumWithSpringDamper_small.png">
+      </td>
+  </tr>
+  <tr><td><b><A HREF="Modelica_Mechanics_MultiBody_Examples_Elementary.html#Modelica.Mechanics.MultiBody.Examples.Elementary.PointGravity"
+>PointGravity</a></b></td>
+      <td> Two bodies in a point gravity field <br>
+      <img src="../Images/MultiBody/Examples/Elementary/PointGravity_small.png">
+      </td>
+  </tr>
+  <tr><td><b><a href="Modelica://Modelica.Mechanics.MultiBody.Examples.Elementary.PointGravityWithMassPoints">PointGravityWithMassPoints</a></b></td>
+      <td> Two point masses in a point gravity field (body rotation is neglected) <br>
+      <img src="../Images/MultiBody/Examples/Elementary/PointGravity_small.png">
+      </td>
+  </tr>
+  <tr><td><b><A HREF="Modelica_Mechanics_MultiBody_Examples_Elementary.html#Modelica.Mechanics.MultiBody.Examples.Elementary.SpringDamperSystem"
+>SpringDamperSystem</a></b></td>
+      <td> Spring/damper system with a prismatic joint and
+           attached on free flying body <br>
+      <img src="../Images/MultiBody/Examples/Elementary/SpringDamperSystem_small.png">
+      </td>
+  </tr>
+  <tr><td><b><A HREF="Modelica_Mechanics_MultiBody_Examples_Elementary.html#Modelica.Mechanics.MultiBody.Examples.Elementary.SpringMassSystem"
+>SpringMassSystem</a></b></td>
+      <td> Mass attached via a prismatic joint and a spring to the world frame <br>
+      <img src="../Images/MultiBody/Examples/Elementary/SpringMassSystem_small.png">
+      </td>
+  </tr>
+  <tr><td><b><A HREF="Modelica_Mechanics_MultiBody_Examples_Elementary.html#Modelica.Mechanics.MultiBody.Examples.Elementary.SpringWithMass"
+>SpringWithMass</a></b></td>
+      <td> Point mass hanging on a spring <br>
+      <img src="../Images/MultiBody/Examples/Elementary/SpringWithMass_small.png">
+      </td>
+  </tr>
+  <tr><td><b><A HREF="Modelica_Mechanics_MultiBody_Examples_Elementary.html#Modelica.Mechanics.MultiBody.Examples.Elementary.ThreeSprings"
+>ThreeSprings</a></b></td>
+      <td> 3-dimensional springs in series and parallel connection<br>
+      <img src="../Images/MultiBody/Examples/Elementary/ThreeSprings_small.png">
+      </td>
+  </tr>
+</table>
+<pre></PRE><P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Elementary.DoublePendulumS.png" ALT="Modelica.Mechanics.MultiBody.Examples.Elementary.DoublePendulum" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Examples_Elementary.html#Modelica.Mechanics.MultiBody.Examples.Elementary.DoublePendulum"
+>DoublePendulum</A>
+</TD><TD>Simple double pendulum with two revolute joints and two bodies</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Elementary.DoublePendulumS.png" ALT="Modelica.Mechanics.MultiBody.Examples.Elementary.ForceAndTorque" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Examples_Elementary.html#Modelica.Mechanics.MultiBody.Examples.Elementary.ForceAndTorque"
+>ForceAndTorque</A>
+</TD><TD>Demonstrate usage of ForceAndTorque element</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Elementary.DoublePendulumS.png" ALT="Modelica.Mechanics.MultiBody.Examples.Elementary.FreeBody" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Examples_Elementary.html#Modelica.Mechanics.MultiBody.Examples.Elementary.FreeBody"
+>FreeBody</A>
+</TD><TD>Free flying body attached by two springs to environment</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Elementary.DoublePendulumS.png" ALT="Modelica.Mechanics.MultiBody.Examples.Elementary.InitSpringConstant" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Examples_Elementary.html#Modelica.Mechanics.MultiBody.Examples.Elementary.InitSpringConstant"
+>InitSpringConstant</A>
+</TD><TD>Determine spring constant such that system is in steady state at given position</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Elementary.DoublePendulumS.png" ALT="Modelica.Mechanics.MultiBody.Examples.Elementary.LineForceWithTwoMasses" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Examples_Elementary.html#Modelica.Mechanics.MultiBody.Examples.Elementary.LineForceWithTwoMasses"
+>LineForceWithTwoMasses</A>
+</TD><TD>Demonstrate line force with two point masses using a JointUPS and alternatively a LineForceWithTwoMasses component</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Elementary.DoublePendulumS.png" ALT="Modelica.Mechanics.MultiBody.Examples.Elementary.Pendulum" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Examples_Elementary.html#Modelica.Mechanics.MultiBody.Examples.Elementary.Pendulum"
+>Pendulum</A>
+</TD><TD>Simple pendulum with one revolute joint and one body</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Elementary.DoublePendulumS.png" ALT="Modelica.Mechanics.MultiBody.Examples.Elementary.PendulumWithSpringDamper" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Examples_Elementary.html#Modelica.Mechanics.MultiBody.Examples.Elementary.PendulumWithSpringDamper"
+>PendulumWithSpringDamper</A>
+</TD><TD>Simple spring/damper/mass system</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Elementary.DoublePendulumS.png" ALT="Modelica.Mechanics.MultiBody.Examples.Elementary.PointGravity" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Examples_Elementary.html#Modelica.Mechanics.MultiBody.Examples.Elementary.PointGravity"
+>PointGravity</A>
+</TD><TD>Two point masses in a point gravity field</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Elementary.DoublePendulumS.png" ALT="Modelica.Mechanics.MultiBody.Examples.Elementary.PointGravityWithPointMasses" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Examples_Elementary.html#Modelica.Mechanics.MultiBody.Examples.Elementary.PointGravityWithPointMasses"
+>PointGravityWithPointMasses</A>
+</TD><TD>Two point masses in a point gravity field (rotation of bodies is neglected)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Elementary.DoublePendulumS.png" ALT="Modelica.Mechanics.MultiBody.Examples.Elementary.SpringDamperSystem" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Examples_Elementary.html#Modelica.Mechanics.MultiBody.Examples.Elementary.SpringDamperSystem"
+>SpringDamperSystem</A>
+</TD><TD>Simple spring/damper/mass system</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Elementary.DoublePendulumS.png" ALT="Modelica.Mechanics.MultiBody.Examples.Elementary.SpringMassSystem" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Examples_Elementary.html#Modelica.Mechanics.MultiBody.Examples.Elementary.SpringMassSystem"
+>SpringMassSystem</A>
+</TD><TD>Mass attached with a spring to the world frame</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Elementary.DoublePendulumS.png" ALT="Modelica.Mechanics.MultiBody.Examples.Elementary.SpringWithMass" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Examples_Elementary.html#Modelica.Mechanics.MultiBody.Examples.Elementary.SpringWithMass"
+>SpringWithMass</A>
+</TD><TD>Point mass hanging on a spring</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Elementary.DoublePendulumS.png" ALT="Modelica.Mechanics.MultiBody.Examples.Elementary.ThreeSprings" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Examples_Elementary.html#Modelica.Mechanics.MultiBody.Examples.Elementary.ThreeSprings"
+>ThreeSprings</A>
+</TD><TD>3-dim. springs in series and parallel connection</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE DoublePendulum<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Elementary.DoublePendulumI.png" ALT="Modelica.Mechanics.MultiBody.Examples.Elementary.DoublePendulum" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Examples.Elementary.DoublePendulum"></A><A HREF="Modelica_Mechanics_MultiBody_Examples_Elementary.html#Modelica.Mechanics.MultiBody.Examples.Elementary"
+>Modelica.Mechanics.MultiBody.Examples.Elementary</A>.DoublePendulum</H2>
+<B>Simple double pendulum with two revolute joints and two bodies</B><p>
+<IMG SRC="Modelica.Mechanics.MultiBody.Examples.Elementary.DoublePendulumD.png" ALT="Modelica.Mechanics.MultiBody.Examples.Elementary.DoublePendulum">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This example demonstrates that by using joint and body
+elements animation is automatically available. Also the revolute
+joints are animated. Note, that animation of every component
+can be switched of by setting the first parameter <b>animation</b>
+to <b>false</b> or by setting <b>enableAnimation</b> in the <b>world</b>
+object to <b>false</b> to switch off animation of all components.
+</p>
+<p align="center">
+<IMG SRC="../Images/MultiBody/Examples/Elementary/DoublePendulum.png"
+ALT="model Examples.Elementary.DoublePendulum">
+</p>
+<pre></PRE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> DoublePendulum <font color="darkgreen">
+  &quot;Simple double pendulum with two revolute joints and two bodies&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+  <font color="blue">inner </font><A HREF="Modelica_Mechanics_MultiBody.html#Modelica.Mechanics.MultiBody.World"
+>Modelica.Mechanics.MultiBody.World</A> world;
+  <A HREF="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute"
+>Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute</A> revolute1(initType=Modelica.Mechanics.MultiBody.Types.Init.
+        PositionVelocity);
+  <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Damper"
+>Modelica.Mechanics.Rotational.Damper</A> damper(d=0.1);
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.BodyBox"
+>Modelica.Mechanics.MultiBody.Parts.BodyBox</A> boxBody1(r={0.5,0,0}, width=0.06);
+  <A HREF="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints.Revolute"
+>Modelica.Mechanics.MultiBody.Joints.Revolute</A> revolute2(initType=Modelica.Mechanics.MultiBody.Types.Init.
+        PositionVelocity);
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.BodyBox"
+>Modelica.Mechanics.MultiBody.Parts.BodyBox</A> boxBody2(r={0.5,0,0}, width=0.06);
+<font color="blue">equation </font>
+
+  <font color="red">connect</font>(damper.flange_b, revolute1.axis);
+  <font color="red">connect</font>(revolute1.bearing, damper.flange_a);
+  <font color="red">connect</font>(revolute1.frame_b, boxBody1.frame_a);
+  <font color="red">connect</font>(revolute2.frame_b, boxBody2.frame_a);
+  <font color="red">connect</font>(boxBody1.frame_b, revolute2.frame_a);
+  <font color="red">connect</font>(world.frame_b, revolute1.frame_a);
+<font color="blue">end </font>DoublePendulum;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ForceAndTorque<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Elementary.DoublePendulumI.png" ALT="Modelica.Mechanics.MultiBody.Examples.Elementary.ForceAndTorque" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Examples.Elementary.ForceAndTorque"></A><A HREF="Modelica_Mechanics_MultiBody_Examples_Elementary.html#Modelica.Mechanics.MultiBody.Examples.Elementary"
+>Modelica.Mechanics.MultiBody.Examples.Elementary</A>.ForceAndTorque</H2>
+<B>Demonstrate usage of ForceAndTorque element</B><p>
+<IMG SRC="Modelica.Mechanics.MultiBody.Examples.Elementary.ForceAndTorqueD.png" ALT="Modelica.Mechanics.MultiBody.Examples.Elementary.ForceAndTorque">
+<H3>Information</H3>
+<PRE></pre>
+In this example the usage of the general force element
+"<A HREF="Modelica_Mechanics_MultiBody_Forces.html#Modelica.Mechanics.MultiBody.Forces.ForceAndTorque"
+>ForceAndTorque</a>"
+is shown. A "ForceAndTorque" element is connected
+between a body and a fixed point in the world system. The force and torque
+is defined by the "Constant" block. The two vectors are resolved in the
+coordinate system defined by the "fixedRotation" component that is
+fixed in the world system:
+</p>
+<p>
+The animation view at time = 0 is shown in the figure below.
+The yellow line is directed from frame_a to frame_b of the
+forceAndTorque component. The green arrow characterizes the
+force acting at the body whereas the green double arrow characterizes
+the torque acting at the body. The lengths of the two vectors
+are proportional to the lengths of the force and torque vectors
+(constant scaling factors are defined as parameters in the
+forceAndTorque component):
+</p>
+<IMG SRC="../Images/MultiBody/Examples/Elementary/ForceAndTorque.png">
+<pre>
+</PRE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> ForceAndTorque <font color="darkgreen">&quot;Demonstrate usage of ForceAndTorque element&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+  <font color="blue">inner </font><A HREF="Modelica_Mechanics_MultiBody.html#Modelica.Mechanics.MultiBody.World"
+>World</A> world(animateGravity=false);
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.BodyCylinder"
+>Parts.BodyCylinder</A> body(r={1,0,0});
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.Fixed"
+>Parts.Fixed</A> fixed1(r={0,-0.5,0}, width=0.03);
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.FixedRotation"
+>Parts.FixedRotation</A> fixedRotation(n={0,0,1}, angle=30);
+  <A HREF="Modelica_Mechanics_MultiBody_Forces.html#Modelica.Mechanics.MultiBody.Forces.ForceAndTorque"
+>Forces.ForceAndTorque</A> forceAndTorque(Nm_to_m=120, N_to_m=1200);
+  <A HREF="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints.Revolute"
+>Joints.Revolute</A> revolute2(n={0,1,0}, initType=Modelica.Mechanics.MultiBody.Types.Init.
+        PositionVelocity);
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> Constant[6](k={0,1000,0,-100,100,0});
+  <A HREF="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints.Revolute"
+>Joints.Revolute</A> revolute1(initType=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity);
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.Fixed"
+>Parts.Fixed</A> fixed2(width=0.03, r={1.5,0.25,0});
+<font color="blue">equation </font>
+  <font color="red">connect</font>(revolute2.frame_b, body.frame_a);
+  <font color="red">connect</font>(forceAndTorque.frame_b, body.frame_b);
+  <font color="red">connect</font>(fixed1.frame_b, revolute1.frame_a);
+  <font color="red">connect</font>(revolute1.frame_b, revolute2.frame_a);
+  <font color="red">connect</font>(fixed2.frame_b, forceAndTorque.frame_a);
+  <font color="red">connect</font>(fixedRotation.frame_a, fixed1.frame_b);
+  <font color="red">connect</font>(forceAndTorque.frame_resolve, fixedRotation.frame_b);
+  <font color="red">connect</font>(Constant.y, forceAndTorque.load);
+<font color="blue">end </font>ForceAndTorque;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE FreeBody<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Elementary.DoublePendulumI.png" ALT="Modelica.Mechanics.MultiBody.Examples.Elementary.FreeBody" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Examples.Elementary.FreeBody"></A><A HREF="Modelica_Mechanics_MultiBody_Examples_Elementary.html#Modelica.Mechanics.MultiBody.Examples.Elementary"
+>Modelica.Mechanics.MultiBody.Examples.Elementary</A>.FreeBody</H2>
+<B>Free flying body attached by two springs to environment</B><p>
+<IMG SRC="Modelica.Mechanics.MultiBody.Examples.Elementary.FreeBodyD.png" ALT="Modelica.Mechanics.MultiBody.Examples.Elementary.FreeBody">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This example demonstrates:
+</p>
+<ul>
+<li>The animation of spring and damper components</li>
+<li>A body can be freely moving without any connection to a joint.
+    In this case body coordinates are used automatically as
+    states (whenever joints are present, it is first tried to
+    use the generalized coordinates of the joints as states).</li>
+<li>If a body is freely moving, the initial position and velocity of the body
+    can be defined with the "Initialization" menu as shown with the
+    body "body1" in the left part (click on "Initialization").</li>
+</ul>
+<p align="center">
+<IMG SRC="../Images/MultiBody/Examples/Elementary/FreeBody.png"
+ALT="model Examples.Elementary.FreeBody">
+</p>
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>animation</TD><TD>true</TD><TD>= true, if animation shall be enabled</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">encapsulated </font><font color="blue">model</font> FreeBody <font color="darkgreen">
+  &quot;Free flying body attached by two springs to environment&quot;</font>
+  <font color="blue">import </font><A HREF="Modelica_Icons.html#Modelica.Icons"
+>Modelica.Icons</A>;
+  <font color="blue">import </font><A HREF="Modelica_Mechanics_MultiBody.html#Modelica.Mechanics.MultiBody"
+>Modelica.Mechanics.MultiBody</A>;
+  <font color="blue">import </font><A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational"
+>Modelica.Mechanics.Rotational</A>;
+  <font color="blue">import </font><A HREF="Modelica.html#Modelica"
+>Modelica</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Icons.Example</A>;
+  <font color="blue">parameter </font>Boolean animation=true <font color="darkgreen">&quot;= true, if animation shall be enabled&quot;</font>;
+  <font color="blue">inner </font><A HREF="Modelica_Mechanics_MultiBody.html#Modelica.Mechanics.MultiBody.World"
+>Modelica.Mechanics.MultiBody.World</A> world;
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.FixedTranslation"
+>Modelica.Mechanics.MultiBody.Parts.FixedTranslation</A> bar2(r={0.8,0,0}, animation=false);
+  <A HREF="Modelica_Mechanics_MultiBody_Forces.html#Modelica.Mechanics.MultiBody.Forces.Spring"
+>Modelica.Mechanics.MultiBody.Forces.Spring</A> spring1(
+    width=0.1,
+    coilWidth=0.005,
+    numberOfWindings=5,
+    c=20,
+    s_unstretched=0);
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.BodyShape"
+>Modelica.Mechanics.MultiBody.Parts.BodyShape</A> body(
+    m=1,
+    I_11=1,
+    I_22=1,
+    I_33=1,
+    r={0.4,0,0},
+    r_CM={0.2,0,0},
+    r_0_start={0.2,-0.5,0.1},
+    angles_start={10,10,10},
+    width=0.05,
+    initType=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity);
+  <A HREF="Modelica_Mechanics_MultiBody_Forces.html#Modelica.Mechanics.MultiBody.Forces.Spring"
+>Modelica.Mechanics.MultiBody.Forces.Spring</A> spring2(
+    c=20,
+    s_unstretched=0,
+    width=0.1,
+    coilWidth=0.005,
+    numberOfWindings=5);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(bar2.frame_a, world.frame_b);
+  <font color="red">connect</font>(spring1.frame_b, body.frame_a);
+  <font color="red">connect</font>(spring2.frame_b, body.frame_b);
+  <font color="red">connect</font>(bar2.frame_b, spring2.frame_a);
+  <font color="red">connect</font>(spring1.frame_a, world.frame_b);
+<font color="blue">end </font>FreeBody;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE InitSpringConstant<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Elementary.DoublePendulumI.png" ALT="Modelica.Mechanics.MultiBody.Examples.Elementary.InitSpringConstant" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Examples.Elementary.InitSpringConstant"></A><A HREF="Modelica_Mechanics_MultiBody_Examples_Elementary.html#Modelica.Mechanics.MultiBody.Examples.Elementary"
+>Modelica.Mechanics.MultiBody.Examples.Elementary</A>.InitSpringConstant</H2>
+<B>Determine spring constant such that system is in steady state at given position</B><p>
+<IMG SRC="Modelica.Mechanics.MultiBody.Examples.Elementary.InitSpringConstantD.png" ALT="Modelica.Mechanics.MultiBody.Examples.Elementary.InitSpringConstant">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This example demonstrates a non-standard type of initialization
+by calculating a spring constant such
+that a simple pendulum is at a defined position in steady state.
+</p>
+<p>
+The goal is that the pendulum should be in steady state
+when the rotation angle of the pendulum is zero. The spring
+constant of the spring shall be calculated during initialization
+such that this goal is reached.
+</p>
+<p>
+The pendulum has one degree of freedom, i.e., two states.
+Therefore, two additional equations have to be provided
+for initialization. However, parameter "c" of the spring
+component is defined with attribute "fixed = <b>false</b>", i.e.,
+the value of this parameter is computed during initialization.
+Therefore, there is one additional equation required during
+initialization. The 3 initial equations are the rotational
+angle of the revolute joint and its first and second
+derivative. The latter one are zero, in order to initialize
+in steady state. By setting parameter initType of the revolute
+joint "rev" to
+"MultiBody.Types.Init.PositionVelocityAcceleration", the required
+3 initial equations are defined.
+</p>
+<p>
+After translation, this model is initialized in steady-state.
+The spring constant is computed as c = 49.05 N/m.
+An animation of this simulation is shown in the figure below.
+</p>
+<p align="center">
+<IMG SRC="../Images/MultiBody/Examples/Elementary/InitSpringConstant.png"
+ALT="model Examples.Elementary.InitSpringConstant">
+</p>
+<pre></PRE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> InitSpringConstant <font color="darkgreen">
+  &quot;Determine spring constant such that system is in steady state at given position&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+  <font color="blue">inner </font><A HREF="Modelica_Mechanics_MultiBody.html#Modelica.Mechanics.MultiBody.World"
+>Modelica.Mechanics.MultiBody.World</A> world(gravityType=Modelica.Mechanics.MultiBody.Types.GravityTypes.
+        UniformGravity);
+  <A HREF="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute"
+>Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute</A> rev(n={0,0,1}, initType=Modelica.Mechanics.MultiBody.Types.
+        Init.PositionVelocityAcceleration);
+  <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Damper"
+>Modelica.Mechanics.Rotational.Damper</A> damper(d=0.1);
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.BodyShape"
+>Modelica.Mechanics.MultiBody.Parts.BodyShape</A> body(
+    r={1,0,0},
+    r_CM={0.5,0,0},
+    m=1);
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.Fixed"
+>Modelica.Mechanics.MultiBody.Parts.Fixed</A> fixed(r={1,0.2,0}, width=0.02);
+  <A HREF="Modelica_Mechanics_MultiBody_Forces.html#Modelica.Mechanics.MultiBody.Forces.Spring"
+>Modelica.Mechanics.MultiBody.Forces.Spring</A> spring(s_unstretched=0.1, c(fixed=false) = 100);
+
+<font color="blue">equation </font>
+
+  <font color="red">connect</font>(world.frame_b, rev.frame_a);
+  <font color="red">connect</font>(damper.flange_b, rev.axis);
+  <font color="red">connect</font>(rev.bearing, damper.flange_a);
+  <font color="red">connect</font>(rev.frame_b, body.frame_a);
+  <font color="red">connect</font>(fixed.frame_b, spring.frame_a);
+  <font color="red">connect</font>(body.frame_b, spring.frame_b);
+<font color="blue">end </font>InitSpringConstant;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE LineForceWithTwoMasses<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Elementary.DoublePendulumI.png" ALT="Modelica.Mechanics.MultiBody.Examples.Elementary.LineForceWithTwoMasses" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Examples.Elementary.LineForceWithTwoMasses"></A><A HREF="Modelica_Mechanics_MultiBody_Examples_Elementary.html#Modelica.Mechanics.MultiBody.Examples.Elementary"
+>Modelica.Mechanics.MultiBody.Examples.Elementary</A>.LineForceWithTwoMasses</H2>
+<B>Demonstrate line force with two point masses using a JointUPS and alternatively a LineForceWithTwoMasses component</B><p>
+<IMG SRC="Modelica.Mechanics.MultiBody.Examples.Elementary.LineForceWithTwoMassesD.png" ALT="Modelica.Mechanics.MultiBody.Examples.Elementary.LineForceWithTwoMasses">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+It is demonstrated how to implement line force components
+that shall have mass properties. Two alternative implementations
+are given:
+</p>
+<ul>
+<li> With
+     <A HREF="Modelica_Mechanics_MultiBody_Joints_Assemblies.html#Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUPS"
+>JointUPS</a>:<br>
+     Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUPS is an aggregation
+     of a universal, a prismatic and a spherical joint that approximates
+     a real force component, such as a hydraulic cylinder. At the two
+     frames of the prismatic joint (frame_ia, frame_ib of jointUPS)
+     two bodies are attached. The parameters are selected such that
+     the center of masses of the two bodies are located on the line
+     connecting frame_a and frame_b of the jointUPS component.
+     Both bodies have the same mass and the inertia tensor is set to zero,
+     i.e., the two bodies are treated as point masses.</li>
+<li> With <A HREF="Modelica_Mechanics_MultiBody_Forces.html#Modelica.Mechanics.MultiBody.Forces.LineForceWithTwoMasses"
+>
+     LineForceWithTwoMasses</a>:<br>
+     Modelica.Mechanics.MultiBody.Forces.LineForceWithTwoMasses is a line force component
+     with the built-in property that two point masses are located
+     on the line on which the line force is acting.
+     The parameters are selected in such a way that the same
+     system as with the jointUPS component is described.</li>
+</ul>
+<p>
+In both cases, a linear 1-dimensional translational damper from the
+Modelica.Mechanics.Translational library is used as
+line force between the two attachment points. Simulate
+this system and plot the differences of the cut forces at both sides
+of the line force component ("rod_f_diff" and "body_f_diff").
+Both vectors should be zero
+(depending on the choosen relative tolerance of the integration,
+the difference is in the order of 1.e-10 ... 1.e-15).
+</p>
+<p>
+Note, that the implementation with the LineForceWithTwoMasses
+component is simpler and more convenient.
+An animation of this simulation is shown in the figure below.
+The system on the left side in the front is the animation with
+the LineForceWithTwoMasses component whereas the system on the right
+side in the back is the animation with the JointUPS component.
+</p>
+<p align="center">
+<IMG SRC="../Images/MultiBody/Examples/Elementary/LineForceWithTwoMasses2.png">
+</p>
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>m</TD><TD>1</TD><TD>Mass of point masses [kg]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> LineForceWithTwoMasses <font color="darkgreen">
+  &quot;Demonstrate line force with two point masses using a JointUPS and alternatively a LineForceWithTwoMasses component&quot;</font>
+
+  <font color="blue">import </font>SI = <A HREF="Modelica_SIunits.html#Modelica.SIunits"
+>Modelica.SIunits</A>;
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Mass"
+>Modelica.SIunits.Mass</A> m=1 <font color="darkgreen">&quot;Mass of point masses&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Force"
+>SI.Force</A> rod_f_diff[3]=rod1.frame_b.f - rod3.frame_b.f <font color="darkgreen">
+    &quot;Difference of cut-forces in rod1 and rod3&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Force"
+>SI.Force</A> body_f_diff[3]=bodyBox1.frame_b.f - bodyBox2.frame_b.f <font color="darkgreen">
+    &quot;Difference of cut-forces in bodyBox1 and bodyBox2&quot;</font>;
+
+  <font color="blue">inner </font><A HREF="Modelica_Mechanics_MultiBody.html#Modelica.Mechanics.MultiBody.World"
+>Modelica.Mechanics.MultiBody.World</A> world;
+  <A HREF="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints.Revolute"
+>Modelica.Mechanics.MultiBody.Joints.Revolute</A> revolute1(initType=Modelica.Mechanics.MultiBody.Types.Init.
+        PositionVelocity);
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.BodyBox"
+>Modelica.Mechanics.MultiBody.Parts.BodyBox</A> bodyBox1(r={0.7,0,0});
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.FixedTranslation"
+>Modelica.Mechanics.MultiBody.Parts.FixedTranslation</A> rod1(
+    r={0,-0.9,0},
+    width=0.01,
+    animation=false);
+  <A HREF="Modelica_Mechanics_MultiBody_Joints_Assemblies.html#Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUPS"
+>Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUPS</A> jointUPS(nAxis_ia={0.7,1.2,0}, animation=
+       true);
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.Body"
+>Modelica.Mechanics.MultiBody.Parts.Body</A> body1(
+    r_CM=0.2*jointUPS.eAxis_ia,
+    cylinderDiameter=0.05,
+    animation=true,
+    m=m,
+    I_11=0,
+    I_22=0,
+    I_33=0);
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.Body"
+>Modelica.Mechanics.MultiBody.Parts.Body</A> body2(
+    r_CM=-0.2*jointUPS.eAxis_ia,
+    cylinderDiameter=0.05,
+    animation=true,
+    m=m,
+    I_11=0,
+    I_22=0,
+    I_33=0);
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.FixedTranslation"
+>Modelica.Mechanics.MultiBody.Parts.FixedTranslation</A> rod2(
+    r={0,0.3,0},
+    width=0.01,
+    animation=false);
+  <A HREF="Modelica_Mechanics_Translational.html#Modelica.Mechanics.Translational.Damper"
+>Modelica.Mechanics.Translational.Damper</A> damper1(d=3);
+  <A HREF="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints.Revolute"
+>Modelica.Mechanics.MultiBody.Joints.Revolute</A> revolute2(initType=Modelica.Mechanics.MultiBody.Types.Init.
+        PositionVelocity);
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.BodyBox"
+>Modelica.Mechanics.MultiBody.Parts.BodyBox</A> bodyBox2(r={0.7,0,0});
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.FixedTranslation"
+>Modelica.Mechanics.MultiBody.Parts.FixedTranslation</A> rod3(
+    width=0.01,
+    r={0,-0.9,0.3},
+    animation=false);
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.FixedTranslation"
+>Modelica.Mechanics.MultiBody.Parts.FixedTranslation</A> rod4(
+    width=0.01,
+    r={0,0.3,0.3},
+    animation=false);
+  <A HREF="Modelica_Mechanics_Translational.html#Modelica.Mechanics.Translational.Damper"
+>Modelica.Mechanics.Translational.Damper</A> damper2(d=3);
+  <A HREF="Modelica_Mechanics_MultiBody_Forces.html#Modelica.Mechanics.MultiBody.Forces.LineForceWithTwoMasses"
+>Modelica.Mechanics.MultiBody.Forces.LineForceWithTwoMasses</A>
+    lineForceWithTwoMasses(
+    L_a=0.2,
+    L_b=0.2,
+    cylinderLength_a=0.2,
+    cylinderLength_b=1.2,
+    massDiameterFaction=2.2,
+    m_a=m,
+    m_b=m);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(jointUPS.bearing, damper1.flange_a);
+  <font color="red">connect</font>(jointUPS.axis, damper1.flange_b);
+  <font color="red">connect</font>(jointUPS.frame_ib, body2.frame_a);
+  <font color="red">connect</font>(world.frame_b, rod2.frame_a);
+  <font color="red">connect</font>(world.frame_b, rod1.frame_a);
+  <font color="red">connect</font>(rod2.frame_b, revolute1.frame_a);
+  <font color="red">connect</font>(revolute1.frame_b, bodyBox1.frame_a);
+  <font color="red">connect</font>(bodyBox1.frame_b, jointUPS.frame_b);
+  <font color="red">connect</font>(body1.frame_a, jointUPS.frame_ia);
+  <font color="red">connect</font>(rod1.frame_b, jointUPS.frame_a);
+  <font color="red">connect</font>(rod4.frame_b, revolute2.frame_a);
+  <font color="red">connect</font>(revolute2.frame_b, bodyBox2.frame_a);
+  <font color="red">connect</font>(world.frame_b, rod4.frame_a);
+  <font color="red">connect</font>(rod3.frame_a, rod4.frame_a);
+  <font color="red">connect</font>(lineForceWithTwoMasses.frame_a, rod3.frame_b);
+  <font color="red">connect</font>(lineForceWithTwoMasses.frame_b, bodyBox2.frame_b);
+  <font color="red">connect</font>(lineForceWithTwoMasses.flange_b, damper2.flange_b);
+  <font color="red">connect</font>(lineForceWithTwoMasses.flange_a, damper2.flange_a);
+<font color="blue">end </font>LineForceWithTwoMasses;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Pendulum<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Elementary.DoublePendulumI.png" ALT="Modelica.Mechanics.MultiBody.Examples.Elementary.Pendulum" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Examples.Elementary.Pendulum"></A><A HREF="Modelica_Mechanics_MultiBody_Examples_Elementary.html#Modelica.Mechanics.MultiBody.Examples.Elementary"
+>Modelica.Mechanics.MultiBody.Examples.Elementary</A>.Pendulum</H2>
+<B>Simple pendulum with one revolute joint and one body</B><p>
+<IMG SRC="Modelica.Mechanics.MultiBody.Examples.Elementary.PendulumD.png" ALT="Modelica.Mechanics.MultiBody.Examples.Elementary.Pendulum">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This simple model demonstrates that by just dragging components
+default animation is defined that shows the structure of the
+assembled system.
+<p align="center">
+<IMG SRC="../Images/MultiBody/Examples/Elementary/Pendulum.png"
+ALT="model Examples.Elementary.Pendulum">
+</p>
+<pre></PRE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">encapsulated </font><font color="blue">model</font> Pendulum <font color="darkgreen">
+  &quot;Simple pendulum with one revolute joint and one body&quot;</font>
+  <font color="blue">import </font><A HREF="Modelica.html#Modelica"
+>Modelica</A>;
+  <font color="blue">import </font><A HREF="Modelica_Mechanics_MultiBody.html#Modelica.Mechanics.MultiBody"
+>Modelica.Mechanics.MultiBody</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+  <font color="blue">inner </font><A HREF="Modelica_Mechanics_MultiBody.html#Modelica.Mechanics.MultiBody.World"
+>Modelica.Mechanics.MultiBody.World</A> world(gravityType=Modelica.Mechanics.MultiBody.Types.GravityTypes.
+        UniformGravity);
+  <A HREF="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute"
+>Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute</A> rev(n={0,0,1}, initType=Modelica.Mechanics.MultiBody.Types.
+        Init.PositionVelocity);
+  <A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Damper"
+>Modelica.Mechanics.Rotational.Damper</A> damper(d=0.1);
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.Body"
+>Modelica.Mechanics.MultiBody.Parts.Body</A> body(m=1.0, r_CM={0.5,0,0});
+<font color="blue">equation </font>
+  <font color="red">connect</font>(world.frame_b, rev.frame_a);
+  <font color="red">connect</font>(damper.flange_b, rev.axis);
+  <font color="red">connect</font>(rev.bearing, damper.flange_a);
+  <font color="red">connect</font>(body.frame_a, rev.frame_b);
+<font color="blue">end </font>Pendulum;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PendulumWithSpringDamper<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Elementary.DoublePendulumI.png" ALT="Modelica.Mechanics.MultiBody.Examples.Elementary.PendulumWithSpringDamper" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Examples.Elementary.PendulumWithSpringDamper"></A><A HREF="Modelica_Mechanics_MultiBody_Examples_Elementary.html#Modelica.Mechanics.MultiBody.Examples.Elementary"
+>Modelica.Mechanics.MultiBody.Examples.Elementary</A>.PendulumWithSpringDamper</H2>
+<B>Simple spring/damper/mass system</B><p>
+<IMG SRC="Modelica.Mechanics.MultiBody.Examples.Elementary.PendulumWithSpringDamperD.png" ALT="Modelica.Mechanics.MultiBody.Examples.Elementary.PendulumWithSpringDamper">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+A body is attached on a revolute and prismatic joint.
+A 3-dim. spring and a 3-dim. damper are connected between the body
+and a point fixed in the world frame:
+</p>
+<p align="center">
+<IMG SRC="../Images/MultiBody/Examples/Elementary/PendulumWithSpringDamper.png"
+ALT="model Examples.Elementary.PendulumWithSpringDamper">
+</p>
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>animation</TD><TD>true</TD><TD>= true, if animation shall be enabled</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">encapsulated </font><font color="blue">model</font> PendulumWithSpringDamper <font color="darkgreen">
+  &quot;Simple spring/damper/mass system&quot;</font>
+  <font color="blue">import </font><A HREF="Modelica_Icons.html#Modelica.Icons"
+>Modelica.Icons</A>;
+  <font color="blue">import </font><A HREF="Modelica_Mechanics_MultiBody.html#Modelica.Mechanics.MultiBody"
+>Modelica.Mechanics.MultiBody</A>;
+  <font color="blue">import </font><A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational"
+>Modelica.Mechanics.Rotational</A>;
+  <font color="blue">import </font><A HREF="Modelica.html#Modelica"
+>Modelica</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Icons.Example</A>;
+  <font color="blue">parameter </font>Boolean animation=true <font color="darkgreen">&quot;= true, if animation shall be enabled&quot;</font>;
+  <font color="blue">inner </font><A HREF="Modelica_Mechanics_MultiBody.html#Modelica.Mechanics.MultiBody.World"
+>Modelica.Mechanics.MultiBody.World</A> world(axisLength=0.6);
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.Body"
+>Modelica.Mechanics.MultiBody.Parts.Body</A> body1(
+    m=1,
+    animation=animation,
+    I_11=1,
+    I_22=1,
+    I_33=1,
+    r_CM={0,0,0},
+    cylinderDiameter=0.05,
+    sphereDiameter=0.2);
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.FixedTranslation"
+>Modelica.Mechanics.MultiBody.Parts.FixedTranslation</A> bar1(animation=animation, r={0.3,0,0});
+  <A HREF="Modelica_Mechanics_MultiBody_Forces.html#Modelica.Mechanics.MultiBody.Forces.Spring"
+>Modelica.Mechanics.MultiBody.Forces.Spring</A> spring1(
+    coilWidth=0.01,
+    numberOfWindings=5,
+    c=20,
+    s_unstretched=0.2);
+  <A HREF="Modelica_Mechanics_MultiBody_Forces.html#Modelica.Mechanics.MultiBody.Forces.Damper"
+>Modelica.Mechanics.MultiBody.Forces.Damper</A> damper1(
+    d=1,
+    length_a=0.1,
+    diameter_a=0.08,
+    animation=false);
+  <A HREF="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints.Revolute"
+>Modelica.Mechanics.MultiBody.Joints.Revolute</A> revolute(initType=Modelica.Mechanics.MultiBody.Types.Init.
+        PositionVelocity);
+  <A HREF="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints.Prismatic"
+>Modelica.Mechanics.MultiBody.Joints.Prismatic</A> prismatic(
+    s_start=0.5,
+    boxWidth=0.04,
+    boxColor={255,65,65},
+    initType=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(world.frame_b, bar1.frame_a);
+  <font color="red">connect</font>(revolute.frame_a, bar1.frame_b);
+  <font color="red">connect</font>(prismatic.frame_a, revolute.frame_b);
+  <font color="red">connect</font>(damper1.frame_a, bar1.frame_b);
+  <font color="red">connect</font>(damper1.frame_b, prismatic.frame_b);
+  <font color="red">connect</font>(spring1.frame_a, bar1.frame_b);
+  <font color="red">connect</font>(spring1.frame_b, prismatic.frame_b);
+  <font color="red">connect</font>(body1.frame_a, prismatic.frame_b);
+<font color="blue">end </font>PendulumWithSpringDamper;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PointGravity<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Elementary.DoublePendulumI.png" ALT="Modelica.Mechanics.MultiBody.Examples.Elementary.PointGravity" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Examples.Elementary.PointGravity"></A><A HREF="Modelica_Mechanics_MultiBody_Examples_Elementary.html#Modelica.Mechanics.MultiBody.Examples.Elementary"
+>Modelica.Mechanics.MultiBody.Examples.Elementary</A>.PointGravity</H2>
+<B>Two point masses in a point gravity field</B><p>
+<IMG SRC="Modelica.Mechanics.MultiBody.Examples.Elementary.PointGravityD.png" ALT="Modelica.Mechanics.MultiBody.Examples.Elementary.PointGravity">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This model demonstrates a point gravity field. Two bodies
+are placed in the gravity field. The initial positions and velocities of
+these bodies are selected such that one body rotates on a circle and
+the other body rotates on an ellipse around the center of the
+point gravity field.
+</p>
+<p align="center">
+<IMG SRC="../Images/MultiBody/Examples/Elementary/PointGravity.png"
+ALT="model Examples.Elementary.PointGravity">
+</p>
+<pre></PRE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> PointGravity <font color="darkgreen">&quot;Two point masses in a point gravity field&quot;</font>
+  <font color="blue">import </font>SI = <A HREF="Modelica_SIunits.html#Modelica.SIunits"
+>Modelica.SIunits</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+  <font color="blue">inner </font><A HREF="Modelica_Mechanics_MultiBody.html#Modelica.Mechanics.MultiBody.World"
+>Modelica.Mechanics.MultiBody.World</A> world(
+    gravityType=2,
+    mue=1,
+    gravitySphereDiameter=0.1);
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.Body"
+>Modelica.Mechanics.MultiBody.Parts.Body</A> body1(
+    m=1,
+    v_0_start={1,0,0},
+    r_0_start={0,0.6,0},
+    sphereDiameter=0.1,
+    I_11=0.1,
+    I_22=0.1,
+    I_33=0.1,
+    initType=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity);
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.Body"
+>Modelica.Mechanics.MultiBody.Parts.Body</A> body2(
+    m=1,
+    r_0_start={0.6,0.6,0},
+    v_0_start={0.6,0,0},
+    sphereDiameter=0.1,
+    I_11=0.1,
+    I_22=0.1,
+    I_33=0.1,
+    initType=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity);
+<font color="blue">equation </font>
+
+<font color="blue">end </font>PointGravity;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PointGravityWithPointMasses<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Elementary.DoublePendulumI.png" ALT="Modelica.Mechanics.MultiBody.Examples.Elementary.PointGravityWithPointMasses" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Examples.Elementary.PointGravityWithPointMasses"></A><A HREF="Modelica_Mechanics_MultiBody_Examples_Elementary.html#Modelica.Mechanics.MultiBody.Examples.Elementary"
+>Modelica.Mechanics.MultiBody.Examples.Elementary</A>.PointGravityWithPointMasses</H2>
+<B>Two point masses in a point gravity field (rotation of bodies is neglected)</B><p>
+<IMG SRC="Modelica.Mechanics.MultiBody.Examples.Elementary.PointGravityWithPointMassesD.png" ALT="Modelica.Mechanics.MultiBody.Examples.Elementary.PointGravityWithPointMasses">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This model demonstrates a point gravity field. Two MassPoint bodies
+are placed in the gravity field. The initial positions and velocities of
+these bodies are selected such that one body rotates on a circle and
+the other body rotates on an ellipse around the center of the
+point gravity field.
+</p>
+<p align="center">
+<IMG SRC="../Images/MultiBody/Examples/Elementary/PointGravity.png"
+ALT="model Examples.Elementary.PointGravity">
+</p>
+<pre></PRE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> PointGravityWithPointMasses <font color="darkgreen">
+  &quot;Two point masses in a point gravity field (rotation of bodies is neglected)&quot;</font>
+  <font color="blue">import </font>SI = <A HREF="Modelica_SIunits.html#Modelica.SIunits"
+>Modelica.SIunits</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+  <font color="blue">inner </font><A HREF="Modelica_Mechanics_MultiBody.html#Modelica.Mechanics.MultiBody.World"
+>Modelica.Mechanics.MultiBody.World</A> world(
+    gravityType=2,
+    mue=1,
+    gravitySphereDiameter=0.1);
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.PointMass"
+>Modelica.Mechanics.MultiBody.Parts.PointMass</A> body1(
+    m=1,
+    v_0_start={1,0,0},
+    r_0_start={0,0.6,0},
+    sphereDiameter=0.1,
+    initType=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity);
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.PointMass"
+>Modelica.Mechanics.MultiBody.Parts.PointMass</A> body2(
+    m=1,
+    r_0_start={0.6,0.6,0},
+    v_0_start={0.6,0,0},
+    sphereDiameter=0.1,
+    initType=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity);
+<font color="blue">equation </font>
+
+<font color="blue">end </font>PointGravityWithPointMasses;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SpringDamperSystem<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Elementary.DoublePendulumI.png" ALT="Modelica.Mechanics.MultiBody.Examples.Elementary.SpringDamperSystem" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Examples.Elementary.SpringDamperSystem"></A><A HREF="Modelica_Mechanics_MultiBody_Examples_Elementary.html#Modelica.Mechanics.MultiBody.Examples.Elementary"
+>Modelica.Mechanics.MultiBody.Examples.Elementary</A>.SpringDamperSystem</H2>
+<B>Simple spring/damper/mass system</B><p>
+<IMG SRC="Modelica.Mechanics.MultiBody.Examples.Elementary.SpringDamperSystemD.png" ALT="Modelica.Mechanics.MultiBody.Examples.Elementary.SpringDamperSystem">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This example demonstrates:
+</p>
+<ul>
+<li>The animation of spring and damper components</li>
+<li>A body can be freely moving without any connection to a joint.
+    In this case body coordinates are used automatically as
+    states (whenever joints are present, it is first tried to
+    use the generalized coordinates of the joints as states).</li>
+<li>If a body is freely moving, the initial position and velocity of the body
+    can be defined with the "Initialization" menu as shown with the
+    body "body1" in the left part (click on "Initialization").</li>
+</ul>
+<p align="center">
+<IMG SRC="../Images/MultiBody/Examples/Elementary/SpringDamperSystem.png"
+ALT="model Examples.Elementary.SpringDamperSystem">
+</p>
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>animation</TD><TD>true</TD><TD>= true, if animation shall be enabled</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">encapsulated </font><font color="blue">model</font> SpringDamperSystem <font color="darkgreen">
+  &quot;Simple spring/damper/mass system&quot;</font>
+  <font color="blue">import </font><A HREF="Modelica_Icons.html#Modelica.Icons"
+>Modelica.Icons</A>;
+  <font color="blue">import </font><A HREF="Modelica_Mechanics_MultiBody.html#Modelica.Mechanics.MultiBody"
+>Modelica.Mechanics.MultiBody</A>;
+  <font color="blue">import </font><A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational"
+>Modelica.Mechanics.Rotational</A>;
+  <font color="blue">import </font><A HREF="Modelica.html#Modelica"
+>Modelica</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Icons.Example</A>;
+  <font color="blue">parameter </font>Boolean animation=true <font color="darkgreen">&quot;= true, if animation shall be enabled&quot;</font>;
+  <font color="blue">inner </font><A HREF="Modelica_Mechanics_MultiBody.html#Modelica.Mechanics.MultiBody.World"
+>Modelica.Mechanics.MultiBody.World</A> world;
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.Body"
+>Modelica.Mechanics.MultiBody.Parts.Body</A> body1(
+    m=1,
+    animation=animation,
+    initType=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity,
+    r_0_start={0.3,-0.2,0},
+    r_CM={0,-0.2,0},
+    w_0_start={0,0,2},
+    cylinderDiameter=0.05,
+    sphereDiameter=0.15,
+    I_11=0.1,
+    I_22=0.1,
+    I_33=0.1);
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.FixedTranslation"
+>Modelica.Mechanics.MultiBody.Parts.FixedTranslation</A> bar1(animation=animation, r={0.3,0,0});
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.FixedTranslation"
+>Modelica.Mechanics.MultiBody.Parts.FixedTranslation</A> bar2(animation=animation, r={0.6,0,0});
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.Body"
+>Modelica.Mechanics.MultiBody.Parts.Body</A> body2(
+    m=1,
+    animation=animation,
+    cylinderDiameter=0.05,
+    sphereDiameter=0.15);
+  <A HREF="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints.ActuatedPrismatic"
+>Modelica.Mechanics.MultiBody.Joints.ActuatedPrismatic</A> p2(
+    initType=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity,
+    n={0,-1,0},
+    s_offset=0.1,
+    animation=animation,
+    enforceStates=true,
+    boxWidth=0.05);
+  <A HREF="Modelica_Mechanics_MultiBody_Forces.html#Modelica.Mechanics.MultiBody.Forces.Spring"
+>Modelica.Mechanics.MultiBody.Forces.Spring</A> spring2(
+    c=30,
+    s_unstretched=0.1,
+    coilWidth=0.01,
+    width=0.1);
+  <A HREF="Modelica_Mechanics_MultiBody_Forces.html#Modelica.Mechanics.MultiBody.Forces.Spring"
+>Modelica.Mechanics.MultiBody.Forces.Spring</A> spring1(
+    s_unstretched=0.1,
+    coilWidth=0.01,
+    c=30,
+    numberOfWindings=10,
+    width=0.1);
+  <A HREF="Modelica_Mechanics_MultiBody_Forces.html#Modelica.Mechanics.MultiBody.Forces.Damper"
+>Modelica.Mechanics.MultiBody.Forces.Damper</A> damper1(d=2);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(world.frame_b, bar1.frame_a);
+  <font color="red">connect</font>(bar1.frame_b, bar2.frame_a);
+  <font color="red">connect</font>(bar2.frame_b, p2.frame_a);
+  <font color="red">connect</font>(p2.frame_b, body2.frame_a);
+  <font color="red">connect</font>(bar2.frame_b, spring2.frame_a);
+  <font color="red">connect</font>(body2.frame_a, spring2.frame_b);
+  <font color="red">connect</font>(damper1.frame_a, bar1.frame_b);
+  <font color="red">connect</font>(spring1.frame_a, bar1.frame_b);
+  <font color="red">connect</font>(damper1.frame_b, body1.frame_a);
+  <font color="red">connect</font>(spring1.frame_b, body1.frame_a);
+<font color="blue">end </font>SpringDamperSystem;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SpringMassSystem<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Elementary.DoublePendulumI.png" ALT="Modelica.Mechanics.MultiBody.Examples.Elementary.SpringMassSystem" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Examples.Elementary.SpringMassSystem"></A><A HREF="Modelica_Mechanics_MultiBody_Examples_Elementary.html#Modelica.Mechanics.MultiBody.Examples.Elementary"
+>Modelica.Mechanics.MultiBody.Examples.Elementary</A>.SpringMassSystem</H2>
+<B>Mass attached with a spring to the world frame</B><p>
+<IMG SRC="Modelica.Mechanics.MultiBody.Examples.Elementary.SpringMassSystemD.png" ALT="Modelica.Mechanics.MultiBody.Examples.Elementary.SpringMassSystem">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This example shows the two different ways how force laws
+can be utilized:
+</p>
+<ul>
+<li>In the left system a body is attached via a prismatic
+    joint to the world frame. The prismatic joint has two
+    1-dimensional translational flanges (called "bearing" and "axis")
+    that allows to connect elements from the Modelica.Mechanics.Translational
+    library between the bearing and the axis connector. The effect is
+    that the force generated by the 1-dimensional elements acts as driving
+    force in the axis of the prismatic joint. In the example a simple
+    spring is used.<br>
+    The advantage of this approach is that the many elements from the
+    Translational library can be easily used here and that this implementation
+    is usually more efficient as when using 3-dimensional springs.</li>
+<li>In the right system the same model is defined. The difference is
+    that a 3-dimensional spring from the Modelica.Mechanics.MultiBody.Forces library is used.
+    This has the advantage to get a nice animation of the force component.</li>
+</ul>
+<p align="center">
+<IMG SRC="../Images/MultiBody/Examples/Elementary/SpringMassSystem.png"
+ALT="model Examples.Elementary.SpringMassSystem">
+</p>
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>animation</TD><TD>true</TD><TD>= true, if animation shall be enabled</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">encapsulated </font><font color="blue">model</font> SpringMassSystem <font color="darkgreen">
+  &quot;Mass attached with a spring to the world frame&quot;</font>
+  <font color="blue">import </font><A HREF="Modelica_Icons.html#Modelica.Icons"
+>Modelica.Icons</A>;
+  <font color="blue">import </font><A HREF="Modelica_Mechanics_MultiBody.html#Modelica.Mechanics.MultiBody"
+>Modelica.Mechanics.MultiBody</A>;
+  <font color="blue">import </font><A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational"
+>Modelica.Mechanics.Rotational</A>;
+  <font color="blue">import </font><A HREF="Modelica.html#Modelica"
+>Modelica</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Icons.Example</A>;
+  <font color="blue">parameter </font>Boolean animation=true <font color="darkgreen">&quot;= true, if animation shall be enabled&quot;</font>;
+  <font color="blue">inner </font><A HREF="Modelica_Mechanics_MultiBody.html#Modelica.Mechanics.MultiBody.World"
+>Modelica.Mechanics.MultiBody.World</A> world;
+  <A HREF="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints.ActuatedPrismatic"
+>Modelica.Mechanics.MultiBody.Joints.ActuatedPrismatic</A> p1(
+    initType=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity,
+    n={0,-1,0},
+    s_offset=0.1,
+    animation=animation,
+    enforceStates=true,
+    boxWidth=0.05);
+  <A HREF="Modelica_Mechanics_Translational.html#Modelica.Mechanics.Translational.Spring"
+>Modelica.Mechanics.Translational.Spring</A> spring1(c=30);
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.Body"
+>Modelica.Mechanics.MultiBody.Parts.Body</A> body1(
+    m=1,
+    sphereDiameter=0.2,
+    animation=animation);
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.FixedTranslation"
+>Modelica.Mechanics.MultiBody.Parts.FixedTranslation</A> bar1(animation=animation, r={0.3,0,0});
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.FixedTranslation"
+>Modelica.Mechanics.MultiBody.Parts.FixedTranslation</A> bar2(animation=animation, r={0.3,0,0});
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.Body"
+>Modelica.Mechanics.MultiBody.Parts.Body</A> body2(
+    m=1,
+    sphereDiameter=0.2,
+    animation=animation);
+  <A HREF="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints.ActuatedPrismatic"
+>Modelica.Mechanics.MultiBody.Joints.ActuatedPrismatic</A> p2(
+    initType=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity,
+    n={0,-1,0},
+    s_offset=0.1,
+    animation=animation,
+    enforceStates=true,
+    boxWidth=0.05);
+  <A HREF="Modelica_Mechanics_MultiBody_Forces.html#Modelica.Mechanics.MultiBody.Forces.Spring"
+>Modelica.Mechanics.MultiBody.Forces.Spring</A> spring2(
+    c=30,
+    s_unstretched=0.1,
+    width=0.1);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(body1.frame_a, p1.frame_b);
+  <font color="red">connect</font>(world.frame_b, bar1.frame_a);
+  <font color="red">connect</font>(bar1.frame_b, p1.frame_a);
+  <font color="red">connect</font>(p1.bearing, spring1.flange_a);
+  <font color="red">connect</font>(spring1.flange_b, p1.axis);
+  <font color="red">connect</font>(bar1.frame_b, bar2.frame_a);
+  <font color="red">connect</font>(bar2.frame_b, p2.frame_a);
+  <font color="red">connect</font>(p2.frame_b, body2.frame_a);
+  <font color="red">connect</font>(bar2.frame_b, spring2.frame_a);
+  <font color="red">connect</font>(body2.frame_a, spring2.frame_b);
+<font color="blue">end </font>SpringMassSystem;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SpringWithMass<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Elementary.DoublePendulumI.png" ALT="Modelica.Mechanics.MultiBody.Examples.Elementary.SpringWithMass" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Examples.Elementary.SpringWithMass"></A><A HREF="Modelica_Mechanics_MultiBody_Examples_Elementary.html#Modelica.Mechanics.MultiBody.Examples.Elementary"
+>Modelica.Mechanics.MultiBody.Examples.Elementary</A>.SpringWithMass</H2>
+<B>Point mass hanging on a spring</B><p>
+<IMG SRC="Modelica.Mechanics.MultiBody.Examples.Elementary.SpringWithMassD.png" ALT="Modelica.Mechanics.MultiBody.Examples.Elementary.SpringWithMass">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This example shows that a force component may have a mass.
+The 3-dimensional spring as used in this example, has an optional
+point mass between the two points where the spring is attached.
+In the animation, this point mass is represented by a small,
+light blue, sphere.
+</p>
+<p align="center">
+<IMG SRC="../Images/MultiBody/Examples/Elementary/SpringWithMass.png"
+ALT="model Examples.Elementary.SpringWithMass">
+</p>
+<pre></PRE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> SpringWithMass <font color="darkgreen">&quot;Point mass hanging on a spring&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+  <font color="blue">inner </font><A HREF="Modelica_Mechanics_MultiBody.html#Modelica.Mechanics.MultiBody.World"
+>Modelica.Mechanics.MultiBody.World</A> world(animateGravity=false);
+  <A HREF="Modelica_Mechanics_MultiBody_Forces.html#Modelica.Mechanics.MultiBody.Forces.Spring"
+>Modelica.Mechanics.MultiBody.Forces.Spring</A> spring(
+    s_unstretched=0.2,
+    m=0.5,
+    c=40,
+    width=0.1,
+    massDiameter=0.07);
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.Body"
+>Modelica.Mechanics.MultiBody.Parts.Body</A> body(initType=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity,
+      r_0_start={0,-0.3,0});
+<font color="blue">equation </font>
+  <font color="red">connect</font>(world.frame_b, spring.frame_a);
+  <font color="red">connect</font>(body.frame_a, spring.frame_b);
+<font color="blue">end </font>SpringWithMass;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ThreeSprings<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Elementary.DoublePendulumI.png" ALT="Modelica.Mechanics.MultiBody.Examples.Elementary.ThreeSprings" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Examples.Elementary.ThreeSprings"></A><A HREF="Modelica_Mechanics_MultiBody_Examples_Elementary.html#Modelica.Mechanics.MultiBody.Examples.Elementary"
+>Modelica.Mechanics.MultiBody.Examples.Elementary</A>.ThreeSprings</H2>
+<B>3-dim. springs in series and parallel connection</B><p>
+<IMG SRC="Modelica.Mechanics.MultiBody.Examples.Elementary.ThreeSpringsD.png" ALT="Modelica.Mechanics.MultiBody.Examples.Elementary.ThreeSprings">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This example demonstrates that <b>3-dimensional line force</b> elements
+(here: Modelica.Mechanics.MultiBody.Forces.Spring elements) can be connected together
+in <b>series</b> without having a body with mass at the
+connection point (as usually required by multi-body programs).
+This is advantageous since stiff systems can be avoided, say, due to
+a stiff spring and a small mass at the connection point.
+</p>
+<p align="center">
+<IMG SRC="../Images/MultiBody/Examples/Elementary/ThreeSprings.png"
+ALT="model Examples.Elementary.ThreeSprings">
+</p>
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>animation</TD><TD>true</TD><TD>= true, if animation shall be enabled</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">encapsulated </font><font color="blue">model</font> ThreeSprings <font color="darkgreen">
+  &quot;3-dim. springs in series and parallel connection&quot;</font>
+  <font color="blue">import </font><A HREF="Modelica_Icons.html#Modelica.Icons"
+>Modelica.Icons</A>;
+  <font color="blue">import </font><A HREF="Modelica_Mechanics_MultiBody.html#Modelica.Mechanics.MultiBody"
+>Modelica.Mechanics.MultiBody</A>;
+  <font color="blue">import </font><A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational"
+>Modelica.Mechanics.Rotational</A>;
+  <font color="blue">import </font><A HREF="Modelica.html#Modelica"
+>Modelica</A>;
+  <font color="blue">import </font>ZeroMass;
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Icons.Example</A>;
+  <font color="blue">parameter </font>Boolean animation=true <font color="darkgreen">&quot;= true, if animation shall be enabled&quot;</font>;
+  <font color="blue">inner </font><A HREF="Modelica_Mechanics_MultiBody.html#Modelica.Mechanics.MultiBody.World"
+>Modelica.Mechanics.MultiBody.World</A> world(animateWorld=animation);
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.Body"
+>Modelica.Mechanics.MultiBody.Parts.Body</A> body1(
+    animation=animation,
+    r_CM={0,-0.2,0},
+    r_0_start={0.5,-0.3,0},
+    m=0.8,
+    I_11=0.1,
+    I_22=0.1,
+    I_33=0.1,
+    initType=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity,
+    sphereDiameter=0.2);
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.FixedTranslation"
+>Modelica.Mechanics.MultiBody.Parts.FixedTranslation</A> bar1(animation=animation, r={0.3,0,0});
+  <A HREF="Modelica_Mechanics_MultiBody_Forces.html#Modelica.Mechanics.MultiBody.Forces.Spring"
+>Modelica.Mechanics.MultiBody.Forces.Spring</A> spring1(
+    s_unstretched=0.1,
+    width=0.1,
+    coilWidth=0.005,
+    numberOfWindings=5,
+    c=20,
+    animation=animation);
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.FixedTranslation"
+>Modelica.Mechanics.MultiBody.Parts.FixedTranslation</A> bar2(animation=animation, r={0,0,0.3});
+  <A HREF="Modelica_Mechanics_MultiBody_Forces.html#Modelica.Mechanics.MultiBody.Forces.Spring"
+>Modelica.Mechanics.MultiBody.Forces.Spring</A> spring2(
+    s_unstretched=0.1,
+    width=0.1,
+    coilWidth=0.005,
+    numberOfWindings=5,
+    c=40,
+    animation=animation);
+  <A HREF="Modelica_Mechanics_MultiBody_Forces.html#Modelica.Mechanics.MultiBody.Forces.Spring"
+>Modelica.Mechanics.MultiBody.Forces.Spring</A> spring3(
+    s_unstretched=0.1,
+    width=0.1,
+    coilWidth=0.005,
+    numberOfWindings=5,
+    c=20,
+    animation=animation);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(world.frame_b, bar1.frame_a);
+  <font color="red">connect</font>(world.frame_b, bar2.frame_a);
+  <font color="red">connect</font>(bar1.frame_b, spring1.frame_a);
+  <font color="red">connect</font>(bar2.frame_b, spring3.frame_a);
+  <font color="red">connect</font>(spring2.frame_b, body1.frame_a);
+  <font color="red">connect</font>(spring3.frame_b, spring1.frame_b);
+  <font color="red">connect</font>(spring2.frame_a, spring1.frame_b);
+<font color="blue">end </font>ThreeSprings;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Tue Mar 28 11:38:26 2006.
+</address></BODY>
+</HTML>

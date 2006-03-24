@@ -1,0 +1,823 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Models of synchronous induction machines&quot;">
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SynchronousInductionMachines<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines"></A><A HREF="Modelica_Electrical_Machines_BasicMachines.html#Modelica.Electrical.Machines.BasicMachines"
+>Modelica.Electrical.Machines.BasicMachines</A>.SynchronousInductionMachines</H2>
+<B>Models of synchronous induction machines</B>
+<P>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This package contains models of synchronous induction machines, based on space phasor theory:
+<ul>
+<li>SM_PermanentMagnetDamperCage: synchronous induction machine with permanent magnet excitation, with damper cage</li>
+<li>SM_ElectricalExcitedDamperCage: synchronous induction machine with electrical excitation
+    and damper cage</li>
+<li>SM_ReluctanceRotorDamperCage: induction machine with reluctance rotor and damper cage<br>
+i.e. a squirrel cage rotor with magnetic poles due to different airgap width</li>
+</ul>
+These models use package SpacePhasors.
+</p>
+<p>
+<b>Please keep in mind:</b><br>
+<ul>
+<li>We keep the same reference system as for motors, i.e.:<br>
+    Positive RotorDisplacementAngle means acting as motor,<br>
+    with positive electric power consumption and positive mechanical power output.
+<li>ElectricalAngle = p * MechanicalAngle</li>
+<li>real axis = d-axis<br>
+    imaginary= q-axis</li>
+<li>Voltage induced by the magnet wheel (d-axis) is located in the q-axis.</li>
+</ul>
+</p>
+
+<pre></PRE><P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnetDamperCageS.png" ALT="Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnetDamperCage" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Machines_BasicMachines_SynchronousInductionMachines.html#Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnetDamperCage"
+>SM_PermanentMagnetDamperCage</A>
+</TD><TD>Permanent magnet synchronous induction machine</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCageS.png" ALT="Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Machines_BasicMachines_SynchronousInductionMachines.html#Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage"
+>SM_ElectricalExcitedDamperCage</A>
+</TD><TD>Electrical excited synchronous induction machine with damper cage</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotorDamperCageS.png" ALT="Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotorDamperCage" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Machines_BasicMachines_SynchronousInductionMachines.html#Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotorDamperCage"
+>SM_ReluctanceRotorDamperCage</A>
+</TD><TD>Synchronous induction machine with reluctance rotor and damper cage</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SM_PermanentMagnetDamperCage<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnetDamperCageI.png" ALT="Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnetDamperCage" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnetDamperCage"></A><A HREF="Modelica_Electrical_Machines_BasicMachines_SynchronousInductionMachines.html#Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines"
+>Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines</A>.SM_PermanentMagnetDamperCage</H2>
+<B>Permanent magnet synchronous induction machine</B><p>
+<IMG SRC="Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnetDamperCageD.png" ALT="Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnetDamperCage">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+<b>Model of a three phase permanent magnet synchronous induction machine.</b><br>
+Resistance and stray inductance of stator is modeled directly in stator phases, then using space phasor transformation and a rotor-fixed <i>AirGap</i> model. Resistance and stray inductance of rotor's squirrel cage is modeled in two axis of the rotor-fixed ccordinate system. Permanent magnet excitation is modelled by a constant equivalent excitation current feeding the d-axis. Only losses in stator and damper resistance are taken into account.
+</p>
+<p>
+Whether a damper cage is present or not, can be selected with Boolean parameter DamperCage (default = true).
+</p>
+<p>
+<b>Default values for machine's parameters (a realistic example) are:</b><br>
+<table>
+<tr>
+<td>number of pole pairs p</td>
+<td>2</td><td> </td>
+</tr>
+<tr>
+<td>stator's moment of inertia</td>
+<td>0.29</td><td>kg.m2</td>
+</tr>
+<tr>
+<td>rotor's moment of inertia</td>
+<td>0.29</td><td>kg.m2</td>
+</tr>
+<tr>
+<td>nominal frequency fNominal</td>
+<td>50</td><td>Hz</td>
+</tr>
+<tr>
+<td>nominal voltage per phase</td>
+<td>100</td><td>V RMS</td>
+</tr>
+<tr>
+<td>no-load voltage per phase</td>
+<td>112.3</td><td>V RMS @ nominal speed</td>
+</tr>
+<tr>
+<td>nominal current per phase</td>
+<td>100</td><td>A RMS</td>
+</tr>
+<tr>
+<td>nominal torque</td>
+<td>181.4</td><td>Nm</td>
+</tr>
+<tr>
+<td>nominal speed</td>
+<td>1500</td><td>rpm</td>
+</tr>
+<tr>
+<td>nominal mechanical output</td>
+<td>28.5</td><td>kW</td>
+</tr>
+<tr>
+<td>nominal rotor angle</td>
+<td>20.75</td><td>degree</td>
+</tr>
+<tr>
+<td>efficiency</td>
+<td>95.0</td><td>%</td>
+</tr>
+<tr>
+<td>power factor</td>
+<td>0.98</td><td> </td>
+</tr>
+<tr>
+<td>stator resistance</td>
+<td>0.03</td><td>Ohm per phase in warm condition</td>
+</tr>
+<tr>
+<td>stator reactance Xd</td>
+<td>0.4</td><td>Ohm per phase in d-axis</td>
+</tr>
+<tr>
+<td>stator reactance Xq</td>
+<td>0.4</td><td>Ohm per phase in q-axis</td>
+</tr>
+<tr>
+<td>stator stray reactance Xss</td>
+<td>0.1</td><td>Ohm per phase</td>
+</tr>
+<tr>
+<td>damper resistance in d-axis</td>
+<td>0.04</td><td>Ohm in warm condition</td>
+</tr>
+<tr>
+<td>damper resistance in q-axis</td>
+<td>same as d-axis</td><td> </td>
+</tr>
+<tr>
+<td>damper stray reactance in d-axis XDds</td>
+<td>0.05</td><td>Ohm</td>
+</tr>
+<tr>
+<td>damper stray reactance in q-axis XDqs</td>
+<td>same as d-axis</td><td> </td>
+</tr>
+<tr>
+<td>These values give the following inductances:</td>
+<td> </td><td> </td>
+</tr>
+<tr>
+<td>main field inductance in d-axis</td>
+<td>(Xd - Xss)/(2*pi*fNominal)</td><td> </td>
+</tr>
+<tr>
+<td>main field inductance in q-axis</td>
+<td>(Xq - Xss)/(2*pi*fNominal)</td><td> </td>
+</tr>
+<tr>
+<td>stator stray inductance per phase</td>
+<td>Xss/(2*pi*fNominal)</td><td> </td>
+</tr>
+<tr>
+<td>damper stray inductance in d-axis</td>
+<td>XDds/(2*pi*fNominal)</td><td> </td>
+</tr>
+<tr>
+<td>damper stray inductance in q-axis</td>
+<td>XDqs/(2*pi*fNominal)</td><td> </td>
+</tr>
+</table>
+</p>
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>J_Rotor</TD><TD>0.29</TD><TD>rotor's moment of inertia [kg.m2]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>p</TD><TD>2</TD><TD>number of pole pairs (Integer)</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Excitation</TD></TR>
+<TR><TD>&nbsp;</TD><TD>fNominal</TD><TD>50</TD><TD>nominal frequency [Hz]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>V0</TD><TD>112.3</TD><TD>no-load RMS voltage per phase @ fNominal [V]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Nominal resistances and inductances</TD></TR>
+<TR><TD>&nbsp;</TD><TD>Rs</TD><TD>0.03</TD><TD>warm stator resistance per phase [Ohm]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>Lssigma</TD><TD>0.1/(2*pi*fNominal)</TD><TD>stator stray inductance per phase [H]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>Lmd</TD><TD>0.3/(2*pi*fNominal)</TD><TD>main field inductance in d-axis [H]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>Lmq</TD><TD>0.3/(2*pi*fNominal)</TD><TD>main field inductance in q-axis [H]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>DamperCage</TD></TR>
+<TR><TD>&nbsp;</TD><TD>DamperCage</TD><TD>true</TD><TD>damper cage is present?</TD></TR>
+<TR><TD>&nbsp;</TD><TD>Lrsigma</TD><TD>0.05/(2*pi*fNominal)</TD><TD>damper stray inductance in d-axis [H]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>Lrsigmaq</TD><TD>Lrsigma</TD><TD>damper stray inductance in q-axis [H]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>Rr</TD><TD>0.04</TD><TD>warm damper resistance in d-axis [Ohm]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>Rrq</TD><TD>Rr</TD><TD>warm damper resistance in q-axis [Ohm]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>flange_a</TD><TD>&nbsp;</TD></TR>
+<TR><TD>&nbsp;</TD><TD>plug_sp</TD><TD>&nbsp;</TD></TR>
+<TR><TD>&nbsp;</TD><TD>plug_sn</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> SM_PermanentMagnetDamperCage <font color="darkgreen">
+  &quot;Permanent magnet synchronous induction machine&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Machines_Interfaces.html#Modelica.Electrical.Machines.Interfaces.PartialBasicInductionMachine"
+>Interfaces.PartialBasicInductionMachine</A>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Frequency"
+>Modelica.SIunits.Frequency</A> fNominal=50 <font color="darkgreen">
+    &quot;|Excitation|nominal frequency&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> V0=112.3 <font color="darkgreen">
+    &quot;|Excitation|no-load RMS voltage per phase @ fNominal&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Modelica.SIunits.Resistance</A> Rs=0.03 <font color="darkgreen">
+    &quot;|Nominal resistances and inductances|warm stator resistance per phase&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inductance"
+>Modelica.SIunits.Inductance</A> Lssigma=0.1/(2*pi*fNominal) <font color="darkgreen">
+    &quot;|Nominal resistances and inductances|stator stray inductance per phase&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inductance"
+>Modelica.SIunits.Inductance</A> Lmd=0.3/(2*pi*fNominal) <font color="darkgreen">
+    &quot;|Nominal resistances and inductances|main field inductance in d-axis&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inductance"
+>Modelica.SIunits.Inductance</A> Lmq=0.3/(2*pi*fNominal) <font color="darkgreen">
+    &quot;|Nominal resistances and inductances|main field inductance in q-axis&quot;</font>;
+  <font color="blue">parameter </font>Boolean DamperCage = true <font color="darkgreen">&quot;damper cage is present?&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inductance"
+>Modelica.SIunits.Inductance</A> Lrsigma=0.05/(2*pi*fNominal) <font color="darkgreen">
+    &quot;damper stray inductance in d-axis&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inductance"
+>Modelica.SIunits.Inductance</A> Lrsigmaq=Lrsigma <font color="darkgreen">
+    &quot;damper stray inductance in q-axis&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Modelica.SIunits.Resistance</A> Rr=0.04 <font color="darkgreen">
+    &quot;warm damper resistance in d-axis&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Modelica.SIunits.Resistance</A> Rrq=Rr <font color="darkgreen">
+    &quot;warm damper resistance in q-axis&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Current"
+>Modelica.SIunits.Current</A> i_0_s( stateSelect=StateSelect.prefer) = spacePhasorS.zero.i <font color="darkgreen">
+    &quot;stator zero-sequence current&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Current"
+>Modelica.SIunits.Current</A> idq_ss[2] = airGapR.i_ss <font color="darkgreen">
+    &quot;stator space phasor current / stator fixed frame&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Current"
+>Modelica.SIunits.Current</A> idq_sr[2](<font color="blue">each </font>stateSelect=StateSelect.prefer)= airGapR.i_sr <font color="darkgreen">
+    &quot;stator space phasor current / rotor fixed frame&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Current"
+>Modelica.SIunits.Current</A> idq_dr[2](<font color="blue">each </font>stateSelect=StateSelect.prefer)=
+    damperCage.spacePhasor_r.i_ <font color="blue">if </font>DamperCage <font color="darkgreen">
+    &quot;damper space phasor current / rotor fixed frame&quot;</font>;
+<font color="blue">protected </font>
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Current"
+>Modelica.SIunits.Current</A> Ie=<font color="red">sqrt</font>(2)*V0/(Lmd*2*pi*fNominal) <font color="darkgreen">
+    &quot;equivalent excitation current&quot;</font>;
+<font color="blue">public </font>
+  <A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.Resistor"
+>Modelica.Electrical.MultiPhase.Basic.Resistor</A> rs(<font color="blue">final </font>m=m, <font color="blue">final </font>R=<font color="red">fill</font>(Rs, m));
+  <A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.Inductor"
+>Modelica.Electrical.MultiPhase.Basic.Inductor</A> lssigma(<font color="blue">final </font>m=m, <font color="blue">final </font>L=<font color="red">fill</font>(Lssigma, m));
+  <A HREF="Modelica_Electrical_Machines_SpacePhasors_Components.html#Modelica.Electrical.Machines.SpacePhasors.Components.SpacePhasor"
+>Machines.SpacePhasors.Components.SpacePhasor</A> spacePhasorS;
+  <A HREF="Modelica_Electrical_Machines_BasicMachines_Components.html#Modelica.Electrical.Machines.BasicMachines.Components.AirGapR"
+>Machines.BasicMachines.Components.AirGapR</A> airGapR(
+    <font color="blue">final </font>p=p,
+    <font color="blue">final </font>Lmd=Lmd,
+    <font color="blue">final </font>Lmq=Lmq);
+  <A HREF="Modelica_Electrical_Machines_BasicMachines_Components.html#Modelica.Electrical.Machines.BasicMachines.Components.PermanentMagnet"
+>Machines.BasicMachines.Components.PermanentMagnet</A> permanentMagnet(Ie=Ie);
+  <A HREF="Modelica_Electrical_Machines_BasicMachines_Components.html#Modelica.Electrical.Machines.BasicMachines.Components.DamperCage"
+>Components.DamperCage</A> damperCage(
+    <font color="blue">final </font>Lrsigma=Lrsigma,
+    <font color="blue">final </font>Lrsigmaq=Lrsigmaq,
+    <font color="blue">final </font>Rr=Rr,
+    <font color="blue">final </font>Rrq=Rrq) <font color="blue">if </font>DamperCage;
+<font color="blue">equation </font>
+  <font color="red">connect</font>(rs.plug_n, lssigma.plug_p);
+  <font color="red">connect</font>(lssigma.plug_n, spacePhasorS.plug_p);
+  <font color="red">connect</font>(rs.plug_p, plug_sp);
+  <font color="red">connect</font>(spacePhasorS.plug_n, plug_sn);
+  <font color="red">connect</font>(spacePhasorS.ground, spacePhasorS.zero);
+  <font color="red">connect</font>(spacePhasorS.spacePhasor, airGapR.spacePhasor_s);
+  <font color="red">connect</font>(airGapR.flange_a, inertiaRotor.flange_a);
+  <font color="red">connect</font>(airGapR.support, internalSupport);
+  <font color="red">connect</font>(airGapR.spacePhasor_r, permanentMagnet.spacePhasor_r);
+  <font color="red">connect</font>(airGapR.spacePhasor_r, damperCage.spacePhasor_r);
+<font color="blue">end </font>SM_PermanentMagnetDamperCage;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SM_ElectricalExcitedDamperCage<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCageI.png" ALT="Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage"></A><A HREF="Modelica_Electrical_Machines_BasicMachines_SynchronousInductionMachines.html#Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines"
+>Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines</A>.SM_ElectricalExcitedDamperCage</H2>
+<B>Electrical excited synchronous induction machine with damper cage</B><p>
+<IMG SRC="Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCageD.png" ALT="Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+<b>Model of a three phase electrical excited synchronous induction machine with damper cage.</b><br>
+Resistance and stray inductance of stator is modeled directly in stator phases, then using space phasor transformation and a rotor-fixed <i>AirGap</i> model. Resistance and stray inductance of rotor's squirrel cage is modeled in two axis of the rotor-fixed ccordinate system. Electrical excitation is modelled by converting excitation current and voltage to d-axis space phasors. Only losses in stator, damper and excitation resistance are taken into account.
+</p>
+<p>
+Whether a damper cage is present or not, can be selected with Boolean parameter DamperCage (default = true).
+</p>
+<p>
+<b>Default values for machine's parameters (a realistic example) are:</b><br>
+<table>
+<tr>
+<td>number of pole pairs p</td>
+<td>2</td><td> </td>
+</tr>
+<tr>
+<td>stator's moment of inertia</td>
+<td>0.29</td><td>kg.m2</td>
+</tr>
+<tr>
+<td>rotor's moment of inertia</td>
+<td>0.29</td><td>kg.m2</td>
+</tr>
+<tr>
+<td>nominal frequency fNominal</td>
+<td>50</td><td>Hz</td>
+</tr>
+<tr>
+<td>nominal voltage per phase</td>
+<td>100</td><td>V RMS</td>
+</tr>
+<tr>
+<td>no-load excitation current<br>
+    @ nominal voltage and frequency</td>
+<td>10</td><td>A DC</td>
+</tr>
+<tr>
+<td>warm excitation resistance</td>
+<td>2.5</td><td>Ohm</td>
+</tr>
+<tr>
+<td>nominal current per phase</td>
+<td>100</td><td>A RMS</td>
+</tr>
+<tr>
+<td>nominal apparent power</td>
+<td>-30000</td><td>VA</td>
+</tr>
+<tr>
+<td>power factor</td>
+<td>-1.0</td><td>ind./cap.</td>
+</tr>
+<tr>
+<td>nominal excitation current</td>
+<td>19</td><td>A</td>
+</tr>
+<tr>
+<td>efficiency w/o excitation</td>
+<td>97.1</td><td>%</td>
+</tr>
+<tr>
+<td>nominal torque</td>
+<td>-196.7</td><td>Nm</td>
+</tr>
+<tr>
+<td>nominal speed</td>
+<td>1500</td><td>rpm</td>
+</tr>
+<tr>
+<td>nominal rotor angle</td>
+<td>-57.23</td><td>degree</td>
+</tr>
+<tr>
+<td>stator resistance</td>
+<td>0.03</td><td>Ohm per phase in warm condition</td>
+</tr>
+<tr>
+<td>stator reactance Xd</td>
+<td>1.6</td><td>Ohm per phase in d-axis</td>
+</tr>
+<tr>
+<td>giving Kc</td>
+<td>0.625</td><td> </td>
+</tr>
+<tr>
+<td>stator reactance Xq</td>
+<td>1.6</td><td>Ohm per phase in q-axis</td>
+</tr>
+<tr>
+<td>stator stray reactance Xss</td>
+<td>0.1</td><td>Ohm per phase</td>
+</tr>
+<tr>
+<td>damper resistance in d-axis</td>
+<td>0.04</td><td>Ohm in warm condition</td>
+</tr>
+<tr>
+<td>damper resistance in q-axis</td>
+<td>same as d-axis</td><td> </td>
+</tr>
+<tr>
+<td>damper stray reactance in d-axis XDds</td>
+<td>0.1</td><td>Ohm</td>
+</tr>
+<tr>
+<td>damper stray reactance in q-axis XDqs</td>
+<td>same as d-axis</td><td> </td>
+</tr>
+<tr>
+<td>excitation stray inductance</td>
+<td>2.5</td><td>% of total excitation inductance</td>
+</tr>
+<tr>
+<td>These values give the following inductances:</td>
+<td> </td><td> </td>
+</tr>
+<tr>
+<td>main field inductance in d-axis</td>
+<td>(Xd - Xss)/(2*pi*fNominal)</td><td> </td>
+</tr>
+<tr>
+<td>main field inductance in q-axis</td>
+<td>(Xq - Xss)/(2*pi*fNominal)</td><td> </td>
+</tr>
+<tr>
+<td>stator stray inductance per phase</td>
+<td>Xss/(2*pi*fNominal)</td><td> </td>
+</tr>
+<tr>
+<td>damper stray inductance in d-axis</td>
+<td>XDds/(2*pi*fNominal)</td><td> </td>
+</tr>
+<tr>
+<td>damper stray inductance in q-axis</td>
+<td>XDqs/(2*pi*fNominal)</td><td> </td>
+</tr>
+</table>
+</p>
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>J_Rotor</TD><TD>0.29</TD><TD>rotor's moment of inertia [kg.m2]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>p</TD><TD>2</TD><TD>number of pole pairs (Integer)</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Nominal resistances and inductances</TD></TR>
+<TR><TD>&nbsp;</TD><TD>Rs</TD><TD>0.03</TD><TD>warm stator resistance per phase [Ohm]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>Lssigma</TD><TD>0.1/(2*pi*fNominal)</TD><TD>stator stray inductance per phase [H]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>Lmd</TD><TD>1.5/(2*pi*fNominal)</TD><TD>main field inductance in d-axis [H]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>Lmq</TD><TD>1.5/(2*pi*fNominal)</TD><TD>main field inductance in q-axis [H]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>DamperCage</TD></TR>
+<TR><TD>&nbsp;</TD><TD>DamperCage</TD><TD>true</TD><TD>damper cage is present?</TD></TR>
+<TR><TD>&nbsp;</TD><TD>Lrsigma</TD><TD>0.05/(2*pi*fNominal)</TD><TD>damper stray inductance in d-axis [H]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>Lrsigmaq</TD><TD>Lrsigma</TD><TD>damper stray inductance in q-axis [H]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>Rr</TD><TD>0.04</TD><TD>warm damper resistance in d-axis [Ohm]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>Rrq</TD><TD>Rr</TD><TD>warm damper resistance in q-axis [Ohm]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Excitation</TD></TR>
+<TR><TD>&nbsp;</TD><TD>VNominal</TD><TD>100</TD><TD>nominal stator RMS voltage per phase [V]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>fNominal</TD><TD>50</TD><TD>nominal frequency [Hz]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>Ie0</TD><TD>10</TD><TD>no-load excitation current @ nominal voltage and frequency [A]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>Re</TD><TD>2.5</TD><TD>warm excitation resistance [Ohm]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>sigmae</TD><TD>0.025</TD><TD>stray fraction of total excitation inductance</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>flange_a</TD><TD>&nbsp;</TD></TR>
+<TR><TD>&nbsp;</TD><TD>plug_sp</TD><TD>&nbsp;</TD></TR>
+<TR><TD>&nbsp;</TD><TD>plug_sn</TD><TD>&nbsp;</TD></TR>
+<TR><TD>&nbsp;</TD><TD>pin_ep</TD><TD>&nbsp;</TD></TR>
+<TR><TD>&nbsp;</TD><TD>pin_en</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> SM_ElectricalExcitedDamperCage <font color="darkgreen">
+  &quot;Electrical excited synchronous induction machine with damper cage&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Machines_Interfaces.html#Modelica.Electrical.Machines.Interfaces.PartialBasicInductionMachine"
+>Interfaces.PartialBasicInductionMachine</A>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Modelica.SIunits.Resistance</A> Rs=0.03 <font color="darkgreen">
+    &quot;|Nominal resistances and inductances|warm stator resistance per phase&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inductance"
+>Modelica.SIunits.Inductance</A> Lssigma=0.1/(2*pi*fNominal) <font color="darkgreen">
+    &quot;|Nominal resistances and inductances|stator stray inductance per phase&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inductance"
+>Modelica.SIunits.Inductance</A> Lmd=1.5/(2*pi*fNominal) <font color="darkgreen">
+    &quot;|Nominal resistances and inductances|main field inductance in d-axis&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inductance"
+>Modelica.SIunits.Inductance</A> Lmq=1.5/(2*pi*fNominal) <font color="darkgreen">
+    &quot;|Nominal resistances and inductances|main field inductance in q-axis&quot;</font>;
+  <font color="blue">parameter </font>Boolean DamperCage = true <font color="darkgreen">&quot;damper cage is present?&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inductance"
+>Modelica.SIunits.Inductance</A> Lrsigma=0.05/(2*pi*fNominal) <font color="darkgreen">
+    &quot;damper stray inductance in d-axis&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inductance"
+>Modelica.SIunits.Inductance</A> Lrsigmaq=Lrsigma <font color="darkgreen">
+    &quot;damper stray inductance in q-axis&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Modelica.SIunits.Resistance</A> Rr=0.04 <font color="darkgreen">
+    &quot;warm damper resistance in d-axis&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Modelica.SIunits.Resistance</A> Rrq=Rr <font color="darkgreen">
+    &quot;warm damper resistance in q-axis&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> VNominal=100 <font color="darkgreen">
+    &quot;|Excitation|nominal stator RMS voltage per phase&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Frequency"
+>Modelica.SIunits.Frequency</A> fNominal=50 <font color="darkgreen">
+    &quot;|Excitation|nominal frequency&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Current"
+>Modelica.SIunits.Current</A> Ie0=10 <font color="darkgreen">
+    &quot;|Excitation|no-load excitation current @ nominal voltage and frequency&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Modelica.SIunits.Resistance</A> Re=2.5 <font color="darkgreen">
+    &quot;|Excitation|warm excitation resistance&quot;</font>;
+  <font color="blue">parameter </font>Real sigmae(min=0, max=1)=0.025 <font color="darkgreen">
+    &quot;|Excitation|stray fraction of total excitation inductance&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Current"
+>Modelica.SIunits.Current</A> i_0_s( stateSelect=StateSelect.prefer) = spacePhasorS.zero.i <font color="darkgreen">
+    &quot;stator zero-sequence current&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Current"
+>Modelica.SIunits.Current</A> idq_ss[2] = airGapR.i_ss <font color="darkgreen">
+    &quot;stator space phasor current / stator fixed frame&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Current"
+>Modelica.SIunits.Current</A> idq_sr[2](<font color="blue">each </font>stateSelect=StateSelect.prefer) = airGapR.i_sr <font color="darkgreen">
+    &quot;stator space phasor current / rotor fixed frame&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Current"
+>Modelica.SIunits.Current</A> idq_dr[2](<font color="blue">each </font>stateSelect=StateSelect.prefer)=
+    damperCage.spacePhasor_r.i_ <font color="blue">if </font>DamperCage <font color="darkgreen">
+    &quot;damper space phasor current / rotor fixed frame&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> ve = pin_ep.v-pin_en.v <font color="darkgreen">&quot;excitation voltage&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Current"
+>Modelica.SIunits.Current</A> ie = pin_ep.i <font color="darkgreen">&quot;excitation current&quot;</font>;
+<font color="blue">protected </font>
+  <font color="blue">parameter </font>Real TurnsRatio =<font color="red"> sqrt</font>(2)*VNominal/(2*pi*fNominal*Lmd*Ie0) <font color="darkgreen">
+    &quot;stator current / excitation current&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inductance"
+>Modelica.SIunits.Inductance</A> Lesigma = Lmd*TurnsRatio^2 * sigmae/(1-sigmae);
+<font color="blue">public </font>
+  <A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.Resistor"
+>Modelica.Electrical.MultiPhase.Basic.Resistor</A> rs(<font color="blue">final </font>m=m, <font color="blue">final </font>R=<font color="red">fill</font>(Rs, m));
+  <A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.Inductor"
+>Modelica.Electrical.MultiPhase.Basic.Inductor</A> lssigma(<font color="blue">final </font>m=m, <font color="blue">final </font>L=<font color="red">fill</font>(Lssigma, m));
+  <A HREF="Modelica_Electrical_Machines_SpacePhasors_Components.html#Modelica.Electrical.Machines.SpacePhasors.Components.SpacePhasor"
+>Machines.SpacePhasors.Components.SpacePhasor</A> spacePhasorS;
+  <A HREF="Modelica_Electrical_Machines_BasicMachines_Components.html#Modelica.Electrical.Machines.BasicMachines.Components.AirGapR"
+>Machines.BasicMachines.Components.AirGapR</A> airGapR(
+    <font color="blue">final </font>p=p,
+    <font color="blue">final </font>Lmd=Lmd,
+    <font color="blue">final </font>Lmq=Lmq);
+  <A HREF="Modelica_Electrical_Machines_BasicMachines_Components.html#Modelica.Electrical.Machines.BasicMachines.Components.DamperCage"
+>Components.DamperCage</A> damperCage(
+    <font color="blue">final </font>Lrsigma=Lrsigma,
+    <font color="blue">final </font>Lrsigmaq=Lrsigmaq,
+    <font color="blue">final </font>Rr=Rr,
+    <font color="blue">final </font>Rrq=Rrq) <font color="blue">if </font>DamperCage;
+  <A HREF="Modelica_Electrical_Machines_BasicMachines_Components.html#Modelica.Electrical.Machines.BasicMachines.Components.ElectricalExcitation"
+>Components.ElectricalExcitation</A> electricalExcitation(<font color="blue">final </font>TurnsRatio=
+        TurnsRatio);
+  <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Resistor"
+>Modelica.Electrical.Analog.Basic.Resistor</A> re(<font color="blue">final </font>R=Re);
+  <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Inductor"
+>Modelica.Electrical.Analog.Basic.Inductor</A> lesigma(<font color="blue">final </font>L=Lesigma);
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.PositivePin"
+>Modelica.Electrical.Analog.Interfaces.PositivePin</A> pin_ep;
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.NegativePin"
+>Modelica.Electrical.Analog.Interfaces.NegativePin</A> pin_en;
+<font color="blue">equation </font>
+  <font color="red">connect</font>(rs.plug_n, lssigma.plug_p);
+  <font color="red">connect</font>(lssigma.plug_n, spacePhasorS.plug_p);
+  <font color="red">connect</font>(rs.plug_p, plug_sp);
+  <font color="red">connect</font>(spacePhasorS.plug_n, plug_sn);
+  <font color="red">connect</font>(spacePhasorS.ground, spacePhasorS.zero);
+  <font color="red">connect</font>(spacePhasorS.spacePhasor, airGapR.spacePhasor_s);
+  <font color="red">connect</font>(airGapR.flange_a, inertiaRotor.flange_a);
+  <font color="red">connect</font>(airGapR.support, internalSupport);
+  <font color="red">connect</font>(electricalExcitation.pin_en, pin_en);
+  <font color="red">connect</font>(pin_ep, re.p);
+  <font color="red">connect</font>(lesigma.p, re.n);
+  <font color="red">connect</font>(lesigma.n, electricalExcitation.pin_ep);
+  <font color="red">connect</font>(airGapR.spacePhasor_r, damperCage.spacePhasor_r);
+  <font color="red">connect</font>(airGapR.spacePhasor_r, electricalExcitation.spacePhasor_r);
+<font color="blue">end </font>SM_ElectricalExcitedDamperCage;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SM_ReluctanceRotorDamperCage<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotorDamperCageI.png" ALT="Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotorDamperCage" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotorDamperCage"></A><A HREF="Modelica_Electrical_Machines_BasicMachines_SynchronousInductionMachines.html#Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines"
+>Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines</A>.SM_ReluctanceRotorDamperCage</H2>
+<B>Synchronous induction machine with reluctance rotor and damper cage</B><p>
+<IMG SRC="Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotorDamperCageD.png" ALT="Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotorDamperCage">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+<b>Model of a three phase synchronous induction machine with reluctance rotor and damper cage.</b><br>
+Resistance and stray inductance of stator is modeled directly in stator phases, then using space phasor transformation. Resistance and stray inductance of rotor's squirrel cage is modeled in two axis of the rotor-fixed ccordinate system. Both together connected via a rotor-fixed <i>AirGap</i> model. Only losses in stator and rotor resistance are taken into account.
+</p>
+<p>
+Whether a damper cage is present or not, can be selected with Boolean parameter DamperCage (default = true).
+</p>
+<p>
+<b>Default values for machine's parameters (a realistic example) are:</b><br>
+<table>
+<tr>
+<td>number of pole pairs p</td>
+<td>2</td><td> </td>
+</tr>
+<tr>
+<td>stator's moment of inertia</td>
+<td>0.29</td><td>kg.m2</td>
+</tr>
+<tr>
+<td>rotor's moment of inertia</td>
+<td>0.29</td><td>kg.m2</td>
+</tr>
+<tr>
+<td>nominal frequency fNominal</td>
+<td>50</td><td>Hz</td>
+</tr>
+<tr>
+<td>nominal voltage per phase</td>
+<td>100</td><td>V RMS</td>
+</tr>
+<tr>
+<td>nominal current per phase</td>
+<td>50</td><td>A RMS</td>
+</tr>
+<tr>
+<td>nominal torque</td>
+<td> 46</td><td>Nm</td>
+</tr>
+<tr>
+<td>nominal speed</td>
+<td>1500</td><td>rpm</td>
+</tr>
+<tr>
+<td>nominal mechanical output</td>
+<td> 7.23</td><td>kW</td>
+</tr>
+<tr>
+<td>efficiency</td>
+<td>96.98</td><td>%</td>
+</tr>
+<tr>
+<td>power factor</td>
+<td>0.497</td><td> </td>
+</tr>
+<tr>
+<td>stator resistance</td>
+<td>0.03</td><td>Ohm per phase in warm condition</td>
+</tr>
+<tr>
+<td>rotor resistance in d-axis</td>
+<td>0.04</td><td>Ohm in warm condition</td>
+</tr>
+<tr>
+<td>rotor resistance in q-axis</td>
+<td>same as d-axis</td><td> </td>
+</tr>
+<tr>
+<td>stator reactance Xsd in d-axis</td>
+<td>3</td><td>Ohm per phase</td>
+</tr>
+<tr>
+<td>stator reactance Xsq in q-axis</td>
+<td>1</td><td>Ohm</td>
+</tr>
+<tr>
+<td>stator stray reactance Xss</td>
+<td>0.1</td><td>Ohm per phase</td>
+</tr>
+<tr>
+<td>rotor stray reactance in d-axis Xrds</td>
+<td>0.1</td><td>Ohm per phase</td>
+</tr>
+<tr>
+<td>rotor stray reactance in q-axis Xrqs</td>
+<td>same as d-axis</td><td> </td>
+</tr>
+<tr>
+<td>These values give the following inductances:</td>
+<td> </td><td> </td>
+</tr>
+<tr>
+<td>stator stray inductance per phase</td>
+<td>Xss/(2*pi*fNominal)</td><td> </td>
+</tr>
+<tr>
+<td>rotor stray inductance in d-axis</td>
+<td>Xrds/(2*pi*fNominal)</td><td> </td>
+</tr>
+<tr>
+<td>rotor stray inductance in q-axis</td>
+<td>Xrqs/(2*pi*fNominal)</td><td> </td>
+</tr>
+<tr>
+<td>main field inductance per phase in d-axis</td>
+<td>(Xsd-Xss)/(2*pi*fNominal)</td><td> </td>
+</tr>
+<tr>
+<td>main field inductance per phase in q-axis</td>
+<td>(Xsq-Xss)/(2*pi*fNominal)</td><td> </td>
+</tr>
+</table>
+</p>
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>J_Rotor</TD><TD>0.29</TD><TD>rotor's moment of inertia [kg.m2]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>p</TD><TD>2</TD><TD>number of pole pairs (Integer)</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Nominal resistances and inductances</TD></TR>
+<TR><TD>&nbsp;</TD><TD>Rs</TD><TD>0.03</TD><TD>warm stator resistance per phase [Ohm]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>Lssigma</TD><TD>0.1/(2*pi*fNominal)</TD><TD>stator stray inductance per phase [H]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>Lmd</TD><TD>2.9/(2*pi*fNominal)</TD><TD>main field inductance in d-axis [H]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>Lmq</TD><TD>0.9/(2*pi*fNominal)</TD><TD>main field inductance in q-axis [H]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>DamperCage</TD></TR>
+<TR><TD>&nbsp;</TD><TD>DamperCage</TD><TD>true</TD><TD>damper cage is present?</TD></TR>
+<TR><TD>&nbsp;</TD><TD>Lrsigma</TD><TD>0.05/(2*pi*fNominal)</TD><TD>damper stray inductance in d-axis [H]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>Lrsigmaq</TD><TD>Lrsigma</TD><TD>damper stray inductance in q-axis [H]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>Rr</TD><TD>0.04</TD><TD>warm damper resistance in d-axis [Ohm]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>Rrq</TD><TD>Rr</TD><TD>warm damper resistance in q-axis [Ohm]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>flange_a</TD><TD>&nbsp;</TD></TR>
+<TR><TD>&nbsp;</TD><TD>plug_sp</TD><TD>&nbsp;</TD></TR>
+<TR><TD>&nbsp;</TD><TD>plug_sn</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> SM_ReluctanceRotorDamperCage <font color="darkgreen">
+  &quot;Synchronous induction machine with reluctance rotor and damper cage&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Machines_Interfaces.html#Modelica.Electrical.Machines.Interfaces.PartialBasicInductionMachine"
+>Interfaces.PartialBasicInductionMachine</A>;
+  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Frequency"
+>Modelica.SIunits.Frequency</A> fNominal=50 <font color="darkgreen">&quot;nominal frequency&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Modelica.SIunits.Resistance</A> Rs=0.03 <font color="darkgreen">
+    &quot;|Nominal resistances and inductances|warm stator resistance per phase&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inductance"
+>Modelica.SIunits.Inductance</A> Lssigma=0.1/(2*pi*fNominal) <font color="darkgreen">
+    &quot;|Nominal resistances and inductances|stator stray inductance per phase&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inductance"
+>Modelica.SIunits.Inductance</A> Lmd=2.9/(2*pi*fNominal) <font color="darkgreen">
+    &quot;|Nominal resistances and inductances|main field inductance in d-axis&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inductance"
+>Modelica.SIunits.Inductance</A> Lmq=0.9/(2*pi*fNominal) <font color="darkgreen">
+    &quot;|Nominal resistances and inductances|main field inductance in q-axis&quot;</font>;
+  <font color="blue">parameter </font>Boolean DamperCage = true <font color="darkgreen">&quot;damper cage is present?&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inductance"
+>Modelica.SIunits.Inductance</A> Lrsigma=0.05/(2*pi*fNominal) <font color="darkgreen">
+    &quot;damper stray inductance in d-axis&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inductance"
+>Modelica.SIunits.Inductance</A> Lrsigmaq=Lrsigma <font color="darkgreen">
+    &quot;damper stray inductance in q-axis&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Modelica.SIunits.Resistance</A> Rr=0.04 <font color="darkgreen">
+    &quot;warm damper resistance in d-axis&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Modelica.SIunits.Resistance</A> Rrq=Rr <font color="darkgreen">
+    &quot;warm damper resistance in q-axis&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Current"
+>Modelica.SIunits.Current</A> i_0_s( stateSelect=StateSelect.prefer) = spacePhasorS.zero.i <font color="darkgreen">
+    &quot;stator zero-sequence current&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Current"
+>Modelica.SIunits.Current</A> idq_ss[2] = airGapR.i_ss <font color="darkgreen">
+    &quot;stator space phasor current / stator fixed frame&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Current"
+>Modelica.SIunits.Current</A> idq_sr[2](<font color="blue">each </font>stateSelect=StateSelect.prefer) = airGapR.i_sr <font color="darkgreen">
+    &quot;stator space phasor current / rotor fixed frame&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Current"
+>Modelica.SIunits.Current</A> idq_rs[2] = airGapR.i_rs <font color="blue">if </font>DamperCage <font color="darkgreen">
+    &quot;rotor space phasor current / stator fixed frame&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Current"
+>Modelica.SIunits.Current</A> idq_rr[2](<font color="blue">each </font>stateSelect=StateSelect.prefer)=
+    airGapR.i_rr <font color="blue">if </font>DamperCage <font color="darkgreen">&quot;rotor space phasor current / rotor fixed frame&quot;</font>;
+  <A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.Resistor"
+>Modelica.Electrical.MultiPhase.Basic.Resistor</A> rs(<font color="blue">final </font>m=m, <font color="blue">final </font>R=<font color="red">fill</font>(Rs, m));
+  <A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.Inductor"
+>Modelica.Electrical.MultiPhase.Basic.Inductor</A> lssigma(<font color="blue">final </font>m=m, <font color="blue">final </font>L=<font color="red">fill</font>(Lssigma, m));
+  <A HREF="Modelica_Electrical_Machines_SpacePhasors_Components.html#Modelica.Electrical.Machines.SpacePhasors.Components.SpacePhasor"
+>Machines.SpacePhasors.Components.SpacePhasor</A> spacePhasorS;
+  <A HREF="Modelica_Electrical_Machines_BasicMachines_Components.html#Modelica.Electrical.Machines.BasicMachines.Components.AirGapR"
+>Machines.BasicMachines.Components.AirGapR</A> airGapR(
+    <font color="blue">final </font>p=p,
+    <font color="blue">final </font>Lmd=Lmd,
+    <font color="blue">final </font>Lmq=Lmq);
+  <A HREF="Modelica_Electrical_Machines_BasicMachines_Components.html#Modelica.Electrical.Machines.BasicMachines.Components.DamperCage"
+>Components.DamperCage</A> damperCage(
+    <font color="blue">final </font>Lrsigma=Lrsigma,
+    <font color="blue">final </font>Lrsigmaq=Lrsigmaq,
+    <font color="blue">final </font>Rr=Rr,
+    <font color="blue">final </font>Rrq=Rrq) <font color="blue">if </font>DamperCage;
+<font color="blue">equation </font>
+  <font color="red">connect</font>(rs.plug_n, lssigma.plug_p);
+  <font color="red">connect</font>(lssigma.plug_n, spacePhasorS.plug_p);
+  <font color="red">connect</font>(rs.plug_p, plug_sp);
+  <font color="red">connect</font>(spacePhasorS.plug_n, plug_sn);
+  <font color="red">connect</font>(spacePhasorS.spacePhasor, airGapR.spacePhasor_s);
+  <font color="red">connect</font>(spacePhasorS.ground, spacePhasorS.zero);
+  <font color="red">connect</font>(airGapR.flange_a, inertiaRotor.flange_a);
+  <font color="red">connect</font>(airGapR.support, internalSupport);
+  <font color="red">connect</font>(airGapR.spacePhasor_r, damperCage.spacePhasor_r);
+<font color="blue">end </font>SM_ReluctanceRotorDamperCage;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Tue Mar 28 11:37:48 2006.
+</address></BODY>
+</HTML>

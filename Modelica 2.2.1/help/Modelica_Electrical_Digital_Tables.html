@@ -1,0 +1,94 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Electrical.Digital.Tables</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Truth tables for all components of package Digital&quot;">
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Tables<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Electrical.Digital.Tables"></A><A HREF="Modelica_Electrical_Digital.html#Modelica.Electrical.Digital"
+>Modelica.Electrical.Digital</A>.Tables</H2>
+<B>Truth tables for all components of package Digital</B>
+<P>
+<H3>Information</H3>
+<PRE></pre>
+
+<pre></PRE><P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD>AndTable=[L.'U', L.'U', L.'0', L.'U', L.'U', L.'U', L.'0', L.'U', L.'U'; L.'U', L.'X', L.'0', L.'X', L.'X', L.'X', L.'0', L.'X', L.'X'; L.'0', L.'0', L.'0', L.'0', L.'0', L.'0', L.'0', L.'0', L.'0'; L.'U', L.'X', L.'0', L.'1', L.'X', L.'X', L.'0', L.'1', L.'X'; L.'U', L.'X', L.'0', L.'X', L.'X', L.'X', L.'0', L.'X', L.'X'; L.'U', L.'X', L.'0', L.'X', L.'X', L.'X', L.'0', L.'X', L.'X'; L.'0', L.'0', L.'0', L.'0', L.'0', L.'0', L.'0', L.'0', L.'0'; L.'U', L.'X', L.'0', L.'1', L.'X', L.'X', L.'0', L.'1', L.'X'; L.'U', L.'X', L.'0', L.'X', L.'X', L.'X', L.'0', L.'X', L.'X']</TD><TD>9-value logic for 'and'</TD></TR>
+<TR><TD>OrTable=[L.'U', L.'U', L.'U', L.'1', L.'U', L.'U', L.'U', L.'1', L.'U'; L.'U', L.'X', L.'X', L.'1', L.'X', L.'X', L.'X', L.'1', L.'X'; L.'U', L.'X', L.'0', L.'1', L.'X', L.'X', L.'0', L.'1', L.'X'; L.'1', L.'1', L.'1', L.'1', L.'1', L.'1', L.'1', L.'1', L.'1'; L.'U', L.'X', L.'X', L.'1', L.'X', L.'X', L.'X', L.'1', L.'X'; L.'U', L.'X', L.'X', L.'1', L.'X', L.'X', L.'X', L.'1', L.'X'; L.'U', L.'X', L.'0', L.'1', L.'X', L.'X', L.'0', L.'1', L.'X'; L.'1', L.'1', L.'1', L.'1', L.'1', L.'1', L.'1', L.'1', L.'1'; L.'U', L.'X', L.'X', L.'1', L.'X', L.'X', L.'X', L.'1', L.'X']</TD><TD>9-value logic for 'or'</TD></TR>
+<TR><TD>NotTable={L.'U',L.'X',L.'1',L.'0',L.'X',L.'X',L.'1',L.'0',L.'X'}</TD><TD>9-value logic for 'not'</TD></TR>
+<TR><TD>XorTable=[L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U'; L.'U', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X'; L.'U', L.'X', L.'0', L.'1', L.'X', L.'X', L.'0', L.'1', L.'X'; L.'U', L.'X', L.'1', L.'0', L.'X', L.'X', L.'1', L.'0', L.'X'; L.'U', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X'; L.'U', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X'; L.'U', L.'X', L.'0', L.'1', L.'X', L.'X', L.'0', L.'1', L.'X'; L.'U', L.'X', L.'1', L.'0', L.'X', L.'X', L.'1', L.'0', L.'X'; L.'U', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X']</TD><TD>9-value logic for 'xor'</TD></TR>
+<TR><TD>X01Table={L.'X',L.'X',L.'0',L.'1',L.'X',L.'X',L.'0',L.'1',L.'X'}</TD><TD>&nbsp;</TD></TR>
+<TR><TD>X01ZTable={L.'X',L.'X',L.'0',L.'1',L.'Z',L.'X',L.'0',L.'1',L.'Z'}</TD><TD>&nbsp;</TD></TR>
+<TR><TD>UX01Table={L.'U',L.'X',L.'0',L.'1',L.'X',L.'X',L.'0',L.'1',L.'X'}</TD><TD>&nbsp;</TD></TR>
+<TR><TD>DelayTable=[0, 0, -1, 1, 0, 0, -1, 1, 0; 0, 0, -1, 1, 0, 0, -1, 1, 0; 1, 1, 0, 1, 1, 1, 0, 1, 1; -1, -1, -1, 0, -1, -1, -1, 0, -1; 0, 0, -1, 1, 0, 0, -1, 1, 0; 0, 0, -1, 1, 0, 0, -1, 1, 0; 1, 1, 0, 1, 1, 1, 0, 1, 1; -1, -1, -1, 0, -1, -1, -1, 0, -1; 0, 0, -1, 1, 0, 0, -1, 1, 0]</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Types and constants</H3>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.Logic"
+>D.Interfaces.Logic</A> AndTable[L.max, L.max]=[
+      L.'U', L.'U', L.'0', L.'U', L.'U', L.'U', L.'0', L.'U', L.'U';
+      L.'U', L.'X', L.'0', L.'X', L.'X', L.'X', L.'0', L.'X', L.'X';
+      L.'0', L.'0', L.'0', L.'0', L.'0', L.'0', L.'0', L.'0', L.'0';
+      L.'U', L.'X', L.'0', L.'1', L.'X', L.'X', L.'0', L.'1', L.'X';
+      L.'U', L.'X', L.'0', L.'X', L.'X', L.'X', L.'0', L.'X', L.'X';
+      L.'U', L.'X', L.'0', L.'X', L.'X', L.'X', L.'0', L.'X', L.'X';
+      L.'0', L.'0', L.'0', L.'0', L.'0', L.'0', L.'0', L.'0', L.'0';
+      L.'U', L.'X', L.'0', L.'1', L.'X', L.'X', L.'0', L.'1', L.'X';
+      L.'U', L.'X', L.'0', L.'X', L.'X', L.'X', L.'0', L.'X', L.'X'] <font color="darkgreen">
+  &quot;9-value logic for 'and'&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.Logic"
+>D.Interfaces.Logic</A> OrTable[L.max, L.max]=[
+      L.'U', L.'U', L.'U', L.'1', L.'U', L.'U', L.'U', L.'1', L.'U';
+      L.'U', L.'X', L.'X', L.'1', L.'X', L.'X', L.'X', L.'1', L.'X';
+      L.'U', L.'X', L.'0', L.'1', L.'X', L.'X', L.'0', L.'1', L.'X';
+      L.'1', L.'1', L.'1', L.'1', L.'1', L.'1', L.'1', L.'1', L.'1';
+      L.'U', L.'X', L.'X', L.'1', L.'X', L.'X', L.'X', L.'1', L.'X';
+      L.'U', L.'X', L.'X', L.'1', L.'X', L.'X', L.'X', L.'1', L.'X';
+      L.'U', L.'X', L.'0', L.'1', L.'X', L.'X', L.'0', L.'1', L.'X';
+      L.'1', L.'1', L.'1', L.'1', L.'1', L.'1', L.'1', L.'1', L.'1';
+      L.'U', L.'X', L.'X', L.'1', L.'X', L.'X', L.'X', L.'1', L.'X'] <font color="darkgreen">
+  &quot;9-value logic for 'or'&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.Logic"
+>D.Interfaces.Logic</A> NotTable[L.max]={
+      L.'U',L.'X',L.'1',L.'0',L.'X',L.'X',L.'1',L.'0',L.'X'} <font color="darkgreen">
+  &quot;9-value logic for 'not'&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.Logic"
+>D.Interfaces.Logic</A> XorTable[L.max, L.max]=[
+      L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U';
+      L.'U', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X';
+      L.'U', L.'X', L.'0', L.'1', L.'X', L.'X', L.'0', L.'1', L.'X';
+      L.'U', L.'X', L.'1', L.'0', L.'X', L.'X', L.'1', L.'0', L.'X';
+      L.'U', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X';
+      L.'U', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X';
+      L.'U', L.'X', L.'0', L.'1', L.'X', L.'X', L.'0', L.'1', L.'X';
+      L.'U', L.'X', L.'1', L.'0', L.'X', L.'X', L.'1', L.'0', L.'X';
+      L.'U', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X'] <font color="darkgreen">
+  &quot;9-value logic for 'xor'&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.Logic"
+>D.Interfaces.Logic</A> X01Table[L.max]={
+      L.'X',L.'X',L.'0',L.'1',L.'X',L.'X',L.'0',L.'1',L.'X'};</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.Logic"
+>D.Interfaces.Logic</A> X01ZTable[L.max]={
+      L.'X',L.'X',L.'0',L.'1',L.'Z',L.'X',L.'0',L.'1',L.'Z'};</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.Logic"
+>D.Interfaces.Logic</A> UX01Table[L.max]={
+      L.'U',L.'X',L.'0',L.'1',L.'X',L.'X',L.'0',L.'1',L.'X'};</PRE><p>
+<PRE>  <font color="blue">constant </font>Integer DelayTable[9, 9]=[
+      0, 0, -1, 1, 0, 0, -1, 1, 0;
+      0, 0, -1, 1, 0, 0, -1, 1, 0;
+      1, 1, 0, 1, 1, 1, 0, 1, 1;
+      -1, -1, -1, 0, -1, -1, -1, 0, -1;
+      0, 0, -1, 1, 0, 0, -1, 1, 0;
+      0, 0, -1, 1, 0, 0, -1, 1, 0;
+      1, 1, 0, 1, 1, 1, 0, 1, 1;
+      -1, -1, -1, 0, -1, -1, -1, 0, -1;
+      0, 0, -1, 1, 0, 0, -1, 1, 0];</PRE><p>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Tue Mar 28 11:37:26 2006.
+</address></BODY>
+</HTML>

@@ -1,0 +1,1499 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Mechanics.MultiBody.Sensors</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Sensors to measure variables&quot;">
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Sensors<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Mechanics.MultiBody.Sensors"></A><A HREF="Modelica_Mechanics_MultiBody.html#Modelica.Mechanics.MultiBody"
+>Modelica.Mechanics.MultiBody</A>.Sensors</H2>
+<B>Sensors to measure variables</B>
+<P>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+Package <b>Sensors</b> contains <b>ideal measurement</b>
+components to determine absolute and relative kinematic
+quantities, as well as cut-forces and cut-torques. All
+measured quantities can be provided in every desired
+coordinate system.
+</p>
+<h4>Content</h4>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><th><b><i>Model</i></b></th><th><b><i>Description</i></b></th></tr>
+  <tr><td><b><A HREF="Modelica_Mechanics_MultiBody_Sensors.html#Modelica.Mechanics.MultiBody.Sensors.AbsoluteSensor"
+>AbsoluteSensor</a></b></td>
+      <td> Measure absolute kinematic quantities of a frame connector<br>
+       <img src="../Images/MultiBody/Sensors/AbsoluteSensor.png"></td>
+  </tr>
+  <tr><td><b><A HREF="Modelica_Mechanics_MultiBody_Sensors.html#Modelica.Mechanics.MultiBody.Sensors.RelativeSensor"
+>RelativeSensor</a></b></td>
+      <td> Measure relative kinematic quantities between two frame connectors<br>
+       <img src="../Images/MultiBody/Sensors/RelativeSensor.png"></td> </td>
+  </tr>
+  <tr><td><b><A HREF="Modelica_Mechanics_MultiBody_Sensors.html#Modelica.Mechanics.MultiBody.Sensors.Distance"
+>Distance</a></b></td>
+      <td> Measure distance between the origins of two frame connectors <br>
+       <img src="../Images/MultiBody/Sensors/Distance.png"></td></td>
+  </tr>
+  <tr><td><b><A HREF="Modelica_Mechanics_MultiBody_Sensors.html#Modelica.Mechanics.MultiBody.Sensors.CutForce"
+>CutForce</a></b></td>
+      <td> Measure cut force vector <br>
+       <img src="../Images/MultiBody/Sensors/CutForce.png"></td></td>
+  </tr>
+  <tr><td><b><A HREF="Modelica_Mechanics_MultiBody_Sensors.html#Modelica.Mechanics.MultiBody.Sensors.CutTorque"
+>CutTorque</a></b></td>
+      <td> Measure cut torque vector <br>
+       <img src="../Images/MultiBody/Sensors/CutTorque.png"></td></td>
+  </tr>
+  <tr><td><b><A HREF="Modelica_Mechanics_MultiBody_Sensors.html#Modelica.Mechanics.MultiBody.Sensors.CutForceAndTorque"
+>CutForceAndTorque</a></b></td>
+      <td> Measure cut force and cut torque vector <br>
+       <img src="../Images/MultiBody/Sensors/CutForceAndTorque.png"></td></td>
+  </tr>
+  <tr><td><b><A HREF="Modelica_Mechanics_MultiBody_Sensors.html#Modelica.Mechanics.MultiBody.Sensors.Power"
+>Power</a></b></td>
+      <td> Measure power flowing from frame_a to frame_b</td>
+  </tr>
+</table>
+<pre></PRE><P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Sensors.AbsoluteSensorS.png" ALT="Modelica.Mechanics.MultiBody.Sensors.AbsoluteSensor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Sensors.html#Modelica.Mechanics.MultiBody.Sensors.AbsoluteSensor"
+>AbsoluteSensor</A>
+</TD><TD>Measure absolute kinematic quantities of a frame connector</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Sensors.RelativeSensorS.png" ALT="Modelica.Mechanics.MultiBody.Sensors.RelativeSensor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Sensors.html#Modelica.Mechanics.MultiBody.Sensors.RelativeSensor"
+>RelativeSensor</A>
+</TD><TD>Measure relative kinematic quantities between two frame connectors</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Sensors.DistanceS.png" ALT="Modelica.Mechanics.MultiBody.Sensors.Distance" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Sensors.html#Modelica.Mechanics.MultiBody.Sensors.Distance"
+>Distance</A>
+</TD><TD>Measure the distance between the origins of two frame connectors</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Sensors.CutForceS.png" ALT="Modelica.Mechanics.MultiBody.Sensors.CutForce" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Sensors.html#Modelica.Mechanics.MultiBody.Sensors.CutForce"
+>CutForce</A>
+</TD><TD>Measure cut force vector</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Sensors.CutForceS.png" ALT="Modelica.Mechanics.MultiBody.Sensors.CutTorque" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Sensors.html#Modelica.Mechanics.MultiBody.Sensors.CutTorque"
+>CutTorque</A>
+</TD><TD>Measure cut torque vector</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Sensors.CutForceS.png" ALT="Modelica.Mechanics.MultiBody.Sensors.CutForceAndTorque" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Sensors.html#Modelica.Mechanics.MultiBody.Sensors.CutForceAndTorque"
+>CutForceAndTorque</A>
+</TD><TD>Measure cut force and cut torque vector</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Sensors.PowerS.png" ALT="Modelica.Mechanics.MultiBody.Sensors.Power" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Sensors.html#Modelica.Mechanics.MultiBody.Sensors.Power"
+>Power</A>
+</TD><TD>Measure power flowing from frame_a to frame_b</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE AbsoluteSensor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Sensors.AbsoluteSensorI.png" ALT="Modelica.Mechanics.MultiBody.Sensors.AbsoluteSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Sensors.AbsoluteSensor"></A><A HREF="Modelica_Mechanics_MultiBody_Sensors.html#Modelica.Mechanics.MultiBody.Sensors"
+>Modelica.Mechanics.MultiBody.Sensors</A>.AbsoluteSensor</H2>
+<B>Measure absolute kinematic quantities of a frame connector</B><p>
+<IMG SRC="Modelica.Mechanics.MultiBody.Sensors.AbsoluteSensorD.png" ALT="Modelica.Mechanics.MultiBody.Sensors.AbsoluteSensor">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+Absolute kinematic quantities of frame_a are
+computed and provided at the output signal connector <b>y</b>
+in packed format in the order
+</p>
+<ol>
+<li> absolute position vector (= r_abs)</li>
+<li> absolute velocity vectory (= v_abs)</li>
+<li> absolute acceleration vector (= a_abs)</li>
+<li> 3 angles to rotate the world frame into frame_a (= angles)</li>
+<li> absolute angular velocity vector (= w_abs)</li>
+<li> absolute angular acceleration vector (= z_abs)</li>
+</ol>
+<p>
+For example, if parameters <b>get_v</b> and <b>get_w</b>
+are <b>true</b> and all other get_XXX parameters are <b>false</b>, then
+y contains 6 elements:
+</p>
+<pre>
+ y[1:3] = absolute velocity
+ y[4:6] = absolute angular velocity
+</pre>
+<p>
+In the following figure the animation of an AbsoluteSensor
+component is shown. The light blue coordinate system is
+frame_a and the yellow arrow is the animated sensor.
+</p>
+<p align="center">
+<IMG SRC="../Images/MultiBody/Sensors/AbsoluteSensor.png">
+</p>
+<p>
+If <b>frame_resolve</b> is connected to another frame, then the
+provided absolute kinematic vectors are resolved in this frame.
+If <b>frame_resolve</b> is <b>not</b> connected then the
+coordinate system in which the relative quantities are
+resolved is defined by parameter <b>resolveInFrame_a</b>.
+If this parameter is <b>true</b>, then the
+provided kinematic vectors are resolved in frame_a of this
+component. Otherwise, the kinematic vectors are resolved in
+the world frame. For example, if frame_resolve is not
+connected and if resolveInFrame_a = <b>false</b>, and
+get_v = <b>true</b>, then
+</p>
+<pre>
+  y = <b>der</b>(frame_a.r) // resolved in world frame
+</pre>
+<p>
+is returned, i.e., the derivative of the distance frame_a.r_0
+from the origin of the world frame to the origin of frame_a,
+resolved in the world frame.
+</p>
+<p>
+Note, the cut-force and the cut-torque in frame_resolve are
+always zero, whether frame_resolve is connected or not.
+</p>
+<p>
+If <b>get_angles</b> = <b>true</b>, the 3 angles to rotate the world
+frame into frame_a along the axes defined by parameter <b>sequence</b>
+are returned. For example, if sequence = {3,1,2} then the world frame is
+rotated around angles[1] along the z-axis, afterwards it is rotated
+around angles[2] along the x-axis, and finally it is rotated around
+angles[3] along the y-axis and is then identical to frame_a.
+The 3 angles are returned in the range
+</p>
+<pre>
+    -<font face="Symbol">p</font> &lt;= angles[i] &lt;= <font face="Symbol">p</font>
+</pre>
+<p>
+There are <b>two solutions</b> for "angles[1]" in this range.
+Via parameter <b>guessAngle1</b> (default = 0) the
+returned solution is selected such that |angles[1] - guessAngle1| is
+minimal. The transformation matrix between the world frame and
+frame_a may be in a singular configuration with respect to "sequence", i.e.,
+there is an infinite number of angle values leading to the same
+transformation matrix. In this case, the returned solution is
+selected by setting angles[1] = guessAngle1. Then angles[2]
+and angles[3] can be uniquely determined in the above range.
+</p>
+<p>
+Note, that parameter <b>sequence</b> has the restriction that
+only values 1,2,3 can be used and that sequence[1] &ne; sequence[2]
+and sequence[2] &ne; sequence[3]. Often used values are:
+</p>
+<pre>
+  sequence = <b>{1,2,3}</b>  // Cardan angle sequence
+           = <b>{3,1,3}</b>  // Euler angle sequence
+           = <b>{3,2,1}</b>  // Tait-Bryan angle sequence
+</pre>
+<p>
+Exact definition of the returned quantities:
+</p>
+<ol>
+<li>r_abs is vector frame_a.r_0, resolved according to table below.</li>
+<li>v_abs is vector <b>der</b>(frame_a.r_0), resolved according to table below.</li>
+<li>a_abs is vector <b>der</b>(<b>der</b>(frame_a.r_0)), resolved according to
+            table below.</li>
+<li>angles is a vector of 3 angles such that
+    frame_a.R = Frames.axesRotations(sequence, angles).</li>
+<li>w_abs is vector Modelica.Mechanics.MultiBody.Frames.angularVelocity1(frame_a.R, <b>der</b>(frame_a.R)),
+            resolved according to table below.</li>
+<li>z_abs is vector <b>der</b>(w_abs) (= derivative of absolute angular
+            velocity of frame_a with respect to the world frame,
+            resolved according to table below).</li>
+</ol>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><th><b><i>frame_resolve is</i></b></th>
+      <th><b><i>resolveInFrame_a =</i></b></th>
+      <th><b><i>vector is resolved in</i></b></th>
+  </tr>
+  <tr><td>connected</td>
+      <td>true</td>
+      <td><b>frame_resolve</b></td>
+  </tr>
+  <tr><td>connected</td>
+      <td>false</td>
+      <td><b>frame_resolve</b></td>
+  </tr>
+  <tr><td>not connected</td>
+      <td>true</td>
+      <td><b>frame_a</b></td>
+  </tr>
+  <tr><td>not connected</td>
+      <td>false</td>
+      <td><b>world frame</b></td>
+  </tr>
+</table><br>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>n_out</TD><TD>1</TD><TD>Number of output signals</TD></TR>
+<TR><TD>&nbsp;</TD><TD>animation</TD><TD>true</TD><TD>= true, if animation shall be enabled (show arrow)</TD></TR>
+<TR><TD>&nbsp;</TD><TD>resolveInFrame_a</TD><TD>false</TD><TD>= true, if vectors are resolved in frame_a, otherwise in the world frame (if connector frame_resolve is connected, vectors are resolved in frame_resolve)</TD></TR>
+<TR><TD>&nbsp;</TD><TD>get_r_abs</TD><TD>true</TD><TD>= true, to measure the position vector from the origin of the world frame to the origin of frame_a in [m]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>get_v_abs</TD><TD>false</TD><TD>= true, to measure the absolute velocity of the origin of frame_a in [m/s]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>get_a_abs</TD><TD>false</TD><TD>= true, to measure the absolute acceleration of the origin of frame_a in [m/s^2]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>get_angles</TD><TD>false</TD><TD>= true, to measure the 3 rotation angles to rotate the world frame into frame_a along the axes defined in 'sequence' below in [rad]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>get_w_abs</TD><TD>false</TD><TD>= true, to measure the absolute angular velocity of frame_a in [rad/s]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>get_z_abs</TD><TD>false</TD><TD>= true, to measure the absolute angular acceleration to frame_a in [rad/s^2]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>if get_angles = true</TD></TR>
+<TR><TD>&nbsp;</TD><TD>sequence[3]</TD><TD>{1,2,3}</TD><TD> Angles are returned to rotate world frame around axes sequence[1], sequence[2] and finally sequence[3] into frame_a</TD></TR>
+<TR><TD>&nbsp;</TD><TD>guessAngle1</TD><TD>0</TD><TD> Select angles[1] such that abs(angles[1] - guessAngle1) is a minimum [rad]</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Animation</B></TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>if animation = true</TD></TR>
+<TR><TD>&nbsp;</TD><TD>arrowDiameter</TD><TD>world.defaultArrowDiameter</TD><TD> Diameter of arrow from world frame to frame_a [m]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>arrowColor[3]</TD><TD>Modelica.Mechanics.MultiBody...</TD><TD> Color of arrow from world frame to frame_a</TD></TR>
+<TR><TD>&nbsp;</TD><TD>specularCoefficient</TD><TD>world.defaultSpecularCoeffic...</TD><TD>Reflection of ambient light (= 0: light is completely absorbed)</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>frame_a</TD><TD>Coordinate system from which absolute quantities are provided as output signals</TD></TR>
+<TR><TD>output &nbsp;</TD><TD>y[n_out]</TD><TD>Measured data as signal vector</TD></TR>
+<TR><TD>&nbsp;</TD><TD>frame_resolve</TD><TD>If connected, the output signals are resolved in this frame</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> AbsoluteSensor <font color="darkgreen">
+  &quot;Measure absolute kinematic quantities of a frame connector&quot;</font>
+  <font color="blue">import </font>SI = <A HREF="Modelica_SIunits.html#Modelica.SIunits"
+>Modelica.SIunits</A>;
+  <font color="blue">import </font><A HREF="Modelica_Mechanics_MultiBody_Frames.html#Modelica.Mechanics.MultiBody.Frames"
+>Modelica.Mechanics.MultiBody.Frames</A>;
+  <font color="blue">import </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#Modelica.Mechanics.MultiBody.Types"
+>Modelica.Mechanics.MultiBody.Types</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.PartialAbsoluteSensor"
+>Interfaces.PartialAbsoluteSensor</A>(n_out=3*((<font color="blue">if </font>get_r_abs<font color="blue"> then </font>1<font color="blue"> else </font>
+                0) + (<font color="blue">if </font>get_v_abs<font color="blue"> then </font>1<font color="blue"> else </font>0) + (<font color="blue">if </font>get_a_abs<font color="blue"> then </font>1<font color="blue"> else </font>
+                0) + (<font color="blue">if </font>get_angles<font color="blue"> then </font>1<font color="blue"> else </font>0) + (<font color="blue">if </font>get_w_abs<font color="blue"> then </font>1<font color="blue"> else </font>
+                0) + (<font color="blue">if </font>get_z_abs<font color="blue"> then </font>1<font color="blue"> else </font>0)));
+  <A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.Frame_resolve"
+>Interfaces.Frame_resolve</A> frame_resolve <font color="darkgreen">
+    &quot;If connected, the output signals are resolved in this frame&quot;</font>;
+  <font color="blue">parameter </font>Boolean animation=true <font color="darkgreen">
+    &quot;= true, if animation shall be enabled (show arrow)&quot;</font>;
+  <font color="blue">parameter </font>Boolean resolveInFrame_a=false <font color="darkgreen">
+    &quot;= true, if vectors are resolved in frame_a, otherwise in the world frame (if connector frame_resolve is connected, vectors are resolved in frame_resolve)&quot;</font>;
+  <font color="blue">parameter </font>Boolean get_r_abs=true <font color="darkgreen">
+    &quot;= true, to measure the position vector from the origin of the world frame to the origin of frame_a in [m]&quot;</font>;
+  <font color="blue">parameter </font>Boolean get_v_abs=false <font color="darkgreen">
+    &quot;= true, to measure the absolute velocity of the origin of frame_a in [m/s]&quot;</font>;
+  <font color="blue">parameter </font>Boolean get_a_abs=false <font color="darkgreen">
+    &quot;= true, to measure the absolute acceleration of the origin of frame_a in [m/s^2]&quot;</font>;
+  <font color="blue">parameter </font>Boolean get_angles=false <font color="darkgreen">
+    &quot;= true, to measure the 3 rotation angles to rotate the world frame into frame_a along the axes defined in 'sequence' below in [rad]&quot;</font>;
+  <font color="blue">parameter </font>Boolean get_w_abs=false <font color="darkgreen">
+    &quot;= true, to measure the absolute angular velocity of frame_a in [rad/s]&quot;</font>;
+  <font color="blue">parameter </font>Boolean get_z_abs=false <font color="darkgreen">
+    &quot;= true, to measure the absolute angular acceleration to frame_a in [rad/s^2]&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#Modelica.Mechanics.MultiBody.Types.RotationSequence"
+>Types.RotationSequence</A> sequence(
+    min={1,1,1},
+    max={3,3,3}) = {1,2,3} <font color="darkgreen">
+    &quot; Angles are returned to rotate world frame around axes sequence[1], sequence[2] and finally sequence[3] into frame_a&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>SI.Angle</A> guessAngle1=0 <font color="darkgreen">
+    &quot; Select angles[1] such that abs(angles[1] - guessAngle1) is a minimum&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>SI.Diameter</A> arrowDiameter=world.defaultArrowDiameter <font color="darkgreen">
+    &quot; Diameter of arrow from world frame to frame_a&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#Modelica.Mechanics.MultiBody.Types.Color"
+>Types.Color</A> arrowColor=Modelica.Mechanics.MultiBody.Types.Defaults.SensorColor <font color="darkgreen">
+    &quot; Color of arrow from world frame to frame_a&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#Modelica.Mechanics.MultiBody.Types.SpecularCoefficient"
+>Types.SpecularCoefficient</A> specularCoefficient = world.defaultSpecularCoefficient <font color="darkgreen">
+    &quot;Reflection of ambient light (= 0: light is completely absorbed)&quot;</font>;
+
+
+<font color="blue">protected </font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> r_abs[3] <font color="darkgreen">
+    &quot;Dummy or position vector from origin of the world frame to origin of frame_a (resolved in frame_resolve, frame_a or world frame)&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Velocity"
+>SI.Velocity</A> v_abs[3] <font color="darkgreen">
+    &quot;Dummy or velocity of origin of frame_a with respect to origin of world frame (resolved in frame_resolve, frame_a or world frame)&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Acceleration"
+>SI.Acceleration</A> a_abs[3] <font color="darkgreen">
+    &quot;Dummy or acceleration of origin of frame_a with respect to origin of word frame (resolved in frame_resolve, frame_a or world frame)&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Acceleration"
+>SI.Acceleration</A> angles[3] <font color="darkgreen">
+    &quot;Dummy or angles to rotate world frame into frame_a via 'sequence'&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
+>SI.AngularVelocity</A> w_abs[3] <font color="darkgreen">
+    &quot;Dummy or angular velocity of frame_a with respect to world frame (resolved in frame_resolve, frame_a or world frame)&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.AngularAcceleration"
+>SI.AngularAcceleration</A> z_abs[3] <font color="darkgreen">
+    &quot;Dummy or angular acceleration of frame_a with respect to world frame (resolved in frame_resolve, frame_a or world frame)&quot;</font>;
+
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Velocity"
+>SI.Velocity</A> v_abs_0[3] <font color="darkgreen">
+    &quot;Dummy or absolute velocity of origin of frame_a resolved in world frame&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Velocity"
+>SI.Velocity</A> w_abs_0[3] <font color="darkgreen">
+    &quot;Dummy or absolute angular velocity of frame_a resolved in world frame&quot;</font>;
+  <font color="blue">parameter </font>Integer i1=1;
+  <font color="blue">parameter </font>Integer i2=<font color="blue">if </font>get_r_abs<font color="blue"> then </font>i1 + 3<font color="blue"> else </font>i1;
+  <font color="blue">parameter </font>Integer i3=<font color="blue">if </font>get_v_abs<font color="blue"> then </font>i2 + 3<font color="blue"> else </font>i2;
+  <font color="blue">parameter </font>Integer i4=<font color="blue">if </font>get_a_abs<font color="blue"> then </font>i3 + 3<font color="blue"> else </font>i3;
+  <font color="blue">parameter </font>Integer i5=<font color="blue">if </font>get_angles<font color="blue"> then </font>i4 + 3<font color="blue"> else </font>i4;
+  <font color="blue">parameter </font>Integer i6=<font color="blue">if </font>get_w_abs<font color="blue"> then </font>i5 + 3<font color="blue"> else </font>i5;
+  <A HREF="Modelica_Mechanics_MultiBody_Visualizers_Advanced.html#Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow"
+>Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow</A> arrow(
+    r_head=frame_a.r_0,
+    diameter=arrowDiameter,
+    specularCoefficient=specularCoefficient,
+    color=arrowColor) <font color="blue">if </font>world.enableAnimation<font color="blue"> and </font>animation;
+<font color="blue">equation </font>
+  <font color="blue">if </font>get_angles<font color="blue"> then</font>
+    angles =<font color="red"> Frames.axesRotationsAngles</font>(frame_a.R, sequence, guessAngle1);
+  <font color="blue">else</font>
+    angles =<font color="red"> zeros</font>(3);
+  <font color="blue">end if</font>;
+
+  <font color="blue">if </font><font color="red">cardinality</font>(frame_resolve) == 1<font color="blue"> then</font>
+    <font color="darkgreen">// frame_resolve is connected</font>
+    frame_resolve.f =<font color="red"> zeros</font>(3);
+    frame_resolve.t =<font color="red"> zeros</font>(3);
+
+    <font color="blue">if </font>get_r_abs<font color="blue"> then</font>
+      r_abs =<font color="red"> Frames.resolve2</font>(frame_resolve.R, frame_a.r_0);
+    <font color="blue">else</font>
+      r_abs =<font color="red"> zeros</font>(3);
+    <font color="blue">end if</font>;
+
+    <font color="blue">if </font>get_v_abs<font color="blue"> or </font>get_a_abs<font color="blue"> then</font>
+      v_abs_0 =<font color="red"> der</font>(frame_a.r_0);
+      v_abs =<font color="red"> Frames.resolve2</font>(frame_resolve.R, v_abs_0);
+    <font color="blue">else</font>
+      v_abs_0 =<font color="red"> zeros</font>(3);
+      v_abs =<font color="red"> zeros</font>(3);
+    <font color="blue">end if</font>;
+
+    <font color="blue">if </font>get_a_abs<font color="blue"> then</font>
+      a_abs =<font color="red"> Frames.resolve2</font>(frame_resolve.R,<font color="red"> der</font>(v_abs_0));
+    <font color="blue">else</font>
+      a_abs =<font color="red"> zeros</font>(3);
+    <font color="blue">end if</font>;
+
+    <font color="blue">if </font>get_w_abs<font color="blue"> or </font>get_z_abs<font color="blue"> then</font>
+      w_abs_0 =<font color="red"> Modelica.Mechanics.MultiBody.Frames.angularVelocity1</font>(frame_a.R);
+      w_abs =<font color="red"> Frames.resolve2</font>(frame_resolve.R, w_abs_0);
+    <font color="blue">else</font>
+      w_abs_0 =<font color="red"> zeros</font>(3);
+      w_abs =<font color="red"> zeros</font>(3);
+    <font color="blue">end if</font>;
+
+    <font color="blue">if </font>get_z_abs<font color="blue"> then</font>
+      z_abs =<font color="red"> Frames.resolve2</font>(frame_resolve.R,<font color="red"> der</font>(w_abs_0));
+    <font color="blue">else</font>
+      z_abs =<font color="red"> zeros</font>(3);
+    <font color="blue">end if</font>;
+  <font color="blue">else</font>
+    <font color="darkgreen">// frame_resolve is NOT connected</font>
+    frame_resolve.r_0 =<font color="red"> zeros</font>(3);
+    frame_resolve.R =<font color="red"> Frames.nullRotation</font>();
+
+    <font color="blue">if </font>get_r_abs<font color="blue"> then</font>
+      <font color="blue">if </font>resolveInFrame_a<font color="blue"> then</font>
+        r_abs =<font color="red"> Modelica.Mechanics.MultiBody.Frames.resolve2</font>(frame_a.R, frame_a.r_0);
+      <font color="blue">else</font>
+        r_abs = frame_a.r_0;
+      <font color="blue">end if</font>;
+    <font color="blue">else</font>
+      r_abs =<font color="red"> zeros</font>(3);
+    <font color="blue">end if</font>;
+
+    <font color="blue">if </font>get_v_abs<font color="blue"> or </font>get_a_abs<font color="blue"> then</font>
+      v_abs_0 =<font color="red"> der</font>(frame_a.r_0);
+      <font color="blue">if </font>resolveInFrame_a<font color="blue"> then</font>
+        v_abs =<font color="red"> Modelica.Mechanics.MultiBody.Frames.resolve2</font>(frame_a.R, v_abs_0);
+      <font color="blue">else</font>
+        v_abs = v_abs_0;
+      <font color="blue">end if</font>;
+    <font color="blue">else</font>
+      v_abs_0 =<font color="red"> zeros</font>(3);
+      v_abs =<font color="red"> zeros</font>(3);
+    <font color="blue">end if</font>;
+
+    <font color="blue">if </font>get_a_abs<font color="blue"> then</font>
+      <font color="blue">if </font>resolveInFrame_a<font color="blue"> then</font>
+        a_abs =<font color="red"> Modelica.Mechanics.MultiBody.Frames.resolve2</font>(frame_a.R,<font color="red"> der</font>(v_abs_0));
+      <font color="blue">else</font>
+        a_abs =<font color="red"> der</font>(v_abs_0);
+      <font color="blue">end if</font>;
+    <font color="blue">else</font>
+      a_abs =<font color="red"> zeros</font>(3);
+    <font color="blue">end if</font>;
+
+    w_abs_0 =<font color="red"> zeros</font>(3);
+    <font color="blue">if </font>get_w_abs<font color="blue"> or </font>get_z_abs<font color="blue"> then</font>
+      <font color="blue">if </font>resolveInFrame_a<font color="blue"> then</font>
+        w_abs =<font color="red"> Modelica.Mechanics.MultiBody.Frames.angularVelocity2</font>(frame_a.R);
+      <font color="blue">else</font>
+        w_abs =<font color="red"> Modelica.Mechanics.MultiBody.Frames.angularVelocity1</font>(frame_a.R);
+      <font color="blue">end if</font>;
+    <font color="blue">else</font>
+      w_abs =<font color="red"> zeros</font>(3);
+    <font color="blue">end if</font>;
+
+    <font color="blue">if </font>get_z_abs<font color="blue"> then</font>
+      <font color="darkgreen">/* if w_abs and z_abs are resolved in the world frame, we have
+            z_abs = der(w_abs)
+         if w_abs and z_abs are resolved in frame_a, we have
+            z_abs = R*der(transpose(R)*w_abs)
+                  = R*(der(transpose(R))*w_abs + transpose(R)*der(w_abs)))
+                  = R*(transpose(R)*R*der(transpose(R))*w_abs + transpose(R)*der(w_abs)))
+                  = skew(w_abs)*w_abs + der(w_abs)
+                  = der(w_abs)  // since cross(w_abs, w_abs) = 0
+      */</font>
+      z_abs =<font color="red"> der</font>(w_abs);
+    <font color="blue">else</font>
+      z_abs =<font color="red"> zeros</font>(3);
+    <font color="blue">end if</font>;
+  <font color="blue">end if</font>;
+
+  frame_a.f =<font color="red"> zeros</font>(3);
+  frame_a.t =<font color="red"> zeros</font>(3);
+
+  <font color="blue">if </font>get_r_abs<font color="blue"> then</font>
+    y[i1:i1 + 2] = r_abs;
+  <font color="blue">end if</font>;
+
+  <font color="blue">if </font>get_v_abs<font color="blue"> then</font>
+    y[i2:i2 + 2] = v_abs;
+  <font color="blue">end if</font>;
+
+  <font color="blue">if </font>get_a_abs<font color="blue"> then</font>
+    y[i3:i3 + 2] = a_abs;
+  <font color="blue">end if</font>;
+
+  <font color="blue">if </font>get_angles<font color="blue"> then</font>
+    y[i4:i4 + 2] = angles;
+  <font color="blue">end if</font>;
+
+  <font color="blue">if </font>get_w_abs<font color="blue"> then</font>
+    y[i5:i5 + 2] = w_abs;
+  <font color="blue">end if</font>;
+
+  <font color="blue">if </font>get_z_abs<font color="blue"> then</font>
+    y[i6:i6 + 2] = z_abs;
+  <font color="blue">end if</font>;
+<font color="blue">end </font>AbsoluteSensor;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE RelativeSensor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Sensors.RelativeSensorI.png" ALT="Modelica.Mechanics.MultiBody.Sensors.RelativeSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Sensors.RelativeSensor"></A><A HREF="Modelica_Mechanics_MultiBody_Sensors.html#Modelica.Mechanics.MultiBody.Sensors"
+>Modelica.Mechanics.MultiBody.Sensors</A>.RelativeSensor</H2>
+<B>Measure relative kinematic quantities between two frame connectors</B><p>
+<IMG SRC="Modelica.Mechanics.MultiBody.Sensors.RelativeSensorD.png" ALT="Modelica.Mechanics.MultiBody.Sensors.RelativeSensor">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+Relative kinematic quantities between frame_a and frame_b are
+determined and provided at the output signal connector <b>y</b>
+in packed format in the order
+</p>
+<ol>
+<li> relative position vector (= r_rel)</li>
+<li> relative velocity vectory (= v_rel)</li>
+<li> relative acceleration vector (= a_rel))</li>
+<li> 3 angles to rotate frame_a into frame_b (= angles)</li>
+<li> relative angular velocity vector (= w_rel)</li>
+<li> relative angular acceleration vector (= z_rel)</li>
+</ol>
+<p>
+For example, if parameters <b>get_v_rel</b> and <b>get_w_rel</b>
+are <b>true</b> and all other get_XXX parameters are <b>false</b>, then
+y contains 6 elements:
+</p>
+<pre>
+ y = relative velocity
+ y = relative angular velocity
+</pre>
+<p>
+In the following figure the animation of a RelativeSensor
+component is shown. The light blue coordinate system is
+frame_a, the dark blue coordinate system is frame_b, and
+the yellow arrow is the animated sensor.
+</p>
+<p align="center">
+<IMG SRC="../Images/MultiBody/Sensors/RelativeSensor.png">
+</p>
+<p>
+If parameter <b>resolveInFrame_a</b> = <b>true</b>, then the
+provided relative kinematic vectors of frame_b with respect to
+frame_a are resolved before differentiation in frame_a. If this
+parameter is <b>false</b>, the relative kinematic vectors are
+resolved before differentiation in frame_b.
+If <b>frame_resolve</b> is connected to another frame, then the
+kinematic vector as defined above and/or its required derivatives
+are resolved in frame_resolve. Note, derivatives
+of relative kinematic quantities are always performed with
+respect to frame_a (<b>resolveInFrame_a</b> = <b>true</b>)
+or with respect to frame_b (<b>resolveInFrame_a</b> = <b>false</b>).
+The resulting vector is then resolved in frame_resolve, if this
+connector is connected.
+</p>
+<p>
+For example, if frame_resolve is not
+connected and if resolveInFrame_a = <b>false</b>, and
+get_v = <b>true</b>, then
+</p>
+<pre>
+  y = v_rel
+    = <b>der</b>(r_rel)
+</pre>
+is returned (r_rel = resolve2(frame_b.R, frame_b.r_0 - frame_a.r0)), i.e.,
+the derivative of the relative distance from frame_a to frame_b,
+resolved in frame_b. If frame_resolve is connected, then
+</p>
+<pre>
+  y = v_rel
+    = resolve2(frame_resolve.R, <b>der</b>(r_rel))
+</pre>
+<p>
+is returned, i.e., the previous relative velocity vector is
+additionally resolved in frame_resolve.
+</p>
+<p>
+Note, the cut-force and the cut-torque in frame_resolve are
+always zero, whether frame_resolve is connected or not.
+</p>
+<p>
+If <b>get_angles</b> = <b>true</b>, the 3 angles to rotate frame_a
+into frame_b along the axes defined by parameter <b>sequence</b>
+are returned. For example, if sequence = {3,1,2} then frame_a is
+rotated around angles[1] along the z-axis, afterwards it is rotated
+around angles[2] along the x-axis, and finally it is rotated around
+angles[3] along the y-axis and is then identical to frame_b.
+The 3 angles are returned in the range
+</p>
+<pre>
+    -<font face="Symbol">p</font> &lt;= angles[i] &lt;= <font face="Symbol">p</font>
+</pre>
+<p>
+There are <b>two solutions</b> for "angles[1]" in this range.
+Via parameter <b>guessAngle1</b> (default = 0) the
+returned solution is selected such that |angles[1] - guessAngle1| is
+minimal. The relative transformation matrix between frame_a and
+frame_b may be in a singular configuration with respect to "sequence", i.e.,
+there is an infinite number of angle values leading to the same relative
+transformation matrix. In this case, the returned solution is
+selected by setting angles[1] = guessAngle1. Then angles[2]
+and angles[3] can be uniquely determined in the above range.
+</p>
+<p>
+Note, that parameter <b>sequence</b> has the restriction that
+only values 1,2,3 can be used and that sequence[1] &ne; sequence[2]
+and sequence[2] &ne; sequence[3]. Often used values are:
+</p>
+<pre>
+  sequence = <b>{1,2,3}</b>  // Cardan angle sequence
+           = <b>{3,1,3}</b>  // Euler angle sequence
+           = <b>{3,2,1}</b>  // Tait-Bryan angle sequence
+</pre>
+<p>
+Exact definition of the returned quantities
+(r_rel_ab, R_rel_ab, w_rel_ab are defined below the enumeration):
+</p>
+<ol>
+<li>r_rel is vector r_rel_ab, resolved according to table below.</li>
+<li>v_rel is vector <b>der</b>(r_rel_ab), resolved according to table below.</li>
+<li>a_rel is vector <b>der</b>(<b>der</b>(r_rel_ab)), resolved according to
+            table below.</li>
+<li>angles is a vector of 3 angles such that
+    R_rel_ab = Frames.axesRotations(sequence, angles).</li>
+<li>w_rel is vector w_rel_ab, resolved according to table below.</li>
+<li>z_rel is vector <b>der</b>(w_rel_ab), resolved according to table below.</li>
+</ol>
+<p>
+using the auxiliary quantities
+</p>
+<ol>
+<li> r_rel_ab is vector frame_b.r_0 - frame_a.r_0, resolved either in frame_a or
+     frame_b according to parameter resolveInFrame_a.</li>
+<li> R_rel_ab is orientation object Frames.relativeRotation(frame_a.R, frame_b.R).</li>
+<li> w_rel_ab is vector Frames.angularVelocity1(R_rel_ab, der(R_rel_ab)), resolved either
+     in frame_a or frame_b according to parameter resolveInFrame_a.</li>
+</ol>
+<p>
+and resolved in the following frame
+</p>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><th><b><i>frame_resolve is</i></b></th>
+      <th><b><i>resolveInFrame_a =</i></b></th>
+      <th><b><i>vector is resolved in</i></b></th>
+  </tr>
+  <tr><td>connected</td>
+      <td>true</td>
+      <td><b>frame_resolve</b></td>
+  </tr>
+  <tr><td>connected</td>
+      <td>false</td>
+      <td><b>frame_resolve</b></td>
+  </tr>
+  <tr><td>not connected</td>
+      <td>true</td>
+      <td><b>frame_a</b></td>
+  </tr>
+  <tr><td>not connected</td>
+      <td>false</td>
+      <td><b>frame_b</b></td>
+  </tr>
+</table><br>
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>n_out</TD><TD>1</TD><TD>Number of output signals</TD></TR>
+<TR><TD>&nbsp;</TD><TD>animation</TD><TD>true</TD><TD>= true, if animation shall be enabled (show arrow)</TD></TR>
+<TR><TD>&nbsp;</TD><TD>resolveInFrame_a</TD><TD>true</TD><TD>= true, if relative vectors from frame_a to frame_b are resolved before differentiation in frame_a, otherwise in frame_b. If frame_resolve is connected, the vector and its derivatives are resolved in frame_resolve</TD></TR>
+<TR><TD>&nbsp;</TD><TD>get_r_rel</TD><TD>true</TD><TD>= true, to measure the relative position vector from the origin of frame_a to the origin of frame_b in [m]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>get_v_rel</TD><TD>false</TD><TD>= true, to measure the relative velocity of the origin of frame_b with respect to frame_a in [m/s]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>get_a_rel</TD><TD>false</TD><TD>= true, to measure the relative acceleration of the origin of frame_b with respect to frame_a in [m/s^2]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>get_angles</TD><TD>false</TD><TD>= true, to measure the 3 rotation angles to rotate frame_a into frame_b along the axes defined in 'sequence' below in [rad]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>get_w_rel</TD><TD>false</TD><TD>= true, to measure the relative angular velocity of frame_b with respect to frame_a in [rad/s]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>get_z_rel</TD><TD>false</TD><TD>= true, to measure the relative angular acceleration of frame_b with respect to frame_a in [rad/s^2]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>if get_angles = true</TD></TR>
+<TR><TD>&nbsp;</TD><TD>sequence[3]</TD><TD>{1,2,3}</TD><TD> Angles are returned to rotate frame_a around axes sequence[1], sequence[2] and finally sequence[3] into frame_b</TD></TR>
+<TR><TD>&nbsp;</TD><TD>guessAngle1</TD><TD>0</TD><TD> Select angles[1] such that abs(angles[1] - guessAngle1) is a minimum [rad]</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Animation</B></TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>if animation = true</TD></TR>
+<TR><TD>&nbsp;</TD><TD>arrowDiameter</TD><TD>world.defaultArrowDiameter</TD><TD> Diameter of relative arrow from frame_a to frame_b [m]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>arrowColor[3]</TD><TD>Modelica.Mechanics.MultiBody...</TD><TD> Color of relative arrow from frame_a to frame_b</TD></TR>
+<TR><TD>&nbsp;</TD><TD>specularCoefficient</TD><TD>world.defaultSpecularCoeffic...</TD><TD>Reflection of ambient light (= 0: light is completely absorbed)</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>frame_a</TD><TD>Coordinate system a</TD></TR>
+<TR><TD>&nbsp;</TD><TD>frame_b</TD><TD>Coordinate system b</TD></TR>
+<TR><TD>output &nbsp;</TD><TD>y[n_out]</TD><TD>Measured data as signal vector</TD></TR>
+<TR><TD>&nbsp;</TD><TD>frame_resolve</TD><TD>If connected, the output signals are resolved in this frame</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> RelativeSensor <font color="darkgreen">
+  &quot;Measure relative kinematic quantities between two frame connectors&quot;</font>
+
+  <font color="blue">import </font>SI = <A HREF="Modelica_SIunits.html#Modelica.SIunits"
+>Modelica.SIunits</A>;
+  <font color="blue">import </font><A HREF="Modelica_Mechanics_MultiBody_Frames.html#Modelica.Mechanics.MultiBody.Frames"
+>Modelica.Mechanics.MultiBody.Frames</A>;
+  <font color="blue">import </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#Modelica.Mechanics.MultiBody.Types"
+>Modelica.Mechanics.MultiBody.Types</A>;
+
+  <font color="blue">extends </font><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.PartialRelativeSensor"
+>Interfaces.PartialRelativeSensor</A>(n_out=3*((<font color="blue">if </font>
+          get_r_rel<font color="blue"> then </font>1<font color="blue"> else </font>0) + (<font color="blue">if </font>get_v_rel<font color="blue"> then </font>1<font color="blue"> else </font>0) + (<font color="blue">if </font>
+          get_a_rel<font color="blue"> then </font>1<font color="blue"> else </font>0) + (<font color="blue">if </font>get_angles<font color="blue"> then </font>1<font color="blue"> else </font>0) + (<font color="blue">if </font>
+          get_w_rel<font color="blue"> then </font>1<font color="blue"> else </font>0) + (<font color="blue">if </font>get_z_rel<font color="blue"> then </font>1<font color="blue"> else </font>0)));
+  <A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.Frame_resolve"
+>Interfaces.Frame_resolve</A> frame_resolve <font color="darkgreen">
+    &quot;If connected, the output signals are resolved in this frame&quot;</font>;
+
+  <font color="blue">parameter </font>Boolean animation=true <font color="darkgreen">
+    &quot;= true, if animation shall be enabled (show arrow)&quot;</font>;
+  <font color="blue">parameter </font>Boolean resolveInFrame_a=true <font color="darkgreen">
+    &quot;= true, if relative vectors from frame_a to frame_b are resolved before differentiation in frame_a, otherwise in frame_b. If frame_resolve is connected, the vector and its derivatives are resolved in frame_resolve&quot;</font>;
+  <font color="blue">parameter </font>Boolean get_r_rel=true <font color="darkgreen">
+    &quot;= true, to measure the relative position vector from the origin of frame_a to the origin of frame_b in [m]&quot;</font>;
+  <font color="blue">parameter </font>Boolean get_v_rel=false <font color="darkgreen">
+    &quot;= true, to measure the relative velocity of the origin of frame_b with respect to frame_a in [m/s]&quot;</font>;
+  <font color="blue">parameter </font>Boolean get_a_rel=false <font color="darkgreen">
+    &quot;= true, to measure the relative acceleration of the origin of frame_b with respect to frame_a in [m/s^2]&quot;</font>;
+  <font color="blue">parameter </font>Boolean get_angles=false <font color="darkgreen">
+    &quot;= true, to measure the 3 rotation angles to rotate frame_a into frame_b along the axes defined in 'sequence' below in [rad]&quot;</font>;
+  <font color="blue">parameter </font>Boolean get_w_rel=false <font color="darkgreen">
+    &quot;= true, to measure the relative angular velocity of frame_b with respect to frame_a in [rad/s]&quot;</font>;
+  <font color="blue">parameter </font>Boolean get_z_rel=false <font color="darkgreen">
+    &quot;= true, to measure the relative angular acceleration of frame_b with respect to frame_a in [rad/s^2]&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#Modelica.Mechanics.MultiBody.Types.RotationSequence"
+>Types.RotationSequence</A> sequence(
+    min={1,1,1},
+    max={3,3,3}) = {1,2,3} <font color="darkgreen">
+    &quot; Angles are returned to rotate frame_a around axes sequence[1], sequence[2] and finally sequence[3] into frame_b&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>SI.Angle</A> guessAngle1=0 <font color="darkgreen">
+    &quot; Select angles[1] such that abs(angles[1] - guessAngle1) is a minimum&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>SI.Diameter</A> arrowDiameter=world.defaultArrowDiameter <font color="darkgreen">
+    &quot; Diameter of relative arrow from frame_a to frame_b&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#Modelica.Mechanics.MultiBody.Types.Color"
+>Types.Color</A> arrowColor=Modelica.Mechanics.MultiBody.Types.Defaults.SensorColor <font color="darkgreen">
+    &quot; Color of relative arrow from frame_a to frame_b&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#Modelica.Mechanics.MultiBody.Types.SpecularCoefficient"
+>Types.SpecularCoefficient</A> specularCoefficient = world.defaultSpecularCoefficient <font color="darkgreen">
+    &quot;Reflection of ambient light (= 0: light is completely absorbed)&quot;</font>;
+
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> r_rel[3] <font color="darkgreen">
+    &quot;Dummy or relative position vector (resolved in frame_a, frame_b or frame_resolve)&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Velocity"
+>SI.Velocity</A> v_rel[3] <font color="darkgreen">
+    &quot;Dummy or relative velocity vector (resolved in frame_a, frame_b or frame_resolve&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Acceleration"
+>SI.Acceleration</A> a_rel[3] <font color="darkgreen">
+    &quot;Dummy or relative acceleration vector (resolved in frame_a, frame_b or frame_resolve&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Acceleration"
+>SI.Acceleration</A> angles[3] <font color="darkgreen">
+    &quot;Dummy or angles to rotate frame_a into frame_b via 'sequence'&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
+>SI.AngularVelocity</A> w_rel[3] <font color="darkgreen">
+    &quot;Dummy or relative angular velocity vector (resolved in frame_a, frame_b or frame_resolve&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.AngularAcceleration"
+>SI.AngularAcceleration</A> z_rel[3] <font color="darkgreen">
+    &quot;Dummy or relative angular acceleration vector (resolved in frame_a, frame_b or frame_resolve&quot;</font>;
+  <A HREF="Modelica_Mechanics_MultiBody_Frames.html#Modelica.Mechanics.MultiBody.Frames.Orientation"
+>Frames.Orientation</A> R_rel <font color="darkgreen">
+    &quot;Dummy or relative orientation object from frame_a to frame_b&quot;</font>;
+<font color="blue">protected </font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> r_rel_ab[3] <font color="darkgreen">
+    &quot;Dummy or relative position vector resolved in frame_a or frame_b&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Velocity"
+>SI.Velocity</A> der_r_rel_ab[3] <font color="darkgreen">
+    &quot;Dummy or derivative of relative position vector (resolved in frame_a, frame_b or frame_resolve)&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
+>SI.AngularVelocity</A> w_rel_ab[3] <font color="darkgreen">
+    &quot;Dummy or angular velocity of frame_b with respect to frame_a (resolved in frame_a or frame_b)&quot;</font>;
+  <A HREF="Modelica_Mechanics_MultiBody_Frames.html#Modelica.Mechanics.MultiBody.Frames.Orientation"
+>Frames.Orientation</A> R_resolve <font color="darkgreen">
+    &quot;Dummy or relative orientation of frame_a or frame_b with respect to frame_resolve&quot;</font>;
+
+  <font color="blue">parameter </font>Integer i1=1;
+  <font color="blue">parameter </font>Integer i2=<font color="blue">if </font>get_r_rel<font color="blue"> then </font>i1 + 3<font color="blue"> else </font>i1;
+  <font color="blue">parameter </font>Integer i3=<font color="blue">if </font>get_v_rel<font color="blue"> then </font>i2 + 3<font color="blue"> else </font>i2;
+  <font color="blue">parameter </font>Integer i4=<font color="blue">if </font>get_a_rel<font color="blue"> then </font>i3 + 3<font color="blue"> else </font>i3;
+  <font color="blue">parameter </font>Integer i5=<font color="blue">if </font>get_angles<font color="blue"> then </font>i4 + 3<font color="blue"> else </font>i4;
+  <font color="blue">parameter </font>Integer i6=<font color="blue">if </font>get_w_rel<font color="blue"> then </font>i5 + 3<font color="blue"> else </font>i5;
+  <A HREF="Modelica_Mechanics_MultiBody_Visualizers_Advanced.html#Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow"
+>Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow</A> arrow(
+    r=frame_a.r_0,
+    r_head=frame_b.r_0 - frame_a.r_0,
+    diameter=arrowDiameter,
+    color=arrowColor,
+    specularCoefficient) <font color="blue">if </font>world.enableAnimation<font color="blue"> and </font>animation;
+<font color="blue">equation </font>
+  <font color="blue">if </font>get_angles<font color="blue"> or </font>get_w_rel<font color="blue"> or </font>get_z_rel<font color="blue"> then</font>
+    R_rel =<font color="red"> Modelica.Mechanics.MultiBody.Frames.relativeRotation</font>(frame_a.R, frame_b.R);
+  <font color="blue">else</font>
+    R_rel =<font color="red"> Modelica.Mechanics.MultiBody.Frames.nullRotation</font>();
+  <font color="blue">end if</font>;
+
+  <font color="blue">if </font>get_angles<font color="blue"> then</font>
+    angles =<font color="red"> Frames.axesRotationsAngles</font>(R_rel, sequence, guessAngle1);
+  <font color="blue">else</font>
+    angles =<font color="red"> zeros</font>(3);
+  <font color="blue">end if</font>;
+
+  <font color="blue">if </font><font color="red">cardinality</font>(frame_resolve) == 1<font color="blue"> then</font>
+    <font color="darkgreen">// frame_resolve is connected</font>
+    frame_resolve.f =<font color="red"> zeros</font>(3);
+    frame_resolve.t =<font color="red"> zeros</font>(3);
+
+    <font color="blue">if </font>resolveInFrame_a<font color="blue"> then</font>
+      R_resolve =<font color="red"> Frames.relativeRotation</font>(frame_a.R, frame_resolve.R);
+    <font color="blue">else</font>
+      R_resolve =<font color="red"> Frames.relativeRotation</font>(frame_b.R, frame_resolve.R);
+    <font color="blue">end if</font>;
+
+    <font color="blue">if </font>get_r_rel<font color="blue"> or </font>get_v_rel<font color="blue"> or </font>get_a_rel<font color="blue"> then</font>
+      <font color="blue">if </font>resolveInFrame_a<font color="blue"> then</font>
+        r_rel_ab =<font color="red"> Frames.resolve2</font>(frame_a.R, frame_b.r_0 - frame_a.r_0);
+      <font color="blue">else</font>
+        r_rel_ab =<font color="red"> Frames.resolve2</font>(frame_b.R, frame_b.r_0 - frame_a.r_0);
+      <font color="blue">end if</font>;
+      r_rel =<font color="red"> Frames.resolve2</font>(R_resolve, r_rel_ab);
+    <font color="blue">else</font>
+      r_rel_ab =<font color="red"> zeros</font>(3);
+      r_rel =<font color="red"> zeros</font>(3);
+    <font color="blue">end if</font>;
+
+    <font color="blue">if </font>get_v_rel<font color="blue"> or </font>get_a_rel<font color="blue"> then</font>
+      der_r_rel_ab =<font color="red"> der</font>(r_rel_ab);
+    <font color="blue">else</font>
+      der_r_rel_ab =<font color="red"> zeros</font>(3);
+    <font color="blue">end if</font>;
+
+    <font color="blue">if </font>get_v_rel<font color="blue"> then</font>
+      v_rel =<font color="red"> Frames.resolve2</font>(R_resolve, der_r_rel_ab);
+    <font color="blue">else</font>
+      v_rel =<font color="red"> zeros</font>(3);
+    <font color="blue">end if</font>;
+
+    <font color="blue">if </font>get_a_rel<font color="blue"> then</font>
+      a_rel =<font color="red"> Frames.resolve2</font>(R_resolve,<font color="red"> der</font>(der_r_rel_ab));
+    <font color="blue">else</font>
+      a_rel =<font color="red"> zeros</font>(3);
+    <font color="blue">end if</font>;
+
+    <font color="blue">if </font>get_w_rel<font color="blue"> or </font>get_z_rel<font color="blue"> then</font>
+      <font color="blue">if </font>resolveInFrame_a<font color="blue"> then</font>
+        w_rel_ab =<font color="red"> Modelica.Mechanics.MultiBody.Frames.angularVelocity1</font>(R_rel);
+      <font color="blue">else</font>
+        w_rel_ab =<font color="red"> Modelica.Mechanics.MultiBody.Frames.angularVelocity2</font>(R_rel);
+      <font color="blue">end if</font>;
+      w_rel =<font color="red"> Frames.resolve2</font>(R_resolve, w_rel_ab);
+    <font color="blue">else</font>
+      w_rel =<font color="red"> zeros</font>(3);
+      w_rel_ab =<font color="red"> zeros</font>(3);
+    <font color="blue">end if</font>;
+
+    <font color="blue">if </font>get_z_rel<font color="blue"> then</font>
+      z_rel =<font color="red"> Frames.resolve2</font>(R_resolve,<font color="red"> der</font>(w_rel_ab));
+    <font color="blue">else</font>
+      z_rel =<font color="red"> zeros</font>(3);
+    <font color="blue">end if</font>;
+
+  <font color="blue">else</font>
+    <font color="darkgreen">// frame_resolve is NOT connected</font>
+    frame_resolve.r_0 =<font color="red"> zeros</font>(3);
+    frame_resolve.R =<font color="red"> Frames.nullRotation</font>();
+    R_resolve =<font color="red"> Frames.nullRotation</font>();
+    r_rel_ab =<font color="red"> zeros</font>(3);
+    der_r_rel_ab =<font color="red"> zeros</font>(3);
+    w_rel_ab =<font color="red"> zeros</font>(3);
+
+    <font color="blue">if </font>get_r_rel<font color="blue"> or </font>get_v_rel<font color="blue"> or </font>get_a_rel<font color="blue"> then</font>
+      <font color="blue">if </font>resolveInFrame_a<font color="blue"> then</font>
+        r_rel =<font color="red"> Frames.resolve2</font>(frame_a.R, frame_b.r_0 - frame_a.r_0);
+      <font color="blue">else</font>
+        r_rel =<font color="red"> Frames.resolve2</font>(frame_b.R, frame_b.r_0 - frame_a.r_0);
+      <font color="blue">end if</font>;
+    <font color="blue">else</font>
+      r_rel =<font color="red"> zeros</font>(3);
+    <font color="blue">end if</font>;
+
+    <font color="blue">if </font>get_v_rel<font color="blue"> or </font>get_a_rel<font color="blue"> then</font>
+      v_rel =<font color="red"> der</font>(r_rel);
+    <font color="blue">else</font>
+      v_rel =<font color="red"> zeros</font>(3);
+    <font color="blue">end if</font>;
+
+    <font color="blue">if </font>get_a_rel<font color="blue"> then</font>
+      a_rel =<font color="red"> der</font>(v_rel);
+    <font color="blue">else</font>
+      a_rel =<font color="red"> zeros</font>(3);
+    <font color="blue">end if</font>;
+
+    <font color="blue">if </font>get_w_rel<font color="blue"> or </font>get_z_rel<font color="blue"> then</font>
+      <font color="blue">if </font>resolveInFrame_a<font color="blue"> then</font>
+        w_rel =<font color="red"> Frames.angularVelocity1</font>(R_rel);
+      <font color="blue">else</font>
+        w_rel =<font color="red"> Frames.angularVelocity2</font>(R_rel);
+      <font color="blue">end if</font>;
+    <font color="blue">else</font>
+      w_rel =<font color="red"> zeros</font>(3);
+    <font color="blue">end if</font>;
+
+    <font color="blue">if </font>get_z_rel<font color="blue"> then</font>
+      z_rel =<font color="red"> der</font>(w_rel);
+    <font color="blue">else</font>
+      z_rel =<font color="red"> zeros</font>(3);
+    <font color="blue">end if</font>;
+  <font color="blue">end if</font>;
+
+  frame_a.f =<font color="red"> zeros</font>(3);
+  frame_a.t =<font color="red"> zeros</font>(3);
+  frame_b.f =<font color="red"> zeros</font>(3);
+  frame_b.t =<font color="red"> zeros</font>(3);
+
+  <font color="blue">if </font>get_r_rel<font color="blue"> then</font>
+    y[i1:i1 + 2] = r_rel;
+  <font color="blue">end if</font>;
+
+  <font color="blue">if </font>get_v_rel<font color="blue"> then</font>
+    y[i2:i2 + 2] = v_rel;
+  <font color="blue">end if</font>;
+
+  <font color="blue">if </font>get_a_rel<font color="blue"> then</font>
+    y[i3:i3 + 2] = a_rel;
+  <font color="blue">end if</font>;
+
+  <font color="blue">if </font>get_angles<font color="blue"> then</font>
+    y[i4:i4 + 2] = angles;
+  <font color="blue">end if</font>;
+
+  <font color="blue">if </font>get_w_rel<font color="blue"> then</font>
+    y[i5:i5 + 2] = w_rel;
+  <font color="blue">end if</font>;
+
+  <font color="blue">if </font>get_z_rel<font color="blue"> then</font>
+    y[i6:i6 + 2] = z_rel;
+  <font color="blue">end if</font>;
+<font color="blue">end </font>RelativeSensor;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Distance<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Sensors.DistanceI.png" ALT="Modelica.Mechanics.MultiBody.Sensors.Distance" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Sensors.Distance"></A><A HREF="Modelica_Mechanics_MultiBody_Sensors.html#Modelica.Mechanics.MultiBody.Sensors"
+>Modelica.Mechanics.MultiBody.Sensors</A>.Distance</H2>
+<B>Measure the distance between the origins of two frame connectors</B><p>
+<IMG SRC="Modelica.Mechanics.MultiBody.Sensors.DistanceD.png" ALT="Modelica.Mechanics.MultiBody.Sensors.Distance">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+The <b>distance</b> between the origins of frame_a
+and of frame_b are determined and provided at the
+output signal connector <b>distance</b>. This
+distance is always positive. <b>Derivatives</b> of this
+signal can be easily obtained by connecting the
+block
+<A HREF="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous.Der"
+>Modelica.Blocks.Continuous.Der</a>
+to "distance" (this block performs analytic differentiation
+of the input signal using the der(..) operator).
+</p>
+<p>
+In the following figure the animation of a Distance
+sensor is shown. The light blue coordinate system is
+frame_a, the dark blue coordinate system is frame_b, and
+the yellow arrow is the animated sensor.
+</p>
+<p align="center">
+<IMG SRC="../Images/MultiBody/Sensors/Distance.png">
+</p>
+<p>
+If the distance is smaller as parameter <b>s_small</b> (in the "advanced" menu),
+it is approximated such that its derivative is
+finite for zero distance. Without such an approximation, the derivative would
+be infinite and a division by zero would occur. The approximation is performed
+in the following way: If distance > s_small, it is computed as sqrt(r*r) where
+r is the position vector from the origin of frame_a to the origin of frame_b.
+If the distance becomes smaller as s_small, the "sqrt()" function is approximated
+by a second order polynomial, such that the function value and its first derivative
+are identical for sqrt() and the polynomial at s_small. Futhermore, the polynomial
+passes through zero. The effect is, that the distance function is continuous and
+differentiable everywhere. The derivative at zero distance is 3/(2*s_small).
+</p>
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>animation</TD><TD>true</TD><TD>= true, if animation shall be enabled (show arrow)</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>if animation = true</TD></TR>
+<TR><TD>&nbsp;</TD><TD>arrowDiameter</TD><TD>world.defaultArrowDiameter</TD><TD>Diameter of relative arrow from frame_a to frame_b [m]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>arrowColor[3]</TD><TD>Modelica.Mechanics.MultiBody...</TD><TD>Color of relative arrow from frame_a to frame_b</TD></TR>
+<TR><TD>&nbsp;</TD><TD>specularCoefficient</TD><TD>world.defaultSpecularCoeffic...</TD><TD>Reflection of ambient light (= 0: light is completely absorbed)</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Advanced</B></TD></TR>
+<TR><TD>&nbsp;</TD><TD>s_small</TD><TD>1.E-10</TD><TD>Prevent zero-division if distance between frame_a and frame_b is zero [m]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>frame_a</TD><TD>Coordinate system fixed to the component with one cut-force and cut-torque</TD></TR>
+<TR><TD>&nbsp;</TD><TD>frame_b</TD><TD>Coordinate system fixed to the component with one cut-force and cut-torque</TD></TR>
+<TR><TD>output &nbsp;</TD><TD>distance</TD><TD>Distance between the origin of frame_a and the origin of frame_b</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Distance <font color="darkgreen">
+  &quot;Measure the distance between the origins of two frame connectors&quot;</font>
+
+  <font color="blue">import </font>SI = <A HREF="Modelica_SIunits.html#Modelica.SIunits"
+>Modelica.SIunits</A>;
+  <font color="blue">import </font><A HREF="Modelica_Mechanics_MultiBody_Frames.html#Modelica.Mechanics.MultiBody.Frames"
+>Modelica.Mechanics.MultiBody.Frames</A>;
+  <font color="blue">import </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#Modelica.Mechanics.MultiBody.Types"
+>Modelica.Mechanics.MultiBody.Types</A>;
+
+  <font color="blue">extends </font><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames"
+>Interfaces.PartialTwoFrames</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.TranslationalSensor"
+>Modelica.Icons.TranslationalSensor</A>;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> distance( <font color="blue">redeclare </font><font color="blue">type</font> SignalType =
+        <A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A>) <font color="darkgreen">
+    &quot;Distance between the origin of frame_a and the origin of frame_b&quot;</font>;
+
+  <font color="blue">parameter </font>Boolean animation=true <font color="darkgreen">
+    &quot;= true, if animation shall be enabled (show arrow)&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>SI.Diameter</A> arrowDiameter=world.defaultArrowDiameter <font color="darkgreen">
+    &quot;Diameter of relative arrow from frame_a to frame_b&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#Modelica.Mechanics.MultiBody.Types.Color"
+>Types.Color</A> arrowColor=Modelica.Mechanics.MultiBody.Types.Defaults.SensorColor <font color="darkgreen">
+    &quot;Color of relative arrow from frame_a to frame_b&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#Modelica.Mechanics.MultiBody.Types.SpecularCoefficient"
+>Types.SpecularCoefficient</A> specularCoefficient = world.defaultSpecularCoefficient <font color="darkgreen">
+    &quot;Reflection of ambient light (= 0: light is completely absorbed)&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> s_small(min=<font color="red">sqrt</font>(Modelica.Constants.small))=1.E-10 <font color="darkgreen">
+    &quot;Prevent zero-division if distance between frame_a and frame_b is zero&quot;</font>;
+<font color="blue">protected </font>
+  <A HREF="Modelica_Mechanics_MultiBody_Visualizers_Advanced.html#Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow"
+>Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow</A> arrow(
+    r=frame_a.r_0,
+    r_head=frame_b.r_0 - frame_a.r_0,
+    diameter=arrowDiameter,
+    color=arrowColor,
+    specularCoefficient=specularCoefficient) <font color="blue">if </font>world.enableAnimation<font color="blue"> and </font>animation;
+<font color="blue">protected </font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> r_rel_0[3] = frame_b.r_0 - frame_a.r_0 <font color="darkgreen">
+    &quot;Position vector from frame_a to frame_b resolved in world frame&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> L2 = r_rel_0*r_rel_0;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> s_small2 = s_small^2;
+<font color="blue">equation </font>
+  frame_a.f =<font color="red"> zeros</font>(3);
+  frame_b.f =<font color="red"> zeros</font>(3);
+  frame_a.t =<font color="red"> zeros</font>(3);
+  frame_b.t =<font color="red"> zeros</font>(3);
+
+  distance =<font color="red">  smooth</font>(1,<font color="blue">if </font>L2 &gt; s_small2<font color="blue"> then </font><font color="red">sqrt</font>(L2)<font color="blue"> else </font>L2/(2*s_small)*(3-L2/s_small2));
+<font color="blue">end </font>Distance;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE CutForce<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Sensors.CutForceI.png" ALT="Modelica.Mechanics.MultiBody.Sensors.CutForce" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Sensors.CutForce"></A><A HREF="Modelica_Mechanics_MultiBody_Sensors.html#Modelica.Mechanics.MultiBody.Sensors"
+>Modelica.Mechanics.MultiBody.Sensors</A>.CutForce</H2>
+<B>Measure cut force vector</B><p>
+<IMG SRC="Modelica.Mechanics.MultiBody.Sensors.CutForceD.png" ALT="Modelica.Mechanics.MultiBody.Sensors.CutForce">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+The cut-force acting at the component to which frame_b is
+connected is determined and provided at the output signal connector
+<b>force</b> (= frame_a.f). If parameter <b>positiveSign</b> =
+<b>false</b>, the negative cut-force is provided (= frame_b.f).
+If <b>frame_resolve</b> is connected to another frame, then the
+cut-force is resolved in frame_resolve.
+If <b>frame_resolve</b> is <b>not</b> connected then the
+coordinate system in which the cut-force is resolved
+is defined by parameter <b>resolveInFrame_a</b>.
+If this parameter is <b>true</b>, then the
+cut-force is resolved in frame_a, otherwise it is
+resolved in the world frame.
+</p>
+<p>
+In the following figure the animation of a CutForce
+sensor is shown. The dark blue coordinate system is frame_b,
+and the green arrow is the cut force acting at frame_b and
+with negative sign at frame_a.
+</p>
+<p align="center">
+<IMG SRC="../Images/MultiBody/Sensors/CutForce.png">
+</p>
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>animation</TD><TD>true</TD><TD>= true, if animation shall be enabled (show arrow)</TD></TR>
+<TR><TD>&nbsp;</TD><TD>positiveSign</TD><TD>true</TD><TD>= true, if force with positive sign is returned (= frame_a.f), otherwise with negative sign (= frame_b.f)</TD></TR>
+<TR><TD>&nbsp;</TD><TD>resolveInFrame_a</TD><TD>true</TD><TD>= true, if force is resolved in frame_a/frame_b, otherwise in the world frame (if connector frame_resolve is connected, the force is resolved in frame_resolve)</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>if animation = true</TD></TR>
+<TR><TD>&nbsp;</TD><TD>N_to_m</TD><TD>1000</TD><TD> Force arrow scaling (length = force/N_to_m) [N/m]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>forceDiameter</TD><TD>world.defaultArrowDiameter</TD><TD> Diameter of force arrow [m]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>forceColor[3]</TD><TD>Modelica.Mechanics.MultiBody...</TD><TD> Color of force arrow</TD></TR>
+<TR><TD>&nbsp;</TD><TD>specularCoefficient</TD><TD>world.defaultSpecularCoeffic...</TD><TD>Reflection of ambient light (= 0: light is completely absorbed)</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>frame_a</TD><TD>Coordinate system with one cut-force and cut-torque</TD></TR>
+<TR><TD>&nbsp;</TD><TD>frame_b</TD><TD>Coordinate system with one cut-force and cut-torque</TD></TR>
+<TR><TD>&nbsp;</TD><TD>frame_resolve</TD><TD>If connected, the output signals are resolved in this frame (cut-force/-torque are set to zero)</TD></TR>
+<TR><TD>output &nbsp;</TD><TD>force[3]</TD><TD>Cut force resolved in frame_a/frame_b or in frame_resolved, if connected</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> CutForce <font color="darkgreen">&quot;Measure cut force vector&quot;</font>
+
+  <font color="blue">import </font>SI = <A HREF="Modelica_SIunits.html#Modelica.SIunits"
+>Modelica.SIunits</A>;
+  <font color="blue">import </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#Modelica.Mechanics.MultiBody.Types"
+>Modelica.Mechanics.MultiBody.Types</A>;
+
+  <font color="blue">extends </font><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.PartialCutForceSensor"
+>Modelica.Mechanics.MultiBody.Interfaces.PartialCutForceSensor</A>;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> force[3](<font color="blue">redeclare </font><font color="blue">each </font><font color="blue">type</font> SignalType
+      =            <A HREF="Modelica_SIunits.html#Modelica.SIunits.Force"
+>SI.Force</A>) <font color="darkgreen">
+    &quot;Cut force resolved in frame_a/frame_b or in frame_resolved, if connected&quot;</font>;
+
+  <font color="blue">parameter </font>Boolean animation=true <font color="darkgreen">
+    &quot;= true, if animation shall be enabled (show arrow)&quot;</font>;
+  <font color="blue">parameter </font>Boolean positiveSign=true <font color="darkgreen">
+    &quot;= true, if force with positive sign is returned (= frame_a.f), otherwise with negative sign (= frame_b.f)&quot;</font>;
+  <font color="blue">parameter </font>Boolean resolveInFrame_a=true <font color="darkgreen">
+    &quot;= true, if force is resolved in frame_a/frame_b, otherwise in the world frame (if connector frame_resolve is connected, the force is resolved in frame_resolve)&quot;</font>;
+  <font color="blue">input </font>Real N_to_m(unit=&quot;N/m&quot;) = 1000 <font color="darkgreen">
+    &quot; Force arrow scaling (length = force/N_to_m)&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>SI.Diameter</A> forceDiameter=world.defaultArrowDiameter <font color="darkgreen">
+    &quot; Diameter of force arrow&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#Modelica.Mechanics.MultiBody.Types.Color"
+>Types.Color</A> forceColor=Modelica.Mechanics.MultiBody.Types.Defaults.
+      ForceColor <font color="darkgreen">&quot; Color of force arrow&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#Modelica.Mechanics.MultiBody.Types.SpecularCoefficient"
+>Types.SpecularCoefficient</A> specularCoefficient = world.defaultSpecularCoefficient <font color="darkgreen">
+    &quot;Reflection of ambient light (= 0: light is completely absorbed)&quot;</font>;
+
+<font color="blue">protected </font>
+  <font color="blue">outer </font><A HREF="Modelica_Mechanics_MultiBody.html#Modelica.Mechanics.MultiBody.World"
+>Modelica.Mechanics.MultiBody.World</A> world;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> f_in_m[3]=frame_a.f*(<font color="blue">if </font>positiveSign<font color="blue"> then </font>+1<font color="blue"> else </font>-1)/N_to_m <font color="darkgreen">
+    &quot;Force mapped from N to m for animation&quot;</font>;
+  <A HREF="Modelica_Mechanics_MultiBody_Visualizers_Advanced.html#Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow"
+>Visualizers.Advanced.Arrow</A> forceArrow(
+    diameter=forceDiameter,
+    color=forceColor,
+    specularCoefficient=specularCoefficient,
+    R=frame_b.R,
+    r=frame_b.r_0,
+    r_tail=f_in_m,
+    r_head=-f_in_m) <font color="blue">if </font>world.enableAnimation<font color="blue"> and </font>animation;
+<font color="blue">equation </font>
+  <font color="blue">if </font><font color="red">cardinality</font>(frame_resolve) == 1<font color="blue"> then</font>
+    force =<font color="red"> Frames.resolve2</font>(frame_resolve.R,<font color="red"> Frames.resolve1</font>(frame_a.R,
+      frame_a.f))*(<font color="blue">if </font>positiveSign<font color="blue"> then </font>+1<font color="blue"> else </font>-1);
+  <font color="blue">elseif </font>resolveInFrame_a<font color="blue"> then</font>
+    force = frame_a.f*(<font color="blue">if </font>positiveSign<font color="blue"> then </font>+1<font color="blue"> else </font>-1);
+  <font color="blue">else</font>
+    force =<font color="red"> Frames.resolve1</font>(frame_a.R, frame_a.f)*(<font color="blue">if </font>positiveSign<font color="blue"> then </font>+1<font color="blue"> else </font>
+            -1);
+  <font color="blue">end if</font>;
+<font color="blue">end </font>CutForce;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE CutTorque<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Sensors.CutTorqueI.png" ALT="Modelica.Mechanics.MultiBody.Sensors.CutTorque" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Sensors.CutTorque"></A><A HREF="Modelica_Mechanics_MultiBody_Sensors.html#Modelica.Mechanics.MultiBody.Sensors"
+>Modelica.Mechanics.MultiBody.Sensors</A>.CutTorque</H2>
+<B>Measure cut torque vector</B><p>
+<IMG SRC="Modelica.Mechanics.MultiBody.Sensors.CutForceD.png" ALT="Modelica.Mechanics.MultiBody.Sensors.CutTorque">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+The cut-torque acting at the component to which frame_b is
+connected is determined and provided at the output signal connector
+<b>torque</b> (= frame_a.t). If parameter <b>positiveSign</b> =
+<b>false</b>, the negative cut-force is provided (= frame_b.t).
+If <b>frame_resolve</b> is connected to another frame, then the
+cut-torque is resolved in frame_resolve.
+If <b>frame_resolve</b> is <b>not</b> connected then the
+coordinate system in which the cut-torque is resolved
+is defined by parameter <b>resolveInFrame_a</b>.
+If this parameter is <b>true</b>, then the
+cut-torque is resolved in frame_a, otherwise it is
+resolved in the world frame.
+</p>
+<p>
+In the following figure the animation of a CutTorque
+sensor is shown. The dark blue coordinate system is frame_b,
+and the green arrow is the cut torque acting at frame_b and
+with negative sign at frame_a.
+</p>
+<p align="center">
+<IMG SRC="../Images/MultiBody/Sensors/CutTorque.png">
+</p>
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>animation</TD><TD>true</TD><TD>= true, if animation shall be enabled (show arrow)</TD></TR>
+<TR><TD>&nbsp;</TD><TD>positiveSign</TD><TD>true</TD><TD>= true, if torque with positive sign is returned (= frame_a.t), otherwise with negative sign (= frame_b.t)</TD></TR>
+<TR><TD>&nbsp;</TD><TD>resolveInFrame_a</TD><TD>true</TD><TD>= true, if torque is resolved in frame_a/frame_b, otherwise in the world frame (if connector frame_resolve is connected, the torque is resolved in frame_resolve)</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>if animation = true</TD></TR>
+<TR><TD>&nbsp;</TD><TD>Nm_to_m</TD><TD>1000</TD><TD> Torque arrow scaling (length = torque/Nm_to_m) [N.m/m]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>torqueDiameter</TD><TD>world.defaultArrowDiameter</TD><TD> Diameter of torque arrow [m]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>torqueColor[3]</TD><TD>Modelica.Mechanics.MultiBody...</TD><TD> Color of torque arrow</TD></TR>
+<TR><TD>&nbsp;</TD><TD>specularCoefficient</TD><TD>world.defaultSpecularCoeffic...</TD><TD>Reflection of ambient light (= 0: light is completely absorbed)</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>frame_a</TD><TD>Coordinate system with one cut-force and cut-torque</TD></TR>
+<TR><TD>&nbsp;</TD><TD>frame_b</TD><TD>Coordinate system with one cut-force and cut-torque</TD></TR>
+<TR><TD>&nbsp;</TD><TD>frame_resolve</TD><TD>If connected, the output signals are resolved in this frame (cut-force/-torque are set to zero)</TD></TR>
+<TR><TD>output &nbsp;</TD><TD>torque[3]</TD><TD>Cut torque resolved in frame_a/frame_b or in frame_resolved, if connected</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> CutTorque <font color="darkgreen">&quot;Measure cut torque vector&quot;</font>
+
+  <font color="blue">import </font>SI = <A HREF="Modelica_SIunits.html#Modelica.SIunits"
+>Modelica.SIunits</A>;
+  <font color="blue">import </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#Modelica.Mechanics.MultiBody.Types"
+>Modelica.Mechanics.MultiBody.Types</A>;
+
+  <font color="blue">extends </font><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.PartialCutForceSensor"
+>Modelica.Mechanics.MultiBody.Interfaces.PartialCutForceSensor</A>;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> torque[3](<font color="blue">redeclare </font><font color="blue">each </font><font color="blue">type</font>
+      SignalType = <A HREF="Modelica_SIunits.html#Modelica.SIunits.Torque"
+>SI.Torque</A>) <font color="darkgreen">
+    &quot;Cut torque resolved in frame_a/frame_b or in frame_resolved, if connected&quot;</font>;
+
+  <font color="blue">parameter </font>Boolean animation=true <font color="darkgreen">
+    &quot;= true, if animation shall be enabled (show arrow)&quot;</font>;
+  <font color="blue">parameter </font>Boolean positiveSign=true <font color="darkgreen">
+    &quot;= true, if torque with positive sign is returned (= frame_a.t), otherwise with negative sign (= frame_b.t)&quot;</font>;
+  <font color="blue">parameter </font>Boolean resolveInFrame_a=true <font color="darkgreen">
+    &quot;= true, if torque is resolved in frame_a/frame_b, otherwise in the world frame (if connector frame_resolve is connected, the torque is resolved in frame_resolve)&quot;</font>;
+  <font color="blue">input </font>Real Nm_to_m(unit=&quot;N.m/m&quot;) = 1000 <font color="darkgreen">
+    &quot; Torque arrow scaling (length = torque/Nm_to_m)&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>SI.Diameter</A> torqueDiameter=world.defaultArrowDiameter <font color="darkgreen">
+    &quot; Diameter of torque arrow&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#Modelica.Mechanics.MultiBody.Types.Color"
+>Types.Color</A> torqueColor=Modelica.Mechanics.MultiBody.Types.Defaults.TorqueColor <font color="darkgreen">
+    &quot; Color of torque arrow&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#Modelica.Mechanics.MultiBody.Types.SpecularCoefficient"
+>Types.SpecularCoefficient</A> specularCoefficient = world.defaultSpecularCoefficient <font color="darkgreen">
+    &quot;Reflection of ambient light (= 0: light is completely absorbed)&quot;</font>;
+
+<font color="blue">protected </font>
+  <font color="blue">outer </font><A HREF="Modelica_Mechanics_MultiBody.html#Modelica.Mechanics.MultiBody.World"
+>Modelica.Mechanics.MultiBody.World</A> world;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> t_in_m[3]=frame_a.t*(<font color="blue">if </font>positiveSign<font color="blue"> then </font>+1<font color="blue"> else </font>-1)/Nm_to_m <font color="darkgreen">
+    &quot;Torque mapped from Nm to m for animation&quot;</font>;
+  <A HREF="Modelica_Mechanics_MultiBody_Visualizers_Advanced.html#Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow"
+>Visualizers.Advanced.DoubleArrow</A> torqueArrow(
+    diameter=torqueDiameter,
+    color=torqueColor,
+    specularCoefficient=specularCoefficient,
+    R=frame_b.R,
+    r=frame_b.r_0,
+    r_tail=t_in_m,
+    r_head=-t_in_m) <font color="blue">if </font>world.enableAnimation<font color="blue"> and </font>animation;
+<font color="blue">equation </font>
+  <font color="blue">if </font><font color="red">cardinality</font>(frame_resolve) == 1<font color="blue"> then</font>
+    torque =<font color="red"> Frames.resolve2</font>(frame_resolve.R,<font color="red"> Frames.resolve1</font>(frame_a.R,
+      frame_a.t))*(<font color="blue">if </font>positiveSign<font color="blue"> then </font>+1<font color="blue"> else </font>-1);
+  <font color="blue">elseif </font>resolveInFrame_a<font color="blue"> then</font>
+    torque = frame_a.t*(<font color="blue">if </font>positiveSign<font color="blue"> then </font>+1<font color="blue"> else </font>-1);
+  <font color="blue">else</font>
+    torque =<font color="red"> Frames.resolve1</font>(frame_a.R, frame_a.t)*(<font color="blue">if </font>positiveSign<font color="blue"> then </font>+1<font color="blue"> else </font>
+            -1);
+  <font color="blue">end if</font>;
+<font color="blue">end </font>CutTorque;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE CutForceAndTorque<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Sensors.CutForceAndTorqueI.png" ALT="Modelica.Mechanics.MultiBody.Sensors.CutForceAndTorque" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Sensors.CutForceAndTorque"></A><A HREF="Modelica_Mechanics_MultiBody_Sensors.html#Modelica.Mechanics.MultiBody.Sensors"
+>Modelica.Mechanics.MultiBody.Sensors</A>.CutForceAndTorque</H2>
+<B>Measure cut force and cut torque vector</B><p>
+<IMG SRC="Modelica.Mechanics.MultiBody.Sensors.CutForceD.png" ALT="Modelica.Mechanics.MultiBody.Sensors.CutForceAndTorque">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+The cut-force and cut-torque acting at the component to which frame_b is
+connected are determined and provided at the output signal connector
+<b>load</b>:
+</p>
+<pre>
+  load[1:3] = frame_a.f;
+  load[4:6] = frame_a.t;
+</pre>
+<p>
+If parameter <b>positiveSign</b> =
+<b>false</b>, the negative cut-force and negative
+cut-torque is provided (= frame_b.f and frame_b.t).
+If <b>frame_resolve</b> is connected to another frame, then the
+cut-force and cut-torque are resolved in frame_resolve.
+If <b>frame_resolve</b> is <b>not</b> connected then the
+coordinate system in which the cut-force and cut-torque is resolved
+is defined by parameter <b>resolveInFrame_a</b>.
+If this parameter is <b>true</b>, then the
+cut-force and cut-torque is resolved in frame_a, otherwise it is
+resolved in the world frame.
+</p>
+<p>
+In the following figure the animation of a CutForceAndTorque
+sensor is shown. The dark blue coordinate system is frame_b,
+and the green arrows are the cut force and the cut torque,
+respectively, acting at frame_b and
+with negative sign at frame_a.
+</p>
+<p align="center">
+<IMG SRC="../Images/MultiBody/Sensors/CutForceAndTorque.png">
+</p>
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>animation</TD><TD>true</TD><TD>= true, if animation shall be enabled (show force and torque arrow)</TD></TR>
+<TR><TD>&nbsp;</TD><TD>positiveSign</TD><TD>true</TD><TD>= true, if force and torque with positive sign is returned (= frame_a.f/.t), otherwise with negative sign (= frame_b.f/.t)</TD></TR>
+<TR><TD>&nbsp;</TD><TD>resolveInFrame_a</TD><TD>true</TD><TD>= true, if force and torque are resolved in frame_a/frame_b, otherwise in the world frame (if connector frame_resolve is connected, the force/torque is resolved in frame_resolve)</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>if animation = true</TD></TR>
+<TR><TD>&nbsp;</TD><TD>N_to_m</TD><TD>1000</TD><TD> Force arrow scaling (length = force/N_to_m) [N/m]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>Nm_to_m</TD><TD>1000</TD><TD> Torque arrow scaling (length = torque/Nm_to_m) [N.m/m]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>forceDiameter</TD><TD>world.defaultArrowDiameter</TD><TD> Diameter of force arrow [m]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>torqueDiameter</TD><TD>forceDiameter</TD><TD> Diameter of torque arrow [m]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>forceColor[3]</TD><TD>Modelica.Mechanics.MultiBody...</TD><TD> Color of force arrow</TD></TR>
+<TR><TD>&nbsp;</TD><TD>torqueColor[3]</TD><TD>Modelica.Mechanics.MultiBody...</TD><TD> Color of torque arrow</TD></TR>
+<TR><TD>&nbsp;</TD><TD>specularCoefficient</TD><TD>world.defaultSpecularCoeffic...</TD><TD>Reflection of ambient light (= 0: light is completely absorbed)</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>frame_a</TD><TD>Coordinate system with one cut-force and cut-torque</TD></TR>
+<TR><TD>&nbsp;</TD><TD>frame_b</TD><TD>Coordinate system with one cut-force and cut-torque</TD></TR>
+<TR><TD>&nbsp;</TD><TD>frame_resolve</TD><TD>If connected, the output signals are resolved in this frame (cut-force/-torque are set to zero)</TD></TR>
+<TR><TD>output &nbsp;</TD><TD>load[6]</TD><TD>Cut force and cut torque resolved in frame_a/frame_b or in frame_resolved, if connected</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> CutForceAndTorque <font color="darkgreen">&quot;Measure cut force and cut torque vector&quot;</font>
+
+  <font color="blue">import </font>SI = <A HREF="Modelica_SIunits.html#Modelica.SIunits"
+>Modelica.SIunits</A>;
+  <font color="blue">import </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#Modelica.Mechanics.MultiBody.Types"
+>Modelica.Mechanics.MultiBody.Types</A>;
+
+  <font color="blue">extends </font><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.PartialCutForceSensor"
+>Modelica.Mechanics.MultiBody.Interfaces.PartialCutForceSensor</A>;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> load[6] <font color="darkgreen">
+    &quot;Cut force and cut torque resolved in frame_a/frame_b or in frame_resolved, if connected&quot;</font>;
+
+  <font color="blue">parameter </font>Boolean animation=true <font color="darkgreen">
+    &quot;= true, if animation shall be enabled (show force and torque arrow)&quot;</font>;
+  <font color="blue">parameter </font>Boolean positiveSign=true <font color="darkgreen">
+    &quot;= true, if force and torque with positive sign is returned (= frame_a.f/.t), otherwise with negative sign (= frame_b.f/.t)&quot;</font>;
+  <font color="blue">parameter </font>Boolean resolveInFrame_a=true <font color="darkgreen">
+    &quot;= true, if force and torque are resolved in frame_a/frame_b, otherwise in the world frame (if connector frame_resolve is connected, the force/torque is resolved in frame_resolve)&quot;</font>;
+  <font color="blue">input </font>Real N_to_m(unit=&quot;N/m&quot;) = 1000 <font color="darkgreen">
+    &quot; Force arrow scaling (length = force/N_to_m)&quot;</font>;
+  <font color="blue">input </font>Real Nm_to_m(unit=&quot;N.m/m&quot;) = 1000 <font color="darkgreen">
+    &quot; Torque arrow scaling (length = torque/Nm_to_m)&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>SI.Diameter</A> forceDiameter=world.defaultArrowDiameter <font color="darkgreen">
+    &quot; Diameter of force arrow&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>SI.Diameter</A> torqueDiameter=forceDiameter <font color="darkgreen">&quot; Diameter of torque arrow&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#Modelica.Mechanics.MultiBody.Types.Color"
+>Types.Color</A> forceColor=Modelica.Mechanics.MultiBody.Types.Defaults.ForceColor <font color="darkgreen">
+    &quot; Color of force arrow&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#Modelica.Mechanics.MultiBody.Types.Color"
+>Types.Color</A> torqueColor=Modelica.Mechanics.MultiBody.Types.Defaults.TorqueColor <font color="darkgreen">
+    &quot; Color of torque arrow&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#Modelica.Mechanics.MultiBody.Types.SpecularCoefficient"
+>Types.SpecularCoefficient</A> specularCoefficient = world.defaultSpecularCoefficient <font color="darkgreen">
+    &quot;Reflection of ambient light (= 0: light is completely absorbed)&quot;</font>;
+
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Force"
+>SI.Force</A> force[3] <font color="darkgreen">
+    &quot;Cut force resolved in frame_a/frame_b or in frame_resolved, if connected&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Torque"
+>SI.Torque</A> torque[3] <font color="darkgreen">
+    &quot;Cut torque resolved in frame_a/frame_b or in frame_resolved, if connected&quot;</font>;
+<font color="blue">protected </font>
+  <font color="blue">outer </font><A HREF="Modelica_Mechanics_MultiBody.html#Modelica.Mechanics.MultiBody.World"
+>Modelica.Mechanics.MultiBody.World</A> world;
+  <font color="blue">parameter </font>Integer csign=<font color="blue">if </font>positiveSign<font color="blue"> then </font>+1<font color="blue"> else </font>-1;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> f_in_m[3]=frame_a.f*csign/N_to_m <font color="darkgreen">
+    &quot;Force mapped from N to m for animation&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> t_in_m[3]=frame_a.t*csign/Nm_to_m <font color="darkgreen">
+    &quot;Torque mapped from Nm to m for animation&quot;</font>;
+  <A HREF="Modelica_Mechanics_MultiBody_Visualizers_Advanced.html#Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow"
+>Visualizers.Advanced.Arrow</A> forceArrow(
+    diameter=forceDiameter,
+    color=forceColor,
+    specularCoefficient=specularCoefficient,
+    R=frame_b.R,
+    r=frame_b.r_0,
+    r_tail=f_in_m,
+    r_head=-f_in_m) <font color="blue">if </font>world.enableAnimation<font color="blue"> and </font>animation;
+  <A HREF="Modelica_Mechanics_MultiBody_Visualizers_Advanced.html#Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow"
+>Visualizers.Advanced.DoubleArrow</A> torqueArrow(
+    diameter=torqueDiameter,
+    color=torqueColor,
+    specularCoefficient=specularCoefficient,
+    R=frame_b.R,
+    r=frame_b.r_0,
+    r_tail=t_in_m,
+    r_head=-t_in_m) <font color="blue">if </font>world.enableAnimation<font color="blue"> and </font>animation;
+<font color="blue">equation </font>
+  <font color="blue">if </font><font color="red">cardinality</font>(frame_resolve) == 1<font color="blue"> then</font>
+    force =<font color="red"> Frames.resolve2</font>(frame_resolve.R,<font color="red"> Frames.resolve1</font>(frame_a.R,
+      frame_a.f))*csign;
+    torque =<font color="red"> Frames.resolve2</font>(frame_resolve.R,<font color="red"> Frames.resolve1</font>(frame_a.R,
+      frame_a.t))*csign;
+  <font color="blue">elseif </font>resolveInFrame_a<font color="blue"> then</font>
+    force = frame_a.f*csign;
+    torque = frame_a.t*csign;
+  <font color="blue">else</font>
+    force =<font color="red"> Frames.resolve1</font>(frame_a.R, frame_a.f)*csign;
+    torque =<font color="red"> Frames.resolve1</font>(frame_a.R, frame_a.t)*csign;
+  <font color="blue">end if</font>;
+
+  load[1:3] = force;
+  load[4:6] = torque;
+<font color="blue">end </font>CutForceAndTorque;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Power<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Sensors.PowerI.png" ALT="Modelica.Mechanics.MultiBody.Sensors.Power" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Sensors.Power"></A><A HREF="Modelica_Mechanics_MultiBody_Sensors.html#Modelica.Mechanics.MultiBody.Sensors"
+>Modelica.Mechanics.MultiBody.Sensors</A>.Power</H2>
+<B>Measure power flowing from frame_a to frame_b</B><p>
+<IMG SRC="Modelica.Mechanics.MultiBody.Sensors.PowerD.png" ALT="Modelica.Mechanics.MultiBody.Sensors.Power">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This component provides the power flowing from frame_a to frame_b
+as output signal <b>power</b>.
+</p>
+<pre></PRE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>frame_a</TD><TD>Coordinate system fixed to the component with one cut-force and cut-torque</TD></TR>
+<TR><TD>&nbsp;</TD><TD>frame_b</TD><TD>Coordinate system fixed to the component with one cut-force and cut-torque</TD></TR>
+<TR><TD>output &nbsp;</TD><TD>power</TD><TD>Power at frame_a as output signal</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Power <font color="darkgreen">&quot;Measure power flowing from frame_a to frame_b&quot;</font>
+  <font color="blue">import </font>SI = <A HREF="Modelica_SIunits.html#Modelica.SIunits"
+>Modelica.SIunits</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.RotationalSensor"
+>Modelica.Icons.RotationalSensor</A>;
+
+  <font color="blue">extends </font><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames"
+>Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames</A>;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> power(<font color="blue">redeclare </font><font color="blue">type</font> SignalType =
+        <A HREF="Modelica_SIunits.html#Modelica.SIunits.Power"
+>SI.Power</A>) <font color="darkgreen">&quot;Power at frame_a as output signal&quot;</font>;
+
+<font color="blue">equation </font>
+  <font color="red">defineBranch</font>(frame_a.R, frame_b.R);
+  frame_a.r_0 = frame_b.r_0;
+  frame_a.R = frame_b.R;
+  <font color="red">zeros</font>(3) = frame_a.f + frame_b.f;
+  <font color="red">zeros</font>(3) = frame_a.t + frame_b.t;
+  power = frame_a.f*<font color="red">Frames.resolve2</font>(frame_a.R,<font color="red"> der</font>(frame_a.r_0))
+     + frame_a.t*<font color="red">Frames.angularVelocity2</font>(frame_a.R);
+<font color="blue">end </font>Power;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Tue Mar 28 11:39:18 2006.
+</address></BODY>
+</HTML>

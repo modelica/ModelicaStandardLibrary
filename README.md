@@ -13,19 +13,22 @@ Note, the usage of a Modelica library requires a Modelica simulation environment
 
 ## Current release
 
-Download [Modelica Standard Library v2.2 (2005-04-06)](../../archive/v2.2.zip)
+Download [Modelica Standard Library v2.2.1 (2006-03-24)](../../archive/v2.2.1.zip)
 
 #### Release notes
 
+*  [Version v2.2.1 (2006-03-24)](../../archive/v2.2.1.zip)
+ * Summary: Version 2.2.1 is backward compatible to version 2.2. In this version, no new libraries have been added.
+ * [Detailed Release Notes](http://htmlpreview.github.com/?https://github.com/modelica/ModelicaStandardLibrary/blob/release/Modelica%202.2.1/help/Modelica.UsersGuide.ReleaseNotes.Version_2_2_1.html)
 *  [Version v2.2 (2005-04-06)](../../archive/v2.2.zip)
  * Summary: Version 2.2 is backward compatible to version 2.1. Two new packages have been added, `Modelica.Media` and `Modelica.Thermal.FluidHeatFlow`.
- * [Detailed Release Notes](http://htmlpreview.github.com/?https://github.com/modelica/ModelicaStandardLibrary/blob/release/Modelica%202.2/help/Modelica.UsersGuide.ReleaseNotes.Version_2_2.html)
+ * [Detailed Release Notes](http://htmlpreview.github.com/?https://github.com/modelica/ModelicaStandardLibrary/blob/release/Modelica%202.2.1/help/Modelica.UsersGuide.ReleaseNotes.Version_2_2.html)
 *  [Version v2.1 (2004-11-11)](../../archive/v2.1.zip)
  * Summary: This is a major change with respect to previous versions of the Modelica Standard Library, because many new libraries and components are included and because the input/output blocks (Modelica.Blocks) have been considerably simplified.
- * [Detailed Release Notes](http://htmlpreview.github.com/?https://github.com/modelica/ModelicaStandardLibrary/blob/release/Modelica%202.2/help/Modelica.UsersGuide.ReleaseNotes.Version_2_1.html)
+ * [Detailed Release Notes](http://htmlpreview.github.com/?https://github.com/modelica/ModelicaStandardLibrary/blob/release/Modelica%202.2.1/help/Modelica.UsersGuide.ReleaseNotes.Version_2_1.html)
 *  [Version v1.6 (2004-06-21)](../../archive/v1.6.zip)
  * Summary: Added 1 new library (Electrical.MultiPhase), 17 new components, improved 3 existing components in the Modelica.Electrical library and improved 3 types in the Modelica.SIunits library.
- * [Detailed Release Notes](http://htmlpreview.github.com/?https://github.com/modelica/ModelicaStandardLibrary/blob/release/Modelica%202.2/help/Modelica.UsersGuide.ReleaseNotes.Version_1_6.html)
+ * [Detailed Release Notes](http://htmlpreview.github.com/?https://github.com/modelica/ModelicaStandardLibrary/blob/release/Modelica%202.2.1/help/Modelica.UsersGuide.ReleaseNotes.Version_1_6.html)
 
 
 ## License

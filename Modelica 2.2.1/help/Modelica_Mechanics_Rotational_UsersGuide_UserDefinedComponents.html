@@ -1,0 +1,98 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Mechanics.Rotational.UsersGuide.UserDefinedComponents</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;User Defined Components&quot;">
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE UserDefinedComponents<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.Rotational.UsersGuideI.png" ALT="Modelica.Mechanics.Rotational.UsersGuide.UserDefinedComponents" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.Rotational.UsersGuide.UserDefinedComponents"></A><A HREF="Modelica_Mechanics_Rotational_UsersGuide.html#Modelica.Mechanics.Rotational.UsersGuide"
+>Modelica.Mechanics.Rotational.UsersGuide</A>.UserDefinedComponents</H2>
+<PRE></pre>
+<h3><font color="#008000" size=5>User Defined Components</font></h3>
+<p>
+In this section some hints are given to define your own
+1-dimensional rotational components which are compatible with the
+elements of this package.
+It is convenient to define a new
+component by inheritance from one of the following base classes,
+which are defined in sublibrary Interfaces:
+</p>
+<table BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td><tt><b>Rigid</b></tt></td><td>Rigid connection of two rotational 1D flanges (used for elements with inertia).</td></tr>
+<tr><td><tt><b>Compliant</b></tt></td><td>Compliant connection of two rotational 1D flanges (used for force laws such as a spring or a damper).</td></tr>
+<tr><td><tt><b>TwoFlanges</b></tt></td><td>General connection of two rotational 1D flanges (used for gearboxes).</td></tr>
+<tr><td><tt><b>AbsoluteSensor</b></tt></td><td>Measure absolute flange variables.</td></tr>
+<tr><td><tt><b>RelativeSensor</b></tt></td><td>Measure relative flange variables.</td></tr>
+</table>
+<p>
+The difference between these base classes are the auxiliary
+variables defined in the model and the relations between
+the flange variables already defined in the base class.
+For example, in model <b>Rigid</b> the flanges flange_a and
+flange_b are rigidly connected, i.e., flange_a.phi = flange_b.phi,
+whereas in model <b>Compliant</b> the cut-torques are the
+same, i.e., flange_a.tau + flange_b.tau = 0.
+</p>
+<p>
+The equations of a mechanical component are vector equations, i.e.,
+they need to be expressed in a common coordinate system.
+Therefore, for a component a <b>local axis of rotation</b> has to be
+defined. All vector quantities, such as cut-torques or angular
+velocities have to be expressed according to this definition.
+Examples for such a definition are given in the following figure
+for an inertia component and a planetary gearbox:
+</p>
+<p><IMG SRC="../Images/driveAxis.png" ALT="driveAxis"></p>
+<p>
+As can be seen, all vectors are directed into the direction
+of the rotation axis. The angles in the flanges are defined
+correspondingly. For example, the angle <tt>sun.phi</tt> in the
+flange of the sun wheel of the planetary gearbox is positive,
+if rotated in mathematical positive direction (= counter clock
+wise) along the axis of rotation.
+</p>
+<p>
+On first view, one may assume that the selected local
+coordinate system has an influence on the usage of the
+component. But this is not the case, as shown in the next figure:
+</p>
+<p><IMG SRC="../Images/inertias.png" ALT="inertias"></p>
+<p>
+In the figure the <b>local</b> axes of rotation of the components
+are shown. The connection of two inertias in the left and in the
+right part of the figure are completely equivalent, i.e., the right
+part is just a different drawing of the left part. This is due to the
+fact, that by a connection, the two local coordinate systems are
+made identical and the (automatically) generated connection equations
+(= angles are identical, cut-torques sum-up to zero) are also
+expressed in this common coordinate system. Therefore, even if in
+the left figure it seems to be that the angular velocity vector of
+<tt>J2</tt> goes from right to left, in reality it goes from
+left to right as shown in the right part of the figure, where the
+local coordinate systems are drawn such that they are aligned.
+Note, that the simple rule stated in section 4 (Sign conventions)
+also determines that
+the angular velocity of <tt>J2</tt> in the left part of the
+figure is directed from left to right.
+</p>
+<p>
+To summarize, the local coordinate system selected for a component
+is just necessary, in order that the equations of this component
+are expressed correctly. The selection of the coordinate system
+is arbitrary and has no influence on the usage of the component.
+Especially, the actual direction of, e.g., a cut-torque is most
+easily determined by the rule of section 4. A more strict determination
+by aligning coordinate systems and then using the vector direction
+of the local coordinate systems, often requires a re-drawing of the
+diagram and is therefore less convenient to use.
+</p>
+<pre></PRE><P>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Tue Mar 28 11:39:22 2006.
+</address></BODY>
+</HTML>

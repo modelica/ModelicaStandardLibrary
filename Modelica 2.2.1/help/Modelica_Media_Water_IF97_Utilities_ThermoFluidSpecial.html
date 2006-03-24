@@ -1,0 +1,198 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Media.Water.IF97_Utilities.ThermoFluidSpecial</TITLE>
+<META name="HTML-Generator" content="Dymola">
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ThermoFluidSpecial<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Water.IF97_Utilities.ThermoFluidSpecial"></A><A HREF="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</A>.ThermoFluidSpecial</H2>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.ThermoFluidSpecial.water_ph" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_ThermoFluidSpecial.html#Modelica.Media.Water.IF97_Utilities.ThermoFluidSpecial.water_ph"
+>water_ph</A>
+</TD><TD>calculate the property record for dynamic simulation properties using p,h as states</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.ThermoFluidSpecial.water_dT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_ThermoFluidSpecial.html#Modelica.Media.Water.IF97_Utilities.ThermoFluidSpecial.water_dT"
+>water_dT</A>
+</TD><TD>calculate property record for dynamic simulation properties using d and T as dynamic states</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.ThermoFluidSpecial.water_pT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_ThermoFluidSpecial.html#Modelica.Media.Water.IF97_Utilities.ThermoFluidSpecial.water_pT"
+>water_pT</A>
+</TD><TD>calculate property record for dynamic simulation properties using p and T as dynamic states</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE water_ph<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.ThermoFluidSpecial.water_phI.png" ALT="Modelica.Media.Water.IF97_Utilities.ThermoFluidSpecial.water_ph" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.IF97_Utilities.ThermoFluidSpecial.water_ph"></A><A HREF="Modelica_Media_Water_IF97_Utilities_ThermoFluidSpecial.html#Modelica.Media.Water.IF97_Utilities.ThermoFluidSpecial"
+>Modelica.Media.Water.IF97_Utilities.ThermoFluidSpecial</A>.water_ph</H2>
+<B>calculate the property record for dynamic simulation properties using p,h as states</B><p>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> water_ph <font color="darkgreen">
+  &quot;calculate the property record for dynamic simulation properties using p,h as states&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SI.SpecificEnthalpy</A> h <font color="darkgreen">&quot;specific enthalpy&quot;</font>;
+  <font color="blue">input </font>Integer phase= 0 <font color="darkgreen">
+    &quot;phase: 2 for two-phase, 1 for one phase, 0 if unknown&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial.ThermoProperties_ph"
+>Modelica.Media.Common.ThermoFluidSpecial.ThermoProperties_ph</A> pro <font color="darkgreen">
+    &quot;property record for dynamic simulation&quot;</font>;
+<font color="blue">protected </font>
+  <A HREF="Modelica_Media_Common.html#Modelica.Media.Common.GibbsDerivs"
+>Modelica.Media.Common.GibbsDerivs</A> g <font color="darkgreen">
+    &quot;dimensionless Gibbs funcion and dervatives wrt pi and tau&quot;</font>;
+  <A HREF="Modelica_Media_Common.html#Modelica.Media.Common.HelmholtzDerivs"
+>Modelica.Media.Common.HelmholtzDerivs</A> f <font color="darkgreen">
+    &quot;dimensionless Helmholtz funcion and dervatives wrt delta and tau&quot;</font>;
+  Integer region(min=1, max=5) <font color="darkgreen">&quot;IF97 region&quot;</font>;
+  Integer error <font color="darkgreen">&quot;error flag&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> T <font color="darkgreen">&quot;temperature&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> d <font color="darkgreen">&quot;density&quot;</font>;
+<font color="blue">algorithm </font>
+  region :=<font color="red"> BaseIF97.Regions.region_ph</font>(p, h, phase);
+  <font color="blue">if </font>(region == 1)<font color="blue"> then</font>
+    T :=<font color="red"> BaseIF97.Basic.tph1</font>(p, h);
+    g :=<font color="red"> BaseIF97.Basic.g1</font>(p, T);
+    pro :=<font color="red"> Modelica.Media.Common.ThermoFluidSpecial.gibbsToProps_ph</font>(g);
+  <font color="blue">elseif </font>(region == 2)<font color="blue"> then</font>
+    T :=<font color="red"> BaseIF97.Basic.tph2</font>(p, h);
+    g :=<font color="red"> BaseIF97.Basic.g2</font>(p, T);
+    pro :=<font color="red"> Modelica.Media.Common.ThermoFluidSpecial.gibbsToProps_ph</font>(g);
+  <font color="blue">elseif </font>(region == 3)<font color="blue"> then</font>
+    (d,T,error) :=<font color="red"> BaseIF97.Inverses.dtofph3</font>(p=p,h= h,delp= 1.0e-7,delh=
+      1.0e-6);
+    f :=<font color="red"> BaseIF97.Basic.f3</font>(d, T);
+    pro :=<font color="red"> Modelica.Media.Common.ThermoFluidSpecial.helmholtzToProps_ph</font>(f);
+  <font color="blue">elseif </font>(region == 4)<font color="blue"> then</font>
+    pro :=<font color="red"> BaseIF97.TwoPhase.waterR4_ph</font>(p=p,h= h);
+  <font color="blue">elseif </font>(region == 5)<font color="blue"> then</font>
+    (T,error) :=<font color="red"> BaseIF97.Inverses.tofph5</font>(p=p,h= h,reldh= 1.0e-7);
+    g :=<font color="red"> BaseIF97.Basic.g5</font>(p, T);
+    pro :=<font color="red"> Modelica.Media.Common.ThermoFluidSpecial.gibbsToProps_ph</font>(g);
+  <font color="blue">end if</font>;
+<font color="blue">end </font>water_ph;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE water_dT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.ThermoFluidSpecial.water_phI.png" ALT="Modelica.Media.Water.IF97_Utilities.ThermoFluidSpecial.water_dT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.IF97_Utilities.ThermoFluidSpecial.water_dT"></A><A HREF="Modelica_Media_Water_IF97_Utilities_ThermoFluidSpecial.html#Modelica.Media.Water.IF97_Utilities.ThermoFluidSpecial"
+>Modelica.Media.Water.IF97_Utilities.ThermoFluidSpecial</A>.water_dT</H2>
+<B>calculate property record for dynamic simulation properties using d and T as dynamic states</B><p>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> water_dT <font color="darkgreen">
+  &quot;calculate property record for dynamic simulation properties using d and T as dynamic states&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> d <font color="darkgreen">&quot;density&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> T <font color="darkgreen">&quot;temperature&quot;</font>;
+  <font color="blue">input </font>Integer phase= 0 <font color="darkgreen">
+    &quot;phase: 2 for two-phase, 1 for one phase, 0 if unknown&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial.ThermoProperties_dT"
+>Modelica.Media.Common.ThermoFluidSpecial.ThermoProperties_dT</A> pro <font color="darkgreen">
+    &quot;property record for dynamic simulation&quot;</font>;
+<font color="blue">protected </font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  Integer region(min=1, max=5) <font color="darkgreen">&quot;IF97 region&quot;</font>;
+  <A HREF="Modelica_Media_Common.html#Modelica.Media.Common.GibbsDerivs"
+>Modelica.Media.Common.GibbsDerivs</A> g <font color="darkgreen">
+    &quot;dimensionless Gibbs funcion and dervatives wrt pi and tau&quot;</font>;
+  <A HREF="Modelica_Media_Common.html#Modelica.Media.Common.HelmholtzDerivs"
+>Modelica.Media.Common.HelmholtzDerivs</A> f <font color="darkgreen">
+    &quot;dimensionless Helmholtz funcion and dervatives wrt delta and tau&quot;</font>;
+  Integer error <font color="darkgreen">&quot;error flag&quot;</font>;
+<font color="blue">algorithm </font>
+  region :=<font color="red"> BaseIF97.Regions.region_dT</font>(d, T, phase);
+  <font color="blue">if </font>(region == 1)<font color="blue"> then</font>
+    (p,error) :=<font color="red"> BaseIF97.Inverses.pofdt125</font>(d=d,T= T,reldd= iter.DELD,region=
+             1);
+    g :=<font color="red"> BaseIF97.Basic.g1</font>(p, T);
+    pro :=<font color="red"> Modelica.Media.Common.ThermoFluidSpecial.gibbsToProps_dT</font>(g);
+  <font color="blue">elseif </font>(region == 2)<font color="blue"> then</font>
+    (p,error) :=<font color="red"> BaseIF97.Inverses.pofdt125</font>(d=d,T= T,reldd= iter.DELD,region=
+             2);
+    g :=<font color="red"> BaseIF97.Basic.g2</font>(p, T);
+    pro :=<font color="red"> Modelica.Media.Common.ThermoFluidSpecial.gibbsToProps_dT</font>(g);
+  <font color="blue">elseif </font>(region == 3)<font color="blue"> then</font>
+    f :=<font color="red"> BaseIF97.Basic.f3</font>(d, T);
+    pro :=<font color="red"> Modelica.Media.Common.ThermoFluidSpecial.helmholtzToProps_dT</font>(f);
+  <font color="blue">elseif </font>(region == 4)<font color="blue"> then</font>
+    pro :=<font color="red"> BaseIF97.TwoPhase.waterR4_dT</font>(d=d,T= T);
+  <font color="blue">elseif </font>(region == 5)<font color="blue"> then</font>
+    (p,error) :=<font color="red"> BaseIF97.Inverses.pofdt125</font>(d=d,T= T,reldd= iter.DELD,region=
+             5);
+    g :=<font color="red"> BaseIF97.Basic.g5</font>(p, T);
+    pro :=<font color="red"> Modelica.Media.Common.ThermoFluidSpecial.gibbsToProps_dT</font>(g);
+  <font color="blue">end if</font>;
+<font color="blue">end </font>water_dT;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE water_pT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.ThermoFluidSpecial.water_phI.png" ALT="Modelica.Media.Water.IF97_Utilities.ThermoFluidSpecial.water_pT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.IF97_Utilities.ThermoFluidSpecial.water_pT"></A><A HREF="Modelica_Media_Water_IF97_Utilities_ThermoFluidSpecial.html#Modelica.Media.Water.IF97_Utilities.ThermoFluidSpecial"
+>Modelica.Media.Water.IF97_Utilities.ThermoFluidSpecial</A>.water_pT</H2>
+<B>calculate property record for dynamic simulation properties using p and T as dynamic states</B><p>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> water_pT <font color="darkgreen">
+  &quot;calculate property record for dynamic simulation properties using p and T as dynamic states&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> T <font color="darkgreen">&quot;temperature&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial.ThermoProperties_pT"
+>Modelica.Media.Common.ThermoFluidSpecial.ThermoProperties_pT</A> pro <font color="darkgreen">
+    &quot;property record for dynamic simulation&quot;</font>;
+<font color="blue">protected </font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> d <font color="darkgreen">&quot;density&quot;</font>;
+  Integer region(min=1, max=5) <font color="darkgreen">&quot;IF97 region&quot;</font>;
+  <A HREF="Modelica_Media_Common.html#Modelica.Media.Common.GibbsDerivs"
+>Modelica.Media.Common.GibbsDerivs</A> g <font color="darkgreen">
+    &quot;dimensionless Gibbs funcion and dervatives wrt pi and tau&quot;</font>;
+  <A HREF="Modelica_Media_Common.html#Modelica.Media.Common.HelmholtzDerivs"
+>Modelica.Media.Common.HelmholtzDerivs</A> f <font color="darkgreen">
+    &quot;dimensionless Helmholtz funcion and dervatives wrt delta and tau&quot;</font>;
+  Integer error <font color="darkgreen">&quot;error flag&quot;</font>;
+<font color="blue">algorithm </font>
+  region :=<font color="red"> BaseIF97.Regions.region_pT</font>(p, T);
+  <font color="blue">if </font>(region == 1)<font color="blue"> then</font>
+    g :=<font color="red"> BaseIF97.Basic.g1</font>(p, T);
+    pro :=<font color="red"> Modelica.Media.Common.ThermoFluidSpecial.gibbsToProps_pT</font>(g);
+  <font color="blue">elseif </font>(region == 2)<font color="blue"> then</font>
+    g :=<font color="red"> BaseIF97.Basic.g2</font>(p, T);
+    pro :=<font color="red"> Modelica.Media.Common.ThermoFluidSpecial.gibbsToProps_pT</font>(g);
+  <font color="blue">elseif </font>(region == 3)<font color="blue"> then</font>
+    (d,error) :=<font color="red"> BaseIF97.Inverses.dofpt3</font>(p=p,T= T,delp= iter.DELP);
+    f :=<font color="red"> BaseIF97.Basic.f3</font>(d, T);
+    pro :=<font color="red"> Modelica.Media.Common.ThermoFluidSpecial.helmholtzToProps_pT</font>(f);
+  <font color="blue">elseif </font>(region == 5)<font color="blue"> then</font>
+    g :=<font color="red"> BaseIF97.Basic.g5</font>(p, T);
+    pro :=<font color="red"> Modelica.Media.Common.ThermoFluidSpecial.gibbsToProps_pT</font>(g);
+  <font color="blue">end if</font>;
+<font color="blue">end </font>water_pT;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Tue Mar 28 11:40:32 2006.
+</address></BODY>
+</HTML>

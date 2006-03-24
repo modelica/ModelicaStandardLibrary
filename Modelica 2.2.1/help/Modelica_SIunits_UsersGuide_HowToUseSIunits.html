@@ -1,0 +1,128 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.SIunits.UsersGuide.HowToUseSIunits</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;How to use SIunits&quot;">
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE HowToUseSIunits<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.SIunits.UsersGuideI.png" ALT="Modelica.SIunits.UsersGuide.HowToUseSIunits" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.SIunits.UsersGuide.HowToUseSIunits"></A><A HREF="Modelica_SIunits_UsersGuide.html#Modelica.SIunits.UsersGuide"
+>Modelica.SIunits.UsersGuide</A>.HowToUseSIunits</H2>
+<PRE></pre>
+<h3><font color="#008000" size=5>How to use SIunits</font></h3>
+
+<p>
+When implementing a Modelica model, every variable needs to
+be declared. Physical variables should be declared with a unit.
+The basic approach in Modelica is that the unit attribute of
+a variable is the <b>unit</b> in which the <b>equations</b> are <b>written</b>,
+for example:
+</p>
+
+<pre>   <b>model</b> MassOnGround
+     <b>parameter</b> Real m(quantity="Mass", unit="kg") "Mass";
+     <b>parameter</b> Real f(quantity="Force", unit="N") "Driving force";
+     Real s(unit="m") "Position of mass";
+     Real v(unit="m/s") "Velocity of mass";
+   <b>equation</b>
+     <b>der</b>(s) = v;
+     m*<b>der</b>(v) = f;
+   <b>end</b> MassOnGround;
+</pre>
+
+<p>
+This means that the equations in the equation section are only correct
+for the specified units. A different issue is the user interface, i.e.,
+in which unit the variable is presented to the user in graphical
+user interfaces, both for input (e.g., parameter menu), as well as
+for output (e.g., in the plot window). Preferably, the Modelica tool
+should provide a list of units from which the user can select, e.g.,
+"m", "cm", "km", "inch" for quantity "Length". When storing the value in
+the model as a Modelica modifier, it has to be converted to the unit defined
+in the declaration. Additionally, the unit used in the graphical
+user interface has to be stored. In order to have a standardized way
+of doing this, Modelica provides the following three attributs
+for a variable of type Real:
+</p>
+
+<ul>
+<li><b>quantity</b> to define the physical quantity (e.g. "Length", or "Energy").</li>
+<li><b>unit</b> to define the unit that has to be used
+    in order that the equations are correct (e.g. "N.m").</li>
+<li><b>displayUnit</b> to define the unit used in the graphical
+    user interface as default display unit for input and/or output.</li>
+</ul>
+
+<p>
+Note, a unit, such as "N.m", is not sufficient to define uniquely the
+physical quantity, since, e.g., "N.m" might be either "torque" or
+"energy". The "quantity" attribute might therefore be used by a tool
+to select the corresponding menu from which the user can select
+a unit for the corresponding variable.
+</p>
+
+<p>
+For example, after providing a value for "m" and "f" in a parameter
+menu of an instance of MassOnGround, a tool might generate the following code:
+</p>
+
+<pre>
+   MassOnGround myObject(m(displayUnit="g")=2, f=3);
+</pre>
+
+<p>
+The meaning is that in the equations a value of "2" is used
+and that in the graphical user interface a value of "2000" should be used,
+together with the unit "g" from the unit set "Mass" (= the quantity name).
+Note, according to the Modelica specification
+a tool might ignore the "displayUnit" attribute.
+</p>
+
+<p>
+In order to help the Modelica model developer, the Modelica.SIunits
+library provides about 450 predefined type names,
+together with values for the attributes <b>quantity</b>, <b>unit</b> and sometimes
+<b>displayUnit</b> and <b>min</b>. The unit is always selected as SI-unit according to the
+ISO standard. The type and the quantity names are the
+quantity names used in the ISO standard. "quantity" and "unit" are defined
+as "<b>final</b>" in order that they cannot be modified. Attributes "displayUnit"
+and "min" can, however, be changed in a model via a modification. The example above,
+might therefore be alternatively also defined as:
+</p>
+
+<pre>   <b>model</b> MassOnGround
+     <b>parameter</b> Modelica.SIunits.Mass  m "Mass";
+     <b>parameter</b> Modelica.SIunits.Force f "Driving force";
+     ...
+   <b>end</b> MassOnGround;
+</pre>
+
+<p>
+or in a short hand notation as
+</p>
+
+<pre>
+   <b>model</b> MassOnGround
+     <b>import</b> SI = Modelica.SIunits;
+     <b>parameter</b> SI.Mass  m "Mass";
+     <b>parameter</b> SI.Force f "Driving force";
+     ...
+   <b>end</b> MassOnGround;
+</pre>
+
+<p>
+For some often
+used Non SI-units (like hour), some additional type definitions are
+present as Modelica.SIunits.Conversions.NonSIunits. If this is not sufficient,
+the user has to define its own types or use the attributes directly
+in the declaration as in the example at the beginning.
+</p>
+
+<pre></PRE><P>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Tue Mar 28 11:40:36 2006.
+</address></BODY>
+</HTML>

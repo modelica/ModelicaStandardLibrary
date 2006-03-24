@@ -1,0 +1,1052 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Media.Air.MoistAir</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Air: Moist air model (fog but no ice, 0..150 degC)&quot;">
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE MoistAir<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Air.MoistAir"></A><A HREF="Modelica_Media_Air.html#Modelica.Media.Air"
+>Modelica.Media.Air</A>.MoistAir</H2>
+<B>Air: Moist air model (fog but no ice, 0..150 degC)</B>
+<P>
+<H3>Information</H3>
+<PRE></pre>
+
+<pre></PRE><P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD>Water=1</TD><TD>Index of water (in substanceNames, massFractions X, etc.)</TD></TR>
+<TR><TD>Air=2</TD><TD>Index of air (in substanceNames, massFractions X, etc.)</TD></TR>
+<TR><TD>k_mair=steam.MM/dryair.MM</TD><TD>ratio of molar weights</TD></TR>
+<TR><TD>dryair=IdealGases.Common.SingleGasesData.Air</TD><TD>&nbsp;</TD></TR>
+<TR><TD>steam=IdealGases.Common.SingleGasesData.H2O</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.MoistAir.BasePropertiesS.png" ALT="Modelica.Media.Air.MoistAir.BaseProperties" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.BaseProperties"
+>BaseProperties</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.MoistAir.XsaturationS.png" ALT="Modelica.Media.Air.MoistAir.Xsaturation" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.Xsaturation"
+>Xsaturation</A>
+</TD><TD>steam water mass fraction of saturation boundary in kg_water/kg_moistair</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.MoistAir.setState_pTXS.png" ALT="Modelica.Media.Air.MoistAir.setState_pTX" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.setState_pTX"
+>setState_pTX</A>
+</TD><TD>Return thermodynamic state as function of p, T and composition X</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.MoistAir.setState_pTXS.png" ALT="Modelica.Media.Air.MoistAir.setState_phX" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.setState_phX"
+>setState_phX</A>
+</TD><TD>Return thermodynamic state as function of p, h and composition X</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.MoistAir.setState_pTXS.png" ALT="Modelica.Media.Air.MoistAir.setState_dTX" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.setState_dTX"
+>setState_dTX</A>
+</TD><TD>Return thermodynamic state as function of d, T and composition X</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.MoistAir.setState_pTXS.png" ALT="Modelica.Media.Air.MoistAir.gasConstant" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.gasConstant"
+>gasConstant</A>
+</TD><TD>gas constnat: computation neglects liquid fraction</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.MoistAir.setState_pTXS.png" ALT="Modelica.Media.Air.MoistAir.saturationPressureLiquid" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.saturationPressureLiquid"
+>saturationPressureLiquid</A>
+</TD><TD>saturation curve valid for 273.16 &lt;= T &lt;= 373.16. Outside of these limits a (less accurate) result is returned</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.MoistAir.setState_pTXS.png" ALT="Modelica.Media.Air.MoistAir.sublimationPressureIce" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.sublimationPressureIce"
+>sublimationPressureIce</A>
+</TD><TD>saturation curve valid for 223.16 &lt;= T &lt;= 273.16. Outside of these limits a (less accurate) result is returned</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.MoistAir.setState_pTXS.png" ALT="Modelica.Media.Air.MoistAir.saturationPressure" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.saturationPressure"
+>saturationPressure</A>
+</TD><TD>saturation curve valid for 223.16 &lt;= T &lt;= 373.16 (and slightly outside with less accuracy)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.MoistAir.setState_pTXS.png" ALT="Modelica.Media.Air.MoistAir.enthalpyOfVaporization" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.enthalpyOfVaporization"
+>enthalpyOfVaporization</A>
+</TD><TD>enthalpy of vaporization of water</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.MoistAir.setState_pTXS.png" ALT="Modelica.Media.Air.MoistAir.HeatCapacityOfWater" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.HeatCapacityOfWater"
+>HeatCapacityOfWater</A>
+</TD><TD>specific heat capacity of water (liquid only)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.MoistAir.setState_pTXS.png" ALT="Modelica.Media.Air.MoistAir.enthalpyOfLiquid" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.enthalpyOfLiquid"
+>enthalpyOfLiquid</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.MoistAir.setState_pTXS.png" ALT="Modelica.Media.Air.MoistAir.enthalpyOfGas" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.enthalpyOfGas"
+>enthalpyOfGas</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.MoistAir.setState_pTXS.png" ALT="Modelica.Media.Air.MoistAir.enthalpyOfCondensingGas" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.enthalpyOfCondensingGas"
+>enthalpyOfCondensingGas</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.MoistAir.setState_pTXS.png" ALT="Modelica.Media.Air.MoistAir.pressure" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.pressure"
+>pressure</A>
+</TD><TD>return pressure of ideal gas</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.MoistAir.setState_pTXS.png" ALT="Modelica.Media.Air.MoistAir.temperature" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.temperature"
+>temperature</A>
+</TD><TD>return temperature of ideal gas</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.MoistAir.setState_pTXS.png" ALT="Modelica.Media.Air.MoistAir.density" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.density"
+>density</A>
+</TD><TD>return density of ideal gas</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.MoistAir.setState_pTXS.png" ALT="Modelica.Media.Air.MoistAir.specificEntropy" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.specificEntropy"
+>specificEntropy</A>
+</TD><TD>return specific entropy (liquid part neglected, mixing entropy included)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.MoistAir.setState_pTXS.png" ALT="Modelica.Media.Air.MoistAir.specificHeatCapacityCp" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.specificHeatCapacityCp"
+>specificHeatCapacityCp</A>
+</TD><TD>Return specific heat capacity at constant pressure</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.MoistAir.setState_pTXS.png" ALT="Modelica.Media.Air.MoistAir.specificHeatCapacityCv" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.specificHeatCapacityCv"
+>specificHeatCapacityCv</A>
+</TD><TD>Return specific heat capacity at constant volume</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.MoistAir.setState_pTXS.png" ALT="Modelica.Media.Air.MoistAir.dynamicViscosity" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.dynamicViscosity"
+>dynamicViscosity</A>
+</TD><TD>simple polynomial for dry air (moisture influence small), valid from 73.15 K to 373.15 K</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.MoistAir.setState_pTXS.png" ALT="Modelica.Media.Air.MoistAir.thermalConductivity" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.thermalConductivity"
+>thermalConductivity</A>
+</TD><TD>simple polynomial for dry air (moisture influence small), valid from 73.15 K to 373.15 K</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.MoistAir.setState_pTXS.png" ALT="Modelica.Media.Air.MoistAir.h_pTX" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.h_pTX"
+>h_pTX</A>
+</TD><TD>Compute specific enthalpy from pressure, temperature and mass fraction</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.MoistAir.setState_pTXS.png" ALT="Modelica.Media.Air.MoistAir.specificEnthalpy" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.specificEnthalpy"
+>specificEnthalpy</A>
+</TD><TD>specific enthalpy</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.MoistAir.setState_pTXS.png" ALT="Modelica.Media.Air.MoistAir.specificInternalEnergy" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.specificInternalEnergy"
+>specificInternalEnergy</A>
+</TD><TD>Return specific internal energy</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.MoistAir.setState_pTXS.png" ALT="Modelica.Media.Air.MoistAir.specificGibbsEnergy" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.specificGibbsEnergy"
+>specificGibbsEnergy</A>
+</TD><TD>Return specific Gibbs energy</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.MoistAir.setState_pTXS.png" ALT="Modelica.Media.Air.MoistAir.specificHelmholtzEnergy" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.specificHelmholtzEnergy"
+>specificHelmholtzEnergy</A>
+</TD><TD>Return specific Helmholtz energy</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.MoistAir.T_phXS.png" ALT="Modelica.Media.Air.MoistAir.T_phX" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.T_phX"
+>T_phX</A>
+</TD><TD>Compute temperature from specific enthalpy and mass fraction</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.MoistAir.UtilitiesS.png" ALT="Modelica.Media.Air.MoistAir.Utilities" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_MoistAir_Utilities.html#Modelica.Media.Air.MoistAir.Utilities"
+>Utilities</A>
+</TD><TD>utility functions</TD></TR>
+</TABLE>
+<H3>Types and constants</H3>
+<PRE>  <font color="blue">constant </font>Integer Water=1 <font color="darkgreen">
+  &quot;Index of water (in substanceNames, massFractions X, etc.)&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font>Integer Air=2 <font color="darkgreen">
+  &quot;Index of air (in substanceNames, massFractions X, etc.)&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font>Real k_mair =  steam.MM/dryair.MM <font color="darkgreen">&quot;ratio of molar weights&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_Media_IdealGases_Common.html#Modelica.Media.IdealGases.Common.DataRecord"
+>IdealGases.Common.DataRecord</A> dryair = IdealGases.Common.SingleGasesData.Air;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_Media_IdealGases_Common.html#Modelica.Media.IdealGases.Common.DataRecord"
+>IdealGases.Common.DataRecord</A> steam = IdealGases.Common.SingleGasesData.H2O;</PRE><p>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE BaseProperties<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.MoistAir.BasePropertiesI.png" ALT="Modelica.Media.Air.MoistAir.BaseProperties" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.MoistAir.BaseProperties"></A><A HREF="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</A>.BaseProperties</H2>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Advanced</B></TD></TR>
+<TR><TD>&nbsp;</TD><TD>preferredMediumStates</TD><TD>false</TD><TD>= true if StateSelect.prefer shall be used for the independent property variables of the medium</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">replaceable </font><font color="blue">model</font> <font color="blue">extends </font>BaseProperties(
+  T(stateSelect=<font color="blue">if </font>preferredMediumStates<font color="blue"> then </font>StateSelect.prefer<font color="blue"> else </font>StateSelect.default),
+  p(stateSelect=<font color="blue">if </font>preferredMediumStates<font color="blue"> then </font>StateSelect.prefer<font color="blue"> else </font>StateSelect.default),
+  Xi(stateSelect=<font color="blue">if </font>preferredMediumStates<font color="blue"> then </font>StateSelect.prefer<font color="blue"> else </font>StateSelect.default))
+
+  <font color="darkgreen">/* p, T, X = X[Water] are used as preferred states, since only then all
+     other quantities can be computed in a recursive sequence.
+     If other variables are selected as states, static state selection
+     is no longer possible and non-linear algebraic equations occur.
+      */</font>
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFraction"
+>MassFraction</A> x_water <font color="darkgreen">&quot;mass of total water/mass of dry air&quot;</font>;
+  Real phi <font color="darkgreen">&quot;relative humidity&quot;</font>;
+
+<font color="blue">protected </font>
+  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.MolarMass"
+>SI.MolarMass</A>[2] MMX = {steam.MM,dryair.MM} <font color="darkgreen">
+    &quot;molar masses of components&quot;</font>;
+
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFraction"
+>MassFraction</A> X_liquid <font color="darkgreen">&quot;mass fraction of liquid water&quot;</font>;
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFraction"
+>MassFraction</A> X_steam <font color="darkgreen">&quot;mass fraction of steam water&quot;</font>;
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFraction"
+>MassFraction</A> X_air <font color="darkgreen">&quot;mass fraction of air&quot;</font>;
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFraction"
+>MassFraction</A> X_sat <font color="darkgreen">
+    &quot;steam water mass fraction of saturation boundary in kg_water/kg_moistair&quot;</font>;
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFraction"
+>MassFraction</A> x_sat <font color="darkgreen">
+    &quot;steam water mass content of saturation boundary in kg_water/kg_dryair&quot;</font>;
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A> p_steam_sat <font color="darkgreen">&quot;Partial saturation pressure of steam&quot;</font>;
+<font color="blue">equation </font>
+  <font color="red">assert</font>(T &gt;= 200.0<font color="blue"> and </font>T &lt;= 423.15, &quot;
+Temperature T is not in the allowed range
+200.0 K &lt;= (T =&quot;
+             +<font color="red"> String</font>(T) + &quot; K) &lt;= 423.15 K
+required from medium model \&quot;&quot;   + mediumName + &quot;\&quot;.&quot;);
+  MM = 1/(Xi[Water]/MMX[Water]+(1.0-Xi[Water])/MMX[Air]);
+
+  p_steam_sat =<font color="red"> min</font>(<font color="red">saturationPressure</font>(T),0.999*p);
+  X_sat =<font color="red"> min</font>(p_steam_sat * k_mair/<font color="red">max</font>(100*Constants.eps, p - p_steam_sat)*(1 - Xi[Water]), 1.0) <font color="darkgreen">
+    &quot;Water content at saturation with respect to actual water content&quot;</font>;
+  X_liquid =<font color="red"> max</font>(Xi[Water] - X_sat, 0.0);
+  X_steam  = Xi[Water]-X_liquid;
+  X_air    = 1-Xi[Water];
+
+  h =<font color="red"> specificEnthalpy_pTX</font>(p,T,Xi);
+  R = dryair.R*(1 - X_steam/(1 - X_liquid)) + steam.R*X_steam/(1 - X_liquid);
+  <font color="darkgreen">//                </font>
+  u = h - R*T;
+  d = p/(R*T);
+  <font color="darkgreen">/* Note, u and d are computed under the assumption that the volume of the liquid
+         water is neglible with respect to the volume of air and of steam
+      */</font>
+  state.p = p;
+  state.T = T;
+  state.X = X;
+
+  <font color="darkgreen">// this x_steam is water load / dry air!!!!!!!!!!!</font>
+  x_sat    = k_mair*p_steam_sat/<font color="red">max</font>(100*Constants.eps,p - p_steam_sat);
+  x_water = Xi[Water]/<font color="red">max</font>(X_air,100*Constants.eps);
+  phi = p/p_steam_sat*Xi[Water]/(Xi[Water] + k_mair*X_air);
+<font color="blue">end </font>BaseProperties;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Xsaturation<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Air.MoistAir.Xsaturation"></A><A HREF="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</A>.Xsaturation</H2>
+<B>steam water mass fraction of saturation boundary in kg_water/kg_moistair</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>state</TD><TD>&nbsp;</TD><TD>shermodynamic state</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>X_sat</TD><TD>steam mass fraction of sat. boundary [kg/kg]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> Xsaturation <font color="darkgreen">
+  &quot;steam water mass fraction of saturation boundary in kg_water/kg_moistair&quot;</font>
+  <font color="blue">input </font>ThermodynamicState state <font color="darkgreen">&quot;shermodynamic state&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFraction"
+>MassFraction</A> X_sat <font color="darkgreen">&quot;steam mass fraction of sat. boundary&quot;</font>;
+<font color="blue">algorithm </font>
+  X_sat := k_mair/(state.p/<font color="red">min</font>(<font color="red">saturationPressure</font>(state.T),0.999*state.p) - 1 + k_mair);
+<font color="blue">end </font>Xsaturation;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE setState_pTX<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.MoistAir.setState_pTXI.png" ALT="Modelica.Media.Air.MoistAir.setState_pTX" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.MoistAir.setState_pTX"></A><A HREF="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</A>.setState_pTX</H2>
+<B>Return thermodynamic state as function of p, T and composition X</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>p</TD><TD>&nbsp;</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>T</TD><TD>&nbsp;</TD><TD>Temperature [K]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>X[:]</TD><TD>&nbsp;</TD><TD>Mass fractions [kg/kg]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>state</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> setState_pTX <font color="darkgreen">
+  &quot;Return thermodynamic state as function of p, T and composition X&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A> p <font color="darkgreen">&quot;Pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Temperature"
+>Temperature</A> T <font color="darkgreen">&quot;Temperature&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFraction"
+>MassFraction</A> X[:] <font color="darkgreen">&quot;Mass fractions&quot;</font>;
+  <font color="blue">output </font>ThermodynamicState state;
+<font color="blue">algorithm </font>
+  state := <font color="blue">if </font><font color="red">size</font>(X,1) == nX<font color="blue"> then </font><font color="red">ThermodynamicState</font>(p=p,T=T, X=X)<font color="blue"> else </font>
+         <font color="red">ThermodynamicState</font>(p=p,T=T, X=<font color="red">cat</font>(1,X,{1-<font color="red">sum</font>(X)}));
+<font color="blue">end </font>setState_pTX;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE setState_phX<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.MoistAir.setState_pTXI.png" ALT="Modelica.Media.Air.MoistAir.setState_phX" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.MoistAir.setState_phX"></A><A HREF="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</A>.setState_phX</H2>
+<B>Return thermodynamic state as function of p, h and composition X</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>p</TD><TD>&nbsp;</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>h</TD><TD>&nbsp;</TD><TD>Specific enthalpy [J/kg]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>X[:]</TD><TD>&nbsp;</TD><TD>Mass fractions [kg/kg]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>state</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> setState_phX <font color="darkgreen">
+  &quot;Return thermodynamic state as function of p, h and composition X&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A> p <font color="darkgreen">&quot;Pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEnthalpy"
+>SpecificEnthalpy</A> h <font color="darkgreen">&quot;Specific enthalpy&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFraction"
+>MassFraction</A> X[:] <font color="darkgreen">&quot;Mass fractions&quot;</font>;
+  <font color="blue">output </font>ThermodynamicState state;
+<font color="blue">algorithm </font>
+  state := <font color="blue">if </font><font color="red">size</font>(X,1) == nX<font color="blue"> then </font><font color="red">ThermodynamicState</font>(p=p,T=<font color="red">T_phX</font>(p,h,X),X=X)<font color="blue"> else </font>
+         <font color="red">ThermodynamicState</font>(p=p,T=<font color="red">T_phX</font>(p,h,X), X=<font color="red">cat</font>(1,X,{1-<font color="red">sum</font>(X)}));
+<font color="blue">end </font>setState_phX;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE setState_dTX<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.MoistAir.setState_pTXI.png" ALT="Modelica.Media.Air.MoistAir.setState_dTX" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.MoistAir.setState_dTX"></A><A HREF="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</A>.setState_dTX</H2>
+<B>Return thermodynamic state as function of d, T and composition X</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>d</TD><TD>&nbsp;</TD><TD>density [kg/m3]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>T</TD><TD>&nbsp;</TD><TD>Temperature [K]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>X[:]</TD><TD>&nbsp;</TD><TD>Mass fractions [kg/kg]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>state</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> setState_dTX <font color="darkgreen">
+  &quot;Return thermodynamic state as function of d, T and composition X&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Density"
+>Density</A> d <font color="darkgreen">&quot;density&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Temperature"
+>Temperature</A> T <font color="darkgreen">&quot;Temperature&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFraction"
+>MassFraction</A> X[:] <font color="darkgreen">&quot;Mass fractions&quot;</font>;
+  <font color="blue">output </font>ThermodynamicState state;
+<font color="blue">algorithm </font>
+  state := <font color="blue">if </font><font color="red">size</font>(X,1) == nX<font color="blue"> then </font><font color="red">ThermodynamicState</font>(p=d*({steam.R,dryair.R}*X)*T,T=T,X=X)<font color="blue"> else </font>
+         <font color="red">ThermodynamicState</font>(p=d*({steam.R,dryair.R}*<font color="red">cat</font>(1,X,{1-<font color="red">sum</font>(X)}))*T,T=T, X=<font color="red">cat</font>(1,X,{1-<font color="red">sum</font>(X)}));
+<font color="blue">end </font>setState_dTX;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE gasConstant<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.MoistAir.setState_pTXI.png" ALT="Modelica.Media.Air.MoistAir.gasConstant" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.MoistAir.gasConstant"></A><A HREF="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</A>.gasConstant</H2>
+<B>gas constnat: computation neglects liquid fraction</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>state</TD><TD>&nbsp;</TD><TD>thermodynamic state</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>R</TD><TD>mixture gas constant [J/(kg.K)]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>gasConstant <font color="darkgreen">
+  &quot;gas constnat: computation neglects liquid fraction&quot;</font>
+<font color="blue">algorithm </font>
+  R := dryair.R*(1-state.X[Water]) + steam.R*state.X[Water];
+<font color="blue">end </font>gasConstant;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE saturationPressureLiquid<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.MoistAir.setState_pTXI.png" ALT="Modelica.Media.Air.MoistAir.saturationPressureLiquid" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.MoistAir.saturationPressureLiquid"></A><A HREF="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</A>.saturationPressureLiquid</H2>
+<B>saturation curve valid for 273.16 &lt;= T &lt;= 373.16. Outside of these limits a (less accurate) result is returned</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>Tsat</TD><TD>&nbsp;</TD><TD>saturation temperature [K]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>psat</TD><TD>saturation pressure [Pa]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> saturationPressureLiquid <font color="darkgreen">
+  &quot;saturation curve valid for 273.16 &lt;= T &lt;= 373.16. Outside of these limits a (less accurate) result is returned&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> Tsat <font color="darkgreen">&quot;saturation temperature&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.AbsolutePressure"
+>SI.AbsolutePressure</A> psat <font color="darkgreen">&quot;saturation pressure&quot;</font>;
+<font color="blue">algorithm </font>
+  psat := 611.657*<font color="red">Math.exp</font>(17.2799 - 4102.99/(Tsat - 35.719));
+<font color="blue">end </font>saturationPressureLiquid;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE sublimationPressureIce<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.MoistAir.setState_pTXI.png" ALT="Modelica.Media.Air.MoistAir.sublimationPressureIce" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.MoistAir.sublimationPressureIce"></A><A HREF="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</A>.sublimationPressureIce</H2>
+<B>saturation curve valid for 223.16 &lt;= T &lt;= 273.16. Outside of these limits a (less accurate) result is returned</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>Tsat</TD><TD>&nbsp;</TD><TD>sublimation temperature [K]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>psat</TD><TD>sublimation pressure [Pa]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> sublimationPressureIce <font color="darkgreen">
+  &quot;saturation curve valid for 223.16 &lt;= T &lt;= 273.16. Outside of these limits a (less accurate) result is returned&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> Tsat <font color="darkgreen">&quot;sublimation temperature&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.AbsolutePressure"
+>SI.AbsolutePressure</A> psat <font color="darkgreen">&quot;sublimation pressure&quot;</font>;
+<font color="blue">algorithm </font>
+  psat := 611.657*<font color="red">Math.exp</font>(22.5159*(1.0 - 273.16/Tsat));
+<font color="blue">end </font>sublimationPressureIce;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE saturationPressure<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.MoistAir.setState_pTXI.png" ALT="Modelica.Media.Air.MoistAir.saturationPressure" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.MoistAir.saturationPressure"></A><A HREF="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</A>.saturationPressure</H2>
+<B>saturation curve valid for 223.16 &lt;= T &lt;= 373.16 (and slightly outside with less accuracy)</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>Tsat</TD><TD>&nbsp;</TD><TD>saturation temperature [K]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>psat</TD><TD>saturation pressure [Pa]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>saturationPressure <font color="darkgreen">
+  &quot;saturation curve valid for 223.16 &lt;= T &lt;= 373.16 (and slightly outside with less accuracy)&quot;</font>
+
+<font color="blue">algorithm </font>
+  psat :=<font color="red"> Utilities.spliceFunction</font>(<font color="red">saturationPressureLiquid</font>(Tsat),<font color="red">sublimationPressureIce</font>(Tsat),Tsat-273.16,1.0);
+<font color="blue">end </font>saturationPressure;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE enthalpyOfVaporization<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.MoistAir.setState_pTXI.png" ALT="Modelica.Media.Air.MoistAir.enthalpyOfVaporization" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.MoistAir.enthalpyOfVaporization"></A><A HREF="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</A>.enthalpyOfVaporization</H2>
+<B>enthalpy of vaporization of water</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>T</TD><TD>&nbsp;</TD><TD>temperature [K]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>r0</TD><TD>vaporization enthalpy [J/kg]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>enthalpyOfVaporization <font color="darkgreen">
+  &quot;enthalpy of vaporization of water&quot;</font>
+<font color="blue">algorithm </font>
+ r0 := 1e3*(2501.0145 - (T - 273.15)*(2.3853 + (T - 273.15)*(0.002969 - (T
+      - 273.15)*(7.5293e-5 + (T - 273.15)*4.6084e-7))));
+<font color="blue">end </font>enthalpyOfVaporization;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE HeatCapacityOfWater<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.MoistAir.setState_pTXI.png" ALT="Modelica.Media.Air.MoistAir.HeatCapacityOfWater" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.MoistAir.HeatCapacityOfWater"></A><A HREF="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</A>.HeatCapacityOfWater</H2>
+<B>specific heat capacity of water (liquid only)</B><p>
+<H3>Information</H3>
+<PRE>specific heat capacity of water (liquid and solid);
+                 polynomial calculated by data from VDI-Waermeatlas 8. Edition (Db1)</PRE>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>T</TD><TD>&nbsp;</TD><TD>[K]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>cp_fl</TD><TD>[J/(kg.K)]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> HeatCapacityOfWater <font color="darkgreen">
+  &quot;specific heat capacity of water (liquid only)&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Temperature"
+>Temperature</A> T;
+  <font color="blue">output </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificHeatCapacity"
+>SpecificHeatCapacity</A> cp_fl;
+<font color="blue">algorithm </font>
+  cp_fl := 1e3*(4.2166 - (T - 273.15)*(0.0033166 + (T - 273.15)*(0.00010295
+     - (T - 273.15)*(1.3819e-6 + (T - 273.15)*7.3221e-9))));
+<font color="blue">end </font>HeatCapacityOfWater;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE enthalpyOfLiquid<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.MoistAir.setState_pTXI.png" ALT="Modelica.Media.Air.MoistAir.enthalpyOfLiquid" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.MoistAir.enthalpyOfLiquid"></A><A HREF="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</A>.enthalpyOfLiquid</H2>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>T</TD><TD>&nbsp;</TD><TD>temperature [K]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>h</TD><TD>liquid enthalpy [J/kg]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>enthalpyOfLiquid
+
+<font color="blue">algorithm </font>
+  h := (T - 273.15)*1e3*(4.2166 - 0.5*(T - 273.15)*(0.0033166 + 0.333333*(T - 273.15)*(0.00010295
+     - 0.25*(T - 273.15)*(1.3819e-6 + 0.2*(T - 273.15)*7.3221e-9))));
+<font color="blue">end </font>enthalpyOfLiquid;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE enthalpyOfGas<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.MoistAir.setState_pTXI.png" ALT="Modelica.Media.Air.MoistAir.enthalpyOfGas" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.MoistAir.enthalpyOfGas"></A><A HREF="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</A>.enthalpyOfGas</H2>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>T</TD><TD>&nbsp;</TD><TD>temperature [K]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>X[:]</TD><TD>&nbsp;</TD><TD>vector of mass fractions [kg/kg]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>h</TD><TD>liquid enthalpy [J/kg]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>enthalpyOfGas
+
+<font color="blue">algorithm </font>
+  h :=<font color="red"> SingleGasNasa.h_Tlow</font>(data=steam, T=T, refChoice=3, h_off=46479.819+2501014.5)*X[Water]
+       +<font color="red"> SingleGasNasa.h_Tlow</font>(data=dryair, T=T, refChoice=3, h_off=25104.684)*(1.0-X[Water]);
+<font color="blue">end </font>enthalpyOfGas;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE enthalpyOfCondensingGas<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.MoistAir.setState_pTXI.png" ALT="Modelica.Media.Air.MoistAir.enthalpyOfCondensingGas" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.MoistAir.enthalpyOfCondensingGas"></A><A HREF="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</A>.enthalpyOfCondensingGas</H2>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>T</TD><TD>&nbsp;</TD><TD>temperature [K]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>h</TD><TD>liquid enthalpy [J/kg]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>enthalpyOfCondensingGas
+<font color="blue">algorithm </font>
+  h :=<font color="red"> SingleGasNasa.h_Tlow</font>(data=steam, T=T, refChoice=3, h_off=46479.819+2501014.5);
+<font color="blue">end </font>enthalpyOfCondensingGas;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE pressure<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.MoistAir.setState_pTXI.png" ALT="Modelica.Media.Air.MoistAir.pressure" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.MoistAir.pressure"></A><A HREF="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</A>.pressure</H2>
+<B>return pressure of ideal gas</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>state</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>pressure <font color="darkgreen">&quot;return pressure of ideal gas&quot;</font>
+<font color="blue">algorithm </font>
+ p := state.p;
+<font color="blue">end </font>pressure;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE temperature<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.MoistAir.setState_pTXI.png" ALT="Modelica.Media.Air.MoistAir.temperature" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.MoistAir.temperature"></A><A HREF="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</A>.temperature</H2>
+<B>return temperature of ideal gas</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>state</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>T</TD><TD>Temperature [K]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>temperature <font color="darkgreen">
+  &quot;return temperature of ideal gas&quot;</font>
+<font color="blue">algorithm </font>
+  T := state.T;
+<font color="blue">end </font>temperature;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE density<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.MoistAir.setState_pTXI.png" ALT="Modelica.Media.Air.MoistAir.density" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.MoistAir.density"></A><A HREF="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</A>.density</H2>
+<B>return density of ideal gas</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>state</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>d</TD><TD>Density [kg/m3]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>density <font color="darkgreen">&quot;return density of ideal gas&quot;</font>
+<font color="blue">algorithm </font>
+  d := state.p/(<font color="red">gasConstant</font>(state)*state.T);
+<font color="blue">end </font>density;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE specificEntropy<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.MoistAir.setState_pTXI.png" ALT="Modelica.Media.Air.MoistAir.specificEntropy" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.MoistAir.specificEntropy"></A><A HREF="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</A>.specificEntropy</H2>
+<B>return specific entropy (liquid part neglected, mixing entropy included)</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>state</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>s</TD><TD>Specific entropy [J/(kg.K)]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>specificEntropy <font color="darkgreen">
+  &quot;return specific entropy (liquid part neglected, mixing entropy included)&quot;</font>
+<font color="blue">protected </font>
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MoleFraction"
+>MoleFraction</A>[2] Y =<font color="red"> massToMoleFractions</font>(state.X,{steam.MM,dryair.MM}) <font color="darkgreen">
+    &quot;molar fraction&quot;</font>;
+<font color="blue">algorithm </font>
+  s :=<font color="red"> SingleGasNasa.s0_Tlow</font>(dryair, state.T)*(1-state.X[Water])
+    +<font color="red"> SingleGasNasa.s0_Tlow</font>(steam, state.T)*state.X[Water]
+    -<font color="red"> gasConstant</font>(state)*<font color="red">Modelica.Math.log</font>(state.p/reference_p)
+    +<font color="red"> sum</font>(<font color="blue">if </font>Y[i] &gt; Modelica.Constants.eps<font color="blue"> then </font>-Y[i]*<font color="red">Modelica.Math.log</font>(Y[i])<font color="blue"> else </font>
+                Y[i] <font color="blue">for </font>i<font color="blue"> in </font>1:<font color="red">size</font>(Y,1));
+<font color="blue">end </font>specificEntropy;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE specificHeatCapacityCp<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.MoistAir.setState_pTXI.png" ALT="Modelica.Media.Air.MoistAir.specificHeatCapacityCp" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.MoistAir.specificHeatCapacityCp"></A><A HREF="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</A>.specificHeatCapacityCp</H2>
+<B>Return specific heat capacity at constant pressure</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>state</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>cp</TD><TD>Specific heat capacity at constant pressure [J/(kg.K)]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>specificHeatCapacityCp <font color="darkgreen">
+  &quot;Return specific heat capacity at constant pressure&quot;</font>
+<font color="blue">algorithm </font>
+  cp:=<font color="red"> SingleGasNasa.cp_Tlow</font>(dryair, state.T)*(1-state.X[Water])
+    +<font color="red"> SingleGasNasa.cp_Tlow</font>(steam, state.T)*state.X[Water];
+<font color="blue">end </font>specificHeatCapacityCp;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE specificHeatCapacityCv<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.MoistAir.setState_pTXI.png" ALT="Modelica.Media.Air.MoistAir.specificHeatCapacityCv" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.MoistAir.specificHeatCapacityCv"></A><A HREF="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</A>.specificHeatCapacityCv</H2>
+<B>Return specific heat capacity at constant volume</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>state</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>cv</TD><TD>Specific heat capacity at constant volume [J/(kg.K)]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>specificHeatCapacityCv <font color="darkgreen">
+  &quot;Return specific heat capacity at constant volume&quot;</font>
+<font color="blue">algorithm </font>
+  cv:=<font color="red"> SingleGasNasa.cp_Tlow</font>(dryair, state.T)*(1-state.X[Water]) +
+    <font color="red">SingleGasNasa.cp_Tlow</font>(steam, state.T)*state.X[Water]
+    -<font color="red"> gasConstant</font>(state);
+<font color="blue">end </font>specificHeatCapacityCv;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dynamicViscosity<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.MoistAir.setState_pTXI.png" ALT="Modelica.Media.Air.MoistAir.dynamicViscosity" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.MoistAir.dynamicViscosity"></A><A HREF="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</A>.dynamicViscosity</H2>
+<B>simple polynomial for dry air (moisture influence small), valid from 73.15 K to 373.15 K</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>state</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>eta</TD><TD>Dynamic viscosity [Pa.s]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>dynamicViscosity <font color="darkgreen">
+  &quot;simple polynomial for dry air (moisture influence small), valid from 73.15 K to 373.15 K&quot;</font>
+    <font color="blue">import </font><A HREF="Modelica_Media_Incompressible_TableBased_Polynomials_Temp.html#Modelica.Media.Incompressible.TableBased.Polynomials_Temp"
+>Modelica.Media.Incompressible.TableBased.Polynomials_Temp</A>;
+<font color="blue">algorithm </font>
+  eta :=<font color="red"> Polynomials_Temp.evaluate</font>({(-4.96717436974791E-011), 5.06626785714286E-008, 1.72937731092437E-005},
+       <font color="red">Cv.to_degC</font>(state.T));
+<font color="blue">end </font>dynamicViscosity;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE thermalConductivity<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.MoistAir.setState_pTXI.png" ALT="Modelica.Media.Air.MoistAir.thermalConductivity" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.MoistAir.thermalConductivity"></A><A HREF="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</A>.thermalConductivity</H2>
+<B>simple polynomial for dry air (moisture influence small), valid from 73.15 K to 373.15 K</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>state</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>lambda</TD><TD>Thermal conductivity [W/(m.K)]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>thermalConductivity <font color="darkgreen">
+  &quot;simple polynomial for dry air (moisture influence small), valid from 73.15 K to 373.15 K&quot;</font>
+    <font color="blue">import </font><A HREF="Modelica_Media_Incompressible_TableBased_Polynomials_Temp.html#Modelica.Media.Incompressible.TableBased.Polynomials_Temp"
+>Modelica.Media.Incompressible.TableBased.Polynomials_Temp</A>;
+<font color="blue">algorithm </font>
+  lambda :=<font color="red"> Polynomials_Temp.evaluate</font>({(-4.8737307422969E-008), 7.67803133753502E-005, 0.0241814385504202},
+   <font color="red">Cv.to_degC</font>(state.T));
+<font color="blue">end </font>thermalConductivity;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE h_pTX<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.MoistAir.setState_pTXI.png" ALT="Modelica.Media.Air.MoistAir.h_pTX" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.MoistAir.h_pTX"></A><A HREF="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</A>.h_pTX</H2>
+<B>Compute specific enthalpy from pressure, temperature and mass fraction</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>p</TD><TD>&nbsp;</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>T</TD><TD>&nbsp;</TD><TD>Temperature [K]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>X[nX]</TD><TD>&nbsp;</TD><TD>Mass fractions of moist air [1]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>h</TD><TD>Specific enthalpy at p, T, X [J/kg]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> h_pTX <font color="darkgreen">
+  &quot;Compute specific enthalpy from pressure, temperature and mass fraction&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;Pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> T <font color="darkgreen">&quot;Temperature&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFraction"
+>SI.MassFraction</A> X[nX] <font color="darkgreen">&quot;Mass fractions of moist air&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SI.SpecificEnthalpy</A> h <font color="darkgreen">&quot;Specific enthalpy at p, T, X&quot;</font>;
+<font color="blue">protected </font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.AbsolutePressure"
+>SI.AbsolutePressure</A> p_steam_sat <font color="darkgreen">&quot;Partial saturation pressure of steam&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFraction"
+>SI.MassFraction</A> x_sat <font color="darkgreen">&quot;steam water mass fraction of saturation boundary&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFraction"
+>SI.MassFraction</A> X_liquid <font color="darkgreen">&quot;mass fraction of liquid water&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFraction"
+>SI.MassFraction</A> X_steam <font color="darkgreen">&quot;mass fraction of steam water&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFraction"
+>SI.MassFraction</A> X_air <font color="darkgreen">&quot;mass fraction of air&quot;</font>;
+<font color="blue">algorithm </font>
+  p_steam_sat :=<font color="red">saturationPressure</font>(T);
+  x_sat    :=k_mair*p_steam_sat/(p - p_steam_sat);
+  X_liquid :=<font color="red">max</font>(X[Water] - x_sat/(1 + x_sat), 0.0);
+  X_steam  :=X[Water] - X_liquid;
+  X_air    :=1 - X[Water];
+  h        := {<font color="red">SingleGasNasa.h_Tlow</font>(data=steam,  T=T, refChoice=3, h_off=46479.819+2501014.5),
+               <font color="red">SingleGasNasa.h_Tlow</font>(data=dryair, T=T, refChoice=3, h_off=25104.684)}*
+    {X_steam, X_air} +<font color="red"> enthalpyOfLiquid</font>(T)*X_liquid;
+<font color="blue">end </font>h_pTX;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE specificEnthalpy<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.MoistAir.setState_pTXI.png" ALT="Modelica.Media.Air.MoistAir.specificEnthalpy" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.MoistAir.specificEnthalpy"></A><A HREF="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</A>.specificEnthalpy</H2>
+<B>specific enthalpy</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>state</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>specificEnthalpy <font color="darkgreen">&quot;specific enthalpy&quot;</font>
+<font color="blue">algorithm </font>
+  h :=<font color="red"> h_pTX</font>(state.p, state.T, state.X);
+<font color="blue">end </font>specificEnthalpy;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE specificInternalEnergy<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.MoistAir.setState_pTXI.png" ALT="Modelica.Media.Air.MoistAir.specificInternalEnergy" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.MoistAir.specificInternalEnergy"></A><A HREF="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</A>.specificInternalEnergy</H2>
+<B>Return specific internal energy</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>state</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>u</TD><TD>Specific internal energy [J/kg]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>specificInternalEnergy <font color="darkgreen">
+  &quot;Return specific internal energy&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+<font color="blue">algorithm </font>
+  u :=<font color="red"> h_pTX</font>(state.p,state.T,state.X) -<font color="red"> gasConstant</font>(state)*state.T;
+<font color="blue">end </font>specificInternalEnergy;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE specificGibbsEnergy<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.MoistAir.setState_pTXI.png" ALT="Modelica.Media.Air.MoistAir.specificGibbsEnergy" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.MoistAir.specificGibbsEnergy"></A><A HREF="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</A>.specificGibbsEnergy</H2>
+<B>Return specific Gibbs energy</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>state</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>g</TD><TD>Specific Gibbs energy [J/kg]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>specificGibbsEnergy <font color="darkgreen">
+  &quot;Return specific Gibbs energy&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+<font color="blue">algorithm </font>
+  g :=<font color="red"> h_pTX</font>(state.p,state.T,state.X) - state.T*<font color="red">specificEntropy</font>(state);
+<font color="blue">end </font>specificGibbsEnergy;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE specificHelmholtzEnergy<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.MoistAir.setState_pTXI.png" ALT="Modelica.Media.Air.MoistAir.specificHelmholtzEnergy" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.MoistAir.specificHelmholtzEnergy"></A><A HREF="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</A>.specificHelmholtzEnergy</H2>
+<B>Return specific Helmholtz energy</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>state</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>f</TD><TD>Specific Helmholtz energy [J/kg]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>specificHelmholtzEnergy <font color="darkgreen">
+  &quot;Return specific Helmholtz energy&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+<font color="blue">algorithm </font>
+  f :=<font color="red"> h_pTX</font>(state.p,state.T,state.X) -<font color="red"> gasConstant</font>(state)*state.T - state.T*<font color="red">specificEntropy</font>(state);
+<font color="blue">end </font>specificHelmholtzEnergy;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE T_phX<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Air.MoistAir.T_phX"></A><A HREF="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</A>.T_phX</H2>
+<B>Compute temperature from specific enthalpy and mass fraction</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>p</TD><TD>&nbsp;</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>h</TD><TD>&nbsp;</TD><TD>specific enthalpy [J/kg]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>X[:]</TD><TD>&nbsp;</TD><TD>mass fractions of composition [kg/kg]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>T</TD><TD>temperature [K]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> T_phX <font color="darkgreen">
+  &quot;Compute temperature from specific enthalpy and mass fraction&quot;</font>
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A> p <font color="darkgreen">&quot;Pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEnthalpy"
+>SpecificEnthalpy</A> h <font color="darkgreen">&quot;specific enthalpy&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFraction"
+>MassFraction</A>[:] X <font color="darkgreen">&quot;mass fractions of composition&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Temperature"
+>Temperature</A> T <font color="darkgreen">&quot;temperature&quot;</font>;
+<font color="blue">protected </font>
+<font color="blue">package</font> Internal <font color="darkgreen">
+    &quot;Solve h(data,T) for T with given h (use only indirectly via temperature_phX)&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Media_Common_OneNonLinearEquation.html#Modelica.Media.Common.OneNonLinearEquation"
+>Modelica.Media.Common.OneNonLinearEquation</A>;
+  <font color="blue">redeclare </font><font color="blue">record</font> <font color="blue">extends </font>f_nonlinear_Data <font color="darkgreen">
+      &quot;Data to be passed to non-linear function&quot;</font>
+    <font color="blue">extends </font><A HREF="Modelica_Media_IdealGases_Common.html#Modelica.Media.IdealGases.Common.DataRecord"
+>Modelica.Media.IdealGases.Common.DataRecord</A>;
+  <font color="blue">end </font>f_nonlinear_Data;
+
+  <font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>f_nonlinear
+  <font color="blue">algorithm </font>
+      y := <font color="red">h_pTX</font>(p,x,X);
+  <font color="blue">end </font>f_nonlinear;
+
+  <font color="darkgreen">// Dummy definition has to be added for current Dymola</font>
+  <font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>solve
+  <font color="blue">end </font>solve;
+<font color="blue">end </font>Internal;
+
+<font color="blue">algorithm </font>
+  T :=<font color="red"> Internal.solve</font>(h, 200, 6000, p, X[1:nXi], steam);
+<font color="blue">end </font>T_phX;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Tue Mar 28 11:39:42 2006.
+</address></BODY>
+</HTML>

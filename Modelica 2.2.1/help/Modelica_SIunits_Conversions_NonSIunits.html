@@ -1,0 +1,217 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.SIunits.Conversions.NonSIunits</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Type definitions of non SI units&quot;">
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE NonSIunits<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.SIunits.Conversions.NonSIunits"></A><A HREF="Modelica_SIunits_Conversions.html#Modelica.SIunits.Conversions"
+>Modelica.SIunits.Conversions</A>.NonSIunits</H2>
+<B>Type definitions of non SI units</B>
+<P>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This package provides predefined types, such as <b>Angle_deg</b> (angle in
+degree), <b>AngularVelocity_rpm</b> (angular velocity in revolutions per
+minute) or <b>Temperature_degF</b> (temperature in degree Fahrenheit),
+which are in common use but are not part of the international standard on
+units according to ISO 31-1992 "General principles concerning quantities,
+units and symbols" and ISO 1000-1992 "SI units and recommendations for
+the use of their multiples and of certain other units".</p>
+<p>If possible, the types in this package should not be used. Use instead
+types of package Modelica.SIunits. For more information on units, see also
+the book of Francois Cardarelli <b>Scientific Unit Conversion - A
+Practical Guide to Metrication</b> (Springer 1997).</p>
+<p>Some units, such as <b>Temperature_degC/Temp_C</b> are both defined in
+Modelica.SIunits and in Modelica.Conversions.NonSIunits. The reason is that these
+definitions have been placed erroneously in Modelica.SIunits although they
+are not SIunits. For backward compatibility, these type definitions are
+still kept in Modelica.SIunits.</p>
+<pre>
+</PRE><P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits.Temperature_degC"
+>Temperature_degC</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits.Temperature_degF"
+>Temperature_degF</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits.Temperature_degRk"
+>Temperature_degRk</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits.Angle_deg"
+>Angle_deg</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits.AngularVelocity_rpm"
+>AngularVelocity_rpm</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits.Velocity_kmh"
+>Velocity_kmh</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits.Time_day"
+>Time_day</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits.Time_hour"
+>Time_hour</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits.Time_minute"
+>Time_minute</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits.Volume_litre"
+>Volume_litre</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits.Energy_kWh"
+>Energy_kWh</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits.Pressure_bar"
+>Pressure_bar</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits.MassFlowRate_gps"
+>MassFlowRate_gps</A>
+</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Temperature_degC<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.SIunits.Conversions.NonSIunits.Temperature_degC"></A><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits"
+>Modelica.SIunits.Conversions.NonSIunits</A>.Temperature_degC</H2>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">type</font> Temperature_degC = Real (<font color="blue">final </font>quantity=&quot;ThermodynamicTemperature&quot;,
+      <font color="blue">final </font>unit=&quot;degC&quot;);
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Temperature_degF<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.SIunits.Conversions.NonSIunits.Temperature_degF"></A><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits"
+>Modelica.SIunits.Conversions.NonSIunits</A>.Temperature_degF</H2>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">type</font> Temperature_degF = Real (<font color="blue">final </font>quantity=&quot;ThermodynamicTemperature&quot;,
+      <font color="blue">final </font>unit=&quot;degF&quot;);
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Temperature_degRk<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.SIunits.Conversions.NonSIunits.Temperature_degRk"></A><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits"
+>Modelica.SIunits.Conversions.NonSIunits</A>.Temperature_degRk</H2>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">type</font> Temperature_degRk = Real (<font color="blue">final </font>quantity=&quot;ThermodynamicTemperature&quot;,
+      <font color="blue">final </font>unit=&quot;degRk&quot;);
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Angle_deg<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.SIunits.Conversions.NonSIunits.Angle_deg"></A><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits"
+>Modelica.SIunits.Conversions.NonSIunits</A>.Angle_deg</H2>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">type</font> Angle_deg = Real (<font color="blue">final </font>quantity=&quot;Angle&quot;, <font color="blue">final </font>unit=&quot;deg&quot;);
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE AngularVelocity_rpm<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.SIunits.Conversions.NonSIunits.AngularVelocity_rpm"></A><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits"
+>Modelica.SIunits.Conversions.NonSIunits</A>.AngularVelocity_rpm</H2>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">type</font> AngularVelocity_rpm = Real (<font color="blue">final </font>quantity=&quot;AngularVelocity&quot;, <font color="blue">final </font>unit=
+           &quot;rev/min&quot;);
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Velocity_kmh<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.SIunits.Conversions.NonSIunits.Velocity_kmh"></A><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits"
+>Modelica.SIunits.Conversions.NonSIunits</A>.Velocity_kmh</H2>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">type</font> Velocity_kmh = Real (<font color="blue">final </font>quantity=&quot;Velocity&quot;, <font color="blue">final </font>unit=&quot;km/h&quot;);
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Time_day<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.SIunits.Conversions.NonSIunits.Time_day"></A><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits"
+>Modelica.SIunits.Conversions.NonSIunits</A>.Time_day</H2>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">type</font> Time_day = Real (<font color="blue">final </font>quantity=&quot;Time&quot;, <font color="blue">final </font>unit=&quot;d&quot;);
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Time_hour<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.SIunits.Conversions.NonSIunits.Time_hour"></A><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits"
+>Modelica.SIunits.Conversions.NonSIunits</A>.Time_hour</H2>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">type</font> Time_hour = Real (<font color="blue">final </font>quantity=&quot;Time&quot;, <font color="blue">final </font>unit=&quot;h&quot;);
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Time_minute<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.SIunits.Conversions.NonSIunits.Time_minute"></A><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits"
+>Modelica.SIunits.Conversions.NonSIunits</A>.Time_minute</H2>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">type</font> Time_minute = Real (<font color="blue">final </font>quantity=&quot;Time&quot;, <font color="blue">final </font>unit=&quot;min&quot;);
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Volume_litre<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.SIunits.Conversions.NonSIunits.Volume_litre"></A><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits"
+>Modelica.SIunits.Conversions.NonSIunits</A>.Volume_litre</H2>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">type</font> Volume_litre = Real (<font color="blue">final </font>quantity=&quot;Volume&quot;, <font color="blue">final </font>unit=&quot;l&quot;);
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Energy_kWh<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.SIunits.Conversions.NonSIunits.Energy_kWh"></A><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits"
+>Modelica.SIunits.Conversions.NonSIunits</A>.Energy_kWh</H2>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">type</font> Energy_kWh = Real (<font color="blue">final </font>quantity=&quot;Energy&quot;, <font color="blue">final </font>unit=&quot;kWh&quot;);
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Pressure_bar<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.SIunits.Conversions.NonSIunits.Pressure_bar"></A><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits"
+>Modelica.SIunits.Conversions.NonSIunits</A>.Pressure_bar</H2>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">type</font> Pressure_bar = Real (<font color="blue">final </font>quantity=&quot;Pressure&quot;, <font color="blue">final </font>unit=&quot;bar&quot;);
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE MassFlowRate_gps<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.SIunits.Conversions.NonSIunits.MassFlowRate_gps"></A><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits"
+>Modelica.SIunits.Conversions.NonSIunits</A>.MassFlowRate_gps</H2>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">type</font> MassFlowRate_gps = Real (<font color="blue">final </font>quantity=&quot;MassFlowRate&quot;, <font color="blue">final </font>unit=
+        &quot;g/s&quot;);
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Tue Mar 28 11:40:37 2006.
+</address></BODY>
+</HTML>

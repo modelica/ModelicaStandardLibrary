@@ -1,0 +1,518 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Electrical.Machines.BasicMachines.DCMachines</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Models of DC machines&quot;">
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE DCMachines<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Electrical.Machines.BasicMachines.DCMachines"></A><A HREF="Modelica_Electrical_Machines_BasicMachines.html#Modelica.Electrical.Machines.BasicMachines"
+>Modelica.Electrical.Machines.BasicMachines</A>.DCMachines</H2>
+<B>Models of DC machines</B>
+<P>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This package contains models of DC machines:
+<ul>
+<li>DC_PermanentMagnet: DC machine with permanent magnet excitation</li>
+<li>DC_ElectricalExcited: DC machine with electrical shunt or separate excitation</li>
+<li>DC_SeriesExcited: DC machine with series excitation</li>
+</ul>
+</p>
+
+<pre>
+</PRE><P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnetS.png" ALT="Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnet" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Machines_BasicMachines_DCMachines.html#Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnet"
+>DC_PermanentMagnet</A>
+</TD><TD>Permanent magnet DC machine</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_ElectricalExcitedS.png" ALT="Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_ElectricalExcited" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Machines_BasicMachines_DCMachines.html#Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_ElectricalExcited"
+>DC_ElectricalExcited</A>
+</TD><TD>Electrical shunt/separate excited linear DC machine</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_SeriesExcitedS.png" ALT="Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_SeriesExcited" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Machines_BasicMachines_DCMachines.html#Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_SeriesExcited"
+>DC_SeriesExcited</A>
+</TD><TD>Series excited linear DC machine</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE DC_PermanentMagnet<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnetI.png" ALT="Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnet" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnet"></A><A HREF="Modelica_Electrical_Machines_BasicMachines_DCMachines.html#Modelica.Electrical.Machines.BasicMachines.DCMachines"
+>Modelica.Electrical.Machines.BasicMachines.DCMachines</A>.DC_PermanentMagnet</H2>
+<B>Permanent magnet DC machine</B><p>
+<IMG SRC="Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnetD.png" ALT="Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnet">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+<b>Model of a DC Machine with Permanent magnet.</b><br>
+Armature resistance and inductance are modeled directly after the armature pins, then using a <i>AirGapDC</i> model. Permanent magnet excitation is modelled by a constant equivalent excitation current feeding AirGapDC. Only losses in armature resistance are taken into account. No saturation is modelled.
+</p>
+<p>
+<b>Default values for machine's parameters (a realistic example) are:</b><br>
+<table>
+<tr>
+<td>stator's moment of inertia</td>
+<td>0.29</td><td>kg.m2</td>
+</tr>
+<tr>
+<td>rotor's moment of inertia</td>
+<td>0.15</td><td>kg.m2</td>
+</tr>
+<tr>
+<td>nominal armature voltage</td>
+<td>100</td><td>V</td>
+</tr>
+<tr>
+<td>nominal armature current</td>
+<td>100</td><td>A</td>
+</tr>
+<tr>
+<td>nominal speed</td>
+<td>1425</td><td>rpm</td>
+</tr>
+<tr>
+<td>nominal torque</td>
+<td>63.66</td><td>Nm</td>
+</tr>
+<tr>
+<td>nominal mechanical output</td>
+<td>9.5</td><td>kW</td>
+</tr>
+<tr>
+<td>efficiency</td>
+<td>95.0</td><td>%</td>
+</tr>
+<tr>
+<td>armature resistance</td>
+<td>0.05</td><td>Ohm in warm condition</td>
+</tr>
+<tr>
+<td>armature inductance</td>
+<td>0.0015</td><td>H</td>
+</tr>
+</table>
+Armature resistance resp. inductance include resistance resp. inductance of commutating pole winding and compensation windig, if present.
+</p>
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>J_Rotor</TD><TD>0.15</TD><TD>rotor's moment of inertia [kg.m2]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Nominal parameters</TD></TR>
+<TR><TD>&nbsp;</TD><TD>VaNominal</TD><TD>100</TD><TD>nominal armature voltage [V]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>IaNominal</TD><TD>100</TD><TD>nominal armature current [A]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>rpmNominal</TD><TD>1425</TD><TD>nominal speed [rev/min]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Nominal resistances and inductances</TD></TR>
+<TR><TD>&nbsp;</TD><TD>Ra</TD><TD>0.05</TD><TD>warm armature resistance [Ohm]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>La</TD><TD>0.0015</TD><TD>armature inductance [H]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>flange_a</TD><TD>&nbsp;</TD></TR>
+<TR><TD>&nbsp;</TD><TD>pin_ap</TD><TD>&nbsp;</TD></TR>
+<TR><TD>&nbsp;</TD><TD>pin_an</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> DC_PermanentMagnet <font color="darkgreen">&quot;Permanent magnet DC machine&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Machines_Interfaces.html#Modelica.Electrical.Machines.Interfaces.PartialBasicDCMachine"
+>Interfaces.PartialBasicDCMachine</A>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> VaNominal=100 <font color="darkgreen">
+    &quot;|Nominal parameters|nominal armature voltage&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Current"
+>Modelica.SIunits.Current</A> IaNominal=100 <font color="darkgreen">
+    &quot;|Nominal parameters|nominal armature current&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits.AngularVelocity_rpm"
+>Modelica.SIunits.Conversions.NonSIunits.AngularVelocity_rpm</A>
+    rpmNominal =  1425 <font color="darkgreen">&quot;|Nominal parameters|nominal speed&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Modelica.SIunits.Resistance</A> Ra=0.05 <font color="darkgreen">
+    &quot;|Nominal resistances and inductances|warm armature resistance&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inductance"
+>Modelica.SIunits.Inductance</A> La=0.0015 <font color="darkgreen">
+    &quot;|Nominal resistances and inductances|armature inductance&quot;</font>;
+<font color="blue">protected </font>
+  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Current"
+>Modelica.SIunits.Current</A> IeNominal=1 <font color="darkgreen">&quot;equivalent excitation current&quot;</font>;
+  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inductance"
+>Modelica.SIunits.Inductance</A> Le=1 <font color="darkgreen">&quot;arbitrary excitation inductance&quot;</font>;
+  <font color="blue">parameter </font>Real TurnsRatio=
+    (VaNominal-Ra*IaNominal)/(<font color="red">Modelica.SIunits.Conversions.from_rpm</font>(rpmNominal)*Le*IeNominal) <font color="darkgreen">
+    &quot;Ratio of armature turns over number of turns of the excitation winding&quot;</font>;
+<font color="blue">public </font>
+  <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Resistor"
+>Modelica.Electrical.Analog.Basic.Resistor</A> ra(<font color="blue">final </font>R=Ra);
+  <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Inductor"
+>Modelica.Electrical.Analog.Basic.Inductor</A> la(<font color="blue">final </font>L=La);
+  <A HREF="Modelica_Electrical_Machines_BasicMachines_Components.html#Modelica.Electrical.Machines.BasicMachines.Components.AirGapDC"
+>Machines.BasicMachines.Components.AirGapDC</A> airGapDC(<font color="blue">final </font>Le=Le, <font color="blue">final </font>
+      TurnsRatio=TurnsRatio);
+  <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Ground"
+>Modelica.Electrical.Analog.Basic.Ground</A> eGround;
+  <A HREF="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources.ConstantCurrent"
+>Modelica.Electrical.Analog.Sources.ConstantCurrent</A> ie(I=IeNominal);
+<font color="blue">equation </font>
+  <font color="red">assert</font>(VaNominal &gt; Ra*IaNominal, &quot;VaNominal has to be &gt; (Ra+Re)*IaNominal&quot;);
+  <font color="red">connect</font>(la.p, ra.n);
+  <font color="red">connect</font>(pin_ap, ra.p);
+  <font color="red">connect</font>(la.n, airGapDC.pin_ap);
+  <font color="red">connect</font>(airGapDC.pin_an, pin_an);
+  <font color="red">connect</font>(airGapDC.pin_en, eGround.p);
+  <font color="red">connect</font>(airGapDC.pin_ep, ie.n);
+  <font color="red">connect</font>(eGround.p, ie.p);
+  <font color="red">connect</font>(airGapDC.flange_a, inertiaRotor.flange_a);
+  <font color="red">connect</font>(airGapDC.support, internalSupport);
+<font color="blue">end </font>DC_PermanentMagnet;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE DC_ElectricalExcited<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_ElectricalExcitedI.png" ALT="Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_ElectricalExcited" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_ElectricalExcited"></A><A HREF="Modelica_Electrical_Machines_BasicMachines_DCMachines.html#Modelica.Electrical.Machines.BasicMachines.DCMachines"
+>Modelica.Electrical.Machines.BasicMachines.DCMachines</A>.DC_ElectricalExcited</H2>
+<B>Electrical shunt/separate excited linear DC machine</B><p>
+<IMG SRC="Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_ElectricalExcitedD.png" ALT="Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_ElectricalExcited">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+<b>Model of a DC Machine with Electrical shunt or separate excitation.</b><br>
+Armature resistance and inductance are modeled directly after the armature pins, then using a <i>AirGapDC</i> model.<br>
+Only losses in armature and excitation resistance are taken into account. No saturation is modelled.<br>
+Shunt or separate excitation is defined by the user's external circuit.
+</p>
+<p>
+<b>Default values for machine's parameters (a realistic example) are:</b><br>
+<table>
+<tr>
+<td>stator's moment of inertia</td>
+<td>0.29</td><td>kg.m2</td>
+</tr>
+<tr>
+<td>rotor's moment of inertia</td>
+<td>0.15</td><td>kg.m2</td>
+</tr>
+<tr>
+<td>nominal armature voltage</td>
+<td>100</td><td>V</td>
+</tr>
+<tr>
+<td>nominal armature current</td>
+<td>100</td><td>A</td>
+</tr>
+<tr>
+<td>nominal torque</td>
+<td>63.66</td><td>Nm</td>
+</tr>
+<tr>
+<td>nominal speed</td>
+<td>1425</td><td>rpm</td>
+</tr>
+<tr>
+<td>nominal mechanical output</td>
+<td>9.5</td><td>kW</td>
+</tr>
+<tr>
+<td>efficiency</td>
+<td>95.0</td><td>% only armature</td>
+</tr>
+<tr>
+<td>efficiency</td>
+<td>94.06</td><td>% including excitation</td>
+</tr>
+<tr>
+<td>armature resistance</td>
+<td>0.05</td><td>Ohm in warm condition</td>
+</tr>
+<tr>
+<td>aramture inductance</td>
+<td>0.0015</td><td>H</td>
+</tr>
+<tr>
+<td>nominal excitation voltage</td>
+<td>100</td><td>V</td>
+</tr>
+<tr>
+<td>nominal excitation current</td>
+<td>1</td><td>A</td>
+</tr>
+<tr>
+<td>excitation resistance</td>
+<td>100</td><td>Ohm in warm condition</td>
+</tr>
+<tr>
+<td>excitation inductance</td>
+<td>1</td><td>H</td>
+</tr>
+</table>
+Armature resistance resp. inductance include resistance resp. inductance of commutating pole winding and
+compensation windig, if present.<br>
+Armature current does not cover excitation current of a shunt excitation; in this case total current drawn from the grid = armature current + excitation current.
+</p>
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>J_Rotor</TD><TD>0.15</TD><TD>rotor's moment of inertia [kg.m2]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Nominal parameters</TD></TR>
+<TR><TD>&nbsp;</TD><TD>VaNominal</TD><TD>100</TD><TD>nominal armature voltage [V]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>IaNominal</TD><TD>100</TD><TD>nominal armature current [A]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>rpmNominal</TD><TD>1425</TD><TD>nominal speed [rev/min]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Nominal resistances and inductances</TD></TR>
+<TR><TD>&nbsp;</TD><TD>Ra</TD><TD>0.05</TD><TD>warm armature resistance [Ohm]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>La</TD><TD>0.0015</TD><TD>armature inductance [H]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Excitation</TD></TR>
+<TR><TD>&nbsp;</TD><TD>IeNominal</TD><TD>1</TD><TD>nominal excitation current [A]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>Re</TD><TD>100</TD><TD>warm field excitation resistance [Ohm]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>Le</TD><TD>1</TD><TD>total field excitation inductance [H]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>flange_a</TD><TD>&nbsp;</TD></TR>
+<TR><TD>&nbsp;</TD><TD>pin_ap</TD><TD>&nbsp;</TD></TR>
+<TR><TD>&nbsp;</TD><TD>pin_an</TD><TD>&nbsp;</TD></TR>
+<TR><TD>&nbsp;</TD><TD>pin_ep</TD><TD>&nbsp;</TD></TR>
+<TR><TD>&nbsp;</TD><TD>pin_en</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> DC_ElectricalExcited <font color="darkgreen">
+  &quot;Electrical shunt/separate excited linear DC machine&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Machines_Interfaces.html#Modelica.Electrical.Machines.Interfaces.PartialBasicDCMachine"
+>Machines.Interfaces.PartialBasicDCMachine</A>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> VaNominal=100 <font color="darkgreen">
+    &quot;|Nominal parameters|nominal armature voltage&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Current"
+>Modelica.SIunits.Current</A> IaNominal=100 <font color="darkgreen">
+    &quot;|Nominal parameters|nominal armature current&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits.AngularVelocity_rpm"
+>Modelica.SIunits.Conversions.NonSIunits.AngularVelocity_rpm</A>
+    rpmNominal =  1425 <font color="darkgreen">&quot;|Nominal parameters|nominal speed&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Modelica.SIunits.Resistance</A> Ra=0.05 <font color="darkgreen">
+    &quot;|Nominal resistances and inductances|warm armature resistance&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inductance"
+>Modelica.SIunits.Inductance</A> La=0.0015 <font color="darkgreen">
+    &quot;|Nominal resistances and inductances|armature inductance&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Current"
+>Modelica.SIunits.Current</A> IeNominal=1 <font color="darkgreen">
+    &quot;|Excitation|nominal excitation current&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Modelica.SIunits.Resistance</A> Re=100 <font color="darkgreen">
+    &quot;|Excitation|warm field excitation resistance&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inductance"
+>Modelica.SIunits.Inductance</A> Le=1 <font color="darkgreen">
+    &quot;|Excitation|total field excitation inductance&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> ve = pin_ep.v-pin_en.v <font color="darkgreen">
+    &quot;Field excitation voltage&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Current"
+>Modelica.SIunits.Current</A> ie = pin_ep.i <font color="darkgreen">&quot;Field excitation current&quot;</font>;
+<font color="blue">protected </font>
+  <font color="blue">parameter </font>Real TurnsRatio=
+    (VaNominal-Ra*IaNominal)/(<font color="red">Modelica.SIunits.Conversions.from_rpm</font>(rpmNominal)*Le*IeNominal) <font color="darkgreen">
+    &quot;Ratio of armature turns over number of turns of the excitation winding&quot;</font>;
+<font color="blue">public </font>
+  <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Resistor"
+>Modelica.Electrical.Analog.Basic.Resistor</A> ra(<font color="blue">final </font>R=Ra);
+  <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Inductor"
+>Modelica.Electrical.Analog.Basic.Inductor</A> la(<font color="blue">final </font>L=La);
+  <A HREF="Modelica_Electrical_Machines_BasicMachines_Components.html#Modelica.Electrical.Machines.BasicMachines.Components.AirGapDC"
+>Machines.BasicMachines.Components.AirGapDC</A> airGapDC(<font color="blue">final </font>Le=Le,<font color="blue">final </font>
+      TurnsRatio=TurnsRatio);
+  <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Resistor"
+>Modelica.Electrical.Analog.Basic.Resistor</A> re(<font color="blue">final </font>R=Re);
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.PositivePin"
+>Modelica.Electrical.Analog.Interfaces.PositivePin</A> pin_ep;
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.NegativePin"
+>Modelica.Electrical.Analog.Interfaces.NegativePin</A> pin_en;
+<font color="blue">equation </font>
+  <font color="red">assert</font>(VaNominal &gt; Ra*IaNominal, &quot;VaNominal has to be &gt; (Ra+Re)*IaNominal&quot;);
+  <font color="red">connect</font>(la.p, ra.n);
+  <font color="red">connect</font>(pin_ap, ra.p);
+  <font color="red">connect</font>(la.n, airGapDC.pin_ap);
+  <font color="red">connect</font>(airGapDC.pin_an, pin_an);
+  <font color="red">connect</font>(re.p, pin_ep);
+  <font color="red">connect</font>(re.n, airGapDC.pin_ep);
+  <font color="red">connect</font>(airGapDC.pin_en, pin_en);
+  <font color="red">connect</font>(airGapDC.flange_a, inertiaRotor.flange_a);
+  <font color="red">connect</font>(airGapDC.support, internalSupport);
+<font color="blue">end </font>DC_ElectricalExcited;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE DC_SeriesExcited<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_SeriesExcitedI.png" ALT="Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_SeriesExcited" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_SeriesExcited"></A><A HREF="Modelica_Electrical_Machines_BasicMachines_DCMachines.html#Modelica.Electrical.Machines.BasicMachines.DCMachines"
+>Modelica.Electrical.Machines.BasicMachines.DCMachines</A>.DC_SeriesExcited</H2>
+<B>Series excited linear DC machine</B><p>
+<IMG SRC="Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_ElectricalExcitedD.png" ALT="Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_SeriesExcited">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+<b>Model of a DC Machine with Series excitation.</b><br>
+Armature resistance and inductance are modeled directly after the armature pins, then using a <i>AirGapDC</i> model.<br>
+Only losses in armature and excitation resistance are taken into account. No saturation is modelled.<br>
+Series excitation has to be connected by the user's external circuit.
+</p>
+<p>
+<b>Default values for machine's parameters (a realistic example) are:</b><br>
+<table>
+<tr>
+<td>stator's moment of inertia</td>
+<td>0.29</td><td>kg.m2</td>
+</tr>
+<tr>
+<td>rotor's moment of inertia</td>
+<td>0.15</td><td>kg.m2</td>
+</tr>
+<tr>
+<td>nominal armature voltage</td>
+<td>100</td><td>V</td>
+</tr>
+<tr>
+<td>nominal armature current</td>
+<td>100</td><td>A</td>
+</tr>
+<tr>
+<td>nominal torque</td>
+<td>63.66</td><td>Nm</td>
+</tr>
+<tr>
+<td>nominal speed</td>
+<td>1410</td><td>rpm</td>
+</tr>
+<tr>
+<td>nominal mechanical output</td>
+<td>9.4</td><td>kW</td>
+</tr>
+<tr>
+<td>efficiency</td>
+<td>94.0</td><td>% only armature</td>
+</tr>
+<tr>
+<td>armature resistance</td>
+<td>0.05</td><td>Ohm in warm condition</td>
+</tr>
+<tr>
+<td>aramture inductance</td>
+<td>0.0015</td><td>H</td>
+</tr>
+<tr>
+<td>excitation resistance</td>
+<td>0.01</td><td>Ohm in warm condition</td>
+</tr>
+<tr>
+<td>excitation inductance</td>
+<td>0.0005</td><td>H</td>
+</tr>
+</table>
+Armature resistance resp. inductance include resistance resp. inductance of commutating pole winding and
+compensation windig, if present.<br>
+Parameter nominal armature voltage includes voltage drop of series excitation;<br>
+but for output the voltage is splitted into:<br>
+va = armature voltage without voltage drop of series excitation<br>
+ve = voltage drop of series excitation
+</p>
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>J_Rotor</TD><TD>0.15</TD><TD>rotor's moment of inertia [kg.m2]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Nominal parameters</TD></TR>
+<TR><TD>&nbsp;</TD><TD>VaNominal</TD><TD>100</TD><TD>nominal armature voltage [V]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>IaNominal</TD><TD>100</TD><TD>nominal armature current [A]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>rpmNominal</TD><TD>1402.5</TD><TD>nominal speed [rev/min]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Nominal resistances and inductances</TD></TR>
+<TR><TD>&nbsp;</TD><TD>Ra</TD><TD>0.05</TD><TD>warm armature resistance [Ohm]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>La</TD><TD>0.0015</TD><TD>armature inductance [H]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Excitation</TD></TR>
+<TR><TD>&nbsp;</TD><TD>Re</TD><TD>0.01</TD><TD>warm field excitation resistance [Ohm]</TD></TR>
+<TR><TD>&nbsp;</TD><TD>Le</TD><TD>0.0005</TD><TD>total field excitation inductance [H]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>flange_a</TD><TD>&nbsp;</TD></TR>
+<TR><TD>&nbsp;</TD><TD>pin_ap</TD><TD>&nbsp;</TD></TR>
+<TR><TD>&nbsp;</TD><TD>pin_an</TD><TD>&nbsp;</TD></TR>
+<TR><TD>&nbsp;</TD><TD>pin_ep</TD><TD>&nbsp;</TD></TR>
+<TR><TD>&nbsp;</TD><TD>pin_en</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> DC_SeriesExcited <font color="darkgreen">&quot;Series excited linear DC machine&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Machines_Interfaces.html#Modelica.Electrical.Machines.Interfaces.PartialBasicDCMachine"
+>Machines.Interfaces.PartialBasicDCMachine</A>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> VaNominal=100 <font color="darkgreen">
+    &quot;|Nominal parameters|nominal armature voltage&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Current"
+>Modelica.SIunits.Current</A> IaNominal=100 <font color="darkgreen">
+    &quot;|Nominal parameters|nominal armature current&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits.AngularVelocity_rpm"
+>Modelica.SIunits.Conversions.NonSIunits.AngularVelocity_rpm</A>
+    rpmNominal =  1402.5 <font color="darkgreen">&quot;|Nominal parameters|nominal speed&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Modelica.SIunits.Resistance</A> Ra=0.05 <font color="darkgreen">
+    &quot;|Nominal resistances and inductances|warm armature resistance&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inductance"
+>Modelica.SIunits.Inductance</A> La=0.0015 <font color="darkgreen">
+    &quot;|Nominal resistances and inductances|armature inductance&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Modelica.SIunits.Resistance</A> Re=0.01 <font color="darkgreen">
+    &quot;|Excitation|warm field excitation resistance&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inductance"
+>Modelica.SIunits.Inductance</A> Le=0.0005 <font color="darkgreen">
+    &quot;|Excitation|total field excitation inductance&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> ve = pin_ep.v-pin_en.v <font color="darkgreen">
+    &quot;Field excitation voltage&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Current"
+>Modelica.SIunits.Current</A> ie = pin_ep.i <font color="darkgreen">&quot;Field excitation current&quot;</font>;
+<font color="blue">protected </font>
+  <font color="blue">parameter </font>Real TurnsRatio=
+    (VaNominal-(Ra+Re)*IaNominal)/(<font color="red">Modelica.SIunits.Conversions.from_rpm</font>(rpmNominal)*Le*IaNominal) <font color="darkgreen">
+    &quot;Ratio of armature turns over number of turns of the excitation winding&quot;</font>;
+<font color="blue">public </font>
+  <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Resistor"
+>Modelica.Electrical.Analog.Basic.Resistor</A> ra(<font color="blue">final </font>R=Ra);
+  <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Inductor"
+>Modelica.Electrical.Analog.Basic.Inductor</A> la(<font color="blue">final </font>L=La);
+  <A HREF="Modelica_Electrical_Machines_BasicMachines_Components.html#Modelica.Electrical.Machines.BasicMachines.Components.AirGapDC"
+>Machines.BasicMachines.Components.AirGapDC</A> airGapDC(<font color="blue">final </font>Le=Le,<font color="blue">final </font>
+      TurnsRatio=TurnsRatio);
+  <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Resistor"
+>Modelica.Electrical.Analog.Basic.Resistor</A> re(<font color="blue">final </font>R=Re);
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.PositivePin"
+>Modelica.Electrical.Analog.Interfaces.PositivePin</A> pin_ep;
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.NegativePin"
+>Modelica.Electrical.Analog.Interfaces.NegativePin</A> pin_en;
+<font color="blue">equation </font>
+  <font color="red">assert</font>(VaNominal &gt; (Ra+Re)*IaNominal, &quot;VaNominal has to be &gt; (Ra+Re)*IaNominal&quot;);
+  <font color="red">connect</font>(la.p, ra.n);
+  <font color="red">connect</font>(pin_ap, ra.p);
+  <font color="red">connect</font>(la.n, airGapDC.pin_ap);
+  <font color="red">connect</font>(airGapDC.pin_an, pin_an);
+  <font color="red">connect</font>(re.p, pin_ep);
+  <font color="red">connect</font>(re.n, airGapDC.pin_ep);
+  <font color="red">connect</font>(airGapDC.pin_en, pin_en);
+  <font color="red">connect</font>(airGapDC.flange_a, inertiaRotor.flange_a);
+  <font color="red">connect</font>(airGapDC.support, internalSupport);
+<font color="blue">end </font>DC_SeriesExcited;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Tue Mar 28 11:37:55 2006.
+</address></BODY>
+</HTML>
