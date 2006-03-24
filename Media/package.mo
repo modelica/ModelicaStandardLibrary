@@ -5284,7 +5284,7 @@ quantities are assumed to be constant.
       input MassFraction X[:] = fill(0,0) "Mass fractions";
       output ThermodynamicState state;
     algorithm 
-      state := ThermodynamicState(p=d*R_gas*T,T=T);
+      assert(false,"pressure can not be computed from temperature and density for an incompressible fluid!");
     end setState_dTX;
     
     redeclare function extends dynamicViscosity "Return dynamic viscosity" 
