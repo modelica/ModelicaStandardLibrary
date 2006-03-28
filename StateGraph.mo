@@ -69,7 +69,7 @@ It is most useful to combine this libray with the Modelica libraries
 <li><b>UserInteraction</b> that provides components to 
     interactively communicate with models in a running simulation.</li>
 </ul>
-
+ 
 <p>
 Copyright &copy; 1998-2006, Modelica Association and DLR
 </p>
@@ -79,7 +79,7 @@ under the terms of the <b>Modelica license</b>, see the license conditions
 and the accompanying <b>disclaimer</b> 
 <a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a>.</i>
 </p><br>
-
+ 
 </HTML>
 "),
   Window(
@@ -748,7 +748,7 @@ package Examples
       annotation(extent=[40,0; 60,20]);
   equation 
       
-    annotation (structurallyIncomplete,
+    annotation (
       Diagram,
       experiment(StopTime=5),
       experimentSetupOutput,
@@ -821,7 +821,7 @@ package Examples
     Modelica.Blocks.Sources.BooleanExpression SetBoolean2(y=step.active) annotation(extent=[-68,-40; -36,-20]);
   equation 
       
-    annotation (structurallyIncomplete,
+    annotation (
       Diagram,
       experiment(StopTime=5),
       experimentSetupOutput,
@@ -852,7 +852,7 @@ package Examples
       
     extends Modelica.Icons.Example;
       
-    annotation (structurallyIncomplete,
+    annotation (
       Documentation(info="<HTML>
 <p>
 This is an example to demonstrate in which way <b>parallel</b> activities
@@ -980,7 +980,7 @@ has a higher priority to fire as alternative.split[2]).
       
     extends Modelica.Icons.Example;
       
-    annotation (structurallyIncomplete,
+    annotation (
       Documentation(info="<HTML>
 <p>
 This is the same example as \"ExecutionPaths\". The only difference
@@ -1044,7 +1044,7 @@ is that the alternative paths are included in a \"CompositeStep\".
       
     extends Modelica.Icons.Example;
       
-    annotation (structurallyIncomplete,
+    annotation (
       Documentation(info="<HTML>
 <p>
 CompositeStep \"compositeStep\" is a hierarchical StateGraph consisting of
@@ -1109,7 +1109,7 @@ according to their setting before leaving the \"compositeStep\" via its
     StateGraph.Temporary.RadioButton shut(reset={start.on,stop.on},
         buttonTimeTable={21,100}) 
       annotation (extent=[-90, -40; -70, -20]);
-    annotation (structurallyIncomplete,
+    annotation (
       Diagram,
       Coordsys(grid=[0.5, 0.5], component=[20, 20]),
       experiment(StopTime=100),
@@ -1268,7 +1268,7 @@ buttons:
         annotation (extent=[-26,-100; 80,-80]);
     equation 
         
-      annotation (structurallyIncomplete,
+      annotation (
         Diagram(Rectangle(extent=[-100,100; 100,-100],   style(color=0,
                 rgbcolor={0,0,0}))),
         Icon(
@@ -1362,17 +1362,17 @@ buttons:
       connect(setValve2.y, valve2) 
         annotation (points=[85.25,-78.5; 90,-78.5; 90,0; 105,0],
                                                               style(color=5));
-      connect(setValve3.y, valve3) annotation (points=[85.3,-90; 95,-90; 95,-60; 
+      connect(setValve3.y, valve3) annotation (points=[85.3,-90; 95,-90; 95,-60;
               105,-60], style(color=5));
       connect(makeProduct.suspend[1], T3.inPort) 
-                                              annotation (points=[-12.5,24.5; 
+                                              annotation (points=[-12.5,24.5;
               -12.5,12; -23,12; -23,3],
                                      style(color=0, rgbcolor={0,0,0}));
       connect(T3.outPort, s2.inPort[1]) 
                                      annotation (points=[-23,-2.5; -23,-20; -66,
             -20; -66,-50; -51,-50],        style(color=0, rgbcolor={0,0,0}));
       connect(T4.outPort, makeProduct.resume[1]) 
-                                              annotation (points=[10,0.5; 10,15; 
+                                              annotation (points=[10,0.5; 10,15;
               2.5,15; 2.5,24],       style(color=0, rgbcolor={0,0,0}));
       connect(level1, makeProduct.level1) annotation(points=[-60,-110; -60,-80;
             -80,-80; -80,20; -30,20; -30,28; -22,28], style(color=3, rgbcolor={
@@ -1779,6 +1779,7 @@ package Interfaces "Connectors and partial models"
     output Boolean reset 
         "true, if transition fires and the step connected to the transition input is deactivated"
       annotation (Hide=true);
+      
     annotation (Icon(Polygon(points=[-100, 100; 100, 0; -100, -100; -100, 100],
              style(color=0, fillColor=0))), Diagram(Polygon(points=[0,50; 100,0;
               0,-50; 0,50],                   style(color=0, fillColor=0)),
@@ -1799,6 +1800,7 @@ package Interfaces "Connectors and partial models"
     output Boolean set 
         "true, if transition fires and step connected to the transition output becomes active"
       annotation (Hide=true);
+      
     annotation (Icon(Rectangle(extent=[-100,100; 100,-100],
                                                           style(color=0,
               fillColor=7))), Diagram(Text(
@@ -1851,7 +1853,7 @@ package Interfaces "Connectors and partial models"
   connector CompositeStepStatePort_in 
       "Communication port between a CompositeStep and the ordinary steps within the CompositeStep (suspend/resume are inputs)" 
       
-    annotation(structurallyIncomplete, Documentation(info="<html>
+    annotation(Documentation(info="<html>
   
 </html>"));
     input Boolean suspend 
@@ -1863,7 +1865,7 @@ package Interfaces "Connectors and partial models"
   connector CompositeStepStatePort_out 
       "Communication port between a CompositeStep and the ordinary steps within the CompositeStep (suspend/resume are outputs)" 
       
-    annotation(structurallyIncomplete, Documentation(info="<html>
+    annotation(Documentation(info="<html>
  
 </html>"));
     output Boolean suspend 
@@ -1876,7 +1878,7 @@ package Interfaces "Connectors and partial models"
   partial block PartialStep 
       "Partial step with one input and one output transition port" 
       
-    annotation(structurallyIncomplete, Documentation(info="<html>
+    annotation(Documentation(info="<html>
  
 </html>"));
     parameter Integer nIn(min=0) = 1 "Number of input connections";
@@ -2027,6 +2029,7 @@ to more than one transition");
   end PartialTransition;
     
   partial block PartialStateGraphIcon "Icon for a StateGraph object" 
+      
     annotation (Icon(Rectangle(extent=[-100, 100; 100, -100], style(color=0,
               fillColor=7)), Text(extent=[160, 110; -160, 150], string="%name")),
           Documentation(info="<html>
@@ -2072,7 +2075,7 @@ block InitialStep "Initial step (= step that is active when simulation starts)"
     
   extends Interfaces.PartialStep(localActive = active);
     
-  annotation (structurallyIncomplete,
+  annotation (
     Coordsys(
       extent=[-100, -100; 100, 100],
       grid=[1, 1],
@@ -2104,7 +2107,7 @@ block InitialStepWithSignal
     
   extends Interfaces.PartialStep(localActive = active);
     
-  annotation (structurallyIncomplete,Diagram(Rectangle(extent=[-100, 100; 100, -100], style(color=0)),
+  annotation (Diagram(Rectangle(extent=[-100, 100; 100, -100], style(color=0)),
       Rectangle(extent=[-80,80; 80,-80],   style(color=0))),
        Icon(
       Text(
@@ -2134,7 +2137,7 @@ block Step "Ordinary step (= step that is not active when simulation starts)"
     
   extends Interfaces.PartialStep(localActive = active);
     
-  annotation (structurallyIncomplete,
+  annotation (
     Coordsys(
       extent=[-100, -100; 100, 100],
       grid=[1, 1],
@@ -2162,7 +2165,7 @@ block StepWithSignal
     
   extends Interfaces.PartialStep(localActive = active);
     
-  annotation (structurallyIncomplete,Diagram(Rectangle(extent=[-100, 100; 100, -100], style(color=0))),
+  annotation (Diagram(Rectangle(extent=[-100, 100; 100, -100], style(color=0))),
        Icon(
       Text(
         extent=[-200, 110; 200, 150],
@@ -2586,7 +2589,7 @@ partial block PartialCompositeStep
   StateGraph.Interfaces.CompositeStep_resume resume[nResume] 
     annotation (extent=[65,-170; 85,-150],     rotation=90);
     
-  annotation (structurallyIncomplete,
+  annotation (
     Coordsys(
       extent=[-150,-150; 150,150],
       grid=[1,1],
