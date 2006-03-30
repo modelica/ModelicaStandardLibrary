@@ -54,7 +54,9 @@ and the accompanying <b>disclaimer</b>
 </HTML>"));
 import SI = Modelica.SIunits;
 
+
 extends Modelica.Icons.Library;
+
 
 package UsersGuide "Users Guide" 
   annotation (DocumentationClass=true, Documentation(info="<HTML>
@@ -1264,6 +1266,7 @@ dynamical effects is described in:
   
 end UsersGuide;
 
+
 model World 
   "World coordinate system + gravity field + default animation definition" 
   
@@ -1385,9 +1388,10 @@ of these axes can be set via parameters.
   parameter Boolean enableAnimation=true 
     "= true, if animation of all components is enabled";
   parameter Boolean animateWorld=true 
-    "= true, if world coordinate system shall be visualized";
+    "= true, if world coordinate system shall be visualized" annotation(Dialog(enable=enableAnimation));
   parameter Boolean animateGravity=true 
-    "= true, if gravity field shall be visualized (acceleration vector or field center)";
+    "= true, if gravity field shall be visualized (acceleration vector or field center)"
+                                                                                          annotation(Dialog(enable=enableAnimation));
   parameter Types.AxisLabel label1="x" "Label of horizontal axis in icon";
   parameter Types.AxisLabel label2="y" "Label of vertical axis in icon";
   parameter Types.GravityTypes.Temp gravityType=GravityTypes.UniformGravity 
