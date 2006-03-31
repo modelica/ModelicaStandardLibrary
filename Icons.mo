@@ -453,9 +453,9 @@ and the accompanying <b>disclaimer</b>
     
     annotation (
       Icon(
-        Line(points=[-16, 2; 16, 2], style(rgbcolor={255,204,51}, thickness=2)),
-        Polygon(points=[-80, 50; 80, 50; 100, 30; 80, -40; 60, -50; -60, -50; -80,
-              -40; -100, 30; -80, 50], style(
+        Rectangle(extent=[-20,2; 20,-2], style(rgbcolor={255,204,51}, thickness=2)),
+        Polygon(points=[-80,50; 80,50; 100,30; 80,-40; 60,-50; -60,-50; -80,-40; 
+              -100,30; -80,50],        style(
             color=0,
             rgbcolor={0,0,0},
             fillColor=6,
@@ -554,7 +554,8 @@ and the accompanying <b>disclaimer</b>
             color=0,
             rgbcolor={0,0,0},
             fillColor=0,
-            rgbfillColor={0,0,0}))),
+            rgbfillColor={0,0,0})),
+        Rectangle(extent=[-20,4; 20,0],  style(rgbcolor={255,204,51}, thickness=2))),
       Coordsys(grid=[2, 2],scale=0.1),
       Diagram(
         Polygon(points=[-40, 25; 40, 25; 50, 15; 40, -20; 30, -25; -30, -25; -40,
