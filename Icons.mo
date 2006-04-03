@@ -1,4 +1,4 @@
-package Icons "Icon definitions" 
+package Icons "Icon definitions"  
   
   annotation(preferedView="info",
     Window(
