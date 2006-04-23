@@ -1010,7 +1010,7 @@ library (will be replaced by a color editor).
       input SI.Length height=0 "Height of visual object"  annotation(Dialog);
       input Types.ShapeExtra extra=0.0 
         "Additional size data for some of the shape types"                                 annotation(Dialog);
-      input Types.Color color={255,0,0} "Color of shape"            annotation(Dialog);
+      input Real color[3]={255,0,0} "Color of shape"            annotation(Dialog);
       input Types.SpecularCoefficient specularCoefficient = 0.7 
         "Reflection of ambient light (= 0: light is completely absorbed)" annotation(Dialog);
       // Real rxry[3, 2];
