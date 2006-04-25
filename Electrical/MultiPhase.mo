@@ -1447,8 +1447,7 @@ electrical multiphase components, based on Modelica.Electrical.Analog.
     
     connector Plug "Plug with m pins for an electric component" 
       parameter Integer m(final min=1) = 3 "number of phases";
-      Modelica.Electrical.Analog.Interfaces.Pin pin[m] 
-        annotation (extent=[-10, -10; 10, 10]);
+      Modelica.Electrical.Analog.Interfaces.Pin pin[m];
       annotation (Documentation(info="<HTML>
 <p>
 Connectors PositivePlug and NegativePlug are nearly identical. 
