@@ -947,18 +947,18 @@ required from medium model \""   + mediumName + "\".");
     R := data.R*state.X;
   end gasConstant;
     
-  redeclare function extends specificHeatCapacityCp 
-    "Return specific heat capacity at constant pressure" 
-  algorithm
-    cp := SingleGasNasa.cp_T(data, state.T)*state.X;
+  redeclare function extends specificHeatCapacityCp
+      "Return specific heat capacity at constant pressure"
+    algorithm
+    cp := {SingleGasNasa.cp_T(data[i], state.T) for i in 1:nX}*state.X;
   end specificHeatCapacityCp;
-  
-  redeclare function extends specificHeatCapacityCv 
-    "Compute specific heat capacity at constant volume from temperature and gas data" 
-  algorithm 
-    cv := SingleGasNasa.cp_T(data, state.T)*state.X -data.R*state.X;
+ 
+  redeclare function extends specificHeatCapacityCv
+      "Compute specific heat capacity at constant volume from temperature and gas data"
+  algorithm
+    cv := {SingleGasNasa.cp_T(data[i], state.T) for i in 1:nX}*state.X -data.R*state.X;
   end specificHeatCapacityCv;
-  
+   
   function MixEntropy "calculate the mixing entropy of ideal gases / R" 
     extends Modelica.Icons.Function;
     input SI.MoleFraction x[:] "mole fraction of mixture";
