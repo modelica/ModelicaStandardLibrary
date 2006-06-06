@@ -4149,8 +4149,7 @@ T_ambient.
       T := temperature(setState_psX(p,s,X));
     end temperature_psX;
     
-    replaceable function density_psX 
-      "Return density from p, s, and X or Xi" 
+    replaceable function density_psX "Return density from p, s, and X or Xi" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEntropy s "Specific entropy";
@@ -4547,8 +4546,7 @@ are described in
       T := temperature_psX(p,s,fill(0,0));
     end temperature_ps;
     
-    replaceable function density_ps 
-      "Return density from p and s" 
+    replaceable function density_ps "Return density from p and s" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEntropy s "Specific entropy";
@@ -5150,12 +5148,12 @@ are described in
       T := temperature_psX(p,s,fill(0,0),phase);
     end temperature_ps;
     
-    redeclare replaceable function density_ps 
-      "Return density from p and s" 
+    redeclare replaceable function density_ps "Return density from p and s" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEntropy s "Specific entropy";
-      input FixedPhase phase=0 "2 for two-phase, 1 for one-phase, 0 if not known";
+      input FixedPhase phase=0 
+        "2 for two-phase, 1 for one-phase, 0 if not known";
       output Density d "Density";
     algorithm 
       d := density_psX(p, s, fill(0,0), phase);
@@ -5598,12 +5596,18 @@ quantities are assumed to be constant.
     algorithm 
       d := Utilities.d_props_ph(p, h, Utilities.twoPhaseProps_ph(p, h, phase));
     end density_ph;
-  /*
-  redeclare function extends density_ps 
-  algorithm 
-    d := Utilities.d_props_ps(p, s, Utilities.twoPhaseProps_ps(p, s, phase));
-  end density_ps;
-*/
+    
+    redeclare replaceable function density_ps "Return density from p and h" 
+      extends Modelica.Icons.Function;
+      input AbsolutePressure p "Pressure";
+      input SpecificEntropy s "Specific entropy";
+      input FixedPhase phase=0 
+        "2 for two-phase, 1 for one-phase, 0 if not known";
+      output Density d "Density";
+    algorithm 
+      d := Utilities.d_props_ps(p, s, Utilities.twoPhaseProps_ps(p, s, phase));
+    end density_ps;
+    
     redeclare replaceable function density_pT "Return density from p and T" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
