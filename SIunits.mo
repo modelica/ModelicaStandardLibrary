@@ -402,7 +402,7 @@ argument):</p>
       type Time_hour = Real (final quantity="Time", final unit="h");
       type Time_minute = Real (final quantity="Time", final unit="min");
       type Volume_litre = Real (final quantity="Volume", final unit="l");
-      type Energy_kWh = Real (final quantity="Energy", final unit="kWh");
+      type Energy_kWh = Real (final quantity="Energy", final unit="kW.h");
       type Pressure_bar = Real (final quantity="Pressure", final unit="bar");
       type MassFlowRate_gps = Real (final quantity="MassFlowRate", final unit=
               "g/s");
@@ -1006,7 +1006,7 @@ still kept in Modelica.SIunits.</p>
   type IsentropicCompressibility = Compressibility;
   type Heat = Real (final quantity="Energy", final unit="J");
   type HeatFlowRate = Real (final quantity="Power", final unit="W");
-  type HeatFlux = Real (final quantity="HeatFlux", final unit="W/m^2");
+  type HeatFlux = Real (final quantity="HeatFlux", final unit="W/m2");
   type DensityOfHeatFlowRate = Real (final quantity="DensityOfHeatFlowRate",
         final unit="W/m2");
   type ThermalConductivity = Real (final quantity="ThermalConductivity", final unit
@@ -1049,12 +1049,12 @@ still kept in Modelica.SIunits.</p>
           "J/K");
   type PlanckFunction = Real (final quantity="PlanckFunction", final unit="J/K");
   // added to ISO-chapter 4
-  type DerDensityByEnthalpy = Real (final unit="kg.s^2/m^5");
-  type DerDensityByPressure = Real (final unit="s^2/m^2");
-  type DerDensityByTemperature = Real (final unit="kg/(m^3.K)");
-  type DerEnthalpyByPressure = Real (final unit="J.m.s^2/kg^2");
-  type DerEnergyByDensity = Real (final unit="J.m^3/kg");
-  type DerEnergyByPressure = Real (final unit="J.m.s^2/kg");
+  type DerDensityByEnthalpy = Real (final unit="kg.s2/m5");
+  type DerDensityByPressure = Real (final unit="s2/m2");
+  type DerDensityByTemperature = Real (final unit="kg/(m3.K)");
+  type DerEnthalpyByPressure = Real (final unit="J.m.s2/kg2");
+  type DerEnergyByDensity = Real (final unit="J.m3/kg");
+  type DerEnergyByPressure = Real (final unit="J.m.s2/kg");
   
   // Electricity and Magnetism (chapter 5 of ISO 31-1992)
   type ElectricCurrent = Real (final quantity="ElectricCurrent", final unit="A");
@@ -1173,7 +1173,7 @@ still kept in Modelica.SIunits.</p>
   type PowerFactor = Real (final quantity="PowerFactor", final unit="1");
   // added to ISO-chapter 5
   type Transconductance = Real (final quantity="Transconductance", final unit=
-          "A/(V*V)");
+          "A/V2");
   type InversePotential = Real (final quantity="InversePotential", final unit=
           "1/V");
   
@@ -1188,7 +1188,7 @@ still kept in Modelica.SIunits.</p>
           "RadiantEnergyFluenceRate", final unit="W/m2");
   type RadiantIntensity = Real (final quantity="RadiantIntensity", final unit=
           "W/sr");
-  type Radiance = Real (final quantity="Radiance", final unit="W/sr.m2");
+  type Radiance = Real (final quantity="Radiance", final unit="W/(sr.m2)");
   type RadiantExtiance = Real (final quantity="RadiantExtiance", final unit=
           "W/m2");
   type Irradiance = Real (final quantity="Irradiance", final unit="W/m2");
@@ -1477,7 +1477,7 @@ still kept in Modelica.SIunits.</p>
   type LinearIonization = Real (final quantity="LinearIonization", final unit=
           "m-1");
   type TotalIonization = Real (final quantity="TotalIonization", final unit="1");
-  type Mobility = Real (final quantity="Mobility", final unit="m2/V.s");
+  type Mobility = Real (final quantity="Mobility", final unit="m2/(V.s)");
   type IonNumberDensity = Real (final quantity="IonNumberDensity", final unit=
           "m-3");
   type RecombinationCoefficient = Real (final quantity=
