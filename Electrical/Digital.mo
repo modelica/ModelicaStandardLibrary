@@ -2156,13 +2156,7 @@ The simulation stop time has to be 5s.
           x=0.2,
           y=0.06,
           width=0.62,
-          height=0.69),
-        experiment(StopTime=5),
-        experimentSetupOutput(
-          states=false,
-          derivatives=false,
-          inputs=false),
-        DymolaStoredErrors);
+          height=0.69));
       parameter Integer n=2;
       Digital.Examples.Utilities.FullAdder Adder[n] 
                                    annotation (extent=[-20,-20; 20,20]);
@@ -2603,7 +2597,6 @@ The Integer values have the following meaning:
                                      annotation (extent=[-70,-80; -50,80]);
       D.Interfaces.DigitalOutput y "Connector of Digital output signal" 
                     annotation (extent=[90,-10; 110,10]);
-    algorithm 
       annotation (Icon(
           Rectangle(extent=[-50,100; 50,-100], style(
               color=0,
@@ -2732,7 +2725,6 @@ This package contains interface definitions
       parameter Modelica.SIunits.Time tLH=0 "rise inertial delay";
       parameter Modelica.SIunits.Time tHL=0 "fall inertial delay";
       parameter Digital.Interfaces.Logic y0=L.'U' "initial value of output";
-    algorithm 
       annotation (Documentation(info="<html>
    
 </html>"));
@@ -2746,11 +2738,11 @@ This package contains interface definitions
       parameter D.Interfaces.Logic y0=L.'U' "initial value of output";
     protected 
       D.Interfaces.Logic x_delayed;
-    algorithm 
+    equation 
       x_delayed := integer(delay(x, delayTime));
       y := if delayTime > 0 then 
               if time >= delayTime then x_delayed else y0 else 
-                x;
+                pre(x);
       annotation (Documentation(info="<HTML>
 <P>
 Provide the input as output exactly delayed by <i>Tdel</i>.
@@ -3929,7 +3921,7 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
       when initial() then
         y := before;
       end when;
-      if stepTime <= time then
+      if time >= stepTime then
         y := after;
       else
         y := before;
@@ -4222,7 +4214,7 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
       when sample(startTime, period) then
         t_i := time;
       end when;
-      y := if time < startTime or time >= t_i + t_width then L.'0' else L.'1';
+      y := if (not time>=startTime) or time >= t_i + t_width then L.'0' else L.'1';
       annotation (Documentation(info="<HTML>
 <P>
 The clock source forms pulses between the  <i>'0'</i> value (forcing 0) and the <i>'1'</i> value (forcing 1).
@@ -4558,7 +4550,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
       annotation (extent=[40, -10; 60, 10]);
       annotation (Diagram);
       parameter Integer n(final min=1) = 1 "signal width";
-    algorithm 
+    equation 
       for i in 1:n loop
         y[i] := if x[i] then L.'1' else 
           L.'0';
@@ -4620,7 +4612,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
               rgbcolor={0,0,0},
               thickness=2))));
       parameter Integer n(final min=1) = 1 "signal width";
-    algorithm 
+    equation 
       for i in 1:n loop
         y[i] := if x[i] == 4 or 
           x[i] == 8 then true else false;
@@ -4687,7 +4679,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
       parameter Digital.Interfaces.Logic lower_value=L.'0' 
         "output if input < lower_limit";
       parameter Digital.Interfaces.Logic middle_value=L.'X' "output else";
-    algorithm 
+    equation 
       for i in 1:n loop
         y[i] := if x[i] > upper_limit then upper_value else 
           if x[i] < lower_limit then lower_value else middle_value;
@@ -4757,7 +4749,7 @@ The values val... are given by parameters.</P>
       parameter Real value_L=0 "value for digital L (Weak    0)";
       parameter Real value_H=1 "value for digital H (Weak    1)";
       parameter Real value_m=0.5 "value for digital m (Don´t care)";
-    algorithm 
+    equation 
       for i in 1:n loop
        y[i]:= if x[i] == L.'U' then value_U else 
                 if x[i] == L.'X' then value_X else if 
