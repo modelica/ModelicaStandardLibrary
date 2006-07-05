@@ -755,7 +755,6 @@ annotation (choices(choice(redeclare model Cylinder =
     import SI = Modelica.SIunits;
     extends Modelica.Icons.Example;
     annotation (
-      experiment(StopTime=0.5),
       Diagram,
       Coordsys(
         extent=[-100, -120; 150, 120],
@@ -787,8 +786,7 @@ An animation of this example is shown in the figure below.
 <p align=\"center\">
 <IMG SRC=\"../Images/MultiBody/Examples/Loops/Engine.png\" ALT=\"model Examples.Loops.Engine\">
 </p>
-</html>"),
-      experimentSetupOutput);
+</html>"));
     Modelica.Mechanics.MultiBody.Parts.BodyCylinder Piston(diameter=0.1, r={0,-0.1,0}) 
       annotation (extent=[150,43; 90,63],   rotation=270);
     Modelica.Mechanics.MultiBody.Parts.BodyBox Rod2(
