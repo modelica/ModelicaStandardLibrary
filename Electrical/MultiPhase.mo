@@ -1,7 +1,7 @@
 package MultiPhase "Library for electrical components with 2, 3 or more phases" 
   extends Modelica.Icons.Library2;
   annotation (
-    version="1.1", versionDate="2006-01-12",
+    version="1.2", versionDate="2006-05-12",
     classOrder={"Examples", "*"},
     preferedView="info", Documentation(info="<HTML>
 <p>
@@ -50,6 +50,9 @@ and the accompanying <b>disclaimer</b>
   <li>v1.0 2004/10/01 Anton Haumer</li>
   <li>v1.1 2006/01/12 Anton Haumer<br>
       added Sensors.PowerSensor</li>
+  <li>v1.2 2006/07/05 Anton Haumer<br>
+      removed annotation from pin of Interfaces.Plug<br>
+      corrected usage of resistance/conductance</li>
   </ul>
 </html>"),
     Icon(
@@ -264,7 +267,7 @@ Contains m resistors (Modelica.Electrical.Analog.Basic.Resistor)
     
     model Conductor "Ideal linear electrical conductors" 
       extends Interfaces.TwoPlug;
-      parameter Modelica.SIunits.Resistance G[m]=fill(1, m) "Conductance";
+      parameter Modelica.SIunits.Conductance G[m]=fill(1, m) "Conductance";
       Modelica.Electrical.Analog.Basic.Conductor conductor[m](final G=G) 
         annotation (extent=[-10, -10; 10, 10]);
       annotation (
@@ -1415,7 +1418,9 @@ electrical multiphase components, based on Modelica.Electrical.Analog.
   <dt><b>Release Notes:</b></dt>
   <dd>
   <ul>
-  <li> v1.0 2004/10/01 Anton Haumer</li>
+  <li>v1.0 2004/10/01 Anton Haumer</li>
+  <li>v1.2 2006/05/12 Anton Haumer<br>
+      removed annotation from pin of Interfaces.Plug</li>
   </ul>
   </dd>
 <p>
@@ -1448,6 +1453,7 @@ electrical multiphase components, based on Modelica.Electrical.Analog.
     connector Plug "Plug with m pins for an electric component" 
       parameter Integer m(final min=1) = 3 "number of phases";
       Modelica.Electrical.Analog.Interfaces.Pin pin[m];
+      
       annotation (Documentation(info="<HTML>
 <p>
 Connectors PositivePlug and NegativePlug are nearly identical. 
@@ -1457,7 +1463,10 @@ Usually, connector PositivePlug is used for the positive and
 connector NegativePlug for the negative plug of an electrical component.<br>
 Connector Plug is a composite connector containing m Pins (Modelica.Electrical.Analog.Interfaces.Pin).
 </p>
-</HTML>"));
+</HTML>"), Diagram(            Text(
+            extent=[-100,-99; 100,-179],
+            style(color=3),
+            string="%name")));
     end Plug;
     
     connector PositivePlug "Positive plug with m pins" 
@@ -1467,10 +1476,7 @@ Connector Plug is a composite connector containing m Pins (Modelica.Electrical.A
         Diagram(Ellipse(extent=[-40,40; 40,-40],       style(
               color=3,
               fillColor=3,
-              fillPattern=1)), Text(
-            extent=[-100, -99; 100, -179],
-            style(color=3),
-            string="%name")),
+              fillPattern=1))),
         Documentation(info="<HTML>
 <p>
 Connectors PositivePlug and NegativePlug are nearly identical. 
@@ -1494,10 +1500,7 @@ Connector Plug is a composite connector containing m Pins (Modelica.Electrical.A
         Diagram(Ellipse(extent=[-40,40; 40,-40],       style(
               color=3,
               fillColor=7,
-              fillPattern=1)), Text(
-            extent=[-100, -100; 100, -180],
-            style(color=3),
-            string="%name")),
+              fillPattern=1))),
         Documentation(info="<HTML>
 <p>
 Connectors PositivePlug and NegativePlug are nearly identical. 
