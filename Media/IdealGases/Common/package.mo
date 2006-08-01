@@ -232,7 +232,7 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input Temperature T "Temperature";
-      input MassFraction X[:] = fill(0,0) "Mass fractions";
+      input MassFraction X[:]=reference_X "Mass fractions";
       output ThermodynamicState state;
     algorithm
       state := ThermodynamicState(p=p,T=T);
@@ -242,7 +242,7 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEnthalpy h "Specific enthalpy";
-      input MassFraction X[:] = fill(0,0) "Mass fractions";
+      input MassFraction X[:]=reference_X "Mass fractions";
       output ThermodynamicState state;
     algorithm
       state := ThermodynamicState(p=p,T=T_h(h));
@@ -252,7 +252,7 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEntropy s "Specific entropy";
-      input MassFraction X[:] = fill(0,0) "Mass fractions";
+      input MassFraction X[:]=reference_X "Mass fractions";
       output ThermodynamicState state;
     algorithm
       state := ThermodynamicState(p=p,T=T_ps(p,s));
@@ -262,7 +262,7 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
       extends Modelica.Icons.Function;
       input Density d "density";
       input Temperature T "Temperature";
-      input MassFraction X[:] = fill(0,0) "Mass fractions";
+      input MassFraction X[:]=reference_X "Mass fractions";
       output ThermodynamicState state;
     algorithm
       state := ThermodynamicState(p=d*data.R*T,T=T);
@@ -816,7 +816,7 @@ required from medium model \""   + mediumName + "\".");
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input Temperature T "Temperature";
-      input MassFraction X[:] "Mass fractions";
+      input MassFraction X[:]=reference_X "Mass fractions";
       output ThermodynamicState state;
     algorithm
       state := if size(X,1) == nX then ThermodynamicState(p=p,T=T, X=X)
@@ -827,7 +827,7 @@ required from medium model \""   + mediumName + "\".");
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEnthalpy h "Specific enthalpy";
-      input MassFraction X[:] "Mass fractions";
+      input MassFraction X[:]=reference_X "Mass fractions";
       output ThermodynamicState state;
     algorithm
       state := if size(X,1) == nX then ThermodynamicState(p=p,T=T_hX(h,X),X=X)
@@ -838,7 +838,7 @@ required from medium model \""   + mediumName + "\".");
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEntropy s "Specific entropy";
-      input MassFraction X[:] "Mass fractions";
+      input MassFraction X[:]=reference_X "Mass fractions";
       output ThermodynamicState state;
     algorithm
       state := if size(X,1) == nX then ThermodynamicState(p=p,T=T_psX(p,s,X),X=X)
@@ -849,7 +849,7 @@ required from medium model \""   + mediumName + "\".");
       extends Modelica.Icons.Function;
       input Density d "density";
       input Temperature T "Temperature";
-      input MassFraction X[:] "Mass fractions";
+      input MassFraction X[:]=reference_X "Mass fractions";
       output ThermodynamicState state;
     algorithm
       state := if size(X,1) == nX then ThermodynamicState(p=d*(data.R*X)*T,T=T,X=X)
@@ -906,7 +906,7 @@ required from medium model \""   + mediumName + "\".");
     import Modelica.Media.Interfaces.PartialMedium.Choices;
      extends Modelica.Icons.Function;
      input SI.Temperature T "Temperature";
-     input MassFraction X[:] "Independent Mass fractions of gas mixture";
+     input MassFraction X[:]=reference_X "Independent Mass fractions of gas mixture";
      input Boolean exclEnthForm=excludeEnthalpyOfFormation 
       "If true, enthalpy of formation Hf is not included in specific enthalpy h";
      input Choices.ReferenceEnthalpy.Temp refChoice=referenceChoice 

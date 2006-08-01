@@ -3895,7 +3895,7 @@ T_ambient.
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input Temperature T "Temperature";
-      input MassFraction X[:] "Mass fractions";
+      input MassFraction X[:]=reference_X "Mass fractions";
       output ThermodynamicState state;
     end setState_pTX;
     
@@ -3904,7 +3904,7 @@ T_ambient.
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEnthalpy h "Specific enthalpy";
-      input MassFraction X[:] "Mass fractions";
+      input MassFraction X[:]=reference_X "Mass fractions";
       output ThermodynamicState state;
     end setState_phX;
     
@@ -3913,7 +3913,7 @@ T_ambient.
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEntropy s "Specific entropy";
-      input MassFraction X[:] "Mass fractions";
+      input MassFraction X[:]=reference_X "Mass fractions";
       output ThermodynamicState state;
     end setState_psX;
     
@@ -3922,7 +3922,7 @@ T_ambient.
       extends Modelica.Icons.Function;
       input Density d "density";
       input Temperature T "Temperature";
-      input MassFraction X[:] "Mass fractions";
+      input MassFraction X[:]=reference_X "Mass fractions";
       output ThermodynamicState state;
     end setState_dTX;
     
@@ -4111,7 +4111,7 @@ T_ambient.
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input Temperature T "Temperature";
-      input MassFraction X[:] "Mass fractions";
+      input MassFraction X[:]=reference_X "Mass fractions";
       output SpecificEnthalpy h "Specific enthalpy";
     algorithm 
       h := specificEnthalpy(setState_pTX(p,T,X));
@@ -4122,7 +4122,7 @@ T_ambient.
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEnthalpy h "Specific enthalpy";
-      input MassFraction X[:] "Mass fractions";
+      input MassFraction X[:]=reference_X "Mass fractions";
       output Temperature T "Temperature";
     algorithm 
       T := temperature(setState_phX(p,h,X));
@@ -4132,7 +4132,7 @@ T_ambient.
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEnthalpy h "Specific enthalpy";
-      input MassFraction X[:] "Mass fractions";
+      input MassFraction X[:]=reference_X "Mass fractions";
       output Density d "Density";
     algorithm 
       d := density(setState_phX(p,h,X));
@@ -4143,7 +4143,7 @@ T_ambient.
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEntropy s "Specific entropy";
-      input MassFraction X[:] "Mass fractions";
+      input MassFraction X[:]=reference_X "Mass fractions";
       output Temperature T "Temperature";
     algorithm 
       T := temperature(setState_psX(p,s,X));
@@ -4153,7 +4153,7 @@ T_ambient.
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEntropy s "Specific entropy";
-      input MassFraction X[:] "Mass fractions";
+      input MassFraction X[:]=reference_X "Mass fractions";
       output Density d "Density";
     algorithm 
       d := density(setState_psX(p,s,X));
@@ -4164,7 +4164,7 @@ T_ambient.
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEntropy s "Specific entropy";
-      input MassFraction X[:] "Mass fractions";
+      input MassFraction X[:]=reference_X "Mass fractions";
       output SpecificEnthalpy h "Specific enthalpy";
     algorithm 
       h := specificEnthalpy(setState_psX(p,s,X));
@@ -5245,7 +5245,7 @@ quantities are assumed to be constant.
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input Temperature T "Temperature";
-      input MassFraction X[:] = fill(0,0) "Mass fractions";
+      input MassFraction X[:]=reference_X "Mass fractions";
       output ThermodynamicState state;
     algorithm 
       state := ThermodynamicState(p=p,T=T);
@@ -5256,7 +5256,7 @@ quantities are assumed to be constant.
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEnthalpy h "Specific enthalpy";
-      input MassFraction X[:] = fill(0,0) "Mass fractions";
+      input MassFraction X[:]=reference_X "Mass fractions";
       output ThermodynamicState state;
     algorithm 
       state := ThermodynamicState(p=p,T=T0+h/cp_const);
@@ -5267,7 +5267,7 @@ quantities are assumed to be constant.
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEntropy s "Specific entropy";
-      input MassFraction X[:] = fill(0,0) "Mass fractions";
+      input MassFraction X[:]=reference_X "Mass fractions";
       output ThermodynamicState state;
     algorithm 
       state := ThermodynamicState(p=p,T=Modelica.Math.exp(s/cp_const + Modelica.Math.log(reference_T))) 
@@ -5279,7 +5279,7 @@ quantities are assumed to be constant.
       extends Modelica.Icons.Function;
       input Density d "density";
       input Temperature T "Temperature";
-      input MassFraction X[:] = fill(0,0) "Mass fractions";
+      input MassFraction X[:]=reference_X "Mass fractions";
       output ThermodynamicState state;
     algorithm 
       assert(false,"pressure can not be computed from temperature and density for an incompressible fluid!");
@@ -5409,7 +5409,7 @@ quantities are assumed to be constant.
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input Temperature T "Temperature";
-      input MassFraction X[:] = fill(0,0) "Mass fractions";
+      input MassFraction X[:]=reference_X "Mass fractions";
       output ThermodynamicState state;
     algorithm 
       state := ThermodynamicState(p=p,T=T);
@@ -5420,7 +5420,7 @@ quantities are assumed to be constant.
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEnthalpy h "Specific enthalpy";
-      input MassFraction X[:] = fill(0,0) "Mass fractions";
+      input MassFraction X[:]=reference_X "Mass fractions";
       output ThermodynamicState state;
     algorithm 
       state := ThermodynamicState(p=p,T=T0+h/cp_const);
@@ -5431,7 +5431,7 @@ quantities are assumed to be constant.
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEntropy s "Specific entropy";
-      input MassFraction X[:] = fill(0,0) "Mass fractions";
+      input MassFraction X[:]=reference_X "Mass fractions";
       output ThermodynamicState state;
     algorithm 
       state := ThermodynamicState(p=p,T=Modelica.Math.exp(s/cp_const + Modelica.Math.log(reference_T))
@@ -5443,7 +5443,7 @@ quantities are assumed to be constant.
       extends Modelica.Icons.Function;
       input Density d "density";
       input Temperature T "Temperature";
-      input MassFraction X[:] = fill(0,0) "Mass fractions";
+      input MassFraction X[:]=reference_X "Mass fractions";
       output ThermodynamicState state;
     algorithm 
       state := ThermodynamicState(p=d*R_gas*T,T=T);

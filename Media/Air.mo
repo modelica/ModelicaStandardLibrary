@@ -155,7 +155,7 @@ required from medium model \""       + mediumName + "\".");
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input Temperature T "Temperature";
-      input MassFraction X[:] "Mass fractions";
+      input MassFraction X[:]=reference_X "Mass fractions";
       output ThermodynamicState state;
     algorithm
       state := if size(X,1) == nX then ThermodynamicState(p=p,T=T, X=X)
@@ -166,7 +166,7 @@ required from medium model \""       + mediumName + "\".");
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEnthalpy h "Specific enthalpy";
-      input MassFraction X[:] "Mass fractions";
+      input MassFraction X[:]=reference_X "Mass fractions";
       output ThermodynamicState state;
     algorithm
       state := if size(X,1) == nX then ThermodynamicState(p=p,T=T_phX(p,h,X),X=X)
@@ -177,7 +177,7 @@ required from medium model \""       + mediumName + "\".");
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEntropy s "Specific entropy";
-      input MassFraction X[:] "Mass fractions";
+      input MassFraction X[:]=reference_X "Mass fractions";
       output ThermodynamicState state;
     algorithm
       state := if size(X,1) == nX then ThermodynamicState(p=p,T=T_psX(s,p,X),X=X)
@@ -188,7 +188,7 @@ required from medium model \""       + mediumName + "\".");
       extends Modelica.Icons.Function;
       input Density d "density";
       input Temperature T "Temperature";
-      input MassFraction X[:] "Mass fractions";
+      input MassFraction X[:]=reference_X "Mass fractions";
       output ThermodynamicState state;
     algorithm
       state := if size(X,1) == nX then ThermodynamicState(p=d*({steam.R,dryair.R}*X)*T,T=T,X=X)
