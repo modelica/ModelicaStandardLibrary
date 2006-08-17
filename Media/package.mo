@@ -4116,6 +4116,17 @@ T_ambient.
     algorithm 
       h := specificEnthalpy(setState_pTX(p,T,X));
     end specificEnthalpy_pTX;
+
+    replaceable function density_pTX 
+      "Return density from p, T, and X or Xi" 
+      extends Modelica.Icons.Function;
+      input AbsolutePressure p "Pressure";
+      input Temperature T "Temperature";
+      input MassFraction X[:] "Mass fractions";
+      output Density d "Density";
+    algorithm 
+      d := density(setState_pTX(p,T,X));
+    end density_pTX;    
     
     replaceable function temperature_phX 
       "Return temperature from p, h, and X or Xi" 

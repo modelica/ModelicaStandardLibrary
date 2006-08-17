@@ -151,6 +151,18 @@ required from medium model \""       + mediumName + "\".");
       X_sat := k_mair/(state.p/min(saturationPressure(state.T),0.999*state.p) - 1 + k_mair);
     end Xsaturation;
     
+    function massFraction_pTphi "compute the steam mass fraction from relative humidity and T"
+      input AbsolutePressure p "Pressure";
+      input Temperature T "Temperature";
+      input Real phi "relative humidity (0 ... 1.0)";
+      output MassFraction X_steam "steam Mass fractions";
+    protected
+      constant Real k = 0.621964713077499 "ratio of molar masses";
+      AbsolutePressure psat = saturationPressure(T) "saturation pressure";
+    algorithm
+      X_steam = phi*k/(k*phi+p/psat-phi);
+    end massFraction_pTphi;
+    
     redeclare function setState_pTX "Return thermodynamic state as function of p, T and composition X" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
