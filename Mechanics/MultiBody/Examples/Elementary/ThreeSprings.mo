@@ -4,7 +4,6 @@ encapsulated model ThreeSprings
   import Modelica.Mechanics.MultiBody;
   import Modelica.Mechanics.Rotational;
   import Modelica;
-  import ZeroMass;
   extends Icons.Example;
   parameter Boolean animation=true "= true, if animation shall be enabled";
   annotation (
