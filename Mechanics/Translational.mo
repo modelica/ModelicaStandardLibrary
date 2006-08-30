@@ -2342,7 +2342,7 @@ blocks of the block library Modelica.Blocks.Sources.
     output SI.Position s "absolute position of flange_b";
     output SI.Velocity v "absolute velocity of flange_b";
     Modelica.Blocks.Interfaces.RealInput v_ref(
-       redeclare type SignalType = SI.Position) 
+       redeclare type SignalType = SI.Velocity) 
       "reference speed of flange as input signal" annotation (extent=[-140, -20; -100, 20]);
     Interfaces.Flange_b flange_b 
       "Flange that is forced to move according to input signals u" 
