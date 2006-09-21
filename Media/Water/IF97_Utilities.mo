@@ -1431,8 +1431,8 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
         Common.GibbsDerivs g "dimensionless Gibbs funcion and dervatives";
         Common.HelmholtzDerivs f 
           "dimensionless Helmholtz function and dervatives";
-        SI.Pressure plim=min(p, data.PCRIT - 0.1) 
-          "pressure limited to critical pressure - 0.1 Pa";
+        SI.Pressure plim=min(p, data.PCRIT-1e-7) 
+          "pressure limited to critical pressure - epsilon";
       algorithm 
         bpro.R := data.RH2O;
         bpro.T := Basic.tsat(plim);
@@ -1441,7 +1441,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
         if not bpro.region3boundary then
           g := Basic.g1(p, bpro.T);
           bpro.d := p/(bpro.R*bpro.T*g.pi*g.gpi);
-          bpro.h := bpro.R*bpro.T*g.tau*g.gtau;
+          bpro.h := if p > plim then data.HCRIT else bpro.R*bpro.T*g.tau*g.gtau;
           bpro.s := g.R*(g.tau*g.gtau - g.g);
           bpro.cp := -bpro.R*g.tau*g.tau*g.gtautau;
           bpro.vt := bpro.R/p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
@@ -1468,8 +1468,8 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
         Common.GibbsDerivs g "dimensionless Gibbs funcion and dervatives";
         Common.HelmholtzDerivs f 
           "dimensionless Helmholtz function and dervatives";
-        SI.Pressure plim=min(p, data.PCRIT - 0.1) 
-          "pressure limited to critical pressure - 0.1 Pa";
+        SI.Pressure plim=min(p, data.PCRIT-1e-7) 
+          "pressure limited to critical pressure - epsilon";
       algorithm 
         bpro.R := data.RH2O;
         bpro.T := Basic.tsat(plim);
@@ -1478,7 +1478,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
         if not bpro.region3boundary then
           g := Basic.g2(p, bpro.T);
           bpro.d := p/(bpro.R*bpro.T*g.pi*g.gpi);
-          bpro.h := bpro.R*bpro.T*g.tau*g.gtau;
+          bpro.h := if p > plim then data.HCRIT else bpro.R*bpro.T*g.tau*g.gtau;
           bpro.s := g.R*(g.tau*g.gtau - g.g);
           bpro.cp := -bpro.R*g.tau*g.tau*g.gtautau;
           bpro.vt := bpro.R/p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
