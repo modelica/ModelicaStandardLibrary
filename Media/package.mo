@@ -4803,8 +4803,8 @@ are described in
       Temperature Tsat "saturation temperature";
     end SaturationProperties;
     
-    type FixedPhase = Integer(min = 1, max = 2) 
-      "Integer between 1 and 2 for phase representation";
+    type FixedPhase = Integer(min=0,max=2) 
+      "phase of the fluid: 1 for 1-phase, 2 for two-phase, 0 for not known, e.g. interactive use";
     
     replaceable partial function setDewState 
       "set the thermodynamic state on the dew line" 
