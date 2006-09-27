@@ -1695,82 +1695,82 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
           else
             // phase == 1 or 0, now check if we are in the legal area
             if 
-       (p < triple.ptriple) or (p > data.PLIMIT1) or (h < hlowerofp1(p)) or 
-       ((p < 10.0e6) and (h > hupperofp5(p)))
-       or ((p >= 10.0e6) and (h > hupperofp2(p))) then
-       // outside of valid range
-       region := -1;
+              (p < triple.ptriple) or (p > data.PLIMIT1) or (h < hlowerofp1(p)) or 
+              ((p < 10.0e6) and (h > hupperofp5(p)))
+              or ((p >= 10.0e6) and (h > hupperofp2(p))) then
+              // outside of valid range
+              region := -1;
             else
-       //region 5 and -1 check complete
-       hsubcrit := (h < data.HCRIT);
-       // simple precheck: very simple if pressure < PLIMIT4A
-       if (p < data.PLIMIT4A) then
+              //region 5 and -1 check complete
+              hsubcrit := (h < data.HCRIT);
+              // simple precheck: very simple if pressure < PLIMIT4A
+              if (p < data.PLIMIT4A) then
                 // we can never be in region 3, so test for others
                 if hsubcrit then
                   if (phase == 1) then
-      region := 1;
+                    region := 1;
                   else
-      if (h < Isentropic.hofpT1(p,Basic.tsat(p))) then
-        region := 1;
-      else
-        region := 4;
-      end if;
+                    if (h < Isentropic.hofpT1(p,Basic.tsat(p))) then
+                      region := 1;
+                    else
+                      region := 4;
+                    end if;
                   end if;
                   // external or internal phase check
                 else
                   if (h > hlowerofp5(p)) then
-      // check for region 5
-      if ((p < data.PLIMIT5) and (h < hupperofp5(p))) then
-        region := 5;
-      else
-        region := -2;
-        // pressure and specific enthalpy too high, but this should
-      end if;
-      // never happen
+                    // check for region 5
+                    if ((p < data.PLIMIT5) and (h < hupperofp5(p))) then
+                      region := 5;
+                    else
+                      region := -2;
+                      // pressure and specific enthalpy too high, but this should
+                    end if;
+                    // never happen
                   else
-      if (phase == 1) then
-        region := 2;
-      else
-        if (h > Isentropic.hofpT2(p,Basic.tsat(p))) then
+                    if (phase == 1) then
+                      region := 2;
+                    else
+                      if (h > Isentropic.hofpT2(p,Basic.tsat(p))) then
                         region := 2;
-        else
+                      else
                         region := 4;
-        end if;
-      end if;  // external or internal phase check
+                      end if;
+                    end if;  // external or internal phase check
                   end if;
                   // tests for region 2 or 5
                 end if;
                 // tests for sub or supercritical
-       else
+              else
                 // the pressure is over data.PLIMIT4A
                 if hsubcrit then
                   // region 1 or 3 or 4
                   if h < hupperofp1(p) then
-      region := 1;
+                    region := 1;
                   else
-      if h < hl then
-        region := 3;
-      else
-        region :=4;
-      end if;
+                    if h < hl  or p > data.PCRIT then
+                      region := 3;
+                    else
+                      region :=4;
+                    end if;
                   end if;
                   // enf of test for region 1, 3 or 4
                 else
                   // region 2, 3 or 4
                   if (h > hlowerofp2(p)) then
-      region := 2;
+                    region := 2;
                   else
-      if h > hv then
-        region := 3;
-      else
-        region := 4;
-      end if;
+                    if h > hv  or p > data.PCRIT then
+                      region := 3;
+                    else
+                      region := 4;
+                    end if;
                   end if;
                   // test for 2 and 3
                 end if;
                 // tests above PLIMIT4A
-       end if;
-       // above or below PLIMIT4A
+              end if;
+              // above or below PLIMIT4A
             end if;
             // check for grand limits of p and h
           end if;
@@ -1813,71 +1813,71 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
             // phase == 1
             region := 0;
             if (p < triple.ptriple) then
-       region := -2;
+              region := -2;
             end if;
             if (p > data.PLIMIT1) then
-       region := -3;
+              region := -3;
             end if;
             if ((p < 10.0e6) and (s > supperofp5(p))) then
-       region := -5;
+              region := -5;
             end if;
             if ((p >= 10.0e6) and (s > supperofp2(p))) then
-       region := -6;
+              region := -6;
             end if;
             if region < 0 then
-       assert(false, "region computation from p and s failed: function called outside the legal region");
+              assert(false, "region computation from p and s failed: function called outside the legal region");
             else
               ssubcrit := (s < data.SCRIT);
               // simple precheck: very simple if pressure < PLIMIT4A
               if (p < data.PLIMIT4A) then
-       // we can never be in region 3, so test for 1 and 2
-       if ssubcrit then
+                // we can never be in region 3, so test for 1 and 2
+                if ssubcrit then
                   region := 1;
                 else
                   if (s > slowerofp5(p)) then
-      // check for region 5
-      if ((p < data.PLIMIT5) and (s < supperofp5(p))) then
-        region := 5;
-      else
-        region := -1;
-        // pressure and specific entropy too high, should never happen!
-      end if;
+                    // check for region 5
+                    if ((p < data.PLIMIT5) and (s < supperofp5(p))) then
+                      region := 5;
+                    else
+                      region := -1;
+                      // pressure and specific entropy too high, should never happen!
+                    end if;
                   else
-      region := 2;
+                    region := 2;
                   end if;
                   // tests for region 2 or 5
                 end if;
                 // tests for sub or supercritical
-       else
+              else
                 // the pressure is over data.PLIMIT4A
                 if ssubcrit then
                   // region 1 or 3
                   if s < supperofp1(p) then
-      region := 1;
+                    region := 1;
                   else
-      if s < sl then
-        region := 3;
-      else
-        region := 4;
-      end if;
+                    if s < sl  or p > data.PCRIT then
+                      region := 3;
+                    else
+                      region := 4;
+                    end if;
                   end if;
                   // test for region 1, 3 or 4
                 else
                   // region 2, 3 or 4
                   if (s > slowerofp2(p)) then
-      region := 2;
+                    region := 2;
                   else
-      if s > sv then
-        region := 3;
-      else
-        region := 4;
-      end if;
+                    if s > sv  or p > data.PCRIT then
+                      region := 3;
+                    else
+                      region := 4;
+                    end if;
                   end if;
                   // test for 2,3 and 4
                 end if;
                 // tests above PLIMIT4A
-       end if;
-       // above or below PLIMIT4A
+              end if;
+              // above or below PLIMIT4A
             end if;
             // grand test for limits of p and s
           end if;
@@ -1925,7 +1925,6 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
       
       function region_dT 
         "return the current region (valid values: 1,2,3,4,5) in IF97, given density and temperature" 
-        
         extends Modelica.Icons.Function;
         input SI.Density d "density";
         input SI.Temperature T "temperature (K)";
