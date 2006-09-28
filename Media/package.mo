@@ -2240,12 +2240,12 @@ package Examples
       h(start=1.0e5, stateSelect=StateSelect.prefer),
       T(start = 275.0),
       d(start = 999.0));
-    Real V(start = 0.1);
-    parameter Real dV = 0.0;
+    Modelica.SIunits.Volume V(start = 0.1);
+    parameter Modelica.SIunits.VolumeFlowRate dV = 0.0;
     parameter Medium.MassFlowRate m_flow_ext=0;
-    parameter Real H_flow_ext=10000;
-    Real m;
-    Real U;
+    parameter Medium.EnthalpyFlowRate H_flow_ext=10000;
+    Modelica.SIunits.Mass m;
+    Modelica.SIunits.InternalEnergy U;
   equation 
     der(V) = dV;
     m = medium.d*V;
@@ -3050,7 +3050,7 @@ The details of the pipe friction model are described
           "Initial value of pressure";
         parameter SI.Temperature T_start = Medium.T_default 
           "Initial value of temperature";
-        parameter SI.Density h_start = Medium.h_default 
+        parameter SI.SpecificEnthalpy h_start = Medium.h_default 
           "Initial value of specific enthalpy";
         parameter Real X_start[Medium.nX] = Medium.X_default 
           "Initial value of mass fractions";
@@ -3107,7 +3107,8 @@ The details of the pipe friction model are described
         parameter SI.AbsolutePressure p_start = 1.0e5 
           "Initial value of pressure";
         parameter SI.Temperature T_start = 300 "Initial value of temperature";
-        parameter SI.Density h_start = 1 "Initial value of specific enthalpy";
+        parameter SI.SpecificEnthalpy h_start = 1 
+          "Initial value of specific enthalpy";
         parameter Real X_start[Medium.nX] = Medium.reference_X 
           "Initial value of mass fractions";
         PortVolume volume(redeclare package Medium = Medium,
@@ -3428,15 +3429,17 @@ output window.
                  experimentSetupOutput,
                  Documentation(info="<html>
                                </html>"));
+    protected 
+     constant SI.Time timeUnit = 1.0;
       
    equation 
       // Define specific enthalpy
       h1 = if time < 0 then h_min else 
            if time > 1 then h_max else 
-              h_min + time*(h_max - h_min);
+              h_min + time/timeUnit*(h_max - h_min);
       s1 = if time < 0 then s_min else 
            if time > 1 then s_max else 
-              s_min + time*(s_max - s_min);
+              s_min + time/timeUnit*(s_max - s_min);
       
       // Solve for temperature
       Th = Medium.temperature_phX(p, h1, fill(0.0,0));
@@ -3475,15 +3478,17 @@ output window.
                  Documentation(info="<html>
                                
                                </html>"));
+    protected 
+     constant SI.Time timeUnit = 1.0;
       
    equation 
      // Define specific enthalpy
      h1 = if time < 0 then h_min else 
        if time > 1 then h_max else 
-       h_min + time*(h_max - h_min);
+       h_min + time/timeUnit*(h_max - h_min);
      s1 = if time < 0 then s_min else 
        if time > 1 then s_max else 
-       s_min + time*(s_max - s_min);
+       s_min + time/timeUnit*(s_max - s_min);
       
      // Solve for temperature
      Th = Medium.temperature_phX(p, h1, fill(0.0,0));
@@ -3524,16 +3529,18 @@ output window.
        Documentation(info="<html>
  
 </html>"));
+    protected 
+     constant SI.Time timeUnit = 1.0;
       
    equation 
      X = Medium.reference_X;
       // Define specific enthalpy
       h1 = if time < 0 then h_min else 
            if time > 1 then h_max else 
-              h_min + time*(h_max - h_min);
+              h_min + time/timeUnit*(h_max - h_min);
       s1 = if time < 0 then s_min else 
            if time > 1 then s_max else 
-              s_min + time*(s_max - s_min);
+              s_min + time/timeUnit*(s_max - s_min);
       
       // Solve for temperature
       Th = Medium.temperature_phX(p, h1, X);
@@ -4196,8 +4203,7 @@ T_ambient.
         max=1.e8,
         nominal=1.e-3,
         start=1.e-3);
-    type EnthalpyFlowRate = Real (
-        unit="J/(kg.s)",
+    type EnthalpyFlowRate = SI.EnthalpyFlowRate (
         nominal=1000.0,
         min=-1.0e8,
         max=1.e8);
@@ -5645,7 +5651,7 @@ protected
   type IsochoricPressureCoefficient = Real (final quantity=
           "IsochoricPressureCoefficient", unit="1/Pa");
   type IsothermalCompressibility = Real (final quantity=
-          "IsothermalCompressibility", unit="kg/m^3");
+          "IsothermalCompressibility", unit="kg/m3");
   type JouleThomsonCoefficient = Real (final quantity="JouleThomsonCoefficient",
          unit="K/Pa");
   // introduce min-manx-nominal values

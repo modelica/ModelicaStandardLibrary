@@ -63,7 +63,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
       unit="H/m") = 1 "Inductance per meter";
     parameter Real g(
       final min=Modelica.Constants.small,
-      unit="Siemens/m") = 1 "Conductance per meter";
+      unit="S/m") = 1 "Conductance per meter";
     parameter Real c(
       final min=Modelica.Constants.small,
       unit="F/m") = 1 "Capacitance per meter";
@@ -345,7 +345,7 @@ Lossless transmission line with characteristic impedance Z0 and transmission del
     
     parameter Modelica.SIunits.Resistance Z0=1 "Characteristic impedance";
     parameter Modelica.SIunits.Frequency F=1 "Frequency";
-    parameter Modelica.SIunits.Length NL=1 "Normalized length";
+    parameter Real NL=1 "Normalized length";
     
   protected 
     Modelica.SIunits.Voltage er;

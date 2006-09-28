@@ -2178,7 +2178,7 @@ Contains m constant current sources (Modelica.Electrical.Analog.Sources.Constant
           Constants.pi for j in 1:m} "Phases of sine waves";
       parameter Modelica.SIunits.Frequency freqHz[m]=fill(1, m) 
         "Frequencies of sine waves";
-      parameter Modelica.SIunits.Voltage offset[m]=zeros(m) "Voltage offsets";
+      parameter Modelica.SIunits.Current offset[m]=zeros(m) "Current offsets";
       parameter Modelica.SIunits.Time startTime[m]=zeros(m) "Time offsets";
       Modelica.Electrical.Analog.Sources.SineCurrent sineCurrent[m](
         final I=I,

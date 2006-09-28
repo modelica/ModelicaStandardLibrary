@@ -345,25 +345,25 @@ blocks that extend from Modelica.Blocks.Interfaces.PartialConversionBlock.</p>
     
     block To_kWh "Convert from Joule to kilo Watt hour" 
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="J"), y(
-            unit="kWh"));
+            unit="kW.h"));
       annotation (Icon(Text(
             extent=[-20, 100; -100, 20],
             style(color=0),
             string="J"), Text(
             extent=[100, -20; 20, -100],
             style(color=0),
-            string="kWh")));
+            string="kW.h")));
     equation 
       y = SI.Conversions.to_kWh(u);
     end To_kWh;
     
     block From_kWh "Convert from kilo Watt hour to Joule" 
-      extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="kWh"),
+      extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="kW.h"),
           y(unit="J"));
       annotation (Icon(Text(
             extent=[-20, 100; -100, 20],
             style(color=0),
-            string="kWh"), Text(
+            string="kW.h"), Text(
             extent=[100, -20; 20, -100],
             style(color=0),
             string="J")));

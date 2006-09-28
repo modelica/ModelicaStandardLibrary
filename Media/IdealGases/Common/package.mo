@@ -1481,7 +1481,7 @@ end lowPressureThermalConductivity;
       
     redeclare function extends f_nonlinear "note that this function always sees the complete mass fraction vector"
     algorithm 
-      y := s_TX(x,X)- data.R*X*Modelica.Math.log(p/reference_p)
+      y := s_TX(x,X)- data[:].R*X*Modelica.Math.log(p/reference_p)
         + MixEntropy(massToMoleFractions(X,data[:].MM));
     end f_nonlinear;
       

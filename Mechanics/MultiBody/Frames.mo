@@ -1412,7 +1412,7 @@ Rotation can be defined by adapting this package correspondingly.
         "Return the constraint residues to express that two frames have the same orientation" 
         
         import Modelica;
-        import Modelica.Mechanics.MultiBody.Frames;
+        import Modelica.Mechanics.MultiBody.Frames.TransformationMatrices;
         extends Modelica.Icons.Function;
         input TransformationMatrices.Orientation T1 
           "Orientation object to rotate frame 0 into frame 1";

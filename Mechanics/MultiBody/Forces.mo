@@ -1348,7 +1348,7 @@ is resolved in the world frame).
     SI.Position r_0[3] 
       "Position vector from origin of frame_a to origin of frame_b resolved in world frame";
     SI.Force f_b_0[3] "frame_b.f resoved in world frame";
-    SI.Force t_b_0[3] "frame_b.t resoved in world frame";
+    SI.Torque t_b_0[3] "frame_b.t resoved in world frame";
     
     annotation (
       preferedView="info",
@@ -1878,7 +1878,7 @@ for this situation:
       "Distance between the origin of frame_a and the origin of frame_b";
     SI.Position r_rel_0[3] 
       "Position vector from frame_a to frame_b resolved in world frame";
-    SI.Position e_rel_0[3] 
+    Real e_rel_0[3] 
       "Unit vector in direction from frame_a to frame_b, resolved in world frame";
     annotation (
       preferedView="info",

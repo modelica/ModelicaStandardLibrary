@@ -1695,7 +1695,7 @@ frame_b of the joint.
       "Position vector from frame_a to frame_b resolved in world frame";
     SI.Position rRod_a[3] 
       "Position vector from frame_a to frame_b resolved in frame_a";
-    SI.Position eRod_a[3] 
+    Real eRod_a[3] 
       "Unit vector in direction from frame_a to frame_b, resolved in frame_a";
     SI.Position r_CM_0[3] 
       "Dummy if m==0, or position vector from world frame to mid-point of rod, resolved in world frame";
@@ -4264,7 +4264,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
       Modelica.Blocks.Sources.Constant position_b[3](k=rRod2_ib) 
         annotation (extent=[-20, -60; 0, -40], rotation=0);
     protected 
-      SI.Position aux 
+      Real aux 
         "Denominator used to compute force in rod connecting universal and spherical joint";
     equation 
       /* Compute the unknown force in rod1 connecting the universal and
@@ -4821,7 +4821,7 @@ component).
       parameter Boolean checkTotalPower=false 
         "= true, if total power flowing into this component shall be determined (must be zero)"
         annotation (Dialog(tab="Advanced"));
-      SI.Position aux 
+      Real aux 
         "Denominator used to compute force in rod connecting universal and spherical joint";
       SI.Power totalPower 
         "Total power flowing into this element, if checkTotalPower=true (otherwise dummy)";

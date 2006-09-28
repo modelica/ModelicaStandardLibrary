@@ -1,7 +1,8 @@
-// Convert from Modelica 1.6 and earlier versions to Modelica 2.1
+// Convert from Modelica 1.6 and earlier versions to Modelica 2.1 (and later)
 // This script requires Dymola version 5.3a or higher
 //
 // Revisions:
+//   Sep. 21: Further improvements by Hans Olsson
 //   Oct.  1: Further improvements by
 //              Christian Schweiger, Hans Olsson, Martin Otter.
 //   July 15: Bugs corrected in conversion of
@@ -20,7 +21,9 @@ clear
 convertClear();
 
 // inPort.signal[1] -> u
-convertElement({"Modelica.Blocks.Continuous.Integrator",
+convertElement({"Modelica.Blocks.Interfaces.SISO",
+                "Modelica.Blocks.Interfaces.SIMO",
+                "Modelica.Blocks.Continuous.Integrator",
                 "Modelica.Blocks.Continuous.LimIntegrator",
                 "Modelica.Blocks.Continuous.Derivative",
                 "Modelica.Blocks.Continuous.FirstOrder",
@@ -56,7 +59,8 @@ convertElement({"Modelica.Blocks.Continuous.Integrator",
                 "inPort.signal[1]", "u");
 
 // inPort1.signal[1] -> u1
-convertElement({"ModelicaAdditions.Blocks.Logical.OR",
+convertElement({"Modelica.Blocks.Interfaces.SI2SO",
+                "ModelicaAdditions.Blocks.Logical.OR",
                 "ModelicaAdditions.Blocks.Logical.AND",
                 "ModelicaAdditions.Blocks.Logical.XOR",
                 "ModelicaAdditions.Blocks.Logical.NOR",
@@ -68,7 +72,8 @@ convertElement({"ModelicaAdditions.Blocks.Logical.OR",
                 "inPort1.signal[1]", "u1");
 
 // inPort2.signal[1] -> u2
-convertElement({"ModelicaAdditions.Blocks.Logical.OR",
+convertElement({"Modelica.Blocks.Interfaces.SI2SO",
+                "ModelicaAdditions.Blocks.Logical.OR",
                 "ModelicaAdditions.Blocks.Logical.AND",
                 "ModelicaAdditions.Blocks.Logical.XOR",
                 "ModelicaAdditions.Blocks.Logical.NOR",
@@ -225,6 +230,9 @@ convertElement({"Modelica.Blocks.Interfaces.SVcontrol",
 convertElement({"Modelica.Blocks.Continuous.StateSpace",
                 "Modelica.Blocks.Math.MatrixGain",
                 "Modelica.Blocks.Math.Sum",
+                "Modelica.Blocks.Interfaces.MIMO",
+                "Modelica.Blocks.Interfaces.MISO",
+                "Modelica.Blocks.Interfaces.MIMOs",
                 "ModelicaAdditions.Blocks.Discrete.StateSpace",
                 "ModelicaAdditions.Blocks.Multiplexer.ExtractSignal",
                 "ModelicaAdditions.Blocks.Multiplexer.Extractor",
@@ -243,6 +251,14 @@ convertElement("Modelica.Blocks.Math.Feedback",
 // inPort2.signal -> {u2}
 convertElement("Modelica.Blocks.Math.Feedback",
                "inPort2.signal", "{u2}");
+
+// inPort1.signal -> u1
+convertElement("Modelica.Blocks.Interfaces.MI2MO",
+               "inPort1.signal", "u1");
+
+// inPort2.signal -> u2
+convertElement("Modelica.Blocks.Interfaces.MI2MO",
+               "inPort2.signal", "u2");
 
 // inPort -> u[1]
 convertElement({"Modelica.Blocks.Continuous.StateSpace",
@@ -435,6 +451,11 @@ convertElement({"Modelica.Blocks.Math.TwoOutputs"},
 convertElement({"Modelica.Blocks.Continuous.StateSpace",
                 "Modelica.Blocks.Math.MatrixGain",
                 "Modelica.Blocks.Sources.KinematicPTP",
+                "Modelica.Blocks.Interfaces.MO",
+                "Modelica.Blocks.Interfaces.SIMO",
+                "Modelica.Blocks.Interfaces.MIMO",
+                "Modelica.Blocks.Interfaces.MIMOs",
+                "Modelica.Blocks.Interfaces.MI2MO",
                 "ModelicaAdditions.Blocks.Multiplexer.ExtractSignal",
                 "ModelicaAdditions.Blocks.Multiplexer.Multiplex2",
                 "ModelicaAdditions.Blocks.Multiplexer.Multiplex3",
@@ -454,14 +475,9 @@ convertElement({"Modelica.Blocks.Continuous.StateSpace",
 
 // outPort.signal -> {y}
 convertElement({"Modelica.Blocks.Interfaces.SO",
-                "Modelica.Blocks.Interfaces.MO",
                 "Modelica.Blocks.Interfaces.SISO",
                 "Modelica.Blocks.Interfaces.SI2SO",
-                "Modelica.Blocks.Interfaces.SIMO",
                 "Modelica.Blocks.Interfaces.MISO",
-                "Modelica.Blocks.Interfaces.MIMO",
-                "Modelica.Blocks.Interfaces.MIMOs",
-                "Modelica.Blocks.Interfaces.MI2MO",
                 "Modelica.Blocks.Interfaces.SVcontrol",
                 "Modelica.Blocks.Interfaces.MVcontrol",
                 "Modelica.Blocks.Interfaces.BooleanSISO",
