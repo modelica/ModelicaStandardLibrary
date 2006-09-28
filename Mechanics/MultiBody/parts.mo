@@ -1780,12 +1780,26 @@ are forced to be used as states.
     end if;
     
   equation 
-    definePotentialRoot(frame_a.R, 100);
+    // If any possible, do not use the connector as root
+    definePotentialRoot(frame_a.R, 10000);
     
     if isRoot(frame_a.R) then
-      frame_a.R = Frames.nullRotation();
+       assert(cardinality(frame_a)==0, "
+A Modelica.Mechanics.MultiBody.Parts.PointMass model is connected in
+a way, so that no equations are present to compute frame_a.R 
+(the orientation object in the connector). Setting frame_a.R to
+an arbitrary value in the PointMass model, might lead to a wrong
+overall model, depending on how the PointMass model is used.
+   You can avoid this message, by providing equations that 
+compute the orientation object, e.g., by using the
+Modelica.Mechanics.MultiBody.Joints.FreeMotion joint.
+   If a PointMass model is not connected at all, the
+orientation object is set to a unit rotation. But this is
+the only case where this is done.
+");
+       frame_a.R = Frames.nullRotation();
     else
-      frame_a.t = zeros(3);
+       frame_a.t = zeros(3);
     end if;
     
     // Newton equation: f = m*(a-g)

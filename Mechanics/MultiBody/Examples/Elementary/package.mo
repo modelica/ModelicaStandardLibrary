@@ -1,6 +1,7 @@
 package Elementary "Elementary examples to demonstrate various features of the MultiBody library"
 extends Modelica.Icons.Library;
 
+
 annotation (preferedView="info", Documentation(info="<HTML>
 <p>
 This package contains elementary example models to demonstrate 
@@ -52,9 +53,14 @@ the usage of the MultiBody library
       <img src=\"../Images/MultiBody/Examples/Elementary/PointGravity_small.png\">
       </td>
   </tr>
-  <tr><td><b><a href=\"Modelica://Modelica.Mechanics.MultiBody.Examples.Elementary.PointGravityWithMassPoints\">PointGravityWithMassPoints</a></b></td>
-      <td> Two point masses in a point gravity field (body rotation is neglected) <br> 
-      <img src=\"../Images/MultiBody/Examples/Elementary/PointGravity_small.png\">
+  <tr><td><b><a href=\"Modelica://Modelica.Mechanics.MultiBody.Examples.Elementary.PointGravityWithPointMasses\">PointGravityWithPointMasses</a></b></td>
+      <td> Two point masses in a point gravity field (rotation of bodies is neglected) <br> 
+      <img src=\"../Images/MultiBody/Examples/Elementary/PointGravityWithPointMasses_small.png\">
+      </td>
+  </tr>
+  <tr><td><b><a href=\"Modelica://Modelica.Mechanics.MultiBody.Examples.Elementary.PointGravityWithPointMasses2\">PointGravityWithPointMasses2</a></b></td>
+      <td> Rigidly connected point masses in a point gravity field <br> 
+      <img src=\"../Images/MultiBody/Examples/Elementary/PointGravityWithPointMasses2_small.png\">
       </td>
   </tr>
   <tr><td><b><a href=\"Modelica://Modelica.Mechanics.MultiBody.Examples.Elementary.SpringDamperSystem\">SpringDamperSystem</a></b></td>
