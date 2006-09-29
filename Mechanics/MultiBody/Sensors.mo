@@ -211,7 +211,7 @@ Exact definition of the returned quantities:
     
     SI.Velocity v_abs_0[3] 
       "Dummy or absolute velocity of origin of frame_a resolved in world frame";
-    SI.Velocity w_abs_0[3] 
+    SI.AngularVelocity w_abs_0[3] 
       "Dummy or absolute angular velocity of frame_a resolved in world frame";
     parameter Integer i1=1;
     parameter Integer i2=if get_r_abs then i1 + 3 else i1;
@@ -859,8 +859,8 @@ differentiable everywhere. The derivative at zero distance is 3/(2*s_small).
   protected 
     SI.Position r_rel_0[3] = frame_b.r_0 - frame_a.r_0 
       "Position vector from frame_a to frame_b resolved in world frame";
-    SI.Length L2 = r_rel_0*r_rel_0;
-    SI.Length s_small2 = s_small^2;
+    SI.Area L2 = r_rel_0*r_rel_0;
+    SI.Area s_small2 = s_small^2;
   equation 
     frame_a.f = zeros(3);
     frame_b.f = zeros(3);

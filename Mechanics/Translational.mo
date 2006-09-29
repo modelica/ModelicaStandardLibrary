@@ -1502,6 +1502,9 @@ with the Modelica.Blocks blocks.
 (based on Translational.FrictionBase from Martin Otter)</i> </li>
 </ul>
 </html>"));
+      
+      constant SI.Acceleration unitAcceleration = 1;
+      constant SI.Force unitForce = 1;
     equation 
       /* Friction characteristic
      (locked is introduced to help the Modelica translator determining
@@ -1519,9 +1522,9 @@ with the Modelica.Blocks blocks.
       locked = not free and not (pre(mode) == Forward or startForward or pre(
         mode) == Backward or startBackward);
       
-      a_relfric = if locked then 0 else if free then sa else if startForward then 
-              sa - f0 else if startBackward then sa + f0 else if pre(mode) ==
-        Forward then sa - f0 else sa + f0;
+      a_relfric = unitAcceleration*(if locked then 0 else if free then sa else if startForward then 
+              sa - f0/unitForce else if startBackward then sa + f0/unitForce else if pre(mode) ==
+        Forward then sa - f0/unitForce else sa + f0/unitForce);
       
       /* Friction torque has to be defined in a subclass. Example for a clutch:
        f = if locked then sa else if free then 0 else cgeo*fn*

@@ -880,7 +880,7 @@ still kept in Modelica.SIunits.</p>
   type DampingCoefficient = Real (final quantity="DampingCoefficient", final unit
         =    "s-1");
   type LogarithmicDecrement = Real (final quantity="LogarithmicDecrement",
-        final unit="Np/S");
+        final unit="1/S");
   type AttenuationCoefficient = Real (final quantity="AttenuationCoefficient",
         final unit="m-1");
   type PhaseCoefficient = Real (final quantity="PhaseCoefficient", final unit=

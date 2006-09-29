@@ -1758,6 +1758,10 @@ of several base components.</p>
         final max=Unknown,
         start=Unknown,
         fixed=true);
+    protected 
+      constant SI.AngularAcceleration unitAngularAcceleration = 1;
+      constant SI.Torque unitTorque = 1;
+      
     equation 
       /* Friction characteristic
       (locked is introduced to help the Modelica translator determining
@@ -1773,9 +1777,10 @@ of several base components.</p>
       locked = not free and not (pre(mode) == Forward or startForward or pre(
         mode) == Backward or startBackward);
       
-      a_relfric = if locked then 0 else if free then sa else if startForward then 
-              sa - tau0 else if startBackward then sa + tau0 else if pre(mode)
-         == Forward then sa - tau0 else sa + tau0;
+      a_relfric = unitAngularAcceleration *
+              (if locked then 0 else if free then sa else if startForward then 
+              sa - tau0/unitTorque else if startBackward then sa + tau0/unitTorque else if pre(mode)
+         == Forward then sa - tau0/unitTorque else sa + tau0/unitTorque);
       
       /* Friction torque has to be defined in a subclass. Example for a clutch:
        tau = if locked then sa else if free then 0 else cgeo*fn*
@@ -3393,6 +3398,8 @@ following references, especially (Armstrong and Canudas de Witt 1996):
     constant Real eps0=1.0e-4 "Relative hysteresis epsilon";
     SI.Torque tau0_max_low "lowest value for tau0_max";
     parameter Real peak2=max([peak, 1 + eps0]);
+    constant SI.AngularAcceleration unitAngularAcceleration = 1;
+    constant SI.Torque unitTorque = 1;
   public 
     Modelica.Blocks.Interfaces.RealInput f_normalized 
       "Normalized force signal 0..1 (normal force = fn_max*f_normalized; clutch is engaged if > 0)"
@@ -3573,7 +3580,7 @@ are dynamically coupled. The method is described in:
     locked = pre(stuck) and not startForward;
     
     // acceleration and friction torque
-    a_rel = if locked then 0 else sa - tau0;
+    a_rel = unitAngularAcceleration* (if locked then 0 else sa - tau0/unitTorque);
     tau = if locked then sa else (if free then 0 else cgeo*fn*
       Modelica.Math.tempInterpol1(w_rel, mue_pos, 2));
     
@@ -4057,6 +4064,8 @@ Deutsches Zentrum f&uuml;r Luft- und Raumfahrt e. V., March 18-19, 2002.</p>
         Line(points=[70, -20; 70, -70], style(color=0))));
     
   protected 
+    constant SI.AngularAcceleration unitAngularAcceleration = 1;
+    constant SI.Torque unitTorque = 1;
     function equal "Compare whether two Real matrices are identical" 
       
       extends Modelica.Icons.Function;
@@ -4141,7 +4150,7 @@ Modelica.Constants.eps).
     tauLoss = if ideal then 0 else (if locked then sa else (if (startForward or 
           pre(mode) == Forward) then tauLossMax else tauLossMin));
     
-    a_a = if locked then 0 else sa - tauLoss;
+    a_a = unitAngularAcceleration*(if locked then 0 else sa - tauLoss/unitTorque);
     
     /* Finite state machine to fix configuration after the computation above
        The above equations are only dependent on pre(mode) and not on the actual
@@ -4772,7 +4781,7 @@ blocks of the block library Modelica.Blocks.Sources.
       w = w_ref;
     end if;
   end Speed;
-
+  
   model Accelerate 
     "Forced movement of a flange according to an acceleration signal" 
     
