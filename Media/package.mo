@@ -4812,6 +4812,10 @@ are described in
     type FixedPhase = Integer(min=0,max=2) 
       "phase of the fluid: 1 for 1-phase, 2 for two-phase, 0 for not known, e.g. interactive use";
     
+    redeclare replaceable model extends BaseProperties 
+      SaturationProperties sat "Saturation properties at the medium pressure";
+    end BaseProperties;
+
     replaceable partial function setDewState 
       "set the thermodynamic state on the dew line" 
       extends Modelica.Icons.Function;
