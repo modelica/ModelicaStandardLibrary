@@ -5381,7 +5381,7 @@ quantities are assumed to be constant.
     import SI = Modelica.SIunits;
     constant SpecificHeatCapacity cp_const 
       "Constant specific heat capacity at constant pressure";
-    constant SpecificHeatCapacity cv_const= cp_const/R_gas 
+    constant SpecificHeatCapacity cv_const= cp_const - R_gas 
       "Constant specific heat capacity at constant volume";
     constant SpecificHeatCapacity R_gas "medium specific gas constant";
     constant MolarMass MM_const "Molar mass";
