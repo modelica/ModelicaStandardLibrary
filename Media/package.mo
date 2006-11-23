@@ -4815,7 +4815,7 @@ are described in
     redeclare replaceable model extends BaseProperties 
       SaturationProperties sat "Saturation properties at the medium pressure";
     end BaseProperties;
-
+    
     replaceable partial function setDewState 
       "set the thermodynamic state on the dew line" 
       extends Modelica.Icons.Function;
@@ -4926,12 +4926,39 @@ are described in
         output Temperature T "saturation temperature";
       end saturationTemperature;
     
+      replaceable partial function saturationPressure_sat 
+      "Returns saturation temperature" 
+        extends Modelica.Icons.Function;
+        input SaturationProperties sat "saturation property record";
+        output AbsolutePressure p "saturation pressure";
+      algorithm 
+        p := sat.psat;
+      end saturationPressure_sat;
+    
+      replaceable partial function saturationTemperature_sat 
+      "Returns saturation pressure" 
+        extends Modelica.Icons.Function;
+        input SaturationProperties sat "saturation property record";
+        output Temperature T "saturation temperature";
+      algorithm 
+        T := sat.Tsat;
+      end saturationTemperature_sat;
+    
       replaceable partial function saturationTemperature_derp 
-      "Returns derivatives of saturation temperature w.r.t pressure" 
+      "Returns derivative of saturation temperature w.r.t. pressure" 
         extends Modelica.Icons.Function;
         input AbsolutePressure p "pressure";
-        output Real dTp "derivatives of saturation temperature w.r.t pressure";
+        output Real dTp "derivative of saturation temperature w.r.t. pressure";
       end saturationTemperature_derp;
+    
+      replaceable partial function saturationTemperature_derp_sat 
+      "Returns derivative of saturation temperature w.r.t.. pressure" 
+        extends Modelica.Icons.Function;
+        input SaturationProperties sat "saturation property record";
+        output Real dTp "derivative of saturation temperature w.r.t. pressure";
+      algorithm 
+        dTp := saturationTemperature_derp(sat.psat);
+      end saturationTemperature_derp_sat;
     
     replaceable partial function surfaceTension 
       "Return surface tension sigma in the two phase region" 
