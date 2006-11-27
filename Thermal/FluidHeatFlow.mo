@@ -809,9 +809,9 @@ then started again (using a ramp of 0.2 s).
         annotation (points=[20,0; 40,0],   style(color=1, rgbcolor={255,0,0}));
       connect(HeatFlow.y, PrescribedHeatFlow1.Q_flow) annotation (points=[-39,
             -50; -30,-50],   style(color=3, rgbcolor={0,0,255}));
-      connect(Convection1.solid, PrescribedHeatFlow1.port) annotation (points=[10,-40; 
+      connect(Convection1.solid, PrescribedHeatFlow1.port) annotation (points=[10,-40;
             10,-50; -10,-50],         style(color=42, rgbcolor={191,0,0}));
-      connect(Convection1.solid, HeatCapacitor1.port) annotation (points=[10,-40; 
+      connect(Convection1.solid, HeatCapacitor1.port) annotation (points=[10,-40;
             10,-50; 30,-50],      style(color=42, rgbcolor={191,0,0}));
       connect(Pipe1.heatPort, Convection1.fluid) annotation (points=[10,-10; 10,
             -20], style(color=42, rgbcolor={191,0,0}));
@@ -1005,7 +1005,7 @@ the time behaviour depending on coolant flow.
         annotation (points=[-20,0; 0,0],   style(color=1, rgbcolor={255,0,0}));
       connect(Pipe1.flowPort_b, Ambient2.flowPort) 
         annotation (points=[20,0; 40,0],   style(color=1, rgbcolor={255,0,0}));
-      connect(ThermalConductor1.port_a, HeatCapacitor1.port) annotation (points=[10,-40; 
+      connect(ThermalConductor1.port_a, HeatCapacitor1.port) annotation (points=[10,-40;
             10,-40; 10,-50; 10,-50],        style(color=42, rgbcolor={191,0,0}));
       connect(Pipe1.heatPort, ThermalConductor1.port_b) 
         annotation (points=[10,-10; 10,-20], style(color=42, rgbcolor={191,0,0}));
@@ -1105,13 +1105,13 @@ the time behaviour depending on coolant flow.
             -10; 30,0; 40,0], style(color=1, rgbcolor={255,0,0}));
       connect(Pipe3.flowPort_b, Ambient2.flowPort) 
         annotation (points=[60,0; 80,0], style(color=1, rgbcolor={255,0,0}));
-      connect(HeatCapacitor2.port, ThermalConductor2.port_a) annotation (points=[10,60; 
+      connect(HeatCapacitor2.port, ThermalConductor2.port_a) annotation (points=[10,60;
             10,55.5; 10,50; 10,50],   style(color=42, rgbcolor={191,0,0}));
       connect(ThermalConductor2.port_b, Pipe2.heatPort) 
         annotation (points=[10,30; 10,20], style(color=42, rgbcolor={191,0,0}));
       connect(Pipe1.heatPort, ThermalConductor1.port_b) annotation (points=[10,-20;
             10,-30],         style(color=42, rgbcolor={191,0,0}));
-      connect(ThermalConductor1.port_a, HeatCapacitor1.port) annotation (points=[10,-50; 
+      connect(ThermalConductor1.port_a, HeatCapacitor1.port) annotation (points=[10,-50;
             10,-50; 10,-60; 10,-60],
                                   style(color=42, rgbcolor={191,0,0}));
       connect(DoubleRamp1.y, Pump1.VolumeFlow) annotation (points=[-39,20; -30,
@@ -1762,7 +1762,7 @@ Mixing rule is applied.
           "temperature at flowPort_a";
         output Modelica.SIunits.Temperature T_b=flowPort_b.h/medium.cp 
           "temperature at flowPort_b";
-        output Modelica.SIunits.Temperature dT=if noEvent(V_flow>=0) then T-T_a else T_b-T 
+        output Modelica.SIunits.TemperatureDifference dT=if noEvent(V_flow>=0) then T-T_a else T_b-T 
           "temperature increase of coolant in flow direction";
       protected 
         Modelica.SIunits.SpecificEnthalpy h = medium.cp*T 
@@ -2221,7 +2221,7 @@ Outlet temperature is defined by variable T of the corresponding component.</li>
 </ul>
 </HTML>"), Diagram);
       extends Interfaces.Partials.RelativeSensor(y(redeclare type SignalType = 
-              Modelica.SIunits.Temperature));
+              Modelica.SIunits.TemperatureDifference));
     equation 
       medium.cp*y = flowPort_a.h - flowPort_b.h;
       annotation(Icon(Text(

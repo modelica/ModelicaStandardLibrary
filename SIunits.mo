@@ -989,6 +989,9 @@ still kept in Modelica.SIunits.</p>
       displayUnit="degC");
   type Temp_K = ThermodynamicTemperature;
   type Temperature = ThermodynamicTemperature;
+  type TemperatureDifference = Real (
+      final quantity="ThermodynamicTemperature",
+      final unit="K");
   type CelsiusTemperature = Real (final quantity="CelsiusTemperature", final unit
         =    "degC");
   type Temp_C = CelsiusTemperature;

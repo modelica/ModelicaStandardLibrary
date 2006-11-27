@@ -434,7 +434,7 @@ class.</p>
       "Partial heat transfer element with two HeatPort connectors that does not store energy" 
       
       SI.HeatFlowRate Q_flow "Heat flow rate from port_a -> port_b";
-      SI.Temperature dT "port_a.T - port_b.T";
+      SI.TemperatureDifference dT "port_a.T - port_b.T";
     public 
       HeatPort_a port_a annotation (extent=[-110,-10; -90,10]);
       HeatPort_b port_b annotation (extent=[90,-10; 110,10]);
@@ -661,7 +661,7 @@ e.g., with one of the following equations:
   
   model Convection "Lumped thermal element for heat convection" 
     SI.HeatFlowRate Q_flow "Heat flow rate from solid -> fluid";
-    SI.Temperature dT "= solid.T - fluid.T";
+    SI.TemperatureDifference dT "= solid.T - fluid.T";
     annotation (
       Icon(
         Rectangle(extent=[-62,80; 98,-80],   style(color=7, fillColor=7)),
@@ -1223,7 +1223,8 @@ the two ports of this component and is provided as output signal in Kelvin.
     Interfaces.HeatPort_a port_a annotation (extent=[-110, -10; -90, 10]);
     Interfaces.HeatPort_b port_b annotation (extent=[90, -10; 110, 10]);
     Modelica.Blocks.Interfaces.RealOutput T_rel(redeclare type SignalType = 
-          SI.Temperature) annotation (extent=[-10, -80; 10, -100], rotation=90);
+          SI.TemperatureDifference) 
+                          annotation (extent=[-10, -80; 10, -100], rotation=90);
   equation 
     T_rel = port_a.T - port_b.T;
     0 = port_a.Q_flow;
