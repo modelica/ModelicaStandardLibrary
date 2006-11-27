@@ -628,7 +628,7 @@ where the constants <i>G1</i>, <i>G2</i> are called the gyration conductance.
         Line(points=[0, -90; 0, -40]),
         Text(extent=[20, -40; 100, -100], string="%name"),
         Text(
-          extent=[30, 100; 119, 40],
+          extent=[0,80; 148,44],
           string="k=%k",
           style(color=9))),
       Diagram(

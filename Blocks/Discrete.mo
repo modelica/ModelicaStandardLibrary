@@ -66,8 +66,7 @@ via parameter <b>samplePeriod</b>.
   
   block ZeroOrderHold "Zero order hold of a sampled-data system" 
     extends Interfaces.DiscreteSISO;
-  protected 
-    Real ySample;
+    output Real ySample(start=0, fixed=true);
     annotation (
       Coordsys(
         extent=[-100, -100; 100, 100],
@@ -199,7 +198,7 @@ the output y is identical to parameter yStart.
     parameter Real b[:]={1} "Numerator coefficients of transfer function.";
     parameter Real a[:]={1,1} "Denominator coefficients of transfer function.";
     extends Interfaces.DiscreteSISO;
-    output Real x[size(a, 1) - 1] 
+    output Real x[size(a, 1) - 1](start=zeros(size(a, 1) - 1), fixed=fill(true,size(a, 1) - 1)) 
       "State of transfer function from controller canonical form";
   protected 
     parameter Integer nb=size(b, 1) "Size of Numerator of transfer function";

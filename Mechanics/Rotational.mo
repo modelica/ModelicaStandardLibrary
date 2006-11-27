@@ -2700,7 +2700,7 @@ to describe a coupling of the element with the housing via a spring/damper.
           extent=[-101, -147; 98, -107],
           string="d=%d",
           style(color=0)),
-        Text(extent=[-150, 110; 150, 70], string="%name=%c")),
+        Text(extent=[-190, 110; 190, 70], string="%name=%c")),
       Diagram(
         Line(points=[-80, 32; -58, 32; -43, 2; -13, 62; 17, 2; 47, 62; 62, 32;
               80, 32], style(color=0, thickness=2)),
