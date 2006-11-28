@@ -241,12 +241,12 @@ A prescribed heat source dissipates its heat through a thermal conductor to a co
         annotation(choicesAllMatching=true);
       parameter Modelica.SIunits.CelsiusTemperature TAmb=20 
         "ambient temperature";
-      output Modelica.SIunits.Temperature dTSource=
+      output Modelica.SIunits.TemperatureDifference dTSource=
         PrescribedHeatFlow1.port.T-Modelica.SIunits.Conversions.from_degC(TAmb) 
         "Source over Ambient";
-      output Modelica.SIunits.Temperature dTtoPipe=PrescribedHeatFlow1.port.T-Pipe1.heatPort.T 
+      output Modelica.SIunits.TemperatureDifference dTtoPipe=PrescribedHeatFlow1.port.T-Pipe1.heatPort.T 
         "Source over Coolant";
-      output Modelica.SIunits.Temperature dTCoolant=Pipe1.dT 
+      output Modelica.SIunits.TemperatureDifference dTCoolant=Pipe1.dT 
         "Coolant's temperature increase";
       FluidHeatFlow.Sources.Ambient Ambient1(T_Ambient=Modelica.SIunits.Conversions.from_degC(TAmb),
         medium=medium) 
@@ -367,21 +367,21 @@ Two prescribed heat sources dissipate their heat through thermal conductors to c
         annotation(choicesAllMatching=true);
       parameter Modelica.SIunits.CelsiusTemperature TAmb=20 
         "ambient temperature";
-      output Modelica.SIunits.Temperature dTSource1=
+      output Modelica.SIunits.TemperatureDifference dTSource1=
         PrescribedHeatFlow1.port.T-Modelica.SIunits.Conversions.from_degC(TAmb) 
         "Source1 over Ambient";
-      output Modelica.SIunits.Temperature dTtoPipe1=PrescribedHeatFlow1.port.T-Pipe1.heatPort.T 
+      output Modelica.SIunits.TemperatureDifference dTtoPipe1=PrescribedHeatFlow1.port.T-Pipe1.heatPort.T 
         "Source1 over Coolant1";
-      output Modelica.SIunits.Temperature dTCoolant1=Pipe1.dT 
+      output Modelica.SIunits.TemperatureDifference dTCoolant1=Pipe1.dT 
         "Coolant1's temperature increase";
-      output Modelica.SIunits.Temperature dTSource2=
+      output Modelica.SIunits.TemperatureDifference dTSource2=
         PrescribedHeatFlow2.port.T-Modelica.SIunits.Conversions.from_degC(TAmb) 
         "Source2 over Ambient";
-      output Modelica.SIunits.Temperature dTtoPipe2=PrescribedHeatFlow2.port.T-Pipe2.heatPort.T 
+      output Modelica.SIunits.TemperatureDifference dTtoPipe2=PrescribedHeatFlow2.port.T-Pipe2.heatPort.T 
         "Source2 over Coolant2";
-      output Modelica.SIunits.Temperature dTCoolant2=Pipe2.dT 
+      output Modelica.SIunits.TemperatureDifference dTCoolant2=Pipe2.dT 
         "Coolant2's temperature increase";
-      output Modelica.SIunits.Temperature dTmixedCoolant=Ambient2.T_port-Ambient1.T_port 
+      output Modelica.SIunits.TemperatureDifference dTmixedCoolant=Ambient2.T_port-Ambient1.T_port 
         "mixed Coolant's temperature increase";
       FluidHeatFlow.Sources.Ambient Ambient1(T_Ambient=Modelica.SIunits.Conversions.from_degC(TAmb),
         medium=medium) 
@@ -527,16 +527,16 @@ Inner coolant's temperature rise near the source is the same as temperature drop
         annotation(choicesAllMatching=true);
       parameter Modelica.SIunits.CelsiusTemperature TAmb=20 
         "ambient temperature";
-      output Modelica.SIunits.Temperature dTSource=
+      output Modelica.SIunits.TemperatureDifference dTSource=
         PrescribedHeatFlow1.port.T-Modelica.SIunits.Conversions.from_degC(TAmb) 
         "Source over Ambient";
-      output Modelica.SIunits.Temperature dTtoPipe=PrescribedHeatFlow1.port.T-Pipe1.heatPort.T 
+      output Modelica.SIunits.TemperatureDifference dTtoPipe=PrescribedHeatFlow1.port.T-Pipe1.heatPort.T 
         "Source over inner Coolant";
-      output Modelica.SIunits.Temperature dTinnerCoolant=Pipe1.dT 
+      output Modelica.SIunits.TemperatureDifference dTinnerCoolant=Pipe1.dT 
         "inner Coolant's temperature increase";
-      output Modelica.SIunits.Temperature dTCooler=innerPipe.heatPort.T-outerPipe.heatPort.T 
+      output Modelica.SIunits.TemperatureDifference dTCooler=innerPipe.heatPort.T-outerPipe.heatPort.T 
         "Cooler's temperature increase between inner and outer pipes";
-      output Modelica.SIunits.Temperature dTouterCoolant=outerPipe.dT 
+      output Modelica.SIunits.TemperatureDifference dTouterCoolant=outerPipe.dT 
         "outer Coolant's temperature increase";
       FluidHeatFlow.Sources.Ambient Ambient1(T_Ambient=Modelica.SIunits.Conversions.from_degC(TAmb),
         medium=outerMedium) annotation (extent=[-60,60; -80,80]);
@@ -664,12 +664,12 @@ You may try to<br>
         annotation(choicesAllMatching=true);
       parameter Modelica.SIunits.CelsiusTemperature TAmb=20 
         "ambient temperature";
-      output Modelica.SIunits.Temperature dTSource=
+      output Modelica.SIunits.TemperatureDifference dTSource=
         PrescribedHeatFlow1.port.T-Modelica.SIunits.Conversions.from_degC(TAmb) 
         "Source over Ambient";
-      output Modelica.SIunits.Temperature dTtoPipe=PrescribedHeatFlow1.port.T-Pipe1.heatPort.T 
+      output Modelica.SIunits.TemperatureDifference dTtoPipe=PrescribedHeatFlow1.port.T-Pipe1.heatPort.T 
         "Source over Coolant";
-      output Modelica.SIunits.Temperature dTCoolant=Pipe1.dT 
+      output Modelica.SIunits.TemperatureDifference dTCoolant=Pipe1.dT 
         "Coolant's temperature increase";
       FluidHeatFlow.Sources.Ambient Ambient1(T_Ambient=Modelica.SIunits.Conversions.from_degC(TAmb),
         medium=medium) 
@@ -764,12 +764,12 @@ then started again (using a ramp of 0.2 s).
         annotation(choicesAllMatching=true);
       parameter Modelica.SIunits.CelsiusTemperature TAmb=20 
         "ambient temperature";
-      output Modelica.SIunits.Temperature dTSource=
+      output Modelica.SIunits.TemperatureDifference dTSource=
         PrescribedHeatFlow1.port.T-Modelica.SIunits.Conversions.from_degC(TAmb) 
         "Source over Ambient";
-      output Modelica.SIunits.Temperature dTtoPipe=PrescribedHeatFlow1.port.T-Pipe1.heatPort.T 
+      output Modelica.SIunits.TemperatureDifference dTtoPipe=PrescribedHeatFlow1.port.T-Pipe1.heatPort.T 
         "Source over Coolant";
-      output Modelica.SIunits.Temperature dTCoolant=Pipe1.dT 
+      output Modelica.SIunits.TemperatureDifference dTCoolant=Pipe1.dT 
         "Coolant's temperature increase";
       FluidHeatFlow.Sources.Ambient Ambient1(T_Ambient=Modelica.SIunits.Conversions.from_degC(TAmb),
         medium=medium) 
@@ -844,21 +844,21 @@ then started again (using a ramp of 0.2 s).
         annotation(choicesAllMatching=true);
       parameter Modelica.SIunits.CelsiusTemperature TAmb=20 
         "ambient temperature";
-      output Modelica.SIunits.Temperature dTSource1=
+      output Modelica.SIunits.TemperatureDifference dTSource1=
         PrescribedHeatFlow1.port.T-Modelica.SIunits.Conversions.from_degC(TAmb) 
         "Source1 over Ambient";
-      output Modelica.SIunits.Temperature dTtoPipe1=PrescribedHeatFlow1.port.T-Pipe1.heatPort.T 
+      output Modelica.SIunits.TemperatureDifference dTtoPipe1=PrescribedHeatFlow1.port.T-Pipe1.heatPort.T 
         "Source1 over Coolant1";
-      output Modelica.SIunits.Temperature dTCoolant1=Pipe1.dT 
+      output Modelica.SIunits.TemperatureDifference dTCoolant1=Pipe1.dT 
         "Coolant1's temperature increase";
-      output Modelica.SIunits.Temperature dTSource2=
+      output Modelica.SIunits.TemperatureDifference dTSource2=
         PrescribedHeatFlow2.port.T-Modelica.SIunits.Conversions.from_degC(TAmb) 
         "Source2 over Ambient";
-      output Modelica.SIunits.Temperature dTtoPipe2=PrescribedHeatFlow2.port.T-Pipe2.heatPort.T 
+      output Modelica.SIunits.TemperatureDifference dTtoPipe2=PrescribedHeatFlow2.port.T-Pipe2.heatPort.T 
         "Source2 over Coolant2";
-      output Modelica.SIunits.Temperature dTCoolant2=Pipe2.dT 
+      output Modelica.SIunits.TemperatureDifference dTCoolant2=Pipe2.dT 
         "Coolant2's temperature increase";
-      output Modelica.SIunits.Temperature dTmixedCoolant=Ambient2.T_port-Ambient1.T_port 
+      output Modelica.SIunits.TemperatureDifference dTmixedCoolant=Ambient2.T_port-Ambient1.T_port 
         "mixed Coolant's temperature increase";
       FluidHeatFlow.Sources.Ambient Ambient1(T_Ambient=Modelica.SIunits.Conversions.from_degC(TAmb),
         medium=medium) 
@@ -966,12 +966,12 @@ the time behaviour depending on coolant flow.
         "ambient temperature";
       parameter Modelica.SIunits.CelsiusTemperature TMass=40 
         "inital temperature of mass";
-      output Modelica.SIunits.Temperature dTMass=
+      output Modelica.SIunits.TemperatureDifference dTMass=
         HeatCapacitor1.port.T-Modelica.SIunits.Conversions.from_degC(TAmb) 
         "Mass over Ambient";
-      output Modelica.SIunits.Temperature dTtoPipe=HeatCapacitor1.port.T-Pipe1.heatPort.T 
+      output Modelica.SIunits.TemperatureDifference dTtoPipe=HeatCapacitor1.port.T-Pipe1.heatPort.T 
         "Mass over Coolant";
-      output Modelica.SIunits.Temperature dTCoolant=Pipe1.dT 
+      output Modelica.SIunits.TemperatureDifference dTCoolant=Pipe1.dT 
         "Coolant's temperature increase";
       FluidHeatFlow.Sources.Ambient Ambient1(T_Ambient=Modelica.SIunits.Conversions.from_degC(TAmb),
         medium=medium) 
@@ -1035,21 +1035,21 @@ the time behaviour depending on coolant flow.
         "inital temperature of mass1";
       parameter Modelica.SIunits.CelsiusTemperature TMass2=60 
         "inital temperature of mass2";
-      output Modelica.SIunits.Temperature dTMass1=
+      output Modelica.SIunits.TemperatureDifference dTMass1=
         HeatCapacitor1.port.T-Modelica.SIunits.Conversions.from_degC(TAmb) 
         "Mass1 over Ambient";
-      output Modelica.SIunits.Temperature dTtoPipe1=HeatCapacitor1.port.T-Pipe1.heatPort.T 
+      output Modelica.SIunits.TemperatureDifference dTtoPipe1=HeatCapacitor1.port.T-Pipe1.heatPort.T 
         "Mass1 over Coolant1";
-      output Modelica.SIunits.Temperature dTCoolant1=Pipe1.dT 
+      output Modelica.SIunits.TemperatureDifference dTCoolant1=Pipe1.dT 
         "Coolant1's temperature increase";
-      output Modelica.SIunits.Temperature dTMass2=
+      output Modelica.SIunits.TemperatureDifference dTMass2=
         HeatCapacitor2.port.T-Modelica.SIunits.Conversions.from_degC(TAmb) 
         "Mass2 over Ambient";
-      output Modelica.SIunits.Temperature dTtoPipe2=HeatCapacitor2.port.T-Pipe2.heatPort.T 
+      output Modelica.SIunits.TemperatureDifference dTtoPipe2=HeatCapacitor2.port.T-Pipe2.heatPort.T 
         "Mass2 over Coolant2";
-      output Modelica.SIunits.Temperature dTCoolant2=Pipe2.dT 
+      output Modelica.SIunits.TemperatureDifference dTCoolant2=Pipe2.dT 
         "Coolant2's temperature increase";
-      output Modelica.SIunits.Temperature dTmixedCoolant=Ambient2.T_port-Ambient1.T_port 
+      output Modelica.SIunits.TemperatureDifference dTmixedCoolant=Ambient2.T_port-Ambient1.T_port 
         "mixed Coolant's temperature increase";
       FluidHeatFlow.Sources.Ambient Ambient1(T_Ambient=Modelica.SIunits.Conversions.from_degC(TAmb),
         medium=medium) 
