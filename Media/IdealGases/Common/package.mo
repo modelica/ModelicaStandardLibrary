@@ -428,7 +428,7 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
     extends Modelica.Icons.Function;
     input IdealGases.Common.DataRecord data "Ideal gas data";
     input SI.Temperature T "Temperature";
-    input SI.TemperatureDifference dT "Temperature derivative";
+    input Real dT "Temperature derivative";
     output Real cp_der "Derivative of specific heat capacity";
   algorithm 
     cp_der := dT*data.R/(T*T*T)*(-2*data.alow[1] + T*(
