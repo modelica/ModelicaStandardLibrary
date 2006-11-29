@@ -3260,7 +3260,7 @@ the voltage we have to apply to the primary winding to achieve nominal current i
 </p>
 <p>
 <b>Please pay attention</b> to proper grounding of the primary and secondary part of the whole circuit.<br>
-The primary and secondary starpoint are available as connectors, if the conncetion is not delta (D or d).<br>
+The primary and secondary starpoint are available as connectors, if the connection is not delta (D or d).<br>
 <b>In some cases (Yy or Yz) it may be necessary to ground one of the transformer's starpoints 
 even though the source's and/or load's starpoint are grounded; you may use a reasonable high earthing resistance.</b>
 </p>
