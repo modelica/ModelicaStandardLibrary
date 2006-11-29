@@ -261,11 +261,11 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
       connect(Star1.pin_n, Ground1.p) 
         annotation (points=[-70, 90; -80, 90], style(color=3));
       connect(SineVoltage1.plug_n, Star1.plug_p) 
-        annotation (points=[-6.12303e-016,70; -6.12303e-016,90; -50,90],
+        annotation (points=[-6.12323e-016,70; -6.12323e-016,90; -50,90],
                                                         style(color=3));
       connect(SineVoltage1.plug_p, IdealCloser1.plug_p) 
-        annotation (points=[6.12303e-016,50; 0,48; 1.22461e-015,46;
-            6.12303e-016,46; 6.12303e-016,40], style(color=3));
+        annotation (points=[6.12323e-016,50; 0,48; 1.22461e-015,46; 
+            6.12323e-016,46; 6.12323e-016,40], style(color=3));
       connect(AIMC1.flange_a, LoadInertia.flange_a)  annotation (points=[0,-40;
             40,-40], style(color=0, rgbcolor={0,0,0}));
       connect(LoadInertia.flange_b, QuadraticLoadTorque1.flange) 
@@ -288,7 +288,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
           rgbfillColor={135,135,135},
           fillPattern=1));
       connect(TerminalBox1.plugToGrid, CurrentRMSsensor1.plug_n) annotation (
-          points=[-10,-28; -10,-20; -6.12303e-016,-20; -6.12303e-016,-10],
+          points=[-10,-28; -10,-20; -6.12323e-016,-20; -6.12323e-016,-10],
           style(
           color=3,
           rgbcolor={0,0,255},
@@ -296,7 +296,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
           rgbfillColor={135,135,135},
           fillPattern=1));
       connect(IdealCloser1.plug_n, CurrentRMSsensor1.plug_p) annotation (points=[
-            -6.12303e-016,20; -6.12303e-016,17; 6.12303e-016,17; 6.12303e-016,
+            -6.12323e-016,20; -6.12323e-016,17; 6.12323e-016,17; 6.12323e-016,
             10], style(
           color=3,
           rgbcolor={0,0,255},
@@ -1185,9 +1185,9 @@ Default machine parameters of model <i>DC_SeriesExcited</i> are used.
       annotation (Documentation(info="<HTML>
 <p>
 Transformer testbench:<br>
->ou may choose different connections as well as vary the load (even not symmetrical).<br>
+You may choose different connections as well as vary the load (even not symmetrical).<br>
 <b>Please pay attention</b> to proper grounding of the primary and secondary part of the whole circuit.<br>
-The primary and secondary starpoint are available as connectors, if the conncetion is not delta (D or d).<br>
+The primary and secondary starpoint are available as connectors, if the connection is not delta (D or d).<br>
 In some cases it may be necessary to ground the transformer's starpoint 
 even though the source's or load's starpoint are grounded; you may use a reasonable high earthing resistance.
 </p>
@@ -1242,7 +1242,7 @@ even though the source's or load's starpoint are grounded; you may use a reasona
       connect(load.plug_n, starL.plug_p) 
         annotation (points=[90,-20; 90,-30], style(color=3, rgbcolor={0,0,255}));
       connect(earth.n,ground. p) 
-        annotation (points=[-6.12303e-016,-50; 0,-50; 0,-60],style(color=3, rgbcolor={0,0,255}));
+        annotation (points=[-6.12323e-016,-50; 0,-50; 0,-60],style(color=3, rgbcolor={0,0,255}));
       connect(electricalPowerSensorS.plug_nv, starS.plug_p) 
         annotation (points=[-80,0; -80,-30; -90,-30],   style(color=3, rgbcolor={0,0,255}));
       connect(source.plug_p, electricalPowerSensorS.plug_p) 
