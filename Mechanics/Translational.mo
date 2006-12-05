@@ -1476,11 +1476,11 @@ with the Modelica.Blocks blocks.
       // Equations to define the following variables are given in this class
       Real sa "Path parameter of friction characteristic f = f(a_relfric)";
       
-      Boolean startForward 
+      Boolean startForward(start=false, fixed=true) 
         "true, if v_rel=0 and start of forward sliding or v_rel > v_small";
-      Boolean startBackward 
+      Boolean startBackward(start=false, fixed=true) 
         "true, if v_rel=0 and start of backward sliding or v_rel < -v_small";
-      Boolean locked "true, if v_rel=0 and not sliding";
+      Boolean locked(start=false) "true, if v_rel=0 and not sliding";
       
       constant Integer Unknown=3 "Value of mode is not known";
       constant Integer Free=2 "Element is not active";
@@ -1491,7 +1491,7 @@ with the Modelica.Blocks blocks.
       Integer mode(
         final min=Backward,
         final max=Unknown,
-        start=Unknown);
+        start=Unknown, fixed=true);
       annotation (Documentation(info="<html>
   
 </html>
