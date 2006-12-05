@@ -134,7 +134,7 @@ package Utilities "Utility models for Examples.Loops"
         rgbcolor={95,95,95},
         thickness=2));
     
-    connect(Cylinder.frame_b, Piston.frame_b) annotation (points=[14,89; 14,80; 
+    connect(Cylinder.frame_b, Piston.frame_b) annotation (points=[14,89; 14,80;
           14.5,80], style(
         color=10,
         rgbcolor={95,95,95},
@@ -144,7 +144,7 @@ package Utilities "Utility models for Examples.Loops"
         color=10,
         rgbcolor={95,95,95},
         thickness=2));
-    connect(B2.frame_a, Piston.frame_a) annotation (points=[4,35; -6,35; -6,49; 
+    connect(B2.frame_a, Piston.frame_a) annotation (points=[4,35; -6,35; -6,49;
           14.5,49; 14.5,59], style(
         color=10,
         rgbcolor={95,95,95},
@@ -229,8 +229,8 @@ package Utilities "Utility models for Examples.Loops"
     constant Real pi=Modelica.Constants.pi;
     constant Real PI=Modelica.Constants.pi;
     // Only for compatibility reasons
-    SI.Position x;
-    SI.Position y;
+    Real x "Normalized position of cylinder";
+    Real y "Normalized relative movement (= -s_rel/L)";
     SI.Density dens;
     Modelica.SIunits.Conversions.NonSIunits.Pressure_bar press 
       "cylinder pressure";
@@ -298,7 +298,7 @@ package Utilities "Utility models for Examples.Loops"
     parameter Real k=1;
     constant Real pi=Modelica.Constants.pi;
     constant Real PI=Modelica.Constants.pi;
-    SI.Position x;
+    Real x "Normalized position of cylinder (= 1 - s_rel/L)";
     SI.Density dens;
     SI.Pressure press "cylinder pressure";
     SI.Volume V;
@@ -529,19 +529,19 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
     Interfaces.Frame_a crank_b annotation (extent=[84,-116; 116,-84]);
   equation 
     
-    connect(jointRRP.frame_ia, Rod.frame_a) annotation (points=[20,-4; 49,-4; 
+    connect(jointRRP.frame_ia, Rod.frame_a) annotation (points=[20,-4; 49,-4;
           49,-1], style(
         color=10,
         rgbcolor={95,95,95},
         thickness=2));
-    connect(Mid.frame_b, jointRRP.frame_a) annotation (points=[-24,-20; 
+    connect(Mid.frame_b, jointRRP.frame_a) annotation (points=[-24,-20;
           1.22461e-015,-20; 1.22461e-015,-8], style(
         color=10,
         rgbcolor={95,95,95},
         thickness=2));
     connect(gasForce.flange_a, jointRRP.axis) 
       annotation (points=[9,70; 16,70; 16,32],    style(color=58));
-    connect(jointRRP.bearing, gasForce.flange_b) annotation (points=[8,32; 8,52; 
+    connect(jointRRP.bearing, gasForce.flange_b) annotation (points=[8,32; 8,52;
           -20,52; -20,70; -11,70],        style(color=58));
     connect(jointRRP.frame_ib, Piston.frame_b) annotation (points=[20,28; 30,28;
           30,70; 50,70; 50,60], style(
@@ -636,21 +636,21 @@ annotation (choices(choice(redeclare model Cylinder =
       animation=animation) annotation (extent=[-60, -10; -40, 10]);
     Cylinder cylinder3(
       cylinderInclination=-30,
-      animation=animation, 
+      animation=animation,
       crankAngleOffset=210) 
                            annotation (extent=[-30, -10; -10, 10]);
     Cylinder cylinder4(
       cylinderInclination=30,
-      animation=animation, 
+      animation=animation,
       crankAngleOffset=210) 
                            annotation (extent=[0, -10; 20, 10]);
     Cylinder cylinder5(
       cylinderInclination=-30,
-      animation=animation, 
+      animation=animation,
       crankAngleOffset=90) annotation (extent=[30, -10; 50, 10]);
     Cylinder cylinder6(
       cylinderInclination=30,
-      animation=animation, 
+      animation=animation,
       crankAngleOffset=-30) 
                            annotation (extent=[60, -10; 80, 10]);
     Joints.ActuatedRevolute bearing(

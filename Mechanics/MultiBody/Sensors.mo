@@ -202,7 +202,7 @@ Exact definition of the returned quantities:
       "Dummy or velocity of origin of frame_a with respect to origin of world frame (resolved in frame_resolve, frame_a or world frame)";
     SI.Acceleration a_abs[3] 
       "Dummy or acceleration of origin of frame_a with respect to origin of word frame (resolved in frame_resolve, frame_a or world frame)";
-    SI.Acceleration angles[3] 
+    SI.Angle angles[3] 
       "Dummy or angles to rotate world frame into frame_a via 'sequence'";
     SI.AngularVelocity w_abs[3] 
       "Dummy or angular velocity of frame_a with respect to world frame (resolved in frame_resolve, frame_a or world frame)";
@@ -417,7 +417,7 @@ Exact definition of the returned quantities:
       "Dummy or relative velocity vector (resolved in frame_a, frame_b or frame_resolve";
     SI.Acceleration a_rel[3] 
       "Dummy or relative acceleration vector (resolved in frame_a, frame_b or frame_resolve";
-    SI.Acceleration angles[3] 
+    SI.Angle angles[3] 
       "Dummy or angles to rotate frame_a into frame_b via 'sequence'";
     SI.AngularVelocity w_rel[3] 
       "Dummy or relative angular velocity vector (resolved in frame_a, frame_b or frame_resolve";
