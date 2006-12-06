@@ -4820,7 +4820,8 @@ are described in
       "set the thermodynamic state on the dew line" 
       extends Modelica.Icons.Function;
       input SaturationProperties sat "saturation point";
-      input FixedPhase phase =  1 "phase: default is one phase";
+      input FixedPhase phase(min = 1, max = 2) =  1 
+        "phase: default is one phase";
       output ThermodynamicState state "complete thermodynamic state info";
     end setDewState;
     
@@ -4828,7 +4829,8 @@ are described in
       "set the thermodynamic state on the bubble line" 
       extends Modelica.Icons.Function;
       input SaturationProperties sat "saturation point";
-      input FixedPhase phase =  1 "phase: default is one phase";
+      input FixedPhase phase(min = 1, max = 2) =  1 
+        "phase: default is one phase";
       output ThermodynamicState state "complete thermodynamic state info";
     end setBubbleState;
     
