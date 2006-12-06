@@ -1008,6 +1008,43 @@ The following additional medium <b>constants</b> are provided:
 </table>
 </p>
 <p>
+The setState_ph(), setState_ps(), setState_dT() and setState_pT() functions have
+one extra input, named <i>phase</i>. If the phase input is not specified, or if 
+it is given a value of zero, then the setState function will determine the phase, 
+based on the other input values. An input phase = 1 will force the setState 
+function to return a state vector corresponding to a one-phase state, while 
+phase = 2 will force the setState value to return a state vector corresponding 
+to a two-phase state, as shown in the following example;
+
+</p>
+<pre>
+   <b>replaceable package</b> Medium = Modelica.Media.Interfaces.PartialTwoPhaseMedium;
+   Medium.ThermodynamicState state, state1, state2;
+ <b>equation</b>
+   // Set the state, given the pressure and the specific enthalpy
+   // the phase is determined by the (p, h) values, and can be retrieved
+   // from the state record
+   state = Medium.setState_ph(p, h);
+   phase = state1.phase;
+
+   // Force the computation of the state with one-phase 
+   // equations of state, irrespective of the (p, h) values
+   state1 = Medium.setState_ph(p, h, 1);
+
+   // Force the computation of the state with 2-phase 
+   // equations of state, irrespective of the (p, h) values
+   state2 = Medium.setState_ph(p, h, 2);
+</pre>
+
+<p> This feature can be used for the following purposes:
+<ul>
+<li> saving computational time, if one knows in advance the phase of the medium;
+<li> unambiguously determine the phase, when the two inputs correspond to a point on the saturation boundary (the derivative functions have substantially different values on either side);
+<li> get the properties of metastable states, like superheated water or subcooled vapour.
+</ul>
+</p>
+
+<p>
 Many additional optional functions are defined to compute properties of 
 saturated media, either liquid (bubble point) or vapour (dew point). 
 The argument to such functions is a SaturationProperties record, which can be
@@ -1020,20 +1057,20 @@ as shown in the following example.
    Medium.SaturationProperties sat_T;
  <b>equation</b>
    // Set sat_p to saturation properties at pressure p
-   sat_p.psat = p;
-   sat_p.Tsat = Medium.saturationTemperature(p);
+   sat_p = Medium.setSat_p(p);
  
    // Compute saturation properties at pressure p
-   bubble_density_p = Medium.bubbleDensity(sat_p);
-   dew_enthalpy_p   = Medium.dewEnthalpy(sat_p);
+   saturationTemperature_p = Medium.saturationTemperature_sat(sat_p);
+   bubble_density_p =        Medium.bubbleDensity(sat_p);
+   dew_enthalpy_p   =        Medium.dewEnthalpy(sat_p);
  
    // Set sat_T to saturation properties at temperature T
-   sat_T.Tsat = T;
-   sat_T.psat = Medium.saturationPressure(T);
+   sat_T = Medium.setSat_T(T);
  
    // Compute saturation properties at temperature T
-   bubble_density_T = Medium.bubbleDensity(sat_T);
-   dew_enthalpy_T   = Medium.dewEnthalpy(sat_T);
+   saturationTemperature_T = Medium.saturationPressure_sat(sat_T);
+   bubble_density_T =        Medium.bubbleDensity(sat_T);
+   dew_enthalpy_T =          Medium.dewEnthalpy(sat_T);
 </pre>
 </p>
 <p>With reference to a model defining a pressure p, a temperature T, and a 
@@ -1053,6 +1090,12 @@ SaturationProperties record sat, the following functions are provided:
   <tr><td>Medium.saturationTemperature_derp(p)</b></td>
       <td>K/Pa</td>
       <td>Derivative of saturation temperature with respect to pressure</td></tr>
+  <tr><td>Medium.saturationTemperature_sat(sat)</b></td>
+      <td>K</td>
+      <td>Saturation temperature</td></tr>
+  <tr><td>Medium.saturationPressure_sat(sat)</b></td>
+      <td>Pa</td>
+      <td>Saturation pressure</td></tr>
   <tr><td>Medium.bubbleEnthalpy(sat)</b></td>
       <td>J/kg</td>
       <td>Specific enthalpy at bubble point</td></tr>
@@ -1071,6 +1114,9 @@ SaturationProperties record sat, the following functions are provided:
   <tr><td>Medium.dewDensity(sat)</b></td>
       <td>kg/m3</td>
       <td>Density at dew point</td></tr>
+  <tr><td>Medium.saturationTemperature_derp_sat(sat)</b></td>
+      <td>K/Pa</td>
+      <td>Derivative of saturation temperature with respect to pressure</td></tr>
   <tr><td>Medium.dBubbleDensity_dPressure(sat)</b></td>
       <td>kg/(m3.Pa)</td>
       <td>Derivative of density at bubble point with respect to pressure</td></tr>
@@ -1120,10 +1166,9 @@ Here are some examples:
    Medium.ThermodynamicState   bubble_2; // bubble point, two phase side
  <b>equation</b>
    // Set sat to saturation properties at pressure p
-   sat.psat = p;
-   sat.Tsat = Medium.saturationTemperature(p);
+   sat = setSat_p(p);
  
-   // Compute dew point properties, one-phase side
+   // Compute dew point properties, (default) one-phase side
    dew_1 = setDewState(sat);
    cpDew = Medium.specificHeatCapacityCp(dew_1);
    drho_dp_h_1 = Medium.density_derp_h(dew_1);
