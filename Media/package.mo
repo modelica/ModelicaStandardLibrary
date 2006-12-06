@@ -4968,6 +4968,12 @@ are described in
         "Surface tension sigma in the two phase region";
     end surfaceTension;
     
+      redeclare replaceable partial function extends molarMass 
+      "Return the molar mass of the medium" 
+      algorithm 
+        MM := fluidConstants[1].molarMass;
+      end molarMass;
+    
       replaceable partial function dBubbleDensity_dPressure 
       "Returns bubble point density derivative" 
         extends Modelica.Icons.Function;
