@@ -3580,8 +3580,8 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
       function p1_hs 
         "pressure as a function of ehtnalpy and entropy in region 1" 
         extends Modelica.Icons.Function;
-        input SI.Enthalpy h "specific enthalpy";
-        input SI.Entropy s "specific entropy";
+        input SI.SpecificEnthalpy h "specific enthalpy";
+        input SI.SpecificEntropy s "specific entropy";
         output SI.Pressure p "Pressure";
         constant Real[:] n=
           {-0.691997014660582,-0.183612548787560e2,-0.928332409297335e1,0.659639569909906e2,
@@ -3590,9 +3590,9 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
            -0.430991316516130e4,-0.747512324096068e3,0.730000345529245e3,0.114284032569021e4,-0.436407041874559e3};
         constant Real[:] I = {0,0,0,0,0,0,0,0,1,1,1,1,2,2,2,3,4,4,5};
         constant Real[:] J = {0,1,2,4,5,6,8,14,0,1,4,6,0,1,10,4,1,4,0};
-        constant SI.Enthalpy hstar = 3400e3 "normalization enthalpy";
+        constant SI.SpecificEnthalpy hstar = 3400e3 "normalization enthalpy";
         constant SI.Pressure pstar = 100e6 "normalization pressure";
-        constant SI.Entropy sstar = 7.6e3 "normalization entropy";
+        constant SI.SpecificEntropy sstar = 7.6e3 "normalization entropy";
       protected 
         Real eta = h/hstar "normalized specific enthalpy";
         Real sigma = s/sstar "normalized specific entropy";
@@ -3615,12 +3615,12 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
       
       function h2ab_s "boundary between regions 2a and 2b" 
         extends Modelica.Icons.Function;
-        output SI.Enthalpy h "Enthalpy";
-        input SI.Entropy s "Entropy";
+        output SI.SpecificEnthalpy h "Enthalpy";
+        input SI.SpecificEntropy s "Entropy";
       protected 
         constant Real[:] n = {-0.349898083432139e4,0.257560716905876e4,-0.421073558227969e3,0.276349063799944e2};
-        constant SI.Enthalpy hstar = 1e3 "normalization enthalpy";
-        constant SI.Entropy sstar = 1e3 "normalization entropy";
+        constant SI.SpecificEnthalpy hstar = 1e3 "normalization enthalpy";
+        constant SI.SpecificEntropy sstar = 1e3 "normalization entropy";
         Real sigma = s/sstar "normalized specific entropy";
         annotation (
             Documentation(                                                                                                    info="<html>
@@ -3642,8 +3642,8 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
       function p2a_hs 
         "pressure as a function of enthalpy and entropy in subregion 2a" 
         extends Modelica.Icons.Function;
-        input SI.Enthalpy h "specific enthalpy";
-        input SI.Entropy s "specific entropy";
+        input SI.SpecificEnthalpy h "specific enthalpy";
+        input SI.SpecificEntropy s "specific entropy";
         output SI.Pressure p "Pressure";
         constant Real[:] n=
           {-0.182575361923032e-1,-0.125229548799536,0.592290437320145,0.604769706185122e1,
@@ -3654,9 +3654,9 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
            0.965986235133332e4,0.681500934948134e1,-0.633207286824489e4,-0.558919224465760e1,0.400645798472063e-1};
         constant Real[:] I = {0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,2,2,2,3,3,3,3,3,4,5,5,6,7};
         constant Real[:] J = {1,3,6,16,20,22,0,1,2,3,5,6,10,16,20,22,3,16,20,0,2,3,6,16,16,3,16,3,1};
-        constant SI.Enthalpy hstar = 4200e3 "normalization enthalpy";
+        constant SI.SpecificEnthalpy hstar = 4200e3 "normalization enthalpy";
         constant SI.Pressure pstar = 4e6 "normalization pressure";
-        constant SI.Entropy sstar = 12e3 "normalization entropy";
+        constant SI.SpecificEntropy sstar = 12e3 "normalization entropy";
       protected 
         Real eta = h/hstar "normalized specific enthalpy";
         Real sigma = s/sstar "normalized specific entropy";
@@ -3680,8 +3680,8 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     function p2b_hs 
         "pressure as a function of enthalpy and entropy in subregion 2a" 
       extends Modelica.Icons.Function;
-      input SI.Enthalpy h "specific enthalpy";
-      input SI.Entropy s "specific entropy";
+      input SI.SpecificEnthalpy h "specific enthalpy";
+      input SI.SpecificEntropy s "specific entropy";
       output SI.Pressure p "Pressure";
       constant Real[:] n=
         {0.801496989929495e-1,-0.543862807146111,0.337455597421283,0.890555451157450e1,
@@ -3693,9 +3693,9 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
          0.109077066873024e12,-0.247964654258893e14,0.188801906865134e10,-0.123651009018773e15};
       constant Real[:] I = {0,0,0,0,0,1,1,1,1,1,1,2,2,2,3,3,3,3,4,4,5,5,6,6,6,7,7,8,8,8,8,12,14};
       constant Real[:] J = {0,1,2,4,8,0,1,2,3,5,12,1,6,18,0,1,7,12,1,16,1,12,1,8,18,1,16,1,3,14,18,10,16};
-      constant SI.Enthalpy hstar = 4100e3 "normalization enthalpy";
+      constant SI.SpecificEnthalpy hstar = 4100e3 "normalization enthalpy";
       constant SI.Pressure pstar = 100e6 "normalization pressure";
-      constant SI.Entropy sstar = 7.9e3 "normalization entropy";
+      constant SI.SpecificEntropy sstar = 7.9e3 "normalization entropy";
       protected 
       Real eta = h/hstar "normalized specific enthalpy";
       Real sigma = s/sstar "normalized specific entropy";
@@ -3719,8 +3719,8 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
       function p2c_hs 
         "pressure as a function of enthalpy and entropy in subregion 2c" 
           extends Modelica.Icons.Function;
-          input SI.Enthalpy h "specific enthalpy";
-          input SI.Entropy s "specific entropy";
+          input SI.SpecificEnthalpy h "specific enthalpy";
+          input SI.SpecificEntropy s "specific entropy";
           output SI.Pressure p "Pressure";
           constant Real[:] n=
             {0.112225607199012,-0.339005953606712e1,-0.320503911730094e2,-0.197597305104900e3,
@@ -3732,9 +3732,9 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
              -0.296492620980124e11,-0.111754907323424e16};
           constant Real[:] I = {0,0,0,0,0,0,1,1,1,1,1,2,2,2,2,2,3,3,3,3,3,4,5,5,5,5,6,6,10,12,16};
           constant Real[:] J = {0,1,2,3,4,8,0,2,5,8,14,2,3,7,10,18,0,5,8,16,18,18,1,4,6,14,8,18,7,7,10};
-          constant SI.Enthalpy hstar = 3500e3 "normalization enthalpy";
+          constant SI.SpecificEnthalpy hstar = 3500e3 "normalization enthalpy";
           constant SI.Pressure pstar = 100e6 "normalization pressure";
-          constant SI.Entropy sstar = 5.9e3 "normalization entropy";
+          constant SI.SpecificEntropy sstar = 5.9e3 "normalization entropy";
       protected 
           Real eta = h/hstar "normalized specific enthalpy";
           Real sigma = s/sstar "normalized specific entropy";
@@ -3758,11 +3758,11 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
       // Inverses from the 2003 additions to IF97
       function h3ab_p "ergion 3 a b boundary for pressure/enthalpy" 
           extends Modelica.Icons.Function;
-          output SI.Enthalpy h "Enthalpy";
+          output SI.SpecificEnthalpy h "Enthalpy";
           input SI.Pressure p "Pressure";
       protected 
           constant Real[:] n = {0.201464004206875e4,0.374696550136983e1,-0.219921901054187e-1,0.875131686009950e-4};
-          constant SI.Enthalpy hstar = 1000 "normalization enthalpy";
+          constant SI.SpecificEnthalpy hstar = 1000 "normalization enthalpy";
           constant SI.Pressure pstar = 1e6 "normalization pressure";
           Real pi = p/pstar "normalized specific pressure";
           annotation (
@@ -3803,7 +3803,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
       function T3a_ph "Region 3 a: inverse function T(p,h)" 
           extends Modelica.Icons.Function;
           input SI.Pressure p "Pressure";
-          input SI.Enthalpy h "specific enthalpy";
+          input SI.SpecificEnthalpy h "specific enthalpy";
           output SI.Temp_K T "Temperature";
       protected 
           constant Real[:] n=
@@ -3817,7 +3817,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
           constant Real[:] I = {-12,-12,-12,-12,-12,-12,-12,-12,-10,-10,
                                 -10,-8,-8,-8,-8,-5,-3,-2,-2,-2,-1,-1,0,0,1,3,3,4,4,10,12};
           constant Real[:] J = { 0,1,2,6,14,16,20,22,1,5,12,0,2,4,10,2,0,1,3,4,0,2,0,1,1,0,1,0,3,4,5};
-          constant SI.Enthalpy hstar = 2300e3 "normalization enthalpy";
+          constant SI.SpecificEnthalpy hstar = 2300e3 "normalization enthalpy";
           constant SI.Pressure pstar = 100e6 "normalization pressure";
           constant SI.Temp_K Tstar = 760 "normalization temperature";
           Real pi = p/pstar "normalized specific pressure";
@@ -3845,7 +3845,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
       function T3b_ph "Region 3 b: inverse function T(p,h)" 
           extends Modelica.Icons.Function;
           input SI.Pressure p "Pressure";
-          input SI.Enthalpy h "specific enthalpy";
+          input SI.SpecificEnthalpy h "specific enthalpy";
           output SI.Temp_K T "Temperature";
       protected 
           constant Real[:] n=
@@ -3861,7 +3861,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
           constant Real[:] J = {0,1,0,1,5,10,12,0,1,2,4,10,0,1,2,0,1,5,0,4,2,4,6,10,14,16,0,2,1,1,1,1,1};
           constant SI.Temp_K Tstar = 860 "normalization temperature";
           constant SI.Pressure pstar = 100e6 "normalization pressure";
-          constant SI.Enthalpy hstar = 2800e3 "normalization enthalpy";
+          constant SI.SpecificEnthalpy hstar = 2800e3 "normalization enthalpy";
           Real pi = p/pstar "normalized specific pressure";
           Real eta = h/hstar "normalized specific enthalpy";
           annotation (
@@ -3887,7 +3887,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
       function v3a_ph "Region 3 a: inverse function v(p,h)" 
           extends Modelica.Icons.Function;
           input SI.Pressure p "Pressure";
-          input SI.Enthalpy h "specific enthalpy";
+          input SI.SpecificEnthalpy h "specific enthalpy";
           output SI.Volume v "specific volume";
       protected 
           constant Real[:] n=
@@ -3903,7 +3903,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
           constant Real[:] J = {6,8,12,18,4,7,10,5,12,3,4,22,2,3,7,3,16,0,1,2,3,0,1,0,1,2,0,2,0,2,2,2};
           constant SI.Volume vstar = 0.0028 "normalization temperature";
           constant SI.Pressure pstar = 100e6 "normalization pressure";
-          constant SI.Enthalpy hstar = 2100e3 "normalization enthalpy";
+          constant SI.SpecificEnthalpy hstar = 2100e3 "normalization enthalpy";
           Real pi = p/pstar "normalized specific pressure";
           Real eta = h/hstar "normalized specific enthalpy";
           annotation (
@@ -3929,7 +3929,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
       function v3b_ph "Region 3 b: inverse function v(p,h)" 
           extends Modelica.Icons.Function;
           input SI.Pressure p "Pressure";
-          input SI.Enthalpy h "specific enthalpy";
+          input SI.SpecificEnthalpy h "specific enthalpy";
           output SI.Volume v "specific volume";
       protected 
           constant Real[:] n=
@@ -3945,7 +3945,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
           constant Real[:] J = {0,1,0,1,3,6,7,8,0,1,2,5,6,10,3,6,10,0,2,1,2,0,1,4,5,0,0,1,2,6};
           constant SI.Volume vstar = 0.0088 "normalization temperature";
           constant SI.Pressure pstar = 100e6 "normalization pressure";
-          constant SI.Enthalpy hstar = 2800e3 "normalization enthalpy";
+          constant SI.SpecificEnthalpy hstar = 2800e3 "normalization enthalpy";
           Real pi = p/pstar "normalized specific pressure";
           Real eta = h/hstar "normalized specific enthalpy";
           annotation (
@@ -3971,7 +3971,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
       function T3a_ps "Region 3 a: inverse function T(p,s)" 
           extends Modelica.Icons.Function;
           input SI.Pressure p "Pressure";
-          input SI.Entropy s "specific entropy";
+          input SI.SpecificEntropy s "specific entropy";
           output SI.Temp_K T "Temperature";
       protected 
           constant Real[:] n=
@@ -3987,7 +3987,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
           constant Real[:] J = {28,32,4,10,12,14,5,7,8,28,2,6,32,0,14,32,6,10,36,1,4,1,6,0,1,4,0,0,3,2,0,1,2};
           constant SI.Temp_K Tstar = 760 "normalization temperature";
           constant SI.Pressure pstar = 100e6 "normalization pressure";
-          constant SI.Entropy sstar = 4.4e3 "normalization entropy";
+          constant SI.SpecificEntropy sstar = 4.4e3 "normalization entropy";
           Real pi = p/pstar "normalized specific pressure";
           Real sigma = s/sstar "normalized specific entropy";
           annotation (
@@ -4013,7 +4013,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
       function T3b_ps "Region 3 b: inverse function T(p,s)" 
           extends Modelica.Icons.Function;
           input SI.Pressure p "Pressure";
-          input SI.Entropy s "specific entropy";
+          input SI.SpecificEntropy s "specific entropy";
           output SI.Temp_K T "Temperature";
       protected 
           constant Real[:] n=
@@ -4027,7 +4027,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
           constant Real[:] J = {1,3,4,7,0,1,3,0,2,4,0,1,2,4,6,12,1,6,2,0,1,1,0,24,0,3,1,2};
           constant SI.Temp_K Tstar = 860 "normalization temperature";
           constant SI.Pressure pstar = 100e6 "normalization pressure";
-          constant SI.Entropy sstar = 5.3e3 "normalization entropy";
+          constant SI.SpecificEntropy sstar = 5.3e3 "normalization entropy";
           Real pi = p/pstar "normalized specific pressure";
           Real sigma = s/sstar "normalized specific entropy";
           annotation (
@@ -4053,7 +4053,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
       function v3a_ps "Region 3 a: inverse function v(p,s)" 
           extends Modelica.Icons.Function;
           input SI.Pressure p "Pressure";
-          input SI.Entropy s "specific entropy";
+          input SI.SpecificEntropy s "specific entropy";
           output SI.Volume v "specific volume";
       protected 
           constant Real[:] n=
@@ -4067,7 +4067,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
           constant Real[:] J = {10,12,14,4,8,10,20,5,6,14,16,28,1,5,2,4,3,8,1,2,0,1,3,0,0,2,2,0};
           constant SI.Volume vstar = 0.0028 "normalization temperature";
           constant SI.Pressure pstar = 100e6 "normalization pressure";
-          constant SI.Entropy sstar = 4.4e3 "normalization entropy";
+          constant SI.SpecificEntropy sstar = 4.4e3 "normalization entropy";
           Real pi = p/pstar "normalized specific pressure";
           Real sigma = s/sstar "normalized specific entropy";
           annotation (
@@ -4093,7 +4093,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
       function v3b_ps "Region 3 b: inverse function v(p,s)" 
           extends Modelica.Icons.Function;
           input SI.Pressure p "Pressure";
-          input SI.Entropy s "specific entropy";
+          input SI.SpecificEntropy s "specific entropy";
           output SI.Volume v "specific volume";
       protected 
           constant Real[:] n=
@@ -4109,7 +4109,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
           constant Real[:] J = {0,1,2,3,5,6,0,1,2,4,0,1,2,3,0,1,2,3,1,0,1,2,3,4,12,0,1,2,0,2,2};
           constant SI.Volume vstar = 0.0088 "normalization temperature";
           constant SI.Pressure pstar = 100e6 "normalization pressure";
-          constant SI.Entropy sstar = 5.3e3 "normalization entropy";
+          constant SI.SpecificEntropy sstar = 5.3e3 "normalization entropy";
           Real pi = p/pstar "normalized specific pressure";
           Real sigma = s/sstar "normalized specific entropy";
           annotation (
@@ -4422,9 +4422,9 @@ Ordinary Water Substance<br>
         constant SI.Temperature Tstar2=647.25 "Reference temperature";
         constant SI.ThermalConductivity lambdastar=1 
           "Reference thermal conductivity";
-        parameter SI.Temperature TREL=T/Tstar2 "Relative temperature";
-        parameter SI.Density rhoREL=d/rhostar2 "Relative density";
-        SI.ThermalConductivity lambdaREL "Relative thermal conductivity";
+        parameter Real TREL=T/Tstar2 "Relative temperature";
+        parameter Real rhoREL=d/rhostar2 "Relative density";
+        Real lambdaREL "Relative thermal conductivity";
         Real deltaTREL "Relative temperature increment";
         constant Real[:] C={0.642857,-4.11717,-6.17937,0.00308976,0.0822994,
             10.0932};
@@ -5497,7 +5497,7 @@ Ordinary Water Substance<br>
           subregion := if s < data.SCRIT then 1 else 2;
         end if;
         T := if subregion == 1 then Basic.T3a_ps(p,s) else Basic.T3b_ps(p,s);
-        d := if subregion == 1 then 1/Basic.v3a_ph(p,s) else 1/Basic.v3b_ph(p,s);
+        d := if subregion == 1 then 1/Basic.v3a_ps(p,s) else 1/Basic.v3b_ps(p,s);
         while ((i < IterationData.IMAX) and not found) loop
           f := Basic.f3(d, T);
           nDerivs := Modelica.Media.Common.Helmholtz_ps(f);
@@ -5700,7 +5700,7 @@ Ordinary Water Substance<br>
       protected 
         Modelica.Media.Common.GibbsDerivs g 
           "dimensionless Gibbs funcion and dervatives wrt pi and tau";
-        SI.SpecificEnthalpy pros "s for current guess in T";
+        SI.SpecificEntropy pros "s for current guess in T";
         parameter SI.Temperature Tguess=1500 "initial temperature";
         Integer i "iteration counter";
         Real relerr "relative error in s";
@@ -5743,7 +5743,7 @@ Ordinary Water Substance<br>
       protected 
         Modelica.Media.Common.GibbsDerivs g 
           "dimensionless Gibbs funcion and dervatives wrt pi and tau";
-        SI.SpecificEnthalpy pros "s for current guess in T";
+        SI.SpecificEntropy pros "s for current guess in T";
         Integer i "iteration counter";
         Real relerr "relative error in s";
         Real ds "Newton-error in s-direction";
@@ -6273,7 +6273,8 @@ Ordinary Water Substance<br>
       aux.s := aux.R*(f.tau*f.ftau - f.f);
       aux.pd := aux.R*aux.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
       aux.pt := aux.R*aux.rho*f.delta*(f.fdelta - f.tau*f.fdeltatau);
-      aux.cv := abs(aux.R*(-f.tau*f.tau*f.ftautau)) "can be close to neg. infinity near critical point";
+      aux.cv := abs(aux.R*(-f.tau*f.tau*f.ftautau)) 
+        "can be close to neg. infinity near critical point";
       aux.cp := (aux.rho*aux.rho*aux.pd*aux.cv + aux.T*aux.pt*aux.pt)/(aux.rho*aux.rho*aux.pd);
       aux.x := 0.0;
       aux.dpT := aux.pt; /*safety against div-by-0 in initialization*/
@@ -6457,7 +6458,8 @@ Ordinary Water Substance<br>
     input SI.Pressure p "pressure";
     input SI.SpecificEntropy s "specific entropy";
     input Integer phase = 0 "2 for two-phase, 1 for one-phase, 0 if not known";
-    input Integer region = 0 "if 0, region is unknown, otherwise known and this input";
+    input Integer region = 0 
+      "if 0, region is unknown, otherwise known and this input";
     output SI.Density rho "density";
   algorithm 
     rho := rho_props_ps(p, s, waterBaseProp_ps(p, s, phase, region));
@@ -6481,7 +6483,8 @@ Ordinary Water Substance<br>
     input SI.Pressure p "pressure";
     input SI.SpecificEntropy s "specific entropy";
     input Integer phase = 0 "2 for two-phase, 1 for one-phase, 0 if not known";
-    input Integer region = 0 "if 0, region is unknown, otherwise known and this input";
+    input Integer region = 0 
+      "if 0, region is unknown, otherwise known and this input";
     output SI.Temperature T "Temperature";
   algorithm 
     T := T_props_ps(p, s, waterBaseProp_ps(p, s, phase, region));
@@ -6506,7 +6509,8 @@ Ordinary Water Substance<br>
     input SI.Pressure p "pressure";
     input SI.SpecificEntropy s "specific entropy";
     input Integer phase = 0 "2 for two-phase, 1 for one-phase, 0 if not known";
-    input Integer region =  0 "if 0, region is unknown, otherwise known and this input";
+    input Integer region =  0 
+      "if 0, region is unknown, otherwise known and this input";
     output SI.SpecificEnthalpy h "specific enthalpy";
   algorithm 
     h := h_props_ps(p, s, waterBaseProp_ps(p, s, phase, region));
