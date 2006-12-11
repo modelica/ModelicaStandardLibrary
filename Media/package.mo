@@ -4575,7 +4575,7 @@ are described in
       input Temperature T "Temperature";
       output AbsolutePressure p "Pressure";
     algorithm 
-      p := pressure(setState_pTX(d, T, fill(0,0)));
+      p := pressure(setState_dTX(d, T, fill(0,0)));
     end pressure_dT;
     
     replaceable function specificEnthalpy_dT 
@@ -4585,7 +4585,7 @@ are described in
       input Temperature T "Temperature";
       output SpecificEnthalpy h "specific enthalpy";
     algorithm 
-      h := specificEnthalpy(setState_pTX(d, T, fill(0,0)));
+      h := specificEnthalpy(setState_dTX(d, T, fill(0,0)));
     end specificEnthalpy_dT;
     
     replaceable function specificEnthalpy_ps 
@@ -5209,7 +5209,7 @@ are described in
         "2 for two-phase, 1 for one-phase, 0 if not known";
       output AbsolutePressure p "Pressure";
     algorithm 
-      p := pressure(setState_pTX(d, T, fill(0,0),phase));
+      p := pressure(setState_dTX(d, T, fill(0,0),phase));
     end pressure_dT;
     
     redeclare replaceable function specificEnthalpy_dT 
@@ -5221,7 +5221,7 @@ are described in
         "2 for two-phase, 1 for one-phase, 0 if not known";
       output SpecificEnthalpy h "specific enthalpy";
     algorithm 
-      h := specificEnthalpy(setState_pTX(d, T, fill(0,0),phase));
+      h := specificEnthalpy(setState_dTX(d, T, fill(0,0),phase));
     end specificEnthalpy_dT;
     
     redeclare replaceable function specificEnthalpy_ps 
