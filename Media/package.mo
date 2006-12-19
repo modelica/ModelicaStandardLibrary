@@ -6585,8 +6585,9 @@ public
     DerPressureByTemperature dpT "dp/dT derivative of saturation curve";
     DerPressureByTemperature pt "derivative of pressure wrt temperature";
     DerPressureByDensity pd "derivative of pressure wrt density";
-    Real vt "derivative of specific volume w.r.t. temperature";
-    Real vp "derivative of specific volume w.r.t. pressure";
+    Real vt(unit="m3/(kg.K)") 
+      "derivative of specific volume w.r.t. temperature";
+    Real vp(unit="m3/(kg.Pa)") "derivative of specific volume w.r.t. pressure";
   end IF97PhaseBoundaryProperties;
   
   record GibbsDerivs 
