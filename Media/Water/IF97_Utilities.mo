@@ -2023,7 +2023,8 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
         extends Modelica.Icons.Function;
         input SI.Pressure p "saturation pressure";
         input Common.IF97PhaseBoundaryProperties bpro "property record";
-        output Real dd_dp "derivative of density along the phase boundary";
+        output Real dd_dp(unit="kg/(m3.Pa)") 
+          "derivative of density along the phase boundary";
       algorithm 
         dd_dp := if bpro.region3boundary then (1.0 - bpro.pt/bpro.dpT)/
           bpro.pd else -bpro.d*bpro.d*(bpro.vp + bpro.vt/bpro.dpT);
@@ -6846,7 +6847,7 @@ Ordinary Water Substance<br>
       Inline=false,
       LateInline=true);
   algorithm 
-    gamma := if aux.region == 3 then 1/(aux.rho*p)*((aux.pd*aux.cv/(aux.rho*aux.rho) + aux.pt*aux.pt*aux.T)/(aux.cv)) else 
+    gamma := if aux.region == 3 then 1/(aux.rho*p)*((aux.pd*aux.cv*aux.rho*aux.rho + aux.pt*aux.pt*aux.T)/(aux.cv)) else 
            if aux.region == 4 then 1/(aux.rho*p)*aux.dpT*aux.dpT*aux.T/aux.cv else 
       -1/(aux.rho*aux.p)*aux.cp/(aux.vp*aux.cp + aux.vt*aux.vt*aux.T);
   end isentropicExponent_props_ph;
@@ -7260,7 +7261,7 @@ Ordinary Water Substance<br>
       Inline=false,
       LateInline=true);
   algorithm 
-    gamma := if aux.region == 3 then 1/(aux.rho*p)*((aux.pd*aux.cv/(aux.rho*aux.rho) + aux.pt*aux.pt*aux.T)/(aux.cv)) else 
+    gamma := if aux.region == 3 then 1/(aux.rho*p)*((aux.pd*aux.cv*aux.rho*aux.rho + aux.pt*aux.pt*aux.T)/(aux.cv)) else 
       -1/(aux.rho*aux.p)*aux.cp/(aux.vp*aux.cp + aux.vt*aux.vt*aux.T);
   end isentropicExponent_props_pT;
   
@@ -7669,7 +7670,7 @@ Ordinary Water Substance<br>
       Inline=false,
       LateInline=true);
   algorithm 
-    gamma := if aux.region == 3 then 1/(aux.rho*aux.p)*((aux.pd*aux.cv/(aux.rho*aux.rho) + aux.pt*aux.pt*aux.T)/(aux.cv)) else 
+    gamma := if aux.region == 3 then 1/(aux.rho*aux.p)*((aux.pd*aux.cv*aux.rho*aux.rho + aux.pt*aux.pt*aux.T)/(aux.cv)) else 
            if aux.region == 4 then 1/(aux.rho*aux.p)*aux.dpT*aux.dpT*aux.T/aux.cv else 
       -1/(aux.rho*aux.p)*aux.cp/(aux.vp*aux.cp + aux.vt*aux.vt*aux.T);
   end isentropicExponent_props_dT;

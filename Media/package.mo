@@ -5733,9 +5733,9 @@ protected
   type IsobaricVolumeExpansionCoefficient = Real (final quantity=
           "IsobaricVolumeExpansionCoefficient", unit="1/K");
   type IsochoricPressureCoefficient = Real (final quantity=
-          "IsochoricPressureCoefficient", unit="1/Pa");
+          "IsochoricPressureCoefficient", unit="1/K");
   type IsothermalCompressibility = Real (final quantity=
-          "IsothermalCompressibility", unit="kg/m3");
+          "IsothermalCompressibility", unit="1/Pa");
   type JouleThomsonCoefficient = Real (final quantity="JouleThomsonCoefficient",
          unit="K/Pa");
   // introduce min-manx-nominal values
@@ -6080,8 +6080,7 @@ protected
         "derivative of density by enthalpy at constant pressure";
       SI.DerDensityByPressure ddph 
         "derivative of density by pressure at constant enthalpy";
-      SI.DerEnergyByPressure duph 
-        "derivative of inner energy by pressure at constant enthalpy";
+      Real duph "derivative of inner energy by pressure at constant enthalpy";
       Real duhp "derivative of inner energy by enthalpy at constant pressure";
       annotation (Documentation(info="<HTML>
 <h4>Model description</h4>
@@ -6136,8 +6135,7 @@ two phase and liquid regions.
         "derivative of density by temperature at constant pressure";
       SI.DerDensityByPressure ddpT 
         "derivative of density by pressure at constant temperature";
-      SI.DerEnergyByPressure dupT 
-        "derivative of inner energy by pressure at constant T";
+      Real dupT "derivative of inner energy by pressure at constant T";
       SI.SpecificHeatCapacity duTp 
         "derivative of inner energy by temperature at constant p";
       annotation (Documentation(info="<HTML>
@@ -6188,8 +6186,7 @@ liquid regions, but never in the two-phase region.
         min=1.0,
         max=10000.0,
         nominal=300.0) "speed of sound";
-      SI.DerEnergyByDensity dudT 
-        "derivative of inner energy by density at constant T";
+      Real dudT "derivative of inner energy by density at constant T";
       annotation (Documentation(info="<HTML>
 <h4>Model description</h4>
 <p>
@@ -6372,7 +6369,7 @@ critical pressure.
       p := pro.d*pro.R*pro.T*f.delta*f.fdelta;
       pd := f.R*f.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
       pt := f.R*f.d*f.delta*(f.fdelta - f.tau*f.fdeltatau);
-      pv := -(f.d*f.d)/pd;
+      pv := -pd*f.d*f.d;
       
       // calculating cp near the critical point may be troublesome (cp -> inf).
       pro.cp := f.R*(-f.tau*f.tau*f.ftautau + (f.delta*f.fdelta - f.delta*f.tau
@@ -6401,6 +6398,12 @@ critical pressure.
       DerPressureByTemperature pt "derivative of pressure w.r.t. temperature";
       DerPressureBySpecificVolume pv 
         "derivative of pressure w.r.t. specific volume";
+      IsobaricVolumeExpansionCoefficient alpha 
+        "isobaric volume expansion coefficient";
+      // beta in Bejan
+      IsothermalCompressibility gamma "isothermal compressibility";
+      // kappa in Bejan  
+     SI.Pressure p "Pressure";
     algorithm 
       pro.d := f.d;
       pro.R := f.R;
@@ -6409,8 +6412,10 @@ critical pressure.
       pro.u := f.R*f.T*f.tau*f.ftau;
       pd := f.R*f.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
       pt := f.R*f.d*f.delta*(f.fdelta - f.tau*f.fdeltatau);
-      pv := -(f.d*f.d)/pd;
-      
+      pv := -(f.d*f.d)*pd;
+      alpha := -f.d*pt/pv;
+      gamma := -f.d/pv;
+      p := f.R*f.d*f.T*f.delta*f.fdelta;
       // calculating cp near the critical point may be troublesome (cp -> inf).
       pro.cp := f.R*(-f.tau*f.tau*f.ftautau + (f.delta*f.fdelta - f.delta*f.tau
         *f.fdeltatau)^2/(2*f.delta*f.fdelta + f.delta*f.delta*f.fdeltadelta));
@@ -6422,8 +6427,9 @@ critical pressure.
         f.delta*f.tau*f.fdeltatau))/(f.tau*f.tau*f.ftautau)))^0.5;
       pro.ddTp := -pt/pd;
       pro.ddpT := 1/pd;
-      pro.dupT := (f.d - f.T*pt)/(f.d*f.d*pd);
-      pro.duTp := (-pro.cv*f.d*f.d*pd + pt*f.d - f.T*pt*pt)/(f.d*f.d*pd);
+      //problem with units in last two lines
+      pro.dupT := gamma*p/f.d - alpha*f.T/f.d;
+      pro.duTp := pro.cp - alpha*p/f.d;
     end helmholtzToProps_pT;
     
     function helmholtzToProps_dT 
@@ -6700,7 +6706,7 @@ public
     SI.Pressure p "pressure";
     SI.Temperature T "temperature";
     SI.SpecificEntropy s "specific entropy";
-    SI.SpecificHeatCapacity cp "heat capaccity at constant pressure";
+    SI.SpecificHeatCapacity cp "heat capacity at constant pressure";
     IsobaricVolumeExpansionCoefficient alpha 
       "isobaric volume expansion coefficient";
     // beta in Bejan
@@ -6758,10 +6764,10 @@ public
     Real dsu=-dus "coefficient in Bridgmans table, see info for usage";
     Real dhs=-v*cp/T "coefficient in Bridgmans table, see info for usage";
     Real dsh=-dhs "coefficient in Bridgmans table, see info for usage";
-    Real dfs=gamma*v*s + dus 
+    Real dfs=alpha*v*s + dus 
       "coefficient in Bridgmans table, see info for usage";
     Real dsf=-dfs "coefficient in Bridgmans table, see info for usage";
-    Real dgs=gamma*v*s - v*cp/T 
+    Real dgs=alpha*v*s - v*cp/T 
       "coefficient in Bridgmans table, see info for usage";
     Real dsg=-dgs "coefficient in Bridgmans table, see info for usage";
     // Derivatives at constant u
