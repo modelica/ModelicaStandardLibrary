@@ -5667,7 +5667,6 @@ quantities are assumed to be constant.
   
 end Interfaces;
 
-
 package Common "data structures and fundamental functions for fluid properties" 
   
   annotation (Documentation(info="<HTML><h4>Package description</h4>
@@ -5695,7 +5694,7 @@ package Common "data structures and fundamental functions for fluid properties"
       Box 118, 22100 Lund, Sweden<br>
       email: hubertus@control.lth.se
       </address>
-</html>"));
+</html>"), uses(Modelica(version="2.2.1")));
   extends Modelica.Icons.Library;
 protected 
   type Rate = Real (final quantity="Rate", final unit="s-1");
@@ -5745,41 +5744,60 @@ protected
   constant SI.Area AMIN=MINPOS "minimal init area";
   constant SI.Area AMAX=1.0e5 "maximal init area";
   constant SI.Area ANOM=1.0 "nominal init area";
-  constant SI.AmountOfSubstance MOLMIN=-1.0*MINPOS "minimal Mole Number";
-  constant SI.AmountOfSubstance MOLMAX=1.0e8 "maximal Mole Number";
+  constant SI.AmountOfSubstance MOLMIN=-1.0*MINPOS 
+    "minimal Mole Number";
+  constant SI.AmountOfSubstance MOLMAX=1.0e8 
+    "maximal Mole Number";
   constant SI.AmountOfSubstance MOLNOM=1.0 "nominal Mole Number";
   constant SI.Density DMIN=MINPOS "minimal init density";
   constant SI.Density DMAX=1.0e5 "maximal init density";
   constant SI.Density DNOM=1.0 "nominal init density";
-  constant SI.ThermalConductivity LAMMIN=MINPOS "minimal thermal conductivity";
-  constant SI.ThermalConductivity LAMNOM=1.0 "nominal thermal conductivity";
-  constant SI.ThermalConductivity LAMMAX=1000.0 "maximal thermal conductivity";
-  constant SI.DynamicViscosity ETAMIN=MINPOS "minimal init dynamic viscosity";
-  constant SI.DynamicViscosity ETAMAX=1.0e8 "maximal init dynamic viscosity";
-  constant SI.DynamicViscosity ETANOM=100.0 "nominal init dynamic viscosity";
+  constant SI.ThermalConductivity LAMMIN=MINPOS 
+    "minimal thermal conductivity";
+  constant SI.ThermalConductivity LAMNOM=1.0 
+    "nominal thermal conductivity";
+  constant SI.ThermalConductivity LAMMAX=1000.0 
+    "maximal thermal conductivity";
+  constant SI.DynamicViscosity ETAMIN=MINPOS 
+    "minimal init dynamic viscosity";
+  constant SI.DynamicViscosity ETAMAX=1.0e8 
+    "maximal init dynamic viscosity";
+  constant SI.DynamicViscosity ETANOM=100.0 
+    "nominal init dynamic viscosity";
   constant SI.Energy EMIN=-1.0e10 "minimal init energy";
   constant SI.Energy EMAX=1.0e10 "maximal init energy";
   constant SI.Energy ENOM=1.0e3 "nominal init energy";
   constant SI.Entropy SMIN=-1.0e6 "minimal init entropy";
   constant SI.Entropy SMAX=1.0e6 "maximal init entropy";
   constant SI.Entropy SNOM=1.0e3 "nominal init entropy";
-  constant SI.MassFlowRate MDOTMIN=-1.0e5 "minimal init mass flow rate";
-  constant SI.MassFlowRate MDOTMAX=1.0e5 "maximal init mass flow rate";
-  constant SI.MassFlowRate MDOTNOM=1.0 "nominal init mass flow rate";
-  constant SI.MassFraction MASSXMIN=-1.0*MINPOS "minimal init mass fraction";
-  constant SI.MassFraction MASSXMAX=1.0 "maximal init mass fraction";
-  constant SI.MassFraction MASSXNOM=0.1 "nominal init mass fraction";
+  constant SI.MassFlowRate MDOTMIN=-1.0e5 
+    "minimal init mass flow rate";
+  constant SI.MassFlowRate MDOTMAX=1.0e5 
+    "maximal init mass flow rate";
+  constant SI.MassFlowRate MDOTNOM=1.0 
+    "nominal init mass flow rate";
+  constant SI.MassFraction MASSXMIN=-1.0*MINPOS 
+    "minimal init mass fraction";
+  constant SI.MassFraction MASSXMAX=1.0 
+    "maximal init mass fraction";
+  constant SI.MassFraction MASSXNOM=0.1 
+    "nominal init mass fraction";
   constant SI.Mass MMIN=-1.0*MINPOS "minimal init mass";
   constant SI.Mass MMAX=1.0e8 "maximal init mass";
   constant SI.Mass MNOM=1.0 "nominal init mass";
   constant SI.MolarMass MMMIN=0.001 "minimal initial molar mass";
   constant SI.MolarMass MMMAX=250.0 "maximal initial molar mass";
   constant SI.MolarMass MMNOM=0.2 "nominal initial molar mass";
-  constant SI.MoleFraction MOLEYMIN=-1.0*MINPOS "minimal init mole fraction";
-  constant SI.MoleFraction MOLEYMAX=1.0 "maximal init mole fraction";
-  constant SI.MoleFraction MOLEYNOM=0.1 "nominal init mole fraction";
-  constant SI.MomentumFlux GMIN=-1.0e8 "minimal init momentum flux";
-  constant SI.MomentumFlux GMAX=1.0e8 "maximal init momentum flux";
+  constant SI.MoleFraction MOLEYMIN=-1.0*MINPOS 
+    "minimal init mole fraction";
+  constant SI.MoleFraction MOLEYMAX=1.0 
+    "maximal init mole fraction";
+  constant SI.MoleFraction MOLEYNOM=0.1 
+    "nominal init mole fraction";
+  constant SI.MomentumFlux GMIN=-1.0e8 
+    "minimal init momentum flux";
+  constant SI.MomentumFlux GMAX=1.0e8 
+    "maximal init momentum flux";
   constant SI.MomentumFlux GNOM=1.0 "nominal init momentum flux";
   constant SI.Power POWMIN=-1.0e8 "minimal init power or heat";
   constant SI.Power POWMAX=1.0e8 "maximal init power or heat";
@@ -5787,7 +5805,8 @@ protected
   constant SI.Pressure PMIN=1.0e4 "minimal init pressure";
   constant SI.Pressure PMAX=1.0e8 "maximal init pressure";
   constant SI.Pressure PNOM=1.0e5 "nominal init pressure";
-  constant SI.Pressure COMPPMIN=-1.0*MINPOS "minimal init pressure";
+  constant SI.Pressure COMPPMIN=-1.0*MINPOS 
+    "minimal init pressure";
   constant SI.Pressure COMPPMAX=1.0e8 "maximal init pressure";
   constant SI.Pressure COMPPNOM=1.0e5 "nominal init pressure";
   constant SI.RatioOfSpecificHeatCapacities KAPPAMIN=1.0 
@@ -5796,15 +5815,24 @@ protected
     "maximal init isentropic exponent";
   constant SI.RatioOfSpecificHeatCapacities KAPPANOM=1.2 
     "nominal init isentropic exponent";
-  constant SI.SpecificEnergy SEMIN=-1.0e8 "minimal init specific energy";
-  constant SI.SpecificEnergy SEMAX=1.0e8 "maximal init specific energy";
-  constant SI.SpecificEnergy SENOM=1.0e6 "nominal init specific energy";
-  constant SI.SpecificEnthalpy SHMIN=-1.0e8 "minimal init specific enthalpy";
-  constant SI.SpecificEnthalpy SHMAX=1.0e8 "maximal init specific enthalpy";
-  constant SI.SpecificEnthalpy SHNOM=1.0e6 "nominal init specific enthalpy";
-  constant SI.SpecificEntropy SSMIN=-1.0e6 "minimal init specific entropy";
-  constant SI.SpecificEntropy SSMAX=1.0e6 "maximal init specific entropy";
-  constant SI.SpecificEntropy SSNOM=1.0e3 "nominal init specific entropy";
+  constant SI.SpecificEnergy SEMIN=-1.0e8 
+    "minimal init specific energy";
+  constant SI.SpecificEnergy SEMAX=1.0e8 
+    "maximal init specific energy";
+  constant SI.SpecificEnergy SENOM=1.0e6 
+    "nominal init specific energy";
+  constant SI.SpecificEnthalpy SHMIN=-1.0e8 
+    "minimal init specific enthalpy";
+  constant SI.SpecificEnthalpy SHMAX=1.0e8 
+    "maximal init specific enthalpy";
+  constant SI.SpecificEnthalpy SHNOM=1.0e6 
+    "nominal init specific enthalpy";
+  constant SI.SpecificEntropy SSMIN=-1.0e6 
+    "minimal init specific entropy";
+  constant SI.SpecificEntropy SSMAX=1.0e6 
+    "maximal init specific entropy";
+  constant SI.SpecificEntropy SSNOM=1.0e3 
+    "nominal init specific entropy";
   constant SI.SpecificHeatCapacity CPMIN=MINPOS 
     "minimal init specific heat capacity";
   constant SI.SpecificHeatCapacity CPMAX=1.0e6 
@@ -5818,7 +5846,8 @@ protected
     "minimal init thermal conductivity";
   constant SI.ThermalConductivity LMAX=500.0 
     "maximal init thermal conductivity";
-  constant SI.ThermalConductivity LNOM=1.0 "nominal init thermal conductivity";
+  constant SI.ThermalConductivity LNOM=1.0 
+    "nominal init thermal conductivity";
   constant SI.Velocity VELMIN=-1.0e5 "minimal init speed";
   constant SI.Velocity VELMAX=1.0e5 "maximal init speed";
   constant SI.Velocity VELNOM=1.0 "nominal init speed";
@@ -5834,7 +5863,8 @@ protected
       SI.MolarMass[nspecies] MM "molar mass of components";
       Real[nspecies] invMM "inverse of molar mass of components";
       SI.SpecificHeatCapacity[nspecies] R "gas constant";
-      SI.SpecificEnthalpy[nspecies] Hf "enthalpy of formation at 298.15K";
+      SI.SpecificEnthalpy[nspecies] Hf 
+        "enthalpy of formation at 298.15K";
       SI.SpecificEnthalpy[nspecies] H0 "H0(298.15K) - H0(0K)";
     end FixedIGProperties;
     
@@ -5884,19 +5914,19 @@ protected
         min=VMIN,
         max=VMAX,
         nominal=VNOM) "Volume";
-      SI.MassFraction[n, nspecies] mass_x(
+      SI.MassFraction[n,nspecies] mass_x(
         min=MASSXMIN,
         max=MASSXMAX,
         nominal=MASSXNOM) "mass fraction";
-      SI.MoleFraction[n, nspecies] mole_y(
+      SI.MoleFraction[n,nspecies] mole_y(
         min=MOLEYMIN,
         max=MOLEYMAX,
         nominal=MOLEYNOM) "mole fraction";
-      SI.Mass[n, nspecies] M_x(
+      SI.Mass[n,nspecies] M_x(
         min=MMIN,
         max=MMAX,
         nominal=MNOM) "component mass";
-      SI.MassFlowRate[n, nspecies] dM_x(
+      SI.MassFlowRate[n,nspecies] dM_x(
         min=MDOTMIN,
         max=MDOTMAX,
         nominal=MDOTNOM) "rate of change in component mass";
@@ -5916,7 +5946,7 @@ protected
         min=MOLMIN,
         max=MOLMAX,
         nominal=MOLNOM) "total moles";
-      SI.AmountOfSubstance[n, nspecies] Moles_z(
+      SI.AmountOfSubstance[n,nspecies] Moles_z(
         min=MOLMIN,
         max=MOLMAX,
         nominal=MOLNOM) "mole vector";
@@ -5997,9 +6027,9 @@ protected
         "derivative of density by temperature at constant pressure";
       SI.DerDensityByPressure ddpT 
         "derivative of density by pressure at constant temperature";
-      SI.DerEnergyByPressure dupT 
+      Real dupT(unit="m3.kg-1") 
         "derivative of inner energy by pressure at constant T";
-      SI.DerEnergyByDensity dudT 
+      Real dudT(unit="J/kg*m3/kg") 
         "derivative of inner energy by density at constant T";
       SI.SpecificHeatCapacity duTp 
         "derivative of inner energy by temperature at constant p";
@@ -6080,8 +6110,10 @@ protected
         "derivative of density by enthalpy at constant pressure";
       SI.DerDensityByPressure ddph 
         "derivative of density by pressure at constant enthalpy";
-      Real duph "derivative of inner energy by pressure at constant enthalpy";
-      Real duhp "derivative of inner energy by enthalpy at constant pressure";
+      Real duph(unit="m3/kg") 
+        "derivative of inner energy by pressure at constant enthalpy";
+      Real duhp(unit="1") 
+        "derivative of inner energy by enthalpy at constant pressure";
       annotation (Documentation(info="<HTML>
 <h4>Model description</h4>
 <p>
@@ -6135,7 +6167,8 @@ two phase and liquid regions.
         "derivative of density by temperature at constant pressure";
       SI.DerDensityByPressure ddpT 
         "derivative of density by pressure at constant temperature";
-      Real dupT "derivative of inner energy by pressure at constant T";
+      Real dupT(unit="m3.kg-1") 
+        "derivative of inner energy by pressure at constant T";
       SI.SpecificHeatCapacity duTp 
         "derivative of inner energy by temperature at constant p";
       annotation (Documentation(info="<HTML>
@@ -6186,7 +6219,8 @@ liquid regions, but never in the two-phase region.
         min=1.0,
         max=10000.0,
         nominal=300.0) "speed of sound";
-      Real dudT "derivative of inner energy by density at constant T";
+      Real dudT(unit="m5/(kg.s2)") 
+        "derivative of inner energy by density at constant T";
       annotation (Documentation(info="<HTML>
 <h4>Model description</h4>
 <p>
@@ -6242,8 +6276,10 @@ critical pressure.
       output ThermoProperties_ph pro 
         "property record for pressure and specific enthalpy as dynamic states";
     protected 
-      Real vt "derivative of specific volume w.r.t. temperature";
-      Real vp "derivative of specific volume w.r.t. pressure";
+      Real vt(unit="m3.kg-1.K-1") 
+        "derivative of specific volume w.r.t. temperature";
+      Real vp(unit="m4.kg-2.s2") 
+        "derivative of specific volume w.r.t. pressure";
     algorithm 
       pro.T := g.T;
       pro.R := g.R;
@@ -6271,8 +6307,10 @@ critical pressure.
       input GibbsDerivs g "dimensionless derivatives of Gibbs function";
       output PhaseBoundaryProperties sat "phase boundary properties";
     protected 
-      Real vt "derivative of specific volume w.r.t. temperature";
-      Real vp "derivative of specific volume w.r.t. pressure";
+      Real vt(unit="m3.kg-1.K-1") 
+        "derivative of specific volume w.r.t. temperature";
+      Real vp(unit="m4.kg-2.s2") 
+        "derivative of specific volume w.r.t. pressure";
     algorithm 
       sat.d := g.p/(g.R*g.T*g.pi*g.gpi);
       sat.h := g.R*g.T*g.tau*g.gtau;
@@ -6296,8 +6334,10 @@ critical pressure.
       output ThermoProperties_dT pro 
         "property record for density and temperature as dynamic states";
     protected 
-      Real vt "derivative of specific volume w.r.t. temperature";
-      Real vp "derivative of specific volume w.r.t. pressure";
+      Real vt(unit="m3.kg-1.K-1") 
+        "derivative of specific volume w.r.t. temperature";
+      Real vp(unit="m4.kg-2.s2") 
+        "derivative of specific volume w.r.t. pressure";
     algorithm 
       pro.R := g.R;
       pro.p := g.p;
@@ -6325,8 +6365,10 @@ critical pressure.
       output ThermoProperties_pT pro 
         "property record for pressure and temperature as dynamic states";
     protected 
-      Real vt "derivative of specific volume w.r.t. temperature";
-      Real vp "derivative of specific volume w.r.t. pressure";
+      Real vt(unit="m3.kg-1.K-1") 
+        "derivative of specific volume w.r.t. temperature";
+      Real vp(unit="m4.kg-2.s2") 
+        "derivative of specific volume w.r.t. pressure";
     algorithm 
       pro.R := g.R;
       pro.d := g.p/(pro.R*g.T*g.pi*g.gpi);
@@ -6448,7 +6490,7 @@ critical pressure.
       pro.s := f.R*(f.tau*f.ftau - f.f);
       pro.h := f.R*f.T*(f.tau*f.ftau + f.delta*f.fdelta);
       pro.u := f.R*f.T*f.tau*f.ftau;
-      pv := -1/(f.d*f.d)*f.R*f.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
+      pv := -(f.d*f.d)*f.R*f.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
       pt := f.R*f.d*f.delta*(f.fdelta - f.tau*f.fdeltatau);
       
       // calculating cp near the critical point may be troublesome (cp -> inf).
@@ -6470,9 +6512,11 @@ critical pressure.
       output ThermoProperties_ph pro 
         "property record for pressure and specific enthalpy as dynamic states";
     protected 
-      Real dht "derivative of specific enthalpy w.r.t. temperature";
-      Real dhd "derivative of specific enthalpy w.r.t. density";
-      Real detph "thermodynamic determinant";
+      Real dht(unit="(J/kg)/K") 
+        "derivative of specific enthalpy w.r.t. temperature";
+      Real dhd(unit="(J/kg)/(kg/m3)") 
+        "derivative of specific enthalpy w.r.t. density";
+      Real detph(unit="m4.s4/(K.s8)") "thermodynamic determinant";
     algorithm 
       pro.d := sat.d;
       pro.T := sat.T;
@@ -6521,15 +6565,17 @@ public
     SI.SpecificEnergy u "specific inner energy";
     SI.SpecificEnthalpy h "specific enthalpy";
     SI.SpecificEntropy s "specific entropy";
-    SI.SpecificHeatCapacity cp "heat capacity at constant pressure";
+    SI.SpecificHeatCapacity cp 
+      "heat capacity at constant pressure";
     SI.SpecificHeatCapacity cv "heat capacity at constant volume";
     SI.SpecificHeatCapacity R "gas constant";
-    SI.RatioOfSpecificHeatCapacities kappa "isentropic expansion coefficient";
+    SI.RatioOfSpecificHeatCapacities kappa 
+      "isentropic expansion coefficient";
     PhaseBoundaryProperties liq 
       "thermodynamic base properties on the boiling curve";
     PhaseBoundaryProperties vap 
       "thermodynamic base properties on the dew curve";
-    Real dpT "derivative of saturation pressure wrt temperature";
+    Real dpT(unit="Pa/K") "derivative of saturation pressure wrt temperature";
     SI.MassFraction x "vapour mass fraction";
   end SaturationProperties;
   
@@ -6580,7 +6626,8 @@ public
     SI.Density d "density";
     SI.SpecificEnthalpy h "specific enthalpy";
     SI.SpecificEntropy s "specific entropy";
-    SI.SpecificHeatCapacity cp "heat capacity at constant pressure";
+    SI.SpecificHeatCapacity cp 
+      "heat capacity at constant pressure";
     SI.SpecificHeatCapacity cv "heat capacity at constant volume";
     DerPressureByTemperature dpT "dp/dT derivative of saturation curve";
     DerPressureByTemperature pt "derivative of pressure wrt temperature";
@@ -6597,14 +6644,14 @@ public
     SI.Pressure p "pressure";
     SI.Temperature T "temperature";
     SI.SpecificHeatCapacity R "specific heat capacity";
-    Real pi "dimensionless pressure";
-    Real tau "dimensionless temperature";
-    Real g "dimensionless Gibbs-function";
-    Real gpi "derivative of g w.r.t. pi";
-    Real gpipi "2nd derivative of g w.r.t. pi";
-    Real gtau "derivative of g w.r.t. tau";
-    Real gtautau "2nd derivative of g w.r.t tau";
-    Real gtaupi "mixed derivative of g w.r.t. pi and tau";
+    Real pi(unit="1") "dimensionless pressure";
+    Real tau(unit="1") "dimensionless temperature";
+    Real g(unit="1") "dimensionless Gibbs-function";
+    Real gpi(unit="1") "derivative of g w.r.t. pi";
+    Real gpipi(unit="1") "2nd derivative of g w.r.t. pi";
+    Real gtau(unit="1") "derivative of g w.r.t. tau";
+    Real gtautau(unit="1") "2nd derivative of g w.r.t tau";
+    Real gtaupi(unit="1") "mixed derivative of g w.r.t. pi and tau";
   end GibbsDerivs;
   
   record HelmholtzDerivs 
@@ -6613,14 +6660,14 @@ public
     SI.Density d "density";
     SI.Temperature T "temperature";
     SI.SpecificHeatCapacity R "specific heat capacity";
-    Real delta "dimensionless density";
-    Real tau "dimensionless temperature";
-    Real f "dimensionless Helmholtz-function";
-    Real fdelta "derivative of f w.r.t. delta";
-    Real fdeltadelta "2nd derivative of f w.r.t. delta";
-    Real ftau "derivative of f w.r.t. tau";
-    Real ftautau "2nd derivative of f w.r.t. tau";
-    Real fdeltatau "mixed derivative of f w.r.t. delta and tau";
+    Real delta(unit="1") "dimensionless density";
+    Real tau(unit="1") "dimensionless temperature";
+    Real f(unit="1") "dimensionless Helmholtz-function";
+    Real fdelta(unit="1") "derivative of f w.r.t. delta";
+    Real fdeltadelta(unit="1") "2nd derivative of f w.r.t. delta";
+    Real ftau(unit="1") "derivative of f w.r.t. tau";
+    Real ftautau(unit="1") "2nd derivative of f w.r.t. tau";
+    Real fdeltatau(unit="1") "mixed derivative of f w.r.t. delta and tau";
   end HelmholtzDerivs;
   
   record TwoPhaseTransportProps 
@@ -6628,10 +6675,14 @@ public
     extends Modelica.Icons.Record;
     SI.Density d_vap "density on the dew line";
     SI.Density d_liq "density on the bubble line";
-    SI.DynamicViscosity eta_vap "dynamic viscosity on the dew line";
-    SI.DynamicViscosity eta_liq "dynamic viscosity on the bubble line";
-    SI.ThermalConductivity lam_vap "thermal conductivity on the dew line";
-    SI.ThermalConductivity lam_liq "thermal conductivity on the bubble line";
+    SI.DynamicViscosity eta_vap 
+      "dynamic viscosity on the dew line";
+    SI.DynamicViscosity eta_liq 
+      "dynamic viscosity on the bubble line";
+    SI.ThermalConductivity lam_vap 
+      "thermal conductivity on the dew line";
+    SI.ThermalConductivity lam_liq 
+      "thermal conductivity on the bubble line";
     SI.SpecificHeatCapacity cp_vap "cp on the dew line";
     SI.SpecificHeatCapacity cp_liq "cp on the bubble line";
     SI.MassFraction x "steam quality";
@@ -6644,7 +6695,8 @@ public
     SI.SpecificEnthalpy h "specific enthalpy";
     SI.SpecificEnergy u "inner energy";
     SI.SpecificEntropy s "specific entropy";
-    SI.SpecificHeatCapacity cp "heat capacity at constant pressure";
+    SI.SpecificHeatCapacity cp 
+      "heat capacity at constant pressure";
     SI.SpecificHeatCapacity cv "heat capacity at constant volume";
     DerPressureByTemperature pt "derivative of pressure wrt temperature";
     DerPressureByDensity pd "derivative of pressure wrt density";
@@ -6707,7 +6759,8 @@ public
     SI.Pressure p "pressure";
     SI.Temperature T "temperature";
     SI.SpecificEntropy s "specific entropy";
-    SI.SpecificHeatCapacity cp "heat capacity at constant pressure";
+    SI.SpecificHeatCapacity cp 
+      "heat capacity at constant pressure";
     IsobaricVolumeExpansionCoefficient alpha 
       "isobaric volume expansion coefficient";
     // beta in Bejan
@@ -6860,15 +6913,17 @@ end BridgmansTablesForWater;
     output SI.Pressure p=g.p "pressure";
     output SI.Temperature T=g.T "temperature";
     output SI.SpecificEntropy s "specific entropy";
-    output SI.SpecificHeatCapacity cp "heat capaccity at constant pressure";
+    output SI.SpecificHeatCapacity cp 
+      "heat capaccity at constant pressure";
     output IsobaricVolumeExpansionCoefficient alpha 
       "isobaric volume expansion coefficient";
     // beta in Bejan
     output IsothermalCompressibility gamma "isothermal compressibility";
     // kappa in Bejan
   protected 
-    Real vt "derivative of specific volume w.r.t. temperature";
-    Real vp "derivative of specific volume w.r.t. pressure";
+    Real vt(unit="m3/(kg.K)") 
+      "derivative of specific volume w.r.t. temperature";
+    Real vp(unit="m4.kg-2.s2") "derivative of specific volume w.r.t. pressure";
   algorithm 
     vt := g.R/g.p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
     vp := g.R*g.T/(g.p*g.p)*g.pi*g.pi*g.gpipi;
@@ -6887,7 +6942,8 @@ end BridgmansTablesForWater;
     output SI.Pressure p "pressure";
     output SI.Temperature T=f.T "temperature";
     output SI.SpecificEntropy s "specific entropy";
-    output SI.SpecificHeatCapacity cp "heat capaccity at constant pressure";
+    output SI.SpecificHeatCapacity cp 
+      "heat capaccity at constant pressure";
     output IsobaricVolumeExpansionCoefficient alpha 
       "isobaric volume expansion coefficient";
     // beta in Bejan
@@ -6900,7 +6956,7 @@ end BridgmansTablesForWater;
     SI.SpecificHeatCapacity cv "isochoric specific heat capacity";
   algorithm 
     p := f.R*f.d*f.T*f.delta*f.fdelta;
-    pv := -1/(f.d*f.d)*f.R*f.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
+    pv := -(f.d*f.d)*f.R*f.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
     pt := f.R*f.d*f.delta*(f.fdelta - f.tau*f.fdeltatau);
     s := f.R*(f.tau*f.ftau - f.f);
     alpha := -f.d*pt/pv;
@@ -6963,7 +7019,8 @@ end BridgmansTablesForWater;
     input SI.MassFraction x "vapour mass fraction";
     input SI.Temperature T "temperature";
     input SI.Pressure p "preoperties";
-    output SI.SpecificHeatCapacity cv "isochoric specific heat capacity";
+    output SI.SpecificHeatCapacity cv 
+      "isochoric specific heat capacity";
   protected 
     Real dpT "derivative of pressure w.r.t. temperature";
     Real dxv "derivative of vapour mass fraction w.r.t. specific volume";
@@ -6993,7 +7050,8 @@ end BridgmansTablesForWater;
     input SI.MassFraction x "vapour mass fraction";
     input SI.Temperature T "temperature";
     input SI.Pressure p "preoperties";
-    output SI.SpecificHeatCapacity cv "isochoric specific heat capacity";
+    output SI.SpecificHeatCapacity cv 
+      "isochoric specific heat capacity";
     output Real dpT "derivative of pressure w.r.t. temperature";
   protected 
     Real dxv "derivative of vapour mass fraction w.r.t. specific volume";
@@ -7059,7 +7117,7 @@ end BridgmansTablesForWater;
   algorithm 
     v := 1/f.d;
     p := f.R*f.d*f.T*f.delta*f.fdelta;
-    pv := -1/(f.d*f.d)*f.R*f.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
+    pv := -(f.d*f.d)*f.R*f.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
     pt := f.R*f.d*f.delta*(f.fdelta - f.tau*f.fdeltatau);
     cv := f.R*(-f.tau*f.tau*f.ftautau);
     dpro.kappa := 1/(f.d*p)*((-pv*cv + pt*pt*f.T)/(cv));
