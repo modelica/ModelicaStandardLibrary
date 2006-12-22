@@ -6029,7 +6029,7 @@ protected
         "derivative of density by pressure at constant temperature";
       Real dupT(unit="m3.kg-1") 
         "derivative of inner energy by pressure at constant T";
-      Real dudT(unit="J/kg*m3/kg") 
+      Real dudT(unit="(J.m3)/(kg2)") 
         "derivative of inner energy by density at constant T";
       SI.SpecificHeatCapacity duTp 
         "derivative of inner energy by temperature at constant p";
@@ -6338,6 +6338,7 @@ critical pressure.
         "derivative of specific volume w.r.t. temperature";
       Real vp(unit="m4.kg-2.s2") 
         "derivative of specific volume w.r.t. pressure";
+      Modelica.SIunits.Density d;
     algorithm 
       pro.R := g.R;
       pro.p := g.p;
@@ -6354,7 +6355,8 @@ critical pressure.
       pro.a := abs(g.R*g.T*(g.gpi*g.gpi/((g.gpi - g.tau*g.gtaupi)*(g.gpi - g.
         tau*g.gtaupi)/(g.tau*g.tau*g.gtautau) - g.gpipi)))^0.5;
       
-      pro.dudT := pro.cp + g.T*vt*vt/vp;
+      d := g.p/(pro.R*g.T*g.pi*g.gpi);
+      pro.dudT := (pro.p - g.T*vt/vp)/(d*d);
     end gibbsToProps_dT;
     
     function gibbsToProps_pT 
