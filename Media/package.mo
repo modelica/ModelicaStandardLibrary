@@ -5694,7 +5694,7 @@ package Common "data structures and fundamental functions for fluid properties"
       Box 118, 22100 Lund, Sweden<br>
       email: hubertus@control.lth.se
       </address>
-</html>"), uses(Modelica(version="2.2.1")));
+</html>"));
   extends Modelica.Icons.Library;
 protected 
   type Rate = Real (final quantity="Rate", final unit="s-1");
