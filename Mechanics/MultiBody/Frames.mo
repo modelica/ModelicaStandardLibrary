@@ -490,7 +490,7 @@ and/or a division by zero will occur.
     input Integer axis(min=1, max=3) "Rotate around 'axis' of frame 1";
     input Modelica.SIunits.Angle angle 
       "Rotation angle to rotate frame 1 into frame 2 along 'axis' of frame 1";
-    input Modelica.SIunits.Angle der_angle "= der(angle)";
+    input Modelica.SIunits.AngularVelocity der_angle "= der(angle)";
     output Orientation R "Orientation object to rotate frame 1 into frame 2";
   algorithm 
     R := Orientation(T=(if axis == 1 then [1, 0, 0; 0, cos(angle), sin(angle);

@@ -47,6 +47,7 @@ ALT=\"model Examples.Elementary.ThreeSprings\">
   Modelica.Mechanics.MultiBody.Parts.FixedTranslation bar1(animation=animation, r={0.3,0,0}) 
     annotation (extent=[-20, 20; 0, 40]);
   Modelica.Mechanics.MultiBody.Forces.Spring spring1(
+    lineForce(r_rel_0(start={-0.2,-0.2,0.2})),
     s_unstretched=0.1,
     width=0.1,
     coilWidth=0.005,
