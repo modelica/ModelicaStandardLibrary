@@ -3375,7 +3375,7 @@ The details of the pipe friction model are described
   package SolveOneNonlinearEquation 
     "Demonstrate how to solve one non-linear algebraic equation in one unknown" 
     
-    annotation (uses(Modelica(version="2.2")), Documentation(info="<html>
+    annotation (Documentation(info="<html>
 <p>
 This package demonstrates how to solve one non-linear algebraic
 equation in one unknown with function 
@@ -6914,7 +6914,7 @@ end BridgmansTablesForWater;
     output SI.Temperature T=g.T "temperature";
     output SI.SpecificEntropy s "specific entropy";
     output SI.SpecificHeatCapacity cp 
-      "heat capaccity at constant pressure";
+      "heat capacity at constant pressure";
     output IsobaricVolumeExpansionCoefficient alpha 
       "isobaric volume expansion coefficient";
     // beta in Bejan
@@ -6943,7 +6943,7 @@ end BridgmansTablesForWater;
     output SI.Temperature T=f.T "temperature";
     output SI.SpecificEntropy s "specific entropy";
     output SI.SpecificHeatCapacity cp 
-      "heat capaccity at constant pressure";
+      "heat capacity at constant pressure";
     output IsobaricVolumeExpansionCoefficient alpha 
       "isobaric volume expansion coefficient";
     // beta in Bejan
