@@ -5025,14 +5025,14 @@ are described in
       "Returns bubble point density derivative" 
         extends Modelica.Icons.Function;
         input SaturationProperties sat "saturation property record";
-        output DerDensityByEnthalpy ddldp "boiling curve density derivative";
+        output DerDensityByPressure ddldp "boiling curve density derivative";
       end dBubbleDensity_dPressure;
     
       replaceable partial function dDewDensity_dPressure 
       "Returns dew point density derivative" 
         extends Modelica.Icons.Function;
         input SaturationProperties sat "saturation property record";
-        output DerDensityByEnthalpy ddvdp "saturated steam density derivative";
+        output DerDensityByPressure ddvdp "saturated steam density derivative";
       end dDewDensity_dPressure;
     
       replaceable partial function dBubbleEnthalpy_dPressure 
