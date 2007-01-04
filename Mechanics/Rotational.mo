@@ -3182,7 +3182,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
       "Relative angular acceleration (flange_b.a - flange_a.a)";
     
     Real mue0 "Friction coefficient for w=0 and forward sliding";
-    SI.Force fn "Normal force (fn=fn_max*inPort.signal)";
+    SI.Force fn "Normal force (fn=fn_max*f_normalized)";
     Modelica.Blocks.Interfaces.RealInput f_normalized 
       "Normalized force signal 0..1 (normal force = fn_max*f_normalized; clutch is engaged if > 0)"
       annotation (extent=[-20, 130; 20, 90], rotation=90);
@@ -3607,7 +3607,7 @@ are dynamically coupled. The method is described in:
       "Absolute angular acceleration of flange_a and flange_b";
     
     Real mue0 "Friction coefficient for w=0 and forward sliding";
-    SI.Force fn "Normal force (=fn_max*inPort.signal)";
+    SI.Force fn "Normal force (=fn_max*f_normalized)";
     
     // Constant auxiliary variable
     Modelica.Blocks.Interfaces.RealInput f_normalized 
