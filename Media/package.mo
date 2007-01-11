@@ -4973,7 +4973,7 @@ are described in
         output Temperature T "saturation temperature";
       end saturationTemperature;
     
-      replaceable partial function saturationPressure_sat 
+      replaceable function saturationPressure_sat 
       "Returns saturation temperature" 
         extends Modelica.Icons.Function;
         input SaturationProperties sat "saturation property record";
@@ -4982,7 +4982,7 @@ are described in
         p := sat.psat;
       end saturationPressure_sat;
     
-      replaceable partial function saturationTemperature_sat 
+      replaceable function saturationTemperature_sat 
       "Returns saturation pressure" 
         extends Modelica.Icons.Function;
         input SaturationProperties sat "saturation property record";
@@ -4998,7 +4998,7 @@ are described in
         output Real dTp "derivative of saturation temperature w.r.t. pressure";
       end saturationTemperature_derp;
     
-      replaceable partial function saturationTemperature_derp_sat 
+      replaceable function saturationTemperature_derp_sat 
       "Returns derivative of saturation temperature w.r.t.. pressure" 
         extends Modelica.Icons.Function;
         input SaturationProperties sat "saturation property record";
