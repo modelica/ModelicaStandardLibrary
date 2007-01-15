@@ -1,7 +1,7 @@
 package Machines "Library for electric machines" 
   extends Modelica.Icons.Library2;
   annotation (
-  version="1.8.1", versionDate="2006-12-01",
+  version="1.8.2", versionDate="2007-01-15",
   Settings(NewStateSelection=true, Evaluate=true),
   preferedView="info", Documentation(info="<HTML>
 <p>
@@ -114,6 +114,8 @@ and the accompanying <b>disclaimer</b>
        implemented support showing reaction torque if connected</li>
   <li> v1.8.1 2006/12/01 Anton Haumer<br>
        resolved a compatibility issue with airGap</li>
+  <li> v1.8.2 2007/01/15 Anton Haumer<br>
+       resolved a bug in electrical excited synchronous induction machine</li>
   </ul>
 </HTML>"),
     Icon(
@@ -2489,7 +2491,7 @@ Whether a damper cage is present or not, can be selected with Boolean parameter 
       protected 
         final parameter Real TurnsRatio = sqrt(2)*VNominal/(2*pi*fNominal*Lmd*Ie0) 
           "stator current / excitation current";
-        final parameter Modelica.SIunits.Inductance Lesigma = Lmd*TurnsRatio^2 * sigmae/(1-sigmae);
+        final parameter Modelica.SIunits.Inductance Lesigma = Lmd*TurnsRatio^2*3/2 * sigmae/(1-sigmae);
       public 
         Components.DamperCage damperCage(
           final Lrsigma=Lrsigma,
@@ -4892,7 +4894,7 @@ Partial model for induction machine models, containing:
             fillColor=10,
             rgbfillColor={95,95,95},
             fillPattern=1));
-        connect(spacePhasorS.ground,spacePhasorS. zero) annotation (points=[-10,20;
+        connect(spacePhasorS.ground,spacePhasorS. zero) annotation (points=[-10,20; 
               -10,14; -6.12303e-016,14; -6.12303e-016,20],     style(
             color=3,
             rgbcolor={0,0,255},
@@ -5210,7 +5212,7 @@ Model of an electrical excitation, converting excitation to space phasor.
         ie = +pin_ep.i;
         ve = pin_ep.v - pin_en.v;
         spacePhasor_r.i_ = {-ie*TurnsRatio,0};
-        ve = spacePhasor_r.v_[1]*TurnsRatio;
+        ve = spacePhasor_r.v_[1]*TurnsRatio*3/2;
       end ElectricalExcitation;
       
       model PermanentMagnet "Permanent magnet excitation" 
