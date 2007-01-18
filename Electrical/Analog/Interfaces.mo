@@ -56,7 +56,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
       Icon(Rectangle(extent=[-100, 100; 100, -100], style(color=3, fillColor=3))),
       Diagram(Rectangle(extent=[-40,40; 40,-40], style(color=3, fillColor=
                3)), Text(
-          extent=[-100,100; 100,40],
+          extent=[-160,110; 40,50],
           string="%name",
           style(color=3))),
       Documentation(revisions="<html>
@@ -71,7 +71,8 @@ Modelica in file \"Modelica/package.mo\".</i><br>
   end Pin;
   
   connector PositivePin "Positive pin of an electric component" 
-    extends Pin;
+    SI.Voltage v "Potential at the pin";
+    flow SI.Current i "Current flowing into the pin";
     annotation (defaultComponentName="pin_p",
       Documentation(info="<html><p>Connectors PositivePin
 and NegativePin are nearly identical.
@@ -90,11 +91,15 @@ component.</p></html>", revisions="<html>
 </html>"),
       Icon(Rectangle(extent=[-100, 100; 100, -100], style(color=3, fillColor=3))),
       Diagram(Rectangle(extent=[-40,40; 40,-40], style(color=3, fillColor=
-               3))));
+               3)), Text(
+          extent=[-160,110; 40,50],
+          string="%name",
+          style(color=3))));
   end PositivePin;
   
   connector NegativePin "Negative pin of an electric component" 
-    extends Pin;
+    SI.Voltage v "Potential at the pin";
+    flow SI.Current i "Current flowing into the pin";
     annotation (defaultComponentName="pin_n",
       Documentation(info="<html><p>Connectors PositivePin
 and NegativePin are nearly identical.
@@ -119,7 +124,8 @@ component.</p></html>", revisions="<html>
       Diagram(Rectangle(extent=[-40,40; 40,-40], style(
             color=3,
             fillColor=7,
-            fillPattern=1))),
+            fillPattern=1)), Text(extent=[-40,110; 160,50], string=
+              "%name")),
       Terminal(Rectangle(extent=[-100, 100; 100, -100], style(color=3))));
   end NegativePin;
   
