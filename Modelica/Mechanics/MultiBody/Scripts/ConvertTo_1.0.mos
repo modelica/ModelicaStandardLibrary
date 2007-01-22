@@ -1,0 +1,35 @@
+// Convert version 0.98 and 0.99 to version 1.0
+
+clear
+
+convertClear();
+
+convertClass("MultiBody.Frames.angularVelocity1",
+             "MultiBody.Frames.TransformationMatrices.angularVelocity1");
+
+convertClass("MultiBody.Frames.angularVelocity2",
+             "MultiBody.Frames.TransformationMatrices.angularVelocity2");
+
+convertClass("MultiBody.Frames.planarRotation",
+             "MultiBody.Frames.TransformationMatrices.planarRotation");
+
+convertClass("MultiBody.Frames.axisRotation",
+             "MultiBody.Frames.TransformationMatrices.axisRotation");
+
+convertClass("MultiBody.Frames.axesRotations",
+             "MultiBody.Frames.TransformationMatrices.axesRotations");
+
+convertClass("MultiBody.Frames.from_T",
+             "MultiBody.Frames.TransformationMatrices.from_T");
+
+convertClass("MultiBody.Frames.from_T",
+             "MultiBody.Frames.TransformationMatrices.from_T");
+
+convertClass("MultiBody.Frames.from_T_inv",
+             "MultiBody.Frames.TransformationMatrices.from_T_inv");
+
+convertClass("MultiBody.Frames.from_Q",
+             "MultiBody.Frames.TransformationMatrices.from_Q");
+
+convertClass("MultiBody.Frames.Orientation",
+             "MultiBody.Frames.TransformationMatrices.Orientation");

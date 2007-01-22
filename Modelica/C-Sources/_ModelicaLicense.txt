@@ -1,0 +1,39 @@
+The Modelica License (Version 1.1 of June 30, 2000) 
+===================================================
+This is a verbatim copy of Modelica.UsersGuide.ModelicaLicense
+
+Redistribution and use in source and binary forms, with or 
+without modification are permitted, provided that the 
+following conditions are met: 
+
+1. The author and copyright notices in the source files, 
+   these license conditions and the disclaimer below are 
+   (a) retained and (b) reproduced in the documentation 
+   provided with the distribution. 
+
+2. Modifications of the original source files are allowed, 
+   provided that a prominent notice is inserted in each 
+   changed file and the accompanying documentation, stating 
+   how and when the file was modified, and provided that 
+   the conditions under (1) are met. 
+
+3. It is not allowed to charge a fee for the original version 
+   or a modified version of the software, besides a reasonable 
+   fee for distribution and support. Distribution in aggregate 
+   with other (possibly commercial) programs as part of a 
+   larger (possibly commercial) software distribution is 
+   permitted, provided that it is not advertised as a product 
+   of your own. 
+
+Disclaimer
+The software (sources, binaries, etc.) in their original or 
+in a modified form are provided "as is" and the copyright 
+holders assume no responsibility for its contents what so ever. 
+Any express or implied warranties, including, but not limited to,
+the implied warranties of merchantability and fitness for a 
+particular purpose are disclaimed. In no event shall the 
+copyright holders, or any party who modify and/or redistribute 
+the package, be liable for any direct, indirect, incidental, 
+special, exemplary, or consequential damages, arising in any 
+way out of the use of this software, even if advised of the 
+possibility of such damage. 
