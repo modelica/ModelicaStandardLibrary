@@ -1,0 +1,5 @@
+// Motor data
+
+J        = 2.3     // inertia
+w_rel0   = 1.5*2;  // relative angular velocity
+phi_rel0 = pi/3;  

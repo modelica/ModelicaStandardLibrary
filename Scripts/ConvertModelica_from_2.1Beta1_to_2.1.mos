@@ -1,0 +1,76 @@
+
+clear
+
+convertClear();
+
+convertClass  ("Modelica.Electrical.Analog.Ideal.IdealSwitch",
+               "Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch");
+convertElement("Modelica.Electrical.Analog.Ideal.IdealSwitch", "off" , "control");
+convertElement("Modelica.Electrical.Analog.Ideal.IdealSwitch", "Roff", "Ron");
+convertElement("Modelica.Electrical.Analog.Ideal.IdealSwitch", "Gon" , "Goff");
+
+convertClass  ("Modelica.Electrical.Analog.Ideal.ControlledIdealSwitch",
+               "Modelica.Electrical.Analog.Ideal.ControlledIdealOpeningSwitch");
+convertElement("Modelica.Electrical.Analog.Ideal.ControlledIdealSwitch", "off" , "control");
+convertElement("Modelica.Electrical.Analog.Ideal.ControlledIdealSwitch", "Roff", "Ron");
+convertElement("Modelica.Electrical.Analog.Ideal.ControlledIdealSwitch", "Gon" , "Goff");
+
+convertElement("Modelica.Electrical.Analog.Ideal.IdealCommutingSwitch", "off" , "control");
+convertElement("Modelica.Electrical.Analog.Ideal.IdealCommutingSwitch", "Roff", "Ron");
+convertElement("Modelica.Electrical.Analog.Ideal.IdealCommutingSwitch", "Gon" , "Goff");
+
+convertElement("Modelica.Electrical.Analog.Ideal.IdealIntermediateSwitch", "off" , "control");
+convertElement("Modelica.Electrical.Analog.Ideal.IdealIntermediateSwitch", "Roff", "Ron");
+convertElement("Modelica.Electrical.Analog.Ideal.IdealIntermediateSwitch", "Gon" , "Goff");
+
+convertElement("Modelica.Electrical.Analog.Ideal.IdealDiode", "Roff", "Ron");
+convertElement("Modelica.Electrical.Analog.Ideal.IdealDiode", "Gon" , "Goff");
+
+convertElement("Modelica.Electrical.Analog.Ideal.IdealThyristor", "Roff", "Ron");
+convertElement("Modelica.Electrical.Analog.Ideal.IdealThyristor", "Gon" , "Goff");
+
+convertElement("Modelica.Electrical.Analog.Ideal.IdealGTOThyristor", "Roff", "Ron");
+convertElement("Modelica.Electrical.Analog.Ideal.IdealGTOThyristor", "Gon" , "Goff");
+
+convertElement("Modelica.Electrical.MultiPhase.Ideal.IdealCommutingSwitch", "off" , "control");
+convertElement("Modelica.Electrical.MultiPhase.Ideal.IdealCommutingSwitch", "Roff", "Ron");
+convertElement("Modelica.Electrical.MultiPhase.Ideal.IdealCommutingSwitch", "Gon" , "Goff");
+
+convertElement("Modelica.Electrical.MultiPhase.Ideal.IdealIntermediateSwitch", "off" , "control");
+convertElement("Modelica.Electrical.MultiPhase.Ideal.IdealIntermediateSwitch", "Roff", "Ron");
+convertElement("Modelica.Electrical.MultiPhase.Ideal.IdealIntermediateSwitch", "Gon" , "Goff");
+
+convertElement("Modelica.Electrical.MultiPhase.Ideal.IdealDiode", "Roff", "Ron");
+convertElement("Modelica.Electrical.MultiPhase.Ideal.IdealDiode", "Gon" , "Goff");
+
+convertElement("Modelica.Electrical.MultiPhase.Ideal.IdealThyristor", "Roff", "Ron");
+convertElement("Modelica.Electrical.MultiPhase.Ideal.IdealThyristor", "Gon" , "Goff");
+
+convertElement("Modelica.Electrical.MultiPhase.Ideal.IdealGTOThyristor", "Roff", "Ron");
+convertElement("Modelica.Electrical.MultiPhase.Ideal.IdealGTOThyristor", "Gon" , "Goff");
+
+
+//-----------------------------------------------------------------------------
+// Convert Matrices to Modelica.Math.Matrices
+//-----------------------------------------------------------------------------
+
+convertClass("Matrices",
+             "Modelica.Math.Matrices");
+
+//-----------------------------------------------------------------------------
+// Convert Modelica.Constants
+//-----------------------------------------------------------------------------
+
+convertClass("Modelica.Constants.E", "Modelica.Constants.e");
+convertClass("Modelica.Constants.PI", "Modelica.Constants.pi");
+convertClass("Modelica.Constants.EPS", "Modelica.Constants.eps");
+convertClass("Modelica.Constants.SMALL", "Modelica.Constants.small");
+convertClass("Modelica.Constants.INF", "Modelica.Constants.inf");
+convertClass("Modelica.Constants.INTEGER_INF", "Modelica.Constants.Integer_inf");
+convertClass("Modelica.Constants.C", "Modelica.Constants.c");
+convertClass("Modelica.Constants.H", "Modelica.Constants.h");
+convertClass("Modelica.Constants.K", "Modelica.Constants.k");
+convertClass("Modelica.Constants.R0", "Modelica.Constants.R");
+convertClass("Modelica.Constants.SIGMA", "Modelica.Constants.sigma");
+convertClass("Modelica.Constants.G_EARTH", "Modelica.Constants.g_n");
+convertClass("Modelica.Constants.T_ZERO", "Modelica.Constants.T_zero");
