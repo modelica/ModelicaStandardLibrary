@@ -347,7 +347,7 @@ required from medium model \""       + mediumName + "\".");
     extends Modelica.Icons.Function;
     input SI.Pressure p "Pressure";
     input SI.Temperature T "Temperature";
-    input SI.MassFraction X[nX] "Mass fractions of moist air";
+    input SI.MassFraction X[:] "Mass fractions of moist air";
     output SI.SpecificEnthalpy h "Specific enthalpy at p, T, X";
     annotation(Inline=false,smoothOrder=1);
   protected 
