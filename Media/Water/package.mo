@@ -218,7 +218,7 @@ extends Modelica.Icons.Library;
      each molarMass=0.018015268,
      each criticalTemperature=647.096,
      each criticalPressure=22064.0e3,
-     each criticalMolarVolume=1/(322.0*0.018015268),
+     each criticalMolarVolume=1/322.0*0.018015268,
      each normalBoilingPoint=373.124,
      each meltingPoint=273.15,
      each triplePointTemperature=273.16,
