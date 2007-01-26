@@ -85,6 +85,9 @@ have more realistic crank-angles and load.</li>
 <li>The <a href=\"Modelica://Modelica.Mechanics.MultiBody.Parts.PointMass\">PointMass</a> 
 model will generate appropriate diagnostics if used as a root, and lowered priority of it becoming root.
 </li>
+<li>The <a href=\"Modelica://Modelica.Mechanics.MultiBody.Frames.Orientation.equalityConstraint\">equalityConstraint</a> 
+function has been improved to avoid spurious solutions for closed kinematic loops.
+</li>
 <li>Base class 
 <a href=\"Modelica://Modelica.Media.Interfaces.PartialSimpleIdealGasMedium\">PartialSimpleIdealGasMedium</a> 
 has correct equation for cv_const.</li>
