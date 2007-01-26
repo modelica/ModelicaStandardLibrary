@@ -197,8 +197,10 @@ The used variables have the following declaration:
       output Real residue[3] 
         "The rotation angles around x-, y-, and z-axis of frame 1 to rotate frame 1 into frame 2 for a small rotation (should be zero)";
     algorithm 
-      residue := {cross(R1.T[1, :], R1.T[2, :])*R2.T[2, :],-cross(R1.T[1, :],
-        R1.T[2, :])*R2.T[1, :],R1.T[2, :]*R2.T[1, :]};
+      residue := {
+         Modelica.Math.atan2(cross(R1.T[1, :], R1.T[2, :])*R2.T[2, :],R1.T[1,:]*R2.T[1,:]),
+         Modelica.Math.atan2(-cross(R1.T[1, :],R1.T[2, :])*R2.T[1, :],R1.T[2,:]*R2.T[2,:]),
+         Modelica.Math.atan2(R1.T[2, :]*R2.T[1, :],R1.T[3,:]*R2.T[3,:])};
     end equalityConstraint;
     
     annotation (Documentation(info="<html>
