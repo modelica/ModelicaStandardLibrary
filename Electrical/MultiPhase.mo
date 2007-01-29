@@ -1,7 +1,7 @@
 package MultiPhase "Library for electrical components with 2, 3 or more phases" 
   extends Modelica.Icons.Library2;
   annotation (
-    version="1.2", versionDate="2006-05-12",
+    version="1.3.0", versionDate="2007-01-23",
     classOrder={"Examples", "*"},
     preferedView="info", Documentation(info="<HTML>
 <p>
@@ -53,6 +53,8 @@ and the accompanying <b>disclaimer</b>
   <li>v1.2 2006/07/05 Anton Haumer<br>
       removed annotation from pin of Interfaces.Plug<br>
       corrected usage of resistance/conductance</li>
+  <li>v1.3.0 2007/01/23 Anton Haumer<br>
+      improved some icons</li>
   </ul>
 </html>"),
     Icon(
@@ -183,18 +185,36 @@ when used in parallel to another component.
         final min=1,
         final max=m) = 1 "phase index";
       Interfaces.PositivePlug plug_p(final m=m) 
-        annotation (extent=[-110, -10; -90, 10]);
+        annotation (extent=[-30,-10; -10,10]);
       Modelica.Electrical.Analog.Interfaces.PositivePin pin_p 
-        annotation (extent=[90, -10; 110, 10]);
+        annotation (extent=[10,-10; 30,10]);
       annotation (
         Icon(
-          Line(points=[-90, 0; 90, 0]),
           Text(extent=[-150,100; 150,40],string="%name"),
           Text(extent=[-100,-60; 100,-100],string="k = %k",
             style(color=0, rgbcolor={0,0,0})),
-          Polygon(points=[-100, 10; 90, 0; -100, -10; -100, 10], style(
-              color=3,
-              fillColor=3,
+          Line(points=[-20,20; 40,20; 40,-20; -20,-20], style(
+              color=0,
+              rgbcolor={0,0,0},
+              fillColor=30,
+              rgbfillColor={215,215,215},
+              fillPattern=1)),
+          Rectangle(extent=[-20,20; 40,-20], style(
+              pattern=0,
+              fillColor=30,
+              rgbfillColor={215,215,215},
+              fillPattern=1)),
+          Ellipse(extent=[-40,20; 0,-20], style(
+              color=0,
+              rgbcolor={0,0,0},
+              fillColor=30,
+              rgbfillColor={215,215,215},
+              fillPattern=1)),
+          Line(points=[-20,20; 40,20; 40,-20; -20,-20], style(
+              color=0,
+              rgbcolor={0,0,0},
+              fillColor=30,
+              rgbfillColor={215,215,215},
               fillPattern=1))),
         Documentation(info="<HTML>
 <p>
@@ -215,20 +235,42 @@ Connects pin <i>k</i> of plug_p to pin_p, leaving the other pins of plug_p uncon
         final min=1,
         final max=m) = 1 "phase index";
       Interfaces.NegativePlug plug_n(final m=m) 
-        annotation (extent=[-110, -10; -90, 10]);
+        annotation (extent=[-30,-10; -10,10]);
       Modelica.Electrical.Analog.Interfaces.NegativePin pin_n 
-        annotation (extent=[92, -10; 112, 10]);
+        annotation (extent=[10,-10; 30,10]);
       annotation (Icon(
-          Line(points=[-90, 0; 92, 0]),
           Text(extent=[-150,100; 150,40],string="%name"),
           Text(extent=[-100,-60; 100,-100],string="k = %k",
             style(color=0, rgbcolor={0,0,0})),
-          Polygon(points=[-100, 10; 92, 0; -100, -10; -100, 10], style(color=3))),
+          Line(points=[-20,20; 40,20; 40,-20; -20,-20], style(
+              color=0,
+              rgbcolor={0,0,0},
+              fillColor=30,
+              rgbfillColor={215,215,215},
+              fillPattern=1)),
+          Rectangle(extent=[-20,20; 40,-20], style(
+              pattern=0,
+              fillColor=30,
+              rgbfillColor={215,215,215},
+              fillPattern=1)),
+          Ellipse(extent=[-40,20; 0,-20], style(
+              color=0,
+              rgbcolor={0,0,0},
+              fillColor=30,
+              rgbfillColor={215,215,215},
+              fillPattern=1)),
+          Line(points=[-20,20; 40,20; 40,-20; -20,-20], style(
+              color=0,
+              rgbcolor={0,0,0},
+              fillColor=30,
+              rgbfillColor={215,215,215},
+              fillPattern=1))),
            Documentation(info="<HTML>
 <p>
 Connects pin <i>k</i> of plug_n to pin_n, leaving the other pins of plug_n unconnected.
 </p>
-</HTML>"));
+</HTML>"),
+        Diagram);
     equation 
       pin_n.v = plug_n.pin[k].v;
       for j in 1:m loop
@@ -829,7 +871,7 @@ neglecting initial transient.
       Sources.SineVoltage SineVoltage1(
         m=m,
         V=fill(V, m),
-        freqHz=fill(f, m)) annotation (extent=[-70, -10; -90, 10]);
+        freqHz=fill(f, m)) annotation (extent=[-70,10; -90,-10]);
       Basic.Star StarS(m=m) 
         annotation (extent=[-100, -60; -80, -40], rotation=-90);
       Basic.Inductor L1(m=m, L=fill(L, m)) 
@@ -1980,7 +2022,15 @@ This package contains time-dependend and controlled multiphase voltage and curre
               fillColor=3,
               rgbfillColor={0,0,255},
               fillPattern=1),
-            string="%m")),
+            string="%m"),
+          Text(
+            extent=[30,60; 110,0],
+            style(color=3, rgbcolor={0,0,255}),
+            string="-"),
+          Text(
+            extent=[-110,60; -30,0],
+            style(color=3, rgbcolor={0,0,255}),
+            string="+")),
         Documentation(info="<HTML>
 <p>
 Contains m signal controlled voltage sources (Modelica.Electrical.Analog.Sources.SignalVoltage)
@@ -2018,7 +2068,15 @@ Contains m signal controlled voltage sources (Modelica.Electrical.Analog.Sources
               rgbcolor={0,0,0},
               fillColor=3,
               rgbfillColor={0,0,255},
-              fillPattern=1))),
+              fillPattern=1)),
+          Text(
+            extent=[30,60; 110,0],
+            style(color=3, rgbcolor={0,0,255}),
+            string="-"),
+          Text(
+            extent=[-110,60; -30,0],
+            style(color=3, rgbcolor={0,0,255}),
+            string="+")),
         Documentation(info="<HTML>
 <p>
 Contains m constant voltage sources (Modelica.Electrical.Analog.Sources.ConstantVoltage) 
@@ -2068,7 +2126,15 @@ Contains m constant voltage sources (Modelica.Electrical.Analog.Sources.Constant
               rgbcolor={0,0,0},
               fillColor=3,
               rgbfillColor={0,0,255},
-              fillPattern=1))),
+              fillPattern=1)),
+          Text(
+            extent=[30,60; 110,0],
+            style(color=3, rgbcolor={0,0,255}),
+            string="-"),
+          Text(
+            extent=[-110,60; -30,0],
+            style(color=3, rgbcolor={0,0,255}),
+            string="+")),
         Documentation(info="<HTML>
 <p>
 Contains m sine voltage sources (Modelica.Electrical.Analog.Sources.SineVoltage) 
@@ -2118,7 +2184,12 @@ with a default phase shift of -(j-1)/m * 2*pi for j in 1:m.
               fillColor=3,
               rgbfillColor={0,0,255},
               fillPattern=1),
-            string="%m")),
+            string="%m"),
+          Polygon(points=[90,0; 60,10; 60,-10; 90,0],      style(
+              color=3,
+              rgbcolor={0,0,255},
+              fillColor=3,
+              rgbfillColor={0,0,255}))),
         Documentation(info="<HTML>
 <p>
 Contains m signal controlled current sources (Modelica.Electrical.Analog.Sources.SignalCurrent) 
@@ -2156,7 +2227,12 @@ Contains m signal controlled current sources (Modelica.Electrical.Analog.Sources
               rgbcolor={0,0,0},
               fillColor=3,
               rgbfillColor={0,0,255},
-              fillPattern=1))),
+              fillPattern=1)),
+          Polygon(points=[90,0; 60,10; 60,-10; 90,0],      style(
+              color=3,
+              rgbcolor={0,0,255},
+              fillColor=3,
+              rgbfillColor={0,0,255}))),
         Documentation(info="<HTML>
 <p>
 Contains m constant current sources (Modelica.Electrical.Analog.Sources.ConstantCurrent) 
@@ -2206,7 +2282,12 @@ Contains m constant current sources (Modelica.Electrical.Analog.Sources.Constant
               rgbcolor={0,0,0},
               fillColor=3,
               rgbfillColor={0,0,255},
-              fillPattern=1))),
+              fillPattern=1)),
+          Polygon(points=[90,0; 60,10; 60,-10; 90,0],      style(
+              color=3,
+              rgbcolor={0,0,255},
+              fillColor=3,
+              rgbfillColor={0,0,255}))),
         Documentation(info="<HTML>
 <p>
 Contains m sine current sources (Modelica.Electrical.Analog.Sources.SineCurrent) 
