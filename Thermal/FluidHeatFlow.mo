@@ -1,7 +1,12 @@
 package FluidHeatFlow 
   "Simple components for 1-dimensional incompressible thermo-fluid flow models" 
   extends Modelica.Icons.Library2;
-  annotation (version="1.50", versionDate="2005-09-07",
+  type TemperatureDifference = Real (
+    final quantity="TemperatureDifference",
+    final unit="K",
+    displayUnit="K");
+  annotation (
+    version="1.6.0 Beta", versionDate="2007-01-23",
     preferedView="info",Documentation(info="<HTML>
 <p>
 This package contains very simple-to-use components to model coolant flows as needed to simulate cooling e.g. of electric machines:
@@ -59,16 +64,17 @@ Outlet temperature is defined by variable T of the corresponding component.</li>
   </p>
   <p>
   Dr.Christian Kral & Markus Plainer<br>
-  <a href=\"http://www.arsenal.ac.at/english/\">arsenal research</a><br>
-  Business Unit Monitoring, Energy and Drive Technologies<br>
-  A-1030 Vienna, Austria
+  &Ouml;sterreichisches Forschungs- und Pr&uuml;fzentrum Arsenal Ges.m.b.H.<br>
+  <a href=\"http://www.arsenal.ac.at/\">arsenal research</a><br>
+  Giefinggasse 2<br>
+  A-1210 Vienna, Austria
   </p>
   </dd>
 </dl>
 </p>
 </dl>
 <p>
-Copyright &copy; 1998-2006, Modelica Association, Anton Haumer and arsenal research.
+Copyright &copy; 1998-2007, Modelica Association, Anton Haumer and arsenal research.
 </p>
 <p>
 <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
@@ -104,6 +110,8 @@ and the accompanying <b>disclaimer</b>
        <i>new test example: TwoMass</i></li>
   <li> v1.50 2005/09/07 Anton Haumer<br>
        semiLinear works fine</li>
+  <li> v1.60 2007/01/23 Anton Haumer<br>
+       new parameter tapT defining Temperature of heatPort </li>
   </ul>
 </HTML>
 "), Icon(
@@ -158,16 +166,17 @@ This package contains test examples:
   </p>
   <p>
   Dr.Christian Kral & Markus Plainer<br>
-  <a href=\"http://www.arsenal.ac.at/english/\">arsenal research</a><br>
-  Business Unit Monitoring, Energy and Drive Technologies<br>
-  A-1030 Vienna, Austria
+  &Ouml;sterreichisches Forschungs- und Pr&uuml;fzentrum Arsenal Ges.m.b.H.<br>
+  <a href=\"http://www.arsenal.ac.at/\">arsenal research</a><br>
+  Giefinggasse 2<br>
+  A-1210 Vienna, Austria
   </p>
   </dd>
 </dl>
 </p>
 </dl>
 <p>
-Copyright &copy; 1998-2006, Modelica Association, Anton Haumer and arsenal research.
+Copyright &copy; 1998-2007, Modelica Association, Anton Haumer and arsenal research.
 </p>
 <p>
 <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
@@ -241,12 +250,12 @@ A prescribed heat source dissipates its heat through a thermal conductor to a co
         annotation(choicesAllMatching=true);
       parameter Modelica.SIunits.CelsiusTemperature TAmb=20 
         "ambient temperature";
-      output Modelica.SIunits.TemperatureDifference dTSource=
+      output TemperatureDifference dTSource=
         PrescribedHeatFlow1.port.T-Modelica.SIunits.Conversions.from_degC(TAmb) 
         "Source over Ambient";
-      output Modelica.SIunits.TemperatureDifference dTtoPipe=PrescribedHeatFlow1.port.T-Pipe1.heatPort.T 
+      output TemperatureDifference dTtoPipe=PrescribedHeatFlow1.port.T-Pipe1.heatPort.T 
         "Source over Coolant";
-      output Modelica.SIunits.TemperatureDifference dTCoolant=Pipe1.dT 
+      output TemperatureDifference dTCoolant=Pipe1.dT 
         "Coolant's temperature increase";
       FluidHeatFlow.Sources.Ambient Ambient1(T_Ambient=Modelica.SIunits.Conversions.from_degC(TAmb),
         medium=medium) 
@@ -367,21 +376,21 @@ Two prescribed heat sources dissipate their heat through thermal conductors to c
         annotation(choicesAllMatching=true);
       parameter Modelica.SIunits.CelsiusTemperature TAmb=20 
         "ambient temperature";
-      output Modelica.SIunits.TemperatureDifference dTSource1=
+      output TemperatureDifference dTSource1=
         PrescribedHeatFlow1.port.T-Modelica.SIunits.Conversions.from_degC(TAmb) 
         "Source1 over Ambient";
-      output Modelica.SIunits.TemperatureDifference dTtoPipe1=PrescribedHeatFlow1.port.T-Pipe1.heatPort.T 
+      output TemperatureDifference dTtoPipe1=PrescribedHeatFlow1.port.T-Pipe1.heatPort.T 
         "Source1 over Coolant1";
-      output Modelica.SIunits.TemperatureDifference dTCoolant1=Pipe1.dT 
+      output TemperatureDifference dTCoolant1=Pipe1.dT 
         "Coolant1's temperature increase";
-      output Modelica.SIunits.TemperatureDifference dTSource2=
+      output TemperatureDifference dTSource2=
         PrescribedHeatFlow2.port.T-Modelica.SIunits.Conversions.from_degC(TAmb) 
         "Source2 over Ambient";
-      output Modelica.SIunits.TemperatureDifference dTtoPipe2=PrescribedHeatFlow2.port.T-Pipe2.heatPort.T 
+      output TemperatureDifference dTtoPipe2=PrescribedHeatFlow2.port.T-Pipe2.heatPort.T 
         "Source2 over Coolant2";
-      output Modelica.SIunits.TemperatureDifference dTCoolant2=Pipe2.dT 
+      output TemperatureDifference dTCoolant2=Pipe2.dT 
         "Coolant2's temperature increase";
-      output Modelica.SIunits.TemperatureDifference dTmixedCoolant=Ambient2.T_port-Ambient1.T_port 
+      output TemperatureDifference dTmixedCoolant=Ambient2.T_port-Ambient1.T_port 
         "mixed Coolant's temperature increase";
       FluidHeatFlow.Sources.Ambient Ambient1(T_Ambient=Modelica.SIunits.Conversions.from_degC(TAmb),
         medium=medium) 
@@ -527,16 +536,16 @@ Inner coolant's temperature rise near the source is the same as temperature drop
         annotation(choicesAllMatching=true);
       parameter Modelica.SIunits.CelsiusTemperature TAmb=20 
         "ambient temperature";
-      output Modelica.SIunits.TemperatureDifference dTSource=
+      output TemperatureDifference dTSource=
         PrescribedHeatFlow1.port.T-Modelica.SIunits.Conversions.from_degC(TAmb) 
         "Source over Ambient";
-      output Modelica.SIunits.TemperatureDifference dTtoPipe=PrescribedHeatFlow1.port.T-Pipe1.heatPort.T 
+      output TemperatureDifference dTtoPipe=PrescribedHeatFlow1.port.T-Pipe1.heatPort.T 
         "Source over inner Coolant";
-      output Modelica.SIunits.TemperatureDifference dTinnerCoolant=Pipe1.dT 
+      output TemperatureDifference dTinnerCoolant=Pipe1.dT 
         "inner Coolant's temperature increase";
-      output Modelica.SIunits.TemperatureDifference dTCooler=innerPipe.heatPort.T-outerPipe.heatPort.T 
+      output TemperatureDifference dTCooler=innerPipe.heatPort.T-outerPipe.heatPort.T 
         "Cooler's temperature increase between inner and outer pipes";
-      output Modelica.SIunits.TemperatureDifference dTouterCoolant=outerPipe.dT 
+      output TemperatureDifference dTouterCoolant=outerPipe.dT 
         "outer Coolant's temperature increase";
       FluidHeatFlow.Sources.Ambient Ambient1(T_Ambient=Modelica.SIunits.Conversions.from_degC(TAmb),
         medium=outerMedium) annotation (extent=[-60,60; -80,80]);
@@ -664,12 +673,12 @@ You may try to<br>
         annotation(choicesAllMatching=true);
       parameter Modelica.SIunits.CelsiusTemperature TAmb=20 
         "ambient temperature";
-      output Modelica.SIunits.TemperatureDifference dTSource=
+      output TemperatureDifference dTSource=
         PrescribedHeatFlow1.port.T-Modelica.SIunits.Conversions.from_degC(TAmb) 
         "Source over Ambient";
-      output Modelica.SIunits.TemperatureDifference dTtoPipe=PrescribedHeatFlow1.port.T-Pipe1.heatPort.T 
+      output TemperatureDifference dTtoPipe=PrescribedHeatFlow1.port.T-Pipe1.heatPort.T 
         "Source over Coolant";
-      output Modelica.SIunits.TemperatureDifference dTCoolant=Pipe1.dT 
+      output TemperatureDifference dTCoolant=Pipe1.dT 
         "Coolant's temperature increase";
       FluidHeatFlow.Sources.Ambient Ambient1(T_Ambient=Modelica.SIunits.Conversions.from_degC(TAmb),
         medium=medium) 
@@ -764,12 +773,12 @@ then started again (using a ramp of 0.2 s).
         annotation(choicesAllMatching=true);
       parameter Modelica.SIunits.CelsiusTemperature TAmb=20 
         "ambient temperature";
-      output Modelica.SIunits.TemperatureDifference dTSource=
+      output TemperatureDifference dTSource=
         PrescribedHeatFlow1.port.T-Modelica.SIunits.Conversions.from_degC(TAmb) 
         "Source over Ambient";
-      output Modelica.SIunits.TemperatureDifference dTtoPipe=PrescribedHeatFlow1.port.T-Pipe1.heatPort.T 
+      output TemperatureDifference dTtoPipe=PrescribedHeatFlow1.port.T-Pipe1.heatPort.T 
         "Source over Coolant";
-      output Modelica.SIunits.TemperatureDifference dTCoolant=Pipe1.dT 
+      output TemperatureDifference dTCoolant=Pipe1.dT 
         "Coolant's temperature increase";
       FluidHeatFlow.Sources.Ambient Ambient1(T_Ambient=Modelica.SIunits.Conversions.from_degC(TAmb),
         medium=medium) 
@@ -844,21 +853,21 @@ then started again (using a ramp of 0.2 s).
         annotation(choicesAllMatching=true);
       parameter Modelica.SIunits.CelsiusTemperature TAmb=20 
         "ambient temperature";
-      output Modelica.SIunits.TemperatureDifference dTSource1=
+      output TemperatureDifference dTSource1=
         PrescribedHeatFlow1.port.T-Modelica.SIunits.Conversions.from_degC(TAmb) 
         "Source1 over Ambient";
-      output Modelica.SIunits.TemperatureDifference dTtoPipe1=PrescribedHeatFlow1.port.T-Pipe1.heatPort.T 
+      output TemperatureDifference dTtoPipe1=PrescribedHeatFlow1.port.T-Pipe1.heatPort.T 
         "Source1 over Coolant1";
-      output Modelica.SIunits.TemperatureDifference dTCoolant1=Pipe1.dT 
+      output TemperatureDifference dTCoolant1=Pipe1.dT 
         "Coolant1's temperature increase";
-      output Modelica.SIunits.TemperatureDifference dTSource2=
+      output TemperatureDifference dTSource2=
         PrescribedHeatFlow2.port.T-Modelica.SIunits.Conversions.from_degC(TAmb) 
         "Source2 over Ambient";
-      output Modelica.SIunits.TemperatureDifference dTtoPipe2=PrescribedHeatFlow2.port.T-Pipe2.heatPort.T 
+      output TemperatureDifference dTtoPipe2=PrescribedHeatFlow2.port.T-Pipe2.heatPort.T 
         "Source2 over Coolant2";
-      output Modelica.SIunits.TemperatureDifference dTCoolant2=Pipe2.dT 
+      output TemperatureDifference dTCoolant2=Pipe2.dT 
         "Coolant2's temperature increase";
-      output Modelica.SIunits.TemperatureDifference dTmixedCoolant=Ambient2.T_port-Ambient1.T_port 
+      output TemperatureDifference dTmixedCoolant=Ambient2.T_port-Ambient1.T_port 
         "mixed Coolant's temperature increase";
       FluidHeatFlow.Sources.Ambient Ambient1(T_Ambient=Modelica.SIunits.Conversions.from_degC(TAmb),
         medium=medium) 
@@ -966,12 +975,12 @@ the time behaviour depending on coolant flow.
         "ambient temperature";
       parameter Modelica.SIunits.CelsiusTemperature TMass=40 
         "inital temperature of mass";
-      output Modelica.SIunits.TemperatureDifference dTMass=
+      output TemperatureDifference dTMass=
         HeatCapacitor1.port.T-Modelica.SIunits.Conversions.from_degC(TAmb) 
         "Mass over Ambient";
-      output Modelica.SIunits.TemperatureDifference dTtoPipe=HeatCapacitor1.port.T-Pipe1.heatPort.T 
+      output TemperatureDifference dTtoPipe=HeatCapacitor1.port.T-Pipe1.heatPort.T 
         "Mass over Coolant";
-      output Modelica.SIunits.TemperatureDifference dTCoolant=Pipe1.dT 
+      output TemperatureDifference dTCoolant=Pipe1.dT 
         "Coolant's temperature increase";
       FluidHeatFlow.Sources.Ambient Ambient1(T_Ambient=Modelica.SIunits.Conversions.from_degC(TAmb),
         medium=medium) 
@@ -1035,21 +1044,21 @@ the time behaviour depending on coolant flow.
         "inital temperature of mass1";
       parameter Modelica.SIunits.CelsiusTemperature TMass2=60 
         "inital temperature of mass2";
-      output Modelica.SIunits.TemperatureDifference dTMass1=
+      output TemperatureDifference dTMass1=
         HeatCapacitor1.port.T-Modelica.SIunits.Conversions.from_degC(TAmb) 
         "Mass1 over Ambient";
-      output Modelica.SIunits.TemperatureDifference dTtoPipe1=HeatCapacitor1.port.T-Pipe1.heatPort.T 
+      output TemperatureDifference dTtoPipe1=HeatCapacitor1.port.T-Pipe1.heatPort.T 
         "Mass1 over Coolant1";
-      output Modelica.SIunits.TemperatureDifference dTCoolant1=Pipe1.dT 
+      output TemperatureDifference dTCoolant1=Pipe1.dT 
         "Coolant1's temperature increase";
-      output Modelica.SIunits.TemperatureDifference dTMass2=
+      output TemperatureDifference dTMass2=
         HeatCapacitor2.port.T-Modelica.SIunits.Conversions.from_degC(TAmb) 
         "Mass2 over Ambient";
-      output Modelica.SIunits.TemperatureDifference dTtoPipe2=HeatCapacitor2.port.T-Pipe2.heatPort.T 
+      output TemperatureDifference dTtoPipe2=HeatCapacitor2.port.T-Pipe2.heatPort.T 
         "Mass2 over Coolant2";
-      output Modelica.SIunits.TemperatureDifference dTCoolant2=Pipe2.dT 
+      output TemperatureDifference dTCoolant2=Pipe2.dT 
         "Coolant2's temperature increase";
-      output Modelica.SIunits.TemperatureDifference dTmixedCoolant=Ambient2.T_port-Ambient1.T_port 
+      output TemperatureDifference dTmixedCoolant=Ambient2.T_port-Ambient1.T_port 
         "mixed Coolant's temperature increase";
       FluidHeatFlow.Sources.Ambient Ambient1(T_Ambient=Modelica.SIunits.Conversions.from_degC(TAmb),
         medium=medium) 
@@ -1137,16 +1146,17 @@ This package contains utility components used for the test examples.
   </p>
   <p>
   Dr.Christian Kral & Markus Plainer<br>
-  <a href=\"http://www.arsenal.ac.at/english/\">arsenal research</a><br>
-  Business Unit Monitoring, Energy and Drive Technologies<br>
-  A-1030 Vienna, Austria
+  &Ouml;sterreichisches Forschungs- und Pr&uuml;fzentrum Arsenal Ges.m.b.H.<br>
+  <a href=\"http://www.arsenal.ac.at/\">arsenal research</a><br>
+  Giefinggasse 2<br>
+  A-1210 Vienna, Austria
   </p>
   </dd>
 </dl>
 </p>
 </dl>
 <p>
-Copyright &copy; 1998-2006, Modelica Association, Anton Haumer and arsenal research.
+Copyright &copy; 1998-2007, Modelica Association, Anton Haumer and arsenal research.
 </p>
 <p>
 <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
@@ -1247,16 +1257,17 @@ Thermodynamic equations are defined in partial models (package Partials).
   </p>
   <p>
   Dr.Christian Kral & Markus Plainer<br>
-  <a href=\"http://www.arsenal.ac.at/english/\">arsenal research</a><br>
-  Business Unit Monitoring, Energy and Drive Technologies<br>
-  A-1030 Vienna, Austria
+  &Ouml;sterreichisches Forschungs- und Pr&uuml;fzentrum Arsenal Ges.m.b.H.<br>
+  <a href=\"http://www.arsenal.ac.at/\">arsenal research</a><br>
+  Giefinggasse 2<br>
+  A-1210 Vienna, Austria
   </p>
   </dd>
 </dl>
 </p>
 </dl>
 <p>
-Copyright &copy; 1998-2006, Modelica Association, Anton Haumer and arsenal research.
+Copyright &copy; 1998-2007, Modelica Association, Anton Haumer and arsenal research.
 </p>
 <p>
 <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
@@ -1312,7 +1323,7 @@ leads to neglection of temperature transient cv*m*der(T).
               fillColor=3,
               rgbfillColor={0,0,255})),
               Text(extent=[-150,100; 150,40], string="%name")), Diagram);
-      extends Interfaces.Partials.TwoPort;
+      extends Interfaces.Partials.TwoPort(final tapT=1);
       extends Interfaces.Partials.SimpleFriction;
       parameter Modelica.SIunits.Length h_g=0 
         "geodetic height (heigth difference from flowPort_a to flowPort_b)";
@@ -1403,7 +1414,7 @@ Flow resistance under real conditions is calculated by<br>
               fillColor=3,
               rgbfillColor={0,0,255},
               fillPattern=1))), Diagram);
-      extends Interfaces.Partials.TwoPort(m=0);
+      extends Interfaces.Partials.TwoPort(m=0, final tapT=1);
       parameter Boolean LinearCharacteristic=true 
         "|standard characteristic|type of characteristic" 
         annotation(choices(choice=true "Linear", choice=false "Exponential"));
@@ -1467,16 +1478,17 @@ This package contains connectors and partial models:
   </p>
   <p>
   Dr.Christian Kral & Markus Plainer<br>
-  <a href=\"http://www.arsenal.ac.at/english/\">arsenal research</a><br>
-  Business Unit Monitoring, Energy and Drive Technologies<br>
-  A-1030 Vienna, Austria
+  &Ouml;sterreichisches Forschungs- und Pr&uuml;fzentrum Arsenal Ges.m.b.H.<br>
+  <a href=\"http://www.arsenal.ac.at/\">arsenal research</a><br>
+  Giefinggasse 2<br>
+  A-1210 Vienna, Austria
   </p>
   </dd>
 </dl>
 </p>
 </dl>
 <p>
-Copyright &copy; 1998-2006, Modelica Association, Anton Haumer and arsenal research.
+Copyright &copy; 1998-2007, Modelica Association, Anton Haumer and arsenal research.
 </p>
 <p>
 <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
@@ -1613,16 +1625,17 @@ This package contains partial models, defining in a very compact way the basic t
   </p>
   <p>
   Dr.Christian Kral & Markus Plainer<br>
-  <a href=\"http://www.arsenal.ac.at/english/\">arsenal research</a><br>
-  Business Unit Monitoring, Energy and Drive Technologies<br>
-  A-1030 Vienna, Austria
+  &Ouml;sterreichisches Forschungs- und Pr&uuml;fzentrum Arsenal Ges.m.b.H.<br>
+  <a href=\"http://www.arsenal.ac.at/\">arsenal research</a><br>
+  Giefinggasse 2<br>
+  A-1210 Vienna, Austria
   </p>
   </dd>
 </dl>
 </p>
 </dl>
 <p>
-Copyright &copy; 1998-2006, Modelica Association, Anton Haumer and arsenal research.
+Copyright &copy; 1998-2007, Modelica Association, Anton Haumer and arsenal research.
 </p>
 <p>
 <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
@@ -1649,6 +1662,8 @@ and the accompanying <b>disclaimer</b>
   <li> v1.50 2005/09/07 Anton Haumer<br>
        semiLinear works fine<br>
        removed test-version of semiLinear</li>
+  <li> v1.60 2007/01/23 Anton Haumer<br>
+       new parameter tapT defining Temperature of heatPort</li>
   </ul>
 </HTML>
 "));
@@ -1736,13 +1751,15 @@ See also sketch at diagram layer.
       end SimpleFriction;
       
       partial model TwoPort 
+        
       annotation (Documentation(info="<HTML>
 <p>
 Partial model with two flowPorts.<br>
 Possible heat exchange with the ambient is defined by Q_flow; setting this = 0 means no energy exchange.<br>
 Setting parameter m (mass of medium within pipe) to zero
 leads to neglection of temperature transient cv*m*der(T).<br>
-Mixing rule is applied.
+Mixing rule is applied.<br>
+Parameter 0 &lt; tapT &lt; 1 defines temperature of heatPort between medium's inlet and outlet temperature.
 </p>
 </HTML>"));
         parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium() 
@@ -1751,6 +1768,8 @@ Mixing rule is applied.
         parameter Modelica.SIunits.Temperature T0=Modelica.SIunits.Conversions.from_degC(20) 
           "initial temperature of medium" 
           annotation(Dialog(enable=m>Modelica.Constants.small));
+        parameter Real tapT(final min=0, final max=1)=1 
+          "defines temperature of heatPort between inlet and outlet temperature";
         Modelica.SIunits.Pressure dp=flowPort_a.p - flowPort_b.p 
           "pressure drop a->b";
         Modelica.SIunits.VolumeFlowRate V_flow=flowPort_a.m_flow/medium.rho 
@@ -1762,12 +1781,12 @@ Mixing rule is applied.
           "temperature at flowPort_a";
         output Modelica.SIunits.Temperature T_b=flowPort_b.h/medium.cp 
           "temperature at flowPort_b";
-        output Modelica.SIunits.TemperatureDifference dT=if noEvent(V_flow>=0) then T-T_a else T_b-T 
+        output TemperatureDifference dT=if noEvent(V_flow>=0) then T-T_a else T_b-T 
           "temperature increase of coolant in flow direction";
       protected 
         Modelica.SIunits.SpecificEnthalpy h = medium.cp*T 
           "medium's specific enthalpy";
-        Modelica.SIunits.Temperature T_q = T 
+        Modelica.SIunits.Temperature T_q = T  - noEvent(sign(V_flow))*(1 - tapT)*dT 
           "temperature relevant for heat exchange with ambient";
       public 
         Interfaces.FlowPort_a flowPort_a(final medium=medium) 
@@ -1918,7 +1937,7 @@ Partial model for a flow sensor (mass flow/heat flow).<br>
 Pressure, mass flow, temperature and enthalpy flow of medium are not affected, but mixing rule is applied.
 </p>
 </HTML>"));
-        extends TwoPort(final m=0, final T0=0);
+        extends TwoPort(final m=0, final T0=0, final tapT=1);
         Modelica.Blocks.Interfaces.RealOutput y 
           annotation (extent=[-10,-100; 10,-120],  rotation=90);
         annotation (Icon(
@@ -1973,16 +1992,17 @@ This package contains definitions of medium properties.
   </p>
   <p>
   Dr.Christian Kral & Markus Plainer<br>
-  <a href=\"http://www.arsenal.ac.at/english/\">arsenal research</a><br>
-  Business Unit Monitoring, Energy and Drive Technologies<br>
-  A-1030 Vienna, Austria
+  &Ouml;sterreichisches Forschungs- und Pr&uuml;fzentrum Arsenal Ges.m.b.H.<br>
+  <a href=\"http://www.arsenal.ac.at/\">arsenal research</a><br>
+  Giefinggasse 2<br>
+  A-1210 Vienna, Austria
   </p>
   </dd>
 </dl>
 </p>
 </dl>
 <p>
-Copyright &copy; 1998-2006, Modelica Association, Anton Haumer and arsenal research.
+Copyright &copy; 1998-2007, Modelica Association, Anton Haumer and arsenal research.
 </p>
 <p>
 <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
@@ -2093,16 +2113,17 @@ All sensors are considered massless, they do not change mass flow or enthalpy fl
   </p>
   <p>
   Dr.Christian Kral & Markus Plainer<br>
-  <a href=\"http://www.arsenal.ac.at/english/\">arsenal research</a><br>
-  Business Unit Monitoring, Energy and Drive Technologies<br>
-  A-1030 Vienna, Austria
+  &Ouml;sterreichisches Forschungs- und Pr&uuml;fzentrum Arsenal Ges.m.b.H.<br>
+  <a href=\"http://www.arsenal.ac.at/\">arsenal research</a><br>
+  Giefinggasse 2<br>
+  A-1210 Vienna, Austria
   </p>
   </dd>
 </dl>
 </p>
 </dl>
 <p>
-Copyright &copy; 1998-2006, Modelica Association, Anton Haumer and arsenal research.
+Copyright &copy; 1998-2007, Modelica Association, Anton Haumer and arsenal research.
 </p>
 <p>
 <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
@@ -2221,7 +2242,7 @@ Outlet temperature is defined by variable T of the corresponding component.</li>
 </ul>
 </HTML>"), Diagram);
       extends Interfaces.Partials.RelativeSensor(y(redeclare type SignalType = 
-              Modelica.SIunits.TemperatureDifference));
+              TemperatureDifference));
     equation 
       medium.cp*y = flowPort_a.h - flowPort_b.h;
       annotation(Icon(Text(
@@ -2314,16 +2335,17 @@ All fans / pumps are considered without losses, they do not change enthalpy flow
   </p>
   <p>
   Dr.Christian Kral & Markus Plainer<br>
-  <a href=\"http://www.arsenal.ac.at/english/\">arsenal research</a><br>
-  Business Unit Monitoring, Energy and Drive Technologies<br>
-  A-1030 Vienna, Austria
+  &Ouml;sterreichisches Forschungs- und Pr&uuml;fzentrum Arsenal Ges.m.b.H.<br>
+  <a href=\"http://www.arsenal.ac.at/\">arsenal research</a><br>
+  Giefinggasse 2<br>
+  A-1210 Vienna, Austria
   </p>
   </dd>
 </dl>
 </p>
 </dl>
 <p>
-Copyright &copy; 1998-2006, Modelica Association, Anton Haumer and arsenal research.
+Copyright &copy; 1998-2007, Modelica Association, Anton Haumer and arsenal research.
 </p>
 <p>
 <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
@@ -2442,7 +2464,7 @@ Thermodynamic equations are defined by Partials.TwoPort.
             extent=[-40,20; 0,-20],
             style(color=0, rgbcolor={0,0,0}),
             string="V")));
-      extends Interfaces.Partials.TwoPort;
+      extends Interfaces.Partials.TwoPort(final tapT=1);
       parameter Modelica.SIunits.VolumeFlowRate VolumeFlow=1;
     equation 
       Q_flow = 0;
@@ -2479,7 +2501,7 @@ Thermodynamic equations are defined by Partials.TwoPort.
             style(color=0, rgbcolor={0,0,0}),
             string="V")),
         Diagram);
-      extends Interfaces.Partials.TwoPort;
+      extends Interfaces.Partials.TwoPort(final tapT=1);
       Modelica.Blocks.Interfaces.RealInput VolumeFlow(redeclare type SignalType
           =            Modelica.SIunits.VolumeFlowRate) 
         annotation (extent=[-10,90; 10,110], rotation=-90);
@@ -2517,7 +2539,7 @@ Thermodynamic equations are defined by Partials.TwoPort.
             extent=[-40,20; 0,-20],
             string="dp",
             style(color=0, rgbcolor={0,0,0}))));
-      extends Interfaces.Partials.TwoPort;
+      extends Interfaces.Partials.TwoPort(final tapT=1);
       parameter Modelica.SIunits.Pressure PressureIncrease=1;
     equation 
       Q_flow = 0;
@@ -2553,7 +2575,7 @@ Thermodynamic equations are defined by Partials.TwoPort.
             extent=[-40,20; 0,-20],
             string="dp",
             style(color=0, rgbcolor={0,0,0}))));
-      extends Interfaces.Partials.TwoPort;
+      extends Interfaces.Partials.TwoPort(final tapT=1);
       Modelica.Blocks.Interfaces.RealInput PressureIncrease(redeclare type 
           SignalType = Modelica.SIunits.Pressure) 
         annotation (extent=[-10,90; 10,110],    rotation=-90);
@@ -2602,7 +2624,7 @@ Thermodynamic equations are defined by Partials.TwoPort.
               fillColor=3,
               rgbfillColor={0,0,255}))),
         Diagram);
-      extends Interfaces.Partials.TwoPort;
+      extends Interfaces.Partials.TwoPort(final tapT=1);
       parameter Modelica.SIunits.AngularVelocity w_Nominal=1 
         "|pump characteristic|nominal speed";
       parameter Modelica.SIunits.Pressure dp0=2 
