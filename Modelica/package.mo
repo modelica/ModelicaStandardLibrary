@@ -77,6 +77,9 @@ or made by the Modelica Association.
 It is backwards compatible to the version 2.2.1 made available 2006-04-23, and also with version 2.2 and 2.1.
 The changes are:
 <ul>
+<li>Removed smooth from <a href=\"Modelica://Modelica.Blocks.Continuous.LimIntegrator\">LimIntegrator</a>, since
+the expression is non-smooth for changes in y.
+</li>
 <li>Several models in the <a href=\"Modelica://Modelica.Electrical.Digital\">Digital</a>
 library have been rewritten for better performance, without modifying the behaviour.
 <li>The examples <a href=\"Modelica://Modelica.Mechanics.MultiBody.Examples.Loops.EngineV6\">EngineV6</a> and 
