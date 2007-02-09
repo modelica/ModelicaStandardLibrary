@@ -1248,8 +1248,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
         Line(points=[50, 0; 90, 0], style(color=0, rgbcolor={0,0,0})),
         Line(points=[0, -50; 0, 50], style(color=0, rgbcolor={0,0,0})),
         Text(extent=[-100, -120; 100, -80], string="%name"),
-        Line(points=[-60,-70; 60,-70], style(color=3, rgbcolor={0,0,255})),
-        Polygon(points=[60,-70; 30,-60; 30,-80; 60,-70], style(
+        Polygon(points=[90,0; 60,10; 60,-10; 90,0],      style(
             color=3,
             rgbcolor={0,0,255},
             fillColor=3,
@@ -1301,8 +1300,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
         Line(points=[50, 0; 90, 0], style(color=0, rgbcolor={0,0,0})),
         Line(points=[0, -50; 0, 50], style(color=0, rgbcolor={0,0,0})),
         Text(extent=[-100,80; 100,120],     string="%name=%I"),
-        Line(points=[-60,-80; 60,-80], style(color=3, rgbcolor={0,0,255})),
-        Polygon(points=[60,-80; 30,-70; 30,-90; 60,-80], style(
+        Polygon(points=[90,0; 60,10; 60,-10; 90,0],      style(
             color=3,
             rgbcolor={0,0,255},
             fillColor=3,
