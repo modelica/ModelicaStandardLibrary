@@ -20,7 +20,8 @@ annotation(preferedView="info",
          script="Scripts/ConvertModelica_from_1.6_to_2.1.mos"),
     from(version="2.1 Beta1", script="Scripts/ConvertModelica_from_2.1Beta1_to_2.1.mos"),
     noneFromVersion="2.1",
-    noneFromVersion="2.2"),
+    noneFromVersion="2.2",
+    noneFromVersion="2.2.1"),
   Settings(NewStateSelection=true),
   Documentation(info="<HTML>
 <p>
