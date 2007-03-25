@@ -836,4 +836,57 @@ input becomes false.
     end when;
     y = if u then time - entryTime else 0.0;
   end Timer;
+
+  block TerminateSimulation "Terminate simulation if condition is fullfilled" 
+    
+    Modelica.Blocks.Interfaces.BooleanOutput condition=false 
+      "Terminate simulation when condition becomes true" 
+      annotation (Dialog, extent=[200,-10; 220,10]);
+    parameter String terminationText = "... End condition reached" 
+      "Text that will be displayed when simulation is terminated";
+    annotation (
+      Coordsys(
+        extent=[-200,-15; 200,15],
+        grid=[2, 2],
+        component=[20, 20],
+        scale=0.2),
+      Window(
+        x=0.29,
+        y=0.23,
+        width=0.6,
+        height=0.6),
+      Icon(
+        Rectangle(extent=[-200,14; 200,-16],   style(
+            color=0,
+            fillColor=30,
+            fillPattern=11)),
+        Text(
+          extent=[-172,10; 194,-10],
+          string="%condition",
+          style(
+            color=0,
+            fillColor=2,
+            fillPattern=1)),                 Rectangle(extent=[-194,10; -176,-8],
+            style(
+            color=0,
+            rgbcolor={0,0,0},
+            fillColor=1,
+            rgbfillColor={255,0,0},fillPattern=11)),
+        Text(
+          extent=[-198,40; 196,16],
+          string="%name",
+          style(
+            color=3,
+            rgbcolor={0,0,255},
+            fillColor=3,
+            rgbfillColor={0,0,255}))),
+      Diagram,
+      Documentation(info="<html>
+ 
+</html>"));
+  equation 
+    when condition then
+       terminate(terminationText);
+    end when;
+  end TerminateSimulation;
 end Logical;

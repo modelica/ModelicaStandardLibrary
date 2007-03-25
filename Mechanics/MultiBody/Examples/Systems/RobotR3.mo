@@ -39,7 +39,9 @@ load inertia.
 </HTML>
 "),   Diagram,
       experiment(StopTime=1.6),
-      Commands(file="oneAxisPlot.mos" "plot"));
+      Commands(file=
+            "Mechanics/MultiBody/Examples/Systems/oneAxisPlot.mos" 
+          "Plot result"));
     
     Components.AxisType1 axis(
       w=5500,
@@ -53,24 +55,33 @@ load inertia.
       Ts=Ts) annotation (extent=[20, 0; 40, 20]);
     Modelica.Mechanics.Rotational.Inertia load(J=1.3*mLoad) 
       annotation (extent=[54, 0; 74, 20]);
-    RobotR3.Components.PathPlanning path(
-      naxis=1,
-      startTime=0,
+    Components.PathPlanning1 pathPlanning(
       swingTime=swingTime,
-      angleBegDeg={startAngle},
-      angleEndDeg={endAngle},
-      speedMax={refSpeedMax},
-      accMax={refAccMax}) annotation (extent=[-50, 0; -30, 20]);
+      angleBegDeg=startAngle,
+      angleEndDeg=endAngle,
+      speedMax=refSpeedMax,
+      accMax=refAccMax)   annotation (extent=[-60,0; -40,20]);
   protected 
-    RobotR3.Components.Bus bus(naxis=1) 
-      annotation (extent=[-3, 0; 0, 40], rotation=90);
+    Components.ControlBus controlBus annotation (extent=[-32,10; 8,50]);
   equation 
     connect(axis.flange, load.flange_a) 
-      annotation (points=[41, 10; 54, 10], style(color=10, thickness=2));
-    connect(axis.bus, bus.axis[1]) 
-      annotation (points=[19, 10; -1, 10], style(color=77));
-    connect(path.bus, bus) 
-      annotation (points=[-29, 10; -2, 10; -2, 20; -1.5, 20], style(color=77));
+      annotation (points=[40,10; 54,10],   style(color=10, thickness=2));
+    connect(pathPlanning.controlBus, controlBus) annotation (points=[-40,10; -15,
+          10; -15,28; -12,28; -12,30],                 style(
+        color=6,
+        rgbcolor={255,204,51},
+        thickness=2));
+    connect(controlBus.axisControlBus1, axis.axisControlBus) annotation (
+      points=[-12,30; -12,29; -9,29; -9,10; 20,10],
+      style(
+        color=6,
+        rgbcolor={255,204,51},
+        thickness=2),
+      Text(
+        string="%first",
+        index=-1,
+        extent=[-6,3; -6,3],
+        style(color=0, rgbcolor={0,0,0})));
   end oneAxis;
   
   model fullRobot 
@@ -89,7 +100,8 @@ load inertia.
           string="mLoad=%mLoad",
           style(color=0))),
       experiment(StopTime=3),
-      Commands(file="Run.mos" "Simulate", file="fullRobotPlot.mos" "Plot"),
+      Commands(
+        file="Mechanics/MultiBody/Examples/Systems/fullRobotPlot.mos" "Animate"),
       Documentation(info="<HTML>
 <p>
 This is a detailed model of the robot. For animation CAD data
@@ -104,7 +116,7 @@ to plot variables.
     
     import SI = Modelica.SIunits;
     
-    parameter SI.Mass mLoad(min=0)=15 "mass of load";
+    parameter SI.Mass mLoad(min=0) = 15 "mass of load";
     parameter SI.Position rLoad[3]={0.1,0.25,0.1} 
       "distance from last flange to load mass";
     parameter SI.Acceleration g=9.81 "gravity acceleration";
@@ -112,38 +124,41 @@ to plot variables.
     parameter SI.Time refSwingTime=0.7 
       "additional time after reference motion is in rest before simulation is stopped";
     
-    parameter Real startAngle1(unit="deg") = -60 
-      "|Reference|startAngles| start angle of axis 1";
-    parameter Real startAngle2(unit="deg") = 20 
-      "|Reference|startAngles| start angle of axis 2";
-    parameter Real startAngle3(unit="deg") = 90 
-      "|Reference|startAngles| start angle of axis 3";
-    parameter Real startAngle4(unit="deg") = 0 
-      "|Reference|startAngles| start angle of axis 4";
-    parameter Real startAngle5(unit="deg") = -110 
-      "|Reference|startAngles| start angle of axis 5";
-    parameter Real startAngle6(unit="deg") = 0 
-      "|Reference|startAngles| start angle of axis 6";
+    parameter Real startAngle1(unit="deg") = -60 " start angle of axis 1" 
+      annotation (Dialog(tab="Reference", group="startAngles"));
+    parameter Real startAngle2(unit="deg") = 20 " start angle of axis 2" 
+      annotation (Dialog(tab="Reference", group="startAngles"));
+    parameter Real startAngle3(unit="deg") = 90 " start angle of axis 3" 
+      annotation (Dialog(tab="Reference", group="startAngles"));
+    parameter Real startAngle4(unit="deg") = 0 " start angle of axis 4" 
+      annotation (Dialog(tab="Reference", group="startAngles"));
+    parameter Real startAngle5(unit="deg") = -110 " start angle of axis 5" 
+      annotation (Dialog(tab="Reference", group="startAngles"));
+    parameter Real startAngle6(unit="deg") = 0 " start angle of axis 6" 
+      annotation (Dialog(tab="Reference", group="startAngles"));
     
-    parameter Real endAngle1(unit="deg") = 60 
-      "|Reference|endAngles| end angle of axis 1";
-    parameter Real endAngle2(unit="deg") = -70 
-      "|Reference|endAngles| end angle of axis 2";
-    parameter Real endAngle3(unit="deg") = -35 
-      "|Reference|endAngles| end angle of axis 3";
-    parameter Real endAngle4(unit="deg") = 45 
-      "|Reference|endAngles| end angle of axis 4";
-    parameter Real endAngle5(unit="deg") = 110 
-      "|Reference|endAngles| end angle of axis 5";
-    parameter Real endAngle6(unit="deg") = 45 
-      "|Reference|endAngles| end angle of axis 6";
+    parameter Real endAngle1(unit="deg") = 60 " end angle of axis 1" 
+      annotation (Dialog(tab="Reference", group="endAngles"));
+    parameter Real endAngle2(unit="deg") = -70 " end angle of axis 2" 
+      annotation (Dialog(tab="Reference", group="endAngles"));
+    parameter Real endAngle3(unit="deg") = -35 " end angle of axis 3" 
+      annotation (Dialog(tab="Reference", group="endAngles"));
+    parameter Real endAngle4(unit="deg") = 45 " end angle of axis 4" 
+      annotation (Dialog(tab="Reference", group="endAngles"));
+    parameter Real endAngle5(unit="deg") = 110 " end angle of axis 5" 
+      annotation (Dialog(tab="Reference", group="endAngles"));
+    parameter Real endAngle6(unit="deg") = 45 " end angle of axis 6" 
+      annotation (Dialog(tab="Reference", group="endAngles"));
     
     parameter SI.AngularVelocity refSpeedMax[6]={3,1.5,5,3.1,3.1,4.1} 
-      "|Reference|Limits| Maximum reference speeds of all joints";
+      " Maximum reference speeds of all joints" 
+      annotation (Dialog(tab="Reference", group="Limits"));
     parameter SI.AngularAcceleration refAccMax[6]={15,15,15,60,60,60} 
-      "|Reference|Limits| Maximum reference accelerations of all joints";
+      " Maximum reference accelerations of all joints" 
+      annotation (Dialog(tab="Reference", group="Limits"));
     
-    parameter Real kp1=5 "|Controller|Axis 1| gain of position controller";
+    parameter Real kp1=5 " gain of position controller" 
+      annotation (Dialog(tab="Controller", group="Axis 1"));
     parameter Real ks1=0.5 "|Controller|Axis 1| gain of speed controller";
     parameter SI.Time Ts1=0.05 
       "|Controller|Axis 1| time constant of integrator of speed controller";
@@ -170,8 +185,9 @@ to plot variables.
     Components.MechanicalStructure mechanics(
       mLoad=mLoad,
       rLoad=rLoad,
-      g=g) annotation (extent=[34.5,-35; 94.5,25]);
-    RobotR3.Components.PathPlanning path(
+      g=g) annotation (extent=[35,-35; 95,25]);
+    Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.PathPlanning6
+      pathPlanning(
       naxis=6,
       angleBegDeg={startAngle1,startAngle2,startAngle3,startAngle4,startAngle5,
           startAngle6},
@@ -179,7 +195,7 @@ to plot variables.
       speedMax=refSpeedMax,
       accMax=refAccMax,
       startTime=refStartTime,
-      swingTime=refSwingTime) annotation (extent=[-80, -25; -60, -5]);
+      swingTime=refSwingTime) annotation (extent=[-5,50; -25,70]);
     
     RobotR3.Components.AxisType1 axis1(
       w=4590,
@@ -190,7 +206,7 @@ to plot variables.
       Rv1=(0.13/160),
       kp=kp1,
       ks=ks1,
-      Ts=Ts1) annotation (extent=[-25, -55; -5, -75]);
+      Ts=Ts1) annotation (extent=[-25,-75; -5,-55]);
     RobotR3.Components.AxisType1 axis2(
       w=5500,
       ratio=210,
@@ -200,7 +216,7 @@ to plot variables.
       Rv0=0.5,
       kp=kp2,
       ks=ks2,
-      Ts=Ts2) annotation (extent=[-25, -35; -5, -55]);
+      Ts=Ts2) annotation (extent=[-25,-55; -5,-35]);
     
     RobotR3.Components.AxisType1 axis3(
       w=5500,
@@ -211,7 +227,7 @@ to plot variables.
       Rv1=(0.2/130),
       kp=kp3,
       ks=ks3,
-      Ts=Ts3) annotation (extent=[-25, -15; -5, -35]);
+      Ts=Ts3) annotation (extent=[-25,-35; -5,-15]);
     RobotR3.Components.AxisType2 axis4(
       k=0.2365,
       w=6250,
@@ -223,7 +239,7 @@ to plot variables.
       peak=26.7/21.8,
       kp=kp4,
       ks=ks4,
-      Ts=Ts4) annotation (extent=[-25, 5; -5, -15]);
+      Ts=Ts4) annotation (extent=[-25,-15; -5,5]);
     RobotR3.Components.AxisType2 axis5(
       k=0.2608,
       w=6250,
@@ -235,7 +251,7 @@ to plot variables.
       peak=39.6/30.1,
       kp=kp5,
       ks=ks5,
-      Ts=Ts5) annotation (extent=[-25, 25; -5, 5]);
+      Ts=Ts5) annotation (extent=[-25,5; -5,25]);
     RobotR3.Components.AxisType2 axis6(
       k=0.0842,
       w=7400,
@@ -247,37 +263,96 @@ to plot variables.
       peak=16.8/10.9,
       kp=kp6,
       ks=ks6,
-      Ts=Ts6) annotation (extent=[-25, 45; -5, 25]);
+      Ts=Ts6) annotation (extent=[-25,25; -5,45]);
   protected 
-    RobotR3.Components.Bus bus(naxis=6) 
-      annotation (extent=[-42.5, -75; -40, 45.5], rotation=90);
+    Components.ControlBus controlBus 
+      annotation (extent=[-100,-30; -60,10], rotation=90);
   equation 
-    connect(axis2.flange, mechanics.axis2) annotation (points=[-4,-45; 25,-45;
-          25,-21.5; 33,-21.5],      style(color=0));
-    connect(path.bus, bus) annotation (points=[-59, -15; -41.25, -15; -41.25, -14.75],
-         style(color=77));
-    connect(axis2.bus, bus.axis[2]) 
-      annotation (points=[-26, -45; -40, -45], style(color=77));
-    connect(axis1.bus, bus.axis[1]) 
-      annotation (points=[-26, -65; -40, -65], style(color=77));
-    connect(axis3.bus, bus.axis[3]) 
-      annotation (points=[-26, -25; -40, -25], style(color=77));
-    connect(axis4.bus, bus.axis[4]) 
-      annotation (points=[-26, -5; -40, -5], style(color=77));
-    connect(axis5.bus, bus.axis[5]) 
-      annotation (points=[-26, 15; -40, 15], style(color=77));
-    connect(axis6.bus, bus.axis[6]) 
-      annotation (points=[-26, 35; -40, 35], style(color=77));
-    connect(axis1.flange, mechanics.axis1) annotation (points=[-4,-65; 30,-65;
-          30,-30.5; 33,-30.5],      style(color=0));
-    connect(axis3.flange, mechanics.axis3) annotation (points=[-4,-25; 15,-25;
-          15,-12.5; 33,-12.5],      style(color=0));
-    connect(axis4.flange, mechanics.axis4) annotation (points=[-4,-5; 15,-5; 15,
-          -3.5; 33,-3.5],        style(color=0));
+    connect(axis2.flange, mechanics.axis2) annotation (points=[-5,-45; 25,-45;
+          25,-21.5; 33.5,-21.5],    style(color=0));
+    connect(axis1.flange, mechanics.axis1) annotation (points=[-5,-65; 30,-65;
+          30,-30.5; 33.5,-30.5],    style(color=0));
+    connect(axis3.flange, mechanics.axis3) annotation (points=[-5,-25; 15,-25;
+          15,-12.5; 33.5,-12.5],    style(color=0));
+    connect(axis4.flange, mechanics.axis4) annotation (points=[-5,-5; 15,-5; 15,
+          -3.5; 33.5,-3.5],      style(color=0));
     connect(axis5.flange, mechanics.axis5) 
-      annotation (points=[-4,15; 10,15; 10,5.5; 33,5.5],       style(color=0));
-    connect(axis6.flange, mechanics.axis6) annotation (points=[-4,35; 20,35; 20,
-          14.5; 33,14.5],        style(color=0));
+      annotation (points=[-5,15; 10,15; 10,5.5; 33.5,5.5],     style(color=0));
+    connect(axis6.flange, mechanics.axis6) annotation (points=[-5,35; 20,35; 20,
+          14.5; 33.5,14.5],      style(color=0));
+    connect(controlBus, pathPlanning.controlBus) 
+                                         annotation (points=[-80,-10; -80,60; -25,
+          60], style(
+        color=6,
+        rgbcolor={255,204,51},
+        thickness=2));
+    connect(controlBus.axisControlBus1, axis1.axisControlBus) annotation (
+      points=[-80,-10; -80,-14.5; -79,-14.5; -79,-17; -65,-17; -65,-65; -25,-65],
+      style(
+        color=6,
+        rgbcolor={255,204,51},
+        thickness=2),
+      Text(
+        string="%first",
+        index=-1,
+        extent=[-6,3; -6,3],
+        style(color=0, rgbcolor={0,0,0})));
+    
+    connect(controlBus.axisControlBus2, axis2.axisControlBus) annotation (
+      points=[-80,-10; -79,-10; -79,-15; -62.5,-15; -62.5,-45; -25,-45],
+      style(
+        color=6,
+        rgbcolor={255,204,51},
+        thickness=2),
+      Text(
+        string="%first",
+        index=-1,
+        extent=[-6,3; -6,3],
+        style(color=0, rgbcolor={0,0,0})));
+    connect(controlBus.axisControlBus3, axis3.axisControlBus) annotation (
+      points=[-80,-10; -77,-10; -77,-12.5; -61,-12.5; -61,-25; -25,-25],
+      style(
+        color=6,
+        rgbcolor={255,204,51},
+        thickness=2),
+      Text(
+        string="%first",
+        index=-1,
+        extent=[-6,3; -6,3],
+        style(color=0, rgbcolor={0,0,0})));
+    connect(controlBus.axisControlBus4, axis4.axisControlBus) annotation (
+      points=[-80,-10; -60.5,-10; -60.5,-5; -25,-5],
+      style(
+        color=6,
+        rgbcolor={255,204,51},
+        thickness=2),
+      Text(
+        string="%first",
+        index=-1,
+        extent=[-6,3; -6,3],
+        style(color=0, rgbcolor={0,0,0})));
+    connect(controlBus.axisControlBus5, axis5.axisControlBus) annotation (
+      points=[-80,-10; -77,-10; -77,-7; -63,-7; -63,15; -25,15],
+      style(
+        color=6,
+        rgbcolor={255,204,51},
+        thickness=2),
+      Text(
+        string="%first",
+        index=-1,
+        extent=[-6,3; -6,3],
+        style(color=0, rgbcolor={0,0,0})));
+    connect(controlBus.axisControlBus6, axis6.axisControlBus) annotation (
+      points=[-80,-10; -79,-10; -79,-5; -65,-5; -65,35; -25,35],
+      style(
+        color=6,
+        rgbcolor={255,204,51},
+        thickness=2),
+      Text(
+        string="%first",
+        index=-1,
+        extent=[-6,3; -6,3],
+        style(color=0, rgbcolor={0,0,0})));
   end fullRobot;
   extends Modelica.Icons.Library;
   import SI = Modelica.SIunits;
@@ -285,77 +360,139 @@ to plot variables.
   package Components "Library of components of the robot" 
     extends Modelica.Icons.Library;
     
-    connector AxisBus "Data bus for one robot axis" 
-      import Modelica.Blocks.Interfaces;
-      Interfaces.BooleanSignal motion_ref 
-        "true, if reference motion is not in rest";
-      Interfaces.RealSignal angle_ref(redeclare type SignalType = SI.Angle) 
-        "reference angle of axis flange";
-      Interfaces.RealSignal angle(redeclare type SignalType = SI.Angle) 
-        "angle of axis flange";
-      Interfaces.RealSignal speed_ref(redeclare type SignalType = 
-            SI.AngularVelocity) "reference speed of axis flange";
-      Interfaces.RealSignal speed(redeclare type SignalType = 
-            SI.AngularVelocity) "speed of axis flange";
-      Interfaces.RealSignal acceleration_ref(redeclare type SignalType = 
-            SI.AngularAcceleration) "reference acceleration of axis flange";
-      Interfaces.RealSignal acceleration(redeclare type SignalType = 
-            SI.AngularAcceleration) "acceleration of axis flange";
-      Interfaces.RealSignal current_ref(redeclare type SignalType = SI.Current)
-        "reference current of motor";
-      Interfaces.RealSignal current(redeclare type SignalType = SI.Current) 
-        "current of motor";
-      Interfaces.RealSignal motorAngle(redeclare type SignalType = SI.Angle) 
-        "angle of motor flange";
-      Interfaces.RealSignal motorSpeed(redeclare type SignalType = 
-            SI.AngularVelocity) "speed of motor flange";
-      annotation (
-        Icon(Rectangle(extent=[-100, 100; 100, -100], style(
-              color=77,
-              fillColor=77,
-              fillPattern=1)), Text(
-            extent=[-134, 168; 134, 108],
-            string="%name",
-            style(color=77))),
-        Diagram(Text(
-            extent=[-134, 168; 134, 108],
-            string="%name",
-            style(color=77)), Rectangle(extent=[-100, 100; 100, -100], style(
-              color=77,
-              fillColor=77,
-              fillPattern=1))),
-        Documentation(info="<HTML>
-<p>Defines connector for signalbus.</p>
-</HTML>
-"));
-    end AxisBus;
+    expandable connector AxisControlBus "Data bus for one robot axis" 
+      extends Modelica.Icons.SignalSubBus;
+      
+      annotation (defaultComponentPrefixes="protected",
+                  Icon(Rectangle(extent=[-20, 2; 22, -2], style(rgbcolor={255,204,51}, thickness=2))));
+    end AxisControlBus;
     
-    connector Bus "Data bus for all axes of robot" 
-      parameter Integer naxis=6;
-      AxisBus axis[naxis];
+    expandable connector ControlBus "Data bus for all axes of robot" 
+      extends Modelica.Icons.SignalBus;
       
       annotation (
-        Icon(Rectangle(extent=[-100, 100; 100, -100], style(
-              color=77,
-              fillColor=77,
-              fillPattern=1)), Text(
-            extent=[-134, 168; 134, 108],
-            string="%name",
-            style(color=77))),
-        Diagram(Text(
-            extent=[-138, 168; 130, 108],
-            string="%name",
-            style(color=77)), Rectangle(extent=[-100, 100; 100, -100], style(
-              color=77,
-              fillColor=77,
-              fillPattern=1))),
-        Documentation(info="<HTML>
-<p>Defines connector for signalbus.</p>
-</HTML>
-"));
-    end Bus;
+        Icon(Rectangle(extent=[-20, 2; 22, -2], style(rgbcolor={255,204,51}, thickness=2))),
+        Diagram);
+    end ControlBus;
     
-    model PathPlanning 
+    model PathPlanning1 
+      "Generate reference angles for fastest kinematic movement" 
+      
+      import SI = Modelica.SIunits;
+      import Cv = Modelica.SIunits.Conversions;
+      parameter Real angleBegDeg(unit="deg") = 0 "start angle";
+      parameter Real angleEndDeg(unit="deg") = 1 "end angle";
+      parameter SI.AngularVelocity speedMax = 3 "maximum axis speed";
+      parameter SI.AngularAcceleration accMax = 2.5 "maximum axis acceleration";
+      parameter SI.Time startTime=0 "start time of movement";
+      parameter SI.Time swingTime=0.5 
+        "additional time after reference motion is in rest before simulation is stopped";
+      final parameter SI.Angle angleBeg=Cv.from_deg(angleBegDeg) "start angles";
+      final parameter SI.Angle angleEnd=Cv.from_deg(angleEndDeg) "end angles";
+      ControlBus controlBus 
+        annotation (extent=[80,-20; 120,20], rotation=-90);
+      Modelica.Blocks.Sources.KinematicPTP2 path(
+        q_end={angleEnd},
+        qd_max={speedMax},
+        qdd_max={accMax},
+        startTime=startTime,
+        q_begin={angleBeg}) 
+                          annotation (extent=[-50,-10; -30,10]);
+      PathToAxisControlBus pathToAxis1(final nAxis=1, final axisUsed=1) 
+        annotation (extent=[0,-10; 20,10]);
+      
+      annotation (
+        Coordsys(
+          extent=[-100, -100; 100, 100],
+          grid=[1, 1],
+          component=[20, 20]),
+        Icon(
+          Rectangle(extent=[-100, 100; 100, -100], style(color=0, fillColor=7)),
+          Text(extent=[-150, 150; 150, 110], string="%name"),
+          Polygon(points=[-80, 90; -88, 68; -72, 68; -80, 88; -80, 90], style(
+              color=8,
+              fillColor=8,
+              fillPattern=1)),
+          Line(points=[-80, 78; -80, -82], style(color=8)),
+          Line(points=[-90, 0; 82, 0], style(color=8)),
+          Polygon(points=[90, 0; 68, 8; 68, -8; 90, 0], style(
+              color=8,
+              fillColor=8,
+              fillPattern=1)),
+          Text(
+            extent=[-42, 55; 29, 12],
+            string="w",
+            style(color=8)),
+          Line(points=[-80, 0; -41, 69; 26, 69; 58, 0], style(color=0)),
+          Text(
+            extent=[-73,-44; 82,-69],
+            string="1 axis",
+            style(color=0, rgbcolor={0,0,0}))),
+        Window(
+          x=0.03,
+          y=0,
+          width=0.88,
+          height=0.79),
+        Documentation(info="<html>
+<p>
+Given
+</p>
+<ul>
+<li> start and end angle of an axis</li>
+<li> maximum speed of the axis </li>
+<li> maximum acceleration of the axis </li>
+</ul>
+
+<p>
+this component computes the fastest movement under the
+given constraints. This means, that:
+</p>
+
+<ol>
+<li> The axis accelerates with the maximum acceleration
+     until the maximum speed is reached.</li>
+<li> Drives with the maximum speed as long as possible.</li>
+<li> Decelerates with the negative of the maximum acceleration
+     until rest.</li>
+</ol>
+
+<p>
+The acceleration, constant velocity and deceleration
+phase are determined in such a way that the movement
+starts form the start angles and ends at the end angles.
+The output of this block are the computed angles, angular velocities
+and angular acceleration and this information is stored as reference
+motion on the controlBus of the r3 robot.
+</p>
+
+</html>
+"),     Diagram);
+      
+      Blocks.Logical.TerminateSimulation terminateSimulation(condition=time >= path.endTime
+             + swingTime) annotation (extent=[-50,-30; 30,-24]);
+    equation 
+      connect(path.q, pathToAxis1.q)         annotation (points=[-29,8; -2,8],
+                             style(color=74, rgbcolor={0,0,127}));
+      connect(path.qd, pathToAxis1.qd)         annotation (points=[-29,3; -2,3],
+                             style(color=74, rgbcolor={0,0,127}));
+      connect(path.qdd, pathToAxis1.qdd)         annotation (points=[-29,-3; -2,
+            -3],                  style(color=74, rgbcolor={0,0,127}));
+      connect(path.moving, pathToAxis1.moving)             annotation (points=[-29,-8;
+            -2,-8],                        style(color=5, rgbcolor={255,0,255}));
+      connect(pathToAxis1.axisControlBus, controlBus.axisControlBus1) annotation (
+        points=[20,0; 100,0],
+        style(
+          color=6,
+          rgbcolor={255,204,51},
+          thickness=2),
+        Text(
+          string="%second",
+          index=1,
+          extent=[6,3; 6,3],
+          style(color=0, rgbcolor={0,0,0})));
+    end PathPlanning1;
+    
+    model PathPlanning6 
       "Generate reference angles for fastest kinematic movement" 
       
       import SI = Modelica.SIunits;
@@ -371,12 +508,31 @@ to plot variables.
       parameter SI.Time startTime=0 "start time of movement";
       parameter SI.Time swingTime=0.5 
         "additional time after reference motion is in rest before simulation is stopped";
-      Boolean motion_ref "True if reference motions of all axes is not in rest";
       final parameter SI.Angle angleBeg[:]=Cv.from_deg(angleBegDeg) 
         "start angles";
       final parameter SI.Angle angleEnd[:]=Cv.from_deg(angleEndDeg) 
         "end angles";
-      constant Real eps=100*Modelica.Constants.eps;
+      ControlBus controlBus 
+        annotation (extent=[80,-20; 120,20], rotation=-90);
+      Modelica.Blocks.Sources.KinematicPTP2 path(
+        q_end=angleEnd,
+        qd_max=speedMax,
+        qdd_max=accMax,
+        startTime=startTime,
+        q_begin=angleBeg) annotation (extent=[-90,-80; -70,-60]);
+      PathToAxisControlBus pathToAxis1(nAxis=naxis, axisUsed=1) 
+        annotation (extent=[-10,70; 10,90]);
+      PathToAxisControlBus pathToAxis2(nAxis=naxis, axisUsed=2) 
+        annotation (extent=[-10,40; 10,60]);
+      PathToAxisControlBus pathToAxis3(nAxis=naxis, axisUsed=3) 
+        annotation (extent=[-10,10; 10,30]);
+      PathToAxisControlBus pathToAxis4(nAxis=naxis, axisUsed=4) 
+        annotation (extent=[-10,-20; 10,0]);
+      PathToAxisControlBus pathToAxis5(nAxis=naxis, axisUsed=5) 
+        annotation (extent=[-10,-50; 10,-30]);
+      PathToAxisControlBus pathToAxis6(nAxis=naxis, axisUsed=6) 
+        annotation (extent=[-10,-80; 10,-60]);
+      
       annotation (
         Coordsys(
           extent=[-100, -100; 100, 100],
@@ -384,7 +540,7 @@ to plot variables.
           component=[20, 20]),
         Icon(
           Rectangle(extent=[-100, 100; 100, -100], style(color=0, fillColor=7)),
-          Text(extent=[-119, 178; 121, 102], string="%name"),
+          Text(extent=[-150, 150; 150, 110], string="%name"),
           Polygon(points=[-80, 90; -88, 68; -72, 68; -80, 88; -80, 90], style(
               color=8,
               fillColor=8,
@@ -399,58 +555,271 @@ to plot variables.
             extent=[-42, 55; 29, 12],
             string="w",
             style(color=8)),
-          Line(points=[-80, 0; -41, 69; 26, 69; 58, 0], style(color=0))),
+          Line(points=[-80, 0; -41, 69; 26, 69; 58, 0], style(color=0)),
+          Text(
+            extent=[-70,-43; 85,-68],
+            style(color=0, rgbcolor={0,0,0}),
+            string="6 axes")),
         Window(
           x=0.03,
           y=0,
           width=0.88,
           height=0.79),
-        Documentation(info="Given
-- start and end angles of every axis
-- maximum speed of every axis
-- maximum acceleration of every axis
+        Documentation(info="<html>
+<p>
+Given
+</p>
+<ul>
+<li> start and end angles of every axis</li>
+<li> maximum speed of every axis </li>
+<li> maximum acceleration of every axis </li>
+</ul>
+
+<p>
 this component computes the fastest movement under the
 given constraints. This means, that:
-1. Every axis accelerates with the maximum acceleration
-   until the maximum speed is reached.
-2. Drives with the maximum speed as long as possible.
-3. Decelerates with the negative of the maximum acceleration
-   until rest.
+</p>
+
+<ol>
+<li> Every axis accelerates with the maximum acceleration
+     until the maximum speed is reached.</li>
+<li> Drives with the maximum speed as long as possible.</li>
+<li> Decelerates with the negative of the maximum acceleration
+     until rest.</li>
+</ol>
+
+<p>
 The acceleration, constant velocity and deceleration
 phase are determined in such a way that the movement
 starts form the start angles and ends at the end angles.
-The output of this block are the computed angles and the
-computed angular speeds as function of time. The ordering is:
-   reference[1] = reference angle 1
-            [2] = reference speed 1
-            [3] = reference angle 2
-            [4] = reference speed 2
-                  ...
-"),     Diagram);
+The output of this block are the computed angles, angular velocities
+and angular acceleration and this information is stored as reference
+motion on the controlBus of the r3 robot.
+</p>
+
+</html>"),
+        Diagram);
       
-    public 
-      RobotR3.Components.Bus bus(naxis=naxis) 
-        annotation (extent=[100, -10; 120, 10]);
-      RobotR3.Components.KinematicPTPc kinematicPTP(
-        q_end=angleEnd,
-        qd_max=speedMax,
-        qdd_max=accMax,
-        startTime=startTime,
-        q_begin=angleBeg) annotation (extent=[-10, -10; 10, 10]);
+      Blocks.Logical.TerminateSimulation terminateSimulation(condition=time >= path.endTime
+             + swingTime) annotation (extent=[-50,-100; 30,-94]);
     equation 
-      motion_ref = time <= kinematicPTP.endTime;
-      for i in 1:naxis loop
-        bus.axis[i].angle_ref = kinematicPTP.q[i];
-        bus.axis[i].speed_ref = kinematicPTP.qd[i];
-        bus.axis[i].acceleration_ref = kinematicPTP.qdd[i];
-        bus.axis[i].motion_ref = if abs(angleBeg[i] - angleEnd[i]) > eps then 
-          motion_ref else false;
-      end for;
+      connect(path.q, pathToAxis1.q)         annotation (points=[-69,-62; -60,-62;
+            -60,88; -12,88], style(color=74, rgbcolor={0,0,127}));
+      connect(path.qd, pathToAxis1.qd)         annotation (points=[-69,-67; -59,-67;
+            -59,83; -12,83], style(color=74, rgbcolor={0,0,127}));
+      connect(path.qdd, pathToAxis1.qdd)         annotation (points=[-69,-73; -58,
+            -73; -58,77; -12,77], style(color=74, rgbcolor={0,0,127}));
+      connect(path.moving, pathToAxis1.moving)             annotation (points=[-69,
+            -78; -57,-78; -57,72; -12,72], style(color=5, rgbcolor={255,0,255}));
+      connect(path.q, pathToAxis2.q)         annotation (points=[-69,-62; -60,-62;
+            -60,58; -12,58], style(color=74, rgbcolor={0,0,127}));
+      connect(path.qd, pathToAxis2.qd)         annotation (points=[-69,-67; -59,-67;
+            -59,53; -12,53], style(color=74, rgbcolor={0,0,127}));
+      connect(path.qdd, pathToAxis2.qdd)         annotation (points=[-69,-73; -58,
+            -73; -58,47; -12,47], style(color=74, rgbcolor={0,0,127}));
+      connect(path.moving, pathToAxis2.moving)             annotation (points=[-69,
+            -78; -57,-78; -57,42; -12,42], style(color=5, rgbcolor={255,0,255}));
+      connect(path.q, pathToAxis3.q)         annotation (points=[-69,-62; -60,-62;
+            -60,28; -12,28], style(color=74, rgbcolor={0,0,127}));
+      connect(path.qd, pathToAxis3.qd)         annotation (points=[-69,-67; -59,-67;
+            -59,23; -12,23], style(color=74, rgbcolor={0,0,127}));
+      connect(path.qdd, pathToAxis3.qdd)         annotation (points=[-69,-73; -58,
+            -73; -58,17; -12,17], style(color=74, rgbcolor={0,0,127}));
+      connect(path.moving, pathToAxis3.moving)             annotation (points=[-69,
+            -78; -57,-78; -57,12; -12,12], style(color=5, rgbcolor={255,0,255}));
+      connect(path.q, pathToAxis4.q)         annotation (points=[-69,-62; -60,-62;
+            -60,-2; -12,-2], style(color=74, rgbcolor={0,0,127}));
+      connect(path.qd, pathToAxis4.qd)         annotation (points=[-69,-67; -59,-67;
+            -59,-7; -12,-7], style(color=74, rgbcolor={0,0,127}));
+      connect(path.qdd, pathToAxis4.qdd)         annotation (points=[-69,-73; -58,
+            -73; -58,-13; -12,-13], style(color=74, rgbcolor={0,0,127}));
+      connect(path.moving, pathToAxis4.moving)             annotation (points=[-69,
+            -78; -57,-78; -57,-18; -12,-18], style(color=5, rgbcolor={255,0,255}));
+      connect(path.q, pathToAxis5.q)         annotation (points=[-69,-62; -60,-62;
+            -60,-32; -12,-32], style(color=74, rgbcolor={0,0,127}));
+      connect(path.qd, pathToAxis5.qd)         annotation (points=[-69,-67; -59,-67;
+            -59,-37; -12,-37], style(color=74, rgbcolor={0,0,127}));
+      connect(path.qdd, pathToAxis5.qdd)         annotation (points=[-69,-73; -58,
+            -73; -58,-43; -12,-43], style(color=74, rgbcolor={0,0,127}));
+      connect(path.moving, pathToAxis5.moving)             annotation (points=[-69,
+            -78; -57,-78; -57,-48; -12,-48], style(color=5, rgbcolor={255,0,255}));
+      connect(path.q, pathToAxis6.q)         annotation (points=[-69,-62; -12,-62],
+          style(color=74, rgbcolor={0,0,127}));
+      connect(path.qd, pathToAxis6.qd)         annotation (points=[-69,-67; -12,
+            -67],                     style(color=74, rgbcolor={0,0,127}));
+      connect(path.qdd, pathToAxis6.qdd)         annotation (points=[-69,-73; 
+            -12,-73],               style(color=74, rgbcolor={0,0,127}));
+      connect(path.moving, pathToAxis6.moving)             annotation (points=[-69,
+            -78; -12,-78], style(color=5, rgbcolor={255,0,255}));
+      connect(pathToAxis1.axisControlBus, controlBus.axisControlBus1) annotation (
+        points=[10,80; 80,80; 80,7; 98,7],
+        style(
+          color=6,
+          rgbcolor={255,204,51},
+          thickness=2),
+        Text(
+          string="%second",
+          index=1,
+          extent=[6,3; 6,3],
+          style(color=0, rgbcolor={0,0,0})));
+      connect(pathToAxis2.axisControlBus, controlBus.axisControlBus2) annotation (
+        points=[10,50; 77,50; 77,5; 97,5],
+        style(
+          color=6,
+          rgbcolor={255,204,51},
+          thickness=2),
+        Text(
+          string="%second",
+          index=1,
+          extent=[6,3; 6,3],
+          style(color=0, rgbcolor={0,0,0})));
+      connect(pathToAxis3.axisControlBus, controlBus.axisControlBus3) annotation (
+        points=[10,20; 75,20; 75,3; 96,3],
+        style(
+          color=6,
+          rgbcolor={255,204,51},
+          thickness=2),
+        Text(
+          string="%second",
+          index=1,
+          extent=[6,3; 6,3],
+          style(color=0, rgbcolor={0,0,0})));
+      connect(pathToAxis4.axisControlBus, controlBus.axisControlBus4) annotation (
+        points=[10,-10; 73,-10; 73,0; 100,0],
+        style(
+          color=6,
+          rgbcolor={255,204,51},
+          thickness=2),
+        Text(
+          string="%second",
+          index=1,
+          extent=[6,3; 6,3],
+          style(color=0, rgbcolor={0,0,0})));
+      connect(pathToAxis5.axisControlBus, controlBus.axisControlBus5) annotation (
+        points=[10,-40; 75,-40; 75,-3; 100,-3; 100,0],
+        style(
+          color=6,
+          rgbcolor={255,204,51},
+          thickness=2),
+        Text(
+          string="%second",
+          index=1,
+          extent=[6,3; 6,3],
+          style(color=0, rgbcolor={0,0,0})));
+      connect(pathToAxis6.axisControlBus, controlBus.axisControlBus6) annotation (
+        points=[10,-70; 78,-70; 78,-6; 98,-6],
+        style(
+          color=6,
+          rgbcolor={255,204,51},
+          thickness=2),
+        Text(
+          string="%second",
+          index=1,
+          extent=[6,3; 6,3],
+          style(color=0, rgbcolor={0,0,0})));
+    end PathPlanning6;
+    
+    model PathToAxisControlBus "Map path planning to one axis control bus" 
+      extends Blocks.Interfaces.BlockIcon;
       
-      when time >= kinematicPTP.endTime + swingTime then
-        terminate("end condition reached");
-      end when;
-    end PathPlanning;
+      parameter Integer nAxis=6 "Number of driven axis";
+      parameter Integer axisUsed=1 
+        "Map path planning of axisUsed to axisControlBus";
+      Blocks.Interfaces.RealInput q[nAxis] 
+        annotation (extent=[-140,60; -100,100]);
+      Blocks.Interfaces.RealInput qd[nAxis] 
+        annotation (extent=[-140,10; -100,50]);
+      Blocks.Interfaces.RealInput qdd[nAxis] 
+        annotation (extent=[-140,-50; -100,-10]);
+      AxisControlBus axisControlBus 
+        annotation (extent=[80,-20; 120,20], rotation=-90);
+      Blocks.Routing.RealPassThrough q_axisUsed(y(redeclare type SignalType = 
+              Modelica.SIunits.Angle)) 
+        annotation (extent=[-40,50; -20,70]);
+      Blocks.Routing.RealPassThrough qd_axisUsed(y(redeclare type SignalType = 
+              Modelica.SIunits.AngularVelocity)) 
+        annotation (extent=[-40,10; -20,30]);
+      Blocks.Routing.RealPassThrough qdd_axisUsed(y(redeclare type SignalType 
+            = Modelica.SIunits.AngularAcceleration)) 
+        annotation (extent=[-40,-30; -20,-10]);
+      Blocks.Interfaces.BooleanInput moving[nAxis] 
+        annotation (extent=[-140,-100; -100,-60]);
+      Blocks.Routing.BooleanPassThrough motion_ref_axisUsed 
+        annotation (extent=[-40,-70; -20,-50]);
+      annotation (defaultComponentName="pathToAxis1",
+        Diagram,
+        Icon(
+          Text(
+            extent=[-100,98; -24,68],
+            string="q",
+            style(color=0, rgbcolor={0,0,0})),
+          Text(
+            extent=[-94,46; -18,16],
+            style(color=0, rgbcolor={0,0,0}),
+            string="qd"),
+          Text(
+            extent=[-96,-16; -20,-46],
+            style(color=0, rgbcolor={0,0,0}),
+            string="qdd"),
+          Text(
+            extent=[-2,20; 80,-18],
+            style(color=0, rgbcolor={0,0,0}),
+            string="%axisUsed"),
+          Text(
+            extent=[2,52; 76,28],
+            style(color=0, rgbcolor={0,0,0}),
+            string="axis"),
+          Text(
+            extent=[-94,-70; 32,-96],
+            style(color=0, rgbcolor={0,0,0}), 
+            string="moving")),
+        Coordsys(scale=0.1, grid=[2,2]));
+    equation 
+      connect(q_axisUsed.u, q[axisUsed]) annotation (points=[-42,60; -60,60; -60,80;
+            -120,80],
+          style(color=74, rgbcolor={0,0,127}));
+      connect(qd_axisUsed.u, qd[axisUsed]) annotation (points=[-42,20; -80,20; -80,
+            30; -120,30],
+          style(color=74, rgbcolor={0,0,127}));
+      connect(qdd_axisUsed.u, qdd[axisUsed]) annotation (points=[-42,-20; -80,
+            -20; -80,-30; -120,-30],
+                  style(color=74, rgbcolor={0,0,127}));
+      connect(motion_ref_axisUsed.u, moving[axisUsed])     annotation (points=[-42,-60;
+            -60,-60; -60,-80; -120,-80],
+                            style(color=5, rgbcolor={255,0,255}));
+      connect(motion_ref_axisUsed.y, axisControlBus.motion_ref) annotation (
+        points=[-19,-60; 44,-60; 44,-8; 102,-8; 102,0; 100,0],
+        style(color=5, rgbcolor={255,0,255}),
+        Text(
+          string="%second",
+          index=1,
+          extent=[6,3; 6,3],
+          style(color=0, rgbcolor={0,0,0})));
+      connect(qdd_axisUsed.y, axisControlBus.acceleration_ref) annotation (
+        points=[-19,-20; 40,-20; 40,-4; 98,-4; 98,0; 100,0],
+        style(color=74, rgbcolor={0,0,127}),
+        Text(
+          string="%second",
+          index=1,
+          extent=[6,3; 6,3],
+          style(color=0, rgbcolor={0,0,0})));
+      connect(qd_axisUsed.y, axisControlBus.speed_ref) annotation (
+        points=[-19,20; 20,20; 20,0; 100,0],
+        style(color=74, rgbcolor={0,0,127}),
+        Text(
+          string="%second",
+          index=1,
+          extent=[6,3; 6,3],
+          style(color=0, rgbcolor={0,0,0})));
+      connect(q_axisUsed.y, axisControlBus.angle_ref) annotation (
+        points=[-19,60; 40,60; 40,4; 96,4],
+        style(color=74, rgbcolor={0,0,127}),
+        Text(
+          string="%second",
+          index=1,
+          extent=[6,3; 6,3],
+          style(color=0, rgbcolor={0,0,0})));
+    end PathToAxisControlBus;
     
     model GearType1 "Motor inertia and gearbox model for r3 joints 1,2,3 " 
       extends Modelica.Mechanics.Rotational.Interfaces.TwoFlanges;
@@ -656,7 +1025,9 @@ The input of the motor is the desired current
 (the actual current is proportional to the torque
 produced by the motor).
 "),     Icon(Text(extent=[0, 120; 0, 60], string="%name"), Line(points=[80, -102;
-                 80, -10], style(color=77))),
+                 80, -10], style(
+              rgbcolor={255,204,51},
+              thickness=2))),
         Diagram);
       
       Modelica.Mechanics.Rotational.Interfaces.Flange_b flange_motor 
@@ -690,13 +1061,13 @@ produced by the motor).
       Modelica.Electrical.Analog.Basic.Resistor Rd4(R=100) 
         annotation (extent=[-55, -15; -40, 1]);
       Modelica.Electrical.Analog.Sources.SignalVoltage hall2 
-        annotation (extent=[-59, -40; -79, -60], rotation=90);
+        annotation (extent=[-60,-40; -80,-60],   rotation=90);
       Modelica.Electrical.Analog.Basic.Resistor Rd3(R=100) 
-        annotation (extent=[-76, -30; -62, -14], rotation=90);
+        annotation (extent=[-77,-30; -63,-14],   rotation=90);
       Modelica.Electrical.Analog.Basic.Ground g1 
         annotation (extent=[-100, -37; -80, -17]);
       Modelica.Electrical.Analog.Basic.Ground g2 
-        annotation (extent=[-79, -90; -59, -70]);
+        annotation (extent=[-80,-91; -60,-71]);
       Modelica.Electrical.Analog.Basic.Ground g3 
         annotation (extent=[-34, -27; -14, -7]);
       Modelica.Electrical.Analog.Sensors.CurrentSensor hall1 
@@ -711,8 +1082,9 @@ produced by the motor).
         annotation (extent=[45, -50; 65, -30], rotation=-90);
       Modelica.Mechanics.Rotational.Inertia Jmotor(J=J) 
         annotation (extent=[70, -10; 90, 10]);
-      RobotR3.Components.AxisBus bus 
-        annotation (extent=[70, -120; 90, -100], rotation=90);
+      Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.AxisControlBus
+        axisControlBus 
+        annotation (extent=[60,-120; 100,-80],   rotation=0);
       Blocks.Math.Gain convert1 annotation(extent=[-30,-56; -42,-44]);
       Blocks.Math.Gain convert2 annotation(extent=[-30,-101; -42,-89]);
     equation 
@@ -734,11 +1106,11 @@ produced by the motor).
       connect(Rp1.p, Rp2.p) annotation (points=[17, 46; 11, 46; 11, 64]);
       connect(power.p2, Ra.p) 
         annotation (points=[36, 25; 42, 25; 42, 80; 56, 80; 56, 70]);
-      connect(Rd3.p, hall2.p) annotation (points=[-69, -30; -69, -40]);
-      connect(Rd3.n, diff.p1) annotation (points=[-69, -14; -69, 20; -64, 20]);
-      connect(Rd3.n, Rd4.p) annotation (points=[-69, -14; -69, -7; -55, -7]);
+      connect(Rd3.p, hall2.p) annotation (points=[-70,-30; -70,-40]);
+      connect(Rd3.n, diff.p1) annotation (points=[-70,-14; -70,20; -64,20]);
+      connect(Rd3.n, Rd4.p) annotation (points=[-70,-14; -70,-7; -55,-7]);
       connect(Vs.n, g1.p) annotation (points=[-90, -10; -90, -17]);
-      connect(g2.p, hall2.n) annotation (points=[-69, -70; -69, -60]);
+      connect(g2.p, hall2.n) annotation (points=[-70,-71; -70,-60]);
       connect(Rd4.n, g3.p) annotation (points=[-40, -7; -24, -7]);
       connect(g3.p, OpI.p1) annotation (points=[-24, -7; -24, 15; -14, 15]);
       connect(g5.p, Rp2.n) 
@@ -762,26 +1134,26 @@ produced by the motor).
       // initialize motor in steady state
       der(C.v) = 0;
       der(La.i) = 0;
+      
     equation 
-      connect(phi.phi, bus.motorAngle) annotation(points=[76,-50; 76,-95; 80,
-            -95; 80,-107], style(color=3, rgbcolor={0,0,255}));
-      connect(speed.w, bus.motorSpeed) annotation(points=[55,-51; 55,-95; 80,
-            -95; 80,-107], style(color=3, rgbcolor={0,0,255}));
-      connect(hall1.i, bus.current) annotation(points=[6,-50; -10,-50; -10,-95;
-            80,-95; 80,-105], style(color=3, rgbcolor={0,0,255}));
+      connect(phi.phi, axisControlBus.motorAngle) 
+                                       annotation(points=[76,-50; 76,-100; 80,-100], style(
+            color=74, rgbcolor={0,0,127}));
+      connect(speed.w, axisControlBus.motorSpeed) 
+                                       annotation(points=[55,-51; 55,-95; 80,-95;
+            80,-100], style(color=74, rgbcolor={0,0,127}));
+      connect(hall1.i, axisControlBus.current) 
+                                    annotation(points=[6,-50; -10,-50; -10,-95; 80,
+            -95; 80,-100], style(color=74, rgbcolor={0,0,127}));
       connect(hall1.i, convert1.u) annotation(points=[6,-50; -28.8,-50], style(
-          color=3,
-          rgbcolor={0,0,255},
-          pattern=3));
-      connect(convert1.y, hall2.v) annotation(points=[-42.6,-50; -62,-50],
-          style(
-          color=3,
-          rgbcolor={0,0,255},
-          pattern=3));
-      connect(convert2.u, bus.current_ref) annotation(points=[-28.8,-95; 80,-95;
-            80,-109], style(color=3, rgbcolor={0,0,255}));
+            color=74, rgbcolor={0,0,127}));
+      connect(convert1.y, hall2.v) annotation(points=[-42.6,-50; -63,-50],
+          style(color=74, rgbcolor={0,0,127}));
+      connect(convert2.u, axisControlBus.current_ref) 
+                                           annotation(points=[-28.8,-95; 80,-95; 80,
+            -100], style(color=74, rgbcolor={0,0,127}));
       connect(convert2.y, Vs.v) annotation(points=[-42.6,-95; -108,-95; -108,
-            4.28612e-016; -97,4.28612e-016], style(color=3, rgbcolor={0,0,255}));
+            4.28626e-016; -97,4.28626e-016], style(color=74, rgbcolor={0,0,127}));
     end Motor;
     
     model Controller 
@@ -826,8 +1198,9 @@ produced by the motor).
           height=0.76));
       
       Modelica.Blocks.Math.Gain gain1(k=ratio) 
-        annotation (extent=[-70, 0; -50, 20]);
-      Modelica.Blocks.Continuous.PI PI(k=ks, T=Ts) 
+        annotation (extent=[-70,0; -50,20]);
+      Modelica.Blocks.Continuous.PI PI(k=ks, T=Ts,
+        y(redeclare type SignalType = Modelica.SIunits.Current)) 
         annotation (extent=[60, 0; 80, 20], rotation=0);
       Modelica.Blocks.Math.Feedback feedback1 
         annotation (extent=[-46, 0; -26, 20]);
@@ -835,161 +1208,73 @@ produced by the motor).
       Modelica.Blocks.Math.Add3 add3(k3=-1) annotation (extent=[20, 0; 40, 20]);
       Modelica.Blocks.Math.Gain gain2(k=ratio) 
         annotation (extent=[-60, 40; -40, 60]);
-      RobotR3.Components.AxisBus bus 
-        annotation (extent=[-10, -120; 10, -100], rotation=90);
+      Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.AxisControlBus
+        axisControlBus 
+        annotation (extent=[-20,-120; 20,-80],    rotation=0);
     equation 
       connect(gain1.y, feedback1.u1) 
-        annotation (points=[-49, 10; -44, 10]);
+        annotation (points=[-49,10; -44,10], style(color=74, rgbcolor={0,0,127}));
       connect(feedback1.y, P.u) 
-        annotation (points=[-27, 10; -18, 10]);
-      connect(P.y, add3.u2) annotation (points=[5, 10; 18, 10]);
+        annotation (points=[-27, 10; -18, 10], style(color=74, rgbcolor={0,0,
+              127}));
+      connect(P.y, add3.u2) annotation (points=[5, 10; 18, 10], style(color=74,
+            rgbcolor={0,0,127}));
       connect(gain2.y, add3.u1) 
-        annotation (points=[-39, 50; 10, 50; 10, 18; 18, 18], style(color=3));
+        annotation (points=[-39, 50; 10, 50; 10, 18; 18, 18], style(color=74,
+            rgbcolor={0,0,127}));
       connect(add3.y, PI.u) 
-        annotation (points=[41, 10; 58, 10], style(color=3));
-      connect(gain2.u, bus.speed_ref) annotation(points=[-62,50; -90,50; -90,
-            -80; 0,-80; 0,-105], style(color=3, rgbcolor={0,0,255}));
-      connect(gain1.u, bus.angle_ref) annotation(points=[-72,10; -80,10; -80,
-            -80; 0,-80; 0,-105], style(color=3, rgbcolor={0,0,255}));
-      connect(feedback1.u2, bus.motorAngle) annotation(points=[-36,2; -36,-80;
-            0,-80; 0,-104], style(color=3, rgbcolor={0,0,255}));
-      connect(add3.u3, bus.motorSpeed) annotation(points=[18,2; 10,2; 10,-70; 0,
-            -70; 0,-105], style(color=3, rgbcolor={0,0,255}));
-      connect(PI.y, bus.current_ref) annotation(points=[81,10; 90,10; 90,-80; 0,
-            -80; 0,-106], style(color=3, rgbcolor={0,0,255}));
+        annotation (points=[41, 10; 58, 10], style(color=74, rgbcolor={0,0,127}));
+      connect(gain2.u, axisControlBus.speed_ref) 
+                                      annotation(points=[-62,50; -90,50; -90,
+            -100; 0,-100], style(color=74, rgbcolor={0,0,127}));
+      connect(gain1.u, axisControlBus.angle_ref) 
+                                      annotation(points=[-72,10; -80,10; -80,
+            -100; 0,-100], style(color=74, rgbcolor={0,0,127}));
+      connect(feedback1.u2, axisControlBus.motorAngle) 
+                                            annotation(points=[-36,2; -36,-100;
+            0,-100], style(color=74, rgbcolor={0,0,127}));
+      connect(add3.u3, axisControlBus.motorSpeed) 
+                                       annotation(points=[18,2; 0,2; 0,-100],
+          style(color=74, rgbcolor={0,0,127}));
+      connect(PI.y, axisControlBus.current_ref) 
+                                     annotation(points=[81,10; 90,10; 90,-100;
+            0,-100], style(color=74, rgbcolor={0,0,127}));
     end Controller;
     
     model AxisType1 "Axis model of the r3 joints 1,2,3 " 
-      parameter Real kp=10 "|Controller| gain of position controller";
-      parameter Real ks=1 "|Controller| gain of speed controller";
-      parameter SI.Time Ts=0.01 
-        "|Controller| time constant of integrator of speed controller";
-      parameter Real k=1.1616 "|Motor| gain of motor";
-      parameter Real w=4590 "|Motor| time constant of motor";
-      parameter Real D=0.6 "|Motor| damping constant of motor";
-      parameter SI.Inertia J(min=0)=0.0013 "|Motor| moment of inertia of motor";
-      parameter Real ratio=-105 "|Gear| gear ratio";
-      parameter Real c(unit="N.m/rad") = 43 "|Gear| spring constant";
-      parameter Real cd(unit="N.m.s/rad") = 0.005 "|Gear| damper constant";
-      parameter SI.Torque Rv0=0.4 
-        "|Gear| viscous friction torque at zero velocity in [Nm]";
-      parameter Real Rv1(unit="N.m.s/rad") = (0.13/160) 
-        "|Gear| viscous friction coefficient in [Nms/rad]";
-      parameter Real peak=1 
-        "|Gear| peak*Rv0 = maximum static friction torque (peak >= 1)";
-      SI.Angle phi_flange(stateSelect=StateSelect.prefer) = flange.phi;
-      SI.AngularVelocity w_flange(stateSelect=StateSelect.prefer) = der(
-        phi_flange);
-      SI.AngularAcceleration a_flange=der(w_flange);
-      annotation (
-        Coordsys(
-          extent=[-100, -100; 100, 100],
-          grid=[1, 1],
-          component=[20, 20]),
-        Window(
-          x=0.16,
-          y=0.02,
-          width=0.76,
-          height=0.84),
-        Documentation(info="<HTML>
-<p>
-The axis model consists of the <b>controller</b>, the <b>motor</b> including current
-controller and the <b>gearbox</b> including gear elasticity and bearing friction.
-The only difference to the axis model of joints 4,5,6 (= model axisType2) is
-that elasticity and damping in the gear boxes are not neglected.
-</p>
-<p>
-The input signals of this component are the desired angle and desired angular
-velocity of the joint. The reference signals have to be \"smooth\" (position
-has to be differentiable at least 2 times). Otherwise, the gear elasticity
-leads to significant oscillations.
-</p>
-<p>
-Default values of the parameters are given for the axis of joint 1.
-</p>
-</HTML>
-"),     Icon(Rectangle(extent=[-100, 50; 100, -50], style(
-              color=9,
-              gradient=2,
-              fillColor=9,
-              fillPattern=1)), Text(extent=[0, 110; 0, 50], string="%name")),
-        Diagram);
-      
-      Modelica.Mechanics.Rotational.Interfaces.Flange_b flange 
-        annotation (extent=[100, -10; 120, 10]);
-      GearType1 gear(
-        c=c,
-        d=cd,
-        Rv0=Rv0,
-        Rv1=Rv1,
-        peak=peak,
-        i=ratio) annotation (extent=[0, -10; 20, 10]);
-      Motor motor(
-        J=J,
-        k=k,
-        w=w,
-        D=D) annotation (extent=[-30, -10; -10, 10]);
-      RobotR3.Components.Controller controller(
-        kp=kp,
-        ks=ks,
-        Ts=Ts,
-        ratio=ratio) annotation (extent=[-70, -10; -50, 10]);
-      RobotR3.Components.AxisBus bus 
-        annotation (extent=[-120, -10; -100, 10], rotation=0);
-      Modelica.Mechanics.Rotational.Sensors.AngleSensor angleSensor 
-        annotation (extent=[20, -50; 40, -30], rotation=-90);
-      Modelica.Mechanics.Rotational.Sensors.SpeedSensor speedSensor 
-        annotation (extent=[60, -30; 40, -50], rotation=90);
-      Modelica.Mechanics.Rotational.Sensors.AccSensor accSensor 
-        annotation (extent=[60, -50; 80, -30], rotation=-90);
-    initial equation 
-      // initialize in approximate steady state
-      phi_flange = bus.angle_ref;
-      w_flange = bus.speed_ref;
-      a_flange = 0;
-    equation 
-      connect(controller.bus, bus) annotation (points=[-60, -11; -60, -17; -90,
-             -17; -90, 0; -110, 0], style(color=77));
-      connect(motor.bus, bus) annotation (points=[-12, -11; -12, -17; -90, -17;
-             -90, 0; -110, 0], style(color=77));
-      connect(gear.flange_b, flange) 
-        annotation (points=[20, 0; 110, 0], style(color=0));
-      connect(gear.flange_b, angleSensor.flange_a) 
-        annotation (points=[20, 0; 30, 0; 30, -30], style(color=0));
-      connect(gear.flange_b, speedSensor.flange_a) 
-        annotation (points=[20, 0; 50, 0; 50, -30], style(color=0));
-      connect(motor.flange_motor, gear.flange_a) 
-        annotation (points=[-10, 0; 0, 0], style(color=0));
-      connect(gear.flange_b, accSensor.flange_a) 
-        annotation (points=[20, 0; 70, 0; 70, -30], style(color=0));
-      connect(angleSensor.phi, bus.angle) annotation(points=[30,-51; 30,-90;
-            -90,-90; -90,0; -103,0], style(color=3, rgbcolor={0,0,255}));
-      connect(speedSensor.w, bus.speed) annotation(points=[50,-51; 50,-90; -90,
-            -90; -90,0; -102,0], style(color=3, rgbcolor={0,0,255}));
-      connect(accSensor.a, bus.acceleration) annotation(points=[70,-51; 70,-90;
-            -90,-90; -90,0; -105,0], style(color=3, rgbcolor={0,0,255}));
+      extends AxisType2(redeclare GearType1 gear(c=c, d=cd));
+      parameter Real c(unit="N.m/rad") = 43 " spring constant" 
+        annotation (Dialog(group="Gear"));
+      parameter Real cd(unit="N.m.s/rad") = 0.005 " damper constant" 
+        annotation (Dialog(group="Gear"));
     end AxisType1;
     
     model AxisType2 "Axis model of the r3 joints 4,5,6 " 
-      parameter Real kp=10 "|Controller| gain of position controller";
-      parameter Real ks=1 "|Controller| gain of speed controller";
+      parameter Real kp=10 " gain of position controller" 
+        annotation (Dialog(group="Controller"));
+      parameter Real ks=1 " gain of speed controller" 
+        annotation (Dialog(group="Controller"));
       parameter SI.Time Ts=0.01 
-        "|Controller| time constant of integrator of speed controller";
-      parameter Real k=1.1616 "|Motor| gain of motor";
-      parameter Real w=4590 "|Motor| time constant of motor";
-      parameter Real D=0.6 "|Motor| damping constant of motor";
-      parameter SI.Inertia J(min=0)=0.0013 "|Motor| moment of inertia of motor";
-      parameter Real ratio=-105 "|Gear| gear ratio";
+        " time constant of integrator of speed controller" 
+        annotation (Dialog(group="Controller"));
+      parameter Real k=1.1616 " gain of motor" 
+        annotation (Dialog(group="Motor"));
+      parameter Real w=4590 " time constant of motor" 
+        annotation (Dialog(group="Motor"));
+      parameter Real D=0.6 " damping constant of motor" 
+        annotation (Dialog(group="Motor"));
+      parameter SI.Inertia J(min=0) = 0.0013 " moment of inertia of motor" 
+        annotation (Dialog(group="Motor"));
+      parameter Real ratio=-105 " gear ratio" annotation (Dialog(group="Gear"));
       parameter SI.Torque Rv0=0.4 
-        "|Gear| viscous friction torque at zero velocity in [Nm]";
+        " viscous friction torque at zero velocity in [Nm]" 
+        annotation (Dialog(group="Gear"));
       parameter Real Rv1(unit="N.m.s/rad") = (0.13/160) 
-        "|Gear| viscous friction coefficient in [Nms/rad]";
+        " viscous friction coefficient in [Nms/rad]" 
+        annotation (Dialog(group="Gear"));
       parameter Real peak=1 
-        "|Gear| peak*Rv0 = maximum static friction torque (peak >= 1)";
-      SI.Angle phi_flange(stateSelect=StateSelect.prefer) = flange.phi;
-      SI.AngularVelocity w_flange(stateSelect=StateSelect.prefer) = der(
-        phi_flange);
-      SI.AngularAcceleration a_flange=der(w_flange);
+        " peak*Rv0 = maximum static friction torque (peak >= 1)" 
+        annotation (Dialog(group="Gear"));
       annotation (
         Coordsys(
           extent=[-100, -100; 100, 100],
@@ -1021,12 +1306,12 @@ Default values of the parameters are given for the axis of joint 1.
               color=9,
               gradient=2,
               fillColor=9,
-              fillPattern=1)), Text(extent=[0, 110; 0, 50], string="%name")),
+              fillPattern=1)), Text(extent=[-150,57; 150,97],     string="%name")),
         Diagram);
       
       Modelica.Mechanics.Rotational.Interfaces.Flange_b flange 
-        annotation (extent=[100, -10; 120, 10]);
-      GearType2 gear(
+        annotation (extent=[90,-10; 110,10]);
+      replaceable GearType2 gear(
         Rv0=Rv0,
         Rv1=Rv1,
         peak=peak,
@@ -1041,40 +1326,87 @@ Default values of the parameters are given for the axis of joint 1.
         ks=ks,
         Ts=Ts,
         ratio=ratio) annotation (extent=[-70, -10; -50, 10]);
-      RobotR3.Components.AxisBus bus 
-        annotation (extent=[-120, -10; -100, 10], rotation=0);
+      Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.AxisControlBus
+        axisControlBus 
+        annotation (extent=[-120,-20; -80,20],    rotation=-90);
       Modelica.Mechanics.Rotational.Sensors.AngleSensor angleSensor 
-        annotation (extent=[20, -39; 40, -19], rotation=-90);
+        annotation (extent=[30,60; 50,80],     rotation=0);
       Modelica.Mechanics.Rotational.Sensors.SpeedSensor speedSensor 
-        annotation (extent=[60, -20; 40, -40], rotation=90);
+        annotation (extent=[50,60; 30,40],     rotation=180);
       Modelica.Mechanics.Rotational.Sensors.AccSensor accSensor 
-        annotation (extent=[60, -40; 80, -20], rotation=-90);
-    initial equation 
-      // initialize in approximate steady state
-      phi_flange = bus.angle_ref;
-      w_flange = bus.speed_ref;
-      a_flange = 0;
+        annotation (extent=[30,20; 50,40],     rotation=0);
+      Rotational.InitializeFlange initializeFlange(stateSelection=Modelica.Blocks.Types.StateSelection.Prefer) 
+        annotation (extent=[-40,-60; -20,-40]);
+      Blocks.Sources.Constant const(k=0) annotation (extent=[-65,-65; -55,-55]);
     equation 
-      connect(controller.bus, bus) annotation (points=[-60, -11; -60, -30; -90,
-             -30; -90, 0; -110, 0], style(color=77));
-      connect(motor.bus, bus) annotation (points=[-12, -11; -12, -40; -90, -40;
-             -90, 0; -110, 0], style(color=77));
       connect(gear.flange_b, flange) 
-        annotation (points=[20, 0; 110, 0], style(color=0));
+        annotation (points=[20,0; 100,0],   style(color=0));
       connect(gear.flange_b, angleSensor.flange_a) 
-        annotation (points=[20, 0; 30, 0; 30, -19], style(color=0));
+        annotation (points=[20,0; 20,70; 30,70],    style(color=0));
       connect(gear.flange_b, speedSensor.flange_a) 
-        annotation (points=[20, 0; 50, 0; 50, -20], style(color=0));
+        annotation (points=[20,0; 24,0; 24,50; 30,50],
+                                                    style(color=0));
       connect(motor.flange_motor, gear.flange_a) 
         annotation (points=[-10, 0; 0, 0], style(color=0));
       connect(gear.flange_b, accSensor.flange_a) 
-        annotation (points=[20, 0; 70, 0; 70, -20], style(color=0));
-      connect(angleSensor.phi, bus.angle) annotation(points=[30,-40; 30,-90;
-            -90,-90; -90,0; -104,0], style(color=3, rgbcolor={0,0,255}));
-      connect(speedSensor.w, bus.speed) annotation(points=[50,-41; 50,-90; -90,
-            -90; -90,0; -104,0], style(color=3, rgbcolor={0,0,255}));
-      connect(accSensor.a, bus.acceleration) annotation(points=[70,-41; 70,-90;
-            -90,-90; -90,0; -104,0], style(color=3, rgbcolor={0,0,255}));
+        annotation (points=[20,0; 28,0; 28,30; 30,30],
+                                                    style(color=0));
+      connect(controller.axisControlBus, axisControlBus) annotation (
+        points=[-60,-10; -60,-20; -95,-20; -95,-4; -100,-4; -100,0],
+        style(
+          color=6,
+          rgbcolor={255,204,51},
+          thickness=2));
+      connect(motor.axisControlBus, axisControlBus) annotation (
+        points=[-12,-10; -12,-20; -95,-20; -95,-5; -100,-5; -100,0],
+        style(
+          color=6,
+          rgbcolor={255,204,51},
+          thickness=2));
+      connect(angleSensor.phi, axisControlBus.angle) annotation (
+        points=[51,70; 70,70; 70,84; -98,84; -98,9; -100,9; -100,0],
+        style(color=74, rgbcolor={0,0,127}),
+        Text(
+          string="%second",
+          index=1,
+          extent=[6,3; 6,3],
+          style(color=0, rgbcolor={0,0,0})));
+      connect(speedSensor.w, axisControlBus.speed) annotation (
+        points=[51,50; 74,50; 74,87; -100,87; -100,0],
+        style(color=74, rgbcolor={0,0,127}),
+        Text(
+          string="%second",
+          index=1,
+          extent=[6,3; 6,3],
+          style(color=0, rgbcolor={0,0,0})));
+      connect(accSensor.a, axisControlBus.acceleration) annotation (
+        points=[51,30; 77,30; 77,90; -102,90; -102,0; -100,0],
+        style(color=74, rgbcolor={0,0,127}),
+        Text(
+          string="%second",
+          index=1,
+          extent=[6,3; 6,3],
+          style(color=0, rgbcolor={0,0,0})));
+      connect(axisControlBus.angle_ref, initializeFlange.phi_start) annotation (
+        points=[-100,0; -100,-7; -97,-7; -97,-44; -42,-44],
+        Text(
+          string="%first",
+          index=-1,
+          extent=[-6,3; -6,3],
+          style(color=0, rgbcolor={0,0,0})),
+        style(color=0, rgbcolor={0,0,0}));
+      connect(axisControlBus.speed_ref, initializeFlange.w_start) annotation (
+        points=[-100,0; -99,0; -99,-50; -42,-50],
+        Text(
+          string="%first",
+          index=-1,
+          extent=[-6,3; -6,3],
+          style(color=0, rgbcolor={0,0,0})),
+        style(color=74, rgbcolor={0,0,127}));
+      connect(initializeFlange.flange, flange) annotation (points=[-20,-50; 80,
+            -50; 80,0; 100,0], style(color=0, rgbcolor={0,0,0}));
+      connect(const.y, initializeFlange.a_start) annotation (points=[-54.5,-60;
+            -48,-60; -48,-56; -42,-56], style(color=74, rgbcolor={0,0,127}));
     end AxisType2;
     
     model MechanicalStructure 
@@ -1367,275 +1699,6 @@ This model contains the mechanical components of the r3 robot
         annotation (points=[-70, 130; -210, 130], style(color=0));
     end MechanicalStructure;
     
-    block KinematicPTPc 
-      "Move as fast as possible along a distance within given kinematic constraints" 
-      
-      parameter Real q_begin[:]={0} "Start position";
-      parameter Real q_end[:]={1} "End position";
-      parameter Real qd_max[:](final min=Modelica.Constants.small) = {1} 
-        "Maximum velocities der(q)";
-      parameter Real qdd_max[:](final min=Modelica.Constants.small) = {1} 
-        "Maximum accelerations der(qd)";
-      parameter SI.Time startTime=0 "Time instant at which movement starts";
-      
-      extends Modelica.Blocks.Interfaces.BlockIcon;
-      final parameter Integer nout=max([size(q_begin, 1); size(q_end, 1); size(
-          qd_max, 1); size(qdd_max, 1)]);
-      output SI.Time endTime "Time instant at which movement stops";
-      
-    protected 
-      parameter Real p_q_begin[nout]=(if size(q_begin, 1) == 1 then ones(nout)*
-          q_begin[1] else q_begin);
-      parameter Real p_q_end[nout]=(if size(q_end, 1) == 1 then ones(nout)*
-          q_end[1] else q_end);
-      parameter Real p_qd_max[nout]=(if size(qd_max, 1) == 1 then ones(nout)*
-          qd_max[1] else qd_max);
-      parameter Real p_qdd_max[nout]=(if size(qdd_max, 1) == 1 then ones(nout)*
-          qdd_max[1] else qdd_max);
-      parameter Real p_deltaq[nout]=p_q_end - p_q_begin;
-      constant Real eps=10*Modelica.Constants.eps;
-      Real sd_max_inv;
-      Real sdd_max_inv;
-      Real sd_max;
-      Real sdd_max;
-      Real sdd;
-      Real aux1[nout];
-      Real aux2[nout];
-      SI.Time Ta1;
-      SI.Time Ta2;
-      SI.Time Tv;
-      SI.Time Te;
-      Boolean noWphase;
-      SI.Time Ta1s;
-      SI.Time Ta2s;
-      SI.Time Tvs;
-      SI.Time Tes;
-      Real sd_max2;
-      Real s1;
-      Real s2;
-      Real s3;
-      Real s;
-      Real sd;
-      Real constraintResidue;
-      Real r_s;
-      Real r_sd;
-      Real r_sdd;
-      Real constraintResidue_d;
-      Real constraintResidue_dd;
-      annotation (
-        Coordsys(
-          extent=[-100, -100; 100, 100],
-          grid=[1, 1],
-          component=[20, 20]),
-        Window(
-          x=0.17,
-          y=0.05,
-          width=0.69,
-          height=0.72),
-        Icon(
-          Line(points=[-80, 78; -80, -82], style(color=8)),
-          Polygon(points=[-80, 90; -88, 68; -72, 68; -80, 88; -80, 90], style(
-              color=8,
-              fillColor=8,
-              fillPattern=1)),
-          Line(points=[-90, 0; 17, 0], style(color=8)),
-          Line(points=[-80, 0; -70, 0; -70, 70; -50, 70; -50, 0; -15, 0; -15, -70;
-                 5, -70; 5, 0; 18, 0], style(color=0, thickness=1)),
-          Text(
-            extent=[40, 93; 96, 56],
-            string="q",
-            style(
-              color=0,
-              fillColor=0,
-              fillPattern=1)),
-          Text(
-            extent=[38, 23; 94, -14],
-            style(
-              color=0,
-              fillColor=0,
-              fillPattern=1),
-            string="qd"),
-          Text(
-            extent=[28, -51; 95, -88],
-            style(
-              color=0,
-              fillColor=0,
-              fillPattern=1),
-            string="qdd")),
-        Diagram(
-          Rectangle(extent=[-100, -100; 100, 100], style(
-              color=3,
-              gradient=0,
-              fillColor=0,
-              fillPattern=0)),
-          Line(points=[-80, 78; -80, -82], style(color=8)),
-          Polygon(points=[-80, 90; -88, 68; -72, 68; -80, 88; -80, 90], style(
-              color=8,
-              fillColor=8,
-              fillPattern=1)),
-          Line(points=[-90, 0; 82, 0], style(color=8)),
-          Polygon(points=[90, 0; 68, 8; 68, -8; 90, 0], style(
-              color=8,
-              fillColor=8,
-              fillPattern=1)),
-          Line(points=[-80, 0; -70, 0; -70, 70; -30, 70; -30, 0; 20, 0; 20, -70;
-                 60, -70; 60, 0; 68, 0], style(color=0, thickness=2)),
-          Text(
-            extent=[-76, 98; -19, 83],
-            string="acceleration",
-            style(color=8)),
-          Text(
-            extent=[69, 24; 91, 12],
-            string="time",
-            style(color=8))),
-        Documentation(info="
-<HTML>
-<p>
-The goal is to move as <b>fast</b> as possible along a distance
-<b>deltaq</b>
-under given <b>kinematical constraints</b>. The distance can be a positional or
-angular range. In robotics such a movement is called <b>PTP</b> (Point-To-Point).
-This source block generates the <b>acceleration</b> qdd of this signal
-as output. After integrating the output two times, the position q is
-obtained. The signal is constructed in such a way that it is not possible
-to move faster, given the <b>maximally</b> allowed <b>velocity</b> qd_max and
-the <b>maximally</b> allowed <b>acceleration</b> qdd_max.
-</p>
-<p>
-If several distances are given (vector deltaq has more than 1 element),
-an acceleration output vector is constructed such that all signals
-are in the same periods in the acceleration, constant velocity
-and deceleration phase. This means that only one of the signals
-is at its limits whereas the others are sychnronized in such a way
-that the end point is reached at the same time instant.
-</p>
-<p>
-This element is useful to generate a reference signal for a controller
-which controls a drive train or in combination with model
-Modelica.Mechanics.Rotational.<b>Accelerate</b> to drive
-a flange according to a given acceleration.
-</p>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>June 27, 2001</i>
-       by Bernhard Bachmann.<br>
-       Bug fixed that element is also correct if startTime is not zero.</li>
-<li><i>Nov. 3, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       Vectorized and moved from Rotational to Blocks.Sources.</li>
-<li><i>June 29, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       realized.</li>
-</ul>
-</HTML>
-"));
-    public 
-      Modelica.Blocks.Interfaces.RealOutput q[nout] 
-        annotation (extent=[100, 60; 120, 80]);
-      Modelica.Blocks.Interfaces.RealOutput qd[nout] 
-        annotation (extent=[100, -10; 120, 10]);
-      Modelica.Blocks.Interfaces.RealOutput qdd[nout] 
-        annotation (extent=[100, -80; 120, -60]);
-    equation 
-      for i in 1:nout loop
-        aux1[i] = p_deltaq[i]/p_qd_max[i];
-        aux2[i] = p_deltaq[i]/p_qdd_max[i];
-      end for;
-      
-      sd_max_inv = max(abs(aux1));
-      sdd_max_inv = max(abs(aux2));
-      
-      if sd_max_inv <= eps or sdd_max_inv <= eps then
-        sd_max = 0;
-        sdd_max = 0;
-        Ta1 = 0;
-        Ta2 = 0;
-        noWphase = false;
-        Tv = 0;
-        Te = 0;
-        Ta1s = 0;
-        Ta2s = 0;
-        Tvs = 0;
-        Tes = 0;
-        sd_max2 = 0;
-        s1 = 0;
-        s2 = 0;
-        s3 = 0;
-        r_sdd = 0;
-        r_sd = 0;
-        r_s = 0;
-      else
-        sd_max = 1/max(abs(aux1));
-        sdd_max = 1/max(abs(aux2));
-        Ta1 = sqrt(1/sdd_max);
-        Ta2 = sd_max/sdd_max;
-        noWphase = Ta2 >= Ta1;
-        Tv = if noWphase then Ta1 else 1/sd_max;
-        Te = if noWphase then Ta1 + Ta1 else Tv + Ta2;
-        Ta1s = Ta1 + startTime;
-        Ta2s = Ta2 + startTime;
-        Tvs = Tv + startTime;
-        Tes = Te + startTime;
-        sd_max2 = sdd_max*Ta1;
-        s1 = sdd_max*(if noWphase then Ta1*Ta1 else Ta2*Ta2)/2;
-        s2 = s1 + (if noWphase then sd_max2*(Te - Ta1) - (sdd_max/2)*(Te - Ta1)
-          ^2 else sd_max*(Tv - Ta2));
-        s3 = s2 + sd_max*(Te - Tv) - (sdd_max/2)*(Te - Tv)*(Te - Tv);
-        
-        if time < startTime then
-          r_sdd = 0;
-          r_sd = 0;
-          r_s = 0;
-        elseif noWphase then
-          if time < Ta1s then
-            r_sdd = sdd_max;
-            r_sd = sdd_max*(time - startTime);
-            r_s = (sdd_max/2)*(time - startTime)*(time - startTime);
-          elseif time < Tes then
-            r_sdd = -sdd_max;
-            r_sd = sd_max2 - sdd_max*(time - Ta1s);
-            r_s = s1 + sd_max2*(time - Ta1s) - (sdd_max/2)*(time - Ta1s)*(time
-               - Ta1s);
-          else
-            r_sdd = 0;
-            r_sd = 0;
-            r_s = s2;
-          end if;
-        elseif time < Ta2s then
-          r_sdd = sdd_max;
-          r_sd = sdd_max*(time - startTime);
-          r_s = (sdd_max/2)*(time - startTime)*(time - startTime);
-        elseif time < Tvs then
-          r_sdd = 0;
-          r_sd = sd_max;
-          r_s = s1 + sd_max*(time - Ta2s);
-        elseif time < Tes then
-          r_sdd = -sdd_max;
-          r_sd = sd_max - sdd_max*(time - Tvs);
-          r_s = s2 + sd_max*(time - Tvs) - (sdd_max/2)*(time - Tvs)*(time - Tvs);
-        else
-          r_sdd = 0;
-          r_sd = 0;
-          r_s = s3;
-        end if;
-        
-      end if;
-      
-      // acceleration
-      qdd = p_deltaq*sdd;
-      qd = p_deltaq*sd;
-      q = p_q_begin + p_deltaq*s;
-      endTime = Tes;
-      
-      sd = der(s);
-      sdd = der(sd);
-      
-      constraintResidue = r_s - s;
-      constraintResidue_d = r_sd - sd;
-      constraintResidue_dd = r_sdd - sdd;
-      constrain(constraintResidue, constraintResidue_d, constraintResidue_dd);
-    end KinematicPTPc;
-    
     annotation (Documentation(info="<html>
 <p>
 This library contains the different components
@@ -1643,6 +1706,50 @@ of the r3 robot. Usually, there is no need to
 use this library directly.
 </p>
 </html>"));
+    package Internal "Internal models that should not be used" 
+      expandable connector AxisControlBus "Data bus for one robot axis" 
+        extends 
+          Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.AxisControlBus;
+        import SI = Modelica.SIunits;
+        
+        Boolean motion_ref "=true, if reference motion is not in rest";
+        SI.Angle angle_ref "reference angle of axis flange";
+        SI.Angle angle "angle of axis flange";
+        SI.AngularVelocity speed_ref "reference speed of axis flange";
+        SI.AngularVelocity speed "speed of axis flange";
+        SI.AngularAcceleration acceleration_ref 
+          "reference acceleration of axis flange";
+        SI.AngularAcceleration acceleration "acceleration of axis flange";
+        SI.Current current_ref "reference current of motor";
+        SI.Current current "current of motor";
+        SI.Angle motorAngle "angle of motor flange";
+        SI.AngularVelocity motorSpeed "speed of motor flange";
+      end AxisControlBus;
+      
+      expandable connector ControlBus "Data bus for all axes of robot" 
+        extends 
+          Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.ControlBus;
+        Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.AxisControlBus
+          axisControlBus1 "bus of axis 1";
+        Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.AxisControlBus
+          axisControlBus2 "bus of axis 2";
+        Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.AxisControlBus
+          axisControlBus3 "bus of axis 3";
+        Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.AxisControlBus
+          axisControlBus4 "bus of axis 4";
+        Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.AxisControlBus
+          axisControlBus5 "bus of axis 5";
+        Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.AxisControlBus
+          axisControlBus6 "bus of axis 6";
+        
+      /*
+  parameter Integer naxis=6 "Number of axes";
+  Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.Internal.AxisControlBus
+    axisControlBus[naxis];
+*/
+      end ControlBus;
+    end Internal;
+    
   end Components;
   
   annotation (
