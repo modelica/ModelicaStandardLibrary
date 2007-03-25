@@ -5446,6 +5446,141 @@ velocity of model inertia1 or of model inertia2 as state variables.
     flange_b.tau = 0;
   end RelativeStates;
   
+  model InitializeFlange 
+    "Initializes a flange with pre-defined angle, speed and angular acceleration (usually, this is reference data from a control bus)" 
+    import Modelica.Blocks.Types.StateSelection;
+    extends Blocks.Interfaces.BlockIcon;
+    parameter Boolean use_phi_start = true 
+      "= true, if initial angle is defined by input phi_start, otherwise not initialized";
+    parameter Boolean use_w_start = true 
+      "= true, if initial speed is defined by input w_start, otherwise not initialized";
+    parameter Boolean use_a_start = true 
+      "= true, if initial angular acceleration is defined by input a_start, otherwise not initialized";
+    
+    parameter Modelica.Blocks.Types.StateSelection.Temp stateSelection=
+              Modelica.Blocks.Types.StateSelection.Default 
+      "Priority to use flange angle and speed as states";
+    
+    Blocks.Interfaces.RealInput phi_start(redeclare type SignalType = 
+          Modelica.SIunits.Angle) if use_phi_start "Initial angle of flange" 
+      annotation (extent=[-140,40; -100,80]);
+    Blocks.Interfaces.RealInput w_start(redeclare type SignalType = 
+          Modelica.SIunits.AngularVelocity) if use_w_start 
+      "Initial speed of flange" 
+      annotation (extent=[-140,-20; -100,20]);
+    Blocks.Interfaces.RealInput a_start(redeclare type SignalType = 
+          Modelica.SIunits.AngularAcceleration) if use_a_start 
+      "Initial angular acceleration of flange" 
+      annotation (extent=[-140,-80; -100,-40]);
+    Interfaces.Flange_b flange "Flange that is initialized" annotation (extent=[90,-10; 110,10]);
+    
+    Modelica.SIunits.Angle phi_flange(stateSelect=
+             if stateSelection==StateSelection.Never then 
+                StateSelect.never else 
+             if stateSelection==StateSelection.Avoid then 
+                StateSelect.avoid else 
+             if stateSelection==StateSelection.Default then 
+                StateSelect.default else 
+             if stateSelection==StateSelection.Prefer then 
+                StateSelect.prefer else StateSelect.always) = flange.phi 
+      "Flange angle";
+    Modelica.SIunits.AngularVelocity w_flange(stateSelect=
+             if stateSelection==StateSelection.Never then 
+                StateSelect.never else 
+             if stateSelection==StateSelection.Avoid then 
+                StateSelect.avoid else 
+             if stateSelection==StateSelection.Default then 
+                StateSelect.default else 
+             if stateSelection==StateSelection.Prefer then 
+                StateSelect.prefer else StateSelect.always)=
+          der(phi_flange) "= der(phi_flange)";
+    SI.AngularAcceleration a_flange=der(w_flange) "= der(w_flange)";
+    annotation (Icon(
+        Text(
+          extent=[-94,74; 68,46],
+          style(color=0, rgbcolor={0,0,0}),
+          string="phi_start"),
+        Text(
+          extent=[-94,16; 70,-14],
+          style(color=0, rgbcolor={0,0,0}),
+          string="w_start"),
+        Text(
+          extent=[-94,-46; 66,-74],
+          style(color=0, rgbcolor={0,0,0}),
+          string="a_start")), Diagram,
+      Documentation(info="<html>
+<p>
+This component is used to optionally initialize the angle, speed,
+and/or angular acceleration of the flange to which this component
+is connected. Via parameters use_phi_start, use_w_start, use_a_start
+the corresponding input signals phi_start, w_start, a_start are conditionally
+activated. If an input is activated, the corresponding flange property
+is initialized with the input value at start time.
+</p>
+ 
+<p>
+For example, if \"use_phi_start = true\", then flange.phi is inialized
+with the value of the input signal \"phi_start\" at the start time.
+</p>
+ 
+<p>
+Additionally, it is optionally possible to define the \"StateSelect\"
+attribute of the flange angle and the flange speed via paramater
+\"stateSelection\".
+</p>
+ 
+<p>
+This component is especially useful when the initial values of a flange
+shall be set according to reference signals of a controller that are
+provided via a signal bus.
+</p>
+ 
+</html>"));
+    
+  protected 
+    model GetInputs "Get enabled inputs and parameters of disabled inputs" 
+      extends Modelica.Blocks.Interfaces.BlockIcon;
+      Modelica.Blocks.Interfaces.RealInput phi_start "Start angle" 
+        annotation (Hide=true, extent=[-140,40; -100,80]);
+      Modelica.Blocks.Interfaces.RealInput w_start "Start speed" 
+        annotation (Hide=true, extent=[-140,-20; -100,20]);
+      Modelica.Blocks.Interfaces.RealInput a_start "Start angular acceleration"
+        annotation (Hide=true, extent=[-140,-80; -100,-40]);
+      annotation (Diagram);
+    end GetInputs;
+  protected 
+    GetInputs getInputs annotation (extent=[-10,-10; 10,10]);
+  initial equation 
+    if use_phi_start then
+       phi_flange = getInputs.phi_start;
+    end if;
+    if use_w_start then
+       w_flange = getInputs.w_start;
+    end if;
+    if use_a_start then
+       a_flange = getInputs.a_start;
+    end if;
+  equation 
+    connect(phi_start, getInputs.phi_start) annotation (points=[-120,60; -60,60;
+          -60,6; -12,6], style(color=74, rgbcolor={0,0,127}));
+    connect(w_start, getInputs.w_start) 
+      annotation (points=[-120,0; -12,0], style(color=74, rgbcolor={0,0,127}));
+    connect(a_start, getInputs.a_start) annotation (points=[-120,-60; -60,-60;
+          -60,-6; -12,-6], style(color=74, rgbcolor={0,0,127}));
+    
+    if not use_phi_start then
+       getInputs.phi_start = 0;
+    end if;
+    if not use_w_start then
+       getInputs.w_start = 0;
+    end if;
+    if not use_a_start then
+       getInputs.a_start = 0;
+    end if;
+    
+    flange.tau = 0;
+  end InitializeFlange;
+
   package Types "Constants and types with choices, especially to build menus" 
     extends Modelica.Icons.Library;
     

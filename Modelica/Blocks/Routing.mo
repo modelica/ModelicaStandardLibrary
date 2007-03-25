@@ -762,4 +762,54 @@ explicitly defined via parameters n1, n2, n3, n4, n5 and n6.
 This package contains blocks to combine and extract signals.
 </p>
 </html>"));
+  model RealPassThrough "Pass a Real signal through without modification" 
+    
+    extends Modelica.Blocks.Interfaces.BlockIcon;
+    
+    Modelica.Blocks.Interfaces.RealInput u "Input signal" 
+      annotation (Hide=true, extent=[-140, -20; -100, 20]);
+    Modelica.Blocks.Interfaces.RealOutput y "Output signal" 
+      annotation (Hide=true, extent=[100, -10; 120, 10]);
+    annotation (Icon(Line(points=[-100,0; 100,0], style(color=74, rgbcolor={0,0,
+                127}))),
+                      Documentation(info="<html>
+<p>
+Passes a Real signal through without modification.  Enables signals to be read out of one bus, have their name changed and be sent back to a bus.
+</p>
+</html>"));
+  equation 
+    y = u;
+  end RealPassThrough;
+  
+  model IntegerPassThrough "Pass a Integer signal through without modification" 
+    extends Modelica.Blocks.Interfaces.IntegerBlockIcon;
+    
+    Modelica.Blocks.Interfaces.IntegerInput u "Input signal" 
+      annotation (extent=[-140, -20; -100, 20]);
+    Modelica.Blocks.Interfaces.IntegerOutput y "Output signal" 
+      annotation (extent=[100, -10; 120, 10]);
+    annotation (Icon(Line(points=[-100,0; 100,0], style(color=45, rgbcolor={255,
+                128,0}))),
+                      Documentation(info="<html>
+<p>Passes a Integer signal through without modification.  Enables signals to be read out of one bus, have their name changed and be sent back to a bus.</p>
+</html>"));
+  equation 
+    y = u;
+    
+  end IntegerPassThrough;
+  
+  model BooleanPassThrough "Pass a Boolean signal through without modification" 
+    extends Modelica.Blocks.Interfaces.BooleanBlockIcon;
+    
+    Modelica.Blocks.Interfaces.BooleanInput u "Input signal" 
+      annotation (extent=[-140, -20; -100, 20]);
+    Modelica.Blocks.Interfaces.BooleanOutput y "Output signal" 
+      annotation (extent=[100, -10; 120, 10]);
+    annotation (Diagram, Documentation(info="<html>
+<p>Passes a Boolean signal through without modification.  Enables signals to be read out of one bus, have their name changed and be sent back to a bus.</p>
+</html>"),
+      Icon(Line(points=[-100,0; 100,0], style(color=5, rgbcolor={255,0,255}))));
+  equation 
+    y = u;
+  end BooleanPassThrough;
 end Routing;

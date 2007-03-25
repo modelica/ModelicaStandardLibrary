@@ -108,7 +108,7 @@ package Examples "Demonstration examples of the components of this package"
       yMax=12,
       Ni=0.1,
       initType=Modelica.Blocks.Types.Init.SteadyState,
-      limitsAtInit=false, 
+      limitsAtInit=false,
       controllerType=Modelica.Blocks.Types.SimpleController.PI) 
       annotation (extent=[-56,-20; -36,0]);
     Modelica.Mechanics.Rotational.Inertia inertia1(initType=Modelica.Mechanics.
@@ -293,255 +293,6 @@ is forced back to its limit after a transient phase.
     
     end LogicalNetwork1;
   
-  encapsulated model BusUsage "Demonstration of signal bus usage" 
-    import Modelica.Icons;
-    import Modelica.Blocks.Interfaces.Adaptors;
-    import Modelica.Blocks.Sources;
-    import Modelica;
-    
-    extends Icons.Example;
-    
-    annotation (preferedView="info",Documentation(info="<HTML>
-<p><b>Signal bus concept</b></p>
-<p>
-In technical systems, such as vehicles, robots or satellites, many signals
-are exchanged between components. In a simulation system, these signals
-are  usually modelled by signal connections of input/output blocks.
-Unfortunately, the signal connection structure may become very complicated,
-especially for hierarchical models.
-</p>
-<p>
-The same is also true for real technical systems. To reduce complexity
-and get higher flexibility, many technical systems use data buses to
-exchange data between components. For the same reasons, it is often better
-to use a \"signal bus\" concept also in a Modelica model. This is demonstrated
-at hand of this model (Modelica.Blocks.Examples.BusUsage), see diagram layer:
-</p>
-<ul>
-<li>The thick line in the middle called \"bus\" is just a connector instance
-    which is drawn such that it looks like a \"usual\" bus representation. </li>
-<li>A component, such as \"part\", can be directly connected to the \"bus\",
-    provided it has also a bus connector, or the \"part\" connector is a
-    sub-connector contained in the \"bus\". </li>
-</ul>
-<p>
-Difficulties arise if the input or output connector of an
-input/output block shall be connected directly to a variable
-of a bus because connections can only be performed between
-connectors but not between variables. For convenience,
-single variable connectors for Real, Integer and Boolean
-variables are provided as Modelica.Blocks.Interfaces.<b>RealSignal</b>,
-Modelica.Blocks.Interfaces.<b>IntegerSignal</b>,
-Modelica.Blocks.Interfaces.<b>BooleanSignal</b>.
-For example, the RealSignal connector is basically defined as:
-</p>
-<pre>  <b>connector</b> RealSignal = Real;
-</pre>
-<p>
-This allows a definition of a bus in the form:
-</p>
-<pre>   <b>connector</b> Bus
-      RealSignal r1;
-      RealSignal r2;
-        ...
-   <b>end</b> Bus;
-</pre>
-<p>
-and a connection to r1 and r2 is possible since these are connectors.
-Unfortunately, signals defined in this way have, by default, no unit.
-To improve this situation, a RealSignal is actually defined as
-</p>
-<pre>   <b>connector</b> RealSignal
-      <b>replaceable type</b> SignalType = Real;
-      <b>extends</b> SignalType;
-   <b>end</b> RealSignal;
-</pre>
-<p>
-This allows a redeclaration of the Real type to the desired type, such as:
-</p>
-<pre>   <b>connector</b> Bus
-      <b>import</b> SI=Modelica.SIunits;
-      RealSignal v(<b>redeclare</b> SignalType=SI.Velocity);
-      RealSignal p(<b>redeclare</b> SignalType=SI.Pressure);
-      ...
-   <b>end</b> Bus;
-</pre>
-<p>
-Note, since RealSignal, RealInput and RealOutput have basically
-the same definition, it is possible to directly connector
-from a RealSignal of a bus to a RealInput or RealOutput of
-a block component.
-</p>
-<p>
-If a bus connector contains many signals it is no longer so easy
-to test just one part of a system, because all parts of
-the bus connector must get a value. To simplify this,
-it is practical to provide a <b>RestBus</b> component which
-sets all parts of a bus to a default value when selected
-via the parameter menu. This is also demonstrated in the example
-model (see diagram layer).
-</p>
-<p>Simulate the system for 1 s. The output of the \"gain\" block
-should be the same as the one from the \"generateRealSignal1\"
-block.
-</p>
-</HTML>"), Diagram);
-  protected 
-    Interfaces.Bus bus annotation (Hide=false, extent=[-80, -20; 80, -14]);
-  public 
-    RestBus restBus(set_realSignal2=true) annotation (extent=[60, 20; 80, 40]);
-    Sources.IntegerStep integerStep(
-      height=1,
-      offset=2,
-      startTime=0.5)   annotation (extent=[20,20; 40,40],   rotation=270);
-    Sources.BooleanStep booleanStep(startTime=0.5)             annotation (
-        extent=[-20,20; 0,40],   rotation=270);
-    Sources.Sine sine                annotation (extent=[-60,20; -40,40],
-        rotation=270);
-    
-    encapsulated package Interfaces "Interfaces specialised for this example" 
-      
-      connector MultiPort "Combined port of real and boolean signal" 
-        Real myRealSignal;
-        Boolean myBooleanSignal;
-        
-        annotation (Icon(Rectangle(extent=[-100, 100; 100, -100], style(
-                  fillColor=76, fillPattern=1))), Diagram(Rectangle(extent=[-
-                  100, 100; 100, -100], style(fillColor=76, fillPattern=1))));
-      end MultiPort;
-      
-      connector Bus "Signal bus" 
-        import SI = Modelica.SIunits;
-        import Modelica.Blocks.Interfaces.*;
-        
-        RealSignal realSignal1(redeclare type SignalType = SI.AngularVelocity) 
-          "First Real signal (angular velocity)";
-        RealSignal realSignal2 "Second Real signal";
-        IntegerSignal integerSignal "Integer signal";
-        BooleanSignal booleanSignal "Boolean signal";
-        MultiPort multiSignal "Combined signal";
-        
-        annotation (
-          Icon(Rectangle(extent=[-100, 100; 100, -100], style(
-                color=77,
-                fillColor=77,
-                fillPattern=1)), Text(
-              extent=[-134, 168; 134, 108],
-              string="%name",
-              style(color=77))),
-          Diagram(Text(
-              extent=[-134, 168; 134, 108],
-              string="%name",
-              style(color=77)), Rectangle(extent=[-100, 100; 100, -100], style(
-                color=77,
-                fillColor=77,
-                fillPattern=1))),
-          Documentation(info="<HTML>
-<p>Defines connector for signalbus.</p>
-</HTML>
-"));
-      end Bus;
-    end Interfaces;
-    
-    encapsulated model Part "Component with MultiPort connector" 
-      import Modelica.Blocks.Examples;
-      
-      Examples.BusUsage.Interfaces.MultiPort multiSignal annotation (extent=[
-            100, -10; 120, 10]);
-      
-      annotation (Icon(Rectangle(extent=[-100, 60; 100, -60], style(fillColor=
-                  76, fillPattern=1)), Text(
-            extent=[-106, 124; 114, 68],
-            style(fillColor=76, fillPattern=1),
-            string="%name")));
-    equation 
-      multiSignal.myRealSignal = time;
-      multiSignal.myBooleanSignal = time > 0.5;
-    end Part;
-    
-    encapsulated model RestBus 
-      "Set default values for bus variables that are not defined elsewhere" 
-      
-      import Modelica.Blocks.Examples;
-      
-      parameter Boolean set_realSignal1=false 
-        "Set dummy value for desiredThrottle";
-      parameter Boolean set_realSignal2=false "Set dummy value for brake";
-      parameter Boolean set_integerSignal=false 
-        "Set dummy value for controlLeverPosition";
-      parameter Boolean set_booleanSignal=false 
-        "Set dummy value for desiredGear";
-      parameter Boolean set_multiSignal=false "Set dummy value for ignition";
-      
-      annotation (Icon(
-          Rectangle(extent=[-100, 100; 100, -100], style(fillColor=7,
-                fillPattern=1)),
-          Text(
-            extent=[-100, 156; 100, 96],
-            string="%name",
-            style(pattern=0)),
-          style(color=77),
-          Text(
-            extent=[46, -10; 88, -40],
-            style(color=0),
-            string="0"),
-          Text(
-            extent=[-82, 62; 38, 34],
-            style(color=0),
-            string="false"),
-          Line(points=[-28, 24; -28, -66; 0, -66; 0, -104; 0, -102], style(
-              color=77,
-              fillColor=7,
-              fillPattern=1)),
-          Line(points=[68, -46; 68, -66; 0, -66; 0, -108], style(
-              color=77,
-              fillColor=7,
-              fillPattern=1)),
-          Rectangle(extent=[-90, 78; 46, 24], style(color=0)),
-          Rectangle(extent=[40, -4; 92, -46], style(color=0))));
-      Examples.BusUsage.Interfaces.Bus bus annotation (extent=[-10, -120; 10, -
-            100], rotation=90);
-    equation 
-      if set_realSignal1 then
-        bus.realSignal1 = 0;
-      end if;
-      if set_realSignal2 then
-        bus.realSignal2 = 0;
-      end if;
-      if set_integerSignal then
-        bus.integerSignal = 0;
-      end if;
-      if set_booleanSignal then
-        bus.booleanSignal = false;
-      end if;
-      if set_multiSignal then
-        bus.multiSignal.myRealSignal = 0;
-        bus.multiSignal.myBooleanSignal = false;
-      end if;
-    end RestBus;
-    
-    Part part annotation (extent=[-96,-60; -76,-40]);
-    Modelica.Blocks.Math.Gain gain 
-      annotation(extent=[-46,-80; -26,-60], rotation=-90);
-  equation 
-    
-    connect(restBus.bus, bus) annotation (points=[70,19; 70,-17; 0,-17],
-                                                                    style(color=
-           77));
-    connect(part.multiSignal, bus.multiSignal) annotation (points=[-75,-50; -58,
-          -50; -58,-16; 0,-16; 0,-17]);
-    connect(sine.y, bus.realSignal1) 
-      annotation(points=[-50,19; -50,-17; 0,-17],
-                                           style(color=3, rgbcolor={0,0,255}));
-    connect(booleanStep.y, bus.booleanSignal)           annotation(points=[-10,
-          19; -10,-16; 0,-16; 0,-17],
-                        style(color=5, rgbcolor={255,0,255}));
-    connect(integerStep.y, bus.integerSignal)           annotation(points=[30,
-          19; 30,-17; 0,-17],         style(color=45, rgbcolor={255,127,0}));
-    connect(gain.u, bus.realSignal1) annotation(points=[-36,-58; -36,-18],
-        style(color=3, rgbcolor={0,0,255}));
-  end BusUsage;
-  
   annotation (Documentation(info="<html>
 <p>
 This package contains example models to demonstrate the
@@ -550,5 +301,282 @@ usage of package blocks.
 </HTML>
 "));
   
+  model BusUsage "Demonstration of signal bus usage" 
+    extends Modelica.Icons.Example;
+    
+    annotation (Documentation(info="<html>
+<p><b>Signal bus concept</b></p>
+<p>
+In technical systems, such as vehicles, robots or satellites, many signals
+are exchanged between components. In a simulation system, these signals
+are  usually modelled by signal connections of input/output blocks.
+Unfortunately, the signal connection structure may become very complicated,
+especially for hierarchical models.
+</p>
+
+<p>
+The same is also true for real technical systems. To reduce complexity
+and get higher flexibility, many technical systems use data buses to
+exchange data between components. For the same reasons, it is often better
+to use a \"signal bus\" concept also in a Modelica model. This is demonstrated
+at hand of this model (Modelica.Blocks.Examples.BusUsage):
+</p>
+
+<p align=\"center\">
+<img src=\"../Images/Blocks/BusUsage.png\">
+</p>
+
+<ul>
+<li> Connector instance \"controlBus\" is a hierarchical connector that is
+     used to exchange signals between different components. It is
+     defined as \"expandable connector\" in order that <b>no</b> central definition
+     of the connector is needed but is automatically constructed by the
+     signals connected to it (see also Modelica specification 2.2.1).</li>
+<li> Input/output signals can be directly connected to the \"controlBus\". When
+     connecting, it is optionally possible that a <b>label</b> is displayed
+     at the connecting line, that contains the name of the variable on the controlBus
+     to which the signal is connected. </li>
+<li> A component, such as \"part\", can be directly connected to the \"controlBus\",
+     provided it has also a bus connector, or the \"part\" connector is a
+     sub-connector contained in the \"controlBus\". </li>
+</ul>
+
+<p>
+The control and sub-control bus icons are provided within Modelica.Icons.
+In <a href=\"Modelica://Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces\">Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces</a>
+the buses for this example are defined. Both the \"ControlBus\" and the \"SubControlBus\" are
+<b>expandable</b> connectors that do not define any variable. For example, 
+<a href=\"Modelica://Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces.ControlBus#text\">Interfaces.ControlBus</a>
+is defined as:
+</p>
+<pre>  <b>expandable connector</b> ControlBus
+      <b>extends</b> Modelica.Icons.ControlBus;
+      <b>annotation</b> (Icon(Rectangle(extent=[-20, 2; 22, -2], 
+                       style(rgbcolor={255,204,51}, thickness=2))));
+  <b>end</b> ControlBus;
+</pre>
+<p>
+Note, the \"annotation\" in the connector is important since the color
+and thickness of a connector line are taken from the first 
+line element in the icon annotation of a connector class. Above, a small rectangle in the
+color of the bus is defined (and therefore this rectangle is not
+visible). As a result, when connecting from an instance of this
+connector to another connector instance, the connecting line has
+the color of the \"ControlBus\" with double width (due to \"thickness=2\").
+</p>
+
+<p>
+An <b>expandable</b> connector is a connector where the content of the connector
+is constructed by the variables connected to instances of this connector.
+For example, if \"sine.y\" is connected to the \"controlBus\", the following
+menu pops-up in Dymola:
+</p>
+
+<p align=\"center\">
+<img src=\"../Images/Blocks/BusUsage2.png\">
+</p>
+
+<p>
+The \"Add variable/New name\" field allows the user to define the name of the signal on 
+the \"controlBus\". When typing \"realSignal1\" as \"New name\", a connection of the form:
+</p>
+
+<pre>     <b>connect</b>(sine.y, controlBus.realSignal1)
+</pre>
+
+<p>
+is generated and the \"controlBus\" contains the new signal \"realSignal1\". Modelica tools
+may give more support in order to list potential signals for a connection. 
+For example, in Dymola all variables are listed in the menu that are contained in
+connectors which are derived by inheritance from \"controlBus\". Therefore, in
+<a href=\"Modelica://Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces.Internal\">Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces.Internal</a>
+the expected implementation of the \"ControlBus\" and of the \"SubControlBus\" are given.
+For example \"Internal.ControlBus\" is defined as:
+</p>
+
+<pre>  <b>expandable connector</b> StandardControlBus 
+    <b>extends</b> BusUsage_Utilities.Interfaces.ControlBus;
+  
+    <b>import</b> SI = Modelica.SIunits;
+    SI.AngularVelocity    realSignal1   \"First Real signal\";
+    SI.Velocity           realSignal2   \"Second Real signal\";
+    Integer               integerSignal \"Integer signal\";
+    Boolean               booleanSignal \"Boolean signal\";
+    StandardSubControlBus subControlBus \"Combined signal\";
+  <b>end</b> StandardControlBus;
+</pre>
+
+<p>
+Consequently, when connecting now from \"sine.y\" to \"controlBus\", the menu
+looks differently:
+</p>
+<p align=\"center\">
+<img src=\"../Images/Blocks/BusUsage3.png\">
+</p>
+<p>
+Note, even if the signals from \"Internal.StandardControlBus\" are listed, these are
+just potential signals. The user might still add different signal names.
+</p>
+
+</html>"), Diagram);
+  public 
+    Modelica.Blocks.Sources.IntegerStep integerStep(
+      height=1,
+      offset=2,
+      startTime=0.5)   annotation (extent=[-60,-40; -40,-20],
+                                                            rotation=0);
+    Modelica.Blocks.Sources.BooleanStep booleanStep(startTime=0.5) 
+                                                               annotation (
+        extent=[-58,0; -38,20],  rotation=0);
+    Modelica.Blocks.Sources.Sine sine(y(redeclare type SignalType = 
+            Modelica.SIunits.AngularVelocity)) 
+                                     annotation (extent=[-60,40; -40,60],
+        rotation=0);
+    
+    Modelica.Blocks.Examples.BusUsage_Utilities.Part part 
+              annotation (extent=[-60,-80; -40,-60]);
+    Modelica.Blocks.Math.Gain gain 
+      annotation(extent=[-40,70; -60,90],   rotation=0);
+  protected 
+    BusUsage_Utilities.Interfaces.ControlBus controlBus 
+      annotation (extent=[50,-10; 10,30], rotation=90);
+  equation 
+    
+    connect(sine.y, controlBus.realSignal1) annotation (
+      points=[-39,50; 0,50; 0,14; 30,14; 30,10],
+      style(color=74, rgbcolor={0,0,127}),
+      Text(
+        string="%second",
+        index=1,
+        extent=[6,3; 6,3],
+        style(color=0, rgbcolor={0,0,0})));
+    connect(booleanStep.y, controlBus.booleanSignal) annotation (
+      points=[-37,10; 30,10],
+      style(color=5, rgbcolor={255,0,255}),
+      Text(
+        string="%second",
+        index=1,
+        extent=[6,3; 6,3],
+        style(color=0, rgbcolor={0,0,0})));
+    connect(integerStep.y, controlBus.integerSignal) annotation (
+      points=[-39,-30; 0,-30; 0,4; 30,4; 30,10],
+      style(color=45, rgbcolor={255,127,0}),
+      Text(
+        string="%second",
+        index=1,
+        extent=[6,3; 6,3],
+        style(color=0, rgbcolor={0,0,0})));
+    connect(gain.u, controlBus.realSignal1) annotation (
+      points=[-38,80; 20,80; 20,16; 26,16; 26,10; 30,10],
+      style(color=74, rgbcolor={0,0,127}),
+      Text(
+        string="%second",
+        index=1,
+        extent=[6,3; 6,3],
+        style(color=0, rgbcolor={0,0,0})));
+    connect(part.subControlBus, controlBus.subControlBus) annotation (
+      points=[-40,-70; 30,-70; 30,2],
+      style(
+        color=6,
+        rgbcolor={255,204,51},
+        thickness=2),
+      Text(
+        string="%second",
+        index=1,
+        extent=[6,3; 6,3],
+        style(color=0, rgbcolor={0,0,0})));
+  end BusUsage;
+  
+  package BusUsage_Utilities 
+    "Utility models and connectors for the demonstration example Modelica.Blocks.Examples.BusUsage" 
+    annotation (preferedView="info",Documentation(info="<html>
+</html>"), Diagram);
+  package Interfaces "Interfaces specialised for this example" 
+      
+      expandable connector ControlBus 
+        "Empty control bus that is adapted to the signals connected to it" 
+        extends Modelica.Icons.SignalBus;
+        
+        annotation (
+          Icon(Rectangle(extent=[-20, 2; 22, -2], style(rgbcolor={255,204,51}, thickness=2))),
+          Diagram);
+        
+      end ControlBus;
+      
+      expandable connector SubControlBus 
+        "Empty sub-control bus that is adapted to the signals connected to it" 
+        extends Modelica.Icons.SignalSubBus;
+        
+        annotation (defaultComponentPrefixes="protected",
+                    Icon(Rectangle(extent=[-20, 2; 22, -2], style(rgbcolor={255,204,51}, thickness=2))));
+        
+      end SubControlBus;
+      
+    package Internal 
+        expandable connector StandardControlBus 
+          "Used to build up the standard control bus (to not use this connector)" 
+          extends 
+            Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces.ControlBus;
+          
+          import SI = Modelica.SIunits;
+          SI.AngularVelocity realSignal1 "First Real signal (angular velocity)";
+          SI.Velocity realSignal2 "Second Real signal";
+          Integer integerSignal "Integer signal";
+          Boolean booleanSignal "Boolean signal";
+          StandardSubControlBus subControlBus "Combined signal";
+          
+          annotation (
+            Icon(Rectangle(extent=[-20, 2; 22, -2], style(rgbcolor={255,204,51}, thickness=2))),
+            Diagram);
+          
+        end StandardControlBus;
+        
+        expandable connector StandardSubControlBus 
+          "Used to build up the standard sub-control bus (to not use this connector)" 
+          extends 
+            Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces.SubControlBus;
+          
+          Real myRealSignal;
+          Boolean myBooleanSignal;
+          
+          annotation (defaultComponentPrefixes="protected",
+                      Icon(Rectangle(extent=[-20, 2; 22, -2], style(rgbcolor={255,204,51}, thickness=2))));
+        end StandardSubControlBus;
+    end Internal;
+  end Interfaces;
+    
+   model Part "Component with sub-control bus" 
+      
+      annotation (Icon(Rectangle(extent=[-100, 60; 100, -60], style(fillColor=
+                  76, fillPattern=1)), Text(
+            extent=[-106, 124; 114, 68],
+            style(fillColor=76, fillPattern=1),
+            string="%name")), Diagram);
+     Interfaces.SubControlBus subControlBus 
+       annotation (extent=[80,-20; 120,20], rotation=-90);
+     Sources.RealExpression realExpression(y=time) 
+       annotation (extent=[-6,0; 20,20]);
+     Sources.BooleanExpression booleanExpression(y=time > 0.5) 
+       annotation (extent=[-6,-30; 20,-10]);
+   equation 
+     connect(realExpression.y, subControlBus.myRealSignal) annotation (
+       points=[21.3,10; 86,10; 86,0; 100,0],
+       style(color=74, rgbcolor={0,0,127}),
+       Text(
+         string="%second",
+         index=1,
+         extent=[6,3; 6,3],
+         style(color=0, rgbcolor={0,0,0})));
+     connect(booleanExpression.y, subControlBus.myBooleanSignal) annotation (
+       points=[21.3,-20; 58,-20; 58,-2; 100,-2; 100,0],
+       style(color=5, rgbcolor={255,0,255}),
+       Text(
+         string="%second",
+         index=1,
+         extent=[6,3; 6,3],
+         style(color=0, rgbcolor={0,0,0})));
+   end Part;
+    
+  end BusUsage_Utilities;
 end Examples;
 end Blocks;
