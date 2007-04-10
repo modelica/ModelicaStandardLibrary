@@ -434,13 +434,10 @@ simulate them according to the provided description in the models.
  
 </HTML>
 "));
-    encapsulated model First "First example: simple drive train" 
-      import Modelica.Icons;
-      import Modelica.Blocks.Sources;
-      import Modelica.Mechanics.Rotational;
+    model First "First example: simple drive train" 
       import SI = Modelica.SIunits;
       
-      extends Icons.Example;
+      extends Modelica.Icons.Example;
       
       parameter Real amplitude=10;
       parameter SI.Frequency freqHz=5;
@@ -461,26 +458,29 @@ in the housing on one side via component Fixed.</p>
 <p>Simulate for 1 second and plot the following variables:<br>
    angular velocities of inertias inertia2 and 3: inertia2.w, inertia3.w</p>
  
-</HTML>"), Diagram);
+</HTML>"), Diagram, 
+        experiment, 
+        experimentSetupOutput);
       
-      Rotational.Fixed fixed annotation (extent=[38, -60; 54, -44]);
-      Rotational.Torque torque annotation (extent=[-70, -8; -54, 8]);
-      Rotational.Inertia inertia1(J=Jmotor) 
+      Modelica.Mechanics.Rotational.Fixed fixed 
+                             annotation (extent=[38,-48; 54,-32]);
+      Modelica.Mechanics.Rotational.Torque torque 
+                               annotation (extent=[-70, -8; -54, 8]);
+      Modelica.Mechanics.Rotational.Inertia inertia1(J=Jmotor) 
         annotation (extent=[-40, -8; -24, 8]);
-      Rotational.IdealGear idealGear(ratio=ratio) 
+      Modelica.Mechanics.Rotational.IdealGear idealGear(ratio=ratio) 
         annotation (extent=[-10, -8; 6, 8]);
-      Rotational.Inertia inertia2(
-        J=2,
-        phi(start=0),
-        w(start=0)) annotation (extent=[20, -8; 36, 8]);
-      Rotational.Spring spring(c=1.e4) annotation (extent=[54, -8; 70, 8]);
-      Rotational.Inertia inertia3(
-        J=Jload,
-        phi(start=0),
-        w(start=0)) annotation (extent=[84, -8; 100, 8]);
-      Rotational.Damper damper(d=damping) 
-        annotation (extent=[38, -36; 54, -20], rotation=-90);
-      Sources.Sine sine(amplitude=amplitude, freqHz=freqHz) 
+      Modelica.Mechanics.Rotational.Inertia inertia2(
+        J=2, initType=Modelica.Mechanics.Rotational.Types.Init.InitialState) 
+                    annotation (extent=[20, -8; 36, 8]);
+      Modelica.Mechanics.Rotational.Spring spring(c=1.e4) 
+                                       annotation (extent=[54, -8; 70, 8]);
+      Modelica.Mechanics.Rotational.Inertia inertia3(
+        J=Jload, initType=Modelica.Mechanics.Rotational.Types.Init.InitialState) 
+                    annotation (extent=[84, -8; 100, 8]);
+      Modelica.Mechanics.Rotational.Damper damper(d=damping) 
+        annotation (extent=[38,-30; 54,-14],   rotation=-90);
+      Modelica.Blocks.Sources.Sine sine(amplitude=amplitude, freqHz=freqHz) 
         annotation (extent=[-100, -8; -84, 8]);
     equation 
       connect(torque.flange_b, inertia1.flange_a) 
@@ -494,22 +494,22 @@ in the housing on one side via component Fixed.</p>
       connect(spring.flange_b, inertia3.flange_a) 
         annotation (points=[70, 0; 84, 0], style(color=0));
       connect(damper.flange_a, inertia2.flange_b) 
-        annotation (points=[46, -20; 46, 0; 36, 0], style(color=0));
+        annotation (points=[46,-14; 46,0; 36,0],    style(color=0));
       connect(damper.flange_b, fixed.flange_b) 
-        annotation (points=[46, -36; 46, -52], style(color=0));
+        annotation (points=[46,-30; 46,-40],   style(color=0));
       connect(sine.y, torque.tau) annotation (points=[-83.2,0; -71.6,0], style(
             color=74, rgbcolor={0,0,127}));
+      connect(torque.bearing, fixed.flange_b) annotation (points=[-62,-8; -62,
+            -40; 46,-40], style(color=0, rgbcolor={0,0,0}));
+      connect(idealGear.bearing, fixed.flange_b) annotation (points=[-2,-8; -2,
+            -40; 46,-40], style(color=0, rgbcolor={0,0,0}));
     end First;
     
-    encapsulated model Friction "Drive train with clutch and brake" 
-      import Modelica.Icons;
-      import Modelica.Blocks.Sources;
-      import Modelica.Blocks.Math;
-      import Modelica.Mechanics.Rotational;
+    model Friction "Drive train with clutch and brake" 
       import Modelica.Constants.pi;
       import SI = Modelica.SIunits;
       
-      extends Icons.Example;
+      extends Modelica.Icons.Example;
       
       parameter SI.Time startTime=0.5 "Start time of step";
       
@@ -535,36 +535,47 @@ values (defined already in the model):</p>
 <p>as well as the absolute angular velocities of the three inertia components
 (inertia1.w, inertia2.w, inertia3.w).</p>
  
-</HTML>"), Diagram);
+</HTML>"), Diagram,
+        Coordsys(grid=[1,1]), 
+        experiment(StopTime=3), 
+        experimentSetupOutput);
       
-      Rotational.Torque torque annotation (extent=[-45, -5; -35, 5]);
-      Rotational.Inertia inertia3(
+      Modelica.Mechanics.Rotational.Torque torque 
+                               annotation (extent=[-45, -5; -35, 5]);
+      Modelica.Mechanics.Rotational.Inertia inertia3(
         J=1,
-        phi(start=0),
-        w(start=100)) annotation (extent=[-25, -5; -15, 5]);
-      Rotational.Clutch clutch(fn_max=160) annotation (extent=[-5, -5; 5, 5]);
-      Rotational.Inertia inertia2(
+        initType=Modelica.Mechanics.Rotational.Types.Init.InitialState,
+        phi_start=0,
+        w_start=100)  annotation (extent=[-25, -5; -15, 5]);
+      Modelica.Mechanics.Rotational.Clutch clutch(fn_max=160) 
+                                           annotation (extent=[-5, -5; 5, 5]);
+      Modelica.Mechanics.Rotational.Inertia inertia2(
         J=0.05,
-        phi(start=0),
-        w(start=90)) annotation (extent=[15, -5; 25, 5]);
-      Rotational.SpringDamper spring(c=160, d=1) 
+        initType=Modelica.Mechanics.Rotational.Types.Init.InitialState,
+        phi_start=0,
+        w_start=90)  annotation (extent=[15, -5; 25, 5]);
+      Modelica.Mechanics.Rotational.SpringDamper spring(c=160, d=1) 
         annotation (extent=[35, -5; 45, 5]);
-      Rotational.Inertia inertia1(
+      Modelica.Mechanics.Rotational.Inertia inertia1(
         J=1,
-        phi(start=0),
-        w(start=90)) annotation (extent=[75, -5; 85, 5]);
-      Rotational.Brake brake(fn_max=1600) annotation (extent=[55, -5; 65, 5]);
-      Sources.Constant const(k=1) 
+        initType=Modelica.Mechanics.Rotational.Types.Init.InitialState,
+        phi_start=0,
+        w_start=90)  annotation (extent=[75, -5; 85, 5]);
+      Modelica.Mechanics.Rotational.Brake brake(fn_max=1600) 
+                                          annotation (extent=[55, -5; 65, 5]);
+      Modelica.Blocks.Sources.Constant const(k=1) 
         annotation (extent=[-5, 20; 5, 30], rotation=-90);
-      Sources.Step step(startTime=startTime) 
+      Modelica.Blocks.Sources.Step step(startTime=startTime) 
         annotation (extent=[55, 20; 65, 30], rotation=-90);
-      Sources.Step step2(
+      Modelica.Blocks.Sources.Step step2(
         height=-1,
         offset=1,
         startTime=startTime)   annotation (extent=[-85, -15; -75, -5]);
-      Sources.Sine sine(amplitude=200, freqHz=50/pi) 
+      Modelica.Blocks.Sources.Sine sine(amplitude=200, freqHz=50/pi) 
         annotation (extent=[-85, 5; -75, 15]);
-      Math.Product product annotation (extent=[-65, -5; -55, 5]);
+      Modelica.Blocks.Math.Product product 
+                           annotation (extent=[-65, -5; -55, 5]);
+      Fixed fixed            annotation (extent=[-5,-25; 5,-15]);
     equation 
       tMotor = torque.tau;
       tClutch = clutch.tau;
@@ -589,22 +600,22 @@ values (defined already in the model):</p>
             -3; -66,-3], style(color=74, rgbcolor={0,0,127}));
       connect(product.y, torque.tau) annotation (points=[-54.5,0; -46,0], style(
             color=74, rgbcolor={0,0,127}));
-      connect(const.y, clutch.f_normalized) annotation (points=[3.36767e-016,
-            19.5; 3.36767e-016,12.75; 0,12.75; 0,5.5], style(color=74, rgbcolor=
+      connect(const.y, clutch.f_normalized) annotation (points=[3.36778e-016,
+            19.5; 3.36778e-016,12.75; 0,12.75; 0,5.5], style(color=74, rgbcolor=
              {0,0,127}));
       connect(step.y, brake.f_normalized) annotation (points=[60,19.5; 60,5.5],
           style(color=74, rgbcolor={0,0,127}));
+      connect(torque.bearing, fixed.flange_b) annotation (points=[-40,-5; -40,
+            -20; 0,-20], style(color=0, rgbcolor={0,0,0}));
+      connect(brake.bearing, fixed.flange_b) annotation (points=[60,-5; 60,-20;
+            0,-20], style(color=0, rgbcolor={0,0,0}));
     end Friction;
     
-    encapsulated model CoupledClutches 
-      "Drive train with 3 dynamically coupled clutches" 
+    model CoupledClutches "Drive train with 3 dynamically coupled clutches" 
       
-      import Modelica.Icons;
-      import Modelica.Blocks.Sources;
-      import Modelica.Mechanics.Rotational;
       import SI = Modelica.SIunits;
       
-      extends Icons.Example;
+      extends Modelica.Icons.Example;
       
       parameter SI.Frequency freqHz=0.2 
         "frequency of sine function to invoke clutch1";
@@ -633,31 +644,37 @@ mode = -1/0/+1 means backward sliding,
 locked, forward sliding.</p>
  
 </HTML>"),      Commands(file="CoupledClutches.mos" "Plot inertias"),
-        Diagram);
+        Diagram, 
+        experiment(StopTime=1.5), 
+        experimentSetupOutput);
       
-      Rotational.Inertia J1(
+      Modelica.Mechanics.Rotational.Inertia J1(
         J=1,
-        phi(start=0),
-        w(start=10)) annotation (extent=[-45, -5; -35, 5]);
-      Rotational.Torque torque annotation (extent=[-65, -5; -55, 5]);
-      Rotational.Clutch clutch1(peak=1.1, fn_max=20) 
+        initType=Modelica.Mechanics.Rotational.Types.Init.InitialState,
+        w_start=10)  annotation (extent=[-45, -5; -35, 5]);
+      Modelica.Mechanics.Rotational.Torque torque 
+                               annotation (extent=[-65, -5; -55, 5]);
+      Modelica.Mechanics.Rotational.Clutch clutch1(peak=1.1, fn_max=20) 
         annotation (extent=[-25, -5; -15, 5]);
-      Sources.Sine sin1(amplitude=10, freqHz=5) 
+      Modelica.Blocks.Sources.Sine sin1(amplitude=10, freqHz=5) 
         annotation (extent=[-85, -5; -75, 5]);
-      Sources.Step step1(startTime=T2) 
+      Modelica.Blocks.Sources.Step step1(startTime=T2) 
         annotation (extent=[15, 15; 25, 25], rotation=-90);
-      Rotational.Inertia J2(J=1) annotation (extent=[-5, -5; 5, 5]);
-      Rotational.Clutch clutch2(peak=1.1, fn_max=20) 
+      Modelica.Mechanics.Rotational.Inertia J2(J=1, initType=Modelica.Mechanics.Rotational.Types.Init.InitialState) 
+                                 annotation (extent=[-5, -5; 5, 5]);
+      Modelica.Mechanics.Rotational.Clutch clutch2(peak=1.1, fn_max=20) 
         annotation (extent=[15, -5; 25, 5]);
-      Rotational.Inertia J3(J=1) annotation (extent=[35, -5; 45, 5]);
-      Rotational.Clutch clutch3(peak=1.1, fn_max=20) 
+      Modelica.Mechanics.Rotational.Inertia J3(J=1, initType=Modelica.Mechanics.Rotational.Types.Init.InitialState) 
+                                 annotation (extent=[35, -5; 45, 5]);
+      Modelica.Mechanics.Rotational.Clutch clutch3(peak=1.1, fn_max=20) 
         annotation (extent=[55, -5; 65, 5]);
-      Rotational.Inertia J4(J=1) annotation (extent=[75, -5; 85, 5]);
-      Sources.Sine sin2(
+      Modelica.Mechanics.Rotational.Inertia J4(J=1, initType=Modelica.Mechanics.Rotational.Types.Init.InitialState) 
+                                 annotation (extent=[75, -5; 85, 5]);
+      Modelica.Blocks.Sources.Sine sin2(
         amplitude=1,
         freqHz=freqHz,
         phase=1.57)   annotation (extent=[-25, 15; -15, 25], rotation=-90);
-      Sources.Step step2(startTime=T3) 
+      Modelica.Blocks.Sources.Step step2(startTime=T3) 
         annotation (extent=[55, 15; 65, 25], rotation=-90);
     equation 
       connect(torque.flange_b, J1.flange_a) 
@@ -684,15 +701,12 @@ locked, forward sliding.</p>
             5.5], style(color=74, rgbcolor={0,0,127}));
     end CoupledClutches;
     
-    encapsulated model LossyGearDemo1 
+    model LossyGearDemo1 
       "Example to show that gear efficiency may lead to stuck motion" 
       
-      import Modelica.Icons;
-      import Modelica.Blocks.Sources;
-      import Modelica.Mechanics.Rotational;
       import SI = Modelica.SIunits;
       
-      extends Icons.Example;
+      extends Modelica.Icons.Example;
       SI.Power PowerLoss "power lost in the gear";
       annotation (Documentation(info="<html>
 <p>
@@ -717,16 +731,22 @@ gear.mode  :  1 = forward rolling
              -1 = backward rolling
 </pre>
 </HTML>
-"), Diagram);
-      Rotational.LossyGear gear(i=2, lossTable=[0, 0.5, 0.5, 0, 0]) 
+"), Diagram, 
+        experiment(StopTime=0.5), 
+        experimentSetupOutput);
+      Modelica.Mechanics.Rotational.LossyGear gear(i=2, lossTable=[0, 0.5, 0.5, 0, 0]) 
         annotation (extent=[-10, 0; 10, 20]);
-      Rotational.Inertia Inertia1 annotation (extent=[-40, 0; -20, 20]);
-      Rotational.Inertia Inertia2(J=1.5) annotation (extent=[20, 0; 40, 20]);
-      Rotational.Torque torque1 annotation (extent=[-70, 0; -50, 20]);
-      Rotational.Torque torque2 annotation (extent=[70, 0; 50, 20]);
-      Sources.Sine DriveSine(amplitude=10, freqHz=1) 
+      Modelica.Mechanics.Rotational.Inertia Inertia1 
+                                  annotation (extent=[-40, 0; -20, 20]);
+      Modelica.Mechanics.Rotational.Inertia Inertia2(J=1.5) 
+                                         annotation (extent=[20, 0; 40, 20]);
+      Modelica.Mechanics.Rotational.Torque torque1 
+                                annotation (extent=[-70, 0; -50, 20]);
+      Modelica.Mechanics.Rotational.Torque torque2 
+                                annotation (extent=[70, 0; 50, 20]);
+      Modelica.Blocks.Sources.Sine DriveSine(amplitude=10, freqHz=1) 
         annotation (extent=[-100, 0; -80, 20]);
-      Sources.Ramp load(
+      Modelica.Blocks.Sources.Ramp load(
         height=5,
         duration=2,
         offset=-10)   annotation (extent=[100, 0; 80, 20]);
@@ -748,14 +768,12 @@ gear.mode  :  1 = forward rolling
             color=74, rgbcolor={0,0,127}));
     end LossyGearDemo1;
     
-    encapsulated model LossyGearDemo2 
+    model LossyGearDemo2 
       "Example to show combination of LossyGear and BearingFriction" 
-      import Modelica.Icons;
-      import Modelica.Blocks.Sources;
-      import Modelica.Mechanics.Rotational;
+      
       import SI = Modelica.SIunits;
       
-      extends Icons.Example;
+      extends Modelica.Icons.Example;
       SI.Power PowerLoss "power lost in the gear";
       
       annotation (Documentation(info="<html>
@@ -787,20 +805,26 @@ gear.mode           :  1 = forward rolling
 as component LossyGear includes the functionality of component BearingFriction
 (only <i>peak</i> not supported).</p>
 </HTML>
-"), Diagram);
-      Rotational.LossyGear gear(i=2, lossTable=[0, 0.5, 0.5, 0, 0]) 
+"), Diagram, 
+        experiment(StopTime=0.5), 
+        experimentSetupOutput);
+      Modelica.Mechanics.Rotational.LossyGear gear(i=2, lossTable=[0, 0.5, 0.5, 0, 0]) 
         annotation (extent=[-10, 0; 10, 20]);
-      Rotational.Inertia Inertia1 annotation (extent=[-40, 0; -20, 20]);
-      Rotational.Inertia Inertia2(J=1.5) annotation (extent=[20, 0; 40, 20]);
-      Rotational.Torque torque1 annotation (extent=[-50, 60; -70, 80]);
-      Rotational.Torque torque2 annotation (extent=[70, 0; 50, 20]);
-      Sources.Sine DriveSine(amplitude=10, freqHz=1) 
+      Modelica.Mechanics.Rotational.Inertia Inertia1 
+                                  annotation (extent=[-40, 0; -20, 20]);
+      Modelica.Mechanics.Rotational.Inertia Inertia2(J=1.5) 
+                                         annotation (extent=[20, 0; 40, 20]);
+      Modelica.Mechanics.Rotational.Torque torque1 
+                                annotation (extent=[-50, 60; -70, 80]);
+      Modelica.Mechanics.Rotational.Torque torque2 
+                                annotation (extent=[70, 0; 50, 20]);
+      Modelica.Blocks.Sources.Sine DriveSine(amplitude=10, freqHz=1) 
         annotation (extent=[-20, 60; -40, 80]);
-      Sources.Ramp load(
+      Modelica.Blocks.Sources.Ramp load(
         height=5,
         duration=2,
         offset=-10) annotation (extent=[100, 0; 80, 20]);
-      Rotational.BearingFriction bearingFriction(tau_pos=[0, 0.5; 1, 1]) 
+      Modelica.Mechanics.Rotational.BearingFriction bearingFriction(tau_pos=[0, 0.5; 1, 1]) 
         annotation (extent=[-70, 0; -50, 20]);
     equation 
       PowerLoss = gear.flange_a.tau*der(gear.flange_a.phi) + gear.flange_b.tau*
@@ -847,7 +871,9 @@ housing dynamics.</p>
 Simulate for about 10 seconds and plot the angular velocities of the inertias <tt>housing.w</tt>,
 <tt>shaft.w</tt> and <tt>load.w</tt>.</p>
 </html>
-"));
+"), 
+        experiment(StopTime=10), 
+        experimentSetupOutput);
       Modelica.Mechanics.Rotational.IdealGear idealGear(ratio=3) 
         annotation (extent=[10, 40; 30, 60]);
       Inertia housing(J=5) annotation (extent=[10, 0; 30, 20], rotation=90);
@@ -5580,7 +5606,7 @@ provided via a signal bus.
     
     flange.tau = 0;
   end InitializeFlange;
-
+  
   package Types "Constants and types with choices, especially to build menus" 
     extends Modelica.Icons.Library;
     
