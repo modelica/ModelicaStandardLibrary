@@ -514,7 +514,7 @@ just potential signals. The user might still add different signal names.
       
     package Internal 
         expandable connector StandardControlBus 
-          "Used to build up the standard control bus (to not use this connector)" 
+          "Used to build up the standard control bus (do not use this connector)" 
           extends 
             Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces.ControlBus;
           
@@ -532,7 +532,7 @@ just potential signals. The user might still add different signal names.
         end StandardControlBus;
         
         expandable connector StandardSubControlBus 
-          "Used to build up the standard sub-control bus (to not use this connector)" 
+          "Used to build up the standard sub-control bus (do not use this connector)" 
           extends 
             Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces.SubControlBus;
           
