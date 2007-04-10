@@ -160,7 +160,7 @@ required from medium model \""       + mediumName + "\".");
       constant Real k = 0.621964713077499 "ratio of molar masses";
       AbsolutePressure psat = saturationPressure(T) "saturation pressure";
     algorithm
-      X_steam = phi*k/(k*phi+p/psat-phi);
+      X_steam := phi*k/(k*phi+p/psat-phi);
     end massFraction_pTphi;
     
     redeclare function setState_pTX "Return thermodynamic state as function of p, T and composition X" 
@@ -306,7 +306,7 @@ required from medium model \""       + mediumName + "\".");
        + SingleGasNasa.s0_Tlow(steam, state.T)*state.X[Water]
        - gasConstant(state)*Modelica.Math.log(state.p/reference_p)
        + sum(if Y[i] > Modelica.Constants.eps then -Y[i]*Modelica.Math.log(Y[i]) else 
-                   Y[i] for i in 1:size(Y,1));;
+                   Y[i] for i in 1:size(Y,1));
    end specificEntropy;
    
    redeclare function extends specificHeatCapacityCp 
