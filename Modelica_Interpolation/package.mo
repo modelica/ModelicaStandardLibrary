@@ -1,6 +1,6 @@
 package Modelica_Interpolation "Interpolation of tables and geometric curves with Bsplines of any order"
-  annotation (version="0.96",
-              versionDate="2006-02-19",
+  annotation (version="0.97",
+              versionDate="2007-04-10",
               uses(                        Plot3D(version="1"), Modelica(
         version="2.2.2 development")),
               preferedView="info",
