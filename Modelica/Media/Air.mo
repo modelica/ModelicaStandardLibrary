@@ -2,8 +2,8 @@ package Air "Media models for air"
   
   package SimpleAir "Air: Simple dry air model (0..100 degC)" 
     
-    extends Interfaces.PartialSimpleIdealGasMedium
-      (mediumName="SimpleAir",
+    extends Interfaces.PartialSimpleIdealGasMedium(
+       mediumName="SimpleAir",
        cp_const=1005.45,
        MM_const=0.0289651159,
        R_gas=Constants.R/0.0289651159,
@@ -16,13 +16,14 @@ package Air "Media models for air"
     import Cv = Modelica.SIunits.Conversions;
     import Modelica.Constants;
     
-    constant FluidConstants[nS] fluidConstants =
+    constant FluidConstants[nS] fluidConstants=
       FluidConstants(iupacName={"simple air"},
                      casRegistryNumber={"not a real substance"},
                      chemicalFormula={"N2, O2"},
                      structureFormula={"N2, O2"},
-                     molarMass=Modelica.Media.IdealGases.Common.SingleGasesData.N2.MM) "constant data for the fluid";
-        
+                     molarMass=Modelica.Media.IdealGases.Common.SingleGasesData.N2.MM) 
+      "constant data for the fluid";
+    
     annotation (Documentation(info="<html>
                               <h2>Simple Ideal gas air model for low temperatures<h1>
                               <p>This model demonstrats how to use the PartialSimpleIdealGas base class to build a
@@ -106,9 +107,9 @@ package Air "Media models for air"
       MassFraction X_liquid "mass fraction of liquid water";
       MassFraction X_steam "mass fraction of steam water";
       MassFraction X_air "mass fraction of air";
-      MassFraction X_sat
+      MassFraction X_sat 
         "steam water mass fraction of saturation boundary in kg_water/kg_moistair";
-      MassFraction x_sat
+      MassFraction x_sat 
         "steam water mass content of saturation boundary in kg_water/kg_dryair";
       AbsolutePressure p_steam_sat "Partial saturation pressure of steam";
     equation 
@@ -119,9 +120,9 @@ required from medium model \""       + mediumName + "\".");
       MM = 1/(Xi[Water]/MMX[Water]+(1.0-Xi[Water])/MMX[Air]);
       
       p_steam_sat = min(saturationPressure(T),0.999*p);
-      X_sat = min(p_steam_sat * k_mair/max(100*Constants.eps, p - p_steam_sat)*(1 - Xi[Water]), 1.0)
-                        "Water content at saturation with respect to actual water content";
-      X_liquid = max(Xi[Water] - X_sat, 0.0); 
+      X_sat = min(p_steam_sat * k_mair/max(100*Constants.eps, p - p_steam_sat)*(1 - Xi[Water]), 1.0) 
+        "Water content at saturation with respect to actual water content";
+      X_liquid = max(Xi[Water] - X_sat, 0.0);
       X_steam  = Xi[Water]-X_liquid;
       X_air    = 1-Xi[Water];
       
@@ -142,49 +143,52 @@ required from medium model \""       + mediumName + "\".");
       x_water = Xi[Water]/max(X_air,100*Constants.eps);
       phi = p/p_steam_sat*Xi[Water]/(Xi[Water] + k_mair*X_air);
     end BaseProperties;
-
-    function Xsaturation "steam water mass fraction of saturation boundary in kg_water/kg_moistair"
+    
+    function Xsaturation 
+      "steam water mass fraction of saturation boundary in kg_water/kg_moistair" 
       input ThermodynamicState state "shermodynamic state";
       output MassFraction X_sat "steam mass fraction of sat. boundary";
-      protected
-    algorithm
+    algorithm 
       X_sat := k_mair/(state.p/min(saturationPressure(state.T),0.999*state.p) - 1 + k_mair);
     end Xsaturation;
     
-    function massFraction_pTphi "compute the steam mass fraction from relative humidity and T"
+    function massFraction_pTphi 
+      "compute the steam mass fraction from relative humidity and T" 
       input AbsolutePressure p "Pressure";
       input Temperature T "Temperature";
       input Real phi "relative humidity (0 ... 1.0)";
       output MassFraction X_steam "steam Mass fractions";
-    protected
+    protected 
       constant Real k = 0.621964713077499 "ratio of molar masses";
       AbsolutePressure psat = saturationPressure(T) "saturation pressure";
-    algorithm
-      X_steam = phi*k/(k*phi+p/psat-phi);
+    algorithm 
+      X_steam :=phi*k/(k*phi + p/psat - phi);
     end massFraction_pTphi;
     
-    redeclare function setState_pTX "Return thermodynamic state as function of p, T and composition X" 
+    redeclare function setState_pTX 
+      "Return thermodynamic state as function of p, T and composition X" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input Temperature T "Temperature";
       input MassFraction X[:]=reference_X "Mass fractions";
       output ThermodynamicState state;
-    algorithm
-      state := if size(X,1) == nX then ThermodynamicState(p=p,T=T, X=X)
-        else ThermodynamicState(p=p,T=T, X=cat(1,X,{1-sum(X)}));
+    algorithm 
+      state := if size(X,1) == nX then ThermodynamicState(p=p,T=T, X=X) else 
+             ThermodynamicState(p=p,T=T, X=cat(1,X,{1-sum(X)}));
     end setState_pTX;
     
-    redeclare function setState_phX "Return thermodynamic state as function of p, h and composition X" 
+    redeclare function setState_phX 
+      "Return thermodynamic state as function of p, h and composition X" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEnthalpy h "Specific enthalpy";
       input MassFraction X[:]=reference_X "Mass fractions";
       output ThermodynamicState state;
-    algorithm
-      state := if size(X,1) == nX then ThermodynamicState(p=p,T=T_phX(p,h,X),X=X)
-        else ThermodynamicState(p=p,T=T_phX(p,h,X), X=cat(1,X,{1-sum(X)}));
+    algorithm 
+      state := if size(X,1) == nX then ThermodynamicState(p=p,T=T_phX(p,h,X),X=X) else 
+             ThermodynamicState(p=p,T=T_phX(p,h,X), X=cat(1,X,{1-sum(X)}));
     end setState_phX;
-/*    
+    /*    
     redeclare function setState_psX "Return thermodynamic state as function of p, s and composition X" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
@@ -195,19 +199,21 @@ required from medium model \""       + mediumName + "\".");
       state := if size(X,1) == nX then ThermodynamicState(p=p,T=T_psX(s,p,X),X=X)
         else ThermodynamicState(p=p,T=T_psX(p,s,X), X=cat(1,X,{1-sum(X)}));        
     end setState_psX;
-*/    
-    redeclare function setState_dTX "Return thermodynamic state as function of d, T and composition X" 
+*/
+    redeclare function setState_dTX 
+      "Return thermodynamic state as function of d, T and composition X" 
       extends Modelica.Icons.Function;
       input Density d "density";
       input Temperature T "Temperature";
       input MassFraction X[:]=reference_X "Mass fractions";
       output ThermodynamicState state;
-    algorithm
-      state := if size(X,1) == nX then ThermodynamicState(p=d*({steam.R,dryair.R}*X)*T,T=T,X=X)
-        else ThermodynamicState(p=d*({steam.R,dryair.R}*cat(1,X,{1-sum(X)}))*T,T=T, X=cat(1,X,{1-sum(X)}));
+    algorithm 
+      state := if size(X,1) == nX then ThermodynamicState(p=d*({steam.R,dryair.R}*X)*T,T=T,X=X) else 
+             ThermodynamicState(p=d*({steam.R,dryair.R}*cat(1,X,{1-sum(X)}))*T,T=T, X=cat(1,X,{1-sum(X)}));
     end setState_dTX;
-      
-    redeclare function extends gasConstant "gas constnat: computation neglects liquid fraction"
+    
+    redeclare function extends gasConstant 
+      "gas constnat: computation neglects liquid fraction" 
     algorithm 
       R := dryair.R*(1-state.X[Water]) + steam.R*state.X[Water];
     end gasConstant;
@@ -285,37 +291,38 @@ required from medium model \""       + mediumName + "\".");
    algorithm 
     p := state.p;
    end pressure;
-
+    
    redeclare function extends temperature "return temperature of ideal gas" 
    algorithm 
      T := state.T;
    end temperature;
-
+    
    redeclare function extends density "return density of ideal gas" 
    algorithm 
      d := state.p/(gasConstant(state)*state.T);
    end density;
-
-   redeclare function extends specificEntropy
-     "return specific entropy (liquid part neglected, mixing entropy included)"  
+    
+   redeclare function extends specificEntropy 
+      "return specific entropy (liquid part neglected, mixing entropy included)" 
        annotation(Inline=false,smoothOrder=5);
-   protected
-     MoleFraction[2] Y = massToMoleFractions(state.X,{steam.MM,dryair.MM}) "molar fraction";
-   algorithm
+    protected 
+     MoleFraction[2] Y = massToMoleFractions(state.X,{steam.MM,dryair.MM}) 
+        "molar fraction";
+   algorithm 
      s := SingleGasNasa.s0_Tlow(dryair, state.T)*(1-state.X[Water])
        + SingleGasNasa.s0_Tlow(steam, state.T)*state.X[Water]
        - gasConstant(state)*Modelica.Math.log(state.p/reference_p)
        + sum(if Y[i] > Modelica.Constants.eps then -Y[i]*Modelica.Math.log(Y[i]) else 
-                   Y[i] for i in 1:size(Y,1));;
+                   Y[i] for i in 1:size(Y,1));
    end specificEntropy;
-   
+    
    redeclare function extends specificHeatCapacityCp 
       "Return specific heat capacity at constant pressure" 
      annotation(Inline=false,smoothOrder=5);
-  algorithm 
+   algorithm 
      cp:= SingleGasNasa.cp_Tlow(dryair, state.T)*(1-state.X[Water])
        + SingleGasNasa.cp_Tlow(steam, state.T)*state.X[Water];
-  end specificHeatCapacityCp;
+   end specificHeatCapacityCp;
     
   redeclare function extends specificHeatCapacityCv 
       "Return specific heat capacity at constant volume" 
@@ -343,14 +350,14 @@ required from medium model \""       + mediumName + "\".");
   end thermalConductivity;
     
   function h_pTX 
-    "Compute specific enthalpy from pressure, temperature and mass fraction" 
+      "Compute specific enthalpy from pressure, temperature and mass fraction" 
     extends Modelica.Icons.Function;
     input SI.Pressure p "Pressure";
     input SI.Temperature T "Temperature";
     input SI.MassFraction X[:] "Mass fractions of moist air";
     output SI.SpecificEnthalpy h "Specific enthalpy at p, T, X";
     annotation(Inline=false,smoothOrder=1);
-  protected 
+    protected 
     SI.AbsolutePressure p_steam_sat "Partial saturation pressure of steam";
     SI.MassFraction x_sat "steam water mass fraction of saturation boundary";
     SI.MassFraction X_liquid "mass fraction of liquid water";
@@ -367,59 +374,59 @@ required from medium model \""       + mediumName + "\".");
       {X_steam, X_air} + enthalpyOfLiquid(T)*X_liquid;
   end h_pTX;
     
-  redeclare function extends specificEnthalpy
-      "specific enthalpy"
-  algorithm
-    h := h_pTX(state.p, state.T, state.X);  
+  redeclare function extends specificEnthalpy "specific enthalpy" 
+  algorithm 
+    h := h_pTX(state.p, state.T, state.X);
   end specificEnthalpy;
     
-  redeclare function extends specificInternalEnergy "Return specific internal energy" 
+  redeclare function extends specificInternalEnergy 
+      "Return specific internal energy" 
     extends Modelica.Icons.Function;
   algorithm 
     u := h_pTX(state.p,state.T,state.X) - gasConstant(state)*state.T;
   end specificInternalEnergy;
-  
+    
   redeclare function extends specificGibbsEnergy "Return specific Gibbs energy" 
     extends Modelica.Icons.Function;
   algorithm 
     g := h_pTX(state.p,state.T,state.X) - state.T*specificEntropy(state);
   end specificGibbsEnergy;
-  
-  redeclare function extends specificHelmholtzEnergy "Return specific Helmholtz energy" 
+    
+  redeclare function extends specificHelmholtzEnergy 
+      "Return specific Helmholtz energy" 
     extends Modelica.Icons.Function;
   algorithm 
     f := h_pTX(state.p,state.T,state.X) - gasConstant(state)*state.T - state.T*specificEntropy(state);
   end specificHelmholtzEnergy;
-  
-  function T_phX 
-    "Compute temperature from specific enthalpy and mass fraction" 
+    
+  function T_phX "Compute temperature from specific enthalpy and mass fraction" 
     input AbsolutePressure p "Pressure";
     input SpecificEnthalpy h "specific enthalpy";
     input MassFraction[:] X "mass fractions of composition";
     output Temperature T "temperature";
-  protected 
+    protected 
   package Internal 
-      "Solve h(data,T) for T with given h (use only indirectly via temperature_phX)" 
+        "Solve h(data,T) for T with given h (use only indirectly via temperature_phX)" 
     extends Modelica.Media.Common.OneNonLinearEquation;
     redeclare record extends f_nonlinear_Data 
-        "Data to be passed to non-linear function" 
+          "Data to be passed to non-linear function" 
       extends Modelica.Media.IdealGases.Common.DataRecord;
     end f_nonlinear_Data;
-      
+        
     redeclare function extends f_nonlinear 
     algorithm 
         y := h_pTX(p,x,X);
     end f_nonlinear;
-      
+        
     // Dummy definition has to be added for current Dymola
     redeclare function extends solve 
     end solve;
   end Internal;
-    
+      
   algorithm 
     T := Internal.solve(h, 200, 6000, p, X[1:nXi], steam);
   end T_phX;
-      
+    
     package Utilities "utility functions" 
       function spliceFunction 
           input Real pos;
@@ -482,7 +489,25 @@ required from medium model \""       + mediumName + "\".");
     end Utilities;
     
     annotation (Documentation(info="<html>
+  <h3><font color=\"#008000\" size=5>Moist Air Medium Package</font></h3>
+<h4><font color=\"#008000\" size=4>Thermodynamic Model</font></h4>
+<p>This package provides a full thermodynamic model of moist air including the fog region and temperatures below zero degC.
+The governing assumptions in this model are:</p>
+<ul>
+<li>the perfect gas law applies</li>
+<li>water volume other than that of steam is neglected</li></ul>
+<p>All extensive properties are expressed in terms of the total mass in order to comply with other media in this libary. However, it is rather common to express the absolute humidity in terms of mass of dry air only, which has advantages when working with charts. Therefore two absolute humidities are computed in the <b>BaseProperties</b> model: <b>X</b> denotes the absolute humidity in terms of the total mass while <b>x</b> denotes the absolute humitity per unit mass of dry air. In addition, the relative humidity <b>phi</b> is also computed.</p>
+<p>At the triple point temperature of water of 0.01°C or 273.16 K and a relative humidity greater than 1 fog may be present as liquid and as ice resulting in a specific enthalpy somewhere between those of the two isotherms for solid and liquid fog, respectively. For numerical reasons in this model a coexisting mixture of 50% solid and 50% liquid fog is assumed in the fog region at the triple point.
+
+<h4><font color=\"#008000\" size=4>Range of validity</font></h4>
+<p>From the assumptions mentioned above it follows that the <b>pressure</b> should be in the region around <b>atmospheric</b> conditions or below (a few bars may still be fine though). Additionally a very high water content at low temperatures would yield incorrect densities, because the volume of the liquid or solid phase would not be negligible anymore. The model does not provide any information on limits for water drop size in the fog region or transport information for the actual condensation or evaporation process in combination with surfaces. All excess water which is not in its vapour state is assumed to be still present in the air regarding its energy but not in terms of its spatial extent.<br><br>
+The thermodynamic model may be used for <b>temperatures</b> ranging from <b>240 - 400 K</b>. This holds for all functions unless otherwise stated in their description. However, although the model works at temperatures above the saturation temperature it is questionable to use the term \"relative humidity\" in this region.</p>
+
+<h4><font color=\"#008000\" size=4>Transport Properties</font></h4>
+<p>Several additional functions that are not needed to describe the thermodynamic system, but are required to model transport processes, like heat and mass transfer, may be called. They usually neglect the moisture influence unless otherwise stated.</p>
   
+<h4><font color=\"#008000\" size=4>Application</font></h4>
+<p>The model's main area of application is all processes that involve moist air cooling under near atmospheric pressure with possible moisture condensation. This is the case in all domestic and industrial air conditioning applications. Another large domain of moist air applications covers all processes that deal with the dehydration of bulk material using air as the transport medium. Engineering tasks involving moist air are often performed (or at least visualized) by using charts that contain all relevant thermodynamic data for a moist air system. These so called psychrometric charts can be generated from the medium properties in this package. 
 </html>"));
   end MoistAir;
   
