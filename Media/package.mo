@@ -3801,9 +3801,9 @@ Modelica source.
       "Default value for mass fractions of medium (for initialization)";
     
     final constant Integer nS=size(substanceNames, 1) "Number of substances"  annotation(Evaluate=true);
-    final constant Integer nX=if nS == 1 then 0 else nS 
+    constant Integer nX=if nS == 1 then 0 else nS 
       "Number of mass fractions (= 0, if only one substance)" annotation(Evaluate=true);
-    final constant Integer nXi=if fixedX then 0 else if reducedX then nS - 1 else nX 
+    constant Integer nXi=if fixedX then 0 else if reducedX then nS - 1 else nX 
       "Number of structurally independent mass fractions (see docu for details)"
      annotation(Evaluate=true);
     
