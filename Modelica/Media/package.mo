@@ -3857,8 +3857,10 @@ Modelica source.
           Modelica.SIunits.Conversions.to_degC(T) 
         "Temperature of medium in [degC]";
       SI.Conversions.NonSIunits.Pressure_bar p_bar=
-          Modelica.SIunits.Conversions.to_bar(p) 
+       Modelica.SIunits.Conversions.to_bar(p) 
         "Absolute pressure of medium in [bar]";
+      parameter Boolean standardOrderComponents = true 
+        "if true, last element in components is computed from 1-sum(Xi)";
       annotation (Documentation(info="<html>
 <p>
 Model <b>BaseProperties</b> is a model within package <b>PartialMedium</b>
@@ -3923,18 +3925,21 @@ T_ambient.
 </html>"),   Icon(Rectangle(extent=[-100,100; 100,-100], style(fillColor=7)), Text(extent=
                [-152,164; 152,102], string="%name")));
     equation 
-      Xi = X[1:nXi];
-      if nX > 1 then
-        if fixedX then
-          X = reference_X;
-        elseif reducedX then
-          X[nX] = 1 - sum(Xi);
+      if standardOrderComponents then
+        Xi = X[1:nXi];
+        if nX > 1 then
+          if fixedX then
+            X = reference_X;
+          end if;
+          if reducedX and not fixedX then
+            X[nX] = 1 - sum(Xi);
+          end if;
+          for i in 1:nX loop
+            assert(X[i] >= -1.e-5 and X[i] <= 1 + 1.e-5, "Mass fraction X[" +
+                   String(i) + "] = " + String(X[i]) + "of substance "
+                   + substanceNames[i] + "\nof medium " + mediumName + " is not in the range 0..1");
+          end for;
         end if;
-        for i in 1:nX loop
-          assert(X[i] >= -1.e-5 and X[i] <= 1 + 1.e-5, "Mass fraction X[" +
-            String(i) + "] = " + String(X[i]) + "of substance " + substanceNames[
-            i] + "\nof medium " + mediumName + " is not in the range 0..1");
-        end for;
       end if;
       
       assert(p >= 0.0, "Pressure (= " + String(p) + " Pa) of medium \"" +
@@ -4278,7 +4283,7 @@ T_ambient.
         nominal=1.0);
     type IsentropicExponent = SI.RatioOfSpecificHeatCapacities (
         min=1,
-        max=1.7,
+        max=500000,
         nominal=1.2,
         start=1.2);
     type SpecificEnergy = SI.SpecificEnergy (
@@ -4636,7 +4641,304 @@ are described in
     end density_pT;
   end PartialPureSubstance;
   
-  partial package PartialMixtureMedium 
+partial package PartialLinearFluid 
+    "Generic pure liquid model with constant cp, compressibility and thermal expansion coefficients" 
+    
+  import Modelica.Media.*;
+  import SI = Modelica.SIunits;
+    
+      extends Interfaces.PartialPureSubstance(
+        singleState = false);
+      constant SpecificHeatCapacity cp_const 
+      "Specific heat capacity at constant pressure";
+      constant IsobaricExpansionCoefficient beta_const 
+      "Thermal expansion coefficient at constant pressure";
+      constant SI.IsothermalCompressibility kappa_const 
+      "Isothermal compressibility";
+      constant MolarMass MM_const "Molar mass";
+      constant Density reference_d "Density in reference conditions";
+      constant SpecificEnthalpy reference_h 
+      "Specific enthalpy in reference conditions";
+      constant SpecificEntropy reference_s 
+      "Specific enthalpy in reference conditions";
+      constant Boolean constantJacobian 
+      "if true, entries in thermodynamic Jacobian are constant, taken at reference conditions";
+    
+      redeclare replaceable record ThermodynamicState 
+      "a selction of variables that uniquely defines the thermodynamic state" 
+        AbsolutePressure p "Absolute pressure of medium";
+        Temperature T "Temperature of medium";
+      end ThermodynamicState;
+    
+      redeclare model extends BaseProperties(
+        T(stateSelect=StateSelect.prefer),
+        p(stateSelect=StateSelect.prefer)) "Base properties of medium" 
+      equation 
+        d = reference_d +
+            (T-reference_T)*beta_const/reference_T +
+            (p-reference_p)*kappa_const/reference_p;
+        h = reference_h +
+            (T-reference_T)*cp_const +
+            (p-reference_p)*(1-beta_const*reference_T)/d;
+        u = h - p/d;
+        p = state.p;
+        T = state.T;
+        MM = MM_const;
+        R  = 8.3144/MM;
+      end BaseProperties;
+    
+      redeclare function extends setState_pTX 
+      "set the thermodynamic state record from p and T (X not needed)" 
+      algorithm 
+        state.p := p;
+        state.T := T;
+      end setState_pTX;
+    
+      redeclare function extends setState_phX 
+      "set the thermodynamic state record from p and h (X not needed)" 
+      algorithm 
+        state.p := p;
+        state.T :=(h - reference_h - (p - reference_p)*((1 - beta_const*reference_T)
+          /reference_d))/cp_const + reference_T;
+      end setState_phX;
+    
+      redeclare function extends setState_dTX 
+      "set the thermodynamic state record from d and T (X not needed)" 
+      algorithm 
+        state.p := ((d-reference_d) - (state.T-reference_T)*beta_const/reference_T)
+                   *reference_p/kappa_const + reference_p;
+        state.T := T;
+      end setState_dTX;
+    
+      redeclare function extends setState_psX 
+      "set the thermodynamic state record from p and s (X not needed)" 
+      algorithm 
+        state.p := p;
+        state.T :=reference_T*cp_const/(s-reference_s -(p-reference_p)*(-beta_const/reference_d) - cp_const);
+      end setState_psX;
+    
+      redeclare function extends pressure 
+      "compute the pressure from the thermodynamic state" 
+      algorithm 
+        p :=state.p;
+      end pressure;
+    
+      redeclare function extends temperature 
+      "compute the temperature from the thermodynamic state" 
+      algorithm 
+        T :=state.T;
+      end temperature;
+    
+      redeclare function extends density 
+      "compute the density from the thermodynamic state" 
+      algorithm 
+      d := reference_d +
+           (state.T-reference_T)*beta_const/reference_T +
+           (state.p-reference_p)*kappa_const/reference_p;
+      end density;
+    
+      redeclare function extends specificEnthalpy 
+      "compute the specific enthalpy from the thermodynamic state" 
+      algorithm 
+      h := reference_h +
+          (state.T-reference_T)*cp_const +
+          (state.p-reference_p)*(1-beta_const*reference_T)/density(state);
+      end specificEnthalpy;
+    
+      redeclare function extends specificEntropy 
+      algorithm 
+      s := reference_s +
+          (state.T-reference_T)*cp_const/state.T +
+          (state.p-reference_p)*(-beta_const/density(state));
+      end specificEntropy;
+    
+      redeclare function extends specificInternalEnergy 
+      algorithm 
+        u := specificEnthalpy(state)-state.p/density(state);
+      end specificInternalEnergy;
+    
+      redeclare function extends specificGibbsEnergy 
+      "Return specific Gibbs energy" 
+        extends Modelica.Icons.Function;
+      algorithm 
+        g := specificEnthalpy(state) - state.T*specificEntropy(state);
+      end specificGibbsEnergy;
+    
+      redeclare function extends specificHelmholtzEnergy 
+      "Return specific Helmholtz energy" 
+        extends Modelica.Icons.Function;
+      algorithm 
+        f := specificInternalEnergy(state) - state.T*specificEntropy(state);
+      end specificHelmholtzEnergy;
+    
+      redeclare function extends velocityOfSound "return velocity of sound" 
+        extends Modelica.Icons.Function;
+      algorithm 
+        a := sqrt(1/(kappa_const*density(state) -beta_const*beta_const*state.T/cp_const));
+      end velocityOfSound;
+    
+      redeclare function extends isentropicExponent 
+      "return isentropic exponent" 
+        extends Modelica.Icons.Function;
+      algorithm 
+       gamma := 1/(state.p*kappa_const)*cp_const/specificHeatCapacityCv(state);
+      end isentropicExponent;
+    
+    redeclare function extends isentropicEnthalpy "Return isentropic enthalpy" 
+    protected 
+      SpecificEntropy s_upstream = specificEntropy(refState) 
+        "specific entropy at component inlet";
+      ThermodynamicState downstreamState "state at downstream location";
+    algorithm 
+      downstreamState.p := p_downstream;
+      downstreamState.T := reference_T*cp_const/
+        (s_upstream -reference_s -(p_downstream-reference_p)*(-beta_const/reference_d) - cp_const);
+      h_is := specificEnthalpy(downstreamState);
+      annotation (Documentation(info="<html>
+<body>
+A minor approximation is used: the reference density is used instead of the real one, which would require a numeric solution.
+</body>
+</html>"));
+    end isentropicEnthalpy;
+    
+      redeclare function extends specificHeatCapacityCp 
+      "Return specific heat capacity at constant volume" 
+      algorithm 
+        cp := cp_const;
+      end specificHeatCapacityCp;
+    
+      redeclare function extends specificHeatCapacityCv 
+      "Return specific heat capacity at constant volume" 
+      algorithm 
+        cv := if constantJacobian then cp_const - reference_T*beta_const*beta_const/(kappa_const*reference_d) else 
+              state.T*beta_const*beta_const/(kappa_const*density(state));
+      end specificHeatCapacityCv;
+    
+      redeclare function extends isothermalCompressibility 
+      algorithm 
+        kappa := kappa_const;
+      end isothermalCompressibility;
+    
+      redeclare function extends isobaricExpansionCoefficient 
+      algorithm 
+        beta := beta_const;
+      end isobaricExpansionCoefficient;
+    
+      redeclare function extends density_derp_h 
+      algorithm 
+        ddph := if constantJacobian then kappa_const*reference_d +
+          (beta_const*(1-reference_T*beta_const))/cp_const else 
+              kappa_const*density(state) +
+           (beta_const*(1-temperature(state)*beta_const))/cp_const;
+      end density_derp_h;
+    
+      redeclare function extends density_derh_p 
+      algorithm 
+      ddhp := if constantJacobian then -beta_const*reference_d/cp_const else 
+              -beta_const*density(state)/cp_const;
+      end density_derh_p;
+    
+      redeclare function extends density_derp_T 
+      algorithm 
+        ddpT := if constantJacobian then kappa_const*reference_d else 
+              kappa_const*density(state);
+      end density_derp_T;
+    
+      redeclare function extends density_derT_p 
+      algorithm 
+        ddTp := if constantJacobian then -beta_const*reference_d else 
+             -beta_const*density(state);
+      end density_derT_p;
+    
+      redeclare function extends molarMass 
+      algorithm 
+        MM  := MM_const;
+      end molarMass;
+    
+      function T_ph "Compute temperature from pressure and specific enthalpy" 
+        input SpecificEnthalpy h "Specific enthalpy";
+        input AbsolutePressure p "pressure";
+        output Temperature T "Temperature";
+      algorithm 
+        T :=(h - reference_h - (p - reference_p)*((1 - beta_const*reference_T)
+          /reference_d))/cp_const + reference_T;
+      end T_ph;
+    
+      function T_ps "Compute temperature from pressure and specific entropy" 
+        input AbsolutePressure p "Pressure";
+        input SpecificEntropy s "Specific entropy";
+        output Temperature T "Temperature";
+      algorithm 
+        T := reference_T*cp_const/(s-reference_s -(p-reference_p)*(-beta_const/reference_d) - cp_const);
+      end T_ps;
+    
+  annotation (Documentation(info="<html>
+<body>
+<h2>Linear Compressibility Fluid Model</h2>
+<p></p>This linear compressibility fluid model is based on the assumptions that:
+</p>
+<ul>
+<li>The specific heat capacity at constant pressure (cp) is constant</li>
+<li>The isobaric expansion coefficient (beta) is constant</li>
+<li>The isothermal compressibility (kappa) is constant</li>
+<li>Pressure and temperature are used as states</li>
+</ul>
+<p>
+That means that the density is a linear function in temperature and in pressure. 
+In order to define the complete model, a number of constant reference values are needed which 
+are computed at the reference values of the states pressure p and temperature T. The model can 
+be interprested as a linearization of a full non-linear fluid model (but it is not linear in all 
+thermodynamic coordinates). Reference values are needed for
+</p>
+<ol>
+<li>the density (reference_d),</li>
+<li>the specific enthalpy (reference_h),</li>
+<li>the specific entropy (reference_s).</li>
+</ol>
+<p>
+Apart from that, a user needs to define the molar mass, MM_const. 
+Note that it is possible to define a fluid by computing the reference 
+values from a full non-linear fluid model by computing the package constants 
+using the standard functions defined in a fluid package (see example in liquids package).
+</p>
+<h3>Efficiency considerations</h3>
+<p>One of the main reasons to use a simple, linear fluid model is to achieve high performance 
+in simulations. There are a number of possible compromises and possibilities to improve performance. 
+Some of them can be influenced by a flag. The following rules where used in this model:</p>
+<ul>
+<li>All forward evaluations (using the ThermodynamicState record as input) are exactly following
+the assumptions above.</li>
+<li>If the flag <b>constantJacobian</b> is set to true in the package, all functions that
+typically appear in thermodynamic jacobians (specificHeatCapacityCv, density_derp_h, density_derh_p,
+density_derp_T, density_derT_p) are evaluated at reference conditions (that means using the reference 
+density) instead of the density of the current pressure and temperature. This makes it possible to evaluate 
+the thermodynamic jacobian at compile time.</li>
+<li>For inverse functions using other inputs than the states (e.g pressure p and specific enthalpy h),
+the inversion is using the reference state whenever that is necessary to achieve a symbolic inversion.</li>
+<li>If <b>constantJacobian</b> is set to false, the above list of functions is computed exactly according 
+to the above list of assumptions</li>
+</ul>
+<dl> <b>Authors:</b>
+<dd>Francesco Casella<br>
+    Dipartimento di Elettronica e Informazione<br>
+    Politecnico di Milano<br>
+    Via Ponzio 34/5<br>
+    I-20133 Milano, Italy<br>
+    email: <A HREF=\"mailto:casella@elet.polimi.it\">casella@elet.polimi.it</A><br>
+    and <br>
+    Hubertus Tummescheit<br>
+    Modelon AB<br>
+    Ideon Science Park<br>
+    SE-22730 Lund, Sweden<br>
+    email: <A HREF=\"mailto:Hubertus.Tummescheit@Modelon.se\">Hubertus.Tummescheit@Modelon.se</A><br>
+ 
+</dd>
+</dl>
+</body>
+</html>"));
+end PartialLinearFluid;
+  
+partial package PartialMixtureMedium 
     "base class for pure substances of several chemical substances" 
     extends PartialMedium;
     
@@ -4729,7 +5031,7 @@ are described in
       end for;
     end massToMoleFractions;
     
-  end PartialMixtureMedium;
+end PartialMixtureMedium;
   
   partial package PartialCondensingGases 
     "Base class for mixtures of condensing and non-condensing gases" 
@@ -5667,6 +5969,7 @@ quantities are assumed to be constant.
   
 end Interfaces;
 
+
 package Common "data structures and fundamental functions for fluid properties" 
   
   annotation (Documentation(info="<HTML><h4>Package description</h4>
@@ -5744,60 +6047,41 @@ protected
   constant SI.Area AMIN=MINPOS "minimal init area";
   constant SI.Area AMAX=1.0e5 "maximal init area";
   constant SI.Area ANOM=1.0 "nominal init area";
-  constant SI.AmountOfSubstance MOLMIN=-1.0*MINPOS 
-    "minimal Mole Number";
-  constant SI.AmountOfSubstance MOLMAX=1.0e8 
-    "maximal Mole Number";
+  constant SI.AmountOfSubstance MOLMIN=-1.0*MINPOS "minimal Mole Number";
+  constant SI.AmountOfSubstance MOLMAX=1.0e8 "maximal Mole Number";
   constant SI.AmountOfSubstance MOLNOM=1.0 "nominal Mole Number";
   constant SI.Density DMIN=MINPOS "minimal init density";
   constant SI.Density DMAX=1.0e5 "maximal init density";
   constant SI.Density DNOM=1.0 "nominal init density";
-  constant SI.ThermalConductivity LAMMIN=MINPOS 
-    "minimal thermal conductivity";
-  constant SI.ThermalConductivity LAMNOM=1.0 
-    "nominal thermal conductivity";
-  constant SI.ThermalConductivity LAMMAX=1000.0 
-    "maximal thermal conductivity";
-  constant SI.DynamicViscosity ETAMIN=MINPOS 
-    "minimal init dynamic viscosity";
-  constant SI.DynamicViscosity ETAMAX=1.0e8 
-    "maximal init dynamic viscosity";
-  constant SI.DynamicViscosity ETANOM=100.0 
-    "nominal init dynamic viscosity";
+  constant SI.ThermalConductivity LAMMIN=MINPOS "minimal thermal conductivity";
+  constant SI.ThermalConductivity LAMNOM=1.0 "nominal thermal conductivity";
+  constant SI.ThermalConductivity LAMMAX=1000.0 "maximal thermal conductivity";
+  constant SI.DynamicViscosity ETAMIN=MINPOS "minimal init dynamic viscosity";
+  constant SI.DynamicViscosity ETAMAX=1.0e8 "maximal init dynamic viscosity";
+  constant SI.DynamicViscosity ETANOM=100.0 "nominal init dynamic viscosity";
   constant SI.Energy EMIN=-1.0e10 "minimal init energy";
   constant SI.Energy EMAX=1.0e10 "maximal init energy";
   constant SI.Energy ENOM=1.0e3 "nominal init energy";
   constant SI.Entropy SMIN=-1.0e6 "minimal init entropy";
   constant SI.Entropy SMAX=1.0e6 "maximal init entropy";
   constant SI.Entropy SNOM=1.0e3 "nominal init entropy";
-  constant SI.MassFlowRate MDOTMIN=-1.0e5 
-    "minimal init mass flow rate";
-  constant SI.MassFlowRate MDOTMAX=1.0e5 
-    "maximal init mass flow rate";
-  constant SI.MassFlowRate MDOTNOM=1.0 
-    "nominal init mass flow rate";
-  constant SI.MassFraction MASSXMIN=-1.0*MINPOS 
-    "minimal init mass fraction";
-  constant SI.MassFraction MASSXMAX=1.0 
-    "maximal init mass fraction";
-  constant SI.MassFraction MASSXNOM=0.1 
-    "nominal init mass fraction";
+  constant SI.MassFlowRate MDOTMIN=-1.0e5 "minimal init mass flow rate";
+  constant SI.MassFlowRate MDOTMAX=1.0e5 "maximal init mass flow rate";
+  constant SI.MassFlowRate MDOTNOM=1.0 "nominal init mass flow rate";
+  constant SI.MassFraction MASSXMIN=-1.0*MINPOS "minimal init mass fraction";
+  constant SI.MassFraction MASSXMAX=1.0 "maximal init mass fraction";
+  constant SI.MassFraction MASSXNOM=0.1 "nominal init mass fraction";
   constant SI.Mass MMIN=-1.0*MINPOS "minimal init mass";
   constant SI.Mass MMAX=1.0e8 "maximal init mass";
   constant SI.Mass MNOM=1.0 "nominal init mass";
   constant SI.MolarMass MMMIN=0.001 "minimal initial molar mass";
   constant SI.MolarMass MMMAX=250.0 "maximal initial molar mass";
   constant SI.MolarMass MMNOM=0.2 "nominal initial molar mass";
-  constant SI.MoleFraction MOLEYMIN=-1.0*MINPOS 
-    "minimal init mole fraction";
-  constant SI.MoleFraction MOLEYMAX=1.0 
-    "maximal init mole fraction";
-  constant SI.MoleFraction MOLEYNOM=0.1 
-    "nominal init mole fraction";
-  constant SI.MomentumFlux GMIN=-1.0e8 
-    "minimal init momentum flux";
-  constant SI.MomentumFlux GMAX=1.0e8 
-    "maximal init momentum flux";
+  constant SI.MoleFraction MOLEYMIN=-1.0*MINPOS "minimal init mole fraction";
+  constant SI.MoleFraction MOLEYMAX=1.0 "maximal init mole fraction";
+  constant SI.MoleFraction MOLEYNOM=0.1 "nominal init mole fraction";
+  constant SI.MomentumFlux GMIN=-1.0e8 "minimal init momentum flux";
+  constant SI.MomentumFlux GMAX=1.0e8 "maximal init momentum flux";
   constant SI.MomentumFlux GNOM=1.0 "nominal init momentum flux";
   constant SI.Power POWMIN=-1.0e8 "minimal init power or heat";
   constant SI.Power POWMAX=1.0e8 "maximal init power or heat";
@@ -5805,8 +6089,7 @@ protected
   constant SI.Pressure PMIN=1.0e4 "minimal init pressure";
   constant SI.Pressure PMAX=1.0e8 "maximal init pressure";
   constant SI.Pressure PNOM=1.0e5 "nominal init pressure";
-  constant SI.Pressure COMPPMIN=-1.0*MINPOS 
-    "minimal init pressure";
+  constant SI.Pressure COMPPMIN=-1.0*MINPOS "minimal init pressure";
   constant SI.Pressure COMPPMAX=1.0e8 "maximal init pressure";
   constant SI.Pressure COMPPNOM=1.0e5 "nominal init pressure";
   constant SI.RatioOfSpecificHeatCapacities KAPPAMIN=1.0 
@@ -5815,24 +6098,15 @@ protected
     "maximal init isentropic exponent";
   constant SI.RatioOfSpecificHeatCapacities KAPPANOM=1.2 
     "nominal init isentropic exponent";
-  constant SI.SpecificEnergy SEMIN=-1.0e8 
-    "minimal init specific energy";
-  constant SI.SpecificEnergy SEMAX=1.0e8 
-    "maximal init specific energy";
-  constant SI.SpecificEnergy SENOM=1.0e6 
-    "nominal init specific energy";
-  constant SI.SpecificEnthalpy SHMIN=-1.0e8 
-    "minimal init specific enthalpy";
-  constant SI.SpecificEnthalpy SHMAX=1.0e8 
-    "maximal init specific enthalpy";
-  constant SI.SpecificEnthalpy SHNOM=1.0e6 
-    "nominal init specific enthalpy";
-  constant SI.SpecificEntropy SSMIN=-1.0e6 
-    "minimal init specific entropy";
-  constant SI.SpecificEntropy SSMAX=1.0e6 
-    "maximal init specific entropy";
-  constant SI.SpecificEntropy SSNOM=1.0e3 
-    "nominal init specific entropy";
+  constant SI.SpecificEnergy SEMIN=-1.0e8 "minimal init specific energy";
+  constant SI.SpecificEnergy SEMAX=1.0e8 "maximal init specific energy";
+  constant SI.SpecificEnergy SENOM=1.0e6 "nominal init specific energy";
+  constant SI.SpecificEnthalpy SHMIN=-1.0e8 "minimal init specific enthalpy";
+  constant SI.SpecificEnthalpy SHMAX=1.0e8 "maximal init specific enthalpy";
+  constant SI.SpecificEnthalpy SHNOM=1.0e6 "nominal init specific enthalpy";
+  constant SI.SpecificEntropy SSMIN=-1.0e6 "minimal init specific entropy";
+  constant SI.SpecificEntropy SSMAX=1.0e6 "maximal init specific entropy";
+  constant SI.SpecificEntropy SSNOM=1.0e3 "nominal init specific entropy";
   constant SI.SpecificHeatCapacity CPMIN=MINPOS 
     "minimal init specific heat capacity";
   constant SI.SpecificHeatCapacity CPMAX=1.0e6 
@@ -5846,8 +6120,7 @@ protected
     "minimal init thermal conductivity";
   constant SI.ThermalConductivity LMAX=500.0 
     "maximal init thermal conductivity";
-  constant SI.ThermalConductivity LNOM=1.0 
-    "nominal init thermal conductivity";
+  constant SI.ThermalConductivity LNOM=1.0 "nominal init thermal conductivity";
   constant SI.Velocity VELMIN=-1.0e5 "minimal init speed";
   constant SI.Velocity VELMAX=1.0e5 "maximal init speed";
   constant SI.Velocity VELNOM=1.0 "nominal init speed";
@@ -5863,8 +6136,7 @@ protected
       SI.MolarMass[nspecies] MM "molar mass of components";
       Real[nspecies] invMM "inverse of molar mass of components";
       SI.SpecificHeatCapacity[nspecies] R "gas constant";
-      SI.SpecificEnthalpy[nspecies] Hf 
-        "enthalpy of formation at 298.15K";
+      SI.SpecificEnthalpy[nspecies] Hf "enthalpy of formation at 298.15K";
       SI.SpecificEnthalpy[nspecies] H0 "H0(298.15K) - H0(0K)";
     end FixedIGProperties;
     
@@ -6567,12 +6839,10 @@ public
     SI.SpecificEnergy u "specific inner energy";
     SI.SpecificEnthalpy h "specific enthalpy";
     SI.SpecificEntropy s "specific entropy";
-    SI.SpecificHeatCapacity cp 
-      "heat capacity at constant pressure";
+    SI.SpecificHeatCapacity cp "heat capacity at constant pressure";
     SI.SpecificHeatCapacity cv "heat capacity at constant volume";
     SI.SpecificHeatCapacity R "gas constant";
-    SI.RatioOfSpecificHeatCapacities kappa 
-      "isentropic expansion coefficient";
+    SI.RatioOfSpecificHeatCapacities kappa "isentropic expansion coefficient";
     PhaseBoundaryProperties liq 
       "thermodynamic base properties on the boiling curve";
     PhaseBoundaryProperties vap 
@@ -6628,8 +6898,7 @@ public
     SI.Density d "density";
     SI.SpecificEnthalpy h "specific enthalpy";
     SI.SpecificEntropy s "specific entropy";
-    SI.SpecificHeatCapacity cp 
-      "heat capacity at constant pressure";
+    SI.SpecificHeatCapacity cp "heat capacity at constant pressure";
     SI.SpecificHeatCapacity cv "heat capacity at constant volume";
     DerPressureByTemperature dpT "dp/dT derivative of saturation curve";
     DerPressureByTemperature pt "derivative of pressure wrt temperature";
@@ -6677,14 +6946,10 @@ public
     extends Modelica.Icons.Record;
     SI.Density d_vap "density on the dew line";
     SI.Density d_liq "density on the bubble line";
-    SI.DynamicViscosity eta_vap 
-      "dynamic viscosity on the dew line";
-    SI.DynamicViscosity eta_liq 
-      "dynamic viscosity on the bubble line";
-    SI.ThermalConductivity lam_vap 
-      "thermal conductivity on the dew line";
-    SI.ThermalConductivity lam_liq 
-      "thermal conductivity on the bubble line";
+    SI.DynamicViscosity eta_vap "dynamic viscosity on the dew line";
+    SI.DynamicViscosity eta_liq "dynamic viscosity on the bubble line";
+    SI.ThermalConductivity lam_vap "thermal conductivity on the dew line";
+    SI.ThermalConductivity lam_liq "thermal conductivity on the bubble line";
     SI.SpecificHeatCapacity cp_vap "cp on the dew line";
     SI.SpecificHeatCapacity cp_liq "cp on the bubble line";
     SI.MassFraction x "steam quality";
@@ -6697,8 +6962,7 @@ public
     SI.SpecificEnthalpy h "specific enthalpy";
     SI.SpecificEnergy u "inner energy";
     SI.SpecificEntropy s "specific entropy";
-    SI.SpecificHeatCapacity cp 
-      "heat capacity at constant pressure";
+    SI.SpecificHeatCapacity cp "heat capacity at constant pressure";
     SI.SpecificHeatCapacity cv "heat capacity at constant volume";
     DerPressureByTemperature pt "derivative of pressure wrt temperature";
     DerPressureByDensity pd "derivative of pressure wrt density";
@@ -6761,8 +7025,7 @@ public
     SI.Pressure p "pressure";
     SI.Temperature T "temperature";
     SI.SpecificEntropy s "specific entropy";
-    SI.SpecificHeatCapacity cp 
-      "heat capacity at constant pressure";
+    SI.SpecificHeatCapacity cp "heat capacity at constant pressure";
     IsobaricVolumeExpansionCoefficient alpha 
       "isobaric volume expansion coefficient";
     // beta in Bejan
@@ -6915,8 +7178,7 @@ end BridgmansTablesForWater;
     output SI.Pressure p=g.p "pressure";
     output SI.Temperature T=g.T "temperature";
     output SI.SpecificEntropy s "specific entropy";
-    output SI.SpecificHeatCapacity cp 
-      "heat capacity at constant pressure";
+    output SI.SpecificHeatCapacity cp "heat capacity at constant pressure";
     output IsobaricVolumeExpansionCoefficient alpha 
       "isobaric volume expansion coefficient";
     // beta in Bejan
@@ -6944,8 +7206,7 @@ end BridgmansTablesForWater;
     output SI.Pressure p "pressure";
     output SI.Temperature T=f.T "temperature";
     output SI.SpecificEntropy s "specific entropy";
-    output SI.SpecificHeatCapacity cp 
-      "heat capacity at constant pressure";
+    output SI.SpecificHeatCapacity cp "heat capacity at constant pressure";
     output IsobaricVolumeExpansionCoefficient alpha 
       "isobaric volume expansion coefficient";
     // beta in Bejan
@@ -7021,8 +7282,7 @@ end BridgmansTablesForWater;
     input SI.MassFraction x "vapour mass fraction";
     input SI.Temperature T "temperature";
     input SI.Pressure p "preoperties";
-    output SI.SpecificHeatCapacity cv 
-      "isochoric specific heat capacity";
+    output SI.SpecificHeatCapacity cv "isochoric specific heat capacity";
   protected 
     Real dpT "derivative of pressure w.r.t. temperature";
     Real dxv "derivative of vapour mass fraction w.r.t. specific volume";
@@ -7052,8 +7312,7 @@ end BridgmansTablesForWater;
     input SI.MassFraction x "vapour mass fraction";
     input SI.Temperature T "temperature";
     input SI.Pressure p "preoperties";
-    output SI.SpecificHeatCapacity cv 
-      "isochoric specific heat capacity";
+    output SI.SpecificHeatCapacity cv "isochoric specific heat capacity";
     output Real dpT "derivative of pressure w.r.t. temperature";
   protected 
     Real dxv "derivative of vapour mass fraction w.r.t. specific volume";
