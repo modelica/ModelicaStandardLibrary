@@ -1748,7 +1748,7 @@ The induction machine models use package SpacePhasors.
   <li> v1.7.1 2006/02/06 Anton Haumer<br>
        changed some naming of synchronous machines, not affecting existing models</li>
   </ul>
-<HTML>"), Icon(
+</HTML>"), Icon(
         Rectangle(extent=[-60,60; 60,-60],    style(
             color=3,
             rgbcolor={0,0,255},
@@ -5814,7 +5814,7 @@ is equal to the angle of the machine's rotor against the stator.
     extends Modelica.Icons.Library2;
     annotation (Documentation(info="<HTML>
 This package contains components, blocks and functions to utilize space phasor theory.
-</HTML>", revisions="<HTML
+</HTML>", revisions="<HTML>
 <dl>
   <dt><b>Main Authors:</b></dt>
   <dd>
