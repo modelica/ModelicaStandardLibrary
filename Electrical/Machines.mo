@@ -1,10 +1,9 @@
 package Machines "Library for electric machines" 
   extends Modelica.Icons.Library2;
   annotation (
-  version="1.8.2", versionDate="2007-01-15",
+  version="1.8.3", versionDate="2007-06-08",
   Settings(NewStateSelection=true, Evaluate=true),
   preferedView="info", Documentation(info="<HTML>
-<p>
 This package contains components to model electrical machines:
 <ul>
 <li>Examples: test examples</li>
@@ -13,8 +12,6 @@ This package contains components to model electrical machines:
 <li>SpacePhasors: an independent library for using space phasors</li>
 <li>Interfaces: Space phasor connector and partial machine models</li>
 </ul>
-</p>
-<p>
 <b>Limitations and assumptions:</b>
 <ul>
 <li>number of phases (of induction machines) is limited to 3, therefore definition as a constant m=3</li>
@@ -26,9 +23,9 @@ This package contains components to model electrical machines:
 <li>no iron losses, eddy currents, friction losses;<br>
     only ohmic losses in stator and rotor winding</li>
 </ul>
+<p>
 You may have a look at a short summary of space phasor theory at <a href=\"http://www.haumer.at/refimg/SpacePhasors.pdf\">http://www.haumer.at/refimg/SpacePhasors.pdf</a>
 </p>
-<p>
 <b>Further development:</b>
 <ul>
 <li>generalizing space phasor theory to m phases with arbitrary spatial angle of the coils</li>
@@ -36,8 +33,6 @@ You may have a look at a short summary of space phasor theory at <a href=\"http:
 <li>MachineModels: other machine types</li>
 <li>effects: saturation, skin-effect, other losses than ohmic, ...</li>
 </ul>
-</p>
-<p>
 <dl>
   <dt><b>Main Authors:</b></dt>
   <dd>
@@ -47,9 +42,8 @@ You may have a look at a short summary of space phasor theory at <a href=\"http:
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
 </dl>
-</p>
 <p>
-Copyright &copy; 1998-2006, Modelica Association and Anton Haumer.
+Copyright &copy; 1998-2007, Modelica Association and Anton Haumer.
 </p>
 <p>
 <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
@@ -116,6 +110,8 @@ and the accompanying <b>disclaimer</b>
        resolved a compatibility issue with airGap</li>
   <li> v1.8.2 2007/01/15 Anton Haumer<br>
        resolved a bug in electrical excited synchronous induction machine</li>
+  <li> v1.8.3 2007/06/08 Anton Haumer<br>
+       documentation update</li>
   </ul>
 </HTML>"),
     Icon(
@@ -150,14 +146,10 @@ and the accompanying <b>disclaimer</b>
   package Examples "Test examples" 
     extends Modelica.Icons.Library2;
     annotation (Documentation(info="<HTML>
-<p>
 This package contains test examples of electric machines,<br>
 and a package utilities with components used for the examples.
-</p>
-
 </HTML>", revisions="<HTML>
 <dl>
-<p>
   <dt><b>Main Authors:</b></dt>
   <dd>
   <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
@@ -165,17 +157,13 @@ and a package utilities with components used for the examples.
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
-</p>
-<p>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2006, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2007, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
   Modelica in file \"Modelica/package.mo\".</i></dd>
-</p>
 </dl>
-
   <ul>
   <li> v1.00 2004/09/16 Anton Haumer</li>
   <li> v1.01 2004/09/18 Anton Haumer<br>
@@ -221,7 +209,6 @@ and a package utilities with components used for the examples.
         experimentSetupOutput(
           doublePrecision=true),
         Documentation(info="<HTML>
-<p>
 <b>1st Test example: Asynchronous induction Machine with squirrel cage - direct on line starting</b><br>
 At start time tStart three phase voltage is supplied to the asynchronous induction machine with squirrel cage;
 the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed.<br>
@@ -232,7 +219,6 @@ Simulate for 1.5 seconds and plot (versus time):
 <li>AIMC1.tau_electrical: motor's torque</li>
 </ul>
 Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
-</p>
 </HTML>"));
       Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage 
         AIMC1 
@@ -329,7 +315,6 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
         experimentSetupOutput(
           doublePrecision=true),
         Documentation(info="<HTML>
-<p>
 <b>2nd Test example: Asynchronous induction Machine with squirrel cage - Y-D starting</b><br>
 At start time tStart three phase voltage is supplied to the asynchronous induction machine with squirrel cage, first star-connected, then delta-connetced; the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed.<br>
 Simulate for 2.5 seconds and plot (versus time):
@@ -339,7 +324,6 @@ Simulate for 2.5 seconds and plot (versus time):
 <li>AIMC1.tau_electrical: motor's torque</li>
 </ul>
 Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
-</p>
 </HTML>"));
       Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage 
         AIMC1 
@@ -435,7 +419,6 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
         experimentSetupOutput(
           doublePrecision=true),
         Documentation(info="<HTML>
-<p>
 <b>3rd Test example: Asynchronous induction Machine with slipring rotor - resistance starting</b><br>
 At start time tStart1 three phase voltage is supplied to the asynchronous induction machine with sliprings;
 the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed,
@@ -447,7 +430,6 @@ Simulate for 1.5 seconds and plot (versus time):
 <li>AIMS1.tau_electrical: motor's torque</li>
 </ul>
 Default machine parameters of model <i>AIM_SlipRing</i> are used.
-</p>
 </HTML>"));
       Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing AIMS1 
         annotation (extent=[-20,-50; 0,-30],     rotation=0);
@@ -583,7 +565,6 @@ Default machine parameters of model <i>AIM_SlipRing</i> are used.
         experimentSetupOutput(
           doublePrecision=true),
         Documentation(info="<HTML>
-<p>
 <b>4th Test example: Asynchronous induction Machine with squirrel cage fed by an ideal inverter</b><br>
 An ideal frequency inverter is modeled by using a VfController and a threephase SignalVoltage.<br>
 Frequency is raised by a ramp, causing the asynchronous induction machine with squirrel cage to start, 
@@ -595,7 +576,6 @@ Simulate for 1.5 seconds and plot (versus time):
 <li>AIMC1.tau_electrical: motor's torque</li>
 </ul>
 Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
-</p>
 </HTML>"));
       Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage 
         AIMC1 
@@ -679,7 +659,6 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
         experimentSetupOutput(
           doublePrecision=true),
         Documentation(info="<HTML>
-<p>
 <b>5th Test example: Synchronous Induction Machine with Reluctance rotor fed by an ideal inverter</b><br>
 An ideal frequency inverter is modeled by using a VfController and a threephase SignalVoltage.<br>
 Frequency is raised by a ramp, causing the reluctance machine to start, 
@@ -692,7 +671,6 @@ Simulate for 1.5 seconds and plot (versus time):
 <li>RotorAngle.rotorAngle: rotor displacement angle</li>
 </ul>
 Default machine parameters of model <i>SM_ReluctanceRotorDamperCage</i> are used.
-</p>
 </HTML>"));
       Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotorDamperCage
         SMR1 
@@ -785,7 +763,6 @@ Default machine parameters of model <i>SM_ReluctanceRotorDamperCage</i> are used
         experimentSetupOutput(
           doublePrecision=true),
         Documentation(info="<HTML>
-<p>
 <b>6th Test example: Permanent Magnet Synchronous Induction Machine fed by an ideal inverter</b><br>
 An ideal frequency inverter is modeled by using a VfController and a threephase SignalVoltage.<br>
 Frequency is raised by a ramp, causing the permanent magnet synchronous induction machine to start, 
@@ -798,7 +775,6 @@ Simulate for 1.5 seconds and plot (versus time):
 <li>RotorAngle.rotorAngle: rotor displacement angle</li>
 </ul>
 Default machine parameters of model <i>SM_PermanentMagnetDamperCage</i> are used.
-</p>
 <p>
 <b>In practice it is nearly impossible to drive a PMSMD without current controller.</b>
 </p>
@@ -896,7 +872,6 @@ Default machine parameters of model <i>SM_PermanentMagnetDamperCage</i> are used
         experiment(StopTime=30, Interval=0.005),
         experimentSetupOutput(doublePrecision=true),
         Documentation(info="<HTML>
-<p>
 <b>7th Test example: Electrical Excited Synchronous Induction Machine as generator</b><br>
 An electrically excited synchronous generator is connected to the grid and driven with constant speed. 
 Since speed is slightly smaller than synchronous speed corresponding to mains frequency, 
@@ -910,7 +885,6 @@ Simulate for 30 seconds and plot (versus RotorAngle1.rotorAngle):
 <li>MechanicalPowerSensor1.P</li>
 </ul>
 Default machine parameters of model <i>SM_ElectricalExcitedDamperCage</i> are used.
-</p>
 </HTML>"));
       Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage
         SMEE1(phi_mechanical(start=-(Modelica.Constants.pi +
@@ -1013,7 +987,6 @@ Default machine parameters of model <i>SM_ElectricalExcitedDamperCage</i> are us
         experimentSetupOutput(
           doublePrecision=true),
         Documentation(info="<HTML>
-<p>
 <b>8th Test example: Permanent magnet DC Machine started with an armature voltage ramp</b><br>
 A voltage ramp is applied to the armature, causing the DC machine to start, 
 and accelerating inertias.<br>At time tStep a load step is applied.<br>
@@ -1024,7 +997,6 @@ Simulate for 2 seconds and plot (versus time):
 <li>DCPM1.tau_electrical: motor's torque</li>
 </ul>
 Default machine parameters of model <i>DC_PermanentMagnet</i> are used.
-</p>
 </HTML>"));
       Machines.BasicMachines.DCMachines.DC_PermanentMagnet DCPM1 
         annotation (extent=[-20,-50; 0,-30]);
@@ -1071,7 +1043,6 @@ Default machine parameters of model <i>DC_PermanentMagnet</i> are used.
         experimentSetupOutput(
           doublePrecision=true),
         Documentation(info="<HTML>
-<p>
 <b>9th Test example: Electrically separate excited DC Machine started with an armature voltage ramp</b><br>
 A voltage ramp is applied to the armature, causing the DC machine to start, 
 and accelerating inertias.<br>At time tStep a load step is applied.<br>
@@ -1083,7 +1054,6 @@ Simulate for 2 seconds and plot (versus time):
 <li>DCEE1.ie: excitation current</li>
 </ul>
 Default machine parameters of model <i>DC_ElectricalExcited</i> are used.
-</p>
 </HTML>"));
       Machines.BasicMachines.DCMachines.DC_ElectricalExcited DCEE1 
         annotation (extent=[-20,-50; 0,-30]);
@@ -1141,7 +1111,6 @@ Default machine parameters of model <i>DC_ElectricalExcited</i> are used.
         experimentSetupOutput(
           doublePrecision=true),
         Documentation(info="<HTML>
-<p>
 <b>10th Test example: Series excited DC Machine started with an armature voltage ramp</b><br>
 A voltage ramp is applied to the armature, causing the DC machine to start, 
 and accelerating inertiasagainst load torque quadratic dependent on speed, finally reaching nominal speed.<br>
@@ -1152,7 +1121,6 @@ Simulate for 2 seconds and plot (versus time):
 <li>DCSE1.tau_electrical: motor's torque</li>
 </ul>
 Default machine parameters of model <i>DC_SeriesExcited</i> are used.
-</p>
 </HTML>"));
       Machines.BasicMachines.DCMachines.DC_SeriesExcited DCSE1 
         annotation (extent=[-20,-50; 0,-30]);
@@ -1192,14 +1160,12 @@ Default machine parameters of model <i>DC_SeriesExcited</i> are used.
       extends Modelica.Icons.Example;
       parameter Modelica.SIunits.Resistance RL[3]=fill(1/3,3);
       annotation (Documentation(info="<HTML>
-<p>
 Transformer testbench:<br>
 You may choose different connections as well as vary the load (even not symmetrical).<br>
 <b>Please pay attention</b> to proper grounding of the primary and secondary part of the whole circuit.<br>
 The primary and secondary starpoint are available as connectors, if the connection is not delta (D or d).<br>
 In some cases it may be necessary to ground the transformer's starpoint 
 even though the source's or load's starpoint are grounded; you may use a reasonable high earthing resistance.
-</p>
 </HTML>"),
         Diagram,
         experiment(StopTime=0.1),
@@ -1296,12 +1262,10 @@ even though the source's or load's starpoint are grounded; you may use a reasona
       parameter Modelica.SIunits.Capacitance C=0.005 "total DC-capacitance";
       parameter Modelica.SIunits.Voltage VC0=sqrt(3)*V;
       annotation (Documentation(info="<HTML>
-<p>
 Test example with multiphase components:<br>
 Star-connected voltage source feeds via a transformer a diode bridge rectifier with a DC burden.<br>
 Using f=50 Hz, simulate for 0.1 seconds (5 periods) and compare voltages and currents of source and DC burden, 
 neglecting initial transient.
-</p>
 </HTML>"), Diagram,
         experiment(StopTime=0.1),
         experimentSetupOutput);
@@ -1370,12 +1334,10 @@ neglecting initial transient.
       extends Modelica.Icons.Example;
       extends Machines.Examples.Rectifier6pulse(RL=0.2);
       annotation (Documentation(info="<HTML>
-<p>
 Test example with multiphase components:<br>
 Star-connected voltage source feeds via two transformers (Dd0 and Dy1) two diode bridge rectifiers with a single DC burden.<br>
 Using f=50 Hz, simulate for 0.1 seconds (5 periods) and compare voltages and currents of source and DC burden, 
 neglecting initial transient.
-</p>
 </HTML>"), Diagram,
         experiment(StopTime=0.1),
         experimentSetupOutput);
@@ -1435,12 +1397,10 @@ neglecting initial transient.
         experimentSetupOutput(
           doublePrecision=true),
         Documentation(info="<HTML>
-<p>
 <b>Asynchronous induction Machine with squirrel cage - Steinmetz-connection</b><br>
 At start time tStart single phase voltage is supplied to the asynchronous induction machine with squirrel cage;
 the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed.<br>
 Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
-</p>
 </HTML>"));
       Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage 
         AIMC1 
@@ -1538,13 +1498,9 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
     package Utilities "Library with auxiliary models for testing" 
       extends Modelica.Icons.Library;
       annotation (Documentation(info="<HTML>
-<p>
 This package contains components utility components for testing examples.
-</p>
-
 </HTML>", revisions="<HTML>
 <dl>
-<p>
   <dt><b>Main Authors:</b></dt>
   <dd>
   <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
@@ -1552,17 +1508,13 @@ This package contains components utility components for testing examples.
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
-</p>
-<p>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2006, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2007, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
   Modelica in file \"Modelica/package.mo\".</i></dd>
-</p>
 </dl>
-
   <ul>
   <li> v1.00 2004/09/16 Anton Haumer</li>
   <li> v1.1  2004/10/01 Anton Haumer<br>
@@ -1607,13 +1559,11 @@ This package contains components utility components for testing examples.
                    -4.3, -64; 0.6, -68.6; 5.5, -70; 10.5, -67.9; 15.4, -62.5;
                   20.3, -54.1; 25.9, -41.3; 33, -21.7; 40, 0], style(color=8))),
           Documentation(info="<HTML>
-<p>
 Simple Voltage-Frequency-Controller.<br>
 Amplitude of voltage is linear dependent (VNominal/fNominal) on Frequency (input signal \"u\"), but limited by VNominal (nominal RMS voltage per phase).<br>
 m sine-waves with amplitudes as described above are provided as output signal \"y\".<br>
 The sine-waves are intended to feed a m-phase SignalVoltage.<br>
 Phase shifts between sine-waves may be choosen by the user; default values are <i>(k-1)/m*pi for k in 1:m</i>.
-</p>
 </HTML>"));
       equation 
       //amplitude = sqrt(2)*VNominal*min(abs(u)/fNominal, 1);
@@ -1645,11 +1595,9 @@ Phase shifts between sine-waves may be choosen by the user; default values are <
                 rgbfillColor={255,255,255},
                 fillPattern=1))),
           Documentation(info="<HTML>
-<p>
 Simple Star-Delta-switch.<br>
 If <i>control</i> is false, plug_PS and plug_NS are star connected and plug_PS connected to plug_P.<br>
 If <i>control</i> is true, plug_PS and plug_NS are delta connected and they are connected to plug_P.
-</p>
 </HTML>"));
         Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) 
           annotation (extent=[60, -50; 80, -30]);
@@ -1716,10 +1664,8 @@ If <i>control</i> is true, plug_PS and plug_NS are delta connected and they are 
                 rgbfillColor={135,135,135},
                 fillPattern=1))),
           Documentation(info="<html>
-<p>
 TerminalBox: at the bottom connected to both machine plugs, connect at the top to the grid as usual,<br>
 choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
-</p>
 </html>"));
         Modelica.Electrical.Analog.Interfaces.NegativePin starpoint if (StarDelta<>"D") 
           annotation (extent=[-100,-90; -80,-70]);
@@ -1749,7 +1695,6 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
   package BasicMachines "Basic machine models" 
     extends Modelica.Icons.Library2;
     annotation (Documentation(info="<HTML>
-<p>
 This package contains components for modeling electrical machines, specially threephase induction machines, based on space phasor theory:
 <ul>
 <li>package AsynchronousInductionMachines: models of three phase asynchronous induction machines</li>
@@ -1759,11 +1704,8 @@ This package contains components for modeling electrical machines, specially thr
 <li>package Components: components for modeling machines and transformers</li>
 </ul>
 The induction machine models use package SpacePhasors.
-</p>
-
 </HTML>", revisions="<HTML>
 <dl>
-<p>
   <dt><b>Main Authors:</b></dt>
   <dd>
   <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
@@ -1771,17 +1713,13 @@ The induction machine models use package SpacePhasors.
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
-</p>
-<p>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2006, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2007, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
   Modelica in file \"Modelica/package.mo\".</i></dd>
-</p>
 </dl>
-
   <ul>
   <li> v1.00  2004/09/16 Anton Haumer</li>
   <li> v1.01  2004/09/18 Anton Haumer<br>
@@ -1843,17 +1781,14 @@ The induction machine models use package SpacePhasors.
       "Models of asynchronous induction machines" 
       extends Modelica.Icons.Library;
       annotation (Documentation(info="<HTML>
-<p>
 This package contains models of asynchronous induction machines, based on space phasor theory:
 <ul>
 <li>AIM_SquirrelCage: asynchronous induction machine with squirrel cage</li>
 <li>AIM_SlipRing: asynchronous induction machine with wound rotor</li>
 </ul>
 These models use package SpacePhasors.
-</p>
 </HTML>", revisions="<HTML>
 <dl>
-<p>
   <dt><b>Main Authors:</b></dt>
   <dd>
   <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
@@ -1861,17 +1796,13 @@ These models use package SpacePhasors.
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
-</p>
-<p>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2006, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2007, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
   Modelica in file \"Modelica/package.mo\".</i></dd>
-</p>
 </dl>
-
   <ul>
   <li> v1.02 2004/09/19 Anton Haumer</li>
   <li> v1.03 2004/09/24 Anton Haumer<br>
@@ -1905,12 +1836,9 @@ These models use package SpacePhasors.
           annotation (extent=[-10, -40; 10, -20], rotation=-90);
         annotation (defaultComponentName="AIMC",
           Documentation(info="<HTML>
-<p>
 <b>Model of a three phase asynchronous induction machine with squirrel cage.</b><br>
 Resistance and stray inductance of stator is modeled directly in stator phases, then using space phasor transformation. Resistance and stray inductance of rotor's squirrel cage is modeled in two axis of the rotor-fixed ccordinate system. Both together connected via a stator-fixed <i>AirGap</i> model. Only losses in stator and rotor resistance are taken into account.
-</p>
-<p>
-<b>Default values for machine's parameters (a realistic example) are:</b><br>
+<br><b>Default values for machine's parameters (a realistic example) are:</b><br>
 <table>
 <tr>
 <td>number of pole pairs p</td>
@@ -1993,7 +1921,6 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 <td>sqrt(Xs*Xr * (1-sigma))/(2*pi*fNominal)</td><td> </td>
 </tr>
 </table>
-</p>
 </HTML>"),       Diagram);
       equation 
         connect(airGapS.spacePhasor_r, squirrelCageR.spacePhasor_r) 
@@ -2051,12 +1978,9 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           annotation (extent=[-110,-50; -90,-70]);
         annotation (defaultComponentName="AIMS",
           Documentation(info="<HTML>
-<p>
 <b>Model of a three phase asynchronous induction machine with slipring rotor.</b><br>
 Resistance and stray inductance of stator and rotor are modeled directly in stator respectively rotor phases, then using space phasor transformation and a stator-fixed <i>AirGap</i> model. Only losses in stator and rotor resistance are taken into account.
-</p>
-<p>
-<b>Default values for machine's parameters (a realistic example) are:</b><br>
+<br><b>Default values for machine's parameters (a realistic example) are:</b><br>
 <table>
 <tr>
 <td>number of pole pairs p</td>
@@ -2143,7 +2067,6 @@ Resistance and stray inductance of stator and rotor are modeled directly in stat
 <td>sqrt(Xs*Xr * (1-sigma))/(2*pi*f)</td><td> </td>
 </tr>
 </table>
-</p>
 <p>
 Parameter TurnsRatio could be obtained from the following relationship 
 at standstill with open rotor circuit at nominal voltage and nominal frequency, <br>
@@ -2189,7 +2112,6 @@ TurnsRatio * <u>V</u><sub>R</sub> = <u>V</u><sub>s</sub> - (R<sub>s</sub> + j X<
       "Models of synchronous induction machines" 
       extends Modelica.Icons.Library;
       annotation (Documentation(info="<HTML>
-<p>
 This package contains models of synchronous induction machines, based on space phasor theory:
 <ul>
 <li>SM_PermanentMagnetDamperCage: synchronous induction machine with permanent magnet excitation, with damper cage</li>
@@ -2199,9 +2121,7 @@ This package contains models of synchronous induction machines, based on space p
 i.e. a squirrel cage rotor with magnetic poles due to different airgap width</li>
 </ul>
 These models use package SpacePhasors.
-</p>
-<p>
-<b>Please keep in mind:</b><br>
+<br><b>Please keep in mind:</b><br>
 <ul>
 <li>We keep the same reference system as for motors, i.e.:<br>
     Positive RotorDisplacementAngle means acting as motor,<br>
@@ -2211,11 +2131,8 @@ These models use package SpacePhasors.
     imaginary= q-axis</li>
 <li>Voltage induced by the magnet wheel (d-axis) is located in the q-axis.</li>
 </ul>
-</p>
-
 </HTML>", revisions="<HTML>
 <dl>
-<p>
   <dt><b>Main Authors:</b></dt>
   <dd>
   <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
@@ -2223,17 +2140,13 @@ These models use package SpacePhasors.
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
-</p>
-<p>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2006, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2007, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
   Modelica in file \"Modelica/package.mo\".</i></dd>
-</p>
 </dl>
-
   <ul>
   <li> v1.02  2004/09/19 Anton Haumer</li>
   <li> v1.03  2004/09/24 Anton Haumer<br>
@@ -2318,15 +2231,10 @@ These models use package SpacePhasors.
                 rgbfillColor={255,0,0})),
              Ellipse(extent=[-134,34; -66,-34], style(color=3, rgbcolor={0,0,255}))),
           Documentation(info="<HTML>
-<p>
 <b>Model of a three phase permanent magnet synchronous induction machine.</b><br>
 Resistance and stray inductance of stator is modeled directly in stator phases, then using space phasor transformation and a rotor-fixed <i>AirGap</i> model. Resistance and stray inductance of rotor's squirrel cage is modeled in two axis of the rotor-fixed ccordinate system. Permanent magnet excitation is modelled by a constant equivalent excitation current feeding the d-axis. Only losses in stator and damper resistance are taken into account.
-</p>
-<p>
-Whether a damper cage is present or not, can be selected with Boolean parameter DamperCage (default = true).
-</p>
-<p>
-<b>Default values for machine's parameters (a realistic example) are:</b><br>
+<br>Whether a damper cage is present or not, can be selected with Boolean parameter DamperCage (default = true).
+<br><b>Default values for machine's parameters (a realistic example) are:</b><br>
 <table>
 <tr>
 <td>number of pole pairs p</td>
@@ -2437,7 +2345,6 @@ Whether a damper cage is present or not, can be selected with Boolean parameter 
 <td>XDqs/(2*pi*fNominal)</td><td> </td>
 </tr>
 </table>
-</p>
 </HTML>"));
       equation 
         connect(airGapR.spacePhasor_r, damperCage.spacePhasor_r) annotation (
@@ -2525,15 +2432,10 @@ Whether a damper cage is present or not, can be selected with Boolean parameter 
             Line(points=[-100,-50; -100,-20; -70,-20; -70,-2], style(color=3,
                   rgbcolor={0,0,255}))),
           Documentation(info="<HTML>
-<p>
 <b>Model of a three phase electrical excited synchronous induction machine with damper cage.</b><br>
 Resistance and stray inductance of stator is modeled directly in stator phases, then using space phasor transformation and a rotor-fixed <i>AirGap</i> model. Resistance and stray inductance of rotor's squirrel cage is modeled in two axis of the rotor-fixed ccordinate system. Electrical excitation is modelled by converting excitation current and voltage to d-axis space phasors. Only losses in stator, damper and excitation resistance are taken into account.
-</p>
-<p>
-Whether a damper cage is present or not, can be selected with Boolean parameter DamperCage (default = true).
-</p>
-<p>
-<b>Default values for machine's parameters (a realistic example) are:</b><br>
+<br>Whether a damper cage is present or not, can be selected with Boolean parameter DamperCage (default = true).
+<br><b>Default values for machine's parameters (a realistic example) are:</b><br>
 <table>
 <tr>
 <td>number of pole pairs p</td>
@@ -2661,7 +2563,6 @@ Whether a damper cage is present or not, can be selected with Boolean parameter 
 <td>XDqs/(2*pi*fNominal)</td><td> </td>
 </tr>
 </table>
-</p>
 </HTML>"));
       equation 
         connect(electricalExcitation.pin_en, pin_en) annotation (points=[-10,-70; -70,
@@ -2725,15 +2626,10 @@ Whether a damper cage is present or not, can be selected with Boolean parameter 
                 rgbfillColor={255,255,255})),
              Ellipse(extent=[-134,34; -66,-34], style(color=3, rgbcolor={0,0,255}))),
           Documentation(info="<HTML>
-<p>
 <b>Model of a three phase synchronous induction machine with reluctance rotor and damper cage.</b><br>
 Resistance and stray inductance of stator is modeled directly in stator phases, then using space phasor transformation. Resistance and stray inductance of rotor's squirrel cage is modeled in two axis of the rotor-fixed ccordinate system. Both together connected via a rotor-fixed <i>AirGap</i> model. Only losses in stator and rotor resistance are taken into account.
-</p>
-<p>
-Whether a damper cage is present or not, can be selected with Boolean parameter DamperCage (default = true).
-</p>
-<p>
-<b>Default values for machine's parameters (a realistic example) are:</b><br>
+<br>Whether a damper cage is present or not, can be selected with Boolean parameter DamperCage (default = true).
+<br><b>Default values for machine's parameters (a realistic example) are:</b><br>
 <table>
 <tr>
 <td>number of pole pairs p</td>
@@ -2836,7 +2732,6 @@ Whether a damper cage is present or not, can be selected with Boolean parameter 
 <td>(Xsq-Xss)/(2*pi*fNominal)</td><td> </td>
 </tr>
 </table>
-</p>
 </HTML>"));
       equation 
         connect(airGapR.spacePhasor_r, damperCage.spacePhasor_r) 
@@ -2847,19 +2742,15 @@ Whether a damper cage is present or not, can be selected with Boolean parameter 
     package DCMachines "Models of DC machines" 
       extends Modelica.Icons.Library;
       annotation (Documentation(info="<HTML>
-<p>
 This package contains models of DC machines:
 <ul>
 <li>DC_PermanentMagnet: DC machine with permanent magnet excitation</li>
 <li>DC_ElectricalExcited: DC machine with electrical shunt or separate excitation</li>
 <li>DC_SeriesExcited: DC machine with series excitation</li>
 </ul>
-</p>
-
 </HTML>
 ", revisions="<HTML>
 <dl>
-<p>
   <dt><b>Main Authors:</b></dt>
   <dd>
   <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
@@ -2867,17 +2758,13 @@ This package contains models of DC machines:
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
-</p>
-<p>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2006, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2007, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
   Modelica in file \"Modelica/package.mo\".</i></dd>
-</p>
 </dl>
-
   <ul>
   <li> v1.02 2004/09/19 Anton Haumer</li>
   <li> v1.03 2004/09/24 Anton Haumer<br>
@@ -2923,12 +2810,9 @@ This package contains models of DC machines:
                 fillColor=1,
                 rgbfillColor={255,0,0}))),
           Documentation(info="<HTML>
-<p>
 <b>Model of a DC Machine with Permanent magnet.</b><br>
 Armature resistance and inductance are modeled directly after the armature pins, then using a <i>AirGapDC</i> model. Permanent magnet excitation is modelled by a constant equivalent excitation current feeding AirGapDC. Only losses in armature resistance are taken into account. No saturation is modelled.
-</p>
-<p>
-<b>Default values for machine's parameters (a realistic example) are:</b><br>
+<br><b>Default values for machine's parameters (a realistic example) are:</b><br>
 <table>
 <tr>
 <td>stator's moment of inertia</td>
@@ -2972,7 +2856,6 @@ Armature resistance and inductance are modeled directly after the armature pins,
 </tr>
 </table>
 Armature resistance resp. inductance include resistance resp. inductance of commutating pole winding and compensation windig, if present.
-</p>
 </HTML>"));
       equation 
         assert(VaNominal > Ra*IaNominal, "VaNominal has to be > (Ra+Re)*IaNominal");
@@ -3020,14 +2903,11 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
             Line(points=[-100,50; -100,20; -130,20; -130,-4], style(color=3,
                   rgbcolor={0,0,255}))),
           Documentation(info="<HTML>
-<p>
 <b>Model of a DC Machine with Electrical shunt or separate excitation.</b><br>
 Armature resistance and inductance are modeled directly after the armature pins, then using a <i>AirGapDC</i> model.<br>
 Only losses in armature and excitation resistance are taken into account. No saturation is modelled.<br>
 Shunt or separate excitation is defined by the user's external circuit.
-</p>
-<p>
-<b>Default values for machine's parameters (a realistic example) are:</b><br>
+<br><b>Default values for machine's parameters (a realistic example) are:</b><br>
 <table>
 <tr>
 <td>stator's moment of inertia</td>
@@ -3093,7 +2973,6 @@ Shunt or separate excitation is defined by the user's external circuit.
 Armature resistance resp. inductance include resistance resp. inductance of commutating pole winding and 
 compensation windig, if present.<br>
 Armature current does not cover excitation current of a shunt excitation; in this case total current drawn from the grid = armature current + excitation current.
-</p>
 </HTML>"));
       equation 
         assert(VaNominal > Ra*IaNominal, "VaNominal has to be > (Ra+Re)*IaNominal");
@@ -3136,14 +3015,11 @@ Armature current does not cover excitation current of a shunt excitation; in thi
             Line(points=[-100,50; -100,30], style(color=3, rgbcolor={0,0,255})),
             Line(points=[-100,-30; -100,-50], style(color=3, rgbcolor={0,0,255}))),
           Documentation(info="<HTML>
-<p>
 <b>Model of a DC Machine with Series excitation.</b><br>
 Armature resistance and inductance are modeled directly after the armature pins, then using a <i>AirGapDC</i> model.<br>
 Only losses in armature and excitation resistance are taken into account. No saturation is modelled.<br>
 Series excitation has to be connected by the user's external circuit.
-</p>
-<p>
-<b>Default values for machine's parameters (a realistic example) are:</b><br>
+<br><b>Default values for machine's parameters (a realistic example) are:</b><br>
 <table>
 <tr>
 <td>stator's moment of inertia</td>
@@ -3200,7 +3076,6 @@ Parameter nominal armature voltage includes voltage drop of series excitation;<b
 but for output the voltage is splitted into:<br>
 va = armature voltage without voltage drop of series excitation<br>
 ve = voltage drop of series excitation
-</p>
 </HTML>"));
       equation 
         assert(VaNominal > (Ra+Re)*IaNominal, "VaNominal has to be > (Ra+Re)*IaNominal");
@@ -3219,7 +3094,6 @@ ve = voltage drop of series excitation
       annotation (
       version="1.0.0", versionDate="2006-11-20",
       preferedView="info", Documentation(info="<HTML>
-<p>
 This package contains components to model technical threephase transformers:
 <ul>
 <li>Transformer: transformer model to choose connection / vector group</li>
@@ -3230,7 +3104,6 @@ This package contains components to model technical threephase transformers:
 <li>Dd: Transformers with primary D / secondary d</li>
 <li>Dz: Transformers with primary D / secondary zig-zag</li>
 </ul>
-</p>
 <p>
 Transformers are modeled by an ideal transformer, adding primary and secondary winding resistances and stray inductances.<br>
 All transformers extend from the base model <i>PartialTransformer</i>, adding the primary and secondary connection.<br>
@@ -3239,7 +3112,8 @@ All transformers extend from the base model <i>PartialTransformer</i>, adding th
 e.g. Yd11 ... primary connection Y (star), secondfary connection d (delta), vector group 11 (phase shift 330 degree)<br>
 With the \"supermodel\" <i>Tranformer</i>&nbsp; the user may choose primary and secondary connection as well as the vector group.<br>
 It calculates winding ratio as well as primary and secondary winding resistances and stray inductances, 
-distributing them equally to primary and secondary winding, from the following parameters:<br>
+distributing them equally to primary and secondary winding, from the following parameters:
+</p>
 <ul>
 <li>nominal frequency</li>
 <li>primary voltage (RMS line-to-line)</li>
@@ -3250,14 +3124,12 @@ distributing them equally to primary and secondary winding, from the following p
 </ul>
 The <b>impedance voltage drop</b> indicates the (absolute value of the) voltage drop at nominal load (current) as well as 
 the voltage we have to apply to the primary winding to achieve nominal current in the short-circuited secondary winding.
-</p>
 <p>
 <b>Please pay attention</b> to proper grounding of the primary and secondary part of the whole circuit.<br>
 The primary and secondary starpoint are available as connectors, if the connection is not delta (D or d).<br>
 <b>In some cases (Yy or Yz) it may be necessary to ground one of the transformer's starpoints 
 even though the source's and/or load's starpoint are grounded; you may use a reasonable high earthing resistance.</b>
 </p>
-<p>
 <b>Limitations and assumptions:</b><br>
 <ul>
 <li>number of phases is limited to 3, therefore definition as a constant m=3</li>
@@ -3268,15 +3140,11 @@ even though the source's and/or load's starpoint are grounded; you may use a rea
 <li>magnetizing losses are neglected</li>
 <li>additional (stray) losses are neglected</li>
 </ul>
-</p>
-<p>
 <b>Further development:</b>
 <ul>
 <li>modeling magnetizing current, including saturation</li>
 <li>temperature dependency of winding resistances</li>
 </ul>
-</p>
-<p>
 <dl>
   <dt><b>Main Authors:</b></dt>
   <dd>
@@ -3286,9 +3154,8 @@ even though the source's and/or load's starpoint are grounded; you may use a rea
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
 </dl>
-</p>
 <p>
-Copyright &copy; 1998-2006, Modelica Association and Anton Haumer.
+Copyright &copy; 1998-2007, Modelica Association and Anton Haumer.
 </p>
 <p>
 <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
@@ -3341,12 +3208,9 @@ and the accompanying <b>disclaimer</b>
       package Yy "transformers: primary Y / secondary y" 
         extends Modelica.Icons.Library2;
         annotation (Documentation(info="<HTML>
-<p>
 This package contains transformers primary Y connected / secondary y connected in all possbile vector groups.
-</p>
 </HTML>",     revisions="<HTML>
 <dl>
-<p>
   <dt><b>Main Authors:</b></dt>
   <dd>
   <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
@@ -3354,15 +3218,12 @@ This package contains transformers primary Y connected / secondary y connected i
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
-</p>
-<p>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2006, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2007, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
   Modelica in file \"Modelica/package.mo\".</i></dd>
-</p>
 </dl>
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
@@ -3573,12 +3434,9 @@ This package contains transformers primary Y connected / secondary y connected i
       package Yd "transformers: primary Y / secondary d" 
         extends Modelica.Icons.Library2;
         annotation (Documentation(info="<HTML>
-<p>
 This package contains transformers primary Y connected / secondary d connected in all possbile vector groups.
-</p>
 </HTML>",     revisions="<HTML>
 <dl>
-<p>
   <dt><b>Main Authors:</b></dt>
   <dd>
   <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
@@ -3586,15 +3444,12 @@ This package contains transformers primary Y connected / secondary d connected i
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
-</p>
-<p>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2006, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2007, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
   Modelica in file \"Modelica/package.mo\".</i></dd>
-</p>
 </dl>
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
@@ -3785,12 +3640,9 @@ This package contains transformers primary Y connected / secondary d connected i
       package Yz "transformers: primary Y / secondary zig-zag" 
         extends Modelica.Icons.Library2;
         annotation (Documentation(info="<HTML>
-<p>
 This package contains transformers primary Y connected / secondary zig-zag connected in all possbile vector groups.
-</p>
 </HTML>",     revisions="<HTML>
 <dl>
-<p>
   <dt><b>Main Authors:</b></dt>
   <dd>
   <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
@@ -3798,15 +3650,12 @@ This package contains transformers primary Y connected / secondary zig-zag conne
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
-</p>
-<p>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2006, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2007, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
   Modelica in file \"Modelica/package.mo\".</i></dd>
-</p>
 </dl>
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
@@ -4040,12 +3889,9 @@ This package contains transformers primary Y connected / secondary zig-zag conne
       package Dy "transformers: primary D / secondary y" 
         extends Modelica.Icons.Library2;
         annotation (Documentation(info="<HTML>
-<p>
 This package contains transformers primary D connected / secondary y connected in all possbile vector groups.
-</p>
 </HTML>",     revisions="<HTML>
 <dl>
-<p>
   <dt><b>Main Authors:</b></dt>
   <dd>
   <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
@@ -4053,15 +3899,12 @@ This package contains transformers primary D connected / secondary y connected i
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
-</p>
-<p>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2006, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2007, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
   Modelica in file \"Modelica/package.mo\".</i></dd>
-</p>
 </dl>
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
@@ -4260,12 +4103,9 @@ This package contains transformers primary D connected / secondary y connected i
       package Dd "transformers: primary D / secondary d" 
         extends Modelica.Icons.Library2;
         annotation (Documentation(info="<HTML>
-<p>
 This package contains transformers primary D connected / secondary d connected in all possbile vector groups.
-</p>
 </HTML>",     revisions="<HTML>
 <dl>
-<p>
   <dt><b>Main Authors:</b></dt>
   <dd>
   <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
@@ -4273,15 +4113,12 @@ This package contains transformers primary D connected / secondary d connected i
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
-</p>
-<p>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2006, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2007, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
   Modelica in file \"Modelica/package.mo\".</i></dd>
-</p>
 </dl>
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
@@ -4460,12 +4297,9 @@ This package contains transformers primary D connected / secondary d connected i
       package Dz "transformers: primary D / secondary ziag-zag" 
         extends Modelica.Icons.Library2;
         annotation (Documentation(info="<HTML>
-<p>
 This package contains transformers primary D connected / secondary d connected in all possbile vector groups.
-</p>
 </HTML>",     revisions="<HTML>
 <dl>
-<p>
   <dt><b>Main Authors:</b></dt>
   <dd>
   <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
@@ -4473,15 +4307,12 @@ This package contains transformers primary D connected / secondary d connected i
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
-</p>
-<p>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2006, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2007, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
   Modelica in file \"Modelica/package.mo\".</i></dd>
-</p>
 </dl>
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
@@ -4706,13 +4537,10 @@ This package contains transformers primary D connected / secondary d connected i
     package Components "Machine components like AirGaps" 
       extends Modelica.Icons.Library;
       annotation (Documentation(info="<HTML>
-<p>
 This package contains components for modeling electrical machines, specially threephase induction machines, based on space phasor theory.
 These models use package SpacePhasors.
-</p>
 </HTML>", revisions="<HTML>
 <dl>
-<p>
   <dt><b>Main Authors:</b></dt>
   <dd>
   <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
@@ -4720,17 +4548,13 @@ These models use package SpacePhasors.
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
-</p>
-<p>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2006, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2007, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
   Modelica in file \"Modelica/package.mo\".</i></dd>
-</p>
 </dl>
- 
   <ul>
   <li> v1.00 2004/09/16 Anton Haumer</li>
   <li> v1.02 2004/09/19 Anton Haumer<br>
@@ -4773,14 +4597,12 @@ These models use package SpacePhasors.
         Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_sn(final m=m) 
           annotation (extent=[-70,90; -50,110]);
         annotation (Documentation(info="<HTML>
-<p>
 Partial model for induction machine models, containing:
 <ul>
 <li>main parts of the icon</li>
 <li>stator plugs</li>
 <li>mechanical connectors</li>
 </ul>
-</p>
 </HTML>"),Diagram,
           Icon(Line(points=[-50,100; -20,100; -20,70], style(color=3, rgbcolor={0,
                     0,255})), Line(points=[50,100; 20,100; 20,70], style(color=3,
@@ -4861,14 +4683,12 @@ Partial model for induction machine models, containing:
         Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_sn(final m=m) 
           annotation (extent=[-70,90; -50,110]);
         annotation (Documentation(info="<HTML>
-<p>
 Partial model for induction machine models, containing:
 <ul>
 <li>main parts of the icon</li>
 <li>stator plugs</li>
 <li>mechanical connectors</li>
 </ul>
-</p>
 </HTML>"),Diagram,
           Icon(Line(points=[-50,100; -20,100; -20,70], style(color=3, rgbcolor={0,
                     0,255})), Line(points=[50,100; 20,100; 20,70], style(color=3,
@@ -4966,9 +4786,7 @@ Partial model for induction machine models, containing:
               style(color=3, rgbcolor={0,0,255}),
               string="%name")),
           Documentation(info="<HTML>
-<p>
 Partial model of the airgap, using only equations.
-</p>
 </HTML>"));
       equation 
         // mechanical angle of the rotor of an equivalent 2-pole machine
@@ -5013,9 +4831,7 @@ Partial model of the airgap, using only equations.
               style(color=3, rgbcolor={0,0,255}),
               string="%name")),
           Documentation(info="<HTML>
-<p>
 Model of the airgap in stator-fixed coordinate system, using only equations.
-</p>
 </HTML>"));
       equation 
         // Magnetizing current with respect to the stator reference frame
@@ -5054,9 +4870,7 @@ Model of the airgap in stator-fixed coordinate system, using only equations.
               style(color=3, rgbcolor={0,0,255}),
               string="%name")),
           Documentation(info="<HTML>
-<p>
 Model of the airgap in rotor-fixed coordinate system, using only equations.
-</p>
 </HTML>"));
       equation 
         // Magnetizing current with respect to the rotor reference frame
@@ -5106,9 +4920,7 @@ Model of the airgap in rotor-fixed coordinate system, using only equations.
                 rgbfillColor={0,0,255},
                 fillPattern=1))),
           Documentation(info="<HTML>
-<p>
 Model of a squirrel cage / damper cage in two axis.
-</p>
 </HTML>"));
       equation 
         spacePhasor_r.v_ = Rr * spacePhasor_r.i_ + Lrsigma * der(spacePhasor_r.i_);
@@ -5158,9 +4970,7 @@ Model of a squirrel cage / damper cage in two axis.
             Line(points=[-80,-60; -80,-80], style(color=3, rgbcolor={0,0,255})),
             Rectangle(extent=[0,70; -60,80],    style(color=7, fillColor=7))),
           Documentation(info="<HTML>
-<p>
 Model of an unsymmetrical damper cage cage in two axis.
-</p>
 </HTML>"));
         
       equation 
@@ -5199,9 +5009,7 @@ Model of an unsymmetrical damper cage cage in two axis.
             Line(points=[30,-40; 30,-100; 90,-100], style(color=3, rgbcolor={0,
                     0,255}))),
           Documentation(info="<HTML>
-<p>
 Model of an electrical excitation, converting excitation to space phasor.
-</p>
 </HTML>"));
         Modelica.Electrical.Analog.Interfaces.PositivePin pin_ep 
           annotation (extent=[90,110; 110,90]);
@@ -5273,9 +5081,7 @@ Model of an electrical excitation, converting excitation to space phasor.
               style(color=3, rgbcolor={0,0,255}),
               string="%name")),
           Documentation(info="<HTML>
-<p>
 Model of a permanent magnet excitation, characterized by an equivalent excitation current.
-</p>
 </HTML>"));
       equation 
         spacePhasor_r.i_ = {-Ie,0};
@@ -5299,14 +5105,12 @@ Model of a permanent magnet excitation, characterized by an equivalent excitatio
           "armature voltage";
         output Modelica.SIunits.Current ia = pin_ap.i "armature current";
         annotation (Documentation(info="<HTML>
-<p>
 Partial model for DC machine models, containing:
 <ul>
 <li>main parts of the icon</li>
 <li>armature pins</li>
 <li>mechanical connectors</li>
 </ul>
-</p>
 </HTML>"),Diagram,
           Icon(Line(points=[-50,100; -20,100; -20,70], style(color=3, rgbcolor={0,
                     0,255})), Line(points=[50,100; 20,100; 20,70], style(color=3,
@@ -5402,11 +5206,9 @@ Partial model for DC machine models, containing:
                 rgbfillColor={128,128,128}),
               string="A")),
           Documentation(info="<HTML>
-<p>
 Linear model of the airgap (without saturation effects) of a DC machine, using only equations.<br>
 Induced excitation voltage is calculated from der(flux), where flux is defined by excitation inductance times excitation current.<br>
 Induced armature voltage is calculated from flux times angular velocity.
-</p>
 </HTML>"));
       equation 
         // armature pins
@@ -5440,11 +5242,9 @@ Induced armature voltage is calculated from flux times angular velocity.
               style(color=3, rgbcolor={0,0,255}),
               string="%name")),
           Documentation(info="<HTML>
-<p>
 Linear model of the airgap (without saturation effects) of a DC machine, using only equations.<br>
 Induced excitation voltage is calculated from der(flux), where flux is defined by excitation inductance times excitation current.<br>
 Induced armature voltage is calculated from flux times angular velocity.
-</p>
 </HTML>"));
       equation 
         // excitation flux: linearly dependent on excitation current
@@ -5586,13 +5386,9 @@ Induced armature voltage is calculated from flux times angular velocity.
   package Sensors "Sensors for machine modelling" 
    extends Modelica.Icons.Library2;
     annotation (Documentation(info="<HTML>
-<p>
 This package contains sensors that are usefull when modelling machines.
-</p>
-
 </HTML>", revisions="<HTML>
 <dl>
-<p>
   <dt><b>Main Authors:</b></dt>
   <dd>
   <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
@@ -5600,17 +5396,13 @@ This package contains sensors that are usefull when modelling machines.
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
-</p>
-<p>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2006, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2007, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
   Modelica in file \"Modelica/package.mo\".</i></dd>
-</p>
 </dl>
-
   <ul>
   <li> v1.03 2004/09/24 Anton Haumer</li>
   <li> v1.1  2004/10/01 Anton Haumer<br>
@@ -5679,10 +5471,8 @@ This package contains sensors that are usefull when modelling machines.
             style(color=3, rgbcolor={0,0,255}),
             string="V RMS")),
         Documentation(info="<HTML>
-<p>
 Measured 3-phase instantaneous voltages are transformed to the corresponding space phasor; <br>
 output is length of the space phasor divided by sqrt(2), thus giving in sinusoidal stationary state RMS voltage.
-</p>
 </HTML>"));
     equation 
       connect(plug_p, VoltageSensor1.plug_p) 
@@ -5747,10 +5537,8 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
             style(color=3, rgbcolor={0,0,255}),
             string="A RMS")),
         Documentation(info="<HTML>
-<p>
 Measured 3-phase instantaneous currents are transformed to the corresponding space phasor; <br>
 output is length of the space phasor divided by sqrt(2), thus giving in sinusoidal stationary state RMS current.
-</p>
 </HTML>"));
     equation 
       connect(plug_p, CurrentSensor1.plug_p) 
@@ -5817,12 +5605,10 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
                   255}))),
           Diagram,
         Documentation(info="<HTML>
-<p>
 3-phase instantaneous voltages (plug_p - plug_nv) and currents (plug_p - plug_ni) are transformed to the corresponding space phasors, <br>
 which are used to calculate power quantities:<br>
 P = instantaneous power, thus giving in stationary state active power.<br>
 Q = giving in stationary state reactive power.<br>
-</p>
 </HTML>"));
     protected 
       Modelica.SIunits.Voltage v_[2];
@@ -5867,9 +5653,7 @@ Q = giving in stationary state reactive power.<br>
             style(color=3, rgbcolor={0,0,255}),
             string="Pmech")), Diagram,
         Documentation(info="<HTML>
-<p>
 Calculates (mechanical) power from torque times angular speed.
-</p>
 </HTML>"));
       Modelica.Mechanics.Rotational.Sensors.TorqueSensor TorqueSensor1 
         annotation (extent=[20,-10; 40,10]);
@@ -5983,10 +5767,8 @@ Calculates (mechanical) power from torque times angular speed.
               fillPattern=1)),
           Rectangle(extent=[80,120; 120,80],     style(color=8, fillColor=8))),
         Documentation(info="<HTML>
-<p>
 Calculates rotor lagging angle by measuring the stator phase voltages, transforming them to the correspondig space phasor in stator-fixed coordinate system, <br>
 rotating the space phasor to the rotor-fixed coordinate system and calculating the angle of this space phasor.
-</p>
 <p>
 The sensor's housing is implicitely fixed.<br>
 Since the machine's stator also implicitely fixed, the angle at the flange 
@@ -6031,13 +5813,9 @@ is equal to the angle of the machine's rotor against the stator.
   package SpacePhasors "Library with space phasor-models" 
     extends Modelica.Icons.Library2;
     annotation (Documentation(info="<HTML>
-<p>
 This package contains components, blocks and functions to utilize space phasor theory.
-</p>
-
-</HTML>", revisions="<HTML>
+</HTML>", revisions="<HTML
 <dl>
-<p>
   <dt><b>Main Authors:</b></dt>
   <dd>
   <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
@@ -6045,17 +5823,13 @@ This package contains components, blocks and functions to utilize space phasor t
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
-</p>
-<p>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2006, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2007, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
   Modelica in file \"Modelica/package.mo\".</i></dd>
-</p>
 </dl>
-
   <ul>
   <li> v1.00 2004/09/16 Anton Haumer</li>
   <li> v1.30 2004/11/05 Anton Haumer<br>
@@ -6078,15 +5852,12 @@ This package contains components, blocks and functions to utilize space phasor t
     package Components "Basic space phasor models" 
       extends Modelica.Icons.Library;
       annotation (Documentation(info="<HTML>
-<p>
 This package contains basic space phasor models.<br>
 Real and imaginary part of voltage space phasor are the potentials v_[2] of the space phasor connector; (implicit grounded).<br>
 Real and imaginary part of current space phasor are the currents i_[2] at the space phasor connector;
 a ground has to be used where necessary for currents flowing back.
-</p>
 </HTML>", revisions="<HTML>
 <dl>
-<p>
   <dt><b>Main Authors:</b></dt>
   <dd>
   <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
@@ -6094,17 +5865,13 @@ a ground has to be used where necessary for currents flowing back.
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
-</p>
-<p>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2006, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2007, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
   Modelica in file \"Modelica/package.mo\".</i></dd>
-</p>
 </dl>
-
   <ul>
   <li> v1.00 2004/09/16 Anton Haumer</li>
   <li> v1.60 2005/11/03 Anton Haumer<br>
@@ -6189,7 +5956,6 @@ a ground has to be used where necessary for currents flowing back.
                 rgbfillColor={0,0,255},
                 fillPattern=1))),
           Documentation(info="<HTML>
-<p>
 Physical transformation of voltages and currents: three phases &lt;-&gt; space phasors:<br>
 x[k] = X0 + {cos(-(k - 1)/m*2*pi),-sin(-(k - 1)/m*2*pi) * X[Re,Im]<br>
 and vice versa:<br>
@@ -6198,7 +5964,6 @@ X[Re,Im] = sum(2/m*{cos((k - 1)/m*2*pi),sin((k - 1)/m*2*pi)}*x[k])<br>
 were x designates three phase values, X[Re,Im] designates the space phasor and X0 designates the zero sequence system.<br>
 <i>Physcial transformation</i> means that both voltages and currents are transformed in both directions.<br>
 Zero-sequence voltage and current are present at pin zero. An additional zero-sequence impedance could be connected between pin zero and pin ground.
-</p>
 </HTML>"));
         Interfaces.SpacePhasor spacePhasor annotation (extent=[90,90; 110,110]);
       equation 
@@ -6249,9 +6014,7 @@ Zero-sequence voltage and current are present at pin zero. An additional zero-se
                 fillColor=7,
                 fillPattern=1))),
           Documentation(info="<HTML>
-<p>
 Rotates space phasors of left connector to right connector by the angle provided by the input signal \"angle\" from one coordinate system into another.
-</p>
 </HTML>"));
       equation 
         spacePhasor_b.v_ = RotationMatrix*spacePhasor_a.v_;
@@ -6265,7 +6028,6 @@ Rotates space phasors of left connector to right connector by the angle provided
     package Blocks "Blocks for space phasor transformation" 
       extends Modelica.Icons.Library;
       annotation (Documentation(info="<HTML>
-<p>
 This package contains space phasor transformation blocks for use in controllers:
 <ul>
 <li>ToSpacePhasor: transforms a set of threephase values to space phasor and zero sequence system</li>
@@ -6274,10 +6036,7 @@ This package contains space phasor transformation blocks for use in controllers:
 <li>ToPolar: Converts a space phasor from rectangular coordinates to polar coordinates</li>
 <li>FromPolar: Converts a space phasor from polar coordinates to rectangular coordinates</li>
 </ul>
-</p>
-
 </HTML>", revisions="<HTML>
-<p>
   <dt><b>Main Authors:</b></dt>
   <dd>
   <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
@@ -6285,17 +6044,13 @@ This package contains space phasor transformation blocks for use in controllers:
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
-</p>
-<p>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2006, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2007, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
   Modelica in file \"Modelica/package.mo\".</i></dd>
-</p>
 </dl>
-
   <ul>
   <li> v1.00 2004/09/16 Anton Haumer</li>
   <li> v1.30 2004/11/05 Anton Haumer<br>
@@ -6337,9 +6092,7 @@ This package contains space phasor transformation blocks for use in controllers:
               string="zero",
               style(color=0, rgbcolor={0,0,0}))),
           Documentation(info="<HTML>
-<p>
 Transformation of threephase values (voltages or currents) to space phasor and zero sequence value.
-</p>
 </HTML>"));
       equation 
         zero = 1/m*sum(u);
@@ -6380,9 +6133,7 @@ Transformation of threephase values (voltages or currents) to space phasor and z
               string="zero",
               style(color=0, rgbcolor={0,0,0}))),
           Documentation(info="<HTML>
-<p>
 Transformation of space phasor and zero sequence value to threephase values (voltages or currents).
-</p>
 </HTML>"));
       equation 
         y = fill(zero,m) + InverseTransformation*u;
@@ -6417,9 +6168,7 @@ Transformation of space phasor and zero sequence value to threephase values (vol
               string="angle",
               style(color=0, rgbcolor={0,0,0}))),
           Documentation(info="<HTML>
-<p>
 Rotates a space phasor (voltage or current) by the angle provided by the input signal \"angle\" from one coordinate system into another.
-</p>
 </HTML>"));
       equation 
         y = RotationMatrix*u;
@@ -6451,9 +6200,7 @@ Rotates a space phasor (voltage or current) by the angle provided by the input s
               style(color=3, rgbcolor={0,0,255}),
               string="P")),
           Documentation(info="<HTML>
-<p>
 Converts a space phasor from rectangular coordinates to polar coordinates.
-</p>
 </HTML>"));
       equation 
         y[1] = sqrt(u[1]^2 + u[2]^2);
@@ -6495,9 +6242,7 @@ Converts a space phasor from rectangular coordinates to polar coordinates.
               style(color=3, rgbcolor={0,0,255}),
               string="R")),
           Documentation(info="<HTML>
-<p>
 Converts a space phasor from polar coordinates to rectangular coordinates.
-</p>
 </HTML>"));
       equation 
         y = u[1]*{cos(u[2]),sin(u[2])};
@@ -6507,7 +6252,6 @@ Converts a space phasor from polar coordinates to rectangular coordinates.
     package Functions "Functions for space phasor transformation" 
       extends Modelica.Icons.Library;
       annotation (Documentation(info="<HTML>
-<p>
 This package contains space phasor transformation functions for use in calculations:
 <ul>
 <li>ToSpacePhasor: transforms a set of threephase values to space phasor and zero sequence system</li>
@@ -6515,11 +6259,8 @@ This package contains space phasor transformation functions for use in calculati
 <li>Rotator: rotates a space phasor (from one coordinate system into another)</li>
 <li>ToPolar: Converts a space phasor from rectangular coordinates to polar coordinates</li>
 <li>FromPolar: Converts a space phasor from polar coordinates to rectangular coordinates</li>
-</p>
-
 </HTML>", revisions="<HTML>
 <dl>
-<p>
   <dt><b>Main Authors:</b></dt>
   <dd>
   <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
@@ -6527,25 +6268,19 @@ This package contains space phasor transformation functions for use in calculati
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
-</p>
-<p>
   <dt><b>Release Notes:</b></dt>
   <dd>
   <ul>
   <li> v1.00 2004/09/16 Anton Haumer</li>
   </ul>
   </dd>
-</p>
-<p>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2006, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2007, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
   Modelica in file \"Modelica/package.mo\".</i></dd>
-</p>
 </dl>
-
   <ul>
   <li> v1.00 2004/09/16 Anton Haumer</li>
   <li> v1.6.1 2005/11/10 Anton Haumer<br>
@@ -6561,11 +6296,9 @@ This package contains space phasor transformation functions for use in calculati
         output Real y[2];
         output Real y0;
         annotation (Documentation(info="<HTML>
-<p>
 Transformation of three phase values (voltages or currents) to space phasor and zero sequence value:<br>
 y[k] = X0 + {cos(-(k - 1)/m*2*pi),-sin(-(k - 1)/m*2*pi) * X[Re,Im]<br>
 were y designates three phase values, X[Re,Im] designates the space phasor and X0 designates the zero sequence system.
-</p>
 </HTML>"));
       algorithm 
         y := zeros(2);
@@ -6583,12 +6316,10 @@ were y designates three phase values, X[Re,Im] designates the space phasor and X
         input Real x0;
         output Real y[3];
         annotation (Documentation(info="<HTML>
-<p>
 Transformation of space phasor and zero sequence value to three phase values (voltages or currents):<br>
 Y0 = sum(x[k])/m<br>
 Y[Re,Im] = sum(2/m*{cos((k - 1)/m*2*pi),sin((k - 1)/m*2*pi)}*x[k])<br>
 were x designates three phase values, Y[Re,Im] designates the space phasor and Y0 designates the zero sequence system.
-</p>
 </HTML>"));
       algorithm 
         for k in 1:m loop
@@ -6604,11 +6335,9 @@ were x designates three phase values, Y[Re,Im] designates the space phasor and Y
       protected 
         Real RotationMatrix[2,2] = {{+cos(-angle),-sin(-angle)},{+sin(-angle),+cos(-angle)}};
         annotation (Documentation(info="<HTML>
-<p>
 Rotates a space phasor (voltage or current) by the angle provided by input argument \"angle\" from one coordinate system into another:<br>
 y[Re,Im] := {{+cos(-angle),-sin(-angle)},{+sin(-angle),+cos(-angle)}}*x[Re,Im]<br>
 where y[Re,Im] designates the space phasor in the new coordinate system (twisted by angle against old coordinate system) and y[Re,Im] designates the space phasor in the old coordinate system.
-</p>
 </HTML>"));
       algorithm 
         y := RotationMatrix*x;
@@ -6621,9 +6350,7 @@ where y[Re,Im] designates the space phasor in the new coordinate system (twisted
         output Real absolute;
         output Modelica.SIunits.Angle angle;
         annotation (Documentation(info="<HTML>
-<p>
 Converts a space phasor from rectangular coordinates to polar coordinates, providing angle=0 for {0,0}.
-</p>
 </HTML>"));
       algorithm 
         absolute := sqrt(x[1]^2 + x[2]^2);
@@ -6649,9 +6376,7 @@ Converts a space phasor from rectangular coordinates to polar coordinates, provi
         input Modelica.SIunits.Angle angle;
         output Real x[2];
         annotation (Documentation(info="<HTML>
-<p>
 Converts a space phasor from polar coordinates to rectangular coordinates.
-</p>
 </HTML>"));
       algorithm 
         x := absolute*{cos(angle),sin(angle)};
@@ -6662,13 +6387,9 @@ Converts a space phasor from polar coordinates to rectangular coordinates.
   package Interfaces "SpacePhasor connector and PartialMachines" 
     extends Modelica.Icons.Library2;
     annotation (Documentation(info="<HTML>
-<p>
 This package contains the space phasor connector and partial models for machine models.
-</p>
-
 </HTML>", revisions="<HTML>
 <dl>
-<p>
   <dt><b>Main Authors:</b></dt>
   <dd>
   <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
@@ -6676,17 +6397,13 @@ This package contains the space phasor connector and partial models for machine 
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
-</p>
-<p>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2006, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2007, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
   Modelica in file \"Modelica/package.mo\".</i></dd>
-</p>
 </dl>
-
   <ul>
   <li> v1.00 2004/09/16 Anton Haumer</li>
   <li> v1.01 2004/09/18 Anton Haumer<br>
@@ -6732,13 +6449,11 @@ This package contains the space phasor connector and partial models for machine 
               fillColor=3,
               rgbfillColor={0,0,255}))),
         Documentation(info="<HTML>
-<p>
 Connector for Space Phasors:
 <ul>
 <li>Voltage v_[2] ... Real and Imaginary part of voltage space phasor</li>
 <li>Current i_[2] ... Real and Imaginary part of current space phasor</li>
 </ul>
-</p>
 </HTML>"));
     end SpacePhasor;
     
@@ -6825,21 +6540,17 @@ Connector for Space Phasors:
             string="%name"),
           Rectangle(extent=[80,-80; 120,-120],   style(color=8, fillColor=8))),
         Documentation(info="<HTML>
-<p>
 Base partial model DC machines:
 <ul>
 <li>main parts of the icon</li>
 <li>mechanical flange</li>
 <li>mechanical support</li>
 </ul>
-<p>
 Besides the mechanical connector <i>flange_a</i> (i.e. the shaft) the machines have a second mechanical connector <i>support</i>.<br>
 If nothing is connected to <i>support</i>, it is assumed that the stator is fixed.<br>
 Otherwise reaction torque (i.e. airGap torque, minus acceleration torque for stator's moment of inertia) can be measured at <i>support</i>.<br>
 One may also fix the the shaft and let rotate the stator; parameter Js is only of importance when the stator is rotating.<br>
 <b>Take care:</b> Even if You connect only a sensor (e.g. Modelica.Mechanics.Rotational.Sensors.RelAngleSensor or Machines.Sensors.RotorDisplacementAngle) to the <i>support</i>, You have to fix the <i>support</i>!
-</p>
-</p>
 </HTML>"),
         Diagram);
     equation 
@@ -6870,14 +6581,12 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
       Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_sn(final m=m) 
         annotation (extent=[-70,90; -50,110]);
       annotation (Documentation(info="<HTML>
-<p>
 Partial model for induction machine models, containing:
 <ul>
 <li>main parts of the icon</li>
 <li>stator plugs</li>
 <li>mechanical connectors</li>
 </ul>
-</p>
 </HTML>"),
         Diagram,
         Icon(Line(points=[-50,100; -20,100; -20,70], style(color=3, rgbcolor={0,
@@ -6890,14 +6599,12 @@ Partial model for induction machine models, containing:
       output Modelica.SIunits.Voltage va = pin_ap.v-pin_an.v "armature voltage";
       output Modelica.SIunits.Current ia = pin_ap.i "armature current";
       annotation (Documentation(info="<HTML>
-<p>
 Partial model for DC machine models, containing:
 <ul>
 <li>main parts of the icon</li>
 <li>armature pins</li>
 <li>mechanical connectors</li>
 </ul>
-</p>
 </HTML>"),
         Diagram,
         Icon(Line(points=[-50,100; -20,100; -20,70], style(color=3, rgbcolor={0,
