@@ -1,6 +1,7 @@
 package Modelica "Modelica Standard Library"
 extends Icons.Library;
 
+
 annotation(preferedView="info",
   Window(
     x=0.02,
@@ -9,8 +10,8 @@ annotation(preferedView="info",
     height=0.57,
     library=1,
     autolayout=1),
-  version="2.2.2 development",
-  versionDate="2007-01-22",
+  version="2.2.2",
+  versionDate="2007-06-12",
   conversion(
     from(version="1.6",
          ModelicaAdditions(version="1.5"),
@@ -21,7 +22,7 @@ annotation(preferedView="info",
     from(version="2.1 Beta1", script="Scripts/ConvertModelica_from_2.1Beta1_to_2.1.mos"),
     noneFromVersion="2.1",
     noneFromVersion="2.2",
-    noneFromVersion="2.2.1"),
+    noneFromVersion="2.2.1",
   Settings(NewStateSelection=true),
   Documentation(info="<HTML>
 <p>
@@ -402,6 +403,7 @@ This section summarizes the changes that have been performed
 on the Modelica standard library.
 </p>
 <ul>
+<li> <a href=\"Modelica://Modelica.UsersGuide.ReleaseNotes.Version_2_2_2\">Version 2.2.2</a> (June 12, 2007)</li>
 <li> <a href=\"Modelica://Modelica.UsersGuide.ReleaseNotes.Version_2_2_1\">Version 2.2.1</a> (March 24, 2006)</li>
 <li> <a href=\"Modelica://Modelica.UsersGuide.ReleaseNotes.Version_2_2\">Version 2.2</a> (April 6, 2005)</li>
 <li> <a href=\"Modelica://Modelica.UsersGuide.ReleaseNotes.Version_2_1\">Version 2.1</a> (Nov. 11, 2004)</li>
@@ -413,6 +415,57 @@ on the Modelica standard library.
 </html>
 "));
     
+  class Version_2_2_2 "Version 2.2.2" 
+      
+      annotation (Documentation(info="<html>
+<h3><font color=\"#008000\">Version 2.2.2</font></h3>
+<p>
+Version 2.2.2 is backward compatible to version 2.2.1 and 2.2.
+</p>
+ 
+<p>
+In this version, <b>no</b> new libraries have been added.
+The following major improvements have been made:
+</p>
+ 
+<ul>
+<li> xxx </li>
+</ul>
+ 
+<p>
+The following <b>new components</b> have been added to <b>existing</b> libraries:
+</p>
+ 
+<table border=\"1\" cellspacing=0 cellpadding=2>
+  <tr><td colspan=\"2\"><b>Modelica.xxx.</b></td></tr>
+  <tr><td> xx</td>
+      <td> xxx.</td> </tr>
+</table> 
+ 
+<p>
+The following <b>components</b> have been improved:
+</p>
+ 
+<table border=\"1\" cellspacing=0 cellpadding=2>
+  <tr><td colspan=\"2\"><b>Modelica.xxx.</b></td></tr>
+  <tr><td> xxx</td>
+      <td> xxx</td> </tr>
+</table> 
+
+<p>
+The following <b>errors</b> have been fixed:
+</p>
+ 
+<table border=\"1\" cellspacing=0 cellpadding=2>
+  <tr><td colspan=\"2\"><b>Modelica.xxx.</b></td></tr>
+  <tr><td> xxx</td>
+      <td> xxx</td> </tr>
+</table> 
+                               
+</html>
+"));
+  end Version_2_2_2;
+
   class Version_2_2_1 "Version 2.2.1" 
       
       annotation (Documentation(info="<html>
