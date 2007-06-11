@@ -4552,8 +4552,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
       parameter Integer n(final min=1) = 1 "signal width";
     equation 
       for i in 1:n loop
-        y[i] := if x[i] then L.'1' else 
-          L.'0';
+        y[i] = if x[i] then L.'1' else L.'0';
       end for;
     end BooleanToLogic;
     
@@ -4614,8 +4613,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
       parameter Integer n(final min=1) = 1 "signal width";
     equation 
       for i in 1:n loop
-        y[i] := if x[i] == 4 or 
-          x[i] == 8 then true else false;
+        y[i] = if x[i] == 4 or x[i] == 8 then true else false;
       end for;
     end LogicToBoolean;
     
@@ -4681,7 +4679,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
       parameter Digital.Interfaces.Logic middle_value=L.'X' "output else";
     equation 
       for i in 1:n loop
-        y[i] := if x[i] > upper_limit then upper_value else 
+        y[i] = if x[i] > upper_limit then upper_value else 
           if x[i] < lower_limit then lower_value else middle_value;
       end for;
     end RealToLogic;
@@ -4751,7 +4749,7 @@ The values val... are given by parameters.</P>
       parameter Real value_m=0.5 "value for digital m (Don´t care)";
     equation 
       for i in 1:n loop
-       y[i]:= if x[i] == L.'U' then value_U else 
+       y[i]= if x[i] == L.'U' then value_U else 
                 if x[i] == L.'X' then value_X else if 
           x[i] == L.'0' then value_0 else if x[i] == L.'1' then 
                value_1 else if x[i] == L.
