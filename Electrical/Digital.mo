@@ -2739,9 +2739,9 @@ This package contains interface definitions
     protected 
       D.Interfaces.Logic x_delayed;
     equation 
-      x_delayed := integer(delay(x, delayTime));
-      y := if delayTime > 0 then 
-              if time >= delayTime then x_delayed else y0 else 
+      x_delayed = integer(delay(x, delayTime));
+      y = if delayTime > 0 then 
+              (if time >= delayTime then x_delayed else y0) else 
                 pre(x);
       annotation (Documentation(info="<HTML>
 <P>
