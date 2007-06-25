@@ -1,7 +1,7 @@
 package Machines "Library for electric machines" 
   extends Modelica.Icons.Library2;
   annotation (
-  version="1.7.4", versionDate="2007-06-08",
+  version="1.7.5", versionDate="2007-06-25",
   Settings(NewStateSelection=true, Evaluate=true),
   preferedView="info", Documentation(info="<HTML>
 This package contains components to model electrical machines:
@@ -105,6 +105,8 @@ and the accompanying <b>disclaimer</b>
        resolved a bug in electrical excitation of synchronous induction machine</li>
   <li> v1.7.4 2007/06/08 Anton Haumer<br>
        documentation update</li>
+  <li> v1.7.5 2007/06/25 Anton Haumer<br>
+       corrected some typos in documentation</li>
   </ul>
 </HTML>"),
     Icon(
@@ -203,7 +205,7 @@ and a package utilities with components used for the examples.
         experimentSetupOutput(
           doublePrecision=true),
         Documentation(info="<HTML>
-<b>1st Test example: Asynchronous induction Machine with squirrel cage - direct on line starting</b><br>
+<b>1st Test example: Asynchronous induction machine with squirrel cage - direct on line starting</b><br>
 At start time tStart three phase voltage is supplied to the asynchronous induction machine with squirrel cage;
 the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed.<br>
 Simulate for 1.5 seconds and plot (versus time):
@@ -248,7 +250,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
         annotation (points=[-6.12303e-016,70; -6.12303e-016,90; -50,90],
                                                         style(color=3));
       connect(SineVoltage1.plug_p, IdealCloser1.plug_p) 
-        annotation (points=[6.12303e-016,50; 0,48; 1.22461e-015,46;
+        annotation (points=[6.12303e-016,50; 0,48; 1.22461e-015,46; 
             6.12303e-016,46; 6.12303e-016,40], style(color=3));
       connect(AIMC1.flange_a, LoadInertia.flange_a)  annotation (points=[0,-40;
             40,-40], style(color=0, rgbcolor={0,0,0}));
@@ -308,7 +310,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
         experimentSetupOutput(
           doublePrecision=true),
         Documentation(info="<HTML>
-<b>2nd Test example: Asynchronous induction Machine with squirrel cage - Y-D starting</b><br>
+<b>2nd Test example: Asynchronous induction machine with squirrel cage - Y-D starting</b><br>
 At start time tStart three phase voltage is supplied to the asynchronous induction machine with squirrel cage, first star-connected, then delta-connetced; the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed.<br>
 Simulate for 2.5 seconds and plot (versus time):
 <ul>
@@ -354,7 +356,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
         annotation (points=[-6.12303e-016,70; -6.12303e-016,90; -50,90],
                                                         style(color=3));
       connect(SineVoltage1.plug_p, IdealCloser1.plug_p) 
-        annotation (points=[6.12303e-016,50; 0,48; 1.22461e-015,46;
+        annotation (points=[6.12303e-016,50; 0,48; 1.22461e-015,46; 
             6.12303e-016,46; 6.12303e-016,40], style(color=3));
       connect(SwitchYD1.plug_NS, AIMC1.plug_sn)  annotation (points=[-20,-30;
             -16,-30],
@@ -411,10 +413,10 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
         experimentSetupOutput(
           doublePrecision=true),
         Documentation(info="<HTML>
-<b>3rd Test example: Asynchronous induction Machine with slipring rotor - resistance starting</b><br>
+<b>3rd Test example: Asynchronous induction machine with slipring rotor - resistance starting</b><br>
 At start time tStart1 three phase voltage is supplied to the asynchronous induction machine with sliprings;
 the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed,
-using a starting resistance. At time tStart2 tStart2 is shortened, finally reaching nominal speed.<br>
+using a starting resistance. At time tStart2 external rotor resistance is shortened, finally reaching nominal speed.<br>
 Simulate for 1.5 seconds and plot (versus time):
 <ul>
 <li>CurrentRMSsensor1.I: stator current RMS</li>
@@ -469,7 +471,7 @@ Default machine parameters of model <i>AIM_SlipRing</i> are used.
         annotation (points=[-6.12303e-016,70; -6.12303e-016,90; -50,90],
                                                         style(color=3));
       connect(SineVoltage1.plug_p, IdealCloser1.plug_p) 
-        annotation (points=[6.12303e-016,50; 0,48; 1.22461e-015,46;
+        annotation (points=[6.12303e-016,50; 0,48; 1.22461e-015,46; 
             6.12303e-016,46; 6.12303e-016,40], style(color=3));
       connect(Star3.pin_n, Ground3.p) 
         annotation (points=[-70,-90; -80,-90],   style(color=3));
@@ -556,7 +558,7 @@ Default machine parameters of model <i>AIM_SlipRing</i> are used.
         experimentSetupOutput(
           doublePrecision=true),
         Documentation(info="<HTML>
-<b>4th Test example: Asynchronous induction Machine with squirrel cage fed by an ideal inverter</b><br>
+<b>4th Test example: Asynchronous induction machine with squirrel cage fed by an ideal inverter</b><br>
 An ideal frequency inverter is modeled by using a VfController and a threephase SignalVoltage.<br>
 Frequency is raised by a ramp, causing the asynchronous induction machine with squirrel cage to start, 
 and accelerating inertias.<br>At time tStep a load step is applied.<br>
@@ -605,7 +607,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
       connect(TorqueStep1.flange, LoadInertia.flange_b) 
         annotation (points=[70,-40; 60,-40], style(color=0, rgbcolor={0,0,0}));
       connect(SignalVoltage1.plug_p, CurrentRMSsensor1.plug_p) annotation (points=[
-            6.12303e-016,50; 6.12303e-016,40; 6.12303e-016,40; 6.12303e-016,30;
+            6.12303e-016,50; 6.12303e-016,40; 6.12303e-016,40; 6.12303e-016,30; 
             6.12303e-016,10; 6.12303e-016,10],   style(color=3, rgbcolor={0,0,
               255}));
       connect(TerminalBox1.negativeMachinePlug, AIMC1.plug_sn) annotation (
@@ -650,7 +652,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
         experimentSetupOutput(
           doublePrecision=true),
         Documentation(info="<HTML>
-<b>5th Test example: Synchronous Induction Machine with Reluctance rotor fed by an ideal inverter</b><br>
+<b>5th Test example: Synchronous induction machine with reluctance rotor fed by an ideal inverter</b><br>
 An ideal frequency inverter is modeled by using a VfController and a threephase SignalVoltage.<br>
 Frequency is raised by a ramp, causing the reluctance machine to start, 
 and accelerating inertias.<br>At time tStep a load step is applied.<br>
@@ -702,7 +704,7 @@ Default machine parameters of model <i>SM_ReluctanceRotorDamperCage</i> are used
       connect(LoadInertia.flange_b, TorqueStep1.flange) 
         annotation (points=[60,-40; 70,-40], style(color=0, rgbcolor={0,0,0}));
       connect(CurrentRMSsensor1.plug_p, SignalVoltage1.plug_p) annotation (
-          points=[6.12303e-016,40; 6.12303e-016,42.5; 6.12303e-016,42.5;
+          points=[6.12303e-016,40; 6.12303e-016,42.5; 6.12303e-016,42.5; 
             6.12303e-016,45; 6.12303e-016,50; 6.12303e-016,50], style(color=3,
             rgbcolor={0,0,255}));
       connect(SMR1.plug_sn, RotorAngle1.plug_n)  annotation (points=[-16,-30;
@@ -752,7 +754,7 @@ Default machine parameters of model <i>SM_ReluctanceRotorDamperCage</i> are used
         experimentSetupOutput(
           doublePrecision=true),
         Documentation(info="<HTML>
-<b>6th Test example: Permanent Magnet Synchronous Induction Machine fed by an ideal inverter</b><br>
+<b>6th Test example: Permanent magnet synchronous induction machine fed by an ideal inverter</b><br>
 An ideal frequency inverter is modeled by using a VfController and a threephase SignalVoltage.<br>
 Frequency is raised by a ramp, causing the permanent magnet synchronous induction machine to start, 
 and accelerating inertias.<br>At time tStep a load step is applied.<br>
@@ -811,7 +813,7 @@ Default machine parameters of model <i>SM_PermanentMagnetDamperCage</i> are used
             rgbcolor={0,0,255}));
       connect(RotorAngle1.plug_n, SMPM1.plug_sn)  annotation (points=[-16,-20;
             -16,-30], style(color=3, rgbcolor={0,0,255}));
-      connect(RotorAngle1.plug_p, SMPM1.plug_sp)  annotation (points=[-4,-20;
+      connect(RotorAngle1.plug_p, SMPM1.plug_sp)  annotation (points=[-4,-20; 
             -4,-25; -4,-25; -4,-30], style(color=3, rgbcolor={0,0,255}));
       connect(RotorAngle1.flange, SMPM1.flange_a) 
         annotation (points=[0,-10; 0,-40], style(color=0, rgbcolor={0,0,0}));
@@ -859,7 +861,7 @@ Default machine parameters of model <i>SM_PermanentMagnetDamperCage</i> are used
         experiment(StopTime=30, Interval=0.005),
         experimentSetupOutput(doublePrecision=true),
         Documentation(info="<HTML>
-<b>7th Test example: Electrical Excited Synchronous Induction Machine as generator</b><br>
+<b>7th Test example: Electrical excited synchronous induction machine as generator</b><br>
 An electrically excited synchronous generator is connected to the grid and driven with constant speed. 
 Since speed is slightly smaller than synchronous speed corresponding to mains frequency, 
 rotor angle is very slowly increased. This allows to see several charactersistics dependent on rotor angle.
@@ -908,7 +910,7 @@ Default machine parameters of model <i>SM_ElectricalExcitedDamperCage</i> are us
     equation 
       connect(RotorAngle1.plug_n, SMEE1.plug_sn)  annotation (points=[-16,-20;
             -16,-30], style(color=3, rgbcolor={0,0,255}));
-      connect(RotorAngle1.plug_p, SMEE1.plug_sp)  annotation (points=[-4,-20;
+      connect(RotorAngle1.plug_p, SMEE1.plug_sp)  annotation (points=[-4,-20; 
             -4,-25; -4,-25; -4,-30], style(color=3, rgbcolor={0,0,255}));
       connect(RotorAngle1.flange, SMEE1.flange_a) 
         annotation (points=[0,-10; 0,-40], style(color=0, rgbcolor={0,0,0}));
@@ -917,7 +919,7 @@ Default machine parameters of model <i>SM_ElectricalExcitedDamperCage</i> are us
       connect(Star1.plug_p, SineVoltage1.plug_n) annotation (points=[-50,90;
             -40,90], style(color=3, rgbcolor={0,0,255}));
       connect(ElectricalPowerSensor1.plug_ni, CurrentRMSsensor1.plug_p) 
-        annotation (points=[6.12303e-016,50; 1.76911e-022,46; 6.12303e-016,46;
+        annotation (points=[6.12303e-016,50; 1.76911e-022,46; 6.12303e-016,46; 
             6.12303e-016,40], style(color=3, rgbcolor={0,0,255}));
       connect(SMEE1.flange_a, MechanicalPowerSensor1.flange_a) 
         annotation (points=[0,-40; 10,-40], style(color=0, rgbcolor={0,0,0}));
@@ -977,7 +979,7 @@ Default machine parameters of model <i>SM_ElectricalExcitedDamperCage</i> are us
         experimentSetupOutput(
           doublePrecision=true),
         Documentation(info="<HTML>
-<b>8th Test example: Permanent magnet DC Machine started with an armature voltage ramp</b><br>
+<b>8th Test example: Permanent magnet DC machine started with an armature voltage ramp</b><br>
 A voltage ramp is applied to the armature, causing the DC machine to start, 
 and accelerating inertias.<br>At time tStep a load step is applied.<br>
 Simulate for 2 seconds and plot (versus time):
@@ -1033,7 +1035,7 @@ Default machine parameters of model <i>DC_PermanentMagnet</i> are used.
         experimentSetupOutput(
           doublePrecision=true),
         Documentation(info="<HTML>
-<b>9th Test example: Electrically separate excited DC Machine started with an armature voltage ramp</b><br>
+<b>9th Test example: Electrically separate excited DC machine started with an armature voltage ramp</b><br>
 A voltage ramp is applied to the armature, causing the DC machine to start, 
 and accelerating inertias.<br>At time tStep a load step is applied.<br>
 Simulate for 2 seconds and plot (versus time):
@@ -1101,7 +1103,7 @@ Default machine parameters of model <i>DC_ElectricalExcited</i> are used.
         experimentSetupOutput(
           doublePrecision=true),
         Documentation(info="<HTML>
-<b>10th Test example: Series excited DC Machine started with an armature voltage ramp</b><br>
+<b>10th Test example: Series excited DC machine started with an armature voltage ramp</b><br>
 A voltage ramp is applied to the armature, causing the DC machine to start, 
 and accelerating inertiasagainst load torque quadratic dependent on speed, finally reaching nominal speed.<br>
 Simulate for 2 seconds and plot (versus time):
@@ -1211,7 +1213,7 @@ This package contains components utility components for testing examples.
                   20.3, -54.1; 25.9, -41.3; 33, -21.7; 40, 0], style(color=8))),
           Documentation(info="<HTML>
 Simple Voltage-Frequency-Controller.<br>
-Amplitude of voltage is linear dependent (VNominal/fNominal) on Frequency (input signal \"u\"), but limited by VNominal (nominal RMS voltage per phase).<br>
+Amplitude of voltage is linear dependent (VNominal/fNominal) on frequency (input signal \"u\"), but limited by VNominal (nominal RMS voltage per phase).<br>
 m sine-waves with amplitudes as described above are provided as output signal \"y\".<br>
 The sine-waves are intended to feed a m-phase SignalVoltage.<br>
 Phase shifts between sine-waves may be choosen by the user; default values are <i>(k-1)/m*pi for k in 1:m</i>.
@@ -2404,7 +2406,7 @@ Whether a damper cage is present or not, can be selected with Boolean parameter 
             style(color=3, rgbcolor={0,0,255}));
         connect(spacePhasorS.plug_n, plug_sn) annotation (points=[-10,40; -10,
               60; -60,60; -60,100],     style(color=3, rgbcolor={0,0,255}));
-        connect(spacePhasorS.ground, spacePhasorS.zero) annotation (points=[-10,20; 
+        connect(spacePhasorS.ground, spacePhasorS.zero) annotation (points=[-10,20;
               -10,14; -6.12303e-016,14; -6.12303e-016,20], style(
             color=3,
             rgbcolor={0,0,255},
@@ -2784,7 +2786,7 @@ Armature resistance and inductance are modeled directly after the armature pins,
 Armature resistance resp. inductance include resistance resp. inductance of commutating pole winding and compensation windig, if present.
 </HTML>"));
       equation 
-        assert(VaNominal > Ra*IaNominal, "VaNominal has to be > (Ra+Re)*IaNominal");
+        assert(VaNominal > Ra*IaNominal, "VaNominal has to be > Ra*IaNominal");
         connect(la.p, ra.n) 
           annotation (points=[30,60; 40,60], style(color=3, rgbcolor={0,0,255}));
         connect(pin_ap, ra.p) 
@@ -2935,7 +2937,7 @@ compensation windig, if present.<br>
 Armature current does not cover excitation current of a shunt excitation; in this case total current drawn from the grid = armature current + excitation current.
 </HTML>"));
       equation 
-        assert(VaNominal > Ra*IaNominal, "VaNominal has to be > (Ra+Re)*IaNominal");
+        assert(VaNominal > Ra*IaNominal, "VaNominal has to be > Ra*IaNominal");
         connect(la.p, ra.n) 
           annotation (points=[30,60; 40,60], style(color=3, rgbcolor={0,0,255}));
         connect(pin_ap, ra.p) 
