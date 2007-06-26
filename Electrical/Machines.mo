@@ -1,7 +1,7 @@
 package Machines "Library for electric machines" 
   extends Modelica.Icons.Library2;
   annotation (
-  version="1.8.4", versionDate="2007-06-25",
+  version="1.8.5", versionDate="2007-06-26",
   Settings(NewStateSelection=true, Evaluate=true),
   preferedView="info", Documentation(info="<HTML>
 This package contains components to model electrical machines:
@@ -114,6 +114,8 @@ and the accompanying <b>disclaimer</b>
        documentation update</li>
   <li> v1.8.4 2007/06/25 Anton Haumer<br>
        corrected some typos in documentation</li>
+  <li> v1.8.5 2007/06/26 Anton Haumer<br>
+       consistent parameters of DCSE</li>
   </ul>
 </HTML>"),
     Icon(
@@ -257,7 +259,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
         annotation (points=[-6.12303e-016,70; -6.12303e-016,90; -50,90],
                                                         style(color=3));
       connect(SineVoltage1.plug_p, IdealCloser1.plug_p) 
-        annotation (points=[6.12303e-016,50; 0,48; 1.22461e-015,46; 
+        annotation (points=[6.12303e-016,50; 0,48; 1.22461e-015,46;
             6.12303e-016,46; 6.12303e-016,40], style(color=3));
       connect(AIMC1.flange_a, LoadInertia.flange_a)  annotation (points=[0,-40;
             40,-40], style(color=0, rgbcolor={0,0,0}));
@@ -364,7 +366,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
         annotation (points=[-6.12303e-016,70; -6.12303e-016,90; -50,90],
                                                         style(color=3));
       connect(SineVoltage1.plug_p, IdealCloser1.plug_p) 
-        annotation (points=[6.12303e-016,50; 0,48; 1.22461e-015,46; 
+        annotation (points=[6.12303e-016,50; 0,48; 1.22461e-015,46;
             6.12303e-016,46; 6.12303e-016,40], style(color=3));
       connect(SwitchYD1.plug_NS, AIMC1.plug_sn)  annotation (points=[-20,-30;
             -16,-30],
@@ -480,7 +482,7 @@ Default machine parameters of model <i>AIM_SlipRing</i> are used.
         annotation (points=[-6.12303e-016,70; -6.12303e-016,90; -50,90],
                                                         style(color=3));
       connect(SineVoltage1.plug_p, IdealCloser1.plug_p) 
-        annotation (points=[6.12303e-016,50; 0,48; 1.22461e-015,46; 
+        annotation (points=[6.12303e-016,50; 0,48; 1.22461e-015,46;
             6.12303e-016,46; 6.12303e-016,40], style(color=3));
       connect(Star3.pin_n, Ground3.p) 
         annotation (points=[-70,-90; -80,-90],   style(color=3));
@@ -616,7 +618,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
       connect(TorqueStep1.flange, LoadInertia.flange_b) 
         annotation (points=[70,-40; 60,-40], style(color=0, rgbcolor={0,0,0}));
       connect(SignalVoltage1.plug_p, CurrentRMSsensor1.plug_p) annotation (points=[
-            6.12303e-016,50; 6.12303e-016,40; 6.12303e-016,40; 6.12303e-016,30; 
+            6.12303e-016,50; 6.12303e-016,40; 6.12303e-016,40; 6.12303e-016,30;
             6.12303e-016,10; 6.12303e-016,10],   style(color=3, rgbcolor={0,0,
               255}));
       connect(TerminalBox1.negativeMachinePlug, AIMC1.plug_sn) annotation (
@@ -714,7 +716,7 @@ Default machine parameters of model <i>SM_ReluctanceRotorDamperCage</i> are used
       connect(LoadInertia.flange_b, TorqueStep1.flange) 
         annotation (points=[60,-40; 70,-40], style(color=0, rgbcolor={0,0,0}));
       connect(CurrentRMSsensor1.plug_p, SignalVoltage1.plug_p) annotation (
-          points=[6.12303e-016,40; 6.12303e-016,42.5; 6.12303e-016,42.5; 
+          points=[6.12303e-016,40; 6.12303e-016,42.5; 6.12303e-016,42.5;
             6.12303e-016,45; 6.12303e-016,50; 6.12303e-016,50], style(color=3,
             rgbcolor={0,0,255}));
       connect(SMR1.plug_sn, RotorAngle1.plug_n)  annotation (points=[-16,-30;
@@ -934,7 +936,7 @@ Default machine parameters of model <i>SM_ElectricalExcitedDamperCage</i> are us
       connect(Star1.plug_p, SineVoltage1.plug_n) annotation (points=[-50,90;
             -40,90], style(color=3, rgbcolor={0,0,255}));
       connect(ElectricalPowerSensor1.plug_ni, CurrentRMSsensor1.plug_p) 
-        annotation (points=[6.12303e-016,50; 1.76911e-022,46; 6.12303e-016,46; 
+        annotation (points=[6.12303e-016,50; 1.76911e-022,46; 6.12303e-016,46;
             6.12303e-016,40], style(color=3, rgbcolor={0,0,255}));
       connect(SMEE1.flange_a, MechanicalPowerSensor1.flange_a) 
         annotation (points=[0,-40; 40,-40], style(color=0, rgbcolor={0,0,0}));
@@ -1105,7 +1107,7 @@ Default machine parameters of model <i>DC_ElectricalExcited</i> are used.
       parameter Modelica.SIunits.Time tRamp=0.8 "armature voltage ramp";
       parameter Modelica.SIunits.Torque T_Load=63.66 "nominal load torque";
       parameter Modelica.SIunits.Conversions.NonSIunits.AngularVelocity_rpm 
-        rpmLoad=1402.5 "nominal load speed";
+        rpmLoad=1410 "nominal load speed";
       parameter Modelica.SIunits.Inertia J_Load=0.15 "load's moment of inertia";
       annotation (
         Diagram,
@@ -2988,7 +2990,7 @@ Armature current does not cover excitation current of a shunt excitation; in thi
       
       model DC_SeriesExcited "Series excited linear DC machine" 
         extends Machines.BasicMachines.Components.BasicDCMachine(
-          rpmNominal =  1402.5,
+          rpmNominal =  1410,
           final TurnsRatio=(VaNominal-(Ra+Re)*IaNominal)/(Modelica.SIunits.Conversions.from_rpm(rpmNominal)*Le*IaNominal),
           airGapDC(final Le=Le));
         parameter Modelica.SIunits.Resistance Re=0.01 
