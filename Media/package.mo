@@ -4671,8 +4671,10 @@ partial package PartialLinearFluid
       end ThermodynamicState;
     
       redeclare model extends BaseProperties(
-        T(stateSelect=StateSelect.prefer),
-        p(stateSelect=StateSelect.prefer)) "Base properties of medium" 
+        T(stateSelect=if preferredMediumStates then StateSelect.prefer else 
+                           StateSelect.default),
+        p(stateSelect=if preferredMediumStates then StateSelect.prefer else 
+                           StateSelect.default)) "Base properties of medium" 
       equation 
         d = reference_d +
             (T-reference_T)*beta_const/reference_T +
