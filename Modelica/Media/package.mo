@@ -4676,9 +4676,7 @@ partial package PartialLinearFluid
         p(stateSelect=if preferredMediumStates then StateSelect.prefer else 
                            StateSelect.default)) "Base properties of medium" 
       equation 
-        d = reference_d +
-            (T-reference_T)*beta_const/reference_T +
-            (p-reference_p)*kappa_const/reference_p;
+        d = (1 + (p-reference_p)*kappa_const - (T-reference_T)*beta_const)*reference_d;
         h = reference_h +
             (T-reference_T)*cp_const +
             (p-reference_p)*(1-beta_const*reference_T)/d;
@@ -4707,8 +4705,8 @@ partial package PartialLinearFluid
       redeclare function extends setState_dTX 
       "set the thermodynamic state record from d and T (X not needed)" 
       algorithm 
-        state.p := ((d-reference_d) - (state.T-reference_T)*beta_const/reference_T)
-                   *reference_p/kappa_const + reference_p;
+        state.p := ((d-reference_d) + (state.T-reference_T)*beta_const*reference_d)
+                   /(reference_d*kappa_const) + reference_p;
         state.T := T;
       end setState_dTX;
     
@@ -4734,9 +4732,7 @@ partial package PartialLinearFluid
       redeclare function extends density 
       "compute the density from the thermodynamic state" 
       algorithm 
-      d := reference_d +
-           (state.T-reference_T)*beta_const/reference_T +
-           (state.p-reference_p)*kappa_const/reference_p;
+        d := (1 + (state.p-reference_p)*kappa_const - (state.T-reference_T)*beta_const)*reference_d;
       end density;
     
       redeclare function extends specificEnthalpy 
