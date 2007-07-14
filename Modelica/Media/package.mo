@@ -5478,6 +5478,42 @@ end PartialMixtureMedium;
       state := setState_dTX(d,T,fill(0,0),phase);
     end setState_dT;
     
+    replaceable function setState_px 
+      "Return thermodynamic state from pressure and vapour quality" 
+      input AbsolutePressure p "Pressure";
+      input MassFraction x "Vapour quality";
+      output ThermodynamicState state "Thermodynamic state record";
+    algorithm 
+      state := setState_ph(
+        p,
+        (1-x)*bubbleEnthalpy(setSat_p(p)) + x*dewEnthalpy(setSat_p(p)),
+        2);
+    end setState_px;
+    
+    replaceable function setState_Tx 
+      "Return thermodynamic state from temperature and vapour quality" 
+      input Temperature T "Temperature";
+      input MassFraction x "Vapour quality";
+      output ThermodynamicState state;
+    algorithm 
+      state := setState_ph(
+        saturationPressure_sat(setSat_T(T)),
+        (1-x)*bubbleEnthalpy(setSat_T(T)) + x*dewEnthalpy(setSat_T(T)),
+        2);
+    end setState_Tx;
+    
+    replaceable function vapourQuality "Returns vapour quality" 
+      input ThermodynamicState state "Thermodynamic state record";
+      output MassFraction x "Vapour quality";
+    protected 
+      constant SpecificEnthalpy eps = 1e-8;
+    algorithm 
+      x := min(max(
+        (specificEnthalpy(state)-bubbleEnthalpy(setSat_p(pressure(state)))) /
+        (dewEnthalpy(setSat_p(pressure(state))) - bubbleEnthalpy(setSat_p(pressure(state))) + eps),
+        0),1);
+    end vapourQuality;
+    
     redeclare replaceable function density_ph "Return density from p and h" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
