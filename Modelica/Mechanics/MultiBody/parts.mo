@@ -427,6 +427,10 @@ the animation may be switched off via parameter animation = <b>false</b>.
     parameter Types.ShapeExtra extra=0.0 
       " Additional parameter depending on shapeType (see docu of Visualizers.Advanced.Shape)."
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+    parameter Boolean checkTotalPower=false 
+      "= true, if total power flowing into this component shall be determined (must be zero)"
+      annotation (Dialog(tab="Advanced"));
+    
     input Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.RodColor 
       " Color of shape" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
@@ -438,6 +442,10 @@ the animation may be switched off via parameter animation = <b>false</b>.
         if rotationType == 2 then Frames.from_nxy(n_x, n_y) else 
         Frames.axesRotations(sequence, Cv.from_deg(angles), zeros(3)) 
       "Fixed rotation object from frame_a to frame_b";
+  /*
+  SI.Power totalPower 
+    "Total power flowing into this element, if checkTotalPower=true (otherwise dummy)";
+*/
   protected 
     outer Modelica.Mechanics.MultiBody.World world;
     
@@ -572,14 +580,23 @@ the animation may be switched off via parameter animation = <b>false</b>.
     if rooted(frame_a.R) then
       frame_b.R = Frames.absoluteRotation(frame_a.R, R_rel);
       zeros(3) = frame_a.f + Frames.resolve1(R_rel, frame_b.f);
-      zeros(3) = frame_a.t + Frames.resolve1(R_rel, frame_b.t) - cross(r,
-        frame_a.f);
+      zeros(3) = frame_a.t + Frames.resolve1(R_rel, frame_b.t) - cross(r, frame_a.f);
     else
       frame_a.R = Frames.absoluteRotation(frame_b.R, R_rel_inv);
       zeros(3) = frame_b.f + Frames.resolve1(R_rel_inv, frame_a.f);
-      zeros(3) = frame_b.t + Frames.resolve1(R_rel_inv, frame_a.t) + cross(r,
-        frame_b.f);
+      zeros(3) = frame_b.t + Frames.resolve1(R_rel_inv, frame_a.t) + cross(Frames.resolve1(R_rel_inv,r), frame_b.f);
     end if;
+    
+  /*
+  if checkTotalPower then
+    totalPower = frame_a.f*Frames.resolve2(frame_a.R, der(frame_a.r_0)) +
+                 frame_b.f*Frames.resolve2(frame_b.R, der(frame_b.r_0)) +
+                 frame_a.t*Frames.angularVelocity2(frame_a.R) +
+                 frame_b.t*Frames.angularVelocity2(frame_b.R);
+  else
+    totalPower = 0;
+  end if;
+*/
   end FixedRotation;
   
   model Body 
