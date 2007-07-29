@@ -427,9 +427,11 @@ the animation may be switched off via parameter animation = <b>false</b>.
     parameter Types.ShapeExtra extra=0.0 
       " Additional parameter depending on shapeType (see docu of Visualizers.Advanced.Shape)."
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter Boolean checkTotalPower=false 
-      "= true, if total power flowing into this component shall be determined (must be zero)"
-      annotation (Dialog(tab="Advanced"));
+  /*
+  parameter Boolean checkTotalPower=false 
+    "= true, if total power flowing into this component shall be determined (must be zero)"
+    annotation (Dialog(tab="Advanced"));
+*/
     
     input Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.RodColor 
       " Color of shape" 
