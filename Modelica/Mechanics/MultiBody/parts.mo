@@ -572,13 +572,11 @@ the animation may be switched off via parameter animation = <b>false</b>.
     if rooted(frame_a.R) then
       frame_b.R = Frames.absoluteRotation(frame_a.R, R_rel);
       zeros(3) = frame_a.f + Frames.resolve1(R_rel, frame_b.f);
-      zeros(3) = frame_a.t + Frames.resolve1(R_rel, frame_b.t) - cross(r,
-        frame_a.f);
+      zeros(3) = frame_a.t + Frames.resolve1(R_rel, frame_b.t) - cross(r, frame_a.f);
     else
       frame_a.R = Frames.absoluteRotation(frame_b.R, R_rel_inv);
       zeros(3) = frame_b.f + Frames.resolve1(R_rel_inv, frame_a.f);
-      zeros(3) = frame_b.t + Frames.resolve1(R_rel_inv, frame_a.t) + cross(r,
-        frame_b.f);
+      zeros(3) = frame_b.t + Frames.resolve1(R_rel_inv, frame_a.t) + cross(Frames.resolve1(R_rel_inv,r), frame_b.f);
     end if;
   end FixedRotation;
   
