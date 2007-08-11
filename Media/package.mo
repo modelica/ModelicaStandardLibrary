@@ -1,3 +1,4 @@
+within Modelica;
 package Media "Property models of media"
 extends Modelica.Icons.Library;
 import SI = Modelica.SIunits;
@@ -4873,7 +4874,7 @@ A minor approximation is used: the reference density is used instead of the real
   annotation (Documentation(info="<html>
 <body>
 <h2>Linear Compressibility Fluid Model</h2>
-<p></p>This linear compressibility fluid model is based on the assumptions that:
+<p>This linear compressibility fluid model is based on the assumptions that:
 </p>
 <ul>
 <li>The specific heat capacity at constant pressure (cp) is constant</li>
