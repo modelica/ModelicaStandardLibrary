@@ -458,8 +458,8 @@ in the housing on one side via component Fixed.</p>
 <p>Simulate for 1 second and plot the following variables:<br>
    angular velocities of inertias inertia2 and 3: inertia2.w, inertia3.w</p>
  
-</HTML>"), Diagram, 
-        experiment, 
+</HTML>"), Diagram,
+        experiment,
         experimentSetupOutput);
       
       Modelica.Mechanics.Rotational.Fixed fixed 
@@ -536,8 +536,8 @@ values (defined already in the model):</p>
 (inertia1.w, inertia2.w, inertia3.w).</p>
  
 </HTML>"), Diagram,
-        Coordsys(grid=[1,1]), 
-        experiment(StopTime=3), 
+        Coordsys(grid=[1,1]),
+        experiment(StopTime=3),
         experimentSetupOutput);
       
       Modelica.Mechanics.Rotational.Torque torque 
@@ -644,8 +644,8 @@ mode = -1/0/+1 means backward sliding,
 locked, forward sliding.</p>
  
 </HTML>"),      Commands(file="CoupledClutches.mos" "Plot inertias"),
-        Diagram, 
-        experiment(StopTime=1.5), 
+        Diagram,
+        experiment(StopTime=1.5),
         experimentSetupOutput);
       
       Modelica.Mechanics.Rotational.Inertia J1(
@@ -676,6 +676,7 @@ locked, forward sliding.</p>
         phase=1.57)   annotation (extent=[-25, 15; -15, 25], rotation=-90);
       Modelica.Blocks.Sources.Step step2(startTime=T3) 
         annotation (extent=[55, 15; 65, 25], rotation=-90);
+      Fixed fixed            annotation (extent=[-68,-28; -52,-12]);
     equation 
       connect(torque.flange_b, J1.flange_a) 
         annotation (points=[-55, 0; -45, 0], style(color=0));
@@ -699,6 +700,8 @@ locked, forward sliding.</p>
             5.5], style(color=74, rgbcolor={0,0,127}));
       connect(step2.y, clutch3.f_normalized) annotation (points=[60,14.5; 60,
             5.5], style(color=74, rgbcolor={0,0,127}));
+      connect(fixed.flange_b, torque.bearing) annotation (points=[-60,-20; -60,
+            -5], style(color=0, rgbcolor={0,0,0}));
     end CoupledClutches;
     
     model LossyGearDemo1 
@@ -731,8 +734,8 @@ gear.mode  :  1 = forward rolling
              -1 = backward rolling
 </pre>
 </HTML>
-"), Diagram, 
-        experiment(StopTime=0.5), 
+"), Diagram,
+        experiment(StopTime=0.5),
         experimentSetupOutput);
       Modelica.Mechanics.Rotational.LossyGear gear(i=2, lossTable=[0, 0.5, 0.5, 0, 0]) 
         annotation (extent=[-10, 0; 10, 20]);
@@ -750,6 +753,7 @@ gear.mode  :  1 = forward rolling
         height=5,
         duration=2,
         offset=-10)   annotation (extent=[100, 0; 80, 20]);
+      Fixed fixed            annotation (extent=[-10,-30; 10,-10]);
     equation 
       connect(Inertia1.flange_b, gear.flange_a) 
         annotation (points=[-20, 10; -10, 10], style(color=0));
@@ -766,6 +770,12 @@ gear.mode  :  1 = forward rolling
           style(color=74, rgbcolor={0,0,127}));
       connect(load.y, torque2.tau) annotation (points=[79,10; 72,10], style(
             color=74, rgbcolor={0,0,127}));
+      connect(fixed.flange_b, gear.bearing)
+        annotation (points=[0,-20; 0,0], style(color=0, rgbcolor={0,0,0}));
+      connect(fixed.flange_b, torque1.bearing) annotation (points=[0,-20; -60,
+            -20; -60,0], style(color=0, rgbcolor={0,0,0}));
+      connect(fixed.flange_b, torque2.bearing) annotation (points=[0,-20; 60,
+            -20; 60,0], style(color=0, rgbcolor={0,0,0}));
     end LossyGearDemo1;
     
     model LossyGearDemo2 
@@ -805,44 +815,54 @@ gear.mode           :  1 = forward rolling
 as component LossyGear includes the functionality of component BearingFriction
 (only <i>peak</i> not supported).</p>
 </HTML>
-"), Diagram, 
-        experiment(StopTime=0.5), 
+"), Diagram,
+        experiment(StopTime=0.5),
         experimentSetupOutput);
       Modelica.Mechanics.Rotational.LossyGear gear(i=2, lossTable=[0, 0.5, 0.5, 0, 0]) 
-        annotation (extent=[-10, 0; 10, 20]);
+        annotation (extent=[-4,0; 16,20]);
       Modelica.Mechanics.Rotational.Inertia Inertia1 
-                                  annotation (extent=[-40, 0; -20, 20]);
+                                  annotation (extent=[-30,0; -10,20]);
       Modelica.Mechanics.Rotational.Inertia Inertia2(J=1.5) 
-                                         annotation (extent=[20, 0; 40, 20]);
+                                         annotation (extent=[20,0; 40,20]);
       Modelica.Mechanics.Rotational.Torque torque1 
-                                annotation (extent=[-50, 60; -70, 80]);
+                                annotation (extent=[-84,0; -64,20]);
       Modelica.Mechanics.Rotational.Torque torque2 
-                                annotation (extent=[70, 0; 50, 20]);
+                                annotation (extent=[68,0; 48,20]);
       Modelica.Blocks.Sources.Sine DriveSine(amplitude=10, freqHz=1) 
-        annotation (extent=[-20, 60; -40, 80]);
+        annotation (extent=[-60,40; -80,60]);
       Modelica.Blocks.Sources.Ramp load(
         height=5,
         duration=2,
-        offset=-10) annotation (extent=[100, 0; 80, 20]);
+        offset=-10) annotation (extent=[100,0; 80,20]);
       Modelica.Mechanics.Rotational.BearingFriction bearingFriction(tau_pos=[0, 0.5; 1, 1]) 
-        annotation (extent=[-70, 0; -50, 20]);
+        annotation (extent=[-58,0; -38,20]);
+      Fixed fixed            annotation (extent=[-4,-50; 16,-30]);
     equation 
       PowerLoss = gear.flange_a.tau*der(gear.flange_a.phi) + gear.flange_b.tau*
         der(gear.flange_b.phi);
       connect(torque2.flange_b, Inertia2.flange_b) 
-        annotation (points=[50, 10; 40, 10], style(color=0));
+        annotation (points=[48,10; 40,10],   style(color=0));
       connect(Inertia2.flange_a, gear.flange_b) 
-        annotation (points=[20, 10; 10, 10], style(color=0));
+        annotation (points=[20,10; 16,10],   style(color=0));
       connect(gear.flange_a, Inertia1.flange_b) 
-        annotation (points=[-10, 10; -20, 10], style(color=0));
+        annotation (points=[-4,10; -10,10],    style(color=0));
       connect(Inertia1.flange_a, bearingFriction.flange_b) 
-        annotation (points=[-40, 10; -50, 10], style(color=0));
-      connect(bearingFriction.flange_a, torque1.flange_b) annotation (points=[-70,
-             10; -80, 10; -80, 70; -70, 70], style(color=0));
-      connect(DriveSine.y, torque1.tau) annotation (points=[-41,70; -48,70],
+        annotation (points=[-30,10; -38,10],   style(color=0));
+      connect(bearingFriction.flange_a, torque1.flange_b) annotation (points=[-58,10; 
+            -64,10],                         style(color=0));
+      connect(DriveSine.y, torque1.tau) annotation (points=[-81,50; -96,50; -96,
+            10; -86,10],
           style(color=74, rgbcolor={0,0,127}));
-      connect(load.y, torque2.tau) annotation (points=[79,10; 72,10], style(
+      connect(load.y, torque2.tau) annotation (points=[79,10; 70,10], style(
             color=74, rgbcolor={0,0,127}));
+      connect(gear.bearing, fixed.flange_b)
+        annotation (points=[6,0; 6,-40], style(color=0, rgbcolor={0,0,0}));
+      connect(fixed.flange_b, torque2.bearing) annotation (points=[6,-40; 58,
+            -40; 58,0], style(color=0, rgbcolor={0,0,0}));
+      connect(fixed.flange_b, bearingFriction.bearing) annotation (points=[6,
+            -40; -48,-40; -48,0], style(color=0, rgbcolor={0,0,0}));
+      connect(torque1.bearing, fixed.flange_b) annotation (points=[-74,0; -74,
+            -40; 6,-40], style(color=0, rgbcolor={0,0,0}));
     end LossyGearDemo2;
     
     model ElasticBearing "Example to show possible usage of bearing flange" 
@@ -871,8 +891,7 @@ housing dynamics.</p>
 Simulate for about 10 seconds and plot the angular velocities of the inertias <tt>housing.w</tt>,
 <tt>shaft.w</tt> and <tt>load.w</tt>.</p>
 </html>
-"), 
-        experiment(StopTime=10), 
+"),     experiment(StopTime=10),
         experimentSetupOutput);
       Modelica.Mechanics.Rotational.IdealGear idealGear(ratio=3) 
         annotation (extent=[10, 40; 30, 60]);
@@ -894,6 +913,8 @@ Simulate for about 10 seconds and plot the angular velocities of the inertias <t
         annotation (points=[20, 0; 20, -20], style(color=0));
       connect(ramp.y, torque.tau) annotation (points=[-69,50; -52,50], style(
             color=74, rgbcolor={0,0,127}));
+      connect(fixed.flange_b, torque.bearing) annotation (points=[20,-70; -40,
+            -70; -40,40], style(color=0, rgbcolor={0,0,0}));
     end ElasticBearing;
   end Examples;
   
