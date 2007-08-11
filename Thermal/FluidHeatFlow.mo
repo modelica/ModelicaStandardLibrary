@@ -1,10 +1,7 @@
 package FluidHeatFlow 
   "Simple components for 1-dimensional incompressible thermo-fluid flow models" 
   extends Modelica.Icons.Library2;
-  type TemperatureDifference = Real (
-    final quantity="TemperatureDifference",
-    final unit="K",
-    displayUnit="K");
+  
   annotation (
     version="1.6.0 Beta", versionDate="2007-01-23",
     preferedView="info",Documentation(info="<HTML>
@@ -250,12 +247,12 @@ A prescribed heat source dissipates its heat through a thermal conductor to a co
         annotation(choicesAllMatching=true);
       parameter Modelica.SIunits.CelsiusTemperature TAmb=20 
         "ambient temperature";
-      output TemperatureDifference dTSource=
+      output Modelica.SIunits.TemperatureDifference dTSource=
         PrescribedHeatFlow1.port.T-Modelica.SIunits.Conversions.from_degC(TAmb) 
         "Source over Ambient";
-      output TemperatureDifference dTtoPipe=PrescribedHeatFlow1.port.T-Pipe1.heatPort.T 
+      output Modelica.SIunits.TemperatureDifference dTtoPipe=PrescribedHeatFlow1.port.T-Pipe1.heatPort.T 
         "Source over Coolant";
-      output TemperatureDifference dTCoolant=Pipe1.dT 
+      output Modelica.SIunits.TemperatureDifference dTCoolant=Pipe1.dT 
         "Coolant's temperature increase";
       FluidHeatFlow.Sources.Ambient Ambient1(T_Ambient=Modelica.SIunits.Conversions.from_degC(TAmb),
         medium=medium) 
@@ -376,21 +373,21 @@ Two prescribed heat sources dissipate their heat through thermal conductors to c
         annotation(choicesAllMatching=true);
       parameter Modelica.SIunits.CelsiusTemperature TAmb=20 
         "ambient temperature";
-      output TemperatureDifference dTSource1=
+      output Modelica.SIunits.TemperatureDifference dTSource1=
         PrescribedHeatFlow1.port.T-Modelica.SIunits.Conversions.from_degC(TAmb) 
         "Source1 over Ambient";
-      output TemperatureDifference dTtoPipe1=PrescribedHeatFlow1.port.T-Pipe1.heatPort.T 
+      output Modelica.SIunits.TemperatureDifference dTtoPipe1=PrescribedHeatFlow1.port.T-Pipe1.heatPort.T 
         "Source1 over Coolant1";
-      output TemperatureDifference dTCoolant1=Pipe1.dT 
+      output Modelica.SIunits.TemperatureDifference dTCoolant1=Pipe1.dT 
         "Coolant1's temperature increase";
-      output TemperatureDifference dTSource2=
+      output Modelica.SIunits.TemperatureDifference dTSource2=
         PrescribedHeatFlow2.port.T-Modelica.SIunits.Conversions.from_degC(TAmb) 
         "Source2 over Ambient";
-      output TemperatureDifference dTtoPipe2=PrescribedHeatFlow2.port.T-Pipe2.heatPort.T 
+      output Modelica.SIunits.TemperatureDifference dTtoPipe2=PrescribedHeatFlow2.port.T-Pipe2.heatPort.T 
         "Source2 over Coolant2";
-      output TemperatureDifference dTCoolant2=Pipe2.dT 
+      output Modelica.SIunits.TemperatureDifference dTCoolant2=Pipe2.dT 
         "Coolant2's temperature increase";
-      output TemperatureDifference dTmixedCoolant=Ambient2.T_port-Ambient1.T_port 
+      output Modelica.SIunits.TemperatureDifference dTmixedCoolant=Ambient2.T_port-Ambient1.T_port 
         "mixed Coolant's temperature increase";
       FluidHeatFlow.Sources.Ambient Ambient1(T_Ambient=Modelica.SIunits.Conversions.from_degC(TAmb),
         medium=medium) 
@@ -536,16 +533,16 @@ Inner coolant's temperature rise near the source is the same as temperature drop
         annotation(choicesAllMatching=true);
       parameter Modelica.SIunits.CelsiusTemperature TAmb=20 
         "ambient temperature";
-      output TemperatureDifference dTSource=
+      output Modelica.SIunits.TemperatureDifference dTSource=
         PrescribedHeatFlow1.port.T-Modelica.SIunits.Conversions.from_degC(TAmb) 
         "Source over Ambient";
-      output TemperatureDifference dTtoPipe=PrescribedHeatFlow1.port.T-Pipe1.heatPort.T 
+      output Modelica.SIunits.TemperatureDifference dTtoPipe=PrescribedHeatFlow1.port.T-Pipe1.heatPort.T 
         "Source over inner Coolant";
-      output TemperatureDifference dTinnerCoolant=Pipe1.dT 
+      output Modelica.SIunits.TemperatureDifference dTinnerCoolant=Pipe1.dT 
         "inner Coolant's temperature increase";
-      output TemperatureDifference dTCooler=innerPipe.heatPort.T-outerPipe.heatPort.T 
+      output Modelica.SIunits.TemperatureDifference dTCooler=innerPipe.heatPort.T-outerPipe.heatPort.T 
         "Cooler's temperature increase between inner and outer pipes";
-      output TemperatureDifference dTouterCoolant=outerPipe.dT 
+      output Modelica.SIunits.TemperatureDifference dTouterCoolant=outerPipe.dT 
         "outer Coolant's temperature increase";
       FluidHeatFlow.Sources.Ambient Ambient1(T_Ambient=Modelica.SIunits.Conversions.from_degC(TAmb),
         medium=outerMedium) annotation (extent=[-60,60; -80,80]);
@@ -673,12 +670,12 @@ You may try to<br>
         annotation(choicesAllMatching=true);
       parameter Modelica.SIunits.CelsiusTemperature TAmb=20 
         "ambient temperature";
-      output TemperatureDifference dTSource=
+      output Modelica.SIunits.TemperatureDifference dTSource=
         PrescribedHeatFlow1.port.T-Modelica.SIunits.Conversions.from_degC(TAmb) 
         "Source over Ambient";
-      output TemperatureDifference dTtoPipe=PrescribedHeatFlow1.port.T-Pipe1.heatPort.T 
+      output Modelica.SIunits.TemperatureDifference dTtoPipe=PrescribedHeatFlow1.port.T-Pipe1.heatPort.T 
         "Source over Coolant";
-      output TemperatureDifference dTCoolant=Pipe1.dT 
+      output Modelica.SIunits.TemperatureDifference dTCoolant=Pipe1.dT 
         "Coolant's temperature increase";
       FluidHeatFlow.Sources.Ambient Ambient1(T_Ambient=Modelica.SIunits.Conversions.from_degC(TAmb),
         medium=medium) 
@@ -773,12 +770,12 @@ then started again (using a ramp of 0.2 s).
         annotation(choicesAllMatching=true);
       parameter Modelica.SIunits.CelsiusTemperature TAmb=20 
         "ambient temperature";
-      output TemperatureDifference dTSource=
+      output Modelica.SIunits.TemperatureDifference dTSource=
         PrescribedHeatFlow1.port.T-Modelica.SIunits.Conversions.from_degC(TAmb) 
         "Source over Ambient";
-      output TemperatureDifference dTtoPipe=PrescribedHeatFlow1.port.T-Pipe1.heatPort.T 
+      output Modelica.SIunits.TemperatureDifference dTtoPipe=PrescribedHeatFlow1.port.T-Pipe1.heatPort.T 
         "Source over Coolant";
-      output TemperatureDifference dTCoolant=Pipe1.dT 
+      output Modelica.SIunits.TemperatureDifference dTCoolant=Pipe1.dT 
         "Coolant's temperature increase";
       FluidHeatFlow.Sources.Ambient Ambient1(T_Ambient=Modelica.SIunits.Conversions.from_degC(TAmb),
         medium=medium) 
@@ -853,21 +850,21 @@ then started again (using a ramp of 0.2 s).
         annotation(choicesAllMatching=true);
       parameter Modelica.SIunits.CelsiusTemperature TAmb=20 
         "ambient temperature";
-      output TemperatureDifference dTSource1=
+      output Modelica.SIunits.TemperatureDifference dTSource1=
         PrescribedHeatFlow1.port.T-Modelica.SIunits.Conversions.from_degC(TAmb) 
         "Source1 over Ambient";
-      output TemperatureDifference dTtoPipe1=PrescribedHeatFlow1.port.T-Pipe1.heatPort.T 
+      output Modelica.SIunits.TemperatureDifference dTtoPipe1=PrescribedHeatFlow1.port.T-Pipe1.heatPort.T 
         "Source1 over Coolant1";
-      output TemperatureDifference dTCoolant1=Pipe1.dT 
+      output Modelica.SIunits.TemperatureDifference dTCoolant1=Pipe1.dT 
         "Coolant1's temperature increase";
-      output TemperatureDifference dTSource2=
+      output Modelica.SIunits.TemperatureDifference dTSource2=
         PrescribedHeatFlow2.port.T-Modelica.SIunits.Conversions.from_degC(TAmb) 
         "Source2 over Ambient";
-      output TemperatureDifference dTtoPipe2=PrescribedHeatFlow2.port.T-Pipe2.heatPort.T 
+      output Modelica.SIunits.TemperatureDifference dTtoPipe2=PrescribedHeatFlow2.port.T-Pipe2.heatPort.T 
         "Source2 over Coolant2";
-      output TemperatureDifference dTCoolant2=Pipe2.dT 
+      output Modelica.SIunits.TemperatureDifference dTCoolant2=Pipe2.dT 
         "Coolant2's temperature increase";
-      output TemperatureDifference dTmixedCoolant=Ambient2.T_port-Ambient1.T_port 
+      output Modelica.SIunits.TemperatureDifference dTmixedCoolant=Ambient2.T_port-Ambient1.T_port 
         "mixed Coolant's temperature increase";
       FluidHeatFlow.Sources.Ambient Ambient1(T_Ambient=Modelica.SIunits.Conversions.from_degC(TAmb),
         medium=medium) 
@@ -975,12 +972,12 @@ the time behaviour depending on coolant flow.
         "ambient temperature";
       parameter Modelica.SIunits.CelsiusTemperature TMass=40 
         "inital temperature of mass";
-      output TemperatureDifference dTMass=
+      output Modelica.SIunits.TemperatureDifference dTMass=
         HeatCapacitor1.port.T-Modelica.SIunits.Conversions.from_degC(TAmb) 
         "Mass over Ambient";
-      output TemperatureDifference dTtoPipe=HeatCapacitor1.port.T-Pipe1.heatPort.T 
+      output Modelica.SIunits.TemperatureDifference dTtoPipe=HeatCapacitor1.port.T-Pipe1.heatPort.T 
         "Mass over Coolant";
-      output TemperatureDifference dTCoolant=Pipe1.dT 
+      output Modelica.SIunits.TemperatureDifference dTCoolant=Pipe1.dT 
         "Coolant's temperature increase";
       FluidHeatFlow.Sources.Ambient Ambient1(T_Ambient=Modelica.SIunits.Conversions.from_degC(TAmb),
         medium=medium) 
@@ -1044,21 +1041,21 @@ the time behaviour depending on coolant flow.
         "inital temperature of mass1";
       parameter Modelica.SIunits.CelsiusTemperature TMass2=60 
         "inital temperature of mass2";
-      output TemperatureDifference dTMass1=
+      output Modelica.SIunits.TemperatureDifference dTMass1=
         HeatCapacitor1.port.T-Modelica.SIunits.Conversions.from_degC(TAmb) 
         "Mass1 over Ambient";
-      output TemperatureDifference dTtoPipe1=HeatCapacitor1.port.T-Pipe1.heatPort.T 
+      output Modelica.SIunits.TemperatureDifference dTtoPipe1=HeatCapacitor1.port.T-Pipe1.heatPort.T 
         "Mass1 over Coolant1";
-      output TemperatureDifference dTCoolant1=Pipe1.dT 
+      output Modelica.SIunits.TemperatureDifference dTCoolant1=Pipe1.dT 
         "Coolant1's temperature increase";
-      output TemperatureDifference dTMass2=
+      output Modelica.SIunits.TemperatureDifference dTMass2=
         HeatCapacitor2.port.T-Modelica.SIunits.Conversions.from_degC(TAmb) 
         "Mass2 over Ambient";
-      output TemperatureDifference dTtoPipe2=HeatCapacitor2.port.T-Pipe2.heatPort.T 
+      output Modelica.SIunits.TemperatureDifference dTtoPipe2=HeatCapacitor2.port.T-Pipe2.heatPort.T 
         "Mass2 over Coolant2";
-      output TemperatureDifference dTCoolant2=Pipe2.dT 
+      output Modelica.SIunits.TemperatureDifference dTCoolant2=Pipe2.dT 
         "Coolant2's temperature increase";
-      output TemperatureDifference dTmixedCoolant=Ambient2.T_port-Ambient1.T_port 
+      output Modelica.SIunits.TemperatureDifference dTmixedCoolant=Ambient2.T_port-Ambient1.T_port 
         "mixed Coolant's temperature increase";
       FluidHeatFlow.Sources.Ambient Ambient1(T_Ambient=Modelica.SIunits.Conversions.from_degC(TAmb),
         medium=medium) 
@@ -1307,6 +1304,7 @@ and the accompanying <b>disclaimer</b>
             fillPattern=1))));
     
     model IsolatedPipe 
+      
     annotation (Documentation(info="<HTML>
 <p>
 Pipe without heat exchange.<br>
@@ -1336,6 +1334,7 @@ leads to neglection of temperature transient cv*m*der(T).
     end IsolatedPipe;
     
     model HeatedPipe 
+      
     annotation (Documentation(info="<HTML>
 <p>
 Pipe with heat exchange.<br>
@@ -1381,6 +1380,7 @@ temperature rise defined by storing heat in medium's mass.
     end HeatedPipe;
     
     model Valve 
+      
     annotation (Documentation(info="<HTML>
 <p>
 Simple controlled valve.<br>
@@ -1523,6 +1523,7 @@ and the accompanying <b>disclaimer</b>
             fillPattern=1))));
     
     connector FlowPort 
+      
     annotation (Documentation(info="<HTML>
 <p>
 Basic definition of the connector.
@@ -1549,6 +1550,7 @@ If ports with different media are connected, the simulation is asserted due to t
     end FlowPort;
     
     connector FlowPort_a 
+      
     annotation (Documentation(info="<HTML>
 <p>
 Same as FlowPort, but icon allows to differentiate direction of flow.
@@ -1582,6 +1584,7 @@ Same as FlowPort, but icon allows to differentiate direction of flow.
     end FlowPort_a;
     
     connector FlowPort_b 
+      
     annotation (Documentation(info="<HTML>
 <p>
 Same as FlowPort, but icon allows to differentiate direction of flow.
@@ -1669,6 +1672,7 @@ and the accompanying <b>disclaimer</b>
 "));
       
       partial model SimpleFriction 
+        
       annotation (Documentation(info="<HTML>
 <p>
 Definition of relationship between pressure drop and volume flow rate:
@@ -1781,7 +1785,7 @@ Parameter 0 &lt; tapT &lt; 1 defines temperature of heatPort between medium's in
           "temperature at flowPort_a";
         output Modelica.SIunits.Temperature T_b=flowPort_b.h/medium.cp 
           "temperature at flowPort_b";
-        output TemperatureDifference dT=if noEvent(V_flow>=0) then T-T_a else T_b-T 
+        output Modelica.SIunits.TemperatureDifference dT=if noEvent(V_flow>=0) then T-T_a else T_b-T 
           "temperature increase of coolant in flow direction";
       protected 
         Modelica.SIunits.SpecificEnthalpy h = medium.cp*T 
@@ -1809,6 +1813,7 @@ Parameter 0 &lt; tapT &lt; 1 defines temperature of heatPort between medium's in
       end TwoPort;
       
       partial model Ambient 
+        
       annotation (Documentation(info="<HTML>
 <p>
 Partial model of (Infinite) ambient, defines pressure and temperature.
@@ -1840,6 +1845,7 @@ Partial model of (Infinite) ambient, defines pressure and temperature.
       end Ambient;
       
       partial model AbsoluteSensor 
+        
       annotation (Documentation(info="<HTML>
 <p>
 Partial model for an absolute sensor (pressure/temperature).<br>
@@ -1883,6 +1889,7 @@ Pressure, mass flow, temperature and enthalpy flow of medium are not affected.
       end AbsoluteSensor;
       
       partial model RelativeSensor 
+        
       annotation (Documentation(info="<HTML>
 <p>
 Partial model for a relative sensor (pressure drop/temperature difference).<br>
@@ -1931,6 +1938,7 @@ Pressure, mass flow, temperature and enthalpy flow of medium are not affected.
       end RelativeSensor;
       
       partial model FlowSensor 
+        
       annotation (Documentation(info="<HTML>
 <p>
 Partial model for a flow sensor (mass flow/heat flow).<br>
@@ -2179,6 +2187,7 @@ and the accompanying <b>disclaimer</b>
             fillPattern=1))));
     
     model pSensor 
+      
     annotation (Documentation(info="<HTML>
 <p>
 pSensor measures the absolute pressure.<br>
@@ -2196,6 +2205,7 @@ Thermodynamic equations are defined by Partials.AbsoluteSensor.
     end pSensor;
     
     model TSensor 
+      
     annotation (Documentation(info="<HTML>
 <p>
 TSensor measures the absolute temperature (Kelvin).<br>
@@ -2213,6 +2223,7 @@ Thermodynamic equations are defined by Partials.AbsoluteSensor.
     end TSensor;
     
     model dpSensor 
+      
     annotation (Documentation(info="<HTML>
 <p>
 dpSensor measures the pressure drop between flowPort_a and flowPort_b.<br>
@@ -2230,6 +2241,7 @@ Thermodynamic equations are defined by Partials.RelativeSensor.
     end dpSensor;
     
     model dTSensor 
+      
     annotation (Documentation(info="<HTML>
 <p>
 dTSensor measures the temperature difference between flowPort_a and flowPort_b.<br>
@@ -2242,7 +2254,7 @@ Outlet temperature is defined by variable T of the corresponding component.</li>
 </ul>
 </HTML>"), Diagram);
       extends Interfaces.Partials.RelativeSensor(y(redeclare type SignalType = 
-              TemperatureDifference));
+              Modelica.SIunits.TemperatureDifference));
     equation 
       medium.cp*y = flowPort_a.h - flowPort_b.h;
       annotation(Icon(Text(
@@ -2252,6 +2264,7 @@ Outlet temperature is defined by variable T of the corresponding component.</li>
     end dTSensor;
     
     model m_flowSensor 
+      
     annotation (Documentation(info="<HTML>
 <p>
 m_flowSensor measures the mass flow rate.<br>
@@ -2269,6 +2282,7 @@ Thermodynamic equations are defined by Partials.FlowSensor.
     end m_flowSensor;
     
     model V_flowSensor 
+      
     annotation (Documentation(info="<HTML>
 <p>
 V_flowSensor measures the volume flow rate.<br>
@@ -2286,6 +2300,7 @@ Thermodynamic equations are defined by Partials.FlowSensor.
     end V_flowSensor;
     
     model H_flowSensor 
+      
     annotation (Documentation(info="<HTML>
 <p>
 H_flowSensor measures the enthalpy flow rate.<br>
@@ -2368,6 +2383,7 @@ and the accompanying <b>disclaimer</b>
             fillPattern=1))));
     
     model Ambient 
+      
     annotation (Documentation(info="<HTML>
 <p>
 (Infinite) ambient with constant pressure and temperature.<br>
@@ -2383,6 +2399,7 @@ Thermodynamic equations are defined by Partials.Ambient.
     end Ambient;
     
     model PrescribedAmbient 
+      
     annotation (Documentation(info="<HTML>
 <p>
 (Infinite) ambient with prescribed pressure and temperature.<br>
@@ -2402,6 +2419,7 @@ Thermodynamic equations are defined by Partials.Ambient.
     end PrescribedAmbient;
     
     model AbsolutePressure 
+      
     annotation (Documentation(info="<HTML>
 <p>
 AbsolutePressure to define pressure level of a closed cooling cycle. 
@@ -2436,6 +2454,7 @@ Coolant's mass flow, temperature and enthalpy flow are not affected.<br>
     end AbsolutePressure;
     
     model ConstantVolumeFlow 
+      
     annotation (Documentation(info="<HTML>
 <p>
 Fan resp. pump with constant volume flow rate. Pressure increase is the response of the whole system. 
@@ -2472,6 +2491,7 @@ Thermodynamic equations are defined by Partials.TwoPort.
     end ConstantVolumeFlow;
     
     model PrescribedVolumeFlow 
+      
     annotation (Documentation(info="<HTML>
 <p>
 Fan resp. pump with prescribed volume flow rate. Pressure increase is the response of the whole system. 
@@ -2511,6 +2531,7 @@ Thermodynamic equations are defined by Partials.TwoPort.
     end PrescribedVolumeFlow;
     
     model ConstantPressureIncrease 
+      
     annotation (Documentation(info="<HTML>
 <p>
 Fan resp. pump with constant pressure increase. Mass resp. volume flow is the response of the whole system. 
@@ -2547,6 +2568,7 @@ Thermodynamic equations are defined by Partials.TwoPort.
     end ConstantPressureIncrease;
     
     model PrescribedPressureIncrease 
+      
     annotation (Documentation(info="<HTML>
 <p>
 Fan resp. pump with prescribed pressure increase. Mass resp. volume flow is the response of the whole system. 
@@ -2585,6 +2607,7 @@ Thermodynamic equations are defined by Partials.TwoPort.
     end PrescribedPressureIncrease;
     
     model IdealPump 
+      
     annotation (Documentation(info="<HTML>
 <p>
 Simple fan resp. pump where characteristic is dependent on shaft's speed, <br>
