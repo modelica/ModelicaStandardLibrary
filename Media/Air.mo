@@ -153,7 +153,7 @@ required from medium model \""       + mediumName + "\".");
     end Xsaturation;
     
     function massFraction_pTphi 
-      "Compute the steam mass fraction from relative humidity and T" 
+      "Return the steam mass fraction from relative humidity and T" 
       input AbsolutePressure p "Pressure";
       input Temperature T "Temperature";
       input Real phi "relative humidity (0 ... 1.0)";
@@ -494,7 +494,7 @@ required from medium model \""       + mediumName + "\".");
     //h:=Utilities.spliceFunction(4200*(T-273.15),2050*(T-273.15)-333000,T-273.16,0.1);
     dh:=Utilities.spliceFunction_der(4200*(T-273.15),2050*(T-273.15)-333000,T-273.16,0.1,4200*dT,2050*dT,dT,0);
   end enthalpyOfWater_der;
-
+    
     package Utilities "utility functions" 
       function spliceFunction 
           input Real pos;
@@ -665,7 +665,7 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>240 
         hx_phi[i] = medium_phi[i].h*(medium_phi[i].x_water + 1);
         y_phi[i] = hx_phi[i] - diagSlope*x;
       end for;
-       
+      
       annotation (experiment(StopTime=1), Documentation(info="<html>
 <p>This model produces psychrometric data from the moist air model in this library to be plotted in charts. The two most common chart varieties are the Mollier Diagram and the Psycrometric Chart. The first is widely used in some European countries while the second is more common in the Anglo-American world. Specific enthalpy is plotted over absolute humidity in the Mollier Diagram, it is the other way round in the Psychrometric Chart.<br>
 It must be noted that the relationship of both axis variables is not right-angled, the absolute humidity follows a slope which equals the enthalpy of vaporization at 0°C. For better reading and in oder to reduce the fog region the humidity axis is rotated to obtain a right-angled plot. Both charts usually contain additional information as isochores or auxiliary scales for e.g. heat ratios. Those information are omitted in this model and the charts below. Other important features of psychrometric chart data are that all mass specific variables (like absolute humidity, specific enthalpy etc.) are expressed in terms of kg dry air and that their baseline of 0 enthalpy is found at 0°C and zero humidity. </p>

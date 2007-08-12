@@ -1,4 +1,3 @@
-within Modelica;
 package Media "Property models of media"
 extends Modelica.Icons.Library;
 import SI = Modelica.SIunits;
@@ -5163,7 +5162,7 @@ end PartialMixtureMedium;
     end BaseProperties;
     
     replaceable partial function setDewState 
-      "set the thermodynamic state on the dew line" 
+      "Return the thermodynamic state on the dew line" 
       extends Modelica.Icons.Function;
       input SaturationProperties sat "saturation point";
       input FixedPhase phase(min = 1, max = 2) =  1 
@@ -5172,7 +5171,7 @@ end PartialMixtureMedium;
     end setDewState;
     
     replaceable partial function setBubbleState 
-      "set the thermodynamic state on the bubble line" 
+      "Return the thermodynamic state on the bubble line" 
       extends Modelica.Icons.Function;
       input SaturationProperties sat "saturation point";
       input FixedPhase phase(min = 1, max = 2) =  1 
@@ -5201,7 +5200,7 @@ end PartialMixtureMedium;
     end setState_pTX;
     
     replaceable function setSat_T 
-      "set saturation property record from temperature" 
+      "Return saturation property record from temperature" 
       extends Modelica.Icons.Function;
       input Temperature T "temperature";
       output SaturationProperties sat "saturation property record";
@@ -5211,7 +5210,7 @@ end PartialMixtureMedium;
     end setSat_T;
     
     replaceable function setSat_p 
-      "set saturation property record from pressure" 
+      "Return saturation property record from pressure" 
       extends Modelica.Icons.Function;
       input AbsolutePressure p "pressure";
       output SaturationProperties sat "saturation property record";
@@ -5261,21 +5260,21 @@ end PartialMixtureMedium;
       end dewDensity;
     
       replaceable partial function saturationPressure 
-      "Returns saturation pressure" 
+      "Return saturation pressure" 
         extends Modelica.Icons.Function;
         input Temperature T "temperature";
         output AbsolutePressure p "saturation pressure";
       end saturationPressure;
     
       replaceable partial function saturationTemperature 
-      "Returns saturation temperature" 
+      "Return saturation temperature" 
         extends Modelica.Icons.Function;
         input AbsolutePressure p "pressure";
         output Temperature T "saturation temperature";
       end saturationTemperature;
     
       replaceable function saturationPressure_sat 
-      "Returns saturation temperature" 
+      "Return saturation temperature" 
         extends Modelica.Icons.Function;
         input SaturationProperties sat "saturation property record";
         output AbsolutePressure p "saturation pressure";
@@ -5284,7 +5283,7 @@ end PartialMixtureMedium;
       end saturationPressure_sat;
     
       replaceable function saturationTemperature_sat 
-      "Returns saturation pressure" 
+      "Return saturation temperature" 
         extends Modelica.Icons.Function;
         input SaturationProperties sat "saturation property record";
         output Temperature T "saturation temperature";
@@ -5293,14 +5292,14 @@ end PartialMixtureMedium;
       end saturationTemperature_sat;
     
       replaceable partial function saturationTemperature_derp 
-      "Returns derivative of saturation temperature w.r.t. pressure" 
+      "Return derivative of saturation temperature w.r.t. pressure" 
         extends Modelica.Icons.Function;
         input AbsolutePressure p "pressure";
         output Real dTp "derivative of saturation temperature w.r.t. pressure";
       end saturationTemperature_derp;
     
       replaceable function saturationTemperature_derp_sat 
-      "Returns derivative of saturation temperature w.r.t.. pressure" 
+      "Return derivative of saturation temperature w.r.t. pressure" 
         extends Modelica.Icons.Function;
         input SaturationProperties sat "saturation property record";
         output Real dTp "derivative of saturation temperature w.r.t. pressure";
@@ -5503,7 +5502,7 @@ end PartialMixtureMedium;
         2);
     end setState_Tx;
     
-    replaceable function vapourQuality "Returns vapour quality" 
+    replaceable function vapourQuality "Return vapour quality" 
       input ThermodynamicState state "Thermodynamic state record";
       output MassFraction x "Vapour quality";
     protected 
