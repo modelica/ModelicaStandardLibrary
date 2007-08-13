@@ -1,7 +1,7 @@
 package Machines "Library for electric machines" 
   extends Modelica.Icons.Library2;
   annotation (
-  version="1.7.6", versionDate="2007-06-26",
+  version="1.7.7", versionDate="2007-08-12",
   Settings(NewStateSelection=true, Evaluate=true),
   preferedView="info", Documentation(info="<HTML>
 This package contains components to model electrical machines:
@@ -101,7 +101,7 @@ and the accompanying <b>disclaimer</b>
        back-changed the naming to ensure backward compatibility</li>
   <li> v1.7.1 2006/02/06 Anton Haumer<br>
        changed some naming of synchronous machines, not affecting existing models</li>
-  <li> v1.7.3 /01/18 Anton Haumer<br>
+  <li> v1.7.3 2007/01/18 Anton Haumer<br>
        resolved a bug in electrical excitation of synchronous induction machine</li>
   <li> v1.7.4 2007/06/08 Anton Haumer<br>
        documentation update</li>
@@ -109,6 +109,9 @@ and the accompanying <b>disclaimer</b>
        corrected some typos in documentation</li>
   <li> v1.7.6 2007/06/26 Anton Haumer<br>
        consistent parameters of DCSE</li>
+  <li> v1.7.7 2007/08/12 Anton Haumer<br>
+       Changed QuadraticLoadTorque1(TorqueDirection=true) to QuadraticLoadTorque1(TorqueDirection=false) since more realistic<br>
+       improved documentation</li>
   </ul>
 </HTML>"),
     Icon(
@@ -241,7 +244,8 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
       Modelica.Mechanics.Rotational.QuadraticSpeedDependentTorque 
         QuadraticLoadTorque1(
                     w_nominal=Modelica.SIunits.Conversions.from_rpm(rpmLoad),
-          tau_nominal=-T_Load) 
+          tau_nominal=-T_Load,
+        TorqueDirection=false) 
         annotation (extent=[90,-50; 70,-30]);
       Utilities.TerminalBox TerminalBox1(StarDelta="D") 
         annotation (extent=[-20,-30; 0,-10]);
@@ -349,7 +353,8 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
       Modelica.Mechanics.Rotational.QuadraticSpeedDependentTorque 
         QuadraticLoadTorque1(
                     w_nominal=Modelica.SIunits.Conversions.from_rpm(rpmLoad),
-          tau_nominal=-T_Load) 
+          tau_nominal=-T_Load,
+        TorqueDirection=false) 
         annotation (extent=[90,-50; 70,-30]);
     equation 
       connect(Star1.pin_n, Ground1.p) 
@@ -462,7 +467,8 @@ Default machine parameters of model <i>AIM_SlipRing</i> are used.
       Modelica.Mechanics.Rotational.QuadraticSpeedDependentTorque 
         QuadraticLoadTorque1(
                     w_nominal=Modelica.SIunits.Conversions.from_rpm(rpmLoad),
-          tau_nominal=-T_Load) 
+          tau_nominal=-T_Load,
+        TorqueDirection=false) 
         annotation (extent=[90,-50; 70,-30]);
       Utilities.TerminalBox TerminalBox1(StarDelta="D") 
         annotation (extent=[-20,-30; 0,-10]);
@@ -1130,7 +1136,8 @@ Default machine parameters of model <i>DC_SeriesExcited</i> are used.
       Modelica.Mechanics.Rotational.QuadraticSpeedDependentTorque 
         QuadraticLoadTorque1(
         w_nominal=Modelica.SIunits.Conversions.from_rpm(rpmLoad),
-        tau_nominal=-T_Load) 
+        tau_nominal=-T_Load,
+        TorqueDirection=false) 
         annotation (extent=[90,-50; 70,-30]);
     equation 
       connect(DCSE1.flange_a, LoadInertia.flange_a) annotation (points=[0,-40;
@@ -1285,7 +1292,7 @@ If <i>control</i> is true, plug_PS and plug_NS are delta connected and they are 
       
       model TerminalBox 
         constant Integer m=3 "number of phases";
-        parameter String StarDelta="Y" 
+        parameter String StarDelta="Y" "Choose Y=star/D=delta" 
           annotation(choices(choice="Y" "Star connection",choice="D" 
               "Delta connection"));
         Modelica.Electrical.MultiPhase.Interfaces.PositivePlug 
@@ -3667,8 +3674,8 @@ This package contains sensors that are usefull when modelling machines.
             fillColor=0,
             fillPattern=1))));
     
-    model VoltageRMSsensor 
-      constant Integer m(final min=1) = 3 "number of phases";
+    model VoltageRMSsensor "Length of spcae phasor -> RMS voltage" 
+      constant Integer m(final min=1) = 3 "Number of phases";
       Modelica.Blocks.Interfaces.RealOutput V(redeclare type SignalType = 
             Modelica.SIunits.Voltage) 
         annotation (extent=[-10,-120; 10,-100], rotation=-90);
@@ -3722,10 +3729,10 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
       connect(VoltageSensor1.v, ToSpacePhasor1.u) annotation (points=[0,39; 0,
             22; -7.34764e-016,22],
                                style(color=3, rgbcolor={0,0,255}));
-      connect(ToSpacePhasor1.y, ToPolar1.u) annotation (points=[6.73533e-016,-1;
+      connect(ToSpacePhasor1.y, ToPolar1.u) annotation (points=[6.73533e-016,-1; 
             6.73533e-016,-8.5; -7.34764e-016,-8.5; -7.34764e-016,-18], style(color=
               3, rgbcolor={0,0,255}));
-      connect(ToPolar1.y[1], Gain1.u) annotation (points=[-0.5,-41; -0.5,-49.5;
+      connect(ToPolar1.y[1], Gain1.u) annotation (points=[-0.5,-41; -0.5,-49.5; 
             -7.34764e-016,-49.5; -7.34764e-016,-58], style(color=3, rgbcolor={0,0,
               255}));
       connect(Gain1.y, V) annotation (points=[6.73533e-016,-81; 6.73533e-016,
@@ -3733,8 +3740,8 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
                               style(color=3, rgbcolor={0,0,255}));
     end VoltageRMSsensor;
     
-    model CurrentRMSsensor 
-      constant Integer m(final min=1) = 3 "number of phases";
+    model CurrentRMSsensor "Length of spcae phasor -> RMS current" 
+      constant Integer m(final min=1) = 3 "Number of phases";
       Modelica.Blocks.Interfaces.RealOutput I(redeclare type SignalType = 
             Modelica.SIunits.Current) 
         annotation (extent=[-10,-120; 10,-100], rotation=-90);
@@ -3788,10 +3795,10 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
       connect(CurrentSensor1.i, ToSpacePhasor1.u) annotation (points=[0,39; 0,
             22; -7.34764e-016,22],
                                style(color=3, rgbcolor={0,0,255}));
-      connect(ToSpacePhasor1.y, ToPolar1.u) annotation (points=[6.73533e-016,-1;
+      connect(ToSpacePhasor1.y, ToPolar1.u) annotation (points=[6.73533e-016,-1; 
             6.73533e-016,-8.5; -7.34764e-016,-8.5; -7.34764e-016,-18], style(color=
               3, rgbcolor={0,0,255}));
-      connect(ToPolar1.y[1], Gain1.u) annotation (points=[-0.5,-41; -0.5,-49.5;
+      connect(ToPolar1.y[1], Gain1.u) annotation (points=[-0.5,-41; -0.5,-49.5; 
             -7.34764e-016,-49.5; -7.34764e-016,-58], style(color=3, rgbcolor={0,0,
               255}));
       connect(Gain1.y,I)  annotation (points=[6.73533e-016,-81; 6.73533e-016,
@@ -3799,8 +3806,8 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
                               style(color=3, rgbcolor={0,0,255}));
     end CurrentRMSsensor;
     
-    model ElectricalPowerSensor 
-      constant Integer m(final min=1) = 3 "number of phases";
+    model ElectricalPowerSensor "Instantaneous power from spcae phasors" 
+      constant Integer m(final min=1) = 3 "Number of phases";
       Modelica.Blocks.Interfaces.RealOutput P(redeclare type SignalType = 
             Modelica.SIunits.Power) 
         annotation (extent=[-60,120; -40,100],  rotation=-90);
@@ -3861,7 +3868,7 @@ Q = giving in stationary state reactive power.<br>
       2/3*Q = -v_[1]*i_[2]+v_[2]*i_[1];
     end ElectricalPowerSensor;
     
-    model MechanicalPowerSensor 
+    model MechanicalPowerSensor "Mechanical power = torque x speed" 
       extends Modelica.Mechanics.Rotational.Interfaces.TwoFlanges;
       Modelica.Blocks.Interfaces.RealOutput P(redeclare type SignalType = 
             Modelica.SIunits.Power) 
@@ -3906,7 +3913,7 @@ Calculates (mechanical) power from torque times angular speed.
         annotation (points=[40,0; 100,0], style(color=0, rgbcolor={0,0,0}));
       connect(SpeedSensor1.flange_a, flange_a) 
         annotation (points=[-30,0; -100,0], style(color=0, rgbcolor={0,0,0}));
-      connect(SpeedSensor1.w, Product1.u2) annotation (points=[-30,-21; -30,-40;
+      connect(SpeedSensor1.w, Product1.u2) annotation (points=[-30,-21; -30,-40; 
             -6,-40; -6,-58], style(color=3, rgbcolor={0,0,255}));
       connect(TorqueSensor1.tau, Product1.u1) annotation (points=[22,-11; 22,
             -40; 6,-40; 6,-58], style(color=3, rgbcolor={0,0,255}));
