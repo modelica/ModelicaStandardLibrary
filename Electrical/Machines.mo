@@ -1,7 +1,7 @@
 package Machines "Library for electric machines" 
   extends Modelica.Icons.Library2;
   annotation (
-  version="1.8.5", versionDate="2007-06-26",
+  version="1.8.6", versionDate="2007-08-12",
   Settings(NewStateSelection=true, Evaluate=true),
   preferedView="info", Documentation(info="<HTML>
 This package contains components to model electrical machines:
@@ -116,6 +116,8 @@ and the accompanying <b>disclaimer</b>
        corrected some typos in documentation</li>
   <li> v1.8.5 2007/06/26 Anton Haumer<br>
        consistent parameters of DCSE</li>
+  <li> v1.8.6 2007/08/12 Anton Haumer<br>
+       improved documentation</li>
   </ul>
 </HTML>"),
     Icon(
@@ -1162,7 +1164,7 @@ Default machine parameters of model <i>DC_SeriesExcited</i> are used.
     
     model TransformerTestbench "Transformer Testbench" 
       extends Modelica.Icons.Example;
-      parameter Modelica.SIunits.Resistance RL[3]=fill(1/3,3);
+      parameter Modelica.SIunits.Resistance RL[3]=fill(1/3,3) "Load resistance";
       annotation (Documentation(info="<HTML>
 Transformer testbench:<br>
 You may choose different connections as well as vary the load (even not symmetrical).<br>
@@ -1260,11 +1262,12 @@ even though the source's or load's starpoint are grounded; you may use a reasona
       extends Modelica.Icons.Example;
       constant Integer m=3 "Number of phases";
       parameter Modelica.SIunits.Voltage V=100*sqrt(2/3) 
-        "amplitude of star-voltage";
-      parameter Modelica.SIunits.Frequency f=50 "frequency";
-      parameter Modelica.SIunits.Resistance RL=0.4 "load resistance";
-      parameter Modelica.SIunits.Capacitance C=0.005 "total DC-capacitance";
-      parameter Modelica.SIunits.Voltage VC0=sqrt(3)*V;
+        "Amplitude of star-voltage";
+      parameter Modelica.SIunits.Frequency f=50 "Frequency";
+      parameter Modelica.SIunits.Resistance RL=0.4 "Load resistance";
+      parameter Modelica.SIunits.Capacitance C=0.005 "Total DC-capacitance";
+      parameter Modelica.SIunits.Voltage VC0=sqrt(3)*V 
+        "Initial voltage of capacitance";
       annotation (Documentation(info="<HTML>
 Test example with multiphase components:<br>
 Star-connected voltage source feeds via a transformer a diode bridge rectifier with a DC burden.<br>
@@ -1634,7 +1637,7 @@ If <i>control</i> is true, plug_PS and plug_NS are delta connected and they are 
       
       model TerminalBox "terminal box Y/D-connection" 
         constant Integer m=3 "number of phases";
-        parameter String StarDelta="Y" 
+        parameter String StarDelta="Y" "Choose Y=star/D=delta" 
           annotation(choices(choice="Y" "Star connection",choice="D" 
               "Delta connection"));
         Modelica.Electrical.MultiPhase.Interfaces.PositivePlug 
@@ -3176,25 +3179,29 @@ and the accompanying <b>disclaimer</b>
           Ellipse(extent=[-100,30; 20,-90],style(color=3, rgbcolor={0,0,255})),
           Ellipse(extent=[-40,30; 80,-90], style(color=3, rgbcolor={0,0,255}))));
       
-      model Transformer "transformer: choose connection/vector group" 
-        parameter Modelica.SIunits.Frequency f=50 "nominal frequency";
+      model Transformer "Transformer: choose connection/vector group" 
+        parameter Modelica.SIunits.Frequency f=50 "Nominal frequency";
         parameter Modelica.SIunits.Voltage V1=100 
-          "primary nominal line-to-line voltage (RMS)";
+          "Primary nominal line-to-line voltage (RMS)";
         parameter Modelica.SIunits.Voltage V2=100 
-          "secondary open circuit line-to-line voltage (RMS) @ primary nominal voltage";
+          "Secondary open circuit line-to-line voltage (RMS) @ primary nominal voltage";
         parameter Modelica.SIunits.ApparentPower SNominal=30E3 
-          "nominal apparent power";
+          "Nominal apparent power";
         parameter Real v_sc(final min=0, final max=1)=0.05 
-          "impedance voltage drop pu";
+          "Impedance voltage drop pu";
         parameter Modelica.SIunits.Power P_sc=300 
-          "short-circuit (copper) losses";
+          "Short-circuit (copper) losses";
         extends transformer(final n=V1/V2,
           final R1=R1ph, final L1sigma=L1ph,
           final R2=R2ph, final L2sigma=L2ph);
         replaceable model transformer = 
             Machines.BasicMachines.Transformers.Yy.Yy00 extends 
           Machines.BasicMachines.Components.BasicTransformer 
-          annotation (choicesFromPackage=true, choicesAllMatching=true);
+          "Replaceable transformer model" 
+          annotation (choicesFromPackage=true, choicesAllMatching=true, 
+          Documentation(info="<html>
+Replaceable transformer model for user's convenience
+</html>"));
       protected 
         parameter Modelica.SIunits.Voltage V1ph = V1/(if C1=="D" then 1 else sqrt(3));
         parameter Modelica.SIunits.Current I1ph = SNominal/(3*V1ph);
@@ -3206,10 +3213,12 @@ and the accompanying <b>disclaimer</b>
         parameter Modelica.SIunits.Impedance Z2ph = 0.5*v_sc*V2ph/I2ph;
         parameter Modelica.SIunits.Resistance R2ph= 0.5*P_sc/(3*I2ph^2);
         parameter Modelica.SIunits.Inductance L2ph= sqrt(Z2ph^2-R2ph^2)/(2*Modelica.Constants.pi*f);
-        annotation (Diagram);
+        annotation (Diagram, Documentation(info="<html>
+\"Supertransformer\": lets the user choose connection/vector group
+</html>"));
       end Transformer;
       
-      package Yy "transformers: primary Y / secondary y" 
+      package Yy "Transformers: primary Y / secondary y" 
         extends Modelica.Icons.Library2;
         annotation (Documentation(info="<HTML>
 This package contains transformers primary Y connected / secondary y connected in all possbile vector groups.
@@ -3238,8 +3247,11 @@ This package contains transformers primary Y connected / secondary y connected i
               style(color=3, rgbcolor={0,0,255}),
               string="Yy")));
         
-        model Yy00 
-          annotation (defaultComponentName="transformer");
+        model Yy00 "Transformer Yy0" 
+          
+          annotation (defaultComponentName="transformer", Documentation(info="<html>
+Transformer Yy0
+</html>"));
           extends Machines.BasicMachines.Components.BasicTransformer(final 
               VectorGroup =                                                            "Yy00");
           Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m) 
@@ -3268,8 +3280,11 @@ This package contains transformers primary Y connected / secondary y connected i
             annotation (points=[10,-10; 10,-70; 10,-70], style(color=3, rgbcolor={0,0,255}));
         end Yy00;
         
-        model Yy02 
-          annotation (defaultComponentName="transformer");
+        model Yy02 "Transformer Yy2" 
+          
+          annotation (defaultComponentName="transformer", Documentation(info="<html>
+Transformer Yy2
+</html>"));
           extends Machines.BasicMachines.Components.BasicTransformer(final 
               VectorGroup =                                                            "Yy02");
           Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m) 
@@ -3302,8 +3317,11 @@ This package contains transformers primary Y connected / secondary y connected i
             annotation (points=[10,10; 20,10; 20,-70; 10,-70], style(color=3, rgbcolor={0,0,255}));
         end Yy02;
         
-        model Yy04 
-          annotation (defaultComponentName="transformer");
+        model Yy04 "Transformer Yy4" 
+          
+          annotation (defaultComponentName="transformer", Documentation(info="<html>
+Transformer Yy4
+</html>"));
           extends Machines.BasicMachines.Components.BasicTransformer(final 
               VectorGroup =                                                            "Yy04");
           Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m) 
@@ -3336,8 +3354,11 @@ This package contains transformers primary Y connected / secondary y connected i
             annotation (points=[10,-10; 10,-70; 10,-70], style(color=3, rgbcolor={0,0,255}));
         end Yy04;
         
-        model Yy06 
-          annotation (defaultComponentName="transformer");
+        model Yy06 "Transformer Yy6" 
+          
+          annotation (defaultComponentName="transformer", Documentation(info="<html>
+Transformer Yy6
+</html>"));
           extends Machines.BasicMachines.Components.BasicTransformer(final 
               VectorGroup =                                                            "Yy06");
           Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m) 
@@ -3366,8 +3387,11 @@ This package contains transformers primary Y connected / secondary y connected i
             annotation (points=[10,10; 20,10; 20,-70; 10,-70], style(color=3, rgbcolor={0,0,255}));
         end Yy06;
         
-        model Yy08 
-          annotation (defaultComponentName="transformer");
+        model Yy08 "Transformer Yy8" 
+          
+          annotation (defaultComponentName="transformer", Documentation(info="<html>
+Transformer Yy8
+</html>"));
           extends Machines.BasicMachines.Components.BasicTransformer(final 
               VectorGroup =                                                            "Yy08");
           Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m) 
@@ -3400,8 +3424,11 @@ This package contains transformers primary Y connected / secondary y connected i
             annotation (points=[10,-10; 10,-70; 10,-70; 10,-70], style(color=3, rgbcolor={0,0,255}));
         end Yy08;
         
-        model Yy10 
-          annotation (defaultComponentName="transformer");
+        model Yy10 "Transformer Yy10" 
+          
+          annotation (defaultComponentName="transformer", Documentation(info="<html>
+Transformer Yy10
+</html>"));
           extends Machines.BasicMachines.Components.BasicTransformer(final 
               VectorGroup =                                                            "Yy10");
           Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m) 
@@ -3435,7 +3462,7 @@ This package contains transformers primary Y connected / secondary y connected i
         end Yy10;
       end Yy;
       
-      package Yd "transformers: primary Y / secondary d" 
+      package Yd "Transformers: primary Y / secondary d" 
         extends Modelica.Icons.Library2;
         annotation (Documentation(info="<HTML>
 This package contains transformers primary Y connected / secondary d connected in all possbile vector groups.
@@ -3464,8 +3491,11 @@ This package contains transformers primary Y connected / secondary d connected i
               style(color=3, rgbcolor={0,0,255}),
               string="Yd")));
         
-        model Yd01 
-          annotation (defaultComponentName="transformer");
+        model Yd01 "Transformer Yd1" 
+          
+          annotation (defaultComponentName="transformer", Documentation(info="<html>
+Transformer Yd1
+</html>"));
           extends Machines.BasicMachines.Components.BasicTransformer(final 
               VectorGroup =                                                            "Yd01");
           Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m) 
@@ -3492,8 +3522,11 @@ This package contains transformers primary Y connected / secondary d connected i
             annotation (points=[10,10; 10,20; 50,20; 50,0], style(color=3, rgbcolor={0,0,255}));
         end Yd01;
         
-        model Yd03 
-          annotation (defaultComponentName="transformer");
+        model Yd03 "Transformer Yd3" 
+          
+          annotation (defaultComponentName="transformer", Documentation(info="<html>
+Transformer Yd3
+</html>"));
           extends Machines.BasicMachines.Components.BasicTransformer(final 
               VectorGroup =                                                            "Yd03");
           Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m) 
@@ -3524,8 +3557,11 @@ This package contains transformers primary Y connected / secondary d connected i
             annotation (points=[10,-10; 10,-20; 30,-20], style(color=3, rgbcolor={0,0,255}));
         end Yd03;
         
-        model Yd05 
-          annotation (defaultComponentName="transformer");
+        model Yd05 "Transformer Yd5" 
+          
+          annotation (defaultComponentName="transformer", Documentation(info="<html>
+Transformer Yd5
+</html>"));
           extends Machines.BasicMachines.Components.BasicTransformer(final 
               VectorGroup =                                                            "Yd05");
           Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m) 
@@ -3552,8 +3588,11 @@ This package contains transformers primary Y connected / secondary d connected i
             annotation (points=[10,10; 10,20; 30,20], style(color=3, rgbcolor={0,0,255}));
         end Yd05;
         
-        model Yd07 
-          annotation (defaultComponentName="transformer");
+        model Yd07 "Transformer Yd7" 
+          
+          annotation (defaultComponentName="transformer", Documentation(info="<html>
+Transformer Yd7
+</html>"));
           extends Machines.BasicMachines.Components.BasicTransformer(final 
               VectorGroup =                                                            "Yd07");
           Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m) 
@@ -3580,8 +3619,11 @@ This package contains transformers primary Y connected / secondary d connected i
             annotation (points=[50,0; 50,-20; 10,-20; 10,-10], style(color=3, rgbcolor={0,0,255}));
         end Yd07;
         
-        model Yd09 
-          annotation (defaultComponentName="transformer");
+        model Yd09 "Transformer Yd9" 
+          
+          annotation (defaultComponentName="transformer", Documentation(info="<html>
+Transformer Yd9
+</html>"));
           extends Machines.BasicMachines.Components.BasicTransformer(final 
               VectorGroup =                                                            "Yd09");
           Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m) 
@@ -3612,8 +3654,11 @@ This package contains transformers primary Y connected / secondary d connected i
             annotation (points=[10,-10; 10,-20; 30,-20], style(color=3, rgbcolor={0,0,255}));
         end Yd09;
         
-        model Yd11 
-          annotation (defaultComponentName="transformer");
+        model Yd11 "Transformer Yd11" 
+          
+          annotation (defaultComponentName="transformer", Documentation(info="<html>
+Transformer Yd11
+</html>"));
           extends Machines.BasicMachines.Components.BasicTransformer(final 
               VectorGroup =                                                            "Yd11");
           Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m) 
@@ -3641,7 +3686,7 @@ This package contains transformers primary Y connected / secondary d connected i
         end Yd11;
       end Yd;
       
-      package Yz "transformers: primary Y / secondary zig-zag" 
+      package Yz "Transformers: primary Y / secondary zig-zag" 
         extends Modelica.Icons.Library2;
         annotation (Documentation(info="<HTML>
 This package contains transformers primary Y connected / secondary zig-zag connected in all possbile vector groups.
@@ -3670,8 +3715,11 @@ This package contains transformers primary Y connected / secondary zig-zag conne
               style(color=3, rgbcolor={0,0,255}),
               string="Yz")));
         
-        model Yz01 
-          annotation (defaultComponentName="transformer");
+        model Yz01 "Transformer Yz1" 
+          
+          annotation (defaultComponentName="transformer", Documentation(info="<html>
+Transformer Yz1
+</html>"));
           extends Machines.BasicMachines.Components.BasicTransformer(final 
               VectorGroup =                                                            "Yz01");
           Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m) 
@@ -3707,8 +3755,11 @@ This package contains transformers primary Y connected / secondary zig-zag conne
             annotation (points=[10,-10; 10,-70; 10,-70], style(color=3, rgbcolor={0,0,255}));
         end Yz01;
         
-        model Yz03 
-          annotation (defaultComponentName="transformer");
+        model Yz03 "Transformer Yz3" 
+          
+          annotation (defaultComponentName="transformer", Documentation(info="<html>
+Transformer Yz3
+</html>"));
           extends Machines.BasicMachines.Components.BasicTransformer(final 
               VectorGroup =                                                            "Yz03");
           Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m) 
@@ -3745,8 +3796,11 @@ This package contains transformers primary Y connected / secondary zig-zag conne
             annotation (points=[10,-10; 10,-70; 10,-70], style(color=3, rgbcolor={0,0,255}));
         end Yz03;
         
-        model Yz05 
-          annotation (defaultComponentName="transformer");
+        model Yz05 "Transformer Yz5" 
+          
+          annotation (defaultComponentName="transformer", Documentation(info="<html>
+Transformer Yz5
+</html>"));
           extends Machines.BasicMachines.Components.BasicTransformer(final 
               VectorGroup =                                                            "Yz05");
           Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m) 
@@ -3779,8 +3833,11 @@ This package contains transformers primary Y connected / secondary zig-zag conne
             annotation (points=[50,0; 50,20; 20,20; 20,4; 10,4], style(color=3, rgbcolor={0,0,255}));
         end Yz05;
         
-        model Yz07 
-          annotation (defaultComponentName="transformer");
+        model Yz07 "Transformer Yz7" 
+          
+          annotation (defaultComponentName="transformer", Documentation(info="<html>
+Transformer Yz7
+</html>"));
           extends Machines.BasicMachines.Components.BasicTransformer(final 
               VectorGroup =                                                            "Yz07");
           Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m) 
@@ -3813,8 +3870,11 @@ This package contains transformers primary Y connected / secondary zig-zag conne
             annotation (points=[10,-10; 10,-70], style(color=3, rgbcolor={0,0,255}));
         end Yz07;
         
-        model Yz09 
-          annotation (defaultComponentName="transformer");
+        model Yz09 "Transformer Yz9" 
+          
+          annotation (defaultComponentName="transformer", Documentation(info="<html>
+Transformer Yz9
+</html>"));
           extends Machines.BasicMachines.Components.BasicTransformer(final 
               VectorGroup =                                                            "Yz09");
           Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m) 
@@ -3851,8 +3911,11 @@ This package contains transformers primary Y connected / secondary zig-zag conne
             annotation (points=[30,20; 20,20; 20,4; 10,4], style(color=3, rgbcolor={0,0,255}));
         end Yz09;
         
-        model Yz11 
-          annotation (defaultComponentName="transformer");
+        model Yz11 "Transformer Yz11" 
+          
+          annotation (defaultComponentName="transformer", Documentation(info="<html>
+Transformer Yz11
+</html>"));
           extends Machines.BasicMachines.Components.BasicTransformer(final 
               VectorGroup =                                                            "Yz11");
           Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m) 
@@ -3890,7 +3953,7 @@ This package contains transformers primary Y connected / secondary zig-zag conne
         end Yz11;
       end Yz;
       
-      package Dy "transformers: primary D / secondary y" 
+      package Dy "Transformers: primary D / secondary y" 
         extends Modelica.Icons.Library2;
         annotation (Documentation(info="<HTML>
 This package contains transformers primary D connected / secondary y connected in all possbile vector groups.
@@ -3919,8 +3982,11 @@ This package contains transformers primary D connected / secondary y connected i
               style(color=3, rgbcolor={0,0,255}),
               string="Dy")));
         
-        model Dy01 
-          annotation (defaultComponentName="transformer");
+        model Dy01 "Transformer Dy1" 
+          
+          annotation (defaultComponentName="transformer", Documentation(info="<html>
+Transformer Dy1
+</html>"));
           extends Machines.BasicMachines.Components.BasicTransformer(final 
               VectorGroup =                                                            "Dy01");
           Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m) 
@@ -3951,8 +4017,11 @@ This package contains transformers primary D connected / secondary y connected i
             annotation (points=[10,10; 20,10; 20,-70; 10,-70], style(color=3, rgbcolor={0,0,255}));
         end Dy01;
         
-        model Dy03 
-          annotation (defaultComponentName="transformer");
+        model Dy03 "Transformer Dy3" 
+          
+          annotation (defaultComponentName="transformer", Documentation(info="<html>
+Transformer Dy3
+</html>"));
           extends Machines.BasicMachines.Components.BasicTransformer(final 
               VectorGroup =                                                            "Dy03");
           Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m) 
@@ -3983,8 +4052,11 @@ This package contains transformers primary D connected / secondary y connected i
             annotation (points=[10,-10; 10,-70], style(color=3, rgbcolor={0,0,255}));
         end Dy03;
         
-        model Dy05 
-          annotation (defaultComponentName="transformer");
+        model Dy05 "Transformer Dy5" 
+          
+          annotation (defaultComponentName="transformer", Documentation(info="<html>
+Transformer Dy5
+</html>"));
           extends Machines.BasicMachines.Components.BasicTransformer(final 
               VectorGroup =                                                            "Dy05");
           Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m) 
@@ -4011,8 +4083,11 @@ This package contains transformers primary D connected / secondary y connected i
             annotation (points=[10,10; 20,10; 20,-70; 10,-70], style(color=3, rgbcolor={0,0,255}));
         end Dy05;
         
-        model Dy07 
-          annotation (defaultComponentName="transformer");
+        model Dy07 "Transformer Dy7" 
+          
+          annotation (defaultComponentName="transformer", Documentation(info="<html>
+Transformer Dy7
+</html>"));
           extends Machines.BasicMachines.Components.BasicTransformer(final 
               VectorGroup =                                                            "Dy07");
           Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m) 
@@ -4043,8 +4118,11 @@ This package contains transformers primary D connected / secondary y connected i
             annotation (points=[10,10; 10,20; 30,20], style(color=3, rgbcolor={0,0,255}));
         end Dy07;
         
-        model Dy09 
-          annotation (defaultComponentName="transformer");
+        model Dy09 "Transformer Dy9" 
+          
+          annotation (defaultComponentName="transformer", Documentation(info="<html>
+Transformer Dy9
+</html>"));
           extends Machines.BasicMachines.Components.BasicTransformer(final 
               VectorGroup =                                                            "Dy09");
           Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m) 
@@ -4075,8 +4153,11 @@ This package contains transformers primary D connected / secondary y connected i
             annotation (points=[10,10; 20,10; 20,-70; 10,-70], style(color=3, rgbcolor={0,0,255}));
         end Dy09;
         
-        model Dy11 
-          annotation (defaultComponentName="transformer");
+        model Dy11 "Transformer Dy11" 
+          
+          annotation (defaultComponentName="transformer", Documentation(info="<html>
+Transformer Dy11
+</html>"));
           extends Machines.BasicMachines.Components.BasicTransformer(final 
               VectorGroup =                                                            "Dy11");
           Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m) 
@@ -4104,7 +4185,7 @@ This package contains transformers primary D connected / secondary y connected i
         end Dy11;
       end Dy;
       
-      package Dd "transformers: primary D / secondary d" 
+      package Dd "Transformers: primary D / secondary d" 
         extends Modelica.Icons.Library2;
         annotation (Documentation(info="<HTML>
 This package contains transformers primary D connected / secondary d connected in all possbile vector groups.
@@ -4133,8 +4214,11 @@ This package contains transformers primary D connected / secondary d connected i
               style(color=3, rgbcolor={0,0,255}),
               string="Dd")));
         
-        model Dd00 
-          annotation (defaultComponentName="transformer");
+        model Dd00 "Transformer Dd0" 
+          
+          annotation (defaultComponentName="transformer", Documentation(info="<html>
+Transformer Dd0
+</html>"));
           extends Machines.BasicMachines.Components.BasicTransformer(final 
               VectorGroup =                                                            "Dd00");
           Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m) 
@@ -4159,8 +4243,11 @@ This package contains transformers primary D connected / secondary d connected i
             annotation (points=[10,-10; 10,-20; 30,-20], style(color=3, rgbcolor={0, 0,255}));
         end Dd00;
         
-        model Dd02 
-          annotation (defaultComponentName="transformer");
+        model Dd02 "Transformer Dd2" 
+          
+          annotation (defaultComponentName="transformer", Documentation(info="<html>
+Transformer Dd2
+</html>"));
           extends Machines.BasicMachines.Components.BasicTransformer(final 
               VectorGroup =                                                            "Dd02");
           Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m) 
@@ -4189,8 +4276,11 @@ This package contains transformers primary D connected / secondary d connected i
             annotation (points=[10,-10; 10,-20; 30,-20], style(color=3, rgbcolor={0,0,255}));
         end Dd02;
         
-        model Dd04 
-          annotation (defaultComponentName="transformer");
+        model Dd04 "Transformer Dd4" 
+          
+          annotation (defaultComponentName="transformer", Documentation(info="<html>
+Transformer Dd4
+</html>"));
           extends Machines.BasicMachines.Components.BasicTransformer(final 
               VectorGroup =                                                            "Dd04");
           Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m) 
@@ -4215,8 +4305,11 @@ This package contains transformers primary D connected / secondary d connected i
             annotation (points=[10,-10; 10,-20; 50,-20; 50,0], style(color=3, rgbcolor={0,0,255}));
         end Dd04;
         
-        model Dd06 
-          annotation (defaultComponentName="transformer");
+        model Dd06 "Transformer Dd6" 
+          
+          annotation (defaultComponentName="transformer", Documentation(info="<html>
+Transformer Dd6
+</html>"));
           extends Machines.BasicMachines.Components.BasicTransformer(final 
               VectorGroup =                                                            "Dd06");
           Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m) 
@@ -4241,8 +4334,11 @@ This package contains transformers primary D connected / secondary d connected i
             annotation (points=[10,-10; 10,-20; 50,-20; 50,0], style(color=3, rgbcolor={0,0,255}));
         end Dd06;
         
-        model Dd08 
-          annotation (defaultComponentName="transformer");
+        model Dd08 "Transformer Dd8" 
+          
+          annotation (defaultComponentName="transformer", Documentation(info="<html>
+Transformer Dd8
+</html>"));
           extends Machines.BasicMachines.Components.BasicTransformer(final 
               VectorGroup =                                                            "Dd08");
           Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m) 
@@ -4271,8 +4367,11 @@ This package contains transformers primary D connected / secondary d connected i
             annotation (points=[10,-10; 10,-20; 30,-20], style(color=3, rgbcolor={0,0,255}));
         end Dd08;
         
-        model Dd10 
-          annotation (defaultComponentName="transformer");
+        model Dd10 "Transformer Dd10" 
+          
+          annotation (defaultComponentName="transformer", Documentation(info="<html>
+Transformer Dd10
+</html>"));
           extends Machines.BasicMachines.Components.BasicTransformer(final 
               VectorGroup =                                                            "Dd10");
           Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m) 
@@ -4298,7 +4397,7 @@ This package contains transformers primary D connected / secondary d connected i
         end Dd10;
       end Dd;
       
-      package Dz "transformers: primary D / secondary ziag-zag" 
+      package Dz "Transformers: primary D / secondary ziag-zag" 
         extends Modelica.Icons.Library2;
         annotation (Documentation(info="<HTML>
 This package contains transformers primary D connected / secondary d connected in all possbile vector groups.
@@ -4327,8 +4426,11 @@ This package contains transformers primary D connected / secondary d connected i
               style(color=3, rgbcolor={0,0,255}),
               string="Dz")));
         
-        model Dz00 
-          annotation (defaultComponentName="transformer");
+        model Dz00 "Transformer Dz0" 
+          
+          annotation (defaultComponentName="transformer", Documentation(info="<html>
+Transformer Dz0
+</html>"));
           extends Machines.BasicMachines.Components.BasicTransformer(final 
               VectorGroup =                                                            "Dz00");
           Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m) 
@@ -4363,8 +4465,11 @@ This package contains transformers primary D connected / secondary d connected i
             annotation (points=[10,-10; 10,-70; 10,-70], style(color=3, rgbcolor={0,0,255}));
         end Dz00;
         
-        model Dz02 
-          annotation (defaultComponentName="transformer");
+        model Dz02 "Transformer Dz2" 
+          
+          annotation (defaultComponentName="transformer", Documentation(info="<html>
+Transformer Dz2
+</html>"));
           extends Machines.BasicMachines.Components.BasicTransformer(final 
               VectorGroup =                                                            "Dz02");
           Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m) 
@@ -4399,8 +4504,11 @@ This package contains transformers primary D connected / secondary d connected i
             annotation (points=[10,-10; 10,-70], style(color=3, rgbcolor={0,0,255}));
         end Dz02;
         
-        model Dz04 
-          annotation (defaultComponentName="transformer");
+        model Dz04 "Transformer Dz4" 
+          
+          annotation (defaultComponentName="transformer", Documentation(info="<html>
+Transformer Dz4
+</html>"));
           extends Machines.BasicMachines.Components.BasicTransformer(final 
               VectorGroup =                                                            "Dz04");
           Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m) 
@@ -4431,8 +4539,11 @@ This package contains transformers primary D connected / secondary d connected i
             annotation (points=[10,-10; 10,-70; 10,-70], style(color=3, rgbcolor={0,0,255}));
         end Dz04;
         
-        model Dz06 
-          annotation (defaultComponentName="transformer");
+        model Dz06 "Transformer Dz6" 
+          
+          annotation (defaultComponentName="transformer", Documentation(info="<html>
+Transformer Dz6
+</html>"));
           extends Machines.BasicMachines.Components.BasicTransformer(final 
               VectorGroup =                                                            "Dz06");
           Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m) 
@@ -4463,8 +4574,11 @@ This package contains transformers primary D connected / secondary d connected i
             annotation (points=[50,0; 50,20; 20,20; 20,4; 10,4], style(color=3, rgbcolor={0,0,255}));
         end Dz06;
         
-        model Dz08 
-          annotation (defaultComponentName="transformer");
+        model Dz08 "Transformer Dz8" 
+          
+          annotation (defaultComponentName="transformer", Documentation(info="<html>
+Transformer Dz8
+</html>"));
           extends Machines.BasicMachines.Components.BasicTransformer(final 
               VectorGroup =                                                            "Dz08");
           Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m) 
@@ -4499,8 +4613,11 @@ This package contains transformers primary D connected / secondary d connected i
             annotation (points=[30,20; 20,20; 20,4; 10,4], style(color=3, rgbcolor={0,0,255}));
         end Dz08;
         
-        model Dz10 
-          annotation (defaultComponentName="transformer");
+        model Dz10 "Transformer Dz10" 
+          
+          annotation (defaultComponentName="transformer", Documentation(info="<html>
+Transformer Dz10
+</html>"));
           extends Machines.BasicMachines.Components.BasicTransformer(final 
               VectorGroup =                                                            "Dz10");
           Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m) 
@@ -5255,23 +5372,23 @@ Induced armature voltage is calculated from flux times angular velocity.
         psi_e = Le * ie;
       end AirGapDC;
       
-      partial model BasicTransformer "partial model of threephase transformer" 
-        constant Integer m(min=1) = 3 "number of phases";
+      partial model BasicTransformer "Partial model of threephase transformer" 
+        constant Integer m(min=1) = 3 "Number of phases";
         constant String VectorGroup="Yy00";
         parameter Real n=1 
-          "primary voltage (line-to-line) / secondary voltage (line-to-line)";
+          "Primary voltage (line-to-line) / Secondary voltage (line-to-line)";
         parameter Modelica.SIunits.Resistance R1=5E-3/(if C1=="D" then 1 else 3) 
-          "warm primary resistance per phase";
+          "Warm primary resistance per phase";
         parameter Modelica.SIunits.Inductance L1sigma=78E-6/(if C1=="D" then 1 else 3) 
-          "primary stray inductance per phase";
+          "Primary stray inductance per phase";
         parameter Modelica.SIunits.Resistance R2=5E-3/(if C2=="d" then 1 else 3) 
-          "warm secondary resistance per phase";
+          "Warm secondary resistance per phase";
         parameter Modelica.SIunits.Inductance L2sigma=78E-6/(if C2=="d" then 1 else 3) 
-          "secondary stray inductance per phase";
-        output Modelica.SIunits.Voltage v1[m]=plug1.pin.v "primary voltage";
-        output Modelica.SIunits.Current i1[m]=plug1.pin.i "primary current";
-        output Modelica.SIunits.Voltage v2[m]=plug2.pin.v "secondary voltage";
-        output Modelica.SIunits.Current i2[m]=plug2.pin.i "secondary current";
+          "Secondary stray inductance per phase";
+        output Modelica.SIunits.Voltage v1[m]=plug1.pin.v "Primary voltage";
+        output Modelica.SIunits.Current i1[m]=plug1.pin.i "Primary current";
+        output Modelica.SIunits.Voltage v2[m]=plug2.pin.v "Secondary voltage";
+        output Modelica.SIunits.Current i2[m]=plug2.pin.i "Secondary current";
       protected 
         constant String C1 = Modelica.Utilities.Strings.substring(VectorGroup,1,1);
         constant String C2 = Modelica.Utilities.Strings.substring(VectorGroup,2,2);
@@ -5301,7 +5418,11 @@ Induced armature voltage is calculated from flux times angular velocity.
             Text(
               extent=[0,-60; 0,-100],
               style(color=3, rgbcolor={0,0,255}),
-              string="n=%n")));
+              string="n=%n")),
+          Documentation(info="<html>
+Partialmodel of a threephase transformer, containing primary and secondary resistances and stray inductances, as well as the iron core. 
+Circuit layout (vector group) of primary and secondary windings have to be defined.
+</html>"));
         replaceable IdealCore core(
           final m=m,
           final n12=ni,
@@ -5319,8 +5440,8 @@ Induced armature voltage is calculated from flux times angular velocity.
       end BasicTransformer;
       
       partial model PartialCore 
-        "partial model of transformer core with 3 windings" 
-        parameter Integer m(final min=1) = 3 "number of phases";
+        "Partial model of transformer core with 3 windings" 
+        parameter Integer m(final min=1) = 3 "Number of phases";
         parameter Real n12=1 "Turns ratio 1:2";
         parameter Real n13=2 "Turns ratio 1:3";
         Modelica.SIunits.Voltage v1[m] = plug_p1.pin.v  - plug_n1.pin.v;
@@ -5330,7 +5451,7 @@ Induced armature voltage is calculated from flux times angular velocity.
         Modelica.SIunits.Voltage v3[m] = plug_p3.pin.v  - plug_n3.pin.v;
         Modelica.SIunits.Current i3[m] = plug_p3.pin.i;
         Modelica.SIunits.Current im[m] = i1 + i2/n12 + i3/n13 
-          "magnetizing current";
+          "Magnetizing current";
         annotation (Icon(
             Text(extent=[-100,130; 100,110],  string="%name"),
             Ellipse(extent=[-45, -50; -20, -25]),
@@ -5355,7 +5476,10 @@ Induced armature voltage is calculated from flux times angular velocity.
             x=0.29,
             y=0.07,
             width=0.6,
-            height=0.6));
+            height=0.6),
+          Documentation(info="<html>
+Partial model of transformer core with 3 windings; saturation function flux versus magentizing current has to be defined.
+</html>"));
         Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_p1(final m=
               m) annotation (extent=[-110,40; -90,60]);
         Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_n1(final m=
@@ -5374,9 +5498,12 @@ Induced armature voltage is calculated from flux times angular velocity.
         plug_p3.pin.i + plug_n3.pin.i = zeros(m);
       end PartialCore;
       
-      model IdealCore "ideal transformer with 3 windings" 
+      model IdealCore "Ideal transformer with 3 windings" 
         
-        annotation (defaultComponentName="core", Diagram);
+        annotation (defaultComponentName="core", Diagram,
+          Documentation(info="<html>
+Ideal transformer with 3 windings: no magnetizing current.
+</html>"));
         extends PartialCore;
       equation 
         im = zeros(m);
@@ -5433,8 +5560,8 @@ This package contains sensors that are usefull when modelling machines.
             fillColor=0,
             fillPattern=1))));
     
-    model VoltageRMSsensor "length of spcae phasor -> RMS voltage" 
-      constant Integer m(final min=1) = 3 "number of phases";
+    model VoltageRMSsensor "Length of spcae phasor -> RMS voltage" 
+      constant Integer m(final min=1) = 3 "Number of phases";
       Modelica.Blocks.Interfaces.RealOutput V(redeclare type SignalType = 
             Modelica.SIunits.Voltage) 
         annotation (extent=[-10,-120; 10,-100], rotation=-90);
@@ -5499,8 +5626,8 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
                               style(color=3, rgbcolor={0,0,255}));
     end VoltageRMSsensor;
     
-    model CurrentRMSsensor "length of spcae phasor -> RMS current" 
-      constant Integer m(final min=1) = 3 "number of phases";
+    model CurrentRMSsensor "Length of spcae phasor -> RMS current" 
+      constant Integer m(final min=1) = 3 "Number of phases";
       Modelica.Blocks.Interfaces.RealOutput I(redeclare type SignalType = 
             Modelica.SIunits.Current) 
         annotation (extent=[-10,-120; 10,-100], rotation=-90);
@@ -5565,8 +5692,8 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
                               style(color=3, rgbcolor={0,0,255}));
     end CurrentRMSsensor;
     
-    model ElectricalPowerSensor "instantaneous power from spcae phasors" 
-      constant Integer m(final min=1) = 3 "number of phases";
+    model ElectricalPowerSensor "Instantaneous power from spcae phasors" 
+      constant Integer m(final min=1) = 3 "Number of phases";
       Modelica.Blocks.Interfaces.RealOutput P(redeclare type SignalType = 
             Modelica.SIunits.Power) 
         annotation (extent=[-60,120; -40,100],  rotation=-90);
@@ -5627,7 +5754,7 @@ Q = giving in stationary state reactive power.<br>
       2/3*Q = -v_[1]*i_[2]+v_[2]*i_[1];
     end ElectricalPowerSensor;
     
-    model MechanicalPowerSensor "torque x speed" 
+    model MechanicalPowerSensor "Mechanical power = torque x speed" 
       extends Modelica.Mechanics.Rotational.Interfaces.TwoFlanges;
       Modelica.Blocks.Interfaces.RealOutput P(redeclare type SignalType = 
             Modelica.SIunits.Power) 
@@ -6462,11 +6589,16 @@ Connector for Space Phasors:
     end SpacePhasor;
     
     model Adapter 
-      "from Modelica.Mechanics.Rotational.Interfaces.TwoFlangesAndBearingH" 
+      "From Modelica.Mechanics.Rotational.Interfaces.TwoFlangesAndBearingH" 
       extends Modelica.Mechanics.Rotational.Interfaces.TwoFlanges;
-      parameter Boolean bearingConnected;
+      parameter Boolean bearingConnected "Choose wether bearing is connected";
       annotation (Icon(Rectangle(extent=[-90, 10; 90, -10], style(color=8,
-                fillColor=8)), Text(extent=[0, 60; 0, 20], string="%name")));
+                fillColor=8)), Text(extent=[0, 60; 0, 20], string="%name")),
+          Documentation(info="<html>
+From Modelica.Mechanics.Rotational.Interfaces.TwoFlangesAndBearingH:<br>
+If bearingConnected = true torque is given from flange_a to flange_b<br>
+If bearingConnected = false flange_a is fixed
+</html>"));
     equation 
       flange_a.phi = flange_b.phi;
       if bearingConnected then
