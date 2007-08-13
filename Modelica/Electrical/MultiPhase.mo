@@ -1,7 +1,7 @@
 package MultiPhase "Library for electrical components with 2, 3 or more phases" 
   extends Modelica.Icons.Library2;
   annotation (
-    version="1.3.0", versionDate="2007-01-23",
+    version="1.3.1", versionDate="2007-08-12",
     classOrder={"Examples", "*"},
     preferedView="info", Documentation(info="<HTML>
 <p>
@@ -55,6 +55,8 @@ and the accompanying <b>disclaimer</b>
       corrected usage of resistance/conductance</li>
   <li>v1.3.0 2007/01/23 Anton Haumer<br>
       improved some icons</li>
+  <li>v1.3.1 2007/08/12 Anton Haumer<br>
+      improved documentation</li>
   </ul>
 </html>"),
     Icon(
@@ -587,7 +589,8 @@ Contains m variable conductors (Modelica.Electrical.Analog.Basic.VariableConduct
     model VariableCapacitor 
       "Ideal linear electrical capacitors with variable capacitance" 
       extends Interfaces.TwoPlug;
-      parameter Modelica.SIunits.Capacitance Cmin[m]=fill(Modelica.Constants.eps,m);
+      parameter Modelica.SIunits.Capacitance Cmin[m]=fill(Modelica.Constants.eps,m) 
+        "minimum Capacitance";
       Modelica.Blocks.Interfaces.RealInput C[m](
         redeclare type SignalType = Modelica.SIunits.Capacitance) 
         annotation (extent=[-10, 90; 10, 110], rotation=-90);
@@ -626,7 +629,8 @@ Cmin is a parameter with default value Modelica.Constants.eps.
     model VariableInductor 
       "Ideal linear electrical inductors with variable inductance" 
       extends Interfaces.TwoPlug;
-      parameter Modelica.SIunits.Inductance Lmin[m]=fill(Modelica.Constants.eps,m);
+      parameter Modelica.SIunits.Inductance Lmin[m]=fill(Modelica.Constants.eps,m) 
+        "minimum Inductance";
       Modelica.Blocks.Interfaces.RealInput L[m](
          redeclare type SignalType = Modelica.SIunits.Inductance) 
         annotation (extent=[-10, 90; 10, 110], rotation=-90);
