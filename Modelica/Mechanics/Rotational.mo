@@ -1,3 +1,4 @@
+within Modelica.Mechanics;
 package Rotational 
   "Library to model 1-dimensional, rotational mechanical systems" 
 package UsersGuide "User's Guide of Rotational Library" 
@@ -36,7 +37,7 @@ systems are available in the simulation tool, the simulation of
 (dynamically) coupled friction elements of this library is
 <b>efficient</b> and <b>reliable</b>.
 </p>
-<p><IMG SRC=\"../Images/drive1.png\" ALT=\"drive1\"></p>
+<p><IMG SRC=\"../Images/Rotational/drive1.png\" ALT=\"drive1\"></p>
 <p>
 A simple example of the usage of this library is given in the
 figure above. This drive consists of a shaft with inertia J1=0.2 which
@@ -64,7 +65,8 @@ library can be <b>connected</b> together in an <b>arbitrary</b> way. E.g., it is
 possible to connect two springs or two shafts with inertia directly
 together, see figure below.
 </p>
-<p><IMG SRC=\"../Images/driveConnections.png\" ALT=\"driveConnections\"></p>
+<p><IMG SRC=\"../Images/Rotational/driveConnections1.png\" ALT=\"driveConnections1\"></p>
+<p><IMG SRC=\"../Images/Rotational/driveConnections2.png\" ALT=\"driveConnections2\"></p>
  
 </HTML>"));
       
@@ -108,11 +110,14 @@ connector offers the possibility to consider, e.g., gearboxes mounted on
 the ground via spring-damper-systems (cf. example <tt>ElasticBearing</tt>). Independently, these components
 provide a variable <tt>tau_support</tt> stating the support torque exerted
 on the bearing.</p>
-<p><IMG SRC=\"../Images/bearing.png\" ALT=\"bearing\"></p>
+
+<p><IMG SRC=\"../Images/Rotational/bearing.png\" ALT=\"bearing\"></p>
+
 <p>In general, it is not necessary to connect the bearing flange
 with a fixation, i.e., the two implementations in the following figure give
 identical results.</p>
-<p><IMG SRC=\"../Images/bearing2.png\" ALT=\"bearing2\"></p>
+
+<p><IMG SRC=\"../Images/Rotational/bearing2.png\" ALT=\"bearing2\"></p>
  
 </HTML>"));
       
@@ -128,7 +133,7 @@ of <b>vectors</b>, i.e., have a direction, the question arises how the
 signs of variables shall be interpreted. The basic idea is explained
 at hand of the following figure:
 </p>
-<p><IMG SRC=\"../Images/drive2.png\" ALT=\"drive2\"></p>
+<p><IMG SRC=\"../Images/Rotational/drive2.png\" ALT=\"drive2\"></p>
 <p>
 In the figure, three identical drive trains are shown. The only
 difference is that the gear of the middle drive train and the
@@ -148,7 +153,7 @@ of the axis of rotation. In the following figure, the right-most
 inertias of the figure above are displayed with the positive
 vector direction displayed according to this rule:
 </p>
-<p><IMG SRC=\"../Images/drive3.png\" ALT=\"drive3\"></p>
+<p><IMG SRC=\"../Images/Rotational/drive3.png\" ALT=\"drive3\"></p>
 <p>
 The cut-torques <tt>J2.flange_a.tau, J4.flange_a.tau, J6.flange_b.tau</tt>
 of the right inertias are all identical and are directed into the
@@ -158,7 +163,7 @@ are all identical and are also directed into the
 direction of rotation if the values are positive. Some special
 cases are shown in the next figure:
 </p>
-<p><IMG SRC=\"../Images/drive4.png\" ALT=\"drive4\"></p>
+<p><IMG SRC=\"../Images/Rotational/drive4.png\" ALT=\"drive4\"></p>
 <p>
 In the upper part of the figure, two variants of the connection of an
 external torque and an inertia are shown. In both cases, a positive
@@ -213,7 +218,7 @@ velocities have to be expressed according to this definition.
 Examples for such a definition are given in the following figure
 for an inertia component and a planetary gearbox:
 </p>
-<p><IMG SRC=\"../Images/driveAxis.png\" ALT=\"driveAxis\"></p>
+<p><IMG SRC=\"../Images/Rotational/driveAxis.png\" ALT=\"driveAxis\"></p>
 <p>
 As can be seen, all vectors are directed into the direction
 of the rotation axis. The angles in the flanges are defined
@@ -227,7 +232,7 @@ On first view, one may assume that the selected local
 coordinate system has an influence on the usage of the
 component. But this is not the case, as shown in the next figure:
 </p>
-<p><IMG SRC=\"../Images/inertias.png\" ALT=\"inertias\"></p>
+<p><IMG SRC=\"../Images/Rotational/inertias.png\" ALT=\"inertias\"></p>
 <p>
 In the figure the <b>local</b> axes of rotation of the components
 are shown. The connection of two inertias in the left and in the
@@ -2073,11 +2078,11 @@ Rotational component with <b>inertia</b> and two rigidly connected flanges.
             color=0,
             gradient=2,
             fillColor=8)),
-        Rectangle(extent=[-96,10; -50,-10],   style(
+        Rectangle(extent=[-100,10; -50,-10],  style(
             color=0,
             gradient=2,
             fillColor=8)),
-        Rectangle(extent=[50,10; 96,-10],   style(
+        Rectangle(extent=[50,10; 100,-10],  style(
             color=0,
             gradient=2,
             fillColor=8)),

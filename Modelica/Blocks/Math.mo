@@ -1,3 +1,4 @@
+within Modelica.Blocks;
 package Math "Mathematical functions as input/output blocks" 
   import Modelica.SIunits;
   import Modelica.Blocks.Interfaces;
@@ -64,7 +65,18 @@ Internal replaceable block that is used to construct the
 <p>This block implements the Modelica.SIunits.Conversions functions as a fixed causality block to
 simplify their use. The block contains a replaceable block class <b>ConversionBlock</b> that can be
 changed to be any of the blocks defined in Modelica.Blocks.Math.UnitConversions, and more generally, any
-blocks that extend from Modelica.Blocks.Interfaces.PartialConversionBlock.</p>
+blocks that extend from Modelica.Blocks.Interfaces.PartialConversionBlock.
+</p>
+
+<p
+The desired conversion can be selected in the parameter menu 
+(the selected units are then displayed in the icon):</p>
+</p>
+
+<p>
+<img src=\"../Images/Blocks/ConvertAllUnits.png\">
+</p>
+
 </html>"));
     end ConvertAllUnits;
     
@@ -888,11 +900,11 @@ Example:
 </p>
 <pre>
      parameter:   k1= +2, k2= -3
+
   results in the following equations:
+
      y = 2 * u1 - 3 * u2
 </pre>
-<p><b>Release Notes:</b></p>
-<ul>
 
 </HTML>
 "),       Icon(

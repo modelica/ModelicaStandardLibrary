@@ -1,3 +1,4 @@
+within Modelica.Electrical;
 package Machines "Library for electric machines" 
   extends Modelica.Icons.Library2;
   annotation (
@@ -3198,7 +3199,7 @@ and the accompanying <b>disclaimer</b>
             Machines.BasicMachines.Transformers.Yy.Yy00 extends 
           Machines.BasicMachines.Components.BasicTransformer 
           "Replaceable transformer model" 
-          annotation (choicesFromPackage=true, choicesAllMatching=true, 
+          annotation (choicesFromPackage=true, choicesAllMatching=true,
           Documentation(info="<html>
 Replaceable transformer model for user's convenience
 </html>"));
@@ -6390,6 +6391,7 @@ This package contains space phasor transformation functions for use in calculati
 <li>Rotator: rotates a space phasor (from one coordinate system into another)</li>
 <li>ToPolar: Converts a space phasor from rectangular coordinates to polar coordinates</li>
 <li>FromPolar: Converts a space phasor from polar coordinates to rectangular coordinates</li>
+</ul>
 </HTML>", revisions="<HTML>
 <dl>
   <dt><b>Main Authors:</b></dt>
@@ -6399,12 +6401,16 @@ This package contains space phasor transformation functions for use in calculati
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
+
   <dt><b>Release Notes:</b></dt>
   <dd>
   <ul>
   <li> v1.00 2004/09/16 Anton Haumer</li>
+  <li> v1.6.1 2005/11/10 Anton Haumer<br>
+       improved Transformation and Rotation</li>
   </ul>
   </dd>
+
   <dt><b>Copyright:</b></dt>
   <dd>Copyright &copy; 1998-2007, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
@@ -6412,11 +6418,6 @@ This package contains space phasor transformation functions for use in calculati
   and the accompanying <b>disclaimer</b> in the documentation of package
   Modelica in file \"Modelica/package.mo\".</i></dd>
 </dl>
-  <ul>
-  <li> v1.00 2004/09/16 Anton Haumer</li>
-  <li> v1.6.1 2005/11/10 Anton Haumer<br>
-       improved Transformation and Rotation</li>
-  </ul>
 </HTML>"));
       
       function ToSpacePhasor "Conversion: three phase -> space phasor" 
