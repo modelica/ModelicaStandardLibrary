@@ -969,7 +969,7 @@ to compute u by an algebraic equation.
       Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1,1],
-        component=[20, 20], 
+        component=[20, 20],
         scale=0),
       Window(
         x=0.22,
@@ -1179,9 +1179,9 @@ to use <b>limitAtInit</b> = <b>false</b>.
     parameter Boolean with_D = controllerType==SimpleController.PD or 
                                controllerType==SimpleController.PID annotation(Evaluate=true, Hide=true);
   public 
-    Sources.Constant Dzero(k=0) if not with_D
+    Sources.Constant Dzero(k=0) if not with_D 
       annotation (extent=[-30,20; -20,30]);
-    Sources.Constant Izero(k=0) if not with_I
+    Sources.Constant Izero(k=0) if not with_I 
       annotation (extent=[10,-55; 0,-45]);
   initial equation 
     if initType==InitPID.InitialOutput then
@@ -1248,7 +1248,7 @@ to use <b>limitAtInit</b> = <b>false</b>.
         thickness=2));
     connect(Dzero.y, addPID.u2) annotation (points=[-19.5,25; -14,25; -14,0; -2,
           0], style(color=74, rgbcolor={0,0,127}));
-    connect(Izero.y, addPID.u3) annotation (points=[-0.5,-50; -10,-50; -10,-8; 
+    connect(Izero.y, addPID.u3) annotation (points=[-0.5,-50; -10,-50; -10,-8;
           -2,-8], style(color=74, rgbcolor={0,0,127}));
   end LimPID;
   

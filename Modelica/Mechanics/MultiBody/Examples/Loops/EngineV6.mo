@@ -31,22 +31,22 @@ model EngineV6
     animation=animation) annotation (extent=[-20, 4; 0, 34]);
   Utilities.Cylinder cylinder3(
     cylinderInclination=Cv.from_deg(-30),
-    animation=animation, 
+    animation=animation,
     crankAngleOffset=Cv.from_deg(210)) 
                          annotation (extent=[10, 4; 30, 34]);
   Utilities.Cylinder cylinder4(
     cylinderInclination=Cv.from_deg(30),
-    animation=animation, 
+    animation=animation,
     crankAngleOffset=Cv.from_deg(210)) 
                          annotation (extent=[39, 4; 59, 34]);
   Utilities.Cylinder cylinder5(
     cylinderInclination=Cv.from_deg(-30),
-    animation=animation, 
+    animation=animation,
     crankAngleOffset=Cv.from_deg(90)) 
                          annotation (extent=[70, 4; 90, 34]);
   Utilities.Cylinder cylinder6(
     cylinderInclination=Cv.from_deg(30),
-    animation=animation, 
+    animation=animation,
     crankAngleOffset=Cv.from_deg(-30)) 
                          annotation (extent=[100, 4; 120, 34]);
   Rotational.Inertia load(phi(
@@ -58,7 +58,7 @@ model EngineV6
       stateSelect=StateSelect.always)) annotation (extent=[-44,-30; -24,-10]);
   Rotational.QuadraticSpeedDependentTorque load2(tau_nominal=-100, w_nominal=
         200) annotation (extent=[6,-30; -14,-10]);
-  Rotational.Sensors.TorqueSensor torqueSensor
+  Rotational.Sensors.TorqueSensor torqueSensor 
     annotation (extent=[-72,-30; -52,-10]);
   Blocks.Continuous.CriticalDamping filter(
     n=2,
@@ -91,8 +91,7 @@ Simulate for 5 s, and plot the variables <b>engineSpeed_rpm</b>,
 a size of about 50 Mbyte (for 5000 output intervalls).
 </p>
 </HTML>
-"), 
-    experiment(StopTime=5, NumberOfIntervals=5000), 
+"), experiment(StopTime=5, NumberOfIntervals=5000),
     experimentSetupOutput);
   connect(bearing.frame_b, cylinder1.crank_a) 
     annotation (points=[-70,10; -50,10], style(
@@ -159,9 +158,9 @@ a size of about 50 Mbyte (for 5000 output intervalls).
       color=10,
       rgbcolor={95,95,95},
       thickness=2));
-  connect(load2.flange, load.flange_b)
+  connect(load2.flange, load.flange_b) 
     annotation (points=[-14,-20; -24,-20], style(color=0, rgbcolor={0,0,0}));
-  connect(torqueSensor.flange_b, load.flange_a)
+  connect(torqueSensor.flange_b, load.flange_a) 
     annotation (points=[-52,-20; -44,-20], style(color=0, rgbcolor={0,0,0}));
   connect(torqueSensor.tau,filter. u) annotation (points=[-70,-31; -70,-50; -56,
         -50], style(color=74, rgbcolor={0,0,127}));

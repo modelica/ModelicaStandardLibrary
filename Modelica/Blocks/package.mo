@@ -43,7 +43,7 @@ This library contains input/output blocks to build up block diagrams.
 <br>
 
 <p>
-Copyright &copy; 1998-2006, Modelica Association and DLR.
+Copyright &copy; 1998-2007, Modelica Association and DLR.
 </p>
 <p>
 <i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified
@@ -101,7 +101,8 @@ package Examples "Demonstration examples of the components of this package"
   
   model PID_Controller "Demonstrate usage of the Continuous.LimPID controller" 
     extends Modelica.Icons.Example;
-    parameter Modelica.SIunits.Angle driveAngle=1.57;
+    parameter Modelica.SIunits.Angle driveAngle=1.57 
+      "Reference distance to move";
     Modelica.Blocks.Continuous.LimPID PI(
       k=100,
       Ti=0.1,
@@ -242,6 +243,7 @@ is forced back to its limit after a transient phase.
   end PID_Controller;
   
      model ShowLogicalSources 
+    "Show logical sources and demonstrate their diagram animation" 
        extends Modelica.Icons.Example;
        Sources.BooleanTable table(table={2,4,6,8}) 
                                        annotation(extent=[-60,-100; -40,-80]);
@@ -250,7 +252,18 @@ is forced back to its limit after a transient phase.
        Sources.BooleanPulse pulse(period=1.5) annotation(extent=[-60,-20; -40,0]);
        annotation(Diagram,
       experiment(StopTime=10),
-      experimentSetupOutput);
+      experimentSetupOutput,
+      Documentation(info="<html>
+<p>
+This simple example demonstrates the logical sources in 
+<a href=\"Modelica://Modelica.Blocks.Sources\">Modelica.Blocks.Sources</a> and demonstrate
+their diagram animation (see \"small circle\" close to the output connector).
+The \"booleanExpression\" source shows how a logical expression can be defined
+in its parameter menu refering to variables available on this level of the
+model.
+</p>
+
+</html>"));
       Sources.SampleTrigger sample(
                           period=0.5) annotation(extent=[-60,-60; -40,-40]);
       Sources.BooleanExpression booleanExpression(
@@ -258,7 +271,7 @@ is forced back to its limit after a transient phase.
       annotation(extent=[20,20; 80,40]);
      end ShowLogicalSources;
   
-    model LogicalNetwork1 
+    model LogicalNetwork1 "Example for a network of logical blocks" 
     
     extends Modelica.Icons.Example;
     Sources.BooleanTable table2(table={1,3,5,7}) annotation(extent=[-80,-20; -60,0]);
@@ -267,7 +280,16 @@ is forced back to its limit after a transient phase.
     
     annotation(Diagram,
         experiment(StopTime=10),
-        experimentSetupOutput);
+        experimentSetupOutput,
+      Documentation(info="<html>
+<p>
+This example demonstrates a network of logical blocks. Note, that
+the Boolean values of the input and output signals are visualized
+in the diagram animation, by the small \"circles\" close to the connectors.
+If a \"circle\" is \"white\", the signal is <b>false</b>. It a
+\"circle\" is \"green\", the signal is <b>true</b>.
+</p>
+</html>"));
     Logical.And And1 annotation(extent=[0,-20; 20,0]);
     Logical.Or Or1 annotation(extent=[40,20; 60,40]);
     Logical.Pre Pre1 annotation(extent=[-40,-60; -20,-40]);
@@ -275,19 +297,14 @@ is forced back to its limit after a transient phase.
     
     connect(table2.y, Not1.u) annotation(points=[-59,-10; -42,-10], style(
           color=5, rgbcolor={255,0,255}));
-    
     connect(And1.y, Or1.u2) annotation(points=[21,-10; 28,-10; 28,22; 38,22],
         style(color=5, rgbcolor={255,0,255}));
-    
     connect(table1.y, Or1.u1) annotation(points=[-59,30; 38,30], style(color=
             5, rgbcolor={255,0,255}));
-    
     connect(Not1.y, And1.u1) annotation(points=[-19,-10; -2,-10], style(color=
            5, rgbcolor={255,0,255}));
-    
     connect(Pre1.y, And1.u2) annotation(points=[-19,-50; -10,-50; -10,-18; -2,
           -18], style(color=5, rgbcolor={255,0,255}));
-    
     connect(Or1.y, Pre1.u) annotation(points=[61,30; 68,30; 68,-70; -60,-70;
           -60,-50; -42,-50], style(color=5, rgbcolor={255,0,255}));
     
@@ -418,7 +435,9 @@ Note, even if the signals from \"Internal.StandardControlBus\" are listed, these
 just potential signals. The user might still add different signal names.
 </p>
 
-</html>"), Diagram);
+</html>"), Diagram,
+      experiment(StopTime=2),
+      experimentSetupOutput);
   public 
     Modelica.Blocks.Sources.IntegerStep integerStep(
       height=1,
@@ -490,6 +509,10 @@ just potential signals. The user might still add different signal names.
   package BusUsage_Utilities 
     "Utility models and connectors for the demonstration example Modelica.Blocks.Examples.BusUsage" 
     annotation (preferedView="info",Documentation(info="<html>
+<p>
+This package contains utility models and bus definitions needed for the
+<a href=\"Modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a> example.
+</p>
 </html>"), Diagram);
   package Interfaces "Interfaces specialised for this example" 
       
@@ -499,7 +522,16 @@ just potential signals. The user might still add different signal names.
         
         annotation (
           Icon(Rectangle(extent=[-20, 2; 22, -2], style(rgbcolor={255,204,51}, thickness=2))),
-          Diagram);
+          Diagram,
+          Documentation(info="<html>
+<p>
+This connector defines the \"expandable connector\" ControlBus that
+is used as bus in the 
+<a href=\"Modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a> example.
+Note, this connector is \"empty\". When using it, the actual content is
+constructed by the signals connected to this bus.
+</p>
+</html>"));
         
       end ControlBus;
       
@@ -508,11 +540,21 @@ just potential signals. The user might still add different signal names.
         extends Modelica.Icons.SignalSubBus;
         
         annotation (defaultComponentPrefixes="protected",
-                    Icon(Rectangle(extent=[-20, 2; 22, -2], style(rgbcolor={255,204,51}, thickness=2))));
+                    Icon(Rectangle(extent=[-20, 2; 22, -2], style(rgbcolor={255,204,51}, thickness=2))),
+          Documentation(info="<html>
+<p>
+This connector defines the \"expandable connector\" SubControlBus that
+is used as sub-bus in the 
+<a href=\"Modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a> example.
+Note, this connector is \"empty\". When using it, the actual content is
+constructed by the signals connected to this bus.
+</p>
+</html>"));
         
       end SubControlBus;
       
     package Internal 
+        "Internal definitions that are usually not utilized (only indirectly via the expandable connectors)" 
         expandable connector StandardControlBus 
           "Used to build up the standard control bus (do not use this connector)" 
           extends 
@@ -527,7 +569,14 @@ just potential signals. The user might still add different signal names.
           
           annotation (
             Icon(Rectangle(extent=[-20, 2; 22, -2], style(rgbcolor={255,204,51}, thickness=2))),
-            Diagram);
+            Diagram,
+            Documentation(info="<html>
+<p>
+This connector is used to show default signals that might be added
+to the 
+<a href=\"Modelica://Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces.ControlBus\">ControlBus</a>.
+</p>
+</html>"));
           
         end StandardControlBus;
         
@@ -540,9 +589,32 @@ just potential signals. The user might still add different signal names.
           Boolean myBooleanSignal;
           
           annotation (defaultComponentPrefixes="protected",
-                      Icon(Rectangle(extent=[-20, 2; 22, -2], style(rgbcolor={255,204,51}, thickness=2))));
+                      Icon(Rectangle(extent=[-20, 2; 22, -2], style(rgbcolor={255,204,51}, thickness=2))),
+            Documentation(info="<html>
+<p>
+This connector is used to show default signals that might be added
+to the 
+<a href=\"Modelica://Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces.SubControlBus\">SubControlBus</a>.
+</p>
+</html>"));
         end StandardSubControlBus;
+        annotation (Documentation(info="<html>
+<p>
+This package contains the \"actual\" default bus definitions needed for the
+<a href=\"Modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a> example.
+The bus definitions in this package are the default definitions shown in the
+bus menu when connecting a signal to an expandable connector (here: ControlBus
+or SubControlBus). Usually, the connectors of this package should not be 
+utilized by a user.
+</p>
+</html>"));
     end Internal;
+      annotation (Documentation(info="<html>
+<p>
+This package contains the bus definitions needed for the
+<a href=\"Modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a> example.
+</p>
+</html>"));
   end Interfaces;
     
    model Part "Component with sub-control bus" 
@@ -551,7 +623,15 @@ just potential signals. The user might still add different signal names.
                   76, fillPattern=1)), Text(
             extent=[-106, 124; 114, 68],
             style(fillColor=76, fillPattern=1),
-            string="%name")), Diagram);
+            string="%name")), Diagram,
+        Documentation(info="<html>
+<p>
+<p>
+This model is used to demonstrate the bus usage in example
+<a href=\"Modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
+</p>
+</p>
+</html>"));
      Interfaces.SubControlBus subControlBus 
        annotation (extent=[80,-20; 120,20], rotation=-90);
      Sources.RealExpression realExpression(y=time) 

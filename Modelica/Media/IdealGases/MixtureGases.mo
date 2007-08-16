@@ -27,8 +27,9 @@ package MixtureGases "Medium models consisting of mixtures of ideal gases"
 </html>"));
   end AirSteam;
   
-  package simpleMoistAir = AirSteam(reference_X={0.03,0.97}) "moist air without condensation";
-
+  package simpleMoistAir = AirSteam(reference_X={0.03,0.97}) 
+    "moist air without condensation";
+  
   package FlueGasLambdaOnePlus 
     "simple flue gas for over0stochiometric O2-fuel ratios" 
     extends Common.MixtureGasNasa(

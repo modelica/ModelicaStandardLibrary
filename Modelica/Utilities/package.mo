@@ -1,6 +1,7 @@
 package Utilities "Utility functions especially for scripting (operating on files, streams, strings, system)"
   extends Modelica.Icons.Library;
 
+
     annotation (
   version="1.0",
   versionDate="2004-10-01",
@@ -40,10 +41,10 @@ The following main sublibraries are available:
 </ul>
 
 <p>
-Copyright &copy; 1998-2006, Modelica Association, DLR and Dynasim.
+Copyright &copy; 1998-2007, Modelica Association, DLR and Dynasim.
 </p>
 <p>
-<i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
+<i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified
 under the terms of the <b>Modelica license</b>, see the license conditions
 and the accompanying <b>disclaimer</b> 
 <a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a>.</i>
@@ -51,9 +52,9 @@ and the accompanying <b>disclaimer</b>
 </html>
 "));
 
-package UsersGuide "Users Guide" 
+
+package UsersGuide "Users Guide of Utilities Library" 
   annotation (DocumentationClass=true, Documentation(info="<HTML>
-<h3><font color=\"#008000\" size=5>Users Guide of package Modelica.Utilities</font></h3>
 <p>
 Library <b>Modelica.Utilities</b> contains Modelica <b>functions</b> that are
 especially suited for <b>scripting</b>. Currently, only a rudimentary
@@ -89,7 +90,6 @@ in Modelica that will allow to catch errors at a defined place.
   class ImplementationNotes "Implementation Notes" 
     
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>Implementation Notes</font></h3>
 <p>
 Below the major design decisions of this library are summarized.
 <p>
@@ -168,8 +168,7 @@ Below the major design decisions of this library are summarized.
   class ReleaseNotes "Release notes" 
     
     annotation (Documentation(info="<HTML>
-<h3><font color=\"#008000\" size=5>Release notes</font></h3>
-<h3><font color=\"#008000\">Version 1.0, 2004-09-29</font></h3>
+<h4>Version 1.0, 2004-09-29</h4>
 <p>
 First version implemented.
 </p>
@@ -182,7 +181,6 @@ First version implemented.
   class Contact "Contact" 
     
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>Contact</font></h3>
 <dl>
 <dt><b>Responsible for Library:</b>
 <dd>Dag Br&uuml;ck, Dynasim AB, Sweden.<br>
@@ -210,6 +208,7 @@ First version implemented.
   end Contact;
   
 end UsersGuide;
+
 
 package Internal "Internal package as interface to the operating system" 
  extends Modelica.Icons.Library;

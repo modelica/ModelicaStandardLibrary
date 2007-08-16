@@ -392,7 +392,7 @@ results in the following equations:
   
   block TriggeredSampler "Triggered sampling of continuous signals" 
     extends Interfaces.DiscreteBlockIcon;
-    replaceable type SignalType = Real "type of input and output signal";
+    replaceable type SignalType = Real "Type of input and output signal";
     parameter SignalType y_start=0 "initial value of output signal";
     
     annotation (

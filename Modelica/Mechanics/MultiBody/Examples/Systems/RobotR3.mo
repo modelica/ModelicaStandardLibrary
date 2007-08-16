@@ -647,7 +647,7 @@ motion on the controlBus of the r3 robot.
           style(color=74, rgbcolor={0,0,127}));
       connect(path.qd, pathToAxis6.qd)         annotation (points=[-69,-67; -12,
             -67],                     style(color=74, rgbcolor={0,0,127}));
-      connect(path.qdd, pathToAxis6.qdd)         annotation (points=[-69,-73; 
+      connect(path.qdd, pathToAxis6.qdd)         annotation (points=[-69,-73;
             -12,-73],               style(color=74, rgbcolor={0,0,127}));
       connect(path.moving, pathToAxis6.moving)             annotation (points=[-69,
             -78; -12,-78], style(color=5, rgbcolor={255,0,255}));
@@ -771,7 +771,7 @@ motion on the controlBus of the r3 robot.
             string="axis"),
           Text(
             extent=[-94,-70; 32,-96],
-            style(color=0, rgbcolor={0,0,0}), 
+            style(color=0, rgbcolor={0,0,0}),
             string="moving")),
         Coordsys(scale=0.1, grid=[2,2]));
     equation 

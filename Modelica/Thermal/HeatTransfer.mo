@@ -97,7 +97,7 @@ Ludwig Marvan, VA TECH ELIN EBG Elektronik GmbH, Wien, Austria;
 Hans Olsson, Dynasim AB, Sweden;
 Hubertus Tummescheit, Lund Institute of Technology, Lund, Sweden.
 </p>
-<p><b>Copyright &copy; 2001-2006, Modelica Association, Michael Tiller and DLR.</b></p>
+<p><b>Copyright &copy; 2001-2007, Modelica Association, Michael Tiller and DLR.</b></p>
 <p><i>
 This Modelica package is free software; it can be redistributed and/or modified
 under the terms of the Modelica license, see the license conditions
@@ -321,7 +321,7 @@ Simulate for 7200 s; plot Twinding.T and Tcore.T.
     equation 
       connect(windingLosses.port, winding.port)  annotation (points=[-80,0; -80,
             -20], style(color=42, rgbcolor={191,0,0}));
-      connect(coreLosses.port, core.port)  annotation (points=[6.12303e-016,0; 
+      connect(coreLosses.port, core.port)  annotation (points=[6.12303e-016,0;
             6.12303e-016,-10; 0,-10; 0,-20],
           style(color=42, rgbcolor={191,0,0}));
       connect(winding.port, winding2core.port_a) 
@@ -337,13 +337,13 @@ Simulate for 7200 s; plot Twinding.T and Tcore.T.
       connect(winding2core.port_b, convection.solid) 
                                           annotation (points=[-30,-10; 30,-10],
           style(color=42, rgbcolor={191,0,0}));
-      connect(convection.fluid, environment.port) annotation (points=[50,-10; 
+      connect(convection.fluid, environment.port) annotation (points=[50,-10;
             60,-10; 60,-10; 70,-10], style(color=42, rgbcolor={191,0,0}));
       connect(convectionConstant.y, convection.Gc) 
         annotation (points=[40,19; 40,0], style(color=74, rgbcolor={0,0,127}));
       connect(lossTable.y[1], windingLosses.Q_flow) annotation (points=[-40,59;
             -40,40; -80,40; -80,20], style(color=74, rgbcolor={0,0,127}));
-      connect(lossTable.y[2], coreLosses.Q_flow) annotation (points=[-40,59; 
+      connect(lossTable.y[2], coreLosses.Q_flow) annotation (points=[-40,59;
             -40,40; -6.12303e-016,40; -6.12303e-016,20],
                                    style(color=74, rgbcolor={0,0,127}));
     end Motor;

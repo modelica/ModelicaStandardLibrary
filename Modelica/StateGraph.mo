@@ -71,10 +71,10 @@ It is most useful to combine this libray with the Modelica libraries
 </ul>
  
 <p>
-Copyright &copy; 1998-2006, Modelica Association and DLR
+Copyright &copy; 1998-2007, Modelica Association and DLR
 </p>
 <p>
-<i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
+<i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified
 under the terms of the <b>Modelica license</b>, see the license conditions
 and the accompanying <b>disclaimer</b> 
 <a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a>.</i>
@@ -117,10 +117,9 @@ and the accompanying <b>disclaimer</b>
           rgbfillColor={0,0,0})),
       Rectangle(extent=[26,-22; 64,-56],  style(color=0, rgbcolor={0,0,0}))));
   
-package UsersGuide "Users Guide" 
+package UsersGuide "Users Guide of StateGraph Library" 
     
   annotation (DocumentationClass=true, Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>Users Guide of package StateGraph</font></h3>
 <p>
 Library <b>StateGraph</b> is a <b>free</b> Modelica package providing
 components to model <b>discrete event</b> and <b>reactive</b> 
@@ -150,7 +149,6 @@ the library and has the following content:
   class OverView "Overview of library" 
       
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>Overview of Library StateGraph</font></h3>
 <p>
 In this section, an overview of the most important features
 of this library is given.
@@ -480,7 +478,6 @@ be aborted due to different transitions).
   class FirstExample "A first example" 
       
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>A first example</font></h3>
 <p>
 A first example will be given here (not yet done).
 </p>
@@ -491,7 +488,6 @@ A first example will be given here (not yet done).
   class ApplicationExample "An application example" 
       
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>An application example</font></h3>
 <p>
 In this section a more realistic, still simple, application example
 is given, to demonstrate various features of the StateGraph library.
@@ -598,8 +594,7 @@ step \"emptyTanks\" is active. Otherwise, valve2 is closed.
   class ReleaseNotes "Release notes" 
       
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>Release notes</font></h3>
-<h3><font color=\"#008000\">Version 0.87, 2004-06-23</font></h3>
+<h4>Version 0.87, 2004-06-23</h4>
 <ul>
 <li> Included in Modelica standard library 2.0 Beta 1 with the new block connectors.
      Changed all the references to the block connectors and the Logical library
@@ -623,7 +618,7 @@ step \"emptyTanks\" is active. Otherwise, valve2 is closed.
 <li> New component \"Timer\" within sublibrary Logical.</li>
 <li> Updated and improved documentation of the library.</li>
 </ul>
-<h3><font color=\"#008000\">Version 0.85, 2004-06-17</font></h3>
+<h4>Version 0.85, 2004-06-17</h4>
 <ul>
 <li> Renamed \"MacroStep\" to \"CompositeStep\" and the ports of the MacroStep
      from \"abort\" to \"suspend\" and \"histoy\" to \"resume\".</li>
@@ -638,7 +633,7 @@ step \"emptyTanks\" is active. Otherwise, valve2 is closed.
      and nicer icons. Additionally, logical blocks are also added.</li>
 <li> Improved icons for several components of the StateGraph library.</li>
 </ul>
-<h3><font color=\"#008000\">Version 0.83, 2004-05-21</font></h3>
+<h4>Version 0.83, 2004-05-21</h4>
 <ul>
 <li> The \"abort\" and \"history\" connectors are no longer visible in the
      diagram layer of a CompositeStep since it is not allowed to connect
@@ -648,7 +643,7 @@ step \"emptyTanks\" is active. Otherwise, valve2 is closed.
 <li> Improved icons for \"SetBoolean/SetInteger/SetReal\" components.</li>
 <li> Renamed \"ParameterReal\" to \"SetRealParameter\".</li>
 </ul>
-<h3><font color=\"#008000\">Version 0.82, 2004-05-18</font></h3>
+<h4>Version 0.82, 2004-05-18</h4>
 <p>
 Implemented a first version that is provided to other people.
 </p>
@@ -661,7 +656,6 @@ Implemented a first version that is provided to other people.
   class Literature "Literature" 
       
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>Literature</font></h3>
 <p>
 The StateGraph library is based on the following references:
 </p>
@@ -694,7 +688,6 @@ The StateGraph library is based on the following references:
   class Contact "Contact" 
       
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>Contact</font></h3>
 <dl>
 <dt><b>Main Author:</b>
 <dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a><br>

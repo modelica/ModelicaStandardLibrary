@@ -28,7 +28,16 @@ package Sources "Signal source blocks generating Real and Boolean signals"
             fillPattern=1)), Text(extent=[-150,90; 140,50],     string="%name")),
       Diagram,
       Documentation(info="<html>
-
+<p>
+The (time varying) Real output signal of this block can be defined in its
+parameter menu via variable <b>y</b>. The purpose is to support the
+easy definition of Real expressions in a block diagram. For example,
+in the y-menu the definition \"if time &lt; 1 then 0 else 1\" can be given in order
+to define that the output signal is one, if time &ge; 1 and otherwise
+it is zero. Note, that \"time\" is a built-in variable that is always
+accessible and represents the \"model time\" and that 
+Variable <b>y</b> is both a variable and a connector.
+</p>
 </html>"));
     
   end RealExpression;
@@ -63,7 +72,16 @@ package Sources "Signal source blocks generating Real and Boolean signals"
             fillPattern=1)), Text(extent=[-150,90; 140,50],     string="%name")),
       Diagram,
       Documentation(info="<html>
-
+<p>
+The (time varying) Integer output signal of this block can be defined in its
+parameter menu via variable <b>y</b>. The purpose is to support the
+easy definition of Integer expressions in a block diagram. For example,
+in the y-menu the definition \"if time &lt; 1 then 0 else 1\" can be given in order
+to define that the output signal is one, if time &ge; 1 and otherwise
+it is zero. Note, that \"time\" is a built-in variable that is always
+accessible and represents the \"model time\" and that 
+Variable <b>y</b> is both a variable and a connector.
+</p>
 </html>"));
     
   end IntegerExpression;
@@ -101,7 +119,17 @@ package Sources "Signal source blocks generating Real and Boolean signals"
               fillColor=DynamicSelect(7, if y > 0.5 then 2 else 7)))),
       Diagram,
       Documentation(info="<html>
-
+<p>
+The (time varying) Boolean output signal of this block can be defined in its
+parameter menu via variable <b>y</b>. The purpose is to support the
+easy definition of Boolean expressions in a block diagram. For example,
+in the y-menu the definition \"time &gt;= 1 and time &lt;= 2\" can be given in order
+to define that the output signal is <b>true</b> in the time interval
+1 &le; time &le; 2 and otherwise it is <b>false</b>.
+Note, that \"time\" is a built-in variable that is always
+accessible and represents the \"model time\" and that 
+Variable <b>y</b> is both a variable and a connector.
+</p>
 </html>"));
     
   end BooleanExpression;
@@ -213,58 +241,116 @@ usually requires a trimming calculation.
               string="startTime=%startTime",
               style(color=0))),
           Diagram(
-            Polygon(points=[-80, 90; -88, 68; -72, 68; -80, 90], style(color=8,
-                   fillColor=8)),
-            Line(points=[-80, 68; -80, -80], style(color=8)),
-            Line(points=[-80, 0; -10, 0; 60, 70], style(color=0, thickness=2)),
-            Line(points=[-90, -70; 82, -70], style(color=8)),
-            Polygon(points=[90, -70; 68, -62; 68, -78; 90, -70], style(
-                color=8,
-                fillColor=8,
-                fillPattern=1)),
+            Polygon(points=[-80,90; -85,68; -75,68; -80,90], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[-80, 68; -80, -80], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[-80, 0; -10, 0; 60, 70], style(
+            color=3, 
+            rgbcolor={0,0,255}, 
+            thickness=2)),
+            Line(points=[-90, -70; 82, -70], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Polygon(points=[90,-70; 68,-64; 68,-76; 90,-70], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Polygon(points=[-34, 0; -37, -13; -30, -13; -34, 0], style(
-                color=8,
-                fillColor=8,
-                fillPattern=1)),
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Line(points=[-34, -13; -34, -70], style(
-                color=8,
-                pattern=1,
-                thickness=1,
-                arrow=0)),
-            Polygon(points=[-34, -69; -37, -56; -31, -56; -34, -69; -34, -69],
-                style(
-                color=8,
-                fillColor=8,
-                fillPattern=1)),
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Polygon(points=[-34, -69; -37, -56; -31, -56; -34, -69; -34, -69], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Text(
-              extent=[-81, -25; -35, -43],
-              string="offset",
-              style(color=9)),
+              extent=[-77,-28; -35,-40],
+              string="offset", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Text(
-              extent=[-33, -71; 13, -89],
-              string="startTime",
-              style(color=9)),
+              extent=[-30,-73; 18,-86],
+              string="startTime", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Text(
-              extent=[-66, 92; -25, 72],
-              string="y",
-              style(color=9)),
+              extent=[-81,91; -40,71],
+              string="y", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Text(
-              extent=[70, -80; 94, -100],
-              string="time",
-              style(color=9)),
-            Line(points=[-10, 0; -10, -70], style(color=8, pattern=2)),
-            Line(points=[-10, 0; 50, 0], style(color=8, pattern=2)),
-            Line(points=[50, 0; 50, 60], style(color=8, pattern=2)),
+              extent=[63,-79; 94,-89],
+              string="time", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[-10, 0; -10, -70], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[-10, 0; 50, 0], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[50, 0; 50, 60], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Text(
               extent=[35, 33; 50, 23],
-              string="1",
-              style(color=9)),
+              string="1", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Text(
               extent=[14, 13; 32, 1],
-              string="1",
-              style(color=9))),
+              string="1", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95}))),
       Documentation(info="<html>
+<p>
+The Real output y is a clock signal:
+</p>
 
+<p>
+<img src=\"../Images/Blocks/Sources/Clock.png\">
+</p>
 </html>"));
     
       equation 
@@ -298,27 +384,62 @@ usually requires a trimming calculation.
               string="k=%k",
               style(color=0))),
           Diagram(
-            Polygon(points=[-80, 90; -88, 68; -72, 68; -80, 90], style(color=8,
-                   fillColor=8)),
-            Line(points=[-80, 68; -80, -80], style(color=8)),
-            Line(points=[-80, 0; 80, 0], style(color=0, thickness=2)),
-            Line(points=[-90, -70; 82, -70], style(color=8)),
-            Polygon(points=[90, -70; 68, -62; 68, -78; 90, -70], style(color=8,
-                   fillColor=8)),
+            Polygon(points=[-80,90; -86,68; -74,68; -80,90], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[-80, 68; -80, -80], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[-80, 0; 80, 0], style(
+            color=3, 
+            rgbcolor={0,0,255}, 
+            thickness=2)),
+            Line(points=[-90, -70; 82, -70], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Polygon(points=[90,-70; 68,-64; 68,-76; 90,-70], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Text(
-              extent=[-75, 94; -22, 76],
-              string="y",
-              style(color=9)),
+              extent=[-83,92; -30,74],
+              string="y", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Text(
               extent=[70, -80; 94, -100],
-              string="time",
-              style(color=9)),
+              string="time", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Text(
               extent=[-101, 8; -81, -12],
-              string="k",
-              style(color=9))),
+              string="k", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95}))),
       Documentation(info="<html>
+<p>
+The Real output y is a constant signal:
+</p>
 
+<p>
+<img src=\"../Images/Blocks/Sources/Constant.png\">
+</p>
 </html>"));
       equation 
         y = k;
@@ -350,65 +471,118 @@ usually requires a trimming calculation.
               string="startTime=%startTime",
               style(color=0))),
           Diagram(
-            Polygon(points=[-80, 90; -88, 68; -72, 68; -80, 90], style(color=8,
-                   fillColor=8)),
-            Line(points=[-80, 68; -80, -80], style(color=8)),
-            Line(points=[-80, -18; 0, -18; 0, 50; 80, 50], style(color=0,
-                  thickness=2)),
-            Line(points=[-90, -70; 82, -70], style(color=8)),
-            Polygon(points=[90, -70; 68, -62; 68, -78; 90, -70], style(color=8,
-                   fillColor=8)),
+            Polygon(points=[-80,90; -86,68; -74,68; -80,90], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[-80, 68; -80, -80], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[-80, -18; 0, -18; 0, 50; 80, 50], style(
+            color=3, 
+            rgbcolor={0,0,255}, 
+            thickness=2)),
+            Line(points=[-90, -70; 82, -70], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Polygon(points=[90,-70; 68,-64; 68,-76; 90,-70], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Text(
               extent=[70, -80; 94, -100],
-              string="time",
-              style(color=9)),
+              string="time", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Text(
               extent=[-21, -72; 25, -90],
-              string="startTime",
-              style(color=9)),
-            Line(points=[0, -17; 0, -71], style(color=8, pattern=2)),
+              string="startTime", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[0, -17; 0, -71], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Text(
               extent=[-68, -36; -22, -54],
-              string="offset",
-              style(color=9)),
+              string="offset", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Line(points=[-13, 50; -13, -17], style(
-                color=8,
-                pattern=1,
-                thickness=1,
-                arrow=0)),
-            Polygon(points=[2, 50; -19, 50; 2, 50], style(color=8, pattern=2)),
-            Polygon(points=[-13, -17; -16, -4; -10, -4; -13, -17; -13, -17],
-                style(
-                color=8,
-                fillColor=8,
-                fillPattern=1)),
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Polygon(points=[2, 50; -19, 50; 2, 50], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Polygon(points=[-13, -17; -16, -4; -10, -4; -13, -17; -13, -17], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Polygon(points=[-13, 50; -16, 37; -9, 37; -13, 50], style(
-                color=8,
-                fillColor=8,
-                fillPattern=1)),
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Text(
               extent=[-68, 26; -22, 8],
-              string="height",
-              style(color=9)),
-            Polygon(points=[-13, -69; -16, -56; -10, -56; -13, -69; -13, -69],
-                style(
-                color=8,
-                fillColor=8,
-                fillPattern=1)),
+              string="height", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Polygon(points=[-13, -69; -16, -56; -10, -56; -13, -69; -13, -69], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Line(points=[-13, -18; -13, -70], style(
-                color=8,
-                pattern=1,
-                thickness=1,
-                arrow=0)),
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Polygon(points=[-13, -18; -16, -31; -9, -31; -13, -18], style(
-                color=8,
-                fillColor=8,
-                fillPattern=1)),
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Text(
               extent=[-72, 100; -31, 80],
-              string="y",
-              style(color=9))),
+              string="y", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95}))),
       Documentation(info="<html>
+<p>
+The Real output y is a step signal:
+</p>
+
+<p>
+<img src=\"../Images/Blocks/Sources/Step.png\">
+</p>
 
 </html>"));
     
@@ -451,84 +625,153 @@ usually requires a trimming calculation.
               style(color=0)),
             Line(points=[31, 38; 86, 38], style(color=0))),
           Diagram(
-            Polygon(points=[-80, 90; -88, 68; -72, 68; -80, 90], style(color=8,
-                   fillColor=8)),
-            Line(points=[-80, 68; -80, -80], style(color=8)),
-            Line(points=[-80, -20; -20, -20; 50, 50], style(color=0, thickness=
-                    2)),
-            Line(points=[-90, -70; 82, -70], style(color=8)),
-            Polygon(points=[90, -70; 68, -62; 68, -78; 90, -70], style(
-                color=8,
-                fillColor=8,
-                fillPattern=1)),
+            Polygon(points=[-80,90; -86,68; -74,68; -80,90], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[-80, 68; -80, -80], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[-80, -20; -20, -20; 50, 50], style(
+            color=3, 
+            rgbcolor={0,0,255}, 
+            thickness=2)),
+            Line(points=[-90, -70; 82, -70], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Polygon(points=[90,-70; 68,-64; 68,-76; 90,-70], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95}, 
+            fillPattern=1)),
             Polygon(points=[-40, -20; -42, -30; -37, -30; -40, -20], style(
-                color=8,
-                fillColor=8,
-                fillPattern=1)),
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95}, 
+            fillPattern=1)),
             Line(points=[-40, -20; -40, -70], style(
-                color=8,
-                pattern=1,
-                thickness=1,
-                arrow=0)),
-            Polygon(points=[-40, -70; -43, -60; -38, -60; -40, -70; -40, -70],
-                style(
-                color=8,
-                fillColor=8,
-                fillPattern=1)),
+            color=10, 
+            rgbcolor={95,95,95}, 
+            thickness=1, 
+            arrow=0, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Polygon(points=[-40, -70; -43, -60; -38, -60; -40, -70; -40, -70], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95}, 
+            fillPattern=1)),
             Text(
-              extent=[-80, -33; -41, -49],
-              string="offset",
-              style(color=9)),
+              extent=[-72,-39; -34,-50],
+              string="offset", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Text(
-              extent=[-40, -70; 6, -88],
-              string="startTime",
-              style(color=9)),
+              extent=[-38,-72; 6,-83],
+              string="startTime", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Text(
-              extent=[-66, 92; -25, 72],
-              string="y",
-              style(color=9)),
+              extent=[-78,92; -37,72],
+              string="y", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Text(
-              extent=[70, -80; 94, -100],
-              string="time",
-              style(color=9)),
-            Line(points=[-20, -20; -20, -70], style(color=8, pattern=2)),
+              extent=[70,-80; 94,-91],
+              string="time", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[-20, -20; -20, -70], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Line(points=[-19, -20; 50, -20], style(
-                color=8,
-                pattern=1,
-                thickness=1,
-                arrow=0)),
-            Line(points=[50, 50; 101, 50], style(color=0, thickness=2)),
+            color=10, 
+            rgbcolor={95,95,95}, 
+            thickness=1, 
+            arrow=0, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[50, 50; 101, 50], style(
+            color=3, 
+            rgbcolor={0,0,255}, 
+            thickness=2)),
             Line(points=[50, 50; 50, -20], style(
-                color=8,
-                pattern=1,
-                thickness=1,
-                arrow=0)),
+            color=10, 
+            rgbcolor={95,95,95}, 
+            thickness=1, 
+            arrow=0, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Polygon(points=[50, -20; 42, -18; 42, -22; 50, -20], style(
-                color=8,
-                fillColor=8,
-                fillPattern=1)),
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95}, 
+            fillPattern=1)),
             Polygon(points=[-20, -20; -11, -18; -11, -22; -20, -20], style(
-                color=8,
-                fillColor=8,
-                fillPattern=1)),
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95}, 
+            fillPattern=1)),
             Polygon(points=[50, 50; 48, 40; 53, 40; 50, 50], style(
-                color=8,
-                fillColor=8,
-                fillPattern=1)),
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95}, 
+            fillPattern=1)),
             Polygon(points=[50, -20; 47, -10; 52, -10; 50, -20; 50, -20], style(
-                color=8,
-                fillColor=8,
-                fillPattern=1)),
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95}, 
+            fillPattern=1)),
             Text(
-              extent=[53, 25; 82, 7],
-              string="height",
-              style(color=9)),
+              extent=[53,23; 82,10],
+              string="height", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Text(
-              extent=[0, -17; 35, -37],
-              string="duration",
-              style(color=9))),
+              extent=[-2,-21; 37,-33],
+              string="duration", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95}))),
       Documentation(info="<html>
+<p>
+The Real output y is a ramp signal:
+</p>
 
+<p>
+<img src=\"../Images/Blocks/Sources/Ramp.png\">
+</p>
 </html>"));
       equation 
         y = offset + (if time < startTime then 0 else if time < (startTime +
@@ -573,57 +816,116 @@ usually requires a trimming calculation.
               string="freqHz=%freqHz",
               style(color=0))),
           Diagram(
-            Line(points=[-80, -90; -80, 84], style(color=8)),
-            Polygon(points=[-80, 100; -86, 84; -74, 84; -80, 100], style(color=
-                    8, fillColor=8)),
-            Line(points=[-99, -40; 85, -40], style(color=8)),
-            Polygon(points=[101, -40; 85, -34; 85, -46; 101, -40], style(color=
-                    8, fillColor=8)),
-            Line(points=[-40, 0; -31.6, 34.2; -26.1, 53.1; -21.3, 66.4; -17.1,
-                  74.6; -12.9, 79.1; -8.64, 79.8; -4.42, 76.6; -0.201, 69.7;
-                  4.02, 59.4; 8.84, 44.1; 14.9, 21.2; 27.5, -30.8; 33, -50.2;
-                  37.8, -64.2; 42, -73.1; 46.2, -78.4; 50.5, -80; 54.7, -77.6;
-                  58.9, -71.5; 63.1, -61.9; 67.9, -47.2; 74, -24.8; 80, 0],
-                style(color=0, thickness=2)),
-            Line(points=[-41, -2; -80, -2], style(color=0, thickness=2)),
+            Line(points=[-80, -90; -80, 84], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Polygon(points=[-80,97; -84,81; -76,81; -80,97], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[-99, -40; 85, -40], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Polygon(points=[97,-40; 81,-36; 81,-45; 97,-40], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[-41,-2; -31.6,34.2; -26.1,53.1; -21.3,66.4; -17.1,74.6; 
+              -12.9,79.1; -8.64,79.8; -4.42,76.6; -0.201,69.7; 4.02,59.4; 8.84,
+              44.1; 14.9,21.2; 27.5,-30.8; 33,-50.2; 37.8,-64.2; 42,-73.1; 46.2,
+              -78.4; 50.5,-80; 54.7,-77.6; 58.9,-71.5; 63.1,-61.9; 67.9,-47.2; 
+              74,-24.8; 80,0], style(
+            color=3, 
+            rgbcolor={0,0,255}, 
+            thickness=2)),
+            Line(points=[-41, -2; -80, -2], style(
+            color=3, 
+            rgbcolor={0,0,255}, 
+            thickness=2)),
             Text(
-              extent=[-128, 7; -82, -11],
-              string="offset",
-              style(color=9)),
-            Line(points=[-41, -2; -41, -40], style(color=8, pattern=2)),
+              extent=[-87,12; -40,0],
+              string="offset", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[-41, -2; -41, -40], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Text(
-              extent=[-60, -43; -14, -61],
-              string="startTime",
-              style(color=9)),
+              extent=[-60,-43; -14,-54],
+              string="startTime", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Text(
-              extent=[84, -52; 108, -72],
-              string="time",
-              style(color=9)),
+              extent=[75,-47; 100,-60],
+              string="time", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Text(
-              extent=[-74, 106; -33, 86],
-              string="y",
-              style(color=9)),
-            Line(points=[-9, 79; 43, 79], style(color=8, pattern=2)),
-            Line(points=[-42, -1; 50, 0], style(color=8, pattern=2)),
-            Polygon(points=[33, 80; 30, 67; 37, 67; 33, 80], style(
-                color=8,
-                fillColor=8,
-                fillPattern=1)),
+              extent=[-80,99; -40,82],
+              string="y", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[-9, 79; 43, 79], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[-41,-2; 50,-2], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Polygon(points=[33,79; 30,66; 37,66; 33,79], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Text(
               extent=[37, 57; 83, 39],
-              string="amplitude",
-              style(color=9)),
-            Polygon(points=[33, 1; 30, 14; 36, 14; 33, 1; 33, 1], style(
-                color=8,
-                fillColor=8,
-                fillPattern=1)),
-            Line(points=[33, 79; 33, 0], style(
-                color=8,
-                pattern=1,
-                thickness=1,
-                arrow=0))),
+              string="amplitude", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Polygon(points=[33,-2; 30,11; 36,11; 33,-2; 33,-2], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[33,77; 33,-2], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95}))),
       Documentation(info="<html>
+<p>
+The Real output y is a sine signal:
+</p>
 
+<p>
+<img src=\"../Images/Blocks/Sources/Sine.png\">
+</p>
 </html>"));
       equation 
         y = offset + (if time < startTime then 0 else amplitude*
@@ -670,70 +972,159 @@ usually requires a trimming calculation.
               string="freqHz=%freqHz",
               style(color=0))),
           Diagram(
-            Line(points=[-80, -90; -80, 84], style(color=8)),
-            Polygon(points=[-80, 100; -86, 84; -74, 84; -80, 100], style(color=
-                    8, fillColor=8)),
-            Line(points=[-99, -40; 85, -40], style(color=8)),
-            Polygon(points=[101, -40; 85, -34; 85, -46; 101, -40], style(color=
-                    8, fillColor=8)),
+            Line(points=[-86,-90; -86,84], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Polygon(points=[-86,98; -90,82; -82,82; -86,98], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[-99, -40; 85, -40], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Polygon(points=[97,-40; 81,-35; 81,-44; 97,-40], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Line(points=[-50, 0; -46.1, 28.2; -43.5, 44; -40.9, 56.4; -38.2,
                   64.9; -35.6, 69.4; -33, 69.6; -30.4, 65.9; -27.8, 58.7; -24.5,
                    45.7; -19.9, 22.5; -13.4, -12.2; -9.5, -29.5; -6.23, -40.1;
                   -2.96, -46.5; 0.302, -48.4; 3.57, -45.9; 6.83, -39.6; 10.8, -28.1;
                    21.9, 12; 25.8, 23.1; 29.7, 30.5; 33, 33.3; 36.9, 32.5; 40.8,
                    27.8; 46, 16.9; 56.5, -9.2; 61.7, -18.6; 66.3, -22.7; 70.9,
-                  -22.6; 76.1, -18; 80, -12.1], style(color=0, thickness=2)),
+                  -22.6; 76.1, -18; 80, -12.1], style(
+            color=3, 
+            rgbcolor={0,0,255}, 
+            thickness=2)),
             Text(
-              extent=[-106, 10; -83, -10],
-              string="offset",
-              style(color=9)),
+              extent=[-80,17; -57,-3],
+              string="offset", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Text(
-              extent=[-72, -36; -26, -54],
-              string="startTime",
-              style(color=9)),
+              extent=[-72,-43; -25,-53],
+              string="startTime", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Text(
-              extent=[84, -52; 108, -72],
-              string="time",
-              style(color=9)),
+              extent=[77,-53; 101,-64],
+              string="time", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Text(
-              extent=[-79, 104; -39, 87],
-              string="y",
-              style(color=9)),
-            Line(points=[-50, 0; 18, 0], style(color=8, pattern=2)),
-            Line(points=[-50, 0; -81, 0], style(color=0, thickness=2)),
-            Line(points=[-50, 77; -50, 0], style(color=8, pattern=2)),
-            Line(points=[18, -1; 18, 76], style(color=8, pattern=2)),
-            Line(points=[18, 73; -50, 73], style(color=8)),
+              extent=[-89,99; -49,82],
+              string="y", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[-50, 0; 18, 0], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[-50,0; -86,0], style(
+            color=3, 
+            rgbcolor={0,0,255}, 
+            thickness=2)),
+            Line(points=[-50, 77; -50, 0], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[18, -1; 18, 76], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[18, 73; -50, 73], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Text(
-              extent=[-42, 88; 9, 74],
-              string="1/freqHz",
-              style(color=9)),
+              extent=[-42,83; 9,74],
+              string="1/freqHz", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Polygon(points=[-49, 73; -40, 75; -40, 71; -49, 73], style(
-                color=8,
-                fillColor=8,
-                fillPattern=1)),
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Polygon(points=[18, 73; 10, 75; 10, 71; 18, 73], style(
-                color=8,
-                fillColor=8,
-                fillPattern=1)),
-            Line(points=[-50, -61; -19, -61], style(color=8)),
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[-50, -61; -19, -61], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Polygon(points=[-18, -61; -26, -59; -26, -63; -18, -61], style(
-                color=8,
-                fillColor=8,
-                fillPattern=1)),
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Text(
               extent=[-51, -63; -27, -75],
-              string="t",
-              style(color=9)),
+              string="t", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Text(
-              extent=[-82, -67; 108, -96],
-              string="amplitude*exp(-damping*t)*sin(2*pi*freqHz*t+phase)",
-              style(color=9)),
-            Line(points=[-50, 0; -50, -40], style(color=8, pattern=2)),
-            Line(points=[-50, -54; -50, -72], style(color=8, pattern=2)),
-            Line(points=[-15, -77; -1, -48], style(color=8, pattern=2))),
+              extent=[-83,-69; 100,-96],
+              string="amplitude*exp(-damping*t)*sin(2*pi*freqHz*t+phase)", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[-50, 0; -50, -40], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[-50, -54; -50, -72], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[-15, -77; -1, -48], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95}))),
       Documentation(info="<html>
+<p>
+The Real output y is a sine signal with exponentially changing amplitude:
+</p>
 
+<p>
+<img src=\"../Images/Blocks/Sources/ExpSine.png\">
+</p>
 </html>"));
       equation 
         y = offset + (if time < startTime then 0 else amplitude*
@@ -784,70 +1175,123 @@ usually requires a trimming calculation.
               string="riseTime=%riseTime",
               style(color=0))),
           Diagram(
-            Line(points=[-100, -70; 84, -70], style(color=8)),
-            Polygon(points=[100, -70; 84, -64; 84, -76; 100, -70], style(color=
-                    8, fillColor=8)),
-            Line(points=[-40, -30; -37.2, -15.3; -34.3, -2.1; -30.8, 12.4; -27.3,
-                   25; -23.7, 35.92; -19.5, 47.18; -15.3, 56.7; -10.3, 66; -4.6,
-                   74.5; 1.7, 82.1; 8.8, 88.6; 17.3, 94.3; 27.9, 99.2; 30, 100;
-                   32.12, 87.5; 34.95, 72.7; 37.78, 59.8; 40.606, 48.45; 44.14,
-                   36.3; 47.68, 26; 51.9, 15.8; 56.2, 7.4; 61.1, -0.5; 66.8, -7.4;
-                   73.1, -13.3; 80.9, -18.5; 90.8, -22.8; 100, -25.4], style(
-                  color=0, thickness=2)),
-            Polygon(points=[-80, 90; -88, 68; -72, 68; -80, 90], style(color=8,
-                   fillColor=8)),
-            Line(points=[-80, 68; -80, -80], style(color=8)),
+            Line(points=[-90,-74; 84,-74], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Polygon(points=[97,-74; 81,-70; 81,-78; 97,-74], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[-40,-34; -37.2,-19.3; -34.3,-6.1; -30.8,8.4; -27.3,21; 
+              -23.7,31.92; -19.5,43.18; -15.3,52.7; -10.3,62; -4.6,70.5; 1.7,
+              78.1; 8.8,84.6; 17.3,90.3; 27.9,95.2; 30,96; 32.12,83.5; 34.95,
+              68.7; 37.78,55.8; 40.606,44.45; 44.14,32.3; 47.68,22; 51.9,11.8; 
+              56.2,3.4; 61.1,-4.5; 66.8,-11.4; 73.1,-17.3; 80.9,-22.5; 90.8,
+              -26.8; 100,-29.4], style(
+            color=3, 
+            rgbcolor={0,0,255}, 
+            thickness=2)),
+            Polygon(points=[-80,86; -86,64; -74,64; -80,86], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[-80,64; -80,-84], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Text(
-              extent=[-70, 91; -29, 71],
-              string="y",
-              style(color=9)),
+              extent=[-81,87; -40,67],
+              string="y", 
+          style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Text(
-              extent=[-78, -43; -46, -56],
-              string="offset",
-              style(color=9)),
-            Polygon(points=[-40, -70; -43, -60; -38, -60; -40, -70; -40, -70],
-                style(
-                color=8,
-                fillColor=8,
-                fillPattern=1)),
-            Line(points=[-40, -29; -40, -60], style(
-                color=8,
-                pattern=1,
-                thickness=1,
-                arrow=0)),
-            Polygon(points=[-40, -30; -42, -40; -37, -40; -40, -30], style(
-                color=8,
-                fillColor=8,
-                fillPattern=1)),
-            Line(points=[-39, -30; -80, -30], style(color=0, thickness=2)),
+              extent=[-71,-46; -38,-55],
+              string="offset", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Polygon(points=[-40,-74; -43,-64; -38,-64; -40,-74; -40,-74], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[-40,-33; -40,-64], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Polygon(points=[-40,-34; -42,-44; -37,-44; -40,-34], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[-39,-34; -80,-34], style(
+            color=3, 
+            rgbcolor={0,0,255}, 
+            thickness=2)),
             Text(
-              extent=[-59, -71; -13, -89],
-              string="startTime",
-              style(color=9)),
-            Polygon(points=[-41, -30; -32, -28; -32, -32; -41, -30], style(
-                color=8,
-                fillColor=8,
-                fillPattern=1)),
-            Line(points=[-40, -30; 29, -30], style(
-                color=8,
-                pattern=1,
-                thickness=1,
-                arrow=0)),
-            Polygon(points=[29, -30; 21, -28; 21, -32; 29, -30], style(
-                color=8,
-                fillColor=8,
-                fillPattern=1)),
+              extent=[-62,-76; -17,-85],
+              string="startTime", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Polygon(points=[-41,-34; -32,-32; -32,-36; -41,-34], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[-40,-34; 29,-34], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Polygon(points=[29,-34; 21,-32; 21,-36; 29,-34], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Text(
-              extent=[-26, -12; 19, -28],
-              string="riseTime",
-              style(color=9)),
+              extent=[-26,-22; 19,-32],
+              string="riseTime", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Text(
-              extent=[78, -76; 102, -96],
-              string="time",
-              style(color=9)),
-            Line(points=[30, 100; 30, -34], style(color=8, pattern=2))),
+              extent=[75,-79; 98,-90],
+              string="time", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[30,96; 30,-38], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95}))),
       Documentation(info="<html>
+<p>
+The Real output y is a rising exponential followed
+by a falling exponential signal:
+</p>
 
+<p>
+<img src=\"../Images/Blocks/Sources/Exponentials.png\">
+</p>
 </html>"));
       equation 
         y_riseTime = outMax*(1 - Modelica.Math.exp(-riseTime/riseTimeConst));
@@ -895,97 +1339,188 @@ usually requires a trimming calculation.
               string="period=%period",
               style(color=0))),
           Diagram(
-            Polygon(points=[-80, 90; -88, 68; -72, 68; -80, 90], style(color=8,
-                   fillColor=8)),
-            Line(points=[-80, 68; -80, -80], style(color=8)),
-            Line(points=[-90, -70; 82, -70], style(color=8)),
-            Polygon(points=[90, -70; 68, -62; 68, -78; 90, -70], style(
-                color=8,
-                fillColor=8,
-                fillPattern=1)),
+            Polygon(points=[-80,90; -85,68; -74,68; -80,90], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[-80, 68; -80, -80], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[-90, -70; 82, -70], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Polygon(points=[90,-70; 68,-65; 68,-76; 90,-70], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Polygon(points=[-34, 1; -37, -12; -30, -12; -34, 1], style(
-                color=8,
-                fillColor=8,
-                fillPattern=1)),
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Line(points=[-34, -1; -34, -70], style(
-                color=8,
-                pattern=1,
-                thickness=1,
-                arrow=0)),
-            Polygon(points=[-33, -70; -36, -57; -30, -57; -33, -70; -33, -70],
-                style(
-                color=8,
-                fillColor=8,
-                fillPattern=1)),
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Polygon(points=[-34,-70; -37,-57; -31,-57; -34,-70; -34,-70], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Text(
               extent=[-78, -24; -35, -36],
-              string="offset",
-              style(color=9)),
+              string="offset", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Text(
-              extent=[-31, -69; 15, -87],
-              string="startTime",
-              style(color=9)),
+              extent=[-30,-72; 16,-81],
+              string="startTime", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Text(
-              extent=[-76, 99; -35, 79],
-              string="y",
-              style(color=9)),
+              extent=[-82,96; -49,79],
+              string="y", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Text(
-              extent=[70, -80; 94, -100],
-              string="time",
-              style(color=9)),
-            Line(points=[-10, 0; -10, -70], style(color=8, pattern=2)),
+              extent=[66,-79; 87,-89],
+              string="time", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[-10, 0; -10, -70], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Line(points=[-80, 0; -10, 0; -10, 50; 30, 50; 30, 0; 50, 0; 50, 50;
-                   90, 50], style(color=0, thickness=2)),
-            Line(points=[-10, 88; -10, 49], style(color=8, pattern=2)),
-            Line(points=[30, 74; 30, 50], style(color=9, pattern=2)),
-            Line(points=[50, 88; 50, 50], style(color=8, pattern=2)),
-            Line(points=[-10, 83; 51, 83], style(color=8)),
-            Line(points=[-10, 69; 30, 69], style(color=8)),
+                   90, 50], style(
+            color=3, 
+            rgbcolor={0,0,255}, 
+            thickness=2, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[-10, 88; -10, 49], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[30, 74; 30, 50], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[50, 88; 50, 50], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[-10, 83; 51, 83], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[-10, 69; 30, 69], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Text(
-              extent=[0, 97; 46, 85],
-              string="period",
-              style(color=9)),
+              extent=[-3,93; 39,84],
+              string="period", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Text(
-              extent=[-9, 81; 30, 69],
-              string="width",
-              style(color=9)),
-            Line(points=[-43, 50; -10, 50], style(color=8, pattern=2)),
+              extent=[-7,78; 30,69],
+              string="width", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[-43, 50; -10, 50], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Line(points=[-34, 50; -34, 1], style(
-                color=8,
-                pattern=1,
-                thickness=1,
-                arrow=0)),
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Text(
-              extent=[-78, 34; -37, 20],
-              string="amplitude",
-              style(color=9)),
+              extent=[-77,30; -37,21],
+              string="amplitude", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Polygon(points=[-34, 49; -37, 36; -30, 36; -34, 49], style(
-                color=8,
-                fillColor=8,
-                fillPattern=1)),
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Polygon(points=[-34, 1; -37, 14; -31, 14; -34, 1; -34, 1], style(
-                color=8,
-                fillColor=8,
-                fillPattern=1)),
-            Line(points=[90, 50; 90, 0; 100, 0], style(color=0, thickness=2)),
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[90, 50; 90, 0; 100, 0], style(
+            color=3, 
+            rgbcolor={0,0,255}, 
+            thickness=2, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Polygon(points=[-10, 69; -1, 71; -1, 67; -10, 69], style(
-                color=8,
-                fillColor=8,
-                fillPattern=1)),
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Polygon(points=[30, 69; 22, 71; 22, 67; 30, 69], style(
-                color=8,
-                fillColor=8,
-                fillPattern=1)),
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Polygon(points=[-10, 83; -1, 85; -1, 81; -10, 83], style(
-                color=8,
-                fillColor=8,
-                fillPattern=1)),
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Polygon(points=[50, 83; 42, 85; 42, 81; 50, 83], style(
-                color=8,
-                fillColor=8,
-                fillPattern=1))),
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95}))),
       Documentation(info="<html>
+<p>
+The Real output y is a pulse signal:
+</p>
 
+<p>
+<img src=\"../Images/Blocks/Sources/Pulse.png\">
+</p>
 </html>"));
   protected 
         Modelica.SIunits.Time T0(final start=startTime) 
@@ -1035,83 +1570,151 @@ usually requires a trimming calculation.
               string="period=%period",
               style(color=0))),
           Diagram(
-            Polygon(points=[-80, 90; -88, 68; -72, 68; -80, 90], style(color=8,
-                   fillColor=8)),
-            Line(points=[-80, 68; -80, -80], style(color=8)),
-            Line(points=[-90, -70; 82, -70], style(color=8)),
-            Polygon(points=[90, -70; 68, -62; 68, -78; 90, -70], style(
-                color=8,
-                fillColor=8,
-                fillPattern=1)),
+            Polygon(points=[-80,90; -86,68; -74,68; -80,90], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[-80, 68; -80, -80], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[-90, -70; 82, -70], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Polygon(points=[90,-70; 68,-65; 68,-75; 90,-70], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Polygon(points=[-34, -19; -37, -32; -30, -32; -34, -19], style(
-                color=8,
-                fillColor=8,
-                fillPattern=1)),
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Line(points=[-34, -20; -34, -70], style(
-                color=8,
-                pattern=1,
-                thickness=1,
-                arrow=0)),
-            Polygon(points=[-34, -70; -37, -57; -31, -57; -34, -70; -34, -70],
-                style(
-                color=8,
-                fillColor=8,
-                fillPattern=1)),
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Polygon(points=[-34, -70; -37, -57; -31, -57; -34, -70; -34, -70], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Text(
-              extent=[-78, -24; -35, -36],
-              string="offset",
-              style(color=9)),
+              extent=[-65,-39; -29,-47],
+              string="offset", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Text(
-              extent=[-31, -69; 15, -87],
-              string="startTime",
-              style(color=9)),
+              extent=[-29,-72; 13,-80],
+              string="startTime", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Text(
-              extent=[-76, 99; -35, 79],
-              string="y",
-              style(color=9)),
+              extent=[-82,92; -43,76],
+              string="y", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Text(
-              extent=[70, -80; 94, -100],
-              string="time",
-              style(color=9)),
-            Line(points=[-10, -20; -10, -70], style(color=8, pattern=2)),
-            Line(points=[-10, 88; -10, -20], style(color=8, pattern=2)),
-            Line(points=[30, 88; 30, 59], style(color=8, pattern=2)),
-            Line(points=[-10, 83; 30, 83], style(color=8)),
+              extent=[67,-78; 88,-87],
+              string="time", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[-10, -20; -10, -70], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[-10, 88; -10, -20], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[30, 88; 30, 59], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[-10, 83; 30, 83], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Text(
-              extent=[-12, 97; 34, 85],
-              string="period",
-              style(color=9)),
-            Line(points=[-44, 60; 30, 60], style(color=8, pattern=2)),
+              extent=[-12,94; 34,85],
+              string="period", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[-44, 60; 30, 60], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Line(points=[-34, 47; -34, -7], style(
-                color=8,
-                pattern=1,
-                thickness=1,
-                arrow=0)),
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Text(
-              extent=[-78, 34; -37, 20],
-              string="amplitude",
-              style(color=9)),
+              extent=[-73,25; -36,16],
+              string="amplitude", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Polygon(points=[-34, 60; -37, 47; -30, 47; -34, 60], style(
-                color=8,
-                fillColor=8,
-                fillPattern=1)),
-            Polygon(points=[-34, -20; -37, -7; -31, -7; -34, -20; -34, -20],
-                style(
-                color=8,
-                fillColor=8,
-                fillPattern=1)),
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Polygon(points=[-34, -20; -37, -7; -31, -7; -34, -20; -34, -20], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Polygon(points=[-10, 83; -1, 85; -1, 81; -10, 83], style(
-                color=8,
-                fillColor=8,
-                fillPattern=1)),
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Polygon(points=[30, 83; 22, 85; 22, 81; 30, 83], style(
-                color=8,
-                fillColor=8,
-                fillPattern=1)),
-            Line(points=[-80, -20; -10, -20; 30, 60; 30, -20; 72, 60; 72, -20],
-                 style(color=0, thickness=2))),
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[-80, -20; -10, -20; 30, 60; 30, -20; 72, 60; 72, -20], style(
+            color=3, 
+            rgbcolor={0,0,255}, 
+            thickness=2))),
       Documentation(info="<html>
+<p>
+The Real output y is a saw tooth signal:
+</p>
 
+<p>
+<img src=\"../Images/Blocks/Sources/SawTooth.png\">
+</p>
 </html>"));
       equation 
         when sample(startTime, period) then
@@ -1173,122 +1776,231 @@ usually requires a trimming calculation.
             Line(points=[-81, -70; -60, -70; -30, 40; 9, 40; 39, -70; 61, -70;
                   90, 40], style(color=0))),
           Diagram(
-            Polygon(points=[-80, 90; -88, 68; -72, 68; -80, 90], style(color=8,
-                   fillColor=8)),
-            Line(points=[-80, 68; -80, -80], style(color=8)),
-            Line(points=[-90, -70; 82, -70], style(color=8)),
-            Polygon(points=[90, -70; 68, -62; 68, -78; 90, -70], style(
-                color=8,
-                fillColor=8,
-                fillPattern=1)),
-            Polygon(points=[-45, -30; -47, -41; -43, -41; -45, -30], style(
-                color=8,
-                fillColor=8,
-                fillPattern=1)),
-            Line(points=[-45, -31; -45, -70], style(
-                color=8,
-                pattern=1,
-                thickness=1,
-                arrow=0)),
-            Polygon(points=[-45, -70; -47, -60; -43, -60; -45, -70; -45, -70],
-                style(
-                color=8,
-                fillColor=8,
-                fillPattern=1)),
+            Polygon(points=[-81,90; -87,68; -75,68; -81,90], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[-81,68; -81,-80], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[-91,-70; 81,-70], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Polygon(points=[89,-70; 67,-65; 67,-76; 89,-70], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Polygon(points=[-46,-30; -48,-41; -44,-41; -46,-30], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[-46,-31; -46,-70], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            pattern=1, 
+            arrow=0, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Polygon(points=[-46,-70; -48,-60; -44,-60; -46,-70; -46,-70], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Text(
-              extent=[-86, -43; -43, -55],
-              string="offset",
-              style(color=9)),
+              extent=[-80,-46; -42,-55],
+              string="offset", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Text(
-              extent=[-47, -69; -1, -87],
-              string="startTime",
-              style(color=9)),
+              extent=[-49,-71; -6,-81],
+              string="startTime", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Text(
-              extent=[-76, 99; -35, 79],
-              string="y",
-              style(color=9)),
+              extent=[-80,95; -47,80],
+              string="y", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Text(
-              extent=[70, -80; 94, -100],
-              string="time",
-              style(color=9)),
-            Line(points=[-29, 82; -30, -70], style(color=8, pattern=2)),
-            Line(points=[-10, 59; -10, 40], style(color=8, pattern=2)),
-            Line(points=[20, 59; 20, 39], style(color=9, pattern=2)),
-            Line(points=[40, 59; 40, -30], style(color=8, pattern=2)),
-            Line(points=[-20, 76; 61, 76], style(color=8)),
-            Line(points=[-29, 56; 40, 56], style(color=8)),
+              extent=[66,-78; 89,-89],
+              string="time", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[-30,82; -31,-70], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            pattern=2, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[-11,59; -11,40], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            pattern=2, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[19,59; 19,39], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            pattern=2, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[39,59; 39,-30], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            pattern=2, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[-21,76; 60,76], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[-30,56; 39,56], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Text(
-              extent=[-2, 86; 25, 77],
-              string="period",
-              style(color=9)),
+              extent=[-3,86; 24,77],
+              string="period", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Text(
-              extent=[-8, 70; 21, 60],
-              string="width",
-              style(color=9)),
-            Line(points=[-42, 40; -10, 40], style(color=8, pattern=2)),
-            Line(points=[-39, 40; -39, -19], style(
-                color=8,
-                pattern=1,
-                thickness=1,
-                arrow=0)),
+              extent=[-11,68; 18,59],
+              string="width", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[-43,40; -11,40], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            pattern=2, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[-40,40; -40,-19], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            pattern=1, 
+            arrow=0, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Text(
-              extent=[-77, 14; -40, 0],
-              string="amplitude",
-              style(color=9)),
-            Polygon(points=[-29, 56; -22, 58; -22, 54; -29, 56], style(
-                color=8,
-                fillColor=8,
-                fillPattern=1)),
-            Polygon(points=[-10, 56; -17, 58; -17, 54; -10, 56], style(
-                color=8,
-                fillColor=8,
-                fillPattern=1)),
-            Polygon(points=[-29, 76; -20, 78; -20, 74; -29, 76], style(
-                color=8,
-                fillColor=8,
-                fillPattern=1)),
-            Polygon(points=[61, 76; 53, 78; 53, 74; 61, 76], style(
-                color=8,
-                fillColor=8,
-                fillPattern=1)),
-            Line(points=[-80, -30; -30, -30; -10, 40; 20, 40; 40, -30; 60, -30;
-                   80, 40; 100, 40], style(color=0, thickness=2)),
-            Polygon(points=[-39, 40; -41, 29; -37, 29; -39, 40], style(
-                color=8,
-                fillColor=8,
-                fillPattern=1)),
-            Polygon(points=[-39, -29; -41, -19; -37, -19; -39, -29; -39, -29],
-                style(
-                color=8,
-                fillColor=8,
-                fillPattern=1)),
-            Line(points=[61, 84; 60, -30], style(color=8, pattern=2)),
-            Polygon(points=[39, 56; 32, 58; 32, 54; 39, 56], style(
-                color=8,
-                fillColor=8,
-                fillPattern=1)),
-            Polygon(points=[20, 56; 27, 58; 27, 54; 20, 56], style(
-                color=8,
-                fillColor=8,
-                fillPattern=1)),
-            Polygon(points=[20, 56; 13, 58; 13, 54; 20, 56], style(
-                color=8,
-                fillColor=8,
-                fillPattern=1)),
-            Polygon(points=[-12, 56; -5, 58; -5, 54; -12, 56], style(
-                color=8,
-                fillColor=8,
-                fillPattern=1)),
+              extent=[-77,11; -44,1],
+              string="amplitude", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Polygon(points=[-30,56; -23,58; -23,54; -30,56], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Polygon(points=[-11,56; -18,58; -18,54; -11,56], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Polygon(points=[-30,76; -21,78; -21,74; -30,76], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Polygon(points=[60,76; 52,78; 52,74; 60,76], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[-81,-30; -31,-30; -11,40; 19,40; 39,-30; 59,-30; 79,40; 
+              99,40], style(
+            color=3, 
+            rgbcolor={0,0,255}, 
+            thickness=2)),
+            Polygon(points=[-40,40; -42,29; -38,29; -40,40], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Polygon(points=[-40,-29; -42,-19; -38,-19; -40,-29; -40,-29], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[60,84; 59,-30], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            pattern=2, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Polygon(points=[38,56; 31,58; 31,54; 38,56], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Polygon(points=[19,56; 26,58; 26,54; 19,56], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Polygon(points=[19,56; 12,58; 12,54; 19,56], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Polygon(points=[-13,56; -6,58; -6,54; -13,56], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Text(
-              extent=[-34, 70; -5, 60],
-              string="rising",
-              style(color=9)),
+              extent=[-35,68; -6,60],
+              string="rising", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Text(
-              extent=[16, 70; 45, 60],
-              string="falling",
-              style(color=9))),
+              extent=[16,68; 44,60],
+              string="falling", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95}))),
       Documentation(info="<html>
+<p>
+The Real output y is a trapezoid signal:
+</p>
 
+<p>
+<img src=\"../Images/Blocks/Sources/Trapezoid.png\">
+</p>
 </html>"));
       equation 
         when pre(counter2) <> 0 and sample(startTime, period) then
@@ -1365,31 +2077,47 @@ usually requires a trimming calculation.
               string="deltaq=%deltaq",
               style(color=0))),
           Diagram(
-            Rectangle(extent=[-100, -100; 100, 100], style(
-                color=3,
-                gradient=0,
-                fillColor=0,
-                fillPattern=0)),
-            Line(points=[-80, 78; -80, -82], style(color=8)),
-            Polygon(points=[-80, 90; -88, 68; -72, 68; -80, 88; -80, 90], style(
-                color=8,
-                fillColor=8,
-                fillPattern=1)),
-            Line(points=[-90, 0; 82, 0], style(color=8)),
-            Polygon(points=[90, 0; 68, 8; 68, -8; 90, 0], style(
-                color=8,
-                fillColor=8,
-                fillPattern=1)),
+            Line(points=[-80,78; -80,-72], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Polygon(points=[-80,91; -86,71; -75,71; -80,91; -80,91], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[-90, 0; 82, 0], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Polygon(points=[89,0; 68,5; 68,-5; 89,0], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Line(points=[-80, 0; -70, 0; -70, 70; -30, 70; -30, 0; 20, 0; 20, -70;
-                   60, -70; 60, 0; 68, 0], style(color=0, thickness=2)),
+                   60, -70; 60, 0; 68, 0], style(
+            color=3, 
+            rgbcolor={0,0,255}, 
+            thickness=2)),
             Text(
-              extent=[-76, 98; -19, 83],
-              string="acceleration",
-              style(color=8)),
+              extent=[-73,95; -16,80],
+              string="acceleration", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Text(
-              extent=[69, 24; 91, 12],
-              string="time",
-              style(color=8))),
+              extent=[66,20; 88,8],
+              string="time", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95}))),
           Documentation(info="<HTML>
 <p>
 The goal is to move as <b>fast</b> as possible along a distance
@@ -1397,7 +2125,15 @@ The goal is to move as <b>fast</b> as possible along a distance
 under given <b>kinematical constraints</b>. The distance can be a positional or
 angular range. In robotics such a movement is called <b>PTP</b> (Point-To-Point).
 This source block generates the <b>acceleration</b> qdd of this signal
-as output. After integrating the output two times, the position q is
+as output:
+</p>
+
+<p>
+<img src=\"../Images/Blocks/Sources/KinematicPTP.png\">
+</p>
+
+<p>
+After integrating the output two times, the position q is
 obtained. The signal is constructed in such a way that it is not possible
 to move faster, given the <b>maximally</b> allowed <b>velocity</b> qd_max and
 the <b>maximally</b> allowed <b>acceleration</b> qdd_max.
@@ -1470,7 +2206,8 @@ a flange according to a given acceleration.
     
     extends Modelica.Blocks.Interfaces.BlockIcon;
     final parameter Integer nout=max([size(q_begin, 1); size(q_end, 1); size(
-        qd_max, 1); size(qdd_max, 1)]);
+        qd_max, 1); size(qdd_max, 1)]) 
+      "Number of output signals (= dimension of q, qd, qdd, moving)";
     output SI.Time endTime "Time instant at which movement stops";
     
     Modelica.Blocks.Interfaces.RealOutput q[nout] 
@@ -1534,31 +2271,47 @@ a flange according to a given acceleration.
             fillPattern=1),
           string="moving")),
       Diagram(
-        Rectangle(extent=[-100, -100; 100, 100], style(
-            color=3,
-            gradient=0,
-            fillColor=0,
-            fillPattern=0)),
-        Line(points=[-80, 78; -80, -82], style(color=8)),
-        Polygon(points=[-80, 90; -88, 68; -72, 68; -80, 88; -80, 90], style(
-            color=8,
-            fillColor=8,
-            fillPattern=1)),
-        Line(points=[-90, 0; 82, 0], style(color=8)),
-        Polygon(points=[90, 0; 68, 8; 68, -8; 90, 0], style(
-            color=8,
-            fillColor=8,
-            fillPattern=1)),
+        Line(points=[-80,78; -80,-70], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+        Polygon(points=[-80,94; -86,74; -74,74; -80,94; -80,94], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+        Line(points=[-90, 0; 82, 0], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+        Polygon(points=[90,0; 68,6; 68,-6; 90,0], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
         Line(points=[-80, 0; -70, 0; -70, 70; -30, 70; -30, 0; 20, 0; 20, -70;
-               60, -70; 60, 0; 68, 0], style(color=0, thickness=2)),
+               60, -70; 60, 0; 68, 0], style(
+            color=3, 
+            rgbcolor={0,0,255}, 
+            thickness=2)),
         Text(
-          extent=[-76, 98; -19, 83],
-          string="acceleration",
-          style(color=8)),
+          extent=[-72,96; -15,81],
+          string="acceleration", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
         Text(
-          extent=[69, 24; 91, 12],
-          string="time",
-          style(color=8))),
+          extent=[69,18; 91,6],
+          string="time", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95}))),
       Documentation(info="<html>
 <p>
 The goal is to move as <b>fast</b> as possible from start position <b>q_begin</b>
@@ -1569,8 +2322,13 @@ This source block generates the <b>position</b> q(t), the
 <b>speed</b> qd(t) = der(q), and the <b>acceleration</b> qdd = der(qd)
 as output. The signals are constructed in such a way that it is not possible
 to move faster, given the <b>maximally</b> allowed <b>velocity</b> qd_max and
-the <b>maximally</b> allowed <b>acceleration</b> qdd_max.
+the <b>maximally</b> allowed <b>acceleration</b> qdd_max:
 </p>
+
+<p>
+<img src=\"../Images/Blocks/Sources/KinematicPTP2.png\">
+</p>
+
 <p>
 If vectors q_begin/q_end have more than 1 element,
 the output vectors are constructed such that all signals
@@ -1826,14 +2584,26 @@ a flange according to a given acceleration.
               string="offset=%offset",
               style(color=0))),
           Diagram(
-            Polygon(points=[-80, 90; -88, 68; -72, 68; -80, 90], style(color=8,
-                   fillColor=8)),
-            Line(points=[-80, 68; -80, -80], style(color=8)),
-            Line(points=[-90, -70; 82, -70], style(color=8)),
-            Polygon(points=[90, -70; 68, -62; 68, -78; 90, -70], style(
-                color=8,
-                fillColor=8,
-                fillPattern=1)),
+            Polygon(points=[-80,90; -85,68; -74,68; -80,90], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[-80, 68; -80, -80], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[-90, -70; 82, -70], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Polygon(points=[88,-70; 68,-65; 68,-74; 88,-70], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Rectangle(extent=[-20, 90; 30, -30], style(
                 color=7,
                 fillColor=8,
@@ -1842,37 +2612,62 @@ a flange according to a given acceleration.
                   80, 0; 80, 30; -20, 30; -20, 60; 80, 60; 80, 90; 30, 90; 30,
                   -31], style(color=0)),
             Text(
-              extent=[-77, -42; -38, -58],
-              string="offset",
-              style(color=9)),
+              extent=[-70,-42; -32,-54],
+              string="offset", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Polygon(points=[-31, -30; -33, -40; -28, -40; -31, -30], style(
-                color=8,
-                fillColor=8,
-                fillPattern=1)),
-            Polygon(points=[-30, -70; -33, -60; -28, -60; -30, -70; -30, -70],
-                style(
-                color=8,
-                fillColor=8,
-                fillPattern=1)),
-            Line(points=[-31, -31; -31, -70], style(
-                color=8,
-                pattern=1,
-                thickness=1,
-                arrow=0)),
-            Line(points=[-20, -20; -20, -70], style(color=8, pattern=2)),
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Polygon(points=[-31,-70; -34,-60; -29,-60; -31,-70; -31,-70], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[-31,-32; -31,-70], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[-20,-30; -20,-70], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Text(
-              extent=[-38, -70; 8, -88],
-              string="startTime",
-              style(color=9)),
-            Line(points=[-20, -30; -80, -30], style(color=8, pattern=2)),
+              extent=[-38,-73; 8,-83],
+              string="startTime", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+            Line(points=[-20, -30; -80, -30], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Text(
-              extent=[-73, 93; -41, 78],
-              string="y",
-              style(color=9)),
+              extent=[-76,93; -44,75],
+              string="y", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Text(
-              extent=[66, -81; 91, -93],
-              string="time",
-              style(color=9)),
+              extent=[66,-78; 90,-88],
+              string="time", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
             Text(
               extent=[-15, 83; 24, 68],
               string="time",
@@ -1922,6 +2717,11 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
     e.g., time = 2.0, the output y =  4.0,
     e.g., time = 5.0, the output y = 23.0 (i.e. extrapolation).
 </pre>
+
+
+<p>
+<img src=\"../Images/Blocks/Sources/TimeTable.png\">
+</p>
 
 </HTML>
 ", revisions="<html>
@@ -2019,32 +2819,34 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
     "Table look-up with respect to time and linear/perodic extrapolation methods (data from matrix/file)" 
     
     parameter Boolean tableOnFile=false 
-      "true, if table is defined on file or in function usertab" 
+      "= true, if table is defined on file or in function usertab" 
       annotation(Dialog(group="table data definition"));
     parameter Real table[:, :]=fill(0.0,0,2) 
-      "table matrix (time = first column)" 
+      "Table matrix (time = first column)" 
          annotation(Dialog(group="table data definition", enable = not tableOnFile));
     parameter String tableName="NoName" 
-      "table name on file or in function usertab (see docu)" 
+      "Table name on file or in function usertab (see docu)" 
          annotation(Dialog(group="table data definition", enable = tableOnFile));
-    parameter String fileName="NoName" "file where matrix is stored" 
+    parameter String fileName="NoName" "File where matrix is stored" 
          annotation(Dialog(group="table data definition", enable = tableOnFile));
     parameter Integer columns[:]=2:size(table, 2) 
-      "columns of table to be interpolated" 
+      "Columns of table to be interpolated" 
     annotation(Dialog(group="table data interpretation"));
     parameter Blocks.Types.Smoothness.Temp smoothness=Blocks.Types.Smoothness.LinearSegments 
-      "smoothness of table interpolation" 
+      "Smoothness of table interpolation" 
     annotation(Dialog(group="table data interpretation"));
     parameter Blocks.Types.Extrapolation.Temp extrapolation=Blocks.Types.Extrapolation.LastTwoPoints 
-      "extrapolation of data outside the definition range" 
+      "Extrapolation of data outside the definition range" 
     annotation(Dialog(group="table data interpretation"));
     parameter Real offset[:]={0} "Offsets of output signals" 
     annotation(Dialog(group="table data interpretation"));
     parameter SI.Time startTime=0 "Output = offset for time < startTime" 
     annotation(Dialog(group="table data interpretation"));
     extends Modelica.Blocks.Interfaces.MO(final nout=max([size(columns, 1); size(offset, 1)]));
-    final parameter Real t_min(fixed=false);
-    final parameter Real t_max(fixed=false);
+    final parameter Real t_min(fixed=false) 
+      "Minimum abscissa value defined in table";
+    final parameter Real t_max(fixed=false) 
+      "Maximum abscissa value defined in table";
     
   protected 
     final parameter Real p_offset[nout]=(if size(offset, 1) == 1 then ones(nout)
@@ -2093,6 +2895,13 @@ This block generates an output signal y[:] by <b>linear interpolation</b> in
 a table. The time points and function values are stored in a matrix
 <b>table[i,j]</b>, where the first column table[:,1] contains the
 time points and the other columns contain the data to be interpolated.
+</p>
+
+<p>
+<img src=\"../Images/Blocks/Sources/CombiTimeTable.png\">
+</p>
+
+<p>
 Via parameter <b>columns</b> it can be defined which columns of the
 table are interpolated. If, e.g., columns={2,4}, it is assumed that
 2 output signals are present and that the first output is computed
@@ -2245,14 +3054,22 @@ Several matrices may be defined one after another.
                 -20; 52, 10; -48, 10; -48, 40; 52, 40; 52, 70; 2, 70; 2, -51],
             style(color=0))),
       Diagram(
-        Polygon(points=[-80, 90; -88, 68; -72, 68; -80, 90], style(color=8,
-              fillColor=8)),
-        Line(points=[-80, 68; -80, -80], style(color=8)),
-        Line(points=[-90, -70; 82, -70], style(color=8)),
+        Polygon(points=[-80, 90; -88, 68; -72, 68; -80, 90], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+        Line(points=[-80, 68; -80, -80], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+        Line(points=[-90, -70; 82, -70], style(color=10, rgbcolor={95,95,95})),
         Polygon(points=[90, -70; 68, -62; 68, -78; 90, -70], style(
-            color=8,
-            fillColor=8,
-            fillPattern=1)),
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
         Rectangle(extent=[-20, 90; 20, -30], style(
             color=7,
             fillColor=8,
@@ -2261,37 +3078,62 @@ Several matrices may be defined one after another.
               0; 80, 30; -20, 30; -20, 60; 80, 60; 80, 90; 20, 90; 20, -30],
             style(color=0)),
         Text(
-          extent=[-77, -42; -38, -58],
-          string="offset",
-          style(color=9)),
+          extent=[-71,-42; -32,-54],
+          string="offset", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
         Polygon(points=[-31, -30; -33, -40; -28, -40; -31, -30], style(
-            color=8,
-            fillColor=8,
-            fillPattern=1)),
-        Polygon(points=[-30, -70; -33, -60; -28, -60; -30, -70; -30, -70],
-            style(
-            color=8,
-            fillColor=8,
-            fillPattern=1)),
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+        Polygon(points=[-31,-70; -34,-60; -29,-60; -31,-70; -31,-70], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
         Line(points=[-31, -31; -31, -70], style(
-            color=8,
-            pattern=1,
-            thickness=1,
-            arrow=0)),
-        Line(points=[-20, -30; -20, -70], style(color=8, pattern=2)),
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+        Line(points=[-20, -30; -20, -70], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
         Text(
-          extent=[-38, -70; 8, -88],
-          string="startTime",
-          style(color=9)),
-        Line(points=[-20, -30; -80, -30], style(color=8, pattern=2)),
+          extent=[-42,-74; 6,-84],
+          string="startTime", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+        Line(points=[-20, -30; -80, -30], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
         Text(
-          extent=[-73, 93; -41, 78],
-          style(color=9),
-          string="y"),
+          extent=[-73,93; -44,74],
+          string="y", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
         Text(
-          extent=[66, -81; 91, -93],
-          string="time",
-          style(color=9)),
+          extent=[66,-81; 92,-92],
+          string="time", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
         Text(
           extent=[-19, 83; 20, 68],
           string="time",
@@ -2345,21 +3187,42 @@ Several matrices may be defined one after another.
             style(color=0),
             string="%k")),
         Diagram(
-          Line(points=[-80, 0; 80, 0], style(color=0, thickness=2)),
+          Line(points=[-70,0; 80,0], style(
+            color=3, 
+            rgbcolor={0,0,255}, 
+            thickness=2)),
           Text(
-            extent=[-83, 20; -63, 0],
-            string="k",
-            style(color=9)),
+            extent=[-69,20; -49,0],
+            string="k", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
           Text(
-            extent=[-100, 6; -80, -6],
-            string="true",
-            style(color=9)),
+            extent=[-96,6; -76,-4],
+            string="true", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
           Text(
-            extent=[-104, -58; -78, -70],
-            string="false",
-            style(color=9))),
+            extent=[-98,-58; -72,-68],
+            string="false", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95}))),
         Documentation(info="<html>
+<p>
+The Boolean output y is a constant signal:
+</p>
 
+<p>
+<img src=\"../Images/Blocks/Sources/BooleanConstant.png\">
+</p>
 </html>"));
     equation 
       y = k;
@@ -2376,23 +3239,47 @@ Several matrices may be defined one after another.
             style(color=0),
             string="%startTime")),
                               Diagram(
-          Line(points=[-80, -70; 0, -70; 0, 50; 80, 50], style(color=0, thickness=
-                 2)),
+          Line(points=[-80, -70; 0, -70; 0, 50; 80, 50], style(
+            color=3, 
+            rgbcolor={0,0,255}, 
+            thickness=2)),
           Text(
-            extent=[-25,-76; 21,-94],
-            string="startTime",
-            style(color=0, rgbcolor={0,0,0})),
-          Polygon(points=[2, 50; -80, 50; 2, 50], style(color=8, pattern=2)),
+            extent=[-15,-74; 20,-82],
+            string="startTime", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+          Polygon(points=[2, 50; -80, 50; 2, 50], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
           Text(
-            extent=[-130,56; -86,42],
-            string="not startValue",
-            style(color=0, rgbcolor={0,0,0})),
+            extent=[-66,62; -22,48],
+            string="not startValue", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
           Text(
-            extent=[-126,-64; -94,-78],
-            string="startValue",
-            style(color=0, rgbcolor={0,0,0}))),
+            extent=[-68,-58; -36,-72],
+            string="startValue", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95}))),
         Documentation(info="<html>
+<p>
+The Boolean output y is a step signal:
+</p>
 
+<p>
+<img src=\"../Images/Blocks/Sources/BooleanStep.png\">
+</p>
 </html>"));
     equation 
      y = if time >= startTime then not startValue else startValue;
@@ -2425,51 +3312,108 @@ Several matrices may be defined one after another.
                 -70; 40, -70; 40, 44; 79, 44], style(color=0))),
         Diagram(
           Text(
-            extent=[-60, -72; -14, -90],
-            string="startTime",
-          style(color=0, rgbcolor={0,0,0})),
+            extent=[-60,-74; -19,-82],
+            string="startTime", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
           Line(points=[-78, -70; -40, -70; -40, 20; 20, 20; 20, -70; 50, -70; 50,
-                  20; 100, 20], style(color=0, thickness=2)),
-          Line(points=[-40, 61; -40, 21], style(color=8, pattern=2)),
-          Line(points=[20, 44; 20, 20], style(color=9, pattern=2)),
-          Line(points=[50, 58; 50, 20], style(color=8, pattern=2)),
-          Line(points=[-40, 53; 50, 53], style(color=8)),
-          Line(points=[-40, 35; 20, 35], style(color=8)),
+                  20; 100, 20], style(
+            color=3, 
+            rgbcolor={0,0,255}, 
+            thickness=2)),
+          Line(points=[-40, 61; -40, 21], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+          Line(points=[20, 44; 20, 20], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+          Line(points=[50, 58; 50, 20], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+          Line(points=[-40, 53; 50, 53], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+          Line(points=[-40, 35; 20, 35], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
           Text(
-            extent=[-30, 67; 16, 55],
-            string="period",
-          style(color=0, rgbcolor={0,0,0})),
+            extent=[-30,65; 16,55],
+            string="period", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
           Text(
-            extent=[-35, 49; 14, 37],
-            string="width",
-          style(color=0, rgbcolor={0,0,0})),
-          Line(points=[-80, 20; -41, 20], style(color=8, pattern=2)),
+            extent=[-33,47; 14,37],
+            string="width", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+          Line(points=[-70,20; -41,20], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
           Polygon(points=[-40, 35; -31, 37; -31, 33; -40, 35], style(
-              color=8,
-              fillColor=8,
-              fillPattern=1)),
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
           Polygon(points=[20, 35; 12, 37; 12, 33; 20, 35], style(
-              color=8,
-              fillColor=8,
-              fillPattern=1)),
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
           Polygon(points=[-40, 53; -31, 55; -31, 51; -40, 53], style(
-              color=8,
-              fillColor=8,
-              fillPattern=1)),
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
           Polygon(points=[50, 53; 42, 55; 42, 51; 50, 53], style(
-              color=8,
-              fillColor=8,
-              fillPattern=1)),
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
           Text(
-            extent=[-109, 28; -77, 14],
-            string="true",
-          style(color=0, rgbcolor={0,0,0})),
+            extent=[-95,26; -66,17],
+            string="true", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
           Text(
-            extent=[-101, -56; -80, -71],
-            string="false",
-          style(color=0, rgbcolor={0,0,0}))),
+            extent=[-96,-60; -75,-69],
+            string="false", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95}))),
         Documentation(info="<html>
+<p>
+The Boolean output y is a pulse signal:
+</p>
 
+<p>
+<img src=\"../Images/Blocks/Sources/Pulse.png\">
+</p>
 </html>"));
   protected 
       parameter Modelica.SIunits.Time Twidth=period*width/100 
@@ -2513,39 +3457,93 @@ Several matrices may be defined one after another.
             string="%period")),
         Diagram(
           Text(
-            extent=[-53, -71; -7, -89],
-            string="startTime",
-            style(color=0, rgbcolor={0,0,0})),
-          Line(points=[-30, 47; -30, 19], style(color=8, pattern=2)),
-          Line(points=[0, 47; 0, 18], style(color=8, pattern=2)),
-          Line(points=[-30, 41; 0, 41], style(color=8)),
+            extent=[-51,-72; -11,-81],
+            string="startTime", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+          Line(points=[-30, 47; -30, 19], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+          Line(points=[0, 47; 0, 18], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+          Line(points=[-30, 41; 0, 41], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
           Text(
             extent=[-37, 61; 9, 49],
-            string="period",
-            style(color=0, rgbcolor={0,0,0})),
-          Line(points=[-80, 19; -30, 19], style(color=8, pattern=2)),
+            string="period", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+          Line(points=[-73,19; -30,19], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
           Polygon(points=[-30, 41; -21, 43; -21, 39; -30, 41], style(
-              color=8,
-              fillColor=8,
-              fillPattern=1)),
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
           Polygon(points=[0, 41; -8, 43; -8, 39; 0, 41], style(
-              color=8,
-              fillColor=8,
-              fillPattern=1)),
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
           Text(
-            extent=[-100, 28; -80, 13],
-            string="true",
-            style(color=0, rgbcolor={0,0,0})),
+            extent=[-91,23; -71,13],
+            string="true", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
           Text(
-            extent=[-100, -56; -80, -71],
-            string="false",
-            style(color=0, rgbcolor={0,0,0})),
-          Line(points=[0, -70; 0, 19], style(color=0, thickness=2)),
-          Line(points=[-30, -70; -30, 19], style(color=0, thickness=2)),
-          Line(points=[30, -70; 30, 19], style(color=0, thickness=2)),
-          Line(points=[60, -70; 60, 19], style(color=0, thickness=2))),
+            extent=[-90,-59; -70,-68],
+            string="false", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+          Line(points=[0, -70; 0, 19], style(
+            color=3, 
+            rgbcolor={0,0,255}, 
+            thickness=2)),
+          Line(points=[-30, -70; -30, 19], style(
+            color=3, 
+            rgbcolor={0,0,255}, 
+            thickness=2)),
+          Line(points=[30, -70; 30, 19], style(
+            color=3, 
+            rgbcolor={0,0,255}, 
+            thickness=2)),
+          Line(points=[60, -70; 60, 19], style(
+            color=3, 
+            rgbcolor={0,0,255}, 
+            thickness=2))),
         Documentation(info="<html>
+<p>
+The Boolean output y is a trigger signal where the output y is only <b>true</b>
+at sample times (defined by parameter <b>period</b>) and is otherwise
+<b>false</b>.
+</p>
 
+<p>
+<img src=\"../Images/Blocks/Sources/SampleTrigger.png\">
+</p>
 </html>"));
     equation 
       y = sample(startTime, period);
@@ -2581,7 +3579,15 @@ Several matrices may be defined one after another.
             string="time",
             style(color=0))),
         Documentation(info="<html>
+<p>
+The Boolean output y is a signal defined by parameter vector <b>table</b>.
+In the vector time points are stored. At every time point, the output y
+changes its value to the negated value of the previous one.
+</p>
 
+<p>
+<img src=\"../Images/Blocks/Sources/BooleanTable.png\">
+</p>
 </html>"));
     
   protected 
@@ -2677,27 +3683,62 @@ Several matrices may be defined one after another.
           extent=[-150, -150; 150, -110],
           string="k=%k",
           style(color=0))), Diagram(
-        Polygon(points=[-80, 90; -88, 68; -72, 68; -80, 90], style(color=8,
-              fillColor=8)),
-        Line(points=[-80, 68; -80, -80], style(color=8)),
-        Line(points=[-80, 0; 80, 0], style(color=0, thickness=2)),
-        Line(points=[-90, -70; 82, -70], style(color=8)),
-        Polygon(points=[90, -70; 68, -62; 68, -78; 90, -70], style(color=8,
-              fillColor=8)),
+        Polygon(points=[-80,90; -86,68; -74,68; -80,90], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+        Line(points=[-80, 68; -80, -80], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+        Line(points=[-80, 0; 80, 0], style(
+            color=3, 
+            rgbcolor={0,0,255}, 
+            thickness=2)),
+        Line(points=[-90, -70; 82, -70], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+        Polygon(points=[90, -70; 68, -62; 68, -78; 90, -70], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
         Text(
-          extent=[-75, 94; -22, 76],
-          string="outPort",
-          style(color=9)),
+          extent=[-81,92; -38,74], 
+          string="y", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
         Text(
-          extent=[70, -80; 94, -100],
-          string="time",
-          style(color=9)),
+          extent=[66,-82; 94,-94],
+          string="time", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
         Text(
           extent=[-101, 8; -81, -12],
-          string="k",
-          style(color=9))),
+          string="k", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95}))),
       Documentation(info="<html>
+<p>
+The Integer output y is a constant signal:
+</p>
 
+<p>
+<img src=\"../Images/Blocks/Sources/IntegerConstant.png\">
+</p>
 </html>"));
   equation 
     y = k;
@@ -2718,65 +3759,118 @@ Several matrices may be defined one after another.
           extent=[-150, -150; 150, -110],
           string="startTime=%startTime",
           style(color=0))), Diagram(
-        Polygon(points=[-80, 90; -88, 68; -72, 68; -80, 90], style(color=8,
-              fillColor=8)),
-        Line(points=[-80, 68; -80, -80], style(color=8)),
-        Line(points=[-80, -18; 0, -18; 0, 50; 80, 50], style(color=0, thickness=
-               2)),
-        Line(points=[-90, -70; 82, -70], style(color=8)),
-        Polygon(points=[90, -70; 68, -62; 68, -78; 90, -70], style(color=8,
-              fillColor=8)),
+        Polygon(points=[-80,88; -86,68; -74,68; -80,88], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+        Line(points=[-80, 68; -80, -80], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+        Line(points=[-80, -18; 0, -18; 0, 50; 80, 50], style(
+            color=3, 
+            rgbcolor={0,0,255}, 
+            thickness=2)),
+        Line(points=[-90, -70; 82, -70], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+        Polygon(points=[90,-70; 70,-66; 70,-74; 90,-70], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
         Text(
-          extent=[70, -80; 94, -100],
-          string="time",
-          style(color=9)),
+          extent=[66,-78; 92,-88],
+          string="time", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
         Text(
-          extent=[-21, -72; 25, -90],
-          string="startTime",
-          style(color=9)),
-        Line(points=[0, -17; 0, -71], style(color=8, pattern=2)),
+          extent=[-21,-76; 26,-88],
+          string="startTime", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+        Line(points=[0, -17; 0, -71], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
         Text(
-          extent=[-68, -36; -22, -54],
-          string="offset",
-          style(color=9)),
+          extent=[-60,-36; -12,-48],
+          string="offset", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
         Line(points=[-13, 50; -13, -17], style(
-            color=8,
-            pattern=1,
-            thickness=1,
-            arrow=0)),
-        Polygon(points=[2, 50; -19, 50; 2, 50], style(color=8, pattern=2)),
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+        Polygon(points=[2, 50; -19, 50; 2, 50], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
         Polygon(points=[-13, -17; -16, -4; -10, -4; -13, -17; -13, -17], style(
-            color=8,
-            fillColor=8,
-            fillPattern=1)),
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
         Polygon(points=[-13, 50; -16, 37; -9, 37; -13, 50], style(
-            color=8,
-            fillColor=8,
-            fillPattern=1)),
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
         Text(
-          extent=[-68, 26; -22, 8],
-          string="height",
-          style(color=9)),
-        Polygon(points=[-13, -69; -16, -56; -10, -56; -13, -69; -13, -69],
-            style(
-            color=8,
-            fillColor=8,
-            fillPattern=1)),
+          extent=[-58,22; -12,10],
+          string="height", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
+        Polygon(points=[-13, -69; -16, -56; -10, -56; -13, -69; -13, -69], style(
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
         Line(points=[-13, -18; -13, -70], style(
-            color=8,
-            pattern=1,
-            thickness=1,
-            arrow=0)),
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
         Polygon(points=[-13, -18; -16, -31; -9, -31; -13, -18], style(
-            color=8,
-            fillColor=8,
-            fillPattern=1)),
+            color=10, 
+            rgbcolor={95,95,95}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95})),
         Text(
-          extent=[-72, 100; -31, 80],
-          string="outPort",
-          style(color=9))),
+          extent=[-78,96; -44,80], 
+          string="y", 
+          style(
+            color=0, 
+            rgbcolor={0,0,0}, 
+            fillColor=10, 
+            rgbfillColor={95,95,95}))),
       Documentation(info="<html>
+<p>
+The Integer output y is a step signal:
+</p>
 
+<p>
+<img src=\"../Images/Blocks/Sources/IntegerStep.png\">
+</p>
 </html>"));
   equation 
     y = offset + (if time < startTime then 0 else height);
