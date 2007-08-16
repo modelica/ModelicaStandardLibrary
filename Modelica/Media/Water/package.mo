@@ -13,7 +13,7 @@ annotation (Documentation(info="<html>
     for particular regions. The <b>WaterIF97_ph</b> model is valid
     in all regions and is the recommended one to use.</li>
 </ul>
-<h3>Overview of WaterIF97 derived water models</h3>
+<h4>Overview of WaterIF97 derived water models</h4>
 <p>
 The WaterIF97 models calculate medium properties 
 for water in the <b>liquid</b>, <b>gas</b> and <b>two phase</b> regions 

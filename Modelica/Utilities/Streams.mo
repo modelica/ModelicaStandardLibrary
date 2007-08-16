@@ -4,7 +4,7 @@ package Streams "Read from files and write to files"
   annotation (
   preferedView="info",
     Documentation(info="<HTML>
-<h3><font color=\"#008000\">Library content</font></h3>
+<h4>Library content</h4>
 <p>
 Package <b>Streams</b> contains functions to input and output strings
 to a message window or on files. Note that a string is interpreted 
@@ -78,12 +78,12 @@ Example:
   external "C" ModelicaInternal_print(string, fileName);
     annotation (  preferedView="info",
   Documentation(info="<HTML>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4>Syntax</h4>
 <blockquote><pre>
 Streams.<b>print</b>(string);
 Streams.<b>print</b>(string,fileName);
 </pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4>Description</h4>
 <p>
 Function <b>print</b>(..) opens automatically the given file, if
 it is not yet open. If the file does not exist, it is created.
@@ -94,14 +94,14 @@ The Modelica environment may close the file whenever appropriate.
 This can be enforced by calling <b>Streams.close</b>(fileName).
 After every call of \"print(..)\" a \"new line\" is printed automatically.
 </p>
-<h3><font color=\"#008000\">Example</font></h3>
+<h4>Example</h4>
 <blockquote><pre>
   Streams.print(\"x = \" + String(x));
   Streams.print(\"y = \" + String(y));
   Streams.print(\"x = \" + String(y), \"mytestfile.txt\");
 </pre></blockquote>
 <p>
-<h3><font color=\"#008000\">See also</font></h3>
+<h4>See also</h4>
 <p>
 <a href=\"Modelica:Modelica.Utilities.Streams\">Streams</a>,
 <a href=\"Modelica:Modelica.Utilities.Streams.error\">Streams.error</a>,
@@ -117,11 +117,11 @@ After every call of \"print(..)\" a \"new line\" is printed automatically.
     output String stringVector[countLines(fileName)] "Content of file";
     
     annotation (preferedView="info", Documentation(info="<html>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4>Syntax</h4>
 <blockquote><pre>
 stringVector = Streams.<b>readFile</b>(fileName)
 </pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4>Description</h4>
 <p>
 Function <b>readFile</b>(..) opens the given file, reads the complete
 content, closes the file and returns the content as a vector of strings. Lines are separated by LF or CR-LF; the returned strings do not contain the line separators. 
@@ -145,11 +145,11 @@ content, closes the file and returns the content as a vector of strings. Lines a
       "If true, end-of-file was reached when trying to read line";
    external "C" string=  ModelicaInternal_readLine(fileName,lineNumber,endOfFile);
     annotation (preferedView="info",Documentation(info="<html>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4>Syntax</h4>
 <blockquote><pre>
 (string, endOfFile) = Streams.<b>readLine</b>(fileName, lineNumber)
 </pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4>Description</h4>
 <p>
 Function <b>readLine</b>(..) opens the given file, reads enough of the
 content to get the requested line, and returns the line as a string.
@@ -170,11 +170,11 @@ and endOfFile=true. Otherwise endOfFile=false.
     output Integer numberOfLines "Number of lines in file";
   external "C" numberOfLines=  ModelicaInternal_countLines(fileName);
     annotation (preferedView="info",Documentation(info="<html>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4>Syntax</h4>
 <blockquote><pre>
 numberOfLines = Streams.<b>countLines</b>(fileName)
 </pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4>Description</h4>
 <p>
 Function <b>countLines</b>(..) opens the given file, reads the complete
 content, closes the file and returns the number of lines. Lines are
@@ -189,21 +189,21 @@ separated by LF or CR-LF.
     external "C" ModelicaError(string);
     annotation (  preferedView="info",
   Documentation(info="<html>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4>Syntax</h4>
 <blockquote><pre>
 Streams.<b>error</b>(string);
 </pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4>Description</h4>
 <p>
 Print the string \"string\" as error message and
 cancel all actions. Line breaks are characterized 
 by \"\\n\" in the string.
 </p>
-<h3><font color=\"#008000\">Example</font></h3>
+<h4>Example</h4>
 <blockquote><pre>
   Streams.error(\"x (= \" + String(x) + \")\\nhas to be in the range 0 .. 1\");
 </pre></blockquote>
-<h3><font color=\"#008000\">See also</font></h3>
+<h4>See also</h4>
 <p>
 <a href=\"Modelica:Modelica.Utilities.Streams\">Streams</a>,
 <a href=\"Modelica:Modelica.Utilities.Streams.print\">Streams.print</a>,
@@ -217,11 +217,11 @@ by \"\\n\" in the string.
     input String fileName "Name of the file that shall be closed";
     external "C" ModelicaStreams_closeFile(fileName);
     annotation (preferedView="info",Documentation(info="<html>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4>Syntax</h4>
 <blockquote><pre>
 Streams.<b>close</b>(fileName)
 </pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4>Description</h4>
 <p>
 Close file if it is open. Ignore call if
 file is already closed or does not exist.

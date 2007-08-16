@@ -5,11 +5,11 @@ package Strings "Operations on strings"
     output Integer result "Number of characters of string";
   external "C" result=  ModelicaStrings_length(string);
     annotation (preferedView="info", Documentation(info="<html>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4>Syntax</h4>
 <blockquote><pre>
 Strings.<b>length</b>(string);
 </pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4>Description</h4>
 <p>
 Returns the number of characters of \"string\".
 </p>
@@ -29,11 +29,11 @@ Returns the number of characters of \"string\".
                       ModelicaStrings_substring(string,startIndex,endIndex);
     annotation (  preferedView="info",
   Documentation(info="<html>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4>Syntax</h4>
 <blockquote><pre>
 string2 = Strings.<b>substring</b>(string, startIndex, endIndex);
 </pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4>Description</h4>
 <p>
 This function returns
 the substring from position startIndex
@@ -43,7 +43,7 @@ up to and including position endIndex of \"string\" .
 If index, startIndex, or endIndex are not correct, e.g.,
 if endIndex &gt; length(string), an assert is triggered.
 </p>
-<h3><font color=\"#008000\">Example</font></h3>
+<h4>Example</h4>
 <blockquote><pre>
   string1 := \"This is line 111\";
   string2 := Strings.substring(string1,9,12); // string2 = \"line\"
@@ -58,12 +58,12 @@ if endIndex &gt; length(string), an assert is triggered.
     output String repeatedString "String containing n concatenated strings";
     annotation (  preferedView="info",
   Documentation(info="<html>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4>Syntax</h4>
 <blockquote><pre>
 string2 = Strings.<b>repeat</b>(n);
 string2 = Strings.<b>repeat</b>(n, string=\" \");
 </pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4>Description</h4>
 <p>
 The first form returns a string consisting of n blanks.
 </p>
@@ -87,12 +87,12 @@ defined by the optional argument \"string\".
     output Modelica.Utilities.Types.Compare.Type result "Result of comparison";
   external "C" result=  ModelicaStrings_compare(string1, string2, caseSensitive);
     annotation (preferedView="info", Documentation(info="<html>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4>Syntax</h4>
 <blockquote><pre>
 result = Strings.<b>compare</b>(string1, string2);
 result = Strings.<b>compare</b>(string1, string2, caseSensitive=true);
 </pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4>Description</h4>
 <p>
 Compares two strings. If the optional argument caseSensitive=false,
 upper case letters are treated as if they would be lower case letters.
@@ -119,12 +119,12 @@ e.g., \"a\" &lt; \"b\";
     output Boolean identical "True, if string1 is identical to string2";
     annotation (  preferedView="info",
   Documentation(info="<html>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4>Syntax</h4>
 <blockquote><pre>
 Strings.<b>isEqual</b>(string1, string2);
 Strings.<b>isEqual</b>(string1, string2, caseSensitive=true);
 </pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4>Description</h4>
 <p>
 Compare whether two strings are identical,
 optionally ignoring case.
@@ -140,7 +140,7 @@ optionally ignoring case.
   versionDate="2004-10-01",
   preferedView="info",
     Documentation(info="<HTML>
-<h3><font color=\"#008000\">Library content</font></h3>
+<h4>Library content</h4>
 <p>
 Package <b>Strings</b> contains functions to manipulate strings.
 </p>
@@ -215,13 +215,13 @@ into account whether a character is upper or lower case.
     output Integer result "Number of occurrences of 'searchString' in 'string'";
     annotation (  preferedView="info",
   Documentation(info="<html>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4>Syntax</h4>
 <blockquote><pre>
 Strings.<b>count</b>(string, searchString)
 Strings.<b>count</b>(string, searchString, startIndex=1,
                      caseSensitive=true)
 </pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4>Description</h4>
 <p>
 Returns the number of non-overlapping occurrences of string \"searchString\"
 in \"string\". The search is started at index \"startIndex\" (default = 1).
@@ -255,13 +255,13 @@ or lower case.
       "Index of the beginning of the first occurrence of 'searchString' within 'string', or zero if not present";
     annotation (  preferedView="info",
   Documentation(info="<html>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4>Syntax</h4>
 <blockquote><pre>
 index = Strings.<b>find</b>(string, searchString);
 index = Strings.<b>find</b>(string, searchString, startIndex=1,
                      caseSensitive=true);
 </pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4>Description</h4>
 <p>
 Finds first occurence of \"searchString\" within \"string\"
 and return the corresponding index.
@@ -302,13 +302,13 @@ If \"searchString\" is not found, a value of \"0\" is returned.
       "Index of the beginning of the last occurrence of 'searchString' within 'string', or zero if not present";
     annotation (  preferedView="info",
   Documentation(info="<html>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4>Syntax</h4>
 <blockquote><pre>
 index = Strings.<b>findLast</b>(string, searchString);
 index = Strings.<b>findLast</b>(string, searchString,
                          startIndex=length(string), caseSensitive=true,
 </pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4>Description</h4>
 <p>
 Finds first occurence of \"searchString\" within \"string\"
 when searching from the last character of \"string\"
@@ -354,13 +354,13 @@ If \"searchString\" is not found, a value of \"0\" is returned.
     output String result "Resultant string of replacement operation";
     annotation (  preferedView="info",
   Documentation(info="<html>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4>Syntax</h4>
 <blockquote><pre>
 Strings.<b>replace</b>(string, searchString, replaceString);
 Strings.<b>replace</b>(string, searchString, replaceString,
                 startIndex=1, replaceAll=true, caseSensitive=true);
 </pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4>Description</h4>
 <p>
 Search in \"string\" for \"searchString\" and replace the found
 substring by \"replaceString\".
@@ -461,19 +461,19 @@ performed replacements.
     end while;
     
     annotation (preferedView="info",Documentation(info="<HTML>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4>Syntax</h4>
 <blockquote><pre>
 stringVector2 = Streams.<b>sort</b>(stringVector1);
 stringVector2 = Streams.<b>sort</b>(stringVector1, caseSensitive=true);
 </pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4>Description</h4>
 <p>
 Function <b>sort</b>(..) sorts a string vector stringVector1
 in lexicographical order and returns the result in stringVector2.
 If the optional argument \"caseSensitive\" is <b>false</b>, lower
 and upper case letters are not distinguished.
 </p>
-<h3><font color=\"#008000\">Example</font></h3>
+<h4>Example</h4>
 <blockquote><pre>
   s1 = {\"force\", \"angle\", \"pressure\"};
   s2 = Strings.sort(s1);
@@ -493,11 +493,11 @@ and upper case letters are not distinguished.
     output Integer nextIndex 
       "Index of character after the found token; = 0, if NoToken";
     annotation (preferedView="info", Documentation(info="<html>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4>Syntax</h4>
 <blockquote><pre>
 (token, nextIndex) = Strings.<b>scanToken</b>(string, startIndex, unsigned=false);
 </pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4>Description</h4>
 <p>
 Function <b>scanToken</b> scans the string starting at index
 \"startIndex\" and returns the next token, as well as the
@@ -547,7 +547,7 @@ as well as white space is ignored.
 If \"unsigned=true\", a Real or Integer literal
 is not allowed to start with a \"+\" or \"-\" sign.
 </p>
-<h3><font color=\"#008000\">Example</font></h3>
+<h4>Example</h4>
 <blockquote><pre>
   import Modelica.Utilities.Strings.*;
   import T = Modelica.Utilities.Types.TokenType;
@@ -636,13 +636,13 @@ is not allowed to start with a \"+\" or \"-\" sign.
     output Real number "Value of real number";
     output Integer nextIndex "index of character after the found number";
     annotation (preferedView="info",Documentation(info="<html>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4>Syntax</h4>
 <blockquote><pre>
              number = Strings.<b>scanReal</b>(string);
 (number, nextIndex) = Strings.<b>scanReal</b>(string, startIndex=1,
                                             unsigned=false, message=\"\");
 </pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4>Description</h4>
 <p>
 The first form, \"scanReal(string)\", scans \"string\" for a
 Real number with leading white space and returns the value.
@@ -686,13 +686,13 @@ is not present in \"string\",  an assert is triggered.
     output Integer number "Value of Integer number";
     output Integer nextIndex "Index of character after the found number";
     annotation (preferedView="info",Documentation(info="<html>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4>Syntax</h4>
 <blockquote><pre>
              number = Strings.<b>scanInteger</b>(string);
 (number, nextIndex) = Strings.<b>scanInteger</b>(string, startIndex=1,
                                                unsigned=false, message=\"\");
 </pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4>Description</h4>
 <p>
 Function <b>scanInteger</b> scans the string starting at index
 \"startIndex\", checks whether the next token is an Integer literal
@@ -725,12 +725,12 @@ leading white space.
     output Boolean number "Value of Boolean";
     output Integer nextIndex "Index of character after the found number";
     annotation (preferedView="info",Documentation(info="<html>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4>Syntax</h4>
 <blockquote><pre>
              number = Strings.<b>scanBoolean</b>(string);
 (number, nextIndex) = Strings.<b>scanBoolean</b>(string, startIndex=1, message=\"\");
 </pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4>Description</h4>
 <p>
 Function <b>scanBoolean</b> scans the string starting at index
 \"startIndex\", checks whether the next token is a Boolean literal
@@ -774,12 +774,12 @@ leading white space.
     output String result "Value of string";
     output Integer nextIndex "Index of character after the found string";
     annotation (preferedView="info",Documentation(info="<html>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4>Syntax</h4>
 <blockquote><pre>
              string2 = Strings.<b>scanString</b>(string);
 (string2, nextIndex) = Strings.<b>scanString</b>(string, startIndex=1, message=\"\");
 </pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4>Description</h4>
 <p>
 Function <b>scanString</b> scans the string starting at index
 \"startIndex\", checks whether the next token is a String literal
@@ -808,12 +808,12 @@ leading white space.
     output String identifier "Value of Identifier";
     output Integer nextIndex "Index of character after the found identifier";
     annotation (preferedView="info",Documentation(info="<html>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4>Syntax</h4>
 <blockquote><pre>
              identifier = Strings.<b>scanIdentifier</b>(string);
 (identifier, nextIndex) = Strings.<b>scanIdentifier</b>(string, startIndex=1, message=\"\");
 </pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4>Description</h4>
 <p>
 Function <b>scanIdentifier</b> scans the string starting at index
 \"startIndex\", checks whether the next token is an Identifier
@@ -843,13 +843,13 @@ leading white space.
     output String delimiter "Found delimiter";
     output Integer nextIndex "Index of character after the found delimiter";
     annotation (preferedView="info",Documentation(info="<html>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4>Syntax</h4>
 <blockquote><pre>
              delimiter = Strings.<b>scanDelimiter</b>(string);
 (delimiter, nextIndex) = Strings.<b>scanDelimiter</b>(string, startIndex=1,
                                  requiredDelimiters={\",\"}, message=\"\");
 </pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4>Description</h4>
 <p>
 Function <b>scanDelimiter</b> scans the string starting at index
 \"startIndex\", checks whether the next token is a delimiter string
@@ -926,11 +926,11 @@ is the index of the first non white space character.
     input String message="" 
       "Message used in error message if scan is not successful";
     annotation (preferedView="info",Documentation(info="<html>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4>Syntax</h4>
 <blockquote><pre>
 Strings.<b>scanNoToken</b>(string, startIndex=1, message=\"\");
 </pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4>Description</h4>
 <p>
 Function <b>scanNoToken</b> scans the string starting at index
 \"startIndex\" and checks whether there is no more token in the
@@ -956,11 +956,11 @@ the error text.
     input String message="" "String printed at end of error message";
     
     annotation (preferedView="info",Documentation(info="<html>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4>Syntax</h4>
 <blockquote><pre>
 Strings.<b>syntaxError</b>(string, index, message);
 </pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4>Description</h4>
 <p>
 Function <b>syntaxError</b> prints an error message in the
 following form:
@@ -1008,7 +1008,7 @@ part of the string is printed.
   
   package Advanced "Advanced scanning functions" 
     annotation (preferedView="info",Documentation(info="<html>
-<h3><font color=\"#008000\">Library content</font></h3>
+<h4>Library content</h4>
 <p>
 Package <b>Strings.Advanced</b> contains basic scanning
 functions. These functions should be <b>not called</b> directly, because
@@ -1083,11 +1083,11 @@ The following additional rules apply for the scanning:
       output Real number "Value of Real number";
       external "C" ModelicaStrings_scanReal(string, startIndex, unsigned, nextIndex, number);
       annotation (preferedView="info",Documentation(info="<html>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4>Syntax</h4>
 <blockquote><pre>
 (nextIndex, realNumber) = <b>scanReal</b>(string, startIndex=1, unsigned=false);
 </pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4>Description</h4>
 <p>
 Starts scanning of \"string\" at position \"startIndex\".
 First skips white space and scans afterwards a number
@@ -1114,7 +1114,7 @@ the second output argument is zero.
 If the optional argument \"unsigned\" is <b>true</b>, the number
 shall not start with '+' or '-'. The default of \"unsigned\" is <b>false</b>.
 </p>
-<h3><font color=\"#008000\">See also</font></h3>
+<h4>See also</h4>
 <a href=\"Modelica:Modelica.Utilities.Strings.Advanced\">Strings.Advanced</a>.
 </html>
 "));
@@ -1131,11 +1131,11 @@ shall not start with '+' or '-'. The default of \"unsigned\" is <b>false</b>.
       output Integer number "Value of Integer number";
       external "C" ModelicaStrings_scanInteger(string, startIndex, unsigned, nextIndex, number);
       annotation (preferedView="info",Documentation(info="<html>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4>Syntax</h4>
 <blockquote><pre>
 (nextIndex, integerNumber) = <b>scanInteger</b>(string, startIndex=1, unsigned=false);
 </pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4>Description</h4>
 <p>
 Starts scanning of \"string\" at position \"startIndex\".
 First skips white space and scans afterwards a signed number
@@ -1161,7 +1161,7 @@ nextIndex = startIndex in this case.
 If the optional argument \"unsigned\" is <b>true</b>, the number
 shall not start with '+' or '-'. The default of \"unsigned\" is <b>false</b>.
 </p>
-<h3><font color=\"#008000\">See also</font></h3>
+<h4>See also</h4>
 <a href=\"Modelica:Modelica.Utilities.Strings.Advanced\">Strings.Advanced</a>.
 </html>
 "));
@@ -1176,11 +1176,11 @@ shall not start with '+' or '-'. The default of \"unsigned\" is <b>false</b>.
       output String string2 "Value of String token";
       external "C" ModelicaStrings_scanString(string, startIndex, nextIndex, string2);
       annotation (preferedView="info",Documentation(info="<html>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4>Syntax</h4>
 <blockquote><pre>
 (nextIndex, string2) = <b>scanString</b>(string, startIndex=1);
 </pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4>Description</h4>
 <p>
 Starts scanning of \"string\" at position \"startIndex\".
 First skips white space and scans afterwards a string
@@ -1196,7 +1196,7 @@ in the second output argument.
 If not successful, on return nextIndex = startIndex and
 the second output argument is an empty string.
 </p>
-<h3><font color=\"#008000\">See also</font></h3>
+<h4>See also</h4>
 <a href=\"Modelica:Modelica.Utilities.Strings.Advanced\">Strings.Advanced</a>.
 </html>
 "));
@@ -1212,11 +1212,11 @@ the second output argument is an empty string.
       external "C" ModelicaStrings_scanIdentifier(string, startIndex, nextIndex, identifier);
       
       annotation (preferedView="info",Documentation(info="<html>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4>Syntax</h4>
 <blockquote><pre>
 (nextIndex, identifier) = <b>scanIdentifier</b>(string, startIndex=1);
 </pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4>Description</h4>
 <p>
 Starts scanning of \"string\" at position \"startIndex\".
 First skips white space and scans afterwards a Modelica
@@ -1233,7 +1233,7 @@ as string in the second output argument.
 If not successful, on return nextIndex = startIndex and
 the second output argument is an empty string.
 </p>
-<h3><font color=\"#008000\">See also</font></h3>
+<h4>See also</h4>
 <a href=\"Modelica:Modelica.Utilities.Strings.Advanced\">Strings.Advanced</a>.
 </html>
 "));
@@ -1246,17 +1246,17 @@ the second output argument is an empty string.
       output Integer nextIndex;
       external "C" nextIndex = ModelicaStrings_skipWhiteSpace(string, startIndex);
       annotation (preferedView="info",Documentation(info="<html>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4>Syntax</h4>
 <blockquote><pre>
 nextIndex = <b>skipWhiteSpace</b>(string, startIndex);
 </pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4>Description</h4>
 <p>
 Starts scanning of \"string\" at position \"startIndex\" and
 skips white space. The function returns nextIndex = index of character
 of the first non white space character.
 </p>
-<h3><font color=\"#008000\">See also</font></h3>
+<h4>See also</h4>
 <a href=\"Modelica:Modelica.Utilities.Strings.Advanced\">Strings.Advanced</a>.
 </html>
 "));
@@ -1268,11 +1268,11 @@ of the first non white space character.
       input Integer startIndex(min=1)=1;
       output Integer nextIndex;
       annotation (preferedView="info",Documentation(info="<html>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4>Syntax</h4>
 <blockquote><pre>
 nextIndex = <b>skipLineComments</b>(string, startIndex);
 </pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4>Description</h4>
 <p>
 Starts scanning of \"string\" at position \"startIndex\".
 First skips white space and scans afterwards a Modelica (C/C++)
@@ -1290,7 +1290,7 @@ directly after the found line comment.
 <p>
 If not successful, on return nextIndex = startIndex.
 </p>
-<h3><font color=\"#008000\">See also</font></h3>
+<h4>See also</h4>
 <a href=\"Modelica:Modelica.Utilities.Strings.Advanced\">Strings.Advanced</a>.
 </html>
 "));

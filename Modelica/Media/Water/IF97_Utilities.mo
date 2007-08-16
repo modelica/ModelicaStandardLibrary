@@ -153,7 +153,7 @@ documented in <a href=\"IF97documentation/IF97.pdf\">IF97.pdf</a> in order to im
 dynamic simulations. Input variables for calculating the properties are
 only implemented for a limited number of variable pairs which make sense as dynamic states: (p,h), (p,T), (p,s) and (d,T).
 <hr size=3 width=\"70%\">
-<p><a name=\"regions\"><h3>1. Structure and Regions of IAPWS-IF97</h3></a>
+<p><a name=\"regions\"><h4>1. Structure and Regions of IAPWS-IF97</h4></a>
 <P>The IAPWS Industrial Formulation 1997 consists of
 a set of equations for different regions which cover the following range
 of validity:
@@ -214,7 +214,7 @@ Th.</I> The IAPWS Industrial Formulation 1997 for the Thermodynamic Properties
 of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (2000), 150 - 182.
 <p>
 <HR size=3 width=\"90%\">
-<h3>2. Calculable Properties      </h3>
+<h4>2. Calculable Properties      </h4>
 <table border=\"0\" cellpadding=\"0\" rules=\"cols\" cellspacing=\"2\">
        <tbody>
        <tr>

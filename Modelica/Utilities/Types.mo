@@ -8,11 +8,11 @@ package Types "Type definitions used in package Modelica.Utilities"
     constant Integer Greater=3;
     type Type = Integer;
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4>Syntax</h4>
 <blockquote><pre>
 <b>TokenType</b>.Temp tokenType = TokenType.<b>RealToken</b>;
 </pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4>Description</h4>
 <p>
 Package <b>TokenType</b> is an emulation of the following enumeration
 </p>
@@ -39,11 +39,11 @@ Modelica tools.
     
     type Type = Integer;
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4>Syntax</h4>
 <blockquote><pre>
 <b>FileType</b>.Type fileType = FileType.<b>RegularFile</b>;
 </pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4>Description</h4>
 <p>
 Package <b>FileType</b> is an emulation of the following enumeration
 </p>
@@ -71,11 +71,11 @@ Modelica tools.
     
     type Type = Integer;
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4>Syntax</h4>
 <blockquote><pre>
 <b>TokenType</b>.Temp tokenType = TokenType.<b>RealToken</b>;
 </pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4>Description</h4>
 <p>
 Package <b>TokenType</b> is an emulation of the following enumeration
 </p>

@@ -113,11 +113,11 @@ algorithm
                    "since it does not exist");
   end if;
   annotation (preferedView="info",Documentation(info="<html>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4>Syntax</h4>
 <blockquote><pre>
 Files.<b>list</b>(name);
 </pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4>Description</h4>
 <p>
 If \"name\" is a regular file, the content of the
 file is printed.
@@ -275,12 +275,12 @@ algorithm
      Internal.copyFile(oldName2, newName2);
   end if;
   annotation (preferedView="info",Documentation(info="<HTML>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4>Syntax</h4>
 <blockquote><pre>
 Files.<b>copy</b>(oldName, newName);
 Files.<b>copy</b>(oldName, newName, replace = true);
 </pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4>Description</h4>
 <p>
 Function <b>copy</b>(..) copies a file or a directory
 to a new location. Via the optional argument <b>replace</b>
@@ -295,7 +295,7 @@ it is required that the existing files
 in newName are different from the existing files in 
 oldName.
 </p>
-<h3><font color=\"#008000\">Example</font></h3>
+<h4>Example</h4>
 <blockquote><pre>
   copy(\"C:/test1/directory1\", \"C:/test2/directory2\");
      -> the content of directory1 is copied into directory2
@@ -325,12 +325,12 @@ algorithm
      Files.remove(oldName);
   end if;
   annotation (preferedView="info",Documentation(info="<HTML>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4>Syntax</h4>
 <blockquote><pre>
 Files.<b>move</b>(oldName, newName);
 Files.<b>move</b>(oldName, newName, replace = true);
 </pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4>Description</h4>
 <p>
 Function <b>move</b>(..) moves a file or a directory
 to a new location. Via the optional argument <b>replace</b>
@@ -345,7 +345,7 @@ it is required that the existing files
 in newName are different from the existing files in 
 oldName.
 </p>
-<h3><font color=\"#008000\">Example</font></h3>
+<h4>Example</h4>
 <blockquote><pre>
   move(\"C:/test1/directory1\", \"C:/test2/directory2\");
      -> the content of directory1 is moved into directory2.
@@ -395,11 +395,11 @@ algorithm
      removeDirectory(fullName);
   end if;
   annotation (preferedView="info",Documentation(info="<html>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4>Syntax</h4>
 <blockquote><pre>
 Files.<b>remove</b>(name);
 </pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4>Description</h4>
 <p>
 Removes the file or directory \"name\". If \"name\" does not exist,
 the function call is ignored. If \"name\" is a directory, first
@@ -428,11 +428,11 @@ algorithm
                    "This is not possible, because it is a special file (pipe, device, etc.)");
   end if;
   annotation (preferedView="info",Documentation(info="<html>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4>Syntax</h4>
 <blockquote><pre>
 Files.<b>removeFile</b>(fileName);
 </pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4>Description</h4>
 <p>
 Removes the file \"fileName\". If \"fileName\" does not exist,
 the function call is ignored. If \"fileName\" exists but is
@@ -541,11 +541,11 @@ algorithm
         end while;
   end if;
   annotation (preferedView="info",Documentation(info="<html>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4>Syntax</h4>
 <blockquote><pre>
 Files.<b>createDirectory</b>(directoryName);
 </pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4>Description</h4>
 <p>
 Creates directory \"directorName\". If this directory already exists,
 the function call is ignored. If several directories in \"directoryName\"
@@ -570,11 +570,11 @@ function exist "Inquire whether file or directory exists"
 algorithm 
   result := Internal.stat(name) > Types.FileType.NoFile;
   annotation (preferedView="info",Documentation(info="<html>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4>Syntax</h4>
 <blockquote><pre>
 result = Files.<b>exist</b>(name);
 </pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4>Description</h4>
 <p>
 Returns true, if \"name\" is an existing file or directory.
 If this is not the case, the function returns false.
@@ -598,12 +598,12 @@ algorithm
      Streams.error("A special file (pipe, device, etc.) \"" + name + "\" already exists.\n" + message);
   end if;
   annotation (preferedView="info",Documentation(info="<html>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4>Syntax</h4>
 <blockquote><pre>
 Files.<b>assertNew</b>(name);
 Files.<b>assertNew</b>(name, message=\"This is not allowed\");
 </pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4>Description</h4>
 <p>
 Triggers an assert, if \"name\" is an existing file or
 directory. The error message has the following structure:
@@ -622,11 +622,11 @@ function fullPathName "Get full path name of file or directory name"
   output String fullName "Full path of 'name'";
 external "C" fullName = ModelicaInternal_fullPathName(name);
   annotation (preferedView="info",Documentation(info="<html>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4>Syntax</h4>
 <blockquote><pre>
 fullName = Files.<b>fullPathName</b>(name);
 </pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4>Description</h4>
 <p>
 Returns the full path name of a file or directory \"name\".
 </p>
@@ -641,15 +641,15 @@ function splitPathName
   output String name "Name of the file without the extension";
   output String extension "Extension of the file name. Starts with '.'";
   annotation (preferedView="info",Documentation(info="<HTML>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4>Syntax</h4>
 <blockquote><pre>
 (directory, name, extension) = Files.<b>splitPathName</b>(pathName);
 </pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4>Description</h4>
 <p>
 Function <b>splitPathName</b>(..) splits a path name into its parts.
 </p>
-<h3><font color=\"#008000\">Example</font></h3>
+<h4>Example</h4>
 <pre>
   (directory, name, extension) = Files.splitPathName(\"C:/user/test/input.txt\")
   
@@ -710,11 +710,11 @@ function temporaryFileName
   output String fileName "Full path name of temporary file";
   external "C" fileName=ModelicaInternal_temporaryFileName(0);
   annotation (preferedView="info",Documentation(info="<html>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4>Syntax</h4>
 <blockquote><pre>
 fileName = Files.<b>temporaryFileName</b>();
 </pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4>Description</h4>
 <p>
 Return arbitrary name of a file that does not exist
 and is in a directory where access rights allow to 

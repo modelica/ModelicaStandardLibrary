@@ -170,7 +170,7 @@ all media models with some very simple piping networks.
     class BasicUsage "Basic usage" 
       
       annotation (Documentation(info="<HTML>
-<h3><font color=\"#008000\">Basic usage of medium model</font></h3>
+<h4>Basic usage of medium model</h4>
 <p>
 Media models in Modelica.Media are provided by packages, inheriting from the
 partial package Modelica.Media.Interfaces.PartialMedium. Every package defines:
@@ -2425,7 +2425,7 @@ end MoistAir;
     
     annotation (Documentation(info="<html>
 <body>
-<h3>Example: TwoPhaseWater</h3>
+<h4>Example: TwoPhaseWater</h4>
 The TwoPhaseWater package demonstrates how to extend the parsimonius
 BaseProperties with a minimal set of properties from the standard water
 package with most properties that are needed in two-phase situations.
@@ -2489,7 +2489,7 @@ points, e.g. when an isentropic reference state is computed.<br>
           experimentSetupOutput,
         Documentation(info="<html>
 <body>
-<h3>Example:TestTwoPhaseStates</h3>
+<h4>Example:TestTwoPhaseStates</h4>
 </p> For details see the documentation of the example package TwoPhaseWater<p>
 </body>
 </html>
@@ -2647,7 +2647,7 @@ is given to compare the approximation.
 </html>"));
   end TestOnly;
   annotation (Documentation(info="<html>
-<h3>Examples</h3>
+<h4>Examples</h4>
 Physical properties for fluids are needed in so many different variants
 that a library can only provide models for the most common situations.
 With the following examples we are going to demonstrate how to use the
@@ -4883,7 +4883,7 @@ Note that it is possible to define a fluid by computing the reference
 values from a full non-linear fluid model by computing the package constants 
 using the standard functions defined in a fluid package (see example in liquids package).
 </p>
-<h3>Efficiency considerations</h3>
+<h4>Efficiency considerations</h4>
 <p>One of the main reasons to use a simple, linear fluid model is to achieve high performance 
 in simulations. There are a number of possible compromises and possibilities to improve performance. 
 Some of them can be influenced by a flag. The following rules where used in this model:</p>

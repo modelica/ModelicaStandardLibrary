@@ -2,7 +2,7 @@ package SIunits
   "Type and unit definitions based on SI units according to ISO 31-1992" 
 package UsersGuide "Users Guide" 
   annotation (DocumentationClass=true, Documentation(info="<HTML>
-<h3><font color=\"#008000\" size=5>Users Guide of package SIunits</font></h3>
+<h4>Users Guide of package SIunits</h4>
 <p>
 Library <b>SIunits</b> is a <b>free</b> Modelica package providing
 predefined types, such as <i>Mass</i>,
@@ -14,7 +14,7 @@ on units.</p>
   package HowToUseSIunits "How to use SIunits" 
       
     annotation (DocumentationClass=true, Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>How to use SIunits</font></h3>
+<h4>How to use SIunits</h4>
 
 <p>
 When implementing a Modelica model, every variable needs to
@@ -130,7 +130,7 @@ in the declaration as in the example at the beginning.
   package Conventions "Conventions" 
       
     annotation (DocumentationClass=true, Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>Conventions</font></h3>
+<h4>Conventions</h4>
 
 <p>The following conventions are used in package SIunits:</p>
 <ul>
@@ -176,7 +176,7 @@ in the declaration as in the example at the beginning.
   class Literature "Literature" 
       
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>Literature</font></h3>
+<h4>Literature</h4>
 
 <p> This package is based on the following references
 </p>
@@ -202,7 +202,7 @@ in the declaration as in the example at the beginning.
   class Contact "Contact" 
       
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>Contact</font></h3>
+<h4>Contact</h4>
 
 <dl>
 <dt><b>Main Author:</b>
