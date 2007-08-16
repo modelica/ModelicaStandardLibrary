@@ -56,7 +56,7 @@ and the accompanying <b>disclaimer</b>
           "../ConvertFromModelica.Media_0.795.mos")));
 
 
-package UsersGuide "Users Guide of Media Library" 
+package UsersGuide "User's Guide of Media Library" 
   
   annotation (DocumentationClass=true, Documentation(info="<HTML>
 <p>
@@ -116,7 +116,7 @@ main features:
      at this point).</li>
 </ul>
 <p>
-This Users Guide has the following main parts:
+This User's Guide has the following main parts:
 </p>
 <ul>
 <li> <a href=\"Modelica:Modelica.Media.UsersGuide.MediumUsage\">Medium usage</a> 

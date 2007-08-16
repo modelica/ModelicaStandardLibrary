@@ -1,9 +1,9 @@
 package Digital 
   "Library for digital electrical components based on the VHDL standard with 9-valued logic and conversion to 2-,3-,4-valued logic" 
-package UsersGuide "Users Guide" 
+package UsersGuide "User's Guide" 
     
   annotation (DocumentationClass=true, Documentation(info="<html>
-<h4>Users Guide of package Electrical.Digital</h4>
+<h4>User's Guide of package Electrical.Digital</h4>
 <p>
 Library <b>Electrical.Digital</b> is a <b>free</b> Modelica package providing
 components to model <b>digital</b> electronic

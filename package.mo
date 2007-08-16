@@ -44,7 +44,7 @@ in the next figure:
 For an introduction, have especially a look at:
 </p>
 <ul>
-<li> <a href=\"Modelica://Modelica.UsersGuide\">Users Guide</a>
+<li> <a href=\"Modelica://Modelica.UsersGuide\">User's Guide</a>
      discusses some aspects of the Modelica Standard Library, such as
      interface definitions and used conventions.</li>
 <li><a href=\"Modelica://Modelica.UsersGuide.ReleaseNotes\">Release Notes</a>
@@ -66,7 +66,7 @@ and the accompanying <b>disclaimer</b>
 "));
 
 
-package UsersGuide "Users Guide of Modelica library" 
+package UsersGuide "User's Guide of Modelica library" 
   
   annotation (DocumentationClass=true, Documentation(info="<html>
 <p>
@@ -2070,7 +2070,7 @@ Other changes:
     improved 3 existing components
     in the Modelica.Electrical library and improved 3 types
     in the Modelica.SIunits library. Furthermore,
-    this Users Guide has been started. The improvements
+    this User's Guide has been started. The improvements
     in more detail:
 </p>
 <p>

@@ -17,7 +17,7 @@ to file or copy, move and remove files.
 For an introduction, have especially a look at:
 </p>
 <ul>
-<li> <a href=\"Modelica://Modelica.Utilities.UsersGuide\">Modelica.Utilities.Users Guide</a>
+<li> <a href=\"Modelica://Modelica.Utilities.UsersGuide\">Modelica.Utilities.User's Guide</a>
      discusses the most important aspects of this library.</li>
 <li> <a href=\"Modelica://Modelica.Utilities.Examples\">Modelica.Utilities.Examples</a>
      contains examples that demonstrate the usage of this library.</li>
@@ -53,7 +53,7 @@ and the accompanying <b>disclaimer</b>
 "));
 
 
-package UsersGuide "Users Guide of Utilities Library" 
+package UsersGuide "User's Guide of Utilities Library" 
   annotation (DocumentationClass=true, Documentation(info="<HTML>
 <p>
 Library <b>Modelica.Utilities</b> contains Modelica <b>functions</b> that are
