@@ -524,7 +524,7 @@ Version 2.2.2 is backward compatible to version 2.2.1 and 2.2.
 An overview of the differences between version 2.2.2 and the previous
 version 2.2.1 is given below. The exact differences (but without
 differences in the documentation) are available
-<a href=\"../help/Differences-Modelica-221-222.html\">here</a>.
+<a href=\"../help/Documentation/Differences-Modelica-221-222.html\">here</a>.
 This comparison file was generated automatically with Dymolas
 ModelManagement.compare function.
 </p>
