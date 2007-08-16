@@ -10,6 +10,13 @@ network built with package Logical is shown in the next figure:
 <p align=\"center\">
 <img src=\"../Images/LogicalNetwork1.png\">
 </p>
+
+<p>
+The actual value of Boolean input and/or output signals is displayed
+in the respective block icon as \"circle\", where \"white\" color means
+value <b>false</b> and \"green\" color means value <b>true</b>. These
+values are visualized in a diagram animation.
+</p>
 </html>"));
   
   model And "Logical 'and': y = u1 and u2" 
@@ -19,7 +26,10 @@ network built with package Logical is shown in the next figure:
             string="and",
             style(color=0))), Diagram,
       Documentation(info="<html>
- 
+<p>
+The output is <b>true</b> if all inputs are <b>true</b>, otherwise
+the output is <b>false</b>.
+</p>
 </html>"));
   equation 
     y = u1 and u2;
@@ -32,7 +42,10 @@ network built with package Logical is shown in the next figure:
             string="or",
             style(color=0))), Diagram,
       Documentation(info="<html>
- 
+<p>
+The output is <b>true</b> if at least one input is <b>true</b>, otherwise
+the output is <b>false</b>.
+</p>
 </html>"));
   equation 
     y = u1 or u2;
@@ -44,7 +57,10 @@ network built with package Logical is shown in the next figure:
             string="xor",
             style(color=0))), Diagram,
       Documentation(info="<html>
- 
+<p>
+The output is <b>true</b> if exactly one input is <b>true</b>, otherwise
+the output is <b>false</b>.
+</p>
 </html>"));
   equation 
     y =not  ( (u1 and u2) or (not u1 and not u2));
@@ -56,7 +72,10 @@ network built with package Logical is shown in the next figure:
             string="nor",
             style(color=0))), Diagram,
       Documentation(info="<html>
- 
+<p>
+The output is <b>true</b> if none of the inputs is <b>true</b>, otherwise
+the output is <b>false</b>.
+</p>
 </html>"));
   equation 
     y =not  ( u1 or u2);
@@ -68,7 +87,10 @@ network built with package Logical is shown in the next figure:
             string="nand",
             style(color=0))), Diagram,
       Documentation(info="<html>
- 
+<p>
+The output is <b>true</b> if at least one input is <b>false</b>, otherwise
+the output is <b>false</b>.
+</p>
 </html>"));
   equation 
     y =not  ( u1 and u2);
@@ -82,14 +104,17 @@ network built with package Logical is shown in the next figure:
           string="not",
           style(color=0))), Diagram,
       Documentation(info="<html>
- 
+<p>
+The output is <b>true</b> if the input is <b>false</b>, otherwise
+the output is <b>false</b>.
+</p>
 </html>"));
   equation 
     y =not  u;
   end Not;
   
   model Pre 
-    "y = pre(u): Breaks algebraic loops by an infinitesimal small time delay (event iteration continues until u = pre(u))" 
+    "Breaks algebraic loops by an infinitesimal small time delay (y = pre(u): event iteration continues until u = pre(u))" 
     
     parameter Boolean pre_u_start = false 
       "Start value of pre(u) at initial time";
@@ -100,7 +125,18 @@ network built with package Logical is shown in the next figure:
           string="pre",
           style(color=0))), Diagram,
       Documentation(info="<html>
- 
+<p>
+This block delays the Boolean input by an infinitesimal small time delay and 
+therefore breaks algebraic loops. In a network of logical blocks, in every
+\"closed connection loop\" at least one logical block must have a delay,
+since algebraic systems of Boolean equations are not solveable.
+</p>
+
+<p>
+The \"Pre\" block returns the value of the \"input\" signal from the
+last \"event iteration\". The \"event iteration\" stops, once both
+values are identical (u = pre(u)).
+</p>
 </html>"));
   initial equation 
     pre(u) = pre_u_start;
@@ -108,7 +144,7 @@ network built with package Logical is shown in the next figure:
     y = pre(u);
   end Pre;
   
-  model Edge "y = edge(u): Output y is true, if the input u has a rising edge" 
+  model Edge "Output y is true, if the input u has a rising edge (y = edge(u))" 
     
     parameter Boolean pre_u_start = false 
       "Start value of pre(u) at initial time";
@@ -119,7 +155,11 @@ network built with package Logical is shown in the next figure:
           string="edge",
           style(color=0))), Diagram,
       Documentation(info="<html>
- 
+<p>
+The output is <b>true</b> if the Boolean input has a rising edge
+from <b>false</b> to <b>true</b>, otherwise
+the output is <b>false</b>.
+</p>
 </html>"));
   initial equation 
     pre(u) = pre_u_start;
@@ -128,7 +168,7 @@ network built with package Logical is shown in the next figure:
   end Edge;
   
   model FallingEdge 
-    "y = edge(not u): Output y is true, if the input u has a falling edge" 
+    "Output y is true, if the input u has a falling edge (y = edge(not u))" 
     
     parameter Boolean pre_u_start = false 
       "Start value of pre(u) at initial time";
@@ -138,7 +178,11 @@ network built with package Logical is shown in the next figure:
           string="falling",
           style(color=0))), Diagram,
       Documentation(info="<html>
- 
+<p>
+The output is <b>true</b> if the Boolean input has a falling edge
+from <b>true</b> to <b>false</b>, otherwise
+the output is <b>false</b>.
+</p>
 </html>"));
   protected 
    Boolean not_u=not u;
@@ -149,7 +193,7 @@ network built with package Logical is shown in the next figure:
   end FallingEdge;
   
   model Change 
-    "y = change(u): Output y is true, if the input u has a rising or falling edge" 
+    "Output y is true, if the input u has a rising or falling edge (y = change(u))" 
     
     parameter Boolean pre_u_start = false 
       "Start value of pre(u) at initial time";
@@ -160,7 +204,12 @@ network built with package Logical is shown in the next figure:
           style(color=0),
           string="change")),Diagram,
       Documentation(info="<html>
- 
+<p>
+The output is <b>true</b> if the Boolean input has either a rising edge
+from <b>false</b> to <b>true</b> or a falling edge from
+<b>true</b> to <b>false</b>, otherwise
+the output is <b>false</b>.
+</p>
 </html>"));
   initial equation 
     pre(u) = pre_u_start;
@@ -176,7 +225,11 @@ network built with package Logical is shown in the next figure:
           style(color=0),
           string=">")), Diagram,
       Documentation(info="<html>
- 
+<p>
+The output is <b>true</b> if the Real input is greater than 
+parameter <b>threshold</b>, otherwise
+the output is <b>false</b>.
+</p>
 </html>"));
   equation 
     y = u > threshold;
@@ -191,7 +244,11 @@ network built with package Logical is shown in the next figure:
           style(color=0),
           string=">=")),    Diagram,
       Documentation(info="<html>
- 
+<p>
+The output is <b>true</b> if the Real input is greater than or equal to
+parameter <b>threshold</b>, otherwise
+the output is <b>false</b>.
+</p>
 </html>"));
   equation 
     y = u >= threshold;
@@ -205,7 +262,11 @@ network built with package Logical is shown in the next figure:
           style(color=0),
           string="<")),     Diagram,
       Documentation(info="<html>
- 
+<p>
+The output is <b>true</b> if the Real input is less than 
+parameter <b>threshold</b>, otherwise
+the output is <b>false</b>.
+</p>
 </html>"));
   equation 
     y = u < threshold;
@@ -219,7 +280,11 @@ network built with package Logical is shown in the next figure:
           style(color=0),
           string="<=")),    Diagram,
       Documentation(info="<html>
- 
+<p>
+The output is <b>true</b> if the Real input is less than or equal to
+parameter <b>threshold</b>, otherwise
+the output is <b>false</b>.
+</p>
 </html>"));
   equation 
     y = u <= threshold;
@@ -236,7 +301,10 @@ network built with package Logical is shown in the next figure:
           style(color=0),
           string=">")),
         Documentation(info="<html>
- 
+<p>
+The output is <b>true</b> if Real input u1 is greater than
+Real input u2, otherwise the output is <b>false</b>.
+</p>
 </html>"));
   equation 
     y = u1 > u2;
@@ -254,7 +322,10 @@ network built with package Logical is shown in the next figure:
           style(color=0),
           string=">=")),
         Documentation(info="<html>
- 
+<p>
+The output is <b>true</b> if Real input u1 is greater than or equal to
+Real input u2, otherwise the output is <b>false</b>.
+</p>
 </html>"));
   equation 
     y = u1 >= u2;
@@ -271,7 +342,10 @@ network built with package Logical is shown in the next figure:
           style(color=0),
           string="<")),
         Documentation(info="<html>
- 
+<p>
+The output is <b>true</b> if Real input u1 is less than
+Real input u2, otherwise the output is <b>false</b>.
+</p>
 </html>"));
   equation 
     y = u1 < u2;
@@ -288,7 +362,10 @@ network built with package Logical is shown in the next figure:
           style(color=0),
           string="<=")),
         Documentation(info="<html>
- 
+<p>
+The output is <b>true</b> if Real input u1 is less than or equal to
+Real input u2, otherwise the output is <b>false</b>.
+</p>
 </html>"));
   equation 
     y = u1 <= u2;
@@ -836,7 +913,7 @@ input becomes false.
     end when;
     y = if u then time - entryTime else 0.0;
   end Timer;
-
+  
   block TerminateSimulation "Terminate simulation if condition is fullfilled" 
     
     Modelica.Blocks.Interfaces.BooleanOutput condition=false 
@@ -882,6 +959,16 @@ input becomes false.
             rgbfillColor={0,0,255}))),
       Diagram,
       Documentation(info="<html>
+<p>
+In the parameter menu, a <b>time varying</b> expression can be defined 
+via variable <b>condition</b>, for example \"condition = x &lt; 0\",
+where \"x\" is a variable that is declared in the model in which the
+\"TerminateSimulation\" block is present.
+If this expression becomes <b>true</b>,
+the simulation is (successfully) terminated. A termination message
+explaining the reason for the termination can be given via
+parameter \"terminationText\".
+</p>
  
 </html>"));
   equation 

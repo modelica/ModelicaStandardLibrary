@@ -1,4 +1,4 @@
-package Icons "Icon definitions"  
+package Icons "Icon definitions" 
   
   annotation(preferedView="info",
     Window(
@@ -74,7 +74,7 @@ using \"extends\".
 </dl>
 
 <p>
-Copyright &copy; 1998-2006, Modelica Association and DLR.
+Copyright &copy; 1998-2007, Modelica Association and DLR.
 </p>
 <p>
 <i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified
@@ -454,7 +454,7 @@ and the accompanying <b>disclaimer</b>
     annotation (
       Icon(
         Rectangle(extent=[-20,2; 20,-2], style(rgbcolor={255,204,51}, thickness=2)),
-        Polygon(points=[-80,50; 80,50; 100,30; 80,-40; 60,-50; -60,-50; -80,-40; 
+        Polygon(points=[-80,50; 80,50; 100,30; 80,-40; 60,-50; -60,-50; -80,-40;
               -100,30; -80,50],        style(
             color=0,
             rgbcolor={0,0,0},

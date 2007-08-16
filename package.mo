@@ -66,10 +66,9 @@ and the accompanying <b>disclaimer</b>
 "));
 
 
-package UsersGuide "Users Guide" 
+package UsersGuide "Users Guide of Modelica library" 
   
   annotation (DocumentationClass=true, Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>Users Guide of the Modelica Standard Library</font></h3>
 <p>
 Package <b>Modelica</b> is a <b>standardized</b> and <b>pre-defined</b> package
 that is developed together with the Modelica language from the
@@ -479,7 +478,7 @@ Incorporation of bug fixes (subversion \"commit\") shall be performed in the fol
 <li> It is up to the library developer, whether he opens a new branch for
      testing and then merges it with the \"head\" maintenance branch or not.</li>
 <li> Every change to the maintenance branch has to be done at the development 
-     branch (see below) as well.</li>
+     branch (see above) as well.</li>
 <li> Every change to the maintenance branch requires introducing a
      description of the bug fix under
      Modelica.UsersGuide.ReleaseNotes.&lt;release-number&gt;_bugFixes.</li>
@@ -492,7 +491,7 @@ Incorporation of bug fixes (subversion \"commit\") shall be performed in the fol
      The goal is to include the version build and version date information 
      automatically from the subversion server, but this is not yet the case.</li>
 <li> If time does not permit, a vendor makes the bug fix in its local version
-     and then has to include it in the version. It would be best to make these
+     and then has to include it in the maintenance version. It would be best to make these
      changes at a new branch in order to get a unique release number.</li>
 </ul>
 
@@ -2360,10 +2359,10 @@ filled with white and not transparent any more.</p>
     </li>
 </ul>
 <hr>
-<h3><font color=\"#008000\">Version 1.4.1beta1 (February 12, 2001)</font></h3>
+<h4>Version 1.4.1beta1 (February 12, 2001)</h4>
 <p> Adapted to Modelica 1.4</p>
 <hr>
-<h3><font color=\"#008000\">Version 1.3.2beta2 (June 20, 2000)</font></h3>
+<h4>Version 1.3.2beta2 (June 20, 2000)</h4>
 <ul>
     <li>New subpackage Modelica.Mechanics.<b>Translational</b></li>
     <li>Changes to Modelica.Mechanics.<b>Rotational</b>:<br>
@@ -2403,7 +2402,7 @@ filled with white and not transparent any more.</p>
 </li>
 </ul>
 <hr>
-<h3><font color=\"#008000\">Version 1.3.1 (Dec. 13, 1999)</font></h3>
+<h4>Version 1.3.1 (Dec. 13, 1999)</h4>
 <p>
 First official release of the library.
 </p>

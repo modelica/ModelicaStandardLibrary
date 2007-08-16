@@ -248,7 +248,7 @@ equation
   connect(pv, voltageSensor.p) annotation (points=[0,100; 0,-20; 6.12303e-016,
           -20],
               style(color=3, rgbcolor={0,0,255}));
-  connect(voltageSensor.n, nv) annotation (points=[-6.12303e-016,-40; 
+  connect(voltageSensor.n, nv) annotation (points=[-6.12303e-016,-40;
           -6.12303e-016,-63; 0,-63; 0,-100],
                                            style(color=3, rgbcolor={0,0,255}));
   connect(pc, currentSensor.p) 

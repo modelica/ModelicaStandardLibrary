@@ -43,7 +43,7 @@ ModelicaAdditions.MultiBody library. In
 it is described how to upgrade.
 </p>
 <p>
-Copyright &copy; 1998-2006, Modelica Association and DLR.
+Copyright &copy; 1998-2007, Modelica Association and DLR.
 </p>
 <p>
 <i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified
@@ -58,9 +58,8 @@ import SI = Modelica.SIunits;
 extends Modelica.Icons.Library;
 
 
-package UsersGuide "Users Guide" 
+package UsersGuide "Users Guide of MultiBody Library" 
   annotation (DocumentationClass=true, Documentation(info="<HTML>
-<h3><font color=\"#008000\" size=5>Users Guide of package MultiBody</font></h3>
 <p>
 Library <b>MultiBody</b> is a <b>free</b> Modelica package providing
 3-dimensional mechanical components to model in a convenient way
@@ -96,7 +95,6 @@ gives an introduction into the most important aspects of the library.
   
   package Tutorial "Tutorial" 
     annotation (DocumentationClass=true, Documentation(info="<HTML>
-<h3><font color=\"#008000\" size=5>Tutorial</font></h3>
 <p>
 This tutorial provides an introduction into the
 MultiBody library.
@@ -121,7 +119,6 @@ MultiBody library</a> summarizes the most important aspects.
     class OverView "Overview of MultiBody library" 
       
       annotation (Documentation(info="<HTML>
-<h3><font color=\"#008000\">Overview of MultiBody Library</font></h3>
 <p>
 Library <b>MultiBody</b> is a <b>free</b> Modelica package providing
 3-dimensional mechanical components to model in a convenient way
@@ -250,7 +247,6 @@ The main features of the library are:
     class FirstExample "A first example" 
       
       annotation (Documentation(info="<HTML>
-<h3><font color=\"#008000\">A first example</font></h3>
 <p>
 As a first example it shall be demonstrated how to build up, simulate
 and animate a <b>simple pendulum</b>.
@@ -343,7 +339,6 @@ in the middle of the light blue sphere.
       class Introduction "Introduction" 
         
         annotation (DocumentationClass=true, Documentation(info="<HTML>
-<h3><font color=\"#008000\">Introduction</font></h3>
 <p>
 In principal, now special action is needed, if
 loop structures occur (contrary to the ModelicaAdditions.MultiBody library). 
@@ -405,7 +400,6 @@ is described in section
       class PlanarLoops "Planar loops" 
         
         annotation (Documentation(info="<HTML>
-<h3><font color=\"#008000\">Planar Loops</font></h3>
 <p>
 In the figure below, the model of a V6 engine is 
 shown that has a simple combustion model. It is available as 
@@ -491,7 +485,6 @@ for such systems.
       class AnalyticLoopHandling "Analytic loop handling" 
         
         annotation (Documentation(info="<HTML>
-<h3><font color=\"#008000\">Analytic loop handling</font></h3>
 It is well known that the non-linear 
 algebraic equations of most mechanical loops in technical devices can be 
 solved analytically. It is, however, difficult to perform this fully 
@@ -747,7 +740,6 @@ The simulation time is about 5 times faster with the analytic loop handling.
 "));
       end AnalyticLoopHandling;
       annotation (Documentation(info="<HTML>
-<h3><font color=\"#008000\">Loop structures</font></h3>
 <p>
 The MultiBody library has the feature that all components
 can be connected together in a nearly arbitrary fashion.
@@ -775,7 +767,6 @@ analytically. There are the following sub-chapters:
   
   class Upgrade "Upgrade from Former Versions" 
     annotation (Documentation(info="<HTML>
-<h3><font color=\"#008000\" size=5>Upgrade from Former Versions</font></h3>
 <p>
 If different versions of the MultiBody library are not
 compatible to each other, corresponding conversion scripts are
@@ -896,8 +887,7 @@ calls in 0.99 should be changed:
   class ReleaseNotes "Release notes" 
     
     annotation (Documentation(info="<HTML>
-<h3><font color=\"#008000\" size=5>Release notes</font></h3>
-<h3><font color=\"#008000\">Version 1.1.3, 2005-04-21</font></h3>
+<h4>Version 1.1.3, 2005-04-21</h4>
 <p>
 This version has some minor improvements:
 </p>
@@ -907,7 +897,7 @@ This version has some minor improvements:
      such that the derivative is finite for zero distance. Previously,
      an assert was triggered.</li>
 </ul>
-<h3><font color=\"#008000\">Version 1.1.2, 2005-04-06</font></h3>
+<h4>Version 1.1.2, 2005-04-06</h4>
 <p>
 This version has some minor improvements:
 </p>
@@ -926,7 +916,7 @@ This version has some minor improvements:
      copying of a component outside of the Modelica library, the references
      still remain valid.</li>
 </ul>
-<h3><font color=\"#008000\">Version 1.1.1, 2004-11-03</font></h3>
+<h4>Version 1.1.1, 2004-11-03</h4>
 <p>
 This version has some minor improvements:
 </p>
@@ -937,14 +927,14 @@ This version has some minor improvements:
      of the Users Guide to show how a conversion from 0.99 to 1.0 that
      may fail in rare cases should be fixed manually.</li>
 </ul>
-<h3><font color=\"#008000\">Version 1.1, 2004-07-07</font></h3>
+<h4>Version 1.1, 2004-07-07</h4>
 <p>
 Included the MultiBody library as Modelica.Mechanics.MultiBody 
 in version 2.0 Beta 1 of the Modelica package, 
 and adapted all signal connectors
 to the new definition of Modelica.Blocks.Interfaces.
 </p>
-<h3><font color=\"#008000\">Version 1.0.1, 2004-07-07</font></h3>
+<h4>Version 1.0.1, 2004-07-07</h4>
 <p>
 This version fixes only some minor bugs:
 </p>
@@ -958,7 +948,7 @@ This version fixes only some minor bugs:
 <li> Wrong icon of MultiBody and of Modelica.Mechanics.MultiBody.Interfaces package
      corrected.</li>
 </ul>
-<h3><font color=\"#008000\">Version 1.0, 2004-03-03</font></h3>
+<h4>Version 1.0, 2004-03-03</h4>
 <p>
 This version is <b>not</b> backward compatible to version 0.99.
 Models generated with previous MultiBody versions are automatically 
@@ -1018,7 +1008,7 @@ directly is no longer valid. Otherwise, the following changes have been made:
      connection line from Frame_resolve to another frame,
      this connection line is dotted.</li>
 </ul>
-<h3><font color=\"#008000\">Version 0.99, 2004-02-16</font></h3>
+<h4>Version 0.99, 2004-02-16</h4>
 <p>
 This version is <b>fully</b> backward compatible to version 0.98.
 The following changes have been made:
@@ -1086,7 +1076,7 @@ The following changes have been made:
      <a href=\"Modelica://Modelica.Mechanics.MultiBody.UsersGuide.Upgrade\">
       Modelica.Mechanics.MultiBody.UsersGuide.Upgrade</a>.</li>
 </ul>
-<h3><font color=\"#008000\">Version 0.98, 2003-10-27</font></h3>
+<h4>Version 0.98, 2003-10-27</h4>
 <p>
 This version is <b>not backward</b> compatible to the previous
 MultiBody versions, since the initialization has changed.
@@ -1150,7 +1140,7 @@ release.
 </pre>
 </li>
 </ul>
-<h3><font color=\"#008000\">Version 0.97, 2003-09-10</font></h3>
+<h4>Version 0.97, 2003-09-10</h4>
 <p>
 Bug fixed in model \"MultiBody.Parts.Body\": There was an
 error when switching 
@@ -1158,7 +1148,7 @@ from one set of Cardan angles to another one when the actual
 Cardan angles are close to their singularity.
 This has been corrected.
 </p>
-<h3><font color=\"#008000\">Version 0.96, 2003-08-04</font></h3>
+<h4>Version 0.96, 2003-08-04</h4>
 <p>
 This was the first version delivered with Dymola.
 </p>
@@ -1171,7 +1161,6 @@ This was the first version delivered with Dymola.
   class Literature "Literature" 
     
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>Literature</font></h3>
 <ul>
 <li>
 Technical details of this library are described in the
@@ -1224,7 +1213,6 @@ dynamical effects is described in:
   class Contact "Contact" 
     
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>Contact</font></h3>
 <dl>
 <dt><b>Main Author:</b>
 <dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a><br>

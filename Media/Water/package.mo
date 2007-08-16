@@ -501,7 +501,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
   algorithm 
     T := IF97_Utilities.T_ph(p, h, phase);
   end temperature_ph;
-
+  
   redeclare function temperature_ps 
     "Compute temperature from pressure and specific enthalpy" 
     extends Modelica.Icons.Function;
@@ -512,19 +512,18 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
   algorithm 
     T := IF97_Utilities.T_ps(p, s, phase);
   end temperature_ps;
-
+  
   redeclare function density_ps 
     "Computes density as a function of pressure and specific enthalpy" 
       extends Modelica.Icons.Function;
     input AbsolutePressure p "Pressure";
     input SpecificEntropy s "Specific entropy";
-    input FixedPhase phase=0 
-      "2 for two-phase, 1 for one-phase, 0 if not known";
+    input FixedPhase phase=0 "2 for two-phase, 1 for one-phase, 0 if not known";
     output Density d "density";
   algorithm 
     d := IF97_Utilities.rho_ps(p, s, phase);
   end density_ps;
-
+  
   redeclare function pressure_dT 
     "Computes pressure as a function of density and temperature" 
     extends Modelica.Icons.Function;
@@ -557,7 +556,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
   algorithm 
     h := IF97_Utilities.h_pT(p, T);
   end specificEnthalpy_pT;
-
+  
   redeclare function specificEnthalpy_ps 
     "Computes specific enthalpy as a function of pressure and temperature" 
       extends Modelica.Icons.Function;
@@ -568,7 +567,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
   algorithm 
     h := IF97_Utilities.h_ps(p, s, phase);
   end specificEnthalpy_ps;
-
+  
   redeclare function density_pT 
     "Computes density as a function of pressure and temperature" 
     extends Modelica.Icons.Function;
@@ -625,12 +624,12 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
   algorithm 
     p := state.p;
   end pressure;
-
+  
   redeclare function extends temperature "return temperature of ideal gas" 
   algorithm 
     T := state.T;
   end temperature;
-
+  
   redeclare function extends density "return density of ideal gas" 
   algorithm 
     d := state.d;
@@ -642,9 +641,10 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
     h := state.h;
   end specificEnthalpy;
   
-  redeclare function extends specificInternalEnergy "Return specific internal energy" 
+  redeclare function extends specificInternalEnergy 
+    "Return specific internal energy" 
     extends Modelica.Icons.Function;
-  algorithm
+  algorithm 
     u := state.h  - state.p/state.d;
   end specificInternalEnergy;
   
@@ -654,13 +654,13 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
     g := state.h - state.T*specificEntropy(state);
   end specificGibbsEnergy;
   
-  redeclare function extends specificHelmholtzEnergy "Return specific Helmholtz energy" 
+  redeclare function extends specificHelmholtzEnergy 
+    "Return specific Helmholtz energy" 
     extends Modelica.Icons.Function;
   algorithm 
     f := state.h - state.p/state.d - state.T*specificEntropy(state);
   end specificHelmholtzEnergy;
   
-
   redeclare function extends specificEntropy "specific entropy of water" 
   algorithm 
     if dT_explicit then
@@ -1072,24 +1072,26 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
     input AbsolutePressure p "Pressure";
     input SpecificEntropy s "Specific entropy";
     input FixedPhase phase=0 "2 for two-phase, 1 for one-phase, 0 if not known";
-    input Integer region=0 "if 0, region is unknown, otherwise known and this input";
+    input Integer region=0 
+      "if 0, region is unknown, otherwise known and this input";
     output Temperature T "Temperature";
   algorithm 
     T := IF97_Utilities.T_ps(p, s, phase,region);
   end temperature_ps;
-
+  
   redeclare function density_ps 
     "Computes density as a function of pressure and specific enthalpy" 
     extends Modelica.Icons.Function;
     input AbsolutePressure p "Pressure";
     input SpecificEntropy s "Specific entropy";
     input FixedPhase phase=0 "2 for two-phase, 1 for one-phase, 0 if not known";
-    input Integer region=0 "if 0, region is unknown, otherwise known and this input";
+    input Integer region=0 
+      "if 0, region is unknown, otherwise known and this input";
     output Density d "density";
   algorithm 
     d := IF97_Utilities.rho_ps(p, s, phase, region);
   end density_ps;
-
+  
   redeclare function pressure_dT 
     "Computes pressure as a function of density and temperature" 
     extends Modelica.Icons.Function;
@@ -1122,7 +1124,8 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
     input AbsolutePressure p "Pressure";
     input Temperature T "Temperature";
     input FixedPhase phase=0 "2 for two-phase, 1 for one-phase, 0 if not known";
-    input Integer region=0  "if 0, region is unknown, otherwise known and this input";
+    input Integer region=0 
+      "if 0, region is unknown, otherwise known and this input";
     output SpecificEnthalpy h "specific enthalpy";
   algorithm 
     h := IF97_Utilities.h_pT(p, T, region);
@@ -1134,12 +1137,13 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
     input AbsolutePressure p "Pressure";
     input SpecificEntropy s "Specific entropy";
     input FixedPhase phase=0 "2 for two-phase, 1 for one-phase, 0 if not known";
-    input Integer region=0  "if 0, region is unknown, otherwise known and this input";
+    input Integer region=0 
+      "if 0, region is unknown, otherwise known and this input";
     output SpecificEnthalpy h "specific enthalpy";
   algorithm 
     h := IF97_Utilities.h_ps(p, s, phase, region);
   end specificEnthalpy_ps;
-
+  
   redeclare function density_pT 
     "Computes density as a function of pressure and temperature" 
     extends Modelica.Icons.Function;
@@ -1196,12 +1200,12 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
   algorithm 
     p := state.p;
   end pressure;
-
+  
   redeclare function extends temperature "return temperature of ideal gas" 
   algorithm 
     T := state.T;
   end temperature;
-
+  
   redeclare function extends density "return density of ideal gas" 
   algorithm 
     d := state.d;
@@ -1213,9 +1217,10 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
     h := state.h;
   end specificEnthalpy;
   
-  redeclare function extends specificInternalEnergy "Return specific internal energy" 
+  redeclare function extends specificInternalEnergy 
+    "Return specific internal energy" 
     extends Modelica.Icons.Function;
-  algorithm
+  algorithm 
     u := state.h  - state.p/state.d;
   end specificInternalEnergy;
   
@@ -1225,7 +1230,8 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
     g := state.h - state.T*specificEntropy(state);
   end specificGibbsEnergy;
   
-  redeclare function extends specificHelmholtzEnergy "Return specific Helmholtz energy" 
+  redeclare function extends specificHelmholtzEnergy 
+    "Return specific Helmholtz energy" 
     extends Modelica.Icons.Function;
   algorithm 
     f := state.h - state.p/state.d - state.T*specificEntropy(state);
@@ -1416,10 +1422,10 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
   algorithm 
     dhvdp := IF97_Utilities.BaseIF97.Regions.dhv_dp(sat.psat);
   end dDewEnthalpy_dPressure;
-
   
   redeclare function extends setState_dTX 
-    input Integer region=0  "if 0, region is unknown, otherwise known and this input";
+    input Integer region=0 
+      "if 0, region is unknown, otherwise known and this input";
   algorithm 
     state := ThermodynamicState(
       d=d,
@@ -1430,7 +1436,8 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
   end setState_dTX;
   
   redeclare function extends setState_phX 
-    input Integer region=0  "if 0, region is unknown, otherwise known and this input";
+    input Integer region=0 
+      "if 0, region is unknown, otherwise known and this input";
   algorithm 
     state := ThermodynamicState(
       d=density_ph(p,h,region=region),
@@ -1441,7 +1448,8 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
   end setState_phX;
   
   redeclare function extends setState_psX 
-    input Integer region=0  "if 0, region is unknown, otherwise known and this input";
+    input Integer region=0 
+      "if 0, region is unknown, otherwise known and this input";
   algorithm 
     state := ThermodynamicState(
       d=density_ps(p,s,region=region),
@@ -1452,7 +1460,8 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
   end setState_psX;
   
   redeclare function extends setState_pTX 
-    input Integer region=0  "if 0, region is unknown, otherwise known and this input";
+    input Integer region=0 
+      "if 0, region is unknown, otherwise known and this input";
   algorithm 
     state := ThermodynamicState(
       d=density_pT(p,T,region=region),
@@ -1461,7 +1470,6 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       h=specificEnthalpy_pT(p,T,region=region),
       p=p);
   end setState_pTX;
-
   
 end WaterIF97_fixedregion;
 

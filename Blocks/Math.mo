@@ -40,6 +40,7 @@ connected with continuous blocks or with sampled-data blocks.
 </ul>
 </html>"));
   encapsulated package UnitConversions 
+    "Conversion blocks to convert between SI and non-SI unit signals" 
     import Modelica;
     import SI = Modelica.SIunits;
     import NonSI = Modelica.SIunits.Conversions.NonSIunits;
@@ -47,7 +48,12 @@ connected with continuous blocks or with sampled-data blocks.
     block ConvertAllUnits "Convert signal to a signal with different unit" 
       replaceable block ConversionBlock = 
           Modelica.Blocks.Interfaces.PartialConversionBlock "Conversion block" 
-        annotation (choicesAllMatching=true);
+        annotation (choicesAllMatching=true, Documentation(info="<html>
+<p>
+Internal replaceable block that is used to construct the
+\"pull down menu\" of the available unit conversions.
+</p>
+</html>"));
       extends ConversionBlock;
       
       annotation (
@@ -72,7 +78,12 @@ blocks that extend from Modelica.Blocks.Interfaces.PartialConversionBlock.</p>
             string="K"), Text(
             extent=[100, -20; 20, -100],
             style(color=0),
-            string="°C")));
+            string="°C")), Documentation(info="<html>
+<p>
+This block converts the input signal from Kelvin to °Celsius and returns
+the result as output signal.
+</p>
+</html>"));
     equation 
       y = SI.Conversions.to_degC(u);
     end To_degC;
@@ -86,7 +97,12 @@ blocks that extend from Modelica.Blocks.Interfaces.PartialConversionBlock.</p>
             string="°C"), Text(
             extent=[100, -20; 20, -100],
             style(color=0),
-            string="K")));
+            string="K")), Documentation(info="<html>
+<p>
+This block converts the input signal from °Celsius to Kelvin and returns
+the result as output signal.
+</p>
+</html>"));
     equation 
       y = SI.Conversions.from_degC(u);
     end From_degC;
@@ -100,7 +116,12 @@ blocks that extend from Modelica.Blocks.Interfaces.PartialConversionBlock.</p>
             string="K"), Text(
             extent=[100, -20; 20, -100],
             style(color=0),
-            string="°F")));
+            string="°F")), Documentation(info="<html>
+<p>
+This block converts the input signal from Kelvin to °Fahrenheit and returns
+the result as output signal.
+</p>
+</html>"));
     equation 
       y = SI.Conversions.to_degF(u);
     end To_degF;
@@ -114,7 +135,12 @@ blocks that extend from Modelica.Blocks.Interfaces.PartialConversionBlock.</p>
             string="°F"), Text(
             extent=[100, -20; 20, -100],
             style(color=0),
-            string="K")));
+            string="K")), Documentation(info="<html>
+<p>
+This block converts the input signal from °Fahrenheit to Kelvin and returns
+the result as output signal.
+</p>
+</html>"));
     equation 
       y = SI.Conversions.from_degF(u);
     end From_degF;
@@ -128,7 +154,12 @@ blocks that extend from Modelica.Blocks.Interfaces.PartialConversionBlock.</p>
             string="K"), Text(
             extent=[100, -20; 20, -100],
             style(color=0),
-            string="°Rk")));
+            string="°Rk")), Documentation(info="<html>
+<p>
+This block converts the input signal from Kelvin to °Rankine and returns
+the result as output signal.
+</p>
+</html>"));
     equation 
       y = SI.Conversions.to_degRk(u);
     end To_degRk;
@@ -142,7 +173,12 @@ blocks that extend from Modelica.Blocks.Interfaces.PartialConversionBlock.</p>
             string="°Rk"), Text(
             extent=[100, -20; 20, -100],
             style(color=0),
-            string="K")));
+            string="K")), Documentation(info="<html>
+<p>
+This block converts the input signal from °Rankine to Kelvin and returns
+the result as output signal.
+</p>
+</html>"));
     equation 
       y = SI.Conversions.from_degRk(u);
     end From_degRk;
@@ -156,7 +192,12 @@ blocks that extend from Modelica.Blocks.Interfaces.PartialConversionBlock.</p>
             string="rad"), Text(
             extent=[100, -20; 20, -100],
             style(color=0),
-            string="deg")));
+            string="deg")), Documentation(info="<html>
+<p>
+This block converts the input signal from radian to degree and returns
+the result as output signal.
+</p>
+</html>"));
     equation 
       y = SI.Conversions.to_deg(u);
     end To_deg;
@@ -170,7 +211,12 @@ blocks that extend from Modelica.Blocks.Interfaces.PartialConversionBlock.</p>
             string="deg"), Text(
             extent=[100, -20; 20, -100],
             style(color=0),
-            string="rad")));
+            string="rad")), Documentation(info="<html>
+<p>
+This block converts the input signal from degree to radian and returns
+the result as output signal.
+</p>
+</html>"));
     equation 
       y = SI.Conversions.from_deg(u);
     end From_deg;
@@ -184,7 +230,12 @@ blocks that extend from Modelica.Blocks.Interfaces.PartialConversionBlock.</p>
             string="rad/s"), Text(
             extent=[100,-42; -62,-74],
             style(color=0),
-            string="rev/min")));
+            string="rev/min")), Documentation(info="<html>
+<p>
+This block converts the input signal from radian per second to revolutions per minute and returns
+the result as output signal.
+</p>
+</html>"));
     equation 
       y = SI.Conversions.to_rpm(u);
     end To_rpm;
@@ -198,7 +249,12 @@ blocks that extend from Modelica.Blocks.Interfaces.PartialConversionBlock.</p>
             string="rev/min"), Text(
             extent=[94,-42; -26,-74],
             style(color=0),
-            string="rad/s")));
+            string="rad/s")), Documentation(info="<html>
+<p>
+This block converts the input signal from revolutions per minute to radian per second and returns
+the result as output signal.
+</p>
+</html>"));
     equation 
       y = SI.Conversions.from_rpm(u);
     end From_rpm;
@@ -212,7 +268,12 @@ blocks that extend from Modelica.Blocks.Interfaces.PartialConversionBlock.</p>
             string="m/s"), Text(
             extent=[92,-40; -14,-84],
             style(color=0),
-            string="km/h")));
+            string="km/h")), Documentation(info="<html>
+<p>
+This block converts the input signal from metre per second to kilometre per hour and returns
+the result as output signal.
+</p>
+</html>"));
     equation 
       y = SI.Conversions.to_kmh(u);
     end To_kmh;
@@ -226,7 +287,12 @@ blocks that extend from Modelica.Blocks.Interfaces.PartialConversionBlock.</p>
             string="km/h"), Text(
             extent=[92,-46; -20,-82],
             style(color=0),
-            string="m/s")));
+            string="m/s")), Documentation(info="<html>
+<p>
+This block converts the input signal from kilometre per hour to metre per second and returns
+the result as output signal.
+</p>
+</html>"));
     equation 
       y = SI.Conversions.from_kmh(u);
     end From_kmh;
@@ -240,7 +306,12 @@ blocks that extend from Modelica.Blocks.Interfaces.PartialConversionBlock.</p>
             string="s"), Text(
             extent=[100, -20; 20, -100],
             style(color=0),
-            string="day")));
+            string="day")), Documentation(info="<html>
+<p>
+This block converts the input signal from second to day and returns
+the result as output signal.
+</p>
+</html>"));
     equation 
       y = SI.Conversions.to_day(u);
     end To_day;
@@ -254,7 +325,12 @@ blocks that extend from Modelica.Blocks.Interfaces.PartialConversionBlock.</p>
             string="day"), Text(
             extent=[100, -20; 20, -100],
             style(color=0),
-            string="s")));
+            string="s")), Documentation(info="<html>
+<p>
+This block converts the input signal from day to second and returns
+the result as output signal.
+</p>
+</html>"));
     equation 
       y = SI.Conversions.from_day(u);
     end From_day;
@@ -268,7 +344,12 @@ blocks that extend from Modelica.Blocks.Interfaces.PartialConversionBlock.</p>
             string="s"), Text(
             extent=[100, -20; 20, -100],
             style(color=0),
-            string="hour")));
+            string="hour")), Documentation(info="<html>
+<p>
+This block converts the input signal from second to hour and returns
+the result as output signal.
+</p>
+</html>"));
     equation 
       y = SI.Conversions.to_hour(u);
     end To_hour;
@@ -282,7 +363,12 @@ blocks that extend from Modelica.Blocks.Interfaces.PartialConversionBlock.</p>
             string="hour"), Text(
             extent=[100, -20; 20, -100],
             style(color=0),
-            string="s")));
+            string="s")), Documentation(info="<html>
+<p>
+This block converts the input signal from hour to second and returns
+the result as output signal.
+</p>
+</html>"));
     equation 
       y = SI.Conversions.from_hour(u);
     end From_hour;
@@ -296,7 +382,12 @@ blocks that extend from Modelica.Blocks.Interfaces.PartialConversionBlock.</p>
             string="s"), Text(
             extent=[100, -20; 20, -100],
             style(color=0),
-            string="minute")));
+            string="minute")), Documentation(info="<html>
+<p>
+This block converts the input signal from second to minute and returns
+the result as output signal.
+</p>
+</html>"));
     equation 
       y = SI.Conversions.to_minute(u);
     end To_minute;
@@ -310,7 +401,12 @@ blocks that extend from Modelica.Blocks.Interfaces.PartialConversionBlock.</p>
             string="minute"), Text(
             extent=[100, -20; 20, -100],
             style(color=0),
-            string="s")));
+            string="s")), Documentation(info="<html>
+<p>
+This block converts the input signal from minute to second and returns
+the result as output signal.
+</p>
+</html>"));
     equation 
       y = SI.Conversions.from_minute(u);
     end From_minute;
@@ -324,7 +420,12 @@ blocks that extend from Modelica.Blocks.Interfaces.PartialConversionBlock.</p>
             string="m3"), Text(
             extent=[100, -20; 20, -100],
             style(color=0),
-            string="litre")));
+            string="litre")), Documentation(info="<html>
+<p>
+This block converts the input signal from metre to litre and returns
+the result as output signal.
+</p>
+</html>"));
     equation 
       y = SI.Conversions.to_litre(u);
     end To_litre;
@@ -338,7 +439,12 @@ blocks that extend from Modelica.Blocks.Interfaces.PartialConversionBlock.</p>
             string="litre"), Text(
             extent=[100, -20; 20, -100],
             style(color=0),
-            string="m3")));
+            string="m3")), Documentation(info="<html>
+<p>
+This block converts the input signal from litre to cubic metre and returns
+the result as output signal.
+</p>
+</html>"));
     equation 
       y = SI.Conversions.from_litre(u);
     end From_litre;
@@ -352,7 +458,12 @@ blocks that extend from Modelica.Blocks.Interfaces.PartialConversionBlock.</p>
             string="J"), Text(
             extent=[100, -20; 20, -100],
             style(color=0),
-            string="kW.h")));
+            string="kW.h")), Documentation(info="<html>
+<p>
+This block converts the input signal from Joule to kilo Watt hour and returns
+the result as output signal.
+</p>
+</html>"));
     equation 
       y = SI.Conversions.to_kWh(u);
     end To_kWh;
@@ -366,7 +477,12 @@ blocks that extend from Modelica.Blocks.Interfaces.PartialConversionBlock.</p>
             string="kW.h"), Text(
             extent=[100, -20; 20, -100],
             style(color=0),
-            string="J")));
+            string="J")), Documentation(info="<html>
+<p>
+This block converts the input signal from kilo Watt hour to Joule and returns
+the result as output signal.
+</p>
+</html>"));
     equation 
       y = SI.Conversions.from_kWh(u);
     end From_kWh;
@@ -380,7 +496,12 @@ blocks that extend from Modelica.Blocks.Interfaces.PartialConversionBlock.</p>
             string="Pa"), Text(
             extent=[100, -20; 20, -100],
             style(color=0),
-            string="bar")));
+            string="bar")), Documentation(info="<html>
+<p>
+This block converts the input signal from Pascal to bar and returns
+the result as output signal.
+</p>
+</html>"));
     equation 
       y = SI.Conversions.to_bar(u);
     end To_bar;
@@ -394,7 +515,12 @@ blocks that extend from Modelica.Blocks.Interfaces.PartialConversionBlock.</p>
             string="bar"), Text(
             extent=[100, -20; 20, -100],
             style(color=0),
-            string="Pa")));
+            string="Pa")), Documentation(info="<html>
+<p>
+This block converts the input signal from bar to Pascal and returns
+the result as output signal.
+</p>
+</html>"));
     equation 
       y = SI.Conversions.from_bar(u);
     end From_bar;
@@ -408,7 +534,12 @@ blocks that extend from Modelica.Blocks.Interfaces.PartialConversionBlock.</p>
             string="kg/s"), Text(
             extent=[100, -20; 20, -100],
             style(color=0),
-            string="g/s")));
+            string="g/s")), Documentation(info="<html>
+<p>
+This block converts the input signal from kilogram per second to gram per seconds and returns
+the result as output signal.
+</p>
+</html>"));
     equation 
       y = SI.Conversions.to_gps(u);
     end To_gps;
@@ -422,11 +553,24 @@ blocks that extend from Modelica.Blocks.Interfaces.PartialConversionBlock.</p>
             string="g/s"), Text(
             extent=[100, -20; 20, -100],
             style(color=0),
-            string="kg/s")));
+            string="kg/s")), Documentation(info="<html>
+<p>
+This block converts the input signal from gram per second to kilogram per second and returns
+the result as output signal.
+</p>
+</html>"));
     equation 
       y = SI.Conversions.from_gps(u);
     end From_gps;
     annotation (Documentation(info="<html>
+<p>
+This package consists of blocks that convert an input signal 
+with a specific unit to an output signal in another unit
+(e.g. conversion of an angle signal from \"deg\" to \"rad\").
+Block \"ConvertAllUnits\" converts between a set of units that
+can be selected in a pull-down menu of the parameter menu.
+All other blocks convert exactly between two different units.
+</p>
  
 </html>"));
   end UnitConversions;

@@ -839,7 +839,7 @@ since they all have frame connectors).
         r=arrowLine.rvisobj + arrowLine.rxvisobj*arrowLine.length,
         R=R) if world.enableAnimation;
       
-      annotation(
+      annotation (
         preferedView="info",
         Documentation(info="<HTML>
 <p>
@@ -944,7 +944,7 @@ library (will be replaced by a color editor).
         r=arrowLine.rvisobj + arrowLine.rxvisobj*(arrowLine.length + 0.5*
             arrowHead1.length),
         R=R) if world.enableAnimation;
-      annotation(
+      annotation (
         preferedView="info",
         Icon(
           Rectangle(extent=[-100, 28; 0, -28], style(color=10, fillColor=10)),
@@ -1209,7 +1209,7 @@ model where a <b>Shape</b> instance is used, e.g., in the form
         "Reflection of ambient light (= 0: light is completely absorbed)" 
         annotation (Dialog(group="if animation = true", enable=animation));
       
-      annotation(
+      annotation (
         preferedView="info",
         Icon(
           Rectangle(extent=[-100, 100; 100, -100], style(color=10, fillColor=7)),
@@ -1317,7 +1317,7 @@ The diameter and color of all line cylinders are identical.
         each color=color,
         each R=R,
         each specularCoefficient=specularCoefficient);
-      annotation(
+      annotation (
         preferedView="info",
         Icon(
           Rectangle(extent=[-100, 100; 100, -100], style(color=10, fillColor=7)),

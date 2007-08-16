@@ -1087,7 +1087,7 @@ numerical DAE integrators can cope at most with index 2 DAEs).
 </dl>
 
 <p>
-Copyright &copy; 1998-2006, Modelica Association and Universit&auml;t Paderborn, FB 12.
+Copyright &copy; 1998-2007, Modelica Association and Universit&auml;t Paderborn, FB 12.
 </p>
 <p>
 <i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified

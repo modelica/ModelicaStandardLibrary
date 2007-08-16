@@ -1,8 +1,8 @@
-package Nonlinear
-  "Discontinuous or non-differentiable algebraic control blocks"
+package Nonlinear 
+  "Discontinuous or non-differentiable algebraic control blocks" 
   import Modelica.Blocks.Interfaces;
       extends Modelica.Icons.Library;
-
+  
       annotation(preferedView="info",
         Coordsys(
           extent=[0, 0; 207, 132],
@@ -35,13 +35,13 @@ This package contains <b>discontinuous</b> and
 </ul>
 </html>
 "));
-      block Limiter "Limit the range of a signal"
+      block Limiter "Limit the range of a signal" 
         parameter Real uMax=1 "Upper limits of input signals";
         parameter Real uMin= -uMax "Lower limits of input signals";
-        parameter Boolean limitsAtInit = true
+        parameter Boolean limitsAtInit = true 
       "= false, if limits are ignored during initializiation (i.e., y=u)";
         extends Interfaces.SISO;
-
+    
         annotation (
           Coordsys(
             extent=[-100, -100; 100, 100],
@@ -98,12 +98,12 @@ as output.
               extent=[26, 40; 66, 56],
               string="uMax",
               style(color=10))));
-      equation
+      equation 
         assert(uMax >= uMin, "Limiter: Limits must be consistent. However, uMax (=" + String(uMax) +
                              ") < uMin (=" + String(uMin) + ")");
         if initial() and not limitsAtInit then
            y = u;
-           assert(u >= uMin - 0.01*abs(uMin) and
+           assert(u >= uMin - 0.01*abs(uMin) and 
                   u <= uMax + 0.01*abs(uMax),
                  "Limiter: During initialization the limits have been ignored.\n"+
                  "However, the result is that the input u is not within the required limits:\n"+
@@ -112,22 +112,22 @@ as output.
            y = smooth(0,if u > uMax then uMax else if u < uMin then uMin else u);
         end if;
       end Limiter;
-
-  block VariableLimiter "Limit the range of a signal with variable limits"
+  
+  block VariableLimiter "Limit the range of a signal with variable limits" 
     extends Interfaces.SISO;
-    parameter Boolean limitsAtInit = true
+    parameter Boolean limitsAtInit = true 
       "= false, if limits are ignored during initializiation (i.e., y=u)";
-    Interfaces.RealInput limit1
-      "Connector of Real input signal used as maximum of input u"
+    Interfaces.RealInput limit1 
+      "Connector of Real input signal used as maximum of input u" 
                                 annotation (extent=[-140, 60; -100, 100]);
-    Interfaces.RealInput limit2
-      "Connector of Real input signal used as minimum of input u"
+    Interfaces.RealInput limit2 
+      "Connector of Real input signal used as minimum of input u" 
                                 annotation (extent=[-140, -100; -100, -
           60]);
-  protected
+  protected 
     Real uMax;
     Real uMin;
-
+    
     annotation (
       Documentation(info="<html>
 <p>
@@ -181,13 +181,13 @@ is passed as output.
         Polygon(points=[40, 40; 35, 50; 45, 50; 40, 40], style(fillPattern=1)),
         Polygon(points=[-40, -40; -45, -50; -35, -50; -40, -40], style(
               fillPattern=1))));
-  equation
+  equation 
     uMax = max(limit1, limit2);
     uMin = min(limit1, limit2);
-
+    
     if initial() and not limitsAtInit then
        y = u;
-       assert(u >= uMin - 0.01*abs(uMin) and
+       assert(u >= uMin - 0.01*abs(uMin) and 
               u <= uMax + 0.01*abs(uMax),
              "VariableLimiter: During initialization the limits have been ignored.\n"+
              "However, the result is that the input u is not within the required limits:\n"+
@@ -196,14 +196,14 @@ is passed as output.
        y = smooth(0,if u > uMax then uMax else if u < uMin then uMin else u);
     end if;
   end VariableLimiter;
-
-      block DeadZone "Provide a region of zero output"
+  
+      block DeadZone "Provide a region of zero output" 
         parameter Real uMax=1 "Upper limits of dead zones";
         parameter Real uMin=-uMax "Lower limits of dead zones";
-        parameter Boolean deadZoneAtInit = true
+        parameter Boolean deadZoneAtInit = true 
       "= false, if dead zone is ignored during initializiation (i.e., y=u)";
         extends Interfaces.SISO;
-
+    
         annotation (
           Coordsys(
             extent=[-100, -100; 100, 100],
@@ -262,22 +262,22 @@ function of the input with a slope of 1.
               extent=[27, 21; 52, 5],
               string="uMax",
               style(color=10))));
-      equation
+      equation 
         assert(uMax >= uMin, "DeadZone: Limits must be consistent. However, uMax (=" + String(uMax) +
                              ") < uMin (=" + String(uMin) + ")");
-
+    
         if initial() and not deadZoneAtInit then
            y = u;
         else
            y = smooth(0,if u > uMax then u - uMax else if u < uMin then u - uMin else 0);
         end if;
       end DeadZone;
-
-  block FixedDelay "Delay block with fixed DelayTime"
+  
+  block FixedDelay "Delay block with fixed DelayTime" 
     extends Modelica.Blocks.Interfaces.SISO;
-    parameter SI.Time delayTime=1
+    parameter SI.Time delayTime=1 
       "Delay time of output with respect to input signal";
-
+    
     annotation (
       Coordsys(
         extent=[-100, -100; 100, 100],
@@ -351,27 +351,27 @@ The Input signal is delayed by a given time instant, or more precisely:
                 fillColor=8)),
         Polygon(points=[-56, -24; -64, -26; -56, -28; -56, -24], style(color=8,
                 fillColor=8))));
-  equation
+  equation 
     y = delay(u, delayTime);
   end FixedDelay;
-
-  block PadeDelay "Pade approximation of delay block with fixed DelayTime "
+  
+  block PadeDelay "Pade approximation of delay block with fixed DelayTime " 
     extends Modelica.Blocks.Interfaces.SISO;
-    parameter SI.Time delayTime=1
+    parameter SI.Time delayTime=1 
       "Delay time of output with respect to input signal";
     parameter Integer n(min=1) = 1 "Order of pade approximation";
     parameter Integer m(
       min=1,
       max=n) = n "Order of numerator";
-
-  protected
+    
+  protected 
     Real x1dot "Derivative of first state of TransferFcn";
     Real xn "Highest order state of TransferFcn";
     Real a[n + 1];
     Real b[m + 1];
-
-  public
-    final output Real x[n]
+    
+  public 
+    final output Real x[n] 
       "State of transfer function from controller canonical form";
     annotation (
       Coordsys(
@@ -485,43 +485,43 @@ chapter 11.9, page 412-414, Huethig Verlag Heidelberg, 1994
                 fillColor=8)),
         Polygon(points=[-56, -24; -64, -26; -56, -28; -56, -24], style(color=8,
                 fillColor=8))));
-  protected
-    function padeCoefficients
+  protected 
+    function padeCoefficients 
       input Real T "delay time";
       input Integer n "order of denominator";
       input Integer m "order of numerator";
       output Real b[m + 1] "numerator coefficients of transfer function";
       output Real a[n + 1] "denominator coefficients of transfer function";
-    protected
+    protected 
       Real nm;
-    algorithm
+    algorithm 
       a[1] := 1;
       b[1] := 1;
       nm := n + m;
-
+      
       for i in 1:n loop
         a[i + 1] := a[i]*(T*((n - i + 1)/(nm - i + 1))/i);
         if i <= m then
           b[i + 1] := -b[i]*(T*((m - i + 1)/(nm - i + 1))/i);
         end if;
       end for;
-
+      
       b := b[m + 1:-1:1];
       a := a[n + 1:-1:1];
     end padeCoefficients;
-  equation
-
+  equation 
+    
     (b,a) = padeCoefficients(delayTime, n, m);
-
+    
     [der(x); xn] = [x1dot; x];
     [u] = transpose([a])*[x1dot; x];
     [y] = transpose([zeros(n - m, 1); b])*[x1dot; x];
-
-  initial equation
+    
+  initial equation 
     x[n] = u;
   end PadeDelay;
-
-  block VariableDelay "Delay block with variable DelayTime"
+  
+  block VariableDelay "Delay block with variable DelayTime" 
     extends Modelica.Blocks.Interfaces.SISO;
     parameter Real delayMax(min=0) = 1 "maximum delay time";
     annotation (
@@ -641,8 +641,8 @@ the following relationship:
         Line(points=[-64, -30; -64, 0], style(color=8))));
     Modelica.Blocks.Interfaces.RealInput delayTime         annotation (extent=[
           -140, -80; -100, -40]);
-  equation
+  equation 
     y = delay(u, delayTime, delayMax);
   end VariableDelay;
-
+  
 end Nonlinear;

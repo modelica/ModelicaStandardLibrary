@@ -256,10 +256,10 @@ the library is implemented and released for public use.
 </p>
 
 <p>
-Copyright &copy; 1998-2006, Modelica Association and Fraunhofer-Gesellschaft.
+Copyright &copy; 1998-2007, Modelica Association and Fraunhofer-Gesellschaft.
 </p>
 <p>
-<i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
+<i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified
 under the terms of the <b>Modelica license</b>, see the license conditions
 and the accompanying <b>disclaimer</b> 
 <a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a>.</i>

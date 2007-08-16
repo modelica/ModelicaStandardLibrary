@@ -138,12 +138,14 @@ which is only exactly true for a fluid with constant density d=d0.
       MM = MM_const;
     end BaseProperties;
     
-    redeclare function extends setState_pTX "Returns state record, given pressure and temperature" 
+    redeclare function extends setState_pTX 
+      "Returns state record, given pressure and temperature" 
     algorithm 
       state := ThermodynamicState(p=p,T=T);
     end setState_pTX;
     
-    redeclare function extends setState_dTX "Returns state record, given pressure and temperature" 
+    redeclare function extends setState_dTX 
+      "Returns state record, given pressure and temperature" 
     algorithm 
       assert(false, "for incompressible media with d(T) only, state can not be set from density and temperature");
     end setState_dTX;
@@ -157,7 +159,8 @@ which is only exactly true for a fluid with constant density d=d0.
       state.p := p;
     end setState_pT;
     
-    redeclare function extends setState_phX "Returns state record, given pressure and specific enthalpy" 
+    redeclare function extends setState_phX 
+      "Returns state record, given pressure and specific enthalpy" 
     algorithm 
       state :=ThermodynamicState(p=p,T=T_ph(p,h));
     end setState_phX;
@@ -170,7 +173,8 @@ which is only exactly true for a fluid with constant density d=d0.
       state :=ThermodynamicState(p=p,T=T_ph(p,h));
     end setState_ph;
     
-    redeclare function extends setState_psX "Returns state record, given pressure and specific entropy" 
+    redeclare function extends setState_psX 
+      "Returns state record, given pressure and specific entropy" 
     algorithm 
       state :=ThermodynamicState(p=p,T=T_ps(p,s));
     end setState_psX;

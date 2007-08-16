@@ -34,7 +34,7 @@ model PointGravityWithPointMasses2
   
   annotation (Diagram,
     experiment(StopTime=3, Tolerance=1e-006),
-    experimentSetupOutput, 
+    experimentSetupOutput,
     Documentation(info="<html>
 <p>
 This model demonstrates the usage of model Parts.PointMass in a 

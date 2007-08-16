@@ -28,7 +28,7 @@ model EngineV6_analytic
       stateSelect=StateSelect.always)) annotation (extent=[40, 10; 60, 30]);
   Rotational.QuadraticSpeedDependentTorque load2(tau_nominal=-100, w_nominal=
         200) annotation (extent=[90,10; 70,30]);
-  Rotational.Sensors.TorqueSensor torqueSensor
+  Rotational.Sensors.TorqueSensor torqueSensor 
     annotation (extent=[12,10; 32,30]);
   Blocks.Continuous.CriticalDamping filter(
     n=2,
@@ -68,8 +68,7 @@ Simulate for 5 s, and plot the variables <b>engineSpeed_rpm</b>,
 a size of about 50 Mbyte (for 5000 output intervalls).
 </p>
 </HTML>
-"), 
-    experiment(StopTime=5, NumberOfIntervals=5000), 
+"), experiment(StopTime=5, NumberOfIntervals=5000),
     experimentSetupOutput);
   connect(world.frame_b, engine.frame_a) 
     annotation (points=[-60,-10; -20,-10; -20,-0.2],
@@ -77,12 +76,12 @@ a size of about 50 Mbyte (for 5000 output intervalls).
       color=10,
       rgbcolor={95,95,95},
       thickness=2));
-  connect(load2.flange, load.flange_b)
+  connect(load2.flange, load.flange_b) 
     annotation (points=[70,20; 60,20], style(color=0, rgbcolor={0,0,0}));
-  connect(torqueSensor.flange_a, engine.flange_b)
+  connect(torqueSensor.flange_a, engine.flange_b) 
     annotation (points=[12,20; 2,20], style(color=0, rgbcolor={0,0,0}));
-  connect(torqueSensor.flange_b, load.flange_a)
+  connect(torqueSensor.flange_b, load.flange_a) 
     annotation (points=[32,20; 40,20], style(color=0, rgbcolor={0,0,0}));
-  connect(torqueSensor.tau, filter.u) annotation (points=[14,9; 14,-10; 28,-10], 
+  connect(torqueSensor.tau, filter.u) annotation (points=[14,9; 14,-10; 28,-10],
       style(color=74, rgbcolor={0,0,127}));
 end EngineV6_analytic;

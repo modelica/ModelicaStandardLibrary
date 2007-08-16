@@ -165,7 +165,9 @@ initialization definition.
     "Type, constants and menu choices to define the smoothness of table interpolation" 
     
     annotation (Documentation(info="<html>
-   
+<p>
+Interpolation type of a table
+</p>
 </html>"));
     extends Modelica.Icons.Enumeration;
     
@@ -207,7 +209,9 @@ Smoothness of interpolation in a table.
     "Type, constants and menu choices to define state selection of variables" 
     
     annotation (Documentation(info="<html>
- 
+<p>
+Type to define the stateSelection attribute.
+</p>
 </html>"));
     
     extends Modelica.Icons.Enumeration;

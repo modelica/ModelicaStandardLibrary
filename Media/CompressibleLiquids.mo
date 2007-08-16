@@ -1,4 +1,3 @@
-within ;
 package CompressibleLiquids "compressible liquid models" 
   package Common "base classes for compressible liquids" 
     extends Icons.Library;

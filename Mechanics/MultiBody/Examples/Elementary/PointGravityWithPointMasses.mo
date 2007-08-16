@@ -24,14 +24,14 @@ model PointGravityWithPointMasses
     m=1,
     v_0_start={0.6,0,0},
     sphereDiameter=0.1,
-    initType=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity, 
+    initType=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity,
     r_0_start={0,0.8,0}) 
     annotation (extent=[-20,60; 0,80]);
   Modelica.Mechanics.MultiBody.Parts.PointMass body4(
     m=1,
     v_0_start={0.6,0,0},
     sphereDiameter=0.1,
-    initType=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity, 
+    initType=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity,
     r_0_start={0.3,0.8,0}) 
     annotation (extent=[20,60; 40,80]);
   Forces.Spring spring(showMass=false, c=10) annotation (extent=[0,60; 20,80]);
@@ -57,16 +57,16 @@ a default value, when the physical system does not provide the equations.
 <p align=\"center\">
 <IMG SRC=\"../Images/MultiBody/Examples/Elementary/PointGravityWithPointMasses.png\">
 </p>
-</HTML>"), 
+</HTML>"),
     experimentSetupOutput);
-  connect(spring.frame_a, body3.frame_a) annotation (points=[0,70; -10,70], 
+  connect(spring.frame_a, body3.frame_a) annotation (points=[0,70; -10,70],
       style(
-      color=10, 
-      rgbcolor={95,95,95}, 
+      color=10,
+      rgbcolor={95,95,95},
       thickness=2));
-  connect(spring.frame_b, body4.frame_a) annotation (points=[20,70; 30,70], 
+  connect(spring.frame_b, body4.frame_a) annotation (points=[20,70; 30,70],
       style(
-      color=10, 
-      rgbcolor={95,95,95}, 
+      color=10,
+      rgbcolor={95,95,95},
       thickness=2));
 end PointGravityWithPointMasses;

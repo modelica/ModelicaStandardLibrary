@@ -1,6 +1,7 @@
 package IdealGases "Data and models of ideal gases (single, fixed and dynamic mixtures) from NASA source"
 extends Modelica.Icons.Library;
 
+
 annotation (preferedView="info", Documentation(info="<HTML>
 <p>This package contains medium models for the 1241 ideal gases from </p>
 <blockquote>

@@ -1,8 +1,7 @@
 package Rotational 
   "Library to model 1-dimensional, rotational mechanical systems" 
-package UsersGuide "Users Guide" 
+package UsersGuide "Users Guide of Rotational Library" 
   annotation (DocumentationClass=true, Documentation(info="<HTML>
-<h3><font color=\"#008000\" size=5>Users Guide of package Rotational</font></h3>
 <p>
 Library <b>Rotational</b> is a <b>free</b> Modelica package providing
 1-dimensional, rotational mechanical components to model in a convenient way
@@ -12,7 +11,6 @@ drive trains with frictional losses.
     
   package Overview "Overview" 
     annotation (DocumentationClass=true, Documentation(info="<HTML>
-<h3><font color=\"#008000\" size=5>Overview</font></h3>
  
 <p>
 This package contains components to model <b>1-dimensional rotational
@@ -74,8 +72,6 @@ together, see figure below.
     
   package FlangeConnectors "Flange Connectors" 
     annotation (DocumentationClass=true, Documentation(info="<HTML>
-<h3><font color=\"#008000\" size=5>Flange connectors</font></h3>
- 
 <p>
 A flange is described by the connector class
 Interfaces.<b>Flange_a</b>
@@ -102,7 +98,6 @@ determined by differentiation of the flange angle <tt>phi</tt>:
     
   package SupportTorques "Support Torques" 
     annotation (DocumentationClass=true, Documentation(info="<HTML>
-<h3><font color=\"#008000\" size=5>Support Torques</font></h3>
  
 <p>The following figure shows examples of components equipped with
 a bearing flange (framed flange in the lower center), which can be used
@@ -125,7 +120,6 @@ identical results.</p>
     
   package SignConventions "Sign Conventions" 
     annotation (DocumentationClass=true, Documentation(info="<HTML>
-<h3><font color=\"#008000\" size=5>Sign Conventions</font></h3>
  
 <p>
 The variables of a component of this library can be accessed in the
@@ -185,7 +179,6 @@ is as indicated with the additional grey arrows.
     
   package UserDefinedComponents "User Defined Components" 
     annotation (DocumentationClass=true, Documentation(info="<HTML>
-<h3><font color=\"#008000\" size=5>User Defined Components</font></h3>
 <p>
 In this section some hints are given to define your own
 1-dimensional rotational components which are compatible with the
@@ -270,7 +263,6 @@ diagram and is therefore less convenient to use.
     
   package RequirementsForSimulationTool "Requirements for Simulation Tools" 
     annotation (DocumentationClass=true, Documentation(info="<HTML>
-<h3><font color=\"#008000\" size=5>Requirements for Simulation Tools</font></h3>
  
 <p>
 This library is designed in a fully object oriented way in order that
@@ -329,8 +321,6 @@ as possible.
   class ReleaseNotes "Release notes" 
       
     annotation (Documentation(info="<HTML>
-<h3><font color=\"#008000\" size=5>Release notes</font></h3>
- 
 <ul>
 <li><i>December 12, 2005</i> 
     by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
@@ -393,7 +383,6 @@ as possible.
   class Contact "Contact" 
       
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>Contact</font></h3>
 <dl>
 <dt><b>Main Authors:</b>
 <dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a> and
@@ -770,7 +759,7 @@ gear.mode  :  1 = forward rolling
           style(color=74, rgbcolor={0,0,127}));
       connect(load.y, torque2.tau) annotation (points=[79,10; 72,10], style(
             color=74, rgbcolor={0,0,127}));
-      connect(fixed.flange_b, gear.bearing)
+      connect(fixed.flange_b, gear.bearing) 
         annotation (points=[0,-20; 0,0], style(color=0, rgbcolor={0,0,0}));
       connect(fixed.flange_b, torque1.bearing) annotation (points=[0,-20; -60,
             -20; -60,0], style(color=0, rgbcolor={0,0,0}));
@@ -848,14 +837,14 @@ as component LossyGear includes the functionality of component BearingFriction
         annotation (points=[-4,10; -10,10],    style(color=0));
       connect(Inertia1.flange_a, bearingFriction.flange_b) 
         annotation (points=[-30,10; -38,10],   style(color=0));
-      connect(bearingFriction.flange_a, torque1.flange_b) annotation (points=[-58,10; 
+      connect(bearingFriction.flange_a, torque1.flange_b) annotation (points=[-58,10;
             -64,10],                         style(color=0));
       connect(DriveSine.y, torque1.tau) annotation (points=[-81,50; -96,50; -96,
             10; -86,10],
           style(color=74, rgbcolor={0,0,127}));
       connect(load.y, torque2.tau) annotation (points=[79,10; 70,10], style(
             color=74, rgbcolor={0,0,127}));
-      connect(gear.bearing, fixed.flange_b)
+      connect(gear.bearing, fixed.flange_b) 
         annotation (points=[6,0; 6,-40], style(color=0, rgbcolor={0,0,0}));
       connect(fixed.flange_b, torque2.bearing) annotation (points=[6,-40; 58,
             -40; 58,0], style(color=0, rgbcolor={0,0,0}));
@@ -1408,7 +1397,7 @@ For an introduction, have especially a look at:
 </ul>
  
 <p>
-Copyright &copy; 1998-2006, Modelica Association and DLR.
+Copyright &copy; 1998-2007, Modelica Association and DLR.
 </p>
 <p>
 <i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified

@@ -43,10 +43,10 @@ The following parts are useful, when newly starting with this library:
      contains examples that demonstrate the usage of this library.</li>
 </ul>
 <p>
-Copyright &copy; 1998-2006, Modelica Association.
+Copyright &copy; 1998-2007, Modelica Association.
 </p>
 <p>
-<i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
+<i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified
 under the terms of the <b>Modelica license</b>, see the license conditions
 and the accompanying <b>disclaimer</b> 
 <a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a>.</i>
@@ -56,10 +56,9 @@ and the accompanying <b>disclaimer</b>
           "../ConvertFromModelica.Media_0.795.mos")));
 
 
-package UsersGuide "Users Guide" 
+package UsersGuide "Users Guide of Media Library" 
   
   annotation (DocumentationClass=true, Documentation(info="<HTML>
-<h3><font color=\"#008000\" size=5>Users Guide of package Modelica.Media</font></h3>
 <p>
 Library <b>Modelica.Media</b> is a <b>free</b> Modelica package providing
 a standardized interface to fluid media models and specific
@@ -137,7 +136,6 @@ This Users Guide has the following main parts:
   package MediumUsage "Medium usage" 
     
     annotation (DocumentationClass=true, Documentation(info="<HTML>
-<h3><font color=\"#008000\" size=5>Using a fluid medium model</font></h3>
 <p>
 Content:
 </p>
@@ -391,7 +389,6 @@ PartialMedium.BaseProperties based on Xi, reference_X, and the information wheth
     class BalanceVolume "Balance volume" 
       
       annotation (Documentation(info="<HTML>
-<h3><font color=\"#008000\">Medium model for a balance volume</font></h3>
 <p>
 Fluid libraries usually have balance volume components with one fluid connector
 port that fulfill the mass and energy balance and on a different grid components that
@@ -502,7 +499,6 @@ M and U.
     class ShortPipe "Short pipe" 
       
       annotation (Documentation(info="<HTML>
-<h3><font color=\"#008000\">Medium model for a short pipe</font></h3>
 <p>
 Fluid libraries have components with two ports that store
 neither mass nor energy and fulfill the
@@ -604,7 +600,6 @@ linear system of equations:
     class OptionalProperties "Optional properties" 
       
       annotation (Documentation(info="<HTML>
-<h3><font color=\"#008000\">Optional medium properties</font></h3>
 <p>
 In some cases additional medium properties are needed.
 A component that needs these optional properties has to call
@@ -766,7 +761,6 @@ e.g., about nominal or start values, are automatically utilized.
     class Constants "Constants" 
       
       annotation (Documentation(info="<HTML>
-<h3><font color=\"#008000\">Constants provided by medium model</font></h3>
 <p>
 Every medium model provides the following <b>constants</b>. For example,
 if a medium is declared as:
@@ -977,7 +971,6 @@ elements </p>
     class TwoPhase "Two-phase media" 
       
       annotation (Documentation(info="<HTML>
-<h3><font color=\"#008000\">Two-phase Media</font></h3>
 <p>
 Models for media which can exist in one-phase or two-phase conditions inherit
 from <a href=\"Modelica:Modelica.Media.Interfaces.PartialTwoPhaseMedium\">
@@ -1185,7 +1178,6 @@ Here are some examples:
     class Initialization "Initialization" 
       
       annotation (Documentation(info="<HTML>
-<h3><font color=\"#008000\">Initialization of Medium</font></h3>
  
 <p>
 When a medium model is used in a balance volume, differential
@@ -1269,7 +1261,6 @@ exist:
   package MediumDefinition "Medium definition" 
     
     annotation (DocumentationClass=true, Documentation(info="<HTML>
-<h3><font color=\"#008000\" size=5>Defining a fluid medium model</font></h3>
 <p>
 If a new medium model shall be introduced, copy package
 <a href=\"Modelica:Modelica.Media.Interfaces.TemplateMedium\">
@@ -1300,7 +1291,6 @@ TemplateMedium package is given here:
     class BasicStructure "Basic structure" 
       
       annotation (Documentation(info="<HTML>
-<h3><font color=\"#008000\">Basic structure of medium interface</font></h3>
 <p>
 A medium model of Modelica.Media is essentially a <b>package</b>
 that contains the following definitions:
@@ -1553,7 +1543,6 @@ of the graphical user interface.</p>
     class BasicDefinition "Basic definition" 
       
       annotation (Documentation(info="<HTML>
-<h3><font color=\"#008000\">Basic definition of a medium model</font></h3>
 <p>
 Let's now walk through the definition of a new medium model. Please refer to 
 <a href=\"Modelica:Modelica.Media.Interfaces.TemplateMedium\">
@@ -1625,7 +1614,6 @@ defined in the base class and adding their algorithms, e.g.:
     class MultipleSubstances "Multiple Substances" 
       
       annotation (Documentation(info="<HTML>
-<h3><font color=\"#008000\">Models of multiple-substance media</font></h3>
 <p>
 When writing the model of a multiple-substance medium, a fundamental issue
 concerns how to consider the mass fractions of the fluid. If there are nS 
@@ -1686,7 +1674,6 @@ For further details, refer to the implementation of
     model SpecificEnthalpyAsFunction "Specific enthalpy as function" 
       
       annotation (Documentation(info="<html>
-<h3><font color=\"#008000\">Specific enthalpy as function</font></h3>
 <p>
 If pressure p and specific enthalpy h are <b>not</b> used as
 independent medium variables, the specific enthalpy should
@@ -1886,7 +1873,6 @@ of the independent medium variables.
     model StaticStateSelection "Static State Selection" 
       
       annotation (Documentation(info="<html>
-<h3><font color=\"#008000\">Static State Selection</font></h3>
 <p>
 Without pre-caution when implementing a medium model, 
 it is very easy that non-linear algebraic
@@ -2078,7 +2064,6 @@ states. This means that static state selection is possible.
     model TestOfMedium "Test of medium" 
       
       annotation (Documentation(info="<html>
-<h3><font color=\"#008000\">Test of medium</font></h3>
 <p>
 After implementation of a new medium model, it should
 be tested. A basic test is already provided with model
@@ -2121,8 +2106,7 @@ properties. Of course, more tests should be performed.
   model ReleaseNotes "Release notes" 
     
     annotation (Documentation(info="<HTML>
-<h3><font color=\"#008000\" size=5>Release notes</font></h3>
-<h4><font color=\"#008000\">Version 1.0, 2005-03-01</font></h4>
+<h4>Version 1.0, 2005-03-01</h4>
 <p>
 Many improvements in the library, e.g., providing mixtures
 of the ideal gases, table based media, test suite for all media, improved and
