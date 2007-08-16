@@ -1,7 +1,9 @@
 package Math "Mathematical functions (e.g., sin, cos) and operations on matrices (e.g., norm, solve, eig, exp)"
   import SI = Modelica.SIunits;
 
+
 extends Modelica.Icons.Library2;
+
 
 annotation(preferedView="info",
     Window(
@@ -58,6 +60,7 @@ and the accompanying <b>disclaimer</b>
 </ul>
  
 </html>"));
+
 
 package Vectors "Library of functions operating on vectors" 
   extends Modelica.Icons.Library;
@@ -516,7 +519,9 @@ The details of this library are described in:
      Third Edition, SIAM, 1999.</dd>
 </dl>
  
- 
+<h4>See also</h4>
+<a href=\"Modelica:Modelica.Math.Vectors\">Vectors</a>
+
 </HTML>
 "));
   
@@ -4311,7 +4316,8 @@ tasks. The details of LAPACK are described in:
   
 end Matrices;
 
-function sin "sine" 
+
+function sin "Sine" 
   extends baseIcon1;
   input SI.Angle u;
   output Real y;
@@ -4360,7 +4366,8 @@ function sin "sine"
 external "C" y = sin(u);
 end sin;
 
-function cos "cosine" 
+
+function cos "Cosine" 
   extends baseIcon1;
   input SI.Angle u;
   output Real y;
@@ -4409,7 +4416,8 @@ function cos "cosine"
 external "C" y = cos(u);
 end cos;
 
-function tan "tangent (u shall not be -pi/2, pi/2, 3*pi/2, ...)" 
+
+function tan "Tangent (u shall not be -pi/2, pi/2, 3*pi/2, ...)" 
   extends baseIcon2;
   input SI.Angle u;
   output Real y;
@@ -4456,7 +4464,8 @@ function tan "tangent (u shall not be -pi/2, pi/2, 3*pi/2, ...)"
 external "C" y = tan(u);
 end tan;
 
-function asin "inverse sine (-1 <= u <= 1)" 
+
+function asin "Inverse sine (-1 <= u <= 1)" 
   extends baseIcon2;
   input Real u;
   output SI.Angle y;
@@ -4502,7 +4511,8 @@ function asin "inverse sine (-1 <= u <= 1)"
 external "C" y = asin(u);
 end asin;
 
-function acos "inverse cosine (-1 <= u <= 1)" 
+
+function acos "Inverse cosine (-1 <= u <= 1)" 
   extends baseIcon2;
   input Real u;
   output SI.Angle y;
@@ -4548,7 +4558,8 @@ function acos "inverse cosine (-1 <= u <= 1)"
 external "C" y = acos(u);
 end acos;
 
-function atan "inverse tangent" 
+
+function atan "Inverse tangent" 
   extends baseIcon2;
   input Real u;
   output SI.Angle y;
@@ -4596,7 +4607,8 @@ function atan "inverse tangent"
 external "C" y = atan(u);
 end atan;
 
-function atan2 "four quadrant inverse tangent" 
+
+function atan2 "Four quadrant inverse tangent" 
   extends baseIcon2;
   input Real u1;
   input Real u2;
@@ -4655,569 +4667,6 @@ u1 is not zero.
 "));
 external "C" y = atan2(u1, u2);
 end atan2;
-
-function sinh "hyperbolic sine" 
-  extends baseIcon2;
-  input Real u;
-  output Real y;
-  
-  annotation (
-    Coordsys(
-      extent=[-100, -100; 100, 100],
-      grid=[2, 2],
-      component=[20, 20]),
-    Window(
-      x=0.36,
-      y=0.07,
-      width=0.6,
-      height=0.6),
-    Icon(
-      Line(points=[-90, 0; 68, 0], style(color=8)),
-      Polygon(points=[90, 0; 68, 8; 68, -8; 90, 0], style(color=8, fillColor=8)),
-      Line(points=[-80, -80; -76, -65.4; -71.2, -51.4; -65.5, -38.8; -59.1, -
-            28.1; -51.1, -18.7; -41.4, -11.4; -27.7, -5.5; -4.42, -0.653; 24.5,
-              4.57; 39, 10.1; 49.4, 17.2; 57.5, 25.9; 63.9, 35.8; 69.5, 47.4;
-            74.4, 60.4; 78.4, 73.8; 80, 80], style(color=0)),
-      Text(
-        extent=[-88, 80; -16, 32],
-        string="sinh",
-        style(color=8))),
-    Diagram(
-      Line(points=[-100, 0; 84, 0], style(color=8)),
-      Polygon(points=[100, 0; 84, 6; 84, -6; 100, 0], style(color=8, fillColor=
-              8)),
-      Line(points=[-80, -80; -76, -65.4; -71.2, -51.4; -65.5, -38.8; -59.1, -
-            28.1; -51.1, -18.7; -41.4, -11.4; -27.7, -5.5; -4.42, -0.653; 24.5,
-              4.57; 39, 10.1; 49.4, 17.2; 57.5, 25.9; 63.9, 35.8; 69.5, 47.4;
-            74.4, 60.4; 78.4, 73.8; 80, 80], style(color=0)),
-      Text(extent=[-31, 72; -11, 88], string="27"),
-      Text(extent=[-35, -88; -15, -72], string="-27"),
-      Text(extent=[70, 25; 90, 5], string="4"),
-      Text(extent=[-98, 21; -78, 1], string="-4"),
-      Text(
-        extent=[92, -2; 112, -22],
-        string="u",
-        style(color=9))),
-    Documentation(info="<html>
-  
-</html>"));
-external "C" y = sinh(u);
-end sinh;
-
-function cosh "hyperbolic cosine" 
-  extends baseIcon2;
-  input Real u;
-  output Real y;
-  
-  annotation (
-    Coordsys(
-      extent=[-100, -100; 100, 100],
-      grid=[2, 2],
-      component=[20, 20]),
-    Window(
-      x=0.4,
-      y=0.05,
-      width=0.6,
-      height=0.6),
-    Icon(
-      Line(points=[-90, -86.083; 68, -86.083], style(color=8)),
-      Polygon(points=[90, -86.083; 68, -78.083; 68, -94.083; 90, -86.083],
-          style(color=8, fillColor=8)),
-      Line(points=[-80, 80; -77.6, 61.1; -74.4, 39.3; -71.2, 20.7; -67.1, 1.29;
-              -63.1, -14.6; -58.3, -29.8; -52.7, -43.5; -46.2, -55.1; -39, -
-            64.3; -30.2, -71.7; -18.9, -77.1; -4.42, -79.9; 10.9, -79.1; 23.7,
-            -75.2; 34.2, -68.7; 42.2, -60.6; 48.6, -51.2; 54.3, -40; 59.1, -
-            27.5; 63.1, -14.6; 67.1, 1.29; 71.2, 20.7; 74.4, 39.3; 77.6, 61.1;
-            80, 80], style(color=0)),
-      Text(
-        extent=[4, 66; 66, 20],
-        string="cosh",
-        style(color=8))),
-    Diagram(
-      Line(points=[-100, -86.083; 84, -86.083], style(color=8)),
-      Polygon(points=[100, -86.083; 84, -80.083; 84, -92.083; 100, -86.083],
-          style(color=8, fillColor=8)),
-      Line(points=[-80, 80; -77.6, 61.1; -74.4, 39.3; -71.2, 20.7; -67.1, 1.29;
-              -63.1, -14.6; -58.3, -29.8; -52.7, -43.5; -46.2, -55.1; -39, -
-            64.3; -30.2, -71.7; -18.9, -77.1; -4.42, -79.9; 10.9, -79.1; 23.7,
-            -75.2; 34.2, -68.7; 42.2, -60.6; 48.6, -51.2; 54.3, -40; 59.1, -
-            27.5; 63.1, -14.6; 67.1, 1.29; 71.2, 20.7; 74.4, 39.3; 77.6, 61.1;
-            80, 80], style(color=0)),
-      Text(extent=[-31, 72; -11, 88], string="27"),
-      Text(extent=[76, -61; 96, -81], string="4"),
-      Text(extent=[-104, -63; -84, -83], string="-4"),
-      Text(
-        extent=[90, -88; 110, -108],
-        string="u",
-        style(color=9))),
-    Documentation(info="<html>
-  
-</html>
-"));
-external "C" y = cosh(u);
-end cosh;
-
-function tanh "hyperbolic tangent" 
-  extends baseIcon2;
-  input Real u;
-  output Real y;
-  
-  annotation (
-    Coordsys(
-      extent=[-100, -100; 100, 100],
-      grid=[2, 2],
-      component=[20, 20]),
-    Window(
-      x=0.36,
-      y=0.07,
-      width=0.6,
-      height=0.6),
-    Icon(
-      Line(points=[-90, 0; 68, 0], style(color=8)),
-      Polygon(points=[90, 0; 68, 8; 68, -8; 90, 0], style(color=8, fillColor=8)),
-      Line(points=[-80, -80; -47.8, -78.7; -35.8, -75.7; -27.7, -70.6; -22.1, -
-            64.2; -17.3, -55.9; -12.5, -44.3; -7.64, -29.2; -1.21, -4.82; 6.83,
-              26.3; 11.7, 42; 16.5, 54.2; 21.3, 63.1; 26.9, 69.9; 34.2, 75;
-            45.4, 78.4; 72, 79.9; 80, 80], style(color=0)),
-      Text(
-        extent=[-88, 72; -16, 24],
-        string="tanh",
-        style(color=8))),
-    Diagram(
-      Line(points=[-100, 0; 84, 0], style(color=8)),
-      Polygon(points=[100, 0; 84, 6; 84, -6; 100, 0], style(color=8, fillColor=
-              8)),
-      Line(points=[-80, -80; -47.8, -78.7; -35.8, -75.7; -27.7, -70.6; -22.1, -
-            64.2; -17.3, -55.9; -12.5, -44.3; -7.64, -29.2; -1.21, -4.82; 6.83,
-              26.3; 11.7, 42; 16.5, 54.2; 21.3, 63.1; 26.9, 69.9; 34.2, 75;
-            45.4, 78.4; 72, 79.9; 80, 80], style(color=0)),
-      Text(extent=[70, 25; 90, 5], string="4"),
-      Text(extent=[-106, 21; -86, 1], string="-4"),
-      Text(extent=[-29, 72; -9, 88], string="1"),
-      Text(extent=[3, -72; 23, -88], string="-1"),
-      Text(
-        extent=[92, -2; 112, -22],
-        string="u",
-        style(color=9))),
-    Documentation(info="<html>
-   
-</html>"));
-external "C" y = tanh(u);
-end tanh;
-
-function exp "exponential, base e" 
-  extends baseIcon2;
-  input Real u;
-  output Real y;
-  
-  annotation (
-    Coordsys(
-      extent=[-100, -100; 100, 100],
-      grid=[2, 2],
-      component=[20, 20]),
-    Window(
-      x=0.36,
-      y=0.07,
-      width=0.6,
-      height=0.6),
-    Icon(
-      Line(points=[-90, -80.3976; 68, -80.3976], style(color=8)),
-      Polygon(points=[90, -80.3976; 68, -72.3976; 68, -88.3976; 90, -80.3976],
-          style(color=8, fillColor=8)),
-      Line(points=[-80, -80; -31, -77.9; -6.03, -74; 10.9, -68.4; 23.7, -61;
-            34.2, -51.6; 43, -40.3; 50.3, -27.8; 56.7, -13.5; 62.3, 2.23; 67.1,
-              18.6; 72, 38.2; 76, 57.6; 80, 80], style(color=0)),
-      Text(
-        extent=[-86, 50; -14, 2],
-        string="exp",
-        style(color=8))),
-    Diagram(
-      Line(points=[-100, -80.3976; 84, -80.3976], style(color=8)),
-      Polygon(points=[100, -80.3976; 84, -74.3976; 84, -86.3976; 100, -80.3976],
-            style(color=8, fillColor=8)),
-      Line(points=[-80, -80; -31, -77.9; -6.03, -74; 10.9, -68.4; 23.7, -61;
-            34.2, -51.6; 43, -40.3; 50.3, -27.8; 56.7, -13.5; 62.3, 2.23; 67.1,
-              18.6; 72, 38.2; 76, 57.6; 80, 80], style(color=0)),
-      Text(extent=[-31, 72; -11, 88], string="20"),
-      Text(extent=[-92, -83; -72, -103], string="-3"),
-      Text(extent=[70, -83; 90, -103], string="3"),
-      Text(extent=[-18, -53; 2, -73], string="1"),
-      Text(
-        extent=[96, -82; 116, -102],
-        string="u",
-        style(color=9))));
-external "C" y = exp(u);
-end exp;
-
-function log "natural (base e) logarithm (u shall be > 0)" 
-  extends baseIcon1;
-  input Real u;
-  output Real y;
-  
-  annotation (
-    Coordsys(
-      extent=[-100, -100; 100, 100],
-      grid=[2, 2],
-      component=[20, 20]),
-    Window(
-      x=0.36,
-      y=0.07,
-      width=0.6,
-      height=0.6),
-    Icon(
-      Line(points=[-90, 0; 68, 0], style(color=8)),
-      Polygon(points=[90, 0; 68, 8; 68, -8; 90, 0], style(color=8, fillColor=8)),
-      Line(points=[-80, -80; -79.2, -50.6; -78.4, -37; -77.6, -28; -76.8, -21.3;
-              -75.2, -11.4; -72.8, -1.31; -69.5, 8.08; -64.7, 17.9; -57.5, 28;
-            -47, 38.1; -31.8, 48.1; -10.1, 58; 22.1, 68; 68.7, 78.1; 80, 80],
-          style(color=0)),
-      Text(
-        extent=[-6, -24; 66, -72],
-        string="log",
-        style(color=8))),
-    Diagram(
-      Line(points=[-100, 0; 84, 0], style(color=8)),
-      Polygon(points=[100, 0; 84, 6; 84, -6; 100, 0], style(color=8, fillColor=
-              8)),
-      Line(points=[-80, -80; -79.2, -50.6; -78.4, -37; -77.6, -28; -76.8, -21.3;
-              -75.2, -11.4; -72.8, -1.31; -69.5, 8.08; -64.7, 17.9; -57.5, 28;
-            -47, 38.1; -31.8, 48.1; -10.1, 58; 22.1, 68; 68.7, 78.1; 80, 80],
-          style(color=0)),
-      Text(extent=[-105, 72; -85, 88], string="3"),
-      Text(extent=[-109, -88; -89, -72], string="-3"),
-      Text(extent=[70, -3; 90, -23], string="20"),
-      Text(extent=[-78, -1; -58, -21], string="1"),
-      Text(
-        extent=[92, -2; 112, -22],
-        string="u",
-        style(color=9))),
-    Documentation(info="<html>
-    
-</html>"));
-external "C" y = log(u);
-end log;
-
-function log10 "base 10 logarithm (u shall be > 0)" 
-  extends baseIcon1;
-  input Real u;
-  output Real y;
-  
-  annotation (
-    Coordsys(
-      extent=[-100, -100; 100, 100],
-      grid=[2, 2],
-      component=[20, 20]),
-    Window(
-      x=0.36,
-      y=0.07,
-      width=0.6,
-      height=0.6),
-    Icon(
-      Line(points=[-90, 0; 68, 0], style(color=8)),
-      Polygon(points=[90, 0; 68, 8; 68, -8; 90, 0], style(color=8, fillColor=8)),
-      Line(points=[-79.8, -80; -79.2, -50.6; -78.4, -37; -77.6, -28; -76.8, -
-            21.3; -75.2, -11.4; -72.8, -1.31; -69.5, 8.08; -64.7, 17.9; -57.5,
-            28; -47, 38.1; -31.8, 48.1; -10.1, 58; 22.1, 68; 68.7, 78.1; 80, 80],
-               style(color=0)),
-      Text(
-        extent=[-30, -22; 60, -70],
-        string="log10",
-        style(color=8))),
-    Diagram(
-      Line(points=[-100, 0; 84, 0], style(color=8)),
-      Polygon(points=[100, 0; 84, 6; 84, -6; 100, 0], style(color=8, fillColor=
-              8)),
-      Line(points=[-79.8, -80; -79.2, -50.6; -78.4, -37; -77.6, -28; -76.8, -
-            21.3; -75.2, -11.4; -72.8, -1.31; -69.5, 8.08; -64.7, 17.9; -57.5,
-            28; -47, 38.1; -31.8, 48.1; -10.1, 58; 22.1, 68; 68.7, 78.1; 80, 80],
-               style(color=0)),
-      Text(extent=[70, -3; 90, -23], string="20"),
-      Text(extent=[-78, -1; -58, -21], string="1"),
-      Text(extent=[-109, 72; -89, 88], string=" 1.3"),
-      Text(extent=[-109, -88; -89, -72], string="-1.3"),
-      Text(
-        extent=[92, -2; 112, -22],
-        string="u",
-        style(color=9))),
-    Documentation(info="<html>
-  
-</html>"));
-external "C" y = log10(u);
-end log10;
-
-partial function baseIcon1 
-  "Basic icon for mathematical function with y-axis on left side" 
-  
-  annotation (Icon(
-      Rectangle(extent=[-100, 100; 100, -100], style(color=0, fillColor=7)),
-      Line(points=[-80, -80; -80, 68], style(color=8)),
-      Polygon(points=[-80, 90; -88, 68; -72, 68; -80, 90], style(color=8,
-            fillColor=8)),
-      Text(extent=[-150, 150; 150, 110], string="%name")), Diagram(
-      Line(points=[-80, 80; -88, 80], style(color=8)),
-      Line(points=[-80, -80; -88, -80], style(color=8)),
-      Line(points=[-80, -90; -80, 84], style(color=8)),
-      Text(
-        extent=[-75, 110; -55, 90],
-        string="y",
-        style(color=9)),
-      Polygon(points=[-80, 100; -86, 84; -74, 84; -80, 100], style(color=8,
-            fillColor=8))));
-end baseIcon1;
-
-partial function baseIcon2 
-  "Basic icon for mathematical function with y-axis in middle" 
-  
-  annotation (Icon(
-      Rectangle(extent=[-100, 100; 100, -100], style(color=0, fillColor=7)),
-      Line(points=[0, -80; 0, 68], style(color=8)),
-      Polygon(points=[0, 90; -8, 68; 8, 68; 0, 90], style(color=8, fillColor=8)),
-      Text(extent=[-150, 150; 150, 110], string="%name")), Diagram(
-      Line(points=[0, 80; -8, 80], style(color=8)),
-      Line(points=[0, -80; -8, -80], style(color=8)),
-      Line(points=[0, -90; 0, 84], style(color=8)),
-      Text(
-        extent=[5, 110; 25, 90],
-        string="y",
-        style(color=9)),
-      Polygon(points=[0, 100; -6, 84; 6, 84; 0, 100], style(color=8, fillColor=
-              8))));
-end baseIcon2;
-
-function tempInterpol1 
-  "temporary routine for linear interpolation (will be removed)" 
-  input Real u "input value (first column of table)";
-  input Real table[:, :] "table to be interpolated";
-  input Integer icol "column of table to be interpolated";
-  output Real y "interpolated input value (icol column of table)";
-protected 
-  Integer i;
-  Integer n "number of rows of table";
-  Real u1;
-  Real u2;
-  Real y1;
-  Real y2;
-algorithm 
-  n := size(table, 1);
-  
-  if n <= 1 then
-    y := table[1, icol];
-    
-  else
-    // Search interval
-    
-    if u <= table[1, 1] then
-      i := 1;
-      
-    else
-      i := 2;
-      // Supports duplicate table[i, 1] values
-      // in the interior to allow discontinuities.
-      // Interior means that
-      // if table[i, 1] = table[i+1, 1] we require i>1 and i+1<n
-      
-      while i < n and u >= table[i, 1] loop
-        i := i + 1;
-        
-      end while;
-      i := i - 1;
-      
-    end if;
-    
-    // Get interpolation data
-    u1 := table[i, 1];
-    u2 := table[i + 1, 1];
-    y1 := table[i, icol];
-    y2 := table[i + 1, icol];
-    
-    assert(u2 > u1, "Table index must be increasing");
-    // Interpolate
-    y := y1 + (y2 - y1)*(u - u1)/(u2 - u1);
-    
-  end if;
-  
-  annotation (Documentation(info="<html>
-  
-</html>"));
-end tempInterpol1;
-
-function tempInterpol2 
-  "temporary routine for vectorized linear interpolation (will be removed)" 
-  
-  input Real u "input value (first column of table)";
-  input Real table[:, :] "table to be interpolated";
-  input Integer icol[:] "column(s) of table to be interpolated";
-  output Real y[1, size(icol, 1)] 
-    "interpolated input value(s) (column(s) icol of table)";
-protected 
-  Integer i;
-  Integer n "number of rows of table";
-  Real u1;
-  Real u2;
-  Real y1[1, size(icol, 1)];
-  Real y2[1, size(icol, 1)];
-algorithm 
-  n := size(table, 1);
-  
-  if n <= 1 then
-    y := transpose([table[1, icol]]);
-    
-  else
-    // Search interval
-    
-    if u <= table[1, 1] then
-      i := 1;
-      
-    else
-      i := 2;
-      // Supports duplicate table[i, 1] values
-      // in the interior to allow discontinuities.
-      // Interior means that
-      // if table[i, 1] = table[i+1, 1] we require i>1 and i+1<n
-      
-      while i < n and u >= table[i, 1] loop
-        i := i + 1;
-        
-      end while;
-      i := i - 1;
-      
-    end if;
-    
-    // Get interpolation data
-    u1 := table[i, 1];
-    u2 := table[i + 1, 1];
-    y1 := transpose([table[i, icol]]);
-    y2 := transpose([table[i + 1, icol]]);
-    
-    assert(u2 > u1, "Table index must be increasing");
-    // Interpolate
-    y := y1 + (y2 - y1)*(u - u1)/(u2 - u1);
-    
-  end if;
-  
-  annotation (Documentation(info="<html>
-  
-</html>"));
-end tempInterpol2;
-
-function acosh "Inverse of cosh (area hyperbolic cosine)" 
-    import Modelica.Utilities.Streams.*;
-  extends Modelica.Math.baseIcon1;
-  input Real u;
-  output Real y;
-  
-  annotation (
-    Coordsys(
-      extent=[-100, -100; 100, 100],
-      grid=[2, 2],
-      component=[20, 20]),
-    Window(
-      x=0.36,
-      y=0.07,
-      width=0.6,
-      height=0.6),
-    Icon(
-        Line(points=[-90, -80; 68, -80], style(color=8)),
-        Polygon(points=[90, -80; 68, -72; 68, -88; 90, -80],
-                style(color=8, fillColor=8)),
-        Line(points=[-66,-80; -65.2,-66; -64.4,-60.3; -62.8,-52.2; -60.4,-43.4;
-            -56.4,-32.4; -49.9,-19.3; -41.1,-5.65; -29,8.8; -12.9,23.8; 7.97,
-            39.2; 35.3,55; 69.9,70.8; 94,80],           style(color=0)),
-      Text(
-        extent=[-14,2; 76,-54],
-        style(color=8),
-        string="arcosh")),
-    Diagram(
-        Line(points=[-100, -80; 84, -80], style(color=8)),
-        Polygon(points=[100, -80; 84, -74; 84, -86; 100, -80],
-                style(color=8, fillColor=8)),
-        Line(points=[-60,-80; -59.2,-66; -58.4,-60.3; -56.8,-52.2; -54.4,-43.4;
-            -50.4,-32.4; -43.9,-19.3; -35.1,-5.65; -23,8.8; -6.9,23.8; 13.97,
-            39.2; 41.3,55; 75.9,70.8; 100,80],          style(color=0)),
-      Text(extent=[-116,70; -91,88], string="2.29"),
-      Text(extent=[-71,-102; -46,-82], string="1.0"),
-      Text(extent=[92,-87; 112,-107],
-                                   string="5"),
-      Text(extent=[-100,-71; -80,-91], string="0"),
-      Text(
-        extent=[92, -2; 112, -22],
-        string="u",
-        style(color=9))),
-    Documentation(info="<html>
-<p>
-The function returns the area hyperbolic cosine of its
-input argument u. The valid range of u is
-<p>
-<pre>
-  +1 &le; u &lt; +infinity
-</pre>
-<p>
-If the function is called with u &lt; 1, an error occurs.
-The function cosh(u) has two inverse functions (the curve
-looks similar to a sqrt(..) function). acosh(..) returns
-the inverse that is positive. At u=1, the derivative dy/du is infinite.
-Therefore, this function should not be used in a model, if u
-can become close to 1.
-</p>
-</html>"));
-algorithm 
-  assert(u>=1.0, "Input argument u (= " + String(u) + ") of acosh(u) must be >= 1.0");
-  y :=Modelica.Math.log(u + sqrt(u*u - 1));
-end acosh;
-
-
-function asinh "inverse of sinh (area hyperbolic sine)" 
-  extends Modelica.Math.baseIcon2;
-  input Real u;
-  output Real y;
-  
-  annotation (
-    Coordsys(
-      extent=[-100, -100; 100, 100],
-      grid=[2, 2],
-      component=[20, 20]),
-    Window(
-      x=0.36,
-      y=0.07,
-      width=0.6,
-      height=0.6),
-    Icon(
-        Line(points=[-90, 0; 68, 0], style(color=8)),
-        Polygon(points=[90, 0; 68, 8; 68, -8; 90, 0],
-                style(color=8, fillColor=8)),
-        Line(points=[-80,-80;-56.7,-68.4;-39.8,-56.8;-26.9,-44.7;-17.3,-32.4;
-                   -9.25,-19;9.25,19;17.3,32.4;26.9,44.7;39.8,56.8;56.7,68.4;
-                   80,80], style(color=0)),
-      Text(
-        extent=[-90,80; -6,26],
-        style(color=8),
-          string="asinh")),
-    Diagram(
-        Line(points=[-100, 0; 84, 0], style(color=8)),
-        Polygon(points=[100, 0; 84, 6; 84, -6; 100, 0],
-                style(color=8, fillColor=8)),
-        Line(points=[-80,-80;-56.7,-68.4;-39.8,-56.8;-26.9,-44.7;-17.3,-32.4;
-                   -9.25,-19;9.25,19;17.3,32.4;26.9,44.7;39.8,56.8;56.7,68.4;
-                   80,80], style(color=0)),
-      Text(extent=[-31, 72; -11, 88], string="2.31"),
-      Text(extent=[-35, -88; -15, -72], string="-2.31"),
-      Text(extent=[70, 25; 90, 5], string="5"),
-      Text(extent=[-98, 21; -78, 1], string="-5"),
-      Text(
-        extent=[92, -2; 112, -22],
-        string="u",
-        style(color=9))),
-    Documentation(info="<html>
-<p>
-The function returns the area hyperbolic sine of its
-input argument u. This inverse of sinh(..) is unique
-and there is no restriction on the input argument u of
-asinh(u).
-</p>
-</html>"));
-algorithm 
-  y :=Modelica.Math.log(u + sqrt(u*u + 1));
-end asinh;
 
 
 function atan3 
@@ -5292,5 +4741,579 @@ algorithm
   w :=Math.atan2(u1, u2);
   y := w + 2*pi*div(abs(w-y0)+pi,2*pi)*(if y0 > w then +1 else -1);
 end atan3;
+
+
+function sinh "Hyperbolic sine" 
+  extends baseIcon2;
+  input Real u;
+  output Real y;
+  
+  annotation (
+    Coordsys(
+      extent=[-100, -100; 100, 100],
+      grid=[2, 2],
+      component=[20, 20]),
+    Window(
+      x=0.36,
+      y=0.07,
+      width=0.6,
+      height=0.6),
+    Icon(
+      Line(points=[-90, 0; 68, 0], style(color=8)),
+      Polygon(points=[90, 0; 68, 8; 68, -8; 90, 0], style(color=8, fillColor=8)),
+      Line(points=[-80, -80; -76, -65.4; -71.2, -51.4; -65.5, -38.8; -59.1, -
+            28.1; -51.1, -18.7; -41.4, -11.4; -27.7, -5.5; -4.42, -0.653; 24.5,
+              4.57; 39, 10.1; 49.4, 17.2; 57.5, 25.9; 63.9, 35.8; 69.5, 47.4;
+            74.4, 60.4; 78.4, 73.8; 80, 80], style(color=0)),
+      Text(
+        extent=[-88, 80; -16, 32],
+        string="sinh",
+        style(color=8))),
+    Diagram(
+      Line(points=[-100, 0; 84, 0], style(color=8)),
+      Polygon(points=[100, 0; 84, 6; 84, -6; 100, 0], style(color=8, fillColor=
+              8)),
+      Line(points=[-80, -80; -76, -65.4; -71.2, -51.4; -65.5, -38.8; -59.1, -
+            28.1; -51.1, -18.7; -41.4, -11.4; -27.7, -5.5; -4.42, -0.653; 24.5,
+              4.57; 39, 10.1; 49.4, 17.2; 57.5, 25.9; 63.9, 35.8; 69.5, 47.4;
+            74.4, 60.4; 78.4, 73.8; 80, 80], style(color=0)),
+      Text(extent=[-31, 72; -11, 88], string="27"),
+      Text(extent=[-35, -88; -15, -72], string="-27"),
+      Text(extent=[70, 25; 90, 5], string="4"),
+      Text(extent=[-98, 21; -78, 1], string="-4"),
+      Text(
+        extent=[92, -2; 112, -22],
+        string="u",
+        style(color=9))),
+    Documentation(info="<html>
+  
+</html>"));
+external "C" y = sinh(u);
+end sinh;
+
+
+function cosh "Hyperbolic cosine" 
+  extends baseIcon2;
+  input Real u;
+  output Real y;
+  
+  annotation (
+    Coordsys(
+      extent=[-100, -100; 100, 100],
+      grid=[2, 2],
+      component=[20, 20]),
+    Window(
+      x=0.4,
+      y=0.05,
+      width=0.6,
+      height=0.6),
+    Icon(
+      Line(points=[-90, -86.083; 68, -86.083], style(color=8)),
+      Polygon(points=[90, -86.083; 68, -78.083; 68, -94.083; 90, -86.083],
+          style(color=8, fillColor=8)),
+      Line(points=[-80, 80; -77.6, 61.1; -74.4, 39.3; -71.2, 20.7; -67.1, 1.29;
+              -63.1, -14.6; -58.3, -29.8; -52.7, -43.5; -46.2, -55.1; -39, -
+            64.3; -30.2, -71.7; -18.9, -77.1; -4.42, -79.9; 10.9, -79.1; 23.7,
+            -75.2; 34.2, -68.7; 42.2, -60.6; 48.6, -51.2; 54.3, -40; 59.1, -
+            27.5; 63.1, -14.6; 67.1, 1.29; 71.2, 20.7; 74.4, 39.3; 77.6, 61.1;
+            80, 80], style(color=0)),
+      Text(
+        extent=[4, 66; 66, 20],
+        string="cosh",
+        style(color=8))),
+    Diagram(
+      Line(points=[-100, -86.083; 84, -86.083], style(color=8)),
+      Polygon(points=[100, -86.083; 84, -80.083; 84, -92.083; 100, -86.083],
+          style(color=8, fillColor=8)),
+      Line(points=[-80, 80; -77.6, 61.1; -74.4, 39.3; -71.2, 20.7; -67.1, 1.29;
+              -63.1, -14.6; -58.3, -29.8; -52.7, -43.5; -46.2, -55.1; -39, -
+            64.3; -30.2, -71.7; -18.9, -77.1; -4.42, -79.9; 10.9, -79.1; 23.7,
+            -75.2; 34.2, -68.7; 42.2, -60.6; 48.6, -51.2; 54.3, -40; 59.1, -
+            27.5; 63.1, -14.6; 67.1, 1.29; 71.2, 20.7; 74.4, 39.3; 77.6, 61.1;
+            80, 80], style(color=0)),
+      Text(extent=[-31, 72; -11, 88], string="27"),
+      Text(extent=[76, -61; 96, -81], string="4"),
+      Text(extent=[-104, -63; -84, -83], string="-4"),
+      Text(
+        extent=[90, -88; 110, -108],
+        string="u",
+        style(color=9))),
+    Documentation(info="<html>
+  
+</html>
+"));
+external "C" y = cosh(u);
+end cosh;
+
+
+function tanh "Hyperbolic tangent" 
+  extends baseIcon2;
+  input Real u;
+  output Real y;
+  
+  annotation (
+    Coordsys(
+      extent=[-100, -100; 100, 100],
+      grid=[2, 2],
+      component=[20, 20]),
+    Window(
+      x=0.36,
+      y=0.07,
+      width=0.6,
+      height=0.6),
+    Icon(
+      Line(points=[-90, 0; 68, 0], style(color=8)),
+      Polygon(points=[90, 0; 68, 8; 68, -8; 90, 0], style(color=8, fillColor=8)),
+      Line(points=[-80, -80; -47.8, -78.7; -35.8, -75.7; -27.7, -70.6; -22.1, -
+            64.2; -17.3, -55.9; -12.5, -44.3; -7.64, -29.2; -1.21, -4.82; 6.83,
+              26.3; 11.7, 42; 16.5, 54.2; 21.3, 63.1; 26.9, 69.9; 34.2, 75;
+            45.4, 78.4; 72, 79.9; 80, 80], style(color=0)),
+      Text(
+        extent=[-88, 72; -16, 24],
+        string="tanh",
+        style(color=8))),
+    Diagram(
+      Line(points=[-100, 0; 84, 0], style(color=8)),
+      Polygon(points=[100, 0; 84, 6; 84, -6; 100, 0], style(color=8, fillColor=
+              8)),
+      Line(points=[-80, -80; -47.8, -78.7; -35.8, -75.7; -27.7, -70.6; -22.1, -
+            64.2; -17.3, -55.9; -12.5, -44.3; -7.64, -29.2; -1.21, -4.82; 6.83,
+              26.3; 11.7, 42; 16.5, 54.2; 21.3, 63.1; 26.9, 69.9; 34.2, 75;
+            45.4, 78.4; 72, 79.9; 80, 80], style(color=0)),
+      Text(extent=[70, 25; 90, 5], string="4"),
+      Text(extent=[-106, 21; -86, 1], string="-4"),
+      Text(extent=[-29, 72; -9, 88], string="1"),
+      Text(extent=[3, -72; 23, -88], string="-1"),
+      Text(
+        extent=[92, -2; 112, -22],
+        string="u",
+        style(color=9))),
+    Documentation(info="<html>
+   
+</html>"));
+external "C" y = tanh(u);
+end tanh;
+
+
+function asinh "Inverse of sinh (area hyperbolic sine)" 
+  extends Modelica.Math.baseIcon2;
+  input Real u;
+  output Real y;
+  
+  annotation (
+    Coordsys(
+      extent=[-100, -100; 100, 100],
+      grid=[2, 2],
+      component=[20, 20]),
+    Window(
+      x=0.36,
+      y=0.07,
+      width=0.6,
+      height=0.6),
+    Icon(
+        Line(points=[-90, 0; 68, 0], style(color=8)),
+        Polygon(points=[90, 0; 68, 8; 68, -8; 90, 0],
+                style(color=8, fillColor=8)),
+        Line(points=[-80,-80;-56.7,-68.4;-39.8,-56.8;-26.9,-44.7;-17.3,-32.4;
+                   -9.25,-19;9.25,19;17.3,32.4;26.9,44.7;39.8,56.8;56.7,68.4;
+                   80,80], style(color=0)),
+      Text(
+        extent=[-90,80; -6,26],
+        style(color=8),
+          string="asinh")),
+    Diagram(
+        Line(points=[-100, 0; 84, 0], style(color=8)),
+        Polygon(points=[100, 0; 84, 6; 84, -6; 100, 0],
+                style(color=8, fillColor=8)),
+        Line(points=[-80,-80;-56.7,-68.4;-39.8,-56.8;-26.9,-44.7;-17.3,-32.4;
+                   -9.25,-19;9.25,19;17.3,32.4;26.9,44.7;39.8,56.8;56.7,68.4;
+                   80,80], style(color=0)),
+      Text(extent=[-31, 72; -11, 88], string="2.31"),
+      Text(extent=[-35, -88; -15, -72], string="-2.31"),
+      Text(extent=[70, 25; 90, 5], string="5"),
+      Text(extent=[-98, 21; -78, 1], string="-5"),
+      Text(
+        extent=[92, -2; 112, -22],
+        string="u",
+        style(color=9))),
+    Documentation(info="<html>
+<p>
+The function returns the area hyperbolic sine of its
+input argument u. This inverse of sinh(..) is unique
+and there is no restriction on the input argument u of
+asinh(u).
+</p>
+</html>"));
+algorithm 
+  y :=Modelica.Math.log(u + sqrt(u*u + 1));
+end asinh;
+
+
+function acosh "Inverse of cosh (area hyperbolic cosine)" 
+    import Modelica.Utilities.Streams.*;
+  extends Modelica.Math.baseIcon1;
+  input Real u;
+  output Real y;
+  
+  annotation (
+    Coordsys(
+      extent=[-100, -100; 100, 100],
+      grid=[2, 2],
+      component=[20, 20]),
+    Window(
+      x=0.36,
+      y=0.07,
+      width=0.6,
+      height=0.6),
+    Icon(
+        Line(points=[-90, -80; 68, -80], style(color=8)),
+        Polygon(points=[90, -80; 68, -72; 68, -88; 90, -80],
+                style(color=8, fillColor=8)),
+        Line(points=[-66,-80; -65.2,-66; -64.4,-60.3; -62.8,-52.2; -60.4,-43.4;
+            -56.4,-32.4; -49.9,-19.3; -41.1,-5.65; -29,8.8; -12.9,23.8; 7.97,
+            39.2; 35.3,55; 69.9,70.8; 94,80],           style(color=0)),
+      Text(
+        extent=[-14,2; 76,-54],
+        style(color=8),
+        string="arcosh")),
+    Diagram(
+        Line(points=[-100, -80; 84, -80], style(color=8)),
+        Polygon(points=[100, -80; 84, -74; 84, -86; 100, -80],
+                style(color=8, fillColor=8)),
+        Line(points=[-60,-80; -59.2,-66; -58.4,-60.3; -56.8,-52.2; -54.4,-43.4;
+            -50.4,-32.4; -43.9,-19.3; -35.1,-5.65; -23,8.8; -6.9,23.8; 13.97,
+            39.2; 41.3,55; 75.9,70.8; 100,80],          style(color=0)),
+      Text(extent=[-116,70; -91,88], string="2.29"),
+      Text(extent=[-71,-102; -46,-82], string="1.0"),
+      Text(extent=[92,-87; 112,-107],
+                                   string="5"),
+      Text(extent=[-100,-71; -80,-91], string="0"),
+      Text(
+        extent=[92, -2; 112, -22],
+        string="u",
+        style(color=9))),
+    Documentation(info="<html>
+<p>
+The function returns the area hyperbolic cosine of its
+input argument u. The valid range of u is
+<p>
+<pre>
+  +1 &le; u &lt; +infinity
+</pre>
+<p>
+If the function is called with u &lt; 1, an error occurs.
+The function cosh(u) has two inverse functions (the curve
+looks similar to a sqrt(..) function). acosh(..) returns
+the inverse that is positive. At u=1, the derivative dy/du is infinite.
+Therefore, this function should not be used in a model, if u
+can become close to 1.
+</p>
+</html>"));
+algorithm 
+  assert(u>=1.0, "Input argument u (= " + String(u) + ") of acosh(u) must be >= 1.0");
+  y :=Modelica.Math.log(u + sqrt(u*u - 1));
+end acosh;
+
+
+function exp "Exponential, base e" 
+  extends baseIcon2;
+  input Real u;
+  output Real y;
+  
+  annotation (
+    Coordsys(
+      extent=[-100, -100; 100, 100],
+      grid=[2, 2],
+      component=[20, 20]),
+    Window(
+      x=0.36,
+      y=0.07,
+      width=0.6,
+      height=0.6),
+    Icon(
+      Line(points=[-90, -80.3976; 68, -80.3976], style(color=8)),
+      Polygon(points=[90, -80.3976; 68, -72.3976; 68, -88.3976; 90, -80.3976],
+          style(color=8, fillColor=8)),
+      Line(points=[-80, -80; -31, -77.9; -6.03, -74; 10.9, -68.4; 23.7, -61;
+            34.2, -51.6; 43, -40.3; 50.3, -27.8; 56.7, -13.5; 62.3, 2.23; 67.1,
+              18.6; 72, 38.2; 76, 57.6; 80, 80], style(color=0)),
+      Text(
+        extent=[-86, 50; -14, 2],
+        string="exp",
+        style(color=8))),
+    Diagram(
+      Line(points=[-100, -80.3976; 84, -80.3976], style(color=8)),
+      Polygon(points=[100, -80.3976; 84, -74.3976; 84, -86.3976; 100, -80.3976],
+            style(color=8, fillColor=8)),
+      Line(points=[-80, -80; -31, -77.9; -6.03, -74; 10.9, -68.4; 23.7, -61;
+            34.2, -51.6; 43, -40.3; 50.3, -27.8; 56.7, -13.5; 62.3, 2.23; 67.1,
+              18.6; 72, 38.2; 76, 57.6; 80, 80], style(color=0)),
+      Text(extent=[-31, 72; -11, 88], string="20"),
+      Text(extent=[-92, -83; -72, -103], string="-3"),
+      Text(extent=[70, -83; 90, -103], string="3"),
+      Text(extent=[-18, -53; 2, -73], string="1"),
+      Text(
+        extent=[96, -82; 116, -102],
+        string="u",
+        style(color=9))));
+external "C" y = exp(u);
+end exp;
+
+
+function log "Natural (base e) logarithm (u shall be > 0)" 
+  extends baseIcon1;
+  input Real u;
+  output Real y;
+  
+  annotation (
+    Coordsys(
+      extent=[-100, -100; 100, 100],
+      grid=[2, 2],
+      component=[20, 20]),
+    Window(
+      x=0.36,
+      y=0.07,
+      width=0.6,
+      height=0.6),
+    Icon(
+      Line(points=[-90, 0; 68, 0], style(color=8)),
+      Polygon(points=[90, 0; 68, 8; 68, -8; 90, 0], style(color=8, fillColor=8)),
+      Line(points=[-80, -80; -79.2, -50.6; -78.4, -37; -77.6, -28; -76.8, -21.3;
+              -75.2, -11.4; -72.8, -1.31; -69.5, 8.08; -64.7, 17.9; -57.5, 28;
+            -47, 38.1; -31.8, 48.1; -10.1, 58; 22.1, 68; 68.7, 78.1; 80, 80],
+          style(color=0)),
+      Text(
+        extent=[-6, -24; 66, -72],
+        string="log",
+        style(color=8))),
+    Diagram(
+      Line(points=[-100, 0; 84, 0], style(color=8)),
+      Polygon(points=[100, 0; 84, 6; 84, -6; 100, 0], style(color=8, fillColor=
+              8)),
+      Line(points=[-80, -80; -79.2, -50.6; -78.4, -37; -77.6, -28; -76.8, -21.3;
+              -75.2, -11.4; -72.8, -1.31; -69.5, 8.08; -64.7, 17.9; -57.5, 28;
+            -47, 38.1; -31.8, 48.1; -10.1, 58; 22.1, 68; 68.7, 78.1; 80, 80],
+          style(color=0)),
+      Text(extent=[-105, 72; -85, 88], string="3"),
+      Text(extent=[-109, -88; -89, -72], string="-3"),
+      Text(extent=[70, -3; 90, -23], string="20"),
+      Text(extent=[-78, -1; -58, -21], string="1"),
+      Text(
+        extent=[92, -2; 112, -22],
+        string="u",
+        style(color=9))),
+    Documentation(info="<html>
+    
+</html>"));
+external "C" y = log(u);
+end log;
+
+
+function log10 "Base 10 logarithm (u shall be > 0)" 
+  extends baseIcon1;
+  input Real u;
+  output Real y;
+  
+  annotation (
+    Coordsys(
+      extent=[-100, -100; 100, 100],
+      grid=[2, 2],
+      component=[20, 20]),
+    Window(
+      x=0.36,
+      y=0.07,
+      width=0.6,
+      height=0.6),
+    Icon(
+      Line(points=[-90, 0; 68, 0], style(color=8)),
+      Polygon(points=[90, 0; 68, 8; 68, -8; 90, 0], style(color=8, fillColor=8)),
+      Line(points=[-79.8, -80; -79.2, -50.6; -78.4, -37; -77.6, -28; -76.8, -
+            21.3; -75.2, -11.4; -72.8, -1.31; -69.5, 8.08; -64.7, 17.9; -57.5,
+            28; -47, 38.1; -31.8, 48.1; -10.1, 58; 22.1, 68; 68.7, 78.1; 80, 80],
+               style(color=0)),
+      Text(
+        extent=[-30, -22; 60, -70],
+        string="log10",
+        style(color=8))),
+    Diagram(
+      Line(points=[-100, 0; 84, 0], style(color=8)),
+      Polygon(points=[100, 0; 84, 6; 84, -6; 100, 0], style(color=8, fillColor=
+              8)),
+      Line(points=[-79.8, -80; -79.2, -50.6; -78.4, -37; -77.6, -28; -76.8, -
+            21.3; -75.2, -11.4; -72.8, -1.31; -69.5, 8.08; -64.7, 17.9; -57.5,
+            28; -47, 38.1; -31.8, 48.1; -10.1, 58; 22.1, 68; 68.7, 78.1; 80, 80],
+               style(color=0)),
+      Text(extent=[70, -3; 90, -23], string="20"),
+      Text(extent=[-78, -1; -58, -21], string="1"),
+      Text(extent=[-109, 72; -89, 88], string=" 1.3"),
+      Text(extent=[-109, -88; -89, -72], string="-1.3"),
+      Text(
+        extent=[92, -2; 112, -22],
+        string="u",
+        style(color=9))),
+    Documentation(info="<html>
+  
+</html>"));
+external "C" y = log10(u);
+end log10;
+
+
+partial function baseIcon1 
+  "Basic icon for mathematical function with y-axis on left side" 
+  
+  annotation (Icon(
+      Rectangle(extent=[-100, 100; 100, -100], style(color=0, fillColor=7)),
+      Line(points=[-80, -80; -80, 68], style(color=8)),
+      Polygon(points=[-80, 90; -88, 68; -72, 68; -80, 90], style(color=8,
+            fillColor=8)),
+      Text(extent=[-150, 150; 150, 110], string="%name")), Diagram(
+      Line(points=[-80, 80; -88, 80], style(color=8)),
+      Line(points=[-80, -80; -88, -80], style(color=8)),
+      Line(points=[-80, -90; -80, 84], style(color=8)),
+      Text(
+        extent=[-75, 110; -55, 90],
+        string="y",
+        style(color=9)),
+      Polygon(points=[-80, 100; -86, 84; -74, 84; -80, 100], style(color=8,
+            fillColor=8))));
+end baseIcon1;
+
+
+partial function baseIcon2 
+  "Basic icon for mathematical function with y-axis in middle" 
+  
+  annotation (Icon(
+      Rectangle(extent=[-100, 100; 100, -100], style(color=0, fillColor=7)),
+      Line(points=[0, -80; 0, 68], style(color=8)),
+      Polygon(points=[0, 90; -8, 68; 8, 68; 0, 90], style(color=8, fillColor=8)),
+      Text(extent=[-150, 150; 150, 110], string="%name")), Diagram(
+      Line(points=[0, 80; -8, 80], style(color=8)),
+      Line(points=[0, -80; -8, -80], style(color=8)),
+      Line(points=[0, -90; 0, 84], style(color=8)),
+      Text(
+        extent=[5, 110; 25, 90],
+        string="y",
+        style(color=9)),
+      Polygon(points=[0, 100; -6, 84; 6, 84; 0, 100], style(color=8, fillColor=
+              8))));
+end baseIcon2;
+
+
+function tempInterpol1 
+  "Temporary function for linear interpolation (will be removed)" 
+  input Real u "input value (first column of table)";
+  input Real table[:, :] "table to be interpolated";
+  input Integer icol "column of table to be interpolated";
+  output Real y "interpolated input value (icol column of table)";
+protected 
+  Integer i;
+  Integer n "number of rows of table";
+  Real u1;
+  Real u2;
+  Real y1;
+  Real y2;
+algorithm 
+  n := size(table, 1);
+  
+  if n <= 1 then
+    y := table[1, icol];
+    
+  else
+    // Search interval
+    
+    if u <= table[1, 1] then
+      i := 1;
+      
+    else
+      i := 2;
+      // Supports duplicate table[i, 1] values
+      // in the interior to allow discontinuities.
+      // Interior means that
+      // if table[i, 1] = table[i+1, 1] we require i>1 and i+1<n
+      
+      while i < n and u >= table[i, 1] loop
+        i := i + 1;
+        
+      end while;
+      i := i - 1;
+      
+    end if;
+    
+    // Get interpolation data
+    u1 := table[i, 1];
+    u2 := table[i + 1, 1];
+    y1 := table[i, icol];
+    y2 := table[i + 1, icol];
+    
+    assert(u2 > u1, "Table index must be increasing");
+    // Interpolate
+    y := y1 + (y2 - y1)*(u - u1)/(u2 - u1);
+    
+  end if;
+  
+  annotation (Documentation(info="<html>
+  
+</html>"));
+end tempInterpol1;
+
+
+function tempInterpol2 
+  "Temporary function for vectorized linear interpolation (will be removed)" 
+  
+  input Real u "input value (first column of table)";
+  input Real table[:, :] "table to be interpolated";
+  input Integer icol[:] "column(s) of table to be interpolated";
+  output Real y[1, size(icol, 1)] 
+    "interpolated input value(s) (column(s) icol of table)";
+protected 
+  Integer i;
+  Integer n "number of rows of table";
+  Real u1;
+  Real u2;
+  Real y1[1, size(icol, 1)];
+  Real y2[1, size(icol, 1)];
+algorithm 
+  n := size(table, 1);
+  
+  if n <= 1 then
+    y := transpose([table[1, icol]]);
+    
+  else
+    // Search interval
+    
+    if u <= table[1, 1] then
+      i := 1;
+      
+    else
+      i := 2;
+      // Supports duplicate table[i, 1] values
+      // in the interior to allow discontinuities.
+      // Interior means that
+      // if table[i, 1] = table[i+1, 1] we require i>1 and i+1<n
+      
+      while i < n and u >= table[i, 1] loop
+        i := i + 1;
+        
+      end while;
+      i := i - 1;
+      
+    end if;
+    
+    // Get interpolation data
+    u1 := table[i, 1];
+    u2 := table[i + 1, 1];
+    y1 := transpose([table[i, icol]]);
+    y2 := transpose([table[i + 1, icol]]);
+    
+    assert(u2 > u1, "Table index must be increasing");
+    // Interpolate
+    y := y1 + (y2 - y1)*(u - u1)/(u2 - u1);
+    
+  end if;
+  
+  annotation (Documentation(info="<html>
+  
+</html>"));
+end tempInterpol2;
 
 end Math;
