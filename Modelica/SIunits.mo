@@ -1,8 +1,8 @@
 package SIunits 
   "Type and unit definitions based on SI units according to ISO 31-1992" 
-package UsersGuide "Users Guide" 
+package UsersGuide "User's Guide" 
   annotation (DocumentationClass=true, Documentation(info="<HTML>
-<h4>Users Guide of package SIunits</h4>
+<h4>User's Guide of package SIunits</h4>
 <p>
 Library <b>SIunits</b> is a <b>free</b> Modelica package providing
 predefined types, such as <i>Mass</i>,

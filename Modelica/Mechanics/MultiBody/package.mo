@@ -58,7 +58,7 @@ import SI = Modelica.SIunits;
 extends Modelica.Icons.Library;
 
 
-package UsersGuide "Users Guide of MultiBody Library" 
+package UsersGuide "User's Guide of MultiBody Library" 
   annotation (DocumentationClass=true, Documentation(info="<HTML>
 <p>
 Library <b>MultiBody</b> is a <b>free</b> Modelica package providing
@@ -924,7 +924,7 @@ This version has some minor improvements:
 <li> New function MultiBody.<b>Frames.from_T2</b> to compute an orientation
      object from a transformation matrix and its derivative.</li>
 <li> Added a paragraph in the \"Upgrade from Former Versions\" section
-     of the Users Guide to show how a conversion from 0.99 to 1.0 that
+     of the User's Guide to show how a conversion from 0.99 to 1.0 that
      may fail in rare cases should be fixed manually.</li>
 </ul>
 <h4>Version 1.1, 2004-07-07</h4>

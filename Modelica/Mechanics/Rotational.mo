@@ -1,6 +1,6 @@
 package Rotational 
   "Library to model 1-dimensional, rotational mechanical systems" 
-package UsersGuide "Users Guide of Rotational Library" 
+package UsersGuide "User's Guide of Rotational Library" 
   annotation (DocumentationClass=true, Documentation(info="<HTML>
 <p>
 Library <b>Rotational</b> is a <b>free</b> Modelica package providing
@@ -325,7 +325,7 @@ as possible.
 <li><i>December 12, 2005</i> 
     by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
     Package documentation split into several parts and provided
-    as Users Guide.</li>
+    as User's Guide.</li>
  
 <li><i>October 27, 2003</i>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>
