@@ -3,7 +3,7 @@ package Digital
 package UsersGuide "Users Guide" 
     
   annotation (DocumentationClass=true, Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>Users Guide of package Electrical.Digital</font></h3>
+<h4>Users Guide of package Electrical.Digital</h4>
 <p>
 Library <b>Electrical.Digital</b> is a <b>free</b> Modelica package providing
 components to model <b>digital</b> electronic
@@ -33,7 +33,7 @@ the library and has the following content:
   class OverView "Overview of library" 
       
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>Overview of Library Electrical.Digital</font></h3>
+<h4>Overview of Library Electrical.Digital</h4>
 <p>
 In this section, an overview of the most important features
 of this library is given.
@@ -46,7 +46,7 @@ of this library is given.
   class FirstExample "A first example" 
       
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>A first example</font></h3>
+<h4>A first example</h4>
 <p>
 A first example will be given here (not yet done).
 </p>
@@ -57,7 +57,7 @@ A first example will be given here (not yet done).
   class ApplicationExample "An application example" 
       
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>An application example</font></h3>
+<h4>An application example</h4>
 <p>
 An application example will be given here (not yet done).
 </p>
@@ -68,27 +68,27 @@ An application example will be given here (not yet done).
   class ReleaseNotes "Release notes" 
       
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>Release notes</font></h3>
-<h3><font color=\"#008000\">Version 1.0.7, 2005-07-01</font></h3>
+<h4>Release notes</h4>
+<h4>Version 1.0.7, 2005-07-01</h4>
 <ul>
 <li> xxxx</li>
 </ul>
-<h3><font color=\"#008000\">Version 1.0.6, 2004-10-18</font></h3>
+<h4>Version 1.0.6, 2004-10-18</h4>
 <ul>
 <li> Missing HTML tags added (problems with mismatched pre tags fixed).</li>
 <li> CVS ID string deleted.</li>
 </ul>
-<h3><font color=\"#008000\">Version 1.0.5, 2004-10-01</font></h3>
+<h4>Version 1.0.5, 2004-10-01</h4>
 <ul>
 <li> Wrong identifiers x0 and Tdel in HalfAdder example fixed.</li>
 <li> Experiment command in FlipFlop example deleted.</li>
 <li> Known issue: Pulse source causes a warning in Dymola. It is recommended to use Clock source.</li>
 </ul>
-<h3><font color=\"#008000\">Version 1.0.4, 2004-09-30</font></h3>
+<h4>Version 1.0.4, 2004-09-30</h4>
 <ul>
 <li> Documentation improved.</li>
 </ul>
-<h3><font color=\"#008000\">Version 1.0.3, 2004-09-21</font></h3>
+<h4>Version 1.0.3, 2004-09-21</h4>
 <ul>
 <li> Table names changed from \"map\" to \"Table\".</li>
 <li> Icons for converters modified.</li>
@@ -101,16 +101,16 @@ An application example will be given here (not yet done).
 <li> Internal names for signals and ports unified.</li>
 <li> Simple Clock source added in addition to Pulse source (for convenience reasons).</li>
 </ul>
-<h3><font color=\"#008000\">Version 1.0.2, 2004-09-13</font></h3>
+<h4>Version 1.0.2, 2004-09-13</h4>
 <ul>
 <li> First prerelease for discussions at the 40th Modelica Design Meeting.</li>
 </ul>
-<h3><font color=\"#008000\">Version 1.0.1, 2004-06-01</font></h3>
+<h4>Version 1.0.1, 2004-06-01</h4>
 <ul>
 <li> Packages Tables, Basic, and Gates implemented.</li>
 <li> Transport and inertial delay implemented and successfully tested.</li>
 </ul>
-<h3><font color=\"#008000\">Version 1.0.0, 2003-05-01</font></h3>
+<h4>Version 1.0.0, 2003-05-01</h4>
 <ul>
 <li> A first version has been implemented for case studies.</li>
 </ul>
@@ -123,7 +123,7 @@ An application example will be given here (not yet done).
   class Literature "Literature" 
       
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>Literature</font></h3>
+<h4>Literature</h4>
 <p>
 The Electrical.Digital library is based on the following references:
 </p>
@@ -160,7 +160,7 @@ The Electrical.Digital library is based on the following references:
   class Contact "Contact" 
       
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>Contact</font></h3>
+<h4>Contact</h4>
 <dl>
 <dt><b>Main Authors:</b>
 <dd><a href=\"http://people.eas.iis.fraunhofer.de/Christoph.Clauss/\">Christoph Clau&szlig;</a>
@@ -330,7 +330,7 @@ and the accompanying <b>disclaimer</b>
       import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       annotation (
         Documentation(info="<HTML>
-<h3><font color=\"#008000\" size=5>4 to 1 Bit Multiplexer</font></h3>
+<h4>4 to 1 Bit Multiplexer</h4>
 <P>
 The multiplexer converts a parallel 4 bit signal in a sequential
 1 bit stream.
@@ -444,7 +444,7 @@ The multiplexer converts a parallel 4 bit signal in a sequential
       import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       annotation (
         Documentation(info="<HTML>
-<h3><font color=\"#008000\" size=5>FlipFlop</font></h3>
+<h4>FlipFlop</h4>
 <P>
 Pulse-triggered master-slave flip-flop.
 </P>

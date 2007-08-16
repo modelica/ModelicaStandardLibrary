@@ -579,7 +579,7 @@ returned as a vector p[n+1] that has the following definition:
   annotation (
     preferedView="info",
     Documentation(info="<HTML>
-<h3><font color=\"#008000\" size=5>Table based media</font></h3>
+<h4>Table based media</h4>
 <p>
 This is the base package for medium models of incompressible fluids based on
 tables. The minimal data to provide for a useful medium description is tables
@@ -675,7 +675,7 @@ function calls can not be used.
     
   annotation (
     Documentation(info="<HTML>
-<h3><font color=\"#008000\" size=5>Examples of incompressible media</font></h3>
+<h4>Examples of incompressible media</h4>
 <p>
 This package provides a few examples of how to construct medium models for
 incompressible fluids. The package contains:
@@ -692,7 +692,7 @@ density and heat capacity as functions of temperature.</li>
   annotation (
     preferedView="info",
     Documentation(info="<HTML>
-<h3><font color=\"#008000\" size=5>Incompressible media package</font></h3>
+<h4>Incompressible media package</h4>
 <p>
 This package provides a structure and examples of how to create simple
 medium models of incompressible fluids, meaning fluids with very little

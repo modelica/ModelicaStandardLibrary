@@ -603,7 +603,7 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
     
     annotation (Documentation(info="<html>
 <body>
-<h3>Function that calculates the dynamic viscosity of low pressure gases</h3>
+<h4>Function that calculates the dynamic viscosity of low pressure gases</h4>
 <p>
 The used formula are based on the method of Chung et al (1984, 1988) referred to in ref [1] chapter 9.
 The formula 9-4.10 is the one being used. The Formula is given in non-SI units, the follwong onversion constants were used to

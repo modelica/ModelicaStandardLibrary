@@ -39,11 +39,11 @@ the following examples are present.
     (result,nextIndex) := expression(string, 1);
     Strings.scanNoToken(string,nextIndex);
     annotation (preferedView="info",Documentation(info="<html>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4>Syntax</h4>
 <blockquote><pre>
 result = <b>calculator</b>(expression);
 </pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4>Description</h4>
 <p>
 This function demonstrates how a simple expression calculator
 can be implemented in form of a recursive decent parser
@@ -63,7 +63,7 @@ The following operations are supported (pi=3.14.. is a predefined constant):
    sqrt(expression)
    pi
 </pre>
-<h3><font color=\"#008000\">Example</font></h3>
+<h4>Example</h4>
 <blockquote><pre>
   calculator(\"2+3*(4-1)\");  // returns 11
   calculator(\"sin(pi/6)\");  // returns 0.5
@@ -204,12 +204,12 @@ The following operations are supported (pi=3.14.. is a predefined constant):
       end if;
     end while;
     annotation (preferedView="info",Documentation(info="<html>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4>Syntax</h4>
 <blockquote><pre>
              result = <b>expression</b>(string);
 (result, nextIndex) = <b>expression</b>(string, startIndex=1, message=\"\");
 </pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4>Description</h4>
 <p>
 This function is nearly the same as Examples.<b>calculator</b>.
 The essential difference is that function \"expression\" might be
@@ -269,7 +269,7 @@ This function parses the following grammaer
 Note, in Examples.readRealParameter it is shown, how the expression
 function can be used as part of another scan operation.
 </p>
-<h3><font color=\"#008000\">Example</font></h3>
+<h4>Example</h4>
 <blockquote><pre>
   expression(\"2+3*(4-1)\");  // returns 11
   expression(\"sin(pi/6)\");  // returns 0.5
@@ -328,11 +328,11 @@ function can be used as part of another scan operation.
        Streams.error("Parameter \"" + name + "\" not found in file \"" + fileName + "\"");
     end if;
     annotation (preferedView="info",Documentation(info="<html>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4>Syntax</h4>
 <blockquote><pre>
 result = <b>readRealParameter</b>(fileName, name);
 </pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4>Description</h4>
 <p>
 This function demonstrates how a function can be implemented
 that reads the value of a parameter from file. The function
@@ -350,7 +350,7 @@ performs the following actions:
 <li> The result of the expression evaluation is returned as
      the value of the parameter \"name\". </li>
 </ol>
-<h3><font color=\"#008000\">Example</font></h3>
+<h4>Example</h4>
 <p>
 On file \"test.txt\" the following lines might be present:
 </p>

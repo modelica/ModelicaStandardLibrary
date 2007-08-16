@@ -600,7 +600,7 @@ step \"emptyTanks\" is active. Otherwise, valve2 is closed.
      Changed all the references to the block connectors and the Logical library
      correspondingly.</li>
 </ul>
-<h3><font color=\"#008000\">Version 0.86, 2004-06-20</font></h3>
+<h4>Version 0.86, 2004-06-20</h4>
 <ul>
 <li> New components \"Alternative\" and \"Parallel\" for alternative and
      parallel execution paths.</li>
