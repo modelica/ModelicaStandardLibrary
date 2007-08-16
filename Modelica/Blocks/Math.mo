@@ -1350,7 +1350,7 @@ This blocks computes the output <b>y</b> (element-wise)
 as <i>square root</i> of the input <b>u</b>:
 </p>
 <pre>
-    y = sqrt( u );
+    y = <b>sqrt</b>( u );
 </pre>
 <p>
 All elements of the input vector shall be zero or positive.
