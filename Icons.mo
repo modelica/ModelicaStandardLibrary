@@ -1,3 +1,4 @@
+within Modelica;
 package Icons "Icon definitions" 
   
   annotation(preferedView="info",
@@ -61,8 +62,9 @@ package Icons "Icon definitions"
 This package contains definitions for the graphical layout of
 components which may be used in different libraries.
 The icons can be utilized by inheriting them in the desired class
-using \"extends\".
+using \"extends\" or by directly copying the \"icon\" layer.
 </p>
+
 <dl>
 <dt><b>Main Author:</b>
 <dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a><br>
@@ -130,7 +132,12 @@ and the accompanying <b>disclaimer</b>
               fillColor=3)),
         Polygon(points=[80, -90; 90, -80; 90, 90; 80, 80; 80, -90], style(
               fillColor=3)),
-        Text(extent=[-80, 70; 60, -70], string="Info")));
+        Text(extent=[-80, 70; 60, -70], string="Info")), 
+      Documentation(info="<html>
+<p>
+This icon is designed for an <b>information</b> class.
+</p>
+</html>"));
   equation 
     
   end Info;
@@ -154,7 +161,12 @@ and the accompanying <b>disclaimer</b>
         Text(
           extent=[-120, 122; 120, 73],
           string="%name",
-          style(color=1))));
+          style(color=1))), 
+      Documentation(info="<html>
+<p>
+This icon is designed for a <b>library</b>.
+</p>
+</html>"));
   end Library;
   
   partial package Library2 
@@ -180,7 +192,13 @@ and the accompanying <b>disclaimer</b>
           style(
             color=9,
             fillColor=0,
-            fillPattern=1))));
+            fillPattern=1))), 
+      Documentation(info="<html>
+<p>
+This icon is designed for a <b>package</b> where a package
+specific graphic is additionally included in the icon.
+</p>
+</html>"));
   end Library2;
   
   partial model Example "Icon for an example model" 
@@ -200,7 +218,13 @@ and the accompanying <b>disclaimer</b>
         Text(
           extent=[-120, 132; 120, 73],
           string="%name",
-          style(color=1))));
+          style(color=1))), 
+      Documentation(info="<html>
+<p>
+This icon is designed for an <b>Example package</b>,
+i.e. a package containing executable demo models.
+</p>
+</html>"));
   equation 
     
   end Example;
@@ -212,7 +236,11 @@ and the accompanying <b>disclaimer</b>
         Text(
           extent=[-100,100; 100,-100],
           style(color=45),
-          string="f")));
+          string="f")), Documentation(info="<html>
+<p>
+This icon is designed for a <b>function</b>
+</p>
+</html>"));
   end Function;
   
   partial record Record "Icon for a record" 
@@ -223,7 +251,11 @@ and the accompanying <b>disclaimer</b>
         Text(extent=[-127, 115; 127, 55], string="%name"),
         Line(points=[-100, -50; 100, -50], style(color=0)),
         Line(points=[-100, 0; 100, 0], style(color=0)),
-        Line(points=[0, 50; 0, -100], style(color=0))));
+        Line(points=[0, 50; 0, -100], style(color=0))), Documentation(info="<html>
+<p>
+This icon is designed for a <b>record</b>
+</p>
+</html>"));
   end Record;
   
   partial class Enumeration "Icon for an enumeration (emulated by a package)" 
@@ -234,7 +266,12 @@ and the accompanying <b>disclaimer</b>
         Text(
           extent=[-100,100; 100,-100],
           style(color=85, fillColor=88),
-          string="e")));
+          string="e")), Documentation(info="<html>
+<p>
+This icon is designed for an <b>enumeration</b>
+(that is emulated by a package).
+</p>
+</html>"));
   end Enumeration;
   
   type TypeReal "Icon for a Real type" 
@@ -250,7 +287,11 @@ and the accompanying <b>disclaimer</b>
             rgbcolor={0,0,0},
             fillColor=8,
             rgbfillColor={181,181,181}),
-          string="R")));
+          string="R")), Documentation(info="<html>
+<p>
+This icon is designed for a <b>Real</b> type.
+</p>
+</html>"));
   end TypeReal;
   
   type TypeInteger "Icon for an Integer type" 
@@ -266,7 +307,11 @@ and the accompanying <b>disclaimer</b>
             rgbcolor={0,0,0},
             fillColor=8,
             rgbfillColor={181,181,181}),
-          string="I")));
+          string="I")), Documentation(info="<html>
+<p>
+This icon is designed for an <b>Integer</b> type.
+</p>
+</html>"));
   end TypeInteger;
   
   type TypeBoolean "Icon for a Boolean type" 
@@ -282,7 +327,11 @@ and the accompanying <b>disclaimer</b>
             rgbcolor={0,0,0},
             fillColor=8,
             rgbfillColor={181,181,181}),
-          string="B")));
+          string="B")), Documentation(info="<html>
+<p>
+This icon is designed for a <b>Boolean</b> type.
+</p>
+</html>"));
   end TypeBoolean;
   
   type TypeString "Icon for a String type" 
@@ -298,7 +347,11 @@ and the accompanying <b>disclaimer</b>
             rgbcolor={0,0,0},
             fillColor=8,
             rgbfillColor={181,181,181}),
-          string="S")));
+          string="S")), Documentation(info="<html>
+<p>
+This icon is designed for a <b>String</b> type.
+</p>
+</html>"));
   end TypeString;
   
   partial model TranslationalSensor 
@@ -335,7 +388,12 @@ and the accompanying <b>disclaimer</b>
         Line(points=[-10, -40; -10, -60], style(color=0)),
         Line(points=[10, -40; 10, -60], style(color=0)),
         Line(points=[30, -40; 30, -60], style(color=0)),
-        Line(points=[50, -40; 50, -60], style(color=0))));
+        Line(points=[50, -40; 50, -60], style(color=0))), 
+      Documentation(info="<html>
+<p>
+This icon is designed for a <b>translational sensor</b> model.
+</p>
+</html>"));
   equation 
     
   end TranslationalSensor;
@@ -380,7 +438,12 @@ and the accompanying <b>disclaimer</b>
             color=0,
             gradient=0,
             fillColor=0,
-            fillPattern=1))));
+            fillPattern=1))), 
+      Documentation(info="<html>
+<p>
+This icon is designed for a <b>rotational sensor</b> model.
+</p>
+</html>"));
   equation 
     
   end RotationalSensor;
@@ -420,7 +483,12 @@ and the accompanying <b>disclaimer</b>
                 60, -100; -60, -100; -60, -90], style(
             color=0,
             fillColor=0,
-            fillPattern=1))));
+            fillPattern=1))), 
+      Documentation(info="<html>
+<p>
+This icon is designed for a <b>gearbox</b> model.
+</p>
+</html>"));
   equation 
     
   end GearIcon;
@@ -444,7 +512,12 @@ and the accompanying <b>disclaimer</b>
         Rectangle(extent=[30, 10; 90, -10], style(
             gradient=2,
             fillColor=8,
-            fillPattern=1))));
+            fillPattern=1))), 
+      Documentation(info="<html>
+<p>
+This icon is designed for an <b>electrical motor</b> model.
+</p>
+</html>"));
   equation 
     
   end MotorIcon;
@@ -521,7 +594,12 @@ and the accompanying <b>disclaimer</b>
         Text(
           extent=[-150, 70; 150, 40],
           string="%name",
-          style(color=0))));
+          style(color=0))), 
+      Documentation(info="<html>
+<p>
+This icon is designed for a <b>signal bus</b> connector.
+</p>
+</html>"));
     
   end SignalBus;
   
@@ -582,7 +660,12 @@ and the accompanying <b>disclaimer</b>
         Text(
           extent=[-150, 70; 150, 40],
           string="%name",
-          style(color=0))));
+          style(color=0))), 
+      Documentation(info="<html>
+<p>
+This icon is designed for a <b>sub-bus</b> in a signal connector.
+</p>
+</html>"));
     
   end SignalSubBus;
 end Icons;

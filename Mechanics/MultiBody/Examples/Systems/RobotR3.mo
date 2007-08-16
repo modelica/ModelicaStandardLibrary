@@ -1,3 +1,4 @@
+within Modelica.Mechanics.MultiBody.Examples.Systems;
 package RobotR3 
   "Library to demonstrate robot system models based on the Manutec r3 robot" 
   
@@ -364,7 +365,16 @@ to plot variables.
       extends Modelica.Icons.SignalSubBus;
       
       annotation (defaultComponentPrefixes="protected",
-                  Icon(Rectangle(extent=[-20, 2; 22, -2], style(rgbcolor={255,204,51}, thickness=2))));
+                  Icon(Rectangle(extent=[-20, 2; 22, -2], style(rgbcolor={255,204,51}, thickness=2))), 
+        Documentation(info="<html>
+<p>
+Signal bus that is used to communicate all signals for <b>one</b> axis.
+This is an expandable connector which is \"empty\". 
+The actual signal content is defined by connecting to an instance
+of this connector.
+</p>
+
+</html>"));
     end AxisControlBus;
     
     expandable connector ControlBus "Data bus for all axes of robot" 
@@ -372,7 +382,16 @@ to plot variables.
       
       annotation (
         Icon(Rectangle(extent=[-20, 2; 22, -2], style(rgbcolor={255,204,51}, thickness=2))),
-        Diagram);
+        Diagram, 
+        Documentation(info="<html>
+<p>
+Signal bus that is used to communicate <b>all signals</b> of the robot.
+This is an expandable connector which is \"empty\". 
+The actual signal content is defined by connecting to an instance
+of this connector. It consists of one instance of the \"AxisControlBus\"
+for every axis.
+</p>
+</html>"));
     end ControlBus;
     
     model PathPlanning1 
@@ -1156,7 +1175,7 @@ produced by the motor).
             4.28626e-016; -97,4.28626e-016], style(color=74, rgbcolor={0,0,127}));
     end Motor;
     
-    model Controller 
+    model Controller "P-PI cascade controller for one axis" 
       parameter Real kp=10 "gain of position controller";
       parameter Real ks=1 "gain of speed controller";
       parameter SI.Time Ts=0.01 
@@ -1195,7 +1214,17 @@ produced by the motor).
           x=0.01,
           y=0.01,
           width=0.84,
-          height=0.76));
+          height=0.76), 
+        Documentation(info="<html>
+<p>
+This controller has an inner PI-controller to control the motor speed,
+and an outer P-controller to control the motor position of one axis. 
+The reference signals are with respect to the gear-output, and the
+gear ratio is used in the controller to determine the motor
+reference signals. All signals are communicated via the 
+\"axisControlBus\".
+</p>
+</html>"));
       
       Modelica.Blocks.Math.Gain gain1(k=ratio) 
         annotation (extent=[-70,0; -50,20]);

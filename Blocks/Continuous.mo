@@ -1,3 +1,4 @@
+within Modelica.Blocks;
 package Continuous "Continuous control blocks with internal states" 
   
   import Modelica.Blocks.Interfaces;
@@ -1287,8 +1288,7 @@ to use <b>limitAtInit</b> = <b>false</b>.
         y=0.09,
         width=0.58,
         height=0.77),
-      Documentation(info="
-<HTML>
+      Documentation(info="<html>
 <p>
 This block defines the transfer function between the input
 u and the output y
@@ -1317,11 +1317,8 @@ results in the following transfer function:
    y = --------- * u
          s + 3
 </pre>
-<p><b>Release Notes:</b></p>
-<ul>
- 
-</HTML>
-"),   Icon(
+</html>"),
+      Icon(
         Line(points=[-80, 0; 80, 0]),
         Text(extent=[-90, 10; 90, 90], string="b(s)"),
         Text(extent=[-90, -10; 90, -90], string="a(s)")),

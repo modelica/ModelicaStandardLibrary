@@ -1,3 +1,4 @@
+within Modelica.Mechanics;
 package Translational 
   "Library to model 1-dimensional, translational mechanical systems" 
   package Examples "Demonstration examples of the components of this package" 
