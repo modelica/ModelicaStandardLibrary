@@ -732,7 +732,9 @@ Example:
 </p>
 <pre>
    parameter: <b>K</b> = [0.12 2; 3 1.5]
+
    results in the following equations:
+
      | y[1] |     | 0.12  2.00 |   | u[1] |
      |      |  =  |            | * |      |
      | y[2] |     | 3.00  1.50 |   | u[2] |
@@ -790,7 +792,9 @@ Example:
 </p>
 <pre>
      parameter:   nin = 3;
+
   results in the following equations:
+
      y = u[1] + u[2] + u[3];
 </pre>
 
@@ -836,7 +840,9 @@ Example:
 </p>
 <pre>
      parameter:   n = 2
+
   results in the following equations:
+
      y = u1 - u2
 </pre>
 
@@ -1029,7 +1035,9 @@ Example:
 </p>
 <pre>
      parameter:   k1= +2, k2= -3, k3=1;
+
   results in the following equations:
+
      y = 2 * u1 - 3 * u2 + u3;
 </pre>
  
@@ -1227,10 +1235,9 @@ the two inputs <b>u1</b> and <b>u2</b>:
             Text(extent=[52, -3; 72, -23], string="1"),
             Text(extent=[-86, -1; -66, -21], string="-1"),
             Text(extent=[-28, 79; -8, 59], string="1")),
-          Documentation(info="
-<HTML>
+          Documentation(info="<HTML>
 <p>
-This blocks computes the output <b>y</b> (element-wise)
+This blocks computes the output <b>y</b>
 as <i>absolute value</i> of the input <b>u</b>:
 </p>
 <pre>
@@ -1295,10 +1302,9 @@ as <i>absolute value</i> of the input <b>u</b>:
               style(color=9)),
             Text(extent=[-25, 86; -5, 70], string="1"),
             Text(extent=[5, -72; 25, -88], string="-1")),
-          Documentation(info="
-<HTML>
+          Documentation(info="<HTML>
 <p>
-This blocks computes the output <b>y</b> (element-wise)
+This blocks computes the output <b>y</b>
 as <b>sign</b> of the input <b>u</b>:
 </p>
 <pre>
@@ -1356,10 +1362,9 @@ as <b>sign</b> of the input <b>u</b>:
               extent=[60, -52; 84, -72],
               string="u",
               style(color=9))),
-          Documentation(info="
-<HTML>
+          Documentation(info="<HTML>
 <p>
-This blocks computes the output <b>y</b> (element-wise)
+This blocks computes the output <b>y</b>
 as <i>square root</i> of the input <b>u</b>:
 </p>
 <pre>
@@ -1431,15 +1436,18 @@ Otherwise an error occurs.
               extent=[76, -10; 98, -30],
               string="u",
               style(color=9))),
-          Documentation(info="
-<HTML>
+          Documentation(info="<HTML>
 <p>
-This blocks computes the output <b>y</b> (element-wise)
+This blocks computes the output <b>y</b>
 as <b>sine</b> of the input <b>u</b>:
 </p>
 <pre>
     y = <b>sin</b>( u );
 </pre>
+
+<p>
+<img src=\"../Images/Math/sin.png\">
+</p>
 
 </HTML>
 "),       Coordsys(
@@ -1499,15 +1507,18 @@ as <b>sine</b> of the input <b>u</b>:
               extent=[74, -4; 98, -24],
               string="u",
               style(color=9))),
-          Documentation(info="
-<HTML>
+          Documentation(info="<HTML>
 <p>
-This blocks computes the output <b>y</b> (element-wise)
+This blocks computes the output <b>y</b>
 as <b>cos</b> of the input <b>u</b>:
 </p>
 <pre>
     y = <b>cos</b>( u );
 </pre>
+
+<p>
+<img src=\"../Images/Math/cos.png\">
+</p>
 
 </HTML>
 "),       Coordsys(
@@ -1568,15 +1579,18 @@ as <b>cos</b> of the input <b>u</b>:
               extent=[70, -6; 94, -26],
               string="u",
               style(color=9))),
-          Documentation(info="
-<HTML>
+          Documentation(info="<HTML>
 <p>
-This blocks computes the output <b>y</b> (element-wise)
+This blocks computes the output <b>y</b>
 as <b>tan</b> of the input <b>u</b>:
 </p>
 <pre>
     y = <b>tan</b>( u );
 </pre>
+
+<p>
+<img src=\"../Images/Math/tan.png\">
+</p>
 
 </HTML>
 "),       Coordsys(
@@ -1633,10 +1647,9 @@ as <b>tan</b> of the input <b>u</b>:
               extent=[74, -4; 100, -26],
               string="u",
               style(color=9))),
-          Documentation(info="
-<HTML>
+          Documentation(info="<HTML>
 <p>
-This blocks computes the output <b>y</b> (element-wise) as the
+This blocks computes the output <b>y</b> as the
 <i>sine-inverse</i> of the input <b>u</b>:
 </p>
 <pre>
@@ -1646,6 +1659,10 @@ This blocks computes the output <b>y</b> (element-wise) as the
 The absolute values of the elements of the input <b>u</b> need to
 be less or equal to one (<b>abs</b>( u ) <= 1).
 Otherwise an error occurs.
+</p>
+
+<p>
+<img src=\"../Images/Math/asin.png\">
 </p>
 
 </HTML>
@@ -1705,10 +1722,9 @@ Otherwise an error occurs.
               extent=[76, -84; 102, -102],
               string="u",
               style(color=9))),
-          Documentation(info="
-<HTML>
+          Documentation(info="<HTML>
 <p>
-This blocks computes the output <b>y</b> (element-wise) as the
+This blocks computes the output <b>y</b> as the
 <i>cosine-inverse</i> of the input <b>u</b>:
 </p>
 <pre>
@@ -1718,6 +1734,10 @@ This blocks computes the output <b>y</b> (element-wise) as the
 The absolute values of the elements of the input <b>u</b> need to
 be less or equal to one (<b>abs</b>( u ) <= 1).
 Otherwise an error occurs.
+</p>
+
+<p>
+<img src=\"../Images/Math/acos.png\">
 </p>
 
 </HTML>
@@ -1777,15 +1797,18 @@ Otherwise an error occurs.
               extent=[66, -8; 94, -28],
               string="u",
               style(color=9))),
-          Documentation(info="
-<HTML>
+          Documentation(info="<HTML>
 <p>
-This blocks computes the output <b>y</b> (element-wise) as the
+This blocks computes the output <b>y</b> as the
 <i>tangent-inverse</i> of the input <b>u</b>:
 </p>
 <pre>
     y= <b>atan</b>( u );
 </pre>
+
+<p>
+<img src=\"../Images/Math/atan.png\">
+</p>
 
 </HTML>
 "),       Coordsys(
@@ -1853,10 +1876,9 @@ This blocks computes the output <b>y</b> (element-wise) as the
               extent=[48, 0; 100, -34],
               string="u1 / u2",
               style(color=9))),
-          Documentation(info="
-<HTML>
+          Documentation(info="<HTML>
 <p>
-This blocks computes the output <b>y</b> (element-wise) as the
+This blocks computes the output <b>y</b> as the
 <i>tangent-inverse</i> of the input <b>u1</b> divided by
 input <b>u2</b>:
 </p>
@@ -1869,6 +1891,10 @@ u1 and u2 shall not be zero at the same time instant.
 the solution in the range -180 deg &le; y &le; 180 deg, whereas
 block <b>Atan</b> gives a solution in the range
 -90 deg &le; y &le; 90 deg.
+</p>
+
+<p>
+<img src=\"../Images/Math/atan2.png\">
 </p>
 
 </HTML>
@@ -1928,15 +1954,18 @@ block <b>Atan</b> gives a solution in the range
               extent=[72, -6; 96, -26],
               string="u",
               style(color=9))),
-          Documentation(info="
-<HTML>
+          Documentation(info="<HTML>
 <p>
-This blocks computes the output <b>y</b> (element-wise) as the
+This blocks computes the output <b>y</b> as the
 <i>hyperbolic sine</i> of the input <b>u</b>:
 </p>
 <pre>
     y = <b>sinh</b>( u );
 </pre>
+
+<p>
+<img src=\"../Images/Math/sinh.png\">
+</p>
 
 </HTML>
 "),       Coordsys(
@@ -1999,15 +2028,18 @@ This blocks computes the output <b>y</b> (element-wise) as the
               extent=[78, -54; 100, -74],
               string="u",
               style(color=9))),
-          Documentation(info="
-<HTML>
+          Documentation(info="<HTML>
 <p>
-This blocks computes the output <b>y</b> (element-wise) as the
+This blocks computes the output <b>y</b> as the
 <i>hyperbolic cosine</i> of the input <b>u</b>:
 </p>
 <pre>
     y = <b>cosh</b>( u );
 </pre>
+
+<p>
+<img src=\"../Images/Math/cosh.png\">
+</p>
 
 </HTML>
 "),       Coordsys(
@@ -2066,15 +2098,18 @@ This blocks computes the output <b>y</b> (element-wise) as the
               extent=[72, -8; 98, -26],
               string="u",
               style(color=9))),
-          Documentation(info="
-<HTML>
+          Documentation(info="<HTML>
 <p>
-This blocks computes the output <b>y</b> (element-wise) as the
+This blocks computes the output <b>y</b> as the
 <i>hyperbolic tangent</i> of the input <b>u</b>:
 </p>
 <pre>
     y = <b>tanh</b>( u );
 </pre>
+
+<p>
+<img src=\"../Images/Math/tanh.png\">
+</p>
 
 </HTML>
 "),       Coordsys(
@@ -2131,15 +2166,18 @@ This blocks computes the output <b>y</b> (element-wise) as the
               extent=[66, -52; 96, -72],
               string="u",
               style(color=9))),
-          Documentation(info="
-<HTML>
+          Documentation(info="<HTML>
 <p>
-This blocks computes the output <b>y</b> (element-wise) as the
+This blocks computes the output <b>y</b> as the
 <i>exponential</i> (of base e) of the input <b>u</b>:
 </p>
 <pre>
     y = <b>exp</b>( u );
 </pre>
+
+<p>
+<img src=\"../Images/Math/exp.png\">
+</p>
 
 </HTML>
 "),       Coordsys(
@@ -2200,10 +2238,9 @@ This blocks computes the output <b>y</b> (element-wise) as the
               extent=[68, 28; 94, 8],
               string="u",
               style(color=9))),
-          Documentation(info="
-<HTML>
+          Documentation(info="<HTML>
 <p>
-This blocks computes the output <b>y</b> (element-wise) as the
+This blocks computes the output <b>y</b> as the
 <i>natural (base e) logarithm</i> of the input <b>u</b>:
 </p>
 <pre>
@@ -2212,6 +2249,10 @@ This blocks computes the output <b>y</b> (element-wise) as the
 <p>
 An error occurs if the elements of the input <b>u</b> are
 zero or negative.
+</p>
+
+<p>
+<img src=\"../Images/Math/log.png\">
 </p>
 
 </HTML>
@@ -2273,10 +2314,9 @@ zero or negative.
               extent=[62, 30; 90, 10],
               string="u",
               style(color=9))),
-          Documentation(info="
-<HTML>
+          Documentation(info="<HTML>
 <p>
-This blocks computes the output <b>y</b> (element-wise) as the
+This blocks computes the output <b>y</b> as the
 <i>base 10 logarithm</i> of the input <b>u</b>:
 </p>
 <pre>
@@ -2285,6 +2325,10 @@ This blocks computes the output <b>y</b> (element-wise) as the
 <p>
 An error occurs if the elements of the input <b>u</b> are
 zero or negative.
+</p>
+
+<p>
+<img src=\"../Images/Math/log10.png\">
 </p>
 
 </HTML>

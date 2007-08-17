@@ -4347,23 +4347,54 @@ function sin "Sine"
         string="sin",
         style(color=8))),
     Diagram(
-      Line(points=[-100, 0; 84, 0], style(color=8)),
-      Polygon(points=[100, 0; 84, 6; 84, -6; 100, 0], style(color=8, fillColor=
-              8)),
+      Line(points=[-100, 0; 84, 0], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          fillColor=10, 
+          rgbfillColor={95,95,95}, 
+          fillPattern=1)),
+      Polygon(points=[100, 0; 84, 6; 84, -6; 100, 0], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          fillColor=10, 
+          rgbfillColor={95,95,95}, 
+          fillPattern=1)),
       Line(points=[-80, 0; -68.7, 34.2; -61.5, 53.1; -55.1, 66.4; -49.4, 74.6;
             -43.8, 79.1; -38.2, 79.8; -32.6, 76.6; -26.9, 69.7; -21.3, 59.4; -
             14.9, 44.1; -6.83, 21.2; 10.1, -30.8; 17.3, -50.2; 23.7, -64.2;
             29.3, -73.1; 35, -78.4; 40.6, -80; 46.2, -77.6; 51.9, -71.5; 57.5,
-            -61.9; 63.9, -47.2; 72, -24.8; 80, 0], style(color=0)),
+            -61.9; 63.9, -47.2; 72, -24.8; 80, 0], style(
+          color=3, 
+          rgbcolor={0,0,255}, 
+          thickness=2)),
       Text(extent=[-105, 72; -85, 88], string="1"),
       Text(extent=[70, 25; 90, 5], string="2*pi"),
-      Text(extent=[-105, -72; -85, -88], string="-1"),
+      Text(extent=[-103,-72; -83,-88],   string="-1"),
       Text(
-        extent=[92, -2; 112, -22],
-        string="u",
-        style(color=9))),
+        extent=[82,-6; 102,-26],
+        string="u", 
+        style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          fillColor=10, 
+          rgbfillColor={95,95,95}, 
+          fillPattern=1)), 
+      Line(points=[-80,80; -28,80], style(
+          color=8, 
+          rgbcolor={175,175,175}, 
+          smooth=0)), 
+      Line(points=[-80,-80; 50,-80], style(
+          color=8, 
+          rgbcolor={175,175,175}, 
+          smooth=0))),
     Documentation(info="<html>
- 
+<p>
+This function returns y = sin(u), with -&infin; &lt; u &lt; &infin;:
+</p>
+
+<p>
+<img src=\"../Images/Math/sin.png\">
+</p>
 </html>"));
 external "C" y = sin(u);
 end sin;
@@ -4397,23 +4428,50 @@ function cos "Cosine"
         string="cos",
         style(color=8))),
     Diagram(
-      Text(extent=[-105, 72; -85, 88], string="1"),
-      Text(extent=[-105, -72; -85, -88], string="-1"),
+      Text(extent=[-103,72; -83,88],   string="1"),
+      Text(extent=[-103,-72; -83,-88],   string="-1"),
       Text(extent=[70, 25; 90, 5], string="2*pi"),
-      Line(points=[-100, 0; 84, 0], style(color=8)),
-      Polygon(points=[100, 0; 84, 6; 84, -6; 100, 0], style(color=8, fillColor=
-              8)),
+      Line(points=[-100, 0; 84, 0], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          fillColor=10, 
+          rgbfillColor={95,95,95}, 
+          fillPattern=1)),
+      Polygon(points=[98,0; 82,6; 82,-6; 98,0], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          fillColor=10, 
+          rgbfillColor={95,95,95}, 
+          fillPattern=1)),
       Line(points=[-80, 80; -74.4, 78.1; -68.7, 72.3; -63.1, 63; -56.7, 48.7; -
             48.6, 26.6; -29.3, -32.5; -22.1, -51.7; -15.7, -65.3; -10.1, -73.8;
               -4.42, -78.8; 1.21, -79.9; 6.83, -77.1; 12.5, -70.6; 18.1, -60.6;
               24.5, -45.7; 32.6, -23; 50.3, 31.3; 57.5, 50.7; 63.9, 64.6; 69.5,
-              73.4; 75.2, 78.6; 80, 80], style(color=0)),
+              73.4; 75.2, 78.6; 80, 80], style(
+          color=3, 
+          rgbcolor={0,0,255}, 
+          thickness=2)),
       Text(
-        extent=[92, -2; 112, -22],
-        string="u",
-        style(color=9))),
+        extent=[78,-6; 98,-26],
+        string="u", 
+        style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          fillColor=10, 
+          rgbfillColor={95,95,95}, 
+          fillPattern=1)), 
+      Line(points=[-80,-80; 18,-80], style(
+          color=8, 
+          rgbcolor={175,175,175}, 
+          smooth=0))),
     Documentation(info="<html>
- 
+<p>
+This function returns y = cos(u), with -&infin; &lt; u &lt; &infin;:
+</p>
+
+<p>
+<img src=\"../Images/Math/cos.png\">
+</p>
 </html>"));
 external "C" y = cos(u);
 end cos;
@@ -4448,20 +4506,52 @@ function tan "Tangent (u shall not be -pi/2, pi/2, 3*pi/2, ...)"
     Diagram(
       Text(extent=[-37, -72; -17, -88], string="-5.8"),
       Text(extent=[-33, 86; -13, 70], string=" 5.8"),
-      Text(extent=[70, 25; 90, 5], string="1.4"),
-      Line(points=[-100, 0; 84, 0], style(color=8)),
-      Polygon(points=[100, 0; 84, 6; 84, -6; 100, 0], style(color=8, fillColor=
-              8)),
+      Text(extent=[68,-13; 88,-33],string="1.4"),
+      Line(points=[-100, 0; 84, 0], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          fillColor=10, 
+          rgbfillColor={95,95,95}, 
+          fillPattern=1)),
+      Polygon(points=[98,0; 82,6; 82,-6; 98,0], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          fillColor=10, 
+          rgbfillColor={95,95,95}, 
+          fillPattern=1)),
       Line(points=[-80, -80; -78.4, -68.4; -76.8, -59.7; -74.4, -50; -71.2, -
             40.9; -67.1, -33; -60.7, -24.8; -51.1, -17.2; -35.8, -9.98; -4.42,
             -1.07; 33.4, 9.12; 49.4, 16.2; 59.1, 23.2; 65.5, 30.6; 70.4, 39.1;
-            73.6, 47.4; 76, 56.1; 77.6, 63.8; 80, 80], style(color=0)),
+            73.6, 47.4; 76, 56.1; 77.6, 63.8; 80, 80], style(
+          color=3, 
+          rgbcolor={0,0,255}, 
+          thickness=2)),
       Text(
-        extent=[92, -2; 112, -22],
-        string="u",
-        style(color=9))),
+        extent=[82,22; 102,2],
+        string="u", 
+        style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          fillColor=10, 
+          rgbfillColor={95,95,95}, 
+          fillPattern=1)), 
+      Line(points=[0,80; 86,80], style(
+          color=8, 
+          rgbcolor={175,175,175}, 
+          smooth=0)), 
+      Line(points=[80,88; 80,-16], style(
+          color=8, 
+          rgbcolor={175,175,175}, 
+          smooth=0))),
     Documentation(info="<html>
- 
+<p>
+This function returns y = tan(u), with -&infin; &lt; u &lt; &infin; 
+(if u is a multiple of (2n-1)*pi/2, y = tan(u) is +/- infinity).
+</p>
+
+<p>
+<img src=\"../Images/Math/tan.png\">
+</p>
 </html>"));
 external "C" y = tan(u);
 end tan;
@@ -4495,20 +4585,51 @@ function asin "Inverse sine (-1 <= u <= 1)"
     Diagram(
       Text(extent=[-40, -72; -15, -88], string="-pi/2"),
       Text(extent=[-38, 88; -13, 72], string=" pi/2"),
-      Text(extent=[70, 25; 90, 5], string="+1"),
+      Text(extent=[68,-9; 88,-29], string="+1"),
       Text(extent=[-90, 21; -70, 1], string="-1"),
-      Line(points=[-100, 0; 84, 0], style(color=8)),
-      Polygon(points=[100, 0; 84, 6; 84, -6; 100, 0], style(color=8, fillColor=
-              8)),
+      Line(points=[-100, 0; 84, 0], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          fillColor=10, 
+          rgbfillColor={95,95,95}, 
+          fillPattern=1)),
+      Polygon(points=[98,0; 82,6; 82,-6; 98,0], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          fillColor=10, 
+          rgbfillColor={95,95,95}, 
+          fillPattern=1)),
       Line(points=[-80, -80; -79.2, -72.8; -77.6, -67.5; -73.6, -59.4; -66.3, -
             49.8; -53.5, -37.3; -30.2, -19.7; 37.4, 24.8; 57.5, 40.8; 68.7,
-            52.7; 75.2, 62.2; 77.6, 67.5; 80, 80], style(color=0)),
+            52.7; 75.2, 62.2; 77.6, 67.5; 80, 80], style(
+          color=3, 
+          rgbcolor={0,0,255}, 
+          thickness=2)),
       Text(
-        extent=[92, -2; 112, -22],
-        string="u",
-        style(color=9))),
+        extent=[82,24; 102,4],
+        string="u", 
+        style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          fillColor=10, 
+          rgbfillColor={95,95,95}, 
+          fillPattern=1)), 
+      Line(points=[0,80; 86,80], style(
+          color=8, 
+          rgbcolor={175,175,175}, 
+          smooth=0)), 
+      Line(points=[80,86; 80,-10], style(
+          color=8, 
+          rgbcolor={175,175,175}, 
+          smooth=0))),
     Documentation(info="<html>
- 
+<p>
+This function returns y = asin(u), with -1 &le; u &le; +1:
+</p>
+
+<p>
+<img src=\"../Images/Math/asin.png\">
+</p>
 </html>"));
 external "C" y = asin(u);
 end asin;
@@ -4541,21 +4662,52 @@ function acos "Inverse cosine (-1 <= u <= 1)"
         string="acos",
         style(color=8))),
     Diagram(
-      Line(points=[-100, -80; 84, -80], style(color=8)),
-      Polygon(points=[100, -80; 84, -74; 84, -86; 100, -80], style(color=8,
-            fillColor=8)),
+      Line(points=[-100, -80; 84, -80], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          fillColor=10, 
+          rgbfillColor={95,95,95}, 
+          fillPattern=1)),
+      Polygon(points=[98,-80; 82,-74; 82,-86; 98,-80], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          fillColor=10, 
+          rgbfillColor={95,95,95}, 
+          fillPattern=1)),
       Line(points=[-80, 80; -79.2, 72.8; -77.6, 67.5; -73.6, 59.4; -66.3, 49.8;
               -53.5, 37.3; -30.2, 19.7; 37.4, -24.8; 57.5, -40.8; 68.7, -52.7;
-            75.2, -62.2; 77.6, -67.5; 80, -80], style(color=0)),
+            75.2, -62.2; 77.6, -67.5; 80, -80], style(
+          color=3, 
+          rgbcolor={0,0,255}, 
+          thickness=2)),
       Text(extent=[-30, 88; -5, 72], string=" pi"),
       Text(extent=[-94, -57; -74, -77], string="-1"),
-      Text(extent=[80, -45; 100, -65], string="+1"),
+      Text(extent=[60,-81; 80,-101],   string="+1"),
       Text(
-        extent=[90, -82; 110, -102],
-        string="u",
-        style(color=9))),
+        extent=[82,-56; 102,-76],
+        string="u", 
+        style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          fillColor=10, 
+          rgbfillColor={95,95,95}, 
+          fillPattern=1)), 
+      Line(points=[-2,80; 84,80], style(
+          color=8, 
+          rgbcolor={175,175,175}, 
+          smooth=0)), 
+      Line(points=[80,82; 80,-86], style(
+          color=8, 
+          rgbcolor={175,175,175}, 
+          smooth=0))),
     Documentation(info="<html>
-  
+<p>
+This function returns y = acos(u), with -1 &le; u &le; +1:
+</p>
+
+<p>
+<img src=\"../Images/Math/acos.png\">
+</p>
 </html>"));
 external "C" y = acos(u);
 end acos;
@@ -4569,7 +4721,7 @@ function atan "Inverse tangent"
   annotation (
     Coordsys(
       extent=[-100, -100; 100, 100],
-      grid=[2, 2],
+      grid=[1,1],
       component=[20, 20]),
     Window(
       x=0.36,
@@ -4588,23 +4740,48 @@ function atan "Inverse tangent"
         string="atan",
         style(color=8))),
     Diagram(
-      Line(points=[-100, 0; 84, 0], style(color=8)),
-      Polygon(points=[100, 0; 84, 6; 84, -6; 100, 0], style(color=8, fillColor=
-              8)),
-      Line(points=[-80, -80; -52.7, -75.2; -37.4, -69.7; -26.9, -63; -19.7, -
-            55.2; -14.1, -45.8; -10.1, -36.4; -6.03, -23.9; -1.21, -5.06; 5.23,
-              21; 9.25, 34.1; 13.3, 44.2; 18.1, 52.9; 24.5, 60.8; 33.4, 67.6;
-            47, 73.6; 69.5, 78.6; 80, 80], style(color=0)),
-      Text(extent=[-32, 91; -12, 71], string="1.4"),
-      Text(extent=[-32, -71; -12, -91], string="-1.4"),
-      Text(extent=[73, 26; 93, 10], string=" 5.8"),
-      Text(extent=[-103, 20; -83, 4], string="-5.8"),
+      Line(points=[-100, 0; 84, 0], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          fillColor=10, 
+          rgbfillColor={95,95,95}, 
+          fillPattern=1)),
+      Polygon(points=[96,0; 80,6; 80,-6; 96,0], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          fillColor=10, 
+          rgbfillColor={95,95,95}, 
+          fillPattern=1)),
+      Line(points=[-80,-80; -52.7,-75.2; -37.4,-69.7; -26.9,-63; -19.7,-55.2; 
+            -14.1,-45.8; -10.1,-36.4; -6.03,-23.9; -1.21,-5.06; 5.23,21; 9.25,
+            34.1; 13.3,44.2; 18.1,52.9; 24.5,60.8; 33.4,67.6; 47,73.6; 65,77; 
+            80,78], style(
+          color=3, 
+          rgbcolor={0,0,255}, 
+          thickness=2)),
+      Text(extent=[-34,87; -14,74], string="pi/2"),
+      Text(extent=[-32, -71; -12, -91], string="-pi/2"),
       Text(
-        extent=[92, -2; 112, -22],
-        string="u",
-        style(color=9))),
+        extent=[84,-4; 104,-24],
+        string="u", 
+        style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          fillColor=10, 
+          rgbfillColor={95,95,95}, 
+          fillPattern=1)), 
+      Line(points=[-2,80; 84,80], style(
+          color=8, 
+          rgbcolor={175,175,175}, 
+          smooth=0))),
     Documentation(info="<html>
-  
+<p>
+This function returns y = atan(u), with -&infin; &lt; u &lt; &infin;:
+</p>
+
+<p>
+<img src=\"../Images/Math/atan.png\">
+</p>
 </html>"));
 external "C" y = atan(u);
 end atan;
@@ -4641,30 +4818,68 @@ function atan2 "Four quadrant inverse tangent"
         string="atan2",
         style(color=8))),
     Diagram(
-      Line(points=[-100, 0; 84, 0], style(color=8)),
-      Polygon(points=[100, 0; 84, 6; 84, -6; 100, 0], style(color=8, fillColor=
-              8)),
+      Line(points=[-100, 0; 84, 0], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          fillColor=10, 
+          rgbfillColor={95,95,95}, 
+          fillPattern=1)),
+      Polygon(points=[96,0; 80,6; 80,-6; 96,0], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          fillColor=10, 
+          rgbfillColor={95,95,95}, 
+          fillPattern=1)),
       Line(points=[0, -80; 8.93, -67.2; 17.1, -59.3; 27.3, -53.6; 42.1, -49.4;
-            69.9, -45.8; 80, -45.1], style(color=0)),
+            69.9, -45.8; 80, -45.1], style(
+          color=3, 
+          rgbcolor={0,0,255}, 
+          thickness=2)),
       Line(points=[-80, -34.9; -46.1, -31.4; -29.4, -27.1; -18.3, -21.5; -10.3,
               -14.5; -2.03, -3.17; 7.97, 11.6; 15.5, 19.4; 24.3, 25; 39, 30;
-            62.1, 33.5; 80, 34.9], style(color=0)),
+            62.1, 33.5; 80, 34.9], style(
+          color=3, 
+          rgbcolor={0,0,255}, 
+          thickness=2)),
       Line(points=[-80, 45.1; -45.9, 48.7; -29.1, 52.9; -18.1, 58.6; -10.2,
-            65.8; -1.82, 77.2; 0, 80], style(color=0)),
-      Text(extent=[-30, 89; -10, 70], string="pi"),
-      Text(extent=[-30, -69; -10, -88], string="-pi"),
-      Text(extent=[-30, 49; -10, 30], string="pi/2"),
+            65.8; -1.82, 77.2; 0, 80], style(
+          color=3, 
+          rgbcolor={0,0,255}, 
+          thickness=2)),
+      Text(extent=[-32,89; -10,74],   string="pi"),
+      Text(extent=[-32,-72; -4,-88],    string="-pi"),
+      Text(extent=[0,55; 20,42],      string="pi/2"),
       Line(points=[0, 40; -8, 40], style(color=8)),
       Line(points=[0, -40; -8, -40], style(color=8)),
-      Text(extent=[-30, -31; -10, -50], string="-pi/2"),
+      Text(extent=[0,-23; 20,-42],      string="-pi/2"),
       Text(
-        extent=[92, -2; 112, -22],
-        string="u",
-        style(color=9))),
+        extent=[62,-4; 94,-26], 
+        string="u1, u2", 
+        style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          fillColor=10, 
+          rgbfillColor={95,95,95}, 
+          fillPattern=1)), 
+      Line(points=[-88,40; 86,40], style(
+          color=8, 
+          rgbcolor={175,175,175}, 
+          smooth=0)), 
+      Line(points=[-86,-40; 86,-40], style(
+          color=8, 
+          rgbcolor={175,175,175}, 
+          smooth=0))),
     Documentation(info="<HTML>
-y = atan2(u1,u2) computes y such that tan(y) = u1/u2 and
+This function returns y = atan2(u1,u2) such that tan(y) = u1/u2 and
 y is in the range -pi &lt; y &le; pi. u2 may be zero, provided
-u1 is not zero.
+u1 is not zero. Usually u1, u2 is provided in such a form that
+u1 = sin(y) and u2 = cos(y):
+</p>
+
+<p>
+<img src=\"../Images/Math/atan2.png\">
+</p>
+
 </HTML>
 "));
 external "C" y = atan2(u1, u2);
@@ -4705,35 +4920,70 @@ function atan3
         style(color=8),
           string="atan3")),
     Diagram(
-      Line(points=[-100, 0; 84, 0], style(color=8)),
-      Polygon(points=[100, 0; 84, 6; 84, -6; 100, 0], style(color=8, fillColor=
-              8)),
+      Line(points=[-100,-86; 84,-86], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          fillColor=10, 
+          rgbfillColor={95,95,95}, 
+          fillPattern=1)),
+      Polygon(points=[98,-86; 82,-80; 82,-92; 98,-86], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          fillColor=10, 
+          rgbfillColor={95,95,95}, 
+          fillPattern=1)),
       Line(points=[0, -80; 8.93, -67.2; 17.1, -59.3; 27.3, -53.6; 42.1, -49.4;
-            69.9, -45.8; 80, -45.1], style(color=0)),
+            69.9, -45.8; 80, -45.1], style(
+          color=3, 
+          rgbcolor={0,0,255}, 
+          thickness=2)),
       Line(points=[-80, -34.9; -46.1, -31.4; -29.4, -27.1; -18.3, -21.5; -10.3,
               -14.5; -2.03, -3.17; 7.97, 11.6; 15.5, 19.4; 24.3, 25; 39, 30;
-            62.1, 33.5; 80, 34.9], style(color=0)),
+            62.1, 33.5; 80, 34.9], style(
+          color=3, 
+          rgbcolor={0,0,255}, 
+          thickness=2)),
       Line(points=[-80, 45.1; -45.9, 48.7; -29.1, 52.9; -18.1, 58.6; -10.2,
-            65.8; -1.82, 77.2; 0, 80], style(color=0)),
-      Text(extent=[-30, 89; -10, 70], string="pi"),
-      Text(extent=[-30, -69; -10, -88], string="-pi"),
-      Text(extent=[-30, 49; -10, 30], string="pi/2"),
+            65.8; -1.82, 77.2; 0, 80], style(
+          color=3, 
+          rgbcolor={0,0,255}, 
+          thickness=2)),
+      Text(extent=[-56,82; -12,72], string="(2*N-1)*pi"),
+      Text(extent=[-52,-72; -10,-88], string="(2*N-3)*pi"),
       Line(points=[0, 40; -8, 40], style(color=8)),
       Line(points=[0, -40; -8, -40], style(color=8)),
-      Text(extent=[-30, -31; -10, -50], string="-pi/2"),
       Text(
-        extent=[92, -2; 112, -22],
-        string="u",
-        style(color=9))),
+        extent=[38,-68; 78,-84], 
+        string="u1, u2, y0", 
+        style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          fillColor=10, 
+          rgbfillColor={95,95,95}, 
+          fillPattern=1)), 
+      Line(points=[-84,40; 88,40], style(
+          color=8, 
+          rgbcolor={175,175,175}, 
+          smooth=0)), 
+      Line(points=[-84,-40; 88,-40], style(
+          color=8, 
+          rgbcolor={175,175,175}, 
+          smooth=0))),
     Documentation(info="<HTML>
 <p>
-y = <b>atan3</b>(u1,u2,y0) computes y such that <b>tan</b>(y) = u1/u2 and
+This function returns y = <b>atan3</b>(u1,u2,y0) such that
+<b>tan</b>(y) = u1/u2 and
 y is in the range: -pi &lt; y-y0 &lt; pi.<br>
 u2 may be zero, provided u1 is not zero. The difference to
 Modelica.Math.atan2(..) is the optional third argument y0 that
 allows to specify which of the infinite many solutions 
-shall be returned.
+shall be returned:
 </p>
+
+<p>
+<img src=\"../Images/Math/atan3.png\">
+</p>
+
 </HTML>
 "));
 protected 
@@ -4772,23 +5022,54 @@ function sinh "Hyperbolic sine"
         string="sinh",
         style(color=8))),
     Diagram(
-      Line(points=[-100, 0; 84, 0], style(color=8)),
-      Polygon(points=[100, 0; 84, 6; 84, -6; 100, 0], style(color=8, fillColor=
-              8)),
+      Line(points=[-100, 0; 84, 0], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          fillColor=10, 
+          rgbfillColor={95,95,95}, 
+          fillPattern=1)),
+      Polygon(points=[98,0; 82,6; 82,-6; 98,0], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          fillColor=10, 
+          rgbfillColor={95,95,95}, 
+          fillPattern=1)),
       Line(points=[-80, -80; -76, -65.4; -71.2, -51.4; -65.5, -38.8; -59.1, -
             28.1; -51.1, -18.7; -41.4, -11.4; -27.7, -5.5; -4.42, -0.653; 24.5,
               4.57; 39, 10.1; 49.4, 17.2; 57.5, 25.9; 63.9, 35.8; 69.5, 47.4;
-            74.4, 60.4; 78.4, 73.8; 80, 80], style(color=0)),
+            74.4, 60.4; 78.4, 73.8; 80, 80], style(
+          color=3, 
+          rgbcolor={0,0,255}, 
+          thickness=2)),
       Text(extent=[-31, 72; -11, 88], string="27"),
       Text(extent=[-35, -88; -15, -72], string="-27"),
-      Text(extent=[70, 25; 90, 5], string="4"),
+      Text(extent=[68,-7; 88,-27], string="4"),
       Text(extent=[-98, 21; -78, 1], string="-4"),
       Text(
-        extent=[92, -2; 112, -22],
-        string="u",
-        style(color=9))),
+        extent=[80,26; 100,6],
+        string="u", 
+        style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          fillColor=10, 
+          rgbfillColor={95,95,95}, 
+          fillPattern=1)), 
+      Line(points=[0,80; 86,80], style(
+          color=8, 
+          rgbcolor={175,175,175}, 
+          smooth=0)), 
+      Line(points=[80,84; 80,-6], style(
+          color=8, 
+          rgbcolor={175,175,175}, 
+          smooth=0))),
     Documentation(info="<html>
-  
+<p>
+This function returns y = sinh(u), with -&infin; &lt; u &lt; &infin;:
+</p>
+
+<p>
+<img src=\"../Images/Math/sinh.png\">
+</p>
 </html>"));
 external "C" y = sinh(u);
 end sinh;
@@ -4824,26 +5105,56 @@ function cosh "Hyperbolic cosine"
         string="cosh",
         style(color=8))),
     Diagram(
-      Line(points=[-100, -86.083; 84, -86.083], style(color=8)),
-      Polygon(points=[100, -86.083; 84, -80.083; 84, -92.083; 100, -86.083],
-          style(color=8, fillColor=8)),
+      Line(points=[-100,-84.083; 84,-84.083], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          fillColor=10, 
+          rgbfillColor={95,95,95}, 
+          fillPattern=1)),
+      Polygon(points=[98,-84.083; 82,-78.083; 82,-90.083; 98,-84.083], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          fillColor=10, 
+          rgbfillColor={95,95,95}, 
+          fillPattern=1)),
       Line(points=[-80, 80; -77.6, 61.1; -74.4, 39.3; -71.2, 20.7; -67.1, 1.29;
               -63.1, -14.6; -58.3, -29.8; -52.7, -43.5; -46.2, -55.1; -39, -
             64.3; -30.2, -71.7; -18.9, -77.1; -4.42, -79.9; 10.9, -79.1; 23.7,
             -75.2; 34.2, -68.7; 42.2, -60.6; 48.6, -51.2; 54.3, -40; 59.1, -
             27.5; 63.1, -14.6; 67.1, 1.29; 71.2, 20.7; 74.4, 39.3; 77.6, 61.1;
-            80, 80], style(color=0)),
+            80, 80], style(
+          color=3, 
+          rgbcolor={0,0,255}, 
+          thickness=2)),
       Text(extent=[-31, 72; -11, 88], string="27"),
-      Text(extent=[76, -61; 96, -81], string="4"),
-      Text(extent=[-104, -63; -84, -83], string="-4"),
+      Text(extent=[64,-83; 84,-103],  string="4"),
+      Text(extent=[-94,-63; -74,-83],    string="-4"),
       Text(
-        extent=[90, -88; 110, -108],
-        string="u",
-        style(color=9))),
+        extent=[80,-60; 100,-80],
+        string="u", 
+        style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          fillColor=10, 
+          rgbfillColor={95,95,95}, 
+          fillPattern=1)), 
+      Line(points=[0,80; 88,80], style(
+          color=8, 
+          rgbcolor={175,175,175}, 
+          smooth=0)), 
+      Line(points=[80,84; 80,-90], style(
+          color=8, 
+          rgbcolor={175,175,175}, 
+          smooth=0))),
     Documentation(info="<html>
-  
-</html>
-"));
+<p>
+This function returns y = cosh(u), with -&infin; &lt; u &lt; &infin;:
+</p>
+
+<p>
+<img src=\"../Images/Math/cosh.png\">
+</p>
+</html>"));
 external "C" y = cosh(u);
 end cosh;
 
@@ -4856,7 +5167,7 @@ function tanh "Hyperbolic tangent"
   annotation (
     Coordsys(
       extent=[-100, -100; 100, 100],
-      grid=[2, 2],
+      grid=[0.5,0.5],
       component=[20, 20]),
     Window(
       x=0.36,
@@ -4875,23 +5186,48 @@ function tanh "Hyperbolic tangent"
         string="tanh",
         style(color=8))),
     Diagram(
-      Line(points=[-100, 0; 84, 0], style(color=8)),
-      Polygon(points=[100, 0; 84, 6; 84, -6; 100, 0], style(color=8, fillColor=
-              8)),
-      Line(points=[-80, -80; -47.8, -78.7; -35.8, -75.7; -27.7, -70.6; -22.1, -
-            64.2; -17.3, -55.9; -12.5, -44.3; -7.64, -29.2; -1.21, -4.82; 6.83,
-              26.3; 11.7, 42; 16.5, 54.2; 21.3, 63.1; 26.9, 69.9; 34.2, 75;
-            45.4, 78.4; 72, 79.9; 80, 80], style(color=0)),
-      Text(extent=[70, 25; 90, 5], string="4"),
-      Text(extent=[-106, 21; -86, 1], string="-4"),
+      Line(points=[-100, 0; 84, 0], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          fillColor=10, 
+          rgbfillColor={95,95,95}, 
+          fillPattern=1)),
+      Polygon(points=[96,0; 80,6; 80,-6; 96,0], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          fillColor=10, 
+          rgbfillColor={95,95,95}, 
+          fillPattern=1)),
+      Line(points=[-80,-80.5; -47.8,-79.2; -35.8,-76.2; -27.7,-71.1; -22.1,
+            -64.7; -17.3,-56.4; -12.5,-44.8; -7.64,-29.7; -1.21,-5.32; 6.83,
+            25.8; 11.7,41.5; 16.5,53.7; 21.3,62.6; 26.9,69.4; 34.2,74.5; 45.4,
+            77.9; 72,79.4; 80,79.5], style(
+          color=3, 
+          rgbcolor={0,0,255}, 
+          thickness=2)),
       Text(extent=[-29, 72; -9, 88], string="1"),
       Text(extent=[3, -72; 23, -88], string="-1"),
       Text(
-        extent=[92, -2; 112, -22],
-        string="u",
-        style(color=9))),
+        extent=[82,-2; 102,-22],
+        string="u", 
+        style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          fillColor=10, 
+          rgbfillColor={95,95,95}, 
+          fillPattern=1)), 
+      Line(points=[0,80; 88,80], style(
+          color=8, 
+          rgbcolor={175,175,175}, 
+          smooth=0))),
     Documentation(info="<html>
-   
+<p>
+This function returns y = tanh(u), with -&infin; &lt; u &lt; &infin;:
+</p>
+
+<p>
+<img src=\"../Images/Math/tanh.png\">
+</p>
 </html>"));
 external "C" y = tanh(u);
 end tanh;
@@ -4924,26 +5260,55 @@ function asinh "Inverse of sinh (area hyperbolic sine)"
         style(color=8),
           string="asinh")),
     Diagram(
-        Line(points=[-100, 0; 84, 0], style(color=8)),
-        Polygon(points=[100, 0; 84, 6; 84, -6; 100, 0],
-                style(color=8, fillColor=8)),
+        Line(points=[-100, 0; 84, 0], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          fillColor=10, 
+          rgbfillColor={95,95,95}, 
+          fillPattern=1)),
+        Polygon(points=[98,0; 82,6; 82,-6; 98,0], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          fillColor=10, 
+          rgbfillColor={95,95,95}, 
+          fillPattern=1)),
         Line(points=[-80,-80;-56.7,-68.4;-39.8,-56.8;-26.9,-44.7;-17.3,-32.4;
                    -9.25,-19;9.25,19;17.3,32.4;26.9,44.7;39.8,56.8;56.7,68.4;
-                   80,80], style(color=0)),
+                   80,80], style(
+          color=3, 
+          rgbcolor={0,0,255}, 
+          thickness=2)),
       Text(extent=[-31, 72; -11, 88], string="2.31"),
       Text(extent=[-35, -88; -15, -72], string="-2.31"),
-      Text(extent=[70, 25; 90, 5], string="5"),
-      Text(extent=[-98, 21; -78, 1], string="-5"),
+      Text(extent=[72,-13; 92,-33],string="5"),
+      Text(extent=[-96,21; -76,1],   string="-5"),
       Text(
-        extent=[92, -2; 112, -22],
-        string="u",
-        style(color=9))),
+        extent=[80,22; 100,2],
+        string="u", 
+        style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          fillColor=10, 
+          rgbfillColor={95,95,95}, 
+          fillPattern=1)), 
+      Line(points=[0,80; 88,80], style(
+          color=8, 
+          rgbcolor={175,175,175}, 
+          smooth=0)), 
+      Line(points=[80,86; 80,-12], style(
+          color=8, 
+          rgbcolor={175,175,175}, 
+          smooth=0))),
     Documentation(info="<html>
 <p>
 The function returns the area hyperbolic sine of its
 input argument u. This inverse of sinh(..) is unique
 and there is no restriction on the input argument u of
-asinh(u).
+asinh(u) (-&infin; &lt; u &lt; &infin;):
+</p>
+
+<p>
+<img src=\"../Images/Math/asinh.png\">
 </p>
 </html>"));
 algorithm 
@@ -4979,28 +5344,52 @@ function acosh "Inverse of cosh (area hyperbolic cosine)"
         style(color=8),
         string="arcosh")),
     Diagram(
-        Line(points=[-100, -80; 84, -80], style(color=8)),
-        Polygon(points=[100, -80; 84, -74; 84, -86; 100, -80],
-                style(color=8, fillColor=8)),
-        Line(points=[-60,-80; -59.2,-66; -58.4,-60.3; -56.8,-52.2; -54.4,-43.4;
-            -50.4,-32.4; -43.9,-19.3; -35.1,-5.65; -23,8.8; -6.9,23.8; 13.97,
-            39.2; 41.3,55; 75.9,70.8; 100,80],          style(color=0)),
-      Text(extent=[-116,70; -91,88], string="2.29"),
-      Text(extent=[-71,-102; -46,-82], string="1.0"),
-      Text(extent=[92,-87; 112,-107],
-                                   string="5"),
-      Text(extent=[-100,-71; -80,-91], string="0"),
+        Line(points=[-100,-70; 84,-70], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          fillColor=10, 
+          rgbfillColor={95,95,95}, 
+          fillPattern=1)),
+        Polygon(points=[100,-70; 84,-64; 84,-76; 100,-70], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          fillColor=10, 
+          rgbfillColor={95,95,95}, 
+          fillPattern=1)),
+        Line(points=[-60,-70; -59.2,-56; -58.4,-50.3; -56.8,-42.2; -54.4,-33.4; 
+            -50.4,-22.4; -43.9,-9.3; -35.1,4.35; -23,18.8; -6.9,33.8; 13.97,
+            49.2; 41.3,65; 75.9,80.8; 100,90], style(
+          color=3, 
+          rgbcolor={0,0,255}, 
+          thickness=2)),
+      Text(extent=[-80,66; -58,78],  string="2.29"),
+      Text(extent=[-73,-86; -50,-70],  string="1.0"),
+      Text(extent=[64,-77; 84,-92],string="5"),
+      Text(extent=[-96,-55; -76,-70],  string="0"),
       Text(
-        extent=[92, -2; 112, -22],
-        string="u",
-        style(color=9))),
+        extent=[74,-44; 94,-64],
+        string="u", 
+        style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          fillColor=10, 
+          rgbfillColor={95,95,95}, 
+          fillPattern=1)), 
+      Line(points=[-80,80; 100,80], style(
+          color=8, 
+          rgbcolor={175,175,175}, 
+          smooth=0)), 
+      Line(points=[74,-78; 74,88], style(
+          color=8, 
+          rgbcolor={175,175,175}, 
+          smooth=0))),
     Documentation(info="<html>
 <p>
-The function returns the area hyperbolic cosine of its
+This function returns the area hyperbolic cosine of its
 input argument u. The valid range of u is
-<p>
+</p>
 <pre>
-  +1 &le; u &lt; +infinity
+  +1 &le; u &lt; +&infin;
 </pre>
 <p>
 If the function is called with u &lt; 1, an error occurs.
@@ -5008,7 +5397,11 @@ The function cosh(u) has two inverse functions (the curve
 looks similar to a sqrt(..) function). acosh(..) returns
 the inverse that is positive. At u=1, the derivative dy/du is infinite.
 Therefore, this function should not be used in a model, if u
-can become close to 1.
+can become close to 1:
+</p>
+
+<p>
+<img src=\"../Images/Math/acosh.png\">
 </p>
 </html>"));
 algorithm 
@@ -5044,20 +5437,55 @@ function exp "Exponential, base e"
         string="exp",
         style(color=8))),
     Diagram(
-      Line(points=[-100, -80.3976; 84, -80.3976], style(color=8)),
-      Polygon(points=[100, -80.3976; 84, -74.3976; 84, -86.3976; 100, -80.3976],
-            style(color=8, fillColor=8)),
+      Line(points=[-100, -80.3976; 84, -80.3976], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          fillColor=10, 
+          rgbfillColor={95,95,95}, 
+          fillPattern=1)),
+      Polygon(points=[98,-80.3976; 82,-74.3976; 82,-86.3976; 98,-80.3976], 
+          style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          fillColor=10, 
+          rgbfillColor={95,95,95}, 
+          fillPattern=1)),
       Line(points=[-80, -80; -31, -77.9; -6.03, -74; 10.9, -68.4; 23.7, -61;
             34.2, -51.6; 43, -40.3; 50.3, -27.8; 56.7, -13.5; 62.3, 2.23; 67.1,
-              18.6; 72, 38.2; 76, 57.6; 80, 80], style(color=0)),
+              18.6; 72, 38.2; 76, 57.6; 80, 80], style(
+          color=3, 
+          rgbcolor={0,0,255}, 
+          thickness=2)),
       Text(extent=[-31, 72; -11, 88], string="20"),
-      Text(extent=[-92, -83; -72, -103], string="-3"),
-      Text(extent=[70, -83; 90, -103], string="3"),
-      Text(extent=[-18, -53; 2, -73], string="1"),
+      Text(extent=[-92,-81; -72,-101],   string="-3"),
+      Text(extent=[66,-81; 86,-101],   string="3"),
+      Text(extent=[2,-69; 22,-89],    string="1"),
       Text(
-        extent=[96, -82; 116, -102],
-        string="u",
-        style(color=9))));
+        extent=[78,-54; 98,-74],
+        string="u", 
+        style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          fillColor=10, 
+          rgbfillColor={95,95,95}, 
+          fillPattern=1)), 
+      Line(points=[0,80; 88,80], style(
+          color=8, 
+          rgbcolor={175,175,175}, 
+          smooth=0)), 
+      Line(points=[80,84; 80,-84], style(
+          color=8, 
+          rgbcolor={175,175,175}, 
+          smooth=0))), 
+    Documentation(info="<html>
+<p>
+This function returns y = exp(u), with -&infin; &lt; u &lt; &infin;:
+</p>
+
+<p>
+<img src=\"../Images/Math/exp.png\">
+</p>
+</html>"));
 external "C" y = exp(u);
 end exp;
 
@@ -5089,23 +5517,54 @@ function log "Natural (base e) logarithm (u shall be > 0)"
         string="log",
         style(color=8))),
     Diagram(
-      Line(points=[-100, 0; 84, 0], style(color=8)),
-      Polygon(points=[100, 0; 84, 6; 84, -6; 100, 0], style(color=8, fillColor=
-              8)),
-      Line(points=[-80, -80; -79.2, -50.6; -78.4, -37; -77.6, -28; -76.8, -21.3;
-              -75.2, -11.4; -72.8, -1.31; -69.5, 8.08; -64.7, 17.9; -57.5, 28;
-            -47, 38.1; -31.8, 48.1; -10.1, 58; 22.1, 68; 68.7, 78.1; 80, 80],
-          style(color=0)),
+      Line(points=[-100, 0; 84, 0], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          fillColor=10, 
+          rgbfillColor={95,95,95}, 
+          fillPattern=1)),
+      Polygon(points=[100, 0; 84, 6; 84, -6; 100, 0], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          fillColor=10, 
+          rgbfillColor={95,95,95}, 
+          fillPattern=1)),
+      Line(points=[-78,-80; -77.2,-50.6; -76.4,-37; -75.6,-28; -74.8,-21.3; 
+            -73.2,-11.4; -70.8,-1.31; -67.5,8.08; -62.7,17.9; -55.5,28; -45,
+            38.1; -29.8,48.1; -8.1,58; 24.1,68; 70.7,78.1; 82,80], style(
+          color=3, 
+          rgbcolor={0,0,255}, 
+          thickness=2)),
       Text(extent=[-105, 72; -85, 88], string="3"),
-      Text(extent=[-109, -88; -89, -72], string="-3"),
-      Text(extent=[70, -3; 90, -23], string="20"),
-      Text(extent=[-78, -1; -58, -21], string="1"),
+      Text(extent=[60,-3; 80,-23],   string="20"),
+      Text(extent=[-78,-7; -58,-27],   string="1"),
       Text(
-        extent=[92, -2; 112, -22],
-        string="u",
-        style(color=9))),
+        extent=[84,26; 104,6],
+        string="u", 
+        style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          fillColor=10, 
+          rgbfillColor={95,95,95}, 
+          fillPattern=1)),
+      Text(extent=[-100,9; -80,-11], string="0"), 
+      Line(points=[-80,80; 84,80], style(
+          color=8, 
+          rgbcolor={175,175,175}, 
+          smooth=0)), 
+      Line(points=[82,82; 82,-6], style(
+          color=8, 
+          rgbcolor={175,175,175}, 
+          smooth=0))),
     Documentation(info="<html>
-    
+<p>
+This function returns y = log(10) (the natural logarithm of u),
+with u &gt; 0:
+</p>
+
+<p>
+<img src=\"../Images/Math/log.png\">
+</p>
 </html>"));
 external "C" y = log(u);
 end log;
@@ -5138,23 +5597,54 @@ function log10 "Base 10 logarithm (u shall be > 0)"
         string="log10",
         style(color=8))),
     Diagram(
-      Line(points=[-100, 0; 84, 0], style(color=8)),
-      Polygon(points=[100, 0; 84, 6; 84, -6; 100, 0], style(color=8, fillColor=
-              8)),
-      Line(points=[-79.8, -80; -79.2, -50.6; -78.4, -37; -77.6, -28; -76.8, -
-            21.3; -75.2, -11.4; -72.8, -1.31; -69.5, 8.08; -64.7, 17.9; -57.5,
-            28; -47, 38.1; -31.8, 48.1; -10.1, 58; 22.1, 68; 68.7, 78.1; 80, 80],
-               style(color=0)),
-      Text(extent=[70, -3; 90, -23], string="20"),
+      Line(points=[-100, 0; 84, 0], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          fillColor=10, 
+          rgbfillColor={95,95,95}, 
+          fillPattern=1)),
+      Polygon(points=[98,0; 82,6; 82,-6; 98,0], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          fillColor=10, 
+          rgbfillColor={95,95,95}, 
+          fillPattern=1)),
+      Line(points=[-77.8,-80; -77.2,-50.6; -76.4,-37; -75.6,-28; -74.8,-21.3; 
+            -73.2,-11.4; -70.8,-1.31; -67.5,8.08; -62.7,17.9; -55.5,28; -45,
+            38.1; -29.8,48.1; -8.1,58; 24.1,68; 70.7,78.1; 82,80], style(
+          color=3, 
+          rgbcolor={0,0,255}, 
+          thickness=2)),
+      Text(extent=[66,-13; 86,-33],  string="20"),
       Text(extent=[-78, -1; -58, -21], string="1"),
-      Text(extent=[-109, 72; -89, 88], string=" 1.3"),
-      Text(extent=[-109, -88; -89, -72], string="-1.3"),
+      Text(extent=[-83,62; -63,78],    string=" 1.3"),
       Text(
-        extent=[92, -2; 112, -22],
-        string="u",
-        style(color=9))),
+        extent=[80,24; 100,4],
+        string="u", 
+        style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          fillColor=10, 
+          rgbfillColor={95,95,95}, 
+          fillPattern=1)),
+      Text(extent=[-100,9; -80,-11], string="0"), 
+      Line(points=[-80,80; 86,80], style(
+          color=8, 
+          rgbcolor={175,175,175}, 
+          smooth=0)), 
+      Line(points=[80,92; 80,-12], style(
+          color=8, 
+          rgbcolor={175,175,175}, 
+          smooth=0))),
     Documentation(info="<html>
-  
+<p>
+This function returns y = log10(u),
+with u &gt; 0:
+</p>
+
+<p>
+<img src=\"../Images/Math/log10.png\">
+</p>
 </html>"));
 external "C" y = log10(u);
 end log10;
@@ -5169,15 +5659,34 @@ partial function baseIcon1
       Polygon(points=[-80, 90; -88, 68; -72, 68; -80, 90], style(color=8,
             fillColor=8)),
       Text(extent=[-150, 150; 150, 110], string="%name")), Diagram(
-      Line(points=[-80, 80; -88, 80], style(color=8)),
-      Line(points=[-80, -80; -88, -80], style(color=8)),
-      Line(points=[-80, -90; -80, 84], style(color=8)),
+      Line(points=[-80, 80; -88, 80], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          fillColor=10, 
+          rgbfillColor={95,95,95}, 
+          fillPattern=1)),
+      Line(points=[-80, -80; -88, -80], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          fillColor=10, 
+          rgbfillColor={95,95,95}, 
+          fillPattern=1)),
+      Line(points=[-80, -90; -80, 84], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          fillColor=10, 
+          rgbfillColor={95,95,95}, 
+          fillPattern=1)),
       Text(
-        extent=[-75, 110; -55, 90],
-        string="y",
-        style(color=9)),
-      Polygon(points=[-80, 100; -86, 84; -74, 84; -80, 100], style(color=8,
-            fillColor=8))));
+        extent=[-75,104; -55,84],
+        string="y", 
+        style(color=10, rgbcolor={95,95,95})),
+      Polygon(points=[-80,98; -86,82; -74,82; -80,98], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          fillColor=10, 
+          rgbfillColor={95,95,95}, 
+          fillPattern=1))));
 end baseIcon1;
 
 
@@ -5189,15 +5698,39 @@ partial function baseIcon2
       Line(points=[0, -80; 0, 68], style(color=8)),
       Polygon(points=[0, 90; -8, 68; 8, 68; 0, 90], style(color=8, fillColor=8)),
       Text(extent=[-150, 150; 150, 110], string="%name")), Diagram(
-      Line(points=[0, 80; -8, 80], style(color=8)),
-      Line(points=[0, -80; -8, -80], style(color=8)),
-      Line(points=[0, -90; 0, 84], style(color=8)),
+      Line(points=[0, 80; -8, 80], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          fillColor=10, 
+          rgbfillColor={95,95,95}, 
+          fillPattern=1)),
+      Line(points=[0, -80; -8, -80], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          fillColor=10, 
+          rgbfillColor={95,95,95}, 
+          fillPattern=1)),
+      Line(points=[0, -90; 0, 84], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          fillColor=10, 
+          rgbfillColor={95,95,95}, 
+          fillPattern=1)),
       Text(
-        extent=[5, 110; 25, 90],
-        string="y",
-        style(color=9)),
-      Polygon(points=[0, 100; -6, 84; 6, 84; 0, 100], style(color=8, fillColor=
-              8))));
+        extent=[5,104; 25,84],
+        string="y", 
+        style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          fillColor=10, 
+          rgbfillColor={95,95,95}, 
+          fillPattern=1)),
+      Polygon(points=[0,98; -6,82; 6,82; 0,98], style(
+          color=10, 
+          rgbcolor={95,95,95}, 
+          fillColor=10, 
+          rgbfillColor={95,95,95}, 
+          fillPattern=1))));
 end baseIcon2;
 
 

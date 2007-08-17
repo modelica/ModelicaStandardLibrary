@@ -45,11 +45,11 @@ in the next figure:
 For an introduction, have especially a look at:
 </p>
 <ul>
-<li> <a href=\"Modelica://Modelica.UsersGuide\">User's Guide</a>
-     discusses some aspects of the Modelica Standard Library, such as
-     interface definitions and used conventions.</li>
+<li> <a href=\"Modelica://Modelica.UsersGuide.Overview\">Overview</a>
+     provides an overview of the Modelica Standard Library
+     inside the <a href=\"Modelica://Modelica.UsersGuide\">User's Guide</a>,</li>
 <li><a href=\"Modelica://Modelica.UsersGuide.ReleaseNotes\">Release Notes</a>
-    summarizes the changes of new versions of this package.</li>
+    summarizes the changes of new versions of this package,</li>
 <li> <a href=\"Modelica://Modelica.UsersGuide.Contact\">Contact</a>
      lists the contributors of the Modelica Standard Library.</li>
 <li> The <b>Examples</b> packages in the various libraries, demonstrate
@@ -82,9 +82,9 @@ It provides constants, types, connectors, partial models and model
 components in various disciplines.
 </p>
 <p>
-This package contains a short <b>user's Guide</b> for 
+This is a short <b>user's guide</b> for 
 the overall library. Some of the main sublibraries have their own
-user's Guides that can be accessed by the following links:
+user's guides that can be accessed by the following links:
 </p>
 
 <table border=1 cellspacing=0 cellpadding=2>
@@ -124,6 +124,166 @@ user's Guides that can be accessed by the following links:
 </table>
 
 </html>"));
+  
+  class Overview "Overview of Modelica Library" 
+    
+    annotation (Documentation(info="<html>
+<p>
+The Modelica Standard Library consists of the following
+main sub-libraries:
+</p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th>Library Components</th> <th>Description</th></tr>
+
+<tr><td> 
+    <img src=\"../Images/UsersGuide/Lib-Electrical.png\">
+    </td>
+    <td>
+    <a href=\"Modelica://Modelica.Electrical.Analog\">Analog</a><br>
+    Analog electric and electronic components, such as <br> 
+    resistor, capacitor, transformers, diodes, transistors,<br>
+    transmission lines, switches, sources, sensors.
+    </td>
+</tr>
+
+<tr><td> 
+    <img src=\"../Images/UsersGuide/Lib-Digital.png\">
+    </td>
+    <td>
+    <a href=\"Modelica://Modelica.Electrical.Digital\">Digital</a><br>
+    Digital electrical components based on the VHDL standard, <br>
+    like basic logic blocks with 9-value logic, delays, gates, <br>
+    sources, converters between 2-, 3-, 4-, and 9-valued logic.
+    </td>
+</tr>
+
+<tr><td> 
+    <img src=\"../Images/UsersGuide/Lib-Machines.png\">
+    </td>
+    <td>
+    <a href=\"Modelica://Modelica.Electrical.Machines\">Machines</a><br>
+    Electrical asynchronous-, synchronous-, and DC-machines<br>
+    (motors and generators) as well as 3-phase transformers.
+    </td>
+</tr>
+
+<tr><td> 
+    <img src=\"../Images/UsersGuide/Lib-Translational.png\">
+    </td>
+    <td>
+    <a href=\"Modelica://Modelica.Mechanics.Translational\">Translational</a><br>
+    1-dim. mechanical, translational systems, e.g.,  <br>
+    sliding mass, mass with stops, spring, damper.
+    </td>
+</tr>
+
+<tr><td> 
+    <img src=\"../Images/UsersGuide/Lib-Rotational.png\">
+    </td>
+    <td>
+    <a href=\"Modelica://Modelica.Mechanics.Rotational\">Rotational</a><br>
+    1-dim. mechanical, rotational systems, e.g., inertias, gears, <br>
+    planetary gears, convenient definition of speed/torque dependent friction<br>
+    (clutches, brakes, bearings, ..)
+    </td>
+</tr>
+
+<tr><td> 
+    <img src=\"../Images/UsersGuide/Lib-MultiBody1.png\"><br>
+    <img src=\"../Images/UsersGuide/Lib-MultiBody2.png\">
+    </td>
+    <td>
+    <a href=\"Modelica://Modelica.Mechanics.MultiBody\">MultiBody</a><br>
+    3-dim. mechanical systems consisting of joints, bodies, force and <br>
+    sensor elements. Joints can be driven by drive trains defined by<br>
+    1-dim. mechanical system library (Rotational).<br>
+    Every component has a default animation.<br>
+    Components can be arbitrarily connected together.
+    </td>
+</tr>
+
+<tr><td> 
+    <img src=\"../Images/UsersGuide/Lib-Media.png\">
+    </td>
+    <td>
+    <a href=\"Modelica://Modelica.Media\">Media</a><br>
+    Large media library providing models and functions<br>
+    to compute media properties, such as h = h(p,T), d = d(p,T),<br>
+    for the following media:
+    <ul>
+    <li> 1240 gases and mixtures between these gases.</li>
+    <li> incompressible, table based liquids (h = h(T), etc.).</li>
+    <li> compressible liquids</li>
+    <li> dry and moist air</li>
+    <li> high precision model for water (IF97).</li>
+    </ul>
+    </td>
+</tr>
+
+<tr><td> 
+    <img src=\"../Images/UsersGuide/Lib-Thermal.png\">
+    </td>
+    <td>
+    <a href=\"Modelica://Modelica.Thermal.FluidHeatFlow\">FluidHeatFlow</a>, 
+    <a href=\"Modelica://Modelica.Thermal.HeatTransfer\">HeatTransfer</a><br>
+    Simple thermo-fluid pipe flow, especially to model cooling of machines <br>
+    with air or water (pipes, pumps, valves, ambient, sensors, sources) and<br>
+    lumped heat transfer with heat capacitors, thermal conductors, convection,<br>
+    body radiation, sources and sensors.
+    </td>
+</tr>
+
+<tr><td> 
+    <img src=\"../Images/UsersGuide/Lib-Blocks1.png\"><br>
+    <img src=\"../Images/UsersGuide/Lib-Blocks2.png\">
+    </td>
+    <td>
+    <a href=\"Modelica://Modelica.Blocks\">Blocks</a><br>
+    Input/output blocks to model block diagrams and logical networks, e.g.,<br>
+    integerator, PI, PID, transfer function, linear state space system,<br>
+    sampler, unit delay, discrete transfer function, and/or blocks,<br>
+    timer, hysteresis, nonlinear and routing blocks, sources, tables.
+    </td>
+</tr>
+
+<tr><td> 
+    <img src=\"../Images/UsersGuide/Lib-StateGraph.png\">
+    </td>
+    <td>
+    <a href=\"Modelica://Modelica.StateGraph\">StateGraph</a><br>
+    Hierarchical state machines with the same modeling power as Statecharts. <br>
+    Modelica is used as synchronous action language, i.e. deterministic <br>
+    behavior is guaranteed (not the case for Statecharts)
+    </td>
+</tr>
+
+
+<tr><td> 
+    <pre>
+    A = [1,2,3; 
+         3,4,5;
+         2,1,4];
+    b = {10,22,12};
+    x = Matrices.solve(A,b); 
+    Matrices.eigenValues(A); 
+    </pre>
+    </td>
+    <td>
+    <a href=\"Modelica://Modelica.Math\">Math</a>, 
+    <a href=\"Modelica://Modelica.Utilities\">Utilities</a><br>
+    Functions operating on vectors and matrices, such as for solving <br>
+    linear systems, eigen and singular values etc.,  and <br>
+    functions operating on strings, streams, files, e.g., <br>
+    to copy and remove a file or sort a vector of strings.
+    </td>
+</tr>
+
+</table>
+
+</html>
+"));
+  end Overview;
   
   class Connectors "Connectors" 
     
@@ -1935,6 +2095,7 @@ The following <b>changes</b> have been performed in the
   end Version_2_2;
     
   class Version_2_1 "Version 2.1 (Nov. 11, 2004)" 
+      
       annotation (Documentation(info="<html>
 
 <p> This is a major change with respect to previous versions of the
@@ -2127,6 +2288,7 @@ Other changes:
   end Version_2_1;
     
   class Version_1_6 "Version 1.6 (June 21, 2004)" 
+      
       annotation (Documentation(info="<html>
 
 <p> Added 1 new library (Electrical.MultiPhase), 17 new components, 
@@ -2205,6 +2367,7 @@ ShowVariableResistor
   end Version_1_6;
     
   class Version_1_5 "Version 1.5 (Dec. 16, 2002)" 
+      
       annotation (Documentation(info="<html>
 
 <p> Added 55 new components. In particular, added new package
@@ -2409,6 +2572,7 @@ filled with white and not transparent any more.</p>
   end Version_1_5;
     
   class Version_1_4 "Version 1.4 (June 28, 2001)" 
+      
   annotation (Documentation(info="<html>
 
 <ul>
