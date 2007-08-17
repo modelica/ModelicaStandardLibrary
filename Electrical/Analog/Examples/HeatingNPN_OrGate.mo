@@ -1,7 +1,7 @@
 within Modelica.Electrical.Analog.Examples;
 model HeatingNPN_OrGate "Heating NPN Or Gate" 
   extends Modelica.Icons.Example;
-  constant Real CapVal=0;
+  constant Modelica.SIunits.Capacitance CapVal=0;
   
 annotation (Diagram(Text(extent=[-100, 100; -6, 72], string=
           "Heating NPN Nand Gate")), Documentation(info="<HTML>

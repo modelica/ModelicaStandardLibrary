@@ -43,13 +43,13 @@ Do not worry about it. The negative values are o.k.
         extent=[-120,152; 120,93],
         string="%name",
         style(color=1))));
-  parameter Real l1=1.304;
-  parameter Real l2=0.8586;
-  parameter Real c1=1.072;
-  parameter Real c2=1/(1.704992^2*l1);
-  parameter Real c3=1.682;
-  parameter Real c4=1/(1.179945^2*l2);
-  parameter Real c5=0.7262;
+  parameter Modelica.SIunits.Capacitance l1=1.304;
+  parameter Modelica.SIunits.Capacitance l2=0.8586;
+  parameter Modelica.SIunits.Capacitance c1=1.072;
+  parameter Modelica.SIunits.Capacitance c2=1/(1.704992^2*l1);
+  parameter Modelica.SIunits.Capacitance c3=1.682;
+  parameter Modelica.SIunits.Capacitance c4=1/(1.179945^2*l2);
+  parameter Modelica.SIunits.Capacitance c5=0.7262;
   Modelica.Electrical.Analog.Basic.Capacitor C1(C=c1 + c2) 
     annotation (extent=[-192,10; -172,30], rotation=0);
   Modelica.Electrical.Analog.Basic.Capacitor C2(C=c2) 
