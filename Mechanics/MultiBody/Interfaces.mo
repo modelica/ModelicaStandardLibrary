@@ -301,7 +301,8 @@ to the FlangeWithBearing connector.
     Modelica.Mechanics.Rotational.Interfaces.Flange_b flange 
       "1-dim. rotational flange" 
       annotation (extent=[-10, -10; 10, 10]);
-    Frame_a frame "3-dim. frame in which the 1-dim. shaft is mounted" annotation (extent=[-16,-116; 16,-84], rotation=90);
+    Frame_a frame if includeBearingConnector 
+      "3-dim. frame in which the 1-dim. shaft is mounted"             annotation (extent=[-16,-116; 16,-84], rotation=90);
     
     annotation (
       defaultComponentName="adaptor",
