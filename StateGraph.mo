@@ -1,3 +1,4 @@
+within Modelica;
 package StateGraph 
   "Library to model discrete event and reactive systems by hierarchical state machines" 
   
@@ -117,14 +118,14 @@ and the accompanying <b>disclaimer</b>
           rgbfillColor={0,0,0})),
       Rectangle(extent=[26,-22; 64,-56],  style(color=0, rgbcolor={0,0,0}))));
   
-package UsersGuide "User's Guide of StateGraph Library" 
+class UsersGuide "User's Guide of StateGraph Library" 
     
   annotation (DocumentationClass=true, Documentation(info="<html>
 <p>
 Library <b>StateGraph</b> is a <b>free</b> Modelica package providing
 components to model <b>discrete event</b> and <b>reactive</b> 
 systems in a convenient
-way. This package contains the <b>users guide</b> for 
+way. This package contains the <b>user's Guide</b> for 
 the library and has the following content:
 </p>
 <ol>
