@@ -4,8 +4,10 @@ model PlanarLoops_analytic
   
   import SI = Modelica.SIunits;
   extends Modelica.Icons.Example;
-  parameter SI.Length rh[3]={0.5,0,0};
-  parameter SI.Length rv[3]={0,0.5,0};
+  parameter SI.Length rh[3]={0.5,0,0} 
+    "Position vector from 'lower left' revolute to 'lower right' revolute joint for all the 3 loops";
+  parameter SI.Length rv[3]={0,0.5,0} 
+    "Position vector from 'lower left' revolute to 'upper left' revolute joint";
   
   parameter SI.Length r1b[3]={0.1,0.5,0};
   parameter SI.Length r1a[3]=r1b + rh - rv;
@@ -122,7 +124,7 @@ equation
       rgbcolor={95,95,95},
       thickness=2));
   connect(jointRRR1.frame_im, jointRRR2.frame_a) annotation (points=[0,
-        1.22461e-015; 12,1.22461e-015; 12,25; 30,25; 30,20], style(
+        1.22465e-015; 12,1.22465e-015; 12,25; 30,25; 30,20], style(
       color=10,
       rgbcolor={95,95,95},
       thickness=2));
@@ -137,7 +139,7 @@ equation
       rgbcolor={95,95,95},
       thickness=2));
   connect(jointRRR2.frame_im, jointRRR3.frame_a) annotation (points=[50,
-        1.22461e-015; 60,1.22461e-015; 60,26; 80,26; 80,20], style(
+        1.22465e-015; 60,1.22465e-015; 60,26; 80,26; 80,20], style(
       color=10,
       rgbcolor={95,95,95},
       thickness=2));

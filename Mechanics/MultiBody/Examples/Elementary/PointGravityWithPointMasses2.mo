@@ -3,7 +3,7 @@ model PointGravityWithPointMasses2
   "Rigidly connected point masses in a point gravity field" 
   extends Modelica.Icons.Example;
   model PointMass = Modelica.Mechanics.MultiBody.Parts.PointMass (m=1, sphereColor={
-          255,0,0});
+          255,0,0}) "Point mass used at all places of this example";
   
   PointMass pointMass1(
     initType=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity,
@@ -70,8 +70,10 @@ its bodies in \"blue\".
   Joints.FreeMotion freeMotion annotation (extent=[-40,60; -20,80]);
   
 model SystemWithStandardBodies 
+    "For comparison purposes, an equivalent model with Bodies instead of PointMasses" 
   extends Modelica.Icons.Example;
-  model PointMass = Modelica.Mechanics.MultiBody.Parts.Body(m=1,I_11=0,I_22=0,I_33=0);
+  model PointMass = Modelica.Mechanics.MultiBody.Parts.Body(m=1,I_11=0,I_22=0,I_33=0) 
+      "Body used all places of the comparision model with zero inertia tensor";
     
   PointMass pointMass1(
     r_0_start={3,0,0},
@@ -97,7 +99,14 @@ model SystemWithStandardBodies
   Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation5( r={0,0,-1}) 
                  annotation (extent=[-20,-60; 0,-80], rotation=90);
     
-  annotation (Diagram);
+  annotation (Diagram, Documentation(info="<html>
+<p>
+In order to compare the results of the \"PointMass\" example where
+6 point masses are rigidly connected together, in this comparision model,
+an equivalent system is setup, with the only difference that the
+point masses are replaced by Bodies with zero inertia.
+</p>
+</html>"));
     
 equation 
   connect(fixedTranslation1.frame_a, fixedTranslation.frame_a) 
