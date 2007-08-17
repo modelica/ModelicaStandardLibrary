@@ -68,13 +68,13 @@ The simulation end time should be 60. Please plot both V.p.v (input voltage) and
         extent=[-100,142; 140,83],
         string="%name",
         style(color=1))));
-  parameter Real l1=1.304;
-  parameter Real l2=0.8586;
-  parameter Real c1=1.072;
-  parameter Real c2=1/(1.704992^2*l1);
-  parameter Real c3=1.682;
-  parameter Real c4=1/(1.179945^2*l2);
-  parameter Real c5=0.7262;
+  parameter Modelica.SIunits.Inductance l1=1.304;
+  parameter Modelica.SIunits.Inductance l2=0.8586;
+  parameter Modelica.SIunits.Capacitance c1=1.072;
+  parameter Modelica.SIunits.Capacitance c2=1/(1.704992^2*l1);
+  parameter Modelica.SIunits.Capacitance c3=1.682;
+  parameter Modelica.SIunits.Capacitance c4=1/(1.179945^2*l2);
+  parameter Modelica.SIunits.Capacitance c5=0.7262;
   Modelica.Electrical.Analog.Basic.Ground G 
     annotation (extent=[-10,-90; 10,-70]);
   Modelica.Electrical.Analog.Basic.Capacitor C1(C=c1) 
@@ -110,19 +110,19 @@ equation
       style(color=3, rgbcolor={0,0,255}));
   connect(L1.n,C2. n) 
     annotation (points=[-20,70; -20,30], style(color=3, rgbcolor={0,0,255}));
-  connect(C2.n,C3. p) annotation (points=[-20,30; 1.83691e-015,30; 1.83691e-015,
+  connect(C2.n,C3. p) annotation (points=[-20,30; 1.83697e-015,30; 1.83697e-015,
         -10], style(color=3, rgbcolor={0,0,255}));
   connect(C2.n,C4. p) 
     annotation (points=[-20,30; 20,30], style(color=3, rgbcolor={0,0,255}));
-  connect(L1.n,C3. p) annotation (points=[-20,70; -20,30; 1.83691e-015,30;
-        1.83691e-015,-10], style(color=3, rgbcolor={0,0,255}));
+  connect(L1.n,C3. p) annotation (points=[-20,70; -20,30; 1.83697e-015,30; 
+        1.83697e-015,-10], style(color=3, rgbcolor={0,0,255}));
   connect(L1.n,C4. p) annotation (points=[-20,70; -20,30; 20,30], style(color=3,
         rgbcolor={0,0,255}));
   connect(L2.p,C4. p) 
     annotation (points=[20,70; 20,30], style(color=3, rgbcolor={0,0,255}));
   connect(C2.n,L2. p) annotation (points=[-20,30; 20,30; 20,70], style(color=3,
         rgbcolor={0,0,255}));
-  connect(C3.p,L2. p) annotation (points=[1.83691e-015,-10; 0,-10; 0,30; 20,30;
+  connect(C3.p,L2. p) annotation (points=[1.83697e-015,-10; 0,-10; 0,30; 20,30; 
         20,70], style(color=3, rgbcolor={0,0,255}));
   connect(L2.n,C4. n) 
     annotation (points=[40,70; 40,30], style(color=3, rgbcolor={0,0,255}));
@@ -136,18 +136,18 @@ equation
         rgbcolor={0,0,255}));
   connect(C4.n,R2. p) annotation (points=[40,30; 100,30; 100,-10], style(color=
           3, rgbcolor={0,0,255}));
-  connect(C3.n,G. p) annotation (points=[-1.83691e-015,-30; 0,-30; 0,-70],
+  connect(C3.n,G. p) annotation (points=[-1.83697e-015,-30; 0,-30; 0,-70],
       style(color=3, rgbcolor={0,0,255}));
   connect(C5.n,G. p) annotation (points=[60,-30; 60,-50; 0,-50; 0,-70], style(
         color=3, rgbcolor={0,0,255}));
-  connect(C1.n,C3. n) annotation (points=[-60,-30; -60,-50; 0,-50; 0,-30;
-        -1.83691e-015,-30], style(color=3, rgbcolor={0,0,255}));
+  connect(C1.n,C3. n) annotation (points=[-60,-30; -60,-50; 0,-50; 0,-30; 
+        -1.83697e-015,-30], style(color=3, rgbcolor={0,0,255}));
   connect(C1.n,C5. n) annotation (points=[-60,-30; -60,-50; 60,-50; 60,-30],
       style(color=3, rgbcolor={0,0,255}));
   connect(R2.n,C5. n) annotation (points=[100,-30; 100,-50; 60,-50; 60,-30],
       style(color=3, rgbcolor={0,0,255}));
-  connect(R2.n,C3. n) annotation (points=[100,-30; 100,-50; 0,-50; 0,-30;
-        -1.83691e-015,-30], style(color=3, rgbcolor={0,0,255}));
+  connect(R2.n,C3. n) annotation (points=[100,-30; 100,-50; 0,-50; 0,-30; 
+        -1.83697e-015,-30], style(color=3, rgbcolor={0,0,255}));
   connect(R2.n,C1. n) annotation (points=[100,-30; 100,-50; -60,-50; -60,-30],
       style(color=3, rgbcolor={0,0,255}));
   connect(C5.p,R2. p) annotation (points=[60,-10; 60,30; 100,30; 100,-10],

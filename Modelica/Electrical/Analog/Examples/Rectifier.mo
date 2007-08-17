@@ -156,20 +156,20 @@ equation
   connect(IdealDiode1.p, IdealDiode4.n) 
     annotation (points=[-20, 30; -20,-30], style(color=3, rgbcolor={0,0,255}));
   connect(IdealDiode2.p, IdealDiode5.n) 
-    annotation (points=[-6.12303e-016,30; -6.12303e-016,16; 0,0; 0,-30;
-        6.12303e-016,-30],                           style(color=3, rgbcolor={0,0,255}));
+    annotation (points=[-6.12323e-016,30; -6.12323e-016,16; 0,0; 0,-30; 
+        6.12323e-016,-30],                           style(color=3, rgbcolor={0,0,255}));
   connect(IdealDiode3.p, IdealDiode6.n) 
     annotation (points=[20, 30; 20,-30], style(color=3, rgbcolor={0,0,255}));
   connect(IdealDiode1.n, IdealDiode2.n) 
-    annotation (points=[-20,50; 6.12303e-016,50],
+    annotation (points=[-20,50; 6.12323e-016,50],
                                        style(color=3, rgbcolor={0,0,255}));
   connect(IdealDiode2.n, IdealDiode3.n) 
-    annotation (points=[6.12303e-016,50; 20,50], style(color=3, rgbcolor={0,0,255}));
+    annotation (points=[6.12323e-016,50; 20,50], style(color=3, rgbcolor={0,0,255}));
   connect(IdealDiode4.p, IdealDiode5.p) 
-    annotation (points=[-20,-50; -6.12303e-016,-50],
+    annotation (points=[-20,-50; -6.12323e-016,-50],
                                          style(color=3, rgbcolor={0,0,255}));
   connect(IdealDiode5.p, IdealDiode6.p) 
-    annotation (points=[-6.12303e-016,-50; 20,-50],
+    annotation (points=[-6.12323e-016,-50; 20,-50],
                                         style(color=3, rgbcolor={0,0,255}));
   connect(Capacitor2.n, IdealDiode6.p) 
     annotation (points=[40, -50; 20,-50], style(color=3, rgbcolor={0,0,255}));
@@ -184,12 +184,12 @@ equation
   connect(SignalCurrent1.n, Capacitor2.n) 
     annotation (points=[60, -10;60, -50; 40, -50], style(color=3, rgbcolor={0,0,255}));
   connect(Constant1.y, SignalCurrent1.i) 
-    annotation (points=[79,0; 79,4.28612e-016; 67,4.28612e-016],
+    annotation (points=[79,0; 79,4.28626e-016; 67,4.28626e-016],
                                           style(color=3, rgbcolor={0,0,255}));
   connect(Inductor1.n, IdealDiode1.p) 
     annotation (points=[-40, 20; -20,20; -20, 30], style(color=3, rgbcolor={0,0,255}));
   connect(Inductor2.n, IdealDiode2.p) 
-    annotation (points=[-40,0; -6.12303e-016,0; -6.12303e-016,30],
+    annotation (points=[-40,0; -6.12323e-016,0; -6.12323e-016,30],
                                            style(color=3, rgbcolor={0,0,255}));
   connect(Inductor3.n, IdealDiode3.p) 
     annotation (points=[-40, -20; 20,-20; 20, 30], style(color=3, rgbcolor={0,0,255}));
