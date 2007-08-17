@@ -3223,7 +3223,7 @@ The details of the pipe friction model are described
         model Air "Test single gas Modelica.Media.IdealGases.SingleGases.Air" 
           extends Modelica.Media.Examples.Tests.Components.PartialTestModel(
              redeclare package Medium = 
-                Modelica.Media.IdealGases.SingleGases.Air);
+                Modelica.Media.Air.DryAirNasa);
           annotation (Documentation(info="<html>
   
 </html>"));
@@ -3339,6 +3339,32 @@ The details of the pipe friction model are described
       annotation (Documentation(info="<html>
   
 </html>"));
+      package LinearFluid 
+        "Test models of library Modelica.Media.Incompressible" 
+        extends Modelica.Icons.Library;
+        model LinearColdWater 
+          "Test Modelica.Media.Incompressible.Examples.Glycol47" 
+          extends Modelica.Media.Examples.Tests.Components.PartialTestModel(
+             redeclare package Medium = 
+                Modelica.Media.CompressibleLiquids.LinearColdWater);
+          annotation (Documentation(info="<html>
+  
+</html>"));
+        end LinearColdWater;
+        
+        model LinearWater_pT 
+          "Test Modelica.Media.Incompressible.Examples.Essotherm65" 
+          extends Modelica.Media.Examples.Tests.Components.PartialTestModel(
+             redeclare package Medium = 
+                Modelica.Media.CompressibleLiquids.LinearWater_pT_Ambient);
+          annotation (Documentation(info="<html>
+  
+</html>"));
+        end LinearWater_pT;
+        annotation (Documentation(info="<html>
+  
+</html>"));
+      end LinearFluid;
     end MediaTestModels;
     annotation (Documentation(info="<html>
   
