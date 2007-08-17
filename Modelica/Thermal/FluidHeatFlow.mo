@@ -1,3 +1,4 @@
+within Modelica.Thermal;
 package FluidHeatFlow 
   "Simple components for 1-dimensional incompressible thermo-fluid flow models" 
   extends Modelica.Icons.Library2;
@@ -6,6 +7,8 @@ package FluidHeatFlow
     preferedView="info",Documentation(info="<HTML>
 <p>
 This package contains very simple-to-use components to model coolant flows as needed to simulate cooling e.g. of electric machines:
+</p>
+
 <ul>
 <li>Components: components like different types of pipe models</li>
 <li>Examples: some test examples</li>
@@ -15,19 +18,26 @@ This package contains very simple-to-use components to model coolant flows as ne
 <li>Sensors: various sensors for pressure, temperature, volume and enthalpy flow</li>
 <li>Sources: various flow sources</li>
 </ul>
-</p>
+
 <p>
 <b>Variables used in connectors:</b>
+</p>
+
 <ul>
 <li>Pressure p</li>
 <li>flow MassFlowRate m_flow</li>
 <li>SpecificEnthalpy h</li>
 <li>flow EnthalpyFlowRate H_flow</li>
 </ul>
+
+<p>
 EnthalpyFlowRate means the Enthalpy = cp<sub>constant</sub> * m * T that is carried by the medium's flow.
 </p>
+
 <p>
 <b>Limitations and assumptions:</b>
+</p>
+
 <ul>
 <li>Splitting and mixing of coolant flows (media with the same cp) is possible.</li>
 <li>Reversing the direction of flow is possible.</li>
@@ -41,14 +51,17 @@ EnthalpyFlowRate means the Enthalpy = cp<sub>constant</sub> * m * T that is carr
 Since mixing may occur, the outlet temperature may be different from the connector's temperature.<br> 
 Outlet temperature is defined by variable T of the corresponding component.</li>
 </ul>
-</p>
+
+
 <p>
 <b>Further development:</b>
+</p>
+
 <ul>
 <li>Additional components like tanks (if needed)</li>
 </ul>
-</p>
-<p>
+
+
 <dl>
   <dt><b>Main Authors:</b></dt>
   <dd>
@@ -67,8 +80,7 @@ Outlet temperature is defined by variable T of the corresponding component.</li>
   </p>
   </dd>
 </dl>
-</p>
-</dl>
+
 <p>
 Copyright &copy; 1998-2007, Modelica Association, Anton Haumer and arsenal research.
 </p>
@@ -140,6 +152,8 @@ and the accompanying <b>disclaimer</b>
   annotation (Documentation(info="<HTML>
 <p>
 This package contains test examples:
+</p>
+
 <ul>
 <li>1.SimpleCooling: heat is dissipated through a media flow</li>
 <li>2.ParallelCooling: two heat sources dissipate through merged media flows</li>
@@ -150,7 +164,7 @@ This package contains test examples:
 <li>7.OneMass: cooling of a mass (thermal capacity) by a coolant flow</li>
 <li>8.TwoMass: cooling of two masses (thermal capacities) by two parallel coolant flows</li>
 </ul>
-</p>
+
 
 </HTML>", revisions="<HTML>
 <p>
@@ -1022,7 +1036,7 @@ the time behaviour depending on coolant flow.
         annotation (points=[-20,0; 0,0],   style(color=1, rgbcolor={255,0,0}));
       connect(Pipe1.flowPort_b, Ambient2.flowPort) 
         annotation (points=[20,0; 40,0],   style(color=1, rgbcolor={255,0,0}));
-      connect(ThermalConductor1.port_a, HeatCapacitor1.port) annotation (points=[10,-40;
+      connect(ThermalConductor1.port_a, HeatCapacitor1.port) annotation (points=[10,-40; 
             10,-40; 10,-50; 10,-50],        style(color=42, rgbcolor={191,0,0}));
       connect(Pipe1.heatPort, ThermalConductor1.port_b) 
         annotation (points=[10,-10; 10,-20], style(color=42, rgbcolor={191,0,0}));
@@ -1123,13 +1137,13 @@ the time behaviour depending on coolant flow.
             -10; 30,0; 40,0], style(color=1, rgbcolor={255,0,0}));
       connect(Pipe3.flowPort_b, Ambient2.flowPort) 
         annotation (points=[60,0; 80,0], style(color=1, rgbcolor={255,0,0}));
-      connect(HeatCapacitor2.port, ThermalConductor2.port_a) annotation (points=[10,60;
+      connect(HeatCapacitor2.port, ThermalConductor2.port_a) annotation (points=[10,60; 
             10,55.5; 10,50; 10,50],   style(color=42, rgbcolor={191,0,0}));
       connect(ThermalConductor2.port_b, Pipe2.heatPort) 
         annotation (points=[10,30; 10,20], style(color=42, rgbcolor={191,0,0}));
       connect(Pipe1.heatPort, ThermalConductor1.port_b) annotation (points=[10,-20;
             10,-30],         style(color=42, rgbcolor={191,0,0}));
-      connect(ThermalConductor1.port_a, HeatCapacitor1.port) annotation (points=[10,-50;
+      connect(ThermalConductor1.port_a, HeatCapacitor1.port) annotation (points=[10,-50; 
             10,-50; 10,-60; 10,-60],
                                   style(color=42, rgbcolor={191,0,0}));
       connect(DoubleRamp1.y, Pump1.VolumeFlow) annotation (points=[-39,20; -30,
@@ -1242,17 +1256,19 @@ Block generating the sum of two ramps.
   annotation (Documentation(info="<HTML>
 <p>
 This package contains components:
+</p>
+
 <ul>
 <li>pipe without heat exchange</li>
 <li>pipe with heat exchange</li>
 <li>valve (simple controlled valve)</li>
-<ul>
-</p>
+</ul>
+
 <p>
 Pressure drop is taken from partial model SimpleFriction.<br>
 Thermodynamic equations are defined in partial models (package Partials).
 </p>
-<p>
+
 
 </HTML>", revisions="<HTML>
 <dl>
@@ -2351,6 +2367,8 @@ Thermodynamic equations are defined by Partials.FlowSensor.
   annotation (Documentation(info="<HTML>
 <p>
 This package contains different types of sources:
+</p>
+
 <ul>
 <li>Ambient with constant pressure and temperature</li>
 <li>Ambient with prescribed pressure and temperature</li>
@@ -2358,13 +2376,12 @@ This package contains different types of sources:
 <li>Constant and prescribed volume flow</li>
 <li>Constant and prescribed pressure increase</li>
 <li>Simple pump with mechanical flange</li>
-<ul>
-</p>
+</ul>
+
 <p>
 Thermodynamic equations are defined in partial models (package Interfaces.Partials).<br>
 All fans / pumps are considered without losses, they do not change enthalpy flow.
 </p>
-<p>
 
 </HTML>", revisions="<HTML>
 <dl>
@@ -2385,8 +2402,7 @@ All fans / pumps are considered without losses, they do not change enthalpy flow
   </p>
   </dd>
 </dl>
-</p>
-</dl>
+
 <p>
 Copyright &copy; 1998-2007, Modelica Association, Anton Haumer and arsenal research.
 </p>
