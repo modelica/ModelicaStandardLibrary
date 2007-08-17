@@ -298,7 +298,7 @@ simulation. Currently, this type of problem can occur with the
 Coulomb friction elements <b>BearingFriction, Clutch, Brake, LossyGear</b> when
 the elements become stuck:
 </p>
-<p><IMG SRC=\"../Images/driveConnections2.png\" ALT=\"driveConnections2\"></p>
+<p><IMG SRC=\"../Images/Rotational/driveConnections3.png\" ALT=\"driveConnections3\"></p>
 <p>
 In the figure above two typical situations are shown: In the upper part of
 the figure, the series connection of rigidly attached BearingFriction and

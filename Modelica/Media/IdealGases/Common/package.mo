@@ -1,3 +1,4 @@
+within Modelica.Media.IdealGases;
 package Common "Common packages and data for the ideal gas models"
 extends Modelica.Icons.Library;
 
@@ -131,7 +132,7 @@ Authors: Gordon, Sanford (NASA Lewis Research Center)
  Mcbride, Bonnie J. (NASA Lewis Research Center)
 Published: Oct 01, 1994.
 </p>
-<p><b>Known limits of validity:</p></br>
+<p><b>Known limits of validity:</b></br>
 The data is valid for
 temperatures between 200K and 6000K.  A few of the data sets for
 monatomic gases have a discontinuous 1st derivative at 1000K, but
@@ -603,25 +604,30 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
     
     annotation (Documentation(info="<html>
 <body>
-<h4>Function that calculates the dynamic viscosity of low pressure gases</h4>
+
 <p>
 The used formula are based on the method of Chung et al (1984, 1988) referred to in ref [1] chapter 9.
 The formula 9-4.10 is the one being used. The Formula is given in non-SI units, the follwong onversion constants were used to
 transform the formula to SI units:
-<ul>
-<b>Const1_SI:</b> The factor 10^(-9.5) =10^(-2.5)*1e-7 where the factor 10^(-2.5) originates from the conversion of g/mol->kg/mol + cm^3/mol->m^3/mol
- and the factor 1e-7 is due to conversionfrom microPoise->Pa.s.
-<b>Const2_SI:</b> The factor 1/3.335641e-27 = 1e-3/3.335641e-30 where the factor 3.335641e-30 comes from debye->C.m and
-1e-3 is due to conversion from cm^3/mol->m^3/mol
-</ul>
 </p>
+
+<ul>
+<li> <b>Const1_SI:</b> The factor 10^(-9.5) =10^(-2.5)*1e-7 where the 
+     factor 10^(-2.5) originates from the conversion of g/mol->kg/mol + cm^3/mol->m^3/mol
+      and the factor 1e-7 is due to conversionfrom microPoise->Pa.s.</li>
+<li>  <b>Const2_SI:</b> The factor 1/3.335641e-27 = 1e-3/3.335641e-30 
+      where the factor 3.335641e-30 comes from debye->C.m and
+      1e-3 is due to conversion from cm^3/mol->m^3/mol</li>
+</ul>
+
 <h4>References:</h4>
 <p>
 [1] Bruce E. Poling, John E. Prausnitz, John P. O'Connell, \"The Properties of Gases and Liquids\" 5th Ed. Mc Graw Hill.
 </p>
-<h4>Authors</h4>
-<p>T. Skoglund, Lund, Sweden, 2004-08-31
-</body>
+
+<h4>Author</h4>
+<p>T. Skoglund, Lund, Sweden, 2004-08-31</p>
+
 </html>"));
   algorithm 
     Tstar := 1.2593*T/Tc;
@@ -645,36 +651,28 @@ transform the formula to SI units:
   end dynamicViscosity;
   
   function thermalConductivityEstimate 
-    "thermal conductivity estimation function" 
+    "Thermal conductivity of polyatomic gases(Eucken and Modified Eucken correlation)" 
     extends Modelica.Icons.Function;
-    input SpecificHeatCapacity Cp "constant pressure heat capacity";
-    input DynamicViscosity eta "viscosity";
-    input Integer method=1 "1: Eucken Method, 2: Modified Eucken Method";
-    output ThermalConductivity lambda "thermal conductivity [W/(m.k)]";
+    input SpecificHeatCapacity Cp "Constant pressure heat capacity";
+    input DynamicViscosity eta "Dynamic viscosity";
+    input Integer method(min=1,max=2)=1 
+      "1: Eucken Method, 2: Modified Eucken Method";
+    output ThermalConductivity lambda "Thermal conductivity [W/(m.k)]";
   algorithm 
     lambda := if method == 1 then eta*(Cp - data.R + (9/4)*data.R) else eta*(Cp
        - data.R)*(1.32 + 1.77/((Cp/Modelica.Constants.R) - 1.0));
     annotation (Documentation(info="<html>
-           <body>
-           <h4>Thermal conductivities of polyatomic gases. Eucken and Modified Eucken correlation for
-           polyatomic gases.</h4>
-           This function provides two similar methods for estimating the thermal conductivity of polyatomic gases.
-           The Eucken method (input method == 1) gives good results for low temperatures, but it tends to
-           give an underestimated value of the thermal conductivity (lambda) at higher temperatures.<br>
-           The Modified Eucken method (input method == 2) gives good results for high-temperatures, but it tends to
-           give an overestimated value of the thermal conductivity (lambda) at low
-           temperatures.<br>
-           inputs: <br>
-           &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; Cp \"constant pressure heat
-           capacity\"<br>
-           &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp; M \"molecular weight\"<br>
-           &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; eta \"viscosity\"<br>
-           output:<br>
-           &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; lambda \"thermal
-           conductivity [W/(m.k)]\"<br>
-           <br>
-           </body>
-           </html>"));
+<p>
+This function provides two similar methods for estimating the 
+thermal conductivity of polyatomic gases.
+The Eucken method (input method == 1) gives good results for low temperatures, 
+but it tends to give an underestimated value of the thermal conductivity 
+(lambda) at higher temperatures.<br>
+The Modified Eucken method (input method == 2) gives good results for 
+high-temperatures, but it tends to give an overestimated value of the
+thermal conductivity (lambda) at low temperatures.
+</p>
+</html>"));
   end thermalConductivityEstimate;
   
   redeclare replaceable function extends thermalConductivity 
@@ -878,17 +876,17 @@ required from medium model \""   + mediumName + "\".");
              ThermodynamicState(p=d*(data.R*cat(1,X,{1-sum(X)}))*T,T=T, X=cat(1,X,{1-sum(X)}));
     end setState_dTX;
   
-    redeclare function extends pressure "return pressure of ideal gas" 
+    redeclare function extends pressure "Return pressure of ideal gas" 
     algorithm 
       p := state.p;
     end pressure;
   
-    redeclare function extends temperature "return temperature of ideal gas" 
+    redeclare function extends temperature "Return temperature of ideal gas" 
     algorithm 
       T := state.T;
     end temperature;
   
-    redeclare function extends density "return density of ideal gas" 
+    redeclare function extends density "Return density of ideal gas" 
     algorithm 
       d := state.p/((state.X*data.R)*state.T);
     end density;
@@ -967,7 +965,7 @@ required from medium model \""   + mediumName + "\".");
       sum((SingleGasNasa.h_T(data[i], T)*dX[i]) for i in 1:nX);
   end h_TX_der;
   
-  redeclare function extends gasConstant "compute gasConstant" 
+  redeclare function extends gasConstant "Return gasConstant" 
   algorithm 
     R := data.R*state.X;
   end gasConstant;
@@ -979,12 +977,12 @@ required from medium model \""   + mediumName + "\".");
   end specificHeatCapacityCp;
   
   redeclare function extends specificHeatCapacityCv 
-    "Compute specific heat capacity at constant volume from temperature and gas data" 
+    "Return specific heat capacity at constant volume from temperature and gas data" 
   algorithm 
     cv := {SingleGasNasa.cp_T(data[i], state.T) for i in 1:nX}*state.X -data.R*state.X;
   end specificHeatCapacityCv;
   
-  function MixEntropy "calculate the mixing entropy of ideal gases / R" 
+  function MixEntropy "Return mixing entropy of ideal gases / R" 
     extends Modelica.Icons.Function;
     input SI.MoleFraction x[:] "mole fraction of mixture";
     output Real smix "mixing entropy contribution, divided by gas constant";
@@ -994,7 +992,7 @@ required from medium model \""   + mediumName + "\".");
   end MixEntropy;
   
   function s_TX 
-    "temperature dependent part of the entropy, expects full entropy vector" 
+    "Return temperature dependent part of the entropy, expects full entropy vector" 
     input Temperature T "temperature";
     input MassFraction[nX] X "mass fraction";
     output SpecificEntropy s "specific entropy";
@@ -1015,7 +1013,7 @@ required from medium model \""   + mediumName + "\".");
   end velocityOfSound;
   
   function isentropicEnthalpyApproximation 
-    "approximate method of calculating h_is from upstream properties and downstream pressure" 
+    "Approximate method of calculating h_is from upstream properties and downstream pressure" 
     extends Modelica.Icons.Function;
     input AbsolutePressure p2 "downstream pressure";
     input ThermodynamicState state "thermodynamic state at upstream location";
@@ -1043,7 +1041,8 @@ required from medium model \""   + mediumName + "\".");
            isentropicEnthalpyApproximation(p_downstream,refState);
   end isentropicEnthalpy;
   
-function gasMixtureViscosity "Viscosities of gas mixtures at low pressures" 
+function gasMixtureViscosity 
+    "Return viscosities of gas mixtures at low pressures (Wilke method)" 
   extends Modelica.Icons.Function;
   input MoleFraction[:] yi "Mole fractions";
   input MolarMass[:] M "Mole masses";
@@ -1071,9 +1070,8 @@ algorithm
     
  annotation (Documentation(info="<html>
 <body>
-<h4>Function to compute the mixture viscosity of ideal gases (Wilke
-method)</h4>
-<br>
+
+<p>
 Simplification of the kinetic theory (Chapman and Enskog theory)
 approach neglecting the second-order effects.<br>
 <br>
@@ -1092,9 +1090,8 @@ Wilke's approximation has proved reliable even for polar-polar gas
 mixtures of aliphatic alcohols (Reid and Belenyessy, 1960). The
 principal reservation appears to lie in those cases where Mi&gt;&gt;Mj
 and etai&gt;&gt;etaj.<br>
-<br>
-<br>
-</body>
+</p>
+
 </html>
 "));
 equation 
@@ -1102,7 +1099,7 @@ equation
 end gasMixtureViscosity;
   
     redeclare replaceable function extends dynamicViscosity 
-    "mixture dynamic viscosity" 
+    "Return mixture dynamic viscosity" 
   protected 
       DynamicViscosity[nX] etaX "component dynamic viscosities";
     algorithm 
@@ -1121,8 +1118,7 @@ end gasMixtureViscosity;
     end dynamicViscosity;
   
   function mixtureViscosityChung 
-    "compute the viscosity of gas mixtures without access to component viscosities" 
-  //Chung, et al. rules (1984, 1988)
+    "Return the viscosity of gas mixtures without access to component viscosities (Chung, et. al. rules)" 
   extends Modelica.Icons.Function;
     import SI = Modelica.SIunits;
     input Temperature T "Temperature";
@@ -1193,56 +1189,32 @@ end gasMixtureViscosity;
   etam := 26.69*Fcm*(Mm*T)^(1/2)/(sigmam3^(2/3)*omegav);
   etaMixture := etam*1e7;
   annotation (Documentation(info="<html>
-<head>
-<meta content=\"text/html; charset=ISO-8859-1\"
-http-equiv=\"content-type\">
-<title>Chung viscosity</title>
-</head>
-<body>
-<h4>Function to compute the mixture viscosity of ideal gases (Chung, et
-al. rules)</h4>
-<br>
+
+<p>
 Equation to estimate the viscosity of gas mixtures at low pressures.<br>
 It is a simplification of an extension of the rigorous kinetic theory
 of Chapman and Enskog to determine the viscosity of multicomponent
 mixtures, at low pressures and with a factor to correct for molecule
-shape and polarity.<br>
-<br>
-Inputs:&nbsp; -T \"Temperature\";<br>
-&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; -Tc \"Critical
-temperatures\";<br>
-&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; -Vcrit
-\"Critical volumes\";<br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; -w
-\"Acentric factors\";<br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; -mu
-\"Dipole moments (debyes)\";<br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; -kappa
-\"Association Factors\";<br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
--MolecularWeights \"Molecular weights\";<br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; -y
-\"Molar Fractions\";<br>
-Output: -etaMixture \"Mixture viscosity (Pa.s)\";<br>
-<br>
-Kappa is a special correction for highly polar substances such as
+shape and polarity.
+</p>
+
+<p>
+The input argument Kappa is a special correction for highly polar substances such as
 alcohols and acids.<br>
-Values of kappa for a few such materials:&nbsp;&nbsp;&nbsp; <span
-style=\"font-weight: bold;\"><br>
-</span><span style=\"font-weight: bold;\">&nbsp;&nbsp;&nbsp; </span><br>
-<div style=\"text-align: center;\"><span style=\"font-weight: bold;\"></span></div>
+Values of kappa for a few such materials:
+</p>
+
 <table style=\"text-align: left; width: 302px; height: 200px;\" border=\"1\"
-cellspacing=\"2\" cellpadding=\"2\">
+cellspacing=\"0\" cellpadding=\"2\">
 <tbody>
 <tr>
 <td style=\"vertical-align: top;\">Compound <br>
 </td>
-<td style=\"vertical-align: top; text-align: center;\"><span
-style=\"font-family: symbol;\">kappa</span><br>
+<td style=\"vertical-align: top; text-align: center;\">Kappa<br>
 </td>
 <td style=\"vertical-align: top;\">Compound<br>
 </td>
-<td style=\"vertical-align: top;\">kappa<br>
+<td style=\"vertical-align: top;\">Kappa<br>
 </td>
 </tr>
 <tr>
@@ -1306,7 +1278,7 @@ style=\"font-family: symbol;\">kappa</span><br>
 </tr>
 </tbody>
 </table>
-<br>
+<p>
 Chung, et al. (1984) suggest that for other alcohols not shown in the
 table:<br>
 &nbsp;&nbsp;&nbsp;&nbsp; <br>
@@ -1319,8 +1291,9 @@ debyes:&nbsp;</span><br>
 &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
 &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
 &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 1 debye = 3.162e-25 (J.m^3)^(1/2)<br>
-<br>
+</p>
 <h4>References</h4>
+<p>
 [1] THE PROPERTIES OF GASES AND LIQUIDS, Fifth Edition,<br>
 &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; Bruce E. Poling, John M.
 Prausnitz, John P. O'Connell.<br>
@@ -1328,8 +1301,7 @@ Prausnitz, John P. O'Connell.<br>
 Chem. Res., 27: 671 (1988).<br>
 [3] Chung, T.-H., L. L. Lee, and K. E. Starling; Ing. Eng. Chem.
 Fundam., 23: 3 ()1984).<br>
-<br>
-</body>
+</p>
 </html>
 "));
   equation 
@@ -1337,12 +1309,12 @@ Fundam., 23: 3 ()1984).<br>
   end mixtureViscosityChung;
   
 function lowPressureThermalConductivity 
-    "Thermal conductivites of low-pressure gas mixtures" 
+    "Return thermal conductivites of low-pressure gas mixtures (Mason and Saxena Modification)" 
   extends Modelica.Icons.Function;
   input MoleFraction[:] y "Mole fraction of the components in the gass mixture";
   input Temperature T "Temperature";
-  input Temperature[:] Tc "Critic temperatures";
-  input AbsolutePressure[:] Pc "Critic pressures";
+  input Temperature[:] Tc "Critical temperatures";
+  input AbsolutePressure[:] Pc "Critical pressures";
   input MolarMass[:] M "Molecular weights";
   input ThermalConductivity[:] lambda 
       "Thermal conductivities of the pure gases";
@@ -1366,29 +1338,22 @@ algorithm
   end for;
   lambdam := sum(y[i]*lambda[i]/(sum(y[j]*A[i,j] for j in 1:size(y,1))) for i in 1:size(y,1));
   annotation (Documentation(info="<html>
-<body>
-<h4>Thermal conductivites of low-pressure gas mixtures. Mason and
-Saxena Modification.</h4>
+
+<p>
 This function applies the Masson and Saxena modification of the
 Wassiljewa Equation for the thermal conductivity for gas mixtures of
-n elements at low pressure.<br>
+n elements at low pressure.
+</p>
+
+<p>
 For nonpolar gas mixtures errors will generally be less than 3 to 4%.
 For mixtures of nonpolar-polar and polar-polar gases, errors greater
 than 5 to 8% may be expected. For mixtures in which the sizes and
 polarities of the constituent molecules are not greatly different, the
 thermal conductivity can be estimated satisfactorily by a mole fraction
-average of the pure component conductivities.<br>
-<br>
-inputs: T \"Temperature\"<br>
-&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; Tc \"Critical temperatures\"<br>
-&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp; Pc \"Critical pressures\"<br>
-&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; M \"Molecular weights\"<br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; lambda \"Thermal
-conductivities of the pure gases\"<br>
-<br>
-output: lambdam \"Thermal conductivity of the gas mixture\"<br>
-<br>
-</body>
+average of the pure component conductivities.
+</p>
+
 </html>
 "));
 equation 
@@ -1396,7 +1361,7 @@ equation
 end lowPressureThermalConductivity;
   
     redeclare replaceable function extends thermalConductivity 
-    "thermal conductivity for low pressure gas mixtures" 
+    "Return thermal conductivity for low pressure gas mixtures" 
       input Integer method=1 
       "method to compute single component thermal conductivity";
   protected 
@@ -1427,41 +1392,42 @@ end lowPressureThermalConductivity;
     end thermalConductivity;
   
   redeclare function extends isobaricExpansionCoefficient 
-    "Returns overall the isobaric expansion coefficient beta" 
+    "Return isobaric expansion coefficient beta" 
   algorithm 
     beta := 1/state.T;
   end isobaricExpansionCoefficient;
   
   redeclare function extends isothermalCompressibility 
-    "Returns overall the isothermal compressibility factor" 
+    "Return isothermal compressibility factor" 
   algorithm 
     kappa := 1.0/state.p;
   end isothermalCompressibility;
   
   redeclare function extends density_derp_T 
-    "density derivative by temperature at constant pressure" 
+    "Return density derivative by temperature at constant pressure" 
   algorithm 
     ddpT := 1/(state.T*gasConstant(state));
   end density_derp_T;
   
   redeclare function extends density_derT_p 
-    "density derivative by temperature at constant pressure" 
+    "Return density derivative by temperature at constant pressure" 
   algorithm 
     ddTp := -state.p/(state.T*state.T*gasConstant(state));
   end density_derT_p;
   
-  redeclare function extends density_derX "density derivative by mass fraction" 
+  redeclare function extends density_derX 
+    "Return density derivative by mass fraction" 
   algorithm 
     dddX := {-state.p/(state.T*gasConstant(state))*molarMass(state)/data[
       i].MM for i in 1:nX};
   end density_derX;
   
-  redeclare function extends molarMass "compute molar mass of mixture" 
+  redeclare function extends molarMass "Return molar mass of mixture" 
   algorithm 
     MM := 1/sum(state.X[j]/data[j].MM for j in 1:size(state.X, 1));
   end molarMass;
   
-  function T_hX "Compute temperature from specific enthalpy and mass fraction" 
+  function T_hX "Return temperature from specific enthalpy and mass fraction" 
     input SpecificEnthalpy h "specific enthalpy";
     input MassFraction[:] X "mass fractions of composition";
     output Temperature T "temperature";
@@ -1490,7 +1456,7 @@ end lowPressureThermalConductivity;
   end T_hX;
   
   function T_psX 
-    "Compute temperature from pressure, specific entropy and mass fraction" 
+    "Return temperature from pressure, specific entropy and mass fraction" 
     input AbsolutePressure p "pressure";
     input SpecificEntropy s "specific entropy";
     input MassFraction[:] X "mass fractions of composition";
