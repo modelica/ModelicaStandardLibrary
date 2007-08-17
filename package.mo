@@ -523,8 +523,11 @@ more of the following changes.
       
       annotation (Documentation(info="<html>
 <p>
-Version 2.2.2 is backward compatible to version 2.2.1 and 2.2.
-An overview of the differences between version 2.2.2 and the previous
+Version 2.2.2 is backward compatible to version 2.2.1 and 2.2. with 
+exception of the removal of the package 
+Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache (which
+relied on annotations that are not based on the language
+specification). An overview of the differences between version 2.2.2 and the previous
 version 2.2.1 is given below. The exact differences (but without
 differences in the documentation) are available
 <a href=\"../help/Documentation/Differences-Modelica-221-222.html\">here</a>.
@@ -1390,11 +1393,11 @@ units are wrong or errors in documentation):
            v3b_ph<br> 
            T3a_ps<br> 
            T3b_ps<br> 
-           v3a_ps<br> 
+           " + "v3a_ps<br> 
            v3b_ps</td>
       <td> Changed wrong unit of variables h/hstar, s, sstar from
            \"SIunits.Enthalpy\" to \"SIunits.SpecificEnthalpy\",
-           \"SIunits.SpecificEntropy\"" + ", \"SIunits.SpecificEntropy
+           \"SIunits.SpecificEntropy\", \"SIunits.SpecificEntropy
        </td> 
   </tr>
   
