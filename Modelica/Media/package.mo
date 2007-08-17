@@ -2208,7 +2208,7 @@ package Examples
     parameter SI.EnthalpyFlowRate H_flow_ext=1.e6 
       "Constant enthalpy flow rate into the volume";
     
-    package Medium = Water.ConstantPropertyLiquidWater (SpecificEnthalpy(max=1e6));
+    package Medium = Water.ConstantPropertyLiquidWater (SpecificEnthalpy(max=1e6)) "Medium model";
     Medium.BaseProperties medium(
       T(start=300,fixed=true));
     
@@ -2234,8 +2234,8 @@ package Examples
   
   model IdealGasH2O "IdealGas H20 medium model" 
     extends Modelica.Icons.Example;
-    package Medium = IdealGases.SingleGases.H2O;
-    Medium.ThermodynamicState state;
+    package Medium = IdealGases.SingleGases.H2O "Medium model";
+    Medium.ThermodynamicState state "thermodynamic state record";
     Medium.ThermodynamicState state2;
     Medium.SpecificHeatCapacity cp=Medium.specificHeatCapacityCp(state);
     Medium.SpecificHeatCapacity cv=Medium.specificHeatCapacityCv(state);
@@ -2264,7 +2264,7 @@ package Examples
   
   model WaterIF97 "WaterIF97 medium model" 
     extends Modelica.Icons.Example;
-    package Medium = Water.StandardWater;
+    package Medium = Water.StandardWater "Medium model";
     Medium.BaseProperties medium(
       p(start=1.e5, stateSelect=StateSelect.prefer),
       h(start=1.0e5, stateSelect=StateSelect.prefer),
@@ -2298,7 +2298,7 @@ package Examples
     parameter Real m_flow_ext=0.01;
     parameter Real H_flow_ext=5000;
     
-    package Medium1 = Modelica.Media.IdealGases.MixtureGases.CombustionAir;
+    package Medium1 = Modelica.Media.IdealGases.MixtureGases.CombustionAir "Medium model";
     Medium1.BaseProperties medium1(p(start=1.e5, stateSelect=StateSelect.prefer),
        T(start=300, stateSelect=StateSelect.prefer),
        X(start={0.8,0.2}));
@@ -2308,7 +2308,7 @@ package Examples
     Medium1.DynamicViscosity eta1= Medium1.dynamicViscosity(medium1.state);
     Medium1.ThermalConductivity lambda1= Medium1.thermalConductivity(medium1.state);
     
-    package Medium2 = Modelica.Media.IdealGases.MixtureGases.SimpleNaturalGas;
+    package Medium2 = Modelica.Media.IdealGases.MixtureGases.SimpleNaturalGas "Medium model"; 
     Medium2.BaseProperties medium2(p(start=1.e5, stateSelect=StateSelect.prefer),
        T(start=300, stateSelect=StateSelect.prefer),
        X(start={0.1,0.1,0.1,0.2,0.2,0.3}));
@@ -2337,7 +2337,7 @@ package Examples
   
 model MoistAir "Ideal gas flue gas  model" 
     extends Modelica.Icons.Example;
-    package Medium = Air.MoistAir;
+    package Medium = Air.MoistAir "Medium model";
     Medium.BaseProperties medium(
        T(start = 274.0),
        X(start = {0.95,0.05}),
@@ -2497,7 +2497,7 @@ points, e.g. when an isentropic reference state is computed.
     extends Modelica.Icons.Library;
     model MixIdealGasAir "Ideal gas air medium model" 
       extends Modelica.Icons.Example;
-      package Medium = IdealGases.MixtureGases.CombustionAir;
+      package Medium = IdealGases.MixtureGases.CombustionAir "Medium model";
       Medium.BaseProperties medium(
          T(start = 200.0),
          X(start = {0.2,0.8}),
@@ -2535,7 +2535,7 @@ is given to compare the approximation.
     
     model FlueGas "Ideal gas flue gas  model" 
       extends Modelica.Icons.Example;
-      package Medium = IdealGases.MixtureGases.FlueGasLambdaOnePlus;
+      package Medium = IdealGases.MixtureGases.FlueGasLambdaOnePlus "Medium model";
       Medium.ThermodynamicState state(
          T(start = 200.0),
          X(start = {0.2,0.3,0.4,0.1}),
@@ -2575,7 +2575,7 @@ is given to compare the approximation.
       extends Modelica.Icons.Library;
       model TemplateMedium "Test Interfaces.TemplateMedium" 
         extends Modelica.Icons.Example;
-        package Medium = Interfaces.TemplateMedium;
+        package Medium = Interfaces.TemplateMedium  "Medium model";
         Medium.ThermodynamicState medium;
         
         Medium.DynamicViscosity eta=Medium.dynamicViscosity(medium);
@@ -2605,7 +2605,7 @@ is given to compare the approximation.
       parameter Real m_flow_ext=0.01;
       parameter Real H_flow_ext=5000;
       
-      package Medium = IdealGases.SingleGases.Air;
+      package Medium = IdealGases.SingleGases.Air "Medium model";
       // initType=Medium.Choices.Init.SteadyState,
       
       Medium.BaseProperties medium(
@@ -3666,6 +3666,7 @@ kind of media.
   */
     
     redeclare model extends BaseProperties "Base properties of medium" 
+      annotation (Documentation(info="<html></html>"));
     equation 
       d = 1;
       h = 0;
@@ -3692,7 +3693,7 @@ kind of media.
       "a selction of variables that uniquely defines the thermodynamic state" 
       AbsolutePressure p "Absolute pressure of medium";
       Temperature T "Temperature of medium";
-      annotation (Documentation(revisions="<html>
+      annotation (Documentation(info="<html>
   
 </html>"));
     end ThermodynamicState;
@@ -3700,7 +3701,7 @@ kind of media.
     redeclare function extends dynamicViscosity "Return dynamic viscosity" 
     algorithm 
       eta := 10 - state.T*0.3 + state.p*0.2;
-      annotation (Documentation(revisions="<html>
+      annotation (Documentation(info="<html>
   
 </html>"));
     end dynamicViscosity;
@@ -3709,7 +3710,7 @@ kind of media.
       "Return thermal conductivity" 
     algorithm 
       lambda := 0;
-      annotation (Documentation(revisions="<html>
+      annotation (Documentation(info="<html>
   
 </html>"));
     end thermalConductivity;
@@ -3717,7 +3718,7 @@ kind of media.
     redeclare function extends specificEntropy "Return specific entropy" 
     algorithm 
       s := 0;
-      annotation (Documentation(revisions="<html>
+      annotation (Documentation(info="<html>
   
 </html>"));
     end specificEntropy;
@@ -3726,7 +3727,7 @@ kind of media.
       "Return specific heat capacity at constant pressure" 
     algorithm 
       cp := 0;
-      annotation (Documentation(revisions="<html>
+      annotation (Documentation(info="<html>
   
 </html>"));
     end specificHeatCapacityCp;
@@ -3735,7 +3736,7 @@ kind of media.
       "Return specific heat capacity at constant volume" 
     algorithm 
       cv := 0;
-      annotation (Documentation(revisions="<html>
+      annotation (Documentation(info="<html>
   
 </html>"));
     end specificHeatCapacityCv;
@@ -3744,7 +3745,7 @@ kind of media.
       extends Modelica.Icons.Function;
     algorithm 
        gamma := 0;
-      annotation (Documentation(revisions="<html>
+      annotation (Documentation(info="<html>
   
 </html>"));
     end isentropicExponent;
@@ -3753,7 +3754,7 @@ kind of media.
       extends Modelica.Icons.Function;
     algorithm 
       a := 0;
-      annotation (Documentation(revisions="<html>
+      annotation (Documentation(info="<html>
   
 </html>"));
     end velocityOfSound;
@@ -3823,11 +3824,13 @@ Modelica source.
         "Chemical formula, (brutto, nomenclature according to Hill";
       String structureFormula "Chemical structure formula";
       MolarMass molarMass "molar mass";
+      annotation(Documentation(info="<html></html>"));
     end FluidConstants;
     
     replaceable record ThermodynamicState 
       "Minimal variable set that is available as input argument to every medium function" 
       extends Modelica.Icons.Record;
+      annotation(Documentation(info="<html></html>"));
     end ThermodynamicState;
     
     replaceable record BasePropertiesRecord 
@@ -3844,6 +3847,7 @@ Modelica source.
       SpecificInternalEnergy u "Specific internal energy of medium";
       SpecificHeatCapacity R "Gas constant (of mixture if applicable)";
       MolarMass MM "Molar mass (of mixture or single fluid)";
+      annotation(Documentation(info="<html></html>"));
     end BasePropertiesRecord;
     
     replaceable partial model BaseProperties 
@@ -3955,7 +3959,8 @@ T_ambient.
       input AbsolutePressure p "Pressure";
       input Temperature T "Temperature";
       input MassFraction X[:]=reference_X "Mass fractions";
-      output ThermodynamicState state;
+      output ThermodynamicState state "thermodynamic state record";
+      annotation(Documentation(info="<html></html>"));
     end setState_pTX;
     
     replaceable partial function setState_phX 
@@ -3964,7 +3969,8 @@ T_ambient.
       input AbsolutePressure p "Pressure";
       input SpecificEnthalpy h "Specific enthalpy";
       input MassFraction X[:]=reference_X "Mass fractions";
-      output ThermodynamicState state;
+      output ThermodynamicState state "thermodynamic state record";
+      annotation(Documentation(info="<html></html>"));
     end setState_phX;
     
     replaceable partial function setState_psX 
@@ -3973,7 +3979,8 @@ T_ambient.
       input AbsolutePressure p "Pressure";
       input SpecificEntropy s "Specific entropy";
       input MassFraction X[:]=reference_X "Mass fractions";
-      output ThermodynamicState state;
+      output ThermodynamicState state "thermodynamic state record";
+      annotation(Documentation(info="<html></html>"));
     end setState_psX;
     
     replaceable partial function setState_dTX 
@@ -3982,25 +3989,28 @@ T_ambient.
       input Density d "density";
       input Temperature T "Temperature";
       input MassFraction X[:]=reference_X "Mass fractions";
-      output ThermodynamicState state;
+      output ThermodynamicState state "thermodynamic state record";
+      annotation(Documentation(info="<html></html>"));
     end setState_dTX;
     
     replaceable partial function dynamicViscosity "Return dynamic viscosity" 
       extends Modelica.Icons.Function;
-      input ThermodynamicState state;
+      input ThermodynamicState state "thermodynamic state record";
       output DynamicViscosity eta "Dynamic viscosity";
+      annotation(Documentation(info="<html></html>"));
     end dynamicViscosity;
     
     replaceable partial function thermalConductivity 
       "Return thermal conductivity" 
       extends Modelica.Icons.Function;
-      input ThermodynamicState state;
+      input ThermodynamicState state "thermodynamic state record";
       output ThermalConductivity lambda "Thermal conductivity";
+      annotation(Documentation(info="<html></html>"));
     end thermalConductivity;
     
     replaceable function prandtlNumber "Return the Prandtl number" 
       extends Modelica.Icons.Function;
-      input ThermodynamicState state;
+      input ThermodynamicState state "thermodynamic state record";
       output PrandtlNumber Pr "Prandtl number";
     algorithm 
       Pr := dynamicViscosity(state)*specificHeatCapacityCp(state)/thermalConductivity(
@@ -4009,61 +4019,69 @@ T_ambient.
     
     replaceable partial function pressure "Return pressure" 
       extends Modelica.Icons.Function;
-      input ThermodynamicState state;
+      input ThermodynamicState state "thermodynamic state record";
       output AbsolutePressure p "Pressure";
+      annotation(Documentation(info="<html></html>"));
     end pressure;
     
     replaceable partial function temperature "Return temperature" 
       extends Modelica.Icons.Function;
-      input ThermodynamicState state;
+      input ThermodynamicState state "thermodynamic state record";
       output Temperature T "Temperature";
     end temperature;
     
     replaceable partial function density "Return density" 
       extends Modelica.Icons.Function;
-      input ThermodynamicState state;
+      input ThermodynamicState state "thermodynamic state record";
       output Density d "Density";
+      annotation(Documentation(info="<html></html>"));
     end density;
     
     replaceable partial function specificEnthalpy "Return specific enthalpy" 
       extends Modelica.Icons.Function;
-      input ThermodynamicState state;
+      input ThermodynamicState state "thermodynamic state record";
       output SpecificEnthalpy h "Specific enthalpy";
+      annotation(Documentation(info="<html></html>"));
     end specificEnthalpy;
     
     replaceable partial function specificInternalEnergy 
       "Return specific internal energy" 
       extends Modelica.Icons.Function;
-      input ThermodynamicState state;
+      input ThermodynamicState state "thermodynamic state record";
       output SpecificEnergy u "Specific internal energy";
+      annotation(Documentation(info="<html></html>"));
     end specificInternalEnergy;
     
     replaceable partial function specificEntropy "Return specific entropy" 
       extends Modelica.Icons.Function;
-      input ThermodynamicState state;
+      input ThermodynamicState state "thermodynamic state record";
       output SpecificEntropy s "Specific entropy";
+      annotation(Documentation(info="<html></html>"));
     end specificEntropy;
     
     replaceable partial function specificGibbsEnergy 
       "Return specific Gibbs energy" 
       extends Modelica.Icons.Function;
-      input ThermodynamicState state;
+      input ThermodynamicState state "thermodynamic state record";
       output SpecificEnergy g "Specific Gibbs energy";
+      annotation(Documentation(info="<html></html>"));
     end specificGibbsEnergy;
     
     replaceable partial function specificHelmholtzEnergy 
       "Return specific Helmholtz energy" 
       extends Modelica.Icons.Function;
-      input ThermodynamicState state;
+      input ThermodynamicState state "thermodynamic state record";
       output SpecificEnergy f "Specific Helmholtz energy";
+      annotation(Documentation(info="<html></html>"));
     end specificHelmholtzEnergy;
     
     replaceable partial function specificHeatCapacityCp 
       "Return specific heat capacity at constant pressure" 
       extends Modelica.Icons.Function;
-      input ThermodynamicState state;
+      input ThermodynamicState state "thermodynamic state record";
       output SpecificHeatCapacity cp 
         "Specific heat capacity at constant pressure";
+      annotation(Documentation(info="<html></html>"));
     end specificHeatCapacityCp;
     
     function heatCapacity_cp = specificHeatCapacityCp 
@@ -4072,9 +4090,10 @@ T_ambient.
     replaceable partial function specificHeatCapacityCv 
       "Return specific heat capacity at constant volume" 
       extends Modelica.Icons.Function;
-      input ThermodynamicState state;
+      input ThermodynamicState state "thermodynamic state record";
       output SpecificHeatCapacity cv 
         "Specific heat capacity at constant volume";
+      annotation(Documentation(info="<html></html>"));
     end specificHeatCapacityCv;
     
     function heatCapacity_cv = specificHeatCapacityCv 
@@ -4083,8 +4102,9 @@ T_ambient.
     replaceable partial function isentropicExponent 
       "Return isentropic exponent" 
       extends Modelica.Icons.Function;
-      input ThermodynamicState state;
+      input ThermodynamicState state "thermodynamic state record";
       output IsentropicExponent gamma "Isentropic exponent";
+      annotation(Documentation(info="<html></html>"));
     end isentropicExponent;
     
     replaceable partial function isentropicEnthalpy 
@@ -4093,19 +4113,22 @@ T_ambient.
       input AbsolutePressure p_downstream "downstream pressure";
       input ThermodynamicState refState "reference state for entropy";
       output SpecificEnthalpy h_is "Isentropic enthalpy";
+      annotation(Documentation(info="<html></html>"));
     end isentropicEnthalpy;
     
     replaceable partial function velocityOfSound "Return velocity of sound" 
       extends Modelica.Icons.Function;
-      input ThermodynamicState state;
+      input ThermodynamicState state "thermodynamic state record";
       output VelocityOfSound a "Velocity of sound";
+      annotation(Documentation(info="<html></html>"));
     end velocityOfSound;
     
     replaceable partial function isobaricExpansionCoefficient 
       "Return overall the isobaric expansion coefficient beta" 
       extends Modelica.Icons.Function;
-      input ThermodynamicState state;
+      input ThermodynamicState state "thermodynamic state record";
       output IsobaricExpansionCoefficient beta "Isobaric expansion coefficient";
+      annotation(Documentation(info="<html></html>"));
     end isobaricExpansionCoefficient;
     
     function beta = isobaricExpansionCoefficient 
@@ -4114,8 +4137,9 @@ T_ambient.
     replaceable partial function isothermalCompressibility 
       "Return overall the isothermal compressibility factor" 
       extends Modelica.Icons.Function;
-      input ThermodynamicState state;
+      input ThermodynamicState state "thermodynamic state record";
       output SI.IsothermalCompressibility kappa "Isothermal compressibility";
+      annotation(Documentation(info="<html></html>"));
     end isothermalCompressibility;
     
     function kappa = isothermalCompressibility 
@@ -4125,44 +4149,50 @@ T_ambient.
     replaceable partial function density_derp_h 
       "Return density derivative wrt pressure at const specific enthalpy" 
       extends Modelica.Icons.Function;
-      input ThermodynamicState state;
+      input ThermodynamicState state "thermodynamic state record";
       output DerDensityByPressure ddph "Density derivative wrt pressure";
+      annotation(Documentation(info="<html></html>"));
     end density_derp_h;
     
     replaceable partial function density_derh_p 
       "Return density derivative wrt specific enthalpy at constant pressure" 
       extends Modelica.Icons.Function;
-      input ThermodynamicState state;
+      input ThermodynamicState state "thermodynamic state record";
       output DerDensityByEnthalpy ddhp 
         "Density derivative wrt specific enthalpy";
+      annotation(Documentation(info="<html></html>"));
     end density_derh_p;
     
     replaceable partial function density_derp_T 
       "Return density derivative wrt pressure at const temperature" 
       extends Modelica.Icons.Function;
-      input ThermodynamicState state;
+      input ThermodynamicState state "thermodynamic state record";
       output DerDensityByPressure ddpT "Density derivative wrt pressure";
+      annotation(Documentation(info="<html></html>"));
     end density_derp_T;
     
     replaceable partial function density_derT_p 
       "Return density derivative wrt temperature at constant pressure" 
       extends Modelica.Icons.Function;
-      input ThermodynamicState state;
+      input ThermodynamicState state "thermodynamic state record";
       output DerDensityByTemperature ddTp "Density derivative wrt temperature";
+      annotation(Documentation(info="<html></html>"));
     end density_derT_p;
     
     replaceable partial function density_derX 
       "Return density derivative wrt mass fraction" 
       extends Modelica.Icons.Function;
-      input ThermodynamicState state;
+      input ThermodynamicState state "thermodynamic state record";
       output Density[nX] dddX "Derivative of density wrt mass fraction";
+      annotation(Documentation(info="<html></html>"));
     end density_derX;
     
     replaceable partial function molarMass 
       "Return the molar mass of the medium" 
       extends Modelica.Icons.Function;
-      input ThermodynamicState state;
+      input ThermodynamicState state "thermodynamic state record";
       output MolarMass MM "Mixture molar mass";
+      annotation(Documentation(info="<html></html>"));
     end molarMass;
     
     replaceable function specificEnthalpy_pTX 
@@ -4172,6 +4202,7 @@ T_ambient.
       input Temperature T "Temperature";
       input MassFraction X[:]=reference_X "Mass fractions";
       output SpecificEnthalpy h "Specific enthalpy";
+      annotation(Documentation(info="<html></html>"));
     algorithm 
       h := specificEnthalpy(setState_pTX(p,T,X));
     end specificEnthalpy_pTX;
@@ -4182,6 +4213,7 @@ T_ambient.
       input Temperature T "Temperature";
       input MassFraction X[:] "Mass fractions";
       output Density d "Density";
+      annotation(Documentation(info="<html></html>"));
     algorithm 
       d := density(setState_pTX(p,T,X));
     end density_pTX;
@@ -4193,6 +4225,7 @@ T_ambient.
       input SpecificEnthalpy h "Specific enthalpy";
       input MassFraction X[:]=reference_X "Mass fractions";
       output Temperature T "Temperature";
+      annotation(Documentation(info="<html></html>"));
     algorithm 
       T := temperature(setState_phX(p,h,X));
     end temperature_phX;
@@ -4203,6 +4236,7 @@ T_ambient.
       input SpecificEnthalpy h "Specific enthalpy";
       input MassFraction X[:]=reference_X "Mass fractions";
       output Density d "Density";
+      annotation(Documentation(info="<html></html>"));
     algorithm 
       d := density(setState_phX(p,h,X));
     end density_phX;
@@ -4214,6 +4248,7 @@ T_ambient.
       input SpecificEntropy s "Specific entropy";
       input MassFraction X[:]=reference_X "Mass fractions";
       output Temperature T "Temperature";
+      annotation(Documentation(info="<html></html>"));
     algorithm 
       T := temperature(setState_psX(p,s,X));
     end temperature_psX;
@@ -4224,6 +4259,7 @@ T_ambient.
       input SpecificEntropy s "Specific entropy";
       input MassFraction X[:]=reference_X "Mass fractions";
       output Density d "Density";
+      annotation(Documentation(info="<html></html>"));
     algorithm 
       d := density(setState_psX(p,s,X));
     end density_psX;
@@ -4235,6 +4271,7 @@ T_ambient.
       input SpecificEntropy s "Specific entropy";
       input MassFraction X[:]=reference_X "Mass fractions";
       output SpecificEnthalpy h "Specific enthalpy";
+      annotation(Documentation(info="<html></html>"));
     algorithm 
       h := specificEnthalpy(setState_psX(p,s,X));
     end specificEnthalpy_psX;
@@ -4543,7 +4580,7 @@ are described in
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input Temperature T "Temperature";
-      output ThermodynamicState state;
+      output ThermodynamicState state "thermodynamic state record";
     algorithm 
       state := setState_pTX(p,T,fill(0,0));
     end setState_pT;
@@ -4552,7 +4589,7 @@ are described in
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEnthalpy h "Specific enthalpy";
-      output ThermodynamicState state;
+      output ThermodynamicState state "thermodynamic state record";
     algorithm 
       state := setState_phX(p,h,fill(0, 0));
     end setState_ph;
@@ -4561,7 +4598,7 @@ are described in
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEntropy s "Specific entropy";
-      output ThermodynamicState state;
+      output ThermodynamicState state "thermodynamic state record";
     algorithm 
       state := setState_psX(p,s,fill(0,0));
     end setState_ps;
@@ -4570,7 +4607,7 @@ are described in
       extends Modelica.Icons.Function;
       input Density d "density";
       input Temperature T "Temperature";
-      output ThermodynamicState state;
+      output ThermodynamicState state "thermodynamic state record";
     algorithm 
       state := setState_dTX(d,T,fill(0,0));
     end setState_dT;
@@ -5166,6 +5203,7 @@ end PartialMixtureMedium;
         "Difference between specific enthalpy model (h_m) and f.eq. (h_f) (h_m - h_f)";
       SpecificEntropy deltas=0.0 
         "Difference between specific enthalpy model (s_m) and f.eq. (s_f) (s_m - s_f)";
+      annotation(Documentation(info="<html></html>"));
     end FluidConstants;
     
   constant FluidConstants[nS] fluidConstants "constant data for the fluid";
@@ -5174,6 +5212,7 @@ end PartialMixtureMedium;
       "Thermodynamic state of two phase medium" 
       FixedPhase phase(min=0, max=2) 
         "phase of the fluid: 1 for 1-phase, 2 for two-phase, 0 for not known, e.g. interactive use";
+      annotation(Documentation(info="<html></html>"));
   end ThermodynamicState;
     
     replaceable record SaturationProperties 
@@ -5181,6 +5220,7 @@ end PartialMixtureMedium;
       extends Modelica.Icons.Record;
       AbsolutePressure psat "saturation pressure";
       Temperature Tsat "saturation temperature";
+      annotation(Documentation(info="<html></html>"));
     end SaturationProperties;
     
     type FixedPhase = Integer(min=0,max=2) 
@@ -5189,6 +5229,7 @@ end PartialMixtureMedium;
     redeclare replaceable model extends BaseProperties 
       "Base properties (p, d, T, h, u, R, MM, sat) of two phase medium" 
       SaturationProperties sat "Saturation properties at the medium pressure";
+      annotation(Documentation(info="<html></html>"));
     end BaseProperties;
     
     replaceable partial function setDewState 
@@ -5198,6 +5239,7 @@ end PartialMixtureMedium;
       input FixedPhase phase(min = 1, max = 2) =  1 
         "phase: default is one phase";
       output ThermodynamicState state "complete thermodynamic state info";
+      annotation(Documentation(info="<html></html>"));
     end setDewState;
     
     replaceable partial function setBubbleState 
@@ -5207,30 +5249,35 @@ end PartialMixtureMedium;
       input FixedPhase phase(min = 1, max = 2) =  1 
         "phase: default is one phase";
       output ThermodynamicState state "complete thermodynamic state info";
+      annotation(Documentation(info="<html></html>"));
     end setBubbleState;
     
     redeclare replaceable partial function extends setState_dTX 
       "Return thermodynamic state as function of d, T and composition X or Xi" 
       input FixedPhase phase=0 
         "2 for two-phase, 1 for one-phase, 0 if not known";
+      annotation(Documentation(info="<html></html>"));
     end setState_dTX;
     
     redeclare replaceable partial function extends setState_phX 
       "Return thermodynamic state as function of p, h and composition X or Xi" 
       input FixedPhase phase=0 
         "2 for two-phase, 1 for one-phase, 0 if not known";
+      annotation(Documentation(info="<html></html>"));
     end setState_phX;
     
     redeclare replaceable partial function extends setState_psX 
       "Return thermodynamic state as function of p, s and composition X or Xi" 
       input FixedPhase phase=0 
         "2 for two-phase, 1 for one-phase, 0 if not known";
+      annotation(Documentation(info="<html></html>"));
     end setState_psX;
     
     redeclare replaceable partial function extends setState_pTX 
       "Return thermodynamic state as function of p, T and composition X or Xi" 
       input FixedPhase phase=0 
         "2 for two-phase, 1 for one-phase, 0 if not known";
+      annotation(Documentation(info="<html></html>"));
     end setState_pTX;
     
     replaceable function setSat_T 
@@ -5238,6 +5285,7 @@ end PartialMixtureMedium;
       extends Modelica.Icons.Function;
       input Temperature T "temperature";
       output SaturationProperties sat "saturation property record";
+      annotation(Documentation(info="<html></html>"));
     algorithm 
       sat.Tsat := T;
       sat.psat := saturationPressure(T);
@@ -5248,6 +5296,7 @@ end PartialMixtureMedium;
       extends Modelica.Icons.Function;
       input AbsolutePressure p "pressure";
       output SaturationProperties sat "saturation property record";
+      annotation(Documentation(info="<html></html>"));
     algorithm 
       sat.psat := p;
       sat.Tsat := saturationTemperature(p);
@@ -5258,6 +5307,7 @@ end PartialMixtureMedium;
         extends Modelica.Icons.Function;
         input SaturationProperties sat "saturation property record";
         output SI.SpecificEnthalpy hl "boiling curve specific enthalpy";
+      annotation(Documentation(info="<html></html>"));
     end bubbleEnthalpy;
     
       replaceable partial function dewEnthalpy 
@@ -5265,6 +5315,7 @@ end PartialMixtureMedium;
         extends Modelica.Icons.Function;
         input SaturationProperties sat "saturation property record";
         output SI.SpecificEnthalpy hv "dew curve specific enthalpy";
+      annotation(Documentation(info="<html></html>"));
       end dewEnthalpy;
     
       replaceable partial function bubbleEntropy 
@@ -5272,6 +5323,7 @@ end PartialMixtureMedium;
       extends Modelica.Icons.Function;
       input SaturationProperties sat "saturation property record";
       output SI.SpecificEntropy sl "boiling curve specific entropy";
+      annotation(Documentation(info="<html></html>"));
       end bubbleEntropy;
     
       replaceable partial function dewEntropy 
@@ -5279,18 +5331,21 @@ end PartialMixtureMedium;
       extends Modelica.Icons.Function;
       input SaturationProperties sat "saturation property record";
       output SI.SpecificEntropy sv "dew curve specific entropy";
+      annotation(Documentation(info="<html></html>"));
       end dewEntropy;
     
       replaceable partial function bubbleDensity "Return bubble point density" 
         extends Modelica.Icons.Function;
         input SaturationProperties sat "saturation property record";
         output Density dl "boiling curve density";
+      annotation(Documentation(info="<html></html>"));
       end bubbleDensity;
     
       replaceable partial function dewDensity "Return dew point density" 
         extends Modelica.Icons.Function;
         input SaturationProperties sat "saturation property record";
         output Density dv "dew curve density";
+      annotation(Documentation(info="<html></html>"));
       end dewDensity;
     
       replaceable partial function saturationPressure 
@@ -5298,6 +5353,7 @@ end PartialMixtureMedium;
         extends Modelica.Icons.Function;
         input Temperature T "temperature";
         output AbsolutePressure p "saturation pressure";
+      annotation(Documentation(info="<html></html>"));
       end saturationPressure;
     
       replaceable partial function saturationTemperature 
@@ -5305,6 +5361,7 @@ end PartialMixtureMedium;
         extends Modelica.Icons.Function;
         input AbsolutePressure p "pressure";
         output Temperature T "saturation temperature";
+      annotation(Documentation(info="<html></html>"));
       end saturationTemperature;
     
       replaceable function saturationPressure_sat 
@@ -5312,6 +5369,7 @@ end PartialMixtureMedium;
         extends Modelica.Icons.Function;
         input SaturationProperties sat "saturation property record";
         output AbsolutePressure p "saturation pressure";
+      annotation(Documentation(info="<html></html>"));
       algorithm 
         p := sat.psat;
       end saturationPressure_sat;
@@ -5321,6 +5379,7 @@ end PartialMixtureMedium;
         extends Modelica.Icons.Function;
         input SaturationProperties sat "saturation property record";
         output Temperature T "saturation temperature";
+      annotation(Documentation(info="<html></html>"));
       algorithm 
         T := sat.Tsat;
       end saturationTemperature_sat;
@@ -5330,6 +5389,7 @@ end PartialMixtureMedium;
         extends Modelica.Icons.Function;
         input AbsolutePressure p "pressure";
         output Real dTp "derivative of saturation temperature w.r.t. pressure";
+      annotation(Documentation(info="<html></html>"));
       end saturationTemperature_derp;
     
       replaceable function saturationTemperature_derp_sat 
@@ -5337,6 +5397,7 @@ end PartialMixtureMedium;
         extends Modelica.Icons.Function;
         input SaturationProperties sat "saturation property record";
         output Real dTp "derivative of saturation temperature w.r.t. pressure";
+      annotation(Documentation(info="<html></html>"));
       algorithm 
         dTp := saturationTemperature_derp(sat.psat);
       end saturationTemperature_derp_sat;
@@ -5347,6 +5408,7 @@ end PartialMixtureMedium;
       input SaturationProperties sat "saturation property record";
       output SurfaceTension sigma 
         "Surface tension sigma in the two phase region";
+      annotation(Documentation(info="<html></html>"));
     end surfaceTension;
     
       redeclare replaceable partial function extends molarMass 
@@ -5360,6 +5422,7 @@ end PartialMixtureMedium;
         extends Modelica.Icons.Function;
         input SaturationProperties sat "saturation property record";
         output DerDensityByPressure ddldp "boiling curve density derivative";
+      annotation(Documentation(info="<html></html>"));
       end dBubbleDensity_dPressure;
     
       replaceable partial function dDewDensity_dPressure 
@@ -5367,6 +5430,7 @@ end PartialMixtureMedium;
         extends Modelica.Icons.Function;
         input SaturationProperties sat "saturation property record";
         output DerDensityByPressure ddvdp "saturated steam density derivative";
+      annotation(Documentation(info="<html></html>"));
       end dDewDensity_dPressure;
     
       replaceable partial function dBubbleEnthalpy_dPressure 
@@ -5375,6 +5439,7 @@ end PartialMixtureMedium;
         input SaturationProperties sat "saturation property record";
         output DerEnthalpyByPressure dhldp 
         "boiling curve specific enthalpy derivative";
+      annotation(Documentation(info="<html></html>"));
       end dBubbleEnthalpy_dPressure;
     
       replaceable partial function dDewEnthalpy_dPressure 
@@ -5384,6 +5449,7 @@ end PartialMixtureMedium;
         input SaturationProperties sat "saturation property record";
         output DerEnthalpyByPressure dhvdp 
         "saturated steam specific enthalpy derivative";
+      annotation(Documentation(info="<html></html>"));
       end dDewEnthalpy_dPressure;
     
       redeclare replaceable function specificEnthalpy_pTX 
@@ -5395,6 +5461,7 @@ end PartialMixtureMedium;
         input FixedPhase phase=0 
         "2 for two-phase, 1 for one-phase, 0 if not known";
         output SpecificEnthalpy h "Specific enthalpy at p, T, X";
+      annotation(Documentation(info="<html></html>"));
       algorithm 
         h := specificEnthalpy(setState_pTX(p,T,X,phase));
       end specificEnthalpy_pTX;
@@ -5408,6 +5475,7 @@ end PartialMixtureMedium;
         input FixedPhase phase=0 
         "2 for two-phase, 1 for one-phase, 0 if not known";
         output Temperature T "Temperature";
+      annotation(Documentation(info="<html></html>"));
       algorithm 
         T := temperature(setState_phX(p,h,X,phase));
       end temperature_phX;
@@ -5421,6 +5489,7 @@ end PartialMixtureMedium;
         input FixedPhase phase=0 
         "2 for two-phase, 1 for one-phase, 0 if not known";
         output Density d "density";
+      annotation(Documentation(info="<html></html>"));
       algorithm 
         d := density(setState_phX(p,h,X,phase));
       end density_phX;
@@ -5434,6 +5503,7 @@ end PartialMixtureMedium;
         input FixedPhase phase=0 
         "2 for two-phase, 1 for one-phase, 0 if not known";
         output Temperature T "Temperature";
+      annotation(Documentation(info="<html></html>"));
       algorithm 
         T := temperature(setState_psX(p,s,X,phase));
       end temperature_psX;
@@ -5447,6 +5517,7 @@ end PartialMixtureMedium;
         input FixedPhase phase=0 
         "2 for two-phase, 1 for one-phase, 0 if not known";
         output Density d "Density";
+      annotation(Documentation(info="<html></html>"));
       algorithm 
         d := density(setState_psX(p,s,X,phase));
       end density_psX;
@@ -5460,6 +5531,7 @@ end PartialMixtureMedium;
         input FixedPhase phase=0 
         "2 for two-phase, 1 for one-phase, 0 if not known";
         output SpecificEnthalpy h "specific enthalpy";
+      annotation(Documentation(info="<html></html>"));
       algorithm 
         h := specificEnthalpy(setState_psX(p,s,X,phase));
       end specificEnthalpy_psX;
@@ -5471,7 +5543,8 @@ end PartialMixtureMedium;
       input Temperature T "Temperature";
       input FixedPhase phase=0 
         "2 for two-phase, 1 for one-phase, 0 if not known";
-      output ThermodynamicState state;
+      output ThermodynamicState state "thermodynamic state record";
+      annotation(Documentation(info="<html></html>"));
     algorithm 
       state := setState_pTX(p,T,fill(0,0),phase);
     end setState_pT;
@@ -5483,7 +5556,8 @@ end PartialMixtureMedium;
       input SpecificEnthalpy h "Specific enthalpy";
       input FixedPhase phase=0 
         "2 for two-phase, 1 for one-phase, 0 if not known";
-      output ThermodynamicState state;
+      output ThermodynamicState state "thermodynamic state record";
+      annotation(Documentation(info="<html></html>"));
     algorithm 
       state := setState_phX(p,h,fill(0, 0),phase);
     end setState_ph;
@@ -5495,7 +5569,8 @@ end PartialMixtureMedium;
       input SpecificEntropy s "Specific entropy";
       input FixedPhase phase=0 
         "2 for two-phase, 1 for one-phase, 0 if not known";
-      output ThermodynamicState state;
+      output ThermodynamicState state "thermodynamic state record";
+      annotation(Documentation(info="<html></html>"));
     algorithm 
       state := setState_psX(p,s,fill(0,0),phase);
     end setState_ps;
@@ -5507,7 +5582,8 @@ end PartialMixtureMedium;
       input Temperature T "Temperature";
       input FixedPhase phase=0 
         "2 for two-phase, 1 for one-phase, 0 if not known";
-      output ThermodynamicState state;
+      output ThermodynamicState state "thermodynamic state record";
+      annotation(Documentation(info="<html></html>"));
     algorithm 
       state := setState_dTX(d,T,fill(0,0),phase);
     end setState_dT;
@@ -5517,6 +5593,7 @@ end PartialMixtureMedium;
       input AbsolutePressure p "Pressure";
       input MassFraction x "Vapour quality";
       output ThermodynamicState state "Thermodynamic state record";
+      annotation(Documentation(info="<html></html>"));
     algorithm 
       state := setState_ph(
         p,
@@ -5528,7 +5605,8 @@ end PartialMixtureMedium;
       "Return thermodynamic state from temperature and vapour quality" 
       input Temperature T "Temperature";
       input MassFraction x "Vapour quality";
-      output ThermodynamicState state;
+      output ThermodynamicState state "thermodynamic state record";
+      annotation(Documentation(info="<html></html>"));
     algorithm 
       state := setState_ph(
         saturationPressure_sat(setSat_T(T)),
@@ -5541,6 +5619,7 @@ end PartialMixtureMedium;
       output MassFraction x "Vapour quality";
     protected 
       constant SpecificEnthalpy eps = 1e-8;
+      annotation(Documentation(info="<html></html>"));
     algorithm 
       x := min(max(
         (specificEnthalpy(state)-bubbleEnthalpy(setSat_p(pressure(state)))) /
@@ -5555,6 +5634,7 @@ end PartialMixtureMedium;
       input FixedPhase phase=0 
         "2 for two-phase, 1 for one-phase, 0 if not known";
       output Density d "Density";
+      annotation(Documentation(info="<html></html>"));
     algorithm 
       d := density_phX(p, h, fill(0,0), phase);
     end density_ph;
@@ -5567,6 +5647,7 @@ end PartialMixtureMedium;
       input FixedPhase phase=0 
         "2 for two-phase, 1 for one-phase, 0 if not known";
       output Temperature T "Temperature";
+      annotation(Documentation(info="<html></html>"));
     algorithm 
       T := temperature_phX(p, h, fill(0,0),phase);
     end temperature_ph;
@@ -5578,6 +5659,7 @@ end PartialMixtureMedium;
       input FixedPhase phase=0 
         "2 for two-phase, 1 for one-phase, 0 if not known";
       output AbsolutePressure p "Pressure";
+      annotation(Documentation(info="<html></html>"));
     algorithm 
       p := pressure(setState_dTX(d, T, fill(0,0),phase));
     end pressure_dT;
@@ -5590,6 +5672,7 @@ end PartialMixtureMedium;
       input FixedPhase phase=0 
         "2 for two-phase, 1 for one-phase, 0 if not known";
       output SpecificEnthalpy h "specific enthalpy";
+      annotation(Documentation(info="<html></html>"));
     algorithm 
       h := specificEnthalpy(setState_dTX(d, T, fill(0,0),phase));
     end specificEnthalpy_dT;
@@ -5602,6 +5685,7 @@ end PartialMixtureMedium;
       input FixedPhase phase=0 
         "2 for two-phase, 1 for one-phase, 0 if not known";
       output SpecificEnthalpy h "specific enthalpy";
+      annotation(Documentation(info="<html></html>"));
     algorithm 
       h := specificEnthalpy_psX(p,s,fill(0,0));
     end specificEnthalpy_ps;
@@ -5614,6 +5698,7 @@ end PartialMixtureMedium;
       input FixedPhase phase=0 
         "2 for two-phase, 1 for one-phase, 0 if not known";
       output Temperature T "Temperature";
+      annotation(Documentation(info="<html></html>"));
     algorithm 
       T := temperature_psX(p,s,fill(0,0),phase);
     end temperature_ps;
@@ -5625,6 +5710,7 @@ end PartialMixtureMedium;
       input FixedPhase phase=0 
         "2 for two-phase, 1 for one-phase, 0 if not known";
       output Density d "Density";
+      annotation(Documentation(info="<html></html>"));
     algorithm 
       d := density_psX(p, s, fill(0,0), phase);
     end density_ps;
@@ -5637,6 +5723,7 @@ end PartialMixtureMedium;
       input FixedPhase phase=0 
         "2 for two-phase, 1 for one-phase, 0 if not known";
       output SpecificEnthalpy h "specific enthalpy";
+      annotation(Documentation(info="<html></html>"));
     algorithm 
       h := specificEnthalpy_pTX(p, T, fill(0,0),phase);
     end specificEnthalpy_pT;
@@ -5648,6 +5735,7 @@ end PartialMixtureMedium;
       input FixedPhase phase=0 
         "2 for two-phase, 1 for one-phase, 0 if not known";
       output Density d "Density";
+      annotation(Documentation(info="<html></html>"));
     algorithm 
       d := density(setState_pTX(p, T, fill(0,0),phase));
     end density_pT;
@@ -5716,7 +5804,8 @@ quantities are assumed to be constant.
       input AbsolutePressure p "Pressure";
       input Temperature T "Temperature";
       input MassFraction X[:]=reference_X "Mass fractions";
-      output ThermodynamicState state;
+      output ThermodynamicState state "thermodynamic state record";
+      annotation(Documentation(info="<html></html>"));
     algorithm 
       state := ThermodynamicState(p=p,T=T);
     end setState_pTX;
@@ -5727,7 +5816,8 @@ quantities are assumed to be constant.
       input AbsolutePressure p "Pressure";
       input SpecificEnthalpy h "Specific enthalpy";
       input MassFraction X[:]=reference_X "Mass fractions";
-      output ThermodynamicState state;
+      output ThermodynamicState state "thermodynamic state record";
+      annotation(Documentation(info="<html></html>"));
     algorithm 
       state := ThermodynamicState(p=p,T=T0+h/cp_const);
     end setState_phX;
@@ -5738,7 +5828,8 @@ quantities are assumed to be constant.
       input AbsolutePressure p "Pressure";
       input SpecificEntropy s "Specific entropy";
       input MassFraction X[:]=reference_X "Mass fractions";
-      output ThermodynamicState state;
+      output ThermodynamicState state "thermodynamic state record";
+      annotation(Documentation(info="<html></html>"));
     algorithm 
       state := ThermodynamicState(p=p,T=Modelica.Math.exp(s/cp_const + Modelica.Math.log(reference_T))) 
         "here the incompressible limit is used, with cp as heat capacity";
@@ -5750,40 +5841,47 @@ quantities are assumed to be constant.
       input Density d "density";
       input Temperature T "Temperature";
       input MassFraction X[:]=reference_X "Mass fractions";
-      output ThermodynamicState state;
+      output ThermodynamicState state "thermodynamic state record";
+      annotation(Documentation(info="<html></html>"));
     algorithm 
       assert(false,"pressure can not be computed from temperature and density for an incompressible fluid!");
     end setState_dTX;
     
     redeclare function extends dynamicViscosity "Return dynamic viscosity" 
+    annotation(Documentation(info="<html></html>"));
     algorithm 
       eta := eta_const;
     end dynamicViscosity;
     
     redeclare function extends thermalConductivity 
       "Return thermal conductivity" 
+	annotation(Documentation(info="<html></html>"));
     algorithm 
       lambda := lambda_const;
     end thermalConductivity;
     
     redeclare function extends specificHeatCapacityCp 
       "Return specific heat capacity at constant pressure" 
+      annotation(Documentation(info="<html></html>"));
     algorithm 
       cp := cp_const;
     end specificHeatCapacityCp;
     
     redeclare function extends specificHeatCapacityCv 
       "Return specific heat capacity at constant volume" 
+      annotation(Documentation(info="<html></html>"));
     algorithm 
       cv := cv_const;
     end specificHeatCapacityCv;
     
     redeclare function extends isentropicExponent "Return isentropic exponent" 
+      annotation(Documentation(info="<html></html>"));
     algorithm 
       gamma := cp_const/cv_const;
     end isentropicExponent;
     
     redeclare function extends velocityOfSound "Return velocity of sound " 
+      annotation(Documentation(info="<html></html>"));
     algorithm 
       a := a_const;
     end velocityOfSound;
@@ -5795,6 +5893,7 @@ quantities are assumed to be constant.
       input Temperature T "Temperature";
       input MassFraction X[nX] "Mass fractions";
       output SpecificEnthalpy h "Specific enthalpy";
+      annotation(Documentation(info="<html></html>"));
     algorithm 
       h := cp_const*(T-T0);
     end specificEnthalpy_pTX;
@@ -5806,6 +5905,7 @@ quantities are assumed to be constant.
       input SpecificEnthalpy h "Specific enthalpy";
       input MassFraction X[nX] "Mass fractions";
       output Temperature T "Temperature";
+      annotation(Documentation(info="<html></html>"));
     algorithm 
       T := T0 + h/cp_const;
     end temperature_phX;
@@ -5816,6 +5916,7 @@ quantities are assumed to be constant.
       input SpecificEnthalpy h "Specific enthalpy";
       input MassFraction X[nX] "Mass fractions";
       output Density d "density";
+      annotation(Documentation(info="<html></html>"));
     algorithm 
       d := density(setState_phX(p,h,X));
     end density_phX;
@@ -5880,7 +5981,8 @@ quantities are assumed to be constant.
       input AbsolutePressure p "Pressure";
       input Temperature T "Temperature";
       input MassFraction X[:]=reference_X "Mass fractions";
-      output ThermodynamicState state;
+      output ThermodynamicState state "thermodynamic state record";
+      annotation(Documentation(info="<html></html>"));
     algorithm 
       state := ThermodynamicState(p=p,T=T);
     end setState_pTX;
@@ -5891,7 +5993,8 @@ quantities are assumed to be constant.
       input AbsolutePressure p "Pressure";
       input SpecificEnthalpy h "Specific enthalpy";
       input MassFraction X[:]=reference_X "Mass fractions";
-      output ThermodynamicState state;
+      output ThermodynamicState state "thermodynamic state record";
+      annotation(Documentation(info="<html></html>"));
     algorithm 
       state := ThermodynamicState(p=p,T=T0+h/cp_const);
     end setState_phX;
@@ -5902,7 +6005,8 @@ quantities are assumed to be constant.
       input AbsolutePressure p "Pressure";
       input SpecificEntropy s "Specific entropy";
       input MassFraction X[:]=reference_X "Mass fractions";
-      output ThermodynamicState state;
+      output ThermodynamicState state "thermodynamic state record";
+      annotation(Documentation(info="<html></html>"));
     algorithm 
       state := ThermodynamicState(p=p,T=Modelica.Math.exp(s/cp_const + Modelica.Math.log(reference_T))
                                   + R_gas*Modelica.Math.log(p/reference_p));
@@ -5914,17 +6018,20 @@ quantities are assumed to be constant.
       input Density d "density";
       input Temperature T "Temperature";
       input MassFraction X[:]=reference_X "Mass fractions";
-      output ThermodynamicState state;
+      output ThermodynamicState state "thermodynamic state record";
+      annotation(Documentation(info="<html></html>"));
     algorithm 
       state := ThermodynamicState(p=d*R_gas*T,T=T);
     end setState_dTX;
     
     redeclare function extends pressure "Return pressure of ideal gas" 
+      annotation(Documentation(info="<html></html>"));
     algorithm 
       p := state.p;
     end pressure;
     
     redeclare function extends temperature "Return temperature of ideal gas" 
+      annotation(Documentation(info="<html></html>"));
     algorithm 
       T := state.T;
     end temperature;
@@ -5936,6 +6043,7 @@ quantities are assumed to be constant.
     
     redeclare function extends specificEnthalpy "Return specific enthalpy" 
         extends Modelica.Icons.Function;
+      annotation(Documentation(info="<html></html>"));
     algorithm 
       h := cp_const*state.T;
     end specificEnthalpy;
@@ -5943,12 +6051,14 @@ quantities are assumed to be constant.
     redeclare function extends specificInternalEnergy 
       "Return specific internal energy" 
       extends Modelica.Icons.Function;
+      annotation(Documentation(info="<html></html>"));
     algorithm 
       u := cp_const*state.T - R_gas*state.T;
     end specificInternalEnergy;
     
     redeclare function extends specificEntropy "Return specific entropy" 
         extends Modelica.Icons.Function;
+      annotation(Documentation(info="<html></html>"));
     algorithm 
       s := cp_const*Modelica.Math.log(state.T/T0) - R_gas*Modelica.Math.log(state.p/reference_p);
     end specificEntropy;
@@ -5956,6 +6066,7 @@ quantities are assumed to be constant.
     redeclare function extends specificGibbsEnergy 
       "Return specific Gibbs energy" 
       extends Modelica.Icons.Function;
+      annotation(Documentation(info="<html></html>"));
     algorithm 
       g := cp_const*state.T - state.T*specificEntropy(state);
     end specificGibbsEnergy;
@@ -5963,39 +6074,46 @@ quantities are assumed to be constant.
     redeclare function extends specificHelmholtzEnergy 
       "Return specific Helmholtz energy" 
       extends Modelica.Icons.Function;
+      annotation(Documentation(info="<html></html>"));
     algorithm 
       f := cp_const*state.T - R_gas*state.T - state.T*specificEntropy(state);
     end specificHelmholtzEnergy;
     
     redeclare function extends dynamicViscosity "Return dynamic viscosity" 
+      annotation(Documentation(info="<html></html>"));
     algorithm 
       eta := eta_const;
     end dynamicViscosity;
     
     redeclare function extends thermalConductivity 
       "Return thermal conductivity" 
+      annotation(Documentation(info="<html></html>"));
     algorithm 
       lambda := lambda_const;
     end thermalConductivity;
     
     redeclare function extends specificHeatCapacityCp 
       "Return specific heat capacity at constant pressure" 
+      annotation(Documentation(info="<html></html>"));
     algorithm 
       cp := cp_const;
     end specificHeatCapacityCp;
     
     redeclare function extends specificHeatCapacityCv 
       "Return specific heat capacity at constant volume" 
+      annotation(Documentation(info="<html></html>"));
     algorithm 
       cv := cv_const;
     end specificHeatCapacityCv;
     
     redeclare function extends isentropicExponent "Return isentropic exponent" 
+      annotation(Documentation(info="<html></html>"));
     algorithm 
       gamma := cp_const/cv_const;
     end isentropicExponent;
     
     redeclare function extends velocityOfSound "Return velocity of sound " 
+      annotation(Documentation(info="<html></html>"));
     algorithm 
       a := sqrt(cp_const/cv_const*R_gas*state.T);
     end velocityOfSound;
@@ -6007,6 +6125,7 @@ quantities are assumed to be constant.
       input Temperature T "Temperature";
       input MassFraction X[nX] "Mass fractions";
       output SpecificEnthalpy h "Specific enthalpy at p, T, X";
+      annotation(Documentation(info="<html></html>"));
     algorithm 
       h := cp_const*(T-T0);
     end specificEnthalpy_pTX;
@@ -6018,6 +6137,7 @@ quantities are assumed to be constant.
       input SpecificEnthalpy h "Specific enthalpy";
       input MassFraction X[nX] "Mass fractions";
       output Temperature T "Temperature";
+      annotation(Documentation(info="<html></html>"));
     algorithm 
       T := h/cp_const + T0;
     end temperature_phX;
@@ -6028,6 +6148,7 @@ quantities are assumed to be constant.
       input SpecificEnthalpy h "Specific enthalpy";
       input MassFraction X[nX] "Mass fractions";
       output Density d "density";
+      annotation(Documentation(info="<html></html>"));
     algorithm 
       d := density(setState_phX(p,h,X));
     end density_phX;

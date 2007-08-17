@@ -78,8 +78,7 @@ package IF97_Utilities
       </h4>
       <ul>
       <li>First implemented: <i>July, 2000</i>
-      by <a href=\"http://www.control.lth.se/~hubertus/\">Hubertus Tummescheit</a>
-      for the ThermoFluid Library with help from Jonas Eborn and Falko Jens Wagner
+      by Hubertus Tummescheit for the ThermoFluid Library with help from Jonas Eborn and Falko Jens Wagner
       </li>
       <li>Code reorganization, enhanced documentation, additional functions:   <i>December, 2002</i>
       by <a href=\"mailto:Hubertus.Tummescheit@modelon.se\">Hubertus Tummescheit</a> and moved to Modelica
@@ -103,7 +102,7 @@ package IF97_Utilities
         </h4>
         <ul>
         <li>First implemented: <i>July, 2000</i>
-        by <a href=\"http://www.control.lth.se/~hubertus/\">Hubertus Tummescheit</a>
+        by Hubertus Tummescheit
         for the ThermoFluid Library with help from Jonas Eborn and Falko Jens Wagner
         </li>
       <li>Code reorganization, enhanced documentation, additional functions:   <i>December, 2002</i>
@@ -134,7 +133,7 @@ package IF97_Utilities
         of Water and Steam (<A HREF=\"http://www.iapws.org\">IAPWS</A>) with permission granted to re-publish the
         information if credit is given to IAPWS. This document is distributed with this library as
         <a href=\"Documentation/IF97documentation/IF97.pdf\">IF97.pdf</a>.
-        In addition, the equations published by <A HREF=\"http://www.iapws..org\">IAPWS</A> for
+        In addition, the equations published by <A HREF=\"http://www.iapws.org\">IAPWS</A> for
         the transport properties dynamic viscosity (standards document: <a href=\"Documentation/IF97documentation/visc.pdf\">visc.pdf</a>)
         and thermal conductivity (standards document: <a href=\"Documentation/IF97documentation/thcond.pdf\">thcond.pdf</a>)
         and equations for the surface tension (standards document: <a href=\"Documentation/IF97documentation/surf.pdf\">surf.pdf</a>)
@@ -183,7 +182,7 @@ region 5 is also covered by a <nobr><I>g</I>(<I> p</I>,<I>T </I>)</nobr> equatio
 5 equations, shown in rectangular boxes in Fig. 1, form the so-called <I>basic
 equations</I>.
       <p>
-      <img src=\"Documentation/IF97documentation/if97.png\" alt=\"Regions and equations of IAPWS-IF97\"></p>
+      <img src=\"../Images/Media/Water/if97.png\" alt=\"Regions and equations of IAPWS-IF97\"></p>
       <p align=center>Figure 1: Regions and equations of IAPWS-IF97</p>
 <P>In addition to these basic equations, so-called <I>backward
 equations</I> are provided for regions 1, 2, and 4 in form of
@@ -531,14 +530,14 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
 </h4>
 <ul>
 <li>First implemented: <i>July, 2000</i>
-       by <a href=\"http://www.control.lth.se/~hubertus/\">Hubertus Tummescheit</a>
+       by Hubertus Tummescheit
        </li>
 </ul>
  <address>Author: Hubertus Tummescheit, <br>
- Lund University<br>
- Department of Automatic Control<br>
- Box 118, 22100 Lund, Sweden<br>
- email: hubertus@control.lth.se
+      Modelon AB<br>
+      Ideon Science Park<br>
+      SE-22370 Lund, Sweden<br>
+      email: hubertus@modelon.se
  </address>
 <ul>
  <li>Initial version: July 2000</li>
@@ -602,10 +601,10 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
        </li>
 </ul>
  <address>Author: Hubertus Tummescheit, <br>
- Lund University<br>
- Department of Automatic Control<br>
- Box 118, 22100 Lund, Sweden<br>
- email: hubertus@control.lth.se
+      Modelon AB<br>
+      Ideon Science Park<br>
+      SE-22370 Lund, Sweden<br>
+      email: hubertus@modelon.se
  </address>
 <ul>
  <li>Initial version: July 2000</li>
@@ -634,10 +633,10 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
        </li>
 </ul>
  <address>Author: Hubertus Tummescheit, <br>
- Lund University<br>
- Department of Automatic Control<br>
- Box 118, 22100 Lund, Sweden<br>
- email: hubertus@control.lth.se
+      Modelon AB<br>
+      Ideon Science Park<br>
+      SE-22370 Lund, Sweden<br>
+      email: hubertus@modelon.se
  </address>
 <ul>
  <li>Initial version: July 2000</li>
@@ -728,10 +727,10 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
        </li>
 </ul>
 <address>Authors: Hubertus Tummescheit, Jonas Eborn and Falko Jens Wagner<br>
- Lund University<br>
- Department of Automatic Control<br>
- Box 118, 22100 Lund, Sweden<br>
- email: hubertus@control.lth.se
+      Modelon AB<br>
+      Ideon Science Park<br>
+      SE-22370 Lund, Sweden<br>
+      email: hubertus@modelon.se
  </address>
  <ul>
  <li>Initial version: July 2000</li>
@@ -2104,10 +2103,10 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
           </li>
           </ul>
           <address>Author: Hubertus Tummescheit, <br>
-          Lund University<br>
-          Department of Automatic Control<br>
-          Box 118, 22100 Lund, Sweden<br>
-          email: hubertus@control.lth.se
+      Modelon AB<br>
+      Ideon Science Park<br>
+      SE-22370 Lund, Sweden<br>
+      email: hubertus@modelon.se
           </address>
           <ul>
           <li>Initial version: July 2000</li>
@@ -4287,10 +4286,10 @@ Ordinary Water Substance<br>
           </li>
           </ul>
           <address>Authors: Hubertus Tummescheit and Jonas Eborn<br>
-          Lund University<br>
-          Department of Automatic Control<br>
-          Box 118, 22100 Lund, Sweden<br>
-          email: hubertus@control.lth.se
+      Modelon AB<br>
+      Ideon Science Park<br>
+      SE-22370 Lund, Sweden<br>
+      email: hubertus@modelon.se
           </address>
           <ul>
           <li>Initial version: October 2002</li>
@@ -4589,10 +4588,10 @@ Ordinary Water Substance<br>
           </li>
           </ul>
           <address>Author: Hubertus Tummescheit, <br>
-          Lund University<br>
-          Department of Automatic Control<br>
-          Box 118, 22100 Lund, Sweden<br>
-          email: hubertus@control.lth.se
+      Modelon AB<br>
+      Ideon Science Park<br>
+      SE-22370 Lund, Sweden<br>
+      email: hubertus@modelon.se
           </address>
           <ul>
           <li>Initial version: July 2000</li>
@@ -5185,10 +5184,10 @@ Ordinary Water Substance<br>
           </li>
           </ul>
           <address>Author: Hubertus Tummescheit, <br>
-          Lund University<br>
-          Department of Automatic Control<br>
-          Box 118, 22100 Lund, Sweden<br>
-          email: hubertus@control.lth.se
+      Modelon AB<br>
+      Ideon Science Park<br>
+      SE-22370 Lund, Sweden<br>
+      email: hubertus@modelon.se
           </address>
           <ul>
           <li>Initial version: July 2000</li>
@@ -5799,10 +5798,10 @@ Ordinary Water Substance<br>
           </li>
           </ul>
           <address>Author: Hubertus Tummescheit, <br>
-          Lund University<br>
-          Department of Automatic Control<br>
-          Box 118, 22100 Lund, Sweden<br>
-          email: hubertus@control.lth.se
+      Modelon AB<br>
+      Ideon Science Park<br>
+      SE-22370 Lund, Sweden<br>
+      email: hubertus@modelon.se
           </address>
           <ul>
           <li>Initial version: July 2000</li>
@@ -5900,10 +5899,10 @@ Ordinary Water Substance<br>
           </li>
           </ul>
           <address>Author: Hubertus Tummescheit, <br>
-          Lund University<br>
-          Department of Automatic Control<br>
-          Box 118, 22100 Lund, Sweden<br>
-          email: hubertus@control.lth.se
+      Modelon AB<br>
+      Ideon Science Park<br>
+      SE-22370 Lund, Sweden<br>
+      email: hubertus@modelon.se
           </address>
           <ul>
           <li>Initial version: July 2000</li>
