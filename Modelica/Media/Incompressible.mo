@@ -769,7 +769,7 @@ The default setting for both these flags is true, which enables the simulation t
 to choose temperature as the only medium state and avoids non-linear equation
 systems, see the section about
 <a href=\"Modelica:Modelica.Media.UsersGuide.MediumUDefinition.StaticStateSelection\">Static
-state selection</a> in the Modelica.Media users guide.
+state selection</a> in the Modelica.Media user's Guide.
  
 </p>
 <h4>Contents</h4>

@@ -1,8 +1,9 @@
+within Modelica;
 package SIunits 
   "Type and unit definitions based on SI units according to ISO 31-1992" 
-package UsersGuide "User's Guide" 
+package UsersGuide "User's Guide of SIunits Library" 
+    
   annotation (DocumentationClass=true, Documentation(info="<HTML>
-<h4>User's Guide of package SIunits</h4>
 <p>
 Library <b>SIunits</b> is a <b>free</b> Modelica package providing
 predefined types, such as <i>Mass</i>,
@@ -11,11 +12,9 @@ on units.</p>
 
 </HTML>"));
     
-  package HowToUseSIunits "How to use SIunits" 
+  class HowToUseSIunits "How to use SIunits" 
       
     annotation (DocumentationClass=true, Documentation(info="<html>
-<h4>How to use SIunits</h4>
-
 <p>
 When implementing a Modelica model, every variable needs to
 be declared. Physical variables should be declared with a unit.
@@ -127,11 +126,9 @@ in the declaration as in the example at the beginning.
       
   end HowToUseSIunits;
     
-  package Conventions "Conventions" 
+  class Conventions "Conventions" 
       
     annotation (DocumentationClass=true, Documentation(info="<html>
-<h4>Conventions</h4>
-
 <p>The following conventions are used in package SIunits:</p>
 <ul>
 <li>Modelica quantity names are defined according to the recommendations
@@ -176,8 +173,6 @@ in the declaration as in the example at the beginning.
   class Literature "Literature" 
       
     annotation (Documentation(info="<html>
-<h4>Literature</h4>
-
 <p> This package is based on the following references
 </p>
 
@@ -202,8 +197,6 @@ in the declaration as in the example at the beginning.
   class Contact "Contact" 
       
     annotation (Documentation(info="<html>
-<h4>Contact</h4>
-
 <dl>
 <dt><b>Main Author:</b>
 <dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a><br>
@@ -279,7 +272,7 @@ and the accompanying <b>disclaimer</b>
 <ul>
 <li><i>Dec. 14, 2005</i>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       Add users guide and removed \"min\" values for Resistance and Conductance.</li>
+       Add user's Guide and removed \"min\" values for Resistance and Conductance.</li>
 <li><i>October 21, 2002</i>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>
        and <a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Christian Schweiger</a>:<br>

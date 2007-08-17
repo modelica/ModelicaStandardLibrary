@@ -1,3 +1,4 @@
+within Modelica;
 package Utilities "Utility functions especially for scripting (operating on files, streams, strings, system)"
   extends Modelica.Icons.Library;
 
@@ -53,13 +54,14 @@ and the accompanying <b>disclaimer</b>
 "));
 
 
-package UsersGuide "User's Guide of Utilities Library" 
+class UsersGuide "User's Guide of Utilities Library" 
+  
   annotation (DocumentationClass=true, Documentation(info="<HTML>
 <p>
 Library <b>Modelica.Utilities</b> contains Modelica <b>functions</b> that are
 especially suited for <b>scripting</b>. Currently, only a rudimentary
-users guide is present. This will be improved in the next releases.
-The users guide has currently the following chapters:
+user's Guide is present. This will be improved in the next releases.
+The user's Guide has currently the following chapters:
 </p>
 <ol>
 <li>

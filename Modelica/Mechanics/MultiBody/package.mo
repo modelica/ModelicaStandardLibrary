@@ -1,3 +1,4 @@
+within Modelica.Mechanics;
 package MultiBody "Library to model 3-dimensional mechanical systems"
 annotation (
   version="1.1",
@@ -58,7 +59,8 @@ import SI = Modelica.SIunits;
 extends Modelica.Icons.Library;
 
 
-package UsersGuide "User's Guide of MultiBody Library" 
+class UsersGuide "User's Guide of MultiBody Library" 
+  
   annotation (DocumentationClass=true, Documentation(info="<HTML>
 <p>
 Library <b>MultiBody</b> is a <b>free</b> Modelica package providing
@@ -93,7 +95,8 @@ gives an introduction into the most important aspects of the library.
 </ol>
 </HTML>"));
   
-  package Tutorial "Tutorial" 
+  class Tutorial "Tutorial" 
+    
     annotation (DocumentationClass=true, Documentation(info="<HTML>
 <p>
 This tutorial provides an introduction into the
@@ -334,7 +337,7 @@ in the middle of the light blue sphere.
 "));
     end FirstExample;
     
-    package LoopStructures "Loop structures" 
+    class LoopStructures "Loop structures" 
       
       class Introduction "Introduction" 
         
@@ -766,6 +769,7 @@ analytically. There are the following sub-chapters:
   end Tutorial;
   
   class Upgrade "Upgrade from Former Versions" 
+    
     annotation (Documentation(info="<HTML>
 <p>
 If different versions of the MultiBody library are not

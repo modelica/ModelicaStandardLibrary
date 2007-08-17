@@ -2,6 +2,7 @@ within Modelica.Mechanics;
 package Rotational 
   "Library to model 1-dimensional, rotational mechanical systems" 
 package UsersGuide "User's Guide of Rotational Library" 
+    
   annotation (DocumentationClass=true, Documentation(info="<HTML>
 <p>
 Library <b>Rotational</b> is a <b>free</b> Modelica package providing
@@ -10,7 +11,8 @@ drive trains with frictional losses.
 </p>
 </HTML>"));
     
-  package Overview "Overview" 
+  class Overview "Overview" 
+      
     annotation (DocumentationClass=true, Documentation(info="<HTML>
  
 <p>
@@ -72,7 +74,8 @@ together, see figure below.
       
   end Overview;
     
-  package FlangeConnectors "Flange Connectors" 
+  class FlangeConnectors "Flange Connectors" 
+      
     annotation (DocumentationClass=true, Documentation(info="<HTML>
 <p>
 A flange is described by the connector class
@@ -98,7 +101,8 @@ determined by differentiation of the flange angle <tt>phi</tt>:
       
   end FlangeConnectors;
     
-  package SupportTorques "Support Torques" 
+  class SupportTorques "Support Torques" 
+      
     annotation (DocumentationClass=true, Documentation(info="<HTML>
  
 <p>The following figure shows examples of components equipped with
@@ -123,7 +127,8 @@ identical results.</p>
       
   end SupportTorques;
     
-  package SignConventions "Sign Conventions" 
+  class SignConventions "Sign Conventions" 
+      
     annotation (DocumentationClass=true, Documentation(info="<HTML>
  
 <p>
@@ -182,7 +187,8 @@ is as indicated with the additional grey arrows.
       
   end SignConventions;
     
-  package UserDefinedComponents "User Defined Components" 
+  class UserDefinedComponents "User Defined Components" 
+      
     annotation (DocumentationClass=true, Documentation(info="<HTML>
 <p>
 In this section some hints are given to define your own
@@ -266,7 +272,8 @@ diagram and is therefore less convenient to use.
       
   end UserDefinedComponents;
     
-  package RequirementsForSimulationTool "Requirements for Simulation Tools" 
+  class RequirementsForSimulationTool "Requirements for Simulation Tools" 
+      
     annotation (DocumentationClass=true, Documentation(info="<HTML>
  
 <p>
