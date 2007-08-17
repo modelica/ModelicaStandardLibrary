@@ -55,7 +55,18 @@ For an introduction, have especially a look at:
 <li> The <b>Examples</b> packages in the various libraries, demonstrate
      how to use the components of the corresponding sublibrary.</li>
 </ul>
- 
+
+<p>
+This version of the Modelica Standard Library consists of
+</p>
+<ul>
+<li> <b>739</b> models and blocks, and</li>
+<li> <b>539</b> functions
+</ul>
+<p>
+that are directly usable (= number of public, non-partial classes).
+</p>
+
 <p>
 Copyright &copy; 1998-2007, Modelica Association.
 </p>
