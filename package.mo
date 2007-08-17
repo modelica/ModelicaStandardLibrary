@@ -524,10 +524,13 @@ more of the following changes.
       annotation (Documentation(info="<html>
 <p>
 Version 2.2.2 is backward compatible to version 2.2.1 and 2.2. with 
-exception of the removal of the package 
-Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache (which
-relied on annotations that are not based on the language
-specification). An overview of the differences between version 2.2.2 and the previous
+exception of the removal of package 
+Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache
+(because it is not yet utilized and it is planned to improve its design).
+</p>
+
+<p>
+An overview of the differences between version 2.2.2 and the previous
 version 2.2.1 is given below. The exact differences (but without
 differences in the documentation) are available
 <a href=\"../help/Documentation/Differences-Modelica-221-222.html\">here</a>.
@@ -536,7 +539,8 @@ ModelManagement.compare function.
 </p>
  
 <p>
-In this version, <b>no</b> new libraries have been added.
+In this version, <b>no</b> new libraries have been added. The <b>documentation</b>
+of the whole library was improved.
 </p>
  
  
@@ -621,13 +625,57 @@ to <b style=\"color:blue\">existing</b> libraries:
       <td> Adapter to model housing of electrical machine
       </td>
   </tr>
- 
-  <tr><td colspan=\"2\"><b>Mechanics.MultiBody.Examples.Elementary.</b></td></tr>
-  <tr><td> PointMassesWithGravity2 </td>
-      <td> Demonstrates how to handle point masses that are connected
-           with other elements of the MultiBody library
+
+ <tr><td colspan=\"2\"><b>Math.</b></td></tr>
+  <tr><td> Vectors </td>
+      <td> New library of functions operating on vectors
       </td>
   </tr>
+  <tr><td> atan3 </td>
+      <td> Four quadrant inverse tangens (select solution that is closest to given angle y0)
+      </td>
+  </tr>
+  <tr><td> asinh </td>
+      <td> Inverse of sinh (area hyperbolic sine)
+      </td>
+  </tr>
+  <tr><td> acosh </td>
+      <td> Inverse of cosh (area hyperbolic cosine)
+      </td>
+  </tr>
+
+ <tr><td colspan=\"2\"><b>Math.Vectors</b></td></tr>
+  <tr><td> isEqual </td>
+      <td> Determine if two Real vectors are numerically identical
+      </td>
+  </tr>
+  <tr><td> norm </td>
+      <td> Return the p-norm of a vector
+      </td></tr>
+  <tr><td> length </td>
+      <td> Return length of a vector (better as norm(), if further symbolic processing is performed)
+      </td></tr>
+  <tr><td> normalize </td>
+      <td> Return normalized vector such that length = 1 and prevent zero-division for zero vector
+      </td></tr>
+  <tr><td> reverse </td>
+      <td> Reverse vector elements (e.g. v[1] becomes last element)
+      </td></tr>
+  <tr><td> sort </td>
+      <td> Sort elements of vector in ascending or descending order
+      </td></tr>
+
+ <tr><td colspan=\"2\"><b>Math.Matrices</b></td></tr>
+  <tr><td> solve2 </td>
+      <td> Solve real system of linear equations A*X=B with a B matrix
+           (Gaussian elemination with partial pivoting)
+      </td>
+  </tr>
+  <tr><td> LU_solve2 </td>
+      <td> Solve real system of linear equations P*L*U*X=B with a B matrix 
+           and an LU decomposition (from LU(..))
+      </td></tr>
+
  
   <tr><td colspan=\"2\"><b>Mechanics.Rotational.</b></td></tr>
   <tr><td> InitializeFlange </td>
@@ -635,6 +683,7 @@ to <b style=\"color:blue\">existing</b> libraries:
            (useful if initialization signals are provided by a signal bus).
       </td>
   </tr>
+
  
   <tr><td colspan=\"2\"><b>Media.Interfaces.PartialMedium.</b></td></tr>
   <tr><td> density_pTX </td>
@@ -828,7 +877,7 @@ have been <b style=\"color:blue\">improved</b>:
            is not defined in a PointMass object and therefore some
            special handling is needed in case of a connection with
            3D-elements, where the orientation of the point mass is not
-           determined by these elements.
+           determined by these elements.</td>
   </tr>
   
   <tr><td colspan=\"2\"><b>Mechanics.MultiBody.Examples.Systems.</b></td></tr>
@@ -836,7 +885,7 @@ have been <b style=\"color:blue\">improved</b>:
       <td> Changed from the \"old\" to the \"new\" bus concept with expandable connectors.
            Replaced the non-standard Modelica function \"constrain()\" by
            standard Modelica components. As a result, the non-standard function
-           constrain() is no longer used in the Modelica Standard Library.
+           constrain() is no longer used in the Modelica Standard Library.</td>
   </tr>
   
   <tr><td colspan=\"2\"><b>Mechanics.MultiBody.Frames.Orientation.</b></td></tr>
@@ -845,9 +894,10 @@ have been <b style=\"color:blue\">improved</b>:
            As a result, the non-linear equation system of a kinematic
            loop is formulated in a better way (the range where the
            desired result is a unique solution of the non-linear
-           system of equations becomes much larger).
+           system of equations becomes much larger).</td>
   </tr>
     
+
   <tr><td colspan=\"2\"><b>Mechanics.MultiBody.</b></td></tr>
   <tr><td> Visualizers.</td>
       <td> Removed (misleading) annotation \"structurallyIncomplete\" 
@@ -1243,6 +1293,13 @@ units are wrong or errors in documentation):
       <td> Corrected wrong unit: \"SIunits.Position eRod_a\" to \"Real eRod_a\";
        </td> 
   </tr>
+  <tr><td> FlangeWithBearingAdaptor </td>
+      <td> If includeBearingConnector = false, connector \"frame\" was not
+           removed. As long as the connecting element to \"frame\" determines
+           the non-flow variables, this is fine. In the corrected version, \"frame\"
+           is conditionally removed in this case.</td>
+  </tr>
+
  
   <tr><td colspan=\"2\"><b>Mechanics.MultiBody.Forces.</b></td></tr>
   <tr><td> ForceAndTorque</td>
@@ -1341,7 +1398,7 @@ units are wrong or errors in documentation):
        </td> 
   </tr>
  
-  <tr><td colspan=\"2\"><b>Media.Incompressible.Examples.</b></td></tr>
+  <tr" + "><td colspan=\"2\"><b>Media.Incompressible.Examples.</b></td></tr>
   <tr><td> TestGlycol</td>
       <td> Rewrote equations so that dimensional (unit) analysis is correct\"
        </td> 
@@ -1393,7 +1450,7 @@ units are wrong or errors in documentation):
            v3b_ph<br> 
            T3a_ps<br> 
            T3b_ps<br> 
-           " + "v3a_ps<br> 
+           v3a_ps<br> 
            v3b_ps</td>
       <td> Changed wrong unit of variables h/hstar, s, sstar from
            \"SIunits.Enthalpy\" to \"SIunits.SpecificEnthalpy\",
