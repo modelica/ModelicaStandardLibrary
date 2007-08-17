@@ -1,4 +1,4 @@
-within Modelica.Media;
+within ;
 package Air "Medium models for air" 
   
   package SimpleAir "Air: Simple dry air model (0..100 degC)" 
@@ -332,8 +332,8 @@ Saturation pressure of water above the triple point temperature is computed from
       
       extends Modelica.Icons.Function;
       input SI.Temperature Tsat "Saturation temperature";
-      input Real dTsat "Saturation temperature derivative";
-      output SI.AbsolutePressure psat_der "Saturation pressure";
+      input Real dTsat(unit="K/s") "Saturation temperature derivative";
+      output Real psat_der(unit="Pa/s") "Saturation pressure";
       annotation(Inline=false,smoothOrder=5,
         Documentation(info="<html>
 Derivative function of <a href=Modelica:Modelica.Media.Air.MoistAir.saturationPressureLiquid>saturationPressureLiquid</a>
@@ -364,8 +364,8 @@ Sublimation pressure of water below the triple point temperature is computed fro
       
       extends Modelica.Icons.Function;
       input SI.Temperature Tsat "Sublimation temperature";
-      input Real dTsat "Time derivative of sublimation temperature";
-      output SI.AbsolutePressure psat_der "Sublimation pressure";
+      input Real dTsat(unit="K/s") "Time derivative of sublimation temperature";
+      output Real psat_der(unit="Pa/s") "Sublimation pressure";
       annotation(Inline=false,smoothOrder=5,
         Documentation(info="<html>
 Derivative function of <a href=Modelica:Modelica.Media.Air.MoistAir.sublimationPressureIce>saturationPressureIce</a>
@@ -390,8 +390,8 @@ Saturation pressure of water in the liquid and the solid region is computed usin
     function saturationPressure_der 
       "Derivative function for 'saturationPressure'" 
       input Temperature Tsat "Saturation temperature";
-      input Real dTsat "Time derivative of saturation temperature";
-      output AbsolutePressure psat_der "Saturation pressure";
+      input Real dTsat(unit="K/s") "Time derivative of saturation temperature";
+      output Real psat_der(unit="Pa/s") "Saturation pressure";
       annotation(Inline=false,smoothOrder=5,
         Documentation(info="<html>
 Derivative function of <a href=Modelica:Modelica.Media.Air.MoistAir.saturationPressure>saturationPressure</a>
@@ -651,10 +651,10 @@ Specific enthalpy of moist air is computed from pressure, temperature and compos
     input SI.Pressure p "Pressure";
     input SI.Temperature T "Temperature";
     input SI.MassFraction X[:] "Mass fractions of moist air";
-    input Real dp "Pressure derivative";
-    input Real dT "Temperature derivative";
+    input Real dp(unit="Pa/s") "Pressure derivative";
+    input Real dT(unit="K/s") "Temperature derivative";
     input Real dX[:] "Composition derivative";
-    output SI.SpecificEnthalpy h_der "Time derivative of specific enthalpy";
+    output Real h_der(unit="J/(kg.s") "Time derivative of specific enthalpy";
     annotation(Inline=false,smoothOrder=1,
         Documentation(info="<html>
 Derivative function for <a href=Modelica:Modelica.Media.Air.MoistAir.h_pTX>h_pTX</a>.
@@ -670,7 +670,7 @@ Derivative function for <a href=Modelica:Modelica.Media.Air.MoistAir.h_pTX>h_pTX
     Real dX_steam "Time deriveative of steam mass fraction";
     Real dX_air "Time derivative of dry air mass fraction";
     Real dX_liq "Time derivative of liquid/solid water mass fraction";
-    Real dps "Time derivative of saturation pressure";
+    Real dps(unit="Pa/s") "Time derivative of saturation pressure";
     Real dx_sat "Time derivative of abolute humidity per unit mass of dry air";
       
   algorithm 
@@ -744,27 +744,26 @@ Specific internal energy is determined from pressure p, temperature T and compos
     input SI.Pressure p "Pressure";
     input SI.Temperature T "Temperature";
     input SI.MassFraction X[:] "Mass fractions of moist air";
-    input Real dp "Pressure derivative";
-    input Real dT "Temperature derivative";
+    input Real dp(unit="Pa/s") "Pressure derivative";
+    input Real dT(unit="K/s") "Temperature derivative";
     input Real dX[:] "Mass fraction derivatives";
-    output SI.SpecificInternalEnergy u_der 
-        "Specific internal energy derivative";
+    output Real u_der(unit="J/(kg.s)") "Specific internal energy derivative";
     protected 
     SI.AbsolutePressure p_steam_sat "Partial saturation pressure of steam";
     SI.MassFraction X_liquid "Mass fraction of liquid water";
     SI.MassFraction X_steam "Mass fraction of steam water";
     SI.MassFraction X_air "Mass fraction of air";
     SI.MassFraction X_sat "Absolute humidity per unit mass of moist air";
-    Real R_gas "Ideal gas constant";
+    SI.SpecificHeatCapacity R_gas "Ideal gas constant";
       
     SI.MassFraction x_sat 
         "Absolute humidity per unit mass of dry air at saturation";
     Real dX_steam "Time deriveative of steam mass fraction";
     Real dX_air "Time derivative of dry air mass fraction";
     Real dX_liq "Time derivative of liquid/solid water mass fraction";
-    Real dps "Time derivative of saturation pressure";
+    Real dps(unit="Pa/s") "Time derivative of saturation pressure";
     Real dx_sat "Time derivative of abolute humidity per unit mass of dry air";
-    Real dR_gas "Time derivative of ideal gas constant";
+    Real dR_gas(unit="J/(kg.K.s)") "Time derivative of ideal gas constant";
   algorithm 
     p_steam_sat :=saturationPressure(T);
     x_sat:=p_steam_sat*k_mair/max(100*Modelica.Constants.eps, p - p_steam_sat);
