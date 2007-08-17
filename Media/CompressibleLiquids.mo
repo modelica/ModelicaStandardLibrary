@@ -51,13 +51,13 @@ package CompressibleLiquids "compressible liquid models"
     extends Modelica.Media.CompressibleLiquids.Common.LinearWater_pT(
                            reference_p = 101325, reference_T = 298.15);
     annotation (Documentation(info="<html>
-<h2>Water model with linear compressibility at ambient conditions</h2>
+<h4>Water model with linear compressibility at ambient conditions</h4>
 </html>"));
   end LinearWater_pT_Ambient;
   
   annotation (Documentation(info="<html>
-<body>
-<h2>Fluid models with linear compressibility, using PartialLinearFluid as base class.</h2>
+
+<h4>Fluid models with linear compressibility, using PartialLinearFluid as base class.</h4>
 <p>The linear compressibility fluid models contained in this package are based on the assumptions that:
 </p>
 <ul>
@@ -88,6 +88,5 @@ values from a full non-linear fluid model by computing the package constants
 using the standard functions defined in a fluid package (see example in Common, LinearWater_pT).
 </p>
 
-</body>
 </html>"));
 end CompressibleLiquids;

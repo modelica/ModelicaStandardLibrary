@@ -1,3 +1,4 @@
+within Modelica;
 package Media "Property models of media"
 extends Modelica.Icons.Library;
 import SI = Modelica.SIunits;
@@ -2348,12 +2349,10 @@ model MoistAir "Ideal gas flue gas  model"
       "molar mass of gas part of mixture";
   //  Real[4] dddX=Medium.density_derX(medium,MM);
     annotation (Documentation(info="<html>
-<body>
 <p>An example for using ideal gas properties and how to compute isentropic enthalpy changes.
 The function that is implemented is approximate, but usually very good: the second medium record medium2
 is given to compare the approximation.
 </p>
-</body>
 </html>"),
       experiment(Tolerance=1e-005),
       experimentSetupOutput);
@@ -2424,7 +2423,6 @@ end MoistAir;
     end ExtendedProperties;
     
     annotation (Documentation(info="<html>
-<body>
 <h4>Example: TwoPhaseWater</h4>
 The TwoPhaseWater package demonstrates how to extend the parsimonius
 BaseProperties with a minimal set of properties from the standard water
@@ -2471,13 +2469,14 @@ e.g. \"cp_d = specificHeatCapacityCp(dew)\". <br>
 </li>
 </ol>
 <p>The sample model TestTwoPhaseStates test the extended properties</p>
+
+<p>
 The same procedure can be used to compute properties at other state
-points, e.g. when an isentropic reference state is computed.<br>
-<br>
-</body>
+points, e.g. when an isentropic reference state is computed.
+</p>
 </html>
 "));
-    model TestTwoPhaseStates "test the above model" 
+    model TestTwoPhaseStates "Test the above model" 
       ExtendedProperties medium(p(start = 700.0),
        h(start = 8.0e5));
       parameter Real dh = 80000.0 "80 kJ/second";
@@ -2488,10 +2487,7 @@ points, e.g. when an isentropic reference state is computed.<br>
       annotation (experiment(StopTime=22, NumberOfIntervals=2500),
           experimentSetupOutput,
         Documentation(info="<html>
-<body>
-<h4>Example:TestTwoPhaseStates</h4>
-</p> For details see the documentation of the example package TwoPhaseWater<p>
-</body>
+<p> For details see the documentation of the example package TwoPhaseWater</p>
 </html>
 "));
     end TestTwoPhaseStates;
@@ -2522,12 +2518,10 @@ points, e.g. when an isentropic reference state is computed.<br>
       Real gamma2 = Medium.isothermalCompressibility(medium2.state);
       Medium.SpecificEnthalpy h_is = Medium.isentropicEnthalpyApproximation(2.0e5, medium);
       annotation (Documentation(info="<html>
-<body>
 <p>An example for using ideal gas properties and how to compute isentropic enthalpy changes.
 The function that is implemented is approximate, but usually very good: the second medium record medium2
 is given to compare the approximation.
 </p>
-</body>
 </html>"));
     equation 
       der(medium.p) = 1000.0;
@@ -2563,12 +2557,10 @@ is given to compare the approximation.
       Real MM =  1/sum(state.X[j]/MMx[j] for j in 1:4) "molar mass";
       Real[4] dddX=Medium.density_derX(medium2.state);
       annotation (Documentation(info="<html>
-<body>
 <p>An example for using ideal gas properties and how to compute isentropic enthalpy changes.
 The function that is implemented is approximate, but usually very good: the second medium record medium2
 is given to compare the approximation.
 </p>
-</body>
 </html>"));
     equation 
       der(state.p) = 1000.0;
@@ -4777,9 +4769,10 @@ partial package PartialLinearFluid
         (s_upstream -reference_s -(p_downstream-reference_p)*(-beta_const/reference_d) - cp_const);
       h_is := specificEnthalpy(downstreamState);
       annotation (Documentation(info="<html>
-<body>
-A minor approximation is used: the reference density is used instead of the real one, which would require a numeric solution.
-</body>
+<p>
+A minor approximation is used: the reference density is used instead of the real 
+one, which would require a numeric solution.
+</p>
 </html>"));
     end isentropicEnthalpy;
     
@@ -4855,8 +4848,7 @@ A minor approximation is used: the reference density is used instead of the real
       end T_ps;
     
   annotation (Documentation(info="<html>
-<body>
-<h2>Linear Compressibility Fluid Model</h2>
+<h4>Linear Compressibility Fluid Model</h4>
 <p>This linear compressibility fluid model is based on the assumptions that:
 </p>
 <ul>
@@ -4916,7 +4908,6 @@ to the above list of assumptions</li>
  
 </dd>
 </dl>
-</body>
 </html>"));
 end PartialLinearFluid;
   
@@ -5078,12 +5069,12 @@ end PartialMixtureMedium;
       SpecificEntropy SMIN "minimum entropy";
       SpecificEntropy SMAX "maximum entropy";
       annotation(Documentation(
-          info="<html><body>
+          info="<html>
           <p>The minimum pressure mostly applies to the liquid state only.
           The minimum density is also arbitrary, but is reasonable for techical
           applications to limit iterations in non-linear systems. The limits in
           enthalpy and entropy are used as safeguards in inverse iterations.</p>
-          </body></html>"));
+          </html>"));
     end FluidLimits;
     
     redeclare replaceable record extends FluidConstants 
@@ -7128,19 +7119,20 @@ public
     Real dfg=gamma*v*s*p - v*s - alpha*v*v*p 
       "coefficient in Bridgmans table, see info for usage";
     Real dgf=-dfg "coefficient in Bridgmans table, see info for usage";
-    annotation (Documentation(info="
-                <HTML>
-                <p>
-                <pre>
+    annotation (Documentation(info="<HTML>
+<p>
 Important: the phase equilibrium conditions are not yet considered.
-this means that bridgemans tables do not yet work in the two phase region
-some derivatives are 0 or infinity anyways
+this means that bridgemans tables do not yet work in the two phase region.
+Some derivatives are 0 or infinity anyways.
 Idea: don't use the values in Bridgmans table directly, all
 derivatives are calculated as the quotient of two entries in the
 table. The last letter indicates which variable is held constant in
 taking the derivative. The second letters are the two variables
 involved in the derivative and the first letter is alwys a d to remind
 of differentiation.
+</p>
+
+<pre>
 Example 1: Get the derivative of specific entropy s wrt Temperature at
 constant specific volume (btw identical to constant density)
 constant volume  --> last letter v
@@ -7182,7 +7174,7 @@ derOfsByTAtConstantv =  bt.dsv/bt.dTv;
                 ...
 end BridgmansTablesForWater;
                 </pre>
-                </p>
+      
                 </HTML>
                 "));
   end BridgmansTables;

@@ -365,7 +365,7 @@ to plot variables.
       extends Modelica.Icons.SignalSubBus;
       
       annotation (defaultComponentPrefixes="protected",
-                  Icon(Rectangle(extent=[-20, 2; 22, -2], style(rgbcolor={255,204,51}, thickness=2))), 
+                  Icon(Rectangle(extent=[-20, 2; 22, -2], style(rgbcolor={255,204,51}, thickness=2))),
         Documentation(info="<html>
 <p>
 Signal bus that is used to communicate all signals for <b>one</b> axis.
@@ -382,7 +382,7 @@ of this connector.
       
       annotation (
         Icon(Rectangle(extent=[-20, 2; 22, -2], style(rgbcolor={255,204,51}, thickness=2))),
-        Diagram, 
+        Diagram,
         Documentation(info="<html>
 <p>
 Signal bus that is used to communicate <b>all signals</b> of the robot.
@@ -865,7 +865,8 @@ motion on the controlBus of the r3 robot.
           y=0,
           width=0.71,
           height=0.71),
-        Documentation(info="
+        Documentation(info="<html>
+<p>
 Models the gearbox used in the first three joints with all its effects,
 like elasticity and friction.
 Coulomb friction is approximated by a friction element acting
@@ -885,6 +886,8 @@ of the motor angle and of the joint angle are modified correspondingly.
 Otherwise, the spring has an unrealistic deflection at initial time.
 Since relative quantities are used as state variables, this simplifies
 the definition of initial values considerably.
+</p>
+</html>
 "),     Icon(
           Rectangle(extent=[-100,10; -60,-10],  style(
               gradient=2,
@@ -965,9 +968,13 @@ the definition of initial values considerably.
           y=0.27,
           width=0.63,
           height=0.63),
-        Documentation(info="The elasticity and damping in the gearboxes of the outermost
+        Documentation(info="<html>
+<p>
+The elasticity and damping in the gearboxes of the outermost
 three joints of the robot is neglected.
 Default values for all parameters are given for joint 4.
+</p>
+</html>
 "),     Icon(
           Rectangle(extent=[-100,10; -60,-10],  style(
               gradient=2,
@@ -1039,10 +1046,14 @@ Default values for all parameters are given for joint 4.
           y=0.04,
           width=0.68,
           height=0.8),
-        Documentation(info=" Default values are given for the motor of joint 1.
+        Documentation(info="<html>
+<p>
+Default values are given for the motor of joint 1.
 The input of the motor is the desired current
 (the actual current is proportional to the torque
 produced by the motor).
+</p>
+</html>
 "),     Icon(Text(extent=[0, 120; 0, 60], string="%name"), Line(points=[80, -102;
                  80, -10], style(
               rgbcolor={255,204,51},
@@ -1214,7 +1225,7 @@ produced by the motor).
           x=0.01,
           y=0.01,
           width=0.84,
-          height=0.76), 
+          height=0.76),
         Documentation(info="<html>
 <p>
 This controller has an inner PI-controller to control the motor speed,

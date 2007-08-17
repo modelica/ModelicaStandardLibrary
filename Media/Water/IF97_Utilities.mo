@@ -91,7 +91,7 @@ package IF97_Utilities
       SE-22370 Lund, Sweden<br>
       email: hubertus@modelon.se
       </address>
-      </HTML>", revisions="<h1>Intermediate release notes during development<\\h1>
+      </HTML>", revisions="<h4>Intermediate release notes during development<\\h4>
 <p>Currenly the Events/noEvents switch is only implmented for p-h states. Only after testing that implmentation, it will be extended to dT.</p>"));
   extends Modelica.Icons.Library;
   
@@ -3625,7 +3625,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
         Real sigma = s/sstar "normalized specific entropy";
         annotation (
             Documentation(                                                                                                    info="<html>
-  <body>
+  <p>
   Equation number 2 from:<br>
   The International Association for the Properties of Water and Steam<br>
   Gaithersburg, Maryland, USA<br>
@@ -3633,7 +3633,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
   Supplementary Release on&nbsp; Backward Equations for Pressure as a
   Function of Enthalpy and Entropy p(h,s) to the IAPWS Industrial
   Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
-  </body>
+  </p>
   </html>
   "));
       algorithm 
@@ -3663,7 +3663,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
         Real sigma = s/sstar "normalized specific entropy";
         annotation (
             Documentation(                                                                                                    info="<html>
-  <body>
+  <p>
   Equation number 3 from:<br>
   The International Association for the Properties of Water and Steam<br>
   Gaithersburg, Maryland, USA<br>
@@ -3671,7 +3671,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
   Supplementary Release on&nbsp; Backward Equations for Pressure as a
   Function of Enthalpy and Entropy p(h,s) to the IAPWS Industrial
   Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
-  </body>
+  </p>
   </html>
   "));
       algorithm 
@@ -3702,7 +3702,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
       Real sigma = s/sstar "normalized specific entropy";
       annotation (
             Documentation(                                                                                                    info="<html>
-<body>
+<p>
 Equation number 4 from:<br>
 The International Association for the Properties of Water and Steam<br>
 Gaithersburg, Maryland, USA<br>
@@ -3710,7 +3710,7 @@ September 2001<br>
 Supplementary Release on&nbsp; Backward Equations for Pressure as a
 Function of Enthalpy and Entropy p(h,s) to the IAPWS Industrial
 Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
-</body>
+</p>
       </html>
 "));
     algorithm 
@@ -3741,7 +3741,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
           Real sigma = s/sstar "normalized specific entropy";
           annotation (
             Documentation(                                                                                                    info="<html>
-      <body>
+      <p>
       Equation number 5 from:<br>
       The International Association for the Properties of Water and Steam<br>
       Gaithersburg, Maryland, USA<br>
@@ -3749,7 +3749,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
       Supplementary Release on&nbsp; Backward Equations for Pressure as a
       Function of Enthalpy and Entropy p(h,s) to the IAPWS Industrial
       Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
-      </body>
+      </p>
       </html>
       "));
       algorithm 
@@ -3768,7 +3768,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
           Real pi = p/pstar "normalized specific pressure";
           annotation (
       Documentation(info="<html>
-      <body>
+      <p>
       &nbsp;Equation number 1 from:<br>
       <div style=\"text-align: center;\">&nbsp;[1] The international Association
       for the Properties of Water and Steam<br>
@@ -3779,7 +3779,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
       &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
       the Thermodynamic Properties of<br>
       &nbsp;Water and Steam</div>
-      </body>
+      </p>
       </html>"));
         
       algorithm 
@@ -3787,7 +3787,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
       end h3ab_p;
       annotation (Documentation(
        info="<html>
-       <body>
+       <p>
        &nbsp;Equation from:<br>
        <div style=\"text-align: center;\">&nbsp;[1] The international Association
        for the Properties of Water and Steam<br>
@@ -3798,7 +3798,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
        &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
        the Thermodynamic Properties of<br>
        &nbsp;Water and Steam</div>
-       </body>
+       </p>
        </html>"));
       
       function T3a_ph "Region 3 a: inverse function T(p,h)" 
@@ -3826,7 +3826,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
           annotation (
             Documentation(
        info="<html>
- <body>
+ <p>
  &nbsp;Equation number 2 from:<br>
  <div style=\"text-align: center;\">&nbsp;[1] The international Association
  for the Properties of Water and Steam<br>
@@ -3837,7 +3837,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
  &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
  the Thermodynamic Properties of<br>
  &nbsp;Water and Steam</div>
- </body>
+ </p>
  </html>"));
       algorithm 
           T := sum(n[i]*(pi + 0.240)^I[i]*(eta - 0.615)^J[i] for i in 1:31)*Tstar;
@@ -3868,7 +3868,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
           annotation (
             Documentation(
        info="<html>
- <body>
+ <p>
  &nbsp;Equation number 3 from:<br>
  <div style=\"text-align: center;\">&nbsp;[1] The international Association
  for the Properties of Water and Steam<br>
@@ -3879,7 +3879,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
  &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
  the Thermodynamic Properties of<br>
  &nbsp;Water and Steam</div>
- </body>
+ </p>
  </html>"));
       algorithm 
           T := sum(n[i]*(pi + 0.298)^I[i]*(eta - 0.720)^J[i] for i in 1:33)*Tstar;
@@ -3910,7 +3910,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
           annotation (
             Documentation(
        info="<html>
- <body>
+ <p>
  &nbsp;Equation number 4 from:<br>
  <div style=\"text-align: center;\">&nbsp;[1] The international Association
  for the Properties of Water and Steam<br>
@@ -3921,7 +3921,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
  &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
  the Thermodynamic Properties of<br>
  &nbsp;Water and Steam</div>
- </body>
+ </p>
  </html>"));
       algorithm 
           v := sum(n[i]*(pi + 0.128)^I[i]*(eta - 0.727)^J[i] for i in 1:32)*vstar;
@@ -3952,7 +3952,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
           annotation (
             Documentation(
        info="<html>
- <body>
+ <p>
  &nbsp;Equation number 5 from:<br>
  <div style=\"text-align: center;\">&nbsp;[1] The international Association
  for the Properties of Water and Steam<br>
@@ -3963,7 +3963,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
  &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
  the Thermodynamic Properties of<br>
  &nbsp;Water and Steam</div>
- </body>
+ </p>
  </html>"));
       algorithm 
           v := sum(n[i]*(pi + 0.0661)^I[i]*(eta - 0.720)^J[i] for i in 1:30)*vstar;
@@ -3994,7 +3994,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
           annotation (
             Documentation(
        info="<html>
- <body>
+ <p>
  &nbsp;Equation number 6 from:<br>
  <div style=\"text-align: center;\">&nbsp;[1] The international Association
  for the Properties of Water and Steam<br>
@@ -4005,7 +4005,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
  &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
  the Thermodynamic Properties of<br>
  &nbsp;Water and Steam</div>
- </body>
+ </p>
  </html>"));
       algorithm 
           T := sum(n[i]*(pi + 0.240)^I[i]*(sigma - 0.703)^J[i] for i in 1:33)*Tstar;
@@ -4034,7 +4034,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
           annotation (
             Documentation(
        info="<html>
- <body>
+ <p>
  &nbsp;Equation number 7 from:<br>
  <div style=\"text-align: center;\">&nbsp;[1] The international Association
  for the Properties of Water and Steam<br>
@@ -4045,7 +4045,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
  &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
  the Thermodynamic Properties of<br>
  &nbsp;Water and Steam</div>
- </body>
+ </p>
  </html>"));
       algorithm 
           T := sum(n[i]*(pi + 0.760)^I[i]*(sigma - 0.818)^J[i] for i in 1:28)*Tstar;
@@ -4074,7 +4074,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
           annotation (
             Documentation(
        info="<html>
- <body>
+ <p>
  &nbsp;Equation number 8 from:<br>
  <div style=\"text-align: center;\">&nbsp;[1] The international Association
  for the Properties of Water and Steam<br>
@@ -4085,7 +4085,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
  &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
  the Thermodynamic Properties of<br>
  &nbsp;Water and Steam</div>
- </body>
+ </p>
  </html>"));
       algorithm 
           v := sum(n[i]*(pi + 0.187)^I[i]*(sigma - 0.755)^J[i] for i in 1:28)*vstar;
@@ -4116,7 +4116,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
           annotation (
             Documentation(
        info="<html>
- <body>
+ <p>
  &nbsp;Equation number 9 from:<br>
  <div style=\"text-align: center;\">&nbsp;[1] The international Association
  for the Properties of Water and Steam<br>
@@ -4127,7 +4127,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
  &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
  the Thermodynamic Properties of<br>
  &nbsp;Water and Steam</div>
- </body>
+ </p>
  </html>"));
       algorithm 
           v := sum(n[i]*(pi + 0.298)^I[i]*(sigma - 0.816)^J[i] for i in 1:31)*vstar;
@@ -4140,13 +4140,13 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
       
       annotation (                                                                                                    uses(Modelica(version="1.6")),
   Documentation(info="<html>
-<body>
+<p>
 The International Association for the Properties of Water and Steam<br>
 Milan, Italy<br>
 September 1993<br>
 Release on the Pressure along the Melting and the Sublimation Curves of
 Ordinary Water Substance<br>
-</body>
+</p>
 </html>
 "));
       function pmIceI_T 
@@ -4161,14 +4161,14 @@ Ordinary Water Substance<br>
         Real sigma = T/Tn "normalized temperature";
         annotation (
             Documentation(                                                                                                    info="<html>
-  <body>
+  <p>
   Equation 1 from:<br>
   The International Association for the Properties of Water and Steam<br>
   Milan, Italy<br>
   September 1993<br>
   Release on the Pressure along the Melting and the Sublimation Curves of
   Ordinary Water Substance<br>
-  </body>
+  </p>
   </html>
   "));
       algorithm 
@@ -4187,14 +4187,14 @@ Ordinary Water Substance<br>
         Real sigma = T/Tn "normalized temperature";
         annotation (
             Documentation(                                                                                                    info="<html>
-  <body>
+  <p>
   Equation 2 from:<br>
   The International Association for the Properties of Water and Steam<br>
   Milan, Italy<br>
   September 1993<br>
   Release on the Pressure along the Melting and the Sublimation Curves of
   Ordinary Water Substance<br>
-  </body>
+  </p>
   </html>
   "));
       algorithm 
@@ -4214,14 +4214,14 @@ Ordinary Water Substance<br>
         
         annotation (
             Documentation(                                                                                                    info="<html>
-  <body>
+  <p>
   Equation 3 from:<br>
   The International Association for the Properties of Water and Steam<br>
   Milan, Italy<br>
   September 1993<br>
   Release on the Pressure along the Melting and the Sublimation Curves of
   Ordinary Water Substance<br>
-  </body>
+  </p>
   </html>
   "));
       algorithm 
@@ -4241,14 +4241,14 @@ Ordinary Water Substance<br>
         Real sigma = T/Tn "normalized temperature";
         annotation (
             Documentation(                                                                                                    info="<html>
-  <body>
+  <p>
   Equation 6 from:<br>
   The International Association for the Properties of Water and Steam<br>
   Milan, Italy<br>
   September 1993<br>
   Release on the Pressure along the Melting and the Sublimation Curves of
   Ordinary Water Substance<br>
-  </body>
+  </p>
   </html>
   "));
       algorithm 
