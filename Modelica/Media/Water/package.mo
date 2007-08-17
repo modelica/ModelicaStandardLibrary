@@ -675,10 +675,10 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
   redeclare function extends specificHeatCapacityCp 
     "specific heat capacity at constant pressure of water" 
     
-      annotation (Documentation(info="<html><body>
+      annotation (Documentation(info="<html>
                                 <p>In the two phase region this function returns the interpolated heat capacity between the
                                 liquid and vapour state heat capacities.</p>
-                          </body><html>"));
+                          <html>"));
   algorithm 
     if dT_explicit then
       cp := IF97_Utilities.cp_dT(state.d, state.T, state.phase);

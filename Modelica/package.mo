@@ -1,3 +1,4 @@
+within ;
 package Modelica "Modelica Standard Library"
 extends Icons.Library;
 
@@ -85,10 +86,10 @@ users guides that can be accessed by the following links:
 </p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td><a href=\"Modelica://Modelica.Electrical.Digital.UsersGuide\">Digital</a><
-             </td>
+<tr><td><a href=\"Modelica://Modelica.Electrical.Digital.UsersGuide\">Digital</a>
+    </td>
       <td>Library for digital electrical components based on the VHDL standard 
-         (2-,3-,4-,9-valued logic)\"</td>
+         (2-,3-,4-,9-valued logic)</td>
   </tr>
   <tr><td><a href=\"Modelica://Modelica.Mechanics.MultiBody.UsersGuide\">MultiBody</a>
              </td>
@@ -104,7 +105,7 @@ users guides that can be accessed by the following links:
              </td>
       <td>Property models of media</td>
   </tr>
-  <tr><td><a href=\"Modelica://Modelica.SIunits.UsersGuide\">SIunits.</a> </td>
+  <tr><td><a href=\"Modelica://Modelica.SIunits.UsersGuide\">SIunits</a> </td>
       <td>Type definitions based on SI units according to ISO 31-1992</td>
   </tr>
 

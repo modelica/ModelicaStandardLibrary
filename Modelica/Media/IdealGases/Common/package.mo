@@ -603,8 +603,6 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
     Real Ov "Viscosity collision integral for the gas";
     
     annotation (Documentation(info="<html>
-<body>
-
 <p>
 The used formula are based on the method of Chung et al (1984, 1988) referred to in ref [1] chapter 9.
 The formula 9-4.10 is the one being used. The Formula is given in non-SI units, the follwong onversion constants were used to
@@ -763,7 +761,7 @@ Authors: Gordon, Sanford (NASA Lewis Research Center)
  Mcbride, Bonnie J. (NASA Lewis Research Center)
 Published: Oct 01, 1994.
 </p>
-<p><b>Known limits of validity:</p></br>
+<p><b>Known limits of validity:</b></br>
 The data is valid for
 temperatures between 200 K and 6000 K.  A few of the data sets for
 monatomic gases have a discontinuous 1st derivative at 1000 K, but
@@ -1069,7 +1067,6 @@ algorithm
   etam := sum(yi[i]*eta[i]/sum(yi[j]*fi[i,j] for j in 1:size(eta,1)) for i in 1:size(eta,1));
     
  annotation (Documentation(info="<html>
-<body>
 
 <p>
 Simplification of the kinetic theory (Chapman and Enskog theory)
