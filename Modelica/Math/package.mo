@@ -2,7 +2,9 @@ within Modelica;
 package Math "Library of mathematical functions (e.g., sin, cos) and of functions operating on vectors and matrices"
   import SI = Modelica.SIunits;
 
+
 extends Modelica.Icons.Library2;
+
 
 annotation(preferedView="info",
     Window(
@@ -59,6 +61,7 @@ and the accompanying <b>disclaimer</b>
 </ul>
  
 </html>"));
+
 
 package Vectors "Library of functions operating on vectors" 
   extends Modelica.Icons.Library;
@@ -156,7 +159,7 @@ can be provided as third argument of the function. Default is \"eps = 0\".
     end if;
   end isEqual;
   
-  function norm "Returns the norm of a vector" 
+  function norm "Return the p-norm of a vector" 
     extends Modelica.Icons.Function;
     input Real v[:] "Vector";
     input Real p(min=1) = 2 
@@ -177,7 +180,7 @@ With the optional
 second argument \"p\", any other p-norm can be computed:
 </p>
 <center>
-<IMG SRC=\"../Images/vectorNorm.png\" ALT=\"function Vectors.norm\">
+<IMG SRC=\"../Images/Math/vectorNorm.png\" ALT=\"function Vectors.norm\">
 </center>
 <p>
 Besides the Euclidean norm (p=2), also the 1-norm and the
@@ -227,7 +230,8 @@ Note, for any vector norm the following inequality holds:
     end if;
   end norm;
   
-  function length "Return length of a vector" 
+  function length 
+    "Return length of a vector (better as norm(), if further symbolic processing is performed)" 
     extends Modelica.Icons.Function;
     input Real v[:] "Vector";
     output Real result "Length of vector v";
@@ -405,6 +409,7 @@ to the original vector are given, such that sorted_v = v[indices].
     end while;
   end sort;
 end Vectors;
+
 
 package Matrices "Library of functions operating on matrices" 
   
@@ -4313,6 +4318,7 @@ tasks. The details of LAPACK are described in:
   
 end Matrices;
 
+
 function sin "Sine" 
   extends baseIcon1;
   input SI.Angle u;
@@ -4361,6 +4367,7 @@ function sin "Sine"
 </html>"));
 external "C" y = sin(u);
 end sin;
+
 
 function cos "Cosine" 
   extends baseIcon1;
@@ -4411,6 +4418,7 @@ function cos "Cosine"
 external "C" y = cos(u);
 end cos;
 
+
 function tan "Tangent (u shall not be -pi/2, pi/2, 3*pi/2, ...)" 
   extends baseIcon2;
   input SI.Angle u;
@@ -4458,6 +4466,7 @@ function tan "Tangent (u shall not be -pi/2, pi/2, 3*pi/2, ...)"
 external "C" y = tan(u);
 end tan;
 
+
 function asin "Inverse sine (-1 <= u <= 1)" 
   extends baseIcon2;
   input Real u;
@@ -4504,6 +4513,7 @@ function asin "Inverse sine (-1 <= u <= 1)"
 external "C" y = asin(u);
 end asin;
 
+
 function acos "Inverse cosine (-1 <= u <= 1)" 
   extends baseIcon2;
   input Real u;
@@ -4549,6 +4559,7 @@ function acos "Inverse cosine (-1 <= u <= 1)"
 </html>"));
 external "C" y = acos(u);
 end acos;
+
 
 function atan "Inverse tangent" 
   extends baseIcon2;
@@ -4597,6 +4608,7 @@ function atan "Inverse tangent"
 </html>"));
 external "C" y = atan(u);
 end atan;
+
 
 function atan2 "Four quadrant inverse tangent" 
   extends baseIcon2;
@@ -4657,6 +4669,7 @@ u1 is not zero.
 "));
 external "C" y = atan2(u1, u2);
 end atan2;
+
 
 function atan3 
   "Four quadrant inverse tangens (select solution that is closest to given angle y0)" 
@@ -4731,6 +4744,7 @@ algorithm
   y := w + 2*pi*div(abs(w-y0)+pi,2*pi)*(if y0 > w then +1 else -1);
 end atan3;
 
+
 function sinh "Hyperbolic sine" 
   extends baseIcon2;
   input Real u;
@@ -4778,6 +4792,7 @@ function sinh "Hyperbolic sine"
 </html>"));
 external "C" y = sinh(u);
 end sinh;
+
 
 function cosh "Hyperbolic cosine" 
   extends baseIcon2;
@@ -4832,6 +4847,7 @@ function cosh "Hyperbolic cosine"
 external "C" y = cosh(u);
 end cosh;
 
+
 function tanh "Hyperbolic tangent" 
   extends baseIcon2;
   input Real u;
@@ -4879,6 +4895,7 @@ function tanh "Hyperbolic tangent"
 </html>"));
 external "C" y = tanh(u);
 end tanh;
+
 
 function asinh "Inverse of sinh (area hyperbolic sine)" 
   extends Modelica.Math.baseIcon2;
@@ -4932,6 +4949,7 @@ asinh(u).
 algorithm 
   y :=Modelica.Math.log(u + sqrt(u*u + 1));
 end asinh;
+
 
 function acosh "Inverse of cosh (area hyperbolic cosine)" 
     import Modelica.Utilities.Streams.*;
@@ -4998,6 +5016,7 @@ algorithm
   y :=Modelica.Math.log(u + sqrt(u*u - 1));
 end acosh;
 
+
 function exp "Exponential, base e" 
   extends baseIcon2;
   input Real u;
@@ -5041,6 +5060,7 @@ function exp "Exponential, base e"
         style(color=9))));
 external "C" y = exp(u);
 end exp;
+
 
 function log "Natural (base e) logarithm (u shall be > 0)" 
   extends baseIcon1;
@@ -5090,6 +5110,7 @@ function log "Natural (base e) logarithm (u shall be > 0)"
 external "C" y = log(u);
 end log;
 
+
 function log10 "Base 10 logarithm (u shall be > 0)" 
   extends baseIcon1;
   input Real u;
@@ -5138,6 +5159,7 @@ function log10 "Base 10 logarithm (u shall be > 0)"
 external "C" y = log10(u);
 end log10;
 
+
 partial function baseIcon1 
   "Basic icon for mathematical function with y-axis on left side" 
   
@@ -5158,6 +5180,7 @@ partial function baseIcon1
             fillColor=8))));
 end baseIcon1;
 
+
 partial function baseIcon2 
   "Basic icon for mathematical function with y-axis in middle" 
   
@@ -5176,6 +5199,7 @@ partial function baseIcon2
       Polygon(points=[0, 100; -6, 84; 6, 84; 0, 100], style(color=8, fillColor=
               8))));
 end baseIcon2;
+
 
 function tempInterpol1 
   "Temporary function for linear interpolation (will be removed)" 
@@ -5233,6 +5257,7 @@ algorithm
   
 </html>"));
 end tempInterpol1;
+
 
 function tempInterpol2 
   "Temporary function for vectorized linear interpolation (will be removed)" 
