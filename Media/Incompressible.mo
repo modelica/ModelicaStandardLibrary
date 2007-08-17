@@ -1,3 +1,4 @@
+within Modelica.Media;
 package Incompressible 
   "Medium model for T-dependent properties, defined by tables or polynomials" 
   
@@ -67,7 +68,37 @@ package Incompressible
     constant Boolean hasViscosity = not (size(tableViscosity,1)==0);
     constant Boolean hasVaporPressure = not (size(tableVaporPressure,1)==0);
     final constant Real invTK[neta] = invertTemp(tableViscosity[:,1],TinK);
-  annotation(keepConstant = true);
+  annotation(keepConstant = true, Documentation(info="<HTML>
+<p>
+This is the base package for medium models of incompressible fluids based on
+tables. The minimal data to provide for a useful medium description is tables
+of density and heat capacity as functions of temperature.
+</p>
+
+<h4>Using the package TableBased</h4>
+<p>
+To implement a new medium model, create a package that <b>extends</b> TableBased
+and provides one or more of the constant tables:
+</p>
+
+<pre>
+tableDensity        = [T, d];
+tableHeatCapacity   = [T, Cp];
+tableConductivity   = [T, lam];
+tableViscosity      = [T, eta];
+tableVaporPressure  = [T, pVap];
+</pre>
+
+<p>
+The table data is used to fit constant polynomials of order <b>npol</b>, the
+temperature data points do not need to be same for different properties. Properties
+like enthalpy, inner energy and entropy are calculated consistently from integrals
+and derivatives of d(T) and Cp(T). The minimal
+data for a useful medium model is thus density and heat capacity. Transport
+properties and vapor pressure are optional, if the data tables are empty the corresponding
+function calls can not be used.
+</p>
+</HTML>"));
     final constant Real poly_rho[:] = if hasDensity then 
                                          Poly.fitting(tableDensity[:,1],tableDensity[:,2],npol) else 
                                            zeros(npol+1) annotation(keepConstant = true);
@@ -101,20 +132,31 @@ package Incompressible
         stateSelect=if preferredMediumStates then StateSelect.prefer else StateSelect.default)) 
       "Base properties of T dependent medium" 
       
-      annotation(Documentation(info="
-                               Note that the inner energy neglects the pressure dependence, which is only
-                               true for an incompressible medium with d = constant. The neglected term is
-                               (p-reference_p)/rho*(T/rho)*(partial rho /partial T). This is very small for
-                               liquids due to proportionality to 1/d^2, but can be problematic for gases that are
-                               modeled incompressible.
-                               
-                               Enthalpy is never a function of T only (h = h(T) + (p-reference_p)/d), but the
-                               error is also small and non-linear systems can be avoided. In particular,
-                               non-linear systems are small and local as opposed to large and over all volumes.
-                               
-                               Entropy is calculated as
+      annotation(Documentation(info="<html>
+<p>
+Note that the inner energy neglects the pressure dependence, which is only
+true for an incompressible medium with d = constant. The neglected term is
+p-reference_p)/rho*(T/rho)*(partial rho /partial T). This is very small for
+liquids due to proportionality to 1/d^2, but can be problematic for gases that are
+modeled incompressible.
+</p>
+
+<p>                               
+Enthalpy is never a function of T only (h = h(T) + (p-reference_p)/d), but the
+error is also small and non-linear systems can be avoided. In particular,
+non-linear systems are small and local as opposed to large and over all volumes.
+</p>                               
+    
+<p>
+Entropy is calculated as
+</p>
+<pre>
   s = s0 + integral(Cp(T)/T,dt)
+</pre>
+<p>
 which is only exactly true for a fluid with constant density d=d0.
+</p>
+</html>
       "));
       SI.SpecificHeatCapacity cp "specific heat capacity";
       parameter SI.Temperature T_start = 298.15 "initial temperature";
@@ -383,13 +425,17 @@ of a polynomial and to use a polynomial to fit a given set
 of data points.
 </p>
 <p>
-<p><b>Copyright &copy; 2004-2006, Modelica Association and DLR.</b></p>
+
+<p><b>Copyright &copy; 2004-2007, Modelica Association and DLR.</b></p>
+
 <p><i>
 This package is <b>free</b> software. It can be redistributed and/or modified
 under the terms of the <b>Modelica license</b>, see the license conditions
 and the accompanying <b>disclaimer</b> in the documentation of package
 Modelica in file \"Modelica/package.mo\".
-</i></p>
+</i>
+</p>
+
 </HTML>
 ",     revisions="<html>
 <ul>
@@ -548,7 +594,7 @@ returned as a vector p[n+1] that has the following definition:
       end evaluate_der;
       
       function integralValue_der 
-        "time derivative of integral of polynomial p(u) from u_low to u_high, assuming only u_high as time-dependent (Leibnitz rule)" 
+        "Time derivative of integral of polynomial p(u) from u_low to u_high, assuming only u_high as time-dependent (Leibnitz rule)" 
         extends Modelica.Icons.Function;
         input Real p[:] "Polynomial coefficients";
         input Real u_high "High integrand value";

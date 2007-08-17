@@ -1,3 +1,4 @@
+within Modelica.Media.Water;
 package IF97_Utilities 
   "Low level and utility computation for high accuracy water properties according to the IAPWS/IF97 standard" 
   
@@ -95,11 +96,10 @@ package IF97_Utilities
   extends Modelica.Icons.Library;
   
   package BaseIF97 
+    "Modelica Physical Property Model: the new industrial formulation IAPWS-IF97" 
     extends Modelica.Icons.Library;
     annotation (Documentation(info="<HTML>
-        <CENTER>
-        <H1>Modelica Physical Property Model: the new industrial formulation IAPWS-IF97</H1></CENTER>
-        <h4>Version Info and Revision history
+    <h4>Version Info and Revision history
         </h4>
         <ul>
         <li>First implemented: <i>July, 2000</i>
@@ -215,7 +215,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
 <p>
 <HR size=3 width=\"90%\">
 <h4>2. Calculable Properties      </h4>
-<table border=\"0\" cellpadding=\"0\" rules=\"cols\" cellspacing=\"2\">
+<table border=\"1\" cellpadding=\"2\" cellspacing=\"0\">
        <tbody>
        <tr>
        <td valign=\"top\" bgcolor=\"#cccccc\"><br>
@@ -2056,15 +2056,15 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     
     //===================================================================
     
-    package Basic "base functions as described in IAWPS/IF97" 
+    package Basic "Base functions as described in IAWPS/IF97" 
       
       extends Modelica.Icons.Library;
       annotation (Documentation(info="<HTML><h4>Package description</h4>
           <p>Package BaseIF97/Basic computes the the fundamental functions for the 5 regions of the steam tables
           as described in the standards document <a href=\"Documentation/IF97documentation/IF97.pdf\">IF97.pdf</a>. The code of these
-          functions has been generated using <b><i>Mathematica<i></b> and the add-on packages \"Format\" and \"Optimize\"
+          functions has been generated using <b><i>Mathematica</i></b> and the add-on packages \"Format\" and \"Optimize\"
           to generate highly efficient, expression-optimized C-code from a symbolic representation of the thermodynamic
-          functions. The C-code has than been transformed into Modelica code.. An important feature of this optimization was to
+          functions. The C-code has than been transformed into Modelica code. An important feature of this optimization was to
           simultaneously optimize the functions and the directional derivatives because they share many common subexpressions.</p>
           <h4>Package contents</h4>
           <p>
@@ -3599,7 +3599,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
         Real sigma = s/sstar "normalized specific entropy";
         annotation (
             Documentation(                                                                                                    info="<html>
-  <body>
+<p>
   Equation number 1 from:<br>
   The International Association for the Properties of Water and Steam<br>
   Gaithersburg, Maryland, USA<br>
@@ -3607,7 +3607,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
   Supplementary Release on&nbsp; Backward Equations for Pressure as a
   Function of Enthalpy and Entropy p(h,s) to the IAPWS Industrial
   Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
-  </body>
+  </p>
   </html>
   "));
       algorithm 
