@@ -545,8 +545,9 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
       "Choice of reference enthalpy";
     input SI.SpecificEnthalpy h_off=h_offset 
       "User defined offset for reference enthalpy, if referenceChoice = UserDefined";
-    input Real dT "Temperature derivative";
-    output Real h_der "Specific enthalpy at temperature T";
+    input Real dT(unit="K/s") "Temperature derivative";
+    output Real h_der(unit="J/(kg.s)") 
+      "Derivative of specific enthalpy at temperature T";
   algorithm 
     h_der := dT*cp_Tlow(data,T);
   end h_Tlow_der;
