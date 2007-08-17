@@ -789,7 +789,7 @@ A few examples are given in the Examples package. The model
 Examples.TestGlycol</a> shows how the medium models can be used. For more
 realistic examples of how to implement volume models with medium properties
 look in the <a href=\"Modelica:Modelica.Media.UsersGuide.MediumUsage\">Medium
-usage section</a> of the Users guide.
+usage section</a> of the User's guide.
 </p>
  
 </HTML>"));

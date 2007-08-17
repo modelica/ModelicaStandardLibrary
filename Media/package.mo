@@ -2444,7 +2444,7 @@ style=\"color: rgb(255, 0, 0);\"></span></li>
 <li><span style=\"color: rgb(255, 0, 0);\">Attention</span>: Many
 properties are not well defined in the two phase region and the
 functions might return undesired values if called there. It is the
-users responsibility&nbsp; to take care of such ituations. The example
+user's responsibility&nbsp; to take care of such ituations. The example
 uses one of several possible models to compute an averaged viscosity
 for two-phase flows. </li>
 </ol>

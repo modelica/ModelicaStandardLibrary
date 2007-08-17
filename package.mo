@@ -1599,7 +1599,7 @@ The following <b>components</b> have been improved:
 <table border=\"1\" cellspacing=0 cellpadding=2>
   <tr><td colspan=\"2\"><b>Modelica.</b></td></tr>
   <tr><td> UsersGuide</td>
-      <td> Users guide and package description of Modelica Standard Library improved.</td> </tr>
+      <td> User's guide and package description of Modelica Standard Library improved.</td> </tr>
   <tr><td colspan=\"2\"><b>Modelica.Blocks.Interfaces.</b></td></tr>
   <tr><td> RealInput<br>
            BooleanInput<br>
