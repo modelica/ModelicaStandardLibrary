@@ -1,3 +1,4 @@
+within Modelica.Mechanics.MultiBody.Examples.Loops;
 model Engine1a "Model of one cylinder engine" 
   import SI = Modelica.SIunits;
   extends Modelica.Icons.Example;

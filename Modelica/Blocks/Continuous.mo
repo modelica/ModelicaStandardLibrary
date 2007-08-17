@@ -1,5 +1,5 @@
 within Modelica.Blocks;
-package Continuous "Continuous control blocks with internal states" 
+package Continuous "Library of continuous control blocks with internal states" 
   
   import Modelica.Blocks.Interfaces;
   import Modelica.SIunits;

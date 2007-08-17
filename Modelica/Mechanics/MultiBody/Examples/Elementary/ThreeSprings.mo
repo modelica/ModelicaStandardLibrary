@@ -1,3 +1,4 @@
+within Modelica.Mechanics.MultiBody.Examples.Elementary;
 encapsulated model ThreeSprings 
   "3-dim. springs in series and parallel connection" 
   import Modelica.Icons;

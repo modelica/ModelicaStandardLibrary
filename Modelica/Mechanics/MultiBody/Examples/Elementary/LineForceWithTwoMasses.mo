@@ -1,3 +1,4 @@
+within Modelica.Mechanics.MultiBody.Examples.Elementary;
 model LineForceWithTwoMasses 
   "Demonstrate line force with two point masses using a JointUPS and alternatively a LineForceWithTwoMasses component" 
   

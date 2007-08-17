@@ -1,3 +1,4 @@
+within Modelica.Electrical.Analog.Examples;
 model HeatingNPN_OrGate "Heating NPN Or Gate" 
   extends Modelica.Icons.Example;
   constant Real CapVal=0;

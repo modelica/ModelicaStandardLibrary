@@ -1,9 +1,8 @@
-package Math "Mathematical functions (e.g., sin, cos) and operations on matrices (e.g., norm, solve, eig, exp)"
+within Modelica;
+package Math "Library of mathematical functions (e.g., sin, cos) and of functions operating on vectors and matrices"
   import SI = Modelica.SIunits;
 
-
 extends Modelica.Icons.Library2;
-
 
 annotation(preferedView="info",
     Window(
@@ -60,7 +59,6 @@ and the accompanying <b>disclaimer</b>
 </ul>
  
 </html>"));
-
 
 package Vectors "Library of functions operating on vectors" 
   extends Modelica.Icons.Library;
@@ -408,7 +406,6 @@ to the original vector are given, such that sorted_v = v[indices].
   end sort;
 end Vectors;
 
-
 package Matrices "Library of functions operating on matrices" 
   
   extends Modelica.Icons.Library;
@@ -700,9 +697,9 @@ to the original matrix are given, such that
     Real sorted_MT[size(M,2), size(M,1)];
     
   encapsulated function greater "Compare whether vector v1 > v2" 
-        import Modelica;
+      import Modelica;
     extends Modelica.Icons.Function;
-        import Modelica.Utilities.Types.Compare;
+      import Modelica.Utilities.Types.Compare;
     input Real v1[:];
     input Real v2[size(v1,1)];
     output Boolean result;
@@ -723,9 +720,9 @@ to the original matrix are given, such that
   end greater;
     
   encapsulated function less "Compare whether vector v1 < v2" 
-        import Modelica;
+      import Modelica;
     extends Modelica.Icons.Function;
-        import Modelica.Utilities.Types.Compare;
+      import Modelica.Utilities.Types.Compare;
     input Real v1[:];
     input Real v2[size(v1,1)];
     output Boolean result;
@@ -4316,7 +4313,6 @@ tasks. The details of LAPACK are described in:
   
 end Matrices;
 
-
 function sin "Sine" 
   extends baseIcon1;
   input SI.Angle u;
@@ -4365,7 +4361,6 @@ function sin "Sine"
 </html>"));
 external "C" y = sin(u);
 end sin;
-
 
 function cos "Cosine" 
   extends baseIcon1;
@@ -4416,7 +4411,6 @@ function cos "Cosine"
 external "C" y = cos(u);
 end cos;
 
-
 function tan "Tangent (u shall not be -pi/2, pi/2, 3*pi/2, ...)" 
   extends baseIcon2;
   input SI.Angle u;
@@ -4464,7 +4458,6 @@ function tan "Tangent (u shall not be -pi/2, pi/2, 3*pi/2, ...)"
 external "C" y = tan(u);
 end tan;
 
-
 function asin "Inverse sine (-1 <= u <= 1)" 
   extends baseIcon2;
   input Real u;
@@ -4511,7 +4504,6 @@ function asin "Inverse sine (-1 <= u <= 1)"
 external "C" y = asin(u);
 end asin;
 
-
 function acos "Inverse cosine (-1 <= u <= 1)" 
   extends baseIcon2;
   input Real u;
@@ -4557,7 +4549,6 @@ function acos "Inverse cosine (-1 <= u <= 1)"
 </html>"));
 external "C" y = acos(u);
 end acos;
-
 
 function atan "Inverse tangent" 
   extends baseIcon2;
@@ -4606,7 +4597,6 @@ function atan "Inverse tangent"
 </html>"));
 external "C" y = atan(u);
 end atan;
-
 
 function atan2 "Four quadrant inverse tangent" 
   extends baseIcon2;
@@ -4667,7 +4657,6 @@ u1 is not zero.
 "));
 external "C" y = atan2(u1, u2);
 end atan2;
-
 
 function atan3 
   "Four quadrant inverse tangens (select solution that is closest to given angle y0)" 
@@ -4742,7 +4731,6 @@ algorithm
   y := w + 2*pi*div(abs(w-y0)+pi,2*pi)*(if y0 > w then +1 else -1);
 end atan3;
 
-
 function sinh "Hyperbolic sine" 
   extends baseIcon2;
   input Real u;
@@ -4790,7 +4778,6 @@ function sinh "Hyperbolic sine"
 </html>"));
 external "C" y = sinh(u);
 end sinh;
-
 
 function cosh "Hyperbolic cosine" 
   extends baseIcon2;
@@ -4845,7 +4832,6 @@ function cosh "Hyperbolic cosine"
 external "C" y = cosh(u);
 end cosh;
 
-
 function tanh "Hyperbolic tangent" 
   extends baseIcon2;
   input Real u;
@@ -4893,7 +4879,6 @@ function tanh "Hyperbolic tangent"
 </html>"));
 external "C" y = tanh(u);
 end tanh;
-
 
 function asinh "Inverse of sinh (area hyperbolic sine)" 
   extends Modelica.Math.baseIcon2;
@@ -4947,7 +4932,6 @@ asinh(u).
 algorithm 
   y :=Modelica.Math.log(u + sqrt(u*u + 1));
 end asinh;
-
 
 function acosh "Inverse of cosh (area hyperbolic cosine)" 
     import Modelica.Utilities.Streams.*;
@@ -5014,7 +4998,6 @@ algorithm
   y :=Modelica.Math.log(u + sqrt(u*u - 1));
 end acosh;
 
-
 function exp "Exponential, base e" 
   extends baseIcon2;
   input Real u;
@@ -5058,7 +5041,6 @@ function exp "Exponential, base e"
         style(color=9))));
 external "C" y = exp(u);
 end exp;
-
 
 function log "Natural (base e) logarithm (u shall be > 0)" 
   extends baseIcon1;
@@ -5108,7 +5090,6 @@ function log "Natural (base e) logarithm (u shall be > 0)"
 external "C" y = log(u);
 end log;
 
-
 function log10 "Base 10 logarithm (u shall be > 0)" 
   extends baseIcon1;
   input Real u;
@@ -5157,7 +5138,6 @@ function log10 "Base 10 logarithm (u shall be > 0)"
 external "C" y = log10(u);
 end log10;
 
-
 partial function baseIcon1 
   "Basic icon for mathematical function with y-axis on left side" 
   
@@ -5178,7 +5158,6 @@ partial function baseIcon1
             fillColor=8))));
 end baseIcon1;
 
-
 partial function baseIcon2 
   "Basic icon for mathematical function with y-axis in middle" 
   
@@ -5197,7 +5176,6 @@ partial function baseIcon2
       Polygon(points=[0, 100; -6, 84; 6, 84; 0, 100], style(color=8, fillColor=
               8))));
 end baseIcon2;
-
 
 function tempInterpol1 
   "Temporary function for linear interpolation (will be removed)" 
@@ -5255,7 +5233,6 @@ algorithm
   
 </html>"));
 end tempInterpol1;
-
 
 function tempInterpol2 
   "Temporary function for vectorized linear interpolation (will be removed)" 
@@ -5315,5 +5292,4 @@ algorithm
   
 </html>"));
 end tempInterpol2;
-
 end Math;

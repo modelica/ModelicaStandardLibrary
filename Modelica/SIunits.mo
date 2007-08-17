@@ -1,6 +1,6 @@
 within Modelica;
 package SIunits 
-  "Type and unit definitions based on SI units according to ISO 31-1992" 
+  "Library of type and unit definitions based on SI units according to ISO 31-1992" 
 package UsersGuide "User's Guide of SIunits Library" 
     
   annotation (DocumentationClass=true, Documentation(info="<HTML>

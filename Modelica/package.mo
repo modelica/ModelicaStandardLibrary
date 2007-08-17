@@ -12,7 +12,7 @@ annotation(preferedView="info",
     library=1,
     autolayout=1),
   version="2.2.2",
-  versionDate="2007-08-12",
+  versionDate="2007-08-17",
   conversion(
     from(version="1.6",
          ModelicaAdditions(version="1.5"),
@@ -50,12 +50,14 @@ For an introduction, have especially a look at:
      interface definitions and used conventions.</li>
 <li><a href=\"Modelica://Modelica.UsersGuide.ReleaseNotes\">Release Notes</a>
     summarizes the changes of new versions of this package.</li>
-<li> Packages <b>Examples</b> in the various subpackages, demonstrate
+<li> <a href=\"Modelica://Modelica.UsersGuide.Contact\">Contact</a>
+     lists the contributors of the Modelica Standard Library.</li>
+<li> The <b>Examples</b> packages in the various libraries, demonstrate
      how to use the components of the corresponding sublibrary.</li>
 </ul>
  
 <p>
-Copyright &copy; 1998-2006, Modelica Association.
+Copyright &copy; 1998-2007, Modelica Association.
 </p>
 <p>
 <i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified

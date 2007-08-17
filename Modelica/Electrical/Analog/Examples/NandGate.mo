@@ -1,3 +1,4 @@
+within Modelica.Electrical.Analog.Examples;
 encapsulated model NandGate "CMOS NAND Gate (see Tietze/Schenk, page 157)" 
   import Modelica.Electrical.Analog.Basic;
   import Modelica.Electrical.Analog.Sources;

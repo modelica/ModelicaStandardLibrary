@@ -1,3 +1,4 @@
+within Modelica.Electrical.Analog.Examples;
 model CauerLowPassAnalog "Cauer low pass filter with analog components" 
   annotation (uses(Modelica(version="2.2")), Diagram(
       Rectangle(extent=[-62,32; -58,28], style(

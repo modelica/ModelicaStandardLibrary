@@ -1,3 +1,4 @@
+within Modelica.Mechanics.MultiBody;
 package Joints "Components that constrain the motion between two frames" 
   import SI = Modelica.SIunits;
   extends Modelica.Icons.Library;

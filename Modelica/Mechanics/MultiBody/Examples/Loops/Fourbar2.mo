@@ -1,3 +1,4 @@
+within Modelica.Mechanics.MultiBody.Examples.Loops;
 model Fourbar2 
   "One kinematic loop with four bars (with UniversalSpherical joint; 1 non-linear equation)" 
   

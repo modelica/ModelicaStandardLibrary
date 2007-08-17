@@ -1,3 +1,4 @@
+within Modelica.Mechanics.MultiBody.Examples.Loops;
 model PlanarLoops_analytic 
   "Mechanism with three planar kinematic loops and one degree-of-freedom with analytic loop handling (with JointRRR joints)" 
   

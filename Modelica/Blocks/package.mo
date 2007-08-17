@@ -1,9 +1,8 @@
-package Blocks "Library for basic input/output control blocks (continuous, discrete, logical, table blocks)"
+within Modelica;
+package Blocks "Library of basic input/output control blocks (continuous, discrete, logical, table blocks)"
   import SI = Modelica.SIunits;
 
-
 extends Modelica.Icons.Library2;
-
 
 annotation(preferedView="info",
   Window(
@@ -39,9 +38,6 @@ This library contains input/output blocks to build up block diagrams.
     D-82230 Wessling<br>
     email: <A HREF=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</A><br>
 </dl>
-<br>
-<br>
-
 <p>
 Copyright &copy; 1998-2007, Modelica Association and DLR.
 </p>
@@ -50,7 +46,7 @@ Copyright &copy; 1998-2007, Modelica Association and DLR.
 under the terms of the <b>Modelica license</b>, see the license conditions
 and the accompanying <b>disclaimer</b> 
 <a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a>.</i>
-</p><br>
+</p>
 </HTML>
 ", revisions="<html>
 <ul>
@@ -94,8 +90,8 @@ and the accompanying <b>disclaimer</b>
 </ul>
 </html>"));
 
-
-package Examples "Demonstration examples of the components of this package" 
+package Examples 
+  "Library of examples to demonstrate the usage of package Blocks" 
   
   extends Icons.Library;
   

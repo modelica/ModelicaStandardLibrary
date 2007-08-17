@@ -1,3 +1,4 @@
+within Modelica.Mechanics.MultiBody.Examples.Elementary;
 encapsulated model SpringMassSystem 
   "Mass attached with a spring to the world frame" 
   import Modelica.Icons;

@@ -1,3 +1,4 @@
+within Modelica.Utilities;
 package Examples 
   "Examples to demonstrate the usage of package Modelica.Utilities" 
   annotation (preferedView="info",Documentation(info="<html>

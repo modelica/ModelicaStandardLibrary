@@ -1,3 +1,4 @@
+within Modelica.Media.IdealGases.Common;
 package FluidData "critical data, dipole moments and related data" 
   extends Modelica.Icons.Library;
   

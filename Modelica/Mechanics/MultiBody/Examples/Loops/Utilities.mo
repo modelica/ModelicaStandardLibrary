@@ -1,3 +1,4 @@
+within Modelica.Mechanics.MultiBody.Examples.Loops;
 package Utilities "Utility models for Examples.Loops" 
   extends Modelica.Icons.Library;
   

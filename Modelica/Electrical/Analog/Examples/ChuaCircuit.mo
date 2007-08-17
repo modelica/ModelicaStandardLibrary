@@ -1,3 +1,4 @@
+within Modelica.Electrical.Analog.Examples;
 encapsulated model ChuaCircuit "Chua's circuit, ns, V, A" 
   import Modelica.Electrical.Analog.Basic;
   import Modelica.Electrical.Analog.Examples.Utilities;

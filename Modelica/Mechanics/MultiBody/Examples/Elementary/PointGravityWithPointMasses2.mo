@@ -1,3 +1,4 @@
+within Modelica.Mechanics.MultiBody.Examples.Elementary;
 model PointGravityWithPointMasses2 
   "Rigidly connected point masses in a point gravity field" 
   extends Modelica.Icons.Example;

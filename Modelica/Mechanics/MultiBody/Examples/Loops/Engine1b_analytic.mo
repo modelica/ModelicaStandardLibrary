@@ -1,3 +1,4 @@
+within Modelica.Mechanics.MultiBody.Examples.Loops;
 model Engine1b_analytic 
   "Model of one cylinder engine with gas force and analytic loop handling" 
   import SI = Modelica.SIunits;

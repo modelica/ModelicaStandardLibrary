@@ -1,3 +1,4 @@
+within Modelica.Media.IdealGases;
 package SingleGases "Media models of ideal gases from NASA tables" 
   extends Modelica.Icons.Library;
   annotation (preferedView="info", Documentation(info="<HTML>

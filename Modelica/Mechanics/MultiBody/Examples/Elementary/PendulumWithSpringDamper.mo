@@ -1,3 +1,4 @@
+within Modelica.Mechanics.MultiBody.Examples.Elementary;
 encapsulated model PendulumWithSpringDamper "Simple spring/damper/mass system" 
   import Modelica.Icons;
   import Modelica.Mechanics.MultiBody;

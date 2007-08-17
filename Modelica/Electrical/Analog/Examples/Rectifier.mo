@@ -1,3 +1,4 @@
+within Modelica.Electrical.Analog.Examples;
 model Rectifier "B6 diode bridge" 
   extends Modelica.Icons.Example;
   import Modelica.Electrical.Analog.Ideal;

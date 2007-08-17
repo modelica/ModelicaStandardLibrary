@@ -1,3 +1,4 @@
+within Modelica.Mechanics.MultiBody.Examples;
 package Loops "Examples with kinematic loops"
 extends Modelica.Icons.Library;
 

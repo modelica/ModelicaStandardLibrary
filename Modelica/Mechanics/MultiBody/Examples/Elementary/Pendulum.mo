@@ -1,3 +1,4 @@
+within Modelica.Mechanics.MultiBody.Examples.Elementary;
 encapsulated model Pendulum 
   "Simple pendulum with one revolute joint and one body" 
   import Modelica;

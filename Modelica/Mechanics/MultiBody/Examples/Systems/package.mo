@@ -1,3 +1,4 @@
+within Modelica.Mechanics.MultiBody.Examples;
 package Systems "Examples of complete system models including 3-dimensional mechanics"
 extends Modelica.Icons.Library;
 

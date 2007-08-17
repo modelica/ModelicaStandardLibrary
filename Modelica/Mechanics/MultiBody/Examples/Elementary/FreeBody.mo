@@ -1,3 +1,4 @@
+within Modelica.Mechanics.MultiBody.Examples.Elementary;
 encapsulated model FreeBody 
   "Free flying body attached by two springs to environment" 
   import Modelica.Icons;

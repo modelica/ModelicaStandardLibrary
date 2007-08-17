@@ -1,5 +1,5 @@
 within Modelica;
-package Icons "Icon definitions" 
+package Icons "Library of icons" 
   
   annotation(preferedView="info",
     Window(
@@ -114,6 +114,7 @@ and the accompanying <b>disclaimer</b>
 <br>
 </html>"));
   partial model Info "Icon for an information class" 
+    
     annotation (
       Coordsys(
         extent=[-100, -100; 100, 100],
@@ -132,7 +133,7 @@ and the accompanying <b>disclaimer</b>
               fillColor=3)),
         Polygon(points=[80, -90; 90, -80; 90, 90; 80, 80; 80, -90], style(
               fillColor=3)),
-        Text(extent=[-80, 70; 60, -70], string="Info")), 
+        Text(extent=[-80, 70; 60, -70], string="Info")),
       Documentation(info="<html>
 <p>
 This icon is designed for an <b>information</b> class.
@@ -143,6 +144,7 @@ This icon is designed for an <b>information</b> class.
   end Info;
   
   partial package Library "Icon for library" 
+    
     annotation (Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
@@ -161,7 +163,7 @@ This icon is designed for an <b>information</b> class.
         Text(
           extent=[-120, 122; 120, 73],
           string="%name",
-          style(color=1))), 
+          style(color=1))),
       Documentation(info="<html>
 <p>
 This icon is designed for a <b>library</b>.
@@ -171,6 +173,7 @@ This icon is designed for a <b>library</b>.
   
   partial package Library2 
     "Icon for library where additional icon elements shall be added" 
+    
     annotation (Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
@@ -192,7 +195,7 @@ This icon is designed for a <b>library</b>.
           style(
             color=9,
             fillColor=0,
-            fillPattern=1))), 
+            fillPattern=1))),
       Documentation(info="<html>
 <p>
 This icon is designed for a <b>package</b> where a package
@@ -202,6 +205,7 @@ specific graphic is additionally included in the icon.
   end Library2;
   
   partial model Example "Icon for an example model" 
+    
     annotation (Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
@@ -218,7 +222,7 @@ specific graphic is additionally included in the icon.
         Text(
           extent=[-120, 132; 120, 73],
           string="%name",
-          style(color=1))), 
+          style(color=1))),
       Documentation(info="<html>
 <p>
 This icon is designed for an <b>Example package</b>,
@@ -230,6 +234,7 @@ i.e. a package containing executable demo models.
   end Example;
   
   partial function Function "Icon for a function" 
+    
     annotation (Icon(
         Text(extent=[-140,162; 136,102],  string="%name"),
         Ellipse(extent=[-100,100; 100,-100],  style(color=45, fillColor=7)),
@@ -244,6 +249,7 @@ This icon is designed for a <b>function</b>
   end Function;
   
   partial record Record "Icon for a record" 
+    
     annotation (Icon(
         Rectangle(extent=[-100, 50; 100, -100], style(fillColor=51,
               fillPattern=
@@ -356,6 +362,7 @@ This icon is designed for a <b>String</b> type.
   
   partial model TranslationalSensor 
     "Icon representing translational measurement device" 
+    
     annotation (
       Coordsys(
         extent=[-100, -100; 100, 100],
@@ -388,7 +395,7 @@ This icon is designed for a <b>String</b> type.
         Line(points=[-10, -40; -10, -60], style(color=0)),
         Line(points=[10, -40; 10, -60], style(color=0)),
         Line(points=[30, -40; 30, -60], style(color=0)),
-        Line(points=[50, -40; 50, -60], style(color=0))), 
+        Line(points=[50, -40; 50, -60], style(color=0))),
       Documentation(info="<html>
 <p>
 This icon is designed for a <b>translational sensor</b> model.
@@ -400,6 +407,7 @@ This icon is designed for a <b>translational sensor</b> model.
   
   partial model RotationalSensor 
     "Icon representing rotational measurement device" 
+    
     annotation (
       Coordsys(
         extent=[-100, -100; 100, 100],
@@ -438,7 +446,7 @@ This icon is designed for a <b>translational sensor</b> model.
             color=0,
             gradient=0,
             fillColor=0,
-            fillPattern=1))), 
+            fillPattern=1))),
       Documentation(info="<html>
 <p>
 This icon is designed for a <b>rotational sensor</b> model.
@@ -449,6 +457,7 @@ This icon is designed for a <b>rotational sensor</b> model.
   end RotationalSensor;
   
   partial model GearIcon "Icon for gearbox" 
+    
     annotation (Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[2, 2],
@@ -483,7 +492,7 @@ This icon is designed for a <b>rotational sensor</b> model.
                 60, -100; -60, -100; -60, -90], style(
             color=0,
             fillColor=0,
-            fillPattern=1))), 
+            fillPattern=1))),
       Documentation(info="<html>
 <p>
 This icon is designed for a <b>gearbox</b> model.
@@ -494,6 +503,7 @@ This icon is designed for a <b>gearbox</b> model.
   end GearIcon;
   
   partial model MotorIcon "Icon for electrical motor" 
+    
     annotation (Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
@@ -512,7 +522,7 @@ This icon is designed for a <b>gearbox</b> model.
         Rectangle(extent=[30, 10; 90, -10], style(
             gradient=2,
             fillColor=8,
-            fillPattern=1))), 
+            fillPattern=1))),
       Documentation(info="<html>
 <p>
 This icon is designed for an <b>electrical motor</b> model.
@@ -594,7 +604,7 @@ This icon is designed for an <b>electrical motor</b> model.
         Text(
           extent=[-150, 70; 150, 40],
           string="%name",
-          style(color=0))), 
+          style(color=0))),
       Documentation(info="<html>
 <p>
 This icon is designed for a <b>signal bus</b> connector.
@@ -660,7 +670,7 @@ This icon is designed for a <b>signal bus</b> connector.
         Text(
           extent=[-150, 70; 150, 40],
           string="%name",
-          style(color=0))), 
+          style(color=0))),
       Documentation(info="<html>
 <p>
 This icon is designed for a <b>sub-bus</b> in a signal connector.

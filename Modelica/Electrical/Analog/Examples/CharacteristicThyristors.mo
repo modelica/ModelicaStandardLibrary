@@ -1,3 +1,4 @@
+within Modelica.Electrical.Analog.Examples;
 model CharacteristicThyristors "Characteristic of ideal thyristors" 
   
   extends Modelica.Icons.Example;

@@ -1,5 +1,5 @@
 within Modelica.Blocks;
-package Math "Mathematical functions as input/output blocks" 
+package Math "Library of mathematical functions as input/output blocks" 
   import Modelica.SIunits;
   import Modelica.Blocks.Interfaces;
   extends Modelica.Icons.Library;
@@ -806,6 +806,7 @@ Example:
       end Sum;
   
       block Feedback "Output difference between commanded and feedback input" 
+    
         input Interfaces.RealInput u1 annotation (extent=[-100, -20; -60, 20]);
         input Interfaces.RealInput u2 
           annotation (extent=[-20, -100; 20, -60], rotation=90);
@@ -2450,6 +2451,7 @@ and <b>integerTrue</b> and <b>integerFalse</b> are parameters.
   end BooleanToInteger;
   
   block RealToBoolean "Convert Real to Boolean signal" 
+    
     Blocks.Interfaces.RealInput u "Connector of Real input signal"  annotation(extent=[-140,-20; -100,20]);
     extends Interfaces.partialBooleanSO;
     parameter Real threshold=0.5 
@@ -2497,6 +2499,7 @@ where <b>threshold</b> is a parameter.
   end RealToBoolean;
   
   block IntegerToBoolean "Convert Integer to Boolean signal" 
+    
     Blocks.Interfaces.IntegerInput u "Connector of Integer input signal" annotation(extent=[-140,-20; -100,20]);
     extends Interfaces.partialBooleanSO;
     parameter Integer threshold=1 

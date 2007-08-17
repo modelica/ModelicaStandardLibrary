@@ -1,3 +1,4 @@
+within Modelica.Utilities;
 package System "Interaction with environment" 
   extends Modelica.Icons.Library;
     annotation (

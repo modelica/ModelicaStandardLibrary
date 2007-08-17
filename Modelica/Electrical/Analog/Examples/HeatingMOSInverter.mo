@@ -1,3 +1,4 @@
+within Modelica.Electrical.Analog.Examples;
 model HeatingMOSInverter "Heating MOS Inverter" 
   extends Modelica.Icons.Example;
   Modelica.Electrical.Analog.Basic.Ground G 

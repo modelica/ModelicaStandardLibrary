@@ -1,4 +1,6 @@
-package Interfaces "Connectors and partial models for input/output blocks" 
+within Modelica.Blocks;
+package Interfaces 
+  "Library of connectors and partial models for input/output blocks" 
   import Modelica.SIunits;
     extends Modelica.Icons.Library;
   
@@ -200,6 +202,7 @@ Connector with one output signal of type Integer.
 </html>"));
   
     partial block BlockIcon "Basic graphical layout of input/output block" 
+    
       annotation (
         Coordsys(extent=[-100, -100; 100, 100]),
         Window(
@@ -519,6 +522,7 @@ to be used as base class for a corresponding controller.
   
     partial block DiscreteBlockIcon 
     "Graphical layout of discrete block component icon" 
+    
       annotation (Icon(Rectangle(extent=[-100, -100; 100, 100], style(color=3,
                 fillColor=52)), Text(extent=[-150, 150; 150, 110], string=
                 "%name")), Documentation(info="<html>
@@ -717,6 +721,7 @@ to be used as base class for a corresponding controller.
     end MVdiscrete;
   
     partial block BooleanBlockIcon "Basic graphical layout of Boolean block" 
+    
       annotation (
         Coordsys(extent=[-100, -100; 100, 100]),
         Window(
@@ -855,6 +860,7 @@ This component has one continuous Boolean output signal y.
     end BooleanSignalSource;
   
 partial block IntegerBlockIcon "Basic graphical layout of Integer block" 
+    
   annotation (Icon(Rectangle(extent=[-100, -100; 100, 100], style(color=45,
             fillColor=7)), Text(extent=[-150, 150; 150, 110], string="%name")),
         Documentation(info="<html>
@@ -943,6 +949,7 @@ end IntegerMIBooleanMOs;
   
   partial block partialBooleanBlockIcon 
     "Basic graphical layout of logical block" 
+    
     annotation (Icon(
   Rectangle(extent=[-100,100; 100,-100],   style(
             color=0,
@@ -1080,6 +1087,7 @@ with a 3D icon (e.g. used in Blocks.Logical library).
   end partialBooleanSI;
   
   partial block partialBooleanSO "Partial block with 1 output Boolean signal" 
+    
            Blocks.Interfaces.BooleanOutput y 
       "Connector of Boolean output signal"   annotation(extent=[100,-10; 120,10]);
     extends partialBooleanBlockIcon;
@@ -1124,40 +1132,40 @@ with a 3D icon (e.g. used in Blocks.Logical library).
             fillPattern=1))),
         Diagram(
         Polygon(points=[-70,92; -76,70; -64,70; -70,92], style(
-            color=10, 
-            rgbcolor={95,95,95}, 
-            fillColor=10, 
+            color=10,
+            rgbcolor={95,95,95},
+            fillColor=10,
             rgbfillColor={95,95,95})),
         Line(points=[-70,70; -70,-88], style(
-            color=10, 
-            rgbcolor={95,95,95}, 
-            fillColor=10, 
+            color=10,
+            rgbcolor={95,95,95},
+            fillColor=10,
             rgbfillColor={95,95,95})),
         Line(points=[-90,-70; 68,-70], style(
-            color=10, 
-            rgbcolor={95,95,95}, 
-            fillColor=10, 
+            color=10,
+            rgbcolor={95,95,95},
+            fillColor=10,
             rgbfillColor={95,95,95})),
         Polygon(points=[90,-70; 68,-64; 68,-76; 90,-70], style(
-            color=10, 
-            rgbcolor={95,95,95}, 
-            fillColor=10, 
+            color=10,
+            rgbcolor={95,95,95},
+            fillColor=10,
             rgbfillColor={95,95,95})),
         Text(
           extent=[54,-80; 106,-92],
-          string="time", 
+          string="time",
           style(
-            color=0, 
-            rgbcolor={0,0,0}, 
-            fillColor=10, 
+            color=0,
+            rgbcolor={0,0,0},
+            fillColor=10,
             rgbfillColor={95,95,95})),
         Text(
           extent=[-64,92; -46,74],
-          string="y", 
+          string="y",
           style(
-            color=0, 
-            rgbcolor={0,0,0}, 
-            fillColor=10, 
+            color=0,
+            rgbcolor={0,0,0},
+            fillColor=10,
             rgbfillColor={95,95,95}))),
       Documentation(info="<html>
 <p>
@@ -1205,6 +1213,7 @@ as well as a 3D icon (e.g. used in Blocks.Logical library).
   
   partial block partialBooleanComparison 
     "Partial block with 2 Real input and 1 Boolean output signal (the result of a comparison of the two Real inputs" 
+    
     Blocks.Interfaces.RealInput u1 "Connector of first Boolean input signal" 
                                    annotation(extent=[-140,-20; -100,20]);
     Blocks.Interfaces.RealInput u2 "Connector of second Boolean input signal" 
@@ -1568,6 +1577,7 @@ end Adaptors;
   
   partial block PartialConversionBlock 
     "Partial block defining the interface for conversion blocks" 
+    
     RealInput u "Connector of Real input signal to be converted" 
       annotation (extent=[-140, -20; -100, 20]);
     RealOutput y 

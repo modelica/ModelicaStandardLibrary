@@ -1,3 +1,4 @@
+within Modelica.Mechanics.MultiBody.Examples.Loops;
 model EngineV6 
   "V6 engine with 6 cylinders, 6 planar loops and 1 degree-of-freedom" 
   

@@ -1,3 +1,4 @@
+within Modelica.Mechanics.MultiBody;
 package Forces "Components that exert forces and/or torques between frames" 
   import SI = Modelica.SIunits;
   extends Modelica.Icons.Library;

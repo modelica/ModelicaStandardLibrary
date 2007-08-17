@@ -1,3 +1,4 @@
+within Modelica.Mechanics.MultiBody.Examples.Elementary;
 model InitSpringConstant 
   "Determine spring constant such that system is in steady state at given position" 
   

@@ -1,3 +1,4 @@
+within Modelica.Electrical.Analog.Examples;
 model CauerLowPassSC 
   "Cauer low-pass filter with operational amplifiers and switched capacitors" 
 model Rn 

@@ -1,3 +1,4 @@
+within Modelica.Electrical.Analog.Examples.Utilities;
 model Transistor 
   annotation (
     Coordsys(

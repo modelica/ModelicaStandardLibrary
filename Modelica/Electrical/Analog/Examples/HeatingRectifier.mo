@@ -1,3 +1,4 @@
+within Modelica.Electrical.Analog.Examples;
 model HeatingRectifier "Heating rectifier" 
   extends Modelica.Icons.Example;
   Modelica.Electrical.Analog.Semiconductors.HeatingDiode HeatingDiode1 

@@ -1,3 +1,4 @@
+within Modelica.Electrical.Analog.Examples;
 model ShowSaturatingInductor 
   "Simple demo to show behaviour of SaturatingInductor component" 
   extends Modelica.Icons.Example;

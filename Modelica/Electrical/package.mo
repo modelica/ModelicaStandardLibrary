@@ -1,4 +1,5 @@
-package Electrical "Library for electrical models (analog, digital, machines, multi-phase)"
+within Modelica;
+package Electrical "Library of electrical models (analog, digital, machines, multi-phase)"
 extends Modelica.Icons.Library2;
 
 annotation(preferedView="info",
