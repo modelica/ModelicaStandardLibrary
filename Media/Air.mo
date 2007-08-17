@@ -527,9 +527,9 @@ Pressure is assumed to be around 1 bar. This function is usually used to determi
   end enthalpyOfWater;
     
   function enthalpyOfWater_der "Derivative function of enthalpyOfWater" 
-    input SIunits.Temperature T;
-    input SIunits.Temperature dT;
-    output SIunits.SpecificEnthalpy dh;
+    input SIunits.Temperature T "Temperature";
+    input Real dT(unit="K/s") "Time derivative of temperature";
+    output Real dh(unit="J/(kg.s)") "Time derivative of specific enthalpy";
   algorithm 
   /*simple model assuming constant properties:
   heat capacity of liquid water:4200 J/kg
@@ -540,7 +540,7 @@ Pressure is assumed to be around 1 bar. This function is usually used to determi
     dh:=Utilities.spliceFunction_der(4200*(T-273.15),2050*(T-273.15)-333000,T-273.16,0.1,4200*dT,2050*dT,dT,0);
       annotation (Documentation(info="<html>
 Derivative function for <a href=Modelica:Modelica.Media.Air.MoistAir.enthalpyOfWater>enthalpyOfWater</a>.
-
+ 
 </html>"));
   end enthalpyOfWater_der;
     
