@@ -1,3 +1,4 @@
+within Modelica.Mechanics.MultiBody.Examples.Elementary;
 model DoublePendulum 
   "Simple double pendulum with two revolute joints and two bodies" 
   

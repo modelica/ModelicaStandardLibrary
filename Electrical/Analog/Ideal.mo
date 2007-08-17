@@ -1,3 +1,4 @@
+within Modelica.Electrical.Analog;
 package Ideal 
   "Ideal electrical elements such as switches, diode, transformer, operational amplifier" 
   

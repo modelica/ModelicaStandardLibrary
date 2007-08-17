@@ -1,3 +1,4 @@
+within Modelica.Electrical.Analog.Examples;
 model CharacteristicIdealDiodes "Characteristic of ideal diodes" 
   extends Modelica.Icons.Example;
   

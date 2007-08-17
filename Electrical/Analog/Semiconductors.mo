@@ -1,3 +1,4 @@
+within Modelica.Electrical.Analog;
 package Semiconductors 
   "Semiconductor devices such as diode, MOS and bipolar transistor" 
   extends Modelica.Icons.Library;

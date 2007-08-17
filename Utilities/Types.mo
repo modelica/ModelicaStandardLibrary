@@ -1,3 +1,4 @@
+within Modelica.Utilities;
 package Types "Type definitions used in package Modelica.Utilities" 
   package Compare 
     "Type and constants to compare two strings, as temporary solution until enumerations are available" 

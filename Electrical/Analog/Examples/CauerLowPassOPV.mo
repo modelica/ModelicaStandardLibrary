@@ -1,3 +1,4 @@
+within Modelica.Electrical.Analog.Examples;
 model CauerLowPassOPV "Cauer low pass filter with operational amplifiers" 
   annotation (
     uses(Modelica(version="2.2")),

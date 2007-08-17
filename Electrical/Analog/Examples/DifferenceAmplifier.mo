@@ -1,3 +1,4 @@
+within Modelica.Electrical.Analog.Examples;
 encapsulated model DifferenceAmplifier 
   "Simple NPN transistor amplifier circuit" 
   import Modelica.Electrical.Analog.Basic;

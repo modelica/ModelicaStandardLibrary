@@ -1,3 +1,4 @@
+within Modelica.Electrical.Analog.Examples;
 model ShowVariableResistor "Simple demo of a VariableResistor model" 
    extends Modelica.Icons.Example;
   

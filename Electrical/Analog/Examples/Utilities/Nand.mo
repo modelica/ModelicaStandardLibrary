@@ -1,3 +1,4 @@
+within Modelica.Electrical.Analog.Examples.Utilities;
 model Nand "CMOS NAND Gate (see Tietze/Schenk, page 157)" 
   annotation (
     Coordsys(

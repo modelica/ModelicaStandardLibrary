@@ -1,4 +1,6 @@
-package HeatTransfer "1-dimensional heat transfer with lumped elements" 
+within Modelica.Thermal;
+package HeatTransfer 
+  "Library of 1-dimensional heat transfer with lumped elements" 
   import Modelica.SIunits.Conversions.*;
   import SI = Modelica.SIunits;
   import NonSI = Modelica.SIunits.Conversions.NonSIunits;
@@ -1132,6 +1134,7 @@ in order to simulate temperature dependent losses (which are given an reference 
   end PrescribedHeatFlow;
   
   model TemperatureSensor "Absolute temperature sensor in Kelvin" 
+    
     annotation (
       Diagram(
         Ellipse(extent=[-20, -98; 20, -60], style(

@@ -1,3 +1,4 @@
+within Modelica.Mechanics.MultiBody;
 package Types "Constants and types with choices, especially to build menus" 
   extends Modelica.Icons.Library;
   annotation (preferedView="info", Documentation(info="<HTML>

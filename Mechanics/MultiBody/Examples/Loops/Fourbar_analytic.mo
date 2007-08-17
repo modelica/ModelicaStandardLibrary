@@ -1,3 +1,4 @@
+within Modelica.Mechanics.MultiBody.Examples.Loops;
 model Fourbar_analytic 
   "One kinematic loop with four bars (with JointSSP joint; analytic solution of non-linear algebraic loop)" 
   

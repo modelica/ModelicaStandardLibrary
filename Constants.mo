@@ -1,5 +1,6 @@
+within Modelica;
 package Constants 
-  "Mathematical constants and constants of nature (e.g., pi, eps, R, sigma)" 
+  "Library of mathematical constants and constants of nature (e.g., pi, eps, R, sigma)" 
   
   import SI = Modelica.SIunits;
   import NonSI = Modelica.SIunits.Conversions.NonSIunits;

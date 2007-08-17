@@ -1,3 +1,4 @@
+within Modelica.Electrical.Analog;
 package Basic 
   "Basic electrical components such as resistor, capacitor, transformer" 
   

@@ -1,4 +1,6 @@
-package Tables "One and two-dimensional interpolation in tables" 
+within Modelica.Blocks;
+package Tables 
+  "Library of blocks to interpolate in one and two-dimensional tables" 
   extends Icons.Library;
   model CombiTable1D 
     "Table look-up in one dimension (matrix/file) with n inputs and n outputs " 

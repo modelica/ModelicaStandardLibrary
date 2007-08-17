@@ -1,3 +1,4 @@
+within Modelica.Mechanics.MultiBody;
 package Frames "Functions to transform rotational frame quantities" 
   
   extends Modelica.Icons.Library;

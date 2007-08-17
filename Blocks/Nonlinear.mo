@@ -1,5 +1,6 @@
+within Modelica.Blocks;
 package Nonlinear 
-  "Discontinuous or non-differentiable algebraic control blocks" 
+  "Library of discontinuous or non-differentiable algebraic control blocks" 
   import Modelica.Blocks.Interfaces;
       extends Modelica.Icons.Library;
   

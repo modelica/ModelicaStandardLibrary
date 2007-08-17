@@ -1,8 +1,7 @@
 within Modelica;
-package Media "Property models of media"
+package Media "Library of media property models"
 extends Modelica.Icons.Library;
 import SI = Modelica.SIunits;
-
 
 annotation (
   version="1.0",
@@ -55,7 +54,6 @@ and the accompanying <b>disclaimer</b>
 </HTML>"),
   conversion(from(version="0.795", script=
           "../ConvertFromModelica.Media_0.795.mos")));
-
 
 class UsersGuide "User's Guide of Media Library" 
   
@@ -2191,7 +2189,6 @@ end Contact;
   
 end UsersGuide;
 
-
 package Examples 
   "Demonstrate usage of property models (currently: simple tests)" 
   
@@ -3473,8 +3470,8 @@ output window.
     
    model InverseIncompressible_sh_T 
       "inverse computation for incmpressible media" 
-     import SI = Modelica.SIunits;
-     import Cv = Modelica.SIunits.Conversions;
+      import SI = Modelica.SIunits;
+      import Cv = Modelica.SIunits.Conversions;
      extends Modelica.Icons.Example;
       
      replaceable package Medium = 
@@ -3574,7 +3571,6 @@ output window.
     
   end SolveOneNonlinearEquation;
 end Examples;
-
 
 package Interfaces "Interfaces for media models" 
   
@@ -4637,8 +4633,8 @@ are described in
 partial package PartialLinearFluid 
     "Generic pure liquid model with constant cp, compressibility and thermal expansion coefficients" 
     
-  import Modelica.Media.*;
-  import SI = Modelica.SIunits;
+    import Modelica.Media.*;
+    import SI = Modelica.SIunits;
     
       extends Interfaces.PartialPureSubstance(
         singleState = false);
@@ -5994,7 +5990,6 @@ quantities are assumed to be constant.
   end PartialSimpleIdealGasMedium;
   
 end Interfaces;
-
 
 package Common "data structures and fundamental functions for fluid properties" 
   

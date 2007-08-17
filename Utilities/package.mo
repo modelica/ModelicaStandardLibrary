@@ -1,7 +1,6 @@
 within Modelica;
-package Utilities "Utility functions especially for scripting (operating on files, streams, strings, system)"
+package Utilities "Library of utility functions dedicated to scripting (operating on files, streams, strings, system)"
   extends Modelica.Icons.Library;
-
 
     annotation (
   version="1.0",
@@ -52,7 +51,6 @@ and the accompanying <b>disclaimer</b>
 </p><br>
 </html>
 "));
-
 
 class UsersGuide "User's Guide of Utilities Library" 
   
@@ -210,7 +208,6 @@ First version implemented.
   end Contact;
   
 end UsersGuide;
-
 
 package Internal "Internal package as interface to the operating system" 
  extends Modelica.Icons.Library;

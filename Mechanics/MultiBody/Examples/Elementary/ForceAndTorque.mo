@@ -1,3 +1,4 @@
+within Modelica.Mechanics.MultiBody.Examples.Elementary;
 model ForceAndTorque "Demonstrate usage of ForceAndTorque element" 
   extends Modelica.Icons.Example;
   inner World world(animateGravity=false) annotation (extent=[-90, 30; -70, 50]);

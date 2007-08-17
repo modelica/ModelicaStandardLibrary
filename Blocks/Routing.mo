@@ -1,4 +1,5 @@
-package Routing "Blocks to combine and extract signals" 
+within Modelica.Blocks;
+package Routing "Library of blocks to combine and extract signals" 
   extends Icons.Library;
   
 block ExtractSignal "Extract signals from an input signal vector" 

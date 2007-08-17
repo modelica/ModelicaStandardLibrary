@@ -1,3 +1,4 @@
+within Modelica.Utilities;
 package Files "Functions to work with files and directories" 
 function list "List content of file or directory" 
   extends Modelica.Icons.Function;

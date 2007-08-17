@@ -1,4 +1,6 @@
-package Discrete "Discrete input/output blocks with fixed sample period" 
+within Modelica.Blocks;
+package Discrete 
+  "Library of discrete input/output blocks with fixed sample period" 
   
   extends Modelica.Icons.Library;
   

@@ -1,3 +1,4 @@
+within Modelica.Mechanics.MultiBody.Examples.Loops;
 model EngineV6_analytic 
   "V6 engine with 6 cylinders, 6 planar loops, 1 degree-of-freedom and analytic handling of kinematic loops" 
   

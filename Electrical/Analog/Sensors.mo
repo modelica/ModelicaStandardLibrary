@@ -1,3 +1,4 @@
+within Modelica.Electrical.Analog;
 package Sensors "Potential, voltage, current, and power sensors" 
   
   extends Modelica.Icons.Library;

@@ -1,6 +1,6 @@
 within Modelica;
 package StateGraph 
-  "Library to model discrete event and reactive systems by hierarchical state machines" 
+  "Library of hierarchical state machine components to model discrete event and reactive systems" 
   
 extends Modelica.Icons.Library2;
   

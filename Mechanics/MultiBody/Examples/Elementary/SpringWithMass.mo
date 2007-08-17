@@ -1,3 +1,4 @@
+within Modelica.Mechanics.MultiBody.Examples.Elementary;
 model SpringWithMass "Point mass hanging on a spring" 
   extends Modelica.Icons.Example;
   annotation (experiment(StopTime=5), Documentation(info="<html>

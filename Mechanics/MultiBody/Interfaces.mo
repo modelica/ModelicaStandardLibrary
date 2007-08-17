@@ -1,3 +1,4 @@
+within Modelica.Mechanics.MultiBody;
 package Interfaces 
   "Connectors and partial models for 3-dim. mechanical components" 
   
