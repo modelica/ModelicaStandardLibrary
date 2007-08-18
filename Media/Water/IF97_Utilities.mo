@@ -158,12 +158,12 @@ a set of equations for different regions which cover the following range
 of validity:
 <table border=0 cellpadding=4 align=center>
 <tr>
-<td>273,15 K &lt; <I>T</I> &lt; 1073,15 K</td>
-<td><I>p</I> &lt; 100 MPa</td>
+<td valign=\"top\">273,15 K &lt; <I>T</I> &lt; 1073,15 K</td>
+<td valign=\"top\"><I>p</I> &lt; 100 MPa</td>
 </tr>
 <tr>
-<td>1073,15 K &lt; <I>T</I> &lt; 2273,15 K</td>
-<td><I>p</I> &lt; 10 MPa</td>
+<td valign=\"top\">1073,15 K &lt; <I>T</I> &lt; 2273,15 K</td>
+<td valign=\"top\"><I>p</I> &lt; 10 MPa</td>
 </tr>
 </table><br>
 Figure 1 shows the 5 regions into which the entire range of validity of
@@ -229,7 +229,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
        <tr>
        <td valign=\"top\">&nbsp;1<br>
       </td>
-      <td>Pressure</td>
+      <td valign=\"top\">Pressure</td>
        <td valign=\"top\">p<br>
         </td>
        <td valign=\"top\">Pa<br>
@@ -238,7 +238,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
        <tr>
        <td valign=\"top\">&nbsp;2<br>
       </td>
-      <td>Temperature</td>
+      <td valign=\"top\">Temperature</td>
        <td valign=\"top\">T<br>
        </td>
        <td valign=\"top\">K<br>
@@ -247,7 +247,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
        <tr>
        <td valign=\"top\">&nbsp;3<br>
       </td>
-      <td>Density</td>
+      <td valign=\"top\">Density</td>
         <td valign=\"top\">d<br>
         </td>
        <td valign=\"top\">kg/m<sup>3</sup><br>
@@ -256,7 +256,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
        <tr>
        <td valign=\"top\">&nbsp;4<br>
       </td>
-      <td>Specific volume</td>
+      <td valign=\"top\">Specific volume</td>
         <td valign=\"top\">v<br>
         </td>
        <td valign=\"top\">m<sup>3</sup>/kg<br>
@@ -265,7 +265,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
        <tr>
        <td valign=\"top\">&nbsp;5<br>
       </td>
-      <td>Specific enthalpy</td>
+      <td valign=\"top\">Specific enthalpy</td>
        <td valign=\"top\">h<br>
        </td>
        <td valign=\"top\">J/kg<br>
@@ -274,7 +274,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
        <tr>
        <td valign=\"top\">&nbsp;6<br>
       </td>
-      <td>Specific entropy</td>
+      <td valign=\"top\">Specific entropy</td>
        <td valign=\"top\">s<br>
        </td>
        <td valign=\"top\">J/(kg K)<br>
@@ -293,7 +293,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
        <tr>
        <td valign=\"top\">&nbsp;8<br>
       </td>
-      <td>Specific isobaric heat capacity</td>
+      <td valign=\"top\">Specific isobaric heat capacity</td>
        <td valign=\"top\">c<font size=\"-1\"><sub>p</sub></font><br>
        </td>
        <td valign=\"top\">J/(kg K)<br>
@@ -302,7 +302,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
        <tr>
        <td valign=\"top\">&nbsp;9<br>
       </td>
-      <td>Specific isochoric heat capacity</td>
+      <td valign=\"top\">Specific isochoric heat capacity</td>
        <td valign=\"top\">c<font size=\"-1\"><sub>v</sub></font><br>
        </td>
        <td valign=\"top\">J/(kg K)<br>
@@ -311,7 +311,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
        <tr>
        <td valign=\"top\">10<br>
       </td>
-      <td>Isentropic exponent, kappa<nobr>=       <font face=\"Symbol\">-</font>(v/p)
+      <td valign=\"top\">Isentropic exponent, kappa<nobr>=       <font face=\"Symbol\">-</font>(v/p)
 (dp/dv)<font size=\"-1\"><sub>s</sub> </font></nobr></td>
      <td valign=\"top\">kappa (     <font face=\"Symbol\">k</font>)<br>
      </td>
@@ -321,7 +321,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
      <tr>
      <td valign=\"top\">11<br>
       </td>
-      <td>Speed of sound<br>
+      <td valign=\"top\">Speed of sound<br>
      </td>
      <td valign=\"top\">a<br>
      </td>
@@ -341,7 +341,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
      <tr>
      <td valign=\"top\">13<br>
       </td>
-      <td>Specific Helmholtz free energy,     f = u - Ts</td>
+      <td valign=\"top\">Specific Helmholtz free energy,     f = u - Ts</td>
      <td valign=\"top\">f<br>
      </td>
      <td valign=\"top\">J/kg<br>
@@ -350,7 +350,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
      <tr>
      <td valign=\"top\">14<br>
       </td>
-      <td>Specific Gibbs free energy,     g = h - Ts</td>
+      <td valign=\"top\">Specific Gibbs free energy,     g = h - Ts</td>
      <td valign=\"top\">g<br>
      </td>
      <td valign=\"top\">J/kg<br>
@@ -359,7 +359,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
      <tr>
      <td valign=\"top\">15<br>
       </td>
-      <td>Isenthalpic exponent, <nobr> theta     = -(v/p)(dp/dv)<font
+      <td valign=\"top\">Isenthalpic exponent, <nobr> theta     = -(v/p)(dp/dv)<font
  size=\"-1\"><sub>h</sub></font></nobr></td>
      <td valign=\"top\">theta (<font face=\"Symbol\">q</font>)<br>
      </td>
@@ -369,7 +369,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
      <tr>
      <td valign=\"top\">16<br>
       </td>
-      <td>Isobaric volume expansion coefficient,     alpha = v<font
+      <td valign=\"top\">Isobaric volume expansion coefficient,     alpha = v<font
  size=\"-1\"><sup>-1</sup></font>       (dv/dT)<font size=\"-1\"><sub>p</sub>
     </font></td>
      <td valign=\"top\">alpha  (<font face=\"Symbol\">a</font>)<br>
@@ -380,7 +380,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
      <tr>
      <td valign=\"top\">17<br>
       </td>
-      <td>Isochoric pressure coefficient,     <nobr>beta = p<font
+      <td valign=\"top\">Isochoric pressure coefficient,     <nobr>beta = p<font
  size=\"-1\"><sup><font face=\"Symbol\">-</font>1</sup>     </font>(dp/dT)<font
  size=\"-1\"><sub>v</sub></font></nobr>     </td>
      <td valign=\"top\">beta (<font face=\"Symbol\">b</font>)<br>
@@ -391,7 +391,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
      <tr>
      <td valign=\"top\">18<br>
       </td>
-      <td>Isothermal compressibility,     g<nobr>amma  = <font
+      <td valign=\"top\">Isothermal compressibility,     g<nobr>amma  = <font
  face=\"Symbol\">-</font>v        <sup><font size=\"-1\"><font face=\"Symbol\">-</font>1</font></sup>(dv/dp)<font
  size=\"-1\"><sub>T</sub></font></nobr> </td>
         <td valign=\"top\">gamma (<font face=\"Symbol\">g</font>)<br>
@@ -399,10 +399,10 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
      <td valign=\"top\">1/Pa<br>
      </td>
      </tr>
-     <!-- <tr><td>f</td><td>Fugacity</td></tr> --> <tr>
+     <!-- <tr><td valign=\"top\">f</td><td valign=\"top\">Fugacity</td></tr> --> <tr>
      <td valign=\"top\">19<br>
       </td>
-      <td>Dynamic viscosity</td>
+      <td valign=\"top\">Dynamic viscosity</td>
      <td valign=\"top\">eta (<font face=\"Symbol\">h</font>)<br>
      </td>
      <td valign=\"top\">Pa s<br>
@@ -411,16 +411,16 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
      <tr>
      <td valign=\"top\">20<br>
       </td>
-      <td>Kinematic viscosity</td>
+      <td valign=\"top\">Kinematic viscosity</td>
      <td valign=\"top\">nu (<font face=\"Symbol\">n</font>)<br>
      </td>
      <td valign=\"top\">m<sup>2</sup>/s<br>
      </td>
      </tr>
-     <!-- <tr><td>Pr</td><td>Prandtl number</td></tr> --> <tr>
+     <!-- <tr><td valign=\"top\">Pr</td><td valign=\"top\">Prandtl number</td></tr> --> <tr>
      <td valign=\"top\">21<br>
       </td>
-      <td>Thermal conductivity</td>
+      <td valign=\"top\">Thermal conductivity</td>
      <td valign=\"top\">lambda (<font face=\"Symbol\">l</font>)<br>
      </td>
      <td valign=\"top\">W/(m K)<br>
@@ -429,7 +429,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
      <tr>
      <td valign=\"top\">22 <br>
       </td>
-      <td>Surface tension</td>
+      <td valign=\"top\">Surface tension</td>
      <td valign=\"top\">sigma (<font face=\"Symbol\">s</font>)<br>
      </td>
      <td valign=\"top\">N/m<br>

@@ -151,50 +151,50 @@ call to every function is given using the <b>default</b> options.
 </p>
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><th><b><i>Function</i></b></th><th><b><i>Description</i></b></th></tr>
-  <tr><td>len = <a href=\"Modelica:Modelica.Utilities.Strings.length\">length</a>(string)</td>
-      <td>Returns length of string</td></tr>
-  <tr><td>string2 = <a href=\"Modelica:Modelica.Utilities.Strings.substring\">substring</a>(string1,startIndex,endIndex)
+  <tr><td valign=\"top\">len = <a href=\"Modelica:Modelica.Utilities.Strings.length\">length</a>(string)</td>
+      <td valign=\"top\">Returns length of string</td></tr>
+  <tr><td valign=\"top\">string2 = <a href=\"Modelica:Modelica.Utilities.Strings.substring\">substring</a>(string1,startIndex,endIndex)
        </td>
-      <td>Returns a substring defined by start and end index</td></tr>
-  <tr><td>result = <a href=\"Modelica:Modelica.Utilities.Strings.repeat\">repeat</a>(n)<br>
+      <td valign=\"top\">Returns a substring defined by start and end index</td></tr>
+  <tr><td valign=\"top\">result = <a href=\"Modelica:Modelica.Utilities.Strings.repeat\">repeat</a>(n)<br>
  result = <a href=\"Modelica:Modelica.Utilities.Strings.repeat\">repeat</a>(n,string)</td>
-      <td>Repeat a blank or a string n times.</td></tr>
-  <tr><td>result = <a href=\"Modelica:Modelica.Utilities.Strings.compare\">compare</a>(string1, string2)</td>
-      <td>Compares two substrings with regards to alphabetical order</td></tr>
-  <tr><td>identical =
+      <td valign=\"top\">Repeat a blank or a string n times.</td></tr>
+  <tr><td valign=\"top\">result = <a href=\"Modelica:Modelica.Utilities.Strings.compare\">compare</a>(string1, string2)</td>
+      <td valign=\"top\">Compares two substrings with regards to alphabetical order</td></tr>
+  <tr><td valign=\"top\">identical =
 <a href=\"Modelica:Modelica.Utilities.Strings.isEqual\">isEqual</a>(string1,string2)</td>
-      <td>Determine whether two strings are identical</td></tr>
-  <tr><td>result = <a href=\"Modelica:Modelica.Utilities.Strings.count\">count</a>(string,searchString)</td>
-      <td>Count the number of occurrences of a string</td></tr>
+      <td valign=\"top\">Determine whether two strings are identical</td></tr>
+  <tr><td valign=\"top\">result = <a href=\"Modelica:Modelica.Utilities.Strings.count\">count</a>(string,searchString)</td>
+      <td valign=\"top\">Count the number of occurrences of a string</td></tr>
   <tr>
-<td>index = <a href=\"Modelica:Modelica.Utilities.Strings.find\">find</a>(string,searchString)</td>
-      <td>Find first occurrence of a string in another string</td></tr>
+<td valign=\"top\">index = <a href=\"Modelica:Modelica.Utilities.Strings.find\">find</a>(string,searchString)</td>
+      <td valign=\"top\">Find first occurrence of a string in another string</td></tr>
 <tr>
-<td>index = <a href=\"Modelica:Modelica.Utilities.Strings.findLast\">findLast</a>(string,searchString)</td>
-      <td>Find last occurrence of a string in another string</td></tr>
-  <tr><td>string2 = <a href=\"Modelica:Modelica.Utilities.Strings.replace\">replace</a>(string,searchString,replaceString)</td>
-      <td>Replace one or all occurrences of a string</td></tr>
-  <tr><td>stringVector2 = <a href=\"Modelica:Modelica.Utilities.Strings.sort\">sort</a>(stringVector1)</td>
-      <td>Sort vector of strings in alphabetic order</td></tr>
-  <tr><td>(token, index) = <a href=\"Modelica:Modelica.Utilities.Strings.scanToken\">scanToken</a>(string,startIndex)</td>
-      <td>Scan for a token (Real/Integer/Boolean/String/Identifier/Delimiter/NoToken)</td></tr>
-  <tr><td>(number, index) = <a href=\"Modelica:Modelica.Utilities.Strings.scanReal\">scanReal</a>(string,startIndex)</td>
-      <td>Scan for a Real constant</td></tr>
-  <tr><td>(number, index) = <a href=\"Modelica:Modelica.Utilities.Strings.scanInteger\">scanInteger</a>(string,startIndex)</td>
-      <td>Scan for an Integer constant</td></tr>
-  <tr><td>(boolean, index) = <a href=\"Modelica:Modelica.Utilities.Strings.scanBoolean\">scanBoolean</a>(string,startIndex)</td>
-      <td>Scan for a Boolean constant</td></tr>
-  <tr><td>(string2, index) = <a href=\"Modelica:Modelica.Utilities.Strings.scanString\">scanString</a>(string,startIndex)</td>
-      <td>Scan for a String constant</td></tr>
-  <tr><td>(identifier, index) = <a href=\"Modelica:Modelica.Utilities.Strings.scanIdentifier\">scanIdentifier</a>(string,startIndex)</td>
-      <td>Scan for an identifier</td></tr>
-  <tr><td>(delimiter, index) = <a href=\"Modelica:Modelica.Utilities.Strings.scanDelimiter\">scanDelimiter</a>(string,startIndex)</td>
-      <td>Scan for delimiters</td></tr>
-  <tr><td><a href=\"Modelica:Modelica.Utilities.Strings.scanNoToken\">scanNoToken</a>(string,startIndex)</td>
-      <td>Check that remaining part of string consists solely of <br>
+<td valign=\"top\">index = <a href=\"Modelica:Modelica.Utilities.Strings.findLast\">findLast</a>(string,searchString)</td>
+      <td valign=\"top\">Find last occurrence of a string in another string</td></tr>
+  <tr><td valign=\"top\">string2 = <a href=\"Modelica:Modelica.Utilities.Strings.replace\">replace</a>(string,searchString,replaceString)</td>
+      <td valign=\"top\">Replace one or all occurrences of a string</td></tr>
+  <tr><td valign=\"top\">stringVector2 = <a href=\"Modelica:Modelica.Utilities.Strings.sort\">sort</a>(stringVector1)</td>
+      <td valign=\"top\">Sort vector of strings in alphabetic order</td></tr>
+  <tr><td valign=\"top\">(token, index) = <a href=\"Modelica:Modelica.Utilities.Strings.scanToken\">scanToken</a>(string,startIndex)</td>
+      <td valign=\"top\">Scan for a token (Real/Integer/Boolean/String/Identifier/Delimiter/NoToken)</td></tr>
+  <tr><td valign=\"top\">(number, index) = <a href=\"Modelica:Modelica.Utilities.Strings.scanReal\">scanReal</a>(string,startIndex)</td>
+      <td valign=\"top\">Scan for a Real constant</td></tr>
+  <tr><td valign=\"top\">(number, index) = <a href=\"Modelica:Modelica.Utilities.Strings.scanInteger\">scanInteger</a>(string,startIndex)</td>
+      <td valign=\"top\">Scan for an Integer constant</td></tr>
+  <tr><td valign=\"top\">(boolean, index) = <a href=\"Modelica:Modelica.Utilities.Strings.scanBoolean\">scanBoolean</a>(string,startIndex)</td>
+      <td valign=\"top\">Scan for a Boolean constant</td></tr>
+  <tr><td valign=\"top\">(string2, index) = <a href=\"Modelica:Modelica.Utilities.Strings.scanString\">scanString</a>(string,startIndex)</td>
+      <td valign=\"top\">Scan for a String constant</td></tr>
+  <tr><td valign=\"top\">(identifier, index) = <a href=\"Modelica:Modelica.Utilities.Strings.scanIdentifier\">scanIdentifier</a>(string,startIndex)</td>
+      <td valign=\"top\">Scan for an identifier</td></tr>
+  <tr><td valign=\"top\">(delimiter, index) = <a href=\"Modelica:Modelica.Utilities.Strings.scanDelimiter\">scanDelimiter</a>(string,startIndex)</td>
+      <td valign=\"top\">Scan for delimiters</td></tr>
+  <tr><td valign=\"top\"><a href=\"Modelica:Modelica.Utilities.Strings.scanNoToken\">scanNoToken</a>(string,startIndex)</td>
+      <td valign=\"top\">Check that remaining part of string consists solely of <br>
           white space or line comments (\"// ...\\n\").</td></tr>
-  <tr><td><a href=\"Modelica:Modelica.Utilities.Strings.syntaxError\">syntaxError</a>(string,index,message)</td>
-      <td> Print a \"syntax error message\" as well as a string and the <br>
+  <tr><td valign=\"top\"><a href=\"Modelica:Modelica.Utilities.Strings.syntaxError\">syntaxError</a>(string,index,message)</td>
+      <td valign=\"top\"> Print a \"syntax error message\" as well as a string and the <br>
            index at which scanning detected an error</td></tr>
 </table>
 <p>
@@ -506,16 +506,16 @@ index directly after the token. The returned token is a record
 that holds the type of the token and the value of the token:
 </p>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td>token.tokenType</td>
-      <td>Type of the token, see below</td></tr>
-  <tr><td>token.real</td>
-      <td>Real value if tokenType == TokenType.RealToken</td></tr>
-  <tr><td>token.integer</td>
-      <td>Integer value if tokenType == TokenType.IntegerToken</td></tr>
-  <tr><td>token.boolean</td>
-      <td>Boolean value if tokenType == TokenType.BooleanToken</td></tr>
-  <tr><td>token.string</td>
-      <td>String value if tokenType == TokenType.StringToken/IdentifierToken/DelimiterToken</td></tr>
+  <tr><td valign=\"top\">token.tokenType</td>
+      <td valign=\"top\">Type of the token, see below</td></tr>
+  <tr><td valign=\"top\">token.real</td>
+      <td valign=\"top\">Real value if tokenType == TokenType.RealToken</td></tr>
+  <tr><td valign=\"top\">token.integer</td>
+      <td valign=\"top\">Integer value if tokenType == TokenType.IntegerToken</td></tr>
+  <tr><td valign=\"top\">token.boolean</td>
+      <td valign=\"top\">Boolean value if tokenType == TokenType.BooleanToken</td></tr>
+  <tr><td valign=\"top\">token.string</td>
+      <td valign=\"top\">String value if tokenType == TokenType.StringToken/IdentifierToken/DelimiterToken</td></tr>
 </table>
 <p>
 Variable token.tokenType is an enumeration (emulated as a package
@@ -525,21 +525,21 @@ with constants) that can have the following values:
    import T = Modelica.Utilities.Types.TokenType;
 </pre>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td>T.RealToken</td>
-      <td>Modelica Real literal (e.g., 1.23e-4)</td></tr>
-  <tr><td>T.IntegerToken</td>
-      <td>Modelica Integer literal (e.g., 123)</td></tr>
-  <tr><td>T.BooleanToken</td>
-      <td>Modelica Boolean literal (e.g., false)</td></tr>
-  <tr><td>T.StringToken</td>
-      <td>Modelica String literal (e.g., \"string 123\")</td></tr>
-  <tr><td>T.IdentifierToken</td>
-      <td>Modelica identifier (e.g., \"force_a\")</td></tr>
-  <tr><td>T.DelimiterToken</td>
-      <td>any character without white space that does not appear<br>
+  <tr><td valign=\"top\">T.RealToken</td>
+      <td valign=\"top\">Modelica Real literal (e.g., 1.23e-4)</td></tr>
+  <tr><td valign=\"top\">T.IntegerToken</td>
+      <td valign=\"top\">Modelica Integer literal (e.g., 123)</td></tr>
+  <tr><td valign=\"top\">T.BooleanToken</td>
+      <td valign=\"top\">Modelica Boolean literal (e.g., false)</td></tr>
+  <tr><td valign=\"top\">T.StringToken</td>
+      <td valign=\"top\">Modelica String literal (e.g., \"string 123\")</td></tr>
+  <tr><td valign=\"top\">T.IdentifierToken</td>
+      <td valign=\"top\">Modelica identifier (e.g., \"force_a\")</td></tr>
+  <tr><td valign=\"top\">T.DelimiterToken</td>
+      <td valign=\"top\">any character without white space that does not appear<br>
           as first character in the tokens above (e.g., \"&\")</td></tr>
-  <tr><td>T.NoToken</td>
-      <td>White space, line comments and no other token<br>
+  <tr><td valign=\"top\">T.NoToken</td>
+      <td valign=\"top\">White space, line comments and no other token<br>
           until the end of the string</td></tr>
 </table>
 <p>

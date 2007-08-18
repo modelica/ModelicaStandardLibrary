@@ -234,20 +234,20 @@ for both setting of input and interpreting the output values.
 <p><b>Code Table:</b></p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td><b>Logic value</b></td>
-      <td><b>Integer code</b></td>
-      <td><b>Meaning</b></td>
+  <tr><td valign=\"top\"><b>Logic value</b></td>
+      <td valign=\"top\"><b>Integer code</b></td>
+      <td valign=\"top\"><b>Meaning</b></td>
   </tr>
                          
-  <tr><td>'U'</td> <td>1</td> <td>Uninitialized</td></tr>
-  <tr><td>'X'</td> <td>2</td> <td>Forcing Unknown</td></tr>
-  <tr><td>'0'</td> <td>3</td> <td>Forcing 0</td></tr>
-  <tr><td>'1'</td> <td>4</td> <td>Forcing 1</td></tr>
-  <tr><td>'Z'</td> <td>5</td> <td>High Impedance</td></tr>
-  <tr><td>'W'</td> <td>6</td> <td>Weak Unknown</td></tr>
-  <tr><td>'L'</td> <td>7</td> <td>Weak 0</td></tr>
-  <tr><td>'H'</td> <td>8</td> <td>Weak 1</td></tr>
-  <tr><td>'-'</td> <td>9</td> <td>Don't care</td></tr>
+  <tr><td valign=\"top\">'U'</td> <td valign=\"top\">1</td> <td valign=\"top\">Uninitialized</td></tr>
+  <tr><td valign=\"top\">'X'</td> <td valign=\"top\">2</td> <td valign=\"top\">Forcing Unknown</td></tr>
+  <tr><td valign=\"top\">'0'</td> <td valign=\"top\">3</td> <td valign=\"top\">Forcing 0</td></tr>
+  <tr><td valign=\"top\">'1'</td> <td valign=\"top\">4</td> <td valign=\"top\">Forcing 1</td></tr>
+  <tr><td valign=\"top\">'Z'</td> <td valign=\"top\">5</td> <td valign=\"top\">High Impedance</td></tr>
+  <tr><td valign=\"top\">'W'</td> <td valign=\"top\">6</td> <td valign=\"top\">Weak Unknown</td></tr>
+  <tr><td valign=\"top\">'L'</td> <td valign=\"top\">7</td> <td valign=\"top\">Weak 0</td></tr>
+  <tr><td valign=\"top\">'H'</td> <td valign=\"top\">8</td> <td valign=\"top\">Weak 1</td></tr>
+  <tr><td valign=\"top\">'-'</td> <td valign=\"top\">9</td> <td valign=\"top\">Don't care</td></tr>
 </table>
 
 <p>
@@ -2465,20 +2465,20 @@ The Integer values have the following meaning:
 </p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td><b>Logic value</b></td>
-      <td><b>Integer code</b></td>
-      <td><b>Meaning</b></td>
+  <tr><td valign=\"top\"><b>Logic value</b></td>
+      <td valign=\"top\"><b>Integer code</b></td>
+      <td valign=\"top\"><b>Meaning</b></td>
   </tr>
                          
-  <tr><td>'U'</td> <td>1</td> <td>Uninitialized</td></tr>
-  <tr><td>'X'</td> <td>2</td> <td>Forcing Unknown</td></tr>
-  <tr><td>'0'</td> <td>3</td> <td>Forcing 0</td></tr>
-  <tr><td>'1'</td> <td>4</td> <td>Forcing 1</td></tr>
-  <tr><td>'Z'</td> <td>5</td> <td>High Impedance</td></tr>
-  <tr><td>'W'</td> <td>6</td> <td>Weak Unknown</td></tr>
-  <tr><td>'L'</td> <td>7</td> <td>Weak 0</td></tr>
-  <tr><td>'H'</td> <td>8</td> <td>Weak 1</td></tr>
-  <tr><td>'-'</td> <td>9</td> <td>Don't care</td></tr>
+  <tr><td valign=\"top\">'U'</td> <td valign=\"top\">1</td> <td valign=\"top\">Uninitialized</td></tr>
+  <tr><td valign=\"top\">'X'</td> <td valign=\"top\">2</td> <td valign=\"top\">Forcing Unknown</td></tr>
+  <tr><td valign=\"top\">'0'</td> <td valign=\"top\">3</td> <td valign=\"top\">Forcing 0</td></tr>
+  <tr><td valign=\"top\">'1'</td> <td valign=\"top\">4</td> <td valign=\"top\">Forcing 1</td></tr>
+  <tr><td valign=\"top\">'Z'</td> <td valign=\"top\">5</td> <td valign=\"top\">High Impedance</td></tr>
+  <tr><td valign=\"top\">'W'</td> <td valign=\"top\">6</td> <td valign=\"top\">Weak Unknown</td></tr>
+  <tr><td valign=\"top\">'L'</td> <td valign=\"top\">7</td> <td valign=\"top\">Weak 0</td></tr>
+  <tr><td valign=\"top\">'H'</td> <td valign=\"top\">8</td> <td valign=\"top\">Weak 1</td></tr>
+  <tr><td valign=\"top\">'-'</td> <td valign=\"top\">9</td> <td valign=\"top\">Don't care</td></tr>
 </table>
 
 </html>"));
@@ -2501,20 +2501,20 @@ The Integer values have the following meaning:
 <p><b>Code Table:</b></p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td><b>Logic value</b></td>
-      <td><b>Integer code</b></td>
-      <td><b>Meaning</b></td>
+  <tr><td valign=\"top\"><b>Logic value</b></td>
+      <td valign=\"top\"><b>Integer code</b></td>
+      <td valign=\"top\"><b>Meaning</b></td>
   </tr>
                          
-  <tr><td>'U'</td> <td>1</td> <td>Uninitialized</td></tr>
-  <tr><td>'X'</td> <td>2</td> <td>Forcing Unknown</td></tr>
-  <tr><td>'0'</td> <td>3</td> <td>Forcing 0</td></tr>
-  <tr><td>'1'</td> <td>4</td> <td>Forcing 1</td></tr>
-  <tr><td>'Z'</td> <td>5</td> <td>High Impedance</td></tr>
-  <tr><td>'W'</td> <td>6</td> <td>Weak Unknown</td></tr>
-  <tr><td>'L'</td> <td>7</td> <td>Weak 0</td></tr>
-  <tr><td>'H'</td> <td>8</td> <td>Weak 1</td></tr>
-  <tr><td>'-'</td> <td>9</td> <td>Don't care</td></tr>
+  <tr><td valign=\"top\">'U'</td> <td valign=\"top\">1</td> <td valign=\"top\">Uninitialized</td></tr>
+  <tr><td valign=\"top\">'X'</td> <td valign=\"top\">2</td> <td valign=\"top\">Forcing Unknown</td></tr>
+  <tr><td valign=\"top\">'0'</td> <td valign=\"top\">3</td> <td valign=\"top\">Forcing 0</td></tr>
+  <tr><td valign=\"top\">'1'</td> <td valign=\"top\">4</td> <td valign=\"top\">Forcing 1</td></tr>
+  <tr><td valign=\"top\">'Z'</td> <td valign=\"top\">5</td> <td valign=\"top\">High Impedance</td></tr>
+  <tr><td valign=\"top\">'W'</td> <td valign=\"top\">6</td> <td valign=\"top\">Weak Unknown</td></tr>
+  <tr><td valign=\"top\">'L'</td> <td valign=\"top\">7</td> <td valign=\"top\">Weak 0</td></tr>
+  <tr><td valign=\"top\">'H'</td> <td valign=\"top\">8</td> <td valign=\"top\">Weak 1</td></tr>
+  <tr><td valign=\"top\">'-'</td> <td valign=\"top\">9</td> <td valign=\"top\">Don't care</td></tr>
 </table>
 
 
@@ -3856,20 +3856,20 @@ To specify <i>setval</i>, the integer code has to be used.
 <p><b>Code Table</b></p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td><b>Logic value</b></td>
-      <td><b>Integer code</b></td>
-      <td><b>Meaning</b></td>
+  <tr><td valign=\"top\"><b>Logic value</b></td>
+      <td valign=\"top\"><b>Integer code</b></td>
+      <td valign=\"top\"><b>Meaning</b></td>
   </tr>
                          
-  <tr><td>'U'</td> <td>1</td> <td>Uninitialized</td></tr>
-  <tr><td>'X'</td> <td>2</td> <td>Forcing Unknown</td></tr>
-  <tr><td>'0'</td> <td>3</td> <td>Forcing 0</td></tr>
-  <tr><td>'1'</td> <td>4</td> <td>Forcing 1</td></tr>
-  <tr><td>'Z'</td> <td>5</td> <td>High Impedance</td></tr>
-  <tr><td>'W'</td> <td>6</td> <td>Weak Unknown</td></tr>
-  <tr><td>'L'</td> <td>7</td> <td>Weak 0</td></tr>
-  <tr><td>'H'</td> <td>8</td> <td>Weak 1</td></tr>
-  <tr><td>'-'</td> <td>9</td> <td>Don't care</td></tr>
+  <tr><td valign=\"top\">'U'</td> <td valign=\"top\">1</td> <td valign=\"top\">Uninitialized</td></tr>
+  <tr><td valign=\"top\">'X'</td> <td valign=\"top\">2</td> <td valign=\"top\">Forcing Unknown</td></tr>
+  <tr><td valign=\"top\">'0'</td> <td valign=\"top\">3</td> <td valign=\"top\">Forcing 0</td></tr>
+  <tr><td valign=\"top\">'1'</td> <td valign=\"top\">4</td> <td valign=\"top\">Forcing 1</td></tr>
+  <tr><td valign=\"top\">'Z'</td> <td valign=\"top\">5</td> <td valign=\"top\">High Impedance</td></tr>
+  <tr><td valign=\"top\">'W'</td> <td valign=\"top\">6</td> <td valign=\"top\">Weak Unknown</td></tr>
+  <tr><td valign=\"top\">'L'</td> <td valign=\"top\">7</td> <td valign=\"top\">Weak 0</td></tr>
+  <tr><td valign=\"top\">'H'</td> <td valign=\"top\">8</td> <td valign=\"top\">Weak 1</td></tr>
+  <tr><td valign=\"top\">'-'</td> <td valign=\"top\">9</td> <td valign=\"top\">Don't care</td></tr>
 </table>
 
 <P>
@@ -3938,20 +3938,20 @@ To specify the logic value parameters, the integer code has to be used.
 </P>
 <p><b>Code Table</b></p>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td><b>Logic value</b></td>
-      <td><b>Integer code</b></td>
-      <td><b>Meaning</b></td>
+  <tr><td valign=\"top\"><b>Logic value</b></td>
+      <td valign=\"top\"><b>Integer code</b></td>
+      <td valign=\"top\"><b>Meaning</b></td>
   </tr>
                          
-  <tr><td>'U'</td> <td>1</td> <td>Uninitialized</td></tr>
-  <tr><td>'X'</td> <td>2</td> <td>Forcing Unknown</td></tr>
-  <tr><td>'0'</td> <td>3</td> <td>Forcing 0</td></tr>
-  <tr><td>'1'</td> <td>4</td> <td>Forcing 1</td></tr>
-  <tr><td>'Z'</td> <td>5</td> <td>High Impedance</td></tr>
-  <tr><td>'W'</td> <td>6</td> <td>Weak Unknown</td></tr>
-  <tr><td>'L'</td> <td>7</td> <td>Weak 0</td></tr>
-  <tr><td>'H'</td> <td>8</td> <td>Weak 1</td></tr>
-  <tr><td>'-'</td> <td>9</td> <td>Don't care</td></tr>
+  <tr><td valign=\"top\">'U'</td> <td valign=\"top\">1</td> <td valign=\"top\">Uninitialized</td></tr>
+  <tr><td valign=\"top\">'X'</td> <td valign=\"top\">2</td> <td valign=\"top\">Forcing Unknown</td></tr>
+  <tr><td valign=\"top\">'0'</td> <td valign=\"top\">3</td> <td valign=\"top\">Forcing 0</td></tr>
+  <tr><td valign=\"top\">'1'</td> <td valign=\"top\">4</td> <td valign=\"top\">Forcing 1</td></tr>
+  <tr><td valign=\"top\">'Z'</td> <td valign=\"top\">5</td> <td valign=\"top\">High Impedance</td></tr>
+  <tr><td valign=\"top\">'W'</td> <td valign=\"top\">6</td> <td valign=\"top\">Weak Unknown</td></tr>
+  <tr><td valign=\"top\">'L'</td> <td valign=\"top\">7</td> <td valign=\"top\">Weak 0</td></tr>
+  <tr><td valign=\"top\">'H'</td> <td valign=\"top\">8</td> <td valign=\"top\">Weak 1</td></tr>
+  <tr><td valign=\"top\">'-'</td> <td valign=\"top\">9</td> <td valign=\"top\">Don't care</td></tr>
 </table>
 <P>
 If the logic values are imported by <br><b> import L = Modelica.Electrical.Digital.Interfaces.LogicValue; </b> <br>
@@ -4025,20 +4025,20 @@ To specify the logic value parameters, the integer code has to be used.
 </P>
 <p><b>Code Table</b></p>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td><b>Logic value</b></td>
-      <td><b>Integer code</b></td>
-      <td><b>Meaning</b></td>
+  <tr><td valign=\"top\"><b>Logic value</b></td>
+      <td valign=\"top\"><b>Integer code</b></td>
+      <td valign=\"top\"><b>Meaning</b></td>
   </tr>
                          
-  <tr><td>'U'</td> <td>1</td> <td>Uninitialized</td></tr>
-  <tr><td>'X'</td> <td>2</td> <td>Forcing Unknown</td></tr>
-  <tr><td>'0'</td> <td>3</td> <td>Forcing 0</td></tr>
-  <tr><td>'1'</td> <td>4</td> <td>Forcing 1</td></tr>
-  <tr><td>'Z'</td> <td>5</td> <td>High Impedance</td></tr>
-  <tr><td>'W'</td> <td>6</td> <td>Weak Unknown</td></tr>
-  <tr><td>'L'</td> <td>7</td> <td>Weak 0</td></tr>
-  <tr><td>'H'</td> <td>8</td> <td>Weak 1</td></tr>
-  <tr><td>'-'</td> <td>9</td> <td>Don't care</td></tr>
+  <tr><td valign=\"top\">'U'</td> <td valign=\"top\">1</td> <td valign=\"top\">Uninitialized</td></tr>
+  <tr><td valign=\"top\">'X'</td> <td valign=\"top\">2</td> <td valign=\"top\">Forcing Unknown</td></tr>
+  <tr><td valign=\"top\">'0'</td> <td valign=\"top\">3</td> <td valign=\"top\">Forcing 0</td></tr>
+  <tr><td valign=\"top\">'1'</td> <td valign=\"top\">4</td> <td valign=\"top\">Forcing 1</td></tr>
+  <tr><td valign=\"top\">'Z'</td> <td valign=\"top\">5</td> <td valign=\"top\">High Impedance</td></tr>
+  <tr><td valign=\"top\">'W'</td> <td valign=\"top\">6</td> <td valign=\"top\">Weak Unknown</td></tr>
+  <tr><td valign=\"top\">'L'</td> <td valign=\"top\">7</td> <td valign=\"top\">Weak 0</td></tr>
+  <tr><td valign=\"top\">'H'</td> <td valign=\"top\">8</td> <td valign=\"top\">Weak 1</td></tr>
+  <tr><td valign=\"top\">'-'</td> <td valign=\"top\">9</td> <td valign=\"top\">Don't care</td></tr>
 </table>
 <P>
 If the logic values are imported by <br><b> import L = Modelica.Electrical.Digital.Interfaces.LogicValue; </b> <br>
@@ -4146,20 +4146,20 @@ To specify the logic value parameters, the integer code has to be used.
 </P>
 <p><b>Code Table</b></p>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td><b>Logic value</b></td>
-      <td><b>Integer code</b></td>
-      <td><b>Meaning</b></td>
+  <tr><td valign=\"top\"><b>Logic value</b></td>
+      <td valign=\"top\"><b>Integer code</b></td>
+      <td valign=\"top\"><b>Meaning</b></td>
   </tr>
                          
-  <tr><td>'U'</td> <td>1</td> <td>Uninitialized</td></tr>
-  <tr><td>'X'</td> <td>2</td> <td>Forcing Unknown</td></tr>
-  <tr><td>'0'</td> <td>3</td> <td>Forcing 0</td></tr>
-  <tr><td>'1'</td> <td>4</td> <td>Forcing 1</td></tr>
-  <tr><td>'Z'</td> <td>5</td> <td>High Impedance</td></tr>
-  <tr><td>'W'</td> <td>6</td> <td>Weak Unknown</td></tr>
-  <tr><td>'L'</td> <td>7</td> <td>Weak 0</td></tr>
-  <tr><td>'H'</td> <td>8</td> <td>Weak 1</td></tr>
-  <tr><td>'-'</td> <td>9</td> <td>Don't care</td></tr>
+  <tr><td valign=\"top\">'U'</td> <td valign=\"top\">1</td> <td valign=\"top\">Uninitialized</td></tr>
+  <tr><td valign=\"top\">'X'</td> <td valign=\"top\">2</td> <td valign=\"top\">Forcing Unknown</td></tr>
+  <tr><td valign=\"top\">'0'</td> <td valign=\"top\">3</td> <td valign=\"top\">Forcing 0</td></tr>
+  <tr><td valign=\"top\">'1'</td> <td valign=\"top\">4</td> <td valign=\"top\">Forcing 1</td></tr>
+  <tr><td valign=\"top\">'Z'</td> <td valign=\"top\">5</td> <td valign=\"top\">High Impedance</td></tr>
+  <tr><td valign=\"top\">'W'</td> <td valign=\"top\">6</td> <td valign=\"top\">Weak Unknown</td></tr>
+  <tr><td valign=\"top\">'L'</td> <td valign=\"top\">7</td> <td valign=\"top\">Weak 0</td></tr>
+  <tr><td valign=\"top\">'H'</td> <td valign=\"top\">8</td> <td valign=\"top\">Weak 1</td></tr>
+  <tr><td valign=\"top\">'-'</td> <td valign=\"top\">9</td> <td valign=\"top\">Don't care</td></tr>
 </table>
 <P>
 If the logic values are imported by <br><b> import L = Modelica.Electrical.Digital.Interfaces.LogicValue; </b> <br>

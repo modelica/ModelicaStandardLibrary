@@ -77,25 +77,25 @@ This library provides functions operating on vectors:
   <tr><th><i>Function</i></th>
       <th><i>Description</i></th>
   </tr>
-  <tr><td><a href=\"Modelica:Modelica.Math.Vectors.isEqual\">isEqual</a>(v1, v2)</td>
-      <td>Determines whether two vectors have the same size and elements</td>
+  <tr><td valign=\"top\"><a href=\"Modelica:Modelica.Math.Vectors.isEqual\">isEqual</a>(v1, v2)</td>
+      <td valign=\"top\">Determines whether two vectors have the same size and elements</td>
   </tr>
-  <tr><td><a href=\"Modelica:Modelica.Math.Vectors.norm\">norm</a>(v,p)</td>
-      <td>p-norm of vector v</td>
+  <tr><td valign=\"top\"><a href=\"Modelica:Modelica.Math.Vectors.norm\">norm</a>(v,p)</td>
+      <td valign=\"top\">p-norm of vector v</td>
   </tr>
-  <tr><td><a href=\"Modelica:Modelica.Math.Vectors.length\">length</a>(v)</td>
-      <td>Length of vector v (= norm(v,2), but inlined and therefore usable in 
+  <tr><td valign=\"top\"><a href=\"Modelica:Modelica.Math.Vectors.length\">length</a>(v)</td>
+      <td valign=\"top\">Length of vector v (= norm(v,2), but inlined and therefore usable in 
           symbolic manipulations) </td>
   </tr>
-  <tr><td><a href=\"Modelica:Modelica.Math.Vectors.normalize\">normalize</a>(v)</td>
-      <td>Return normalized vector such that length = 1 and prevent 
+  <tr><td valign=\"top\"><a href=\"Modelica:Modelica.Math.Vectors.normalize\">normalize</a>(v)</td>
+      <td valign=\"top\">Return normalized vector such that length = 1 and prevent 
           zero-division for zero vector</td>
   </tr>
-  <tr><td><a href=\"Modelica:Modelica.Math.Vectors.reverse\">reverse</a>(v)</td>
-      <td>Reverse vector elements</td>
+  <tr><td valign=\"top\"><a href=\"Modelica:Modelica.Math.Vectors.reverse\">reverse</a>(v)</td>
+      <td valign=\"top\">Reverse vector elements</td>
   </tr>
-  <tr><td><a href=\"Modelica:Modelica.Math.Vectors.sort\">sort</a>(v)</td>
-      <td>Sort elements of vector in ascending or descending order</td>
+  <tr><td valign=\"top\"><a href=\"Modelica:Modelica.Math.Vectors.sort\">sort</a>(v)</td>
+      <td valign=\"top\">Sort elements of vector in ascending or descending order</td>
   </tr>
 </table>
 <h4>See also</h4>
@@ -187,17 +187,17 @@ Besides the Euclidean norm (p=2), also the 1-norm and the
 infinity-norm are sometimes used:
 </p>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td><b>1-norm</b></td>
-      <td>= sum(abs(v))</td>
-      <td><b>norm</b>(v,1)</td>
+  <tr><td valign=\"top\"><b>1-norm</b></td>
+      <td valign=\"top\">= sum(abs(v))</td>
+      <td valign=\"top\"><b>norm</b>(v,1)</td>
   </tr>
-  <tr><td><b>2-norm</b></td>
-      <td>= sqrt(v*v)</td>
-      <td><b>norm</b>(v) or <b>norm</b>(v,2)</td>
+  <tr><td valign=\"top\"><b>2-norm</b></td>
+      <td valign=\"top\">= sqrt(v*v)</td>
+      <td valign=\"top\"><b>norm</b>(v) or <b>norm</b>(v,2)</td>
   </tr>
-  <tr><td><b>infinity-norm</b></td>
-      <td>= max(abs(v))</td>
-      <td><b>norm</b>(v,Modelica.Constants.<b>inf</b>)</td>
+  <tr><td valign=\"top\"><b>infinity-norm</b></td>
+      <td valign=\"top\">= max(abs(v))</td>
+      <td valign=\"top\"><b>norm</b>(v,Modelica.Constants.<b>inf</b>)</td>
   </tr>
 </table>
 <p>
@@ -434,77 +434,77 @@ This library provides functions operating on matrices:
   <tr><th><i>Function</i></th>
       <th><i>Description</i></th>
   </tr>
-  <tr><td><a href=\"Modelica:Modelica.Math.Matrices.isEqual\">isEqual</a>(M1, M2)</td>
-      <td>Determines whether two matrices have the same size and elements</td>
+  <tr><td valign=\"top\"><a href=\"Modelica:Modelica.Math.Matrices.isEqual\">isEqual</a>(M1, M2)</td>
+      <td valign=\"top\">Determines whether two matrices have the same size and elements</td>
   </tr>
-  <tr><td><a href=\"Modelica:Modelica.Math.Matrices.norm\">norm</a>(A)</td>
-      <td>1-, 2- and infinity-norm of matrix A</td>
+  <tr><td valign=\"top\"><a href=\"Modelica:Modelica.Math.Matrices.norm\">norm</a>(A)</td>
+      <td valign=\"top\">1-, 2- and infinity-norm of matrix A</td>
   </tr>
-  <tr><td><a href=\"Modelica:Modelica.Math.Matrices.sort\">sort</a>(M)</td>
-      <td>Sort rows or columns of matrix in ascending or descending order</td>
+  <tr><td valign=\"top\"><a href=\"Modelica:Modelica.Math.Matrices.sort\">sort</a>(M)</td>
+      <td valign=\"top\">Sort rows or columns of matrix in ascending or descending order</td>
   </tr>
-  <tr><td><a href=\"Modelica:Modelica.Math.Matrices.solve\">solve</a>(A,b)</td>
-      <td>Solve real system of linear equations A*x=b with a b vector</td>
+  <tr><td valign=\"top\"><a href=\"Modelica:Modelica.Math.Matrices.solve\">solve</a>(A,b)</td>
+      <td valign=\"top\">Solve real system of linear equations A*x=b with a b vector</td>
   </tr>
-  <tr><td><a href=\"Modelica:Modelica.Math.Matrices.solve2\">solve2</a>(A,B)</td>
-      <td>Solve real system of linear equations A*X=B with a B matrix</td>
+  <tr><td valign=\"top\"><a href=\"Modelica:Modelica.Math.Matrices.solve2\">solve2</a>(A,B)</td>
+      <td valign=\"top\">Solve real system of linear equations A*X=B with a B matrix</td>
   </tr>
-  <tr><td><a href=\"Modelica:Modelica.Math.Matrices.leastSquares\">leastSquares</a>(A,b)</td>
-      <td>Solve overdetermined or underdetermined real system of <br>
+  <tr><td valign=\"top\"><a href=\"Modelica:Modelica.Math.Matrices.leastSquares\">leastSquares</a>(A,b)</td>
+      <td valign=\"top\">Solve overdetermined or underdetermined real system of <br>
           linear equations A*x=b in a least squares sense</td>
   </tr>
-  <tr><td><a href=\"Modelica:Modelica.Math.Matrices.equalityLeastSquares\">equalityLeastSquares</a>(A,a,B,b)</td>
-      <td>Solve a linear equality constrained least squares problem:<br>
+  <tr><td valign=\"top\"><a href=\"Modelica:Modelica.Math.Matrices.equalityLeastSquares\">equalityLeastSquares</a>(A,a,B,b)</td>
+      <td valign=\"top\">Solve a linear equality constrained least squares problem:<br>
           min|A*x-a|^2 subject to B*x=b</td>
   </tr>
-  <tr><td>(LU,p,info) = <a href=\"Modelica:Modelica.Math.Matrices.LU\">LU</a>(A)</td>
-      <td>LU decomposition of square or rectangular matrix</td>
+  <tr><td valign=\"top\">(LU,p,info) = <a href=\"Modelica:Modelica.Math.Matrices.LU\">LU</a>(A)</td>
+      <td valign=\"top\">LU decomposition of square or rectangular matrix</td>
   </tr>
-  <tr><td><a href=\"Modelica:Modelica.Math.Matrices.LU_solve\">LU_solve</a>(LU,p,b)</td>
-      <td>Solve real system of linear equations P*L*U*x=b with a<br>
+  <tr><td valign=\"top\"><a href=\"Modelica:Modelica.Math.Matrices.LU_solve\">LU_solve</a>(LU,p,b)</td>
+      <td valign=\"top\">Solve real system of linear equations P*L*U*x=b with a<br>
           b vector and an LU decomposition from \"LU(..)\"</td>
   </tr>
-  <tr><td><a href=\"Modelica:Modelica.Math.Matrices.LU_solve2\">LU_solve2</a>(LU,p,B)</td>
-      <td>Solve real system of linear equations P*L*U*X=B with a<br>
+  <tr><td valign=\"top\"><a href=\"Modelica:Modelica.Math.Matrices.LU_solve2\">LU_solve2</a>(LU,p,B)</td>
+      <td valign=\"top\">Solve real system of linear equations P*L*U*X=B with a<br>
           B matrix and an LU decomposition from \"LU(..)\"</td>
   </tr>
-  <tr><td>(Q,R,p) = <a href=\"Modelica:Modelica.Math.Matrices.QR\">QR</a>(A)</td>
-      <td> QR decomposition with column pivoting of rectangular matrix (Q*R = A[:,p]) </td>
+  <tr><td valign=\"top\">(Q,R,p) = <a href=\"Modelica:Modelica.Math.Matrices.QR\">QR</a>(A)</td>
+      <td valign=\"top\"> QR decomposition with column pivoting of rectangular matrix (Q*R = A[:,p]) </td>
   </tr>
-  <tr><td>eval = <a href=\"Modelica:Modelica.Math.Matrices.eigenValues\">eigenValues</a>(A)<br>
+  <tr><td valign=\"top\">eval = <a href=\"Modelica:Modelica.Math.Matrices.eigenValues\">eigenValues</a>(A)<br>
           (eval,evec) = <a href=\"Modelica:Modelica.Math.Matrices.eigenValues\">eigenValues</a>(A)</td>
-      <td> Compute eigenvalues and optionally eigenvectors<br>
+      <td valign=\"top\"> Compute eigenvalues and optionally eigenvectors<br>
            for a real, nonsymmetric matrix </td>
   </tr>
-  <tr><td><a href=\"Modelica:Modelica.Math.Matrices.eigenValueMatrix\">eigenValueMatrix</a>(eigen)</td>
-      <td> Return real valued block diagonal matrix J of eigenvalues of 
+  <tr><td valign=\"top\"><a href=\"Modelica:Modelica.Math.Matrices.eigenValueMatrix\">eigenValueMatrix</a>(eigen)</td>
+      <td valign=\"top\"> Return real valued block diagonal matrix J of eigenvalues of 
             matrix A (A=V*J*Vinv) </td>
   </tr>
-  <tr><td>sigma = <a href=\"Modelica:Modelica.Math.Matrices.singularValues\">singularValues</a>(A)<br>
+  <tr><td valign=\"top\">sigma = <a href=\"Modelica:Modelica.Math.Matrices.singularValues\">singularValues</a>(A)<br>
       (sigma,U,VT) = <a href=\"Modelica:Modelica.Math.Matrices.singularValues\">singularValues</a>(A)</td>
-      <td> Compute singular values and optionally left and right singular vectors </td>
+      <td valign=\"top\"> Compute singular values and optionally left and right singular vectors </td>
   </tr>
-  <tr><td><a href=\"Modelica:Modelica.Math.Matrices.det\">det</a>(A)</td>
-      <td> Determinant of a matrix (do <b>not</b> use; use rank(..))</td>
+  <tr><td valign=\"top\"><a href=\"Modelica:Modelica.Math.Matrices.det\">det</a>(A)</td>
+      <td valign=\"top\"> Determinant of a matrix (do <b>not</b> use; use rank(..))</td>
   </tr>
-  <tr><td><a href=\"Modelica:Modelica.Math.Matrices.inv\">inv</a>(A)</td>
-      <td> Inverse of a matrix </td>
+  <tr><td valign=\"top\"><a href=\"Modelica:Modelica.Math.Matrices.inv\">inv</a>(A)</td>
+      <td valign=\"top\"> Inverse of a matrix </td>
   </tr>
-  <tr><td><a href=\"Modelica:Modelica.Math.Matrices.rank\">rank</a>(A)</td>
-      <td> Rank of a matrix </td>
+  <tr><td valign=\"top\"><a href=\"Modelica:Modelica.Math.Matrices.rank\">rank</a>(A)</td>
+      <td valign=\"top\"> Rank of a matrix </td>
   </tr>
-  <tr><td><a href=\"Modelica:Modelica.Math.Matrices.balance\">balance</a>(A)</td>
-      <td>Balance a square matrix to improve the condition</td>
+  <tr><td valign=\"top\"><a href=\"Modelica:Modelica.Math.Matrices.balance\">balance</a>(A)</td>
+      <td valign=\"top\">Balance a square matrix to improve the condition</td>
   </tr>
-  <tr><td><a href=\"Modelica:Modelica.Math.Matrices.exp\">exp</a>(A)</td>
-      <td> Compute the exponential of a matrix by adaptive Taylor series<br> 
+  <tr><td valign=\"top\"><a href=\"Modelica:Modelica.Math.Matrices.exp\">exp</a>(A)</td>
+      <td valign=\"top\"> Compute the exponential of a matrix by adaptive Taylor series<br> 
            expansion with scaling and balancing</td>
   </tr>
-  <tr><td>(P, G) = <a href=\"Modelica:Modelica.Math.Matrices.integralExp\">integralExp</a>(A,B)</td>
-      <td> Compute the exponential of a matrix and its integral</td>
+  <tr><td valign=\"top\">(P, G) = <a href=\"Modelica:Modelica.Math.Matrices.integralExp\">integralExp</a>(A,B)</td>
+      <td valign=\"top\"> Compute the exponential of a matrix and its integral</td>
   </tr>
-  <tr><td>(P, G, GT) = <a href=\"Modelica:Modelica.Math.Matrices.integralExpT\">integralExpT</a>(A,B)</td>
-      <td> Compute the exponential of a matrix and two integrals</td>
+  <tr><td valign=\"top\">(P, G, GT) = <a href=\"Modelica:Modelica.Math.Matrices.integralExpT\">integralExpT</a>(A,B)</td>
+      <td valign=\"top\"> Compute the exponential of a matrix and two integrals</td>
   </tr>
 </table>
  
@@ -1094,10 +1094,10 @@ more convenient to just use the function
 <p>
 The optional third (Integer) output argument has the following meaning:
 <table border=0 cellspacing=0 cellpadding=2>
-  <tr><td>info = 0:</td
-      <td>successful exit</td></tr>
-  <tr><td>info &gt; 0:</td>
-      <td>if info = i, U[i,i] is exactly zero. The factorization
+  <tr><td valign=\"top\">info = 0:</td
+      <td valign=\"top\">successful exit</td></tr>
+  <tr><td valign=\"top\">info &gt; 0:</td>
+      <td valign=\"top\">if info = i, U[i,i] is exactly zero. The factorization
           has been completed, <br> 
           but the factor U is exactly
           singular, and division by zero will occur<br> if it is used

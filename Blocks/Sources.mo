@@ -167,11 +167,11 @@ have at least the following two parameters:
 </p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td><b>offset</b></td>
-      <td>Value which is added to the signal</td>
+  <tr><td valign=\"top\"><b>offset</b></td>
+      <td valign=\"top\">Value which is added to the signal</td>
   </tr>
-  <tr><td><b>startTime</b></td>
-      <td>Start time of signal. For time &lt; startTime,
+  <tr><td valign=\"top\"><b>startTime</b></td>
+      <td valign=\"top\">Start time of signal. For time &lt; startTime,
                 the output y is set to offset.</td>
   </tr>
 </table>

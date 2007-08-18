@@ -15,71 +15,71 @@ a \"Body\" and of several \"FixedTranslation\" components.
 <h4>Content</h4>
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><th><b><i>Model</i></b></th><th><b><i>Description</i></b></th></tr>
-  <tr><td><a href=\"Modelica://Modelica.Mechanics.MultiBody.Parts.Fixed\">Fixed</a></td>
-      <td>Frame fixed in world frame at a given position.
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Parts.Fixed\">Fixed</a></td>
+      <td valign=\"top\">Frame fixed in world frame at a given position.
           It is visualized with a shape, see <b>shapeType</b> below
          (the frames on the two
           sides do not belong to the component):<br>&nbsp;<br>
       <IMG SRC=\"../Images/MultiBody/Fixed.png\" ALT=\"model Parts.Fixed\">
       </td>
   </tr>
-  <tr><td><a href=\"Modelica://Modelica.Mechanics.MultiBody.Parts.FixedTranslation\">FixedTranslation</a></td>
-      <td>Fixed translation of frame_b with respect to frame_a.
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Parts.FixedTranslation\">FixedTranslation</a></td>
+      <td valign=\"top\">Fixed translation of frame_b with respect to frame_a.
           It is visualized with a shape, see <b>shapeType</b> below
           (the frames on the two sides do not belong to the component):<br>&nbsp;<br>
       <IMG SRC=\"../Images/MultiBody/FixedTranslation.png\" ALT=\"model Parts.FixedTranslation\">
       </td>
   </tr>
-  <tr><td><a href=\"Modelica://Modelica.Mechanics.MultiBody.Parts.FixedRotation\">FixedRotation</a></td>
-      <td>Fixed translation and fixed rotation of frame_b with respect to frame_a
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Parts.FixedRotation\">FixedRotation</a></td>
+      <td valign=\"top\">Fixed translation and fixed rotation of frame_b with respect to frame_a
           It is visualized with a shape, see <b>shapeType</b>  below
           (the frames on the two sides do not belong to the component):<br>&nbsp;<br>
       <IMG SRC=\"../Images/MultiBody/FixedRotation.png\" ALT=\"model Parts.FixedRotation\">
       </td>
   </tr>
-  <tr><td><a href=\"Modelica://Modelica.Mechanics.MultiBody.Parts.Body\">Body</a></td>
-      <td>Rigid body with mass, inertia tensor and one frame connector.
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Parts.Body\">Body</a></td>
+      <td valign=\"top\">Rigid body with mass, inertia tensor and one frame connector.
           It is visualized with a cylinder and a sphere at the
           center of mass:<br>&nbsp;<br>
       <IMG SRC=\"../Images/MultiBody/Body.png\" ALT=\"model Parts.Body\">
       </td>
   </tr>
-  <tr><td><a href=\"Modelica://Modelica.Mechanics.MultiBody.Parts.BodyShape\">BodyShape</a></td>
-      <td>Rigid body with mass, inertia tensor, different shapes
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Parts.BodyShape\">BodyShape</a></td>
+      <td valign=\"top\">Rigid body with mass, inertia tensor, different shapes
           (see <b>shapeType</b> below)
           for animation, and two frame connectors:<br>&nbsp;<br>
       <IMG SRC=\"../Images/MultiBody/BodyShape.png\" ALT=\"model Parts.BodyShape\">
       </td>
   </tr>
-  <tr><td><a href=\"Modelica://Modelica.Mechanics.MultiBody.Parts.Fixed\">Fixed</a>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Parts.Fixed\">Fixed</a>
 BodyBox</b></td>
-      <td>Rigid body with box shape (mass and animation properties are computed
+      <td valign=\"top\">Rigid body with box shape (mass and animation properties are computed
           from box data and from density):<br>&nbsp;<br>
       <IMG SRC=\"../Images/MultiBody/BodyBox.png\" ALT=\"model Parts.BodyBox\">
       </td>
   </tr>
-  <tr><td><a href=\"Modelica://Modelica.Mechanics.MultiBody.Parts.BodyCylinder\">BodyCylinder</a></td>
-      <td>Rigid body with cylinder shape (mass and animation properties
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Parts.BodyCylinder\">BodyCylinder</a></td>
+      <td valign=\"top\">Rigid body with cylinder shape (mass and animation properties
           are computed from cylinder data and from density):<br>&nbsp;<br>
       <IMG SRC=\"../Images/MultiBody/BodyCylinder.png\" ALT=\"model Parts.BodyCylinder\">
       </td>
   </tr>
-  <tr><td><a href=\"Modelica://Modelica.Mechanics.MultiBody.Parts.PointMass\">PointMass</a></td>
-      <td>Rigid body where inertia tensor and rotation is neglected:<br>&nbsp;<br>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Parts.PointMass\">PointMass</a></td>
+      <td valign=\"top\">Rigid body where inertia tensor and rotation is neglected:<br>&nbsp;<br>
       <IMG SRC=\"../Images/MultiBody/Parts/PointMass.png\" ALT=\"model Parts.PointMass\">
       </td>
   </tr>
-  <tr><td><a href=\"Modelica://Modelica.Mechanics.MultiBody.Parts.Mounting1D\">Mounting1D</a></td>
-      <td> Propagate 1-dim. support torque to 3-dim. system
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Parts.Mounting1D\">Mounting1D</a></td>
+      <td valign=\"top\"> Propagate 1-dim. support torque to 3-dim. system
       </td>
   </tr>
-  <tr><td><a href=\"Modelica://Modelica.Mechanics.MultiBody.Parts.Rotor1D\">Rotor1D</a></td>
-      <td>1D inertia attachable on 3-dim. bodies (without neglecting dynamic effects)<br>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Parts.Rotor1D\">Rotor1D</a></td>
+      <td valign=\"top\">1D inertia attachable on 3-dim. bodies (without neglecting dynamic effects)<br>
       <IMG SRC=\"../Images/MultiBody/Parts/Rotor1D.png\" ALT=\"model Parts.Rotor1D\">
       </td>
   </tr>
-  <tr><td><a href=\"Modelica://Modelica.Mechanics.MultiBody.Parts.BevelGear1D\">BevelGear1D</a></td>
-      <td>1D gearbox with arbitrary shaft directions (3D bearing frame)
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Parts.BevelGear1D\">BevelGear1D</a></td>
+      <td valign=\"top\">1D gearbox with arbitrary shaft directions (3D bearing frame)
       </td>
   </tr>
 </table>

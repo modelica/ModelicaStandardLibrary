@@ -10,31 +10,31 @@ animation features of the MultiBody library.
 <p>
 <h4>Content</h4>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td><a href=\"Modelica://Modelica.Mechanics.MultiBody.Visualizers.FixedShape\">FixedShape</a><br>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Visualizers.FixedShape\">FixedShape</a><br>
              <a href=\"Modelica://Modelica.Mechanics.MultiBody.Visualizers.FixedShape2\">FixedShape2</a></td>
-      <td>Animation shape of a part with fixed sizes. FixedShape2 has additionally
+      <td valign=\"top\">Animation shape of a part with fixed sizes. FixedShape2 has additionally
           a frame_b for easier connection to further visual objects.
           The following shape types are supported:<br>&nbsp;<br>
       <IMG SRC=\"../Images/MultiBody/FixedShape.png\" ALT=\"model Visualizers.FixedShape\">
       </td>
   </tr>
-  <tr><td><a href=\"Modelica://Modelica.Mechanics.MultiBody.Visualizers.FixedFrame\">FixedFrame</a></td>
-      <td>Visualizing a coordinate system including axes labels with fixed sizes:<br>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Visualizers.FixedFrame\">FixedFrame</a></td>
+      <td valign=\"top\">Visualizing a coordinate system including axes labels with fixed sizes:<br>
       <IMG SRC=\"../Images/MultiBody/FixedFrame2.png\"
        ALT=\"model Visualizers.FixedFrame\">
       </td>
   </tr>
-  <tr><td><a href=\"Modelica://Modelica.Mechanics.MultiBody.Visualizers.FixedArrow\">FixedArrow</a>,<br>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Visualizers.FixedArrow\">FixedArrow</a>,<br>
 <a href=\"Modelica://Modelica.Mechanics.MultiBody.Visualizers.SignalArrow\">SignalArrow</a></td>
-      <td>Visualizing an arrow. Model \"FixedArrow\" provides
+      <td valign=\"top\">Visualizing an arrow. Model \"FixedArrow\" provides
       a fixed sized arrow, model \"SignalArrow\" provides
       an arrow with dynamically varying length that is defined
       by an input signal vector:<br>
       <IMG SRC=\"../Images/MultiBody/Visualizers/Arrow.png\" \">
       </td>
   </tr>
-<tr><td><a href=\"Modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced\">Advanced</a></td>
-      <td> <b>Package</b> that contains components to visualize
+<tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced\">Advanced</a></td>
+      <td valign=\"top\"> <b>Package</b> that contains components to visualize
           3-dimensional shapes where all parts of the shape
           can vary dynamically. Basic knowledge of Modelica is 
           needed in order to utilize the components of this package. 
@@ -130,29 +130,29 @@ Via variable <b>extra</b> additional data can be defined:
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><b>shapeType</b></th><th>Meaning of parameter <b>extra</b></th></tr>
 <tr>
-  <td>\"cylinder\"</td>
-  <td>if extra &gt; 0, a black line is included in the
+  <td valign=\"top\">\"cylinder\"</td>
+  <td valign=\"top\">if extra &gt; 0, a black line is included in the
       cylinder to show the rotation of it.</td>
 </tr>
 <tr>
-  <td>\"cone\"</td>
-  <td>extra = diameter-left-side / diameter-right-side, i.e.,<br>
+  <td valign=\"top\">\"cone\"</td>
+  <td valign=\"top\">extra = diameter-left-side / diameter-right-side, i.e.,<br>
       extra = 1: cylinder<br>
       extra = 0: \"real\" cone.</td>
 </tr>
 <tr>
-  <td>\"pipe\"</td>
-  <td>extra = outer-diameter / inner-diameter, i.e, <br>
+  <td valign=\"top\">\"pipe\"</td>
+  <td valign=\"top\">extra = outer-diameter / inner-diameter, i.e, <br>
       extra = 1: cylinder that is completely hollow<br>
       extra = 0: cylinder without a hole.</td>
 </tr>
 <tr>
-  <td>\"gearwheel\"</td>
-  <td>extra is the number of teeth of the gear.</td>
+  <td valign=\"top\">\"gearwheel\"</td>
+  <td valign=\"top\">extra is the number of teeth of the gear.</td>
 </tr>
 <tr>
-  <td>\"spring\"</td>
-  <td>extra is the number of windings of the spring.
+  <td valign=\"top\">\"spring\"</td>
+  <td valign=\"top\">extra is the number of windings of the spring.
       Additionally, \"height\" is <b>not</b> the \"height\" but
       2*coil-width.</td>
 </tr>
@@ -330,29 +330,29 @@ Via variable <b>extra</b> additional data can be defined:
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><b>shapeType</b></th><th>Meaning of parameter <b>extra</b></th></tr>
 <tr>
-  <td>\"cylinder\"</td>
-  <td>if extra &gt; 0, a black line is included in the
+  <td valign=\"top\">\"cylinder\"</td>
+  <td valign=\"top\">if extra &gt; 0, a black line is included in the
       cylinder to show the rotation of it.</td>
 </tr>
 <tr>
-  <td>\"cone\"</td>
-  <td>extra = diameter-left-side / diameter-right-side, i.e.,<br>
+  <td valign=\"top\">\"cone\"</td>
+  <td valign=\"top\">extra = diameter-left-side / diameter-right-side, i.e.,<br>
       extra = 1: cylinder<br>
       extra = 0: \"real\" cone.</td>
 </tr>
 <tr>
-  <td>\"pipe\"</td>
-  <td>extra = outer-diameter / inner-diameter, i.e, <br>
+  <td valign=\"top\">\"pipe\"</td>
+  <td valign=\"top\">extra = outer-diameter / inner-diameter, i.e, <br>
       extra = 1: cylinder that is completely hollow<br>
       extra = 0: cylinder without a hole.</td>
 </tr>
 <tr>
-  <td>\"gearwheel\"</td>
-  <td>extra is the number of teeth of the gear.</td>
+  <td valign=\"top\">\"gearwheel\"</td>
+  <td valign=\"top\">extra is the number of teeth of the gear.</td>
 </tr>
 <tr>
-  <td>\"spring\"</td>
-  <td>extra is the number of windings of the spring.
+  <td valign=\"top\">\"spring\"</td>
+  <td valign=\"top\">extra is the number of windings of the spring.
       Additionally, \"height\" is <b>not</b> the \"height\" but
       2*coil-width.</td>
 </tr>
@@ -766,18 +766,18 @@ since they all have frame connectors).
 <p>
 <h4>Content</h4>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td><a href=\"Modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow\">Arrow</a></td>
-      <td>Visualizing an arrow where all parts of the arrow can vary dynamically:<br>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow\">Arrow</a></td>
+      <td valign=\"top\">Visualizing an arrow where all parts of the arrow can vary dynamically:<br>
       <IMG SRC=\"../Images/MultiBody/Visualizers/Arrow.png\" ALT=\"model Visualizers.Advanced.Arrow\">
       </td>
   </tr>  
-  <tr><td><a href=\"Modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow\">DoubleArrow</a></td>
-      <td>Visualizing a double arrow where all parts of the arrow can vary dynamically:<br>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow\">DoubleArrow</a></td>
+      <td valign=\"top\">Visualizing a double arrow where all parts of the arrow can vary dynamically:<br>
       <IMG SRC=\"../Images/MultiBody/Visualizers/DoubleArrow.png\" ALT=\"model Visualizers.Advanced.DoubleArrow\">
       </td>
   </tr>  
-  <tr><td><a href=\"Modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape\">Shape</a></td>
-      <td>Animation shape of a part with dynamically varying sizes. 
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape\">Shape</a></td>
+      <td valign=\"top\">Animation shape of a part with dynamically varying sizes. 
       The following shape types are supported:<br>&nbsp;<br>
       <IMG SRC=\"../Images/MultiBody/FixedShape.png\" ALT=\"model Visualizers.Advanced.Shape\">
       </td>
@@ -1101,29 +1101,29 @@ according to:
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><b>shapeType</b></th><th>Meaning of variable <b>extra</b></th></tr>
 <tr>
-  <td>\"cylinder\"</td>
-  <td>if extra &gt; 0, a black line is included in the
+  <td valign=\"top\">\"cylinder\"</td>
+  <td valign=\"top\">if extra &gt; 0, a black line is included in the
       cylinder to show the rotation of it.</td>
 </tr>
 <tr>
-  <td>\"cone\"</td>
-  <td>extra = diameter-left-side / diameter-right-side, i.e.,<br>
+  <td valign=\"top\">\"cone\"</td>
+  <td valign=\"top\">extra = diameter-left-side / diameter-right-side, i.e.,<br>
       extra = 1: cylinder<br>
       extra = 0: \"real\" cone.</td>
 </tr>
 <tr>
-  <td>\"pipe\"</td>
-  <td>extra = outer-diameter / inner-diameter, i.e, <br>
+  <td valign=\"top\">\"pipe\"</td>
+  <td valign=\"top\">extra = outer-diameter / inner-diameter, i.e, <br>
       extra = 1: cylinder that is completely hollow<br>
       extra = 0: cylinder without a hole.</td>
 </tr>
 <tr>
-  <td>\"gearwheel\"</td>
-  <td>extra is the number of teeth of the gear.</td>
+  <td valign=\"top\">\"gearwheel\"</td>
+  <td valign=\"top\">extra is the number of teeth of the gear.</td>
 </tr>
 <tr>
-  <td>\"spring\"</td>
-  <td>extra is the number of windings of the spring.
+  <td valign=\"top\">\"spring\"</td>
+  <td valign=\"top\">extra is the number of windings of the spring.
       Additionally, \"height\" is <b>not</b> the \"height\" but
       2*coil-width.</td>
 </tr>

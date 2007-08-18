@@ -231,28 +231,28 @@ A prescribed heat source dissipates its heat through a thermal conductor to a co
 <b>Results</b>:<br>
 <table>
 <tr>
-<td><b>output</b></td>
-<td><b>explanation</b></td>
-<td><b>formula</b></td>
-<td><b>actual steady-state value</b></td>
+<td valign=\"top\"><b>output</b></td>
+<td valign=\"top\"><b>explanation</b></td>
+<td valign=\"top\"><b>formula</b></td>
+<td valign=\"top\"><b>actual steady-state value</b></td>
 </tr>
 <tr>
-<td>dTSource</td>
-<td>Source over Ambient</td>
-<td>dtCoolant + dtToPipe</td>
-<td>20 K</td>
+<td valign=\"top\">dTSource</td>
+<td valign=\"top\">Source over Ambient</td>
+<td valign=\"top\">dtCoolant + dtToPipe</td>
+<td valign=\"top\">20 K</td>
 </tr>
 <tr>
-<td>dTtoPipe</td>
-<td>Source over Coolant</td>
-<td>Losses / ThermalConductor.G</td>
-<td>10 K</td>
+<td valign=\"top\">dTtoPipe</td>
+<td valign=\"top\">Source over Coolant</td>
+<td valign=\"top\">Losses / ThermalConductor.G</td>
+<td valign=\"top\">10 K</td>
 </tr>
 <tr>
-<td>dTCoolant</td>
-<td>Coolant's temperature increase</td>
-<td>Losses * cp * massFlow</td>
-<td>10 K</td>
+<td valign=\"top\">dTCoolant</td>
+<td valign=\"top\">Coolant's temperature increase</td>
+<td valign=\"top\">Losses * cp * massFlow</td>
+<td valign=\"top\">10 K</td>
 </tr>
 </table>
 </p>
@@ -334,52 +334,52 @@ Two prescribed heat sources dissipate their heat through thermal conductors to c
 <b>Results</b>:<br>
 <table>
 <tr>
-<td><b>output</b></td>
-<td><b>explanation</b></td>
-<td><b>formula</b></td>
-<td><b>actual steady-state value</b></td>
+<td valign=\"top\"><b>output</b></td>
+<td valign=\"top\"><b>explanation</b></td>
+<td valign=\"top\"><b>formula</b></td>
+<td valign=\"top\"><b>actual steady-state value</b></td>
 </tr>
 <tr>
-<td>dTSource1</td>
-<td>Source1 over Ambient</td>
-<td>dTCoolant1 + dTtoPipe1</td>
-<td>15 K</td>
+<td valign=\"top\">dTSource1</td>
+<td valign=\"top\">Source1 over Ambient</td>
+<td valign=\"top\">dTCoolant1 + dTtoPipe1</td>
+<td valign=\"top\">15 K</td>
 </tr>
 <tr>
-<td>dTtoPipe1</td>
-<td>Source1 over Coolant1</td>
-<td>Losses1 / ThermalConductor1.G</td>
-<td> 5 K</td>
+<td valign=\"top\">dTtoPipe1</td>
+<td valign=\"top\">Source1 over Coolant1</td>
+<td valign=\"top\">Losses1 / ThermalConductor1.G</td>
+<td valign=\"top\"> 5 K</td>
 </tr>
 <tr>
-<td>dTCoolant1</td>
-<td>Coolant's temperature increase</td>
-<td>Losses * cp * totalMassFlow/2</td>
-<td>10 K</td>
+<td valign=\"top\">dTCoolant1</td>
+<td valign=\"top\">Coolant's temperature increase</td>
+<td valign=\"top\">Losses * cp * totalMassFlow/2</td>
+<td valign=\"top\">10 K</td>
 </tr>
 <tr>
-<td>dTSource2</td>
-<td>Source2 over Ambient</td>
-<td>dTCoolant2 + dTtoPipe2</td>
-<td>30 K</td>
+<td valign=\"top\">dTSource2</td>
+<td valign=\"top\">Source2 over Ambient</td>
+<td valign=\"top\">dTCoolant2 + dTtoPipe2</td>
+<td valign=\"top\">30 K</td>
 </tr>
 <tr>
-<td>dTtoPipe2</td>
-<td>Source2 over Coolant2</td>
-<td>Losses2 / ThermalConductor2.G</td>
-<td>10 K</td>
+<td valign=\"top\">dTtoPipe2</td>
+<td valign=\"top\">Source2 over Coolant2</td>
+<td valign=\"top\">Losses2 / ThermalConductor2.G</td>
+<td valign=\"top\">10 K</td>
 </tr>
 <tr>
-<td>dTCoolant2</td>
-<td>Coolant's temperature increase</td>
-<td>Losses * cp * totalMassFlow/2</td>
-<td>20 K</td>
+<td valign=\"top\">dTCoolant2</td>
+<td valign=\"top\">Coolant's temperature increase</td>
+<td valign=\"top\">Losses * cp * totalMassFlow/2</td>
+<td valign=\"top\">20 K</td>
 </tr>
 <tr>
-<td>dTmixedCoolant</td>
-<td>mixed Coolant's temperature increase</td>
-<td>(dTCoolant1+dTCoolant2)/2</td>
-<td>15 K</td>
+<td valign=\"top\">dTmixedCoolant</td>
+<td valign=\"top\">mixed Coolant's temperature increase</td>
+<td valign=\"top\">(dTCoolant1+dTCoolant2)/2</td>
+<td valign=\"top\">15 K</td>
 </tr>
 </table>
 </p>
@@ -505,40 +505,40 @@ Inner coolant's temperature rise near the source is the same as temperature drop
 <b>Results</b>:<br>
 <table>
 <tr>
-<td><b>output</b></td>
-<td><b>explanation</b></td>
-<td><b>formula</b></td>
-<td><b>actual steady-state value</b></td>
+<td valign=\"top\"><b>output</b></td>
+<td valign=\"top\"><b>explanation</b></td>
+<td valign=\"top\"><b>formula</b></td>
+<td valign=\"top\"><b>actual steady-state value</b></td>
 </tr>
 <tr>
-<td>dTSource</td>
-<td>Source over Ambient</td>
-<td>dtouterCoolant + dtCooler + dTinnerCoolant + dtToPipe</td>
-<td>40 K</td>
+<td valign=\"top\">dTSource</td>
+<td valign=\"top\">Source over Ambient</td>
+<td valign=\"top\">dtouterCoolant + dtCooler + dTinnerCoolant + dtToPipe</td>
+<td valign=\"top\">40 K</td>
 </tr>
 <tr>
-<td>dTtoPipe</td>
-<td>Source over inner Coolant</td>
-<td>Losses / ThermalConductor.G</td>
-<td>10 K</td>
+<td valign=\"top\">dTtoPipe</td>
+<td valign=\"top\">Source over inner Coolant</td>
+<td valign=\"top\">Losses / ThermalConductor.G</td>
+<td valign=\"top\">10 K</td>
 </tr>
 <tr>
-<td>dTinnerColant</td>
-<td>inner Coolant's temperature increase</td>
-<td>Losses * cp * innerMassFlow</td>
-<td>10 K</td>
+<td valign=\"top\">dTinnerColant</td>
+<td valign=\"top\">inner Coolant's temperature increase</td>
+<td valign=\"top\">Losses * cp * innerMassFlow</td>
+<td valign=\"top\">10 K</td>
 </tr>
 <tr>
-<td>dTCooler</td>
-<td>Cooler's temperature rise between inner and outer pipes</td>
-<td>Losses * (innerGc + outerGc)</td>
-<td>10 K</td>
+<td valign=\"top\">dTCooler</td>
+<td valign=\"top\">Cooler's temperature rise between inner and outer pipes</td>
+<td valign=\"top\">Losses * (innerGc + outerGc)</td>
+<td valign=\"top\">10 K</td>
 </tr>
 <tr>
-<td>dTouterColant</td>
-<td>outer Coolant's temperature increase</td>
-<td>Losses * cp * outerMassFlow</td>
-<td>10 K</td>
+<td valign=\"top\">dTouterColant</td>
+<td valign=\"top\">outer Coolant's temperature increase</td>
+<td valign=\"top\">Losses * cp * outerMassFlow</td>
+<td valign=\"top\">10 K</td>
 </tr>
 </table>
 </p>
