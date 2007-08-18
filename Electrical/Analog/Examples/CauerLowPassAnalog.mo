@@ -110,11 +110,12 @@ equation
       style(color=3, rgbcolor={0,0,255}));
   connect(L1.n,C2. n) 
     annotation (points=[-20,70; -20,30], style(color=3, rgbcolor={0,0,255}));
-  connect(C2.n,C3. p) annotation (points=[-20,30; 1.83697e-015,30; 1.83697e-015,
-        -10], style(color=3, rgbcolor={0,0,255}));
+  connect(C2.n,C3. p) annotation (points=[-20,30; 1.83697e-015,30;
+        1.83697e-015,-10],
+              style(color=3, rgbcolor={0,0,255}));
   connect(C2.n,C4. p) 
     annotation (points=[-20,30; 20,30], style(color=3, rgbcolor={0,0,255}));
-  connect(L1.n,C3. p) annotation (points=[-20,70; -20,30; 1.83697e-015,30; 
+  connect(L1.n,C3. p) annotation (points=[-20,70; -20,30; 1.83697e-015,30;
         1.83697e-015,-10], style(color=3, rgbcolor={0,0,255}));
   connect(L1.n,C4. p) annotation (points=[-20,70; -20,30; 20,30], style(color=3,
         rgbcolor={0,0,255}));
@@ -122,8 +123,9 @@ equation
     annotation (points=[20,70; 20,30], style(color=3, rgbcolor={0,0,255}));
   connect(C2.n,L2. p) annotation (points=[-20,30; 20,30; 20,70], style(color=3,
         rgbcolor={0,0,255}));
-  connect(C3.p,L2. p) annotation (points=[1.83697e-015,-10; 0,-10; 0,30; 20,30; 
-        20,70], style(color=3, rgbcolor={0,0,255}));
+  connect(C3.p,L2. p) annotation (points=[1.83697e-015,-10; 0,-10; 0,30; 20,
+        30; 20,70],
+                style(color=3, rgbcolor={0,0,255}));
   connect(L2.n,C4. n) 
     annotation (points=[40,70; 40,30], style(color=3, rgbcolor={0,0,255}));
   connect(L2.n,C5. p) annotation (points=[40,70; 40,30; 60,30; 60,-10], style(
@@ -140,13 +142,13 @@ equation
       style(color=3, rgbcolor={0,0,255}));
   connect(C5.n,G. p) annotation (points=[60,-30; 60,-50; 0,-50; 0,-70], style(
         color=3, rgbcolor={0,0,255}));
-  connect(C1.n,C3. n) annotation (points=[-60,-30; -60,-50; 0,-50; 0,-30; 
+  connect(C1.n,C3. n) annotation (points=[-60,-30; -60,-50; 0,-50; 0,-30;
         -1.83697e-015,-30], style(color=3, rgbcolor={0,0,255}));
   connect(C1.n,C5. n) annotation (points=[-60,-30; -60,-50; 60,-50; 60,-30],
       style(color=3, rgbcolor={0,0,255}));
   connect(R2.n,C5. n) annotation (points=[100,-30; 100,-50; 60,-50; 60,-30],
       style(color=3, rgbcolor={0,0,255}));
-  connect(R2.n,C3. n) annotation (points=[100,-30; 100,-50; 0,-50; 0,-30; 
+  connect(R2.n,C3. n) annotation (points=[100,-30; 100,-50; 0,-50; 0,-30;
         -1.83697e-015,-30], style(color=3, rgbcolor={0,0,255}));
   connect(R2.n,C1. n) annotation (points=[100,-30; 100,-50; -60,-50; -60,-30],
       style(color=3, rgbcolor={0,0,255}));
