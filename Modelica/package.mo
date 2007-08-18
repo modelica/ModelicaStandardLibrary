@@ -2563,7 +2563,7 @@ Models not specifying parameter values did not generate trapezoids previously.
 <p><i>Modelica.Mechanics.Rotational.Interfaces.FrictionBase</i></p>
 <p><i>Modelica.Mechanics.Rotational.Position</i></p>
 <p>Replaced <tt>reinit</tt> by <tt>initial equation</tt></p>
-<p><i>Modelica.Mechanics.Rotational.RelativeStates/i></p>
+<p><i>Modelica.Mechanics.Rotational.RelativeStates</i></p>
 <p>Bug corrected by using modifier <tt>stateSelect = StateSelect.prefer</tt> as implementation</p>
 <p><i>Modelica.Mechanics.Translational.Interfaces.flange_b</i></p>
 <p>Attribute <b>fillColor=7</b> added to Rectangle on Icon layer, i.e. it is now
@@ -2641,7 +2641,6 @@ filled with white and not transparent any more.</p>
 <pre>
    Sine sin1(outPort(redeclare type SignalType=Modelica.SIunits.Torque))
 </pre>
-      </li></ul>
 </li>
 </ul>
 <hr>
