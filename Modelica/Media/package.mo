@@ -26,8 +26,11 @@ single and multiple substance fluids with one and multiple phases:
      SimpleAir, DryAirNasa, and MoistAir</li>
 <li> <a href=\"Modelica:Modelica.Media.Incompressible\">
      Incompressible media:</a><br>
-     TableBased (template medium for user defined properties from tables rho(T),
+     TableBased incompressible fluid models (properties are defined by tables rho(T),
      HeatCapacity_cp(T), etc.)</li>
+<li> <a href=\"Modelica:Modelica.Media.CompressibleLiquids\">
+     Compressible liquids:</a><br> 
+     Simple liquid models with linear compressibility</li>
 </ul>
 <p>
 The following parts are useful, when newly starting with this library:
