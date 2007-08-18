@@ -156,7 +156,7 @@ equation
   connect(IdealDiode1.p, IdealDiode4.n) 
     annotation (points=[-20, 30; -20,-30], style(color=3, rgbcolor={0,0,255}));
   connect(IdealDiode2.p, IdealDiode5.n) 
-    annotation (points=[-6.12323e-016,30; -6.12323e-016,16; 0,0; 0,-30; 
+    annotation (points=[-6.12323e-016,30; -6.12323e-016,16; 0,0; 0,-30;
         6.12323e-016,-30],                           style(color=3, rgbcolor={0,0,255}));
   connect(IdealDiode3.p, IdealDiode6.n) 
     annotation (points=[20, 30; 20,-30], style(color=3, rgbcolor={0,0,255}));

@@ -54,7 +54,9 @@ Modelica in file \"Modelica/package.mo\".</i><br>
       x=0.22,
       y=0.17,
       width=0.6,
-      height=0.6));
+      height=0.6),
+    experiment,
+    experimentSetupOutput);
   Basic.Inductor L(L=18) annotation (extent=[-100, 25; -50, 75], rotation=-90);
   Basic.Resistor Ro(R=12.5e-3) annotation (extent=[-100, -30; -50, 20],
       rotation=-90);

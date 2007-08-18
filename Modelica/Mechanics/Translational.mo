@@ -69,7 +69,9 @@ the two other examples).
     Diagram(
           Text(extent=[-100, 80; -82, 60], string="1)"),
           Text(extent=[-100, 40; -82, 20], string="2)"),
-          Text(extent=[-100, -20; -82, -40], string="3)")));
+          Text(extent=[-100, -20; -82, -40], string="3)")), 
+        experiment, 
+        experimentSetupOutput);
       Translational.SlidingMass SlidingMass1(L=1) annotation (extent=[36, 60;
             56, 80]);
       Translational.Force Force1 annotation (extent=[-4, 60; 16, 80]);
@@ -156,7 +158,9 @@ combination). In this case the system is not at rest.
 <li><i>First Version from December 10, 1999 by P. Beater </i> </li>
 <li><i>Parameters and documentation modified, July 17, 2001 by P. Beater </i> </li>
 </ul>
-</html>"));
+</html>"), 
+        experiment, 
+        experimentSetupOutput);
       Translational.SlidingMass M3(L=3, s(start=4.5)) annotation (extent=[-20,
             60; 0, 80]);
       Translational.Spring S2(s_rel0=2, c=1e3) annotation (extent=[-60, 60; -40,
@@ -239,7 +243,9 @@ problems.
           Text(extent=[-84, 4; 88, -16], string=
                 "PositionSensor3.s <> PositionSensor1.s"),
           Text(extent=[-82, -80; 94, -92], string="Both systems are equivalent"),
-          Line(points=[-90, -28; 90, -28], style(thickness=2))));
+          Line(points=[-90, -28; 90, -28], style(thickness=2))), 
+        experiment, 
+        experimentSetupOutput);
       Translational.Fixed Fixed1 annotation (extent=[-20, 20; 0, 40]);
       Translational.Rod Rod1(L=1) annotation (extent=[-48, 20; -28, 40]);
       Translational.Rod Rod2(L=1) annotation (extent=[20, 20; 40, 40]);
@@ -299,7 +305,9 @@ problems.
             -20, 30; 40, 30], style(color=58));
       annotation (Documentation(info="<html>
   
-</html>"), Diagram);
+</html>"), Diagram, 
+        experiment, 
+        experimentSetupOutput);
       connect(Constant1.y, Accelerate1.a) annotation (points=[-79,30; -42,30],
           style(color=74, rgbcolor={0,0,127}));
     end Accelerate;
@@ -317,7 +325,9 @@ Release notes:
 --------------
 2001 - 7  - 14: Damping parameters increased (from 1 to 25)
 </pre>
-</html>"));
+</html>"), 
+        experiment, 
+        experimentSetupOutput);
       Translational.SlidingMass SlidingMass1(
         L=1,
         v(start=10),
@@ -405,7 +415,9 @@ If damping is added the amplitudes are bounded.
 </ul>
 
 </html>"),
-        Diagram);
+        Diagram, 
+        experiment, 
+        experimentSetupOutput);
       Translational.SlidingMass SlidingMass1(
         L=1,
         s(start=-0.5),
@@ -495,7 +507,9 @@ to see the difference.
 </ul>
 
 </html>"),
-        Diagram);
+        Diagram, 
+        experiment, 
+        experimentSetupOutput);
       Translational.Sensors.ForceSensor ForceSensor1 annotation (extent=[-20,
             40; 0, 60]);
       Translational.Sensors.SpeedSensor SpeedSensor1 annotation (extent=[20, -
@@ -565,7 +579,9 @@ to see the difference.
 <li><i>First Version from December 10, 1999 by P. Beater </i> </li>
 </ul>
 
-</html>"));
+</html>"), 
+        experiment, 
+        experimentSetupOutput);
       Translational.Stop Stop1(L=1) annotation (extent=[60, 60; 80, 80]);
       Translational.Force Force1 annotation (extent=[18, 60; 38, 80]);
       Sources.Sine Sine1(amplitude=25, freqHz=0.25) annotation (extent=[-20,
@@ -656,7 +672,9 @@ Spool position s as a function of working force f.
 <li><i>Ocotber 5, 2002, object diagram and parameters changed, by P. Beater </i> </li>
 </ul>
 
-</html>"));
+</html>"), 
+        experiment, 
+        experimentSetupOutput);
       Translational.ElastoGap InnerContactA(
         s_rel0=1e-3,
         c=1000e3,

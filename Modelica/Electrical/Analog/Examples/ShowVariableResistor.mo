@@ -38,12 +38,12 @@ Simulate until T=1 s.
        </li>
 </ul>
 </html>"),
-  experiment(
-     StopTime=1),
+  experiment,
     Diagram(Text(
         extent=[-100,112; 80,40],
         style(color=3, rgbcolor={0,0,255}),
-        string="Example VariableResistor")));
+        string="Example VariableResistor")),
+    experimentSetupOutput);
   
 annotation(Diagram);
   Modelica.Electrical.Analog.Sources.SineVoltage SineVoltage1 
@@ -70,7 +70,7 @@ equation
       50; -60,50], style(color=3, rgbcolor={0,0,255}));
   connect(SineVoltage1.n, R4.p)      annotation(points=[-90,-20; -90,-10; -60,
         -10],                 style(color=3, rgbcolor={0,0,255}));
-  connect(Ramp1.y, VariableResistor.R)           annotation(points=[-10,9; -10,
-        4.5; -10,1; -10,1],            style(color=3, rgbcolor={0,0,
+  connect(Ramp1.y, VariableResistor.R)           annotation(points=[-10,9;
+        -10,4.5; -10,1; -10,1],        style(color=3, rgbcolor={0,0,
         255}));
 end ShowVariableResistor;
