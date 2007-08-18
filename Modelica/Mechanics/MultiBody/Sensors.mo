@@ -1209,31 +1209,31 @@ coordinate system.
 <h4>Content</h4>
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><th><b><i>Model</i></b></th><th><b><i>Description</i></b></th></tr>
-  <tr><td><b><a href=\"Modelica://Modelica.Mechanics.MultiBody.Sensors.AbsoluteSensor\">AbsoluteSensor</a></b></td>
+  <tr><td><a href=\"Modelica://Modelica.Mechanics.MultiBody.Sensors.AbsoluteSensor\">AbsoluteSensor</a></td>
       <td> Measure absolute kinematic quantities of a frame connector<br>
        <img src=\"../Images/MultiBody/Sensors/AbsoluteSensor.png\"></td>
   </tr>
-  <tr><td><b><a href=\"Modelica://Modelica.Mechanics.MultiBody.Sensors.RelativeSensor\">RelativeSensor</a></b></td>
+  <tr><td><a href=\"Modelica://Modelica.Mechanics.MultiBody.Sensors.RelativeSensor\">RelativeSensor</a></td>
       <td> Measure relative kinematic quantities between two frame connectors<br>
        <img src=\"../Images/MultiBody/Sensors/RelativeSensor.png\"></td> </td>
   </tr>
-  <tr><td><b><a href=\"Modelica://Modelica.Mechanics.MultiBody.Sensors.Distance\">Distance</a></b></td>
+  <tr><td><a href=\"Modelica://Modelica.Mechanics.MultiBody.Sensors.Distance\">Distance</a></td>
       <td> Measure distance between the origins of two frame connectors <br>
        <img src=\"../Images/MultiBody/Sensors/Distance.png\"></td></td>
   </tr>
-  <tr><td><b><a href=\"Modelica://Modelica.Mechanics.MultiBody.Sensors.CutForce\">CutForce</a></b></td>
+  <tr><td><a href=\"Modelica://Modelica.Mechanics.MultiBody.Sensors.CutForce\">CutForce</a></td>
       <td> Measure cut force vector <br>
        <img src=\"../Images/MultiBody/Sensors/CutForce.png\"></td></td>
   </tr>
-  <tr><td><b><a href=\"Modelica://Modelica.Mechanics.MultiBody.Sensors.CutTorque\">CutTorque</a></b></td>
+  <tr><td><a href=\"Modelica://Modelica.Mechanics.MultiBody.Sensors.CutTorque\">CutTorque</a></td>
       <td> Measure cut torque vector <br>
        <img src=\"../Images/MultiBody/Sensors/CutTorque.png\"></td></td>
   </tr>
-  <tr><td><b><a href=\"Modelica://Modelica.Mechanics.MultiBody.Sensors.CutForceAndTorque\">CutForceAndTorque</a></b></td>
+  <tr><td><a href=\"Modelica://Modelica.Mechanics.MultiBody.Sensors.CutForceAndTorque\">CutForceAndTorque</a></td>
       <td> Measure cut force and cut torque vector <br>
        <img src=\"../Images/MultiBody/Sensors/CutForceAndTorque.png\"></td></td>
   </tr>
-  <tr><td><b><a href=\"Modelica://Modelica.Mechanics.MultiBody.Sensors.Power\">Power</a></b></td>
+  <tr><td><a href=\"Modelica://Modelica.Mechanics.MultiBody.Sensors.Power\">Power</a></td>
       <td> Measure power flowing from frame_a to frame_b</td>
   </tr>
 </table>

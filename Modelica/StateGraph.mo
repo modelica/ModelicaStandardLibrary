@@ -118,7 +118,7 @@ and the accompanying <b>disclaimer</b>
           rgbfillColor={0,0,0})),
       Rectangle(extent=[26,-22; 64,-56],  style(color=0, rgbcolor={0,0,0}))));
   
-class UsersGuide "User's Guide of StateGraph Library" 
+package UsersGuide "User's Guide of StateGraph Library" 
     
   annotation (DocumentationClass=true, Documentation(info="<html>
 <p>

@@ -197,14 +197,18 @@ models for the following gases are provided:
   package Ag "Ideal gas \"Ag\" from NASA Glenn coefficients" 
     extends Common.SingleGasNasa(data=Common.SingleGasesData.Ag);
     annotation (preferedView="info", Documentation(info="<HTML>
+<table border=0><tr><td>
 <IMG SRC=\"../Images/Media/IdealGases/SingleGases/Ag.png\">
+</td></tr></table>
 </HTML>"));
   end Ag;
   
   package Agplus "Ideal gas \"Ag+\" from NASA Glenn coefficients" 
     extends Common.SingleGasNasa(data=Common.SingleGasesData.Agplus);
     annotation (preferedView="info", Documentation(info="<HTML>
-      <IMG SRC=\"../Images/Media/IdealGases/SingleGases/Agplus.png\"></HTML>"));
+<table border=0><tr><td>
+<IMG SRC=\"../Images/Media/IdealGases/SingleGases/Agplus.png\"></HTML>
+</td></tr></table>"));
   end Agplus;
   
   package Agminus "Ideal gas \"Ag-\" from NASA Glenn coefficients" 

@@ -2,6 +2,7 @@ within Modelica;
 package Utilities "Library of utility functions dedicated to scripting (operating on files, streams, strings, system)"
   extends Modelica.Icons.Library;
 
+
     annotation (
   version="1.0",
   versionDate="2004-10-01",
@@ -52,7 +53,8 @@ and the accompanying <b>disclaimer</b>
 </html>
 "));
 
-class UsersGuide "User's Guide of Utilities Library" 
+
+package UsersGuide "User's Guide of Utilities Library" 
   
   annotation (DocumentationClass=true, Documentation(info="<HTML>
 <p>
@@ -209,7 +211,6 @@ First version implemented.
   
 end UsersGuide;
 
-protected
 
 package Internal "Internal package as interface to the operating system" 
  extends Modelica.Icons.Library;

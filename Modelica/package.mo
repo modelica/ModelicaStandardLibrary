@@ -573,7 +573,7 @@ is emulated in the following way:
 "));
   end Conventions;
   
-  class ReleaseNotes "Release notes" 
+  package ReleaseNotes "Release notes" 
     
     annotation (Documentation(info="<html>
 
