@@ -1,4 +1,3 @@
-within Modelica.Media;
 package Air "Medium models for air" 
   
   package SimpleAir "Air: Simple dry air model (0..100 degC)" 
@@ -747,7 +746,7 @@ Specific internal energy is determined from pressure p, temperature T and compos
     input SI.MassFraction X[:] "Mass fractions of moist air";
     input Real dp(unit="Pa/s") "Pressure derivative";
     input Real dT(unit="K/s") "Temperature derivative";
-    input Real dX[:] "Mass fraction derivatives";
+    input Real dX[:](each unit="1/s") "Mass fraction derivatives";
     output Real u_der(unit="J/(kg.s)") "Specific internal energy derivative";
     protected 
     SI.AbsolutePressure p_steam_sat "Partial saturation pressure of steam";
@@ -759,11 +758,13 @@ Specific internal energy is determined from pressure p, temperature T and compos
       
     SI.MassFraction x_sat 
         "Absolute humidity per unit mass of dry air at saturation";
-    Real dX_steam "Time deriveative of steam mass fraction";
-    Real dX_air "Time derivative of dry air mass fraction";
-    Real dX_liq "Time derivative of liquid/solid water mass fraction";
+    Real dX_steam(unit="1/s") "Time deriveative of steam mass fraction";
+    Real dX_air(unit="1/s") "Time derivative of dry air mass fraction";
+    Real dX_liq(unit="1/s") 
+        "Time derivative of liquid/solid water mass fraction";
     Real dps(unit="Pa/s") "Time derivative of saturation pressure";
-    Real dx_sat "Time derivative of abolute humidity per unit mass of dry air";
+    Real dx_sat(unit="1/s") 
+        "Time derivative of abolute humidity per unit mass of dry air";
     Real dR_gas(unit="J/(kg.K.s)") "Time derivative of ideal gas constant";
   algorithm 
     p_steam_sat :=saturationPressure(T);
@@ -790,6 +791,7 @@ Specific internal energy is determined from pressure p, temperature T and compos
       annotation (Documentation(info="<html>
 Derivative function for <a href=Modelica:Modelica.Media.Air.MoistAir.specificInternalEnergy_pTX>specificInternalEnergy_pTX</a>.
 </html>"));
+  equation 
       
   end specificInternalEnergy_pTX_der;
     
