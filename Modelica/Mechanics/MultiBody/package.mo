@@ -607,35 +607,35 @@ or Joint RPP) will be added in one of the next releases.
         <td colspan=\"2\"> <b>3-dimensional Loops:</b></td>
       </tr>
       <tr>
-        <td>JointSSR</td>
-        <td>Spherical - Spherical - Revolute</td>
+        <td valign=\"top\">JointSSR</td>
+        <td valign=\"top\">Spherical - Spherical - Revolute</td>
       </tr>
       <tr>
-        <td>JointSSP</td>
-        <td>Spherical - Spherical - Prismatic</td>
+        <td valign=\"top\">JointSSP</td>
+        <td valign=\"top\">Spherical - Spherical - Prismatic</td>
       </tr>
       <tr>
-        <td>JointUSR</td>
-        <td>Universal - Spherical - Revolute</td>
+        <td valign=\"top\">JointUSR</td>
+        <td valign=\"top\">Universal - Spherical - Revolute</td>
       </tr>
       <tr>
-        <td>JointUSP</td>
-        <td>Universal - Spherical - Prismatic</td>
+        <td valign=\"top\">JointUSP</td>
+        <td valign=\"top\">Universal - Spherical - Prismatic</td>
       </tr>
       <tr>
-        <td>JointUPS</td>
-        <td>Universal - Prismatic - Spherical</td>
+        <td valign=\"top\">JointUPS</td>
+        <td valign=\"top\">Universal - Prismatic - Spherical</td>
       </tr>
       <tr>
         <td colspan=\"2\"><b>Planar Loops:</b></td>
       </tr>
       <tr>
-        <td>JointRRR</td>
-        <td>Revolute - Revolute - Revolute</td>
+        <td valign=\"top\">JointRRR</td>
+        <td valign=\"top\">Revolute - Revolute - Revolute</td>
       </tr>
       <tr>
-        <td>JointRRP</td>
-        <td>Revolute - Revolute - Prismatic</td>
+        <td valign=\"top\">JointRRP</td>
+        <td valign=\"top\">Revolute - Revolute - Prismatic</td>
       </tr>
 </table>
 </div>
@@ -824,36 +824,36 @@ functions from library Modelica.Mechanics.MultiBody.Frames):
            Interfaces.Frame_a</b></th>
     <th><b>MultiBody.Interfaces.Frame_a</b></th></tr>
 <tr>
-  <td>frame_a.<b>r0</b></td>
-  <td>= frame_a.r_0 (is converted)</td>
+  <td valign=\"top\">frame_a.<b>r0</b></td>
+  <td valign=\"top\">= frame_a.r_0 (is converted)</td>
 </tr>
 <tr>
-  <td>frame_a.<b>S</b></td>
-  <td>= transpose(frame_a.R)</td>
+  <td valign=\"top\">frame_a.<b>S</b></td>
+  <td valign=\"top\">= transpose(frame_a.R)</td>
 </tr>
 <tr>
-  <td>frame_a.<b>v</b></td>
-  <td>= resolve2(frame_a.R, <b>der</b>(frame_a.r_0))</td>
+  <td valign=\"top\">frame_a.<b>v</b></td>
+  <td valign=\"top\">= resolve2(frame_a.R, <b>der</b>(frame_a.r_0))</td>
 </tr>
 <tr>
-  <td>frame_a.<b>w</b></td>
-  <td>= angularVelocity2(frame_a.R)</td>
+  <td valign=\"top\">frame_a.<b>w</b></td>
+  <td valign=\"top\">= angularVelocity2(frame_a.R)</td>
 </tr>
 <tr>
-  <td>frame_a.<b>a</b></td>
-  <td>= resolve2(frame_a.R, <b>der</b>(v_0)); v_0 = der(r_0)</td>
+  <td valign=\"top\">frame_a.<b>a</b></td>
+  <td valign=\"top\">= resolve2(frame_a.R, <b>der</b>(v_0)); v_0 = der(r_0)</td>
 </tr>
 <tr>
-  <td>frame_a.<b>z</b></td>
-  <td>= <b>der</b>(w);  w = angulaVelocity2(frame_a.R)</td>
+  <td valign=\"top\">frame_a.<b>z</b></td>
+  <td valign=\"top\">= <b>der</b>(w);  w = angulaVelocity2(frame_a.R)</td>
 </tr>
 <tr>
-  <td>frame_a.<b>f</b></td>
-  <td>= frame_a.f (no conversion needed)</td>
+  <td valign=\"top\">frame_a.<b>f</b></td>
+  <td valign=\"top\">= frame_a.f (no conversion needed)</td>
 </tr>
 <tr>
-  <td>frame_a.<b>t</b></td>
-  <td>= frame_a.t (no conversion needed)</td>
+  <td valign=\"top\">frame_a.<b>t</b></td>
+  <td valign=\"top\">= frame_a.t (no conversion needed)</td>
 </tr>
 </table>
 <p>

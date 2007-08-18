@@ -25,29 +25,29 @@ In the table below an example call to every function is given:
 </p>
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><th><b><i>Function/type</i></b></th><th><b><i>Description</i></b></th></tr>
-  <tr><td><a href=\"Modelica:Modelica.Utilities.Streams.print\">print</a>(string)<br>
+  <tr><td valign=\"top\"><a href=\"Modelica:Modelica.Utilities.Streams.print\">print</a>(string)<br>
           <a href=\"Modelica:Modelica.Utilities.Streams.print\">print</a>(string,fileName)</td>
-      <td> Print string \"string\" or vector of strings to message window or on
+      <td valign=\"top\"> Print string \"string\" or vector of strings to message window or on
            file \"fileName\".</td>
   </tr>
-  <tr><td>stringVector = 
+  <tr><td valign=\"top\">stringVector = 
          <a href=\"Modelica:Modelica.Utilities.Streams.readFile\">readFile</a>(fileName)</td>
-      <td> Read complete text file and return it as a vector of strings.</td>
+      <td valign=\"top\"> Read complete text file and return it as a vector of strings.</td>
   </tr>
-  <tr><td>(string, endOfFile) = 
+  <tr><td valign=\"top\">(string, endOfFile) = 
          <a href=\"Modelica:Modelica.Utilities.Streams.readLine\">readLine</a>(fileName, lineNumber)</td>
-      <td>Returns from the file the content of line lineNumber.</td>
+      <td valign=\"top\">Returns from the file the content of line lineNumber.</td>
   </tr>
-  <tr><td>lines = 
+  <tr><td valign=\"top\">lines = 
          <a href=\"Modelica:Modelica.Utilities.Streams.countLines\">countLines</a>(fileName)</td>
-      <td>Returns the number of lines in a file.</td>
+      <td valign=\"top\">Returns the number of lines in a file.</td>
   </tr>
-  <tr><td><a href=\"Modelica:Modelica.Utilities.Streams.error\">error</a>(string)</td>
-      <td> Print error message \"string\" to message window
+  <tr><td valign=\"top\"><a href=\"Modelica:Modelica.Utilities.Streams.error\">error</a>(string)</td>
+      <td valign=\"top\"> Print error message \"string\" to message window
            and cancel all actions</td>
   </tr>
-  <tr><td><a href=\"Modelica:Modelica.Utilities.Streams.close\">close</a>(fileName)</td>
-      <td> Close file if it is still open. Ignore call if
+  <tr><td valign=\"top\"><a href=\"Modelica:Modelica.Utilities.Streams.close\">close</a>(fileName)</td>
+      <td valign=\"top\"> Close file if it is still open. Ignore call if
            file is already closed or does not exist. </td>
   </tr>
 </table>

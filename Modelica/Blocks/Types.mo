@@ -41,19 +41,19 @@ Type of extrapolation in a table.
 </p>
  
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td><b>choice</b></td>
-      <td><b>Meaning of choice</b></td>
+  <tr><td valign=\"top\"><b>choice</b></td>
+      <td valign=\"top\"><b>Meaning of choice</b></td>
   </tr>
  
-  <tr><td>HoldLastPoint</td>
-      <td>Hold the last table point outside of the table scope</td>
+  <tr><td valign=\"top\">HoldLastPoint</td>
+      <td valign=\"top\">Hold the last table point outside of the table scope</td>
   </tr>
-  <tr><td>LastTwoPoints</td>
-      <td>Extrapolate linearly through the last two table points
+  <tr><td valign=\"top\">LastTwoPoints</td>
+      <td valign=\"top\">Extrapolate linearly through the last two table points
           outside of the table scope</td>
   </tr>
-  <tr><td>Periodic</td>
-      <td>Repeat the table scope periodically</td>
+  <tr><td valign=\"top\">Periodic</td>
+      <td valign=\"top\">Repeat the table scope periodically</td>
   </tr>
 </table>
 </html>"));
@@ -191,15 +191,15 @@ Smoothness of interpolation in a table.
 </p>
  
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td><b>choice</b></td>
-      <td><b>Meaning of choice</b></td>
+  <tr><td valign=\"top\"><b>choice</b></td>
+      <td valign=\"top\"><b>Meaning of choice</b></td>
   </tr>
  
-  <tr><td>LinearSegments</td>
-      <td>Table points are linearly interpolated</td>
+  <tr><td valign=\"top\">LinearSegments</td>
+      <td valign=\"top\">Table points are linearly interpolated</td>
   </tr>
-  <tr><td>ContinuousDerivative</td>
-      <td>Table points are interpolated such that the
+  <tr><td valign=\"top\">ContinuousDerivative</td>
+      <td valign=\"top\">Table points are interpolated such that the
           first derivative is continuous</td>
   </tr>
 </table>

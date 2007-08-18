@@ -200,11 +200,11 @@ which are defined in sublibrary Interfaces:
 </p>
 <table BORDER=1 CELLSPACING=0 CELLPADDING=2>
 <tr><th>Name</th><th>Description</th></tr>
-<tr><td><tt><b>Rigid</b></tt></td><td>Rigid connection of two rotational 1D flanges (used for elements with inertia).</td></tr>
-<tr><td><tt><b>Compliant</b></tt></td><td>Compliant connection of two rotational 1D flanges (used for force laws such as a spring or a damper).</td></tr>
-<tr><td><tt><b>TwoFlanges</b></tt></td><td>General connection of two rotational 1D flanges (used for gearboxes).</td></tr>
-<tr><td><tt><b>AbsoluteSensor</b></tt></td><td>Measure absolute flange variables.</td></tr>
-<tr><td><tt><b>RelativeSensor</b></tt></td><td>Measure relative flange variables.</td></tr>
+<tr><td valign=\"top\"><tt><b>Rigid</b></tt></td><td valign=\"top\">Rigid connection of two rotational 1D flanges (used for elements with inertia).</td></tr>
+<tr><td valign=\"top\"><tt><b>Compliant</b></tt></td><td valign=\"top\">Compliant connection of two rotational 1D flanges (used for force laws such as a spring or a damper).</td></tr>
+<tr><td valign=\"top\"><tt><b>TwoFlanges</b></tt></td><td valign=\"top\">General connection of two rotational 1D flanges (used for gearboxes).</td></tr>
+<tr><td valign=\"top\"><tt><b>AbsoluteSensor</b></tt></td><td valign=\"top\">Measure absolute flange variables.</td></tr>
+<tr><td valign=\"top\"><tt><b>RelativeSensor</b></tt></td><td valign=\"top\">Measure relative flange variables.</td></tr>
 </table>
 <p>
 The difference between these base classes are the auxiliary
@@ -3931,11 +3931,11 @@ meaning:</p>
 <p><table BORDER=1 CELLSPACING=0 CELLPADDING=2>
   <tbody>
     <tr>
-      <td>|w_a|</td>
-      <td>eta_mf1</td>
-      <td>eta_mf2</td>
-      <td>|tau_bf1|</td>
-      <td>|tau_bf2|</td>
+      <td valign=\"top\">|w_a|</td>
+      <td valign=\"top\">eta_mf1</td>
+      <td valign=\"top\">eta_mf2</td>
+      <td valign=\"top\">|tau_bf1|</td>
+      <td valign=\"top\">|tau_bf2|</td>
     </tr>
     <tr>
       <td align=\"center\">...</td>
@@ -3957,24 +3957,24 @@ meaning:</p>
 <p><table BORDER=1 CELLSPACING=0 CELLPADDING=2>
   <tbody>
     <tr>
-      <td>|w_a|</td>
-      <td>Absolute value of angular velocity of input shaft flange_a</td>
+      <td valign=\"top\">|w_a|</td>
+      <td valign=\"top\">Absolute value of angular velocity of input shaft flange_a</td>
     </tr>
     <tr>
-      <td>eta_mf1</td>
-      <td>Mesh efficiency in case of input shaft driving</td>
+      <td valign=\"top\">eta_mf1</td>
+      <td valign=\"top\">Mesh efficiency in case of input shaft driving</td>
     </tr>
     <tr>
-      <td>eta_mf2</td>
-      <td>Mesh efficiency in case of output shaft driving</td>
+      <td valign=\"top\">eta_mf2</td>
+      <td valign=\"top\">Mesh efficiency in case of output shaft driving</td>
     </tr>
     <tr>
-      <td>|tau_bf1|</td>
-      <td>Absolute bearing friction torque in case of input shaft driving</td>
+      <td valign=\"top\">|tau_bf1|</td>
+      <td valign=\"top\">Absolute bearing friction torque in case of input shaft driving</td>
     </tr>
     <tr>
-      <td>|tau_bf2|</td>
-      <td>Absolute bearing friction torque in case of output shaft driving</td>
+      <td valign=\"top\">|tau_bf2|</td>
+      <td valign=\"top\">Absolute bearing friction torque in case of output shaft driving</td>
     </tr>
   </tbody>
 </table></p>

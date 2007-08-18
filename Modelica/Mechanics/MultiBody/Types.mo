@@ -145,29 +145,29 @@ variable <b>extra</b> is used as instance name:
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><b>shapeType</b></th><th>Meaning of variable <b>extra</b></th></tr>
 <tr>
-  <td>\"cylinder\"</td>
-  <td>if extra &gt; 0, a black line is included in the
+  <td valign=\"top\">\"cylinder\"</td>
+  <td valign=\"top\">if extra &gt; 0, a black line is included in the
       cylinder to show the rotation of it.</td>
 </tr>
 <tr>
-  <td>\"cone\"</td>
-  <td>extra = diameter-left-side / diameter-right-side, i.e.,<br>
+  <td valign=\"top\">\"cone\"</td>
+  <td valign=\"top\">extra = diameter-left-side / diameter-right-side, i.e.,<br>
       extra = 1: cylinder<br>
       extra = 0: \"real\" cone.</td>
 </tr>
 <tr>
-  <td>\"pipe\"</td>
-  <td>extra = outer-diameter / inner-diameter, i.e, <br>
+  <td valign=\"top\">\"pipe\"</td>
+  <td valign=\"top\">extra = outer-diameter / inner-diameter, i.e, <br>
       extra = 1: cylinder that is completely hollow<br>
       extra = 0: cylinder without a hole.</td>
 </tr>
 <tr>
-  <td>\"gearwheel\"</td>
-  <td>extra is the number of teeth of the gear.</td>
+  <td valign=\"top\">\"gearwheel\"</td>
+  <td valign=\"top\">extra is the number of teeth of the gear.</td>
 </tr>
 <tr>
-  <td>\"spring\"</td>
-  <td>extra is the number of windings of the spring.
+  <td valign=\"top\">\"spring\"</td>
+  <td valign=\"top\">extra is the number of windings of the spring.
       Additionally, \"height\" is <b>not</b> the \"height\" but
       2*coil-width.</td>
 </tr>
@@ -205,15 +205,15 @@ variable <b>extra</b> is used as instance name:
         Documentation(info="<html>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><b>Types.RotationTypes.</b></th><th><b>Meaning</b></th></tr>
-<tr><td>RotationAxis</td>
-    <td>frame_b is defined by rotating the coordinate system along
+<tr><td valign=\"top\">RotationAxis</td>
+    <td valign=\"top\">frame_b is defined by rotating the coordinate system along
         an axis fixed in frame_a and with a fixed angle.</td></tr>
  
-<tr><td>TwoAxesVectors</td>
-    <td>frame_b is defined by resolving two vectors of frame_b in frame_a.</td></tr>
+<tr><td valign=\"top\">TwoAxesVectors</td>
+    <td valign=\"top\">frame_b is defined by resolving two vectors of frame_b in frame_a.</td></tr>
  
-<tr><td>PlanarRotationSequence</td>
-    <td>frame_b is defined by rotating the coordinate system along
+<tr><td valign=\"top\">PlanarRotationSequence</td>
+    <td valign=\"top\">frame_b is defined by rotating the coordinate system along
         3 consecutive axes vectors with fixed rotation angles
         (e.g. Cardan or Euler angle sequence rotation).</td></tr>
 </table>
@@ -246,14 +246,14 @@ variable <b>extra</b> is used as instance name:
             "point gravity"), Documentation(info="<html>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><b>Types.GravityTypes.</b></th><th><b>Meaning</b></th></tr>
-<tr><td>NoGravity</td>
-    <td>No gravity field</td></tr>
+<tr><td valign=\"top\">NoGravity</td>
+    <td valign=\"top\">No gravity field</td></tr>
  
-<tr><td>UniformGravity</td>
-    <td>Gravity field is described by a vector of constant gravity acceleration</td></tr>
+<tr><td valign=\"top\">UniformGravity</td>
+    <td valign=\"top\">Gravity field is described by a vector of constant gravity acceleration</td></tr>
  
-<tr><td>PointGravity</td>
-    <td>Central gravity field. The gravity acceleration vector is directed to
+<tr><td valign=\"top\">PointGravity</td>
+    <td valign=\"top\">Central gravity field. The gravity acceleration vector is directed to
         the field center and the gravity is proportional to 1/r^2, where
         r is the distance to the field center.</td></tr>
 </table>
@@ -301,26 +301,26 @@ variable <b>extra</b> is used as instance name:
   
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><b>Types.Init.</b></th><th><b>Meaning</b></th></tr>
-<tr><td>Free</td>
-    <td>No initialization</td></tr>
+<tr><td valign=\"top\">Free</td>
+    <td valign=\"top\">No initialization</td></tr>
  
-<tr><td>PositionVelocity</td>
-    <td>Initialize generalized position and velocity variables</td></tr>
+<tr><td valign=\"top\">PositionVelocity</td>
+    <td valign=\"top\">Initialize generalized position and velocity variables</td></tr>
  
-<tr><td>SteadyState</td>
-    <td>Initialize in steady state (velocity and acceleration are zero)</td></tr>
+<tr><td valign=\"top\">SteadyState</td>
+    <td valign=\"top\">Initialize in steady state (velocity and acceleration are zero)</td></tr>
  
-<tr><td>Position </td>
-    <td>Initialize only generalized position variable(s)</td></tr>
+<tr><td valign=\"top\">Position </td>
+    <td valign=\"top\">Initialize only generalized position variable(s)</td></tr>
  
-<tr><td>Velocity</td>
-    <td>Initialize only generalized velocity variable(s)</td></tr>
+<tr><td valign=\"top\">Velocity</td>
+    <td valign=\"top\">Initialize only generalized velocity variable(s)</td></tr>
  
-<tr><td>VelocityAcceleration</td>
-    <td>Initialize generalized velocity and acceleration variables</td></tr>
+<tr><td valign=\"top\">VelocityAcceleration</td>
+    <td valign=\"top\">Initialize generalized velocity and acceleration variables</td></tr>
  
-<tr><td>PositionVelocityAcceleration</td>
-    <td>Initialize generalized position, velocity and acceleration variables</td></tr>
+<tr><td valign=\"top\">PositionVelocityAcceleration</td>
+    <td valign=\"top\">Initialize generalized position, velocity and acceleration variables</td></tr>
  
 </table>
  

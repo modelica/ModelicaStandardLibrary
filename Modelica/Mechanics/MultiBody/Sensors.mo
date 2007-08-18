@@ -176,21 +176,21 @@ Exact definition of the returned quantities:
       <th><b><i>resolveInFrame_a =</i></b></th>
       <th><b><i>vector is resolved in</i></b></th>
   </tr>
-  <tr><td>connected</td>
-      <td>true</td>
-      <td><b>frame_resolve</b></td>
+  <tr><td valign=\"top\">connected</td>
+      <td valign=\"top\">true</td>
+      <td valign=\"top\"><b>frame_resolve</b></td>
   </tr>
-  <tr><td>connected</td>
-      <td>false</td>
-      <td><b>frame_resolve</b></td>
+  <tr><td valign=\"top\">connected</td>
+      <td valign=\"top\">false</td>
+      <td valign=\"top\"><b>frame_resolve</b></td>
   </tr>
-  <tr><td>not connected</td>
-      <td>true</td>
-      <td><b>frame_a</b></td>
+  <tr><td valign=\"top\">not connected</td>
+      <td valign=\"top\">true</td>
+      <td valign=\"top\"><b>frame_a</b></td>
   </tr>
-  <tr><td>not connected</td>
-      <td>false</td>
-      <td><b>world frame</b></td>
+  <tr><td valign=\"top\">not connected</td>
+      <td valign=\"top\">false</td>
+      <td valign=\"top\"><b>world frame</b></td>
   </tr>
 </table><br>
 </HTML>
@@ -602,21 +602,21 @@ and resolved in the following frame
       <th><b><i>resolveInFrame_a =</i></b></th>
       <th><b><i>vector is resolved in</i></b></th>
   </tr>
-  <tr><td>connected</td>
-      <td>true</td>
-      <td><b>frame_resolve</b></td>
+  <tr><td valign=\"top\">connected</td>
+      <td valign=\"top\">true</td>
+      <td valign=\"top\"><b>frame_resolve</b></td>
   </tr>
-  <tr><td>connected</td>
-      <td>false</td>
-      <td><b>frame_resolve</b></td>
+  <tr><td valign=\"top\">connected</td>
+      <td valign=\"top\">false</td>
+      <td valign=\"top\"><b>frame_resolve</b></td>
   </tr>
-  <tr><td>not connected</td>
-      <td>true</td>
-      <td><b>frame_a</b></td>
+  <tr><td valign=\"top\">not connected</td>
+      <td valign=\"top\">true</td>
+      <td valign=\"top\"><b>frame_a</b></td>
   </tr>
-  <tr><td>not connected</td>
-      <td>false</td>
-      <td><b>frame_b</b></td>
+  <tr><td valign=\"top\">not connected</td>
+      <td valign=\"top\">false</td>
+      <td valign=\"top\"><b>frame_b</b></td>
   </tr>
 </table><br>
 </HTML>"));
@@ -1209,32 +1209,32 @@ coordinate system.
 <h4>Content</h4>
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><th><b><i>Model</i></b></th><th><b><i>Description</i></b></th></tr>
-  <tr><td><a href=\"Modelica://Modelica.Mechanics.MultiBody.Sensors.AbsoluteSensor\">AbsoluteSensor</a></td>
-      <td> Measure absolute kinematic quantities of a frame connector<br>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Sensors.AbsoluteSensor\">AbsoluteSensor</a></td>
+      <td valign=\"top\"> Measure absolute kinematic quantities of a frame connector<br>
        <img src=\"../Images/MultiBody/Sensors/AbsoluteSensor.png\"></td>
   </tr>
-  <tr><td><a href=\"Modelica://Modelica.Mechanics.MultiBody.Sensors.RelativeSensor\">RelativeSensor</a></td>
-      <td> Measure relative kinematic quantities between two frame connectors<br>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Sensors.RelativeSensor\">RelativeSensor</a></td>
+      <td valign=\"top\"> Measure relative kinematic quantities between two frame connectors<br>
        <img src=\"../Images/MultiBody/Sensors/RelativeSensor.png\"></td> </td>
   </tr>
-  <tr><td><a href=\"Modelica://Modelica.Mechanics.MultiBody.Sensors.Distance\">Distance</a></td>
-      <td> Measure distance between the origins of two frame connectors <br>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Sensors.Distance\">Distance</a></td>
+      <td valign=\"top\"> Measure distance between the origins of two frame connectors <br>
        <img src=\"../Images/MultiBody/Sensors/Distance.png\"></td></td>
   </tr>
-  <tr><td><a href=\"Modelica://Modelica.Mechanics.MultiBody.Sensors.CutForce\">CutForce</a></td>
-      <td> Measure cut force vector <br>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Sensors.CutForce\">CutForce</a></td>
+      <td valign=\"top\"> Measure cut force vector <br>
        <img src=\"../Images/MultiBody/Sensors/CutForce.png\"></td></td>
   </tr>
-  <tr><td><a href=\"Modelica://Modelica.Mechanics.MultiBody.Sensors.CutTorque\">CutTorque</a></td>
-      <td> Measure cut torque vector <br>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Sensors.CutTorque\">CutTorque</a></td>
+      <td valign=\"top\"> Measure cut torque vector <br>
        <img src=\"../Images/MultiBody/Sensors/CutTorque.png\"></td></td>
   </tr>
-  <tr><td><a href=\"Modelica://Modelica.Mechanics.MultiBody.Sensors.CutForceAndTorque\">CutForceAndTorque</a></td>
-      <td> Measure cut force and cut torque vector <br>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Sensors.CutForceAndTorque\">CutForceAndTorque</a></td>
+      <td valign=\"top\"> Measure cut force and cut torque vector <br>
        <img src=\"../Images/MultiBody/Sensors/CutForceAndTorque.png\"></td></td>
   </tr>
-  <tr><td><a href=\"Modelica://Modelica.Mechanics.MultiBody.Sensors.Power\">Power</a></td>
-      <td> Measure power flowing from frame_a to frame_b</td>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Sensors.Power\">Power</a></td>
+      <td valign=\"top\"> Measure power flowing from frame_a to frame_b</td>
   </tr>
 </table>
 </HTML>"));

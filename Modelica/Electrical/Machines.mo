@@ -1849,84 +1849,84 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 <br><b>Default values for machine's parameters (a realistic example) are:</b><br>
 <table>
 <tr>
-<td>number of pole pairs p</td>
-<td>2</td><td> </td>
+<td valign=\"top\">number of pole pairs p</td>
+<td valign=\"top\">2</td><td valign=\"top\"> </td>
 </tr>
 <tr>
-<td>stator's moment of inertia</td>
-<td>0.29</td><td>kg.m2</td>
+<td valign=\"top\">stator's moment of inertia</td>
+<td valign=\"top\">0.29</td><td valign=\"top\">kg.m2</td>
 </tr>
 <tr>
-<td>rotor's moment of inertia</td>
-<td>0.29</td><td>kg.m2</td>
+<td valign=\"top\">rotor's moment of inertia</td>
+<td valign=\"top\">0.29</td><td valign=\"top\">kg.m2</td>
 </tr>
 <tr>
-<td>nominal frequency fNominal</td>
-<td>50</td><td>Hz</td>
+<td valign=\"top\">nominal frequency fNominal</td>
+<td valign=\"top\">50</td><td valign=\"top\">Hz</td>
 </tr>
 <tr>
-<td>nominal voltage per phase</td>
-<td>100</td><td>V RMS</td>
+<td valign=\"top\">nominal voltage per phase</td>
+<td valign=\"top\">100</td><td valign=\"top\">V RMS</td>
 </tr>
 <tr>
-<td>nominal current per phase</td>
-<td>100</td><td>A RMS</td>
+<td valign=\"top\">nominal current per phase</td>
+<td valign=\"top\">100</td><td valign=\"top\">A RMS</td>
 </tr>
 <tr>
-<td>nominal torque</td>
-<td>161.4</td><td>Nm</td>
+<td valign=\"top\">nominal torque</td>
+<td valign=\"top\">161.4</td><td valign=\"top\">Nm</td>
 </tr>
 <tr>
-<td>nominal speed</td>
-<td>1440.45</td><td>rpm</td>
+<td valign=\"top\">nominal speed</td>
+<td valign=\"top\">1440.45</td><td valign=\"top\">rpm</td>
 </tr>
 <tr>
-<td>nominal mechanical output</td>
-<td>24.346</td><td>kW</td>
+<td valign=\"top\">nominal mechanical output</td>
+<td valign=\"top\">24.346</td><td valign=\"top\">kW</td>
 </tr>
 <tr>
-<td>efficiency</td>
-<td>92.7</td><td>%</td>
+<td valign=\"top\">efficiency</td>
+<td valign=\"top\">92.7</td><td valign=\"top\">%</td>
 </tr>
 <tr>
-<td>power factor</td>
-<td>0.875</td><td> </td>
+<td valign=\"top\">power factor</td>
+<td valign=\"top\">0.875</td><td valign=\"top\"> </td>
 </tr>
 <tr>
-<td>stator resistance</td>
-<td>0.03</td><td>Ohm per phase in warm condition</td>
+<td valign=\"top\">stator resistance</td>
+<td valign=\"top\">0.03</td><td valign=\"top\">Ohm per phase in warm condition</td>
 </tr>
 <tr>
-<td>rotor resistance</td>
-<td>0.04</td><td>Ohm in warm condition</td>
+<td valign=\"top\">rotor resistance</td>
+<td valign=\"top\">0.04</td><td valign=\"top\">Ohm in warm condition</td>
 </tr>
 <tr>
-<td>stator reactance Xs</td>
-<td>3</td><td>Ohm per phase</td>
+<td valign=\"top\">stator reactance Xs</td>
+<td valign=\"top\">3</td><td valign=\"top\">Ohm per phase</td>
 </tr>
 <tr>
-<td>rotor reactance Xr</td>
-<td>3</td><td>Ohm</td>
+<td valign=\"top\">rotor reactance Xr</td>
+<td valign=\"top\">3</td><td valign=\"top\">Ohm</td>
 </tr>
 <tr>
-<td>total stray coefficient sigma</td>
-<td>0.0667</td><td> </td>
+<td valign=\"top\">total stray coefficient sigma</td>
+<td valign=\"top\">0.0667</td><td valign=\"top\"> </td>
 </tr>
 <tr>
-<td>These values give the following inductances, <br>assuming equal stator and rotor stray inductances:</td>
-<td> </td><td> </td>
+<td valign=\"top\">These values give the following inductances, <br>assuming equal stator and rotor stray inductances:</td>
+<td valign=\"top\"> </td><td valign=\"top\"> </td>
 </tr>
 <tr>
-<td>stator stray inductance per phase</td>
-<td>Xs * (1 - sqrt(1-sigma))/(2*pi*fNominal)</td><td> </td>
+<td valign=\"top\">stator stray inductance per phase</td>
+<td valign=\"top\">Xs * (1 - sqrt(1-sigma))/(2*pi*fNominal)</td><td valign=\"top\"> </td>
 </tr>
 <tr>
-<td>rotor stray inductance</td>
-<td>Xr * (1 - sqrt(1-sigma))/(2*pi*fNominal)</td><td> </td>
+<td valign=\"top\">rotor stray inductance</td>
+<td valign=\"top\">Xr * (1 - sqrt(1-sigma))/(2*pi*fNominal)</td><td valign=\"top\"> </td>
 </tr>
 <tr>
-<td>main field inductance per phase</td>
-<td>sqrt(Xs*Xr * (1-sigma))/(2*pi*fNominal)</td><td> </td>
+<td valign=\"top\">main field inductance per phase</td>
+<td valign=\"top\">sqrt(Xs*Xr * (1-sigma))/(2*pi*fNominal)</td><td valign=\"top\"> </td>
 </tr>
 </table>
 </HTML>"),       Diagram);
@@ -1991,88 +1991,88 @@ Resistance and stray inductance of stator and rotor are modeled directly in stat
 <br><b>Default values for machine's parameters (a realistic example) are:</b><br>
 <table>
 <tr>
-<td>number of pole pairs p</td>
-<td>2</td><td> </td>
+<td valign=\"top\">number of pole pairs p</td>
+<td valign=\"top\">2</td><td valign=\"top\"> </td>
 </tr>
 <tr>
-<td>stator's moment of inertia</td>
-<td>0.29</td><td>kg.m2</td>
+<td valign=\"top\">stator's moment of inertia</td>
+<td valign=\"top\">0.29</td><td valign=\"top\">kg.m2</td>
 </tr>
 <tr>
-<td>rotor's moment of inertia</td>
-<td>0.29</td><td>kg.m2</td>
+<td valign=\"top\">rotor's moment of inertia</td>
+<td valign=\"top\">0.29</td><td valign=\"top\">kg.m2</td>
 </tr>
 <tr>
-<td>nominal frequency fNominal</td>
-<td>50</td><td>Hz</td>
+<td valign=\"top\">nominal frequency fNominal</td>
+<td valign=\"top\">50</td><td valign=\"top\">Hz</td>
 </tr>
 <tr>
-<td>nominal voltage per phase</td>
-<td>100</td><td>V RMS</td>
+<td valign=\"top\">nominal voltage per phase</td>
+<td valign=\"top\">100</td><td valign=\"top\">V RMS</td>
 </tr>
 <tr>
-<td>nominal current per phase</td>
-<td>100</td><td>A RMS</td>
+<td valign=\"top\">nominal current per phase</td>
+<td valign=\"top\">100</td><td valign=\"top\">A RMS</td>
 </tr>
 <tr>
-<td>nominal torque</td>
-<td>161.4</td><td>Nm</td>
+<td valign=\"top\">nominal torque</td>
+<td valign=\"top\">161.4</td><td valign=\"top\">Nm</td>
 </tr>
 <tr>
-<td>nominal speed</td>
-<td>1440.45</td><td>rpm</td>
+<td valign=\"top\">nominal speed</td>
+<td valign=\"top\">1440.45</td><td valign=\"top\">rpm</td>
 </tr>
 <tr>
-<td>nominal mechanical output</td>
-<td>24.346</td><td>kW</td>
+<td valign=\"top\">nominal mechanical output</td>
+<td valign=\"top\">24.346</td><td valign=\"top\">kW</td>
 </tr>
 <tr>
-<td>efficiency</td>
-<td>92.7</td><td>%</td>
+<td valign=\"top\">efficiency</td>
+<td valign=\"top\">92.7</td><td valign=\"top\">%</td>
 </tr>
 <tr>
-<td>power factor</td>
-<td>0.875</td><td> </td>
+<td valign=\"top\">power factor</td>
+<td valign=\"top\">0.875</td><td valign=\"top\"> </td>
 </tr>
 <tr>
-<td>stator resistance</td>
-<td>0.03</td><td>Ohm per phase in warm condition</td>
+<td valign=\"top\">stator resistance</td>
+<td valign=\"top\">0.03</td><td valign=\"top\">Ohm per phase in warm condition</td>
 </tr>
 <tr>
-<td>rotor resistance</td>
-<td>0.04</td><td>Ohm per phase in warm condition</td>
+<td valign=\"top\">rotor resistance</td>
+<td valign=\"top\">0.04</td><td valign=\"top\">Ohm per phase in warm condition</td>
 </tr>
 <tr>
-<td>stator reactance Xs</td>
-<td>3</td><td>Ohm per phase</td>
+<td valign=\"top\">stator reactance Xs</td>
+<td valign=\"top\">3</td><td valign=\"top\">Ohm per phase</td>
 </tr>
 <tr>
-<td>rotor reactance Xr</td>
-<td>3</td><td>Ohm per phase</td>
+<td valign=\"top\">rotor reactance Xr</td>
+<td valign=\"top\">3</td><td valign=\"top\">Ohm per phase</td>
 </tr>
 <tr>
-<td>total stray coefficient sigma</td>
-<td>0.0667</td><td> </td>
+<td valign=\"top\">total stray coefficient sigma</td>
+<td valign=\"top\">0.0667</td><td valign=\"top\"> </td>
 </tr>
 <tr>
-<td>TurnsRatio</td>
-<td>1</td><td>effective ratio of stator and rotor current (ws*xis) / (wr*xir)</td>
+<td valign=\"top\">TurnsRatio</td>
+<td valign=\"top\">1</td><td valign=\"top\">effective ratio of stator and rotor current (ws*xis) / (wr*xir)</td>
 </tr>
 <tr>
-<td>These values give the following inductances:</td>
-<td> </td><td> </td>
+<td valign=\"top\">These values give the following inductances:</td>
+<td valign=\"top\"> </td><td valign=\"top\"> </td>
 </tr>
 <tr>
-<td>stator stray inductance per phase</td>
-<td>Xs * (1 - sqrt(1-sigma))/(2*pi*fNominal)</td><td> </td>
+<td valign=\"top\">stator stray inductance per phase</td>
+<td valign=\"top\">Xs * (1 - sqrt(1-sigma))/(2*pi*fNominal)</td><td valign=\"top\"> </td>
 </tr>
 <tr>
-<td>rotor stray inductance</td>
-<td>Xr * (1 - sqrt(1-sigma))/(2*pi*fNominal)</td><td> </td>
+<td valign=\"top\">rotor stray inductance</td>
+<td valign=\"top\">Xr * (1 - sqrt(1-sigma))/(2*pi*fNominal)</td><td valign=\"top\"> </td>
 </tr>
 <tr>
-<td>main field inductance per phase</td>
-<td>sqrt(Xs*Xr * (1-sigma))/(2*pi*f)</td><td> </td>
+<td valign=\"top\">main field inductance per phase</td>
+<td valign=\"top\">sqrt(Xs*Xr * (1-sigma))/(2*pi*f)</td><td valign=\"top\"> </td>
 </tr>
 </table>
 <p>
@@ -2245,112 +2245,112 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 <br><b>Default values for machine's parameters (a realistic example) are:</b><br>
 <table>
 <tr>
-<td>number of pole pairs p</td>
-<td>2</td><td> </td>
+<td valign=\"top\">number of pole pairs p</td>
+<td valign=\"top\">2</td><td valign=\"top\"> </td>
 </tr>
 <tr>
-<td>stator's moment of inertia</td>
-<td>0.29</td><td>kg.m2</td>
+<td valign=\"top\">stator's moment of inertia</td>
+<td valign=\"top\">0.29</td><td valign=\"top\">kg.m2</td>
 </tr>
 <tr>
-<td>rotor's moment of inertia</td>
-<td>0.29</td><td>kg.m2</td>
+<td valign=\"top\">rotor's moment of inertia</td>
+<td valign=\"top\">0.29</td><td valign=\"top\">kg.m2</td>
 </tr>
 <tr>
-<td>nominal frequency fNominal</td>
-<td>50</td><td>Hz</td>
+<td valign=\"top\">nominal frequency fNominal</td>
+<td valign=\"top\">50</td><td valign=\"top\">Hz</td>
 </tr>
 <tr>
-<td>nominal voltage per phase</td>
-<td>100</td><td>V RMS</td>
+<td valign=\"top\">nominal voltage per phase</td>
+<td valign=\"top\">100</td><td valign=\"top\">V RMS</td>
 </tr>
 <tr>
-<td>no-load voltage per phase</td>
-<td>112.3</td><td>V RMS @ nominal speed</td>
+<td valign=\"top\">no-load voltage per phase</td>
+<td valign=\"top\">112.3</td><td valign=\"top\">V RMS @ nominal speed</td>
 </tr>
 <tr>
-<td>nominal current per phase</td>
-<td>100</td><td>A RMS</td>
+<td valign=\"top\">nominal current per phase</td>
+<td valign=\"top\">100</td><td valign=\"top\">A RMS</td>
 </tr>
 <tr>
-<td>nominal torque</td>
-<td>181.4</td><td>Nm</td>
+<td valign=\"top\">nominal torque</td>
+<td valign=\"top\">181.4</td><td valign=\"top\">Nm</td>
 </tr>
 <tr>
-<td>nominal speed</td>
-<td>1500</td><td>rpm</td>
+<td valign=\"top\">nominal speed</td>
+<td valign=\"top\">1500</td><td valign=\"top\">rpm</td>
 </tr>
 <tr>
-<td>nominal mechanical output</td>
-<td>28.5</td><td>kW</td>
+<td valign=\"top\">nominal mechanical output</td>
+<td valign=\"top\">28.5</td><td valign=\"top\">kW</td>
 </tr>
 <tr>
-<td>nominal rotor angle</td>
-<td>20.75</td><td>degree</td>
+<td valign=\"top\">nominal rotor angle</td>
+<td valign=\"top\">20.75</td><td valign=\"top\">degree</td>
 </tr>
 <tr>
-<td>efficiency</td>
-<td>95.0</td><td>%</td>
+<td valign=\"top\">efficiency</td>
+<td valign=\"top\">95.0</td><td valign=\"top\">%</td>
 </tr>
 <tr>
-<td>power factor</td>
-<td>0.98</td><td> </td>
+<td valign=\"top\">power factor</td>
+<td valign=\"top\">0.98</td><td valign=\"top\"> </td>
 </tr>
 <tr>
-<td>stator resistance</td>
-<td>0.03</td><td>Ohm per phase in warm condition</td>
+<td valign=\"top\">stator resistance</td>
+<td valign=\"top\">0.03</td><td valign=\"top\">Ohm per phase in warm condition</td>
 </tr>
 <tr>
-<td>stator reactance Xd</td>
-<td>0.4</td><td>Ohm per phase in d-axis</td>
+<td valign=\"top\">stator reactance Xd</td>
+<td valign=\"top\">0.4</td><td valign=\"top\">Ohm per phase in d-axis</td>
 </tr>
 <tr>
-<td>stator reactance Xq</td>
-<td>0.4</td><td>Ohm per phase in q-axis</td>
+<td valign=\"top\">stator reactance Xq</td>
+<td valign=\"top\">0.4</td><td valign=\"top\">Ohm per phase in q-axis</td>
 </tr>
 <tr>
-<td>stator stray reactance Xss</td>
-<td>0.1</td><td>Ohm per phase</td>
+<td valign=\"top\">stator stray reactance Xss</td>
+<td valign=\"top\">0.1</td><td valign=\"top\">Ohm per phase</td>
 </tr>
 <tr>
-<td>damper resistance in d-axis</td>
-<td>0.04</td><td>Ohm in warm condition</td>
+<td valign=\"top\">damper resistance in d-axis</td>
+<td valign=\"top\">0.04</td><td valign=\"top\">Ohm in warm condition</td>
 </tr>
 <tr>
-<td>damper resistance in q-axis</td>
-<td>same as d-axis</td><td> </td>
+<td valign=\"top\">damper resistance in q-axis</td>
+<td valign=\"top\">same as d-axis</td><td valign=\"top\"> </td>
 </tr>
 <tr>
-<td>damper stray reactance in d-axis XDds</td>
-<td>0.05</td><td>Ohm</td>
+<td valign=\"top\">damper stray reactance in d-axis XDds</td>
+<td valign=\"top\">0.05</td><td valign=\"top\">Ohm</td>
 </tr>
 <tr>
-<td>damper stray reactance in q-axis XDqs</td>
-<td>same as d-axis</td><td> </td>
+<td valign=\"top\">damper stray reactance in q-axis XDqs</td>
+<td valign=\"top\">same as d-axis</td><td valign=\"top\"> </td>
 </tr>
 <tr>
-<td>These values give the following inductances:</td>
-<td> </td><td> </td>
+<td valign=\"top\">These values give the following inductances:</td>
+<td valign=\"top\"> </td><td valign=\"top\"> </td>
 </tr>
 <tr>
-<td>main field inductance in d-axis</td>
-<td>(Xd - Xss)/(2*pi*fNominal)</td><td> </td>
+<td valign=\"top\">main field inductance in d-axis</td>
+<td valign=\"top\">(Xd - Xss)/(2*pi*fNominal)</td><td valign=\"top\"> </td>
 </tr>
 <tr>
-<td>main field inductance in q-axis</td>
-<td>(Xq - Xss)/(2*pi*fNominal)</td><td> </td>
+<td valign=\"top\">main field inductance in q-axis</td>
+<td valign=\"top\">(Xq - Xss)/(2*pi*fNominal)</td><td valign=\"top\"> </td>
 </tr>
 <tr>
-<td>stator stray inductance per phase</td>
-<td>Xss/(2*pi*fNominal)</td><td> </td>
+<td valign=\"top\">stator stray inductance per phase</td>
+<td valign=\"top\">Xss/(2*pi*fNominal)</td><td valign=\"top\"> </td>
 </tr>
 <tr>
-<td>damper stray inductance in d-axis</td>
-<td>XDds/(2*pi*fNominal)</td><td> </td>
+<td valign=\"top\">damper stray inductance in d-axis</td>
+<td valign=\"top\">XDds/(2*pi*fNominal)</td><td valign=\"top\"> </td>
 </tr>
 <tr>
-<td>damper stray inductance in q-axis</td>
-<td>XDqs/(2*pi*fNominal)</td><td> </td>
+<td valign=\"top\">damper stray inductance in q-axis</td>
+<td valign=\"top\">XDqs/(2*pi*fNominal)</td><td valign=\"top\"> </td>
 </tr>
 </table>
 </HTML>"));
@@ -2446,129 +2446,129 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 <br><b>Default values for machine's parameters (a realistic example) are:</b><br>
 <table>
 <tr>
-<td>number of pole pairs p</td>
-<td>2</td><td> </td>
+<td valign=\"top\">number of pole pairs p</td>
+<td valign=\"top\">2</td><td valign=\"top\"> </td>
 </tr>
 <tr>
-<td>stator's moment of inertia</td>
-<td>0.29</td><td>kg.m2</td>
+<td valign=\"top\">stator's moment of inertia</td>
+<td valign=\"top\">0.29</td><td valign=\"top\">kg.m2</td>
 </tr>
 <tr>
-<td>rotor's moment of inertia</td>
-<td>0.29</td><td>kg.m2</td>
+<td valign=\"top\">rotor's moment of inertia</td>
+<td valign=\"top\">0.29</td><td valign=\"top\">kg.m2</td>
 </tr>
 <tr>
-<td>nominal frequency fNominal</td>
-<td>50</td><td>Hz</td>
+<td valign=\"top\">nominal frequency fNominal</td>
+<td valign=\"top\">50</td><td valign=\"top\">Hz</td>
 </tr>
 <tr>
-<td>nominal voltage per phase</td>
-<td>100</td><td>V RMS</td>
+<td valign=\"top\">nominal voltage per phase</td>
+<td valign=\"top\">100</td><td valign=\"top\">V RMS</td>
 </tr>
 <tr>
-<td>no-load excitation current<br>
+<td valign=\"top\">no-load excitation current<br>
     @ nominal voltage and frequency</td>
-<td>10</td><td>A DC</td>
+<td valign=\"top\">10</td><td valign=\"top\">A DC</td>
 </tr>
 <tr>
-<td>warm excitation resistance</td>
-<td>2.5</td><td>Ohm</td>
+<td valign=\"top\">warm excitation resistance</td>
+<td valign=\"top\">2.5</td><td valign=\"top\">Ohm</td>
 </tr>
 <tr>
-<td>nominal current per phase</td>
-<td>100</td><td>A RMS</td>
+<td valign=\"top\">nominal current per phase</td>
+<td valign=\"top\">100</td><td valign=\"top\">A RMS</td>
 </tr>
 <tr>
-<td>nominal apparent power</td>
-<td>-30000</td><td>VA</td>
+<td valign=\"top\">nominal apparent power</td>
+<td valign=\"top\">-30000</td><td valign=\"top\">VA</td>
 </tr>
 <tr>
-<td>power factor</td>
-<td>-1.0</td><td>ind./cap.</td>
+<td valign=\"top\">power factor</td>
+<td valign=\"top\">-1.0</td><td valign=\"top\">ind./cap.</td>
 </tr>
 <tr>
-<td>nominal excitation current</td>
-<td>19</td><td>A</td>
+<td valign=\"top\">nominal excitation current</td>
+<td valign=\"top\">19</td><td valign=\"top\">A</td>
 </tr>
 <tr>
-<td>efficiency w/o excitation</td>
-<td>97.1</td><td>%</td>
+<td valign=\"top\">efficiency w/o excitation</td>
+<td valign=\"top\">97.1</td><td valign=\"top\">%</td>
 </tr>
 <tr>
-<td>nominal torque</td>
-<td>-196.7</td><td>Nm</td>
+<td valign=\"top\">nominal torque</td>
+<td valign=\"top\">-196.7</td><td valign=\"top\">Nm</td>
 </tr>
 <tr>
-<td>nominal speed</td>
-<td>1500</td><td>rpm</td>
+<td valign=\"top\">nominal speed</td>
+<td valign=\"top\">1500</td><td valign=\"top\">rpm</td>
 </tr>
 <tr>
-<td>nominal rotor angle</td>
-<td>-57.23</td><td>degree</td>
+<td valign=\"top\">nominal rotor angle</td>
+<td valign=\"top\">-57.23</td><td valign=\"top\">degree</td>
 </tr>
 <tr>
-<td>stator resistance</td>
-<td>0.03</td><td>Ohm per phase in warm condition</td>
+<td valign=\"top\">stator resistance</td>
+<td valign=\"top\">0.03</td><td valign=\"top\">Ohm per phase in warm condition</td>
 </tr>
 <tr>
-<td>stator reactance Xd</td>
-<td>1.6</td><td>Ohm per phase in d-axis</td>
+<td valign=\"top\">stator reactance Xd</td>
+<td valign=\"top\">1.6</td><td valign=\"top\">Ohm per phase in d-axis</td>
 </tr>
 <tr>
-<td>giving Kc</td>
-<td>0.625</td><td> </td>
+<td valign=\"top\">giving Kc</td>
+<td valign=\"top\">0.625</td><td valign=\"top\"> </td>
 </tr>
 <tr>
-<td>stator reactance Xq</td>
-<td>1.6</td><td>Ohm per phase in q-axis</td>
+<td valign=\"top\">stator reactance Xq</td>
+<td valign=\"top\">1.6</td><td valign=\"top\">Ohm per phase in q-axis</td>
 </tr>
 <tr>
-<td>stator stray reactance Xss</td>
-<td>0.1</td><td>Ohm per phase</td>
+<td valign=\"top\">stator stray reactance Xss</td>
+<td valign=\"top\">0.1</td><td valign=\"top\">Ohm per phase</td>
 </tr>
 <tr>
-<td>damper resistance in d-axis</td>
-<td>0.04</td><td>Ohm in warm condition</td>
+<td valign=\"top\">damper resistance in d-axis</td>
+<td valign=\"top\">0.04</td><td valign=\"top\">Ohm in warm condition</td>
 </tr>
 <tr>
-<td>damper resistance in q-axis</td>
-<td>same as d-axis</td><td> </td>
+<td valign=\"top\">damper resistance in q-axis</td>
+<td valign=\"top\">same as d-axis</td><td valign=\"top\"> </td>
 </tr>
 <tr>
-<td>damper stray reactance in d-axis XDds</td>
-<td>0.1</td><td>Ohm</td>
+<td valign=\"top\">damper stray reactance in d-axis XDds</td>
+<td valign=\"top\">0.1</td><td valign=\"top\">Ohm</td>
 </tr>
 <tr>
-<td>damper stray reactance in q-axis XDqs</td>
-<td>same as d-axis</td><td> </td>
+<td valign=\"top\">damper stray reactance in q-axis XDqs</td>
+<td valign=\"top\">same as d-axis</td><td valign=\"top\"> </td>
 </tr>
 <tr>
-<td>excitation stray inductance</td>
-<td>2.5</td><td>% of total excitation inductance</td>
+<td valign=\"top\">excitation stray inductance</td>
+<td valign=\"top\">2.5</td><td valign=\"top\">% of total excitation inductance</td>
 </tr>
 <tr>
-<td>These values give the following inductances:</td>
-<td> </td><td> </td>
+<td valign=\"top\">These values give the following inductances:</td>
+<td valign=\"top\"> </td><td valign=\"top\"> </td>
 </tr>
 <tr>
-<td>main field inductance in d-axis</td>
-<td>(Xd - Xss)/(2*pi*fNominal)</td><td> </td>
+<td valign=\"top\">main field inductance in d-axis</td>
+<td valign=\"top\">(Xd - Xss)/(2*pi*fNominal)</td><td valign=\"top\"> </td>
 </tr>
 <tr>
-<td>main field inductance in q-axis</td>
-<td>(Xq - Xss)/(2*pi*fNominal)</td><td> </td>
+<td valign=\"top\">main field inductance in q-axis</td>
+<td valign=\"top\">(Xq - Xss)/(2*pi*fNominal)</td><td valign=\"top\"> </td>
 </tr>
 <tr>
-<td>stator stray inductance per phase</td>
-<td>Xss/(2*pi*fNominal)</td><td> </td>
+<td valign=\"top\">stator stray inductance per phase</td>
+<td valign=\"top\">Xss/(2*pi*fNominal)</td><td valign=\"top\"> </td>
 </tr>
 <tr>
-<td>damper stray inductance in d-axis</td>
-<td>XDds/(2*pi*fNominal)</td><td> </td>
+<td valign=\"top\">damper stray inductance in d-axis</td>
+<td valign=\"top\">XDds/(2*pi*fNominal)</td><td valign=\"top\"> </td>
 </tr>
 <tr>
-<td>damper stray inductance in q-axis</td>
-<td>XDqs/(2*pi*fNominal)</td><td> </td>
+<td valign=\"top\">damper stray inductance in q-axis</td>
+<td valign=\"top\">XDqs/(2*pi*fNominal)</td><td valign=\"top\"> </td>
 </tr>
 </table>
 </HTML>"));
@@ -2640,104 +2640,104 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 <br><b>Default values for machine's parameters (a realistic example) are:</b><br>
 <table>
 <tr>
-<td>number of pole pairs p</td>
-<td>2</td><td> </td>
+<td valign=\"top\">number of pole pairs p</td>
+<td valign=\"top\">2</td><td valign=\"top\"> </td>
 </tr>
 <tr>
-<td>stator's moment of inertia</td>
-<td>0.29</td><td>kg.m2</td>
+<td valign=\"top\">stator's moment of inertia</td>
+<td valign=\"top\">0.29</td><td valign=\"top\">kg.m2</td>
 </tr>
 <tr>
-<td>rotor's moment of inertia</td>
-<td>0.29</td><td>kg.m2</td>
+<td valign=\"top\">rotor's moment of inertia</td>
+<td valign=\"top\">0.29</td><td valign=\"top\">kg.m2</td>
 </tr>
 <tr>
-<td>nominal frequency fNominal</td>
-<td>50</td><td>Hz</td>
+<td valign=\"top\">nominal frequency fNominal</td>
+<td valign=\"top\">50</td><td valign=\"top\">Hz</td>
 </tr>
 <tr>
-<td>nominal voltage per phase</td>
-<td>100</td><td>V RMS</td>
+<td valign=\"top\">nominal voltage per phase</td>
+<td valign=\"top\">100</td><td valign=\"top\">V RMS</td>
 </tr>
 <tr>
-<td>nominal current per phase</td>
-<td>50</td><td>A RMS</td>
+<td valign=\"top\">nominal current per phase</td>
+<td valign=\"top\">50</td><td valign=\"top\">A RMS</td>
 </tr>
 <tr>
-<td>nominal torque</td>
-<td> 46</td><td>Nm</td>
+<td valign=\"top\">nominal torque</td>
+<td valign=\"top\"> 46</td><td valign=\"top\">Nm</td>
 </tr>
 <tr>
-<td>nominal speed</td>
-<td>1500</td><td>rpm</td>
+<td valign=\"top\">nominal speed</td>
+<td valign=\"top\">1500</td><td valign=\"top\">rpm</td>
 </tr>
 <tr>
-<td>nominal mechanical output</td>
-<td> 7.23</td><td>kW</td>
+<td valign=\"top\">nominal mechanical output</td>
+<td valign=\"top\"> 7.23</td><td valign=\"top\">kW</td>
 </tr>
 <tr>
-<td>efficiency</td>
-<td>96.98</td><td>%</td>
+<td valign=\"top\">efficiency</td>
+<td valign=\"top\">96.98</td><td valign=\"top\">%</td>
 </tr>
 <tr>
-<td>power factor</td>
-<td>0.497</td><td> </td>
+<td valign=\"top\">power factor</td>
+<td valign=\"top\">0.497</td><td valign=\"top\"> </td>
 </tr>
 <tr>
-<td>stator resistance</td>
-<td>0.03</td><td>Ohm per phase in warm condition</td>
+<td valign=\"top\">stator resistance</td>
+<td valign=\"top\">0.03</td><td valign=\"top\">Ohm per phase in warm condition</td>
 </tr>
 <tr>
-<td>rotor resistance in d-axis</td>
-<td>0.04</td><td>Ohm in warm condition</td>
+<td valign=\"top\">rotor resistance in d-axis</td>
+<td valign=\"top\">0.04</td><td valign=\"top\">Ohm in warm condition</td>
 </tr>
 <tr>
-<td>rotor resistance in q-axis</td>
-<td>same as d-axis</td><td> </td>
+<td valign=\"top\">rotor resistance in q-axis</td>
+<td valign=\"top\">same as d-axis</td><td valign=\"top\"> </td>
 </tr>
 <tr>
-<td>stator reactance Xsd in d-axis</td>
-<td>3</td><td>Ohm per phase</td>
+<td valign=\"top\">stator reactance Xsd in d-axis</td>
+<td valign=\"top\">3</td><td valign=\"top\">Ohm per phase</td>
 </tr>
 <tr>
-<td>stator reactance Xsq in q-axis</td>
-<td>1</td><td>Ohm</td>
+<td valign=\"top\">stator reactance Xsq in q-axis</td>
+<td valign=\"top\">1</td><td valign=\"top\">Ohm</td>
 </tr>
 <tr>
-<td>stator stray reactance Xss</td>
-<td>0.1</td><td>Ohm per phase</td>
+<td valign=\"top\">stator stray reactance Xss</td>
+<td valign=\"top\">0.1</td><td valign=\"top\">Ohm per phase</td>
 </tr>
 <tr>
-<td>rotor stray reactance in d-axis Xrds</td>
-<td>0.1</td><td>Ohm per phase</td>
+<td valign=\"top\">rotor stray reactance in d-axis Xrds</td>
+<td valign=\"top\">0.1</td><td valign=\"top\">Ohm per phase</td>
 </tr>
 <tr>
-<td>rotor stray reactance in q-axis Xrqs</td>
-<td>same as d-axis</td><td> </td>
+<td valign=\"top\">rotor stray reactance in q-axis Xrqs</td>
+<td valign=\"top\">same as d-axis</td><td valign=\"top\"> </td>
 </tr>
 <tr>
-<td>These values give the following inductances:</td>
-<td> </td><td> </td>
+<td valign=\"top\">These values give the following inductances:</td>
+<td valign=\"top\"> </td><td valign=\"top\"> </td>
 </tr>
 <tr>
-<td>stator stray inductance per phase</td>
-<td>Xss/(2*pi*fNominal)</td><td> </td>
+<td valign=\"top\">stator stray inductance per phase</td>
+<td valign=\"top\">Xss/(2*pi*fNominal)</td><td valign=\"top\"> </td>
 </tr>
 <tr>
-<td>rotor stray inductance in d-axis</td>
-<td>Xrds/(2*pi*fNominal)</td><td> </td>
+<td valign=\"top\">rotor stray inductance in d-axis</td>
+<td valign=\"top\">Xrds/(2*pi*fNominal)</td><td valign=\"top\"> </td>
 </tr>
 <tr>
-<td>rotor stray inductance in q-axis</td>
-<td>Xrqs/(2*pi*fNominal)</td><td> </td>
+<td valign=\"top\">rotor stray inductance in q-axis</td>
+<td valign=\"top\">Xrqs/(2*pi*fNominal)</td><td valign=\"top\"> </td>
 </tr>
 <tr>
-<td>main field inductance per phase in d-axis</td>
-<td>(Xsd-Xss)/(2*pi*fNominal)</td><td> </td>
+<td valign=\"top\">main field inductance per phase in d-axis</td>
+<td valign=\"top\">(Xsd-Xss)/(2*pi*fNominal)</td><td valign=\"top\"> </td>
 </tr>
 <tr>
-<td>main field inductance per phase in q-axis</td>
-<td>(Xsq-Xss)/(2*pi*fNominal)</td><td> </td>
+<td valign=\"top\">main field inductance per phase in q-axis</td>
+<td valign=\"top\">(Xsq-Xss)/(2*pi*fNominal)</td><td valign=\"top\"> </td>
 </tr>
 </table>
 </HTML>"));
@@ -2823,44 +2823,44 @@ Armature resistance and inductance are modeled directly after the armature pins,
 <br><b>Default values for machine's parameters (a realistic example) are:</b><br>
 <table>
 <tr>
-<td>stator's moment of inertia</td>
-<td>0.29</td><td>kg.m2</td>
+<td valign=\"top\">stator's moment of inertia</td>
+<td valign=\"top\">0.29</td><td valign=\"top\">kg.m2</td>
 </tr>
 <tr>
-<td>rotor's moment of inertia</td>
-<td>0.15</td><td>kg.m2</td>
+<td valign=\"top\">rotor's moment of inertia</td>
+<td valign=\"top\">0.15</td><td valign=\"top\">kg.m2</td>
 </tr>
 <tr>
-<td>nominal armature voltage</td>
-<td>100</td><td>V</td>
+<td valign=\"top\">nominal armature voltage</td>
+<td valign=\"top\">100</td><td valign=\"top\">V</td>
 </tr>
 <tr>
-<td>nominal armature current</td>
-<td>100</td><td>A</td>
+<td valign=\"top\">nominal armature current</td>
+<td valign=\"top\">100</td><td valign=\"top\">A</td>
 </tr>
 <tr>
-<td>nominal speed</td>
-<td>1425</td><td>rpm</td>
+<td valign=\"top\">nominal speed</td>
+<td valign=\"top\">1425</td><td valign=\"top\">rpm</td>
 </tr>
 <tr>
-<td>nominal torque</td>
-<td>63.66</td><td>Nm</td>
+<td valign=\"top\">nominal torque</td>
+<td valign=\"top\">63.66</td><td valign=\"top\">Nm</td>
 </tr>
 <tr>
-<td>nominal mechanical output</td>
-<td>9.5</td><td>kW</td>
+<td valign=\"top\">nominal mechanical output</td>
+<td valign=\"top\">9.5</td><td valign=\"top\">kW</td>
 </tr>
 <tr>
-<td>efficiency</td>
-<td>95.0</td><td>%</td>
+<td valign=\"top\">efficiency</td>
+<td valign=\"top\">95.0</td><td valign=\"top\">%</td>
 </tr>
 <tr>
-<td>armature resistance</td>
-<td>0.05</td><td>Ohm in warm condition</td>
+<td valign=\"top\">armature resistance</td>
+<td valign=\"top\">0.05</td><td valign=\"top\">Ohm in warm condition</td>
 </tr>
 <tr>
-<td>armature inductance</td>
-<td>0.0015</td><td>H</td>
+<td valign=\"top\">armature inductance</td>
+<td valign=\"top\">0.0015</td><td valign=\"top\">H</td>
 </tr>
 </table>
 Armature resistance resp. inductance include resistance resp. inductance of commutating pole winding and compensation windig, if present.
@@ -2918,64 +2918,64 @@ Shunt or separate excitation is defined by the user's external circuit.
 <br><b>Default values for machine's parameters (a realistic example) are:</b><br>
 <table>
 <tr>
-<td>stator's moment of inertia</td>
-<td>0.29</td><td>kg.m2</td>
+<td valign=\"top\">stator's moment of inertia</td>
+<td valign=\"top\">0.29</td><td valign=\"top\">kg.m2</td>
 </tr>
 <tr>
-<td>rotor's moment of inertia</td>
-<td>0.15</td><td>kg.m2</td>
+<td valign=\"top\">rotor's moment of inertia</td>
+<td valign=\"top\">0.15</td><td valign=\"top\">kg.m2</td>
 </tr>
 <tr>
-<td>nominal armature voltage</td>
-<td>100</td><td>V</td>
+<td valign=\"top\">nominal armature voltage</td>
+<td valign=\"top\">100</td><td valign=\"top\">V</td>
 </tr>
 <tr>
-<td>nominal armature current</td>
-<td>100</td><td>A</td>
+<td valign=\"top\">nominal armature current</td>
+<td valign=\"top\">100</td><td valign=\"top\">A</td>
 </tr>
 <tr>
-<td>nominal torque</td>
-<td>63.66</td><td>Nm</td>
+<td valign=\"top\">nominal torque</td>
+<td valign=\"top\">63.66</td><td valign=\"top\">Nm</td>
 </tr>
 <tr>
-<td>nominal speed</td>
-<td>1425</td><td>rpm</td>
+<td valign=\"top\">nominal speed</td>
+<td valign=\"top\">1425</td><td valign=\"top\">rpm</td>
 </tr>
 <tr>
-<td>nominal mechanical output</td>
-<td>9.5</td><td>kW</td>
+<td valign=\"top\">nominal mechanical output</td>
+<td valign=\"top\">9.5</td><td valign=\"top\">kW</td>
 </tr>
 <tr>
-<td>efficiency</td>
-<td>95.0</td><td>% only armature</td>
+<td valign=\"top\">efficiency</td>
+<td valign=\"top\">95.0</td><td valign=\"top\">% only armature</td>
 </tr>
 <tr>
-<td>efficiency</td>
-<td>94.06</td><td>% including excitation</td>
+<td valign=\"top\">efficiency</td>
+<td valign=\"top\">94.06</td><td valign=\"top\">% including excitation</td>
 </tr>
 <tr>
-<td>armature resistance</td>
-<td>0.05</td><td>Ohm in warm condition</td>
+<td valign=\"top\">armature resistance</td>
+<td valign=\"top\">0.05</td><td valign=\"top\">Ohm in warm condition</td>
 </tr>
 <tr>
-<td>aramture inductance</td>
-<td>0.0015</td><td>H</td>
+<td valign=\"top\">aramture inductance</td>
+<td valign=\"top\">0.0015</td><td valign=\"top\">H</td>
 </tr>
 <tr>
-<td>nominal excitation voltage</td>
-<td>100</td><td>V</td>
+<td valign=\"top\">nominal excitation voltage</td>
+<td valign=\"top\">100</td><td valign=\"top\">V</td>
 </tr>
 <tr>
-<td>nominal excitation current</td>
-<td>1</td><td>A</td>
+<td valign=\"top\">nominal excitation current</td>
+<td valign=\"top\">1</td><td valign=\"top\">A</td>
 </tr>
 <tr>
-<td>excitation resistance</td>
-<td>100</td><td>Ohm in warm condition</td>
+<td valign=\"top\">excitation resistance</td>
+<td valign=\"top\">100</td><td valign=\"top\">Ohm in warm condition</td>
 </tr>
 <tr>
-<td>excitation inductance</td>
-<td>1</td><td>H</td>
+<td valign=\"top\">excitation inductance</td>
+<td valign=\"top\">1</td><td valign=\"top\">H</td>
 </tr>
 </table>
 Armature resistance resp. inductance include resistance resp. inductance of commutating pole winding and 
@@ -3030,52 +3030,52 @@ Series excitation has to be connected by the user's external circuit.
 <br><b>Default values for machine's parameters (a realistic example) are:</b><br>
 <table>
 <tr>
-<td>stator's moment of inertia</td>
-<td>0.29</td><td>kg.m2</td>
+<td valign=\"top\">stator's moment of inertia</td>
+<td valign=\"top\">0.29</td><td valign=\"top\">kg.m2</td>
 </tr>
 <tr>
-<td>rotor's moment of inertia</td>
-<td>0.15</td><td>kg.m2</td>
+<td valign=\"top\">rotor's moment of inertia</td>
+<td valign=\"top\">0.15</td><td valign=\"top\">kg.m2</td>
 </tr>
 <tr>
-<td>nominal armature voltage</td>
-<td>100</td><td>V</td>
+<td valign=\"top\">nominal armature voltage</td>
+<td valign=\"top\">100</td><td valign=\"top\">V</td>
 </tr>
 <tr>
-<td>nominal armature current</td>
-<td>100</td><td>A</td>
+<td valign=\"top\">nominal armature current</td>
+<td valign=\"top\">100</td><td valign=\"top\">A</td>
 </tr>
 <tr>
-<td>nominal torque</td>
-<td>63.66</td><td>Nm</td>
+<td valign=\"top\">nominal torque</td>
+<td valign=\"top\">63.66</td><td valign=\"top\">Nm</td>
 </tr>
 <tr>
-<td>nominal speed</td>
-<td>1410</td><td>rpm</td>
+<td valign=\"top\">nominal speed</td>
+<td valign=\"top\">1410</td><td valign=\"top\">rpm</td>
 </tr>
 <tr>
-<td>nominal mechanical output</td>
-<td>9.4</td><td>kW</td>
+<td valign=\"top\">nominal mechanical output</td>
+<td valign=\"top\">9.4</td><td valign=\"top\">kW</td>
 </tr>
 <tr>
-<td>efficiency</td>
-<td>94.0</td><td>% only armature</td>
+<td valign=\"top\">efficiency</td>
+<td valign=\"top\">94.0</td><td valign=\"top\">% only armature</td>
 </tr>
 <tr>
-<td>armature resistance</td>
-<td>0.05</td><td>Ohm in warm condition</td>
+<td valign=\"top\">armature resistance</td>
+<td valign=\"top\">0.05</td><td valign=\"top\">Ohm in warm condition</td>
 </tr>
 <tr>
-<td>aramture inductance</td>
-<td>0.0015</td><td>H</td>
+<td valign=\"top\">aramture inductance</td>
+<td valign=\"top\">0.0015</td><td valign=\"top\">H</td>
 </tr>
 <tr>
-<td>excitation resistance</td>
-<td>0.01</td><td>Ohm in warm condition</td>
+<td valign=\"top\">excitation resistance</td>
+<td valign=\"top\">0.01</td><td valign=\"top\">Ohm in warm condition</td>
 </tr>
 <tr>
-<td>excitation inductance</td>
-<td>0.0005</td><td>H</td>
+<td valign=\"top\">excitation inductance</td>
+<td valign=\"top\">0.0005</td><td valign=\"top\">H</td>
 </tr>
 </table>
 Armature resistance resp. inductance include resistance resp. inductance of commutating pole winding and 

@@ -66,18 +66,18 @@ are valid in the range:
 The following quantities are always computed:
 </p>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td><b>Variable</b></td>
-      <td><b>Unit</b></td>
-      <td><b>Description</b></td></tr>
-  <tr><td>h</td>
-      <td>J/kg</td>
-      <td>specific enthalpy h = h(T)</td></tr>
-  <tr><td>u</td>
-      <td>J/kg</td>
-      <td>specific internal energy u = u(T)</b></td></tr>
-  <tr><td>d</td>
-      <td>kg/m^3</td>
-      <td>density d = d(p,T)</td></tr>
+  <tr><td valign=\"top\"><b>Variable</b></td>
+      <td valign=\"top\"><b>Unit</b></td>
+      <td valign=\"top\"><b>Description</b></td></tr>
+  <tr><td valign=\"top\">h</td>
+      <td valign=\"top\">J/kg</td>
+      <td valign=\"top\">specific enthalpy h = h(T)</td></tr>
+  <tr><td valign=\"top\">u</td>
+      <td valign=\"top\">J/kg</td>
+      <td valign=\"top\">specific internal energy u = u(T)</b></td></tr>
+  <tr><td valign=\"top\">d</td>
+      <td valign=\"top\">kg/m^3</td>
+      <td valign=\"top\">density d = d(p,T)</td></tr>
 </table>
 <p>
 For the other variables, see the functions in

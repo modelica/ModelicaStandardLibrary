@@ -263,11 +263,11 @@ An approppriate simulating time would be 10 seconds.
 This example contains a simple second order thermal model of a motor. 
 The periodic power losses are described by table \"lossTable\":<br>
 <table>
-<tr><td>time</td><td>winding losses</td><td>core losses</td></tr>
-<tr><td>   0</td><td>           100</td><td>        500</td></tr>
-<tr><td> 360</td><td>           100</td><td>        500</td></tr>
-<tr><td> 360</td><td>          1000</td><td>        500</td></tr>
-<tr><td> 600</td><td>          1000</td><td>        500</td></tr>
+<tr><td valign=\"top\">time</td><td valign=\"top\">winding losses</td><td valign=\"top\">core losses</td></tr>
+<tr><td valign=\"top\">   0</td><td valign=\"top\">           100</td><td valign=\"top\">        500</td></tr>
+<tr><td valign=\"top\"> 360</td><td valign=\"top\">           100</td><td valign=\"top\">        500</td></tr>
+<tr><td valign=\"top\"> 360</td><td valign=\"top\">          1000</td><td valign=\"top\">        500</td></tr>
+<tr><td valign=\"top\"> 600</td><td valign=\"top\">          1000</td><td valign=\"top\">        500</td></tr>
 </table><br>
 Since constant speed is assumed, the core losses keep constant 
 whereas the winding losses are low for 6 minutes (no-load) and high for 4 minutes (over load).
