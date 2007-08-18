@@ -79,7 +79,7 @@ equation
 This is a V6 engine with 6 cylinders. It is hierarchically built
 up by using instances of one cylinder. For more details on the
 modeling of one cylinder, see example 
-<a href=\"Modelica://Modelica.Mechanics.MultiBody.Examples.Loops.Engine\">Engine</a>.
+<a href=\"Modelica://Modelica.Mechanics.MultiBody.Examples.Loops.Engine1b\">Engine1b</a>.
 An animation of the engine is shown in the figure below.
 </p>
 <p align=\"center\">

@@ -25,9 +25,9 @@ some deficiences of StateCharts.
 For an introduction, have especially a look at:
 </p>
 <ul>
-<li> <a href=\"Modelica:Modelica.StateGraph.UsersGuide\">StateGraph.UsersGuide</a>
+<li> <a href=\"Modelica://Modelica.StateGraph.UsersGuide\">StateGraph.UsersGuide</a>
      discusses the most important aspects how to use this library.</li>
-<li> <a href=\"Modelica:Modelica.StateGraph.Examples\">StateGraph.Examples</a>
+<li> <a href=\"Modelica://Modelica.StateGraph.Examples\">StateGraph.Examples</a>
      contains examples that demonstrate the usage of this library.</li>
 </ul>
 <p>

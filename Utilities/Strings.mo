@@ -151,49 +151,49 @@ call to every function is given using the <b>default</b> options.
 </p>
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><th><b><i>Function</i></b></th><th><b><i>Description</i></b></th></tr>
-  <tr><td valign=\"top\">len = <a href=\"Modelica:Modelica.Utilities.Strings.length\">length</a>(string)</td>
+  <tr><td valign=\"top\">len = <a href=\"Modelica://Modelica.Utilities.Strings.length\">length</a>(string)</td>
       <td valign=\"top\">Returns length of string</td></tr>
-  <tr><td valign=\"top\">string2 = <a href=\"Modelica:Modelica.Utilities.Strings.substring\">substring</a>(string1,startIndex,endIndex)
+  <tr><td valign=\"top\">string2 = <a href=\"Modelica://Modelica.Utilities.Strings.substring\">substring</a>(string1,startIndex,endIndex)
        </td>
       <td valign=\"top\">Returns a substring defined by start and end index</td></tr>
-  <tr><td valign=\"top\">result = <a href=\"Modelica:Modelica.Utilities.Strings.repeat\">repeat</a>(n)<br>
- result = <a href=\"Modelica:Modelica.Utilities.Strings.repeat\">repeat</a>(n,string)</td>
+  <tr><td valign=\"top\">result = <a href=\"Modelica://Modelica.Utilities.Strings.repeat\">repeat</a>(n)<br>
+ result = <a href=\"Modelica://Modelica.Utilities.Strings.repeat\">repeat</a>(n,string)</td>
       <td valign=\"top\">Repeat a blank or a string n times.</td></tr>
-  <tr><td valign=\"top\">result = <a href=\"Modelica:Modelica.Utilities.Strings.compare\">compare</a>(string1, string2)</td>
+  <tr><td valign=\"top\">result = <a href=\"Modelica://Modelica.Utilities.Strings.compare\">compare</a>(string1, string2)</td>
       <td valign=\"top\">Compares two substrings with regards to alphabetical order</td></tr>
   <tr><td valign=\"top\">identical =
-<a href=\"Modelica:Modelica.Utilities.Strings.isEqual\">isEqual</a>(string1,string2)</td>
+<a href=\"Modelica://Modelica.Utilities.Strings.isEqual\">isEqual</a>(string1,string2)</td>
       <td valign=\"top\">Determine whether two strings are identical</td></tr>
-  <tr><td valign=\"top\">result = <a href=\"Modelica:Modelica.Utilities.Strings.count\">count</a>(string,searchString)</td>
+  <tr><td valign=\"top\">result = <a href=\"Modelica://Modelica.Utilities.Strings.count\">count</a>(string,searchString)</td>
       <td valign=\"top\">Count the number of occurrences of a string</td></tr>
   <tr>
-<td valign=\"top\">index = <a href=\"Modelica:Modelica.Utilities.Strings.find\">find</a>(string,searchString)</td>
+<td valign=\"top\">index = <a href=\"Modelica://Modelica.Utilities.Strings.find\">find</a>(string,searchString)</td>
       <td valign=\"top\">Find first occurrence of a string in another string</td></tr>
 <tr>
-<td valign=\"top\">index = <a href=\"Modelica:Modelica.Utilities.Strings.findLast\">findLast</a>(string,searchString)</td>
+<td valign=\"top\">index = <a href=\"Modelica://Modelica.Utilities.Strings.findLast\">findLast</a>(string,searchString)</td>
       <td valign=\"top\">Find last occurrence of a string in another string</td></tr>
-  <tr><td valign=\"top\">string2 = <a href=\"Modelica:Modelica.Utilities.Strings.replace\">replace</a>(string,searchString,replaceString)</td>
+  <tr><td valign=\"top\">string2 = <a href=\"Modelica://Modelica.Utilities.Strings.replace\">replace</a>(string,searchString,replaceString)</td>
       <td valign=\"top\">Replace one or all occurrences of a string</td></tr>
-  <tr><td valign=\"top\">stringVector2 = <a href=\"Modelica:Modelica.Utilities.Strings.sort\">sort</a>(stringVector1)</td>
+  <tr><td valign=\"top\">stringVector2 = <a href=\"Modelica://Modelica.Utilities.Strings.sort\">sort</a>(stringVector1)</td>
       <td valign=\"top\">Sort vector of strings in alphabetic order</td></tr>
-  <tr><td valign=\"top\">(token, index) = <a href=\"Modelica:Modelica.Utilities.Strings.scanToken\">scanToken</a>(string,startIndex)</td>
+  <tr><td valign=\"top\">(token, index) = <a href=\"Modelica://Modelica.Utilities.Strings.scanToken\">scanToken</a>(string,startIndex)</td>
       <td valign=\"top\">Scan for a token (Real/Integer/Boolean/String/Identifier/Delimiter/NoToken)</td></tr>
-  <tr><td valign=\"top\">(number, index) = <a href=\"Modelica:Modelica.Utilities.Strings.scanReal\">scanReal</a>(string,startIndex)</td>
+  <tr><td valign=\"top\">(number, index) = <a href=\"Modelica://Modelica.Utilities.Strings.scanReal\">scanReal</a>(string,startIndex)</td>
       <td valign=\"top\">Scan for a Real constant</td></tr>
-  <tr><td valign=\"top\">(number, index) = <a href=\"Modelica:Modelica.Utilities.Strings.scanInteger\">scanInteger</a>(string,startIndex)</td>
+  <tr><td valign=\"top\">(number, index) = <a href=\"Modelica://Modelica.Utilities.Strings.scanInteger\">scanInteger</a>(string,startIndex)</td>
       <td valign=\"top\">Scan for an Integer constant</td></tr>
-  <tr><td valign=\"top\">(boolean, index) = <a href=\"Modelica:Modelica.Utilities.Strings.scanBoolean\">scanBoolean</a>(string,startIndex)</td>
+  <tr><td valign=\"top\">(boolean, index) = <a href=\"Modelica://Modelica.Utilities.Strings.scanBoolean\">scanBoolean</a>(string,startIndex)</td>
       <td valign=\"top\">Scan for a Boolean constant</td></tr>
-  <tr><td valign=\"top\">(string2, index) = <a href=\"Modelica:Modelica.Utilities.Strings.scanString\">scanString</a>(string,startIndex)</td>
+  <tr><td valign=\"top\">(string2, index) = <a href=\"Modelica://Modelica.Utilities.Strings.scanString\">scanString</a>(string,startIndex)</td>
       <td valign=\"top\">Scan for a String constant</td></tr>
-  <tr><td valign=\"top\">(identifier, index) = <a href=\"Modelica:Modelica.Utilities.Strings.scanIdentifier\">scanIdentifier</a>(string,startIndex)</td>
+  <tr><td valign=\"top\">(identifier, index) = <a href=\"Modelica://Modelica.Utilities.Strings.scanIdentifier\">scanIdentifier</a>(string,startIndex)</td>
       <td valign=\"top\">Scan for an identifier</td></tr>
-  <tr><td valign=\"top\">(delimiter, index) = <a href=\"Modelica:Modelica.Utilities.Strings.scanDelimiter\">scanDelimiter</a>(string,startIndex)</td>
+  <tr><td valign=\"top\">(delimiter, index) = <a href=\"Modelica://Modelica.Utilities.Strings.scanDelimiter\">scanDelimiter</a>(string,startIndex)</td>
       <td valign=\"top\">Scan for delimiters</td></tr>
-  <tr><td valign=\"top\"><a href=\"Modelica:Modelica.Utilities.Strings.scanNoToken\">scanNoToken</a>(string,startIndex)</td>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Utilities.Strings.scanNoToken\">scanNoToken</a>(string,startIndex)</td>
       <td valign=\"top\">Check that remaining part of string consists solely of <br>
           white space or line comments (\"// ...\\n\").</td></tr>
-  <tr><td valign=\"top\"><a href=\"Modelica:Modelica.Utilities.Strings.syntaxError\">syntaxError</a>(string,index,message)</td>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Utilities.Strings.syntaxError\">syntaxError</a>(string,index,message)</td>
       <td valign=\"top\"> Print a \"syntax error message\" as well as a string and the <br>
            index at which scanning detected an error</td></tr>
 </table>
@@ -1022,12 +1022,12 @@ functions in package \"Strings\".
 Library \"Advanced\" provides the following functions:
 </p>
 <pre>
-  (nextIndex, realNumber)    = <a href=\"Modelica:Modelica.Utilities.Strings.Advanced.scanReal\">scanReal</a>        (string, startIndex, unsigned=false);
-  (nextIndex, integerNumber) = <a href=\"Modelica:Modelica.Utilities.Strings.Advanced.scanInteger\">scanInteger</a>     (string, startIndex, unsigned=false);
-  (nextIndex, string2)       = <a href=\"Modelica:Modelica.Utilities.Strings.Advanced.scanString\">scanString</a>      (string, startIndex);
-  (nextIndex, identifier)    = <a href=\"Modelica:Modelica.Utilities.Strings.Advanced.scanIdentifier\">scanIdentifier</a>  (string, startIndex);
-   nextIndex                 = <a href=\"Modelica:Modelica.Utilities.Strings.Advanced.skipWhiteSpace\">skipWhiteSpace</a>  (string, startIndex);
-   nextIndex                 = <a href=\"Modelica:Modelica.Utilities.Strings.Advanced.skipLineComments\">skipLineComments</a>(string, startIndex);
+  (nextIndex, realNumber)    = <a href=\"Modelica://Modelica.Utilities.Strings.Advanced.scanReal\">scanReal</a>        (string, startIndex, unsigned=false);
+  (nextIndex, integerNumber) = <a href=\"Modelica://Modelica.Utilities.Strings.Advanced.scanInteger\">scanInteger</a>     (string, startIndex, unsigned=false);
+  (nextIndex, string2)       = <a href=\"Modelica://Modelica.Utilities.Strings.Advanced.scanString\">scanString</a>      (string, startIndex);
+  (nextIndex, identifier)    = <a href=\"Modelica://Modelica.Utilities.Strings.Advanced.scanIdentifier\">scanIdentifier</a>  (string, startIndex);
+   nextIndex                 = <a href=\"Modelica://Modelica.Utilities.Strings.Advanced.skipWhiteSpace\">skipWhiteSpace</a>  (string, startIndex);
+   nextIndex                 = <a href=\"Modelica://Modelica.Utilities.Strings.Advanced.skipLineComments\">skipLineComments</a>(string, startIndex);
 </pre>
 <p>
 All functions perform the following actions:
@@ -1047,25 +1047,25 @@ All functions perform the following actions:
 The following additional rules apply for the scanning:
 </p>
 <ul>
-<li> Function <a href=\"Modelica:Modelica.Utilities.Strings.Advanced.scanReal\">scanReal</a>:<br>
+<li> Function <a href=\"Modelica://Modelica.Utilities.Strings.Advanced.scanReal\">scanReal</a>:<br>
      Scans a full number including one optional leading \"+\" or \"-\" (if unsigned=false)
      according to the Modelica grammar. For example, \"+1.23e-5\", \"0.123\" are
      Real numbers, but \".1\" is not.
      Note, an Integer number, such as \"123\" is also treated as a Real number.<br>&nbsp;</li>
-<li> Function <a href=\"Modelica:Modelica.Utilities.Strings.Advanced.scanInteger\">scanInteger</a>:<br>
+<li> Function <a href=\"Modelica://Modelica.Utilities.Strings.Advanced.scanInteger\">scanInteger</a>:<br>
      Scans an Integer number including one optional leading \"+\"
      or \"-\" (if unsigned=false) according to the Modelica (and C/C++) grammar.
      For example, \"+123\", \"20\" are Integer numbers.
      Note, a Real number, such as \"123.4\" is not an Integer and
      scanInteger returns nextIndex = startIndex.<br>&nbsp;</li>
-<li> Function <a href=\"Modelica:Modelica.Utilities.Strings.Advanced.scanString\">scanString</a>:<br>
+<li> Function <a href=\"Modelica://Modelica.Utilities.Strings.Advanced.scanString\">scanString</a>:<br>
      Scans a String according to the Modelica (and C/C++) grammar, e.g.,
      \"This is a \"string\"\" is a valid string token.<br>&nbsp;</li>
-<li> Function <a href=\"Modelica:Modelica.Utilities.Strings.Advanced.scanIdentifier\">scanIdentifier</a>:<br>
+<li> Function <a href=\"Modelica://Modelica.Utilities.Strings.Advanced.scanIdentifier\">scanIdentifier</a>:<br>
      Scans a Modelica identifier, i.e., the identifier starts either
      with a letter, followed by letters, digits or \"_\".
      For example, \"w_rel\", \"T12\".<br>&nbsp;</li>
-<li> Function <a href=\"Modelica:Modelica.Utilities.Strings.Advanced.skipLineComments\">skipLineComments</a><br>
+<li> Function <a href=\"Modelica://Modelica.Utilities.Strings.Advanced.skipLineComments\">skipLineComments</a><br>
      Skips white space and Modelica (C/C++) line comments iteratively.
      A line comment starts with \"//\" and ends either with an
      end-of-line (\"\\n\") or the end of the \"string\". </li>
@@ -1116,7 +1116,7 @@ If the optional argument \"unsigned\" is <b>true</b>, the number
 shall not start with '+' or '-'. The default of \"unsigned\" is <b>false</b>.
 </p>
 <h4>See also</h4>
-<a href=\"Modelica:Modelica.Utilities.Strings.Advanced\">Strings.Advanced</a>.
+<a href=\"Modelica://Modelica.Utilities.Strings.Advanced\">Strings.Advanced</a>.
 </html>
 "));
     end scanReal;
@@ -1163,7 +1163,7 @@ If the optional argument \"unsigned\" is <b>true</b>, the number
 shall not start with '+' or '-'. The default of \"unsigned\" is <b>false</b>.
 </p>
 <h4>See also</h4>
-<a href=\"Modelica:Modelica.Utilities.Strings.Advanced\">Strings.Advanced</a>.
+<a href=\"Modelica://Modelica.Utilities.Strings.Advanced\">Strings.Advanced</a>.
 </html>
 "));
     end scanInteger;
@@ -1198,7 +1198,7 @@ If not successful, on return nextIndex = startIndex and
 the second output argument is an empty string.
 </p>
 <h4>See also</h4>
-<a href=\"Modelica:Modelica.Utilities.Strings.Advanced\">Strings.Advanced</a>.
+<a href=\"Modelica://Modelica.Utilities.Strings.Advanced\">Strings.Advanced</a>.
 </html>
 "));
     end scanString;
@@ -1235,7 +1235,7 @@ If not successful, on return nextIndex = startIndex and
 the second output argument is an empty string.
 </p>
 <h4>See also</h4>
-<a href=\"Modelica:Modelica.Utilities.Strings.Advanced\">Strings.Advanced</a>.
+<a href=\"Modelica://Modelica.Utilities.Strings.Advanced\">Strings.Advanced</a>.
 </html>
 "));
     end scanIdentifier;
@@ -1258,7 +1258,7 @@ skips white space. The function returns nextIndex = index of character
 of the first non white space character.
 </p>
 <h4>See also</h4>
-<a href=\"Modelica:Modelica.Utilities.Strings.Advanced\">Strings.Advanced</a>.
+<a href=\"Modelica://Modelica.Utilities.Strings.Advanced\">Strings.Advanced</a>.
 </html>
 "));
     end skipWhiteSpace;
@@ -1292,7 +1292,7 @@ directly after the found line comment.
 If not successful, on return nextIndex = startIndex.
 </p>
 <h4>See also</h4>
-<a href=\"Modelica:Modelica.Utilities.Strings.Advanced\">Strings.Advanced</a>.
+<a href=\"Modelica://Modelica.Utilities.Strings.Advanced\">Strings.Advanced</a>.
 </html>
 "));
     protected 

@@ -2,7 +2,9 @@ within Modelica;
 package Blocks "Library of basic input/output control blocks (continuous, discrete, logical, table blocks)"
   import SI = Modelica.SIunits;
 
+
 extends Modelica.Icons.Library2;
+
 
 annotation(preferedView="info",
   Window(
@@ -89,6 +91,7 @@ and the accompanying <b>disclaimer</b>
        of Dieter Moormann and Hilding Elmqvist.</li>
 </ul>
 </html>"));
+
 
 package Examples 
   "Library of examples to demonstrate the usage of package Blocks" 
@@ -402,7 +405,7 @@ is generated and the \"controlBus\" contains the new signal \"realSignal1\". Mod
 may give more support in order to list potential signals for a connection. 
 For example, in Dymola all variables are listed in the menu that are contained in
 connectors which are derived by inheritance from \"controlBus\". Therefore, in
-<a href=\"Modelica://Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces.Internal\">Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces.Internal</a>
+<a href=\"Modelica://Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces.InternalConnectors\">BusUsage_Utilities.Interfaces.InternalConnectors</a>
 the expected implementation of the \"ControlBus\" and of the \"SubControlBus\" are given.
 For example \"Internal.ControlBus\" is defined as:
 </p>
@@ -549,7 +552,7 @@ constructed by the signals connected to this bus.
         
       end SubControlBus;
       
-    package Internal 
+    package InternalConnectors 
         "Internal definitions that are usually not utilized (only indirectly via the expandable connectors)" 
         expandable connector StandardControlBus 
           "Used to build up the standard control bus (do not use this connector)" 
@@ -604,7 +607,7 @@ or SubControlBus). Usually, the connectors of this package should not be
 utilized by a user.
 </p>
 </html>"));
-    end Internal;
+    end InternalConnectors;
       annotation (Documentation(info="<html>
 <p>
 This package contains the bus definitions needed for the

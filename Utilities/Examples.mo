@@ -8,20 +8,20 @@ use the functions of package Modelica.Utilities. In particular
 the following examples are present.
 </p>
 <ul>
-<li> Function <a href=\"Modelica:Modelica.Utilities.Examples.calculator\">calculator</a>
+<li> Function <a href=\"Modelica://Modelica.Utilities.Examples.calculator\">calculator</a>
      is an interpreter to evaluate 
      expressions consisting of +,-,*,/,(),sin(), cos(), tan(), sqrt(), pi.
      For example: calculator(\"1.5*sin(pi/6)\"); <br>&nbsp;</li>
-<li> Function <a href=\"Modelica:Modelica.Utilities.Examples.expression\">expression</a>
+<li> Function <a href=\"Modelica://Modelica.Utilities.Examples.expression\">expression</a>
      is the basic function used in \"calculator\" to evaluate an expression.
      It is useful if the expression interpreter is used in a larger
      scan operation (such as readRealParameter below).<br>&nbsp;</li>
-<li> Function <a href=\"Modelica:Modelica.Utilities.Examples.readRealParameter\">readRealParameter</a>
+<li> Function <a href=\"Modelica://Modelica.Utilities.Examples.readRealParameter\">readRealParameter</a>
      reads the value of a parameter
      from file, given the file and the parameter name. The value
      on file is interpreted with the Examples.expression function
      and can therefore be an expression.<br>&nbsp;</li>
-<li> Model <a href=\"Modelica:Modelica.Utilities.Examples.readRealParameterModel\">readRealParameterModel</a>
+<li> Model <a href=\"Modelica://Modelica.Utilities.Examples.readRealParameterModel\">readRealParameterModel</a>
      is a test model to demonstrate the usage of \"readRealParameter\". The model
      contains 3 parameters that are read from file \"Modelica.Utilities/data/Examples_readRealParameters.txt\".
      </li>

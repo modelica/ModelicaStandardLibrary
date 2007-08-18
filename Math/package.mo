@@ -77,29 +77,29 @@ This library provides functions operating on vectors:
   <tr><th><i>Function</i></th>
       <th><i>Description</i></th>
   </tr>
-  <tr><td valign=\"top\"><a href=\"Modelica:Modelica.Math.Vectors.isEqual\">isEqual</a>(v1, v2)</td>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Math.Vectors.isEqual\">isEqual</a>(v1, v2)</td>
       <td valign=\"top\">Determines whether two vectors have the same size and elements</td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"Modelica:Modelica.Math.Vectors.norm\">norm</a>(v,p)</td>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Math.Vectors.norm\">norm</a>(v,p)</td>
       <td valign=\"top\">p-norm of vector v</td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"Modelica:Modelica.Math.Vectors.length\">length</a>(v)</td>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Math.Vectors.length\">length</a>(v)</td>
       <td valign=\"top\">Length of vector v (= norm(v,2), but inlined and therefore usable in 
           symbolic manipulations) </td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"Modelica:Modelica.Math.Vectors.normalize\">normalize</a>(v)</td>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Math.Vectors.normalize\">normalize</a>(v)</td>
       <td valign=\"top\">Return normalized vector such that length = 1 and prevent 
           zero-division for zero vector</td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"Modelica:Modelica.Math.Vectors.reverse\">reverse</a>(v)</td>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Math.Vectors.reverse\">reverse</a>(v)</td>
       <td valign=\"top\">Reverse vector elements</td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"Modelica:Modelica.Math.Vectors.sort\">sort</a>(v)</td>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Math.Vectors.sort\">sort</a>(v)</td>
       <td valign=\"top\">Sort elements of vector in ascending or descending order</td>
   </tr>
 </table>
 <h4>See also</h4>
-<a href=\"Modelica:Modelica.Math.Matrices\">Matrices</a>
+<a href=\"Modelica://Modelica.Math.Matrices\">Matrices</a>
 </HTML>"));
   
   function isEqual "Determine if two Real vectors are numerically identical" 
@@ -139,8 +139,8 @@ can be provided as third argument of the function. Default is \"eps = 0\".
   result := Vectors.isEqual(v1,v3,0.1); // = <b>true</b>
 </pre></blockquote>
 <h4>See also</h4>
-<a href=\"Modelica:Modelica.Math.Matrices.isEqual\">Matrices.isEqual</a>, 
-<a href=\"Modelica:Modelica.Utilities.Strings.isEqual\">Strings.isEqual</a>
+<a href=\"Modelica://Modelica.Math.Matrices.isEqual\">Matrices.isEqual</a>, 
+<a href=\"Modelica://Modelica.Utilities.Strings.isEqual\">Strings.isEqual</a>
 </HTML>"));
   protected 
     Integer n=size(v1, 1) "Dimension of vector v1";
@@ -216,7 +216,7 @@ Note, for any vector norm the following inequality holds:
   <b>norm</b>(v,Modelica.Constants.inf);  // = 4
 </pre></blockquote>
 <h4>See also</h4>
-<a href=\"Modelica:Modelica.Math.Matrices.norm\">Matrices.norm</a>
+<a href=\"Modelica://Modelica.Math.Matrices.norm\">Matrices.norm</a>
 </HTML>"));
   algorithm 
     if p == 2 then
@@ -257,7 +257,7 @@ not the case with function norm(..).
   <b>length</b>(v);  // = 5
 </pre></blockquote>
 <h4>See also</h4>
-<a href=\"Modelica:Modelica.Math.Vectors.norm\">Vectors.norm</a>
+<a href=\"Modelica://Modelica.Math.Vectors.norm\">Vectors.norm</a>
 </html>"));
   algorithm 
     result := sqrt(v*v);
@@ -299,7 +299,7 @@ possible.
   <b>normalize</b>({0,0,0});  // = {0,0,0}
 </pre></blockquote>
 <h4>See also</h4>
-<a href=\"Modelica:Modelica.Math.Vectors.length\">Vectors.length</a>
+<a href=\"Modelica://Modelica.Math.Vectors.length\">Vectors.length</a>
 </html>"));
   algorithm 
     result := if length(v) >= eps then  v/length(v) else v;
@@ -434,76 +434,76 @@ This library provides functions operating on matrices:
   <tr><th><i>Function</i></th>
       <th><i>Description</i></th>
   </tr>
-  <tr><td valign=\"top\"><a href=\"Modelica:Modelica.Math.Matrices.isEqual\">isEqual</a>(M1, M2)</td>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Math.Matrices.isEqual\">isEqual</a>(M1, M2)</td>
       <td valign=\"top\">Determines whether two matrices have the same size and elements</td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"Modelica:Modelica.Math.Matrices.norm\">norm</a>(A)</td>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Math.Matrices.norm\">norm</a>(A)</td>
       <td valign=\"top\">1-, 2- and infinity-norm of matrix A</td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"Modelica:Modelica.Math.Matrices.sort\">sort</a>(M)</td>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Math.Matrices.sort\">sort</a>(M)</td>
       <td valign=\"top\">Sort rows or columns of matrix in ascending or descending order</td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"Modelica:Modelica.Math.Matrices.solve\">solve</a>(A,b)</td>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Math.Matrices.solve\">solve</a>(A,b)</td>
       <td valign=\"top\">Solve real system of linear equations A*x=b with a b vector</td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"Modelica:Modelica.Math.Matrices.solve2\">solve2</a>(A,B)</td>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Math.Matrices.solve2\">solve2</a>(A,B)</td>
       <td valign=\"top\">Solve real system of linear equations A*X=B with a B matrix</td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"Modelica:Modelica.Math.Matrices.leastSquares\">leastSquares</a>(A,b)</td>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Math.Matrices.leastSquares\">leastSquares</a>(A,b)</td>
       <td valign=\"top\">Solve overdetermined or underdetermined real system of <br>
           linear equations A*x=b in a least squares sense</td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"Modelica:Modelica.Math.Matrices.equalityLeastSquares\">equalityLeastSquares</a>(A,a,B,b)</td>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Math.Matrices.equalityLeastSquares\">equalityLeastSquares</a>(A,a,B,b)</td>
       <td valign=\"top\">Solve a linear equality constrained least squares problem:<br>
           min|A*x-a|^2 subject to B*x=b</td>
   </tr>
-  <tr><td valign=\"top\">(LU,p,info) = <a href=\"Modelica:Modelica.Math.Matrices.LU\">LU</a>(A)</td>
+  <tr><td valign=\"top\">(LU,p,info) = <a href=\"Modelica://Modelica.Math.Matrices.LU\">LU</a>(A)</td>
       <td valign=\"top\">LU decomposition of square or rectangular matrix</td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"Modelica:Modelica.Math.Matrices.LU_solve\">LU_solve</a>(LU,p,b)</td>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Math.Matrices.LU_solve\">LU_solve</a>(LU,p,b)</td>
       <td valign=\"top\">Solve real system of linear equations P*L*U*x=b with a<br>
           b vector and an LU decomposition from \"LU(..)\"</td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"Modelica:Modelica.Math.Matrices.LU_solve2\">LU_solve2</a>(LU,p,B)</td>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Math.Matrices.LU_solve2\">LU_solve2</a>(LU,p,B)</td>
       <td valign=\"top\">Solve real system of linear equations P*L*U*X=B with a<br>
           B matrix and an LU decomposition from \"LU(..)\"</td>
   </tr>
-  <tr><td valign=\"top\">(Q,R,p) = <a href=\"Modelica:Modelica.Math.Matrices.QR\">QR</a>(A)</td>
+  <tr><td valign=\"top\">(Q,R,p) = <a href=\"Modelica://Modelica.Math.Matrices.QR\">QR</a>(A)</td>
       <td valign=\"top\"> QR decomposition with column pivoting of rectangular matrix (Q*R = A[:,p]) </td>
   </tr>
-  <tr><td valign=\"top\">eval = <a href=\"Modelica:Modelica.Math.Matrices.eigenValues\">eigenValues</a>(A)<br>
-          (eval,evec) = <a href=\"Modelica:Modelica.Math.Matrices.eigenValues\">eigenValues</a>(A)</td>
+  <tr><td valign=\"top\">eval = <a href=\"Modelica://Modelica.Math.Matrices.eigenValues\">eigenValues</a>(A)<br>
+          (eval,evec) = <a href=\"Modelica://Modelica.Math.Matrices.eigenValues\">eigenValues</a>(A)</td>
       <td valign=\"top\"> Compute eigenvalues and optionally eigenvectors<br>
            for a real, nonsymmetric matrix </td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"Modelica:Modelica.Math.Matrices.eigenValueMatrix\">eigenValueMatrix</a>(eigen)</td>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Math.Matrices.eigenValueMatrix\">eigenValueMatrix</a>(eigen)</td>
       <td valign=\"top\"> Return real valued block diagonal matrix J of eigenvalues of 
             matrix A (A=V*J*Vinv) </td>
   </tr>
-  <tr><td valign=\"top\">sigma = <a href=\"Modelica:Modelica.Math.Matrices.singularValues\">singularValues</a>(A)<br>
-      (sigma,U,VT) = <a href=\"Modelica:Modelica.Math.Matrices.singularValues\">singularValues</a>(A)</td>
+  <tr><td valign=\"top\">sigma = <a href=\"Modelica://Modelica.Math.Matrices.singularValues\">singularValues</a>(A)<br>
+      (sigma,U,VT) = <a href=\"Modelica://Modelica.Math.Matrices.singularValues\">singularValues</a>(A)</td>
       <td valign=\"top\"> Compute singular values and optionally left and right singular vectors </td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"Modelica:Modelica.Math.Matrices.det\">det</a>(A)</td>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Math.Matrices.det\">det</a>(A)</td>
       <td valign=\"top\"> Determinant of a matrix (do <b>not</b> use; use rank(..))</td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"Modelica:Modelica.Math.Matrices.inv\">inv</a>(A)</td>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Math.Matrices.inv\">inv</a>(A)</td>
       <td valign=\"top\"> Inverse of a matrix </td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"Modelica:Modelica.Math.Matrices.rank\">rank</a>(A)</td>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Math.Matrices.rank\">rank</a>(A)</td>
       <td valign=\"top\"> Rank of a matrix </td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"Modelica:Modelica.Math.Matrices.balance\">balance</a>(A)</td>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Math.Matrices.balance\">balance</a>(A)</td>
       <td valign=\"top\">Balance a square matrix to improve the condition</td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"Modelica:Modelica.Math.Matrices.exp\">exp</a>(A)</td>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Math.Matrices.exp\">exp</a>(A)</td>
       <td valign=\"top\"> Compute the exponential of a matrix by adaptive Taylor series<br> 
            expansion with scaling and balancing</td>
   </tr>
-  <tr><td valign=\"top\">(P, G) = <a href=\"Modelica:Modelica.Math.Matrices.integralExp\">integralExp</a>(A,B)</td>
+  <tr><td valign=\"top\">(P, G) = <a href=\"Modelica://Modelica.Math.Matrices.integralExp\">integralExp</a>(A,B)</td>
       <td valign=\"top\"> Compute the exponential of a matrix and its integral</td>
   </tr>
-  <tr><td valign=\"top\">(P, G, GT) = <a href=\"Modelica:Modelica.Math.Matrices.integralExpT\">integralExpT</a>(A,B)</td>
+  <tr><td valign=\"top\">(P, G, GT) = <a href=\"Modelica://Modelica.Math.Matrices.integralExpT\">integralExpT</a>(A,B)</td>
       <td valign=\"top\"> Compute the exponential of a matrix and two integrals</td>
   </tr>
 </table>
@@ -522,7 +522,7 @@ The details of this library are described in:
 </dl>
  
 <h4>See also</h4>
-<a href=\"Modelica:Modelica.Math.Vectors\">Vectors</a>
+<a href=\"Modelica://Modelica.Math.Vectors\">Vectors</a>
 
 </HTML>
 "));
@@ -564,8 +564,8 @@ can be provided as third argument of the function. Default is \"eps = 0\".
   result := Matrices.isEqual(M1,M3,0.1); // = <b>true</b>
 </pre></blockquote>
 <h4>See also</h4>
-<a href=\"Modelica:Modelica.Vectors.isEqual\">Vectors.isEqual</a>, 
-<a href=\"Modelica:Modelica.Strings.isEqual\">Strings.isEqual</a>
+<a href=\"Modelica://Modelica.Math.Vectors.isEqual\">Vectors.isEqual</a>, 
+<a href=\"Modelica://Modelica.Utilities.Strings.isEqual\">Strings.isEqual</a>
 </HTML>"));
   protected 
     Integer nrow=size(M1, 1) "Number of rows of matrix M1";
@@ -844,8 +844,8 @@ i.e., by Gaussian elemination with partial pivoting.
   x := Matrices.solve(A,b);  // x = {3,2,1}
 </pre></blockquote>
 <h4>See also</h4>
-<a href=\"Modelica:Modelica.Math.Matrices.LU\">Matrices.LU</a>,
-<a href=\"Modelica:Modelica.Math.Matrices.LU_solve\">Matrices.LU_solve</a>
+<a href=\"Modelica://Modelica.Math.Matrices.LU\">Matrices.LU</a>,
+<a href=\"Modelica://Modelica.Math.Matrices.LU_solve\">Matrices.LU_solve</a>
 </HTML>"));
   protected 
     Integer info;
@@ -914,8 +914,8 @@ i.e., by Gaussian elemination with partial pivoting.
 </pre></blockquote>
  
 <h4>See also</h4>
-<a href=\"Modelica:Modelica.Math.Matrices.LU\">Matrices.LU</a>,
-<a href=\"Modelica:Modelica.Math.Matrices.LU_solve2\">Matrices.LU_solve2</a>
+<a href=\"Modelica://Modelica.Math.Matrices.LU\">Matrices.LU</a>,
+<a href=\"Modelica://Modelica.Math.Matrices.LU_solve2\">Matrices.LU_solve2</a>
 </HTML>"));
   protected 
     Integer info;
@@ -1083,13 +1083,13 @@ diagonal elements (lower trapezoidal if m &gt; n), and
 Matrices <b>L</b> and <b>U</b> are stored in the returned
 matrix <code>LU</code> (the diagonal of <b>L</b> is not stored).
 With the companion function 
-<a href=\"Modelica:Modelica.Math.Matrices.LU_solve\">Matrices.LU_solve</a>,
+<a href=\"Modelica://Modelica.Math.Matrices.LU_solve\">Matrices.LU_solve</a>,
 this decomposition can be used to solve
 linear systems (<b>P</b>*<b>L</b>*<b>U</b>)*<b>x</b> = <b>b</b> with different right
 hand side vectors <b>b</b>. If a linear system of equations with
 just one right hand side vector <b>b</b> shall be solved, it is
 more convenient to just use the function
-<a href=\"Modelica:Modelica.Math.Matrices.solve\">Matrices.solve</a>.
+<a href=\"Modelica://Modelica.Math.Matrices.solve\">Matrices.solve</a>.
 </p>
 <p>
 The optional third (Integer) output argument has the following meaning:
@@ -1129,8 +1129,8 @@ matrix A was interchanged with row pivots[i].
   x2 := Matrices.LU_solve(LU, pivots, b2);  // x2 = {1,0,2}
 </pre></blockquote>
 <h4>See also</h4>
-<a href=\"Modelica:Modelica.Math.Matrices.LU_solve\">Matrices.LU_solve</a>, 
-<a href=\"Modelica:Modelica.Math.Matrices.solve\">Matrices.solve</a>,
+<a href=\"Modelica://Modelica.Math.Matrices.LU_solve\">Matrices.LU_solve</a>, 
+<a href=\"Modelica://Modelica.Math.Matrices.solve\">Matrices.solve</a>,
 </HTML>"));
   end LU;
   
@@ -1166,7 +1166,7 @@ defined by vector <code>pivots</code>),
 diagonal elements (lower trapezoidal if m &gt; n), and
 <b>U</b> is an upper triangular matrix (upper trapezoidal if m &lt; n).
 The matrices of this decomposition are computed with function
-<a href=\"Modelica:Modelica.Math.Matrices.LU\">Matrices.LU</a> that
+<a href=\"Modelica://Modelica.Math.Matrices.LU\">Matrices.LU</a> that
 returns arguments <code>LU</code> and <code>pivots</code>
 used as input arguments of <code>Matrices.LU_solve</code>.
 With <code>Matrices.LU</code> and <code>Matrices.LU_solve</code>
@@ -1174,7 +1174,7 @@ it is possible to efficiently solve linear systems
 with different right hand side vectors. If a linear system of equations with
 just one right hand side vector shall be solved, it is
 more convenient to just use the function
-<a href=\"Modelica:Modelica.Math.Matrices.solve\">Matrices.solve</a>.
+<a href=\"Modelica://Modelica.Math.Matrices.solve\">Matrices.solve</a>.
 </p>
 <p>
 If a unique solution <b>x</b> does not exist (since the 
@@ -1205,8 +1205,8 @@ matrix A was interchanged with row pivots[i].
   x2 := Matrices.LU_solve(LU, pivots, b2);  // x2 = {1,0,2}
 </pre></blockquote>
 <h4>See also</h4>
-<a href=\"Modelica:Modelica.Math.Matrices.LU\">Matrices.LU</a>, 
-<a href=\"Modelica:Modelica.Math.Matrices.solve\">Matrices.solve</a>,
+<a href=\"Modelica://Modelica.Math.Matrices.LU\">Matrices.LU</a>, 
+<a href=\"Modelica://Modelica.Math.Matrices.solve\">Matrices.solve</a>,
 </HTML>"));
   algorithm 
     for i in 1:size(LU,1) loop
@@ -1250,7 +1250,7 @@ defined by vector <code>pivots</code>),
 diagonal elements (lower trapezoidal if m &gt; n), and
 <b>U</b> is an upper triangular matrix (upper trapezoidal if m &lt; n).
 The matrices of this decomposition are computed with function
-<a href=\"Modelica:Modelica.Math.Matrices.LU\">Matrices.LU</a> that
+<a href=\"Modelica://Modelica.Math.Matrices.LU\">Matrices.LU</a> that
 returns arguments <code>LU</code> and <code>pivots</code>
 used as input arguments of <code>Matrices.LU_solve2</code>.
 With <code>Matrices.LU</code> and <code>Matrices.LU_solve2</code>
@@ -1258,7 +1258,7 @@ it is possible to efficiently solve linear systems
 with different right hand side <b>matrices</b>. If a linear system of equations with
 just one right hand side matrix shall be solved, it is
 more convenient to just use the function
-<a href=\"Modelica:Modelica.Math.Matrices.solve2\">Matrices.solve2</a>.
+<a href=\"Modelica://Modelica.Math.Matrices.solve2\">Matrices.solve2</a>.
 </p>
 <p>
 If a unique solution <b>X</b> does not exist (since the 
@@ -1297,8 +1297,8 @@ matrix A was interchanged with row pivots[i].
                                                       2, 4] */
 </pre></blockquote>
 <h4>See also</h4>
-<a href=\"Modelica:Modelica.Math.Matrices.LU\">Matrices.LU</a>, 
-<a href=\"Modelica:Modelica.Math.Matrices.solve2\">Matrices.solve2</a>,
+<a href=\"Modelica://Modelica.Math.Matrices.LU\">Matrices.LU</a>, 
+<a href=\"Modelica://Modelica.Math.Matrices.solve2\">Matrices.solve2</a>,
 </HTML>"));
   algorithm 
     for i in 1:size(LU,1) loop
@@ -1446,7 +1446,7 @@ has an imaginary part, then eigenvalues[i+1,:] is the conjugate complex
 eigenvalue and eigenvectors[:,i] is the real and eigenvectors[:,i+1] is the
 imaginary part of the eigenvector of the i-th eigenvalue.
 With function 
-<a href=\"Modelica:Modelica.Math.Matrices.eigenValueMatrix\">Matrices.eigenValueMatrix</a>,
+<a href=\"Modelica://Modelica.Math.Matrices.eigenValueMatrix\">Matrices.eigenValueMatrix</a>,
 a real block diagonal matrix is constructed from the eigenvalues 
 such that 
 </p>
@@ -1477,8 +1477,8 @@ i.e., matrix A has the 3 real eigenvalues -0.618, 8, 1.618.
 </p>
 </pre></blockquote>
 <h4>See also</h4>
-<a href=\"Modelica:Modelica.Math.Matrices.eigenValueMatrix\">Matrices.eigenValueMatrix</a>,
-<a href=\"Modelica:Modelica.Math.Matrices.singularValues\">Matrices.singularValues</a>
+<a href=\"Modelica://Modelica.Math.Matrices.eigenValueMatrix\">Matrices.eigenValueMatrix</a>,
+<a href=\"Modelica://Modelica.Math.Matrices.singularValues\">Matrices.singularValues</a>
 </HTML>
 "));
   protected 
@@ -1526,7 +1526,7 @@ Matrices.<b>eigenValueMatrix</b>(eigenvalues);
 The function call returns a block diagonal matrix <b>J</b>
 from the the two-column matrix <code>eigenvalues</code>
 (computed by function
-<a href=\"Modelica:Modelica.Math.Matrices.eigenValues\">Matrices.eigenValues</a>).
+<a href=\"Modelica://Modelica.Math.Matrices.eigenValues\">Matrices.eigenValues</a>).
 Matrix <code>eigenvalues</code> must have the real part of the
 eigenvalues in the first column and the imaginary part in the
 second column. If an eigenvalue i has a vanishing imaginary
@@ -1544,7 +1544,7 @@ are used to construct a 2 by 2 diagonal block of <b>J</b>:
 </pre>
 </blockquote>
 <h4>See also</h4>
-<a href=\"Modelica:Modelica.Math.Matrices.eigenValues\">Matrices.eigenValues</a>
+<a href=\"Modelica://Modelica.Math.Matrices.eigenValues\">Matrices.eigenValues</a>
 </HTML>"));
   protected 
     Integer n=size(eigenValues, 1);
@@ -1617,7 +1617,7 @@ matrices <tt>U</tt> and <tt>V</tt>.
                  0,    0, 2.31, 0]
 </pre></blockquote>
 <h4>See also</h4>
-<a href=\"Modelica:Modelica.Math.Matrices.eigenValues\">Matrices.eigenValues</a>
+<a href=\"Modelica://Modelica.Math.Matrices.eigenValues\">Matrices.eigenValues</a>
 </HTML>"));
   protected 
     Integer info;
@@ -1649,11 +1649,11 @@ computed by a LU decomposition.
 Usally, this function should never be used, because
 there are nearly always better numerical algorithms
 as by computing the determinant. E.g., use function
-<a href=\"Modelica:Modelica.Math.Matrices.rank\">Matrices.rank</a>
+<a href=\"Modelica://Modelica.Math.Matrices.rank\">Matrices.rank</a>
 to compute the rank of a matrix.
 <h4>See also</h4>
-<a href=\"Modelica:Modelica.Math.Matrices.rank\">Matrices.rank</a>,
-<a href=\"Modelica:Modelica.Math.Matrices.solve\">Matrices.solve</a>
+<a href=\"Modelica://Modelica.Math.Matrices.rank\">Matrices.rank</a>,
+<a href=\"Modelica://Modelica.Math.Matrices.solve\">Matrices.solve</a>
 </HTML>"));
   algorithm 
     (LU,pivots) := Matrices.LU(A);
@@ -5686,7 +5686,7 @@ partial function baseIcon1
           rgbcolor={95,95,95},
           fillColor=10,
           rgbfillColor={95,95,95},
-          fillPattern=1))), 
+          fillPattern=1))),
     Documentation(info="<html>
 <p>
 Icon for a mathematical function, consisting of an y-axis on the left side.
@@ -5736,7 +5736,7 @@ partial function baseIcon2
           rgbcolor={95,95,95},
           fillColor=10,
           rgbfillColor={95,95,95},
-          fillPattern=1))), 
+          fillPattern=1))),
     Documentation(revisions="<html>
 <p>
 Icon for a mathematical function, consisting of an y-axis in the middle.

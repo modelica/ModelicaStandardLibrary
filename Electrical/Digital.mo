@@ -1,10 +1,9 @@
 within Modelica.Electrical;
 package Digital 
   "Library for digital electrical components based on the VHDL standard with 9-valued logic and conversion to 2-,3-,4-valued logic" 
-class UsersGuide "User's Guide" 
+package UsersGuide "User's Guide" 
     
   annotation (DocumentationClass=true, Documentation(info="<html>
-<h4>User's Guide of package Electrical.Digital</h4>
 <p>
 Library <b>Electrical.Digital</b> is a <b>free</b> Modelica package providing
 components to model <b>digital</b> electronic
@@ -34,7 +33,6 @@ the library and has the following content:
   class OverView "Overview of library" 
       
     annotation (Documentation(info="<html>
-<h4>Overview of Library Electrical.Digital</h4>
 <p>
 In this section, an overview of the most important features
 of this library is given.
@@ -47,7 +45,6 @@ of this library is given.
   class FirstExample "A first example" 
       
     annotation (Documentation(info="<html>
-<h4>A first example</h4>
 <p>
 A first example will be given here (not yet done).
 </p>
@@ -58,7 +55,6 @@ A first example will be given here (not yet done).
   class ApplicationExample "An application example" 
       
     annotation (Documentation(info="<html>
-<h4>An application example</h4>
 <p>
 An application example will be given here (not yet done).
 </p>
@@ -69,7 +65,6 @@ An application example will be given here (not yet done).
   class ReleaseNotes "Release notes" 
       
     annotation (Documentation(info="<html>
-<h4>Release notes</h4>
 <h4>Version 1.0.7, 2005-07-01</h4>
 <ul>
 <li> xxxx</li>
@@ -124,7 +119,6 @@ An application example will be given here (not yet done).
   class Literature "Literature" 
       
     annotation (Documentation(info="<html>
-<h4>Literature</h4>
 <p>
 The Electrical.Digital library is based on the following references:
 </p>
@@ -161,7 +155,6 @@ The Electrical.Digital library is based on the following references:
   class Contact "Contact" 
       
     annotation (Documentation(info="<html>
-<h4>Contact</h4>
 <dl>
 <dt><b>Main Authors:</b>
 <dd><a href=\"http://people.eas.iis.fraunhofer.de/Christoph.Clauss/\">Christoph Clau&szlig;</a>

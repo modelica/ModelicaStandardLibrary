@@ -12,7 +12,8 @@ annotation(preferedView="info",
     library=1,
     autolayout=1),
   version="2.2.2",
-  versionDate="2007-08-17",
+  versionBuild="572",
+  versionDate="2007-08-18",
   conversion(
     from(version="1.6",
          ModelicaAdditions(version="1.5"),
@@ -47,11 +48,13 @@ For an introduction, have especially a look at:
 <ul>
 <li> <a href=\"Modelica://Modelica.UsersGuide.Overview\">Overview</a>
      provides an overview of the Modelica Standard Library
-     inside the <a href=\"Modelica://Modelica.UsersGuide\">User's Guide</a>,</li>
+     inside the <a href=\"Modelica://Modelica.UsersGuide\">User's Guide</a>.</li>
 <li><a href=\"Modelica://Modelica.UsersGuide.ReleaseNotes\">Release Notes</a>
-    summarizes the changes of new versions of this package,</li>
+    summarizes the changes of new versions of this package.</li>
 <li> <a href=\"Modelica://Modelica.UsersGuide.Contact\">Contact</a>
      lists the contributors of the Modelica Standard Library.</li>
+<li> <a href=\"../help/Documentation/ModelicaStandardLibrary.pdf\">ModelicaStandardLibrary.pdf</a>
+     is the complete documentation of the library in pdf format.
 <li> The <b>Examples</b> packages in the various libraries, demonstrate
      how to use the components of the corresponding sublibrary.</li>
 </ul>
@@ -711,7 +714,9 @@ ModelManagement.compare function.
  
 <p>
 In this version, <b>no</b> new libraries have been added. The <b>documentation</b>
-of the whole library was improved.
+of the whole library was improved. Especially, the documentation is now also
+available as
+<a href=\"../help/Documentation/ModelicaStandardLibrary.pdf\">one pdf file</a>.
 </p>
  
  
@@ -1485,7 +1490,7 @@ units are wrong or errors in documentation):
   <tr><td colspan=\"2\"><b>Mechanics.MultiBody.Frames.</b></td></tr>
   <tr><td valign=\"top\"> axisRotation</td>
       <td valign=\"top\"> Corrected wrong unit: \"SIunits.Angle der_angle\" to
-            \"SIunits.AngularVelocity der_angle\".
+            \"SIunits.AngularVelocity" + " der_angle\".
        </td> 
   </tr>
  
@@ -1569,7 +1574,7 @@ units are wrong or errors in documentation):
        </td> 
   </tr>
  
-  <tr" + "><td colspan=\"2\"><b>Media.Incompressible.Examples.</b></td></tr>
+  <tr><td colspan=\"2\"><b>Media.Incompressible.Examples.</b></td></tr>
   <tr><td valign=\"top\"> TestGlycol</td>
       <td valign=\"top\"> Rewrote equations so that dimensional (unit) analysis is correct\"
        </td> 

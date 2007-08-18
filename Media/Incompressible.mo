@@ -652,7 +652,7 @@ function calls can not be used.
 </HTML>"));
   end TableBased;
   
-  package Examples 
+  package Examples "Examples for incompressible media" 
     
   package Glycol47 "1,2-Propylene glycol, 47% mixture with water" 
     extends TableBased(
@@ -721,7 +721,7 @@ function calls can not be used.
     
   annotation (
     Documentation(info="<HTML>
-<h4>Examples of incompressible media</h4>
+
 <p>
 This package provides a few examples of how to construct medium models for
 incompressible fluids. The package contains:
@@ -768,7 +768,7 @@ energy, which makes all medium properties pure functions of temperature.</li>
 The default setting for both these flags is true, which enables the simulation tool
 to choose temperature as the only medium state and avoids non-linear equation
 systems, see the section about
-<a href=\"Modelica:Modelica.Media.UsersGuide.MediumUDefinition.StaticStateSelection\">Static
+<a href=\"Modelica://Modelica.Media.UsersGuide.MediumDefinition.StaticStateSelection\">Static
 state selection</a> in the Modelica.Media user's Guide.
  
 </p>
@@ -777,18 +777,18 @@ state selection</a> in the Modelica.Media user's Guide.
 Currently, the package contains the following parts:
 </p>
 <ol>
-<li> <a href=\"Modelica:Modelica.Media.Incompressible.TableBased\">
+<li> <a href=\"Modelica://Modelica.Media.Incompressible.TableBased\">
       Table based medium models</a></li>
-<li> <a href=\"Modelica:Modelica.Media.Incompressible.Examples\">
+<li> <a href=\"Modelica://Modelica.Media.Incompressible.Examples\">
       Example medium models</a></li>
 </ol>
  
 <p>
 A few examples are given in the Examples package. The model
-<a href=\"Modelica:Modelica.Media.TableBased.Examples.TestGlycol\">
-Examples.TestGlycol</a> shows how the medium models can be used. For more
+<a href=\"Modelica://Modelica.Media.Incompressible.Examples.Glycol47\">
+Examples.Glycol47</a> shows how the medium models can be used. For more
 realistic examples of how to implement volume models with medium properties
-look in the <a href=\"Modelica:Modelica.Media.UsersGuide.MediumUsage\">Medium
+look in the <a href=\"Modelica://Modelica.Media.UsersGuide.MediumUsage\">Medium
 usage section</a> of the User's guide.
 </p>
  

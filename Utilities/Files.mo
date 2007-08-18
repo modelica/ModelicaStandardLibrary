@@ -155,39 +155,39 @@ In the table below an example call to every function is given:
 </p>
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><th><b><i>Function/type</i></b></th><th><b><i>Description</i></b></th></tr>
-  <tr><td valign=\"top\"><a href=\"Modelica:Modelica.Utilities.Files.list\">list</a>(name)</td>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Utilities.Files.list\">list</a>(name)</td>
       <td valign=\"top\"> List content of file or of directory.</td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"Modelica:Modelica.Utilities.Files.copy\">copy</a>(oldName, newName)<br>
-          <a href=\"Modelica:Modelica.Utilities.Files.copy\">copy</a>(oldName, newName, replace=false)</td>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Utilities.Files.copy\">copy</a>(oldName, newName)<br>
+          <a href=\"Modelica://Modelica.Utilities.Files.copy\">copy</a>(oldName, newName, replace=false)</td>
       <td valign=\"top\"> Generate a copy of a file or of a directory.</td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"Modelica:Modelica.Utilities.Files.move\">move</a>(oldName, newName)<br>
-          <a href=\"Modelica:Modelica.Utilities.Files.move\">move</a>(oldName, newName, replace=false)</td>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Utilities.Files.move\">move</a>(oldName, newName)<br>
+          <a href=\"Modelica://Modelica.Utilities.Files.move\">move</a>(oldName, newName, replace=false)</td>
       <td valign=\"top\"> Move a file or a directory to another place.</td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"Modelica:Modelica.Utilities.Files.remove\">remove</a>(name)</td>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Utilities.Files.remove\">remove</a>(name)</td>
       <td valign=\"top\"> Remove file or directory (ignore call, if it does not exist).</td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"Modelica:Modelica.Utilities.Files.removeFile\">removeFile</a>(name)</td>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Utilities.Files.removeFile\">removeFile</a>(name)</td>
       <td valign=\"top\"> Remove file (ignore call, if it does not exist)</td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"Modelica:Modelica.Utilities.Files.createDirectory\">createDirectory</a>(name)</td>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Utilities.Files.createDirectory\">createDirectory</a>(name)</td>
       <td valign=\"top\"> Create directory (if directory already exists, ignore call).</td>
   </tr>
-  <tr><td valign=\"top\">result = <a href=\"Modelica:Modelica.Utilities.Files.exist\">exist</a>(name)</td>
+  <tr><td valign=\"top\">result = <a href=\"Modelica://Modelica.Utilities.Files.exist\">exist</a>(name)</td>
       <td valign=\"top\"> Inquire whether file or directory exists.</td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"Modelica:Modelica.Utilities.Files.assertNew\">assertNew</a>(name,message)</td>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Utilities.Files.assertNew\">assertNew</a>(name,message)</td>
       <td valign=\"top\"> Trigger an assert, if a file or directory exists.</td>
   </tr>
-  <tr><td valign=\"top\">fullName = <a href=\"Modelica:Modelica.Utilities.Files.fullPathName\">fullPathName</a>(name)</td>
+  <tr><td valign=\"top\">fullName = <a href=\"Modelica://Modelica.Utilities.Files.fullPathName\">fullPathName</a>(name)</td>
       <td valign=\"top\"> Get full path name of file or directory name.</td>
   </tr>
-  <tr><td valign=\"top\">(directory, name, extension) = <a href=\"Modelica:Modelica.Utilities.Files.splitPathName\">splitPathName</a>(name)</td>
+  <tr><td valign=\"top\">(directory, name, extension) = <a href=\"Modelica://Modelica.Utilities.Files.splitPathName\">splitPathName</a>(name)</td>
       <td valign=\"top\"> Split path name in directory, file name kernel, file name extension.</td>
   </tr>
-  <tr><td valign=\"top\">fileName = <a href=\"Modelica:Modelica.Utilities.Files.temporaryFileName\">temporaryFileName</a>()</td>
+  <tr><td valign=\"top\">fileName = <a href=\"Modelica://Modelica.Utilities.Files.temporaryFileName\">temporaryFileName</a>()</td>
       <td valign=\"top\"> Return arbitrary name of a file that does not exist<br>
            and is in a directory where access rights allow to <br>
            write to this file (useful for temporary output of files).</td>
