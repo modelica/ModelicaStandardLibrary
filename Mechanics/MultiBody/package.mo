@@ -59,7 +59,7 @@ import SI = Modelica.SIunits;
 extends Modelica.Icons.Library;
 
 
-class UsersGuide "User's Guide of MultiBody Library" 
+package UsersGuide "User's Guide of MultiBody Library" 
   
   annotation (DocumentationClass=true, Documentation(info="<HTML>
 <p>
@@ -95,7 +95,7 @@ gives an introduction into the most important aspects of the library.
 </ol>
 </HTML>"));
   
-  class Tutorial "Tutorial" 
+  package Tutorial "Tutorial" 
     
     annotation (DocumentationClass=true, Documentation(info="<HTML>
 <p>
@@ -337,7 +337,7 @@ in the middle of the light blue sphere.
 "));
     end FirstExample;
     
-    class LoopStructures "Loop structures" 
+    package LoopStructures "Loop structures" 
       
       class Introduction "Introduction" 
         

@@ -60,7 +60,7 @@ and the accompanying <b>disclaimer</b>
           "../ConvertFromModelica.Media_0.795.mos")));
 
 
-class UsersGuide "User's Guide of Media Library" 
+package UsersGuide "User's Guide of Media Library" 
   
   annotation (DocumentationClass=true, Documentation(info="<HTML>
 <p>
@@ -137,7 +137,7 @@ This User's Guide has the following main parts:
 </ul>
 </HTML>"));
   
-  class MediumUsage "Medium usage" 
+  package MediumUsage "Medium usage" 
     
     annotation (DocumentationClass=true, Documentation(info="<HTML>
 <p>
@@ -866,11 +866,11 @@ The record FluidConstants that is defined in PartialMedium contains the followin
       <td>molarMass</td>
       <td>molar mass</td></tr>
 </table>
-
+ 
 <p> This record is extended in the partial packages further down the hierarchy (such as
 PartialTwoPhaseMedium or PartialMixtureMedium) and may contain some or all of the following
 elements </p>
-
+ 
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><td>Temperature</td>
       <td>criticalTemperature</td>
@@ -1012,7 +1012,7 @@ based on the other input values. An input phase = 1 will force the setState
 function to return a state vector corresponding to a one-phase state, while 
 phase = 2 will force the setState value to return a state vector corresponding 
 to a two-phase state, as shown in the following example;
-
+ 
 </p>
 <pre>
    <b>replaceable package</b> Medium = Modelica.Media.Interfaces.PartialTwoPhaseMedium;
@@ -1023,16 +1023,16 @@ to a two-phase state, as shown in the following example;
    // from the state record
    state = Medium.setState_ph(p, h);
    phase = state1.phase;
-
+ 
    // Force the computation of the state with one-phase 
    // equations of state, irrespective of the (p, h) values
    state1 = Medium.setState_ph(p, h, 1);
-
+ 
    // Force the computation of the state with 2-phase 
    // equations of state, irrespective of the (p, h) values
    state2 = Medium.setState_ph(p, h, 2);
 </pre>
-
+ 
 <p> This feature can be used for the following purposes:
 <ul>
 <li> saving computational time, if one knows in advance the phase of the medium;
@@ -1040,7 +1040,7 @@ to a two-phase state, as shown in the following example;
 <li> get the properties of metastable states, like superheated water or subcooled vapour.
 </ul>
 </p>
-
+ 
 <p>
 Many additional optional functions are defined to compute properties of 
 saturated media, either liquid (bubble point) or vapour (dew point). 
@@ -1262,7 +1262,7 @@ exist:
     
   end MediumUsage;
   
-  class MediumDefinition "Medium definition" 
+  package MediumDefinition "Medium definition" 
     
     annotation (DocumentationClass=true, Documentation(info="<HTML>
 <p>
@@ -1675,7 +1675,7 @@ For further details, refer to the implementation of
 "));
     end MultipleSubstances;
     
-    model SpecificEnthalpyAsFunction "Specific enthalpy as function" 
+    class SpecificEnthalpyAsFunction "Specific enthalpy as function" 
       
       annotation (Documentation(info="<html>
 <p>
@@ -1874,7 +1874,7 @@ of the independent medium variables.
       
     end SpecificEnthalpyAsFunction;
     
-    model StaticStateSelection "Static State Selection" 
+    class StaticStateSelection "Static State Selection" 
       
       annotation (Documentation(info="<html>
 <p>
@@ -2065,7 +2065,7 @@ states. This means that static state selection is possible.
       
     end StaticStateSelection;
     
-    model TestOfMedium "Test of medium" 
+    class TestOfMedium "Test of medium" 
       
       annotation (Documentation(info="<html>
 <p>
@@ -2107,7 +2107,7 @@ properties. Of course, more tests should be performed.
     end TestOfMedium;
   end MediumDefinition;
   
-  model ReleaseNotes "Release notes" 
+  class ReleaseNotes "Release notes" 
     
     annotation (Documentation(info="<HTML>
 <h4>Version 1.0, 2005-03-01</h4>
