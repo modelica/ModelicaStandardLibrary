@@ -2260,8 +2260,8 @@ package Examples
    very good: the second medium record medium2
    is given to compare the approximation.
 </p>
-</html>"), 
-      experiment, 
+</html>"),
+      experiment,
       experimentSetupOutput);
   end IdealGasH2O;
   
@@ -2291,8 +2291,8 @@ package Examples
     der(U) = H_flow_ext;
     annotation (Documentation(info="<html>
   
-</html>"), 
-      experiment, 
+</html>"),
+      experiment,
       experimentSetupOutput);
   end WaterIF97;
   
@@ -2339,8 +2339,8 @@ package Examples
     der(U2) = H_flow_ext;
     annotation (Documentation(info="<html>
   
-</html>"), 
-      experiment, 
+</html>"),
+      experiment,
       experimentSetupOutput);
   end MixtureGases;
   
@@ -2532,8 +2532,8 @@ points, e.g. when an isentropic reference state is computed.
 The function that is implemented is approximate, but usually very good: the second medium record medium2
 is given to compare the approximation.
 </p>
-</html>"), 
-        experiment, 
+</html>"),
+        experiment,
         experimentSetupOutput);
     equation 
       der(medium.p) = 1000.0;
@@ -2574,8 +2574,8 @@ is given to compare the approximation.
 The function that is implemented is approximate, but usually very good: the second medium record medium2
 is given to compare the approximation.
 </p>
-</html>"), 
-        experiment, 
+</html>"),
+        experiment,
         experimentSetupOutput);
     equation 
       der(state.p) = 1000.0;
@@ -2586,14 +2586,14 @@ is given to compare the approximation.
       der(medium2.X[1:Medium.nX]) = {0.0,0.0,0.0,0.0};
     end FlueGas;
     
-    model IdealGasAir "Test IdealGas.SingleMedia.Air medium model" 
+    model IdealGasN2 "Test IdealGas.SingleMedia.N2 medium model" 
       extends Modelica.Icons.Example;
       
       parameter Real V=1;
       parameter Real m_flow_ext=0.01;
       parameter Real H_flow_ext=5000;
       
-      package Medium = IdealGases.SingleGases.Air "Medium model";
+      package Medium = IdealGases.SingleGases.N2 "Medium model";
       // initType=Medium.Choices.Init.SteadyState,
       
       Medium.BaseProperties medium(preferredMediumStates=true,
@@ -2623,8 +2623,8 @@ is given to compare the approximation.
 </html>"),
         experiment,
         experimentSetupOutput);
-    end IdealGasAir;
-
+    end IdealGasN2;
+    
     package TestMedia 
       extends Modelica.Icons.Library;
       model TemplateMedium "Test Interfaces.TemplateMedium" 
@@ -2644,8 +2644,7 @@ is given to compare the approximation.
         medium.T = 300 + time/1000;
         annotation (Documentation(info="<html>
   
-</html>"), 
-          experiment, 
+</html>"),experiment,
           experimentSetupOutput);
       end TemplateMedium;
       
@@ -3217,8 +3216,7 @@ The details of the pipe friction model are described
              redeclare package Medium = Modelica.Media.Air.SimpleAir);
           annotation (Documentation(info="<html>
   
-</html>"), 
-            experiment, 
+</html>"),  experiment,
             experimentSetupOutput);
         end SimpleAir;
         
@@ -3227,8 +3225,7 @@ The details of the pipe friction model are described
              redeclare package Medium = Modelica.Media.Air.DryAirNasa);
           annotation (Documentation(info="<html>
   
-</html>"), 
-            experiment, 
+</html>"),  experiment,
             experimentSetupOutput);
         end DryAirNasa;
         
@@ -3237,8 +3234,7 @@ The details of the pipe friction model are described
              redeclare package Medium = Modelica.Media.Air.MoistAir);
           annotation (Documentation(info="<html>
    
-</html>"), 
-            experiment, 
+</html>"),  experiment,
             experimentSetupOutput);
         end MoistAir;
         annotation (Documentation(info="<html>
@@ -3255,8 +3251,7 @@ The details of the pipe friction model are described
                 Modelica.Media.Air.DryAirNasa);
           annotation (Documentation(info="<html>
   
-</html>"), 
-            experiment, 
+</html>"),  experiment,
             experimentSetupOutput);
         end Air;
         
@@ -3267,8 +3262,7 @@ The details of the pipe friction model are described
                 Modelica.Media.IdealGases.MixtureGases.SimpleNaturalGas);
           annotation (Documentation(info="<html>
    
-</html>"), 
-            experiment, 
+</html>"),  experiment,
             experimentSetupOutput);
         end SimpleNaturalGas;
         
@@ -3292,8 +3286,7 @@ The details of the pipe friction model are described
                   final enthalpyOfT =                                                              true));
           annotation (Documentation(info="<html>
   
-</html>"), 
-            experiment, 
+</html>"),  experiment,
             experimentSetupOutput);
         end Glycol47;
         
@@ -3304,8 +3297,7 @@ The details of the pipe friction model are described
                 Modelica.Media.Incompressible.Examples.Essotherm650);
           annotation (Documentation(info="<html>
   
-</html>"), 
-            experiment, 
+</html>"),  experiment,
             experimentSetupOutput);
         end Essotherm650;
         annotation (Documentation(info="<html>
@@ -3322,8 +3314,7 @@ The details of the pipe friction model are described
                 Modelica.Media.Water.ConstantPropertyLiquidWater);
           annotation (Documentation(info="<html>
   
-</html>"), 
-            experiment, 
+</html>"),  experiment,
             experimentSetupOutput);
         end ConstantPropertyLiquidWater;
         
@@ -3332,8 +3323,7 @@ The details of the pipe friction model are described
              redeclare package Medium = Modelica.Media.Water.IdealSteam);
           annotation (Documentation(info="<html>
   
-</html>"), 
-            experiment, 
+</html>"),  experiment,
             experimentSetupOutput);
         end IdealSteam;
         
@@ -3346,8 +3336,7 @@ The details of the pipe friction model are described
             ambient(use_T_ambient=false, h_ambient=112570));
           annotation (Documentation(info="<html>
   
-</html>"), 
-            experiment, 
+</html>"),  experiment,
             experimentSetupOutput);
         end WaterIF97OnePhase_ph;
         
@@ -3356,8 +3345,7 @@ The details of the pipe friction model are described
              redeclare package Medium = Modelica.Media.Water.WaterIF97_pT);
           annotation (Documentation(info="<html>
   
-</html>"), 
-            experiment, 
+</html>"),  experiment,
             experimentSetupOutput);
         end WaterIF97_pT;
         
@@ -3368,8 +3356,7 @@ The details of the pipe friction model are described
             fixedMassFlowRate(use_T_ambient=false, h_ambient=363755));
           annotation (Documentation(info="<html>
   
-</html>"), 
-            experiment, 
+</html>"),  experiment,
             experimentSetupOutput);
         end WaterIF97_ph;
         /*        
@@ -3397,8 +3384,7 @@ The details of the pipe friction model are described
                 Modelica.Media.CompressibleLiquids.LinearColdWater);
           annotation (Documentation(info="<html>
   
-</html>"), 
-            experiment, 
+</html>"),  experiment,
             experimentSetupOutput);
         end LinearColdWater;
         
@@ -3409,8 +3395,7 @@ The details of the pipe friction model are described
                 Modelica.Media.CompressibleLiquids.LinearWater_pT_Ambient);
           annotation (Documentation(info="<html>
   
-</html>"), 
-            experiment, 
+</html>"),  experiment,
             experimentSetupOutput);
         end LinearWater_pT;
         annotation (Documentation(info="<html>
