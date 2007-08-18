@@ -25,42 +25,42 @@ In the table below an example call to every function is given:
 </p>
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><th><b><i>Function/type</i></b></th><th><b><i>Description</i></b></th></tr>
-  <tr><td valign=\"top\"><a href=\"Modelica:Modelica.Utilities.Streams.print\">print</a>(string)<br>
-          <a href=\"Modelica:Modelica.Utilities.Streams.print\">print</a>(string,fileName)</td>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Utilities.Streams.print\">print</a>(string)<br>
+          <a href=\"Modelica://Modelica.Utilities.Streams.print\">print</a>(string,fileName)</td>
       <td valign=\"top\"> Print string \"string\" or vector of strings to message window or on
            file \"fileName\".</td>
   </tr>
   <tr><td valign=\"top\">stringVector = 
-         <a href=\"Modelica:Modelica.Utilities.Streams.readFile\">readFile</a>(fileName)</td>
+         <a href=\"Modelica://Modelica.Utilities.Streams.readFile\">readFile</a>(fileName)</td>
       <td valign=\"top\"> Read complete text file and return it as a vector of strings.</td>
   </tr>
   <tr><td valign=\"top\">(string, endOfFile) = 
-         <a href=\"Modelica:Modelica.Utilities.Streams.readLine\">readLine</a>(fileName, lineNumber)</td>
+         <a href=\"Modelica://Modelica.Utilities.Streams.readLine\">readLine</a>(fileName, lineNumber)</td>
       <td valign=\"top\">Returns from the file the content of line lineNumber.</td>
   </tr>
   <tr><td valign=\"top\">lines = 
-         <a href=\"Modelica:Modelica.Utilities.Streams.countLines\">countLines</a>(fileName)</td>
+         <a href=\"Modelica://Modelica.Utilities.Streams.countLines\">countLines</a>(fileName)</td>
       <td valign=\"top\">Returns the number of lines in a file.</td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"Modelica:Modelica.Utilities.Streams.error\">error</a>(string)</td>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Utilities.Streams.error\">error</a>(string)</td>
       <td valign=\"top\"> Print error message \"string\" to message window
            and cancel all actions</td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"Modelica:Modelica.Utilities.Streams.close\">close</a>(fileName)</td>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Utilities.Streams.close\">close</a>(fileName)</td>
       <td valign=\"top\"> Close file if it is still open. Ignore call if
            file is already closed or does not exist. </td>
   </tr>
 </table>
 <p>
 Use functions <b>scanXXX</b> from package 
-<a href=\"Modelica:Modelica.Utilities.Strings\">Strings</a>
+<a href=\"Modelica://Modelica.Utilities.Strings\">Strings</a>
 to parse a string.
 </p>
 <p>
 If Real, Integer or Boolean values shall be printed 
 or used in an error message, they have to be first converted
 to strings with the builtin operator 
-<a href=\"Modelica:ModelicaReference.Operators.string\">String</a>(...).
+<a href=\"Modelica://ModelicaReference.Operators.string\">String</a>(...).
 Example:
 </p>
 <pre>
@@ -104,9 +104,9 @@ After every call of \"print(..)\" a \"new line\" is printed automatically.
 <p>
 <h4>See also</h4>
 <p>
-<a href=\"Modelica:Modelica.Utilities.Streams\">Streams</a>,
-<a href=\"Modelica:Modelica.Utilities.Streams.error\">Streams.error</a>,
-<a href=\"Modelica:ModelicaReference.Operators.string\">String</a>
+<a href=\"Modelica://Modelica.Utilities.Streams\">Streams</a>,
+<a href=\"Modelica://Modelica.Utilities.Streams.error\">Streams.error</a>,
+<a href=\"Modelica://ModelicaReference.Operators.string\">String</a>
 </p>
 </HTML>"));
   end print;
@@ -206,9 +206,9 @@ by \"\\n\" in the string.
 </pre></blockquote>
 <h4>See also</h4>
 <p>
-<a href=\"Modelica:Modelica.Utilities.Streams\">Streams</a>,
-<a href=\"Modelica:Modelica.Utilities.Streams.print\">Streams.print</a>,
-<a href=\"Modelica:ModelicaReference.Operators.string\">String</a>
+<a href=\"Modelica://Modelica.Utilities.Streams\">Streams</a>,
+<a href=\"Modelica://Modelica.Utilities.Streams.print\">Streams.print</a>,
+<a href=\"Modelica://ModelicaReference.Operators.string\">String</a>
 </p>
 </html>"));
   end error;

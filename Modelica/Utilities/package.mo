@@ -27,15 +27,15 @@ For an introduction, have especially a look at:
 The following main sublibraries are available:
 </p>
 <ul>
-<li> <a href=\"Modelica:Modelica.Utilities.Files\">Files</a>
+<li> <a href=\"Modelica://Modelica.Utilities.Files\">Files</a>
      provides functions to operate on files and directories, e.g.,
      to copy, move, remove files.</li>
-<li> <a href=\"Modelica:Modelica.Utilities.Streams\">Streams</a>
+<li> <a href=\"Modelica://Modelica.Utilities.Streams\">Streams</a>
      provides functions to read from files and write to files.</li>
-<li> <a href=\"Modelica:Modelica.Utilities.Strings\">Strings</a>
+<li> <a href=\"Modelica://Modelica.Utilities.Strings\">Strings</a>
      provides functions to operate on strings. E.g.
      substring, find, replace, sort, scanToken.</li>
-<li> <a href=\"Modelica:Modelica.Utilities.System\">System</a>
+<li> <a href=\"Modelica://Modelica.Utilities.System\">System</a>
      provides functions to interact with the environment. 
      E.g., get or set the working directory or environment 
      variables and to send a command to the default shell.</li>

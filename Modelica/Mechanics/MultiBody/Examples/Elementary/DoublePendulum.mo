@@ -24,10 +24,12 @@ can be switched of by setting the first parameter <b>animation</b>
 to <b>false</b> or by setting <b>enableAnimation</b> in the <b>world</b>
 object to <b>false</b> to switch off animation of all components.
 </p>
-<p align=\"center\">
+
+<table border=0 cellspacing=0 cellpadding=0><tr><td valign=\"top\">
 <IMG SRC=\"../Images/MultiBody/Examples/Elementary/DoublePendulum.png\" 
 ALT=\"model Examples.Elementary.DoublePendulum\">
-</p>
+</td></tr></table>
+
 </HTML>"));
   inner Modelica.Mechanics.MultiBody.World world annotation (extent=[-88, 0; -68, 20]);
   Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute revolute1(initType=Modelica.Mechanics.MultiBody.Types.Init.

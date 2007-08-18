@@ -712,7 +712,7 @@ revolute and one prismatic joint, see next figure.
 Since 6 
 cylinders are connected together, 6 coupled loops with 6 JointRRP objects are 
 present. This model is available as 
-<a href=\"Modelica://Modelica.Mechanics.MultiBody.Examples.Loops.Engine­V6_analytic\">
+<a href=\"Modelica://Modelica.Mechanics.MultiBody.Examples.Loops.EngineV6_analytic\">
 MultiBody.Examples.Loops.Engine­V6_analytic</a>.
 </p>
 <p>

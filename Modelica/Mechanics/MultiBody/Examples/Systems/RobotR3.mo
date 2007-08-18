@@ -371,7 +371,10 @@ to plot variables.
 Signal bus that is used to communicate all signals for <b>one</b> axis.
 This is an expandable connector which is \"empty\". 
 The actual signal content is defined by connecting to an instance
-of this connector.
+of this connector. The signals that are usually used
+(and are by default listed as choices in the menu that defines
+the connection to this bus) are defined 
+<a href=\"Modelica://Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.InternalConnectors.AxisControlBus\">here</a>.
 </p>
 
 </html>"));
@@ -388,8 +391,10 @@ of this connector.
 Signal bus that is used to communicate <b>all signals</b> of the robot.
 This is an expandable connector which is \"empty\". 
 The actual signal content is defined by connecting to an instance
-of this connector. It consists of one instance of the \"AxisControlBus\"
-for every axis.
+of this connector. The sub-buses that are usually used
+(and are by default listed as choices in the menu that defines
+the connection to this bus) are defined 
+<a href=\"Modelica://Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.InternalConnectors.ControlBus\">here</a>.
 </p>
 </html>"));
     end ControlBus;
@@ -1746,41 +1751,41 @@ of the r3 robot. Usually, there is no need to
 use this library directly.
 </p>
 </html>"));
-    package Internal "Internal models that should not be used" 
+    package InternalConnectors "Internal models that should not be used" 
       expandable connector AxisControlBus "Data bus for one robot axis" 
         extends 
           Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.AxisControlBus;
         import SI = Modelica.SIunits;
         
-        Boolean motion_ref "=true, if reference motion is not in rest";
-        SI.Angle angle_ref "reference angle of axis flange";
-        SI.Angle angle "angle of axis flange";
-        SI.AngularVelocity speed_ref "reference speed of axis flange";
-        SI.AngularVelocity speed "speed of axis flange";
+        Boolean motion_ref "= true, if reference motion is not in rest";
+        SI.Angle angle_ref "Reference angle of axis flange";
+        SI.Angle angle "Angle of axis flange";
+        SI.AngularVelocity speed_ref "Reference speed of axis flange";
+        SI.AngularVelocity speed "Speed of axis flange";
         SI.AngularAcceleration acceleration_ref 
-          "reference acceleration of axis flange";
-        SI.AngularAcceleration acceleration "acceleration of axis flange";
-        SI.Current current_ref "reference current of motor";
-        SI.Current current "current of motor";
-        SI.Angle motorAngle "angle of motor flange";
-        SI.AngularVelocity motorSpeed "speed of motor flange";
+          "Reference acceleration of axis flange";
+        SI.AngularAcceleration acceleration "Acceleration of axis flange";
+        SI.Current current_ref "Reference current of motor";
+        SI.Current current "Current of motor";
+        SI.Angle motorAngle "Angle of motor flange";
+        SI.AngularVelocity motorSpeed "Speed of motor flange";
       end AxisControlBus;
       
       expandable connector ControlBus "Data bus for all axes of robot" 
         extends 
           Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.ControlBus;
         Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.AxisControlBus
-          axisControlBus1 "bus of axis 1";
+          axisControlBus1 "Bus of axis 1";
         Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.AxisControlBus
-          axisControlBus2 "bus of axis 2";
+          axisControlBus2 "Bus of axis 2";
         Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.AxisControlBus
-          axisControlBus3 "bus of axis 3";
+          axisControlBus3 "Bus of axis 3";
         Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.AxisControlBus
-          axisControlBus4 "bus of axis 4";
+          axisControlBus4 "Bus of axis 4";
         Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.AxisControlBus
-          axisControlBus5 "bus of axis 5";
+          axisControlBus5 "Bus of axis 5";
         Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.AxisControlBus
-          axisControlBus6 "bus of axis 6";
+          axisControlBus6 "Bus of axis 6";
         
       /*
   parameter Integer naxis=6 "Number of axes";
@@ -1788,7 +1793,17 @@ use this library directly.
     axisControlBus[naxis];
 */
       end ControlBus;
-    end Internal;
+      annotation (Documentation(info="<html>
+<p>
+This package contains the \"actual\" default bus definitions needed for the
+robot example.
+The bus definitions in this package are the default definitions shown in the
+bus menu when connecting a signal to an expandable connector (here: ControlBus
+or AxisControlBus). Usually, the connectors of this package should not be 
+utilized by a user.
+</p>
+</html>"));
+    end InternalConnectors;
     
   end Components;
   
