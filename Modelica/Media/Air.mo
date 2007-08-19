@@ -791,7 +791,6 @@ Specific internal energy is determined from pressure p, temperature T and compos
       annotation (Documentation(info="<html>
 Derivative function for <a href=Modelica:Modelica.Media.Air.MoistAir.specificInternalEnergy_pTX>specificInternalEnergy_pTX</a>.
 </html>"));
-  equation 
       
   end specificInternalEnergy_pTX_der;
     
