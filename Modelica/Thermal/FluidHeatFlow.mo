@@ -2,7 +2,7 @@ package FluidHeatFlow
   "Simple components for 1-dimensional incompressible thermo-fluid flow models" 
   extends Modelica.Icons.Library2;
   annotation (
-    version="1.6.1", versionDate="2007-08-12",
+    version="1.6.2", versionDate="2007-08-20",
     preferedView="info",Documentation(info="<HTML>
 <p>
 This package contains very simple-to-use components to model coolant flows as needed to simulate cooling e.g. of electric machines:
@@ -111,6 +111,8 @@ and the accompanying <b>disclaimer</b>
   <li> v1.6.1 2007/08/12 Anton Haumer<br>
        improved documentation<br>
        removed type TemperatureDifference since this is defined in Modelica.SIunits</li>
+  <li> v1.6.2 2007/08/20 Anton Haumer<br>
+       improved documentation</li>
   </ul>
 </HTML>
 "), Icon(
@@ -1186,12 +1188,16 @@ and the accompanying <b>disclaimer</b>
         parameter Modelica.SIunits.Time startTime=0.2 "StartTime of 1st ramp";
         parameter Modelica.SIunits.Time interval=0.2 
           "Interval between end of 1st and beginning of 2nd ramp";
-        parameter Real height_1=-1 "|Ramp 1|Height of ramp";
+        parameter Real height_1=-1 "Height of ramp"
+          annotation(Dialog(group="Ramp 1"));
         parameter Modelica.SIunits.Time duration_1(min=Modelica.Constants.small) = 0.2 
-          "|Ramp 1|Duration of ramp";
-        parameter Real height_2=1 "|Ramp 2|Height of ramp";
+          "Duration of ramp"
+          annotation(Dialog(group="Ramp 1"));
+        parameter Real height_2=1 "Height of ramp"
+          annotation(Dialog(group="Ramp 2"));
         parameter Modelica.SIunits.Time duration_2(min=Modelica.Constants.small) = 0.2 
-          "|Ramp 2|Duration of ramp";
+          "Duration of ramp"
+          annotation(Dialog(group="Ramp 2"));
         annotation (
           Documentation(info="<HTML>
 <p>
@@ -1428,18 +1434,23 @@ Flow resistance under real conditions is calculated by<br>
               fillPattern=1))), Diagram);
       extends Interfaces.Partials.TwoPort(m=0, final tapT=1);
       parameter Boolean LinearCharacteristic=true 
-        "|Standard characteristic|Type of characteristic" 
-        annotation(choices(choice=true "Linear", choice=false "Exponential"));
+        "Type of characteristic" 
+        annotation(Dialog(group="Standard characteristic"), choices(choice=true "Linear", choice=false "Exponential"));
       parameter Real y1(min=small)=1 
-        "|Standard characteristic|Max. valve opening";
+        "Max. valve opening"
+        annotation(Dialog(group="Standard characteristic"));
       parameter Modelica.SIunits.VolumeFlowRate Kv1(min=small)=1 
-        "|Standard characteristic|Max. flow @ y = y1";
+        "Max. flow @ y = y1"
+        annotation(Dialog(group="Standard characteristic"));
       parameter Real kv0(min=small,max=1-small)=0.01 
-        "|Standard characteristic|Leakage flow / max.flow @ y = 0";
+        "Leakage flow / max.flow @ y = 0"
+        annotation(Dialog(group="Standard characteristic"));
       parameter Modelica.SIunits.Pressure dp0=1 
-        "|Standard characteristic|Standard pressure drop";
+        "Standard pressure drop"
+        annotation(Dialog(group="Standard characteristic"));
       parameter Modelica.SIunits.Density rho0 = 10 
-        "|Standard characteristic|Standard medium's density";
+        "Standard medium's density"
+        annotation(Dialog(group="Standard characteristic"));
       parameter Real frictionLoss(min=0, max=1) = 0 
         "Part of friction losses fed to medium";
     protected 
@@ -1734,15 +1745,20 @@ See also sketch at diagram layer.
               style(color=3, rgbcolor={0,0,255}),
               string="dp ~ V_flow²")));
         parameter Modelica.SIunits.VolumeFlowRate V_flowLaminar(min=Modelica.Constants.small)=0.1 
-          "|SimpleFriction|Laminar volume flow";
+          "Laminar volume flow"
+          annotation(Dialog(group="Simple Friction"));
         parameter Modelica.SIunits.Pressure dpLaminar=0.1 
-          "|SimpleFriction|Laminar pressure drop";
+          "Laminar pressure drop"
+          annotation(Dialog(group="Simple Friction"));
         parameter Modelica.SIunits.VolumeFlowRate V_flowNominal=1 
-          "|SimpleFriction|Nominal volume flow";
+          "Nominal volume flow"
+          annotation(Dialog(group="Simple Friction"));
         parameter Modelica.SIunits.Pressure dpNominal=1 
-          "|SimpleFriction|Nominal pressure drop";
+          "Nominal pressure drop"
+          annotation(Dialog(group="Simple Friction"));
         parameter Real frictionLoss(min=0, max=1) = 0 
-          "|SimpleFriction|Part of friction losses fed to medium";
+          "Part of friction losses fed to medium"
+          annotation(Dialog(group="Simple Friction"));
         Modelica.SIunits.Pressure pressureDrop;
         Modelica.SIunits.VolumeFlowRate VolumeFlow;
         Modelica.SIunits.Power Q_friction;
@@ -2680,11 +2696,14 @@ Thermodynamic equations are defined by Partials.TwoPort.
         Diagram);
       extends Interfaces.Partials.TwoPort(final tapT=1);
       parameter Modelica.SIunits.AngularVelocity w_Nominal=1 
-        "|Pump characteristic|Nominal speed";
+        "Nominal speed"
+          annotation(Dialog(group="Pump characteristic"));
       parameter Modelica.SIunits.Pressure dp0=2 
-        "|Pump characteristic|Max. pressure increase @ V_flow=0";
+        "Max. pressure increase @ V_flow=0"
+          annotation(Dialog(group="Pump characteristic"));
       parameter Modelica.SIunits.VolumeFlowRate V_flow0=2 
-        "|Pump characteristic|Max. volume flow rate @ dp=0";
+        "Max. volume flow rate @ dp=0"
+          annotation(Dialog(group="Pump characteristic"));
       Modelica.SIunits.AngularVelocity w=der(flange_a.phi) "Speed";
     protected 
       Modelica.SIunits.Pressure dp1;
