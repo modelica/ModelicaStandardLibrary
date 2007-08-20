@@ -1,8 +1,7 @@
-within Modelica.Electrical;
 package Machines "Library for electric machines" 
   extends Modelica.Icons.Library2;
   annotation (
-  version="1.8.7", versionDate="2007-08-20",
+  version="1.8.8", versionDate="2007-08-20",
   Settings(NewStateSelection=true, Evaluate=true),
   preferedView="info", Documentation(info="<HTML>
 This package contains components to model electrical machines:
@@ -121,6 +120,8 @@ and the accompanying <b>disclaimer</b>
        improved documentation</li>
   <li> v1.8.7 2007/08/20 Anton Haumer<br>
        corrected typo in documentation</li>
+  <li> v1.8.8 2007/08/20 Anton Haumer<br>
+       improved documentation</li>
   </ul>
 </HTML>"),
     Icon(
@@ -1836,11 +1837,14 @@ These models use package SpacePhasors.
         "Asynchronous induction machine with squirrel cage rotor" 
         extends Machines.BasicMachines.Components.BasicAIM(airGapS(final Lm=Lm));
         parameter Modelica.SIunits.Inductance Lm=3*sqrt(1 - 0.0667)/(2*pi*fNominal) 
-          "|Nominal resistances and inductances|main field inductance";
+          "main field inductance" 
+           annotation(Dialog(group="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Inductance Lrsigma=3*(1 - sqrt(1 - 0.0667))/(2*pi*fNominal) 
-          "|Nominal resistances and inductances|rotor stray inductance (equivalent three phase winding)";
+          "rotor stray inductance (equivalent three phase winding)" 
+           annotation(Dialog(group="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Resistance Rr=0.04 
-          "|Nominal resistances and inductances|warm rotor resistance (equivalent three phase winding)";
+          "warm rotor resistance (equivalent three phase winding)" 
+           annotation(Dialog(group="Nominal resistances and inductances"));
         Machines.BasicMachines.Components.SquirrelCage squirrelCageR(final 
             Lrsigma =                                                              Lrsigma, final Rr=Rr) 
           annotation (extent=[-10, -40; 10, -20], rotation=-90);
@@ -1940,12 +1944,14 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
       model AIM_SlipRing "Asynchronous induction machine with slipring rotor" 
         extends Machines.BasicMachines.Components.BasicAIM(airGapS(final Lm=Lm));
         parameter Modelica.SIunits.Inductance Lm=3*sqrt(1 - 0.0667)/(2*pi*fNominal) 
-          "|Nominal resistances and inductances|main field inductance";
+          "main field inductance" 
+           annotation(Dialog(group="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Inductance Lrsigma=3*(1 - sqrt(1 - 0.0667))/(2*pi*
-            fNominal) 
-          "|Nominal resistances and inductances|rotor stray inductance per phase";
+            fNominal) "rotor stray inductance per phase" 
+           annotation(Dialog(group="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Resistance Rr=0.04 
-          "|Nominal resistances and inductances|warm rotor resistance per phase";
+          "warm rotor resistance per phase" 
+           annotation(Dialog(group="Nominal resistances and inductances"));
         parameter Boolean useTurnsRatio=true 
           "use TurnsRatio or calculate from locked-rotor voltage?";
         parameter Real TurnsRatio(final min=Modelica.Constants.small)=1 
@@ -2190,11 +2196,14 @@ These models use package SpacePhasors.
               final Lmd=Lmd,
               final Lmq=Lmq));
         parameter Modelica.SIunits.Voltage V0=112.3 
-          "|Excitation|no-load RMS voltage per phase @ fNominal";
+          "no-load RMS voltage per phase @ fNominal" 
+           annotation(Dialog(group="Excitation"));
         parameter Modelica.SIunits.Inductance Lmd=0.3/(2*pi*fNominal) 
-          "|Nominal resistances and inductances|main field inductance in d-axis";
+          "main field inductance in d-axis" 
+           annotation(Dialog(group="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Inductance Lmq=0.3/(2*pi*fNominal) 
-          "|Nominal resistances and inductances|main field inductance in q-axis";
+          "main field inductance in q-axis" 
+           annotation(Dialog(group="Nominal resistances and inductances"));
         parameter Boolean DamperCage = true "damper cage is present?" 
           annotation(Dialog(group = "DamperCage"));
         parameter Modelica.SIunits.Inductance Lrsigma=0.05/(2*pi*fNominal) 
@@ -2372,9 +2381,11 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
               final Lmd=Lmd,
               final Lmq=Lmq));
         parameter Modelica.SIunits.Inductance Lmd=1.5/(2*pi*fNominal) 
-          "|Nominal resistances and inductances|main field inductance in d-axis";
+          "main field inductance in d-axis" 
+           annotation(Dialog(group="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Inductance Lmq=1.5/(2*pi*fNominal) 
-          "|Nominal resistances and inductances|main field inductance in q-axis";
+          "main field inductance in q-axis" 
+           annotation(Dialog(group="Nominal resistances and inductances"));
         parameter Boolean DamperCage = true "damper cage is present?" 
           annotation(Dialog(group = "DamperCage"));
         parameter Modelica.SIunits.Inductance Lrsigma=0.05/(2*pi*fNominal) 
@@ -2390,15 +2401,19 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           "warm damper resistance in q-axis" 
           annotation(Dialog(group = "DamperCage", enable = DamperCage));
         parameter Modelica.SIunits.Voltage VNominal=100 
-          "|Excitation|nominal stator RMS voltage per phase";
-        parameter Modelica.SIunits.Frequency fNominal=50 
-          "|Excitation|nominal frequency";
+          "nominal stator RMS voltage per phase" 
+           annotation(Dialog(group="Excitation"));
+        parameter Modelica.SIunits.Frequency fNominal=50 "nominal frequency" 
+           annotation(Dialog(group="Excitation"));
         parameter Modelica.SIunits.Current Ie0=10 
-          "|Excitation|no-load excitation current @ nominal voltage and frequency";
+          "no-load excitation current @ nominal voltage and frequency" 
+           annotation(Dialog(group="Excitation"));
         parameter Modelica.SIunits.Resistance Re=2.5 
-          "|Excitation|warm excitation resistance";
+          "warm excitation resistance" 
+           annotation(Dialog(group="Excitation"));
         parameter Real sigmae(min=0, max=1)=0.025 
-          "|Excitation|stray fraction of total excitation inductance";
+          "stray fraction of total excitation inductance" 
+           annotation(Dialog(group="Excitation"));
         output Modelica.SIunits.Current idq_dr[2](each stateSelect=StateSelect.prefer)=
           damperCage.spacePhasor_r.i_ if DamperCage 
           "damper space phasor current / rotor fixed frame";
@@ -2598,9 +2613,11 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
               final Lmd=Lmd,
               final Lmq=Lmq));
         parameter Modelica.SIunits.Inductance Lmd=2.9/(2*pi*fNominal) 
-          "|Nominal resistances and inductances|main field inductance in d-axis";
+          "main field inductance in d-axis" 
+           annotation(Dialog(group="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Inductance Lmq=0.9/(2*pi*fNominal) 
-          "|Nominal resistances and inductances|main field inductance in q-axis";
+          "main field inductance in q-axis" 
+           annotation(Dialog(group="Nominal resistances and inductances"));
         parameter Boolean DamperCage = true "damper cage is present?" 
           annotation(Dialog(group = "DamperCage"));
         parameter Modelica.SIunits.Inductance Lrsigma=0.05/(2*pi*fNominal) 
@@ -2796,7 +2813,8 @@ This package contains models of DC machines:
             airGapDC(final Le=Le));
       protected 
         final parameter Modelica.SIunits.Inductance Le=1 
-          "|Excitation|total field excitation inductance";
+          "total field excitation inductance" 
+           annotation(Dialog(group="Excitation"));
         constant Modelica.SIunits.Current IeNominal=1 
           "equivalent excitation current";
       public 
@@ -2883,11 +2901,14 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
           final TurnsRatio=(VaNominal-Ra*IaNominal)/(Modelica.SIunits.Conversions.from_rpm(rpmNominal)*Le*IeNominal),
             airGapDC(final Le=Le));
         parameter Modelica.SIunits.Current IeNominal=1 
-          "|Excitation|nominal excitation current";
+          "nominal excitation current" 
+           annotation(Dialog(group="Excitation"));
         parameter Modelica.SIunits.Resistance Re=100 
-          "|Excitation|warm field excitation resistance";
+          "warm field excitation resistance" 
+           annotation(Dialog(group="Excitation"));
         parameter Modelica.SIunits.Inductance Le=1 
-          "|Excitation|total field excitation inductance";
+          "total field excitation inductance" 
+           annotation(Dialog(group="Excitation"));
         output Modelica.SIunits.Voltage ve = pin_ep.v-pin_en.v 
           "Field excitation voltage";
         output Modelica.SIunits.Current ie = pin_ep.i 
@@ -3000,9 +3021,11 @@ Armature current does not cover excitation current of a shunt excitation; in thi
           final TurnsRatio=(VaNominal-(Ra+Re)*IaNominal)/(Modelica.SIunits.Conversions.from_rpm(rpmNominal)*Le*IaNominal),
           airGapDC(final Le=Le));
         parameter Modelica.SIunits.Resistance Re=0.01 
-          "|Excitation|warm field excitation resistance";
+          "warm field excitation resistance" 
+           annotation(Dialog(group="Excitation"));
         parameter Modelica.SIunits.Inductance Le=0.0005 
-          "|Excitation|total field excitation inductance";
+          "total field excitation inductance" 
+           annotation(Dialog(group="Excitation"));
         output Modelica.SIunits.Voltage ve = pin_ep.v-pin_en.v 
           "Field excitation voltage";
         output Modelica.SIunits.Current ie = pin_ep.i 
@@ -4699,9 +4722,11 @@ These models use package SpacePhasors.
         parameter Integer p(min=1)=2 "number of pole pairs (Integer)";
         parameter Modelica.SIunits.Frequency fNominal=50 "nominal frequency";
         parameter Modelica.SIunits.Resistance Rs=0.03 
-          "|Nominal resistances and inductances|warm stator resistance per phase";
+          "warm stator resistance per phase" 
+           annotation(Dialog(group="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Inductance Lssigma=3*(1 - sqrt(1 - 0.0667))/(2*pi*fNominal) 
-          "|Nominal resistances and inductances|stator stray inductance per phase";
+          "stator stray inductance per phase" 
+           annotation(Dialog(group="Nominal resistances and inductances"));
         output Modelica.SIunits.Voltage vs[m] = plug_sp.pin.v - plug_sn.pin.v 
           "stator instantaneous voltages";
         output Modelica.SIunits.Current is[m] = plug_sp.pin.i 
@@ -4783,11 +4808,14 @@ Partial model for induction machine models, containing:
         constant Real pi=Modelica.Constants.pi;
         constant Integer m=3 "number of phases";
         parameter Integer p(min=1)=2 "number of pole pairs (Integer)";
-        parameter Modelica.SIunits.Frequency fNominal=50 "nominal frequency";
+        parameter Modelica.SIunits.Frequency fNominal=50 "nominal frequency" 
+          annotation(Dialog(group="Excitation"));
         parameter Modelica.SIunits.Resistance Rs=0.03 
-          "|Nominal resistances and inductances|warm stator resistance per phase";
+          "warm stator resistance per phase" 
+           annotation(Dialog(group="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Inductance Lssigma=3*(1 - sqrt(1 - 0.0667))/(2*pi*fNominal) 
-          "|Nominal resistances and inductances|stator stray inductance per phase";
+          "stator stray inductance per phase" 
+           annotation(Dialog(group="Nominal resistances and inductances"));
         output Modelica.SIunits.Voltage vs[m] = plug_sp.pin.v - plug_sn.pin.v 
           "stator instantaneous voltages";
         output Modelica.SIunits.Current is[m] = plug_sp.pin.i 
@@ -4838,7 +4866,7 @@ Partial model for induction machine models, containing:
             fillColor=10,
             rgbfillColor={95,95,95},
             fillPattern=1));
-        connect(spacePhasorS.ground,spacePhasorS. zero) annotation (points=[-10,20;
+        connect(spacePhasorS.ground,spacePhasorS. zero) annotation (points=[-10,20; 
               -10,14; -6.12303e-016,14; -6.12303e-016,20],     style(
             color=3,
             rgbcolor={0,0,255},
@@ -5214,15 +5242,19 @@ Model of a permanent magnet excitation, characterized by an equivalent excitatio
       partial model BasicDCMachine "Partial model for DC machine" 
         extends Interfaces.PartialBasicMachine(J_Rotor=0.15);
         parameter Modelica.SIunits.Voltage VaNominal=100 
-          "|Nominal parameters|nominal armature voltage";
+          "nominal armature voltage" 
+           annotation(Dialog(group="Nominal parameters"));
         parameter Modelica.SIunits.Current IaNominal=100 
-          "|Nominal parameters|nominal armature current";
+          "nominal armature current" 
+           annotation(Dialog(group="Nominal parameters"));
         parameter Modelica.SIunits.Conversions.NonSIunits.AngularVelocity_rpm 
-          rpmNominal =  1425 "|Nominal parameters|nominal speed";
+          rpmNominal =  1425 "nominal speed" 
+           annotation(Dialog(group="Nominal parameters"));
         parameter Modelica.SIunits.Resistance Ra=0.05 
-          "|Nominal resistances and inductances|warm armature resistance";
-        parameter Modelica.SIunits.Inductance La=0.0015 
-          "|Nominal resistances and inductances|armature inductance";
+          "warm armature resistance" 
+           annotation(Dialog(group="Nominal resistances and inductances"));
+        parameter Modelica.SIunits.Inductance La=0.0015 "armature inductance" 
+           annotation(Dialog(group="Nominal resistances and inductances"));
         parameter Real TurnsRatio 
           "Ratio of armature turns over number of turns of the excitation winding";
         output Modelica.SIunits.Voltage va = pin_ap.v-pin_an.v 
