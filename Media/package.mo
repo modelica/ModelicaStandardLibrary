@@ -3258,6 +3258,17 @@ The details of the pipe friction model are described
             experimentSetupOutput);
         end Air;
         
+        model Nitrogen 
+          "Test single gas Modelica.Media.IdealGases.SingleGases.N2" 
+          extends Modelica.Media.Examples.Tests.Components.PartialTestModel(
+             redeclare package Medium = 
+                Modelica.Media.IdealGases.SingleGases.N2);
+          annotation (Documentation(info="<html>
+  
+</html>"),  experiment,
+            experimentSetupOutput);
+        end Nitrogen;
+        
         model SimpleNaturalGas 
           "Test mixture gas Modelica.Media.IdealGases.MixtureGases.SimpleNaturalGas" 
           extends Modelica.Media.Examples.Tests.Components.PartialTestModel(
