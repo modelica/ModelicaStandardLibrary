@@ -2,7 +2,7 @@ within Modelica.Electrical;
 package Machines "Library for electric machines" 
   extends Modelica.Icons.Library2;
   annotation (
-  version="1.8.6", versionDate="2007-08-12",
+  version="1.8.7", versionDate="2007-08-20",
   Settings(NewStateSelection=true, Evaluate=true),
   preferedView="info", Documentation(info="<HTML>
 This package contains components to model electrical machines:
@@ -119,6 +119,8 @@ and the accompanying <b>disclaimer</b>
        consistent parameters of DCSE</li>
   <li> v1.8.6 2007/08/12 Anton Haumer<br>
        improved documentation</li>
+  <li> v1.8.7 2007/08/20 Anton Haumer<br>
+       corrected typo in documentation</li>
   </ul>
 </HTML>"),
     Icon(
@@ -4971,7 +4973,7 @@ Model of the airgap in stator-fixed coordinate system, using only equations.
           "main field inductance q-axis";
         extends PartialAirGap;
         Modelica.SIunits.Current i_mr[2] 
-          "Magnetizing current space phasor with respect to the stator fixed frame";
+          "Magnetizing current space phasor with respect to the rotor fixed frame";
       protected 
         parameter Modelica.SIunits.Inductance L[2,2]={{Lmd,0},{0,Lmq}} 
           "inductance matrix";
