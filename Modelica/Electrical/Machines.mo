@@ -1,7 +1,7 @@
 package Machines "Library for electric machines" 
   extends Modelica.Icons.Library2;
   annotation (
-  version="1.7.7", versionDate="2007-08-12",
+  version="1.7.8", versionDate="2007-08-20",
   Settings(NewStateSelection=true, Evaluate=true),
   preferedView="info", Documentation(info="<HTML>
 This package contains components to model electrical machines:
@@ -112,6 +112,8 @@ and the accompanying <b>disclaimer</b>
   <li> v1.7.7 2007/08/12 Anton Haumer<br>
        Changed QuadraticLoadTorque1(TorqueDirection=true) to QuadraticLoadTorque1(TorqueDirection=false) since more realistic<br>
        improved documentation</li>
+  <li> v1.7.8 2007/08/20 Anton Haumer<br>
+       corrected typo in documentation</li>
   </ul>
 </HTML>"),
     Icon(
@@ -3253,7 +3255,7 @@ Model of the airgap in stator-fixed coordinate system, using only equations.
         Modelica.SIunits.Current i_rr[2] 
           "Rotor current space phasor with respect to the rotor fixed frame";
         Modelica.SIunits.Current i_mr[2] 
-          "Magnetizing current space phasor with respect to the stator fixed frame";
+          "Magnetizing current space phasor with respect to the rotor fixed frame";
         Modelica.SIunits.MagneticFlux psi_ms[2] 
           "Magnetizing flux phasor with respect to the stator fixed frame";
         Modelica.SIunits.MagneticFlux psi_mr[2] 
@@ -3729,10 +3731,10 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
       connect(VoltageSensor1.v, ToSpacePhasor1.u) annotation (points=[0,39; 0,
             22; -7.34764e-016,22],
                                style(color=3, rgbcolor={0,0,255}));
-      connect(ToSpacePhasor1.y, ToPolar1.u) annotation (points=[6.73533e-016,-1; 
+      connect(ToSpacePhasor1.y, ToPolar1.u) annotation (points=[6.73533e-016,-1;
             6.73533e-016,-8.5; -7.34764e-016,-8.5; -7.34764e-016,-18], style(color=
               3, rgbcolor={0,0,255}));
-      connect(ToPolar1.y[1], Gain1.u) annotation (points=[-0.5,-41; -0.5,-49.5; 
+      connect(ToPolar1.y[1], Gain1.u) annotation (points=[-0.5,-41; -0.5,-49.5;
             -7.34764e-016,-49.5; -7.34764e-016,-58], style(color=3, rgbcolor={0,0,
               255}));
       connect(Gain1.y, V) annotation (points=[6.73533e-016,-81; 6.73533e-016,
@@ -3795,10 +3797,10 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
       connect(CurrentSensor1.i, ToSpacePhasor1.u) annotation (points=[0,39; 0,
             22; -7.34764e-016,22],
                                style(color=3, rgbcolor={0,0,255}));
-      connect(ToSpacePhasor1.y, ToPolar1.u) annotation (points=[6.73533e-016,-1; 
+      connect(ToSpacePhasor1.y, ToPolar1.u) annotation (points=[6.73533e-016,-1;
             6.73533e-016,-8.5; -7.34764e-016,-8.5; -7.34764e-016,-18], style(color=
               3, rgbcolor={0,0,255}));
-      connect(ToPolar1.y[1], Gain1.u) annotation (points=[-0.5,-41; -0.5,-49.5; 
+      connect(ToPolar1.y[1], Gain1.u) annotation (points=[-0.5,-41; -0.5,-49.5;
             -7.34764e-016,-49.5; -7.34764e-016,-58], style(color=3, rgbcolor={0,0,
               255}));
       connect(Gain1.y,I)  annotation (points=[6.73533e-016,-81; 6.73533e-016,
@@ -3913,7 +3915,7 @@ Calculates (mechanical) power from torque times angular speed.
         annotation (points=[40,0; 100,0], style(color=0, rgbcolor={0,0,0}));
       connect(SpeedSensor1.flange_a, flange_a) 
         annotation (points=[-30,0; -100,0], style(color=0, rgbcolor={0,0,0}));
-      connect(SpeedSensor1.w, Product1.u2) annotation (points=[-30,-21; -30,-40; 
+      connect(SpeedSensor1.w, Product1.u2) annotation (points=[-30,-21; -30,-40;
             -6,-40; -6,-58], style(color=3, rgbcolor={0,0,255}));
       connect(TorqueSensor1.tau, Product1.u1) annotation (points=[22,-11; 22,
             -40; 6,-40; 6,-58], style(color=3, rgbcolor={0,0,255}));
