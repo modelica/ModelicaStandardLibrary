@@ -4542,6 +4542,7 @@ This package contains space phasor transformation functions for use in calculati
 <li>Rotator: rotates a space phasor (from one coordinate system into another)</li>
 <li>ToPolar: Converts a space phasor from rectangular coordinates to polar coordinates</li>
 <li>FromPolar: Converts a space phasor from polar coordinates to rectangular coordinates</li>
+</ul>
 </HTML>", revisions="<HTML>
 <dl>
   <dt><b>Main Authors:</b></dt>
