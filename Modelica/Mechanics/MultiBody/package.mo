@@ -66,7 +66,7 @@ package UsersGuide "User's Guide of MultiBody Library"
 Library <b>MultiBody</b> is a <b>free</b> Modelica package providing
 3-dimensional mechanical components to model in a convenient way
 <b>mechanical systems</b>, such as robots, mechanisms, vehicles.
-This package contains the user's guide for the MultiBody library.
+This package contains the User's Guide for the MultiBody library.
 </p>
 <ol>
 <li>

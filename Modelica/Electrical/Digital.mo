@@ -8,7 +8,7 @@ package UsersGuide "User's Guide"
 Library <b>Electrical.Digital</b> is a <b>free</b> Modelica package providing
 components to model <b>digital</b> electronic
 systems based on combinational and sequential logic in a convenient
-way. This package contains the <b>user's Guide</b> for
+way. This package contains the <b>User's Guide</b> for
 the library and has the following content:
 </p>
 <ol>

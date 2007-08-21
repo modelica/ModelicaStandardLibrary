@@ -60,8 +60,8 @@ package UsersGuide "User's Guide of Utilities Library"
 <p>
 Library <b>Modelica.Utilities</b> contains Modelica <b>functions</b> that are
 especially suited for <b>scripting</b>. Currently, only a rudimentary
-user's Guide is present. This will be improved in the next releases.
-The user's Guide has currently the following chapters:
+User's Guide is present. This will be improved in the next releases.
+The User's Guide has currently the following chapters:
 </p>
 <ol>
 <li>
