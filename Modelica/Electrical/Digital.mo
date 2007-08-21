@@ -2727,7 +2727,7 @@ This package contains interface definitions
     model TransportDelay "Transport delay with initial parameter" 
       import D = Modelica.Electrical.Digital;
       import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
-      extends D.Interfaces.SISO;
+      extends D.Interfaces.SISO(x(start=L.'U',fixed=true));
       parameter Modelica.SIunits.Time delayTime=0 "delay time";
       parameter D.Interfaces.Logic y0=L.'U' "initial value of output";
     protected 
@@ -2869,7 +2869,7 @@ If time is less than <i>Tdel</i> the initial value <i>initout</i> holds.
       "Provide the input as output if it holds its value for a specific amount of time" 
       import D = Modelica.Electrical.Digital;
       import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
-      extends D.Interfaces.SISO;
+      extends D.Interfaces.SISO(x(start=L.'U',fixed=true));
       parameter Modelica.SIunits.Time tLH=0 "rise inertial delay";
       parameter Modelica.SIunits.Time tHL=0 "fall inertial delay";
       parameter D.Interfaces.Logic y0=L.'U' "initial value of output";
@@ -2994,7 +2994,7 @@ is used, if it is zero, the input is not delayed.
       import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       extends D.Interfaces.SISO;
     protected 
-      D.Interfaces.Logic auxiliary(start=L.'0');
+      D.Interfaces.Logic auxiliary(start=L.'0', fixed=true);
     equation 
       auxiliary = D.Tables.NotTable[x];
       y = pre(auxiliary);
@@ -3040,7 +3040,7 @@ Not with 1 input value, without delay.
       import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       extends D.Interfaces.MISO;
     protected 
-      D.Interfaces.Logic auxiliary[n](each start=L.'U');
+      D.Interfaces.Logic auxiliary[n](each start=L.'U', each fixed=true);
     equation 
       auxiliary[1] = x[1];
       for i in 1:n - 1 loop
@@ -3083,7 +3083,7 @@ And with n input values, without delay.
       import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       extends D.Interfaces.MISO;
     protected 
-      D.Interfaces.Logic auxiliary[n](each start=L.'U');
+      D.Interfaces.Logic auxiliary[n](each start=L.'U', each fixed=true);
     equation 
       auxiliary[1] = x[1];
       for i in 1:n - 1 loop
@@ -3132,7 +3132,7 @@ Nand with n input values, without delay.
       import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       extends D.Interfaces.MISO;
     protected 
-      D.Interfaces.Logic auxiliary[n](each start=L.'U');
+      D.Interfaces.Logic auxiliary[n](each start=L.'U', each fixed=true);
     equation 
       auxiliary[1] = x[1];
       for i in 1:n - 1 loop
@@ -3175,7 +3175,7 @@ Or with n input values, without delay.
       import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       extends D.Interfaces.MISO;
     protected 
-      D.Interfaces.Logic auxiliary[n](each start=L.'U');
+      D.Interfaces.Logic auxiliary[n](each start=L.'U', each fixed=true);
     equation 
       auxiliary[1] = x[1];
       for i in 1:n - 1 loop
@@ -3224,7 +3224,7 @@ Nor with n input values, without delay.
       import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       extends D.Interfaces.MISO;
     protected 
-      D.Interfaces.Logic auxiliary[n](each start=L.'U');
+      D.Interfaces.Logic auxiliary[n](each start=L.'U', each fixed=true);
     equation 
       auxiliary[1] = x[1];
       for i in 1:n - 1 loop
@@ -3267,7 +3267,7 @@ Xor with n input values, without delay.
       import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
       extends D.Interfaces.MISO;
     protected 
-      D.Interfaces.Logic auxiliary[n](each start=L.'U');
+      D.Interfaces.Logic auxiliary[n](each start=L.'U', each fixed=true);
     equation 
       auxiliary[1] = x[1];
       for i in 1:n - 1 loop
@@ -3394,7 +3394,7 @@ InvGate with 1 input value, composed by Not and sensitive intertial delay.
       import D = Modelica.Electrical.Digital;
       extends D.Interfaces.MISO;
       extends D.Delay.DelayParams;
-      D.Basic.And G1(n=n)         annotation (extent=[-40, -20; 0, 20]);
+      D.Basic.And G1(final n)     annotation (extent=[-40, -20; 0, 20]);
       D.Delay.InertialDelaySensitive G2(
         tLH=tLH,
         tHL=tHL,
@@ -3518,7 +3518,7 @@ NandGate with n input values, composed by Nand and sensitive intertial delay.
           Ellipse(extent=[60, -10; 40, 10], style(color=0, thickness=2))),
         Diagram,
         DymolaStoredErrors);
-      D.Basic.Nand G1(n=n)          annotation (extent=[-40,-20; 0,20]);
+      D.Basic.Nand G1(final n)      annotation (extent=[-40,-20; 0,20]);
       D.Delay.InertialDelaySensitive G2(
         tLH=tLH,
         tHL=tHL,
@@ -3536,7 +3536,7 @@ NandGate with n input values, composed by Nand and sensitive intertial delay.
       import D = Modelica.Electrical.Digital;
       extends D.Delay.DelayParams;
       extends D.Interfaces.MISO;
-      D.Basic.Or G1(n=n)        annotation (extent=[-40, -20; 0, 20]);
+      D.Basic.Or G1(final n)    annotation (extent=[-40, -20; 0, 20]);
       D.Delay.InertialDelaySensitive G2(
         tLH=tLH,
         tHL=tHL,
@@ -3590,7 +3590,7 @@ OrGate with n input values, composed by Or and sensitive intertial delay.
       import D = Modelica.Electrical.Digital;
       extends D.Delay.DelayParams;
       extends D.Interfaces.MISO;
-      D.Basic.Nor G1(n=n)         annotation (extent=[-40, -20; 0, 20]);
+      D.Basic.Nor G1(final n)     annotation (extent=[-40, -20; 0, 20]);
       D.Delay.InertialDelaySensitive G2(
         tLH=tLH,
         tHL=tHL,
@@ -3650,7 +3650,7 @@ NorGate with n input values, composed by Nor and sensitive intertial delay.
       import D = Modelica.Electrical.Digital;
       extends D.Delay.DelayParams;
       extends D.Interfaces.MISO;
-      D.Basic.Xor G1(n=n)         annotation (extent=[-40, -20; 0, 20]);
+      D.Basic.Xor G1(final n)     annotation (extent=[-40, -20; 0, 20]);
       D.Delay.InertialDelaySensitive G2(
         tLH=tLH,
         tHL=tHL,
@@ -3704,7 +3704,7 @@ XorGate with n input values, composed by Xor and sensitive intertial delay.
       import D = Modelica.Electrical.Digital;
       extends D.Delay.DelayParams;
       extends D.Interfaces.MISO;
-      D.Basic.Xnor G1(n=n)          annotation (extent=[-40,-20; 0,20]);
+      D.Basic.Xnor G1(final n)      annotation (extent=[-40,-20; 0,20]);
       D.Delay.InertialDelaySensitive G2(
         tLH=tLH,
         tHL=tHL,
