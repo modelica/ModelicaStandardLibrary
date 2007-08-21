@@ -96,9 +96,9 @@ It provides constants, types, connectors, partial models and model
 components in various disciplines.
 </p>
 <p>
-This is a short <b>user's guide</b> for 
+This is a short <b>User's Guide</b> for 
 the overall library. Some of the main sublibraries have their own
-user's guides that can be accessed by the following links:
+User's Guides that can be accessed by the following links:
 </p>
 
 <table border=1 cellspacing=0 cellpadding=2>
@@ -1693,8 +1693,8 @@ The following major improvements have been made:
      Additionally, the documentation has been improved by adding appropriate
      description texts to parameters, connector instances, function input
      and output arguments etc., in order that the automatically generated
-     tables do not have empty entries. Also new user's Guides for sublibraries
-     Rotational and SIunits have been added and the user's Guide on top
+     tables do not have empty entries. Also new User's Guides for sublibraries
+     Rotational and SIunits have been added and the User's Guide on top
      level (Modelica.UsersGuide) has been improved.<br>&nbsp;</li>
  
 <li> Initialization options have been added to the Modelica.Blocks.<b>Continuous</b>
@@ -1775,7 +1775,7 @@ The following <b>new components</b> have been added to <b>existing</b> libraries
  
   <tr><td colspan=\"2\"><b>Modelica.Mechanics.Rotational.</b></td></tr>
   <tr><td valign=\"top\">UsersGuide</td>
-      <td valign=\"top\"> A user's Guide has been added by using the documentation previously
+      <td valign=\"top\"> A User's Guide has been added by using the documentation previously
            present in the package documentation of Rotational.</td> </tr>
   <tr><td valign=\"top\">Sensors.PowerSensor</td>
       <td valign=\"top\"> New component to measure the energy flow between two connectors
@@ -1802,7 +1802,7 @@ The following <b>new components</b> have been added to <b>existing</b> libraries
  
   <tr><td colspan=\"2\"><b>Modelica.SIunits.</b></td></tr>
   <tr><td valign=\"top\">UsersGuide</td>
-      <td valign=\"top\"> A user's Guide has been added that describes unit handling.</td> </tr>
+      <td valign=\"top\"> A User's Guide has been added that describes unit handling.</td> </tr>
   <tr><td valign=\"top\"> Resistance<br>
            Conductance</td>
       <td valign=\"top\"> Attribute 'min=0' removed from these types.</td> </tr>
@@ -1835,7 +1835,7 @@ The following <b>components</b> have been improved:
 <table border=\"1\" cellspacing=0 cellpadding=2>
   <tr><td colspan=\"2\"><b>Modelica.</b></td></tr>
   <tr><td valign=\"top\"> UsersGuide</td>
-      <td valign=\"top\"> User's guide and package description of Modelica Standard Library improved.</td> </tr>
+      <td valign=\"top\"> User's Guide and package description of Modelica Standard Library improved.</td> </tr>
   <tr><td colspan=\"2\"><b>Modelica.Blocks.Interfaces.</b></td></tr>
   <tr><td valign=\"top\"> RealInput<br>
            BooleanInput<br>

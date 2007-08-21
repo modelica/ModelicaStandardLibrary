@@ -272,7 +272,7 @@ and the accompanying <b>disclaimer</b>
 <ul>
 <li><i>Dec. 14, 2005</i>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       Add user's Guide and removed \"min\" values for Resistance and Conductance.</li>
+       Add User's Guide and removed \"min\" values for Resistance and Conductance.</li>
 <li><i>October 21, 2002</i>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>
        and <a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Christian Schweiger</a>:<br>

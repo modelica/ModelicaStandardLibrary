@@ -2114,7 +2114,7 @@ properties. Of course, more tests should be performed.
 <p>
 Many improvements in the library, e.g., providing mixtures
 of the ideal gases, table based media, test suite for all media, improved and
-updated user's Guide.
+updated User's Guide.
 </p>
 <h4><font color=\"#008000\">Version 0.9, 2004-10-18</font></h4>
 <ul>
@@ -2162,7 +2162,7 @@ and many have contributed:
      and have been improved by Hubertus Tummescheit. </li>
 <li> The effort for the development of the Modelica.Media library has been
      organized by Martin Otter who also contributed to the design,
-     implemented part of the generic models, contributed to the user's Guide
+     implemented part of the generic models, contributed to the User's Guide
      and provided the generic test suite Modelica.Media.Examples.Tests.</li>
 <li> The basic idea for the medium model interface based on packages
      is from Michael Tiller who also contributed to the design.</li>
@@ -2184,7 +2184,7 @@ and many have contributed:
 <li> R&uuml;diger Franke performed the first realistic tests of the Modelica.Media
         and Modelica_Fluid libraries and gave valuable feedback.</li>
 <li> Francesco Casella has been the most relentless bug-hunter and tester of the 
-     water and ideal gas properties. He also contributed to the user's Guide.</li>      
+     water and ideal gas properties. He also contributed to the User's Guide.</li>      
 <li> John Batteh, Daniel Bouskela, Jonas Eborn, Andreas Idebrant, Charles Newman, 
      Gerhart Schmitz, and the users of the ThermoFluid library provided
      many useful comments and feedback.</li>

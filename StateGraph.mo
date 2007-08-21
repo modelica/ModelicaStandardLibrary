@@ -125,7 +125,7 @@ package UsersGuide "User's Guide of StateGraph Library"
 Library <b>StateGraph</b> is a <b>free</b> Modelica package providing
 components to model <b>discrete event</b> and <b>reactive</b> 
 systems in a convenient
-way. This package contains the <b>user's Guide</b> for 
+way. This package contains the <b>User's Guide</b> for 
 the library and has the following content:
 </p>
 <ol>
