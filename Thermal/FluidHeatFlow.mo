@@ -3,9 +3,8 @@ package FluidHeatFlow
   "Simple components for 1-dimensional incompressible thermo-fluid flow models" 
   extends Modelica.Icons.Library2;
   annotation (
-    version="1.6.2", versionDate="2007-08-20",
+    version="1.6.3", versionDate="2007-08-21",
     preferedView="info",Documentation(info="<HTML>
-<p>
 This package contains very simple-to-use components to model coolant flows as needed to simulate cooling e.g. of electric machines:
 <ul>
 <li>Components: components like different types of pipe models</li>
@@ -16,8 +15,6 @@ This package contains very simple-to-use components to model coolant flows as ne
 <li>Sensors: various sensors for pressure, temperature, volume and enthalpy flow</li>
 <li>Sources: various flow sources</li>
 </ul>
-</p>
-<p>
 <b>Variables used in connectors:</b>
 <ul>
 <li>Pressure p</li>
@@ -25,9 +22,7 @@ This package contains very simple-to-use components to model coolant flows as ne
 <li>SpecificEnthalpy h</li>
 <li>flow EnthalpyFlowRate H_flow</li>
 </ul>
-EnthalpyFlowRate means the Enthalpy = cp<sub>constant</sub> * m * T that is carried by the medium's flow.
-</p>
-<p>
+EnthalpyFlowRate means the Enthalpy = cp<sub>constant</sub> * m * T that is carried by the medium's flow.<br><br>
 <b>Limitations and assumptions:</b>
 <ul>
 <li>Splitting and mixing of coolant flows (media with the same cp) is possible.</li>
@@ -42,14 +37,10 @@ EnthalpyFlowRate means the Enthalpy = cp<sub>constant</sub> * m * T that is carr
 Since mixing may occur, the outlet temperature may be different from the connector's temperature.<br> 
 Outlet temperature is defined by variable T of the corresponding component.</li>
 </ul>
-</p>
-<p>
 <b>Further development:</b>
 <ul>
 <li>Additional components like tanks (if needed)</li>
 </ul>
-</p>
-<p>
 <dl>
   <dt><b>Main Authors:</b></dt>
   <dd>
@@ -67,8 +58,6 @@ Outlet temperature is defined by variable T of the corresponding component.</li>
   A-1210 Vienna, Austria
   </p>
   </dd>
-</dl>
-</p>
 </dl>
 <p>
 Copyright &copy; 1998-2007, Modelica Association, Anton Haumer and arsenal research.
@@ -114,6 +103,8 @@ and the accompanying <b>disclaimer</b>
        removed type TemperatureDifference since this is defined in Modelica.SIunits</li>
   <li> v1.6.2 2007/08/20 Anton Haumer<br>
        improved documentation</li>
+  <li> v1.6.3 2007/08/21 Anton Haumer<br>
+       improved documentation</li>
   </ul>
 </HTML>
 "), Icon(
@@ -141,7 +132,6 @@ and the accompanying <b>disclaimer</b>
     "Examples that demonstrate the usage of the FluidHeatFlow components" 
     extends Modelica.Icons.Library2;
   annotation (Documentation(info="<HTML>
-<p>
 This package contains test examples:
 <ul>
 <li>1.SimpleCooling: heat is dissipated through a media flow</li>
@@ -153,10 +143,6 @@ This package contains test examples:
 <li>7.OneMass: cooling of a mass (thermal capacity) by a coolant flow</li>
 <li>8.TwoMass: cooling of two masses (thermal capacities) by two parallel coolant flows</li>
 </ul>
-</p>
-
-</HTML>", revisions="<HTML>
-<p>
 <dl>
   <dt><b>Main Authors:</b></dt>
   <dd>
@@ -175,8 +161,6 @@ This package contains test examples:
   </p>
   </dd>
 </dl>
-</p>
-</dl>
 <p>
 Copyright &copy; 1998-2007, Modelica Association, Anton Haumer and arsenal research.
 </p>
@@ -186,7 +170,7 @@ under the terms of the <b>Modelica license</b>, see the license conditions
 and the accompanying <b>disclaimer</b> 
 <a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a>.</i>
 </p>
-
+</HTML>", revisions="<HTML>
   <ul>
   <li> v1.00 2005/02/01 Anton Haumer<br>
        first stable official release</li>
@@ -215,7 +199,6 @@ and the accompanying <b>disclaimer</b>
 <p>
 1st test example: SimpleCooling
 </p>
-<p>
 A prescribed heat source dissipates its heat through a thermal conductor to a coolant flow. The coolant flow is taken from an ambient and driven by a pump with prescribed mass flow.<br>
 <b>Results</b>:<br>
 <table>
@@ -244,7 +227,6 @@ A prescribed heat source dissipates its heat through a thermal conductor to a co
 <td valign=\"top\">10 K</td>
 </tr>
 </table>
-</p>
 </HTML>"), Diagram,
         experiment(StopTime=1.0),
         experimentSetupOutput);
@@ -318,7 +300,6 @@ A prescribed heat source dissipates its heat through a thermal conductor to a co
 <p>
 2nd test example: ParallelCooling
 </p>
-<p>
 Two prescribed heat sources dissipate their heat through thermal conductors to coolant flows. The coolant flow is taken from an ambient and driven by a pump with prescribed mass flow, then splitted into two coolant flows connected to the two heat sources, and afterwards merged. Splitting of coolant flows is determined by pressure drop characteristic of the two pipes.<br>
 <b>Results</b>:<br>
 <table>
@@ -371,7 +352,6 @@ Two prescribed heat sources dissipate their heat through thermal conductors to c
 <td valign=\"top\">15 K</td>
 </tr>
 </table>
-</p>
 </HTML>"), Diagram,
         experiment(StopTime=1.0),
         experimentSetupOutput);
@@ -488,7 +468,6 @@ Two prescribed heat sources dissipate their heat through thermal conductors to c
 <p>
 3rd test example: IndirectCooling
 </p>
-<p>
 A prescribed heat sources dissipates its heat through a thermal conductor to the inner coolant cycle. It is necessary to define the pressure level of the inner coolant cycle. The inner coolant cycle is coupled to the outer coolant flow through a thermal conductor.<br>
 Inner coolant's temperature rise near the source is the same as temperature drop near the cooler.<br>
 <b>Results</b>:<br>
@@ -530,7 +509,6 @@ Inner coolant's temperature rise near the source is the same as temperature drop
 <td valign=\"top\">10 K</td>
 </tr>
 </table>
-</p>
 </HTML>"), Diagram,
         experiment(StopTime=1.5),
         experimentSetupOutput);
@@ -658,20 +636,16 @@ Inner coolant's temperature rise near the source is the same as temperature drop
 <p>
 4th test example: PumpAndValve
 </p>
-<p>
 The pump is running with half speed for 0.4 s, 
 afterwards with full speed (using a ramp of 0.1 s).<br> 
-The valve is half open for 0.9 s, afterwards full open (using a ramp of 0.1 s).
-</p>
-<p>
-You may try to<br>
+The valve is half open for 0.9 s, afterwards full open (using a ramp of 0.1 s).<br>
+You may try to:
 <ul>
 <li>drive the pump with variable speed and let the valve full open 
     to regulate the volume flow rate of coolant</li>
 <li>drive the pump with constant speed and throttle the valve 
     to regulate the volume flow rate of coolant</li>
 </ul>
-</p>
 </HTML>"), Diagram,
         experiment(StopTime=2),
         experimentSetupOutput);
@@ -768,11 +742,9 @@ You may try to<br>
 <p>
 5th test example: PumpDropOut
 </p>
-<p>
 Same as 1st test example, but with a drop out of the pump:<br>
 The pump is running for 0.2 s, then shut down (using a ramp of 0.2 s) for 0.2 s, 
 then started again (using a ramp of 0.2 s).
-</p>
 </HTML>"), Diagram,
         experiment(StopTime=2),
         experimentSetupOutput);
@@ -850,11 +822,9 @@ then started again (using a ramp of 0.2 s).
 <p>
 6th test example: ParallelPumpDropOut
 </p>
-<p>
 Same as 2nd test example, but with a drop out of the pump:<br>
 The pump is running for 0.2 s, then shut down (using a ramp of 0.2 s) for 0.2 s, 
 then started again (using a ramp of 0.2 s).
-</p>
 </HTML>"), Diagram,
         experiment(StopTime=2, Algorithm="Lsodar"),
         experimentSetupOutput);
@@ -971,11 +941,9 @@ then started again (using a ramp of 0.2 s).
 <p>
 7th test example: OneMass
 </p>
-<p>
 A thermal capacity is coupled with a coolant flow. 
 Different inital temperatures of thermal capacity and pipe's coolant get ambient's temperature, 
 the time behaviour depending on coolant flow.
-</p>
 </HTML>"), Diagram,
         experiment(StopTime=1.0),
         experimentSetupOutput);
@@ -1039,11 +1007,9 @@ the time behaviour depending on coolant flow.
 <p>
 8th test example: TwoMass
 </p>
-<p>
 Two thermal capacities are coupled with two parallel coolant flow. 
 Different inital temperatures of thermal capacities and pipe's coolants get ambient's temperature, 
 the time behaviour depending on coolant flow.
-</p>
 </HTML>"), Diagram,
         experiment(StopTime=1.0),
         experimentSetupOutput);
@@ -1142,11 +1108,7 @@ the time behaviour depending on coolant flow.
     package Utilities "Utility models for examples" 
       extends Modelica.Icons.Library;
       annotation (Documentation(info="<html>
-<p>
-This package contains utility components used for the test examples.
-<p>
-
-</html>", revisions="<HTML>
+This package contains utility components used for the test examples.<br>
 <dl>
   <dt><b>Main Authors:</b></dt>
   <dd>
@@ -1165,8 +1127,6 @@ This package contains utility components used for the test examples.
   </p>
   </dd>
 </dl>
-</p>
-</dl>
 <p>
 Copyright &copy; 1998-2007, Modelica Association, Anton Haumer and arsenal research.
 </p>
@@ -1176,7 +1136,7 @@ under the terms of the <b>Modelica license</b>, see the license conditions
 and the accompanying <b>disclaimer</b> 
 <a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a>.</i>
 </p>
-
+</HTML>", revisions="<HTML>
   <ul>
   <li> v1.41 Beta 2005/06/17 Anton Haumer<br>
        first used</li>
@@ -1201,9 +1161,7 @@ and the accompanying <b>disclaimer</b>
           annotation(Dialog(group="Ramp 2"));
         annotation (
           Documentation(info="<HTML>
-<p>
 Block generating the sum of two ramps.
-</p>
 </HTML>"),Diagram,
           Icon(
             Line(points=[-80,68; -80,-80],   style(color=8)),
@@ -1247,22 +1205,14 @@ Block generating the sum of two ramps.
   package Components "Basic components (pipes, valves)" 
     extends Modelica.Icons.Library2;
   annotation (Documentation(info="<HTML>
-<p>
 This package contains components:
-</p>
-
 <ul>
 <li>pipe without heat exchange</li>
 <li>pipe with heat exchange</li>
 <li>valve (simple controlled valve)</li>
 </ul>
-
-<p>
 Pressure drop is taken from partial model SimpleFriction.<br>
-Thermodynamic equations are defined in partial models (package Partials).
-</p>
-
-</HTML>", revisions="<HTML>
+Thermodynamic equations are defined in partial models (package Partials).<br>
 <dl>
   <dt><b>Main Authors:</b></dt>
   <dd>
@@ -1281,8 +1231,6 @@ Thermodynamic equations are defined in partial models (package Partials).
   </p>
   </dd>
 </dl>
-</p>
-</dl>
 <p>
 Copyright &copy; 1998-2007, Modelica Association, Anton Haumer and arsenal research.
 </p>
@@ -1292,7 +1240,7 @@ under the terms of the <b>Modelica license</b>, see the license conditions
 and the accompanying <b>disclaimer</b> 
 <a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a>.</i>
 </p>
-
+</HTML>", revisions="<HTML>
   <ul>
   <li> v1.00 2005/02/01 Anton Haumer<br>
        first stable official release</li>
@@ -1326,14 +1274,10 @@ and the accompanying <b>disclaimer</b>
     model IsolatedPipe "Pipe without heat exchange" 
       
     annotation (Documentation(info="<HTML>
-<p>
 Pipe without heat exchange.<br>
-Thermodynamic equations are defined by Partials.TwoPortMass(Q_flow = 0).
-</p>
-<p>
+Thermodynamic equations are defined by Partials.TwoPortMass(Q_flow = 0).<br>
 <b>Note:</b> Setting parameter m (mass of medium within pipe) to zero
 leads to neglection of temperature transient cv*m*der(T).
-</p>
 </HTML>"),
       Icon(Rectangle(extent=[-90, 20; 90, -20], style(
               color=1,
@@ -1356,19 +1300,13 @@ leads to neglection of temperature transient cv*m*der(T).
     model HeatedPipe "Pipe with heat exchange" 
       
     annotation (Documentation(info="<HTML>
-<p>
 Pipe with heat exchange.<br>
 Thermodynamic equations are defined by Partials.TwoPort.<br>
-Q_flow is defined by heatPort.Q_flow.
-</p>
-<p>
+Q_flow is defined by heatPort.Q_flow.<br>
 <b>Note:</b> Setting parameter m (mass of medium within pipe) to zero
-leads to neglection of temperature transient cv*m*der(T).
-</p>
-<p>
+leads to neglection of temperature transient cv*m*der(T).<br>
 <b>Note:</b> Injecting heat into a pipe with zero massflow causes 
 temperature rise defined by storing heat in medium's mass.
-</p>
 </HTML>"),
       Icon(Rectangle(extent=[-90, 20; 90, -20], style(
               color=1,
@@ -1402,7 +1340,6 @@ temperature rise defined by storing heat in medium's mass.
     model Valve "Simple valve" 
       
     annotation (Documentation(info="<HTML>
-<p>
 Simple controlled valve.<br>
 Standard characteristic Kv=<i>f </i>(y) is given at standard conditions (dp0, rho0),<br> 
 <tt>
@@ -1419,7 +1356,6 @@ where:
 </tt>
 Flow resistance under real conditions is calculated by<br>
 <tt>V_flow**2 * rho / dp = Kv(y)**2 * rho0 / dp0</tt>
-</p>
 </HTML>"),
       Icon(   Text(extent=[-150,-60; 150,-120], string="%name"),
           Polygon(points=[-90,10; -60,10; -60,60; 0,0; 60,60; 60,10; 90,10; 90,-10;
@@ -1478,17 +1414,12 @@ Flow resistance under real conditions is calculated by<br>
   package Interfaces "Connectors and partial models" 
     extends Modelica.Icons.Library2;
   annotation (Documentation(info="<HTML>
-<p>
 This package contains connectors and partial models:
 <ul>
 <li>FlowPort: basic definition of the connector.</li>
 <li>FlowPort_a & FlowPort_b: same as FlowPort with different icons to differentiate direction of flow</li>
 <li>package Partials (defining basic thermodynamic equations)</li>
 </ul>
-</p>
-<p>
-
-</HTML>", revisions="<HTML>
 <dl>
   <dt><b>Main Authors:</b></dt>
   <dd>
@@ -1507,8 +1438,6 @@ This package contains connectors and partial models:
   </p>
   </dd>
 </dl>
-</p>
-</dl>
 <p>
 Copyright &copy; 1998-2007, Modelica Association, Anton Haumer and arsenal research.
 </p>
@@ -1518,7 +1447,7 @@ under the terms of the <b>Modelica license</b>, see the license conditions
 and the accompanying <b>disclaimer</b> 
 <a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a>.</i>
 </p>
-
+</HTML>", revisions="<HTML>
   <ul>
   <li> v1.00 2005/02/01 Anton Haumer<br>
        first stable official release</li>
@@ -1547,10 +1476,7 @@ and the accompanying <b>disclaimer</b>
     connector FlowPort "conector flow port" 
       
     annotation (Documentation(info="<HTML>
-<p>
-Basic definition of the connector.
-</p>
-<p>
+Basic definition of the connector.<br>
 <b>Variables:</b>
 <ul>
 <li>Pressure p</li>
@@ -1558,11 +1484,7 @@ Basic definition of the connector.
 <li>Specific Enthalpy h</li>
 <li>flow EnthaplyFlowRate H_flow</li>
 </ul>
-</p>
-<p>
-<p>
 If ports with different media are connected, the simulation is asserted due to the check of parameter.
-</p>
 </HTML>"));
       parameter FluidHeatFlow.Media.Medium medium "Medium in the connector";
       Modelica.SIunits.Pressure p;
@@ -1574,9 +1496,7 @@ If ports with different media are connected, the simulation is asserted due to t
     connector FlowPort_a "Filled flow port (used upstream)" 
       
     annotation (Documentation(info="<HTML>
-<p>
 Same as FlowPort, but icon allows to differentiate direction of flow.
-</p>
 </HTML>"),
       Icon(Rectangle(extent=[-100, 100; 100, -100], style(
               color=1,
@@ -1608,9 +1528,7 @@ Same as FlowPort, but icon allows to differentiate direction of flow.
     connector FlowPort_b "Hollow flow port (used downstream)" 
       
     annotation (Documentation(info="<HTML>
-<p>
 Same as FlowPort, but icon allows to differentiate direction of flow.
-</p>
 </HTML>"),
       Icon(Rectangle(extent=[-100,100; 100,-100],   style(
               color=1,
@@ -1635,10 +1553,7 @@ Same as FlowPort, but icon allows to differentiate direction of flow.
     package Partials "Partial models" 
       extends Modelica.Icons.Library;
     annotation (Documentation(info="<HTML>
-<p>
-This package contains partial models, defining in a very compact way the basic thermodynamic equations used by the different components.
-</p>
-<p>
+This package contains partial models, defining in a very compact way the basic thermodynamic equations used by the different components.<br>
 <dl>
   <dt><b>Main Authors:</b></dt>
   <dd>
@@ -1657,8 +1572,6 @@ This package contains partial models, defining in a very compact way the basic t
   </p>
   </dd>
 </dl>
-</p>
-</dl>
 <p>
 Copyright &copy; 1998-2007, Modelica Association, Anton Haumer and arsenal research.
 </p>
@@ -1668,7 +1581,7 @@ under the terms of the <b>Modelica license</b>, see the license conditions
 and the accompanying <b>disclaimer</b> 
 <a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a>.</i>
 </p>
-</HTML>",     revisions="<HTML>
+</HTML>",revisions="<HTML>
   <ul>
   <li> v1.00 2005/02/01 Anton Haumer<br>
        first stable official release</li>
@@ -1696,16 +1609,12 @@ and the accompanying <b>disclaimer</b>
       partial model SimpleFriction "Simple friction model" 
         
       annotation (Documentation(info="<HTML>
-<p>
-Definition of relationship between pressure drop and volume flow rate:
-</p>
-<p>
+Definition of relationship between pressure drop and volume flow rate:<br>
 -V_flowLaminar &lt; VolumeFlow &lt; +V_flowLaminar: laminar i.e. linear dependency of pressure drop on volume flow.<br>
 -V_flowLaminar &gt; VolumeFlow or VolumeFlow &lt; +V_flowLaminar: turbulent i.e. quadratic dependency of pressure drop on volume flow.<br>
 Linear and quadratic dependency are coupled smoothly at V_flowLaminar / dpLaminar.<br>
 Quadratic dependency is defined by nominal volume flow and pressure drop (V_flowNominal / dpNominal).<br>
 See also sketch at diagram layer.
-</p>
 </HTML>"),
         Diagram(
             Line(points=[-80,0; 80,0],   style(color=3, rgbcolor={0,0,255})),
@@ -1783,14 +1692,12 @@ See also sketch at diagram layer.
       partial model TwoPort "Partial model of two port" 
         
       annotation (Documentation(info="<HTML>
-<p>
 Partial model with two flowPorts.<br>
 Possible heat exchange with the ambient is defined by Q_flow; setting this = 0 means no energy exchange.<br>
 Setting parameter m (mass of medium within pipe) to zero
 leads to neglection of temperature transient cv*m*der(T).<br>
 Mixing rule is applied.<br>
 Parameter 0 &lt; tapT &lt; 1 defines temperature of heatPort between medium's inlet and outlet temperature.
-</p>
 </HTML>"));
         parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium() 
           "Medium in the component" 
@@ -1875,10 +1782,8 @@ Partial model of (Infinite) ambient, defines pressure and temperature.
       partial model AbsoluteSensor "Partial model of absolute sensor" 
         
       annotation (Documentation(info="<HTML>
-<p>
 Partial model for an absolute sensor (pressure/temperature).<br>
 Pressure, mass flow, temperature and enthalpy flow of medium are not affected.
-</p>
 </HTML>"));
         parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium() 
           "Sensor's medium" 
@@ -1920,10 +1825,8 @@ Pressure, mass flow, temperature and enthalpy flow of medium are not affected.
       partial model RelativeSensor "Partial model of relative sensor" 
         
       annotation (Documentation(info="<HTML>
-<p>
 Partial model for a relative sensor (pressure drop/temperature difference).<br>
 Pressure, mass flow, temperature and enthalpy flow of medium are not affected.
-</p>
 </HTML>"));
         parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium() 
           "Sensor's medium" 
@@ -1970,10 +1873,8 @@ Pressure, mass flow, temperature and enthalpy flow of medium are not affected.
       partial model FlowSensor "Partial model of flow sensor" 
         
       annotation (Documentation(info="<HTML>
-<p>
 Partial model for a flow sensor (mass flow/heat flow).<br>
 Pressure, mass flow, temperature and enthalpy flow of medium are not affected, but mixing rule is applied.
-</p>
 </HTML>"));
         extends TwoPort(final m=0, final T0=0, final tapT=1);
         Modelica.Blocks.Interfaces.RealOutput y 
@@ -2014,11 +1915,7 @@ Pressure, mass flow, temperature and enthalpy flow of medium are not affected, b
   package Media "Medium properties" 
     extends Modelica.Icons.Library2;
   annotation (Documentation(info="<HTML>
-<p>
-This package contains definitions of medium properties.
-</p>
-
-</HTML>", revisions="<HTML>
+This package contains definitions of medium properties.<br>
 <dl>
   <dt><b>Main Authors:</b></dt>
   <dd>
@@ -2037,8 +1934,6 @@ This package contains definitions of medium properties.
   </p>
   </dd>
 </dl>
-</p>
-</dl>
 <p>
 Copyright &copy; 1998-2007, Modelica Association, Anton Haumer and arsenal research.
 </p>
@@ -2048,7 +1943,7 @@ under the terms of the <b>Modelica license</b>, see the license conditions
 and the accompanying <b>disclaimer</b> 
 <a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a>.</i>
 </p>
-
+</HTML>", revisions="<HTML>
   <ul>
   <li> v1.00 2005/02/01 Anton Haumer<br>
        first stable official release</li>
@@ -2131,7 +2026,6 @@ Medium: propeties of water
   package Sensors "Ideal sensors to measure port properties" 
     extends Modelica.Icons.Library2;
   annotation (Documentation(info="<HTML>
-<p>
 This package contains sensors:
 <ul>
 <li>pSensor: absolute pressure</li>
@@ -2142,16 +2036,10 @@ This package contains sensors:
 <li>V_flowSensor: measures volume flow rate</li>
 <li>H_flowSensor: measures enthalpy flow rate</li>
 </ul>
-</p>
-<p>
 Some of the sensors do not need access to medium properties for measuring, 
 but it is necessary to define the medium in the connector (check of connections).<br>
 Thermodynamic equations are defined in partial models (package Interfaces.Partials).<br>
-All sensors are considered massless, they do not change mass flow or enthalpy flow.
-</p>
-<p>
-
-</HTML>", revisions="<HTML>
+All sensors are considered massless, they do not change mass flow or enthalpy flow.<br>
 <dl>
   <dt><b>Main Authors:</b></dt>
   <dd>
@@ -2170,8 +2058,6 @@ All sensors are considered massless, they do not change mass flow or enthalpy fl
   </p>
   </dd>
 </dl>
-</p>
-</dl>
 <p>
 Copyright &copy; 1998-2007, Modelica Association, Anton Haumer and arsenal research.
 </p>
@@ -2181,7 +2067,7 @@ under the terms of the <b>Modelica license</b>, see the license conditions
 and the accompanying <b>disclaimer</b> 
 <a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a>.</i>
 </p>
-
+</HTML>", revisions="<HTML>
   <ul>
   <li> v1.00 2005/02/01 Anton Haumer<br>
        first stable official release</li>
@@ -2231,10 +2117,8 @@ and the accompanying <b>disclaimer</b>
     model pSensor "Absolute pressure sensor" 
       
     annotation (Documentation(info="<HTML>
-<p>
 pSensor measures the absolute pressure.<br>
 Thermodynamic equations are defined by Partials.AbsoluteSensor.
-</p>
 </HTML>"), Diagram);
       extends Interfaces.Partials.AbsoluteSensor(y(redeclare type SignalType = 
               Modelica.SIunits.Pressure));
@@ -2249,10 +2133,8 @@ Thermodynamic equations are defined by Partials.AbsoluteSensor.
     model TSensor "Absolute temperature sensor" 
       
     annotation (Documentation(info="<HTML>
-<p>
 TSensor measures the absolute temperature (Kelvin).<br>
 Thermodynamic equations are defined by Partials.AbsoluteSensor.
-</p>
 </HTML>"), Diagram);
       extends Interfaces.Partials.AbsoluteSensor(y(redeclare type SignalType = 
               Modelica.SIunits.Temperature));
@@ -2267,10 +2149,8 @@ Thermodynamic equations are defined by Partials.AbsoluteSensor.
     model dpSensor "Pressure difference sensor" 
       
     annotation (Documentation(info="<HTML>
-<p>
 dpSensor measures the pressure drop between flowPort_a and flowPort_b.<br>
 Thermodynamic equations are defined by Partials.RelativeSensor.
-</p>
 </HTML>"), Diagram);
       extends Interfaces.Partials.RelativeSensor(y(redeclare type SignalType = 
               Modelica.SIunits.Pressure));
@@ -2285,15 +2165,11 @@ Thermodynamic equations are defined by Partials.RelativeSensor.
     model dTSensor "Temperature difference sensor" 
       
     annotation (Documentation(info="<HTML>
-<p>
 dTSensor measures the temperature difference between flowPort_a and flowPort_b.<br>
-Thermodynamic equations are defined by Partials.RelativeSensor.
-</p>
-<ul>
-<li><b>Note:</b> Connected flowPorts have the same temperature (mixing temperature)!<br>
+Thermodynamic equations are defined by Partials.RelativeSensor.<br>
+<b>Note:</b> Connected flowPorts have the same temperature (mixing temperature)!<br>
 Since mixing my occur, the outlet temperature of a component may be different from the connector's temperature.<br> 
-Outlet temperature is defined by variable T of the corresponding component.</li>
-</ul>
+Outlet temperature is defined by variable T of the corresponding component.
 </HTML>"), Diagram);
       extends Interfaces.Partials.RelativeSensor(y(redeclare type SignalType = 
               Modelica.SIunits.TemperatureDifference));
@@ -2308,10 +2184,8 @@ Outlet temperature is defined by variable T of the corresponding component.</li>
     model m_flowSensor "Mass flow sensor" 
       
     annotation (Documentation(info="<HTML>
-<p>
 m_flowSensor measures the mass flow rate.<br>
 Thermodynamic equations are defined by Partials.FlowSensor.
-</p>
 </HTML>"), Diagram);
       extends Interfaces.Partials.FlowSensor(y(redeclare type SignalType = 
               Modelica.SIunits.MassFlowRate));
@@ -2326,10 +2200,8 @@ Thermodynamic equations are defined by Partials.FlowSensor.
     model V_flowSensor "Volume flow sensor" 
       
     annotation (Documentation(info="<HTML>
-<p>
 V_flowSensor measures the volume flow rate.<br>
 Thermodynamic equations are defined by Partials.FlowSensor.
-</p>
 </HTML>"), Diagram);
       extends Interfaces.Partials.FlowSensor(y(redeclare type SignalType = 
               Modelica.SIunits.VolumeFlowRate));
@@ -2344,10 +2216,8 @@ Thermodynamic equations are defined by Partials.FlowSensor.
     model H_flowSensor "Enthapy flow sensor" 
       
     annotation (Documentation(info="<HTML>
-<p>
 H_flowSensor measures the enthalpy flow rate.<br>
 Thermodynamic equations are defined by Partials.FlowSensor.
-</p>
 </HTML>"),     Diagram);
       extends Interfaces.Partials.FlowSensor(y(redeclare type SignalType = 
               Modelica.SIunits.EnthalpyFlowRate));
@@ -2363,10 +2233,7 @@ Thermodynamic equations are defined by Partials.FlowSensor.
   package Sources "Ideal fluid sources, e.g., ambient, volume flow" 
     extends Modelica.Icons.Library2;
   annotation (Documentation(info="<HTML>
-<p>
 This package contains different types of sources:
-</p>
-
 <ul>
 <li>Ambient with constant pressure and temperature</li>
 <li>Ambient with prescribed pressure and temperature</li>
@@ -2375,13 +2242,8 @@ This package contains different types of sources:
 <li>Constant and prescribed pressure increase</li>
 <li>Simple pump with mechanical flange</li>
 </ul>
-
-<p>
 Thermodynamic equations are defined in partial models (package Interfaces.Partials).<br>
-All fans / pumps are considered without losses, they do not change enthalpy flow.
-</p>
-
-</HTML>", revisions="<HTML>
+All fans / pumps are considered without losses, they do not change enthalpy flow.<br>
 <dl>
   <dt><b>Main Authors:</b></dt>
   <dd>
@@ -2400,8 +2262,6 @@ All fans / pumps are considered without losses, they do not change enthalpy flow
   </p>
   </dd>
 </dl>
-</p>
-</dl>
 <p>
 Copyright &copy; 1998-2007, Modelica Association, Anton Haumer and arsenal research.
 </p>
@@ -2411,7 +2271,7 @@ under the terms of the <b>Modelica license</b>, see the license conditions
 and the accompanying <b>disclaimer</b> 
 <a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a>.</i>
 </p>
-
+</HTML>", revisions="<HTML>
   <ul>
   <li> v1.00 2005/02/01 Anton Haumer<br>
        first stable official release</li>
@@ -2428,10 +2288,8 @@ and the accompanying <b>disclaimer</b>
     model Ambient "Ambient with constant properties" 
       
     annotation (Documentation(info="<HTML>
-<p>
 (Infinite) ambient with constant pressure and temperature.<br>
 Thermodynamic equations are defined by Partials.Ambient. 
-</p>
 </HTML>"));
       extends Interfaces.Partials.Ambient;
       parameter Modelica.SIunits.Pressure p_Ambient=0 "Ambient's pressure";
@@ -2445,10 +2303,8 @@ Thermodynamic equations are defined by Partials.Ambient.
     model PrescribedAmbient "Ambient with prescirbed properties" 
       
     annotation (Documentation(info="<HTML>
-<p>
 (Infinite) ambient with prescribed pressure and temperature.<br>
 Thermodynamic equations are defined by Partials.Ambient. 
-</p>
 </HTML>"));
       extends Interfaces.Partials.Ambient;
       Modelica.Blocks.Interfaces.RealInput p_Ambient(redeclare type SignalType 
@@ -2465,10 +2321,8 @@ Thermodynamic equations are defined by Partials.Ambient.
     model AbsolutePressure "Defines absolute pressure level" 
       
     annotation (Documentation(info="<HTML>
-<p>
 AbsolutePressure to define pressure level of a closed cooling cycle. 
 Coolant's mass flow, temperature and enthalpy flow are not affected.<br>
-</p>
 </HTML>"),     Diagram,
         Icon(
           Text(
@@ -2501,13 +2355,11 @@ Coolant's mass flow, temperature and enthalpy flow are not affected.<br>
     model ConstantVolumeFlow "Enforces constant volume flow" 
       
     annotation (Documentation(info="<HTML>
-<p>
 Fan resp. pump with constant volume flow rate. Pressure increase is the response of the whole system. 
 Coolant's temperature and enthalpy flow are not affected.<br>
 Setting parameter m (mass of medium within fan/pump) to zero
 leads to neglection of temperature transient cv*m*der(T).<br>
 Thermodynamic equations are defined by Partials.TwoPort.
-</p>
 </HTML>"), Icon(
            Ellipse(extent=[-90,90; 90,-90],   style(
               color=1,
@@ -2538,13 +2390,11 @@ Thermodynamic equations are defined by Partials.TwoPort.
     model PrescribedVolumeFlow "Enforces prescribed volume flow" 
       
     annotation (Documentation(info="<HTML>
-<p>
 Fan resp. pump with prescribed volume flow rate. Pressure increase is the response of the whole system. 
 Coolant's temperature and enthalpy flow are not affected.<br>
 Setting parameter m (mass of medium within fan/pump) to zero
 leads to neglection of temperature transient cv*m*der(T).<br>
 Thermodynamic equations are defined by Partials.TwoPort.
-</p>
 </HTML>"),
       Icon(Ellipse(extent=[-90,90; 90,-90],   style(
               color=1,
@@ -2578,13 +2428,11 @@ Thermodynamic equations are defined by Partials.TwoPort.
     model ConstantPressureIncrease "Enforces constant pressure increase" 
       
     annotation (Documentation(info="<HTML>
-<p>
 Fan resp. pump with constant pressure increase. Mass resp. volume flow is the response of the whole system. 
 Coolant's temperature and enthalpy flow are not affected.<br>
 Setting parameter m (mass of medium within fan/pump) to zero
 leads to neglection of temperature transient cv*m*der(T).<br>
 Thermodynamic equations are defined by Partials.TwoPort.
-</p>
 </HTML>"),
       Icon(Ellipse(extent=[-90,90; 90,-90],   style(
               color=1,
@@ -2616,13 +2464,11 @@ Thermodynamic equations are defined by Partials.TwoPort.
     model PrescribedPressureIncrease "Enforces prescribed pressure increase" 
       
     annotation (Documentation(info="<HTML>
-<p>
 Fan resp. pump with prescribed pressure increase. Mass resp. volume flow is the response of the whole system. 
 Coolant's temperature and enthalpy flow are not affected.<br>
 Setting parameter m (mass of medium within fan/pump) to zero
 leads to neglection of temperature transient cv*m*der(T).<br>
 Thermodynamic equations are defined by Partials.TwoPort.
-</p>
 </HTML>"),     Diagram,
         Icon(
            Ellipse(extent=[-90,90; 90,-90],   style(
@@ -2655,12 +2501,11 @@ Thermodynamic equations are defined by Partials.TwoPort.
     model IdealPump "Model of an ideal pump" 
       
     annotation (Documentation(info="<HTML>
-<p>
 Simple fan resp. pump where characteristic is dependent on shaft's speed, <br>
 torque * speed = pressure increase * volume flow (without losses)<br>
 Pressure increase versus volume flow is defined by a linear function, 
 from dp0(V_flow=0) to V_flow0(dp=0).<br>
-The axis intersections vary with speed as follows:<br>
+The axis intersections vary with speed as follows:
 <ul>
 <li>dp prop. speed^2</li>
 <li>V_flow prop. speed</li>
@@ -2669,7 +2514,6 @@ Coolant's temperature and enthalpy flow are not affected.<br>
 Setting parameter m (mass of medium within fan/pump) to zero
 leads to neglection of temperature transient cv*m*der(T).<br>
 Thermodynamic equations are defined by Partials.TwoPort.
-</p>
 </HTML>"), Icon(
            Ellipse(extent=[-90,90; 90,-90],   style(
               color=1,
