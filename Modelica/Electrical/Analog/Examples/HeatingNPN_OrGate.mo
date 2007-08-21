@@ -2,11 +2,13 @@ within Modelica.Electrical.Analog.Examples;
 model HeatingNPN_OrGate "Heating NPN Or Gate" 
   extends Modelica.Icons.Example;
   constant Modelica.SIunits.Capacitance CapVal=0;
+  constant Modelica.SIunits.Time tauVal=0;
   
 annotation (Diagram(Text(extent=[-100, 100; -6, 72], string=
-          "Heating NPN Nand Gate")), Documentation(info="<HTML>
+            "Heating \"NPN or\" Gate")),
+                                     Documentation(info="<HTML>
 <P>
-The heating NPN nand gate shows a heat flow always if a transistor is leading.
+The heating \"NPN or\" gate shows a heat flow always if a transistor is leading.
 </P>
 <P>
 Simulate until T=200 s.
@@ -110,8 +112,8 @@ T1.heatPort.Q_flow and T2.heatPort.Q_flow<br>
     Br=1,
     Is=1.e-14,
     Vak=0,
-    Tauf=0,
-    Taur=0,
+    Tauf=tauVal,
+    Taur=tauVal,
     Ccs=CapVal,
     Cje=CapVal,
     Cjc=CapVal,
@@ -121,15 +123,16 @@ T1.heatPort.Q_flow and T2.heatPort.Q_flow<br>
     Mc=0.5,
     Gbc=1.e-12,
     Gbe=1.e-12,
-    EMax=40) 
+    EMax=40,
+    vt_t(start=0.01, fixed=false)) 
            annotation (extent=[-20, 48; 0, 68]);
   Semiconductors.HeatingNPN T2(
     Bf=100,
     Br=1,
     Is=1.e-14,
     Vak=0,
-    Tauf=0,
-    Taur=0,
+    Tauf=tauVal,
+    Taur=tauVal,
     Ccs=CapVal,
     Cje=CapVal,
     Cjc=CapVal,
@@ -139,7 +142,8 @@ T1.heatPort.Q_flow and T2.heatPort.Q_flow<br>
     Mc=0.5,
     Gbc=1.e-12,
     Gbe=1.e-12,
-    EMax=40) 
+    EMax=40,
+    vt_t(start=0.01, fixed=false)) 
            annotation (extent=[20, -22; 40, -2]);
 equation 
   connect(Gnd1.p, V1.n) 
