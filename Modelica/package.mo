@@ -12,8 +12,8 @@ annotation(preferedView="info",
     library=1,
     autolayout=1),
   version="2.2.2",
-  versionBuild="572",
-  versionDate="2007-08-18",
+  versionBuild="598",
+  versionDate="2007-08-21",
   conversion(
     from(version="1.6",
          ModelicaAdditions(version="1.5"),
@@ -78,7 +78,7 @@ Copyright &copy; 1998-2007, Modelica Association.
 under the terms of the <b>Modelica license</b>, see the license conditions
 and the accompanying <b>disclaimer</b> 
 <a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a>.</i>
-</p><br>
+</p>
 </HTML>
 "));
 
