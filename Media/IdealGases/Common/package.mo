@@ -164,7 +164,7 @@ and adapted to the Modelica.Media package.
   end ThermodynamicState;
   
   redeclare replaceable record extends FluidConstants 
-    "extended fluid constants" 
+    "Extended fluid constants" 
     Temperature criticalTemperature "critical temperature";
     AbsolutePressure criticalPressure "critical pressure";
     MolarVolume criticalMolarVolume "critical molar Volume";

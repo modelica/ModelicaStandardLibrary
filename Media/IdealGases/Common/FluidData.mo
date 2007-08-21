@@ -1,5 +1,5 @@
 within Modelica.Media.IdealGases.Common;
-package FluidData "critical data, dipole moments and related data" 
+package FluidData "Critical data, dipole moments and related data" 
   extends Modelica.Icons.Library;
   
   import Modelica.Media.Interfaces.PartialMedium;
@@ -690,6 +690,21 @@ package FluidData "critical data, dipole moments and related data"
                        hasAcentricFactor =     true);
   
   annotation (Documentation(info="<html>
-  
+<p>
+This package contains FluidConstants data records for the following 37 gases
+(see also the description in
+<a href=\"Modelica://Modelica.Media.IdealGases\">Modelica.Media.IdealGases</a>):						 
+</p>
+<pre>
+Argon             Methane          Methanol       Carbon Monoxide  Carbon Dioxide
+Acetylene         Ethylene         Ethanol        Ethane           Propylene
+Propane           1-Propanol       1-Butene       N-Butane         1-Pentene
+N-Pentane         Benzene          1-Hexene       N-Hexane         1-Heptane
+N-Heptane         Ethylbenzene     N-Octane       Chlorine         Fluorine
+Hydrogen          Steam            Helium         Ammonia          Nitric Oxide
+Nitrogen Dioxide  Nitrogen         Nitrous        Oxide            Neon Oxygen
+Sulfur Dioxide    Sulfur Trioxide
+</pre>  
+
 </html>"));
 end FluidData;
