@@ -1025,7 +1025,7 @@ the time behaviour depending on coolant flow.
         annotation (points=[-20,0; 0,0],   style(color=1, rgbcolor={255,0,0}));
       connect(Pipe1.flowPort_b, Ambient2.flowPort) 
         annotation (points=[20,0; 40,0],   style(color=1, rgbcolor={255,0,0}));
-      connect(ThermalConductor1.port_a, HeatCapacitor1.port) annotation (points=[10,-40; 
+      connect(ThermalConductor1.port_a, HeatCapacitor1.port) annotation (points=[10,-40;
             10,-40; 10,-50; 10,-50],        style(color=42, rgbcolor={191,0,0}));
       connect(Pipe1.heatPort, ThermalConductor1.port_b) 
         annotation (points=[10,-10; 10,-20], style(color=42, rgbcolor={191,0,0}));
@@ -1126,13 +1126,13 @@ the time behaviour depending on coolant flow.
             -10; 30,0; 40,0], style(color=1, rgbcolor={255,0,0}));
       connect(Pipe3.flowPort_b, Ambient2.flowPort) 
         annotation (points=[60,0; 80,0], style(color=1, rgbcolor={255,0,0}));
-      connect(HeatCapacitor2.port, ThermalConductor2.port_a) annotation (points=[10,60; 
+      connect(HeatCapacitor2.port, ThermalConductor2.port_a) annotation (points=[10,60;
             10,55.5; 10,50; 10,50],   style(color=42, rgbcolor={191,0,0}));
       connect(ThermalConductor2.port_b, Pipe2.heatPort) 
         annotation (points=[10,30; 10,20], style(color=42, rgbcolor={191,0,0}));
       connect(Pipe1.heatPort, ThermalConductor1.port_b) annotation (points=[10,-20;
             10,-30],         style(color=42, rgbcolor={191,0,0}));
-      connect(ThermalConductor1.port_a, HeatCapacitor1.port) annotation (points=[10,-50; 
+      connect(ThermalConductor1.port_a, HeatCapacitor1.port) annotation (points=[10,-50;
             10,-50; 10,-60; 10,-60],
                                   style(color=42, rgbcolor={191,0,0}));
       connect(DoubleRamp1.y, Pump1.VolumeFlow) annotation (points=[-39,20; -30,
@@ -1189,15 +1189,15 @@ and the accompanying <b>disclaimer</b>
         parameter Modelica.SIunits.Time startTime=0.2 "StartTime of 1st ramp";
         parameter Modelica.SIunits.Time interval=0.2 
           "Interval between end of 1st and beginning of 2nd ramp";
-        parameter Real height_1=-1 "Height of ramp"
+        parameter Real height_1=-1 "Height of ramp" 
           annotation(Dialog(group="Ramp 1"));
         parameter Modelica.SIunits.Time duration_1(min=Modelica.Constants.small) = 0.2 
-          "Duration of ramp"
+          "Duration of ramp" 
           annotation(Dialog(group="Ramp 1"));
-        parameter Real height_2=1 "Height of ramp"
+        parameter Real height_2=1 "Height of ramp" 
           annotation(Dialog(group="Ramp 2"));
         parameter Modelica.SIunits.Time duration_2(min=Modelica.Constants.small) = 0.2 
-          "Duration of ramp"
+          "Duration of ramp" 
           annotation(Dialog(group="Ramp 2"));
         annotation (
           Documentation(info="<HTML>
@@ -1249,17 +1249,18 @@ Block generating the sum of two ramps.
   annotation (Documentation(info="<HTML>
 <p>
 This package contains components:
+</p>
+
 <ul>
 <li>pipe without heat exchange</li>
 <li>pipe with heat exchange</li>
 <li>valve (simple controlled valve)</li>
-<ul>
-</p>
+</ul>
+
 <p>
 Pressure drop is taken from partial model SimpleFriction.<br>
 Thermodynamic equations are defined in partial models (package Partials).
 </p>
-<p>
 
 </HTML>", revisions="<HTML>
 <dl>
@@ -1434,23 +1435,20 @@ Flow resistance under real conditions is calculated by<br>
               rgbfillColor={0,0,255},
               fillPattern=1))), Diagram);
       extends Interfaces.Partials.TwoPort(m=0, final tapT=1);
-      parameter Boolean LinearCharacteristic=true 
-        "Type of characteristic" 
-        annotation(Dialog(group="Standard characteristic"), choices(choice=true "Linear", choice=false "Exponential"));
-      parameter Real y1(min=small)=1 
-        "Max. valve opening"
+      parameter Boolean LinearCharacteristic=true "Type of characteristic" 
+        annotation(Dialog(group="Standard characteristic"), choices(choice=true "Linear", choice=false 
+            "Exponential"));
+      parameter Real y1(min=small)=1 "Max. valve opening" 
         annotation(Dialog(group="Standard characteristic"));
       parameter Modelica.SIunits.VolumeFlowRate Kv1(min=small)=1 
-        "Max. flow @ y = y1"
+        "Max. flow @ y = y1" 
         annotation(Dialog(group="Standard characteristic"));
       parameter Real kv0(min=small,max=1-small)=0.01 
-        "Leakage flow / max.flow @ y = 0"
+        "Leakage flow / max.flow @ y = 0" 
         annotation(Dialog(group="Standard characteristic"));
-      parameter Modelica.SIunits.Pressure dp0=1 
-        "Standard pressure drop"
+      parameter Modelica.SIunits.Pressure dp0=1 "Standard pressure drop" 
         annotation(Dialog(group="Standard characteristic"));
-      parameter Modelica.SIunits.Density rho0 = 10 
-        "Standard medium's density"
+      parameter Modelica.SIunits.Density rho0 = 10 "Standard medium's density" 
         annotation(Dialog(group="Standard characteristic"));
       parameter Real frictionLoss(min=0, max=1) = 0 
         "Part of friction losses fed to medium";
@@ -1746,19 +1744,18 @@ See also sketch at diagram layer.
               style(color=3, rgbcolor={0,0,255}),
               string="dp ~ V_flow²")));
         parameter Modelica.SIunits.VolumeFlowRate V_flowLaminar(min=Modelica.Constants.small)=0.1 
-          "Laminar volume flow"
+          "Laminar volume flow" 
           annotation(Dialog(group="Simple Friction"));
         parameter Modelica.SIunits.Pressure dpLaminar=0.1 
-          "Laminar pressure drop"
+          "Laminar pressure drop" 
           annotation(Dialog(group="Simple Friction"));
         parameter Modelica.SIunits.VolumeFlowRate V_flowNominal=1 
-          "Nominal volume flow"
+          "Nominal volume flow" 
           annotation(Dialog(group="Simple Friction"));
-        parameter Modelica.SIunits.Pressure dpNominal=1 
-          "Nominal pressure drop"
+        parameter Modelica.SIunits.Pressure dpNominal=1 "Nominal pressure drop"
           annotation(Dialog(group="Simple Friction"));
         parameter Real frictionLoss(min=0, max=1) = 0 
-          "Part of friction losses fed to medium"
+          "Part of friction losses fed to medium" 
           annotation(Dialog(group="Simple Friction"));
         Modelica.SIunits.Pressure pressureDrop;
         Modelica.SIunits.VolumeFlowRate VolumeFlow;
@@ -2368,6 +2365,8 @@ Thermodynamic equations are defined by Partials.FlowSensor.
   annotation (Documentation(info="<HTML>
 <p>
 This package contains different types of sources:
+</p>
+
 <ul>
 <li>Ambient with constant pressure and temperature</li>
 <li>Ambient with prescribed pressure and temperature</li>
@@ -2375,13 +2374,12 @@ This package contains different types of sources:
 <li>Constant and prescribed volume flow</li>
 <li>Constant and prescribed pressure increase</li>
 <li>Simple pump with mechanical flange</li>
-<ul>
-</p>
+</ul>
+
 <p>
 Thermodynamic equations are defined in partial models (package Interfaces.Partials).<br>
 All fans / pumps are considered without losses, they do not change enthalpy flow.
 </p>
-<p>
 
 </HTML>", revisions="<HTML>
 <dl>
@@ -2696,14 +2694,13 @@ Thermodynamic equations are defined by Partials.TwoPort.
               rgbfillColor={0,0,255}))),
         Diagram);
       extends Interfaces.Partials.TwoPort(final tapT=1);
-      parameter Modelica.SIunits.AngularVelocity w_Nominal=1 
-        "Nominal speed"
+      parameter Modelica.SIunits.AngularVelocity w_Nominal=1 "Nominal speed" 
           annotation(Dialog(group="Pump characteristic"));
       parameter Modelica.SIunits.Pressure dp0=2 
-        "Max. pressure increase @ V_flow=0"
+        "Max. pressure increase @ V_flow=0" 
           annotation(Dialog(group="Pump characteristic"));
       parameter Modelica.SIunits.VolumeFlowRate V_flow0=2 
-        "Max. volume flow rate @ dp=0"
+        "Max. volume flow rate @ dp=0" 
           annotation(Dialog(group="Pump characteristic"));
       Modelica.SIunits.AngularVelocity w=der(flange_a.phi) "Speed";
     protected 
