@@ -1816,11 +1816,11 @@ of several base components.</p>
       the different structural configurations, if for each configuration
       special code shall be generated) */
       
-      startForward = pre(mode) == Stuck and (sa > tau0_max or pre(startForward)
-         and sa > tau0) or pre(mode) == Backward and w_relfric > w_small or 
+      startForward = pre(mode) == Stuck and (sa > tau0_max/unitTorque or pre(startForward)
+         and sa > tau0/unitTorque) or pre(mode) == Backward and w_relfric > w_small or 
         initial() and (w_relfric > 0);
-      startBackward = pre(mode) == Stuck and (sa < -tau0_max or pre(
-        startBackward) and sa < -tau0) or pre(mode) == Forward and w_relfric <
+      startBackward = pre(mode) == Stuck and (sa < -tau0_max/unitTorque or pre(
+        startBackward) and sa < -tau0/unitTorque) or pre(mode) == Forward and w_relfric <
         -w_small or initial() and (w_relfric < 0);
       locked = not free and not (pre(mode) == Forward or startForward or pre(
         mode) == Backward or startBackward);
