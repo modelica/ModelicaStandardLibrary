@@ -3,24 +3,21 @@ package SingleGases "Media models of ideal gases from NASA tables"
   extends Modelica.Icons.Library;
   annotation (preferedView="info", Documentation(
         info="<HTML>
-<p>This package contains the data records for the 1241 ideal gases from </p>
-<blockquote>
-  <p>McBride B.J., Zehe M.J., and Gordon S. (2002): <b>NASA Glenn Coefficients 
-  for Calculating Thermodynamic Properties of Individual Species</b>. NASA 
-  report TP-2002-211556</p>
-</blockquote>
-<p>The record entries are defined in <b>IdealGases.DataRecord</b>. Medium
-models for the following gases are provided:						 
+<p>
+This package contains medium
+models for the following 37 gases
+(see also the description in
+<a href=\"Modelica://Modelica.Media.IdealGases\">Modelica.Media.IdealGases</a>):						 
 </p>
 <pre>
-Argon		  Methane	   Methanol	  Carbon Monoxide  Carbon Dioxide
-Acetylene	  Ethylene	   Ethanol	  Ethane	   Propylene
-Propane		  1-Propanol	   1-Butene	  N-Butane	   1-Pentene
-N-Pentane	  Benzene	   1-Hexene	  N-Hexane	   1-Heptane
-N-Heptane	  Ethylbenzene	   N-Octane	  Chlorine	   Fluorine
-Hydrogen	  Steam		   Helium	  Ammonia	   Nitric Oxide
-Nitrogen Dioxide  Nitrogen	   Nitrous Oxide  Neon		   Oxygen
-Sulfur Dioxide	  Sulfur Trioxide
+Argon             Methane          Methanol       Carbon Monoxide  Carbon Dioxide
+Acetylene         Ethylene         Ethanol        Ethane           Propylene
+Propane           1-Propanol       1-Butene       N-Butane         1-Pentene
+N-Pentane         Benzene          1-Hexene       N-Hexane         1-Heptane
+N-Heptane         Ethylbenzene     N-Octane       Chlorine         Fluorine
+Hydrogen          Steam            Helium         Ammonia          Nitric Oxide
+Nitrogen Dioxide  Nitrogen         Nitrous        Oxide            Neon Oxygen
+Sulfur Dioxide    Sulfur Trioxide
 </pre>
 </HTML>"));
   
