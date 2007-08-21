@@ -8,10 +8,6 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
   for Calculating Thermodynamic Properties of Individual Species</b>. NASA 
   report TP-2002-211556</p>
 </blockquote>
-<pre>
-<p>The record entries are defined in <b>IdealGases.DataRecord</b>. Data
-records for the following gases are provided:
-</p>
 
 <pre>
  Ag        BaOH+           C2H4O_ethylen_o DF      In2I4    Nb      ScO2   
@@ -192,7 +188,9 @@ records for the following gases are provided:
  BaO       CH3CN           D-              In2F4   Na2SO4   Sc-    
  BaO+      CH3CO_acetyl    DBr             In2F6   Na3Cl3   ScO    
  BaOH      C2H4            DCl             In2I2   Na3F3    ScO+   
-</pre></HTML>"));
+</pre>
+
+</HTML>"));
   
   constant IdealGases.Common.DataRecord Ag(
     name="Ag",
