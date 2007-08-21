@@ -1,3 +1,4 @@
+within Modelica.Media;
 package Air "Medium models for air" 
   
   package SimpleAir "Air: Simple dry air model (0..100 degC)" 
@@ -32,7 +33,13 @@ package Air "Medium models for air"
   end SimpleAir;
   
   package DryAirNasa "Air: Detailed dry air model as ideal gas (200..6000 K)" 
-    extends IdealGases.SingleGases.Air(fluidConstants={IdealGases.Common.FluidData.N2});
+    extends IdealGases.Common.SingleGasNasa(
+     mediumName="Air",
+     data=IdealGases.Common.SingleGasesData.Air,
+     fluidConstants={IdealGases.Common.FluidData.N2});
+    annotation (preferedView="info", Documentation(info="<HTML>
+      <IMG SRC=\"../Images/Media/IdealGases/SingleGases/Air.png\"></HTML>"));
+    
     import Cv = Modelica.SIunits.Conversions;
     
   redeclare function dynamicViscosity 
