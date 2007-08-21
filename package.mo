@@ -12,7 +12,7 @@ annotation(preferedView="info",
     library=1,
     autolayout=1),
   version="2.2.2",
-  versionBuild="599",
+  versionBuild="600",
   versionDate="2007-08-21",
   conversion(
     from(version="1.6",
@@ -697,11 +697,19 @@ more of the following changes.
       
       annotation (Documentation(info="<html>
 <p>
-Version 2.2.2 is backward compatible to version 2.2.1 and 2.2. with 
-exception of the removal of package 
-Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache
-(because it is not yet utilized and it is planned to improve its design).
+Version 2.2.2 is backward compatible to version 2.2.1 and 2.2 with 
+the following exceptions:
 </p>
+<ul>
+<li> Removal of package Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache
+     (this was not yet utilized).</li>
+<li> Removal of the media packages in
+     Modelica.Media.IdealGases.SingleGases that are not type compatible
+     to Modelica.Media.Interfaces.PartialMedium, because a FluidConstants
+     record definition is missing
+     (for details, see 
+      <a href=\"Modelica://Modelica.Media.IdealGases\">Modelica.Media.IdealGases</a>)
+</ul>
 
 <p>
 An overview of the differences between version 2.2.2 and the previous
@@ -1393,7 +1401,13 @@ units are wrong or errors in documentation):
       <td valign=\"top\"> Corrected unit from \"kWh\" to (syntactically correct) \"kW.h\".
        </td> 
   </tr>
- 
+
+  <tr><td colspan=\"2\"><b>Electrical.Analog.Examples.</b></td></tr>
+  <tr><td valign=\"top\"> HeatingNPN_OrGate</td>
+      <td valign=\"top\"> Included start values, so that initialization is
+                        successful </td> 
+  </tr>
+
   <tr><td colspan=\"2\"><b>Electrical.Analog.Lines.</b></td></tr>
   <tr><td valign=\"top\"> OLine</td>
       <td valign=\"top\"> Corrected unit from \"Siemens/m\" to \"S/m\".
@@ -1477,7 +1491,7 @@ units are wrong or errors in documentation):
   </tr>
 
  
-  <tr><td colspan=\"2\"><b>Mechanics.MultiBody.Forces.</b></td></tr>
+  <tr><td colspan=\"2\"><b>Mechanics.MultiBody.Forces.</b></td></tr" + ">
   <tr><td valign=\"top\"> ForceAndTorque</td>
       <td valign=\"top\"> Corrected wrong unit: \"SIunits.Force t_b_0\" to \"SIunits.Torque t_b_0\".
        </td> 
@@ -1490,7 +1504,7 @@ units are wrong or errors in documentation):
   <tr><td colspan=\"2\"><b>Mechanics.MultiBody.Frames.</b></td></tr>
   <tr><td valign=\"top\"> axisRotation</td>
       <td valign=\"top\"> Corrected wrong unit: \"SIunits.Angle der_angle\" to
-            \"SIunits.AngularVelocity" + " der_angle\".
+            \"SIunits.AngularVelocity der_angle\".
        </td> 
   </tr>
  
