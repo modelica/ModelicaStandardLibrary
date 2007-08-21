@@ -7,19 +7,19 @@ package RobotR3
     
     import SI = Modelica.SIunits;
     extends Modelica.Icons.Example;
-    parameter SI.Mass mLoad(min=0)=15 "mass of load";
-    parameter Real kp=5 "gain of position controller of axis 2";
-    parameter Real ks=0.5 "gain of speed controller of axis 2";
+    parameter SI.Mass mLoad(min=0)=15 "Mass of load";
+    parameter Real kp=5 "Gain of position controller of axis 2";
+    parameter Real ks=0.5 "Gain of speed controller of axis 2";
     parameter SI.Time Ts=0.05 
-      "time constant of integrator of speed controller of axis 2";
-    parameter Real startAngle(unit="deg") = 0 "start angle of axis 2";
-    parameter Real endAngle(unit="deg") = 120 "end angle of axis 2";
+      "Time constant of integrator of speed controller of axis 2";
+    parameter Real startAngle(unit="deg") = 0 "Start angle of axis 2";
+    parameter Real endAngle(unit="deg") = 120 "End angle of axis 2";
     
     parameter SI.Time swingTime=0.5 
-      "additional time after reference motion is in rest before simulation is stopped";
-    parameter SI.AngularVelocity refSpeedMax=3 "maximum reference speed";
+      "Additional time after reference motion is in rest before simulation is stopped";
+    parameter SI.AngularVelocity refSpeedMax=3 "Maximum reference speed";
     parameter SI.AngularAcceleration refAccMax=10 
-      "maximum reference acceleration";
+      "Maximum reference acceleration";
     
     annotation (
       Coordsys(
@@ -117,72 +117,89 @@ to plot variables.
     
     import SI = Modelica.SIunits;
     
-    parameter SI.Mass mLoad(min=0) = 15 "mass of load";
+    parameter SI.Mass mLoad(min=0) = 15 "Mass of load";
     parameter SI.Position rLoad[3]={0.1,0.25,0.1} 
-      "distance from last flange to load mass";
-    parameter SI.Acceleration g=9.81 "gravity acceleration";
-    parameter SI.Time refStartTime=0 "start time of reference motion";
+      "Distance from last flange to load mass";
+    parameter SI.Acceleration g=9.81 "Gravity acceleration";
+    parameter SI.Time refStartTime=0 "Start time of reference motion";
     parameter SI.Time refSwingTime=0.7 
-      "additional time after reference motion is in rest before simulation is stopped";
+      "Additional time after reference motion is in rest before simulation is stopped";
     
-    parameter Real startAngle1(unit="deg") = -60 " start angle of axis 1" 
+    parameter Real startAngle1(unit="deg") = -60 "Start angle of axis 1" 
       annotation (Dialog(tab="Reference", group="startAngles"));
-    parameter Real startAngle2(unit="deg") = 20 " start angle of axis 2" 
+    parameter Real startAngle2(unit="deg") = 20 "Start angle of axis 2" 
       annotation (Dialog(tab="Reference", group="startAngles"));
-    parameter Real startAngle3(unit="deg") = 90 " start angle of axis 3" 
+    parameter Real startAngle3(unit="deg") = 90 "Start angle of axis 3" 
       annotation (Dialog(tab="Reference", group="startAngles"));
-    parameter Real startAngle4(unit="deg") = 0 " start angle of axis 4" 
+    parameter Real startAngle4(unit="deg") = 0 "Start angle of axis 4" 
       annotation (Dialog(tab="Reference", group="startAngles"));
-    parameter Real startAngle5(unit="deg") = -110 " start angle of axis 5" 
+    parameter Real startAngle5(unit="deg") = -110 "Start angle of axis 5" 
       annotation (Dialog(tab="Reference", group="startAngles"));
-    parameter Real startAngle6(unit="deg") = 0 " start angle of axis 6" 
+    parameter Real startAngle6(unit="deg") = 0 "Start angle of axis 6" 
       annotation (Dialog(tab="Reference", group="startAngles"));
     
-    parameter Real endAngle1(unit="deg") = 60 " end angle of axis 1" 
+    parameter Real endAngle1(unit="deg") = 60 "End angle of axis 1" 
       annotation (Dialog(tab="Reference", group="endAngles"));
-    parameter Real endAngle2(unit="deg") = -70 " end angle of axis 2" 
+    parameter Real endAngle2(unit="deg") = -70 "End angle of axis 2" 
       annotation (Dialog(tab="Reference", group="endAngles"));
-    parameter Real endAngle3(unit="deg") = -35 " end angle of axis 3" 
+    parameter Real endAngle3(unit="deg") = -35 "End angle of axis 3" 
       annotation (Dialog(tab="Reference", group="endAngles"));
-    parameter Real endAngle4(unit="deg") = 45 " end angle of axis 4" 
+    parameter Real endAngle4(unit="deg") = 45 "End angle of axis 4" 
       annotation (Dialog(tab="Reference", group="endAngles"));
-    parameter Real endAngle5(unit="deg") = 110 " end angle of axis 5" 
+    parameter Real endAngle5(unit="deg") = 110 "End angle of axis 5" 
       annotation (Dialog(tab="Reference", group="endAngles"));
-    parameter Real endAngle6(unit="deg") = 45 " end angle of axis 6" 
+    parameter Real endAngle6(unit="deg") = 45 "End angle of axis 6" 
       annotation (Dialog(tab="Reference", group="endAngles"));
     
     parameter SI.AngularVelocity refSpeedMax[6]={3,1.5,5,3.1,3.1,4.1} 
-      " Maximum reference speeds of all joints" 
+      "Maximum reference speeds of all joints" 
       annotation (Dialog(tab="Reference", group="Limits"));
     parameter SI.AngularAcceleration refAccMax[6]={15,15,15,60,60,60} 
-      " Maximum reference accelerations of all joints" 
+      "Maximum reference accelerations of all joints" 
       annotation (Dialog(tab="Reference", group="Limits"));
     
-    parameter Real kp1=5 " gain of position controller" 
+    parameter Real kp1=5 "Gain of position controller" 
       annotation (Dialog(tab="Controller", group="Axis 1"));
-    parameter Real ks1=0.5 "|Controller|Axis 1| gain of speed controller";
+    parameter Real ks1=0.5 "Gain of speed controller"
+      annotation (Dialog(tab="Controller", group="Axis 1"));
     parameter SI.Time Ts1=0.05 
-      "|Controller|Axis 1| time constant of integrator of speed controller";
-    parameter Real kp2=5 "|Controller|Axis 2| gain of position controller";
-    parameter Real ks2=0.5 "|Controller|Axis 2| gain of speed controller";
+      "Time constant of integrator of speed controller"
+      annotation (Dialog(tab="Controller", group="Axis 1"));
+    parameter Real kp2=5 "Gain of position controller"
+      annotation (Dialog(tab="Controller", group="Axis 2"));
+    parameter Real ks2=0.5 "Gain of speed controller"
+      annotation (Dialog(tab="Controller", group="Axis 2"));
     parameter SI.Time Ts2=0.05 
-      "|Controller|Axis 2| time constant of integrator of speed controller";
-    parameter Real kp3=5 "|Controller|Axis 3| gain of position controller";
-    parameter Real ks3=0.5 "|Controller|Axis 3| gain of speed controller";
+      "Time constant of integrator of speed controller"
+      annotation (Dialog(tab="Controller", group="Axis 2"));
+    parameter Real kp3=5 "Gain of position controller"
+      annotation (Dialog(tab="Controller", group="Axis 3"));
+    parameter Real ks3=0.5 "Gain of speed controller"
+      annotation (Dialog(tab="Controller", group="Axis 3"));
     parameter SI.Time Ts3=0.05 
-      "|Controller|Axis 3| time constant of integrator of speed controller";
-    parameter Real kp4=5 "|Controller|Axis 4| gain of position controller";
-    parameter Real ks4=0.5 "|Controller|Axis 4| gain of speed controller";
+      "Time constant of integrator of speed controller"
+      annotation (Dialog(tab="Controller", group="Axis 3"));
+    parameter Real kp4=5 "Gain of position controller"
+      annotation (Dialog(tab="Controller", group="Axis 4"));
+    parameter Real ks4=0.5 "Gain of speed controller"
+      annotation (Dialog(tab="Controller", group="Axis 4"));
     parameter SI.Time Ts4=0.05 
-      "|Controller|Axis 4| time constant of integrator of speed controller";
-    parameter Real kp5=5 "|Controller|Axis 5| gain of position controller";
-    parameter Real ks5=0.5 "|Controller|Axis 5| gain of speed controller";
+      "Time constant of integrator of speed controller"
+      annotation (Dialog(tab="Controller", group="Axis 4"));
+    parameter Real kp5=5 "Gain of position controller"
+      annotation (Dialog(tab="Controller", group="Axis 5"));
+    parameter Real ks5=0.5 "Gain of speed controller"
+      annotation (Dialog(tab="Controller", group="Axis 5"));
     parameter SI.Time Ts5=0.05 
-      "|Controller|Axis 5| time constant of integrator of speed controller";
-    parameter Real kp6=5 "|Controller|Axis 6| gain of position controller";
-    parameter Real ks6=0.5 "|Controller|Axis 6| gain of speed controller";
+      "Time constant of integrator of speed controller"
+      annotation (Dialog(tab="Controller", group="Axis 5"));
+    parameter Real kp6=5 "Gain of position controller"
+      annotation (Dialog(tab="Controller", group="Axis 6"));
+    parameter Real ks6=0.5 "Gain of speed controller"
+      annotation (Dialog(tab="Controller", group="Axis 6"));
     parameter SI.Time Ts6=0.05 
-      "|Controller|Axis 6| time constant of integrator of speed controller";
+      "Time constant of integrator of speed controller"
+      annotation (Dialog(tab="Controller", group="Axis 6"));
     Components.MechanicalStructure mechanics(
       mLoad=mLoad,
       rLoad=rLoad,
@@ -404,15 +421,15 @@ the connection to this bus) are defined
       
       import SI = Modelica.SIunits;
       import Cv = Modelica.SIunits.Conversions;
-      parameter Real angleBegDeg(unit="deg") = 0 "start angle";
-      parameter Real angleEndDeg(unit="deg") = 1 "end angle";
-      parameter SI.AngularVelocity speedMax = 3 "maximum axis speed";
-      parameter SI.AngularAcceleration accMax = 2.5 "maximum axis acceleration";
-      parameter SI.Time startTime=0 "start time of movement";
+      parameter Real angleBegDeg(unit="deg") = 0 "Start angle";
+      parameter Real angleEndDeg(unit="deg") = 1 "End angle";
+      parameter SI.AngularVelocity speedMax = 3 "Maximum axis speed";
+      parameter SI.AngularAcceleration accMax = 2.5 "Maximum axis acceleration";
+      parameter SI.Time startTime=0 "Start time of movement";
       parameter SI.Time swingTime=0.5 
-        "additional time after reference motion is in rest before simulation is stopped";
-      final parameter SI.Angle angleBeg=Cv.from_deg(angleBegDeg) "start angles";
-      final parameter SI.Angle angleEnd=Cv.from_deg(angleEndDeg) "end angles";
+        "Additional time after reference motion is in rest before simulation is stopped";
+      final parameter SI.Angle angleBeg=Cv.from_deg(angleBegDeg) "Start angles";
+      final parameter SI.Angle angleEnd=Cv.from_deg(angleEndDeg) "End angles";
       ControlBus controlBus 
         annotation (extent=[80,-20; 120,20], rotation=-90);
       Modelica.Blocks.Sources.KinematicPTP2 path(
@@ -523,19 +540,19 @@ motion on the controlBus of the r3 robot.
       import Cv = Modelica.SIunits.Conversions;
       parameter Integer naxis=6 "number of driven axis";
       parameter Real angleBegDeg[naxis](unit="deg") = zeros(naxis) 
-        "start angles";
-      parameter Real angleEndDeg[naxis](unit="deg") = ones(naxis) "end angles";
+        "Start angles";
+      parameter Real angleEndDeg[naxis](unit="deg") = ones(naxis) "End angles";
       parameter SI.AngularVelocity speedMax[naxis]=fill(3, naxis) 
-        "maximum axis speed";
+        "Maximum axis speed";
       parameter SI.AngularAcceleration accMax[naxis]=fill(2.5, naxis) 
-        "maximum axis acceleration";
-      parameter SI.Time startTime=0 "start time of movement";
+        "Maximum axis acceleration";
+      parameter SI.Time startTime=0 "Start time of movement";
       parameter SI.Time swingTime=0.5 
-        "additional time after reference motion is in rest before simulation is stopped";
+        "Additional time after reference motion is in rest before simulation is stopped";
       final parameter SI.Angle angleBeg[:]=Cv.from_deg(angleBegDeg) 
-        "start angles";
+        "Start angles";
       final parameter SI.Angle angleEnd[:]=Cv.from_deg(angleEndDeg) 
-        "end angles";
+        "End angles";
       ControlBus controlBus 
         annotation (extent=[80,-20; 120,20], rotation=-90);
       Modelica.Blocks.Sources.KinematicPTP2 path(
@@ -848,13 +865,13 @@ motion on the controlBus of the r3 robot.
     model GearType1 "Motor inertia and gearbox model for r3 joints 1,2,3 " 
       extends Modelica.Mechanics.Rotational.Interfaces.TwoFlanges;
       parameter Real i=-105 "gear ratio";
-      parameter Real c(unit="N.m/rad") = 43 "spring constant";
-      parameter Real d(unit="N.m.s/rad") = 0.005 "damper constant";
-      parameter SI.Torque Rv0=0.4 "viscous friction torque at zero velocity";
+      parameter Real c(unit="N.m/rad") = 43 "Spring constant";
+      parameter Real d(unit="N.m.s/rad") = 0.005 "Damper constant";
+      parameter SI.Torque Rv0=0.4 "Viscous friction torque at zero velocity";
       parameter Real Rv1(unit="N.m.s/rad") = (0.13/160) 
-        "viscous friction coefficient (R=Rv0+Rv1*abs(qd))";
+        "Viscous friction coefficient (R=Rv0+Rv1*abs(qd))";
       parameter Real peak=1 
-        "peak*Rv0 = maximum static friction torque (peak >= 1)";
+        "Maximum static friction torque is peak*Rv0 (peak >= 1)";
       SI.AngularAcceleration a_rel=der(spring.w_rel) 
         "Relative angular acceleration of spring";
       constant SI.AngularVelocity unitAngularVelocity = 1;
@@ -957,12 +974,12 @@ the definition of initial values considerably.
     
     model GearType2 "Motor inertia and gearbox model for r3 joints 4,5,6  " 
       extends Modelica.Mechanics.Rotational.Interfaces.TwoFlanges;
-      parameter Real i=-99 "gear ratio";
-      parameter SI.Torque Rv0=21.8 "viscous friction torque at zero velocity";
+      parameter Real i=-99 "Gear ratio";
+      parameter SI.Torque Rv0=21.8 "Viscous friction torque at zero velocity";
       parameter Real Rv1=9.8 
-        "viscous friction coefficient in [Nms/rad] (R=Rv0+Rv1*abs(qd))";
+        "Viscous friction coefficient in [Nms/rad] (R=Rv0+Rv1*abs(qd))";
       parameter Real peak=(26.7/21.8) 
-        "peak*Rv0 = maximum static friction torque (peak >= 1)";
+        "Maximum static friction torque is peak*Rv0 (peak >= 1)";
       annotation (
         Coordsys(
           extent=[-100, -100; 100, 100],
@@ -1034,12 +1051,12 @@ Default values for all parameters are given for joint 4.
     
     model Motor "Motor model including current controller of r3 motors " 
       extends Modelica.Icons.MotorIcon;
-      parameter SI.Inertia J(min=0)=0.0013 "moment of inertia of motor";
-      parameter Real k=1.1616 "gain of motor";
-      parameter Real w=4590 "time constant of motor";
-      parameter Real D=0.6 "damping constant of motor";
-      parameter SI.AngularVelocity w_max=315 "maximum speed of motor";
-      parameter SI.Current i_max=9 "maximum current of motor";
+      parameter SI.Inertia J(min=0)=0.0013 "Moment of inertia of motor";
+      parameter Real k=1.1616 "Gain of motor";
+      parameter Real w=4590 "Time constant of motor";
+      parameter Real D=0.6 "Damping constant of motor";
+      parameter SI.AngularVelocity w_max=315 "Maximum speed of motor";
+      parameter SI.Current i_max=9 "Maximum current of motor";
       
       annotation (
         Coordsys(
@@ -1192,11 +1209,11 @@ produced by the motor).
     end Motor;
     
     model Controller "P-PI cascade controller for one axis" 
-      parameter Real kp=10 "gain of position controller";
-      parameter Real ks=1 "gain of speed controller";
+      parameter Real kp=10 "Gain of position controller";
+      parameter Real ks=1 "Gain of speed controller";
       parameter SI.Time Ts=0.01 
-        "time constant of integrator of speed controller";
-      parameter Real ratio=1 "gear ratio of gearbox";
+        "Time constant of integrator of speed controller";
+      parameter Real ratio=1 "Gear ratio of gearbox";
       annotation (
         Coordsys(
           extent=[-100, -100; 100, 100],
@@ -1288,37 +1305,37 @@ reference signals. All signals are communicated via the
     
     model AxisType1 "Axis model of the r3 joints 1,2,3 " 
       extends AxisType2(redeclare GearType1 gear(c=c, d=cd));
-      parameter Real c(unit="N.m/rad") = 43 " spring constant" 
+      parameter Real c(unit="N.m/rad") = 43 "Spring constant" 
         annotation (Dialog(group="Gear"));
-      parameter Real cd(unit="N.m.s/rad") = 0.005 " damper constant" 
+      parameter Real cd(unit="N.m.s/rad") = 0.005 "Damper constant" 
         annotation (Dialog(group="Gear"));
     end AxisType1;
     
     model AxisType2 "Axis model of the r3 joints 4,5,6 " 
-      parameter Real kp=10 " gain of position controller" 
+      parameter Real kp=10 "Gain of position controller" 
         annotation (Dialog(group="Controller"));
-      parameter Real ks=1 " gain of speed controller" 
+      parameter Real ks=1 "Gain of speed controller" 
         annotation (Dialog(group="Controller"));
       parameter SI.Time Ts=0.01 
-        " time constant of integrator of speed controller" 
+        "Time constant of integrator of speed controller" 
         annotation (Dialog(group="Controller"));
-      parameter Real k=1.1616 " gain of motor" 
+      parameter Real k=1.1616 "Gain of motor" 
         annotation (Dialog(group="Motor"));
-      parameter Real w=4590 " time constant of motor" 
+      parameter Real w=4590 "Time constant of motor" 
         annotation (Dialog(group="Motor"));
-      parameter Real D=0.6 " damping constant of motor" 
+      parameter Real D=0.6 "Damping constant of motor" 
         annotation (Dialog(group="Motor"));
-      parameter SI.Inertia J(min=0) = 0.0013 " moment of inertia of motor" 
+      parameter SI.Inertia J(min=0) = 0.0013 "Moment of inertia of motor" 
         annotation (Dialog(group="Motor"));
-      parameter Real ratio=-105 " gear ratio" annotation (Dialog(group="Gear"));
+      parameter Real ratio=-105 "Gear ratio"  annotation (Dialog(group="Gear"));
       parameter SI.Torque Rv0=0.4 
-        " viscous friction torque at zero velocity in [Nm]" 
+        "Viscous friction torque at zero velocity in [Nm]" 
         annotation (Dialog(group="Gear"));
       parameter Real Rv1(unit="N.m.s/rad") = (0.13/160) 
-        " viscous friction coefficient in [Nms/rad]" 
+        "Viscous friction coefficient in [Nms/rad]" 
         annotation (Dialog(group="Gear"));
       parameter Real peak=1 
-        " peak*Rv0 = maximum static friction torque (peak >= 1)" 
+        "Maximum static friction torque is peak*Rv0 (peak >= 1)" 
         annotation (Dialog(group="Gear"));
       annotation (
         Coordsys(
@@ -1458,14 +1475,14 @@ Default values of the parameters are given for the axis of joint 1.
       "Model of the mechanical part of the r3 robot (without animation)" 
       
       parameter Boolean animation=true "= true, if animation shall be enabled";
-      parameter SI.Mass mLoad(min=0)=15 "mass of load";
+      parameter SI.Mass mLoad(min=0)=15 "Mass of load";
       parameter SI.Position rLoad[3]={0,0.25,0} 
-        "distance from last flange to load mass>";
-      parameter SI.Acceleration g=9.81 "gravity acceleration";
-      SI.Angle q[6] "joint angles";
-      SI.AngularVelocity qd[6] "joint speeds";
-      SI.AngularAcceleration qdd[6] "joint accelerations";
-      SI.Torque tau[6] "joint driving torques";
+        "Distance from last flange to load mass>";
+      parameter SI.Acceleration g=9.81 "Gravity acceleration";
+      SI.Angle q[6] "Joint angles";
+      SI.AngularVelocity qd[6] "Joint speeds";
+      SI.AngularAcceleration qdd[6] "Joint accelerations";
+      SI.Torque tau[6] "Joint driving torques";
       //r0={0,0.351,0},
       annotation (
         Coordsys(
