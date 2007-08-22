@@ -926,8 +926,7 @@ Simulate for about 10 seconds and plot the angular velocities of the inertias <t
       extends Modelica.Icons.RotationalSensor;
       Interfaces.Flange_a flange_a "flange to be measured" 
         annotation (extent=[-110, -10; -90, 10]);
-      Modelica.Blocks.Interfaces.RealOutput phi(redeclare type SignalType = 
-            SI.Angle) "Absolute angle of flange" 
+      Modelica.Blocks.Interfaces.RealOutput phi "Absolute angle of flange" 
                                     annotation (extent=[100, -10; 120, 10]);
       annotation (
         Documentation(info="<html>
@@ -969,8 +968,8 @@ way and provides the result as output signal <b>phi</b>
       extends Modelica.Icons.RotationalSensor;
       Interfaces.Flange_a flange_a "flange to be measured" 
         annotation (extent=[-110, -10; -90, 10]);
-      Modelica.Blocks.Interfaces.RealOutput w(redeclare type SignalType = 
-            SI.AngularVelocity) "Absolute angular velocity of flange" 
+      Modelica.Blocks.Interfaces.RealOutput w 
+        "Absolute angular velocity of flange" 
                                     annotation (extent=[100, -10; 120, 10]);
       
       annotation (
@@ -1014,8 +1013,8 @@ way and provides the result as output signal <b>w</b>
       Interfaces.Flange_a flange_a "flange to be measured" 
         annotation (extent=[-110, -10; -90, 10]);
       SI.AngularVelocity w "Absolute angular velocity of flange";
-      Modelica.Blocks.Interfaces.RealOutput a(redeclare type SignalType = 
-            SI.AngularAcceleration) "Absolute angular acceleration of flange" 
+      Modelica.Blocks.Interfaces.RealOutput a 
+        "Absolute angular acceleration of flange" 
                                     annotation (extent=[100, -10; 120, 10]);
       
       annotation (
@@ -1066,8 +1065,7 @@ blocks of the Modelica.Blocks library).
       Interfaces.Flange_b flange_b 
         "(right) driven flange (flange axis directed OUT OF cut plane)" 
         annotation (extent=[90, -10; 110, 10]);
-      Modelica.Blocks.Interfaces.RealOutput phi_rel( redeclare type SignalType 
-          = SI.Angle) 
+      Modelica.Blocks.Interfaces.RealOutput phi_rel 
         "Relative angle between two flanges (= flange_b.phi - flange_a.phi)" 
         annotation (extent=[-10, -100; 10, -120], rotation=90);
       
@@ -1128,8 +1126,7 @@ in an ideal way and provides the result as output signal <b>phi_rel</b>
         annotation (extent=[90, -10; 110, 10]);
       SI.Angle phi_rel 
         "Relative angle between two flanges (flange_b.phi - flange_a.phi)";
-      Modelica.Blocks.Interfaces.RealOutput w_rel( redeclare type SignalType = 
-            SI.AngularVelocity) 
+      Modelica.Blocks.Interfaces.RealOutput w_rel 
         "Relative angular velocity between two flanges (= der(flange_b.phi) - der(flange_a.phi))"
         annotation (extent=[-10, -100; 10, -120], rotation=90);
       
@@ -1192,8 +1189,7 @@ in an ideal way and provides the result as output signal <b>w_rel</b>
       SI.Angle phi_rel 
         "Relative angle between two flanges (flange_b.phi - flange_a.phi)";
       SI.AngularVelocity w_rel "Relative angular velocity between two flanges";
-      Modelica.Blocks.Interfaces.RealOutput a_rel( redeclare type SignalType = 
-            SI.AngularAcceleration) 
+      Modelica.Blocks.Interfaces.RealOutput a_rel 
         "Relative angular acceleration between two flanges" 
         annotation (extent=[-10, -100; 10, -120], rotation=90);
       
@@ -1271,8 +1267,7 @@ Modelica.Blocks library.
       extends Modelica.Icons.RotationalSensor;
       Interfaces.Flange_a flange_a annotation (extent=[-110, -10; -90, 10]);
       Interfaces.Flange_b flange_b annotation (extent=[90, -10; 110, 10]);
-      Modelica.Blocks.Interfaces.RealOutput tau( redeclare type SignalType = 
-            SI.Torque) 
+      Modelica.Blocks.Interfaces.RealOutput tau 
         "Torque in flange flange_a and flange_b (= flange_a.tau = -flange_b.tau)"
     annotation (extent=[-90, -100; -70, -120], rotation=90);
       
@@ -1327,8 +1322,7 @@ and provides the result as output signal <b>tau</b>
       extends Modelica.Icons.RotationalSensor;
       Interfaces.Flange_a flange_a annotation (extent=[-110, -10; -90, 10]);
       Interfaces.Flange_b flange_b annotation (extent=[90, -10; 110, 10]);
-      Modelica.Blocks.Interfaces.RealOutput power( redeclare type SignalType = 
-            SI.Power) "Power in flange flange_a" 
+      Modelica.Blocks.Interfaces.RealOutput power "Power in flange flange_a" 
     annotation (extent=[-90, -100; -70, -120], rotation=90);
       
       annotation (
@@ -1757,7 +1751,7 @@ It is used e.g. to build up equation-based parts of a drive train.</p>
       end Adapter;
     equation 
       tau_support = -adapter.flange_b.tau;
-      connect(adapter.flange_a, bearing) annotation (points=[-6.12303e-016,-70;
+      connect(adapter.flange_a, bearing) annotation (points=[-6.12323e-016,-70; 
             0,-70; 0,-100],    style(color=0));
       annotation (Documentation(info="<html>
 <p>
@@ -4563,8 +4557,8 @@ GearNew.</p>
       "true/false exact treatment/filtering the input signal";
     parameter SI.Frequency f_crit=50 
       "if exact=false, critical frequency of filter to filter input signal" annotation(Dialog(enable=not exact));
-    Modelica.Blocks.Interfaces.RealInput phi_ref( redeclare type SignalType = 
-          SI.Angle) "reference angle of flange_b as input signal" 
+    Modelica.Blocks.Interfaces.RealInput phi_ref 
+      "reference angle of flange_b as input signal" 
         annotation (extent=[-140, -20; -100, 20]);
     output SI.Angle phi "absolute rotation angle of flange flange_b";
     output SI.AngularVelocity w "absolute angular velocity of flange flange_b";
@@ -4708,8 +4702,7 @@ blocks of the block library Modelica.Blocks.Sources.
     parameter Real w_crit=2*Constants.pi*f_crit "critical frequency in [1/s]";
   public 
     Interfaces.Flange_b flange_b annotation (extent=[90, -10; 110, 10]);
-    Blocks.Interfaces.RealInput w_ref(redeclare type SignalType = 
-          SI.AngularVelocity) 
+    Blocks.Interfaces.RealInput w_ref 
       "Reference angular velocity of flange_b as input signal" 
       annotation (extent=[-140, -20; -100, 20]);
     annotation (
@@ -4843,8 +4836,7 @@ blocks of the block library Modelica.Blocks.Sources.
     SI.Torque tau_support "Support torque";
     
     Interfaces.Flange_b flange_b annotation (extent=[90, -10; 110, 10]);
-    Blocks.Interfaces.RealInput a(
-          redeclare type SignalType = SI.AngularAcceleration) 
+    Blocks.Interfaces.RealInput a 
       "absolute angular acceleration of flange_b as input signal" 
       annotation (extent=[-140, -20; -100, 20]);
     annotation (
@@ -5137,8 +5129,7 @@ at an angle phi0 in the <b>housing</b>. May be used:
   end Fixed;
   
   model Torque "Input signal acting as external torque on a flange" 
-    Modelica.Blocks.Interfaces.RealInput tau( redeclare type SignalType = 
-          SI.Torque) 
+    Modelica.Blocks.Interfaces.RealInput tau 
       "Torque driving the flange (a positive value accelerates the flange)" 
       annotation (extent=[-140, -20; -100, 20]);
     Interfaces.Flange_b flange_b "(Right) flange" 
@@ -5217,8 +5208,7 @@ blocks of Modelica.Blocks.Sources.
   model Torque2 "Input signal acting as torque on two flanges" 
     extends Interfaces.TwoFlanges;
     
-    Modelica.Blocks.Interfaces.RealInput tau( redeclare type SignalType = 
-          SI.Torque) 
+    Modelica.Blocks.Interfaces.RealInput tau 
       "Torque driving the two flanges (a positive value accelerates the flange)"
       annotation (extent=[-20, 20; 20, 60], rotation=270);
     
@@ -5509,15 +5499,13 @@ velocity of model inertia1 or of model inertia2 as state variables.
               Modelica.Blocks.Types.StateSelection.Default 
       "Priority to use flange angle and speed as states";
     
-    Blocks.Interfaces.RealInput phi_start(redeclare type SignalType = 
-          Modelica.SIunits.Angle) if use_phi_start "Initial angle of flange" 
+    Blocks.Interfaces.RealInput phi_start if use_phi_start 
+      "Initial angle of flange" 
       annotation (extent=[-140,40; -100,80]);
-    Blocks.Interfaces.RealInput w_start(redeclare type SignalType = 
-          Modelica.SIunits.AngularVelocity) if use_w_start 
+    Blocks.Interfaces.RealInput w_start if use_w_start 
       "Initial speed of flange" 
       annotation (extent=[-140,-20; -100,20]);
-    Blocks.Interfaces.RealInput a_start(redeclare type SignalType = 
-          Modelica.SIunits.AngularAcceleration) if use_a_start 
+    Blocks.Interfaces.RealInput a_start if use_a_start 
       "Initial angular acceleration of flange" 
       annotation (extent=[-140,-80; -100,-40]);
     Interfaces.Flange_b flange "Flange that is initialized" annotation (extent=[90,-10; 110,10]);

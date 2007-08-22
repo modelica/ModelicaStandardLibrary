@@ -779,8 +779,7 @@ and resolved in the following frame
     
     extends Interfaces.PartialTwoFrames;
     extends Modelica.Icons.TranslationalSensor;
-    Modelica.Blocks.Interfaces.RealOutput distance( redeclare type SignalType 
-        = SI.Length) 
+    Modelica.Blocks.Interfaces.RealOutput distance 
       "Distance between the origin of frame_a and the origin of frame_b" 
       annotation (extent=[-10, -100; 10, -120], rotation=90);
     
@@ -877,8 +876,7 @@ differentiable everywhere. The derivative at zero distance is 3/(2*s_small).
     import Modelica.Mechanics.MultiBody.Types;
     
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialCutForceSensor;
-    Modelica.Blocks.Interfaces.RealOutput force[3](redeclare each type 
-        SignalType = SI.Force) 
+    Modelica.Blocks.Interfaces.RealOutput force[3] 
       "Cut force resolved in frame_a/frame_b or in frame_resolved, if connected"
          annotation (extent=[-90, -100; -70, -120], rotation=90);
     
@@ -962,8 +960,7 @@ with negative sign at frame_a.
     import Modelica.Mechanics.MultiBody.Types;
     
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialCutForceSensor;
-    Modelica.Blocks.Interfaces.RealOutput torque[3](redeclare each type 
-        SignalType = SI.Torque) 
+    Modelica.Blocks.Interfaces.RealOutput torque[3] 
       "Cut torque resolved in frame_a/frame_b or in frame_resolved, if connected"
          annotation (extent=[-90, -100; -70, -120], rotation=90);
     
@@ -1165,8 +1162,7 @@ with negative sign at frame_a.
     extends Modelica.Icons.RotationalSensor;
     
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
-    Modelica.Blocks.Interfaces.RealOutput power(redeclare type SignalType = 
-          SI.Power) "Power at frame_a as output signal" 
+    Modelica.Blocks.Interfaces.RealOutput power "Power at frame_a as output signal" 
       annotation (extent=[-90, -100; -70, -120], rotation=90);
     
     annotation (

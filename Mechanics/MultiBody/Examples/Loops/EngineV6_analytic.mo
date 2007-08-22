@@ -34,7 +34,6 @@ model EngineV6_analytic
   Blocks.Continuous.CriticalDamping filter(
     n=2,
     initType=Modelica.Blocks.Types.Init.SteadyState,
-    y(redeclare type SignalType = Modelica.SIunits.Torque),
     f=5) annotation (extent=[30,-20; 50,0]);
 equation 
   

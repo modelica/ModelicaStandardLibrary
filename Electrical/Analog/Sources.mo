@@ -47,8 +47,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
     
     Interfaces.PositivePin p annotation (extent=[-110, -10; -90, 10]);
     Interfaces.NegativePin n annotation (extent=[110, -10; 90, 10]);
-    Modelica.Blocks.Interfaces.RealInput v(
-        redeclare type SignalType = SI.Voltage) 
+    Modelica.Blocks.Interfaces.RealInput v 
       "Voltage between pin p and n (= p.v - n.v) as input signal" 
        annotation (extent=[-20, 50; 20, 90], rotation=-90);
     SI.Current i "Current flowing from pin p to pin n";
@@ -1229,8 +1228,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
     Interfaces.PositivePin p annotation (extent=[-110, -10; -90, 10]);
     Interfaces.NegativePin n annotation (extent=[110, -10; 90, 10]);
     SI.Voltage v "Voltage drop between the two pins (= p.v - n.v)";
-    Modelica.Blocks.Interfaces.RealInput i(
-        redeclare type SignalType = SI.Current) 
+    Modelica.Blocks.Interfaces.RealInput i 
       "Current flowing from pin p to pin n as input signal" 
        annotation (extent=[-20, 50; 20, 90], rotation=-90);
     

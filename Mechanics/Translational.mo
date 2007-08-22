@@ -803,8 +803,7 @@ Spool position s as a function of working force f.
       Interfaces.Flange_b flange_b 
         "(right) driven flange (flange axis directed OUT OF cut plane)" 
         annotation (extent=[90, -10; 110, 10]);
-      Modelica.Blocks.Interfaces.RealOutput f(
-           redeclare type SignalType = SI.Force) 
+      Modelica.Blocks.Interfaces.RealOutput f 
         "force in flange_a and flange_b (f = flange_a.f = -flange_b.f)" 
          annotation (extent=[-10, -100; 10, -120], rotation=90);
       annotation (
@@ -855,8 +854,8 @@ with blocks of the Modelica.Blocks library).
       Interfaces.Flange_a flange_a 
         "flange to be measured (flange axis directed INTO cut plane, e. g. from left to right)"
          annotation (extent=[-110, -10; -90, 10]);
-      Modelica.Blocks.Interfaces.RealOutput s( redeclare type SignalType = 
-            SI.Position) "Absolute position of flange as output signal" 
+      Modelica.Blocks.Interfaces.RealOutput s 
+        "Absolute position of flange as output signal" 
            annotation (extent=[100, -10; 120, 10]);
       
       annotation (
@@ -906,8 +905,8 @@ Modelica.Blocks library).
         "flange to be measured (flange axis directed INTO cut plane, e. g. from left to right)"
          annotation (extent=[-110, -10; -90, 10]);
       SI.Position s "Absolute position of flange";
-      Modelica.Blocks.Interfaces.RealOutput v( redeclare type SignalType = 
-            SI.Velocity) "Absolute velocity of flange as output signal" 
+      Modelica.Blocks.Interfaces.RealOutput v 
+        "Absolute velocity of flange as output signal" 
            annotation (extent=[100, -10; 120, 10]);
       annotation (
         Coordsys(
@@ -957,8 +956,8 @@ Modelica.Blocks library).
         "flange to be measured (flange axis directed INTO cut plane, e. g. from left to right)"
          annotation (extent=[-110, -10; -90, 10]);
       SI.Velocity v "Absolute velocity of flange";
-      Modelica.Blocks.Interfaces.RealOutput a( redeclare type SignalType = 
-            SI.Acceleration) "Absolute acceleration of flange as output signal"
+      Modelica.Blocks.Interfaces.RealOutput a 
+        "Absolute acceleration of flange as output signal" 
            annotation (extent=[100, -10; 120, 10]);
       annotation (
         Coordsys(
@@ -2275,8 +2274,7 @@ the contact of a sliding mass with the housing.
     constant Real bf=0.6180 "s*s coefficient of Bessel filter";
   public 
     Interfaces.Flange_b flange_b annotation (extent=[90, -10; 110, 10]);
-    Modelica.Blocks.Interfaces.RealInput s_ref(
-       redeclare type SignalType = SI.Position) 
+    Modelica.Blocks.Interfaces.RealInput s_ref 
       "reference position of flange as input signal" annotation (extent=[-140, -20; -100, 20]);
     annotation (
       Coordsys(
@@ -2363,8 +2361,7 @@ blocks of the block library Modelica.Blocks.Sources.
     
     output SI.Position s "absolute position of flange_b";
     output SI.Velocity v "absolute velocity of flange_b";
-    Modelica.Blocks.Interfaces.RealInput v_ref(
-       redeclare type SignalType = SI.Velocity) 
+    Modelica.Blocks.Interfaces.RealInput v_ref 
       "reference speed of flange as input signal" annotation (extent=[-140, -20; -100, 20]);
     Interfaces.Flange_b flange_b 
       "Flange that is forced to move according to input signals u" 
@@ -2455,8 +2452,7 @@ blocks of the block library Modelica.Blocks.Sources.
     SI.Position s(final start=s_start, final fixed=true) 
       "absolute position of flange_b";
     
-    Modelica.Blocks.Interfaces.RealInput a(
-       redeclare type SignalType = SI.Acceleration) 
+    Modelica.Blocks.Interfaces.RealInput a 
       "absolute acceleration of flange as input signal" 
        annotation (extent=[-140, -20; -100, 20]);
     Interfaces.Flange_b flange_b annotation (extent=[90, -10; 110, 10]);
@@ -2672,8 +2668,7 @@ at an position s0 in the <i>housing</i>. May be used:
   model Force "External force acting on a drive train element as input signal" 
     
     Interfaces.Flange_b flange_b annotation (extent=[90, -10; 110, 10]);
-    Modelica.Blocks.Interfaces.RealInput f(
-       redeclare type SignalType = SI.Force) "driving force as input signal" 
+    Modelica.Blocks.Interfaces.RealInput f "driving force as input signal" 
                                       annotation (extent=[-140, -20;
           -100, 20]);
     annotation (

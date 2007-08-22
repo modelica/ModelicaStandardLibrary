@@ -446,8 +446,7 @@ just potential signals. The user might still add different signal names.
     Modelica.Blocks.Sources.BooleanStep booleanStep(startTime=0.5) 
                                                                annotation (
         extent=[-58,0; -38,20],  rotation=0);
-    Modelica.Blocks.Sources.Sine sine(y(redeclare type SignalType = 
-            Modelica.SIunits.AngularVelocity)) 
+    Modelica.Blocks.Sources.Sine sine 
                                      annotation (extent=[-60,40; -40,60],
         rotation=0);
     

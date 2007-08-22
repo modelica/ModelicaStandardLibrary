@@ -48,17 +48,12 @@ partial models for continuous and discrete blocks.
 </html>
 "));
   
-connector RealSignal "Real port (both input/output possible)" 
-  replaceable type SignalType = Real;
-    
-  extends SignalType;
-    
+connector RealSignal = Real "Real port (both input/output possible)" 
     annotation (Documentation(info="<html>
 <p>
 Connector with one signal of type Real (no icon, no input/output prefix).
 </p>
 </html>"));
-end RealSignal;
   
 connector BooleanSignal = Boolean "Boolean port (both input/output possible)" 
     annotation (Documentation(info="<html>
@@ -73,7 +68,7 @@ Connector with one signal of type Icon (no icon, no input/output prefix).
 </p>
 </html>"));
   
-connector RealInput = input RealSignal "'input Real' as connector" 
+connector RealInput = input Real "'input Real' as connector" 
   annotation (defaultComponentName="u",
   Coordsys(extent=[-100, -100; 100, 100],
     grid=[1,1],
@@ -100,7 +95,7 @@ Connector with one input signal of type Real.
 </p>
 </html>"));
   
-connector RealOutput = output RealSignal "'output Real' as connector" 
+connector RealOutput = output Real "'output Real' as connector" 
   annotation (defaultComponentName="y",
   Coordsys(extent=[-100, -100; 100, 100],
     grid=[1,1],
@@ -125,7 +120,7 @@ Connector with one output signal of type Real.
 </p>
 </html>"));
   
-connector BooleanInput = input BooleanSignal "'input Boolean' as connector" 
+connector BooleanInput = input Boolean "'input Boolean' as connector" 
   annotation (defaultComponentName="u",
        Icon(coordinateSystem(extent=[-100,-100; 100,100]),
             Polygon(points=[-100, 100; 100, 0; -100, -100; -100, 100],
@@ -143,7 +138,7 @@ Connector with one input signal of type Boolean.
 </p>
 </html>"));
   
-connector BooleanOutput = output BooleanSignal "'output Boolean' as connector" 
+connector BooleanOutput = output Boolean "'output Boolean' as connector" 
                                   annotation (defaultComponentName="y",
   Coordsys(extent=[-100, -100; 100, 100],
     grid=[1,1],
@@ -161,7 +156,7 @@ Connector with one output signal of type Boolean.
 </p>
 </html>"));
   
-connector IntegerInput = input IntegerSignal "'input Integer' as connector" 
+connector IntegerInput = input Integer "'input Integer' as connector" 
   annotation (defaultComponentName="u",
   Coordsys(
     extent=[-100, -100; 100, 100],
@@ -182,7 +177,7 @@ Connector with one input signal of type Integer.
 </p>
 </html>"));
   
-connector IntegerOutput = output IntegerSignal "'output Integer' as connector" 
+connector IntegerOutput = output Integer "'output Integer' as connector" 
                                   annotation (defaultComponentName="y",
   Coordsys(
     extent=[-100, -100; 100, 100],

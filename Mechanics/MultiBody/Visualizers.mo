@@ -706,8 +706,7 @@ parameter menu.
       "Reflection of ambient light (= 0: light is completely absorbed)" 
       annotation (Dialog(group="if animation = true", enable=animation));
     
-    Modelica.Blocks.Interfaces.RealInput r_head[3](redeclare each type 
-        SignalType = SI.Position) 
+    Modelica.Blocks.Interfaces.RealInput r_head[3] 
       "Position vector from origin of frame_a to head of arrow, resolved in frame_a"
       annotation (extent=[-20, -140; 20, -100], rotation=90);
   protected 
