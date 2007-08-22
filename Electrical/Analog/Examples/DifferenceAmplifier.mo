@@ -58,7 +58,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
       y=0.01,
       width=0.45,
       height=0.61),
-    experiment,
+    experiment(StopTime=1),
     experimentSetupOutput);
   Sources.ExpSineVoltage V1(
     V=0.2,

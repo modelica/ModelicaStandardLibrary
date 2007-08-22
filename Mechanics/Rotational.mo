@@ -460,7 +460,7 @@ in the housing on one side via component Fixed.</p>
    angular velocities of inertias inertia2 and 3: inertia2.w, inertia3.w</p>
  
 </HTML>"), Diagram,
-        experiment,
+        experiment(StopTime=1),
         experimentSetupOutput);
       
       Modelica.Mechanics.Rotational.Fixed fixed 
