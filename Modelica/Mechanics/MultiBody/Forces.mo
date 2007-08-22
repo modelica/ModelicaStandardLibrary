@@ -110,8 +110,7 @@ between two frame connectors, e.g., between two parts.
     import SI = Modelica.SIunits;
     import Modelica.Mechanics.MultiBody.Types;
     extends Interfaces.PartialOneFrame_b;
-    Modelica.Blocks.Interfaces.RealInput force[3](redeclare type SignalType = 
-                     SI.Force) 
+    Modelica.Blocks.Interfaces.RealInput force[3] 
       "x-, y-, z-coordinates of force resolved in world frame" 
       annotation (extent=[-140, -20; -100, 20]);
     parameter Boolean animation=true "= true, if animation shall be enabled";
@@ -230,8 +229,7 @@ is resolved in the world frame).
     extends Interfaces.PartialOneFrame_b;
     import Modelica.Mechanics.MultiBody.Types;
     
-    Modelica.Blocks.Interfaces.RealInput torque[3](redeclare type SignalType = 
-                     SI.Torque) 
+    Modelica.Blocks.Interfaces.RealInput torque[3] 
       "x-, y-, z-coordinates of torque resolved in world frame" 
       annotation (extent=[-140, -20; -100, 20]);
     parameter Boolean animation=true "= true, if animation shall be enabled";
@@ -496,8 +494,7 @@ is resolved in the world frame).
       "If connected, the input signals are resolved in this frame" 
       annotation (extent=[-16,-116; 16,-84], rotation=-90);
     
-    Modelica.Blocks.Interfaces.RealInput force[3](redeclare type SignalType = 
-                     SI.Force) 
+    Modelica.Blocks.Interfaces.RealInput force[3] 
       "x-, y-, z-coordinates of force resolved in frame_b or frame_resolve (if connected)"
       annotation (extent=[-140, -20; -100, 20]);
     parameter Boolean animation=true "= true, if animation shall be enabled";
@@ -644,8 +641,7 @@ is resolved in the world frame).
       "If connected, the input signals are resolved in this frame" 
       annotation (extent=[-16,116; 16,84], rotation=-90);
     
-    Modelica.Blocks.Interfaces.RealInput torque[3](redeclare type SignalType = 
-                     SI.Torque) 
+    Modelica.Blocks.Interfaces.RealInput torque[3] 
       "x-, y-, z-coordinates of torque resolved in frame_b or frame_resolve (if connected)"
       annotation (extent=[-140, -20; -100, 20]);
     parameter Boolean animation=true "= true, if animation shall be enabled";
@@ -980,8 +976,7 @@ is resolved in the world frame).
     Interfaces.Frame_resolve frame_resolve 
       "If connected, the input signals are resolved in this frame" 
       annotation (extent=[24,84; 56,116], rotation=90);
-    Modelica.Blocks.Interfaces.RealInput force[3]( redeclare type SignalType = 
-                     SI.Force) 
+    Modelica.Blocks.Interfaces.RealInput force[3] 
       "x-, y-, z-coordinates of force resolved in frame_b or frame_resolved (if connected)"
       annotation (extent=[-80, 100; -40, 140], rotation=-90);
     parameter Boolean animation=true "= true, if animation shall be enabled";
@@ -1146,8 +1141,7 @@ is resolved in the world frame).
       "If connected, the input signals are resolved in this frame" 
       annotation (extent=[24,84; 56,116], rotation=90);
     
-    Modelica.Blocks.Interfaces.RealInput torque[3]( redeclare type SignalType 
-        =            SI.Torque) 
+    Modelica.Blocks.Interfaces.RealInput torque[3] 
       "x-, y-, z-coordiantes of torque resolved in frame_b or frame_resolved (if connected)"
       annotation (extent=[-80, 100; -40, 140], rotation=-90);
     parameter Boolean animation=true "= true, if animation shall be enabled";

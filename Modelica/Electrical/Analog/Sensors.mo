@@ -47,8 +47,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
     extends Modelica.Icons.RotationalSensor;
     
     Interfaces.PositivePin p "pin to be measured" annotation (extent=[-110, -10; -90, 10]);
-    Modelica.Blocks.Interfaces.RealOutput phi(
-        redeclare type SignalType = SI.ElectricPotential) 
+    Modelica.Blocks.Interfaces.RealOutput phi 
       "Absolute voltage potential as output signal" 
         annotation (extent=[100, -10; 120, 10]);
     annotation (
@@ -90,8 +89,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
     
     Interfaces.PositivePin p "positive pin" annotation (extent=[-110, -10; -90, 10]);
     Interfaces.NegativePin n "negative pin" annotation (extent=[90, -10; 110, 10]);
-    Modelica.Blocks.Interfaces.RealOutput v(
-        redeclare type SignalType = SI.Voltage) 
+    Modelica.Blocks.Interfaces.RealOutput v 
       "Voltage between pin p and n (= p.v - n.v) as output signal" 
        annotation (extent=[-10, -90; 10, -110],
         rotation=90);
@@ -138,8 +136,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
     
     Interfaces.PositivePin p "positive pin" annotation (extent=[-110, -10; -90, 10]);
     Interfaces.NegativePin n "negative pin" annotation (extent=[90, -10; 110, 10]);
-    Modelica.Blocks.Interfaces.RealOutput i(
-        redeclare type SignalType = SI.Current) 
+    Modelica.Blocks.Interfaces.RealOutput i 
       "current in the branch from p to n as output signal" 
        annotation (extent=[-10, -90; 10, -110],
         rotation=90);
@@ -236,8 +233,7 @@ This power sensor measures instantaneous electrical power of a singlephase syste
   Modelica.Electrical.Analog.Interfaces.NegativePin nv 
       "Negative pin, voltage path" 
     annotation (extent=[10,-110; -10,-90]);
-  Modelica.Blocks.Interfaces.RealOutput power(redeclare type SignalType = 
-        Modelica.SIunits.Power) 
+  Modelica.Blocks.Interfaces.RealOutput power 
     annotation (extent=[-70,-120; -90,-100],rotation=270);
   Modelica.Electrical.Analog.Sensors.VoltageSensor voltageSensor 
     annotation (extent=[10,-20; -10,-40], rotation=90);

@@ -784,8 +784,7 @@ McGraw-Hill, 1997, p.270):
         Line(points=[56,-10; 76,-20],    style(color=42, fillColor=45)),
         Line(points=[56,10; 76,20],    style(color=42, fillColor=45)),
         Line(points=[56,30; 76,20],    style(color=42, fillColor=45))));
-    Modelica.Blocks.Interfaces.RealInput Gc(redeclare type SignalType = 
-          SI.ThermalConductance) 
+    Modelica.Blocks.Interfaces.RealInput Gc 
       "Signal representing the convective thermal conductance in [W/K]" 
       annotation (extent=[-20, 80; 20, 120], rotation=270);
     Interfaces.HeatPort_a solid annotation (extent=[-110,-10; -90,10]);
@@ -1016,8 +1015,7 @@ as required to keep the temperature at the specified value.
             fillColor=42,
             fillPattern=1))));
     Interfaces.HeatPort_b port annotation (extent=[90,-10; 110,10]);
-    Modelica.Blocks.Interfaces.RealInput T(redeclare type SignalType = 
-          SI.Temperature) annotation (extent=[-140, -20; -100, 20]);
+    Modelica.Blocks.Interfaces.RealInput T annotation (extent=[-140, -20; -100, 20]);
   equation 
     port.T = T;
   end PrescribedTemperature;
@@ -1125,8 +1123,7 @@ in order to simulate temperature dependent losses (which are given an reference 
             color=42,
             fillColor=42,
             fillPattern=1))));
-    Modelica.Blocks.Interfaces.RealInput Q_flow(
-      redeclare type SignalType = SI.HeatFlowRate) 
+    Modelica.Blocks.Interfaces.RealInput Q_flow 
           annotation (extent=[-80, -20; -120, 20], rotation=180);
     Interfaces.HeatPort_b port annotation (extent=[90, -10; 110, 10]);
   equation 
@@ -1186,8 +1183,7 @@ sensor model.
 </p>
 </HTML>
 "));
-    Modelica.Blocks.Interfaces.RealOutput T(redeclare type SignalType = 
-          SI.Temperature) annotation (extent=[90, -10; 110, 10]);
+    Modelica.Blocks.Interfaces.RealOutput T annotation (extent=[90, -10; 110, 10]);
     Interfaces.HeatPort_a port annotation (extent=[-110, -10; -90, 10]);
   equation 
     T = port.T;
@@ -1225,8 +1221,7 @@ the two ports of this component and is provided as output signal in Kelvin.
 "));
     Interfaces.HeatPort_a port_a annotation (extent=[-110, -10; -90, 10]);
     Interfaces.HeatPort_b port_b annotation (extent=[90, -10; 110, 10]);
-    Modelica.Blocks.Interfaces.RealOutput T_rel(redeclare type SignalType = 
-          SI.TemperatureDifference) 
+    Modelica.Blocks.Interfaces.RealOutput T_rel 
                           annotation (extent=[-10, -80; 10, -100], rotation=90);
   equation 
     T_rel = port_a.T - port_b.T;
@@ -1236,8 +1231,7 @@ the two ports of this component and is provided as output signal in Kelvin.
   
   model HeatFlowSensor "Heat flow rate sensor" 
     extends Modelica.Icons.RotationalSensor;
-    Modelica.Blocks.Interfaces.RealOutput Q_flow(redeclare type SignalType = 
-          SI.HeatFlowRate) "Heat flow from port_a to port_b" annotation (extent=
+    Modelica.Blocks.Interfaces.RealOutput Q_flow "Heat flow from port_a to port_b" annotation (extent=
          [-10, -110; 10, -90], rotation=270);
     annotation (
       Diagram(
@@ -1317,13 +1311,10 @@ and provide is as output signal.
 </p>
 </HTML>
 "));
-      Modelica.Blocks.Interfaces.RealInput Celsius(
-         redeclare type SignalType = 
-            Modelica.SIunits.Conversions.NonSIunits.Temperature_degC) 
+      Modelica.Blocks.Interfaces.RealInput Celsius 
          annotation (extent=[
             -140, -20; -100, 20]);
-      Modelica.Blocks.Interfaces.RealOutput Kelvin(
-         redeclare type SignalType = Modelica.SIunits.Temperature) 
+      Modelica.Blocks.Interfaces.RealOutput Kelvin 
         annotation (extent=[
             100, -10; 120, 10]);
     equation 
@@ -1370,13 +1361,10 @@ and provides is as output signal.
 </p>
 </HTML>
 "));
-      Modelica.Blocks.Interfaces.RealInput Kelvin(
-         redeclare type SignalType = Modelica.SIunits.Temperature) 
+      Modelica.Blocks.Interfaces.RealInput Kelvin 
         annotation (extent=[-
             140, -20; -100, 20]);
-      Modelica.Blocks.Interfaces.RealOutput Celsius(
-         redeclare type SignalType = 
-            Modelica.SIunits.Conversions.NonSIunits.Temperature_degC) 
+      Modelica.Blocks.Interfaces.RealOutput Celsius 
         annotation (extent=
             [100, -10; 120, 10]);
     equation 
@@ -1479,9 +1467,7 @@ as required to keep the temperature at the specified value.
               fillColor=42,
               fillPattern=1))));
       Interfaces.HeatPort_b port annotation (extent=[90,-10; 110,10]);
-      Modelica.Blocks.Interfaces.RealInput T(
-         redeclare type SignalType = 
-            Modelica.SIunits.Conversions.NonSIunits.Temperature_degC) 
+      Modelica.Blocks.Interfaces.RealInput T 
                                                                    annotation (extent=[-140,
             -20; -100, 20]);
     equation 
@@ -1564,8 +1550,7 @@ sensor model.
 </p>
 </HTML>
 "));
-      Modelica.Blocks.Interfaces.RealOutput T(redeclare type SignalType = 
-            NonSI.Temperature_degC) annotation (extent=[90, -10; 110, 10]);
+      Modelica.Blocks.Interfaces.RealOutput T annotation (extent=[90, -10; 110, 10]);
       Interfaces.HeatPort_a port annotation (extent=[-110, -10; -90, 10]);
     equation 
       T = to_degC(port.T);
@@ -1617,12 +1602,9 @@ and provides is as output signal.
 </p>
 </HTML>
 "));
-      Modelica.Blocks.Interfaces.RealInput Fahrenheit(
-         redeclare type SignalType = 
-            Modelica.SIunits.Conversions.NonSIunits.Temperature_degF) annotation (
+      Modelica.Blocks.Interfaces.RealInput Fahrenheit annotation (
           extent=[-140, -20; -100, 20]);
-      Modelica.Blocks.Interfaces.RealOutput Kelvin(
-         redeclare type SignalType = Modelica.SIunits.Temperature) 
+      Modelica.Blocks.Interfaces.RealOutput Kelvin 
           annotation (extent=[100, -10; 120, 10]);
     equation 
       Kelvin = from_degF(Fahrenheit);
@@ -1669,13 +1651,10 @@ and provides them as output signals.
 </p>
 </HTML>
 "));
-      Modelica.Blocks.Interfaces.RealInput Kelvin(
-         redeclare type SignalType = Modelica.SIunits.Temperature) 
+      Modelica.Blocks.Interfaces.RealInput Kelvin 
         annotation (extent=[-
             140, -20; -100, 20]);
-      Modelica.Blocks.Interfaces.RealOutput Fahrenheit(
-         redeclare type SignalType = 
-            Modelica.SIunits.Conversions.NonSIunits.Temperature_degF) 
+      Modelica.Blocks.Interfaces.RealOutput Fahrenheit 
      annotation (
           extent=[100, -10; 120, 10]);
     equation 
@@ -1778,9 +1757,7 @@ as required to keep the temperature at the specified value.
               fillColor=42,
               fillPattern=1))));
       Interfaces.HeatPort_b port annotation (extent=[90,-10; 110,10]);
-      Modelica.Blocks.Interfaces.RealInput T(
-         redeclare type SignalType = 
-            Modelica.SIunits.Conversions.NonSIunits.Temperature_degF) 
+      Modelica.Blocks.Interfaces.RealInput T 
         annotation (extent=[-140,
             -20; -100, 20]);
     equation 
@@ -1863,8 +1840,7 @@ sensor model.
 </p>
 </HTML>
 "));
-      Modelica.Blocks.Interfaces.RealOutput T(redeclare type SignalType = 
-            NonSI.Temperature_degF) annotation (extent=[90, -10; 110, 10]);
+      Modelica.Blocks.Interfaces.RealOutput T annotation (extent=[90, -10; 110, 10]);
       Interfaces.HeatPort_a port annotation (extent=[-110, -10; -90, 10]);
     equation 
       T = to_degF(port.T);
@@ -1917,13 +1893,10 @@ and provides them as output signals.
 </p>
 </HTML>
 "));
-      Modelica.Blocks.Interfaces.RealInput Rankine(
-         redeclare type SignalType = 
-            Modelica.SIunits.Conversions.NonSIunits.Temperature_degRk) 
+      Modelica.Blocks.Interfaces.RealInput Rankine 
        annotation (extent=[-
             140, -20; -100, 20]);
-      Modelica.Blocks.Interfaces.RealOutput Kelvin(
-         redeclare type SignalType = Modelica.SIunits.Temperature) 
+      Modelica.Blocks.Interfaces.RealOutput Kelvin 
         annotation (extent=[
             100, -10; 120, 10]);
     equation 
@@ -1971,13 +1944,10 @@ and provides them as output signals.
 </p>
 </HTML>
 "));
-      Modelica.Blocks.Interfaces.RealInput Kelvin(
-         redeclare type SignalType = Modelica.SIunits.Temperature) 
+      Modelica.Blocks.Interfaces.RealInput Kelvin 
         annotation (extent=[-
             140, -20; -100, 20]);
-      Modelica.Blocks.Interfaces.RealOutput Rankine(
-         redeclare type SignalType = 
-            Modelica.SIunits.Conversions.NonSIunits.Temperature_degRk) 
+      Modelica.Blocks.Interfaces.RealOutput Rankine 
          annotation (extent=[
             100, -10; 120, 10]);
     equation 
@@ -2080,9 +2050,7 @@ as required to keep the temperature at the specified value.
               fillColor=42,
               fillPattern=1))));
       Interfaces.HeatPort_b port annotation (extent=[90,-10; 110,10]);
-      Modelica.Blocks.Interfaces.RealInput T(
-         redeclare type SignalType = 
-            Modelica.SIunits.Conversions.NonSIunits.Temperature_degRk) 
+      Modelica.Blocks.Interfaces.RealInput T 
          annotation (extent=[-140,
             -20; -100, 20]);
     equation 
@@ -2164,8 +2132,7 @@ sensor model.
 </p>
 </HTML>
 "));
-      Modelica.Blocks.Interfaces.RealOutput T(redeclare type SignalType = 
-            NonSI.Temperature_degRk) annotation (extent=[90, -10; 110, 10]);
+      Modelica.Blocks.Interfaces.RealOutput T annotation (extent=[90, -10; 110, 10]);
       Interfaces.HeatPort_a port annotation (extent=[-110, -10; -90, 10]);
     equation 
       T = to_degRk(port.T);

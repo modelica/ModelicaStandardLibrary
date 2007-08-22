@@ -394,8 +394,7 @@ results in the following equations:
   
   block TriggeredSampler "Triggered sampling of continuous signals" 
     extends Interfaces.DiscreteBlockIcon;
-    replaceable type SignalType = Real "Type of input and output signal";
-    parameter SignalType y_start=0 "initial value of output signal";
+    parameter Real y_start=0 "initial value of output signal";
     
     annotation (
       Icon(
@@ -422,13 +421,11 @@ the initial value defined via parameter <b>y0</b>.
 </p>
 </HTML>
 "));
-    Modelica.Blocks.Interfaces.RealInput u(redeclare type SignalType = 
-          SignalType) "Connector with an input signal of type SignalType" 
+    Modelica.Blocks.Interfaces.RealInput u "Connector with a Real input signal"
                                                           annotation (extent=[-
           140, -20; -100, 20]);
-    Modelica.Blocks.Interfaces.RealOutput y(redeclare type SignalType = 
-          SignalType) "Connector with an output signal of type SignalType" 
-                                                           annotation (extent=[
+    Modelica.Blocks.Interfaces.RealOutput y 
+      "Connector with a Real output signal"                annotation (extent=[
           100, -10; 120, 10]);
     Modelica.Blocks.Interfaces.BooleanInput trigger annotation (
         extent=[-20, -138; 20, -98], rotation=90);
@@ -444,7 +441,6 @@ the initial value defined via parameter <b>y0</b>.
     "Compute maximum, absolute value of continuous signal at trigger instants" 
     
     extends Interfaces.DiscreteBlockIcon;
-    replaceable type SignalType = Real "type of input and output signal";
     annotation (
       Icon(
         Ellipse(extent=[-25, -10; -45, 10], style(color=3, fillColor=7)),
@@ -473,13 +469,11 @@ at the sampling point is provided as output signal.
 </p>
 </HTML>
 "));
-    Modelica.Blocks.Interfaces.RealInput u(redeclare type SignalType = 
-          SignalType) "Connector with an input signal of type SignalType" 
-                                                          annotation (extent=[-
+    Modelica.Blocks.Interfaces.RealInput u 
+      "Connector with a Real input signal" annotation (extent=[-
           140, -20; -100, 20]);
-    Modelica.Blocks.Interfaces.RealOutput y(redeclare type SignalType = 
-          SignalType) "Connector with an output signal of type SignalType" 
-                                                           annotation (extent=[
+    Modelica.Blocks.Interfaces.RealOutput y 
+      "Connector with a Real output signal" annotation (extent=[
           100, -10; 120, 10]);
     Modelica.Blocks.Interfaces.BooleanInput trigger annotation (
         extent=[-20, -138; 20, -98], rotation=90);

@@ -774,14 +774,11 @@ motion on the controlBus of the r3 robot.
         annotation (extent=[-140,-50; -100,-10]);
       AxisControlBus axisControlBus 
         annotation (extent=[80,-20; 120,20], rotation=-90);
-      Blocks.Routing.RealPassThrough q_axisUsed(y(redeclare type SignalType = 
-              Modelica.SIunits.Angle)) 
+      Blocks.Routing.RealPassThrough q_axisUsed 
         annotation (extent=[-40,50; -20,70]);
-      Blocks.Routing.RealPassThrough qd_axisUsed(y(redeclare type SignalType = 
-              Modelica.SIunits.AngularVelocity)) 
+      Blocks.Routing.RealPassThrough qd_axisUsed 
         annotation (extent=[-40,10; -20,30]);
-      Blocks.Routing.RealPassThrough qdd_axisUsed(y(redeclare type SignalType 
-            = Modelica.SIunits.AngularAcceleration)) 
+      Blocks.Routing.RealPassThrough qdd_axisUsed 
         annotation (extent=[-40,-30; -20,-10]);
       Blocks.Interfaces.BooleanInput moving[nAxis] 
         annotation (extent=[-140,-100; -100,-60]);
@@ -1261,8 +1258,7 @@ reference signals. All signals are communicated via the
       
       Modelica.Blocks.Math.Gain gain1(k=ratio) 
         annotation (extent=[-70,0; -50,20]);
-      Modelica.Blocks.Continuous.PI PI(k=ks, T=Ts,
-        y(redeclare type SignalType = Modelica.SIunits.Current)) 
+      Modelica.Blocks.Continuous.PI PI(k=ks, T=Ts) 
         annotation (extent=[60, 0; 80, 20], rotation=0);
       Modelica.Blocks.Math.Feedback feedback1 
         annotation (extent=[-46, 0; -26, 20]);

@@ -1066,8 +1066,7 @@ value of Slope is taken into calculation.)
         model VariableResistor 
     "Ideal linear electrical resistor with variable resistance" 
           extends Modelica.Electrical.Analog.Interfaces.OnePort;
-          Modelica.Blocks.Interfaces.RealInput R(
-            redeclare type SignalType = Modelica.SIunits.Resistance) 
+          Modelica.Blocks.Interfaces.RealInput R 
             annotation (extent=[-20,90; 20,130],   rotation=-90);
           annotation (
             Documentation(info="<HTML>
@@ -1122,8 +1121,7 @@ The Resistance <i>R</i> is given as input signal.
         model VariableConductor 
     "Ideal linear electrical conductor with variable conductance" 
           extends Modelica.Electrical.Analog.Interfaces.OnePort;
-          Modelica.Blocks.Interfaces.RealInput G(
-             redeclare type SignalType = Modelica.SIunits.Conductance) 
+          Modelica.Blocks.Interfaces.RealInput G 
             annotation (extent=[-20,90; 20,130],   rotation=-90);
           annotation (
             Documentation(info="<HTML>
@@ -1176,8 +1174,7 @@ The Conductance <i>G</i> is given as input signal.
         model VariableCapacitor 
     "Ideal linear electrical capacitor with variable capacitance" 
           extends Modelica.Electrical.Analog.Interfaces.OnePort;
-          Modelica.Blocks.Interfaces.RealInput C(
-            redeclare type SignalType = Modelica.SIunits.Capacitance) 
+          Modelica.Blocks.Interfaces.RealInput C 
             annotation (extent=[-20,90; 20,130],   rotation=-90);
           parameter Modelica.SIunits.Capacitance Cmin=Modelica.Constants.eps;
           Modelica.SIunits.ElectricCharge Q;
@@ -1233,8 +1230,7 @@ Cmin is a parameter with default value Modelica.Constants.eps.
     "Ideal linear electrical inductor with variable inductance" 
     
           extends Modelica.Electrical.Analog.Interfaces.OnePort;
-          Modelica.Blocks.Interfaces.RealInput L(
-             redeclare type SignalType = Modelica.SIunits.Inductance) 
+          Modelica.Blocks.Interfaces.RealInput L 
             annotation (extent=[-20,88; 20,128],   rotation=-90);
           Modelica.SIunits.MagneticFlux Psi;
           parameter Modelica.SIunits.Inductance Lmin=Modelica.Constants.eps;

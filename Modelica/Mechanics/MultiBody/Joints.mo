@@ -6193,12 +6193,10 @@ it might be slightly more efficient, when using the \"enforceStates\" setting.
         "1-dim. rotational flange of the drive bearing" 
         annotation (extent=[-50,90; -70,110]);
       
-      Modelica.Blocks.Interfaces.RealInput position_a[3](redeclare each type 
-          SignalType = SI.Position) 
+      Modelica.Blocks.Interfaces.RealInput position_a[3] 
         "Position vector from frame_a to frame_a side of length constraint, resolved in frame_a of revolute joint"
         annotation (extent=[-140, -80; -100, -40]);
-      Modelica.Blocks.Interfaces.RealInput position_b[3](redeclare each type 
-          SignalType = SI.Position) 
+      Modelica.Blocks.Interfaces.RealInput position_b[3] 
         "Position vector from frame_b to frame_b side of length constraint, resolved in frame_b of revolute joint"
         annotation (extent=[140, -80; 100, -40]);
       
@@ -6536,12 +6534,10 @@ position a degree of freedom is lost.
       Modelica.Mechanics.Translational.Interfaces.Flange_b bearing 
         "1-dim. translational flange of the drive bearing" 
         annotation (extent=[-30, 80; -50, 60]);
-      Modelica.Blocks.Interfaces.RealInput position_a[3]( redeclare each type 
-          SignalType = SI.Position) 
+      Modelica.Blocks.Interfaces.RealInput position_a[3] 
         "Position vector from frame_a to frame_a side of length constraint, resolved in frame_a of revolute joint"
         annotation (extent=[-140, -80; -100, -40]);
-      Modelica.Blocks.Interfaces.RealInput position_b[3]( redeclare each type 
-          SignalType = SI.Position) 
+      Modelica.Blocks.Interfaces.RealInput position_b[3] 
         "Position vector from frame_b to frame_b side of length constraint, resolved in frame_b of revolute joint"
         annotation (extent=[140, -80; 100, -40]);
       
