@@ -11,7 +11,7 @@ annotation(preferedView="info",
     height=0.57,
     library=1,
     autolayout=1),
-  version="2.2.2",
+  version="3.0-development",
   versionBuild="608",
   versionDate="2007-08-22",
   conversion(
