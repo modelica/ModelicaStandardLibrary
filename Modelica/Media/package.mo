@@ -2264,7 +2264,7 @@ package Examples
    is given to compare the approximation.
 </p>
 </html>"),
-      experiment,
+      experiment(StopTime=1),
       experimentSetupOutput);
   end IdealGasH2O;
   
@@ -2295,7 +2295,7 @@ package Examples
     annotation (Documentation(info="<html>
   
 </html>"),
-      experiment,
+      experiment(StopTime=1),
       experimentSetupOutput);
   end WaterIF97;
   
@@ -2343,7 +2343,7 @@ package Examples
     annotation (Documentation(info="<html>
   
 </html>"),
-      experiment,
+      experiment(StopTime=1),
       experimentSetupOutput);
   end MixtureGases;
   
@@ -2536,7 +2536,7 @@ The function that is implemented is approximate, but usually very good: the seco
 is given to compare the approximation.
 </p>
 </html>"),
-        experiment,
+        experiment(StopTime=1),
         experimentSetupOutput);
     equation 
       der(medium.p) = 1000.0;
@@ -2578,7 +2578,7 @@ The function that is implemented is approximate, but usually very good: the seco
 is given to compare the approximation.
 </p>
 </html>"),
-        experiment,
+        experiment(StopTime=1),
         experimentSetupOutput);
     equation 
       der(state.p) = 1000.0;
@@ -2624,7 +2624,7 @@ is given to compare the approximation.
       annotation (Documentation(info="<html>
   
 </html>"),
-        experiment,
+        experiment(StopTime=1),
         experimentSetupOutput);
     end IdealGasN2;
     
@@ -2647,7 +2647,7 @@ is given to compare the approximation.
         medium.T = 300 + time/1000;
         annotation (Documentation(info="<html>
   
-</html>"),experiment,
+</html>"),experiment(StopTime=1),
           experimentSetupOutput);
       end TemplateMedium;
       
@@ -3219,7 +3219,7 @@ The details of the pipe friction model are described
              redeclare package Medium = Modelica.Media.Air.SimpleAir);
           annotation (Documentation(info="<html>
   
-</html>"),  experiment,
+</html>"),  experiment(StopTime=1),
             experimentSetupOutput);
         end SimpleAir;
         
@@ -3228,7 +3228,7 @@ The details of the pipe friction model are described
              redeclare package Medium = Modelica.Media.Air.DryAirNasa);
           annotation (Documentation(info="<html>
   
-</html>"),  experiment,
+</html>"),  experiment(StopTime=1),
             experimentSetupOutput);
         end DryAirNasa;
         
@@ -3237,7 +3237,7 @@ The details of the pipe friction model are described
              redeclare package Medium = Modelica.Media.Air.MoistAir);
           annotation (Documentation(info="<html>
    
-</html>"),  experiment,
+</html>"),  experiment(StopTime=1),
             experimentSetupOutput);
         end MoistAir;
         annotation (Documentation(info="<html>
@@ -3254,7 +3254,7 @@ The details of the pipe friction model are described
                 Modelica.Media.Air.DryAirNasa);
           annotation (Documentation(info="<html>
   
-</html>"),  experiment,
+</html>"),  experiment(StopTime=1),
             experimentSetupOutput);
         end Air;
         
@@ -3265,7 +3265,7 @@ The details of the pipe friction model are described
                 Modelica.Media.IdealGases.SingleGases.N2);
           annotation (Documentation(info="<html>
   
-</html>"),  experiment,
+</html>"),  experiment(StopTime=1),
             experimentSetupOutput);
         end Nitrogen;
         
@@ -3276,7 +3276,7 @@ The details of the pipe friction model are described
                 Modelica.Media.IdealGases.MixtureGases.SimpleNaturalGas);
           annotation (Documentation(info="<html>
    
-</html>"),  experiment,
+</html>"),  experiment(StopTime=1),
             experimentSetupOutput);
         end SimpleNaturalGas;
         
@@ -3285,7 +3285,7 @@ The details of the pipe friction model are described
           extends Modelica.Media.Examples.Tests.Components.PartialTestModel(
              redeclare package Medium = 
                 Modelica.Media.IdealGases.MixtureGases.SimpleNaturalGasFixedComposition);
-          annotation (experiment, experimentSetupOutput);
+          annotation (experiment(StopTime=1), experimentSetupOutput);
         end SimpleNaturalGasFixedComposition;
       end IdealGases;
       
@@ -3300,7 +3300,7 @@ The details of the pipe friction model are described
                   final enthalpyOfT =                                                              true));
           annotation (Documentation(info="<html>
   
-</html>"),  experiment,
+</html>"),  experiment(StopTime=1),
             experimentSetupOutput);
         end Glycol47;
         
@@ -3311,7 +3311,7 @@ The details of the pipe friction model are described
                 Modelica.Media.Incompressible.Examples.Essotherm650);
           annotation (Documentation(info="<html>
   
-</html>"),  experiment,
+</html>"),  experiment(StopTime=1),
             experimentSetupOutput);
         end Essotherm650;
         annotation (Documentation(info="<html>
@@ -3328,7 +3328,7 @@ The details of the pipe friction model are described
                 Modelica.Media.Water.ConstantPropertyLiquidWater);
           annotation (Documentation(info="<html>
   
-</html>"),  experiment,
+</html>"),  experiment(StopTime=1),
             experimentSetupOutput);
         end ConstantPropertyLiquidWater;
         
@@ -3337,7 +3337,7 @@ The details of the pipe friction model are described
              redeclare package Medium = Modelica.Media.Water.IdealSteam);
           annotation (Documentation(info="<html>
   
-</html>"),  experiment,
+</html>"),  experiment(StopTime=1),
             experimentSetupOutput);
         end IdealSteam;
         
@@ -3350,7 +3350,7 @@ The details of the pipe friction model are described
             ambient(use_T_ambient=false, h_ambient=112570));
           annotation (Documentation(info="<html>
   
-</html>"),  experiment,
+</html>"),  experiment(StopTime=1),
             experimentSetupOutput);
         end WaterIF97OnePhase_ph;
         
@@ -3359,7 +3359,7 @@ The details of the pipe friction model are described
              redeclare package Medium = Modelica.Media.Water.WaterIF97_pT);
           annotation (Documentation(info="<html>
   
-</html>"),  experiment,
+</html>"),  experiment(StopTime=1),
             experimentSetupOutput);
         end WaterIF97_pT;
         
@@ -3370,7 +3370,7 @@ The details of the pipe friction model are described
             fixedMassFlowRate(use_T_ambient=false, h_ambient=363755));
           annotation (Documentation(info="<html>
   
-</html>"),  experiment,
+</html>"),  experiment(StopTime=1),
             experimentSetupOutput);
         end WaterIF97_ph;
         /*        
@@ -3398,7 +3398,7 @@ The details of the pipe friction model are described
                 Modelica.Media.CompressibleLiquids.LinearColdWater);
           annotation (Documentation(info="<html>
   
-</html>"),  experiment,
+</html>"),  experiment(StopTime=1),
             experimentSetupOutput);
         end LinearColdWater;
         
@@ -3409,7 +3409,7 @@ The details of the pipe friction model are described
                 Modelica.Media.CompressibleLiquids.LinearWater_pT_Ambient);
           annotation (Documentation(info="<html>
   
-</html>"),  experiment,
+</html>"),  experiment(StopTime=1),
             experimentSetupOutput);
         end LinearWater_pT;
         annotation (Documentation(info="<html>
@@ -3520,7 +3520,7 @@ output window.
      SI.SpecificEntropy s2 "Specific entropy computed from T (= h1 required)";
      SI.Temperature Th "Temperature computed from h1";
      SI.Temperature Ts "Temperature computed from s1";
-     annotation (experiment,
+     annotation (experiment(StopTime=1),
                  experimentSetupOutput,
                  Documentation(info="<html>
                                </html>"));
@@ -3568,7 +3568,7 @@ output window.
      SI.SpecificEntropy s2 "Specific entropy computed from T (= h1 required)";
      SI.Temperature Th "Temperature computed from h1";
      SI.Temperature Ts "Temperature computed from s1";
-     annotation (experiment,
+     annotation (experiment(StopTime=1),
                  experimentSetupOutput,
                  Documentation(info="<html>
                                
@@ -3619,7 +3619,7 @@ output window.
      SI.Temperature Ts "Temperature computed from s1";
      SI.MassFraction[4] X "mass fraction vector";
      annotation (
-       experiment,
+       experiment(StopTime=1),
        experimentSetupOutput,
        Documentation(info="<html>
  

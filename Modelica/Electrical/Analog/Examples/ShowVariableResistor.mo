@@ -38,7 +38,7 @@ Simulate until T=1 s.
        </li>
 </ul>
 </html>"),
-  experiment,
+  experiment(StopTime=1),
     Diagram(Text(
         extent=[-100,112; 80,40],
         style(color=3, rgbcolor={0,0,255}),

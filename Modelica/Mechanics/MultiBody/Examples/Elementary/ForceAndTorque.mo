@@ -27,7 +27,7 @@ forceAndTorque component):
 <IMG SRC=\"../Images/MultiBody/Examples/Elementary/ForceAndTorque.png\">
 </HTML>
 "), 
-    experiment, 
+    experiment(StopTime=1), 
     experimentSetupOutput);
   Parts.BodyCylinder body(r={1,0,0}) annotation (extent=[0, 30; 20, 50]);
   Parts.Fixed fixed1(r={0,-0.5,0}, width=0.03) 
