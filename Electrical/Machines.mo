@@ -1,7 +1,8 @@
+within Modelica.Electrical;
 package Machines "Library for electric machines" 
   extends Modelica.Icons.Library2;
   annotation (
-  version="1.8.8", versionDate="2007-08-20",
+  version="1.9.0", versionDate="2007-08-24",
   Settings(NewStateSelection=true, Evaluate=true),
   preferedView="info", Documentation(info="<HTML>
 This package contains components to model electrical machines:
@@ -122,6 +123,8 @@ and the accompanying <b>disclaimer</b>
        corrected typo in documentation</li>
   <li> v1.8.8 2007/08/20 Anton Haumer<br>
        improved documentation</li>
+  <li> v1.9.0 2007/08/24 Anton Haumer<br>
+       removed redeclare type SignalType</li>
   </ul>
 </HTML>"),
     Icon(
@@ -1539,9 +1542,7 @@ This package contains components utility components for testing examples.
 </HTML>"));
       
       block VfController "Voltage-Frequency-Controller" 
-        extends Modelica.Blocks.Interfaces.SIMO(final nout=m,
-          u(redeclare type SignalType = Modelica.SIunits.Frequency),
-          y(redeclare type SignalType = Modelica.SIunits.Voltage));
+        extends Modelica.Blocks.Interfaces.SIMO(final nout=m);
         constant Real pi=Modelica.Constants.pi;
         parameter Integer m=3 "number of phases";
         parameter Modelica.SIunits.Voltage VNominal 
@@ -5597,8 +5598,7 @@ This package contains sensors that are usefull when modelling machines.
     
     model VoltageRMSsensor "Length of spcae phasor -> RMS voltage" 
       constant Integer m(final min=1) = 3 "Number of phases";
-      Modelica.Blocks.Interfaces.RealOutput V(redeclare type SignalType = 
-            Modelica.SIunits.Voltage) 
+      Modelica.Blocks.Interfaces.RealOutput V
         annotation (extent=[-10,-120; 10,-100], rotation=-90);
       Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_p(final m=m) 
         annotation (extent=[-110,-10; -90,10]);
@@ -5663,8 +5663,7 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
     
     model CurrentRMSsensor "Length of spcae phasor -> RMS current" 
       constant Integer m(final min=1) = 3 "Number of phases";
-      Modelica.Blocks.Interfaces.RealOutput I(redeclare type SignalType = 
-            Modelica.SIunits.Current) 
+      Modelica.Blocks.Interfaces.RealOutput I
         annotation (extent=[-10,-120; 10,-100], rotation=-90);
       Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_p(final m=m) 
         annotation (extent=[-110,-10; -90,10]);
@@ -5729,11 +5728,9 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
     
     model ElectricalPowerSensor "Instantaneous power from spcae phasors" 
       constant Integer m(final min=1) = 3 "Number of phases";
-      Modelica.Blocks.Interfaces.RealOutput P(redeclare type SignalType = 
-            Modelica.SIunits.Power) 
+      Modelica.Blocks.Interfaces.RealOutput P
         annotation (extent=[-60,120; -40,100],  rotation=-90);
-      Modelica.Blocks.Interfaces.RealOutput Q(redeclare type SignalType = 
-            Modelica.SIunits.Power) 
+      Modelica.Blocks.Interfaces.RealOutput Q
         annotation (extent=[40,120; 60,100], rotation=-90);
       Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_p(final m=m) 
         annotation (extent=[-110,-10; -90,10]);
@@ -5791,8 +5788,7 @@ Q = giving in stationary state reactive power.<br>
     
     model MechanicalPowerSensor "Mechanical power = torque x speed" 
       extends Modelica.Mechanics.Rotational.Interfaces.TwoFlanges;
-      Modelica.Blocks.Interfaces.RealOutput P(redeclare type SignalType = 
-            Modelica.SIunits.Power) 
+      Modelica.Blocks.Interfaces.RealOutput P
         annotation (extent=[-10,-100; 10,-120],   rotation=90);
       annotation (Icon(
           Ellipse(extent=[-70,70; 70,-70],   style(color=0, fillColor=7)),
@@ -6159,8 +6155,7 @@ Zero-sequence voltage and current are present at pin zero. An additional zero-se
         Interfaces.SpacePhasor spacePhasor_a annotation (extent=[-110,90; -90,
               110]);
         Interfaces.SpacePhasor spacePhasor_b annotation (extent=[90,90; 110,110]);
-        Modelica.Blocks.Interfaces.RealInput angle(
-            redeclare type SignalType = Modelica.SIunits.Angle) 
+        Modelica.Blocks.Interfaces.RealInput angle
           annotation (extent=[-20,-140; 20,-100],rotation=-270);
         annotation (
           Diagram,
@@ -6313,8 +6308,7 @@ Transformation of space phasor and zero sequence value to threephase values (vol
         Real RotationMatrix[2,2] = {{+cos(-angle),-sin(-angle)},{+sin(-angle),+cos(-angle)}};
       //Real InverseRotator[2,2] = {{+cos(+angle),-sin(+angle)},{+sin(+angle),+cos(+angle)}};
       public 
-        Modelica.Blocks.Interfaces.RealInput angle(
-            redeclare type SignalType = Modelica.SIunits.Angle) 
+        Modelica.Blocks.Interfaces.RealInput angle
           annotation (extent=[-20,-140; 20,-100],rotation=-270);
         annotation (
           Diagram,
