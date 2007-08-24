@@ -2,8 +2,7 @@ within Modelica.Electrical;
 package MultiPhase "Library for electrical components with 2, 3 or more phases" 
   extends Modelica.Icons.Library2;
   annotation (
-    version="1.3.1", versionDate="2007-08-12",
-    classOrder={"Examples", "*"},
+    version="1.3.2", versionDate="2007-08-24",
     preferedView="info", Documentation(info="<HTML>
 <p>
 This package contains packages for electrical multiphase components, based on Modelica.Electrical.Analog:
@@ -38,10 +37,10 @@ Further development:
 </p>
 </dl>
 <p>
-Copyright &copy; 1998-2007, Modelica Association and Anton Haumer.
+Copyright &copy; 1998-2005, Modelica Association and Anton Haumer.
 </p>
 <p>
-<i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified
+<i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
 under the terms of the <b>Modelica license</b>, see the license conditions
 and the accompanying <b>disclaimer</b> 
 <a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a>.</i>
@@ -58,6 +57,8 @@ and the accompanying <b>disclaimer</b>
       improved some icons</li>
   <li>v1.3.1 2007/08/12 Anton Haumer<br>
       improved documentation</li>
+  <li>v1.3.2 2007/08/24 Anton Haumer<br>
+      removed redeclare type SignalType</li>
   </ul>
 </html>"),
     Icon(
@@ -512,8 +513,7 @@ Contains m transformers (Modelica.Electrical.Analog.Basic.Transformer)
     model VariableResistor 
       "Ideal linear electrical resistors with variable resistance" 
       extends Interfaces.TwoPlug;
-      Modelica.Blocks.Interfaces.RealInput R[m](
-        redeclare type SignalType = Modelica.SIunits.Resistance) 
+      Modelica.Blocks.Interfaces.RealInput R[m]
         annotation (extent=[-10,90; 10,110],   rotation=-90);
       Modelica.Electrical.Analog.Basic.VariableResistor variableResistor[m] 
         annotation (extent=[-10,-10; 10,10]);
@@ -551,8 +551,7 @@ Contains m variable resistors (Modelica.Electrical.Analog.Basic.VariableResistor
     model VariableConductor 
       "Ideal linear electrical conductors with variable conductance" 
       extends Interfaces.TwoPlug;
-      Modelica.Blocks.Interfaces.RealInput G[m](
-         redeclare type SignalType = Modelica.SIunits.Conductance) 
+      Modelica.Blocks.Interfaces.RealInput G[m]
         annotation (extent=[-10, 90; 10, 110], rotation=-90);
       Modelica.Electrical.Analog.Basic.VariableConductor variableConductor[m] 
         annotation (extent=[-10,-10; 10,10]);
@@ -592,8 +591,7 @@ Contains m variable conductors (Modelica.Electrical.Analog.Basic.VariableConduct
       extends Interfaces.TwoPlug;
       parameter Modelica.SIunits.Capacitance Cmin[m]=fill(Modelica.Constants.eps,m) 
         "minimum Capacitance";
-      Modelica.Blocks.Interfaces.RealInput C[m](
-        redeclare type SignalType = Modelica.SIunits.Capacitance) 
+      Modelica.Blocks.Interfaces.RealInput C[m]
         annotation (extent=[-10, 90; 10, 110], rotation=-90);
       Modelica.Electrical.Analog.Basic.VariableCapacitor variableCapacitor[m](final Cmin = Cmin) 
         annotation (extent=[-10,-10; 10,10]);
@@ -632,8 +630,7 @@ Cmin is a parameter with default value Modelica.Constants.eps.
       extends Interfaces.TwoPlug;
       parameter Modelica.SIunits.Inductance Lmin[m]=fill(Modelica.Constants.eps,m) 
         "minimum Inductance";
-      Modelica.Blocks.Interfaces.RealInput L[m](
-         redeclare type SignalType = Modelica.SIunits.Inductance) 
+      Modelica.Blocks.Interfaces.RealInput L[m]
         annotation (extent=[-10, 90; 10, 110], rotation=-90);
       Modelica.Electrical.Analog.Basic.VariableInductor variableInductor[m](final Lmin
           =    Lmin) 
@@ -1715,8 +1712,7 @@ This package contains multiphase potential, voltage, and current sensors.
       extends Modelica.Icons.RotationalSensor;
       parameter Integer m(final min=1) = 3 "number of phases";
       Interfaces.PositivePlug plug_p(m) annotation (extent=[-110, -10; -90, 10]);
-      Modelica.Blocks.Interfaces.RealOutput phi[m](
-          redeclare type SignalType = Modelica.SIunits.ElectricPotential) 
+      Modelica.Blocks.Interfaces.RealOutput phi[m]
         "Absolute voltage potential as output signal" 
           annotation (extent=[100, -10; 120, 10]);
       Modelica.Electrical.Analog.Sensors.PotentialSensor potentialSensor[m] 
@@ -1754,8 +1750,7 @@ thus measuring the m potentials <i>phi[m]</i> of the m pins of plug_p.
       parameter Integer m(final min=1) = 3 "number of phases";
       Interfaces.PositivePlug plug_p(final m=m) annotation (extent=[-110, -10; -90, 10]);
       Interfaces.NegativePlug plug_n(final m=m) annotation (extent=[90, -10; 110, 10]);
-      Modelica.Blocks.Interfaces.RealOutput v[m](
-          redeclare type SignalType = Modelica.SIunits.Voltage) 
+      Modelica.Blocks.Interfaces.RealOutput v[m]
         "Voltage between pin p and n (= p.v - n.v) as output signal" 
          annotation (extent=[-10,-100; 10,-120],
           rotation=90);
@@ -1809,8 +1804,7 @@ thus measuring the m potential differences <i>v[m]</i> between the m pins of plu
       parameter Integer m(final min=1) = 3 "number of phases";
       Interfaces.PositivePlug plug_p(final m=m) annotation (extent=[-110, -10; -90, 10]);
       Interfaces.NegativePlug plug_n(final m=m) annotation (extent=[90, -10; 110, 10]);
-      Modelica.Blocks.Interfaces.RealOutput i[m](
-          redeclare type SignalType = Modelica.SIunits.Current) 
+      Modelica.Blocks.Interfaces.RealOutput i[m]
         "current in the branch from p to n as output signal" 
          annotation (extent=[-10,-100; 10,-120],
           rotation=90);
@@ -1913,8 +1907,7 @@ This power sensor measures instantaneous electrical power of a multiphase system
     Modelica.Electrical.MultiPhase.Interfaces.NegativePlug nv(final m=m) 
         "Negative plug, voltage path" 
       annotation (extent=[-10,-90; 10,-110]);
-    Modelica.Blocks.Interfaces.RealOutput power(redeclare type SignalType = 
-          Modelica.SIunits.Power) 
+    Modelica.Blocks.Interfaces.RealOutput power
       annotation (extent=[-90,-100; -70,-120], rotation=90);
     Modelica.Electrical.MultiPhase.Sensors.VoltageSensor voltageSensor(final m=m) 
       annotation (extent=[10,-10; -10,-30], rotation=90);
@@ -1997,8 +1990,7 @@ This package contains time-dependend and controlled multiphase voltage and curre
       Modelica.SIunits.Current i[m] "Currents flowing into positive plugs";
       Interfaces.PositivePlug plug_p(final m=m) annotation (extent=[-110, -10; -90, 10]);
       Interfaces.NegativePlug plug_n(final m=m) annotation (extent=[90, -10; 110, 10]);
-      Modelica.Blocks.Interfaces.RealInput v[m](
-          redeclare type SignalType = Modelica.SIunits.Voltage) 
+      Modelica.Blocks.Interfaces.RealInput v[m]
         "Voltage between pin p and n (= p.v - n.v) as input signal" 
          annotation (extent=[-20, 50; 20, 90], rotation=-90);
       Modelica.Electrical.Analog.Sources.SignalVoltage signalVoltage[m] 
@@ -2159,8 +2151,7 @@ with a default phase shift of -(j-1)/m * 2*pi for j in 1:m.
       Modelica.SIunits.Voltage v[m] "Voltage drops between the two plugs";
       Interfaces.PositivePlug plug_p(final m=m) annotation (extent=[-110, -10; -90, 10]);
       Interfaces.NegativePlug plug_n(final m=m) annotation (extent=[90, -10; 110, 10]);
-      Modelica.Blocks.Interfaces.RealInput i[m](
-          redeclare type SignalType = Modelica.SIunits.Current) 
+      Modelica.Blocks.Interfaces.RealInput i[m]
         "Current flowing from pin p to pin n as input signal" 
          annotation (extent=[-20, 50; 20, 90], rotation=-90);
       Modelica.Electrical.Analog.Sources.SignalCurrent signalCurrent[m] 
