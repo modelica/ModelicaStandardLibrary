@@ -3,7 +3,7 @@ package FluidHeatFlow
   "Simple components for 1-dimensional incompressible thermo-fluid flow models" 
   extends Modelica.Icons.Library2;
   annotation (
-    version="1.6.3", versionDate="2007-08-21",
+    version="1.6.4", versionDate="2007-08-24",
     preferedView="info",Documentation(info="<HTML>
 This package contains very simple-to-use components to model coolant flows as needed to simulate cooling e.g. of electric machines:
 <ul>
@@ -105,6 +105,8 @@ and the accompanying <b>disclaimer</b>
        improved documentation</li>
   <li> v1.6.3 2007/08/21 Anton Haumer<br>
        improved documentation</li>
+  <li> v1.6.4 2007/08/24 Anton Haumer<br>
+       removed redeclare type SignalType</li>
   </ul>
 </HTML>
 "), Icon(
@@ -2120,8 +2122,7 @@ and the accompanying <b>disclaimer</b>
 pSensor measures the absolute pressure.<br>
 Thermodynamic equations are defined by Partials.AbsoluteSensor.
 </HTML>"), Diagram);
-      extends Interfaces.Partials.AbsoluteSensor(y(redeclare type SignalType = 
-              Modelica.SIunits.Pressure));
+      extends Interfaces.Partials.AbsoluteSensor;
     equation 
       y = flowPort.p;
       annotation(Icon(Text(
@@ -2136,8 +2137,7 @@ Thermodynamic equations are defined by Partials.AbsoluteSensor.
 TSensor measures the absolute temperature (Kelvin).<br>
 Thermodynamic equations are defined by Partials.AbsoluteSensor.
 </HTML>"), Diagram);
-      extends Interfaces.Partials.AbsoluteSensor(y(redeclare type SignalType = 
-              Modelica.SIunits.Temperature));
+      extends Interfaces.Partials.AbsoluteSensor;
     equation 
       medium.cp*y = flowPort.h;
       annotation(Icon(Text(
@@ -2152,8 +2152,7 @@ Thermodynamic equations are defined by Partials.AbsoluteSensor.
 dpSensor measures the pressure drop between flowPort_a and flowPort_b.<br>
 Thermodynamic equations are defined by Partials.RelativeSensor.
 </HTML>"), Diagram);
-      extends Interfaces.Partials.RelativeSensor(y(redeclare type SignalType = 
-              Modelica.SIunits.Pressure));
+      extends Interfaces.Partials.RelativeSensor;
     equation 
       y = flowPort_a.p - flowPort_b.p;
       annotation(Icon(Text(
@@ -2171,8 +2170,7 @@ Thermodynamic equations are defined by Partials.RelativeSensor.<br>
 Since mixing my occur, the outlet temperature of a component may be different from the connector's temperature.<br> 
 Outlet temperature is defined by variable T of the corresponding component.
 </HTML>"), Diagram);
-      extends Interfaces.Partials.RelativeSensor(y(redeclare type SignalType = 
-              Modelica.SIunits.TemperatureDifference));
+      extends Interfaces.Partials.RelativeSensor;
     equation 
       medium.cp*y = flowPort_a.h - flowPort_b.h;
       annotation(Icon(Text(
@@ -2187,8 +2185,7 @@ Outlet temperature is defined by variable T of the corresponding component.
 m_flowSensor measures the mass flow rate.<br>
 Thermodynamic equations are defined by Partials.FlowSensor.
 </HTML>"), Diagram);
-      extends Interfaces.Partials.FlowSensor(y(redeclare type SignalType = 
-              Modelica.SIunits.MassFlowRate));
+      extends Interfaces.Partials.FlowSensor;
     equation 
       y = V_flow*medium.rho;
       annotation(Icon(Text(
@@ -2203,8 +2200,7 @@ Thermodynamic equations are defined by Partials.FlowSensor.
 V_flowSensor measures the volume flow rate.<br>
 Thermodynamic equations are defined by Partials.FlowSensor.
 </HTML>"), Diagram);
-      extends Interfaces.Partials.FlowSensor(y(redeclare type SignalType = 
-              Modelica.SIunits.VolumeFlowRate));
+      extends Interfaces.Partials.FlowSensor;
     equation 
       y = V_flow;
       annotation(Icon(Text(
@@ -2219,8 +2215,7 @@ Thermodynamic equations are defined by Partials.FlowSensor.
 H_flowSensor measures the enthalpy flow rate.<br>
 Thermodynamic equations are defined by Partials.FlowSensor.
 </HTML>"),     Diagram);
-      extends Interfaces.Partials.FlowSensor(y(redeclare type SignalType = 
-              Modelica.SIunits.EnthalpyFlowRate));
+      extends Interfaces.Partials.FlowSensor;
     equation 
       y = flowPort_a.H_flow;
       annotation(Icon(Text(
@@ -2307,11 +2302,9 @@ Thermodynamic equations are defined by Partials.Ambient.
 Thermodynamic equations are defined by Partials.Ambient. 
 </HTML>"));
       extends Interfaces.Partials.Ambient;
-      Modelica.Blocks.Interfaces.RealInput p_Ambient(redeclare type SignalType 
-          = Modelica.SIunits.Pressure) 
+      Modelica.Blocks.Interfaces.RealInput p_Ambient 
         annotation (extent=[110, 60; 90, 80], rotation=0);
-      Modelica.Blocks.Interfaces.RealInput T_Ambient(redeclare type SignalType 
-          = Modelica.SIunits.Temperature) 
+      Modelica.Blocks.Interfaces.RealInput T_Ambient 
         annotation (extent=[110, -60; 90, -80], rotation=0);
     equation 
       flowPort.p = p_Ambient;
@@ -2417,8 +2410,7 @@ Thermodynamic equations are defined by Partials.TwoPort.
             string="V")),
         Diagram);
       extends Interfaces.Partials.TwoPort(final tapT=1);
-      Modelica.Blocks.Interfaces.RealInput VolumeFlow(redeclare type SignalType
-          =            Modelica.SIunits.VolumeFlowRate) 
+      Modelica.Blocks.Interfaces.RealInput VolumeFlow 
         annotation (extent=[-10,90; 10,110], rotation=-90);
     equation 
       Q_flow = 0;
