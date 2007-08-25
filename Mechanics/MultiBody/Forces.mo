@@ -1527,6 +1527,7 @@ is resolved in the world frame).
     parameter SI.Mass m(min=0)=0 
       "Mass of point mass on the connetion line between the origin of frame_a and the origin of frame_b";
     parameter Real lengthFraction(
+      unit="1",
       min=0,
       max=1) = 0.5 
       "Location of point mass with respect to frame_a as a fraction of the distance from frame_a to frame_b";
@@ -1558,7 +1559,7 @@ is resolved in the world frame).
       "Distance between the origin of frame_a and the origin of frame_b";
     SI.Position r_rel_0[3] 
       "Position vector from frame_a to frame_b resolved in world frame";
-    SI.Position e_rel_0[3] 
+    Real e_rel_0[3](each unit="1") 
       "Unit vector in direction from frame_a to frame_b, resolved in world frame";
     annotation (
       preferedView="info",
