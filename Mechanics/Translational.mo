@@ -1492,7 +1492,8 @@ with the Modelica.Blocks blocks.
       Boolean free "true, if frictional element is not active";
       
       // Equations to define the following variables are given in this class
-      Real sa "Path parameter of friction characteristic f = f(a_relfric)";
+      Real sa(unit="1") 
+        "Path parameter of friction characteristic f = f(a_relfric)";
       
       Boolean startForward(start=false, fixed=true) 
         "true, if v_rel=0 and start of forward sliding or v_rel > v_small";
@@ -1874,7 +1875,7 @@ between the stops.</i> </li>
     0 = flange_a.f + flange_b.f - f - m*der(v);
     
     // Friction force
-    f = if locked then sa else if free then 0 else 
+    f = if locked then sa*unitForce else if free then 0 else 
             (if startForward then F_prop*v + F_Coulomb +
       F_Stribeck else if startBackward then F_prop*v - F_Coulomb - F_Stribeck else 
             if pre(mode) == Forward then F_prop*v + F_Coulomb + F_Stribeck*exp(-
