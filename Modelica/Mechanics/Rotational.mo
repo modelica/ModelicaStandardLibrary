@@ -1802,8 +1802,8 @@ of several base components.</p>
         start=Unknown,
         fixed=true);
     protected 
-      constant SI.AngularAcceleration unitAngularAcceleration = 1;
-      constant SI.Torque unitTorque = 1;
+      constant SI.AngularAcceleration unitAngularAcceleration = 1 annotation(Hide=true);
+      constant SI.Torque unitTorque = 1 annotation(Hide=true);
       
     equation 
       /* Friction characteristic

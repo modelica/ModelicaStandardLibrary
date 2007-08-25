@@ -3,7 +3,7 @@ model CauerLowPassSC
   "Cauer low-pass filter with operational amplifiers and switched capacitors" 
 model Rn 
     
-  parameter Real clock=1;
+  parameter Modelica.SIunits.Time clock=1;
   parameter Modelica.SIunits.Resistance R=1 "Resistance";
   Modelica.Blocks.Sources.BooleanPulse BooleanPulse1(period=clock) 
     annotation (extent=[-10,50; 10,70]);
@@ -72,7 +72,9 @@ model Rn
           color=59,
           rgbcolor={85,255,85},
           fillPattern=1))));
-  Modelica.Electrical.Analog.Basic.Capacitor Capacitor1(C=R*clock) 
+  final constant Real unitOhm_sPerF(unit="Ohm*s/F") = 1 
+                                                    annotation(Hide=true);
+  Modelica.Electrical.Analog.Basic.Capacitor Capacitor1(C=R*clock/unitOhm_sPerF) 
     annotation (extent=[-20,-20; 20,20]);
   Modelica.Electrical.Analog.Ideal.IdealCommutingSwitch IdealCommutingSwitch1 
     annotation (extent=[-60,-10; -40,10],  rotation=180);
@@ -89,7 +91,7 @@ model Rn
     annotation (extent=[90,-8; 110,12]);
 equation 
   connect(IdealCommutingSwitch1.p,Capacitor1. p) annotation (points=[-40,
-          -1.22461e-015; -42,-1.22461e-015; -44,0; -20,0],
+          -1.22465e-015; -42,-1.22465e-015; -44,0; -20,0],
                                                          style(color=3,
         rgbcolor={0,0,255}));
   connect(Capacitor1.n,IdealCommutingSwitch2. p) 
@@ -108,7 +110,7 @@ equation
       rgbcolor={0,0,255},
       fillPattern=1));
   connect(n1, IdealCommutingSwitch1.n2) annotation (points=[-102,0; -81,0; -81,
-          1.22461e-015; -60,1.22461e-015],
+          1.22465e-015; -60,1.22465e-015],
                                          style(
       color=3,
       rgbcolor={0,0,255},
@@ -122,6 +124,7 @@ equation
 end Rn;
   
 model Rp 
+    
   annotation (uses(Modelica(version="2.2")), Diagram,
     Icon(
       Bitmap(extent=[-62,4; -62,12], name=""),
@@ -182,11 +185,12 @@ model Rp
           rgbcolor={0,0,255},
           fillPattern=1),
         string="%name")));
-  parameter Real clock=1;
+  parameter Modelica.SIunits.Time clock=1;
   parameter Modelica.SIunits.Resistance R=1 "Resistance";
+  final constant Real unitOhm_sPerF(unit="Ohm*s/F") = 1 annotation(Hide=true);
   Modelica.Blocks.Sources.BooleanPulse BooleanPulse1(period=clock) 
     annotation (extent=[-10,50; 10,70]);
-  Modelica.Electrical.Analog.Basic.Capacitor Capacitor1(C=R*clock) 
+  Modelica.Electrical.Analog.Basic.Capacitor Capacitor1(C=R*clock/unitOhm_sPerF) 
     annotation (extent=[-20,-20; 20,20]);
   Modelica.Electrical.Analog.Ideal.IdealCommutingSwitch IdealCommutingSwitch1 
     annotation (extent=[-60,-10; -40,10],  rotation=180);
@@ -202,7 +206,7 @@ model Rp
     annotation (extent=[90,-8; 110,12]);
 equation 
   connect(IdealCommutingSwitch1.p, Capacitor1.p) annotation (points=[-40,
-          -1.22461e-015; -42,-1.22461e-015; -44,0; -20,0],
+          -1.22465e-015; -42,-1.22465e-015; -44,0; -20,0],
                                                          style(color=3,
         rgbcolor={0,0,255}));
   connect(Capacitor1.n, IdealCommutingSwitch2.p) 
@@ -214,7 +218,7 @@ equation
         -50,-8; -50,30; 20,30; 20,60; 11,60],  style(color=5, rgbcolor={255,0,
           255}));
   connect(Ground1.p, IdealCommutingSwitch1.n2) annotation (points=[-59,40; -60,
-          40; -60,1.22461e-015],               style(color=3, rgbcolor={0,0,255}));
+          40; -60,1.22465e-015],               style(color=3, rgbcolor={0,0,255}));
   connect(Ground2.p, IdealCommutingSwitch2.n2) annotation (points=[61,-32; 60,
         -32; 60,0],                   style(color=3, rgbcolor={0,0,255}));
   connect(IdealCommutingSwitch1.n1, n1) annotation (points=[-60,-5; -99,-5; -99,
@@ -273,13 +277,13 @@ Due to the recharging of the capacitances after switching the performance of sim
         extent=[-120,132; 120,73],
         string="%name",
         style(color=1))));
-  parameter Real l1=1.304;
-  parameter Real l2=0.8586;
-  parameter Real c1=1.072;
-  parameter Real c2=1/(1.704992^2*l1);
-  parameter Real c3=1.682;
-  parameter Real c4=1/(1.179945^2*l2);
-  parameter Real c5=0.7262;
+  parameter Modelica.SIunits.Capacitance l1=1.304;
+  parameter Modelica.SIunits.Capacitance l2=0.8586;
+  parameter Modelica.SIunits.Capacitance c1=1.072;
+  parameter Modelica.SIunits.Capacitance c2=1/(1.704992^2*l1);
+  parameter Modelica.SIunits.Capacitance c3=1.682;
+  parameter Modelica.SIunits.Capacitance c4=1/(1.179945^2*l2);
+  parameter Modelica.SIunits.Capacitance c5=0.7262;
   Modelica.Electrical.Analog.Basic.Capacitor C1(C=c1 + c2) 
     annotation (extent=[-193,30; -173,50], rotation=0);
   Modelica.Electrical.Analog.Basic.Capacitor C2(C=c2) 
