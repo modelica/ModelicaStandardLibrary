@@ -55,8 +55,8 @@ Modelica in file \"Modelica/package.mo\".</i><br>
       x=0.36,
       y=0.01,
       width=0.44,
-      height=0.6), 
-    experiment(StopTime=1e-007), 
+      height=0.6),
+    experiment(StopTime=1e-007),
     experimentSetupOutput);
   Sources.TrapezoidVoltage VIN1(
     V=3.5,

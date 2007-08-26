@@ -1,5 +1,6 @@
 within Modelica.Electrical.Analog.Examples.Utilities;
 model RealSwitch 
+  
   Ideal.ControlledIdealCommutingSwitch S(level=2.5) annotation (extent=[11.3333,
           18; 58, 64.6667]);
   Basic.Resistor R(R=0.01) annotation (extent=[-66, 16; -19.3333, 62.6667]);

@@ -2,7 +2,6 @@ within Modelica.Electrical.Analog.Examples;
 package Utilities "Utility components used by package Examples"
 extends Modelica.Icons.Library2;
 
-
 annotation (Window(
     x=0.09,
     y=0.15,

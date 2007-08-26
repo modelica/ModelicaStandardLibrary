@@ -725,6 +725,7 @@ The thermal power is calculated by <i>i*v</i>.
         end HeatingDiode;
   
         model HeatingNMOS "Simple MOS Transistor with heating port" 
+    
           annotation (
             Documentation(info="
 <HTML>
