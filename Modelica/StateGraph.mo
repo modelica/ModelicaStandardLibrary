@@ -775,7 +775,7 @@ package Examples
       annotation(extent=[36,-40; 56,-20]);
   equation 
       
-    annotation (structurallyIncomplete,
+    annotation (
       Diagram,
       experiment(StopTime=5),
       experimentSetupOutput,
