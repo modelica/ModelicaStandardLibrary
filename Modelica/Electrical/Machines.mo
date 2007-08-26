@@ -1,4 +1,5 @@
 within Modelica.Electrical;
+
 package Machines "Library for electric machines" 
   extends Modelica.Icons.Library2;
   annotation (
@@ -4867,7 +4868,7 @@ Partial model for induction machine models, containing:
             fillColor=10,
             rgbfillColor={95,95,95},
             fillPattern=1));
-        connect(spacePhasorS.ground,spacePhasorS. zero) annotation (points=[-10,20; 
+        connect(spacePhasorS.ground,spacePhasorS. zero) annotation (points=[-10,20;
               -10,14; -6.12303e-016,14; -6.12303e-016,20],     style(
             color=3,
             rgbcolor={0,0,255},
@@ -5598,7 +5599,7 @@ This package contains sensors that are usefull when modelling machines.
     
     model VoltageRMSsensor "Length of spcae phasor -> RMS voltage" 
       constant Integer m(final min=1) = 3 "Number of phases";
-      Modelica.Blocks.Interfaces.RealOutput V
+      Modelica.Blocks.Interfaces.RealOutput V 
         annotation (extent=[-10,-120; 10,-100], rotation=-90);
       Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_p(final m=m) 
         annotation (extent=[-110,-10; -90,10]);
@@ -5663,7 +5664,7 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
     
     model CurrentRMSsensor "Length of spcae phasor -> RMS current" 
       constant Integer m(final min=1) = 3 "Number of phases";
-      Modelica.Blocks.Interfaces.RealOutput I
+      Modelica.Blocks.Interfaces.RealOutput I 
         annotation (extent=[-10,-120; 10,-100], rotation=-90);
       Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_p(final m=m) 
         annotation (extent=[-110,-10; -90,10]);
@@ -5728,9 +5729,9 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
     
     model ElectricalPowerSensor "Instantaneous power from spcae phasors" 
       constant Integer m(final min=1) = 3 "Number of phases";
-      Modelica.Blocks.Interfaces.RealOutput P
+      Modelica.Blocks.Interfaces.RealOutput P 
         annotation (extent=[-60,120; -40,100],  rotation=-90);
-      Modelica.Blocks.Interfaces.RealOutput Q
+      Modelica.Blocks.Interfaces.RealOutput Q 
         annotation (extent=[40,120; 60,100], rotation=-90);
       Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_p(final m=m) 
         annotation (extent=[-110,-10; -90,10]);
@@ -5788,7 +5789,7 @@ Q = giving in stationary state reactive power.<br>
     
     model MechanicalPowerSensor "Mechanical power = torque x speed" 
       extends Modelica.Mechanics.Rotational.Interfaces.TwoFlanges;
-      Modelica.Blocks.Interfaces.RealOutput P
+      Modelica.Blocks.Interfaces.RealOutput P 
         annotation (extent=[-10,-100; 10,-120],   rotation=90);
       annotation (Icon(
           Ellipse(extent=[-70,70; 70,-70],   style(color=0, fillColor=7)),
@@ -5841,9 +5842,7 @@ Calculates (mechanical) power from torque times angular speed.
     model RotorAngle "Rotor lagging angle" 
       constant Integer m=3 "number of phases";
       parameter Integer p(min=1) "number of pole pairs";
-      Modelica.Blocks.Interfaces.RealOutput rotorAngle(redeclare type 
-          SignalType = 
-            Modelica.SIunits.Angle) annotation (extent=[100,-10; 120,10]);
+      Modelica.Blocks.Interfaces.RealOutput rotorAngle annotation (extent=[100,-10; 120,10]);
       Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_p(final m=m) 
         annotation (extent=[-110,50; -90,70]);
       Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_n(final m=m) 
@@ -5960,7 +5959,7 @@ is equal to the angle of the machine's rotor against the stator.
                                              style(color=3, rgbcolor={0,0,255}));
       connect(deMultiplex2.y2[1], rotorAngle) annotation (points=[81,-16; 90,-16;
             90,0; 110,0], style(color=3, rgbcolor={0,0,255}));
-      connect(relativeAngleSensor.phi_rel, add.u1) annotation (points=[30,69;
+      connect(relativeAngleSensor.phi_rel, add.u1) annotation (points=[30,69; 
             30,40; -4,40; -4,32],
                            style(color=3, rgbcolor={0,0,255}));
       connect(relativeAngleSensor.flange_b, flange) annotation (points=[20,80;
@@ -6155,7 +6154,7 @@ Zero-sequence voltage and current are present at pin zero. An additional zero-se
         Interfaces.SpacePhasor spacePhasor_a annotation (extent=[-110,90; -90,
               110]);
         Interfaces.SpacePhasor spacePhasor_b annotation (extent=[90,90; 110,110]);
-        Modelica.Blocks.Interfaces.RealInput angle
+        Modelica.Blocks.Interfaces.RealInput angle 
           annotation (extent=[-20,-140; 20,-100],rotation=-270);
         annotation (
           Diagram,
@@ -6308,7 +6307,7 @@ Transformation of space phasor and zero sequence value to threephase values (vol
         Real RotationMatrix[2,2] = {{+cos(-angle),-sin(-angle)},{+sin(-angle),+cos(-angle)}};
       //Real InverseRotator[2,2] = {{+cos(+angle),-sin(+angle)},{+sin(+angle),+cos(+angle)}};
       public 
-        Modelica.Blocks.Interfaces.RealInput angle
+        Modelica.Blocks.Interfaces.RealInput angle 
           annotation (extent=[-20,-140; 20,-100],rotation=-270);
         annotation (
           Diagram,
