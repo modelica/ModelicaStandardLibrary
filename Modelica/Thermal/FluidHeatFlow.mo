@@ -3,7 +3,7 @@ package FluidHeatFlow
   "Simple components for 1-dimensional incompressible thermo-fluid flow models" 
   extends Modelica.Icons.Library2;
   annotation (
-    version="1.6.4", versionDate="2007-08-24",
+    version="1.6.5", versionDate="2007-08-26",
     preferedView="info",Documentation(info="<HTML>
 This package contains very simple-to-use components to model coolant flows as needed to simulate cooling e.g. of electric machines:
 <ul>
@@ -107,6 +107,8 @@ and the accompanying <b>disclaimer</b>
        improved documentation</li>
   <li> v1.6.4 2007/08/24 Anton Haumer<br>
        removed redeclare type SignalType</li>
+  <li> v1.6.5 2007/08/26 Anton Haumer<br>
+       fixed unit bug in SimpleFriction</li>
   </ul>
 </HTML>
 "), Icon(
@@ -1672,14 +1674,13 @@ See also sketch at diagram layer.
         Modelica.SIunits.VolumeFlowRate VolumeFlow;
         Modelica.SIunits.Power Q_friction;
       protected 
-        parameter Real k(fixed=false);
+        parameter Real k(final unit="Pa.s2/m6", fixed=false);
       initial algorithm 
         assert(V_flowNominal>V_flowLaminar,
           "SimpleFriction: V_flowNominal has to be > V_flowLaminar!");
-        k:=dpLaminar/V_flowLaminar*V_flowNominal;
-        assert(dpNominal>=k,
-          "SimpleFriction: dpNominal has to be > dpLaminar*V_flowNominal/V_flowLaminar!");
-        k:=(dpNominal - k)/(V_flowNominal - V_flowLaminar)^2;
+        assert(dpNominal>=dpLaminar/V_flowLaminar*V_flowNominal,
+          "SimpleFriction: dpNominal has to be > dpLaminar/V_flowLaminar*V_flowNominal!");
+        k:=(dpNominal - dpLaminar/V_flowLaminar*V_flowNominal)/(V_flowNominal - V_flowLaminar)^2;
       equation 
         if     VolumeFlow > +V_flowLaminar then
           pressureDrop = +dpLaminar/V_flowLaminar*VolumeFlow + k*(VolumeFlow - V_flowLaminar)^2;
@@ -2482,7 +2483,7 @@ Thermodynamic equations are defined by Partials.TwoPort.
             string="dp",
             style(color=0, rgbcolor={0,0,0}))));
       extends Interfaces.Partials.TwoPort(final tapT=1);
-      Modelica.Blocks.Interfaces.RealInput PressureIncrease
+      Modelica.Blocks.Interfaces.RealInput PressureIncrease 
         annotation (extent=[-10,90; 10,110],    rotation=-90);
     equation 
       Q_flow = 0;
