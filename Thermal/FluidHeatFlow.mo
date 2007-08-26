@@ -2482,8 +2482,7 @@ Thermodynamic equations are defined by Partials.TwoPort.
             string="dp",
             style(color=0, rgbcolor={0,0,0}))));
       extends Interfaces.Partials.TwoPort(final tapT=1);
-      Modelica.Blocks.Interfaces.RealInput PressureIncrease(redeclare type 
-          SignalType = Modelica.SIunits.Pressure) 
+      Modelica.Blocks.Interfaces.RealInput PressureIncrease
         annotation (extent=[-10,90; 10,110],    rotation=-90);
     equation 
       Q_flow = 0;
