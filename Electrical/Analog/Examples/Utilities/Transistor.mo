@@ -1,5 +1,6 @@
 within Modelica.Electrical.Analog.Examples.Utilities;
 model Transistor 
+  
   annotation (
     Coordsys(
       extent=[-100, -100; 100, 100],

@@ -177,12 +177,12 @@ along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
   protected 
             Real s(final unit="1") 
       "Auxiliary variable: if on then current, if opened then voltage";
-            constant Real unitVoltagePerOhm(unit="V/Ohm") = 1 annotation(Hide=true);
+            constant Real unitVoltPerOhm(unit="V/Ohm") = 1    annotation(Hide=true);
             constant Real unitAmperePerSiemens(unit="A/S") = 1 annotation(Hide=true);
     
           equation 
             off = s < 0 or pre(off) and not fire;
-            v = (s*unitVoltagePerOhm)*(if off then 1 else Ron) + Vknee;
+            v = (s*unitVoltPerOhm)*(if off then 1 else Ron) + Vknee;
             i = (s*unitAmperePerSiemens)*(if off then Goff else 1) + Goff*Vknee;
           end IdealThyristor;
   
@@ -319,11 +319,11 @@ along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
   protected 
             Real s(final unit="1") 
       "Auxiliary variable: if on then current, if opened then voltage";
-            constant Real unitVoltagePerOhm(unit="V/Ohm") = 1 annotation(Hide=true);
+            constant Real unitVoltPerOhm(unit="V/Ohm") = 1    annotation(Hide=true);
             constant Real unitAmperePerSiemens(unit="A/S") = 1 annotation(Hide=true);
           equation 
             off = s < 0 or not fire;
-            v = (s*unitVoltagePerOhm)*(if off then 1 else Ron) + Vknee;
+            v = (s*unitVoltPerOhm)*(if off then 1 else Ron) + Vknee;
             i = (s*unitAmperePerSiemens)*(if off then Goff else 1) + Goff*Vknee;
           end IdealGTOThyristor;
   
@@ -395,15 +395,15 @@ where a description with zero Ron or zero Goff is not possible.
   protected 
     Real s1(final unit="1");
     Real s2(final unit="1") "Auxiliary variables";
-    constant Real unitVoltagePerOhm(unit="V/Ohm") = 1 annotation(Hide=true);
+    constant Real unitVoltPerOhm(unit="V/Ohm") = 1    annotation(Hide=true);
     constant Real unitAmperePerSiemens(unit="A/S") = 1 annotation(Hide=true);
     
   equation 
     0 = p.i + n2.i + n1.i;
     
-    p.v - n1.v = (s1*unitVoltagePerOhm)*(if (control) then 1 else Ron);
+    p.v - n1.v = (s1*unitVoltPerOhm)*(if (control) then 1 else Ron);
     n1.i = -(s1*unitAmperePerSiemens)*(if (control) then Goff else 1);
-    p.v - n2.v = (s2*unitVoltagePerOhm)*(if (control) then Ron else 1);
+    p.v - n2.v = (s2*unitVoltPerOhm)*(if (control) then Ron else 1);
     n2.i = -(s2*unitAmperePerSiemens)*(if (control) then 1 else Goff);
   end IdealCommutingSwitch;
   
@@ -488,14 +488,14 @@ where a description with zero Ron or zero Goff is not possible.
     Real s2(final unit="1");
     Real s3(final unit="1");
     Real s4(final unit="1") "Auxiliary variables";
-    constant Real unitVoltagePerOhm(unit="V/Ohm") = 1 annotation(Hide=true);
+    constant Real unitVoltPerOhm(unit="V/Ohm") = 1    annotation(Hide=true);
     constant Real unitAmperePerSiemens(unit="A/S") = 1 annotation(Hide=true);
     constant Real unitAmpere(unit="A") = 1 annotation(Hide=true);
   equation 
-    p1.v - n1.v = (s1*unitVoltagePerOhm)*(if (control) then 1 else Ron);
-    p2.v - n2.v = (s2*unitVoltagePerOhm)*(if (control) then 1 else Ron);
-    p1.v - n2.v = (s3*unitVoltagePerOhm)*(if (control) then Ron else 1);
-    p2.v - n1.v = (s4*unitVoltagePerOhm)*(if (control) then Ron else 1);
+    p1.v - n1.v = (s1*unitVoltPerOhm)*(if (control) then 1 else Ron);
+    p2.v - n2.v = (s2*unitVoltPerOhm)*(if (control) then 1 else Ron);
+    p1.v - n2.v = (s3*unitVoltPerOhm)*(if (control) then Ron else 1);
+    p2.v - n1.v = (s4*unitVoltPerOhm)*(if (control) then Ron else 1);
     
     p1.i = if control then s1*unitAmperePerSiemens*Goff + s3*unitAmpere else s1*unitAmpere + s3*unitAmperePerSiemens*Goff;
     p2.i = if control then s2*unitAmperePerSiemens*Goff + s4*unitAmpere else s2*unitAmpere + s4*unitAmperePerSiemens*Goff;
@@ -573,15 +573,15 @@ where a description with zero Ron or zero Goff is not possible.
   protected 
     Real s1(final unit="1");
     Real s2(final unit="1") "Auxiliary variables";
-    constant Real unitVoltagePerOhm(unit="V/Ohm") = 1 annotation(Hide=true);
+    constant Real unitVoltPerOhm(unit="V/Ohm") = 1    annotation(Hide=true);
     constant Real unitAmperePerSiemens(unit="A/S") = 1 annotation(Hide=true);
   equation 
     control.i = 0;
     0 = p.i + n2.i + n1.i;
     
-    p.v - n1.v = (s1*unitVoltagePerOhm)*(if (control.v > level) then 1 else Ron);
+    p.v - n1.v = (s1*unitVoltPerOhm)*(if (control.v > level) then 1 else Ron);
     n1.i = -(s1*unitAmperePerSiemens)*(if (control.v > level) then Goff else 1);
-    p.v - n2.v = (s2*unitVoltagePerOhm)*(if (control.v > level) then Ron else 1);
+    p.v - n2.v = (s2*unitVoltPerOhm)*(if (control.v > level) then Ron else 1);
     n2.i = -(s2*unitAmperePerSiemens)*(if (control.v > level) then 1 else Goff);
   end ControlledIdealCommutingSwitch;
   
@@ -670,16 +670,16 @@ where a description with zero Ron or zero Goff is not possible.
     Real s2(final unit="1");
     Real s3(final unit="1");
     Real s4(final unit="1") "Auxiliary variables";
-    constant Real unitVoltagePerOhm(unit="V/Ohm") = 1 annotation(Hide=true);
+    constant Real unitVoltPerOhm(unit="V/Ohm") = 1    annotation(Hide=true);
     constant Real unitAmperePerSiemens(unit="A/S") = 1 annotation(Hide=true);
     constant Real unitAmpere(unit="A") = 1 annotation(Hide=true);
   equation 
     control.i = 0;
     
-    p1.v - n1.v = (s1*unitVoltagePerOhm)*(if (control.v > level) then 1 else Ron);
-    p2.v - n2.v = (s2*unitVoltagePerOhm)*(if (control.v > level) then 1 else Ron);
-    p1.v - n2.v = (s3*unitVoltagePerOhm)*(if (control.v > level) then Ron else 1);
-    p2.v - n1.v = (s4*unitVoltagePerOhm)*(if (control.v > level) then Ron else 1);
+    p1.v - n1.v = (s1*unitVoltPerOhm)*(if (control.v > level) then 1 else Ron);
+    p2.v - n2.v = (s2*unitVoltPerOhm)*(if (control.v > level) then 1 else Ron);
+    p1.v - n2.v = (s3*unitVoltPerOhm)*(if (control.v > level) then Ron else 1);
+    p2.v - n1.v = (s4*unitVoltPerOhm)*(if (control.v > level) then Ron else 1);
     
     p1.i = if control.v > level then s1*unitAmperePerSiemens*Goff + s3*unitAmpere else s1*unitAmpere + s3*unitAmperePerSiemens*Goff;
     p2.i = if control.v > level then s2*unitAmperePerSiemens*Goff + s4*unitAmpere else s2*unitAmpere + s4*unitAmperePerSiemens*Goff;
@@ -877,6 +877,7 @@ are possible.
   end IdealOpAmp3Pin;
   
   model IdealOpAmpLimited "Ideal operational amplifier with limitation" 
+    
     Interfaces.PositivePin in_p "Positive pin of the input port" annotation (
         extent=[-110, -60; -90, -40]);
     Interfaces.NegativePin in_n "Negative pin of the input port" annotation (
@@ -967,15 +968,15 @@ If the input voltage is vin > 0, the output voltage is out.v = VMax.
     
   protected 
     Real s(final unit="1") "Auxiliary variable";
-    constant Real unitVoltage(unit="V") = 1 annotation(Hide=true);
+    constant Real unitVolt(unit="V") = 1    annotation(Hide=true);
   equation 
     in_p.i = 0;
     in_n.i = 0;
     VMax.i = 0;
     VMin.i = 0;
     vin = in_p.v - in_n.v;
-    in_p.v - in_n.v = if (s*unitVoltage < -1) then s*unitVoltage + 1 else if (s*unitVoltage > 1) then s*unitVoltage - 1 else 0;
-    out.v = if (s*unitVoltage < -1) then VMin.v else if (s*unitVoltage > 1) then VMax.v else (VMax.v - VMin.v)*s/2 + (VMax.v + VMin.v)/2;
+    in_p.v - in_n.v = if (s*unitVolt < -1) then s*unitVolt + 1 else if (s*unitVolt > 1) then s*unitVolt - 1 else 0;
+    out.v = if (s*unitVolt < -1) then VMin.v else if (s*unitVolt > 1) then VMax.v else (VMax.v - VMin.v)*s/2 + (VMax.v + VMin.v)/2;
   end IdealOpAmpLimited;
   
         model IdealDiode "Ideal diode" 
@@ -1101,11 +1102,11 @@ along  the <i>Gon</i>-characteristic until <i>v = Vknee</i>.
   protected 
           Real s(final unit="1") 
       "Auxiliary variable: if on then current, if opened then voltage";
-          constant Real unitVoltagePerOhm(unit="V/Ohm") = 1 annotation(Hide=true);
+          constant Real unitVoltPerOhm(unit="V/Ohm") = 1    annotation(Hide=true);
           constant Real unitAmperePerSiemens(unit="A/S") = 1 annotation(Hide=true);
         equation 
           off = s < 0;
-          v = (s*unitVoltagePerOhm)*(if off then 1 else Ron) + Vknee;
+          v = (s*unitVoltPerOhm)*(if off then 1 else Ron) + Vknee;
           i = (s*unitAmperePerSiemens)*(if off then Goff else 1) + Goff*Vknee;
         end IdealDiode;
   
@@ -1392,10 +1393,10 @@ where a description with zero Ron or zero Goff is not possible.
         Line(points=[40, 20; 40, 0])));
   protected 
     Real s(final unit="1") "Auxiliary variable";
-    constant Real unitVoltagePerOhm(unit="V/Ohm") = 1 annotation(Hide=true);
+    constant Real unitVoltPerOhm(unit="V/Ohm") = 1    annotation(Hide=true);
     constant Real unitAmperePerSiemens(unit="A/S") = 1 annotation(Hide=true);
  equation 
-    v = (s*unitVoltagePerOhm)*(if control then 1 else Ron);
+    v = (s*unitVoltPerOhm)*(if control then 1 else Ron);
     i = (s*unitAmperePerSiemens)*(if control then Goff else 1);
  end IdealOpeningSwitch;
   
@@ -1464,14 +1465,15 @@ where a description with zero Ron or zero Goff is not possible.
           Line(points=[0, 51; 0, 26])));
   protected 
       Real s(final unit="1") "Auxiliary variable";
-      constant Real unitVoltagePerOhm(unit="V/Ohm") = 1 annotation(Hide=true);
+      constant Real unitVoltPerOhm(unit="V/Ohm") = 1    annotation(Hide=true);
       constant Real unitAmperePerSiemens(unit="A/S") = 1 annotation(Hide=true);
     equation 
-      v = (s*unitVoltagePerOhm)*(if control then Ron else 1);
+      v = (s*unitVoltPerOhm)*(if control then Ron else 1);
       i = (s*unitAmperePerSiemens)*(if control then 1 else Goff);
     end IdealClosingSwitch;
   
   model ControlledIdealOpeningSwitch "Controlled ideal electrical opener" 
+    
     parameter SI.Voltage level=0.5 "Switch level" annotation (extent=[-56.6667,
             10; -10, 56.6667]);
     parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance"
@@ -1540,16 +1542,17 @@ where a description with zero Ron or zero Goff is not possible.
         Line(points=[40, 20; 40, 0])));
   protected 
     Real s(final unit="1") "Auxiliary variable";
-    constant Real unitVoltagePerOhm(unit="V/Ohm") = 1 annotation(Hide=true);
+    constant Real unitVoltPerOhm(unit="V/Ohm") = 1    annotation(Hide=true);
     constant Real unitAmperePerSiemens(unit="A/S") = 1 annotation(Hide=true);
   equation 
     control.i = 0;
     0 = p.i + n.i;
-    p.v - n.v = (s*unitVoltagePerOhm)*(if (control.v > level) then 1 else Ron);
+    p.v - n.v = (s*unitVoltPerOhm)*(if (control.v > level) then 1 else Ron);
     p.i = (s*unitAmperePerSiemens)*(if (control.v > level) then Goff else 1);
   end ControlledIdealOpeningSwitch;
   
     model ControlledIdealClosingSwitch "Controlled ideal electrical closer" 
+    
       parameter SI.Voltage level=0.5 "Switch level" annotation (extent=[-56.6667,
               10; -10, 56.6667]);
       parameter SI.Resistance Ron(final min=0) = 1.E-5 
@@ -1619,12 +1622,12 @@ where a description with zero Ron or zero Goff is not possible.
           Line(points=[0,96; 0,25])));
   protected 
       Real s(final unit="1") "Auxiliary variable";
-      constant Real unitVoltagePerOhm(unit="V/Ohm") = 1 annotation(Hide=true);
+      constant Real unitVoltPerOhm(unit="V/Ohm") = 1    annotation(Hide=true);
       constant Real unitAmperePerSiemens(unit="A/S") = 1 annotation(Hide=true);
     equation 
       control.i = 0;
       0 = p.i + n.i;
-      p.v - n.v = (s*unitVoltagePerOhm)*(if (control.v > level) then Ron else 1);
+      p.v - n.v = (s*unitVoltPerOhm)*(if (control.v > level) then Ron else 1);
       p.i = (s*unitAmperePerSiemens)*(if (control.v > level) then 1 else Goff);
     end ControlledIdealClosingSwitch;
   

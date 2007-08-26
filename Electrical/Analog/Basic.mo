@@ -34,6 +34,7 @@ This package contains basic analog electrical components.
 </dl>
 </html>"));
   model Ground "Ground node" 
+    
     annotation (
       Coordsys(
         extent=[-100, -100; 100, 100],
@@ -953,6 +954,7 @@ The left port voltage is zero. Any current gain can be chosen.
   end CCC;
   
   model OpAmp "Simple nonideal model of an OpAmp with limitation" 
+    
     annotation (
       Documentation(info="<HTML>
 <P>
