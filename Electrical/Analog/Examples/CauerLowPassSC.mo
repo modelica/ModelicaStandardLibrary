@@ -72,7 +72,7 @@ model Rn
           color=59,
           rgbcolor={85,255,85},
           fillPattern=1))));
-  final constant Real unitOhm_sPerF(unit="Ohm*s/F") = 1 
+  final constant Real unitOhm_sPerF(unit="Ohm.s/F") = 1 
                                                     annotation(Hide=true);
   Modelica.Electrical.Analog.Basic.Capacitor Capacitor1(C=R*clock/unitOhm_sPerF) 
     annotation (extent=[-20,-20; 20,20]);
@@ -187,7 +187,7 @@ model Rp
         string="%name")));
   parameter Modelica.SIunits.Time clock=1;
   parameter Modelica.SIunits.Resistance R=1 "Resistance";
-  final constant Real unitOhm_sPerF(unit="Ohm*s/F") = 1 annotation(Hide=true);
+  final constant Real unitOhm_sPerF(unit="Ohm.s/F") = 1 annotation(Hide=true);
   Modelica.Blocks.Sources.BooleanPulse BooleanPulse1(period=clock) 
     annotation (extent=[-10,50; 10,70]);
   Modelica.Electrical.Analog.Basic.Capacitor Capacitor1(C=R*clock/unitOhm_sPerF) 
