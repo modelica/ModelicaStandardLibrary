@@ -1,0 +1,166 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Media.Examples.Tests.MediaTestModels.Air</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Test models of library Modelica.Media.Air&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Air<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ddaf127836e4148ciaTestModels.Air"></A><A HREF="Modelica_Media_Examples_Tests_MediaTestModels.html#fee040a821dde357.MediaTestModels"
+>Modelica.Media.Examples.Tests.MediaTestModels</A>.Air</H2>
+<B>Test models of library Modelica.Media.Air</B>
+<P>
+<H3>Information</H3>
+<PRE></pre>
+
+<pre></PRE><P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Media.Examples.Tests.MediaTestModels.Air.SimpleAirS.png" ALT="Modelica.Media.Examples.Tests.MediaTestModels.Air.SimpleAir" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Examples_Tests_MediaTestModels_Air.html#f2e98236f4c6c791ls.Air.SimpleAir"
+>SimpleAir</A>
+</TD><TD>Test Modelica.Media.Air.SimpleAir</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Examples.Tests.MediaTestModels.Air.SimpleAirS.png" ALT="Modelica.Media.Examples.Tests.MediaTestModels.Air.DryAirNasa" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Examples_Tests_MediaTestModels_Air.html#24e13c6ad3add9d3s.Air.DryAirNasa"
+>DryAirNasa</A>
+</TD><TD>Test Modelica.Media.Air.DryAirNasa</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Examples.Tests.MediaTestModels.Air.SimpleAirS.png" ALT="Modelica.Media.Examples.Tests.MediaTestModels.Air.MoistAir" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Examples_Tests_MediaTestModels_Air.html#0d50b3fc979aa3d1els.Air.MoistAir"
+>MoistAir</A>
+</TD><TD>Test Modelica.Media.Air.MoistAir</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SimpleAir<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Examples.Tests.MediaTestModels.Air.SimpleAirI.png" ALT="Modelica.Media.Examples.Tests.MediaTestModels.Air.SimpleAir" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="f2e98236f4c6c791ls.Air.SimpleAir"></A><A HREF="Modelica_Media_Examples_Tests_MediaTestModels_Air.html#ddaf127836e4148ciaTestModels.Air"
+>Modelica.Media.Examples.Tests.MediaTestModels.Air</A>.SimpleAir</H2>
+<B>Test Modelica.Media.Air.SimpleAir</B><p>
+<IMG SRC="Modelica.Media.Examples.Tests.MediaTestModels.Air.SimpleAirD.png" ALT="Modelica.Media.Examples.Tests.MediaTestModels.Air.SimpleAir">
+<H3>Information</H3>
+<PRE></pre>
+
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD colspan="2">replaceable package Medium</TD><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#4cf0cea8ae5945eces.PartialMedium"
+>PartialMedium</A></TD><TD>Medium model</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.AbsolutePressure"
+>AbsolutePressure</A></TD><TD>p_start</TD><TD>Medium.p_default</TD><TD>Initial value of pressure [Pa]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>T_start</TD><TD>Medium.T_default</TD><TD>Initial value of temperature [K]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SpecificEnthalpy</A></TD><TD>h_start</TD><TD>Medium.h_default</TD><TD>Initial value of specific enthalpy [J/kg]</TD></TR>
+<TR><TD>Real</TD><TD>X_start[Medium.nX]</TD><TD>Medium.X_default</TD><TD>Initial value of mass fractions</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD colspan="2">replaceable package Medium</TD><TD>Medium model</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> SimpleAir <font color="darkgreen">&quot;Test Modelica.Media.Air.SimpleAir&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Media_Examples_Tests_Components.html#71cfb6ee55b940c4PartialTestModel"
+>Modelica.Media.Examples.Tests.Components.PartialTestModel</A>(
+     <font color="blue">redeclare </font><font color="blue">package</font> Medium = <A HREF="Modelica_Media_Air_SimpleAir.html#Modelica.Media.Air.SimpleAir"
+>Modelica.Media.Air.SimpleAir</A>);
+<font color="blue">end </font>SimpleAir;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE DryAirNasa<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Examples.Tests.MediaTestModels.Air.SimpleAirI.png" ALT="Modelica.Media.Examples.Tests.MediaTestModels.Air.DryAirNasa" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="24e13c6ad3add9d3s.Air.DryAirNasa"></A><A HREF="Modelica_Media_Examples_Tests_MediaTestModels_Air.html#ddaf127836e4148ciaTestModels.Air"
+>Modelica.Media.Examples.Tests.MediaTestModels.Air</A>.DryAirNasa</H2>
+<B>Test Modelica.Media.Air.DryAirNasa</B><p>
+<IMG SRC="Modelica.Media.Examples.Tests.MediaTestModels.Air.SimpleAirD.png" ALT="Modelica.Media.Examples.Tests.MediaTestModels.Air.DryAirNasa">
+<H3>Information</H3>
+<PRE></pre>
+
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD colspan="2">replaceable package Medium</TD><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#4cf0cea8ae5945eces.PartialMedium"
+>PartialMedium</A></TD><TD>Medium model</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.AbsolutePressure"
+>AbsolutePressure</A></TD><TD>p_start</TD><TD>Medium.p_default</TD><TD>Initial value of pressure [Pa]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>T_start</TD><TD>Medium.T_default</TD><TD>Initial value of temperature [K]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SpecificEnthalpy</A></TD><TD>h_start</TD><TD>Medium.h_default</TD><TD>Initial value of specific enthalpy [J/kg]</TD></TR>
+<TR><TD>Real</TD><TD>X_start[Medium.nX]</TD><TD>Medium.X_default</TD><TD>Initial value of mass fractions</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD colspan="2">replaceable package Medium</TD><TD>Medium model</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> DryAirNasa <font color="darkgreen">&quot;Test Modelica.Media.Air.DryAirNasa&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Media_Examples_Tests_Components.html#71cfb6ee55b940c4PartialTestModel"
+>Modelica.Media.Examples.Tests.Components.PartialTestModel</A>(
+     <font color="blue">redeclare </font><font color="blue">package</font> Medium = <A HREF="Modelica_Media_Air_DryAirNasa.html#Modelica.Media.Air.DryAirNasa"
+>Modelica.Media.Air.DryAirNasa</A>);
+<font color="blue">end </font>DryAirNasa;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE MoistAir<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Examples.Tests.MediaTestModels.Air.SimpleAirI.png" ALT="Modelica.Media.Examples.Tests.MediaTestModels.Air.MoistAir" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="0d50b3fc979aa3d1els.Air.MoistAir"></A><A HREF="Modelica_Media_Examples_Tests_MediaTestModels_Air.html#ddaf127836e4148ciaTestModels.Air"
+>Modelica.Media.Examples.Tests.MediaTestModels.Air</A>.MoistAir</H2>
+<B>Test Modelica.Media.Air.MoistAir</B><p>
+<IMG SRC="Modelica.Media.Examples.Tests.MediaTestModels.Air.SimpleAirD.png" ALT="Modelica.Media.Examples.Tests.MediaTestModels.Air.MoistAir">
+<H3>Information</H3>
+<PRE></pre>
+
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD colspan="2">replaceable package Medium</TD><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#4cf0cea8ae5945eces.PartialMedium"
+>PartialMedium</A></TD><TD>Medium model</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.AbsolutePressure"
+>AbsolutePressure</A></TD><TD>p_start</TD><TD>Medium.p_default</TD><TD>Initial value of pressure [Pa]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>T_start</TD><TD>Medium.T_default</TD><TD>Initial value of temperature [K]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SpecificEnthalpy</A></TD><TD>h_start</TD><TD>Medium.h_default</TD><TD>Initial value of specific enthalpy [J/kg]</TD></TR>
+<TR><TD>Real</TD><TD>X_start[Medium.nX]</TD><TD>Medium.X_default</TD><TD>Initial value of mass fractions</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD colspan="2">replaceable package Medium</TD><TD>Medium model</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> MoistAir <font color="darkgreen">&quot;Test Modelica.Media.Air.MoistAir&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Media_Examples_Tests_Components.html#71cfb6ee55b940c4PartialTestModel"
+>Modelica.Media.Examples.Tests.Components.PartialTestModel</A>(
+     <font color="blue">redeclare </font><font color="blue">package</font> Medium = <A HREF="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</A>);
+<font color="blue">end </font>MoistAir;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Fri Sep 07 19:13:55 2007.
+</address></BODY>
+</HTML>

@@ -1,0 +1,327 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Electrical.MultiPhase.Examples</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Multiphase test examples&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Examples<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="3d801557254941bctiPhase.Examples"></A><A HREF="Modelica_Electrical_MultiPhase.html#Modelica.Electrical.MultiPhase"
+>Modelica.Electrical.MultiPhase</A>.Examples</H2>
+<B>Multiphase test examples</B>
+<P>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This package contains test examples of analog electrical multiphase circuits.
+</p>
+
+<pre></PRE><P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.MultiPhase.Examples.TransformerYYS.png" ALT="Modelica.Electrical.MultiPhase.Examples.TransformerYY" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_MultiPhase_Examples.html#0f7b5102083ab802es.TransformerYY"
+>TransformerYY</A>
+</TD><TD>Test example with multiphase components</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.MultiPhase.Examples.TransformerYYS.png" ALT="Modelica.Electrical.MultiPhase.Examples.TransformerYD" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_MultiPhase_Examples.html#0f7b50ed083ab81fes.TransformerYD"
+>TransformerYD</A>
+</TD><TD>Test example with multiphase components</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.MultiPhase.Examples.TransformerYYS.png" ALT="Modelica.Electrical.MultiPhase.Examples.Rectifier" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_MultiPhase_Examples.html#c92ea5f62a97acc7amples.Rectifier"
+>Rectifier</A>
+</TD><TD>Test example with multiphase components</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TransformerYY<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.MultiPhase.Examples.TransformerYYI.png" ALT="Modelica.Electrical.MultiPhase.Examples.TransformerYY" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="0f7b5102083ab802es.TransformerYY"></A><A HREF="Modelica_Electrical_MultiPhase_Examples.html#3d801557254941bctiPhase.Examples"
+>Modelica.Electrical.MultiPhase.Examples</A>.TransformerYY</H2>
+<B>Test example with multiphase components</B><p>
+<IMG SRC="Modelica.Electrical.MultiPhase.Examples.TransformerYYD.png" ALT="Modelica.Electrical.MultiPhase.Examples.TransformerYY">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+Test example with multiphase components:<br>
+Star-connected voltage source feeds via a Y-Y-transformer with internal impedance (RT, LT) a load resistor RT.<br>
+Using f=5 Hz LT=3mH defines nominal voltage drop of approximately 10 %.<br>
+Simulate for 1 second (2 periods) and compare voltages and currents of source, transformer and load.
+</p>
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Integer</TD><TD>m</TD><TD>3</TD><TD>Number of phases</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Voltage</A></TD><TD>V</TD><TD>1</TD><TD>Amplitude of Star-Voltage [V]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Frequency"
+>Frequency</A></TD><TD>f</TD><TD>5</TD><TD>Frequency [Hz]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inductance"
+>Inductance</A></TD><TD>LT</TD><TD>0.003</TD><TD>Transformer stray inductance [H]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Resistance</A></TD><TD>RT</TD><TD>0.05</TD><TD>Transformer resistance [Ohm]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Resistance</A></TD><TD>RL</TD><TD>1</TD><TD>Load Resistance [Ohm]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TransformerYY <font color="darkgreen">&quot;Test example with multiphase components&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+  <font color="blue">parameter </font>Integer m=3 <font color="darkgreen">&quot;Number of phases&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> V=1 <font color="darkgreen">&quot;Amplitude of Star-Voltage&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Frequency"
+>Modelica.SIunits.Frequency</A> f=5 <font color="darkgreen">&quot;Frequency&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inductance"
+>Modelica.SIunits.Inductance</A> LT=0.003 <font color="darkgreen">&quot;Transformer stray inductance&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Modelica.SIunits.Resistance</A> RT=0.05 <font color="darkgreen">&quot;Transformer resistance&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Modelica.SIunits.Resistance</A> RL=1 <font color="darkgreen">&quot;Load Resistance&quot;</font>;
+  <A HREF="Modelica_Electrical_MultiPhase_Sources.html#6e373151c7dc9dcbrces.SineVoltage"
+>Sources.SineVoltage</A> SineVoltage1(
+    V=<font color="red">fill</font>(V, m),
+    freqHz=<font color="red">fill</font>(f, m),
+    m=m);
+  <A HREF="Modelica_Electrical_MultiPhase_Basic.html#7cef7494073cd956Phase.Basic.Star"
+>Basic.Star</A> StarS1(m=m);
+  <A HREF="Modelica_Electrical_Analog_Basic.html#79cf331baa11e304log.Basic.Ground"
+>Modelica.Electrical.Analog.Basic.Ground</A> GroundS1;
+  <A HREF="Modelica_Electrical_MultiPhase_Ideal.html#964bb6a34c05ad79IdealTransformer"
+>Ideal.IdealTransformer</A> IdealTransformer1(m=m);
+  <A HREF="Modelica_Electrical_MultiPhase_Basic.html#7cef7494073cd956Phase.Basic.Star"
+>Basic.Star</A> StarT1(m=m);
+  <A HREF="Modelica_Electrical_MultiPhase_Basic.html#7cef7494073cd956Phase.Basic.Star"
+>Basic.Star</A> StarT2(m=m);
+  <A HREF="Modelica_Electrical_Analog_Basic.html#79cf331baa11e304log.Basic.Ground"
+>Modelica.Electrical.Analog.Basic.Ground</A> GroundT2;
+  <A HREF="Modelica_Electrical_MultiPhase_Basic.html#e1259443f0e82e5be.Basic.Resistor"
+>Basic.Resistor</A> RT1(m=m, R=<font color="red">fill</font>(RT, m));
+  <A HREF="Modelica_Electrical_MultiPhase_Basic.html#1c9894e01f202e81e.Basic.Inductor"
+>Basic.Inductor</A> LT1(m=m, L=<font color="red">fill</font>(LT, m));
+  <A HREF="Modelica_Electrical_MultiPhase_Basic.html#e1259443f0e82e5be.Basic.Resistor"
+>Basic.Resistor</A> RL1(m=m, R=<font color="red">fill</font>(RL, m));
+  <A HREF="Modelica_Electrical_MultiPhase_Basic.html#7cef7494073cd956Phase.Basic.Star"
+>Basic.Star</A> StarL1(m=m);
+  <A HREF="Modelica_Electrical_Analog_Basic.html#79cf331baa11e304log.Basic.Ground"
+>Modelica.Electrical.Analog.Basic.Ground</A> GroundT1;
+<font color="blue">equation </font>
+  <font color="red">connect</font>(StarS1.pin_n, GroundS1.p);
+  <font color="red">connect</font>(StarT1.pin_n, GroundT1.p);
+  <font color="red">connect</font>(StarT2.pin_n, GroundT2.p);
+  <font color="red">connect</font>(StarS1.plug_p, SineVoltage1.plug_n);
+  <font color="red">connect</font>(SineVoltage1.plug_p, IdealTransformer1.plug_p1);
+  <font color="red">connect</font>(IdealTransformer1.plug_n1, StarT1.plug_p);
+  <font color="red">connect</font>(StarT2.plug_p, IdealTransformer1.plug_n2);
+  <font color="red">connect</font>(IdealTransformer1.plug_p2, RT1.plug_p);
+  <font color="red">connect</font>(RT1.plug_n, LT1.plug_p);
+  <font color="red">connect</font>(LT1.plug_n, RL1.plug_p);
+  <font color="red">connect</font>(RL1.plug_n, StarL1.plug_p);
+<font color="blue">end </font>TransformerYY;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TransformerYD<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.MultiPhase.Examples.TransformerYYI.png" ALT="Modelica.Electrical.MultiPhase.Examples.TransformerYD" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="0f7b50ed083ab81fes.TransformerYD"></A><A HREF="Modelica_Electrical_MultiPhase_Examples.html#3d801557254941bctiPhase.Examples"
+>Modelica.Electrical.MultiPhase.Examples</A>.TransformerYD</H2>
+<B>Test example with multiphase components</B><p>
+<IMG SRC="Modelica.Electrical.MultiPhase.Examples.TransformerYDD.png" ALT="Modelica.Electrical.MultiPhase.Examples.TransformerYD">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+Test example with multiphase components:<br>
+Star-connected voltage source feeds via a Y-D-transformer with internal impedance (RT, LT) a load resistor RT.<br>
+Using f=5 Hz LT=3mH defines nominal voltage drop of approximately 10 %.<br>
+Simulate for 1 second (2 periods) and compare voltages and currents of source, transformer and load.
+</p>
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Integer</TD><TD>m</TD><TD>3</TD><TD>Number of phases</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Voltage</A></TD><TD>V</TD><TD>1</TD><TD>Amplitude of Star-Voltage [V]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Frequency"
+>Frequency</A></TD><TD>f</TD><TD>5</TD><TD>Frequency [Hz]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inductance"
+>Inductance</A></TD><TD>LT</TD><TD>0.003</TD><TD>Transformer stray inductance [H]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Resistance</A></TD><TD>RT</TD><TD>0.05</TD><TD>Transformer resistance [Ohm]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Resistance</A></TD><TD>RL</TD><TD>1</TD><TD>Load Resistance [Ohm]</TD></TR>
+<TR><TD>Real</TD><TD>nT</TD><TD>1/sqrt((1 - Modelica.Math.co...</TD><TD>Transformer ratio</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TransformerYD <font color="darkgreen">&quot;Test example with multiphase components&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+  <font color="blue">parameter </font>Integer m=3 <font color="darkgreen">&quot;Number of phases&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> V=1 <font color="darkgreen">&quot;Amplitude of Star-Voltage&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Frequency"
+>Modelica.SIunits.Frequency</A> f=5 <font color="darkgreen">&quot;Frequency&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inductance"
+>Modelica.SIunits.Inductance</A> LT=0.003 <font color="darkgreen">&quot;Transformer stray inductance&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Modelica.SIunits.Resistance</A> RT=0.05 <font color="darkgreen">&quot;Transformer resistance&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Modelica.SIunits.Resistance</A> RL=1 <font color="darkgreen">&quot;Load Resistance&quot;</font>;
+  <font color="blue">parameter </font>Real nT=1/<font color="red">sqrt</font>((1 -<font color="red"> Modelica.Math.cos</font>(2*Modelica.Constants.pi/m))
+      ^2 + (<font color="red">Modelica.Math.sin</font>(2*Modelica.Constants.pi/m))^2) <font color="darkgreen">
+    &quot;Transformer ratio&quot;</font>;
+  <A HREF="Modelica_Electrical_MultiPhase_Sources.html#6e373151c7dc9dcbrces.SineVoltage"
+>Sources.SineVoltage</A> SineVoltage1(
+    V=<font color="red">fill</font>(V, m),
+    freqHz=<font color="red">fill</font>(f, m),
+    m=m);
+  <A HREF="Modelica_Electrical_MultiPhase_Basic.html#7cef7494073cd956Phase.Basic.Star"
+>Basic.Star</A> StarS1(m=m);
+  <A HREF="Modelica_Electrical_Analog_Basic.html#79cf331baa11e304log.Basic.Ground"
+>Modelica.Electrical.Analog.Basic.Ground</A> GroundS1;
+  <A HREF="Modelica_Electrical_MultiPhase_Ideal.html#964bb6a34c05ad79IdealTransformer"
+>Ideal.IdealTransformer</A> IdealTransformer1(m=m, n=<font color="red">fill</font>(nT, m));
+  <A HREF="Modelica_Electrical_MultiPhase_Basic.html#7cef7494073cd956Phase.Basic.Star"
+>Basic.Star</A> StarT1(m=m);
+  <A HREF="Modelica_Electrical_MultiPhase_Basic.html#e53b4fb2e6ef9e61hase.Basic.Delta"
+>Basic.Delta</A> Delta1(m=m);
+  <A HREF="Modelica_Electrical_Analog_Basic.html#79cf331baa11e304log.Basic.Ground"
+>Modelica.Electrical.Analog.Basic.Ground</A> GroundT1;
+  <A HREF="Modelica_Electrical_MultiPhase_Basic.html#e1259443f0e82e5be.Basic.Resistor"
+>Basic.Resistor</A> RT1(m=m, R=<font color="red">fill</font>(RT/nT^2, m));
+  <A HREF="Modelica_Electrical_MultiPhase_Basic.html#1c9894e01f202e81e.Basic.Inductor"
+>Basic.Inductor</A> LT1(m=m, L=<font color="red">fill</font>(LT/nT^2, m));
+  <A HREF="Modelica_Electrical_MultiPhase_Basic.html#e1259443f0e82e5be.Basic.Resistor"
+>Basic.Resistor</A> RL1(m=m, R=<font color="red">fill</font>(RL, m));
+  <A HREF="Modelica_Electrical_MultiPhase_Basic.html#7cef7494073cd956Phase.Basic.Star"
+>Basic.Star</A> StarL1(m=m);
+  <A HREF="Modelica_Electrical_Analog_Basic.html#79cf331baa11e304log.Basic.Ground"
+>Modelica.Electrical.Analog.Basic.Ground</A> GroundL1;
+<font color="blue">equation </font>
+  <font color="red">connect</font>(GroundS1.p, StarS1.pin_n);
+  <font color="red">connect</font>(GroundT1.p, StarT1.pin_n);
+  <font color="red">connect</font>(StarS1.plug_p, SineVoltage1.plug_n);
+  <font color="red">connect</font>(SineVoltage1.plug_p, IdealTransformer1.plug_p1);
+  <font color="red">connect</font>(IdealTransformer1.plug_n1, StarT1.plug_p);
+  <font color="red">connect</font>(IdealTransformer1.plug_p2, RT1.plug_p);
+  <font color="red">connect</font>(RT1.plug_n, LT1.plug_p);
+  <font color="red">connect</font>(LT1.plug_n, Delta1.plug_p);
+  <font color="red">connect</font>(Delta1.plug_n, IdealTransformer1.plug_n2);
+  <font color="red">connect</font>(Delta1.plug_p, RL1.plug_p);
+  <font color="red">connect</font>(RL1.plug_n, StarL1.plug_p);
+  <font color="red">connect</font>(StarL1.pin_n, GroundL1.p);
+<font color="blue">end </font>TransformerYD;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Rectifier<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.MultiPhase.Examples.TransformerYYI.png" ALT="Modelica.Electrical.MultiPhase.Examples.Rectifier" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="c92ea5f62a97acc7amples.Rectifier"></A><A HREF="Modelica_Electrical_MultiPhase_Examples.html#3d801557254941bctiPhase.Examples"
+>Modelica.Electrical.MultiPhase.Examples</A>.Rectifier</H2>
+<B>Test example with multiphase components</B><p>
+<IMG SRC="Modelica.Electrical.MultiPhase.Examples.RectifierD.png" ALT="Modelica.Electrical.MultiPhase.Examples.Rectifier">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+Test example with multiphase components:<br>
+Star-connected voltage source feeds via a line reactor a diode bridge rectifier with a DC burden.<br>
+Using f=5 Hz, simulate for 1 second (2 periods) and compare voltages and currents of source and DC burden,
+neglecting initial transient.
+</p>
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Integer</TD><TD>m</TD><TD>3</TD><TD>Number of phases</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Voltage</A></TD><TD>V</TD><TD>1</TD><TD>Amplitude of Star-Voltage [V]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Frequency"
+>Frequency</A></TD><TD>f</TD><TD>5</TD><TD>Frequency [Hz]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inductance"
+>Inductance</A></TD><TD>L</TD><TD>0.001</TD><TD>Line Inductance [H]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Resistance</A></TD><TD>RL</TD><TD>2</TD><TD>Load Resistance [Ohm]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Capacitance"
+>Capacitance</A></TD><TD>C</TD><TD>0.05</TD><TD>Total DC-Capacitance [F]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Resistance</A></TD><TD>RE</TD><TD>1E6</TD><TD>Earthing Resistance [Ohm]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Rectifier <font color="darkgreen">&quot;Test example with multiphase components&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+  <font color="blue">parameter </font>Integer m=3 <font color="darkgreen">&quot;Number of phases&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> V=1 <font color="darkgreen">&quot;Amplitude of Star-Voltage&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Frequency"
+>Modelica.SIunits.Frequency</A> f=5 <font color="darkgreen">&quot;Frequency&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inductance"
+>Modelica.SIunits.Inductance</A> L=0.001 <font color="darkgreen">&quot;Line Inductance&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Modelica.SIunits.Resistance</A> RL=2 <font color="darkgreen">&quot;Load Resistance&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Capacitance"
+>Modelica.SIunits.Capacitance</A> C=0.05 <font color="darkgreen">&quot;Total DC-Capacitance&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Modelica.SIunits.Resistance</A> RE=1E6 <font color="darkgreen">&quot;Earthing Resistance&quot;</font>;
+  <A HREF="Modelica_Electrical_MultiPhase_Sources.html#6e373151c7dc9dcbrces.SineVoltage"
+>Sources.SineVoltage</A> SineVoltage1(
+    m=m,
+    V=<font color="red">fill</font>(V, m),
+    freqHz=<font color="red">fill</font>(f, m));
+  <A HREF="Modelica_Electrical_MultiPhase_Basic.html#7cef7494073cd956Phase.Basic.Star"
+>Basic.Star</A> StarS(m=m);
+  <A HREF="Modelica_Electrical_MultiPhase_Basic.html#1c9894e01f202e81e.Basic.Inductor"
+>Basic.Inductor</A> L1(m=m, L=<font color="red">fill</font>(L, m));
+  <A HREF="Modelica_Electrical_MultiPhase_Ideal.html#ad778b751a393ff8Ideal.IdealDiode"
+>Ideal.IdealDiode</A> IdealDiode1(m=m);
+  <A HREF="Modelica_Electrical_MultiPhase_Basic.html#7cef7494073cd956Phase.Basic.Star"
+>Basic.Star</A> Star1(m=m);
+  <A HREF="Modelica_Electrical_MultiPhase_Ideal.html#ad778b751a393ff8Ideal.IdealDiode"
+>Ideal.IdealDiode</A> IdealDiode2(m=m);
+  <A HREF="Modelica_Electrical_MultiPhase_Basic.html#7cef7494073cd956Phase.Basic.Star"
+>Basic.Star</A> Star2(m=m);
+  <A HREF="Modelica_Electrical_Analog_Basic.html#9312c33dbe431f97g.Basic.Resistor"
+>Modelica.Electrical.Analog.Basic.Resistor</A> RLoad(R=RL);
+  <A HREF="Modelica_Electrical_Analog_Basic.html#d87237d619610c05.Basic.Capacitor"
+>Modelica.Electrical.Analog.Basic.Capacitor</A> Capacitor1(C=2*C);
+  <A HREF="Modelica_Electrical_Analog_Basic.html#d87237d619610c05.Basic.Capacitor"
+>Modelica.Electrical.Analog.Basic.Capacitor</A> Capacitor2(C=2*C);
+  <A HREF="Modelica_Electrical_Analog_Basic.html#79cf331baa11e304log.Basic.Ground"
+>Modelica.Electrical.Analog.Basic.Ground</A> GroundDC;
+<font color="blue">equation </font>
+  <font color="red">connect</font>(Capacitor1.n, Capacitor2.p);
+  <font color="red">connect</font>(Capacitor1.n, GroundDC.p);
+  <font color="red">connect</font>(StarS.plug_p, SineVoltage1.plug_n);
+  <font color="red">connect</font>(SineVoltage1.plug_p, L1.plug_p);
+  <font color="red">connect</font>(IdealDiode1.plug_p, L1.plug_n);
+  <font color="red">connect</font>(IdealDiode2.plug_n, L1.plug_n);
+  <font color="red">connect</font>(IdealDiode1.plug_n, Star1.plug_p);
+  <font color="red">connect</font>(IdealDiode2.plug_p, Star2.plug_p);
+  <font color="red">connect</font>(Star2.pin_n, RLoad.n);
+  <font color="red">connect</font>(Star2.pin_n, Capacitor2.n);
+  <font color="red">connect</font>(Star1.pin_n, RLoad.p);
+  <font color="red">connect</font>(Star1.pin_n, Capacitor1.p);
+<font color="blue">end </font>Rectifier;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Fri Sep 07 19:13:12 2007.
+</address></BODY>
+</HTML>

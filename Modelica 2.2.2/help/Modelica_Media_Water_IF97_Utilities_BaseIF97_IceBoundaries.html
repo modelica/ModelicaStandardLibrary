@@ -1,0 +1,269 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Media.Water.IF97_Utilities.BaseIF97.IceBoundaries</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;the melting line and sublimation line curves from IAPWS&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE IceBoundaries<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="11efd3b81340ac9197.IceBoundaries"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97.html#169b473fc7f5d0a3ilities.BaseIF97"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97</A>.IceBoundaries</H2>
+<B>the melting line and sublimation line curves from IAPWS</B>
+<P>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+The International Association for the Properties of Water and Steam<br>
+Milan, Italy<br>
+September 1993<br>
+Release on the Pressure along the Melting and the Sublimation Curves of
+Ordinary Water Substance<br>
+</p>
+<pre>
+</PRE><P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.IceBoundaries.pmIceI_T" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_IceBoundaries.html#a5836d12c1ad2047ndaries.pmIceI_T"
+>pmIceI_T</A>
+</TD><TD>Melting pressure of ice I (temperature range from 273.16 to 251.165 K)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.IceBoundaries.pmIceIII_T" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_IceBoundaries.html#34352fdeb88a60b2aries.pmIceIII_T"
+>pmIceIII_T</A>
+</TD><TD>Melting pressure of ice III (temperature range from 251.165 to 256.164 K)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.IceBoundaries.pmIceV_T" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_IceBoundaries.html#a586d487c1ad5c47ndaries.pmIceV_T"
+>pmIceV_T</A>
+</TD><TD>Melting pressure of ice V (temperature range from 256.164 to 273.31 K)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.IceBoundaries.sublimationPressure_T" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_IceBoundaries.html#1f76c1b1a9fe81f5mationPressure_T"
+>sublimationPressure_T</A>
+</TD><TD>Sublimation pressure, valid from 190 to 273.16 K</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE pmIceI_T<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.IceBoundaries.pmIceI_TI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.IceBoundaries.pmIceI_T" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="a5836d12c1ad2047ndaries.pmIceI_T"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_IceBoundaries.html#11efd3b81340ac9197.IceBoundaries"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.IceBoundaries</A>.pmIceI_T</H2>
+<B>Melting pressure of ice I (temperature range from 273.16 to 251.165 K)</B><p>
+<H3>Information</H3>
+<PRE></pre>
+  <p>
+  Equation 1 from:<br>
+  The International Association for the Properties of Water and Steam<br>
+  Milan, Italy<br>
+  September 1993<br>
+  Release on the Pressure along the Melting and the Sublimation Curves of
+  Ordinary Water Substance<br>
+  </p>
+  <pre>
+  </PRE>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temp_K"
+>Temp_K</A></TD><TD>T</TD><TD>&nbsp;</TD><TD>Temperature [K]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>pm</TD><TD>Melting pressure of iceI(for T from 273.16 to 251.165 K) [Pa]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> pmIceI_T <font color="darkgreen">
+  &quot;Melting pressure of ice I (temperature range from 273.16 to 251.165 K)&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temp_K"
+>SI.Temp_K</A> T <font color="darkgreen">&quot;Temperature&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> pm <font color="darkgreen">
+    &quot;Melting pressure of iceI(for T from 273.16 to 251.165 K)&quot;</font>;
+<font color="blue">protected </font>
+  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temp_K"
+>SI.Temp_K</A> Tn = 273.16 <font color="darkgreen">&quot;normalization temperature&quot;</font>;
+  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> pn = 611.657 <font color="darkgreen">&quot;normalization pressure&quot;</font>;
+  Real sigma = T/Tn <font color="darkgreen">&quot;normalized temperature&quot;</font>;
+<font color="blue">algorithm </font>
+  pm := (1-0.626000e6*(1-sigma^(-3)) + 0.197135e6*(1-sigma^(21.2)))*pn;
+<font color="blue">end </font>pmIceI_T;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE pmIceIII_T<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.IceBoundaries.pmIceI_TI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.IceBoundaries.pmIceIII_T" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="34352fdeb88a60b2aries.pmIceIII_T"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_IceBoundaries.html#11efd3b81340ac9197.IceBoundaries"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.IceBoundaries</A>.pmIceIII_T</H2>
+<B>Melting pressure of ice III (temperature range from 251.165 to 256.164 K)</B><p>
+<H3>Information</H3>
+<PRE></pre>
+  <p>
+  Equation 2 from:<br>
+  The International Association for the Properties of Water and Steam<br>
+  Milan, Italy<br>
+  September 1993<br>
+  Release on the Pressure along the Melting and the Sublimation Curves of
+  Ordinary Water Substance<br>
+  </p>
+  <pre>
+  </PRE>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temp_K"
+>Temp_K</A></TD><TD>T</TD><TD>&nbsp;</TD><TD>Temperature [K]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>pm</TD><TD>Melting pressure of iceIII(for T from 251.165 to 256.164 K) [Pa]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> pmIceIII_T <font color="darkgreen">
+  &quot;Melting pressure of ice III (temperature range from 251.165 to 256.164 K)&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temp_K"
+>SI.Temp_K</A> T <font color="darkgreen">&quot;Temperature&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> pm <font color="darkgreen">
+    &quot;Melting pressure of iceIII(for T from 251.165 to 256.164 K)&quot;</font>;
+<font color="blue">protected </font>
+  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temp_K"
+>SI.Temp_K</A> Tn = 251.165 <font color="darkgreen">&quot;normalization temperature&quot;</font>;
+  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> pn = 209.9e6 <font color="darkgreen">&quot;normalization pressure&quot;</font>;
+  Real sigma = T/Tn <font color="darkgreen">&quot;normalized temperature&quot;</font>;
+<font color="blue">algorithm </font>
+  pm := (1-0.295252*(1-sigma^60))*pn;
+<font color="blue">end </font>pmIceIII_T;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE pmIceV_T<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.IceBoundaries.pmIceI_TI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.IceBoundaries.pmIceV_T" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="a586d487c1ad5c47ndaries.pmIceV_T"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_IceBoundaries.html#11efd3b81340ac9197.IceBoundaries"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.IceBoundaries</A>.pmIceV_T</H2>
+<B>Melting pressure of ice V (temperature range from 256.164 to 273.31 K)</B><p>
+<H3>Information</H3>
+<PRE></pre>
+  <p>
+  Equation 3 from:<br>
+  The International Association for the Properties of Water and Steam<br>
+  Milan, Italy<br>
+  September 1993<br>
+  Release on the Pressure along the Melting and the Sublimation Curves of
+  Ordinary Water Substance<br>
+  </p>
+  <pre>
+  </PRE>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temp_K"
+>Temp_K</A></TD><TD>T</TD><TD>&nbsp;</TD><TD>Temperature [K]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>pm</TD><TD>Melting pressure of iceV(for T from 256.164 to 273.31 K) [Pa]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> pmIceV_T <font color="darkgreen">
+  &quot;Melting pressure of ice V (temperature range from 256.164 to 273.31 K)&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temp_K"
+>SI.Temp_K</A> T <font color="darkgreen">&quot;Temperature&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> pm <font color="darkgreen">
+    &quot;Melting pressure of iceV(for T from 256.164 to 273.31 K)&quot;</font>;
+<font color="blue">protected </font>
+  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temp_K"
+>SI.Temp_K</A> Tn = 256.164 <font color="darkgreen">&quot;normalization temperature&quot;</font>;
+  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> pn = 350.1e6 <font color="darkgreen">&quot;normalization pressure&quot;</font>;
+  Real sigma = T/Tn <font color="darkgreen">&quot;normalized temperature&quot;</font>;
+
+<font color="blue">algorithm </font>
+  pm := (1-1.18721*(1-sigma^8))*pn;
+<font color="blue">end </font>pmIceV_T;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE sublimationPressure_T<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.IceBoundaries.pmIceI_TI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.IceBoundaries.sublimationPressure_T" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="1f76c1b1a9fe81f5mationPressure_T"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_IceBoundaries.html#11efd3b81340ac9197.IceBoundaries"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.IceBoundaries</A>.sublimationPressure_T</H2>
+<B>Sublimation pressure, valid from 190 to 273.16 K</B><p>
+<H3>Information</H3>
+<PRE></pre>
+  <p>
+  Equation 6 from:<br>
+  The International Association for the Properties of Water and Steam<br>
+  Milan, Italy<br>
+  September 1993<br>
+  Release on the Pressure along the Melting and the Sublimation Curves of
+  Ordinary Water Substance<br>
+  </p>
+  <pre>
+  </PRE>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temp_K"
+>Temp_K</A></TD><TD>T</TD><TD>&nbsp;</TD><TD>Temperature [K]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>psubl</TD><TD>sublimation pressure (for T from 190 to 273.16) [Pa]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> sublimationPressure_T <font color="darkgreen">
+  &quot;Sublimation pressure, valid from 190 to 273.16 K&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temp_K"
+>SI.Temp_K</A> T <font color="darkgreen">&quot;Temperature&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> psubl <font color="darkgreen">&quot;sublimation pressure (for T from 190 to 273.16)&quot;</font>;
+<font color="blue">protected </font>
+  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temp_K"
+>SI.Temp_K</A> Tn = 273.16 <font color="darkgreen">&quot;normalization temperature&quot;</font>;
+  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> pn = 611.657 <font color="darkgreen">&quot;normalization pressure&quot;</font>;
+  <font color="blue">constant </font>Real[2] a = {-13.9281690,34.7078238} <font color="darkgreen">&quot;constant values&quot;</font>;
+  Real sigma = T/Tn <font color="darkgreen">&quot;normalized temperature&quot;</font>;
+<font color="blue">algorithm </font>
+  psubl :=<font color="red"> Modelica.Math.exp</font>(a[1]*(1-sigma^(-1.5)) + a[2]*(1-sigma^(-1.25)))*pn;
+<font color="blue">end </font>sublimationPressure_T;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Fri Sep 07 19:14:00 2007.
+</address></BODY>
+</HTML>

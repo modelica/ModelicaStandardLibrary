@@ -1,0 +1,279 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Electrical.Digital.Delay</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Transport and inertial delay blocks&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Delay<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Electrical.Digital.Delay"></A><A HREF="Modelica_Electrical_Digital.html#Modelica.Electrical.Digital"
+>Modelica.Electrical.Digital</A>.Delay</H2>
+<B>Transport and inertial delay blocks</B>
+<P>
+<H3>Information</H3>
+<PRE></pre>
+
+<pre></PRE><P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Electrical_Digital_Delay.html#5fbf7b7a8869928aelay.DelayParams"
+>DelayParams</A>
+</TD><TD>Definition of delay parameters</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Digital.Delay.TransportDelayS.png" ALT="Modelica.Electrical.Digital.Delay.TransportDelay" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Delay.html#74a33afd977f983cy.TransportDelay"
+>TransportDelay</A>
+</TD><TD>Transport delay with initial parameter</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Digital.Delay.TransportDelayS.png" ALT="Modelica.Electrical.Digital.Delay.InertialDelay" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Delay.html#dd1e855a4db826b0ay.InertialDelay"
+>InertialDelay</A>
+</TD><TD>Inertial delay with initial parameter</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Digital.Delay.TransportDelayS.png" ALT="Modelica.Electrical.Digital.Delay.InertialDelaySensitive" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Delay.html#7b990c2c737df321alDelaySensitive"
+>InertialDelaySensitive</A>
+</TD><TD>Provide the input as output if it holds its value for a specific amount of time</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE DelayParams<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="5fbf7b7a8869928aelay.DelayParams"></A><A HREF="Modelica_Electrical_Digital_Delay.html#Modelica.Electrical.Digital.Delay"
+>Modelica.Electrical.Digital.Delay</A>.DelayParams</H2>
+<B>Definition of delay parameters</B><p>
+<H3>Information</H3>
+<PRE></pre>
+
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
+>Time</A></TD><TD>tLH</TD><TD>0</TD><TD>rise inertial delay [s]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
+>Time</A></TD><TD>tHL</TD><TD>0</TD><TD>fall inertial delay [s]</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Digital_Interfaces.html#388e1616b720d525Interfaces.Logic"
+>Logic</A></TD><TD>y0</TD><TD>L.'U'</TD><TD>initial value of output</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">partial </font><font color="blue">block</font> DelayParams <font color="darkgreen">&quot;Definition of delay parameters&quot;</font>
+  <font color="blue">import </font>L = <A HREF="Modelica_Electrical_Digital_Interfaces.html#f05b88e34d9f7f6ffaces.LogicValue"
+>Modelica.Electrical.Digital.Interfaces.LogicValue</A>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
+>Modelica.SIunits.Time</A> tLH=0 <font color="darkgreen">&quot;rise inertial delay&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
+>Modelica.SIunits.Time</A> tHL=0 <font color="darkgreen">&quot;fall inertial delay&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Electrical_Digital_Interfaces.html#388e1616b720d525Interfaces.Logic"
+>Digital.Interfaces.Logic</A> y0=L.'U' <font color="darkgreen">&quot;initial value of output&quot;</font>;
+<font color="blue">end </font>DelayParams;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TransportDelay<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Digital.Delay.TransportDelayI.png" ALT="Modelica.Electrical.Digital.Delay.TransportDelay" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="74a33afd977f983cy.TransportDelay"></A><A HREF="Modelica_Electrical_Digital_Delay.html#Modelica.Electrical.Digital.Delay"
+>Modelica.Electrical.Digital.Delay</A>.TransportDelay</H2>
+<B>Transport delay with initial parameter</B><p>
+<IMG SRC="Modelica.Electrical.Digital.Delay.TransportDelayD.png" ALT="Modelica.Electrical.Digital.Delay.TransportDelay">
+<H3>Information</H3>
+<PRE></pre>
+<P>
+Provide the input as output exactly delayed by <i>Tdel</i>.
+If time less than <i>Tdel</i> the initial value <i>initout</i> holds.
+</P>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
+>Time</A></TD><TD>delayTime</TD><TD>0</TD><TD>delay time [s]</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Digital_Interfaces.html#388e1616b720d525Interfaces.Logic"
+>Logic</A></TD><TD>y0</TD><TD>L.'U'</TD><TD>initial value of output</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>output <A HREF="Modelica_Electrical_Digital_Interfaces.html#933bdad53abefef0es.DigitalOutput"
+>DigitalOutput</A></TD><TD>y</TD><TD>Connector of Digital output signal</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TransportDelay <font color="darkgreen">&quot;Transport delay with initial parameter&quot;</font>
+  <font color="blue">import </font>D = <A HREF="Modelica_Electrical_Digital.html#Modelica.Electrical.Digital"
+>Modelica.Electrical.Digital</A>;
+  <font color="blue">import </font>L = <A HREF="Modelica_Electrical_Digital_Interfaces.html#f05b88e34d9f7f6ffaces.LogicValue"
+>Modelica.Electrical.Digital.Interfaces.LogicValue</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Digital_Interfaces.html#70b850a23636180c.Interfaces.SISO"
+>D.Interfaces.SISO</A>(x(start=L.'U',fixed=true));
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
+>Modelica.SIunits.Time</A> delayTime=0 <font color="darkgreen">&quot;delay time&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Electrical_Digital_Interfaces.html#388e1616b720d525Interfaces.Logic"
+>D.Interfaces.Logic</A> y0=L.'U' <font color="darkgreen">&quot;initial value of output&quot;</font>;
+<font color="blue">protected </font>
+  <A HREF="Modelica_Electrical_Digital_Interfaces.html#388e1616b720d525Interfaces.Logic"
+>D.Interfaces.Logic</A> x_delayed;
+<font color="blue">equation </font>
+  x_delayed =<font color="red"> integer</font>(<font color="red">delay</font>(x, delayTime));
+  y = <font color="blue">if </font>delayTime &gt; 0<font color="blue"> then </font>
+          (<font color="blue">if </font>time &gt;= delayTime<font color="blue"> then </font>x_delayed<font color="blue"> else </font>y0)<font color="blue"> else </font>
+            <font color="red">pre</font>(x);
+<font color="blue">end </font>TransportDelay;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE InertialDelay<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Digital.Delay.InertialDelayI.png" ALT="Modelica.Electrical.Digital.Delay.InertialDelay" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="dd1e855a4db826b0ay.InertialDelay"></A><A HREF="Modelica_Electrical_Digital_Delay.html#Modelica.Electrical.Digital.Delay"
+>Modelica.Electrical.Digital.Delay</A>.InertialDelay</H2>
+<B>Inertial delay with initial parameter</B><p>
+<IMG SRC="Modelica.Electrical.Digital.Delay.TransportDelayD.png" ALT="Modelica.Electrical.Digital.Delay.InertialDelay">
+<H3>Information</H3>
+<PRE></pre>
+<P>
+Provides the input as output delayed by <i>Tdel</i> if the input holds its value for a longer time than <i>Tdel</i>.
+If time is less than <i>Tdel</i> the initial value <i>initout</i> holds.
+</P>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
+>Time</A></TD><TD>delayTime</TD><TD>0</TD><TD>Minimum time to hold value [s]</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Digital_Interfaces.html#388e1616b720d525Interfaces.Logic"
+>Logic</A></TD><TD>y0</TD><TD>L.'U'</TD><TD>Initial value of output y</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>input <A HREF="Modelica_Electrical_Digital_Interfaces.html#219bcd92a1b86756ces.DigitalInput"
+>DigitalInput</A></TD><TD>x</TD><TD>Connector of Digital input signal</TD></TR>
+<TR><TD>output <A HREF="Modelica_Electrical_Digital_Interfaces.html#933bdad53abefef0es.DigitalOutput"
+>DigitalOutput</A></TD><TD>y</TD><TD>Connector of Digital output signal</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">block</font> InertialDelay <font color="darkgreen">&quot;Inertial delay with initial parameter&quot;</font>
+  <font color="blue">import </font>D = <A HREF="Modelica_Electrical_Digital.html#Modelica.Electrical.Digital"
+>Modelica.Electrical.Digital</A>;
+  <font color="blue">import </font>L = <A HREF="Modelica_Electrical_Digital_Interfaces.html#f05b88e34d9f7f6ffaces.LogicValue"
+>Modelica.Electrical.Digital.Interfaces.LogicValue</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Digital_Interfaces.html#70b850a23636180c.Interfaces.SISO"
+>D.Interfaces.SISO</A>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
+>Modelica.SIunits.Time</A> delayTime=0 <font color="darkgreen">&quot;Minimum time to hold value&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Electrical_Digital_Interfaces.html#388e1616b720d525Interfaces.Logic"
+>D.Interfaces.Logic</A> y0=L.'U' <font color="darkgreen">&quot;Initial value of output y&quot;</font>;
+<font color="blue">protected </font>
+  <A HREF="Modelica_Electrical_Digital_Interfaces.html#388e1616b720d525Interfaces.Logic"
+>D.Interfaces.Logic</A> y_auxiliary(start=y0, fixed=true);
+  <A HREF="Modelica_Electrical_Digital_Interfaces.html#388e1616b720d525Interfaces.Logic"
+>D.Interfaces.Logic</A> x_old(start=y0, fixed=true);
+  <font color="blue">discrete </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
+>Modelica.SIunits.Time</A> t_next(start=delayTime, fixed=true);
+<font color="blue">algorithm </font>
+  <font color="blue">when </font>delayTime &gt; 0<font color="blue"> and </font><font color="red">change</font>(x)<font color="blue"> then</font>
+    x_old := x;
+    t_next := time + delayTime;
+  <font color="blue">elsewhen </font>time &gt;= t_next<font color="blue"> then</font>
+    y_auxiliary := x;
+  <font color="blue">end when</font>;
+  y := <font color="blue">if </font>delayTime &gt; 0<font color="blue"> then </font>y_auxiliary<font color="blue"> else </font>x;
+<font color="blue">end </font>InertialDelay;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE InertialDelaySensitive<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Digital.Delay.InertialDelaySensitiveI.png" ALT="Modelica.Electrical.Digital.Delay.InertialDelaySensitive" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="7b990c2c737df321alDelaySensitive"></A><A HREF="Modelica_Electrical_Digital_Delay.html#Modelica.Electrical.Digital.Delay"
+>Modelica.Electrical.Digital.Delay</A>.InertialDelaySensitive</H2>
+<B>Provide the input as output if it holds its value for a specific amount of time</B><p>
+<IMG SRC="Modelica.Electrical.Digital.Delay.TransportDelayD.png" ALT="Modelica.Electrical.Digital.Delay.InertialDelaySensitive">
+<H3>Information</H3>
+<PRE></pre>
+<P>
+Provides the input as output delayed by <i>Tdel</i> if the input holds its value for a longer time than <i>Tdel</i>.
+If the time is less than <i>Tdel</i> the initial value <i>initout</i> holds.<br>
+The delay <i>Tdel</i> depends on the values of the signal change. To calculate <i>Tdel</i>, the delaymap specified in
+Digital.Tables is used. If the corresponding value is 1, then <i>tLH</i> is used, if it is -1, then <i>tHL</i>
+is used, if it is zero, the input is not delayed.
+</P>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
+>Time</A></TD><TD>tLH</TD><TD>0</TD><TD>rise inertial delay [s]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
+>Time</A></TD><TD>tHL</TD><TD>0</TD><TD>fall inertial delay [s]</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Digital_Interfaces.html#388e1616b720d525Interfaces.Logic"
+>Logic</A></TD><TD>y0</TD><TD>L.'U'</TD><TD>initial value of output</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>output <A HREF="Modelica_Electrical_Digital_Interfaces.html#933bdad53abefef0es.DigitalOutput"
+>DigitalOutput</A></TD><TD>y</TD><TD>Connector of Digital output signal</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> InertialDelaySensitive <font color="darkgreen">
+  &quot;Provide the input as output if it holds its value for a specific amount of time&quot;</font>
+  <font color="blue">import </font>D = <A HREF="Modelica_Electrical_Digital.html#Modelica.Electrical.Digital"
+>Modelica.Electrical.Digital</A>;
+  <font color="blue">import </font>L = <A HREF="Modelica_Electrical_Digital_Interfaces.html#f05b88e34d9f7f6ffaces.LogicValue"
+>Modelica.Electrical.Digital.Interfaces.LogicValue</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Digital_Interfaces.html#70b850a23636180c.Interfaces.SISO"
+>D.Interfaces.SISO</A>(x(start=L.'U',fixed=true));
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
+>Modelica.SIunits.Time</A> tLH=0 <font color="darkgreen">&quot;rise inertial delay&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
+>Modelica.SIunits.Time</A> tHL=0 <font color="darkgreen">&quot;fall inertial delay&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Electrical_Digital_Interfaces.html#388e1616b720d525Interfaces.Logic"
+>D.Interfaces.Logic</A> y0=L.'U' <font color="darkgreen">&quot;initial value of output&quot;</font>;
+<font color="blue">protected </font>
+  Integer delayTable[:,:]=D.Tables.DelayTable <font color="darkgreen">
+    &quot;specification of delay according to signal change&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
+>Modelica.SIunits.Time</A> delayTime;
+  <A HREF="Modelica_Electrical_Digital_Interfaces.html#388e1616b720d525Interfaces.Logic"
+>D.Interfaces.Logic</A> y_auxiliary(start=y0, fixed=true);
+  <A HREF="Modelica_Electrical_Digital_Interfaces.html#388e1616b720d525Interfaces.Logic"
+>D.Interfaces.Logic</A> x_old(start=y0, fixed=true);
+  Integer lh;
+  <font color="blue">discrete </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
+>Modelica.SIunits.Time</A> t_next;
+<font color="blue">algorithm </font>
+  <font color="blue">when </font>{<font color="red">initial</font>(),(tLH &gt; 0<font color="blue"> or </font>tHL &gt; 0)<font color="blue"> and </font><font color="red">change</font>(x)<font color="blue"> and </font><font color="blue">not </font><font color="red">initial</font>()}<font color="blue"> then</font>
+    x_old := <font color="blue">if </font><font color="red">initial</font>()<font color="blue"> or </font><font color="red">pre</font>(x) == 0<font color="blue"> then </font>y0<font color="blue"> else </font><font color="red">pre</font>(x);
+    lh := delayTable[x_old, x];
+    delayTime := <font color="blue">if </font>(lh &gt; 0)<font color="blue"> then </font>tLH<font color="blue"> else </font>(<font color="blue">if </font>(lh &lt; 0)<font color="blue"> then </font>tHL<font color="blue"> else </font>0);
+    t_next := time + delayTime;
+    <font color="blue">if </font>(lh == 0<font color="blue"> or </font><font color="red">abs</font>(delayTime) &lt; Modelica.Constants.small)<font color="blue"> then</font>
+      y_auxiliary := x;
+    <font color="blue">end if</font>;
+ <font color="blue">elsewhen </font>time &gt;= t_next<font color="blue"> then</font>
+    y_auxiliary := x;
+ <font color="blue">end when</font>;
+ y := <font color="blue">if </font>((tLH &gt; 0<font color="blue"> or </font>tHL &gt; 0))<font color="blue"> then </font>y_auxiliary<font color="blue"> else </font>x;
+<font color="blue">end </font>InertialDelaySensitive;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Fri Sep 07 19:12:33 2007.
+</address></BODY>
+</HTML>

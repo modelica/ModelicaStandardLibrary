@@ -1,0 +1,2806 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;functions to find the current region for given pairs of input variables&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Regions<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="a2ee7448b9959290BaseIF97.Regions"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97.html#169b473fc7f5d0a3ilities.BaseIF97"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97</A>.Regions</H2>
+<B>functions to find the current region for given pairs of input variables</B>
+<P>
+<H3>Information</H3>
+<PRE></pre><h4>Package description</h4>
+ <p>Package <b>Regions</b> contains a large number of auxiliary functions which are neede to compute the current region
+ of the IAPWS/IF97 for a given pair of input variables as quickly as possible. The focus of this implementation was on
+ computational efficiency, not on compact code. Many of the function values calulated in these functions could be obtained
+ using the fundamental functions of IAPWS/IF97, but with considerable overhead. If the region of IAPWS/IF97 is known in advance,
+ the input variable mode can be set to the region, then the somewhat costly region checks are omitted.
+ The checking for the phase has to be done outside the region functions because many properties are not
+ differentiable at the region boundary. If the input phase is 2, the output region will be set to 4 immediately.</p>
+ <h4>Package contents</h4>
+ <p> The main 4 functions in this package are the functions returning the appropriate region for two input variables.
+ <ul>
+ <li>Function <b>region_ph</b> compute the region of IAPWS/IF97 for input pair pressure and specific enthalpy.</li>
+ <li>Function <b>region_ps</b> compute the region of IAPWS/IF97 for input pair pressure and specific entropy</li>
+ <li>Function <b>region_dT</b> compute the region of IAPWS/IF97 for input pair density and temperature.</li>
+ <li>Function <b>region_pT</b> compute the region of IAPWS/IF97 for input pair pressure and temperature (only ine phase region).</li>
+ </ul>
+ <p>In addition, functions of the boiling and condensation curves compute the specific enthalpy, specific entropy, or density on these
+ curves. The functions for the saturation pressure and temperature are included in the package <b>Basic</b> because they are part of
+ the original <a href="Documentation/IF97documentation/IF97.pdf">IAPWS/IF97 standards document</a>. These functions are also aliased to
+ be used directly from package <b>Water</b>.
+ </p>
+ <ul>
+ <li>Function <b>hl_p</b> computes the liquid specific enthalpy as a function of pressure. For overcritical pressures,
+ the critical specific enthalpy is returned. An approximation is used for temperatures > 623.15 K.</li>
+ <li>Function <b>hv_p</b> computes the vapour specific enthalpy as a function of pressure. For overcritical pressures,
+ the critical specific enthalpy is returned. An approximation is used for temperatures > 623.15 K.</li>
+ <li>Function <b>sl_p</b> computes the liquid specific entropy as a function of pressure. For overcritical pressures,
+ the critical  specific entropy is returned. An approximation is used for temperatures > 623.15 K.</li>
+ <li>Function <b>sv_p</b> computes the vapour  specific entropy as a function of pressure. For overcritical pressures,
+ the critical  specific entropyis returned. An approximation is used for temperatures > 623.15 K.</li>
+ <li>Function <b>rhol_T</b> computes the liquid density as a function of temperature. For overcritical temperatures,
+ the critical density is returned. An approximation is used for temperatures > 623.15 K.</li>
+ <li>Function <b>rhol_T</b> computes the vapour density as a function of temperature. For overcritical temperatures,
+ the critical density is returned. An approximation is used for temperatures > 623.15 K.</li>
+ </ul>
+ </p>
+ <p>All other functions are auxiliary functions called from the region functions to check a specific boundary.</p>
+ <ul>
+ <li>Function <b>boundary23ofT</b> computes the boundary pressure between regions 2 and 3 (input temperature)</li>
+ <li>Function <b>boundary23ofp</b> computes the boundary temperature between regions 2 and 3 (input pressure)</li>
+ <li>Function <b>hlowerofp5</b> computes the lower specific enthalpy limit of region 5 (input p, T=1073.15 K)</li>
+ <li>Function <b>hupperofp5</b> computes the upper specific enthalpy limit of region 5 (input p, T=2273.15 K)</li>
+ <li>Function <b>slowerofp5</b> computes the lower specific entropy limit of region 5 (input p, T=1073.15 K)</li>
+ <li>Function <b>supperofp5</b> computes the upper specific entropy limit of region 5 (input p, T=2273.15 K)</li>
+ <li>Function <b>hlowerofp1</b> computes the lower specific enthalpy limit of region 1 (input p, T=273.15 K)</li>
+ <li>Function <b>hupperofp1</b> computes the upper specific enthalpy limit of region 1 (input p, T=623.15 K)</li>
+ <li>Function <b>slowerofp1</b> computes the lower specific entropy limit of region 1 (input p, T=273.15 K)</li>
+ <li>Function <b>supperofp1</b> computes the upper specific entropy limit of region 1 (input p, T=623.15 K)</li>
+ <li>Function <b>hlowerofp2</b> computes the lower specific enthalpy limit of region 2 (input p, T=623.15 K)</li>
+ <li>Function <b>hupperofp2</b> computes the upper specific enthalpy limit of region 2 (input p, T=1073.15 K)</li>
+ <li>Function <b>slowerofp2</b> computes the lower specific entropy limit of region 2 (input p, T=623.15 K)</li>
+ <li>Function <b>supperofp2</b> computes the upper specific entropy limit of region 2 (input p, T=1073.15 K)</li>
+ <li>Function <b>d1n</b> computes the density in region 1 as function of pressure and temperature</li>
+ <li>Function <b>d2n</b> computes the density in region 2 as function of pressure and temperature</li>
+ <li>Function <b>dhot1ofp</b> computes the hot density limit of region 1 (input p, T=623.15 K)</li>
+ <li>Function <b>dupper1ofT</b>computes the high pressure density limit of region 1 (input T, p=100MPa)</li>
+ <li>Function <b>hl_p_R4b</b> computes a high accuracy approximation to the liquid enthalpy for temperatures > 623.15 K (input p)</li>
+ <li>Function <b>hv_p_R4b</b> computes a high accuracy approximation to the vapour enthalpy for temperatures > 623.15 K (input p)</li>
+ <li>Function <b>sl_p_R4b</b> computes a high accuracy approximation to the liquid entropy for temperatures > 623.15 K (input p)</li>
+ <li>Function <b>sv_p_R4b</b> computes a high accuracy approximation to the vapour entropy for temperatures > 623.15 K (input p)</li>
+ <li>Function <b>rhol_p_R4b</b> computes a high accuracy approximation to the liquid density for temperatures > 623.15 K (input p)</li>
+ <li>Function <b>rhov_p_R4b</b> computes a high accuracy approximation to the vapour density for temperatures > 623.15 K (input p)</li>
+ </ul>
+ </p>
+<h4>Version Info and Revision history
+</h4>
+ <ul>
+<li>First implemented: <i>July, 2000</i>
+       by <a href="http://www.control.lth.se/~hubertus/">Hubertus Tummescheit</a>
+       </li>
+</ul>
+<address>Authors: Hubertus Tummescheit, Jonas Eborn and Falko Jens Wagner<br>
+      Modelon AB<br>
+      Ideon Science Park<br>
+      SE-22370 Lund, Sweden<br>
+      email: hubertus@modelon.se
+ </address>
+ <ul>
+ <li>Initial version: July 2000</li>
+ <li>Revised and extended for inclusion in Modelica.Thermal: December 2002</li>
+</ul>
+<pre>
+</PRE><P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#ad96a47c0204ebf4ns.boundary23ofT"
+>boundary23ofT</A>
+</TD><TD>boundary function for region boundary between regions 2 and 3 (input temperature)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofp" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#ad96a4980204ebd0ns.boundary23ofp"
+>boundary23ofp</A>
+</TD><TD>boundary function for region boundary between regions 2 and 3 (input pressure)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hlowerofp5" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#5699db7f1dffb399gions.hlowerofp5"
+>hlowerofp5</A>
+</TD><TD>explicit lower specific enthalpy limit of region 5 as function of pressure</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hupperofp5" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#beb8cb44ddffaa60gions.hupperofp5"
+>hupperofp5</A>
+</TD><TD>explicit upper specific enthalpy limit of region 5 as function of pressure</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.slowerofp5" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#70d2cac01dfcd399gions.slowerofp5"
+>slowerofp5</A>
+</TD><TD>explicit lower specific entropy limit of region 5 as function of pressure</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.supperofp5" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#d8f1ba85ddfcca60gions.supperofp5"
+>supperofp5</A>
+</TD><TD>explicit upper specific entropy limit of region 5 as function of pressure</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hlowerofp1" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#5699db7b1dffb39dgions.hlowerofp1"
+>hlowerofp1</A>
+</TD><TD>explicit lower specific enthalpy limit of region 1 as function of pressure</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hupperofp1" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#beb8cb40ddffaa64gions.hupperofp1"
+>hupperofp1</A>
+</TD><TD>explicit upper specific enthalpy limit of region 1 as function of pressure (meets region 4 saturation pressure curve at 623.15 K)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.slowerofp1" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#70d2cabc1dfcd39dgions.slowerofp1"
+>slowerofp1</A>
+</TD><TD>explicit lower specific entropy limit of region 1 as function of pressure</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.supperofp1" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#d8f1ba81ddfcca64gions.supperofp1"
+>supperofp1</A>
+</TD><TD>explicit upper specific entropy limit of region 1 as function of pressure (meets region 4 saturation pressure curve at 623.15 K)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hlowerofp2" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#5699db7c1dffb39egions.hlowerofp2"
+>hlowerofp2</A>
+</TD><TD>explicit lower specific enthalpy limit of region 2 as function of pressure (meets region 4 saturation pressure curve at 623.15 K)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hupperofp2" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#beb8cb41ddffaa67gions.hupperofp2"
+>hupperofp2</A>
+</TD><TD>explicit upper specific enthalpy limit of region 2 as function of pressure</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.slowerofp2" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#70d2cabd1dfcd39egions.slowerofp2"
+>slowerofp2</A>
+</TD><TD>explicit lower specific entropy limit of region 2 as function of pressure (meets region 4 saturation pressure curve at 623.15 K)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.supperofp2" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#d8f1ba82ddfcca67gions.supperofp2"
+>supperofp2</A>
+</TD><TD>explicit upper specific entropy limit of region 2 as function of pressure</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.d1n" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#ee0a35a7251d0f17IF97.Regions.d1n"
+>d1n</A>
+</TD><TD>density in region 1 as function of p and T</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.d2n" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#ee0a362a251d0f77IF97.Regions.d2n"
+>d2n</A>
+</TD><TD>density in region 2  as function of p and T</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.dhot1ofp" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#1c328aff6b190ab8Regions.dhot1ofp"
+>dhot1ofp</A>
+</TD><TD>density at upper temperature limit of region 1</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.dupper1ofT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#6711d080ddd10cc1gions.dupper1ofT"
+>dupper1ofT</A>
+</TD><TD>density at upper pressure limit of region 1</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hl_p_R4b" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#d43aaa4c0b6ef48bRegions.hl_p_R4b"
+>hl_p_R4b</A>
+</TD><TD>explicit approximation of liquid specific enthalpy on the boundary between regions 4 and 3</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hv_p_R4b" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#e334c0c68b6ef48dRegions.hv_p_R4b"
+>hv_p_R4b</A>
+</TD><TD>explicit approximation of vapour specific enthalpy on the boundary between regions 4 and 3</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.sl_p_R4b" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#f599eac50b6ef453Regions.sl_p_R4b"
+>sl_p_R4b</A>
+</TD><TD>explicit approximation of liquid specific entropy on the boundary between regions 4 and 3</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.sv_p_R4b" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#0494013f8b6ef455Regions.sv_p_R4b"
+>sv_p_R4b</A>
+</TD><TD>explicit approximation of vapour specific entropy on the boundary between regions 4 and 3</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhol_p_R4b" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#6aaafa47a9c42f48gions.rhol_p_R4b"
+>rhol_p_R4b</A>
+</TD><TD>explicit approximation of liquid density on the boundary between regions 4 and 3</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhov_p_R4b" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#79a510c129c42f4egions.rhov_p_R4b"
+>rhov_p_R4b</A>
+</TD><TD>explicit approximation of vapour density on the boundary between regions 4 and 2</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boilingcurve_p" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#7bce88a84488dc3es.boilingcurve_p"
+>boilingcurve_p</A>
+</TD><TD>properties on the boiling curve</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.dewcurve_p" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#ae34ccdc3df2b3f9gions.dewcurve_p"
+>dewcurve_p</A>
+</TD><TD>properties on the dew curve</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hvl_p" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#59dc06e574dfdf0c97.Regions.hvl_p"
+>hvl_p</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hl_p" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#cfd216b783a690b4F97.Regions.hl_p"
+>hl_p</A>
+</TD><TD>liquid specific enthalpy on the boundary between regions 4 and 3 or 1</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hv_p" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#cfd4b51183a6f8b4F97.Regions.hv_p"
+>hv_p</A>
+</TD><TD>vapour specific enthalpy on the boundary between regions 4 and 3 or 2</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hvl_p_der" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#e97b2c9ff1e9512fegions.hvl_p_der"
+>hvl_p_der</A>
+</TD><TD>derivative function for the specific enthalpy along the phase boundary</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhovl_p" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#44056406c358aa45.Regions.rhovl_p"
+>rhovl_p</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhol_p" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#d96cc942ae1aa89e7.Regions.rhol_p"
+>rhol_p</A>
+</TD><TD>density of saturated water</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhov_p" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#d96f679cae1ac09e7.Regions.rhov_p"
+>rhov_p</A>
+</TD><TD>density of saturated vapour</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhovl_p_der" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#e4f41a10a4722924ions.rhovl_p_der"
+>rhovl_p_der</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.sl_p" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#d14b6c6083ab10b4F97.Regions.sl_p"
+>sl_p</A>
+</TD><TD>liquid specific entropy on the boundary between regions 4 and 3 or 1</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.sv_p" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#d14e0aba83ab78b4F97.Regions.sv_p"
+>sv_p</A>
+</TD><TD>vapour specific entropy on the boundary between regions 4 and 3 or 2</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhol_T" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#d96cc926ae1aa8ba7.Regions.rhol_T"
+>rhol_T</A>
+</TD><TD>density of saturated water</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhov_T" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#d96f6780ae1ac0ba7.Regions.rhov_T"
+>rhov_T</A>
+</TD><TD>density of saturated vapour</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.region_ph" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#3287979d5c01250fegions.region_ph"
+>region_ph</A>
+</TD><TD>return the current region (valid values: 1,2,3,4,5) in IF97 for given pressure and specific enthalpy</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.region_ps" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#328797a85c012514egions.region_ps"
+>region_ps</A>
+</TD><TD>return the current region (valid values: 1,2,3,4,5) in IF97 for given pressure and specific entropy</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.region_pT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#328797895c012533egions.region_pT"
+>region_pT</A>
+</TD><TD>return the current region (valid values: 1,2,3,5) in IF97, given pressure and temperature</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.region_dT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#328791655c0127b3egions.region_dT"
+>region_dT</A>
+</TD><TD>return the current region (valid values: 1,2,3,4,5) in IF97, given density and temperature</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hvl_dp" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#fb97817b9bfbe3fe7.Regions.hvl_dp"
+>hvl_dp</A>
+</TD><TD>derivative function for the specific enthalpy along the phase boundary</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.dhl_dp" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#17c65b41821be3fe7.Regions.dhl_dp"
+>dhl_dp</A>
+</TD><TD>derivative of liquid specific enthalpy on the boundary between regions 4 and 3 or 1 w.r.t pressure</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.dhv_dp" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#191d634f8216e3fe7.Regions.dhv_dp"
+>dhv_dp</A>
+</TD><TD>derivative of vapour specific enthalpy on the boundary between regions 4 and 3 or 1 w.r.t pressure</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.drhovl_dp" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#f82844ce9190312cegions.drhovl_dp"
+>drhovl_dp</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.drhol_dp" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#faadb2e2e4874afeRegions.drhol_dp"
+>drhol_dp</A>
+</TD><TD>derivative of density of saturated water w.r.t. pressure</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.drhov_dp" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#fc04baf0e48a4afeRegions.drhov_dp"
+>drhov_dp</A>
+</TD><TD>derivative of density of saturated steam w.r.t. pressure</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE boundary23ofT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ad96a47c0204ebf4ns.boundary23ofT"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#a2ee7448b9959290BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.boundary23ofT</H2>
+<B>boundary function for region boundary between regions 2 and 3 (input temperature)</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>t</TD><TD>&nbsp;</TD><TD>temperature (K) [K]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>p</TD><TD>pressure [Pa]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> boundary23ofT <font color="darkgreen">
+  &quot;boundary function for region boundary between regions 2 and 3 (input temperature)&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> t <font color="darkgreen">&quot;temperature (K)&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+<font color="blue">protected </font>
+  <font color="blue">constant </font>Real[5] n=data.n;
+<font color="blue">algorithm </font>
+  p := 1.0e6*(n[1] + t*(n[2] + t*n[3]));
+<font color="blue">end </font>boundary23ofT;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE boundary23ofp<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofp" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ad96a4980204ebd0ns.boundary23ofp"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#a2ee7448b9959290BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.boundary23ofp</H2>
+<B>boundary function for region boundary between regions 2 and 3 (input pressure)</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>t</TD><TD>temperature (K) [K]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> boundary23ofp <font color="darkgreen">
+  &quot;boundary function for region boundary between regions 2 and 3 (input pressure)&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> t <font color="darkgreen">&quot;temperature (K)&quot;</font>;
+<font color="blue">protected </font>
+  <font color="blue">constant </font>Real[5] n=data.n;
+  Real pi <font color="darkgreen">&quot;dimensionless pressure&quot;</font>;
+<font color="blue">algorithm </font>
+  pi := p/1.0e6;
+  <font color="red">assert</font>(p &gt; triple.ptriple,
+    &quot;IF97 medium function boundary23ofp called with too low pressure\n&quot; +
+    &quot;p = &quot; +<font color="red"> String</font>(p) + &quot; Pa &lt;= &quot; +<font color="red"> String</font>(triple.ptriple) + &quot; Pa (triple point pressure)&quot;);
+  t := n[4] + ((pi - n[5])/n[3])^0.5;
+<font color="blue">end </font>boundary23ofp;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE hlowerofp5<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hlowerofp5" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="5699db7f1dffb399gions.hlowerofp5"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#a2ee7448b9959290BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.hlowerofp5</H2>
+<B>explicit lower specific enthalpy limit of region 5 as function of pressure</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SpecificEnthalpy</A></TD><TD>h</TD><TD>specific enthalpy [J/kg]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> hlowerofp5 <font color="darkgreen">
+  &quot;explicit lower specific enthalpy limit of region 5 as function of pressure&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SI.SpecificEnthalpy</A> h <font color="darkgreen">&quot;specific enthalpy&quot;</font>;
+<font color="blue">protected </font>
+  Real pi <font color="darkgreen">&quot;dimensionless pressure&quot;</font>;
+<font color="blue">algorithm </font>
+  pi := p/data.PSTAR5;
+  <font color="red">assert</font>(p &gt; triple.ptriple,
+    &quot;IF97 medium function hlowerofp5 called with too low pressure\n&quot; +
+    &quot;p = &quot; +<font color="red"> String</font>(p) + &quot; Pa &lt;= &quot; +<font color="red"> String</font>(triple.ptriple) + &quot; Pa (triple point pressure)&quot;);
+  h := 461526.*(9.01505286876203 + pi*(-0.00979043490246092 + (-0.0000203245575263501
+     + 3.36540214679088e-7*pi)*pi));
+<font color="blue">end </font>hlowerofp5;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE hupperofp5<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hupperofp5" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="beb8cb44ddffaa60gions.hupperofp5"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#a2ee7448b9959290BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.hupperofp5</H2>
+<B>explicit upper specific enthalpy limit of region 5 as function of pressure</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SpecificEnthalpy</A></TD><TD>h</TD><TD>specific enthalpy [J/kg]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> hupperofp5 <font color="darkgreen">
+  &quot;explicit upper specific enthalpy limit of region 5 as function of pressure&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SI.SpecificEnthalpy</A> h <font color="darkgreen">&quot;specific enthalpy&quot;</font>;
+<font color="blue">protected </font>
+  Real pi <font color="darkgreen">&quot;dimensionless pressure&quot;</font>;
+<font color="blue">algorithm </font>
+  pi := p/data.PSTAR5;
+  <font color="red">assert</font>(p &gt; triple.ptriple,
+    &quot;IF97 medium function hupperofp5 called with too low pressure\n&quot; +
+    &quot;p = &quot; +<font color="red"> String</font>(p) + &quot; Pa &lt;= &quot; +<font color="red"> String</font>(triple.ptriple) + &quot; Pa (triple point pressure)&quot;);
+  h := 461526.*(15.9838891400332 + pi*(-0.000489898813722568 + (-5.01510211858761e-8
+     + 7.5006972718273e-8*pi)*pi));
+<font color="blue">end </font>hupperofp5;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE slowerofp5<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.slowerofp5" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="70d2cac01dfcd399gions.slowerofp5"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#a2ee7448b9959290BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.slowerofp5</H2>
+<B>explicit lower specific entropy limit of region 5 as function of pressure</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEntropy"
+>SpecificEntropy</A></TD><TD>s</TD><TD>specific entropy [J/(kg.K)]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> slowerofp5 <font color="darkgreen">
+  &quot;explicit lower specific entropy limit of region 5 as function of pressure&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEntropy"
+>SI.SpecificEntropy</A> s <font color="darkgreen">&quot;specific entropy&quot;</font>;
+<font color="blue">protected </font>
+  Real pi <font color="darkgreen">&quot;dimensionless pressure&quot;</font>;
+<font color="blue">algorithm </font>
+  pi := p/data.PSTAR5;
+  <font color="red">assert</font>(p &gt; triple.ptriple,
+    &quot;IF97 medium function slowerofp5 called with too low pressure\n&quot; +
+    &quot;p = &quot; +<font color="red"> String</font>(p) + &quot; Pa &lt;= &quot; +<font color="red"> String</font>(triple.ptriple) + &quot; Pa (triple point pressure)&quot;);
+  s := 461.526*(18.4296209980112 + pi*(-0.00730911805860036 + (-0.0000168348072093888
+     + 2.09066899426354e-7*pi)*pi) -<font color="red"> Modelica.Math.log</font>(pi));
+<font color="blue">end </font>slowerofp5;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE supperofp5<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.supperofp5" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="d8f1ba85ddfcca60gions.supperofp5"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#a2ee7448b9959290BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.supperofp5</H2>
+<B>explicit upper specific entropy limit of region 5 as function of pressure</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEntropy"
+>SpecificEntropy</A></TD><TD>s</TD><TD>specific entropy [J/(kg.K)]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> supperofp5 <font color="darkgreen">
+  &quot;explicit upper specific entropy limit of region 5 as function of pressure&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEntropy"
+>SI.SpecificEntropy</A> s <font color="darkgreen">&quot;specific entropy&quot;</font>;
+<font color="blue">protected </font>
+  Real pi <font color="darkgreen">&quot;dimensionless pressure&quot;</font>;
+<font color="blue">algorithm </font>
+  pi := p/data.PSTAR5;
+  <font color="red">assert</font>(p &gt; triple.ptriple,
+    &quot;IF97 medium function supperofp5 called with too low pressure\n&quot; +
+    &quot;p = &quot; +<font color="red"> String</font>(p) + &quot; Pa &lt;= &quot; +<font color="red"> String</font>(triple.ptriple) + &quot; Pa (triple point pressure)&quot;);
+  s := 461.526*(22.7281531474243 + pi*(-0.000656650220627603 + (-1.96109739782049e-8
+     + 2.19979537113031e-8*pi)*pi) -<font color="red"> Modelica.Math.log</font>(pi));
+<font color="blue">end </font>supperofp5;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE hlowerofp1<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hlowerofp1" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="5699db7b1dffb39dgions.hlowerofp1"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#a2ee7448b9959290BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.hlowerofp1</H2>
+<B>explicit lower specific enthalpy limit of region 1 as function of pressure</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SpecificEnthalpy</A></TD><TD>h</TD><TD>specific enthalpy [J/kg]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> hlowerofp1 <font color="darkgreen">
+  &quot;explicit lower specific enthalpy limit of region 1 as function of pressure&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SI.SpecificEnthalpy</A> h <font color="darkgreen">&quot;specific enthalpy&quot;</font>;
+<font color="blue">protected </font>
+  Real pi1 <font color="darkgreen">&quot;dimensionless pressure&quot;</font>;
+  Real[3] o <font color="darkgreen">&quot;vector of auxiliary variables&quot;</font>;
+<font color="blue">algorithm </font>
+  pi1 := 7.1 - p/data.PSTAR1;
+  <font color="red">assert</font>(p &gt; triple.ptriple,
+    &quot;IF97 medium function hlowerofp1 called with too low pressure\n&quot; +
+    &quot;p = &quot; +<font color="red"> String</font>(p) + &quot; Pa &lt;= &quot; +<font color="red"> String</font>(triple.ptriple) + &quot; Pa (triple point pressure)&quot;);
+  o[1] := pi1*pi1;
+  o[2] := o[1]*o[1];
+  o[3] := o[2]*o[2];
+
+  h := 639675.036*(0.173379420894777 + pi1*(-0.022914084306349 + pi1*(-0.00017146768241932
+     + pi1*(-4.18695814670391e-6 + pi1*(-2.41630417490008e-7 + pi1*(
+    1.73545618580828e-11 + o[1]*pi1*(8.43755552264362e-14 + o[2]*o[3]*pi1
+    *(5.35429206228374e-35 + o[1]*(-8.12140581014818e-38 + o[1]*o[2]*(-1.43870236842915e-44
+     + pi1*(1.73894459122923e-45 + (-7.06381628462585e-47 +
+    9.64504638626269e-49*pi1)*pi1)))))))))));
+<font color="blue">end </font>hlowerofp1;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE hupperofp1<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hupperofp1" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="beb8cb40ddffaa64gions.hupperofp1"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#a2ee7448b9959290BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.hupperofp1</H2>
+<B>explicit upper specific enthalpy limit of region 1 as function of pressure (meets region 4 saturation pressure curve at 623.15 K)</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SpecificEnthalpy</A></TD><TD>h</TD><TD>specific enthalpy [J/kg]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> hupperofp1 <font color="darkgreen">
+  &quot;explicit upper specific enthalpy limit of region 1 as function of pressure (meets region 4 saturation pressure curve at 623.15 K)&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SI.SpecificEnthalpy</A> h <font color="darkgreen">&quot;specific enthalpy&quot;</font>;
+<font color="blue">protected </font>
+  Real pi1 <font color="darkgreen">&quot;dimensionless pressure&quot;</font>;
+  Real[3] o <font color="darkgreen">&quot;vector of auxiliary variables&quot;</font>;
+<font color="blue">algorithm </font>
+  pi1 := 7.1 - p/data.PSTAR1;
+  <font color="red">assert</font>(p &gt; triple.ptriple,
+    &quot;IF97 medium function hupperofp1 called with too low pressure\n&quot; +
+    &quot;p = &quot; +<font color="red"> String</font>(p) + &quot; Pa &lt;= &quot; +<font color="red"> String</font>(triple.ptriple) + &quot; Pa (triple point pressure)&quot;);
+  o[1] := pi1*pi1;
+  o[2] := o[1]*o[1];
+  o[3] := o[2]*o[2];
+  h := 639675.036*(2.42896927729349 + pi1*(-0.00141131225285294 + pi1*(
+    0.00143759406818289 + pi1*(0.000125338925082983 + pi1*(
+    0.0000123617764767172 + pi1*(3.17834967400818e-6 + o[1]*pi1*(
+    1.46754947271665e-8 + o[2]*o[3]*pi1*(1.86779322717506e-17 + o[1]*(-4.18568363667416e-19
+     + o[1]*o[2]*(-9.19148577641497e-22 + pi1*(4.27026404402408e-22 + (-6.66749357417962e-23
+     + 3.49930466305574e-24*pi1)*pi1)))))))))));
+<font color="blue">end </font>hupperofp1;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE slowerofp1<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.slowerofp1" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="70d2cabc1dfcd39dgions.slowerofp1"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#a2ee7448b9959290BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.slowerofp1</H2>
+<B>explicit lower specific entropy limit of region 1 as function of pressure</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEntropy"
+>SpecificEntropy</A></TD><TD>s</TD><TD>specific entropy [J/(kg.K)]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> slowerofp1 <font color="darkgreen">
+  &quot;explicit lower specific entropy limit of region 1 as function of pressure&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEntropy"
+>SI.SpecificEntropy</A> s <font color="darkgreen">&quot;specific entropy&quot;</font>;
+<font color="blue">protected </font>
+  Real pi1 <font color="darkgreen">&quot;dimensionless pressure&quot;</font>;
+  Real[3] o <font color="darkgreen">&quot;vector of auxiliary variables&quot;</font>;
+<font color="blue">algorithm </font>
+  pi1 := 7.1 - p/data.PSTAR1;
+  <font color="red">assert</font>(p &gt; triple.ptriple,
+    &quot;IF97 medium function slowerofp1 called with too low pressure\n&quot; +
+    &quot;p = &quot; +<font color="red"> String</font>(p) + &quot; Pa &lt;= &quot; +<font color="red"> String</font>(triple.ptriple) + &quot; Pa (triple point pressure)&quot;);
+  o[1] := pi1*pi1;
+  o[2] := o[1]*o[1];
+  o[3] := o[2]*o[2];
+  s := 461.526*(-0.0268080988194267 + pi1*(0.00834795890110168 + pi1*(-0.000486470924668433
+     + pi1*(-0.0000154902045012264 + pi1*(-1.07631751351358e-6 + pi1*(
+    9.64159058957115e-11 + o[1]*pi1*(4.81921078863103e-13 + o[2]*o[3]*pi1
+    *(2.7879623870968e-34 + o[1]*(-4.22182957646226e-37 + o[1]*o[2]*(-7.44601427465175e-44
+     + pi1*(8.99540001407168e-45 + (-3.65230274480299e-46 +
+    4.98464639687285e-48*pi1)*pi1)))))))))));
+<font color="blue">end </font>slowerofp1;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE supperofp1<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.supperofp1" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="d8f1ba81ddfcca64gions.supperofp1"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#a2ee7448b9959290BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.supperofp1</H2>
+<B>explicit upper specific entropy limit of region 1 as function of pressure (meets region 4 saturation pressure curve at 623.15 K)</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEntropy"
+>SpecificEntropy</A></TD><TD>s</TD><TD>specific entropy [J/(kg.K)]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> supperofp1 <font color="darkgreen">
+  &quot;explicit upper specific entropy limit of region 1 as function of pressure (meets region 4 saturation pressure curve at 623.15 K)&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEntropy"
+>SI.SpecificEntropy</A> s <font color="darkgreen">&quot;specific entropy&quot;</font>;
+<font color="blue">protected </font>
+  Real pi1 <font color="darkgreen">&quot;dimensionless pressure&quot;</font>;
+  Real[3] o <font color="darkgreen">&quot;vector of auxiliary variables&quot;</font>;
+<font color="blue">algorithm </font>
+  pi1 := 7.1 - p/data.PSTAR1;
+  <font color="red">assert</font>(p &gt; triple.ptriple,
+    &quot;IF97 medium function supperofp1 called with too low pressure\n&quot; +
+    &quot;p = &quot; +<font color="red"> String</font>(p) + &quot; Pa &lt;= &quot; +<font color="red"> String</font>(triple.ptriple) + &quot; Pa (triple point pressure)&quot;);
+  o[1] := pi1*pi1;
+  o[2] := o[1]*o[1];
+  o[3] := o[2]*o[2];
+  s := 461.526*(7.28316418503422 + pi1*(0.070602197808399 + pi1*(
+    0.0039229343647356 + pi1*(0.000313009170788845 + pi1*(
+    0.0000303619398631619 + pi1*(7.46739440045781e-6 + o[1]*pi1*(
+    3.40562176858676e-8 + o[2]*o[3]*pi1*(4.21886233340801e-17 + o[1]*(-9.44504571473549e-19
+     + o[1]*o[2]*(-2.06859611434475e-21 + pi1*(9.60758422254987e-22 + (-1.49967810652241e-22
+     + 7.86863124555783e-24*pi1)*pi1)))))))))));
+<font color="blue">end </font>supperofp1;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE hlowerofp2<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hlowerofp2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="5699db7c1dffb39egions.hlowerofp2"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#a2ee7448b9959290BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.hlowerofp2</H2>
+<B>explicit lower specific enthalpy limit of region 2 as function of pressure (meets region 4 saturation pressure curve at 623.15 K)</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SpecificEnthalpy</A></TD><TD>h</TD><TD>specific enthalpy [J/kg]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> hlowerofp2 <font color="darkgreen">
+  &quot;explicit lower specific enthalpy limit of region 2 as function of pressure (meets region 4 saturation pressure curve at 623.15 K)&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SI.SpecificEnthalpy</A> h <font color="darkgreen">&quot;specific enthalpy&quot;</font>;
+<font color="blue">protected </font>
+  Real pi <font color="darkgreen">&quot;dimensionless pressure&quot;</font>;
+  Real q1 <font color="darkgreen">&quot;auxiliary variable&quot;</font>;
+  Real q2 <font color="darkgreen">&quot;auxiliary variable&quot;</font>;
+  Real[18] o <font color="darkgreen">&quot;vector of auxiliary variables&quot;</font>;
+<font color="blue">algorithm </font>
+  pi := p/data.PSTAR2;
+  <font color="red">assert</font>(p &gt; triple.ptriple,
+    &quot;IF97 medium function hlowerofp2 called with too low pressure\n&quot; +
+    &quot;p = &quot; +<font color="red"> String</font>(p) + &quot; Pa &lt;= &quot; +<font color="red"> String</font>(triple.ptriple) + &quot; Pa (triple point pressure)&quot;);
+  q1 := 572.54459862746 + 31.3220101646784*(-13.91883977887 + pi)^0.5;
+  q2 := -0.5 + 540./q1;
+  o[1] := q1*q1;
+  o[2] := o[1]*o[1];
+  o[3] := o[2]*o[2];
+  o[4] := pi*pi;
+  o[5] := o[4]*o[4];
+  o[6] := q2*q2;
+  o[7] := o[6]*o[6];
+  o[8] := o[6]*o[7];
+  o[9] := o[5]*o[5];
+  o[10] := o[7]*o[7];
+  o[11] := o[9]*o[9];
+  o[12] := o[10]*o[10];
+  o[13] := o[12]*o[12];
+  o[14] := o[7]*q2;
+  o[15] := o[6]*q2;
+  o[16] := o[10]*o[6];
+  o[17] := o[13]*o[6];
+  o[18] := o[13]*o[6]*q2;
+  h := (4.63697573303507e9 + 3.74686560065793*o[2] + 3.57966647812489e-6*
+    o[1]*o[2] + 2.81881548488163e-13*o[3] - 7.64652332452145e7*q1 -
+    0.00450789338787835*o[2]*q1 - 1.55131504410292e-9*o[1]*o[2]*q1 + o[1]
+    *(2.51383707870341e6 - 4.78198198764471e6*o[10]*o[11]*o[12]*o[13]*o[4]
+     + 49.9651389369988*o[11]*o[12]*o[13]*o[4]*o[5]*o[7] + o[15]*o[4]*(
+    1.03746636552761e-13 - 0.00349547959376899*o[16] -
+    2.55074501962569e-7*o[8])*o[9] + (-242662.235426958*o[10]*o[12] -
+    3.46022402653609*o[16])*o[4]*o[5]*pi + o[4]*(0.109336249381227 -
+    2248.08924686956*o[14] - 354742.725841972*o[17] - 24.1331193696374*o[
+    6])*pi - 3.09081828396912e-19*o[11]*o[12]*o[5]*o[7]*pi -
+    1.24107527851371e-8*o[11]*o[13]*o[4]*o[5]*o[6]*o[7]*pi +
+    3.99891272904219*o[5]*o[8]*pi + 0.0641817365250892*o[10]*o[7]*o[9]*pi
+     + pi*(-4444.87643334512 - 75253.6156722047*o[14] - 43051.9020511789*
+    o[6] - 22926.6247146068*q2) + o[4]*(-8.23252840892034 -
+    3927.0508365636*o[15] - 239.325789467604*o[18] - 76407.3727417716*o[8]
+     - 94.4508644545118*q2) + 0.360567666582363*o[5]*(-0.0161221195808321
+     + q2)*(0.0338039844460968 + q2) + o[11]*(-0.000584580992538624*o[10]
+    *o[12]*o[7] + 1.33248030241755e6*o[12]*o[13]*q2) + o[9]*(-7.38502736990986e7
+    *o[18] + 0.0000224425477627799*o[6]*o[7]*q2) + o[4]*o[5]*(-2.08438767026518e8
+    *o[17] - 0.0000124971648677697*o[6] - 8442.30378348203*o[10]*o[6]*o[7]
+    *q2) + o[11]*o[9]*(4.73594929247646e-22*o[10]*o[12]*q2 -
+    13.6411358215175*o[10]*o[12]*o[13]*q2 + 5.52427169406836e-10*o[13]*o[
+    6]*o[7]*q2) + o[11]*o[5]*(2.67174673301715e-6*o[17] +
+    4.44545133805865e-18*o[12]*o[6]*q2 - 50.2465185106411*o[10]*o[13]*o[6]
+    *o[7]*q2)))/o[1];
+<font color="blue">end </font>hlowerofp2;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE hupperofp2<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hupperofp2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="beb8cb41ddffaa67gions.hupperofp2"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#a2ee7448b9959290BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.hupperofp2</H2>
+<B>explicit upper specific enthalpy limit of region 2 as function of pressure</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SpecificEnthalpy</A></TD><TD>h</TD><TD>specific enthalpy [J/kg]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> hupperofp2 <font color="darkgreen">
+  &quot;explicit upper specific enthalpy limit of region 2 as function of pressure&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SI.SpecificEnthalpy</A> h <font color="darkgreen">&quot;specific enthalpy&quot;</font>;
+<font color="blue">protected </font>
+  Real pi <font color="darkgreen">&quot;dimensionless pressure&quot;</font>;
+  Real[2] o <font color="darkgreen">&quot;vector of auxiliary variables&quot;</font>;
+<font color="blue">algorithm </font>
+  pi := p/data.PSTAR2;
+  <font color="red">assert</font>(p &gt; triple.ptriple,
+    &quot;IF97 medium function hupperofp2 called with too low pressure\n&quot; +
+    &quot;p = &quot; +<font color="red"> String</font>(p) + &quot; Pa &lt;= &quot; +<font color="red"> String</font>(triple.ptriple) + &quot; Pa (triple point pressure)&quot;);
+  o[1] := pi*pi;
+  o[2] := o[1]*o[1]*o[1];
+  h := 4.16066337647071e6 + pi*(-4518.48617188327 + pi*(-8.53409968320258
+     + pi*(0.109090430596056 + pi*(-0.000172486052272327 + pi*(
+    4.2261295097284e-15 + pi*(-1.27295130636232e-10 + pi*(-3.79407294691742e-25
+     + pi*(7.56960433802525e-23 + pi*(7.16825117265975e-32 + pi*(
+    3.37267475986401e-21 + (-7.5656940729795e-74 + o[1]*(-8.00969737237617e-134
+     + (1.6746290980312e-65 + pi*(-3.71600586812966e-69 + pi*(
+    8.06630589170884e-129 + (-1.76117969553159e-103 +
+    1.88543121025106e-84*pi)*pi)))*o[1]))*o[2]))))))))));
+<font color="blue">end </font>hupperofp2;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE slowerofp2<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.slowerofp2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="70d2cabd1dfcd39egions.slowerofp2"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#a2ee7448b9959290BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.slowerofp2</H2>
+<B>explicit lower specific entropy limit of region 2 as function of pressure (meets region 4 saturation pressure curve at 623.15 K)</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEntropy"
+>SpecificEntropy</A></TD><TD>s</TD><TD>specific entropy [J/(kg.K)]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> slowerofp2 <font color="darkgreen">
+  &quot;explicit lower specific entropy limit of region 2 as function of pressure (meets region 4 saturation pressure curve at 623.15 K)&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEntropy"
+>SI.SpecificEntropy</A> s <font color="darkgreen">&quot;specific entropy&quot;</font>;
+<font color="blue">protected </font>
+  Real pi <font color="darkgreen">&quot;dimensionless pressure&quot;</font>;
+  Real q1 <font color="darkgreen">&quot;auxiliary variable&quot;</font>;
+  Real q2 <font color="darkgreen">&quot;auxiliary variable&quot;</font>;
+  Real[40] o <font color="darkgreen">&quot;vector of auxiliary variables&quot;</font>;
+<font color="blue">algorithm </font>
+  pi := p/data.PSTAR2;
+  <font color="red">assert</font>(p &gt; triple.ptriple,
+    &quot;IF97 medium function slowerofp2 called with too low pressure\n&quot; +
+    &quot;p = &quot; +<font color="red"> String</font>(p) + &quot; Pa &lt;= &quot; +<font color="red"> String</font>(triple.ptriple) + &quot; Pa (triple point pressure)&quot;);
+  q1 := 572.54459862746 + 31.3220101646784*(-13.91883977887 + pi)^0.5;
+  q2 := -0.5 + 540.0/q1;
+  o[1] := pi*pi;
+  o[2] := o[1]*pi;
+  o[3] := o[1]*o[1];
+  o[4] := o[1]*o[3]*pi;
+  o[5] := q1*q1;
+  o[6] := o[5]*q1;
+  o[7] := 1/o[5];
+  o[8] := 1/q1;
+  o[9] := o[5]*o[5];
+  o[10] := o[9]*q1;
+  o[11] := q2*q2;
+  o[12] := o[11]*q2;
+  o[13] := o[1]*o[3];
+  o[14] := o[11]*o[11];
+  o[15] := o[3]*o[3];
+  o[16] := o[1]*o[15];
+  o[17] := o[11]*o[14];
+  o[18] := o[11]*o[14]*q2;
+  o[19] := o[3]*pi;
+  o[20] := o[14]*o[14];
+  o[21] := o[11]*o[20];
+  o[22] := o[15]*pi;
+  o[23] := o[14]*o[20]*q2;
+  o[24] := o[20]*o[20];
+  o[25] := o[15]*o[15];
+  o[26] := o[25]*o[3];
+  o[27] := o[14]*o[24];
+  o[28] := o[25]*o[3]*pi;
+  o[29] := o[20]*o[24]*q2;
+  o[30] := o[15]*o[25];
+  o[31] := o[24]*o[24];
+  o[32] := o[11]*o[31]*q2;
+  o[33] := o[14]*o[31];
+  o[34] := o[1]*o[25]*o[3]*pi;
+  o[35] := o[11]*o[14]*o[31]*q2;
+  o[36] := o[1]*o[25]*o[3];
+  o[37] := o[1]*o[25];
+  o[38] := o[20]*o[24]*o[31]*q2;
+  o[39] := o[14]*q2;
+  o[40] := o[11]*o[31];
+
+  s := 461.526*(9.692768600217 + 1.22151969114703e-16*o[10] +
+    0.00018948987516315*o[1]*o[11] + 1.6714766451061e-11*o[12]*o[13] +
+    0.0039392777243355*o[1]*o[14] - 1.0406965210174e-19*o[14]*o[16] +
+    0.043797295650573*o[1]*o[18] - 2.2922076337661e-6*o[18]*o[19] -
+    2.0481737692309e-8*o[2] + 0.00003227767723857*o[12]*o[2] +
+    0.0015033924542148*o[17]*o[2] - 1.1256211360459e-11*o[15]*o[20] +
+    1.0018179379511e-9*o[11]*o[14]*o[16]*o[20] + 1.0234747095929e-13*o[16]
+    *o[21] - 1.9809712802088e-8*o[22]*o[23] + 0.0021171472321355*o[13]*o[
+    24] - 8.9185845355421e-25*o[26]*o[27] - 1.2790717852285e-8*o[11]*o[3]
+     - 4.8225372718507e-7*o[12]*o[3] - 7.3087610595061e-29*o[11]*o[20]*o[
+    24]*o[30] - 0.10693031879409*o[11]*o[24]*o[25]*o[31] +
+    4.2002467698208e-6*o[24]*o[26]*o[31] - 5.5414715350778e-17*o[20]*o[30]
+    *o[31] + 9.436970724121e-7*o[11]*o[20]*o[24]*o[30]*o[31] +
+    23.895741934104*o[13]*o[32] + 0.040668253562649*o[2]*o[32] -
+    3.0629316876232e-13*o[26]*o[32] + 0.000026674547914087*o[1]*o[33] +
+    8.2311340897998*o[15]*o[33] + 1.2768608934681e-15*o[34]*o[35] +
+    0.33662250574171*o[37]*o[38] + 5.905956432427e-18*o[4] +
+    0.038946842435739*o[29]*o[4] - 4.88368302964335e-6*o[5] -
+    3.34901734177133e6/o[6] + 2.58538448402683e-9*o[6] + 82839.5726841115
+    *o[7] - 5446.7940672972*o[8] - 8.40318337484194e-13*o[9] +
+    0.0017731742473213*pi + 0.045996013696365*o[11]*pi +
+    0.057581259083432*o[12]*pi + 0.05032527872793*o[17]*pi + o[8]*pi*(
+    9.63082563787332 - 0.008917431146179*q1) + 0.00811842799898148*q1 +
+    0.000033032641670203*o[1]*q2 - 4.3870667284435e-7*o[2]*q2 +
+    8.0882908646985e-11*o[14]*o[20]*o[24]*o[25]*q2 + 5.9056029685639e-26*
+    o[14]*o[24]*o[28]*q2 + 7.8847309559367e-10*o[3]*q2 -
+    3.7826947613457e-6*o[14]*o[24]*o[31]*o[36]*q2 + 1.2621808899101e-6*o[
+    11]*o[20]*o[4]*q2 + 540.*o[8]*(10.08665568018 - 0.000033032641670203*
+    o[1] - 6.2245802776607e-15*o[10] - 0.015757110897342*o[1]*o[12] -
+    5.0144299353183e-11*o[11]*o[13] + 4.1627860840696e-19*o[12]*o[16] -
+    0.306581069554011*o[1]*o[17] + 9.0049690883672e-11*o[15]*o[18] +
+    0.0000160454534363627*o[17]*o[19] + 4.3870667284435e-7*o[2] -
+    0.00009683303171571*o[11]*o[2] + 2.57526266427144e-7*o[14]*o[20]*o[22]
+     - 1.40254511313154e-8*o[16]*o[23] - 2.34560435076256e-9*o[14]*o[20]*
+    o[24]*o[25] - 1.24017662339842e-24*o[27]*o[28] - 7.8847309559367e-10*
+    o[3] + 1.44676118155521e-6*o[11]*o[3] + 1.90027787547159e-27*o[29]*o[
+    30] - 0.000960283724907132*o[1]*o[32] - 296.320827232793*o[15]*o[32]
+     - 4.97975748452559e-14*o[11]*o[14]*o[31]*o[34] +
+    2.21658861403112e-15*o[30]*o[35] + 0.000200482822351322*o[14]*o[24]*o[
+    31]*o[36] - 19.1874828272775*o[20]*o[24]*o[31]*o[37] -
+    0.0000547344301999018*o[30]*o[38] - 0.0090203547252888*o[2]*o[39] -
+    0.0000138839897890111*o[21]*o[4] - 0.973671060893475*o[20]*o[24]*o[4]
+     - 836.35096769364*o[13]*o[40] - 1.42338887469272*o[2]*o[40] +
+    1.07202609066812e-11*o[26]*o[40] + 0.0000150341259240398*o[5] -
+    1.8087714924605e-8*o[6] + 18605.6518987296*o[7] - 306.813232163376*o[
+    8] + 1.43632471334824e-11*o[9] + 1.13103675106207e-18*o[5]*o[9] -
+    0.017834862292358*pi - 0.172743777250296*o[11]*pi - 0.30195167236758*
+    o[39]*pi + o[8]*pi*(-49.6756947920742 + 0.045996013696365*q1) -
+    0.0003789797503263*o[1]*q2 - 0.033874355714168*o[11]*o[13]*o[14]*o[20]
+    *q2 - 1.0234747095929e-12*o[16]*o[20]*q2 + 1.78371690710842e-23*o[11]
+    *o[24]*o[26]*q2 + 2.558143570457e-8*o[3]*q2 + 5.3465159397045*o[24]*o[
+    25]*o[31]*q2 - 0.000201611844951398*o[11]*o[14]*o[20]*o[26]*o[31]*q2)
+     -<font color="red"> Modelica.Math.log</font>(pi));
+<font color="blue">end </font>slowerofp2;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE supperofp2<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.supperofp2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="d8f1ba82ddfcca67gions.supperofp2"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#a2ee7448b9959290BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.supperofp2</H2>
+<B>explicit upper specific entropy limit of region 2 as function of pressure</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEntropy"
+>SpecificEntropy</A></TD><TD>s</TD><TD>specific entropy [J/(kg.K)]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> supperofp2 <font color="darkgreen">
+  &quot;explicit upper specific entropy limit of region 2 as function of pressure&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEntropy"
+>SI.SpecificEntropy</A> s <font color="darkgreen">&quot;specific entropy&quot;</font>;
+<font color="blue">protected </font>
+  Real pi <font color="darkgreen">&quot;dimensionless pressure&quot;</font>;
+  Real[2] o <font color="darkgreen">&quot;vector of auxiliary variables&quot;</font>;
+<font color="blue">algorithm </font>
+  pi := p/data.PSTAR2;
+  <font color="red">assert</font>(p &gt; triple.ptriple,
+    &quot;IF97 medium function supperofp2 called with too low pressure\n&quot; +
+    &quot;p = &quot; +<font color="red"> String</font>(p) + &quot; Pa &lt;= &quot; +<font color="red"> String</font>(triple.ptriple) + &quot; Pa (triple point pressure)&quot;);
+  o[1] := pi*pi;
+  o[2] := o[1]*o[1]*o[1];
+  s := 8505.73409708683 - 461.526*<font color="red">Modelica.Math.log</font>(pi) + pi*(-3.36563543302584
+     + pi*(-0.00790283552165338 + pi*(0.0000915558349202221 + pi*(-1.59634706513e-7
+     + pi*(3.93449217595397e-18 + pi*(-1.18367426347994e-13 + pi*(
+    2.72575244843195e-15 + pi*(7.04803892603536e-26 + pi*(
+    6.67637687381772e-35 + pi*(3.1377970315132e-24 + (-7.04844558482265e-77
+     + o[1]*(-7.46289531275314e-137 + (1.55998511254305e-68 + pi*(-3.46166288915497e-72
+     + pi*(7.51557618628583e-132 + (-1.64086406733212e-106 +
+    1.75648443097063e-87*pi)*pi)))*o[1]))*o[2]*o[2]))))))))));
+<font color="blue">end </font>supperofp2;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE d1n<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.d1n" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ee0a35a7251d0f17IF97.Regions.d1n"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#a2ee7448b9959290BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.d1n</H2>
+<B>density in region 1 as function of p and T</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>T</TD><TD>&nbsp;</TD><TD>temperature (K) [K]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>Density</A></TD><TD>d</TD><TD>density [kg/m3]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> d1n <font color="darkgreen">&quot;density in region 1 as function of p and T&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> T <font color="darkgreen">&quot;temperature (K)&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> d <font color="darkgreen">&quot;density&quot;</font>;
+<font color="blue">protected </font>
+  Real pi <font color="darkgreen">&quot;dimensionless pressure&quot;</font>;
+  Real pi1 <font color="darkgreen">&quot;dimensionless pressure&quot;</font>;
+  Real tau <font color="darkgreen">&quot;dimensionless temperature&quot;</font>;
+  Real tau1 <font color="darkgreen">&quot;dimensionless temperature&quot;</font>;
+  Real gpi <font color="darkgreen">&quot;dimensionless Gibbs-derivative w.r.t. pi&quot;</font>;
+  Real[11] o <font color="darkgreen">&quot;auxiliary variables&quot;</font>;
+<font color="blue">algorithm </font>
+  pi := p/data.PSTAR1;
+  tau := data.TSTAR1/T;
+  pi1 := 7.1 - pi;
+  tau1 := tau - 1.222;
+  o[1] := tau1*tau1;
+  o[2] := o[1]*o[1];
+  o[3] := o[2]*o[2];
+  o[4] := o[1]*o[2];
+  o[5] := o[1]*tau1;
+  o[6] := o[2]*tau1;
+  o[7] := pi1*pi1;
+  o[8] := o[7]*o[7];
+  o[9] := o[8]*o[8];
+  o[10] := o[3]*o[3];
+  o[11] := o[10]*o[10];
+  gpi := pi1*(pi1*((0.000095038934535162 + o[2]*(8.4812393955936e-6 +
+    2.55615384360309e-9*o[4]))/o[2] + pi1*((8.9701127632e-6 + (
+    2.60684891582404e-6 + 5.7366919751696e-13*o[2]*o[3])*o[5])/o[6] + pi1
+    *(2.02584984300585e-6/o[3] + o[7]*pi1*(o[8]*o[9]*pi1*(o[7]*(o[7]*o[8]
+    *(-7.63737668221055e-22/(o[1]*o[11]*o[2]) + pi1*(pi1*(-5.65070932023524e-23
+    /(o[11]*o[3]) + (2.99318679335866e-24*pi1)/(o[11]*o[3]*tau1)) +
+    3.5842867920213e-22/(o[1]*o[11]*o[2]*tau1))) - 3.33001080055983e-19/(
+    o[1]*o[10]*o[2]*o[3]*tau1)) + 1.44400475720615e-17/(o[10]*o[2]*o[3]*
+    tau1)) + (1.01874413933128e-8 + 1.39398969845072e-9*o[6])/(o[1]*o[3]*
+    tau1))))) + (0.00094368642146534 + o[5]*(0.00060003561586052 + (-0.000095322787813974
+     + o[1]*(8.8283690661692e-6 + 1.45389992595188e-15*o[1]*o[2]*o[3]))*
+    tau1))/o[5]) + (-0.00028319080123804 + o[1]*(0.00060706301565874 + o[
+    4]*(0.018990068218419 + tau1*(0.032529748770505 + (0.021841717175414
+     + 0.00005283835796993*o[1])*tau1))))/(o[3]*tau1);
+  d := p/(data.RH2O*T*pi*gpi);
+<font color="blue">end </font>d1n;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE d2n<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.d2n" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ee0a362a251d0f77IF97.Regions.d2n"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#a2ee7448b9959290BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.d2n</H2>
+<B>density in region 2  as function of p and T</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>T</TD><TD>&nbsp;</TD><TD>temperature (K) [K]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>Density</A></TD><TD>d</TD><TD>density [kg/m3]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> d2n <font color="darkgreen">&quot;density in region 2  as function of p and T&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> T <font color="darkgreen">&quot;temperature (K)&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> d <font color="darkgreen">&quot;density&quot;</font>;
+<font color="blue">protected </font>
+  Real pi <font color="darkgreen">&quot;dimensionless pressure&quot;</font>;
+  Real tau <font color="darkgreen">&quot;dimensionless temperature&quot;</font>;
+  Real tau2 <font color="darkgreen">&quot;dimensionless temperature&quot;</font>;
+  Real gpi <font color="darkgreen">&quot;dimensionless Gibbs-derivative w.r.t. pi&quot;</font>;
+  Real[12] o <font color="darkgreen">&quot;auxiliary variables&quot;</font>;
+<font color="blue">algorithm </font>
+  pi := p/data.PSTAR2;
+  tau := data.TSTAR2/T;
+  tau2 := tau - 0.5;
+  o[1] := tau2*tau2;
+  o[2] := o[1]*tau2;
+  o[3] := o[1]*o[1];
+  o[4] := o[3]*o[3];
+  o[5] := o[4]*o[4];
+  o[6] := o[3]*o[4]*o[5]*tau2;
+  o[7] := o[3]*o[4]*tau2;
+  o[8] := o[1]*o[3]*o[4];
+  o[9] := pi*pi;
+  o[10] := o[9]*o[9];
+  o[11] := o[3]*o[5]*tau2;
+  o[12] := o[5]*o[5];
+  gpi := (1. + pi*(-0.0017731742473213 + tau2*(-0.017834862292358 + tau2*
+    (-0.045996013696365 + (-0.057581259083432 - 0.05032527872793*o[2])*
+    tau2)) + pi*(tau2*(-0.000066065283340406 + (-0.0003789797503263 + o[1]
+    *(-0.007878555448671 + o[2]*(-0.087594591301146 -
+    0.000053349095828174*o[6])))*tau2) + pi*(6.1445213076927e-8 + (
+    1.31612001853305e-6 + o[1]*(-0.00009683303171571 + o[2]*(-0.0045101773626444
+     - 0.122004760687947*o[6])))*tau2 + pi*(tau2*(-3.15389238237468e-9 +
+    (5.116287140914e-8 + 1.92901490874028e-6*tau2)*tau2) + pi*(
+    0.0000114610381688305*o[1]*o[3]*tau2 + pi*(o[2]*(-1.00288598706366e-10
+     + o[7]*(-0.012702883392813 - 143.374451604624*o[1]*o[5]*tau2)) + pi*
+    (-4.1341695026989e-17 + o[1]*o[4]*(-8.8352662293707e-6 -
+    0.272627897050173*o[8])*tau2 + pi*(o[4]*(9.0049690883672e-11 -
+    65.8490727183984*o[3]*o[4]*o[5]) + pi*(1.78287415218792e-7*o[7] + pi*
+    (o[3]*(1.0406965210174e-18 + o[1]*(-1.0234747095929e-12 -
+    1.0018179379511e-8*o[3])*o[3]) + o[10]*o[9]*((-1.29412653835176e-9 +
+    1.71088510070544*o[11])*o[6] + o[9]*(-6.05920510335078*o[12]*o[4]*o[5]
+    *tau2 + o[9]*(o[3]*o[5]*(1.78371690710842e-23 + o[1]*o[3]*o[4]*(
+    6.1258633752464e-12 - 0.000084004935396416*o[7])*tau2) + pi*(-1.24017662339842e-24
+    *o[11] + pi*(0.0000832192847496054*o[12]*o[3]*o[5]*tau2 + pi*(o[1]*o[
+    4]*o[5]*(1.75410265428146e-27 + (1.32995316841867e-15 -
+    0.0000226487297378904*o[1]*o[5])*o[8])*pi - 2.93678005497663e-14*o[1]
+    *o[12]*o[3]*tau2)))))))))))))))))/pi;
+  d := p/(data.RH2O*T*pi*gpi);
+<font color="blue">end </font>d2n;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dhot1ofp<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.dhot1ofp" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="1c328aff6b190ab8Regions.dhot1ofp"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#a2ee7448b9959290BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.dhot1ofp</H2>
+<B>density at upper temperature limit of region 1</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>Density</A></TD><TD>d</TD><TD>density [kg/m3]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> dhot1ofp <font color="darkgreen">&quot;density at upper temperature limit of region 1&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> d <font color="darkgreen">&quot;density&quot;</font>;
+<font color="blue">protected </font>
+  Real pi <font color="darkgreen">&quot;dimensionless pressure&quot;</font>;
+  Real pi1 <font color="darkgreen">&quot;dimensionless pressure&quot;</font>;
+  Real[4] o <font color="darkgreen">&quot;auxiliary variables&quot;</font>;
+<font color="blue">algorithm </font>
+  pi := p/data.PSTAR1;
+  pi1 := 7.1 - pi;
+  o[1] := pi1*pi1;
+  o[2] := o[1]*o[1];
+  o[3] := o[2]*o[2];
+  o[4] := o[3]*o[3];
+  d := 57.4756752485113/(0.0737412153522555 + 0.000102697173772229*o[1]
+     + 1.99080616601101e-6*o[2] + 1.35549330686006e-17*o[2]*o[4] -
+    3.11228834832975e-19*o[1]*o[2]*o[4] - 7.02987180039442e-22*o[2]*o[3]*
+    o[4] - 5.17859076694812e-23*o[1]*o[2]*o[3]*o[4] + 0.00145092247736023
+    *pi1 + 0.0000114683182476084*o[1]*pi1 + 1.13217858826367e-8*o[1]*o[2]
+    *pi1 + 3.29199117056433e-22*o[2]*o[3]*o[4]*pi1 + 2.73712834080283e-24
+    *o[1]*o[2]*o[3]*o[4]*pi1);
+<font color="blue">end </font>dhot1ofp;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dupper1ofT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.dupper1ofT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="6711d080ddd10cc1gions.dupper1ofT"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#a2ee7448b9959290BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.dupper1ofT</H2>
+<B>density at upper pressure limit of region 1</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>T</TD><TD>&nbsp;</TD><TD>temperature (K) [K]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>Density</A></TD><TD>d</TD><TD>density [kg/m3]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> dupper1ofT <font color="darkgreen">&quot;density at upper pressure limit of region 1&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> T <font color="darkgreen">&quot;temperature (K)&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> d <font color="darkgreen">&quot;density&quot;</font>;
+<font color="blue">protected </font>
+  Real tau <font color="darkgreen">&quot;dimensionless temperature&quot;</font>;
+  Real[4] o <font color="darkgreen">&quot;auxiliary variables&quot;</font>;
+<font color="blue">algorithm </font>
+  tau := 1386.0/T;
+  o[1] := tau*tau;
+  o[2] := o[1]*o[1];
+  o[3] := o[2]*o[2];
+  o[4] := o[3]*o[3];
+  d := 57.4756752485113/(2.24144616859917 + 40.9288231166229*o[1] +
+    106.47246463213*o[2] + 88.4481480270751*o[1]*o[2] + 31.3207272417546*
+    o[3] + 5.47811738891798*o[1]*o[3] + 0.515626225030717*o[2]*o[3] +
+    0.0274905057899089*o[1]*o[2]*o[3] + 0.000853742979250503*o[4] +
+    0.0000155932210492199*o[1]*o[4] + 1.6621051480279e-7*o[2]*o[4] +
+    1.00606771839976e-9*o[1]*o[2]*o[4] + 3.27598951831994e-12*o[3]*o[4]
+     + 5.20162317530099e-15*o[1]*o[3]*o[4] + 3.33501889800275e-18*o[2]*o[
+    3]*o[4] + 5.50656040141221e-22*o[1]*o[2]*o[3]*o[4] - 13.5354267762204
+    *tau - 78.3629702507642*o[1]*tau - 109.374479648652*o[2]*tau -
+    57.9035658513312*o[1]*o[2]*tau - 14.215347150565*o[3]*tau -
+    1.80906759985501*o[1]*o[3]*tau - 0.127542214693871*o[2]*o[3]*tau -
+    0.0051779458313163*o[1]*o[2]*o[3]*tau - 0.000123304142684848*o[4]*tau
+     - 1.72405791469972e-6*o[1]*o[4]*tau - 1.39155695911655e-8*o[2]*o[4]*
+    tau - 6.23333356847138e-11*o[1]*o[2]*o[4]*tau - 1.44056015732082e-13*
+    o[3]*o[4]*tau - 1.50201626932938e-16*o[1]*o[3]*o[4]*tau -
+    5.34588682252967e-20*o[2]*o[3]*o[4]*tau - 2.73712834080283e-24*o[1]*o[
+    2]*o[3]*o[4]*tau);
+<font color="blue">end </font>dupper1ofT;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE hl_p_R4b<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hl_p_R4b" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="d43aaa4c0b6ef48bRegions.hl_p_R4b"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#a2ee7448b9959290BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.hl_p_R4b</H2>
+<B>explicit approximation of liquid specific enthalpy on the boundary between regions 4 and 3</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SpecificEnthalpy</A></TD><TD>h</TD><TD>specific enthalpy [J/kg]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> hl_p_R4b <font color="darkgreen">
+  &quot;explicit approximation of liquid specific enthalpy on the boundary between regions 4 and 3&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SI.SpecificEnthalpy</A> h <font color="darkgreen">&quot;specific enthalpy&quot;</font>;
+<font color="blue">protected </font>
+  Real x <font color="darkgreen">&quot;auxiliary variable&quot;</font>;
+<font color="blue">algorithm </font>
+  <font color="darkgreen">  // documentation of accuray in notebook ~hubertus/props/IAPWS/R3Approx.nb</font>
+  <font color="darkgreen">// boundary between region IVa and III</font>
+  x :=<font color="red"> Modelica.Math.acos</font>(p/data.PCRIT);
+  h := (1 + x*(-0.4945586958175176 + x*(1.346800016564904 + x*(-3.889388153209752
+     + x*(6.679385472887931 + x*(-6.75820241066552 + x*(3.558919744656498
+     + (-0.7179818554978939 - 0.0001152032945617821*x)*x)))))))*data.
+    HCRIT;
+<font color="blue">end </font>hl_p_R4b;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE hv_p_R4b<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hv_p_R4b" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="e334c0c68b6ef48dRegions.hv_p_R4b"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#a2ee7448b9959290BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.hv_p_R4b</H2>
+<B>explicit approximation of vapour specific enthalpy on the boundary between regions 4 and 3</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SpecificEnthalpy</A></TD><TD>h</TD><TD>specific enthalpy [J/kg]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> hv_p_R4b <font color="darkgreen">
+  &quot;explicit approximation of vapour specific enthalpy on the boundary between regions 4 and 3&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SI.SpecificEnthalpy</A> h <font color="darkgreen">&quot;specific enthalpy&quot;</font>;
+<font color="blue">protected </font>
+  Real x <font color="darkgreen">&quot;auxiliary variable&quot;</font>;
+<font color="blue">algorithm </font>
+  <font color="darkgreen">// boundary between region IVa and III</font>
+  x :=<font color="red"> Modelica.Math.acos</font>(p/data.PCRIT);
+  h := (1 + x*(0.4880153718655694 + x*(0.2079670746250689 + x*(-6.084122698421623
+     + x*(25.08887602293532 + x*(-48.38215180269516 + x*(
+    45.66489164833212 + (-16.98555442961553 + 0.0006616936460057691*x)*x)))))))
+    *data.HCRIT;
+<font color="blue">end </font>hv_p_R4b;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE sl_p_R4b<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.sl_p_R4b" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="f599eac50b6ef453Regions.sl_p_R4b"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#a2ee7448b9959290BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.sl_p_R4b</H2>
+<B>explicit approximation of liquid specific entropy on the boundary between regions 4 and 3</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEntropy"
+>SpecificEntropy</A></TD><TD>s</TD><TD>specific entropy [J/(kg.K)]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> sl_p_R4b <font color="darkgreen">
+  &quot;explicit approximation of liquid specific entropy on the boundary between regions 4 and 3&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEntropy"
+>SI.SpecificEntropy</A> s <font color="darkgreen">&quot;specific entropy&quot;</font>;
+<font color="blue">protected </font>
+  Real x <font color="darkgreen">&quot;auxiliary variable&quot;</font>;
+<font color="blue">algorithm </font>
+  <font color="darkgreen">// boundary between region IVa and III</font>
+  x :=<font color="red"> Modelica.Math.acos</font>(p/data.PCRIT);
+  s := (1 + x*(-0.36160692245648063 + x*(0.9962778630486647 + x*(-2.8595548144171103
+     + x*(4.906301159555333 + x*(-4.974092309614206 + x*(
+    2.6249651699204457 + (-0.5319954375299023 - 0.00008064497431880644*x)
+    *x)))))))*data.SCRIT;
+<font color="blue">end </font>sl_p_R4b;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE sv_p_R4b<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.sv_p_R4b" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="0494013f8b6ef455Regions.sv_p_R4b"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#a2ee7448b9959290BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.sv_p_R4b</H2>
+<B>explicit approximation of vapour specific entropy on the boundary between regions 4 and 3</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SpecificEnthalpy</A></TD><TD>s</TD><TD>[J/kg]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> sv_p_R4b <font color="darkgreen">
+  &quot;explicit approximation of vapour specific entropy on the boundary between regions 4 and 3&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SI.SpecificEnthalpy</A> s;
+<font color="blue">protected </font>
+  Real x <font color="darkgreen">&quot;auxiliary variable&quot;</font>;
+<font color="blue">algorithm </font>
+
+  <font color="darkgreen">  // documentation of accuray in notebook ~hubertus/props/IAPWS/R3Approx.nb</font>
+  <font color="darkgreen">// boundary between region IVa and III</font>
+  x :=<font color="red"> Modelica.Math.acos</font>(p/data.PCRIT);
+  s := (1 + x*(0.35682641826674344 + x*(0.1642457027815487 + x*(-4.425350377422446
+     + x*(18.324477859983133 + x*(-35.338631625948665 + x*(
+    33.36181025816282 + (-12.408711490585757 + 0.0004810049834109226*x)*x)))))))
+    *data.SCRIT;
+<font color="blue">end </font>sv_p_R4b;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE rhol_p_R4b<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhol_p_R4b" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="6aaafa47a9c42f48gions.rhol_p_R4b"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#a2ee7448b9959290BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.rhol_p_R4b</H2>
+<B>explicit approximation of liquid density on the boundary between regions 4 and 3</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>Density</A></TD><TD>dl</TD><TD>liquid density [kg/m3]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> rhol_p_R4b <font color="darkgreen">
+  &quot;explicit approximation of liquid density on the boundary between regions 4 and 3&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> dl <font color="darkgreen">&quot;liquid density&quot;</font>;
+<font color="blue">protected </font>
+  Real x <font color="darkgreen">&quot;auxiliary variable&quot;</font>;
+<font color="blue">algorithm </font>
+  <font color="blue">if </font>(p &lt; data.PCRIT)<font color="blue"> then</font>
+    x :=<font color="red"> Modelica.Math.acos</font>(p/data.PCRIT);
+    dl := (1 + x*(1.903224079094824 + x*(-2.5314861802401123 + x*(-8.191449323843552
+       + x*(94.34196116778385 + x*(-369.3676833623383 + x*(
+      796.6627910598293 + x*(-994.5385383600702 + x*(673.2581177021598 +
+      (-191.43077336405156 + 0.00052536560808895*x)*x)))))))))*data.DCRIT;
+  <font color="blue">else</font>
+    dl := data.DCRIT;
+  <font color="blue">end if</font>;
+<font color="blue">end </font>rhol_p_R4b;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE rhov_p_R4b<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhov_p_R4b" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="79a510c129c42f4egions.rhov_p_R4b"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#a2ee7448b9959290BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.rhov_p_R4b</H2>
+<B>explicit approximation of vapour density on the boundary between regions 4 and 2</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>Density</A></TD><TD>dv</TD><TD>vapour density [kg/m3]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> rhov_p_R4b <font color="darkgreen">
+  &quot;explicit approximation of vapour density on the boundary between regions 4 and 2&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> dv <font color="darkgreen">&quot;vapour density&quot;</font>;
+<font color="blue">protected </font>
+  Real x <font color="darkgreen">&quot;auxiliary variable&quot;</font>;
+<font color="blue">algorithm </font>
+  <font color="blue">if </font>(p &lt; data.PCRIT)<font color="blue"> then</font>
+    x :=<font color="red"> Modelica.Math.acos</font>(p/data.PCRIT);
+    dv := (1 + x*(-1.8463850803362596 + x*(-1.1447872718878493 + x*(
+      59.18702203076563 + x*(-403.5391431811611 + x*(1437.2007245332388
+       + x*(-3015.853540307519 + x*(3740.5790348670057 + x*(-2537.375817253895
+       + (725.8761975803782 - 0.0011151111658332337*x)*x)))))))))*data.
+      DCRIT;
+  <font color="blue">else</font>
+    dv := data.DCRIT;
+  <font color="blue">end if</font>;
+<font color="blue">end </font>rhov_p_R4b;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE boilingcurve_p<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boilingcurve_p" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="7bce88a84488dc3es.boilingcurve_p"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#a2ee7448b9959290BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.boilingcurve_p</H2>
+<B>properties on the boiling curve</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#60b1dff00f23174cundaryProperties"
+>IF97PhaseBoundaryProperties</A></TD><TD>bpro</TD><TD>property record</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> boilingcurve_p <font color="darkgreen">&quot;properties on the boiling curve&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Common.html#60b1dff00f23174cundaryProperties"
+>Common.IF97PhaseBoundaryProperties</A> bpro <font color="darkgreen">&quot;property record&quot;</font>;
+<font color="blue">protected </font>
+  <A HREF="Modelica_Media_Common.html#Modelica.Media.Common.GibbsDerivs"
+>Common.GibbsDerivs</A> g <font color="darkgreen">&quot;dimensionless Gibbs funcion and dervatives&quot;</font>;
+  <A HREF="Modelica_Media_Common.html#Modelica.Media.Common.HelmholtzDerivs"
+>Common.HelmholtzDerivs</A> f <font color="darkgreen">&quot;dimensionless Helmholtz function and dervatives&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> plim=<font color="red">min</font>(p, data.PCRIT-1e-7) <font color="darkgreen">
+    &quot;pressure limited to critical pressure - epsilon&quot;</font>;
+<font color="blue">algorithm </font>
+  bpro.R := data.RH2O;
+  bpro.T :=<font color="red"> Basic.tsat</font>(plim);
+  bpro.dpT :=<font color="red"> Basic.dptofT</font>(bpro.T);
+  bpro.region3boundary := bpro.T &gt; data.TLIMIT1;
+  <font color="blue">if </font><font color="blue">not </font>bpro.region3boundary<font color="blue"> then</font>
+    g :=<font color="red"> Basic.g1</font>(p, bpro.T);
+    bpro.d := p/(bpro.R*bpro.T*g.pi*g.gpi);
+    bpro.h := <font color="blue">if </font>p &gt; plim<font color="blue"> then </font>data.HCRIT<font color="blue"> else </font>bpro.R*bpro.T*g.tau*g.gtau;
+    bpro.s := g.R*(g.tau*g.gtau - g.g);
+    bpro.cp := -bpro.R*g.tau*g.tau*g.gtautau;
+    bpro.vt := bpro.R/p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
+    bpro.vp := bpro.R*bpro.T/(p*p)*g.pi*g.pi*g.gpipi;
+    bpro.pt := -p/bpro.T*(g.gpi - g.tau*g.gtaupi)/(g.gpipi*g.pi);
+    bpro.pd := -bpro.R*bpro.T*g.gpi*g.gpi/(g.gpipi);
+  <font color="blue">else</font>
+    bpro.d :=<font color="red"> rhol_p_R4b</font>(plim);
+    f :=<font color="red"> Basic.f3</font>(bpro.d, bpro.T);
+    bpro.h :=<font color="red"> hl_p_R4b</font>(plim);
+    <font color="darkgreen">// bpro.R*bpro.T*(f.tau*f.ftau + f.delta*f.fdelta);</font>
+    bpro.s := f.R*(f.tau*f.ftau - f.f);
+    bpro.cv := bpro.R*(-f.tau*f.tau*f.ftautau);
+    bpro.pt := bpro.R*bpro.d*f.delta*(f.fdelta - f.tau*f.fdeltatau);
+    bpro.pd := bpro.R*bpro.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
+  <font color="blue">end if</font>;
+<font color="blue">end </font>boilingcurve_p;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dewcurve_p<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.dewcurve_p" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ae34ccdc3df2b3f9gions.dewcurve_p"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#a2ee7448b9959290BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.dewcurve_p</H2>
+<B>properties on the dew curve</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#60b1dff00f23174cundaryProperties"
+>IF97PhaseBoundaryProperties</A></TD><TD>bpro</TD><TD>property record</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> dewcurve_p <font color="darkgreen">&quot;properties on the dew curve&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Common.html#60b1dff00f23174cundaryProperties"
+>Common.IF97PhaseBoundaryProperties</A> bpro <font color="darkgreen">&quot;property record&quot;</font>;
+<font color="blue">protected </font>
+  <A HREF="Modelica_Media_Common.html#Modelica.Media.Common.GibbsDerivs"
+>Common.GibbsDerivs</A> g <font color="darkgreen">&quot;dimensionless Gibbs funcion and dervatives&quot;</font>;
+  <A HREF="Modelica_Media_Common.html#Modelica.Media.Common.HelmholtzDerivs"
+>Common.HelmholtzDerivs</A> f <font color="darkgreen">&quot;dimensionless Helmholtz function and dervatives&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> plim=<font color="red">min</font>(p, data.PCRIT-1e-7) <font color="darkgreen">
+    &quot;pressure limited to critical pressure - epsilon&quot;</font>;
+<font color="blue">algorithm </font>
+  bpro.R := data.RH2O;
+  bpro.T :=<font color="red"> Basic.tsat</font>(plim);
+  bpro.dpT :=<font color="red"> Basic.dptofT</font>(bpro.T);
+  bpro.region3boundary := bpro.T &gt; data.TLIMIT1;
+  <font color="blue">if </font><font color="blue">not </font>bpro.region3boundary<font color="blue"> then</font>
+    g :=<font color="red"> Basic.g2</font>(p, bpro.T);
+    bpro.d := p/(bpro.R*bpro.T*g.pi*g.gpi);
+    bpro.h := <font color="blue">if </font>p &gt; plim<font color="blue"> then </font>data.HCRIT<font color="blue"> else </font>bpro.R*bpro.T*g.tau*g.gtau;
+    bpro.s := g.R*(g.tau*g.gtau - g.g);
+    bpro.cp := -bpro.R*g.tau*g.tau*g.gtautau;
+    bpro.vt := bpro.R/p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
+    bpro.vp := bpro.R*bpro.T/(p*p)*g.pi*g.pi*g.gpipi;
+    bpro.pt := -p/bpro.T*(g.gpi - g.tau*g.gtaupi)/(g.gpipi*g.pi);
+    bpro.pd := -bpro.R*bpro.T*g.gpi*g.gpi/(g.gpipi);
+  <font color="blue">else</font>
+    bpro.d :=<font color="red"> rhov_p_R4b</font>(plim);
+    f :=<font color="red"> Basic.f3</font>(bpro.d, bpro.T);
+    bpro.h :=<font color="red"> hv_p_R4b</font>(plim);
+    <font color="darkgreen">// bpro.R*bpro.T*(f.tau*f.ftau + f.delta*f.fdelta);</font>
+    bpro.s := f.R*(f.tau*f.ftau - f.f);
+    bpro.cv := bpro.R*(-f.tau*f.tau*f.ftautau);
+    bpro.pt := bpro.R*bpro.d*f.delta*(f.fdelta - f.tau*f.fdeltatau);
+    bpro.pd := bpro.R*bpro.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
+  <font color="blue">end if</font>;
+<font color="blue">end </font>dewcurve_p;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE hvl_p<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hvl_p" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="59dc06e574dfdf0c97.Regions.hvl_p"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#a2ee7448b9959290BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.hvl_p</H2>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#60b1dff00f23174cundaryProperties"
+>IF97PhaseBoundaryProperties</A></TD><TD>bpro</TD><TD>&nbsp;</TD><TD>property record</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SpecificEnthalpy</A></TD><TD>h</TD><TD>specific enthalpy [J/kg]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> hvl_p
+  annotation(derivative=<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#e97b2c9ff1e9512fegions.hvl_p_der"
+>hvl_p_der</A>);
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Common.html#60b1dff00f23174cundaryProperties"
+>Common.IF97PhaseBoundaryProperties</A> bpro <font color="darkgreen">&quot;property record&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SI.SpecificEnthalpy</A> h <font color="darkgreen">&quot;specific enthalpy&quot;</font>;
+<font color="blue">algorithm </font>
+  h := bpro.h;
+<font color="blue">end </font>hvl_p;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE hl_p<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hl_p" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="cfd216b783a690b4F97.Regions.hl_p"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#a2ee7448b9959290BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.hl_p</H2>
+<B>liquid specific enthalpy on the boundary between regions 4 and 3 or 1</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SpecificEnthalpy</A></TD><TD>h</TD><TD>specific enthalpy [J/kg]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> hl_p <font color="darkgreen">
+  &quot;liquid specific enthalpy on the boundary between regions 4 and 3 or 1&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SI.SpecificEnthalpy</A> h <font color="darkgreen">&quot;specific enthalpy&quot;</font>;
+<font color="blue">algorithm </font>
+  h :=<font color="red"> hvl_p</font>(p,<font color="red"> boilingcurve_p</font>(p));
+<font color="blue">end </font>hl_p;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE hv_p<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hv_p" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="cfd4b51183a6f8b4F97.Regions.hv_p"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#a2ee7448b9959290BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.hv_p</H2>
+<B>vapour specific enthalpy on the boundary between regions 4 and 3 or 2</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SpecificEnthalpy</A></TD><TD>h</TD><TD>specific enthalpy [J/kg]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> hv_p <font color="darkgreen">
+  &quot;vapour specific enthalpy on the boundary between regions 4 and 3 or 2&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SI.SpecificEnthalpy</A> h <font color="darkgreen">&quot;specific enthalpy&quot;</font>;
+<font color="blue">algorithm </font>
+  h :=<font color="red"> hvl_p</font>(p,<font color="red"> dewcurve_p</font>(p));
+<font color="blue">end </font>hv_p;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE hvl_p_der<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hvl_p_der" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="e97b2c9ff1e9512fegions.hvl_p_der"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#a2ee7448b9959290BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.hvl_p_der</H2>
+<B>derivative function for the specific enthalpy along the phase boundary</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#60b1dff00f23174cundaryProperties"
+>IF97PhaseBoundaryProperties</A></TD><TD>bpro</TD><TD>&nbsp;</TD><TD>property record</TD></TR>
+<TR><TD>Real</TD><TD>p_der</TD><TD>&nbsp;</TD><TD>derivative of pressure</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>h_der</TD><TD>time derivative of specific enthalpy along the phase boundary</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> hvl_p_der <font color="darkgreen">
+  &quot;derivative function for the specific enthalpy along the phase boundary&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Common.html#60b1dff00f23174cundaryProperties"
+>Common.IF97PhaseBoundaryProperties</A> bpro <font color="darkgreen">&quot;property record&quot;</font>;
+  <font color="blue">input </font>Real p_der <font color="darkgreen">&quot;derivative of pressure&quot;</font>;
+  <font color="blue">output </font>Real h_der <font color="darkgreen">
+    &quot;time derivative of specific enthalpy along the phase boundary&quot;</font>;
+<font color="blue">algorithm </font>
+  <font color="blue">if </font>bpro.region3boundary<font color="blue"> then</font>
+    h_der := ((bpro.d*bpro.pd - bpro.T*bpro.pt)*p_der + (bpro.T*bpro.pt*
+      bpro.pt + bpro.d*bpro.d*bpro.pd*bpro.cv)/bpro.dpT*p_der)/(bpro.pd*
+      bpro.d*bpro.d);
+  <font color="blue">else</font>
+    h_der := (1/bpro.d - bpro.T*bpro.vt)*p_der + bpro.cp/bpro.dpT*p_der;
+  <font color="blue">end if</font>;
+<font color="blue">end </font>hvl_p_der;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE rhovl_p<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhovl_p" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="44056406c358aa45.Regions.rhovl_p"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#a2ee7448b9959290BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.rhovl_p</H2>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#60b1dff00f23174cundaryProperties"
+>IF97PhaseBoundaryProperties</A></TD><TD>bpro</TD><TD>&nbsp;</TD><TD>property record</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>Density</A></TD><TD>rho</TD><TD>density [kg/m3]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> rhovl_p
+  annotation(derivative=<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#e4f41a10a4722924ions.rhovl_p_der"
+>rhovl_p_der</A>);
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Common.html#60b1dff00f23174cundaryProperties"
+>Common.IF97PhaseBoundaryProperties</A> bpro <font color="darkgreen">&quot;property record&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> rho <font color="darkgreen">&quot;density&quot;</font>;
+<font color="blue">algorithm </font>
+  rho := bpro.d;
+<font color="blue">end </font>rhovl_p;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE rhol_p<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhol_p" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="d96cc942ae1aa89e7.Regions.rhol_p"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#a2ee7448b9959290BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.rhol_p</H2>
+<B>density of saturated water</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>p</TD><TD>&nbsp;</TD><TD>saturation pressure [Pa]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>Density</A></TD><TD>rho</TD><TD>density of steam at the condensation point [kg/m3]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> rhol_p <font color="darkgreen">&quot;density of saturated water&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;saturation pressure&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> rho <font color="darkgreen">&quot;density of steam at the condensation point&quot;</font>;
+<font color="blue">algorithm </font>
+  rho :=<font color="red"> rhovl_p</font>(p,<font color="red"> boilingcurve_p</font>(p));
+<font color="blue">end </font>rhol_p;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE rhov_p<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhov_p" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="d96f679cae1ac09e7.Regions.rhov_p"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#a2ee7448b9959290BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.rhov_p</H2>
+<B>density of saturated vapour</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>p</TD><TD>&nbsp;</TD><TD>saturation pressure [Pa]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>Density</A></TD><TD>rho</TD><TD>density of steam at the condensation point [kg/m3]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> rhov_p <font color="darkgreen">&quot;density of saturated vapour&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;saturation pressure&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> rho <font color="darkgreen">&quot;density of steam at the condensation point&quot;</font>;
+<font color="blue">algorithm </font>
+  rho :=<font color="red"> rhovl_p</font>(p,<font color="red"> dewcurve_p</font>(p));
+<font color="blue">end </font>rhov_p;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE rhovl_p_der<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhovl_p_der" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="e4f41a10a4722924ions.rhovl_p_der"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#a2ee7448b9959290BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.rhovl_p_der</H2>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>p</TD><TD>&nbsp;</TD><TD>saturation pressure [Pa]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#60b1dff00f23174cundaryProperties"
+>IF97PhaseBoundaryProperties</A></TD><TD>bpro</TD><TD>&nbsp;</TD><TD>property record</TD></TR>
+<TR><TD>Real</TD><TD>p_der</TD><TD>&nbsp;</TD><TD>derivative of pressure</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>d_der</TD><TD>time derivative of density along the phase boundary</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> rhovl_p_der
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;saturation pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Common.html#60b1dff00f23174cundaryProperties"
+>Common.IF97PhaseBoundaryProperties</A> bpro <font color="darkgreen">&quot;property record&quot;</font>;
+  <font color="blue">input </font>Real p_der <font color="darkgreen">&quot;derivative of pressure&quot;</font>;
+  <font color="blue">output </font>Real d_der <font color="darkgreen">&quot;time derivative of density along the phase boundary&quot;</font>;
+<font color="blue">algorithm </font>
+  d_der := <font color="blue">if </font>bpro.region3boundary<font color="blue"> then </font>(p_der - bpro.pt*p_der/bpro.dpT)/
+    bpro.pd<font color="blue"> else </font>-bpro.d*bpro.d*(bpro.vp + bpro.vt/bpro.dpT)*p_der;
+<font color="blue">end </font>rhovl_p_der;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE sl_p<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.sl_p" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="d14b6c6083ab10b4F97.Regions.sl_p"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#a2ee7448b9959290BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.sl_p</H2>
+<B>liquid specific entropy on the boundary between regions 4 and 3 or 1</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEntropy"
+>SpecificEntropy</A></TD><TD>s</TD><TD>specific entropy [J/(kg.K)]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> sl_p <font color="darkgreen">
+  &quot;liquid specific entropy on the boundary between regions 4 and 3 or 1&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEntropy"
+>SI.SpecificEntropy</A> s <font color="darkgreen">&quot;specific entropy&quot;</font>;
+<font color="blue">protected </font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> Tsat <font color="darkgreen">&quot;saturation temperature&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SI.SpecificEnthalpy</A> h <font color="darkgreen">&quot;specific enthalpy&quot;</font>;
+<font color="blue">algorithm </font>
+  <font color="blue">if </font>(p &lt; data.PLIMIT4A)<font color="blue"> then</font>
+    Tsat :=<font color="red"> Basic.tsat</font>(p);
+    (h,s) :=<font color="red"> Isentropic.handsofpT1</font>(p, Tsat);
+  <font color="blue">elseif </font>(p &lt; data.PCRIT)<font color="blue"> then</font>
+    s :=<font color="red"> sl_p_R4b</font>(p);
+  <font color="blue">else</font>
+    s := data.SCRIT;
+  <font color="blue">end if</font>;
+<font color="blue">end </font>sl_p;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE sv_p<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.sv_p" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="d14e0aba83ab78b4F97.Regions.sv_p"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#a2ee7448b9959290BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.sv_p</H2>
+<B>vapour specific entropy on the boundary between regions 4 and 3 or 2</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEntropy"
+>SpecificEntropy</A></TD><TD>s</TD><TD>specific entropy [J/(kg.K)]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> sv_p <font color="darkgreen">
+  &quot;vapour specific entropy on the boundary between regions 4 and 3 or 2&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEntropy"
+>SI.SpecificEntropy</A> s <font color="darkgreen">&quot;specific entropy&quot;</font>;
+<font color="blue">protected </font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> Tsat <font color="darkgreen">&quot;saturation temperature&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SI.SpecificEnthalpy</A> h <font color="darkgreen">&quot;specific enthalpy&quot;</font>;
+<font color="blue">algorithm </font>
+  <font color="blue">if </font>(p &lt; data.PLIMIT4A)<font color="blue"> then</font>
+    Tsat :=<font color="red"> Basic.tsat</font>(p);
+    (h,s) :=<font color="red"> Isentropic.handsofpT2</font>(p, Tsat);
+  <font color="blue">elseif </font>(p &lt; data.PCRIT)<font color="blue"> then</font>
+    s :=<font color="red"> sv_p_R4b</font>(p);
+  <font color="blue">else</font>
+    s := data.SCRIT;
+  <font color="blue">end if</font>;
+<font color="blue">end </font>sv_p;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE rhol_T<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhol_T" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="d96cc926ae1aa8ba7.Regions.rhol_T"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#a2ee7448b9959290BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.rhol_T</H2>
+<B>density of saturated water</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>T</TD><TD>&nbsp;</TD><TD>temperature [K]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>Density</A></TD><TD>d</TD><TD>density of water at the boiling point [kg/m3]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> rhol_T <font color="darkgreen">&quot;density of saturated water&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> T <font color="darkgreen">&quot;temperature&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> d <font color="darkgreen">&quot;density of water at the boiling point&quot;</font>;
+<font color="blue">protected </font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;saturation pressure&quot;</font>;
+<font color="blue">algorithm </font>
+  p :=<font color="red"> Basic.psat</font>(T);
+  <font color="blue">if </font>T &lt; data.TLIMIT1<font color="blue"> then</font>
+    d :=<font color="red"> d1n</font>(p, T);
+  <font color="blue">elseif </font>T &lt; data.TCRIT<font color="blue"> then</font>
+    d :=<font color="red"> rhol_p_R4b</font>(p);
+  <font color="blue">else</font>
+    d := data.DCRIT;
+  <font color="blue">end if</font>;
+<font color="blue">end </font>rhol_T;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE rhov_T<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhov_T" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="d96f6780ae1ac0ba7.Regions.rhov_T"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#a2ee7448b9959290BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.rhov_T</H2>
+<B>density of saturated vapour</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>T</TD><TD>&nbsp;</TD><TD>temperature [K]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>Density</A></TD><TD>d</TD><TD>density of steam at the condensation point [kg/m3]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> rhov_T <font color="darkgreen">&quot;density of saturated vapour&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> T <font color="darkgreen">&quot;temperature&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> d <font color="darkgreen">&quot;density of steam at the condensation point&quot;</font>;
+<font color="blue">protected </font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;saturation pressure&quot;</font>;
+<font color="blue">algorithm </font>
+
+  <font color="darkgreen">  // assert(T &lt;= data.TCRIT,&quot;input temperature has to be below the critical temperature&quot;);</font>
+  p :=<font color="red"> Basic.psat</font>(T);
+  <font color="blue">if </font>T &lt; data.TLIMIT1<font color="blue"> then</font>
+    d :=<font color="red"> d2n</font>(p, T);
+  <font color="blue">elseif </font>T &lt; data.TCRIT<font color="blue"> then</font>
+    d :=<font color="red"> rhov_p_R4b</font>(p);
+  <font color="blue">else</font>
+    d := data.DCRIT;
+  <font color="blue">end if</font>;
+<font color="blue">end </font>rhov_T;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE region_ph<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.region_ph" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="3287979d5c01250fegions.region_ph"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#a2ee7448b9959290BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.region_ph</H2>
+<B>return the current region (valid values: 1,2,3,4,5) in IF97 for given pressure and specific enthalpy</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SpecificEnthalpy</A></TD><TD>h</TD><TD>&nbsp;</TD><TD>specific enthalpy [J/kg]</TD></TR>
+<TR><TD>Integer</TD><TD>phase</TD><TD>0</TD><TD>phase: 2 for two-phase, 1 for one phase, 0 if not known</TD></TR>
+<TR><TD>Integer</TD><TD>mode</TD><TD>0</TD><TD>mode: 0 means check, otherwise assume region=mode</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Integer</TD><TD>region</TD><TD>region (valid values: 1,2,3,4,5) in IF97</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> region_ph <font color="darkgreen">
+  &quot;return the current region (valid values: 1,2,3,4,5) in IF97 for given pressure and specific enthalpy&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+ <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+ <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SI.SpecificEnthalpy</A> h <font color="darkgreen">&quot;specific enthalpy&quot;</font>;
+ <font color="blue">input </font>Integer phase=0 <font color="darkgreen">
+    &quot;phase: 2 for two-phase, 1 for one phase, 0 if not known&quot;</font>;
+ <font color="blue">input </font>Integer mode=0 <font color="darkgreen">&quot;mode: 0 means check, otherwise assume region=mode&quot;</font>;
+  <font color="blue">output </font>Integer region <font color="darkgreen">&quot;region (valid values: 1,2,3,4,5) in IF97&quot;</font>;
+  <font color="darkgreen">// If mode is different from 0, no checking for the region is done and</font>
+  <font color="darkgreen">// the mode is assumed to be the correct region. This can be used to</font>
+  <font color="darkgreen">// implement e.g. water-only steamtables when mode == 1</font>
+<font color="blue">protected </font>
+  Boolean hsubcrit;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> Ttest;
+  <font color="blue">constant </font>Real[5] n=data.n;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SI.SpecificEnthalpy</A> hl <font color="darkgreen">&quot;bubble enthalpy&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SI.SpecificEnthalpy</A> hv <font color="darkgreen">&quot;dew enthalpy&quot;</font>;
+<font color="blue">algorithm </font>
+  <font color="blue">if </font>(mode &lt;&gt; 0)<font color="blue"> then</font>
+    region := mode;
+  <font color="blue">else</font>
+    <font color="darkgreen">// check for regions 1, 2, 3 and 4</font>
+    hl :=<font color="red"> hl_p</font>(p);
+    hv :=<font color="red"> hv_p</font>(p);
+    <font color="blue">if </font>(phase == 2)<font color="blue"> then</font>
+      region := 4;
+    <font color="blue">else</font>
+      <font color="darkgreen">// phase == 1 or 0, now check if we are in the legal area</font>
+      <font color="blue">if </font>
+        (p &lt; triple.ptriple)<font color="blue"> or </font>(p &gt; data.PLIMIT1)<font color="blue"> or </font>(h &lt;<font color="red"> hlowerofp1</font>(p))<font color="blue"> or </font>
+        ((p &lt; 10.0e6)<font color="blue"> and </font>(h &gt;<font color="red"> hupperofp5</font>(p)))<font color="blue">
+        or </font>((p &gt;= 10.0e6)<font color="blue"> and </font>(h &gt;<font color="red"> hupperofp2</font>(p)))<font color="blue"> then</font>
+        <font color="darkgreen">// outside of valid range</font>
+        region := -1;
+      <font color="blue">else</font>
+        <font color="darkgreen">//region 5 and -1 check complete</font>
+        hsubcrit := (h &lt; data.HCRIT);
+        <font color="darkgreen">// simple precheck: very simple if pressure &lt; PLIMIT4A</font>
+        <font color="blue">if </font>(p &lt; data.PLIMIT4A)<font color="blue"> then</font>
+          <font color="darkgreen">// we can never be in region 3, so test for others</font>
+          <font color="blue">if </font>hsubcrit<font color="blue"> then</font>
+            <font color="blue">if </font>(phase == 1)<font color="blue"> then</font>
+              region := 1;
+            <font color="blue">else</font>
+              <font color="blue">if </font>(h &lt;<font color="red"> Isentropic.hofpT1</font>(p,<font color="red">Basic.tsat</font>(p)))<font color="blue"> then</font>
+                region := 1;
+              <font color="blue">else</font>
+                region := 4;
+              <font color="blue">end if</font>;
+            <font color="blue">end if</font>;
+            <font color="darkgreen">// external or internal phase check</font>
+          <font color="blue">else</font>
+            <font color="blue">if </font>(h &gt;<font color="red"> hlowerofp5</font>(p))<font color="blue"> then</font>
+              <font color="darkgreen">// check for region 5</font>
+              <font color="blue">if </font>((p &lt; data.PLIMIT5)<font color="blue"> and </font>(h &lt;<font color="red"> hupperofp5</font>(p)))<font color="blue"> then</font>
+                region := 5;
+              <font color="blue">else</font>
+                region := -2;
+                <font color="darkgreen">// pressure and specific enthalpy too high, but this should</font>
+              <font color="blue">end if</font>;
+              <font color="darkgreen">// never happen</font>
+            <font color="blue">else</font>
+              <font color="blue">if </font>(phase == 1)<font color="blue"> then</font>
+                region := 2;
+              <font color="blue">else</font>
+                <font color="blue">if </font>(h &gt;<font color="red"> Isentropic.hofpT2</font>(p,<font color="red">Basic.tsat</font>(p)))<font color="blue"> then</font>
+                  region := 2;
+                <font color="blue">else</font>
+                  region := 4;
+                <font color="blue">end if</font>;
+              <font color="blue">end if</font>;<font color="darkgreen">  // external or internal phase check</font>
+            <font color="blue">end if</font>;
+            <font color="darkgreen">// tests for region 2 or 5</font>
+          <font color="blue">end if</font>;
+          <font color="darkgreen">// tests for sub or supercritical</font>
+        <font color="blue">else</font>
+          <font color="darkgreen">// the pressure is over data.PLIMIT4A</font>
+          <font color="blue">if </font>hsubcrit<font color="blue"> then</font>
+            <font color="darkgreen">// region 1 or 3 or 4</font>
+            <font color="blue">if </font>h &lt;<font color="red"> hupperofp1</font>(p)<font color="blue"> then</font>
+              region := 1;
+            <font color="blue">else</font>
+              <font color="blue">if </font>h &lt; hl<font color="blue">  or </font>p &gt; data.PCRIT<font color="blue"> then</font>
+                region := 3;
+              <font color="blue">else</font>
+                region :=4;
+              <font color="blue">end if</font>;
+            <font color="blue">end if</font>;
+            <font color="darkgreen">// enf of test for region 1, 3 or 4</font>
+          <font color="blue">else</font>
+            <font color="darkgreen">// region 2, 3 or 4</font>
+            <font color="blue">if </font>(h &gt;<font color="red"> hlowerofp2</font>(p))<font color="blue"> then</font>
+              region := 2;
+            <font color="blue">else</font>
+              <font color="blue">if </font>h &gt; hv<font color="blue">  or </font>p &gt; data.PCRIT<font color="blue"> then</font>
+                region := 3;
+              <font color="blue">else</font>
+                region := 4;
+              <font color="blue">end if</font>;
+            <font color="blue">end if</font>;
+            <font color="darkgreen">// test for 2 and 3</font>
+          <font color="blue">end if</font>;
+          <font color="darkgreen">// tests above PLIMIT4A</font>
+        <font color="blue">end if</font>;
+        <font color="darkgreen">// above or below PLIMIT4A</font>
+      <font color="blue">end if</font>;
+      <font color="darkgreen">// check for grand limits of p and h</font>
+    <font color="blue">end if</font>;
+    <font color="darkgreen">// all tests with phase == 1</font>
+  <font color="blue">end if</font>;
+  <font color="darkgreen">// mode was == 0</font>
+  <font color="darkgreen">// assert(region &gt; 0,&quot;IF97 function called outside the valid range!&quot;);</font>
+<font color="blue">end </font>region_ph;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE region_ps<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.region_ps" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="328797a85c012514egions.region_ps"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#a2ee7448b9959290BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.region_ps</H2>
+<B>return the current region (valid values: 1,2,3,4,5) in IF97 for given pressure and specific entropy</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEntropy"
+>SpecificEntropy</A></TD><TD>s</TD><TD>&nbsp;</TD><TD>specific entropy [J/(kg.K)]</TD></TR>
+<TR><TD>Integer</TD><TD>phase</TD><TD>0</TD><TD>phase: 2 for two-phase, 1 for one phase, 0 if unknown</TD></TR>
+<TR><TD>Integer</TD><TD>mode</TD><TD>0</TD><TD>mode: 0 means check, otherwise assume region=mode</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Integer</TD><TD>region</TD><TD>region (valid values: 1,2,3,4,5) in IF97</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> region_ps <font color="darkgreen">
+  &quot;return the current region (valid values: 1,2,3,4,5) in IF97 for given pressure and specific entropy&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+ <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+ <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEntropy"
+>SI.SpecificEntropy</A> s <font color="darkgreen">&quot;specific entropy&quot;</font>;
+ <font color="blue">input </font>Integer phase=
+                0 <font color="darkgreen">&quot;phase: 2 for two-phase, 1 for one phase, 0 if unknown&quot;</font>;
+ <font color="blue">input </font>Integer mode=
+               0 <font color="darkgreen">&quot;mode: 0 means check, otherwise assume region=mode&quot;</font>;
+  <font color="blue">output </font>Integer region <font color="darkgreen">&quot;region (valid values: 1,2,3,4,5) in IF97&quot;</font>;
+  <font color="darkgreen">//  If mode is different from 0, no checking for the region is done and</font>
+  <font color="darkgreen">//    the mode is assumed to be the correct region. This can be used to</font>
+  <font color="darkgreen">//    implement e.g. water-only steamtables when mode == 1</font>
+<font color="blue">protected </font>
+  Boolean ssubcrit;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> Ttest;
+  <font color="blue">constant </font>Real[5] n=data.n;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEntropy"
+>SI.SpecificEntropy</A> sl <font color="darkgreen">&quot;bubble entropy&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEntropy"
+>SI.SpecificEntropy</A> sv <font color="darkgreen">&quot;dew entropy&quot;</font>;
+<font color="blue">algorithm </font>
+  <font color="blue">if </font>(mode &lt;&gt; 0)<font color="blue"> then</font>
+    region := mode;
+  <font color="blue">else</font>
+    <font color="darkgreen">// check for regions 1, 2, 3, and 4</font>
+    sl :=<font color="red"> sl_p</font>(p);
+    sv :=<font color="red"> sv_p</font>(p);
+    <font color="darkgreen">// check all cases two-phase</font>
+    <font color="blue">if </font>(phase == 2)<font color="blue"> or </font>(phase == 0<font color="blue"> and </font>s &gt; sl<font color="blue"> and </font>s &lt; sv<font color="blue"> and </font>p &lt; data.PCRIT)<font color="blue"> then</font>
+      region := 4;
+    <font color="blue">else</font>
+      <font color="darkgreen">// phase == 1</font>
+      region := 0;
+      <font color="blue">if </font>(p &lt; triple.ptriple)<font color="blue"> then</font>
+        region := -2;
+      <font color="blue">end if</font>;
+      <font color="blue">if </font>(p &gt; data.PLIMIT1)<font color="blue"> then</font>
+        region := -3;
+      <font color="blue">end if</font>;
+      <font color="blue">if </font>((p &lt; 10.0e6)<font color="blue"> and </font>(s &gt;<font color="red"> supperofp5</font>(p)))<font color="blue"> then</font>
+        region := -5;
+      <font color="blue">end if</font>;
+      <font color="blue">if </font>((p &gt;= 10.0e6)<font color="blue"> and </font>(s &gt;<font color="red"> supperofp2</font>(p)))<font color="blue"> then</font>
+        region := -6;
+      <font color="blue">end if</font>;
+      <font color="blue">if </font>region &lt; 0<font color="blue"> then</font>
+        <font color="red">assert</font>(false, &quot;region computation from p and s failed: function called outside the legal region&quot;);
+      <font color="blue">else</font>
+        ssubcrit := (s &lt; data.SCRIT);
+        <font color="darkgreen">// simple precheck: very simple if pressure &lt; PLIMIT4A</font>
+        <font color="blue">if </font>(p &lt; data.PLIMIT4A)<font color="blue"> then</font>
+          <font color="darkgreen">// we can never be in region 3, so test for 1 and 2</font>
+          <font color="blue">if </font>ssubcrit<font color="blue"> then</font>
+            region := 1;
+          <font color="blue">else</font>
+            <font color="blue">if </font>(s &gt;<font color="red"> slowerofp5</font>(p))<font color="blue"> then</font>
+              <font color="darkgreen">// check for region 5</font>
+              <font color="blue">if </font>((p &lt; data.PLIMIT5)<font color="blue"> and </font>(s &lt;<font color="red"> supperofp5</font>(p)))<font color="blue"> then</font>
+                region := 5;
+              <font color="blue">else</font>
+                region := -1;
+                <font color="darkgreen">// pressure and specific entropy too high, should never happen!</font>
+              <font color="blue">end if</font>;
+            <font color="blue">else</font>
+              region := 2;
+            <font color="blue">end if</font>;
+            <font color="darkgreen">// tests for region 2 or 5</font>
+          <font color="blue">end if</font>;
+          <font color="darkgreen">// tests for sub or supercritical</font>
+        <font color="blue">else</font>
+          <font color="darkgreen">// the pressure is over data.PLIMIT4A</font>
+          <font color="blue">if </font>ssubcrit<font color="blue"> then</font>
+            <font color="darkgreen">// region 1 or 3</font>
+            <font color="blue">if </font>s &lt;<font color="red"> supperofp1</font>(p)<font color="blue"> then</font>
+              region := 1;
+            <font color="blue">else</font>
+              <font color="blue">if </font>s &lt; sl<font color="blue">  or </font>p &gt; data.PCRIT<font color="blue"> then</font>
+                region := 3;
+              <font color="blue">else</font>
+                region := 4;
+              <font color="blue">end if</font>;
+            <font color="blue">end if</font>;
+            <font color="darkgreen">// test for region 1, 3 or 4</font>
+          <font color="blue">else</font>
+            <font color="darkgreen">// region 2, 3 or 4</font>
+            <font color="blue">if </font>(s &gt;<font color="red"> slowerofp2</font>(p))<font color="blue"> then</font>
+              region := 2;
+            <font color="blue">else</font>
+              <font color="blue">if </font>s &gt; sv<font color="blue">  or </font>p &gt; data.PCRIT<font color="blue"> then</font>
+                region := 3;
+              <font color="blue">else</font>
+                region := 4;
+              <font color="blue">end if</font>;
+            <font color="blue">end if</font>;
+            <font color="darkgreen">// test for 2,3 and 4</font>
+          <font color="blue">end if</font>;
+          <font color="darkgreen">// tests above PLIMIT4A</font>
+        <font color="blue">end if</font>;
+        <font color="darkgreen">// above or below PLIMIT4A</font>
+      <font color="blue">end if</font>;
+      <font color="darkgreen">// grand test for limits of p and s</font>
+    <font color="blue">end if</font>;
+    <font color="darkgreen">// all tests with phase == 1</font>
+  <font color="blue">end if</font>;
+  <font color="darkgreen">// mode was == 0</font>
+<font color="blue">end </font>region_ps;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE region_pT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.region_pT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="328797895c012533egions.region_pT"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#a2ee7448b9959290BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.region_pT</H2>
+<B>return the current region (valid values: 1,2,3,5) in IF97, given pressure and temperature</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>T</TD><TD>&nbsp;</TD><TD>temperature (K) [K]</TD></TR>
+<TR><TD>Integer</TD><TD>mode</TD><TD>0</TD><TD>mode: 0 means check, otherwise assume region=mode</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Integer</TD><TD>region</TD><TD>region (valid values: 1,2,3,5) in IF97, region 4 is impossible!</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> region_pT <font color="darkgreen">
+  &quot;return the current region (valid values: 1,2,3,5) in IF97, given pressure and temperature&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> T <font color="darkgreen">&quot;temperature (K)&quot;</font>;
+  <font color="blue">input </font>Integer mode=0 <font color="darkgreen">&quot;mode: 0 means check, otherwise assume region=mode&quot;</font>;
+  <font color="blue">output </font>Integer region <font color="darkgreen">
+    &quot;region (valid values: 1,2,3,5) in IF97, region 4 is impossible!&quot;</font>;
+<font color="blue">algorithm </font>
+  <font color="blue">if </font>(mode &lt;&gt; 0)<font color="blue"> then</font>
+    region := mode;
+  <font color="blue">else</font>
+    <font color="blue">if </font>p &lt; data.PLIMIT4A<font color="blue"> then</font>
+      <font color="darkgreen">//test for regions 1,2,5</font>
+      <font color="blue">if </font>T &gt; data.TLIMIT2<font color="blue"> then</font>
+        region := 5;
+      <font color="blue">elseif </font>T &gt;<font color="red"> Basic.tsat</font>(p)<font color="blue"> then</font>
+        region := 2;
+      <font color="blue">else</font>
+        region := 1;
+      <font color="blue">end if</font>;
+    <font color="blue">else</font>
+      <font color="darkgreen">//test for regions 1,2,3</font>
+      <font color="blue">if </font>T &lt; data.TLIMIT1<font color="blue"> then</font>
+        region := 1;
+      <font color="blue">elseif </font>T &lt;<font color="red"> boundary23ofp</font>(p)<font color="blue"> then</font>
+        region := 3;
+      <font color="blue">else</font>
+        region := 2;
+      <font color="blue">end if</font>;
+    <font color="blue">end if</font>;
+  <font color="blue">end if</font>;
+  <font color="darkgreen">// mode was == 0</font>
+<font color="blue">end </font>region_pT;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE region_dT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.region_dT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="328791655c0127b3egions.region_dT"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#a2ee7448b9959290BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.region_dT</H2>
+<B>return the current region (valid values: 1,2,3,4,5) in IF97, given density and temperature</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>Density</A></TD><TD>d</TD><TD>&nbsp;</TD><TD>density [kg/m3]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>T</TD><TD>&nbsp;</TD><TD>temperature (K) [K]</TD></TR>
+<TR><TD>Integer</TD><TD>phase</TD><TD>0</TD><TD>phase: 2 for two-phase, 1 for one phase, 0 if not known</TD></TR>
+<TR><TD>Integer</TD><TD>mode</TD><TD>0</TD><TD>mode: 0 means check, otherwise assume region=mode</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Integer</TD><TD>region</TD><TD>(valid values: 1,2,3,4,5) in IF97</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> region_dT <font color="darkgreen">
+  &quot;return the current region (valid values: 1,2,3,4,5) in IF97, given density and temperature&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> d <font color="darkgreen">&quot;density&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> T <font color="darkgreen">&quot;temperature (K)&quot;</font>;
+  <font color="blue">input </font>Integer phase= 0 <font color="darkgreen">
+    &quot;phase: 2 for two-phase, 1 for one phase, 0 if not known&quot;</font>;
+  <font color="blue">input </font>Integer mode= 0 <font color="darkgreen">&quot;mode: 0 means check, otherwise assume region=mode&quot;</font>;
+  <font color="blue">output </font>Integer region <font color="darkgreen">&quot;(valid values: 1,2,3,4,5) in IF97&quot;</font>;
+<font color="blue">protected </font>
+  Boolean Tovercrit <font color="darkgreen">&quot;flag if overcritical temperature&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p23 <font color="darkgreen">&quot;pressure needed to know if region 2 or 3&quot;</font>;
+<font color="blue">algorithm </font>
+  Tovercrit := T &gt; data.TCRIT;
+  <font color="blue">if </font>(mode &lt;&gt; 0)<font color="blue"> then</font>
+    region := mode;
+  <font color="blue">else</font>
+    p23 :=<font color="red"> boundary23ofT</font>(T);
+    <font color="blue">if </font>T &gt; data.TLIMIT2<font color="blue"> then</font>
+      <font color="blue">if </font>d &lt; 20.5655874106483<font color="blue"> then</font>
+        <font color="darkgreen">// check for the density in the upper corner of validity!</font>
+        region := 5;
+      <font color="blue">else</font>
+        <font color="red">assert</font>(false,&quot;out of valid region for IF97, pressure above region 5!&quot;);
+      <font color="blue">end if</font>;
+    <font color="blue">elseif </font>Tovercrit<font color="blue"> then</font>
+      <font color="darkgreen">//check for regions 1, 2 or 3</font>
+      <font color="blue">if </font>d &gt;<font color="red"> d2n</font>(p23, T)<font color="blue"> and </font>T &gt; data.TLIMIT1<font color="blue"> then</font>
+        region := 3;
+      <font color="blue">elseif </font>T &lt; data.TLIMIT1<font color="blue"> then</font>
+        region := 1;
+      <font color="blue">else</font><font color="darkgreen"> // d  &lt; d2n(p23, T) and T &gt; data.TLIMIT1</font>
+        region := 2;
+      <font color="blue">end if</font>;
+      <font color="darkgreen">// below critical, check for regions 1, 2, 3 or 4</font>
+    <font color="blue">elseif </font>(d &gt;<font color="red"> rhol_T</font>(T))<font color="blue"> then</font>
+      <font color="darkgreen">// either 1 or 3</font>
+      <font color="blue">if </font>T &lt; data.TLIMIT1<font color="blue"> then</font>
+        region := 1;
+      <font color="blue">else</font>
+        region := 3;
+      <font color="blue">end if</font>;
+    <font color="blue">elseif </font>(d &lt;<font color="red"> rhov_T</font>(T))<font color="blue"> then</font>
+      <font color="darkgreen">// not liquid, not 2-phase, and not region 5, so either 2 or 3 or illegal</font>
+      <font color="blue">if </font>(d &gt;<font color="red"> d2n</font>(p23, T)<font color="blue"> and </font>T &gt; data.TLIMIT1)<font color="blue"> then</font>
+        region := 3;
+      <font color="blue">else</font>
+        region := 2;
+      <font color="blue">end if</font>;
+    <font color="blue">else</font>
+      region := 4;
+    <font color="blue">end if</font>;
+  <font color="blue">end if</font>;
+<font color="blue">end </font>region_dT;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE hvl_dp<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hvl_dp" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="fb97817b9bfbe3fe7.Regions.hvl_dp"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#a2ee7448b9959290BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.hvl_dp</H2>
+<B>derivative function for the specific enthalpy along the phase boundary</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#60b1dff00f23174cundaryProperties"
+>IF97PhaseBoundaryProperties</A></TD><TD>bpro</TD><TD>&nbsp;</TD><TD>property record</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>dh_dp</TD><TD>derivative of specific enthalpy along the phase boundary</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> hvl_dp <font color="darkgreen">
+  &quot;derivative function for the specific enthalpy along the phase boundary&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Common.html#60b1dff00f23174cundaryProperties"
+>Common.IF97PhaseBoundaryProperties</A> bpro <font color="darkgreen">&quot;property record&quot;</font>;
+  <font color="blue">output </font>Real dh_dp <font color="darkgreen">&quot;derivative of specific enthalpy along the phase boundary&quot;</font>;
+<font color="blue">algorithm </font>
+  <font color="blue">if </font>bpro.region3boundary<font color="blue"> then</font>
+    dh_dp := ((bpro.d*bpro.pd - bpro.T*bpro.pt) + (bpro.T*bpro.pt*
+      bpro.pt + bpro.d*bpro.d*bpro.pd*bpro.cv)/bpro.dpT)/(bpro.pd*
+      bpro.d*bpro.d);
+  <font color="blue">else</font>
+    dh_dp := (1/bpro.d - bpro.T*bpro.vt) + bpro.cp/bpro.dpT;
+  <font color="blue">end if</font>;
+<font color="blue">end </font>hvl_dp;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dhl_dp<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.dhl_dp" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="17c65b41821be3fe7.Regions.dhl_dp"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#a2ee7448b9959290BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.dhl_dp</H2>
+<B>derivative of liquid specific enthalpy on the boundary between regions 4 and 3 or 1 w.r.t pressure</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#5497fe51424fcfb4thalpyByPressure"
+>DerEnthalpyByPressure</A></TD><TD>dh_dp</TD><TD>specific enthalpy derivative w.r.t. pressure [J.m.s2/kg2]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> dhl_dp <font color="darkgreen">
+  &quot;derivative of liquid specific enthalpy on the boundary between regions 4 and 3 or 1 w.r.t pressure&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#5497fe51424fcfb4thalpyByPressure"
+>SI.DerEnthalpyByPressure</A> dh_dp <font color="darkgreen">
+    &quot;specific enthalpy derivative w.r.t. pressure&quot;</font>;
+<font color="blue">algorithm </font>
+  dh_dp :=<font color="red"> hvl_dp</font>(p,<font color="red"> boilingcurve_p</font>(p));
+<font color="blue">end </font>dhl_dp;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dhv_dp<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.dhv_dp" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="191d634f8216e3fe7.Regions.dhv_dp"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#a2ee7448b9959290BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.dhv_dp</H2>
+<B>derivative of vapour specific enthalpy on the boundary between regions 4 and 3 or 1 w.r.t pressure</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#5497fe51424fcfb4thalpyByPressure"
+>DerEnthalpyByPressure</A></TD><TD>dh_dp</TD><TD>specific enthalpy derivative w.r.t. pressure [J.m.s2/kg2]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> dhv_dp <font color="darkgreen">
+  &quot;derivative of vapour specific enthalpy on the boundary between regions 4 and 3 or 1 w.r.t pressure&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#5497fe51424fcfb4thalpyByPressure"
+>SI.DerEnthalpyByPressure</A> dh_dp <font color="darkgreen">
+    &quot;specific enthalpy derivative w.r.t. pressure&quot;</font>;
+<font color="blue">algorithm </font>
+  dh_dp :=<font color="red"> hvl_dp</font>(p,<font color="red"> dewcurve_p</font>(p));
+<font color="blue">end </font>dhv_dp;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE drhovl_dp<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.drhovl_dp" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="f82844ce9190312cegions.drhovl_dp"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#a2ee7448b9959290BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.drhovl_dp</H2>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>p</TD><TD>&nbsp;</TD><TD>saturation pressure [Pa]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#60b1dff00f23174cundaryProperties"
+>IF97PhaseBoundaryProperties</A></TD><TD>bpro</TD><TD>&nbsp;</TD><TD>property record</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>dd_dp</TD><TD>derivative of density along the phase boundary [kg/(m3.Pa)]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> drhovl_dp
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;saturation pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Common.html#60b1dff00f23174cundaryProperties"
+>Common.IF97PhaseBoundaryProperties</A> bpro <font color="darkgreen">&quot;property record&quot;</font>;
+  <font color="blue">output </font>Real dd_dp(unit=&quot;kg/(m3.Pa)&quot;) <font color="darkgreen">
+    &quot;derivative of density along the phase boundary&quot;</font>;
+<font color="blue">algorithm </font>
+  dd_dp := <font color="blue">if </font>bpro.region3boundary<font color="blue"> then </font>(1.0 - bpro.pt/bpro.dpT)/
+    bpro.pd<font color="blue"> else </font>-bpro.d*bpro.d*(bpro.vp + bpro.vt/bpro.dpT);
+<font color="blue">end </font>drhovl_dp;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE drhol_dp<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.drhol_dp" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="faadb2e2e4874afeRegions.drhol_dp"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#a2ee7448b9959290BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.drhol_dp</H2>
+<B>derivative of density of saturated water w.r.t. pressure</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>p</TD><TD>&nbsp;</TD><TD>saturation pressure [Pa]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.DerDensityByPressure"
+>DerDensityByPressure</A></TD><TD>dd_dp</TD><TD>derivative of density of water at the boiling point [s2/m2]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> drhol_dp <font color="darkgreen">
+  &quot;derivative of density of saturated water w.r.t. pressure&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;saturation pressure&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.DerDensityByPressure"
+>SI.DerDensityByPressure</A> dd_dp <font color="darkgreen">
+    &quot;derivative of density of water at the boiling point&quot;</font>;
+<font color="blue">algorithm </font>
+  dd_dp :=<font color="red"> drhovl_dp</font>(p,<font color="red"> boilingcurve_p</font>(p));
+<font color="blue">end </font>drhol_dp;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE drhov_dp<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.drhov_dp" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="fc04baf0e48a4afeRegions.drhov_dp"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#a2ee7448b9959290BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.drhov_dp</H2>
+<B>derivative of density of saturated steam w.r.t. pressure</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>p</TD><TD>&nbsp;</TD><TD>saturation pressure [Pa]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.DerDensityByPressure"
+>DerDensityByPressure</A></TD><TD>dd_dp</TD><TD>derivative of density of water at the boiling point [s2/m2]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> drhov_dp <font color="darkgreen">
+  &quot;derivative of density of saturated steam w.r.t. pressure&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;saturation pressure&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.DerDensityByPressure"
+>SI.DerDensityByPressure</A> dd_dp <font color="darkgreen">
+    &quot;derivative of density of water at the boiling point&quot;</font>;
+<font color="blue">algorithm </font>
+  dd_dp :=<font color="red"> drhovl_dp</font>(p,<font color="red"> dewcurve_p</font>(p));
+<font color="blue">end </font>drhov_dp;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Fri Sep 07 19:14:00 2007.
+</address></BODY>
+</HTML>

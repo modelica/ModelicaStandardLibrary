@@ -1,0 +1,458 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Media.Water.IF97_Utilities.BaseIF97.TwoPhase</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;steam properties in the two-phase rgion and on the phase boundaries&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TwoPhase<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="27b7fd92a121ec46aseIF97.TwoPhase"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97.html#169b473fc7f5d0a3ilities.BaseIF97"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97</A>.TwoPhase</H2>
+<B>steam properties in the two-phase rgion and on the phase boundaries</B>
+<P>
+<H3>Information</H3>
+<PRE></pre><h4>Package description</h4>
+          <p>Package TwoPhase provides functions to compute the steam properties
+          in the two-phase region and on the phase boundaries</p>
+          <h4>Package contents</h4>
+          <p>
+          <ul>
+          <li>Function <b>WaterLiq_p</b> computes properties on the boiling boundary as a function of p</li>
+          <li>Function <b>WaterVap_p</b> computes properties on the dew line boundary as a function of p</li>
+          <li>Function <b>WaterSat_ph</b> computes properties on both phase boundaries and in the two
+          phase region as a function of p</li>
+          <li>Function <b>WaterR4_ph</b> computes dynamic simulation properties in region 4 with (p,h) as inputs</li>
+          <li>Function <b>WaterR4_dT</b> computes dynamic simulation properties in region 4 with (d,T) as inputs</li>
+          </ul>
+          </p>
+          <h4>Version Info and Revision history
+          </h4>
+          <ul>
+          <li>First implemented: <i>July, 2000</i>
+          by <a href="http://www.control.lth.se/~hubertus/">Hubertus Tummescheit</a>
+          </li>
+          </ul>
+          <address>Author: Hubertus Tummescheit, <br>
+      Modelon AB<br>
+      Ideon Science Park<br>
+      SE-22370 Lund, Sweden<br>
+      email: hubertus@modelon.se
+          </address>
+          <ul>
+          <li>Initial version: July 2000</li>
+          <li>Documented and re-organized: January 2003</li>
+          </ul>
+          <pre>
+</PRE><P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.TwoPhase.waterLiq_p" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_TwoPhase.html#7e4df1fe83135daaPhase.waterLiq_p"
+>waterLiq_p</A>
+</TD><TD>properties on the liquid phase boundary of region 4</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.TwoPhase.waterVap_p" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_TwoPhase.html#2cc4614782b759aaPhase.waterVap_p"
+>waterVap_p</A>
+</TD><TD>properties on the vapour phase boundary of region 4</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.TwoPhase.waterSat_ph" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_TwoPhase.html#f67a1bd05ce93518hase.waterSat_ph"
+>waterSat_ph</A>
+</TD><TD>Water saturation properties in the 2-phase region (4) as f(p,h)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.TwoPhase.waterR4_ph" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_TwoPhase.html#e08178d682dd6052Phase.waterR4_ph"
+>waterR4_ph</A>
+</TD><TD>Water/Steam properties in region 4 of IAPWS/IF97 (two-phase)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.TwoPhase.waterR4_dT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_TwoPhase.html#e081729e82dd62eePhase.waterR4_dT"
+>waterR4_dT</A>
+</TD><TD>Water properties in region 4 as function of d and T</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE waterLiq_p<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.TwoPhase.waterLiq_pI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.TwoPhase.waterLiq_p" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="7e4df1fe83135daaPhase.waterLiq_p"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_TwoPhase.html#27b7fd92a121ec46aseIF97.TwoPhase"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.TwoPhase</A>.waterLiq_p</H2>
+<B>properties on the liquid phase boundary of region 4</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#163c4bc79366ac0cundaryProperties"
+>PhaseBoundaryProperties</A></TD><TD>liq</TD><TD>liquid thermodynamic property collection</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> waterLiq_p <font color="darkgreen">
+  &quot;properties on the liquid phase boundary of region 4&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Common.html#163c4bc79366ac0cundaryProperties"
+>Modelica.Media.Common.PhaseBoundaryProperties</A> liq <font color="darkgreen">
+    &quot;liquid thermodynamic property collection&quot;</font>;
+<font color="blue">protected </font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> Tsat <font color="darkgreen">&quot;saturation temperature&quot;</font>;
+  Real dpT <font color="darkgreen">&quot;derivative of saturation pressure wrt temperature&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> dl <font color="darkgreen">&quot;liquid density&quot;</font>;
+  <A HREF="Modelica_Media_Common.html#Modelica.Media.Common.GibbsDerivs"
+>Modelica.Media.Common.GibbsDerivs</A> g <font color="darkgreen">
+    &quot;dimensionless Gibbs funcion and dervatives wrt pi and tau&quot;</font>;
+  <A HREF="Modelica_Media_Common.html#Modelica.Media.Common.HelmholtzDerivs"
+>Modelica.Media.Common.HelmholtzDerivs</A> f <font color="darkgreen">
+    &quot;dimensionless Helmholtz function and dervatives wrt delta and tau&quot;</font>;
+<font color="blue">algorithm </font>
+  Tsat :=<font color="red"> Basic.tsat</font>(p);
+  dpT :=<font color="red"> Basic.dptofT</font>(Tsat);
+  <font color="blue">if </font>p &lt; data.PLIMIT4A<font color="blue"> then</font>
+    g :=<font color="red"> Basic.g1</font>(p, Tsat);
+    liq :=<font color="red"> Modelica.Media.Common.gibbsToBoundaryProps</font>(g);
+  <font color="blue">else</font>
+    dl :=<font color="red"> Regions.rhol_p_R4b</font>(p);
+    f :=<font color="red"> Basic.f3</font>(dl, Tsat);
+    liq :=<font color="red"> Modelica.Media.Common.helmholtzToBoundaryProps</font>(f);
+  <font color="blue">end if</font>;
+<font color="blue">end </font>waterLiq_p;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE waterVap_p<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.TwoPhase.waterLiq_pI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.TwoPhase.waterVap_p" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="2cc4614782b759aaPhase.waterVap_p"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_TwoPhase.html#27b7fd92a121ec46aseIF97.TwoPhase"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.TwoPhase</A>.waterVap_p</H2>
+<B>properties on the vapour phase boundary of region 4</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#163c4bc79366ac0cundaryProperties"
+>PhaseBoundaryProperties</A></TD><TD>vap</TD><TD>vapour thermodynamic property collection</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> waterVap_p <font color="darkgreen">
+  &quot;properties on the vapour phase boundary of region 4&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Common.html#163c4bc79366ac0cundaryProperties"
+>Modelica.Media.Common.PhaseBoundaryProperties</A> vap <font color="darkgreen">
+    &quot;vapour thermodynamic property collection&quot;</font>;
+<font color="blue">protected </font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> Tsat <font color="darkgreen">&quot;saturation temperature&quot;</font>;
+  Real dpT <font color="darkgreen">&quot;derivative of saturation pressure wrt temperature&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> dv <font color="darkgreen">&quot;vapour density&quot;</font>;
+  <A HREF="Modelica_Media_Common.html#Modelica.Media.Common.GibbsDerivs"
+>Modelica.Media.Common.GibbsDerivs</A> g <font color="darkgreen">
+    &quot;dimensionless Gibbs funcion and dervatives wrt pi and tau&quot;</font>;
+  <A HREF="Modelica_Media_Common.html#Modelica.Media.Common.HelmholtzDerivs"
+>Modelica.Media.Common.HelmholtzDerivs</A> f <font color="darkgreen">
+    &quot;dimensionless Helmholtz function and dervatives wrt delta and tau&quot;</font>;
+<font color="blue">algorithm </font>
+  Tsat :=<font color="red"> Basic.tsat</font>(p);
+  dpT :=<font color="red"> Basic.dptofT</font>(Tsat);
+  <font color="blue">if </font>p &lt; data.PLIMIT4A<font color="blue"> then</font>
+    g :=<font color="red"> Basic.g2</font>(p, Tsat);
+    vap :=<font color="red"> Modelica.Media.Common.gibbsToBoundaryProps</font>(g);
+  <font color="blue">else</font>
+    dv :=<font color="red"> Regions.rhov_p_R4b</font>(p);
+    f :=<font color="red"> Basic.f3</font>(dv, Tsat);
+    vap :=<font color="red"> Modelica.Media.Common.helmholtzToBoundaryProps</font>(f);
+  <font color="blue">end if</font>;
+<font color="blue">end </font>waterVap_p;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE waterSat_ph<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.TwoPhase.waterLiq_pI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.TwoPhase.waterSat_ph" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="f67a1bd05ce93518hase.waterSat_ph"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_TwoPhase.html#27b7fd92a121ec46aseIF97.TwoPhase"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.TwoPhase</A>.waterSat_ph</H2>
+<B>Water saturation properties in the 2-phase region (4) as f(p,h)</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SpecificEnthalpy</A></TD><TD>h</TD><TD>&nbsp;</TD><TD>specific enthalpy [J/kg]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#5bd56aca40798467rationProperties"
+>SaturationProperties</A></TD><TD>pro</TD><TD>thermodynamic property collection</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> waterSat_ph <font color="darkgreen">
+  &quot;Water saturation properties in the 2-phase region (4) as f(p,h)&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SI.SpecificEnthalpy</A> h <font color="darkgreen">&quot;specific enthalpy&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Common.html#5bd56aca40798467rationProperties"
+>Modelica.Media.Common.SaturationProperties</A> pro <font color="darkgreen">
+    &quot;thermodynamic property collection&quot;</font>;
+<font color="blue">protected </font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> dl <font color="darkgreen">&quot;liquid density&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> dv <font color="darkgreen">&quot;vapour density&quot;</font>;
+  <A HREF="Modelica_Media_Common.html#Modelica.Media.Common.GibbsDerivs"
+>Modelica.Media.Common.GibbsDerivs</A> gl <font color="darkgreen">
+    &quot;dimensionless Gibbs funcion and dervatives wrt pi and tau&quot;</font>;
+  <A HREF="Modelica_Media_Common.html#Modelica.Media.Common.GibbsDerivs"
+>Modelica.Media.Common.GibbsDerivs</A> gv <font color="darkgreen">
+    &quot;dimensionless Gibbs funcion and dervatives wrt pi and tau&quot;</font>;
+  <A HREF="Modelica_Media_Common.html#Modelica.Media.Common.HelmholtzDerivs"
+>Modelica.Media.Common.HelmholtzDerivs</A> fl <font color="darkgreen">
+    &quot;dimensionless Helmholtz function and dervatives wrt delta and tau&quot;</font>;
+  <A HREF="Modelica_Media_Common.html#Modelica.Media.Common.HelmholtzDerivs"
+>Modelica.Media.Common.HelmholtzDerivs</A> fv <font color="darkgreen">
+    &quot;dimensionless Helmholtz function and dervatives wrt delta and tau&quot;</font>;
+<font color="blue">algorithm </font>
+  pro.h := h;
+  pro.p := p;
+  pro.T :=<font color="red"> Basic.tsat</font>(p);
+  pro.dpT :=<font color="red"> Basic.dptofT</font>(pro.T);
+  <font color="blue">if </font>p &lt; data.PLIMIT4A<font color="blue"> then</font>
+    gl :=<font color="red"> Basic.g1</font>(p, pro.T);
+    gv :=<font color="red"> Basic.g2</font>(p, pro.T);
+    pro.liq :=<font color="red"> Modelica.Media.Common.gibbsToBoundaryProps</font>(gl);
+    pro.vap :=<font color="red"> Modelica.Media.Common.gibbsToBoundaryProps</font>(gv);
+  <font color="blue">else</font>
+    dl :=<font color="red"> Regions.rhol_p_R4b</font>(p);
+    dv :=<font color="red"> Regions.rhov_p_R4b</font>(p);
+    fl :=<font color="red"> Basic.f3</font>(dl, pro.T);
+    fv :=<font color="red"> Basic.f3</font>(dv, pro.T);
+    pro.liq :=<font color="red"> Modelica.Media.Common.helmholtzToBoundaryProps</font>(fl);
+    pro.vap :=<font color="red"> Modelica.Media.Common.helmholtzToBoundaryProps</font>(fv);
+  <font color="blue">end if</font>;
+  pro.x := <font color="blue">if </font>(h &lt; pro.liq.h)<font color="blue"> then </font>0.0<font color="blue"> else </font><font color="blue">if </font>(pro.vap.h &lt;&gt; pro.liq.h)<font color="blue"> then </font>
+          (h - pro.liq.h)/(pro.vap.h - pro.liq.h)<font color="blue"> else </font>1.0;
+  pro.d := pro.liq.d*pro.vap.d/(pro.vap.d + pro.x*(pro.liq.d - pro.vap.d));
+  pro.u := pro.x*pro.vap.u + (1 - pro.x)*pro.liq.u;
+  pro.s := pro.x*pro.vap.s + (1 - pro.x)*pro.liq.s;
+  pro.cp := Modelica.Constants.inf;
+  pro.cv :=<font color="red"> Modelica.Media.Common.cv2Phase</font>(pro.liq, pro.vap, pro.x, pro.T,
+     p);
+  pro.kappa := 1/(pro.d*p)*pro.dpT*pro.dpT*pro.T/pro.cv;
+  pro.R := data.RH2O;
+<font color="blue">end </font>waterSat_ph;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE waterR4_ph<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.TwoPhase.waterLiq_pI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.TwoPhase.waterR4_ph" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="e08178d682dd6052Phase.waterR4_ph"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_TwoPhase.html#27b7fd92a121ec46aseIF97.TwoPhase"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.TwoPhase</A>.waterR4_ph</H2>
+<B>Water/Steam properties in region 4 of IAPWS/IF97 (two-phase)</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SpecificEnthalpy</A></TD><TD>h</TD><TD>&nbsp;</TD><TD>specific enthalpy [J/kg]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Common_ThermoFluidSpecial.html#85caa82e0a668672rmoProperties_ph"
+>ThermoProperties_ph</A></TD><TD>pro</TD><TD>thermodynamic property collection</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> waterR4_ph <font color="darkgreen">
+  &quot;Water/Steam properties in region 4 of IAPWS/IF97 (two-phase)&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SI.SpecificEnthalpy</A> h <font color="darkgreen">&quot;specific enthalpy&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Common_ThermoFluidSpecial.html#85caa82e0a668672rmoProperties_ph"
+>Modelica.Media.Common.ThermoFluidSpecial.ThermoProperties_ph</A> pro <font color="darkgreen">
+    &quot;thermodynamic property collection&quot;</font>;
+<font color="blue">protected </font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> dl <font color="darkgreen">&quot;liquid density&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> dv <font color="darkgreen">&quot;vapour density&quot;</font>;
+  <A HREF="Modelica_Media_Common.html#163c4bc79366ac0cundaryProperties"
+>Modelica.Media.Common.PhaseBoundaryProperties</A> liq <font color="darkgreen">
+    &quot;phase boundary property record&quot;</font>;
+  <A HREF="Modelica_Media_Common.html#163c4bc79366ac0cundaryProperties"
+>Modelica.Media.Common.PhaseBoundaryProperties</A> vap <font color="darkgreen">
+    &quot;phase boundary property record&quot;</font>;
+  <A HREF="Modelica_Media_Common.html#Modelica.Media.Common.GibbsDerivs"
+>Modelica.Media.Common.GibbsDerivs</A> gl <font color="darkgreen">
+    &quot;dimensionless Gibbs funcion and dervatives wrt pi and tau&quot;</font>;
+  <A HREF="Modelica_Media_Common.html#Modelica.Media.Common.GibbsDerivs"
+>Modelica.Media.Common.GibbsDerivs</A> gv <font color="darkgreen">
+    &quot;dimensionless Gibbs funcion and dervatives wrt pi and tau&quot;</font>;
+  <A HREF="Modelica_Media_Common.html#Modelica.Media.Common.HelmholtzDerivs"
+>Modelica.Media.Common.HelmholtzDerivs</A> fl <font color="darkgreen">
+    &quot;dimensionless Helmholtz function and dervatives wrt delta and tau&quot;</font>;
+  <A HREF="Modelica_Media_Common.html#Modelica.Media.Common.HelmholtzDerivs"
+>Modelica.Media.Common.HelmholtzDerivs</A> fv <font color="darkgreen">
+    &quot;dimensionless Helmholtz function and dervatives wrt delta and tau&quot;</font>;
+  Real x <font color="darkgreen">&quot;dryness fraction&quot;</font>;
+  Real dpT <font color="darkgreen">&quot;derivative of saturation curve&quot;</font>;
+<font color="blue">algorithm </font>
+  pro.T :=<font color="red"> Basic.tsat</font>(p);
+  dpT :=<font color="red"> Basic.dptofT</font>(pro.T);
+  dl :=<font color="red"> Regions.rhol_p_R4b</font>(p);
+  dv :=<font color="red"> Regions.rhov_p_R4b</font>(p);
+  <font color="blue">if </font>p &lt; data.PLIMIT4A<font color="blue"> then</font>
+    gl :=<font color="red"> Basic.g1</font>(p, pro.T);
+    gv :=<font color="red"> Basic.g2</font>(p, pro.T);
+    liq :=<font color="red"> Modelica.Media.Common.gibbsToBoundaryProps</font>(gl);
+    vap :=<font color="red"> Modelica.Media.Common.gibbsToBoundaryProps</font>(gv);
+  <font color="blue">else</font>
+    fl :=<font color="red"> Basic.f3</font>(dl, pro.T);
+    fv :=<font color="red"> Basic.f3</font>(dv, pro.T);
+    liq :=<font color="red"> Modelica.Media.Common.helmholtzToBoundaryProps</font>(fl);
+    vap :=<font color="red"> Modelica.Media.Common.helmholtzToBoundaryProps</font>(fv);
+  <font color="blue">end if</font>;
+  x := <font color="blue">if </font>(vap.h &lt;&gt; liq.h)<font color="blue"> then </font>(h - liq.h)/(vap.h - liq.h)<font color="blue"> else </font>1.0;
+  pro.d := liq.d*vap.d/(vap.d + x*(liq.d - vap.d));
+  pro.u := x*vap.u + (1 - x)*liq.u;
+  pro.s := x*vap.s + (1 - x)*liq.s;
+  pro.cp := Modelica.Constants.inf;
+  pro.cv :=<font color="red"> Modelica.Media.Common.cv2Phase</font>(liq, vap, x, pro.T, p);
+  pro.kappa := 1/(pro.d*p)*dpT*dpT*pro.T/pro.cv;
+  pro.a := Modelica.Constants.inf;
+  pro.R := data.RH2O;
+  pro.ddph := pro.d*(pro.d*pro.cv/dpT + 1.0)/(dpT*pro.T);
+  pro.ddhp := -pro.d*pro.d/(dpT*pro.T);
+<font color="blue">end </font>waterR4_ph;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE waterR4_dT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97_Utilities.BaseIF97.TwoPhase.waterLiq_pI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.TwoPhase.waterR4_dT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="e081729e82dd62eePhase.waterR4_dT"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_TwoPhase.html#27b7fd92a121ec46aseIF97.TwoPhase"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.TwoPhase</A>.waterR4_dT</H2>
+<B>Water properties in region 4 as function of d and T</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>Density</A></TD><TD>d</TD><TD>&nbsp;</TD><TD>Density [kg/m3]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>T</TD><TD>&nbsp;</TD><TD>temperature [K]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Common_ThermoFluidSpecial.html#85caa1f60a6684cermoProperties_dT"
+>ThermoProperties_dT</A></TD><TD>pro</TD><TD>thermodynamic property collection</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> waterR4_dT <font color="darkgreen">
+  &quot;Water properties in region 4 as function of d and T&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> d <font color="darkgreen">&quot;Density&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> T <font color="darkgreen">&quot;temperature&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Common_ThermoFluidSpecial.html#85caa1f60a6684cermoProperties_dT"
+>Modelica.Media.Common.ThermoFluidSpecial.ThermoProperties_dT</A> pro <font color="darkgreen">
+    &quot;thermodynamic property collection&quot;</font>;
+<font color="blue">protected </font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> dl <font color="darkgreen">&quot;liquid density&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> dv <font color="darkgreen">&quot;vapour density&quot;</font>;
+  <A HREF="Modelica_Media_Common.html#163c4bc79366ac0cundaryProperties"
+>Modelica.Media.Common.PhaseBoundaryProperties</A> liq <font color="darkgreen">
+    &quot;phase boundary property record&quot;</font>;
+  <A HREF="Modelica_Media_Common.html#163c4bc79366ac0cundaryProperties"
+>Modelica.Media.Common.PhaseBoundaryProperties</A> vap <font color="darkgreen">
+    &quot;phase boundary property record&quot;</font>;
+  <A HREF="Modelica_Media_Common.html#Modelica.Media.Common.GibbsDerivs"
+>Modelica.Media.Common.GibbsDerivs</A> gl <font color="darkgreen">
+    &quot;dimensionless Gibbs funcion and dervatives wrt pi and tau&quot;</font>;
+  <A HREF="Modelica_Media_Common.html#Modelica.Media.Common.GibbsDerivs"
+>Modelica.Media.Common.GibbsDerivs</A> gv <font color="darkgreen">
+    &quot;dimensionless Gibbs funcion and dervatives wrt pi and tau&quot;</font>;
+  <A HREF="Modelica_Media_Common.html#Modelica.Media.Common.HelmholtzDerivs"
+>Modelica.Media.Common.HelmholtzDerivs</A> fl <font color="darkgreen">
+    &quot;dimensionless Helmholtz function and dervatives wrt delta and tau&quot;</font>;
+  <A HREF="Modelica_Media_Common.html#Modelica.Media.Common.HelmholtzDerivs"
+>Modelica.Media.Common.HelmholtzDerivs</A> fv <font color="darkgreen">
+    &quot;dimensionless Helmholtz function and dervatives wrt delta and tau&quot;</font>;
+  Real x <font color="darkgreen">&quot;dryness fraction&quot;</font>;
+  Real dpT <font color="darkgreen">&quot;derivative of saturation curve&quot;</font>;
+<font color="blue">algorithm </font>
+  pro.p :=<font color="red"> Basic.psat</font>(T);
+  dpT :=<font color="red"> Basic.dptofT</font>(T);
+  dl :=<font color="red"> Regions.rhol_p_R4b</font>(pro.p);
+  dv :=<font color="red"> Regions.rhov_p_R4b</font>(pro.p);
+  <font color="blue">if </font>pro.p &lt; data.PLIMIT4A<font color="blue"> then</font>
+    gl :=<font color="red"> Basic.g1</font>(pro.p, T);
+    gv :=<font color="red"> Basic.g2</font>(pro.p, T);
+    liq :=<font color="red"> Modelica.Media.Common.gibbsToBoundaryProps</font>(gl);
+    vap :=<font color="red"> Modelica.Media.Common.gibbsToBoundaryProps</font>(gv);
+  <font color="blue">else</font>
+    fl :=<font color="red"> Basic.f3</font>(dl, T);
+    fv :=<font color="red"> Basic.f3</font>(dv, T);
+    liq :=<font color="red"> Modelica.Media.Common.helmholtzToBoundaryProps</font>(fl);
+    vap :=<font color="red"> Modelica.Media.Common.helmholtzToBoundaryProps</font>(fv);
+  <font color="blue">end if</font>;
+  x := <font color="blue">if </font>(vap.d &lt;&gt; liq.d)<font color="blue"> then </font>(1/d - 1/liq.d)/(1/vap.d - 1/liq.d)<font color="blue"> else </font>
+    1.0;
+  pro.u := x*vap.u + (1 - x)*liq.u;
+  pro.h := x*vap.h + (1 - x)*liq.h;
+  pro.cp := Modelica.Constants.inf;
+  pro.cv :=<font color="red"> Modelica.Media.Common.cv2Phase</font>(liq, vap, x, T, pro.p);
+  pro.kappa := 1/(d*pro.p)*dpT*dpT*T/pro.cv;
+  pro.a := Modelica.Constants.inf;
+  pro.R := data.RH2O;
+  pro.dudT := (pro.p - T*dpT)/(d*d);
+<font color="blue">end </font>waterR4_dT;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Fri Sep 07 19:14:00 2007.
+</address></BODY>
+</HTML>

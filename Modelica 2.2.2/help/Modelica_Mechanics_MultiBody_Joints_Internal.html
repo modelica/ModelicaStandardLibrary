@@ -1,0 +1,1154 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Mechanics.MultiBody.Joints.Internal</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Components used for analytic solution of kinematic loops (use only if you know what you are doing)&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Internal<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="59a99cdcc9510a06.Joints.Internal"></A><A HREF="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints"
+>Modelica.Mechanics.MultiBody.Joints</A>.Internal</H2>
+<B>Components used for analytic solution of kinematic loops (use only if you know what you are doing)</B>
+<P>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+The models in this package should not be used by the user.
+They are designed to build up other models in the MultiBody library
+and some of them cannot be used in an arbitrary way and require
+particular knowledge how to set the options in the parameter menu.
+Don't use the models of this package.
+</p>
+<pre></PRE><P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Joints.Internal.RevoluteS.png" ALT="Modelica.Mechanics.MultiBody.Joints.Internal.Revolute" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Joints_Internal.html#7053f8888b871d46nternal.Revolute"
+>Revolute</A>
+</TD><TD>Revolute joint (1 rotational degree-of-freedom, 2 potential states)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Joints.Internal.PrismaticS.png" ALT="Modelica.Mechanics.MultiBody.Joints.Internal.Prismatic" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Joints_Internal.html#28df4f5088f96b8dternal.Prismatic"
+>Prismatic</A>
+</TD><TD>Prismatic joint (1 translational degree-of-freedom, 2 potential states)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Joints.Internal.RevoluteWithLengthConstraintS.png" ALT="Modelica.Mechanics.MultiBody.Joints.Internal.RevoluteWithLengthConstraint" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Joints_Internal.html#b93c4775f62d0800LengthConstraint"
+>RevoluteWithLengthConstraint</A>
+</TD><TD>Revolute joint where the rotation angle is computed from a length constraint (1 degree-of-freedom, no potential state)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Joints.Internal.PrismaticWithLengthConstraintS.png" ALT="Modelica.Mechanics.MultiBody.Joints.Internal.PrismaticWithLengthConstraint" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Joints_Internal.html#7cbe76bdc035e4b0LengthConstraint"
+>PrismaticWithLengthConstraint</A>
+</TD><TD>Prismatic joint where the translational distance is computed from a length constraint (1 degree-of-freedom, no potential state)</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Revolute<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Joints.Internal.RevoluteI.png" ALT="Modelica.Mechanics.MultiBody.Joints.Internal.Revolute" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="7053f8888b871d46nternal.Revolute"></A><A HREF="Modelica_Mechanics_MultiBody_Joints_Internal.html#59a99cdcc9510a06.Joints.Internal"
+>Modelica.Mechanics.MultiBody.Joints.Internal</A>.Revolute</H2>
+<B>Revolute joint (1 rotational degree-of-freedom, 2 potential states)</B><p>
+<IMG SRC="Modelica.Mechanics.MultiBody.Joints.Internal.RevoluteD.png" ALT="Modelica.Mechanics.MultiBody.Joints.Internal.Revolute">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+Joint where frame_b rotates around axis n which is fixed in frame_a.
+The two frames coincide when "phi + phi_offset = 0", where
+"phi_offset" is a parameter with a zero default
+and "phi" is the rotation angle.
+</p>
+<p>
+In the "Advanced" menu it can be defined via parameter <b>enforceStates</b>
+that the rotation angle "phi" and its derivative shall be definitely
+used as states (this means that the Modelica attributes stateSelect=StateSelect.always
+are set on these variables). The states are usually selected automatically.
+In certain situations, especially when closed kinematic loops are present,
+it might be slightly more efficient, when using the "enforceStates" setting.
+</p>
+<p>
+If a <b>planar loop</b> is present, e.g., consisting of 4 revolute joints
+where the joint axes are all parallel to each other, then there is no
+longer a unique mathematical solution and the symbolic algorithms will
+fail. Usually, an error message will be printed pointing out this
+situation. In this case, parameter <b>planarCutJoint</b> in the "Advanced"
+menu of one of the revolute joints has to be set to <b>true</b>. The
+effect is that from the 5 constraints of a usual revolute joint,
+3 constraints are removed and replaced by appropriate known
+variables (e.g., the force in the direction of the axis of rotation is
+treated as known with value equal to zero; for standard revolute joints,
+this force is an unknown quantity).
+</p>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Boolean</TD><TD>animation</TD><TD>true</TD><TD>= true, if animation shall be enabled (show axis as cylinder)</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Types.html#3a7df660573bb712iBody.Types.Axis"
+>Axis</A></TD><TD>n</TD><TD>{0,0,1}</TD><TD>Axis of rotation resolved in frame_a (= same as in frame_b)</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#a0348ede52e5cfbeIunits.Angle_deg"
+>Angle_deg</A></TD><TD>phi_offset</TD><TD>0</TD><TD>Relative angle offset (angle = phi + from_deg(phi_offset)) [deg]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Initialization</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Types_Init.html#a42ba95b9865e60e.Types.Init.Temp"
+>Temp</A></TD><TD>initType</TD><TD>Modelica.Mechanics.MultiBody...</TD><TD>Type of initialization (defines usage of start values below)</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#a0348ede52e5cfbeIunits.Angle_deg"
+>Angle_deg</A></TD><TD>phi_start</TD><TD>0</TD><TD>Initial value of rotation angle phi (fixed or guess value) [deg]</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Types.html#b9382af04aa9375clarVelocity_degs"
+>AngularVelocity_degs</A></TD><TD>w_start</TD><TD>0</TD><TD>Initial value of relative angular velocity w = der(phi) [deg/s]</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Types.html#22ec19456765e7f0celeration_degs2"
+>AngularAcceleration_degs2</A></TD><TD>a_start</TD><TD>0</TD><TD>Initial value of relative angular acceleration a = der(w) [deg/s2]</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Animation</B></TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>if animation = true</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Distance"
+>Distance</A></TD><TD>cylinderLength</TD><TD>world.defaultJointLength</TD><TD>Length of cylinder representing the joint axis [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Distance"
+>Distance</A></TD><TD>cylinderDiameter</TD><TD>world.defaultJointWidth</TD><TD>Diameter of cylinder representing the joint axis [m]</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Types.html#105c8cd0e75d7ab8Body.Types.Color"
+>Color</A></TD><TD>cylinderColor</TD><TD>Modelica.Mechanics.MultiBody...</TD><TD>Color of cylinder representing the joint axis</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Types.html#9fba82bfe8b4d0bacularCoefficient"
+>SpecularCoefficient</A></TD><TD>specularCoefficient</TD><TD>world.defaultSpecularCoeffic...</TD><TD>Reflection of ambient light (= 0: light is completely absorbed)</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Advanced</B></TD></TR>
+<TR><TD>Boolean</TD><TD>enforceStates</TD><TD>false</TD><TD>= true, if generalized variables (phi,w) shall be used as states (StateSelect.always)</TD></TR>
+<TR><TD>Boolean</TD><TD>planarCutJoint</TD><TD>false</TD><TD>= true, if joint shall be used as cut-joint in a planar loop</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#12523e7dca4aecb1terfaces.Frame_a"
+>Frame_a</A></TD><TD>frame_a</TD><TD>Coordinate system fixed to the joint with one cut-force and cut-torque</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#12523e7eca4aecb2terfaces.Frame_b"
+>Frame_b</A></TD><TD>frame_b</TD><TD>Coordinate system fixed to the joint with one cut-force and cut-torque</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Revolute <font color="darkgreen">
+  &quot;Revolute joint (1 rotational degree-of-freedom, 2 potential states)&quot;</font>
+
+  <font color="blue">import </font>SI = <A HREF="Modelica_SIunits.html#Modelica.SIunits"
+>Modelica.SIunits</A>;
+  <font color="blue">import </font>Cv = <A HREF="Modelica_SIunits_Conversions.html#Modelica.SIunits.Conversions"
+>Modelica.SIunits.Conversions</A>;
+  <font color="blue">import </font>T = <A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#c8be30350dd68f7formationMatrices"
+>Modelica.Mechanics.MultiBody.Frames.TransformationMatrices</A>;
+  <font color="blue">import </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#Modelica.Mechanics.MultiBody.Types"
+>Modelica.Mechanics.MultiBody.Types</A>;
+
+  <A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#12523e7dca4aecb1terfaces.Frame_a"
+>Interfaces.Frame_a</A> frame_a <font color="darkgreen">
+    &quot;Coordinate system fixed to the joint with one cut-force and cut-torque&quot;</font>;
+  <A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#12523e7eca4aecb2terfaces.Frame_b"
+>Interfaces.Frame_b</A> frame_b <font color="darkgreen">
+    &quot;Coordinate system fixed to the joint with one cut-force and cut-torque&quot;</font>;
+
+  <font color="blue">parameter </font>Boolean animation=true <font color="darkgreen">
+    &quot;= true, if animation shall be enabled (show axis as cylinder)&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#3a7df660573bb712iBody.Types.Axis"
+>Modelica.Mechanics.MultiBody.Types.Axis</A> n={0,0,1} <font color="darkgreen">
+    &quot;Axis of rotation resolved in frame_a (= same as in frame_b)&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#a0348ede52e5cfbeIunits.Angle_deg"
+>Cv.NonSIunits.Angle_deg</A> phi_offset=0 <font color="darkgreen">
+    &quot;Relative angle offset (angle = phi + from_deg(phi_offset))&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Mechanics_MultiBody_Types_Init.html#a42ba95b9865e60e.Types.Init.Temp"
+>Types.Init.Temp</A> initType=Modelica.Mechanics.MultiBody.Types.Init.Free <font color="darkgreen">
+    &quot;Type of initialization (defines usage of start values below)&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#a0348ede52e5cfbeIunits.Angle_deg"
+>Cv.NonSIunits.Angle_deg</A> phi_start=0 <font color="darkgreen">
+    &quot;Initial value of rotation angle phi (fixed or guess value)&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#b9382af04aa9375clarVelocity_degs"
+>Types.AngularVelocity_degs</A> w_start=0 <font color="darkgreen">
+    &quot;Initial value of relative angular velocity w = der(phi)&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#22ec19456765e7f0celeration_degs2"
+>Types.AngularAcceleration_degs2</A> a_start=0 <font color="darkgreen">
+    &quot;Initial value of relative angular acceleration a = der(w)&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Distance"
+>SI.Distance</A> cylinderLength=world.defaultJointLength <font color="darkgreen">
+    &quot;Length of cylinder representing the joint axis&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Distance"
+>SI.Distance</A> cylinderDiameter=world.defaultJointWidth <font color="darkgreen">
+    &quot;Diameter of cylinder representing the joint axis&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#105c8cd0e75d7ab8Body.Types.Color"
+>Types.Color</A> cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor <font color="darkgreen">
+    &quot;Color of cylinder representing the joint axis&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#9fba82bfe8b4d0bacularCoefficient"
+>Types.SpecularCoefficient</A> specularCoefficient = world.defaultSpecularCoefficient <font color="darkgreen">
+    &quot;Reflection of ambient light (= 0: light is completely absorbed)&quot;</font>;
+
+  <font color="blue">parameter </font>Boolean enforceStates=false <font color="darkgreen">
+    &quot;= true, if generalized variables (phi,w) shall be used as states (StateSelect.always)&quot;</font>;
+  <font color="blue">parameter </font>Boolean planarCutJoint=false <font color="darkgreen">
+    &quot;= true, if joint shall be used as cut-joint in a planar loop&quot;</font>;
+
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>SI.Angle</A> phi(start=<font color="red">Cv.from_deg</font>(phi_start), stateSelect=<font color="blue">if </font>enforceStates<font color="blue"> then </font>
+              StateSelect.always<font color="blue"> else </font><font color="blue">if </font>planarCutJoint<font color="blue"> then </font>StateSelect.
+        never<font color="blue"> else </font>StateSelect.prefer) <font color="darkgreen">
+    &quot;Relative rotation angle from frame_a to frame_b = phi + from_deg(phi_offset))&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
+>SI.AngularVelocity</A> w(stateSelect=<font color="blue">if </font>enforceStates<font color="blue"> then </font>StateSelect.always<font color="blue"> else </font>
+              <font color="blue">if </font>planarCutJoint<font color="blue"> then </font>StateSelect.never<font color="blue"> else </font>StateSelect.
+        prefer) <font color="darkgreen">&quot;First derivative of angle phi (relative angular velocity)&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.AngularAcceleration"
+>SI.AngularAcceleration</A> a <font color="darkgreen">
+    &quot;Second derivative of angle phi (relative angular acceleration)&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Torque"
+>SI.Torque</A> tau=0 <font color="darkgreen">&quot;Driving torque in direction of axis of rotation&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>SI.Angle</A> angle(start=<font color="red">Cv.from_deg</font>(phi_start+phi_offset)) <font color="darkgreen">
+    &quot;= from_deg(phi_offset) + phi&quot;</font>;
+<font color="blue">protected </font>
+  <font color="blue">outer </font><A HREF="Modelica_Mechanics_MultiBody.html#Modelica.Mechanics.MultiBody.World"
+>Modelica.Mechanics.MultiBody.World</A> world;
+  <font color="blue">parameter </font>Real e[3]=<font color="red">Frames.normalize</font>(n) <font color="darkgreen">
+    &quot;Unit vector in direction of rotation axis, resolved in frame_a (= same as in frame_b)&quot;</font>;
+  <font color="blue">parameter </font>Real nnx_a[3]=<font color="blue">if </font><font color="red">abs</font>(e[1]) &gt; 0.1<font color="blue"> then </font>{0,1,0}<font color="blue"> else </font>(<font color="blue">if </font><font color="red">abs</font>(e[2])
+       &gt; 0.1<font color="blue"> then </font>{0,0,1}<font color="blue"> else </font>{1,0,0}) <font color="darkgreen">
+    &quot;Arbitrary vector that is not aligned with rotation axis n&quot;</font>;
+  <font color="blue">parameter </font>Real ey_a[3]=<font color="red">Frames.normalize</font>(<font color="red">cross</font>(e, nnx_a)) <font color="darkgreen">
+    &quot;Unit vector orthogonal to axis n of revolute joint, resolved in frame_a&quot;</font>;
+  <font color="blue">parameter </font>Real ex_a[3]=<font color="red">cross</font>(ey_a, e) <font color="darkgreen">
+    &quot;Unit vector orthogonal to axis n of revolute joint and to ey_a, resolved in frame_a&quot;</font>;
+  Real ey_b[3] <font color="darkgreen">&quot;ey_a, resolved in frame_b&quot;</font>;
+  Real ex_b[3] <font color="darkgreen">&quot;ex_a, resolved in frame_b&quot;</font>;
+  <A HREF="Modelica_Mechanics_MultiBody_Frames.html#12b45ae6b08808c3ames.Orientation"
+>Frames.Orientation</A> R_rel <font color="darkgreen">
+    &quot;Dummy or relative orientation object from frame_a to frame_b&quot;</font>;
+  <A HREF="Modelica_Mechanics_MultiBody_Frames.html#12b45ae6b08808c3ames.Orientation"
+>Frames.Orientation</A> R_rel_inv <font color="darkgreen">
+    &quot;Dummy or relative orientation object from frame_b to frame_a&quot;</font>;
+  Real r_rel_a[3] <font color="darkgreen">
+    &quot;Position vector from origin of frame_a to origin of frame_b, resolved in frame_a&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Force"
+>SI.Force</A> f_c[2] <font color="darkgreen">&quot;Dummy or constraint forces in direction of ex_a, ey_a&quot;</font>;
+
+  <A HREF="Modelica_Mechanics_MultiBody_Visualizers_Advanced.html#d710a9b8cd80ce5fs.Advanced.Shape"
+>Visualizers.Advanced.Shape</A> cylinder(
+    shapeType=&quot;cylinder&quot;,
+    color=cylinderColor,
+    specularCoefficient=specularCoefficient,
+    length=cylinderLength,
+    width=cylinderDiameter,
+    height=cylinderDiameter,
+    lengthDirection=e,
+    widthDirection={0,1,0},
+    r_shape=-e*(cylinderLength/2),
+    r=frame_a.r_0,
+    R=frame_a.R) <font color="blue">if </font>world.enableAnimation<font color="blue"> and </font>animation;
+<font color="blue">initial </font><font color="blue">equation </font>
+  <font color="blue">if </font>initType == Types.Init.PositionVelocity<font color="blue"> then</font>
+    phi =<font color="red"> Cv.from_deg</font>(phi_start);
+    w = w_start*Modelica.Constants.D2R;
+  <font color="blue">elseif </font>initType == Types.Init.SteadyState<font color="blue"> then</font>
+    w = 0;
+    a = 0;
+  <font color="blue">elseif </font>initType == Types.Init.Position<font color="blue"> then</font>
+    phi =<font color="red"> Cv.from_deg</font>(phi_start);
+  <font color="blue">elseif </font>initType == Types.Init.Velocity<font color="blue"> then</font>
+    w = w_start*Modelica.Constants.D2R;
+  <font color="blue">elseif </font>initType == Types.Init.VelocityAcceleration<font color="blue"> then</font>
+    w = w_start*Modelica.Constants.D2R;
+    a = a_start*Modelica.Constants.D2R;
+  <font color="blue">elseif </font>initType == Types.Init.PositionVelocityAcceleration<font color="blue"> then</font>
+    phi =<font color="red"> Cv.from_deg</font>(phi_start);
+    w = w_start*Modelica.Constants.D2R;
+    a = a_start*Modelica.Constants.D2R;
+  <font color="blue">end if</font>;
+
+<font color="blue">equation </font>
+  <font color="red">assert</font>(<font color="red">cardinality</font>(frame_a) &gt; 0,
+    &quot;Connector frame_a of revolute joint is not connected&quot;);
+  <font color="red">assert</font>(<font color="red">cardinality</font>(frame_b) &gt; 0,
+    &quot;Connector frame_b of revolute joint is not connected&quot;);
+
+  <font color="blue">if </font><font color="blue">not </font>planarCutJoint<font color="blue"> then</font>
+    <font color="red">defineBranch</font>(frame_a.R, frame_b.R);
+
+    angle =<font color="red"> Cv.from_deg</font>(phi_offset) + phi;
+    w =<font color="red"> der</font>(phi);
+    a =<font color="red"> der</font>(w);
+
+    <font color="darkgreen">// relationships between quantities of frame_a and of frame_b</font>
+    R_rel =<font color="red"> Frames.planarRotation</font>(e, angle,<font color="red"> der</font>(angle));
+    frame_b.r_0 = frame_a.r_0;
+
+    <font color="blue">if </font><font color="red">rooted</font>(frame_a.R)<font color="blue"> then</font>
+      R_rel_inv =<font color="red"> Frames.nullRotation</font>();
+      frame_b.R =<font color="red"> Frames.absoluteRotation</font>(frame_a.R, R_rel);
+      frame_a.f = -<font color="red">Frames.resolve1</font>(R_rel, frame_b.f);
+      frame_a.t = -<font color="red">Frames.resolve1</font>(R_rel, frame_b.t);
+    <font color="blue">else</font>
+      R_rel_inv =<font color="red"> Frames.Orientation</font>(T=<font color="red">transpose</font>(R_rel.T),w= -e*<font color="red">der</font>(angle));
+      frame_a.R =<font color="red"> Frames.absoluteRotation</font>(frame_b.R, R_rel_inv);
+      frame_b.f = -<font color="red">Frames.resolve2</font>(R_rel, frame_a.f);
+      frame_b.t = -<font color="red">Frames.resolve2</font>(R_rel, frame_a.t);
+    <font color="blue">end if</font>;
+
+    <font color="darkgreen">// d'Alemberts principle</font>
+    tau = -frame_b.t*e;
+
+    <font color="darkgreen">// Set not used variables to arbitrary value</font>
+    r_rel_a =<font color="red"> zeros</font>(3);
+    f_c =<font color="red"> zeros</font>(2);
+    ex_b =<font color="red"> zeros</font>(3);
+    ey_b =<font color="red"> zeros</font>(3);
+  <font color="blue">else</font>
+    <font color="darkgreen">// Determine relative position vector resolved in frame_a</font>
+    R_rel =<font color="red"> Frames.relativeRotation</font>(frame_a.R, frame_b.R);
+    r_rel_a =<font color="red"> Frames.resolve2</font>(frame_a.R, frame_b.r_0 - frame_a.r_0);
+    <font color="darkgreen">// r_rel_a = T.resolve1(R_rel.T, T.resolve2(frame_b.R.T, frame_b.r_0 - frame_a.r_0));</font>
+
+    <font color="darkgreen">// Constraint equations</font>
+    0 = ex_a*r_rel_a;
+    0 = ey_a*r_rel_a;
+
+    <font color="darkgreen">/* Transform forces and torques
+       (Note that e has the same coordinates in frame_a and in frame_b
+        and therefore a simplified transformation of the torque in
+        direction of the rotation axis can be performed. The torques
+        perpendicular to this axis are assumed to be zero by the
+        assumption of a planar joint)
+    */</font>
+    frame_b.t = -e*tau;
+    frame_a.t = -frame_b.t;
+
+    frame_a.f = [ex_a, ey_a]*f_c;
+    frame_b.f = -<font color="red">Frames.resolve2</font>(R_rel, frame_a.f);
+
+    <font color="darkgreen">//angle = planarRotationAngle(e, npx, npx_b);</font>
+    angle = 0;
+    phi = 0;
+    w = 0;
+    a = 0;
+
+    <font color="darkgreen">// dummy</font>
+    R_rel_inv =<font color="red"> Frames.nullRotation</font>();
+
+    <font color="darkgreen">// check that revolute joint is used in planar loop</font>
+    ex_b =<font color="red"> Frames.resolve2</font>(R_rel, ex_a);
+    ey_b =<font color="red"> Frames.resolve2</font>(R_rel, ey_a);
+    <font color="red">assert</font>(<font color="red">noEvent</font>(<font color="red">abs</font>(e*r_rel_a) &lt;= 1.e-10<font color="blue"> and </font><font color="red">abs</font>(e*ex_b) &lt;= 1.e-10<font color="blue"> and </font>
+      <font color="red">abs</font>(e*ey_b) &lt;= 1.e-10), &quot;
+The revolute joint is used with parameter
+planarCutJoint=true. However, the revolute joint
+is not part of a planar loop where the axis of the
+revolute joint (parameter n) is orthogonal to the
+possible movements. Either set planarCutJoint=false
+or correct the definition of the axes vectors n
+in the revolute joints of the planar loop.
+&quot;);
+  <font color="blue">end if</font>;
+<font color="blue">end </font>Revolute;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Prismatic<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Joints.Internal.PrismaticI.png" ALT="Modelica.Mechanics.MultiBody.Joints.Internal.Prismatic" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="28df4f5088f96b8dternal.Prismatic"></A><A HREF="Modelica_Mechanics_MultiBody_Joints_Internal.html#59a99cdcc9510a06.Joints.Internal"
+>Modelica.Mechanics.MultiBody.Joints.Internal</A>.Prismatic</H2>
+<B>Prismatic joint (1 translational degree-of-freedom, 2 potential states)</B><p>
+<IMG SRC="Modelica.Mechanics.MultiBody.Joints.Internal.PrismaticD.png" ALT="Modelica.Mechanics.MultiBody.Joints.Internal.Prismatic">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+Joint where frame_b is translated along axis n which is fixed in frame_a.
+The two frames coincide when "s + s_offset = 0", where
+"s_offset" is a parameter with a zero default
+and "s" is the relative distance.
+</p>
+<p>
+In the "Advanced" menu it can be defined via parameter <b>enforceStates</b>
+that the relative distance "s" and its derivative shall be definitely
+used as states (this means that the Modelica attributes stateSelect=StateSelect.always
+are set on these variables). The states are usually selected automatically.
+In certain situations, especially when closed kinematic loops are present,
+it might be slightly more efficient, when using the "enforceStates" setting.
+</p>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Boolean</TD><TD>animation</TD><TD>true</TD><TD>= true, if animation shall be enabled</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Types.html#3a7df660573bb712iBody.Types.Axis"
+>Axis</A></TD><TD>n</TD><TD>{1,0,0}</TD><TD>Axis of translation resolved in frame_a (= same as in frame_b)</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>Position</A></TD><TD>s_offset</TD><TD>0</TD><TD>Relative distance offset (distance between frame_a and frame_b = s_offset + s) [m]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Initialization</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Types_Init.html#a42ba95b9865e60e.Types.Init.Temp"
+>Temp</A></TD><TD>initType</TD><TD>Modelica.Mechanics.MultiBody...</TD><TD>Type of initialization (defines usage of start values below)</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>Position</A></TD><TD>s_start</TD><TD>0</TD><TD>Initial value of distance (fixed or guess value) [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Velocity"
+>Velocity</A></TD><TD>v_start</TD><TD>0</TD><TD>Initial value of relative velocity v = der(s) [m/s]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Acceleration"
+>Acceleration</A></TD><TD>a_start</TD><TD>0</TD><TD>Initial value of relative acceleration a = der(v) [m/s2]</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Animation</B></TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>if animation = true</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Types.html#3a7df660573bb712iBody.Types.Axis"
+>Axis</A></TD><TD>boxWidthDirection</TD><TD>{0,1,0}</TD><TD>Vector in width direction of box, resolved in frame_a</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Distance"
+>Distance</A></TD><TD>boxWidth</TD><TD>world.defaultJointWidth</TD><TD>Width of prismatic joint box [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Distance"
+>Distance</A></TD><TD>boxHeight</TD><TD>boxWidth</TD><TD>Height of prismatic joint box [m]</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Types.html#105c8cd0e75d7ab8Body.Types.Color"
+>Color</A></TD><TD>boxColor</TD><TD>Modelica.Mechanics.MultiBody...</TD><TD>Color of prismatic joint box</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Types.html#9fba82bfe8b4d0bacularCoefficient"
+>SpecularCoefficient</A></TD><TD>specularCoefficient</TD><TD>world.defaultSpecularCoeffic...</TD><TD>Reflection of ambient light (= 0: light is completely absorbed)</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Advanced</B></TD></TR>
+<TR><TD>Boolean</TD><TD>enforceStates</TD><TD>false</TD><TD>= true, if generalized variables (s,v) shall be used as states (StateSelect.always)</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#12523e7dca4aecb1terfaces.Frame_a"
+>Frame_a</A></TD><TD>frame_a</TD><TD>Coordinate system fixed to the joint with one cut-force and cut-torque</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#12523e7eca4aecb2terfaces.Frame_b"
+>Frame_b</A></TD><TD>frame_b</TD><TD>Coordinate system fixed to the joint with one cut-force and cut-torque</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Prismatic <font color="darkgreen">
+  &quot;Prismatic joint (1 translational degree-of-freedom, 2 potential states)&quot;</font>
+
+  <font color="blue">import </font>SI = <A HREF="Modelica_SIunits.html#Modelica.SIunits"
+>Modelica.SIunits</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#d8db5443a7144455lElementaryJoint"
+>Modelica.Mechanics.MultiBody.Interfaces.PartialElementaryJoint</A>;
+  <font color="blue">parameter </font>Boolean animation=true <font color="darkgreen">&quot;= true, if animation shall be enabled&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#3a7df660573bb712iBody.Types.Axis"
+>Modelica.Mechanics.MultiBody.Types.Axis</A> n={1,0,0} <font color="darkgreen">
+    &quot;Axis of translation resolved in frame_a (= same as in frame_b)&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> s_offset=0 <font color="darkgreen">
+    &quot;Relative distance offset (distance between frame_a and frame_b = s_offset + s)&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Mechanics_MultiBody_Types_Init.html#a42ba95b9865e60e.Types.Init.Temp"
+>Types.Init.Temp</A> initType=Modelica.Mechanics.MultiBody.Types.Init.Free <font color="darkgreen">
+    &quot;Type of initialization (defines usage of start values below)&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> s_start=0 <font color="darkgreen">
+    &quot;Initial value of distance (fixed or guess value)&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Velocity"
+>SI.Velocity</A> v_start=0 <font color="darkgreen">
+    &quot;Initial value of relative velocity v = der(s)&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Acceleration"
+>SI.Acceleration</A> a_start=0 <font color="darkgreen">
+    &quot;Initial value of relative acceleration a = der(v)&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#3a7df660573bb712iBody.Types.Axis"
+>Types.Axis</A> boxWidthDirection={0,1,0} <font color="darkgreen">
+    &quot;Vector in width direction of box, resolved in frame_a&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Distance"
+>SI.Distance</A> boxWidth=world.defaultJointWidth <font color="darkgreen">
+    &quot;Width of prismatic joint box&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Distance"
+>SI.Distance</A> boxHeight=boxWidth <font color="darkgreen">&quot;Height of prismatic joint box&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#105c8cd0e75d7ab8Body.Types.Color"
+>Types.Color</A> boxColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor <font color="darkgreen">
+    &quot;Color of prismatic joint box&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#9fba82bfe8b4d0bacularCoefficient"
+>Types.SpecularCoefficient</A> specularCoefficient = world.defaultSpecularCoefficient <font color="darkgreen">
+    &quot;Reflection of ambient light (= 0: light is completely absorbed)&quot;</font>;
+  <font color="blue">parameter </font>Boolean enforceStates=false <font color="darkgreen">
+    &quot;= true, if generalized variables (s,v) shall be used as states (StateSelect.always)&quot;</font>;
+  <font color="blue">final </font><font color="blue">parameter </font>Real e[3]=<font color="red">Frames.normalize</font>(n) <font color="darkgreen">
+    &quot;Unit vector in direction of prismatic axis n&quot;</font>;
+
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> s(start=s_start, stateSelect=<font color="blue">if </font>enforceStates<font color="blue"> then </font>
+        StateSelect.always<font color="blue"> else </font>StateSelect.prefer) <font color="darkgreen">
+    &quot;Relative distance between frame_a and frame_b = s + s_offset)&quot;</font>;
+
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Velocity"
+>SI.Velocity</A> v(stateSelect=<font color="blue">if </font>enforceStates<font color="blue"> then </font>StateSelect.always<font color="blue"> else </font>
+        StateSelect.prefer) <font color="darkgreen">&quot;First derivative of s (relative velocity)&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Acceleration"
+>SI.Acceleration</A> a;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Force"
+>SI.Force</A> f=0 <font color="darkgreen">&quot;Actuation force in direction of joint axis&quot;</font>;
+
+
+<font color="blue">protected </font>
+  <A HREF="Modelica_Mechanics_MultiBody_Visualizers_Advanced.html#d710a9b8cd80ce5fs.Advanced.Shape"
+>Visualizers.Advanced.Shape</A> box(
+    shapeType=&quot;box&quot;,
+    color=boxColor,
+    specularCoefficient=specularCoefficient,
+    length=<font color="blue">if </font><font color="red">noEvent</font>(<font color="red">abs</font>(s + s_offset) &gt; 1.e-6)<font color="blue"> then </font>s + s_offset<font color="blue"> else </font>1.e-6,
+    width=boxWidth,
+    height=boxHeight,
+    lengthDirection=e,
+    widthDirection=boxWidthDirection,
+    r=frame_a.r_0,
+    R=frame_a.R) <font color="blue">if </font>world.enableAnimation<font color="blue"> and </font>animation;
+<font color="blue">initial </font><font color="blue">equation </font>
+  <font color="blue">if </font>initType == Types.Init.PositionVelocity<font color="blue"> then</font>
+    s = s_start;
+    v = v_start;
+  <font color="blue">elseif </font>initType == Types.Init.SteadyState<font color="blue"> then</font>
+    v = 0;
+    a = 0;
+  <font color="blue">elseif </font>initType == Types.Init.Position<font color="blue"> then</font>
+    s = s_start;
+  <font color="blue">elseif </font>initType == Types.Init.Velocity<font color="blue"> then</font>
+    v = v_start;
+  <font color="blue">elseif </font>initType == Types.Init.VelocityAcceleration<font color="blue"> then</font>
+    v = v_start;
+    a = a_start;
+  <font color="blue">elseif </font>initType == Types.Init.PositionVelocityAcceleration<font color="blue"> then</font>
+    s = s_start;
+    v = v_start;
+    a = a_start;
+  <font color="blue">end if</font>;
+  <font color="darkgreen">// define potential states</font>
+<font color="blue">equation </font>
+  v =<font color="red"> der</font>(s);
+  a =<font color="red"> der</font>(v);
+
+  <font color="darkgreen">// relationships between kinematic quantities of frame_a and of frame_b</font>
+  frame_b.r_0 = frame_a.r_0 +<font color="red"> Frames.resolve1</font>(frame_a.R, e*(s_offset + s));
+  frame_b.R = frame_a.R;
+
+  <font color="darkgreen">// Force and torque balance</font>
+  <font color="red">zeros</font>(3) = frame_a.f + frame_b.f;
+  <font color="red">zeros</font>(3) = frame_a.t + frame_b.t +<font color="red"> cross</font>(e*(s_offset + s), frame_b.f);
+
+  <font color="darkgreen">// d'Alemberts principle</font>
+  f = -e*frame_b.f;
+<font color="blue">end </font>Prismatic;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE RevoluteWithLengthConstraint<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Joints.Internal.RevoluteWithLengthConstraintI.png" ALT="Modelica.Mechanics.MultiBody.Joints.Internal.RevoluteWithLengthConstraint" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="b93c4775f62d0800LengthConstraint"></A><A HREF="Modelica_Mechanics_MultiBody_Joints_Internal.html#59a99cdcc9510a06.Joints.Internal"
+>Modelica.Mechanics.MultiBody.Joints.Internal</A>.RevoluteWithLengthConstraint</H2>
+<B>Revolute joint where the rotation angle is computed from a length constraint (1 degree-of-freedom, no potential state)</B><p>
+<IMG SRC="Modelica.Mechanics.MultiBody.Joints.Internal.RevoluteWithLengthConstraintD.png" ALT="Modelica.Mechanics.MultiBody.Joints.Internal.RevoluteWithLengthConstraint">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+Joint where frame_b rotates around axis n which is fixed in frame_a.
+The two frames coincide when "phi + phi_offset = 0", where
+"phi_offset" is a parameter with a zero default
+and "phi" is the rotation angle.
+</p>
+<p>
+This variant of the revolute joint is designed to work together
+with a length constraint in a kinematic loop. This means that the
+angle of the revolute joint, phi, is computed such that the
+length constraint is fulfilled.
+</p>
+<p>
+<b>Usually, this joint should not be used by a user of the MultiBody
+library. It is only provided to built-up the Modelica.Mechanics.MultiBody.Joints.Assemblies.JointXYZ
+joints.</b>
+</p>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Boolean</TD><TD>animation</TD><TD>true</TD><TD>= true, if animation shall be enabled</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>Position</A></TD><TD>lengthConstraint</TD><TD>1</TD><TD>Fixed length of length constraint [m]</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Types.html#3a7df660573bb712iBody.Types.Axis"
+>Axis</A></TD><TD>n</TD><TD>{0,0,1}</TD><TD>Axis of rotation resolved in frame_a (= same as in frame_b)</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#a0348ede52e5cfbeIunits.Angle_deg"
+>Angle_deg</A></TD><TD>phi_offset</TD><TD>0</TD><TD>Relative angle offset (angle = phi + from_deg(phi_offset)) [deg]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#a0348ede52e5cfbeIunits.Angle_deg"
+>Angle_deg</A></TD><TD>phi_guess</TD><TD>0</TD><TD>Select the configuration such that at initial time |phi - from_deg(phi_guess)|is minimal [deg]</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Animation</B></TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>if animation = true</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Distance"
+>Distance</A></TD><TD>cylinderLength</TD><TD>world.defaultJointLength</TD><TD>Length of cylinder representing the joint axis [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Distance"
+>Distance</A></TD><TD>cylinderDiameter</TD><TD>world.defaultJointWidth</TD><TD>Diameter of cylinder representing the joint axis [m]</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Types.html#105c8cd0e75d7ab8Body.Types.Color"
+>Color</A></TD><TD>cylinderColor</TD><TD>Modelica.Mechanics.MultiBody...</TD><TD>Color of cylinder representing the joint axis</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Types.html#9fba82bfe8b4d0bacularCoefficient"
+>SpecularCoefficient</A></TD><TD>specularCoefficient</TD><TD>world.defaultSpecularCoeffic...</TD><TD>Reflection of ambient light (= 0: light is completely absorbed)</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Advanced</B></TD></TR>
+<TR><TD>Boolean</TD><TD>axisTorqueBalance</TD><TD>true</TD><TD>= true, if torque balance of flange axis with the frame_b connector (axis.tau = -e*frame_b.t) shall be defined. Otherwise this equation has to be provided outside of this joint</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#12523e7dca4aecb1terfaces.Frame_a"
+>Frame_a</A></TD><TD>frame_a</TD><TD>Coordinate system fixed to the component with one cut-force and cut-torque</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#12523e7eca4aecb2terfaces.Frame_b"
+>Frame_b</A></TD><TD>frame_b</TD><TD>Coordinate system fixed to the component with one cut-force and cut-torque</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#0dd23615c7e1b041erfaces.Flange_a"
+>Flange_a</A></TD><TD>axis</TD><TD>1-dim. rotational flange that drives the joint</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#0dd23616c7e1b042erfaces.Flange_b"
+>Flange_b</A></TD><TD>bearing</TD><TD>1-dim. rotational flange of the drive bearing</TD></TR>
+<TR><TD>input <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>position_a[3]</TD><TD>Position vector from frame_a to frame_a side of length constraint, resolved in frame_a of revolute joint</TD></TR>
+<TR><TD>input <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>position_b[3]</TD><TD>Position vector from frame_b to frame_b side of length constraint, resolved in frame_b of revolute joint</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> RevoluteWithLengthConstraint <font color="darkgreen">
+  &quot;Revolute joint where the rotation angle is computed from a length constraint (1 degree-of-freedom, no potential state)&quot;</font>
+
+  <font color="blue">import </font>SI = <A HREF="Modelica_SIunits.html#Modelica.SIunits"
+>Modelica.SIunits</A>;
+  <font color="blue">import </font>Cv = <A HREF="Modelica_SIunits_Conversions.html#Modelica.SIunits.Conversions"
+>Modelica.SIunits.Conversions</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#350bcd53977e42dePartialTwoFrames"
+>Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames</A>;
+  <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#0dd23615c7e1b041erfaces.Flange_a"
+>Modelica.Mechanics.Rotational.Interfaces.Flange_a</A> axis <font color="darkgreen">
+    &quot;1-dim. rotational flange that drives the joint&quot;</font>;
+  <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#0dd23616c7e1b042erfaces.Flange_b"
+>Modelica.Mechanics.Rotational.Interfaces.Flange_b</A> bearing <font color="darkgreen">
+    &quot;1-dim. rotational flange of the drive bearing&quot;</font>;
+
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> position_a[3](<font color="blue">redeclare </font><font color="blue">each </font><font color="blue">type</font>
+      SignalType = <A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A>) <font color="darkgreen">
+    &quot;Position vector from frame_a to frame_a side of length constraint, resolved in frame_a of revolute joint&quot;</font>;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> position_b[3](<font color="blue">redeclare </font><font color="blue">each </font><font color="blue">type</font>
+      SignalType = <A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A>) <font color="darkgreen">
+    &quot;Position vector from frame_b to frame_b side of length constraint, resolved in frame_b of revolute joint&quot;</font>;
+
+  <font color="blue">parameter </font>Boolean animation=true <font color="darkgreen">&quot;= true, if animation shall be enabled&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> lengthConstraint=1 <font color="darkgreen">&quot;Fixed length of length constraint&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#3a7df660573bb712iBody.Types.Axis"
+>Modelica.Mechanics.MultiBody.Types.Axis</A> n={0,0,1} <font color="darkgreen">
+    &quot;Axis of rotation resolved in frame_a (= same as in frame_b)&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#a0348ede52e5cfbeIunits.Angle_deg"
+>Cv.NonSIunits.Angle_deg</A> phi_offset=0 <font color="darkgreen">
+    &quot;Relative angle offset (angle = phi + from_deg(phi_offset))&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#a0348ede52e5cfbeIunits.Angle_deg"
+>Cv.NonSIunits.Angle_deg</A> phi_guess=0 <font color="darkgreen">
+    &quot;Select the configuration such that at initial time |phi - from_deg(phi_guess)|is minimal&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Distance"
+>SI.Distance</A> cylinderLength=world.defaultJointLength <font color="darkgreen">
+    &quot;Length of cylinder representing the joint axis&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Distance"
+>SI.Distance</A> cylinderDiameter=world.defaultJointWidth <font color="darkgreen">
+    &quot;Diameter of cylinder representing the joint axis&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#105c8cd0e75d7ab8Body.Types.Color"
+>Types.Color</A> cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor <font color="darkgreen">
+    &quot;Color of cylinder representing the joint axis&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#9fba82bfe8b4d0bacularCoefficient"
+>Types.SpecularCoefficient</A> specularCoefficient = world.defaultSpecularCoefficient <font color="darkgreen">
+    &quot;Reflection of ambient light (= 0: light is completely absorbed)&quot;</font>;
+
+  <font color="blue">parameter </font>Boolean axisTorqueBalance=true <font color="darkgreen">
+    &quot;= true, if torque balance of flange axis with the frame_b connector (axis.tau = -e*frame_b.t) shall be defined. Otherwise this equation has to be provided outside of this joint&quot;</font>;
+  <font color="blue">final </font><font color="blue">parameter </font>Boolean positiveBranch(fixed=false) <font color="darkgreen">
+    &quot;Based on phi_guess, selection of one of the two solutions of the non-linear constraint equation&quot;</font>;
+  <font color="blue">final </font><font color="blue">parameter </font>Real e[3]=<font color="red">Modelica.Mechanics.MultiBody.Frames.normalize</font>(n) <font color="darkgreen">
+    &quot;Unit vector in direction of rotation axis, resolved in frame_a&quot;</font>;
+
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>SI.Angle</A> phi <font color="darkgreen">&quot;Rotation angle of revolute joint&quot;</font>;
+  <A HREF="Modelica_Mechanics_MultiBody_Frames.html#12b45ae6b08808c3ames.Orientation"
+>Frames.Orientation</A> R_rel <font color="darkgreen">
+    &quot;Relative orientation object from frame_a to frame_b&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>SI.Angle</A> angle <font color="darkgreen">
+    &quot;= phi + from_deg(phi_offset) (relative rotation angle between frame_a and frame_b)&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Torque"
+>SI.Torque</A> tau <font color="darkgreen">&quot;= axis.tau (driving torque in the axis)&quot;</font>;
+
+
+<font color="blue">protected </font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> r_a[3]=position_a <font color="darkgreen">
+    &quot;Position vector from frame_a to frame_a side of length constraint, resolved in frame_a of revolute joint&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> r_b[3]=position_b <font color="darkgreen">
+    &quot;Position vector from frame_b to frame_b side of length constraint, resolved in frame_b of revolute joint&quot;</font>;
+  Real e_r_a <font color="darkgreen">&quot;Projection of r_a on e&quot;</font>;
+  Real e_r_b <font color="darkgreen">&quot;Projection of r_b on e&quot;</font>;
+  Real A <font color="darkgreen">&quot;Coefficient A of equation: A*cos(phi) + B*sin(phi) + C = 0&quot;</font>;
+  Real B <font color="darkgreen">&quot;Coefficient B of equation: A*cos(phi) + B*sin(phi) + C = 0&quot;</font>;
+  Real C <font color="darkgreen">&quot;Coefficient C of equation: A*cos(phi) + B*sin(phi) + C = 0&quot;</font>;
+  Real k1 <font color="darkgreen">&quot;Constant of quadratic equation&quot;</font>;
+  Real k2 <font color="darkgreen">&quot;Constant of quadratic equation&quot;</font>;
+  Real k1a(start=1);
+  Real k1b;
+  Real kcos_angle <font color="darkgreen">&quot;= k1*cos(angle)&quot;</font>;
+  Real ksin_angle <font color="darkgreen">&quot;= k1*sin(angle)&quot;</font>;
+
+  <A HREF="Modelica_Mechanics_MultiBody_Visualizers_Advanced.html#d710a9b8cd80ce5fs.Advanced.Shape"
+>Visualizers.Advanced.Shape</A> cylinder(
+    shapeType=&quot;cylinder&quot;,
+    color=cylinderColor,
+    specularCoefficient=specularCoefficient,
+    length=cylinderLength,
+    width=cylinderDiameter,
+    height=cylinderDiameter,
+    lengthDirection=e,
+    widthDirection={0,1,0},
+    r_shape=-e*(cylinderLength/2),
+    r=frame_a.r_0,
+    R=frame_a.R) <font color="blue">if </font>world.enableAnimation<font color="blue"> and </font>animation;
+
+  <font color="blue">function</font> selectBranch <font color="darkgreen">
+    &quot;Determine branch which is closest to initial angle=0&quot;</font>
+
+    <font color="blue">import </font><A HREF="Modelica_Math.html#Modelica.Math"
+>Modelica.Math</A>.*;
+    <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> L <font color="darkgreen">&quot;Length of length constraint&quot;</font>;
+    <font color="blue">input </font>Real e[3] <font color="darkgreen">
+      &quot;Unit vector along axis of rotation, resolved in frame_a (= same in frame_b)&quot;</font>;
+    <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>SI.Angle</A> angle_guess <font color="darkgreen">
+      &quot;Select the configuration such that at initial time |angle-angle_guess|is minimal (angle=0: frame_a and frame_b coincide)&quot;</font>;
+    <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> r_a[3] <font color="darkgreen">
+      &quot;Position vector from frame_a to frame_a side of length constraint, resolved in frame_a of revolute joint&quot;</font>;
+    <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> r_b[3] <font color="darkgreen">
+      &quot;Position vector from frame_b to frame_b side of length constraint, resolved in frame_b of revolute joint&quot;</font>;
+    <font color="blue">output </font>Boolean positiveBranch <font color="darkgreen">&quot;Branch of the initial solution&quot;</font>;
+  <font color="blue">protected </font>
+    Real e_r_a <font color="darkgreen">&quot;Projection of r_a on e&quot;</font>;
+    Real e_r_b <font color="darkgreen">&quot;Projection of r_b on e&quot;</font>;
+    Real A <font color="darkgreen">&quot;Coefficient A of equation: A*cos(phi) + B*sin(phi) + C = 0&quot;</font>;
+    Real B <font color="darkgreen">&quot;Coefficient B of equation: A*cos(phi) + B*sin(phi) + C = 0&quot;</font>;
+    Real C <font color="darkgreen">&quot;Coefficient C of equation: A*cos(phi) + B*sin(phi) + C = 0&quot;</font>;
+    Real k1 <font color="darkgreen">&quot;Constant of quadratic equation&quot;</font>;
+    Real k2 <font color="darkgreen">&quot;Constant of quadratic equation&quot;</font>;
+    Real kcos1 <font color="darkgreen">&quot;k1*cos(angle1)&quot;</font>;
+    Real ksin1 <font color="darkgreen">&quot;k1*sin(angle1)&quot;</font>;
+    Real kcos2 <font color="darkgreen">&quot;k2*cos(angle2)&quot;</font>;
+    Real ksin2 <font color="darkgreen">&quot;k2*sin(angle2)&quot;</font>;
+    <A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>SI.Angle</A> angle1 <font color="darkgreen">&quot;solution 1 of nonlinear equation&quot;</font>;
+    <A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>SI.Angle</A> angle2 <font color="darkgreen">&quot;solution 2 of nonlinear equation&quot;</font>;
+  <font color="blue">algorithm </font>
+    <font color="darkgreen">/* The position vector r_rel from frame_a to frame_b of the length constraint
+       element, resolved in frame_b of the revolute joint is given by
+       (T_rel is the planar transformation matrix from frame_a to frame_b of
+        the revolute joint):
+          r_rel = r_b - T_rel*r_a
+       The length constraint can therefore be formulated as:
+          r_rel*r_rel = L*L
+       with
+          (r_b - T_rel*r_a)*(r_b - T_rel*r_a)
+             = r_b*r_b - 2*r_b*T_rel*r_a + r_a*transpose(T_rel)*T_rel*r_a
+             = r_b*r_b + r_a*r_a - 2*r_b*T_rel*r_a
+       follows
+          (1) 0 = r_a*r_a + r_b*r_b - 2*r_b*T_rel*r_a - L*L
+       The vectors r_a, r_b and parameter L are NOT a function of
+       the angle of the revolute joint. Since T_rel = T_rel(angle) is a function
+       of the unknown angle of the revolute joint, this is a non-linear
+       equation in this angle.
+          T_rel = [e]*tranpose([e]) + (identity(3) - [e]*transpose([e]))*cos(angle)
+                  - skew(e)*sin(angle);
+       with
+          r_b*T_rel*r_a
+             = r_b*(e*(e*r_a) + (r_a - e*(e*r_a))*cos(angle) - cross(e,r_a)*sin(angle)
+             = (e*r_b)*(e*r_a) + (r_b*r_a - (e*r_b)*(e*r_a))*cos(angle) - r_b*cross(e,r_a)*sin(angle)
+       follows for the constraint equation (1)
+          (2) 0 = r_a*r_a + r_b*r_b - L*L
+                  - 2*(e*r_b)*(e*r_a)
+                  - 2*(r_b*r_a - (e*r_b)*(e*r_a))*cos(angle)
+                  + 2*r_b*cross(e,r_a)*sin(angle)
+       or
+          (3) A*cos(angle) + B*sin(angle) + C = 0
+       with
+              A = -2*(r_b*r_a - (e*r_b)*(e*r_a))
+              B = 2*r_b*cross(e,r_a)
+              C = r_a*r_a + r_b*r_b - L*L - 2*(e*r_b)*(e*r_a)
+       Equation (3) is solved by computing sin(angle) and cos(angle)
+       independently from each other. This allows to compute
+       angle in the range: -180 deg &lt;= angle &lt;= 180 deg
+    */</font>
+    e_r_a := e*r_a;
+    e_r_b := e*r_b;
+    A := -2*(r_b*r_a - e_r_b*e_r_a);
+    B := 2*r_b*<font color="red">cross</font>(e, r_a);
+    C := r_a*r_a + r_b*r_b - L*L - 2*e_r_b*e_r_a;
+    k1 := A*A + B*B;
+    k2 := <font color="red">sqrt</font>(k1 - C*C);
+
+    kcos1 := -A*C + B*k2;
+    ksin1 := -B*C - A*k2;
+    angle1 := <font color="red">atan2</font>(ksin1, kcos1);
+
+    kcos2 := -A*C - B*k2;
+    ksin2 := -B*C + A*k2;
+    angle2 := <font color="red">atan2</font>(ksin2, kcos2);
+
+    <font color="blue">if </font><font color="red">abs</font>(angle1 - angle_guess) &lt;= <font color="red">abs</font>(angle2 - angle_guess)<font color="blue"> then</font>
+      positiveBranch := true;
+    <font color="blue">else</font>
+      positiveBranch := false;
+    <font color="blue">end if</font>;
+  <font color="blue">end </font>selectBranch;
+<font color="blue">initial </font><font color="blue">equation </font>
+  positiveBranch =<font color="red"> selectBranch</font>(lengthConstraint, e,<font color="red"> Cv.from_deg</font>(phi_offset
+     + phi_guess), r_a, r_b);
+<font color="blue">equation </font>
+  axis.tau = tau;
+  axis.phi = phi;
+  bearing.phi = 0;
+
+  angle =<font color="red"> Cv.from_deg</font>(phi_offset) + phi;
+
+  <font color="darkgreen">// transform kinematic quantities from frame_a to frame_b</font>
+  frame_b.r_0 = frame_a.r_0;
+
+  R_rel =<font color="red"> Frames.planarRotation</font>(e, angle,<font color="red"> der</font>(angle));
+  frame_b.R =<font color="red"> Frames.absoluteRotation</font>(frame_a.R, R_rel);
+
+  <font color="darkgreen">// Transform the force and torque acting at frame_b to frame_a</font>
+  <font color="red">zeros</font>(3) = frame_a.f +<font color="red"> Frames.resolve1</font>(R_rel, frame_b.f);
+  <font color="red">zeros</font>(3) = frame_a.t +<font color="red"> Frames.resolve1</font>(R_rel, frame_b.t);
+
+  <font color="blue">if </font>axisTorqueBalance<font color="blue"> then</font>
+    <font color="darkgreen">/* Note, if axisTorqueBalance is false, the force in the
+       length constraint must be calculated such that the driving
+       Torque in direction of the rotation axis is:
+          axis.tau = -e*frame_b.t;
+       If axisTorqueBalance=true, this equation is provided here.
+       As a consequence, the force in the length constraint and the second
+       derivative of 'angle' will be part of a linear algebraic system of
+       equations (otherwise, it might be possible to remove this force
+       from the linear system).
+    */</font>
+    tau = -e*frame_b.t;
+  <font color="blue">end if</font>;
+
+  <font color="darkgreen">// Compute rotation angle (details, see function &quot;selectBranch&quot;)</font>
+  e_r_a = e*r_a;
+  e_r_b = e*r_b;
+  A = -2*(r_b*r_a - e_r_b*e_r_a);
+  B = 2*r_b*<font color="red">cross</font>(e, r_a);
+  C = r_a*r_a + r_b*r_b - lengthConstraint*lengthConstraint - 2*e_r_b*e_r_a;
+  k1 = A*A + B*B;
+  k1a = k1 - C*C;
+
+  <font color="red">assert</font>(k1a &gt; 1.e-10, &quot;
+Singular position of loop (either no or two analytic solutions;
+the mechanism has lost one-degree-of freedom in this position).
+Try first to use another Modelica.Mechanics.MultiBody.Joints.Assemblies.JointXXX component.
+In most cases it is best that the joints outside of the JointXXX
+component are revolute and NOT prismatic joints. If this also
+lead to singular positions, it could be that this kinematic loop
+cannot be solved analytically. In this case you have to build
+up the loop with basic joints (NO aggregation JointXXX components)
+and rely on dynamic state selection, i.e., during simulation
+the states will be dynamically selected in such a way that in no
+position a degree of freedom is lost.
+&quot;);
+
+  k1b =<font color="red"> Frames.Internal.maxWithoutEvent</font>(k1a, 1.0e-12);
+  k2 =<font color="red"> sqrt</font>(k1b);
+  kcos_angle = -A*C + (<font color="blue">if </font>positiveBranch<font color="blue"> then </font>B<font color="blue"> else </font>-B)*k2;
+  ksin_angle = -B*C + (<font color="blue">if </font>positiveBranch<font color="blue"> then </font>-A<font color="blue"> else </font>A)*k2;
+
+  angle =<font color="red"> Modelica.Math.atan2</font>(ksin_angle, kcos_angle);
+<font color="blue">end </font>RevoluteWithLengthConstraint;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PrismaticWithLengthConstraint<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Joints.Internal.PrismaticWithLengthConstraintI.png" ALT="Modelica.Mechanics.MultiBody.Joints.Internal.PrismaticWithLengthConstraint" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="7cbe76bdc035e4b0LengthConstraint"></A><A HREF="Modelica_Mechanics_MultiBody_Joints_Internal.html#59a99cdcc9510a06.Joints.Internal"
+>Modelica.Mechanics.MultiBody.Joints.Internal</A>.PrismaticWithLengthConstraint</H2>
+<B>Prismatic joint where the translational distance is computed from a length constraint (1 degree-of-freedom, no potential state)</B><p>
+<IMG SRC="Modelica.Mechanics.MultiBody.Joints.Internal.PrismaticWithLengthConstraintD.png" ALT="Modelica.Mechanics.MultiBody.Joints.Internal.PrismaticWithLengthConstraint">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+Joint where frame_b is translated along axis n which is fixed in frame_a.
+The two frames coincide when "s + s_offset = 0", where
+"s_offset" is a parameter with a zero default
+and "s" is the relative distance.
+</p>
+<p>
+This variant of the prismatic joint is designed to work together
+with a length constraint in a kinematic loop. This means that the
+relative distance "s" of the joint is computed such that the
+length constraint is fulfilled.
+</p>
+<p>
+<b>Usually, this joint should not be used by a user of the MultiBody
+library. It is only provided to built-up the Modelica.Mechanics.MultiBody.Joints.Assemblies.JointXYZ
+joints.</b>
+</p>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Boolean</TD><TD>animation</TD><TD>true</TD><TD>= true, if animation shall be enabled</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>Position</A></TD><TD>length</TD><TD>1</TD><TD>Fixed length of length constraint [m]</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Types.html#3a7df660573bb712iBody.Types.Axis"
+>Axis</A></TD><TD>n</TD><TD>{1,0,0}</TD><TD>Axis of translation resolved in frame_a (= same as in frame_b)</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>Position</A></TD><TD>s_offset</TD><TD>0</TD><TD>Relative distance offset (distance between frame_a and frame_b = s(t) + s_offset) [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>Position</A></TD><TD>s_guess</TD><TD>0</TD><TD>Select the configuration such that at initial time |s(t0)-s_guess|is minimal [m]</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Animation</B></TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>if animation = true</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Types.html#3a7df660573bb712iBody.Types.Axis"
+>Axis</A></TD><TD>boxWidthDirection</TD><TD>{0,1,0}</TD><TD>Vector in width direction of box, resolved in frame_a</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Distance"
+>Distance</A></TD><TD>boxWidth</TD><TD>world.defaultJointWidth</TD><TD>Width of prismatic joint box [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Distance"
+>Distance</A></TD><TD>boxHeight</TD><TD>boxWidth</TD><TD>Height of prismatic joint box [m]</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Types.html#105c8cd0e75d7ab8Body.Types.Color"
+>Color</A></TD><TD>boxColor</TD><TD>Modelica.Mechanics.MultiBody...</TD><TD>Color of prismatic joint box</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Types.html#9fba82bfe8b4d0bacularCoefficient"
+>SpecularCoefficient</A></TD><TD>specularCoefficient</TD><TD>world.defaultSpecularCoeffic...</TD><TD>Reflection of ambient light (= 0: light is completely absorbed)</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Advanced</B></TD></TR>
+<TR><TD>Boolean</TD><TD>axisForceBalance</TD><TD>true</TD><TD>= true, if force balance of flange axis with the frame_b connector (axis.f = -e*frame_b.f) shall be defined. Otherwise this equation has to be provided outside of this joint</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#12523e7dca4aecb1terfaces.Frame_a"
+>Frame_a</A></TD><TD>frame_a</TD><TD>Coordinate system fixed to the component with one cut-force and cut-torque</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#12523e7eca4aecb2terfaces.Frame_b"
+>Frame_b</A></TD><TD>frame_b</TD><TD>Coordinate system fixed to the component with one cut-force and cut-torque</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Translational_Interfaces.html#a3f2a0d603f9d494erfaces.Flange_a"
+>Flange_a</A></TD><TD>axis</TD><TD>1-dim. translational flange that drives the joint</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Translational_Interfaces.html#a3f2a0d703f9d497erfaces.Flange_b"
+>Flange_b</A></TD><TD>bearing</TD><TD>1-dim. translational flange of the drive bearing</TD></TR>
+<TR><TD>input <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>position_a[3]</TD><TD>Position vector from frame_a to frame_a side of length constraint, resolved in frame_a of revolute joint</TD></TR>
+<TR><TD>input <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>position_b[3]</TD><TD>Position vector from frame_b to frame_b side of length constraint, resolved in frame_b of revolute joint</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> PrismaticWithLengthConstraint <font color="darkgreen">
+  &quot;Prismatic joint where the translational distance is computed from a length constraint (1 degree-of-freedom, no potential state)&quot;</font>
+
+  <font color="blue">import </font>SI = <A HREF="Modelica_SIunits.html#Modelica.SIunits"
+>Modelica.SIunits</A>;
+  <font color="blue">import </font>Cv = <A HREF="Modelica_SIunits_Conversions.html#Modelica.SIunits.Conversions"
+>Modelica.SIunits.Conversions</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#350bcd53977e42dePartialTwoFrames"
+>Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames</A>;
+  <A HREF="Modelica_Mechanics_Translational_Interfaces.html#a3f2a0d603f9d494erfaces.Flange_a"
+>Modelica.Mechanics.Translational.Interfaces.Flange_a</A> axis <font color="darkgreen">
+    &quot;1-dim. translational flange that drives the joint&quot;</font>;
+  <A HREF="Modelica_Mechanics_Translational_Interfaces.html#a3f2a0d703f9d497erfaces.Flange_b"
+>Modelica.Mechanics.Translational.Interfaces.Flange_b</A> bearing <font color="darkgreen">
+    &quot;1-dim. translational flange of the drive bearing&quot;</font>;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> position_a[3]( <font color="blue">redeclare </font><font color="blue">each </font><font color="blue">type</font>
+      SignalType = <A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A>) <font color="darkgreen">
+    &quot;Position vector from frame_a to frame_a side of length constraint, resolved in frame_a of revolute joint&quot;</font>;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> position_b[3]( <font color="blue">redeclare </font><font color="blue">each </font><font color="blue">type</font>
+      SignalType = <A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A>) <font color="darkgreen">
+    &quot;Position vector from frame_b to frame_b side of length constraint, resolved in frame_b of revolute joint&quot;</font>;
+
+  <font color="blue">parameter </font>Boolean animation=true <font color="darkgreen">&quot;= true, if animation shall be enabled&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> length=1 <font color="darkgreen">&quot;Fixed length of length constraint&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#3a7df660573bb712iBody.Types.Axis"
+>Modelica.Mechanics.MultiBody.Types.Axis</A> n={1,0,0} <font color="darkgreen">
+    &quot;Axis of translation resolved in frame_a (= same as in frame_b)&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> s_offset=0 <font color="darkgreen">
+    &quot;Relative distance offset (distance between frame_a and frame_b = s(t) + s_offset)&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> s_guess=0 <font color="darkgreen">
+    &quot;Select the configuration such that at initial time |s(t0)-s_guess|is minimal&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#3a7df660573bb712iBody.Types.Axis"
+>Types.Axis</A> boxWidthDirection={0,1,0} <font color="darkgreen">
+    &quot;Vector in width direction of box, resolved in frame_a&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Distance"
+>SI.Distance</A> boxWidth=world.defaultJointWidth <font color="darkgreen">
+    &quot;Width of prismatic joint box&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Distance"
+>SI.Distance</A> boxHeight=boxWidth <font color="darkgreen">&quot;Height of prismatic joint box&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#105c8cd0e75d7ab8Body.Types.Color"
+>Types.Color</A> boxColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor <font color="darkgreen">
+    &quot;Color of prismatic joint box&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#9fba82bfe8b4d0bacularCoefficient"
+>Types.SpecularCoefficient</A> specularCoefficient = world.defaultSpecularCoefficient <font color="darkgreen">
+    &quot;Reflection of ambient light (= 0: light is completely absorbed)&quot;</font>;
+
+  <font color="blue">parameter </font>Boolean axisForceBalance=true <font color="darkgreen">
+    &quot;= true, if force balance of flange axis with the frame_b connector (axis.f = -e*frame_b.f) shall be defined. Otherwise this equation has to be provided outside of this joint&quot;</font>;
+  <font color="blue">final </font><font color="blue">parameter </font>Boolean positiveBranch(fixed=false) <font color="darkgreen">
+    &quot;Selection of one of the two solutions of the non-linear constraint equation&quot;</font>;
+  <font color="blue">final </font><font color="blue">parameter </font>Real e[3]=<font color="red">Modelica.Mechanics.MultiBody.Frames.normalize</font>(n) <font color="darkgreen">
+    &quot;Unit vector in direction of translation axis, resolved in frame_a&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> s <font color="darkgreen">
+    &quot;Relative distance between frame_a and frame_b along axis n = s + s_offset)&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> distance <font color="darkgreen">
+    &quot;Relative distance between frame_a and frame_b along axis n&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> r_rel_a[3] <font color="darkgreen">
+    &quot;Position vector from frame_a to frame_b resolved in frame_a&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Force"
+>SI.Force</A> f <font color="darkgreen">&quot;= axis.f (driving force in the axis)&quot;</font>;
+
+
+<font color="blue">protected </font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> r_a[3]=position_a <font color="darkgreen">
+    &quot;Position vector from frame_a to frame_a side of length constraint, resolved in frame_a of revolute joint&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> r_b[3]=position_b <font color="darkgreen">
+    &quot;Position vector from frame_b to frame_b side of length constraint, resolved in frame_b of revolute joint&quot;</font>;
+  Real rbra[3] <font color="darkgreen">&quot;= rb - ra&quot;</font>;
+  Real B <font color="darkgreen">&quot;Coefficient B of equation: s*s + B*s + C = 0&quot;</font>;
+  Real C <font color="darkgreen">&quot;Coefficient C of equation: s*s + B*s + C = 0&quot;</font>;
+  Real k1 <font color="darkgreen">&quot;Constant of quadratic equation solution&quot;</font>;
+  Real k2 <font color="darkgreen">&quot;Constant of quadratic equation solution&quot;</font>;
+  Real k1a(start=1);
+  Real k1b;
+
+  <A HREF="Modelica_Mechanics_MultiBody_Visualizers_Advanced.html#d710a9b8cd80ce5fs.Advanced.Shape"
+>Visualizers.Advanced.Shape</A> box(
+    shapeType=&quot;box&quot;,
+    color=boxColor,
+    specularCoefficient=specularCoefficient,
+    length=<font color="blue">if </font><font color="red">noEvent</font>(<font color="red">abs</font>(s + s_offset) &gt; 1.e-6)<font color="blue"> then </font>s + s_offset<font color="blue"> else </font>1.e-6,
+    width=boxWidth,
+    height=boxHeight,
+    lengthDirection=e,
+    widthDirection=boxWidthDirection,
+    r=frame_a.r_0,
+    R=frame_a.R) <font color="blue">if </font>world.enableAnimation<font color="blue"> and </font>animation;
+
+  <font color="blue">function</font> selectBranch <font color="darkgreen">
+    &quot;Determine branch which is closest to initial angle=0&quot;</font>
+    <font color="blue">import </font><A HREF="Modelica_Math.html#Modelica.Math"
+>Modelica.Math</A>.*;
+    <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> L <font color="darkgreen">&quot;Length of length constraint&quot;</font>;
+    <font color="blue">input </font>Real e[3] <font color="darkgreen">
+      &quot;Unit vector along axis of translation, resolved in frame_a (= same in frame_b)&quot;</font>;
+    <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> d_guess <font color="darkgreen">
+      &quot;Select the configuration such that at initial time |d-d_guess|is minimal (d: distance between origin of frame_a and origin of frame_b)&quot;</font>;
+    <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> r_a[3] <font color="darkgreen">
+      &quot;Position vector from frame_a to frame_a side of length constraint, resolved in frame_a of prismatic joint&quot;</font>;
+    <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> r_b[3] <font color="darkgreen">
+      &quot;Position vector from frame_b to frame_b side of length constraint, resolved in frame_b of prismatic joint&quot;</font>;
+    <font color="blue">output </font>Boolean positiveBranch <font color="darkgreen">&quot;Branch of the initial solution&quot;</font>;
+  <font color="blue">protected </font>
+    Real rbra[3] <font color="darkgreen">&quot;= rb - ra&quot;</font>;
+    Real B <font color="darkgreen">&quot;Coefficient B of equation: d*d + B*d + C = 0&quot;</font>;
+    Real C <font color="darkgreen">&quot;Coefficient C of equation: d*d + B*d + C = 0&quot;</font>;
+    Real k1 <font color="darkgreen">&quot;Constant of quadratic equation solution&quot;</font>;
+    Real k2 <font color="darkgreen">&quot;Constant of quadratic equation solution&quot;</font>;
+    Real d1 <font color="darkgreen">&quot;solution 1 of quadratic equation&quot;</font>;
+    Real d2 <font color="darkgreen">&quot;solution 2 of quadratic equation&quot;</font>;
+  <font color="blue">algorithm </font>
+    <font color="darkgreen">/* The position vector r_rel from frame_a to frame_b of the length constraint
+       element, resolved in frame_b of the prismatic joint (frame_a and frame_b
+       of the prismatic joint are parallel to each other) is given by:
+          r_rel = d*e + r_b - r_a
+       The length constraint can therefore be formulated as:
+          r_rel*r_rel = L*L
+       with
+          (d*e + r_b - r_a)*(d*e + r_b - r_a)
+                   = d*d + 2*d*e*(r_b - r_a) + (r_b - r_a)*(r_b - r_a)
+       follows
+          (1)  0 = d*d + d*2*e*(r_b - r_a) + (r_b - r_a)*(r_b - r_a) - L*L
+       The vectors r_a, r_b and parameter L are NOT a function of
+       the distance d of the prismatic joint. Therefore, (1) is a quadratic
+       equation in the single unknown &quot;d&quot;:
+          (2) d*d + B*d + C = 0
+              with   B = 2*e*(r_b - r_a)
+                     C = (r_b - r_a)*(r_b - r_a) - L*L
+       The solution is
+          (3) d = - B/2 +/- sqrt(B*B/4 - C)
+    */</font>
+    rbra := r_b - r_a;
+    B := 2*(e*rbra);
+    C := rbra*rbra - L*L;
+    k1 := B/2;
+    k2 := <font color="red">sqrt</font>(k1*k1 - C);
+    d1 := -k1 + k2;
+    d2 := -k1 - k2;
+    <font color="blue">if </font><font color="red">abs</font>(d1 - d_guess) &lt;= <font color="red">abs</font>(d2 - d_guess)<font color="blue"> then</font>
+      positiveBranch := true;
+    <font color="blue">else</font>
+      positiveBranch := false;
+    <font color="blue">end if</font>;
+  <font color="blue">end </font>selectBranch;
+<font color="blue">initial </font><font color="blue">equation </font>
+  positiveBranch =<font color="red"> selectBranch</font>(length, e, s_offset + s_guess, r_a, r_b);
+<font color="blue">equation </font>
+  axis.f = f;
+  axis.s = s;
+  bearing.s = 0;
+  distance = s_offset + s;
+
+  <font color="darkgreen">// relationships of frame_a and frame_b quantities</font>
+  r_rel_a = e*distance;
+  frame_b.r_0 = frame_a.r_0 +<font color="red"> Frames.resolve1</font>(frame_a.R, r_rel_a);
+  frame_b.R = frame_a.R;
+  <font color="red">zeros</font>(3) = frame_a.f + frame_b.f;
+  <font color="red">zeros</font>(3) = frame_a.t + frame_b.t +<font color="red"> cross</font>(r_rel_a, frame_b.f);
+
+  <font color="blue">if </font>axisForceBalance<font color="blue"> then</font>
+    <font color="darkgreen">/* Note, if axisForceBalance is false, the force in the
+       length constraint must be calculated such that the driving
+       force in direction of the translation axis is:
+          axis.f = -e*frame_b.f;
+       If axisForceBalance=true, this equation is provided here.
+       As a consequence, the force in the length constraint will be
+       part of a linear algebraic system of equations (otherwise, it
+       might be possible to remove this force from the linear system).
+    */</font>
+    f = -e*frame_b.f;
+  <font color="blue">end if</font>;
+
+  <font color="darkgreen">// Compute translational distance (details, see function &quot;selectBranch&quot;)</font>
+  rbra = r_b - r_a;
+  B = 2*(e*rbra);
+  C = rbra*rbra - length*length;
+  k1 = B/2;
+  k1a = k1*k1 - C;
+  <font color="red">assert</font>(<font color="red">noEvent</font>(k1a &gt; 1.e-10), &quot;
+Singular position of loop (either no or two analytic solutions;
+the mechanism has lost one-degree-of freedom in this position).
+Try first to use another Modelica.Mechanics.MultiBody.Joints.Assemblies.JointXXX component.
+If this also lead to singular positions, it could be that this
+kinematic loop cannot be solved analytically with a fixed state
+selection. In this case you have to build up the loop with
+basic joints (NO aggregation JointXXX components) and rely on
+dynamic state selection, i.e., during simulation the states will
+be dynamically selected in such a way that in no position a
+degree of freedom is lost.
+&quot;);
+  k1b =<font color="red"> Frames.Internal.maxWithoutEvent</font>(k1a, 1.0e-12);
+  k2 =<font color="red"> sqrt</font>(k1b);
+  distance = -k1 + (<font color="blue">if </font>positiveBranch<font color="blue"> then </font>k2<font color="blue"> else </font>-k2);
+<font color="blue">end </font>PrismaticWithLengthConstraint;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Fri Sep 07 19:13:45 2007.
+</address></BODY>
+</HTML>

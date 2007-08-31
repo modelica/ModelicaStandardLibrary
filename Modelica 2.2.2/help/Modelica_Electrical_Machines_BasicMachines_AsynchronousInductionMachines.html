@@ -1,0 +1,420 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Models of asynchronous induction machines&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE AsynchronousInductionMachines<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="af05da757224974anductionMachines"></A><A HREF="Modelica_Electrical_Machines_BasicMachines.html#676eb4de5952e80ces.BasicMachines"
+>Modelica.Electrical.Machines.BasicMachines</A>.AsynchronousInductionMachines</H2>
+<B>Models of asynchronous induction machines</B>
+<P>
+<H3>Information</H3>
+<PRE></pre>
+This package contains models of asynchronous induction machines, based on space phasor theory:
+<ul>
+<li>AIM_SquirrelCage: asynchronous induction machine with squirrel cage</li>
+<li>AIM_SlipRing: asynchronous induction machine with wound rotor</li>
+</ul>
+These models use package SpacePhasors.
+<pre></PRE><P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCageS.png" ALT="Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Machines_BasicMachines_AsynchronousInductionMachines.html#270e07c85dc89c46AIM_SquirrelCage"
+>AIM_SquirrelCage</A>
+</TD><TD>Asynchronous induction machine with squirrel cage rotor</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRingS.png" ALT="Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Machines_BasicMachines_AsynchronousInductionMachines.html#240eddeff0cc40b2nes.AIM_SlipRing"
+>AIM_SlipRing</A>
+</TD><TD>Asynchronous induction machine with slipring rotor</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE AIM_SquirrelCage<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCageI.png" ALT="Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="270e07c85dc89c46AIM_SquirrelCage"></A><A HREF="Modelica_Electrical_Machines_BasicMachines_AsynchronousInductionMachines.html#af05da757224974anductionMachines"
+>Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines</A>.AIM_SquirrelCage</H2>
+<B>Asynchronous induction machine with squirrel cage rotor</B><p>
+<IMG SRC="Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCageD.png" ALT="Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage">
+<H3>Information</H3>
+<PRE></pre>
+<b>Model of a three phase asynchronous induction machine with squirrel cage.</b><br>
+Resistance and stray inductance of stator is modeled directly in stator phases, then using space phasor transformation. Resistance and stray inductance of rotor's squirrel cage is modeled in two axis of the rotor-fixed ccordinate system. Both together connected via a stator-fixed <i>AirGap</i> model. Only losses in stator and rotor resistance are taken into account.
+<br><b>Default values for machine's parameters (a realistic example) are:</b><br>
+<table>
+<tr>
+<td valign="top">number of pole pairs p</td>
+<td valign="top">2</td><td valign="top"> </td>
+</tr>
+<tr>
+<td valign="top">stator's moment of inertia</td>
+<td valign="top">0.29</td><td valign="top">kg.m2</td>
+</tr>
+<tr>
+<td valign="top">rotor's moment of inertia</td>
+<td valign="top">0.29</td><td valign="top">kg.m2</td>
+</tr>
+<tr>
+<td valign="top">nominal frequency fNominal</td>
+<td valign="top">50</td><td valign="top">Hz</td>
+</tr>
+<tr>
+<td valign="top">nominal voltage per phase</td>
+<td valign="top">100</td><td valign="top">V RMS</td>
+</tr>
+<tr>
+<td valign="top">nominal current per phase</td>
+<td valign="top">100</td><td valign="top">A RMS</td>
+</tr>
+<tr>
+<td valign="top">nominal torque</td>
+<td valign="top">161.4</td><td valign="top">Nm</td>
+</tr>
+<tr>
+<td valign="top">nominal speed</td>
+<td valign="top">1440.45</td><td valign="top">rpm</td>
+</tr>
+<tr>
+<td valign="top">nominal mechanical output</td>
+<td valign="top">24.346</td><td valign="top">kW</td>
+</tr>
+<tr>
+<td valign="top">efficiency</td>
+<td valign="top">92.7</td><td valign="top">%</td>
+</tr>
+<tr>
+<td valign="top">power factor</td>
+<td valign="top">0.875</td><td valign="top"> </td>
+</tr>
+<tr>
+<td valign="top">stator resistance</td>
+<td valign="top">0.03</td><td valign="top">Ohm per phase in warm condition</td>
+</tr>
+<tr>
+<td valign="top">rotor resistance</td>
+<td valign="top">0.04</td><td valign="top">Ohm in warm condition</td>
+</tr>
+<tr>
+<td valign="top">stator reactance Xs</td>
+<td valign="top">3</td><td valign="top">Ohm per phase</td>
+</tr>
+<tr>
+<td valign="top">rotor reactance Xr</td>
+<td valign="top">3</td><td valign="top">Ohm</td>
+</tr>
+<tr>
+<td valign="top">total stray coefficient sigma</td>
+<td valign="top">0.0667</td><td valign="top"> </td>
+</tr>
+<tr>
+<td valign="top">These values give the following inductances, <br>assuming equal stator and rotor stray inductances:</td>
+<td valign="top"> </td><td valign="top"> </td>
+</tr>
+<tr>
+<td valign="top">stator stray inductance per phase</td>
+<td valign="top">Xs * (1 - sqrt(1-sigma))/(2*pi*fNominal)</td><td valign="top"> </td>
+</tr>
+<tr>
+<td valign="top">rotor stray inductance</td>
+<td valign="top">Xr * (1 - sqrt(1-sigma))/(2*pi*fNominal)</td><td valign="top"> </td>
+</tr>
+<tr>
+<td valign="top">main field inductance per phase</td>
+<td valign="top">sqrt(Xs*Xr * (1-sigma))/(2*pi*fNominal)</td><td valign="top"> </td>
+</tr>
+</table>
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inertia"
+>Inertia</A></TD><TD>J_Rotor</TD><TD>0.29</TD><TD>rotor's moment of inertia [kg.m2]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inertia"
+>Inertia</A></TD><TD>J_Stator</TD><TD>J_Rotor</TD><TD>stator's moment of inertia [kg.m2]</TD></TR>
+<TR><TD>Integer</TD><TD>p</TD><TD>2</TD><TD>number of pole pairs (Integer)</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Frequency"
+>Frequency</A></TD><TD>fNominal</TD><TD>50</TD><TD>nominal frequency [Hz]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Nominal resistances and inductances</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Resistance</A></TD><TD>Rs</TD><TD>0.03</TD><TD>warm stator resistance per phase [Ohm]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inductance"
+>Inductance</A></TD><TD>Lssigma</TD><TD>3*(1 - sqrt(1 - 0.0667))/(2*...</TD><TD>stator stray inductance per phase [H]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inductance"
+>Inductance</A></TD><TD>Lm</TD><TD>3*sqrt(1 - 0.0667)/(2*pi*fNo...</TD><TD>main field inductance [H]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inductance"
+>Inductance</A></TD><TD>Lrsigma</TD><TD>3*(1 - sqrt(1 - 0.0667))/(2*...</TD><TD>rotor stray inductance (equivalent three phase winding) [H]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Resistance</A></TD><TD>Rr</TD><TD>0.04</TD><TD>warm rotor resistance (equivalent three phase winding) [Ohm]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#0dd23615c7e1b041erfaces.Flange_a"
+>Flange_a</A></TD><TD>flange_a</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#0dd23615c7e1b041erfaces.Flange_a"
+>Flange_a</A></TD><TD>support</TD><TD>support at which the reaction torque is acting</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#b73ff47d2085a1a7ces.PositivePlug"
+>PositivePlug</A></TD><TD>plug_sp</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#bec733412faf29a7ces.NegativePlug"
+>NegativePlug</A></TD><TD>plug_sn</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> AIM_SquirrelCage <font color="darkgreen">
+  &quot;Asynchronous induction machine with squirrel cage rotor&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Machines_BasicMachines_Components.html#7ee5c59b57dedaacponents.BasicAIM"
+>Machines.BasicMachines.Components.BasicAIM</A>(airGapS(<font color="blue">final </font>Lm=Lm));
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inductance"
+>Modelica.SIunits.Inductance</A> Lm=3*<font color="red">sqrt</font>(1 - 0.0667)/(2*pi*fNominal) <font color="darkgreen">
+    &quot;main field inductance&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inductance"
+>Modelica.SIunits.Inductance</A> Lrsigma=3*(1 -<font color="red"> sqrt</font>(1 - 0.0667))/(2*pi*fNominal) <font color="darkgreen">
+    &quot;rotor stray inductance (equivalent three phase winding)&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Modelica.SIunits.Resistance</A> Rr=0.04 <font color="darkgreen">
+    &quot;warm rotor resistance (equivalent three phase winding)&quot;</font>;
+  <A HREF="Modelica_Electrical_Machines_BasicMachines_Components.html#83b29731383445ecnts.SquirrelCage"
+>Machines.BasicMachines.Components.SquirrelCage</A> squirrelCageR(<font color="blue">final </font>Lrsigma=Lrsigma, <font color="blue">final </font>Rr=Rr);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(airGapS.spacePhasor_r, squirrelCageR.spacePhasor_r);
+<font color="blue">end </font>AIM_SquirrelCage;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE AIM_SlipRing<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRingI.png" ALT="Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="240eddeff0cc40b2nes.AIM_SlipRing"></A><A HREF="Modelica_Electrical_Machines_BasicMachines_AsynchronousInductionMachines.html#af05da757224974anductionMachines"
+>Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines</A>.AIM_SlipRing</H2>
+<B>Asynchronous induction machine with slipring rotor</B><p>
+<IMG SRC="Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRingD.png" ALT="Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing">
+<H3>Information</H3>
+<PRE></pre>
+<b>Model of a three phase asynchronous induction machine with slipring rotor.</b><br>
+Resistance and stray inductance of stator and rotor are modeled directly in stator respectively rotor phases, then using space phasor transformation and a stator-fixed <i>AirGap</i> model. Only losses in stator and rotor resistance are taken into account.
+<br><b>Default values for machine's parameters (a realistic example) are:</b><br>
+<table>
+<tr>
+<td valign="top">number of pole pairs p</td>
+<td valign="top">2</td><td valign="top"> </td>
+</tr>
+<tr>
+<td valign="top">stator's moment of inertia</td>
+<td valign="top">0.29</td><td valign="top">kg.m2</td>
+</tr>
+<tr>
+<td valign="top">rotor's moment of inertia</td>
+<td valign="top">0.29</td><td valign="top">kg.m2</td>
+</tr>
+<tr>
+<td valign="top">nominal frequency fNominal</td>
+<td valign="top">50</td><td valign="top">Hz</td>
+</tr>
+<tr>
+<td valign="top">nominal voltage per phase</td>
+<td valign="top">100</td><td valign="top">V RMS</td>
+</tr>
+<tr>
+<td valign="top">nominal current per phase</td>
+<td valign="top">100</td><td valign="top">A RMS</td>
+</tr>
+<tr>
+<td valign="top">nominal torque</td>
+<td valign="top">161.4</td><td valign="top">Nm</td>
+</tr>
+<tr>
+<td valign="top">nominal speed</td>
+<td valign="top">1440.45</td><td valign="top">rpm</td>
+</tr>
+<tr>
+<td valign="top">nominal mechanical output</td>
+<td valign="top">24.346</td><td valign="top">kW</td>
+</tr>
+<tr>
+<td valign="top">efficiency</td>
+<td valign="top">92.7</td><td valign="top">%</td>
+</tr>
+<tr>
+<td valign="top">power factor</td>
+<td valign="top">0.875</td><td valign="top"> </td>
+</tr>
+<tr>
+<td valign="top">stator resistance</td>
+<td valign="top">0.03</td><td valign="top">Ohm per phase in warm condition</td>
+</tr>
+<tr>
+<td valign="top">rotor resistance</td>
+<td valign="top">0.04</td><td valign="top">Ohm per phase in warm condition</td>
+</tr>
+<tr>
+<td valign="top">stator reactance Xs</td>
+<td valign="top">3</td><td valign="top">Ohm per phase</td>
+</tr>
+<tr>
+<td valign="top">rotor reactance Xr</td>
+<td valign="top">3</td><td valign="top">Ohm per phase</td>
+</tr>
+<tr>
+<td valign="top">total stray coefficient sigma</td>
+<td valign="top">0.0667</td><td valign="top"> </td>
+</tr>
+<tr>
+<td valign="top">TurnsRatio</td>
+<td valign="top">1</td><td valign="top">effective ratio of stator and rotor current (ws*xis) / (wr*xir)</td>
+</tr>
+<tr>
+<td valign="top">These values give the following inductances:</td>
+<td valign="top"> </td><td valign="top"> </td>
+</tr>
+<tr>
+<td valign="top">stator stray inductance per phase</td>
+<td valign="top">Xs * (1 - sqrt(1-sigma))/(2*pi*fNominal)</td><td valign="top"> </td>
+</tr>
+<tr>
+<td valign="top">rotor stray inductance</td>
+<td valign="top">Xr * (1 - sqrt(1-sigma))/(2*pi*fNominal)</td><td valign="top"> </td>
+</tr>
+<tr>
+<td valign="top">main field inductance per phase</td>
+<td valign="top">sqrt(Xs*Xr * (1-sigma))/(2*pi*f)</td><td valign="top"> </td>
+</tr>
+</table>
+<p>
+Parameter TurnsRatio could be obtained from the following relationship
+at standstill with open rotor circuit at nominal voltage and nominal frequency, <br>
+using the locked-rotor voltage VR, no-load stator current I0 and powerfactor PF0:<br>
+TurnsRatio * <u>V</u><sub>R</sub> = <u>V</u><sub>s</sub> - (R<sub>s</sub> + j X<sub>s,sigma</sub>) <u>I</u><sub>0</sub>
+</p>
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inertia"
+>Inertia</A></TD><TD>J_Rotor</TD><TD>0.29</TD><TD>rotor's moment of inertia [kg.m2]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inertia"
+>Inertia</A></TD><TD>J_Stator</TD><TD>J_Rotor</TD><TD>stator's moment of inertia [kg.m2]</TD></TR>
+<TR><TD>Integer</TD><TD>p</TD><TD>2</TD><TD>number of pole pairs (Integer)</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Frequency"
+>Frequency</A></TD><TD>fNominal</TD><TD>50</TD><TD>nominal frequency [Hz]</TD></TR>
+<TR><TD>Boolean</TD><TD>useTurnsRatio</TD><TD>true</TD><TD>use TurnsRatio or calculate from locked-rotor voltage?</TD></TR>
+<TR><TD>Real</TD><TD>TurnsRatio</TD><TD>1</TD><TD>(ws*xis) / (wr*xir)</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Voltage</A></TD><TD>VsNom</TD><TD>100</TD><TD>Nominal stator voltage per phase [V]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Voltage</A></TD><TD>Vr_LR</TD><TD>100*(2*pi*fNominal*Lm)/sqrt(...</TD><TD>Locked-rotor voltage per phase [V]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Nominal resistances and inductances</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Resistance</A></TD><TD>Rs</TD><TD>0.03</TD><TD>warm stator resistance per phase [Ohm]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inductance"
+>Inductance</A></TD><TD>Lssigma</TD><TD>3*(1 - sqrt(1 - 0.0667))/(2*...</TD><TD>stator stray inductance per phase [H]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inductance"
+>Inductance</A></TD><TD>Lm</TD><TD>3*sqrt(1 - 0.0667)/(2*pi*fNo...</TD><TD>main field inductance [H]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inductance"
+>Inductance</A></TD><TD>Lrsigma</TD><TD>3*(1 - sqrt(1 - 0.0667))/(2*...</TD><TD>rotor stray inductance per phase [H]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Resistance</A></TD><TD>Rr</TD><TD>0.04</TD><TD>warm rotor resistance per phase [Ohm]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#0dd23615c7e1b041erfaces.Flange_a"
+>Flange_a</A></TD><TD>flange_a</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#0dd23615c7e1b041erfaces.Flange_a"
+>Flange_a</A></TD><TD>support</TD><TD>support at which the reaction torque is acting</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#b73ff47d2085a1a7ces.PositivePlug"
+>PositivePlug</A></TD><TD>plug_sp</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#bec733412faf29a7ces.NegativePlug"
+>NegativePlug</A></TD><TD>plug_sn</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#b73ff47d2085a1a7ces.PositivePlug"
+>PositivePlug</A></TD><TD>plug_rp</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#bec733412faf29a7ces.NegativePlug"
+>NegativePlug</A></TD><TD>plug_rn</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> AIM_SlipRing <font color="darkgreen">
+  &quot;Asynchronous induction machine with slipring rotor&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Machines_BasicMachines_Components.html#7ee5c59b57dedaacponents.BasicAIM"
+>Machines.BasicMachines.Components.BasicAIM</A>(airGapS(<font color="blue">final </font>Lm=Lm));
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inductance"
+>Modelica.SIunits.Inductance</A> Lm=3*<font color="red">sqrt</font>(1 - 0.0667)/(2*pi*fNominal) <font color="darkgreen">
+    &quot;main field inductance&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inductance"
+>Modelica.SIunits.Inductance</A> Lrsigma=3*(1 -<font color="red"> sqrt</font>(1 - 0.0667))/(2*pi*
+      fNominal) <font color="darkgreen">&quot;rotor stray inductance per phase&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Modelica.SIunits.Resistance</A> Rr=0.04 <font color="darkgreen">
+    &quot;warm rotor resistance per phase&quot;</font>;
+  <font color="blue">parameter </font>Boolean useTurnsRatio=true <font color="darkgreen">
+    &quot;use TurnsRatio or calculate from locked-rotor voltage?&quot;</font>;
+  <font color="blue">parameter </font>Real TurnsRatio(<font color="blue">final </font>min=Modelica.Constants.small)=1 <font color="darkgreen">
+    &quot;(ws*xis) / (wr*xir)&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> VsNom=100 <font color="darkgreen">
+    &quot;Nominal stator voltage per phase&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> Vr_LR=100*
+    (2*pi*fNominal*Lm)/<font color="red">sqrt</font>(Rs^2+(2*pi*fNominal*(Lm+Lssigma))^2) <font color="darkgreen">
+    &quot;Locked-rotor voltage per phase&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Current"
+>Modelica.SIunits.Current</A> i_0_r(stateSelect=StateSelect.prefer) = spacePhasorR.zero.i <font color="darkgreen">
+    &quot;rotor zero-sequence current&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> vr[m] = plug_rp.pin.v - plug_rn.pin.v <font color="darkgreen">
+    &quot;rotor instantaneous voltages&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Current"
+>Modelica.SIunits.Current</A> ir[m] = plug_rp.pin.i <font color="darkgreen">
+    &quot;rotor instantaneous currents&quot;</font>;
+<font color="blue">protected </font>
+  <font color="blue">final </font><font color="blue">parameter </font>Real internalTurnsRatio=<font color="blue">if </font>useTurnsRatio<font color="blue"> then </font>TurnsRatio<font color="blue"> else </font>
+    VsNom/Vr_LR*(2*pi*fNominal*Lm)/<font color="red">sqrt</font>(Rs^2+(2*pi*fNominal*(Lm+Lssigma))^2);
+<font color="blue">public </font>
+  <A HREF="Modelica_Electrical_Machines_SpacePhasors_Components.html#4e002c89ba60115bents.SpacePhasor"
+>Machines.SpacePhasors.Components.SpacePhasor</A> spacePhasorR;
+  <A HREF="Modelica_Electrical_MultiPhase_Ideal.html#964bb6a34c05ad79IdealTransformer"
+>Modelica.Electrical.MultiPhase.Ideal.IdealTransformer</A> IdealTransformer1(<font color="blue">final </font>m=m, <font color="blue">final </font>n=
+        <font color="red">fill</font>(1/internalTurnsRatio, m));
+  <A HREF="Modelica_Electrical_MultiPhase_Basic.html#7cef7494073cd956Phase.Basic.Star"
+>Modelica.Electrical.MultiPhase.Basic.Star</A> Star1(<font color="blue">final </font>m=m);
+  <A HREF="Modelica_Electrical_Analog_Basic.html#79cf331baa11e304log.Basic.Ground"
+>Modelica.Electrical.Analog.Basic.Ground</A> Ground1;
+  <A HREF="Modelica_Electrical_MultiPhase_Basic.html#1c9894e01f202e81e.Basic.Inductor"
+>Modelica.Electrical.MultiPhase.Basic.Inductor</A> lrsigma(<font color="blue">final </font>m=m, <font color="blue">final </font>L=<font color="red">fill</font>(Lrsigma, m));
+  <A HREF="Modelica_Electrical_MultiPhase_Basic.html#e1259443f0e82e5be.Basic.Resistor"
+>Modelica.Electrical.MultiPhase.Basic.Resistor</A> rr(<font color="blue">final </font>m=m, <font color="blue">final </font>R=<font color="red">fill</font>(Rr, m));
+  <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#b73ff47d2085a1a7ces.PositivePlug"
+>Modelica.Electrical.MultiPhase.Interfaces.PositivePlug</A> plug_rp(<font color="blue">final </font>m=m);
+  <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#bec733412faf29a7ces.NegativePlug"
+>Modelica.Electrical.MultiPhase.Interfaces.NegativePlug</A> plug_rn(<font color="blue">final </font>m=m);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(rr.plug_n, lrsigma.plug_p);
+  <font color="red">connect</font>(spacePhasorR.plug_n, IdealTransformer1.plug_n2);
+  <font color="red">connect</font>(spacePhasorR.plug_p, IdealTransformer1.plug_p2);
+  <font color="red">connect</font>(IdealTransformer1.plug_p1, lrsigma.plug_n);
+  <font color="red">connect</font>(Star1.pin_n, Ground1.p);
+  <font color="red">connect</font>(Star1.plug_p, IdealTransformer1.plug_n2);
+  <font color="red">connect</font>(IdealTransformer1.plug_n1, plug_rn);
+  <font color="red">connect</font>(rr.plug_p, plug_rp);
+  <font color="red">connect</font>(spacePhasorR.ground, spacePhasorR.zero);
+  <font color="red">connect</font>(airGapS.spacePhasor_r, spacePhasorR.spacePhasor);
+<font color="blue">end </font>AIM_SlipRing;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Fri Sep 07 19:12:42 2007.
+</address></BODY>
+</HTML>

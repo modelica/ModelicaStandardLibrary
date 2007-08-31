@@ -1,0 +1,258 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Electrical.Digital.UsersGuide</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;User's Guide&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE UsersGuide<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Digital.UsersGuideI.png" ALT="Modelica.Electrical.Digital.UsersGuide" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="0dcdd6acff42a422gital.UsersGuide"></A><A HREF="Modelica_Electrical_Digital.html#Modelica.Electrical.Digital"
+>Modelica.Electrical.Digital</A>.UsersGuide</H2>
+<B>User's Guide</B>
+<P>
+<PRE></pre>
+<p>
+Library <b>Electrical.Digital</b> is a <b>free</b> Modelica package providing
+components to model <b>digital</b> electronic
+systems based on combinational and sequential logic in a convenient
+way. This package contains the <b>User's Guide</b> for
+the library and has the following content:
+</p>
+<ol>
+<li><A HREF="Modelica_Electrical_Digital_UsersGuide.html#be278637198e935arsGuide.OverView"
+>Overview of library</a>
+     gives an overview of the library.</li>
+<li> <A HREF="Modelica_Electrical_Digital_UsersGuide.html#b0814a180a083519ide.FirstExample"
+>A first example</a>
+     demonstrates at hand of a first example how to use this library.</li>
+<li> <A HREF="Modelica_Electrical_Digital_UsersGuide.html#068983d09888c842plicationExample"
+>An
+     application example</a> demonstrates a generic n-bit adder.
+     .</li>
+<li><A HREF="Modelica_Electrical_Digital_UsersGuide.html#d416a08cb8caf28aide.ReleaseNotes"
+>Release Notes</a>
+    summarizes the differences between different versions of this library.</li>
+<li><A HREF="Modelica_Electrical_Digital_UsersGuide.html#1010d503b10591ceGuide.Literature"
+>Literature</a>
+    provides references that have been used to design and implement this
+    library.</li>
+<li><A HREF="Modelica_Electrical_Digital_UsersGuide.html#9ea97b5e5a7fa98bersGuide.Contact"
+>Contact</a>
+    provides information about the authors of the library as well as
+    acknowledgments.</li>
+</ol>
+<pre></PRE><P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Digital.UsersGuide.OverViewS.png" ALT="Modelica.Electrical.Digital.UsersGuide.OverView" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_UsersGuide.html#be278637198e935arsGuide.OverView"
+>OverView</A>
+</TD><TD>Overview of library</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Digital.UsersGuide.OverViewS.png" ALT="Modelica.Electrical.Digital.UsersGuide.FirstExample" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_UsersGuide.html#b0814a180a083519ide.FirstExample"
+>FirstExample</A>
+</TD><TD>A first example</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Digital.UsersGuide.OverViewS.png" ALT="Modelica.Electrical.Digital.UsersGuide.ApplicationExample" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_UsersGuide.html#068983d09888c842plicationExample"
+>ApplicationExample</A>
+</TD><TD>An application example</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Digital.UsersGuide.OverViewS.png" ALT="Modelica.Electrical.Digital.UsersGuide.ReleaseNotes" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_UsersGuide.html#d416a08cb8caf28aide.ReleaseNotes"
+>ReleaseNotes</A>
+</TD><TD>Release notes</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Digital.UsersGuide.OverViewS.png" ALT="Modelica.Electrical.Digital.UsersGuide.Literature" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_UsersGuide.html#1010d503b10591ceGuide.Literature"
+>Literature</A>
+</TD><TD>Literature</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Digital.UsersGuide.OverViewS.png" ALT="Modelica.Electrical.Digital.UsersGuide.Contact" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_UsersGuide.html#9ea97b5e5a7fa98bersGuide.Contact"
+>Contact</A>
+</TD><TD>Contact</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE OverView<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Digital.UsersGuideI.png" ALT="Modelica.Electrical.Digital.UsersGuide.OverView" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="be278637198e935arsGuide.OverView"></A><A HREF="Modelica_Electrical_Digital_UsersGuide.html#0dcdd6acff42a422gital.UsersGuide"
+>Modelica.Electrical.Digital.UsersGuide</A>.OverView</H2>
+<B>Overview of library</B><p>
+<PRE></pre>
+<p>
+In this section, an overview of the most important features
+of this library is given.
+</p>
+<p>(will be added as soon as possible). </p>
+<pre>
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE FirstExample<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Digital.UsersGuideI.png" ALT="Modelica.Electrical.Digital.UsersGuide.FirstExample" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="b0814a180a083519ide.FirstExample"></A><A HREF="Modelica_Electrical_Digital_UsersGuide.html#0dcdd6acff42a422gital.UsersGuide"
+>Modelica.Electrical.Digital.UsersGuide</A>.FirstExample</H2>
+<B>A first example</B><p>
+<PRE></pre>
+<p>
+A first example will be given here (not yet done).
+</p>
+<pre>
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ApplicationExample<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Digital.UsersGuideI.png" ALT="Modelica.Electrical.Digital.UsersGuide.ApplicationExample" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="068983d09888c842plicationExample"></A><A HREF="Modelica_Electrical_Digital_UsersGuide.html#0dcdd6acff42a422gital.UsersGuide"
+>Modelica.Electrical.Digital.UsersGuide</A>.ApplicationExample</H2>
+<B>An application example</B><p>
+<PRE></pre>
+<p>
+An application example will be given here (not yet done).
+</p>
+<pre>
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ReleaseNotes<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Digital.UsersGuideI.png" ALT="Modelica.Electrical.Digital.UsersGuide.ReleaseNotes" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="d416a08cb8caf28aide.ReleaseNotes"></A><A HREF="Modelica_Electrical_Digital_UsersGuide.html#0dcdd6acff42a422gital.UsersGuide"
+>Modelica.Electrical.Digital.UsersGuide</A>.ReleaseNotes</H2>
+<B>Release notes</B><p>
+<PRE></pre>
+<h4>Version 1.0.7, 2005-07-01</h4>
+<ul>
+<li> xxxx</li>
+</ul>
+<h4>Version 1.0.6, 2004-10-18</h4>
+<ul>
+<li> Missing HTML tags added (problems with mismatched pre tags fixed).</li>
+<li> CVS ID string deleted.</li>
+</ul>
+<h4>Version 1.0.5, 2004-10-01</h4>
+<ul>
+<li> Wrong identifiers x0 and Tdel in HalfAdder example fixed.</li>
+<li> Experiment command in FlipFlop example deleted.</li>
+<li> Known issue: Pulse source causes a warning in Dymola. It is recommended to use Clock source.</li>
+</ul>
+<h4>Version 1.0.4, 2004-09-30</h4>
+<ul>
+<li> Documentation improved.</li>
+</ul>
+<h4>Version 1.0.3, 2004-09-21</h4>
+<ul>
+<li> Table names changed from "map" to "Table".</li>
+<li> Icons for converters modified.</li>
+<li> LogicValueType renamed to Logic. For the Electrical.Digital library
+     the type Logic has a fundamental meaning. Logic is similar to
+     Real, Integer or Boolean in other packages. Names for converters
+     are now more consistent (LogicToBoolean, RealToLogic etc.).</li>
+<li> Icons for gates and sources improved.</li>
+<li> New examples added.</li>
+<li> Internal names for signals and ports unified.</li>
+<li> Simple Clock source added in addition to Pulse source (for convenience reasons).</li>
+</ul>
+<h4>Version 1.0.2, 2004-09-13</h4>
+<ul>
+<li> First prerelease for discussions at the 40th Modelica Design Meeting.</li>
+</ul>
+<h4>Version 1.0.1, 2004-06-01</h4>
+<ul>
+<li> Packages Tables, Basic, and Gates implemented.</li>
+<li> Transport and inertial delay implemented and successfully tested.</li>
+</ul>
+<h4>Version 1.0.0, 2003-05-01</h4>
+<ul>
+<li> A first version has been implemented for case studies.</li>
+</ul>
+<pre>
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Literature<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Digital.UsersGuideI.png" ALT="Modelica.Electrical.Digital.UsersGuide.Literature" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="1010d503b10591ceGuide.Literature"></A><A HREF="Modelica_Electrical_Digital_UsersGuide.html#0dcdd6acff42a422gital.UsersGuide"
+>Modelica.Electrical.Digital.UsersGuide</A>.Literature</H2>
+<B>Literature</B><p>
+<PRE></pre>
+<p>
+The Electrical.Digital library is based on the following references:
+</p>
+<dl>
+<dt>Ashenden, P. J.:</dt>
+<dd> <b>The Designer's Guide to VHDL.</b> San Francisco: Morgan Kaufmann, 1995, 688 p. ISBN 1-55860-270-4.
+     <br>&nbsp;</dd>
+</dl>
+<dl>
+<dt>IEEE 1076-1993:</dt>
+<dd> <b>IEEE Standard VHDL Language Reference Manual (ANSI).</b> 288 p. ISBN 1-55937-376-8. IEEE Ref. SH16840-NYF.
+     <br>&nbsp;</dd>
+</dl>
+<dl>
+<dt>IEEE 1164-1993:</dt>
+<dd> <b>IEEE Standard Multivalue Logic System for VHDL Model Interoperability (Std_logic_1164).</b> 24 p. ISBN 1-55937-299-0. IEEE Ref. SH16097-NYF.
+     <br>&nbsp;</dd>
+</dl>
+<dl>
+<dt>Lipsett, R.; Schaefer, C.; Ussery, C.:</dt>
+<dd> <b>VHDL: Hardware Description and Design.</b> Boston: Kluwer, 1989, 299 p. ISBN 079239030X.
+     <br>&nbsp;</dd>
+</dl>
+<dl>
+<dt>Navabi, Z:</dt>
+<dd> <b>VHDL: Analysis and Modeling of Digital Systems.</b> New York: McGraw-Hill, 1993, 375 p. ISBN 0070464723.
+     <br>&nbsp;</dd>
+</dl>
+<pre>
+ </PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Contact<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Digital.UsersGuideI.png" ALT="Modelica.Electrical.Digital.UsersGuide.Contact" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="9ea97b5e5a7fa98bersGuide.Contact"></A><A HREF="Modelica_Electrical_Digital_UsersGuide.html#0dcdd6acff42a422gital.UsersGuide"
+>Modelica.Electrical.Digital.UsersGuide</A>.Contact</H2>
+<B>Contact</B><p>
+<PRE></pre>
+<dl>
+<dt><b>Main Authors:</b>
+<dd><a href="http://people.eas.iis.fraunhofer.de/Christoph.Clauss/">Christoph Clau&szlig;</a>
+    &lt;<A HREF="mailto:Christoph.Clauss@eas.iis.fraunhofer.de">Christoph.Clauss@eas.iis.fraunhofer.de</A>&gt;<br>
+    <a href="http://people.eas.iis.fraunhofer.de/Andre.Schneider/">Andr&eacute; Schneider</a>
+    &lt;<A HREF="mailto:Andre.Schneider@eas.iis.fraunhofer.de">Andre.Schneider@eas.iis.fraunhofer.de</A>&gt;<br>
+    Fraunhofer Institute for Integrated Circuits (IIS)<br>
+    Design Automation Department (EAS)<br>
+    Zeunerstra&szlig;e 38<br>
+    D-01069 Dresden<br>
+    Germany<br>
+</dl>
+<br>
+<br>
+<dl>
+<dt><b>Acknowledgements:</b></dt>
+<dd>
+    We thank our colleague <a href="http://people.eas.iis.fraunhofer.de/Ulrich.Donath/">Ulrich Donath</a>
+    &lt;<a href="mailto:Ulrich.Donath@eas.iis.fraunhofer.de">Ulrich.Donath@eas.iis.fraunhofer.de</a>&gt;
+    for his support and fruitful discussions regarding all questions on VHDL and the IEEE 1164 standard
+    logic libraries. Furthermore, we thank our students Teresa Schlegel and Enrico Weber for implementing
+    and carefully testing many models and examples.<br>
+</dd>
+</dl>
+<pre>
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Fri Sep 07 19:12:27 2007.
+</address></BODY>
+</HTML>

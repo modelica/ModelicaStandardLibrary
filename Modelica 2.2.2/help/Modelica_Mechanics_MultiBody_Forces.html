@@ -1,0 +1,2619 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Mechanics.MultiBody.Forces</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Components that exert forces and/or torques between frames&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Forces<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Mechanics.MultiBody.Forces"></A><A HREF="Modelica_Mechanics_MultiBody.html#Modelica.Mechanics.MultiBody"
+>Modelica.Mechanics.MultiBody</A>.Forces</H2>
+<B>Components that exert forces and/or torques between frames</B>
+<P>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This package contains components that exert forces and torques
+between two frame connectors, e.g., between two parts.
+</p>
+<h4>Content</h4>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><th><b><i>Model</i></b></th><th><b><i>Description</i></b></th></tr>
+  <tr><td valign="top"><A HREF="Modelica_Mechanics_MultiBody_Forces.html#ee47d6f93aa0a849orces.WorldForce"
+>WorldForce</a></td>
+      <td valign="top"> External force acting at the frame to which this component
+           is connected and defined by 3 input signals,
+           that are interpreted as one vector resolved in the world frame. <br>
+           <IMG SRC="../Images/MultiBody/Forces/ArrowForce.png"></td>
+  </tr>
+  <tr><td valign="top"><A HREF="Modelica_Mechanics_MultiBody_Forces.html#b002d4c870154b42rces.WorldTorque"
+>WorldTorque</a></td>
+      <td valign="top"> External torque acting at the frame to which this component
+           is connected and defined by 3 input signals,
+           that are interpreted as one vector resolved in the world frame. <br>
+           <IMG SRC="../Images/MultiBody/Forces/ArrowTorque.png"></td>
+  </tr>
+  <tr><td valign="top"><A HREF="Modelica_Mechanics_MultiBody_Forces.html#b73fffc8bb09aff8ldForceAndTorque"
+>WorldForceAndTorque</a></td>
+      <td valign="top"> External force and external torque acting at the frame
+           to which this component
+           is connected and defined by 6 input signals,
+           that are interpreted as a force and as a torque vector
+           resolved in the world frame. <br>
+           <IMG SRC="../Images/MultiBody/Forces/ArrowForce.png"><br>
+           <IMG SRC="../Images/MultiBody/Forces/ArrowTorque.png">
+      </td>
+  </tr>
+  <tr><td valign="top"><A HREF="Modelica_Mechanics_MultiBody_Forces.html#eab016da78a295d1orces.FrameForce"
+>FrameForce</a></td>
+      <td valign="top"> External force acting at the frame to which this component
+           is connected and defined by 3 input signals,
+           that are interpreted as one vector resolved in the local frame
+           or in "frame_resolve", if connected. <br>
+           <IMG SRC="../Images/MultiBody/Forces/ArrowForce.png"></td>
+  </tr>
+  <tr><td valign="top"><A HREF="Modelica_Mechanics_MultiBody_Forces.html#d95b84eb3052f84arces.FrameTorque"
+>FrameTorque</a></td>
+      <td valign="top"> External torque acting at the frame to which this component
+           is connected and defined by 3 input signals,
+           that are interpreted as one vector resolved in the local frame
+           or in "frame_resolve", if connected. <br>
+           <IMG SRC="../Images/MultiBody/Forces/ArrowTorque.png"></td>
+  </tr>
+  <tr><td valign="top"><A HREF="Modelica_Mechanics_MultiBody_Forces.html#bcd334cbfcbaa7b8meForceAndTorque"
+>FrameForceAndTorque</a></td>
+      <td valign="top"> External force and torque acting at the frame to which this component
+           is connected and defined by 6 input signals,
+           that are interpreted as one force and one torque vector
+           resolved in the local frame
+           or in "frame_resolve", if connected. <br>
+           <IMG SRC="../Images/MultiBody/Forces/ArrowForce.png"><br>
+           <IMG SRC="../Images/MultiBody/Forces/ArrowTorque.png">
+  </tr>
+  <tr><td valign="top"><A HREF="Modelica_Mechanics_MultiBody_Forces.html#dd0f88bf7a66c7feody.Forces.Force"
+>Force</a></td>
+      <td valign="top"> Force acting between two frames defined by 3 input signals
+           resolved in the local frame
+           or in "frame_resolve", if connected. <br>
+           <IMG SRC="../Images/MultiBody/Forces/ArrowForce2.png"></td>
+  </tr>
+  <tr><td valign="top"><A HREF="Modelica_Mechanics_MultiBody_Forces.html#e032cd1a68d4b5aady.Forces.Torque"
+>Torque</a></td>
+      <td valign="top"> Torque acting between two frames defined by 3 input signals
+           resolved in the local frame
+           or in "frame_resolve", if connected. <br>
+           <IMG SRC="../Images/MultiBody/Forces/ArrowTorque2.png"></td>
+  </tr>
+  <tr><td valign="top"><A HREF="Modelica_Mechanics_MultiBody_Forces.html#72cb455a1a3747e0s.ForceAndTorque"
+>ForceAndTorque</a></td>
+      <td valign="top"> Force and torque acting between two frames defined by 6 input signals
+           resolved in the local frame
+           or in "frame_resolve", if connected. <br>
+           <IMG SRC="../Images/MultiBody/Forces/ArrowForce2.png"><br>
+           <IMG SRC="../Images/MultiBody/Forces/ArrowTorque2.png"></td>
+  </tr>
+  <tr><td valign="top"><A HREF="Modelica_Mechanics_MultiBody_Forces.html#ea750ae14f4f6ec0ineForceWithMass"
+>LineForceWithMass</a></td>
+      <td valign="top">  General line force component with an optional point mass
+            on the connection line. The force law can be defined by a
+            component of Modelica.Mechanics.Translational<br>
+           <IMG SRC="../Images/MultiBody/Forces/LineForceWithMass.png"></td>
+  </tr>
+  <tr><td valign="top"><A HREF="Modelica_Mechanics_MultiBody_Forces.html#53cad675fab6c785rceWithTwoMasses"
+>LineForceWithTwoMasses</a></td>
+      <td valign="top">  General line force component with two optional point masses
+            on the connection line. The force law can be defined by a
+            component of Modelica.Mechanics.Translational<br>
+           <IMG SRC="../Images/MultiBody/Forces/LineForceWithTwoMasses.png"></td>
+  </tr>
+  <tr><td valign="top"><A HREF="Modelica_Mechanics_MultiBody_Forces.html#f63a1c1d6724d6c8dy.Forces.Spring"
+>Spring</a></td>
+      <td valign="top"> Linear translational spring with optional mass <br>
+           <IMG SRC="../Images/MultiBody/Forces/Spring2.png"></td>
+  </tr>
+  <tr><td valign="top"><A HREF="Modelica_Mechanics_MultiBody_Forces.html#31824e49483b33bddy.Forces.Damper"
+>Damper</a></td>
+      <td valign="top"> Linear (velocity dependent) damper <br>
+           <IMG SRC="../Images/MultiBody/Forces/Damper2.png"></td>
+  </tr>
+  <tr><td valign="top"><A HREF="Modelica_Mechanics_MultiBody_Forces.html#449fa4fd5e5edec3ngDamperParallel"
+>SpringDamperParallel</a></td>
+      <td valign="top"> Linear spring and damper in parallel connection </td>
+  </tr>
+  <tr><td valign="top"><A HREF="Modelica_Mechanics_MultiBody_Forces.html#d7a608a98594368bringDamperSeries"
+>SpringDamperSeries</a></td>
+      <td valign="top"> Linear spring and damper in series connection </td>
+  </tr>
+</table>
+<pre></PRE><P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Forces.WorldForceS.png" ALT="Modelica.Mechanics.MultiBody.Forces.WorldForce" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Forces.html#ee47d6f93aa0a849orces.WorldForce"
+>WorldForce</A>
+</TD><TD>External force acting at frame_b, defined by 3 input signals and resolved in world frame</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Forces.WorldTorqueS.png" ALT="Modelica.Mechanics.MultiBody.Forces.WorldTorque" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Forces.html#b002d4c870154b42rces.WorldTorque"
+>WorldTorque</A>
+</TD><TD>External torque acting at frame_b, defined by 3 input signals and resolved in world frame</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Forces.WorldForceAndTorqueS.png" ALT="Modelica.Mechanics.MultiBody.Forces.WorldForceAndTorque" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Forces.html#b73fffc8bb09aff8ldForceAndTorque"
+>WorldForceAndTorque</A>
+</TD><TD>External force and torque acting at frame_b, defined by 6 input signals and resolved in world frame</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Forces.FrameForceS.png" ALT="Modelica.Mechanics.MultiBody.Forces.FrameForce" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Forces.html#eab016da78a295d1orces.FrameForce"
+>FrameForce</A>
+</TD><TD>External force acting at frame_b, defined by 3 input signals and resolved in frame_b or in frame_resolve</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Forces.FrameTorqueS.png" ALT="Modelica.Mechanics.MultiBody.Forces.FrameTorque" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Forces.html#d95b84eb3052f84arces.FrameTorque"
+>FrameTorque</A>
+</TD><TD>External torque acting at frame_b, defined by 3 input signals and resolved in frame_b or in frame_resolve</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Forces.FrameForceAndTorqueS.png" ALT="Modelica.Mechanics.MultiBody.Forces.FrameForceAndTorque" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Forces.html#bcd334cbfcbaa7b8meForceAndTorque"
+>FrameForceAndTorque</A>
+</TD><TD>External force and torque acting at frame_b, defined by 6 input signals and resolved in frame_b or in frame_resolve</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Forces.ForceS.png" ALT="Modelica.Mechanics.MultiBody.Forces.Force" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Forces.html#dd0f88bf7a66c7feody.Forces.Force"
+>Force</A>
+</TD><TD>Force acting between two frames, defined by 3 input signals and resolved in frame_b or in frame_resolve</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Forces.TorqueS.png" ALT="Modelica.Mechanics.MultiBody.Forces.Torque" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Forces.html#e032cd1a68d4b5aady.Forces.Torque"
+>Torque</A>
+</TD><TD>Torque acting between two frames, defined by 3 input signals and resolved in frame_b or in frame_resolve</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Forces.ForceAndTorqueS.png" ALT="Modelica.Mechanics.MultiBody.Forces.ForceAndTorque" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Forces.html#72cb455a1a3747e0s.ForceAndTorque"
+>ForceAndTorque</A>
+</TD><TD>Force and torque acting between two frames, defined by 6 input signals and resolved in frame_b or in frame_resolve</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Forces.LineForceWithMassS.png" ALT="Modelica.Mechanics.MultiBody.Forces.LineForceWithMass" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Forces.html#ea750ae14f4f6ec0ineForceWithMass"
+>LineForceWithMass</A>
+</TD><TD>General line force component with an optional point mass on the connection line</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Forces.LineForceWithTwoMassesS.png" ALT="Modelica.Mechanics.MultiBody.Forces.LineForceWithTwoMasses" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Forces.html#53cad675fab6c785rceWithTwoMasses"
+>LineForceWithTwoMasses</A>
+</TD><TD>General line force component with two optional point masses on the connection line</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Forces.SpringS.png" ALT="Modelica.Mechanics.MultiBody.Forces.Spring" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Forces.html#f63a1c1d6724d6c8dy.Forces.Spring"
+>Spring</A>
+</TD><TD>Linear translational spring with optional mass</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Forces.DamperS.png" ALT="Modelica.Mechanics.MultiBody.Forces.Damper" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Forces.html#31824e49483b33bddy.Forces.Damper"
+>Damper</A>
+</TD><TD>Linear (velocity dependent) damper</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Forces.SpringDamperParallelS.png" ALT="Modelica.Mechanics.MultiBody.Forces.SpringDamperParallel" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Forces.html#449fa4fd5e5edec3ngDamperParallel"
+>SpringDamperParallel</A>
+</TD><TD>Linear spring and linear damper in parallel</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Forces.SpringDamperSeriesS.png" ALT="Modelica.Mechanics.MultiBody.Forces.SpringDamperSeries" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Forces.html#d7a608a98594368bringDamperSeries"
+>SpringDamperSeries</A>
+</TD><TD>Linear spring and linear damper in series connection</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE WorldForce<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Forces.WorldForceI.png" ALT="Modelica.Mechanics.MultiBody.Forces.WorldForce" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ee47d6f93aa0a849orces.WorldForce"></A><A HREF="Modelica_Mechanics_MultiBody_Forces.html#Modelica.Mechanics.MultiBody.Forces"
+>Modelica.Mechanics.MultiBody.Forces</A>.WorldForce</H2>
+<B>External force acting at frame_b, defined by 3 input signals and resolved in world frame</B><p>
+<IMG SRC="Modelica.Mechanics.MultiBody.Forces.WorldForceD.png" ALT="Modelica.Mechanics.MultiBody.Forces.WorldForce">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+The <b>3</b> signals of the <b>force</b> connector are interpreted
+as the x-, y- and z-coordinates of a <b>force</b> resolved in the
+<b>world frame</b> and acting at the frame connector to which this
+component is attached.
+</p>
+<p>
+This force component is by default visualized as an arrow
+acting at the connector to which it is connected. The diameter
+and color of the arrow are fixed and can be defined via
+parameters <b>diameter</b> and <b>color</b>. The arrow
+points in the direction defined by the
+inPort.signal signals. The length of the arrow is proportional
+to the length of the force vector using parameter
+<b>N_to_m</b> as scaling factor. For example, if N_to_m = 100 N/m,
+then a force of 350 N is displayed as an arrow of length 3.5 m.
+</p>
+<p>
+An example how to use this model is given in the
+following figure:
+</p>
+<p align="center">
+<IMG SRC="../Images/MultiBody/Forces/WorldForce1.png">
+</p>
+<p>
+This leads to the following animation
+</p>
+<p align="center">
+<IMG SRC="../Images/MultiBody/Forces/WorldForce2.png">
+</p>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Boolean</TD><TD>animation</TD><TD>true</TD><TD>= true, if animation shall be enabled</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>if animation = true</TD></TR>
+<TR><TD>Real</TD><TD>N_to_m</TD><TD>world.defaultN_to_m</TD><TD> Force arrow scaling (length = force/N_to_m) [N/m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>Diameter</A></TD><TD>diameter</TD><TD>world.defaultArrowDiameter</TD><TD> Diameter of force arrow [m]</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Types.html#105c8cd0e75d7ab8Body.Types.Color"
+>Color</A></TD><TD>color</TD><TD>Modelica.Mechanics.MultiBody...</TD><TD> Color of arrow</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Types.html#9fba82bfe8b4d0bacularCoefficient"
+>SpecularCoefficient</A></TD><TD>specularCoefficient</TD><TD>world.defaultSpecularCoeffic...</TD><TD>Reflection of ambient light (= 0: light is completely absorbed)</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#12523e7eca4aecb2terfaces.Frame_b"
+>Frame_b</A></TD><TD>frame_b</TD><TD>Coordinate system fixed to the component with one cut-force and cut-torque</TD></TR>
+<TR><TD>input <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>force[3]</TD><TD>x-, y-, z-coordinates of force resolved in world frame</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> WorldForce <font color="darkgreen">
+  &quot;External force acting at frame_b, defined by 3 input signals and resolved in world frame&quot;</font>
+
+  <font color="blue">import </font>SI = <A HREF="Modelica_SIunits.html#Modelica.SIunits"
+>Modelica.SIunits</A>;
+  <font color="blue">import </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#Modelica.Mechanics.MultiBody.Types"
+>Modelica.Mechanics.MultiBody.Types</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#7643ed99cfcb2760artialOneFrame_b"
+>Interfaces.PartialOneFrame_b</A>;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> force[3](<font color="blue">redeclare </font><font color="blue">type</font> SignalType =
+                   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Force"
+>SI.Force</A>) <font color="darkgreen">
+    &quot;x-, y-, z-coordinates of force resolved in world frame&quot;</font>;
+  <font color="blue">parameter </font>Boolean animation=true <font color="darkgreen">&quot;= true, if animation shall be enabled&quot;</font>;
+  <font color="blue">parameter </font>Real N_to_m(unit=&quot;N/m&quot;) = world.defaultN_to_m <font color="darkgreen">
+    &quot; Force arrow scaling (length = force/N_to_m)&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>SI.Diameter</A> diameter=world.defaultArrowDiameter <font color="darkgreen">
+    &quot; Diameter of force arrow&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#105c8cd0e75d7ab8Body.Types.Color"
+>Types.Color</A> color=Modelica.Mechanics.MultiBody.Types.Defaults.ForceColor <font color="darkgreen">
+    &quot; Color of arrow&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#9fba82bfe8b4d0bacularCoefficient"
+>Types.SpecularCoefficient</A> specularCoefficient = world.defaultSpecularCoefficient <font color="darkgreen">
+    &quot;Reflection of ambient light (= 0: light is completely absorbed)&quot;</font>;
+
+
+<font color="blue">protected </font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> f_in_m[3]=frame_b.f/N_to_m <font color="darkgreen">
+    &quot;Force mapped from N to m for animation&quot;</font>;
+  <A HREF="Modelica_Mechanics_MultiBody_Visualizers_Advanced.html#9c75533cccad81ads.Advanced.Arrow"
+>Visualizers.Advanced.Arrow</A> arrow(
+    diameter=diameter,
+    color=color,
+    specularCoefficient=specularCoefficient,
+    R=frame_b.R,
+    r=frame_b.r_0,
+    r_tail=f_in_m,
+    r_head=-f_in_m) <font color="blue">if </font>world.enableAnimation<font color="blue"> and </font>animation;
+<font color="blue">equation </font>
+  frame_b.f = -<font color="red">Frames.resolve2</font>(frame_b.R, force);
+  frame_b.t =<font color="red"> zeros</font>(3);
+<font color="blue">end </font>WorldForce;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE WorldTorque<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Forces.WorldTorqueI.png" ALT="Modelica.Mechanics.MultiBody.Forces.WorldTorque" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="b002d4c870154b42rces.WorldTorque"></A><A HREF="Modelica_Mechanics_MultiBody_Forces.html#Modelica.Mechanics.MultiBody.Forces"
+>Modelica.Mechanics.MultiBody.Forces</A>.WorldTorque</H2>
+<B>External torque acting at frame_b, defined by 3 input signals and resolved in world frame</B><p>
+<IMG SRC="Modelica.Mechanics.MultiBody.Forces.WorldTorqueD.png" ALT="Modelica.Mechanics.MultiBody.Forces.WorldTorque">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+The <b>3</b> signals of the <b>torque</b> connector are interpreted
+as the x-, y- and z-coordinates of a <b>torque</b> resolved in the
+<b>world frame</b> and acting at the frame connector to which this
+component is attached.
+</p>
+<p>
+This torque component is by default visualized as a <b>double arrow</b>
+acting at the connector to which it is connected. The diameter
+and color of the arrow are fixed and can be defined via
+parameters <b>diameter</b> and <b>color</b>. The double arrow points
+in the direction defined by the
+inPort.signal signals. The length of the double arrow is proportional
+to the length of the torque vector using parameter
+<b>Nm_to_m</b> as scaling factor. For example, if Nm_to_m = 100 Nm/m,
+then a torque of 350 Nm is displayed as an arrow of length 3.5 m.
+</p>
+<p>
+An example how to use this model is given in the
+following figure:
+</p>
+<p align="center">
+<IMG SRC="../Images/MultiBody/Forces/WorldTorque1.png">
+</p>
+<p>
+This leads to the following animation
+</p>
+<p align="center">
+<IMG SRC="../Images/MultiBody/Forces/WorldTorque2.png">
+</p>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Boolean</TD><TD>animation</TD><TD>true</TD><TD>= true, if animation shall be enabled</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>if animation = true</TD></TR>
+<TR><TD>Real</TD><TD>Nm_to_m</TD><TD>world.defaultNm_to_m</TD><TD> Torque arrow scaling (length = torque/Nm_to_m) [N.m/m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>Diameter</A></TD><TD>diameter</TD><TD>world.defaultArrowDiameter</TD><TD> Diameter of torque arrow [m]</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Types.html#105c8cd0e75d7ab8Body.Types.Color"
+>Color</A></TD><TD>color</TD><TD>Modelica.Mechanics.MultiBody...</TD><TD> Color of arrow</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Types.html#9fba82bfe8b4d0bacularCoefficient"
+>SpecularCoefficient</A></TD><TD>specularCoefficient</TD><TD>world.defaultSpecularCoeffic...</TD><TD>Reflection of ambient light (= 0: light is completely absorbed)</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#12523e7eca4aecb2terfaces.Frame_b"
+>Frame_b</A></TD><TD>frame_b</TD><TD>Coordinate system fixed to the component with one cut-force and cut-torque</TD></TR>
+<TR><TD>input <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>torque[3]</TD><TD>x-, y-, z-coordinates of torque resolved in world frame</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> WorldTorque <font color="darkgreen">
+  &quot;External torque acting at frame_b, defined by 3 input signals and resolved in world frame&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#7643ed99cfcb2760artialOneFrame_b"
+>Interfaces.PartialOneFrame_b</A>;
+  <font color="blue">import </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#Modelica.Mechanics.MultiBody.Types"
+>Modelica.Mechanics.MultiBody.Types</A>;
+
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> torque[3](<font color="blue">redeclare </font><font color="blue">type</font> SignalType =
+                   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Torque"
+>SI.Torque</A>) <font color="darkgreen">
+    &quot;x-, y-, z-coordinates of torque resolved in world frame&quot;</font>;
+  <font color="blue">parameter </font>Boolean animation=true <font color="darkgreen">&quot;= true, if animation shall be enabled&quot;</font>;
+  <font color="blue">parameter </font>Real Nm_to_m(unit=&quot;N.m/m&quot;) = world.defaultNm_to_m <font color="darkgreen">
+    &quot; Torque arrow scaling (length = torque/Nm_to_m)&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>SI.Diameter</A> diameter=world.defaultArrowDiameter <font color="darkgreen">
+    &quot; Diameter of torque arrow&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#105c8cd0e75d7ab8Body.Types.Color"
+>Types.Color</A> color=Modelica.Mechanics.MultiBody.Types.Defaults.TorqueColor <font color="darkgreen">
+    &quot; Color of arrow&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#9fba82bfe8b4d0bacularCoefficient"
+>Types.SpecularCoefficient</A> specularCoefficient = world.defaultSpecularCoefficient <font color="darkgreen">
+    &quot;Reflection of ambient light (= 0: light is completely absorbed)&quot;</font>;
+
+
+<font color="blue">protected </font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> t_in_m[3]=frame_b.t/Nm_to_m <font color="darkgreen">
+    &quot;Torque mapped from Nm to m for animation&quot;</font>;
+  <A HREF="Modelica_Mechanics_MultiBody_Visualizers_Advanced.html#a878cdeb7d000292nced.DoubleArrow"
+>Visualizers.Advanced.DoubleArrow</A> arrow(
+    diameter=diameter,
+    color=color,
+    specularCoefficient=specularCoefficient,
+    R=frame_b.R,
+    r=frame_b.r_0,
+    r_tail=t_in_m,
+    r_head=-t_in_m) <font color="blue">if </font>world.enableAnimation<font color="blue"> and </font>animation;
+<font color="blue">equation </font>
+  frame_b.f =<font color="red"> zeros</font>(3);
+  frame_b.t = -<font color="red">Frames.resolve2</font>(frame_b.R, torque);
+<font color="blue">end </font>WorldTorque;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE WorldForceAndTorque<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Forces.WorldForceAndTorqueI.png" ALT="Modelica.Mechanics.MultiBody.Forces.WorldForceAndTorque" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="b73fffc8bb09aff8ldForceAndTorque"></A><A HREF="Modelica_Mechanics_MultiBody_Forces.html#Modelica.Mechanics.MultiBody.Forces"
+>Modelica.Mechanics.MultiBody.Forces</A>.WorldForceAndTorque</H2>
+<B>External force and torque acting at frame_b, defined by 6 input signals and resolved in world frame</B><p>
+<IMG SRC="Modelica.Mechanics.MultiBody.Forces.WorldForceAndTorqueD.png" ALT="Modelica.Mechanics.MultiBody.Forces.WorldForceAndTorque">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+The <b>6</b> signals of the <b>load</b> connector are interpreted
+as the x-, y- and z-coordinates of a <b>force</b> and as
+the x-, y-, and z-coordinates of a <b>torque</b> resolved in the
+<b>world frame</b> and acting at the frame connector to which this
+component is attached. The input signals are mapped to the force
+and torque in the following way:
+</p>
+<pre>
+   force  = load[1:3]
+   torque = load[4:6]
+</pre>
+<p>
+The force and torque are by default visualized as an arrow (force)
+and as a double arrow (torque) acting at the connector to which
+they are connected. The diameters
+and colors of the arrows are fixed and can be defined via
+parameters <b>forceDiameter</b>, <b>torqueDiameter</b>,
+<b>forceColor</b> and <b>torqueColor</b>. The arrows
+point in the directions defined by the
+inPort.signal signals. The lengths of the arrows are proportional
+to the length of the force and torque vectors, respectively, using parameters
+<b>N_to_m</b> and <b>Nm_to_m</b> as scaling factors. For example, if N_to_m = 100 N/m,
+then a force of 350 N is displayed as an arrow of length 3.5 m.
+</p>
+<p>
+An example how to use this model is given in the
+following figure:
+</p>
+<p align="center">
+<IMG SRC="../Images/MultiBody/Forces/WorldForceAndTorque1.png">
+</p>
+<p>
+This leads to the following animation
+</p>
+<p align="center">
+<IMG SRC="../Images/MultiBody/Forces/WorldForceAndTorque2.png">
+</p>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Boolean</TD><TD>animation</TD><TD>true</TD><TD>= true, if animation shall be enabled</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>if animation = true</TD></TR>
+<TR><TD>Real</TD><TD>N_to_m</TD><TD>world.defaultN_to_m</TD><TD> Force arrow scaling (length = force/N_to_m) [N/m]</TD></TR>
+<TR><TD>Real</TD><TD>Nm_to_m</TD><TD>world.defaultNm_to_m</TD><TD> Torque arrow scaling (length = torque/Nm_to_m) [N.m/m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>Diameter</A></TD><TD>forceDiameter</TD><TD>world.defaultArrowDiameter</TD><TD> Diameter of force arrow [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>Diameter</A></TD><TD>torqueDiameter</TD><TD>forceDiameter</TD><TD> Diameter of torque arrow [m]</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Types.html#105c8cd0e75d7ab8Body.Types.Color"
+>Color</A></TD><TD>forceColor</TD><TD>Modelica.Mechanics.MultiBody...</TD><TD> Color of force arrow</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Types.html#105c8cd0e75d7ab8Body.Types.Color"
+>Color</A></TD><TD>torqueColor</TD><TD>Modelica.Mechanics.MultiBody...</TD><TD> Color of torque arrow</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Types.html#9fba82bfe8b4d0bacularCoefficient"
+>SpecularCoefficient</A></TD><TD>specularCoefficient</TD><TD>world.defaultSpecularCoeffic...</TD><TD>Reflection of ambient light (= 0: light is completely absorbed)</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#12523e7eca4aecb2terfaces.Frame_b"
+>Frame_b</A></TD><TD>frame_b</TD><TD>Coordinate system fixed to the component with one cut-force and cut-torque</TD></TR>
+<TR><TD>input <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>load[6]</TD><TD>[1:6] = x-, y-, z-coordinates of force and x-, y-, z-coordiantes of torque resolved in world frame</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> WorldForceAndTorque <font color="darkgreen">
+  &quot;External force and torque acting at frame_b, defined by 6 input signals and resolved in world frame&quot;</font>
+
+  <font color="blue">import </font>SI = <A HREF="Modelica_SIunits.html#Modelica.SIunits"
+>Modelica.SIunits</A>;
+  <font color="blue">import </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#Modelica.Mechanics.MultiBody.Types"
+>Modelica.Mechanics.MultiBody.Types</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#7643ed99cfcb2760artialOneFrame_b"
+>Interfaces.PartialOneFrame_b</A>;
+
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> load[6] <font color="darkgreen">
+    &quot;[1:6] = x-, y-, z-coordinates of force and x-, y-, z-coordiantes of torque resolved in world frame&quot;</font>;
+  <font color="blue">parameter </font>Boolean animation=true <font color="darkgreen">&quot;= true, if animation shall be enabled&quot;</font>;
+  <font color="blue">parameter </font>Real N_to_m(unit=&quot;N/m&quot;) = world.defaultN_to_m <font color="darkgreen">
+    &quot; Force arrow scaling (length = force/N_to_m)&quot;</font>;
+  <font color="blue">parameter </font>Real Nm_to_m(unit=&quot;N.m/m&quot;) = world.defaultNm_to_m <font color="darkgreen">
+    &quot; Torque arrow scaling (length = torque/Nm_to_m)&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>SI.Diameter</A> forceDiameter=world.defaultArrowDiameter <font color="darkgreen">
+    &quot; Diameter of force arrow&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>SI.Diameter</A> torqueDiameter=forceDiameter <font color="darkgreen">&quot; Diameter of torque arrow&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#105c8cd0e75d7ab8Body.Types.Color"
+>Types.Color</A> forceColor=Modelica.Mechanics.MultiBody.Types.Defaults.ForceColor <font color="darkgreen">
+    &quot; Color of force arrow&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#105c8cd0e75d7ab8Body.Types.Color"
+>Types.Color</A> torqueColor=Modelica.Mechanics.MultiBody.Types.Defaults.TorqueColor <font color="darkgreen">
+    &quot; Color of torque arrow&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#9fba82bfe8b4d0bacularCoefficient"
+>Types.SpecularCoefficient</A> specularCoefficient = world.defaultSpecularCoefficient <font color="darkgreen">
+    &quot;Reflection of ambient light (= 0: light is completely absorbed)&quot;</font>;
+
+
+<font color="blue">protected </font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> f_in_m[3]=frame_b.f/N_to_m <font color="darkgreen">
+    &quot;Force mapped from N to m for animation&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> t_in_m[3]=frame_b.t/Nm_to_m <font color="darkgreen">
+    &quot;Torque mapped from Nm to m for animation&quot;</font>;
+  <A HREF="Modelica_Mechanics_MultiBody_Visualizers_Advanced.html#9c75533cccad81ads.Advanced.Arrow"
+>Visualizers.Advanced.Arrow</A> forceArrow(
+    diameter=forceDiameter,
+    color=forceColor,
+    specularCoefficient=specularCoefficient,
+    R=frame_b.R,
+    r=frame_b.r_0,
+    r_tail=f_in_m,
+    r_head=-f_in_m) <font color="blue">if </font>world.enableAnimation<font color="blue"> and </font>animation;
+  <A HREF="Modelica_Mechanics_MultiBody_Visualizers_Advanced.html#a878cdeb7d000292nced.DoubleArrow"
+>Visualizers.Advanced.DoubleArrow</A> torqueArrow(
+    diameter=torqueDiameter,
+    color=torqueColor,
+    specularCoefficient=specularCoefficient,
+    R=frame_b.R,
+    r=frame_b.r_0,
+    r_tail=t_in_m,
+    r_head=-t_in_m) <font color="blue">if </font>world.enableAnimation<font color="blue"> and </font>animation;
+<font color="blue">equation </font>
+  frame_b.f = -<font color="red">Frames.resolve2</font>(frame_b.R, load[1:3]);
+  frame_b.t = -<font color="red">Frames.resolve2</font>(frame_b.R, load[4:6]);
+<font color="blue">end </font>WorldForceAndTorque;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE FrameForce<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Forces.FrameForceI.png" ALT="Modelica.Mechanics.MultiBody.Forces.FrameForce" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="eab016da78a295d1orces.FrameForce"></A><A HREF="Modelica_Mechanics_MultiBody_Forces.html#Modelica.Mechanics.MultiBody.Forces"
+>Modelica.Mechanics.MultiBody.Forces</A>.FrameForce</H2>
+<B>External force acting at frame_b, defined by 3 input signals and resolved in frame_b or in frame_resolve</B><p>
+<IMG SRC="Modelica.Mechanics.MultiBody.Forces.FrameForceD.png" ALT="Modelica.Mechanics.MultiBody.Forces.FrameForce">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+The 3 signals of the <b>force</b> connector are interpreted
+as the x-, y- and z-coordinates of a <b>force</b> acting at the frame
+connector to which this component is attached. If connector
+<b>frame_resolve</b> is <b>not</b> connected, the force coordinates
+are with respect to <b>frame_b</b>. If connector
+<b>frame_resolve</b> is connected, the force coordinates
+are with respect to <b>frame_resolve</b>. In this case the
+force and torque in connector frame_resolve are set to zero,
+i.e., this connector is solely used to provide the information
+of the coordinate system, in which the force coordinates
+are defined.
+</p>
+<p>
+This force component is by default visualized as an arrow
+acting at the connector to which it is connected. The diameter
+and color of the arrow are fixed and can be defined via
+parameters <b>diameter</b> and <b>color</b>. The arrow
+points in the direction defined by the
+inPort.signal signals. The length of the arrow is proportional
+to the length of the force vector using parameter
+<b>N_to_m</b> as scaling factor. For example, if N_to_m = 100 N/m,
+then a force of 350 N is displayed as an arrow of length 3.5 m.
+</p>
+<p>
+An example how to use this model is given in the
+following figure:
+</p>
+<p align="center">
+<IMG SRC="../Images/MultiBody/Forces/FrameForce1.png">
+</p>
+<p>
+This leads to the following animation
+</p>
+<p align="center">
+<IMG SRC="../Images/MultiBody/Forces/FrameForce2.png">
+</p>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Boolean</TD><TD>animation</TD><TD>true</TD><TD>= true, if animation shall be enabled</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>if animation = true</TD></TR>
+<TR><TD>Real</TD><TD>N_to_m</TD><TD>world.defaultN_to_m</TD><TD> Force arrow scaling (length = force/N_to_m) [N/m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>Diameter</A></TD><TD>diameter</TD><TD>world.defaultArrowDiameter</TD><TD> Diameter of force arrow [m]</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Types.html#105c8cd0e75d7ab8Body.Types.Color"
+>Color</A></TD><TD>color</TD><TD>Modelica.Mechanics.MultiBody...</TD><TD> Color of arrow</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Types.html#9fba82bfe8b4d0bacularCoefficient"
+>SpecularCoefficient</A></TD><TD>specularCoefficient</TD><TD>world.defaultSpecularCoeffic...</TD><TD>Reflection of ambient light (= 0: light is completely absorbed)</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#12523e7eca4aecb2terfaces.Frame_b"
+>Frame_b</A></TD><TD>frame_b</TD><TD>Coordinate system fixed to the component with one cut-force and cut-torque</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#d729d5e87f94b18des.Frame_resolve"
+>Frame_resolve</A></TD><TD>frame_resolve</TD><TD>If connected, the input signals are resolved in this frame</TD></TR>
+<TR><TD>input <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>force[3]</TD><TD>x-, y-, z-coordinates of force resolved in frame_b or frame_resolve (if connected)</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> FrameForce <font color="darkgreen">
+  &quot;External force acting at frame_b, defined by 3 input signals and resolved in frame_b or in frame_resolve&quot;</font>
+
+  <font color="blue">import </font>SI = <A HREF="Modelica_SIunits.html#Modelica.SIunits"
+>Modelica.SIunits</A>;
+  <font color="blue">import </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#Modelica.Mechanics.MultiBody.Types"
+>Modelica.Mechanics.MultiBody.Types</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#7643ed99cfcb2760artialOneFrame_b"
+>Interfaces.PartialOneFrame_b</A>;
+  <A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#d729d5e87f94b18des.Frame_resolve"
+>Interfaces.Frame_resolve</A> frame_resolve <font color="darkgreen">
+    &quot;If connected, the input signals are resolved in this frame&quot;</font>;
+
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> force[3](<font color="blue">redeclare </font><font color="blue">type</font> SignalType =
+                   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Force"
+>SI.Force</A>) <font color="darkgreen">
+    &quot;x-, y-, z-coordinates of force resolved in frame_b or frame_resolve (if connected)&quot;</font>;
+  <font color="blue">parameter </font>Boolean animation=true <font color="darkgreen">&quot;= true, if animation shall be enabled&quot;</font>;
+  <font color="blue">parameter </font>Real N_to_m(unit=&quot;N/m&quot;) = world.defaultN_to_m <font color="darkgreen">
+    &quot; Force arrow scaling (length = force/N_to_m)&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>SI.Diameter</A> diameter=world.defaultArrowDiameter <font color="darkgreen">
+    &quot; Diameter of force arrow&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#105c8cd0e75d7ab8Body.Types.Color"
+>Types.Color</A> color=Modelica.Mechanics.MultiBody.Types.Defaults.ForceColor <font color="darkgreen">
+    &quot; Color of arrow&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#9fba82bfe8b4d0bacularCoefficient"
+>Types.SpecularCoefficient</A> specularCoefficient = world.defaultSpecularCoefficient <font color="darkgreen">
+    &quot;Reflection of ambient light (= 0: light is completely absorbed)&quot;</font>;
+
+
+
+<font color="blue">protected </font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> f_in_m[3]=frame_b.f/N_to_m <font color="darkgreen">
+    &quot;Force mapped from N to m for animation&quot;</font>;
+  <A HREF="Modelica_Mechanics_MultiBody_Visualizers_Advanced.html#9c75533cccad81ads.Advanced.Arrow"
+>Visualizers.Advanced.Arrow</A> arrow(
+    diameter=diameter,
+    color=color,
+    specularCoefficient=specularCoefficient,
+    R=frame_b.R,
+    r=frame_b.r_0,
+    r_tail=f_in_m,
+    r_head=-f_in_m) <font color="blue">if </font>world.enableAnimation<font color="blue"> and </font>animation;
+<font color="blue">equation </font>
+  <font color="blue">if </font><font color="red">cardinality</font>(frame_resolve) == 0<font color="blue"> then</font>
+    frame_b.f = -force;
+    frame_resolve.r_0 =<font color="red"> zeros</font>(3);
+    frame_resolve.R =<font color="red"> Frames.nullRotation</font>();
+  <font color="blue">else</font>
+    frame_b.f = -<font color="red">Frames.resolve2</font>(<font color="red">Frames.relativeRotation</font>(frame_resolve.R,
+      frame_b.R), force);
+    frame_resolve.f =<font color="red"> zeros</font>(3);
+    frame_resolve.t =<font color="red"> zeros</font>(3);
+  <font color="blue">end if</font>;
+  frame_b.t =<font color="red"> zeros</font>(3);
+<font color="blue">end </font>FrameForce;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE FrameTorque<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Forces.FrameTorqueI.png" ALT="Modelica.Mechanics.MultiBody.Forces.FrameTorque" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="d95b84eb3052f84arces.FrameTorque"></A><A HREF="Modelica_Mechanics_MultiBody_Forces.html#Modelica.Mechanics.MultiBody.Forces"
+>Modelica.Mechanics.MultiBody.Forces</A>.FrameTorque</H2>
+<B>External torque acting at frame_b, defined by 3 input signals and resolved in frame_b or in frame_resolve</B><p>
+<IMG SRC="Modelica.Mechanics.MultiBody.Forces.FrameTorqueD.png" ALT="Modelica.Mechanics.MultiBody.Forces.FrameTorque">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+The 3 signals of the <b>torque</b> connector are interpreted
+as the x-, y- and z-coordinates of a <b>torque</b> acting at the frame
+connector to which this component is attached. If connector
+<b>frame_resolve</b> is <b>not</b> connected, the torque coordinates
+are with respect to <b>frame_b</b>. If connector
+<b>frame_resolve</b> is connected, the torque coordinates
+are with respect to <b>frame_resolve</b>. In this case the
+force and torque in connector frame_resolve are set to zero,
+i.e., this connector is solely used to provide the information
+of the coordinate system, in which the force coordinates
+are defined.
+</p>
+<p>
+This torque component is by default visualized as an arrow
+acting at the connector to which it is connected. The diameter
+and color of the arrow are fixed and can be defined via
+parameters <b>diameter</b> and <b>color</b>. The arrow
+points in the direction defined by the
+inPort.signal signals. The length of the arrow is proportional
+to the length of the torque vector using parameter
+<b>Nm_to_m</b> as scaling factor. For example, if Nm_to_m = 100 N/m,
+then a torque of 350 Nm is displayed as an arrow of length 3.5 m.
+</p>
+<p>
+An example how to use this model is given in the
+following figure:
+</p>
+<p align="center">
+<IMG SRC="../Images/MultiBody/Forces/FrameTorque1.png">
+</p>
+<p>
+This leads to the following animation
+</p>
+<p align="center">
+<IMG SRC="../Images/MultiBody/Forces/FrameTorque2.png">
+</p>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Boolean</TD><TD>animation</TD><TD>true</TD><TD>= true, if animation shall be enabled</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>if animation = true</TD></TR>
+<TR><TD>Real</TD><TD>Nm_to_m</TD><TD>world.defaultNm_to_m</TD><TD> Torque arrow scaling (length = torque/Nm_to_m) [N.m/m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>Diameter</A></TD><TD>diameter</TD><TD>world.defaultArrowDiameter</TD><TD> Diameter of torque arrow [m]</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Types.html#105c8cd0e75d7ab8Body.Types.Color"
+>Color</A></TD><TD>color</TD><TD>Modelica.Mechanics.MultiBody...</TD><TD> Color of arrow</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Types.html#9fba82bfe8b4d0bacularCoefficient"
+>SpecularCoefficient</A></TD><TD>specularCoefficient</TD><TD>world.defaultSpecularCoeffic...</TD><TD>Reflection of ambient light (= 0: light is completely absorbed)</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#12523e7eca4aecb2terfaces.Frame_b"
+>Frame_b</A></TD><TD>frame_b</TD><TD>Coordinate system fixed to the component with one cut-force and cut-torque</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#d729d5e87f94b18des.Frame_resolve"
+>Frame_resolve</A></TD><TD>frame_resolve</TD><TD>If connected, the input signals are resolved in this frame</TD></TR>
+<TR><TD>input <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>torque[3]</TD><TD>x-, y-, z-coordinates of torque resolved in frame_b or frame_resolve (if connected)</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> FrameTorque <font color="darkgreen">
+  &quot;External torque acting at frame_b, defined by 3 input signals and resolved in frame_b or in frame_resolve&quot;</font>
+
+  <font color="blue">import </font>SI = <A HREF="Modelica_SIunits.html#Modelica.SIunits"
+>Modelica.SIunits</A>;
+  <font color="blue">import </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#Modelica.Mechanics.MultiBody.Types"
+>Modelica.Mechanics.MultiBody.Types</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#7643ed99cfcb2760artialOneFrame_b"
+>Interfaces.PartialOneFrame_b</A>;
+  <A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#d729d5e87f94b18des.Frame_resolve"
+>Interfaces.Frame_resolve</A> frame_resolve <font color="darkgreen">
+    &quot;If connected, the input signals are resolved in this frame&quot;</font>;
+
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> torque[3](<font color="blue">redeclare </font><font color="blue">type</font> SignalType =
+                   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Torque"
+>SI.Torque</A>) <font color="darkgreen">
+    &quot;x-, y-, z-coordinates of torque resolved in frame_b or frame_resolve (if connected)&quot;</font>;
+  <font color="blue">parameter </font>Boolean animation=true <font color="darkgreen">&quot;= true, if animation shall be enabled&quot;</font>;
+  <font color="blue">parameter </font>Real Nm_to_m(unit=&quot;N.m/m&quot;) = world.defaultNm_to_m <font color="darkgreen">
+    &quot; Torque arrow scaling (length = torque/Nm_to_m)&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>SI.Diameter</A> diameter=world.defaultArrowDiameter <font color="darkgreen">
+    &quot; Diameter of torque arrow&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#105c8cd0e75d7ab8Body.Types.Color"
+>Types.Color</A> color=Modelica.Mechanics.MultiBody.Types.Defaults.TorqueColor <font color="darkgreen">
+    &quot; Color of arrow&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#9fba82bfe8b4d0bacularCoefficient"
+>Types.SpecularCoefficient</A> specularCoefficient = world.defaultSpecularCoefficient <font color="darkgreen">
+    &quot;Reflection of ambient light (= 0: light is completely absorbed)&quot;</font>;
+
+<font color="blue">protected </font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> t_in_m[3]=frame_b.t/Nm_to_m <font color="darkgreen">
+    &quot;Torque mapped from Nm to m for animation&quot;</font>;
+  <A HREF="Modelica_Mechanics_MultiBody_Visualizers_Advanced.html#a878cdeb7d000292nced.DoubleArrow"
+>Visualizers.Advanced.DoubleArrow</A> arrow(
+    diameter=diameter,
+    color=color,
+    specularCoefficient=specularCoefficient,
+    R=frame_b.R,
+    r=frame_b.r_0,
+    r_tail=t_in_m,
+    r_head=-t_in_m) <font color="blue">if </font>world.enableAnimation<font color="blue"> and </font>animation;
+<font color="blue">equation </font>
+  frame_b.f =<font color="red"> zeros</font>(3);
+  <font color="blue">if </font><font color="red">cardinality</font>(frame_resolve) == 0<font color="blue"> then</font>
+    frame_b.t = -torque;
+    frame_resolve.r_0 =<font color="red"> zeros</font>(3);
+    frame_resolve.R =<font color="red"> Frames.nullRotation</font>();
+  <font color="blue">else</font>
+    frame_b.t = -<font color="red">Frames.resolve2</font>(<font color="red">Frames.relativeRotation</font>(frame_resolve.R,
+      frame_b.R), torque);
+    frame_resolve.f =<font color="red"> zeros</font>(3);
+    frame_resolve.t =<font color="red"> zeros</font>(3);
+  <font color="blue">end if</font>;
+<font color="blue">end </font>FrameTorque;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE FrameForceAndTorque<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Forces.FrameForceAndTorqueI.png" ALT="Modelica.Mechanics.MultiBody.Forces.FrameForceAndTorque" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="bcd334cbfcbaa7b8meForceAndTorque"></A><A HREF="Modelica_Mechanics_MultiBody_Forces.html#Modelica.Mechanics.MultiBody.Forces"
+>Modelica.Mechanics.MultiBody.Forces</A>.FrameForceAndTorque</H2>
+<B>External force and torque acting at frame_b, defined by 6 input signals and resolved in frame_b or in frame_resolve</B><p>
+<IMG SRC="Modelica.Mechanics.MultiBody.Forces.FrameForceAndTorqueD.png" ALT="Modelica.Mechanics.MultiBody.Forces.FrameForceAndTorque">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+The <b>6</b> signals of the <b>load</b> connector are interpreted
+as the x-, y- and z-coordinates of a <b>force</b> and as
+the x-, y-, and z-coordinates of a <b>torque</b> acting at the frame
+connector to which this component is attached. If connector
+<b>frame_resolve</b> is <b>not</b> connected, the force and torque coordinates
+are with respect to <b>frame_b</b>. If connector
+<b>frame_resolve</b> is connected, the force and torque coordinates
+are with respect to <b>frame_resolve</b>. In this case the
+force and torque in connector frame_resolve are set to zero,
+i.e., this connector is solely used to provide the information
+of the coordinate system, in which the force coordinates
+are defined. The input signals are mapped to the force
+and torque in the following way:
+</p>
+<pre>
+   force  = load[1:3]
+   torque = load[4:6]
+</pre>
+<p>
+The force and torque are by default visualized as an arrow (force)
+and as a double arrow (torque) acting at the connector to which
+they are connected. The diameters
+and colors of the arrows are fixed and can be defined via
+parameters <b>forceDiameter</b>, <b>torqueDiameter</b>,
+<b>forceColor</b> and <b>torqueColor</b>. The arrows
+point in the directions defined by the
+inPort.signal signals. The lengths of the arrows are proportional
+to the length of the force and torque vectors, respectively, using parameters
+<b>N_to_m</b> and <b>Nm_to_m</b> as scaling factors. For example,
+if N_to_m = 100 N/m,
+then a force of 350 N is displayed as an arrow of length 3.5 m.
+</p>
+<p>
+An example how to use this model is given in the
+following figure:
+</p>
+<p align="center">
+<IMG SRC="../Images/MultiBody/Forces/FrameForceAndTorque1.png">
+</p>
+<p>
+This leads to the following animation
+</p>
+<p align="center">
+<IMG SRC="../Images/MultiBody/Forces/FrameForceAndTorque2.png">
+</p>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Boolean</TD><TD>animation</TD><TD>true</TD><TD>= true, if animation shall be enabled</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>if animation = true</TD></TR>
+<TR><TD>Real</TD><TD>N_to_m</TD><TD>world.defaultN_to_m</TD><TD> Force arrow scaling (length = force/N_to_m) [N/m]</TD></TR>
+<TR><TD>Real</TD><TD>Nm_to_m</TD><TD>world.defaultNm_to_m</TD><TD> Torque arrow scaling (length = torque/Nm_to_m) [N.m/m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>Diameter</A></TD><TD>forceDiameter</TD><TD>world.defaultArrowDiameter</TD><TD> Diameter of force arrow [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>Diameter</A></TD><TD>torqueDiameter</TD><TD>forceDiameter</TD><TD> Diameter of torque arrow [m]</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Types.html#105c8cd0e75d7ab8Body.Types.Color"
+>Color</A></TD><TD>forceColor</TD><TD>Modelica.Mechanics.MultiBody...</TD><TD> Color of force arrow</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Types.html#105c8cd0e75d7ab8Body.Types.Color"
+>Color</A></TD><TD>torqueColor</TD><TD>Modelica.Mechanics.MultiBody...</TD><TD> Color of torque arrow</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Types.html#9fba82bfe8b4d0bacularCoefficient"
+>SpecularCoefficient</A></TD><TD>specularCoefficient</TD><TD>world.defaultSpecularCoeffic...</TD><TD>Reflection of ambient light (= 0: light is completely absorbed)</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#12523e7eca4aecb2terfaces.Frame_b"
+>Frame_b</A></TD><TD>frame_b</TD><TD>Coordinate system fixed to the component with one cut-force and cut-torque</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#d729d5e87f94b18des.Frame_resolve"
+>Frame_resolve</A></TD><TD>frame_resolve</TD><TD>If connected, the input signals are resolved in this frame</TD></TR>
+<TR><TD>input <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>load[6]</TD><TD>[1:6] = x-, y-, z-coordinates of force and x-, y-, z-coordiantes of torque resolved in frame_b or frame_resolved (if connected)</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> FrameForceAndTorque <font color="darkgreen">
+  &quot;External force and torque acting at frame_b, defined by 6 input signals and resolved in frame_b or in frame_resolve&quot;</font>
+
+  <font color="blue">import </font>SI = <A HREF="Modelica_SIunits.html#Modelica.SIunits"
+>Modelica.SIunits</A>;
+  <font color="blue">import </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#Modelica.Mechanics.MultiBody.Types"
+>Modelica.Mechanics.MultiBody.Types</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#7643ed99cfcb2760artialOneFrame_b"
+>Interfaces.PartialOneFrame_b</A>;
+  <A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#d729d5e87f94b18des.Frame_resolve"
+>Interfaces.Frame_resolve</A> frame_resolve <font color="darkgreen">
+    &quot;If connected, the input signals are resolved in this frame&quot;</font>;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> load[6] <font color="darkgreen">
+    &quot;[1:6] = x-, y-, z-coordinates of force and x-, y-, z-coordiantes of torque resolved in frame_b or frame_resolved (if connected)&quot;</font>;
+  <font color="blue">parameter </font>Boolean animation=true <font color="darkgreen">&quot;= true, if animation shall be enabled&quot;</font>;
+  <font color="blue">parameter </font>Real N_to_m(unit=&quot;N/m&quot;) = world.defaultN_to_m <font color="darkgreen">
+    &quot; Force arrow scaling (length = force/N_to_m)&quot;</font>;
+  <font color="blue">parameter </font>Real Nm_to_m(unit=&quot;N.m/m&quot;) = world.defaultNm_to_m <font color="darkgreen">
+    &quot; Torque arrow scaling (length = torque/Nm_to_m)&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>SI.Diameter</A> forceDiameter=world.defaultArrowDiameter <font color="darkgreen">
+    &quot; Diameter of force arrow&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>SI.Diameter</A> torqueDiameter=forceDiameter <font color="darkgreen">&quot; Diameter of torque arrow&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#105c8cd0e75d7ab8Body.Types.Color"
+>Types.Color</A> forceColor=Modelica.Mechanics.MultiBody.Types.Defaults.ForceColor <font color="darkgreen">
+    &quot; Color of force arrow&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#105c8cd0e75d7ab8Body.Types.Color"
+>Types.Color</A> torqueColor=Modelica.Mechanics.MultiBody.Types.Defaults.TorqueColor <font color="darkgreen">
+    &quot; Color of torque arrow&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#9fba82bfe8b4d0bacularCoefficient"
+>Types.SpecularCoefficient</A> specularCoefficient = world.defaultSpecularCoefficient <font color="darkgreen">
+    &quot;Reflection of ambient light (= 0: light is completely absorbed)&quot;</font>;
+
+<font color="blue">protected </font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> f_in_m[3]=frame_b.f/N_to_m <font color="darkgreen">
+    &quot;Force mapped from N to m for animation&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> t_in_m[3]=frame_b.t/Nm_to_m <font color="darkgreen">
+    &quot;Torque mapped from Nm to m for animation&quot;</font>;
+  <A HREF="Modelica_Mechanics_MultiBody_Visualizers_Advanced.html#9c75533cccad81ads.Advanced.Arrow"
+>Visualizers.Advanced.Arrow</A> forceArrow(
+    diameter=forceDiameter,
+    color=forceColor,
+    specularCoefficient=specularCoefficient,
+    R=frame_b.R,
+    r=frame_b.r_0,
+    r_tail=f_in_m,
+    r_head=-f_in_m) <font color="blue">if </font>world.enableAnimation<font color="blue"> and </font>animation;
+  <A HREF="Modelica_Mechanics_MultiBody_Visualizers_Advanced.html#a878cdeb7d000292nced.DoubleArrow"
+>Visualizers.Advanced.DoubleArrow</A> torqueArrow(
+    diameter=torqueDiameter,
+    color=torqueColor,
+    specularCoefficient=specularCoefficient,
+    R=frame_b.R,
+    r=frame_b.r_0,
+    r_tail=t_in_m,
+    r_head=-t_in_m) <font color="blue">if </font>world.enableAnimation<font color="blue"> and </font>animation;
+<font color="blue">equation </font>
+  <font color="blue">if </font><font color="red">cardinality</font>(frame_resolve) == 0<font color="blue"> then</font>
+    frame_b.f = -load[1:3];
+    frame_b.t = -load[4:6];
+    frame_resolve.r_0 =<font color="red"> zeros</font>(3);
+    frame_resolve.R =<font color="red"> Frames.nullRotation</font>();
+  <font color="blue">else</font>
+    frame_b.f = -<font color="red">Frames.resolveRelative</font>(load[1:3], frame_resolve.R,
+      frame_b.R);
+    frame_b.t = -<font color="red">Frames.resolveRelative</font>(load[4:6], frame_resolve.R,
+      frame_b.R);
+    frame_resolve.f =<font color="red"> zeros</font>(3);
+    frame_resolve.t =<font color="red"> zeros</font>(3);
+  <font color="blue">end if</font>;
+<font color="blue">end </font>FrameForceAndTorque;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Force<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Forces.ForceI.png" ALT="Modelica.Mechanics.MultiBody.Forces.Force" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="dd0f88bf7a66c7feody.Forces.Force"></A><A HREF="Modelica_Mechanics_MultiBody_Forces.html#Modelica.Mechanics.MultiBody.Forces"
+>Modelica.Mechanics.MultiBody.Forces</A>.Force</H2>
+<B>Force acting between two frames, defined by 3 input signals and resolved in frame_b or in frame_resolve</B><p>
+<IMG SRC="Modelica.Mechanics.MultiBody.Forces.ForceD.png" ALT="Modelica.Mechanics.MultiBody.Forces.Force">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+The <b>3</b> signals of the <b>force</b> connector are interpreted
+as the x-, y- and z-coordinates of a <b>force</b> acting at the frame
+connector to which frame_b of this component is attached. If connector
+<b>frame_resolve</b> is <b>not</b> connected, the force coordinates
+of the inPort connector are with respect to <b>frame_b</b>. If connector
+<b>frame_resolve</b> is connected, the force coordinates of the inPort
+connector are with respect to <b>frame_resolve</b>. In this case the
+force in connector frame_resolve is set to zero,
+i.e., this connector is solely used to provide the information
+of the coordinate system, in which the force coordinates
+are defined.
+</p>
+<p>
+Note, the cut-torque in frame_b (frame_b.t) is set to zero.
+Additionally, a force and torque acts on frame_a in such a way that
+the force and torque balance between frame_a and frame_b is fulfilled.
+</p>
+<p>
+An example how to use this model is given in the
+following figure:
+</p>
+<p align="center">
+<IMG SRC="../Images/MultiBody/Forces/Force1.png">
+</p>
+<p>
+This leads to the following animation (the yellow cylinder
+characterizes the line between frame_a and frame_b of the
+Force component, i.e., the force acts with negative sign
+also on the opposite side of this cylinder, but for
+clarity this is not shown in the animation):
+</p>
+<p align="center">
+<IMG SRC="../Images/MultiBody/Forces/Force2.png">
+</p>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Boolean</TD><TD>animation</TD><TD>true</TD><TD>= true, if animation shall be enabled</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>if animation = true</TD></TR>
+<TR><TD>Real</TD><TD>N_to_m</TD><TD>world.defaultN_to_m</TD><TD> Force arrow scaling (length = force/N_to_m) [N/m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>Diameter</A></TD><TD>forceDiameter</TD><TD>world.defaultArrowDiameter</TD><TD> Diameter of force arrow [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>Diameter</A></TD><TD>connectionLineDiameter</TD><TD>forceDiameter</TD><TD> Diameter of line connecting frame_a and frame_b [m]</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Types.html#105c8cd0e75d7ab8Body.Types.Color"
+>Color</A></TD><TD>forceColor</TD><TD>Modelica.Mechanics.MultiBody...</TD><TD> Color of force arrow</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Types.html#105c8cd0e75d7ab8Body.Types.Color"
+>Color</A></TD><TD>connectionLineColor</TD><TD>Modelica.Mechanics.MultiBody...</TD><TD> Color of line connecting frame_a and frame_b</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Types.html#9fba82bfe8b4d0bacularCoefficient"
+>SpecularCoefficient</A></TD><TD>specularCoefficient</TD><TD>world.defaultSpecularCoeffic...</TD><TD>Reflection of ambient light (= 0: light is completely absorbed)</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#12523e7dca4aecb1terfaces.Frame_a"
+>Frame_a</A></TD><TD>frame_a</TD><TD>Coordinate system fixed to the component with one cut-force and cut-torque</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#12523e7eca4aecb2terfaces.Frame_b"
+>Frame_b</A></TD><TD>frame_b</TD><TD>Coordinate system fixed to the component with one cut-force and cut-torque</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#d729d5e87f94b18des.Frame_resolve"
+>Frame_resolve</A></TD><TD>frame_resolve</TD><TD>If connected, the input signals are resolved in this frame</TD></TR>
+<TR><TD>input <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>force[3]</TD><TD>x-, y-, z-coordinates of force resolved in frame_b or frame_resolved (if connected)</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Force <font color="darkgreen">
+  &quot;Force acting between two frames, defined by 3 input signals and resolved in frame_b or in frame_resolve&quot;</font>
+
+  <font color="blue">import </font>SI = <A HREF="Modelica_SIunits.html#Modelica.SIunits"
+>Modelica.SIunits</A>;
+  <font color="blue">import </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#Modelica.Mechanics.MultiBody.Types"
+>Modelica.Mechanics.MultiBody.Types</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#350bcd53977e42dePartialTwoFrames"
+>Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames</A>;
+  <A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#d729d5e87f94b18des.Frame_resolve"
+>Interfaces.Frame_resolve</A> frame_resolve <font color="darkgreen">
+    &quot;If connected, the input signals are resolved in this frame&quot;</font>;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> force[3]( <font color="blue">redeclare </font><font color="blue">type</font> SignalType =
+                   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Force"
+>SI.Force</A>) <font color="darkgreen">
+    &quot;x-, y-, z-coordinates of force resolved in frame_b or frame_resolved (if connected)&quot;</font>;
+  <font color="blue">parameter </font>Boolean animation=true <font color="darkgreen">&quot;= true, if animation shall be enabled&quot;</font>;
+  <font color="blue">parameter </font>Real N_to_m(unit=&quot;N/m&quot;) = world.defaultN_to_m <font color="darkgreen">
+    &quot; Force arrow scaling (length = force/N_to_m)&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>SI.Diameter</A> forceDiameter=world.defaultArrowDiameter <font color="darkgreen">
+    &quot; Diameter of force arrow&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>SI.Diameter</A> connectionLineDiameter=forceDiameter <font color="darkgreen">
+    &quot; Diameter of line connecting frame_a and frame_b&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#105c8cd0e75d7ab8Body.Types.Color"
+>Types.Color</A> forceColor=Modelica.Mechanics.MultiBody.Types.Defaults.ForceColor <font color="darkgreen">
+    &quot; Color of force arrow&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#105c8cd0e75d7ab8Body.Types.Color"
+>Types.Color</A> connectionLineColor=Modelica.Mechanics.MultiBody.Types.Defaults.SensorColor <font color="darkgreen">
+    &quot; Color of line connecting frame_a and frame_b&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#9fba82bfe8b4d0bacularCoefficient"
+>Types.SpecularCoefficient</A> specularCoefficient = world.defaultSpecularCoefficient <font color="darkgreen">
+    &quot;Reflection of ambient light (= 0: light is completely absorbed)&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> r_0[3] <font color="darkgreen">
+    &quot;Position vector from origin of frame_a to origin of frame_b resolved in world frame&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Force"
+>SI.Force</A> f_b_0[3] <font color="darkgreen">&quot;frame_b.f resoved in world frame&quot;</font>;
+
+
+<font color="blue">protected </font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> f_in_m[3]=frame_b.f/N_to_m <font color="darkgreen">
+    &quot;Force mapped from N to m for animation&quot;</font>;
+  <A HREF="Modelica_Mechanics_MultiBody_Visualizers_Advanced.html#9c75533cccad81ads.Advanced.Arrow"
+>Visualizers.Advanced.Arrow</A> forceArrow(
+    diameter=forceDiameter,
+    color=forceColor,
+    specularCoefficient=specularCoefficient,
+    R=frame_b.R,
+    r=frame_b.r_0,
+    r_tail=f_in_m,
+    r_head=-f_in_m) <font color="blue">if </font>world.enableAnimation<font color="blue"> and </font>animation;
+  <A HREF="Modelica_Mechanics_MultiBody_Visualizers_Advanced.html#d710a9b8cd80ce5fs.Advanced.Shape"
+>Visualizers.Advanced.Shape</A> connectionLine(
+    shapeType=&quot;cylinder&quot;,
+    lengthDirection=r_0,
+    widthDirection={0,1,0},
+    length=<font color="red">Frames.length</font>(r_0),
+    width=connectionLineDiameter,
+    height=connectionLineDiameter,
+    color=connectionLineColor,
+    specularCoefficient=specularCoefficient,
+    r=frame_a.r_0) <font color="blue">if </font>world.enableAnimation<font color="blue"> and </font>animation;
+<font color="blue">equation </font>
+  <font color="blue">if </font><font color="red">cardinality</font>(frame_resolve) == 0<font color="blue"> then</font>
+    f_b_0 =<font color="red"> Frames.resolve1</font>(frame_b.R, frame_b.f);
+    frame_b.f = -force;
+    frame_resolve.r_0 =<font color="red"> zeros</font>(3);
+    frame_resolve.R =<font color="red"> Frames.nullRotation</font>();
+  <font color="blue">else</font>
+    f_b_0 = -<font color="red">Frames.resolve1</font>(frame_resolve.R, force);
+    frame_b.f =<font color="red"> Frames.resolve2</font>(frame_b.R, f_b_0);
+    frame_resolve.f =<font color="red"> zeros</font>(3);
+    frame_resolve.t =<font color="red"> zeros</font>(3);
+  <font color="blue">end if</font>;
+  frame_b.t =<font color="red"> zeros</font>(3);
+
+  <font color="darkgreen">// Force and torque balance</font>
+  r_0 = frame_b.r_0 - frame_a.r_0;
+  <font color="red">zeros</font>(3) = frame_a.f +<font color="red"> Frames.resolve2</font>(frame_a.R, f_b_0);
+  <font color="red">zeros</font>(3) = frame_a.t +<font color="red"> Frames.resolve2</font>(frame_a.R,<font color="red"> cross</font>(r_0, f_b_0));
+<font color="blue">end </font>Force;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Torque<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Forces.TorqueI.png" ALT="Modelica.Mechanics.MultiBody.Forces.Torque" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="e032cd1a68d4b5aady.Forces.Torque"></A><A HREF="Modelica_Mechanics_MultiBody_Forces.html#Modelica.Mechanics.MultiBody.Forces"
+>Modelica.Mechanics.MultiBody.Forces</A>.Torque</H2>
+<B>Torque acting between two frames, defined by 3 input signals and resolved in frame_b or in frame_resolve</B><p>
+<IMG SRC="Modelica.Mechanics.MultiBody.Forces.ForceD.png" ALT="Modelica.Mechanics.MultiBody.Forces.Torque">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+The <b>3</b> signals of the <b>torque</b> connector are interpreted
+as the x-, y- and z-coordinates of a <b>torque</b> acting at the frame
+connector to which frame_b of this component is attached. If connector
+<b>frame_resolve</b> is <b>not</b> connected, the torque coordinates
+of the inPort connector are with respect to <b>frame_b</b>. If connector
+<b>frame_resolve</b> is connected, the torque coordinates of
+the inPort connector
+are with respect to <b>frame_resolve</b>. In this case the
+torque in connector frame_resolve is set to zero,
+i.e., this connector is solely used to provide the information
+of the coordinate system, in which the torque coordinates
+are defined.
+</p>
+<p>
+Note, the cut-forces in frame_a and frame_b (frame_a.f, frame_b.f) are
+set to zero and the cut-torque at frame_a (frame_a.t) is the same
+as the cut-torque at frame_b (frame_b.t) but with opposite sign.
+</p>
+<p>
+An example how to use this model is given in the
+following figure:
+</p>
+<p align="center">
+<IMG SRC="../Images/MultiBody/Forces/Torque1.png">
+</p>
+<p>
+This leads to the following animation (the yellow cylinder
+characterizes the line between frame_a and frame_b of the
+Torque component, i.e., the torque acts with negative sign
+also on the opposite side of this cylinder, but for
+clarity this is not shown in the animation):
+</p>
+<p align="center">
+<IMG SRC="../Images/MultiBody/Forces/Torque2.png">
+</p>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Boolean</TD><TD>animation</TD><TD>true</TD><TD>= true, if animation shall be enabled</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>if animation = true</TD></TR>
+<TR><TD>Real</TD><TD>Nm_to_m</TD><TD>world.defaultNm_to_m</TD><TD> Torque arrow scaling (length = torque/Nm_to_m) [N.m/m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>Diameter</A></TD><TD>torqueDiameter</TD><TD>world.defaultArrowDiameter</TD><TD> Diameter of torque arrow [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>Diameter</A></TD><TD>connectionLineDiameter</TD><TD>torqueDiameter</TD><TD> Diameter of line connecting frame_a and frame_b [m]</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Types.html#105c8cd0e75d7ab8Body.Types.Color"
+>Color</A></TD><TD>torqueColor</TD><TD>Modelica.Mechanics.MultiBody...</TD><TD> Color of torque arrow</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Types.html#105c8cd0e75d7ab8Body.Types.Color"
+>Color</A></TD><TD>connectionLineColor</TD><TD>Modelica.Mechanics.MultiBody...</TD><TD> Color of line connecting frame_a and frame_b</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Types.html#9fba82bfe8b4d0bacularCoefficient"
+>SpecularCoefficient</A></TD><TD>specularCoefficient</TD><TD>world.defaultSpecularCoeffic...</TD><TD>Reflection of ambient light (= 0: light is completely absorbed)</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#12523e7dca4aecb1terfaces.Frame_a"
+>Frame_a</A></TD><TD>frame_a</TD><TD>Coordinate system fixed to the component with one cut-force and cut-torque</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#12523e7eca4aecb2terfaces.Frame_b"
+>Frame_b</A></TD><TD>frame_b</TD><TD>Coordinate system fixed to the component with one cut-force and cut-torque</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#d729d5e87f94b18des.Frame_resolve"
+>Frame_resolve</A></TD><TD>frame_resolve</TD><TD>If connected, the input signals are resolved in this frame</TD></TR>
+<TR><TD>input <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>torque[3]</TD><TD>x-, y-, z-coordiantes of torque resolved in frame_b or frame_resolved (if connected)</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Torque <font color="darkgreen">
+  &quot;Torque acting between two frames, defined by 3 input signals and resolved in frame_b or in frame_resolve&quot;</font>
+
+  <font color="blue">import </font>SI = <A HREF="Modelica_SIunits.html#Modelica.SIunits"
+>Modelica.SIunits</A>;
+  <font color="blue">import </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#Modelica.Mechanics.MultiBody.Types"
+>Modelica.Mechanics.MultiBody.Types</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#350bcd53977e42dePartialTwoFrames"
+>Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames</A>;
+  <A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#d729d5e87f94b18des.Frame_resolve"
+>Interfaces.Frame_resolve</A> frame_resolve <font color="darkgreen">
+    &quot;If connected, the input signals are resolved in this frame&quot;</font>;
+
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> torque[3]( <font color="blue">redeclare </font><font color="blue">type</font> SignalType =
+                   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Torque"
+>SI.Torque</A>) <font color="darkgreen">
+    &quot;x-, y-, z-coordiantes of torque resolved in frame_b or frame_resolved (if connected)&quot;</font>;
+  <font color="blue">parameter </font>Boolean animation=true <font color="darkgreen">&quot;= true, if animation shall be enabled&quot;</font>;
+  <font color="blue">parameter </font>Real Nm_to_m(unit=&quot;N.m/m&quot;) = world.defaultNm_to_m <font color="darkgreen">
+    &quot; Torque arrow scaling (length = torque/Nm_to_m)&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>SI.Diameter</A> torqueDiameter=world.defaultArrowDiameter <font color="darkgreen">
+    &quot; Diameter of torque arrow&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>SI.Diameter</A> connectionLineDiameter=torqueDiameter <font color="darkgreen">
+    &quot; Diameter of line connecting frame_a and frame_b&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#105c8cd0e75d7ab8Body.Types.Color"
+>Types.Color</A> torqueColor=Modelica.Mechanics.MultiBody.Types.Defaults.TorqueColor <font color="darkgreen">
+    &quot; Color of torque arrow&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#105c8cd0e75d7ab8Body.Types.Color"
+>Types.Color</A> connectionLineColor=Modelica.Mechanics.MultiBody.Types.Defaults.SensorColor <font color="darkgreen">
+    &quot; Color of line connecting frame_a and frame_b&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#9fba82bfe8b4d0bacularCoefficient"
+>Types.SpecularCoefficient</A> specularCoefficient = world.defaultSpecularCoefficient <font color="darkgreen">
+    &quot;Reflection of ambient light (= 0: light is completely absorbed)&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> r_0[3] <font color="darkgreen">
+    &quot;Position vector from origin of frame_a to origin of frame_b resolved in world frame&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Torque"
+>SI.Torque</A> t_b_0[3] <font color="darkgreen">&quot;frame_b.t resoved in world frame&quot;</font>;
+
+
+<font color="blue">protected </font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> t_in_m[3]=frame_b.t/Nm_to_m <font color="darkgreen">
+    &quot;Torque mapped from Nm to m for animation&quot;</font>;
+  <A HREF="Modelica_Mechanics_MultiBody_Visualizers_Advanced.html#a878cdeb7d000292nced.DoubleArrow"
+>Visualizers.Advanced.DoubleArrow</A> torqueArrow(
+    diameter=torqueDiameter,
+    color=torqueColor,
+    specularCoefficient=specularCoefficient,
+    R=frame_b.R,
+    r=frame_b.r_0,
+    r_tail=t_in_m,
+    r_head=-t_in_m) <font color="blue">if </font>world.enableAnimation<font color="blue"> and </font>animation;
+  <A HREF="Modelica_Mechanics_MultiBody_Visualizers_Advanced.html#d710a9b8cd80ce5fs.Advanced.Shape"
+>Visualizers.Advanced.Shape</A> connectionLine(
+    shapeType=&quot;cylinder&quot;,
+    lengthDirection=r_0,
+    widthDirection={0,1,0},
+    length=<font color="red">Frames.length</font>(r_0),
+    width=connectionLineDiameter,
+    height=connectionLineDiameter,
+    color=connectionLineColor,
+    specularCoefficient=specularCoefficient,
+    r=frame_a.r_0) <font color="blue">if </font>world.enableAnimation<font color="blue"> and </font>animation;
+<font color="blue">equation </font>
+  r_0 = frame_b.r_0 - frame_a.r_0;
+  frame_a.f =<font color="red"> zeros</font>(3);
+  frame_b.f =<font color="red"> zeros</font>(3);
+  <font color="blue">if </font><font color="red">cardinality</font>(frame_resolve) == 0<font color="blue"> then</font>
+    t_b_0 =<font color="red"> Frames.resolve1</font>(frame_b.R, frame_b.t);
+    frame_b.t = -torque;
+    frame_resolve.r_0 =<font color="red"> zeros</font>(3);
+    frame_resolve.R =<font color="red"> Frames.nullRotation</font>();
+  <font color="blue">else</font>
+    t_b_0 = -<font color="red">Frames.resolve1</font>(frame_resolve.R, torque);
+    frame_b.t =<font color="red"> Frames.resolve2</font>(frame_b.R, t_b_0);
+    frame_resolve.f =<font color="red"> zeros</font>(3);
+    frame_resolve.t =<font color="red"> zeros</font>(3);
+  <font color="blue">end if</font>;
+
+  <font color="darkgreen">// torque balance</font>
+  <font color="red">zeros</font>(3) = frame_a.t +<font color="red"> Frames.resolve2</font>(frame_a.R, t_b_0);
+<font color="blue">end </font>Torque;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ForceAndTorque<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Forces.ForceAndTorqueI.png" ALT="Modelica.Mechanics.MultiBody.Forces.ForceAndTorque" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="72cb455a1a3747e0s.ForceAndTorque"></A><A HREF="Modelica_Mechanics_MultiBody_Forces.html#Modelica.Mechanics.MultiBody.Forces"
+>Modelica.Mechanics.MultiBody.Forces</A>.ForceAndTorque</H2>
+<B>Force and torque acting between two frames, defined by 6 input signals and resolved in frame_b or in frame_resolve</B><p>
+<IMG SRC="Modelica.Mechanics.MultiBody.Forces.ForceD.png" ALT="Modelica.Mechanics.MultiBody.Forces.ForceAndTorque">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+The <b>6</b> signals of the <b>load</b> connector are interpreted
+as the x-, y- and z-coordinates of a <b>force</b> and as
+the x-, y-, and z-coordinates of a <b>torque</b> acting at the frame
+connector to which frame_b of this component is attached. If connector
+<b>frame_resolve</b> is <b>not</b> connected, the force and torque coordinates
+are with respect to <b>frame_b</b>. If connector
+<b>frame_resolve</b> is connected, the force and torque coordinates
+are with respect to <b>frame_resolve</b>. In this case the
+force and torque in connector frame_resolve are set to zero,
+i.e., this connector is solely used to provide the information
+of the coordinate system, in which the force/torque coordinates
+are defined. The input signals are mapped to the force
+and torque in the following way:
+</p>
+<pre>
+   force  = load[1:3]
+   torque = load[4:6]
+</pre>
+<p>
+Additionally, a force and torque acts on frame_a in such a way that
+the force and torque balance between frame_a and frame_b is fulfilled.
+</p>
+<p>
+An example how to use this model is given in the
+following figure:
+</p>
+<p align="center">
+<IMG SRC="../Images/MultiBody/Forces/ForceAndTorque1.png">
+</p>
+<p>
+This leads to the following animation (the yellow cylinder
+characterizes the line between frame_a and frame_b of the
+ForceAndTorque component, i.e., the force and torque acts with
+negative sign
+also on the opposite side of this cylinder, but for
+clarity this is not shown in the animation):
+</p>
+<p align="center">
+<IMG SRC="../Images/MultiBody/Forces/ForceAndTorque2.png">
+</p>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Boolean</TD><TD>animation</TD><TD>true</TD><TD>= true, if animation shall be enabled</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>if animation = true</TD></TR>
+<TR><TD>Real</TD><TD>N_to_m</TD><TD>world.defaultN_to_m</TD><TD> Force arrow scaling (length = force/N_to_m) [N/m]</TD></TR>
+<TR><TD>Real</TD><TD>Nm_to_m</TD><TD>world.defaultNm_to_m</TD><TD> Torque arrow scaling (length = torque/Nm_to_m) [N.m/m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>Diameter</A></TD><TD>forceDiameter</TD><TD>world.defaultArrowDiameter</TD><TD> Diameter of force arrow [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>Diameter</A></TD><TD>torqueDiameter</TD><TD>forceDiameter</TD><TD> Diameter of torque arrow [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>Diameter</A></TD><TD>connectionLineDiameter</TD><TD>forceDiameter</TD><TD> Diameter of line connecting frame_a and frame_b [m]</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Types.html#105c8cd0e75d7ab8Body.Types.Color"
+>Color</A></TD><TD>forceColor</TD><TD>Modelica.Mechanics.MultiBody...</TD><TD> Color of force arrow</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Types.html#105c8cd0e75d7ab8Body.Types.Color"
+>Color</A></TD><TD>torqueColor</TD><TD>Modelica.Mechanics.MultiBody...</TD><TD> Color of torque arrow</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Types.html#105c8cd0e75d7ab8Body.Types.Color"
+>Color</A></TD><TD>connectionLineColor</TD><TD>Modelica.Mechanics.MultiBody...</TD><TD> Color of line connecting frame_a and frame_b</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Types.html#9fba82bfe8b4d0bacularCoefficient"
+>SpecularCoefficient</A></TD><TD>specularCoefficient</TD><TD>world.defaultSpecularCoeffic...</TD><TD>Reflection of ambient light (= 0: light is completely absorbed)</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#12523e7dca4aecb1terfaces.Frame_a"
+>Frame_a</A></TD><TD>frame_a</TD><TD>Coordinate system fixed to the component with one cut-force and cut-torque</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#12523e7eca4aecb2terfaces.Frame_b"
+>Frame_b</A></TD><TD>frame_b</TD><TD>Coordinate system fixed to the component with one cut-force and cut-torque</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#d729d5e87f94b18des.Frame_resolve"
+>Frame_resolve</A></TD><TD>frame_resolve</TD><TD>If connected, the input signals are resolved in this frame</TD></TR>
+<TR><TD>input <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>load[6]</TD><TD>[1:6] = x-, y-, z-coordinates of force and x-, y-, z-coordiantes of torque resolved in frame_b or frame_resolved (if connected)</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> ForceAndTorque <font color="darkgreen">
+  &quot;Force and torque acting between two frames, defined by 6 input signals and resolved in frame_b or in frame_resolve&quot;</font>
+
+  <font color="blue">import </font>SI = <A HREF="Modelica_SIunits.html#Modelica.SIunits"
+>Modelica.SIunits</A>;
+  <font color="blue">import </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#Modelica.Mechanics.MultiBody.Types"
+>Modelica.Mechanics.MultiBody.Types</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#350bcd53977e42dePartialTwoFrames"
+>Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames</A>;
+  <A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#d729d5e87f94b18des.Frame_resolve"
+>Interfaces.Frame_resolve</A> frame_resolve <font color="darkgreen">
+    &quot;If connected, the input signals are resolved in this frame&quot;</font>;
+
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> load[6] <font color="darkgreen">
+    &quot;[1:6] = x-, y-, z-coordinates of force and x-, y-, z-coordiantes of torque resolved in frame_b or frame_resolved (if connected)&quot;</font>;
+  <font color="blue">parameter </font>Boolean animation=true <font color="darkgreen">&quot;= true, if animation shall be enabled&quot;</font>;
+  <font color="blue">parameter </font>Real N_to_m(unit=&quot;N/m&quot;) = world.defaultN_to_m <font color="darkgreen">
+    &quot; Force arrow scaling (length = force/N_to_m)&quot;</font>;
+  <font color="blue">parameter </font>Real Nm_to_m(unit=&quot;N.m/m&quot;) = world.defaultNm_to_m <font color="darkgreen">
+    &quot; Torque arrow scaling (length = torque/Nm_to_m)&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>SI.Diameter</A> forceDiameter=world.defaultArrowDiameter <font color="darkgreen">
+    &quot; Diameter of force arrow&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>SI.Diameter</A> torqueDiameter=forceDiameter <font color="darkgreen">&quot; Diameter of torque arrow&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>SI.Diameter</A> connectionLineDiameter=forceDiameter <font color="darkgreen">
+    &quot; Diameter of line connecting frame_a and frame_b&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#105c8cd0e75d7ab8Body.Types.Color"
+>Types.Color</A> forceColor=Modelica.Mechanics.MultiBody.Types.Defaults.ForceColor <font color="darkgreen">
+    &quot; Color of force arrow&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#105c8cd0e75d7ab8Body.Types.Color"
+>Types.Color</A> torqueColor=Modelica.Mechanics.MultiBody.Types.Defaults.TorqueColor <font color="darkgreen">
+    &quot; Color of torque arrow&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#105c8cd0e75d7ab8Body.Types.Color"
+>Types.Color</A> connectionLineColor=Modelica.Mechanics.MultiBody.Types.Defaults.SensorColor <font color="darkgreen">
+    &quot; Color of line connecting frame_a and frame_b&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#9fba82bfe8b4d0bacularCoefficient"
+>Types.SpecularCoefficient</A> specularCoefficient = world.defaultSpecularCoefficient <font color="darkgreen">
+    &quot;Reflection of ambient light (= 0: light is completely absorbed)&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> r_0[3] <font color="darkgreen">
+    &quot;Position vector from origin of frame_a to origin of frame_b resolved in world frame&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Force"
+>SI.Force</A> f_b_0[3] <font color="darkgreen">&quot;frame_b.f resoved in world frame&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Torque"
+>SI.Torque</A> t_b_0[3] <font color="darkgreen">&quot;frame_b.t resoved in world frame&quot;</font>;
+
+
+<font color="blue">protected </font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> f_in_m[3]=frame_b.f/N_to_m <font color="darkgreen">
+    &quot;Force mapped from N to m for animation&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> t_in_m[3]=frame_b.t/Nm_to_m <font color="darkgreen">
+    &quot;Torque mapped from Nm to m for animation&quot;</font>;
+  <A HREF="Modelica_Mechanics_MultiBody_Visualizers_Advanced.html#9c75533cccad81ads.Advanced.Arrow"
+>Visualizers.Advanced.Arrow</A> forceArrow(
+    diameter=forceDiameter,
+    color=forceColor,
+    specularCoefficient=specularCoefficient,
+    R=frame_b.R,
+    r=frame_b.r_0,
+    r_tail=f_in_m,
+    r_head=-f_in_m) <font color="blue">if </font>world.enableAnimation<font color="blue"> and </font>animation;
+  <A HREF="Modelica_Mechanics_MultiBody_Visualizers_Advanced.html#a878cdeb7d000292nced.DoubleArrow"
+>Visualizers.Advanced.DoubleArrow</A> torqueArrow(
+    diameter=torqueDiameter,
+    color=torqueColor,
+    specularCoefficient=specularCoefficient,
+    R=frame_b.R,
+    r=frame_b.r_0,
+    r_tail=t_in_m,
+    r_head=-t_in_m) <font color="blue">if </font>world.enableAnimation<font color="blue"> and </font>animation;
+  <A HREF="Modelica_Mechanics_MultiBody_Visualizers_Advanced.html#d710a9b8cd80ce5fs.Advanced.Shape"
+>Visualizers.Advanced.Shape</A> connectionLine(
+    shapeType=&quot;cylinder&quot;,
+    lengthDirection=r_0,
+    widthDirection={0,1,0},
+    length=<font color="red">Frames.length</font>(r_0),
+    width=connectionLineDiameter,
+    height=connectionLineDiameter,
+    color=connectionLineColor,
+    specularCoefficient=specularCoefficient,
+    r=frame_a.r_0) <font color="blue">if </font>world.enableAnimation<font color="blue"> and </font>animation;
+<font color="blue">equation </font>
+  <font color="blue">if </font><font color="red">cardinality</font>(frame_resolve) == 0<font color="blue"> then</font>
+    frame_b.f = -load[1:3];
+    frame_b.t = -load[4:6];
+    f_b_0 =<font color="red"> Frames.resolve1</font>(frame_b.R, frame_b.f);
+    t_b_0 =<font color="red"> Frames.resolve1</font>(frame_b.R, frame_b.t);
+    frame_resolve.r_0 =<font color="red"> zeros</font>(3);
+    frame_resolve.R =<font color="red"> Frames.nullRotation</font>();
+  <font color="blue">else</font>
+    f_b_0 = -<font color="red">Frames.resolve1</font>(frame_resolve.R, load[1:3]);
+    t_b_0 = -<font color="red">Frames.resolve1</font>(frame_resolve.R, load[4:6]);
+    frame_b.f =<font color="red"> Frames.resolve2</font>(frame_b.R, f_b_0);
+    frame_b.t =<font color="red"> Frames.resolve2</font>(frame_b.R, t_b_0);
+    frame_resolve.f =<font color="red"> zeros</font>(3);
+    frame_resolve.t =<font color="red"> zeros</font>(3);
+  <font color="blue">end if</font>;
+
+  <font color="darkgreen">// Force and torque balance</font>
+  r_0 = frame_b.r_0 - frame_a.r_0;
+  <font color="red">zeros</font>(3) = frame_a.f +<font color="red"> Frames.resolve2</font>(frame_a.R, f_b_0);
+  <font color="red">zeros</font>(3) = frame_a.t +<font color="red"> Frames.resolve2</font>(frame_a.R, t_b_0 +<font color="red"> cross</font>(r_0, f_b_0));
+<font color="blue">end </font>ForceAndTorque;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE LineForceWithMass<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Forces.LineForceWithMassI.png" ALT="Modelica.Mechanics.MultiBody.Forces.LineForceWithMass" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ea750ae14f4f6ec0ineForceWithMass"></A><A HREF="Modelica_Mechanics_MultiBody_Forces.html#Modelica.Mechanics.MultiBody.Forces"
+>Modelica.Mechanics.MultiBody.Forces</A>.LineForceWithMass</H2>
+<B>General line force component with an optional point mass on the connection line</B><p>
+<IMG SRC="Modelica.Mechanics.MultiBody.Forces.LineForceWithMassD.png" ALT="Modelica.Mechanics.MultiBody.Forces.LineForceWithMass">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This component is used to exert a <b>line force</b>
+between the origin of frame_a and the origin of frame_b
+by attaching components of the <b>1-dimensional translational</b>
+mechanical library of Modelica (Modelica.Mechanics.Translational)
+between the two flange connectors <b>flange_a</b> and
+<b>flange_b</b>. Optionally, there is a <b>point mass</b> on the line
+connecting the origin of frame_a and the origin of frame_b.
+This point mass approximates the <b>mass</b> of the <b>force element</b>.
+The distance of the point mass from frame_a as a fraction of the
+distance between frame_a and frame_b is defined via
+parameter <b>lengthFraction</b> (default is 0.5, i.e., the point
+mass is in the middle of the line).
+</p>
+<p>
+In the translational library there is the implicit assumption that
+forces of components that have only one flange connector act with
+opposite sign on the bearings of the component. This assumption
+is also used in the LineForceWithMass component: If a connection
+is present to only one of the flange connectors, then the force
+in this flange connector acts implicitly with opposite sign also
+in the other flange connector.
+</p>
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Boolean</TD><TD>animateLine</TD><TD>true</TD><TD>= true, if a line shape between frame_a and frame_b shall be visualized</TD></TR>
+<TR><TD>Boolean</TD><TD>animateMass</TD><TD>true</TD><TD>= true, if point mass shall be visualized as sphere provided m &gt; 0</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Mass"
+>Mass</A></TD><TD>m</TD><TD>0</TD><TD>Mass of point mass on the connetion line between the origin of frame_a and the origin of frame_b [kg]</TD></TR>
+<TR><TD>Real</TD><TD>lengthFraction</TD><TD>0.5</TD><TD>Location of point mass with respect to frame_a as a fraction of the distance from frame_a to frame_b</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Animation</B></TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Types.html#9fba82bfe8b4d0bacularCoefficient"
+>SpecularCoefficient</A></TD><TD>specularCoefficient</TD><TD>world.defaultSpecularCoeffic...</TD><TD>Reflection of ambient light (= 0: light is completely absorbed)</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>if animateLine = true</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Types.html#04473e6894d58f89.Types.ShapeType"
+>ShapeType</A></TD><TD>lineShapeType</TD><TD>&quot;cylinder&quot;</TD><TD> Type of shape visualizing the line from frame_a to frame_b</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>lineShapeWidth</TD><TD>world.defaultArrowDiameter</TD><TD> Width of shape [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>lineShapeHeight</TD><TD>lineShapeWidth</TD><TD> Height of shape [m]</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Types.html#2906060a9ba163b1Types.ShapeExtra"
+>ShapeExtra</A></TD><TD>lineShapeExtra</TD><TD>0.0</TD><TD> Extra parameter for shape</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Types.html#105c8cd0e75d7ab8Body.Types.Color"
+>Color</A></TD><TD>lineShapeColor</TD><TD>Modelica.Mechanics.MultiBody...</TD><TD> Color of line shape</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>if animateMass = true</TD></TR>
+<TR><TD>Real</TD><TD>massDiameter</TD><TD>world.defaultBodyDiameter</TD><TD> Diameter of point mass sphere</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Types.html#105c8cd0e75d7ab8Body.Types.Color"
+>Color</A></TD><TD>massColor</TD><TD>Modelica.Mechanics.MultiBody...</TD><TD> Color of point mass</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Advanced</B></TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>Position</A></TD><TD>s_small</TD><TD>1.E-10</TD><TD> Prevent zero-division if distance between frame_a and frame_b is zero [m]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#12523e7dca4aecb1terfaces.Frame_a"
+>Frame_a</A></TD><TD>frame_a</TD><TD>Coordinate system fixed to the component with one cut-force and cut-torque</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#12523e7eca4aecb2terfaces.Frame_b"
+>Frame_b</A></TD><TD>frame_b</TD><TD>Coordinate system fixed to the component with one cut-force and cut-torque</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Translational_Interfaces.html#a3f2a0d603f9d494erfaces.Flange_a"
+>Flange_a</A></TD><TD>flange_b</TD><TD>1-dim. translational flange (connect force of Translational library between flange_a and flange_b)</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Translational_Interfaces.html#a3f2a0d703f9d497erfaces.Flange_b"
+>Flange_b</A></TD><TD>flange_a</TD><TD>1-dim. translational flange (connect force of Translational library between flange_a and flange_b)</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> LineForceWithMass <font color="darkgreen">
+  &quot;General line force component with an optional point mass on the connection line&quot;</font>
+
+  <font color="blue">import </font>SI = <A HREF="Modelica_SIunits.html#Modelica.SIunits"
+>Modelica.SIunits</A>;
+  <font color="blue">import </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#Modelica.Mechanics.MultiBody.Types"
+>Modelica.Mechanics.MultiBody.Types</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#350bcd53977e42dePartialTwoFrames"
+>Interfaces.PartialTwoFrames</A>;
+  <A HREF="Modelica_Mechanics_Translational_Interfaces.html#a3f2a0d603f9d494erfaces.Flange_a"
+>Modelica.Mechanics.Translational.Interfaces.Flange_a</A> flange_b <font color="darkgreen">
+    &quot;1-dim. translational flange (connect force of Translational library between flange_a and flange_b)&quot;</font>;
+  <A HREF="Modelica_Mechanics_Translational_Interfaces.html#a3f2a0d703f9d497erfaces.Flange_b"
+>Modelica.Mechanics.Translational.Interfaces.Flange_b</A> flange_a <font color="darkgreen">
+    &quot;1-dim. translational flange (connect force of Translational library between flange_a and flange_b)&quot;</font>;
+
+  <font color="blue">parameter </font>Boolean animateLine=true <font color="darkgreen">
+    &quot;= true, if a line shape between frame_a and frame_b shall be visualized&quot;</font>;
+  <font color="blue">parameter </font>Boolean animateMass=true <font color="darkgreen">
+    &quot;= true, if point mass shall be visualized as sphere provided m &gt; 0&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Mass"
+>SI.Mass</A> m(min=0)=0 <font color="darkgreen">
+    &quot;Mass of point mass on the connetion line between the origin of frame_a and the origin of frame_b&quot;</font>;
+  <font color="blue">parameter </font>Real lengthFraction(
+    min=0,
+    max=1) = 0.5 <font color="darkgreen">
+    &quot;Location of point mass with respect to frame_a as a fraction of the distance from frame_a to frame_b&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#9fba82bfe8b4d0bacularCoefficient"
+>Types.SpecularCoefficient</A> specularCoefficient = world.defaultSpecularCoefficient <font color="darkgreen">
+    &quot;Reflection of ambient light (= 0: light is completely absorbed)&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#04473e6894d58f89.Types.ShapeType"
+>Types.ShapeType</A> lineShapeType=&quot;cylinder&quot; <font color="darkgreen">
+    &quot; Type of shape visualizing the line from frame_a to frame_b&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> lineShapeWidth=world.defaultArrowDiameter <font color="darkgreen">&quot; Width of shape&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> lineShapeHeight=lineShapeWidth <font color="darkgreen">&quot; Height of shape&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#2906060a9ba163b1Types.ShapeExtra"
+>Types.ShapeExtra</A> lineShapeExtra=0.0 <font color="darkgreen">&quot; Extra parameter for shape&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#105c8cd0e75d7ab8Body.Types.Color"
+>Types.Color</A> lineShapeColor=Modelica.Mechanics.MultiBody.Types.Defaults.SensorColor <font color="darkgreen">
+    &quot; Color of line shape&quot;</font>;
+  <font color="blue">input </font>Real massDiameter=world.defaultBodyDiameter <font color="darkgreen">
+    &quot; Diameter of point mass sphere&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#105c8cd0e75d7ab8Body.Types.Color"
+>Types.Color</A> massColor=Modelica.Mechanics.MultiBody.Types.Defaults.BodyColor <font color="darkgreen">
+    &quot; Color of point mass&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> s_small=1.E-10 <font color="darkgreen">
+    &quot; Prevent zero-division if distance between frame_a and frame_b is zero&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Distance"
+>SI.Distance</A> length <font color="darkgreen">
+    &quot;Distance between the origin of frame_a and the origin of frame_b&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> r_rel_0[3] <font color="darkgreen">
+    &quot;Position vector from frame_a to frame_b resolved in world frame&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> e_rel_0[3] <font color="darkgreen">
+    &quot;Unit vector in direction from frame_a to frame_b, resolved in world frame&quot;</font>;
+
+<font color="blue">protected </font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Force"
+>SI.Force</A> fa <font color="darkgreen">&quot;Force from flange_a&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Force"
+>SI.Force</A> fb <font color="darkgreen">&quot;Force from flange_b&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> r_CM_0[3](stateSelect=StateSelect.avoid) <font color="darkgreen">
+    &quot;Position vector from world frame to point mass, resolved in world frame&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Velocity"
+>SI.Velocity</A> v_CM_0[3](stateSelect=StateSelect.avoid) <font color="darkgreen">
+    &quot;First derivative of r_CM_0&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Acceleration"
+>SI.Acceleration</A> ag_CM_0[3] <font color="darkgreen">&quot;der(v_CM_0) - gravityAcceleration&quot;</font>;
+
+  <A HREF="Modelica_Mechanics_MultiBody_Visualizers_Advanced.html#d710a9b8cd80ce5fs.Advanced.Shape"
+>Visualizers.Advanced.Shape</A> lineShape(
+    shapeType=lineShapeType,
+    color=lineShapeColor,
+    specularCoefficient=specularCoefficient,
+    length=length,
+    width=lineShapeWidth,
+    height=lineShapeHeight,
+    lengthDirection=e_rel_0,
+    widthDirection=<font color="red">Frames.resolve1</font>(frame_a.R, {0,1,0}),
+    extra=lineShapeExtra,
+    r=frame_a.r_0) <font color="blue">if </font>world.enableAnimation<font color="blue"> and </font>animateLine;
+
+  <A HREF="Modelica_Mechanics_MultiBody_Visualizers_Advanced.html#d710a9b8cd80ce5fs.Advanced.Shape"
+>Visualizers.Advanced.Shape</A> massShape(
+    shapeType=&quot;sphere&quot;,
+    color=massColor,
+    specularCoefficient=specularCoefficient,
+    length=massDiameter,
+    width=massDiameter,
+    height=massDiameter,
+    lengthDirection=e_rel_0,
+    widthDirection={0,1,0},
+    r_shape=e_rel_0*(length*lengthFraction - massDiameter/2),
+    r=frame_a.r_0) <font color="blue">if </font>world.enableAnimation<font color="blue"> and </font>animateMass<font color="blue"> and </font>m &gt; 0;
+<font color="blue">equation </font>
+  <font color="red">definePotentialRoot</font>(frame_a.R, 100);
+  <font color="red">definePotentialRoot</font>(frame_b.R, 100);
+  <font color="red">assert</font>(<font color="red">noEvent</font>(length &gt; s_small), &quot;
+The distance between the origin of frame_a and the origin of frame_b
+of a LineForceWithMass component became smaller as parameter s_small
+(= a small number, defined in the \&quot;Advanced\&quot; menu). The distance is
+set to s_small, although it is smaller, to avoid a division by zero
+when computing the direction of the line force. Possible reasons
+for this situation:
+- At initial time the distance may already be zero: Change the initial
+  positions of the bodies connected by this element.
+- Hardware stops are not modeled or are modeled not stiff enough.
+  Include stops, e.g., stiff springs, or increase the stiffness
+  if already present.
+- Another error in your model may lead to unrealistically large forces
+  and torques that would in reality destroy the stops.
+- The flange_b connector might be defined by a pre-defined motion,
+  e.g., with Modelica.Mechanics.Translational.Position and the
+  predefined flange_b.s is zero or negative.
+&quot;);
+
+  <font color="darkgreen">// Determine relative position vector between the two frames</font>
+  r_rel_0 = frame_b.r_0 - frame_a.r_0;
+  length =<font color="red"> Frames.length</font>(r_rel_0);
+  flange_a.s = 0;
+  flange_b.s = length;
+  e_rel_0 = r_rel_0/<font color="red">Frames.Internal.maxWithoutEvent</font>(length, s_small);
+
+  <font color="darkgreen">// Determine translational flange forces</font>
+  <font color="blue">if </font><font color="red">cardinality</font>(flange_a) &gt; 0<font color="blue"> and </font><font color="red">cardinality</font>(flange_b) &gt; 0<font color="blue"> then</font>
+    fa = flange_a.f;
+    fb = flange_b.f;
+  <font color="blue">elseif </font><font color="red">cardinality</font>(flange_a) &gt; 0<font color="blue"> and </font><font color="red">cardinality</font>(flange_b) == 0<font color="blue"> then</font>
+    fa = flange_a.f;
+    fb = -fa;
+  <font color="blue">elseif </font><font color="red">cardinality</font>(flange_a) == 0<font color="blue"> and </font><font color="red">cardinality</font>(flange_b) &gt; 0<font color="blue"> then</font>
+    fa = -fb;
+    fb = flange_b.f;
+  <font color="blue">else</font>
+    fa = 0;
+    fb = 0;
+  <font color="blue">end if</font>;
+
+  <font color="darkgreen">/* Force and torque balance of point mass
+     - Kinematics for center of mass CM of point mass including gravity
+       r_CM_0 = frame_a.r0 + r_rel_CM_0;
+       v_CM_0 = der(r_CM_0);
+       ag_CM_0 = der(v_CM_0) - world.gravityAcceleration(r_CM_0);
+     - Power balance for the connection line
+       (f1=force on frame_a side, f2=force on frame_b side, h=lengthFraction)
+       0 = f1*va - m*ag_CM*(va+(vb-va)*h) + f2*vb
+         = (f1 - m*ag_CM*(1-h))*va + (f2 - m*ag_CM*h)*vb
+       since va and vb are completely indepedent from other
+       the paranthesis must vanish:
+         f1 := m*ag_CM*(1-h)
+         f2 := m*ag_CM*h
+     - Force balance on frame_a and frame_b finally results in
+         0 = frame_a.f + e_rel_a*fa - f1_a
+         0 = frame_b.f + e_rel_b*fb - f2_b
+       and therefore
+         frame_a.f = -e_rel_a*fa + m*ag_CM_a*(1-h)
+         frame_b.f = -e_rel_b*fb + m*ag_CM_b*h
+  */</font>
+  <font color="blue">if </font>m &gt; 0<font color="blue"> then</font>
+    r_CM_0 = frame_a.r_0 + r_rel_0*lengthFraction;
+    v_CM_0 =<font color="red"> der</font>(r_CM_0);
+    ag_CM_0 =<font color="red"> der</font>(v_CM_0) -<font color="red"> world.gravityAcceleration</font>(r_CM_0);
+    frame_a.f =<font color="red"> Frames.resolve2</font>(frame_a.R, (m*(1 - lengthFraction))*ag_CM_0
+       - e_rel_0*fa);
+    frame_b.f =<font color="red"> Frames.resolve2</font>(frame_b.R, (m*lengthFraction)*ag_CM_0 -
+      e_rel_0*fb);
+  <font color="blue">else</font>
+    r_CM_0 =<font color="red"> zeros</font>(3);
+    v_CM_0 =<font color="red"> zeros</font>(3);
+    ag_CM_0 =<font color="red"> zeros</font>(3);
+    frame_a.f = -<font color="red">Frames.resolve2</font>(frame_a.R, e_rel_0*fa);
+    frame_b.f = -<font color="red">Frames.resolve2</font>(frame_b.R, e_rel_0*fb);
+  <font color="blue">end if</font>;
+
+  <font color="darkgreen">// Provide appropriate equations, if direct connections of line forces</font>
+  <font color="blue">if </font><font color="red">isRoot</font>(frame_a.R)<font color="blue"> then</font>
+    frame_a.R =<font color="red"> Frames.nullRotation</font>();
+  <font color="blue">else</font>
+    frame_a.t =<font color="red"> zeros</font>(3);
+  <font color="blue">end if</font>;
+
+  <font color="blue">if </font><font color="red">isRoot</font>(frame_b.R)<font color="blue"> then</font>
+    frame_b.R =<font color="red"> Frames.nullRotation</font>();
+  <font color="blue">else</font>
+    frame_b.t =<font color="red"> zeros</font>(3);
+  <font color="blue">end if</font>;
+<font color="blue">end </font>LineForceWithMass;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE LineForceWithTwoMasses<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Forces.LineForceWithTwoMassesI.png" ALT="Modelica.Mechanics.MultiBody.Forces.LineForceWithTwoMasses" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="53cad675fab6c785rceWithTwoMasses"></A><A HREF="Modelica_Mechanics_MultiBody_Forces.html#Modelica.Mechanics.MultiBody.Forces"
+>Modelica.Mechanics.MultiBody.Forces</A>.LineForceWithTwoMasses</H2>
+<B>General line force component with two optional point masses on the connection line</B><p>
+<IMG SRC="Modelica.Mechanics.MultiBody.Forces.LineForceWithTwoMassesD.png" ALT="Modelica.Mechanics.MultiBody.Forces.LineForceWithTwoMasses">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This component is used to exert a <b>line force</b>
+between the origin of frame_a and the origin of frame_b
+by attaching components of the <b>1-dimensional translational</b>
+mechanical library of Modelica (Modelica.Mechanics.Translational)
+between the two flange connectors <b>flange_a</b> and
+<b>flange_b</b>. Optionally, there are <b>two point masses</b> on the line
+connecting the origin of frame_a and the origin of frame_b.
+These point masses approximate the <b>masses</b> of the <b>force element</b>.
+The locations of the two point masses are defined by their
+(fixed) distances of L_a relative to frame_a and of L_b relative
+to frame_b, respectively.
+</p>
+<p>
+In example
+<A HREF="Modelica_Mechanics_MultiBody_Examples_Elementary.html#2f354974f88d5648rceWithTwoMasses"
+>
+MultiBody.Examples.Elementary.LineForceWithTwoMasses</a> the usage of this
+line force element is shown and is compared with an alternative
+implementation using a
+<A HREF="Modelica_Mechanics_MultiBody_Joints_Assemblies.html#98838cf1e7dabd45emblies.JointUPS"
+>
+MultiBody.Joints.Assemblies.JointUPS</a> component.
+The composition diagram of this example
+is displayed in the figure below.
+</p>
+<IMG SRC="../Images/MultiBody/Examples/Elementary/LineForceWithTwoMasses1.png">
+<p>
+The animation view at time = 0 is shown in the next figure.
+The system on the left side in the front is the animation with
+the LineForceWithTwoMasses component whereas the system on the right
+side in the back is the animation with the JointUPS component.
+Both implementations yield the same result. However, the implementation
+with the LineForceWithTwoMasses component is simpler.
+</p>
+<IMG SRC="../Images/MultiBody/Examples/Elementary/LineForceWithTwoMasses2.png">
+<p>
+In the translational library there is the implicit assumption that
+forces of components that have only one flange connector act with
+opposite sign on the bearings of the component. This assumption
+is also used in the LineForceWithTwoMasses component: If a connection
+is present to only one of the flange connectors, then the force
+in this flange connector acts implicitly with opposite sign also
+in the other flange connector.
+</p>
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Boolean</TD><TD>animate</TD><TD>true</TD><TD>= true, if animation shall be enabled</TD></TR>
+<TR><TD>Boolean</TD><TD>animateMasses</TD><TD>true</TD><TD>= true, if point masses shall be visualized provided animate=true and m_a, m_b &gt; 0</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Mass"
+>Mass</A></TD><TD>m_a</TD><TD>0</TD><TD>Mass of point mass a on the connetion line between the origin of frame_a and the origin of frame_b [kg]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Mass"
+>Mass</A></TD><TD>m_b</TD><TD>0</TD><TD>Mass of point mass b on the connetion line between the origin of frame_a and the origin of frame_b [kg]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>Position</A></TD><TD>L_a</TD><TD>0</TD><TD>Distance between point mass a and frame_a (positive, if in direction of frame_b) [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>Position</A></TD><TD>L_b</TD><TD>L_a</TD><TD>Distance between point mass b and frame_b (positive, if in direction of frame_a) [m]</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Animation</B></TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Cylinder at frame_a if animation = true</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>Diameter</A></TD><TD>cylinderDiameter_a</TD><TD>world.defaultForceWidth</TD><TD> Diameter of cylinder at frame_a [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>cylinderLength_a</TD><TD>2*L_a</TD><TD> Length of cylinder at frame_a [m]</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Types.html#105c8cd0e75d7ab8Body.Types.Color"
+>Color</A></TD><TD>color_a</TD><TD>{155,155,155}</TD><TD> Color of cylinder at frame_a</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Types.html#9fba82bfe8b4d0bacularCoefficient"
+>SpecularCoefficient</A></TD><TD>specularCoefficient</TD><TD>world.defaultSpecularCoeffic...</TD><TD>Reflection of ambient light (= 0: light is completely absorbed)</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Cylinder at frame_b if animation = true</TD></TR>
+<TR><TD>Real</TD><TD>diameterFraction</TD><TD>0.8</TD><TD> Diameter of cylinder at frame_b with respect to diameter of cylinder at frame_a</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>cylinderLength_b</TD><TD>2*L_b</TD><TD> Length of cylinder at frame_b [m]</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Types.html#105c8cd0e75d7ab8Body.Types.Color"
+>Color</A></TD><TD>color_b</TD><TD>{100,100,100}</TD><TD> Color of cylinder at frame_b</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>if animation = true and animateMasses = true</TD></TR>
+<TR><TD>Real</TD><TD>massDiameterFaction</TD><TD>1.7</TD><TD> Diameter of point mass spheres with respect to cylinderDiameter_a</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Types.html#105c8cd0e75d7ab8Body.Types.Color"
+>Color</A></TD><TD>massColor</TD><TD>Modelica.Mechanics.MultiBody...</TD><TD> Color of point masses</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Advanced</B></TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>Position</A></TD><TD>s_small</TD><TD>1.E-10</TD><TD> Prevent zero-division if distance between frame_a and frame_b is zero [m]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#12523e7dca4aecb1terfaces.Frame_a"
+>Frame_a</A></TD><TD>frame_a</TD><TD>Coordinate system fixed to the component with one cut-force and cut-torque</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#12523e7eca4aecb2terfaces.Frame_b"
+>Frame_b</A></TD><TD>frame_b</TD><TD>Coordinate system fixed to the component with one cut-force and cut-torque</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Translational_Interfaces.html#a3f2a0d603f9d494erfaces.Flange_a"
+>Flange_a</A></TD><TD>flange_b</TD><TD>1-dim. translational flange (connect force of Translational library between flange_a and flange_b)</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Translational_Interfaces.html#a3f2a0d703f9d497erfaces.Flange_b"
+>Flange_b</A></TD><TD>flange_a</TD><TD>1-dim. translational flange (connect force of Translational library between flange_a and flange_b)</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> LineForceWithTwoMasses <font color="darkgreen">
+  &quot;General line force component with two optional point masses on the connection line&quot;</font>
+
+  <font color="blue">import </font>SI = <A HREF="Modelica_SIunits.html#Modelica.SIunits"
+>Modelica.SIunits</A>;
+  <font color="blue">import </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#Modelica.Mechanics.MultiBody.Types"
+>Modelica.Mechanics.MultiBody.Types</A>;
+
+  <font color="blue">extends </font><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#350bcd53977e42dePartialTwoFrames"
+>Interfaces.PartialTwoFrames</A>;
+  <A HREF="Modelica_Mechanics_Translational_Interfaces.html#a3f2a0d603f9d494erfaces.Flange_a"
+>Modelica.Mechanics.Translational.Interfaces.Flange_a</A> flange_b <font color="darkgreen">
+    &quot;1-dim. translational flange (connect force of Translational library between flange_a and flange_b)&quot;</font>;
+  <A HREF="Modelica_Mechanics_Translational_Interfaces.html#a3f2a0d703f9d497erfaces.Flange_b"
+>Modelica.Mechanics.Translational.Interfaces.Flange_b</A> flange_a <font color="darkgreen">
+    &quot;1-dim. translational flange (connect force of Translational library between flange_a and flange_b)&quot;</font>;
+
+  <font color="blue">parameter </font>Boolean animate=true <font color="darkgreen">&quot;= true, if animation shall be enabled&quot;</font>;
+  <font color="blue">parameter </font>Boolean animateMasses=true <font color="darkgreen">
+    &quot;= true, if point masses shall be visualized provided animate=true and m_a, m_b &gt; 0&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Mass"
+>SI.Mass</A> m_a(min=0)=0 <font color="darkgreen">
+    &quot;Mass of point mass a on the connetion line between the origin of frame_a and the origin of frame_b&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Mass"
+>SI.Mass</A> m_b(min=0)=0 <font color="darkgreen">
+    &quot;Mass of point mass b on the connetion line between the origin of frame_a and the origin of frame_b&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> L_a=0 <font color="darkgreen">
+    &quot;Distance between point mass a and frame_a (positive, if in direction of frame_b)&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> L_b=L_a <font color="darkgreen">
+    &quot;Distance between point mass b and frame_b (positive, if in direction of frame_a)&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>SI.Diameter</A> cylinderDiameter_a=world.defaultForceWidth <font color="darkgreen">
+    &quot; Diameter of cylinder at frame_a&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> cylinderLength_a=2*L_a <font color="darkgreen">&quot; Length of cylinder at frame_a&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#105c8cd0e75d7ab8Body.Types.Color"
+>Types.Color</A> color_a={155,155,155} <font color="darkgreen">&quot; Color of cylinder at frame_a&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#9fba82bfe8b4d0bacularCoefficient"
+>Types.SpecularCoefficient</A> specularCoefficient = world.defaultSpecularCoefficient <font color="darkgreen">
+    &quot;Reflection of ambient light (= 0: light is completely absorbed)&quot;</font>;
+  <font color="blue">input </font>Real diameterFraction=0.8 <font color="darkgreen">
+    &quot; Diameter of cylinder at frame_b with respect to diameter of cylinder at frame_a&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> cylinderLength_b=2*L_b <font color="darkgreen">&quot; Length of cylinder at frame_b&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#105c8cd0e75d7ab8Body.Types.Color"
+>Types.Color</A> color_b={100,100,100} <font color="darkgreen">&quot; Color of cylinder at frame_b&quot;</font>;
+  <font color="blue">input </font>Real massDiameterFaction=1.7 <font color="darkgreen">
+    &quot; Diameter of point mass spheres with respect to cylinderDiameter_a&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#105c8cd0e75d7ab8Body.Types.Color"
+>Types.Color</A> massColor=Modelica.Mechanics.MultiBody.Types.Defaults.BodyColor <font color="darkgreen">
+    &quot; Color of point masses&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> s_small=1.E-10 <font color="darkgreen">
+    &quot; Prevent zero-division if distance between frame_a and frame_b is zero&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Distance"
+>SI.Distance</A> length <font color="darkgreen">
+    &quot;Distance between the origin of frame_a and the origin of frame_b&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> r_rel_0[3] <font color="darkgreen">
+    &quot;Position vector from frame_a to frame_b resolved in world frame&quot;</font>;
+  Real e_rel_0[3] <font color="darkgreen">
+    &quot;Unit vector in direction from frame_a to frame_b, resolved in world frame&quot;</font>;
+
+<font color="blue">protected </font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Force"
+>SI.Force</A> fa <font color="darkgreen">&quot;Force from flange_a&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Force"
+>SI.Force</A> fb <font color="darkgreen">&quot;Force from flange_b&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> r_CM1_0[3](stateSelect=StateSelect.avoid) <font color="darkgreen">
+    &quot;Position vector from world frame to point mass 1, resolved in world frame&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> r_CM2_0[3](stateSelect=StateSelect.avoid) <font color="darkgreen">
+    &quot;Position vector from world frame to point mass 2, resolved in world frame&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Velocity"
+>SI.Velocity</A> v_CM1_0[3](stateSelect=StateSelect.avoid) <font color="darkgreen">
+    &quot;der(r_CM_1_0) - velocity of point mass 1&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Velocity"
+>SI.Velocity</A> v_CM2_0[3](stateSelect=StateSelect.avoid) <font color="darkgreen">
+    &quot;der(r_CM_2_0) - velocity of point mass 2&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Acceleration"
+>SI.Acceleration</A> ag_CM1_0[3] <font color="darkgreen">&quot;der(v_CM1_0) - gravityAcceleration(r_CM1_0)&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Acceleration"
+>SI.Acceleration</A> ag_CM2_0[3] <font color="darkgreen">&quot;der(v_CM2_0) - gravityAcceleration(r_CM2_0)&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Force"
+>SI.Force</A> aux1_0[3] <font color="darkgreen">&quot;Auxiliary force 1&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Force"
+>SI.Force</A> aux2_0[3] <font color="darkgreen">&quot;Auxiliary force 2&quot;</font>;
+
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> cylinderDiameter_b=cylinderDiameter_a*diameterFraction;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> massDiameter=cylinderDiameter_a*massDiameterFaction;
+  <font color="blue">parameter </font>Boolean animateMasses2=world.enableAnimation<font color="blue"> and </font>animate<font color="blue"> and </font>animateMasses<font color="blue"> and </font>m_a &gt; 0<font color="blue"> and </font>m_b &gt; 0;
+  <A HREF="Modelica_Mechanics_MultiBody_Visualizers_Advanced.html#d710a9b8cd80ce5fs.Advanced.Shape"
+>Visualizers.Advanced.Shape</A> cylinder_a(
+    shapeType=&quot;cylinder&quot;,
+    color=color_a,
+    specularCoefficient=specularCoefficient,
+    length=cylinderLength_a,
+    width=cylinderDiameter_a,
+    height=cylinderDiameter_a,
+    lengthDirection=e_rel_0,
+    widthDirection={0,1,0},
+    r=frame_a.r_0) <font color="blue">if </font>world.enableAnimation<font color="blue"> and </font>animate;
+
+  <A HREF="Modelica_Mechanics_MultiBody_Visualizers_Advanced.html#d710a9b8cd80ce5fs.Advanced.Shape"
+>Visualizers.Advanced.Shape</A> cylinder_b(
+    shapeType=&quot;cylinder&quot;,
+    color=color_b,
+    specularCoefficient=specularCoefficient,
+    length=cylinderLength_b,
+    width=cylinderDiameter_b,
+    height=cylinderDiameter_b,
+    lengthDirection=-e_rel_0,
+    widthDirection={0,1,0},
+    r=frame_b.r_0) <font color="blue">if </font>world.enableAnimation<font color="blue"> and </font>animate;
+
+  <A HREF="Modelica_Mechanics_MultiBody_Visualizers_Advanced.html#d710a9b8cd80ce5fs.Advanced.Shape"
+>Visualizers.Advanced.Shape</A> sphere_a(
+    shapeType=&quot;sphere&quot;,
+    color=massColor,
+    specularCoefficient=specularCoefficient,
+    length=massDiameter,
+    width=massDiameter,
+    height=massDiameter,
+    lengthDirection=e_rel_0,
+    widthDirection={0,1,0},
+    r_shape=e_rel_0*(L_a - massDiameter/2),
+    r=frame_a.r_0) <font color="blue">if </font>animateMasses2;
+
+  <A HREF="Modelica_Mechanics_MultiBody_Visualizers_Advanced.html#d710a9b8cd80ce5fs.Advanced.Shape"
+>Visualizers.Advanced.Shape</A> sphere_b(
+    shapeType=&quot;sphere&quot;,
+    color=massColor,
+    specularCoefficient=specularCoefficient,
+    length=massDiameter,
+    width=massDiameter,
+    height=massDiameter,
+    lengthDirection=-e_rel_0,
+    widthDirection={0,1,0},
+    r_shape=-e_rel_0*(L_b - massDiameter/2),
+    r=frame_b.r_0) <font color="blue">if </font>animateMasses2;
+<font color="blue">equation </font>
+  <font color="red">definePotentialRoot</font>(frame_a.R, 100);
+  <font color="red">definePotentialRoot</font>(frame_b.R, 100);
+  <font color="red">assert</font>(<font color="red">noEvent</font>(length &gt; s_small), &quot;
+The distance between the origin of frame_a and the origin of frame_b
+of a LineForceWithTwoMasses component became smaller as parameter s_small
+(= a small number, defined in the \&quot;Advanced\&quot; menu). The distance is
+set to s_small, although it is smaller, to avoid a division by zero
+when computing the direction of the line force. Possible reasons
+for this situation:
+- At initial time the distance may already be zero: Change the initial
+  positions of the bodies connected by this element.
+- Hardware stops are not modeled or are modeled not stiff enough.
+  Include stops, e.g., stiff springs, or increase the stiffness
+  if already present.
+- Another error in your model may lead to unrealistically large forces
+  and torques that would in reality destroy the stops.
+- The flange_b connector might be defined by a pre-defined motion,
+  e.g., with Modelica.Mechanics.Translational.Position and the
+  predefined flange_b.s is zero or negative.
+&quot;);
+
+  <font color="darkgreen">// Determine relative position vector between the two frames</font>
+  r_rel_0 = frame_b.r_0 - frame_a.r_0;
+  length =<font color="red"> Frames.length</font>(r_rel_0);
+  flange_a.s = 0;
+  flange_b.s = length;
+  e_rel_0 = r_rel_0/<font color="red">Frames.Internal.maxWithoutEvent</font>(length, s_small);
+
+  <font color="darkgreen">// Determine translational flange forces</font>
+  <font color="blue">if </font><font color="red">cardinality</font>(flange_a) &gt; 0<font color="blue"> and </font><font color="red">cardinality</font>(flange_b) &gt; 0<font color="blue"> then</font>
+    fa = flange_a.f;
+    fb = flange_b.f;
+  <font color="blue">elseif </font><font color="red">cardinality</font>(flange_a) &gt; 0<font color="blue"> and </font><font color="red">cardinality</font>(flange_b) == 0<font color="blue"> then</font>
+    fa = flange_a.f;
+    fb = -fa;
+  <font color="blue">elseif </font><font color="red">cardinality</font>(flange_a) == 0<font color="blue"> and </font><font color="red">cardinality</font>(flange_b) &gt; 0<font color="blue"> then</font>
+    fa = -fb;
+    fb = flange_b.f;
+  <font color="blue">else</font>
+    fa = 0;
+    fb = 0;
+  <font color="blue">end if</font>;
+
+  <font color="darkgreen">/* Force and torque balance of the two point masses
+     - Kinematics for center of masses CM1, CM2 of point masses including gravity
+       (L = length, va = der(frame_a.r_0), vb = der(frame_b.r_0))
+       r_CM1_0 = frame_a.r_0 + e_rel_0*L_a;
+       r_CM2_0 = frame_b.r_0 - e_rel_0*L_b;
+       v_CM1_0 = der(r_CM1_0);
+       v_CM2_0 = der(r_CM2_0);
+       ag_CM1_0 = der(v_CM1_0) - world.gravityAcceleration(r_CM1_0);
+       ag_CM2_0 = der(v_CM2_0) - world.gravityAcceleration(r_CM2_0);
+       der(e_rel_0) = der(r_rel_0/sqrt(r_rel_0*r_rel_0))
+                    = 1/L*(I - e_rel_0*e_rel_0')*der(r_rel_0)
+                    = 1/L*(I - e_rel_0*e_rel_0')*(vb - va)
+       v_CM1_0 = va + L_a/L*(I - e_rel_0*e_rel_0')*(vb - va)
+       v_CM2_0 = vb - L_b/L*(I - e_rel_0*e_rel_0')*(vb - va)
+     - Power balance for the connection line
+       (f1=force on frame_a side, f2=force on frame_b side)
+       0 = f1*va - m_a*ag_CM1*v_CM1 + f2*vb - m_b*ag_CM2*v_CM2
+         = f1*va - m_a*ag_CM1*(va + L_a/L*(I - e_rel*e_rel')*(vb - va)) +
+           f2*vb - m_b*ag_CM2*(vb - L_b/L*(I - e_rel*e_rel')*(vb - va))
+         = (f1 - m_a*ag_CM1*(I - L_a/L*(I - e_rel*e_rel'))
+               - m_b*ag_CM2*(L_b/L*(I - e_rel*e_rel')))*va +
+           (f2 - m_b*ag_CM2*(I - L_b/L*(I - e_rel_0*e_rel_0'))
+               - m_a*ag_CM1*(L_a/L*(I - e_rel*e_rel')))*vb
+         = va*(f1 - m_a*ag_CM1 +
+               (m_a*ag_CM1*L_a/L - m_b*ag_CM2*L_b/L)*(I - e_rel*e_rel')) +
+           vb*(f2 - m_b*ag_CM2 +
+               (m_b*ag_CM2*L_b/L - m_a*ag_CM1*L_a/L)*(I - e_rel*e_rel'))
+       since va and vb are completely independent from other
+       the paranthesis must vanish:
+         f1 := m_a*ag_CM1 - (m_a*ag_CM1*L_a/L - m_b*ag_CM2*L_b/L)*(I - e_rel*e_rel')
+         f2 := m_b*ag_CM2 + (m_a*ag_CM1*L_a/L - m_b*ag_CM2*L_b/L)*(I - e_rel*e_rel')
+       or
+         aux1 := ag_CM1*(m_a*L_a/L) - ag_CM2*(m_b*L_b/L);
+         aux2 := aux1 - (aux1'*e_rel)*e_rel
+         f1 := m_a*ag_CM1 - aux2
+         f2 := m_b*ag_CM2 + aux2
+     - Force balance on frame_a and frame_b finally results in
+         0 = frame_a.f + e_rel_a*fa - f1_a
+         0 = frame_b.f + e_rel_b*fb - f2_b
+       and therefore
+         frame_a.f = -e_rel_a*fa + m_a*ag_CM1 - aux2
+         frame_b.f = -e_rel_b*fb + m_b*ag_CM2 + aux2
+  */</font>
+  <font color="blue">if </font>m_a &gt; 0<font color="blue"> or </font>m_b &gt; 0<font color="blue"> then</font>
+    r_CM1_0 = frame_a.r_0 + e_rel_0*L_a;
+    r_CM2_0 = frame_b.r_0 - e_rel_0*L_b;
+    v_CM1_0 =<font color="red"> der</font>(r_CM1_0);
+    v_CM2_0 =<font color="red"> der</font>(r_CM2_0);
+    ag_CM1_0 =<font color="red"> der</font>(v_CM1_0) -<font color="red"> world.gravityAcceleration</font>(r_CM1_0);
+    ag_CM2_0 =<font color="red"> der</font>(v_CM2_0) -<font color="red"> world.gravityAcceleration</font>(r_CM2_0);
+    aux1_0 = ag_CM1_0*(m_a*L_a/length) - ag_CM2_0*(m_b*L_b/length);
+    aux2_0 = aux1_0 - (aux1_0*e_rel_0)*e_rel_0;
+    frame_a.f =<font color="red"> Frames.resolve2</font>(frame_a.R, m_a*ag_CM1_0 - aux2_0 - e_rel_0*fa);
+    frame_b.f =<font color="red"> Frames.resolve2</font>(frame_b.R, m_b*ag_CM2_0 + aux2_0 - e_rel_0*fb);
+  <font color="blue">else</font>
+    r_CM1_0 =<font color="red"> zeros</font>(3);
+    r_CM2_0 =<font color="red"> zeros</font>(3);
+    v_CM1_0 =<font color="red"> zeros</font>(3);
+    v_CM2_0 =<font color="red"> zeros</font>(3);
+    ag_CM1_0 =<font color="red"> zeros</font>(3);
+    ag_CM2_0 =<font color="red"> zeros</font>(3);
+    aux1_0 =<font color="red"> zeros</font>(3);
+    aux2_0 =<font color="red"> zeros</font>(3);
+    frame_a.f = -<font color="red">Frames.resolve2</font>(frame_a.R, e_rel_0*fa);
+    frame_b.f = -<font color="red">Frames.resolve2</font>(frame_b.R, e_rel_0*fb);
+  <font color="blue">end if</font>;
+
+  <font color="darkgreen">// Provide appropriate equations, if direct connections of line forces</font>
+  <font color="blue">if </font><font color="red">isRoot</font>(frame_a.R)<font color="blue"> then</font>
+    frame_a.R =<font color="red"> Frames.nullRotation</font>();
+  <font color="blue">else</font>
+    frame_a.t =<font color="red"> zeros</font>(3);
+  <font color="blue">end if</font>;
+
+  <font color="blue">if </font><font color="red">isRoot</font>(frame_b.R)<font color="blue"> then</font>
+    frame_b.R =<font color="red"> Frames.nullRotation</font>();
+  <font color="blue">else</font>
+    frame_b.t =<font color="red"> zeros</font>(3);
+  <font color="blue">end if</font>;
+<font color="blue">end </font>LineForceWithTwoMasses;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Spring<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Forces.SpringI.png" ALT="Modelica.Mechanics.MultiBody.Forces.Spring" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="f63a1c1d6724d6c8dy.Forces.Spring"></A><A HREF="Modelica_Mechanics_MultiBody_Forces.html#Modelica.Mechanics.MultiBody.Forces"
+>Modelica.Mechanics.MultiBody.Forces</A>.Spring</H2>
+<B>Linear translational spring with optional mass</B><p>
+<IMG SRC="Modelica.Mechanics.MultiBody.Forces.SpringD.png" ALT="Modelica.Mechanics.MultiBody.Forces.Spring">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+<b>Linear spring</b> acting as line force between frame_a and frame_b.
+A <b>force f</b> is exerted on the origin of frame_b and with opposite sign
+on the origin of frame_a along the line from the origin of frame_a to the origin
+of frame_b according to the equation:
+</p>
+<pre>
+   f = c*(s - s_unstretched);
+</pre>
+<p>
+where "c" and "s_unstretched" are parameters and "s" is the
+distance between the origin of frame_a and the origin of frame_b.
+</p>
+<p>
+Optionally, the mass of the spring is taken into account by a
+point mass located on the line between frame_a and frame_b
+(default: middle of the line). If the spring mass is zero, the
+additional equations to handle the mass are removed.
+</p>
+<p>
+In the following figure a typical animation of the
+spring is shown. The blue sphere in the middle of the
+spring characterizes the the location of the point mass.
+</p>
+<p align="center">
+<IMG SRC="../Images/MultiBody/Examples/Elementary/SpringWithMass.png"
+ALT="model Examples.Elementary.SpringWithMass">
+</p>
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Boolean</TD><TD>animation</TD><TD>true</TD><TD>= true, if animation shall be enabled</TD></TR>
+<TR><TD>Boolean</TD><TD>showMass</TD><TD>true</TD><TD>= true, if point mass shall be visualized as sphere if animation=true and m&gt;0</TD></TR>
+<TR><TD>Real</TD><TD>c</TD><TD>&nbsp;</TD><TD>Spring constant [N/m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>s_unstretched</TD><TD>0</TD><TD>Unstretched spring length [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Mass"
+>Mass</A></TD><TD>m</TD><TD>0</TD><TD>Spring mass located on the connetion line between the origin of frame_a and the origin of frame_b [kg]</TD></TR>
+<TR><TD>Real</TD><TD>lengthFraction</TD><TD>0.5</TD><TD>Location of spring mass with respect to frame_a as a fraction of the distance from frame_a to frame_b (=0: at frame_a; =1: at frame_b)</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Animation</B></TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>if animation = true</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Distance"
+>Distance</A></TD><TD>width</TD><TD>world.defaultForceWidth</TD><TD> Width of spring [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Distance"
+>Distance</A></TD><TD>coilWidth</TD><TD>width/10</TD><TD> Width of spring coil [m]</TD></TR>
+<TR><TD>Integer</TD><TD>numberOfWindings</TD><TD>5</TD><TD> Number of spring windings</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Types.html#105c8cd0e75d7ab8Body.Types.Color"
+>Color</A></TD><TD>color</TD><TD>Modelica.Mechanics.MultiBody...</TD><TD> Color of spring</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Types.html#9fba82bfe8b4d0bacularCoefficient"
+>SpecularCoefficient</A></TD><TD>specularCoefficient</TD><TD>world.defaultSpecularCoeffic...</TD><TD>Reflection of ambient light (= 0: light is completely absorbed)</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>if animation = true and showMass = true</TD></TR>
+<TR><TD>Real</TD><TD>massDiameter</TD><TD>max(0, (width - 2*coilWidth)...</TD><TD> Diameter of mass point sphere</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Types.html#105c8cd0e75d7ab8Body.Types.Color"
+>Color</A></TD><TD>massColor</TD><TD>Modelica.Mechanics.MultiBody...</TD><TD> Color of mass point</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#12523e7dca4aecb1terfaces.Frame_a"
+>Frame_a</A></TD><TD>frame_a</TD><TD>Coordinate system fixed to the component with one cut-force and cut-torque</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#12523e7eca4aecb2terfaces.Frame_b"
+>Frame_b</A></TD><TD>frame_b</TD><TD>Coordinate system fixed to the component with one cut-force and cut-torque</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Spring <font color="darkgreen">&quot;Linear translational spring with optional mass&quot;</font>
+  <font color="blue">import </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#Modelica.Mechanics.MultiBody.Types"
+>Modelica.Mechanics.MultiBody.Types</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#350bcd53977e42dePartialTwoFrames"
+>Interfaces.PartialTwoFrames</A>;
+  <font color="blue">parameter </font>Boolean animation=true <font color="darkgreen">&quot;= true, if animation shall be enabled&quot;</font>;
+  <font color="blue">parameter </font>Boolean showMass=true <font color="darkgreen">
+    &quot;= true, if point mass shall be visualized as sphere if animation=true and m&gt;0&quot;</font>;
+
+  <font color="blue">parameter </font>Real c(<font color="blue">final </font>unit=&quot;N/m&quot;, <font color="blue">final </font>min=0) <font color="darkgreen">&quot;Spring constant&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> s_unstretched=0 <font color="darkgreen">&quot;Unstretched spring length&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Mass"
+>SI.Mass</A> m(min=0)=0 <font color="darkgreen">
+    &quot;Spring mass located on the connetion line between the origin of frame_a and the origin of frame_b&quot;</font>;
+  <font color="blue">parameter </font>Real lengthFraction(
+    min=0,
+    max=1) = 0.5 <font color="darkgreen">
+    &quot;Location of spring mass with respect to frame_a as a fraction of the distance from frame_a to frame_b (=0: at frame_a; =1: at frame_b)&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Distance"
+>SI.Distance</A> width=world.defaultForceWidth <font color="darkgreen">&quot; Width of spring&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Distance"
+>SI.Distance</A> coilWidth=width/10 <font color="darkgreen">&quot; Width of spring coil&quot;</font>;
+  <font color="blue">parameter </font>Integer numberOfWindings=5 <font color="darkgreen">&quot; Number of spring windings&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#105c8cd0e75d7ab8Body.Types.Color"
+>Types.Color</A> color=Modelica.Mechanics.MultiBody.Types.Defaults.SpringColor <font color="darkgreen">
+    &quot; Color of spring&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#9fba82bfe8b4d0bacularCoefficient"
+>Types.SpecularCoefficient</A> specularCoefficient = world.defaultSpecularCoefficient <font color="darkgreen">
+    &quot;Reflection of ambient light (= 0: light is completely absorbed)&quot;</font>;
+  <font color="blue">input </font>Real massDiameter=<font color="red">max</font>(0, (width - 2*coilWidth)*0.9) <font color="darkgreen">
+    &quot; Diameter of mass point sphere&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#105c8cd0e75d7ab8Body.Types.Color"
+>Types.Color</A> massColor=Modelica.Mechanics.MultiBody.Types.Defaults.BodyColor <font color="darkgreen">
+    &quot; Color of mass point&quot;</font>;
+
+  <A HREF="Modelica_Mechanics_MultiBody_Forces.html#ea750ae14f4f6ec0ineForceWithMass"
+>Forces.LineForceWithMass</A> lineForce(
+    animateLine=animation,
+    animateMass=showMass,
+    m=m,
+    lengthFraction=lengthFraction,
+    lineShapeType=&quot;spring&quot;,
+    lineShapeHeight=coilWidth*2,
+    lineShapeWidth=width,
+    lineShapeExtra=numberOfWindings,
+    lineShapeColor=color,
+    specularCoefficient=specularCoefficient,
+    massDiameter=massDiameter,
+    massColor=massColor);
+  <A HREF="Modelica_Mechanics_Translational.html#0e92a3b6467bf085slational.Spring"
+>Modelica.Mechanics.Translational.Spring</A> spring(s_rel0=s_unstretched, c=c);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(lineForce.frame_a, frame_a);
+  <font color="red">connect</font>(lineForce.frame_b, frame_b);
+  <font color="red">connect</font>(spring.flange_b, lineForce.flange_b);
+  <font color="red">connect</font>(spring.flange_a, lineForce.flange_a);
+<font color="blue">end </font>Spring;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Damper<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Forces.DamperI.png" ALT="Modelica.Mechanics.MultiBody.Forces.Damper" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="31824e49483b33bddy.Forces.Damper"></A><A HREF="Modelica_Mechanics_MultiBody_Forces.html#Modelica.Mechanics.MultiBody.Forces"
+>Modelica.Mechanics.MultiBody.Forces</A>.Damper</H2>
+<B>Linear (velocity dependent) damper</B><p>
+<IMG SRC="Modelica.Mechanics.MultiBody.Forces.DamperD.png" ALT="Modelica.Mechanics.MultiBody.Forces.Damper">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+<b>Linear damper</b> acting as line force between frame_a and frame_b.
+A <b>force f</b> is exerted on the origin of frame_b and with opposite sign
+on the origin of frame_a along the line from the origin of frame_a to the origin
+of frame_b according to the equation:
+</p>
+<pre>
+   f = d*<b>der</b>(s);
+</pre>
+<p>
+where "d" is a parameter, "s" is the
+distance between the origin of frame_a and the origin of frame_b
+and der(s) is the time derivative of "s".
+</p>
+<p>
+In the following figure a typical animation is shown
+where a mass is hanging on a damper.
+</p>
+<p align="center">
+<IMG SRC="../Images/MultiBody/Forces/Damper.png">
+</p>
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Boolean</TD><TD>animation</TD><TD>true</TD><TD>= true, if animation shall be enabled</TD></TR>
+<TR><TD>Real</TD><TD>d</TD><TD>0</TD><TD>Damping constant [N.s/m]</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Animation</B></TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>if animation = true</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Distance"
+>Distance</A></TD><TD>length_a</TD><TD>world.defaultForceLength</TD><TD> Length of cylinder at frame_a side [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Distance"
+>Distance</A></TD><TD>diameter_a</TD><TD>world.defaultForceWidth</TD><TD> Diameter of cylinder at frame_a side [m]</TD></TR>
+<TR><TD>Real</TD><TD>diameter_b</TD><TD>0.6*diameter_a</TD><TD> Diameter of cylinder at frame_b side</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Types.html#105c8cd0e75d7ab8Body.Types.Color"
+>Color</A></TD><TD>color_a</TD><TD>{100,100,100}</TD><TD> Color at frame_a</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Types.html#105c8cd0e75d7ab8Body.Types.Color"
+>Color</A></TD><TD>color_b</TD><TD>{155,155,155}</TD><TD> Color at frame_b</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Types.html#9fba82bfe8b4d0bacularCoefficient"
+>SpecularCoefficient</A></TD><TD>specularCoefficient</TD><TD>world.defaultSpecularCoeffic...</TD><TD>Reflection of ambient light (= 0: light is completely absorbed)</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Advanced</B></TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>Position</A></TD><TD>s_small</TD><TD>1.E-6</TD><TD> Prevent zero-division if relative distance s=0 [m]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#12523e7dca4aecb1terfaces.Frame_a"
+>Frame_a</A></TD><TD>frame_a</TD><TD>Coordinate system fixed to the force element with one cut-force and cut-torque</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#12523e7eca4aecb2terfaces.Frame_b"
+>Frame_b</A></TD><TD>frame_b</TD><TD>Coordinate system fixed to the force element with one cut-force and cut-torque</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Damper <font color="darkgreen">&quot;Linear (velocity dependent) damper&quot;</font>
+  <font color="blue">import </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#Modelica.Mechanics.MultiBody.Types"
+>Modelica.Mechanics.MultiBody.Types</A>;
+  <font color="blue">parameter </font>Boolean animation=true <font color="darkgreen">&quot;= true, if animation shall be enabled&quot;</font>;
+  <font color="blue">parameter </font>Real d(
+    <font color="blue">final </font>unit=&quot;N.s/m&quot;,
+    <font color="blue">final </font>min=0) = 0 <font color="darkgreen">&quot;Damping constant&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Distance"
+>SI.Distance</A> length_a=world.defaultForceLength <font color="darkgreen">
+    &quot; Length of cylinder at frame_a side&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Distance"
+>SI.Distance</A> diameter_a=world.defaultForceWidth <font color="darkgreen">
+    &quot; Diameter of cylinder at frame_a side&quot;</font>;
+  <font color="blue">input </font>Real diameter_b=0.6*diameter_a <font color="darkgreen">&quot; Diameter of cylinder at frame_b side&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#105c8cd0e75d7ab8Body.Types.Color"
+>Types.Color</A> color_a={100,100,100} <font color="darkgreen">&quot; Color at frame_a&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#105c8cd0e75d7ab8Body.Types.Color"
+>Types.Color</A> color_b={155,155,155} <font color="darkgreen">&quot; Color at frame_b&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#9fba82bfe8b4d0bacularCoefficient"
+>Types.SpecularCoefficient</A> specularCoefficient = world.defaultSpecularCoefficient <font color="darkgreen">
+    &quot;Reflection of ambient light (= 0: light is completely absorbed)&quot;</font>;
+  <font color="blue">extends </font><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#a2c9dd6c923926f8PartialLineForce"
+>Interfaces.PartialLineForce</A>;
+
+<font color="blue">protected </font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> r0_b[3]=e_a*<font color="red">noEvent</font>(<font color="red">min</font>(length_a, s));
+  <A HREF="Modelica_Mechanics_MultiBody_Visualizers_Advanced.html#d710a9b8cd80ce5fs.Advanced.Shape"
+>Visualizers.Advanced.Shape</A> shape_a(
+    shapeType=&quot;cylinder&quot;,
+    color=color_a,
+    specularCoefficient=specularCoefficient,
+    length=<font color="red">noEvent</font>(<font color="red">min</font>(length_a, s)),
+    width=diameter_a,
+    height=diameter_a,
+    lengthDirection=e_a,
+    widthDirection={0,1,0},
+    r=frame_a.r_0,
+    R=frame_a.R) <font color="blue">if </font>
+                   world.enableAnimation<font color="blue"> and </font>animation;
+  <A HREF="Modelica_Mechanics_MultiBody_Visualizers_Advanced.html#d710a9b8cd80ce5fs.Advanced.Shape"
+>Visualizers.Advanced.Shape</A> shape_b(
+    shapeType=&quot;cylinder&quot;,
+    color=color_b,
+    specularCoefficient=specularCoefficient,
+    length=<font color="red">noEvent</font>(<font color="red">max</font>(s - length_a, 0)),
+    width=diameter_b,
+    height=diameter_b,
+    lengthDirection=e_a,
+    widthDirection={0,1,0},
+    r_shape=r0_b,
+    r=frame_a.r_0,
+    R=frame_a.R) <font color="blue">if </font>world.enableAnimation<font color="blue"> and </font>animation;
+<font color="blue">equation </font>
+  f = d*<font color="red">der</font>(s);
+<font color="blue">end </font>Damper;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SpringDamperParallel<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Forces.SpringDamperParallelI.png" ALT="Modelica.Mechanics.MultiBody.Forces.SpringDamperParallel" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="449fa4fd5e5edec3ngDamperParallel"></A><A HREF="Modelica_Mechanics_MultiBody_Forces.html#Modelica.Mechanics.MultiBody.Forces"
+>Modelica.Mechanics.MultiBody.Forces</A>.SpringDamperParallel</H2>
+<B>Linear spring and linear damper in parallel</B><p>
+<IMG SRC="Modelica.Mechanics.MultiBody.Forces.SpringDamperParallelD.png" ALT="Modelica.Mechanics.MultiBody.Forces.SpringDamperParallel">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+<b>Linear spring</b> and <b>dinear damper</b>
+in parallel acting as line force between frame_a and frame_b.
+A <b>force f</b> is exerted on the origin of frame_b and with opposite sign
+on the origin of frame_a along the line from the origin of frame_a to the origin
+of frame_b according to the equation:
+</p>
+<pre>
+   f = c*(s - s_unstretched) + d*<b>der</b>(s);
+</pre>
+<p>
+where "c", "s_unstretched" and "d" are parameters, "s" is the
+distance between the origin of frame_a and the origin of frame_b
+and der(s) is the time derivative of s.
+</p>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Boolean</TD><TD>animation</TD><TD>true</TD><TD>= true, if animation shall be enabled</TD></TR>
+<TR><TD>Real</TD><TD>c</TD><TD>&nbsp;</TD><TD>Spring constant [N/m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>s_unstretched</TD><TD>0</TD><TD>Unstretched spring length [m]</TD></TR>
+<TR><TD>Real</TD><TD>d</TD><TD>0</TD><TD>Damping constant [N.s/m]</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Animation</B></TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>if animation = true</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Distance"
+>Distance</A></TD><TD>width</TD><TD>world.defaultForceWidth</TD><TD> Width of spring [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Distance"
+>Distance</A></TD><TD>coilWidth</TD><TD>width/10</TD><TD> Width of spring coil [m]</TD></TR>
+<TR><TD>Integer</TD><TD>numberOfWindings</TD><TD>5</TD><TD> Number of spring windings</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Types.html#105c8cd0e75d7ab8Body.Types.Color"
+>Color</A></TD><TD>color</TD><TD>Modelica.Mechanics.MultiBody...</TD><TD> Color of spring</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Types.html#9fba82bfe8b4d0bacularCoefficient"
+>SpecularCoefficient</A></TD><TD>specularCoefficient</TD><TD>world.defaultSpecularCoeffic...</TD><TD>Reflection of ambient light (= 0: light is completely absorbed)</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Advanced</B></TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>Position</A></TD><TD>s_small</TD><TD>1.E-6</TD><TD> Prevent zero-division if relative distance s=0 [m]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#12523e7dca4aecb1terfaces.Frame_a"
+>Frame_a</A></TD><TD>frame_a</TD><TD>Coordinate system fixed to the force element with one cut-force and cut-torque</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#12523e7eca4aecb2terfaces.Frame_b"
+>Frame_b</A></TD><TD>frame_b</TD><TD>Coordinate system fixed to the force element with one cut-force and cut-torque</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> SpringDamperParallel <font color="darkgreen">
+  &quot;Linear spring and linear damper in parallel&quot;</font>
+  <font color="blue">import </font>SI = <A HREF="Modelica_SIunits.html#Modelica.SIunits"
+>Modelica.SIunits</A>;
+  <font color="blue">import </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#Modelica.Mechanics.MultiBody.Types"
+>Modelica.Mechanics.MultiBody.Types</A>;
+  <font color="blue">parameter </font>Boolean animation=true <font color="darkgreen">&quot;= true, if animation shall be enabled&quot;</font>;
+  <font color="blue">parameter </font>Real c(<font color="blue">final </font>unit=&quot;N/m&quot;, <font color="blue">final </font>min=0) <font color="darkgreen">&quot;Spring constant&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> s_unstretched=0 <font color="darkgreen">&quot;Unstretched spring length&quot;</font>;
+  <font color="blue">parameter </font>Real d(
+    <font color="blue">final </font>unit=&quot;N.s/m&quot;,
+    <font color="blue">final </font>min=0) = 0 <font color="darkgreen">&quot;Damping constant&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Distance"
+>SI.Distance</A> width=world.defaultForceWidth <font color="darkgreen">&quot; Width of spring&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Distance"
+>SI.Distance</A> coilWidth=width/10 <font color="darkgreen">&quot; Width of spring coil&quot;</font>;
+  <font color="blue">parameter </font>Integer numberOfWindings=5 <font color="darkgreen">&quot; Number of spring windings&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#105c8cd0e75d7ab8Body.Types.Color"
+>Types.Color</A> color=Modelica.Mechanics.MultiBody.Types.Defaults.SpringColor <font color="darkgreen">
+    &quot; Color of spring&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#9fba82bfe8b4d0bacularCoefficient"
+>Types.SpecularCoefficient</A> specularCoefficient = world.defaultSpecularCoefficient <font color="darkgreen">
+    &quot;Reflection of ambient light (= 0: light is completely absorbed)&quot;</font>;
+  <font color="blue">extends </font><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#a2c9dd6c923926f8PartialLineForce"
+>Interfaces.PartialLineForce</A>;
+
+<font color="blue">protected </font>
+  <A HREF="Modelica_Mechanics_MultiBody_Visualizers_Advanced.html#d710a9b8cd80ce5fs.Advanced.Shape"
+>Visualizers.Advanced.Shape</A> shape(
+    shapeType=&quot;spring&quot;,
+    color=color,
+    length=s,
+    width=width,
+    height=coilWidth*2,
+    lengthDirection=e_a,
+    widthDirection={0,1,0},
+    extra=numberOfWindings,
+    r=frame_a.r_0,
+    R=frame_a.R) <font color="blue">if </font>world.enableAnimation<font color="blue"> and </font>animation;
+<font color="blue">equation </font>
+  f = c*(s - s_unstretched) + d*<font color="red">der</font>(s);
+<font color="blue">end </font>SpringDamperParallel;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SpringDamperSeries<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Forces.SpringDamperSeriesI.png" ALT="Modelica.Mechanics.MultiBody.Forces.SpringDamperSeries" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="d7a608a98594368bringDamperSeries"></A><A HREF="Modelica_Mechanics_MultiBody_Forces.html#Modelica.Mechanics.MultiBody.Forces"
+>Modelica.Mechanics.MultiBody.Forces</A>.SpringDamperSeries</H2>
+<B>Linear spring and linear damper in series connection</B><p>
+<IMG SRC="Modelica.Mechanics.MultiBody.Forces.SpringDamperSeriesD.png" ALT="Modelica.Mechanics.MultiBody.Forces.SpringDamperSeries">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+<b>Linear spring</b> and <b>linear damper</b> in series connection
+acting as line force between frame_a and frame_b:
+</p>
+<pre>
+  frame_a --> damper ----> spring --> frame_b
+          |              |
+          |-- s_damper --|  (s_damper is the state variable of this system)
+</pre>
+<p>
+A <b>force f</b> is exerted on the origin of frame_b and with opposite sign
+on the origin of frame_a along the line from the origin of frame_a to the origin
+of frame_b according to the equations:
+</p>
+<pre>
+   f = c*(s - s_unstretched - s_damper);
+   f = d*der(s_damper);
+</pre>
+<p>
+where "c", "s_unstretched" and "d" are parameters, "s" is the
+distance between the origin of frame_a and the origin of frame_b.
+"s_damper" is the length of the damper (= an internal state of this
+force element) and der(s_damper) is the time derivative of s_damper.
+</p>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>c</TD><TD>&nbsp;</TD><TD>Spring constant [N/m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>s_unstretched</TD><TD>0</TD><TD>Unstretched spring length [m]</TD></TR>
+<TR><TD>Real</TD><TD>d</TD><TD>0</TD><TD>Damping constant [N.s/m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>s_damper_start</TD><TD>0</TD><TD>Initial length of damper [m]</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Advanced</B></TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>Position</A></TD><TD>s_small</TD><TD>1.E-6</TD><TD> Prevent zero-division if relative distance s=0 [m]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#12523e7dca4aecb1terfaces.Frame_a"
+>Frame_a</A></TD><TD>frame_a</TD><TD>Coordinate system fixed to the force element with one cut-force and cut-torque</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#12523e7eca4aecb2terfaces.Frame_b"
+>Frame_b</A></TD><TD>frame_b</TD><TD>Coordinate system fixed to the force element with one cut-force and cut-torque</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> SpringDamperSeries <font color="darkgreen">
+  &quot;Linear spring and linear damper in series connection&quot;</font>
+  <font color="blue">import </font>SI = <A HREF="Modelica_SIunits.html#Modelica.SIunits"
+>Modelica.SIunits</A>;
+  <font color="blue">parameter </font>Real c(<font color="blue">final </font>unit=&quot;N/m&quot;, <font color="blue">final </font>min=0) <font color="darkgreen">&quot;Spring constant&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> s_unstretched=0 <font color="darkgreen">&quot;Unstretched spring length&quot;</font>;
+  <font color="blue">parameter </font>Real d(
+    <font color="blue">final </font>unit=&quot;N.s/m&quot;,
+    <font color="blue">final </font>min=0) = 0 <font color="darkgreen">&quot;Damping constant&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> s_damper_start=0 <font color="darkgreen">&quot;Initial length of damper&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> s_damper(start=s_damper_start, fixed=true) <font color="darkgreen">
+    &quot;Actual length of damper (frame_a - damper - spring - frame_b)&quot;</font>;
+  <font color="blue">extends </font><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#a2c9dd6c923926f8PartialLineForce"
+>Interfaces.PartialLineForce</A>;
+<font color="blue">equation </font>
+  f = c*(s - s_unstretched - s_damper);
+  d*<font color="red">der</font>(s_damper) = f;
+<font color="blue">end </font>SpringDamperSeries;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Fri Sep 07 19:13:39 2007.
+</address></BODY>
+</HTML>

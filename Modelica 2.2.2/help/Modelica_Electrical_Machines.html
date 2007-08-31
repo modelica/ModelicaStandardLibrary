@@ -1,0 +1,99 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Electrical.Machines</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Library for electric machines&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Machines<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Electrical.Machines"></A><A HREF="Modelica_Electrical.html#Modelica.Electrical"
+>Modelica.Electrical</A>.Machines</H2>
+<B>Library for electric machines</B>
+<P>
+<H3>Information</H3>
+<PRE></pre>
+This package contains components to model electrical machines:
+<ul>
+<li>Examples: test examples</li>
+<li>BasicMachines: basic machine models</li>
+<li>Sensors: sensors, usefull when modelling machines</li>
+<li>SpacePhasors: an independent library for using space phasors</li>
+<li>Interfaces: Space phasor connector and partial machine models</li>
+</ul>
+<b>Limitations and assumptions:</b>
+<ul>
+<li>number of phases (of induction machines) is limited to 3, therefore definition as a constant m=3</li>
+<li>phase symmetric windings as well as symmetry of the whole machine structure</li>
+<li>all values are used in physical units, no scaling to p.u. is done</li>
+<li>only basic harmonics (in space) are taken into account</li>
+<li>waveform (with respect to time) of voltages and currents is not restricted</li>
+<li>constant parameters, i.e. no saturation, no skin effect</li>
+<li>no iron losses, eddy currents, friction losses;<br>
+    only ohmic losses in stator and rotor winding</li>
+</ul>
+<p>
+You may have a look at a short summary of space phasor theory at <a href="http://www.haumer.at/refimg/SpacePhasors.pdf">http://www.haumer.at/refimg/SpacePhasors.pdf</a>
+</p>
+<b>Further development:</b>
+<ul>
+<li>generalizing space phasor theory to m phases with arbitrary spatial angle of the coils</li>
+<li>generalizing space phasor theory to arbitrary number of windings and winding factor of the coils</li>
+<li>MachineModels: other machine types</li>
+<li>effects: saturation, skin-effect, other losses than ohmic, ...</li>
+</ul>
+<dl>
+  <dt><b>Main Authors:</b></dt>
+  <dd>
+  <a href="http://www.haumer.at/">Anton Haumer</a><br>
+  Technical Consulting & Electrical Engineering<br>
+  A-3423 St.Andrae-Woerdern<br>Austria<br>
+  email: <a href="mailto:a.haumer@haumer.at">a.haumer@haumer.at</a>
+  </dd>
+</dl>
+<p>
+Copyright &copy; 1998-2007, Modelica Association and Anton Haumer.
+</p>
+<p>
+<i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified
+under the terms of the <b>Modelica license</b>, see the license conditions
+and the accompanying <b>disclaimer</b>
+<A HREF="Modelica_UsersGuide.html#Modelica.UsersGuide.ModelicaLicense"
+>here</a>.</i>
+</p>
+<pre></PRE><P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Machines.ExamplesS.png" ALT="Modelica.Electrical.Machines.Examples" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Machines_Examples.html#Modelica.Electrical.Machines.Examples"
+>Examples</A>
+</TD><TD>Test examples</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Machines.BasicMachinesS.png" ALT="Modelica.Electrical.Machines.BasicMachines" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Machines_BasicMachines.html#676eb4de5952e80ces.BasicMachines"
+>BasicMachines</A>
+</TD><TD>Basic machine models</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Machines.SensorsS.png" ALT="Modelica.Electrical.Machines.Sensors" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Machines_Sensors.html#Modelica.Electrical.Machines.Sensors"
+>Sensors</A>
+</TD><TD>Sensors for machine modelling</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Machines.SpacePhasorsS.png" ALT="Modelica.Electrical.Machines.SpacePhasors" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Machines_SpacePhasors.html#bdd1806ca02126e2nes.SpacePhasors"
+>SpacePhasors</A>
+</TD><TD>Library with space phasor-models</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Machines.InterfacesS.png" ALT="Modelica.Electrical.Machines.Interfaces" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Machines_Interfaces.html#e3f2912a990fdc4fhines.Interfaces"
+>Interfaces</A>
+</TD><TD>SpacePhasor connector and PartialMachines</TD></TR>
+</TABLE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Fri Sep 07 19:12:36 2007.
+</address></BODY>
+</HTML>

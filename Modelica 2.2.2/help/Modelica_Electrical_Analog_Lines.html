@@ -1,0 +1,554 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Electrical.Analog.Lines</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Lossy and lossless segmented transmission lines, and LC distributed line models&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Lines<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Electrical.Analog.Lines"></A><A HREF="Modelica_Electrical_Analog.html#Modelica.Electrical.Analog"
+>Modelica.Electrical.Analog</A>.Lines</H2>
+<B>Lossy and lossless segmented transmission lines, and LC distributed line models</B>
+<P>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This package contains lossy and lossless segmented transmission lines,
+and LC distributed line models.
+</p>
+
+<pre>
+</PRE><P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Analog.Lines.OLineS.png" ALT="Modelica.Electrical.Analog.Lines.OLine" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Analog_Lines.html#a44d236045f68914alog.Lines.OLine"
+>OLine</A>
+</TD><TD>Lossy Transmission Line</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Analog.Lines.OLineS.png" ALT="Modelica.Electrical.Analog.Lines.ULine" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Analog_Lines.html#0d9f694644568914alog.Lines.ULine"
+>ULine</A>
+</TD><TD>Lossy RC Line</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Analog.Lines.TLine1S.png" ALT="Modelica.Electrical.Analog.Lines.TLine1" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Analog_Lines.html#fd0e939088d122b1log.Lines.TLine1"
+>TLine1</A>
+</TD><TD>Lossless transmission line with characteristic impedance Z0 and transmission delay TD</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Analog.Lines.TLine1S.png" ALT="Modelica.Electrical.Analog.Lines.TLine2" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Analog_Lines.html#fd0e939188d122b2log.Lines.TLine2"
+>TLine2</A>
+</TD><TD>Lossless transmission line with characteristic impedance Z0, frequency F and normalized length NL</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Analog.Lines.TLine1S.png" ALT="Modelica.Electrical.Analog.Lines.TLine3" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Analog_Lines.html#fd0e939288d122b3log.Lines.TLine3"
+>TLine3</A>
+</TD><TD>Lossless transmission line with characteristic impedance Z0 and frequency F</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE OLine<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Analog.Lines.OLineI.png" ALT="Modelica.Electrical.Analog.Lines.OLine" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="a44d236045f68914alog.Lines.OLine"></A><A HREF="Modelica_Electrical_Analog_Lines.html#Modelica.Electrical.Analog.Lines"
+>Modelica.Electrical.Analog.Lines</A>.OLine</H2>
+<B>Lossy Transmission Line</B><p>
+<IMG SRC="Modelica.Electrical.Analog.Lines.OLineD.png" ALT="Modelica.Electrical.Analog.Lines.OLine">
+<H3>Information</H3>
+<PRE></pre>
+<P>
+Lossy Transmission Line.
+  The lossy transmission line OLine consists of segments of
+  lumped resistances and inductances in series
+  and conductances and capacitances that are
+  connected with the reference pin p3. The precision
+  of the model depends on the number N of
+  lumped segments.
+</P>
+<DL>
+<DT>
+<b>References:</b>
+<DD>
+  Johnson, B.; Quarles, T.; Newton, A. R.; Pederson, D. O.;
+  Sangiovanni-Vincentelli, A.: SPICE3 Version 3e User's Manual
+  (April 1, 1991). Department of Electrical Engineering and
+  Computer Sciences, University of California, Berkley
+  p. 12, p. 106 - 107
+</DL>
+</P>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>r</TD><TD>1</TD><TD>Resistance per meter [Ohm/m]</TD></TR>
+<TR><TD>Real</TD><TD>l</TD><TD>1</TD><TD>Inductance per meter [H/m]</TD></TR>
+<TR><TD>Real</TD><TD>g</TD><TD>1</TD><TD>Conductance per meter [S/m]</TD></TR>
+<TR><TD>Real</TD><TD>c</TD><TD>1</TD><TD>Capacitance per meter [F/m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>length</TD><TD>1</TD><TD>Length of line [m]</TD></TR>
+<TR><TD>Integer</TD><TD>N</TD><TD>1</TD><TD>Number of lumped segments</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Electrical_Analog_Interfaces.html#cc0ae44de07f66c4g.Interfaces.Pin"
+>Pin</A></TD><TD>p1</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Analog_Interfaces.html#cc0ae44de07f66c4g.Interfaces.Pin"
+>Pin</A></TD><TD>p2</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Analog_Interfaces.html#cc0ae44de07f66c4g.Interfaces.Pin"
+>Pin</A></TD><TD>p3</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> OLine <font color="darkgreen">&quot;Lossy Transmission Line&quot;</font>
+  <font color="darkgreen">//extends Interfaces.ThreePol;</font>
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#cc0ae44de07f66c4g.Interfaces.Pin"
+>Interfaces.Pin</A> p1;
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#cc0ae44de07f66c4g.Interfaces.Pin"
+>Interfaces.Pin</A> p2;
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#cc0ae44de07f66c4g.Interfaces.Pin"
+>Interfaces.Pin</A> p3;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>SI.Voltage</A> v13;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>SI.Voltage</A> v23;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Current"
+>SI.Current</A> i1;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Current"
+>SI.Current</A> i2;
+  <font color="blue">parameter </font>Real r(
+    <font color="blue">final </font>min=Modelica.Constants.small,
+    unit=&quot;Ohm/m&quot;) = 1 <font color="darkgreen">&quot;Resistance per meter&quot;</font>;
+  <font color="blue">parameter </font>Real l(
+    <font color="blue">final </font>min=Modelica.Constants.small,
+    unit=&quot;H/m&quot;) = 1 <font color="darkgreen">&quot;Inductance per meter&quot;</font>;
+  <font color="blue">parameter </font>Real g(
+    <font color="blue">final </font>min=Modelica.Constants.small,
+    unit=&quot;S/m&quot;) = 1 <font color="darkgreen">&quot;Conductance per meter&quot;</font>;
+  <font color="blue">parameter </font>Real c(
+    <font color="blue">final </font>min=Modelica.Constants.small,
+    unit=&quot;F/m&quot;) = 1 <font color="darkgreen">&quot;Capacitance per meter&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> length(<font color="blue">final </font>min=Modelica.Constants.small) = 1 <font color="darkgreen">
+    &quot;Length of line&quot;</font>;
+  <font color="blue">parameter </font>Integer N(<font color="blue">final </font>min=1) = 1 <font color="darkgreen">&quot;Number of lumped segments&quot;</font>;
+<font color="blue">protected </font>
+  <A HREF="Modelica_Electrical_Analog_Basic.html#9312c33dbe431f97g.Basic.Resistor"
+>Basic.Resistor</A> R[N + 1](R=<font color="red">fill</font>(r*length/(N + 1), N + 1));
+  <A HREF="Modelica_Electrical_Analog_Basic.html#ce85c3da518b1f4dg.Basic.Inductor"
+>Basic.Inductor</A> L[N + 1](L=<font color="red">fill</font>(l*length/(N + 1), N + 1));
+  <A HREF="Modelica_Electrical_Analog_Basic.html#d87237d619610c05.Basic.Capacitor"
+>Basic.Capacitor</A> C[N](C=<font color="red">fill</font>(c*length/(N), N));
+  <A HREF="Modelica_Electrical_Analog_Basic.html#2453632792040c72.Basic.Conductor"
+>Basic.Conductor</A> G[N](G=<font color="red">fill</font>(g*length/(N), N));
+<font color="blue">equation </font>
+  v13 = p1.v - p3.v;
+  v23 = p2.v - p3.v;
+  i1 = p1.i;
+  i2 = p2.i;
+  <font color="red">connect</font>(p1, R[1].p);
+  <font color="blue">for </font>i<font color="blue"> in </font>1:N<font color="blue"> loop</font>
+    <font color="red">connect</font>(R[i].n, L[i].p);
+    <font color="red">connect</font>(L[i].n, C[i].p);
+    <font color="red">connect</font>(L[i].n, G[i].p);
+    <font color="red">connect</font>(C[i].n, p3);
+    <font color="red">connect</font>(G[i].n, p3);
+    <font color="red">connect</font>(L[i].n, R[i + 1].p);
+  <font color="blue">end for</font>;
+  <font color="red">connect</font>(R[N + 1].n, L[N + 1].p);
+  <font color="red">connect</font>(L[N + 1].n, p2);
+<font color="blue">end </font>OLine;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ULine<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Analog.Lines.OLineI.png" ALT="Modelica.Electrical.Analog.Lines.ULine" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="0d9f694644568914alog.Lines.ULine"></A><A HREF="Modelica_Electrical_Analog_Lines.html#Modelica.Electrical.Analog.Lines"
+>Modelica.Electrical.Analog.Lines</A>.ULine</H2>
+<B>Lossy RC Line</B><p>
+<IMG SRC="Modelica.Electrical.Analog.Lines.OLineD.png" ALT="Modelica.Electrical.Analog.Lines.ULine">
+<H3>Information</H3>
+<PRE></pre>
+<P>
+The lossy RC line ULine consists of segments of
+lumped series resistances and capacitances that are
+connected with the reference pin p3. The precision
+of the model depends on the number N of
+lumped segments.
+</P>
+
+<p>
+<b>References</b></dt>
+</p>
+<dl>
+<dt> Johnson, B.; Quarles, T.; Newton, A. R.; Pederson, D. O.;
+    Sangiovanni-Vincentelli, A.</dt>
+<dd> SPICE3 Version 3e User's Manual
+    (April 1, 1991). Department of Electrical Engineering and
+    Computer Sciences, University of California, Berkley
+    p. 22, p. 124</dd>
+</dl>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>r</TD><TD>1</TD><TD>Resistance per meter [Ohm/m]</TD></TR>
+<TR><TD>Real</TD><TD>c</TD><TD>1</TD><TD>Capacitance per meter [F/m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>length</TD><TD>1</TD><TD>Length of line [m]</TD></TR>
+<TR><TD>Integer</TD><TD>N</TD><TD>1</TD><TD>Number of lumped segments</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Electrical_Analog_Interfaces.html#cc0ae44de07f66c4g.Interfaces.Pin"
+>Pin</A></TD><TD>p1</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Analog_Interfaces.html#cc0ae44de07f66c4g.Interfaces.Pin"
+>Pin</A></TD><TD>p2</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Analog_Interfaces.html#cc0ae44de07f66c4g.Interfaces.Pin"
+>Pin</A></TD><TD>p3</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> ULine <font color="darkgreen">&quot;Lossy RC Line&quot;</font>
+  <font color="darkgreen">//extends Interfaces.ThreePol;</font>
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#cc0ae44de07f66c4g.Interfaces.Pin"
+>Interfaces.Pin</A> p1;
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#cc0ae44de07f66c4g.Interfaces.Pin"
+>Interfaces.Pin</A> p2;
+  <A HREF="Modelica_Electrical_Analog_Interfaces.html#cc0ae44de07f66c4g.Interfaces.Pin"
+>Interfaces.Pin</A> p3;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>SI.Voltage</A> v13;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>SI.Voltage</A> v23;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Current"
+>SI.Current</A> i1;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Current"
+>SI.Current</A> i2;
+  <font color="blue">parameter </font>Real r(
+    <font color="blue">final </font>min=Modelica.Constants.small,
+    unit=&quot;Ohm/m&quot;) = 1 <font color="darkgreen">&quot;Resistance per meter&quot;</font>;
+  <font color="blue">parameter </font>Real c(
+    <font color="blue">final </font>min=Modelica.Constants.small,
+    unit=&quot;F/m&quot;) = 1 <font color="darkgreen">&quot;Capacitance per meter&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> length(<font color="blue">final </font>min=Modelica.Constants.small) = 1 <font color="darkgreen">
+    &quot;Length of line&quot;</font>;
+  <font color="blue">parameter </font>Integer N(<font color="blue">final </font>min=1) = 1 <font color="darkgreen">&quot;Number of lumped segments&quot;</font>;
+<font color="blue">protected </font>
+  <A HREF="Modelica_Electrical_Analog_Basic.html#9312c33dbe431f97g.Basic.Resistor"
+>Basic.Resistor</A> R[N + 1](R=<font color="red">fill</font>(r*length/(N + 1), N + 1));
+  <A HREF="Modelica_Electrical_Analog_Basic.html#d87237d619610c05.Basic.Capacitor"
+>Basic.Capacitor</A> C[N](C=<font color="red">fill</font>(c*length/(N), N));
+<font color="blue">equation </font>
+  v13 = p1.v - p3.v;
+  v23 = p2.v - p3.v;
+  i1 = p1.i;
+  i2 = p2.i;
+  <font color="red">connect</font>(p1, R[1].p);
+  <font color="blue">for </font>i<font color="blue"> in </font>1:N<font color="blue"> loop</font>
+    <font color="red">connect</font>(R[i].n, R[i + 1].p);
+  <font color="blue">end for</font>;
+  <font color="blue">for </font>i<font color="blue"> in </font>1:N<font color="blue"> loop</font>
+    <font color="red">connect</font>(R[i].n, C[i].p);
+  <font color="blue">end for</font>;
+  <font color="blue">for </font>i<font color="blue"> in </font>1:N<font color="blue"> loop</font>
+    <font color="red">connect</font>(C[i].n, p3);
+  <font color="blue">end for</font>;
+  <font color="red">connect</font>(R[N + 1].n, p2);
+<font color="blue">end </font>ULine;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TLine1<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Analog.Lines.TLine1I.png" ALT="Modelica.Electrical.Analog.Lines.TLine1" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="fd0e939088d122b1log.Lines.TLine1"></A><A HREF="Modelica_Electrical_Analog_Lines.html#Modelica.Electrical.Analog.Lines"
+>Modelica.Electrical.Analog.Lines</A>.TLine1</H2>
+<B>Lossless transmission line with characteristic impedance Z0 and transmission delay TD</B><p>
+<IMG SRC="Modelica.Electrical.Analog.Lines.TLine1D.png" ALT="Modelica.Electrical.Analog.Lines.TLine1">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+Lossless transmission line with characteristic impedance Z0 and transmission delay TD
+  The lossless transmission line TLine1 is a two Port. Both port branches
+  consist of a resistor with characteristic impedance Z0 and a controled voltage
+  source that takes into consideration the transmission delay TD.
+  For further details see Branin's article below.
+  The model parameters can be derived from inductance and
+  capacitance per length (L' resp. C'), i. e.
+  Z0 = sqrt(L'/C') and TD = sqrt(L'*C')*length_of_line. Resistance R'
+  and conductance C' per meter are assumed to be zero.
+</p>
+
+
+<p>
+<b>References:</b>
+</p>
+<dl>
+<dt>Branin Jr., F. H.</dt>
+<dd> Transient Analysis of Lossless Transmission Lines.
+     Proceedings of the IEEE 55(1967), 2012 - 2013<dd>
+<dt> Hoefer, E. E. E.; Nielinger, H.</dt>
+<dd> SPICE : Analyseprogramm fuer elektronische
+  Schaltungen. Springer-Verlag, Berlin, Heidelberg, New York, Tokyo, 1985.
+</dd>
+</dl>
+
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Resistance</A></TD><TD>Z0</TD><TD>1</TD><TD>Characteristic impedance [Ohm]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
+>Time</A></TD><TD>TD</TD><TD>1</TD><TD>Transmission delay [s]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Electrical_Analog_Interfaces.html#8cba9f5ca935d7fbaces.PositivePin"
+>PositivePin</A></TD><TD>p1</TD><TD>Positive pin of the left port (potential p1.v &gt; n1.v for positive voltage drop v1)</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Analog_Interfaces.html#90b1e248a94c83bbaces.NegativePin"
+>NegativePin</A></TD><TD>n1</TD><TD>Negative pin of the left port</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Analog_Interfaces.html#8cba9f5ca935d7fbaces.PositivePin"
+>PositivePin</A></TD><TD>p2</TD><TD>Positive pin of the right port (potential p2.v &gt; n2.v for positive voltage drop v2)</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Analog_Interfaces.html#90b1e248a94c83bbaces.NegativePin"
+>NegativePin</A></TD><TD>n2</TD><TD>Negative pin of the right port</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TLine1 <font color="darkgreen">
+  &quot;Lossless transmission line with characteristic impedance Z0 and transmission delay TD&quot;</font>
+
+ <font color="blue">extends </font><A HREF="Modelica_Electrical_Analog_Interfaces.html#d993cc7d5077b5cbterfaces.TwoPort"
+>Modelica.Electrical.Analog.Interfaces.TwoPort</A>;
+
+ <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Modelica.SIunits.Resistance</A> Z0=1 <font color="darkgreen">&quot;Characteristic impedance&quot;</font>;
+ <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
+>Modelica.SIunits.Time</A> TD=1 <font color="darkgreen">&quot;Transmission delay&quot;</font>;
+
+<font color="blue">protected </font>
+ <A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> er;
+ <A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> es;
+<font color="blue">equation </font>
+
+ <font color="red">assert</font>(Z0 &gt; 0, &quot;Z0 has to be positive&quot;);
+ <font color="red">assert</font>(TD &gt; 0, &quot;TD has to be positive&quot;);
+ i1 = (v1 - es)/Z0;
+ i2 = (v2 - er)/Z0;
+ es = 2*<font color="red">delay</font>(v2, TD) -<font color="red"> delay</font>(er, TD);
+ er = 2*<font color="red">delay</font>(v1, TD) -<font color="red"> delay</font>(es, TD);
+
+<font color="blue">end </font>TLine1;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TLine2<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Analog.Lines.TLine2I.png" ALT="Modelica.Electrical.Analog.Lines.TLine2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="fd0e939188d122b2log.Lines.TLine2"></A><A HREF="Modelica_Electrical_Analog_Lines.html#Modelica.Electrical.Analog.Lines"
+>Modelica.Electrical.Analog.Lines</A>.TLine2</H2>
+<B>Lossless transmission line with characteristic impedance Z0, frequency F and normalized length NL</B><p>
+<IMG SRC="Modelica.Electrical.Analog.Lines.TLine2D.png" ALT="Modelica.Electrical.Analog.Lines.TLine2">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+Lossless transmission line with characteristic impedance Z0, frequency F and normalized length NL
+  The lossless transmission line TLine2 is a two Port. Both port branches
+  consist of a resistor with the value of the characteristic impedance Z0
+  and a controled voltage source that takes into consideration
+  the transmission delay.
+  For further details see Branin's article below.
+  Resistance R' and conductance C' per meter are assumed to be zero.
+  The characteristic impedance Z0 can be derived from inductance and
+  capacitance per length (L' resp. C'), i. e. Z0 = sqrt(L'/C').
+  The normalized length NL is equal to the length of the line divided
+  by the wavelength corresponding to the frequency F, i. e. the
+  transmission delay TD is the quotient of NL and F.
+</p>
+
+
+<p>
+<b>References:</b>
+</p>
+<dl>
+<dt>Branin Jr., F. H.</dt>
+<dd> Transient Analysis of Lossless Transmission Lines.
+     Proceedings of the IEEE 55(1967), 2012 - 2013<dd>
+<dt> Hoefer, E. E. E.; Nielinger, H.</dt>
+<dd> SPICE : Analyseprogramm fuer elektronische
+  Schaltungen. Springer-Verlag, Berlin, Heidelberg, New York, Tokyo, 1985.
+</dd>
+</dl>
+
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Resistance</A></TD><TD>Z0</TD><TD>1</TD><TD>Characteristic impedance [Ohm]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Frequency"
+>Frequency</A></TD><TD>F</TD><TD>1</TD><TD>Frequency [Hz]</TD></TR>
+<TR><TD>Real</TD><TD>NL</TD><TD>1</TD><TD>Normalized length</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Electrical_Analog_Interfaces.html#8cba9f5ca935d7fbaces.PositivePin"
+>PositivePin</A></TD><TD>p1</TD><TD>Positive pin of the left port (potential p1.v &gt; n1.v for positive voltage drop v1)</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Analog_Interfaces.html#90b1e248a94c83bbaces.NegativePin"
+>NegativePin</A></TD><TD>n1</TD><TD>Negative pin of the left port</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Analog_Interfaces.html#8cba9f5ca935d7fbaces.PositivePin"
+>PositivePin</A></TD><TD>p2</TD><TD>Positive pin of the right port (potential p2.v &gt; n2.v for positive voltage drop v2)</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Analog_Interfaces.html#90b1e248a94c83bbaces.NegativePin"
+>NegativePin</A></TD><TD>n2</TD><TD>Negative pin of the right port</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TLine2 <font color="darkgreen">
+  &quot;Lossless transmission line with characteristic impedance Z0, frequency F and normalized length NL&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Analog_Interfaces.html#d993cc7d5077b5cbterfaces.TwoPort"
+>Modelica.Electrical.Analog.Interfaces.TwoPort</A>;
+
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Modelica.SIunits.Resistance</A> Z0=1 <font color="darkgreen">&quot;Characteristic impedance&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Frequency"
+>Modelica.SIunits.Frequency</A> F=1 <font color="darkgreen">&quot;Frequency&quot;</font>;
+  <font color="blue">parameter </font>Real NL=1 <font color="darkgreen">&quot;Normalized length&quot;</font>;
+
+<font color="blue">protected </font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> er;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> es;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
+>Modelica.SIunits.Time</A> TD;
+<font color="blue">equation </font>
+
+  <font color="red">assert</font>(Z0 &gt; 0, &quot;Z0 has to be positive&quot;);
+  <font color="red">assert</font>(NL &gt; 0, &quot;NL has to be positive&quot;);
+  <font color="red">assert</font>(F &gt; 0, &quot;F  has to be positive&quot;);
+  TD = NL/F;
+  i1 = (v1 - es)/Z0;
+  i2 = (v2 - er)/Z0;
+  es = 2*<font color="red">delay</font>(v2, TD) -<font color="red"> delay</font>(er, TD);
+  er = 2*<font color="red">delay</font>(v1, TD) -<font color="red"> delay</font>(es, TD);
+
+<font color="blue">end </font>TLine2;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TLine3<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Analog.Lines.TLine3I.png" ALT="Modelica.Electrical.Analog.Lines.TLine3" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="fd0e939288d122b3log.Lines.TLine3"></A><A HREF="Modelica_Electrical_Analog_Lines.html#Modelica.Electrical.Analog.Lines"
+>Modelica.Electrical.Analog.Lines</A>.TLine3</H2>
+<B>Lossless transmission line with characteristic impedance Z0 and frequency F</B><p>
+<IMG SRC="Modelica.Electrical.Analog.Lines.TLine3D.png" ALT="Modelica.Electrical.Analog.Lines.TLine3">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+Lossless transmission line with characteristic impedance Z0 and frequency F
+  The lossless transmission line TLine3 is a two Port. Both port branches
+  consist of a resistor with value of the characteristic impedance Z0
+  and a controled voltage source that takes into consideration
+  the transmission delay.
+  For further details see Branin's article below.
+  Resistance R' and conductance C' per meter are assumed to be zero.
+  The characteristic impedance Z0 can be derived from inductance and
+  capacitance per length (L' resp. C'), i. e. Z0 = sqrt(L'/C').
+  The length of the line is equal to a quarter of the wavelength
+  corresponding to the frequency F, i. e. the
+  transmission delay is the quotient of 4 and F.
+  In this case, the caracteristic impedance is called natural impedance.
+</p>
+
+
+<p>
+<b>References:</b>
+</p>
+<dl>
+<dt>Branin Jr., F. H.</dt>
+<dd> Transient Analysis of Lossless Transmission Lines.
+     Proceedings of the IEEE 55(1967), 2012 - 2013<dd>
+<dt> Hoefer, E. E. E.; Nielinger, H.</dt>
+<dd> SPICE : Analyseprogramm fuer elektronische
+  Schaltungen. Springer-Verlag, Berlin, Heidelberg, New York, Tokyo, 1985.
+</dd>
+</dl>
+
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Resistance</A></TD><TD>Z0</TD><TD>1</TD><TD>Natural impedance [Ohm]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Frequency"
+>Frequency</A></TD><TD>F</TD><TD>1</TD><TD>Frequency [Hz]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Electrical_Analog_Interfaces.html#8cba9f5ca935d7fbaces.PositivePin"
+>PositivePin</A></TD><TD>p1</TD><TD>Positive pin of the left port (potential p1.v &gt; n1.v for positive voltage drop v1)</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Analog_Interfaces.html#90b1e248a94c83bbaces.NegativePin"
+>NegativePin</A></TD><TD>n1</TD><TD>Negative pin of the left port</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Analog_Interfaces.html#8cba9f5ca935d7fbaces.PositivePin"
+>PositivePin</A></TD><TD>p2</TD><TD>Positive pin of the right port (potential p2.v &gt; n2.v for positive voltage drop v2)</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Analog_Interfaces.html#90b1e248a94c83bbaces.NegativePin"
+>NegativePin</A></TD><TD>n2</TD><TD>Negative pin of the right port</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TLine3 <font color="darkgreen">
+  &quot;Lossless transmission line with characteristic impedance Z0 and frequency F&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Analog_Interfaces.html#d993cc7d5077b5cbterfaces.TwoPort"
+>Modelica.Electrical.Analog.Interfaces.TwoPort</A>;
+
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Modelica.SIunits.Resistance</A> Z0=1 <font color="darkgreen">&quot;Natural impedance&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Frequency"
+>Modelica.SIunits.Frequency</A> F=1 <font color="darkgreen">&quot;Frequency&quot;</font>;
+
+<font color="blue">protected </font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> er;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> es;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
+>Modelica.SIunits.Time</A> TD;
+<font color="blue">equation </font>
+
+  <font color="red">assert</font>(Z0 &gt; 0, &quot;Z0 has to be positive&quot;);
+  <font color="red">assert</font>(F &gt; 0, &quot;F  has to be positive&quot;);
+  TD = 1/F/4;
+  i1 = (v1 - es)/Z0;
+  i2 = (v2 - er)/Z0;
+  es = 2*<font color="red">delay</font>(v2, TD) -<font color="red"> delay</font>(er, TD);
+  er = 2*<font color="red">delay</font>(v1, TD) -<font color="red"> delay</font>(es, TD);
+
+<font color="blue">end </font>TLine3;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Fri Sep 07 19:12:13 2007.
+</address></BODY>
+</HTML>

@@ -1,0 +1,112 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.SIunits.Conversions.NonSIunits</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Type definitions of non SI units&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE NonSIunits<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="e50a204294441397sions.NonSIunits"></A><A HREF="Modelica_SIunits_Conversions.html#Modelica.SIunits.Conversions"
+>Modelica.SIunits.Conversions</A>.NonSIunits</H2>
+<B>Type definitions of non SI units</B>
+<P>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This package provides predefined types, such as <b>Angle_deg</b> (angle in
+degree), <b>AngularVelocity_rpm</b> (angular velocity in revolutions per
+minute) or <b>Temperature_degF</b> (temperature in degree Fahrenheit),
+which are in common use but are not part of the international standard on
+units according to ISO 31-1992 "General principles concerning quantities,
+units and symbols" and ISO 1000-1992 "SI units and recommendations for
+the use of their multiples and of certain other units".</p>
+<p>If possible, the types in this package should not be used. Use instead
+types of package Modelica.SIunits. For more information on units, see also
+the book of Francois Cardarelli <b>Scientific Unit Conversion - A
+Practical Guide to Metrication</b> (Springer 1997).</p>
+<p>Some units, such as <b>Temperature_degC/Temp_C</b> are both defined in
+Modelica.SIunits and in Modelica.Conversions.NonSIunits. The reason is that these
+definitions have been placed erroneously in Modelica.SIunits although they
+are not SIunits. For backward compatibility, these type definitions are
+still kept in Modelica.SIunits.</p>
+<pre>
+</PRE><P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#57c174fc1159fe08Temperature_degC"
+>Temperature_degC</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#57c174ff1159fe0dTemperature_degF"
+>Temperature_degF</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#e7fee50c0b3fc349emperature_degRk"
+>Temperature_degRk</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#a0348ede52e5cfbeIunits.Angle_deg"
+>Angle_deg</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#e19944ebe8c22ec5ularVelocity_rpm"
+>AngularVelocity_rpm</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#d6369a644dafebd7its.Velocity_kmh"
+>Velocity_kmh</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#2b31aa221e1bc26bSIunits.Time_day"
+>Time_day</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#1af6eeb6c35e7491Iunits.Time_hour"
+>Time_hour</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#127c1f5e73bfd5e9nits.Time_minute"
+>Time_minute</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#c368192d1acc8e49its.Volume_litre"
+>Volume_litre</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#5666e9add6c4c9b5units.Energy_kWh"
+>Energy_kWh</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#8853781d4332f2caits.Pressure_bar"
+>Pressure_bar</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#f3aa8f71d11d7fd8MassFlowRate_gps"
+>MassFlowRate_gps</A>
+</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Types and constants</H3>
+<A NAME="57c174fc1159fe08Temperature_degC"></A><PRE>  <font color="blue">type</font> Temperature_degC = Real (<font color="blue">final </font>quantity=&quot;ThermodynamicTemperature&quot;,
+        <font color="blue">final </font>unit=&quot;degC&quot;);</PRE><p>
+<A NAME="57c174ff1159fe0dTemperature_degF"></A><PRE>  <font color="blue">type</font> Temperature_degF = Real (<font color="blue">final </font>quantity=&quot;ThermodynamicTemperature&quot;,
+        <font color="blue">final </font>unit=&quot;degF&quot;);</PRE><p>
+<A NAME="e7fee50c0b3fc349emperature_degRk"></A><PRE>  <font color="blue">type</font> Temperature_degRk = Real (<font color="blue">final </font>quantity=&quot;ThermodynamicTemperature&quot;,
+        <font color="blue">final </font>unit=&quot;degRk&quot;);</PRE><p>
+<A NAME="a0348ede52e5cfbeIunits.Angle_deg"></A><PRE>  <font color="blue">type</font> Angle_deg = Real (<font color="blue">final </font>quantity=&quot;Angle&quot;, <font color="blue">final </font>unit=&quot;deg&quot;);</PRE><p>
+<A NAME="e19944ebe8c22ec5ularVelocity_rpm"></A><PRE>  <font color="blue">type</font> AngularVelocity_rpm = Real (<font color="blue">final </font>quantity=&quot;AngularVelocity&quot;, <font color="blue">final </font>unit
+      =      &quot;rev/min&quot;);</PRE><p>
+<A NAME="d6369a644dafebd7its.Velocity_kmh"></A><PRE>  <font color="blue">type</font> Velocity_kmh = Real (<font color="blue">final </font>quantity=&quot;Velocity&quot;, <font color="blue">final </font>unit=&quot;km/h&quot;);</PRE><p>
+<A NAME="2b31aa221e1bc26bSIunits.Time_day"></A><PRE>  <font color="blue">type</font> Time_day = Real (<font color="blue">final </font>quantity=&quot;Time&quot;, <font color="blue">final </font>unit=&quot;d&quot;);</PRE><p>
+<A NAME="1af6eeb6c35e7491Iunits.Time_hour"></A><PRE>  <font color="blue">type</font> Time_hour = Real (<font color="blue">final </font>quantity=&quot;Time&quot;, <font color="blue">final </font>unit=&quot;h&quot;);</PRE><p>
+<A NAME="127c1f5e73bfd5e9nits.Time_minute"></A><PRE>  <font color="blue">type</font> Time_minute = Real (<font color="blue">final </font>quantity=&quot;Time&quot;, <font color="blue">final </font>unit=&quot;min&quot;);</PRE><p>
+<A NAME="c368192d1acc8e49its.Volume_litre"></A><PRE>  <font color="blue">type</font> Volume_litre = Real (<font color="blue">final </font>quantity=&quot;Volume&quot;, <font color="blue">final </font>unit=&quot;l&quot;);</PRE><p>
+<A NAME="5666e9add6c4c9b5units.Energy_kWh"></A><PRE>  <font color="blue">type</font> Energy_kWh = Real (<font color="blue">final </font>quantity=&quot;Energy&quot;, <font color="blue">final </font>unit=&quot;kW.h&quot;);</PRE><p>
+<A NAME="8853781d4332f2caits.Pressure_bar"></A><PRE>  <font color="blue">type</font> Pressure_bar = Real (<font color="blue">final </font>quantity=&quot;Pressure&quot;, <font color="blue">final </font>unit=&quot;bar&quot;);</PRE><p>
+<A NAME="f3aa8f71d11d7fd8MassFlowRate_gps"></A><PRE>  <font color="blue">type</font> MassFlowRate_gps = Real (<font color="blue">final </font>quantity=&quot;MassFlowRate&quot;, <font color="blue">final </font>unit=
+          &quot;g/s&quot;);</PRE><p>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Fri Sep 07 19:14:01 2007.
+</address></BODY>
+</HTML>

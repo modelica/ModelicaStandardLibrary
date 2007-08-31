@@ -1,0 +1,378 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Thermal.FluidHeatFlow.Sensors</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Ideal sensors to measure port properties&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Sensors<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="57ba606485ea49fcHeatFlow.Sensors"></A><A HREF="Modelica_Thermal_FluidHeatFlow.html#Modelica.Thermal.FluidHeatFlow"
+>Modelica.Thermal.FluidHeatFlow</A>.Sensors</H2>
+<B>Ideal sensors to measure port properties</B>
+<P>
+<H3>Information</H3>
+<PRE></pre>
+This package contains sensors:
+<ul>
+<li>pSensor: absolute pressure</li>
+<li>TSensor: absolute temperature (Kelvin)</li>
+<li>dpSensor: pressure drop between flowPort_a and flowPort_b</li>
+<li>dTSensor: temperature difference between flowPort_a and flowPort_b</li>
+<li>m_flowSensor: measures mass flow rate</li>
+<li>V_flowSensor: measures volume flow rate</li>
+<li>H_flowSensor: measures enthalpy flow rate</li>
+</ul>
+Some of the sensors do not need access to medium properties for measuring,
+but it is necessary to define the medium in the connector (check of connections).<br>
+Thermodynamic equations are defined in partial models (package Interfaces.Partials).<br>
+All sensors are considered massless, they do not change mass flow or enthalpy flow.<br>
+<dl>
+  <dt><b>Main Authors:</b></dt>
+  <dd>
+  <p>
+  <a href="http://www.haumer.at/">Anton Haumer</a><br>
+  Technical Consulting & Electrical Engineering<br>
+  A-3423 St.Andrae-Woerdern, Austria<br>
+  email: <a href="mailto:a.haumer@haumer.at">a.haumer@haumer.at</a>
+  </p>
+  <p>
+  Dr.Christian Kral & Markus Plainer<br>
+  &Ouml;sterreichisches Forschungs- und Pr&uuml;fzentrum Arsenal Ges.m.b.H.<br>
+  <a href="http://www.arsenal.ac.at/">arsenal research</a><br>
+  Giefinggasse 2<br>
+  A-1210 Vienna, Austria
+  </p>
+  </dd>
+</dl>
+<p>
+Copyright &copy; 1998-2007, Modelica Association, Anton Haumer and arsenal research.
+</p>
+<p>
+<i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
+under the terms of the <b>Modelica license</b>, see the license conditions
+and the accompanying <b>disclaimer</b>
+<A HREF="Modelica_UsersGuide.html#Modelica.UsersGuide.ModelicaLicense"
+>here</a>.</i>
+</p>
+<pre></PRE><P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Thermal.FluidHeatFlow.Sensors.pSensorS.png" ALT="Modelica.Thermal.FluidHeatFlow.Sensors.pSensor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_FluidHeatFlow_Sensors.html#9ceb56f04a2f3e7b.Sensors.pSensor"
+>pSensor</A>
+</TD><TD>Absolute pressure sensor</TD></TR>
+<TR><TD><IMG SRC="Modelica.Thermal.FluidHeatFlow.Sensors.pSensorS.png" ALT="Modelica.Thermal.FluidHeatFlow.Sensors.TSensor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_FluidHeatFlow_Sensors.html#d9624b344a2f3e72.Sensors.TSensor"
+>TSensor</A>
+</TD><TD>Absolute temperature sensor</TD></TR>
+<TR><TD><IMG SRC="Modelica.Thermal.FluidHeatFlow.Sensors.dpSensorS.png" ALT="Modelica.Thermal.FluidHeatFlow.Sensors.dpSensor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_FluidHeatFlow_Sensors.html#ddf0f3f8e9593413Sensors.dpSensor"
+>dpSensor</A>
+</TD><TD>Pressure difference sensor</TD></TR>
+<TR><TD><IMG SRC="Modelica.Thermal.FluidHeatFlow.Sensors.dpSensorS.png" ALT="Modelica.Thermal.FluidHeatFlow.Sensors.dTSensor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_FluidHeatFlow_Sensors.html#1a67e83ce959341aSensors.dTSensor"
+>dTSensor</A>
+</TD><TD>Temperature difference sensor</TD></TR>
+<TR><TD><IMG SRC="Modelica.Thermal.FluidHeatFlow.Sensors.dpSensorS.png" ALT="Modelica.Thermal.FluidHeatFlow.Sensors.m_flowSensor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_FluidHeatFlow_Sensors.html#79ff0ff43c42fd06ors.m_flowSensor"
+>m_flowSensor</A>
+</TD><TD>Mass flow sensor</TD></TR>
+<TR><TD><IMG SRC="Modelica.Thermal.FluidHeatFlow.Sensors.dpSensorS.png" ALT="Modelica.Thermal.FluidHeatFlow.Sensors.V_flowSensor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_FluidHeatFlow_Sensors.html#35f9a1e721c2fd06ors.V_flowSensor"
+>V_flowSensor</A>
+</TD><TD>Volume flow sensor</TD></TR>
+<TR><TD><IMG SRC="Modelica.Thermal.FluidHeatFlow.Sensors.dpSensorS.png" ALT="Modelica.Thermal.FluidHeatFlow.Sensors.H_flowSensor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_FluidHeatFlow_Sensors.html#8701752d2ec2fd06ors.H_flowSensor"
+>H_flowSensor</A>
+</TD><TD>Enthapy flow sensor</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE pSensor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Thermal.FluidHeatFlow.Sensors.pSensorI.png" ALT="Modelica.Thermal.FluidHeatFlow.Sensors.pSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="9ceb56f04a2f3e7b.Sensors.pSensor"></A><A HREF="Modelica_Thermal_FluidHeatFlow_Sensors.html#57ba606485ea49fcHeatFlow.Sensors"
+>Modelica.Thermal.FluidHeatFlow.Sensors</A>.pSensor</H2>
+<B>Absolute pressure sensor</B><p>
+<IMG SRC="Modelica.Thermal.FluidHeatFlow.Sensors.pSensorD.png" ALT="Modelica.Thermal.FluidHeatFlow.Sensors.pSensor">
+<H3>Information</H3>
+<PRE></pre>
+pSensor measures the absolute pressure.<br>
+Thermodynamic equations are defined by Partials.AbsoluteSensor.
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Thermal_FluidHeatFlow_Media.html#e689f2108ae92439low.Media.Medium"
+>Medium</A></TD><TD>medium</TD><TD>FluidHeatFlow.Media.Medium()</TD><TD>Sensor's medium</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Thermal_FluidHeatFlow_Interfaces.html#23316dac9fb7af00faces.FlowPort_a"
+>FlowPort_a</A></TD><TD>flowPort</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> pSensor <font color="darkgreen">&quot;Absolute pressure sensor&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Thermal_FluidHeatFlow_Interfaces_Partials.html#0894978aa2e3d85ds.AbsoluteSensor"
+>Interfaces.Partials.AbsoluteSensor</A>(y(<font color="blue">redeclare </font><font color="blue">type</font> SignalType =
+          <A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Modelica.SIunits.Pressure</A>));
+<font color="blue">equation </font>
+  y = flowPort.p;
+<font color="blue">end </font>pSensor;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TSensor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Thermal.FluidHeatFlow.Sensors.TSensorI.png" ALT="Modelica.Thermal.FluidHeatFlow.Sensors.TSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="d9624b344a2f3e72.Sensors.TSensor"></A><A HREF="Modelica_Thermal_FluidHeatFlow_Sensors.html#57ba606485ea49fcHeatFlow.Sensors"
+>Modelica.Thermal.FluidHeatFlow.Sensors</A>.TSensor</H2>
+<B>Absolute temperature sensor</B><p>
+<IMG SRC="Modelica.Thermal.FluidHeatFlow.Sensors.pSensorD.png" ALT="Modelica.Thermal.FluidHeatFlow.Sensors.TSensor">
+<H3>Information</H3>
+<PRE></pre>
+TSensor measures the absolute temperature (Kelvin).<br>
+Thermodynamic equations are defined by Partials.AbsoluteSensor.
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Thermal_FluidHeatFlow_Media.html#e689f2108ae92439low.Media.Medium"
+>Medium</A></TD><TD>medium</TD><TD>FluidHeatFlow.Media.Medium()</TD><TD>Sensor's medium</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Thermal_FluidHeatFlow_Interfaces.html#23316dac9fb7af00faces.FlowPort_a"
+>FlowPort_a</A></TD><TD>flowPort</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TSensor <font color="darkgreen">&quot;Absolute temperature sensor&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Thermal_FluidHeatFlow_Interfaces_Partials.html#0894978aa2e3d85ds.AbsoluteSensor"
+>Interfaces.Partials.AbsoluteSensor</A>(y(<font color="blue">redeclare </font><font color="blue">type</font> SignalType =
+          <A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Modelica.SIunits.Temperature</A>));
+<font color="blue">equation </font>
+  medium.cp*y = flowPort.h;
+<font color="blue">end </font>TSensor;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dpSensor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Thermal.FluidHeatFlow.Sensors.dpSensorI.png" ALT="Modelica.Thermal.FluidHeatFlow.Sensors.dpSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ddf0f3f8e9593413Sensors.dpSensor"></A><A HREF="Modelica_Thermal_FluidHeatFlow_Sensors.html#57ba606485ea49fcHeatFlow.Sensors"
+>Modelica.Thermal.FluidHeatFlow.Sensors</A>.dpSensor</H2>
+<B>Pressure difference sensor</B><p>
+<IMG SRC="Modelica.Thermal.FluidHeatFlow.Sensors.dpSensorD.png" ALT="Modelica.Thermal.FluidHeatFlow.Sensors.dpSensor">
+<H3>Information</H3>
+<PRE></pre>
+dpSensor measures the pressure drop between flowPort_a and flowPort_b.<br>
+Thermodynamic equations are defined by Partials.RelativeSensor.
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Thermal_FluidHeatFlow_Media.html#e689f2108ae92439low.Media.Medium"
+>Medium</A></TD><TD>medium</TD><TD>FluidHeatFlow.Media.Medium()</TD><TD>Sensor's medium</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Thermal_FluidHeatFlow_Interfaces.html#23316dac9fb7af00faces.FlowPort_a"
+>FlowPort_a</A></TD><TD>flowPort_a</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Thermal_FluidHeatFlow_Interfaces.html#23316dad9fb7af03faces.FlowPort_b"
+>FlowPort_b</A></TD><TD>flowPort_b</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> dpSensor <font color="darkgreen">&quot;Pressure difference sensor&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Thermal_FluidHeatFlow_Interfaces_Partials.html#8b0aaae7dd58c46bs.RelativeSensor"
+>Interfaces.Partials.RelativeSensor</A>(y(<font color="blue">redeclare </font><font color="blue">type</font> SignalType =
+          <A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Modelica.SIunits.Pressure</A>));
+<font color="blue">equation </font>
+  y = flowPort_a.p - flowPort_b.p;
+<font color="blue">end </font>dpSensor;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dTSensor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Thermal.FluidHeatFlow.Sensors.dpSensorI.png" ALT="Modelica.Thermal.FluidHeatFlow.Sensors.dTSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="1a67e83ce959341aSensors.dTSensor"></A><A HREF="Modelica_Thermal_FluidHeatFlow_Sensors.html#57ba606485ea49fcHeatFlow.Sensors"
+>Modelica.Thermal.FluidHeatFlow.Sensors</A>.dTSensor</H2>
+<B>Temperature difference sensor</B><p>
+<IMG SRC="Modelica.Thermal.FluidHeatFlow.Sensors.dpSensorD.png" ALT="Modelica.Thermal.FluidHeatFlow.Sensors.dTSensor">
+<H3>Information</H3>
+<PRE></pre>
+dTSensor measures the temperature difference between flowPort_a and flowPort_b.<br>
+Thermodynamic equations are defined by Partials.RelativeSensor.<br>
+<b>Note:</b> Connected flowPorts have the same temperature (mixing temperature)!<br>
+Since mixing my occur, the outlet temperature of a component may be different from the connector's temperature.<br>
+Outlet temperature is defined by variable T of the corresponding component.
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Thermal_FluidHeatFlow_Media.html#e689f2108ae92439low.Media.Medium"
+>Medium</A></TD><TD>medium</TD><TD>FluidHeatFlow.Media.Medium()</TD><TD>Sensor's medium</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Thermal_FluidHeatFlow_Interfaces.html#23316dac9fb7af00faces.FlowPort_a"
+>FlowPort_a</A></TD><TD>flowPort_a</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Thermal_FluidHeatFlow_Interfaces.html#23316dad9fb7af03faces.FlowPort_b"
+>FlowPort_b</A></TD><TD>flowPort_b</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> dTSensor <font color="darkgreen">&quot;Temperature difference sensor&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Thermal_FluidHeatFlow_Interfaces_Partials.html#8b0aaae7dd58c46bs.RelativeSensor"
+>Interfaces.Partials.RelativeSensor</A>(y(<font color="blue">redeclare </font><font color="blue">type</font> SignalType =
+          <A HREF="Modelica_SIunits.html#3f9603f0a98f434aratureDifference"
+>Modelica.SIunits.TemperatureDifference</A>));
+<font color="blue">equation </font>
+  medium.cp*y = flowPort_a.h - flowPort_b.h;
+<font color="blue">end </font>dTSensor;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE m_flowSensor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Thermal.FluidHeatFlow.Sensors.m_flowSensorI.png" ALT="Modelica.Thermal.FluidHeatFlow.Sensors.m_flowSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="79ff0ff43c42fd06ors.m_flowSensor"></A><A HREF="Modelica_Thermal_FluidHeatFlow_Sensors.html#57ba606485ea49fcHeatFlow.Sensors"
+>Modelica.Thermal.FluidHeatFlow.Sensors</A>.m_flowSensor</H2>
+<B>Mass flow sensor</B><p>
+<IMG SRC="Modelica.Thermal.FluidHeatFlow.Sensors.dpSensorD.png" ALT="Modelica.Thermal.FluidHeatFlow.Sensors.m_flowSensor">
+<H3>Information</H3>
+<PRE></pre>
+m_flowSensor measures the mass flow rate.<br>
+Thermodynamic equations are defined by Partials.FlowSensor.
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Thermal_FluidHeatFlow_Media.html#e689f2108ae92439low.Media.Medium"
+>Medium</A></TD><TD>medium</TD><TD>FluidHeatFlow.Media.Medium()</TD><TD>Medium in the component</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Thermal_FluidHeatFlow_Interfaces.html#23316dac9fb7af00faces.FlowPort_a"
+>FlowPort_a</A></TD><TD>flowPort_a</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Thermal_FluidHeatFlow_Interfaces.html#23316dad9fb7af03faces.FlowPort_b"
+>FlowPort_b</A></TD><TD>flowPort_b</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> m_flowSensor <font color="darkgreen">&quot;Mass flow sensor&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Thermal_FluidHeatFlow_Interfaces_Partials.html#24a2e88d2e694b5ctials.FlowSensor"
+>Interfaces.Partials.FlowSensor</A>(y(<font color="blue">redeclare </font><font color="blue">type</font> SignalType =
+          <A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>Modelica.SIunits.MassFlowRate</A>));
+<font color="blue">equation </font>
+  y = V_flow*medium.rho;
+<font color="blue">end </font>m_flowSensor;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE V_flowSensor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Thermal.FluidHeatFlow.Sensors.V_flowSensorI.png" ALT="Modelica.Thermal.FluidHeatFlow.Sensors.V_flowSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="35f9a1e721c2fd06ors.V_flowSensor"></A><A HREF="Modelica_Thermal_FluidHeatFlow_Sensors.html#57ba606485ea49fcHeatFlow.Sensors"
+>Modelica.Thermal.FluidHeatFlow.Sensors</A>.V_flowSensor</H2>
+<B>Volume flow sensor</B><p>
+<IMG SRC="Modelica.Thermal.FluidHeatFlow.Sensors.dpSensorD.png" ALT="Modelica.Thermal.FluidHeatFlow.Sensors.V_flowSensor">
+<H3>Information</H3>
+<PRE></pre>
+V_flowSensor measures the volume flow rate.<br>
+Thermodynamic equations are defined by Partials.FlowSensor.
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Thermal_FluidHeatFlow_Media.html#e689f2108ae92439low.Media.Medium"
+>Medium</A></TD><TD>medium</TD><TD>FluidHeatFlow.Media.Medium()</TD><TD>Medium in the component</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Thermal_FluidHeatFlow_Interfaces.html#23316dac9fb7af00faces.FlowPort_a"
+>FlowPort_a</A></TD><TD>flowPort_a</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Thermal_FluidHeatFlow_Interfaces.html#23316dad9fb7af03faces.FlowPort_b"
+>FlowPort_b</A></TD><TD>flowPort_b</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> V_flowSensor <font color="darkgreen">&quot;Volume flow sensor&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Thermal_FluidHeatFlow_Interfaces_Partials.html#24a2e88d2e694b5ctials.FlowSensor"
+>Interfaces.Partials.FlowSensor</A>(y(<font color="blue">redeclare </font><font color="blue">type</font> SignalType =
+          <A HREF="Modelica_SIunits.html#Modelica.SIunits.VolumeFlowRate"
+>Modelica.SIunits.VolumeFlowRate</A>));
+<font color="blue">equation </font>
+  y = V_flow;
+<font color="blue">end </font>V_flowSensor;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE H_flowSensor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Thermal.FluidHeatFlow.Sensors.H_flowSensorI.png" ALT="Modelica.Thermal.FluidHeatFlow.Sensors.H_flowSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="8701752d2ec2fd06ors.H_flowSensor"></A><A HREF="Modelica_Thermal_FluidHeatFlow_Sensors.html#57ba606485ea49fcHeatFlow.Sensors"
+>Modelica.Thermal.FluidHeatFlow.Sensors</A>.H_flowSensor</H2>
+<B>Enthapy flow sensor</B><p>
+<IMG SRC="Modelica.Thermal.FluidHeatFlow.Sensors.dpSensorD.png" ALT="Modelica.Thermal.FluidHeatFlow.Sensors.H_flowSensor">
+<H3>Information</H3>
+<PRE></pre>
+H_flowSensor measures the enthalpy flow rate.<br>
+Thermodynamic equations are defined by Partials.FlowSensor.
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Thermal_FluidHeatFlow_Media.html#e689f2108ae92439low.Media.Medium"
+>Medium</A></TD><TD>medium</TD><TD>FluidHeatFlow.Media.Medium()</TD><TD>Medium in the component</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Thermal_FluidHeatFlow_Interfaces.html#23316dac9fb7af00faces.FlowPort_a"
+>FlowPort_a</A></TD><TD>flowPort_a</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Thermal_FluidHeatFlow_Interfaces.html#23316dad9fb7af03faces.FlowPort_b"
+>FlowPort_b</A></TD><TD>flowPort_b</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> H_flowSensor <font color="darkgreen">&quot;Enthapy flow sensor&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Thermal_FluidHeatFlow_Interfaces_Partials.html#24a2e88d2e694b5ctials.FlowSensor"
+>Interfaces.Partials.FlowSensor</A>(y(<font color="blue">redeclare </font><font color="blue">type</font> SignalType =
+          <A HREF="Modelica_SIunits.html#Modelica.SIunits.EnthalpyFlowRate"
+>Modelica.SIunits.EnthalpyFlowRate</A>));
+<font color="blue">equation </font>
+  y = flowPort_a.H_flow;
+<font color="blue">end </font>H_flowSensor;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Fri Sep 07 19:14:08 2007.
+</address></BODY>
+</HTML>

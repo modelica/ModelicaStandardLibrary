@@ -1,0 +1,884 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Thermal.HeatTransfer</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Library of 1-dimensional heat transfer with lumped elements&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE HeatTransfer<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Thermal.HeatTransfer"></A><A HREF="Modelica_Thermal.html#Modelica.Thermal"
+>Modelica.Thermal</A>.HeatTransfer</H2>
+<B>Library of 1-dimensional heat transfer with lumped elements</B>
+<P>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This package contains components to model <b>1-dimensional heat transfer</b>
+with lumped elements. This allows especially to model heat transfer in
+machines provided the parameters of the lumped elements, such as
+the heat capacity of a part, can be determined by measurements
+(due to the complex geometries and many materials used in machines,
+calculating the lumped element parameters from some basic analytic
+formulas is usually not possible).
+</p>
+<p>
+Example models how to use this library are given in subpackage <b>Examples</b>.<br>
+For a first simple example, see <b>Examples.TwoMasses</b> where two masses
+with different initial temperatures are getting in contact to each
+other and arriving after some time at a common temperature.<br>
+<b>Examples.ControlledTemperature</b> shows how to hold a temperature
+within desired limits by switching on and off an electric resistor.<br>
+A more realistic example is provided in <b>Examples.Motor</b> where the
+heating of an electrical motor is modelled, see the following screen shot
+of this example:
+</p>
+<img src="../Images/driveWithHeatTransfer.png" ALT="driveWithHeatTransfer">
+<p>
+The <b>filled</b> and <b>non-filled red squares</b> at the left and
+right side of a component represent <b>thermal ports</b> (connector HeatPort).
+Drawing a line between such squares means that they are thermally connected.
+The variables of a HeatPort connector are the temperature <b>T</b> at the port
+and the heat flow rate <b>Q_flow</b> flowing into the component (if Q_flow is positive,
+the heat flows into the element, otherwise it flows out of the element):
+</p>
+<pre>   Modelica.SIunits.Temperature  T  "absolute temperature at port in Kelvin";
+   Modelica.SIunits.HeatFlowRate Q_flow  "flow rate at the port in Watt";
+</pre>
+<p>
+Note, that all temperatures of this package, including initial conditions,
+are given in Kelvin. For convenience, in subpackages <b>HeatTransfer.Celsius</b>,
+ <b>HeatTransfer.Fahrenheit</b> and <b>HeatTransfer.Rankine</b> components are provided such that source and
+sensor information is available in degree Celsius, degree Fahrenheit, or degree Rankine,
+respectively. Additionally, in package <b>SIunits.Conversions</b> conversion
+functions between the units Kelvin and Celsius, Fahrenheit, Rankine are
+provided. These functions may be used in the following way:
+</p>
+<pre>  <b>import</b> SI=Modelica.SIunits;
+  <b>import</b> Modelica.SIunits.Conversions.*;
+     ...
+  <b>parameter</b> SI.Temperature T = from_degC(25);  // convert 25 degree Celsius to Kelvin
+</pre>
+
+<p>
+There are several other components available, such as AxialConduction (discretized PDE in
+axial direction), which have been temporarily removed from this library. The reason is that
+these components reference material properties, such as thermal conductivity, and currently
+the Modelica design group is discussing a general scheme to describe material properties.
+</p>
+<p>
+For technical details in the design of this library, see the following reference:<br>
+<b>Michael Tiller (2001)</b>: <a href="http://www.amazon.de">
+Introduction to Physical Modeling with Modelica</a>.
+Kluwer Academic Publishers Boston.
+</p>
+<p>
+<b>Acknowledgements:</b><br>
+Several helpful remarks from the following persons are acknowledged:
+John Batteh, Ford Motors, Dearborn, U.S.A;
+<a href="http://www.haumer.at/">Anton Haumer</a>, Technical Consulting & Electrical Engineering, Austria;
+Ludwig Marvan, VA TECH ELIN EBG Elektronik GmbH, Wien, Austria;
+Hans Olsson, Dynasim AB, Sweden;
+Hubertus Tummescheit, Lund Institute of Technology, Lund, Sweden.
+</p>
+<p><b>Copyright &copy; 2001-2007, Modelica Association, Michael Tiller and DLR.</b></p>
+<p><i>
+This Modelica package is free software; it can be redistributed and/or modified
+under the terms of the Modelica license, see the license conditions
+and the accompanying disclaimer in the documentation of package
+Modelica in file "Modelica/package.mo".
+</i></p>
+<pre>
+</PRE><P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Thermal.HeatTransfer.ExamplesS.png" ALT="Modelica.Thermal.HeatTransfer.Examples" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_HeatTransfer_Examples.html#b65867c1fe6decb4ransfer.Examples"
+>Examples</A>
+</TD><TD>Example models to demonstrate the usage of package Modelica.Thermal.HeatTransfer</TD></TR>
+<TR><TD><IMG SRC="Modelica.Thermal.HeatTransfer.InterfacesS.png" ALT="Modelica.Thermal.HeatTransfer.Interfaces" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#a512763ab3110780nsfer.Interfaces"
+>Interfaces</A>
+</TD><TD>Connectors and partial models</TD></TR>
+<TR><TD><IMG SRC="Modelica.Thermal.HeatTransfer.HeatCapacitorS.png" ALT="Modelica.Thermal.HeatTransfer.HeatCapacitor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_HeatTransfer.html#b17dc7cad3fa9526er.HeatCapacitor"
+>HeatCapacitor</A>
+</TD><TD>Lumped thermal element storing heat</TD></TR>
+<TR><TD><IMG SRC="Modelica.Thermal.HeatTransfer.ThermalConductorS.png" ALT="Modelica.Thermal.HeatTransfer.ThermalConductor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_HeatTransfer.html#53786ea0dc397406ThermalConductor"
+>ThermalConductor</A>
+</TD><TD>Lumped thermal element transporting heat without storing it</TD></TR>
+<TR><TD><IMG SRC="Modelica.Thermal.HeatTransfer.ConvectionS.png" ALT="Modelica.Thermal.HeatTransfer.Convection" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_HeatTransfer.html#02c22eb65d4aef09nsfer.Convection"
+>Convection</A>
+</TD><TD>Lumped thermal element for heat convection</TD></TR>
+<TR><TD><IMG SRC="Modelica.Thermal.HeatTransfer.BodyRadiationS.png" ALT="Modelica.Thermal.HeatTransfer.BodyRadiation" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_HeatTransfer.html#7348bc5766c1d03fer.BodyRadiation"
+>BodyRadiation</A>
+</TD><TD>Lumped thermal element for radiation heat transfer</TD></TR>
+<TR><TD><IMG SRC="Modelica.Thermal.HeatTransfer.FixedTemperatureS.png" ALT="Modelica.Thermal.HeatTransfer.FixedTemperature" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_HeatTransfer.html#1a125e2845276d30FixedTemperature"
+>FixedTemperature</A>
+</TD><TD>Fixed temperature boundary condition in Kelvin</TD></TR>
+<TR><TD><IMG SRC="Modelica.Thermal.HeatTransfer.PrescribedTemperatureS.png" ALT="Modelica.Thermal.HeatTransfer.PrescribedTemperature" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_HeatTransfer.html#35315d91ae7f3faeribedTemperature"
+>PrescribedTemperature</A>
+</TD><TD>Variable temperature boundary condition in Kelvin</TD></TR>
+<TR><TD><IMG SRC="Modelica.Thermal.HeatTransfer.FixedHeatFlowS.png" ALT="Modelica.Thermal.HeatTransfer.FixedHeatFlow" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_HeatTransfer.html#73310c7e74fb736eer.FixedHeatFlow"
+>FixedHeatFlow</A>
+</TD><TD>Fixed heat flow boundary condition</TD></TR>
+<TR><TD><IMG SRC="Modelica.Thermal.HeatTransfer.PrescribedHeatFlowS.png" ALT="Modelica.Thermal.HeatTransfer.PrescribedHeatFlow" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_HeatTransfer.html#1a9d85c9d345a5deescribedHeatFlow"
+>PrescribedHeatFlow</A>
+</TD><TD>Prescribed heat flow boundary condition</TD></TR>
+<TR><TD><IMG SRC="Modelica.Thermal.HeatTransfer.TemperatureSensorS.png" ALT="Modelica.Thermal.HeatTransfer.TemperatureSensor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_HeatTransfer.html#a856d32602f16bedemperatureSensor"
+>TemperatureSensor</A>
+</TD><TD>Absolute temperature sensor in Kelvin</TD></TR>
+<TR><TD><IMG SRC="Modelica.Thermal.HeatTransfer.RelTemperatureSensorS.png" ALT="Modelica.Thermal.HeatTransfer.RelTemperatureSensor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_HeatTransfer.html#d6ea4515529341b0emperatureSensor"
+>RelTemperatureSensor</A>
+</TD><TD>Relative Temperature sensor</TD></TR>
+<TR><TD><IMG SRC="Modelica.Thermal.HeatTransfer.HeatFlowSensorS.png" ALT="Modelica.Thermal.HeatTransfer.HeatFlowSensor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_HeatTransfer.html#734a6c04ef9f7af5r.HeatFlowSensor"
+>HeatFlowSensor</A>
+</TD><TD>Heat flow rate sensor</TD></TR>
+<TR><TD><IMG SRC="Modelica.Thermal.HeatTransfer.CelsiusS.png" ALT="Modelica.Thermal.HeatTransfer.Celsius" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_HeatTransfer_Celsius.html#Modelica.Thermal.HeatTransfer.Celsius"
+>Celsius</A>
+</TD><TD>Components with Celsius input and/or output</TD></TR>
+<TR><TD><IMG SRC="Modelica.Thermal.HeatTransfer.CelsiusS.png" ALT="Modelica.Thermal.HeatTransfer.Fahrenheit" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_HeatTransfer_Fahrenheit.html#3fa177725d9471e2nsfer.Fahrenheit"
+>Fahrenheit</A>
+</TD><TD>Components with Fahrenheit input and/or output</TD></TR>
+<TR><TD><IMG SRC="Modelica.Thermal.HeatTransfer.CelsiusS.png" ALT="Modelica.Thermal.HeatTransfer.Rankine" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_HeatTransfer_Rankine.html#Modelica.Thermal.HeatTransfer.Rankine"
+>Rankine</A>
+</TD><TD>Components with Rankine input and/or output</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE HeatCapacitor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Thermal.HeatTransfer.HeatCapacitorI.png" ALT="Modelica.Thermal.HeatTransfer.HeatCapacitor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="b17dc7cad3fa9526er.HeatCapacitor"></A><A HREF="Modelica_Thermal_HeatTransfer.html#Modelica.Thermal.HeatTransfer"
+>Modelica.Thermal.HeatTransfer</A>.HeatCapacitor</H2>
+<B>Lumped thermal element storing heat</B><p>
+<IMG SRC="Modelica.Thermal.HeatTransfer.HeatCapacitorD.png" ALT="Modelica.Thermal.HeatTransfer.HeatCapacitor">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This is a generic model for the heat capacity of a material.
+No specific geometry is assumed beyond a total volume with
+uniform temperature for the entire volume.
+Furthermore, it is assumed that the heat capacity
+is constant (indepedent of temperature).
+</p>
+<p>
+The temperature T [Kelvin] of this component is a <b>state</b>.
+A default of T = 25 degree Celsius (= SIunits.Conversions.from_degC(25))
+is used as start value for initialization.
+This usually means that at start of integration the temperature of this
+component is 25 degrees Celsius. You may, of course, define a different
+temperature as start value for initialization. Alternatively, it is possible
+to set parameter <b>steadyStateStart</b> to <b>true</b>. In this case
+the additional equation '<b>der</b>(T) = 0' is used during
+initialization, i.e., the temperature T is computed in such a way that
+the component starts in <b>steady state</b>. This is useful in cases,
+where one would like to start simulation in a suitable operating
+point without being forced to integrate for a long time to arrive
+at this point.
+</p>
+<p>
+Note, that parameter <b>steadyStateStart</b> is not available in
+the parameter menue of the simulation window, because its value
+is utilized during translation to generate quite different
+equations depending on its setting. Therefore, the value of this
+parameter can only be changed before translating the model.
+</p>
+<p>
+This component may be used for complicated geometries where
+the heat capacity C is determined my measurements. If the component
+consists mainly of one type of material, the <b>mass m</b> of the
+component may be measured or calculated and multiplied with the
+<b>specific heat capacity cp</b> of the component material to
+compute C:
+</p>
+<pre>
+   C = cp*m.
+   Typical values for cp at 20 degC in J/(kg.K):
+      aluminium   896
+      concrete    840
+      copper      383
+      iron        452
+      silver      235
+      steel       420 ... 500 (V2A)
+      wood       2500
+</pre>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.HeatCapacity"
+>HeatCapacity</A></TD><TD>C</TD><TD>&nbsp;</TD><TD>Heat capacity of part (= cp*m) [J/K]</TD></TR>
+<TR><TD>Boolean</TD><TD>steadyStateStart</TD><TD>false</TD><TD>true, if component shall start in steady state</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#8e0a743fe620351afaces.HeatPort_a"
+>HeatPort_a</A></TD><TD>port</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> HeatCapacitor <font color="darkgreen">&quot;Lumped thermal element storing heat&quot;</font>
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.HeatCapacity"
+>SI.HeatCapacity</A> C <font color="darkgreen">&quot;Heat capacity of part (= cp*m)&quot;</font>;
+  <font color="blue">parameter </font>Boolean steadyStateStart=false <font color="darkgreen">
+    &quot;true, if component shall start in steady state&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> T(start=<font color="red">from_degC</font>(20)) <font color="darkgreen">&quot;Temperature of part&quot;</font>;
+  <A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#8e0a743fe620351afaces.HeatPort_a"
+>Interfaces.HeatPort_a</A> port;
+<font color="blue">equation </font>
+  T = port.T;
+  C*<font color="red">der</font>(T) = port.Q_flow;
+
+<font color="blue">initial </font><font color="blue">equation </font>
+  <font color="blue">if </font>steadyStateStart<font color="blue"> then</font>
+    <font color="red">der</font>(T) = 0;
+  <font color="blue">end if</font>;
+<font color="blue">end </font>HeatCapacitor;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ThermalConductor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Thermal.HeatTransfer.ThermalConductorI.png" ALT="Modelica.Thermal.HeatTransfer.ThermalConductor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="53786ea0dc397406ThermalConductor"></A><A HREF="Modelica_Thermal_HeatTransfer.html#Modelica.Thermal.HeatTransfer"
+>Modelica.Thermal.HeatTransfer</A>.ThermalConductor</H2>
+<B>Lumped thermal element transporting heat without storing it</B><p>
+<IMG SRC="Modelica.Thermal.HeatTransfer.ThermalConductorD.png" ALT="Modelica.Thermal.HeatTransfer.ThermalConductor">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This is a model for transport of heat without storing it.
+It may be used for complicated geometries where
+the thermal conductance G (= inverse of thermal resistance)
+is determined by measurements and is assumed to be constant
+over the range of operations. If the component consists mainly of
+one type of material and a regular geometry, it may be calculated,
+e.g., with one of the following equations:
+</p>
+<ul>
+<li><p>
+    Conductance for a <b>box</b> geometry under the assumption
+    that heat flows along the box length:</p>
+    <pre>
+    G = k*A/L
+    k: Thermal conductivity (material constant)
+    A: Area of box
+    L: Length of box
+    </pre>
+    </li>
+<li><p>
+    Conductance for a <b>cylindrical</b> geometry under the assumption
+    that heat flows from the inside to the outside radius
+    of the cylinder:</p>
+    <pre>
+    G = 2*pi*k*L/log(r_out/r_in)
+    pi   : Modelica.Constants.pi
+    k    : Thermal conductivity (material constant)
+    L    : Length of cylinder
+    log  : Modelica.Math.log;
+    r_out: Outer radius of cylinder
+    r_in : Inner radius of cylinder
+    </pre>
+    </li>
+</li>
+</ul>
+<pre>
+    Typical values for k at 20 degC in W/(m.K):
+      aluminium   220
+      concrete      1
+      copper      384
+      iron         74
+      silver      407
+      steel        45 .. 15 (V2A)
+      wood         0.1 ... 0.2
+</pre>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.ThermalConductance"
+>ThermalConductance</A></TD><TD>G</TD><TD>&nbsp;</TD><TD>Constant thermal conductance of material [W/K]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#8e0a743fe620351afaces.HeatPort_a"
+>HeatPort_a</A></TD><TD>port_a</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#8e0a7440e6203519faces.HeatPort_b"
+>HeatPort_b</A></TD><TD>port_b</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> ThermalConductor <font color="darkgreen">
+  &quot;Lumped thermal element transporting heat without storing it&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#4abdf3abea619c59rfaces.Element1D"
+>Interfaces.Element1D</A>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.ThermalConductance"
+>SI.ThermalConductance</A> G <font color="darkgreen">&quot;Constant thermal conductance of material&quot;</font>;
+
+<font color="blue">equation </font>
+  Q_flow = G*dT;
+<font color="blue">end </font>ThermalConductor;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Convection<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Thermal.HeatTransfer.ConvectionI.png" ALT="Modelica.Thermal.HeatTransfer.Convection" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="02c22eb65d4aef09nsfer.Convection"></A><A HREF="Modelica_Thermal_HeatTransfer.html#Modelica.Thermal.HeatTransfer"
+>Modelica.Thermal.HeatTransfer</A>.Convection</H2>
+<B>Lumped thermal element for heat convection</B><p>
+<IMG SRC="Modelica.Thermal.HeatTransfer.ConvectionD.png" ALT="Modelica.Thermal.HeatTransfer.Convection">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This is a model of linear heat convection, e.g., the heat transfer
+between a plate and the surrounding air. It may be used for complicated
+solid geometries and fluid flow over the solid by determining the
+convective thermal conductance Gc by measurements. The basic constitutive
+equation for convection is
+</p>
+<pre>
+   Q_flow = Gc*(solid.T - fluid.T);
+   Q_flow: Heat flow rate from connector 'solid' (e.g. a plate)
+      to connector 'fluid' (e.g. the surrounding air)
+</pre>
+<p>
+Gc = G.signal[1] is an input signal to the component, since Gc is
+nearly never constant in practice. For example, Gc may be a function
+of the speed of a cooling fan. For simple situations,
+Gc may be <i>calculated</i> according to
+</p>
+<pre>
+   Gc = A*h
+   A: Convection area (e.g. perimeter*length of a box)
+   h: Heat transfer coefficient
+</pre>
+<p>
+where the heat transfer coefficient h is calculated
+from properties of the fluid flowing over the solid. Examples:
+</p>
+<p>
+<b>Machines cooled by air</b> (empirical, very rough approximation according
+to R. Fischer: Elektrische Maschinen, 10th edition, Hanser-Verlag 1999,
+p. 378):
+</p>
+<pre>
+    h = 7.8*v^0.78 [W/(m2.K)] (forced convection)
+      = 12         [W/(m2.K)] (free convection)
+    where
+      v: Air velocity in [m/s]
+</pre>
+<p><b>Laminar</b> flow with constant velocity of a fluid along a
+<b>flat plate</b> where the heat flow rate from the plate
+to the fluid (= solid.Q_flow) is kept constant
+(according to J.P.Holman: Heat Transfer, 8th edition,
+McGraw-Hill, 1997, p.270):
+</p>
+<pre>
+   h  = Nu*k/x;
+   Nu = 0.453*Re^(1/2)*Pr^(1/3);
+   where
+      h  : Heat transfer coefficient
+      Nu : = h*x/k       (Nusselt number)
+      Re : = v*x*rho/mue (Reynolds number)
+      Pr : = cp*mue/k    (Prandtl number)
+      v  : Absolute velocity of fluid
+      x  : distance from leading edge of flat plate
+      rho: density of fluid (material constant
+      mue: dynamic viscosity of fluid (material constant)
+      cp : specific heat capacity of fluid (material constant)
+      k  : thermal conductivity of fluid (material constant)
+   and the equation for h holds, provided
+      Re < 5e5 and 0.6 < Pr < 50
+</pre>
+<pre>
+</PRE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>input <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>Gc</TD><TD>Signal representing the convective thermal conductance in [W/K]</TD></TR>
+<TR><TD><A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#8e0a743fe620351afaces.HeatPort_a"
+>HeatPort_a</A></TD><TD>solid</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#8e0a7440e6203519faces.HeatPort_b"
+>HeatPort_b</A></TD><TD>fluid</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Convection <font color="darkgreen">&quot;Lumped thermal element for heat convection&quot;</font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.HeatFlowRate"
+>SI.HeatFlowRate</A> Q_flow <font color="darkgreen">&quot;Heat flow rate from solid -&gt; fluid&quot;</font>;
+  <A HREF="Modelica_SIunits.html#3f9603f0a98f434aratureDifference"
+>SI.TemperatureDifference</A> dT <font color="darkgreen">&quot;= solid.T - fluid.T&quot;</font>;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> Gc(<font color="blue">redeclare </font><font color="blue">type</font> SignalType =
+        <A HREF="Modelica_SIunits.html#Modelica.SIunits.ThermalConductance"
+>SI.ThermalConductance</A>) <font color="darkgreen">
+    &quot;Signal representing the convective thermal conductance in [W/K]&quot;</font>;
+  <A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#8e0a743fe620351afaces.HeatPort_a"
+>Interfaces.HeatPort_a</A> solid;
+  <A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#8e0a7440e6203519faces.HeatPort_b"
+>Interfaces.HeatPort_b</A> fluid;
+<font color="blue">equation </font>
+  dT = solid.T - fluid.T;
+  solid.Q_flow = Q_flow;
+  fluid.Q_flow = -Q_flow;
+  Q_flow = Gc*dT;
+<font color="blue">end </font>Convection;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE BodyRadiation<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Thermal.HeatTransfer.BodyRadiationI.png" ALT="Modelica.Thermal.HeatTransfer.BodyRadiation" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="7348bc5766c1d03fer.BodyRadiation"></A><A HREF="Modelica_Thermal_HeatTransfer.html#Modelica.Thermal.HeatTransfer"
+>Modelica.Thermal.HeatTransfer</A>.BodyRadiation</H2>
+<B>Lumped thermal element for radiation heat transfer</B><p>
+<IMG SRC="Modelica.Thermal.HeatTransfer.BodyRadiationD.png" ALT="Modelica.Thermal.HeatTransfer.BodyRadiation">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This is a model describing the thermal radiation, i.e., electromagnetic
+radiation emitted between two bodies as a result of their temperatures.
+The following constitutive equation is used:
+</p>
+<pre>
+    Q_flow = Gr*sigma*(port_a.T^4 - port_b.T^4);
+</pre>
+<p>
+where Gr is the radiation conductance and sigma is the Stefan-Boltzmann
+constant (= Modelica.Constants.sigma). Gr may be determined by
+measurements and is assumed to be constant over the range of operations.
+</p>
+<p>
+For simple cases, Gr may be analytically computed. The analytical
+equations use epsilon, the emission value of a body which is in the
+range 0..1. Epsilon=1, if the body absorbs all radiation (= black body).
+Epsilon=0, if the body reflects all radiation and does not absorb any.
+</p>
+<pre>
+   Typical values for epsilon:
+   aluminium, polished    0.04
+   copper, polished       0.04
+   gold, polished         0.02
+   paper                  0.09
+   rubber                 0.95
+   silver, polished       0.02
+   wood                   0.85..0.9
+</pre>
+<p><b>Analytical Equations for Gr</b></p>
+<p>
+<b>Small convex object in large enclosure</b>
+(e.g., a hot machine in a room):
+</p>
+<pre>
+    Gr = e*A
+    where
+       e: Emission value of object (0..1)
+       A: Surface area of object where radiation
+          heat transfer takes place
+</pre>
+<p><b>Two parallel plates</b>:</p>
+<pre>
+    Gr = A/(1/e1 + 1/e2 - 1)
+    where
+       e1: Emission value of plate1 (0..1)
+       e2: Emission value of plate2 (0..1)
+       A : Area of plate1 (= area of plate2)
+</pre>
+<p><b>Two long cylinders in each other</b>, where radiation takes
+place from the inner to the outer cylinder):
+</p>
+<pre>
+    Gr = 2*pi*r1*L/(1/e1 + (1/e2 - 1)*(r1/r2))
+    where
+       pi: = Modelica.Constants.pi
+       r1: Radius of inner cylinder
+       r2: Radius of outer cylinder
+       L : Length of the two cylinders
+       e1: Emission value of inner cylinder (0..1)
+       e2: Emission value of outer cylinder (0..1)
+</pre>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>Gr</TD><TD>&nbsp;</TD><TD>Net radiation conductance between two surfaces (see docu) [m2]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#8e0a743fe620351afaces.HeatPort_a"
+>HeatPort_a</A></TD><TD>port_a</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#8e0a7440e6203519faces.HeatPort_b"
+>HeatPort_b</A></TD><TD>port_b</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> BodyRadiation <font color="darkgreen">
+  &quot;Lumped thermal element for radiation heat transfer&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#4abdf3abea619c59rfaces.Element1D"
+>Interfaces.Element1D</A>;
+  <font color="blue">parameter </font>Real Gr(unit=&quot;m2&quot;) <font color="darkgreen">
+    &quot;Net radiation conductance between two surfaces (see docu)&quot;</font>;
+<font color="blue">equation </font>
+  Q_flow = Gr*Modelica.Constants.sigma*(port_a.T^4 - port_b.T^4);
+<font color="blue">end </font>BodyRadiation;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE FixedTemperature<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Thermal.HeatTransfer.FixedTemperatureI.png" ALT="Modelica.Thermal.HeatTransfer.FixedTemperature" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="1a125e2845276d30FixedTemperature"></A><A HREF="Modelica_Thermal_HeatTransfer.html#Modelica.Thermal.HeatTransfer"
+>Modelica.Thermal.HeatTransfer</A>.FixedTemperature</H2>
+<B>Fixed temperature boundary condition in Kelvin</B><p>
+<IMG SRC="Modelica.Thermal.HeatTransfer.FixedTemperatureD.png" ALT="Modelica.Thermal.HeatTransfer.FixedTemperature">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This model defines a fixed temperature T at its port in Kelvin,
+i.e., it defines a fixed temperature as a boundary condition.
+</p>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>T</TD><TD>&nbsp;</TD><TD>Fixed temperature at port [K]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#8e0a7440e6203519faces.HeatPort_b"
+>HeatPort_b</A></TD><TD>port</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> FixedTemperature <font color="darkgreen">
+  &quot;Fixed temperature boundary condition in Kelvin&quot;</font>
+
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> T <font color="darkgreen">&quot;Fixed temperature at port&quot;</font>;
+  <A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#8e0a7440e6203519faces.HeatPort_b"
+>Interfaces.HeatPort_b</A> port;
+<font color="blue">equation </font>
+  port.T = T;
+<font color="blue">end </font>FixedTemperature;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PrescribedTemperature<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Thermal.HeatTransfer.PrescribedTemperatureI.png" ALT="Modelica.Thermal.HeatTransfer.PrescribedTemperature" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="35315d91ae7f3faeribedTemperature"></A><A HREF="Modelica_Thermal_HeatTransfer.html#Modelica.Thermal.HeatTransfer"
+>Modelica.Thermal.HeatTransfer</A>.PrescribedTemperature</H2>
+<B>Variable temperature boundary condition in Kelvin</B><p>
+<IMG SRC="Modelica.Thermal.HeatTransfer.PrescribedTemperatureD.png" ALT="Modelica.Thermal.HeatTransfer.PrescribedTemperature">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This model represents a variable temperature boundary condition.
+The temperature in [K] is given as input signal <b>T</b>
+to the model. The effect is that an instance of this model acts as
+an infinite reservoir able to absorb or generate as much energy
+as required to keep the temperature at the specified value.
+</p>
+<pre>
+</PRE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#8e0a7440e6203519faces.HeatPort_b"
+>HeatPort_b</A></TD><TD>port</TD><TD>&nbsp;</TD></TR>
+<TR><TD>input <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>T</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> PrescribedTemperature <font color="darkgreen">
+  &quot;Variable temperature boundary condition in Kelvin&quot;</font>
+
+  <A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#8e0a7440e6203519faces.HeatPort_b"
+>Interfaces.HeatPort_b</A> port;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> T(<font color="blue">redeclare </font><font color="blue">type</font> SignalType =
+        <A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A>);
+<font color="blue">equation </font>
+  port.T = T;
+<font color="blue">end </font>PrescribedTemperature;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE FixedHeatFlow<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Thermal.HeatTransfer.FixedHeatFlowI.png" ALT="Modelica.Thermal.HeatTransfer.FixedHeatFlow" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="73310c7e74fb736eer.FixedHeatFlow"></A><A HREF="Modelica_Thermal_HeatTransfer.html#Modelica.Thermal.HeatTransfer"
+>Modelica.Thermal.HeatTransfer</A>.FixedHeatFlow</H2>
+<B>Fixed heat flow boundary condition</B><p>
+<IMG SRC="Modelica.Thermal.HeatTransfer.FixedHeatFlowD.png" ALT="Modelica.Thermal.HeatTransfer.FixedHeatFlow">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This model allows a specified amount of heat flow rate to be "injected"
+into a thermal system at a given port.  The constant amount of heat
+flow rate Q_flow is given as a parameter. The heat flows into the
+component to which the component FixedHeatFlow is connected,
+if parameter Q_flow is positive.
+</p>
+<p>
+If parameter alpha is > 0, the heat flow is mulitplied by (1 + alpha*(port.T - T_ref))
+in order to simulate temperature dependent losses (which are given an reference temperature T_ref).
+</p>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.HeatFlowRate"
+>HeatFlowRate</A></TD><TD>Q_flow</TD><TD>&nbsp;</TD><TD>Fixed heat flow rate at port [W]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>T_ref</TD><TD>from_degC(20)</TD><TD>Reference temperature [K]</TD></TR>
+<TR><TD>Real</TD><TD>alpha</TD><TD>0</TD><TD>Temperature coefficient of heat flow rate [1/K]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#8e0a7440e6203519faces.HeatPort_b"
+>HeatPort_b</A></TD><TD>port</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> FixedHeatFlow <font color="darkgreen">&quot;Fixed heat flow boundary condition&quot;</font>
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.HeatFlowRate"
+>SI.HeatFlowRate</A> Q_flow <font color="darkgreen">&quot;Fixed heat flow rate at port&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> T_ref=<font color="red">from_degC</font>(20) <font color="darkgreen">&quot;Reference temperature&quot;</font>;
+  <font color="blue">parameter </font>Real alpha(unit=&quot;1/K&quot;) = 0 <font color="darkgreen">
+    &quot;Temperature coefficient of heat flow rate&quot;</font>;
+  <A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#8e0a7440e6203519faces.HeatPort_b"
+>Interfaces.HeatPort_b</A> port;
+<font color="blue">equation </font>
+  port.Q_flow = -Q_flow*(1 + alpha*(port.T - T_ref));
+<font color="blue">end </font>FixedHeatFlow;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PrescribedHeatFlow<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Thermal.HeatTransfer.PrescribedHeatFlowI.png" ALT="Modelica.Thermal.HeatTransfer.PrescribedHeatFlow" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="1a9d85c9d345a5deescribedHeatFlow"></A><A HREF="Modelica_Thermal_HeatTransfer.html#Modelica.Thermal.HeatTransfer"
+>Modelica.Thermal.HeatTransfer</A>.PrescribedHeatFlow</H2>
+<B>Prescribed heat flow boundary condition</B><p>
+<IMG SRC="Modelica.Thermal.HeatTransfer.PrescribedHeatFlowD.png" ALT="Modelica.Thermal.HeatTransfer.PrescribedHeatFlow">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This model allows a specified amount of heat flow rate to be "injected"
+into a thermal system at a given port.  The amount of heat
+is given by the input signal Q_flow into the model. The heat flows into the
+component to which the component PrescribedHeatFlow is connected,
+if the input signal is positive.
+</p>
+<p>
+If parameter alpha is > 0, the heat flow is mulitplied by (1 + alpha*(port.T - T_ref))
+in order to simulate temperature dependent losses (which are given an reference temperature T_ref).
+</p>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>T_ref</TD><TD>from_degC(20)</TD><TD>Reference temperature [K]</TD></TR>
+<TR><TD>Real</TD><TD>alpha</TD><TD>0</TD><TD>Temperature coefficient of heat flow rate [1/K]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>input <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>Q_flow</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#8e0a7440e6203519faces.HeatPort_b"
+>HeatPort_b</A></TD><TD>port</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> PrescribedHeatFlow <font color="darkgreen">&quot;Prescribed heat flow boundary condition&quot;</font>
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> T_ref=<font color="red">from_degC</font>(20) <font color="darkgreen">&quot;Reference temperature&quot;</font>;
+  <font color="blue">parameter </font>Real alpha(unit=&quot;1/K&quot;) = 0 <font color="darkgreen">
+    &quot;Temperature coefficient of heat flow rate&quot;</font>;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> Q_flow(
+    <font color="blue">redeclare </font><font color="blue">type</font> SignalType = <A HREF="Modelica_SIunits.html#Modelica.SIunits.HeatFlowRate"
+>SI.HeatFlowRate</A>);
+  <A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#8e0a7440e6203519faces.HeatPort_b"
+>Interfaces.HeatPort_b</A> port;
+<font color="blue">equation </font>
+  port.Q_flow = -Q_flow*(1 + alpha*(port.T - T_ref));
+<font color="blue">end </font>PrescribedHeatFlow;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TemperatureSensor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Thermal.HeatTransfer.TemperatureSensorI.png" ALT="Modelica.Thermal.HeatTransfer.TemperatureSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="a856d32602f16bedemperatureSensor"></A><A HREF="Modelica_Thermal_HeatTransfer.html#Modelica.Thermal.HeatTransfer"
+>Modelica.Thermal.HeatTransfer</A>.TemperatureSensor</H2>
+<B>Absolute temperature sensor in Kelvin</B><p>
+<IMG SRC="Modelica.Thermal.HeatTransfer.TemperatureSensorD.png" ALT="Modelica.Thermal.HeatTransfer.TemperatureSensor">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This is an ideal absolute temperature sensor which returns
+the temperature of the connected port in Kelvin as an output
+signal.  The sensor itself has no thermal interaction with
+whatever it is connected to.  Furthermore, no
+thermocouple-like lags are associated with this
+sensor model.
+</p>
+<pre>
+</PRE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>output <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>RealOutput</A></TD><TD>T</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#8e0a743fe620351afaces.HeatPort_a"
+>HeatPort_a</A></TD><TD>port</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TemperatureSensor <font color="darkgreen">&quot;Absolute temperature sensor in Kelvin&quot;</font>
+
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> T(<font color="blue">redeclare </font><font color="blue">type</font> SignalType =
+        <A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A>);
+  <A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#8e0a743fe620351afaces.HeatPort_a"
+>Interfaces.HeatPort_a</A> port;
+<font color="blue">equation </font>
+  T = port.T;
+  port.Q_flow = 0;
+<font color="blue">end </font>TemperatureSensor;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE RelTemperatureSensor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Thermal.HeatTransfer.RelTemperatureSensorI.png" ALT="Modelica.Thermal.HeatTransfer.RelTemperatureSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="d6ea4515529341b0emperatureSensor"></A><A HREF="Modelica_Thermal_HeatTransfer.html#Modelica.Thermal.HeatTransfer"
+>Modelica.Thermal.HeatTransfer</A>.RelTemperatureSensor</H2>
+<B>Relative Temperature sensor</B><p>
+<IMG SRC="Modelica.Thermal.HeatTransfer.RelTemperatureSensorD.png" ALT="Modelica.Thermal.HeatTransfer.RelTemperatureSensor">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+The relative temperature "port_a.T - port_b.T" is determined between
+the two ports of this component and is provided as output signal in Kelvin.
+</p>
+<pre>
+</PRE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#8e0a743fe620351afaces.HeatPort_a"
+>HeatPort_a</A></TD><TD>port_a</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#8e0a7440e6203519faces.HeatPort_b"
+>HeatPort_b</A></TD><TD>port_b</TD><TD>&nbsp;</TD></TR>
+<TR><TD>output <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>RealOutput</A></TD><TD>T_rel</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> RelTemperatureSensor <font color="darkgreen">&quot;Relative Temperature sensor&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.TranslationalSensor"
+>Modelica.Icons.TranslationalSensor</A>;
+  <A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#8e0a743fe620351afaces.HeatPort_a"
+>Interfaces.HeatPort_a</A> port_a;
+  <A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#8e0a7440e6203519faces.HeatPort_b"
+>Interfaces.HeatPort_b</A> port_b;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> T_rel(<font color="blue">redeclare </font><font color="blue">type</font> SignalType =
+        <A HREF="Modelica_SIunits.html#3f9603f0a98f434aratureDifference"
+>SI.TemperatureDifference</A>);
+<font color="blue">equation </font>
+  T_rel = port_a.T - port_b.T;
+  0 = port_a.Q_flow;
+  0 = port_b.Q_flow;
+<font color="blue">end </font>RelTemperatureSensor;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE HeatFlowSensor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Thermal.HeatTransfer.HeatFlowSensorI.png" ALT="Modelica.Thermal.HeatTransfer.HeatFlowSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="734a6c04ef9f7af5r.HeatFlowSensor"></A><A HREF="Modelica_Thermal_HeatTransfer.html#Modelica.Thermal.HeatTransfer"
+>Modelica.Thermal.HeatTransfer</A>.HeatFlowSensor</H2>
+<B>Heat flow rate sensor</B><p>
+<IMG SRC="Modelica.Thermal.HeatTransfer.HeatFlowSensorD.png" ALT="Modelica.Thermal.HeatTransfer.HeatFlowSensor">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This model is capable of monitoring the heat flow rate flowing through
+this component. The sensed value of heat flow rate is the amount that
+passes through this sensor while keeping the temperature drop across the
+sensor zero.  This is an ideal model so it does not absorb any energy
+and it has no direct effect on the thermal response of a system it is included in.
+The output signal is positive, if the heat flows from port_a
+to port_b.
+</p>
+<pre>
+</PRE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>output <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>RealOutput</A></TD><TD>Q_flow</TD><TD>Heat flow from port_a to port_b</TD></TR>
+<TR><TD><A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#8e0a743fe620351afaces.HeatPort_a"
+>HeatPort_a</A></TD><TD>port_a</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#8e0a7440e6203519faces.HeatPort_b"
+>HeatPort_b</A></TD><TD>port_b</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> HeatFlowSensor <font color="darkgreen">&quot;Heat flow rate sensor&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.RotationalSensor"
+>Modelica.Icons.RotationalSensor</A>;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> Q_flow(<font color="blue">redeclare </font><font color="blue">type</font> SignalType =
+        <A HREF="Modelica_SIunits.html#Modelica.SIunits.HeatFlowRate"
+>SI.HeatFlowRate</A>) <font color="darkgreen">&quot;Heat flow from port_a to port_b&quot;</font>;
+  <A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#8e0a743fe620351afaces.HeatPort_a"
+>Interfaces.HeatPort_a</A> port_a;
+  <A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#8e0a7440e6203519faces.HeatPort_b"
+>Interfaces.HeatPort_b</A> port_b;
+<font color="blue">equation </font>
+  port_a.T = port_b.T;
+  port_a.Q_flow + port_b.Q_flow = 0;
+  Q_flow = port_a.Q_flow;
+<font color="blue">end </font>HeatFlowSensor;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Fri Sep 07 19:14:08 2007.
+</address></BODY>
+</HTML>
