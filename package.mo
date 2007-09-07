@@ -12,7 +12,7 @@ annotation(preferedView="info",
     library=1,
     autolayout=1),
   version="2.2.2",
-  versionBuild="610",
+  versionBuild="624",
   versionDate="2007-09-07",
   conversion(
     from(version="1.6",
