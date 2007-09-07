@@ -586,7 +586,7 @@ on the Modelica standard library.
 </p>
 
 <ul>
-<li> <a href=\"Modelica://Modelica.UsersGuide.ReleaseNotes.Version_2_2_2\">Version 2.2.2</a> (Aug. 12, 2007)</li>
+<li> <a href=\"Modelica://Modelica.UsersGuide.ReleaseNotes.Version_2_2_2\">Version 2.2.2</a> (Aug. 31, 2007)</li>
 <li> <a href=\"Modelica://Modelica.UsersGuide.ReleaseNotes.Version_2_2_1\">Version 2.2.1</a> (March 24, 2006)</li>
 <li> <a href=\"Modelica://Modelica.UsersGuide.ReleaseNotes.Version_2_2\">Version 2.2</a> (April 6, 2005)</li>
 <li> <a href=\"Modelica://Modelica.UsersGuide.ReleaseNotes.Version_2_1\">Version 2.1</a> (Nov. 11, 2004)</li>
@@ -693,7 +693,7 @@ more of the following changes.
 </html>
 "));
     
-  class Version_2_2_2 "Version 2.2.2 (Aug. 12, 2007)" 
+  class Version_2_2_2 "Version 2.2.2 (Aug. 31, 2007)" 
       
       annotation (Documentation(info="<html>
 <p>
@@ -706,9 +706,10 @@ the following exceptions:
 <li> Removal of the media packages in
      Modelica.Media.IdealGases.SingleGases that are not type compatible
      to Modelica.Media.Interfaces.PartialMedium, because a FluidConstants
-     record definition is missing
-     (for details, see 
-      <a href=\"Modelica://Modelica.Media.IdealGases\">Modelica.Media.IdealGases</a>)
+     record definition is missing, 
+     for details, see 
+      <a href=\"Modelica://Modelica.Media.IdealGases\">Modelica.Media.IdealGases</a>
+     (this is seen as a bug fix).
 </ul>
 
 <p>
@@ -1288,7 +1289,7 @@ that can lead to wrong simulation results):
   <tr><td valign=\"top\"> FixedRotation</td>
       <td valign=\"top\"> Bug corrected that the torque balance was wrong in the 
            following cases (since vector r was not transformed
-           from frame_a to frame_b):
+           from frame_a to frame_b; note this special case occurs very seldomly in practice):
            <ul><li> frame_b is in the spanning tree closer to the root
                     (usually this is frame_a).</li>
                <li> vector r from frame_a to frame_b is not zero.</li>
@@ -1337,6 +1338,11 @@ that can lead to wrong simulation results):
       <td valign=\"top\"> Bugs in equations corrected </td> 
   </tr>
  
+  <tr><td colspan=\"2\"><b>Media.IdealGases.Common.SingleGasNasa.</b></td></tr>
+  <tr><td valign=\"top\"> density_derp_T</td>
+      <td valign=\"top\"> Bug in equation of partial derivative corrected </td> 
+  </tr>
+ 
   <tr><td colspan=\"2\"><b>Media.Water.IF97_Utilities.</b></td></tr>
   <tr><td valign=\"top\"> BaseIF97.Inverses.dtofps3<br>  
            isentropicExponent_props_ph<br> 
@@ -1371,7 +1377,7 @@ that can lead to wrong simulation results):
  
   <tr><td valign=\"top\"> boilingcurve_p<br>
            dewcurve_p</td>         
-      <td valign=\"top\"> ug in equation of plim corrected.
+      <td valign=\"top\"> Bug in equation of plim corrected.
       </td> 
   </tr>
 </table>
@@ -1465,7 +1471,7 @@ units are wrong or errors in documentation):
   <tr><td valign=\"top\"> GasForce</td>
       <td valign=\"top\"> Wrong units corrected:
            \"SIunitsPosition x,y\" to \"Real x,y\";
-           \"SIunits.Pressure press\" to \"SIunits.Conversions.NonSIunits.Pressure_bar\"
+" + "           \"SIunits.Pressure press\" to \"SIunits.Conversions.NonSIunits.Pressure_bar\"
        </td> 
   </tr>
   <tr><td valign=\"top\"> GasForce2</td>
@@ -1484,14 +1490,15 @@ units are wrong or errors in documentation):
        </td> 
   </tr>
   <tr><td valign=\"top\"> FlangeWithBearingAdaptor </td>
-      <td valign=\"top\"> If includeBearingConnector = false, connector \"frame\" was not
+      <td valign=\"top\"> If includeBearingConnector = false, connector \"fr\"
+               + \"ame\" was not
            removed. As long as the connecting element to \"frame\" determines
            the non-flow variables, this is fine. In the corrected version, \"frame\"
            is conditionally removed in this case.</td>
   </tr>
 
  
-  <tr><td colspan=\"2\"><b>Mechanics.MultiBody.Forces.</b></td></tr" + ">
+  <tr><td colspan=\"2\"><b>Mechanics.MultiBody.Forces.</b></td></tr>
   <tr><td valign=\"top\"> ForceAndTorque</td>
       <td valign=\"top\"> Corrected wrong unit: \"SIunits.Force t_b_0\" to \"SIunits.Torque t_b_0\".
        </td> 
@@ -1678,8 +1685,7 @@ units are wrong or errors in documentation):
  
 </table>
                                
-</html>
-"));
+</html>"));
   end Version_2_2_2;
     
   class Version_2_2_1 "Version 2.2.1 (March 24, 2006)" 
