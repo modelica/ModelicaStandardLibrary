@@ -398,18 +398,19 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
   end isothermalCompressibility;
   
   redeclare function extends density_derp_T 
-    "density derivative by temperature at constant pressure" 
+    "Returns the partial derivative of density with respect to pressure at constant temperature" 
   algorithm 
-    ddpT := 1/(state.p*data.R);
+    ddpT := 1/(state.T*data.R);
   end density_derp_T;
   
   redeclare function extends density_derT_p 
-    "density derivative by temperature at constant pressure" 
+    "Returns the partial derivative of density with respect to temperature at constant pressure" 
   algorithm 
     ddTp := -state.p/(state.T*state.T*data.R);
   end density_derT_p;
   
-  redeclare function extends density_derX "density derivative by mass fraction" 
+  redeclare function extends density_derX 
+    "Returns the partial derivative of density with respect to mass fractions at constant pressure and temperature" 
   algorithm 
     dddX := fill(0,0);
   end density_derX;
