@@ -12,8 +12,8 @@ annotation(preferedView="info",
     library=1,
     autolayout=1),
   version="2.2.2",
-  versionBuild="624",
-  versionDate="2007-09-07",
+  versionBuild="625",
+  versionDate="2007-08-31",
   conversion(
     from(version="1.6",
          ModelicaAdditions(version="1.5"),
@@ -693,7 +693,7 @@ more of the following changes.
 </html>
 "));
     
-  class Version_2_2_2 "Version 2.2.2 (Sept. 7, 2007)" 
+  class Version_2_2_2 "Version 2.2.2 (Aug. 31, 2007)" 
       
       annotation (Documentation(info="<html>
 <p>
