@@ -12,7 +12,7 @@ annotation(preferedView="info",
     library=1,
     autolayout=1),
   version="2.2.2",
-  versionBuild="625",
+  versionBuild="626",
   versionDate="2007-08-31",
   conversion(
     from(version="1.6",
@@ -586,7 +586,7 @@ on the Modelica standard library.
 </p>
 
 <ul>
-<li> <a href=\"Modelica://Modelica.UsersGuide.ReleaseNotes.Version_2_2_2\">Version 2.2.2</a> (Aug. 12, 2007)</li>
+<li> <a href=\"Modelica://Modelica.UsersGuide.ReleaseNotes.Version_2_2_2\">Version 2.2.2</a> (Aug. 31, 2007)</li>
 <li> <a href=\"Modelica://Modelica.UsersGuide.ReleaseNotes.Version_2_2_1\">Version 2.2.1</a> (March 24, 2006)</li>
 <li> <a href=\"Modelica://Modelica.UsersGuide.ReleaseNotes.Version_2_2\">Version 2.2</a> (April 6, 2005)</li>
 <li> <a href=\"Modelica://Modelica.UsersGuide.ReleaseNotes.Version_2_1\">Version 2.1</a> (Nov. 11, 2004)</li>
