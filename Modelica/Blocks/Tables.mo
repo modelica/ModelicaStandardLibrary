@@ -487,18 +487,16 @@ following structure (\"-----\" is not part of the file content):
 <pre>
 -----------------------------------------------------
 #1
-double tab1(5,2)   # comment line
-  0   0
-  1   1
-  2   4
-  3   9
-  4  16
-double tab2(5,2)   # another comment line
-  0   0
-  2   2
-  4   8
-  6  18
-  8  32
+double table2D_1(3,4)   # comment line
+0.0  1.0  2.0  3.0  # u[2] grid points
+1.0  1.0  3.0  5.0
+2.0  2.0  4.0  6.0
+
+double table2D_2(4,4)   # comment line
+0.0  1.0  2.0  3.0  # u[2] grid points
+1.0  1.0  3.0  5.0
+2.0  2.0  4.0  6.0
+3.0  3.0  5.0  7.0
 -----------------------------------------------------
 </pre>
 <p>
@@ -507,8 +505,13 @@ Note, that the first two characters in the file need to be
 with type, name and actual dimensions. Finally, in successive
 rows of the file, the elements of the matrix have to be given.
 Several matrices may be defined one after another.
+The matrix elements are interpreted in exactly the same way
+as if the matrix is given as a parameter. For example, the first
+column \"table2D_1[2:,1]\" contains the u[1] grid points,
+and the first row \"table2D_1[1,2:]\" contains the u[2] grid points.
 </p>
-</HTML>
+
+</html>
 "),   Icon(
         Line(points=[-60, 40; -60, -40; 60, -40; 60, 40; 30, 40; 30, -40; -30,
               -40; -30, 40; -60, 40; -60, 20; 60, 20; 60, 0; -60, 0; -60, -20;
