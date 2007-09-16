@@ -12,8 +12,8 @@ annotation(preferedView="info",
     library=1,
     autolayout=1),
   version="2.2.2",
-  versionBuild="626",
-  versionDate="2007-08-31",
+  versionBuild="631",
+  versionDate="2007-09-16",
   conversion(
     from(version="1.6",
          ModelicaAdditions(version="1.5"),
@@ -577,6 +577,41 @@ is emulated in the following way:
   end Conventions;
   
   package ReleaseNotes "Release notes" 
+  class Version_2_2_2_BugFixes "Version 2.2.2 with bug fixes" 
+      
+      annotation (Documentation(info="<html>
+<p>
+In this section bug fixes are summarized that have been incorporated
+since the release of version 2.2.2.
+
+<p><br>
+The following <b style=\"color:red\">critical errors</b> have been fixed (i.e. errors
+that can lead to wrong simulation results):
+</p>
+ 
+<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+  <tr><td colspan=\"2\"><b>Package-Name.</b></td></tr>
+  <tr><td valign=\"top\"> Model-Name </td>
+      <td valign=\"top\"> Description text</td> 
+  </tr>
+</table>
+ 
+ 
+<p><br>
+The following <b style=\"color:red\">uncritical errors</b> have been fixed (i.e. errors
+that do <b style=\"color:red\">not</b> lead to wrong simulation results, but, e.g., 
+units are wrong or errors in documentation):
+</p>
+ 
+<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+  <tr><td colspan=\"2\"><b>Blocks.Tables.</b></td></tr>
+  <tr><td valign=\"top\"> CombiTable2D</td>
+      <td valign=\"top\"> Documentation improved.</td> 
+  </tr>
+</table>
+                               
+</html>"));
+  end Version_2_2_2_BugFixes;
     
     annotation (Documentation(info="<html>
 
