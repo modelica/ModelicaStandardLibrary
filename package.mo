@@ -12,8 +12,8 @@ annotation(preferedView="info",
     library=1,
     autolayout=1),
   version="3.0-development",
-  versionBuild="632",
-  versionDate="2007-09-16",
+  versionBuild="608",
+  versionDate="2007-08-22",
   conversion(
     from(version="1.6",
          ModelicaAdditions(version="1.5"),
@@ -728,6 +728,16 @@ units are wrong or errors in documentation):
   <tr><td valign=\"top\"> CombiTable2D</td>
       <td valign=\"top\"> Documentation improved.</td> 
   </tr>
+  <tr><td colspan=\"2\"><b>Mechanics.Rotational.</b></td></tr>
+  <tr><td valign=\"top\"> BearingFriction<br>
+                        Clutch<br>
+                        OneWayClutch<br>
+                        Brake <br>
+                        Gear </td>
+      <td valign=\"top\"> Declaration of table parameter changed from
+                        table[:,:] to table[:,2].</td> 
+  </tr>
+
 </table>
                                
 </html>"));
