@@ -1751,7 +1751,7 @@ It is used e.g. to build up equation-based parts of a drive train.</p>
       end Adapter;
     equation 
       tau_support = -adapter.flange_b.tau;
-      connect(adapter.flange_a, bearing) annotation (points=[-6.12323e-016,-70;
+      connect(adapter.flange_a, bearing) annotation (points=[-6.12323e-016,-70; 
             0,-70; 0,-100],    style(color=0));
       annotation (Documentation(info="<html>
 <p>
@@ -2955,7 +2955,7 @@ can be used to model a gear box with backlash, elasticity and damping.
   model BearingFriction "Coulomb friction in bearings " 
     extends Interfaces.TwoFlangesAndBearing;
     
-    parameter Real tau_pos[:, :]=[0, 1] 
+    parameter Real tau_pos[:, 2]=[0, 1] 
       "[w,tau] Positive sliding friction characteristic (w>=0)";
     parameter Real peak(final min=1) = 1 
       "peak*tau_pos[1,2] = Maximum friction torque for w==0";
@@ -3209,7 +3209,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
   model Clutch "Clutch based on Coulomb friction " 
     extends Interfaces.Compliant;
     
-    parameter Real mue_pos[:, :]=[0, 0.5] 
+    parameter Real mue_pos[:, 2]=[0, 0.5] 
       "[w,mue] positive sliding friction coefficient (w_rel>=0)";
     parameter Real peak(final min=1) = 1 
       "peak*mue_pos[1,2] = maximum value of mue for w_rel==0";
@@ -3410,7 +3410,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
   model OneWayClutch "Series connection of freewheel and clutch" 
     extends Interfaces.Compliant;
     
-    parameter Real mue_pos[:, :]=[0, 0.5] 
+    parameter Real mue_pos[:, 2]=[0, 0.5] 
       "[w,mue] positive sliding friction coefficient (w_rel>=0)";
     parameter Real peak(final min=1) = 1 
       "peak*mue_pos[1,2] = maximum value of mue for w_rel==0";
@@ -3635,7 +3635,7 @@ are dynamically coupled. The method is described in:
   model Brake "Brake based on Coulomb friction " 
     extends Interfaces.TwoFlangesAndBearing;
     
-    parameter Real mue_pos[:, :]=[0, 0.5] 
+    parameter Real mue_pos[:, 2]=[0, 0.5] 
       "[w,mue] positive sliding friction coefficient (w_rel>=0)";
     parameter Real peak(final min=1) = 1 
       "peak*mue_pos[1,2] = maximum value of mue for w_rel==0";
@@ -4350,7 +4350,7 @@ from tables of the gear manufacturers.
     parameter Real eta(
       min=Modelica.Constants.small,
       max=1) = 1 "Gear efficiency";
-    parameter Real friction_pos[:, :]=[0, 1] 
+    parameter Real friction_pos[:, 2]=[0, 1] 
       "[w,tau] positive sliding friction characteristic (w>=0)";
     parameter Real peak(final min=1) = 1 
       "peak*friction_pos[1,2] = maximum friction torque at zero velocity";
@@ -4442,12 +4442,12 @@ to the left and/or the right flange.
       annotation (points=[30, 0; 50, 0], style(color=0));
     connect(elastoBacklash.flange_b, flange_b) 
       annotation (points=[70, 0; 100, 0], style(color=0));
-    connect(gearRatio.bearing, adapter.flange_b) annotation (points=[-60,-10;
-          -60,-40; 6.12303e-016,-40; 6.12303e-016,-50],    style(color=0));
-    connect(gearEfficiency.bearing, adapter.flange_b) annotation (points=[-20,-10;
-          -20,-40; 6.12303e-016,-40; 6.12303e-016,-50],         style(color=0));
-    connect(bearingFriction.bearing, adapter.flange_b) annotation (points=[20,-10;
-          20,-40; 6.12303e-016,-40; 6.12303e-016,-50],         style(color=0));
+    connect(gearRatio.bearing, adapter.flange_b) annotation (points=[-60,-10; 
+          -60,-40; 6.12323e-016,-40; 6.12323e-016,-50],    style(color=0));
+    connect(gearEfficiency.bearing, adapter.flange_b) annotation (points=[-20,-10; 
+          -20,-40; 6.12323e-016,-40; 6.12323e-016,-50],         style(color=0));
+    connect(bearingFriction.bearing, adapter.flange_b) annotation (points=[20,-10; 
+          20,-40; 6.12323e-016,-40; 6.12323e-016,-50],         style(color=0));
   end Gear;
   
   model Gear2 "Realistic model of a gearbox (based on LossyGear)" 
@@ -4548,8 +4548,8 @@ GearNew.</p>
       annotation (points=[-20, 0; 20, 0], style(color=0));
     connect(elastoBacklash.flange_b, flange_b) 
       annotation (points=[60, 0; 100, 0], style(color=0));
-    connect(lossyGear.bearing, adapter.flange_b) annotation (points=[-40,-20;
-          -40,-40; 6.12303e-016,-40; 6.12303e-016,-50],    style(color=0));
+    connect(lossyGear.bearing, adapter.flange_b) annotation (points=[-40,-20; 
+          -40,-40; 6.12323e-016,-40; 6.12323e-016,-50],    style(color=0));
   end Gear2;
   
   model Position 
