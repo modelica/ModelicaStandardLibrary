@@ -1369,7 +1369,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
         
         extends Modelica.Icons.Function;
         input SI.Pressure p "pressure";
-        output SI.SpecificEnthalpy s;
+        output SI.SpecificEntropy s;
       protected 
         Real x "auxiliary variable";
       algorithm 
@@ -3520,7 +3520,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
         
         extends Modelica.Icons.Function;
         input SI.Temperature T "temperature (K)";
-        output Real dpt "temperature derivative of pressure";
+        output Real dpt(unit = "Pa/K") "temperature derivative of pressure";
       protected 
         Real[31] o "vector of auxiliary variables";
         Real Tlim "temeprature limited to TCRIT";
@@ -3567,8 +3567,8 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
       function psat_der "derivative function for psat" 
         extends Modelica.Icons.Function;
         input SI.Temperature T "temperature (K)";
-        input Real der_T "temperature derivative";
-        output Real der_psat "pressure";
+        input Real der_T(unit = "K/s") "temperature derivative";
+        output Real der_psat(unit = "Pa/s") "pressure";
       protected 
         Real dpt;
       algorithm 
@@ -3888,7 +3888,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
           extends Modelica.Icons.Function;
           input SI.Pressure p "Pressure";
           input SI.SpecificEnthalpy h "specific enthalpy";
-          output SI.Volume v "specific volume";
+          output SI.SpecificVolume v "specific volume";
       protected 
           constant Real[:] n=
             { 0.529944062966028e-2,-0.170099690234461,0.111323814312927e2,-0.217898123145125e4,
@@ -3930,7 +3930,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
           extends Modelica.Icons.Function;
           input SI.Pressure p "Pressure";
           input SI.SpecificEnthalpy h "specific enthalpy";
-          output SI.Volume v "specific volume";
+          output SI.SpecificVolume v "specific volume";
       protected 
           constant Real[:] n=
             { -0.225196934336318e-8,0.140674363313486e-7,0.233784085280560e-5,-0.331833715229001e-4,
@@ -4054,7 +4054,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
           extends Modelica.Icons.Function;
           input SI.Pressure p "Pressure";
           input SI.SpecificEntropy s "specific entropy";
-          output SI.Volume v "specific volume";
+          output SI.SpecificVolume v "specific volume";
       protected 
           constant Real[:] n=
             {0.795544074093975e2,-0.238261242984590e4,0.176813100617787e5,-0.110524727080379e-2,
@@ -4094,7 +4094,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
           extends Modelica.Icons.Function;
           input SI.Pressure p "Pressure";
           input SI.SpecificEntropy s "specific entropy";
-          output SI.Volume v "specific volume";
+          output SI.SpecificVolume v "specific volume";
       protected 
           constant Real[:] n=
             {0.591599780322238e-4,-0.185465997137856e-2,0.104190510480013e-1,0.598647302038590e-2,
