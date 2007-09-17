@@ -1751,7 +1751,7 @@ It is used e.g. to build up equation-based parts of a drive train.</p>
       end Adapter;
     equation 
       tau_support = -adapter.flange_b.tau;
-      connect(adapter.flange_a, bearing) annotation (points=[-6.12323e-016,-70; 
+      connect(adapter.flange_a, bearing) annotation (points=[-6.12323e-016,-70;
             0,-70; 0,-100],    style(color=0));
       annotation (Documentation(info="<html>
 <p>
@@ -4442,11 +4442,11 @@ to the left and/or the right flange.
       annotation (points=[30, 0; 50, 0], style(color=0));
     connect(elastoBacklash.flange_b, flange_b) 
       annotation (points=[70, 0; 100, 0], style(color=0));
-    connect(gearRatio.bearing, adapter.flange_b) annotation (points=[-60,-10; 
+    connect(gearRatio.bearing, adapter.flange_b) annotation (points=[-60,-10;
           -60,-40; 6.12323e-016,-40; 6.12323e-016,-50],    style(color=0));
-    connect(gearEfficiency.bearing, adapter.flange_b) annotation (points=[-20,-10; 
+    connect(gearEfficiency.bearing, adapter.flange_b) annotation (points=[-20,-10;
           -20,-40; 6.12323e-016,-40; 6.12323e-016,-50],         style(color=0));
-    connect(bearingFriction.bearing, adapter.flange_b) annotation (points=[20,-10; 
+    connect(bearingFriction.bearing, adapter.flange_b) annotation (points=[20,-10;
           20,-40; 6.12323e-016,-40; 6.12323e-016,-50],         style(color=0));
   end Gear;
   
@@ -4548,7 +4548,7 @@ GearNew.</p>
       annotation (points=[-20, 0; 20, 0], style(color=0));
     connect(elastoBacklash.flange_b, flange_b) 
       annotation (points=[60, 0; 100, 0], style(color=0));
-    connect(lossyGear.bearing, adapter.flange_b) annotation (points=[-40,-20; 
+    connect(lossyGear.bearing, adapter.flange_b) annotation (points=[-40,-20;
           -40,-40; 6.12323e-016,-40; 6.12323e-016,-50],    style(color=0));
   end Gear2;
   
@@ -5532,7 +5532,6 @@ velocity of model inertia1 or of model inertia2 as state variables.
              if stateSelection==StateSelection.Prefer then 
                 StateSelect.prefer else StateSelect.always)=
           der(phi_flange) "= der(phi_flange)";
-    SI.AngularAcceleration a_flange=der(w_flange) "= der(w_flange)";
     annotation (Icon(
         Text(
           extent=[-94,74; 68,46],
@@ -5557,7 +5556,7 @@ is initialized with the input value at start time.
 </p>
  
 <p>
-For example, if \"use_phi_start = true\", then flange.phi is inialized
+For example, if \"use_phi_start = true\", then flange.phi is initialized
 with the value of the input signal \"phi_start\" at the start time.
 </p>
  
@@ -5576,47 +5575,98 @@ provided via a signal bus.
 </html>"));
     
   protected 
-    model GetInputs "Get enabled inputs and parameters of disabled inputs" 
+    encapsulated model Set_phi_start "Set phi_start" 
+      import Modelica;
       extends Modelica.Blocks.Interfaces.BlockIcon;
       Modelica.Blocks.Interfaces.RealInput phi_start "Start angle" 
-        annotation (Hide=true, extent=[-140,40; -100,80]);
-      Modelica.Blocks.Interfaces.RealInput w_start "Start speed" 
         annotation (Hide=true, extent=[-140,-20; -100,20]);
-      Modelica.Blocks.Interfaces.RealInput a_start "Start angular acceleration"
-        annotation (Hide=true, extent=[-140,-80; -100,-40]);
+      
       annotation (Diagram);
-    end GetInputs;
+      Modelica.Mechanics.Rotational.Interfaces.Flange_b flange annotation (extent=[90,-10; 110,10]);
+    initial equation 
+      flange.phi = phi_start;
+    equation 
+      flange.tau = 0;
+    end Set_phi_start;
+    
+    encapsulated model Set_w_start "Set w_start" 
+      import Modelica;
+      extends Modelica.Blocks.Interfaces.BlockIcon;
+      Modelica.Blocks.Interfaces.RealInput w_start "Start angular velocity" 
+        annotation (Hide=true, extent=[-140,-20; -100,20]);
+      
+      annotation (Diagram);
+      Modelica.Mechanics.Rotational.Interfaces.Flange_b flange annotation (extent=[90,-10; 110,10]);
+    initial equation 
+      der(flange.phi) = w_start;
+    equation 
+      flange.tau = 0;
+    end Set_w_start;
+    
+    encapsulated model Set_a_start "Set a_start" 
+      import Modelica;
+      extends Modelica.Blocks.Interfaces.BlockIcon;
+      Modelica.Blocks.Interfaces.RealInput a_start "Start angular acceleration"
+        annotation (Hide=true, extent=[-140,-20; -100,20]);
+      
+      annotation (Diagram);
+      Modelica.Mechanics.Rotational.Interfaces.Flange_b flange(phi(stateSelect=StateSelect.avoid)) annotation (extent=[90,-10; 110,10]);
+      Modelica.SIunits.AngularVelocity w = der(flange.phi) annotation(Hide=true);
+    initial equation 
+      der(w) = a_start;
+    equation 
+      flange.tau = 0;
+    end Set_a_start;
+    
+    encapsulated model Set_flange_tau "Set flange_tau to zero" 
+      import Modelica;
+      extends Modelica.Blocks.Interfaces.BlockIcon;
+      Modelica.Mechanics.Rotational.Interfaces.Flange_b flange annotation (extent=[90,-10; 110,10]);
+    equation 
+      flange.tau = 0;
+    end Set_flange_tau;
   protected 
-    GetInputs getInputs annotation (extent=[-10,-10; 10,10]);
-  initial equation 
-    if use_phi_start then
-       phi_flange = getInputs.phi_start;
-    end if;
-    if use_w_start then
-       w_flange = getInputs.w_start;
-    end if;
-    if use_a_start then
-       a_flange = getInputs.a_start;
-    end if;
+    Set_phi_start set_phi_start if use_phi_start annotation (extent=[-20,50; 0,70]);
+    Set_w_start set_w_start if use_w_start 
+                            annotation (extent=[-20,-10; 0,10]);
+    Set_a_start set_a_start if use_a_start 
+                            annotation (extent=[-20,-70; 0,-50]);
+    Set_flange_tau set_flange_tau annotation (extent=[20,-100; 40,-80]);
   equation 
-    connect(phi_start, getInputs.phi_start) annotation (points=[-120,60; -60,60;
-          -60,6; -12,6], style(color=74, rgbcolor={0,0,127}));
-    connect(w_start, getInputs.w_start) 
-      annotation (points=[-120,0; -12,0], style(color=74, rgbcolor={0,0,127}));
-    connect(a_start, getInputs.a_start) annotation (points=[-120,-60; -60,-60;
-          -60,-6; -12,-6], style(color=74, rgbcolor={0,0,127}));
-    
-    if not use_phi_start then
-       getInputs.phi_start = 0;
-    end if;
-    if not use_w_start then
-       getInputs.w_start = 0;
-    end if;
-    if not use_a_start then
-       getInputs.a_start = 0;
-    end if;
-    
-    flange.tau = 0;
+    connect(set_phi_start.phi_start, phi_start) annotation (points=[-22,60; -120,
+          60], style(
+        color=74,
+        rgbcolor={0,0,127},
+        smooth=0));
+    connect(set_phi_start.flange, flange) annotation (points=[0,60; 60,60; 60,0;
+          100,0], style(
+        color=0,
+        rgbcolor={0,0,0},
+        smooth=0));
+    connect(set_w_start.flange, flange) annotation (points=[0,0; 100,0], style(
+        color=0,
+        rgbcolor={0,0,0},
+        smooth=0));
+    connect(set_w_start.w_start, w_start) annotation (points=[-22,0; -120,0],
+        style(
+        color=74,
+        rgbcolor={0,0,127},
+        smooth=0));
+    connect(set_a_start.a_start, a_start) annotation (points=[-22,-60; -120,-60],
+        style(
+        color=74,
+        rgbcolor={0,0,127},
+        smooth=0));
+    connect(set_a_start.flange, flange) annotation (points=[0,-60; 60,-60; 60,0;
+          100,0], style(
+        color=0,
+        rgbcolor={0,0,0},
+        smooth=0));
+    connect(set_flange_tau.flange, flange) annotation (points=[40,-90; 60,-90; 60,
+          0; 100,0], style(
+        color=0,
+        rgbcolor={0,0,0},
+        smooth=0));
   end InitializeFlange;
   
   package Types "Constants and types with choices, especially to build menus" 

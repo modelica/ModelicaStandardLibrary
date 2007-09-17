@@ -705,6 +705,19 @@ needs still to be implemented).
 
 
 <p><br>
+The following <b style=\"color:blue\">existing components</b>
+have been <b style=\"color:blue\">improved</b>:
+</p>
+ 
+<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+  <tr><td colspan=\"2\"><b>Mechanics.Rotational.</b></td></tr>
+  <tr><td valign=\"top\"> InitializeFlange</td>
+      <td valign=\"top\"> Changed implementation so that counting unknowns and
+                        equations is possible without actual values of parameters.</td> </tr>
+</table>
+
+
+<p><br>
 The following <b style=\"color:red\">critical errors</b> have been fixed (i.e. errors
 that can lead to wrong simulation results):
 </p>
@@ -742,7 +755,7 @@ units are wrong or errors in documentation):
                                
 </html>"));
   end Version_3_0;
-
+    
   class Version_2_2_2 "Version 2.2.2 (Aug. 31, 2007)" 
       
       annotation (Documentation(info="<html>
