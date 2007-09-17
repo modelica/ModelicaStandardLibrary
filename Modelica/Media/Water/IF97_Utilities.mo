@@ -3410,7 +3410,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
       function dtsatofp "derivative of saturation temperature w.r.t. pressure" 
         extends Modelica.Icons.Function;
         input SI.Pressure p "pressure";
-        output Real dtsat "derivative of T w.r.t. p";
+        output Real dtsat(unit="K/Pa") "derivative of T w.r.t. p";
       protected 
         Real pi "dimensionless pressure";
         Real[49] o "vector of auxiliary variables";
@@ -3478,8 +3478,8 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
       function tsat_der "derivative function for tsat" 
         extends Modelica.Icons.Function;
         input SI.Pressure p "pressure";
-        input Real der_p "pressure derivatrive";
-        output Real der_tsat "temperature derivative";
+        input Real der_p(unit="Pa/s") "pressure derivatrive";
+        output Real der_tsat(unit="K/s") "temperature derivative";
       protected 
         Real dtp;
       algorithm 
