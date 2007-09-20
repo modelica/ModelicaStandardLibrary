@@ -1,6 +1,6 @@
 within Modelica.Electrical.Analog;
 package Interfaces 
-  "Connectors and partial models for Analog electrical components " 
+  "Connectors and partial models for Analog electrical components" 
   extends Modelica.Icons.Library;
   annotation(preferedView="info", Window(
       x=0.03,
