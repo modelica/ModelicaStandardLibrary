@@ -225,8 +225,8 @@ package Utilities "Utility models for Examples.Loops"
     parameter SI.Length L "Length of cylinder";
     parameter SI.Length d "diameter of cylinder";
     parameter Real k0=0.01;
-    parameter Real k1=1;
-    parameter Real k=1;
+    parameter Real k1=0.005;
+    parameter Real k=0.00005;
     constant Real pi=Modelica.Constants.pi;
     constant Real PI=Modelica.Constants.pi;
     // Only for compatibility reasons
@@ -269,7 +269,8 @@ package Utilities "Utility models for Examples.Loops"
             fillColor=1,
             fillPattern=1)),
         Text(extent=[-100, 120; 100, 60], string="%name")));
-    
+  protected 
+    Modelica.SIunits.SpecificHeatCapacity R_air = Modelica.Constants.R/0.0289651159;
   equation 
     y = -s_rel/L;
     x = 1 + s_rel/L;
@@ -281,11 +282,13 @@ package Utilities "Utility models for Examples.Loops"
       14748765*x^3 - 20747000*x^2 + 12964477*x - 3036495 else 145.930*x^4 -
       131.707*x^3 + 17.3438*x^2 + 17.9272*x + 2.4);
     
-    f = -1.0E5*press*pi*d^2/4;
+    f = -1.0e5*press*pi*d^2/4;
     
     V = k0 + k1*(1 - x);
-    dens = 1/V;
+    
+    dens = press/(R_air*T);
     press*V = k*T;
+    
   end GasForce;
   
   model GasForce2 "Rough approximation of gas force in a cylinder" 
@@ -295,8 +298,8 @@ package Utilities "Utility models for Examples.Loops"
     parameter SI.Length L "Length of cylinder";
     parameter SI.Length d "diameter of cylinder";
     parameter Real k0=0.01;
-    parameter Real k1=1;
-    parameter Real k=1;
+    parameter Real k1=0.005;
+    parameter Real k=0.00005;
     constant Real pi=Modelica.Constants.pi;
     constant Real PI=Modelica.Constants.pi;
     Real x "Normalized position of cylinder (= 1 - s_rel/L)";
@@ -364,6 +367,8 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
 </p>
 </html>"));
     
+  protected 
+    Modelica.SIunits.SpecificHeatCapacity R_air = Modelica.Constants.R/0.0289651159;
   equation 
     x = 1 - s_rel/L;
     v_rel = der(s_rel);
@@ -377,7 +382,7 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
     f = -1.0E5*press*pi*d^2/4;
     
     V = k0 + k1*(1 - x);
-    dens = 1/V;
+    dens = press/(R_air*T);
     press*V = k*T;
     
     assert(s_rel >= -1.e-12, "flange_b.s - flange_a.s (= " + String(s_rel) +
@@ -530,19 +535,19 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
     Interfaces.Frame_a crank_b annotation (extent=[84,-116; 116,-84]);
   equation 
     
-    connect(jointRRP.frame_ia, Rod.frame_a) annotation (points=[20,-4; 49,-4;
+    connect(jointRRP.frame_ia, Rod.frame_a) annotation (points=[20,-4; 49,-4; 
           49,-1], style(
         color=10,
         rgbcolor={95,95,95},
         thickness=2));
-    connect(Mid.frame_b, jointRRP.frame_a) annotation (points=[-24,-20;
-          1.22461e-015,-20; 1.22461e-015,-8], style(
+    connect(Mid.frame_b, jointRRP.frame_a) annotation (points=[-24,-20; 
+          1.22465e-015,-20; 1.22465e-015,-8], style(
         color=10,
         rgbcolor={95,95,95},
         thickness=2));
     connect(gasForce.flange_a, jointRRP.axis) 
       annotation (points=[9,70; 16,70; 16,32],    style(color=58));
-    connect(jointRRP.bearing, gasForce.flange_b) annotation (points=[8,32; 8,52;
+    connect(jointRRP.bearing, gasForce.flange_b) annotation (points=[8,32; 8,52; 
           -20,52; -20,70; -11,70],        style(color=58));
     connect(jointRRP.frame_ib, Piston.frame_b) annotation (points=[20,28; 30,28;
           30,70; 50,70; 50,60], style(
@@ -550,7 +555,7 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
         rgbcolor={95,95,95},
         thickness=2));
     connect(jointRRP.frame_b, CylinderInclination.frame_b) annotation (points=[
-          -1.22461e-015,32; 1,32; 1,40; -24,40], style(
+          -1.22465e-015,32; 1,32; 1,40; -24,40], style(
         color=10,
         rgbcolor={95,95,95},
         thickness=2));
