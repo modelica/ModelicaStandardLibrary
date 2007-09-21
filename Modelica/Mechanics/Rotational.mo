@@ -1586,10 +1586,10 @@ differentiation of the flange angle phi:
         "Absolute rotation angle of component (= flange_a.phi = flange_b.phi)";
       
       Flange_a flange_a 
-        "(left) driving flange (flange axis directed INTO cut plane)" 
+        "(left) driving flange (flange axis directed in to cut plane)" 
         annotation (extent=[-110, -10; -90, 10]);
       Flange_b flange_b 
-        "(right) driven flange (flange axis directed OUT OF cut plane)" 
+        "(right) driven flange (flange axis directed out of cut plane)" 
         annotation (extent=[90, -10; 110, 10]);
       annotation (
         Documentation(info="<html>
@@ -1622,10 +1622,10 @@ with inertia.
         "Relative rotation angle (= flange_b.phi - flange_a.phi)";
       SI.Torque tau "Torque between flanges (= flange_b.tau)";
       Flange_a flange_a 
-        "(left) driving flange (flange axis directed INTO cut plane)" 
+        "(left) driving flange (flange axis directed in to cut plane)" 
         annotation (extent=[-110, -10; -90, 10]);
       Flange_b flange_b 
-        "(right) driven flange (flange axis directed OUT OF cut plane)" 
+        "(right) driven flange (flange axis directed out of cut plane)" 
         annotation (extent=[90, -10; 110, 10]);
       annotation (
         Coordsys(
@@ -1657,8 +1657,12 @@ is used to built up force elements such as springs, dampers, friction.
     
     partial model TwoFlanges 
       "Base class for a component with two rotational 1D flanges" 
-      Flange_a flange_a annotation (extent=[-110, -10; -90, 10]);
-      Flange_b flange_b annotation (extent=[90, -10; 110, 10]);
+      Flange_a flange_a 
+        "(left) driving flange (flange axis directed in to cut plane)" 
+                        annotation (extent=[-110, -10; -90, 10]);
+      Flange_b flange_b 
+        "(right) driven flange (flange axis directed out of cut plane)" 
+                        annotation (extent=[90, -10; 110, 10]);
       annotation (
         Documentation(info="<html>
 <p>
@@ -1688,7 +1692,8 @@ for a compliant connection of flanges (Interfaces.Compliant).
       
       SI.Torque tau_support;
       
-      Flange_a bearing annotation (extent=[-10, -110; 10, -90]);
+      Flange_a bearing "Flange of bearing" 
+                       annotation (extent=[-10, -110; 10, -90]);
       annotation (
         Diagram(Rectangle(extent=[-20, -80; 20, -120], style(color=8, fillColor=
                  8))),
@@ -1757,7 +1762,7 @@ It is used e.g. to build up equation-based parts of a drive train.</p>
       end Adapter;
     equation 
       tau_support = -adapter.flange_b.tau;
-      connect(adapter.flange_a, bearing) annotation (points=[-6.12303e-016,-70;
+      connect(adapter.flange_a, bearing) annotation (points=[-6.12323e-016,-70; 
             0,-70; 0,-100],    style(color=0));
       annotation (Documentation(info="<html>
 <p>
@@ -1857,7 +1862,7 @@ phase in a reliable way.
       Flange_a flange_a 
         "(left) flange to be measured (flange axis directed INTO cut plane)" 
         annotation (extent=[-110, -10; -90, 10]);
-      Modelica.Blocks.Interfaces.RealOutput y 
+      Modelica.Blocks.Interfaces.RealOutput y "Sensor signal" 
         annotation (extent=[100, -10; 120, 10]);
       annotation (
         Coordsys(
@@ -1898,7 +1903,7 @@ with the blocks of package Modelica.Blocks.
       Flange_b flange_b 
         "(right) driven flange (flange axis directed OUT OF cut plane)" 
         annotation (extent=[90, -10; 110, 10]);
-      Modelica.Blocks.Interfaces.RealOutput y 
+      Modelica.Blocks.Interfaces.RealOutput y "Sensor signal" 
         annotation (extent=[-10, -100; 10, -120], rotation=90);
       annotation (
         Coordsys(

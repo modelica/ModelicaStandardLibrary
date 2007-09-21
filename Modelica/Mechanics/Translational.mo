@@ -1240,10 +1240,10 @@ The following variables are transported through this connector:
       parameter SI.Length L=0 
         "length of component from left flange to right flange (= flange_b.s - flange_a.s)";
       Flange_a flange_a 
-        "(left) driving flange (flange axis directed INTO cut plane, i. e. from left to right)"
+        "(left) driving flange (flange axis directed in to cut plane, i. e. from left to right)"
          annotation (extent=[-110, -10; -90, 10]);
       Flange_b flange_b 
-        "(right) driven flange (flange axis directed OUT OF cut plane, i. e. from right to left)"
+        "(right) driven flange (flange axis directed out of cut plane, i. e. from right to left)"
          annotation (extent=[90, -10; 110, 10]);
       annotation (
         Documentation(info="<html>
@@ -1277,15 +1277,16 @@ It is used e.g. to built up sliding masses.
     
     partial model Compliant 
       "Compliant connection of two translational 1D flanges" 
+      
       Flange_a flange_a 
-        "(left) driving flange (flange axis directed INTO cut plane, e. g. from left to right)"
+        "(left) driving flange (flange axis directed in to cut plane, e. g. from left to right)"
          annotation (extent=[-110, -10; -90, 10]);
       Flange_b flange_b 
-        "(right) driven flange (flange axis directed OUT OF cut plane)" 
+        "(right) driven flange (flange axis directed out of cut plane)" 
         annotation (extent=[90, -10; 110, 10]);
       SI.Distance s_rel "relative distance (= flange_b.s - flange_a.s)";
       SI.Force f 
-        "forcee between flanges (positive in direction of flange axis R)";
+        "force between flanges (positive in direction of flange axis R)";
       annotation (
         Coordsys(
           extent=[-100, -100; 100, 100],
@@ -1323,10 +1324,10 @@ flange is the same. It is used to built up springs, dampers etc.
     
     partial model TwoFlanges "Component with two translational 1D flanges " 
       Flange_a flange_a 
-        "(left) driving flange (flange axis directed INTO cut plane, e. g. from left to right)"
+        "(left) driving flange (flange axis directed in to cut plane, e. g. from left to right)"
          annotation (extent=[-110, -10; -90, 10]);
       Flange_b flange_b 
-        "(right) driven flange (flange axis directed OUT OF cut plane)" 
+        "(right) driven flange (flange axis directed out of cut plane)" 
         annotation (extent=[90, -10; 110, 10]);
       annotation (
         Documentation(info="<html>
@@ -1361,9 +1362,9 @@ of several base components.
       extends Modelica.Icons.TranslationalSensor;
       
       Interfaces.Flange_a flange_a 
-        "flange to be measured (flange axis directed INTO cut plane, e. g. from left to right)"
+        "flange to be measured (flange axis directed in to cut plane, e. g. from left to right)"
          annotation (extent=[-110, -10; -90, 10]);
-      Modelica.Blocks.Interfaces.RealOutput y 
+      Modelica.Blocks.Interfaces.RealOutput y "Sensor signal" 
            annotation (extent=[100, -10; 120, 10]);
       annotation (
         Coordsys(
@@ -1417,12 +1418,13 @@ with the Modelica.Blocks blocks.
       extends Modelica.Icons.TranslationalSensor;
       
       Interfaces.Flange_a flange_a 
-        "(left) driving flange (flange axis directed INTO cut plane, e. g. from left to right)"
+        "(left) driving flange (flange axis directed in to cut plane, e. g. from left to right)"
          annotation (extent=[-110, -10; -90, 10]);
       Interfaces.Flange_b flange_b 
-        "(right) driven flange (flange axis directed OUT OF cut plane)" 
+        "(right) driven flange (flange axis directed out of cut plane)" 
         annotation (extent=[90, -10; 110, 10]);
-      Modelica.Blocks.Interfaces.RealOutput y annotation (extent=
+      Modelica.Blocks.Interfaces.RealOutput y "Sensor signal" 
+                                              annotation (extent=
             [-10, -100; 10, -120], rotation=90);
       annotation (
         Coordsys(
