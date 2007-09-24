@@ -225,16 +225,15 @@ package Utilities "Utility models for Examples.Loops"
     parameter SI.Length L "Length of cylinder";
     parameter SI.Length d "diameter of cylinder";
     parameter Real k0=0.01;
-    parameter Real k1=0.005;
-    parameter Real k=0.00005;
+    parameter Real k1=0.01;
+    parameter Real k=7;
     constant Real pi=Modelica.Constants.pi;
     constant Real PI=Modelica.Constants.pi;
     // Only for compatibility reasons
     Real x "Normalized position of cylinder";
     Real y "Normalized relative movement (= -s_rel/L)";
     SI.Density dens;
-    Modelica.SIunits.Conversions.NonSIunits.Pressure_bar press 
-      "cylinder pressure";
+    Modelica.SIunits.AbsolutePressure press "Cylinder pressure";
     SI.Volume V;
     SI.Temperature T;
     SI.Velocity v_rel;
@@ -276,13 +275,13 @@ package Utilities "Utility models for Examples.Loops"
     x = 1 + s_rel/L;
     v_rel = der(s_rel);
     
-    press = if v_rel < 0 then (if x < 0.987 then 177.4132*x^4 - 287.2189*x^3 +
+    press = 1e5*(if v_rel < 0 then (if x < 0.987 then 177.4132*x^4 - 287.2189*x^3 +
       151.8252*x^2 - 24.9973*x + 2.4 else 2836360*x^4 - 10569296*x^3 + 14761814
       *x^2 - 9158505*x + 2129670) else (if x > 0.93 then -3929704*x^4 +
       14748765*x^3 - 20747000*x^2 + 12964477*x - 3036495 else 145.930*x^4 -
-      131.707*x^3 + 17.3438*x^2 + 17.9272*x + 2.4);
+      131.707*x^3 + 17.3438*x^2 + 17.9272*x + 2.4));
     
-    f = -1.0e5*press*pi*d^2/4;
+    f = -press*pi*d^2/4;
     
     V = k0 + k1*(1 - x);
     
@@ -298,13 +297,13 @@ package Utilities "Utility models for Examples.Loops"
     parameter SI.Length L "Length of cylinder";
     parameter SI.Length d "diameter of cylinder";
     parameter Real k0=0.01;
-    parameter Real k1=0.005;
-    parameter Real k=0.00005;
+    parameter Real k1=0.01;
+    parameter Real k=7;
     constant Real pi=Modelica.Constants.pi;
     constant Real PI=Modelica.Constants.pi;
     Real x "Normalized position of cylinder (= 1 - s_rel/L)";
     SI.Density dens;
-    SI.Pressure press "cylinder pressure";
+    Modelica.SIunits.AbsolutePressure press "Cylinder pressure";
     SI.Volume V;
     SI.Temperature T;
     SI.Velocity v_rel;
@@ -373,13 +372,13 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
     x = 1 - s_rel/L;
     v_rel = der(s_rel);
     
-    press = if v_rel < 0 then (if x < 0.987 then 177.4132*x^4 - 287.2189*x^3 +
+    press = 1.0E5*(if v_rel < 0 then (if x < 0.987 then 177.4132*x^4 - 287.2189*x^3 +
       151.8252*x^2 - 24.9973*x + 2.4 else 2836360*x^4 - 10569296*x^3 + 14761814
       *x^2 - 9158505*x + 2129670) else (if x > 0.93 then -3929704*x^4 +
       14748765*x^3 - 20747000*x^2 + 12964477*x - 3036495 else 145.930*x^4 -
-      131.707*x^3 + 17.3438*x^2 + 17.9272*x + 2.4);
+      131.707*x^3 + 17.3438*x^2 + 17.9272*x + 2.4));
     
-    f = -1.0E5*press*pi*d^2/4;
+    f = -press*pi*d^2/4;
     
     V = k0 + k1*(1 - x);
     dens = press/(R_air*T);
@@ -535,19 +534,19 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
     Interfaces.Frame_a crank_b annotation (extent=[84,-116; 116,-84]);
   equation 
     
-    connect(jointRRP.frame_ia, Rod.frame_a) annotation (points=[20,-4; 49,-4; 
+    connect(jointRRP.frame_ia, Rod.frame_a) annotation (points=[20,-4; 49,-4;
           49,-1], style(
         color=10,
         rgbcolor={95,95,95},
         thickness=2));
-    connect(Mid.frame_b, jointRRP.frame_a) annotation (points=[-24,-20; 
+    connect(Mid.frame_b, jointRRP.frame_a) annotation (points=[-24,-20;
           1.22465e-015,-20; 1.22465e-015,-8], style(
         color=10,
         rgbcolor={95,95,95},
         thickness=2));
     connect(gasForce.flange_a, jointRRP.axis) 
       annotation (points=[9,70; 16,70; 16,32],    style(color=58));
-    connect(jointRRP.bearing, gasForce.flange_b) annotation (points=[8,32; 8,52; 
+    connect(jointRRP.bearing, gasForce.flange_b) annotation (points=[8,32; 8,52;
           -20,52; -20,70; -11,70],        style(color=58));
     connect(jointRRP.frame_ib, Piston.frame_b) annotation (points=[20,28; 30,28;
           30,70; 50,70; 50,60], style(
