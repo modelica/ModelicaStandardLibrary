@@ -589,7 +589,7 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
     input SI.MolarMass M "Molar mass of gas";
     input SI.MolarVolume Vc "Critical molar volume of gas";
     input Real w "Acentric factor of gas";
-    input SI.ElectricDipoleMomentOfMolecule mu "Dipole moment of gas molecule";
+    input DipoleMoment mu "Dipole moment of gas molecule";
     input Real k =  0.0 "Special correction for highly polar substances";
     output SI.DynamicViscosity eta "Dynamic viscosity of gas";
   protected 
