@@ -6416,7 +6416,7 @@ Ordinary Water Substance<br>
         liq := Common.helmholtzToBoundaryProps(fl);
         vap := Common.helmholtzToBoundaryProps(fv);
       end if;
-      aux.dpT := (vap.s - liq.s)*(if (liq.d <> vap.d) then liq.d*vap.d/(liq.d - vap.d) else 
+      aux.dpT := (vap.s - liq.s)*(if (liq.d <> vap.d) then (vap.s - liq.s)*liq.d*vap.d/(liq.d - vap.d) else 
            BaseIF97.Basic.dptofT(aux.T));
       aux.h := liq.h + aux.x*(vap.h - liq.h);
       aux.rho := liq.d*vap.d/(vap.d + aux.x*(liq.d - vap.d));
@@ -7373,7 +7373,7 @@ Ordinary Water Substance<br>
         liq := Common.helmholtzToBoundaryProps(fl);
         vap := Common.helmholtzToBoundaryProps(fv);
       end if;
-      aux.dpT := (vap.s - liq.s)*(if (liq.d <> vap.d) then liq.d*vap.d/(liq.d - vap.d) else BaseIF97.Basic.dptofT(aux.T));
+      aux.dpT := (vap.s - liq.s)*(if (liq.d <> vap.d) then (vap.s - liq.s)*liq.d*vap.d/(liq.d - vap.d) else BaseIF97.Basic.dptofT(aux.T));
       aux.s := liq.s + aux.x*(vap.s - liq.s);
       aux.cv := Common.cv2Phase(liq, vap, aux.x, aux.T, aux.p);
       aux.cp := liq.cp + aux.x*(vap.cp - liq.cp);
