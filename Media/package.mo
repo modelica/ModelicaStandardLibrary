@@ -3504,7 +3504,7 @@ output window.
       extends Modelica.Icons.Example;
       
       replaceable package Medium = Modelica.Media.Air.DryAirNasa 
-            extends Modelica.Media.IdealGases.Common.SingleGasNasa 
+            constrainedby Modelica.Media.IdealGases.Common.SingleGasNasa 
         "Medium model"     annotation (choicesAllMatching=true);
       
      parameter SI.Temperature T_min = 300;
@@ -3601,7 +3601,7 @@ output window.
       
       replaceable package Medium = 
           Modelica.Media.IdealGases.MixtureGases.FlueGasLambdaOnePlus 
-            extends Modelica.Media.IdealGases.Common.MixtureGasNasa 
+            constrainedby Modelica.Media.IdealGases.Common.MixtureGasNasa 
         "Medium model"     annotation (choicesAllMatching=true);
       
      parameter SI.Temperature T_min = 300;
@@ -3882,103 +3882,41 @@ Modelica source.
       annotation(Documentation(info="<html></html>"));
     end ThermodynamicState;
     
-    replaceable record BasePropertiesRecord 
-      "Variables contained in every instance of BaseProperties" 
-      extends Modelica.Icons.Record;
-      AbsolutePressure p "Absolute pressure of medium";
+    
+    replaceable partial model BaseProperties 
+      "Base properties (p, d, T, h, u, R, MM and, if applicable, X and Xi) of a medium" 
+      InputAbsolutePressure p "Absolute pressure of medium";
+      InputMassFraction[nXi] Xi(start=reference_X[1:nXi]) 
+        "Structurally independent mass fractions";
+      InputSpecificEnthalpy h "Specific enthalpy of medium";
       Density d "Density of medium";
       Temperature T "Temperature of medium";
       MassFraction[nX] X(start=reference_X) 
         "Mass fractions (= (component mass)/total mass  m_i/m)";
-      MassFraction[nXi] Xi(start=reference_X[1:nXi]) 
-        "Structurally independent mass fractions" annotation (Hide=true);
-      SpecificEnthalpy h "Specific enthalpy of medium";
       SpecificInternalEnergy u "Specific internal energy of medium";
       SpecificHeatCapacity R "Gas constant (of mixture if applicable)";
       MolarMass MM "Molar mass (of mixture or single fluid)";
-      annotation(Documentation(info="<html></html>"));
-    end BasePropertiesRecord;
-    
-    replaceable partial model BaseProperties 
-      "Base properties (p, d, T, h, u, R, MM and, if applicable, X) of a medium" 
-      extends BasePropertiesRecord;
       ThermodynamicState state 
-        "thermodynamic state variables for optional functions";
+        "thermodynamic state record for optional functions";
       parameter Boolean preferredMediumStates=false 
         "= true if StateSelect.prefer shall be used for the independent property variables of the medium"
-        annotation (Hide=true, Evaluate=true, Dialog(tab="Advanced"));
-      annotation (structurallyIncomplete);
+        annotation (Evaluate=true, Dialog(tab="Advanced"));
+      parameter Boolean standardOrderComponents = true 
+        "if true, and reducedX = true, the last element of X will be computed from the other ones";
       SI.Conversions.NonSIunits.Temperature_degC T_degC=
           Modelica.SIunits.Conversions.to_degC(T) 
         "Temperature of medium in [degC]";
       SI.Conversions.NonSIunits.Pressure_bar p_bar=
        Modelica.SIunits.Conversions.to_bar(p) 
         "Absolute pressure of medium in [bar]";
-      parameter Boolean standardOrderComponents = true 
-        "if true, last element in components is computed from 1-sum(Xi)";
-      annotation (Documentation(info="<html>
-<p>
-Model <b>BaseProperties</b> is a model within package <b>PartialMedium</b>
-and contains the <b>declarations</b> of the minimum number of
-variables that every medium model is supposed to support.
-A specific medium inherits from model <b>BaseProperties</b> and provides
-the equations for the basic properties. Note, that in package
-PartialMedium the following constants are defined:
-</p>
-<table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><b>Type</b></td>
-      <td valign=\"top\"><b>Name</b></td>
-      <td valign=\"top\"><b>Description</b></td></tr>
-  <tr><td valign=\"top\">String</td><td valign=\"top\">mediumName</td>
-      <td valign=\"top\">Unique name of the medium (used to check whether two media in a model
-          are the same)</td></tr>
-  <tr><td valign=\"top\">String</td><td valign=\"top\">substanceNames</td>
-      <td valign=\"top\">Names of the mixture substances that are treated
-          as independent.
-          If medium consists of a single substance, set substanceNames=fill(\"\",0).
-          If medium consists of n substances, provide either n-1 or n
-          substance names, depending whether mass fractions
-          PartialMedium.BaseProperties.X shall have
-          dimension PartialMedium.nX = n-1 or PartialMedium.nX = n</td></tr>
-  <tr><td valign=\"top\">Boolean</td><td valign=\"top\">incompressible</td>
-      <td valign=\"top\">= true, if density is constant; otherwise set it to false</td></tr>
-</table>
-<p>
-In every medium <b>3+nX equations</b> have to be defined that
-provide relations between the following <b>5+nX variables</b>, declared
-in model BaseProperties, where nX is the number of independent
-mass fractions defined in package PartialMedium:
-</p>
-<table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><b>Variable</b></td>
-      <td valign=\"top\"><b>Unit</b></td>
-      <td valign=\"top\"><b>Description</b></td></tr>
-  <tr><td valign=\"top\">T</td>
-      <td valign=\"top\">K</td>
-      <td valign=\"top\">temperature</td></tr>
-  <tr><td valign=\"top\">p</td>
-      <td valign=\"top\">Pa</td>
-      <td valign=\"top\">absolute pressure</td></tr>
-  <tr><td valign=\"top\">d</td>
-      <td valign=\"top\">kg/m^3</td>
-      <td valign=\"top\">density</td></tr>
-  <tr><td valign=\"top\">h</td>
-      <td valign=\"top\">J/kg</td>
-      <td valign=\"top\">specific enthalpy</td></tr>
-  <tr><td valign=\"top\">u</td>
-      <td valign=\"top\">J/kg</td>
-      <td valign=\"top\">specific internal energy</td></tr>
-  <tr><td valign=\"top\">X[nX]</td>
-      <td valign=\"top\">kg/kg</td>
-      <td valign=\"top\">independent mass fractions m_i/m</td></tr>
-</table>
-<p>
-In some components, such as \"Ambient\", explicit equations for
-medium variables are provided as \"boundary conditions\".
-For example, the \"Ambient\" component may define a temperature
-T_ambient.
-</html>"),   Icon(Rectangle(extent=[-100,100; 100,-100], style(fillColor=7)), Text(extent=
+      annotation (Icon(Rectangle(extent=[-100,100; 100,-100], style(fillColor=7)), Text(extent=
                [-152,164; 152,102], string="%name")));
+      
+      // Local connector definition, used for equation balancing check
+      connector InputAbsolutePressure = input SI.AbsolutePressure;
+      connector InputSpecificEnthalpy = input SI.SpecificEnthalpy;
+      connector InputMassFraction = input SI.MassFraction;
+      
     equation 
       if standardOrderComponents then
         Xi = X[1:nXi];
@@ -3999,7 +3937,67 @@ T_ambient.
       
       assert(p >= 0.0, "Pressure (= " + String(p) + " Pa) of medium \"" +
         mediumName + "\" is negative\n(Temperature = " + String(T) + " K)");
-      
+      annotation (Documentation(info="<html>
+<p>
+Model <b>BaseProperties</b> is a model within package <b>PartialMedium</b>
+and contains the <b>declarations</b> of the minimum number of
+variables that every medium model is supposed to support.
+A specific medium inherits from model <b>BaseProperties</b> and provides
+the equations for the basic properties. </p>
+<p>
+The BaseProperties model contains the following <b>7+nXi variables</b>
+(nXi is the number of independent mass fractions defined in package
+PartialMedium):
+</p>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td valign=\"top\"><b>Variable</b></td>
+      <td valign=\"top\"><b>Unit</b></td>
+      <td valign=\"top\"><b>Description</b></td></tr>
+  <tr><td valign=\"top\">T</td>
+      <td valign=\"top\">K</td>
+      <td valign=\"top\">temperature</td></tr>
+  <tr><td valign=\"top\">p</td>
+      <td valign=\"top\">Pa</td>
+      <td valign=\"top\">absolute pressure</td></tr>
+  <tr><td valign=\"top\">d</td>
+      <td valign=\"top\">kg/m^3</td>
+      <td valign=\"top\">density</td></tr>
+  <tr><td valign=\"top\">h</td>
+      <td valign=\"top\">J/kg</td>
+      <td valign=\"top\">specific enthalpy</td></tr>
+  <tr><td valign=\"top\">u</td>
+      <td valign=\"top\">J/kg</td>
+      <td valign=\"top\">specific internal energy</td></tr>
+  <tr><td valign=\"top\">Xi[nXi]</td>
+      <td valign=\"top\">kg/kg</td>
+      <td valign=\"top\">independent mass fractions m_i/m</td></tr>
+  <tr><td valign=\"top\">R</td>
+      <td valign=\"top\">J/kg.K</td>
+      <td valign=\"top\">gas constant</td></tr>
+  <tr><td valign=\"top\">M</td>
+      <td valign=\"top\">kg/mol</td>
+      <td valign=\"top\">molar mass</td></tr>
+</table>
+<p>
+In order to implement an actual medium model, one can extend from this
+base model and add <b>5 equations</b> that provide relations among 
+these variables. Equations will also have to be added in order to
+set all the variables within the ThermodynamicState record state.</p>
+<p>
+If standardOrderComponents=true, the full composition vector X[nX] 
+is determined by the equations contained in this base class, depending 
+on the independent mass fraction vector Xi[nXi]. </p>
+<p>Additional <b>2 + nXi</b> equations will have to be provided 
+when using the BaseProperties model, in order to fully specify the 
+thermodynamic conditions. The input connector qualifier applied to 
+p, h, and nXi indirectly declares the number of missing equations,
+permitting advanced equation balance checking by Modelica tools.
+Please note that this doesn't mean that the additional equations 
+should be connection equations, nor that exactly those variables
+should be supplied, in order to complete the model.
+For further information, see the Modelica.Media User's guide, and 
+Section 4.7 (Balanced Models) of the Modelica 3.0 specification. </p>
+</html>"));
     end BaseProperties;
     
     replaceable partial function setState_pTX 
