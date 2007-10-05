@@ -4,7 +4,8 @@ model CauerLowPassSC
 model Rn 
     
   parameter Modelica.SIunits.Time clock=1;
-  parameter Modelica.SIunits.Resistance R=1 "Resistance";
+  parameter Modelica.SIunits.Resistance R(min=Modelica.Constants.eps)=1 
+      "Resistance";
   Modelica.Blocks.Sources.BooleanPulse BooleanPulse1(period=clock) 
     annotation (extent=[-10,50; 10,70]);
   annotation (
@@ -72,9 +73,8 @@ model Rn
           color=59,
           rgbcolor={85,255,85},
           fillPattern=1))));
-  final constant Real unitOhm_sPerF(unit="Ohm.s/F") = 1 
-                                                    annotation(Hide=true);
-  Modelica.Electrical.Analog.Basic.Capacitor Capacitor1(C=R*clock/unitOhm_sPerF) 
+    
+  Modelica.Electrical.Analog.Basic.Capacitor Capacitor1(C=clock/R) 
     annotation (extent=[-20,-20; 20,20]);
   Modelica.Electrical.Analog.Ideal.IdealCommutingSwitch IdealCommutingSwitch1 
     annotation (extent=[-60,-10; -40,10],  rotation=180);
@@ -186,11 +186,11 @@ model Rp
           fillPattern=1),
         string="%name")));
   parameter Modelica.SIunits.Time clock=1;
-  parameter Modelica.SIunits.Resistance R=1 "Resistance";
-  final constant Real unitOhm_sPerF(unit="Ohm.s/F") = 1 annotation(Hide=true);
+  parameter Modelica.SIunits.Resistance R(min=Modelica.Constants.eps)=1 
+      "Resistance";
   Modelica.Blocks.Sources.BooleanPulse BooleanPulse1(period=clock) 
     annotation (extent=[-10,50; 10,70]);
-  Modelica.Electrical.Analog.Basic.Capacitor Capacitor1(C=R*clock/unitOhm_sPerF) 
+  Modelica.Electrical.Analog.Basic.Capacitor Capacitor1(C=clock/R) 
     annotation (extent=[-20,-20; 20,20]);
   Modelica.Electrical.Analog.Ideal.IdealCommutingSwitch IdealCommutingSwitch1 
     annotation (extent=[-60,-10; -40,10],  rotation=180);
