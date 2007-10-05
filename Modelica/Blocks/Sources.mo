@@ -2820,7 +2820,7 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
         y = a*time + b;
       end TimeTable;
   
-  model CombiTimeTable 
+  block CombiTimeTable 
     "Table look-up with respect to time and linear/perodic extrapolation methods (data from matrix/file)" 
     
     parameter Boolean tableOnFile=false 

@@ -604,9 +604,14 @@ units are wrong or errors in documentation):
 </p>
  
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+  <tr><td colspan=\"2\"><b>Blocks.Sources.</b></td></tr>
+  <tr><td valign=\"top\"> CombiTimeTable</td>
+      <td valign=\"top\"> \"model\" changed to \"block\"</td> 
+  </tr>
+
   <tr><td colspan=\"2\"><b>Blocks.Tables.</b></td></tr>
   <tr><td valign=\"top\"> CombiTable2D</td>
-      <td valign=\"top\"> Documentation improved.</td> 
+      <td valign=\"top\"> Documentation improved and \"model\" changed to \"block\"</td> 
   </tr>
 </table>
                                

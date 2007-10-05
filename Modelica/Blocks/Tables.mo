@@ -2,7 +2,7 @@ within Modelica.Blocks;
 package Tables 
   "Library of blocks to interpolate in one and two-dimensional tables" 
   extends Icons.Library;
-  model CombiTable1D 
+  block CombiTable1D 
     "Table look-up in one dimension (matrix/file) with n inputs and n outputs " 
     import Modelica.Blocks.Types;
     parameter Boolean tableOnFile=false 
@@ -194,7 +194,7 @@ Several matrices may be defined one after another.
     end when;
   end CombiTable1D;
   
-  model CombiTable1Ds 
+  block CombiTable1Ds 
     "Table look-up in one dimension (matrix/file) with one input and n outputs" 
     
     import Modelica.Blocks.Types;
@@ -387,7 +387,7 @@ Several matrices may be defined one after another.
     end when;
   end CombiTable1Ds;
   
-  model CombiTable2D "Table look-up in two dimensions (matrix/file) " 
+  block CombiTable2D "Table look-up in two dimensions (matrix/file) " 
     
     import Modelica.Blocks.Types;
     extends Modelica.Blocks.Interfaces.SI2SO;
