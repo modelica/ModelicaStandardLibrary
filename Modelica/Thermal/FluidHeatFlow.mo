@@ -1,9 +1,10 @@
 within Modelica.Thermal;
+
 package FluidHeatFlow 
   "Simple components for 1-dimensional incompressible thermo-fluid flow models" 
   extends Modelica.Icons.Library2;
   annotation (
-    version="1.6.5", versionDate="2007-08-26",
+    version="1.6.5", versionDate="2007-10-08",
     preferedView="info",Documentation(info="<HTML>
 This package contains very simple-to-use components to model coolant flows as needed to simulate cooling e.g. of electric machines:
 <ul>
@@ -1394,6 +1395,7 @@ Flow resistance under real conditions is calculated by<br>
         "Part of friction losses fed to medium";
     protected 
       constant Real small = Modelica.Constants.small;
+      constant Modelica.SIunits.VolumeFlowRate smallVolumeFlowRate = eps;
       constant Real eps = Modelica.Constants.eps;
       Real yLim = max(min(y,y1),0) "Limited valve opening";
       Modelica.SIunits.VolumeFlowRate Kv "Standard flow rate";
@@ -1402,7 +1404,7 @@ Flow resistance under real conditions is calculated by<br>
         annotation (extent=[-10,80; 10,100], rotation=-90);
     initial algorithm 
       assert(y1>small, "Valve characteristic: y1 has to be > 0 !");
-      assert(Kv1>small, "Valve characteristic: Kv1 has to be > 0 !");
+      assert(Kv1>smallVolumeFlowRate, "Valve characteristic: Kv1 has to be > 0 !");
       assert(kv0>small, "Valve characteristic: kv0 has to be > 0 !");
       assert(kv0<1-eps, "Valve characteristic: kv0 has to be < 1 !");
     equation 
