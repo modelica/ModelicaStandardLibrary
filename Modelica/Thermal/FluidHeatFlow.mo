@@ -1,9 +1,10 @@
 within Modelica.Thermal;
+
 package FluidHeatFlow 
   "Simple components for 1-dimensional incompressible thermo-fluid flow models" 
   extends Modelica.Icons.Library2;
   annotation (
-    version="1.6.3", versionDate="2007-08-21",
+    version="1.6.3a", versionDate="2007-10-08",
     preferedView="info",Documentation(info="<HTML>
 This package contains very simple-to-use components to model coolant flows as needed to simulate cooling e.g. of electric machines:
 <ul>
@@ -105,6 +106,8 @@ and the accompanying <b>disclaimer</b>
        improved documentation</li>
   <li> v1.6.3 2007/08/21 Anton Haumer<br>
        improved documentation</li>
+  <li> v1.6.3a 2007/10/08 Anton Haumer<br>
+       changes to avoid unit conflicts</li>
   </ul>
 </HTML>
 "), Icon(
@@ -1390,6 +1393,7 @@ Flow resistance under real conditions is calculated by<br>
         "Part of friction losses fed to medium";
     protected 
       constant Real small = Modelica.Constants.small;
+      constant Modelica.SIunits.VolumeFlowRate smallVolumeFlowRate = eps;
       constant Real eps = Modelica.Constants.eps;
       Real yLim = max(min(y,y1),0) "Limited valve opening";
       Modelica.SIunits.VolumeFlowRate Kv "Standard flow rate";
@@ -1398,7 +1402,7 @@ Flow resistance under real conditions is calculated by<br>
         annotation (extent=[-10,80; 10,100], rotation=-90);
     initial algorithm 
       assert(y1>small, "Valve characteristic: y1 has to be > 0 !");
-      assert(Kv1>small, "Valve characteristic: Kv1 has to be > 0 !");
+      assert(Kv1>smallVolumeFlowRate, "Valve characteristic: Kv1 has to be > 0 !");
       assert(kv0>small, "Valve characteristic: kv0 has to be > 0 !");
       assert(kv0<1-eps, "Valve characteristic: kv0 has to be < 1 !");
     equation 
@@ -1670,14 +1674,13 @@ See also sketch at diagram layer.
         Modelica.SIunits.VolumeFlowRate VolumeFlow;
         Modelica.SIunits.Power Q_friction;
       protected 
-        parameter Real k(fixed=false);
+        parameter Real k(final unit="Pa.s2/m6", fixed=false);
       initial algorithm 
         assert(V_flowNominal>V_flowLaminar,
           "SimpleFriction: V_flowNominal has to be > V_flowLaminar!");
-        k:=dpLaminar/V_flowLaminar*V_flowNominal;
-        assert(dpNominal>=k,
-          "SimpleFriction: dpNominal has to be > dpLaminar*V_flowNominal/V_flowLaminar!");
-        k:=(dpNominal - k)/(V_flowNominal - V_flowLaminar)^2;
+        assert(dpNominal>=dpLaminar/V_flowLaminar*V_flowNominal,
+          "SimpleFriction: dpNominal has to be > dpLaminar/V_flowLaminar*V_flowNominal!");
+        k:=(dpNominal - dpLaminar/V_flowLaminar*V_flowNominal)/(V_flowNominal - V_flowLaminar)^2;
       equation 
         if     VolumeFlow > +V_flowLaminar then
           pressureDrop = +dpLaminar/V_flowLaminar*VolumeFlow + k*(VolumeFlow - V_flowLaminar)^2;
