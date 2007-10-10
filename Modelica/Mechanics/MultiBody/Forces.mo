@@ -1564,7 +1564,7 @@ is resolved in the world frame).
       "Distance between the origin of frame_a and the origin of frame_b";
     SI.Position r_rel_0[3] 
       "Position vector from frame_a to frame_b resolved in world frame";
-    SI.Position e_rel_0[3] 
+    Real e_rel_0[3] 
       "Unit vector in direction from frame_a to frame_b, resolved in world frame";
     annotation (
       preferedView="info",
@@ -2261,7 +2261,7 @@ for this situation:
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
       "Reflection of ambient light (= 0: light is completely absorbed)" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    input Real massDiameter=max(0, (width - 2*coilWidth)*0.9) 
+    input SIunits.Diameter massDiameter=max(0, (width - 2*coilWidth)*0.9) 
       " Diameter of mass point sphere" annotation (Dialog(tab="Animation", group=
             "if animation = true and showMass = true", enable=animation and showMass));
     input Types.Color massColor=Modelica.Mechanics.MultiBody.Types.Defaults.BodyColor 
@@ -2355,10 +2355,10 @@ ALT=\"model Examples.Elementary.SpringWithMass\">
     parameter SI.Distance length_a=world.defaultForceLength 
       " Length of cylinder at frame_a side" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    input SI.Distance diameter_a=world.defaultForceWidth 
+    input SIunits.Diameter diameter_a=world.defaultForceWidth 
       " Diameter of cylinder at frame_a side" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    input Real diameter_b=0.6*diameter_a 
+    input SIunits.Diameter diameter_b=0.6*diameter_a 
       " Diameter of cylinder at frame_b side" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     input Types.Color color_a={100,100,100} " Color at frame_a" 

@@ -1303,7 +1303,7 @@ The diameter and color of all line cylinders are identical.
       parameter Integer n=size(lines, 1) "Number of cylinders";
       T.Orientation R_rel=T.from_nxy(n_x, n_y);
       T.Orientation R_lines=T.absoluteRotation(R.T, R_rel);
-      Real r_abs[3]=r + T.resolve1(R.T, r_lines);
+      Modelica.SIunits.Position r_abs[3]=r + T.resolve1(R.T, r_lines);
       Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape cylinders[n](
         each shapeType="cylinder",
         lengthDirection={T.resolve1(R_rel, vector([lines[i, 2, :] - lines[i, 1,

@@ -3209,7 +3209,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
     0 = flange_a.tau + flange_b.tau - tau;
     
     // Friction torque
-    tau = if locked then sa else (if startForward then 
+    tau = if locked then sa*unitTorque else (if startForward then 
       Modelica.Math.tempInterpol1(w, tau_pos, 2) else if startBackward then -
       Modelica.Math.tempInterpol1(-w, tau_pos, 2) else if pre(mode) == Forward then 
             Modelica.Math.tempInterpol1(w, tau_pos, 2) else -
@@ -3410,7 +3410,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
     tau0_max = peak*tau0;
     
     // friction torque
-    tau = if locked then sa else if free then 0 else cgeo*fn*(if startForward then 
+    tau = if locked then sa*unitTorque else if free then 0 else cgeo*fn*(if startForward then 
             Modelica.Math.tempInterpol1(w_rel, mue_pos, 2) else if 
       startBackward then -Modelica.Math.tempInterpol1(-w_rel, mue_pos, 2) else 
       if pre(mode) == Forward then Modelica.Math.tempInterpol1(w_rel, mue_pos,
@@ -3447,7 +3447,8 @@ following references, especially (Armstrong and Canudas de Witt 1996):
     SI.Torque tau0_max "Maximum friction torque for w=0 and locked";
     Real mue0 "Friction coefficient for w=0 and sliding";
     Boolean free "true, if frictional element is not active";
-    Real sa "path parameter of tau = f(a_rel) Friction characteristic";
+    Real sa(unit="1") 
+      "path parameter of tau = f(a_rel) Friction characteristic";
     constant Real eps0=1.0e-4 "Relative hysteresis epsilon";
     SI.Torque tau0_max_low "lowest value for tau0_max";
     parameter Real peak2=max([peak, 1 + eps0]);
@@ -3628,13 +3629,13 @@ are dynamically coupled. The method is described in:
        the different structural configurations, if for each configuration
        special code shall be generated)
     */
-    startForward = pre(stuck) and (sa > tau0_max or pre(startForward) and sa >
-      tau0 or w_rel > w_small) or initial() and (w_rel > 0);
+    startForward = pre(stuck) and (sa > tau0_max/unitTorque or pre(startForward) and sa >
+      tau0/unitTorque or w_rel > w_small) or initial() and (w_rel > 0);
     locked = pre(stuck) and not startForward;
     
     // acceleration and friction torque
     a_rel = unitAngularAcceleration* (if locked then 0 else sa - tau0/unitTorque);
-    tau = if locked then sa else (if free then 0 else cgeo*fn*
+    tau = if locked then sa*unitTorque else (if free then 0 else cgeo*fn*
       Modelica.Math.tempInterpol1(w_rel, mue_pos, 2));
     
     // Determine configuration
@@ -3851,7 +3852,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
     free = fn <= 0;
     
     // friction torque
-    tau = if locked then sa else if free then 0 else cgeo*fn*(if startForward then 
+    tau = if locked then sa*unitTorque else if free then 0 else cgeo*fn*(if startForward then 
             Modelica.Math.tempInterpol1(w, mue_pos, 2) else if startBackward then 
             -Modelica.Math.tempInterpol1(-w, mue_pos, 2) else if pre(mode) ==
       Forward then Modelica.Math.tempInterpol1(w, mue_pos, 2) else -
@@ -4189,9 +4190,9 @@ Modelica.Constants.eps).
     tauLossMin = if tau_aPos then quadrant4 else quadrant3;
     
     // Determine rolling/stuck mode when w_rel = 0
-    startForward = pre(mode) == Stuck and sa > tauLossMax or initial() and w_a
+    startForward = pre(mode) == Stuck and sa > tauLossMax/unitTorque or initial() and w_a
        > 0;
-    startBackward = pre(mode) == Stuck and sa < tauLossMin or initial() and w_a
+    startBackward = pre(mode) == Stuck and sa < tauLossMin/unitTorque or initial() and w_a
        < 0;
     locked = not (ideal or pre(mode) == Forward or startForward or pre(mode)
        == Backward or startBackward);
@@ -4200,7 +4201,7 @@ Modelica.Constants.eps).
        In comparison to Modelica.Mechanics.Rotational.FrictionBase it is possible
        to simplify the following expression as mode == Stuck is assured in case
        of startForward or startBackward */
-    tauLoss = if ideal then 0 else (if locked then sa else (if (startForward or 
+    tauLoss = if ideal then 0 else (if locked then sa*unitTorque else (if (startForward or 
           pre(mode) == Forward) then tauLossMax else tauLossMin));
     
     a_a = unitAngularAcceleration*(if locked then 0 else sa - tauLoss/unitTorque);

@@ -223,10 +223,10 @@ package Utilities "Utility models for Examples.Loops"
     
     extends Modelica.Mechanics.Translational.Interfaces.Compliant;
     parameter SI.Length L "Length of cylinder";
-    parameter SI.Length d "diameter of cylinder";
-    parameter Real k0=0.01;
-    parameter Real k1=0.01;
-    parameter Real k=7;
+    parameter SI.Length d "Diameter of cylinder";
+    parameter SIunits.Volume k0=0.01;
+    parameter SIunits.Volume k1=0.01;
+    parameter SIunits.HeatCapacity k=7;
     constant Real pi=Modelica.Constants.pi;
     constant Real PI=Modelica.Constants.pi;
     // Only for compatibility reasons
@@ -295,10 +295,10 @@ package Utilities "Utility models for Examples.Loops"
     
     extends Modelica.Mechanics.Translational.Interfaces.Compliant;
     parameter SI.Length L "Length of cylinder";
-    parameter SI.Length d "diameter of cylinder";
-    parameter Real k0=0.01;
-    parameter Real k1=0.01;
-    parameter Real k=7;
+    parameter SI.Diameter d "Diameter of cylinder";
+    parameter SI.Volume k0=0.01;
+    parameter SI.Volume k1=0.01;
+    parameter SIunits.HeatCapacity k=7;
     constant Real pi=Modelica.Constants.pi;
     constant Real PI=Modelica.Constants.pi;
     Real x "Normalized position of cylinder (= 1 - s_rel/L)";

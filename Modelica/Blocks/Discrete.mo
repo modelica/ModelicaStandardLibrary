@@ -104,7 +104,7 @@ sample instant during the sample points.
     extends Interfaces.DiscreteSISO;
   protected 
     Real ySample;
-    Real tSample;
+    Modelica.SIunits.Time tSample;
     Real c;
     annotation (
       Coordsys(

@@ -44,6 +44,8 @@ Modelica in file \"Modelica/package.mo\".</i><br>
   
           model IdealThyristor "Ideal thyristor" 
             extends Modelica.Electrical.Analog.Interfaces.OnePort;
+            Modelica.Blocks.Interfaces.BooleanInput fire 
+              annotation (extent=[50,90; 90,130],   rotation=-90);
             parameter Modelica.SIunits.Resistance Ron(final min=0) = 1.E-5 
       "Closed thyristor resistance";
             parameter Modelica.SIunits.Conductance Goff(final min=0) = 1.E-5 
@@ -51,9 +53,6 @@ Modelica in file \"Modelica/package.mo\".</i><br>
             parameter Modelica.SIunits.Voltage Vknee(final min=0) = 0 
       "Forward threshold voltage";
             Boolean off(start=true) "Switching state";
-  protected 
-            Real s 
-      "Auxiliary variable: if on then current, if opened then voltage";
             annotation (
               Documentation(info="<html>
 This is an ideal thyristor model which is<br><br>
@@ -174,17 +173,22 @@ along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
                 width=0.6,
                 height=0.6));
     
-  public 
-            Modelica.Blocks.Interfaces.BooleanInput fire 
-              annotation (extent=[50,90; 90,130],   rotation=-90);
+  protected 
+            Real s 
+      "Auxiliary variable: if on then current, if opened then voltage";
+            constant Real unitVoltage(unit="V") = 1           annotation(Hide=true);
+            constant Real unitCurrent(unit="A") = 1            annotation(Hide=true);
+    
           equation 
             off = s < 0 or pre(off) and not fire;
-            v = s*(if off then 1 else Ron) + Vknee;
-            i = s*(if off then Goff else 1) + Goff*Vknee;
+            v = (s*unitCurrent)*(if off then 1 else Ron) + Vknee;
+            i = (s*unitVoltage)*(if off then Goff else 1) + Goff*Vknee;
           end IdealThyristor;
   
           model IdealGTOThyristor "Ideal GTO thyristor" 
             extends Modelica.Electrical.Analog.Interfaces.OnePort;
+            Modelica.Blocks.Interfaces.BooleanInput fire 
+              annotation (extent=[50,90; 90,130],   rotation=-90);
             parameter Modelica.SIunits.Resistance Ron(final min=0) = 1.E-5 
       "Closed thyristor resistance";
             parameter Modelica.SIunits.Conductance Goff(final min=0) = 1.E-5 
@@ -192,9 +196,6 @@ along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
             parameter Modelica.SIunits.Voltage Vknee(final min=0) = 0 
       "Forward threshold voltage";
             Boolean off(start=true) "Switching state";
-  protected 
-            Real s 
-      "Auxiliary variable: if on then current, if opened then voltage";
             annotation (
               Documentation(info="<html>
 This is an ideal GTO thyristor model which is<br><br>
@@ -311,14 +312,15 @@ along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
                 y=0.13,
                 width=0.6,
                 height=0.6));
-    
-  public 
-            Modelica.Blocks.Interfaces.BooleanInput fire 
-              annotation (extent=[50,90; 90,130],   rotation=-90);
+  protected 
+            Real s 
+      "Auxiliary variable: if on then current, if opened then voltage";
+            constant Real unitVoltage(unit="V") = 1           annotation(Hide=true);
+            constant Real unitCurrent(unit="A") = 1            annotation(Hide=true);
           equation 
             off = s < 0 or not fire;
-            v = s*(if off then 1 else Ron) + Vknee;
-            i = s*(if off then Goff else 1) + Goff*Vknee;
+            v = (s*unitCurrent)*(if off then 1 else Ron) + Vknee;
+            i = (s*unitVoltage)*(if off then Goff else 1) + Goff*Vknee;
           end IdealGTOThyristor;
   
   model IdealCommutingSwitch "Ideal commuting switch" 
@@ -389,13 +391,15 @@ where a description with zero Ron or zero Goff is not possible.
   protected 
     Real s1;
     Real s2 "Auxiliary variables";
+    constant Real unitVoltage(unit="V") = 1           annotation(Hide=true);
+    constant Real unitCurrent(unit="A") = 1            annotation(Hide=true);
   equation 
     0 = p.i + n2.i + n1.i;
     
-    p.v - n1.v = s1*(if (control) then 1 else Ron);
-    n1.i = -s1*(if (control) then Goff else 1);
-    p.v - n2.v = s2*(if (control) then Ron else 1);
-    n2.i = -s2*(if (control) then 1 else Goff);
+    p.v - n1.v = (s1*unitCurrent)*(if (control) then 1 else Ron);
+    n1.i = -(s1*unitVoltage)*(if (control) then Goff else 1);
+    p.v - n2.v = (s2*unitCurrent)*(if (control) then Ron else 1);
+    n2.i = -(s2*unitVoltage)*(if (control) then 1 else Goff);
   end IdealCommutingSwitch;
   
   model IdealIntermediateSwitch "Ideal intermediate switch" 
@@ -475,20 +479,22 @@ where a description with zero Ron or zero Goff is not possible.
       "true => p1--n2, p2--n1 connected, otherwise p1--n1, p2--n2  connected" 
       annotation (extent=[-20,60; 20,100],rotation=-90);
   protected 
-    Real s1;
-    Real s2;
-    Real s3;
-    Real s4 "Auxiliary variables";
+    Real s1(final unit="1");
+    Real s2(final unit="1");
+    Real s3(final unit="1");
+    Real s4(final unit="1") "Auxiliary variables";
+    constant Real unitVoltage(unit="V") = 1           annotation(Hide=true);
+    constant Real unitCurrent(unit="A") = 1            annotation(Hide=true);
   equation 
-    p1.v - n1.v = s1*(if (control) then 1 else Ron);
-    p2.v - n2.v = s2*(if (control) then 1 else Ron);
-    p1.v - n2.v = s3*(if (control) then Ron else 1);
-    p2.v - n1.v = s4*(if (control) then Ron else 1);
+    p1.v - n1.v = (s1*unitCurrent)*(if (control) then 1 else Ron);
+    p2.v - n2.v = (s2*unitCurrent)*(if (control) then 1 else Ron);
+    p1.v - n2.v = (s3*unitCurrent)*(if (control) then Ron else 1);
+    p2.v - n1.v = (s4*unitCurrent)*(if (control) then Ron else 1);
     
-    p1.i = if (control) then s1*Goff + s3 else s1 + s3*Goff;
-    p2.i = if (control) then s2*Goff + s4 else s2 + s4*Goff;
-    n1.i = if (control) then -s1*Goff - s4 else -s1 - s4*Goff;
-    n2.i = if (control) then -s2*Goff - s3 else -s2 - s3*Goff;
+    p1.i = if control then s1*unitVoltage*Goff + s3*unitCurrent else s1*unitCurrent + s3*unitVoltage*Goff;
+    p2.i = if control then s2*unitVoltage*Goff + s4*unitCurrent else s2*unitCurrent + s4*unitVoltage*Goff;
+    n1.i = if control then -s1*unitVoltage*Goff - s4*unitCurrent else -s1*unitCurrent - s4*unitVoltage*Goff;
+    n2.i = if control then -s2*unitVoltage*Goff - s3*unitCurrent else -s2*unitCurrent - s3*unitVoltage*Goff;
   end IdealIntermediateSwitch;
   
   model ControlledIdealCommutingSwitch "Controlled ideal commuting switch" 
@@ -561,14 +567,16 @@ where a description with zero Ron or zero Goff is not possible.
   protected 
     Real s1;
     Real s2 "Auxiliary variables";
+    constant Real unitVoltage(unit="V") = 1           annotation(Hide=true);
+    constant Real unitCurrent(unit="A") = 1            annotation(Hide=true);
   equation 
     control.i = 0;
     0 = p.i + n2.i + n1.i;
     
-    p.v - n1.v = s1*(if (control.v > level) then 1 else Ron);
-    n1.i = -s1*(if (control.v > level) then Goff else 1);
-    p.v - n2.v = s2*(if (control.v > level) then Ron else 1);
-    n2.i = -s2*(if (control.v > level) then 1 else Goff);
+    p.v - n1.v = (s1*unitCurrent)*(if (control.v > level) then 1 else Ron);
+    n1.i = -(s1*unitVoltage)*(if (control.v > level) then Goff else 1);
+    p.v - n2.v = (s2*unitCurrent)*(if (control.v > level) then Ron else 1);
+    n2.i = -(s2*unitVoltage)*(if (control.v > level) then 1 else Goff);
   end ControlledIdealCommutingSwitch;
   
   model ControlledIdealIntermediateSwitch 
@@ -656,18 +664,20 @@ where a description with zero Ron or zero Goff is not possible.
     Real s2;
     Real s3;
     Real s4 "Auxiliary variables";
+    constant Real unitVoltage(unit="V") = 1           annotation(Hide=true);
+    constant Real unitCurrent(unit="A") = 1            annotation(Hide=true);
   equation 
     control.i = 0;
     
-    p1.v - n1.v = s1*(if (control.v > level) then 1 else Ron);
-    p2.v - n2.v = s2*(if (control.v > level) then 1 else Ron);
-    p1.v - n2.v = s3*(if (control.v > level) then Ron else 1);
-    p2.v - n1.v = s4*(if (control.v > level) then Ron else 1);
+    p1.v - n1.v = (s1*unitCurrent)*(if (control.v > level) then 1 else Ron);
+    p2.v - n2.v = (s2*unitCurrent)*(if (control.v > level) then 1 else Ron);
+    p1.v - n2.v = (s3*unitCurrent)*(if (control.v > level) then Ron else 1);
+    p2.v - n1.v = (s4*unitCurrent)*(if (control.v > level) then Ron else 1);
     
-    p1.i = if (control.v > level) then s1*Goff + s3 else s1 + s3*Goff;
-    p2.i = if (control.v > level) then s2*Goff + s4 else s2 + s4*Goff;
-    n1.i = if (control.v > level) then -s1*Goff - s4 else -s1 - s4*Goff;
-    n2.i = if (control.v > level) then -s2*Goff - s3 else -s2 - s3*Goff;
+    p1.i = if control.v > level then s1*unitVoltage*Goff + s3*unitCurrent else s1*unitCurrent + s3*unitVoltage*Goff;
+    p2.i = if control.v > level then s2*unitVoltage*Goff + s4*unitCurrent else s2*unitCurrent + s4*unitVoltage*Goff;
+    n1.i = if control.v > level then -s1*unitVoltage*Goff - s4*unitCurrent else -s1*unitCurrent - s4*unitVoltage*Goff;
+    n2.i = if control.v > level then -s2*unitVoltage*Goff - s3*unitCurrent else -s2*unitCurrent - s3*unitVoltage*Goff;
   end ControlledIdealIntermediateSwitch;
   
   model IdealOpAmp "Ideal operational amplifier (norator-nullator pair)" 
@@ -948,6 +958,7 @@ If the input voltage is vin > 0, the output voltage is out.v = VMax.
     SI.Voltage vin "input voltage";
   protected 
     Real s "Auxiliary variable";
+    constant Real unitVoltage(unit="V") = 1           annotation(Hide=true);
   equation 
     in_p.i = 0;
     in_n.i = 0;
@@ -957,6 +968,7 @@ If the input voltage is vin > 0, the output voltage is out.v = VMax.
     in_p.v - in_n.v = if (s < -1) then s + 1 else if (s > 1) then s - 1 else 0;
     out.v = if (s < -1) then VMin.v else if (s > 1) then VMax.v else (VMax.v -
       VMin.v)*s/2 + (VMax.v + VMin.v)/2;
+    
   end IdealOpAmpLimited;
   
         model IdealDiode "Ideal diode" 
@@ -1315,9 +1327,6 @@ The model Short is a simple short cut branch.
     Modelica.Blocks.Interfaces.BooleanInput control 
       "true => switch open, false => p--n connected" annotation (extent=[-20,50;
           20,90],      rotation=-90);
-  protected 
-    Real s "Auxiliary variable";
-    
     annotation (
       Documentation(info="<HTML>
 <P> 
@@ -1371,9 +1380,13 @@ where a description with zero Ron or zero Goff is not possible.
         Text(extent=[-100, -40; 100, -79], string="%name"),
         Line(points=[0, 51; 0, 26]),
         Line(points=[40, 20; 40, 0])));
+  protected 
+   Real s "Auxiliary variable";
+   constant Real unitVoltage(unit="V") = 1           annotation(Hide=true);
+   constant Real unitCurrent(unit="A") = 1            annotation(Hide=true);
  equation 
-    v = s*(if control then 1 else Ron);
-    i = s*(if control then Goff else 1);
+    v = (s*unitCurrent)*(if control then 1 else Ron);
+    i = (s*unitVoltage)*(if control then Goff else 1);
  end IdealOpeningSwitch;
   
     model IdealClosingSwitch "Ideal electrical closer" 
@@ -1386,9 +1399,6 @@ where a description with zero Ron or zero Goff is not possible.
       Modelica.Blocks.Interfaces.BooleanInput control 
       "true => p--n connected, false => switch open"   annotation (extent=[-20,50;
             20,90],      rotation=-90);
-  protected 
-      Real s "Auxiliary variable";
-    
       annotation (
         Documentation(info="<HTML>
 <P> 
@@ -1408,7 +1418,8 @@ open switch could be also exactly zero. Note, there are circuits,
 where a description with zero Ron or zero Goff is not possible. 
 </P>
 </HTML>
-", revisions="<html>
+",     revisions=
+             "<html>
 <ul>
 <li><i>  </i>
        </li>
@@ -1440,12 +1451,22 @@ where a description with zero Ron or zero Goff is not possible.
           Line(points=[40,0; 96,0]),
           Text(extent=[-100, -40; 100, -79], string="%name"),
           Line(points=[0, 51; 0, 26])));
+  protected 
+      Real s "Auxiliary variable";
+      constant Real unitVoltage(unit="V") = 1           annotation(Hide=true);
+      constant Real unitCurrent(unit="A") = 1            annotation(Hide=true);
     equation 
-      v = s*(if control then Ron else 1);
-      i = s*(if control then 1 else Goff);
+      v = (s*unitCurrent)*(if control then Ron else 1);
+      i = (s*unitVoltage)*(if control then 1 else Goff);
     end IdealClosingSwitch;
   
   model ControlledIdealOpeningSwitch "Controlled ideal electrical opener" 
+    Interfaces.PositivePin p annotation (extent=[-110, -10; -90, 10]);
+    Interfaces.NegativePin n annotation (extent=[90, -10; 110, 10]);
+    Interfaces.Pin control 
+      "Control pin: control.v > level switch open, otherwise p--n connected" 
+      annotation (extent=[-10, 90; 10, 110], rotation=90);
+    
     parameter SI.Voltage level=0.5 "Switch level" annotation (extent=[-56.6667,
             10; -10, 56.6667]);
     parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance"
@@ -1453,8 +1474,6 @@ where a description with zero Ron or zero Goff is not possible.
     parameter SI.Conductance Goff(final min=0) = 1.E-5 
       "Opened switch conductance" annotation (extent=[-56.6667, -56.6667; -10,
           -10]);
-  protected 
-    Real s "Auxiliary variable";
     annotation (
       Documentation(info="
 <HTML>
@@ -1508,20 +1527,23 @@ where a description with zero Ron or zero Goff is not possible.
         Line(points=[40,0; 96,0]),
         Line(points=[0,96; 0,25]),
         Line(points=[40, 20; 40, 0])));
-  public 
-    Interfaces.PositivePin p annotation (extent=[-110, -10; -90, 10]);
-    Interfaces.NegativePin n annotation (extent=[90, -10; 110, 10]);
-    Interfaces.Pin control 
-      "Control pin: control.v > level switch open, otherwise p--n connected" 
-      annotation (extent=[-10, 90; 10, 110], rotation=90);
+  protected 
+    Real s "Auxiliary variable";
+    constant Real unitVoltage(unit="V") = 1           annotation(Hide=true);
+    constant Real unitCurrent(unit="A") = 1            annotation(Hide=true);
   equation 
     control.i = 0;
     0 = p.i + n.i;
-    p.v - n.v = s*(if (control.v > level) then 1 else Ron);
-    p.i = s*(if (control.v > level) then Goff else 1);
+    p.v - n.v = (s*unitCurrent)*(if (control.v > level) then 1 else Ron);
+    p.i = (s*unitVoltage)*(if (control.v > level) then Goff else 1);
   end ControlledIdealOpeningSwitch;
   
     model ControlledIdealClosingSwitch "Controlled ideal electrical closer" 
+      Modelica.Electrical.Analog.Interfaces.PositivePin p annotation (extent=[-110, -10; -90, 10]);
+      Modelica.Electrical.Analog.Interfaces.NegativePin n annotation (extent=[90, -10; 110, 10]);
+      Modelica.Electrical.Analog.Interfaces.Pin control 
+      "Control pin: control.v > level switch closed, otherwise switch open" 
+        annotation (extent=[-10, 90; 10, 110], rotation=90);
       parameter SI.Voltage level=0.5 "Switch level" annotation (extent=[-56.6667,
               10; -10, 56.6667]);
       parameter SI.Resistance Ron(final min=0) = 1.E-5 
@@ -1530,8 +1552,6 @@ where a description with zero Ron or zero Goff is not possible.
       parameter SI.Conductance Goff(final min=0) = 1.E-5 
       "Opened switch conductance"   annotation (extent=[-56.6667, -56.6667; -10,
             -10]);
-  protected 
-      Real s "Auxiliary variable";
       annotation (
         Documentation(info="
 <HTML>
@@ -1552,7 +1572,8 @@ open switch could be also exactly zero. Note, there are circuits,
 where a description with zero Ron or zero Goff is not possible. 
 </P>
 </HTML>
-", revisions="<html>
+",     revisions=
+             "<html>
 <ul>
 <li><i>  </i>
        </li>
@@ -1583,17 +1604,15 @@ where a description with zero Ron or zero Goff is not possible.
           Line(points=[-37, 2; 40, 50]),
           Line(points=[40,0; 96,0]),
           Line(points=[0,96; 0,25])));
-  public 
-      Modelica.Electrical.Analog.Interfaces.PositivePin p annotation (extent=[-110, -10; -90, 10]);
-      Modelica.Electrical.Analog.Interfaces.NegativePin n annotation (extent=[90, -10; 110, 10]);
-      Modelica.Electrical.Analog.Interfaces.Pin control 
-      "Control pin: control.v > level switch closed, otherwise switch open" 
-        annotation (extent=[-10, 90; 10, 110], rotation=90);
+  protected 
+      Real s "Auxiliary variable";
+      constant Real unitVoltage(unit="V") = 1           annotation(Hide=true);
+      constant Real unitCurrent(unit="A") = 1            annotation(Hide=true);
     equation 
       control.i = 0;
       0 = p.i + n.i;
-      p.v - n.v = s*(if (control.v > level) then Ron else 1);
-      p.i = s*(if (control.v > level) then 1 else Goff);
+      p.v - n.v = (s*unitCurrent)*(if (control.v > level) then Ron else 1);
+      p.i = (s*unitVoltage)*(if (control.v > level) then 1 else Goff);
     end ControlledIdealClosingSwitch;
   
 end Ideal;

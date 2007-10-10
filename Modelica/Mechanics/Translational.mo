@@ -1877,7 +1877,7 @@ between the stops.</i> </li>
     0 = flange_a.f + flange_b.f - f - m*der(v);
     
     // Friction force
-    f = if locked then sa else if free then 0 else 
+    f = if locked then sa*unitForce else if free then 0 else 
             (if startForward then F_prop*v + F_Coulomb +
       F_Stribeck else if startBackward then F_prop*v - F_Coulomb - F_Stribeck else 
             if pre(mode) == Forward then F_prop*v + F_Coulomb + F_Stribeck*exp(-
