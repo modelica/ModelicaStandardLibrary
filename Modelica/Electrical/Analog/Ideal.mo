@@ -870,6 +870,7 @@ are possible.
   end IdealOpAmp3Pin;
   
   model IdealOpAmpLimited "Ideal operational amplifier with limitation" 
+    
     annotation (
       Documentation(info="<HTML>
 <P>
@@ -957,7 +958,7 @@ If the input voltage is vin > 0, the output voltage is out.v = VMax.
       annotation (extent=[-10, -80; 10, -60]);
     SI.Voltage vin "input voltage";
   protected 
-    Real s "Auxiliary variable";
+    Real s(unit="1") "Auxiliary variable";
     constant Real unitVoltage(unit="V") = 1           annotation(Hide=true);
   equation 
     in_p.i = 0;
@@ -965,7 +966,7 @@ If the input voltage is vin > 0, the output voltage is out.v = VMax.
     VMax.i = 0;
     VMin.i = 0;
     vin = in_p.v - in_n.v;
-    in_p.v - in_n.v = if (s < -1) then s + 1 else if (s > 1) then s - 1 else 0;
+    in_p.v - in_n.v = unitVoltage*(if (s < -1) then s + 1 else if (s > 1) then s - 1 else 0);
     out.v = if (s < -1) then VMin.v else if (s > 1) then VMax.v else (VMax.v -
       VMin.v)*s/2 + (VMax.v + VMin.v)/2;
     
@@ -980,9 +981,6 @@ If the input voltage is vin > 0, the output voltage is out.v = VMax.
           parameter Modelica.SIunits.Voltage Vknee(final min=0) = 0 
       "Forward threshold voltage";
           Boolean off(start=true) "Switching state";
-  protected 
-          Real s 
-      "Auxiliary variable: if on then current, if opened then voltage";
           annotation (
             Documentation(info="<html>
 <P>
@@ -1094,10 +1092,15 @@ along  the <i>Gon</i>-characteristic until <i>v = Vknee</i>.
               width=0.6,
               height=0.6));
     
+  protected 
+          Real s 
+      "Auxiliary variable: if on then current, if opened then voltage";
+          constant Real unitVoltPerOhm(unit="V/Ohm") = 1    annotation(Hide=true);
+          constant Real unitAmperePerSiemens(unit="A/S") = 1 annotation(Hide=true);
         equation 
           off = s < 0;
-          v = s*(if off then 1 else Ron) + Vknee;
-          i = s*(if off then Goff else 1) + Goff*Vknee;
+          v = (s*unitVoltPerOhm)*(if off then 1 else Ron) + Vknee;
+          i = (s*unitAmperePerSiemens)*(if off then Goff else 1) + Goff*Vknee;
         end IdealDiode;
   
   model IdealTransformer "Ideal electrical transformer" 
