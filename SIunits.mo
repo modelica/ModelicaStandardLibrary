@@ -389,7 +389,7 @@ argument):</p>
             final unit="degRk");
       type Angle_deg = Real (final quantity="Angle", final unit="deg");
       type AngularVelocity_rpm = Real (final quantity="AngularVelocity", final unit
-            =    "rev/min");
+            =    "r/min");
       type Velocity_kmh = Real (final quantity="Velocity", final unit="km/h");
       type Time_day = Real (final quantity="Time", final unit="d");
       type Time_hour = Real (final quantity="Time", final unit="h");
@@ -421,7 +421,7 @@ still kept in Modelica.SIunits.</p>
 </HTML>
 "), Icon(Text(
             extent=[-66, -13; 52, -67],
-            string="[rev/min]",
+            string="[r/min]",
             style(color=0))));
     end NonSIunits;
     
@@ -555,7 +555,7 @@ still kept in Modelica.SIunits.</p>
             string="rad/s"), Text(
             extent=[100, -20; 20, -100],
             style(color=0),
-            string="rev/min")));
+            string="r/min")));
     algorithm 
       rpm := (30/Modelica.Constants.pi)*rs;
     end to_rpm;
@@ -568,7 +568,7 @@ still kept in Modelica.SIunits.</p>
       annotation (Icon(Text(
             extent=[-20, 100; -100, 20],
             style(color=0),
-            string="rev/min"), Text(
+            string="r/min"), Text(
             extent=[100, -20; 20, -100],
             style(color=0),
             string="rad/s")));
@@ -849,7 +849,7 @@ still kept in Modelica.SIunits.</p>
   type AngularVelocity = Real (
       final quantity="AngularVelocity",
       final unit="rad/s",
-      displayUnit="rev/min");
+      displayUnit="r/min");
   type AngularAcceleration = Real (final quantity="AngularAcceleration", final unit
         =    "rad/s2");
   type Velocity = Real (final quantity="Velocity", final unit="m/s");
@@ -859,7 +859,7 @@ still kept in Modelica.SIunits.</p>
   type Period = Real (final quantity="Time", final unit="s");
   type Frequency = Real (final quantity="Frequency", final unit="Hz");
   type AngularFrequency = Real (final quantity="AngularFrequency", final unit=
-          "s-1");
+          "rad/s");
   type Wavelength = Real (final quantity="Wavelength", final unit="m");
   type Wavelenght = Wavelength;
   // For compatibility reasons only
