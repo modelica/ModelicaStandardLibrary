@@ -1,5 +1,6 @@
 within Modelica.Thermal;
 
+
 package FluidHeatFlow 
   "Simple components for 1-dimensional incompressible thermo-fluid flow models" 
   extends Modelica.Icons.Library2;
@@ -1394,8 +1395,9 @@ Flow resistance under real conditions is calculated by<br>
       parameter Real frictionLoss(min=0, max=1) = 0 
         "Part of friction losses fed to medium";
     protected 
+      constant Modelica.SIunits.VolumeFlowRate unitVolumeFlowRate = 1;
       constant Real small = Modelica.Constants.small;
-      constant Modelica.SIunits.VolumeFlowRate smallVolumeFlowRate = eps;
+      constant Modelica.SIunits.VolumeFlowRate smallVolumeFlowRate = eps*unitVolumeFlowRate;
       constant Real eps = Modelica.Constants.eps;
       Real yLim = max(min(y,y1),0) "Limited valve opening";
       Modelica.SIunits.VolumeFlowRate Kv "Standard flow rate";

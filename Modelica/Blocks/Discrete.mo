@@ -104,7 +104,7 @@ sample instant during the sample points.
     extends Interfaces.DiscreteSISO;
   protected 
     Real ySample;
-    Real tSample;
+    Modelica.SIunits.Time tSample;
     Real c;
     annotation (
       Coordsys(
@@ -469,8 +469,8 @@ at the sampling point is provided as output signal.
 </p>
 </HTML>
 "));
-    Modelica.Blocks.Interfaces.RealInput u 
-      "Connector with a Real input signal" annotation (extent=[-
+    Modelica.Blocks.Interfaces.RealInput u "Connector with a Real input signal"
+                                           annotation (extent=[-
           140, -20; -100, 20]);
     Modelica.Blocks.Interfaces.RealOutput y 
       "Connector with a Real output signal" annotation (extent=[

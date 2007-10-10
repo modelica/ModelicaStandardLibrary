@@ -210,8 +210,8 @@ usually requires a trimming calculation.
 </ul>
 </html>"));
       block Clock "Generate actual time signal " 
-        parameter Real offset=0 "Offset of output signal";
-        parameter SIunits.Time startTime=0 
+        parameter Modelica.SIunits.Time offset=0 "Offset of output signal";
+        parameter Modelica.SIunits.Time startTime=0 
       "Output = offset for time < startTime";
         extends Interfaces.SO;
     
@@ -597,10 +597,10 @@ The Real output y is a step signal:
   
       block Ramp "Generate ramp signal" 
         parameter Real height=1 "Height of ramps";
-        parameter Real duration(min=Modelica.Constants.small) = 2 
+        parameter Modelica.SIunits.Time duration(min=Modelica.Constants.small) = 2 
       "Durations of ramp";
         parameter Real offset=0 "Offset of output signal";
-        parameter SIunits.Time startTime=0 
+        parameter Modelica.SIunits.Time startTime=0 
       "Output = offset for time < startTime";
         extends Interfaces.SO;
     
