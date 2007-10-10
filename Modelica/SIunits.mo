@@ -859,7 +859,7 @@ still kept in Modelica.SIunits.</p>
   type Period = Real (final quantity="Time", final unit="s");
   type Frequency = Real (final quantity="Frequency", final unit="Hz");
   type AngularFrequency = Real (final quantity="AngularFrequency", final unit=
-          "s-1");
+          "rad/s");
   type Wavelength = Real (final quantity="Wavelength", final unit="m");
   type Wavelenght = Wavelength;
   // For compatibility reasons only

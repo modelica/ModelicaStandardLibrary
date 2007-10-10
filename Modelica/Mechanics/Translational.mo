@@ -2271,8 +2271,8 @@ the contact of a sliding mass with the housing.
     output SI.Velocity v "absolute velocity of flange_b";
     output SI.Acceleration a "absolute acceleration of flange_b";
   protected 
-    parameter Real w_crit=2*Modelica.Constants.pi*f_crit 
-      "critical frequency in [1/s]";
+    parameter Modelica.SIunits.AngularFrequency w_crit=2*Modelica.Constants.pi*f_crit 
+      "Critical frequency";
     constant Real af=1.3617 "s coefficient of Bessel filter";
     constant Real bf=0.6180 "s*s coefficient of Bessel filter";
   public 
@@ -2422,8 +2422,8 @@ blocks of the block library Modelica.Blocks.Sources.
                 10, fillColor=10)), Line(points=[-44, -90; 27, -90], style(
               color=10, fillColor=10))));
   protected 
-    parameter Real w_crit=2*Modelica.Constants.pi*f_crit 
-      "critical frequency in [1/s]";
+    parameter Modelica.SIunits.AngularFrequency w_crit=2*Modelica.Constants.pi*f_crit 
+      "Critical frequency";
     SI.Acceleration a 
       "absolute acceleration of flange_b if exact=false (a=0, if exact=true)";
   equation 

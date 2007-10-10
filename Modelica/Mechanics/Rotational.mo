@@ -1762,7 +1762,7 @@ It is used e.g. to build up equation-based parts of a drive train.</p>
       end Adapter;
     equation 
       tau_support = -adapter.flange_b.tau;
-      connect(adapter.flange_a, bearing) annotation (points=[-6.12323e-016,-70; 
+      connect(adapter.flange_a, bearing) annotation (points=[-6.12323e-016,-70;
             0,-70; 0,-100],    style(color=0));
       annotation (Documentation(info="<html>
 <p>
@@ -4577,8 +4577,8 @@ GearNew.</p>
       "absolute angular acceleration of flange flange_b";
     SI.Torque tau_support "Support torque";
   protected 
-    parameter Real w_crit=2*Modelica.Constants.pi*f_crit 
-      "critical frequency in [1/s]";
+    parameter Modelica.SIunits.AngularFrequency w_crit=2*Modelica.Constants.pi*f_crit 
+      "Critical frequency";
     constant Real af=1.3617 "s coefficient of Bessel filter";
     constant Real bf=0.6180 "s*s coefficient of Bessel filter";
   public 
@@ -4710,7 +4710,8 @@ blocks of the block library Modelica.Blocks.Sources.
     SI.AngularAcceleration a "absolute angular acceleration of flange flange_b";
     SI.Torque tau_support "Support torque";
   protected 
-    parameter Real w_crit=2*Constants.pi*f_crit "critical frequency in [1/s]";
+    parameter Modelica.SIunits.AngularFrequency w_crit=2*Modelica.Constants.pi*f_crit 
+      "Critical frequency";
   public 
     Interfaces.Flange_b flange_b annotation (extent=[90, -10; 110, 10]);
     Blocks.Interfaces.RealInput w_ref(redeclare type SignalType = 
