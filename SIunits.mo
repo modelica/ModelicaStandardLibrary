@@ -9,7 +9,7 @@ Library <b>SIunits</b> is a <b>free</b> Modelica package providing
 predefined types, such as <i>Mass</i>,
 <i>Length</i>, <i>Time</i>, based on the international standard
 on units.</p>
-
+ 
 </HTML>"));
     
   class HowToUseSIunits "How to use SIunits" 
@@ -22,7 +22,7 @@ The basic approach in Modelica is that the unit attribute of
 a variable is the <b>unit</b> in which the <b>equations</b> are <b>written</b>,
 for example:
 </p>
-
+ 
 <pre>   <b>model</b> MassOnGround
      <b>parameter</b> Real m(quantity=\"Mass\", unit=\"kg\") \"Mass\";
      <b>parameter</b> Real f(quantity=\"Force\", unit=\"N\") \"Driving force\";
@@ -33,7 +33,7 @@ for example:
      m*<b>der</b>(v) = f;
    <b>end</b> MassOnGround;
 </pre>
-
+ 
 <p>
 This means that the equations in the equation section are only correct
 for the specified units. A different issue is the user interface, i.e.,
@@ -48,7 +48,7 @@ user interface has to be stored. In order to have a standardized way
 of doing this, Modelica provides the following three attributs
 for a variable of type Real:
 </p>
-
+ 
 <ul>
 <li><b>quantity</b> to define the physical quantity (e.g. \"Length\", or \"Energy\").</li>
 <li><b>unit</b> to define the unit that has to be used
@@ -56,7 +56,7 @@ for a variable of type Real:
 <li><b>displayUnit</b> to define the unit used in the graphical 
     user interface as default display unit for input and/or output.</li>
 </ul>
-
+ 
 <p>
 Note, a unit, such as \"N.m\", is not sufficient to define uniquely the
 physical quantity, since, e.g., \"N.m\" might be either \"torque\" or
@@ -64,16 +64,16 @@ physical quantity, since, e.g., \"N.m\" might be either \"torque\" or
 to select the corresponding menu from which the user can select
 a unit for the corresponding variable.
 </p>
-
+ 
 <p>
 For example, after providing a value for \"m\" and \"f\" in a parameter 
 menu of an instance of MassOnGround, a tool might generate the following code:
 </p>
-
+ 
 <pre>
    MassOnGround myObject(m(displayUnit=\"g\")=2, f=3);
 </pre>
-
+ 
 <p>
 The meaning is that in the equations a value of \"2\" is used
 and that in the graphical user interface a value of \"2000\" should be used,
@@ -81,7 +81,7 @@ together with the unit \"g\" from the unit set \"Mass\" (= the quantity name).
 Note, according to the Modelica specification
 a tool might ignore the \"displayUnit\" attribute.
 </p>
-
+ 
 <p>
 In order to help the Modelica model developer, the Modelica.SIunits
 library provides about 450 predefined type names,
@@ -93,18 +93,18 @@ as \"<b>final</b>\" in order that they cannot be modified. Attributes \"displayU
 and \"min\" can, however, be changed in a model via a modification. The example above,
 might therefore be alternatively also defined as:
 </p>
-
+ 
 <pre>   <b>model</b> MassOnGround
      <b>parameter</b> Modelica.SIunits.Mass  m \"Mass\";
      <b>parameter</b> Modelica.SIunits.Force f \"Driving force\";
      ...
    <b>end</b> MassOnGround;
 </pre>
-
+ 
 <p>
 or in a short hand notation as
 </p>
-
+ 
 <pre>
    <b>model</b> MassOnGround
      <b>import</b> SI = Modelica.SIunits;
@@ -113,7 +113,7 @@ or in a short hand notation as
      ...
    <b>end</b> MassOnGround;
 </pre>
-
+ 
 <p>
 For some often
 used Non SI-units (like hour), some additional type definitions are
@@ -121,7 +121,7 @@ present as Modelica.SIunits.Conversions.NonSIunits. If this is not sufficient,
 the user has to define its own types or use the attributes directly
 in the declaration as in the example at the beginning.
 </p>
-
+ 
 </html>"));
       
   end HowToUseSIunits;
@@ -175,21 +175,21 @@ in the declaration as in the example at the beginning.
     annotation (Documentation(info="<html>
 <p> This package is based on the following references
 </p>
-
+ 
 <dl>
 <dt>ISO 31-1992:</dt>
 <dd> <b>General principles concerning
     quantities, units and symbols</b>.<br>&nbsp;</dd>
-
+ 
 <dt>ISO 1000-1992:</dt>
 <dd> <b>SI units and recommendations for the use
     of their multiples and of certain other units</b>.<br>&nbsp;</dd>
-
+ 
 <dt>Cardarelli F.:</dt>
 <dd> <b>Scientific Unit Conversion - A Practical
      Guide to Metrication</b>. Springer 1997.</dd>
 </dl>
-
+ 
 </html>
 "));
   end Literature;
@@ -208,8 +208,8 @@ in the declaration as in the example at the beginning.
     Germany<br>
     email: <A HREF=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</A><br>
 </dl>
-
-
+ 
+ 
 <p><b>Acknowledgements:</b></p>
 <ul>
 <li> Astrid Jaschinski, Hubertus Tummescheit and Christian Schweiger
@@ -240,24 +240,24 @@ end UsersGuide;
 <i>Angle</i>, <i>Time</i>, based on the international standard
 on units, e.g., 
 </p>
-
+ 
 <pre>   <b>type</b> Angle = Real(<b>final</b> quantity = \"Angle\",
                      <b>final</b> unit     = \"rad\",
                      displayUnit    = \"deg\");
 </pre>
-
+ 
 <p>
 as well as conversion functions from non SI-units to SI-units
 and vice versa in subpackage 
 <a href=\"Modelica://Modelica.SIunits.Conversions\">Conversions</a>.
 </p>
-
+ 
 <p>
 For an introduction how units are used in the Modelica standard library
 with package SIunits, have a look at:
 <a href=\"Modelica://Modelica.SIunits.UsersGuide.HowToUseSIunits\">How to use SIunits</a>.
 </p>
-
+ 
 <p>
 Copyright &copy; 1998-2007, Modelica Association and DLR.
 </p>
@@ -267,7 +267,7 @@ under the terms of the <b>Modelica license</b>, see the license conditions
 and the accompanying <b>disclaimer</b> 
 <a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a>.</i>
 </p>
-
+ 
 </html>", revisions="<html>
 <ul>
 <li><i>Dec. 14, 2005</i>
@@ -979,14 +979,14 @@ still kept in Modelica.SIunits.</p>
       final quantity="ThermodynamicTemperature",
       final unit="K",
       min = 0,
-      displayUnit="degC");
+      displayUnit="degC") annotation(__Dymola_absoluteValue=true);
   type Temp_K = ThermodynamicTemperature;
   type Temperature = ThermodynamicTemperature;
   type TemperatureDifference = Real (
       final quantity="ThermodynamicTemperature",
-      final unit="K");
+      final unit="K") annotation(__Dymola_absoluteValue=false);
   type CelsiusTemperature = Real (final quantity="CelsiusTemperature", final unit
-        =    "degC");
+        =    "degC") annotation(__Dymola_absoluteValue=true);
   type Temp_C = CelsiusTemperature;
   type LinearExpansionCoefficient = Real (final quantity=
           "LinearExpansionCoefficient", final unit="1/K");
