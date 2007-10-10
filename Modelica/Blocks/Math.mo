@@ -235,14 +235,14 @@ the result as output signal.
     
     block To_rpm "Convert from radian per second to revolutions per minute" 
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="rad/s"),
-          y(unit="rev/min"));
+          y(unit="r/min"));
       annotation (Icon(Text(
             extent=[26,82; -98,50],
             style(color=0),
             string="rad/s"), Text(
             extent=[100,-42; -62,-74],
             style(color=0),
-            string="rev/min")), Documentation(info="<html>
+            string="r/min")), Documentation(info="<html>
 <p>
 This block converts the input signal from radian per second to revolutions per minute and returns
 the result as output signal.
@@ -254,11 +254,11 @@ the result as output signal.
     
     block From_rpm "Convert from revolutions per minute to radian per second" 
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit=
-              "rev/min"), y(unit="rad/s"));
+              "r/min"), y(unit="rad/s"));
       annotation (Icon(Text(
             extent=[50,84; -94,56],
             style(color=0),
-            string="rev/min"), Text(
+            string="r/min"), Text(
             extent=[94,-42; -26,-74],
             style(color=0),
             string="rad/s")), Documentation(info="<html>
