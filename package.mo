@@ -706,7 +706,31 @@ needs still to be implemented).
 
 <p><br>
 The following <b style=\"color:blue\">existing components</b>
-have been <b style=\"color:blue\">improved</b>:
+have been <b style=\"color:blue\">changed</b> in a
+<b style=\"color:blue\">non-backward compatible</b> way:
+</p>
+ 
+<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+  <tr><td colspan=\"2\"><b>Blocks.Interfaces.</b></td></tr>
+  <tr><td valign=\"top\"> RealInput<br>
+                        RealOutput</td>
+      <td valign=\"top\"> Removed \"SignalType\", since extending from a replac
+
+  <tr><td colspan=\"2\"><b>Blocks.Math.</b></td></tr>
+  <tr><td valign=\"top\"> TwoInputs<br>
+                        TwoOutputs</td>
+      <td valign=\"top\"> These two components have been moved to library ObsoleteModelica3,
+                        since the models are not \"balanced\".<br> A new component \"InverseBlockConstraints\"
+                        is provided instead that has the same feature, but is \"balanced\".</td> </tr>
+
+</table>
+
+
+
+<p><br>
+The following <b style=\"color:blue\">existing components</b>
+have been <b style=\"color:blue\">improved</b> in a
+<b style=\"color:blue\">backward compatible</b> way:
 </p>
  
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
@@ -714,6 +738,12 @@ have been <b style=\"color:blue\">improved</b>:
   <tr><td valign=\"top\"> InitializeFlange</td>
       <td valign=\"top\"> Changed implementation so that counting unknowns and
                         equations is possible without actual values of parameters.</td> </tr>
+  <tr><td colspan=\"2\"><b>Icons.</b></td></tr>
+  <tr><td valign=\"top\"> TranslationalSensor<br>
+                        RotationalSensor</td>
+      <td valign=\"top\"> Removed drawing fromt the diagram layer (kept drawing only in 
+                        icon layer),<br> in order that this icon can be used in situations
+                        where components are dragged in the diagram layer.</td> </tr>
 </table>
 
 
