@@ -46,7 +46,6 @@ connected with continuous blocks or with sampled-data blocks.
     import SI = Modelica.SIunits;
     import NonSI = Modelica.SIunits.Conversions.NonSIunits;
     
-    
     block To_degC "Convert from Kelvin to °Celsius" 
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="K"), y(
             unit="degC"));
@@ -553,36 +552,34 @@ All other blocks convert exactly between two different units.
  
 </html>"));
   end UnitConversions;
-
-  block InverseBlockConstraint 
+  
+  block InverseBlockConstraints 
     "Construct inverse model by requiring that two inputs and two outputs are identical (replaces the previously, unbalanced, TwoInputs and TwoOutputs blocks)" 
     extends Modelica.Blocks.Interfaces.BlockIcon;
     
-    Interfaces.RealInput u1 "Input signal 1 (u1 = u2)"
+    Interfaces.RealInput u1 "Input signal 1 (u1 = u2)" 
       annotation (Placement(transformation(extent={{-120,-10},{-100,10}})));
     annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{
               -100,-100},{100,100}}), graphics), Icon(coordinateSystem(
-            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics
-          ={Line(
-            points={{-100,0},{-72,0},{-72,60},{-100,60}}, 
-            color={0,0,127}, 
+            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics=
+           {Line(
+            points={{-100,0},{-72,0},{-72,60},{-100,60}},
+            color={0,0,127},
             smooth=Smooth.None), Line(
-            points={{100,0},{70,0},{70,-60},{100,-60}}, 
-            color={0,0,127}, 
+            points={{100,0},{70,0},{70,-60},{100,-60}},
+            color={0,0,127},
             smooth=Smooth.None)}));
-    Interfaces.RealInput u2 "Input signal 2 (u1 = u2)"
+    Interfaces.RealInput u2 "Input signal 2 (u1 = u2)" 
       annotation (Placement(transformation(extent={{-120,50},{-100,70}})));
-    Interfaces.RealOutput y1 "Output signal 1 (y1 = y2)"
+    Interfaces.RealOutput y1 "Output signal 1 (y1 = y2)" 
       annotation (Placement(transformation(extent={{100,-10},{120,10}})));
-    Interfaces.RealOutput y2 "Output signal 2 (y1 = y2)"
+    Interfaces.RealOutput y2 "Output signal 2 (y1 = y2)" 
       annotation (Placement(transformation(extent={{100,-70},{120,-50}})));
     annotation(structurallyIncomplete=true);
   equation 
     u1 = u2;
     y1 = y2;
-  end InverseBlockConstraint;
-  
-  
+  end InverseBlockConstraints;
   
       block Gain "Output the product of a gain value with the input signal" 
     
