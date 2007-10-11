@@ -382,20 +382,7 @@ This icon is designed for a <b>String</b> type.
         Line(points=[10, -40; 10, -60], style(color=0)),
         Line(points=[30, -40; 30, -60], style(color=0)),
         Line(points=[50, -40; 50, -60], style(color=0))),
-      Diagram(
-        Rectangle(extent=[-70, -60; 70, 20], style(color=0, fillColor=7)),
-        Polygon(points=[0, -40; -10, -16; 10, -16; 0, -40], style(
-            color=0,
-            fillColor=0,
-            fillPattern=1)),
-        Line(points=[0, 0; 0, -16], style(color=0)),
-        Line(points=[-70, 0; 0, 0], style(color=0)),
-        Line(points=[-50, -40; -50, -60], style(color=0)),
-        Line(points=[-30, -40; -30, -60], style(color=0)),
-        Line(points=[-10, -40; -10, -60], style(color=0)),
-        Line(points=[10, -40; 10, -60], style(color=0)),
-        Line(points=[30, -40; 30, -60], style(color=0)),
-        Line(points=[50, -40; 50, -60], style(color=0))),
+      Diagram,
       Documentation(info="<html>
 <p>
 This icon is designed for a <b>translational sensor</b> model.
@@ -430,23 +417,7 @@ This icon is designed for a <b>translational sensor</b> model.
             gradient=0,
             fillColor=0,
             fillPattern=1))),
-      Diagram(
-        Ellipse(extent=[-70, 70; 70, -70], style(color=0, fillColor=7)),
-        Line(points=[0, 70; 0, 40], style(color=0)),
-        Line(points=[22.9, 32.8; 40.2, 57.3], style(color=0)),
-        Line(points=[-22.9, 32.8; -40.2, 57.3], style(color=0)),
-        Line(points=[37.6, 13.7; 65.8, 23.9], style(color=0)),
-        Line(points=[-37.6, 13.7; -65.8, 23.9], style(color=0)),
-        Line(points=[0, 0; 9.02, 28.6], style(color=0)),
-        Polygon(points=[-0.48, 31.6; 18, 26; 18, 57.2; -0.48, 31.6], style(
-            color=0,
-            fillColor=0,
-            fillPattern=1)),
-        Ellipse(extent=[-5, 5; 5, -5], style(
-            color=0,
-            gradient=0,
-            fillColor=0,
-            fillPattern=1))),
+      Diagram,
       Documentation(info="<html>
 <p>
 This icon is designed for a <b>rotational sensor</b> model.
