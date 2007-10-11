@@ -557,25 +557,19 @@ All other blocks convert exactly between two different units.
     "Construct inverse model by requiring that two inputs and two outputs are identical (replaces the previously, unbalanced, TwoInputs and TwoOutputs blocks)" 
     extends Modelica.Blocks.Interfaces.BlockIcon;
     
-    Interfaces.RealInput u1 "Input signal 1 (u1 = u2)" 
-      annotation (Placement(transformation(extent={{-120,-10},{-100,10}})));
-    annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{
-              -100,-100},{100,100}}), graphics), Icon(coordinateSystem(
-            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics=
-           {Line(
-            points={{-100,0},{-72,0},{-72,60},{-100,60}},
-            color={0,0,127},
-            smooth=Smooth.None), Line(
-            points={{100,0},{70,0},{70,-60},{100,-60}},
-            color={0,0,127},
-            smooth=Smooth.None)}));
-    Interfaces.RealInput u2 "Input signal 2 (u1 = u2)" 
-      annotation (Placement(transformation(extent={{-120,50},{-100,70}})));
-    Interfaces.RealOutput y1 "Output signal 1 (y1 = y2)" 
-      annotation (Placement(transformation(extent={{100,-10},{120,10}})));
-    Interfaces.RealOutput y2 "Output signal 2 (y1 = y2)" 
-      annotation (Placement(transformation(extent={{100,-70},{120,-50}})));
-    annotation(structurallyIncomplete=true);
+    annotation(structurallyIncomplete=true, 
+      Diagram, 
+      Icon(Line(points=[-100,0; -58,0; -58,80; -100,80], style(
+            color=74, 
+            rgbcolor={0,0,127}, 
+            smooth=0)), Line(points=[100,-62; 58,-62; 58,0; 100,0], style(
+            color=74, 
+            rgbcolor={0,0,127}, 
+            smooth=0))));
+    Interfaces.RealInput u1 annotation (extent=[-140,-20; -100,20]);
+    Interfaces.RealInput u2 annotation (extent=[-140,60; -100,100]);
+    Interfaces.RealOutput y1 annotation (extent=[100,-10; 120,10]);
+    Interfaces.RealOutput y2 annotation (extent=[100,-70; 120,-50]);
   equation 
     u1 = u2;
     y1 = y2;
