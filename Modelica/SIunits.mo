@@ -384,15 +384,15 @@ argument):</p>
       type Temperature_degC = Real (final quantity="ThermodynamicTemperature",
             final unit="degC") 
         "Absolute temperature in degree Celsius (for relative temperature use SIunits.TemperatureDifference)"
-                                                                                                            annotation(__Dymola_absoluteValue=true);
+                                                                                                            annotation(absoluteValue=true);
       type Temperature_degF = Real (final quantity="ThermodynamicTemperature",
             final unit="degF") 
         "Absolute temperature in degree Fahrenheit (for relative temperature use SIunits.TemperatureDifference)"
-                                                                                                            annotation(__Dymola_absoluteValue=true);
+                                                                                                            annotation(absoluteValue=true);
       type Temperature_degRk = Real (final quantity="ThermodynamicTemperature",
             final unit="degRk") 
         "Absolute temperature in degree Rankine (for relative temperature use SIunits.TemperatureDifference)"
-                                                                                                            annotation(__Dymola_absoluteValue=true);
+                                                                                                            annotation(absoluteValue=true);
       type Angle_deg = Real (final quantity="Angle", final unit="deg") 
         "Angle in degree";
       type AngularVelocity_rpm = Real (final quantity="AngularVelocity", final unit
@@ -993,14 +993,14 @@ still kept in Modelica.SIunits.</p>
       final quantity="ThermodynamicTemperature",
       final unit="K",
       min = 0,
-      displayUnit="degC") annotation(__Dymola_absoluteValue=true);
+      displayUnit="degC") annotation(absoluteValue=true);
   type Temp_K = ThermodynamicTemperature;
   type Temperature = ThermodynamicTemperature;
   type TemperatureDifference = Real (
       final quantity="ThermodynamicTemperature",
-      final unit="K") annotation(__Dymola_absoluteValue=false);
+      final unit="K") annotation(absoluteValue=false);
   type CelsiusTemperature = Real (final quantity="CelsiusTemperature", final unit
-        =    "degC") annotation(__Dymola_absoluteValue=true);
+        =    "degC") annotation(absoluteValue=true);
   type Temp_C = CelsiusTemperature;
   type LinearExpansionCoefficient = Real (final quantity=
           "LinearExpansionCoefficient", final unit="1/K");
