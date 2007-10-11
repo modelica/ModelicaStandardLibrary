@@ -1,0 +1,15 @@
+// Convert from Modelica 2.2.2 to Modelica 3.0
+
+clear
+convertClear();
+
+
+// Change references to classes that are removed from Modelica Standard Library
+convertClass  ("Modelica.Blocks.Math.UnitConversions.ConvertAllUnits",
+               "ObsoleteModelica3.Blocks.Math.UnitConversions.ConvertAllUnits");
+
+convertClass  ("Modelica.Blocks.Math.TwoInputs",
+               "ObsoleteModelica3.Blocks.Math.TwoInputs");
+
+convertClass  ("Modelica.Blocks.Math.TwoOutputs",
+               "ObsoleteModelica3.Blocks.Math.TwoOutputs");
