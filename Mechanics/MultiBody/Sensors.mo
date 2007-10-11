@@ -5,7 +5,7 @@ package Sensors "Sensors to measure variables"
     import SI = Modelica.SIunits;
     import Modelica.Mechanics.MultiBody.Frames;
     import Modelica.Mechanics.MultiBody.Types;
-    extends Interfaces.PartialAbsoluteSensor(n_out=3*((if get_r_abs then 1 else 
+    extends Interfaces.PartialAbsoluteSensor(final n_out=3*((if get_r_abs then 1 else 
                   0) + (if get_v_abs then 1 else 0) + (if get_a_abs then 1 else 
                   0) + (if get_angles then 1 else 0) + (if get_w_abs then 1 else 
                   0) + (if get_z_abs then 1 else 0)));
@@ -370,7 +370,7 @@ Exact definition of the returned quantities:
     import Modelica.Mechanics.MultiBody.Frames;
     import Modelica.Mechanics.MultiBody.Types;
     
-    extends Interfaces.PartialRelativeSensor(n_out=3*((if 
+    extends Interfaces.PartialRelativeSensor(final n_out=3*((if 
             get_r_rel then 1 else 0) + (if get_v_rel then 1 else 0) + (if 
             get_a_rel then 1 else 0) + (if get_angles then 1 else 0) + (if 
             get_w_rel then 1 else 0) + (if get_z_rel then 1 else 0)));
@@ -770,6 +770,129 @@ and resolved in the following frame
     end if;
   end RelativeSensor;
   
+  model RelativeSensorNew 
+    "Measure relative position vector between two frame connectors" 
+    
+    import SI = Modelica.SIunits;
+    extends Modelica.Icons.RotationalSensor;
+    Interfaces.Frame_a frame_a 
+      "Coordinate system fixed to the component with one cut-force and cut-torque"
+                               annotation (extent=[-116,-16; -84,16]);
+    Interfaces.Frame_b frame_b 
+      "Coordinate system fixed to the component with one cut-force and cut-torque"
+                               annotation (extent=[84,-16; 116,16]);
+    Blocks.Interfaces.RealOutput r_rel[3] 
+      "Relative position vector frame_b.r_0 - frame_a.r_0 resolved in frame_a or frame_b"
+      annotation (extent=[-90,-100; -70,-120], rotation=90);
+    
+    parameter Boolean animation=true 
+      "= true, if animation shall be enabled (show arrow)";
+    parameter Boolean resolveInFrame_a=true 
+      "= true, if relative vectors from frame_a to frame_b are resolved before differentiation in frame_a, otherwise in frame_b";
+    input SI.Diameter arrowDiameter=world.defaultArrowDiameter 
+      " Diameter of relative arrow from frame_a to frame_b" 
+      annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+    input Types.Color arrowColor=Modelica.Mechanics.MultiBody.Types.Defaults.SensorColor 
+      " Color of relative arrow from frame_a to frame_b" 
+      annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
+      "Reflection of ambient light (= 0: light is completely absorbed)" 
+      annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+    
+  protected 
+    outer Modelica.Mechanics.MultiBody.World world;
+    
+    Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow arrow(
+      r=frame_a.r_0,
+      r_head=frame_b.r_0 - frame_a.r_0,
+      diameter=arrowDiameter,
+      color=arrowColor,
+      specularCoefficient) if world.enableAnimation and animation;
+    
+    encapsulated model RelativePosition "Determine relative position" 
+      import Modelica;
+      import Modelica.Mechanics.MultiBody.Frames;
+      extends Modelica.Blocks.Interfaces.BlockIcon;
+      
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a 
+        "Coordinate system a"                                                       annotation (extent=[-116,-16; -84,16]);
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_b 
+        "Coordinate system b"                                                       annotation (extent=[84,-16; 116,16]);
+      Modelica.Blocks.Interfaces.RealOutput r_rel[3] 
+        "Relative position vector, frame_b.r_0 - frame_a.r_0, resolved in frame_a or frame_b depending on parameter resolveInFrame_a)"
+        annotation (extent=[-10,-120; 10,-100], rotation=-90);
+      parameter Boolean resolveInFrame_a=true 
+        "= true, if relative vectors from frame_a to frame_b are resolved before differentiation in frame_a, otherwise in frame_b";
+      
+    equation 
+       frame_a.f = zeros(3);
+       frame_a.t = zeros(3);
+       frame_b.f = zeros(3);
+       frame_b.t = zeros(3);
+       if resolveInFrame_a then
+          r_rel = Frames.resolve2(frame_a.R, frame_b.r_0 - frame_a.r_0);
+       else
+          r_rel = Frames.resolve2(frame_b.R, frame_b.r_0 - frame_a.r_0);
+       end if;
+      
+      annotation (Icon(Text(
+            extent=[-78,-60; 78,-82],
+            string="r_rel",
+            style(color=0, rgbcolor={0,0,0}))));
+    end RelativePosition;
+    
+  protected 
+    RelativePosition relativePosition annotation (extent=[-70,-10; -50,10]);
+    annotation (Diagram, Icon(
+        Line(points=[-70,0; -96,0], style(
+            color=0,
+            rgbcolor={0,0,0},
+            smooth=0)),
+        Line(points=[96,0; 70,0], style(
+            color=0,
+            rgbcolor={0,0,0},
+            smooth=0)),
+        Line(points=[-80,0; -80,-100],   style(
+            color=74,
+            rgbcolor={0,0,127},
+            smooth=0)),
+        Text(
+          extent=[-116,-62; -44,-76],
+          string="r_rel",
+          style(color=0, rgbcolor={0,0,0})),
+           Text(
+          extent=[-112,51; -76,26],
+          style(color=10),
+          string="a"), Text(
+          extent=[78,51; 114,26],
+          style(color=10),
+          string="b")));
+  equation 
+    assert(cardinality(frame_a) > 0,
+      "Connector frame_a of component is not connected");
+    assert(cardinality(frame_b) > 0,
+      "Connector frame_b of component is not connected");
+    
+    connect(relativePosition.frame_a, frame_a) annotation (points=[-70,0; -100,0],
+        style(
+        color=10,
+        rgbcolor={95,95,95},
+        thickness=2,
+        smooth=0));
+    connect(relativePosition.frame_b, frame_b) annotation (points=[-50,0; 100,0],
+        style(
+        color=10,
+        rgbcolor={95,95,95},
+        thickness=2,
+        smooth=0));
+    connect(relativePosition.r_rel, r_rel) annotation (points=[-60,-11; -60,
+          -60.5; -60,-110; -80,-110],
+        style(
+        color=74,
+        rgbcolor={0,0,127},
+        smooth=0));
+  end RelativeSensorNew;
+  
   model Distance 
     "Measure the distance between the origins of two frame connectors" 
     
@@ -1162,18 +1285,19 @@ with negative sign at frame_a.
     extends Modelica.Icons.RotationalSensor;
     
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
-    Modelica.Blocks.Interfaces.RealOutput power "Power at frame_a as output signal" 
+    Modelica.Blocks.Interfaces.RealOutput power 
+      "Power at frame_a as output signal" 
       annotation (extent=[-90, -100; -70, -120], rotation=90);
     
     annotation (
       Diagram(
         Line(points=[-70, 0; -101, 0], style(color=0)),
         Line(points=[70, 0; 100, 0], style(color=0)),
-        Line(points=[-80, 0; -80, -100])),
+        Line(points=[-80, 0; -80, -100], style(color=74, rgbcolor={0,0,127}))),
       Icon(
         Line(points=[-70, 0; -101, 0], style(color=0)),
         Line(points=[70, 0; 100, 0], style(color=0)),
-        Line(points=[-80, 0; -80, -100]),
+        Line(points=[-80, 0; -80, -100], style(color=74, rgbcolor={0,0,127})),
         Text(
           extent=[-60,-92; 16,-114],
           style(color=0),

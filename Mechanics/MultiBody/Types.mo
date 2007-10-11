@@ -180,6 +180,16 @@ variable <b>extra</b> is used as instance name:
   type AngularAcceleration_degs2 = Modelica.Icons.TypeReal (final quantity="AngularAcceleration",
         final unit="deg/s2") "Angular acceleration type in deg/s^2";
   
+  type ResolveInFrame = enumeration(
+      frame_a "resolve vector in frame_a", 
+      frame_b "resolve vector in frame_b", 
+      frame_resolve "resolve vector in frame_resolve") 
+    "Define frame in which vector is resolved" annotation (Documentation(info="<html>
+<p>
+This enumeration defines the frame in which the respective vector is resolved.
+</p>
+</html>"));
+  
   package RotationTypes 
     "Type, constants and menu choices for rotation types, as temporary solution until enumerations are available" 
     
