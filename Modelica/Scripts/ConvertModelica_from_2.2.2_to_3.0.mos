@@ -13,3 +13,13 @@ convertClass  ("Modelica.Blocks.Math.TwoInputs",
 
 convertClass  ("Modelica.Blocks.Math.TwoOutputs",
                "ObsoleteModelica3.Blocks.Math.TwoOutputs");
+
+
+// Remove "SignalType" from all RealInput and RealOutput modifiers
+convertModifiers("Modelica.Blocks.Interfaces.RealInput",{"SignalType"},fill("",0),true);
+convertModifiers("Modelica.Blocks.Interfaces.RealOutput",{"SignalType"},fill("",0),true);
+
+// Change modifiers of PartialMedium.BaseProperties to equations in the equation section,
+// since the variable declarations of p,h,Xi have been changed to connectors
+// (in order that a BaseProperties model is "balanced")
+convertModifiers("Modelica.Media.Interfaces.PartialMedium.BaseProperties",{"p", "h" ,"Xi"}, {"equation"});
