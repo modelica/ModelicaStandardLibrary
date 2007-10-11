@@ -382,11 +382,11 @@ argument):</p>
       extends Modelica.Icons.Library2;
       
       type Temperature_degC = Real (final quantity="ThermodynamicTemperature",
-            final unit="degC");
+            final unit="degC") annotation(__Dymola_absoluteValue=true);
       type Temperature_degF = Real (final quantity="ThermodynamicTemperature",
-            final unit="degF");
+            final unit="degF") annotation(__Dymola_absoluteValue=true);
       type Temperature_degRk = Real (final quantity="ThermodynamicTemperature",
-            final unit="degRk");
+            final unit="degRk") annotation(__Dymola_absoluteValue=true);
       type Angle_deg = Real (final quantity="Angle", final unit="deg");
       type AngularVelocity_rpm = Real (final quantity="AngularVelocity", final unit
             =    "r/min");
