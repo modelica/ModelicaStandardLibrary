@@ -382,23 +382,37 @@ argument):</p>
       extends Modelica.Icons.Library2;
       
       type Temperature_degC = Real (final quantity="ThermodynamicTemperature",
-            final unit="degC") annotation(__Dymola_absoluteValue=true);
+            final unit="degC") 
+        "Absolute temperature in degree Celsius (for relative temperature use SIunits.TemperatureDifference)"
+                                                                                                            annotation(__Dymola_absoluteValue=true);
       type Temperature_degF = Real (final quantity="ThermodynamicTemperature",
-            final unit="degF") annotation(__Dymola_absoluteValue=true);
+            final unit="degF") 
+        "Absolute temperature in degree Fahrenheit (for relative temperature use SIunits.TemperatureDifference)"
+                                                                                                            annotation(__Dymola_absoluteValue=true);
       type Temperature_degRk = Real (final quantity="ThermodynamicTemperature",
-            final unit="degRk") annotation(__Dymola_absoluteValue=true);
-      type Angle_deg = Real (final quantity="Angle", final unit="deg");
+            final unit="degRk") 
+        "Absolute temperature in degree Rankine (for relative temperature use SIunits.TemperatureDifference)"
+                                                                                                            annotation(__Dymola_absoluteValue=true);
+      type Angle_deg = Real (final quantity="Angle", final unit="deg") 
+        "Angle in degree";
       type AngularVelocity_rpm = Real (final quantity="AngularVelocity", final unit
-            =    "r/min");
-      type Velocity_kmh = Real (final quantity="Velocity", final unit="km/h");
-      type Time_day = Real (final quantity="Time", final unit="d");
-      type Time_hour = Real (final quantity="Time", final unit="h");
-      type Time_minute = Real (final quantity="Time", final unit="min");
-      type Volume_litre = Real (final quantity="Volume", final unit="l");
-      type Energy_kWh = Real (final quantity="Energy", final unit="kW.h");
-      type Pressure_bar = Real (final quantity="Pressure", final unit="bar");
+            =    "r/min") "Angular velocity in revolutions per minute";
+      type Velocity_kmh = Real (final quantity="Velocity", final unit="km/h") 
+        "Velocity in kilometers per hour";
+      type Time_day = Real (final quantity="Time", final unit="d") 
+        "Time in days";
+      type Time_hour = Real (final quantity="Time", final unit="h") 
+        "Time in hours";
+      type Time_minute = Real (final quantity="Time", final unit="min") 
+        "Time in minutes";
+      type Volume_litre = Real (final quantity="Volume", final unit="l") 
+        "Volume in litres";
+      type Energy_kWh = Real (final quantity="Energy", final unit="kW.h") 
+        "Energy in kilo watt hours";
+      type Pressure_bar = Real (final quantity="Pressure", final unit="bar") 
+        "Absolute pressure in bar";
       type MassFlowRate_gps = Real (final quantity="MassFlowRate", final unit=
-              "g/s");
+              "g/s") "Mass flow rate in gramm per second";
       
       annotation(preferedView="info", Documentation(info="<HTML>
 <p>
