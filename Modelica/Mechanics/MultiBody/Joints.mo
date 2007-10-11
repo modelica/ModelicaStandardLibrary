@@ -84,7 +84,6 @@ solved, i.e., robustly and efficiently).
     extends Internal.Prismatic;
     
     annotation (
-      preferedView="info",
       Icon(Text(
           extent=[-142, 62; 147, 101],
           string="n=%n",
@@ -131,7 +130,6 @@ vector \"n\" defining the translation axis
       "1-dim. translational flange of the drive bearing" 
       annotation (extent=[-30,50; -50,70]);
     annotation (
-      preferedView="info",
       Diagram(
         Text(extent=[42, 81; 57, 66], string="f"),
         Line(points=[40, 65; 70, 65], style(color=3)),
@@ -204,7 +202,6 @@ vector \"n\" defining the translation axis
     
     extends Internal.Revolute;
     annotation (
-      preferedView="info",
       Icon(Text(
           extent=[-146, 70; 143, 109],
           string="n=%n",
@@ -287,7 +284,6 @@ vector \"n\" defining the translation axis
       "1-dim. rotational flange of the drive bearing" 
       annotation (extent=[-70,90; -50,110]);
     annotation (
-      preferedView="info",
       Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
@@ -480,7 +476,6 @@ vector \"n\" defining the translation axis
       w_start=w_start,
       a_start=wd_start) annotation (extent=[10, -25; 65, 25]);
     annotation (
-      preferedView="info",
       Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
@@ -646,7 +641,6 @@ vector \"n\" defining the cylinder axis
       specularCoefficient=specularCoefficient) 
       annotation (extent=[10, 20; 60, 70], rotation=90);
     annotation (
-      preferedView="info",
       Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
@@ -839,7 +833,6 @@ phi_start_b = 45<sup>o</sup>).
       w_start=w_start,
       a_start=wd_start) annotation (extent=[41, -20; 81, 20]);
     annotation (
-      preferedView="info",
       Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
@@ -952,13 +945,13 @@ s_start_y = 0.5, phi_start = 45<sup>o</sup>).
         color=10,
         rgbcolor={95,95,95},
         thickness=2));
-    connect(prismatic_x.frame_b, prismatic_y.frame_a) annotation (points=[-29,0;
-          -1.22461e-015,0; -1.22461e-015,30], style(
+    connect(prismatic_x.frame_b, prismatic_y.frame_a) annotation (points=[-29,0; 
+          -1.22465e-015,0; -1.22465e-015,30], style(
         color=10,
         rgbcolor={95,95,95},
         thickness=2));
     connect(prismatic_y.frame_b, revolute.frame_a) annotation (points=[
-          1.22461e-015,70; 0,80; 30,80; 30,0; 41,0], style(
+          1.22465e-015,70; 0,80; 30,80; 30,0; 41,0], style(
         color=10,
         rgbcolor={95,95,95},
         thickness=2));
@@ -1024,7 +1017,6 @@ s_start_y = 0.5, phi_start = 45<sup>o</sup>).
         Modelica.Mechanics.MultiBody.Frames.resolve2(R_rel_start, z_rel_a_start*Modelica.Constants.
          D2R);
     annotation (
-      preferedView="info",
       Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
@@ -1355,7 +1347,6 @@ frame_b of the joint.
       "= der(r_rel_a), i.e., velocity of origin of frame_b with respect to origin of frame_a, resolved in frame_a";
     SI.Acceleration a_rel_a[3] "= der(v_rel_a)";
     annotation (
-      preferedView="info",
       Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
@@ -1686,6 +1677,9 @@ frame_b of the joint.
     parameter Boolean kinematicConstraint=true 
       "= false, if no constraint shall be defined, due to analytically solving a kinematic loop"
       annotation (Dialog(tab="Advanced"));
+    Real constraintResidue = rRod_0*rRod_0 - rodLength*rodLength 
+      "Constraint equation of joint in residue form: Either length constraint (= default) or equation to compute rod force (for analytic solution of loops in combination with Internal.RevoluteWithLengthConstraint/PrismaticWithLengthConstraint)"
+      annotation (Dialog(tab="Advanced", enable=not kinematicConstraint));
     parameter Boolean checkTotalPower=false 
       "= true, if total power flowing into this component shall be determined (must be zero)"
       annotation (Dialog(tab="Advanced"));
@@ -1711,7 +1705,6 @@ frame_b of the joint.
       "Total power flowing into this element, if checkTotalPower=true (otherwise dummy)";
     
     annotation (
-      preferedView="info",
       Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
@@ -1908,12 +1901,8 @@ that has this property.
     rRod_a = Frames.resolve2(frame_a.R, rRod_0);
     eRod_a = rRod_a/rodLength;
     
-    /* Constraint equation is removed, when taken into account somewhere else,
-     e.g., when analytically solving a kinematic loop
-  */
-    if kinematicConstraint then
-      0 = rRod_0*rRod_0 - rodLength*rodLength;
-    end if;
+    // Constraint equation 
+    constraintResidue = 0;
     
     // Cut-torques at frame_a and frame_b
     frame_a.t = zeros(3);
@@ -2035,6 +2024,9 @@ that has this property.
     parameter Boolean kinematicConstraint=true 
       "= false, if no constraint shall be defined, due to analytically solving a kinematic loop"
       annotation (Dialog(tab="Advanced"));
+    Real constraintResidue = rRod_0*rRod_0 - rodLength*rodLength 
+      "Constraint equation of joint in residue form: Either length constraint (= default) or equation to compute rod force (for analytic solution of loops in combination with Internal.RevoluteWithLengthConstraint/PrismaticWithLengthConstraint)"
+      annotation (Dialog(tab="Advanced", enable=not kinematicConstraint));
     parameter Boolean checkTotalPower=false 
       "= true, if total power flowing into this component shall be determined (must be zero)"
       annotation (Dialog(tab="Advanced"));
@@ -2060,7 +2052,6 @@ that has this property.
     SI.Position rRod_a[3](start=rRod_ia) 
       "Position vector from origin of frame_a to origin of frame_b resolved in frame_a";
     annotation (
-      preferedView="info",
       Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
@@ -2413,9 +2404,7 @@ the origin of frame_a to the middle of the rod, this might be defined as:
     rRod_a = Frames.resolve2(frame_a.R, rRod_0);
     
     // Constraint equation
-    if kinematicConstraint then
-      0 = rRod_0*rRod_0 - rodLength*rodLength;
-    end if;
+    constraintResidue = 0;
     
     /* Determine relative Rotation R_rel_ia from frame_a to frame_ia
      and absolute rotation of frame_a.R.
@@ -2628,12 +2617,12 @@ November 3-4, 2003, pp. 149-158</p>
     connect(idealGear.flange_b, actuatedRevolute_b.axis) 
       annotation (points=[10, 40; 50, 40; 50, 10], style(color=0));
     connect(actuatedRevolute_a.frame_a,fixedTranslation2. frame_b) annotation (
-        points=[-40,0; -35,0; -35,1.22461e-015; -30,1.22461e-015], style(
+        points=[-40,0; -35,0; -35,1.22465e-015; -30,1.22465e-015], style(
         color=10,
         rgbcolor={95,95,95},
         thickness=2));
     connect(fixedTranslation2.frame_a, bearing) annotation (points=[-10,
-          -1.22461e-015; -4,-1.22461e-015; -4,0; 0,0; 0,-100], style(
+          -1.22465e-015; -4,-1.22465e-015; -4,0; 0,0; 0,-100], style(
         color=10,
         rgbcolor={95,95,95},
         thickness=2));
@@ -2850,7 +2839,6 @@ pair of joints\" from Woernle and Hiller is described in:
       SI.Power totalPower 
         "Total power flowing into this element, if checkTotalPower=true (otherwise dummy)";
       annotation (
-        preferedView="info",
         Coordsys(
           extent=[-100, -100; 100, 100],
           grid=[1,1],
@@ -2934,7 +2922,7 @@ should be parallel to each other when defining an instance of this
 component).
 </p>
 </html> "),
-        Icon(coordinateSystem(extent=[-200,-200; 200,200]),
+        Icon(
           Text(
             extent=[-140,-50; 140,-75],
             style(color=3),
@@ -3472,7 +3460,6 @@ origin of frame_b. You may try to use another \"n1_a\" vector.
         "Color of cylinders representing the two universal joint axes" annotation (
           Dialog(tab="Animation", group="if animation = true and showUniversalAxes",
                 enable=animation and showUniversalAxes));
-      
       parameter Boolean checkTotalPower=false 
         "= true, if total power flowing into this component shall be determined (must be zero)"
         annotation (Dialog(tab="Advanced"));
@@ -3486,8 +3473,10 @@ origin of frame_b. You may try to use another \"n1_a\" vector.
         "Total power flowing into this element, if checkTotalPower=true (otherwise dummy)";
       SI.Position aux 
         "Denominator used to compute force in rod connecting universal and spherical joint";
+      SI.Force f_rod 
+        "Constraint force in direction of the rod (positive, if rod is pressed)";
+      
       annotation (
-        preferedView="info",
         Coordsys(
           extent=[-100, -100; 100, 100],
           grid=[1,1],
@@ -3614,7 +3603,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
     <b>connect</b>(jointUSP.frame_ia, shape.frame_a);
 </pre>
 </html> "),
-        Icon(coordinateSystem(extent=[-200,-200; 200,200]),
+        Icon(
           Text(
             extent=[-140,-41; 140,-66],
             style(color=3),
@@ -3726,8 +3715,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
         cylinderDiameter=revoluteDiameter,
         cylinderLength=revoluteLength,
         cylinderColor=revoluteColor,
-        specularCoefficient=specularCoefficient,
-        axisTorqueBalance=false) annotation (extent=[75, -20; 35, 20]);
+        specularCoefficient=specularCoefficient) annotation (extent=[75, -20; 35, 20]);
       Modelica.Mechanics.MultiBody.Joints.UniversalSpherical rod1(
         animation=animation,
         showUniversalAxes=showUniversalAxes,
@@ -3742,7 +3730,9 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
         cylinderDiameter=cylinderDiameter,
         cylinderColor=cylinderColor,
         specularCoefficient=specularCoefficient,
-        kinematicConstraint=false) annotation (extent=[-92, -20; -52, 20]);
+        kinematicConstraint=false,
+        constraintResidue=rod1.f_rod - f_rod) 
+                                   annotation (extent=[-92, -20; -52, 20]);
       Modelica.Mechanics.MultiBody.Parts.FixedTranslation rod2(
         animation=animation,
         width=rod2Diameter,
@@ -3750,12 +3740,13 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
         color=rod2Color,
         specularCoefficient=specularCoefficient,
         r=rRod2_ib) annotation (extent=[15, -20; -25, 20]);
-      Modelica.Mechanics.MultiBody.Sensors.RelativeSensor relativeSensor(animation=false) 
+      Modelica.Mechanics.MultiBody.Sensors.RelativeSensorNew relativeSensor(
+                                                                         animation=false) 
         annotation (extent=[60, -70; 40, -90]);
       Modelica.Blocks.Sources.Constant position_b[3](k=rRod2_ib) 
         annotation (extent=[-20, -50; 0, -30]);
     equation 
-      defineRoot(frame_ib.R);
+     // defineRoot(frame_ib.R);
       
       /* Compute the unknown force in the rod of the rod1 joint
      by a torque balance at the revolute joint:
@@ -3774,14 +3765,16 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
               + cross(rRod2_ib, -rod.f_b_a1))
               + rod1.f_rod*e*cross(rRod2_ib, Frames.resolve2(rod1.R_rel, rod1.eRod_a))
      Solving this equation for f_rod results in
-       rod1.f_rod = (-tau - e*(frame_ib.t + frame_im.t + cross(rRod2_ib, frame_im.f)
-                   + cross(rRod2_ib, -rod1.f_b_a1)))
-                   / (cross(e,rRod2_ib)*Frames.resolve2(rod1.R_rel, rod1.eRod_a)))
+       f_rod = (-tau - e*(frame_ib.t + frame_im.t + cross(rRod2_ib, frame_im.f)
+               + cross(rRod2_ib, -rod1.f_b_a1)))
+               / (cross(e,rRod2_ib)*Frames.resolve2(rod1.R_rel, rod1.eRod_a)))
      Additionally, a guard against division by zero is introduced
+ 
+     f_rod is passed to component JointsUSR.rod1 via variable "constraintResidue" in the Advanced menu
   */
       aux = cross(revolute.e, rRod2_ib)*Frames.resolveRelative(rod1.eRod_a,
         rod1.frame_a.R, rod1.frame_b.R);
-      rod1.f_rod = (-revolute.tau - revolute.e*(frame_ib.t + frame_im.t + cross(
+      f_rod = (-revolute.tau - revolute.e*(frame_ib.t + frame_im.t + cross(
         rRod2_ib, frame_im.f) - cross(rRod2_ib, Frames.resolveRelative(rod1.
         f_b_a1, rod1.frame_a.R, rod1.frame_b.R))))/noEvent(if abs(aux) < 1.e-10 then 
               1.e-10 else aux);
@@ -3855,16 +3848,13 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
           gradient=3,
           fillColor=8,
           rgbfillColor={192,192,192}));
-      connect(relativeSensor.y, revolute.position_a)       annotation (points=[
-            50, -69; 50, -40; 90, -40; 90, -12; 79, -12], style(
-          color=3,
-          gradient=3,
-          fillColor=8));
       connect(position_b.y, revolute.position_b)       annotation (points=[1, -40;
              20, -40; 20, -12; 31, -12], style(
-          color=3,
+          color=74,
+          rgbcolor={0,0,127},
           gradient=3,
-          fillColor=8));
+          fillColor=8,
+          rgbfillColor={192,192,192}));
       connect(rod2.frame_b, frame_im) annotation (points=[-25,0; -40,0; -40,80; 0,
             80; 0,100], style(
           color=10,
@@ -3879,6 +3869,11 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
             100,80],          style(color=0));
       connect(revolute.bearing, bearing) 
         annotation (points=[67,20; 67,40; 100,40],    style(color=0));
+      connect(relativeSensor.r_rel, revolute.position_a) annotation (points=[58,-69; 
+            58,-50; 90,-50; 90,-12; 79,-12],      style(
+          color=74,
+          rgbcolor={0,0,127},
+          smooth=0));
     end JointUSR;
     
     model JointUSP 
@@ -3978,10 +3973,11 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
         "Unit vector in direction of axis 2 of universal joint, resolved in frame_ia";
       final parameter SI.Distance rod1Length=rod1.rodLength 
         "Length of rod 1 (= distance between universal and spherical joint";
+      SI.Force f_rod 
+        "Constraint force in direction of the rod (positive, if rod is pressed)";
       SI.Power totalPower 
         "Total power flowing into this element, if checkTotalPower=true (otherwise dummy)";
       annotation (
-        preferedView="info",
         Coordsys(
           extent=[-100, -100; 100, 100],
           grid=[1,1],
@@ -4115,7 +4111,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
     <b>connect</b>(jointUSP.frame_ia, shape.frame_a);
 </pre>
 </html> "),
-        Icon(coordinateSystem(extent=[-200,-200; 200,200]),
+        Icon(
           Rectangle(extent=[50, 20; 80, -20], style(color=0, fillColor=8)),
           Rectangle(extent=[80, 30; 100, -30], style(color=0, fillColor=8)),
           Text(
@@ -4236,8 +4232,8 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
         boxWidth=boxWidth,
         boxHeight=boxHeight,
         boxColor=boxColor,
-        specularCoefficient=specularCoefficient,
-        axisForceBalance=false) annotation (extent=[76, -20; 36, 20]);
+        specularCoefficient=specularCoefficient) 
+                                annotation (extent=[76, -20; 36, 20]);
       Modelica.Mechanics.MultiBody.Joints.UniversalSpherical rod1(
         animation=animation,
         showUniversalAxes=showUniversalAxes,
@@ -4252,7 +4248,9 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
         cylinderLength=cylinderLength,
         cylinderDiameter=cylinderDiameter,
         cylinderColor=cylinderColor,
-        kinematicConstraint=false) annotation (extent=[-92, -20; -52, 20]);
+        kinematicConstraint=false,
+        constraintResidue=rod1.f_rod - f_rod) 
+                                   annotation (extent=[-92, -20; -52, 20]);
       Modelica.Mechanics.MultiBody.Parts.FixedTranslation rod2(
         animation=animation,
         r=rRod2_ib,
@@ -4260,7 +4258,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
         height=rod2Diameter,
         specularCoefficient=specularCoefficient,
         color=rod2Color) annotation (extent=[0, 20; -40, -20]);
-      Modelica.Mechanics.MultiBody.Sensors.RelativeSensor relativeSensor(animation=false) 
+      Sensors.RelativeSensorNew relativeSensor(                          animation=false) 
         annotation (extent=[50, -70; 30, -90]);
       Modelica.Blocks.Sources.Constant position_b[3](k=rRod2_ib) 
         annotation (extent=[-20, -60; 0, -40], rotation=0);
@@ -4288,10 +4286,9 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
                    /(e*Frames.resolve2(rod1.R_rel, rod1.eRod_a))
      Additionally, a guard against division by zero is introduced
   */
-      defineRoot(frame_ib.R);
       aux = prismatic.e*Frames.resolveRelative(rod1.eRod_a, rod1.frame_a.R,
         rod1.frame_b.R);
-      rod1.f_rod = (-prismatic.f - prismatic.e*(frame_ib.f + frame_im.f -
+      f_rod = (-prismatic.f - prismatic.e*(frame_ib.f + frame_im.f -
         Frames.resolveRelative(rod1.f_b_a1, rod1.frame_a.R, rod1.frame_b.R)))/
         noEvent(if abs(aux) < 1.e-10 then 1.e-10 else aux);
       // Measure power for test purposes
@@ -4374,18 +4371,20 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
           thickness=2));
       connect(position_b.y, prismatic.position_b)       annotation (points=[1,
             -50; 10, -50; 10, -12; 32, -12], style(
-          color=3,
-          fillColor=8,
-          fillPattern=1));
-      connect(relativeSensor.y, prismatic.position_a)       annotation (points=
-            [40, -69; 40, -40; 90, -40; 90, -12; 80, -12], style(
-          color=3,
-          fillColor=8,
+          color=74, 
+          rgbcolor={0,0,127}, 
+          fillColor=8, 
+          rgbfillColor={192,192,192}, 
           fillPattern=1));
       connect(prismatic.axis, axis) annotation (points=[40,14; 40,56; 90,56; 90,80;
             100,80],           style(color=58));
       connect(prismatic.bearing, bearing) 
         annotation (points=[64,14; 64,40; 100,40],    style(color=58));
+      connect(relativeSensor.r_rel, prismatic.position_a) annotation (points=[
+            48,-69; 48,-50; 90,-50; 90,-12; 80,-12], style(
+          color=74, 
+          rgbcolor={0,0,127}, 
+          smooth=0));
     end JointUSP;
     
     model JointSSR 
@@ -4462,10 +4461,11 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
         annotation (Dialog(tab="Advanced"));
       SI.Position aux 
         "Denominator used to compute force in rod connecting universal and spherical joint";
+      SI.Force f_rod 
+        "Constraint force in direction of the rod (positive, if rod is pressed)";
       SI.Power totalPower 
         "Total power flowing into this element, if checkTotalPower=true (otherwise dummy)";
       annotation (
-        preferedView="info",
         Coordsys(
           extent=[-100, -100; 100, 100],
           grid=[1,1],
@@ -4516,7 +4516,7 @@ should be parallel to each other when defining an instance of this
 component).
 </p>
 </html> "),
-        Icon(coordinateSystem(extent=[-200,-200; 200,200]),
+        Icon(
           Text(
             extent=[-141,-41; 139,-66],
             style(color=3),
@@ -4600,8 +4600,8 @@ component).
         cylinderDiameter=revoluteDiameter,
         cylinderLength=revoluteLength,
         cylinderColor=revoluteColor,
-        specularCoefficient=specularCoefficient,
-        axisTorqueBalance=false) annotation (extent=[75, -20; 35, 20]);
+        specularCoefficient=specularCoefficient) 
+                                 annotation (extent=[75, -20; 35, 20]);
       Modelica.Mechanics.MultiBody.Joints.SphericalSpherical rod1(
         animation=animation,
         showMass=showMass,
@@ -4612,7 +4612,9 @@ component).
         rodColor=rod1Color,
         specularCoefficient=specularCoefficient,
         kinematicConstraint=false,
-        sphereColor=sphereColor) annotation (extent=[-89, -20; -49, 20]);
+        sphereColor=sphereColor,
+        constraintResidue=rod1.f_rod - f_rod) 
+                                 annotation (extent=[-89, -20; -49, 20]);
       Modelica.Mechanics.MultiBody.Parts.FixedTranslation rod2(
         animation=animation,
         width=rod2Diameter,
@@ -4620,12 +4622,11 @@ component).
         color=rod2Color,
         specularCoefficient=specularCoefficient,
         r=rRod2_ib) annotation (extent=[15, -20; -25, 20]);
-      Modelica.Mechanics.MultiBody.Sensors.RelativeSensor relativeSensor(animation=false) 
+      Sensors.RelativeSensorNew relativeSensor(                          animation=false) 
         annotation (extent=[60, -70; 40, -90]);
       Modelica.Blocks.Sources.Constant position_b[3](k=rRod2_ib) 
         annotation (extent=[-20, -50; 0, -30]);
     equation 
-      defineRoot(frame_ib.R);
       /* Compute the unknown force in the rod of the rod1 joint
      by a torque balance at the revolute joint:
        0 = frame_b.t + frame_ib.t + frame_im.t + cross(rRod2_ib, frame_im.f)
@@ -4651,7 +4652,7 @@ component).
       
       aux = cross(revolute.e, rRod2_ib)*Frames.resolveRelative(rod1.eRod_a,
         rod1.frame_a.R, rod1.frame_b.R);
-      rod1.f_rod = (-revolute.tau - revolute.e*(frame_ib.t + frame_im.t + cross(
+      f_rod = (-revolute.tau - revolute.e*(frame_ib.t + frame_im.t + cross(
         rRod2_ib, frame_im.f) - cross(rRod2_ib, Frames.resolveRelative(rod1.
         f_b_a1, rod1.frame_a.R, rod1.frame_b.R))))/noEvent(if abs(aux) < 1.e-10 then 
               1.e-10 else aux);
@@ -4724,16 +4725,13 @@ component).
           gradient=3,
           fillColor=8,
           rgbfillColor={192,192,192}));
-      connect(relativeSensor.y, revolute.position_a)       annotation (points=[
-            50, -69; 50, -40; 90, -40; 90, -12; 79, -12], style(
-          color=3,
-          gradient=3,
-          fillColor=8));
       connect(position_b.y, revolute.position_b)       annotation (points=[1, -40;
              20, -40; 20, -12; 31, -12], style(
-          color=3,
-          gradient=3,
-          fillColor=8));
+          color=74, 
+          rgbcolor={0,0,127}, 
+          gradient=3, 
+          fillColor=8, 
+          rgbfillColor={192,192,192}));
       connect(revolute.axis, axis) annotation (points=[55,20; 55,60; 90,60; 90,80;
             100,80],          style(color=0));
       connect(revolute.bearing, bearing) 
@@ -4743,6 +4741,11 @@ component).
           color=10,
           rgbcolor={95,95,95},
           thickness=2));
+      connect(relativeSensor.r_rel, revolute.position_a) annotation (points=[56,
+            -69; 56,-50; 90,-50; 90,-12; 79,-12], style(
+          color=74, 
+          rgbcolor={0,0,127}, 
+          smooth=0));
     end JointSSR;
     
     model JointSSP 
@@ -4824,10 +4827,11 @@ component).
         annotation (Dialog(tab="Advanced"));
       Real aux 
         "Denominator used to compute force in rod connecting universal and spherical joint";
+      SI.Force f_rod 
+        "Constraint force in direction of the rod (positive, if rod is pressed)";
       SI.Power totalPower 
         "Total power flowing into this element, if checkTotalPower=true (otherwise dummy)";
       annotation (
-        preferedView="info",
         Coordsys(
           extent=[-100, -100; 100, 100],
           grid=[1, 1],
@@ -4878,7 +4882,7 @@ should be parallel to each other when defining an instance of this
 component).
 </p>
 </html> "),
-        Icon(coordinateSystem(extent=[-200,-200; 200,200]),
+        Icon(
           Text(
             extent=[-140,-40; 140,-65],
             style(color=3),
@@ -4954,7 +4958,6 @@ component).
         n=n_b,
         s_offset=s_offset,
         s_guess=s_guess,
-        axisForceBalance=false,
         boxWidthDirection=boxWidthDirection,
         boxWidth=boxWidth,
         boxHeight=boxHeight,
@@ -4970,7 +4973,9 @@ component).
         rodColor=rod1Color,
         kinematicConstraint=false,
         specularCoefficient=specularCoefficient,
-        sphereColor=sphereColor) annotation (extent=[-89, -20; -49, 20]);
+        sphereColor=sphereColor,
+        constraintResidue=rod1.f_rod - f_rod) 
+                                 annotation (extent=[-89, -20; -49, 20]);
       Modelica.Mechanics.MultiBody.Parts.FixedTranslation rod2(
         animation=animation,
         width=rod2Diameter,
@@ -4978,12 +4983,11 @@ component).
         specularCoefficient=specularCoefficient,
         color=rod2Color,
         r=rRod2_ib) annotation (extent=[15, -20; -25, 20]);
-      Modelica.Mechanics.MultiBody.Sensors.RelativeSensor relativeSensor(animation=false) 
+      Sensors.RelativeSensorNew relativeSensor(                          animation=false) 
         annotation (extent=[60, -70; 40, -90]);
       Modelica.Blocks.Sources.Constant position_b[3](k=rRod2_ib) 
         annotation (extent=[-20, -50; 0, -30]);
     equation 
-      defineRoot(frame_ib.R);
       /* Compute the unknown force in the rod of the rod1 joint
      by a force balance:
        0 = frame_b.f + frame_ib.f + frame_im.f + 
@@ -5004,7 +5008,7 @@ component).
   */
       aux = prismatic.e*Frames.resolveRelative(rod1.eRod_a, rod1.frame_a.R,
         rod1.frame_b.R);
-      rod1.f_rod = (-prismatic.f - prismatic.e*(frame_ib.f + frame_im.f))/
+      f_rod = (-prismatic.f - prismatic.e*(frame_ib.f + frame_im.f))/
         noEvent(if abs(aux) < 1.e-10 then 1.e-10 else aux);
       
       // Measure power for test purposes
@@ -5075,16 +5079,13 @@ component).
           gradient=3,
           fillColor=8,
           rgbfillColor={192,192,192}));
-      connect(relativeSensor.y, prismatic.position_a)       annotation (points=
-            [50, -69; 50, -40; 90, -40; 90, -12; 79, -12], style(
-          color=3,
-          gradient=3,
-          fillColor=8));
       connect(position_b.y, prismatic.position_b)       annotation (points=[1,
             -40; 20, -40; 20, -12; 31, -12], style(
-          color=3,
-          gradient=3,
-          fillColor=8));
+          color=74, 
+          rgbcolor={0,0,127}, 
+          gradient=3, 
+          fillColor=8, 
+          rgbfillColor={192,192,192}));
       connect(prismatic.axis, axis) annotation (points=[39,14; 40,14; 40,60; 90,60;
             90,80; 100,80],    style(color=0));
       connect(prismatic.bearing, bearing) 
@@ -5094,6 +5095,11 @@ component).
           color=10,
           rgbcolor={95,95,95},
           thickness=2));
+      connect(relativeSensor.r_rel, prismatic.position_a) annotation (points=[
+            58,-69; 58,-50; 90,-50; 90,-12; 79,-12], style(
+          color=74, 
+          rgbcolor={0,0,127}, 
+          smooth=0));
     end JointSSP;
     
     model JointRRR 
@@ -5169,7 +5175,6 @@ component).
         "Total power flowing into this element, if checkTotalPower=true (otherwise dummy)";
       
       annotation (
-        preferedView="info",
         Coordsys(
           extent=[-100, -100; 100, 100],
           grid=[1, 1],
@@ -5222,7 +5227,7 @@ loop this will behave as if 3 revolute joints with parallel axes
 are connected by rigid rods.
 </p>
 </html> "),
-        Icon(coordinateSystem(extent=[-200,-200; 200,200]),
+        Icon(
           Rectangle(extent=[-90, 90; 90, -90], style(color=7, fillColor=7)),
           Text(
             extent=[-140,-55; 140,-80],
@@ -5481,7 +5486,6 @@ are connected by rigid rods.
         "Total power flowing into this element, if checkTotalPower=true (otherwise dummy)";
       
       annotation (
-        preferedView="info",
         Coordsys(
           extent=[-100, -100; 100, 100],
           grid=[1, 1],
@@ -5536,7 +5540,7 @@ loop this will behave as if 2 revolute joints with parallel axes
 and 1 prismatic joint are connected by rigid rods.
 </p>
 </html> "),
-        Icon(coordinateSystem(extent=[-200,-200; 200,200]),
+        Icon(
           Rectangle(extent=[-90, 90; 90, -90], style(color=7, fillColor=7)),
           Text(
             extent=[-139,-53; 141,-78],
@@ -5788,7 +5792,6 @@ connected to the revolute joint.
       SI.Angle angle(start=Cv.from_deg(phi_start+phi_offset)) 
         "= from_deg(phi_offset) + phi";
       annotation (
-        preferedView="info",
         Coordsys(
           extent=[-100, -100; 100, 100],
           grid=[1, 1],
@@ -6044,7 +6047,6 @@ connected to the prismatic joint.");
       SI.Force f=0 "Actuation force in direction of joint axis";
       
       annotation (
-        preferedView="info",
         Coordsys(
           extent=[-100, -100; 100, 100],
           grid=[1, 1],
@@ -6223,9 +6225,6 @@ it might be slightly more efficient, when using the \"enforceStates\" setting.
         "Reflection of ambient light (= 0: light is completely absorbed)" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       
-      parameter Boolean axisTorqueBalance=true 
-        "= true, if torque balance of flange axis with the frame_b connector (axis.tau = -e*frame_b.t) shall be defined. Otherwise this equation has to be provided outside of this joint"
-        annotation (Dialog(tab="Advanced"));
       final parameter Boolean positiveBranch(fixed=false) 
         "Based on phi_guess, selection of one of the two solutions of the non-linear constraint equation";
       final parameter Real e[3]=Modelica.Mechanics.MultiBody.Frames.normalize(n) 
@@ -6239,8 +6238,6 @@ it might be slightly more efficient, when using the \"enforceStates\" setting.
       SI.Torque tau "= axis.tau (driving torque in the axis)";
       
       annotation (
-        structurallyIncomplete,
-        preferedView="info",
         Coordsys(
           extent=[-100, -100; 100, 100],
           grid=[1, 1],
@@ -6317,7 +6314,7 @@ it might be slightly more efficient, when using the \"enforceStates\" setting.
               color=0,
               gradient=1,
               fillColor=8))),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 Joint where frame_b rotates around axis n which is fixed in frame_a.
 The two frames coincide when \"phi + phi_offset = 0\", where
@@ -6335,7 +6332,33 @@ length constraint is fulfilled.
 library. It is only provided to built-up the Modelica.Mechanics.MultiBody.Joints.Assemblies.JointXYZ
 joints.</b>
 </p>
-</HTML>
+ 
+<p>
+In releases before version 3.0 of the Modelica Standard Library, it was possible
+to activate the torque projection equation (= cut-torque projected to the rotation
+axis must be identical to the drive torque of flange axis) via parameter
+<b>axisTorqueBalance</b>. This is no longer possible, since otherwise this
+model would not be \"balanced\" (= same number of unknowns as equations).
+Instead, when using this model in version 3.0 and later versions,
+the force in the length constraint component (Joints.SphericalSpherical or
+Joints.UniversalSpherical) must be calculated such that the driving torque
+in direction of the rotation
+axis is (RC shall be the name of the instance of RevoluteWithLenghtConstraint):
+</p>
+<pre>
+    0 = RC.axis.tau + RC.e*RC.frame_b.t;
+</pre>
+<p>
+If this equation is used, usually the force in the length constraint
+and the second derivative of the revolute angle will be part of a linear
+algebraic system of equations. In some cases it is possible to solve
+this system of equations locally, i.e., provide the rod force directly
+as function of the revolute constraint torque. In any case, this projection
+equation or an equivalent one has to be provided via variable \"constraintResidue\" in the \"Advanced\"
+menu of \"Joints.SphericalSpherical\" or \"Joints.UniversalSpherical\".
+</p>
+ 
+</html>
 "));
       
     protected 
@@ -6461,6 +6484,7 @@ joints.</b>
       positiveBranch = selectBranch(lengthConstraint, e, Cv.from_deg(phi_offset
          + phi_guess), r_a, r_b);
     equation 
+      defineBranch(frame_a.R, frame_b.R);
       axis.tau = tau;
       axis.phi = phi;
       bearing.phi = 0;
@@ -6473,23 +6497,9 @@ joints.</b>
       R_rel = Frames.planarRotation(e, angle, der(angle));
       frame_b.R = Frames.absoluteRotation(frame_a.R, R_rel);
       
-      // Transform the force and torque acting at frame_b to frame_a
+      // Force and torque balance
       zeros(3) = frame_a.f + Frames.resolve1(R_rel, frame_b.f);
       zeros(3) = frame_a.t + Frames.resolve1(R_rel, frame_b.t);
-      
-      if axisTorqueBalance then
-        /* Note, if axisTorqueBalance is false, the force in the
-       length constraint must be calculated such that the driving
-       Torque in direction of the rotation axis is:
-          axis.tau = -e*frame_b.t;
-       If axisTorqueBalance=true, this equation is provided here.
-       As a consequence, the force in the length constraint and the second
-       derivative of 'angle' will be part of a linear algebraic system of
-       equations (otherwise, it might be possible to remove this force
-       from the linear system).
-    */
-        tau = -e*frame_b.t;
-      end if;
       
       // Compute rotation angle (details, see function "selectBranch")
       e_r_a = e*r_a;
@@ -6566,9 +6576,6 @@ position a degree of freedom is lost.
         "Reflection of ambient light (= 0: light is completely absorbed)" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       
-      parameter Boolean axisForceBalance=true 
-        "= true, if force balance of flange axis with the frame_b connector (axis.f = -e*frame_b.f) shall be defined. Otherwise this equation has to be provided outside of this joint"
-        annotation (Dialog(tab="Advanced"));
       final parameter Boolean positiveBranch(fixed=false) 
         "Selection of one of the two solutions of the non-linear constraint equation";
       final parameter Real e[3]=Modelica.Mechanics.MultiBody.Frames.normalize(n) 
@@ -6582,8 +6589,6 @@ position a degree of freedom is lost.
       SI.Force f "= axis.f (driving force in the axis)";
       
       annotation (
-        structurallyIncomplete,
-        preferedView="info",
         Coordsys(
           extent=[-100, -100; 100, 100],
           grid=[1, 1],
@@ -6688,6 +6693,32 @@ length constraint is fulfilled.
 library. It is only provided to built-up the Modelica.Mechanics.MultiBody.Joints.Assemblies.JointXYZ
 joints.</b>
 </p>
+ 
+<p>
+In releases before version 3.0 of the Modelica Standard Library, it was possible
+to activate the force projection equation (= cut-force projected to the translation
+axis must be identical to the driving force of flange axis) via parameter
+<b>axisForceBalance</b>. This is no longer possible, since otherwise this
+model would not be \"balanced\" (= same number of unknowns as equations).
+Instead, when using this model in version 3.0 and later versions,
+the force in the length constraint component (Joints.SphericalSpherical or
+Joints.UniversalSpherical) must be calculated such that the driving force
+in direction of the translation
+axis is (RC shall be the name of the instance of PrismaticWithLenghtConstraint):
+</p>
+<pre>
+    0 = RC.axis.f + RC.e*RC.frame_b.f;
+</pre>
+<p>
+If this equation is used, usually the force in the length constraint
+and the second derivative of the prismatic distance will be part of a linear
+algebraic system of equations. In some cases it is possible to solve
+this system of equations locally, i.e., provide the rod force directly
+as function of the prismatic constraint force. In any case, this projection
+equation or an equivalent one has to be provided via variable \"constraintResidue\" in the \"Advanced\"
+menu of \"Joints.SphericalSpherical\" or \"Joints.UniversalSpherical\".
+</p>
+ 
 </HTML>
 "));
       
@@ -6774,6 +6805,8 @@ joints.</b>
     initial equation 
       positiveBranch = selectBranch(length, e, s_offset + s_guess, r_a, r_b);
     equation 
+      defineBranch(frame_a.R, frame_b.R);
+      
       axis.f = f;
       axis.s = s;
       bearing.s = 0;
@@ -6785,19 +6818,6 @@ joints.</b>
       frame_b.R = frame_a.R;
       zeros(3) = frame_a.f + frame_b.f;
       zeros(3) = frame_a.t + frame_b.t + cross(r_rel_a, frame_b.f);
-      
-      if axisForceBalance then
-        /* Note, if axisForceBalance is false, the force in the
-       length constraint must be calculated such that the driving
-       force in direction of the translation axis is:
-          axis.f = -e*frame_b.f;
-       If axisForceBalance=true, this equation is provided here.
-       As a consequence, the force in the length constraint will be
-       part of a linear algebraic system of equations (otherwise, it
-       might be possible to remove this force from the linear system).
-    */
-        f = -e*frame_b.f;
-      end if;
       
       // Compute translational distance (details, see function "selectBranch")
       rbra = r_b - r_a;

@@ -768,7 +768,7 @@ with the blocks of package Modelica.Blocks.
 "),   Icon(
         Line(points=[-70, 0; -101, 0], style(color=0)),
         Line(points=[70, 0; 100, 0], style(color=0)),
-        Line(points=[0, -100; 0, -70]),
+        Line(points=[0, -100; 0, -70], style(color=74, rgbcolor={0,0,127})),
         Text(extent=[-132, 76; 129, 124], string="%name"),
         Text(
           extent=[-118,52; -82,27],
@@ -781,7 +781,7 @@ with the blocks of package Modelica.Blocks.
       Diagram(
         Line(points=[-70, 0; -100, 0], style(color=0)),
         Line(points=[70, 0; 100, 0], style(color=0)),
-        Line(points=[0, -100; 0, -70])));
+        Line(points=[0, -100; 0, -70], style(color=74, rgbcolor={0,0,127}))));
   equation 
     
     assert(cardinality(frame_a) > 0,
@@ -826,7 +826,7 @@ with the blocks of package Modelica.Blocks.
 "),   Icon(
         Line(points=[-70, 0; -101, 0], style(color=0)),
         Line(points=[70, 0; 100, 0], style(color=0)),
-        Line(points=[-80, -100; -80, 0]),
+        Line(points=[-80, -100; -80, 0], style(color=74, rgbcolor={0,0,127})),
         Text(extent=[-132, 76; 129, 124], string="%name"),
         Text(
           extent=[-118,55; -82,30],
@@ -847,7 +847,7 @@ with the blocks of package Modelica.Blocks.
       Diagram(
         Line(points=[-70, 0; -100, 0], style(color=0)),
         Line(points=[70, 0; 100, 0], style(color=0)),
-        Line(points=[-80, -100; -80, 0]),
+        Line(points=[-80, -100; -80, 0], style(color=74, rgbcolor={0,0,127})),
         Line(points=[80,0; 80,-100], style(
             color=10,
             rgbcolor={95,95,95},

@@ -223,10 +223,10 @@ package Utilities "Utility models for Examples.Loops"
     
     extends Modelica.Mechanics.Translational.Interfaces.Compliant;
     parameter SI.Length L "Length of cylinder";
-    parameter SI.Length d "diameter of cylinder";
-    parameter Real k0=0.01;
-    parameter Real k1=1;
-    parameter Real k=1;
+    parameter SI.Diameter d "Diameter of cylinder";
+    parameter SIunits.Volume k0=0.01;
+    parameter SIunits.Volume k1=1;
+    parameter SIunits.HeatCapacity k=1;
     constant Real pi=Modelica.Constants.pi;
     constant Real PI=Modelica.Constants.pi;
     // Only for compatibility reasons
@@ -269,23 +269,26 @@ package Utilities "Utility models for Examples.Loops"
             fillColor=1,
             fillPattern=1)),
         Text(extent=[-100, 120; 100, 60], string="%name")));
-    
+  protected 
+    constant SI.Mass unitMass=1;
+    Modelica.SIunits.Pressure p;
   equation 
     y = -s_rel/L;
     x = 1 + s_rel/L;
     v_rel = der(s_rel);
     
-    press = if v_rel < 0 then (if x < 0.987 then 177.4132*x^4 - 287.2189*x^3 +
+    press = p/1e5;
+    p = (if v_rel < 0 then (if x < 0.987 then 177.4132*x^4 - 287.2189*x^3 +
       151.8252*x^2 - 24.9973*x + 2.4 else 2836360*x^4 - 10569296*x^3 + 14761814
       *x^2 - 9158505*x + 2129670) else (if x > 0.93 then -3929704*x^4 +
       14748765*x^3 - 20747000*x^2 + 12964477*x - 3036495 else 145.930*x^4 -
-      131.707*x^3 + 17.3438*x^2 + 17.9272*x + 2.4);
+      131.707*x^3 + 17.3438*x^2 + 17.9272*x + 2.4))*1e5;
     
     f = -1.0E5*press*pi*d^2/4;
     
     V = k0 + k1*(1 - x);
-    dens = 1/V;
-    press*V = k*T;
+    dens = unitMass/V;
+    (p/1e5)*V = k*T;
   end GasForce;
   
   model GasForce2 "Rough approximation of gas force in a cylinder" 
@@ -617,15 +620,12 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
   model EngineV6_analytic "V6 engine with analytic loop handling" 
     import SI = Modelica.SIunits;
     parameter Boolean animation=true "= true, if animation shall be enabled";
-    replaceable model Cylinder = Cylinder_analytic_CAD extends CylinderBase 
-      "Cylinder type";
-    /*
-annotation (choices(choice(redeclare model Cylinder = 
+    replaceable model Cylinder = Cylinder_analytic_CAD extends CylinderBase "Cylinder type"
+         annotation (choices(choice(redeclare model Cylinder = 
             Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Cylinder_analytic_CAD 
           "Analytic loop handling + CAD animation"), choice(redeclare model 
           Cylinder = Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Cylinder_analytic 
           "Analytic loop handling + standard animation")));
-*/
     
     Cylinder cylinder1(
       crankAngleOffset=-30,
