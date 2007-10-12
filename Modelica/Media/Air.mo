@@ -103,7 +103,8 @@ Ideal gas medium model for dry air based on the package <a href=Modelica:Modelic
     redeclare replaceable model extends BaseProperties(
       T(stateSelect=if preferredMediumStates then StateSelect.prefer else StateSelect.default),
       p(stateSelect=if preferredMediumStates then StateSelect.prefer else StateSelect.default),
-      Xi(stateSelect=if preferredMediumStates then StateSelect.prefer else StateSelect.default)) 
+      Xi(stateSelect=if preferredMediumStates then StateSelect.prefer else StateSelect.default),
+      redeclare final constant Boolean standardOrderComponents=true) 
       "Moist air base properties record" 
       
       /* p, T, X = X[Water] are used as preferred states, since only then all
@@ -113,7 +114,7 @@ Ideal gas medium model for dry air based on the package <a href=Modelica:Modelic
       */
       MassFraction x_water "Mass of total water/mass of dry air";
       Real phi "Relative humidity";
-      annotation(structurallyIncomplete, Documentation(info="<html>
+      annotation(Documentation(info="<html>
 This model computes thermodynamic properties of moist air from three independent (thermodynamic or/and numerical) state variables. Preferred numerical states are temperature T, pressure p and the reduced composition vector Xi, which contains the water mass fraction only. As an EOS the <b>ideal gas law</b> is used and associated restrictions apply. The model can also be used in the <b>fog region</b>, when moisture is present in its liquid state. However, it is assumed that the liquid water volume is negligible compared to that of the gas phase. Computation of thermal properties is based on property data of <a href=Modelica:Modelica.Media.Air.DryAirNasa> dry air</a> and water (source: VDI-W&auml;rmeatlas), respectively. Besides the standard thermodynamic variables <b>absolute and relative humidity</b>, x_water and phi, respectively, are given by the model. Upper case X denotes absolute humidity with respect to mass of moist air while absolute humidity with respect to mass of dry air only is denoted by a lower case x throughout the model. See <a href=Modelica:Modelica.Media.Air.MoistAir>package description</a> for further information.
 </html>"));
       
@@ -502,6 +503,7 @@ Specific enthalpy of moist air is computed from temperature, provided all water 
     
    redeclare function extends enthalpyOfCondensingGas 
       "Return specific enthalpy of steam as a function of temperature T" 
+      
      annotation(Inline=false,smoothOrder=5,
         Documentation(info="<html>
 Specific enthalpy of steam is computed from temperature.
@@ -798,11 +800,13 @@ Specific internal energy is determined from pressure p, temperature T and compos
       annotation (Documentation(info="<html>
 Derivative function for <a href=Modelica:Modelica.Media.Air.MoistAir.specificInternalEnergy_pTX>specificInternalEnergy_pTX</a>.
 </html>"));
+  equation 
       
   end specificInternalEnergy_pTX_der;
     
    redeclare function extends specificEntropy 
       "Return specific entropy from thermodynamic state record, only valid for phi<1" 
+      
        annotation(Inline=false,smoothOrder=5,
         Documentation(info="<html>
 Specific entropy is calculated from the thermodynamic state record, assuming ideal gas behavior and including entropy of mixing. Liquid or solid water is not taken into account, the entire water content X[1] is assumed to be in the vapor state (relative humidity below 1.0).
@@ -840,6 +844,7 @@ The Specific Helmholtz Energy is computed from the thermodynamic state record fo
     
    redeclare function extends specificHeatCapacityCp 
       "Return specific heat capacity at constant pressure as a function of the thermodynamic state record" 
+      
      annotation(Inline=false,smoothOrder=5,
         Documentation(info="<html>
 The specific heat capacity at constant pressure <b>cp</b> is computed from temperature and composition for a mixture of steam (X[1]) and dry air. All water is assumed to be in the vapor state.
@@ -851,6 +856,7 @@ The specific heat capacity at constant pressure <b>cp</b> is computed from tempe
     
   redeclare function extends specificHeatCapacityCv 
       "Return specific heat capacity at constant volume as a function of the thermodynamic state record" 
+      
      annotation(Inline=false,smoothOrder=5,
         Documentation(info="<html>
 The specific heat capacity at constant density <b>cv</b> is computed from temperature and composition for a mixture of steam (X[1]) and dry air. All water is assumed to be in the vapor state.
@@ -955,22 +961,22 @@ The governing assumptions in this model are:</p>
 <li>water volume other than that of steam is neglected</li></ul>
 <p>All extensive properties are expressed in terms of the total mass in order to comply with other media in this libary. However, for moist air it is rather common to express the absolute humidity in terms of mass of dry air only, which has advantages when working with charts. In addition, care must be taken, when working with mass fractions with respect to total mass, that all properties refer to the same water content when being used in mathematical operations (which is always the case if based on dry air only). Therefore two absolute humidities are computed in the <b>BaseProperties</b> model: <b>X</b> denotes the absolute humidity in terms of the total mass while <b>x</b> denotes the absolute humitity per unit mass of dry air. In addition, the relative humidity <b>phi</b> is also computed.</p>
 <p>At the triple point temperature of water of 0.01°C or 273.16 K and a relative humidity greater than 1 fog may be present as liquid and as ice resulting in a specific enthalpy somewhere between those of the two isotherms for solid and liquid fog, respectively. For numerical reasons a coexisting mixture of 50% solid and 50% liquid fog is assumed in the fog region at the triple point in this model.
-
+ 
 <h4>Range of validity</h4>
 <p>From the assumptions mentioned above it follows that the <b>pressure</b> should be in the region around <b>atmospheric</b> conditions or below (a few bars may still be fine though). Additionally a very high water content at low temperatures would yield incorrect densities, because the volume of the liquid or solid phase would not be negligible anymore. The model does not provide information on limits for water drop size in the fog region or transport information for the actual condensation or evaporation process in combination with surfaces. All excess water which is not in its vapour state is assumed to be still present in the air regarding its energy but not in terms of its spatial extent.<br><br>
 The thermodynamic model may be used for <b>temperatures</b> ranging from <b>240 - 400 K</b>. This holds for all functions unless otherwise stated in their description. However, although the model works at temperatures above the saturation temperature it is questionable to use the term \"relative humidity\" in this region. Please note, that although several functions compute pure water properties, they are designed to be used within the moist air medium model where properties are dominated by air and steam in their vapor states, and not for pure liquid water applications.</p>
-
+ 
 <h4>Transport Properties</h4>
 <p>Several additional functions that are not needed to describe the thermodynamic system, but are required to model transport processes, like heat and mass transfer, may be called. They usually neglect the moisture influence unless otherwise stated.</p>
   
 <h4>Application</h4>
 <p>The model's main area of application is all processes that involve moist air cooling under near atmospheric pressure with possible moisture condensation. This is the case in all domestic and industrial air conditioning applications. Another large domain of moist air applications covers all processes that deal with dehydration of bulk material using air as a transport medium. Engineering tasks involving moist air are often performed (or at least visualized) by using charts that contain all relevant thermodynamic data for a moist air system. These so called psychrometric charts can be generated from the medium properties in this package. The model <a href=\"Modelica://Modelica.Media.Air.MoistAir.PsychrometricData\">PsychrometricData</a> may be used for this purpose in order to obtain data for figures like those below (the plotting itself is not part of the model though).</p>
-
+ 
 <p><img src=\"../../Modelica/Images/Media/Air/Mollier.png\">
 <img src=\"../../Modelica/Images/Media/Air/PsycroChart.png\"></p>
 <p>
 <b>Legend:</b> blue - constant specific enthalpy, red - constant temperature, black - constant relative humidity</p>
-
+ 
 </html>"));
     model PsychrometricData "Produces plot data for psychrometric charts" 
       extends Modelica.Icons.Example;
@@ -1060,12 +1066,12 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>240 
       annotation (experiment(StopTime=1), Documentation(info="<html>
 <p>This model produces psychrometric data from the moist air model in this library to be plotted in charts. The two most common chart varieties are the Mollier Diagram and the Psycrometric Chart. The first is widely used in some European countries while the second is more common in the Anglo-American world. Specific enthalpy is plotted over absolute humidity in the Mollier Diagram, it is the other way round in the Psychrometric Chart.<br>
 It must be noted that the relationship of both axis variables is not right-angled, the absolute humidity follows a slope which equals the enthalpy of vaporization at 0°C. For better reading and in oder to reduce the fog region the humidity axis is rotated to obtain a right-angled plot. Both charts usually contain additional information as isochores or auxiliary scales for e.g. heat ratios. Those information are omitted in this model and the charts below. Other important features of psychrometric chart data are that all mass specific variables (like absolute humidity, specific enthalpy etc.) are expressed in terms of kg dry air and that their baseline of 0 enthalpy is found at 0°C and zero humidity. </p>
-
+ 
 <p><img src=\"../../Modelica/Images/Media/Air/Mollier.png\">
 <img src=\"../../Modelica/Images/Media/Air/PsycroChart.png\"></p>
 <p>
 <b>Legend:</b> blue - constant specific enthalpy, red - constant temperature, black - constant relative humidity</p>
-
+ 
 <p>The model provides data for lines of constant specific enthalpy, temperature and relative humidity in a Mollier Diagram or Psychrometric Chart as they were used for the figures above. For limitations and ranges of validity please refer to the <a href=Modelica:Modelica.Media.Air.MoistAir>MoistAir package description</a>. Absolute humidity <b>x</b> is increased with time in this model. The specific enthalpies adjusted for plotting are then obtained from:</p>
 <ul>
 <li><b>y_h</b>: constant specific enthalpy</li>
