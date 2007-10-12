@@ -76,11 +76,11 @@ An animation of this example is shown in the figure below.
     height=0.05,
     widthDirection={1,0,0},
     width=0.02) annotation (extent=[60, -86; 80, -66], rotation=90);
-  Modelica.Mechanics.MultiBody.Joints.Revolute B1(
+  Joints.RevolutePlanarLoopConstraint B1(
     n={1,0,0},
     cylinderLength=0.02,
-    cylinderDiameter=0.05,
-    planarCutJoint=true) annotation (extent=[80, -30; 100, -10], rotation=0);
+    cylinderDiameter=0.05) 
+                         annotation (extent=[80, -30; 100, -10], rotation=0);
   Modelica.Mechanics.MultiBody.Parts.FixedTranslation Mid(r={0.05,0,0}) 
     annotation (extent=[70, -53; 90, -33]);
   Modelica.Mechanics.MultiBody.Joints.Prismatic Cylinder(

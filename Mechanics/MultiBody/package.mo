@@ -449,18 +449,21 @@ on pure structural information cannot distinguish these two cases.
 <p>
 The usual remedy is to remove superfluous constraints, 
 e.g., along the axis of rotation of <b>one</b> revolute joint. Since this is 
-not easy for an inexperienced modeler, the flag \"<b>planarCutJoint</b>\" is provided 
-in the \"<b>Advanced</b>\" menu of a revolute joint that removes these constraints. 
-This flag must be set to <b>true</b> for one revolute joint in every planar 
-loop. In the engine example, this flag is set in the revolute joint B2 in the 
-cylinder model.
+not easy for an inexperienced modeler, the special joint:
+<a href=\"Modelica://Modelica.Mechanics.MultiBody.Joints.RevolutePlanarLoopConstraint\">
+RevolutePlanarLoopConstraint</a> is provided that removes these constraints. 
+Exactly one revolute joint in a every planar loop must be replaced by this
+joint type. In the engine example, this special joinst is used for
+the revolute joint B2 in the cylinder model above. The icon of the joint is
+slightly different to other revolute joints to visualize this case.
 </p>
 <p>
 If a modeler is not aware of the problems with planar 
 loops and models them without special consideration, a Modelica
 translator, such as Dymola, displays an error 
 message and points out that a planar loop may be the reason and suggests to 
-use the \"planarCutJoint\" flag. This error message is due to an annotation in 
+use the RevolutePlanarLoopConstraint joint.
+This error message is due to an annotation in 
 the Frame connector.
 </p>
 <pre>
