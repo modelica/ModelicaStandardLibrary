@@ -250,8 +250,8 @@ If a <b>planar loop</b> is present, e.g., consisting of 4 revolute joints
 where the joint axes are all parallel to each other, then there is no
 longer a unique mathematical solution and the symbolic algorithms will
 fail. Usually, an error message will be printed pointing out this
-situation. In this case, parameter <b>planarCutJoint</b> in the \"Advanced\"
-menu of one of the revolute joints has to be set to <b>true</b>. The
+situation. In this case, one revolute joint of the loop has to be replaced
+by a Joints.RevolutePlanarLoopConstraint joint. The
 effect is that from the 5 constraints of a usual revolute joint,
 3 constraints are removed and replaced by appropriate known
 variables (e.g., the force in the direction of the axis of rotation is
@@ -272,6 +272,195 @@ vector \"n\" defining the translation axis
 </HTML>"));
     
   end Revolute;
+
+  model RevolutePlanarLoopConstraint 
+    "Revolute joint that is described by 2 positional constraints for usage in a planar loop (the ambiguous cut-force perpendicular to the loop and the ambiguous cut-torques are set arbitrarily to zero)" 
+    
+    import SI = Modelica.SIunits;
+    import Cv = Modelica.SIunits.Conversions;
+    import T = Modelica.Mechanics.MultiBody.Frames.TransformationMatrices;
+    import Modelica.Mechanics.MultiBody.Types;
+    
+    Interfaces.Frame_a frame_a 
+      "Coordinate system fixed to the joint with one cut-force and cut-torque" 
+      annotation (extent=[-116,-16; -84,16]);
+    Interfaces.Frame_b frame_b 
+      "Coordinate system fixed to the joint with one cut-force and cut-torque" 
+      annotation (extent=[84,-16; 116,16]);
+    
+    parameter Boolean animation=true 
+      "= true, if animation shall be enabled (show axis as cylinder)";
+    parameter Modelica.Mechanics.MultiBody.Types.Axis n={0,0,1} 
+      "Axis of rotation resolved in frame_a (= same as in frame_b)" 
+      annotation (Evaluate=true);
+    parameter SI.Distance cylinderLength=world.defaultJointLength 
+      "Length of cylinder representing the joint axis" 
+      annotation (Dialog(group="if animation = true", enable=animation));
+    parameter SI.Distance cylinderDiameter=world.defaultJointWidth 
+      "Diameter of cylinder representing the joint axis" 
+      annotation (Dialog(group="if animation = true", enable=animation));
+    input Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor 
+      "Color of cylinder representing the joint axis" 
+      annotation (Dialog(group="if animation = true", enable=animation));
+    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
+      "Reflection of ambient light (= 0: light is completely absorbed)" 
+      annotation (Dialog(group="if animation = true", enable=animation));
+    annotation (defaultComponentName="revolute",
+      Coordsys(
+        extent=[-100, -100; 100, 100],
+        grid=[1, 1],
+        component=[20, 20]),
+      Window(
+        x=0.05,
+        y=0.09,
+        width=0.65,
+        height=0.69),
+      Icon(Text(
+          extent=[-146,70; 143,109],
+          string="n=%n",
+          style(color=0)), Text(extent=[-137,-125; 139,-68],   string="%name"),
+        Rectangle(extent=[-20,10; 20,-10],   style(
+            color=0,
+            gradient=0,
+            fillColor=8,
+            fillPattern=1)),
+        Rectangle(extent=[-100,-60; -20,60],   style(
+            color=8,
+            gradient=2,
+            fillColor=8)),
+        Rectangle(extent=[20,-60; 100,60],   style(
+            color=8,
+            gradient=2,
+            fillColor=8,
+            fillPattern=1)),
+        Rectangle(extent=[-100,59; -20,-60],   style(color=0)),
+        Rectangle(extent=[20,60; 100,-60],   style(color=0)),
+        Text(
+          extent=[-90,14; -54,-11],
+          style(color=10),
+          string="a"),
+        Text(
+          extent=[51,11; 87,-14],
+          style(color=10),
+          string="b"),
+        Line(points=[-91,-76; -33,15; 30,-49; 87,61], style(
+            color=1,
+            rgbcolor={255,0,0},
+            thickness=2,
+            smooth=0))),
+      Diagram(
+        Rectangle(extent=[-100, -60; -20, 60], style(
+            color=8,
+            gradient=2,
+            fillColor=8)),
+        Rectangle(extent=[-20, 10; 20, -10], style(
+            color=0,
+            gradient=0,
+            fillColor=8,
+            fillPattern=1)),
+        Rectangle(extent=[20,-60; 100,60],   style(
+            color=8,
+            gradient=2,
+            fillColor=8,
+            fillPattern=1))),
+      Documentation(info="<HTML>
+<p>
+Joint where frame_b rotates around axis n which is fixed in frame_a and
+where this joint is used in a planar loop providing 2 constraint equations
+on position level.
+</p>
+ 
+<p>
+If a <b>planar loop</b> is present, e.g., consisting of 4 revolute joints
+where the joint axes are all parallel to each other, then there is no
+unique mathematical solution if all revolute joints are modelled with
+Joints.Revolute or Joints.ActuatedRevolute and the symbolic algorithms will
+fail. The reason is that, e.g., the cut-forces in the revolute joints perpendicular
+to the planar loop are not uniquely defined when 3-dim. descriptions of revolute
+joints are used. Usually, an error message will be printed pointing out this
+situation. In this case, <b>one</b> revolute joint in the loop has to be replaced by
+model Joints.RevolutePlanarLoopCutJoint. The
+effect is that from the 5 constraints of a 3-dim. revolute joint,
+3 constraints are removed and replaced by appropriate known
+variables (e.g., the force in the direction of the axis of rotation is
+treated as known with value equal to zero; for standard revolute joints,
+this force is an unknown quantity).
+</p>
+ 
+ 
+</HTML>
+"));
+  protected 
+    outer Modelica.Mechanics.MultiBody.World world;
+    parameter Real e[3]=Frames.normalize(n) 
+      "Unit vector in direction of rotation axis, resolved in frame_a (= same as in frame_b)";
+    parameter Real nnx_a[3]=if abs(e[1]) > 0.1 then {0,1,0} else (if abs(e[2])
+         > 0.1 then {0,0,1} else {1,0,0}) 
+      "Arbitrary vector that is not aligned with rotation axis n" 
+      annotation (Evaluate=true);
+    parameter Real ey_a[3]=Frames.normalize(cross(e, nnx_a)) 
+      "Unit vector orthogonal to axis n of revolute joint, resolved in frame_a"
+      annotation (Evaluate=true);
+    parameter Real ex_a[3]=cross(ey_a, e) 
+      "Unit vector orthogonal to axis n of revolute joint and to ey_a, resolved in frame_a"
+      annotation (Evaluate=true);
+    Real ey_b[3] "ey_a, resolved in frame_b";
+    Real ex_b[3] "ex_a, resolved in frame_b";
+    Frames.Orientation R_rel 
+      "Dummy or relative orientation object from frame_a to frame_b";
+    Real r_rel_a[3] 
+      "Position vector from origin of frame_a to origin of frame_b, resolved in frame_a";
+    SI.Force f_c[2] "Dummy or constraint forces in direction of ex_a, ey_a";
+    
+    Visualizers.Advanced.Shape cylinder(
+      shapeType="cylinder",
+      color=cylinderColor,
+      specularCoefficient=specularCoefficient,
+      length=cylinderLength,
+      width=cylinderDiameter,
+      height=cylinderDiameter,
+      lengthDirection=e,
+      widthDirection={0,1,0},
+      r_shape=-e*(cylinderLength/2),
+      r=frame_a.r_0,
+      R=frame_a.R) if world.enableAnimation and animation;
+  equation 
+    assert(cardinality(frame_a) > 0,
+      "Connector frame_a of revolute joint is not connected");
+    assert(cardinality(frame_b) > 0,
+      "Connector frame_b of revolute joint is not connected");
+    
+    // Determine relative position vector resolved in frame_a
+    R_rel = Frames.relativeRotation(frame_a.R, frame_b.R);
+    r_rel_a = Frames.resolve2(frame_a.R, frame_b.r_0 - frame_a.r_0);
+    // r_rel_a = T.resolve1(R_rel.T, T.resolve2(frame_b.R.T, frame_b.r_0 - frame_a.r_0));
+    
+    // Constraint equations
+    0 = ex_a*r_rel_a;
+    0 = ey_a*r_rel_a;
+    
+    /* Transform forces and torques
+     (the torques are assumed to be zero by the assumption
+      of a planar joint)
+  */
+    frame_a.t = zeros(3);
+    frame_b.t = zeros(3);
+    
+    frame_a.f = [ex_a, ey_a]*f_c;
+    frame_b.f = -Frames.resolve2(R_rel, frame_a.f);
+    
+    // check that revolute joint is used in planar loop
+    ex_b = Frames.resolve2(R_rel, ex_a);
+    ey_b = Frames.resolve2(R_rel, ey_a);
+    assert(noEvent(abs(e*r_rel_a) <= 1.e-10 and abs(e*ex_b) <= 1.e-10 and 
+        abs(e*ey_b) <= 1.e-10), "
+The MultiBody.Joints.RevolutePlanarLoopConstraint joint is used as cut-joint of a
+planar loop. However, the revolute joint is not part of a planar loop where the
+axis of the revolute joint (parameter n) is orthogonal to the possible movements.
+Either use instead joint MultiBody.Joints.Revolute or correct the
+definition of the axes vectors n in the revolute joints of the planar loop.
+");
+  end RevolutePlanarLoopConstraint;
   
   model ActuatedRevolute 
     "Actuated revolute joint (1 rotational degree-of-freedom, 2 potential states)" 
@@ -391,8 +580,8 @@ If a <b>planar loop</b> is present, e.g., consisting of 4 revolute joints
 where the joint axes are all parallel to each other, then there is no
 longer a unique mathematical solution and the symbolic algorithms will
 fail. Usually, an error message will be printed pointing out this
-situation. In this case, parameter <b>planarCutJoint</b> in the \"Advanced\"
-menu of one of the revolute joints has to be set to <b>true</b>. The
+situation. In this case, one revolute joint of the loop has to be replaced
+by a Joints.RevolutePlanarLoopConstraint joint. The
 effect is that from the 5 constraints of a usual revolute joint,
 3 constraints are removed and replaced by appropriate known
 variables (e.g., the force in the direction of the axis of rotation is
@@ -945,7 +1134,7 @@ s_start_y = 0.5, phi_start = 45<sup>o</sup>).
         color=10,
         rgbcolor={95,95,95},
         thickness=2));
-    connect(prismatic_x.frame_b, prismatic_y.frame_a) annotation (points=[-29,0; 
+    connect(prismatic_x.frame_b, prismatic_y.frame_a) annotation (points=[-29,0;
           -1.22465e-015,0; -1.22465e-015,30], style(
         color=10,
         rgbcolor={95,95,95},
@@ -3869,7 +4058,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
             100,80],          style(color=0));
       connect(revolute.bearing, bearing) 
         annotation (points=[67,20; 67,40; 100,40],    style(color=0));
-      connect(relativeSensor.r_rel, revolute.position_a) annotation (points=[58,-69; 
+      connect(relativeSensor.r_rel, revolute.position_a) annotation (points=[58,-69;
             58,-50; 90,-50; 90,-12; 79,-12],      style(
           color=74,
           rgbcolor={0,0,127},
@@ -4371,10 +4560,10 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
           thickness=2));
       connect(position_b.y, prismatic.position_b)       annotation (points=[1,
             -50; 10, -50; 10, -12; 32, -12], style(
-          color=74, 
-          rgbcolor={0,0,127}, 
-          fillColor=8, 
-          rgbfillColor={192,192,192}, 
+          color=74,
+          rgbcolor={0,0,127},
+          fillColor=8,
+          rgbfillColor={192,192,192},
           fillPattern=1));
       connect(prismatic.axis, axis) annotation (points=[40,14; 40,56; 90,56; 90,80;
             100,80],           style(color=58));
@@ -4382,8 +4571,8 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
         annotation (points=[64,14; 64,40; 100,40],    style(color=58));
       connect(relativeSensor.r_rel, prismatic.position_a) annotation (points=[
             48,-69; 48,-50; 90,-50; 90,-12; 80,-12], style(
-          color=74, 
-          rgbcolor={0,0,127}, 
+          color=74,
+          rgbcolor={0,0,127},
           smooth=0));
     end JointUSP;
     
@@ -4727,10 +4916,10 @@ component).
           rgbfillColor={192,192,192}));
       connect(position_b.y, revolute.position_b)       annotation (points=[1, -40;
              20, -40; 20, -12; 31, -12], style(
-          color=74, 
-          rgbcolor={0,0,127}, 
-          gradient=3, 
-          fillColor=8, 
+          color=74,
+          rgbcolor={0,0,127},
+          gradient=3,
+          fillColor=8,
           rgbfillColor={192,192,192}));
       connect(revolute.axis, axis) annotation (points=[55,20; 55,60; 90,60; 90,80;
             100,80],          style(color=0));
@@ -4743,8 +4932,8 @@ component).
           thickness=2));
       connect(relativeSensor.r_rel, revolute.position_a) annotation (points=[56,
             -69; 56,-50; 90,-50; 90,-12; 79,-12], style(
-          color=74, 
-          rgbcolor={0,0,127}, 
+          color=74,
+          rgbcolor={0,0,127},
           smooth=0));
     end JointSSR;
     
@@ -5081,10 +5270,10 @@ component).
           rgbfillColor={192,192,192}));
       connect(position_b.y, prismatic.position_b)       annotation (points=[1,
             -40; 20, -40; 20, -12; 31, -12], style(
-          color=74, 
-          rgbcolor={0,0,127}, 
-          gradient=3, 
-          fillColor=8, 
+          color=74,
+          rgbcolor={0,0,127},
+          gradient=3,
+          fillColor=8,
           rgbfillColor={192,192,192}));
       connect(prismatic.axis, axis) annotation (points=[39,14; 40,14; 40,60; 90,60;
             90,80; 100,80],    style(color=0));
@@ -5097,8 +5286,8 @@ component).
           thickness=2));
       connect(relativeSensor.r_rel, prismatic.position_a) annotation (points=[
             58,-69; 58,-50; 90,-50; 90,-12; 79,-12], style(
-          color=74, 
-          rgbcolor={0,0,127}, 
+          color=74,
+          rgbcolor={0,0,127},
           smooth=0));
     end JointSSP;
     
@@ -5770,21 +5959,16 @@ and 1 prismatic joint are connected by rigid rods.
       parameter Boolean enforceStates=false 
         "= true, if generalized variables (phi,w) shall be used as states (StateSelect.always)"
         annotation (Dialog(tab="Advanced"));
-      parameter Boolean planarCutJoint=false 
-        "= true, if joint shall be used as cut-joint in a planar loop" 
-        annotation (Dialog(tab="Advanced"));
       
       SI.Angle phi(start=Cv.from_deg(phi_start), stateSelect=if enforceStates then 
-                  StateSelect.always else if planarCutJoint then StateSelect.
-            never else StateSelect.prefer) 
+                  StateSelect.always else StateSelect.prefer) 
         "Relative rotation angle from frame_a to frame_b = phi + from_deg(phi_offset))"
          annotation (unassignedMessage="
 The rotation angle phi of a revolute joint cannot be determined.
 A non-zero mass might be missing on either side of the parts
 connected to the revolute joint.
 ");
-      SI.AngularVelocity w(stateSelect=if enforceStates then StateSelect.always else 
-                  if planarCutJoint then StateSelect.never else StateSelect.
+      SI.AngularVelocity w(stateSelect=if enforceStates then StateSelect.always else StateSelect.
             prefer) "First derivative of angle phi (relative angular velocity)";
       SI.AngularAcceleration a 
         "Second derivative of angle phi (relative angular acceleration)";
@@ -5837,8 +6021,8 @@ If a <b>planar loop</b> is present, e.g., consisting of 4 revolute joints
 where the joint axes are all parallel to each other, then there is no
 longer a unique mathematical solution and the symbolic algorithms will
 fail. Usually, an error message will be printed pointing out this
-situation. In this case, parameter <b>planarCutJoint</b> in the \"Advanced\"
-menu of one of the revolute joints has to be set to <b>true</b>. The
+situation. In this case, one revolute joint of the loop has to be replaced
+by a Joints.RevolutePlanarLoopConstraint joint. The
 effect is that from the 5 constraints of a usual revolute joint,
 3 constraints are removed and replaced by appropriate known
 variables (e.g., the force in the direction of the axis of rotation is
@@ -5851,25 +6035,10 @@ this force is an unknown quantity).
       outer Modelica.Mechanics.MultiBody.World world;
       parameter Real e[3]=Frames.normalize(n) 
         "Unit vector in direction of rotation axis, resolved in frame_a (= same as in frame_b)";
-      parameter Real nnx_a[3]=if abs(e[1]) > 0.1 then {0,1,0} else (if abs(e[2])
-           > 0.1 then {0,0,1} else {1,0,0}) 
-        "Arbitrary vector that is not aligned with rotation axis n" 
-        annotation (Evaluate=true);
-      parameter Real ey_a[3]=Frames.normalize(cross(e, nnx_a)) 
-        "Unit vector orthogonal to axis n of revolute joint, resolved in frame_a"
-        annotation (Evaluate=true);
-      parameter Real ex_a[3]=cross(ey_a, e) 
-        "Unit vector orthogonal to axis n of revolute joint and to ey_a, resolved in frame_a"
-        annotation (Evaluate=true);
-      Real ey_b[3] "ey_a, resolved in frame_b";
-      Real ex_b[3] "ex_a, resolved in frame_b";
       Frames.Orientation R_rel 
         "Dummy or relative orientation object from frame_a to frame_b";
       Frames.Orientation R_rel_inv 
         "Dummy or relative orientation object from frame_b to frame_a";
-      Real r_rel_a[3] 
-        "Position vector from origin of frame_a to origin of frame_b, resolved in frame_a";
-      SI.Force f_c[2] "Dummy or constraint forces in direction of ex_a, ey_a";
       
       Visualizers.Advanced.Shape cylinder(
         shapeType="cylinder",
@@ -5909,17 +6078,16 @@ this force is an unknown quantity).
       assert(cardinality(frame_b) > 0,
         "Connector frame_b of revolute joint is not connected");
       
-      if not planarCutJoint then
-        defineBranch(frame_a.R, frame_b.R);
-        
+      defineBranch(frame_a.R, frame_b.R);
+      
         angle = Cv.from_deg(phi_offset) + phi;
         w = der(phi);
         a = der(w);
-        
+      
         // relationships between quantities of frame_a and of frame_b
         R_rel = Frames.planarRotation(e, angle, der(angle));
         frame_b.r_0 = frame_a.r_0;
-        
+      
         if rooted(frame_a.R) then
           R_rel_inv = Frames.nullRotation();
           frame_b.R = Frames.absoluteRotation(frame_a.R, R_rel);
@@ -5931,61 +6099,9 @@ this force is an unknown quantity).
           frame_b.f = -Frames.resolve2(R_rel, frame_a.f);
           frame_b.t = -Frames.resolve2(R_rel, frame_a.t);
         end if;
-        
+      
         // d'Alemberts principle
         tau = -frame_b.t*e;
-        
-        // Set not used variables to arbitrary value
-        r_rel_a = zeros(3);
-        f_c = zeros(2);
-        ex_b = zeros(3);
-        ey_b = zeros(3);
-      else
-        // Determine relative position vector resolved in frame_a
-        R_rel = Frames.relativeRotation(frame_a.R, frame_b.R);
-        r_rel_a = Frames.resolve2(frame_a.R, frame_b.r_0 - frame_a.r_0);
-        // r_rel_a = T.resolve1(R_rel.T, T.resolve2(frame_b.R.T, frame_b.r_0 - frame_a.r_0));
-        
-        // Constraint equations
-        0 = ex_a*r_rel_a;
-        0 = ey_a*r_rel_a;
-        
-        /* Transform forces and torques
-       (Note that e has the same coordinates in frame_a and in frame_b
-        and therefore a simplified transformation of the torque in
-        direction of the rotation axis can be performed. The torques
-        perpendicular to this axis are assumed to be zero by the
-        assumption of a planar joint)
-    */
-        frame_b.t = -e*tau;
-        frame_a.t = -frame_b.t;
-        
-        frame_a.f = [ex_a, ey_a]*f_c;
-        frame_b.f = -Frames.resolve2(R_rel, frame_a.f);
-        
-        //angle = planarRotationAngle(e, npx, npx_b);
-        angle = 0;
-        phi = 0;
-        w = 0;
-        a = 0;
-        
-        // dummy
-        R_rel_inv = Frames.nullRotation();
-        
-        // check that revolute joint is used in planar loop
-        ex_b = Frames.resolve2(R_rel, ex_a);
-        ey_b = Frames.resolve2(R_rel, ey_a);
-        assert(noEvent(abs(e*r_rel_a) <= 1.e-10 and abs(e*ex_b) <= 1.e-10 and 
-          abs(e*ey_b) <= 1.e-10), "
-The revolute joint is used with parameter 
-planarCutJoint=true. However, the revolute joint
-is not part of a planar loop where the axis of the
-revolute joint (parameter n) is orthogonal to the
-possible movements. Either set planarCutJoint=false
-or correct the definition of the axes vectors n
-in the revolute joints of the planar loop.
-");
-      end if;
     end Revolute;
     
     model Prismatic 

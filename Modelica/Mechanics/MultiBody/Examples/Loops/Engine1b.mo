@@ -53,11 +53,10 @@ An animation of this example is shown in the figure below.
 </p>
 </html>"),
     experimentSetupOutput);
-  Modelica.Mechanics.MultiBody.Joints.Revolute B2(
+  Joints.RevolutePlanarLoopConstraint B2(
     n={1,0,0},
     cylinderLength=0.02,
-    cylinderDiameter=0.05,
-    planarCutJoint=true)   annotation (extent=[40,20; 60,40],    rotation=0);
+    cylinderDiameter=0.05) annotation (extent=[40,20; 60,40],    rotation=0);
   Modelica.Mechanics.MultiBody.Joints.Revolute B1(
     n={1,0,0},
     cylinderLength=0.02,

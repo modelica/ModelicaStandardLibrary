@@ -28,9 +28,10 @@ that are only used to build other models) of the MultiBody library.
         unassignedMessage="All Forces cannot be uniquely calculated. 
 The reason could be that the mechanism contains
 a planar loop or that joints constrain the
-same motion. For planar loops, use in one
-revolute joint per loop the option
-PlanarCutJoint=true in the Advanced menu.");
+same motion. For planar loops, use for one
+revolute joint per loop the joint
+Joints.RevolutePlanarLoopConstraint instead of
+Joints.Revolute or Joints.ActuatedRevolute.");
     flow SI.Torque t[3] "Cut-torque resolved in connector frame";
     annotation (Documentation(info="<html>
 <p>

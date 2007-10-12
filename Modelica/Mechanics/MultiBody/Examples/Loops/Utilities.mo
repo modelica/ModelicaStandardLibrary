@@ -65,9 +65,8 @@ package Utilities "Utility models for Examples.Loops"
       width=0.02,
       r={0,crankPinOffset,0},
       animation=animation) annotation (extent=[-20, -86; 0, -66], rotation=90);
-    Modelica.Mechanics.MultiBody.Joints.Revolute B1(
+    Joints.RevolutePlanarLoopConstraint B1(
       n={1,0,0},
-      planarCutJoint=true,
       cylinderLength=0.02,
       animation=animation,
       cylinderDiameter=0.055) annotation (extent=[4, -27; 24, -7], rotation=0);
@@ -135,7 +134,7 @@ package Utilities "Utility models for Examples.Loops"
         rgbcolor={95,95,95},
         thickness=2));
     
-    connect(Cylinder.frame_b, Piston.frame_b) annotation (points=[14,89; 14,80;
+    connect(Cylinder.frame_b, Piston.frame_b) annotation (points=[14,89; 14,80; 
           14.5,80], style(
         color=10,
         rgbcolor={95,95,95},
@@ -145,7 +144,7 @@ package Utilities "Utility models for Examples.Loops"
         color=10,
         rgbcolor={95,95,95},
         thickness=2));
-    connect(B2.frame_a, Piston.frame_a) annotation (points=[4,35; -6,35; -6,49;
+    connect(B2.frame_a, Piston.frame_a) annotation (points=[4,35; -6,35; -6,49; 
           14.5,49; 14.5,59], style(
         color=10,
         rgbcolor={95,95,95},
@@ -304,7 +303,7 @@ package Utilities "Utility models for Examples.Loops"
     constant Real PI=Modelica.Constants.pi;
     Real x "Normalized position of cylinder (= 1 - s_rel/L)";
     SI.Density dens;
-    SI.Pressure press "cylinder pressure";
+    Modelica.SIunits.AbsolutePressure press "Cylinder pressure";
     SI.Volume V;
     SI.Temperature T;
     SI.Velocity v_rel;
@@ -367,20 +366,22 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
 </p>
 </html>"));
     
+  protected 
+    Modelica.SIunits.SpecificHeatCapacity R_air = Modelica.Constants.R/0.0289651159;
   equation 
     x = 1 - s_rel/L;
     v_rel = der(s_rel);
     
-    press = if v_rel < 0 then (if x < 0.987 then 177.4132*x^4 - 287.2189*x^3 +
+    press = 1.0E5*(if v_rel < 0 then (if x < 0.987 then 177.4132*x^4 - 287.2189*x^3 +
       151.8252*x^2 - 24.9973*x + 2.4 else 2836360*x^4 - 10569296*x^3 + 14761814
       *x^2 - 9158505*x + 2129670) else (if x > 0.93 then -3929704*x^4 +
       14748765*x^3 - 20747000*x^2 + 12964477*x - 3036495 else 145.930*x^4 -
-      131.707*x^3 + 17.3438*x^2 + 17.9272*x + 2.4);
+      131.707*x^3 + 17.3438*x^2 + 17.9272*x + 2.4));
     
-    f = -1.0E5*press*pi*d^2/4;
+    f = -press*pi*d^2/4;
     
     V = k0 + k1*(1 - x);
-    dens = 1/V;
+    dens = press/(R_air*T);
     press*V = k*T;
     
     assert(s_rel >= -1.e-12, "flange_b.s - flange_a.s (= " + String(s_rel) +
@@ -620,12 +621,15 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
   model EngineV6_analytic "V6 engine with analytic loop handling" 
     import SI = Modelica.SIunits;
     parameter Boolean animation=true "= true, if animation shall be enabled";
-    replaceable model Cylinder = Cylinder_analytic_CAD extends CylinderBase "Cylinder type"
+    replaceable model Cylinder = Cylinder_analytic_CAD extends CylinderBase 
+      "Cylinder type" 
          annotation (choices(choice(redeclare model Cylinder = 
-            Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Cylinder_analytic_CAD 
-          "Analytic loop handling + CAD animation"), choice(redeclare model 
-          Cylinder = Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Cylinder_analytic 
-          "Analytic loop handling + standard animation")));
+            Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Cylinder_analytic_CAD
+            "Analytic loop handling + CAD animation"),
+                                                     choice(redeclare model 
+            Cylinder=
+              Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Cylinder_analytic
+            "Analytic loop handling + standard animation")));
     
     Cylinder cylinder1(
       crankAngleOffset=-30,
