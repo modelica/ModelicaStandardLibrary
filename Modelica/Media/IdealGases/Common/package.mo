@@ -207,7 +207,7 @@ and adapted to the Modelica.Media package.
   
   constant Boolean excludeEnthalpyOfFormation=true 
     "If true, enthalpy of formation Hf is not included in specific enthalpy h";
-  constant ReferenceEnthalpy.Temp referenceChoice=Choices.
+  constant ReferenceEnthalpy referenceChoice=Choices.
         ReferenceEnthalpy.ZeroAt0K "Choice of reference enthalpy";
   constant SpecificEnthalpy h_offset=0.0 
     "User defined offset for reference enthalpy, if referenceChoice = UserDefined";
@@ -360,7 +360,7 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
     input ThermodynamicState state "properties at upstream location";
     input Boolean exclEnthForm=excludeEnthalpyOfFormation 
       "If true, enthalpy of formation Hf is not included in specific enthalpy h";
-    input ReferenceEnthalpy.Temp refChoice=referenceChoice 
+    input ReferenceEnthalpy refChoice=referenceChoice 
       "Choice of reference enthalpy";
     input SpecificEnthalpy h_off=h_offset 
       "User defined offset for reference enthalpy, if referenceChoice = UserDefined";
@@ -375,7 +375,7 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
   redeclare function extends isentropicEnthalpy "Return isentropic enthalpy" 
   input Boolean exclEnthForm=excludeEnthalpyOfFormation 
       "If true, enthalpy of formation Hf is not included in specific enthalpy h";
-  input ReferenceEnthalpy.Temp refChoice=referenceChoice 
+  input ReferenceEnthalpy refChoice=referenceChoice 
       "Choice of reference enthalpy";
   input SpecificEnthalpy h_off=h_offset 
       "User defined offset for reference enthalpy, if referenceChoice = UserDefined";
@@ -462,7 +462,7 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
     input SI.Temperature T "Temperature";
     input Boolean exclEnthForm=excludeEnthalpyOfFormation 
       "If true, enthalpy of formation Hf is not included in specific enthalpy h";
-    input Choices.ReferenceEnthalpy.Temp refChoice=referenceChoice 
+    input Choices.ReferenceEnthalpy refChoice=referenceChoice 
       "Choice of reference enthalpy";
     input SI.SpecificEnthalpy h_off=h_offset 
       "User defined offset for reference enthalpy, if referenceChoice = UserDefined";
@@ -493,7 +493,7 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
     input SI.Temperature T "Temperature";
     input Boolean exclEnthForm=excludeEnthalpyOfFormation 
       "If true, enthalpy of formation Hf is not included in specific enthalpy h";
-    input Choices.ReferenceEnthalpy.Temp refChoice=referenceChoice 
+    input Choices.ReferenceEnthalpy refChoice=referenceChoice 
       "Choice of reference enthalpy";
     input SI.SpecificEnthalpy h_off=h_offset 
       "User defined offset for reference enthalpy, if referenceChoice = UserDefined";
@@ -511,7 +511,7 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
     input SI.Temperature T "Temperature";
     input Boolean exclEnthForm=excludeEnthalpyOfFormation 
       "If true, enthalpy of formation Hf is not included in specific enthalpy h";
-    input Choices.ReferenceEnthalpy.Temp refChoice=referenceChoice 
+    input Choices.ReferenceEnthalpy refChoice=referenceChoice 
       "Choice of reference enthalpy";
     input SI.SpecificEnthalpy h_off=h_offset 
       "User defined offset for reference enthalpy, if referenceChoice = UserDefined";
@@ -540,7 +540,7 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
     input SI.Temperature T "Temperature";
     input Boolean exclEnthForm=excludeEnthalpyOfFormation 
       "If true, enthalpy of formation Hf is not included in specific enthalpy h";
-    input Choices.ReferenceEnthalpy.Temp refChoice=referenceChoice 
+    input Choices.ReferenceEnthalpy refChoice=referenceChoice 
       "Choice of reference enthalpy";
     input SI.SpecificEnthalpy h_off=h_offset 
       "User defined offset for reference enthalpy, if referenceChoice = UserDefined";
@@ -795,7 +795,7 @@ It has been developed by Hubertus Tummescheit.
   
   constant Boolean excludeEnthalpyOfFormation=true 
     "If true, enthalpy of formation Hf is not included in specific enthalpy h";
-  constant Choices.ReferenceEnthalpy.Temp referenceChoice=Choices.
+  constant Choices.ReferenceEnthalpy referenceChoice=Choices.
       ReferenceEnthalpy.ZeroAt0K "Choice of reference enthalpy";
   constant SpecificEnthalpy h_offset=0.0 
     "User defined offset for reference enthalpy, if referenceChoice = UserDefined";
@@ -932,7 +932,7 @@ required from medium model \""   + mediumName + "\".");
       "Independent Mass fractions of gas mixture";
      input Boolean exclEnthForm=excludeEnthalpyOfFormation 
       "If true, enthalpy of formation Hf is not included in specific enthalpy h";
-     input Choices.ReferenceEnthalpy.Temp refChoice=referenceChoice 
+     input Choices.ReferenceEnthalpy refChoice=referenceChoice 
       "Choice of reference enthalpy";
      input SI.SpecificEnthalpy h_off=h_offset 
       "User defined offset for reference enthalpy, if referenceChoice = UserDefined";
@@ -950,7 +950,7 @@ required from medium model \""   + mediumName + "\".");
      input MassFraction X[nX] "Independent Mass fractions of gas mixture";
      input Boolean exclEnthForm=excludeEnthalpyOfFormation 
       "If true, enthalpy of formation Hf is not included in specific enthalpy h";
-     input Choices.ReferenceEnthalpy.Temp refChoice=referenceChoice 
+     input Choices.ReferenceEnthalpy refChoice=referenceChoice 
       "Choice of reference enthalpy";
      input SI.SpecificEnthalpy h_off=h_offset 
       "User defined offset for reference enthalpy, if referenceChoice = UserDefined";

@@ -705,18 +705,18 @@ function calls can not be used.
   model TestGlycol "Test Glycol47 Medium model" 
     extends Modelica.Icons.Example;
     package Medium = Glycol47;
-    extends Medium.BaseProperties;
+    Medium.BaseProperties medium;
       
-    Medium.DynamicViscosity eta=Medium.dynamicViscosity(state);
-    Medium.ThermalConductivity lambda=Medium.thermalConductivity(state);
-    Medium.SpecificEntropy s=Medium.specificEntropy(state);
-    Medium.SpecificHeatCapacity cv=Medium.specificHeatCapacityCv(state);
+    Medium.DynamicViscosity eta=Medium.dynamicViscosity(medium.state);
+    Medium.ThermalConductivity lambda=Medium.thermalConductivity(medium.state);
+    Medium.SpecificEntropy s=Medium.specificEntropy(medium.state);
+    Medium.SpecificHeatCapacity cv=Medium.specificHeatCapacityCv(medium.state);
     protected 
     constant Modelica.SIunits.Time timeUnit = 1;
     constant Modelica.SIunits.Temperature Ta = 1;
   equation 
-    p = 1e5;
-    T = Medium.T_min + time/timeUnit*Ta;
+    medium.p = 1e5;
+    medium.T = Medium.T_min + time/timeUnit*Ta;
   end TestGlycol;
     
   annotation (

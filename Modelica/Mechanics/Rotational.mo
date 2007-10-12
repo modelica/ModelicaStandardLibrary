@@ -1990,7 +1990,7 @@ Partial model of torque dependent on speed that accelerates the flange.
     import Modelica.Mechanics.Rotational.Types.Init;
     import Modelica.Blocks.Types.StateSelection;
     parameter SI.Inertia J(min=0)=1 "Moment of inertia";
-    parameter Init.Temp initType=Modelica.Mechanics.Rotational.Types.Init.NoInit 
+    parameter Init initType=Modelica.Mechanics.Rotational.Types.Init.NoInit 
       "Type of initialization (defines usage of start values below)" 
       annotation (Dialog(group="Initialization"));
     parameter SI.Angle phi_start=0 
@@ -2003,7 +2003,7 @@ Partial model of torque dependent on speed that accelerates the flange.
       "Initial value of angular acceleration a = der(w)" 
       annotation (Evaluate=false, Dialog(group="Initialization",
                   enable=initType>=Init.InitialAcceleration));
-    parameter StateSelection.Temp stateSelection=
+    parameter StateSelection stateSelection=
               Modelica.Blocks.Types.StateSelection.Default 
       "Priority to use phi and w as states" annotation(Dialog(tab="Advanced"));
     
@@ -2678,7 +2678,7 @@ between two inertia/gear elements.
     parameter Real d(
       final unit="N.m.s/rad",
       final min=0) = 0 "Damping constant";
-    parameter InitRel.Temp initType=Modelica.Mechanics.Rotational.Types.InitRel.NoInit 
+    parameter InitRel initType=Modelica.Mechanics.Rotational.Types.InitRel.NoInit 
       "Type of initialization (defines usage of start values below)" 
       annotation (Dialog(group="Initialization"));
     parameter SI.Angle phi_rel_start=0 
@@ -2688,7 +2688,7 @@ between two inertia/gear elements.
       "Initial or guess value of relative angular velocity w_rel = der(phi_rel)"
       annotation (Evaluate=false, Dialog(group="Initialization"));
     
-    parameter StateSelection.Temp stateSelection=
+    parameter StateSelection stateSelection=
               Modelica.Blocks.Types.StateSelection.Default 
       "Priority to use phi_rel and w_rel as states" annotation(Dialog(tab="Advanced"));
     
@@ -5503,7 +5503,7 @@ velocity of model inertia1 or of model inertia2 as state variables.
     parameter Boolean use_a_start = true 
       "= true, if initial angular acceleration is defined by input a_start, otherwise not initialized";
     
-    parameter Modelica.Blocks.Types.StateSelection.Temp stateSelection=
+    parameter Modelica.Blocks.Types.StateSelection stateSelection=
               Modelica.Blocks.Types.StateSelection.Default 
       "Priority to use flange angle and speed as states";
     
@@ -5687,94 +5687,28 @@ user interface when the type is used as parameter in a declaration.
 </p>
 </HTML>"));
     
-    package Init 
-      "Type, constants and menu choices to define initialization of absolute rotational quantities" 
-      extends Modelica.Icons.Enumeration;
-      constant Integer NoInit=1 
-        "no initialization (phi_start, w_start are guess values)";
-      constant Integer SteadyState=2 
-        "steady state initialization (der(phi)=der(w)=0)";
-      constant Integer InitialState=3 "initialization with phi_start, w_start";
-      constant Integer InitialAngle=4 "initialization with phi_start";
-      constant Integer InitialSpeed=5 "initialization with w_start";
-      constant Integer InitialAcceleration=6 "initialization with a_start";
-      constant Integer InitialAngleAcceleration=7 
-        "initialization with phi_start, a_start";
-      constant Integer InitialSpeedAcceleration=8 
-        "initialization with w_start, a_start";
-      constant Integer InitialAngleSpeedAcceleration=9 
-        "initialization with phi_start, w_start, a_start";
-      
-      type Temp 
-        "Temporary type of absolute initialization with choices for menus (until enumerations are available)" 
-        extends Modelica.Icons.TypeInteger(min=1,max=9);
-        
-        annotation (Evaluate=true, choices(
-            choice=Modelica.Mechanics.Rotational.Types.Init.NoInit 
-              "no initialization (phi_start, w_start are guess values)",
-            choice=Modelica.Mechanics.Rotational.Types.Init.SteadyState 
-              "steady state initialization (der(phi)=der(w)=0)",
-            choice=Modelica.Mechanics.Rotational.Types.Init.InitialState 
-              "initialization with phi_start, w_start",
-            choice=Modelica.Mechanics.Rotational.Types.Init.InitialAngle 
-              "initialization with phi_start",
-            choice=Modelica.Mechanics.Rotational.Types.Init.InitialSpeed 
-              "initialization with w_start",
-            choice=Modelica.Mechanics.Rotational.Types.Init.InitialAcceleration 
-              "initialization with a_start",
-            choice=Modelica.Mechanics.Rotational.Types.Init.InitialAngleAcceleration 
-              "initialization with phi_start, a_start",
-            choice=Modelica.Mechanics.Rotational.Types.Init.InitialSpeedAcceleration 
-              "initialization with w_start, a_start",
-            choice=Modelica.Mechanics.Rotational.Types.Init.InitialAngleSpeedAcceleration 
-              "initialization with phi_start, w_start, a_start"));
-      end Temp;
-      
-      annotation (Documentation(info="<html>
-<p>
-Type <b>Init</b> defines initialization of absolute rotational
-quantities.
-</p>
- 
-</html>"));
-    end Init;
+    type Init = enumeration(
+        NoInit "No initialization (phi_start, w_start are guess values)", 
+        SteadyState "Steady state initialization (der(phi)=der(w)=0)", 
+        InitialState "Initialization with phi_start, w_start", 
+        InitialAngle "Initialization with phi_start", 
+        InitialSpeed "Initialization with w_start", 
+        InitialAcceleration "Initialization with a_start", 
+        InitialAngleAcceleration "Initialization with phi_start, a_start", 
+        InitialSpeedAcceleration "Initialization with w_start, a_start", 
+        InitialAngleSpeedAcceleration 
+          "Initialization with phi_start, w_start, a_start") 
+      "Enumeration defining initialization of absolute rotational quantities" 
+        annotation (Evaluate=true);
     
-    package InitRel 
-      "Type, constants and menu choices to define initialization of relative rotational quantities" 
-      extends Modelica.Icons.Enumeration;
-      constant Integer NoInit=1 
-        "no initialization (phi_rel_start, w_rel_start are guess values)";
-      constant Integer SteadyState=2 
-        "steady state initialization (der(phi_rel)=der(w_rel)=0)";
-      constant Integer InitialState=3 
-        "initialization with phi_rel_start, w_rel_start";
-      constant Integer InitialAngle=4 "initialization with phi_rel_start";
-      constant Integer InitialSpeed=5 "initialization with w_rel_start";
-      
-      type Temp 
-        "Temporary type of absolute initialization with choices for menus (until enumerations are available)" 
-        extends Modelica.Icons.TypeInteger(min=1,max=5);
-        
-        annotation (Evaluate=true, choices(
-            choice=Modelica.Mechanics.Rotational.Types.Init.NoInit 
-              "no initialization (phi_rel_start, w_rel_start are guess values)",
-            choice=Modelica.Mechanics.Rotational.Types.Init.SteadyState 
-              "steady state initialization (der(phi)=der(w)=0)",
-            choice=Modelica.Mechanics.Rotational.Types.Init.InitialState 
-              "initialization with phi_rel_start, w_rel_start",
-            choice=Modelica.Mechanics.Rotational.Types.Init.InitialAngle 
-              "initialization with phi_rel_start",
-            choice=Modelica.Mechanics.Rotational.Types.Init.InitialSpeed 
-              "initialization with w_rel_start"));
-      end Temp;
-      
-      annotation (Documentation(info="<html>
-<p>
-Type <b>Init</b> defines initialization of relative rotational
-quantities.
-</p>
- 
-</html>"));
-    end InitRel;
+    type InitRel = enumeration(
+        NoInit 
+          "No initialization (phi_rel_start, w_rel_start are guess values)", 
+        SteadyState "Steady state initialization (der(phi_rel)=der(w_rel)=0)", 
+        InitialState "Initialization with phi_rel_start, w_rel_start", 
+        InitialAngle "Initialization with phi_rel_start", 
+        InitialSpeed "Initialization with w_rel_start") 
+      "Enumeration defining initialization of relative rotational quantities" 
+        annotation (Evaluate=true);
   end Types;
 end Rotational;

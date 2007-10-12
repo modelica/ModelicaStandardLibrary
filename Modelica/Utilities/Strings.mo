@@ -85,7 +85,7 @@ defined by the optional argument \"string\".
     input String string1;
     input String string2;
     input Boolean caseSensitive=true "= false, if case of letters is ignored";
-    output Modelica.Utilities.Types.Compare.Type result "Result of comparison";
+    output Modelica.Utilities.Types.Compare result "Result of comparison";
   external "C" result=  ModelicaStrings_compare(string1, string2, caseSensitive);
     annotation (preferedView="info", Documentation(info="<html>
 <h4>Syntax</h4>
@@ -578,7 +578,7 @@ is not allowed to start with a \"+\" or \"-\" sign.
     // skip white space and line comments
     startTokenIndex := Advanced.skipLineComments(string, startIndex);
     if startTokenIndex > length(string) then
-      token.tokenType := Types.TokenType.NoToken;
+      token.tokenType := Modelica.Utilities.Types.TokenType.NoToken;
       nextIndex := startTokenIndex;
     else
       // scan Integer number

@@ -2837,10 +2837,10 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
     parameter Integer columns[:]=2:size(table, 2) 
       "Columns of table to be interpolated" 
     annotation(Dialog(group="table data interpretation"));
-    parameter Blocks.Types.Smoothness.Temp smoothness=Blocks.Types.Smoothness.LinearSegments 
+    parameter Blocks.Types.Smoothness smoothness=Blocks.Types.Smoothness.LinearSegments 
       "Smoothness of table interpolation" 
     annotation(Dialog(group="table data interpretation"));
-    parameter Blocks.Types.Extrapolation.Temp extrapolation=Blocks.Types.Extrapolation.LastTwoPoints 
+    parameter Blocks.Types.Extrapolation extrapolation=Blocks.Types.Extrapolation.LastTwoPoints 
       "Extrapolation of data outside the definition range" 
     annotation(Dialog(group="table data interpretation"));
     parameter Real offset[:]={0} "Offsets of output signals" 
@@ -3165,9 +3165,9 @@ Several matrices may be defined one after another.
       y[i] = p_offset[i] + tableTimeIpo(tableID, columns[i], time);
     end for;
     when initial() then
-      tableID=tableTimeInit(0.0, startTime, smoothness,
-        extrapolation, (if not tableOnFile then "NoName" else tableName),
-                       (if not tableOnFile then "NoName" else fileName), table, 0);
+      tableID=tableTimeInit(0.0, startTime, smoothness-1,
+        extrapolation-1, (if not tableOnFile then "NoName" else tableName),
+                         (if not tableOnFile then "NoName" else fileName), table, 0);
     end when;
   initial equation 
       t_min=tableTimeTmin(tableID);

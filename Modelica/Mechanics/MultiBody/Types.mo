@@ -181,37 +181,20 @@ variable <b>extra</b> is used as instance name:
         final unit="deg/s2") "Angular acceleration type in deg/s^2";
   
   type ResolveInFrame = enumeration(
-      frame_a "resolve vector in frame_a", 
-      frame_b "resolve vector in frame_b", 
-      frame_resolve "resolve vector in frame_resolve") 
-    "Define frame in which vector is resolved" annotation (Documentation(info="<html>
-<p>
-This enumeration defines the frame in which the respective vector is resolved.
-</p>
+      frame_a "Resolve vector in frame_a", 
+      frame_b "Resolve vector in frame_b", 
+      frame_resolve "Resolve vector in frame_resolve") 
+    "Enumeration to define the frame in which a vector is resolved" 
+                                               annotation (Documentation(info="<html>
+ 
 </html>"));
   
-  package RotationTypes 
-    "Type, constants and menu choices for rotation types, as temporary solution until enumerations are available" 
-    
-    annotation (Documentation(info="<html>
-  
-</html>"));
-    
-    extends Modelica.Icons.Enumeration;
-    constant Integer RotationAxis=1;
-    constant Integer TwoAxesVectors=2;
-    constant Integer PlanarRotationSequence=3;
-    type Temp 
-      "Temporary type of RotationTypes with choices for menus (until enumerations are available)" 
-      
-      extends Modelica.Icons.TypeInteger;
-      annotation (Evaluate=true, choices(
-          choice=Modelica.Mechanics.MultiBody.Types.RotationTypes.RotationAxis 
-            "Rotation axis",
-          choice=Modelica.Mechanics.MultiBody.Types.RotationTypes.TwoAxesVectors 
-            "Two axes vectors",
-          choice=Modelica.Mechanics.MultiBody.Types.RotationTypes.PlanarRotationSequence 
-            "Planar rotation sequence"),
+  type RotationTypes = enumeration(
+      RotationAxis "Rotating frame_a around an angle with a fixed axis", 
+      TwoAxesVectors "Resolve two vectors of frame_b in frame_a", 
+      PlanarRotationSequence "Planar rotation sequence") 
+    "Enumeration defining in which way the fixed orientation of frame_b with respect to frame_a is specified"
+      annotation (Evaluate=true,
         Documentation(info="<html>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><b>Types.RotationTypes.</b></th><th><b>Meaning</b></th></tr>
@@ -228,32 +211,13 @@ This enumeration defines the frame in which the respective vector is resolved.
         (e.g. Cardan or Euler angle sequence rotation).</td></tr>
 </table>
 </html>"));
-      
-    end Temp;
-  end RotationTypes;
   
-  package GravityTypes 
-    "Type, constants and menu choices for gravity fields, as temporary solution until enumerations are available" 
-    
-    annotation (Documentation(info="<html>
-  
-</html>"));
-    extends Modelica.Icons.Enumeration;
-    constant Integer NoGravity=0;
-    constant Integer UniformGravity=1;
-    constant Integer PointGravity=2;
-    
-    type Temp 
-      "Temporary type of gravity field with choices for menus (until enumerations are available)" 
-      
-      extends Modelica.Icons.TypeInteger;
-      annotation (choices(
-          choice=Modelica.Mechanics.MultiBody.Types.GravityTypes.NoGravity 
-            "no gravity",
-          choice=Modelica.Mechanics.MultiBody.Types.GravityTypes.UniformGravity 
-            "uniform gravity",
-          choice=Modelica.Mechanics.MultiBody.Types.GravityTypes.PointGravity 
-            "point gravity"), Documentation(info="<html>
+  type GravityTypes = enumeration(
+      NoGravity "No gravity field", 
+      UniformGravity "Uniform gravity field", 
+      PointGravity "Point gravity field") 
+    "Enumeration defining the type of the gravity field" 
+      annotation (Documentation(info="<html>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><b>Types.GravityTypes.</b></th><th><b>Meaning</b></th></tr>
 <tr><td valign=\"top\">NoGravity</td>
@@ -268,46 +232,21 @@ This enumeration defines the frame in which the respective vector is resolved.
         r is the distance to the field center.</td></tr>
 </table>
 </html>"));
-      
-    end Temp;
-  end GravityTypes;
   
-  package Init 
-    "Type, constants and menu choices to define initialization, as temporary solution until enumerations are available" 
-    
-    annotation (Documentation(info="<html>
-  
-</html>"));
-    extends Modelica.Icons.Enumeration;
-    
-    constant Integer Free=1;
-    constant Integer PositionVelocity=2;
-    constant Integer SteadyState=3;
-    constant Integer Position=4;
-    constant Integer Velocity=5;
-    constant Integer VelocityAcceleration=6;
-    constant Integer PositionVelocityAcceleration=7;
-    
-    type Temp 
-      "Temporary type of Init with choices for menus (until enumerations are available)" 
-      
-      extends Modelica.Icons.TypeInteger;
-      annotation (choices(
-          choice=Modelica.Mechanics.MultiBody.Types.Init.Free 
-            "free (no initialization)",
-          choice=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity 
-            "initialize generalized position and velocity variables",
-          choice=Modelica.Mechanics.MultiBody.Types.Init.SteadyState 
-            "initialize in steady state (velocity and acceleration are zero)",
-          choice=Modelica.Mechanics.MultiBody.Types.Init.Position 
-            "initialize only generalized position variable(s)",
-          choice=Modelica.Mechanics.MultiBody.Types.Init.Velocity 
-            "initialize only generalized velocity variable(s)",
-          choice=Modelica.Mechanics.MultiBody.Types.Init.VelocityAcceleration 
-            "initialize generalized velocity and acceleration variables",
-          choice=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocityAcceleration 
-            "initialize generalized position, velocity and acceleration variables"),
-          Documentation(info="<html>
+  type Init = enumeration(
+      Free "Free (no initialization)", 
+      PositionVelocity "Initialize generalized position and velocity variables", 
+        
+      SteadyState 
+        "Initialize in steady state (velocity and acceleration are zero)", 
+      Position "Initialize only generalized position variable(s)", 
+      Velocity "Initialize only generalized velocity variable(s)", 
+      VelocityAcceleration 
+        "Initialize generalized velocity and acceleration variables", 
+      PositionVelocityAcceleration 
+        "Initialize generalized position, velocity and acceleration variables")
+    "Enumeration defining initialization for MultiBody components" 
+      annotation (Documentation(info="<html>
   
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><b>Types.Init.</b></th><th><b>Meaning</b></th></tr>
@@ -335,9 +274,6 @@ This enumeration defines the frame in which the respective vector is resolved.
 </table>
  
 </html>"));
-      
-    end Temp;
-  end Init;
   
   package Defaults "Default settings of the MultiBody library via constants" 
     annotation (preferedView="info", Documentation(info="<html>
