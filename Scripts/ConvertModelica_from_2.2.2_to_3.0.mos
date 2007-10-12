@@ -7,19 +7,59 @@ convertClear();
 // Change references to classes that are removed from Modelica Standard Library
 convertClass  ("Modelica.Blocks.Math.UnitConversions.ConvertAllUnits",
                "ObsoleteModelica3.Blocks.Math.UnitConversions.ConvertAllUnits");
-
 convertClass  ("Modelica.Blocks.Math.TwoInputs",
                "ObsoleteModelica3.Blocks.Math.TwoInputs");
-
 convertClass  ("Modelica.Blocks.Math.TwoOutputs",
                "ObsoleteModelica3.Blocks.Math.TwoOutputs");
+convertClass  ("Modelica.Blocks.Interfaces.Adaptors.AdaptorReal",
+               "ObsoleteModelica3.Blocks.Interfaces.Adaptors.AdaptorReal");
+convertClass  ("Modelica.Blocks.Interfaces.Adaptors.AdaptorBoolean",
+               "ObsoleteModelica3.Blocks.Interfaces.Adaptors.AdaptorBoolean");
+convertClass  ("Modelica.Blocks.Interfaces.Adaptors.AdaptorInteger",
+               "ObsoleteModelica3.Blocks.Interfaces.Adaptors.AdaptorInteger");
 
 
 // Remove "SignalType" from all RealInput and RealOutput modifiers
 convertModifiers("Modelica.Blocks.Interfaces.RealInput",{"SignalType"},fill("",0),true);
 convertModifiers("Modelica.Blocks.Interfaces.RealOutput",{"SignalType"},fill("",0),true);
 
+
 // Change modifiers of PartialMedium.BaseProperties to equations in the equation section,
 // since the variable declarations of p,h,Xi have been changed to connectors
 // (in order that a BaseProperties model is "balanced")
 convertModifiers("Modelica.Media.Interfaces.PartialMedium.BaseProperties",{"p", "h" ,"Xi"}, {"equation"});
+
+
+// --------- Changing from emulated to real enumerations --------------------------------------
+// The enumerations in Modelica.Blocks.Types
+convertClass("Modelica.Blocks.Types.Extrapolation.Temp","Modelica.Blocks.Types.Extrapolation")
+convertClass("Modelica.Blocks.Types.Init.Temp","Modelica.Blocks.Types.Init")
+convertClass("Modelica.Blocks.Types.InitPID.Temp","Modelica.Blocks.Types.InitPID")
+convertClass("Modelica.Blocks.Types.SimpleController.Temp","Modelica.Blocks.Types.SimpleController")
+convertClass("Modelica.Blocks.Types.Smoothness.Temp","Modelica.Blocks.Types.Smoothness")
+convertClass("Modelica.Blocks.Types.StateSelection.Temp","Modelica.Blocks.Types.StateSelection")
+
+// The enumerations in Modelica.Mechanics.MultiBody.Types
+convertClass("Modelica.Mechanics.MultiBody.Types.RotationTypes.Temp","Modelica.Mechanics.MultiBody.Types.RotationTypes")
+convertClass("Modelica.Mechanics.MultiBody.Types.GravityTypes.Temp","Modelica.Mechanics.MultiBody.Types.GravityTypes")
+convertClass("Modelica.Mechanics.MultiBody.Types.Init.Temp","Modelica.Mechanics.MultiBody.Types.Init")
+
+// The enumerations in Modelica.Mechanics.Rotational.Types
+convertClass("Modelica.Mechanics.Rotational.Types.Init.Temp","Modelica.Mechanics.Rotational.Types.Init")
+convertClass("Modelica.Mechanics.Rotational.Types.InitRel.Temp","Modelica.Mechanics.Rotational.Types.InitRel")
+
+// The enumerations in Modelica.Media.Interfaces.PartialMedium.Choices
+convertClass("Modelica.Media.Interfaces.PartialMedium.Choices.Init.Temp","Modelica.Media.Interfaces.PartialMedium.Choices.Init")
+convertClass("Modelica.Media.Interfaces.PartialMedium.Choices.ReferenceEnthalpy.Temp","Modelica.Media.Interfaces.PartialMedium.Choices.ReferenceEnthalpy")
+convertClass("Modelica.Media.Interfaces.PartialMedium.Choices.ReferenceEntropy.Temp","Modelica.Media.Interfaces.PartialMedium.Choices.ReferenceEntropy")
+convertClass("Modelica.Media.Interfaces.PartialMedium.Choices.pd.Temp","Modelica.Media.Interfaces.PartialMedium.Choices.pd")
+convertClass("Modelica.Media.Interfaces.PartialMedium.Choices.Th.Temp","Modelica.Media.Interfaces.PartialMedium.Choices.Th")
+convertClass("Modelica.Media.Interfaces.PartialMedium.Choices.Explicit.Temp","Modelica.Media.Interfaces.PartialMedium.Choices.Explicit")
+
+// The enumerations in Modelica.Electrical.Digital.Interfaces
+convertClass("Modelica.Electrical.Digital.Interfaces.LogicValue","Modelica.Electrical.Digital.Interfaces.Logic")
+
+// The enumerations in Modelica.Utilities.Types
+convertClass("Modelica.Utilities.Types.Compare.Type"  ,"Modelica.Utilities.Types.Compare")
+convertClass("Modelica.Utilities.Types.FileType.Type" ,"Modelica.Utilities.Types.FileType")
+convertClass("Modelica.Utilities.Types.TokenType.Type","Modelica.Utilities.Types.TokenType")
