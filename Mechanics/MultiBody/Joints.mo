@@ -615,7 +615,7 @@ vector \"n\" defining the translation axis
     parameter Modelica.Mechanics.MultiBody.Types.Axis n={1,0,0} 
       "Cylinder axis resolved in frame_a (= same as in frame_b)" 
       annotation (Evaluate=true);
-    parameter Types.Init.Temp initType=Modelica.Mechanics.MultiBody.Types.Init.Free 
+    parameter Types.Init initType=Modelica.Mechanics.MultiBody.Types.Init.Free 
       "Type of initialization (defines usage of start values below)" 
       annotation (Dialog(group="Initialization"));
     parameter NonSI.Angle_deg phi_start=0 
@@ -767,7 +767,7 @@ vector \"n\" defining the cylinder axis
     parameter Modelica.Mechanics.MultiBody.Types.Axis n_b={0,1,0} 
       "Axis of revolute joint 2 resolved in frame_b" annotation (Evaluate=true);
     
-    parameter Types.Init.Temp initType=Modelica.Mechanics.MultiBody.Types.Init.Free 
+    parameter Types.Init initType=Modelica.Mechanics.MultiBody.Types.Init.Free 
       "Type of initialization (defines usage of start values below)" 
       annotation (Dialog(group="Initialization"));
     parameter NonSI.Angle_deg phi_start_a=0 
@@ -947,7 +947,7 @@ phi_start_b = 45<sup>o</sup>).
       "Vector in direction of x-axis of plane, resolved in frame_a (n_x shall be orthogonal to n)"
       annotation (Evaluate=true);
     
-    parameter Types.Init.Temp initType=Modelica.Mechanics.MultiBody.Types.Init.Free 
+    parameter Types.Init initType=Modelica.Mechanics.MultiBody.Types.Init.Free 
       "Type of initialization (defines usage of start values below)" 
       annotation (Dialog(group="Initialization"));
     parameter SI.Position s_start_x=0 
@@ -1170,7 +1170,7 @@ s_start_y = 0.5, phi_start = 45<sup>o</sup>).
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
       "Reflection of ambient light (= 0: light is completely absorbed)" 
       annotation (Dialog(group="if animation = true", enable=animation));
-    parameter Types.Init.Temp initType=Modelica.Mechanics.MultiBody.Types.Init.Free 
+    parameter Types.Init initType=Modelica.Mechanics.MultiBody.Types.Init.Free 
       "Type of initialization (defines usage of start values below)" 
       annotation (Dialog(tab="Initialization"));
     parameter Types.RotationSequence sequence_start={1,2,3} 
@@ -1478,7 +1478,7 @@ frame_b of the joint.
     parameter Boolean animation=true 
       "= true, if animation shall be enabled (show arrow from frame_a to frame_b)";
     
-    parameter Types.Init.Temp initType=Modelica.Mechanics.MultiBody.Types.Init.Free 
+    parameter Types.Init initType=Modelica.Mechanics.MultiBody.Types.Init.Free 
       "Type of initialization (defines usage of start values below)" 
       annotation (Dialog(group="Initialization"));
     
@@ -5931,7 +5931,7 @@ and 1 prismatic joint are connected by rigid rods.
       parameter Cv.NonSIunits.Angle_deg phi_offset=0 
         "Relative angle offset (angle = phi + from_deg(phi_offset))" 
         annotation (Evaluate=false);
-      parameter Types.Init.Temp initType=Modelica.Mechanics.MultiBody.Types.Init.Free 
+      parameter Types.Init initType=Modelica.Mechanics.MultiBody.Types.Init.Free 
         "Type of initialization (defines usage of start values below)" 
         annotation (Dialog(group="Initialization"));
       parameter Cv.NonSIunits.Angle_deg phi_start=0 
@@ -6116,7 +6116,7 @@ this force is an unknown quantity).
       parameter SI.Position s_offset=0 
         "Relative distance offset (distance between frame_a and frame_b = s_offset + s)"
         annotation (Evaluate=false);
-      parameter Types.Init.Temp initType=Modelica.Mechanics.MultiBody.Types.Init.Free 
+      parameter Types.Init initType=Modelica.Mechanics.MultiBody.Types.Init.Free 
         "Type of initialization (defines usage of start values below)" 
         annotation (Dialog(group="Initialization"));
       parameter SI.Position s_start=0 

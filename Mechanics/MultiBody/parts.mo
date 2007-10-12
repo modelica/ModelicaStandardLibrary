@@ -374,7 +374,7 @@ the animation may be switched off via parameter animation = <b>false</b>.
     parameter Boolean animation=true "= true, if animation shall be enabled";
     parameter SI.Position r[3]={0,0,0} 
       "Vector from frame_a to frame_b resolved in frame_a";
-    parameter Types.RotationTypes.Temp rotationType=Modelica.Mechanics.MultiBody.Types.RotationTypes.RotationAxis 
+    parameter Types.RotationTypes rotationType=Modelica.Mechanics.MultiBody.Types.RotationTypes.RotationAxis 
       "Type of rotation description" 
       annotation (Evaluate=true);
     parameter Types.Axis n={1,0,0} 
@@ -637,7 +637,7 @@ the animation may be switched off via parameter animation = <b>false</b>.
     parameter SI.Inertia I_32(min=-C.inf)=0 " (3,2) element of inertia tensor" annotation (
         Dialog(group=
             "Inertia tensor (resolved in center of mass, parallel to frame_a)"));
-    parameter Types.Init.Temp initType=Modelica.Mechanics.MultiBody.Types.Init.Free 
+    parameter Types.Init initType=Modelica.Mechanics.MultiBody.Types.Init.Free 
       " Type of initialization (defines usage of start values below)" 
       annotation (Dialog(tab="Initialization"));
     parameter SI.Position r_0_start[3]={0,0,0} 
@@ -1028,7 +1028,7 @@ to the setting of parameters \"useQuaternions\" and
       " (3,2) element of inertia tensor" 
       annotation (Dialog(group=
             "Inertia tensor (resolved in center of mass, parallel to frame_a)"));
-    parameter Types.Init.Temp initType=Modelica.Mechanics.MultiBody.Types.Init.Free 
+    parameter Types.Init initType=Modelica.Mechanics.MultiBody.Types.Init.Free 
       " Type of initialization (defines usage of start values below)" 
       annotation (Dialog(tab="Initialization"));
     parameter SI.Position r_0_start[3]={0,0,0} 
@@ -1300,7 +1300,7 @@ states and of the \"Advanced\" menu parameters, see model
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
       "Reflection of ambient light (= 0: light is completely absorbed)" 
       annotation (Dialog(enable=animation));
-    parameter Types.Init.Temp initType=Modelica.Mechanics.MultiBody.Types.Init.Free 
+    parameter Types.Init initType=Modelica.Mechanics.MultiBody.Types.Init.Free 
       " Type of initialization (defines usage of start values below)" 
       annotation (Dialog(tab="Initialization"));
     parameter SI.Position r_0_start[3]={0,0,0} 
@@ -1497,7 +1497,7 @@ states and of the \"Advanced\" menu parameters, see model
       "Reflection of ambient light (= 0: light is completely absorbed)" 
       annotation (Dialog(enable=animation));
     
-    parameter Types.Init.Temp initType=Modelica.Mechanics.MultiBody.Types.Init.Free 
+    parameter Types.Init initType=Modelica.Mechanics.MultiBody.Types.Init.Free 
       " Type of initialization (defines usage of start values below)" 
       annotation (Dialog(tab="Initialization"));
     parameter SI.Position r_0_start[3]={0,0,0} 
@@ -1665,7 +1665,7 @@ states and of the \"Advanced\" menu parameters, see model
     parameter Boolean animation=true 
       "= true, if animation shall be enabled (show sphere)";
     parameter SI.Mass m(min=0) "Mass of mass point";
-    parameter Types.Init.Temp initType=Modelica.Mechanics.MultiBody.Types.Init.Free 
+    parameter Types.Init initType=Modelica.Mechanics.MultiBody.Types.Init.Free 
       " Type of initialization (defines usage of start values below)" 
       annotation (Dialog(group="Initialization"));
     parameter SI.Position r_0_start[3]={0,0,0} 
@@ -1891,7 +1891,7 @@ November 3-4, 2003, pp. 149-158</p>
       "Moment of inertia of rotor around its axis of rotation";
     parameter Modelica.Mechanics.MultiBody.Types.Axis n={1,0,0} 
       "Axis of rotation resolved in frame_a";
-    parameter Types.Init.Temp initType=Modelica.Mechanics.MultiBody.Types.Init.Free 
+    parameter Types.Init initType=Modelica.Mechanics.MultiBody.Types.Init.Free 
       "Type of initialization (defines usage of start values below)" 
       annotation (Dialog(group="Initialization"));
     parameter Cv.NonSIunits.Angle_deg phi_start=0 

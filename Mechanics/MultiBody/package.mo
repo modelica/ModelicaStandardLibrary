@@ -1389,7 +1389,7 @@ of these axes can be set via parameters.
                                                                                           annotation(Dialog(enable=enableAnimation));
   parameter Types.AxisLabel label1="x" "Label of horizontal axis in icon";
   parameter Types.AxisLabel label2="y" "Label of vertical axis in icon";
-  parameter Types.GravityTypes.Temp gravityType=GravityTypes.UniformGravity 
+  parameter Types.GravityTypes gravityType=GravityTypes.UniformGravity 
     "Type of gravity field"                                                                                                     annotation (Evaluate=true);
   parameter SI.Acceleration g=9.81 "Constant gravity acceleration" 
     annotation (Dialog(enable=gravityType == GravityTypes.UniformGravity));

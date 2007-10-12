@@ -225,7 +225,7 @@ The logic values are coded by integer values. The following code table is necess
 for both setting of input and interpreting the output values.
 </p>
 <p><b>Code Table:</b></p>
-
+ 
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><td valign=\"top\"><b>Logic value</b></td>
       <td valign=\"top\"><b>Integer code</b></td>
@@ -242,13 +242,13 @@ for both setting of input and interpreting the output values.
   <tr><td valign=\"top\">'H'</td> <td valign=\"top\">8</td> <td valign=\"top\">Weak 1</td></tr>
   <tr><td valign=\"top\">'-'</td> <td valign=\"top\">9</td> <td valign=\"top\">Don't care</td></tr>
 </table>
-
+ 
 <p>
 The library will be developed in two main steps. The first step contains the basic components and
 the gates. In the next step the more complicated devices will be added. Currently the first step of
 the library is implemented and released for public use.
 </p>
-
+ 
 <p>
 Copyright &copy; 1998-2007, Modelica Association and Fraunhofer-Gesellschaft.
 </p>
@@ -258,7 +258,7 @@ under the terms of the <b>Modelica license</b>, see the license conditions
 and the accompanying <b>disclaimer</b> 
 <a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a>.</i>
 </p><br>
-
+ 
 </HTML>
 "), Diagram,
     Icon(
@@ -321,7 +321,7 @@ and the accompanying <b>disclaimer</b>
     "Examples that demonstrate the usage of the Digital electrical components" 
     model Multiplexer "4 to 1 Bit Multiplexer Example" 
       import D = Modelica.Electrical.Digital;
-      import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
       annotation (
         Documentation(info="<HTML>
 <h4>4 to 1 Bit Multiplexer</h4>
@@ -435,7 +435,7 @@ The multiplexer converts a parallel 4 bit signal in a sequential
     
     model FlipFlop "Pulse Triggered Master Slave Flip-Flop" 
       import D = Modelica.Electrical.Digital;
-      import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
       annotation (
         Documentation(info="<HTML>
 <h4>FlipFlop</h4>
@@ -523,12 +523,12 @@ And and to Xor in the final sum.
 <br>
 <br>
 <pre>  <b>a</b>     <b>b</b>     <b>c</b>      <b>s</b>     <b>t</b></pre>
-
+ 
  <pre>  1     0     1      0     1</pre>
  <pre>  0     1     1      0     2</pre>
  <pre>  1     1     0      1     3</pre>
  <pre>  0     0     0      0     4</pre>
-
+ 
 <br>
 <br>
 <b>t</b> is the pick-up instant of the next bit(s) in the simulation.
@@ -593,7 +593,7 @@ The simulation stop time should be 5 seconds.
     
     model FullAdder "Full 1 Bit Adder Example" 
       import D = Modelica.Electrical.Digital;
-      import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
       annotation (
         Documentation(info="<HTML>
 <P>
@@ -607,7 +607,7 @@ The simulation stop time should be 5 seconds.
 <br>
 <b>t</b> is the pick-up instant of the next bit(s) in the simulation.
 <pre>   <b>a</b>.y      <b>b</b>.y      <b>c</b>.y     <b>c</b>out        <b>h</b>.s        <b>t</b> </pre>
-
+ 
 <pre>
      1        0        0        0          1        1
      0        1        0        0          1        2
@@ -696,7 +696,7 @@ at t = 2                             at t = 3
  a       0 1 1 0                       a      1 1 1 0
  b    +  0 0 1 1                       b   +  1 0 1 0
  <b>s     1 0 1 0 0</b>                      <b>s     0 0 0 1 1</b>
-
+ 
 at t = 4
  a      1 1 0 0
  b   +  1 1 1 0
@@ -713,7 +713,7 @@ The result can be seen in the output signals of the Fulladders according to:
       sum   <b>Adder4</b>.c_out  <b>Adder4.s</b>  <b>Adder3.s</b>  <b>Adder2.s</b>  <b>Adder1.s</b>
 </pre>
 The simulation stop time has to be 5s.
-
+ 
 </P>
 </HTML>
 "),     Coordsys(
@@ -979,7 +979,7 @@ The simulation stop time has to be 5s.
   package Utilities "Utility components used by package Examples" 
     model MUX4 "4 to 1 Bit Multiplexer" 
         import D = Modelica.Electrical.Digital;
-        import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
+        import L = Modelica.Electrical.Digital.Interfaces.Logic;
       annotation (
         Documentation(info="<HTML>
 </HTML>
@@ -1236,7 +1236,7 @@ The simulation stop time has to be 5s.
       
     model RS "Unclocked RS FlipFlop" 
         import D = Modelica.Electrical.Digital;
-        import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
+        import L = Modelica.Electrical.Digital.Interfaces.Logic;
       annotation (
         Documentation(info="<HTML>
 </HTML>
@@ -1352,7 +1352,7 @@ The simulation stop time has to be 5s.
       
     model RSFF "Unclocked RS FlipFlop" 
         import D = Modelica.Electrical.Digital;
-        import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
+        import L = Modelica.Electrical.Digital.Interfaces.Logic;
       annotation (
         Documentation(info="<HTML>
 </HTML>
@@ -1503,7 +1503,7 @@ The simulation stop time has to be 5s.
       
     model DFF "D FlipFlop" 
         import D = Modelica.Electrical.Digital;
-        import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
+        import L = Modelica.Electrical.Digital.Interfaces.Logic;
       annotation (
         Documentation(info="<HTML>
 </HTML>
@@ -1631,7 +1631,7 @@ The simulation stop time has to be 5s.
       
     model JKFF "JK FlipFlop" 
         import D = Modelica.Electrical.Digital;
-        import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
+        import L = Modelica.Electrical.Digital.Interfaces.Logic;
       annotation (
         Documentation(info="<HTML>
 </HTML>
@@ -1919,14 +1919,14 @@ The simulation stop time has to be 5s.
 <P>
  <pre>
   <b>a     b     c in     c out     s</b>
-
+ 
          1     1     1     0
          0     0     0     0
          1     0     0     1
          0     1     0     1
  </pre>
-
-
+ 
+ 
 </P>
 </HTML>
 "),     Coordsys(
@@ -2174,7 +2174,7 @@ The simulation stop time has to be 5s.
       
     model Counter3 "3 Bit Counter" 
         import D = Modelica.Electrical.Digital;
-        import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
+        import L = Modelica.Electrical.Digital.Interfaces.Logic;
        annotation (
          Documentation(info="<HTML>
   
@@ -2325,7 +2325,7 @@ The simulation stop time has to be 5s.
       
     model Counter "Generic N Bit Counter" 
         import D = Modelica.Electrical.Digital;
-        import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
+        import L = Modelica.Electrical.Digital.Interfaces.Logic;
       annotation (
         Documentation(info="<HTML>
   
@@ -2420,7 +2420,7 @@ The simulation stop time has to be 5s.
 <p>
 This package contains utility components used by package Examples.
 </p>
-
+ 
 </html>"));
   end Utilities;
     annotation (Icon(
@@ -2448,76 +2448,43 @@ components of the Electrical.Digital library.
   
   package Interfaces "Connectors for Digital electrical components" 
     
-    type Logic = Integer(min=1,max=9) 
-      "Signal type in package Digital according to the IEEE 1164 STD_ULOGIC type"
-      annotation (Documentation(info="<html>
- 
-<p>
-A variable of type Logic is an Integer in the range 1-9.
-The Integer values have the following meaning:
-</p>
-
-<table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><b>Logic value</b></td>
-      <td valign=\"top\"><b>Integer code</b></td>
-      <td valign=\"top\"><b>Meaning</b></td>
-  </tr>
-                         
-  <tr><td valign=\"top\">'U'</td> <td valign=\"top\">1</td> <td valign=\"top\">Uninitialized</td></tr>
-  <tr><td valign=\"top\">'X'</td> <td valign=\"top\">2</td> <td valign=\"top\">Forcing Unknown</td></tr>
-  <tr><td valign=\"top\">'0'</td> <td valign=\"top\">3</td> <td valign=\"top\">Forcing 0</td></tr>
-  <tr><td valign=\"top\">'1'</td> <td valign=\"top\">4</td> <td valign=\"top\">Forcing 1</td></tr>
-  <tr><td valign=\"top\">'Z'</td> <td valign=\"top\">5</td> <td valign=\"top\">High Impedance</td></tr>
-  <tr><td valign=\"top\">'W'</td> <td valign=\"top\">6</td> <td valign=\"top\">Weak Unknown</td></tr>
-  <tr><td valign=\"top\">'L'</td> <td valign=\"top\">7</td> <td valign=\"top\">Weak 0</td></tr>
-  <tr><td valign=\"top\">'H'</td> <td valign=\"top\">8</td> <td valign=\"top\">Weak 1</td></tr>
-  <tr><td valign=\"top\">'-'</td> <td valign=\"top\">9</td> <td valign=\"top\">Don't care</td></tr>
-</table>
-
-</html>"));
-    
-    record LogicValue "Logic values and their coding" 
-      extends Modelica.Icons.Enumeration;
-      
-      constant Integer min=1;
-      constant Integer max=9;
-      constant Integer 'U'=1 "Uninitialized";
-      constant Integer 'X'=2 "Forcing Unknown";
-      constant Integer '0'=3 "Forcing 0";
-      constant Integer '1'=4 "Forcing 1";
-      constant Integer 'Z'=5 "High Impedance";
-      constant Integer 'W'=6 "Weak    Unknown";
-      constant Integer 'L'=7 "Weak    0";
-      constant Integer 'H'=8 "Weak    1";
-      constant Integer '-'=9 "Don't care";
-      annotation (Documentation(info="<html>
+    type Logic = enumeration(
+        'U' "Uninitialized", 
+        'X' "Forcing Unknown", 
+        '0' "Forcing 0", 
+        '1' "Forcing 1", 
+        'Z' "High Impedance", 
+        'W' "Weak    Unknown", 
+        'L' "Weak    0", 
+        'H' "Weak    1", 
+        '-' "Don't care") 
+      "Logic values and their coding according to IEEE 1164 STD_ULOGIC type" 
+          annotation (Documentation(info="<html>
 <p><b>Code Table:</b></p>
-
+ 
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><td valign=\"top\"><b>Logic value</b></td>
-      <td valign=\"top\"><b>Integer code</b></td>
       <td valign=\"top\"><b>Meaning</b></td>
   </tr>
                          
-  <tr><td valign=\"top\">'U'</td> <td valign=\"top\">1</td> <td valign=\"top\">Uninitialized</td></tr>
-  <tr><td valign=\"top\">'X'</td> <td valign=\"top\">2</td> <td valign=\"top\">Forcing Unknown</td></tr>
-  <tr><td valign=\"top\">'0'</td> <td valign=\"top\">3</td> <td valign=\"top\">Forcing 0</td></tr>
-  <tr><td valign=\"top\">'1'</td> <td valign=\"top\">4</td> <td valign=\"top\">Forcing 1</td></tr>
-  <tr><td valign=\"top\">'Z'</td> <td valign=\"top\">5</td> <td valign=\"top\">High Impedance</td></tr>
-  <tr><td valign=\"top\">'W'</td> <td valign=\"top\">6</td> <td valign=\"top\">Weak Unknown</td></tr>
-  <tr><td valign=\"top\">'L'</td> <td valign=\"top\">7</td> <td valign=\"top\">Weak 0</td></tr>
-  <tr><td valign=\"top\">'H'</td> <td valign=\"top\">8</td> <td valign=\"top\">Weak 1</td></tr>
-  <tr><td valign=\"top\">'-'</td> <td valign=\"top\">9</td> <td valign=\"top\">Don't care</td></tr>
+  <tr><td valign=\"top\">'U'</td> <td valign=\"top\">Uninitialized</td></tr>
+  <tr><td valign=\"top\">'X'</td> <td valign=\"top\">Forcing Unknown</td></tr>
+  <tr><td valign=\"top\">'0'</td> <td valign=\"top\">Forcing 0</td></tr>
+  <tr><td valign=\"top\">'1'</td> <td valign=\"top\">Forcing 1</td></tr>
+  <tr><td valign=\"top\">'Z'</td> <td valign=\"top\">High Impedance</td></tr>
+  <tr><td valign=\"top\">'W'</td> <td valign=\"top\">Weak Unknown</td></tr>
+  <tr><td valign=\"top\">'L'</td> <td valign=\"top\">Weak 0</td></tr>
+  <tr><td valign=\"top\">'H'</td> <td valign=\"top\">Weak 1</td></tr>
+  <tr><td valign=\"top\">'-'</td> <td valign=\"top\">Don't care</td></tr>
 </table>
-
-
+ 
+ 
 </html>"));
-    end LogicValue;
     
     connector DigitalSignal = Logic "Digital port (both input/output possible)"
       annotation (Icon, Diagram,
       Documentation(info="<html>
-
+ 
 </html>"));
     
     connector DigitalInput = input DigitalSignal 
@@ -2631,9 +2598,9 @@ This package contains interface definitions
   package Tables "Truth tables for all components of package Digital" 
     
     import D = Modelica.Electrical.Digital;
-    import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
+    import L = Modelica.Electrical.Digital.Interfaces.Logic;
     
-    constant D.Interfaces.Logic AndTable[L.max, L.max]=[
+    constant D.Interfaces.Logic AndTable[L, L]=[
         L.'U', L.'U', L.'0', L.'U', L.'U', L.'U', L.'0', L.'U', L.'U';
         L.'U', L.'X', L.'0', L.'X', L.'X', L.'X', L.'0', L.'X', L.'X';
         L.'0', L.'0', L.'0', L.'0', L.'0', L.'0', L.'0', L.'0', L.'0';
@@ -2645,7 +2612,7 @@ This package contains interface definitions
         L.'U', L.'X', L.'0', L.'X', L.'X', L.'X', L.'0', L.'X', L.'X'] 
       "9-value logic for 'and'";
     
-    constant D.Interfaces.Logic OrTable[L.max, L.max]=[
+    constant D.Interfaces.Logic OrTable[L, L]=[
         L.'U', L.'U', L.'U', L.'1', L.'U', L.'U', L.'U', L.'1', L.'U';
         L.'U', L.'X', L.'X', L.'1', L.'X', L.'X', L.'X', L.'1', L.'X';
         L.'U', L.'X', L.'0', L.'1', L.'X', L.'X', L.'0', L.'1', L.'X';
@@ -2657,11 +2624,11 @@ This package contains interface definitions
         L.'U', L.'X', L.'X', L.'1', L.'X', L.'X', L.'X', L.'1', L.'X'] 
       "9-value logic for 'or'";
     
-    constant D.Interfaces.Logic NotTable[L.max]={
+    constant D.Interfaces.Logic NotTable[L]={
         L.'U',L.'X',L.'1',L.'0',L.'X',L.'X',L.'1',L.'0',L.'X'} 
       "9-value logic for 'not'";
     
-    constant D.Interfaces.Logic XorTable[L.max, L.max]=[
+    constant D.Interfaces.Logic XorTable[L, L]=[
         L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U';
         L.'U', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X';
         L.'U', L.'X', L.'0', L.'1', L.'X', L.'X', L.'0', L.'1', L.'X';
@@ -2673,13 +2640,13 @@ This package contains interface definitions
         L.'U', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X'] 
       "9-value logic for 'xor'";
     
-    constant D.Interfaces.Logic X01Table[L.max]={
+    constant D.Interfaces.Logic X01Table[L]={
         L.'X',L.'X',L.'0',L.'1',L.'X',L.'X',L.'0',L.'1',L.'X'};
     
-    constant D.Interfaces.Logic X01ZTable[L.max]={
+    constant D.Interfaces.Logic X01ZTable[L]={
         L.'X',L.'X',L.'0',L.'1',L.'Z',L.'X',L.'0',L.'1',L.'Z'};
     
-    constant D.Interfaces.Logic UX01Table[L.max]={
+    constant D.Interfaces.Logic UX01Table[L]={
         L.'U',L.'X',L.'0',L.'1',L.'X',L.'X',L.'0',L.'1',L.'X'};
     
     constant Integer DelayTable[9, 9]=[
@@ -2715,7 +2682,7 @@ This package contains interface definitions
   package Delay "Transport and inertial delay blocks" 
     
     partial block DelayParams "Definition of delay parameters" 
-      import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
       parameter Modelica.SIunits.Time tLH=0 "rise inertial delay";
       parameter Modelica.SIunits.Time tHL=0 "fall inertial delay";
       parameter Digital.Interfaces.Logic y0=L.'U' "initial value of output";
@@ -2726,7 +2693,7 @@ This package contains interface definitions
     
     model TransportDelay "Transport delay with initial parameter" 
       import D = Modelica.Electrical.Digital;
-      import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
       extends D.Interfaces.SISO(x(start=L.'U',fixed=true));
       parameter Modelica.SIunits.Time delayTime=0 "delay time";
       parameter D.Interfaces.Logic y0=L.'U' "initial value of output";
@@ -2791,7 +2758,7 @@ If time less than <i>Tdel</i> the initial value <i>initout</i> holds.
     
     block InertialDelay "Inertial delay with initial parameter" 
       import D = Modelica.Electrical.Digital;
-      import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
       extends D.Interfaces.SISO;
       parameter Modelica.SIunits.Time delayTime=0 "Minimum time to hold value";
       parameter D.Interfaces.Logic y0=L.'U' "Initial value of output y";
@@ -2868,7 +2835,7 @@ If time is less than <i>Tdel</i> the initial value <i>initout</i> holds.
     model InertialDelaySensitive 
       "Provide the input as output if it holds its value for a specific amount of time" 
       import D = Modelica.Electrical.Digital;
-      import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
       extends D.Interfaces.SISO(x(start=L.'U',fixed=true));
       parameter Modelica.SIunits.Time tLH=0 "rise inertial delay";
       parameter Modelica.SIunits.Time tHL=0 "fall inertial delay";
@@ -2991,7 +2958,7 @@ is used, if it is zero, the input is not delayed.
     
     model Not "Not Logic" 
       import D = Modelica.Electrical.Digital;
-      import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
       extends D.Interfaces.SISO;
     protected 
       D.Interfaces.Logic auxiliary(start=L.'0', fixed=true);
@@ -3037,7 +3004,7 @@ Not with 1 input value, without delay.
     
     model And "And logic with multiple input and one output" 
       import D = Modelica.Electrical.Digital;
-      import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
       extends D.Interfaces.MISO;
     protected 
       D.Interfaces.Logic auxiliary[n](each start=L.'U', each fixed=true);
@@ -3080,7 +3047,7 @@ And with n input values, without delay.
     
     model Nand "Nand logic with multiple input and one output" 
       import D = Modelica.Electrical.Digital;
-      import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
       extends D.Interfaces.MISO;
     protected 
       D.Interfaces.Logic auxiliary[n](each start=L.'U', each fixed=true);
@@ -3129,7 +3096,7 @@ Nand with n input values, without delay.
     
     model Or "Or logic with multiple input and one output" 
       import D = Modelica.Electrical.Digital;
-      import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
       extends D.Interfaces.MISO;
     protected 
       D.Interfaces.Logic auxiliary[n](each start=L.'U', each fixed=true);
@@ -3172,7 +3139,7 @@ Or with n input values, without delay.
     
     model Nor "Nor logic with multiple input and one output" 
       import D = Modelica.Electrical.Digital;
-      import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
       extends D.Interfaces.MISO;
     protected 
       D.Interfaces.Logic auxiliary[n](each start=L.'U', each fixed=true);
@@ -3221,7 +3188,7 @@ Nor with n input values, without delay.
     
     model Xor "Xor logic with multiple input and one output" 
       import D = Modelica.Electrical.Digital;
-      import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
       extends D.Interfaces.MISO;
     protected 
       D.Interfaces.Logic auxiliary[n](each start=L.'U', each fixed=true);
@@ -3264,7 +3231,7 @@ Xor with n input values, without delay.
     
     model Xnor "Xnor logic with multiple input and one output" 
       import D = Modelica.Electrical.Digital;
-      import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
       extends D.Interfaces.MISO;
     protected 
       D.Interfaces.Logic auxiliary[n](each start=L.'U', each fixed=true);
@@ -3830,12 +3797,12 @@ BufGate with 1 input value, composed by Not and sensitive intertial delay.
     
     block Set "Digital Set Source" 
       import D = Modelica.Electrical.Digital;
-      import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
       parameter D.Interfaces.Logic x=L.'1' "Logic value to be set";
       D.Interfaces.DigitalOutput y 
                     annotation (extent=[90,-10; 110,10]);
     algorithm 
-      assert(x >= L.min and x <= L.max, "Parameter is no logic value");
+      // assert(x >= L.min and x <= L.max, "Parameter is no logic value");
       y := x;
       annotation (Documentation(info="<HTML>
 <P>
@@ -3845,7 +3812,7 @@ Sets a nine valued digital signal, which is specified by the <i>setval</i> param
 To specify <i>setval</i>, the integer code has to be used.
 </P>
 <p><b>Code Table</b></p>
-
+ 
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><td valign=\"top\"><b>Logic value</b></td>
       <td valign=\"top\"><b>Integer code</b></td>
@@ -3862,7 +3829,7 @@ To specify <i>setval</i>, the integer code has to be used.
   <tr><td valign=\"top\">'H'</td> <td valign=\"top\">8</td> <td valign=\"top\">Weak 1</td></tr>
   <tr><td valign=\"top\">'-'</td> <td valign=\"top\">9</td> <td valign=\"top\">Don't care</td></tr>
 </table>
-
+ 
 <P>
 If the logic values are imported by <br><b> import L = Modelica.Electrical.Digital.Interfaces.LogicValue; </b> <br>
 they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
@@ -3901,15 +3868,15 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
     
     block Step "Digital Step Source" 
       import D = Modelica.Electrical.Digital;
-      import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
       parameter D.Interfaces.Logic before=L.'0' "Logic value before step";
       parameter D.Interfaces.Logic after=L.'1' "Logic value after step";
       parameter Real stepTime=1 "step time";
       D.Interfaces.DigitalOutput y 
                     annotation (extent=[90,-10; 110,10]);
     algorithm 
-      assert(before >= L.min and before <= L.max, "Parameter is no logic value");
-      assert(after >= L.min and after <= L.max, "Parameter is no logic value");
+      // assert(before >= L.min and before <= L.max, "Parameter is no logic value");
+      // assert(after >= L.min and after <= L.max, "Parameter is no logic value");
       when initial() then
         y := before;
       end when;
@@ -3984,7 +3951,7 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
     
     block Table "Digital Tabular Source" 
       import D = Modelica.Electrical.Digital;
-      import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
       parameter D.Interfaces.Logic x[:]={1};
       parameter Real t[size(x, 1)]={1};
       parameter D.Interfaces.Logic y0=L.'U';
@@ -3993,10 +3960,10 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
                     annotation (extent=[90,-10; 110,10]);
     algorithm 
       if initial() then
-        assert(y0 >= L.min and y0 <= L.max, "Parameter y0 is not of type Logic");
+        // assert(y0 >= L.min and y0 <= L.max, "Parameter y0 is not of type Logic");
         assert(n > 0, "Invalid size of table (n < 1)");
         for i in 1:n loop
-          assert(x[i] >= L.min and x[i] <= L.max, "Table element is not of type Logic");
+          // assert(x[i] >= L.min and x[i] <= L.max, "Table element is not of type Logic");
         end for;
       end if;
       y := y0;
@@ -4093,7 +4060,7 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
     
     model Pulse "Digital Pulse Source" 
       import D = Modelica.Electrical.Digital;
-      import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
       parameter Real width(
         final min=Modelica.Constants.small,
         final max=100) = 50 "Widths of pulses in % of periods";
@@ -4188,7 +4155,7 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
     
     model Clock "Digital Clock Source" 
       import D = Modelica.Electrical.Digital;
-      import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
       parameter Modelica.SIunits.Time startTime=0 
         "Output = offset for time < startTime";
       parameter Modelica.SIunits.Time period(
@@ -4487,7 +4454,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
     end LogicToUX01;
     
     block BooleanToLogic "Boolean to Logic converter" 
-      import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
       Modelica.Blocks.Interfaces.BooleanInput x[n] 
         annotation (extent=[-60, -10; -40, 10]);
       annotation (
@@ -4547,7 +4514,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
     end BooleanToLogic;
     
     block LogicToBoolean "Logic to Boolean converter" 
-      import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
       Digital.Interfaces.DigitalInput x[n] 
         annotation (extent=[-60, -10; -40, 10]);
       Modelica.Blocks.Interfaces.BooleanOutput y[n] 
@@ -4608,7 +4575,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
     end LogicToBoolean;
     
     block RealToLogic "Real to Logic converter" 
-      import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
       Modelica.Blocks.Interfaces.RealInput x[n] 
         annotation (extent=[-60, -10; -40, 10]);
       annotation (
@@ -4674,7 +4641,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
     end RealToLogic;
     
     block LogicToReal "Logic to Real converter" 
-      import L = Modelica.Electrical.Digital.Interfaces.LogicValue;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
       Digital.Interfaces.DigitalInput x[n] 
         annotation (extent=[-60, -10; -40, 10]);
       Modelica.Blocks.Interfaces.RealOutput y[n] 

@@ -99,7 +99,7 @@ end Local;
     
 //..............................................................
     
-  Types.FileType.Type fileType;
+  Types.FileType fileType;
 algorithm 
   fileType := Internal.stat(name);
   if fileType == Types.FileType.RegularFile then
@@ -243,8 +243,8 @@ function copy "Generate a copy of a file or of a directory"
                        Strings.substring(oldName,1,lenOldName-1) else oldName;
   String newName2 = if Strings.substring(newName,lenNewName,lenNewName) == "/" then 
                        Strings.substring(newName,1,lenNewName-1) else newName;
-  Types.FileType.Type oldFileType = Internal.stat(oldName2);
-  Types.FileType.Type newFileType;
+  Types.FileType oldFileType = Internal.stat(oldName2);
+  Types.FileType newFileType;
 algorithm 
   if oldFileType == Types.FileType.NoFile then
      Streams.error("It is not possible to copy the file or directory\n" +
@@ -387,7 +387,7 @@ function remove "Remove file or directory (ignore call, if it does not exist)"
   end removeDirectory;
 //..............................................................
   String fullName = Files.fullPathName(name);
-  Types.FileType.Type fileType=Internal.stat(fullName);
+  Types.FileType fileType=Internal.stat(fullName);
 algorithm 
   if fileType == Types.FileType.RegularFile or 
      fileType == Types.FileType.SpecialFile then
@@ -417,7 +417,7 @@ function removeFile "Remove file (ignore call, if it does not exist)"
   extends Modelica.Icons.Function;
   input String fileName "Name of file that should be removed";
   protected 
-  Types.FileType.Type fileType = Internal.stat(fileName);
+  Types.FileType fileType = Internal.stat(fileName);
 algorithm 
   if fileType == Types.FileType.RegularFile then
      Internal.removeFile(fileName);
@@ -462,7 +462,7 @@ encapsulated package Local "Local utility functions"
      input String directoryName;
      output Boolean exists "true if directory exists";
       protected 
-     Types.FileType.Type fileType = Internal.stat(directoryName);
+     Types.FileType fileType = Internal.stat(directoryName);
   algorithm 
      if fileType == Types.FileType.RegularFile or 
         fileType == Types.FileType.SpecialFile then
@@ -589,7 +589,7 @@ function assertNew "Trigger an assert, if a file or directory exists"
   input String message="This is not allowed." 
       "Message that should be printed after the default message in a new line";
   protected 
-  Types.FileType.Type fileType = Internal.stat(name);
+  Types.FileType fileType = Internal.stat(name);
 algorithm 
   if fileType == Types.FileType.RegularFile then
      Streams.error("File \"" + name + "\" already exists.\n" + message);

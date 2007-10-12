@@ -249,7 +249,7 @@ especially if the operating system supports Unicode characters.
   function stat "Inquire file information (POSIX function 'stat')" 
     extends Modelica.Icons.Function;
     input String name "Name of file, directory, pipe etc.";
-    output Types.FileType.Type fileType "Type of file";
+    output Types.FileType fileType "Type of file";
   external "C" fileType=  ModelicaInternal_stat(name);
   end stat;
   

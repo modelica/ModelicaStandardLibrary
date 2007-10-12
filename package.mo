@@ -536,42 +536,6 @@ In the Modelica package the following conventions are used:
      </li>
 </ol>
 
-<p>
-&nbsp;<br>
-<b>Enumerations</b> are defined in the Modelica language since release 2.0.
-However, they are not yet supported in the most important Modelica
-simulation environment Dymola. For this reason, this language element
-is not used in the Modelica standard library. Instead, enumerations
-are emulated with packages and constants. For example, the enumeration
-</p>
-
-<pre>   <b>type</b> Init = <b>enumeration</b> (NoInit, InitializeStates, SteadyState);
-
-   <b>parameter</b> Init initType = Init.NoInit \"Type of initialization\";
-</pre>
-
-<p>
-is emulated in the following way:
-</p>
-
-<pre>   <b>package</b>  Init \"Enumeration emulation\" 
-      <b>extends</b>  Modelica.Icons.Enumeration;
-  
-      <b>constant</b>  Integer NoInit=1;
-      <b>constant</b>  Integer InitializeStates=2;
-      <b>constant</b>  Integer SteadyState=3;
-  
-      <b>type</b>  Temp  
-         <b>extends</b>  Modelica.Icons.TypeInteger;
-         <b>annotation</b>  (choices(
-             choice=Init.NoInit           \"NoInit (no initialization)\",
-             choice=Init.InitializeStates \"InitializeStates (initialize states)\",
-             choice=Init.SteadyState      \"SteadyState (initialize in steady state)\"));
-      <b>end</b>  Temp;
-   <b>end</b>  Init;
-
-   <b>parameter</b> Init.Temp initType = Init.NoInit;
-</pre>
 </html>
 "));
   end Conventions;
@@ -714,13 +678,32 @@ have been <b style=\"color:blue\">changed</b> in a
   <tr><td colspan=\"2\"><b>Blocks.Interfaces.</b></td></tr>
   <tr><td valign=\"top\"> RealInput<br>
                         RealOutput</td>
-      <td valign=\"top\"> Removed \"SignalType\", since extending from a replac
+      <td valign=\"top\"> Removed \"SignalType\", since extending from a replaceable class 
+                        and this is not allowed in Modelica 3.<br>The conversion script
+                        removes modifiers to SignalType.</td> </tr>
+
+  <tr><td colspan=\"2\"><b>Blocks.Interfaces.Adaptors.</b></td></tr>
+  <tr><td valign=\"top\"> AdaptorReal<br>
+                        AdaptorBoolean<br>
+                        AdaptorInteger</td>
+      <td valign=\"top\"> Moved to library ObsoleteModelica3, since the models are not \"balanced\".
+                        These are completely obsolete adaptors<br>between the Real, Boolean, Integer
+                        signal connectors of version 1.6 and version &ge; 2.1 of the Modelica 
+                        Standard Library. </td> </tr>
+                    
 
   <tr><td colspan=\"2\"><b>Blocks.Math.</b></td></tr>
+  <tr><td valign=\"top\"> ConvertAllUnits</td>
+      <td valign=\"top\"> Moved to library ObsoleteModelica3, since extending from a replaceable class
+                        and this is not allowed in Modelica 3.<br> It would be possible to rewrite this
+                        model to use a replaceable component. However, the information about the
+                        conversion<br> cannot be visualized in the icon in this case.</td> </tr>
+
+  <tr><td colspan=\"2\"><b>Blocks.Math.UnitConversions.</b></td></tr>
   <tr><td valign=\"top\"> TwoInputs<br>
                         TwoOutputs</td>
-      <td valign=\"top\"> These two components have been moved to library ObsoleteModelica3,
-                        since the models are not \"balanced\".<br> A new component \"InverseBlockConstraints\"
+      <td valign=\"top\"> Moved to library ObsoleteModelica3, since the models are not \"balanced\".
+                        A new component<br>\"InverseBlockConstraints\"
                         is provided instead that has the same feature, but is \"balanced\".</td> </tr>
 
 </table>

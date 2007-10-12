@@ -19,7 +19,7 @@ package Tables
     parameter Integer columns[:]=2:size(table, 2) 
       "columns of table to be interpolated" 
     annotation(Dialog(group="table data interpretation"));
-    parameter Blocks.Types.Smoothness.Temp smoothness=Types.Smoothness.LinearSegments 
+    parameter Blocks.Types.Smoothness smoothness=Types.Smoothness.LinearSegments 
       "smoothness of table interpolation" 
     annotation(Dialog(group="table data interpretation"));
     extends Modelica.Blocks.Interfaces.MIMOs(final n=size(columns, 1));
@@ -190,7 +190,7 @@ Several matrices may be defined one after another.
                table[1, columns[i]] else dymTableIpo1(tableID, columns[i], u[i]);
     end for;
     when initial() then
-      tableID=dymTableInit(1.0, smoothness, if tableOnFile then tableName else "NoName", if tableOnFile then fileName else "NoName", table, 0.0);
+      tableID=dymTableInit(1.0, smoothness-1, if tableOnFile then tableName else "NoName", if tableOnFile then fileName else "NoName", table, 0.0);
     end when;
   end CombiTable1D;
   
@@ -212,7 +212,7 @@ Several matrices may be defined one after another.
     parameter Integer columns[:]=2:size(table, 2) 
       "columns of table to be interpolated" 
     annotation(Dialog(group="table data interpretation"));
-    parameter Blocks.Types.Smoothness.Temp smoothness=Types.Smoothness.LinearSegments 
+    parameter Blocks.Types.Smoothness smoothness=Types.Smoothness.LinearSegments 
       "smoothness of table interpolation" 
     annotation(Dialog(group="table data interpretation"));
     extends Modelica.Blocks.Interfaces.SIMO(final nout=size(columns, 1));
@@ -383,7 +383,7 @@ Several matrices may be defined one after another.
                table[1, columns[i]] else dymTableIpo1(tableID, columns[i], u);
     end for;
     when initial() then
-      tableID=dymTableInit(1.0, smoothness, if tableOnFile then tableName else "NoName", if tableOnFile then fileName else "NoName", table, 0.0);
+      tableID=dymTableInit(1.0, smoothness-1, if tableOnFile then tableName else "NoName", if tableOnFile then fileName else "NoName", table, 0.0);
     end when;
   end CombiTable1Ds;
   
@@ -403,7 +403,7 @@ Several matrices may be defined one after another.
          annotation(Dialog(group="table data definition", enable = tableOnFile));
     parameter String fileName="NoName" "file where matrix is stored" 
          annotation(Dialog(group="table data definition", enable = tableOnFile));
-    parameter Blocks.Types.Smoothness.Temp smoothness=Types.Smoothness.LinearSegments 
+    parameter Blocks.Types.Smoothness smoothness=Types.Smoothness.LinearSegments 
       "smoothness of table interpolation" 
     annotation(Dialog(group="table data interpretation"));
     annotation (
@@ -596,7 +596,7 @@ and the first row \"table2D_1[1,2:]\" contains the u[2] grid points.
     
     y = dymTableIpo2(tableID, u1, u2);
     when initial() then
-      tableID=dymTableInit(2.0, smoothness, if tableOnFile then tableName else "NoName", if tableOnFile then fileName else "NoName", table, 0.0);
+      tableID=dymTableInit(2.0, smoothness-1, if tableOnFile then tableName else "NoName", if tableOnFile then fileName else "NoName", table, 0.0);
     end when;
   end CombiTable2D;
   annotation (Documentation(info="<html>
