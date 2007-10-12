@@ -221,8 +221,6 @@ and adapted to the Modelica.Media package.
    T(stateSelect=if preferredMediumStates then StateSelect.prefer else StateSelect.default),
    p(stateSelect=if preferredMediumStates then StateSelect.prefer else StateSelect.default)) 
     "Base properties of ideal gas medium" 
-    
-   annotation(structurallyIncomplete);
   equation 
     assert(T >= 200 and T <= 6000, "
 Temperature T (= " + String(T) + " K) is not in the allowed range
@@ -610,7 +608,7 @@ The used formula are based on the method of Chung et al (1984, 1988) referred to
 The formula 9-4.10 is the one being used. The Formula is given in non-SI units, the follwong onversion constants were used to
 transform the formula to SI units:
 </p>
-
+ 
 <ul>
 <li> <b>Const1_SI:</b> The factor 10^(-9.5) =10^(-2.5)*1e-7 where the 
      factor 10^(-2.5) originates from the conversion of g/mol->kg/mol + cm^3/mol->m^3/mol
@@ -619,15 +617,15 @@ transform the formula to SI units:
       where the factor 3.335641e-30 comes from debye->C.m and
       1e-3 is due to conversion from cm^3/mol->m^3/mol</li>
 </ul>
-
+ 
 <h4>References:</h4>
 <p>
 [1] Bruce E. Poling, John E. Prausnitz, John P. O'Connell, \"The Properties of Gases and Liquids\" 5th Ed. Mc Graw Hill.
 </p>
-
+ 
 <h4>Author</h4>
 <p>T. Skoglund, Lund, Sweden, 2004-08-31</p>
-
+ 
 </html>"));
   algorithm 
     Tstar := 1.2593*T/Tc;
@@ -693,6 +691,7 @@ thermal conductivity (lambda) at low temperatures.
   function T_h "Compute temperature from specific enthalpy" 
     input SpecificEnthalpy h "Specific enthalpy";
     output Temperature T "Temperature";
+    
   protected 
   package Internal 
       "Solve h(data,T) for T with given h (use only indirectly via temperature_phX)" 
@@ -720,6 +719,7 @@ thermal conductivity (lambda) at low temperatures.
     input AbsolutePressure p "Pressure";
     input SpecificEntropy s "Specific entropy";
     output Temperature T "Temperature";
+    
   protected 
   package Internal 
       "Solve h(data,T) for T with given h (use only indirectly via temperature_phX)" 
@@ -807,9 +807,9 @@ It has been developed by Hubertus Tummescheit.
   redeclare replaceable model extends BaseProperties(
     T(stateSelect=if preferredMediumStates then StateSelect.prefer else StateSelect.default),
     p(stateSelect=if preferredMediumStates then StateSelect.prefer else StateSelect.default),
-    Xi(each stateSelect=if preferredMediumStates then StateSelect.prefer else StateSelect.default)) 
+    Xi(each stateSelect=if preferredMediumStates then StateSelect.prefer else StateSelect.default),
+    redeclare final constant Boolean standardOrderComponents=true) 
     import Modelica.Media.IdealGases.Common.SingleGasNasa;
-    annotation (structurallyIncomplete);
       //    SpecificEnthalpy h_component[nX];
   equation 
     assert(T >= 200 and T <= 6000, "
@@ -1069,7 +1069,7 @@ algorithm
   etam := sum(yi[i]*eta[i]/sum(yi[j]*fi[i,j] for j in 1:size(eta,1)) for i in 1:size(eta,1));
     
  annotation (Documentation(info="<html>
-
+ 
 <p>
 Simplification of the kinetic theory (Chapman and Enskog theory)
 approach neglecting the second-order effects.<br>
@@ -1090,7 +1090,7 @@ mixtures of aliphatic alcohols (Reid and Belenyessy, 1960). The
 principal reservation appears to lie in those cases where Mi&gt;&gt;Mj
 and etai&gt;&gt;etaj.<br>
 </p>
-
+ 
 </html>
 "));
 equation 
@@ -1188,7 +1188,7 @@ end gasMixtureViscosity;
   etam := 26.69*Fcm*(Mm*T)^(1/2)/(sigmam3^(2/3)*omegav);
   etaMixture := etam*1e7;
   annotation (Documentation(info="<html>
-
+ 
 <p>
 Equation to estimate the viscosity of gas mixtures at low pressures.<br>
 It is a simplification of an extension of the rigorous kinetic theory
@@ -1196,13 +1196,13 @@ of Chapman and Enskog to determine the viscosity of multicomponent
 mixtures, at low pressures and with a factor to correct for molecule
 shape and polarity.
 </p>
-
+ 
 <p>
 The input argument Kappa is a special correction for highly polar substances such as
 alcohols and acids.<br>
 Values of kappa for a few such materials:
 </p>
-
+ 
 <table style=\"text-align: left; width: 302px; height: 200px;\" border=\"1\"
 cellspacing=\"0\" cellpadding=\"2\">
 <tbody>
@@ -1337,13 +1337,13 @@ algorithm
   end for;
   lambdam := sum(y[i]*lambda[i]/(sum(y[j]*A[i,j] for j in 1:size(y,1))) for i in 1:size(y,1));
   annotation (Documentation(info="<html>
-
+ 
 <p>
 This function applies the Masson and Saxena modification of the
 Wassiljewa Equation for the thermal conductivity for gas mixtures of
 n elements at low pressure.
 </p>
-
+ 
 <p>
 For nonpolar gas mixtures errors will generally be less than 3 to 4%.
 For mixtures of nonpolar-polar and polar-polar gases, errors greater
@@ -1352,7 +1352,7 @@ polarities of the constituent molecules are not greatly different, the
 thermal conductivity can be estimated satisfactorily by a mole fraction
 average of the pure component conductivities.
 </p>
-
+ 
 </html>
 "));
 equation 
