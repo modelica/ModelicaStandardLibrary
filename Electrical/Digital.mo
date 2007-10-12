@@ -3516,8 +3516,7 @@ NandGate with n input values, composed by Nand and sensitive intertial delay.
             style(color=0, thickness=2),
             string="Gate"),
           Ellipse(extent=[60, -10; 40, 10], style(color=0, thickness=2))),
-        Diagram,
-        DymolaStoredErrors);
+        Diagram);
       D.Basic.Nand G1(final n)      annotation (extent=[-40,-20; 0,20]);
       D.Delay.InertialDelaySensitive G2(
         tLH=tLH,
@@ -3744,8 +3743,7 @@ XNorGate with n input values, composed by XNor and sensitive intertial delay.
             extent=[-20,-60; 20,-100],
             style(color=0, thickness=2),
             string="Gate")),
-        Diagram,
-        DymolaStoredErrors);
+        Diagram);
     equation 
       connect(x, G1.x) 
         annotation (points=[-60,0; -32,0], style(color=78, rgbcolor={127,0,127}));
@@ -4243,8 +4241,7 @@ The number of periods is unlimited. The first pulse starts at startTime.
                 6,40; 18,40; 18,80; 30,80; 30,40; 36,40], style(
               color=0,
               rgbcolor={0,0,0},
-              fillPattern=1))),
-        DymolaStoredErrors);
+              fillPattern=1))));
     end Clock;
     annotation (Icon(
         Rectangle(extent=[-100,-100; 80,50],   style(fillColor=30,
@@ -4518,7 +4515,6 @@ If the signal width is greater than 1 this conversion is done for each signal.
 </ul>
 </HTML>"),
         extent=[-60, -10; -40, 10],
-        DymolaStoredErrors,
         Icon(Polygon(points=[-40,-40; 40,40; 40,-40; -40,-40],   style(
               color=78,
               rgbcolor={127,0,127},
@@ -4641,7 +4637,6 @@ If the signal width is greater than 1 this conversion is done for each signal.
 </ul>
 </HTML>"),
         extent=[-60, -10; -40, 10],
-        DymolaStoredErrors,
         Icon(Polygon(points=[-40,-40; 40,40; 40,-40; -40,-40],   style(
               color=78,
               rgbcolor={127,0,127},
