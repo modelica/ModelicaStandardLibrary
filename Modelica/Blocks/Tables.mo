@@ -123,60 +123,74 @@ rows of the file, the elements of the matrix have to be given.
 Several matrices may be defined one after another.
 </p>
 </HTML>
-"),   Icon(
-        Line(points=[-60, 40; -60, -40; 60, -40; 60, 40; 30, 40; 30, -40; -30,
-              -40; -30, 40; -60, 40; -60, 20; 60, 20; 60, 0; -60, 0; -60, -20;
-              60, -20; 60, -40; -60, -40; -60, 40; 60, 40; 60, -40], style(
-              color=0)),
-        Line(points=[0, 40; 0, -40], style(color=0)),
-        Rectangle(extent=[-60, 40; -30, 20], style(
-            color=0,
-            fillColor=6,
-            fillPattern=1)),
-        Rectangle(extent=[-60, 20; -30, 0], style(
-            color=0,
-            fillColor=6,
-            fillPattern=1)),
-        Rectangle(extent=[-60, 0; -30, -20], style(
-            color=0,
-            fillColor=6,
-            fillPattern=1)),
-        Rectangle(extent=[-60, -20; -30, -40], style(
-            color=0,
-            fillColor=6,
-            fillPattern=1))),
-      Diagram(
-        Rectangle(extent=[-60, 60; 60, -60], style(fillColor=30,
-              fillPattern =                                                  1)),
-        Line(points=[-100, 0; -58, 0]),
-        Line(points=[60, 0; 100, 0]),
-        Text(extent=[-100, 100; 100, 64], string=
-              "1 dimensional linear table interpolation"),
-        Line(points=[-54, 40; -54, -40; 54, -40; 54, 40; 28, 40; 28, -40; -28,
-              -40; -28, 40; -54, 40; -54, 20; 54, 20; 54, 0; -54, 0; -54, -20;
-              54, -20; 54, -40; -54, -40; -54, 40; 54, 40; 54, -40], style(
-              color=0)),
-        Line(points=[0, 40; 0, -40], style(color=0)),
-        Rectangle(extent=[-54, 40; -28, 20], style(
-            color=0,
-            fillColor=6,
-            fillPattern=1)),
-        Rectangle(extent=[-54, 20; -28, 0], style(
-            color=0,
-            fillColor=6,
-            fillPattern=1)),
-        Rectangle(extent=[-54, 0; -28, -20], style(
-            color=0,
-            fillColor=6,
-            fillPattern=1)),
-        Rectangle(extent=[-54, -20; -28, -40], style(
-            color=0,
-            fillColor=6,
-            fillPattern=1)),
-        Text(extent=[-50,54; -32,42], string="u[1]/[2]"),
-        Text(extent=[-24,54; 0,42], string="y[1]"),
-        Text(extent=[-2, -40; 30, -54], string="columns"),
-        Text(extent=[2,54; 26,42], string="y[2]")));
+"),   Icon(graphics={
+          Line(points={{-60,40},{-60,-40},{60,-40},{60,40},{30,40},{30,-40},{
+                -30,-40},{-30,40},{-60,40},{-60,20},{60,20},{60,0},{-60,0},{-60,
+                -20},{60,-20},{60,-40},{-60,-40},{-60,40},{60,40},{60,-40}}, 
+              color={0,0,0}), 
+          Line(points={{0,40},{0,-40}}, color={0,0,0}), 
+          Rectangle(
+            extent={{-60,40},{-30,20}}, 
+            lineColor={0,0,0}, 
+            fillColor={255,255,0}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{-60,20},{-30,0}}, 
+            lineColor={0,0,0}, 
+            fillColor={255,255,0}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{-60,0},{-30,-20}}, 
+            lineColor={0,0,0}, 
+            fillColor={255,255,0}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{-60,-20},{-30,-40}}, 
+            lineColor={0,0,0}, 
+            fillColor={255,255,0}, 
+            fillPattern=FillPattern.Solid)}),
+      Diagram(graphics={
+          Rectangle(
+            extent={{-60,60},{60,-60}}, 
+            fillColor={235,235,235}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-100,0},{-58,0}}), 
+          Line(points={{60,0},{100,0}}), 
+          Text(extent={{-100,100},{100,64}}, textString=
+              "1 dimensional linear table interpolation"), 
+          Line(points={{-54,40},{-54,-40},{54,-40},{54,40},{28,40},{28,-40},{
+                -28,-40},{-28,40},{-54,40},{-54,20},{54,20},{54,0},{-54,0},{-54,
+                -20},{54,-20},{54,-40},{-54,-40},{-54,40},{54,40},{54,-40}}, 
+              color={0,0,0}), 
+          Line(points={{0,40},{0,-40}}, color={0,0,0}), 
+          Rectangle(
+            extent={{-54,40},{-28,20}}, 
+            lineColor={0,0,0}, 
+            fillColor={255,255,0}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{-54,20},{-28,0}}, 
+            lineColor={0,0,0}, 
+            fillColor={255,255,0}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{-54,0},{-28,-20}}, 
+            lineColor={0,0,0}, 
+            fillColor={255,255,0}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{-54,-20},{-28,-40}}, 
+            lineColor={0,0,0}, 
+            fillColor={255,255,0}, 
+            fillPattern=FillPattern.Solid), 
+          Text(extent={{-50,54},{-32,42}}, textString=
+                                             "u[1]/[2]"), 
+          Text(extent={{-24,54},{0,42}}, textString=
+                                           "y[1]"), 
+          Text(extent={{-2,-40},{30,-54}}, textString=
+                                               "columns"), 
+          Text(extent={{2,54},{26,42}}, textString=
+                                          "y[2]")}));
   equation 
     if tableOnFile then
       assert(tableName<>"NoName", "tableOnFile = true and no table name given");
@@ -316,60 +330,74 @@ rows of the file, the elements of the matrix have to be given.
 Several matrices may be defined one after another.
 </p>
 </HTML>
-"),   Icon(
-        Line(points=[-60, 40; -60, -40; 60, -40; 60, 40; 30, 40; 30, -40; -30,
-              -40; -30, 40; -60, 40; -60, 20; 60, 20; 60, 0; -60, 0; -60, -20;
-              60, -20; 60, -40; -60, -40; -60, 40; 60, 40; 60, -40], style(
-              color=0)),
-        Line(points=[0, 40; 0, -40], style(color=0)),
-        Rectangle(extent=[-60, 40; -30, 20], style(
-            color=0,
-            fillColor=6,
-            fillPattern=1)),
-        Rectangle(extent=[-60, 20; -30, 0], style(
-            color=0,
-            fillColor=6,
-            fillPattern=1)),
-        Rectangle(extent=[-60, 0; -30, -20], style(
-            color=0,
-            fillColor=6,
-            fillPattern=1)),
-        Rectangle(extent=[-60, -20; -30, -40], style(
-            color=0,
-            fillColor=6,
-            fillPattern=1))),
-      Diagram(
-        Rectangle(extent=[-60, 60; 60, -60], style(fillColor=30,
-              fillPattern =                                                  1)),
-        Line(points=[-100, 0; -58, 0]),
-        Line(points=[60, 0; 100, 0]),
-        Text(extent=[-100, 100; 100, 64], string=
-              "1 dimensional linear table interpolation"),
-        Line(points=[-54, 40; -54, -40; 54, -40; 54, 40; 28, 40; 28, -40; -28,
-              -40; -28, 40; -54, 40; -54, 20; 54, 20; 54, 0; -54, 0; -54, -20;
-              54, -20; 54, -40; -54, -40; -54, 40; 54, 40; 54, -40], style(
-              color=0)),
-        Line(points=[0, 40; 0, -40], style(color=0)),
-        Rectangle(extent=[-54, 40; -28, 20], style(
-            color=0,
-            fillColor=6,
-            fillPattern=1)),
-        Rectangle(extent=[-54, 20; -28, 0], style(
-            color=0,
-            fillColor=6,
-            fillPattern=1)),
-        Rectangle(extent=[-54, 0; -28, -20], style(
-            color=0,
-            fillColor=6,
-            fillPattern=1)),
-        Rectangle(extent=[-54, -20; -28, -40], style(
-            color=0,
-            fillColor=6,
-            fillPattern=1)),
-        Text(extent=[-52, 56; -34, 44], string="u"),
-        Text(extent=[-22,54; 2,42], string="y[1]"),
-        Text(extent=[4,54; 28,42], string="y[2]"),
-        Text(extent=[0,-40; 32,-54], string="columns")));
+"),   Icon(graphics={
+          Line(points={{-60,40},{-60,-40},{60,-40},{60,40},{30,40},{30,-40},{
+                -30,-40},{-30,40},{-60,40},{-60,20},{60,20},{60,0},{-60,0},{-60,
+                -20},{60,-20},{60,-40},{-60,-40},{-60,40},{60,40},{60,-40}}, 
+              color={0,0,0}), 
+          Line(points={{0,40},{0,-40}}, color={0,0,0}), 
+          Rectangle(
+            extent={{-60,40},{-30,20}}, 
+            lineColor={0,0,0}, 
+            fillColor={255,255,0}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{-60,20},{-30,0}}, 
+            lineColor={0,0,0}, 
+            fillColor={255,255,0}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{-60,0},{-30,-20}}, 
+            lineColor={0,0,0}, 
+            fillColor={255,255,0}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{-60,-20},{-30,-40}}, 
+            lineColor={0,0,0}, 
+            fillColor={255,255,0}, 
+            fillPattern=FillPattern.Solid)}),
+      Diagram(graphics={
+          Rectangle(
+            extent={{-60,60},{60,-60}}, 
+            fillColor={235,235,235}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-100,0},{-58,0}}), 
+          Line(points={{60,0},{100,0}}), 
+          Text(extent={{-100,100},{100,64}}, textString=
+              "1 dimensional linear table interpolation"), 
+          Line(points={{-54,40},{-54,-40},{54,-40},{54,40},{28,40},{28,-40},{
+                -28,-40},{-28,40},{-54,40},{-54,20},{54,20},{54,0},{-54,0},{-54,
+                -20},{54,-20},{54,-40},{-54,-40},{-54,40},{54,40},{54,-40}}, 
+              color={0,0,0}), 
+          Line(points={{0,40},{0,-40}}, color={0,0,0}), 
+          Rectangle(
+            extent={{-54,40},{-28,20}}, 
+            lineColor={0,0,0}, 
+            fillColor={255,255,0}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{-54,20},{-28,0}}, 
+            lineColor={0,0,0}, 
+            fillColor={255,255,0}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{-54,0},{-28,-20}}, 
+            lineColor={0,0,0}, 
+            fillColor={255,255,0}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{-54,-20},{-28,-40}}, 
+            lineColor={0,0,0}, 
+            fillColor={255,255,0}, 
+            fillPattern=FillPattern.Solid), 
+          Text(extent={{-52,56},{-34,44}}, textString=
+                                               "u"), 
+          Text(extent={{-22,54},{2,42}}, textString=
+                                           "y[1]"), 
+          Text(extent={{4,54},{28,42}}, textString=
+                                          "y[2]"), 
+          Text(extent={{0,-40},{32,-54}}, textString=
+                                            "columns")}));
   equation 
     if tableOnFile then
       assert(tableName<>"NoName", "tableOnFile = true and no table name given");
@@ -512,78 +540,95 @@ and the first row \"table2D_1[1,2:]\" contains the u[2] grid points.
 </p>
 
 </html>
-"),   Icon(
-        Line(points=[-60, 40; -60, -40; 60, -40; 60, 40; 30, 40; 30, -40; -30,
-              -40; -30, 40; -60, 40; -60, 20; 60, 20; 60, 0; -60, 0; -60, -20;
-              60, -20; 60, -40; -60, -40; -60, 40; 60, 40; 60, -40], style(
-              color=0)),
-        Line(points=[0, 40; 0, -40], style(color=0)),
-        Rectangle(extent=[-60, 20; -30, 0], style(
-            color=0,
-            fillColor=6,
-            fillPattern=1)),
-        Rectangle(extent=[-60, 0; -30, -20], style(
-            color=0,
-            fillColor=6,
-            fillPattern=1)),
-        Rectangle(extent=[-60, -20; -30, -40], style(
-            color=0,
-            fillColor=6,
-            fillPattern=1)),
-        Rectangle(extent=[-30, 40; 0, 20], style(
-            color=0,
-            fillColor=6,
-            fillPattern=1)),
-        Rectangle(extent=[0, 40; 30, 20], style(
-            color=0,
-            fillColor=6,
-            fillPattern=1)),
-        Rectangle(extent=[30, 40; 60, 20], style(
-            color=0,
-            fillColor=6,
-            fillPattern=1)),
-        Line(points=[-60, 40; -30, 20], style(color=0)),
-        Line(points=[-30, 40; -60, 20], style(color=0))),
-      Diagram(
-        Rectangle(extent=[-60, 60; 60, -60], style(fillColor=30,
-              fillPattern =                                                  1)),
-        Line(points=[60, 0; 100, 0]),
-        Text(extent=[-100, 100; 100, 64], string=
-              "2 dimensional linear table interpolation"),
-        Line(points=[-54, 40; -54, -40; 54, -40; 54, 40; 28, 40; 28, -40; -28,
-              -40; -28, 40; -54, 40; -54, 20; 54, 20; 54, 0; -54, 0; -54, -20;
-              54, -20; 54, -40; -54, -40; -54, 40; 54, 40; 54, -40], style(
-              color=0)),
-        Line(points=[0, 40; 0, -40], style(color=0)),
-        Rectangle(extent=[-54, 20; -28, 0], style(
-            color=0,
-            fillColor=6,
-            fillPattern=1)),
-        Rectangle(extent=[-54, 0; -28, -20], style(
-            color=0,
-            fillColor=6,
-            fillPattern=1)),
-        Rectangle(extent=[-54, -20; -28, -40], style(
-            color=0,
-            fillColor=6,
-            fillPattern=1)),
-        Rectangle(extent=[-28, 40; 0, 20], style(
-            color=0,
-            fillColor=6,
-            fillPattern=1)),
-        Rectangle(extent=[0, 40; 28, 20], style(
-            color=0,
-            fillColor=6,
-            fillPattern=1)),
-        Rectangle(extent=[28, 40; 54, 20], style(
-            color=0,
-            fillColor=6,
-            fillPattern=1)),
-        Line(points=[-54, 40; -28, 20], style(color=0)),
-        Line(points=[-28, 40; -54, 20], style(color=0)),
-        Text(extent=[-54, -40; -30, -56], string="u1"),
-        Text(extent=[28, 58; 52, 44], string="u2"),
-        Text(extent=[-2,12; 32,-22], string="y")));
+"),   Icon(graphics={
+          Line(points={{-60,40},{-60,-40},{60,-40},{60,40},{30,40},{30,-40},{
+                -30,-40},{-30,40},{-60,40},{-60,20},{60,20},{60,0},{-60,0},{-60,
+                -20},{60,-20},{60,-40},{-60,-40},{-60,40},{60,40},{60,-40}}, 
+              color={0,0,0}), 
+          Line(points={{0,40},{0,-40}}, color={0,0,0}), 
+          Rectangle(
+            extent={{-60,20},{-30,0}}, 
+            lineColor={0,0,0}, 
+            fillColor={255,255,0}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{-60,0},{-30,-20}}, 
+            lineColor={0,0,0}, 
+            fillColor={255,255,0}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{-60,-20},{-30,-40}}, 
+            lineColor={0,0,0}, 
+            fillColor={255,255,0}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{-30,40},{0,20}}, 
+            lineColor={0,0,0}, 
+            fillColor={255,255,0}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{0,40},{30,20}}, 
+            lineColor={0,0,0}, 
+            fillColor={255,255,0}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{30,40},{60,20}}, 
+            lineColor={0,0,0}, 
+            fillColor={255,255,0}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-60,40},{-30,20}}, color={0,0,0}), 
+          Line(points={{-30,40},{-60,20}}, color={0,0,0})}),
+      Diagram(graphics={
+          Rectangle(
+            extent={{-60,60},{60,-60}}, 
+            fillColor={235,235,235}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{60,0},{100,0}}), 
+          Text(extent={{-100,100},{100,64}}, textString=
+              "2 dimensional linear table interpolation"), 
+          Line(points={{-54,40},{-54,-40},{54,-40},{54,40},{28,40},{28,-40},{
+                -28,-40},{-28,40},{-54,40},{-54,20},{54,20},{54,0},{-54,0},{-54,
+                -20},{54,-20},{54,-40},{-54,-40},{-54,40},{54,40},{54,-40}}, 
+              color={0,0,0}), 
+          Line(points={{0,40},{0,-40}}, color={0,0,0}), 
+          Rectangle(
+            extent={{-54,20},{-28,0}}, 
+            lineColor={0,0,0}, 
+            fillColor={255,255,0}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{-54,0},{-28,-20}}, 
+            lineColor={0,0,0}, 
+            fillColor={255,255,0}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{-54,-20},{-28,-40}}, 
+            lineColor={0,0,0}, 
+            fillColor={255,255,0}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{-28,40},{0,20}}, 
+            lineColor={0,0,0}, 
+            fillColor={255,255,0}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{0,40},{28,20}}, 
+            lineColor={0,0,0}, 
+            fillColor={255,255,0}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{28,40},{54,20}}, 
+            lineColor={0,0,0}, 
+            fillColor={255,255,0}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-54,40},{-28,20}}, color={0,0,0}), 
+          Line(points={{-28,40},{-54,20}}, color={0,0,0}), 
+          Text(extent={{-54,-40},{-30,-56}}, textString=
+                                                 "u1"), 
+          Text(extent={{28,58},{52,44}}, textString=
+                                             "u2"), 
+          Text(extent={{-2,12},{32,-22}}, textString=
+                                            "y")}));
   protected 
     Real tableID;
   equation 

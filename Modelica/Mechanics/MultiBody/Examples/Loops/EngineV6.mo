@@ -18,61 +18,72 @@ model EngineV6
     n={1,0,0},
     cylinderLength=0.02,
     cylinderDiameter=0.06,
-    animation=animation) annotation (extent=[-90, 20; -70, 0], rotation=0);
+    animation=animation) annotation (Placement(transformation(extent={{-90,20},
+            {-70,0}}, rotation=0)));
   inner Modelica.Mechanics.MultiBody.World world(animateWorld=false,
       animateGravity =                                                              false) 
-    annotation (extent=[-120, 20; -100, 40]);
+    annotation (Placement(transformation(extent={{-120,20},{-100,40}}, rotation
+          =0)));
   Utilities.Cylinder cylinder1(
     crankAngleOffset=Cv.from_deg(-30),
     cylinderInclination=Cv.from_deg(-30),
-    animation=animation) annotation (extent=[-50, 4; -30, 34]);
+    animation=animation) annotation (Placement(transformation(extent={{-50,4},{
+            -30,34}}, rotation=0)));
   Utilities.Cylinder cylinder2(
     crankAngleOffset=Cv.from_deg(90),
     cylinderInclination=Cv.from_deg(30),
-    animation=animation) annotation (extent=[-20, 4; 0, 34]);
+    animation=animation) annotation (Placement(transformation(extent={{-20,4},{
+            0,34}}, rotation=0)));
   Utilities.Cylinder cylinder3(
     cylinderInclination=Cv.from_deg(-30),
     animation=animation,
     crankAngleOffset=Cv.from_deg(210)) 
-                         annotation (extent=[10, 4; 30, 34]);
+                         annotation (Placement(transformation(extent={{10,4},{
+            30,34}}, rotation=0)));
   Utilities.Cylinder cylinder4(
     cylinderInclination=Cv.from_deg(30),
     animation=animation,
     crankAngleOffset=Cv.from_deg(210)) 
-                         annotation (extent=[39, 4; 59, 34]);
+                         annotation (Placement(transformation(extent={{39,4},{
+            59,34}}, rotation=0)));
   Utilities.Cylinder cylinder5(
     cylinderInclination=Cv.from_deg(-30),
     animation=animation,
     crankAngleOffset=Cv.from_deg(90)) 
-                         annotation (extent=[70, 4; 90, 34]);
+                         annotation (Placement(transformation(extent={{70,4},{
+            90,34}}, rotation=0)));
   Utilities.Cylinder cylinder6(
     cylinderInclination=Cv.from_deg(30),
     animation=animation,
     crankAngleOffset=Cv.from_deg(-30)) 
-                         annotation (extent=[100, 4; 120, 34]);
+                         annotation (Placement(transformation(extent={{100,4},{
+            120,34}}, rotation=0)));
   Rotational.Inertia load(phi(
       start=0,
       fixed=true,
       stateSelect=StateSelect.always), w(
       start=10,
       fixed=true,
-      stateSelect=StateSelect.always)) annotation (extent=[-44,-30; -24,-10]);
+      stateSelect=StateSelect.always)) annotation (Placement(transformation(
+          extent={{-44,-30},{-24,-10}}, rotation=0)));
   Rotational.QuadraticSpeedDependentTorque load2(tau_nominal=-100, w_nominal=
-        200) annotation (extent=[6,-30; -14,-10]);
+        200) annotation (Placement(transformation(extent={{6,-30},{-14,-10}}, 
+          rotation=0)));
   Rotational.Sensors.TorqueSensor torqueSensor 
-    annotation (extent=[-72,-30; -52,-10]);
+    annotation (Placement(transformation(extent={{-72,-30},{-52,-10}}, rotation
+          =0)));
   Blocks.Continuous.CriticalDamping filter(
     n=2,
     initType=Modelica.Blocks.Types.Init.SteadyState,
-    f=5) annotation (extent=[-54,-60; -34,-40]);
+    f=5) annotation (Placement(transformation(extent={{-54,-60},{-34,-40}}, 
+          rotation=0)));
 equation 
   
   annotation (
-    Diagram,
-    Coordsys(
-      extent=[-120, -100; 120, 100],
-      grid=[1, 1],
-      component=[20, 20]),
+    Diagram(coordinateSystem(
+        preserveAspectRatio=true, 
+        extent={{-120,-100},{120,100}}, 
+        grid={1,1}), graphics),
     Documentation(info="<HTML>
 <p>
 This is a V6 engine with 6 cylinders. It is hierarchically built
@@ -94,76 +105,74 @@ a size of about 50 Mbyte (for 5000 output intervalls).
 "), experiment(StopTime=5, NumberOfIntervals=5000),
     experimentSetupOutput);
   connect(bearing.frame_b, cylinder1.crank_a) 
-    annotation (points=[-70,10; -50,10], style(
-      color=10,
-      rgbcolor={95,95,95},
+    annotation (Line(
+      points={{-70,10},{-50,10}}, 
+      color={95,95,95}, 
       thickness=2));
   connect(cylinder1.crank_b, cylinder2.crank_a) 
-    annotation (points=[-30,10; -20,10], style(
-      color=10,
-      rgbcolor={95,95,95},
+    annotation (Line(
+      points={{-30,10},{-20,10}}, 
+      color={95,95,95}, 
       thickness=2));
   connect(cylinder2.crank_b, cylinder3.crank_a) 
-    annotation (points=[0,10; 10,10], style(
-      color=10,
-      rgbcolor={95,95,95},
+    annotation (Line(
+      points={{0,10},{10,10}}, 
+      color={95,95,95}, 
       thickness=2));
   connect(cylinder3.crank_b, cylinder4.crank_a) 
-    annotation (points=[30,10; 39,10], style(
-      color=10,
-      rgbcolor={95,95,95},
+    annotation (Line(
+      points={{30,10},{39,10}}, 
+      color={95,95,95}, 
       thickness=2));
   connect(cylinder4.crank_b, cylinder5.crank_a) 
-    annotation (points=[59,10; 70,10], style(
-      color=10,
-      rgbcolor={95,95,95},
+    annotation (Line(
+      points={{59,10},{70,10}}, 
+      color={95,95,95}, 
       thickness=2));
   connect(cylinder5.crank_b, cylinder6.crank_a) 
-    annotation (points=[90,10; 100,10], style(
-      color=10,
-      rgbcolor={95,95,95},
+    annotation (Line(
+      points={{90,10},{100,10}}, 
+      color={95,95,95}, 
       thickness=2));
   connect(cylinder5.cylinder_b, cylinder6.cylinder_a) 
-    annotation (points=[90,32; 100,32], style(
-      color=10,
-      rgbcolor={95,95,95},
+    annotation (Line(
+      points={{90,32},{100,32}}, 
+      color={95,95,95}, 
       thickness=2));
   connect(cylinder4.cylinder_b, cylinder5.cylinder_a) 
-    annotation (points=[59,32; 70,32], style(
-      color=10,
-      rgbcolor={95,95,95},
+    annotation (Line(
+      points={{59,32},{70,32}}, 
+      color={95,95,95}, 
       thickness=2));
   connect(cylinder4.cylinder_a, cylinder3.cylinder_b) 
-    annotation (points=[39,32; 30,32], style(
-      color=10,
-      rgbcolor={95,95,95},
+    annotation (Line(
+      points={{39,32},{30,32}}, 
+      color={95,95,95}, 
       thickness=2));
   connect(cylinder3.cylinder_a, cylinder2.cylinder_b) 
-    annotation (points=[10,32; 0,32], style(
-      color=10,
-      rgbcolor={95,95,95},
+    annotation (Line(
+      points={{10,32},{0,32}}, 
+      color={95,95,95}, 
       thickness=2));
   connect(cylinder2.cylinder_a, cylinder1.cylinder_b) 
-    annotation (points=[-20,32; -30,32], style(
-      color=10,
-      rgbcolor={95,95,95},
+    annotation (Line(
+      points={{-20,32},{-30,32}}, 
+      color={95,95,95}, 
       thickness=2));
-  connect(world.frame_b, cylinder1.cylinder_a) annotation (points=[-100,30; -59,
-        30; -59,32; -50,32], style(
-      color=10,
-      rgbcolor={95,95,95},
+  connect(world.frame_b, cylinder1.cylinder_a) annotation (Line(
+      points={{-100,30},{-59,30},{-59,32},{-50,32}}, 
+      color={95,95,95}, 
       thickness=2));
-  connect(world.frame_b, bearing.frame_a) annotation (points=[-100,30; -96,30;
-        -96,10; -90,10], style(
-      color=10,
-      rgbcolor={95,95,95},
+  connect(world.frame_b, bearing.frame_a) annotation (Line(
+      points={{-100,30},{-96,30},{-96,10},{-90,10}}, 
+      color={95,95,95}, 
       thickness=2));
   connect(load2.flange, load.flange_b) 
-    annotation (points=[-14,-20; -24,-20], style(color=0, rgbcolor={0,0,0}));
+    annotation (Line(points={{-14,-20},{-24,-20}}, color={0,0,0}));
   connect(torqueSensor.flange_b, load.flange_a) 
-    annotation (points=[-52,-20; -44,-20], style(color=0, rgbcolor={0,0,0}));
-  connect(torqueSensor.tau,filter. u) annotation (points=[-70,-31; -70,-50; -56,
-        -50], style(color=74, rgbcolor={0,0,127}));
-  connect(torqueSensor.flange_a, bearing.axis) annotation (points=[-72,-20; -80,
-        -20; -80,0], style(color=0, rgbcolor={0,0,0}));
+    annotation (Line(points={{-52,-20},{-44,-20}}, color={0,0,0}));
+  connect(torqueSensor.tau,filter. u) annotation (Line(points={{-70,-31},{-70,
+          -50},{-56,-50}}, color={0,0,127}));
+  connect(torqueSensor.flange_a, bearing.axis) annotation (Line(points={{-72,
+          -20},{-80,-20},{-80,0}}, color={0,0,0}));
 end EngineV6;

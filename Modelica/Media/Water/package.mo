@@ -254,19 +254,19 @@ package ConstantPropertyLiquidWater
      MM_const=0.018015268,
      fluidConstants = simpleWaterConstants);
   
-  annotation (Icon(Text(
-        extent=[-90, 88; 90, 18],
-        string="liquid",
-        style(
-          color=0,
-          fillColor=7,
-          fillPattern=1)), Text(
-        extent=[-90, -22; 90, -90],
-        string="water",
-        style(
-          color=0,
-          fillColor=7,
-          fillPattern=1))), Diagram,
+  annotation (Icon(graphics={Text(
+          extent={{-90,88},{90,18}}, 
+          lineColor={0,0,0}, 
+          fillColor={255,255,255}, 
+          fillPattern=FillPattern.Solid, 
+          textString=
+               "liquid"), Text(
+          extent={{-90,-22},{90,-90}}, 
+          lineColor={0,0,0}, 
+          fillColor={255,255,255}, 
+          fillPattern=FillPattern.Solid, 
+          textString=
+               "water")}),  Diagram(graphics),
     Documentation(info="<html>
   
 </html>"));
@@ -330,13 +330,15 @@ end WaterIF97_ph;
 partial package WaterIF97_base 
   "Water: Steam properties as defined by IAPWS/IF97 standard" 
   
-  annotation (Icon(Text(
-        extent=[-94, 84; 94, 40],
-        style(color=71),
-        string="IF97"), Text(
-        extent=[-94, 20; 94, -24],
-        style(color=71),
-        string="water")), Documentation(info="<HTML>
+  annotation (Icon(graphics={Text(
+          extent={{-94,84},{94,40}}, 
+          lineColor={127,191,255}, 
+          textString=
+               "IF97"), Text(
+          extent={{-94,20},{94,-24}}, 
+          lineColor={127,191,255}, 
+          textString=
+               "water")}),Documentation(info="<HTML>
 <p>
 This model calculates medium properties 
 for water in the <b>liquid</b>, <b>gas</b> and <b>two phase</b> regions 
@@ -893,13 +895,15 @@ end WaterIF97_base;
 partial package WaterIF97_fixedregion 
   "Water: Steam properties as defined by IAPWS/IF97 standard" 
   
-  annotation (Icon(Text(
-        extent=[-94, 84; 94, 40],
-        style(color=71),
-        string="IF97"), Text(
-        extent=[-94, 20; 94, -24],
-        style(color=71),
-        string="water")), Documentation(info="<HTML>
+  annotation (Icon(graphics={Text(
+          extent={{-94,84},{94,40}}, 
+          lineColor={127,191,255}, 
+          textString=
+               "IF97"), Text(
+          extent={{-94,20},{94,-24}}, 
+          lineColor={127,191,255}, 
+          textString=
+               "water")}),Documentation(info="<HTML>
 <p>
 This model calculates medium properties 
 for water in the <b>liquid</b>, <b>gas</b> and <b>two phase</b> regions 

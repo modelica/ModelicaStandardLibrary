@@ -11,7 +11,10 @@ package Sensors "Sensors to measure variables"
                   0) + (if get_z_abs then 1 else 0)));
     Interfaces.Frame_resolve frame_resolve 
       "If connected, the output signals are resolved in this frame" 
-      annotation (extent=[-16,84; 16,116], rotation=-90);
+      annotation (Placement(transformation(
+          origin={0,100}, 
+          extent={{-16,-16},{16,16}}, 
+          rotation=270)));
     parameter Boolean animation=true 
       "= true, if animation shall be enabled (show arrow)";
     parameter Boolean resolveInFrame_a=false 
@@ -48,24 +51,25 @@ package Sensors "Sensors to measure variables"
     
     annotation (
       preferedView="info",
-      Icon(
-        Text(
-          extent=[19,109; 150,84],
-          style(color=8),
-          string="resolve"),
-        Line(points=[-84,0; -84,84; 0,84; 0,100], style(
-            color=10,
-            rgbcolor={95,95,95},
-            pattern=3)),
-        Text(
-          extent=[-132, 52; -96, 27],
-          style(color=10),
-          string="a")),
-      Diagram(
-        Line(points=[-84,0; -84,82; 0,82; 0,98], style(
-            color=10,
-            rgbcolor={95,95,95},
-            pattern=3))),
+      Icon(graphics={
+          Text(
+            extent={{19,109},{150,84}}, 
+            lineColor={192,192,192}, 
+            textString=
+                 "resolve"), 
+          Line(
+            points={{-84,0},{-84,84},{0,84},{0,100}}, 
+            color={95,95,95}, 
+            pattern=LinePattern.Dot), 
+          Text(
+            extent={{-132,52},{-96,27}}, 
+            lineColor={128,128,128}, 
+            textString=
+                 "a")}),
+      Diagram(graphics={Line(
+            points={{-84,0},{-84,82},{0,82},{0,98}}, 
+            color={95,95,95}, 
+            pattern=LinePattern.Dot)}),
       Documentation(info="<HTML>
 <p>
 Absolute kinematic quantities of frame_a are
@@ -376,7 +380,10 @@ Exact definition of the returned quantities:
             get_w_rel then 1 else 0) + (if get_z_rel then 1 else 0)));
     Interfaces.Frame_resolve frame_resolve 
       "If connected, the output signals are resolved in this frame" 
-      annotation (extent=[-76,-116; -44,-84],  rotation=-90);
+      annotation (Placement(transformation(
+          origin={-60,-100}, 
+          extent={{-16,-16},{16,16}}, 
+          rotation=270)));
     
     parameter Boolean animation=true 
       "= true, if animation shall be enabled (show arrow)";
@@ -450,21 +457,19 @@ Exact definition of the returned quantities:
       specularCoefficient) if world.enableAnimation and animation;
     annotation (
       preferedView="info",
-      Icon(Line(points=[-60,-94; -60,-76; 0,-76; 0,-76], style(
-            color=10,
-            rgbcolor={95,95,95},
-            pattern=3)),     Text(
-          extent=[-157,-49; -26,-74],
-          string="resolve",
-          style(
-            color=8,
-            rgbcolor={192,192,192},
-            pattern=3))),
-      Diagram(
-           Line(points=[-60,-98; -60,-76; 0,-76; 0,-76], style(
-            color=10,
-            rgbcolor={95,95,95},
-            pattern=3))),
+      Icon(graphics={Line(
+            points={{-60,-94},{-60,-76},{0,-76},{0,-76}}, 
+            color={95,95,95}, 
+            pattern=LinePattern.Dot), Text(
+            extent={{-157,-49},{-26,-74}}, 
+            lineColor={192,192,192}, 
+            pattern=LinePattern.Dot, 
+            textString=
+                 "resolve")}),
+      Diagram(graphics={Line(
+            points={{-60,-98},{-60,-76},{0,-76},{0,-76}}, 
+            color={95,95,95}, 
+            pattern=LinePattern.Dot)}),
       Documentation(info="<HTML>
 <p>
 Relative kinematic quantities between frame_a and frame_b are
@@ -777,13 +782,18 @@ and resolved in the following frame
     extends Modelica.Icons.RotationalSensor;
     Interfaces.Frame_a frame_a 
       "Coordinate system fixed to the component with one cut-force and cut-torque"
-                               annotation (extent=[-116,-16; -84,16]);
+                               annotation (Placement(transformation(extent={{
+              -116,-16},{-84,16}}, rotation=0)));
     Interfaces.Frame_b frame_b 
       "Coordinate system fixed to the component with one cut-force and cut-torque"
-                               annotation (extent=[84,-16; 116,16]);
+                               annotation (Placement(transformation(extent={{84,
+              -16},{116,16}}, rotation=0)));
     Blocks.Interfaces.RealOutput r_rel[3] 
       "Relative position vector frame_b.r_0 - frame_a.r_0 resolved in frame_a or frame_b"
-      annotation (extent=[-90,-100; -70,-120], rotation=90);
+      annotation (Placement(transformation(
+          origin={-80,-110}, 
+          extent={{10,-10},{-10,10}}, 
+          rotation=90)));
     
     parameter Boolean animation=true 
       "= true, if animation shall be enabled (show arrow)";
@@ -815,12 +825,17 @@ and resolved in the following frame
       extends Modelica.Blocks.Interfaces.BlockIcon;
       
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a 
-        "Coordinate system a"                                                       annotation (extent=[-116,-16; -84,16]);
+        "Coordinate system a"                                                       annotation (Placement(
+            transformation(extent={{-116,-16},{-84,16}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_b 
-        "Coordinate system b"                                                       annotation (extent=[84,-16; 116,16]);
+        "Coordinate system b"                                                       annotation (Placement(
+            transformation(extent={{84,-16},{116,16}}, rotation=0)));
       Modelica.Blocks.Interfaces.RealOutput r_rel[3] 
         "Relative position vector, frame_b.r_0 - frame_a.r_0, resolved in frame_a or frame_b depending on parameter resolveInFrame_a)"
-        annotation (extent=[-10,-120; 10,-100], rotation=-90);
+        annotation (Placement(transformation(
+            origin={0,-110}, 
+            extent={{-10,-10},{10,10}}, 
+            rotation=270)));
       parameter Boolean resolveInFrame_a=true 
         "= true, if relative vectors from frame_a to frame_b are resolved before differentiation in frame_a, otherwise in frame_b";
       
@@ -835,62 +850,65 @@ and resolved in the following frame
           r_rel = Frames.resolve2(frame_b.R, frame_b.r_0 - frame_a.r_0);
        end if;
       
-      annotation (Icon(Text(
-            extent=[-78,-60; 78,-82],
-            string="r_rel",
-            style(color=0, rgbcolor={0,0,0}))));
+      annotation (Icon(graphics={Text(
+              extent={{-78,-60},{78,-82}}, 
+              lineColor={0,0,0}, 
+              textString=
+                   "r_rel")}));
     end RelativePosition;
     
   protected 
-    RelativePosition relativePosition annotation (extent=[-70,-10; -50,10]);
-    annotation (Diagram, Icon(
-        Line(points=[-70,0; -96,0], style(
-            color=0,
-            rgbcolor={0,0,0},
-            smooth=0)),
-        Line(points=[96,0; 70,0], style(
-            color=0,
-            rgbcolor={0,0,0},
-            smooth=0)),
-        Line(points=[-80,0; -80,-100],   style(
-            color=74,
-            rgbcolor={0,0,127},
-            smooth=0)),
-        Text(
-          extent=[-116,-62; -44,-76],
-          string="r_rel",
-          style(color=0, rgbcolor={0,0,0})),
-           Text(
-          extent=[-112,51; -76,26],
-          style(color=10),
-          string="a"), Text(
-          extent=[78,51; 114,26],
-          style(color=10),
-          string="b")));
+    RelativePosition relativePosition annotation (Placement(transformation(
+            extent={{-70,-10},{-50,10}}, rotation=0)));
+    annotation (Diagram(graphics),
+                         Icon(graphics={
+          Line(
+            points={{-70,0},{-96,0}}, 
+            color={0,0,0}, 
+            smooth=Smooth.None), 
+          Line(
+            points={{96,0},{70,0}}, 
+            color={0,0,0}, 
+            smooth=Smooth.None), 
+          Line(
+            points={{-80,0},{-80,-100}}, 
+            color={0,0,127}, 
+            smooth=Smooth.None), 
+          Text(
+            extent={{-116,-62},{-44,-76}}, 
+            lineColor={0,0,0}, 
+            textString=
+                 "r_rel"), 
+          Text(
+            extent={{-112,51},{-76,26}}, 
+            lineColor={128,128,128}, 
+            textString=
+                 "a"), 
+          Text(
+            extent={{78,51},{114,26}}, 
+            lineColor={128,128,128}, 
+            textString=
+                 "b")}));
   equation 
     assert(cardinality(frame_a) > 0,
       "Connector frame_a of component is not connected");
     assert(cardinality(frame_b) > 0,
       "Connector frame_b of component is not connected");
     
-    connect(relativePosition.frame_a, frame_a) annotation (points=[-70,0; -100,0],
-        style(
-        color=10,
-        rgbcolor={95,95,95},
-        thickness=2,
-        smooth=0));
-    connect(relativePosition.frame_b, frame_b) annotation (points=[-50,0; 100,0],
-        style(
-        color=10,
-        rgbcolor={95,95,95},
-        thickness=2,
-        smooth=0));
-    connect(relativePosition.r_rel, r_rel) annotation (points=[-60,-11; -60,
-          -60.5; -60,-110; -80,-110],
-        style(
-        color=74,
-        rgbcolor={0,0,127},
-        smooth=0));
+    connect(relativePosition.frame_a, frame_a) annotation (Line(
+        points={{-70,0},{-100,0}}, 
+        color={95,95,95}, 
+        thickness=2, 
+        smooth=Smooth.None));
+    connect(relativePosition.frame_b, frame_b) annotation (Line(
+        points={{-50,0},{100,0}}, 
+        color={95,95,95}, 
+        thickness=2, 
+        smooth=Smooth.None));
+    connect(relativePosition.r_rel, r_rel) annotation (Line(
+        points={{-60,-11},{-60,-60.5},{-60,-110},{-80,-110}}, 
+        color={0,0,127}, 
+        smooth=Smooth.None));
   end RelativeSensorNew;
   
   model Distance 
@@ -904,7 +922,10 @@ and resolved in the following frame
     extends Modelica.Icons.TranslationalSensor;
     Modelica.Blocks.Interfaces.RealOutput distance 
       "Distance between the origin of frame_a and the origin of frame_b" 
-      annotation (extent=[-10, -100; 10, -120], rotation=90);
+      annotation (Placement(transformation(
+          origin={0,-110}, 
+          extent={{10,-10},{-10,10}}, 
+          rotation=90)));
     
     parameter Boolean animation=true 
       "= true, if animation shall be enabled (show arrow)";
@@ -929,21 +950,24 @@ and resolved in the following frame
       specularCoefficient=specularCoefficient) if world.enableAnimation and animation;
     annotation (
       preferedView="info",
-      Icon(
-        Line(points=[0, -60; 0, -100]),
-        Line(points=[-70, 0; -101, 0], style(color=0)),
-        Line(points=[70, 0; 100, 0], style(color=0)),
-        Text(extent=[-128,30; 133,78],    string="%name")),
-      Diagram(
-        Line(points=[-70, 0; -101, 0], style(color=0)),
-        Line(points=[70, 0; 100, 0], style(color=0)),
-        Line(points=[0, -60; 0, -100]),
-        Text(extent=[-22, 70; 20, 46], string="s"),
-        Line(points=[-98, 40; 88, 40]),
-        Polygon(points=[102, 40; 87, 46; 87, 34; 102, 40], style(
-            color=3,
-            fillColor=3,
-            fillPattern=1))),
+      Icon(graphics={
+          Line(points={{0,-60},{0,-100}}), 
+          Line(points={{-70,0},{-101,0}}, color={0,0,0}), 
+          Line(points={{70,0},{100,0}}, color={0,0,0}), 
+          Text(extent={{-128,30},{133,78}}, textString=
+                                                 "%name")}),
+      Diagram(graphics={
+          Line(points={{-70,0},{-101,0}}, color={0,0,0}), 
+          Line(points={{70,0},{100,0}}, color={0,0,0}), 
+          Line(points={{0,-60},{0,-100}}), 
+          Text(extent={{-22,70},{20,46}}, textString=
+                                              "s"), 
+          Line(points={{-98,40},{88,40}}), 
+          Polygon(
+            points={{102,40},{87,46},{87,34},{102,40}}, 
+            lineColor={0,0,255}, 
+            fillColor={0,0,255}, 
+            fillPattern=FillPattern.Solid)}),
       Documentation(info="<HTML>
 <p>
 The <b>distance</b> between the origins of frame_a
@@ -1001,7 +1025,10 @@ differentiable everywhere. The derivative at zero distance is 3/(2*s_small).
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialCutForceSensor;
     Modelica.Blocks.Interfaces.RealOutput force[3] 
       "Cut force resolved in frame_a/frame_b or in frame_resolved, if connected"
-         annotation (extent=[-90, -100; -70, -120], rotation=90);
+         annotation (Placement(transformation(
+          origin={-80,-110}, 
+          extent={{10,-10},{-10,10}}, 
+          rotation=90)));
     
     parameter Boolean animation=true 
       "= true, if animation shall be enabled (show arrow)";
@@ -1023,11 +1050,12 @@ differentiable everywhere. The derivative at zero distance is 3/(2*s_small).
     
     annotation (
       preferedView="info",
-      Icon(Text(
-          extent=[-190,-70; -74,-96],
-          string="force",
-          style(color=8))),
-      Diagram,
+      Icon(graphics={Text(
+            extent={{-190,-70},{-74,-96}}, 
+            lineColor={192,192,192}, 
+            textString=
+                 "force")}),
+      Diagram(graphics),
       Documentation(info="<HTML>
 <p>
 The cut-force acting at the component to which frame_b is
@@ -1085,7 +1113,10 @@ with negative sign at frame_a.
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialCutForceSensor;
     Modelica.Blocks.Interfaces.RealOutput torque[3] 
       "Cut torque resolved in frame_a/frame_b or in frame_resolved, if connected"
-         annotation (extent=[-90, -100; -70, -120], rotation=90);
+         annotation (Placement(transformation(
+          origin={-80,-110}, 
+          extent={{10,-10},{-10,10}}, 
+          rotation=90)));
     
     parameter Boolean animation=true 
       "= true, if animation shall be enabled (show arrow)";
@@ -1107,11 +1138,12 @@ with negative sign at frame_a.
     
     annotation (
       preferedView="info",
-      Icon(Text(
-          extent=[-168, -72; -52, -98],
-          style(color=8),
-          string="torque")),
-      Diagram,
+      Icon(graphics={Text(
+            extent={{-168,-72},{-52,-98}}, 
+            lineColor={192,192,192}, 
+            textString=
+                 "torque")}),
+      Diagram(graphics),
       Documentation(info="<HTML>
 <p>
 The cut-torque acting at the component to which frame_b is
@@ -1169,7 +1201,10 @@ with negative sign at frame_a.
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialCutForceSensor;
     Modelica.Blocks.Interfaces.RealOutput load[6] 
       "Cut force and cut torque resolved in frame_a/frame_b or in frame_resolved, if connected"
-         annotation (extent=[-90, -100; -70, -120], rotation=90);
+         annotation (Placement(transformation(
+          origin={-80,-110}, 
+          extent={{10,-10},{-10,10}}, 
+          rotation=90)));
     
     parameter Boolean animation=true 
       "= true, if animation shall be enabled (show force and torque arrow)";
@@ -1203,8 +1238,8 @@ with negative sign at frame_a.
       "Cut torque resolved in frame_a/frame_b or in frame_resolved, if connected";
     annotation (
       preferedView="info",
-      Icon,
-      Diagram,
+      Icon(graphics),
+      Diagram(graphics),
       Documentation(info="<HTML>
 <p>
 The cut-force and cut-torque acting at the component to which frame_b is
@@ -1287,22 +1322,27 @@ with negative sign at frame_a.
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
     Modelica.Blocks.Interfaces.RealOutput power 
       "Power at frame_a as output signal" 
-      annotation (extent=[-90, -100; -70, -120], rotation=90);
+      annotation (Placement(transformation(
+          origin={-80,-110}, 
+          extent={{10,-10},{-10,10}}, 
+          rotation=90)));
     
     annotation (
-      Diagram(
-        Line(points=[-70, 0; -101, 0], style(color=0)),
-        Line(points=[70, 0; 100, 0], style(color=0)),
-        Line(points=[-80, 0; -80, -100], style(color=74, rgbcolor={0,0,127}))),
-      Icon(
-        Line(points=[-70, 0; -101, 0], style(color=0)),
-        Line(points=[70, 0; 100, 0], style(color=0)),
-        Line(points=[-80, 0; -80, -100], style(color=74, rgbcolor={0,0,127})),
-        Text(
-          extent=[-60,-92; 16,-114],
-          style(color=0),
-          string="power"),
-        Text(extent=[-128, 126; 126, 68], string="%name")),
+      Diagram(graphics={
+          Line(points={{-70,0},{-101,0}}, color={0,0,0}), 
+          Line(points={{70,0},{100,0}}, color={0,0,0}), 
+          Line(points={{-80,0},{-80,-100}}, color={0,0,127})}),
+      Icon(graphics={
+          Line(points={{-70,0},{-101,0}}, color={0,0,0}), 
+          Line(points={{70,0},{100,0}}, color={0,0,0}), 
+          Line(points={{-80,0},{-80,-100}}, color={0,0,127}), 
+          Text(
+            extent={{-60,-92},{16,-114}}, 
+            lineColor={0,0,0}, 
+            textString=
+                 "power"), 
+          Text(extent={{-128,126},{126,68}}, textString=
+                                                 "%name")}),
       Documentation(info="<HTML>
 <p>
 This component provides the power flowing from frame_a to frame_b

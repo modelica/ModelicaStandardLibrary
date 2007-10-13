@@ -6,16 +6,15 @@ encapsulated model Pendulum
   extends Modelica.Icons.Example;
   annotation (
     experiment(StopTime=5),
-    Coordsys(
-      extent=[-100, -100; 100, 100],
-      grid=[2, 2],
-      component=[20, 20]),
     Window(
       x=0.29,
       y=0,
       width=0.71,
       height=0.85),
-    Diagram,
+    Diagram(coordinateSystem(
+        preserveAspectRatio=true, 
+        extent={{-100,-100},{100,100}}, 
+        grid={2,2}), graphics),
     Documentation(info="<html>
 <p>
 This simple model demonstrates that by just dragging components
@@ -27,26 +26,28 @@ ALT=\"model Examples.Elementary.Pendulum\">
 </p>
 </html>"));
   inner Modelica.Mechanics.MultiBody.World world(gravityType=Modelica.Mechanics.MultiBody.Types.GravityTypes.
-        UniformGravity) annotation (extent=[-60, 0; -40, 20]);
+        UniformGravity) annotation (Placement(transformation(extent={{-60,0},{
+            -40,20}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute rev(n={0,0,1}, initType=Modelica.Mechanics.MultiBody.Types.
-        Init.PositionVelocity) annotation (extent=[-20, 0; 0, 20]);
+        Init.PositionVelocity) annotation (Placement(transformation(extent={{
+            -20,0},{0,20}}, rotation=0)));
   Modelica.Mechanics.Rotational.Damper damper(d=0.1) 
-    annotation (extent=[-20, 40; 0, 60]);
+    annotation (Placement(transformation(extent={{-20,40},{0,60}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Parts.Body body(m=1.0, r_CM={0.5,0,0}) 
-    annotation (extent=[20, 0; 40, 20]);
+    annotation (Placement(transformation(extent={{20,0},{40,20}}, rotation=0)));
 equation 
   connect(world.frame_b, rev.frame_a) 
-    annotation (points=[-40,10; -20,10], style(
-      color=10,
-      rgbcolor={95,95,95},
+    annotation (Line(
+      points={{-40,10},{-20,10}}, 
+      color={95,95,95}, 
       thickness=2));
-  connect(damper.flange_b, rev.axis) annotation (points=[0, 50; 4, 50; 4, 26; -10,
-         26; -10, 20], style(color=0));
-  connect(rev.bearing, damper.flange_a) annotation (points=[-16, 20; -16, 26; -28,
-         26; -28, 50; -20, 50], style(color=0));
-  connect(body.frame_a, rev.frame_b) annotation (points=[20,10; 0,10], style(
-      color=10,
-      rgbcolor={95,95,95},
-      thickness=2,
-      gradient=2));
+  connect(damper.flange_b, rev.axis) annotation (Line(points={{0,50},{4,50},{4,
+          26},{-10,26},{-10,20}}, color={0,0,0}));
+  connect(rev.bearing, damper.flange_a) annotation (Line(points={{-16,20},{-16,
+          26},{-28,26},{-28,50},{-20,50}}, color={0,0,0}));
+  connect(body.frame_a, rev.frame_b) annotation (Line(
+      points={{20,10},{0,10}}, 
+      color={95,95,95}, 
+      thickness=2, 
+      fillPattern=FillPattern.HorizontalCylinder));
 end Pendulum;

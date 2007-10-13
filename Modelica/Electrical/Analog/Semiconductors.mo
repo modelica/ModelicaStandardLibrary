@@ -78,32 +78,36 @@ continued to avoid overflow.
        </li>
 </ul>
 </html>"),
-      Coordsys(
-        extent=[-100, -100; 100, 100],
-        grid=[1, 1],
-        component=[20, 20]),
-      Icon(
-        Polygon(points=[30, 0; -30, 40; -30, -40; 30, 0], style(
-            color=3,
-            gradient=0,
-            fillColor=7)),
-        Line(points=[-90, 0; 40, 0]),
-        Line(points=[40, 0; 90, 0]),
-        Line(points=[30, 40; 30, -40], style(color=3)),
-        Text(
-          extent=[-98, -58; 102, -100],
-          string="Vt=%Vt",
-          style(color=0)),
-        Text(extent=[-100, 100; 100, 70], string="%name")),
-      Diagram(
-        Polygon(points=[30, 0; -30, 40; -30, -40; 30, 0], style(
-            color=3,
-            gradient=0,
-            fillColor=1,
-            fillPattern=0)),
-        Line(points=[-96,0; 40,0]),
-        Line(points=[40,0; 96,0]),
-        Line(points=[30, 40; 30, -40], style(color=3))),
+      Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Polygon(
+            points={{30,0},{-30,40},{-30,-40},{30,0}}, 
+            lineColor={0,0,0}, 
+            fillColor={255,255,255}), 
+          Line(points={{-90,0},{40,0}}), 
+          Line(points={{40,0},{90,0}}), 
+          Line(points={{30,40},{30,-40}}, color={0,0,255}), 
+          Text(
+            extent={{-98,-58},{102,-100}}, 
+            lineColor={0,0,0}, 
+            textString=
+                 "Vt=%Vt"), 
+          Text(extent={{-100,100},{100,70}}, textString=
+                                                 "%name")}),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Polygon(
+            points={{30,0},{-30,40},{-30,-40},{30,0}}, 
+            lineColor={0,0,0}, 
+            fillColor={255,0,0}, 
+            fillPattern=FillPattern.None), 
+          Line(points={{-96,0},{40,0}}), 
+          Line(points={{40,0},{96,0}}), 
+          Line(points={{30,40},{30,-40}}, color={0,0,255})}),
       Window(
         x=0.13,
         y=0.09,
@@ -159,43 +163,54 @@ Some typical parameter sets are:
        </li>
 </ul>
 </html>"),
-      Coordsys(
-        extent=[-100, -100; 100, 100],
-        grid=[1, 1],
-        component=[20, 20]),
       Window(
         x=0.34,
         y=0.24,
         width=0.6,
         height=0.6),
-      Icon(
-        Text(extent=[-100,60; 100,100],   string="%name"),
-        Line(points=[-90, -50; -10, -50]),
-        Line(points=[-10, -50; -10, 50]),
-        Line(points=[10, 70; 10, 29]),
-        Line(points=[10, 20; 10, -21]),
-        Line(points=[10, -30; 10, -71]),
-        Line(points=[10, 50; 91, 50]),
-        Line(points=[10, 0; 90, 0]),
-        Line(points=[10, -50; 90, -50]),
-        Polygon(points=[60, 0; 40, 5; 40, -5; 60, 0], style(fillColor=3,
-              fillPattern=1))),
-      Diagram(
-        Line(points=[-96,-50; -10,-50]),
-        Line(points=[-10, -50; -10, 50]),
-        Line(points=[10, 70; 10, 29]),
-        Line(points=[10, 20; 10, -21]),
-        Line(points=[10, -30; 10, -71]),
-        Line(points=[10,50; 96,50]),
-        Line(points=[10,0; 96,0]),
-        Line(points=[10,-50; 96,-50]),
-        Polygon(points=[60, 0; 40, 5; 40, -5; 60, 0], style(fillColor=3,
-              fillPattern=1))));
+      Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Text(extent={{-100,60},{100,100}}, textString=
+                                                 "%name"), 
+          Line(points={{-90,-50},{-10,-50}}), 
+          Line(points={{-10,-50},{-10,50}}), 
+          Line(points={{10,70},{10,29}}), 
+          Line(points={{10,20},{10,-21}}), 
+          Line(points={{10,-30},{10,-71}}), 
+          Line(points={{10,50},{91,50}}), 
+          Line(points={{10,0},{90,0}}), 
+          Line(points={{10,-50},{90,-50}}), 
+          Polygon(
+            points={{60,0},{40,5},{40,-5},{60,0}}, 
+            fillColor={0,0,255}, 
+            fillPattern=FillPattern.Solid)}),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Line(points={{-96,-50},{-10,-50}}), 
+          Line(points={{-10,-50},{-10,50}}), 
+          Line(points={{10,70},{10,29}}), 
+          Line(points={{10,20},{10,-21}}), 
+          Line(points={{10,-30},{10,-71}}), 
+          Line(points={{10,50},{96,50}}), 
+          Line(points={{10,0},{96,0}}), 
+          Line(points={{10,-50},{96,-50}}), 
+          Polygon(
+            points={{60,0},{40,5},{40,-5},{60,0}}, 
+            fillColor={0,0,255}, 
+            fillPattern=FillPattern.Solid)}));
     
-    Interfaces.Pin D "Drain" annotation (extent=[90, 40; 110, 60]);
-    Interfaces.Pin G "Gate" annotation (extent=[-90, -40; -110, -60]);
-    Interfaces.Pin S "Source" annotation (extent=[90, -40; 110, -60]);
-    Interfaces.Pin B "Bulk" annotation (extent=[90, -10; 110, 10]);
+    Interfaces.Pin D "Drain" annotation (Placement(transformation(extent={{90,
+              40},{110,60}}, rotation=0)));
+    Interfaces.Pin G "Gate" annotation (Placement(transformation(extent={{-90,
+              -40},{-110,-60}}, rotation=0)));
+    Interfaces.Pin S "Source" annotation (Placement(transformation(extent={{90,
+              -40},{110,-60}}, rotation=0)));
+    Interfaces.Pin B "Bulk" annotation (Placement(transformation(extent={{90,
+              -10},{110,10}}, rotation=0)));
     
     parameter SIunits.Length W=20.0e-6 "Width";
     parameter SIunits.Length L=6.0e-6 "Length";
@@ -288,37 +303,48 @@ Muenchen Wien 1990.
        </li>
 </ul>
 </html>"),
-      Coordsys(
-        extent=[-100, -100; 100, 100],
-        grid=[1, 1],
-        component=[20, 20]),
-      Icon(
-        Text(extent=[-100, 80; 100, 100], string="%name"),
-        Line(points=[-90, -50; -10, -50]),
-        Line(points=[-10, -50; -10, 50]),
-        Line(points=[10, 70; 10, 29]),
-        Line(points=[10, 20; 10, -21]),
-        Line(points=[10, -30; 10, -71]),
-        Line(points=[10, 50; 91, 50]),
-        Line(points=[10, 0; 90, 0]),
-        Line(points=[10, -50; 90, -50]),
-        Polygon(points=[40, 0; 60, 5; 60, -5; 40, 0], style(fillColor=3,
-              fillPattern=1))),
-      Diagram(
-        Line(points=[-96,-50; -10,-50]),
-        Line(points=[-10, -50; -10, 50]),
-        Line(points=[10, 70; 10, 29]),
-        Line(points=[10, 20; 10, -21]),
-        Line(points=[10, -30; 10, -71]),
-        Line(points=[10,50; 96,50]),
-        Line(points=[10,0; 96,0]),
-        Line(points=[10,-50; 96,-50]),
-        Polygon(points=[40, 0; 60, 5; 60, -5; 40, 0], style(fillColor=3,
-              fillPattern=1))));
-    Interfaces.Pin D "Drain" annotation (extent=[90, 40; 110, 60]);
-    Interfaces.Pin G "Gate" annotation (extent=[-90, -40; -110, -60]);
-    Interfaces.Pin S "Source" annotation (extent=[90, -40; 110, -60]);
-    Interfaces.Pin B "Bulk" annotation (extent=[90, -10; 110, 10]);
+      Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Text(extent={{-100,80},{100,100}}, textString=
+                                                 "%name"), 
+          Line(points={{-90,-50},{-10,-50}}), 
+          Line(points={{-10,-50},{-10,50}}), 
+          Line(points={{10,70},{10,29}}), 
+          Line(points={{10,20},{10,-21}}), 
+          Line(points={{10,-30},{10,-71}}), 
+          Line(points={{10,50},{91,50}}), 
+          Line(points={{10,0},{90,0}}), 
+          Line(points={{10,-50},{90,-50}}), 
+          Polygon(
+            points={{40,0},{60,5},{60,-5},{40,0}}, 
+            fillColor={0,0,255}, 
+            fillPattern=FillPattern.Solid)}),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Line(points={{-96,-50},{-10,-50}}), 
+          Line(points={{-10,-50},{-10,50}}), 
+          Line(points={{10,70},{10,29}}), 
+          Line(points={{10,20},{10,-21}}), 
+          Line(points={{10,-30},{10,-71}}), 
+          Line(points={{10,50},{96,50}}), 
+          Line(points={{10,0},{96,0}}), 
+          Line(points={{10,-50},{96,-50}}), 
+          Polygon(
+            points={{40,0},{60,5},{60,-5},{40,0}}, 
+            fillColor={0,0,255}, 
+            fillPattern=FillPattern.Solid)}));
+    Interfaces.Pin D "Drain" annotation (Placement(transformation(extent={{90,
+              40},{110,60}}, rotation=0)));
+    Interfaces.Pin G "Gate" annotation (Placement(transformation(extent={{-90,
+              -40},{-110,-60}}, rotation=0)));
+    Interfaces.Pin S "Source" annotation (Placement(transformation(extent={{90,
+              -40},{110,-60}}, rotation=0)));
+    Interfaces.Pin B "Bulk" annotation (Placement(transformation(extent={{90,
+              -10},{110,10}}, rotation=0)));
     parameter SIunits.Length W=20.e-6 "Width";
     parameter SIunits.Length L=6.e-6 "Length";
     parameter SIunits.Transconductance Beta=0.041e-3 
@@ -430,41 +456,48 @@ on page 317 ff.
        </li>
 </ul>
 </html>"),
-      Coordsys(
-        extent=[-100, -100; 100, 100],
-        grid=[2, 2],
-        component=[20, 20]),
       Window(
         x=0.22,
         y=0.28,
         width=0.6,
         height=0.6),
-      Icon(
-        Text(extent=[-100, 80; 100, 100], string="%name"),
-        Line(points=[-10, 40; -10, -40]),
-        Line(points=[-10, 0; -90, 0]),
-        Line(points=[91, 50; 30, 50]),
-        Line(points=[30, 50; -10, 10]),
-        Line(points=[-10, -10; 30, -50]),
-        Line(points=[30, -50; 91, -50]),
-        Polygon(points=[30, -50; 24, -36; 16, -44; 30, -50], style(fillColor=3,
-                fillPattern=1))),
-      Diagram(
-        Line(points=[-10, 40; -10, -40]),
-        Line(points=[-10,0; -100,0]),
-        Line(points=[30, 50; -10, 10]),
-        Line(points=[-10, -10; 30, -50]),
-        Line(points=[30,-50; 100,-50]),
-        Line(points=[100, 50; 30, 50]),
-        Polygon(points=[30, -50; 24, -36; 16, -44; 30, -50], style(fillColor=3,
-                fillPattern=1))));
+      Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={2,2}), graphics={
+          Text(extent={{-100,80},{100,100}}, textString=
+                                                 "%name"), 
+          Line(points={{-10,40},{-10,-40}}), 
+          Line(points={{-10,0},{-90,0}}), 
+          Line(points={{91,50},{30,50}}), 
+          Line(points={{30,50},{-10,10}}), 
+          Line(points={{-10,-10},{30,-50}}), 
+          Line(points={{30,-50},{91,-50}}), 
+          Polygon(
+            points={{30,-50},{24,-36},{16,-44},{30,-50}}, 
+            fillColor={0,0,255}, 
+            fillPattern=FillPattern.Solid)}),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={2,2}), graphics={
+          Line(points={{-10,40},{-10,-40}}), 
+          Line(points={{-10,0},{-100,0}}), 
+          Line(points={{30,50},{-10,10}}), 
+          Line(points={{-10,-10},{30,-50}}), 
+          Line(points={{30,-50},{100,-50}}), 
+          Line(points={{100,50},{30,50}}), 
+          Polygon(
+            points={{30,-50},{24,-36},{16,-44},{30,-50}}, 
+            fillColor={0,0,255}, 
+            fillPattern=FillPattern.Solid)}));
   public 
-    Modelica.Electrical.Analog.Interfaces.Pin C "Collector" annotation (extent=
-         [90, 40; 110, 60]);
-    Modelica.Electrical.Analog.Interfaces.Pin B "Base" annotation (extent=[-90,
-            -10; -110, 10]);
-    Modelica.Electrical.Analog.Interfaces.Pin E "Emitter" annotation (extent=[
-          90, -40; 110, -60]);
+    Modelica.Electrical.Analog.Interfaces.Pin C "Collector" annotation (Placement(
+          transformation(extent={{90,40},{110,60}}, rotation=0)));
+    Modelica.Electrical.Analog.Interfaces.Pin B "Base" annotation (Placement(
+          transformation(extent={{-90,-10},{-110,10}}, rotation=0)));
+    Modelica.Electrical.Analog.Interfaces.Pin E "Emitter" annotation (Placement(
+          transformation(extent={{90,-40},{110,-60}}, rotation=0)));
   equation 
     ExMin = exp(EMin);
     ExMax = exp(EMax);
@@ -566,36 +599,43 @@ on page 317 ff.
        </li>
 </ul>
 </html>"),
-      Coordsys(
-        extent=[-100, -100; 100, 100],
-        grid=[1, 1],
-        component=[20, 20]),
-      Icon(
-        Text(extent=[-100, 80; 100, 100], string="%name"),
-        Line(points=[-10, 40; -10, -40]),
-        Line(points=[-10, 0; -90, 0]),
-        Line(points=[91, 50; 30, 50]),
-        Line(points=[30, 50; -10, 10]),
-        Line(points=[-10, -10; 30, -50]),
-        Line(points=[30, -50; 91, -50]),
-        Polygon(points=[-10, -10; 5, -17; -3, -25; -10, -10], style(fillColor=
-                3, fillPattern=1))),
-      Diagram(
-        Line(points=[-10, 40; -10, -40]),
-        Line(points=[-10,0; -99,0]),
-        Line(points=[100,50; 30,50]),
-        Line(points=[30, 50; -10, 10]),
-        Line(points=[-10, -10; 30, -50]),
-        Line(points=[30,-50; 99,-50]),
-        Polygon(points=[-10, -10; 5, -17; -3, -25; -10, -10], style(fillColor=
-                3, fillPattern=1))));
+      Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Text(extent={{-100,80},{100,100}}, textString=
+                                                 "%name"), 
+          Line(points={{-10,40},{-10,-40}}), 
+          Line(points={{-10,0},{-90,0}}), 
+          Line(points={{91,50},{30,50}}), 
+          Line(points={{30,50},{-10,10}}), 
+          Line(points={{-10,-10},{30,-50}}), 
+          Line(points={{30,-50},{91,-50}}), 
+          Polygon(
+            points={{-10,-10},{5,-17},{-3,-25},{-10,-10}}, 
+            fillColor={0,0,255}, 
+            fillPattern=FillPattern.Solid)}),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Line(points={{-10,40},{-10,-40}}), 
+          Line(points={{-10,0},{-99,0}}), 
+          Line(points={{100,50},{30,50}}), 
+          Line(points={{30,50},{-10,10}}), 
+          Line(points={{-10,-10},{30,-50}}), 
+          Line(points={{30,-50},{99,-50}}), 
+          Polygon(
+            points={{-10,-10},{5,-17},{-3,-25},{-10,-10}}, 
+            fillColor={0,0,255}, 
+            fillPattern=FillPattern.Solid)}));
   public 
-    Modelica.Electrical.Analog.Interfaces.Pin C "Collector" annotation (extent=
-         [90, 40; 110, 60]);
-    Modelica.Electrical.Analog.Interfaces.Pin B "Base" annotation (extent=[-90,
-            -10; -110, 10]);
-    Modelica.Electrical.Analog.Interfaces.Pin E "Emitter" annotation (extent=[
-          90, -40; 110, -60]);
+    Modelica.Electrical.Analog.Interfaces.Pin C "Collector" annotation (Placement(
+          transformation(extent={{90,40},{110,60}}, rotation=0)));
+    Modelica.Electrical.Analog.Interfaces.Pin B "Base" annotation (Placement(
+          transformation(extent={{-90,-10},{-110,10}}, rotation=0)));
+    Modelica.Electrical.Analog.Interfaces.Pin E "Emitter" annotation (Placement(
+          transformation(extent={{90,-40},{110,-60}}, rotation=0)));
   equation 
     ExMin = exp(EMin);
     ExMax = exp(EMax);
@@ -630,7 +670,10 @@ on page 317 ff.
           extends Modelica.Electrical.Analog.Interfaces.OnePort;
           Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort(T(start=
                   300.15)) 
-            annotation (extent=[-10, -90; 10, -110], rotation=-90);
+            annotation (Placement(transformation(
+          origin={0,-100}, 
+          extent={{10,-10},{-10,10}}, 
+          rotation=270)));
           parameter Modelica.SIunits.Current Ids=1.e-6 "Saturation current";
     
             /* parameter Modelica.SIunits.Voltage Vt=0.04 "Voltage equivalent of temperature (kT/qn)"; */
@@ -680,30 +723,33 @@ The thermal power is calculated by <i>i*v</i>.
        by Christoph Clauss<br> implemented<br>
        </li>
 </ul>
-</html>"),  Coordsys(
-              extent=[-100, -100; 100, 100],
-              grid=[1, 1],
-              component=[20, 20]),
-            Icon(
-              Polygon(points=[30, 0; -30, 40; -30, -40; 30, 0], style(
-                  color=3,
-                  gradient=0,
-                  fillColor=7)),
-              Line(points=[-90, 0; 40, 0]),
-              Line(points=[40, 0; 90, 0]),
-              Line(points=[30, 40; 30, -40], style(color=3)),
-              Text(extent=[-142,101; 143,51],   string="%name"),
-              Line(points=[0, -20; 0, -91], style(color=42))),
-            Diagram(
-              Polygon(points=[30, 0; -30, 40; -30, -40; 30, 0], style(
-                  color=3,
-                  gradient=0,
-                  fillColor=1,
-                  fillPattern=0)),
-              Line(points=[-99,0; 39,0]),
-              Line(points=[40,0; 96,0]),
-              Line(points=[30, 40; 30, -40], style(color=3)),
-              Line(points=[0,-20; 0,-91],   style(color=42))),
+</html>"),  Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Polygon(
+            points={{30,0},{-30,40},{-30,-40},{30,0}}, 
+            lineColor={0,0,0}, 
+            fillColor={255,255,255}), 
+          Line(points={{-90,0},{40,0}}), 
+          Line(points={{40,0},{90,0}}), 
+          Line(points={{30,40},{30,-40}}, color={0,0,255}), 
+          Text(extent={{-142,101},{143,51}}, textString=
+                                                       "%name"), 
+          Line(points={{0,-20},{0,-91}}, color={191,0,0})}),
+            Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Polygon(
+            points={{30,0},{-30,40},{-30,-40},{30,0}}, 
+            lineColor={0,0,0}, 
+            fillColor={255,0,0}, 
+            fillPattern=FillPattern.None), 
+          Line(points={{-99,0},{39,0}}), 
+          Line(points={{40,0},{96,0}}), 
+          Line(points={{30,40},{30,-40}}, color={0,0,255}), 
+          Line(points={{0,-20},{0,-91}}, color={191,0,0})}),
             Window(
               x=0.13,
               y=0.09,
@@ -782,47 +828,61 @@ Muenchen Wien 1990.
        by Christoph Clauss<br> implemented<br>
        </li>
 </ul>
-</html>"),  Coordsys(
-              extent=[-100, -100; 100, 100],
-              grid=[1, 1],
-              component=[20, 20]),
-            Icon(
-              Text(extent=[-100, 80; 100, 100], string="%name"),
-              Line(points=[-90, -50; -10, -50]),
-              Line(points=[-10, -50; -10, 50]),
-              Line(points=[10, 70; 10, 29]),
-              Line(points=[10, 20; 10, -21]),
-              Line(points=[10, -30; 10, -71]),
-              Line(points=[10, 50; 91, 50]),
-              Line(points=[10, 0; 90, 0]),
-              Line(points=[10, -50; 90, -50]),
-              Polygon(points=[40, 0; 60, 5; 60, -5; 40, 0], style(fillColor=3,
-                    fillPattern=1)),
-              Line(points=[0, -91; 0, -50], style(color=42))),
-            Diagram(
-              Line(points=[-96,-50; -10,-50]),
-              Line(points=[-10, -50; -10, 50]),
-              Line(points=[10, 70; 10, 29]),
-              Line(points=[10, 20; 10, -21]),
-              Line(points=[10, -30; 10, -71]),
-              Line(points=[10,50; 96,50]),
-              Line(points=[10,0; 96,0]),
-              Line(points=[10,-50; 96,-50]),
-              Polygon(points=[40, 0; 60, 5; 60, -5; 40, 0], style(fillColor=3,
-                    fillPattern=1)),
-              Line(points=[0,-90; 0,-49],   style(color=42))));
+</html>"),  Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Text(extent={{-100,80},{100,100}}, textString=
+                                                       "%name"), 
+          Line(points={{-90,-50},{-10,-50}}), 
+          Line(points={{-10,-50},{-10,50}}), 
+          Line(points={{10,70},{10,29}}), 
+          Line(points={{10,20},{10,-21}}), 
+          Line(points={{10,-30},{10,-71}}), 
+          Line(points={{10,50},{91,50}}), 
+          Line(points={{10,0},{90,0}}), 
+          Line(points={{10,-50},{90,-50}}), 
+          Polygon(
+            points={{40,0},{60,5},{60,-5},{40,0}}, 
+            fillColor={0,0,255}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{0,-91},{0,-50}}, color={191,0,0})}),
+            Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Line(points={{-96,-50},{-10,-50}}), 
+          Line(points={{-10,-50},{-10,50}}), 
+          Line(points={{10,70},{10,29}}), 
+          Line(points={{10,20},{10,-21}}), 
+          Line(points={{10,-30},{10,-71}}), 
+          Line(points={{10,50},{96,50}}), 
+          Line(points={{10,0},{96,0}}), 
+          Line(points={{10,-50},{96,-50}}), 
+          Polygon(
+            points={{40,0},{60,5},{60,-5},{40,0}}, 
+            fillColor={0,0,255}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{0,-90},{0,-49}}, color={191,0,0})}));
     
           Modelica.Electrical.Analog.Interfaces.Pin D "Drain" 
-            annotation (extent=[90, 40; 110, 60]);
+            annotation (Placement(transformation(extent={{90,40},{110,60}}, 
+            rotation=0)));
           Modelica.Electrical.Analog.Interfaces.Pin G "Gate" 
-            annotation (extent=[-90, -40; -110, -60]);
+            annotation (Placement(transformation(extent={{-90,-40},{-110,-60}}, 
+            rotation=0)));
           Modelica.Electrical.Analog.Interfaces.Pin S "Source" 
-            annotation (extent=[90, -40; 110, -60]);
+            annotation (Placement(transformation(extent={{90,-40},{110,-60}}, 
+            rotation=0)));
           Modelica.Electrical.Analog.Interfaces.Pin B "Bulk" 
-            annotation (extent=[90, -10; 110, 10]);
+            annotation (Placement(transformation(extent={{90,-10},{110,10}}, 
+            rotation=0)));
           Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort(T(start=
                   300.15)) 
-            annotation (extent=[-10, -90; 10, -110], rotation=-90);
+            annotation (Placement(transformation(
+          origin={0,-100}, 
+          extent={{10,-10},{-10,10}}, 
+          rotation=270)));
           parameter Modelica.SIunits.Length W=20.e-6 "Width";
           parameter Modelica.SIunits.Length L=6.e-6 "Length";
           parameter Modelica.SIunits.Transconductance Beta=0.041e-3 
@@ -925,52 +985,66 @@ Some typical parameter sets are:
        by Christoph Clauss<br> implemented<br>
        </li>
 </ul>
-</html>"),  Coordsys(
-              extent=[-100, -100; 100, 100],
-              grid=[1, 1],
-              component=[20, 20]),
-            Window(
+</html>"),  Window(
               x=0.34,
               y=0.24,
               width=0.6,
               height=0.6),
-            Icon(
-              Text(extent=[-100, 80; 100, 100], string="%name"),
-              Line(points=[-90, -50; -10, -50]),
-              Line(points=[-10, -50; -10, 50]),
-              Line(points=[10, 70; 10, 29]),
-              Line(points=[10, 20; 10, -21]),
-              Line(points=[10, -30; 10, -71]),
-              Line(points=[10, 50; 91, 50]),
-              Line(points=[10, 0; 90, 0]),
-              Line(points=[10, -50; 90, -50]),
-              Polygon(points=[60, 0; 40, 5; 40, -5; 60, 0], style(fillColor=3,
-                    fillPattern=1)),
-              Line(points=[0, -91; 0, -50], style(color=42))),
-            Diagram(
-              Line(points=[-100,-50; -10,-50]),
-              Line(points=[-10, -50; -10, 50]),
-              Line(points=[10, 70; 10, 29]),
-              Line(points=[10, 20; 10, -21]),
-              Line(points=[10, -30; 10, -71]),
-              Line(points=[10,50; 96,50]),
-              Line(points=[10,0; 101,0]),
-              Line(points=[10,-50; 100,-50]),
-              Polygon(points=[60, 0; 40, 5; 40, -5; 60, 0], style(fillColor=3,
-                    fillPattern=1)),
-              Line(points=[0,-95; 0,-50],   style(color=42))));
+            Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Text(extent={{-100,80},{100,100}}, textString=
+                                                       "%name"), 
+          Line(points={{-90,-50},{-10,-50}}), 
+          Line(points={{-10,-50},{-10,50}}), 
+          Line(points={{10,70},{10,29}}), 
+          Line(points={{10,20},{10,-21}}), 
+          Line(points={{10,-30},{10,-71}}), 
+          Line(points={{10,50},{91,50}}), 
+          Line(points={{10,0},{90,0}}), 
+          Line(points={{10,-50},{90,-50}}), 
+          Polygon(
+            points={{60,0},{40,5},{40,-5},{60,0}}, 
+            fillColor={0,0,255}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{0,-91},{0,-50}}, color={191,0,0})}),
+            Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Line(points={{-100,-50},{-10,-50}}), 
+          Line(points={{-10,-50},{-10,50}}), 
+          Line(points={{10,70},{10,29}}), 
+          Line(points={{10,20},{10,-21}}), 
+          Line(points={{10,-30},{10,-71}}), 
+          Line(points={{10,50},{96,50}}), 
+          Line(points={{10,0},{101,0}}), 
+          Line(points={{10,-50},{100,-50}}), 
+          Polygon(
+            points={{60,0},{40,5},{40,-5},{60,0}}, 
+            fillColor={0,0,255}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{0,-95},{0,-50}}, color={191,0,0})}));
     
           Modelica.Electrical.Analog.Interfaces.Pin D "Drain" 
-            annotation (extent=[90, 40; 110, 60]);
+            annotation (Placement(transformation(extent={{90,40},{110,60}}, 
+            rotation=0)));
           Modelica.Electrical.Analog.Interfaces.Pin G "Gate" 
-            annotation (extent=[-90, -40; -110, -60]);
+            annotation (Placement(transformation(extent={{-90,-40},{-110,-60}}, 
+            rotation=0)));
           Modelica.Electrical.Analog.Interfaces.Pin S "Source" 
-            annotation (extent=[90, -40; 110, -60]);
+            annotation (Placement(transformation(extent={{90,-40},{110,-60}}, 
+            rotation=0)));
           Modelica.Electrical.Analog.Interfaces.Pin B "Bulk" 
-            annotation (extent=[90, -10; 110, 10]);
+            annotation (Placement(transformation(extent={{90,-10},{110,10}}, 
+            rotation=0)));
           Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort(T(start=
                   300.15)) 
-            annotation (extent=[-10, -90; 10, -110], rotation=-90);
+            annotation (Placement(transformation(
+          origin={0,-100}, 
+          extent={{10,-10},{-10,10}}, 
+          rotation=270)));
           parameter Modelica.SIunits.Length W=20.0e-6 "Width";
           parameter Modelica.SIunits.Length L=6.0e-6 "Length";
           parameter Modelica.SIunits.Transconductance Beta=0.0105e-3 
@@ -1117,47 +1191,60 @@ on page 317 ff.
        by Christoph Clauss<br> implemented<br>
        </li>
 </ul>
-</html>"),  Coordsys(
-              extent=[-100, -100; 100, 100],
-              grid=[2, 2],
-              component=[20, 20]),
-            Window(
+</html>"),  Window(
               x=0.22,
               y=0.28,
               width=0.6,
               height=0.6),
-            Icon(
-              Text(extent=[-100, 80; 100, 100], string="%name"),
-              Line(points=[-10, 40; -10, -40]),
-              Line(points=[-10, 0; -90, 0]),
-              Line(points=[91, 50; 30, 50]),
-              Line(points=[30, 50; -10, 10]),
-              Line(points=[-10, -10; 30, -50]),
-              Line(points=[30, -50; 91, -50]),
-              Polygon(points=[30, -50; 24, -36; 16, -44; 30, -50], style(
-                    fillColor=3, fillPattern=1)),
-              Line(points=[0, -91; 0, -30], style(color=42))),
-            Diagram(
-              Line(points=[-10, 40; -10, -40]),
-              Line(points=[-10,0; -100,0]),
-              Line(points=[30, 50; -10, 10]),
-              Line(points=[-10, -10; 30, -50]),
-              Line(points=[30,-50; 100,-50]),
-              Line(points=[100, 50; 30, 50]),
-              Polygon(points=[30, -50; 24, -36; 16, -44; 30, -50], style(
-                    fillColor=3, fillPattern=1)),
-              Line(points=[0,-94; 0,-32],   style(color=42))));
+            Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={2,2}), graphics={
+          Text(extent={{-100,80},{100,100}}, textString=
+                                                       "%name"), 
+          Line(points={{-10,40},{-10,-40}}), 
+          Line(points={{-10,0},{-90,0}}), 
+          Line(points={{91,50},{30,50}}), 
+          Line(points={{30,50},{-10,10}}), 
+          Line(points={{-10,-10},{30,-50}}), 
+          Line(points={{30,-50},{91,-50}}), 
+          Polygon(
+            points={{30,-50},{24,-36},{16,-44},{30,-50}}, 
+            fillColor={0,0,255}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{0,-91},{0,-30}}, color={191,0,0})}),
+            Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={2,2}), graphics={
+          Line(points={{-10,40},{-10,-40}}), 
+          Line(points={{-10,0},{-100,0}}), 
+          Line(points={{30,50},{-10,10}}), 
+          Line(points={{-10,-10},{30,-50}}), 
+          Line(points={{30,-50},{100,-50}}), 
+          Line(points={{100,50},{30,50}}), 
+          Polygon(
+            points={{30,-50},{24,-36},{16,-44},{30,-50}}, 
+            fillColor={0,0,255}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{0,-94},{0,-32}}, color={191,0,0})}));
     
   public 
           Modelica.Electrical.Analog.Interfaces.Pin C "Collector" 
-            annotation (extent=[90, 40; 110, 60]);
+            annotation (Placement(transformation(extent={{90,40},{110,60}}, 
+            rotation=0)));
           Modelica.Electrical.Analog.Interfaces.Pin B "Base" 
-            annotation (extent=[-90, -10; -110, 10]);
+            annotation (Placement(transformation(extent={{-90,-10},{-110,10}}, 
+            rotation=0)));
           Modelica.Electrical.Analog.Interfaces.Pin E "Emitter" 
-            annotation (extent=[90, -40; 110, -60]);
+            annotation (Placement(transformation(extent={{90,-40},{110,-60}}, 
+            rotation=0)));
           Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort(T(start=
                   300.15)) 
-            annotation (extent=[-10, -90; 10, -110], rotation=-90);
+            annotation (Placement(transformation(
+          origin={0,-100}, 
+          extent={{10,-10},{-10,10}}, 
+          rotation=270)));
         equation 
           assert( heatPort.T > 0,"temperature must be positive");
           ExMin = exp(EMin);
@@ -1295,42 +1382,55 @@ on page 317 ff.
        by Christoph Clauss<br> implemented<br>
        </li>
 </ul>
-</html>"),  Coordsys(
-              extent=[-100, -100; 100, 100],
-              grid=[1, 1],
-              component=[20, 20]),
-            Icon(
-              Text(extent=[-100, 80; 100, 100], string="%name"),
-              Line(points=[-10, 40; -10, -40]),
-              Line(points=[-10, 0; -90, 0]),
-              Line(points=[91, 50; 30, 50]),
-              Line(points=[30, 50; -10, 10]),
-              Line(points=[-10, -10; 30, -50]),
-              Line(points=[30, -50; 91, -50]),
-              Polygon(points=[-10, -10; 5, -17; -3, -25; -10, -10], style(
-                    fillColor=3, fillPattern=1)),
-              Line(points=[0, -91; 0, -30], style(color=42))),
-            Diagram(
-              Line(points=[-10, 40; -10, -40]),
-              Line(points=[-10,0; -99,0]),
-              Line(points=[96,50; 30,50]),
-              Line(points=[30, 50; -10, 10]),
-              Line(points=[-10, -10; 30, -50]),
-              Line(points=[30,-50; 96,-50]),
-              Polygon(points=[-10, -10; 5, -17; -3, -25; -10, -10], style(
-                    fillColor=3, fillPattern=1)),
-              Line(points=[0,-91; 0,-30],   style(color=42))));
+</html>"),  Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Text(extent={{-100,80},{100,100}}, textString=
+                                                       "%name"), 
+          Line(points={{-10,40},{-10,-40}}), 
+          Line(points={{-10,0},{-90,0}}), 
+          Line(points={{91,50},{30,50}}), 
+          Line(points={{30,50},{-10,10}}), 
+          Line(points={{-10,-10},{30,-50}}), 
+          Line(points={{30,-50},{91,-50}}), 
+          Polygon(
+            points={{-10,-10},{5,-17},{-3,-25},{-10,-10}}, 
+            fillColor={0,0,255}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{0,-91},{0,-30}}, color={191,0,0})}),
+            Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Line(points={{-10,40},{-10,-40}}), 
+          Line(points={{-10,0},{-99,0}}), 
+          Line(points={{96,50},{30,50}}), 
+          Line(points={{30,50},{-10,10}}), 
+          Line(points={{-10,-10},{30,-50}}), 
+          Line(points={{30,-50},{96,-50}}), 
+          Polygon(
+            points={{-10,-10},{5,-17},{-3,-25},{-10,-10}}, 
+            fillColor={0,0,255}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{0,-91},{0,-30}}, color={191,0,0})}));
     
   public 
           Modelica.Electrical.Analog.Interfaces.Pin C "Collector" 
-            annotation (extent=[90, 40; 110, 60]);
+            annotation (Placement(transformation(extent={{90,40},{110,60}}, 
+            rotation=0)));
           Modelica.Electrical.Analog.Interfaces.Pin B "Base" 
-            annotation (extent=[-90, -10; -110, 10]);
+            annotation (Placement(transformation(extent={{-90,-10},{-110,10}}, 
+            rotation=0)));
           Modelica.Electrical.Analog.Interfaces.Pin E "Emitter" 
-            annotation (extent=[90, -40; 110, -60]);
+            annotation (Placement(transformation(extent={{90,-40},{110,-60}}, 
+            rotation=0)));
           Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort(T(start=
                   300.15)) 
-            annotation (extent=[-10, -90; 10, -110], rotation=-90);
+            annotation (Placement(transformation(
+          origin={0,-100}, 
+          extent={{10,-10},{-10,10}}, 
+          rotation=270)));
         equation 
           assert( heatPort.T > 0,"temperature must be positive");
           ExMin = exp(EMin);

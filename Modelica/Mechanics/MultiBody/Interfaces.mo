@@ -49,29 +49,31 @@ different icons.
     extends Frame;
     
     annotation (defaultComponentName="frame_a",
-     Coordsys(
-       extent=[-100,-100; 100,100],
-       grid=[1,1],
-       component=[20, 20],
-       scale=0.16),
-     Icon(Rectangle(extent=[-10,10; 10,-10], style(
-            color=10,
-            rgbcolor={95,95,95},
-            thickness=2)),
-        Rectangle(extent=[-30,100; 30,-100], style(
-         color=0,
-         rgbcolor={0,0,0},
-         fillColor=8,
-         rgbfillColor={192,192,192}))),
-     Diagram(Text(
-       extent=[-140,-50; 140,-88],
-       string="%name",
-       style(color=0)),
-           Rectangle(extent=[-12,40; 12,-40], style(
-         color=0,
-         rgbcolor={0,0,0},
-         fillColor=8,
-         rgbfillColor={192,192,192}))),
+     Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}, 
+          initialScale=0.16), graphics={Rectangle(
+            extent={{-10,10},{10,-10}}, 
+            lineColor={95,95,95}, 
+            lineThickness=2), Rectangle(
+            extent={{-30,100},{30,-100}}, 
+            lineColor={0,0,0}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid)}),
+     Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}, 
+          initialScale=0.16), graphics={Text(
+            extent={{-140,-50},{140,-88}}, 
+            lineColor={0,0,0}, 
+            textString=
+              "%name"), Rectangle(
+            extent={{-12,40},{12,-40}}, 
+            lineColor={0,0,0}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid)}),
       Window(
         x=0.21,
         y=0.18,
@@ -92,28 +94,31 @@ This component has a filled rectangular icon.
     extends Frame;
     
     annotation (defaultComponentName="frame_b",
-     Coordsys(
-       extent=[-100,-100; 100,100],
-       grid=[1,1],
-       component=[20, 20],
-       scale=0.16),
-     Icon(Rectangle(extent=[-10,10; 10,-10], style(          color=10,
-            rgbcolor={95,95,95},
-            thickness=2)),
-          Rectangle(extent=[-30,100; 30,-100], style(
-             color=0,
-             rgbcolor={0,0,0},
-             fillColor=7,
-             rgbfillColor={255,255,255}))),
-     Diagram(Text(
-         extent=[-140,-50; 140,-88],
-         string="%name",
-         style(color=0)),
-             Rectangle(extent=[-12,40; 12,-40], style(
-             color=0,
-             rgbcolor={0,0,0},
-             fillColor=7,
-             rgbfillColor={255,255,255}))),
+     Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}, 
+          initialScale=0.16), graphics={Rectangle(
+            extent={{-10,10},{10,-10}}, 
+            lineColor={95,95,95}, 
+            lineThickness=2), Rectangle(
+            extent={{-30,100},{30,-100}}, 
+            lineColor={0,0,0}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid)}),
+     Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}, 
+          initialScale=0.16), graphics={Text(
+            extent={{-140,-50},{140,-88}}, 
+            lineColor={0,0,0}, 
+            textString=
+                "%name"), Rectangle(
+            extent={{-12,40},{12,-40}}, 
+            lineColor={0,0,0}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid)}),
       Window(
         x=0.21,
         y=0.18,
@@ -133,31 +138,33 @@ coordinate system a vector is resolved (non-filled rectangular icon)"
   extends Frame;
     
   annotation (defaultComponentName="frame_resolve",
-    Coordsys(
-      extent=[-100,-100; 100,100],
-      grid=[1,1],
-      component=[20, 20],
-      scale=0.16),
-    Icon(Rectangle(extent=[-10,10; 10,-10], style(
-          color=10,
-          rgbcolor={95,95,95},
-          pattern=3)),
-         Rectangle(extent=[-30,100; 30,-100], style(
-          color=10,
-          rgbcolor={95,95,95},
-          pattern=3,
-          fillColor=7,
-          rgbfillColor={255,255,255}))),
-    Diagram(Text(
-        extent=[-140,-50; 140,-88],
-        string="%name",
-        style(color=0)),
-            Rectangle(extent=[-12,40; 12,-40], style(
-          color=10,
-          rgbcolor={95,95,95},
-          pattern=3,
-          fillColor=7,
-          rgbfillColor={255,255,255}))),
+    Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}, 
+          initialScale=0.16), graphics={Rectangle(
+            extent={{-10,10},{10,-10}}, 
+            lineColor={95,95,95}, 
+            pattern=LinePattern.Dot), Rectangle(
+            extent={{-30,100},{30,-100}}, 
+            lineColor={95,95,95}, 
+            pattern=LinePattern.Dot, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid)}),
+    Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}, 
+          initialScale=0.16), graphics={Text(
+            extent={{-140,-50},{140,-88}}, 
+            lineColor={0,0,0}, 
+            textString=
+               "%name"), Rectangle(
+            extent={{-12,40},{12,-40}}, 
+            lineColor={95,95,95}, 
+            pattern=LinePattern.Dot, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid)}),
     Window(
       x=0.21,
       y=0.18,
@@ -190,93 +197,92 @@ end Frame_resolve;
     
     annotation (
       defaultComponentName="flange",
-      Icon(
-        Rectangle(extent=[-20, 1; 20, -1], style(
-            color=10,
-            rgbcolor={135,135,135},
-            thickness=2,
-            fillPattern=1)),
-        Rectangle(extent=[-100, 100; 100, -100], style(
-            color=7,
-            rgbcolor={255,255,255},
-            fillColor=7,
-            rgbfillColor={255,255,255})),
-        Rectangle(extent=[-100, 25; 100, -24], style(
-            color=0,
-            rgbcolor={0,0,0},
-            gradient=2,
-            fillColor=9,
-            rgbfillColor={175,175,175})),
-        Line(points=[-80, 60; 80, 60], style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillPattern=1)),
-        Line(points=[-80, -60; 80, -60], style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillPattern=1)),
-        Line(points=[0, 100; 0, 60], style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillPattern=1)),
-        Line(points=[0, -60; 0, -100], style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillPattern=1)),
-        Rectangle(extent=[-100, 100; 100, -100], style(color=10, rgbcolor={135,
-                135,135})),
-        Rectangle(extent=[-100, 25; 100, -24], style(color=0, rgbcolor={0,0,0}))),
-      Diagram(
-        Line(points=[-50, -40; 50, -40], style(
-            color=0,
-            rgbcolor={0,0,0},
-            thickness=2,
-            fillPattern=1)),
-        Line(points=[-50, 40; 50, 40], style(
-            color=0,
-            rgbcolor={0,0,0},
-            thickness=2,
-            fillPattern=1)),
-        Text(
-          extent=[-158, -66; 158, -124],
-          string="%name",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            thickness=2)),
-        Rectangle(extent=[-60, 60; 60, -60], style(
-            color=7,
-            rgbcolor={255,255,255},
-            thickness=2,
-            fillColor=7,
-            rgbfillColor={255,255,255},
-            fillPattern=1)),
-        Rectangle(extent=[-60, 15; 60, -15], style(
-            color=0,
-            rgbcolor={0,0,0},
-            gradient=2,
-            fillColor=9,
-            rgbfillColor={175,175,175})),
-        Line(points=[0, 60; 0, 40], style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillPattern=1)),
-        Line(points=[0, -40; 0, -60], style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillPattern=1)),
-        Line(points=[-50, 40; 50, 40], style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillPattern=1)),
-        Line(points=[-50, -40; 50, -40], style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillPattern=1)),
-        Rectangle(extent=[-60, 60; 60, -60], style(color=10, rgbcolor={135,135,
-                135})),
-        Rectangle(extent=[-60, 15; 60, -15], style(color=0, rgbcolor={0,0,0}))),
-      Coordsys(grid=[1, 1],scale=0),
+      Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Rectangle(
+            extent={{-20,1},{20,-1}}, 
+            lineColor={135,135,135}, 
+            lineThickness=2, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{-100,100},{100,-100}}, 
+            lineColor={255,255,255}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{-100,25},{100,-24}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.HorizontalCylinder, 
+            fillColor={175,175,175}), 
+          Line(
+            points={{-80,60},{80,60}}, 
+            color={0,0,0}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-80,-60},{80,-60}}, 
+            color={0,0,0}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{0,100},{0,60}}, 
+            color={0,0,0}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{0,-60},{0,-100}}, 
+            color={0,0,0}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(extent={{-100,100},{100,-100}}, lineColor={135,135,135}), 
+          Rectangle(extent={{-100,25},{100,-24}}, lineColor={0,0,0})}),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Line(
+            points={{-50,-40},{50,-40}}, 
+            color={0,0,0}, 
+            thickness=2, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-50,40},{50,40}}, 
+            color={0,0,0}, 
+            thickness=2, 
+            fillPattern=FillPattern.Solid), 
+          Text(
+            extent={{-158,-66},{158,-124}}, 
+            lineColor={0,0,0}, 
+            lineThickness=2, 
+            textString=
+                 "%name"), 
+          Rectangle(
+            extent={{-60,60},{60,-60}}, 
+            lineColor={255,255,255}, 
+            lineThickness=2, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{-60,15},{60,-15}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.HorizontalCylinder, 
+            fillColor={175,175,175}), 
+          Line(
+            points={{0,60},{0,40}}, 
+            color={0,0,0}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{0,-40},{0,-60}}, 
+            color={0,0,0}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-50,40},{50,40}}, 
+            color={0,0,0}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-50,-40},{50,-40}}, 
+            color={0,0,0}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(extent={{-60,60},{60,-60}}, lineColor={135,135,135}), 
+          Rectangle(extent={{-60,15},{60,-15}}, lineColor={0,0,0})}),
       Documentation(info="<html>
 <p>
 This hierarchical connector models a 1-dim. rotational flange
@@ -298,46 +304,52 @@ to the FlangeWithBearing connector.
     Modelica.Mechanics.MultiBody.Interfaces.FlangeWithBearing flangeAndFrame(
         includeBearingConnector=includeBearingConnector) 
       "Compound connector consisting of 1-dim. rotational flange and 3-dim. frame mounting"
-                                   annotation (extent=[-130, -30; -70, 30]);
+                                   annotation (Placement(transformation(extent=
+              {{-130,-30},{-70,30}}, rotation=0)));
     Modelica.Mechanics.Rotational.Interfaces.Flange_b flange 
       "1-dim. rotational flange" 
-      annotation (extent=[-10, -10; 10, 10]);
+      annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation
+            =0)));
     Frame_a frame if includeBearingConnector 
-      "3-dim. frame in which the 1-dim. shaft is mounted"             annotation (extent=[-16,-116; 16,-84], rotation=90);
+      "3-dim. frame in which the 1-dim. shaft is mounted"             annotation (Placement(
+          transformation(
+          origin={0,-100}, 
+          extent={{-16,-16},{16,16}}, 
+          rotation=90)));
     
     annotation (
       defaultComponentName="adaptor",
-      Diagram,
-      Icon(
-        Rectangle(extent=[-100, 30; 20, -100], style(
-            color=7,
-            rgbcolor={255,255,255},
-            fillColor=7,
-            rgbfillColor={255,255,255},
-            fillPattern=1)),
-        Line(points=[-100, -10; -100, -40; 0, -40; 0, -100], style(
-            color=0,
-            rgbcolor={0,0,0},
-            thickness=2,
-            fillColor=10,
-            rgbfillColor={95,95,95},
-            fillPattern=1)),
-        Line(points=[-90, 0; 0, 0],style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95},
-            fillPattern=1)),
-        Text(
-          extent=[-216, 88; 86, 36],
-          string="%name",
-          style(
-            color=3,
-            rgbcolor={0,0,255},
-            fillColor=7,
-            rgbfillColor={255,255,255},
-            fillPattern=1))),
-      Coordsys(grid=[1, 1],scale=0),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics),
+      Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Rectangle(
+            extent={{-100,30},{20,-100}}, 
+            lineColor={255,255,255}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-100,-10},{-100,-40},{0,-40},{0,-100}}, 
+            color={0,0,0}, 
+            thickness=2, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-90,0},{0,0}}, 
+            color={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Text(
+            extent={{-216,88},{86,36}}, 
+            lineColor={0,0,255}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                 "%name")}),
       Documentation(info="<html>
 <p>
 Adaptor object to make a more visible connection to the flange and frame
@@ -347,21 +359,17 @@ connector.
 </p>
 </html>"));
   equation 
-    connect(flange, flangeAndFrame.flange) annotation (points=[0, 0; -100, 0],
-        style(
-        color=0,
-        rgbcolor={0,0,0},
-        fillColor=7,
-        rgbfillColor={255,255,255},
-        fillPattern=1));
-    connect(frame, flangeAndFrame.bearingFrame) annotation (points=[0, -100; 0,
-          -40; -100, -40; -100, 0], style(
-        color=0,
-        rgbcolor={0,0,0},
-        thickness=2,
-        fillColor=7,
-        rgbfillColor={255,255,255},
-        fillPattern=1));
+    connect(flange, flangeAndFrame.flange) annotation (Line(
+        points={{0,0},{-100,0}}, 
+        color={0,0,0}, 
+        fillColor={255,255,255}, 
+        fillPattern=FillPattern.Solid));
+    connect(frame, flangeAndFrame.bearingFrame) annotation (Line(
+        points={{0,-100},{0,-40},{-100,-40},{-100,0}}, 
+        color={0,0,0}, 
+        thickness=2, 
+        fillColor={255,255,255}, 
+        fillPattern=FillPattern.Solid));
   end FlangeWithBearingAdaptor;
   
   partial model PartialTwoFrames 
@@ -369,10 +377,12 @@ connector.
     
     Interfaces.Frame_a frame_a 
       "Coordinate system fixed to the component with one cut-force and cut-torque"
-                               annotation (extent=[-116,-16; -84,16]);
+                               annotation (Placement(transformation(extent={{
+              -116,-16},{-84,16}}, rotation=0)));
     Interfaces.Frame_b frame_b 
       "Coordinate system fixed to the component with one cut-force and cut-torque"
-                               annotation (extent=[84,-16; 116,16]);
+                               annotation (Placement(transformation(extent={{84,
+              -16},{116,16}}, rotation=0)));
   protected 
     outer Modelica.Mechanics.MultiBody.World world;
   equation 
@@ -381,13 +391,18 @@ connector.
     assert(cardinality(frame_b) > 0,
       "Connector frame_b of component is not connected");
     annotation (
-      Icon(Text(
-          extent=[-136,-25; -100,-50],
-          style(color=10),
-          string="a"), Text(
-          extent=[100,-25; 136,-50],
-          style(color=10),
-          string="b")),
+      Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={Text(
+            extent={{-136,-25},{-100,-50}}, 
+            lineColor={128,128,128}, 
+            textString=
+                 "a"), Text(
+            extent={{100,-25},{136,-50}}, 
+            lineColor={128,128,128}, 
+            textString=
+                 "b")}),
       Documentation(info="<HTML>
 <p>
 This partial model provides two frame connectors, access to the world
@@ -396,8 +411,10 @@ Therefore, inherit from this partial model if the two frame connectors are
 needed and if the two frame connectors should be connected for a correct model.
 </p>
 </HTML>"),
-      Coordsys(grid=[1, 1], component=[20, 20]),
-      Diagram);
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics));
     
   end PartialTwoFrames;
   
@@ -406,10 +423,12 @@ needed and if the two frame connectors should be connected for a correct model.
     
     Interfaces.Frame_a frame_a 
       "Coordinate system fixed to the component with one cut-force and cut-torque"
-                               annotation (extent=[-108,-8; -92,8]);
+                               annotation (Placement(transformation(extent={{
+              -108,-8},{-92,8}}, rotation=0)));
     Interfaces.Frame_b frame_b 
       "Coordinate system fixed to the component with one cut-force and cut-torque"
-                               annotation (extent=[92,-8; 108,8]);
+                               annotation (Placement(transformation(extent={{92,
+              -8},{108,8}}, rotation=0)));
   protected 
     outer Modelica.Mechanics.MultiBody.World world;
   equation 
@@ -418,15 +437,16 @@ needed and if the two frame connectors should be connected for a correct model.
     assert(cardinality(frame_b) > 0,
       "Connector frame_b of component is not connected");
     annotation (
-      Icon(coordinateSystem(extent=[-200,-200; 200,200]),
-           Text(
-          extent=[-123,-15; -100,-34],
-          style(color=10),
-          string="a"),
-           Text(
-          extent=[100,-15; 124,-34],
-          style(color=10),
-          string="b")),
+      Icon(graphics={Text(
+            extent={{-123,-15},{-100,-34}}, 
+            lineColor={128,128,128}, 
+            textString=
+                 "a"), Text(
+            extent={{100,-15},{124,-34}}, 
+            lineColor={128,128,128}, 
+            textString=
+                 "b")},
+           coordinateSystem(extent=[-200,-200; 200,200])),
       Documentation(info="<HTML>
 <p>
 This partial model provides two frame connectors, access to the world
@@ -440,9 +460,11 @@ larger as usual. This partial model is used by the Joint.Assemblies
 joint aggregation models.
 </p>
 </HTML>"),
-      Coordsys(grid=[2,2],  component=[20, 20],
-        scale=0.2),
-      Diagram);
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={2,2}, 
+          initialScale=0.2), graphics));
     
   end PartialTwoFramesDoubleSize;
   
@@ -451,13 +473,15 @@ joint aggregation models.
     
     Interfaces.Frame_a frame_a 
       "Coordinate system fixed to the component with one cut-force and cut-torque"
-                                                                                                          annotation (extent=[-116,-16; -84,16]);
+                                                                                                          annotation (Placement(
+          transformation(extent={{-116,-16},{-84,16}}, rotation=0)));
   protected 
     outer Modelica.Mechanics.MultiBody.World world;
   equation 
     assert(cardinality(frame_a) > 0,
       "Connector frame_a of component is not connected");
-    annotation (Icon, Documentation(info="<html>
+    annotation (Icon(graphics),
+                      Documentation(info="<html>
 <p>
 This partial model provides one frame_a connector, access to the world
 object and an assert to check that the frame_a connector is connected.
@@ -472,14 +496,18 @@ needed and if this connector should be connected for a correct model.
     
     Interfaces.Frame_b frame_b 
       "Coordinate system fixed to the component with one cut-force and cut-torque"
-      annotation (extent=[84,-16; 116,16]);
+      annotation (Placement(transformation(extent={{84,-16},{116,16}}, rotation
+            =0)));
   protected 
     outer Modelica.Mechanics.MultiBody.World world;
   equation 
     assert(cardinality(frame_b) > 0,
       "Connector frame_b of component is not connected");
     annotation (
-      Icon,
+      Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics),
       Documentation(info="<HTML>
 <p>
 This partial model provides one frame_b connector, access to the world
@@ -488,8 +516,10 @@ Therefore, inherit from this partial model if the frame_b connector is
 needed and if this connector should be connected for a correct model.
 </p>
 </HTML>"),
-      Coordsys(grid=[1, 1], component=[20, 20]),
-      Diagram);
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics));
     
   end PartialOneFrame_b;
   
@@ -498,10 +528,12 @@ needed and if this connector should be connected for a correct model.
     
     Interfaces.Frame_a frame_a 
       "Coordinate system fixed to the joint with one cut-force and cut-torque" 
-                               annotation (extent=[-116,-16; -84,16]);
+                               annotation (Placement(transformation(extent={{
+              -116,-16},{-84,16}}, rotation=0)));
     Interfaces.Frame_b frame_b 
       "Coordinate system fixed to the joint with one cut-force and cut-torque" 
-                               annotation (extent=[84,-16; 116,16]);
+                               annotation (Placement(transformation(extent={{84,
+              -16},{116,16}}, rotation=0)));
     
   protected 
     outer Modelica.Mechanics.MultiBody.World world;
@@ -529,9 +561,14 @@ between frame_a and frame_b, access to the world
 object and an assert to check that both frame connectors are connected.
 </p>
 </HTML>
- "), Icon,
-      Diagram,
-      Coordsys(grid=[1,1], scale=0));
+ "), Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics));
   end PartialElementaryJoint;
   
   partial model PartialForce 
@@ -540,10 +577,12 @@ object and an assert to check that both frame connectors are connected.
     import SI = Modelica.SIunits;
     Interfaces.Frame_a frame_a 
       "Coordinate system fixed to the joint with one cut-force and cut-torque" 
-                               annotation (extent=[-116,-16; -84,16]);
+                               annotation (Placement(transformation(extent={{
+              -116,-16},{-84,16}}, rotation=0)));
     Interfaces.Frame_b frame_b 
       "Coordinate system fixed to the joint with one cut-force and cut-torque" 
-                               annotation (extent=[84,-16; 116,16]);
+                               annotation (Placement(transformation(extent={{84,
+              -16},{116,16}}, rotation=0)));
     
     SI.Position r_rel_b[3] 
       "Position vector from origin of frame_a to origin of frame_b, resolved in frame_b";
@@ -600,13 +639,15 @@ Note, that frame_b.f and frame_b.t are flow variables and therefore
 the negative value of frame_b.f and frame_b.t is acting at the part
 to which this force element is connected.
 </p>
-</HTML>"), Icon(Text(
-          extent=[-136, 42; -100, 17],
-          style(color=10),
-          string="a"), Text(
-          extent=[102, 44; 138, 19],
-          style(color=10),
-          string="b")));
+</HTML>"), Icon(graphics={Text(
+            extent={{-136,42},{-100,17}}, 
+            lineColor={128,128,128}, 
+            textString=
+                 "a"), Text(
+            extent={{102,44},{138,19}}, 
+            lineColor={128,128,128}, 
+            textString=
+                 "b")}));
   end PartialForce;
   
   partial model PartialLineForce "Base model for line force elements" 
@@ -616,10 +657,12 @@ to which this force element is connected.
       annotation (Dialog(tab="Advanced"));
     Interfaces.Frame_a frame_a 
       "Coordinate system fixed to the force element with one cut-force and cut-torque"
-                               annotation (extent=[-116,-16; -84,16]);
+                               annotation (Placement(transformation(extent={{
+              -116,-16},{-84,16}}, rotation=0)));
     Interfaces.Frame_b frame_b 
       "Coordinate system fixed to the force element with one cut-force and cut-torque"
-                               annotation (extent=[84,-16; 116,16]);
+                               annotation (Placement(transformation(extent={{84,
+              -16},{116,16}}, rotation=0)));
     SI.Force f 
       "Line force acting on frame_a and on frame_b (positive, if acting on frame_b and directed from frame_a to frame_b)";
     SI.Position s 
@@ -682,13 +725,15 @@ has to be defined. Example:
       f = c*(s-s_unstretched);
    <b>end</b> Spring;
 </pre>
-</HTML>"), Icon(Text(
-          extent=[-136, 44; -100, 19],
-          style(color=10),
-          string="a"), Text(
-          extent=[100, 42; 136, 17],
-          style(color=10),
-          string="b")));
+</HTML>"), Icon(graphics={Text(
+            extent={{-136,44},{-100,19}}, 
+            lineColor={128,128,128}, 
+            textString=
+                 "a"), Text(
+            extent={{100,42},{136,17}}, 
+            lineColor={128,128,128}, 
+            textString=
+                 "b")}));
   end PartialLineForce;
   
   partial model PartialAbsoluteSensor 
@@ -697,18 +742,16 @@ has to be defined. Example:
     parameter Integer n_out = 1 "Number of output signals";
     Interfaces.Frame_a frame_a 
       "Coordinate system from which absolute quantities are provided as output signals"
-      annotation (extent=[-116,-16; -84,16]);
+      annotation (Placement(transformation(extent={{-116,-16},{-84,16}}, 
+            rotation=0)));
     
     Modelica.Blocks.Interfaces.RealOutput y[n_out] 
       "Measured data as signal vector" 
-      annotation (extent=[100, -10; 120, 10]);
+      annotation (Placement(transformation(extent={{100,-10},{120,10}}, 
+            rotation=0)));
   protected 
     outer Modelica.Mechanics.MultiBody.World world;
     annotation (
-      Coordsys(
-        extent=[-100, -100; 100, 100],
-        grid=[1, 1],
-        component=[20, 20]),
       Window(
         x=0.39,
         y=0.05,
@@ -723,12 +766,19 @@ and to provide the measured signal as output for further processing
 with the blocks of package Modelica.Blocks.
 </p>
 </HTML>
-"),   Icon(
-        Line(points=[-70, 0; -100, 0], style(color=0)),
-        Line(points=[70, 0; 100, 0]),
-        Text(extent=[-132, -125; 131, -79], string="%name")),
-      Diagram(Line(points=[-70, 0; -100, 0], style(color=0)), Line(points=[70,
-              0; 100, 0])));
+"),   Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Line(points={{-70,0},{-100,0}}, color={0,0,0}), 
+          Line(points={{70,0},{100,0}}), 
+          Text(extent={{-132,-125},{131,-79}}, textString=
+                                                   "%name")}),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={Line(points={{-70,0},{-100,0}}, color={0,0,0}), 
+            Line(points={{70,0},{100,0}})}));
   equation 
     assert(cardinality(frame_a) > 0,
       "Connector frame_a of absolute sensor object is not connected");
@@ -738,19 +788,20 @@ with the blocks of package Modelica.Blocks.
     "Base model to measure a relative variable between two frames" 
     extends Modelica.Icons.RotationalSensor;
     parameter Integer n_out = 1 "Number of output signals";
-    Interfaces.Frame_a frame_a "Coordinate system a" annotation (extent=[-116,-16; -84,16]);
-    Interfaces.Frame_b frame_b "Coordinate system b" annotation (extent=[84,-16; 116,16]);
+    Interfaces.Frame_a frame_a "Coordinate system a" annotation (Placement(
+          transformation(extent={{-116,-16},{-84,16}}, rotation=0)));
+    Interfaces.Frame_b frame_b "Coordinate system b" annotation (Placement(
+          transformation(extent={{84,-16},{116,16}}, rotation=0)));
     
     Modelica.Blocks.Interfaces.RealOutput y[n_out] 
       "Measured data as signal vector" 
-      annotation (extent=[-10, -100; 10, -120], rotation=90);
+      annotation (Placement(transformation(
+          origin={0,-110}, 
+          extent={{10,-10},{-10,10}}, 
+          rotation=90)));
   protected 
     outer Modelica.Mechanics.MultiBody.World world;
     annotation (
-      Coordsys(
-        extent=[-100, -100; 100, 100],
-        grid=[1, 1],
-        component=[20, 20]),
       Window(
         x=0.37,
         y=0.02,
@@ -766,23 +817,32 @@ to provide the measured signals as output for further processing
 with the blocks of package Modelica.Blocks.
 </p>
 </HTML>
-"),   Icon(
-        Line(points=[-70, 0; -101, 0], style(color=0)),
-        Line(points=[70, 0; 100, 0], style(color=0)),
-        Line(points=[0, -100; 0, -70], style(color=74, rgbcolor={0,0,127})),
-        Text(extent=[-132, 76; 129, 124], string="%name"),
-        Text(
-          extent=[-118,52; -82,27],
-          style(color=10),
-          string="a"),
-        Text(
-          extent=[85,53; 121,28],
-          style(color=10),
-          string="b")),
-      Diagram(
-        Line(points=[-70, 0; -100, 0], style(color=0)),
-        Line(points=[70, 0; 100, 0], style(color=0)),
-        Line(points=[0, -100; 0, -70], style(color=74, rgbcolor={0,0,127}))));
+"),   Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Line(points={{-70,0},{-101,0}}, color={0,0,0}), 
+          Line(points={{70,0},{100,0}}, color={0,0,0}), 
+          Line(points={{0,-100},{0,-70}}, color={0,0,127}), 
+          Text(extent={{-132,76},{129,124}}, textString=
+                                                 "%name"), 
+          Text(
+            extent={{-118,52},{-82,27}}, 
+            lineColor={128,128,128}, 
+            textString=
+                 "a"), 
+          Text(
+            extent={{85,53},{121,28}}, 
+            lineColor={128,128,128}, 
+            textString=
+                 "b")}),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Line(points={{-70,0},{-100,0}}, color={0,0,0}), 
+          Line(points={{70,0},{100,0}}, color={0,0,0}), 
+          Line(points={{0,-100},{0,-70}}, color={0,0,127})}));
   equation 
     
     assert(cardinality(frame_a) > 0,
@@ -797,18 +857,19 @@ with the blocks of package Modelica.Blocks.
     
     extends Modelica.Icons.RotationalSensor;
     Interfaces.Frame_a frame_a 
-      "Coordinate system with one cut-force and cut-torque"                          annotation (extent=[-116,-16; -84,16]);
+      "Coordinate system with one cut-force and cut-torque"                          annotation (Placement(
+          transformation(extent={{-116,-16},{-84,16}}, rotation=0)));
     Interfaces.Frame_b frame_b 
-      "Coordinate system with one cut-force and cut-torque"                          annotation (extent=[84,-16; 116,16]);
+      "Coordinate system with one cut-force and cut-torque"                          annotation (Placement(
+          transformation(extent={{84,-16},{116,16}}, rotation=0)));
     Interfaces.Frame_resolve frame_resolve 
       "If connected, the output signals are resolved in this frame (cut-force/-torque are set to zero)"
-      annotation (extent=[64,-116; 96,-84],  rotation=-90);
+      annotation (Placement(transformation(
+          origin={80,-100}, 
+          extent={{-16,-16},{16,16}}, 
+          rotation=270)));
     
     annotation (
-      Coordsys(
-        extent=[-100, -100; 100, 100],
-        grid=[1, 1],
-        component=[20, 20]),
       Window(
         x=0.37,
         y=0.02,
@@ -824,35 +885,45 @@ to provide the measured signals as output for further processing
 with the blocks of package Modelica.Blocks.
 </p>
 </HTML>
-"),   Icon(
-        Line(points=[-70, 0; -101, 0], style(color=0)),
-        Line(points=[70, 0; 100, 0], style(color=0)),
-        Line(points=[-80, -100; -80, 0], style(color=74, rgbcolor={0,0,127})),
-        Text(extent=[-132, 76; 129, 124], string="%name"),
-        Text(
-          extent=[-118,55; -82,30],
-          style(color=10),
-          string="a"),
-        Text(
-          extent=[83,55; 119,30],
-          style(color=10),
-          string="b"),
-        Text(
-          extent=[-31, -72; 100, -97],
-          style(color=8),
-          string="resolve"),
-        Line(points=[80, 0; 80, -100], style(
-            color=10,
-            rgbcolor={95,95,95},
-            pattern=3))),
-      Diagram(
-        Line(points=[-70, 0; -100, 0], style(color=0)),
-        Line(points=[70, 0; 100, 0], style(color=0)),
-        Line(points=[-80, -100; -80, 0], style(color=74, rgbcolor={0,0,127})),
-        Line(points=[80,0; 80,-100], style(
-            color=10,
-            rgbcolor={95,95,95},
-            pattern=3))));
+"),   Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Line(points={{-70,0},{-101,0}}, color={0,0,0}), 
+          Line(points={{70,0},{100,0}}, color={0,0,0}), 
+          Line(points={{-80,-100},{-80,0}}, color={0,0,127}), 
+          Text(extent={{-132,76},{129,124}}, textString=
+                                                 "%name"), 
+          Text(
+            extent={{-118,55},{-82,30}}, 
+            lineColor={128,128,128}, 
+            textString=
+                 "a"), 
+          Text(
+            extent={{83,55},{119,30}}, 
+            lineColor={128,128,128}, 
+            textString=
+                 "b"), 
+          Text(
+            extent={{-31,-72},{100,-97}}, 
+            lineColor={192,192,192}, 
+            textString=
+                 "resolve"), 
+          Line(
+            points={{80,0},{80,-100}}, 
+            color={95,95,95}, 
+            pattern=LinePattern.Dot)}),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Line(points={{-70,0},{-100,0}}, color={0,0,0}), 
+          Line(points={{70,0},{100,0}}, color={0,0,0}), 
+          Line(points={{-80,-100},{-80,0}}, color={0,0,127}), 
+          Line(
+            points={{80,0},{80,-100}}, 
+            color={95,95,95}, 
+            pattern=LinePattern.Dot)}));
     
   protected 
     outer Modelica.Mechanics.MultiBody.World world;
@@ -887,13 +958,15 @@ with the blocks of package Modelica.Blocks.
     "Base model for visualizers (has a frame_a on the left side + outer world + assert to guarantee that the component is connected)" 
     
     Interfaces.Frame_a frame_a 
-      "Coordinate system in which visualization data is resolved"                          annotation (extent=[-116,-16; -84,16]);
+      "Coordinate system in which visualization data is resolved"                          annotation (Placement(
+          transformation(extent={{-116,-16},{-84,16}}, rotation=0)));
   protected 
     outer Modelica.Mechanics.MultiBody.World world;
   equation 
     assert(cardinality(frame_a) > 0,
       "Connector frame_a of visualizer object is not connected");
-    annotation (Icon, Documentation(info="<html>
+    annotation (Icon(graphics),
+                      Documentation(info="<html>
 <p>
 This partial model provides one frame_a connector, access to the world
 object and an assert to check that the frame_a connector is connected.

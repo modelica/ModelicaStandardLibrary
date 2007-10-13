@@ -194,10 +194,6 @@ In the table below an example call to every function is given:
   </tr>
 </table>
 </HTML>"),
-      Coordsys(
-        extent=[0, 0; 417, 614],
-        grid=[1, 1],
-        component=[20, 20]),
       Window(
         x=0.03,
         y=0.02,

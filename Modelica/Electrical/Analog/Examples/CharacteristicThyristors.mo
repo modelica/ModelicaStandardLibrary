@@ -5,17 +5,21 @@ model CharacteristicThyristors "Characteristic of ideal thyristors"
   
   Modelica.Electrical.Analog.Ideal.IdealThyristor IdealThyristor1(
                     Vknee=5) 
-                           annotation (extent=[-20, 0; 0, 20]);
+                           annotation (Placement(transformation(extent={{-20,0},
+            {0,20}}, rotation=0)));
   Modelica.Electrical.Analog.Sources.SineVoltage SineVoltage1(V=10,
       offset=0) 
-              annotation (extent=[-50, -20; -30, 0], rotation=270);
+              annotation (Placement(transformation(
+        origin={-40,-10}, 
+        extent={{-10,-10},{10,10}}, 
+        rotation=270)));
   Modelica.Electrical.Analog.Basic.Ground Ground1 
-  annotation (extent=[-50, -60; -30, -40]);
+  annotation (Placement(transformation(extent={{-50,-60},{-30,-40}}, rotation=0)));
   Modelica.Electrical.Analog.Basic.Resistor R3(R=1.e-3) 
-  annotation (extent=[40, 0; 60, 20]);
+  annotation (Placement(transformation(extent={{40,0},{60,20}}, rotation=0)));
   
-annotation (Diagram(Text(extent=[-96, 100; 98, 60], string=
-          "Characteristic Thyristors")), Documentation(info="<HTML>
+annotation (Diagram(graphics={Text(extent={{-96,100},{98,60}}, textString=
+          "Characteristic Thyristors")}),Documentation(info="<HTML>
 <P>
 Two examples of thyristors are shown:<br><br>
 the <b>ideal thyristor</b>  <br>
@@ -40,12 +44,14 @@ IdealThyristor1.v and IdealGTOThyristor1.v <br>
 </ul>
 </html>"));
   Modelica.Blocks.Sources.BooleanStep BooleanStep1(startValue=false,
-      startTime=1.25) annotation (extent=[-60, 40; -40, 60]);
+      startTime=1.25) annotation (Placement(transformation(extent={{-60,40},{
+            -40,60}}, rotation=0)));
   Modelica.Electrical.Analog.Ideal.IdealGTOThyristor IdealGTOThyristor1(
                        Vknee=0) 
-                              annotation (extent=[-20, -30; 0, -10]);
+                              annotation (Placement(transformation(extent={{-20,
+            -30},{0,-10}}, rotation=0)));
   Modelica.Electrical.Analog.Basic.Resistor R1(R=1.e-3) 
-  annotation (extent=[40, -30; 60, -10]);
+  annotation (Placement(transformation(extent={{40,-30},{60,-10}}, rotation=0)));
   
 annotation (Documentation(info="<HTML>
 <P>
@@ -73,22 +79,22 @@ IdealThyristor1.v and IdealGTOThyristor1.v <br>
      StopTime=2));
 equation 
   connect(IdealThyristor1.n, R3.p) 
-  annotation (points=[0, 10; 40, 10], style(color=3));
+  annotation (Line(points={{0,10},{40,10}}, color={0,0,255}));
   connect(Ground1.p, SineVoltage1.n) 
-  annotation (points=[-40, -40; -40, -20], style(color=3));
+  annotation (Line(points={{-40,-40},{-40,-20}}, color={0,0,255}));
   connect(SineVoltage1.p, IdealThyristor1.p) 
-  annotation (points=[-40, 0; -40, 10; -20, 10], style(color=3));
+  annotation (Line(points={{-40,0},{-40,10},{-20,10}}, color={0,0,255}));
   connect(BooleanStep1.y, IdealThyristor1.fire) 
-  annotation (points=[-39,50; -3,50; -3,21],    style(color=5));
+  annotation (Line(points={{-39,50},{-3,50},{-3,21}}, color={255,0,255}));
   connect(IdealGTOThyristor1.n, R1.p) 
-  annotation (points=[0, -20; 40, -20], style(color=3));
+  annotation (Line(points={{0,-20},{40,-20}}, color={0,0,255}));
   connect(R3.n, R1.n) 
-  annotation (points=[60, 10; 60, -20], style(color=3));
+  annotation (Line(points={{60,10},{60,-20}}, color={0,0,255}));
   connect(R1.n, Ground1.p) 
-  annotation (points=[60, -20; 60, -40; -40, -40], style(color=3));
+  annotation (Line(points={{60,-20},{60,-40},{-40,-40}}, color={0,0,255}));
   connect(IdealGTOThyristor1.p, IdealThyristor1.p) 
-  annotation (points=[-20, -20; -20, 10], style(color=3));
+  annotation (Line(points={{-20,-20},{-20,10}}, color={0,0,255}));
   connect(IdealGTOThyristor1.fire, IdealThyristor1.fire) 
-  annotation (points=[-3,-9; -3,-2.5; -2,-2.5; -2,5; -3,5; -3,21],
-                                        style(color=5));
+  annotation (Line(points={{-3,-9},{-3,-2.5},{-2,-2.5},{-2,5},{-3,5},{-3,21}}, 
+        color={255,0,255}));
 end CharacteristicThyristors;

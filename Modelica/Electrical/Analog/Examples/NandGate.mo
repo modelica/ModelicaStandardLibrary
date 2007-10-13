@@ -7,7 +7,7 @@ encapsulated model NandGate "CMOS NAND Gate (see Tietze/Schenk, page 157)"
   extends Icons.Example;
   
   annotation (
-    Icon,
+    Icon(graphics),
     Documentation(info="<html>
 <p>
 The nand gate is a basic CMOS building block. It consists of four CMOS transistors.
@@ -64,25 +64,39 @@ Modelica in file \"Modelica/package.mo\".</i><br>
     rising=1e-9,
     width=19e-9,
     falling=1.e-9,
-    period=40e-9) annotation (extent=[-80, 10; -60, 30], rotation=-90);
+    period=40e-9) annotation (Placement(transformation(
+        origin={-70,20}, 
+        extent={{-10,-10},{10,10}}, 
+        rotation=270)));
   Sources.TrapezoidVoltage VIN2(
     V=3.5,
     startTime=10e-9,
     rising=1e-9,
     width=19e-9,
     falling=1.e-9,
-    period=40e-9) annotation (extent=[-80, -40; -60, -20], rotation=-90);
-  Sources.RampVoltage VDD(V=5, duration=1e-9) annotation (extent=[40, 60; 60,
-        80], rotation=-90);
-  Basic.Ground Gnd1 annotation (extent=[45, 43; 55, 53]);
-  Basic.Ground Gnd4 annotation (extent=[-75, -5; -65, 5]);
-  Basic.Ground Gnd5 annotation (extent=[-75, -55; -65, -45]);
-  Utilities.Nand Nand annotation (extent=[-40, -45; 40, 55]);
+    period=40e-9) annotation (Placement(transformation(
+        origin={-70,-30}, 
+        extent={{-10,-10},{10,10}}, 
+        rotation=270)));
+  Sources.RampVoltage VDD(V=5, duration=1e-9) annotation (Placement(
+        transformation(
+        origin={50,70}, 
+        extent={{-10,-10},{10,10}}, 
+        rotation=270)));
+  Basic.Ground Gnd1 annotation (Placement(transformation(extent={{45,43},{55,53}}, 
+          rotation=0)));
+  Basic.Ground Gnd4 annotation (Placement(transformation(extent={{-75,-5},{-65,
+            5}}, rotation=0)));
+  Basic.Ground Gnd5 annotation (Placement(transformation(extent={{-75,-55},{-65,
+            -45}}, rotation=0)));
+  Utilities.Nand Nand annotation (Placement(transformation(extent={{-40,-45},{
+            40,55}}, rotation=0)));
 equation 
-  connect(VDD.n, Gnd1.p) annotation (points=[50, 60; 50, 53]);
-  connect(VIN1.n, Gnd4.p) annotation (points=[-70, 10; -70, 5]);
-  connect(VIN2.n, Gnd5.p) annotation (points=[-70, -40; -70, -45]);
-  connect(Nand.Vdd, VDD.p) annotation (points=[0, 55; 0, 90; 50, 90; 50, 80]);
-  connect(VIN1.p, Nand.x1) annotation (points=[-70, 30; -40, 30]);
-  connect(VIN2.p, Nand.x2) annotation (points=[-70, -20; -40, -20]);
+  connect(VDD.n, Gnd1.p) annotation (Line(points={{50,60},{50,53}}));
+  connect(VIN1.n, Gnd4.p) annotation (Line(points={{-70,10},{-70,5}}));
+  connect(VIN2.n, Gnd5.p) annotation (Line(points={{-70,-40},{-70,-45}}));
+  connect(Nand.Vdd, VDD.p) annotation (Line(points={{0,55},{0,90},{50,90},{50,
+          80}}));
+  connect(VIN1.p, Nand.x1) annotation (Line(points={{-70,30},{-40,30}}));
+  connect(VIN2.p, Nand.x2) annotation (Line(points={{-70,-20},{-40,-20}}));
 end NandGate;

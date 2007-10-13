@@ -5,10 +5,6 @@ package Nonlinear
       extends Modelica.Icons.Library;
   
       annotation(preferedView="info",
-        Coordsys(
-          extent=[0, 0; 207, 132],
-          grid=[1, 1],
-          component=[20, 20]),
         Window(
           x=0.05,
           y=0.1,
@@ -44,10 +40,6 @@ This package contains <b>discontinuous</b> and
         extends Interfaces.SISO;
     
         annotation (
-          Coordsys(
-            extent=[-100, -100; 100, 100],
-            grid=[2, 2],
-            component=[20, 20]),
           Window(
             x=0.22,
             y=0.06,
@@ -62,43 +54,67 @@ limits. If this is not the case, the corresponding limits are passed
 as output.
 </p>
 </HTML>
-"),       Icon(
-            Line(points=[0, -90; 0, 68], style(color=8)),
-            Polygon(points=[0, 90; -8, 68; 8, 68; 0, 90], style(color=8,
-                  fillColor=8)),
-            Line(points=[-90, 0; 68, 0], style(color=8)),
-            Polygon(points=[90, 0; 68, -8; 68, 8; 90, 0], style(color=8,
-                  fillColor=8)),
-            Line(points=[-80, -70; -50, -70; 50, 70; 80, 70], style(color=0)),
-            Text(
-              extent=[-150, -150; 150, -110],
-              string="uMax=%uMax",
-              style(color=0)),
-            Text(extent=[-150, 150; 150, 110], string="%name")),
-          Diagram(
-            Line(points=[0, -60; 0, 50], style(color=8)),
-            Polygon(points=[0, 60; -5, 50; 5, 50; 0, 60], style(color=8,
-                  fillColor=8)),
-            Line(points=[-60, 0; 50, 0], style(color=8)),
-            Polygon(points=[60, 0; 50, -5; 50, 5; 60, 0], style(color=8,
-                  fillColor=8)),
-            Line(points=[-50, -40; -30, -40; 30, 40; 50, 40], style(color=0)),
-            Text(
-              extent=[46, -6; 68, -18],
-              string="u",
-              style(color=10)),
-            Text(
-              extent=[-30, 70; -5, 50],
-              string="y",
-              style(color=10)),
-            Text(
-              extent=[-58, -54; -28, -42],
-              string="uMin",
-              style(color=10)),
-            Text(
-              extent=[26, 40; 66, 56],
-              string="uMax",
-              style(color=10))));
+"),       Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={2,2}), graphics={
+          Line(points={{0,-90},{0,68}}, color={192,192,192}), 
+          Polygon(
+            points={{0,90},{-8,68},{8,68},{0,90}}, 
+            lineColor={192,192,192}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-90,0},{68,0}}, color={192,192,192}), 
+          Polygon(
+            points={{90,0},{68,-8},{68,8},{90,0}}, 
+            lineColor={192,192,192}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-80,-70},{-50,-70},{50,70},{80,70}}, color={0,0,0}), 
+          Text(
+            extent={{-150,-150},{150,-110}}, 
+            lineColor={0,0,0}, 
+            textString=
+                     "uMax=%uMax"), 
+          Text(extent={{-150,150},{150,110}}, textString=
+                                                      "%name")}),
+          Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={2,2}), graphics={
+          Line(points={{0,-60},{0,50}}, color={192,192,192}), 
+          Polygon(
+            points={{0,60},{-5,50},{5,50},{0,60}}, 
+            lineColor={192,192,192}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-60,0},{50,0}}, color={192,192,192}), 
+          Polygon(
+            points={{60,0},{50,-5},{50,5},{60,0}}, 
+            lineColor={192,192,192}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-50,-40},{-30,-40},{30,40},{50,40}}, color={0,0,0}), 
+          Text(
+            extent={{46,-6},{68,-18}}, 
+            lineColor={128,128,128}, 
+            textString=
+                     "u"), 
+          Text(
+            extent={{-30,70},{-5,50}}, 
+            lineColor={128,128,128}, 
+            textString=
+                     "y"), 
+          Text(
+            extent={{-58,-54},{-28,-42}}, 
+            lineColor={128,128,128}, 
+            textString=
+                     "uMin"), 
+          Text(
+            extent={{26,40},{66,56}}, 
+            lineColor={128,128,128}, 
+            textString=
+                     "uMax")}));
       equation 
         assert(uMax >= uMin, "Limiter: Limits must be consistent. However, uMax (=" + String(uMax) +
                              ") < uMin (=" + String(uMin) + ")");
@@ -120,11 +136,12 @@ as output.
       "= false, if limits are ignored during initializiation (i.e., y=u)";
     Interfaces.RealInput limit1 
       "Connector of Real input signal used as maximum of input u" 
-                                annotation (extent=[-140, 60; -100, 100]);
+                                annotation (Placement(transformation(extent={{
+              -140,60},{-100,100}}, rotation=0)));
     Interfaces.RealInput limit2 
       "Connector of Real input signal used as minimum of input u" 
-                                annotation (extent=[-140, -100; -100, -
-          60]);
+                                annotation (Placement(transformation(extent={{
+              -140,-100},{-100,-60}}, rotation=0)));
   protected 
     Real uMax;
     Real uMin;
@@ -139,49 +156,70 @@ limit2. If this is not the case, the corresponding limit
 is passed as output.
 </p>
 </HTML>
-"),   Icon(
-        Line(points=[0, -90; 0, 68], style(color=8)),
-        Line(points=[-90, 0; 68, 0], style(color=8)),
-        Polygon(points=[90, 0; 68, -8; 68, 8; 90, 0], style(color=8, fillColor=
-                8)),
-        Line(points=[-80, -70; -50, -70; 50, 70; 80, 70], style(color=0)),
-        Text(extent=[-150, 150; 150, 110], string="%name"),
-        Line(points=[-100, 80; 66, 80; 66, 70], style(fillPattern=1)),
-        Line(points=[-100, -80; -64, -80; -64, -70], style(fillPattern=1)),
-        Polygon(points=[-64, -70; -66, -74; -62, -74; -64, -70], style(
-              fillPattern=1)),
-        Polygon(points=[66, 70; 64, 74; 68, 74; 66, 70], style(fillPattern=1)),
-        Polygon(points=[0, 90; -8, 68; 8, 68; 0, 90], style(color=8, fillColor=
-                8))),
-      Diagram(
-        Line(points=[0, -60; 0, 50], style(color=8)),
-        Polygon(points=[0, 60; -5, 50; 5, 50; 0, 60], style(color=8, fillColor=
-                8)),
-        Line(points=[-60, 0; 50, 0], style(color=8)),
-        Polygon(points=[60, 0; 50, -5; 50, 5; 60, 0], style(color=8, fillColor=
-                8)),
-        Line(points=[-50, -40; -30, -40; 30, 40; 50, 40], style(color=0)),
-        Text(
-          extent=[46, -6; 68, -18],
-          string="inPort",
-          style(color=10)),
-        Text(
-          extent=[-30, 70; -5, 50],
-          string="outPort",
-          style(color=10)),
-        Text(
-          extent=[-66, -40; -26, -20],
-          string="uMin",
-          style(color=10)),
-        Text(
-          extent=[30, 20; 70, 40],
-          string="uMax",
-          style(color=10)),
-        Line(points=[-100, 80; 40, 80; 40, 40]),
-        Line(points=[-100, -80; -40, -80; -40, -40]),
-        Polygon(points=[40, 40; 35, 50; 45, 50; 40, 40], style(fillPattern=1)),
-        Polygon(points=[-40, -40; -45, -50; -35, -50; -40, -40], style(
-              fillPattern=1))));
+"),   Icon(graphics={
+          Line(points={{0,-90},{0,68}}, color={192,192,192}), 
+          Line(points={{-90,0},{68,0}}, color={192,192,192}), 
+          Polygon(
+            points={{90,0},{68,-8},{68,8},{90,0}}, 
+            lineColor={192,192,192}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-80,-70},{-50,-70},{50,70},{80,70}}, color={0,0,0}), 
+          Text(extent={{-150,150},{150,110}}, textString=
+                                                  "%name"), 
+          Line(points={{-100,80},{66,80},{66,70}}, fillPattern=FillPattern.Solid), 
+            
+          Line(points={{-100,-80},{-64,-80},{-64,-70}}, fillPattern=FillPattern.Solid), 
+            
+          Polygon(points={{-64,-70},{-66,-74},{-62,-74},{-64,-70}}, fillPattern
+              =FillPattern.Solid), 
+          Polygon(points={{66,70},{64,74},{68,74},{66,70}}, fillPattern=
+                FillPattern.Solid), 
+          Polygon(
+            points={{0,90},{-8,68},{8,68},{0,90}}, 
+            lineColor={192,192,192}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid)}),
+      Diagram(graphics={
+          Line(points={{0,-60},{0,50}}, color={192,192,192}), 
+          Polygon(
+            points={{0,60},{-5,50},{5,50},{0,60}}, 
+            lineColor={192,192,192}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-60,0},{50,0}}, color={192,192,192}), 
+          Polygon(
+            points={{60,0},{50,-5},{50,5},{60,0}}, 
+            lineColor={192,192,192}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-50,-40},{-30,-40},{30,40},{50,40}}, color={0,0,0}), 
+          Text(
+            extent={{46,-6},{68,-18}}, 
+            lineColor={128,128,128}, 
+            textString=
+                 "inPort"), 
+          Text(
+            extent={{-30,70},{-5,50}}, 
+            lineColor={128,128,128}, 
+            textString=
+                 "outPort"), 
+          Text(
+            extent={{-66,-40},{-26,-20}}, 
+            lineColor={128,128,128}, 
+            textString=
+                 "uMin"), 
+          Text(
+            extent={{30,20},{70,40}}, 
+            lineColor={128,128,128}, 
+            textString=
+                 "uMax"), 
+          Line(points={{-100,80},{40,80},{40,40}}), 
+          Line(points={{-100,-80},{-40,-80},{-40,-40}}), 
+          Polygon(points={{40,40},{35,50},{45,50},{40,40}}, fillPattern=
+                FillPattern.Solid), 
+          Polygon(points={{-40,-40},{-45,-50},{-35,-50},{-40,-40}}, fillPattern
+              =FillPattern.Solid)}));
   equation 
     uMax = max(limit1, limit2);
     uMin = min(limit1, limit2);
@@ -206,10 +244,6 @@ is passed as output.
         extends Interfaces.SISO;
     
         annotation (
-          Coordsys(
-            extent=[-100, -100; 100, 100],
-            grid=[1, 1],
-            component=[20, 20]),
           Window(
             x=0.39,
             y=0.18,
@@ -226,43 +260,67 @@ is zero. Outside of this zone, the output is a linear
 function of the input with a slope of 1.
 </p>
 </HTML>
-"),       Icon(
-            Line(points=[0, -90; 0, 68], style(color=8)),
-            Polygon(points=[0, 90; -8, 68; 8, 68; 0, 90], style(color=8,
-                  fillColor=8)),
-            Line(points=[-90, 0; 68, 0], style(color=8)),
-            Polygon(points=[90, 0; 68, -8; 68, 8; 90, 0], style(color=8,
-                  fillColor=8)),
-            Line(points=[-80, -60; -20, 0; 20, 0; 80, 60], style(color=0)),
-            Text(
-              extent=[-150, -150; 150, -110],
-              string="uMax=%uMax",
-              style(color=9)),
-            Text(extent=[-150, 150; 150, 110], string="%name")),
-          Diagram(
-            Line(points=[0, -60; 0, 50], style(color=8)),
-            Polygon(points=[0, 60; -5, 50; 5, 50; 0, 60], style(color=8,
-                  fillColor=8)),
-            Line(points=[-76, 0; 74, 0], style(color=8)),
-            Polygon(points=[84, 0; 74, -5; 74, 5; 84, 0], style(color=8,
-                  fillColor=8)),
-            Line(points=[-81, -40; -38, 0; 40, 0; 80, 40], style(color=0)),
-            Text(
-              extent=[62, -7; 88, -25],
-              string="u",
-              style(color=10)),
-            Text(
-              extent=[-36, 72; -5, 50],
-              string="y",
-              style(color=10)),
-            Text(
-              extent=[-51, 1; -28, 19],
-              string="uMin",
-              style(color=10)),
-            Text(
-              extent=[27, 21; 52, 5],
-              string="uMax",
-              style(color=10))));
+"),       Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Line(points={{0,-90},{0,68}}, color={192,192,192}), 
+          Polygon(
+            points={{0,90},{-8,68},{8,68},{0,90}}, 
+            lineColor={192,192,192}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-90,0},{68,0}}, color={192,192,192}), 
+          Polygon(
+            points={{90,0},{68,-8},{68,8},{90,0}}, 
+            lineColor={192,192,192}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-80,-60},{-20,0},{20,0},{80,60}}, color={0,0,0}), 
+          Text(
+            extent={{-150,-150},{150,-110}}, 
+            lineColor={160,160,164}, 
+            textString=
+                     "uMax=%uMax"), 
+          Text(extent={{-150,150},{150,110}}, textString=
+                                                      "%name")}),
+          Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Line(points={{0,-60},{0,50}}, color={192,192,192}), 
+          Polygon(
+            points={{0,60},{-5,50},{5,50},{0,60}}, 
+            lineColor={192,192,192}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-76,0},{74,0}}, color={192,192,192}), 
+          Polygon(
+            points={{84,0},{74,-5},{74,5},{84,0}}, 
+            lineColor={192,192,192}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-81,-40},{-38,0},{40,0},{80,40}}, color={0,0,0}), 
+          Text(
+            extent={{62,-7},{88,-25}}, 
+            lineColor={128,128,128}, 
+            textString=
+                     "u"), 
+          Text(
+            extent={{-36,72},{-5,50}}, 
+            lineColor={128,128,128}, 
+            textString=
+                     "y"), 
+          Text(
+            extent={{-51,1},{-28,19}}, 
+            lineColor={128,128,128}, 
+            textString=
+                     "uMin"), 
+          Text(
+            extent={{27,21},{52,5}}, 
+            lineColor={128,128,128}, 
+            textString=
+                     "uMax")}));
       equation 
         assert(uMax >= uMin, "DeadZone: Limits must be consistent. However, uMax (=" + String(uMax) +
                              ") < uMin (=" + String(uMin) + ")");
@@ -280,10 +338,6 @@ function of the input with a slope of 1.
       "Delay time of output with respect to input signal";
     
     annotation (
-      Coordsys(
-        extent=[-100, -100; 100, 100],
-        grid=[2, 2],
-        component=[20, 20]),
       Window(
         x=0.27,
         y=0.09,
@@ -298,60 +352,87 @@ The Input signal is delayed by a given time instant, or more precisely:
      = u(time.start)       for time &le; time.start + delayTime
 </pre>
 </html>
-"),   Icon(
-        Text(
-          extent=[8, -102; 8, -142],
-          string="delayTime=%delayTime",
-          style(color=0)),
-        Line(points=[-92, 0; -80.7, 34.2; -73.5, 53.1; -67.1, 66.4; -61.4, 74.6;
-                -55.8, 79.1; -50.2, 79.8; -44.6, 76.6; -38.9, 69.7; -33.3, 59.4;
-                -26.9, 44.1; -18.83, 21.2; -1.9, -30.8; 5.3, -50.2; 11.7, -64.2;
-                17.3, -73.1; 23, -78.4; 28.6, -80; 34.2, -77.6; 39.9, -71.5;
-              45.5, -61.9; 51.9, -47.2; 60, -24.8; 68, 0], style(color=73)),
-        Line(points=[-62, 0; -50.7, 34.2; -43.5, 53.1; -37.1, 66.4; -31.4, 74.6;
-                -25.8, 79.1; -20.2, 79.8; -14.6, 76.6; -8.9, 69.7; -3.3, 59.4;
-              3.1, 44.1; 11.17, 21.2; 28.1, -30.8; 35.3, -50.2; 41.7, -64.2;
-              47.3, -73.1; 53, -78.4; 58.6, -80; 64.2, -77.6; 69.9, -71.5; 75.5,
-                -61.9; 81.9, -47.2; 90, -24.8; 98, 0], style(color=9))),
-      Diagram(
-        Line(points=[-80, 80; -88, 80], style(color=8)),
-        Line(points=[-80, -80; -88, -80], style(color=8)),
-        Line(points=[-80, -88; -80, 86], style(color=8)),
-        Text(
-          extent=[-75, 98; -46, 78],
-          string="outPort",
-          style(color=73)),
-        Polygon(points=[-80, 96; -86, 80; -74, 80; -80, 96], style(color=8,
-              fillColor=8)),
-        Line(points=[-100, 0; 84, 0], style(color=8)),
-        Polygon(points=[100, 0; 84, 6; 84, -6; 100, 0], style(color=8,
-              fillColor=8)),
-        Line(points=[-80, 0; -68.7, 34.2; -61.5, 53.1; -55.1, 66.4; -49.4, 74.6;
-                -43.8, 79.1; -38.2, 79.8; -32.6, 76.6; -26.9, 69.7; -21.3, 59.4;
-                -14.9, 44.1; -6.83, 21.2; 10.1, -30.8; 17.3, -50.2; 23.7, -64.2;
-                29.3, -73.1; 35, -78.4; 40.6, -80; 46.2, -77.6; 51.9, -71.5;
-              57.5, -61.9; 63.9, -47.2; 72, -24.8; 80, 0], style(color=73)),
-        Text(
-          extent=[-24, 98; -2, 78],
-          string="inPort",
-          style(color=0)),
-        Line(points=[-64, 0; -52.7, 34.2; -45.5, 53.1; -39.1, 66.4; -33.4, 74.6;
-                -27.8, 79.1; -22.2, 79.8; -16.6, 76.6; -10.9, 69.7; -5.3, 59.4;
-                1.1, 44.1; 9.17, 21.2; 26.1, -30.8; 33.3, -50.2; 39.7, -64.2;
-              45.3, -73.1; 51, -78.4; 56.6, -80; 62.2, -77.6; 67.9, -71.5; 73.5,
-                -61.9; 79.9, -47.2; 88, -24.8; 96, 0], style(color=0)),
-        Text(
-          extent=[67, 22; 96, 6],
-          string="time",
-          style(color=9)),
-        Line(points=[-64, -30; -64, 0], style(color=8)),
-        Text(extent=[-58, -42; -58, -32], string="delayTime"),
-        Line(points=[-94, -26; -80, -26], style(color=8)),
-        Line(points=[-64, -26; -50, -26], style(color=8)),
-        Polygon(points=[-80, -26; -88, -24; -88, -28; -80, -26], style(color=8,
-                fillColor=8)),
-        Polygon(points=[-56, -24; -64, -26; -56, -28; -56, -24], style(color=8,
-                fillColor=8))));
+"),   Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={2,2}), graphics={
+          Text(
+            extent={{8,-102},{8,-142}}, 
+            lineColor={0,0,0}, 
+            textString=
+                 "delayTime=%delayTime"), 
+          Line(points={{-92,0},{-80.7,34.2},{-73.5,53.1},{-67.1,66.4},{-61.4,
+                74.6},{-55.8,79.1},{-50.2,79.8},{-44.6,76.6},{-38.9,69.7},{
+                -33.3,59.4},{-26.9,44.1},{-18.83,21.2},{-1.9,-30.8},{5.3,-50.2},
+                {11.7,-64.2},{17.3,-73.1},{23,-78.4},{28.6,-80},{34.2,-77.6},{
+                39.9,-71.5},{45.5,-61.9},{51.9,-47.2},{60,-24.8},{68,0}}, color
+              ={0,0,255}), 
+          Line(points={{-62,0},{-50.7,34.2},{-43.5,53.1},{-37.1,66.4},{-31.4,
+                74.6},{-25.8,79.1},{-20.2,79.8},{-14.6,76.6},{-8.9,69.7},{-3.3,
+                59.4},{3.1,44.1},{11.17,21.2},{28.1,-30.8},{35.3,-50.2},{41.7,
+                -64.2},{47.3,-73.1},{53,-78.4},{58.6,-80},{64.2,-77.6},{69.9,
+                -71.5},{75.5,-61.9},{81.9,-47.2},{90,-24.8},{98,0}}, color={160,
+                160,164})}),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={2,2}), graphics={
+          Line(points={{-80,80},{-88,80}}, color={192,192,192}), 
+          Line(points={{-80,-80},{-88,-80}}, color={192,192,192}), 
+          Line(points={{-80,-88},{-80,86}}, color={192,192,192}), 
+          Text(
+            extent={{-75,98},{-46,78}}, 
+            lineColor={0,0,255}, 
+            textString=
+                 "outPort"), 
+          Polygon(
+            points={{-80,96},{-86,80},{-74,80},{-80,96}}, 
+            lineColor={192,192,192}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-100,0},{84,0}}, color={192,192,192}), 
+          Polygon(
+            points={{100,0},{84,6},{84,-6},{100,0}}, 
+            lineColor={192,192,192}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-80,0},{-68.7,34.2},{-61.5,53.1},{-55.1,66.4},{-49.4,
+                74.6},{-43.8,79.1},{-38.2,79.8},{-32.6,76.6},{-26.9,69.7},{
+                -21.3,59.4},{-14.9,44.1},{-6.83,21.2},{10.1,-30.8},{17.3,-50.2},
+                {23.7,-64.2},{29.3,-73.1},{35,-78.4},{40.6,-80},{46.2,-77.6},{
+                51.9,-71.5},{57.5,-61.9},{63.9,-47.2},{72,-24.8},{80,0}}, color
+              ={0,0,255}), 
+          Text(
+            extent={{-24,98},{-2,78}}, 
+            lineColor={0,0,0}, 
+            textString=
+                 "inPort"), 
+          Line(points={{-64,0},{-52.7,34.2},{-45.5,53.1},{-39.1,66.4},{-33.4,
+                74.6},{-27.8,79.1},{-22.2,79.8},{-16.6,76.6},{-10.9,69.7},{-5.3,
+                59.4},{1.1,44.1},{9.17,21.2},{26.1,-30.8},{33.3,-50.2},{39.7,
+                -64.2},{45.3,-73.1},{51,-78.4},{56.6,-80},{62.2,-77.6},{67.9,
+                -71.5},{73.5,-61.9},{79.9,-47.2},{88,-24.8},{96,0}}, color={0,0,
+                0}), 
+          Text(
+            extent={{67,22},{96,6}}, 
+            lineColor={160,160,164}, 
+            textString=
+                 "time"), 
+          Line(points={{-64,-30},{-64,0}}, color={192,192,192}), 
+          Text(extent={{-58,-42},{-58,-32}}, textString=
+                                                 "delayTime"), 
+          Line(points={{-94,-26},{-80,-26}}, color={192,192,192}), 
+          Line(points={{-64,-26},{-50,-26}}, color={192,192,192}), 
+          Polygon(
+            points={{-80,-26},{-88,-24},{-88,-28},{-80,-26}}, 
+            lineColor={192,192,192}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{-56,-24},{-64,-26},{-56,-28},{-56,-24}}, 
+            lineColor={192,192,192}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid)}));
   equation 
     y = delay(u, delayTime);
   end FixedDelay;
@@ -375,10 +456,6 @@ The Input signal is delayed by a given time instant, or more precisely:
     final output Real x[n] 
       "State of transfer function from controller canonical form";
     annotation (
-      Coordsys(
-        extent=[-100, -100; 100, 100],
-        grid=[2, 2],
-        component=[20, 20]),
       Window(
         x=0.27,
         y=0.09,
@@ -424,68 +501,97 @@ Otto Foellinger: Regelungstechnik, 8. Auflage,
 chapter 11.9, page 412-414, Huethig Verlag Heidelberg, 1994
 </p>
 </html>
-"),   Icon(
-        Text(
-          extent=[8, -102; 8, -142],
-          string="delayTime=%delayTime",
-          style(color=0)),
-        Line(points=[-94, 0; -82.7, 34.2; -75.5, 53.1; -69.1, 66.4; -63.4, 74.6;
-                -57.8, 79.1; -52.2, 79.8; -46.6, 76.6; -40.9, 69.7; -35.3, 59.4;
-                -28.9, 44.1; -20.83, 21.2; -3.9, -30.8; 3.3, -50.2; 9.7, -64.2;
-                15.3, -73.1; 21, -78.4; 26.6, -80; 32.2, -77.6; 37.9, -71.5;
-              43.5, -61.9; 49.9, -47.2; 58, -24.8; 66, 0], style(color=73)),
-        Line(points=[-72, 0; -60.7, 34.2; -53.5, 53.1; -47.1, 66.4; -41.4, 74.6;
-                -35.8, 79.1; -30.2, 79.8; -24.6, 76.6; -18.9, 69.7; -13.3, 59.4;
-                -6.9, 44.1; 1.17, 21.2; 18.1, -30.8; 25.3, -50.2; 31.7, -64.2;
-              37.3, -73.1; 43, -78.4; 48.6, -80; 54.2, -77.6; 59.9, -71.5; 65.5,
-                -61.9; 71.9, -47.2; 80, -24.8; 88, 0], style(color=9)),
-        Text(
-          extent=[-10, 100; 100, 38],
-          string="m=%m",
-          style(color=9)),
-        Text(
-          extent=[-98, -34; 6, -96],
-          string="n=%n",
-          style(color=9))),
-      Diagram(
-        Line(points=[-80, 80; -88, 80], style(color=8)),
-        Line(points=[-80, -80; -88, -80], style(color=8)),
-        Line(points=[-80, -88; -80, 86], style(color=8)),
-        Text(
-          extent=[-75, 98; -46, 78],
-          string="outPort",
-          style(color=73)),
-        Polygon(points=[-80, 96; -86, 80; -74, 80; -80, 96], style(color=8,
-              fillColor=8)),
-        Line(points=[-100, 0; 84, 0], style(color=8)),
-        Polygon(points=[100, 0; 84, 6; 84, -6; 100, 0], style(color=8,
-              fillColor=8)),
-        Line(points=[-80, 0; -68.7, 34.2; -61.5, 53.1; -55.1, 66.4; -49.4, 74.6;
-                -43.8, 79.1; -38.2, 79.8; -32.6, 76.6; -26.9, 69.7; -21.3, 59.4;
-                -14.9, 44.1; -6.83, 21.2; 10.1, -30.8; 17.3, -50.2; 23.7, -64.2;
-                29.3, -73.1; 35, -78.4; 40.6, -80; 46.2, -77.6; 51.9, -71.5;
-              57.5, -61.9; 63.9, -47.2; 72, -24.8; 80, 0], style(color=73)),
-        Text(
-          extent=[-24, 98; -2, 78],
-          string="inPort",
-          style(color=0)),
-        Line(points=[-64, 0; -52.7, 34.2; -45.5, 53.1; -39.1, 66.4; -33.4, 74.6;
-                -27.8, 79.1; -22.2, 79.8; -16.6, 76.6; -10.9, 69.7; -5.3, 59.4;
-                1.1, 44.1; 9.17, 21.2; 26.1, -30.8; 33.3, -50.2; 39.7, -64.2;
-              45.3, -73.1; 51, -78.4; 56.6, -80; 62.2, -77.6; 67.9, -71.5; 73.5,
-                -61.9; 79.9, -47.2; 88, -24.8; 96, 0], style(color=0)),
-        Text(
-          extent=[67, 22; 96, 6],
-          string="time",
-          style(color=9)),
-        Line(points=[-64, -30; -64, 0], style(color=8)),
-        Text(extent=[-58, -42; -58, -32], string="delayTime"),
-        Line(points=[-94, -26; -80, -26], style(color=8)),
-        Line(points=[-64, -26; -50, -26], style(color=8)),
-        Polygon(points=[-80, -26; -88, -24; -88, -28; -80, -26], style(color=8,
-                fillColor=8)),
-        Polygon(points=[-56, -24; -64, -26; -56, -28; -56, -24], style(color=8,
-                fillColor=8))));
+"),   Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={2,2}), graphics={
+          Text(
+            extent={{8,-102},{8,-142}}, 
+            lineColor={0,0,0}, 
+            textString=
+                 "delayTime=%delayTime"), 
+          Line(points={{-94,0},{-82.7,34.2},{-75.5,53.1},{-69.1,66.4},{-63.4,
+                74.6},{-57.8,79.1},{-52.2,79.8},{-46.6,76.6},{-40.9,69.7},{
+                -35.3,59.4},{-28.9,44.1},{-20.83,21.2},{-3.9,-30.8},{3.3,-50.2},
+                {9.7,-64.2},{15.3,-73.1},{21,-78.4},{26.6,-80},{32.2,-77.6},{
+                37.9,-71.5},{43.5,-61.9},{49.9,-47.2},{58,-24.8},{66,0}}, color
+              ={0,0,255}), 
+          Line(points={{-72,0},{-60.7,34.2},{-53.5,53.1},{-47.1,66.4},{-41.4,
+                74.6},{-35.8,79.1},{-30.2,79.8},{-24.6,76.6},{-18.9,69.7},{
+                -13.3,59.4},{-6.9,44.1},{1.17,21.2},{18.1,-30.8},{25.3,-50.2},{
+                31.7,-64.2},{37.3,-73.1},{43,-78.4},{48.6,-80},{54.2,-77.6},{
+                59.9,-71.5},{65.5,-61.9},{71.9,-47.2},{80,-24.8},{88,0}}, color
+              ={160,160,164}), 
+          Text(
+            extent={{-10,100},{100,38}}, 
+            lineColor={160,160,164}, 
+            textString=
+                 "m=%m"), 
+          Text(
+            extent={{-98,-34},{6,-96}}, 
+            lineColor={160,160,164}, 
+            textString=
+                 "n=%n")}),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={2,2}), graphics={
+          Line(points={{-80,80},{-88,80}}, color={192,192,192}), 
+          Line(points={{-80,-80},{-88,-80}}, color={192,192,192}), 
+          Line(points={{-80,-88},{-80,86}}, color={192,192,192}), 
+          Text(
+            extent={{-75,98},{-46,78}}, 
+            lineColor={0,0,255}, 
+            textString=
+                 "outPort"), 
+          Polygon(
+            points={{-80,96},{-86,80},{-74,80},{-80,96}}, 
+            lineColor={192,192,192}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-100,0},{84,0}}, color={192,192,192}), 
+          Polygon(
+            points={{100,0},{84,6},{84,-6},{100,0}}, 
+            lineColor={192,192,192}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-80,0},{-68.7,34.2},{-61.5,53.1},{-55.1,66.4},{-49.4,
+                74.6},{-43.8,79.1},{-38.2,79.8},{-32.6,76.6},{-26.9,69.7},{
+                -21.3,59.4},{-14.9,44.1},{-6.83,21.2},{10.1,-30.8},{17.3,-50.2},
+                {23.7,-64.2},{29.3,-73.1},{35,-78.4},{40.6,-80},{46.2,-77.6},{
+                51.9,-71.5},{57.5,-61.9},{63.9,-47.2},{72,-24.8},{80,0}}, color
+              ={0,0,255}), 
+          Text(
+            extent={{-24,98},{-2,78}}, 
+            lineColor={0,0,0}, 
+            textString=
+                 "inPort"), 
+          Line(points={{-64,0},{-52.7,34.2},{-45.5,53.1},{-39.1,66.4},{-33.4,
+                74.6},{-27.8,79.1},{-22.2,79.8},{-16.6,76.6},{-10.9,69.7},{-5.3,
+                59.4},{1.1,44.1},{9.17,21.2},{26.1,-30.8},{33.3,-50.2},{39.7,
+                -64.2},{45.3,-73.1},{51,-78.4},{56.6,-80},{62.2,-77.6},{67.9,
+                -71.5},{73.5,-61.9},{79.9,-47.2},{88,-24.8},{96,0}}, color={0,0,
+                0}), 
+          Text(
+            extent={{67,22},{96,6}}, 
+            lineColor={160,160,164}, 
+            textString=
+                 "time"), 
+          Line(points={{-64,-30},{-64,0}}, color={192,192,192}), 
+          Text(extent={{-58,-42},{-58,-32}}, textString=
+                                                 "delayTime"), 
+          Line(points={{-94,-26},{-80,-26}}, color={192,192,192}), 
+          Line(points={{-64,-26},{-50,-26}}, color={192,192,192}), 
+          Polygon(
+            points={{-80,-26},{-88,-24},{-88,-28},{-80,-26}}, 
+            lineColor={192,192,192}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{-56,-24},{-64,-26},{-56,-28},{-56,-24}}, 
+            lineColor={192,192,192}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid)}));
   protected 
     function padeCoefficients 
       input Real T "delay time";
@@ -526,10 +632,6 @@ chapter 11.9, page 412-414, Huethig Verlag Heidelberg, 1994
     extends Modelica.Blocks.Interfaces.SISO;
     parameter Real delayMax(min=0) = 1 "maximum delay time";
     annotation (
-      Coordsys(
-        extent=[-100, -100; 100, 100],
-        grid=[2, 2],
-        component=[20, 20]),
       Window(
         x=0.26,
         y=0.04,
@@ -550,98 +652,146 @@ the following relationship:
 <pre>  0 &le; delayTime &le; delayMax
 </pre>
 </html>
-"),   Icon(
-        Text(
-          extent=[-100, -108; 100, -148],
-          string="delayMax=%delayMax",
-          style(color=0)),
-        Line(points=[-92, 0; -80.7, 34.2; -73.5, 53.1; -67.1, 66.4; -61.4, 74.6;
-                -55.8, 79.1; -50.2, 79.8; -44.6, 76.6; -38.9, 69.7; -33.3, 59.4;
-                -26.9, 44.1; -18.83, 21.2; -1.9, -30.8; 5.3, -50.2; 11.7, -64.2;
-                17.3, -73.1; 23, -78.4; 28.6, -80; 34.2, -77.6; 39.9, -71.5;
-              45.5, -61.9; 51.9, -47.2; 60, -24.8; 68, 0], style(color=73)),
-        Line(points=[-64, 0; -52.7, 34.2; -45.5, 53.1; -39.1, 66.4; -33.4, 74.6;
-                -27.8, 79.1; -22.2, 79.8; -16.6, 76.6; -10.9, 69.7; -5.3, 59.4;
-                1.1, 44.1; 9.17, 21.2; 26.1, -30.8; 33.3, -50.2; 39.7, -64.2;
-              45.3, -73.1; 51, -78.4; 56.6, -80; 62.2, -77.6; 67.9, -71.5; 73.5,
-                -61.9; 79.9, -47.2; 88, -24.8; 96, 0], style(color=0)),
-        Polygon(points=[6, 4; -14, -2; -6, -12; 6, 4], style(color=0, fillColor=
-               0)),
-        Line(points=[-100, -60; -76, -60; -8, -6], style(color=0))),
-      Diagram(
-        Rectangle(extent=[-100, -100; 100, 100], style(color=3, fillColor=7)),
-        Polygon(points=[-80, 96; -86, 80; -74, 80; -80, 96], style(color=8,
-              fillColor=8)),
-        Text(
-          extent=[-69, 98; -40, 78],
-          string="outPort",
-          style(color=73)),
-        Line(points=[-64, 0; -52.7, 34.2; -45.5, 53.1; -39.1, 66.4; -33.4, 74.6;
-                -27.8, 79.1; -22.2, 79.8; -16.6, 76.6; -10.9, 69.7; -5.3, 59.4;
-                1.1, 44.1; 9.17, 21.2; 26.1, -30.8; 33.3, -50.2; 39.7, -64.2;
-              45.3, -73.1; 51, -78.4; 56.6, -80; 62.2, -77.6; 67.9, -71.5; 73.5,
-                -61.9; 79.9, -47.2; 88, -24.8; 96, 0], style(color=0)),
-        Line(points=[-80, 0; -68.7, 34.2; -61.5, 53.1; -55.1, 66.4; -49.4, 74.6;
-                -43.8, 79.1; -38.2, 79.8; -32.6, 76.6; -26.9, 69.7; -21.3, 59.4;
-                -14.9, 44.1; -6.83, 21.2; 10.1, -30.8; 17.3, -50.2; 23.7, -64.2;
-                29.3, -73.1; 35, -78.4; 40.6, -80; 46.2, -77.6; 51.9, -71.5;
-              57.5, -61.9; 63.9, -47.2; 72, -24.8; 80, 0], style(color=73)),
-        Line(points=[-100, 0; 84, 0], style(color=8)),
-        Polygon(points=[100, 0; 84, 6; 84, -6; 100, 0], style(color=8,
-              fillColor=8)),
-        Text(
-          extent=[67, 22; 96, 6],
-          string="time",
-          style(color=9)),
-        Text(extent=[-58, -42; -58, -32], string="delayTime"),
-        Line(points=[-80, -88; -80, 86], style(color=8)),
-        Text(
-          extent=[-24, 98; -2, 78],
-          string="inPort",
-          style(color=0)),
-        Text(
-          extent=[-24, 98; -2, 78],
-          string="inPort",
-          style(color=0)),
-        Polygon(points=[-80, -26; -88, -24; -88, -28; -80, -26], style(color=8,
-                fillColor=8)),
-        Polygon(points=[-56, -24; -64, -26; -56, -28; -56, -24], style(color=8,
-                fillColor=8)),
-        Line(points=[-64, -26; -50, -26], style(color=8)),
-        Line(points=[-94, -26; -80, -26], style(color=8)),
-        Text(extent=[-58, -42; -58, -32], string="delayTime"),
-        Line(points=[-100, -60; -70, -60; -64, -44], style(arrow=1)),
-        Line(points=[-80, -88; -80, 86], style(color=8)),
-        Line(points=[-100, 0; 84, 0], style(color=8)),
-        Line(points=[-64, 0; -52.7, 34.2; -45.5, 53.1; -39.1, 66.4; -33.4, 74.6;
-                -27.8, 79.1; -22.2, 79.8; -16.6, 76.6; -10.9, 69.7; -5.3, 59.4;
-                1.1, 44.1; 9.17, 21.2; 26.1, -30.8; 33.3, -50.2; 39.7, -64.2;
-              45.3, -73.1; 51, -78.4; 56.6, -80; 62.2, -77.6; 67.9, -71.5; 73.5,
-                -61.9; 79.9, -47.2; 88, -24.8; 96, 0], style(color=0)),
-        Polygon(points=[-80, 96; -86, 80; -74, 80; -80, 96], style(color=8,
-              fillColor=8)),
-        Line(points=[-80, 0; -68.7, 34.2; -61.5, 53.1; -55.1, 66.4; -49.4, 74.6;
-                -43.8, 79.1; -38.2, 79.8; -32.6, 76.6; -26.9, 69.7; -21.3, 59.4;
-                -14.9, 44.1; -6.83, 21.2; 10.1, -30.8; 17.3, -50.2; 23.7, -64.2;
-                29.3, -73.1; 35, -78.4; 40.6, -80; 46.2, -77.6; 51.9, -71.5;
-              57.5, -61.9; 63.9, -47.2; 72, -24.8; 80, 0], style(color=73)),
-        Text(
-          extent=[-69, 98; -40, 78],
-          string="outPort",
-          style(color=73)),
-        Text(
-          extent=[-24, 98; -2, 78],
-          string="inPort",
-          style(color=0)),
-        Text(
-          extent=[67, 22; 96, 6],
-          string="time",
-          style(color=9)),
-        Polygon(points=[100, 0; 84, 6; 84, -6; 100, 0], style(color=8,
-              fillColor=8)),
-        Line(points=[-64, -30; -64, 0], style(color=8))));
-    Modelica.Blocks.Interfaces.RealInput delayTime         annotation (extent=[
-          -140, -80; -100, -40]);
+"),   Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={2,2}), graphics={
+          Text(
+            extent={{-100,-108},{100,-148}}, 
+            lineColor={0,0,0}, 
+            textString=
+                 "delayMax=%delayMax"), 
+          Line(points={{-92,0},{-80.7,34.2},{-73.5,53.1},{-67.1,66.4},{-61.4,
+                74.6},{-55.8,79.1},{-50.2,79.8},{-44.6,76.6},{-38.9,69.7},{
+                -33.3,59.4},{-26.9,44.1},{-18.83,21.2},{-1.9,-30.8},{5.3,-50.2},
+                {11.7,-64.2},{17.3,-73.1},{23,-78.4},{28.6,-80},{34.2,-77.6},{
+                39.9,-71.5},{45.5,-61.9},{51.9,-47.2},{60,-24.8},{68,0}}, color
+              ={0,0,255}), 
+          Line(points={{-64,0},{-52.7,34.2},{-45.5,53.1},{-39.1,66.4},{-33.4,
+                74.6},{-27.8,79.1},{-22.2,79.8},{-16.6,76.6},{-10.9,69.7},{-5.3,
+                59.4},{1.1,44.1},{9.17,21.2},{26.1,-30.8},{33.3,-50.2},{39.7,
+                -64.2},{45.3,-73.1},{51,-78.4},{56.6,-80},{62.2,-77.6},{67.9,
+                -71.5},{73.5,-61.9},{79.9,-47.2},{88,-24.8},{96,0}}, color={0,0,
+                0}), 
+          Polygon(
+            points={{6,4},{-14,-2},{-6,-12},{6,4}}, 
+            lineColor={0,0,0}, 
+            fillColor={0,0,0}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-100,-60},{-76,-60},{-8,-6}}, color={0,0,0})}),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={2,2}), graphics={
+          Rectangle(
+            extent={{-100,-100},{100,100}}, 
+            lineColor={0,0,255}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{-80,96},{-86,80},{-74,80},{-80,96}}, 
+            lineColor={192,192,192}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Text(
+            extent={{-69,98},{-40,78}}, 
+            lineColor={0,0,255}, 
+            textString=
+                 "outPort"), 
+          Line(points={{-64,0},{-52.7,34.2},{-45.5,53.1},{-39.1,66.4},{-33.4,
+                74.6},{-27.8,79.1},{-22.2,79.8},{-16.6,76.6},{-10.9,69.7},{-5.3,
+                59.4},{1.1,44.1},{9.17,21.2},{26.1,-30.8},{33.3,-50.2},{39.7,
+                -64.2},{45.3,-73.1},{51,-78.4},{56.6,-80},{62.2,-77.6},{67.9,
+                -71.5},{73.5,-61.9},{79.9,-47.2},{88,-24.8},{96,0}}, color={0,0,
+                0}), 
+          Line(points={{-80,0},{-68.7,34.2},{-61.5,53.1},{-55.1,66.4},{-49.4,
+                74.6},{-43.8,79.1},{-38.2,79.8},{-32.6,76.6},{-26.9,69.7},{
+                -21.3,59.4},{-14.9,44.1},{-6.83,21.2},{10.1,-30.8},{17.3,-50.2},
+                {23.7,-64.2},{29.3,-73.1},{35,-78.4},{40.6,-80},{46.2,-77.6},{
+                51.9,-71.5},{57.5,-61.9},{63.9,-47.2},{72,-24.8},{80,0}}, color
+              ={0,0,255}), 
+          Line(points={{-100,0},{84,0}}, color={192,192,192}), 
+          Polygon(
+            points={{100,0},{84,6},{84,-6},{100,0}}, 
+            lineColor={192,192,192}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Text(
+            extent={{67,22},{96,6}}, 
+            lineColor={160,160,164}, 
+            textString=
+                 "time"), 
+          Text(extent={{-58,-42},{-58,-32}}, textString=
+                                                 "delayTime"), 
+          Line(points={{-80,-88},{-80,86}}, color={192,192,192}), 
+          Text(
+            extent={{-24,98},{-2,78}}, 
+            lineColor={0,0,0}, 
+            textString=
+                 "inPort"), 
+          Text(
+            extent={{-24,98},{-2,78}}, 
+            lineColor={0,0,0}, 
+            textString=
+                 "inPort"), 
+          Polygon(
+            points={{-80,-26},{-88,-24},{-88,-28},{-80,-26}}, 
+            lineColor={192,192,192}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{-56,-24},{-64,-26},{-56,-28},{-56,-24}}, 
+            lineColor={192,192,192}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-64,-26},{-50,-26}}, color={192,192,192}), 
+          Line(points={{-94,-26},{-80,-26}}, color={192,192,192}), 
+          Text(extent={{-58,-42},{-58,-32}}, textString=
+                                                 "delayTime"), 
+          Line(points={{-100,-60},{-70,-60},{-64,-44}}, arrow={Arrow.None,Arrow.Filled}), 
+            
+          Line(points={{-80,-88},{-80,86}}, color={192,192,192}), 
+          Line(points={{-100,0},{84,0}}, color={192,192,192}), 
+          Line(points={{-64,0},{-52.7,34.2},{-45.5,53.1},{-39.1,66.4},{-33.4,
+                74.6},{-27.8,79.1},{-22.2,79.8},{-16.6,76.6},{-10.9,69.7},{-5.3,
+                59.4},{1.1,44.1},{9.17,21.2},{26.1,-30.8},{33.3,-50.2},{39.7,
+                -64.2},{45.3,-73.1},{51,-78.4},{56.6,-80},{62.2,-77.6},{67.9,
+                -71.5},{73.5,-61.9},{79.9,-47.2},{88,-24.8},{96,0}}, color={0,0,
+                0}), 
+          Polygon(
+            points={{-80,96},{-86,80},{-74,80},{-80,96}}, 
+            lineColor={192,192,192}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-80,0},{-68.7,34.2},{-61.5,53.1},{-55.1,66.4},{-49.4,
+                74.6},{-43.8,79.1},{-38.2,79.8},{-32.6,76.6},{-26.9,69.7},{
+                -21.3,59.4},{-14.9,44.1},{-6.83,21.2},{10.1,-30.8},{17.3,-50.2},
+                {23.7,-64.2},{29.3,-73.1},{35,-78.4},{40.6,-80},{46.2,-77.6},{
+                51.9,-71.5},{57.5,-61.9},{63.9,-47.2},{72,-24.8},{80,0}}, color
+              ={0,0,255}), 
+          Text(
+            extent={{-69,98},{-40,78}}, 
+            lineColor={0,0,255}, 
+            textString=
+                 "outPort"), 
+          Text(
+            extent={{-24,98},{-2,78}}, 
+            lineColor={0,0,0}, 
+            textString=
+                 "inPort"), 
+          Text(
+            extent={{67,22},{96,6}}, 
+            lineColor={160,160,164}, 
+            textString=
+                 "time"), 
+          Polygon(
+            points={{100,0},{84,6},{84,-6},{100,0}}, 
+            lineColor={192,192,192}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-64,-30},{-64,0}}, color={192,192,192})}));
+    Modelica.Blocks.Interfaces.RealInput delayTime         annotation (Placement(
+          transformation(extent={{-140,-80},{-100,-40}}, rotation=0)));
   equation 
     y = delay(u, delayTime, delayMax);
   end VariableDelay;

@@ -49,9 +49,12 @@ Modelica in file \"Modelica/package.mo\".</i><br>
   
   model OLine "Lossy Transmission Line" 
     //extends Interfaces.ThreePol;
-    Interfaces.Pin p1 annotation (extent=[-110, -10; -90, 10]);
-    Interfaces.Pin p2 annotation (extent=[90, -10; 110, 10]);
-    Interfaces.Pin p3 annotation (extent=[-10, -110; 10, -90]);
+    Interfaces.Pin p1 annotation (Placement(transformation(extent={{-110,-10},{
+              -90,10}}, rotation=0)));
+    Interfaces.Pin p2 annotation (Placement(transformation(extent={{90,-10},{
+              110,10}}, rotation=0)));
+    Interfaces.Pin p3 annotation (Placement(transformation(extent={{-10,-110},{
+              10,-90}}, rotation=0)));
     SI.Voltage v13;
     SI.Voltage v23;
     SI.Current i1;
@@ -108,27 +111,33 @@ Lossy Transmission Line.
        </li>
 </ul>
 </html>"),
-      Coordsys(
-        extent=[-100, -100; 100, 100],
-        grid=[1, 1],
-        component=[20, 20]),
-      Icon(
-        Rectangle(extent=[-60, 60; 60, -60], style(fillColor=7)),
-        Line(points=[0, -60; 0, -90]),
-        Line(points=[60, 0; 90, 0]),
-        Line(points=[-60, 0; -90, 0]),
-        Line(points=[30, 30; -30, 30]),
-        Line(points=[-30, 40; -30, 20]),
-        Line(points=[30, 40; 30, 20]),
-        Text(extent=[-100, 100; 100, 70], string="%name")),
-      Diagram(
-        Rectangle(extent=[-60, 60; 60, -60]),
-        Line(points=[0,-60; 0,-96]),
-        Line(points=[60,0; 96,0]),
-        Line(points=[-60,0; -96,0]),
-        Line(points=[30, 30; -30, 30]),
-        Line(points=[-30, 40; -30, 20]),
-        Line(points=[30, 40; 30, 20])),
+      Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Rectangle(
+            extent={{-60,60},{60,-60}}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{0,-60},{0,-90}}), 
+          Line(points={{60,0},{90,0}}), 
+          Line(points={{-60,0},{-90,0}}), 
+          Line(points={{30,30},{-30,30}}), 
+          Line(points={{-30,40},{-30,20}}), 
+          Line(points={{30,40},{30,20}}), 
+          Text(extent={{-100,100},{100,70}}, textString=
+                                                 "%name")}),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Rectangle(extent={{-60,60},{60,-60}}), 
+          Line(points={{0,-60},{0,-96}}), 
+          Line(points={{60,0},{96,0}}), 
+          Line(points={{-60,0},{-96,0}}), 
+          Line(points={{30,30},{-30,30}}), 
+          Line(points={{-30,40},{-30,20}}), 
+          Line(points={{30,40},{30,20}})}),
       Window(
         x=0.24,
         y=0.07,
@@ -154,9 +163,12 @@ Lossy Transmission Line.
   
   model ULine "Lossy RC Line" 
     //extends Interfaces.ThreePol;
-    Interfaces.Pin p1 annotation (extent=[-110, -10; -90, 10]);
-    Interfaces.Pin p2 annotation (extent=[90, -10; 110, 10]);
-    Interfaces.Pin p3 annotation (extent=[-10, -110; 10, -90]);
+    Interfaces.Pin p1 annotation (Placement(transformation(extent={{-110,-10},{
+              -90,10}}, rotation=0)));
+    Interfaces.Pin p2 annotation (Placement(transformation(extent={{90,-10},{
+              110,10}}, rotation=0)));
+    Interfaces.Pin p3 annotation (Placement(transformation(extent={{-10,-110},{
+              10,-90}}, rotation=0)));
     SI.Voltage v13;
     SI.Voltage v23;
     SI.Current i1;
@@ -204,32 +216,38 @@ lumped segments.
        </li>
 </ul>
 </html>"),
-      Coordsys(
-        extent=[-100, -100; 100, 100],
-        grid=[2, 2],
-        component=[20, 20]),
       Window(
         x=0.2,
         y=0.21,
         width=0.6,
         height=0.6),
-      Icon(
-        Rectangle(extent=[-60, 60; 60, -60], style(fillColor=7)),
-        Line(points=[0, -60; 0, -90]),
-        Line(points=[60, 0; 90, 0]),
-        Line(points=[-60, 0; -90, 0]),
-        Line(points=[30, 30; -30, 30]),
-        Line(points=[-30, 40; -30, 20]),
-        Line(points=[30, 40; 30, 20]),
-        Text(extent=[-100, 100; 100, 70], string="%name")),
-      Diagram(
-        Rectangle(extent=[-60, 60; 60, -60]),
-        Line(points=[0,-60; 0,-96]),
-        Line(points=[60,0; 96,0]),
-        Line(points=[-60,0; -96,0]),
-        Line(points=[30, 30; -30, 30]),
-        Line(points=[-30, 40; -30, 20]),
-        Line(points=[30, 40; 30, 20])));
+      Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={2,2}), graphics={
+          Rectangle(
+            extent={{-60,60},{60,-60}}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{0,-60},{0,-90}}), 
+          Line(points={{60,0},{90,0}}), 
+          Line(points={{-60,0},{-90,0}}), 
+          Line(points={{30,30},{-30,30}}), 
+          Line(points={{-30,40},{-30,20}}), 
+          Line(points={{30,40},{30,20}}), 
+          Text(extent={{-100,100},{100,70}}, textString=
+                                                 "%name")}),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={2,2}), graphics={
+          Rectangle(extent={{-60,60},{60,-60}}), 
+          Line(points={{0,-60},{0,-96}}), 
+          Line(points={{60,0},{96,0}}), 
+          Line(points={{-60,0},{-96,0}}), 
+          Line(points={{30,30},{-30,30}}), 
+          Line(points={{-30,40},{-30,20}}), 
+          Line(points={{30,40},{30,20}})}));
   equation 
     v13 = p1.v - p3.v;
     v23 = p2.v - p3.v;
@@ -297,32 +315,38 @@ Lossless transmission line with characteristic impedance Z0 and transmission del
        </li>
 </ul>
 </html>"),
-      Coordsys(
-        extent=[-100, -100; 100, 100],
-        grid=[1, 1],
-        component=[20, 20]),
-      Icon(
-        Rectangle(extent=[-60, 60; 60, -60]),
-        Line(points=[60, -50; 90, -50]),
-        Line(points=[60, 50; 90, 50]),
-        Line(points=[-60, 50; -90, 50]),
-        Line(points=[-60, -50; -90, -50]),
-        Line(points=[30, 30; -30, 30]),
-        Line(points=[-30, 40; -30, 20]),
-        Line(points=[30, 40; 30, 20]),
-        Text(extent=[-100, 100; 100, 70], string="TLine1"),
-        Text(extent=[-30, 10; 30, -20], string="TLine1")),
-      Diagram(
-        Rectangle(extent=[-60, 60; 60, -60]),
-        Line(points=[60,-50; 96,-50]),
-        Line(points=[60,50; 96,50]),
-        Line(points=[-60,50; -96,50]),
-        Line(points=[-60,-50; -96,-50]),
-        Line(points=[30, 30; -30, 30]),
-        Line(points=[-30, 40; -30, 20]),
-        Line(points=[30, 40; 30, 20]),
-        Text(extent=[-100, 100; 100, 70], string="TLine1"),
-        Text(extent=[-30, 0; 31, -31], string="TLine1")),
+      Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Rectangle(extent={{-60,60},{60,-60}}), 
+          Line(points={{60,-50},{90,-50}}), 
+          Line(points={{60,50},{90,50}}), 
+          Line(points={{-60,50},{-90,50}}), 
+          Line(points={{-60,-50},{-90,-50}}), 
+          Line(points={{30,30},{-30,30}}), 
+          Line(points={{-30,40},{-30,20}}), 
+          Line(points={{30,40},{30,20}}), 
+          Text(extent={{-100,100},{100,70}}, textString=
+                                                 "TLine1"), 
+          Text(extent={{-30,10},{30,-20}}, textString=
+                                               "TLine1")}),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Rectangle(extent={{-60,60},{60,-60}}), 
+          Line(points={{60,-50},{96,-50}}), 
+          Line(points={{60,50},{96,50}}), 
+          Line(points={{-60,50},{-96,50}}), 
+          Line(points={{-60,-50},{-96,-50}}), 
+          Line(points={{30,30},{-30,30}}), 
+          Line(points={{-30,40},{-30,20}}), 
+          Line(points={{30,40},{30,20}}), 
+          Text(extent={{-100,100},{100,70}}, textString=
+                                                 "TLine1"), 
+          Text(extent={{-30,0},{31,-31}}, textString=
+                                              "TLine1")}),
       Window(
         x=0.45,
         y=0.01,
@@ -393,31 +417,36 @@ Lossless transmission line with characteristic impedance Z0, frequency F and nor
        </li>
 </ul>
 </html>"),
-      Coordsys(
-        extent=[-100, -100; 100, 100],
-        grid=[1, 1],
-        component=[20, 20]),
-      Icon(
-        Rectangle(extent=[-60, 60; 60, -60]),
-        Line(points=[60, -50; 90, -50]),
-        Line(points=[60, 50; 90, 50]),
-        Line(points=[-60, 50; -90, 50]),
-        Line(points=[-60, -50; -90, -50]),
-        Line(points=[30, 30; -30, 30]),
-        Line(points=[-30, 40; -30, 20]),
-        Line(points=[30, 40; 30, 20]),
-        Text(extent=[-100, 100; 100, 70], string="TLine2"),
-        Text(extent=[-30, 10; 30, -20], string="TLine2")),
-      Diagram(
-        Rectangle(extent=[-60, 60; 60, -60]),
-        Line(points=[60,-50; 96,-50]),
-        Line(points=[60,50; 96,50]),
-        Line(points=[-60,50; -96,50]),
-        Line(points=[-60,-50; -96,-50]),
-        Line(points=[30, 30; -30, 30]),
-        Line(points=[-30, 40; -30, 20]),
-        Line(points=[30, 40; 30, 20]),
-        Text(extent=[-100, 100; 100, 70], string="TLine2")),
+      Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Rectangle(extent={{-60,60},{60,-60}}), 
+          Line(points={{60,-50},{90,-50}}), 
+          Line(points={{60,50},{90,50}}), 
+          Line(points={{-60,50},{-90,50}}), 
+          Line(points={{-60,-50},{-90,-50}}), 
+          Line(points={{30,30},{-30,30}}), 
+          Line(points={{-30,40},{-30,20}}), 
+          Line(points={{30,40},{30,20}}), 
+          Text(extent={{-100,100},{100,70}}, textString=
+                                                 "TLine2"), 
+          Text(extent={{-30,10},{30,-20}}, textString=
+                                               "TLine2")}),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Rectangle(extent={{-60,60},{60,-60}}), 
+          Line(points={{60,-50},{96,-50}}), 
+          Line(points={{60,50},{96,50}}), 
+          Line(points={{-60,50},{-96,50}}), 
+          Line(points={{-60,-50},{-96,-50}}), 
+          Line(points={{30,30},{-30,30}}), 
+          Line(points={{-30,40},{-30,20}}), 
+          Line(points={{30,40},{30,20}}), 
+          Text(extent={{-100,100},{100,70}}, textString=
+                                                 "TLine2")}),
       Window(
         x=0.01,
         y=0.03,
@@ -490,31 +519,36 @@ Lossless transmission line with characteristic impedance Z0 and frequency F
        </li>
 </ul>
 </html>"),
-      Coordsys(
-        extent=[-100, -100; 100, 100],
-        grid=[1, 1],
-        component=[20, 20]),
-      Icon(
-        Rectangle(extent=[-60, 60; 60, -60]),
-        Line(points=[60, -50; 90, -50]),
-        Line(points=[60, 50; 90, 50]),
-        Line(points=[-60, 50; -90, 50]),
-        Line(points=[-60, -50; -90, -50]),
-        Line(points=[30, 30; -30, 30]),
-        Line(points=[-30, 40; -30, 20]),
-        Line(points=[30, 40; 30, 20]),
-        Text(extent=[-100, 100; 100, 70], string="TLine3"),
-        Text(extent=[-29, -1; 30, -31], string="TLine3")),
-      Diagram(
-        Rectangle(extent=[-60, 60; 60, -60]),
-        Line(points=[60,-50; 96,-50]),
-        Line(points=[60,50; 96,50]),
-        Line(points=[-60,50; -96,50]),
-        Line(points=[-60,-50; -96,-50]),
-        Line(points=[30, 30; -30, 30]),
-        Line(points=[-30, 40; -30, 20]),
-        Line(points=[30, 40; 30, 20]),
-        Text(extent=[-100, 100; 100, 70], string="TLine3")),
+      Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Rectangle(extent={{-60,60},{60,-60}}), 
+          Line(points={{60,-50},{90,-50}}), 
+          Line(points={{60,50},{90,50}}), 
+          Line(points={{-60,50},{-90,50}}), 
+          Line(points={{-60,-50},{-90,-50}}), 
+          Line(points={{30,30},{-30,30}}), 
+          Line(points={{-30,40},{-30,20}}), 
+          Line(points={{30,40},{30,20}}), 
+          Text(extent={{-100,100},{100,70}}, textString=
+                                                 "TLine3"), 
+          Text(extent={{-29,-1},{30,-31}}, textString=
+                                               "TLine3")}),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Rectangle(extent={{-60,60},{60,-60}}), 
+          Line(points={{60,-50},{96,-50}}), 
+          Line(points={{60,50},{96,50}}), 
+          Line(points={{-60,50},{-96,50}}), 
+          Line(points={{-60,-50},{-96,-50}}), 
+          Line(points={{30,30},{-30,30}}), 
+          Line(points={{-30,40},{-30,20}}), 
+          Line(points={{30,40},{30,20}}), 
+          Text(extent={{-100,100},{100,70}}, textString=
+                                                 "TLine3")}),
       Window(
         x=0,
         y=0,

@@ -109,32 +109,55 @@ and the accompanying <b>disclaimer</b>
       library=1,
       autolayout=1),
     Invisible=true,
-    Icon(
-      Line(points=[-34, -38; 12, -38], style(color=0, thickness=2)),
-      Line(points=[-20, -38; -24, -48; -28, -56; -34, -64], style(color=0,
-            thickness=2)),
-      Line(points=[-2, -38; 2, -46; 8, -56; 14, -64], style(color=0, thickness=
-              2))),
-    Diagram(
-      Rectangle(extent=[200, 162; 380, 312], style(fillColor=30, fillPattern=1)),
-      Polygon(points=[200, 312; 220, 332; 400, 332; 380, 312; 200, 312], style(
-            fillColor=30, fillPattern=1)),
-      Polygon(points=[400, 332; 400, 182; 380, 162; 380, 312; 400, 332], style(
-            fillColor=30, fillPattern=1)),
-      Text(
-        extent=[210, 302; 370, 272],
-        string="Library",
-        style(
-          color=9,
-          fillColor=0,
-          fillPattern=1)),
-      Line(points=[266, 224; 312, 224], style(color=0, thickness=4)),
-      Line(points=[280, 224; 276, 214; 272, 206; 266, 198], style(color=0,
-            thickness=4)),
-      Line(points=[298, 224; 302, 216; 308, 206; 314, 198], style(color=0,
-            thickness=4)),
-      Text(
-        extent=[152, 412; 458, 334],
-        string="Modelica.Constants",
-        style(color=1))));
+    Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+            100}}), graphics={
+        Line(
+          points={{-34,-38},{12,-38}}, 
+          color={0,0,0}, 
+          thickness=2), 
+        Line(
+          points={{-20,-38},{-24,-48},{-28,-56},{-34,-64}}, 
+          color={0,0,0}, 
+          thickness=2), 
+        Line(
+          points={{-2,-38},{2,-46},{8,-56},{14,-64}}, 
+          color={0,0,0}, 
+          thickness=2)}),
+    Diagram(graphics={
+        Rectangle(
+          extent={{200,162},{380,312}}, 
+          fillColor={235,235,235}, 
+          fillPattern=FillPattern.Solid), 
+        Polygon(
+          points={{200,312},{220,332},{400,332},{380,312},{200,312}}, 
+          fillColor={235,235,235}, 
+          fillPattern=FillPattern.Solid), 
+        Polygon(
+          points={{400,332},{400,182},{380,162},{380,312},{400,332}}, 
+          fillColor={235,235,235}, 
+          fillPattern=FillPattern.Solid), 
+        Text(
+          extent={{210,302},{370,272}}, 
+          lineColor={160,160,164}, 
+          fillColor={0,0,0}, 
+          fillPattern=FillPattern.Solid, 
+          textString=
+               "Library"), 
+        Line(
+          points={{266,224},{312,224}}, 
+          color={0,0,0}, 
+          thickness=4), 
+        Line(
+          points={{280,224},{276,214},{272,206},{266,198}}, 
+          color={0,0,0}, 
+          thickness=4), 
+        Line(
+          points={{298,224},{302,216},{308,206},{314,198}}, 
+          color={0,0,0}, 
+          thickness=4), 
+        Text(
+          extent={{152,412},{458,334}}, 
+          lineColor={255,0,0}, 
+          textString=
+               "Modelica.Constants")}));
 end Constants;

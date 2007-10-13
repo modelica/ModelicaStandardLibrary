@@ -84,10 +84,12 @@ solved, i.e., robustly and efficiently).
     extends Internal.Prismatic;
     
     annotation (
-      Icon(Text(
-          extent=[-142, 62; 147, 101],
-          string="n=%n",
-          style(color=0)), Text(extent=[-135, -117; 141, -60], string="%name")),
+      Icon(graphics={Text(
+            extent={{-142,62},{147,101}}, 
+            lineColor={0,0,0}, 
+            textString=
+                 "n=%n"), Text(extent={{-135,-117},{141,-60}}, textString=
+                                                                      "%name")}),
       Documentation(info="<HTML>
 <p>
 Joint where frame_b is translated along axis n which is fixed in frame_a.
@@ -115,7 +117,7 @@ vector \"n\" defining the translation axis
 <IMG SRC=\"../Images/MultiBody/Joints/Prismatic.png\">
 </p>
 </HTML>
-"),   Diagram);
+"),   Diagram(graphics));
     
   end Prismatic;
   
@@ -125,38 +127,66 @@ vector \"n\" defining the translation axis
     extends Internal.Prismatic(final f=axis.f);
     Modelica.Mechanics.Translational.Interfaces.Flange_a axis 
       "1-dim. translational flange that drives the joint" 
-      annotation (extent=[90,50; 70,70]);
+      annotation (Placement(transformation(extent={{90,50},{70,70}}, rotation=0)));
     Modelica.Mechanics.Translational.Interfaces.Flange_b bearing 
       "1-dim. translational flange of the drive bearing" 
-      annotation (extent=[-30,50; -50,70]);
+      annotation (Placement(transformation(extent={{-30,50},{-50,70}}, rotation
+            =0)));
     annotation (
-      Diagram(
-        Text(extent=[42, 81; 57, 66], string="f"),
-        Line(points=[40, 65; 70, 65], style(color=3)),
-        Polygon(points=[-20, 68; -30, 65; -20, 62; -20, 68], style(color=3,
-              fillColor=3)),
-        Line(points=[-8, 65; -31, 65], style(color=3)),
-        Text(extent=[-20, 80; -5, 65], string="f"),
-        Polygon(points=[60, 68; 70, 65; 60, 62; 60, 68], style(color=3,
-              fillColor=3)),
-        Rectangle(extent=[90, 30; 100, 70], style(pattern=0, fillColor=8)),
-        Line(points=[-30, 54; 70, 54], style(color=10)),
-        Polygon(points=[60, 57; 70, 54; 60, 51; 60, 57], style(color=10,
-              fillColor=10)),
-        Text(
-          extent=[0, 53; 37, 40],
-          style(color=10),
-          string="s"),
-        Line(points=[84,60; 90,60], style(color=0, rgbcolor={0,0,0})),
-        Line(points=[-36,60; -30,60; -30,50], style(color=0, rgbcolor={0,0,0}))),
-      Coordsys(grid=[1, 1], component=[20, 20]),
-      Icon(
-        Rectangle(extent=[90, 30; 100, 70], style(pattern=0, fillColor=8)),
-        Text(
-          extent=[-141, -92; 148, -53],
-          string="n=%n",
-          style(color=0)),
-        Text(extent=[-132, -153; 144, -96], string="%name")),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Text(extent={{42,81},{57,66}}, textString=
+                                             "f"), 
+          Line(points={{40,65},{70,65}}, color={0,0,255}), 
+          Polygon(
+            points={{-20,68},{-30,65},{-20,62},{-20,68}}, 
+            lineColor={0,0,255}, 
+            fillColor={0,0,255}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-8,65},{-31,65}}, color={0,0,255}), 
+          Text(extent={{-20,80},{-5,65}}, textString=
+                                              "f"), 
+          Polygon(
+            points={{60,68},{70,65},{60,62},{60,68}}, 
+            lineColor={0,0,255}, 
+            fillColor={0,0,255}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{90,30},{100,70}}, 
+            pattern=LinePattern.None, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-30,54},{70,54}}, color={128,128,128}), 
+          Polygon(
+            points={{60,57},{70,54},{60,51},{60,57}}, 
+            lineColor={128,128,128}, 
+            fillColor={128,128,128}, 
+            fillPattern=FillPattern.Solid), 
+          Text(
+            extent={{0,53},{37,40}}, 
+            lineColor={128,128,128}, 
+            textString=
+                 "s"), 
+          Line(points={{84,60},{90,60}}, color={0,0,0}), 
+          Line(points={{-36,60},{-30,60},{-30,50}}, color={0,0,0})}),
+      Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Rectangle(
+            extent={{90,30},{100,70}}, 
+            pattern=LinePattern.None, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Text(
+            extent={{-141,-92},{148,-53}}, 
+            lineColor={0,0,0}, 
+            textString=
+                 "n=%n"), 
+          Text(extent={{-132,-153},{144,-96}}, textString=
+                                                   "%name")}),
       Documentation(info="<HTML>
 <p>
 Joint where frame_b is translated along axis n which is fixed in frame_a.
@@ -202,34 +232,40 @@ vector \"n\" defining the translation axis
     
     extends Internal.Revolute;
     annotation (
-      Icon(Text(
-          extent=[-146, 70; 143, 109],
-          string="n=%n",
-          style(color=0)), Text(extent=[-137, -125; 139, -68], string="%name"),
-        Rectangle(extent=[-20,10; 20,-10],   style(
-            color=0,
-            gradient=0,
-            fillColor=8,
-            fillPattern=1)),
-        Rectangle(extent=[-100,-60; -20,60],   style(
-            color=8,
-            gradient=2,
-            fillColor=8)),
-        Rectangle(extent=[20,-60; 100,60],   style(
-            color=8,
-            gradient=2,
-            fillColor=8,
-            fillPattern=1)),
-        Rectangle(extent=[-100,59; -20,-60],   style(color=0)),
-        Rectangle(extent=[20,60; 100,-60],   style(color=0)),
-        Text(
-          extent=[-90,14; -54,-11],
-          style(color=10),
-          string="a"),
-        Text(
-          extent=[51,11; 87,-14],
-          style(color=10),
-          string="b")),
+      Icon(graphics={
+          Text(
+            extent={{-146,70},{143,109}}, 
+            lineColor={0,0,0}, 
+            textString=
+                 "n=%n"), 
+          Text(extent={{-137,-125},{139,-68}}, textString =           "%name"), 
+          Rectangle(
+            extent={{-20,10},{20,-10}}, 
+            lineColor={0,0,0}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{-100,-60},{-20,60}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.HorizontalCylinder, 
+            fillColor={192,192,192}), 
+          Rectangle(
+            extent={{20,-60},{100,60}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.HorizontalCylinder, 
+            fillColor={192,192,192}), 
+          Rectangle(extent={{-100,59},{-20,-60}}, lineColor={0,0,0}), 
+          Rectangle(extent={{20,60},{100,-60}}, lineColor={0,0,0}), 
+          Text(
+            extent={{-90,14},{-54,-11}}, 
+            lineColor={128,128,128}, 
+            textString=
+                 "a"), 
+          Text(
+            extent={{51,11},{87,-14}}, 
+            lineColor={128,128,128}, 
+            textString=
+                 "b")}),
       Documentation(info="<HTML>
 <p>
 Joint where frame_b rotates around axis n which is fixed in frame_a.
@@ -272,7 +308,7 @@ vector \"n\" defining the translation axis
 </HTML>"));
     
   end Revolute;
-
+  
   model RevolutePlanarLoopConstraint 
     "Revolute joint that is described by 2 positional constraints for usage in a planar loop (the ambiguous cut-force perpendicular to the loop and the ambiguous cut-torques are set arbitrarily to zero)" 
     
@@ -283,10 +319,12 @@ vector \"n\" defining the translation axis
     
     Interfaces.Frame_a frame_a 
       "Coordinate system fixed to the joint with one cut-force and cut-torque" 
-      annotation (extent=[-116,-16; -84,16]);
+      annotation (Placement(transformation(extent={{-116,-16},{-84,16}}, 
+            rotation=0)));
     Interfaces.Frame_b frame_b 
       "Coordinate system fixed to the joint with one cut-force and cut-torque" 
-      annotation (extent=[84,-16; 116,16]);
+      annotation (Placement(transformation(extent={{84,-16},{116,16}}, rotation
+            =0)));
     
     parameter Boolean animation=true 
       "= true, if animation shall be enabled (show axis as cylinder)";
@@ -306,63 +344,72 @@ vector \"n\" defining the translation axis
       "Reflection of ambient light (= 0: light is completely absorbed)" 
       annotation (Dialog(group="if animation = true", enable=animation));
     annotation (defaultComponentName="revolute",
-      Coordsys(
-        extent=[-100, -100; 100, 100],
-        grid=[1, 1],
-        component=[20, 20]),
       Window(
         x=0.05,
         y=0.09,
         width=0.65,
         height=0.69),
-      Icon(Text(
-          extent=[-146,70; 143,109],
-          string="n=%n",
-          style(color=0)), Text(extent=[-137,-125; 139,-68],   string="%name"),
-        Rectangle(extent=[-20,10; 20,-10],   style(
-            color=0,
-            gradient=0,
-            fillColor=8,
-            fillPattern=1)),
-        Rectangle(extent=[-100,-60; -20,60],   style(
-            color=8,
-            gradient=2,
-            fillColor=8)),
-        Rectangle(extent=[20,-60; 100,60],   style(
-            color=8,
-            gradient=2,
-            fillColor=8,
-            fillPattern=1)),
-        Rectangle(extent=[-100,59; -20,-60],   style(color=0)),
-        Rectangle(extent=[20,60; 100,-60],   style(color=0)),
-        Text(
-          extent=[-90,14; -54,-11],
-          style(color=10),
-          string="a"),
-        Text(
-          extent=[51,11; 87,-14],
-          style(color=10),
-          string="b"),
-        Line(points=[-91,-76; -33,15; 30,-49; 87,61], style(
-            color=1,
-            rgbcolor={255,0,0},
-            thickness=2,
-            smooth=0))),
-      Diagram(
-        Rectangle(extent=[-100, -60; -20, 60], style(
-            color=8,
-            gradient=2,
-            fillColor=8)),
-        Rectangle(extent=[-20, 10; 20, -10], style(
-            color=0,
-            gradient=0,
-            fillColor=8,
-            fillPattern=1)),
-        Rectangle(extent=[20,-60; 100,60],   style(
-            color=8,
-            gradient=2,
-            fillColor=8,
-            fillPattern=1))),
+      Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Text(
+            extent={{-146,70},{143,109}}, 
+            lineColor={0,0,0}, 
+            textString=
+                 "n=%n"), 
+          Text(extent={{-137,-125},{139,-68}}, textString =           "%name"), 
+          Rectangle(
+            extent={{-20,10},{20,-10}}, 
+            lineColor={0,0,0}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{-100,-60},{-20,60}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.HorizontalCylinder, 
+            fillColor={192,192,192}), 
+          Rectangle(
+            extent={{20,-60},{100,60}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.HorizontalCylinder, 
+            fillColor={192,192,192}), 
+          Rectangle(extent={{-100,59},{-20,-60}}, lineColor={0,0,0}), 
+          Rectangle(extent={{20,60},{100,-60}}, lineColor={0,0,0}), 
+          Text(
+            extent={{-90,14},{-54,-11}}, 
+            lineColor={128,128,128}, 
+            textString=
+                 "a"), 
+          Text(
+            extent={{51,11},{87,-14}}, 
+            lineColor={128,128,128}, 
+            textString=
+                 "b"), 
+          Line(
+            points={{-91,-76},{-33,15},{30,-49},{87,61}}, 
+            color={255,0,0}, 
+            thickness=2, 
+            smooth=Smooth.None)}),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Rectangle(
+            extent={{-100,-60},{-20,60}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.HorizontalCylinder, 
+            fillColor={192,192,192}), 
+          Rectangle(
+            extent={{-20,10},{20,-10}}, 
+            lineColor={0,0,0}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{20,-60},{100,60}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.HorizontalCylinder, 
+            fillColor={192,192,192})}),
       Documentation(info="<HTML>
 <p>
 Joint where frame_b rotates around axis n which is fixed in frame_a and
@@ -468,92 +515,115 @@ definition of the axes vectors n in the revolute joints of the planar loop.
     extends Internal.Revolute(final tau=axis.tau);
     Modelica.Mechanics.Rotational.Interfaces.Flange_a axis 
       "1-dim. rotational flange that drives the joint" 
-      annotation (extent=[10,90; -10,110]);
+      annotation (Placement(transformation(extent={{10,90},{-10,110}}, rotation
+            =0)));
     Modelica.Mechanics.Rotational.Interfaces.Flange_b bearing 
       "1-dim. rotational flange of the drive bearing" 
-      annotation (extent=[-70,90; -50,110]);
+      annotation (Placement(transformation(extent={{-70,90},{-50,110}}, 
+            rotation=0)));
     annotation (
-      Coordsys(
-        extent=[-100, -100; 100, 100],
-        grid=[1, 1],
-        component=[20, 20]),
       Window(
         x=0.05,
         y=0.09,
         width=0.65,
         height=0.69),
-      Icon(
-        Rectangle(extent=[-20,10; 20,-10],   style(
-            color=0,
-            gradient=0,
-            fillColor=8,
-            fillPattern=1)),
-        Rectangle(extent=[-100,-60; -30,60],   style(
-            color=8,
-            gradient=2,
-            fillColor=8)),
-        Rectangle(extent=[30,-60; 100,60],   style(
-            color=8,
-            gradient=2,
-            fillColor=8,
-            fillPattern=1)),
-        Rectangle(extent=[-100,59; -30,-60],   style(color=0)),
-        Rectangle(extent=[30,60; 100,-60],   style(color=0)),
-        Text(
-          extent=[-90,14; -54,-11],
-          style(color=10),
-          string="a"),
-        Text(
-          extent=[51,11; 87,-14],
-          style(color=10),
-          string="b"),
-        Line(points=[-20, 70; -60, 70], style(color=0)),
-        Line(points=[-20, 80; -20, 60], style(color=0)),
-        Line(points=[20, 80; 20, 60], style(color=0)),
-        Line(points=[20, 70; 41, 70], style(color=0)),
-        Rectangle(extent=[-10,100; 10,50],  style(
-            color=8,
-            gradient=1,
-            fillColor=8)),
-        Polygon(points=[-10, 30; 10, 30; 30, 50; -30, 50; -10, 30], style(
-            color=0,
-            fillColor=8,
-            fillPattern=1)),
-        Line(points=[-60, 60; -60, 90], style(color=0)),
-        Rectangle(extent=[-30, 11; 10, -10], style(
-            color=0,
-            gradient=0,
-            fillColor=8,
-            fillPattern=1)),
-        Polygon(points=[10, 30; 30, 50; 30, -50; 10, -30; 10, 30], style(color=
-                0, fillColor=8)),
-        Text(
-          extent=[-141,-116; 148,-77],
-          string="n=%n",
-          style(color=0)),
-        Text(extent=[-140,-172; 136,-115],   string="%name")),
-      Diagram(
-        Rectangle(extent=[-29, 60; 29, -62], style(color=7, fillColor=7)),
-        Line(points=[-60,60; -60,96],   style(color=0)),
-        Line(points=[-20, 70; -60, 70], style(color=0)),
-        Line(points=[-20, 80; -20, 60], style(color=0)),
-        Rectangle(extent=[-10,100; 10,50],  style(
-            color=8,
-            gradient=1,
-            fillColor=8)),
-        Line(points=[20, 80; 20, 60], style(color=0)),
-        Line(points=[20, 70; 41, 70], style(color=0)),
-        Polygon(points=[-10, 30; 10, 30; 30, 50; -30, 50; -10, 30], style(
-            color=0,
-            fillColor=8,
-            fillPattern=1)),
-        Polygon(points=[10, 30; 30, 50; 30, -50; 10, -30; 10, 30], style(color=
-                0, fillColor=8)),
-        Rectangle(extent=[-30, 11; 10, -10], style(
-            color=0,
-            gradient=0,
-            fillColor=8,
-            fillPattern=1))),
+      Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Rectangle(
+            extent={{-20,10},{20,-10}}, 
+            lineColor={0,0,0}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{-100,-60},{-30,60}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.HorizontalCylinder, 
+            fillColor={192,192,192}), 
+          Rectangle(
+            extent={{30,-60},{100,60}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.HorizontalCylinder, 
+            fillColor={192,192,192}), 
+          Rectangle(extent={{-100,59},{-30,-60}}, lineColor={0,0,0}), 
+          Rectangle(extent={{30,60},{100,-60}}, lineColor={0,0,0}), 
+          Text(
+            extent={{-90,14},{-54,-11}}, 
+            lineColor={128,128,128}, 
+            textString=
+                 "a"), 
+          Text(
+            extent={{51,11},{87,-14}}, 
+            lineColor={128,128,128}, 
+            textString=
+                 "b"), 
+          Line(points={{-20,70},{-60,70}}, color={0,0,0}), 
+          Line(points={{-20,80},{-20,60}}, color={0,0,0}), 
+          Line(points={{20,80},{20,60}}, color={0,0,0}), 
+          Line(points={{20,70},{41,70}}, color={0,0,0}), 
+          Rectangle(
+            extent={{-10,100},{10,50}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.VerticalCylinder, 
+            fillColor={192,192,192}), 
+          Polygon(
+            points={{-10,30},{10,30},{30,50},{-30,50},{-10,30}}, 
+            lineColor={0,0,0}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-60,60},{-60,90}}, color={0,0,0}), 
+          Rectangle(
+            extent={{-30,11},{10,-10}}, 
+            lineColor={0,0,0}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{10,30},{30,50},{30,-50},{10,-30},{10,30}}, 
+            lineColor={0,0,0}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Text(
+            extent={{-141,-116},{148,-77}}, 
+            lineColor={0,0,0}, 
+            textString=
+                 "n=%n"), 
+          Text(extent={{-140,-172},{136,-115}}, textString=
+                                                    "%name")}),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Rectangle(
+            extent={{-29,60},{29,-62}}, 
+            lineColor={255,255,255}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-60,60},{-60,96}}, color={0,0,0}), 
+          Line(points={{-20,70},{-60,70}}, color={0,0,0}), 
+          Line(points={{-20,80},{-20,60}}, color={0,0,0}), 
+          Rectangle(
+            extent={{-10,100},{10,50}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.VerticalCylinder, 
+            fillColor={192,192,192}), 
+          Line(points={{20,80},{20,60}}, color={0,0,0}), 
+          Line(points={{20,70},{41,70}}, color={0,0,0}), 
+          Polygon(
+            points={{-10,30},{10,30},{30,50},{-30,50},{-10,30}}, 
+            lineColor={0,0,0}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{10,30},{30,50},{30,-50},{10,-30},{10,30}}, 
+            lineColor={0,0,0}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{-30,11},{10,-10}}, 
+            lineColor={0,0,0}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid)}),
       Documentation(info="<HTML>
 <p>
 Joint where frame_b rotates around axis n which is fixed in frame_a.
@@ -655,7 +725,8 @@ vector \"n\" defining the translation axis
       initType=initType,
       s_start=s_start,
       v_start=v_start,
-      a_start=a_start) annotation (extent=[-70, -25; -15, 25]);
+      a_start=a_start) annotation (Placement(transformation(extent={{-70,-25},{
+              -15,25}}, rotation=0)));
     Revolute revolute(
       n=n,
       animation=false,
@@ -663,12 +734,9 @@ vector \"n\" defining the translation axis
       initType=initType,
       phi_start=phi_start,
       w_start=w_start,
-      a_start=wd_start) annotation (extent=[10, -25; 65, 25]);
+      a_start=wd_start) annotation (Placement(transformation(extent={{10,-25},{
+              65,25}}, rotation=0)));
     annotation (
-      Coordsys(
-        extent=[-100, -100; 100, 100],
-        grid=[1, 1],
-        component=[20, 20]),
       Window(
         x=0.33,
         y=0.08,
@@ -708,21 +776,28 @@ vector \"n\" defining the cylinder axis
 <IMG SRC=\"../Images/MultiBody/Joints/Cylindrical.png\">
 </p>
 </HTML>
-"),   Icon(
-        Rectangle(extent=[-100, -50; 0, 50], style(
-            color=0,
-            gradient=2,
-            fillColor=8)),
-        Rectangle(extent=[0, -30; 100, 30], style(
-            color=0,
-            gradient=2,
-            fillColor=8)),
-        Line(points=[0, -50; 0, 50], style(color=0)),
-        Text(extent=[-126, 116; 134, 56], string="%name"),
-        Text(
-          extent=[-118, -65; 120, -102],
-          string="n=%n",
-          style(color=0))));
+"),   Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Rectangle(
+            extent={{-100,-50},{0,50}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.HorizontalCylinder, 
+            fillColor={192,192,192}), 
+          Rectangle(
+            extent={{0,-30},{100,30}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.HorizontalCylinder, 
+            fillColor={192,192,192}), 
+          Line(points={{0,-50},{0,50}}, color={0,0,0}), 
+          Text(extent={{-126,116},{134,56}}, textString=
+                                                 "%name"), 
+          Text(
+            extent={{-118,-65},{120,-102}}, 
+            lineColor={0,0,0}, 
+            textString=
+                 "n=%n")}));
     
   protected 
     Visualizers.Advanced.Shape cylinder(
@@ -736,22 +811,23 @@ vector \"n\" defining the cylinder axis
       widthDirection={0,1,0},
       r=frame_a.r_0,
       R=frame_a.R) if world.enableAnimation and animation 
-      annotation (extent=[-10, 40; 10, 60]);
+      annotation (Placement(transformation(extent={{-10,40},{10,60}}, rotation=
+              0)));
   equation 
     connect(frame_a, prismatic.frame_a) 
-      annotation (points=[-100,0; -70,0], style(
-        color=10,
-        rgbcolor={95,95,95},
+      annotation (Line(
+        points={{-100,0},{-70,0}}, 
+        color={95,95,95}, 
         thickness=2));
     connect(prismatic.frame_b, revolute.frame_a) 
-      annotation (points=[-15,0; 10,0], style(
-        color=10,
-        rgbcolor={95,95,95},
+      annotation (Line(
+        points={{-15,0},{10,0}}, 
+        color={95,95,95}, 
         thickness=2));
     connect(revolute.frame_b, frame_b) 
-      annotation (points=[65,0; 100,0], style(
-        color=10,
-        rgbcolor={95,95,95},
+      annotation (Line(
+        points={{65,0},{100,0}}, 
+        color={95,95,95}, 
         thickness=2));
   end Cylindrical;
   
@@ -815,7 +891,8 @@ vector \"n\" defining the cylinder axis
       cylinderLength=cylinderLength,
       cylinderColor=cylinderColor,
       specularCoefficient=specularCoefficient,
-      animation=animation) annotation (extent=[-60, -25; -10, 25]);
+      animation=animation) annotation (Placement(transformation(extent={{-60,
+              -25},{-10,25}}, rotation=0)));
     Modelica.Mechanics.MultiBody.Joints.Revolute revolute_b(
       n=n_b,
       enforceStates=enforceStates,
@@ -828,12 +905,11 @@ vector \"n\" defining the cylinder axis
       cylinderLength=cylinderLength,
       cylinderColor=cylinderColor,
       specularCoefficient=specularCoefficient) 
-      annotation (extent=[10, 20; 60, 70], rotation=90);
+      annotation (Placement(transformation(
+          origin={35,45}, 
+          extent={{-25,-25},{25,25}}, 
+          rotation=90)));
     annotation (
-      Coordsys(
-        extent=[-100, -100; 100, 100],
-        grid=[1, 1],
-        component=[20, 20]),
       Window(
         x=0.11,
         y=0.09,
@@ -874,63 +950,88 @@ phi_start_b = 45<sup>o</sup>).
 <IMG SRC=\"../Images/MultiBody/Joints/Universal.png\">
 </p>
 </HTML>"),
-      Icon(
-        Rectangle(extent=[-100, 15; -65, -15], style(
-            color=1,
-            gradient=2,
-            fillColor=30)),
-        Ellipse(extent=[-80, -80; 80, 80], style(color=9, fillColor=8)),
-        Ellipse(extent=[-60, -60; 60, 60], style(
-            color=9,
-            fillColor=7,
-            fillPattern=1)),
-        Text(extent=[-134, -70; 126, -130], string="%name"),
-        Rectangle(extent=[12, 82; 80, -82], style(color=7, fillColor=7)),
-        Rectangle(extent=[56, 15; 100, -15], style(
-            color=9,
-            gradient=2,
-            fillColor=30)),
-        Line(points=[12, 78; 12, -78], style(
-            color=0,
-            thickness=2,
-            fillColor=7,
-            fillPattern=1)),
-        Ellipse(extent=[-52, -40; 80, 40], style(color=9, fillColor=8)),
-        Ellipse(extent=[-32, -20; 60, 26], style(
-            color=9,
-            fillColor=7,
-            fillPattern=1)),
-        Polygon(points=[-22, -54; -60, 0; -22, 50; 40, 52; -22, -54], style(
-            pattern=0,
-            fillColor=7,
-            fillPattern=1)),
-        Line(points=[12, 78; 12, -20], style(
-            color=0,
-            thickness=2,
-            fillColor=7,
-            fillPattern=1)),
-        Line(points=[32, 38; -12, -36], style(
-            color=0,
-            thickness=2,
-            fillColor=7,
-            fillPattern=1))),
-      Diagram);
+      Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Rectangle(
+            extent={{-100,15},{-65,-15}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.HorizontalCylinder, 
+            fillColor={235,235,235}), 
+          Ellipse(
+            extent={{-80,-80},{80,80}}, 
+            lineColor={160,160,164}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Ellipse(
+            extent={{-60,-60},{60,60}}, 
+            lineColor={160,160,164}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Text(extent={{-134,-70},{126,-130}}, textString=
+                                                   "%name"), 
+          Rectangle(
+            extent={{12,82},{80,-82}}, 
+            lineColor={255,255,255}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{56,15},{100,-15}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.HorizontalCylinder, 
+            fillColor={235,235,235}), 
+          Line(
+            points={{12,78},{12,-78}}, 
+            color={0,0,0}, 
+            thickness=2, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Ellipse(
+            extent={{-52,-40},{80,40}}, 
+            lineColor={160,160,164}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Ellipse(
+            extent={{-32,-20},{60,26}}, 
+            lineColor={160,160,164}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{-22,-54},{-60,0},{-22,50},{40,52},{-22,-54}}, 
+            pattern=LinePattern.None, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{12,78},{12,-20}}, 
+            color={0,0,0}, 
+            thickness=2, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{32,38},{-12,-36}}, 
+            color={0,0,0}, 
+            thickness=2, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid)}),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics));
   equation 
     
     connect(frame_a, revolute_a.frame_a) 
-      annotation (points=[-100,0; -60,0], style(
-        color=10,
-        rgbcolor={95,95,95},
+      annotation (Line(
+        points={{-100,0},{-60,0}}, 
+        color={95,95,95}, 
         thickness=2));
-    connect(revolute_b.frame_b, frame_b) annotation (points=[35,70; 35,90; 70,
-          90; 70,0; 100,0], style(
-        color=10,
-        rgbcolor={95,95,95},
+    connect(revolute_b.frame_b, frame_b) annotation (Line(
+        points={{35,70},{35,90},{70,90},{70,0},{100,0}}, 
+        color={95,95,95}, 
         thickness=2));
-    connect(revolute_a.frame_b, revolute_b.frame_a) annotation (points=[-10,0;
-          35,0; 35,20], style(
-        color=10,
-        rgbcolor={95,95,95},
+    connect(revolute_a.frame_b, revolute_b.frame_a) annotation (Line(
+        points={{-10,0},{35,0},{35,20}}, 
+        color={95,95,95}, 
         thickness=2));
   end Universal;
   
@@ -1004,7 +1105,8 @@ phi_start_b = 45<sup>o</sup>).
       initType=initType,
       s_start=s_start_x,
       v_start=v_start_x,
-      a_start=a_start_x) annotation (extent=[-69, -20; -29, 20]);
+      a_start=a_start_x) annotation (Placement(transformation(extent={{-69,-20},
+              {-29,20}}, rotation=0)));
     Prismatic prismatic_y(
       enforceStates=enforceStates,
       n=(cross(n, n_x)),
@@ -1012,7 +1114,10 @@ phi_start_b = 45<sup>o</sup>).
       initType=initType,
       s_start=s_start_y,
       v_start=v_start_y,
-      a_start=a_start_y) annotation (extent=[-20, 30; 20, 70], rotation=90);
+      a_start=a_start_y) annotation (Placement(transformation(
+          origin={0,50}, 
+          extent={{-20,-20},{20,20}}, 
+          rotation=90)));
     Revolute revolute(
       enforceStates=enforceStates,
       n=n,
@@ -1020,12 +1125,9 @@ phi_start_b = 45<sup>o</sup>).
       initType=initType,
       phi_start=phi_start,
       w_start=w_start,
-      a_start=wd_start) annotation (extent=[41, -20; 81, 20]);
+      a_start=wd_start) annotation (Placement(transformation(extent={{41,-20},{
+              81,20}}, rotation=0)));
     annotation (
-      Coordsys(
-        extent=[-100, -100; 100, 100],
-        grid=[1, 1],
-        component=[20, 20]),
       Window(
         x=0.17,
         y=0.04,
@@ -1070,28 +1172,41 @@ s_start_y = 0.5, phi_start = 45<sup>o</sup>).
 <IMG SRC=\"../Images/MultiBody/Joints/Planar.png\">
 </p>
 </HTML>
-"),   Icon(
-        Rectangle(extent=[-30, -60; -10, 60], style(
-            color=0,
-            pattern=0,
-            fillColor=8)),
-        Rectangle(extent=[10, -60; 30, 60], style(
-            color=0,
-            pattern=0,
-            fillColor=8)),
-        Rectangle(extent=[-100, -10; -30, 10], style(
-            color=0,
-            pattern=0,
-            fillColor=8)),
-        Rectangle(extent=[100, -10; 30, 10], style(
-            color=0,
-            pattern=0,
-            fillColor=8)),
-        Text(
-          extent=[-131, -74; 133, -112],
-          string="n=%n",
-          style(color=0)),
-        Text(extent=[-124, 127; 136, 67], string="%name")));
+"),   Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Rectangle(
+            extent={{-30,-60},{-10,60}}, 
+            lineColor={0,0,0}, 
+            pattern=LinePattern.None, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{10,-60},{30,60}}, 
+            lineColor={0,0,0}, 
+            pattern=LinePattern.None, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{-100,-10},{-30,10}}, 
+            lineColor={0,0,0}, 
+            pattern=LinePattern.None, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{100,-10},{30,10}}, 
+            lineColor={0,0,0}, 
+            pattern=LinePattern.None, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Text(
+            extent={{-131,-74},{133,-112}}, 
+            lineColor={0,0,0}, 
+            textString=
+                 "n=%n"), 
+          Text(extent={{-124,127},{136,67}}, textString=
+                                                 "%name")}));
     
   protected 
     parameter Integer ndim=if world.enableAnimation and animation then 1 else 0;
@@ -1106,7 +1221,8 @@ s_start_y = 0.5, phi_start = 45<sup>o</sup>).
       each lengthDirection=prismatic_x.e,
       each widthDirection={0,1,0},
       each r=frame_a.r_0,
-      each R=frame_a.R) annotation (extent=[-80, 30; -60, 50]);
+      each R=frame_a.R) annotation (Placement(transformation(extent={{-80,30},{
+              -60,50}}, rotation=0)));
     Visualizers.Advanced.Shape box_y[ndim](
       each shapeType="box",
       each color=boxColor,
@@ -1116,7 +1232,8 @@ s_start_y = 0.5, phi_start = 45<sup>o</sup>).
       each lengthDirection=prismatic_y.e,
       each widthDirection={1,0,0},
       each r=prismatic_y.frame_a.r_0,
-      each R=prismatic_y.frame_a.R) annotation (extent=[-46, 69; -26, 89]);
+      each R=prismatic_y.frame_a.R) annotation (Placement(transformation(extent
+            ={{-46,69},{-26,89}}, rotation=0)));
     Visualizers.Advanced.Shape cylinder[ndim](
       each shapeType="cylinder",
       each color=cylinderColor,
@@ -1127,27 +1244,26 @@ s_start_y = 0.5, phi_start = 45<sup>o</sup>).
       each widthDirection={0,1,0},
       each r_shape=-e*(cylinderLength/2),
       each r=revolute.frame_b.r_0,
-      each R=revolute.frame_b.R) annotation (extent=[50, 30; 70, 50]);
+      each R=revolute.frame_b.R) annotation (Placement(transformation(extent={{
+              50,30},{70,50}}, rotation=0)));
   equation 
     connect(frame_a, prismatic_x.frame_a) 
-      annotation (points=[-100,0; -69,0], style(
-        color=10,
-        rgbcolor={95,95,95},
+      annotation (Line(
+        points={{-100,0},{-69,0}}, 
+        color={95,95,95}, 
         thickness=2));
-    connect(prismatic_x.frame_b, prismatic_y.frame_a) annotation (points=[-29,0;
-          -1.22465e-015,0; -1.22465e-015,30], style(
-        color=10,
-        rgbcolor={95,95,95},
+    connect(prismatic_x.frame_b, prismatic_y.frame_a) annotation (Line(
+        points={{-29,0},{-1.22465e-015,0},{-1.22465e-015,30}}, 
+        color={95,95,95}, 
         thickness=2));
-    connect(prismatic_y.frame_b, revolute.frame_a) annotation (points=[
-          1.22465e-015,70; 0,80; 30,80; 30,0; 41,0], style(
-        color=10,
-        rgbcolor={95,95,95},
+    connect(prismatic_y.frame_b, revolute.frame_a) annotation (Line(
+        points={{1.22465e-015,70},{0,80},{30,80},{30,0},{41,0}}, 
+        color={95,95,95}, 
         thickness=2));
     connect(revolute.frame_b, frame_b) 
-      annotation (points=[81,0; 100,0], style(
-        color=10,
-        rgbcolor={95,95,95},
+      annotation (Line(
+        points={{81,0},{100,0}}, 
+        color={95,95,95}, 
         thickness=2));
   end Planar;
   
@@ -1206,10 +1322,6 @@ s_start_y = 0.5, phi_start = 45<sup>o</sup>).
         Modelica.Mechanics.MultiBody.Frames.resolve2(R_rel_start, z_rel_a_start*Modelica.Constants.
          D2R);
     annotation (
-      Coordsys(
-        extent=[-100, -100; 100, 100],
-        grid=[1, 1],
-        component=[20, 20]),
       Window(
         x=0.23,
         y=0.03,
@@ -1263,61 +1375,76 @@ frame_b of the joint.
 <IMG SRC=\"../Images/MultiBody/Joints/Spherical.png\">
 </p>
 </html>
-"),   Icon(
-        Ellipse(extent=[-70, -70; 70, 70], style(
-            color=10,
-            gradient=3,
-            fillColor=8)),
-        Ellipse(extent=[-49, -50; 51, 50], style(
-            color=10,
-            fillColor=7,
-            fillPattern=1)),
-        Rectangle(extent=[30, 70; 71, -68], style(
-            color=7,
-            fillColor=7,
-            fillPattern=1)),
-        Rectangle(extent=[-100, 10; -68, -10], style(
-            color=10,
-            gradient=2,
-            fillColor=8,
-            fillPattern=1)),
-        Rectangle(extent=[23, 10; 100, -10], style(
-            color=10,
-            gradient=2,
-            fillColor=8,
-            fillPattern=1)),
-        Ellipse(extent=[-24, 25; 26, -25], style(
-            color=0,
-            gradient=3,
-            fillColor=9)),
-        Text(extent=[-100, -132; 100, -72], string="%name")),
-      Diagram(
-        Ellipse(extent=[-70, -70; 70, 70], style(
-            color=10,
-            gradient=3,
-            fillColor=8)),
-        Ellipse(extent=[-49, -50; 51, 50], style(
-            color=10,
-            fillColor=7,
-            fillPattern=1)),
-        Rectangle(extent=[30, 70; 71, -68], style(
-            color=7,
-            fillColor=7,
-            fillPattern=1)),
-        Rectangle(extent=[-100, 10; -68, -10], style(
-            color=10,
-            gradient=2,
-            fillColor=8,
-            fillPattern=1)),
-        Rectangle(extent=[23, 10; 100, -10], style(
-            color=10,
-            gradient=2,
-            fillColor=8,
-            fillPattern=1)),
-        Ellipse(extent=[-24, 25; 26, -25], style(
-            color=0,
-            gradient=3,
-            fillColor=9))));
+"),   Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Ellipse(
+            extent={{-70,-70},{70,70}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.Sphere, 
+            fillColor={192,192,192}), 
+          Ellipse(
+            extent={{-49,-50},{51,50}}, 
+            lineColor={128,128,128}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{30,70},{71,-68}}, 
+            lineColor={255,255,255}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{-100,10},{-68,-10}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.HorizontalCylinder, 
+            fillColor={192,192,192}), 
+          Rectangle(
+            extent={{23,10},{100,-10}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.HorizontalCylinder, 
+            fillColor={192,192,192}), 
+          Ellipse(
+            extent={{-24,25},{26,-25}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.Sphere, 
+            fillColor={160,160,164}), 
+          Text(extent={{-100,-132},{100,-72}}, textString=
+                                                   "%name")}),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Ellipse(
+            extent={{-70,-70},{70,70}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.Sphere, 
+            fillColor={192,192,192}), 
+          Ellipse(
+            extent={{-49,-50},{51,50}}, 
+            lineColor={128,128,128}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{30,70},{71,-68}}, 
+            lineColor={255,255,255}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{-100,10},{-68,-10}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.HorizontalCylinder, 
+            fillColor={192,192,192}), 
+          Rectangle(
+            extent={{23,10},{100,-10}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.HorizontalCylinder, 
+            fillColor={192,192,192}), 
+          Ellipse(
+            extent={{-24,25},{26,-25}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.Sphere, 
+            fillColor={160,160,164})}));
     
   protected 
     Visualizers.Advanced.Shape sphere(
@@ -1536,10 +1663,6 @@ frame_b of the joint.
       "= der(r_rel_a), i.e., velocity of origin of frame_b with respect to origin of frame_a, resolved in frame_a";
     SI.Acceleration a_rel_a[3] "= der(v_rel_a)";
     annotation (
-      Coordsys(
-        extent=[-100, -100; 100, 100],
-        grid=[1, 1],
-        component=[20, 20]),
       Window(
         x=0.16,
         y=0,
@@ -1627,38 +1750,93 @@ frame_b of the joint.
 <IMG SRC=\"../Images/MultiBody/Joints/FreeMotion.png\">
 </p>
 </HTML>
-"),   Icon(
-        Line(points=[-86, 31; -74, 61; -49, 83; -17, 92; 19, 88; 40, 69; 59, 48],
-             style(
-            color=9,
-            thickness=2,
-            fillColor=8)),
-        Polygon(points=[90, 0; 50, 20; 50, -20; 90, 0], style(color=0,
-              fillColor=8)),
-        Polygon(points=[69, 58; 49, 40; 77, 28; 69, 58], style(color=0,
-              fillColor=8)),
-        Text(
-          extent=[136, -35; -150, -98],
-          string="%name",
-          style(color=3)),
-        Rectangle(extent=[-70, -5; -90, 5], style(color=0, fillColor=8)),
-        Rectangle(extent=[50, -5; 30, 5], style(color=0, fillColor=8)),
-        Rectangle(extent=[11, -5; -9, 5], style(color=0, fillColor=8)),
-        Rectangle(extent=[-30, -5; -50, 5], style(color=0, fillColor=8))),
-      Diagram(
-        Line(points=[-86, 31; -74, 61; -49, 83; -17, 92; 19, 88; 40, 69; 59, 48],
-             style(
-            color=9,
-            thickness=2,
-            fillColor=8)),
-        Polygon(points=[90, 0; 50, 20; 50, -20; 90, 0], style(color=0,
-              fillColor=8)),
-        Polygon(points=[69, 58; 49, 40; 77, 28; 69, 58], style(color=0,
-              fillColor=8)),
-        Rectangle(extent=[50, -5; 30, 5], style(color=0, fillColor=8)),
-        Rectangle(extent=[11, -5; -9, 5], style(color=0, fillColor=8)),
-        Rectangle(extent=[-30, -5; -50, 5], style(color=0, fillColor=8)),
-        Rectangle(extent=[-70, -5; -90, 5], style(color=0, fillColor=8))));
+"),   Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Line(
+            points={{-86,31},{-74,61},{-49,83},{-17,92},{19,88},{40,69},{59,48}}, 
+              
+            color={160,160,164}, 
+            thickness=2, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{90,0},{50,20},{50,-20},{90,0}}, 
+            lineColor={0,0,0}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{69,58},{49,40},{77,28},{69,58}}, 
+            lineColor={0,0,0}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Text(
+            extent={{136,-35},{-150,-98}}, 
+            lineColor={0,0,255}, 
+            textString=
+                 "%name"), 
+          Rectangle(
+            extent={{-70,-5},{-90,5}}, 
+            lineColor={0,0,0}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{50,-5},{30,5}}, 
+            lineColor={0,0,0}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{11,-5},{-9,5}}, 
+            lineColor={0,0,0}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{-30,-5},{-50,5}}, 
+            lineColor={0,0,0}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid)}),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Line(
+            points={{-86,31},{-74,61},{-49,83},{-17,92},{19,88},{40,69},{59,48}}, 
+              
+            color={160,160,164}, 
+            thickness=2, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{90,0},{50,20},{50,-20},{90,0}}, 
+            lineColor={0,0,0}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{69,58},{49,40},{77,28},{69,58}}, 
+            lineColor={0,0,0}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{50,-5},{30,5}}, 
+            lineColor={0,0,0}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{11,-5},{-9,5}}, 
+            lineColor={0,0,0}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{-30,-5},{-50,5}}, 
+            lineColor={0,0,0}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{-70,-5},{-90,5}}, 
+            lineColor={0,0,0}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid)}));
     
   protected 
     Visualizers.Advanced.Arrow arrow(
@@ -1894,103 +2072,128 @@ frame_b of the joint.
       "Total power flowing into this element, if checkTotalPower=true (otherwise dummy)";
     
     annotation (
-      Coordsys(
-        extent=[-100, -100; 100, 100],
-        grid=[1, 1],
-        component=[20, 20]),
       Window(
         x=0.24,
         y=0.02,
         width=0.69,
         height=0.78),
-      Icon(
-        Ellipse(extent=[-95,-40; -15,40],    style(
-            color=10,
-            gradient=3,
-            fillColor=8)),
-        Ellipse(extent=[-84,-30; -24,30],   style(
-            color=0,
-            fillColor=7,
-            fillPattern=1)),
-        Ellipse(extent=[15,-40; 95,40],    style(
-            color=10,
-            gradient=3,
-            fillColor=8)),
-        Ellipse(extent=[25,-29; 85,30],   style(
-            color=10,
-            fillColor=7,
-            fillPattern=1)),
-        Text(extent=[-149, 111; 141, 51], string="%name"),
-        Rectangle(extent=[-40, 40; 41, -41], style(
-            color=7,
-            fillColor=7,
-            fillPattern=1)),
-        Rectangle(extent=[-51, 6; 48, -4], style(
-            color=1,
-            gradient=2,
-            fillColor=8,
-            fillPattern=1)),
-        Ellipse(extent=[-68,15; -39,-13],   style(
-            color=0,
-            gradient=3,
-            fillColor=8)),
-        Ellipse(extent=[39,14; 68,-14],   style(
-            color=0,
-            gradient=3,
-            fillColor=8)),
-        Text(
-          extent=[-130, -58; 137, -98],
-          style(color=0),
-          string="%rodLength")),
-      Diagram(
-        Ellipse(extent=[-98,-40; -18,40],    style(
-            color=9,
-            gradient=0,
-            fillColor=9,
-            fillPattern=1)),
-        Ellipse(extent=[-88,-30; -28,30],   style(
-            color=9,
-            fillColor=7,
-            fillPattern=1)),
-        Ellipse(extent=[18,-40; 98,40],    style(
-            color=9,
-            fillColor=9,
-            fillPattern=1)),
-        Ellipse(extent=[29,-30; 89,29],   style(
-            color=8,
-            fillColor=7,
-            fillPattern=1)),
-        Line(points=[-56,-60; 46,-60]),
-        Polygon(points=[56,-60; 41,-54; 41,-66; 56,-60],     style(
-            color=3,
-            fillColor=3,
-            fillPattern=1)),
-        Text(extent=[-37, -63; 33, -79], string="rodLength"),
-        Rectangle(extent=[-40, 41; 40, -40], style(
-            color=7,
-            fillColor=7,
-            fillPattern=1)),
-        Rectangle(extent=[-51, 6; 48, -4], style(
-            color=1,
-            gradient=2,
-            fillColor=8,
-            fillPattern=1)),
-        Ellipse(extent=[-71,15; -42,-13],   style(
-            color=0,
-            fillColor=0,
-            fillPattern=1)),
-        Ellipse(extent=[42,14; 71,-14],   style(
-            color=0,
-            fillColor=0,
-            fillPattern=1)),
-        Line(points=[-56,-71; -56,1]),
-        Line(points=[56,-72; 56,0]),
-        Polygon(points=[11, 1; -1, 4; -1, -2; 11, 1], style(fillPattern=7)),
-        Line(points=[-56,1; -1,1],   style(fillColor=0, fillPattern=1)),
-        Text(
-          extent=[-32, -4; 4, -29],
-          style(gradient=0, fillPattern=0),
-          string="eRod_a")),
+      Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Ellipse(
+            extent={{-95,-40},{-15,40}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.Sphere, 
+            fillColor={192,192,192}), 
+          Ellipse(
+            extent={{-84,-30},{-24,30}}, 
+            lineColor={0,0,0}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Ellipse(
+            extent={{15,-40},{95,40}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.Sphere, 
+            fillColor={192,192,192}), 
+          Ellipse(
+            extent={{25,-29},{85,30}}, 
+            lineColor={128,128,128}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Text(extent={{-149,111},{141,51}}, textString=
+                                                 "%name"), 
+          Rectangle(
+            extent={{-40,40},{41,-41}}, 
+            lineColor={255,255,255}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{-51,6},{48,-4}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.HorizontalCylinder, 
+            fillColor={192,192,192}), 
+          Ellipse(
+            extent={{-68,15},{-39,-13}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.Sphere, 
+            fillColor={192,192,192}), 
+          Ellipse(
+            extent={{39,14},{68,-14}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.Sphere, 
+            fillColor={192,192,192}), 
+          Text(
+            extent={{-130,-58},{137,-98}}, 
+            lineColor={0,0,0}, 
+            textString=
+                 "%rodLength")}),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Ellipse(
+            extent={{-98,-40},{-18,40}}, 
+            lineColor={0,0,0}, 
+            fillColor={160,160,164}, 
+            fillPattern=FillPattern.Solid), 
+          Ellipse(
+            extent={{-88,-30},{-28,30}}, 
+            lineColor={160,160,164}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Ellipse(
+            extent={{18,-40},{98,40}}, 
+            lineColor={160,160,164}, 
+            fillColor={160,160,164}, 
+            fillPattern=FillPattern.Solid), 
+          Ellipse(
+            extent={{29,-30},{89,29}}, 
+            lineColor={192,192,192}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-56,-60},{46,-60}}), 
+          Polygon(
+            points={{56,-60},{41,-54},{41,-66},{56,-60}}, 
+            lineColor={0,0,255}, 
+            fillColor={0,0,255}, 
+            fillPattern=FillPattern.Solid), 
+          Text(extent={{-37,-63},{33,-79}}, textString=
+                                                "rodLength"), 
+          Rectangle(
+            extent={{-40,41},{40,-40}}, 
+            lineColor={255,255,255}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{-51,6},{48,-4}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.HorizontalCylinder, 
+            fillColor={192,192,192}), 
+          Ellipse(
+            extent={{-71,15},{-42,-13}}, 
+            lineColor={0,0,0}, 
+            fillColor={0,0,0}, 
+            fillPattern=FillPattern.Solid), 
+          Ellipse(
+            extent={{42,14},{71,-14}}, 
+            lineColor={0,0,0}, 
+            fillColor={0,0,0}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-56,-71},{-56,1}}), 
+          Line(points={{56,-72},{56,0}}), 
+          Polygon(points={{11,1},{-1,4},{-1,-2},{11,1}}, fillPattern=
+                FillPattern.Forward), 
+          Line(
+            points={{-56,1},{-1,1}}, 
+            fillColor={0,0,0}, 
+            fillPattern=FillPattern.Solid), 
+          Text(
+            extent={{-32,-4},{4,-29}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.None, 
+            textString=
+                 "eRod_a")}),
       Documentation(info="<html>
 <p>
 Joint that has a spherical joint on each of its two ends.
@@ -2160,7 +2363,10 @@ that has this property.
     extends Interfaces.PartialTwoFrames;
     Interfaces.Frame_a frame_ia 
       "Coordinate system at the origin of frame_a, fixed at the rod connecting the universal with the spherical joint"
-      annotation (extent=[-56,84; -24,116], rotation=-90);
+      annotation (Placement(transformation(
+          origin={-40,100}, 
+          extent={{-16,-16},{16,16}}, 
+          rotation=270)));
     parameter Boolean animation=true "= true, if animation shall be enabled";
     parameter Boolean showUniversalAxes=true 
       " = true, if universal joint shall be visualized with two cylinders, otherwise with a sphere (provided animation=true)";
@@ -2241,10 +2447,6 @@ that has this property.
     SI.Position rRod_a[3](start=rRod_ia) 
       "Position vector from origin of frame_a to origin of frame_b resolved in frame_a";
     annotation (
-      Coordsys(
-        extent=[-100, -100; 100, 100],
-        grid=[1, 1],
-        component=[20, 20]),
       Window(
         x=0.19,
         y=0.01,
@@ -2340,167 +2542,240 @@ the origin of frame_a to the middle of the rod, this might be defined as:
     <b>connect</b>(jointUS.frame_ia, shape.frame_a);
 </pre>
 </html>
-"),   Icon(
-        Text(
-          extent=[-122, -49; 138, -107],
-          style(color=3),
-          string="%name"),
-        Ellipse(extent=[-100, -40; -19, 40], style(
-            color=9,
-            gradient=3,
-            fillColor=8)),
-        Ellipse(extent=[-90, -30; -29, 29], style(
-            color=9,
-            fillColor=7,
-            fillPattern=1)),
-        Rectangle(extent=[-60, 41; -9, -44], style(color=7, fillColor=7)),
-        Line(points=[-60, 40; -60, -40], style(
-            color=0,
-            thickness=2,
-            fillColor=7,
-            fillPattern=1)),
-        Ellipse(extent=[-83, -17; -34, 21], style(
-            color=9,
-            gradient=3,
-            fillColor=8)),
-        Ellipse(extent=[-74, -12; -40, 15], style(
-            color=9,
-            fillColor=7,
-            fillPattern=1)),
-        Polygon(points=[-72, -20; -89, 3; -69, 25; -45, 27; -72, -20], style(
-            pattern=0,
-            fillColor=7,
-            fillPattern=1)),
-        Line(points=[-60, 40; -60, -10], style(
-            color=0,
-            thickness=2,
-            fillColor=7,
-            fillPattern=1)),
-        Line(points=[-49, 20; -69, -15], style(
-            color=0,
-            thickness=2,
-            fillColor=7,
-            fillPattern=1)),
-        Ellipse(extent=[44, 14; 73, -14], style(
-            color=0,
-            fillColor=0,
-            fillPattern=1)),
-        Ellipse(extent=[20, -40; 100, 40], style(
-            color=8,
-            gradient=3,
-            fillColor=8)),
-        Ellipse(extent=[30, -30; 90, 30], style(
-            color=8,
-            fillColor=7,
-            fillPattern=1)),
-        Rectangle(extent=[-22, 45; 40, -43], style(
-            color=7,
-            fillColor=7,
-            fillPattern=1)),
-        Ellipse(extent=[46, 14; 75, -14], style(
-            color=0,
-            gradient=3,
-            fillColor=8)),
-        Rectangle(extent=[-36, -8; 48, 8], style(
-            pattern=0,
-            gradient=2,
-            fillColor=8)),
-        Text(
-          extent=[-105,118; -67,86],
-          style(color=10),
-          string="ia"),
-        Text(
-          extent=[-24, 103; 167, 64],
-          style(color=0),
-          string="%rRod_ia"),
-        Line(points=[-40, 101; -40, 60; -60, 1], style(color=10, thickness=2))),
-      Diagram(
-        Line(points=[-60, -70; 46, -70]),
-        Polygon(points=[60, -70; 45, -64; 45, -76; 60, -70], style(
-            color=3,
-            fillColor=3,
-            fillPattern=1)),
-        Text(extent=[-56, -71; 56, -90], string="rRod"),
-        Ellipse(extent=[-100, -40; -19, 40], style(
-            color=9,
-            gradient=3,
-            fillColor=8)),
-        Ellipse(extent=[-90, -30; -29, 29], style(
-            color=9,
-            fillColor=7,
-            fillPattern=1)),
-        Rectangle(extent=[-60, 41; -19, -41], style(color=7, fillColor=7)),
-        Line(points=[-60, 40; -60, -40], style(
-            color=0,
-            thickness=2,
-            fillColor=7,
-            fillPattern=1)),
-        Ellipse(extent=[-83, -17; -34, 21], style(
-            color=9,
-            gradient=3,
-            fillColor=8)),
-        Ellipse(extent=[-74, -12; -40, 15], style(
-            color=9,
-            fillColor=7,
-            fillPattern=1)),
-        Polygon(points=[-72, -20; -89, 3; -69, 25; -45, 27; -72, -20], style(
-            pattern=0,
-            fillColor=7,
-            fillPattern=1)),
-        Line(points=[-60, 40; -60, -10], style(
-            color=0,
-            thickness=2,
-            fillColor=7,
-            fillPattern=1)),
-        Line(points=[-49, 20; -69, -15], style(
-            color=0,
-            thickness=2,
-            fillColor=7,
-            fillPattern=1)),
-        Polygon(points=[7, -1; -5, 2; -5, -4; 7, -1], style(fillPattern=7)),
-        Line(points=[-50, 19; -30, 57], style(fillColor=0, fillPattern=1)),
-        Text(
-          extent=[-34, 78; 8, 62],
-          style(gradient=0, fillPattern=0),
-          string="e2"),
-        Polygon(points=[-25, 64; -33, 56; -27, 53; -25, 64], style(
-              fillPattern=
-                7)),
-        Line(points=[-60, 41; -60, 65], style(fillColor=0, fillPattern=1)),
-        Polygon(points=[-60, 75; -64, 63; -56, 63; -60, 75], style(
-              fillPattern=
-                7)),
-        Text(
-          extent=[-93, 82; -64, 62],
-          style(gradient=0, fillPattern=0),
-          string="n1"),
-        Line(points=[-60, -40; -60, -72]),
-        Ellipse(extent=[20, -40; 100, 40], style(
-            color=8,
-            gradient=3,
-            fillColor=8)),
-        Ellipse(extent=[30, -30; 90, 30], style(color=8, fillColor=7)),
-        Rectangle(extent=[-22, 45; 40, -43], style(
-            color=7,
-            fillColor=7,
-            fillPattern=1)),
-        Ellipse(extent=[45, 14; 74, -14], style(
-            color=0,
-            fillColor=0,
-            fillPattern=1)),
-        Rectangle(extent=[-36, -8; 48, 8], style(
-            pattern=0,
-            gradient=2,
-            fillColor=8)),
-        Text(
-          extent=[-31, -7; 0, -28],
-          style(gradient=0, fillPattern=0),
-          string="eRod"),
-        Line(points=[-60, 0; -5, 0], style(fillColor=0, fillPattern=1)),
-        Polygon(points=[7, 0; -5, 3; -5, -3; 7, 0], style(fillPattern=7)),
-        Line(points=[60, -1; 60, -72]),
-        Line(points=[-40, 100; -40, 70; -60, 0], style(color=10, thickness=2)),
-        Text(extent=[-23, 30; 26, 10], string=" eRod*e2 = 0;  n1*e2 = 0")));
+"),   Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Text(
+            extent={{-122,-49},{138,-107}}, 
+            lineColor={0,0,255}, 
+            textString=
+                 "%name"), 
+          Ellipse(
+            extent={{-100,-40},{-19,40}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.Sphere, 
+            fillColor={192,192,192}), 
+          Ellipse(
+            extent={{-90,-30},{-29,29}}, 
+            lineColor={160,160,164}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{-60,41},{-9,-44}}, 
+            lineColor={255,255,255}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-60,40},{-60,-40}}, 
+            color={0,0,0}, 
+            thickness=2, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Ellipse(
+            extent={{-83,-17},{-34,21}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.Sphere, 
+            fillColor={192,192,192}), 
+          Ellipse(
+            extent={{-74,-12},{-40,15}}, 
+            lineColor={160,160,164}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{-72,-20},{-89,3},{-69,25},{-45,27},{-72,-20}}, 
+            pattern=LinePattern.None, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-60,40},{-60,-10}}, 
+            color={0,0,0}, 
+            thickness=2, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-49,20},{-69,-15}}, 
+            color={0,0,0}, 
+            thickness=2, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Ellipse(
+            extent={{44,14},{73,-14}}, 
+            lineColor={0,0,0}, 
+            fillColor={0,0,0}, 
+            fillPattern=FillPattern.Solid), 
+          Ellipse(
+            extent={{20,-40},{100,40}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.Sphere, 
+            fillColor={192,192,192}), 
+          Ellipse(
+            extent={{30,-30},{90,30}}, 
+            lineColor={192,192,192}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{-22,45},{40,-43}}, 
+            lineColor={255,255,255}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Ellipse(
+            extent={{46,14},{75,-14}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.Sphere, 
+            fillColor={192,192,192}), 
+          Rectangle(
+            extent={{-36,-8},{48,8}}, 
+            lineColor={0,0,0}, 
+            pattern=LinePattern.None, 
+            fillPattern=FillPattern.HorizontalCylinder, 
+            fillColor={192,192,192}), 
+          Text(
+            extent={{-105,118},{-67,86}}, 
+            lineColor={128,128,128}, 
+            textString=
+                 "ia"), 
+          Text(
+            extent={{-24,103},{167,64}}, 
+            lineColor={0,0,0}, 
+            textString=
+                 "%rRod_ia"), 
+          Line(
+            points={{-40,101},{-40,60},{-60,1}}, 
+            color={128,128,128}, 
+            thickness=2)}),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Line(points={{-60,-70},{46,-70}}), 
+          Polygon(
+            points={{60,-70},{45,-64},{45,-76},{60,-70}}, 
+            lineColor={0,0,255}, 
+            fillColor={0,0,255}, 
+            fillPattern=FillPattern.Solid), 
+          Text(extent={{-56,-71},{56,-90}}, textString=
+                                                "rRod"), 
+          Ellipse(
+            extent={{-100,-40},{-19,40}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.Sphere, 
+            fillColor={192,192,192}), 
+          Ellipse(
+            extent={{-90,-30},{-29,29}}, 
+            lineColor={160,160,164}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{-60,41},{-19,-41}}, 
+            lineColor={255,255,255}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-60,40},{-60,-40}}, 
+            color={0,0,0}, 
+            thickness=2, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Ellipse(
+            extent={{-83,-17},{-34,21}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.Sphere, 
+            fillColor={192,192,192}), 
+          Ellipse(
+            extent={{-74,-12},{-40,15}}, 
+            lineColor={160,160,164}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{-72,-20},{-89,3},{-69,25},{-45,27},{-72,-20}}, 
+            pattern=LinePattern.None, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-60,40},{-60,-10}}, 
+            color={0,0,0}, 
+            thickness=2, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-49,20},{-69,-15}}, 
+            color={0,0,0}, 
+            thickness=2, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(points={{7,-1},{-5,2},{-5,-4},{7,-1}}, fillPattern=
+                FillPattern.Forward), 
+          Line(
+            points={{-50,19},{-30,57}}, 
+            fillColor={0,0,0}, 
+            fillPattern=FillPattern.Solid), 
+          Text(
+            extent={{-34,78},{8,62}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.None, 
+            textString=
+                 "e2"), 
+          Polygon(points={{-25,64},{-33,56},{-27,53},{-25,64}}, fillPattern=
+                FillPattern.Forward), 
+          Line(
+            points={{-60,41},{-60,65}}, 
+            fillColor={0,0,0}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(points={{-60,75},{-64,63},{-56,63},{-60,75}}, fillPattern=
+                FillPattern.Forward), 
+          Text(
+            extent={{-93,82},{-64,62}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.None, 
+            textString=
+                 "n1"), 
+          Line(points={{-60,-40},{-60,-72}}), 
+          Ellipse(
+            extent={{20,-40},{100,40}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.Sphere, 
+            fillColor={192,192,192}), 
+          Ellipse(
+            extent={{30,-30},{90,30}}, 
+            lineColor={192,192,192}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{-22,45},{40,-43}}, 
+            lineColor={255,255,255}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Ellipse(
+            extent={{45,14},{74,-14}}, 
+            lineColor={0,0,0}, 
+            fillColor={0,0,0}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{-36,-8},{48,8}}, 
+            lineColor={0,0,0}, 
+            pattern=LinePattern.None, 
+            fillPattern=FillPattern.HorizontalCylinder, 
+            fillColor={192,192,192}), 
+          Text(
+            extent={{-31,-7},{0,-28}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.None, 
+            textString=
+                 "eRod"), 
+          Line(
+            points={{-60,0},{-5,0}}, 
+            fillColor={0,0,0}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(points={{7,0},{-5,3},{-5,-3},{7,0}}, fillPattern=FillPattern.Forward), 
+            
+          Line(points={{60,-1},{60,-72}}), 
+          Line(
+            points={{-40,100},{-40,70},{-60,0}}, 
+            color={128,128,128}, 
+            thickness=2), 
+          Text(extent={{-23,30},{26,10}}, textString=
+                                              " eRod*e2 = 0;  n1*e2 = 0")}));
     
   protected 
     SI.Force f_b_a[3] "frame_b.f resolved in frame_a";
@@ -2719,7 +2994,10 @@ singular configuration.
   model GearConstraint "Ideal 3-dim. gearbox (arbitrary shaft directions)" 
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
     Interfaces.Frame_a bearing "Coordinate system fixed in the bearing" 
-     annotation (extent=[-16,-116; 16,-84], rotation=90);
+     annotation (Placement(transformation(
+          origin={0,-100}, 
+          extent={{-16,-16},{16,16}}, 
+          rotation=90)));
     
     parameter Real ratio=2 "Gear speed ratio";
     
@@ -2734,46 +3012,57 @@ singular configuration.
       "Vector from frame bearing to frame_b resolved in bearing";
     
     annotation (
-      Icon(
-        Rectangle(extent=[-98, 98; 98, -98], style(color=7, fillColor=7)),
-        Rectangle(extent=[-40, 20; -20, -20], style(
-            gradient=2,
-            fillColor=8,
-            fillPattern=1)),
-        Rectangle(extent=[-40, 140; -20, 20], style(
-            gradient=2,
-            fillColor=8,
-            fillPattern=1)),
-        Rectangle(extent=[20, 100; 40, 60], style(
-            gradient=2,
-            fillColor=8,
-            fillPattern=1)),
-        Rectangle(extent=[20, 60; 40, -60], style(
-            gradient=2,
-            fillColor=8,
-            fillPattern=1)),
-        Rectangle(extent=[40, 10; 100, -10], style(
-            gradient=2,
-            fillColor=8,
-            fillPattern=1)),
-        Rectangle(extent=[-20, 90; 20, 70], style(
-            gradient=2,
-            fillColor=8,
-            fillPattern=1)),
-        Rectangle(extent=[-100, 10; -40, -10], style(
-            gradient=2,
-            fillColor=8,
-            fillPattern=1)),
-        Text(extent=[-156,186; 152,130],
-                                      string="%name=%ratio"),
-        Line(points=[-80, 20; -60, 20], style(color=0)),
-        Line(points=[-80, -20; -60, -20], style(color=0)),
-        Line(points=[-10, 60; 10, 60], style(color=0)),
-        Line(points=[60, 20; 80, 20], style(color=0)),
-        Line(points=[60, -20; 80, -20], style(color=0)),
-        Line(points=[-70, -20; -70, -70; 70, -70; 70, -20], style(color=0)),
-        Line(points=[0, 60; 0, -70; 0, -100], style(color=0)),
-        Line(points=[-10, 100; 10, 100], style(color=0))),
+      Icon(graphics={
+          Rectangle(
+            extent={{-98,98},{98,-98}}, 
+            lineColor={255,255,255}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{-40,20},{-20,-20}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.HorizontalCylinder, 
+            fillColor={192,192,192}), 
+          Rectangle(
+            extent={{-40,140},{-20,20}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.HorizontalCylinder, 
+            fillColor={192,192,192}), 
+          Rectangle(
+            extent={{20,100},{40,60}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.HorizontalCylinder, 
+            fillColor={192,192,192}), 
+          Rectangle(
+            extent={{20,60},{40,-60}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.HorizontalCylinder, 
+            fillColor={192,192,192}), 
+          Rectangle(
+            extent={{40,10},{100,-10}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.HorizontalCylinder, 
+            fillColor={192,192,192}), 
+          Rectangle(
+            extent={{-20,90},{20,70}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.HorizontalCylinder, 
+            fillColor={192,192,192}), 
+          Rectangle(
+            extent={{-100,10},{-40,-10}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.HorizontalCylinder, 
+            fillColor={192,192,192}), 
+          Text(extent={{-156,186},{152,130}}, textString=
+                                             "%name=%ratio"), 
+          Line(points={{-80,20},{-60,20}}, color={0,0,0}), 
+          Line(points={{-80,-20},{-60,-20}}, color={0,0,0}), 
+          Line(points={{-10,60},{10,60}}, color={0,0,0}), 
+          Line(points={{60,20},{80,20}}, color={0,0,0}), 
+          Line(points={{60,-20},{80,-20}}, color={0,0,0}), 
+          Line(points={{-70,-20},{-70,-70},{70,-70},{70,-20}}, color={0,0,0}), 
+          Line(points={{0,60},{0,-70},{0,-100}}, color={0,0,0}), 
+          Line(points={{-10,100},{10,100}}, color={0,0,0})}),
       Documentation(info="<html>
 <p>This ideal massless joint provides a gear constraint between
 frames <tt>frame_a</tt> and <tt>frame_b</tt>. The axes of rotation
@@ -2786,54 +3075,59 @@ of <tt>frame_a</tt> and <tt>frame_b</tt> may be arbitrary.</p>
 Modelica Conference</i>. Link&ouml;ping : The Modelica Association and Link&ouml;ping University,
 November 3-4, 2003, pp. 149-158</p>
 </html>"),
-      Diagram);
+      Diagram(graphics));
     Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute actuatedRevolute_a(n=n_a, animation=false) 
-      annotation (extent=[-40, -10; -60, 10], rotation=0);
+      annotation (Placement(transformation(extent={{-40,-10},{-60,10}}, 
+            rotation=0)));
     Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute actuatedRevolute_b(n=n_b, animation=false) 
-      annotation (extent=[40, -10; 60, 10]);
+      annotation (Placement(transformation(extent={{40,-10},{60,10}}, rotation=
+              0)));
     Modelica.Mechanics.Rotational.IdealGear idealGear(ratio=ratio) 
-      annotation (extent=[-10, 30; 10, 50]);
+      annotation (Placement(transformation(extent={{-10,30},{10,50}}, rotation=
+              0)));
     Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation1(animation=false, r=r_b) 
-      annotation (extent=[10, -10; 30, 10]);
+      annotation (Placement(transformation(extent={{10,-10},{30,10}}, rotation=
+              0)));
     Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation2(animation=false, r=r_a) 
-      annotation (extent=[-30, -10; -10, 10], rotation=180);
+      annotation (Placement(transformation(
+          origin={-20,0}, 
+          extent={{-10,-10},{10,10}}, 
+          rotation=180)));
   equation 
     assert(cardinality(bearing) > 0,
       "Connector bearing of component is not connected");
     
     connect(actuatedRevolute_a.axis, idealGear.flange_a) 
-      annotation (points=[-50, 10; -50, 40; -10, 40], style(color=0));
+      annotation (Line(points={{-50,10},{-50,40},{-10,40}}, color={0,0,0}));
     connect(idealGear.flange_b, actuatedRevolute_b.axis) 
-      annotation (points=[10, 40; 50, 40; 50, 10], style(color=0));
-    connect(actuatedRevolute_a.frame_a,fixedTranslation2. frame_b) annotation (
-        points=[-40,0; -35,0; -35,1.22465e-015; -30,1.22465e-015], style(
-        color=10,
-        rgbcolor={95,95,95},
+      annotation (Line(points={{10,40},{50,40},{50,10}}, color={0,0,0}));
+    connect(actuatedRevolute_a.frame_a,fixedTranslation2. frame_b) annotation (Line(
+        points={{-40,0},{-35,0},{-35,1.22465e-015},{-30,1.22465e-015}}, 
+        color={95,95,95}, 
         thickness=2));
-    connect(fixedTranslation2.frame_a, bearing) annotation (points=[-10,
-          -1.22465e-015; -4,-1.22465e-015; -4,0; 0,0; 0,-100], style(
-        color=10,
-        rgbcolor={95,95,95},
+    connect(fixedTranslation2.frame_a, bearing) annotation (Line(
+        points={{-10,-1.22465e-015},{-4,-1.22465e-015},{-4,0},{0,0},{0,-100}}, 
+        color={95,95,95}, 
         thickness=2));
     connect(fixedTranslation1.frame_a, bearing) 
-      annotation (points=[10,0; 0,0; 0,-100], style(
-        color=10,
-        rgbcolor={95,95,95},
+      annotation (Line(
+        points={{10,0},{0,0},{0,-100}}, 
+        color={95,95,95}, 
         thickness=2));
     connect(fixedTranslation1.frame_b, actuatedRevolute_b.frame_a) 
-      annotation (points=[30,0; 40,0], style(
-        color=10,
-        rgbcolor={95,95,95},
+      annotation (Line(
+        points={{30,0},{40,0}}, 
+        color={95,95,95}, 
         thickness=2));
     connect(frame_a, actuatedRevolute_a.frame_b) 
-      annotation (points=[-100,0; -60,0], style(
-        color=10,
-        rgbcolor={95,95,95},
+      annotation (Line(
+        points={{-100,0},{-60,0}}, 
+        color={95,95,95}, 
         thickness=2));
     connect(actuatedRevolute_b.frame_b, frame_b) 
-      annotation (points=[60,0; 100,0], style(
-        color=10,
-        rgbcolor={95,95,95},
+      annotation (Line(
+        points={{60,0},{100,0}}, 
+        color={95,95,95}, 
         thickness=2));
   end GearConstraint;
   
@@ -2960,16 +3254,24 @@ pair of joints\" from Woernle and Hiller is described in:
       extends Interfaces.PartialTwoFramesDoubleSize;
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_ia 
         "Coordinate system at origin of frame_a fixed at prismatic joint" 
-        annotation (extent=[-88,92; -72,108],  rotation=-90);
+        annotation (Placement(transformation(
+            origin={-80,100}, 
+            extent={{-8,-8},{8,8}}, 
+            rotation=270)));
       Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_ib 
         "Coordinate system at origin of frame_b fixed at prismatic joint" 
-        annotation (extent=[88,92; 72,108], rotation=-90);
+        annotation (Placement(transformation(
+            origin={80,100}, 
+            extent={{-8,8},{8,-8}}, 
+            rotation=270)));
       Modelica.Mechanics.Translational.Interfaces.Flange_a axis 
         "1-dim. translational flange that drives the prismatic joint" 
-        annotation (extent=[45,95; 35,105]);
+        annotation (Placement(transformation(extent={{45,95},{35,105}}, 
+              rotation=0)));
       Modelica.Mechanics.Translational.Interfaces.Flange_b bearing 
         "1-dim. translational flange of the drive bearing of the prismatic joint"
-        annotation (extent=[-35,95; -45,105]);
+        annotation (Placement(transformation(extent={{-35,95},{-45,105}}, 
+              rotation=0)));
       
       parameter Boolean animation=true "= true, if animation shall be enabled";
       parameter Boolean showUniversalAxes=true 
@@ -3028,11 +3330,6 @@ pair of joints\" from Woernle and Hiller is described in:
       SI.Power totalPower 
         "Total power flowing into this element, if checkTotalPower=true (otherwise dummy)";
       annotation (
-        Coordsys(
-          extent=[-100, -100; 100, 100],
-          grid=[1,1],
-          component=[20, 20],
-          scale=0.2),
         Window(
           x=0.19,
           y=0.01,
@@ -3111,229 +3408,331 @@ should be parallel to each other when defining an instance of this
 component).
 </p>
 </html> "),
-        Icon(
-          Text(
-            extent=[-140,-50; 140,-75],
-            style(color=3),
-            string="%name"),
-          Ellipse(extent=[-100, -40; -19, 40], style(
-              color=9,
-              gradient=3,
-              fillColor=8)),
-          Ellipse(extent=[-90, -30; -29, 29], style(
-              color=9,
-              fillColor=7,
-              fillPattern=1)),
-          Rectangle(extent=[-60, 41; -9, -44], style(color=7, fillColor=7)),
-          Line(points=[-60, 40; -60, -40], style(
-              color=0,
-              thickness=2,
-              fillColor=7,
-              fillPattern=1)),
-          Ellipse(extent=[-83, -17; -34, 21], style(
-              color=9,
-              gradient=3,
-              fillColor=8)),
-          Ellipse(extent=[-74, -12; -40, 15], style(
-              color=9,
-              fillColor=7,
-              fillPattern=1)),
-          Polygon(points=[-72, -20; -89, 3; -69, 25; -45, 27; -72, -20], style(
-              pattern=0,
-              fillColor=7,
-              fillPattern=1)),
-          Line(points=[-60, 40; -60, -10], style(
-              color=0,
-              thickness=2,
-              fillColor=7,
-              fillPattern=1)),
-          Line(points=[-49, 20; -69, -15], style(
-              color=0,
-              thickness=2,
-              fillColor=7,
-              fillPattern=1)),
-          Ellipse(extent=[44, 14; 73, -14], style(
-              color=0,
-              fillColor=0,
-              fillPattern=1)),
-          Ellipse(extent=[20, -40; 100, 40], style(
-              color=8,
-              gradient=3,
-              fillColor=8)),
-          Ellipse(extent=[30, -30; 90, 30], style(
-              color=8,
-              fillColor=7,
-              fillPattern=1)),
-          Rectangle(extent=[-22, 45; 40, -43], style(
-              color=7,
-              fillColor=7,
-              fillPattern=1)),
-          Ellipse(extent=[45, 14; 74, -14], style(
-              color=0,
-              gradient=3,
-              fillColor=8)),
-          Text(
-            extent=[-98,84; -60,65],
-            style(color=10),
-            string="ia"),
-          Line(points=[-40,0; -40,90; -80,90; -80,97], style(
-              color=10,
-              rgbcolor={95,95,95},
-              thickness=2)),
-          Text(
-            extent=[61,86; 109,64],
-            style(color=10),
-            string="ib"),
-          Rectangle(extent=[-35, -13; -6, 14], style(pattern=0, fillColor=8)),
-          Rectangle(extent=[-35, 14; -6, 18], style(
-              pattern=0,
-              fillColor=0,
-              fillPattern=1)),
-          Rectangle(extent=[-6, -7; 46, 6], style(pattern=0, fillColor=8)),
-          Rectangle(extent=[-6, 6; 46, 10], style(
-              pattern=0,
-              fillColor=0,
-              fillPattern=1)),
-          Line(points=[-6, -13; -6, 18], style(color=0)),
-          Line(points=[60,-1; 60,90; 80,90; 80,97], style(
-              color=10,
-              rgbcolor={95,95,95},
-              thickness=2)),
-          Line(points=[60,90; 40,90; 40,95], style(
-              color=10,
-              rgbcolor={95,95,95},
-              thickness=2)),
-          Line(points=[-30, 70; 10, 70], style(color=0, fillColor=10)),
-          Polygon(points=[30, 70; 10, 76; 10, 63; 30, 70], style(color=10,
-                fillColor=10)),
-          Line(points=[-40,90; -40,90; -40,95], style(
-              color=10,
-              rgbcolor={95,95,95},
-              thickness=2))),
-        Diagram(
-          Line(points=[-60, -70; 46, -70]),
-          Polygon(points=[60, -70; 45, -64; 45, -76; 60, -70], style(
-              color=3,
-              fillColor=3,
-              fillPattern=1)),
-          Text(extent=[-62,-73; 65,-90],   string="rAxis"),
-          Ellipse(extent=[-100, -40; -19, 40], style(
-              color=9,
-              gradient=3,
-              fillColor=8)),
-          Ellipse(extent=[-90, -30; -29, 29], style(
-              color=9,
-              fillColor=7,
-              fillPattern=1)),
-          Rectangle(extent=[-60, 41; -19, -41], style(color=7, fillColor=7)),
-          Line(points=[-60, 40; -60, -40], style(
-              color=0,
-              thickness=2,
-              fillColor=7,
-              fillPattern=1)),
-          Ellipse(extent=[-83, -17; -34, 21], style(
-              color=9,
-              gradient=3,
-              fillColor=8)),
-          Ellipse(extent=[-74, -12; -40, 15], style(
-              color=9,
-              fillColor=7,
-              fillPattern=1)),
-          Polygon(points=[-72, -20; -89, 3; -69, 25; -45, 27; -72, -20], style(
-              pattern=0,
-              fillColor=7,
-              fillPattern=1)),
-          Line(points=[-60, 40; -60, -10], style(
-              color=0,
-              thickness=2,
-              fillColor=7,
-              fillPattern=1)),
-          Line(points=[-49, 20; -69, -15], style(
-              color=0,
-              thickness=2,
-              fillColor=7,
-              fillPattern=1)),
-          Line(points=[-40,0; -40,90; -80,90; -80,99], style(
-              color=10,
-              rgbcolor={95,95,95},
-              thickness=2)),
-          Polygon(points=[7, -1; -5, 2; -5, -4; 7, -1], style(fillPattern=7)),
-          Line(points=[-50, 19; -30, 57], style(fillColor=0, fillPattern=1)),
-          Text(
-            extent=[-24, 74; 7, 53],
-            style(gradient=0, fillPattern=0),
-            string="e2"),
-          Polygon(points=[-25, 64; -33, 56; -27, 53; -25, 64], style(
-                fillPattern=7)),
-          Line(points=[-60, 41; -60, 65], style(fillColor=0, fillPattern=1)),
-          Polygon(points=[-60, 75; -64, 63; -56, 63; -60, 75], style(
-                fillPattern=7)),
-          Text(
-            extent=[-96, 82; -65, 61],
-            style(gradient=0, fillPattern=0),
-            string="n1"),
-          Line(points=[-60, -40; -60, -72]),
-          Ellipse(extent=[20, -40; 100, 40], style(
-              color=8,
-              gradient=3,
-              fillColor=8)),
-          Ellipse(extent=[30, -30; 90, 30], style(
-              color=8,
-              fillColor=7,
-              fillPattern=1)),
-          Rectangle(extent=[-22, 45; 40, -43], style(
-              color=7,
-              fillColor=7,
-              fillPattern=1)),
-          Ellipse(extent=[45, 14; 74, -14], style(
-              color=0,
-              gradient=3,
-              fillColor=10)),
-          Line(points=[60, 0; 60, -74]),
-          Rectangle(extent=[-35, 14; -6, 18], style(
-              pattern=0,
-              fillColor=0,
-              fillPattern=1)),
-          Rectangle(extent=[-35, -13; -6, 14], style(pattern=0, fillColor=8)),
-          Rectangle(extent=[-6, 6; 46, 10], style(
-              pattern=0,
-              fillColor=0,
-              fillPattern=1)),
-          Rectangle(extent=[-6, -7; 46, 6], style(pattern=0, fillColor=8)),
-          Line(points=[-6, -13; -6, 18], style(color=0)),
-          Text(
-            extent=[-40,-2; -1,-16],
-            style(gradient=0, fillPattern=0),
-            string="nAxis"),
-          Line(points=[-61, 1; -2, 1], style(fillColor=0, fillPattern=1)),
-          Polygon(points=[10, 1; -2, 4; -2, -2; 10, 1], style(fillPattern=7)),
-          Line(points=[60,-1; 60,90; 80,90; 80,99], style(
-              color=10,
-              rgbcolor={95,95,95},
-              thickness=2)),
-          Text(extent=[-24,117; -9,102],   string="f"),
-          Polygon(points=[-26,103; -36,100; -26,97; -26,103],     style(color=3,
-                 fillColor=3)),
-          Polygon(points=[26,103; 36,100; 26,97; 26,103],     style(color=3,
-                fillColor=3)),
-          Line(points=[14,100; 36,100],  style(color=3)),
-          Text(extent=[12,116; 27,101],  string="f"),
-          Polygon(points=[30,93; 40,90; 30,87; 30,93],     style(color=10,
-                fillColor=10)),
-          Line(points=[-40,90; 40,90],   style(color=10)),
-          Line(points=[-25,100; -10,100],  style(color=3)),
-          Text(
-            extent=[-18,90; 19,77],
-            style(color=10),
-            string="s"),
-          Line(points=[60,90; 40,90; 40,98], style(
-              color=10,
-              rgbcolor={95,95,95},
-              thickness=2)),
-          Line(points=[-40,90; -40,96; -40,98], style(
-              color=10,
-              rgbcolor={135,135,135},
-              thickness=2))));
+        Icon(coordinateSystem(
+            preserveAspectRatio=true, 
+            extent={{-100,-100},{100,100}}, 
+            grid={1,1}, 
+            initialScale=0.2), graphics={
+            Text(
+              extent={{-140,-50},{140,-75}}, 
+              lineColor={0,0,255}, 
+              textString=
+                   "%name"), 
+            Ellipse(
+              extent={{-100,-40},{-19,40}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.Sphere, 
+              fillColor={192,192,192}), 
+            Ellipse(
+              extent={{-90,-30},{-29,29}}, 
+              lineColor={160,160,164}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
+            Rectangle(
+              extent={{-60,41},{-9,-44}}, 
+              lineColor={255,255,255}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
+            Line(
+              points={{-60,40},{-60,-40}}, 
+              color={0,0,0}, 
+              thickness=2, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
+            Ellipse(
+              extent={{-83,-17},{-34,21}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.Sphere, 
+              fillColor={192,192,192}), 
+            Ellipse(
+              extent={{-74,-12},{-40,15}}, 
+              lineColor={160,160,164}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
+            Polygon(
+              points={{-72,-20},{-89,3},{-69,25},{-45,27},{-72,-20}}, 
+              pattern=LinePattern.None, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
+            Line(
+              points={{-60,40},{-60,-10}}, 
+              color={0,0,0}, 
+              thickness=2, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
+            Line(
+              points={{-49,20},{-69,-15}}, 
+              color={0,0,0}, 
+              thickness=2, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
+            Ellipse(
+              extent={{44,14},{73,-14}}, 
+              lineColor={0,0,0}, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Ellipse(
+              extent={{20,-40},{100,40}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.Sphere, 
+              fillColor={192,192,192}), 
+            Ellipse(
+              extent={{30,-30},{90,30}}, 
+              lineColor={192,192,192}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
+            Rectangle(
+              extent={{-22,45},{40,-43}}, 
+              lineColor={255,255,255}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
+            Ellipse(
+              extent={{45,14},{74,-14}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.Sphere, 
+              fillColor={192,192,192}), 
+            Text(
+              extent={{-98,84},{-60,65}}, 
+              lineColor={128,128,128}, 
+              textString=
+                   "ia"), 
+            Line(
+              points={{-40,0},{-40,90},{-80,90},{-80,97}}, 
+              color={95,95,95}, 
+              thickness=2), 
+            Text(
+              extent={{61,86},{109,64}}, 
+              lineColor={128,128,128}, 
+              textString=
+                   "ib"), 
+            Rectangle(
+              extent={{-35,-13},{-6,14}}, 
+              pattern=LinePattern.None, 
+              fillColor={192,192,192}, 
+              fillPattern=FillPattern.Solid), 
+            Rectangle(
+              extent={{-35,14},{-6,18}}, 
+              pattern=LinePattern.None, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Rectangle(
+              extent={{-6,-7},{46,6}}, 
+              pattern=LinePattern.None, 
+              fillColor={192,192,192}, 
+              fillPattern=FillPattern.Solid), 
+            Rectangle(
+              extent={{-6,6},{46,10}}, 
+              pattern=LinePattern.None, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Line(points={{-6,-13},{-6,18}}, color={0,0,0}), 
+            Line(
+              points={{60,-1},{60,90},{80,90},{80,97}}, 
+              color={95,95,95}, 
+              thickness=2), 
+            Line(
+              points={{60,90},{40,90},{40,95}}, 
+              color={95,95,95}, 
+              thickness=2), 
+            Line(
+              points={{-30,70},{10,70}}, 
+              color={0,0,0}, 
+              fillColor={128,128,128}, 
+              fillPattern=FillPattern.Solid), 
+            Polygon(
+              points={{30,70},{10,76},{10,63},{30,70}}, 
+              lineColor={128,128,128}, 
+              fillColor={128,128,128}, 
+              fillPattern=FillPattern.Solid), 
+            Line(
+              points={{-40,90},{-40,90},{-40,95}}, 
+              color={95,95,95}, 
+              thickness=2)}),
+        Diagram(coordinateSystem(
+            preserveAspectRatio=true, 
+            extent={{-100,-100},{100,100}}, 
+            grid={1,1}, 
+            initialScale=0.2), graphics={
+            Line(points={{-60,-70},{46,-70}}), 
+            Polygon(
+              points={{60,-70},{45,-64},{45,-76},{60,-70}}, 
+              lineColor={0,0,255}, 
+              fillColor={0,0,255}, 
+              fillPattern=FillPattern.Solid), 
+            Text(extent={{-62,-73},{65,-90}}, textString=
+                                                  "rAxis"), 
+            Ellipse(
+              extent={{-100,-40},{-19,40}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.Sphere, 
+              fillColor={192,192,192}), 
+            Ellipse(
+              extent={{-90,-30},{-29,29}}, 
+              lineColor={160,160,164}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
+            Rectangle(
+              extent={{-60,41},{-19,-41}}, 
+              lineColor={255,255,255}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
+            Line(
+              points={{-60,40},{-60,-40}}, 
+              color={0,0,0}, 
+              thickness=2, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
+            Ellipse(
+              extent={{-83,-17},{-34,21}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.Sphere, 
+              fillColor={192,192,192}), 
+            Ellipse(
+              extent={{-74,-12},{-40,15}}, 
+              lineColor={160,160,164}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
+            Polygon(
+              points={{-72,-20},{-89,3},{-69,25},{-45,27},{-72,-20}}, 
+              pattern=LinePattern.None, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
+            Line(
+              points={{-60,40},{-60,-10}}, 
+              color={0,0,0}, 
+              thickness=2, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
+            Line(
+              points={{-49,20},{-69,-15}}, 
+              color={0,0,0}, 
+              thickness=2, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
+            Line(
+              points={{-40,0},{-40,90},{-80,90},{-80,99}}, 
+              color={95,95,95}, 
+              thickness=2), 
+            Polygon(points={{7,-1},{-5,2},{-5,-4},{7,-1}}, fillPattern=
+                  FillPattern.Forward), 
+            Line(
+              points={{-50,19},{-30,57}}, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Text(
+              extent={{-24,74},{7,53}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.None, 
+              textString=
+                   "e2"), 
+            Polygon(points={{-25,64},{-33,56},{-27,53},{-25,64}}, fillPattern=
+                  FillPattern.Forward), 
+            Line(
+              points={{-60,41},{-60,65}}, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Polygon(points={{-60,75},{-64,63},{-56,63},{-60,75}}, fillPattern=
+                  FillPattern.Forward), 
+            Text(
+              extent={{-96,82},{-65,61}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.None, 
+              textString=
+                   "n1"), 
+            Line(points={{-60,-40},{-60,-72}}), 
+            Ellipse(
+              extent={{20,-40},{100,40}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.Sphere, 
+              fillColor={192,192,192}), 
+            Ellipse(
+              extent={{30,-30},{90,30}}, 
+              lineColor={192,192,192}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
+            Rectangle(
+              extent={{-22,45},{40,-43}}, 
+              lineColor={255,255,255}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
+            Ellipse(
+              extent={{45,14},{74,-14}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.Sphere, 
+              fillColor={128,128,128}), 
+            Line(points={{60,0},{60,-74}}), 
+            Rectangle(
+              extent={{-35,14},{-6,18}}, 
+              pattern=LinePattern.None, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Rectangle(
+              extent={{-35,-13},{-6,14}}, 
+              pattern=LinePattern.None, 
+              fillColor={192,192,192}, 
+              fillPattern=FillPattern.Solid), 
+            Rectangle(
+              extent={{-6,6},{46,10}}, 
+              pattern=LinePattern.None, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Rectangle(
+              extent={{-6,-7},{46,6}}, 
+              pattern=LinePattern.None, 
+              fillColor={192,192,192}, 
+              fillPattern=FillPattern.Solid), 
+            Line(points={{-6,-13},{-6,18}}, color={0,0,0}), 
+            Text(
+              extent={{-40,-2},{-1,-16}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.None, 
+              textString=
+                   "nAxis"), 
+            Line(
+              points={{-61,1},{-2,1}}, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Polygon(points={{10,1},{-2,4},{-2,-2},{10,1}}, fillPattern=
+                  FillPattern.Forward), 
+            Line(
+              points={{60,-1},{60,90},{80,90},{80,99}}, 
+              color={95,95,95}, 
+              thickness=2), 
+            Text(extent={{-24,117},{-9,102}}, textString=
+                                                  "f"), 
+            Polygon(
+              points={{-26,103},{-36,100},{-26,97},{-26,103}}, 
+              lineColor={0,0,255}, 
+              fillColor={0,0,255}, 
+              fillPattern=FillPattern.Solid), 
+            Polygon(
+              points={{26,103},{36,100},{26,97},{26,103}}, 
+              lineColor={0,0,255}, 
+              fillColor={0,0,255}, 
+              fillPattern=FillPattern.Solid), 
+            Line(points={{14,100},{36,100}}, color={0,0,255}), 
+            Text(extent={{12,116},{27,101}}, textString=
+                                                "f"), 
+            Polygon(
+              points={{30,93},{40,90},{30,87},{30,93}}, 
+              lineColor={128,128,128}, 
+              fillColor={128,128,128}, 
+              fillPattern=FillPattern.Solid), 
+            Line(points={{-40,90},{40,90}}, color={128,128,128}), 
+            Line(points={{-25,100},{-10,100}}, color={0,0,255}), 
+            Text(
+              extent={{-18,90},{19,77}}, 
+              lineColor={128,128,128}, 
+              textString=
+                   "s"), 
+            Line(
+              points={{60,90},{40,90},{40,98}}, 
+              color={95,95,95}, 
+              thickness=2), 
+            Line(
+              points={{-40,90},{-40,96},{-40,98}}, 
+              color={135,135,135}, 
+              thickness=2)}));
       
     protected 
       SI.Force f_c_a[3] "frame_ia.f resolved in frame_a";
@@ -3569,19 +3968,30 @@ origin of frame_b. You may try to use another \"n1_a\" vector.
       extends Interfaces.PartialTwoFramesDoubleSize;
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_ia 
         "Coordinate system at origin of frame_a fixed at connecting rod of universal and spherical joint"
-        annotation (extent=[-88,92; -72,108], rotation=-270);
+        annotation (Placement(transformation(
+            origin={-80,100}, 
+            extent={{-8,-8},{8,8}}, 
+            rotation=90)));
       Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_ib 
         "Coordinate system at origin of frame_b fixed at connecting rod of spherical and revolute joint"
-        annotation (extent=[88,92; 72,108], rotation=-90);
+        annotation (Placement(transformation(
+            origin={80,100}, 
+            extent={{-8,8},{8,-8}}, 
+            rotation=270)));
       Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_im 
         "Coordinate system at origin of spherical joint fixed at connecting rod of spherical and revolute joint"
-        annotation (extent=[-8, 108; 8, 92], rotation=-90);
+        annotation (Placement(transformation(
+            origin={0,100}, 
+            extent={{8,-8},{-8,8}}, 
+            rotation=270)));
       Modelica.Mechanics.Rotational.Interfaces.Flange_a axis 
         "1-dim. rotational flange that drives the revolute joint" 
-        annotation (extent=[105,85; 95,75]);
+        annotation (Placement(transformation(extent={{105,85},{95,75}}, 
+              rotation=0)));
       Modelica.Mechanics.Rotational.Interfaces.Flange_b bearing 
         "1-dim. rotational flange of the drive bearing of the revolute joint" 
-        annotation (extent=[95,45; 105,35]);
+        annotation (Placement(transformation(extent={{95,45},{105,35}}, 
+              rotation=0)));
       
       parameter Boolean animation=true "= true, if animation shall be enabled";
       parameter Boolean showUniversalAxes=true 
@@ -3666,11 +4076,6 @@ origin of frame_b. You may try to use another \"n1_a\" vector.
         "Constraint force in direction of the rod (positive, if rod is pressed)";
       
       annotation (
-        Coordsys(
-          extent=[-100, -100; 100, 100],
-          grid=[1,1],
-          component=[20, 20],
-          scale=0.2),
         Window(
           x=0.19,
           y=0.01,
@@ -3792,107 +4197,151 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
     <b>connect</b>(jointUSP.frame_ia, shape.frame_a);
 </pre>
 </html> "),
-        Icon(
-          Text(
-            extent=[-140,-41; 140,-66],
-            style(color=3),
-            string="%name"),
-          Ellipse(extent=[-100, -30; -40, 30], style(
-              color=9,
-              gradient=3,
-              fillColor=8)),
-          Ellipse(extent=[-93, -22; -48, 23], style(
-              color=9,
-              fillColor=7,
-              fillPattern=1)),
-          Rectangle(extent=[-70, 40; -39, -33], style(color=7, fillColor=7)),
-          Line(points=[-70, 28; -70, -30], style(
-              color=0,
-              thickness=2,
-              fillColor=7,
-              fillPattern=1)),
-          Ellipse(extent=[-89, -18; -48, 18], style(
-              color=9,
-              gradient=3,
-              fillColor=8)),
-          Ellipse(extent=[-84, -12; -53, 13], style(
-              color=9,
-              fillColor=7,
-              fillPattern=1)),
-          Polygon(points=[-81, -17; -92, -1; -83, 16; -57, 24; -81, -17], style(
-              pattern=0,
-              fillColor=7,
-              fillPattern=1)),
-          Line(points=[-70, 30; -70, -10], style(
-              color=0,
-              thickness=2,
-              fillColor=7,
-              fillPattern=1)),
-          Line(points=[-61, 16; -79, -15], style(
-              color=0,
-              thickness=2,
-              fillColor=7,
-              fillPattern=1)),
-          Line(points=[-50, 0; -50, 80; -80, 80; -80, 100], style(
-              color=10,
-              rgbcolor={95,95,95},
-              thickness=2)),
-          Ellipse(extent=[-40, -30; 20, 30], style(
-              color=8,
-              gradient=3,
-              fillColor=8)),
-          Ellipse(extent=[-33, -22; 12, 23], style(color=8, fillColor=7)),
-          Rectangle(extent=[-44, 31; -14, -30], style(
-              color=7,
-              fillColor=7,
-              fillPattern=1)),
-          Ellipse(extent=[-23, 10; -3, -10], style(
-              color=0,
-              fillColor=0,
-              fillPattern=1)),
-          Rectangle(extent=[19, 6; 61, -6], style(gradient=2, fillColor=8)),
-          Rectangle(extent=[-50, 5; -21, -5], style(gradient=2, fillColor=8)),
-          Rectangle(extent=[60, -30; 76, 30], style(
-              color=8,
-              gradient=2,
-              fillColor=8)),
-          Rectangle(extent=[85, -30; 100, 30], style(
-              color=8,
-              gradient=2,
-              fillColor=8)),
-          Rectangle(extent=[76, 10; 85, -10], style(
-              color=0,
-              gradient=0,
-              fillColor=8,
-              fillPattern=1)),
-          Rectangle(extent=[60, 30; 76, -30], style(color=0)),
-          Rectangle(extent=[85, 30; 100, -30], style(color=0)),
-          Text(
-            extent=[40,109; 77,91],
-            style(color=10),
-            string="ib"),
-          Text(
-            extent=[-124,109; -95,92],
-            style(color=10),
-            string="ia"),
-          Line(points=[60, 30; 60, 80; 80, 80; 80, 100], style(
-              color=10,
-              rgbcolor={95,95,95},
-              thickness=2)),
-          Text(
-            extent=[-43,108; -10,92],
-            style(color=10),
-            string="im"),
-          Line(points=[19, 6; 19, 80; 0, 80; 0, 100], style(
-              color=10,
-              rgbcolor={95,95,95},
-              thickness=2)),
-          Line(points=[80, 80; 101, 80], style(color=10, thickness=2)),
-          Line(points=[90,30; 90,40; 95,40], style(
-              color=10,
-              rgbcolor={95,95,95},
-              thickness=2))),
-        Diagram);
+        Icon(coordinateSystem(
+            preserveAspectRatio=true, 
+            extent={{-100,-100},{100,100}}, 
+            grid={1,1}, 
+            initialScale=0.2), graphics={
+            Text(
+              extent={{-140,-41},{140,-66}}, 
+              lineColor={0,0,255}, 
+              textString=
+                   "%name"), 
+            Ellipse(
+              extent={{-100,-30},{-40,30}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.Sphere, 
+              fillColor={192,192,192}), 
+            Ellipse(
+              extent={{-93,-22},{-48,23}}, 
+              lineColor={160,160,164}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
+            Rectangle(
+              extent={{-70,40},{-39,-33}}, 
+              lineColor={255,255,255}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
+            Line(
+              points={{-70,28},{-70,-30}}, 
+              color={0,0,0}, 
+              thickness=2, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
+            Ellipse(
+              extent={{-89,-18},{-48,18}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.Sphere, 
+              fillColor={192,192,192}), 
+            Ellipse(
+              extent={{-84,-12},{-53,13}}, 
+              lineColor={160,160,164}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
+            Polygon(
+              points={{-81,-17},{-92,-1},{-83,16},{-57,24},{-81,-17}}, 
+              pattern=LinePattern.None, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
+            Line(
+              points={{-70,30},{-70,-10}}, 
+              color={0,0,0}, 
+              thickness=2, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
+            Line(
+              points={{-61,16},{-79,-15}}, 
+              color={0,0,0}, 
+              thickness=2, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
+            Line(
+              points={{-50,0},{-50,80},{-80,80},{-80,100}}, 
+              color={95,95,95}, 
+              thickness=2), 
+            Ellipse(
+              extent={{-40,-30},{20,30}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.Sphere, 
+              fillColor={192,192,192}), 
+            Ellipse(
+              extent={{-33,-22},{12,23}}, 
+              lineColor={192,192,192}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
+            Rectangle(
+              extent={{-44,31},{-14,-30}}, 
+              lineColor={255,255,255}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
+            Ellipse(
+              extent={{-23,10},{-3,-10}}, 
+              lineColor={0,0,0}, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Rectangle(
+              extent={{19,6},{61,-6}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              fillColor={192,192,192}), 
+            Rectangle(
+              extent={{-50,5},{-21,-5}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              fillColor={192,192,192}), 
+            Rectangle(
+              extent={{60,-30},{76,30}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              fillColor={192,192,192}), 
+            Rectangle(
+              extent={{85,-30},{100,30}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              fillColor={192,192,192}), 
+            Rectangle(
+              extent={{76,10},{85,-10}}, 
+              lineColor={0,0,0}, 
+              fillColor={192,192,192}, 
+              fillPattern=FillPattern.Solid), 
+            Rectangle(extent={{60,30},{76,-30}}, lineColor={0,0,0}), 
+            Rectangle(extent={{85,30},{100,-30}}, lineColor={0,0,0}), 
+            Text(
+              extent={{40,109},{77,91}}, 
+              lineColor={128,128,128}, 
+              textString=
+                   "ib"), 
+            Text(
+              extent={{-124,109},{-95,92}}, 
+              lineColor={128,128,128}, 
+              textString=
+                   "ia"), 
+            Line(
+              points={{60,30},{60,80},{80,80},{80,100}}, 
+              color={95,95,95}, 
+              thickness=2), 
+            Text(
+              extent={{-43,108},{-10,92}}, 
+              lineColor={128,128,128}, 
+              textString=
+                   "im"), 
+            Line(
+              points={{19,6},{19,80},{0,80},{0,100}}, 
+              color={95,95,95}, 
+              thickness=2), 
+            Line(
+              points={{80,80},{101,80}}, 
+              color={128,128,128}, 
+              thickness=2), 
+            Line(
+              points={{90,30},{90,40},{95,40}}, 
+              color={95,95,95}, 
+              thickness=2)}),
+        Diagram(coordinateSystem(
+            preserveAspectRatio=true, 
+            extent={{-100,-100},{100,100}}, 
+            grid={1,1}, 
+            initialScale=0.2), graphics));
       
       Modelica.Mechanics.MultiBody.Joints.Internal.RevoluteWithLengthConstraint
         revolute(
@@ -3904,7 +4353,8 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
         cylinderDiameter=revoluteDiameter,
         cylinderLength=revoluteLength,
         cylinderColor=revoluteColor,
-        specularCoefficient=specularCoefficient) annotation (extent=[75, -20; 35, 20]);
+        specularCoefficient=specularCoefficient) annotation (Placement(
+            transformation(extent={{75,-20},{35,20}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Joints.UniversalSpherical rod1(
         animation=animation,
         showUniversalAxes=showUniversalAxes,
@@ -3921,19 +4371,23 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
         specularCoefficient=specularCoefficient,
         kinematicConstraint=false,
         constraintResidue=rod1.f_rod - f_rod) 
-                                   annotation (extent=[-92, -20; -52, 20]);
+                                   annotation (Placement(transformation(extent=
+                {{-92,-20},{-52,20}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.FixedTranslation rod2(
         animation=animation,
         width=rod2Diameter,
         height=rod2Diameter,
         color=rod2Color,
         specularCoefficient=specularCoefficient,
-        r=rRod2_ib) annotation (extent=[15, -20; -25, 20]);
+        r=rRod2_ib) annotation (Placement(transformation(extent={{15,-20},{-25,
+                20}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Sensors.RelativeSensorNew relativeSensor(
                                                                          animation=false) 
-        annotation (extent=[60, -70; 40, -90]);
+        annotation (Placement(transformation(extent={{60,-70},{40,-90}}, 
+              rotation=0)));
       Modelica.Blocks.Sources.Constant position_b[3](k=rRod2_ib) 
-        annotation (extent=[-20, -50; 0, -30]);
+        annotation (Placement(transformation(extent={{-20,-50},{0,-30}}, 
+              rotation=0)));
     equation 
      // defineRoot(frame_ib.R);
       
@@ -3985,84 +4439,69 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
         totalPower = 0;
       end if;
       
-      connect(revolute.frame_b, rod2.frame_a) annotation (points=[35,0; 15,0], style(
-          color=10,
-          rgbcolor={95,95,95},
-          thickness=2,
-          gradient=3,
-          fillColor=8,
-          rgbfillColor={192,192,192}));
-      connect(rod2.frame_b, rod1.frame_b) annotation (points=[-25,0; -52,0], style(
-          color=10,
-          rgbcolor={95,95,95},
-          thickness=2,
-          gradient=3,
-          fillColor=8,
-          rgbfillColor={192,192,192}));
-      connect(revolute.frame_a, frame_b) annotation (points=[75,0; 100,0], style(
-          color=10,
-          rgbcolor={95,95,95},
-          thickness=2,
-          gradient=3,
-          fillColor=8,
-          rgbfillColor={192,192,192}));
-      connect(rod2.frame_a, frame_ib) annotation (points=[15,0; 26,0; 26,70; 80,70;
-            80,100], style(
-          color=10,
-          rgbcolor={95,95,95},
-          thickness=2,
-          gradient=3,
-          fillColor=8,
-          rgbfillColor={192,192,192}));
-      connect(rod1.frame_a, frame_a) annotation (points=[-92,0; -100,0], style(
-          color=10,
-          rgbcolor={95,95,95},
-          thickness=2,
-          gradient=3,
-          fillColor=8,
-          rgbfillColor={192,192,192}));
-      connect(relativeSensor.frame_b, frame_a) annotation (points=[40,-80; -96,-80;
-            -96,0; -100,0], style(
-          color=10,
-          rgbcolor={95,95,95},
-          pattern=3,
-          gradient=3,
-          fillColor=8,
-          rgbfillColor={192,192,192}));
-      connect(relativeSensor.frame_a, frame_b) annotation (points=[60,-80; 96,-80;
-            96,0; 100,0], style(
-          color=10,
-          rgbcolor={95,95,95},
-          pattern=3,
-          gradient=3,
-          fillColor=8,
-          rgbfillColor={192,192,192}));
-      connect(position_b.y, revolute.position_b)       annotation (points=[1, -40;
-             20, -40; 20, -12; 31, -12], style(
-          color=74,
-          rgbcolor={0,0,127},
-          gradient=3,
-          fillColor=8,
-          rgbfillColor={192,192,192}));
-      connect(rod2.frame_b, frame_im) annotation (points=[-25,0; -40,0; -40,80; 0,
-            80; 0,100], style(
-          color=10,
-          rgbcolor={95,95,95},
+      connect(revolute.frame_b, rod2.frame_a) annotation (Line(
+          points={{35,0},{15,0}}, 
+          color={95,95,95}, 
+          thickness=2, 
+          fillPattern=FillPattern.Sphere, 
+          fillColor={192,192,192}));
+      connect(rod2.frame_b, rod1.frame_b) annotation (Line(
+          points={{-25,0},{-52,0}}, 
+          color={95,95,95}, 
+          thickness=2, 
+          fillPattern=FillPattern.Sphere, 
+          fillColor={192,192,192}));
+      connect(revolute.frame_a, frame_b) annotation (Line(
+          points={{75,0},{100,0}}, 
+          color={95,95,95}, 
+          thickness=2, 
+          fillPattern=FillPattern.Sphere, 
+          fillColor={192,192,192}));
+      connect(rod2.frame_a, frame_ib) annotation (Line(
+          points={{15,0},{26,0},{26,70},{80,70},{80,100}}, 
+          color={95,95,95}, 
+          thickness=2, 
+          fillPattern=FillPattern.Sphere, 
+          fillColor={192,192,192}));
+      connect(rod1.frame_a, frame_a) annotation (Line(
+          points={{-92,0},{-100,0}}, 
+          color={95,95,95}, 
+          thickness=2, 
+          fillPattern=FillPattern.Sphere, 
+          fillColor={192,192,192}));
+      connect(relativeSensor.frame_b, frame_a) annotation (Line(
+          points={{40,-80},{-96,-80},{-96,0},{-100,0}}, 
+          color={95,95,95}, 
+          pattern=LinePattern.Dot, 
+          fillPattern=FillPattern.Sphere, 
+          fillColor={192,192,192}));
+      connect(relativeSensor.frame_a, frame_b) annotation (Line(
+          points={{60,-80},{96,-80},{96,0},{100,0}}, 
+          color={95,95,95}, 
+          pattern=LinePattern.Dot, 
+          fillPattern=FillPattern.Sphere, 
+          fillColor={192,192,192}));
+      connect(position_b.y, revolute.position_b)       annotation (Line(
+          points={{1,-40},{20,-40},{20,-12},{31,-12}}, 
+          color={0,0,127}, 
+          fillPattern=FillPattern.Sphere, 
+          fillColor={192,192,192}));
+      connect(rod2.frame_b, frame_im) annotation (Line(
+          points={{-25,0},{-40,0},{-40,80},{0,80},{0,100}}, 
+          color={95,95,95}, 
           thickness=2));
-      connect(rod1.frame_ia, frame_ia) annotation (points=[-80,20; -80,100],
-          style(
-          color=10,
-          rgbcolor={95,95,95},
+      connect(rod1.frame_ia, frame_ia) annotation (Line(
+          points={{-80,20},{-80,100}}, 
+          color={95,95,95}, 
           thickness=2));
-      connect(revolute.axis, axis) annotation (points=[55,20; 55,60; 90,60; 90,80;
-            100,80],          style(color=0));
+      connect(revolute.axis, axis) annotation (Line(points={{55,20},{55,60},{90,
+              60},{90,80},{100,80}}, color={0,0,0}));
       connect(revolute.bearing, bearing) 
-        annotation (points=[67,20; 67,40; 100,40],    style(color=0));
-      connect(relativeSensor.r_rel, revolute.position_a) annotation (points=[58,-69;
-            58,-50; 90,-50; 90,-12; 79,-12],      style(
-          color=74,
-          rgbcolor={0,0,127},
-          smooth=0));
+        annotation (Line(points={{67,20},{67,40},{100,40}}, color={0,0,0}));
+      connect(relativeSensor.r_rel, revolute.position_a) annotation (Line(
+          points={{58,-69},{58,-50},{90,-50},{90,-12},{79,-12}}, 
+          color={0,0,127}, 
+          smooth=Smooth.None));
     end JointUSR;
     
     model JointUSP 
@@ -4074,19 +4513,30 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
       extends Interfaces.PartialTwoFramesDoubleSize;
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_ia 
         "Coordinate system at origin of frame_a fixed at connecting rod of universal and spherical joint"
-        annotation (extent=[-88,92; -72,108], rotation=-270);
+        annotation (Placement(transformation(
+            origin={-80,100}, 
+            extent={{-8,-8},{8,8}}, 
+            rotation=90)));
       Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_ib 
         "Coordinate system at origin of frame_b fixed at connecting rod of spherical and prismatic joint"
-        annotation (extent=[88,92; 72,108], rotation=-90);
+        annotation (Placement(transformation(
+            origin={80,100}, 
+            extent={{-8,8},{8,-8}}, 
+            rotation=270)));
       Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_im 
         "Coordinate system at origin of spherical joint fixed at connecting rod of spherical and prismatic joint"
-        annotation (extent=[-8, 108; 8, 92], rotation=-90);
+        annotation (Placement(transformation(
+            origin={0,100}, 
+            extent={{8,-8},{-8,8}}, 
+            rotation=270)));
       Modelica.Mechanics.Translational.Interfaces.Flange_a axis 
         "1-dim. translational flange that drives the prismatic joint" 
-        annotation (extent=[95,75; 105,85]);
+        annotation (Placement(transformation(extent={{95,75},{105,85}}, 
+              rotation=0)));
       Modelica.Mechanics.Translational.Interfaces.Flange_b bearing 
         "1-dim. translational flange of the drive bearing of the prismatic joint"
-        annotation (extent=[105,35; 95,45]);
+        annotation (Placement(transformation(extent={{105,35},{95,45}}, 
+              rotation=0)));
       
       parameter Boolean animation=true "= true, if animation shall be enabled";
       parameter Boolean showUniversalAxes=true 
@@ -4167,11 +4617,6 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
       SI.Power totalPower 
         "Total power flowing into this element, if checkTotalPower=true (otherwise dummy)";
       annotation (
-        Coordsys(
-          extent=[-100, -100; 100, 100],
-          grid=[1,1],
-          component=[20, 20],
-          scale=0.2),
         Window(
           x=0.19,
           y=0.01,
@@ -4300,115 +4745,173 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
     <b>connect</b>(jointUSP.frame_ia, shape.frame_a);
 </pre>
 </html> "),
-        Icon(
-          Rectangle(extent=[50, 20; 80, -20], style(color=0, fillColor=8)),
-          Rectangle(extent=[80, 30; 100, -30], style(color=0, fillColor=8)),
-          Text(
-            extent=[-140,-45; 140,-70],
-            style(color=3),
-            string="%name"),
-          Ellipse(extent=[-100, -30; -40, 30], style(
-              color=9,
-              gradient=3,
-              fillColor=8)),
-          Ellipse(extent=[-93, -22; -48, 23], style(
-              color=9,
-              fillColor=7,
-              fillPattern=1)),
-          Rectangle(extent=[-70, 40; -39, -33], style(color=7, fillColor=7)),
-          Line(points=[-70, 28; -70, -30], style(
-              color=0,
-              thickness=2,
-              fillColor=7,
-              fillPattern=1)),
-          Ellipse(extent=[-89, -18; -48, 18], style(
-              color=9,
-              gradient=3,
-              fillColor=8)),
-          Ellipse(extent=[-84, -12; -53, 13], style(
-              color=9,
-              fillColor=7,
-              fillPattern=1)),
-          Polygon(points=[-81, -17; -92, -1; -83, 16; -57, 24; -81, -17], style(
-              pattern=0,
-              fillColor=7,
-              fillPattern=1)),
-          Line(points=[-70, 30; -70, -10], style(
-              color=0,
-              thickness=2,
-              fillColor=7,
-              fillPattern=1)),
-          Line(points=[-61, 16; -79, -15], style(
-              color=0,
-              thickness=2,
-              fillColor=7,
-              fillPattern=1)),
-          Line(points=[-50, 0; -50, 80; -80, 80; -80, 100], style(
-              color=10,
-              rgbcolor={95,95,95},
-              thickness=2)),
-          Ellipse(extent=[-40, -30; 20, 30], style(
-              color=8,
-              gradient=3,
-              fillColor=8)),
-          Ellipse(extent=[-33, -22; 12, 23], style(color=8, fillColor=7)),
-          Rectangle(extent=[-44, 31; -14, -30], style(
-              color=7,
-              fillColor=7,
-              fillPattern=1)),
-          Ellipse(extent=[-23, 10; -3, -10], style(
-              color=0,
-              fillColor=0,
-              fillPattern=1)),
-          Rectangle(extent=[19, 6; 50, -6], style(gradient=2, fillColor=8)),
-          Rectangle(extent=[-50, 5; -21, -5], style(gradient=2, fillColor=8)),
-          Text(
-            extent=[37,109; 68,90],
-            style(color=10),
-            string="ib"),
-          Text(
-            extent=[-124,110; -93,90],
-            style(color=10),
-            string="ia"),
-          Line(points=[50, 6; 50, 80; 80, 80; 80, 100], style(
-              color=10,
-              rgbcolor={95,95,95},
-              thickness=2)),
-          Text(
-            extent=[-44,111; -8,91],
-            style(color=10),
-            string="im"),
-          Line(points=[19, 6; 19, 80; 0, 80; 0, 100], style(
-              color=10,
-              rgbcolor={95,95,95},
-              thickness=2)),
-          Rectangle(extent=[80, 24; 100, 30], style(
-              pattern=0,
-              fillColor=0,
-              fillPattern=1)),
-          Rectangle(extent=[50, 14; 80, 20], style(
-              pattern=0,
-              fillColor=0,
-              fillPattern=1)),
-          Line(points=[95,80; 79,80], style(
-              color=10,
-              rgbcolor={135,135,135},
-              thickness=2)),
-          Line(points=[95,40; 90,40; 90,30], style(
-              color=10,
-              rgbcolor={135,135,135},
-              thickness=2))),
-        Diagram(
-          Line(points=[-78, 30; -50, 30], style(color=10, arrow=1)),
-          Text(
-            extent=[-76, 39; -49, 32],
-            string="rRod1_ia",
-            style(color=10, arrow=1)),
-          Text(
-            extent=[-27, 40; 0, 33],
-            string="rRod2_ib",
-            style(color=10)),
-          Line(points=[3, 30; -43, 30], style(color=10, arrow=1))));
+        Icon(coordinateSystem(
+            preserveAspectRatio=true, 
+            extent={{-100,-100},{100,100}}, 
+            grid={1,1}, 
+            initialScale=0.2), graphics={
+            Rectangle(
+              extent={{50,20},{80,-20}}, 
+              lineColor={0,0,0}, 
+              fillColor={192,192,192}, 
+              fillPattern=FillPattern.Solid), 
+            Rectangle(
+              extent={{80,30},{100,-30}}, 
+              lineColor={0,0,0}, 
+              fillColor={192,192,192}, 
+              fillPattern=FillPattern.Solid), 
+            Text(
+              extent={{-140,-45},{140,-70}}, 
+              lineColor={0,0,255}, 
+              textString=
+                   "%name"), 
+            Ellipse(
+              extent={{-100,-30},{-40,30}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.Sphere, 
+              fillColor={192,192,192}), 
+            Ellipse(
+              extent={{-93,-22},{-48,23}}, 
+              lineColor={160,160,164}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
+            Rectangle(
+              extent={{-70,40},{-39,-33}}, 
+              lineColor={255,255,255}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
+            Line(
+              points={{-70,28},{-70,-30}}, 
+              color={0,0,0}, 
+              thickness=2, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
+            Ellipse(
+              extent={{-89,-18},{-48,18}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.Sphere, 
+              fillColor={192,192,192}), 
+            Ellipse(
+              extent={{-84,-12},{-53,13}}, 
+              lineColor={160,160,164}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
+            Polygon(
+              points={{-81,-17},{-92,-1},{-83,16},{-57,24},{-81,-17}}, 
+              pattern=LinePattern.None, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
+            Line(
+              points={{-70,30},{-70,-10}}, 
+              color={0,0,0}, 
+              thickness=2, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
+            Line(
+              points={{-61,16},{-79,-15}}, 
+              color={0,0,0}, 
+              thickness=2, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
+            Line(
+              points={{-50,0},{-50,80},{-80,80},{-80,100}}, 
+              color={95,95,95}, 
+              thickness=2), 
+            Ellipse(
+              extent={{-40,-30},{20,30}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.Sphere, 
+              fillColor={192,192,192}), 
+            Ellipse(
+              extent={{-33,-22},{12,23}}, 
+              lineColor={192,192,192}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
+            Rectangle(
+              extent={{-44,31},{-14,-30}}, 
+              lineColor={255,255,255}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
+            Ellipse(
+              extent={{-23,10},{-3,-10}}, 
+              lineColor={0,0,0}, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Rectangle(
+              extent={{19,6},{50,-6}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              fillColor={192,192,192}), 
+            Rectangle(
+              extent={{-50,5},{-21,-5}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              fillColor={192,192,192}), 
+            Text(
+              extent={{37,109},{68,90}}, 
+              lineColor={128,128,128}, 
+              textString=
+                   "ib"), 
+            Text(
+              extent={{-124,110},{-93,90}}, 
+              lineColor={128,128,128}, 
+              textString=
+                   "ia"), 
+            Line(
+              points={{50,6},{50,80},{80,80},{80,100}}, 
+              color={95,95,95}, 
+              thickness=2), 
+            Text(
+              extent={{-44,111},{-8,91}}, 
+              lineColor={128,128,128}, 
+              textString=
+                   "im"), 
+            Line(
+              points={{19,6},{19,80},{0,80},{0,100}}, 
+              color={95,95,95}, 
+              thickness=2), 
+            Rectangle(
+              extent={{80,24},{100,30}}, 
+              pattern=LinePattern.None, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Rectangle(
+              extent={{50,14},{80,20}}, 
+              pattern=LinePattern.None, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Line(
+              points={{95,80},{79,80}}, 
+              color={135,135,135}, 
+              thickness=2), 
+            Line(
+              points={{95,40},{90,40},{90,30}}, 
+              color={135,135,135}, 
+              thickness=2)}),
+        Diagram(coordinateSystem(
+            preserveAspectRatio=true, 
+            extent={{-100,-100},{100,100}}, 
+            grid={1,1}, 
+            initialScale=0.2), graphics={
+            Line(
+              points={{-78,30},{-50,30}}, 
+              color={128,128,128}, 
+              arrow={Arrow.None,Arrow.Filled}), 
+            Text(
+              extent={{-76,39},{-49,32}}, 
+              lineColor={128,128,128}, 
+              arrow={Arrow.None,Arrow.Filled}, 
+              textString=
+                   "rRod1_ia"), 
+            Text(
+              extent={{-27,40},{0,33}}, 
+              lineColor={128,128,128}, 
+              textString=
+                   "rRod2_ib"), 
+            Line(
+              points={{3,30},{-43,30}}, 
+              color={128,128,128}, 
+              arrow={Arrow.None,Arrow.Filled})}));
       
       Modelica.Mechanics.MultiBody.Joints.Internal.PrismaticWithLengthConstraint
         prismatic(
@@ -4422,7 +4925,8 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
         boxHeight=boxHeight,
         boxColor=boxColor,
         specularCoefficient=specularCoefficient) 
-                                annotation (extent=[76, -20; 36, 20]);
+                                annotation (Placement(transformation(extent={{
+                76,-20},{36,20}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Joints.UniversalSpherical rod1(
         animation=animation,
         showUniversalAxes=showUniversalAxes,
@@ -4439,18 +4943,22 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
         cylinderColor=cylinderColor,
         kinematicConstraint=false,
         constraintResidue=rod1.f_rod - f_rod) 
-                                   annotation (extent=[-92, -20; -52, 20]);
+                                   annotation (Placement(transformation(extent=
+                {{-92,-20},{-52,20}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.FixedTranslation rod2(
         animation=animation,
         r=rRod2_ib,
         width=rod2Diameter,
         height=rod2Diameter,
         specularCoefficient=specularCoefficient,
-        color=rod2Color) annotation (extent=[0, 20; -40, -20]);
+        color=rod2Color) annotation (Placement(transformation(extent={{0,20},{
+                -40,-20}}, rotation=0)));
       Sensors.RelativeSensorNew relativeSensor(                          animation=false) 
-        annotation (extent=[50, -70; 30, -90]);
+        annotation (Placement(transformation(extent={{50,-70},{30,-90}}, 
+              rotation=0)));
       Modelica.Blocks.Sources.Constant position_b[3](k=rRod2_ib) 
-        annotation (extent=[-20, -60; 0, -40], rotation=0);
+        annotation (Placement(transformation(extent={{-20,-60},{0,-40}}, 
+              rotation=0)));
     protected 
       Real aux 
         "Denominator used to compute force in rod connecting universal and spherical joint";
@@ -4497,83 +5005,69 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
         totalPower = 0;
       end if;
       
-      connect(prismatic.frame_b, rod2.frame_a) annotation (points=[36,0; 0,0], style(
-          color=10,
-          rgbcolor={95,95,95},
-          thickness=2,
-          gradient=3,
-          fillColor=8,
-          rgbfillColor={192,192,192}));
-      connect(rod2.frame_b, rod1.frame_b) annotation (points=[-40,0; -52,0],
-          style(
-          color=0,
-          thickness=2,
-          gradient=3,
-          fillColor=8));
-      connect(prismatic.frame_a, frame_b) annotation (points=[76,0; 100,0], style(
-          color=10,
-          rgbcolor={95,95,95},
-          thickness=2,
-          gradient=3,
-          fillColor=8,
-          rgbfillColor={192,192,192}));
-      connect(rod2.frame_a, frame_ib) annotation (points=[0,0; 7,0; 7,70; 80,70; 80,
-            100], style(
-          color=10,
-          rgbcolor={95,95,95},
-          thickness=2,
-          gradient=3,
-          fillColor=8,
-          rgbfillColor={192,192,192}));
-      connect(rod1.frame_a, frame_a) annotation (points=[-92,0; -100,0], style(
-          color=10,
-          rgbcolor={95,95,95},
-          thickness=2,
-          gradient=3,
-          fillColor=8,
-          rgbfillColor={192,192,192}));
-      connect(relativeSensor.frame_b, frame_a) annotation (points=[30,-80; -97,-80;
-            -97,0; -100,0], style(
-          color=10,
-          rgbcolor={95,95,95},
-          pattern=3,
-          gradient=3,
-          fillColor=8,
-          rgbfillColor={192,192,192}));
-      connect(relativeSensor.frame_a, frame_b) annotation (points=[50,-80; 95,-80;
-            95,0; 100,0], style(
-          color=10,
-          rgbcolor={95,95,95},
-          pattern=3,
-          gradient=3,
-          fillColor=8,
-          rgbfillColor={192,192,192}));
-      connect(rod2.frame_b, frame_im) annotation (points=[-40,0; -46,0; -46,80; 0,
-            80; 0,100], style(
-          color=10,
-          rgbcolor={95,95,95},
+      connect(prismatic.frame_b, rod2.frame_a) annotation (Line(
+          points={{36,0},{0,0}}, 
+          color={95,95,95}, 
+          thickness=2, 
+          fillPattern=FillPattern.Sphere, 
+          fillColor={192,192,192}));
+      connect(rod2.frame_b, rod1.frame_b) annotation (Line(
+          points={{-40,0},{-52,0}}, 
+          color={0,0,0}, 
+          thickness=2, 
+          fillPattern=FillPattern.Sphere, 
+          fillColor={192,192,192}));
+      connect(prismatic.frame_a, frame_b) annotation (Line(
+          points={{76,0},{100,0}}, 
+          color={95,95,95}, 
+          thickness=2, 
+          fillPattern=FillPattern.Sphere, 
+          fillColor={192,192,192}));
+      connect(rod2.frame_a, frame_ib) annotation (Line(
+          points={{0,0},{7,0},{7,70},{80,70},{80,100}}, 
+          color={95,95,95}, 
+          thickness=2, 
+          fillPattern=FillPattern.Sphere, 
+          fillColor={192,192,192}));
+      connect(rod1.frame_a, frame_a) annotation (Line(
+          points={{-92,0},{-100,0}}, 
+          color={95,95,95}, 
+          thickness=2, 
+          fillPattern=FillPattern.Sphere, 
+          fillColor={192,192,192}));
+      connect(relativeSensor.frame_b, frame_a) annotation (Line(
+          points={{30,-80},{-97,-80},{-97,0},{-100,0}}, 
+          color={95,95,95}, 
+          pattern=LinePattern.Dot, 
+          fillPattern=FillPattern.Sphere, 
+          fillColor={192,192,192}));
+      connect(relativeSensor.frame_a, frame_b) annotation (Line(
+          points={{50,-80},{95,-80},{95,0},{100,0}}, 
+          color={95,95,95}, 
+          pattern=LinePattern.Dot, 
+          fillPattern=FillPattern.Sphere, 
+          fillColor={192,192,192}));
+      connect(rod2.frame_b, frame_im) annotation (Line(
+          points={{-40,0},{-46,0},{-46,80},{0,80},{0,100}}, 
+          color={95,95,95}, 
           thickness=2));
-      connect(rod1.frame_ia, frame_ia) annotation (points=[-80,20; -80,100],
-          style(
-          color=10,
-          rgbcolor={95,95,95},
+      connect(rod1.frame_ia, frame_ia) annotation (Line(
+          points={{-80,20},{-80,100}}, 
+          color={95,95,95}, 
           thickness=2));
-      connect(position_b.y, prismatic.position_b)       annotation (points=[1,
-            -50; 10, -50; 10, -12; 32, -12], style(
-          color=74,
-          rgbcolor={0,0,127},
-          fillColor=8,
-          rgbfillColor={192,192,192},
-          fillPattern=1));
-      connect(prismatic.axis, axis) annotation (points=[40,14; 40,56; 90,56; 90,80;
-            100,80],           style(color=58));
+      connect(position_b.y, prismatic.position_b)       annotation (Line(
+          points={{1,-50},{10,-50},{10,-12},{32,-12}}, 
+          color={0,0,127}, 
+          fillColor={192,192,192}, 
+          fillPattern=FillPattern.Solid));
+      connect(prismatic.axis, axis) annotation (Line(points={{40,14},{40,56},{
+              90,56},{90,80},{100,80}}, color={0,191,0}));
       connect(prismatic.bearing, bearing) 
-        annotation (points=[64,14; 64,40; 100,40],    style(color=58));
-      connect(relativeSensor.r_rel, prismatic.position_a) annotation (points=[
-            48,-69; 48,-50; 90,-50; 90,-12; 80,-12], style(
-          color=74,
-          rgbcolor={0,0,127},
-          smooth=0));
+        annotation (Line(points={{64,14},{64,40},{100,40}}, color={0,191,0}));
+      connect(relativeSensor.r_rel, prismatic.position_a) annotation (Line(
+          points={{48,-69},{48,-50},{90,-50},{90,-12},{80,-12}}, 
+          color={0,0,127}, 
+          smooth=Smooth.None));
     end JointUSP;
     
     model JointSSR 
@@ -4586,16 +5080,24 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
       extends Interfaces.PartialTwoFramesDoubleSize;
       Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_ib 
         "Coordinate system at origin of frame_b fixed at connecting rod of spherical and revolute joint"
-        annotation (extent=[88,92; 72,108], rotation=-90);
+        annotation (Placement(transformation(
+            origin={80,100}, 
+            extent={{-8,8},{8,-8}}, 
+            rotation=270)));
       Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_im 
         "Coordinate system at origin of spherical joint in the middle fixed at connecting rod of spherical and revolute joint"
-        annotation (extent=[-8, 108; 8, 92], rotation=-90);
+        annotation (Placement(transformation(
+            origin={0,100}, 
+            extent={{8,-8},{-8,8}}, 
+            rotation=270)));
       Modelica.Mechanics.Rotational.Interfaces.Flange_a axis 
         "1-dim. rotational flange that drives the revolute joint" 
-        annotation (extent=[105,85; 95,75]);
+        annotation (Placement(transformation(extent={{105,85},{95,75}}, 
+              rotation=0)));
       Modelica.Mechanics.Rotational.Interfaces.Flange_b bearing 
         "1-dim. rotational flange of the drive bearing of the revolute joint" 
-        annotation (extent=[95,45; 105,35]);
+        annotation (Placement(transformation(extent={{95,45},{105,35}}, 
+              rotation=0)));
       
       parameter Boolean animation=true "= true, if animation shall be enabled";
       parameter Boolean showMass=true 
@@ -4655,11 +5157,6 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
       SI.Power totalPower 
         "Total power flowing into this element, if checkTotalPower=true (otherwise dummy)";
       annotation (
-        Coordsys(
-          extent=[-100, -100; 100, 100],
-          grid=[1,1],
-          component=[20, 20],
-          scale=0.2),
         Window(
           x=0.19,
           y=0.01,
@@ -4705,79 +5202,114 @@ should be parallel to each other when defining an instance of this
 component).
 </p>
 </html> "),
-        Icon(
-          Text(
-            extent=[-141,-41; 139,-66],
-            style(color=3),
-            string="%name"),
-          Ellipse(extent=[-100, -30; -40, 30], style(
-              color=9,
-              gradient=3,
-              fillColor=8)),
-          Ellipse(extent=[-93, -22; -48, 23], style(
-              color=9,
-              fillColor=7,
-              fillPattern=1)),
-          Rectangle(extent=[-63, 33; -39, -33], style(color=7, fillColor=7)),
-          Ellipse(extent=[-40, -30; 20, 30], style(
-              color=8,
-              gradient=3,
-              fillColor=8)),
-          Ellipse(extent=[-33, -22; 12, 23], style(color=8, fillColor=7)),
-          Rectangle(extent=[-44, 31; -19, -30], style(
-              color=7,
-              fillColor=7,
-              fillPattern=1)),
-          Ellipse(extent=[-23, 10; -3, -10], style(
-              color=0,
-              fillColor=0,
-              fillPattern=1)),
-          Rectangle(extent=[19, 6; 61, -6], style(gradient=2, fillColor=8)),
-          Rectangle(extent=[60, -30; 76, 30], style(
-              color=8,
-              gradient=2,
-              fillColor=8)),
-          Rectangle(extent=[85, -30; 100, 30], style(
-              color=8,
-              gradient=2,
-              fillColor=8)),
-          Rectangle(extent=[76, 10; 85, -10], style(
-              color=0,
-              gradient=0,
-              fillColor=8,
-              fillPattern=1)),
-          Rectangle(extent=[60, 30; 76, -30], style(color=0)),
-          Rectangle(extent=[85, 30; 100, -30], style(color=0)),
-          Text(
-            extent=[88,112; 127,92],
-            style(color=10),
-            string="ib"),
-          Ellipse(extent=[-80, 11; -60, -9], style(
-              color=0,
-              fillColor=0,
-              fillPattern=1)),
-          Rectangle(extent=[-62, 6; -21, -5], style(gradient=2, fillColor=8)),
-          Line(points=[80,80; 100,80], style(
-              color=10,
-              rgbcolor={95,95,95},
-              thickness=2)),
-          Line(points=[19,6; 19,80; 0,80; 0,100], style(
-              color=10,
-              rgbcolor={95,95,95},
-              thickness=2)),
-          Text(
-            extent=[-47,111; -8,92],
-            style(color=10),
-            string="im"),
-          Line(points=[68,30; 68,80; 80,80; 80,98], style(
-              color=10,
-              rgbcolor={95,95,95},
-              thickness=2)),
-          Line(points=[90,30; 90,40; 95,40], style(
-              color=10,
-              rgbcolor={95,95,95},
-              thickness=2))),
-        Diagram);
+        Icon(coordinateSystem(
+            preserveAspectRatio=true, 
+            extent={{-100,-100},{100,100}}, 
+            grid={1,1}, 
+            initialScale=0.2), graphics={
+            Text(
+              extent={{-141,-41},{139,-66}}, 
+              lineColor={0,0,255}, 
+              textString=
+                   "%name"), 
+            Ellipse(
+              extent={{-100,-30},{-40,30}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.Sphere, 
+              fillColor={192,192,192}), 
+            Ellipse(
+              extent={{-93,-22},{-48,23}}, 
+              lineColor={160,160,164}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
+            Rectangle(
+              extent={{-63,33},{-39,-33}}, 
+              lineColor={255,255,255}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
+            Ellipse(
+              extent={{-40,-30},{20,30}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.Sphere, 
+              fillColor={192,192,192}), 
+            Ellipse(
+              extent={{-33,-22},{12,23}}, 
+              lineColor={192,192,192}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
+            Rectangle(
+              extent={{-44,31},{-19,-30}}, 
+              lineColor={255,255,255}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
+            Ellipse(
+              extent={{-23,10},{-3,-10}}, 
+              lineColor={0,0,0}, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Rectangle(
+              extent={{19,6},{61,-6}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              fillColor={192,192,192}), 
+            Rectangle(
+              extent={{60,-30},{76,30}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              fillColor={192,192,192}), 
+            Rectangle(
+              extent={{85,-30},{100,30}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              fillColor={192,192,192}), 
+            Rectangle(
+              extent={{76,10},{85,-10}}, 
+              lineColor={0,0,0}, 
+              fillColor={192,192,192}, 
+              fillPattern=FillPattern.Solid), 
+            Rectangle(extent={{60,30},{76,-30}}, lineColor={0,0,0}), 
+            Rectangle(extent={{85,30},{100,-30}}, lineColor={0,0,0}), 
+            Text(
+              extent={{88,112},{127,92}}, 
+              lineColor={128,128,128}, 
+              textString=
+                   "ib"), 
+            Ellipse(
+              extent={{-80,11},{-60,-9}}, 
+              lineColor={0,0,0}, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Rectangle(
+              extent={{-62,6},{-21,-5}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              fillColor={192,192,192}), 
+            Line(
+              points={{80,80},{100,80}}, 
+              color={95,95,95}, 
+              thickness=2), 
+            Line(
+              points={{19,6},{19,80},{0,80},{0,100}}, 
+              color={95,95,95}, 
+              thickness=2), 
+            Text(
+              extent={{-47,111},{-8,92}}, 
+              lineColor={128,128,128}, 
+              textString=
+                   "im"), 
+            Line(
+              points={{68,30},{68,80},{80,80},{80,98}}, 
+              color={95,95,95}, 
+              thickness=2), 
+            Line(
+              points={{90,30},{90,40},{95,40}}, 
+              color={95,95,95}, 
+              thickness=2)}),
+        Diagram(coordinateSystem(
+            preserveAspectRatio=true, 
+            extent={{-100,-100},{100,100}}, 
+            grid={1,1}, 
+            initialScale=0.2), graphics));
       
       Modelica.Mechanics.MultiBody.Joints.Internal.RevoluteWithLengthConstraint
         revolute(
@@ -4790,7 +5322,8 @@ component).
         cylinderLength=revoluteLength,
         cylinderColor=revoluteColor,
         specularCoefficient=specularCoefficient) 
-                                 annotation (extent=[75, -20; 35, 20]);
+                                 annotation (Placement(transformation(extent={{
+                75,-20},{35,20}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Joints.SphericalSpherical rod1(
         animation=animation,
         showMass=showMass,
@@ -4803,18 +5336,22 @@ component).
         kinematicConstraint=false,
         sphereColor=sphereColor,
         constraintResidue=rod1.f_rod - f_rod) 
-                                 annotation (extent=[-89, -20; -49, 20]);
+                                 annotation (Placement(transformation(extent={{
+                -89,-20},{-49,20}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.FixedTranslation rod2(
         animation=animation,
         width=rod2Diameter,
         height=rod2Diameter,
         color=rod2Color,
         specularCoefficient=specularCoefficient,
-        r=rRod2_ib) annotation (extent=[15, -20; -25, 20]);
+        r=rRod2_ib) annotation (Placement(transformation(extent={{15,-20},{-25,
+                20}}, rotation=0)));
       Sensors.RelativeSensorNew relativeSensor(                          animation=false) 
-        annotation (extent=[60, -70; 40, -90]);
+        annotation (Placement(transformation(extent={{60,-70},{40,-90}}, 
+              rotation=0)));
       Modelica.Blocks.Sources.Constant position_b[3](k=rRod2_ib) 
-        annotation (extent=[-20, -50; 0, -30]);
+        annotation (Placement(transformation(extent={{-20,-50},{0,-30}}, 
+              rotation=0)));
     equation 
       /* Compute the unknown force in the rod of the rod1 joint
      by a torque balance at the revolute joint:
@@ -4862,79 +5399,65 @@ component).
         totalPower = 0;
       end if;
       
-      connect(revolute.frame_b, rod2.frame_a) annotation (points=[35,0; 15,0], style(
-          color=10,
-          rgbcolor={95,95,95},
-          thickness=2,
-          gradient=3,
-          fillColor=8,
-          rgbfillColor={192,192,192}));
-      connect(rod2.frame_b, rod1.frame_b) annotation (points=[-25,0; -49,0], style(
-          color=10,
-          rgbcolor={95,95,95},
-          thickness=2,
-          gradient=3,
-          fillColor=8,
-          rgbfillColor={192,192,192}));
-      connect(revolute.frame_a, frame_b) annotation (points=[75,0; 100,0], style(
-          color=10,
-          rgbcolor={95,95,95},
-          thickness=2,
-          gradient=3,
-          fillColor=8,
-          rgbfillColor={192,192,192}));
-      connect(rod2.frame_a, frame_ib) annotation (points=[15,0; 26,0; 26,70; 80,70;
-            80,100], style(
-          color=10,
-          rgbcolor={95,95,95},
-          thickness=2,
-          gradient=3,
-          fillColor=8,
-          rgbfillColor={192,192,192}));
-      connect(rod1.frame_a, frame_a) annotation (points=[-89,0; -100,0], style(
-          color=10,
-          rgbcolor={95,95,95},
-          thickness=2,
-          gradient=3,
-          fillColor=8,
-          rgbfillColor={192,192,192}));
-      connect(relativeSensor.frame_b, frame_a) annotation (points=[40,-80; -95,-80;
-            -95,0; -100,0], style(
-          color=10,
-          rgbcolor={95,95,95},
-          pattern=3,
-          gradient=3,
-          fillColor=8,
-          rgbfillColor={192,192,192}));
-      connect(relativeSensor.frame_a, frame_b) annotation (points=[60,-80; 96,-80;
-            96,0; 100,0], style(
-          color=10,
-          rgbcolor={95,95,95},
-          pattern=3,
-          gradient=3,
-          fillColor=8,
-          rgbfillColor={192,192,192}));
-      connect(position_b.y, revolute.position_b)       annotation (points=[1, -40;
-             20, -40; 20, -12; 31, -12], style(
-          color=74,
-          rgbcolor={0,0,127},
-          gradient=3,
-          fillColor=8,
-          rgbfillColor={192,192,192}));
-      connect(revolute.axis, axis) annotation (points=[55,20; 55,60; 90,60; 90,80;
-            100,80],          style(color=0));
+      connect(revolute.frame_b, rod2.frame_a) annotation (Line(
+          points={{35,0},{15,0}}, 
+          color={95,95,95}, 
+          thickness=2, 
+          fillPattern=FillPattern.Sphere, 
+          fillColor={192,192,192}));
+      connect(rod2.frame_b, rod1.frame_b) annotation (Line(
+          points={{-25,0},{-49,0}}, 
+          color={95,95,95}, 
+          thickness=2, 
+          fillPattern=FillPattern.Sphere, 
+          fillColor={192,192,192}));
+      connect(revolute.frame_a, frame_b) annotation (Line(
+          points={{75,0},{100,0}}, 
+          color={95,95,95}, 
+          thickness=2, 
+          fillPattern=FillPattern.Sphere, 
+          fillColor={192,192,192}));
+      connect(rod2.frame_a, frame_ib) annotation (Line(
+          points={{15,0},{26,0},{26,70},{80,70},{80,100}}, 
+          color={95,95,95}, 
+          thickness=2, 
+          fillPattern=FillPattern.Sphere, 
+          fillColor={192,192,192}));
+      connect(rod1.frame_a, frame_a) annotation (Line(
+          points={{-89,0},{-100,0}}, 
+          color={95,95,95}, 
+          thickness=2, 
+          fillPattern=FillPattern.Sphere, 
+          fillColor={192,192,192}));
+      connect(relativeSensor.frame_b, frame_a) annotation (Line(
+          points={{40,-80},{-95,-80},{-95,0},{-100,0}}, 
+          color={95,95,95}, 
+          pattern=LinePattern.Dot, 
+          fillPattern=FillPattern.Sphere, 
+          fillColor={192,192,192}));
+      connect(relativeSensor.frame_a, frame_b) annotation (Line(
+          points={{60,-80},{96,-80},{96,0},{100,0}}, 
+          color={95,95,95}, 
+          pattern=LinePattern.Dot, 
+          fillPattern=FillPattern.Sphere, 
+          fillColor={192,192,192}));
+      connect(position_b.y, revolute.position_b)       annotation (Line(
+          points={{1,-40},{20,-40},{20,-12},{31,-12}}, 
+          color={0,0,127}, 
+          fillPattern=FillPattern.Sphere, 
+          fillColor={192,192,192}));
+      connect(revolute.axis, axis) annotation (Line(points={{55,20},{55,60},{90,
+              60},{90,80},{100,80}}, color={0,0,0}));
       connect(revolute.bearing, bearing) 
-        annotation (points=[67,20; 67,40; 100,40],    style(color=0));
-      connect(rod2.frame_b, frame_im) annotation (points=[-25,0; -35,0; -35,60; 0,
-            60; 0,100], style(
-          color=10,
-          rgbcolor={95,95,95},
+        annotation (Line(points={{67,20},{67,40},{100,40}}, color={0,0,0}));
+      connect(rod2.frame_b, frame_im) annotation (Line(
+          points={{-25,0},{-35,0},{-35,60},{0,60},{0,100}}, 
+          color={95,95,95}, 
           thickness=2));
-      connect(relativeSensor.r_rel, revolute.position_a) annotation (points=[56,
-            -69; 56,-50; 90,-50; 90,-12; 79,-12], style(
-          color=74,
-          rgbcolor={0,0,127},
-          smooth=0));
+      connect(relativeSensor.r_rel, revolute.position_a) annotation (Line(
+          points={{56,-69},{56,-50},{90,-50},{90,-12},{79,-12}}, 
+          color={0,0,127}, 
+          smooth=Smooth.None));
     end JointSSR;
     
     model JointSSP 
@@ -4947,16 +5470,24 @@ component).
       extends Interfaces.PartialTwoFramesDoubleSize;
       Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_ib 
         "Coordinate system at origin of frame_b fixed at connecting rod of spherical and prismatic joint"
-        annotation (extent=[88,92; 72,108], rotation=-90);
+        annotation (Placement(transformation(
+            origin={80,100}, 
+            extent={{-8,8},{8,-8}}, 
+            rotation=270)));
       Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_im 
         "Coordinate system at origin of spherical joint in the middle fixed at connecting rod of spherical and prismatic joint"
-        annotation (extent=[-8, 108; 8, 92], rotation=-90);
+        annotation (Placement(transformation(
+            origin={0,100}, 
+            extent={{8,-8},{-8,8}}, 
+            rotation=270)));
       Modelica.Mechanics.Translational.Interfaces.Flange_a axis 
         "1-dim. translational flange that drives the prismatic joint" 
-        annotation (extent=[95,75; 105,85]);
+        annotation (Placement(transformation(extent={{95,75},{105,85}}, 
+              rotation=0)));
       Modelica.Mechanics.Translational.Interfaces.Flange_b bearing 
         "1-dim. translational flange of the drive bearing of the prismatic joint"
-        annotation (extent=[105,35; 95,45]);
+        annotation (Placement(transformation(extent={{105,35},{95,45}}, 
+              rotation=0)));
       
       parameter Boolean animation=true "= true, if animation shall be enabled";
       parameter Boolean showMass=true 
@@ -5021,11 +5552,6 @@ component).
       SI.Power totalPower 
         "Total power flowing into this element, if checkTotalPower=true (otherwise dummy)";
       annotation (
-        Coordsys(
-          extent=[-100, -100; 100, 100],
-          grid=[1, 1],
-          component=[20, 20],
-          scale=0.2),
         Window(
           x=0.19,
           y=0.01,
@@ -5071,74 +5597,117 @@ should be parallel to each other when defining an instance of this
 component).
 </p>
 </html> "),
-        Icon(
-          Text(
-            extent=[-140,-40; 140,-65],
-            style(color=3),
-            string="%name"),
-          Ellipse(extent=[-100, -30; -40, 30], style(
-              color=9,
-              gradient=3,
-              fillColor=8)),
-          Ellipse(extent=[-93, -22; -48, 23], style(
-              color=9,
-              fillColor=7,
-              fillPattern=1)),
-          Rectangle(extent=[-63, 33; -39, -33], style(color=7, fillColor=7)),
-          Ellipse(extent=[-40, -30; 20, 30], style(
-              color=8,
-              gradient=3,
-              fillColor=8)),
-          Ellipse(extent=[-33, -22; 12, 23], style(color=8, fillColor=7)),
-          Rectangle(extent=[-44, 31; -19, -30], style(
-              color=7,
-              fillColor=7,
-              fillPattern=1)),
-          Ellipse(extent=[-23, 10; -3, -10], style(
-              color=0,
-              fillColor=0,
-              fillPattern=1)),
-          Rectangle(extent=[19, 6; 61, -6], style(gradient=2, fillColor=8)),
-          Text(
-            extent=[89,115; 132,92],
-            style(color=10),
-            string="ib"),
-          Ellipse(extent=[-80, 11; -60, -9], style(
-              color=0,
-              fillColor=0,
-              fillPattern=1)),
-          Rectangle(extent=[-62, 6; -21, -5], style(gradient=2, fillColor=8)),
-          Line(points=[19,6; 19,80; 0,80; 0,100], style(
-              color=10,
-              rgbcolor={95,95,95},
-              thickness=2)),
-          Text(
-            extent=[-49,114; -11,92],
-            style(color=10),
-            string="im"),
-          Rectangle(extent=[50, 20; 80, -20], style(color=0, fillColor=8)),
-          Rectangle(extent=[80, 30; 100, -30], style(color=0, fillColor=8)),
-          Rectangle(extent=[50, 14; 80, 20], style(
-              pattern=0,
-              fillColor=0,
-              fillPattern=1)),
-          Rectangle(extent=[80, 24; 100, 30], style(
-              pattern=0,
-              fillColor=0,
-              fillPattern=1)),
-          Line(points=[50, 6; 50, 80; 80, 80; 80, 100], style(
-              color=10,
-              rgbcolor={95,95,95},
-              thickness=2)),
-          Line(points=[101, 80; 80, 80], style(
-              color=10,
-              rgbcolor={95,95,95},
-              thickness=2)),
-          Line(points=[99, 40; 90, 40; 90, 30], style(
-              color=10,
-              rgbcolor={95,95,95},
-              thickness=2))),
-        Diagram);
+        Icon(coordinateSystem(
+            preserveAspectRatio=true, 
+            extent={{-100,-100},{100,100}}, 
+            grid={1,1}, 
+            initialScale=0.2), graphics={
+            Text(
+              extent={{-140,-40},{140,-65}}, 
+              lineColor={0,0,255}, 
+              textString=
+                   "%name"), 
+            Ellipse(
+              extent={{-100,-30},{-40,30}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.Sphere, 
+              fillColor={192,192,192}), 
+            Ellipse(
+              extent={{-93,-22},{-48,23}}, 
+              lineColor={160,160,164}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
+            Rectangle(
+              extent={{-63,33},{-39,-33}}, 
+              lineColor={255,255,255}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
+            Ellipse(
+              extent={{-40,-30},{20,30}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.Sphere, 
+              fillColor={192,192,192}), 
+            Ellipse(
+              extent={{-33,-22},{12,23}}, 
+              lineColor={192,192,192}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
+            Rectangle(
+              extent={{-44,31},{-19,-30}}, 
+              lineColor={255,255,255}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
+            Ellipse(
+              extent={{-23,10},{-3,-10}}, 
+              lineColor={0,0,0}, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Rectangle(
+              extent={{19,6},{61,-6}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              fillColor={192,192,192}), 
+            Text(
+              extent={{89,115},{132,92}}, 
+              lineColor={128,128,128}, 
+              textString=
+                   "ib"), 
+            Ellipse(
+              extent={{-80,11},{-60,-9}}, 
+              lineColor={0,0,0}, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Rectangle(
+              extent={{-62,6},{-21,-5}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              fillColor={192,192,192}), 
+            Line(
+              points={{19,6},{19,80},{0,80},{0,100}}, 
+              color={95,95,95}, 
+              thickness=2), 
+            Text(
+              extent={{-49,114},{-11,92}}, 
+              lineColor={128,128,128}, 
+              textString=
+                   "im"), 
+            Rectangle(
+              extent={{50,20},{80,-20}}, 
+              lineColor={0,0,0}, 
+              fillColor={192,192,192}, 
+              fillPattern=FillPattern.Solid), 
+            Rectangle(
+              extent={{80,30},{100,-30}}, 
+              lineColor={0,0,0}, 
+              fillColor={192,192,192}, 
+              fillPattern=FillPattern.Solid), 
+            Rectangle(
+              extent={{50,14},{80,20}}, 
+              pattern=LinePattern.None, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Rectangle(
+              extent={{80,24},{100,30}}, 
+              pattern=LinePattern.None, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Line(
+              points={{50,6},{50,80},{80,80},{80,100}}, 
+              color={95,95,95}, 
+              thickness=2), 
+            Line(
+              points={{101,80},{80,80}}, 
+              color={95,95,95}, 
+              thickness=2), 
+            Line(
+              points={{99,40},{90,40},{90,30}}, 
+              color={95,95,95}, 
+              thickness=2)}),
+        Diagram(coordinateSystem(
+            preserveAspectRatio=true, 
+            extent={{-100,-100},{100,100}}, 
+            grid={1,1}, 
+            initialScale=0.2), graphics));
       
       Modelica.Mechanics.MultiBody.Joints.Internal.PrismaticWithLengthConstraint
         prismatic(
@@ -5151,7 +5720,8 @@ component).
         boxWidth=boxWidth,
         boxHeight=boxHeight,
         specularCoefficient=specularCoefficient,
-        boxColor=boxColor) annotation (extent=[75, -20; 35, 20]);
+        boxColor=boxColor) annotation (Placement(transformation(extent={{75,-20},
+                {35,20}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Joints.SphericalSpherical rod1(
         animation=animation,
         showMass=showMass,
@@ -5164,18 +5734,22 @@ component).
         specularCoefficient=specularCoefficient,
         sphereColor=sphereColor,
         constraintResidue=rod1.f_rod - f_rod) 
-                                 annotation (extent=[-89, -20; -49, 20]);
+                                 annotation (Placement(transformation(extent={{
+                -89,-20},{-49,20}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.FixedTranslation rod2(
         animation=animation,
         width=rod2Diameter,
         height=rod2Diameter,
         specularCoefficient=specularCoefficient,
         color=rod2Color,
-        r=rRod2_ib) annotation (extent=[15, -20; -25, 20]);
+        r=rRod2_ib) annotation (Placement(transformation(extent={{15,-20},{-25,
+                20}}, rotation=0)));
       Sensors.RelativeSensorNew relativeSensor(                          animation=false) 
-        annotation (extent=[60, -70; 40, -90]);
+        annotation (Placement(transformation(extent={{60,-70},{40,-90}}, 
+              rotation=0)));
       Modelica.Blocks.Sources.Constant position_b[3](k=rRod2_ib) 
-        annotation (extent=[-20, -50; 0, -30]);
+        annotation (Placement(transformation(extent={{-20,-50},{0,-30}}, 
+              rotation=0)));
     equation 
       /* Compute the unknown force in the rod of the rod1 joint
      by a force balance:
@@ -5216,79 +5790,65 @@ component).
         totalPower = 0;
       end if;
       
-      connect(prismatic.frame_b, rod2.frame_a) annotation (points=[35,0; 15,0], style(
-          color=10,
-          rgbcolor={95,95,95},
-          thickness=2,
-          gradient=3,
-          fillColor=8,
-          rgbfillColor={192,192,192}));
-      connect(rod2.frame_b, rod1.frame_b) annotation (points=[-25,0; -49,0], style(
-          color=10,
-          rgbcolor={95,95,95},
-          thickness=2,
-          gradient=3,
-          fillColor=8,
-          rgbfillColor={192,192,192}));
-      connect(prismatic.frame_a, frame_b) annotation (points=[75,0; 100,0], style(
-          color=10,
-          rgbcolor={95,95,95},
-          thickness=2,
-          gradient=3,
-          fillColor=8,
-          rgbfillColor={192,192,192}));
-      connect(rod2.frame_a, frame_ib) annotation (points=[15,0; 26,0; 26,70; 80,70;
-            80,100], style(
-          color=10,
-          rgbcolor={95,95,95},
-          thickness=2,
-          gradient=3,
-          fillColor=8,
-          rgbfillColor={192,192,192}));
-      connect(rod1.frame_a, frame_a) annotation (points=[-89,0; -100,0], style(
-          color=10,
-          rgbcolor={95,95,95},
-          thickness=2,
-          gradient=3,
-          fillColor=8,
-          rgbfillColor={192,192,192}));
-      connect(relativeSensor.frame_b, frame_a) annotation (points=[40,-80; -95,-80;
-            -95,0; -100,0], style(
-          color=10,
-          rgbcolor={95,95,95},
-          pattern=3,
-          gradient=3,
-          fillColor=8,
-          rgbfillColor={192,192,192}));
-      connect(relativeSensor.frame_a, frame_b) annotation (points=[60,-80; 96,-80;
-            96,0; 100,0], style(
-          color=10,
-          rgbcolor={95,95,95},
-          pattern=3,
-          gradient=3,
-          fillColor=8,
-          rgbfillColor={192,192,192}));
-      connect(position_b.y, prismatic.position_b)       annotation (points=[1,
-            -40; 20, -40; 20, -12; 31, -12], style(
-          color=74,
-          rgbcolor={0,0,127},
-          gradient=3,
-          fillColor=8,
-          rgbfillColor={192,192,192}));
-      connect(prismatic.axis, axis) annotation (points=[39,14; 40,14; 40,60; 90,60;
-            90,80; 100,80],    style(color=0));
+      connect(prismatic.frame_b, rod2.frame_a) annotation (Line(
+          points={{35,0},{15,0}}, 
+          color={95,95,95}, 
+          thickness=2, 
+          fillPattern=FillPattern.Sphere, 
+          fillColor={192,192,192}));
+      connect(rod2.frame_b, rod1.frame_b) annotation (Line(
+          points={{-25,0},{-49,0}}, 
+          color={95,95,95}, 
+          thickness=2, 
+          fillPattern=FillPattern.Sphere, 
+          fillColor={192,192,192}));
+      connect(prismatic.frame_a, frame_b) annotation (Line(
+          points={{75,0},{100,0}}, 
+          color={95,95,95}, 
+          thickness=2, 
+          fillPattern=FillPattern.Sphere, 
+          fillColor={192,192,192}));
+      connect(rod2.frame_a, frame_ib) annotation (Line(
+          points={{15,0},{26,0},{26,70},{80,70},{80,100}}, 
+          color={95,95,95}, 
+          thickness=2, 
+          fillPattern=FillPattern.Sphere, 
+          fillColor={192,192,192}));
+      connect(rod1.frame_a, frame_a) annotation (Line(
+          points={{-89,0},{-100,0}}, 
+          color={95,95,95}, 
+          thickness=2, 
+          fillPattern=FillPattern.Sphere, 
+          fillColor={192,192,192}));
+      connect(relativeSensor.frame_b, frame_a) annotation (Line(
+          points={{40,-80},{-95,-80},{-95,0},{-100,0}}, 
+          color={95,95,95}, 
+          pattern=LinePattern.Dot, 
+          fillPattern=FillPattern.Sphere, 
+          fillColor={192,192,192}));
+      connect(relativeSensor.frame_a, frame_b) annotation (Line(
+          points={{60,-80},{96,-80},{96,0},{100,0}}, 
+          color={95,95,95}, 
+          pattern=LinePattern.Dot, 
+          fillPattern=FillPattern.Sphere, 
+          fillColor={192,192,192}));
+      connect(position_b.y, prismatic.position_b)       annotation (Line(
+          points={{1,-40},{20,-40},{20,-12},{31,-12}}, 
+          color={0,0,127}, 
+          fillPattern=FillPattern.Sphere, 
+          fillColor={192,192,192}));
+      connect(prismatic.axis, axis) annotation (Line(points={{39,14},{40,14},{
+              40,60},{90,60},{90,80},{100,80}}, color={0,0,0}));
       connect(prismatic.bearing, bearing) 
-        annotation (points=[63,14; 63,40; 100,40],    style(color=0));
-      connect(rod2.frame_b, frame_im) annotation (points=[-25,0; -35,0; -35,60; 0,
-            60; 0,100], style(
-          color=10,
-          rgbcolor={95,95,95},
+        annotation (Line(points={{63,14},{63,40},{100,40}}, color={0,0,0}));
+      connect(rod2.frame_b, frame_im) annotation (Line(
+          points={{-25,0},{-35,0},{-35,60},{0,60},{0,100}}, 
+          color={95,95,95}, 
           thickness=2));
-      connect(relativeSensor.r_rel, prismatic.position_a) annotation (points=[
-            58,-69; 58,-50; 90,-50; 90,-12; 79,-12], style(
-          color=74,
-          rgbcolor={0,0,127},
-          smooth=0));
+      connect(relativeSensor.r_rel, prismatic.position_a) annotation (Line(
+          points={{58,-69},{58,-50},{90,-50},{90,-12},{79,-12}}, 
+          color={0,0,127}, 
+          smooth=Smooth.None));
     end JointSSP;
     
     model JointRRR 
@@ -5302,19 +5862,30 @@ component).
       
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_ia 
         "Coordinate system at origin of frame_a fixed at connecting rod of left and middle revolute joint"
-        annotation (extent=[-88,92; -72,108], rotation=-270);
+        annotation (Placement(transformation(
+            origin={-80,100}, 
+            extent={{-8,-8},{8,8}}, 
+            rotation=90)));
       Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_ib 
         "Coordinate system at origin of frame_b fixed at connecting rod of middle and right revolute joint"
-        annotation (extent=[88,92; 72,108], rotation=-90);
+        annotation (Placement(transformation(
+            origin={80,100}, 
+            extent={{-8,8},{8,-8}}, 
+            rotation=270)));
       Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_im 
         "Coordinate system at origin of revolute joint in the middle fixed at connecting rod of middle and right revolute joint"
-        annotation (extent=[-8, 108; 8, 92], rotation=-90);
+        annotation (Placement(transformation(
+            origin={0,100}, 
+            extent={{8,-8},{-8,8}}, 
+            rotation=270)));
       Modelica.Mechanics.Rotational.Interfaces.Flange_a axis 
         "1-dim. rotational flange that drives the right revolute joint at frame_b"
-        annotation (extent=[105,85; 95,75]);
+        annotation (Placement(transformation(extent={{105,85},{95,75}}, 
+              rotation=0)));
       Modelica.Mechanics.Rotational.Interfaces.Flange_b bearing 
         "1-dim. rotational flange of the drive bearing of the right revolute joint at frame_b"
-        annotation (extent=[95,45; 105,35]);
+        annotation (Placement(transformation(extent={{95,45},{105,35}}, 
+              rotation=0)));
       
       parameter Boolean animation=true "= true, if animation shall be enabled";
       parameter Modelica.Mechanics.MultiBody.Types.Axis n_a={0,0,1} 
@@ -5364,11 +5935,6 @@ component).
         "Total power flowing into this element, if checkTotalPower=true (otherwise dummy)";
       
       annotation (
-        Coordsys(
-          extent=[-100, -100; 100, 100],
-          grid=[1, 1],
-          component=[20, 20],
-          scale=0.2),
         Window(
           x=0.19,
           y=0.01,
@@ -5416,76 +5982,115 @@ loop this will behave as if 3 revolute joints with parallel axes
 are connected by rigid rods.
 </p>
 </html> "),
-        Icon(
-          Rectangle(extent=[-90, 90; 90, -90], style(color=7, fillColor=7)),
-          Text(
-            extent=[-140,-55; 140,-80],
-            string="%name",
-            style(color=3)),
-          Text(
-            extent=[36,114; 71,92],
-            style(color=10),
-            string="ib"),
-          Text(
-            extent=[-126,115; -87,90],
-            style(color=10),
-            string="ia"),
-          Ellipse(extent=[-100, 25; -50, -25], style(color=0, fillColor=8)),
-          Ellipse(extent=[-85, 10; -65, -10], style(
-              color=0,
-              fillColor=0,
-              fillPattern=1)),
-          Ellipse(extent=[50, 25; 100, -25], style(color=0, fillColor=8)),
-          Ellipse(extent=[65, 10; 85, -10], style(
-              color=0,
-              fillColor=0,
-              fillPattern=1)),
-          Ellipse(extent=[-26, 80; 24, 30], style(color=0, fillColor=8)),
-          Ellipse(extent=[-10, 66; 10, 46], style(
-              color=0,
-              fillColor=0,
-              fillPattern=1)),
-          Polygon(points=[-71, 9; -24, 45; -19, 39; -66, 3; -71, 9], style(
-                color=0, fillColor=0)),
-          Polygon(points=[54, 12; 5, 47; 10, 52; 59, 18; 54, 12], style(color=0,
-                 fillColor=0)),
-          Polygon(points=[100, -4; 83, -4; 84, 3; 100, 3; 100, -4], style(color=
-                 0, fillColor=0)),
-          Line(points=[80, 24; 80, 80; 80, 80; 80, 100], style(
-              color=10,
-              rgbcolor={95,95,95},
-              thickness=2,
-              fillColor=0,
-              rgbfillColor={0,0,0},
-              fillPattern=1)),
-          Text(
-            extent=[-128,-29; 136,-47],
-            string="n_a=%n_a",
-            style(color=0)),
-          Line(points=[0, 57; 0, 86; 0, 86; 0, 100], style(
-              color=10,
-              rgbcolor={95,95,95},
-              thickness=2,
-              fillColor=0,
-              rgbfillColor={0,0,0},
-              fillPattern=1)),
-          Text(
-            extent=[-46,114; -7,91],
-            style(color=10),
-            string="im"),
-          Line(points=[-80, 100; -80, 8], style(
-              color=10,
-              rgbcolor={95,95,95},
-              thickness=2)),
-          Line(points=[80, 80; 101, 80], style(
-              color=10,
-              rgbcolor={95,95,95},
-              thickness=2)),
-          Line(points=[100, 40; 93, 40; 93, 3], style(
-              color=10,
-              rgbcolor={95,95,95},
-              thickness=2))),
-        Diagram);
+        Icon(coordinateSystem(
+            preserveAspectRatio=true, 
+            extent={{-100,-100},{100,100}}, 
+            grid={1,1}, 
+            initialScale=0.2), graphics={
+            Rectangle(
+              extent={{-90,90},{90,-90}}, 
+              lineColor={255,255,255}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
+            Text(
+              extent={{-140,-55},{140,-80}}, 
+              lineColor={0,0,255}, 
+              textString=
+                   "%name"), 
+            Text(
+              extent={{36,114},{71,92}}, 
+              lineColor={128,128,128}, 
+              textString=
+                   "ib"), 
+            Text(
+              extent={{-126,115},{-87,90}}, 
+              lineColor={128,128,128}, 
+              textString=
+                   "ia"), 
+            Ellipse(
+              extent={{-100,25},{-50,-25}}, 
+              lineColor={0,0,0}, 
+              fillColor={192,192,192}, 
+              fillPattern=FillPattern.Solid), 
+            Ellipse(
+              extent={{-85,10},{-65,-10}}, 
+              lineColor={0,0,0}, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Ellipse(
+              extent={{50,25},{100,-25}}, 
+              lineColor={0,0,0}, 
+              fillColor={192,192,192}, 
+              fillPattern=FillPattern.Solid), 
+            Ellipse(
+              extent={{65,10},{85,-10}}, 
+              lineColor={0,0,0}, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Ellipse(
+              extent={{-26,80},{24,30}}, 
+              lineColor={0,0,0}, 
+              fillColor={192,192,192}, 
+              fillPattern=FillPattern.Solid), 
+            Ellipse(
+              extent={{-10,66},{10,46}}, 
+              lineColor={0,0,0}, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Polygon(
+              points={{-71,9},{-24,45},{-19,39},{-66,3},{-71,9}}, 
+              lineColor={0,0,0}, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Polygon(
+              points={{54,12},{5,47},{10,52},{59,18},{54,12}}, 
+              lineColor={0,0,0}, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Polygon(
+              points={{100,-4},{83,-4},{84,3},{100,3},{100,-4}}, 
+              lineColor={0,0,0}, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Line(
+              points={{80,24},{80,80},{80,80},{80,100}}, 
+              color={95,95,95}, 
+              thickness=2, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Text(
+              extent={{-128,-29},{136,-47}}, 
+              lineColor={0,0,0}, 
+              textString=
+                   "n_a=%n_a"), 
+            Line(
+              points={{0,57},{0,86},{0,86},{0,100}}, 
+              color={95,95,95}, 
+              thickness=2, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Text(
+              extent={{-46,114},{-7,91}}, 
+              lineColor={128,128,128}, 
+              textString=
+                   "im"), 
+            Line(
+              points={{-80,100},{-80,8}}, 
+              color={95,95,95}, 
+              thickness=2), 
+            Line(
+              points={{80,80},{101,80}}, 
+              color={95,95,95}, 
+              thickness=2), 
+            Line(
+              points={{100,40},{93,40},{93,3}}, 
+              color={95,95,95}, 
+              thickness=2)}),
+        Diagram(coordinateSystem(
+            preserveAspectRatio=true, 
+            extent={{-100,-100},{100,100}}, 
+            grid={1,1}, 
+            initialScale=0.2), graphics));
       
       JointUSR jointUSR(
         animation=false,
@@ -5496,7 +6101,8 @@ are connected by rigid rods.
         showUniversalAxes=false,
         rRod1_ia=rRod1_ia,
         checkTotalPower=checkTotalPower,
-        phi_guess=phi_guess) annotation (extent=[-30, -20; 10, 20]);
+        phi_guess=phi_guess) annotation (Placement(transformation(extent={{-30,
+                -20},{10,20}}, rotation=0)));
       
     protected 
      Visualizers.Advanced.Shape shape_rev1(
@@ -5561,34 +6167,32 @@ are connected by rigid rods.
       n_b = Frames.resolve2(frame_b.R, Frames.resolve1(frame_a.R, n_a));
     equation 
       connect(jointUSR.frame_a, frame_a) 
-        annotation (points=[-30,0; -100,0], style(
-          color=10,
-          rgbcolor={95,95,95},
+        annotation (Line(
+          points={{-30,0},{-100,0}}, 
+          color={95,95,95}, 
           thickness=2));
       connect(jointUSR.frame_b, frame_b) 
-        annotation (points=[10,0; 100,0], style(
-          color=10,
-          rgbcolor={95,95,95},
+        annotation (Line(
+          points={{10,0},{100,0}}, 
+          color={95,95,95}, 
           thickness=2));
-      connect(jointUSR.frame_ia, frame_ia) annotation (points=[-26,20; -26,70; -80,
-            70; -80,100], style(
-          color=10,
-          rgbcolor={95,95,95},
+      connect(jointUSR.frame_ia, frame_ia) annotation (Line(
+          points={{-26,20},{-26,70},{-80,70},{-80,100}}, 
+          color={95,95,95}, 
           thickness=2));
-      connect(jointUSR.frame_im, frame_im) annotation (points=[-10,20; -10,70; 0,70;
-            0,100], style(
-          color=10,
-          rgbcolor={95,95,95},
+      connect(jointUSR.frame_im, frame_im) annotation (Line(
+          points={{-10,20},{-10,70},{0,70},{0,100}}, 
+          color={95,95,95}, 
           thickness=2));
-      connect(jointUSR.frame_ib, frame_ib) annotation (points=[6,20; 6,50; 80,50;
-            80,100], style(
-          color=10,
-          rgbcolor={95,95,95},
+      connect(jointUSR.frame_ib, frame_ib) annotation (Line(
+          points={{6,20},{6,50},{80,50},{80,100}}, 
+          color={95,95,95}, 
           thickness=2));
       connect(jointUSR.axis, axis) 
-        annotation (points=[10,16; 86,16; 86,80; 100,80],     style(color=0));
+        annotation (Line(points={{10,16},{86,16},{86,80},{100,80}}, color={0,0,
+              0}));
       connect(jointUSR.bearing, bearing) 
-        annotation (points=[10,8; 94,8; 94,40; 100,40],     style(color=0));
+        annotation (Line(points={{10,8},{94,8},{94,40},{100,40}}, color={0,0,0}));
     end JointRRR;
     
     model JointRRP 
@@ -5601,19 +6205,30 @@ are connected by rigid rods.
       extends Interfaces.PartialTwoFramesDoubleSize;
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_ia 
         "Coordinate system at origin of frame_a fixed at connecting rod of revolute joints"
-        annotation (extent=[-88,92; -72,108], rotation=-270);
+        annotation (Placement(transformation(
+            origin={-80,100}, 
+            extent={{-8,-8},{8,8}}, 
+            rotation=90)));
       Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_ib 
         "Coordinate system at origin of frame_b fixed at connecting rod of revolute and prismatic joint"
-        annotation (extent=[88,92; 72,108], rotation=-90);
+        annotation (Placement(transformation(
+            origin={80,100}, 
+            extent={{-8,8},{8,-8}}, 
+            rotation=270)));
       Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_im 
         "Coordinate system at origin of revolute joint in the middle fixed at connecting rod of revolute and prismatic joint"
-        annotation (extent=[-8, 108; 8, 92], rotation=-90);
+        annotation (Placement(transformation(
+            origin={0,100}, 
+            extent={{8,-8},{-8,8}}, 
+            rotation=270)));
       Modelica.Mechanics.Translational.Interfaces.Flange_a axis 
         "1-dim. translational flange that drives the prismatic joint" 
-        annotation (extent=[95,75; 105,85]);
+        annotation (Placement(transformation(extent={{95,75},{105,85}}, 
+              rotation=0)));
       Modelica.Mechanics.Translational.Interfaces.Flange_b bearing 
         "1-dim. translational flange of the drive bearing of the prismatic joint"
-        annotation (extent=[105,35; 95,45]);
+        annotation (Placement(transformation(extent={{105,35},{95,45}}, 
+              rotation=0)));
       
       parameter Boolean animation=true "= true, if animation shall be enabled";
       parameter Modelica.Mechanics.MultiBody.Types.Axis n_a={0,0,1} 
@@ -5675,11 +6290,6 @@ are connected by rigid rods.
         "Total power flowing into this element, if checkTotalPower=true (otherwise dummy)";
       
       annotation (
-        Coordsys(
-          extent=[-100, -100; 100, 100],
-          grid=[1, 1],
-          component=[20, 20],
-          scale=0.2),
         Window(
           x=0.19,
           y=0.01,
@@ -5729,76 +6339,118 @@ loop this will behave as if 2 revolute joints with parallel axes
 and 1 prismatic joint are connected by rigid rods.
 </p>
 </html> "),
-        Icon(
-          Rectangle(extent=[-90, 90; 90, -90], style(color=7, fillColor=7)),
-          Text(
-            extent=[-139,-53; 141,-78],
-            string="%name",
-            style(color=3)),
-          Text(
-            extent=[26, 124; 68, 93],
-            style(color=10),
-            string="ib"),
-          Text(
-            extent=[-134, 128; -94, 94],
-            style(color=10),
-            string="ia"),
-          Ellipse(extent=[-100, 25; -50, -25], style(color=0, fillColor=8)),
-          Ellipse(extent=[-85, 10; -65, -10], style(
-              color=0,
-              fillColor=0,
-              fillPattern=1)),
-          Ellipse(extent=[-26, 80; 24, 30], style(color=0, fillColor=8)),
-          Ellipse(extent=[-10, 66; 10, 46], style(
-              color=0,
-              fillColor=0,
-              fillPattern=1)),
-          Polygon(points=[-71, 9; -24, 45; -19, 39; -66, 3; -71, 9], style(
-                color=0, fillColor=0)),
-          Polygon(points=[54, 5; 5, 47; 8, 53; 58, 11; 54, 5], style(color=0,
-                fillColor=0)),
-          Text(
-            extent=[-128,-29; 139,-47],
-            string="n_a=%n_a",
-            style(color=0)),
-          Line(points=[0, 57; 0, 86; 0, 86; 0, 100], style(
-              color=10,
-              rgbcolor={95,95,95},
-              thickness=2,
-              fillColor=0,
-              rgbfillColor={0,0,0},
-              fillPattern=1)),
-          Text(
-            extent=[-55, 126; -15, 92],
-            style(color=10),
-            string="im"),
-          Line(points=[-80, 100; -80, 8], style(
-              color=10,
-              rgbcolor={95,95,95},
-              thickness=2)),
-          Line(points=[80, 80; 101, 80], style(
-              color=10,
-              rgbcolor={95,95,95},
-              thickness=2)),
-          Line(points=[100, 40; 93, 40; 93, 3], style(
-              color=10,
-              rgbcolor={95,95,95},
-              thickness=2)),
-          Rectangle(extent=[80, 15; 100, 21], style(
-              pattern=0,
-              fillColor=0,
-              fillPattern=1)),
-          Rectangle(extent=[53, 5; 80, 11], style(
-              pattern=0,
-              fillColor=0,
-              fillPattern=1)),
-          Rectangle(extent=[53, 5; 80, -15], style(color=0, fillColor=8)),
-          Rectangle(extent=[80, 15; 100, -21], style(color=0, fillColor=8)),
-          Line(points=[80, 100; 80, 80; 57, 11], style(
-              color=10,
-              rgbcolor={95,95,95},
-              thickness=2))),
-        Diagram);
+        Icon(coordinateSystem(
+            preserveAspectRatio=true, 
+            extent={{-100,-100},{100,100}}, 
+            grid={1,1}, 
+            initialScale=0.2), graphics={
+            Rectangle(
+              extent={{-90,90},{90,-90}}, 
+              lineColor={255,255,255}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
+            Text(
+              extent={{-139,-53},{141,-78}}, 
+              lineColor={0,0,255}, 
+              textString=
+                   "%name"), 
+            Text(
+              extent={{26,124},{68,93}}, 
+              lineColor={128,128,128}, 
+              textString=
+                   "ib"), 
+            Text(
+              extent={{-134,128},{-94,94}}, 
+              lineColor={128,128,128}, 
+              textString=
+                   "ia"), 
+            Ellipse(
+              extent={{-100,25},{-50,-25}}, 
+              lineColor={0,0,0}, 
+              fillColor={192,192,192}, 
+              fillPattern=FillPattern.Solid), 
+            Ellipse(
+              extent={{-85,10},{-65,-10}}, 
+              lineColor={0,0,0}, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Ellipse(
+              extent={{-26,80},{24,30}}, 
+              lineColor={0,0,0}, 
+              fillColor={192,192,192}, 
+              fillPattern=FillPattern.Solid), 
+            Ellipse(
+              extent={{-10,66},{10,46}}, 
+              lineColor={0,0,0}, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Polygon(
+              points={{-71,9},{-24,45},{-19,39},{-66,3},{-71,9}}, 
+              lineColor={0,0,0}, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Polygon(
+              points={{54,5},{5,47},{8,53},{58,11},{54,5}}, 
+              lineColor={0,0,0}, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Text(
+              extent={{-128,-29},{139,-47}}, 
+              lineColor={0,0,0}, 
+              textString=
+                   "n_a=%n_a"), 
+            Line(
+              points={{0,57},{0,86},{0,86},{0,100}}, 
+              color={95,95,95}, 
+              thickness=2, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Text(
+              extent={{-55,126},{-15,92}}, 
+              lineColor={128,128,128}, 
+              textString=
+                   "im"), 
+            Line(
+              points={{-80,100},{-80,8}}, 
+              color={95,95,95}, 
+              thickness=2), 
+            Line(
+              points={{80,80},{101,80}}, 
+              color={95,95,95}, 
+              thickness=2), 
+            Line(
+              points={{100,40},{93,40},{93,3}}, 
+              color={95,95,95}, 
+              thickness=2), 
+            Rectangle(
+              extent={{80,15},{100,21}}, 
+              pattern=LinePattern.None, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Rectangle(
+              extent={{53,5},{80,11}}, 
+              pattern=LinePattern.None, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Rectangle(
+              extent={{53,5},{80,-15}}, 
+              lineColor={0,0,0}, 
+              fillColor={192,192,192}, 
+              fillPattern=FillPattern.Solid), 
+            Rectangle(
+              extent={{80,15},{100,-21}}, 
+              lineColor={0,0,0}, 
+              fillColor={192,192,192}, 
+              fillPattern=FillPattern.Solid), 
+            Line(
+              points={{80,100},{80,80},{57,11}}, 
+              color={95,95,95}, 
+              thickness=2)}),
+        Diagram(coordinateSystem(
+            preserveAspectRatio=true, 
+            extent={{-100,-100},{100,100}}, 
+            grid={1,1}, 
+            initialScale=0.2), graphics));
       
       JointUSP jointUSP(
         animation=false,
@@ -5809,7 +6461,8 @@ and 1 prismatic joint are connected by rigid rods.
         s_guess=s_guess,
         rRod1_ia=rRod1_ia,
         rRod2_ib=rRod2_ib,
-        checkTotalPower=checkTotalPower) annotation (extent=[-30, -20; 10, 20]);
+        checkTotalPower=checkTotalPower) annotation (Placement(transformation(
+              extent={{-30,-20},{10,20}}, rotation=0)));
       
     protected 
       Visualizers.Advanced.Shape shape_rev1(
@@ -5873,34 +6526,32 @@ and 1 prismatic joint are connected by rigid rods.
       e_im = Frames.resolve2(frame_im.R, Frames.resolve1(frame_a.R, e_a));
     equation 
       connect(jointUSP.frame_a, frame_a) 
-        annotation (points=[-30,0; -100,0], style(
-          color=10,
-          rgbcolor={95,95,95},
+        annotation (Line(
+          points={{-30,0},{-100,0}}, 
+          color={95,95,95}, 
           thickness=2));
       connect(jointUSP.frame_b, frame_b) 
-        annotation (points=[10,0; 100,0], style(
-          color=10,
-          rgbcolor={95,95,95},
+        annotation (Line(
+          points={{10,0},{100,0}}, 
+          color={95,95,95}, 
           thickness=2));
-      connect(jointUSP.frame_ia, frame_ia) annotation (points=[-26,20; -26,70;
-            -80,70; -80,100], style(
-          color=10,
-          rgbcolor={95,95,95},
+      connect(jointUSP.frame_ia, frame_ia) annotation (Line(
+          points={{-26,20},{-26,70},{-80,70},{-80,100}}, 
+          color={95,95,95}, 
           thickness=2));
-      connect(jointUSP.frame_im, frame_im) annotation (points=[-10,20; -10,70;
-            0,70; 0,100], style(
-          color=10,
-          rgbcolor={95,95,95},
+      connect(jointUSP.frame_im, frame_im) annotation (Line(
+          points={{-10,20},{-10,70},{0,70},{0,100}}, 
+          color={95,95,95}, 
           thickness=2));
-      connect(jointUSP.frame_ib, frame_ib) annotation (points=[6,20; 6,50; 80,
-            50; 80,100], style(
-          color=10,
-          rgbcolor={95,95,95},
+      connect(jointUSP.frame_ib, frame_ib) annotation (Line(
+          points={{6,20},{6,50},{80,50},{80,100}}, 
+          color={95,95,95}, 
           thickness=2));
       connect(jointUSP.axis, axis) 
-        annotation (points=[10,16; 86,16; 86,80; 100,80],     style(color=0));
+        annotation (Line(points={{10,16},{86,16},{86,80},{100,80}}, color={0,0,
+              0}));
       connect(jointUSP.bearing, bearing) 
-        annotation (points=[10,8; 94,8; 94,40; 100,40],     style(color=0));
+        annotation (Line(points={{10,8},{94,8},{94,40},{100,40}}, color={0,0,0}));
     end JointRRP;
   end Assemblies;
   
@@ -5918,10 +6569,12 @@ and 1 prismatic joint are connected by rigid rods.
       
       Interfaces.Frame_a frame_a 
         "Coordinate system fixed to the joint with one cut-force and cut-torque"
-        annotation (extent=[-116,-16; -84,16]);
+        annotation (Placement(transformation(extent={{-116,-16},{-84,16}}, 
+              rotation=0)));
       Interfaces.Frame_b frame_b 
         "Coordinate system fixed to the joint with one cut-force and cut-torque"
-        annotation (extent=[84,-16; 116,16]);
+        annotation (Placement(transformation(extent={{84,-16},{116,16}}, 
+              rotation=0)));
       
       parameter Boolean animation=true 
         "= true, if animation shall be enabled (show axis as cylinder)";
@@ -5976,31 +6629,34 @@ connected to the revolute joint.
       SI.Angle angle(start=Cv.from_deg(phi_start+phi_offset)) 
         "= from_deg(phi_offset) + phi";
       annotation (
-        Coordsys(
-          extent=[-100, -100; 100, 100],
-          grid=[1, 1],
-          component=[20, 20]),
         Window(
           x=0.05,
           y=0.09,
           width=0.65,
           height=0.69),
-        Icon,
-        Diagram(
-          Rectangle(extent=[-100, -60; -20, 60], style(
-              color=8,
-              gradient=2,
-              fillColor=8)),
-          Rectangle(extent=[-20, 10; 20, -10], style(
-              color=0,
-              gradient=0,
-              fillColor=8,
-              fillPattern=1)),
-          Rectangle(extent=[20,-60; 100,60],   style(
-              color=8,
-              gradient=2,
-              fillColor=8,
-              fillPattern=1))),
+        Icon(coordinateSystem(
+            preserveAspectRatio=true, 
+            extent={{-100,-100},{100,100}}, 
+            grid={1,1}), graphics),
+        Diagram(coordinateSystem(
+            preserveAspectRatio=true, 
+            extent={{-100,-100},{100,100}}, 
+            grid={1,1}), graphics={
+            Rectangle(
+              extent={{-100,-60},{-20,60}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              fillColor={192,192,192}), 
+            Rectangle(
+              extent={{-20,10},{20,-10}}, 
+              lineColor={0,0,0}, 
+              fillColor={192,192,192}, 
+              fillPattern=FillPattern.Solid), 
+            Rectangle(
+              extent={{20,-60},{100,60}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              fillColor={192,192,192})}),
         Documentation(info="<HTML>
 <p>
 Joint where frame_b rotates around axis n which is fixed in frame_a.
@@ -6163,75 +6819,110 @@ connected to the prismatic joint.");
       SI.Force f=0 "Actuation force in direction of joint axis";
       
       annotation (
-        Coordsys(
-          extent=[-100, -100; 100, 100],
-          grid=[1, 1],
-          component=[20, 20]),
         Window(
           x=0.2,
           y=0.01,
           width=0.67,
           height=0.79),
-        Icon(
-          Rectangle(extent=[-100, -50; -30, 41], style(pattern=0, fillColor=8)),
-          Rectangle(extent=[-100, 40; -30, 50], style(
-              pattern=0,
-              fillColor=0,
-              fillPattern=1)),
-          Rectangle(extent=[-30, -30; 100, 20], style(pattern=0, fillColor=8)),
-          Rectangle(extent=[-30, 20; 100, 30], style(
-              pattern=0,
-              fillColor=0,
-              fillPattern=1)),
-          Line(points=[-30, -50; -30, 50], style(color=0)),
-          Line(points=[100, -30; 100, 21], style(color=0)),
-          Text(
-            extent=[60, 12; 96, -13],
-            string="b",
-            style(color=10)),
-          Text(
-            extent=[-95, 13; -60, -9],
-            string="a",
-            style(color=10))),
-        Diagram(
-          Rectangle(extent=[-100, -50; -30, 40], style(pattern=0, fillColor=8)),
-          Rectangle(extent=[-100, 40; -30, 50], style(
-              pattern=0,
-              fillColor=0,
-              fillPattern=1)),
-          Rectangle(extent=[-30, -30; 100, 20], style(pattern=0, fillColor=8)),
-          Rectangle(extent=[-30, 20; 100, 30], style(
-              pattern=0,
-              fillColor=0,
-              fillPattern=1)),
-          Line(points=[-30, -50; -30, 50], style(color=0)),
-          Polygon(points=[90, -64; 100, -67; 90, -70; 90, -64], style(color=10,
-                 fillColor=10)),
-          Line(points=[-31, -67; 90, -67], style(color=10)),
-          Text(
-            extent=[12, -67; 49, -80],
-            style(color=10),
-            string="s"),
-          Line(points=[100, -70; 100, -30], style(
-              color=10,
-              fillColor=10,
-              fillPattern=1)),
-          Line(points=[-100, -67; -40, -67], style(color=10)),
-          Polygon(points=[-40, -64; -30, -67; -40, -70; -40, -64], style(color=
-                  10, fillColor=10)),
-          Text(
-            extent=[-83, -69; -49, -84],
-            style(color=10),
-            string="s_offset"),
-          Line(points=[-100, -70; -100, -50], style(
-              color=10,
-              fillColor=10,
-              fillPattern=1)),
-          Line(points=[100, -30; 100, 29], style(color=0)),
-          Line(points=[-30, -70; -30, -50], style(
-              color=10,
-              fillColor=10,
-              fillPattern=1))),
+        Icon(coordinateSystem(
+            preserveAspectRatio=true, 
+            extent={{-100,-100},{100,100}}, 
+            grid={1,1}), graphics={
+            Rectangle(
+              extent={{-100,-50},{-30,41}}, 
+              pattern=LinePattern.None, 
+              fillColor={192,192,192}, 
+              fillPattern=FillPattern.Solid), 
+            Rectangle(
+              extent={{-100,40},{-30,50}}, 
+              pattern=LinePattern.None, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Rectangle(
+              extent={{-30,-30},{100,20}}, 
+              pattern=LinePattern.None, 
+              fillColor={192,192,192}, 
+              fillPattern=FillPattern.Solid), 
+            Rectangle(
+              extent={{-30,20},{100,30}}, 
+              pattern=LinePattern.None, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Line(points={{-30,-50},{-30,50}}, color={0,0,0}), 
+            Line(points={{100,-30},{100,21}}, color={0,0,0}), 
+            Text(
+              extent={{60,12},{96,-13}}, 
+              lineColor={128,128,128}, 
+              textString=
+                   "b"), 
+            Text(
+              extent={{-95,13},{-60,-9}}, 
+              lineColor={128,128,128}, 
+              textString=
+                   "a")}),
+        Diagram(coordinateSystem(
+            preserveAspectRatio=true, 
+            extent={{-100,-100},{100,100}}, 
+            grid={1,1}), graphics={
+            Rectangle(
+              extent={{-100,-50},{-30,40}}, 
+              pattern=LinePattern.None, 
+              fillColor={192,192,192}, 
+              fillPattern=FillPattern.Solid), 
+            Rectangle(
+              extent={{-100,40},{-30,50}}, 
+              pattern=LinePattern.None, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Rectangle(
+              extent={{-30,-30},{100,20}}, 
+              pattern=LinePattern.None, 
+              fillColor={192,192,192}, 
+              fillPattern=FillPattern.Solid), 
+            Rectangle(
+              extent={{-30,20},{100,30}}, 
+              pattern=LinePattern.None, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Line(points={{-30,-50},{-30,50}}, color={0,0,0}), 
+            Polygon(
+              points={{90,-64},{100,-67},{90,-70},{90,-64}}, 
+              lineColor={128,128,128}, 
+              fillColor={128,128,128}, 
+              fillPattern=FillPattern.Solid), 
+            Line(points={{-31,-67},{90,-67}}, color={128,128,128}), 
+            Text(
+              extent={{12,-67},{49,-80}}, 
+              lineColor={128,128,128}, 
+              textString=
+                   "s"), 
+            Line(
+              points={{100,-70},{100,-30}}, 
+              color={128,128,128}, 
+              fillColor={128,128,128}, 
+              fillPattern=FillPattern.Solid), 
+            Line(points={{-100,-67},{-40,-67}}, color={128,128,128}), 
+            Polygon(
+              points={{-40,-64},{-30,-67},{-40,-70},{-40,-64}}, 
+              lineColor={128,128,128}, 
+              fillColor={128,128,128}, 
+              fillPattern=FillPattern.Solid), 
+            Text(
+              extent={{-83,-69},{-49,-84}}, 
+              lineColor={128,128,128}, 
+              textString=
+                   "s_offset"), 
+            Line(
+              points={{-100,-70},{-100,-50}}, 
+              color={128,128,128}, 
+              fillColor={128,128,128}, 
+              fillPattern=FillPattern.Solid), 
+            Line(points={{100,-30},{100,29}}, color={0,0,0}), 
+            Line(
+              points={{-30,-70},{-30,-50}}, 
+              color={128,128,128}, 
+              fillColor={128,128,128}, 
+              fillPattern=FillPattern.Solid)}),
         Documentation(info="<HTML>
 <p>
 Joint where frame_b is translated along axis n which is fixed in frame_a.
@@ -6306,17 +6997,21 @@ it might be slightly more efficient, when using the \"enforceStates\" setting.
       extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
       Modelica.Mechanics.Rotational.Interfaces.Flange_a axis 
         "1-dim. rotational flange that drives the joint" 
-        annotation (extent=[10,90; -10,110]);
+        annotation (Placement(transformation(extent={{10,90},{-10,110}}, 
+              rotation=0)));
       Modelica.Mechanics.Rotational.Interfaces.Flange_b bearing 
         "1-dim. rotational flange of the drive bearing" 
-        annotation (extent=[-50,90; -70,110]);
+        annotation (Placement(transformation(extent={{-50,90},{-70,110}}, 
+              rotation=0)));
       
       Modelica.Blocks.Interfaces.RealInput position_a[3] 
         "Position vector from frame_a to frame_a side of length constraint, resolved in frame_a of revolute joint"
-        annotation (extent=[-140, -80; -100, -40]);
+        annotation (Placement(transformation(extent={{-140,-80},{-100,-40}}, 
+              rotation=0)));
       Modelica.Blocks.Interfaces.RealInput position_b[3] 
         "Position vector from frame_b to frame_b side of length constraint, resolved in frame_b of revolute joint"
-        annotation (extent=[140, -80; 100, -40]);
+        annotation (Placement(transformation(extent={{140,-80},{100,-40}}, 
+              rotation=0)));
       
       parameter Boolean animation=true "= true, if animation shall be enabled";
       parameter SI.Position lengthConstraint=1 
@@ -6354,82 +7049,98 @@ it might be slightly more efficient, when using the \"enforceStates\" setting.
       SI.Torque tau "= axis.tau (driving torque in the axis)";
       
       annotation (
-        Coordsys(
-          extent=[-100, -100; 100, 100],
-          grid=[1, 1],
-          component=[20, 20]),
         Window(
           x=0.05,
           y=0.09,
           width=0.65,
           height=0.69),
-        Icon(
-          Rectangle(extent=[-30, 10; 10, -10], style(
-              color=0,
-              gradient=0,
-              fillColor=8,
-              fillPattern=1)),
-          Rectangle(extent=[-100,-60; -30,60],   style(
-              color=8,
-              gradient=2,
-              fillColor=8)),
-          Rectangle(extent=[30, -60; 100, 60], style(
-              color=8,
-              gradient=2,
-              fillColor=8,
-              fillPattern=1)),
-          Text(extent=[-139, -168; 137, -111], string="%name"),
-          Rectangle(extent=[-100,60; -30,-60],   style(color=0)),
-          Rectangle(extent=[30, 60; 100, -60], style(color=0)),
-          Text(
-            extent=[-142, -108; 147, -69],
-            string="n=%n",
-            style(color=0)),
-          Line(points=[-60, 60; -60, 90], style(color=0)),
-          Line(points=[-20, 70; -60, 70], style(color=0)),
-          Line(points=[-20, 80; -20, 60], style(color=0)),
-          Line(points=[20, 80; 20, 60], style(color=0)),
-          Line(points=[20, 70; 41, 70], style(color=0)),
-          Polygon(points=[-9, 30; 10, 30; 30, 50; -29, 50; -9, 30], style(
-              color=0,
-              fillColor=8,
-              fillPattern=1)),
-          Polygon(points=[10, 30; 30, 50; 30, -51; 10, -31; 10, 30], style(
-                color=0, fillColor=8)),
-          Rectangle(extent=[-10, 90; 10, 50], style(
-              color=0,
-              gradient=1,
-              fillColor=8))),
-        Diagram(
-          Rectangle(extent=[-100, -60; -30, 60], style(
-              color=8,
-              gradient=2,
-              fillColor=8)),
-          Rectangle(extent=[-30, 10; 10, -10], style(
-              color=0,
-              gradient=0,
-              fillColor=8,
-              fillPattern=1)),
-          Rectangle(extent=[30, -60; 100, 60], style(
-              color=8,
-              gradient=2,
-              fillColor=8,
-              fillPattern=1)),
-          Line(points=[-60,60; -60,96],   style(color=0)),
-          Line(points=[-20, 70; -60, 70], style(color=0)),
-          Line(points=[-20, 80; -20, 60], style(color=0)),
-          Line(points=[20, 80; 20, 60], style(color=0)),
-          Line(points=[20, 70; 41, 70], style(color=0)),
-          Polygon(points=[-9, 30; 10, 30; 30, 50; -29, 50; -9, 30], style(
-              color=0,
-              fillColor=8,
-              fillPattern=1)),
-          Polygon(points=[10, 30; 30, 50; 30, -51; 10, -31; 10, 30], style(
-                color=0, fillColor=8)),
-          Rectangle(extent=[-10,50; 10,100],  style(
-              color=0,
-              gradient=1,
-              fillColor=8))),
+        Icon(coordinateSystem(
+            preserveAspectRatio=true, 
+            extent={{-100,-100},{100,100}}, 
+            grid={1,1}), graphics={
+            Rectangle(
+              extent={{-30,10},{10,-10}}, 
+              lineColor={0,0,0}, 
+              fillColor={192,192,192}, 
+              fillPattern=FillPattern.Solid), 
+            Rectangle(
+              extent={{-100,-60},{-30,60}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              fillColor={192,192,192}), 
+            Rectangle(
+              extent={{30,-60},{100,60}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              fillColor={192,192,192}), 
+            Text(extent={{-139,-168},{137,-111}}, textString=
+                                                      "%name"), 
+            Rectangle(extent={{-100,60},{-30,-60}}, lineColor={0,0,0}), 
+            Rectangle(extent={{30,60},{100,-60}}, lineColor={0,0,0}), 
+            Text(
+              extent={{-142,-108},{147,-69}}, 
+              lineColor={0,0,0}, 
+              textString=
+                   "n=%n"), 
+            Line(points={{-60,60},{-60,90}}, color={0,0,0}), 
+            Line(points={{-20,70},{-60,70}}, color={0,0,0}), 
+            Line(points={{-20,80},{-20,60}}, color={0,0,0}), 
+            Line(points={{20,80},{20,60}}, color={0,0,0}), 
+            Line(points={{20,70},{41,70}}, color={0,0,0}), 
+            Polygon(
+              points={{-9,30},{10,30},{30,50},{-29,50},{-9,30}}, 
+              lineColor={0,0,0}, 
+              fillColor={192,192,192}, 
+              fillPattern=FillPattern.Solid), 
+            Polygon(
+              points={{10,30},{30,50},{30,-51},{10,-31},{10,30}}, 
+              lineColor={0,0,0}, 
+              fillColor={192,192,192}, 
+              fillPattern=FillPattern.Solid), 
+            Rectangle(
+              extent={{-10,90},{10,50}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.VerticalCylinder, 
+              fillColor={192,192,192})}),
+        Diagram(coordinateSystem(
+            preserveAspectRatio=true, 
+            extent={{-100,-100},{100,100}}, 
+            grid={1,1}), graphics={
+            Rectangle(
+              extent={{-100,-60},{-30,60}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              fillColor={192,192,192}), 
+            Rectangle(
+              extent={{-30,10},{10,-10}}, 
+              lineColor={0,0,0}, 
+              fillColor={192,192,192}, 
+              fillPattern=FillPattern.Solid), 
+            Rectangle(
+              extent={{30,-60},{100,60}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              fillColor={192,192,192}), 
+            Line(points={{-60,60},{-60,96}}, color={0,0,0}), 
+            Line(points={{-20,70},{-60,70}}, color={0,0,0}), 
+            Line(points={{-20,80},{-20,60}}, color={0,0,0}), 
+            Line(points={{20,80},{20,60}}, color={0,0,0}), 
+            Line(points={{20,70},{41,70}}, color={0,0,0}), 
+            Polygon(
+              points={{-9,30},{10,30},{30,50},{-29,50},{-9,30}}, 
+              lineColor={0,0,0}, 
+              fillColor={192,192,192}, 
+              fillPattern=FillPattern.Solid), 
+            Polygon(
+              points={{10,30},{30,50},{30,-51},{10,-31},{10,30}}, 
+              lineColor={0,0,0}, 
+              fillColor={192,192,192}, 
+              fillPattern=FillPattern.Solid), 
+            Rectangle(
+              extent={{-10,50},{10,100}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.VerticalCylinder, 
+              fillColor={192,192,192})}),
         Documentation(info="<html>
 <p>
 Joint where frame_b rotates around axis n which is fixed in frame_a.
@@ -6656,16 +7367,20 @@ position a degree of freedom is lost.
       extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
       Modelica.Mechanics.Translational.Interfaces.Flange_a axis 
         "1-dim. translational flange that drives the joint" 
-        annotation (extent=[70, 80; 90, 60]);
+        annotation (Placement(transformation(extent={{70,80},{90,60}}, rotation
+              =0)));
       Modelica.Mechanics.Translational.Interfaces.Flange_b bearing 
         "1-dim. translational flange of the drive bearing" 
-        annotation (extent=[-30, 80; -50, 60]);
+        annotation (Placement(transformation(extent={{-30,80},{-50,60}}, 
+              rotation=0)));
       Modelica.Blocks.Interfaces.RealInput position_a[3] 
         "Position vector from frame_a to frame_a side of length constraint, resolved in frame_a of revolute joint"
-        annotation (extent=[-140, -80; -100, -40]);
+        annotation (Placement(transformation(extent={{-140,-80},{-100,-40}}, 
+              rotation=0)));
       Modelica.Blocks.Interfaces.RealInput position_b[3] 
         "Position vector from frame_b to frame_b side of length constraint, resolved in frame_b of revolute joint"
-        annotation (extent=[140, -80; 100, -40]);
+        annotation (Placement(transformation(extent={{140,-80},{100,-40}}, 
+              rotation=0)));
       
       parameter Boolean animation=true "= true, if animation shall be enabled";
       parameter SI.Position length=1 "Fixed length of length constraint";
@@ -6705,92 +7420,147 @@ position a degree of freedom is lost.
       SI.Force f "= axis.f (driving force in the axis)";
       
       annotation (
-        Coordsys(
-          extent=[-100, -100; 100, 100],
-          grid=[1, 1],
-          component=[20, 20]),
         Window(
           x=0.05,
           y=0.09,
           width=0.65,
           height=0.69),
-        Icon(
-          Rectangle(extent=[-30, -40; 100, 30], style(pattern=0, fillColor=8)),
-          Rectangle(extent=[-30, 40; 100, -40], style(color=0)),
-          Rectangle(extent=[-100, -60; -30, 50], style(pattern=0, fillColor=8)),
-          Rectangle(extent=[-100, 50; -30, 60], style(
-              pattern=0,
-              fillColor=0,
-              fillPattern=1)),
-          Rectangle(extent=[-30, 30; 100, 40], style(
-              pattern=0,
-              fillColor=0,
-              fillPattern=1)),
-          Text(extent=[-136, -170; 140, -113], string="%name"),
-          Rectangle(extent=[-100, 60; -30, -60], style(color=0)),
-          Line(points=[100, -40; 100, -60]),
-          Rectangle(extent=[100, 40; 90, 80], style(color=0, fillColor=8)),
-          Text(
-            extent=[-136, -116; 153, -77],
-            string="n=%n",
-            style(color=0))),
-        Diagram(
-          Line(points=[-30, -50; -30, 50], style(color=0)),
-          Line(points=[0, -67; 90, -67], style(color=10)),
-          Text(
-            extent=[31, -68; 68, -81],
-            style(color=10),
-            string="s"),
-          Line(points=[-100, -67; 0, -67], style(color=10)),
-          Polygon(points=[-39, -64; -29, -67; -39, -70; -39, -64], style(color=
-                  10, fillColor=10)),
-          Text(
-            extent=[-77, -70; -43, -85],
-            style(color=10),
-            string="s_offset"),
-          Line(points=[-100, -71; -100, -51], style(
-              color=10,
-              fillColor=10,
-              fillPattern=1)),
-          Line(points=[-30, -73; -30, -33], style(
-              color=10,
-              fillColor=10,
-              fillPattern=1)),
-          Line(points=[100, -70; 100, -30], style(
-              color=10,
-              fillColor=10,
-              fillPattern=1)),
-          Polygon(points=[90, -64; 100, -67; 90, -70; 90, -64], style(color=10,
-                 fillColor=10)),
-          Rectangle(extent=[-100, 50; -30, 60], style(
-              pattern=0,
-              fillColor=0,
-              fillPattern=1)),
-          Rectangle(extent=[-100, -60; -30, 50], style(pattern=0, fillColor=8)),
-          Rectangle(extent=[-30, 40; 100, -40], style(color=0)),
-          Rectangle(extent=[-30, -40; 100, 30], style(pattern=0, fillColor=8)),
-          Rectangle(extent=[-30, 30; 100, 40], style(
-              pattern=0,
-              fillColor=0,
-              fillPattern=1)),
-          Rectangle(extent=[-100, 60; -30, -60], style(color=0)),
-          Line(points=[100, -40; 100, -60]),
-          Text(extent=[42, 91; 57, 76], string="f"),
-          Line(points=[40, 75; 70, 75], style(color=3)),
-          Polygon(points=[-21, 78; -31, 75; -21, 72; -21, 78], style(color=3,
-                fillColor=3)),
-          Line(points=[-8, 75; -31, 75], style(color=3)),
-          Text(extent=[-21, 90; -6, 75], string="f"),
-          Polygon(points=[60, 78; 70, 75; 60, 72; 60, 78], style(color=3,
-                fillColor=3)),
-          Line(points=[-30, 64; 70, 64], style(color=10)),
-          Polygon(points=[60, 67; 70, 64; 60, 61; 60, 67], style(color=10,
-                fillColor=10)),
-          Text(
-            extent=[0, 63; 37, 50],
-            style(color=10),
-            string="s"),
-          Rectangle(extent=[100, 40; 90, 80], style(color=0, fillColor=8))),
+        Icon(coordinateSystem(
+            preserveAspectRatio=true, 
+            extent={{-100,-100},{100,100}}, 
+            grid={1,1}), graphics={
+            Rectangle(
+              extent={{-30,-40},{100,30}}, 
+              pattern=LinePattern.None, 
+              fillColor={192,192,192}, 
+              fillPattern=FillPattern.Solid), 
+            Rectangle(extent={{-30,40},{100,-40}}, lineColor={0,0,0}), 
+            Rectangle(
+              extent={{-100,-60},{-30,50}}, 
+              pattern=LinePattern.None, 
+              fillColor={192,192,192}, 
+              fillPattern=FillPattern.Solid), 
+            Rectangle(
+              extent={{-100,50},{-30,60}}, 
+              pattern=LinePattern.None, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Rectangle(
+              extent={{-30,30},{100,40}}, 
+              pattern=LinePattern.None, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Text(extent={{-136,-170},{140,-113}}, textString=
+                                                      "%name"), 
+            Rectangle(extent={{-100,60},{-30,-60}}, lineColor={0,0,0}), 
+            Line(points={{100,-40},{100,-60}}), 
+            Rectangle(
+              extent={{100,40},{90,80}}, 
+              lineColor={0,0,0}, 
+              fillColor={192,192,192}, 
+              fillPattern=FillPattern.Solid), 
+            Text(
+              extent={{-136,-116},{153,-77}}, 
+              lineColor={0,0,0}, 
+              textString=
+                   "n=%n")}),
+        Diagram(coordinateSystem(
+            preserveAspectRatio=true, 
+            extent={{-100,-100},{100,100}}, 
+            grid={1,1}), graphics={
+            Line(points={{-30,-50},{-30,50}}, color={0,0,0}), 
+            Line(points={{0,-67},{90,-67}}, color={128,128,128}), 
+            Text(
+              extent={{31,-68},{68,-81}}, 
+              lineColor={128,128,128}, 
+              textString=
+                   "s"), 
+            Line(points={{-100,-67},{0,-67}}, color={128,128,128}), 
+            Polygon(
+              points={{-39,-64},{-29,-67},{-39,-70},{-39,-64}}, 
+              lineColor={128,128,128}, 
+              fillColor={128,128,128}, 
+              fillPattern=FillPattern.Solid), 
+            Text(
+              extent={{-77,-70},{-43,-85}}, 
+              lineColor={128,128,128}, 
+              textString=
+                   "s_offset"), 
+            Line(
+              points={{-100,-71},{-100,-51}}, 
+              color={128,128,128}, 
+              fillColor={128,128,128}, 
+              fillPattern=FillPattern.Solid), 
+            Line(
+              points={{-30,-73},{-30,-33}}, 
+              color={128,128,128}, 
+              fillColor={128,128,128}, 
+              fillPattern=FillPattern.Solid), 
+            Line(
+              points={{100,-70},{100,-30}}, 
+              color={128,128,128}, 
+              fillColor={128,128,128}, 
+              fillPattern=FillPattern.Solid), 
+            Polygon(
+              points={{90,-64},{100,-67},{90,-70},{90,-64}}, 
+              lineColor={128,128,128}, 
+              fillColor={128,128,128}, 
+              fillPattern=FillPattern.Solid), 
+            Rectangle(
+              extent={{-100,50},{-30,60}}, 
+              pattern=LinePattern.None, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Rectangle(
+              extent={{-100,-60},{-30,50}}, 
+              pattern=LinePattern.None, 
+              fillColor={192,192,192}, 
+              fillPattern=FillPattern.Solid), 
+            Rectangle(extent={{-30,40},{100,-40}}, lineColor={0,0,0}), 
+            Rectangle(
+              extent={{-30,-40},{100,30}}, 
+              pattern=LinePattern.None, 
+              fillColor={192,192,192}, 
+              fillPattern=FillPattern.Solid), 
+            Rectangle(
+              extent={{-30,30},{100,40}}, 
+              pattern=LinePattern.None, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Rectangle(extent={{-100,60},{-30,-60}}, lineColor={0,0,0}), 
+            Line(points={{100,-40},{100,-60}}), 
+            Text(extent={{42,91},{57,76}}, textString=
+                                               "f"), 
+            Line(points={{40,75},{70,75}}, color={0,0,255}), 
+            Polygon(
+              points={{-21,78},{-31,75},{-21,72},{-21,78}}, 
+              lineColor={0,0,255}, 
+              fillColor={0,0,255}, 
+              fillPattern=FillPattern.Solid), 
+            Line(points={{-8,75},{-31,75}}, color={0,0,255}), 
+            Text(extent={{-21,90},{-6,75}}, textString=
+                                                "f"), 
+            Polygon(
+              points={{60,78},{70,75},{60,72},{60,78}}, 
+              lineColor={0,0,255}, 
+              fillColor={0,0,255}, 
+              fillPattern=FillPattern.Solid), 
+            Line(points={{-30,64},{70,64}}, color={128,128,128}), 
+            Polygon(
+              points={{60,67},{70,64},{60,61},{60,67}}, 
+              lineColor={128,128,128}, 
+              fillColor={128,128,128}, 
+              fillPattern=FillPattern.Solid), 
+            Text(
+              extent={{0,63},{37,50}}, 
+              lineColor={128,128,128}, 
+              textString=
+                   "s"), 
+            Rectangle(
+              extent={{100,40},{90,80}}, 
+              lineColor={0,0,0}, 
+              fillColor={192,192,192}, 
+              fillPattern=FillPattern.Solid)}),
         Documentation(info="<HTML>
 <p>
 Joint where frame_b is translated along axis n which is fixed in frame_a.

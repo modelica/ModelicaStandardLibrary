@@ -9,16 +9,15 @@ encapsulated model FreeBody
   parameter Boolean animation=true "= true, if animation shall be enabled";
   annotation (
     experiment(StopTime=10),
-    Coordsys(
-      extent=[-100, -100; 100, 100],
-      grid=[2, 2],
-      component=[20, 20]),
     Window(
       x=0.29,
       y=0,
       width=0.71,
       height=0.85),
-    Diagram,
+    Diagram(coordinateSystem(
+        preserveAspectRatio=true, 
+        extent={{-100,-100},{100,100}}, 
+        grid={2,2}), graphics),
     Documentation(info="<html>
 <p>
 This example demonstrates:
@@ -38,15 +37,19 @@ This example demonstrates:
 ALT=\"model Examples.Elementary.FreeBody\">
 </p>
 </html>"));
-  inner Modelica.Mechanics.MultiBody.World world annotation (extent=[-60, 20; -40, 40]);
+  inner Modelica.Mechanics.MultiBody.World world annotation (Placement(
+        transformation(extent={{-60,20},{-40,40}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Parts.FixedTranslation bar2(r={0.8,0,0}, animation=false) 
-    annotation (extent=[0, 20; 20, 40]);
+    annotation (Placement(transformation(extent={{0,20},{20,40}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Forces.Spring spring1(
     width=0.1,
     coilWidth=0.005,
     numberOfWindings=5,
     c=20,
-    s_unstretched=0) annotation (extent=[-34, -4; -14, 16], rotation=-90);
+    s_unstretched=0) annotation (Placement(transformation(
+        origin={-24,6}, 
+        extent={{-10,-10},{10,10}}, 
+        rotation=270)));
   Modelica.Mechanics.MultiBody.Parts.BodyShape body(
     m=1,
     I_11=1,
@@ -58,37 +61,38 @@ ALT=\"model Examples.Elementary.FreeBody\">
     angles_start={10,10,10},
     width=0.05,
     initType=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity) 
-    annotation (extent=[0, -40; 20, -20]);
+    annotation (Placement(transformation(extent={{0,-40},{20,-20}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Forces.Spring spring2(
     c=20,
     s_unstretched=0,
     width=0.1,
     coilWidth=0.005,
-    numberOfWindings=5) annotation (extent=[32, -4; 52, 16], rotation=-90);
+    numberOfWindings=5) annotation (Placement(transformation(
+        origin={42,6}, 
+        extent={{-10,-10},{10,10}}, 
+        rotation=270)));
 equation 
   connect(bar2.frame_a, world.frame_b) 
-    annotation (points=[0,30; -40,30], style(
-      color=10,
-      rgbcolor={95,95,95},
+    annotation (Line(
+      points={{0,30},{-40,30}}, 
+      color={95,95,95}, 
       thickness=2));
-  connect(spring1.frame_b, body.frame_a) annotation (points=[-24,-4; -24,-30; 0,
-        -30], style(
-      color=10,
-      rgbcolor={95,95,95},
+  connect(spring1.frame_b, body.frame_a) annotation (Line(
+      points={{-24,-4},{-24,-30},{0,-30}}, 
+      color={95,95,95}, 
       thickness=2));
   connect(spring2.frame_b, body.frame_b) 
-    annotation (points=[42,-4; 20,-30], style(
-      color=10,
-      rgbcolor={95,95,95},
+    annotation (Line(
+      points={{42,-4},{20,-30}}, 
+      color={95,95,95}, 
       thickness=2));
   connect(bar2.frame_b, spring2.frame_a) 
-    annotation (points=[20,30; 42,30; 42,16], style(
-      color=10,
-      rgbcolor={95,95,95},
+    annotation (Line(
+      points={{20,30},{42,30},{42,16}}, 
+      color={95,95,95}, 
       thickness=2));
-  connect(spring1.frame_a, world.frame_b) annotation (points=[-24,16; -24,30;
-        -40,30], style(
-      color=10,
-      rgbcolor={95,95,95},
+  connect(spring1.frame_a, world.frame_b) annotation (Line(
+      points={{-24,16},{-24,30},{-40,30}}, 
+      color={95,95,95}, 
       thickness=2));
 end FreeBody;

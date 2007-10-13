@@ -9,11 +9,7 @@ Documentation(info="
 This package contains functions to interact with the environment.
 </p>
 </HTML>
-"),   Coordsys(
-        extent=[0, 0; 417, 614],
-        grid=[1, 1],
-        component=[20, 20]),
-      Window(
+"),   Window(
         x=0.03,
         y=0.02,
         width=0.42,

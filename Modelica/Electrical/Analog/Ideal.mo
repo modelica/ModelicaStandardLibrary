@@ -52,7 +52,10 @@ Modelica in file \"Modelica/package.mo\".</i><br>
       "Forward threshold voltage";
             Boolean off(start=true) "Switching state";
             Modelica.Blocks.Interfaces.BooleanInput fire 
-              annotation (extent=[50,90; 90,130],   rotation=-90);
+              annotation (Placement(transformation(
+          origin={70,110}, 
+          extent={{-20,-20},{20,20}}, 
+          rotation=270)));
     
             annotation (
               Documentation(info="<html>
@@ -84,90 +87,94 @@ along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
        by Christoph Clauss<br> realized<br>
        </li>
 </ul>
-</html>"),    Coordsys(
-                extent=[-100, -100; 100, 100],
-                grid=[1, 1],
-                component=[20, 20]),
-              Icon(
-                Text(extent=[-100, -70; 100, -100], string="%name"),
-                Polygon(points=[30, 0; -30, 40; -30, -40; 30, 0], style(
-              color=3,
-              rgbcolor={0,0,255},
-              gradient=0,
-              fillColor=7,
-              rgbfillColor={255,255,255})),
-                Line(points=[-90, 0; 40, 0], style(color=3, rgbcolor={0,0,255})),
-                Line(points=[40, 0; 90, 0], style(color=3, rgbcolor={0,0,255})),
-                Line(points=[30, 40; 30, -40], style(color=3, rgbcolor={0,0,255})),
-                Line(points=[30, 20; 70, 60; 70, 90], style(color=3, rgbcolor={0,
-                  0,255})),
-                Line(points=[40, 50; 60, 30], style(color=3, rgbcolor={0,0,255}))),
-              Diagram(
-                Line(points=[-80, 0; 80, 0], style(color=10)),
-                Polygon(points=[70, 4; 80, 0; 70, -4; 70, 4], style(color=10,
-                      fillColor=10)),
-                Line(points=[0, 80; 0, -80], style(
-                    color=10,
-                    fillColor=10,
-                    fillPattern=1)),
-                Polygon(points=[-4, 70; 0, 80; 4, 70; -4, 70], style(
-                    color=10,
-                    fillColor=10,
-                    fillPattern=1)),
-                Text(
-                  extent=[10, 80; 20, 70],
-                  style(
-                    color=10,
-                    fillColor=10,
-                    fillPattern=1),
-                  string="i"),
-                Text(
-                  extent=[70, -10; 80, -20],
-                  style(
-                    color=10,
-                    fillColor=10,
-                    fillPattern=1),
-                  string="v"),
-                Line(points=[-80, -40; -20, -10; 20, 10; 40, 70], style(
-                    color=0,
-                    thickness=2,
-                    fillColor=10,
-                    fillPattern=1)),
-                Line(points=[20, 9; 20, 0], style(
-                    color=10,
-                    pattern=3,
-                    fillColor=10,
-                    fillPattern=1)),
-                Text(
-                  extent=[20, 0; 40, -10],
-                  style(
-                    color=10,
-                    pattern=3,
-                    fillColor=10,
-                    fillPattern=1),
-                  string="Vknee"),
-                Text(
-                  extent=[20, 70; 40, 60],
-                  style(
-                    color=10,
-                    pattern=3,
-                    fillColor=10,
-                    fillPattern=1),
-                  string="Ron"),
-                Text(
-                  extent=[-20, 10; 0, 0],
-                  style(
-                    color=10,
-                    pattern=3,
-                    fillColor=10,
-                    fillPattern=1),
-                  string="Goff"),
-                Ellipse(extent=[18, 12; 22, 8], style(pattern=3,
-              fillPattern =                                                  1)),
-                Line(points=[20, 10; 70, 40], style(
-                    color=0,
-                    thickness=2,
-                    fillPattern=1))),
+</html>"),    Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Text(extent={{-100,-70},{100,-100}}, textString= "%name"), 
+          Polygon(
+            points={{30,0},{-30,40},{-30,-40},{30,0}}, 
+            lineColor={0,0,0}, 
+            fillColor={255,255,255}), 
+          Line(points={{-90,0},{40,0}}, color={0,0,255}), 
+          Line(points={{40,0},{90,0}}, color={0,0,255}), 
+          Line(points={{30,40},{30,-40}}, color={0,0,255}), 
+          Line(points={{30,20},{70,60},{70,90}}, color={0,0,255}), 
+          Line(points={{40,50},{60,30}}, color={0,0,255})}),
+              Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Line(points={{-80,0},{80,0}}, color={128,128,128}), 
+          Polygon(
+            points={{70,4},{80,0},{70,-4},{70,4}}, 
+            lineColor={128,128,128}, 
+            fillColor={128,128,128}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{0,80},{0,-80}}, 
+            color={128,128,128}, 
+            fillColor={128,128,128}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{-4,70},{0,80},{4,70},{-4,70}}, 
+            lineColor={128,128,128}, 
+            fillColor={128,128,128}, 
+            fillPattern=FillPattern.Solid), 
+          Text(
+            extent={{10,80},{20,70}}, 
+            lineColor={128,128,128}, 
+            fillColor={128,128,128}, 
+            fillPattern=FillPattern.Solid, 
+            textString = "i"), 
+          Text(
+            extent={{70,-10},{80,-20}}, 
+            lineColor={128,128,128}, 
+            fillColor={128,128,128}, 
+            fillPattern=FillPattern.Solid, 
+            textString = "v"), 
+          Line(
+            points={{-80,-40},{-20,-10},{20,10},{40,70}}, 
+            color={0,0,0}, 
+            thickness=2, 
+            fillColor={128,128,128}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{20,9},{20,0}}, 
+            color={128,128,128}, 
+            pattern=LinePattern.Dot, 
+            fillColor={128,128,128}, 
+            fillPattern=FillPattern.Solid), 
+          Text(
+            extent={{20,0},{40,-10}}, 
+            lineColor={128,128,128}, 
+            pattern=LinePattern.Dot, 
+            fillColor={128,128,128}, 
+            fillPattern=FillPattern.Solid, 
+            textString = "Vknee"), 
+          Text(
+            extent={{20,70},{40,60}}, 
+            lineColor={128,128,128}, 
+            pattern=LinePattern.Dot, 
+            fillColor={128,128,128}, 
+            fillPattern=FillPattern.Solid, 
+            textString = "Ron"), 
+          Text(
+            extent={{-20,10},{0,0}}, 
+            lineColor={128,128,128}, 
+            pattern=LinePattern.Dot, 
+            fillColor={128,128,128}, 
+            fillPattern=FillPattern.Solid, 
+            textString = "Goff"), 
+          Ellipse(
+            extent={{18,12},{22,8}}, 
+            pattern=LinePattern.Dot, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{20,10},{70,40}}, 
+            color={0,0,0}, 
+            thickness=2, 
+            fillPattern=FillPattern.Solid)}),
               Window(
                 x=0.27,
                 y=0.18,
@@ -197,7 +204,10 @@ along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
             Boolean off(start=true) "Switching state";
     
             Modelica.Blocks.Interfaces.BooleanInput fire 
-              annotation (extent=[50,90; 90,130],   rotation=-90);
+              annotation (Placement(transformation(
+          origin={70,110}, 
+          extent={{-20,-20},{20,20}}, 
+          rotation=270)));
     
             annotation (
               Documentation(info="<html>
@@ -229,87 +239,94 @@ along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
        by Christoph Clauss<br> realized<br>
        </li>
 </ul>
-</html>"),    Coordsys(
-                extent=[-100, -100; 100, 100],
-                grid=[1, 1],
-                component=[20, 20]),
-              Icon(
-                Text(extent=[-100, -70; 100, -100], string="%name"),
-                Polygon(points=[30, 0; -30, 40; -30, -40; 30, 0], style(
-                    color=3,
-                    gradient=0,
-                    fillColor=7)),
-                Line(points=[-90, 0; 40, 0]),
-                Line(points=[40, 0; 90, 0]),
-                Line(points=[30, 40; 30, -40], style(color=3)),
-                Line(points=[30, 20; 70, 60; 70, 90]),
-                Line(points=[40, 50; 60, 30])),
-              Diagram(
-                Line(points=[-80, 0; 80, 0], style(color=10)),
-                Polygon(points=[70, 4; 80, 0; 70, -4; 70, 4], style(color=10,
-                      fillColor=10)),
-                Line(points=[0, 80; 0, -80], style(
-                    color=10,
-                    fillColor=10,
-                    fillPattern=1)),
-                Polygon(points=[-4, 70; 0, 80; 4, 70; -4, 70], style(
-                    color=10,
-                    fillColor=10,
-                    fillPattern=1)),
-                Text(
-                  extent=[10, 80; 20, 70],
-                  style(
-                    color=10,
-                    fillColor=10,
-                    fillPattern=1),
-                  string="i"),
-                Text(
-                  extent=[70, -10; 80, -20],
-                  style(
-                    color=10,
-                    fillColor=10,
-                    fillPattern=1),
-                  string="v"),
-                Line(points=[-80, -40; -20, -10; 20, 10; 40, 70], style(
-                    color=0,
-                    thickness=2,
-                    fillColor=10,
-                    fillPattern=1)),
-                Line(points=[20, 9; 20, 0], style(
-                    color=10,
-                    pattern=3,
-                    fillColor=10,
-                    fillPattern=1)),
-                Text(
-                  extent=[20, 0; 40, -10],
-                  style(
-                    color=10,
-                    pattern=3,
-                    fillColor=10,
-                    fillPattern=1),
-                  string="Vknee"),
-                Text(
-                  extent=[20, 70; 40, 60],
-                  style(
-                    color=10,
-                    pattern=3,
-                    fillColor=10,
-                    fillPattern=1),
-                  string="Ron"),
-                Text(
-                  extent=[-20, 10; 0, 0],
-                  style(
-                    color=10,
-                    pattern=3,
-                    fillColor=10,
-                    fillPattern=1),
-                  string="Goff"),
-                Ellipse(extent=[18, 12; 22, 8], style(pattern=3,
-              fillPattern =                                                  1)),
-                Line(points=[20, 10; 70, 40], style(
-                    color=0,
-                    thickness=2,
-                    fillPattern=1))),
+</html>"),    Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Text(extent={{-100,-70},{100,-100}}, textString= "%name"), 
+          Polygon(
+            points={{30,0},{-30,40},{-30,-40},{30,0}}, 
+            lineColor={0,0,0}, 
+            fillColor={255,255,255}), 
+          Line(points={{-90,0},{40,0}}), 
+          Line(points={{40,0},{90,0}}), 
+          Line(points={{30,40},{30,-40}}, color={0,0,255}), 
+          Line(points={{30,20},{70,60},{70,90}}), 
+          Line(points={{40,50},{60,30}})}),
+              Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Line(points={{-80,0},{80,0}}, color={128,128,128}), 
+          Polygon(
+            points={{70,4},{80,0},{70,-4},{70,4}}, 
+            lineColor={128,128,128}, 
+            fillColor={128,128,128}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{0,80},{0,-80}}, 
+            color={128,128,128}, 
+            fillColor={128,128,128}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{-4,70},{0,80},{4,70},{-4,70}}, 
+            lineColor={128,128,128}, 
+            fillColor={128,128,128}, 
+            fillPattern=FillPattern.Solid), 
+          Text(
+            extent={{10,80},{20,70}}, 
+            lineColor={128,128,128}, 
+            fillColor={128,128,128}, 
+            fillPattern=FillPattern.Solid, 
+            textString = "i"), 
+          Text(
+            extent={{70,-10},{80,-20}}, 
+            lineColor={128,128,128}, 
+            fillColor={128,128,128}, 
+            fillPattern=FillPattern.Solid, 
+            textString = "v"), 
+          Line(
+            points={{-80,-40},{-20,-10},{20,10},{40,70}}, 
+            color={0,0,0}, 
+            thickness=2, 
+            fillColor={128,128,128}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{20,9},{20,0}}, 
+            color={128,128,128}, 
+            pattern=LinePattern.Dot, 
+            fillColor={128,128,128}, 
+            fillPattern=FillPattern.Solid), 
+          Text(
+            extent={{20,0},{40,-10}}, 
+            lineColor={128,128,128}, 
+            pattern=LinePattern.Dot, 
+            fillColor={128,128,128}, 
+            fillPattern=FillPattern.Solid, 
+            textString = "Vknee"), 
+          Text(
+            extent={{20,70},{40,60}}, 
+            lineColor={128,128,128}, 
+            pattern=LinePattern.Dot, 
+            fillColor={128,128,128}, 
+            fillPattern=FillPattern.Solid, 
+            textString = "Ron"), 
+          Text(
+            extent={{-20,10},{0,0}}, 
+            lineColor={128,128,128}, 
+            pattern=LinePattern.Dot, 
+            fillColor={128,128,128}, 
+            fillPattern=FillPattern.Solid, 
+            textString = "Goff"), 
+          Ellipse(
+            extent={{18,12},{22,8}}, 
+            pattern=LinePattern.Dot, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{20,10},{70,40}}, 
+            color={0,0,0}, 
+            thickness=2, 
+            fillPattern=FillPattern.Solid)}),
               Window(
                 x=0.27,
                 y=0.13,
@@ -331,12 +348,18 @@ along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
     parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance";
     parameter SI.Conductance Goff(final min=0) = 1.E-5 
       "Opened switch conductance";
-    Interfaces.PositivePin p annotation (extent=[-110, -10; -90, 10]);
-    Interfaces.NegativePin n2 annotation (extent=[90, -10; 110, 10]);
-    Interfaces.NegativePin n1 annotation (extent=[90, 40; 110, 60]);
+    Interfaces.PositivePin p annotation (Placement(transformation(extent={{-110,
+              -10},{-90,10}}, rotation=0)));
+    Interfaces.NegativePin n2 annotation (Placement(transformation(extent={{90,
+              -10},{110,10}}, rotation=0)));
+    Interfaces.NegativePin n1 annotation (Placement(transformation(extent={{90,
+              40},{110,60}}, rotation=0)));
     Modelica.Blocks.Interfaces.BooleanInput control 
-      "true => p--n2 connected, false => p--n1 connected" annotation (extent=[
-          -20,60; 20,100], rotation=-90);
+      "true => p--n2 connected, false => p--n1 connected" annotation (Placement(
+          transformation(
+          origin={0,80}, 
+          extent={{-20,-20},{20,20}}, 
+          rotation=270)));
     
     annotation (
       Documentation(info="<HTML>
@@ -365,28 +388,34 @@ where a description with zero Ron or zero Goff is not possible.
        </li>
 </ul>
 </html>"),
-      Coordsys(
-        extent=[-100, -100; 100, 100],
-        grid=[1, 1],
-        component=[20, 20]),
-      Icon(
-        Ellipse(extent=[-44, 4; -36, -4]),
-        Text(extent=[-80, 0; -60, 22], string="p"),
-        Text(extent=[60, 50; 80, 72], string="n1"),
-        Text(extent=[60, 0; 80, 22], string="n2"),
-        Line(points=[-90, 0; -44, 0]),
-        Line(points=[-37, 2; 40, 50]),
-        Line(points=[40, 50; 90, 50]),
-        Line(points=[0, 90; 0, 25]),
-        Line(points=[40, 0; 90, 0]),
-        Text(extent=[-100, -70; 100, -100], string="%name")),
-      Diagram(
-        Ellipse(extent=[-44, 4; -36, -4]),
-        Line(points=[-96,0; -44,0]),
-        Line(points=[-37,2; 40,50]),
-        Line(points=[40,50; 96,50]),
-        Line(points=[0,60; 0,25]),
-        Line(points=[40,0; 96,0])),
+      Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Ellipse(extent={{-44,4},{-36,-4}}), 
+          Text(extent={{-80,0},{-60,22}}, textString=
+                                              "p"), 
+          Text(extent={{60,50},{80,72}}, textString=
+                                             "n1"), 
+          Text(extent={{60,0},{80,22}}, textString=
+                                            "n2"), 
+          Line(points={{-90,0},{-44,0}}), 
+          Line(points={{-37,2},{40,50}}), 
+          Line(points={{40,50},{90,50}}), 
+          Line(points={{0,90},{0,25}}), 
+          Line(points={{40,0},{90,0}}), 
+          Text(extent={{-100,-70},{100,-100}}, textString=
+                                                   "%name")}),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Ellipse(extent={{-44,4},{-36,-4}}), 
+          Line(points={{-96,0},{-44,0}}), 
+          Line(points={{-37,2},{40,50}}), 
+          Line(points={{40,50},{96,50}}), 
+          Line(points={{0,60},{0,25}}), 
+          Line(points={{40,0},{96,0}})}),
       Window(
         x=0.21,
         y=0.05,
@@ -411,13 +440,20 @@ where a description with zero Ron or zero Goff is not possible.
     parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance";
     parameter SI.Conductance Goff(final min=0) = 1.E-5 
       "Opened switch conductance";
-    Interfaces.PositivePin p1 annotation (extent=[-110, 40; -90, 60]);
-    Interfaces.PositivePin p2 annotation (extent=[-110, -10; -90, 10]);
-    Interfaces.NegativePin n1 annotation (extent=[90, 40; 110, 60]);
-    Interfaces.NegativePin n2 annotation (extent=[90, -10; 110, 10]);
+    Interfaces.PositivePin p1 annotation (Placement(transformation(extent={{
+              -110,40},{-90,60}}, rotation=0)));
+    Interfaces.PositivePin p2 annotation (Placement(transformation(extent={{
+              -110,-10},{-90,10}}, rotation=0)));
+    Interfaces.NegativePin n1 annotation (Placement(transformation(extent={{90,
+              40},{110,60}}, rotation=0)));
+    Interfaces.NegativePin n2 annotation (Placement(transformation(extent={{90,
+              -10},{110,10}}, rotation=0)));
     Modelica.Blocks.Interfaces.BooleanInput control 
       "true => p1--n2, p2--n1 connected, otherwise p1--n1, p2--n2  connected" 
-      annotation (extent=[-20,60; 20,100],rotation=-90);
+      annotation (Placement(transformation(
+          origin={0,80}, 
+          extent={{-20,-20},{20,20}}, 
+          rotation=270)));
     
     annotation (
       Documentation(info="<HTML>
@@ -451,33 +487,40 @@ where a description with zero Ron or zero Goff is not possible.
        </li>
 </ul>
 </html>"),
-      Coordsys(
-        extent=[-100, -100; 100, 100],
-        grid=[1, 1],
-        component=[20, 20]),
-      Icon(
-        Ellipse(extent=[-4, 30; 4, 22]),
-        Text(extent=[-80, 50; -60, 72], string="p1"),
-        Text(extent=[-80, 0; -60, 22], string="p2"),
-        Text(extent=[60, 50; 80, 72], string="n1"),
-        Text(extent=[60, 0; 80, 22], string="n2"),
-        Line(points=[-90, 0; -44, 0]),
-        Line(points=[-90, 50; -44, 50]),
-        Line(points=[-44, 0; 40, 50]),
-        Line(points=[-44, 50; 40, 0]),
-        Line(points=[40, 50; 90, 50]),
-        Line(points=[0, 90; 0, 25]),
-        Line(points=[40, 0; 90, 0]),
-        Text(extent=[-100, -70; 100, -100], string="%name")),
-      Diagram(
-        Ellipse(extent=[-4,29; 4,21]),
-        Line(points=[-96,0; -40,0]),
-        Line(points=[-96,50; -40,50]),
-        Line(points=[-40,0; 40,50]),
-        Line(points=[-40,50; 40,0]),
-        Line(points=[40,50; 96,50]),
-        Line(points=[0,60; 0,25]),
-        Line(points=[40,0; 96,0])),
+      Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Ellipse(extent={{-4,30},{4,22}}), 
+          Text(extent={{-80,50},{-60,72}}, textString=
+                                               "p1"), 
+          Text(extent={{-80,0},{-60,22}}, textString=
+                                              "p2"), 
+          Text(extent={{60,50},{80,72}}, textString=
+                                             "n1"), 
+          Text(extent={{60,0},{80,22}}, textString=
+                                            "n2"), 
+          Line(points={{-90,0},{-44,0}}), 
+          Line(points={{-90,50},{-44,50}}), 
+          Line(points={{-44,0},{40,50}}), 
+          Line(points={{-44,50},{40,0}}), 
+          Line(points={{40,50},{90,50}}), 
+          Line(points={{0,90},{0,25}}), 
+          Line(points={{40,0},{90,0}}), 
+          Text(extent={{-100,-70},{100,-100}}, textString=
+                                                   "%name")}),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Ellipse(extent={{-4,29},{4,21}}), 
+          Line(points={{-96,0},{-40,0}}), 
+          Line(points={{-96,50},{-40,50}}), 
+          Line(points={{-40,0},{40,50}}), 
+          Line(points={{-40,50},{40,0}}), 
+          Line(points={{40,50},{96,50}}), 
+          Line(points={{0,60},{0,25}}), 
+          Line(points={{40,0},{96,0}})}),
       Window(
         x=0.21,
         y=0.05,
@@ -507,12 +550,18 @@ where a description with zero Ron or zero Goff is not possible.
     parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance";
     parameter SI.Conductance Goff(final min=0) = 1.E-5 
       "Opened switch conductance";
-    Interfaces.PositivePin p annotation (extent=[-110, -10; -90, 10]);
-    Interfaces.NegativePin n2 annotation (extent=[90, -10; 110, 10]);
-    Interfaces.NegativePin n1 annotation (extent=[90, 40; 110, 60]);
+    Interfaces.PositivePin p annotation (Placement(transformation(extent={{-110,
+              -10},{-90,10}}, rotation=0)));
+    Interfaces.NegativePin n2 annotation (Placement(transformation(extent={{90,
+              -10},{110,10}}, rotation=0)));
+    Interfaces.NegativePin n1 annotation (Placement(transformation(extent={{90,
+              40},{110,60}}, rotation=0)));
     Interfaces.Pin control 
       "Control pin: if control.v > level p--n2 connected, otherwise p--n1 connected"
-       annotation (extent=[-10, 90; 10, 110], rotation=90);
+       annotation (Placement(transformation(
+          origin={0,100}, 
+          extent={{-10,-10},{10,10}}, 
+          rotation=90)));
     
     annotation (
       Documentation(info="<HTML>
@@ -542,28 +591,34 @@ where a description with zero Ron or zero Goff is not possible.
        </li>
 </ul>
 </html>"),
-      Coordsys(
-        extent=[-100, -100; 100, 100],
-        grid=[1, 1],
-        component=[20, 20]),
-      Icon(
-        Ellipse(extent=[-44, 4; -36, -4]),
-        Text(extent=[-80, 0; -60, 22], string="p"),
-        Text(extent=[60, 50; 80, 72], string="n1"),
-        Text(extent=[60, 0; 80, 22], string="n2"),
-        Line(points=[-90, 0; -44, 0]),
-        Line(points=[-37, 2; 40, 50]),
-        Line(points=[40, 50; 90, 50]),
-        Line(points=[0, 90; 0, 25]),
-        Line(points=[40, 0; 90, 0]),
-        Text(extent=[-100, -70; 100, -100], string="%name")),
-      Diagram(
-        Ellipse(extent=[-44, 4; -36, -4]),
-        Line(points=[-96,0; -44,0]),
-        Line(points=[-37, 2; 40, 50]),
-        Line(points=[40,50; 96,50]),
-        Line(points=[0,96; 0,25]),
-        Line(points=[40,0; 96,0])),
+      Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Ellipse(extent={{-44,4},{-36,-4}}), 
+          Text(extent={{-80,0},{-60,22}}, textString=
+                                              "p"), 
+          Text(extent={{60,50},{80,72}}, textString=
+                                             "n1"), 
+          Text(extent={{60,0},{80,22}}, textString=
+                                            "n2"), 
+          Line(points={{-90,0},{-44,0}}), 
+          Line(points={{-37,2},{40,50}}), 
+          Line(points={{40,50},{90,50}}), 
+          Line(points={{0,90},{0,25}}), 
+          Line(points={{40,0},{90,0}}), 
+          Text(extent={{-100,-70},{100,-100}}, textString=
+                                                   "%name")}),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Ellipse(extent={{-44,4},{-36,-4}}), 
+          Line(points={{-96,0},{-44,0}}), 
+          Line(points={{-37,2},{40,50}}), 
+          Line(points={{40,50},{96,50}}), 
+          Line(points={{0,96},{0,25}}), 
+          Line(points={{40,0},{96,0}})}),
       Window(
         x=0.21,
         y=0.05,
@@ -590,13 +645,20 @@ where a description with zero Ron or zero Goff is not possible.
     parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance";
     parameter SI.Conductance Goff(final min=0) = 1.E-5 
       "Opened switch conductance";
-    Interfaces.PositivePin p1 annotation (extent=[-110, 40; -90, 60]);
-    Interfaces.PositivePin p2 annotation (extent=[-110, -10; -90, 10]);
-    Interfaces.NegativePin n1 annotation (extent=[90, 40; 110, 60]);
-    Interfaces.NegativePin n2 annotation (extent=[90, -10; 110, 10]);
+    Interfaces.PositivePin p1 annotation (Placement(transformation(extent={{
+              -110,40},{-90,60}}, rotation=0)));
+    Interfaces.PositivePin p2 annotation (Placement(transformation(extent={{
+              -110,-10},{-90,10}}, rotation=0)));
+    Interfaces.NegativePin n1 annotation (Placement(transformation(extent={{90,
+              40},{110,60}}, rotation=0)));
+    Interfaces.NegativePin n2 annotation (Placement(transformation(extent={{90,
+              -10},{110,10}}, rotation=0)));
     Interfaces.Pin control "Control pin: if control.v > level p1--n2, p2--n1 connected,
-         otherwise p1--n1, p2--n2  connected" annotation (extent=[-10, 90; 10,
-          110], rotation=90);
+         otherwise p1--n1, p2--n2  connected" annotation (Placement(
+          transformation(
+          origin={0,100}, 
+          extent={{-10,-10},{10,10}}, 
+          rotation=90)));
     
     annotation (
       Documentation(info="<HTML>
@@ -631,33 +693,40 @@ where a description with zero Ron or zero Goff is not possible.
        </li>
 </ul>
 </html>"),
-      Coordsys(
-        extent=[-100, -100; 100, 100],
-        grid=[1, 1],
-        component=[20, 20]),
-      Icon(
-        Ellipse(extent=[-4, 30; 4, 22]),
-        Text(extent=[-80, 50; -60, 72], string="p1"),
-        Text(extent=[-80, 0; -60, 22], string="p2"),
-        Text(extent=[60, 50; 80, 72], string="n1"),
-        Text(extent=[60, 0; 80, 22], string="n2"),
-        Line(points=[-90,0; -40,0]),
-        Line(points=[-90,50; -39,50]),
-        Line(points=[-40,0; 40,50]),
-        Line(points=[-40,50; 40,0]),
-        Line(points=[40, 50; 90, 50]),
-        Line(points=[0, 90; 0, 25]),
-        Line(points=[40, 0; 90, 0]),
-        Text(extent=[-100, -70; 100, -100], string="%name")),
-      Diagram(
-        Ellipse(extent=[-4,29; 4,21]),
-        Line(points=[-96,0; -40,0]),
-        Line(points=[-96,50; -40,50]),
-        Line(points=[-40,0; 40,50]),
-        Line(points=[-40,50; 40,0]),
-        Line(points=[40,50; 96,50]),
-        Line(points=[0,96; 0,25]),
-        Line(points=[40,0; 96,0])),
+      Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Ellipse(extent={{-4,30},{4,22}}), 
+          Text(extent={{-80,50},{-60,72}}, textString=
+                                               "p1"), 
+          Text(extent={{-80,0},{-60,22}}, textString=
+                                              "p2"), 
+          Text(extent={{60,50},{80,72}}, textString=
+                                             "n1"), 
+          Text(extent={{60,0},{80,22}}, textString=
+                                            "n2"), 
+          Line(points={{-90,0},{-40,0}}), 
+          Line(points={{-90,50},{-39,50}}), 
+          Line(points={{-40,0},{40,50}}), 
+          Line(points={{-40,50},{40,0}}), 
+          Line(points={{40,50},{90,50}}), 
+          Line(points={{0,90},{0,25}}), 
+          Line(points={{40,0},{90,0}}), 
+          Text(extent={{-100,-70},{100,-100}}, textString=
+                                                   "%name")}),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Ellipse(extent={{-4,29},{4,21}}), 
+          Line(points={{-96,0},{-40,0}}), 
+          Line(points={{-96,50},{-40,50}}), 
+          Line(points={{-40,0},{40,50}}), 
+          Line(points={{-40,50},{40,0}}), 
+          Line(points={{40,50},{96,50}}), 
+          Line(points={{0,96},{0,25}}), 
+          Line(points={{40,0},{96,0}})}),
       Window(
         x=0.21,
         y=0.05,
@@ -707,78 +776,102 @@ are possible (norator).
        </li>
 </ul>
 </html>"),
-      Coordsys(
-        extent=[-100, -100; 100, 100],
-        grid=[1, 1],
-        component=[20, 20]),
-      Icon(
-        Text(extent=[-100, 80; 100, 100], string="%name"),
-        Polygon(points=[60, 0; -60, 70; -60, -70; 60, 0], style(fillColor=7)),
-        Line(points=[-90, 50; -60, 50]),
-        Line(points=[-90, -50; -60, -50]),
-        Line(points=[60, 0; 90, 0]),
-        Line(points=[0, -35; 0, -91]),
-        Line(points=[-48, 32; -28, 32]),
-        Line(points=[-39, -20; -39, -41]),
-        Line(points=[-50, -31; -28, -31])),
-      Diagram(
-        Polygon(points=[60, 0; -60, 70; -60, -70; 60, 0], style(fillColor=7)),
-        Line(points=[-96,50; -60,50]),
-        Line(points=[-96,-50; -60,-50]),
-        Line(points=[60,0; 96,0]),
-        Line(points=[0,-35; 0,-96]),
-        Line(points=[-55, 50; -45, 50]),
-        Line(points=[-50, -45; -50, -55]),
-        Line(points=[-55, -50; -45, -50]),
-        Text(
-          extent=[-111, -39; -90, -19],
-          string="p1.i=0",
-          style(color=9, fillColor=9)),
-        Polygon(points=[120, 3; 110, 0; 120, -3; 120, 3], style(
-            color=9,
-            gradient=2,
-            fillColor=9,
-            fillPattern=1)),
-        Line(points=[111, 0; 136, 0], style(
-            color=9,
-            gradient=2,
-            fillColor=9)),
-        Text(
-          extent=[118, 2; 135, 17],
-          string="i2",
-          style(
-            color=9,
-            gradient=2,
-            fillColor=9)),
-        Text(
-          extent=[-111, 60; -90, 80],
-          string="n1.i=0",
-          style(color=9, fillColor=9)),
-        Line(points=[18, -111; 18, -86], style(color=9, fillColor=9)),
-        Polygon(points=[21, -101; 18, -111; 15, -101; 21, -101], style(
-            color=9,
-            fillColor=9,
-            fillPattern=1)),
-        Text(
-          extent=[22, -100; 39, -85],
-          string="i2",
-          style(
-            color=9,
-            gradient=2,
-            fillColor=9))),
+      Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Text(extent={{-100,80},{100,100}}, textString=
+                                                 "%name"), 
+          Polygon(
+            points={{60,0},{-60,70},{-60,-70},{60,0}}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-90,50},{-60,50}}), 
+          Line(points={{-90,-50},{-60,-50}}), 
+          Line(points={{60,0},{90,0}}), 
+          Line(points={{0,-35},{0,-91}}), 
+          Line(points={{-48,32},{-28,32}}), 
+          Line(points={{-39,-20},{-39,-41}}), 
+          Line(points={{-50,-31},{-28,-31}})}),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Polygon(
+            points={{60,0},{-60,70},{-60,-70},{60,0}}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-96,50},{-60,50}}), 
+          Line(points={{-96,-50},{-60,-50}}), 
+          Line(points={{60,0},{96,0}}), 
+          Line(points={{0,-35},{0,-96}}), 
+          Line(points={{-55,50},{-45,50}}), 
+          Line(points={{-50,-45},{-50,-55}}), 
+          Line(points={{-55,-50},{-45,-50}}), 
+          Text(
+            extent={{-111,-39},{-90,-19}}, 
+            lineColor={160,160,164}, 
+            fillColor={160,160,164}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                 "p1.i=0"), 
+          Polygon(
+            points={{120,3},{110,0},{120,-3},{120,3}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.HorizontalCylinder, 
+            fillColor={160,160,164}), 
+          Line(
+            points={{111,0},{136,0}}, 
+            color={0,0,0}, 
+            fillPattern=FillPattern.HorizontalCylinder, 
+            fillColor={160,160,164}), 
+          Text(
+            extent={{118,2},{135,17}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.HorizontalCylinder, 
+            fillColor={160,160,164}, 
+            textString=
+                 "i2"), 
+          Text(
+            extent={{-111,60},{-90,80}}, 
+            lineColor={160,160,164}, 
+            fillColor={160,160,164}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                 "n1.i=0"), 
+          Line(
+            points={{18,-111},{18,-86}}, 
+            color={160,160,164}, 
+            fillColor={160,160,164}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{21,-101},{18,-111},{15,-101},{21,-101}}, 
+            lineColor={160,160,164}, 
+            fillColor={160,160,164}, 
+            fillPattern=FillPattern.Solid), 
+          Text(
+            extent={{22,-100},{39,-85}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.HorizontalCylinder, 
+            fillColor={160,160,164}, 
+            textString=
+                 "i2")}),
       Window(
         x=0.28,
         y=0.19,
         width=0.71,
         height=0.59));
-    Interfaces.PositivePin p1 "Positive pin of the left port" annotation (
-        extent=[-110, -60; -90, -40]);
-    Interfaces.NegativePin n1 "Negative pin of the left port" annotation (
-        extent=[-110, 40; -90, 60]);
-    Interfaces.PositivePin p2 "Positive pin of the right port" annotation (
-        extent=[90, -10; 110, 10]);
-    Interfaces.NegativePin n2 "Negative pin of the right port" annotation (
-        extent=[-10, -90; 10, -110], rotation=-90);
+    Interfaces.PositivePin p1 "Positive pin of the left port" annotation (Placement(
+          transformation(extent={{-110,-60},{-90,-40}}, rotation=0)));
+    Interfaces.NegativePin n1 "Negative pin of the left port" annotation (Placement(
+          transformation(extent={{-110,40},{-90,60}}, rotation=0)));
+    Interfaces.PositivePin p2 "Positive pin of the right port" annotation (Placement(
+          transformation(extent={{90,-10},{110,10}}, rotation=0)));
+    Interfaces.NegativePin n2 "Negative pin of the right port" annotation (Placement(
+          transformation(
+          origin={0,-100}, 
+          extent={{10,-10},{-10,10}}, 
+          rotation=270)));
   equation 
     v1 = p1.v - n1.v;
     v2 = p2.v - n2.v;
@@ -812,62 +905,78 @@ are possible.
        </li>
 </ul>
 </html>"),
-      Coordsys(
-        extent=[-100, -100; 100, 100],
-        grid=[1, 1],
-        component=[20, 20]),
-      Icon(
-        Text(extent=[-100, 80; 100, 100], string="%name"),
-        Polygon(points=[60, 0; -60, 70; -60, -70; 60, 0], style(fillColor=7)),
-        Line(points=[-90, 50; -60, 50]),
-        Line(points=[-90, -50; -60, -50]),
-        Line(points=[60, 0; 90, 0]),
-        Line(points=[-48, 32; -28, 32]),
-        Line(points=[-39, -20; -39, -41]),
-        Line(points=[-50, -31; -28, -31])),
-      Diagram(
-        Polygon(points=[60, 0; -60, 70; -60, -70; 60, 0], style(fillColor=7)),
-        Line(points=[-96,50; -60,50]),
-        Line(points=[-96,-50; -60,-50]),
-        Line(points=[60,0; 97,0]),
-        Line(points=[-55, 50; -45, 50]),
-        Line(points=[-50, -45; -50, -55]),
-        Line(points=[-55, -50; -45, -50]),
-        Text(
-          extent=[-111, -39; -90, -19],
-          string="p1.i=0",
-          style(color=9, fillColor=9)),
-        Polygon(points=[120, 3; 110, 0; 120, -3; 120, 3], style(
-            color=9,
-            gradient=2,
-            fillColor=9,
-            fillPattern=1)),
-        Line(points=[111, 0; 136, 0], style(
-            color=9,
-            gradient=2,
-            fillColor=9)),
-        Text(
-          extent=[118, 2; 135, 17],
-          string="i2",
-          style(
-            color=9,
-            gradient=2,
-            fillColor=9)),
-        Text(
-          extent=[-111, 60; -90, 80],
-          string="n1.i=0",
-          style(color=9, fillColor=9))),
+      Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Text(extent={{-100,80},{100,100}}, textString=
+                                                 "%name"), 
+          Polygon(
+            points={{60,0},{-60,70},{-60,-70},{60,0}}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-90,50},{-60,50}}), 
+          Line(points={{-90,-50},{-60,-50}}), 
+          Line(points={{60,0},{90,0}}), 
+          Line(points={{-48,32},{-28,32}}), 
+          Line(points={{-39,-20},{-39,-41}}), 
+          Line(points={{-50,-31},{-28,-31}})}),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Polygon(
+            points={{60,0},{-60,70},{-60,-70},{60,0}}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-96,50},{-60,50}}), 
+          Line(points={{-96,-50},{-60,-50}}), 
+          Line(points={{60,0},{97,0}}), 
+          Line(points={{-55,50},{-45,50}}), 
+          Line(points={{-50,-45},{-50,-55}}), 
+          Line(points={{-55,-50},{-45,-50}}), 
+          Text(
+            extent={{-111,-39},{-90,-19}}, 
+            lineColor={160,160,164}, 
+            fillColor={160,160,164}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                 "p1.i=0"), 
+          Polygon(
+            points={{120,3},{110,0},{120,-3},{120,3}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.HorizontalCylinder, 
+            fillColor={160,160,164}), 
+          Line(
+            points={{111,0},{136,0}}, 
+            color={0,0,0}, 
+            fillPattern=FillPattern.HorizontalCylinder, 
+            fillColor={160,160,164}), 
+          Text(
+            extent={{118,2},{135,17}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.HorizontalCylinder, 
+            fillColor={160,160,164}, 
+            textString=
+                 "i2"), 
+          Text(
+            extent={{-111,60},{-90,80}}, 
+            lineColor={160,160,164}, 
+            fillColor={160,160,164}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                 "n1.i=0")}),
       Window(
         x=0.28,
         y=0.19,
         width=0.71,
         height=0.59));
-    Interfaces.PositivePin in_p "Positive pin of the input port" annotation (
-        extent=[-110, -60; -90, -40]);
-    Interfaces.NegativePin in_n "Negative pin of the input port" annotation (
-        extent=[-110, 40; -90, 60]);
-    Interfaces.PositivePin out "Output pin" annotation (extent=[90, -10; 110,
-          10]);
+    Interfaces.PositivePin in_p "Positive pin of the input port" annotation (Placement(
+          transformation(extent={{-110,-60},{-90,-40}}, rotation=0)));
+    Interfaces.NegativePin in_n "Negative pin of the input port" annotation (Placement(
+          transformation(extent={{-110,40},{-90,60}}, rotation=0)));
+    Interfaces.PositivePin out "Output pin" annotation (Placement(
+          transformation(extent={{90,-10},{110,10}}, rotation=0)));
   equation 
     in_p.v = in_n.v;
     in_p.i = 0;
@@ -876,16 +985,18 @@ are possible.
   
   model IdealOpAmpLimited "Ideal operational amplifier with limitation" 
     
-    Interfaces.PositivePin in_p "Positive pin of the input port" annotation (
-        extent=[-110, -60; -90, -40]);
-    Interfaces.NegativePin in_n "Negative pin of the input port" annotation (
-        extent=[-110, 40; -90, 60]);
-    Interfaces.PositivePin out "Output pin" annotation (extent=[90, -10; 110,
-          10]);
+    Interfaces.PositivePin in_p "Positive pin of the input port" annotation (Placement(
+          transformation(extent={{-110,-60},{-90,-40}}, rotation=0)));
+    Interfaces.NegativePin in_n "Negative pin of the input port" annotation (Placement(
+          transformation(extent={{-110,40},{-90,60}}, rotation=0)));
+    Interfaces.PositivePin out "Output pin" annotation (Placement(
+          transformation(extent={{90,-10},{110,10}}, rotation=0)));
     Interfaces.PositivePin VMax "Positive output voltage limitation" 
-      annotation (extent=[-10, 60; 10, 80]);
+      annotation (Placement(transformation(extent={{-10,60},{10,80}}, rotation=
+              0)));
     Interfaces.NegativePin VMin "Negative output voltage limitation" 
-      annotation (extent=[-10, -80; 10, -60]);
+      annotation (Placement(transformation(extent={{-10,-80},{10,-60}}, 
+            rotation=0)));
     SI.Voltage vin "input voltage";
     
     annotation (
@@ -907,57 +1018,73 @@ If the input voltage is vin > 0, the output voltage is out.v = VMax.
        </li>
 </ul>
 </html>"),
-      Coordsys(
-        extent=[-100, -100; 100, 100],
-        grid=[1, 1],
-        component=[20, 20]),
-      Icon(
-        Text(extent=[-110, 80; 100, 90], string="%name"),
-        Polygon(points=[60, 0; -60, 70; -60, -70; 60, 0], style(fillColor=7)),
-        Line(points=[-45, -10; -10, -10; -10, 10; 20, 10]),
-        Line(points=[0, 35; 0, 80]),
-        Line(points=[0, -35; 0, -80]),
-        Line(points=[-90, 50; -60, 50]),
-        Line(points=[-90, -50; -60, -50]),
-        Line(points=[60, 0; 90, 0]),
-        Line(points=[-48, 32; -28, 32]),
-        Line(points=[-39, -20; -39, -41]),
-        Line(points=[-50, -31; -28, -31])),
-      Diagram(
-        Polygon(points=[60, 0; -60, 70; -60, -70; 60, 0], style(fillColor=7)),
-        Line(points=[-45, -10; -10, -10; -10, 10; 20, 10]),
-        Line(points=[0, 35; 0, 80]),
-        Line(points=[0, -35; 0, -80]),
-        Line(points=[-96,50; -60,50]),
-        Line(points=[-96,-50; -60,-50]),
-        Line(points=[60,0; 96,0]),
-        Line(points=[-55, 50; -45, 50]),
-        Line(points=[-50, -45; -50, -55]),
-        Line(points=[-55, -50; -45, -50]),
-        Text(
-          extent=[-111, -39; -90, -19],
-          string="p1.i=0",
-          style(color=9, fillColor=9)),
-        Polygon(points=[120, 3; 110, 0; 120, -3; 120, 3], style(
-            color=9,
-            gradient=2,
-            fillColor=9,
-            fillPattern=1)),
-        Line(points=[111, 0; 136, 0], style(
-            color=9,
-            gradient=2,
-            fillColor=9)),
-        Text(
-          extent=[118, 2; 135, 17],
-          string="i2",
-          style(
-            color=9,
-            gradient=2,
-            fillColor=9)),
-        Text(
-          extent=[-111, 60; -90, 80],
-          string="n1.i=0",
-          style(color=9, fillColor=9))),
+      Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Text(extent={{-110,80},{100,90}}, textString=
+                                                "%name"), 
+          Polygon(
+            points={{60,0},{-60,70},{-60,-70},{60,0}}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-45,-10},{-10,-10},{-10,10},{20,10}}), 
+          Line(points={{0,35},{0,80}}), 
+          Line(points={{0,-35},{0,-80}}), 
+          Line(points={{-90,50},{-60,50}}), 
+          Line(points={{-90,-50},{-60,-50}}), 
+          Line(points={{60,0},{90,0}}), 
+          Line(points={{-48,32},{-28,32}}), 
+          Line(points={{-39,-20},{-39,-41}}), 
+          Line(points={{-50,-31},{-28,-31}})}),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Polygon(
+            points={{60,0},{-60,70},{-60,-70},{60,0}}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-45,-10},{-10,-10},{-10,10},{20,10}}), 
+          Line(points={{0,35},{0,80}}), 
+          Line(points={{0,-35},{0,-80}}), 
+          Line(points={{-96,50},{-60,50}}), 
+          Line(points={{-96,-50},{-60,-50}}), 
+          Line(points={{60,0},{96,0}}), 
+          Line(points={{-55,50},{-45,50}}), 
+          Line(points={{-50,-45},{-50,-55}}), 
+          Line(points={{-55,-50},{-45,-50}}), 
+          Text(
+            extent={{-111,-39},{-90,-19}}, 
+            lineColor={160,160,164}, 
+            fillColor={160,160,164}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                 "p1.i=0"), 
+          Polygon(
+            points={{120,3},{110,0},{120,-3},{120,3}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.HorizontalCylinder, 
+            fillColor={160,160,164}), 
+          Line(
+            points={{111,0},{136,0}}, 
+            color={0,0,0}, 
+            fillPattern=FillPattern.HorizontalCylinder, 
+            fillColor={160,160,164}), 
+          Text(
+            extent={{118,2},{135,17}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.HorizontalCylinder, 
+            fillColor={160,160,164}, 
+            textString=
+                 "i2"), 
+          Text(
+            extent={{-111,60},{-90,80}}, 
+            lineColor={160,160,164}, 
+            fillColor={160,160,164}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                 "n1.i=0")}),
       Window(
         x=0.28,
         y=0.19,
@@ -1017,81 +1144,90 @@ along  the <i>Gon</i>-characteristic until <i>v = Vknee</i>.
        by Christoph Clauss<br> realized<br>
        </li>
 </ul>
-</html>"),  Coordsys(
-              extent=[-100, -100; 100, 100],
-              grid=[1, 1],
-              component=[20, 20]),
-            Icon(
-              Polygon(points=[30, 0; -30, 40; -30, -40; 30, 0], style(
-                  color=3,
-                  gradient=0,
-                  fillColor=7)),
-              Line(points=[-90, 0; 40, 0]),
-              Line(points=[40, 0; 90, 0]),
-              Line(points=[30, 40; 30, -40], style(color=3)),
-              Text(extent=[-100, 100; 100, 70], string="%name")),
-            Diagram(
-              Line(points=[-80, 0; 80, 0], style(color=10)),
-              Polygon(points=[70, 4; 80, 0; 70, -4; 70, 4], style(color=10,
-                    fillColor=10)),
-              Line(points=[0, 80; 0, -80], style(
-                  color=10,
-                  fillColor=10,
-                  fillPattern=1)),
-              Polygon(points=[-4, 70; 0, 80; 4, 70; -4, 70], style(
-                  color=10,
-                  fillColor=10,
-                  fillPattern=1)),
-              Text(
-                extent=[10, 80; 20, 70],
-                style(
-                  color=10,
-                  fillColor=10,
-                  fillPattern=1),
-                string="i"),
-              Text(
-                extent=[70, -10; 80, -20],
-                style(
-                  color=10,
-                  fillColor=10,
-                  fillPattern=1),
-                string="v"),
-              Line(points=[-80, -40; -20, -10; 20, 10; 40, 70], style(
-                  color=0,
-                  thickness=2,
-                  fillColor=10,
-                  fillPattern=1)),
-              Line(points=[20, 9; 20, 0], style(
-                  color=10,
-                  pattern=3,
-                  fillColor=10,
-                  fillPattern=1)),
-              Text(
-                extent=[20, 0; 40, -10],
-                style(
-                  color=10,
-                  pattern=3,
-                  fillColor=10,
-                  fillPattern=1),
-                string="Vknee"),
-              Text(
-                extent=[20, 70; 40, 60],
-                style(
-                  color=10,
-                  pattern=3,
-                  fillColor=10,
-                  fillPattern=1),
-          string="Ron"),
-              Text(
-                extent=[-20, 10; 0, 0],
-                style(
-                  color=10,
-                  pattern=3,
-                  fillColor=10,
-                  fillPattern=1),
-          string="Goff"),
-              Ellipse(extent=[18, 12; 22, 8], style(pattern=3,
-              fillPattern =                                                1))),
+</html>"),  Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Polygon(
+            points={{30,0},{-30,40},{-30,-40},{30,0}}, 
+            lineColor={0,0,0}, 
+            fillColor={255,255,255}), 
+          Line(points={{-90,0},{40,0}}), 
+          Line(points={{40,0},{90,0}}), 
+          Line(points={{30,40},{30,-40}}, color={0,0,255}), 
+          Text(extent={{-100,100},{100,70}}, textString=
+                                                       "%name")}),
+            Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Line(points={{-80,0},{80,0}}, color={128,128,128}), 
+          Polygon(
+            points={{70,4},{80,0},{70,-4},{70,4}}, 
+            lineColor={128,128,128}, 
+            fillColor={128,128,128}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{0,80},{0,-80}}, 
+            color={128,128,128}, 
+            fillColor={128,128,128}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{-4,70},{0,80},{4,70},{-4,70}}, 
+            lineColor={128,128,128}, 
+            fillColor={128,128,128}, 
+            fillPattern=FillPattern.Solid), 
+          Text(
+            extent={{10,80},{20,70}}, 
+            lineColor={128,128,128}, 
+            fillColor={128,128,128}, 
+            fillPattern=FillPattern.Solid, 
+            textString="i"), 
+          Text(
+            extent={{70,-10},{80,-20}}, 
+            lineColor={128,128,128}, 
+            fillColor={128,128,128}, 
+            fillPattern=FillPattern.Solid, 
+            textString="v"), 
+          Line(
+            points={{-80,-40},{-20,-10},{20,10},{40,70}}, 
+            color={0,0,0}, 
+            thickness=2, 
+            fillColor={128,128,128}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{20,9},{20,0}}, 
+            color={128,128,128}, 
+            pattern=LinePattern.Dot, 
+            fillColor={128,128,128}, 
+            fillPattern=FillPattern.Solid), 
+          Text(
+            extent={{20,0},{40,-10}}, 
+            lineColor={128,128,128}, 
+            pattern=LinePattern.Dot, 
+            fillColor={128,128,128}, 
+            fillPattern=FillPattern.Solid, 
+            textString="Vknee"), 
+          Text(
+            extent={{20,70},{40,60}}, 
+            lineColor={128,128,128}, 
+            pattern=LinePattern.Dot, 
+            fillColor={128,128,128}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                 "Ron"), 
+          Text(
+            extent={{-20,10},{0,0}}, 
+            lineColor={128,128,128}, 
+            pattern=LinePattern.Dot, 
+            fillColor={128,128,128}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                 "Goff"), 
+          Ellipse(
+            extent={{18,12},{22,8}}, 
+            pattern=LinePattern.Dot, 
+            fillPattern=FillPattern.Solid)}),
             Window(
               x=0.26,
               y=0.11,
@@ -1112,10 +1248,6 @@ along  the <i>Gon</i>-characteristic until <i>v = Vknee</i>.
     extends Interfaces.TwoPort;
     parameter Real n=1 "Turns ratio";
     annotation (
-      Coordsys(
-        extent=[-100, -100; 100, 100],
-        grid=[2, 2],
-        component=[20, 20]),
       Documentation(info="<html>
 <P>
 The ideal transformer is an ideal two-port resistive circuit element
@@ -1139,38 +1271,62 @@ where <i>n</i> is a real number called the turns ratio.
 </ul>
 </html>"),
       Coordsys(extent=[-100, -100; 100, 100], grid=[1, 1]),
-      Icon(
-        Text(extent=[-100, 100; 100, 80], string="%name"),
-        Ellipse(extent=[-45, -50; -20, -25]),
-        Ellipse(extent=[-45, -25; -20, 0]),
-        Ellipse(extent=[-45, 0; -20, 25]),
-        Ellipse(extent=[-45, 25; -20, 50]),
-        Rectangle(extent=[-72, -60; -33, 60], style(color=7, fillColor=7)),
-        Line(points=[-90, 50; -32, 50]),
-        Line(points=[-90, -50; -32, -50]),
-        Ellipse(extent=[20, -50; 45, -25]),
-        Ellipse(extent=[20, -25; 45, 0]),
-        Ellipse(extent=[20, 0; 45, 25]),
-        Ellipse(extent=[20, 25; 45, 50]),
-        Rectangle(extent=[33, -60; 72, 60], style(color=7, fillColor=7)),
-        Line(points=[32, 50; 90, 50]),
-        Line(points=[32, -50; 90, -50]),
-        Text(extent=[-100, -80; 100, -100], string="n=%n")),
-      Diagram(
-        Ellipse(extent=[-45, -50; -20, -25]),
-        Ellipse(extent=[-45, -25; -20, 0]),
-        Ellipse(extent=[-45, 0; -20, 25]),
-        Ellipse(extent=[-45, 25; -20, 50]),
-        Rectangle(extent=[-72, -60; -33, 60], style(color=7, fillColor=7)),
-        Line(points=[-96,50; -32,50]),
-        Line(points=[-96,-50; -32,-50]),
-        Ellipse(extent=[20, -50; 45, -25]),
-        Ellipse(extent=[20, -25; 45, 0]),
-        Ellipse(extent=[20, 0; 45, 25]),
-        Ellipse(extent=[20, 25; 45, 50]),
-        Rectangle(extent=[33, -60; 72, 60], style(color=7, fillColor=7)),
-        Line(points=[32,50; 96,50]),
-        Line(points=[32,-50; 96,-50])),
+      Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={2,2}), graphics={
+          Text(extent={{-100,100},{100,80}}, textString=
+                                                 "%name"), 
+          Ellipse(extent={{-45,-50},{-20,-25}}), 
+          Ellipse(extent={{-45,-25},{-20,0}}), 
+          Ellipse(extent={{-45,0},{-20,25}}), 
+          Ellipse(extent={{-45,25},{-20,50}}), 
+          Rectangle(
+            extent={{-72,-60},{-33,60}}, 
+            lineColor={255,255,255}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-90,50},{-32,50}}), 
+          Line(points={{-90,-50},{-32,-50}}), 
+          Ellipse(extent={{20,-50},{45,-25}}), 
+          Ellipse(extent={{20,-25},{45,0}}), 
+          Ellipse(extent={{20,0},{45,25}}), 
+          Ellipse(extent={{20,25},{45,50}}), 
+          Rectangle(
+            extent={{33,-60},{72,60}}, 
+            lineColor={255,255,255}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{32,50},{90,50}}), 
+          Line(points={{32,-50},{90,-50}}), 
+          Text(extent={{-100,-80},{100,-100}}, textString=
+                                                   "n=%n")}),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={2,2}), graphics={
+          Ellipse(extent={{-45,-50},{-20,-25}}), 
+          Ellipse(extent={{-45,-25},{-20,0}}), 
+          Ellipse(extent={{-45,0},{-20,25}}), 
+          Ellipse(extent={{-45,25},{-20,50}}), 
+          Rectangle(
+            extent={{-72,-60},{-33,60}}, 
+            lineColor={255,255,255}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-96,50},{-32,50}}), 
+          Line(points={{-96,-50},{-32,-50}}), 
+          Ellipse(extent={{20,-50},{45,-25}}), 
+          Ellipse(extent={{20,-25},{45,0}}), 
+          Ellipse(extent={{20,0},{45,25}}), 
+          Ellipse(extent={{20,25},{45,50}}), 
+          Rectangle(
+            extent={{33,-60},{72,60}}, 
+            lineColor={255,255,255}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{32,50},{96,50}}), 
+          Line(points={{32,-50},{96,-50}})}),
       Window(
         x=0.29,
         y=0.07,
@@ -1205,42 +1361,63 @@ where the constant <i>G</i> is called the gyration conductance.
        </li>
 </ul>
 </html>"),
-      Coordsys(extent=[-100, -100; 100, 100], grid=[1, 1]),
-      Icon(
-        Ellipse(extent=[-70, -30; -10, 30]),
-        Rectangle(extent=[-80, -40; -41, 40], style(
-            color=7,
-            pattern=1,
-            thickness=1,
-            arrow=0,
-            fillColor=7)),
-        Line(points=[-90, 50; -40, 50; -40, -50; -90, -50]),
-        Text(extent=[-100, 100; 100, 70], string="%name"),
-        Line(points=[-30, 60; 20, 60]),
-        Polygon(points=[20, 63; 30, 60; 20, 57; 20, 63], style(
-            pattern=1,
-            thickness=1,
-            arrow=0,
-            fillColor=3,
-            fillPattern=1)),
-        Ellipse(extent=[10, -30; 70, 30]),
-        Rectangle(extent=[80, -40; 40, 40], style(
-            color=7,
-            pattern=1,
-            thickness=1,
-            arrow=0,
-            fillColor=7)),
-        Line(points=[90, 50; 40, 50; 40, -50; 90, -50])),
-      Diagram(
-        Ellipse(extent=[-70, -30; -10, 30]),
-        Rectangle(extent=[-80, -40; -41, 40], style(color=7, fillColor=7)),
-        Line(points=[-96,50; -40,50; -40,-50; -96,-50]),
-        Line(points=[-30, 60; 20, 60]),
-        Polygon(points=[20, 63; 30, 60; 20, 57; 20, 63], style(fillColor=3,
-              fillPattern=1)),
-        Ellipse(extent=[10, -30; 70, 30]),
-        Rectangle(extent=[80, -40; 40, 40], style(color=7, fillColor=7)),
-        Line(points=[96,50; 40,50; 40,-50; 96,-50])));
+      Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Ellipse(extent={{-70,-30},{-10,30}}), 
+          Rectangle(
+            extent={{-80,-40},{-41,40}}, 
+            lineColor={255,255,255}, 
+            pattern=LinePattern.Solid, 
+            lineThickness=1, 
+            arrow={Arrow.None,Arrow.None}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-90,50},{-40,50},{-40,-50},{-90,-50}}), 
+          Text(extent={{-100,100},{100,70}}, textString=
+                                                 "%name"), 
+          Line(points={{-30,60},{20,60}}), 
+          Polygon(
+            points={{20,63},{30,60},{20,57},{20,63}}, 
+            pattern=LinePattern.Solid, 
+            lineThickness=1, 
+            arrow={Arrow.None,Arrow.None}, 
+            fillColor={0,0,255}, 
+            fillPattern=FillPattern.Solid), 
+          Ellipse(extent={{10,-30},{70,30}}), 
+          Rectangle(
+            extent={{80,-40},{40,40}}, 
+            lineColor={255,255,255}, 
+            pattern=LinePattern.Solid, 
+            lineThickness=1, 
+            arrow={Arrow.None,Arrow.None}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{90,50},{40,50},{40,-50},{90,-50}})}),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Ellipse(extent={{-70,-30},{-10,30}}), 
+          Rectangle(
+            extent={{-80,-40},{-41,40}}, 
+            lineColor={255,255,255}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-96,50},{-40,50},{-40,-50},{-96,-50}}), 
+          Line(points={{-30,60},{20,60}}), 
+          Polygon(
+            points={{20,63},{30,60},{20,57},{20,63}}, 
+            fillColor={0,0,255}, 
+            fillPattern=FillPattern.Solid), 
+          Ellipse(extent={{10,-30},{70,30}}), 
+          Rectangle(
+            extent={{80,-40},{40,40}}, 
+            lineColor={255,255,255}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{96,50},{40,50},{40,-50},{96,-50}})}));
     parameter SI.Conductance G=1 "Gyration conductance";
   equation 
     i1 = G*v2;
@@ -1264,19 +1441,25 @@ The model Idle is a simple idle running branch.
        </li>
 </ul>
 </html>"),
-      Coordsys(
-        extent=[-100, -100; 100, 100],
-        grid=[1, 1],
-        component=[20, 20]),
-      Icon(
-        Rectangle(extent=[-60, 60; 60, -60], style(fillColor=7)),
-        Line(points=[-90, 0; -41, 0]),
-        Line(points=[91, 0; 40, 0]),
-        Text(extent=[-100, 100; 100, 70], string="%name")),
-      Diagram(
-        Rectangle(extent=[-60, 60; 60, -60]),
-        Line(points=[-96,0; -41,0]),
-        Line(points=[96,0; 40,0])),
+      Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Rectangle(
+            extent={{-60,60},{60,-60}}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-90,0},{-41,0}}), 
+          Line(points={{91,0},{40,0}}), 
+          Text(extent={{-100,100},{100,70}}, textString=
+                                                 "%name")}),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Rectangle(extent={{-60,60},{60,-60}}), 
+          Line(points={{-96,0},{-41,0}}), 
+          Line(points={{96,0},{40,0}})}),
       Window(
         x=0.36,
         y=0.16,
@@ -1305,18 +1488,25 @@ The model Short is a simple short cut branch.
        </li>
 </ul>
 </html>"),
-      Coordsys(
-        extent=[-100, -100; 100, 100],
-        grid=[1, 1],
-        component=[20, 20]),
-      Icon(
-        Rectangle(extent=[-60, 60; 60, -60], style(fillColor=7)),
-        Line(points=[91, 0; -90, 0]),
-        Text(extent=[-100, 100; 100, 70], string="%name")),
-      Diagram(
-        Rectangle(extent=[-60, 60; 60, -60]),
-        Line(points=[96,0; -96,0]),
-        Text(extent=[-100, 100; 100, 70], string="Short")),
+      Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Rectangle(
+            extent={{-60,60},{60,-60}}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{91,0},{-90,0}}), 
+          Text(extent={{-100,100},{100,70}}, textString=
+                                                 "%name")}),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Rectangle(extent={{-60,60},{60,-60}}), 
+          Line(points={{96,0},{-96,0}}), 
+          Text(extent={{-100,100},{100,70}}, textString=
+                                                 "Short")}),
       Window(
         x=0.31,
         y=0.14,
@@ -1329,12 +1519,17 @@ The model Short is a simple short cut branch.
  model IdealOpeningSwitch "Ideal electrical opener" 
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
     parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance"
-       annotation (extent=[-56.6667, 10; -10, 56.6667]);
+       annotation (Placement(transformation(extent={{-56.6667,10},{-10,56.6667}}, 
+            rotation=0)));
     parameter SI.Conductance Goff(final min=0) = 1.E-5 
-      "Opened switch conductance" annotation (extent=[10, 10; 56.6667, 56.6667]);
+      "Opened switch conductance" annotation (Placement(transformation(extent={
+              {10,10},{56.6667,56.6667}}, rotation=0)));
     Modelica.Blocks.Interfaces.BooleanInput control 
-      "true => switch open, false => p--n connected" annotation (extent=[-20,50;
-          20,90],      rotation=-90);
+      "true => switch open, false => p--n connected" annotation (Placement(
+          transformation(
+          origin={0,70}, 
+          extent={{-20,-20},{20,20}}, 
+          rotation=270)));
     
     annotation (
       Documentation(info="<HTML>
@@ -1364,31 +1559,35 @@ where a description with zero Ron or zero Goff is not possible.
        </li>
 </ul>
 </html>"),
-      Coordsys(
-        extent=[-100, -100; 100, 100],
-        grid=[1, 1],
-        component=[20, 20]),
       Window(
         x=0.45,
         y=0.01,
         width=0.44,
         height=0.65),
-      Icon(
-        Ellipse(extent=[-44, 4; -36, -4]),
-        Line(points=[-90, 0; -44, 0]),
-        Line(points=[-37, 2; 40, 50]),
-        Line(points=[40, 0; 90, 0]),
-        Text(extent=[-100, -70; 100, -100], string="%name"),
-        Line(points=[0, 51; 0, 26]),
-        Line(points=[40, 20; 40, 0])),
-      Diagram(
-        Ellipse(extent=[-44, 4; -36, -4]),
-        Line(points=[-96,0; -44,0]),
-        Line(points=[-37, 2; 40, 50]),
-        Line(points=[40,0; 96,0]),
-        Text(extent=[-100, -40; 100, -79], string="%name"),
-        Line(points=[0, 51; 0, 26]),
-        Line(points=[40, 20; 40, 0])));
+      Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Ellipse(extent={{-44,4},{-36,-4}}), 
+          Line(points={{-90,0},{-44,0}}), 
+          Line(points={{-37,2},{40,50}}), 
+          Line(points={{40,0},{90,0}}), 
+          Text(extent={{-100,-70},{100,-100}}, textString=
+                                                   "%name"), 
+          Line(points={{0,51},{0,26}}), 
+          Line(points={{40,20},{40,0}})}),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Ellipse(extent={{-44,4},{-36,-4}}), 
+          Line(points={{-96,0},{-44,0}}), 
+          Line(points={{-37,2},{40,50}}), 
+          Line(points={{40,0},{96,0}}), 
+          Text(extent={{-100,-40},{100,-79}}, textString=
+                                                  "%name"), 
+          Line(points={{0,51},{0,26}}), 
+          Line(points={{40,20},{40,0}})}));
   protected 
    Real s(final unit="1") "Auxiliary variable";
    constant Real unitVoltage(unit="V") = 1           annotation(Hide=true);
@@ -1402,12 +1601,17 @@ where a description with zero Ron or zero Goff is not possible.
       extends Modelica.Electrical.Analog.Interfaces.OnePort;
       parameter SI.Resistance Ron(final min=0) = 1.E-5 
       "Closed switch resistance" 
-         annotation (extent=[-56.6667, 10; -10, 56.6667]);
+         annotation (Placement(transformation(extent={{-56.6667,10},{-10,
+              56.6667}}, rotation=0)));
       parameter SI.Conductance Goff(final min=0) = 1.E-5 
-      "Opened switch conductance"   annotation (extent=[10, 10; 56.6667, 56.6667]);
+      "Opened switch conductance"   annotation (Placement(transformation(extent
+            ={{10,10},{56.6667,56.6667}}, rotation=0)));
       Modelica.Blocks.Interfaces.BooleanInput control 
-      "true => p--n connected, false => switch open"   annotation (extent=[-20,50;
-            20,90],      rotation=-90);
+      "true => p--n connected, false => switch open"   annotation (Placement(
+          transformation(
+          origin={0,70}, 
+          extent={{-20,-20},{20,20}}, 
+          rotation=270)));
     
       annotation (
         Documentation(info="<HTML>
@@ -1438,29 +1642,33 @@ where a description with zero Ron or zero Goff is not possible.
        </li>
 </ul>
 </html>"),
-        Coordsys(
-          extent=[-100, -100; 100, 100],
-          grid=[1, 1],
-          component=[20, 20]),
         Window(
           x=0.24,
           y=0.01,
           width=0.65,
           height=0.77),
-        Icon(
-          Ellipse(extent=[-44, 4; -36, -4]),
-          Line(points=[-90, 0; -44, 0]),
-          Line(points=[-37, 2; 40, 50]),
-          Line(points=[40, 0; 90, 0]),
-          Text(extent=[-100, -70; 100, -100], string="%name"),
-          Line(points=[0, 51; 0, 26])),
-        Diagram(
-          Ellipse(extent=[-44, 4; -36, -4]),
-          Line(points=[-96,0; -44,0]),
-          Line(points=[-37, 2; 40, 50]),
-          Line(points=[40,0; 96,0]),
-          Text(extent=[-100, -40; 100, -79], string="%name"),
-          Line(points=[0, 51; 0, 26])));
+        Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Ellipse(extent={{-44,4},{-36,-4}}), 
+          Line(points={{-90,0},{-44,0}}), 
+          Line(points={{-37,2},{40,50}}), 
+          Line(points={{40,0},{90,0}}), 
+          Text(extent={{-100,-70},{100,-100}}, textString=
+                                                     "%name"), 
+          Line(points={{0,51},{0,26}})}),
+        Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Ellipse(extent={{-44,4},{-36,-4}}), 
+          Line(points={{-96,0},{-44,0}}), 
+          Line(points={{-37,2},{40,50}}), 
+          Line(points={{40,0},{96,0}}), 
+          Text(extent={{-100,-40},{100,-79}}, textString=
+                                                    "%name"), 
+          Line(points={{0,51},{0,26}})}));
   protected 
       Real s(final unit="1") "Auxiliary variable";
       constant Real unitVoltage(unit="V") = 1           annotation(Hide=true);
@@ -1472,18 +1680,24 @@ where a description with zero Ron or zero Goff is not possible.
   
   model ControlledIdealOpeningSwitch "Controlled ideal electrical opener" 
     
-    parameter SI.Voltage level=0.5 "Switch level" annotation (extent=[-56.6667,
-            10; -10, 56.6667]);
+    parameter SI.Voltage level=0.5 "Switch level" annotation (Placement(
+          transformation(extent={{-56.6667,10},{-10,56.6667}}, rotation=0)));
     parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance"
-       annotation (extent=[10, 10; 56.6667, 56.6667]);
+       annotation (Placement(transformation(extent={{10,10},{56.6667,56.6667}}, 
+            rotation=0)));
     parameter SI.Conductance Goff(final min=0) = 1.E-5 
-      "Opened switch conductance" annotation (extent=[-56.6667, -56.6667; -10,
-          -10]);
-    Interfaces.PositivePin p annotation (extent=[-110, -10; -90, 10]);
-    Interfaces.NegativePin n annotation (extent=[90, -10; 110, 10]);
+      "Opened switch conductance" annotation (Placement(transformation(extent={
+              {-56.6667,-56.6667},{-10,-10}}, rotation=0)));
+    Interfaces.PositivePin p annotation (Placement(transformation(extent={{-110,
+              -10},{-90,10}}, rotation=0)));
+    Interfaces.NegativePin n annotation (Placement(transformation(extent={{90,
+              -10},{110,10}}, rotation=0)));
     Interfaces.Pin control 
       "Control pin: control.v > level switch open, otherwise p--n connected" 
-      annotation (extent=[-10, 90; 10, 110], rotation=90);
+      annotation (Placement(transformation(
+          origin={0,100}, 
+          extent={{-10,-10},{10,10}}, 
+          rotation=90)));
     
     annotation (
       Documentation(info="
@@ -1514,30 +1728,33 @@ where a description with zero Ron or zero Goff is not possible.
        </li>
 </ul>
 </html>"),
-      Coordsys(
-        extent=[-100, -100; 100, 100],
-        grid=[1, 1],
-        component=[20, 20]),
       Window(
         x=0.45,
         y=0.01,
         width=0.44,
         height=0.65),
-      Icon(
-        Ellipse(extent=[-44, 4; -36, -4]),
-        Line(points=[-90, 0; -44, 0]),
-        Line(points=[-37, 2; 40, 50]),
-        Line(points=[40, 0; 90, 0]),
-        Line(points=[0, 90; 0, 25]),
-        Text(extent=[-100, -70; 100, -100], string="%name"),
-        Line(points=[40, 20; 40, 0])),
-      Diagram(
-        Ellipse(extent=[-44, 4; -36, -4]),
-        Line(points=[-96,0; -44,0]),
-        Line(points=[-37, 2; 40, 50]),
-        Line(points=[40,0; 96,0]),
-        Line(points=[0,96; 0,25]),
-        Line(points=[40, 20; 40, 0])));
+      Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Ellipse(extent={{-44,4},{-36,-4}}), 
+          Line(points={{-90,0},{-44,0}}), 
+          Line(points={{-37,2},{40,50}}), 
+          Line(points={{40,0},{90,0}}), 
+          Line(points={{0,90},{0,25}}), 
+          Text(extent={{-100,-70},{100,-100}}, textString=
+                                                   "%name"), 
+          Line(points={{40,20},{40,0}})}),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Ellipse(extent={{-44,4},{-36,-4}}), 
+          Line(points={{-96,0},{-44,0}}), 
+          Line(points={{-37,2},{40,50}}), 
+          Line(points={{40,0},{96,0}}), 
+          Line(points={{0,96},{0,25}}), 
+          Line(points={{40,20},{40,0}})}));
   protected 
     Real s(final unit="1") "Auxiliary variable";
     constant Real unitVoltage(unit="V") = 1           annotation(Hide=true);
@@ -1551,20 +1768,26 @@ where a description with zero Ron or zero Goff is not possible.
   
     model ControlledIdealClosingSwitch "Controlled ideal electrical closer" 
     
-      parameter SI.Voltage level=0.5 "Switch level" annotation (extent=[-56.6667,
-              10; -10, 56.6667]);
+      parameter SI.Voltage level=0.5 "Switch level" annotation (Placement(
+          transformation(extent={{-56.6667,10},{-10,56.6667}}, rotation=0)));
       parameter SI.Resistance Ron(final min=0) = 1.E-5 
       "Closed switch resistance" 
-         annotation (extent=[10, 10; 56.6667, 56.6667]);
+         annotation (Placement(transformation(extent={{10,10},{56.6667,56.6667}}, 
+            rotation=0)));
       parameter SI.Conductance Goff(final min=0) = 1.E-5 
-      "Opened switch conductance"   annotation (extent=[-56.6667, -56.6667; -10,
-            -10]);
+      "Opened switch conductance"   annotation (Placement(transformation(extent
+            ={{-56.6667,-56.6667},{-10,-10}}, rotation=0)));
     
-      Modelica.Electrical.Analog.Interfaces.PositivePin p annotation (extent=[-110, -10; -90, 10]);
-      Modelica.Electrical.Analog.Interfaces.NegativePin n annotation (extent=[90, -10; 110, 10]);
+      Modelica.Electrical.Analog.Interfaces.PositivePin p annotation (Placement(
+          transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
+      Modelica.Electrical.Analog.Interfaces.NegativePin n annotation (Placement(
+          transformation(extent={{90,-10},{110,10}}, rotation=0)));
       Modelica.Electrical.Analog.Interfaces.Pin control 
       "Control pin: control.v > level switch closed, otherwise switch open" 
-        annotation (extent=[-10, 90; 10, 110], rotation=90);
+        annotation (Placement(transformation(
+          origin={0,100}, 
+          extent={{-10,-10},{10,10}}, 
+          rotation=90)));
     
       annotation (
         Documentation(info="
@@ -1596,28 +1819,31 @@ where a description with zero Ron or zero Goff is not possible.
        </li>
 </ul>
 </html>"),
-        Coordsys(
-          extent=[-100, -100; 100, 100],
-          grid=[1, 1],
-          component=[20, 20]),
         Window(
           x=0.45,
           y=0.01,
           width=0.44,
           height=0.65),
-        Icon(
-          Ellipse(extent=[-44, 4; -36, -4]),
-          Line(points=[-90, 0; -44, 0]),
-          Line(points=[-37, 2; 40, 50]),
-          Line(points=[40, 0; 90, 0]),
-          Line(points=[0, 90; 0, 25]),
-          Text(extent=[-100, -70; 100, -100], string="%name")),
-        Diagram(
-          Ellipse(extent=[-44, 4; -36, -4]),
-          Line(points=[-96,0; -44,0]),
-          Line(points=[-37, 2; 40, 50]),
-          Line(points=[40,0; 96,0]),
-          Line(points=[0,96; 0,25])));
+        Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Ellipse(extent={{-44,4},{-36,-4}}), 
+          Line(points={{-90,0},{-44,0}}), 
+          Line(points={{-37,2},{40,50}}), 
+          Line(points={{40,0},{90,0}}), 
+          Line(points={{0,90},{0,25}}), 
+          Text(extent={{-100,-70},{100,-100}}, textString=
+                                                     "%name")}),
+        Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Ellipse(extent={{-44,4},{-36,-4}}), 
+          Line(points={{-96,0},{-44,0}}), 
+          Line(points={{-37,2},{40,50}}), 
+          Line(points={{40,0},{96,0}}), 
+          Line(points={{0,96},{0,25}})}));
   protected 
       Real s(final unit="1") "Auxiliary variable";
       constant Real unitVoltage(unit="V") = 1           annotation(Hide=true);
